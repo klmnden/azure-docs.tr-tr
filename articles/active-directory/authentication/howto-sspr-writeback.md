@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.component: authentication
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 10/04/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 1ae74f7c43e763962224683954b28e5941136c08
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 57446f068945d74351a77f21e16874d9e24ddcab
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46295827"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48801939"
 ---
 # <a name="how-to-configure-password-writeback"></a>Nasıl yapılır: parola geri yazmayı yapılandırın
 
@@ -34,6 +34,12 @@ Zaten yapılandırdığınız Azure AD Connect, ortamınızda kullanarak aşağ�
 8. Yapılandırma tamamlandığında **Çıkış**'ı seçin.
 
 Parola geri yazma için ilgili genel sorun giderme görevleri görmek için bölüm [parola geri yazma sorunlarını gidermek](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback) sorun giderme makalemizde.
+
+> [!WARNING]
+> Parola geri yazma, Azure AD Connect sürüm 1.0.8641.0 ve eski olduğunda kullanan müşteriler için çalışma durdurur [Azure erişim denetimi hizmeti (ACS) 7 Kasım 2018'de kullanımdan](../develop/active-directory-acs-migration.md). Azure AD Connect sürüm 1.0.8641.0 eski ve bunlar üzerinde ACS işlevselliği için bağımlı olduğundan parola geri yazma o anda artık izin verir.
+>
+> Hizmette, yeni bir sürüme bir Azure AD Connect'in önceki sürümünden yükseltme kesinti yaşanmasını önlemek için bu makaleye bakın [Azure AD Connect: önceki bir sürümden son sürüme yükseltme](../hybrid/how-to-upgrade-previous-version.md)
+>
 
 ## <a name="active-directory-permissions"></a>Active Directory izinleri
 
@@ -67,7 +73,7 @@ Parola geri yazmanın gerçekleşmesini sağlamak için uygun izinleri ayarlamak
 4. Gelen **izinleri** sekmesinde **Ekle**.
 5. İzinler (Azure AD Connect kurulumunun) uygulanmakta olan bir hesabı seçin.
 6. İçinde **uygulandığı** aşağı açılan listesinden **Descendent kullanıcı** nesneleri.
-7. Altında **izinleri**, aşağıdakileri seçin:
+7. Altında **izinleri**, aşağıdaki seçenekleri seçin:
     * **Parola sıfırlama**
     * **Parola değiştirme**
     * **LockoutTime yazma**

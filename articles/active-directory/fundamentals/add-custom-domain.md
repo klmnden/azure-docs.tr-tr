@@ -12,12 +12,12 @@ ms.date: 09/18/2018
 ms.author: lizross
 ms.reviewer: elkuzmen
 ms.custom: it-pro
-ms.openlocfilehash: c4529948a0a1b165945de78de97cc2470c6b431e
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: 30b4a038c2ad9bd86f2ba78d52ed3754acec07f0
+ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48237560"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48785266"
 ---
 # <a name="how-to-add-your-custom-domain-name-using-the-azure-active-directory-portal"></a>Nasıl yapılır: Azure Active Directory portalı kullanarak özel etki alanı adınızı ekleme
 Her yeni Azure AD kiracısı bir ilk etki alanı adı ile gelir *domainname*. onmicrosoft.com. Değiştirme veya silme ilk etki alanı adı, ancak kuruluşunuzun adları listesine ekleyebilirsiniz. Özel etki alanı adları ekleme yardımcı olur, kullanıcılarınızın tanıdığı gibi kullanıcı adları oluşturmak için *alain@contoso.com*.
@@ -84,7 +84,7 @@ Azure AD'ye özel etki alanı adınızı ekledikten sonra için etki alanı kay�
 
     ![DNS girişi bilgilerini ve Doğrula düğmesine contoso sayfası](media/add-custom-domain/contoso-blade-with-dns-info-verify.png)
 
-### <a name="common-verification-issues"></a>Sık karşılaşılan doğrulama sorunları
+## <a name="common-verification-issues"></a>Sık karşılaşılan doğrulama sorunları
 - Azure AD'ye özel etki alanı adını doğrulayamıyorsanız, aşağıdaki önerileri deneyin:
     - **En az bir saat bekleyin ve yeniden deneyin**. Azure AD etki alanı ve bu işlem bir saat veya daha fazla sürebilir doğrulamadan önce DNS kayıtlarının yayılması gerekir.
 
@@ -93,7 +93,8 @@ Azure AD'ye özel etki alanı adınızı ekledikten sonra için etki alanı kay�
     Kayıt şirketi sitenin kaydı güncelleştiremiyorsanız girdisi ekleyin ve doğru olduğundan emin olun için doğru izinlere sahip biri ile giriş paylaşmanız gerekir.
 
 - **Etki alanı adı zaten başka bir dizindeki kullanımda olmadığından emin olun.** Bir etki alanı adı, yalnızca etki alanı adınızı şu anda başka bir dizinde doğrulanırsa, bu da yeni bir dizinde doğrulanamadığına anlamına gelen bir dizinde doğrulanabilir. Bu çoğaltma sorunu gidermek için etki alanı adı eski dizinden silmeniz gerekir. Etki alanı adlarını silme hakkında daha fazla bilgi için bkz. [özel etki alanı adlarını yönetme](../users-groups-roles/domains-manage.md).
-    - Self servis kayıt aracılığıyla PowerBI hizmetini etkinleştirmiş ve kuruluşunuz için yönetilmeyen bir kiracı oluşturmuş kullanıcılarınız varsa, BT yöneticisi bu kiracıyı devralma aracılığıyla yönetebilir veya PowerShell’de zorla devralma seçeneğiyle etki alanını ekleyebilirsiniz. Yöneticinin etki alanını devralması hakkında daha fazla bilgi için bkz: [Azure Active Directory'de yönetici olarak yönetilmeyen bir dizini devralma](../users-groups-roles/domains-admin-takeover.md).
+
+- **Yönetilmeyen hiçbir Power BI Kiracı yoksa emin olun.** Kullanıcılarınızın Power BI Self etkinleştirmiş ve kuruluşunuz için yönetilmeyen bir kiracı oluşturuldu, iç veya dış Yöneticisi olarak Management PowerShell kullanarak atmanız durumunda. Yönetilmeyen bir dizini devralma hakkında daha fazla bilgi için bkz: [Azure Active Directory'de yönetici olarak yönetilmeyen bir dizini devralma](../users-groups-roles/domains-admin-takeover.md).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

@@ -9,12 +9,12 @@ ms.workload: core
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: shvija
-ms.openlocfilehash: 4ec0433fe2bc1447344ea7b3b7ec296c7cbb583f
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 27052759ccc4664ea95ea19cb52bebeec6fec5ae
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46368851"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48803367"
 ---
 # <a name="receive-events-from-azure-event-hubs-using-nodejs"></a>Node.js kullanarak Azure Event Hubs'tan gelen olayları alma
 
@@ -73,7 +73,6 @@ Kopyalanmış SDK, Node.js kullanarak bir olay hub'ından olay alma işlemini g�
 ## <a name="review-the-sample-code"></a>Örnek kodu gözden geçirin 
 Node.js kullanarak bir olay hub'ından olaylarını almak için örnek kod aşağıda verilmiştir. El ile sampleEph.js dosyası oluşturun ve olay hub'ına olayları almak için çalıştırın. 
 
-
   ```nodejs
   const { EventProcessorHost, delay } = require("@azure/event-processor-host");
 
@@ -124,6 +123,19 @@ Node.js kullanarak bir olay hub'ından olaylarını almak için örnek kod aşa�
   });
       
   ```
+
+Betiği çalıştırmadan önce ortam değişkenlerini ayarlamak unutmayın. Bu komut satırında aşağıdaki örnekte gösterilen şekilde yapılandırabilir veya kullanın [dotenv paket](https://www.npmjs.com/package/dotenv#dotenv). 
+
+```
+// For windows
+set EVENTHUB_CONNECTION_STRING="<your-connection-string>"
+set EVENTHUB_NAME="<your-event-hub-name>"
+
+// For linux or macos
+export EVENTHUB_CONNECTION_STRING="<your-connection-string>"
+export EVENTHUB_NAME="<your-event-hub-name>"
+```
+
 Daha fazla örnek bulabilirsiniz [burada](https://github.com/Azure/azure-event-hubs-node/tree/master/processor/examples).
 
 

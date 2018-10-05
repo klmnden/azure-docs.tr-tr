@@ -1,52 +1,52 @@
 ---
-title: Bing Haberler arama API yükseltme v7 v5 | Microsoft Docs
-description: Sürüm 7 kullanacak şekilde güncelleştirmeniz gerekir uygulamanızın parçalarını tanımlar.
+title: Yükseltme Bing haber arama API'si V5'ten v7
+titlesuffix: Azure Cognitive Services
+description: Sürüm 7 kullanılacak güncelleştirmeye gerek duyduğunuz uygulamanızın parçalarını tanıtır.
 services: cognitive-services
 author: swhite-msft
-manager: ehansen
-ms.assetid: 5334C475-4841-4736-A66E-DC1E07CBCEC9
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-news-search
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/15/2017
 ms.author: scottwhi
-ms.openlocfilehash: baed6f0091ddad40b4802c0fb52dc2ca1818cd03
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: c6ecb7d4c1e5b648373fcaa3f44c6294329d33c2
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35351761"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48801174"
 ---
-# <a name="news-search-api-upgrade-guide"></a>Haber arama API Yükseltme Kılavuzu
+# <a name="news-search-api-upgrade-guide"></a>Haber arama API'si Yükseltme Kılavuzu
 
-Bu Yükseltme Kılavuzu sürüm 5 ve sürüm 7 Bing Haberler arama API arasındaki değişiklikleri tanımlar. Sürüm 7 kullanacak şekilde güncelleştirmeniz gerekir uygulamanızın parçalarını tanımlamanıza yardımcı olması için bu kılavuzu kullanın.
+Bu Yükseltme Kılavuzu, sürüm 5 ve Bing haber arama API'si 7 sürümü arasındaki değişiklikleri tanımlar. Sürüm 7 kullanılacak güncelleştirmeye gerek duyduğunuz uygulamanızın parçalarını tanımlamanıza yardımcı olması için bu kılavuzu kullanın.
 
-## <a name="breaking-changes"></a>Hataya neden olan değişiklikler
+## <a name="breaking-changes"></a>Yeni değişiklikler
 
 ### <a name="endpoints"></a>Uç Noktalar
 
-- Uç noktanın sürüm numarası v5 v7 için değişir. Örneğin, https://api.cognitive.microsoft.com/bing/\ * \*v7.0**/news/search.
+- Uç noktanın sürüm numarası için v7 v5 değiştirildi. Örneğin, https://api.cognitive.microsoft.com/bing/\ * \*v7.0**/news/search.
 
 ### <a name="error-response-objects-and-error-codes"></a>Hata yanıtı nesneleri ve hata kodları
 
-- Başarısız olan tüm istekleri artık içermelidir bir `ErrorResponse` yanıt gövdesi nesne.
+- Tüm başarısız istekler şimdi içermelidir bir `ErrorResponse` yanıt gövdesinde bir nesne.
 
-- Aşağıdaki alanları eklenen `Error` nesnesi.  
-  - `subCode`&mdash;Hata kodu ayrık demet mümkünse bölümleri
-  - `moreDetails`&mdash;Açıklanan hatayla ilgili ek bilgileri `message` alan
+- Aşağıdaki alanları eklenen `Error` nesne.  
+  - `subCode`&mdash;Hata kodu ayrık demetlerin içine mümkünse bölümleri
+  - `moreDetails`&mdash;İçinde açıklanan hata hakkında ek bilgi `message` alan
    
 
-- Aşağıdaki olası ile v5 hata kodları yerini `code` ve `subCode` değerleri.
+- V5 hata kodları ile aşağıdaki olası yerine `code` ve `subCode` değerleri.
 
-|Kod|Alt kod|Açıklama
+|Kod|Alt|Açıklama
 |-|-|-
-|ServerError|UnexpectedError<br/>ResourceError<br/>Uygulanmadı|Alt kod koşullardan herhangi biri gerçekleştiğinde Bing ServerError döndürür. HTTP durum kodu 500 ise yanıt bu hataları içeriyor.
-|InvalidRequest|ParameterMissing<br/>ParameterInvalidValue<br/>HttpNotAllowed<br/>Engellendi|İstek, herhangi bir bölümünü geçersiz olduğunda Bing InvalidRequest döndürür. Örneğin, gerekli bir parametre eksik veya bir parametre değeri geçerli değil.<br/><br/>Hata ParameterMissing veya ParameterInvalidValue ise, HTTP durum kodu 400 ' dir.<br/><br/>Hata HttpNotAllowed ise, HTTP durum 410 kodu.
-|RateLimitExceeded||Sorgular (QPS) saniyede veya sorguları her ay (QPM) kota aştıklarında Bing RateLimitExceeded döndürür.<br/><br/>QPM aşılırsa QPS ve 403 aşılırsa Bing HTTP durum kodu 429 döndürür.
-|InvalidAuthorization|AuthorizationMissing<br/>AuthorizationRedundancy|Bing çağıran doğrulayamadığında Bing InvalidAuthorization döndürür. Örneğin, `Ocp-Apim-Subscription-Key` üstbilgisi eksik veya abonelik anahtarı geçerli değil.<br/><br/>Birden fazla kimlik doğrulama yöntemini belirtirseniz, artıklık oluşur.<br/><br/>Hata InvalidAuthorization, HTTP durum kodunu 401 ise.
-|InsufficientAuthorization|AuthorizationDisabled<br/>AuthorizationExpired|Arayan kaynağa erişim izni olmadığında Bing InsufficientAuthorization döndürür. Abonelik anahtarı devre dışı bırakılmış veya süresi dolmuş bu durum ortaya çıkabilir. <br/><br/>Hata InsufficientAuthorization, HTTP durum kodu 403 ise.
+|ServerError|UnexpectedError<br/>ResourceError<br/>Uygulanmadı|Alt kod koşullardan herhangi biri gerçekleştiğinde Bing ServerError döndürür. HTTP durum kodunu 500 ise yanıt bu hataları içeriyor.
+|InvalidRequest|ParameterMissing<br/>ParameterInvalidValue<br/>HttpNotAllowed<br/>Engellendi|Her isteğin herhangi bir bölümü geçerli değil Bing InvalidRequest döndürür. Örneğin, bir gerekli parametre eksik veya bir parametre değeri geçerli değil.<br/><br/>Hata ParameterMissing veya ParameterInvalidValue ise, HTTP durum kodu 400 ' dir.<br/><br/>Hata HttpNotAllowed ise, HTTP durumu 410 kod.
+|RateLimitExceeded||/ Saniye (QPS) sorguları veya sorgu başına aylık (QPM) kota aştığında Bing RateLimitExceeded döndürür.<br/><br/>Bing QPM aşılırsa QPS ve 403 aşıldı HTTP durum kodu 429 döndürür.
+|InvalidAuthorization|AuthorizationMissing<br/>AuthorizationRedundancy|Bing çağıran doğrulandığında Bing InvalidAuthorization döndürür. Örneğin, `Ocp-Apim-Subscription-Key` üstbilgisi eksik veya abonelik anahtarı geçerli değil.<br/><br/>Birden fazla kimlik doğrulama yöntemi belirtmek, yedeklilik meydana gelir.<br/><br/>Hata InvalidAuthorization ise, HTTP durum kodunu 401 ' dir.
+|InsufficientAuthorization|AuthorizationDisabled<br/>AuthorizationExpired|Çağıran kaynağa erişmek için izinlere sahip olmadığı durumlarda Bing InsufficientAuthorization döndürür. Bu abonelik anahtarını devre dışı bırakıldı veya süresi ortaya çıkabilir. <br/><br/>Hata InsufficientAuthorization, HTTP durum kodu 403 ise.
 
-- Aşağıdaki önceki hata kodları yeni kodları eşler. Bir bağımlılık v5 hata kodlarını ayırdıktan, kodunuzu gerektiği gibi güncelleştirin.
+- Aşağıdaki yeni kodları için önceki hata kodlarını eşler. Bir bağımlılık v5 hata kodlarıyla ilgili zamandaki, kodunuzu buna göre güncelleştirin.
 
 |Sürüm 5 kodu|Sürüm 7 code.subCode
 |-|-
@@ -71,24 +71,24 @@ Engellendi|InvalidRequest.Blocked
 
 ### <a name="object-changes"></a>Nesnesi değişiklikleri
 
-- Eklenen `contractualRules` alanı [NewsArticle](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#newsarticle) nesnesi. `contractualRules` Alan (örneğin, makale attribution) izlemelidir kurallarının bir listesini içerir. Sağlanan attribution uygulamalısınız `contractualRules` kullanmak yerine `provider`. Makaleyi içerir `contractualRules` yalnızca [Web arama API](../bing-web-search/search-the-web.md) yanıt haber yanıt içerir.
+- Eklenen `contractualRules` alanı [NewsArticle](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#newsarticle) nesne. `contractualRules` Alan (örneğin, makale attribution) izlemeniz gereken kurallarının bir listesini içerir. Sağlanan attribution uygulamalısınız `contractualRules` kullanmak yerine `provider`. Makaleyi içerir `contractualRules` yalnızca [Web araması API'si](../bing-web-search/search-the-web.md) yanıt içeren bir haber yanıt.
 
-## <a name="non-breaking-changes"></a>Bölünemez değişiklikleri
+## <a name="non-breaking-changes"></a>Hataya neden olmayan değişiklikler
 
 ### <a name="query-parameters"></a>Sorgu parametreleri
 
-- Ürünler, ayarlayabilir olası bir değer eklenen [kategori](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#category) sorgu parametresi için. Bkz: [pazarda kategorilerle](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#categories-by-market).  
+- Ürünleri ayarladığınız bir olası değer eklenen [kategori](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#category) sorgu parametresi için. Bkz: [kategorilere göre pazarlara](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#categories-by-market).  
     
-- Eklenen [SortBy](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#sortby) en son ilk tarihine göre sıralanmış oluşturan eğilim konuları döndürür sorgu parametresi.  
+- Eklenen [SortBy](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#sortby) tarihe göre sıralanan en son ilk popüler konularını döndüren sorgu parametresi.  
   
-- Eklenen [beri](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#since) Bing tarafından bulunan ve belirtilen UNIX dönem zaman damgası sonrasında oluşturan eğilim konuları döndürür sorgu parametresi.
+- Eklenen [beri](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#since) Bing tarafından veya daha sonra belirtilen UNIX dönem zaman damgası bulunan popüler konularını döndüren sorgu parametresi.
 
 ### <a name="object-changes"></a>Nesnesi değişiklikleri
 
-- Eklenen `mentions` alanı [NewsArticle](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#newsarticle) nesnesi. `mentions` Alan makalede bulunan varlıklar (kişiler veya basamak) listesini içerir.  
+- Eklenen `mentions` alanı [NewsArticle](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#newsarticle) nesne. `mentions` Alan (kişi veya basamak) makalesinde bulunan varlıkların listesini içerir.  
   
-- Eklenen `video` alanı [NewsArticle](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#newsarticle) nesnesi. `video` Alan haber makaleyi ilgili bir video içerir. Video olan bir \<IFRAME\> , katıştırmak veya bir hareket küçük resim.   
+- Eklenen `video` alanı [NewsArticle](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#newsarticle) nesne. `video` Alan haber makalesine yönlendiren ilgili bir video içerir. Video geçerli bir \<iframe\> , size ekleyebilir veya hareketli bir küçük resim.   
   
-- Eklenen `sort` alanı [haber](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#news) nesnesi. `sort` Alan makaleleri sıralama düzenini gösterir. Örneğin, makaleleri uygunluğu (varsayılan) veya tarihine göre sıralanır.  
+- Eklenen `sort` alanı [haber](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#news) nesne. `sort` Alan makaleleri sıralama düzenini gösterir. Örneğin, makaleleri, ilgi düzeyi (varsayılan) ya da tarih sıralanır.  
   
-- Eklenen [SortValue](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#sortvalue) bir sıralama düzeni tanımlayan nesne. `isSelected` Alan, yanıt sıralama düzenini kullanılıp gösterir. Varsa **doğru**, yanıt sıralama düzeni kullanılır. Varsa `isSelected` olan **false**, URL'de kullanabileceğiniz `url` farklı bir sıralama düzeni istemek için alan.
+- Eklenen [SortValue](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#sortvalue) bir sıralama düzeni tanımlayan nesne. `isSelected` Alan, yanıt sıralama kullanılıp gösterir. Varsa **true**, yanıt sıralama kullanılır. Varsa `isSelected` olduğu **false**, URL'de kullandığınız `url` alan farklı bir sıralama düzeni istemek için.

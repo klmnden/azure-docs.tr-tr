@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 07/26/2018
 ms.author: andrl
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d53106efa4e3761a497e67181546c8ec09fd880c
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: c35082d107b538e7e908162c00facafecc406bc6
+ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44055514"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48785656"
 ---
 # <a name="partition-and-scale-in-azure-cosmos-db"></a>Bölümleme ve ölçeklendirme Azure Cosmos DB'de
 
@@ -32,7 +32,7 @@ Azure Cosmos DB koleksiyonları (belgeler için) grafik veya tablo adı verilen 
 
 ### <a name="physical-partition"></a>Fiziksel bölüm
 
-A *fiziksel* ayrılmış SSD destekli depolamanın değişken miktarda işlem kaynaklarının (CPU ve bellek) ile birlikte sabit miktarda bölümdür. Her bir fiziksel bölüm, yüksek kullanılabilirlik için çoğaltılır. Kapsayıcılar, her bir kümesi, bir veya daha fazla fiziksel bölüm paylaşabiliriz. Fiziksel bölüm yönetim Azure Cosmos DB tarafından tamamen yönetilir ve karmaşık kod yazın veya bölüm yönetmek zorunda değilsiniz. Azure Cosmos DB kapsayıcıları, depolama ve aktarım hızı bakımından sınırsızdır. Fiziksel bölümler bir iç kavramı Azure Cosmos DB ve geçicidir. Azure Cosmos DB, iş yüküne göre fiziksel bölümler sayısını otomatik olarak ölçeklenir. Bunun yerine fiziksel bölümler sayısına göre veritabanı tasarımı corelate olmamalıdır için mantıksal bölümler belirleyen doğru bölüm anahtarı seçmek emin olmalısınız. 
+A *fiziksel* ayrılmış SSD destekli depolamanın değişken miktarda işlem kaynaklarının (CPU ve bellek) ile birlikte sabit miktarda bölümdür. Her bir fiziksel bölüm, yüksek kullanılabilirlik için çoğaltılır. Kapsayıcılar, her bir kümesi, bir veya daha fazla fiziksel bölüm paylaşabiliriz. Fiziksel bölüm yönetim Azure Cosmos DB tarafından tamamen yönetilir ve karmaşık kod yazın veya bölüm yönetmek zorunda değilsiniz. Azure Cosmos DB kapsayıcıları, depolama ve aktarım hızı bakımından sınırsızdır. Fiziksel bölümler bir iç kavramı Azure Cosmos DB ve geçicidir. Azure Cosmos DB, iş yükünüze bağlı olarak fiziksel bölümlerin sayısını otomatik olarak ölçeklendirir. Bunun yerine fiziksel bölümler sayısına göre veritabanı tasarımı corelate olmamalıdır için mantıksal bölümler belirleyen doğru bölüm anahtarı seçmek emin olmalısınız. 
 
 ### <a name="logical-partition"></a>Mantıksal bölüm
 
@@ -93,11 +93,13 @@ Bölüm anahtarı ile ilgili önemli noktalar yukarıda seçtiğiniz, olarak Azu
 
 ## <a name="prerequisites"></a>Bölümleme için Önkoşullar
 
-Azure Cosmos DB kapsayıcıları sabit olarak oluşturulabilir veya Azure portalında sınırsız. Sabit boyutlu kapsayıcıların üst sınırı 10 GB ve 10.000 RU/sn aktarım hızıdır. Sınırsız olarak bir kapsayıcı oluşturmak için bir bölüm anahtarı ve en düşük aktarım hızı, 1.000 RU/sn belirtmeniz gerekir. Azure Cosmos DB kapsayıcıları da yapılandırılabilir aktarım hızı, her kapsayıcı gerekir specificy kapsayıcılar, bir dizi arasında paylaşmak için bir bölüm anahtarı ve sınırsız büyüyebilir. Bölümleme ve ölçeklendirme için dikkate alınması gereken önkoşullar şunlardır:
+Azure Cosmos DB kapsayıcıları sabit olarak oluşturulabilir veya sınırsız. Sabit boyutlu kapsayıcıların üst sınırı 10 GB ve 10.000 RU/sn aktarım hızıdır. Sınırsız olarak bir kapsayıcı oluşturmak için bir bölüm anahtarı ve en düşük aktarım hızı, 1.000 RU/sn belirtmeniz gerekir. Aktarım hızı paylaştıkları gibi Azure Cosmos DB kapsayıcıları da oluşturabilirsiniz. Bu gibi durumlarda, her kapsayıcı specificy gerekir ve bir bölüm anahtarı sınırsız büyüyebilir. 
 
-* Azure portalında (örneğin, bir koleksiyon, bir grafik veya tablo) bir kapsayıcı oluştururken seçin **sınırsız** sınırsız ölçeklendirme avantajından yararlanmak için depolama kapasitesi seçeneği. Fiziksel bölümler için otomatik Böl **p1** ve **p2** açıklandığı [nasıl bölümleme çalışır](#how-does-partitioning-work), aktarım hızı, 1.000 RU/sn veya daha fazla container oluşturulması gerekir (veya bir dizi kapsayıcıları paylaşımı aktarım hızı) ve bölüm anahtarı belirtilmelidir. 
+Bölümleme ve ölçeklendirme için dikkate alınması gereken önkoşullar şunlardır:
 
-* Azure portalından veya programlama yoluyla bir kapsayıcı oluşturduğunuz ilk aktarım hızı, 1.000 RU/sn veya daha fazla olan ve bir bölüm anahtarı sağlanan kapsayıcınızı değişiklik yapmadan sınırsız ölçeklendirme yararlanabilirsiniz. Bu içerir **sabit** kapsayıcılar, ilk kapsayıcı en az 1.000 RU/sn ile üretilen iş oluşturuldu ve bir bölüm anahtarı belirtilen sürede.
+* Azure portalında (örneğin, bir koleksiyon, bir grafik veya tablo) bir kapsayıcı oluştururken seçin **sınırsız** sınırsız ölçeklendirme avantajından yararlanmak için depolama kapasitesi seçeneği. Otomatik-bölünmüş fiziksel bölümlere için **p1** ve **p2** açıklandığı [nasıl bölümleme çalışır](#how-does-partitioning-work) makalesi, kapsayıcı bir 1.000 RU/sn aktarım hızı ile oluşturulmalıdır veya Daha fazla (veya bir dizi kapsayıcıları paylaşımı aktarım hızı) ve bölüm anahtarı belirtilmelidir. 
+
+* Büyüktür veya eşittir 1.000 RU/sn ile ilk aktarım hızı bir kapsayıcı oluşturun ve bir bölüm anahtarı sağlayın, sonra kapsayıcınızı herhangi bir değişiklik yapmadan sınırsız ölçeklendirme yararlanabilirsiniz. Başka bir deyişle, oluşturduğunuz olsa bile bir **sabit** kapsayıcı, bir en az 1.000 RU/sn aktarım hızı ile ilk kapsayıcı oluşturulur ve bir bölüm anahtarı belirtilmişse, kapsayıcı bir sınırsız kapsayıcı gibi davranır.
 
 * Aktarım hızı kapsayıcıların kümesinin bir parçası paylaşmak üzere yapılandırılmış tüm kapsayıcıları olarak kabul **sınırsız** kapsayıcıları.
 

@@ -1,22 +1,23 @@
 ---
-title: Bing haber arama uç noktaları | Microsoft Docs
+title: Bing Haber Arama uç noktaları
+titlesuffix: Azure Cognitive Services
 description: Haber arama API'si uç noktası özeti.
 services: cognitive-services
 author: mikedodaro
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-news-search
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/28/2017
 ms.author: v-gedod
-ms.openlocfilehash: ab892e947566adf025499382b213a52ed3e96e35
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 0ed8b9048c04c4aff5214cea697810a0c573559e
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47433693"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48800554"
 ---
-# <a name="news-search-endpoints"></a>Haber arama uç noktaları
+# <a name="bing-news-search-endpoints"></a>Bing Haber Arama uç noktaları
 **Haber arama API'si** makaleler, Web sayfaları, görüntüler, video, haber verir ve [varlıkları](https://docs.microsoft.com/azure/cognitive-services/bing-entities-search/search-the-web). Varlıklar bir kişi, yer veya konu ile ilgili özet bilgiler içerir.
 ## <a name="endpoints"></a>Uç Noktalar
 Bing API'sini kullanarak haber araması sonuçları almak için gönderin bir `GET` aşağıdaki uç noktalarından birinin isteği. Daha fazla başlık ve URL parametrelerini belirtimleri tanımlayın.

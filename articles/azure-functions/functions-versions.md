@@ -7,14 +7,14 @@ author: ggailey777
 manager: jeconnoc
 ms.service: azure-functions
 ms.topic: conceptual
-ms.date: 09/14/2018
+ms.date: 10/03/2018
 ms.author: glenga
-ms.openlocfilehash: d4a0d53c3438be9ea4e0229e4a456ed6f5960996
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.openlocfilehash: 372cf445e518ccdb287ce23ade6a3d92ddc5bc2b
+ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48249069"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48784908"
 ---
 # <a name="azure-functions-runtime-versions-overview"></a>Azure işlevleri çalışma zamanı sürümleri genel bakış
 
@@ -63,6 +63,7 @@ Diller ve bağlamalar değişikliklerin yanı sıra kaldırılmış, güncelleş
 * Uygulama ayarları (`local.settings.json`) özelliği için bir değer gerektirir `FUNCTIONS_WORKER_RUNTIME` uygulama diline eşler `dotnet | node | java | python`.
     * Ayak izi ve başlangıç süresini iyileştirmek için tek bir dil için uygulamalar sınırlıdır. Aynı çözüm için farklı dillerde işlevleri sağlamak için birden fazla uygulama yayımlayabilirsiniz.
 * App service planı işlevleri için varsayılan zaman aşımını 30 dakikadır.  Bunu hala el ile sınırsız ayarlanabilir.
+* Tüketim planı işlevleri (örnek başına 100 eş zamanlı istek) için varsayılan olarak HTTP eşzamanlılık kısıtlamalar uygulanır.  Bu ayarları aracılığıyla değiştirilebilir `host.json` dosya.
 * [Sınırlamaları nedeniyle .NET core](https://github.com/Azure/azure-functions-host/issues/3414), `.fsx` F # işlevleri kaldırılmış için komut dosyaları. Derlenmiş F # işlevleri hala desteklenmektedir.
 * Web kancası tabanlı tetikleyiciler (örneğin, Event Grid) biçimi değiştirildi `https://{app}/runtime/webhooks/{triggerName}`
 

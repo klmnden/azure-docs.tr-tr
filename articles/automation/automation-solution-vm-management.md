@@ -6,15 +6,15 @@ ms.service: automation
 ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 08/1/2018
+ms.date: 10/04/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 2f990f22d762c5f95d3274b740caf30691ded90e
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 9abdb17c7b1cf0662913a4c9cd59c49efc91e419
+ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47409853"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48785503"
 ---
 # <a name="startstop-vms-during-off-hours-solution-in-azure-automation"></a>Sırasında Azure Otomasyonu çözümde yoğun olmayan saatlerde Vm'leri başlatma/durdurma
 
@@ -24,7 +24,7 @@ Bu çözüm, VM maliyetlerini en iyi hale getirmek isteyen kullanıcılar için 
 
 - Vm'leri başlatma ve durdurma zamanlayın.
 - VM'ler (Klasik VM'ler için desteklenmez) Azure etiketleri kullanarak artan düzende durdurmak ve başlatmak zamanlayın.
-- Düşük CPU kullanımına göre Vm'leri otomatik durdurma.
+- Düşük CPU kullanımına göre DISPLAYFILTER VM'ler.
 
 Geçerli çözümdeki sınırlamalar aşağıda verilmiştir:
 
@@ -42,7 +42,7 @@ Bu çözüm için runbook'ları ile çalışır bir [Azure farklı çalıştır 
 
 Vm'leri başlatma/durdurma sırasında yoğun olmayan saatlerde çözüm Otomasyon hesabınıza eklemek için aşağıdaki adımları uygulayın ve ardından çözümü özelleştirmek üzere değişkenlerini yapılandırmak.
 
-1. Bir Otomasyon hesabı seçin **VM başlatma/durdurma** altında **ilgili kaynakları**. Buradan, tıkladığınız **daha fazla bilgi edinin ve çözümü etkinleştirmek**. Dağıtılan VM başlatma/durdurma Çözüm zaten varsa, tıklayabilirsiniz **çözümü yönetmek** dağıtılan çözümleri listesine alınması ve buradan seçin.
+1. Bir Otomasyon hesap sayfasında **VM başlatma/durdurma** altında **ilgili kaynakları**. Buradan, tıkladığınız **daha fazla bilgi edinin ve çözümü etkinleştirmek**. Dağıtılan VM başlatma/durdurma Çözüm zaten varsa, bunu tıklayarak seçebilirsiniz **çözümü yönetmek** ve listede bulunuyor.
 
    ![Otomasyon hesabı etkinleştir](./media/automation-solution-vm-management/enable-from-automation-account.png)
 
@@ -64,7 +64,7 @@ Vm'leri başlatma/durdurma sırasında yoğun olmayan saatlerde çözüm Otomasy
    - Bir **Fiyatlandırma katmanı** seçin. Seçin **GB başına (tek başına)** seçeneği. Log Analytics'e güncelleştirdi [fiyatlandırma](https://azure.microsoft.com/pricing/details/log-analytics/) ve GB başına katman tek seçenektir.
 
 5. Gerekli bilgileri girdikten sonra **Log Analytics çalışma alanı** sayfasında **Oluştur**. Altında ilerleme durumunu izleyebilirsiniz **bildirimleri** menüden döndüren size **Çözüm Ekle** işiniz bittiğinde sayfa.
-6. Üzerinde **Çözüm Ekle** sayfasında **Otomasyon hesabı**. Yeni bir Log Analytics çalışma alanı oluşturuyorsanız, kendisiyle ilişkilendirilmiş olması için yeni bir Otomasyon hesabı oluşturun veya bir günlük analiz çalışma alanına bağlı olmayan bir Otomasyon hesabı seçin. Mevcut bir Otomasyon hesabı seçin veya **Otomasyon hesabı oluşturma**ve **Otomasyon hesabı Ekle** sayfasında, aşağıdaki bilgileri sağlayın:
+6. Üzerinde **Çözüm Ekle** sayfasında **Otomasyon hesabı**. Yeni bir Log Analytics çalışma alanı oluşturuyorsanız, kendisiyle ilişkilendirilmiş olması için yeni bir Otomasyon hesabı oluşturun veya bir Log Analytics çalışma alanına bağlı olmayan bir Otomasyon hesabı seçin. Mevcut bir Otomasyon hesabı seçin veya **Otomasyon hesabı oluşturma**ve **Otomasyon hesabı Ekle** sayfasında, aşağıdaki bilgileri sağlayın:
    - **Ad** alanına Otomasyon hesabının adını girin.
 
     Diğer tüm seçenekler seçili Log Analytics çalışma alanı otomatik olarak doldurulur. Bu seçenekler değiştirilemez. Bu çözüme dahil olan runbook'lar için varsayılan kimlik doğrulama yöntemi, bir Azure Farklı Çalıştır hesabıdır. Tıkladıktan sonra **Tamam**, yapılandırma seçenekleri doğrulanır ve Otomasyon hesabı oluşturulur. Bu işlemin ilerleme durumunu menüdeki **Bildirimler**’in altından izleyebilirsiniz.
@@ -74,9 +74,9 @@ Vm'leri başlatma/durdurma sırasında yoğun olmayan saatlerde çözüm Otomasy
    ![Çözüm için parametreleri sayfası](media/automation-solution-vm-management/azure-portal-add-solution-02.png)
 
    Burada, sizden istenir:
-   - Belirtin **hedef ResourceGroup adları**. Bu çözüm tarafından yönetilecek Vm'leri içeren kaynak grubu adları şunlardır. Birden fazla ad girin ve her (Bu değerler büyük küçük harfe duyarlı değildir) virgül kullanarak ayırın. Abonelikte yer alan tüm kaynak gruplarındaki sanal makineleri hedeflemek istiyorsanız, joker karakter kullanılması desteklenir. Bu değer depolanan **External_Start_ResourceGroupNames** ve **External_Stop_ResourceGroupNames** değişkenleri.
-   - Belirtin **VM çıkarma listesini (dize)**. Hedef kaynak grubu bir veya daha fazla sanal makinelerden adıdır. Birden fazla ad girin ve her (Bu değerler büyük küçük harfe duyarlı değildir) virgül kullanarak ayırın. Joker karakter kullanılması desteklenir. Bu değer depolanan **External_ExcludeVMNames** değişkeni.
-   - Seçin bir **zamanlama**. Bir yinelenen tarih ve saat için başlatma ve durdurma hedef kaynak gruplarındaki VM'lerin budur. Varsayılan olarak, zamanlama, 30 dakika sonra için yapılandırılır. Başka bir bölge seçmeyi kullanılabilir değil. Çözüm yapılandırdıktan sonra belirli bir saat dilimi için zamanlama yapılandırmak için bkz [başlatma ve kapatma zamanlamasını değiştirme](#modify-the-startup-and-shutdown-schedule).
+   - Belirtin **hedef ResourceGroup adları**. Bu değerler, bu çözüm tarafından yönetilecek Vm'leri içeren kaynak grubu adları. Birden fazla ad girin ve her (Bu değerler büyük küçük harfe duyarlı değildir) virgül kullanarak ayırın. Abonelikte yer alan tüm kaynak gruplarındaki sanal makineleri hedeflemek istiyorsanız, joker karakter kullanılması desteklenir. Bu değer depolanan **External_Start_ResourceGroupNames** ve **External_Stop_ResourceGroupNames** değişkenleri.
+   - Belirtin **VM çıkarma listesini (dize)**. Bu değer, hedef kaynak grubu bir veya daha fazla sanal makinelerden adıdır. Birden fazla ad girin ve her (Bu değerler büyük küçük harfe duyarlı değildir) virgül kullanarak ayırın. Joker karakter kullanılması desteklenir. Bu değer depolanan **External_ExcludeVMNames** değişkeni.
+   - Seçin bir **zamanlama**. Bu, bir yinelenen tarih ve saat için başlatma ve durdurma hedef kaynak gruplarındaki VM'lerin değerdir. Varsayılan olarak, zamanlama, 30 dakika sonra için yapılandırılır. Başka bir bölge seçmeyi kullanılabilir değil. Çözüm yapılandırdıktan sonra belirli bir saat dilimi için zamanlama yapılandırmak için bkz [başlatma ve kapatma zamanlamasını değiştirme](#modify-the-startup-and-shutdown-schedule).
    - Almaya **e-posta bildirimleri** bir eylem grubundan varsayılan değerini kabul **Evet** ve geçerli bir eposta adresi belirtin. Seçerseniz **Hayır** ancak daha sonraki bir tarihte karar e-posta bildirimleri almak istediğinizi, güncelleştirebilirsiniz [eylem grubu](../monitoring-and-diagnostics/monitoring-action-groups.md) virgülle ayrılmış geçerli e-posta adresi ile oluşturulur. Aşağıdaki uyarı kurallarını etkinleştirmeniz gerekir:
 
      - AutoStop_VM_Child
@@ -94,7 +94,7 @@ Vm'leri başlatma/durdurma sırasında yoğun olmayan saatlerde çözüm Otomasy
 
 ### <a name="scenario-1-startstop-vms-on-a-schedule"></a>1. Senaryo: Bir zamanlamaya göre Vm'leri başlatma/durdurma
 
-Bu, çözüm ilk kez dağıttığınızda varsayılan yapılandırmadır. Örneğin, akşam iş çıkıp office geri olduğunuzda sabah başlatmak, bir Abonelikteki tüm sanal makineleri durdurmak için yapılandırabilirsiniz. Zamanlama yapılandırdığınızda **zamanlanmış StartVM** ve **zamanlanmış StopVM** dağıtımı sırasında bunlar başlatıp hedeflenen VM'ler. Bu çözüm, yalnızca sanal makineleri durdurmak için yapılandırma desteklenir, bkz: [başlatma ve kapatma zamanlamalarını değiştirmek](#modify-the-startup-and-shutdown-schedules) özel bir zamanlama yapılandırmak hakkında bilgi edinmek için.
+Çözümü ilk kez dağıttığınızda bu senaryo varsayılan yapılandırmadır. Örneğin, akşam iş çıkıp office geri olduğunuzda sabah başlatmak, bir Abonelikteki tüm sanal makineleri durdurmak için yapılandırabilirsiniz. Zamanlama yapılandırdığınızda **zamanlanmış StartVM** ve **zamanlanmış StopVM** dağıtımı sırasında bunlar başlatıp hedeflenen VM'ler. Bu çözüm, yalnızca sanal makineleri durdurmak için yapılandırma desteklenir, bkz: [başlatma ve kapatma zamanlamalarını değiştirmek](#modify-the-startup-and-shutdown-schedules) özel bir zamanlama yapılandırmak hakkında bilgi edinmek için.
 
 > [!NOTE]
 > Zamanlama süre parametresini yapılandırdığınızda saat dilimi geçerli saat diliminizde alınır. Ancak, Azure automation'da UTC biçiminde depolanır. Bu dağıtım sırasında işlendiğinden hiçbir saat dilimi dönüştürmesi yapmak gerekmez.
@@ -120,18 +120,18 @@ Abonelik ve kaynak grubu karşı önlem hedefleme veya belirli bir liste VM'ler,
 
 ### <a name="scenario-2-startstop-vms-in-sequence-by-using-tags"></a>Senaryo 2: Başlat/Durdur VM'leri sıradaki etiketleri kullanarak
 
-Dağıtılmış bir iş yükü destekleyen birden çok VM'de iki veya daha fazla bileşen içeren bir ortamda, sırayla bileşenleri başlatıldığında ve durdurulduğunda dizisi destekleyen önemlidir. Bunu, aşağıdaki adımları uygulayarak gerçekleştirebilirsiniz:
+Dağıtılmış bir iş yükü destekleyen birden çok VM'de iki veya daha fazla bileşen içeren bir ortamda, sırayla bileşenleri başlatıldığında ve durdurulduğunda dizisi destekleyen önemlidir. Bu senaryo, aşağıdaki adımları uygulayarak gerçekleştirebilirsiniz:
 
 #### <a name="target-the-start-and-stop-actions-against-a-subscription-and-resource-group"></a>Hedef abonelik ve kaynak grubunda karşı başlatma ve durdurma eylemleri
 
-1. Ekleme bir **SequenceStart** ve **SequenceStop** olarak hedeflenen VM'ler için bir pozitif tamsayı değeri olan etiketi **External_Start_ResourceGroupNames** ve  **External_Stop_ResourceGroupNames** değişkenleri. Başlatma ve durdurma eylemleri, artan sırada gerçekleştirilir. Bir VM'yi etiketleme öğrenmek için bkz. [Azure'da Windows sanal makine etiketleme](../virtual-machines/windows/tag.md) ve [Azure'da bir Linux sanal makinesi etiketleme](../virtual-machines/linux/tag.md).
+1. Ekleme bir **sequencestart** ve **sequencestop** olarak hedeflenen VM'ler için bir pozitif tamsayı değeri olan etiketi **External_Start_ResourceGroupNames** ve  **External_Stop_ResourceGroupNames** değişkenleri. Başlatma ve durdurma eylemleri, artan sırada gerçekleştirilir. Bir VM'yi etiketleme öğrenmek için bkz. [Azure'da Windows sanal makine etiketleme](../virtual-machines/windows/tag.md) ve [Azure'da bir Linux sanal makinesi etiketleme](../virtual-machines/linux/tag.md).
 1. Zamanlamalarını değiştirmek **sıralı StartVM** ve **sıralı StopVM** tarih ve saat gereksinimlerinizi karşılayan ve zamanlamasını etkinleştirmek için.
 1. Çalıştırma **SequencedStartStop_Parent** kümesine eylem parametresi ile runbook **Başlat** ve kümesine WHATIF parametresi **True** değişikliklerinizi önizlemek için.
 1. Eylem Önizleme ve üretime yönelik Vm'leri uygulamadan önce gerekli değişiklikleri yapın. Ne zaman hazır, el ile runbook ayarlanmış parametreye yürütülmesinin **False**, veya Otomasyon zamanlama **sıralı StartVM** ve **sıralı StopVM** çalıştırın otomatik olarak belirlenen zamanlamanızı izleyerek.
 
 #### <a name="target-the-start-and-stop-action-by-vm-list"></a>Başlatma ve durdurma eylemi VM listesi tarafından hedef
 
-1. Ekleme bir **SequenceStart** ve **SequenceStop** için eklemeyi planladığınız VM'ler için bir pozitif tamsayı değeri olan etiketi **VMList** değişkeni. 
+1. Ekleme bir **sequencestart** ve **sequencestop** için eklemeyi planladığınız VM'ler için bir pozitif tamsayı değeri olan etiketi **VMList** değişkeni. 
 1. Çalıştırma **SequencedStartStop_Parent** kümesine eylem parametresi ile runbook **Başlat**, virgülle ayrılmış bir liste VM ekleme *VMList* parametresi ve ardından WHATIF parametresi **True**. Değişikliklerinizi önizleyin.
 1. Yapılandırma **External_ExcludeVMNames** Vm'leri (VM1, VM2 ve VM3) virgülle ayrılmış listesiyle birlikte parametresi.
 1. Bu senaryo değil dikkate almaz **External_Start_ResourceGroupNames** ve **External_Stop_ResourceGroupnames** değişkenleri. Bu senaryo için kendi Otomasyonu zamanlaması oluşturmanız gerekir. Ayrıntılar için bkz [Azure Otomasyonu'nda runbook zamanlama](../automation/automation-schedules.md).
@@ -141,7 +141,7 @@ Dağıtılmış bir iş yükü destekleyen birden çok VM'de iki veya daha fazla
 
 Bu çözüm, Azure VM'ler, yoğun olmayan dönemlerde gibi saat sonra kullanılmayan değerlendirmek ve işlemci kullanımı olması durumunda otomatik olarak onları kapatılıyor küçüktür %x aboneliğinizde sanal makineleri çalıştırmanın maliyeti yönetmenize yardımcı olabilir.
 
-Varsayılan olarak, önceden yapılandırılmış yüzdesi CPU ölçüm ortalama kullanım %5 olup olmadığını değerlendirmek için ya da daha az çözümüdür. Bu, aşağıdaki değişkenleri tarafından denetlenir ve varsayılan değerlerin gereksinimlerinizi karşılamıyorsa değiştirilebilir:
+Varsayılan olarak, önceden yapılandırılmış yüzdesi CPU ölçüm ortalama kullanım %5 olup olmadığını değerlendirmek için ya da daha az çözümüdür. Bu senaryo, aşağıdaki değişkenleri tarafından denetlenir ve varsayılan değerlerin gereksinimlerinizi karşılamıyorsa değiştirilebilir:
 
 - External_AutoStop_MetricName
 - External_AutoStop_Threshold
@@ -173,7 +173,7 @@ Bu çözüm, başlatma ve kapatma sanal makinelerinizin, iş gereksinimlerinize 
 
 ### <a name="runbooks"></a>Runbook'lar
 
-Aşağıdaki tabloda bu çözüm tarafından Otomasyon hesabınıza dağıtılan runbook'ları listeler. Runbook koda değişiklik yapmamalısınız. Bunun yerine, yeni işlevsellik için kendi runbook yazma.
+Aşağıdaki tabloda bu çözüm tarafından Otomasyon hesabınıza dağıtılan runbook'ları listeler. Runbook koda değişiklik yapmayın. Bunun yerine, yeni işlevsellik için kendi runbook yazma.
 
 > [!IMPORTANT]
 > Doğrudan herhangi bir runbook adının "alt" ile çalışmaz.
@@ -188,12 +188,12 @@ Tüm üst runbook'ları dahil _WhatIf_ parametresi. Ayarlandığında **True**, 
 |AutoStop_StopVM_Child | WebHookData | Üst runbook'tan çağrılır. Uyarı kuralları, bu runbook için VM'yi durdurmak çağırın.|
 |Bootstrap_Main | yok | Bir kez webhookURI gibi genellikle Azure Kaynak Yöneticisi'nden erişilebilir olmayan önyükleme yapılandırmaları ayarlamak için kullanılır. Bu runbook başarılı dağıtımdan sonra otomatik olarak kaldırılır.|
 |ScheduledStartStop_Child | VMName <br> Eylem: Başlatma veya durdurma <br> ResourceGroupName | Üst runbook'tan çağrılır. Zamanlanmış Durdur için bir başlatma veya durdurma eylemi yürütür.|
-|ScheduledStartStop_Parent | Eylem: Başlatma veya durdurma <br>VMList <br> WhatIf: True veya False | Bu Abonelikteki tüm sanal makineleri etkiler. Düzen **External_Start_ResourceGroupNames** ve **External_Stop_ResourceGroupNames** yalnızca bunları yürütmek için kaynak gruplarını hedeflenen. Belirli sanal makineler güncelleştirerek de hariç tutabilirsiniz **External_ExcludeVMNames** değişkeni.<br> VMList: Virgülle ayrılmış listesi VM'ler. Örneğin, _vm1, vm2, vm3_.<br> _WhatIf_ çalıştırmadan runbook mantığının doğrular.|
-|SequencedStartStop_Parent | Eylem: Başlatma veya durdurma <br> WhatIf: True veya False<br>VMList| Adlı etiketler oluşturma **SequenceStart** ve **SequenceStop** dizisi Başlat/Durdur etkinliğinin istediğiniz her VM'de. Etiket değeri başlatmak veya durdurmak istediğiniz siparişin karşılık gelen bir pozitif tamsayı (1, 2, 3) olmalıdır. <br> VMList: Virgülle ayrılmış listesi VM'ler. Örneğin, _vm1, vm2, vm3_. <br> _WhatIf_ çalıştırmadan runbook mantığının doğrular. <br> **Not**: Vm'leri Azure Otomasyonu değişken External_Start_ResourceGroupNames External_Stop_ResourceGroupNames ve External_ExcludeVMNames tanımlanmış kaynak grubu içinde olmalıdır. Uygun etiketleri etkili olması eylemler için olmaları gerekir.|
+|ScheduledStartStop_Parent | Eylem: Başlatma veya durdurma <br>VMList <br> WhatIf: True veya False | Bu ayar, abonelik içindeki tüm sanal makineleri etkiler. Düzen **External_Start_ResourceGroupNames** ve **External_Stop_ResourceGroupNames** yalnızca bunları yürütmek için kaynak gruplarını hedeflenen. Belirli sanal makineler güncelleştirerek de hariç tutabilirsiniz **External_ExcludeVMNames** değişkeni.<br> VMList: Virgülle ayrılmış listesi VM'ler. Örneğin, _vm1, vm2, vm3_.<br> _WhatIf_ çalıştırmadan runbook mantığının doğrular.|
+|SequencedStartStop_Parent | Eylem: Başlatma veya durdurma <br> WhatIf: True veya False<br>VMList| Adlı etiketler oluşturma **sequencestart** ve **sequencestop** dizisi Başlat/Durdur etkinliğinin istediğiniz her VM'de. Bu etiket adları büyük/küçük harfe duyarlıdır. Etiket değeri başlatmak veya durdurmak istediğiniz siparişin karşılık gelen bir pozitif tamsayı (1, 2, 3) olmalıdır. <br> VMList: Virgülle ayrılmış listesi VM'ler. Örneğin, _vm1, vm2, vm3_. <br> _WhatIf_ çalıştırmadan runbook mantığının doğrular. <br> **Not**: Vm'leri Azure Otomasyonu değişken External_Start_ResourceGroupNames External_Stop_ResourceGroupNames ve External_ExcludeVMNames tanımlanmış kaynak grubu içinde olmalıdır. Uygun etiketleri etkili olması eylemler için olmaları gerekir.|
 
 ### <a name="variables"></a>Değişkenler
 
-Aşağıdaki tabloda, Otomasyon hesabınızda oluşturduğunuz değişkenleri listeler. Yalnızca ön ekine sahip değişken değiştirmelisiniz **dış**. Değişkenleri değiştirme önekiyle **dahili** istenmeyen etkilere neden oluyor.
+Aşağıdaki tabloda, Otomasyon hesabınızda oluşturduğunuz değişkenleri listeler. Yalnızca ön ekine sahip değişkenleri değiştirin **dış**. Değişkenleri değiştirme önekiyle **dahili** istenmeyen etkilere neden oluyor.
 
 |Değişken | Açıklama|
 |---------|------------|
@@ -215,17 +215,17 @@ Tüm senaryolar arasında **External_Start_ResourceGroupNames**, **External_Stop
 
 ### <a name="schedules"></a>Zamanlamalar
 
-Aşağıdaki tabloda her Otomasyon hesabınızda oluşturduğunuz varsayılan zamanlaması listelenmiştir. Bunları değiştirebilir veya kendi özel bir zamanlama oluşturun. Varsayılan olarak, her birini devre dışı bırakıldı dışında **Scheduled_StartVM** ve **Scheduled_StopVM**.
+Aşağıdaki tabloda her Otomasyon hesabınızda oluşturduğunuz varsayılan zamanlaması listelenmiştir. Bunları değiştirebilir veya kendi özel bir zamanlama oluşturun. Varsayılan olarak, tüm zamanlamalar dışında devre dışıdır **Scheduled_StartVM** ve **Scheduled_StopVM**.
 
 Bu çakışan eylemleri zamanlama oluşturmak için tüm zamanlamalar etkinleştirmemeniz gerekir. Hangi iyileştirmeler gerçekleştirin ve uygun şekilde değiştirmek için istediğiniz belirlemek idealdir. Örnek senaryolar genel bakış bölümünde daha ayrıntılı açıklaması için bkz.
 
 |Zamanlama adı | Sıklık | Açıklama|
 |--- | --- | ---|
 |Schedule_AutoStop_CreateAlert_Parent | 8 saatte bir | Azure Otomasyonu değişken External_Start_ResourceGroupNames, External_Stop_ResourceGroupNames ve External_ExcludeVMNames sanal makine tabanlı değerleri sırayla durdurur AutoStop_CreateAlert_Parent runbook her 8 saatte çalışır. Alternatif olarak, VMList parametresini kullanarak VM'lerin virgülle ayrılmış bir listesini belirtebilirsiniz.|
-|Scheduled_StopVM | Kullanıcı tanımlı, her gün | Scheduled_Parent runbook bir parametreyle çalıştırır _Durdur_ her gün belirtilen zamanda. Varlık değişkenleri tarafından tanımlanmış kurallara uygun olan tüm VM'ler otomatik olarak durdurur. İlgili bir zamanlama etkinleştirmelisiniz **zamanlanmış StartVM**.|
-|Scheduled_StartVM | Kullanıcı tanımlı, her gün | Scheduled_Parent runbook bir parametreyle çalıştırır _Başlat_ her gün belirtilen zamanda. Uygun değişkenleri tarafından tanımlanmış kurallara uygun olan tüm VM'ler otomatik olarak başlar. İlgili bir zamanlama etkinleştirmelisiniz **zamanlanmış StopVM**.|
-|Sıralı StopVM | 1: 00'da (UTC), her Cuma | Sequenced_Parent runbook bir parametreyle çalıştırır _Durdur_ her Cuma belirtilen zamanda. Sıralı olarak (artan) durdurur bir etiketi bulunduğu tüm VM'ler **SequenceStop** uygun değişkenleri tarafından tanımlanmış. Etiket değerlerini ve varlık değişkenleri hakkında daha fazla ayrıntı için runbook'ları bölümüne bakın. İlgili bir zamanlama etkinleştirmelisiniz **sıralı StartVM**.|
-|Sıralı StartVM | 13: 00'te (UTC), her Pazartesi | Sequenced_Parent runbook bir parametreyle çalıştırır _Başlat_ her Pazartesi belirtilen zamanda. Ardışık olarak bir etiketle başlayan tüm sanal makineler (Azalan) **SequenceStart** uygun değişkenleri tarafından tanımlanmış. Etiket değerlerini ve varlık değişkenleri hakkında daha fazla ayrıntı için runbook'ları bölümüne bakın. İlgili bir zamanlama etkinleştirmelisiniz **sıralı StopVM**.|
+|Scheduled_StopVM | Kullanıcı tanımlı, her gün | Scheduled_Parent runbook bir parametreyle çalıştırır _Durdur_ her gün belirtilen zamanda. Varlık değişkenleri tarafından tanımlanmış kurallara uygun olan tüm VM'ler otomatik olarak durdurur. İlgili zamanlamayı etkinleştir **zamanlanmış StartVM**.|
+|Scheduled_StartVM | Kullanıcı tanımlı, her gün | Scheduled_Parent runbook bir parametreyle çalıştırır _Başlat_ her gün belirtilen zamanda. Uygun değişkenleri tarafından tanımlanmış kurallara uygun olan tüm VM'ler otomatik olarak başlar. İlgili zamanlamayı etkinleştir **zamanlanmış StopVM**.|
+|Sıralı StopVM | 1: 00'da (UTC), her Cuma | Sequenced_Parent runbook bir parametreyle çalıştırır _Durdur_ her Cuma belirtilen zamanda. Sıralı olarak (artan) durdurur bir etiketi bulunduğu tüm VM'ler **SequenceStop** uygun değişkenleri tarafından tanımlanmış. Etiketi değer ve varlık değişkenleri hakkında daha fazla bilgi için runbook'ları bölümüne bakın. İlgili zamanlamayı etkinleştir **sıralı StartVM**.|
+|Sıralı StartVM | 13: 00'te (UTC), her Pazartesi | Sequenced_Parent runbook bir parametreyle çalıştırır _Başlat_ her Pazartesi belirtilen zamanda. Ardışık olarak bir etiketle başlayan tüm sanal makineler (Azalan) **SequenceStart** uygun değişkenleri tarafından tanımlanmış. Etiketi değer ve varlık değişkenleri hakkında daha fazla bilgi için runbook'ları bölümüne bakın. İlgili zamanlamayı etkinleştir **sıralı StopVM**.|
 
 ## <a name="log-analytics-records"></a>Log Analytics kayıtları
 
@@ -279,8 +279,8 @@ Aşağıdaki tabloda, bu çözüm tarafından toplanan iş kayıtlarına ilişki
 
 |Sorgu | Açıklama|
 |----------|----------|
-|Runbook'una ilişkin başarıyla tamamlanmış ScheduledStartStop_Parent Bul | Kategori arama "JobLogs" == &#124; nerede (RunbookName_s "ScheduledStartStop_Parent" ==) &#124; nerede (resulttype'ı "Completed" ==) &#124; özetleme |AggregatedValue = count() resulttype'ı, bin (TimeGenerated, 1 saat) tarafından &#124; TimeGenerated desc göre sırala|
-|Runbook'una ilişkin başarıyla tamamlanmış SequencedStartStop_Parent Bul | Kategori arama "JobLogs" == &#124; nerede (RunbookName_s "SequencedStartStop_Parent" ==) &#124; nerede (resulttype'ı "Completed" ==) &#124; özetleme |AggregatedValue = count() resulttype'ı, bin (TimeGenerated, 1 saat) tarafından &#124; TimeGenerated desc göre sırala
+|Runbook'una ilişkin başarıyla tamamlanmış ScheduledStartStop_Parent Bul | ''' kategorisi arama "JobLogs" == | Burada (RunbookName_s "ScheduledStartStop_Parent" ==) | Burada (resulttype'ı "Tamamlandı" ==)  | Özetleme |AggregatedValue = count() tarafından resulttype'ı, bin (TimeGenerated, 1 saat) | Sort TimeGenerated desc tarafından '''|
+|Runbook'una ilişkin başarıyla tamamlanmış SequencedStartStop_Parent Bul | ''' kategorisi arama "JobLogs" == | Burada (RunbookName_s "SequencedStartStop_Parent" ==) | Burada (resulttype'ı "Tamamlandı" ==) | Özetleme |AggregatedValue = count() tarafından resulttype'ı, bin (TimeGenerated, 1 saat) | Sort TimeGenerated desc tarafından '''|
 
 ## <a name="viewing-the-solution"></a>Çözümü görüntüleme
 
@@ -317,10 +317,10 @@ Bu çözümde başlatma ve kapatma zamanlamalarını yönetme izleyen aynı adı
 Yalnızca belirli bir süre sonunda sanal makineleri durdurmak için çözümü yapılandırma desteklenir. Bunu yapmanız için gerekenler:
 
 1. İçinde kapatılacak şekilde sanal makineler için kaynak gruplarını eklediğinizden emin olun **External_Start_ResourceGroupNames** değişkeni.
-1. Kendi zamanlamada Vm'lerini kapatmak istediğiniz zamanı oluşturun.
-1. Gidin **ScheduledStartStop_Parent** runbook tıklatıp **zamanlama**. Bu, önceki adımda oluşturduğunuz zamanlamayı seçmenize olanak sağlar.
-1. Seçin **parametreler ve çalıştırma ayarları** ve "Durdur" için eylem parametresini ayarlayın.
-1. Değişikliklerinizi kaydetmek için **Tamam**’a tıklayın.
+2. Kendi zamanlamada Vm'lerini kapatmak istediğiniz zamanı oluşturun.
+3. Gidin **ScheduledStartStop_Parent** runbook tıklatıp **zamanlama**. Bu, önceki adımda oluşturduğunuz zamanlamayı seçmenize olanak sağlar.
+4. Seçin **parametreler ve çalıştırma ayarları** ve "Durdur" için eylem parametresini ayarlayın.
+5. Değişikliklerinizi kaydetmek için **Tamam**’a tıklayın.
 
 ## <a name="update-the-solution"></a>Güncelleştirme çözümü
 

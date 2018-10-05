@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/20/2018
 ms.author: jasonh
-ms.openlocfilehash: 3dea97d674c2027307ac7eb7cae34b6664e40b0b
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 29d6aa99b972dacb12ffb016eabb3a46afab7c7a
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43108129"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48804081"
 ---
 # <a name="ports-used-by-hadoop-services-on-hdinsight"></a>HDInsight üzerindeki Hadoop Hizmetleri tarafından kullanılan bağlantı noktaları
 
@@ -37,7 +37,7 @@ Ek makineler sanal ağa katılmak için önce sanal ağ oluşturun ve HDInsight 
 Bir HDInsight kümesindeki tüm düğümler, bir Azure sanal ağında bulunur ve doğrudan internet'ten erişilemez. Genel bir ağ geçidi, tüm HDInsight küme türleri arasında ortak olan aşağıdaki bağlantı noktaları, İnternet'e erişim sağlar.
 
 | Hizmet | Bağlantı noktası | Protokol | Açıklama |
-| --- | --- | --- | --- | --- |
+| --- | --- | --- | --- |
 | sshd |22 |SSH |İstemcileri birincil baş düğümdeki sshd bağlanır. Daha fazla bilgi için bkz. [HDInsight ile SSH kullanma](hdinsight-hadoop-linux-use-ssh-unix.md). |
 | sshd |22 |SSH |İstemciler kenar düğümündeki sshd bağlanır. Daha fazla bilgi için bkz. [HDInsight ile SSH kullanma](hdinsight-hadoop-linux-use-ssh-unix.md). |
 | sshd |23 |SSH |İstemciler sshd üzerinde ikincil baş düğümüne bağlanır. Daha fazla bilgi için bkz. [HDInsight ile SSH kullanma](hdinsight-hadoop-linux-use-ssh-unix.md). |

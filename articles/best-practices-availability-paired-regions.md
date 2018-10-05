@@ -6,12 +6,12 @@ ms.service: multiple
 ms.topic: article
 ms.date: 07/03/2018
 ms.author: raynew
-ms.openlocfilehash: c500a1ecc817e4d95e39ca0ac985e1d90ffc8a78
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 5678b8408eac303d9036d21612f60fafc325425d
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44721272"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48801922"
 ---
 # <a name="business-continuity-and-disaster-recovery-bcdr-azure-paired-regions"></a>İş sürekliliği ve olağanüstü durum kurtarma (BCDR): eşleştirilmiş Azure bölgeleri
 
@@ -34,6 +34,7 @@ Her Azure bölgesi aynı coğrafyadaki birlikte bölgesel çift yaparak başka b
 | Kanada |Kanada Orta |Doğu Kanada |
 | Çin |Çin Kuzey |Çin Doğu|
 | Avrupa |Kuzey Avrupa |Batı Avrupa |
+| Fransa |Fransa Orta|Fransa Güney|
 | Almanya |Almanya Orta |Almanya Kuzeydoğu |
 | Hindistan |Orta Hindistan |Güney Hindistan |
 | Hindistan |Batı Hindistan (1) |Güney Hindistan |
@@ -69,7 +70,7 @@ Tablo 1 - Azure bölgesel çiftler eşleme
 ## <a name="cross-region-activities"></a>Bölgeler arası etkinlikleri
 Şekil 2 ' başvurulan gibi.
 
-![PaaS](./media/best-practices-availability-paired-regions/1Green.png) **Azure bilgi işlem (PaaS)** – kaynakları kullanılabilir başka bir bölgede bir olağanüstü durum sırasında önceden sağlamak için ek işlem kaynakları hazırlamanız gerekir. Daha fazla bilgi için [Azure dayanıklılık teknik Kılavuzu](resiliency/resiliency-technical-guidance.md).
+![Iaas](./media/best-practices-availability-paired-regions/1Green.png) **Azure (Iaas) işlem** – kaynakları kullanılabilir başka bir bölgede bir olağanüstü durum sırasında önceden sağlamak için ek işlem kaynakları hazırlamanız gerekir. Daha fazla bilgi için [Azure dayanıklılık teknik Kılavuzu](resiliency/resiliency-technical-guidance.md).
 
 ![Depolama](./media/best-practices-availability-paired-regions/2Green.png) **Azure depolama** -coğrafi olarak yedekli depolama (GRS), Azure depolama hesabınız oluşturulduğunda varsayılan olarak yapılandırılır. GRS ile verileriniz otomatik olarak üç kez birincil bölge içinde ve üç kez eşleştirilmiş bölge içinde çoğaltılır. Daha fazla bilgi için [Azure depolama Yedekliliği seçenekleri](storage/common/storage-redundancy.md).
 

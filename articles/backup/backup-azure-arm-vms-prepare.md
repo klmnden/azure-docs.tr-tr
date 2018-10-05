@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 9/10/2018
 ms.author: markgal
-ms.openlocfilehash: 00432e1b5a181c57e4901b684d0a86c1cc843037
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: ebfd879fcd619dab48e4a08130f86afc68f91207
+ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47408989"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48785435"
 ---
 # <a name="prepare-your-environment-to-back-up-resource-manager-deployed-virtual-machines"></a>Resource Manager ile dağıtılan sanal makineleri yedeklemek için ortamınızı hazırlama
 
@@ -37,7 +37,7 @@ Bu koşullar, ortamınızda zaten mevcutsa devam [Vm'lerinizi yedekleyin](backup
 
  * **Linux**: Azure Backup'ı destekleyen [bir Azure onayladığı bir dağıtım listesini](../virtual-machines/linux/endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), CoreOS Linux hariç. Dosyaları geri yükleme destekleyen Linux işletim sistemleri listesi için bkz: [dosyaları sanal makine yedekten kurtarma](backup-azure-restore-files-from-vm.md#for-linux-os).
 
-    > [!NOTE] 
+    > [!NOTE]
     > Diğer Getir your-kendi Linux'unu dağıtımları VM Aracısı sanal makinede kullanılabilir olduğu sürece, çalışma ve Python desteği bulunduğu. Ancak, bu dağıtımları desteklenmez.
     >
  * **Windows Server**, **Windows istemci**: Windows Server 2008 R2 veya Windows 7'de, eski sürümleri desteklenmez.
@@ -46,11 +46,10 @@ Bu koşullar, ortamınızda zaten mevcutsa devam [Vm'lerinizi yedekleyin](backup
 ## <a name="limitations-when-backing-up-and-restoring-a-vm"></a>Yedekleme ve bir VM geri yüklenirken uygulanan sınırlamalar
 Ortamınızı hazırlama önce bu sınırlamalar anladığınızdan emin olun:
 
-* Standart SSD ile Vm'leri yedekleme şu anda desteklenmiyor.
 * 32'den fazla veri diski içeren sanal makineleri yedekleme desteklenmez.
 * Ayrılmış IP adresi ve tanımlanmış uç nokta içeren sanal makineleri yedeklemeyi desteklemez.
 * Linux Linux birleşik anahtar Kurulum (LUKS) şifreleme ile şifrelenmiş VM'ler için yedekleme desteklenmez.
-* Küme Paylaşılan birimleri (CSV) veya genişleme dosya sunucusu yapılandırması içeren VM'lerin yedeklenmesi önerilmemektedir. Bu yapıldığında, CSV yazıcılar hata beklenir. Bunlar, bir anlık görüntü görevi sırasında küme yapılandırmasında bulunan tüm sanal makineler içeren gerektirir. Azure Backup, çoklu VM tutarlılığı desteklememektedir. 
+* Küme Paylaşılan birimleri (CSV) veya genişleme dosya sunucusu yapılandırması içeren VM'lerin yedeklenmesi önerilmemektedir. Bu yapıldığında, CSV yazıcılar hata beklenir. Bunlar, bir anlık görüntü görevi sırasında küme yapılandırmasında bulunan tüm sanal makineler içeren gerektirir. Azure Backup, çoklu VM tutarlılığı desteklememektedir.
 * Yedekleme verileri, bir VM'ye bağlı ağ sürücülerini içermez.
 * Geri yükleme sırasında mevcut bir sanal makinenin değiştirilmesi desteklenmez. VM'in mevcut olduğunda VM geri yükleme girişimi geri yükleme işlemi başarısız olur.
 * Bölgeler arası yedeklemek ve geri yükleme desteklenmez.
@@ -115,7 +114,7 @@ Depolama çoğaltma ayarını düzenlemek için:
    Azure bir birincil yedek depolama uç noktası olarak kullanıyorsanız coğrafi olarak yedekli depolamayı kullanmaya devam edin. Azure'ı bir birincil olmayan yedekleme alanı uç noktası olarak kullanıyorsanız, yerel olarak yedekli depolamayı seçin. Depolama seçenekleri hakkında daha fazla bilgiyi [Azure Storage Çoğaltmaya genel bakış](../storage/common/storage-redundancy.md).
 
 1. Depolama çoğaltma türü değişirse seçin **Kaydet**.
-    
+
 Kasanız için depolama seçeneğini belirledikten sonra VM'yi kasa ile ilişkilendirmek hazırsınız. İlişkilendirmeyi başlatmak için Azure sanal makinelerini bulmanız ve kaydetmeniz gerekir.
 
 ## <a name="select-a-backup-goal-set-policy-and-define-items-to-protect"></a>Yedekleme hedefi seçme, ilke ayarlama ve korunacak öğeleri tanımlama
@@ -172,11 +171,11 @@ Yedekleme başarıyla etkinleştirildikten sonra yedekleme ilkeniz zamanlamaya g
 Sanal makineyi kaydetmeden sorunlarla karşılaşırsanız, aşağıdaki bilgileri VM Aracısı'nı yükleme ve ağ bağlantısı bakın. Azure'da oluşturulan sanal makineleri koruyorsanız, aşağıdaki bilgileri büyük olasılıkla gerekmez. Ancak, sanal makinelerinizi Azure'a geçiş, VM Aracısı düzgün şekilde yüklenir ve sanal makinenizi sanal ağ ile iletişim kurabildiğinden emin olun.
 
 ## <a name="install-the-vm-agent-on-the-virtual-machine"></a>VM Aracısı sanal makineye yükleyin.
-Backup uzantısının çalışması, Azure için [VM Aracısı](../virtual-machines/extensions/agent-windows.md) Azure sanal makinesinde yüklü olmalıdır. VM'niz Azure Marketi'nden oluşturulmuşsa VM Aracısı sanal makinede zaten mevcuttur. 
+Backup uzantısının çalışması, Azure için [VM Aracısı](../virtual-machines/extensions/agent-windows.md) Azure sanal makinesinde yüklü olmalıdır. VM'niz Azure Marketi'nden oluşturulmuşsa VM Aracısı sanal makinede zaten mevcuttur.
 
 Aşağıdaki bilgiler nerede durumlar için sağlanan *değil* kullanarak bir VM Azure Market'te oluşturulan. **Örneğin, bir VM'nin bir şirket içi veri merkezlerinden geçişi. Böyle bir durumda, VM Aracısı sanal makineyi korumak için yüklü olması gerekir.**
 
-**Not**: VM Aracısı'nı yükledikten sonra de Azure PowerShell'i Azure VM aracısı yüklü olan bilmesi ProvisionGuestAgent özelliğini güncelleştirmek için kullanmanız gerekir. 
+**Not**: VM Aracısı'nı yükledikten sonra de Azure PowerShell'i Azure VM aracısı yüklü olan bilmesi ProvisionGuestAgent özelliğini güncelleştirmek için kullanmanız gerekir.
 
 Azure VM'yi yedekleme konusunda sorun varsa, Azure VM Aracısı sanal makinede düzgün yüklendiğini kontrol etmek için aşağıdaki tabloyu kullanın. Tablo, Windows ve Linux Vm'leri için VM Aracısı hakkında ek bilgi sağlar.
 
@@ -207,11 +206,11 @@ Hangi seçeneğin kullanılacağını verirken, yönetilebilirlik, ayrıntılı 
 ### <a name="whitelist-the-azure-datacenter-ip-ranges"></a>Beyaz liste Azure veri merkezi IP aralıkları
 Azure veri merkezi IP aralıklarını güvenilir listeye bakın [Azure Web sitesi](http://www.microsoft.com/en-us/download/details.aspx?id=41653) IP aralıkları ve yönergeleri hakkında ayrıntılı bilgi için.
 
-Kullanarak belirli bir bölgenin depolama bağlantılara izin vermek [hizmet etiketleri](../virtual-network/security-overview.md#service-tags). Depolama hesabına erişime izin veren kuralın internet erişimini engelleyen bir kural daha yüksek önceliğe sahip olduğundan emin olun. 
+Kullanarak belirli bir bölgenin depolama bağlantılara izin vermek [hizmet etiketleri](../virtual-network/security-overview.md#service-tags). Depolama hesabına erişime izin veren kuralın internet erişimini engelleyen bir kural daha yüksek önceliğe sahip olduğundan emin olun.
 
 ![Bir bölge için depolama etiketlerle NSG](./media/backup-azure-arm-vms-prepare/storage-tags-with-nsg.png)
 
-Aşağıdaki video, hizmet etiketleri yapılandırmak için adım adım yordam boyunca size yardımcı olur: 
+Aşağıdaki video, hizmet etiketleri yapılandırmak için adım adım yordam boyunca size yardımcı olur:
 
 >[!VIDEO https://www.youtube.com/embed/1EjLQtbKm1M]
 
@@ -292,7 +291,7 @@ HttpProxy.Port=<proxy port>
    * İçin **yerel bağlantı noktası**seçin **belirli bağlantı noktaları**. Aşağıdaki kutuya yapılandırılmış olan proxy bağlantı noktası numarasını belirtin.
    * İçin **uzak bağlantı noktası**seçin **tüm bağlantı noktaları**.
 
-Sonuna ulaşana kadar Sihirbazı için varsayılan ayarları kabul edin. Ardından bu kural, bir ad verin. 
+Sonuna ulaşana kadar Sihirbazı için varsayılan ayarları kabul edin. Ardından bu kural, bir ad verin.
 
 #### <a name="step-3-add-an-exception-rule-to-the-nsg"></a>3. adım: bir özel durum kuralı için bir NSG ekleyin.
 Aşağıdaki komut, NSG ile bir özel durum ekler. Bu özel bağlantı noktası 80 (HTTP) veya 443 (HTTPS) herhangi bir Internet adresi 10.0.0.5 üzerinde herhangi bir bağlantı noktasından TCP trafiğine izin verir. Genel internet üzerindeki belirli bir bağlantı noktası gerekiyorsa, bu bağlantı noktasına eklediğinizden emin olun ```-DestinationPortRange```.

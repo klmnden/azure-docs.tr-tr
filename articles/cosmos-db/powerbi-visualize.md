@@ -8,30 +8,23 @@ manager: kfile
 ms.service: cosmos-db
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/17/2018
+ms.date: 10/03/2018
 ms.author: sngun
-ms.openlocfilehash: b5b3a96991a2150e553af01e3fda73e04116d7fb
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: 686f21aa805560bb4c2a7fbf9b0c61e1edef14bb
+ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47452420"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48785537"
 ---
-# <a name="power-bi-tutorial-for-azure-cosmos-db-visualize-data-using-the-power-bi-connector"></a>Azure Cosmos DB için Power BI öğretici: Power BI Bağlayıcısı'nı kullanarak verileri Görselleştir
-[PowerBI.com](https://powerbi.microsoft.com/) burada oluşturmak ve paylaşmak için kullanabileceğiniz panolar ve raporlar, siz ve kuruluşunuz için önemli olan verilerle çevrimiçi bir hizmettir.  Power BI Desktop, yazma, çeşitli veri kaynaklarından veri almak, birleştirmek ve veri dönüştürme, güçlü raporlar ve görselleştirmeler oluşturma ve raporları Power BI'da Yayımla sağlayan aracı adanmış bir rapordur.  Power BI Desktop'ın en son sürümüyle artık Azure Cosmos DB bağlayıcısı aracılığıyla Azure Cosmos DB hesabınız için Power BI bağlanabilirsiniz.   
+# <a name="visualize-azure-cosmos-db-data-by-using-the-power-bi-connector"></a>Power BI Bağlayıcısı'nı kullanarak Azure Cosmos DB verileri Görselleştir
 
-Power BI Bu öğreticide, biz Power BI Desktop'ta bir Azure Cosmos DB hesabına bağlanma, Gezgin'i kullanarak verileri ayıklamak için istediğimiz bir koleksiyonuna gidin, JSON verileri Power BI Desktop sorgu Düzenleyicisi'ni kullanarak tablo biçimine dönüştürmek için adımlarında yol , derleme ve bir raporu powerbi.com üzerinde yayımlayın.
+[Power BI](https://powerbi.microsoft.com/) oluşturduğunuz ve panolar ve raporlar çevrimiçi bir hizmettir. Power BI Desktop, yazma aracı, çeşitli veri kaynaklarından veri almanızı sağlayan bir rapordur. Bir Azure Cosmos DB, bir veri kaynağı, Power BI Desktop ile kullanabilirsiniz. Power BI için Azure Cosmos DB Bağlayıcısı ile Azure Cosmos DB hesabı için Power BI Desktop bağlanabilirsiniz.  Power BI için Azure Cosmos DB veri içe aktardıktan sonra dönüştürmek, raporlar oluşturabilir ve raporları Power BI'a yayımlayın.   
 
-Bu Power BI öğreticiyi tamamladıktan sonra aşağıdaki soruları yanıtlamak mümkün olacaktır:  
-
-* Nasıl ı Power BI Desktop'ı kullanarak Azure Cosmos DB'den verileri içeren raporlar oluşturabilirsiniz?
-* Power BI Desktop'ta bir Azure Cosmos DB hesabına nasıl bağlanabilir miyim?
-* Nasıl ı Power BI Desktop'ta bir koleksiyondan veri alabilir?
-* Power BI Desktop'ta iç içe geçmiş JSON verileri nasıl dönüştürme?
-* Nasıl yayımlamak ve PowerBI.com raporumda paylaşmak?
+Bu makalede, Power BI Desktop için Azure Cosmos DB hesabına bağlanmak için gereken adımlar açıklanmaktadır. Bağlanma sonra bir koleksiyonuna gidin, verileri ayıklamak, JSON verileri tablo biçimine dönüştürmek ve Powerbı'a bir raporu yayımlayın.
 
 > [!NOTE]
-> Azure Cosmos DB için Power BI Bağlayıcısı, ayıklama ve veri dönüştürme için Power BI Desktop için bağlanır. Power BI Desktop'ta oluşturulan raporlar için Powerbı.com yayımlayabilirsiniz. Powerbı.com'da doğrudan ayıklama ve Azure Cosmos DB veri dönüştürme gerçekleştirilemiyor. 
+> Azure Cosmos DB için Power BI Bağlayıcısı, Power BI Desktop için bağlanır. Power BI Desktop'ta oluşturulan raporlar için Powerbı.com yayımlanabilir. Azure Cosmos DB verilerinin doğrudan ayıklama PowerBI.com gerçekleştirilemiyor. 
 
 > [!NOTE]
 > Power BI Bağlayıcısı ile Azure Cosmos DB'ye bağlanmanın şu anda, Azure Cosmos DB SQL API ve yalnızca Gremlin API hesapları için desteklenir.
@@ -39,17 +32,16 @@ Bu Power BI öğreticiyi tamamladıktan sonra aşağıdaki soruları yanıtlamak
 ## <a name="prerequisites"></a>Önkoşullar
 Power BI öğreticideki yönergeleri izlemeden önce aşağıdaki kaynaklara erişimi olduğundan emin olun:
 
-* [Power BI Desktop'ın en son sürümünü](https://powerbi.microsoft.com/desktop).
-* Tanıtım hesabı ve Azure Cosmos DB hesabınızdaki veriler, belgelerimizin erişim.
-  * Tanıtım hesabı, bu öğreticide gösterilen volkan verilerle doldurulur. Bu Tanıtım hesap tarafından SLA bağlı değil ve yalnızca tanıtım amacıyla tasarlanmıştır.  Biz bu tanıtım hesabı dahil olmak üzere değişiklik yapma hakkını saklı tutarız ancak bunlarla sınırlı olmamak hesap sonlandırma, anahtarının değiştirilmesi, değiştirme, erişimini ve veri bulunuruz veya neden olmadan dilediğiniz zaman silin.
-    * URL: `https://analytics.documents.azure.com`
-    * Salt okunur anahtarı: `MSr6kt7Gn0YRQbjd6RbTnTt7VHc5ohaAFu7osF0HdyQmfR+YhwCH2D2jcczVIR1LNK3nMPNBD31losN7lQ/fkw==`
-  * Veya kendi hesabınızı oluşturmak için bkz. [Azure portalını kullanarak bir Azure Cosmos DB veritabanı hesabı oluşturma](https://azure.microsoft.com/documentation/articles/create-account/). Ardından, örnek volkan almak için gerekenler benzer veri Bu öğreticide kullanılan (ancak GeoJSON blokları içermiyor), bkz [NOAA site](https://www.ngdc.noaa.gov/nndc/struts/form?t=102557&s=5&d=5) ve ardından kullanarak verileri içeri aktarma [Azure Cosmos DB veri geçiş aracı](import-data.md).
+* [Power BI Desktop'ın en son sürümünü indirin](https://powerbi.microsoft.com/desktop).
 
-PowerBI.com raporlarınızda paylaşmak için Powerbı.com'daki hesabınız olmalıdır.  Ücretsiz ve Power BI Pro için Power BI hakkında daha fazla bilgi edinmek için [ https://powerbi.microsoft.com/pricing ](https://powerbi.microsoft.com/pricing).
+* İndirme [örnek volkan verileri](https://github.com/Azure-Samples/azure-cosmos-db-sample-data/blob/master/SampleData/VolcanoData.json) github'dan.
+
+* [Bir Azure Cosmos DB veritabanı hesabı oluşturma](https://azure.microsoft.com/documentation/articles/create-account/) ve volkan verileri kullanarak içeri aktarma [Azure Cosmos DB veri geçiş aracı](import-data.md).
+
+PowerBI.com raporlarınızda paylaşmak için Powerbı.com'daki hesabınız olmalıdır.  Power BI ve Power BI Pro hakkında daha fazla bilgi için bkz: [ https://powerbi.microsoft.com/pricing ](https://powerbi.microsoft.com/pricing).
 
 ## <a name="lets-get-started"></a>Başlayalım
-Şimdi bu öğreticide, dünyanın dört bir yanındaki volkanlar Çincesi bir geologist olduğunu hayal edin.  Bir Azure Cosmos DB hesabını volkan veriler ve aşağıdaki örnek belgeyi gibi JSON belgelerinin bakın.
+Şimdi bu öğreticide, dünyanın dört bir yanındaki volkanlar Çincesi bir geologist olduğunu hayal edin. Bir Azure Cosmos DB hesabını volkan veriler ve JSON belge biçimi aşağıdaki gibidir:
 
     {
         "Volcano Name": "Rainier",
@@ -68,41 +60,33 @@ PowerBI.com raporlarınızda paylaşmak için Powerbı.com'daki hesabınız olma
           "Last Known Eruption": "Last known eruption from 1800-1899, inclusive"
     }
 
-Azure Cosmos DB hesabınızdan volkan verileri almak ve aşağıdaki rapor gibi etkileşimli bir Power BI raporundaki verileri görselleştirmek istediğiniz.
+Azure Cosmos DB hesabınızdan volkan verileri almak ve etkileşimli bir Power BI rapor verileri görselleştirin.
 
-![Bu Power BI Bağlayıcısı ile Power BI öğreticiyi izleyerek, Power BI Desktop volkan rapor ile verileri görselleştirme mümkün olacaktır](./media/powerbi-visualize/power_bi_connector_pbireportfinal.png)
+1. Power BI Desktop'ı çalıştırın.
 
-Bir denemeye hazır mısınız? Haydi başlayalım.
-
-1. Power BI Desktop, iş istasyonunda çalışır.
-2. Power BI Desktop başlatıldıktan sonra bir *Hoş Geldiniz* ekranı görüntülenir.
+2. Yapabilecekleriniz **Veri Al**, bakın **son kaynaklar**, veya **açık diğer rapor** doğrudan Hoş Geldiniz ekranı. "Ekranı kapatmak için X" sağ üst köşesinde'ı seçin. **Rapor** Power BI Desktop'ın görünümü görüntülenir.
    
-    ![Power BI Desktop Hoş Geldiniz ekranı - Power BI Bağlayıcısı](./media/powerbi-visualize/power_bi_connector_welcome.png)
-3. Yapabilecekleriniz **Veri Al**, bkz: **son kaynaklar**, veya **açık diğer rapor** doğrudan *Hoş Geldiniz* ekran.  Ekranı kapatmak için sağ üst köşesindeki X tıklayın. **Rapor** Power BI Desktop'ın görünümü görüntülenir.
-   
-    ![Power BI Desktop rapor görünümü - Power BI Bağlayıcısı](./media/powerbi-visualize/power_bi_connector_pbireportview.png)
-4. Seçin **giriş** şeridini ve ardından tıklayarak **Veri Al**.  **Veri Al** penceresi görüntülenmelidir.
-5. Tıklayarak **Azure**seçin **Azure Cosmos DB (Beta)** ve ardından **Connect**. 
+   ![Power BI Desktop rapor görünümü - Power BI Bağlayıcısı](./media/powerbi-visualize/power_bi_connector_pbireportview.png)
+
+3. Seçin **giriş** şeridini ve ardından tıklayarak **Veri Al**.  **Veri Al** penceresi görüntülenmelidir.
+
+4. Tıklayarak **Azure**seçin **Azure Cosmos DB (Beta)** ve ardından **Connect**. 
 
     ![Power BI Desktop, Power BI Bağlayıcısı - veri alma](./media/powerbi-visualize/power_bi_connector_pbigetdata.png)   
-6. Üzerinde **bağlayıcıyı Önizleme** sayfasında **devam**. **Azure Cosmos DB** penceresi görüntülenir.
-7. Aşağıda gösterildiği gibi verileri almak ister ve ardından Azure Cosmos DB hesabı uç noktasının URL'sini belirtin **Tamam**. Kendi hesabınızı kullanmak için URL URI kutusundan alabilirsiniz **[anahtarları](manage-account.md#keys)** Azure portal'ın dikey penceresi. Tanıtım hesabı kullanmak için girin `https://analytics.documents.azure.com` URL. 
+
+5. Üzerinde **bağlayıcıyı Önizleme** sayfasında **devam**. **Azure Cosmos DB** penceresi görüntülenir.
+
+6. Aşağıda gösterildiği gibi verileri almak ister ve ardından Azure Cosmos DB hesabı uç noktasının URL'sini belirtin **Tamam**. Kendi hesabınızı kullanmak için URL URI kutusundan alabilirsiniz **[anahtarları](manage-account.md#keys)** Azure portal'ın dikey penceresi. İsteğe bağlı olarak koleksiyon adı veritabanı adı girin veya verilerin nereden geldiğini belirlemek için koleksiyon ve veritabanı seçmek için Gezgin kullanın.
    
-    Bu alanlar isteğe bağlı olarak veritabanı adı, koleksiyon adı ve SQL deyimi boş bırakın.  Bunun yerine, verilerin nereden geldiğini belirlemek için veritabanı ve koleksiyonu seçmek için Gezgin kullanacağız.
+7. Bu uç noktaya ilk kez bağlanıyorsanız, hesap anahtarı istenir. Kendi hesabınızı için anahtarını almak **birincil anahtar** kutusunda **[salt okunur anahtarları](manage-account.md#keys)** Azure portal'ın dikey penceresi. Uygun anahtarı girin ve ardından **Connect**.
    
-    ![Azure Cosmos DB Power BI Bağlayıcısı - Desktop penceresine bağlanmak için Power BI Öğreticisi](./media/powerbi-visualize/power_bi_connector_pbiconnectwindow.png)
-8. Bu uç noktaya ilk kez bağlanıyorsanız, hesap anahtarı istenir. Kendi hesabınızı için anahtarını almak **birincil anahtar** kutusunda **[salt okunur anahtarları](manage-account.md#keys)** Azure portal'ın dikey penceresi. Tanıtım, anahtar hesabıdır `MSr6kt7Gn0YRQbjd6RbTnTt7VHc5ohaAFu7osF0HdyQmfR+YhwCH2D2jcczVIR1LNK3nMPNBD31losN7lQ/fkw==`. Uygun anahtarı girin ve ardından **Connect**.
-   
-    Rapor oluştururken salt okunur anahtarı kullanmanızı öneririz.  Bu, olası güvenlik risklerini ana anahtarı gereksiz riskini engeller. Salt okunur anahtar kullanılabilir [anahtarları](manage-account.md#keys) yukarıda sağlanan tanıtım hesap bilgilerini Azure portalında veya ın dikey penceresini kullanabilir.
-   
-    ![Power BI öğretici için Azure Cosmos DB Power BI Bağlayıcısı - hesap anahtarı](./media/powerbi-visualize/power_bi_connector_pbidocumentdbkey.png)
+   Rapor oluştururken salt okunur anahtarı kullanmanızı öneririz. Bu, olası güvenlik risklerini ana anahtarı gereksiz riskini engeller. Salt okunur anahtar kullanılabilir [anahtarları](manage-account.md#keys) Azure portal'ın dikey penceresi. 
     
-    > [!NOTE] 
-    > "Belirtilen veritabanı bulunamadı." diyen bir hata alırsanız geçici çözüm bu adımlarına bakın [Power BI sorunu](https://community.powerbi.com/t5/Issues/Document-DB-Power-BI/idi-p/208200).
-    
-9. Hesap başarıyla bağlandığında **Gezgin** bölmesi görünür.  **Gezgin** hesabı altında veritabanlarının listesini gösterir.
-10. ' A tıklayın ve tanıtım hesabı kullanıyorsanız, rapor, gelir için verileri nerede seçin veritabanında genişletin **volcanodb**.   
-11. Artık, alınacak verileri içeren bir koleksiyon seçin. Tanıtım hesabı kullanıyorsanız, seçin **volcano1**.
+8. Hesap başarıyla bağlandığında **Gezgin** bölmesi görünür. **Gezgin** hesabı altında veritabanlarının listesini gösterir.
+
+9. ' I tıklatın ve raporu geldiği için verileri nerede seçin veritabanında genişletin **volcanodb** (veritabanı adınız farklı olabilir).   
+
+10. Şimdi, veri almak için seçin içeren bir koleksiyon seçin **volcano1** (koleksiyon adınızı farklı olabilir).
     
     Önizleme bölmesinde bir listesini gösterir **kayıt** öğeleri.  Bir belge olarak temsil edilen bir **kayıt** Power bı'da türü. Benzer şekilde, bir belge içindeki iç içe bir JSON blok da olan bir **kayıt**.
     
@@ -170,7 +154,6 @@ Basit bir etkileşimli harita görünümü rapor oluşturmaya yönelik temel ad�
 5. Harita görmelisiniz visual baloncuklar volkan yükseltilmesini ilişkilendirme Kabarcık boyutu ile her volkan konumunu belirten bir kümesi gösteriliyor.
 6. Temel bir rapor oluşturdunuz.  Rapora görselleştirmeler ekleyerek daha fazla özelleştirebilirsiniz.  Bu örnekte, raporun etkileşimli hale getirmek için volkan türü dilimleyici ekledik.  
    
-    ![Azure Cosmos DB için Power BI öğreticinin tamamlandıktan sonra son Power BI Desktop raporunun ekran görüntüsü](./media/powerbi-visualize/power_bi_connector_pbireportfinal.png)
 7. Dosya menüsünde **Kaydet** ve PowerBITutorial.pbix kaydedin.
 
 ## <a name="publish-and-share-your-report"></a>Raporunuzu paylaşmak ve yayımlama

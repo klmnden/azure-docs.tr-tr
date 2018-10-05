@@ -8,19 +8,19 @@ ms.service: key-vault
 author: bryanla
 ms.author: bryanla
 manager: mbaldwin
-ms.date: 08/21/2017
-ms.openlocfilehash: 7545a035541a4e464a6c82acb9fa9de18cf8e86d
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.date: 10/03/2018
+ms.openlocfilehash: 38717fed9f3877dfd0aa9819571ef0f32befc117
+ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44304331"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48785520"
 ---
-# <a name="azure-key-vault-storage-account-keys"></a>Azure anahtar kasası depolama hesabı anahtarları
+# <a name="azure-key-vault-storage-account-keys"></a>Azure Key Vault depolama hesabı anahtarları
 
-Azure Key Vault depolama hesabı anahtarlarını önce geliştiriciler kendi Azure depolama hesabı (ASA) anahtarları yönetmek ve bunları el ile veya bir dış Otomasyon yoluyla döndürmek vardı. Artık, Key Vault depolama hesabı anahtarları olarak gerçekleştirilmektedir [Key Vault gizli dizileri](https://docs.microsoft.com/rest/api/keyvault/about-keys--secrets-and-certificates#BKMK_WorkingWithSecrets) bir Azure depolama hesabıyla kimlik doğrulaması.
+Azure Key Vault depolama hesabı anahtarları önce sahip geliştiriciler kendi Azure depolama hesabı (ASA) anahtarları yönetmek ve bunları el ile veya bir dış Otomasyon yoluyla döndürmek. Artık, Key Vault depolama hesabı anahtarları olarak gerçekleştirilmektedir [Key Vault gizli dizileri](https://docs.microsoft.com/rest/api/keyvault/about-keys--secrets-and-certificates#BKMK_WorkingWithSecrets) bir Azure depolama hesabıyla kimlik doğrulaması.
 
-Azure depolama hesabı (ASA) temel bir özelliği, gizli dönüş yönetir. Ayrıca, doğrudan iletişim için gereken bir ASA anahtarı ile paylaşılan erişim imzaları (SAS) bir yöntem olarak sunarak kaldırır.
+Azure depolama hesabı (ASA) temel bir özelliği, gizli dönüş yönetir. Ayrıca doğrudan iletişim için gereken bir ASA anahtarı ile paylaşılan erişim imzaları (SAS) bir yöntem olarak sunarak kaldırır.
 
 Azure depolama hesapları hakkında daha fazla genel bilgi için bkz. [Azure depolama hesapları hakkında](https://docs.microsoft.com/azure/storage/storage-create-storage-account).
 
@@ -95,28 +95,38 @@ accountSasCredential.UpdateSASToken(sasToken);
 - ASA anahtarları birden fazla anahtar kasası nesne tarafından yönetilecek izin vermez.
 - ASA anahtarlarınızı el ile yeniden gerekiyorsa, bunları Key Vault aracılığıyla yeniden öneririz.
 
-## <a name="getting-started"></a>Başlarken
+## <a name="authorize-key-vault-to-access-to-your-storage-account"></a>Key Vault, depolama hesabınıza erişimi yetkilendirin
 
-### <a name="give-key-vault-access-to-your-storage-account"></a>Depolama hesabınıza Key Vault erişimi verin 
+Key Vault erişimi ve depolama hesap anahtarlarınızı yönetme önce depolama hesabınıza erişimini yetkilendirmesi gerekecektir.  Birçok uygulama gibi Key Vault kimlik ve erişim Yönetimi Hizmetleri için Azure AD ile tümleştirilir. 
 
-Birçok uygulama gibi diğer hizmetlere erişmek için OAuth kullanmak için Key Vault, Azure AD ile kaydedilir. Kayıt sırasında [bir hizmet sorumlusu](/azure/active-directory/develop/app-objects-and-service-principals) nesnesi oluşturulur, çalışma zamanında uygulamanın kimliğini temsil etmek için kullanılır. Hizmet sorumlusu, rol tabanlı erişim denetimi (RBAC) başka bir kaynağa erişmek için uygulamanın kimliğini yetkilendirmek için de kullanılır.
+Key Vault Microsoft uygulama olduğundan, uygulama kimliği altındaki tüm Azure AD kiracıları içinde önceden kayıtlı olduğu `cfa8b339-82a2-471a-a3c9-0fc0be7a4093`. Ve Azure AD'ye kayıtlı tüm uygulamalar gibi bir [hizmet sorumlusu](/azure/active-directory/develop/app-objects-and-service-principals) nesnesi, uygulamanın kimlik özellikleri sağlar. Hizmet sorumlusu, rol tabanlı erişim denetimi (RBAC) başka bir kaynağa erişim yetkisi ardından verilebilir.  
 
-Azure anahtar kasası uygulama kimliği için izinler gerekiyor *listesi* ve *yeniden* anahtarları, depolama hesabınız için. Aşağıdaki adımları kullanarak bu izinleri ayarlama:
+Azure anahtar kasası uygulama izinleri bulunmalıdır *listesi* ve *yeniden* anahtarları, depolama hesabınız için. Bu izinleri yerleşik etkinleştirilir [depolama hesabı anahtarı işleci hizmet](/azure/role-based-access-control/built-in-roles#storage-account-key-operator-service-role) RBAC rolü. Key Vault hizmet sorumlusu aşağıdaki adımları kullanarak bu role atadığınız:
 
 ```powershell
-# Get the resource ID of the Azure Storage Account you want to manage.
-# Below, we are fetching a storage account using Azure Resource Manager
+# Get the resource ID of the Azure Storage Account you want Key Vault to manage
 $storage = Get-AzureRmStorageAccount -ResourceGroupName "mystorageResourceGroup" -StorageAccountName "mystorage"
 
-# Get Application ID of Azure Key Vault's service principal
-$servicePrincipal = Get-AzureRmADServicePrincipal -ServicePrincipalName cfa8b339-82a2-471a-a3c9-0fc0be7a4093
-
 # Assign Storage Key Operator role to Azure Key Vault Identity
-New-AzureRmRoleAssignment -ObjectId $servicePrincipal.Id -RoleDefinitionName 'Storage Account Key Operator Service Role' -Scope $storage.Id
+New-AzureRmRoleAssignment -ApplicationId “cfa8b339-82a2-471a-a3c9-0fc0be7a4093” -RoleDefinitionName 'Storage Account Key Operator Service Role' -Scope $storage.Id
 ```
 
-    >[!NOTE]
-    > For a classic account type, set the role parameter to *"Classic Storage Account Key Operator Service Role."*
+> [!NOTE]
+> Bir Klasik hesap türü için rol parametresi kümesine *"Klasik depolama hesabı anahtarı işleci hizmet rolü."*
+
+Başarılı bir rol ataması sırasında aşağıdakine benzer bir çıktı görmeniz gerekir
+
+```console
+RoleAssignmentId   : /subscriptions/03f0blll-ce69-483a-a092-d06ea46dfb8z/resourceGroups/rgSandbox/providers/Microsoft.Storage/storageAccounts/sabltest/providers/Microsoft.Authorization/roleAssignments/189cblll-12fb-406e-8699-4eef8b2b9ecz
+Scope              : /subscriptions/03f0blll-ce69-483a-a092-d06ea46dfb8z/resourceGroups/rgSandbox/providers/Microsoft.Storage/storageAccounts/sabltest
+DisplayName        : Azure Key Vault
+SignInName         :
+RoleDefinitionName : Storage Account Key Operator Service Role
+RoleDefinitionId   : 81a9blll-bebf-436f-a333-f67b29880f1z
+ObjectId           : c730c8da-blll-4032-8ad5-945e9dc8262z
+ObjectType         : ServicePrincipal
+CanDelegate        : False
+```
 
 ## <a name="working-example"></a>Çalışan bir örnek
 
@@ -124,7 +134,7 @@ Aşağıdaki örnek, yönetilen Azure depolama hesabı ve ilişkili SAS tanımla
 
 ### <a name="prerequisite"></a>Önkoşul
 
-Tamamladığınızdan emin olun [kurulumu için rol tabanlı erişim denetimi (RBAC) izinlerini](#setup-for-role-based-access-control-rbac-permissions).
+Başlamadan önce emin olursunuz [Key Vault, depolama hesabınıza erişmesine yetki](#authorize-key-vault-to-access-to-your-storage-account).
 
 ### <a name="setup"></a>Kurulum
 

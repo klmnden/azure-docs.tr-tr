@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/06/2018
 ms.author: jeffpatt
 ms.component: files
-ms.openlocfilehash: ef70d3d3dd2a806ea978be8e996b7d5ba0fbc96b
-ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
+ms.openlocfilehash: 2b2d817c85528ef56fd0baef80d17c7cd6eae543
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47586368"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48802245"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Azure Dosya Eşitleme ile ilgili sorunları giderme
 Kuruluşunuzun dosya paylaşımlarını Azure dosyaları'nda esneklik, performans ve bir şirket içi dosya sunucusunun uyumluluğu korurken merkezileştirmek için Azure dosya eşitleme'yi kullanın. Azure dosya eşitleme Windows Server, Azure dosya paylaşımınızın hızlı bir önbelleğine dönüştürür. SMB, NFS ve FTPS gibi verilerinizi yerel olarak erişmek için Windows Server üzerinde kullanılabilir olan herhangi bir protokolünü kullanabilirsiniz. Dünya genelinde gereken sayıda önbellek olabilir.
@@ -319,6 +319,16 @@ Azure dosya eşitleme aracısının Azure dosya paylaşımını veya artık bar�
 | **Düzeltme gerekli** | Evet |
 
 Azure dosya eşitleme tarafından kullanılan iç veritabanı ile ilgili bir sorun olduğunda bu hata oluşur. Bu sorun oluştuğunda, bir destek isteği oluşturun ve bu sorunu gidermenize yardımcı olmak için sizinle iletişim kuracağız.
+
+<a id="-2134364053"></a>**Sunucuda yüklü Azure dosya eşitleme Aracısı sürümü desteklenmiyor.**  
+| | |
+|-|-|
+| **HRESULT** | 0x80C8306B |
+| **HRESULT (ondalık)** | -2134364053 |
+| **Hata dizesi** | ECS_E_AGENT_VERSION_BLOCKED |
+| **Düzeltme gerekli** | Evet |
+
+Sunucuda yüklü Azure dosya eşitleme aracısının sürümü desteklenmiyor, bu hata meydana gelir. Bu sorunu çözmek için [yükseltme]( https://docs.microsoft.com/en-us/azure/storage/files/storage-files-release-notes#upgrade-paths) için bir [aracı sürümü desteklenen]( https://docs.microsoft.com/en-us/azure/storage/files/storage-files-release-notes#supported-versions).
 
 <a id="-2134351810"></a>**Azure dosya paylaşımı depolama sınırına.**  
 | | |

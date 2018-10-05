@@ -10,18 +10,21 @@ ms.date: 08/14/2018
 ms.author: patricka
 ms.reviewer: fiseraci
 keywords: ''
-ms.openlocfilehash: 3712ea278a983d107f754af4bfa8e5bd608a0576
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: d46fd8f5ea00ee1fc1ee5f7bf09a15dd6af5ba50
+ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48239396"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48785588"
 ---
 # <a name="azure-stack-datacenter-integration---syslog-forwarding"></a>Azure Stack veri merkezi tümleştirmesi - syslog iletme
 
 Bu makalede, Azure Stack altyapısının veri merkezinizde zaten dağıtılmış bir dış güvenlik çözümleri ile tümleştirmek için syslog kullanmayı gösterir. Örneğin, bir güvenlik bilgileri olay Yönetimi (SIEM) sistemine. Denetimler, uyarılar ve Azure Stack altyapısının tüm bileşenlerin güvenlik günlükleri syslog kanalı sunar. Güvenlik İzleme çözümleri ile tümleştirmek için Syslog iletmeyi kullanın ve/veya tüm denetimler, uyarılar ve güvenlik almak için bekletme için depolamaya kaydeder. 
 
 1805 güncelleştirmesinden itibaren Azure Stack, yapılandırıldıktan sonra Yük Common Event Format (CEF), syslog iletileri yayar bir tümleşik syslog istemcisi vardır. 
+
+> [!IMPORTANT] 
+> Syslog iletmeyi Önizleme aşamasındadır. Bu bağlı üretim ortamlarında kullanılmamalıdır.  
 
 Aşağıdaki diyagramda, syslog tümleştirmesi katılan ana bileşenleri gösterilmektedir.
 
@@ -49,7 +52,7 @@ Syslog iletmeyi yapılandırma uç noktası (CESARETLENDİRİCİ) ayrıcalıklı
 ```powershell
 ### cmdlet to pass the syslog server information to the client and to configure the transport protocol, the encryption and the authentication between the client and the server
 
-Set-SyslogServer [-ServerName <String>] [-ServerPort <String>] [-NoEncryption] [-SkipCertificateCheck] [-SkipCNCheck] [-UseUDP] [-Remove]
+Set-SyslogServer [-ServerName <String>] [-NoEncryption] [-SkipCertificateCheck] [-SkipCNCheck] [-UseUDP] [-Remove]
 
 ### cmdlet to configure the certificate for the syslog client to authenticate with the server
 
@@ -62,7 +65,6 @@ Parametreler için *kümesi SyslogServer* cmdlet:
 | Parametre | Açıklama | Tür | Gerekli |
 |---------|---------|---------|---------|
 |*SunucuAdı* | Syslog sunucusunun FQDN veya IP adresi | Dize | evet|
-|*ServerPort* | Bağlantı noktası numarası syslog sunucusunun dinleme yaptığı | Dize | evet|
 |*Şifreleme yok*| Düz metin olarak Syslog iletilerini göndermek için istemci zorla | Bayrağı | hayır|
 |*SkipCertificateCheck*| İlk TLS anlaşması sırasında syslog sunucusu tarafından sağlanan sertifika doğrulamasını atla | Bayrağı | hayır|
 |*SkipCNCheck*| Ortak ad değeri ilk TLS anlaşması sırasında syslog sunucusu tarafından sağlanan sertifika doğrulamasını atlayın | Bayrağı | hayır|
@@ -87,7 +89,7 @@ TCP, karşılıklı kimlik doğrulaması ve TLS 1.2 şifrelemeyi Syslog iletmeyi
 
 ```powershell
 # Configure the server
-Set-SyslogServer -ServerName <FQDN or ip address of syslog server> -ServerPort <Port number on which the syslog server is listening on>
+Set-SyslogServer -ServerName <FQDN or ip address of syslog server>
 
 # Provide certificate to the client to authenticate against the server
 Set-SyslogClient -pfxBinary <Byte[] of pfx file> -CertPassword <SecureString, password for accessing the pfx file>
@@ -132,30 +134,28 @@ Bu yapılandırmada, Azure Stack syslog istemcisinde syslog sunucunuza iletileri
 Kimlik doğrulama ve şifreleme kullanarak TCP varsayılan yapılandırma ve bir üretim ortamı için Microsoft'un önerdiği güvenlik en düşük düzeyi temsil eder. 
 
 ```powershell
-Set-SyslogServer -ServerName <FQDN or ip address of syslog server> -ServerPort <Port number on which the syslog server is listening on>
+Set-SyslogServer -ServerName <FQDN or ip address of syslog server>
 ```
 
 Syslog sunucunuzun Azure Stack istemci ile tümleştirme, otomatik olarak imzalanan ve/veya güvenilmeyen bir sertifika kullanarak test etmek istediğiniz durumda ilk anlaşması sırasında istemci tarafından gerçekleştirilen sunucu doğrulamasını atlamak için bu bayraklar kullanabilirsiniz.
 
 ```powershell
- #Skip validation of the Common Name value in the server certificate. Use this flag if you provide an IP address for your syslog server
- Set-SyslogServer -ServerName <FQDN or ip address of syslog server> -ServerPort <Port number on which the syslog server is listening on>
- ```-SkipCNCheck
+#Skip validation of the Common Name value in the server certificate. Use this flag if you provide an IP address for your syslog server
+Set-SyslogServer -ServerName <FQDN or ip address of syslog server> -SkipCNCheck 
  
- #Skip entirely the server certificate validation
- Set-SyslogServer -ServerName <FQDN or ip address of syslog server> -ServerPort <Port number on which the syslog server is listening on>
-```-SkipCertificateCheck
+#Skip entirely the server certificate validation
+Set-SyslogServer -ServerName <FQDN or ip address of syslog server> -SkipCertificateCheck
 ```
+
 > [!IMPORTANT]
 > Microsoft, üretim ortamları için - SkipCertificateCheck bayrağı kullanımına karşı önerir. 
-
 
 ### <a name="configuring-syslog-forwarding-with-tcp-and-no-encryption"></a>TCP ve şifreleme ile Syslog iletmeyi yapılandırma
 
 Bu yapılandırmada, Azure Stack syslog istemcisinde şifreleme ile TCP üzerinden iletileri syslog sunucunuza iletir. İstemci, sunucunun kimliğini doğrulamaz ve bu sunucuya kendi kimlik doğrulama için sağlamaz. 
 
 ```powershell
-Set-SyslogServer -ServerName <FQDN or ip address of syslog server> -ServerPort <Port number on which the syslog server is listening on> -NoEncryption
+Set-SyslogServer -ServerName <FQDN or ip address of syslog server> -NoEncryption
 ```
 
 > [!IMPORTANT]
@@ -167,8 +167,9 @@ Set-SyslogServer -ServerName <FQDN or ip address of syslog server> -ServerPort <
 Bu yapılandırmada, Azure Stack syslog istemcisinde şifreleme ile UDP üzerinden iletileri syslog sunucunuza iletir. İstemci, sunucunun kimliğini doğrulamaz ve bu sunucuya kendi kimlik doğrulama için sağlamaz. 
 
 ```powershell
-Set-SyslogServer -ServerName <FQDN or ip address of syslog server> -ServerPort <Port number on which the syslog server is listening on> -UseUDP
+Set-SyslogServer -ServerName <FQDN or ip address of syslog server> -UseUDP
 ```
+
 Şifreleme ile UDP yapılandırmak en kolay olsa da, ADAM-de-adam saldırılarına ve iletilerin gizlice karşı bir koruma sağlamaz. 
 
 > [!IMPORTANT]
@@ -226,72 +227,6 @@ CEF: <Version>|<Device Vendor>|<Device Product>|<Device Version>|<Signature ID>|
 * Device Product: Microsoft Azure Stack
 * Device Version: 1.0
 ```
-
-### <a name="cef-mapping-for-privileged-endpoint-events"></a>Ayrıcalıklı uç nokta olayları CEF eşleme
-
-```
-Prefix fields
-* Signature ID: Microsoft-AzureStack-PrivilegedEndpoint: <PEP Event ID>
-* Name: <PEP Task Name>
-* Severity: mapped from PEP Level (details see the PEP Severity table below)
-```
-
-Ayrıcalıklı uç noktası için bir olay tablosu:
-
-| Olay | CESARETLENDİRİCİ olay kimliği | CESARETLENDİRİCİ görev adı | Severity |
-|-------|--------------| --------------|----------|
-|PrivilegedEndpointAccessed|1000|PrivilegedEndpointAccessedEvent|5|
-|SupportSessionTokenRequested |1001|SupportSessionTokenRequestedEvent|5|
-|SupportSessionDevelopmentTokenRequested |1002|SupportSessionDevelopmentTokenRequestedEvent|5|
-|SupportSessionUnlocked |1003|SupportSessionUnlockedEvent|10|
-|SupportSessionFailedToUnlock |1004|SupportSessionFailedToUnlockEvent|10|
-|PrivilegedEndpointClosed |1005|PrivilegedEndpointClosedEvent|5|
-|NewCloudAdminUser |1006|NewCloudAdminUserEvent|10|
-|RemoveCloudAdminUser |1007|RemoveCloudAdminUserEvent|10|
-|SetCloudAdminUserPassword |1008|SetCloudAdminUserPasswordEvent|5|
-|GetCloudAdminPasswordRecoveryToken |1009|GetCloudAdminPasswordRecoveryTokenEvent|10|
-|ResetCloudAdminPassword |1010|ResetCloudAdminPasswordEvent|10|
-
-CESARETLENDİRİCİ önem derecesi tablosu:
-
-| Severity | Düzey | Sayısal değer |
-|----------|-------| ----------------|
-|0|Tanımlanmadı|Değer: 0. Tüm düzeylerde günlükleri gösterir|
-|10|Kritik|Değer: 1. Kritik Uyarı için günlükleri gösterir|
-|8|Hata| Değer: 2. Hata günlüklerini gösterir|
-|5|Uyarı|Değer: 3. Günlükleri için bir uyarı gösterir|
-|2|Bilgi|Değer: 4. Bir bilgi iletisidir günlüklerini gösterir|
-|0|Ayrıntılı|Değer: 5. Tüm düzeylerde günlükleri gösterir|
-
-### <a name="cef-mapping-for-recovery-endpoint-events"></a>Kurtarma uç nokta olayları CEF eşleme
-
-```
-Prefix fields
-* Signature ID: Microsoft-AzureStack-PrivilegedEndpoint: <REP Event ID>
-* Name: <REP Task Name>
-* Severity: mapped from REP Level (details see the REP Severity table below)
-```
-
-Tablo olayların kurtarma uç noktası için:
-
-| Olay | Temsilcisi olay kimliği | Temsilcisi görev adı | Severity |
-|-------|--------------| --------------|----------|
-|RecoveryEndpointAccessed |1011|RecoveryEndpointAccessedEvent|5|
-|RecoverySessionTokenRequested |1012|RecoverySessionTokenRequestedEvent |5|
-|RecoverySessionDevelopmentTokenRequested |1013|RecoverySessionDevelopmentTokenRequestedEvent|5|
-|RecoverySessionUnlocked |1014|RecoverySessionUnlockedEvent |10|
-|RecoverySessionFailedToUnlock |1015|RecoverySessionFailedToUnlockEvent|10|
-|RecoveryEndpointClosed |1016|RecoveryEndpointClosedEvent|5|
-
-Tablo Temsilcisi önem derecesi:
-| Severity | Düzey | Sayısal değer |
-|----------|-------| ----------------|
-|0|Tanımlanmadı|Değer: 0. Tüm düzeylerde günlükleri gösterir|
-|10|Kritik|Değer: 1. Kritik Uyarı için günlükleri gösterir|
-|8|Hata| Değer: 2. Hata günlüklerini gösterir|
-|5|Uyarı|Değer: 3. Günlükleri için bir uyarı gösterir|
-|2|Bilgi|Değer: 4. Bir bilgi iletisidir günlüklerini gösterir|
-|0|Ayrıntılı|Değer: 5. Tüm düzeylerde günlükleri gösterir|
 
 ### <a name="cef-mapping-for-windows-events"></a>Windows olayları CEF eşleme
 

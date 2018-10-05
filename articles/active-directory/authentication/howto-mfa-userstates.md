@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: c39b78995aaa7e6754b180142c03cf3aa25199a5
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 2927521a76e74686592fbc4b3ccb931ece7981fd
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45574289"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48803316"
 ---
 # <a name="how-to-require-two-step-verification-for-a-user"></a>Bir kullanıcı için iki aşamalı doğrulama gerektirme
 
@@ -87,8 +87,17 @@ Kullanarak kullanıcı durumunu değiştirmek için [Azure AD PowerShell](/power
 
 Kullanıcıların doğrudan taşıma *zorlanan* durumu. Bunu yaparsanız, kullanıcının değil Azure MFA kaydından geçmediği ve tarayıcı tabanlı olmayan uygulamalar çalışmamaya bir [uygulama parolası](howto-mfa-mfasettings.md#app-passwords).
 
+Modül, ilk olarak kullanarak yükleyin:
+
+       Install-Module MSOnline
+       
+> [!TIP]
+> İlk kez bağlanırken unutmayın **Connect-MsolService**
+
+
 Toplu etkinleştirme kullanıcıları için gerektiğinde PowerShell kullanarak iyi bir seçenektir. Kullanıcıların bir listesi üzerinden döngüye girer ve bunları sağlayan bir PowerShell Betiği oluşturun:
 
+        Import-Module MSOnline
         $st = New-Object -TypeName Microsoft.Online.Administration.StrongAuthenticationRequirement
         $st.RelyingParty = "*"
         $st.State = “Enabled”
@@ -106,6 +115,14 @@ Aşağıdaki komut bir örnektir:
         $sta = @($st)
         Set-MsolUser -UserPrincipalName $user -StrongAuthenticationRequirements $sta
     }
+    
+Bu betik devre dışı bırakılmış MFA için kullanılır:
+
+    Get-MsolUser -UserPrincipalName user@domain.com | Set-MsolUser -StrongAuthenticationRequirements @()
+    
+veya kısaltmak için de olabilir:
+
+    Set-MsolUser -UserPrincipalName user@domain.com -StrongAuthenticationRequirements @()
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

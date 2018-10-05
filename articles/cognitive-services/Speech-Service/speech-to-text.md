@@ -9,12 +9,12 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-jerkin
-ms.openlocfilehash: ef2f349333592e05185c5502490828832cb6c24c
-ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
+ms.openlocfilehash: 456b60ee44f3e47bc04da341fd0e3df86662d16b
+ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48018358"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48785452"
 ---
 # <a name="about-the-speech-to-text-api"></a>Konuşmayı metne dönüştürme API'si
 
@@ -34,9 +34,11 @@ ms.locfileid: "48018358"
 
 - Doğal dil anlama. İle tümleştirme yoluyla [Language Understanding](https://docs.microsoft.com/azure/cognitive-services/luis/) (LUIS), türetilebilir amaç ve varlıkları konuşma içeriğinden. Kullanıcılar, uygulamanızın sözlük bilmeniz gerekmez, ancak kendi kelimelerinizle istediğini tanımlayabilirsiniz.
 
+- Ayrıntılı bir çıkış konuşma yapılandırma nesnesi (SpeechConfig.OutputFormat özelliği) belirtirseniz hizmetinden güvenilirlik puanı döndürülür. Ardından sonuç ya da Best() yöntemini kullanın veya (aşağıdakine benzer bir sonuç. hizmetten döndürülen JSON doğrudan puan Al Properties.GetProperty(PropertyId.SpeechServiceResponse_JsonResult)).
+
 ## <a name="api-capabilities"></a>API özellikleri
 
-Çok sayıda yeteneklerini **Konuşmayı metne dönüştürme** - özellikle çevresinde özelleştirmesi - API REST kullanılabilir. Aşağıdaki tabloda, her API erişimi yöntemi yeteneklerini özetler. Özellikler ve API tam listesini consult Lütfen ayrıntıları [Swagger](https://swagger/service/11ed9226-335e-4d08-a623-4547014ba2cc#/)
+Bazı özelliklerini **Konuşmayı metne dönüştürme** - özellikle çevresinde özelleştirmesi - API REST kullanılabilir. Aşağıdaki tabloda, her API erişimi yöntemi yeteneklerini özetler. 
 
 | Kullanım örneği | REST | SDK’lar |
 |-----|-----|-----|----|

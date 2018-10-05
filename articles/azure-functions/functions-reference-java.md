@@ -11,12 +11,12 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.author: routlaw
-ms.openlocfilehash: f6c5eb4a3ace1fcca1bbbef321371d55a0ce8da9
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 9e07cddb9d446ea24143d3a6dec5e310d3ed6f1c
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46123496"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48802126"
 ---
 # <a name="azure-functions-java-developer-guide"></a>Azure Java işlevleri Geliştirici Kılavuzu
 
@@ -115,9 +115,15 @@ Buna karşılık gelen ile `function.json`:
 
 ```
 
+## <a name="jdk-runtime-availability-and-support"></a>JDK çalışma zamanı kullanılabilirliği ve Destek 
+
+Karşıdan yükleme ve kullanma [Azure Azul Zulu](https://assets.azul.com/files/Zulu-for-Azure-FAQ.pdf) JDK gelen [Azul Systems](https://www.azul.com/downloads/azure-only/zulu/) Java işlev uygulamaları, yerel geliştirme için. JDK Windows, Linux ve macOS için kullanılabilir ve [Azure Destek](https://support.microsoft.com/en-us/help/4026305/sql-contact-microsoft-azure-support) ile geliştirme sırasında karşılaşılan sorunları için kullanılabilir bir [tam destek planı](https://azure.microsoft.com/support/plans/).
+
 ## <a name="third-party-libraries"></a>Üçüncü taraf kitaplıklar 
 
 Azure işlevleri, üçüncü taraf kitaplıkların kullanımını destekler. Varsayılan olarak, tüm bağımlılıkları belirtilen projenizde `pom.xml` dosya otomatik olarak toplanmış sırasında `mvn package` hedefi. Bağımlılık olarak belirtilmemiş kitaplıkları `pom.xml` dosya, yerleştirebilirsiniz bir `lib` işlevin kök dizininde dizin. Bağımlılıkları yerleştirildiğinde `lib` dizin sistemi sınıf yükleyicisi zamanında eklenecektir.
+
+`com.microsoft.azure.functions:azure-functions-java-library` Bağımlılık sınıf üzerinde varsayılan olarak sağlanır ve dahil edilmesi gerekmez `lib` dizin.
 
 ## <a name="data-type-support"></a>Veri türü desteği
 
@@ -235,7 +241,7 @@ Bazen bir işlev giriş ve çıkışları denetime ayrıntılı olması gerekir.
 
 | Özel tür      |       Hedef        | Tipik kullanım                  |
 | --------------------- | :-----------------: | ------------------------------ |
-| `HttpRequestMessage<T>`  |    HTTP tetikleyicisi     | Yöntemi, üst bilgiler veya sorgu Al |
+| `HttpRequestMessage<T>`  |    HTTP Tetikleyicisi     | Yöntemi, üst bilgiler veya sorgu Al |
 | `HttpResponseMessage<T>` | HTTP çıkış bağlaması | 200 dışında dönüş durumu   |
 
 > [!NOTE] 

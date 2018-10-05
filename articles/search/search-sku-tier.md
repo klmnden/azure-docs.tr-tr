@@ -9,12 +9,12 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 09/25/2018
 ms.author: heidist
-ms.openlocfilehash: d28b9177684cf7b9a3ddc83107806aaa6afde477
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 0e1a0d299fb794c3aa937cb62dba9a6ce12c0570
+ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47434047"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48785316"
 ---
 # <a name="choose-a-pricing-tier-for-azure-search"></a>Azure arama için bir fiyatlandırma katmanı seçin
 
@@ -41,19 +41,21 @@ The purpose of this article is to help you choose a tier. It supplements the [pr
 
 Azure Search'te anlamak için en önemli fatura kavramdır bir *arama birimi* (SU). Azure Search çoğaltmaları hem işlevi bölümlere bağlı olduğundan, yalnızca birini veya diğerini tarafından faturalandırmak için anlam ifade etmez. Bunun yerine, her iki bileşik üzerinde üzerinden faturalandırılır. 
 
-Formulaically, bir SU ürünüdür *çoğaltma* ve *bölümleri* hizmeti tarafından kullanılan: **`(R X P = SU)`**
+SU olan çarpımını *çoğaltma* ve *bölümleri* hizmeti tarafından kullanılan: **`(R X P = SU)`**
 
-En az 1 SU (bir çoğaltma bir bölüm ile çarpılmış) ile her hizmeti başlatılır, ancak daha büyük iş yükleri için daha gerçekçi bir model 9 SUs faturalandırılır Yineleme 3, 3 bölümlü bir hizmet olabilir. 
+Her hizmetin en az 1 SU (bir çoğaltma bir bölüm ile çarpılmış) başlar. Birden çok yolla sağlanabilir 36 su herhangi bir hizmeti için en yüksek değer: 6 bölümler x 6 çoğaltmalar veya 3 bölümler x 12 çoğaltmalar. 
+
+Daha azını toplam kapasite kullanımı yaygındır. 9 SUs faturalandırılır. Örneğin, bir yineleme 3, 3 bölümlü hizmeti. 
 
 Fatura oranı **SU başına saatlik**, giderek daha yüksek fiyatlarla sahip her bir katman ile. Genel olarak daha yüksek bir saatlik ücret söz konusu katman için katkıda bulunan, daha büyük ve daha hızlı bölümleri olan daha yüksek katmanlarında sunulur. Her katmanın bulunabilir için derecelendirir [fiyatlandırma ayrıntıları](https://azure.microsoft.com/pricing/details/search/). 
 
-Her katman aşamalı olarak daha yüksek kapasite sunmasına karşın, getirebilirsiniz bir *bölümü* rest yedekte bulunduran toplam kapasite çevrimiçi. Faturalama bakımından, bölümler ve çoğaltmalar çevrimiçi, hesaplanmış, aslında ödersiniz belirleyen SU formülü kullanarak Getir sayısıdır.
+Çoğu müşteri, toplam kapasite çevrimiçi olarak yalnızca bir kısmını rest yedekte bulunduran getirin. Faturalama bakımından, bölümler ve çoğaltmalar çevrimiçi, hesaplanmış, aslında saatlik olarak ödersiniz belirleyen SU formülü kullanarak Getir sayısıdır.
 
 ### <a name="tips-for-reducing-costs"></a>Maliyetleri azaltmak için ipuçları
 
-Fatura düşürmek için hizmeti Kapat olamaz. Ayrılmış bölümler ve çoğaltmalar için işletimsel 24-hizmetinizin ömrü, özel kullanım için ayrılan 7 kaynaklardır. Çoğaltmalar ve bölümler hala kabul edilebilir performans sağlayan düşük bir düzeyde azaltarak tek yolu bir fatura daha düşük olan ve [SLA Uyumluluk](https://azure.microsoft.com/support/legal/sla/search/v1_0/). 
+Fatura düşürmek için hizmeti Kapat olamaz. İşletimsel 24-hizmetinizin ömrü, özel kullanım için ayrılan 7, ayrılmış kaynaklardır. Çoğaltmalar ve bölümler hala kabul edilebilir performans sağlayan düşük bir düzeyde azaltarak tek yolu bir fatura daha düşük olan ve [SLA Uyumluluk](https://azure.microsoft.com/support/legal/sla/search/v1_0/). 
 
-Maliyetleri azaltmak için başka bir seviyesini bir katmanı daha düşük bir saatlik ücret seçmektir. Saatlik ücretler S1, S2 veya S3 ücretlerinden daha düşük. Uygulamanızın yük projeksiyonlar alt sonunda amaçlayan bir hizmet için kaynak sağlanamadı. Hizmet aşıyorsa, daha büyük katmanlı ikinci bir hizmet oluşturun, bu ikinci bir hizmet üzerinde yeniden ve ilk silin. İçin şirket içi sunucularda "Gelecekteki büyümeyi işleyebilmeniz kaydolabileceksiniz için" yaygındır. Bir bulut hizmeti ile maliyet tasarrufu ele Geçiren, ancak en agresif bir biçimde geçerli bir yetersizse, daha yüksek katmanlı bir hizmet için her zaman geçebilirsiniz bilerek.
+Maliyetleri azaltmak için bir düzeyi daha düşük bir saatlik ücret bir katman seçmektir. Saatlik ücretler S1, S2 veya S3 ücretlerinden daha düşük. Uygulamanızın yük projeksiyonlar alt sonunda amaçlayan bir hizmet için kaynak sağlanamadı. Hizmet aşıyorsa, daha büyük katmanlı ikinci bir hizmet oluşturun, bu ikinci bir hizmet üzerinde yeniden ve ilk silin. Kapasite planlaması şirket içi sunucularda yaptığınız varsa, yaygın "Gelecekteki büyümeyi işleyebilmeniz kaydolabileceksiniz" olduğunu bilirsiniz. Ancak, belirli bir satın alma için kilitli çünkü bir bulut hizmeti ile daha fazla maliyet tasarrufu agresif daha sonra amacınızın. Geçerli yetersizse, daha yüksek katmanlı bir hizmet için her zaman geçiş yapabilirsiniz.
 
 ### <a name="capacity-drill-down"></a>Kapasite detaya gitme
 
@@ -92,7 +94,7 @@ Portal ve fiyatlandırma sayfalarını bölüm boyutu ve depolama odağı yerle�
 **S3** ve **S3 HD** yedeklenen aynı yüksek kapasiteli altyapı ancak her biri kendi üst sınırı farklı şekillerde ulaşır. **S3** daha küçük bir sayı çok büyük dizinlerde hedefler. Bu nedenle, kaynak veriye bağlı alt sınırı (her hizmet için 2,4 TB). **S3 HD** çok sayıda küçük dizinleri hedefler. 1.000 dizinlere **S3 HD** dizin kısıtlamalarını biçiminde sınıra ulaşana. Eğer bir **S3 HD** 1. 000'den fazla dizinleri gerektirir müşteri nasıl ilerleyeceğiniz hakkında bilgi için Microsoft Support başvurun.
 
 > [!NOTE]
-> Daha önce belge limitleri önemli bir unsur olan, ancak artık Ocak 2018'den sonra sağlanan birçok Azure Search hizmeti için geçerli değildir. Belge limitleri hala geçerli koşullar hakkında daha fazla bilgi için bkz. [hizmet sınırları: belge sınırları](search-limits-quotas-capacity.md#document-limits).
+> Daha önce belge limitleri önemli bir unsur olan, ancak artık yeni hizmetler için geçerlidir. Koşullar altında belge limitleri hala geçerli hakkında daha fazla bilgi için bkz. [hizmet sınırları: belge sınırları](search-limits-quotas-capacity.md#document-limits).
 >
 
 ## <a name="evaluate-capacity"></a>Kapasite değerlendir

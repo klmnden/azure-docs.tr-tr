@@ -1,57 +1,71 @@
 ---
-title: B2clogin.com kullanma | Microsoft Docs
-description: Login.microsoftonline.com yerine b2clogin.com kullanma hakkında bilgi edinin.
+title: Kümesi yeniden yönlendirme URL'leri b2clogin.com için Azure Active Directory B2C | Microsoft Docs
+description: İçinde bir yeniden yönlendirme b2clogin.com kullanma hakkında bilgi edinmek için Azure Active Directory B2C URL'leri.
 services: active-directory-b2c
 author: davidmu1
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 04/29/2018
+ms.date: 10/04/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: c24582fce44006d9a3972d73078aa8cb0d212c11
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: 8e06cf1a443d4fd158e29ef4b53206a83800dfe9
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47053853"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48803061"
 ---
-# <a name="using-b2clogincom"></a>B2Clogin.com kullanma
+# <a name="set-redirect-urls-to-b2clogincom-for-azure-active-directory-b2c"></a>Kümesi yeniden yönlendirme URL'leri b2clogin.com için Azure Active Directory B2C için
 
-Bundan sonra size tüm müşterilerin kullanmak için teşvik `<YourDirectoryName>.b2clogin.com` ve biz kullanımdan kaldıracağız `login.microsoftonline.com`. B2Clogin.com ek avantajlar gibi sağlar:
-* Diğer Microsoft hizmetleriyle aynı tanımlama bilgisi bundan böyle paylaşın.
-* Microsoft tüm başvuruları, URL'de kaldırabilirsiniz (değiştirebilirsiniz `<YourDirectoryName>.onmicrosoft.com` , dizin kimliği ile). Örneğin: `https://<YourDirectoryName>.b2clogin.com/tfp/<YourDirectoryID>/<policyname>/v2.0/.well-known/openid-configuration`.
+Kaydolma ve oturum açma, Azure Active Directory (Azure AD) B2C uygulamanızda bir kimlik sağlayıcısını ayarlayın, bir yeniden yönlendirme URL'si belirtmeniz gerekir. B2clogin.com kullanma artık geçmişte login.microsoftonline.com, kullanıldı.
 
-B2clogin.com için taşıma için yapmanız gerekenler
+B2clogin.com kullanma, ek avantajlar gibi sunar:
 
-* Sosyal kimlik sağlayıcısı uygulamalarınız için yeniden yönlendirme URI'leri değiştirme
-* B2Clogin.com yerine kullanılacak, uygulamanızın Düzenle `login.microsoftonline.com` ilke başvuruları ve belirteç uç noktaları için.
-* MSAL kullanıyorsanız, ayarlanacak ihtiyacınız `ValidateAuthority=false`.  
+- Tanımlama bilgileri artık diğer Microsoft hizmetleriyle paylaşılır.
+- URL'nizde artık Microsoft bir başvuru içerir. Örneğin, `https://your-tenant-name.b2clogin.com/tfp/your-tenant-ID/policyname/v2.0/.well-known/openid-configuration`.
 
-##<a name="redirect-uris-for-social-identity-providers"></a>Sosyal kimlik sağlayıcıları için yeniden yönlendirme URI'leri
+B2clogin.com kullanılacak yeniden yönlendirme ayarlama b2clogin.com kullanmak için kimlik sağlayıcısı uygulamalarınızda URL'leri. B2clogin.com ilke başvuruları ve belirteç uç noktalar için kullanılacak Azure AD B2C'yi uygulamanız da ayarlarsınız. MSAL kullanıyorsanız, ayarlanacak ihtiyacınız **ValidateAuthority** özelliğini `false`.
 
-Sosyal hesap kimlik sağlayıcıları dizininizde ayarlanan varsa uygulamalarında değişiklikler yapmasını gerekir.  Uygulaması için Azure AD B2C geri yönlendirmek için güvenli URL'lerin bir listesini içeren her bir sosyal sağlayıcısı ile parametre yoktur.  Şu anda, büyük olasılıkla şekilde ayarlamanız geri bazı yeniden yönlendirme elinizde `login.microsoftonline.com` site, bu URL'yi değiştirmeniz gerekir böylece `YourDirectoryName.b2clogin.com` yetkili bir yeniden yönlendirme URI'si olacaktır.  Kaldırdığınızdan emin olun `/te` de.  Böylece her bir kimlik sağlayıcısı denetlemek için tam URL almak için ilgili sayfayı bu URL'ye küçük farklılıklar vardır.  
+## <a name="change-redirect-urls"></a>Değişiklik yeniden yönlendirme URL'leri
 
-| Kimlik sağlayıcısı |
-|-------------------|
-|[Microsoft hesabı](active-directory-b2c-setup-msa-app.md)|
-|[Facebook](active-directory-b2c-setup-fb-app.md)|
-|[Google](active-directory-b2c-setup-goog-app.md)|
-|[Amazon](active-directory-b2c-setup-amzn-app.md)|
-|[LinkedIn](active-directory-b2c-setup-li-app.md)|
-|[Twitter](active-directory-b2c-setup-twitter-app.md)|
-|[GitHub](active-directory-b2c-setup-github-app.md)|
-|[Weibo](active-directory-b2c-setup-weibo-app.md)|
-|[QQ](active-directory-b2c-setup-qq-app.md)|
-|[WeChat](active-directory-b2c-setup-wechat-app.md)|
-|[Azure AD](active-directory-b2c-setup-oidc-azure-active-directory.md)|
-|[Özel OIDC](active-directory-b2c-setup-oidc-idp.md)|
+B2clogin.com, kimlik sağlayıcısı uygulamanızın ayarlarını kullanmak için arayın ve Azure AD B2C geri yönlendirmek için güvenli URL'lerin listesini değiştirin.  Şu anda, büyük ihtimalle bu şekilde ayarlamanız bazı login.microsoftonline.com siteye yeniden yönlendirme vardır. 
 
-##<a name="update-your-application-references"></a>Uygulama başvurularını güncelleştir
+Yeniden yönlendirme URL'sini değiştirmek ihtiyacınız olacak şekilde `your-tenant-name.b2clogin.com` yetkili. Değiştirdiğinizden emin olun `your-tenant-name` adı, Azure AD B2C ile Kiracı ve kaldırma `/te` URL'de zaten varsa. Böylece her bir kimlik sağlayıcısı denetlemek için tam URL almak için ilgili sayfayı bu URL'ye küçük farklılıklar vardır.
 
-Uygulamanızın büyük olasılıkla başvurduğu `login.microsoftonline.com` ilke başvuruları ve belirteç uç noktaları gibi çeşitli yerlerde.  Yetkilendirme uç noktası, belirteç uç noktası ve veren güncelleştirildiğini emin olun.  
+Kimlik sağlayıcıları için kurulum bilgi aşağıdaki makalelerde bulabilirsiniz:
 
-##<a name="set-validateauthorityfalse-in-msal"></a>Ayarlama `ValidateAuthority=false` MSAL içinde
+- [Microsoft hesabı](active-directory-b2c-setup-msa-app.md)
+- [Facebook](active-directory-b2c-setup-fb-app.md)
+- [Google](active-directory-b2c-setup-goog-app.md)
+- [Amazon](active-directory-b2c-setup-amzn-app.md)
+- [LinkedIn](active-directory-b2c-setup-li-app.md)
+- [Twitter](active-directory-b2c-setup-twitter-app.md)
+- [GitHub](active-directory-b2c-setup-github-app.md)
+- [Weibo](active-directory-b2c-setup-weibo-app.md)
+- [QQ](active-directory-b2c-setup-qq-app.md)
+- [WeChat](active-directory-b2c-setup-wechat-app.md)
+- [Azure AD](active-directory-b2c-setup-oidc-azure-active-directory.md)
+- [Özel OIDC](active-directory-b2c-setup-oidc-idp.md)
 
-MSAL kullanıyorsanız ayarlamanız gerekir `ValidateAuthority=false`.  Daha fazla bilgi için [bu belgeleri](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.clientapplicationbase?view=azure-dotnet).
+## <a name="update-your-application"></a>Uygulamanızı güncelleştirme
+
+Azure AD B2C'yi uygulamanız büyük olasılıkla başvurduğu `login.microsoftonline.com` ilke başvuruları ve belirteç uç noktaları gibi çeşitli yerlerde.  Kullanmak için yetkilendirme uç noktası, belirteç uç noktası ve veren güncelleştirildiğini doğrulayın `your-tenant-name.b2clogin.com`.  
+
+## <a name="set-the-validateauthority-property"></a>ValidateAuthority özelliğini ayarlayın
+
+MSAL kullanıyorsanız ayarlayın **ValidateAuthority** için `false`. Aşağıdaki örnek, özelliğin nasıl ayarlayabilir gösterir:
+
+```
+this.clientApplication = new UserAgentApplication(
+  env.auth.clientId,
+  env.auth.loginAuthority,
+  this.authCallback.bind(this),
+  {
+    validateAuthority: false
+  }
+);
+```
+
+ Daha fazla bilgi için [ClientApplicationBase sınıfı ](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.clientapplicationbase?view=azure-dotnet).

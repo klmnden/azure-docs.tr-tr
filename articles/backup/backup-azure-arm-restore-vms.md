@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 09/04/2017
 ms.author: geg
-ms.openlocfilehash: eb47b1d8d3f2859b2b5c0b79633b2d37e5a40756
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: f7561ef4978e19439eafb6ef1a6ca1275c0f2bc7
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44380174"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48804625"
 ---
 # <a name="use-the-azure-portal-to-restore-virtual-machines"></a>Sanal makineleri geri yükleme için Azure portalını kullanma
 Tanımlı aralıklarla verilerinizin anlık görüntülerini alarak verilerinizi koruyun. Bu anlık görüntüler, Kurtarma noktaları olarak bilinir ve kurtarma Hizmetleri kasalarında depolandıkları. Onarım veya bir sanal makine (VM) yeniden gerekliyse, kaydedilmiş kurtarma noktalarının birini VM geri yükleyebilirsiniz. Bir kurtarma noktasından geri yüklediğinizde, şunları yapabilirsiniz:
@@ -37,6 +37,7 @@ VM'den bir VM veya tüm diskleri geri yükleme yedeği iki adımdan oluşur:
 * Geri yükleme türünü seçin, yeni bir VM oluşturun veya diskleri geri yükle ve gerekli parametreleri belirtin. 
 
 ## <a name="select-a-restore-point-for-restore"></a>Geri yükleme için bir geri yükleme noktası seçin
+
 1. [Azure Portal](http://portal.azure.com/)’da oturum açın.
 
 1. Azure menüsünde **Gözat**. Hizmetler listesinde yazın **kurtarma Hizmetleri**. Yazdığınız için hizmet listesini ayarlar. Gördüğünüzde **kurtarma Hizmetleri kasaları**, onu seçin.
@@ -102,7 +103,7 @@ Geri yükleme noktası seçtikten sonra bir VM geri yükleme yapılandırması s
 Portal sağlar bir **hızlı Oluştur** geri yüklenen VM için seçenek. VM yapılandırması veya yeni bir VM seçenek oluşturulmasının bir parçası oluşturulan kaynakların adlarını özelleştirmek için yedeklenen diskleri geri yüklemek için PowerShell veya portal'ı kullanın. Bunları kendi seçtiğiniz VM yapılandırması için eklemek için PowerShell komutlarını kullanın. Veya geri yüklenen VM özelleştirmek için geri yüklenen diskleri ile birlikte gelen şablon kullanabilirsiniz. Birden çok NIC içeren veya bir yük dengeleyici altında olan bir VM geri yükleme hakkında daha fazla bilgi için bkz: [bir sanal özel ağ yapılandırmalarını geri](#restore-vms-with-special-network-configurations). Windows VM'nizi kullanıyorsa [HUB lisanslama](../virtual-machines/windows/hybrid-use-benefit-licensing.md), diskleri geri yükle ve VM'yi oluşturmak için bu makalede belirtildiği gibi PowerShell/şablonu kullanın. Belirttiğiniz emin **lisans türü** "geri yüklenen VM üzerindeki HUB avantajları yararlanabilmek için bir VM oluştururken Windows_Server" olarak. 
  
 ## <a name="create-a-new-vm-from-a-restore-point"></a>Geri yükleme noktasından yeni VM oluşturma
-1. Zaten orada değilseniz [geri yükleme noktası seçin](#restore-a vm-with-special-network-configurations) geri yükleme noktasından yeni bir sanal makine oluşturmaya başlamadan önce. Bir geri yükleme noktası seçtikten sonra **geri yükleme Yapılandırması** dikey penceresinde girin veya seçin değerleri aşağıdaki alanların her biri için:
+1. Zaten orada değilseniz [geri yükleme noktası seçin](#select-a-restore-point-for-restore) geri yükleme noktasından yeni bir sanal makine oluşturmaya başlamadan önce. Bir geri yükleme noktası seçtikten sonra **geri yükleme Yapılandırması** dikey penceresinde girin veya seçin değerleri aşağıdaki alanların her biri için:
 
     a. **Geri yükleme türü**. Sanal makine oluşturur.
 
@@ -239,9 +240,9 @@ Tam olarak Vm'leri için disk geri yükledikten sonra yeniden oluşturmak için 
 
    b. Bağlanmak için bir VM oluşturma bir [internet'e yönelik Yük Dengeleyici](https://azure.microsoft.com/documentation/articles/load-balancer-internet-getstarted/).
 
-   c. İle bir VM [birden çok NIC](https://azure.microsoft.com/documentation/articles/virtual-networks-multiple-nics/).
+   c. İle bir VM [birden çok NIC](../virtual-machines/windows/multiple-nics.md).
 
-   d. İle bir VM [birden çok ayrılmış IP'ler](https://azure.microsoft.com/documentation/articles/virtual-networks-reserved-public-ip/).
+   d. İle bir VM [birden çok ayrılmış IP'ler](../virtual-network/virtual-network-multiple-ip-addresses-powershell.md).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Vm'lerinizi geri yükleyebilirsiniz, sanal makineler ile sık karşılaşılan hatalar hakkında bilgi için sorun giderme makalesine bakın. Ayrıca, görevler ile sanal makinelerinizi yönetme makaleyi gözden geçirin.

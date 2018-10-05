@@ -1,6 +1,6 @@
 ---
-title: Yönetilen hizmet kimliği ile Azure Service Bus Önizleme | Microsoft Docs
-description: Yönetilen hizmet kimlikleri, Azure Service Bus ile kullanma
+title: Kimlikler Azure Service Bus Önizleme ile Azure kaynakları için yönetilen | Microsoft Docs
+description: Azure Service Bus ile Azure kaynakları için yönetilen kimlikleri kullanmak
 services: service-bus-messaging
 documentationcenter: na
 author: spelluru
@@ -14,36 +14,34 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/01/2018
 ms.author: spelluru
-ms.openlocfilehash: c8722aeb9e957eb77dfc3dd975587717f91d5d1f
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 90271758e4092a574d3a44deffe42e3c689a31ca
+ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47395636"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48784867"
 ---
-# <a name="managed-service-identity-preview"></a>Yönetilen Hizmet Kimliği (önizleme)
+# <a name="managed-identities-for-azure-resources-with-service-bus"></a>Service Bus ile Azure kaynakları için yönetilen kimlikleri 
 
-Yönetilen hizmet kimliği (MSI), uygulama kodunuzun çalıştığı dağıtımla ilişkili güvenli bir kimlik oluşturmanızı sağlayan bir arası Azure özelliğidir. Ardından, uygulamanızın belirli Azure kaynaklarına erişmek için özel izinler erişim denetimi rolleri kimliğe ilişkilendirebilirsiniz.
+[Kimlikler Azure kaynakları için yönetilen](../active-directory/managed-identities-azure-resources/overview.md) uygulama kodunuzun çalıştığı dağıtımla ilişkili güvenli bir kimlik oluşturmanızı sağlayan bir çapraz Azure özelliğidir. Ardından, uygulamanızın belirli Azure kaynaklarına erişmek için özel izinler erişim denetimi rolleri kimliğe ilişkilendirebilirsiniz.
 
-MSI ile Azure platformu, bu çalışma zamanı kimlik yönetir. Depolayın ve uygulama kodu veya yapılandırma, kimlik için veya erişmek için ihtiyacınız olan kaynakları için erişim anahtarlarını korumak gerekmez. Etkin MSI desteğiyle Azure App Service uygulama içinde veya bir sanal makinede çalışan bir Service Bus istemci uygulaması, SAS kuralları ve anahtarlar ya da herhangi bir erişim belirteçleri işlemek gerekmez. İstemci uygulaması Service Bus Mesajlaşması ad alanı uç nokta adresini yeterlidir. Uygulamaya bağlandığında, Service Bus istemci örneği bu makalenin sonraki bölümlerinde gösterilen işleminde MSI bağlam bağlar. 
-
-Yönetilen hizmet kimliği ile ilişkili olduğunda, Service Bus istemci tüm yetkili işlemleri gerçekleştirebilir. Yetkilendirme, bir MSI hizmet veri yolu rolleri ile ilişkilendirerek verilir. 
+İle yönetilen kimlikleri, Azure platformu bu çalışma zamanı kimlik yönetir. Depolayın ve uygulama kodu veya yapılandırma, kimlik için veya erişmek için ihtiyacınız olan kaynakları için erişim anahtarlarını korumak gerekmez. Bir Service Bus varlıkları SAS kuralları ve anahtarlar ya da herhangi bir erişim belirteçleri işlemek için destek gerekmiyor Azure kaynakları için yönetilen bir Azure App Service uygulama içinde veya bir sanal makineyle etkin çalışan istemci uygulaması. İstemci uygulaması Service Bus Mesajlaşması ad alanı uç nokta adresini yeterlidir. Uygulamaya bağlandığında, Service Bus yönetilen bir varlığın bağlam istemci örneği bu makalenin sonraki bölümlerinde gösterilen işleminde bağlar. Yönetilen bir kimlikle ilişkili olduğunda, Service Bus istemci tüm yetkili işlemleri de yapabilirsiniz. Yetkilendirme, Service Bus rolleri ile yönetilen bir varlığın ilişkilendirerek verilir. 
 
 ## <a name="service-bus-roles-and-permissions"></a>Service Bus rolleri ve izinleri
 
-İlk genel Önizleme sürümünde, yalnızca bir yönetilen hizmet kimliği kimlik ad alanındaki tüm varlıklara tam denetim veren bir Service Bus ad alanının "Sahip" veya "Katılımcı" rollere de ekleyebilirsiniz. Ancak, ad alanı topoloji değişikliği işlemler: başlangıçta yönetim Azure Resource Manager yalnızca ancak desteklenen yerel hizmet veri yolu REST yönetim arabirimi üzerinden değil. Bu destek, ayrıca .NET Framework istemci kullanamazsınız gelir [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) nesnesi içinde bir yönetilen hizmet kimliği.
+Bu gibi durumlarda, yönetilen bir kimlik yalnızca bir Service Bus ad alanı "Sahip" veya "Katılımcı" rolleri ekleyebilirsiniz. Ad alanındaki tüm varlıklar üzerinde kimlik tam denetim verir. Ancak, ad alanı topolojisini değiştirme işlemleri başlangıçta olan yönetim, ancak yalnızca Azure Resource Manager desteklenmiyor. Yerel bir Service Bus REST yönetim arabirimi aracılığıyla değil. Bu destek, ayrıca .NET Framework istemci kullanamazsınız gelir [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) nesnesi içinde yönetilen bir kimlik.
 
-## <a name="use-service-bus-with-a-managed-service-identity"></a>Hizmet veri yolu ile bir yönetilen hizmet kimliğini kullanma
+## <a name="use-service-bus-with-managed-identities-for-azure-resources"></a>Service Bus yönetilen kimliklerle Azure kaynakları için kullanın.
 
-Aşağıdaki bölümde bir yönetilen hizmet kimliği, nasıl bir Service Bus Mesajlaşması ad alanı, kimlik erişim vermek ve uygulama Service Bus ile nasıl etkileştiğini altında çalışan bir örnek uygulaması oluşturma ve dağıtma için gereken adımlar açıklanmaktadır. Bu kimlik kullanarak varlıkları.
+Aşağıdaki bölümde bir yönetilen kimlik, bir Service Bus Mesajlaşması ad alanı, kimlik erişim vermek nasıl ve uygulaması kullanarak Service Bus varlıkları ile nasıl etkileşim kurduğunu altında çalışan bir örnek uygulaması oluşturma ve dağıtma için gereken adımlar açıklanmaktadır. Bu kimliği.
 
 Barındırılan bir web uygulaması bu tanıtımda açıklanmaktadır [Azure App Service](https://azure.microsoft.com/services/app-service/). Bir VM tarafından barındırılan uygulama için gerekli adımlar benzerdir.
 
 ### <a name="create-an-app-service-web-application"></a>Bir App Service web uygulaması oluşturma
 
-İlk adım, bir App Service ASP.NET uygulaması oluşturmaktır. Azure'da nasıl yapılacağı hakkında bilgi sahibi değilseniz izleyin [bu nasıl yapılır kılavuzunda](../app-service/app-service-web-get-started-dotnet-framework.md). Ancak, öğreticide gösterilen şekilde bir MVC uygulaması oluşturmak yerine, bir Web Forms uygulaması oluşturun.
+İlk adım, bir App Service ASP.NET uygulaması oluşturmaktır. Azure'da bunun nasıl yapılacağı hakkında bilgi sahibi değilseniz izleyin [bu nasıl yapılır kılavuzunda](../app-service/app-service-web-get-started-dotnet-framework.md). Ancak, öğreticide gösterilen şekilde bir MVC uygulaması oluşturmak yerine, bir Web Forms uygulaması oluşturun.
 
-### <a name="set-up-the-managed-service-identity"></a>Yönetilen hizmet kimliğini ayarlayın
+### <a name="set-up-the-managed-identity"></a>Yönetilen kimlik
 
 Uygulamayı oluşturduktan sonra (nasıl yapılır makalesinde de gösterilmiştir) Azure portalında yeni oluşturulan web uygulamasına gidin ve ardından gitmek **yönetilen hizmet kimliği** sayfasını ve özelliğini etkinleştirin: 
 
@@ -55,11 +53,11 @@ Uygulamayı oluşturduktan sonra (nasıl yapılır makalesinde de gösterilmişt
 
 Ardından, [Service Bus Mesajlaşması ad alanı oluşturma](service-bus-create-namespace-portal.md) RBAC Önizleme desteğine sahip Azure bölgelerinden birini: **ABD Doğu**, **ABD Doğu 2**, veya **Batı Avrupa** . 
 
-Ad alanınıza gidin **erişim denetimi (IAM)** sayfasında portalda ve ardından **Ekle** için Yönetilen hizmet kimliği eklemek için **sahibi** rol. Bunu yapmak için web uygulamasının adını arayın **izinleri eklemek** paneli **seçin** alan ve sonra giriş'e tıklayın. Daha sonra **Kaydet**'e tıklayın.
+Ad alanınıza gidin **erişim denetimi (IAM)** sayfasında portalda ve ardından **Ekle** için yönetilen kimlik eklemek için **sahibi** rol. Bunu yapmak için web uygulamasının adını arayın **izinleri eklemek** paneli **seçin** alan ve sonra giriş'e tıklayın. Daha sonra **Kaydet**'e tıklayın.
 
 ![](./media/service-bus-managed-service-identity/msi2.png)
  
-Web uygulamasının yönetilen hizmet kimliği artık Service Bus ad alanı erişimi olan ve daha önce oluşturduğunuz kuyruğa. 
+Web uygulamasının yönetilen kimlik artık Service Bus ad alanı erişimi olan ve daha önce oluşturduğunuz kuyruğa. 
 
 ### <a name="run-the-app"></a>Uygulamayı çalıştırma
 
@@ -67,23 +65,23 @@ Web uygulamasının yönetilen hizmet kimliği artık Service Bus ad alanı eri�
 
 Default.aspx sayfasında, giriş sayfasıdır. Kod Default.aspx.cs dosyasında bulunabilir. Bazı giriş alanları ile birlikte en az bir web uygulaması sonucudur **Gönder** ve **alma** iletileri almak veya göndermek için Service Bus'a bağlanmak düğmeleri.
 
-Not nasıl [MessagingFactory](/dotnet/api/microsoft.servicebus.messaging.messagingfactory) nesnesi. Paylaşılan erişim belirteci (SAS) belirteç sağlayıcısı kullanmak yerine, kod ile yönetilen hizmet kimliği için bir belirteç sağlayıcısı oluşturur `TokenProvider.CreateManagedServiceIdentityTokenProvider(ServiceAudience.ServiceBusAudience)` çağırın. Bu nedenle, korumak ve kullanmak için gizli dizi vardır. Service Bus ve yetkilendirme el sıkışması yönetilen hizmet kimliği bağlam akışını otomatik olarak tarafından işlenmesini SAS kullanmaktan daha basit bir model belirteç sağlayıcısı.
+Not nasıl [MessagingFactory](/dotnet/api/microsoft.servicebus.messaging.messagingfactory) nesnesi. Paylaşılan erişim belirteci (SAS) belirteç sağlayıcısı kullanmak yerine, kod ile yönetilen kimlik için bir belirteç sağlayıcısı oluşturur `TokenProvider.CreateManagedServiceIdentityTokenProvider(ServiceAudience.ServiceBusAudience)` çağırın. Bu nedenle, korumak ve kullanmak için gizli dizi vardır. Service Bus ve yetkilendirme el sıkışması yönetilen kimlik bağlamını akışını belirteç sağlayıcısı tarafından otomatik olarak işlenir. SAS kullanarak daha basit bir modeldir.
 
-Bu değişiklikleri yaptıktan sonra yayımlama ve uygulamayı çalıştırın. İndirmek ve ardından Visual Studio'da bir yayımlama profilini içeri aktarmak için doğru yayımlama verileri almak için kolay bir yol verilmiştir:
+Bu değişiklikleri yaptıktan sonra yayımlama ve uygulamayı çalıştırın. İndirerek ve ardından Visual Studio'da bir yayımlama profilini içeri aktarma doğru yayımlama verileri kolayca edinebilirsiniz:
 
 ![](./media/service-bus-managed-service-identity/msi3.png)
  
-İleti göndermek veya almak için ad alanının adı ve oluşturduğunuz varlığın adını girin, ardından tıklayın **Gönder** veya **alma**.
+İleti göndermek veya almak için ad alanının adı ve oluşturduğunuz varlığın adını girin. Ardından ya da tıklayın **Gönder** veya **alma**.
 
 
 > [!NOTE]
-> - Azure Vm'leri, yönetilen hizmet kimliği uygulama hizmetlerinde, Azure ortamına yalnızca içinde çalışır ve ölçek kümeleri. .NET uygulamaları için Service Bus NuGet paketi tarafından kullanılan Microsoft.Azure.Services.AppAuthentication kitaplığını, bu protokolü üzerinden bir Özet sağlar ve bir yerel geliştirme deneyimini destekler. Bu kitaplık kodunuzu Visual Studio, Azure CLI 2.0 veya Active Directory tümleşik kimlik doğrulaması, kullanıcı hesabını kullanarak yerel olarak geliştirme makinenizde, test etmenizi sağlar. Bu kitaplığı ile yerel geliştirme seçenekleri hakkında daha fazla bilgi için bkz. [.NET kullanarak Azure Key Vault hizmetten hizmete kimlik doğrulaması](../key-vault/service-to-service-authentication.md).  
+> - Azure Vm'leri, yalnızca uygulama hizmetlerinde, Azure ortamına içinde yönetilen kimlik çalışır ve ölçek kümeleri. .NET uygulamaları için Service Bus NuGet paketi tarafından kullanılan Microsoft.Azure.Services.AppAuthentication kitaplığını, bu protokolü üzerinden bir Özet sağlar ve bir yerel geliştirme deneyimini destekler. Bu kitaplık kodunuzu Visual Studio, Azure CLI 2.0 veya Active Directory tümleşik kimlik doğrulaması, kullanıcı hesabını kullanarak yerel olarak geliştirme makinenizde, test etmenizi sağlar. Bu kitaplığı ile yerel geliştirme seçenekleri hakkında daha fazla bilgi için bkz. [.NET kullanarak Azure Key Vault hizmetten hizmete kimlik doğrulaması](../key-vault/service-to-service-authentication.md).  
 > 
-> - Şu anda, yönetilen hizmet kimlikleri, App Service dağıtım yuvaları ile çalışmaz.
+> - Şu anda yönetilen kimlikleri, App Service dağıtım yuvaları ile çalışmaz.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Service Bus mesajlaşma hizmeti hakkında daha fazla bilgi edinmek için aşağıdaki konu başlıklarına bakın.
+Service Bus mesajlaşması hakkında daha fazla bilgi edinmek için aşağıdaki konulara bakın:
 
 * [Service Bus ile ilgili temel bilgiler](service-bus-fundamentals-hybrid-solutions.md)
 * [Service Bus kuyrukları, konu başlıkları ve abonelikleri](service-bus-queues-topics-subscriptions.md)

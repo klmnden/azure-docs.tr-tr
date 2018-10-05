@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/17/2018
 ms.author: kumud
-ms.openlocfilehash: ab5f6d10e4f9edc4d899e976291482bb3a795c07
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.openlocfilehash: be429e7d3ae847eec6dc4fd5ad6b9c3e5d76d5b5
+ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48248933"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48785418"
 ---
 # <a name="traffic-manager-routing-methods"></a>Traffic Manager yönlendirme yöntemleri
 
@@ -39,7 +39,7 @@ Tüm Traffic Manager profillerini uç nokta sistem durumu ve otomatik bir uç no
 
 Genellikle bir kuruluş, birincil hizmet arıza durumunda bir veya daha fazla yedekleme hizmetlerini dağıtarak hizmetlerinin için güvenilirlik sağlamak istiyor. Azure müşterileri kolayca bu yük devretme deseni uygulamak 'Öncelik' trafik yönlendirme yöntemi sağlar.
 
-! ['Öncelik' azure Traffic Manager trafik yönlendirme yöntemine] [1]
+![Azure Traffic Manager 'Öncelik' trafik yönlendirme yöntemi](media/traffic-manager-routing-methods/priority.png)
 
 Traffic Manager profili, hizmet uç noktalarının öncelikli listesi içerir. Varsayılan olarak, Traffic Manager tüm trafiği birincil (en yüksek öncelik) uç noktasına gönderir. Birincil uç nokta kullanılabilir durumda değilse, Traffic Manager trafiği ikinci uç noktasına yönlendirir. Birincil ve ikincil uç kullanılabilir durumda değilse, trafiği üçüncü ve benzeri gider. Uç noktanın kullanılabilirliğini yapılandırılan durumu (etkin veya devre dışı) ve devam eden bir uç nokta izleme bağlıdır.
 
@@ -47,10 +47,10 @@ Traffic Manager profili, hizmet uç noktalarının öncelikli listesi içerir. V
 
 Azure Resource Manager ile 'priority' özelliği kullanılarak açıkça her uç nokta için uç nokta önceliği yapılandırın. Bu özellik, 1 ile 1000 arasında bir değerdir. Düşük değerler daha yüksek önceliği temsil eder. Uç noktaları öncelik değerleri paylaşamazsınız. Özelliği isteğe bağlıdır. Atlanırsa, varsayılan uç nokta sıraya göre bir öncelik kullanılır.
 
-##<a name = "weighted"></a>Ağırlıklı trafik yönlendirme yöntemi
+## <a name = "weighted"></a>Ağırlıklı trafik yönlendirme yöntemi
 'Ağırlıklı' trafik yönlendirme yöntemini trafiği eşit olarak dağıtmak için veya önceden tanımlanmış ağırlığı kullanmayı sağlar.
 
-! ['Azure Traffic Manager ağırlıklı' trafik yönlendirme yöntemini] [2]
+![Azure Traffic Manager 'Ağırlıklı' trafik yönlendirme yöntemi](media/traffic-manager-routing-methods/weighted.png)
 
 Ağırlıklı trafik yönlendirme yöntemini her bir uç nokta Traffic Manager profili yapılandırması için bir ağırlık atayın. Ağırlık 1000 ile 1 arasında bir tamsayı olduğu. Bu parametre isteğe bağlıdır. Atlanırsa, trafik yöneticileri '1' varsayılan ağırlığı kullanır. Daha yüksek ağırlık, öncelik o kadar yüksektir.
 
@@ -78,7 +78,7 @@ Bu DNS önbelleğe alma etkileri tüm DNS tabanlı trafik yönlendirme sistemler
 
 İki veya daha fazla konumda uç noktaları, dünya çapında dağıtma 'size en yakın' konumu için trafiği yönlendirme tarafından birçok uygulama yanıt verme hızını artırabilir. Bu özelliği 'Performans' trafik yönlendirme yöntemini sunar.
 
-! ['Performans' azure Traffic Manager trafik yönlendirme yöntemine] [3]
+![Azure Traffic Manager 'Performans' trafik yönlendirme yöntemi](media/traffic-manager-routing-methods/performance.png)
 
 'En yakın' uç noktası tarafından coğrafi uzaklık ölçülen mutlaka en yakın değil. Bunun yerine, ağ gecikmesi ölçerek en yakın uç nokta 'Performans' trafik yönlendirme yöntemini belirler. Traffic Manager her bir Azure veri merkezi IP adres aralıkları arasında gidiş dönüş süresi izlemek için bir Internet gecikme tablosu tutar.
 

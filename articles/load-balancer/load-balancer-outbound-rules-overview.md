@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/3/2018
+ms.date: 10/4/2018
 ms.author: kumud
-ms.openlocfilehash: 50b567b298406b936a11ad5a8737ce4b1e21c0c7
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.openlocfilehash: 57bb3fea9ad8128520b5d186bd7a27483308e606
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48248733"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48802806"
 ---
 # <a name="load-balancer-outbound-rules"></a>Yük Dengeleyici giden kuralları
 
@@ -47,7 +47,7 @@ Tüm yük dengeleyici kuralları gibi giden kuralları, Yük Dengeleme ve gelen 
 
 Giden NAT için bir giden kuralı yapılandırır _arka uç havuzu tarafından tanımlanan tüm sanal makineler_ için çevrilemeyen _ön uç_.  Ve _parametreleri_ giden NAT algoritması üzerinde ek ayrıntılı denetim sağlar.
 
-API sürümü "2018-07-01", şu şekilde yapılandırılmış bir giden kuralı tanımı izin verir:
+API sürümü "2018-08-01", şu şekilde yapılandırılmış bir giden kuralı tanımı izin verir:
 
 ```json
       "outboundRules": [

@@ -14,12 +14,12 @@ ms.component: users-groups-roles
 ms.date: 01/14/2018
 ms.author: curtand
 ms.custom: seohack1
-ms.openlocfilehash: 10851990f26124ae89945d4b56058115cacb81ee
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 5beee2fae518fec23b65ff05a79281e0fc3f1417
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37862060"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48800749"
 ---
 # <a name="how-to-add-licensed-users-to-a-group-for-licensing-in-azure-active-directory"></a>Azure Active Directory'de lisanslama için lisanslı kullanıcılar grubuna ekleme
 
@@ -47,7 +47,7 @@ Burada, Grup tabanlı lisanslamaya geçirme kullanıcılara geçici olarak atanm
 
 6. Özgün doğrudan atamaları kaldırmayı düşünün; "sonucu kullanıcıların bir alt kümesi üzerinde ilk izlemek için Dalgalar içinde", yavaş yavaş yapmak isteyebilirsiniz.
 
-  Kullanıcıların özgün doğrudan atamaları bırakabilir, ancak kullanıcılar ayrıldığında büyük olasılıkla özgün lisansı hala korur, lisanslı gruplar istediğiniz istediği bu değildir.
+  Kullanıcıların özgün doğrudan atamaları bırakabilir, ancak kullanıcılar kendi lisanslı gruplar ayrıldığında, büyük olasılıkla istemezsiniz olan özgün lisans yine de korur.
 
 ## <a name="an-example"></a>Bir örnek
 
@@ -84,7 +84,7 @@ Bir kuruluşun 1.000 kullanıcı vardır. Tüm kullanıcılar, Enterprise Mobili
 
 Grupları aracılığıyla lisans yönetimi için diğer senaryolar hakkında daha fazla bilgi edinmek için
 
-* [Azure Active Directory'deki bir gruba lisans atama](licensing-groups-assign.md)
+* [Azure Active Directory'de gruba lisans atama](licensing-groups-assign.md)
 * [Grup tabanlı Azure Active Directory lisansı nedir?](../fundamentals/active-directory-licensing-whatis-azure-portal.md)
-* [Azure Active Directory'de bir grup için lisans sorunlarını belirleme ve çözme](licensing-groups-resolve-problems.md)
-* [Azure Active Directory grup tabanlı lisanslama ek senaryoları](licensing-group-advanced.md)
+* [Azure Active Directory'de grubun lisans sorunlarını tanımlama ve çözme](licensing-groups-resolve-problems.md)
+* [Azure Active Directory grup tabanlı lisanslamayla ilgili ek senaryolar](licensing-group-advanced.md)

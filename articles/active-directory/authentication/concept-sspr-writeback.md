@@ -5,27 +5,33 @@ services: active-directory
 ms.service: active-directory
 ms.component: authentication
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 10/04/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 8440d8a492105365417190ad286798e0bdf47a0c
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 43d2ba496be90e9e87185e6365dd998adccfa09d
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46295844"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48804540"
 ---
 # <a name="what-is-password-writeback"></a>Parola geri yazma nedir?
 
-Bulut tabanlı parola sıfırlama yardımcı olması idealdir ancak çoğu şirket kullanıcılarının bulunduğu bir şirket içi dizin çözümlenmedi. Microsoft destek tutma geleneksel nasıl yaptığını Active Directory (AD) parola değişikliği bulutta eşitlenmiş şirket içinde mi? Parola geri yazma, etkinleştirilmiş olan bir özelliktir [Azure AD Connect](../hybrid/whatis-hybrid-identity.md) parola değişiklikleri gerçek zamanlı bir mevcut şirket içi dizine geri yazılması için bulutta sağlar.
+Bulut tabanlı parola sıfırlama yardımcı olması idealdir ancak çoğu şirket kullanıcılarının bulunduğu bir şirket içi dizin çözümlenmedi. Microsoft destek tutma geleneksel nasıl yaptığını Active Directory (AD) parola değişikliği bulutta eşitlenmiş şirket içinde mi? Parola geri yazma, etkinleştirilmiş olan bir özelliktir [Azure AD Connect](../hybrid/whatis-hybrid-identity.md) parola değişiklikleri gerçek zamanlı olarak mevcut bir şirket içi dizine geri yazılması için bulutta sağlar.
 
 Parola geri yazma özelliğini kullanan ortamlarda desteklenir:
 
 * [Active Directory Federasyon Hizmetleri](../hybrid/how-to-connect-fed-management.md)
 * [Parola karması eşitleme](../hybrid/how-to-connect-password-hash-synchronization.md)
 * [Geçişli kimlik doğrulaması](../hybrid/how-to-connect-pta.md)
+
+> [!WARNING]
+> Parola geri yazma, Azure AD Connect sürüm 1.0.8641.0 ve eski olduğunda kullanan müşteriler için çalışma durdurur [Azure erişim denetimi hizmeti (ACS) 7 Kasım 2018'de kullanımdan](../develop/active-directory-acs-migration.md). Azure AD Connect sürüm 1.0.8641.0 eski ve bunlar üzerinde ACS işlevselliği için bağımlı olduğundan parola geri yazma o anda artık izin verir.
+>
+> Hizmette, yeni bir sürüme bir Azure AD Connect'in önceki sürümünden yükseltme kesinti yaşanmasını önlemek için bu makaleye bakın [Azure AD Connect: önceki bir sürümden son sürüme yükseltme](../hybrid/how-to-upgrade-previous-version.md)
+>
 
 Parola geri yazma sağlar:
 

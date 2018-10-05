@@ -10,17 +10,20 @@ ms.topic: conceptual
 ms.author: sashan
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 09/19/2018
-ms.openlocfilehash: 68746874ec01f44055421f0033acd0d485e1d230
-ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
+ms.date: 10/04/2018
+ms.openlocfilehash: fd747eb66a91a1ac9fe3b1c0d2ef7ac50a08faea
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47586096"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48801137"
 ---
 # <a name="manage-azure-sql-database-long-term-backup-retention"></a>Azure SQL veritabanı uzun vadeli yedekleme bekletmeyi yönetme
 
-Azure SQL veritabanı ile yapılandırabileceğiniz bir [uzun süreli yedek saklama](sql-database-long-term-retention.md) ilke otomatik olarak Azure blob depolama alanındaki yedeklemeler için 10 yıla kadar korumak için (LTR). Ardından, Azure portal veya PowerShell kullanarak bu yedekleri kullanarak bir veritabanını kurtarabilirsiniz.
+Azure SQL veritabanı'nda tek veya havuza alınmış bir veritabanı ile yapılandırabileceğiniz bir [uzun süreli yedek saklama](sql-database-long-term-retention.md) ilke otomatik olarak Azure blob depolama alanındaki yedeklemeler için 10 yıla kadar korumak için (LTR). Ardından, Azure portal veya PowerShell kullanarak bu yedekleri kullanarak bir veritabanını kurtarabilirsiniz.
+
+> [!IMPORTANT]
+> [Azure SQL veritabanı yönetilen örneği](sql-database-managed-instance.md) uzun süreli yedek saklama şu anda desteklemiyor.
 
 ## <a name="use-the-azure-portal-to-configure-long-term-retention-policies-and-restore-backups"></a>Uzun vadeli bekletme ilkelerini yapılandırma ve yedeklemeleri geri yüklemek için Azure portalını kullanın
 Aşağıdaki bölümlerde, uzun süreli saklama yapılandırma, uzun vadeli bekletme yedeklemeleri görüntülemek ve uzun süreli saklama yedeklemesini geri yükleme için Azure portalını kullanmayı gösterir.

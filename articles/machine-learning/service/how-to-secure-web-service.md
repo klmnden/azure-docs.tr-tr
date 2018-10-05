@@ -9,12 +9,12 @@ ms.reviewer: jmartens
 ms.author: aashishb
 author: aashishb
 ms.date: 10/02/2018
-ms.openlocfilehash: 8a26491acc7215598e57ce6074fffe26a4374a96
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.openlocfilehash: 885d867d0733ef923d327d8d6a36fc1588fd4961
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48251148"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48801021"
 ---
 # <a name="secure-azure-machine-learning-web-services-with-ssl"></a>Azure Machine Learning web hizmetleri SSL ile güvenli hale getirme
 
@@ -81,7 +81,7 @@ Dağıtın (veya yeniden dağıtmak için) SSL etkin hizmetiyle ayarlayın `ssl_
     aci_config = AciWebservice.deploy_configuration(ssl_enabled=True, ssl_cert_pem_file="cert.pem", ssl_key_pem_file="key.pem", ssl_cname="www.contoso.com")
     ```
 
-+ **Alanda programlanabilir gama dizileri (FPGA) üzerinde dağıtın**
++ **Alanda programlanabilir kapı dizileri (FPGA) üzerinde dağıtın**
 
   Yanıtın `create_service` işlem hizmetinin IP adresini içeriyor. Hizmetin IP adresine DNS adı eşleme IP adresi kullanılır. Yanıtını da içeren bir __birincil anahtar__ ve __ikincil anahtar__ hizmeti kullanmak için kullanılır. SSL ile ilgili parametreler için kod parçacığında gösterilen değerleri sağlayın:
 
@@ -119,7 +119,7 @@ Ardından, DNS sunucunuzun web hizmetine işaret edecek şekilde güncelleştirm
 
   "Genel IP adresi" görüntüde gösterildiği gibi AKS kümesi "Yapılandırma" sekmesi altındaki DNS güncelleştirin. AKS aracı düğümleri ve diğer ağ kaynakları içeren kaynak grubu altında oluşturulan kaynak türlerini biri olarak genel IP adresini bulabilirsiniz.
 
-  [ ![Azure Machine Learning hizmeti: web hizmetleri SSL ile güvenli hale getirme](./media/how-to-secure-web-service/aks-public-ip-address.png) ] ((.media/how-to-secure-web-service/aks-public-ip-address.png#lightbox)
+  ![Azure Machine Learning hizmeti: web hizmetleri SSL ile güvenli hale getirme](./media/how-to-secure-web-service/aks-public-ip-address.png)
 
 ## <a name="consume-authenticated-services"></a>Kimliği doğrulanmış hizmetlerini kullanma
 
@@ -131,7 +131,7 @@ Ardından, DNS sunucunuzun web hizmetine işaret edecek şekilde güncelleştirm
 
   + [AKS'ye dağıtma](how-to-deploy-to-aks.md)
 
-+ **ACI ve FPGA**:  
++ **FPGA için**:  
 
   Aşağıdaki örnekler, Python ve C# ' deki bir kimliği doğrulanmış FPGA hizmetinin nasıl kullanılacağı hakkında göstermektedir.
   Değiştirin `authkey` hizmetini dağıttığınızda, döndürülen birincil veya ikincil anahtarı.

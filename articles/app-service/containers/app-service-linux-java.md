@@ -12,12 +12,12 @@ ms.devlang: java
 ms.topic: article
 ms.date: 08/29/2018
 ms.author: routlaw
-ms.openlocfilehash: 2b2256ef5802160dbaa66e2a098a798fcdc653d2
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 48d6836a2f1c7eb53fd6d7a08ee5a049cd9503f6
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47065120"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48803044"
 ---
 # <a name="java-developers-guide-for-app-service-on-linux"></a>Linux'ta App Service için Java Geliştirici Kılavuzu
 
@@ -229,7 +229,7 @@ Paylaşılan sunucu düzeyinde kaynaklar için:
 
 ## <a name="docker-containers"></a>Docker kapsayıcıları
 
-Azure tarafından desteklenen Zulu kapsayıcılarınızı App Service'te çalışan JDK kullanılacak, uygulamanızın emin `Dockerfile` görüntüleri kullanan [Java App Service Docker görüntü deposu](https://github.com/Azure-App-Service/java).
+Azure tarafından desteklenen Zulu JDK kapsayıcılarınızı içinde kullanmak için çekme ve listelenen önceden oluşturulmuş görüntüleri kullanmayı emin olun [Azul'ın indirme sayfası](https://www.azul.com/downloads/azure-only/zulu/#docker) veya `Dockerfile` örneklerden [Microsoft Java GitHub deposu](https://github.com/Microsoft/java/tree/master/docker).
 
 ## <a name="runtime-availability-and-statement-of-support"></a>Çalışma zamanı kullanılabilirlik ve Destek bildirimi
 
@@ -242,7 +242,7 @@ Linux için App Service, yönetilen Java web uygulamalarını barındırmak içi
 
 ### <a name="jdk-versions-and-maintenance"></a>JDK sürümleri ve Bakım
 
-Azure'nın desteklenen Java Development Kit (JDK) olan [Zulu](https://www.azul.com/products/zulu-and-zulu-enterprise/) aracılığıyla sağlanan [Azul Systems](https://www.azul.com/).
+Azure'nın desteklenen Java Development Kit (JDK) olan [Zulu](https://www.azul.com/downloads/azure-only/zulu/) aracılığıyla sağlanan [Azul Systems](https://www.azul.com/).
 
 Ana sürüm güncelleştirmeleri Linux için Azure App service'taki yeni çalışma zamanı seçenekleri aracılığıyla sağlanır. Müşteriler, App Service dağıtımı yapılandırarak Java daha yeni sürümleri için güncelleştirme ve test etmeden sorumlu ve ihtiyaçlarını karşılayan önemli güncelleştirme sağlama.
 
@@ -258,15 +258,15 @@ Desteklenen Java Çalışma zamanı kullanımdan kaldırılacak, çalışma zama
 
 ### <a name="local-development"></a>Yerel geliştirme
 
-Geliştiriciler, üretim sürümü, Azul Zulu Enterprise JDK yerel geliştirme için indirebileceği [Azul'ın indirme sitesinde](https://www.azul.com/downloads/zulu/).
+Geliştiriciler, üretim sürümü, Azul Zulu Enterprise JDK yerel geliştirme için indirebileceği [Azul'ın indirme sitesinde](https://www.azul.com/downloads/azure-only/zulu/).
 
 ### <a name="development-support"></a>Geliştirme desteği
 
-Azure için geliştirirken Azul Zulu Enterprise JDK ürün desteği aracılığıyla veya [Azure Stack](https://azure.microsoft.com/overview/azure-stack/) ile bir [Azure destek planı koşullu](https://azure.microsoft.com/support/plans/).
+Ürün desteği [Azure tarafından desteklenen Azul Zulu JDK](https://www.azul.com/downloads/azure-only/zulu/) Azure için geliştirmeye aracılığıyla kullanılabilir veya [Azure Stack](https://azure.microsoft.com/overview/azure-stack/) ile bir [Azure destek planı koşullu](https://azure.microsoft.com/support/plans/).
 
 ### <a name="runtime-support"></a>Çalışma zamanı desteği
 
-Geliştiriciler şunları yapabilir [bir sorun açın](/azure/azure-supportability/how-to-create-azure-support-request) oluşturulduysa Azure desteği aracılığıyla App Service Linux Java Çalışma zamanı ile bir [tam destek planı](https://azure.microsoft.com/support/plans/).
+Geliştiriciler şunları yapabilir [bir sorun açın](/azure/azure-supportability/how-to-create-azure-support-request) oluşturulduysa Azure desteği aracılığıyla Azul Zulu JDK ile bir [tam destek planı](https://azure.microsoft.com/support/plans/).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

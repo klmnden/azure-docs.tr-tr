@@ -1,6 +1,6 @@
 ---
-title: Yönetilen hizmet kimliği ile Azure Event Hubs Önizleme | Microsoft Docs
-description: Yönetilen hizmet kimlikleri, Azure Event Hubs ile kullanma
+title: Kimlikler Azure Event Hubs Önizleme ile Azure kaynakları için yönetilen | Microsoft Docs
+description: Azure Event Hubs ile Azure kaynakları için yönetilen kimlikleri kullanmak
 services: event-hubs
 documentationcenter: na
 author: ShubhaVijayasarathy
@@ -10,28 +10,32 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2018
 ms.author: shvija
-ms.openlocfilehash: f87a04b3b78bab124ca1b75006ed2c93a74f9198
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: 815a6ff528e024ed1685b09b66f8fabce4d360c1
+ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40005842"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48784562"
 ---
-# <a name="managed-service-identity-preview"></a>Yönetilen Hizmet Kimliği (önizleme)
+# <a name="managed-identities-for-azure-resources-with-event-hubs"></a>Event Hubs ile Azure kaynakları için yönetilen kimlikleri
 
-Yönetilen hizmet kimliği (MSI), uygulama kodunuzun çalıştığı dağıtımla ilişkili güvenli bir kimlik oluşturmanızı sağlayan bir arası Azure özelliğidir. Ardından, uygulamanızın belirli Azure kaynaklarına erişmek için özel izinler erişim denetimi rolleri kimliğe ilişkilendirebilirsiniz. 
+[Kimlikler Azure kaynakları için yönetilen](../active-directory/managed-identities-azure-resources/overview.md) uygulama kodunuzun çalıştığı dağıtımla ilişkili güvenli bir kimlik oluşturmanızı sağlayan bir çapraz Azure özelliğidir. Ardından, uygulamanızın belirli Azure kaynaklarına erişmek için özel izinler erişim denetimi rolleri kimliğe ilişkilendirebilirsiniz. 
 
-MSI ile Azure platformu, bu çalışma zamanı kimlik yönetir. Depolayın ve uygulama kodu veya yapılandırma, kimlik için veya erişmek için ihtiyacınız olan kaynakları için erişim anahtarlarını korumak gerekmez. SAS kuralları ve anahtarlar ya da herhangi bir erişim belirteçleri işlemek bir Azure App Service uygulama içinde veya bir sanal makinede etkin MSI desteği ile çalışan bir olay hub'ları istemci uygulamanın gerekmez. İstemci uygulaması, uç nokta adresi Event Hubs ad alanının yalnızca gerekir. Uygulamaya bağlandığında, Event Hubs MSI bağlam istemci örneği bu makalenin sonraki bölümlerinde gösterilen işleminde bağlar.
+İle yönetilen kimlikleri, Azure platformu bu çalışma zamanı kimlik yönetir. Depolayın ve uygulama kodu veya yapılandırma, kimlik için veya erişmek için ihtiyacınız olan kaynakları için erişim anahtarlarını korumak gerekmez. SAS kuralları ve anahtarlar ya da herhangi bir erişim belirteçleri işlemek Event Hubs, Azure kaynaklarını desteği etkin yönetilen kimliklerle bir Azure App Service uygulama içinde veya bir sanal makinede çalışan bir istemci uygulaması gerekmez. İstemci uygulaması, uç nokta adresi Event Hubs ad alanının yalnızca gerekir. Uygulamaya bağlandığında, Event Hubs yönetilen kimliğin bağlam istemci örneği bu makalenin sonraki bölümlerinde gösterilen işleminde bağlar.
 
-Yönetilen hizmet kimliği ile ilişkili olduğunda, Event Hubs istemcisi tüm yetkili işlemleri gerçekleştirebilir. Yetkilendirme, bir MSI ile Event Hubs rolleri ile ilişkilendirilmesi yoluyla verilir. 
+Yönetilen bir kimlikle ilişkili olduğunda, Event Hubs istemcisi tüm yetkili işlemleri de yapabilirsiniz. Event Hubs rolleri ile bir yönetilen kimlik ilişkilendirerek yetkilendirme izni verilir. 
 
 ## <a name="event-hubs-roles-and-permissions"></a>Olay hub'ları rolleri ve izinleri
 
-İlk genel Önizleme sürümünde, yalnızca bir yönetilen hizmet kimliği kimlik ad alanındaki tüm varlıklara tam denetim veren bir Event Hubs ad alanının "Sahip" veya "Katılımcı" rollere de ekleyebilirsiniz. Ancak, ad alanı topoloji değişikliği işlemler: başlangıçta yönetim Azure Resource Manager yalnızca ancak desteklenen yerel Event Hubs REST yönetim arabirimi üzerinden değil. Bu destek, ayrıca .NET Framework istemci kullanamazsınız gelir [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) nesnesi içinde bir yönetilen hizmet kimliği. 
+Yalnızca bir yönetilen kimlik ad alanındaki tüm varlıklar üzerinde kimlik tam denetim veren bir Event Hubs ad alanının "Sahip" veya "Katılımcı" rolleri ekleyebilirsiniz. Ancak, ad alanı topolojisini değiştirme işlemleri başlangıçta olan yönetim, ancak yalnızca Azure Resource Manager desteklenmiyor. Yerel olay hub'ları REST yönetim arabirimi aracılığıyla değil. Bu destek, ayrıca .NET Framework istemci kullanamazsınız gelir [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) nesnesi içinde yönetilen bir kimlik. 
  
-## <a name="use-event-hubs-with-a-managed-service-identity"></a>Yönetilen hizmet kimliği ile Event hubs'ı kullanın
+## <a name="use-event-hubs-with-managed-identities-for-azure-resources"></a>Event Hubs, Azure kaynakları için yönetilen kimliklerle kullanın
 
-Aşağıdaki bölümde bir yönetilen hizmet kimliği, nasıl bir Event Hubs ad alanı, kimlik erişim vermek ve uygulaması kullanarak event hubs ile nasıl etkileşim kurduğunu altında çalışan bir örnek uygulaması oluşturma ve dağıtma için gereken adımlar açıklanmaktadır. kimlik.
+Aşağıdaki bölümde, aşağıdaki adımları açıklanmaktadır:
+
+1. Oluşturun ve yönetilen bir kimlik altında çalışan örnek uygulama dağıtırsınız.
+2. Bir Event Hubs ad alanı, kimlik erişim verin.
+3. Uygulama, kimliğini kullanarak event hubs ile nasıl etkileşim girer.
 
 Barındırılan bir web uygulaması bu tanıtımda açıklanmaktadır [Azure App Service](https://azure.microsoft.com/services/app-service/). Bir VM tarafından barındırılan uygulama için gerekli adımlar benzerdir.
 
@@ -39,7 +43,7 @@ Barındırılan bir web uygulaması bu tanıtımda açıklanmaktadır [Azure App
 
 İlk adım, bir App Service ASP.NET uygulaması oluşturmaktır. Azure'da nasıl yapılacağı hakkında bilgi sahibi değilseniz izleyin [bu nasıl yapılır kılavuzunda](../app-service/app-service-web-get-started-dotnet-framework.md). Ancak, öğreticide gösterilen şekilde bir MVC uygulaması oluşturmak yerine, bir Web Forms uygulaması oluşturun.
 
-### <a name="set-up-the-managed-service-identity"></a>Yönetilen hizmet kimliğini ayarlayın
+### <a name="set-up-the-managed-identity"></a>Yönetilen kimlik
 
 Uygulamayı oluşturduktan sonra (nasıl yapılır makalesinde de gösterilmiştir) Azure portalında yeni oluşturulan web uygulamasına gidin ve ardından gitmek **yönetilen hizmet kimliği** sayfasını ve özelliğini etkinleştirin: 
 
@@ -49,32 +53,29 @@ Uygulamayı oluşturduktan sonra (nasıl yapılır makalesinde de gösterilmişt
 
 ### <a name="create-a-new-event-hubs-namespace"></a>Yeni Event Hubs ad alanı oluşturma
 
-Ardından, [bir Event Hubs ad alanı oluşturma](event-hubs-create.md) MSI Önizleme desteği olan Azure bölgelerinden birini: **ABD Doğu**, **ABD Doğu 2**, veya **Batı Avrupa**. 
+Ardından, [bir Event Hubs ad alanı oluşturma](event-hubs-create.md) Azure kaynakları için yönetilen kimlikleri için Önizleme desteği olan Azure bölgelerinden birini: **ABD Doğu**, **ABD Doğu 2**, veya  **Batı Avrupa**. 
 
-Ad alanınıza gidin **erişim denetimi (IAM)** sayfasında portalda ve ardından **Ekle** için Yönetilen hizmet kimliği eklemek için **sahibi** rol. Bunu yapmak için web uygulamasının adını arayın **izinleri eklemek** paneli **seçin** alan ve sonra giriş'e tıklayın. Daha sonra **Kaydet**'e tıklayın.
+Ad alanınıza gidin **erişim denetimi (IAM)** sayfasında portalda ve ardından **Ekle** için yönetilen kimlik eklemek için **sahibi** rol. Bunu yapmak için web uygulamasının adını arayın **izinleri eklemek** paneli **seçin** alan ve sonra giriş'e tıklayın. Daha sonra **Kaydet**'e tıklayın.
 
 ![](./media/event-hubs-managed-service-identity/msi2.png)
  
-Yönetilen hizmet kimliği artık web uygulaması için Event Hubs ad alanına erişimi vardır ve daha önce oluşturduğunuz olay hub'ına. 
+Event Hubs ad alanı web uygulaması artık yönetilen kimlik erişimi ve daha önce oluşturduğunuz olay hub'ına. 
 
 ### <a name="run-the-app"></a>Uygulamayı çalıştırma
 
 Artık oluşturduğunuz ASP.NET uygulamasının varsayılan sayfasını değiştirin. Web uygulama kodundan kullanabilirsiniz [bu GitHub deposundan](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/MSI/EventHubsMSIDemoWebApp). 
 
->[!NOTE] 
-> MSI özelliği önizlemedeyken kullandığınızdan emin olun [Service Bus kitaplığı önizleme sürümünü](https://www.nuget.org/packages/WindowsAzure.ServiceBus/4.2.2-preview) yeni API'leri erişebilmek için. 
+Uygulamayı başlattıktan sonra tarayıcınızı EventHubsMSIDemo.aspx için işaretleyin. Ayrıca, başlangıç sayfası olarak ayarlayabilirsiniz. Kod EventHubsMSIDemo.aspx.cs dosyasında bulunabilir. Bazı giriş alanları ile birlikte en az bir web uygulaması sonucudur **Gönder** ve **alma** olaylarını almak veya göndermek için Event Hubs'a bağlanma düğmeleri. 
 
-Uygulamayı başlattıktan sonra tarayıcınızı EventHubsMSIDemo.aspx için işaretleyin. Alternatif olarak, başlangıç sayfası olarak ayarlayın. Kod EventHubsMSIDemo.aspx.cs dosyasında bulunabilir. Bazı giriş alanları ile birlikte en az bir web uygulaması sonucudur **Gönder** ve **alma** olaylarını almak veya göndermek için Event Hubs'a bağlanma düğmeleri. 
+Not nasıl [MessagingFactory](/dotnet/api/microsoft.servicebus.messaging.messagingfactory) nesnesi. Paylaşılan erişim belirteci (SAS) belirteç sağlayıcısı kullanmak yerine, kod ile yönetilen kimlik için bir belirteç sağlayıcısı oluşturur `TokenProvider.CreateManagedServiceIdentityTokenProvider(ServiceAudience.EventHubAudience)` çağırın. Bu nedenle, kaydetmek ve kullanmak için gizli dizi vardır. Olay hub'larına ve yetkilendirme el sıkışması yönetilen kimlik bağlamını akışını otomatik olarak tarafından işlenmesini SAS kullanmaktan daha basit bir model belirteç sağlayıcısı.
 
-Not nasıl [MessagingFactory](/dotnet/api/microsoft.servicebus.messaging.messagingfactory) nesnesi. Paylaşılan erişim belirteci (SAS) belirteç sağlayıcısı kullanmak yerine, kod ile yönetilen hizmet kimliği için bir belirteç sağlayıcısı oluşturur `TokenProvider.CreateManagedServiceIdentityTokenProvider(ServiceAudience.EventHubAudience)` çağırın. Bu nedenle, korumak ve kullanmak için gizli dizi vardır. Olay hub'larına ve yetkilendirme el sıkışması yönetilen hizmet kimliği bağlamı akışını otomatik olarak tarafından işlenmesini SAS kullanmaktan daha basit bir model belirteç sağlayıcısı.
-
-Bu değişiklikleri yaptıktan sonra yayımlama ve uygulamayı çalıştırın. İndirmek ve ardından Visual Studio'da bir yayımlama profilini içeri aktarmak için doğru yayımlama verileri almak için kolay bir yol verilmiştir:
+Bu değişiklikleri yaptıktan sonra yayımlama ve uygulamayı çalıştırın. İndirerek ve ardından Visual Studio'da bir yayımlama profilini içeri aktarma verileri doğru yayımlama alabilirsiniz:
 
 ![](./media/event-hubs-managed-service-identity/msi3.png)
  
 İleti göndermek veya almak için ad alanının adı ve oluşturduğunuz varlığın adını girin, ardından tıklayın **Gönder** veya **alma**. 
  
-Yönetilen hizmet kimliği yalnızca Azure ortamı içinde ve yalnızca içinde yapılandırdığınız App Service dağıtımı çalıştığını unutmayın. Ayrıca, yönetilen hizmet kimlikleri şu anda App Service dağıtım yuvaları ile çalışmaz unutmayın.
+Yönetilen kimlik, yalnızca içinde yapılandırdığınız App Service dağıtımı ve yalnızca Azure ortamı içinde çalışır. Yönetilen kimlik şu anda App Service dağıtım yuvaları ile çalışmaz.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

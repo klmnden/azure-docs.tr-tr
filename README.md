@@ -26,7 +26,7 @@ Bölümündeki yönergeleri izleyin [içerik yazma araçlarını yükleme](https
 
 ## <a name="license"></a>Lisans
 
-Lütfen [lisans](.github/LICENSE), [LICENSE-CODE](.github/LICENSE-CODE) ve [ThirdPartyNotices](.github/ThirdPartyNotices) tüm lisans bilgileri için.
+Lütfen [lisans](.github/LICENSE), [LICENSE-CODE](.github/LICENSE-CODE) ve [ThirdPartyNotices](.github/ThirdPartyNotices.md) tüm lisans bilgileri için.
 
 ## <a name="code-of-conduct"></a>Kullanım Kuralları
 

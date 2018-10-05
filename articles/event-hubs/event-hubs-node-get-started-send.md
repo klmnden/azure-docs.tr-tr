@@ -9,12 +9,12 @@ ms.workload: core
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: shvija
-ms.openlocfilehash: 3497abdd571282974d85ebaa58d06b47cbe3b159
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 413f36a12dee135cc1a7dc99a34d8b7b2be6c46f
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46368872"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48801072"
 ---
 # <a name="send-events-to-azure-event-hubs-using-nodejs"></a>Node.js kullanarak Azure Event Hubs için olayları gönderme
 
@@ -72,6 +72,7 @@ Kopyalanmış SDK, node.js kullanarak bir olay hub'ına olayları göndermek nas
 ## <a name="review-the-sample-code"></a>Örnek kodu gözden geçirin 
 Node.js kullanarak bir olay hub'ına olayları göndermek için örnek kod aşağıda verilmiştir. El ile sampleSender.js dosyası oluşturun ve bir olay hub'ına olayları göndermek için çalıştırın. 
 
+
 ```nodejs
 const { EventHubClient, EventPosition } = require('@azure/event-hubs');
 
@@ -89,6 +90,18 @@ main().catch((err) => {
     console.log(err);
 });
 
+```
+
+Betiği çalıştırmadan önce ortam değişkenlerini ayarlamak unutmayın. Bu komut satırında aşağıdaki örnekte gösterilen şekilde yapılandırabilir veya kullanın [dotenv paket](https://www.npmjs.com/package/dotenv#dotenv). 
+
+```
+// For windows
+set EVENTHUB_CONNECTION_STRING="<your-connection-string>"
+set EVENTHUB_NAME="<your-event-hub-name>"
+
+// For linux or macos
+export EVENTHUB_CONNECTION_STRING="<your-connection-string>"
+export EVENTHUB_NAME="<your-event-hub-name>"
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar

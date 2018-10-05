@@ -12,19 +12,19 @@ ms.author: bonova
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 10/01/2018
-ms.openlocfilehash: a09a19957c318416f3cb4de79305b181dbc3be81
-ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
+ms.openlocfilehash: 698fafac771c79bf014d6e9492c8ca22d1c31b47
+ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48018302"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48784992"
 ---
 # <a name="what-is-a-managed-instance"></a>Yönetilen örnek nedir?
 
 Azure SQL veritabanı yönetilen örneği, Azure SQL veritabanı neredeyse % 100 uyumluluk en son SQL Server ile şirket içi (Enterprise Edition) veritabanı altyapısı sağlayarak, yerel sağlama, yeni bir dağıtım modeli olduğundan [sanal ağ (VNet)](../virtual-network/virtual-networks-overview.md) ortak güvenlik endişelerini ortadan uygulama ve [iş modeli](https://azure.microsoft.com/pricing/details/sql-database/) şirket içi SQL Server müşterileri için yeterli. Yönetilen örnek lift- and -shift kendi şirket içi uygulamaları bulutta çok az değişiklikle uygulama ve veritabanı mevcut SQL Server müşterileri sağlar. Aynı anda yönetilen örneği, tüm PaaS özellikleri korur (otomatik düzeltme eki uygulama ve sürüm güncelleştirmeleri [otomatik yedeklemeler](sql-database-automated-backups.md), [yüksek kullanılabilirlik](sql-database-high-availability.md) ), yönetim yükünü önemli ölçüde azaltan ve toplam sahip olma maliyeti.
 
 > [!IMPORTANT]
-> Yönetilen Örneğin şu anda kullanılabilir olduğu bölgelerin listesi için bkz. [Azure SQL Veritabanı Yönetilen Örneği ile tam yönetilen hizmete veritabanlarınızı geçirme](https://azure.microsoft.com/blog/migrate-your-databases-to-a-fully-managed-service-with-azure-sql-database-managed-instance/).
+> Yönetilen örneği şu anda bölgelerin listesi için bkz. [desteklenen bölgeler](sql-database-managed-instance-resource-limits.md#supported-regions).
  
 Aşağıdaki diyagramda, yönetilen örnek temel özellikleri özetlenmektedir:
 
@@ -41,7 +41,7 @@ Azure SQL veritabanı tek veritabanı ve Azure SQL veritabanı yönetilen örne�
 Azure SQL veritabanı yönetilen örneği, hem Azure SQL veritabanı ve SQL Server veritabanı altyapısı kullanılabilir olan en iyi özelliklerini bir araya getirir.
 
 > [!IMPORTANT]
-> Bir yönetilen örnek tüm özellikler çevrimiçi işlemleri, otomatik plan düzeltme ve diğer kurumsal performans geliştirmeleri dahil olmak üzere SQL Server'ın en son sürümü ile çalışır. 
+> Bir yönetilen örnek tüm özellikler çevrimiçi işlemleri, otomatik plan düzeltme ve diğer kurumsal performans geliştirmeleri dahil olmak üzere SQL Server'ın en son sürümü ile çalışır. Özelliklerin karşılaştırması açıklanan [özellik karşılaştırması: SQL Server yerine Azure SQL veritabanı](sql-database-features.md).
 
 | **PaaS avantajları** | **İş sürekliliği** |
 | --- | --- |
@@ -49,22 +49,34 @@ Azure SQL veritabanı yönetilen örneği, hem Azure SQL veritabanı ve SQL Serv
 |**Güvenlik ve uyumluluk** | **Yönetim**|
 |Yalıtılmış ortamı ([VNet tümleştirmesi](sql-database-managed-instance-vnet-configuration.md)çoklu kiracı hizmeti, ayrılmış hesaplama ve depolama) <br>[Saydam veri şifrelemesi (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)<br>[Azure AD kimlik doğrulaması](sql-database-aad-authentication.md), çoklu oturum açma desteği <br>Azure SQL veritabanı olarak aynı uyumluluk standartlarına uyar <br>[SQL denetimi](sql-database-managed-instance-auditing.md) <br>[Tehdit algılama](sql-database-managed-instance-threat-detection.md) |Hizmet sağlama ve ölçeklendirme otomatikleştirmek için Azure Resource Manager API'si <br>Sağlama ve ölçeklendirme el ile hizmeti için Azure portal işlevi <br>Veri geçiş hizmeti 
 
+Yönetilen örnek temel özelliklerini, aşağıdaki tabloda gösterilmiştir:
+
+|Özellik | Açıklama|
+|---|---|
+| SQL Server sürümü / build | SQL Server veritabanı altyapısı (en son kararlı) |
+| Yönetilen otomatik yedekleri | Evet |
+| Yerleşik bir örneği ve veritabanı izleme ve ölçümler | Evet |
+| Otomatik yazılım düzeltme eki uygulama | Evet |
+| En son veritabanı altyapısı özellikleri | Evet | 
+| Veritabanı başına veri dosyalarının (satırlar) | Birden çok | 
+| Günlük dosyası (günlük) veritabanı başına sayısı | 1 | 
+| VNet - Azure Resource Manager dağıtımı | Evet |
+| VNet - Klasik dağıtım modeli | Hayır |
+| Portalı desteği | Evet|
+| Yerleşik tümleştirme hizmeti (SSIS) | Hayır - SSIS bir parçası olan [Azure Data Factory PaaS](https://docs.microsoft.com/azure/data-factory/tutorial-deploy-ssis-packages-azure) |
+| Yerleşik Analysis Services (SSAS) | Hayır - SSAS ayrıdır [PaaS](https://docs.microsoft.com/azure/analysis-services/analysis-services-overview) |
+| Yerleşik raporlama hizmeti (SSRS) | Hayır - Power BI veya SSRS Iaas kullanın |
+|||
+
 ## <a name="vcore-based-purchasing-model"></a>Sanal çekirdek tabanlı satın alma modeli
 
-[Sanal çekirdek tabanlı satın alma modeli](sql-database-service-tiers-vcore.md) size esneklik, Denetim, saydamlık ve şirket içi iş yükü gereksinimlerini buluta çevirmek için basit bir yol sağlar. Bu model, Ölçek işlem, bellek ve iş yükü gereksinimlerine göre depolama sağlar. VCore modeli de ile yüzde 30 tasarruf için uygun yedekleme [SQL Server için Azure hibrit kullanım teklifi](../virtual-machines/windows/hybrid-use-benefit-licensing.md).
+[Sanal çekirdek tabanlı satın alma modeli](sql-database-service-tiers-vcore.md) yönetilen örneği'nde size esneklik, Denetim, saydamlık ve şirket içi iş yükü gereksinimlerini buluta çevirmek için basit bir yol sağlar. Bu model, işlem, bellek ve depolama iş yükü gereksinimlerinize göre değiştirmenizi sağlar. VCore modeli de ile yüzde 30 tasarruf için uygun yedekleme [SQL Server için Azure hibrit kullanım teklifi](../virtual-machines/windows/hybrid-use-benefit-licensing.md).
 
-Sanal çekirdek, donanım Nesilleri arasında seçim yapma olanağı ile sunulan mantıksal CPU'yu temsil eder.
-- 4. Nesil Mantıksal CPU’lar Intel E5-2673 v3 (Haswell) 2,4 GHz işlemcileri temel alır.
-- 5 mantıksal CPU'lar Intel E5-2673 v4 nesil (Broadwell) 2,3 GHz işlemcileri.
+Sanal çekirdek modeli içinde donanım Nesilleri arasında seçim yapabilirsiniz.
+- **Gen 4** mantıksal CPU'lar Intel E5-2673 v3 dayalı (Haswell) 2,4 GHz işlemcileri, ekli SSD fiziksel çekirdek olarak çekirdek ve bilgi işlem boyutlarına arasındaki 8 ila 24 sanal çekirdek başına 7 GB RAM.
+- **5 gen** mantıksal CPU'lar Intel E5-2673 v4 dayalı (Broadwell) 2.3 GHz işlemcileri, hızlı eNVM SSD, mantıksal çekirdek, hiper iş parçacıklıdır ve boyutları 8 ila 80 çekirdeğine işlem.
 
-Aşağıdaki tabloda, işlem, bellek, depolama ve g/ç kaynakları en iyi yapılandırmasının nasıl seçileceğini anlamanıza yardımcı olur.
-
-||4. Nesil|5. Nesil|
-|----|------|-----|
-|Donanım|Intel E5-2673 v3 (Haswell) 2,4 GHz işlemcileri, bağlı SSD sanal çekirdek = 1 PP (fiziksel çekirdek)|Intel E5-2673 v4 (Broadwell) 2,3 GHz işlemcileri, hızlı eNVM SSD, sanal çekirdek = 1 LP (hiper iş parçacığı)|
-|İşlem boyutları|8, 16, 24 sanal çekirdek|8, 16, 24, 32, 40, 64, 80 sanal çekirdekler|
-|Bellek|Sanal çekirdek başına 7 GB|Sanal çekirdek başına 5.5 GB|
-||||
+İçinde donanım Nesilleri arasındaki fark hakkında daha fazla bilgi [yönetilen örnek kaynak sınırları](sql-database-managed-instance-resource-limits.md#hardware-generation-characteristics).
 
 ## <a name="managed-instance-service-tiers"></a>Yönetilen örnek hizmet katmanları
 
@@ -83,32 +95,11 @@ Aşağıdaki listede, genel amaçlı hizmet katmanının önemli bir özelliği 
 
 - Çoğu tipik performans gereksinimlerine sahip iş kolu uygulamaları için Tasarım 
 - Yüksek performanslı Azure Premium depolama (8 TB) 
-- Örnek başına 100 veritabanları 
+- Yerleşik [yüksek kullanılabilirlik](sql-database-high-availability.md#standardgeneral-purpose-availability) güvenilir Azure Premium depolama tabanlı ve [Azure Service Fabric](../service-fabric/service-fabric-overview.md)
 
-Aşağıdaki listede, genel amaçlı hizmet katmanının anahtar özellikleri özetlenmektedir:
+Daha fazla bilgi için [Storate katman genel amaçlı katmanında](https://medium.com/azure-sqldb-managed-instance/file-layout-in-general-purpose-azure-sql-managed-instance-cf21fff9c76c) ve [en iyi performans uygulamaları, depolama ve Azure SQL DB yönetilen örneği (genel amaçlı) değerlendirmeleri](https://blogs.msdn.microsoft.com/sqlcat/2018/07/20/storage-performance-best-practices-and-considerations-for-azure-sql-db-managed-instance-general-purpose/).
 
-|Özellik | Açıklama|
-|---|---|
-| Sanal çekirdekler * sayısı | 8, 16, 24 (gen 4)<br>8, 16, 24, 32, 40, 64, 80 (gen 5)|
-| SQL Server sürümü / build | SQL Server veritabanı altyapısı (en son kararlı) |
-| En düşük depolama boyutu | 32 GB |
-| En büyük depolama boyutu | 8 TB |
-| Veritabanı başına maks. depolama | Örnek başına en fazla depolama boyutu tarafından belirlenir. |
-| Beklenen depolama IOPS | Veri dosyası (veri dosyası üzerinde bağlıdır) başına 500-7500 IOPS. Bkz: [Premium depolama](../virtual-machines/windows/premium-storage-performance.md#premium-storage-disk-sizes) |
-| Veritabanı başına veri dosyalarının (satırlar) | Birden çok | 
-| Günlük dosyası (günlük) veritabanı başına sayısı | 1 | 
-| Yönetilen otomatik yedekleri | Evet |
-| YÜKSEK KULLANILABİLİRLİK | Azure Depolama'da depolanan veriler ve [Azure Service Fabric](../service-fabric/service-fabric-overview.md) |
-| Yerleşik bir örneği ve veritabanı izleme ve ölçümler | Evet |
-| Otomatik yazılım düzeltme eki uygulama | Evet |
-| VNet - Azure Resource Manager dağıtımı | Evet |
-| VNet - Klasik dağıtım modeli | Hayır |
-| Portalı desteği | Evet|
-|||
-
-\* Sanal çekirdek, donanım Nesilleri arasında seçim yapma olanağı ile sunulan mantıksal CPU'yu temsil eder. Gen 4 mantıksal CPU'lar Intel E5-2673 v3 dayalı (Haswell) 2,4 GHz işlemcileri ve genel 5 mantıksal CPU'lar Intel E5-2673 v4 dayalı (Broadwell) 2,3 GHz işlemcileri. 
-
-Daha fazla bilgi için [standart/genel amaçlı kullanılabilirlik ve mimari](sql-database-high-availability.md#standardgeneral-purpose-availability) Azure SQL veritabanı'nda ve [en iyi performans uygulamaları, depolama ve Azure SQL DB yönetilen örneği (genel değerlendirmeleri Amaç)](https://blogs.msdn.microsoft.com/sqlcat/2018/07/20/storage-performance-best-practices-and-considerations-for-azure-sql-db-managed-instance-general-purpose/).
+Hizmet katmanlarında arasındaki fark hakkında daha fazla bilgi [yönetilen örnek kaynak sınırları](sql-database-managed-instance-resource-limits.md#service-tier-characteristics).
 
 ### <a name="business-critical-service-tier-preview"></a>İş kritik hizmet Katmanı (Önizleme)
 
@@ -117,33 +108,14 @@ Daha fazla bilgi için [standart/genel amaçlı kullanılabilirlik ve mimari](sq
 Aşağıdaki listede, iş açısından kritik hizmet katmanının anahtar özellikleri özetlenmektedir: 
 -   En yüksek performans ve yüksek kullanılabilirlik gereksinimleri olan iş uygulamaları için tasarlanmış 
 -   Süper hızlı SSD depolama ile birlikte gelir (1 TB'a kadar 5. nesil Gen 4 ve 4 TB)
--   Örnek başına en fazla 100 veritabanlarını destekler 
-- Raporlama ve diğer salt okunur iş yükleri için kullanılabilecek yerleşik ek salt okunur örneği
+- Yerleşik [yüksek kullanılabilirlik](sql-database-high-availability.md#premiumbusiness-critical-availability) göre [Always On kullanılabilirlik grupları](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) ve [Azure Service Fabric](../service-fabric/service-fabric-overview.md).
+- Yerleşik ek [salt okunur veritabanı çoğaltmasını](sql-database-read-scale-out.md) kullanılabilecek raporlama ve diğer salt okunur iş yükleri için
 - [Bellek içi OLTP](sql-database-in-memory.md) yüksek prefrmance gereksinimleri olan iş yükü için kullanılabilir  
-
-|Özellik | Açıklama|
-|---|---|
-| Sanal çekirdekler * sayısı | 8, 16, 24, 32 (gen 4)<br>8, 16, 24, 32, 40, 64, 80 (gen 5)|
-| SQL Server sürümü / build | SQL Server Son (kullanılabilir) |
-| Ek özellikler | [Bellek içi OLTP](sql-database-in-memory.md)<br> 1 ek salt okunur çoğaltma ([okuma ölçeği genişletme](sql-database-read-scale-out.md))
-| En düşük depolama boyutu | 32 GB |
-| En büyük depolama boyutu | Gen 4: 1 TB (tüm sanal çekirdek boyutları)<br> 5. nesil:<ul><li>1 TB 8, 16 sanal çekirdek</li><li>24 sanal çekirdekler için 2 TB</li><li>4 TB 32, 40, 64, 80 sanal çekirdekler</ul>|
-| Veritabanı başına maks. depolama | Örnek başına en fazla depolama boyutu tarafından belirlenir. |
-| Veritabanı başına veri dosyalarının (satırlar) | Birden çok | 
-| Günlük dosyası (günlük) veritabanı başına sayısı | 1 | 
-| Yönetilen otomatik yedekleri | Evet |
-| YÜKSEK KULLANILABİLİRLİK | Yerel SSD ve kullanım depolanan verileri [Always On kullanılabilirlik grupları](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) ve [Azure Service Fabric](../service-fabric/service-fabric-overview.md) |
-| Yerleşik bir örneği ve veritabanı izleme ve ölçümler | Evet |
-| Otomatik yazılım düzeltme eki uygulama | Evet |
-| VNet - Azure Resource Manager dağıtımı | Evet |
-| VNet - Klasik dağıtım modeli | Hayır |
-| Portalı desteği | Evet|
-|||
-
-Daha fazla bilgi için [Premium/iş açısından kritik kullanılabilirlik ve mimari](sql-database-high-availability.md#premiumbusiness-critical-availability) Azure SQL veritabanı'nda.
 
 > [!IMPORTANT]
 > **İş açısından kritik** hizmet katmanı önizlemededir.
+
+Hizmet katmanlarında arasındaki fark hakkında daha fazla bilgi [yönetilen örnek kaynak sınırları](sql-database-managed-instance-resource-limits.md#service-tier-characteristics).
 
 ## <a name="advanced-security-and-compliance"></a>Gelişmiş koruma ve uyumluluk 
 

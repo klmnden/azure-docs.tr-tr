@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 04/23/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 4365f12992c96ca45ff6b97b0f59202f1eeb4483
-ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
+ms.openlocfilehash: b5fd5a9544e27092c8b65e18d59701421fc59ef5
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48268978"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48800868"
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-down-level-devices"></a>Alt düzey cihazları katılmış karma Azure Active Directory sorun giderme 
 
@@ -43,6 +43,10 @@ Bu makalede, sahibi olduğunuzu varsayar [yapılandırılmış hibrit Azure Acti
 Bu makalede, sorun giderme rehberi olası sorunların nasıl giderileceğini üzerinde ile sunulmaktadır.  
 
 **Bilmeniz gerekenler:** 
+
+- Hibrit Azure AD'ye katılma için Windows cihazları works biraz daha farklı daha alt düzey Windows 10'da gerçekleştirir. Birçok müşteri AD FS (Federasyon etki alanları için) ihtiyaç duydukları veya sorunsuz çoklu oturum açma (için yönetilen etki alanları) yapılandırılmış başlığımız dikkatinizi çekmiş olabilir değil.
+
+- Hizmet bağlantı noktası (SCP) (örneğin, contoso.onmicrosoft.com, contoso.com yerine), yönetilen etki alanı adına işaret şekilde yapılandırıldıysa, alt düzey Windows cihazlar için Azure AD'ye katılım hibrit Federasyon etki alanlarında olan müşteriler için ardından olur çalışmıyor.
 
 - Şu anda kullanıcı başına cihaz sayısı, alt düzey hibrit Azure AD'ye katılmış cihazlar için de geçerlidir. 
 
