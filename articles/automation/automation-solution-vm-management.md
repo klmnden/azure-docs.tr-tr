@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 10/04/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 9abdb17c7b1cf0662913a4c9cd59c49efc91e419
-ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
+ms.openlocfilehash: 8ae3a2d8dc42944bdea2b3e6ebac0a40029c0540
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48785503"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48817186"
 ---
 # <a name="startstop-vms-during-off-hours-solution-in-azure-automation"></a>Sırasında Azure Otomasyonu çözümde yoğun olmayan saatlerde Vm'leri başlatma/durdurma
 
@@ -33,6 +33,8 @@ Geçerli çözümdeki sınırlamalar aşağıda verilmiştir:
 
 > [!NOTE]
 > Klasik VM'ler için çözümü kullanıyorsanız, tüm Vm'leriniz sıralı olarak bulut hizmeti başına işlenir. Paralel işi işleme olması desteklenmeye farklı bulut hizmetleri arasında.
+>
+> Azure bulut çözümü sağlayıcısı (Azure CSP) abonelikleri yalnızca Azure Resource Manager modeline destek, Azure Resource Manager - program kullanılamıyor. Başlat/Durdur çözümü çalıştığında Klasik kaynakları yönetmek için cmdlet'ler olduğu gibi hatalar alabilirsiniz. CSP hakkında daha fazla bilgi için bkz: [CSP aboneliklerinde kullanılabilir hizmetler](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-available-services#comments).
 
 ## <a name="prerequisites"></a>Önkoşullar
 

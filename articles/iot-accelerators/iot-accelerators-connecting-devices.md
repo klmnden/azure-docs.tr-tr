@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 09/17/2018
 ms.author: dobett
-ms.openlocfilehash: cc2b813efe31822b273a98d21d0dcf0b62385b92
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 55c8ff799ba3ff7fe9691d46dc90a00d5182d390
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45734310"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48829419"
 ---
 # <a name="connect-your-device-to-the-remote-monitoring-solution-accelerator-windows"></a>Cihazınızı Uzaktan izleme çözüm Hızlandırıcısını için (Windows) bağlama
 
@@ -29,15 +29,15 @@ Nasıl yapılır bu kılavuzdaki adımları tamamlamak için adımları izleyin 
 
 ## <a name="view-the-code"></a>Kod Görünümü
 
-[Örnek kod](https://github.com/Azure/azure-iot-sdk-c/tree/master/samples/solutions/remote_monitoring) kullanılan Kılavuzu Azure IOT C SDK'ları GitHub deposunda kullanılabilir.
+[Örnek kod](https://github.com/Azure/azure-iot-sdk-c/tree/master/samples/solutions/remote_monitoring_client) kullanılan Kılavuzu Azure IOT C SDK'ları GitHub deposunda kullanılabilir.
 
 ### <a name="download-the-source-code-and-prepare-the-project"></a>Kaynak kodunu indirebilir ve proje hazırlama
 
 Proje hazırlamak için Kopyala veya indir [Azure IOT C SDK'ları depo](https://github.com/Azure/azure-iot-sdk-c) github'dan.
 
-Örnek bulunan **çözümleri/samples/remote_monitoring** klasör.
+Örnek bulunan **çözümleri/samples/remote_monitoring_client** klasör.
 
-Açık **remote_monitoring.c** dosyası **çözümleri/samples/remote_monitoring** bir metin düzenleyicisinde klasör.
+Açık **remote_monitoring.c** dosyası **çözümleri/samples/remote_monitoring_client** bir metin düzenleyicisinde klasör.
 
 [!INCLUDE [iot-accelerators-connecting-code](../../includes/iot-accelerators-connecting-code.md)]
 
@@ -50,7 +50,7 @@ Açık **remote_monitoring.c** dosyası **çözümleri/samples/remote_monitoring
 1. Çözümü derleyin kullandığınız komut isteminde aşağıdakini çalıştırın:
 
     ```cmd
-    samples\solutions\remote_monitoring\Release\remote_monitoring_client.exe
+    samples\solutions\remote_monitoring_client\Release\remote_monitoring_client.exe
     ```
 
     Konsol iletileri olarak gösterir:

@@ -1,20 +1,21 @@
 ---
-title: 'Bing özel arama: Özel otomatik öneri önerileri tanımlama | Microsoft Docs'
+title: Öneriler - Bing özel arama özel otomatik öneri tanımlayın
+titlesuffix: Azure Cognitive Services
 description: Özel otomatik öneri özel öneriler yapılandırılması açıklanmaktadır
 services: cognitive-services
 author: brapel
-manager: ehansen
+manager: cgronlun
 ms.service: cognitive-services
 ms.technology: bing-custom-search
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/28/2017
 ms.author: v-brapel
-ms.openlocfilehash: 11d3b1c2d98caa8d6527c52bec1cc65ba22c6c3b
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 7a583cccce65c22bdce5f36e2a9268b6f181ca37
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46958756"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48815706"
 ---
 # <a name="configure-your-custom-autosuggest-experience"></a>Özel otomatik öneri deneyiminizi yapılandırın
 

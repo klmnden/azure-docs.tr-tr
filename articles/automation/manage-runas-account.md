@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 09/12/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 5e8e8d1923caf5f51cffedd6b918dbc617b5c3a9
-ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
+ms.openlocfilehash: d2023d30cdb86a218d27024c8ccf0f397a7a5d09
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48785486"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48816631"
 ---
 # <a name="manage-azure-automation-run-as-accounts"></a>Azure Otomasyonu farklı çalıştır hesaplarını yönetme
 
@@ -32,6 +32,9 @@ Farklı Çalıştır hesapları iki tür vardır:
 * **Azure Klasik farklı çalıştır hesabı** -bu hesap, Klasik dağıtım modeli kaynakları yönetmek için kullanılır.
   * Belirtilen Otomasyon hesabında *AzureClassicRunAsCertificate* adlı bir Otomasyon sertifikası varlığı oluşturur. Sertifika varlığı, yönetim sertifikası tarafından kullanılan sertifika özel anahtarını içerir.
   * Belirtilen Otomasyon hesabında *AzureClassicRunAsConnection* adlı bir Otomasyon bağlantı varlığı oluşturur. Bağlantı varlığı; abonelik adı, subscriptionId ve sertifika varlık adını içerir.
+  
+  > [!NOTE]
+  > Azure bulut çözümü sağlayıcısı (Azure CSP) abonelikleri yalnızca Azure Resource Manager modeline destek, Azure Resource Manager - program kullanılamıyor. CSP aboneliklerini kullanırken Azure Klasik farklı çalıştır hesabı oluşturulmamış. Azure farklı çalıştır hesabını yine de oluşturulur. CSP abonelikleri hakkında daha fazla bilgi edinmek için [CSP aboneliklerinde kullanılabilir hizmetler](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-available-services#comments).
 
 ## <a name="permissions"></a>Farklı Çalıştır hesaplarını yapılandırmak için izinler
 

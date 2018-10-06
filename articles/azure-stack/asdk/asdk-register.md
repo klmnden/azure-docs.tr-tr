@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 09/20/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: c90e51d1aa1c3215c40baeae2c5494ef90b01132
-ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
+ms.openlocfilehash: d06ad47dc2962b249b4e7aef5667492e642be35e
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47584362"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48830132"
 ---
 # <a name="azure-stack-registration"></a>Azure Stack kaydı
 Azure Market öğelerini indirme ve ticaret verileri Microsoft'a raporlamaya ayarlamak için Azure ile Azure Stack geliştirme Seti'ni (ASDK) yüklemenizi kaydedebilirsiniz. Kayıt, Pazar dağıtımı da dahil olmak üzere tam Azure Stack işlevleri desteklemek için gereklidir. Kayıt önerilir çünkü Market dağıtım ve kullanım raporlama gibi önemli Azure Stack işlevselliğini test etmek sağlar. Azure Stack kaydettikten sonra kullanım için Azure ticaret bildirilir. Kayıt için kullanılan abonelik altında görebilirsiniz. Ancak ASDK kullanıcılar bunlar rapor tüm kullanımlar için ücretlendirilmezsiniz.
@@ -66,8 +66,8 @@ Azure ile ASDK kaydetmek için aşağıdaki adımları izleyin.
     Set-AzsRegistration `
         -PrivilegedEndpointCredential $CloudAdminCred `
         -PrivilegedEndpoint AzS-ERCS01 `
-        -BillingModel Development
-        -RegistrationName $RegistrationName
+        -BillingModel Development `
+        -RegistrationName $RegistrationName `
         -EnableUsageReporting $UsageReporting
     ```
 3. Betik tamamlandığında, bu iletiyi görmeniz gerekir: **ortamınızı şimdi kaydedilir ve sağlanan parametreleri kullanarak etkinleştirildi.**

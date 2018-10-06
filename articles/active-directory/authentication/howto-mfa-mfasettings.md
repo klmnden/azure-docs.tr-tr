@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: 890a6b9dd1ef63fcc59984686b2d6dec773cdb52
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.openlocfilehash: 8ba1286f7283a1062b2b94d58c2439e8461c1573
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44391853"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48817135"
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>Azure multi-Factor Authentication ayarlarını yapılandırma
 
@@ -111,17 +111,33 @@ Başlamadan önce aşağıdaki kısıtlamalara dikkat edin:
 * Dosya boyutu sınırı 5 MB şeklindedir.
 * Kimlik doğrulama iletilerinde 20 saniyeden daha kısa olmalıdır. 20 saniyeden daha uzun bir iletiyi doğrulama başarısız olmasına neden olabilir. Kullanıcının ileti tamamlanır ve doğrulama zaman aşımına uğramadan önce yanıt vermeyebilir.
 
+### <a name="custom-message-language-behavior"></a>Özel ileti dil davranışı
+
+Kullanıcıya özel sesli mesajı yürütüldüğünde, ileti dilini şu etkenlere bağlıdır:
+
+* Geçerli kullanıcının dili.
+   * Kullanıcının tarayıcı tarafından algılanan dili.
+   * Diğer kimlik doğrulama senaryoları farklı şekilde davranabilir.
+* Kullanılabilir hiçbir özel iletiler dili.
+   * Özel bir ileti eklendiğinde, bu dil Yöneticisi tarafından seçilir.
+
+Örneğin, biri Almanca dil içeren tek bir özel ileti ise:
+
+* Almanca dilinde kimliğini doğrulayan bir kullanıcı özel Almanca ileti duyacaktır.
+* İngilizce dilinde kimliğini doğrulayan bir kullanıcıyı standart İngilizce ileti duyacaktır.
+
 ### <a name="set-up-a-custom-message"></a>Özel bir iletiyi ayarlayın
 
 1. [Azure Portal](https://portal.azure.com)’da yönetici olarak oturum açın.
-2. Gözat **Azure Active Directory** > **MFA sunucusu** > **telefon araması ayarları**.
+1. Gözat **Azure Active Directory** > **MFA sunucusu** > **telefon araması ayarları**.
 
    ![Özel telefon ileti kaydı](./media/howto-mfa-mfasettings/phonecallsettings.png)
 
-3. Seçin **Ekle Karşılama**.
-4. Karşılama türü seçin. Dili seçin.
-5. Karşıya yüklenecek bir .mp3 veya .wav ses dosyasını seçin.
-6. **Add (Ekle)** seçeneğini belirleyin.
+1. Seçin **Ekle Karşılama**.
+1. Karşılama türü seçin. 
+1. Dili seçin.
+1. Karşıya yüklenecek bir .mp3 veya .wav ses dosyasını seçin.
+1. **Add (Ekle)** seçeneğini belirleyin.
 
 ## <a name="caching-in-azure-multi-factor-authentication"></a>Azure multi-Factor authentication'da önbelleğe alma
 

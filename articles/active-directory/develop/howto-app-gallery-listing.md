@@ -17,12 +17,12 @@ ms.date: 09/14/2018
 ms.author: celested
 ms.reviewer: elisol, bryanla
 ms.custom: aaddev
-ms.openlocfilehash: 3d6692808bad2010779323cecc42778def32a38c
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: dd164882f9820cab970edd4d01f2f28c26771f88
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46980279"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48815231"
 ---
 # <a name="how-to-list-your-application-in-the-azure-active-directory-application-gallery"></a>Nasıl yapılır: uygulamanızı Azure Active Directory Uygulama galerisinde listeleyin
 
@@ -39,7 +39,7 @@ ms.locfileid: "46980279"
 
 - Federe uygulamaları (Open ID ve SAML/WS-Federasyon), uygulamanın Azure AD Galerisi'nde listelenmeyle SaaS modeli desteklemesi gerekir. Kurumsal galeri uygulamalar birden çok müşteri yapılandırmalarının ve hiçbir belirli bir müşteri desteklemelidir.
 
-- Open ID Connect için uygulamanın çok kiracılı olmalıdır ve [Azure AD'ye onay çerçevesine](quickstart-v1-integrate-apps-with-azure-ad.md#overview-of-the-consent-framework) uygulamayı düzgün bir şekilde uygulanmalıdır. Herhangi bir müşteri uygulama onay sağlayabilmesi kullanıcı oturum açma isteği ortak bir uç noktasına gönderebilir. Kiracı kimliği ve belirteçte alınan kullanıcının UPN göre kullanıcı erişimi denetleyebilirsiniz.
+- Open ID Connect için uygulamanın çok kiracılı olmalıdır ve [Azure AD'ye onay çerçevesine](consent-framework.md) uygulamayı düzgün bir şekilde uygulanmalıdır. Herhangi bir müşteri uygulama onay sağlayabilmesi kullanıcı oturum açma isteği ortak bir uç noktasına gönderebilir. Kiracı kimliği ve belirteçte alınan kullanıcının UPN göre kullanıcı erişimi denetleyebilirsiniz.
 
 - SAML 2.0/WS-Federasyon, SP veya IDP modunda SAML/WS-Federasyon SSO tümleştirme yapabilme olanağı, uygulamanızın olmalıdır. Lütfen bu isteği göndermeden önce düzgün çalıştığından emin olun.
 

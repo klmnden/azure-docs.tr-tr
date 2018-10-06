@@ -9,19 +9,19 @@ ms.author: minxia
 author: mx-iao
 ms.reviewer: sgilley
 ms.date: 09/24/2018
-ms.openlocfilehash: e569b63f676fb750bcbab88dda6cda39156d41f5
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 281fafe858f2000a19fe3c6a26a4ffd587557361
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46977046"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48816030"
 ---
 # <a name="how-to-train-pytorch-models"></a>PyTorch modelleri eğitme
 
-PyTorch kullanarak derin sinir ağı (DNN) eğitimi, Azure Machine Learning, bir özel Estimator PyTorch sınıfı sağlar. Azure SDK'ın PyTorch Estimator kolayca Azure işlem hem tek düğümlü hem de dağıtılmış çalıştırmalar için PyTorch eğitim işleri göndermenizi sağlar.
+PyTorch kullanarak derin sinir ağı (DNN) eğitim için özel bir Azure Machine Learning sağlar `PyTorch` sınıfının `Estimator`. Azure SDK'ın `PyTorch` estimator kolayca Azure işlem hem tek düğümlü hem de dağıtılmış çalıştırmalar için PyTorch eğitim işleri göndermenizi sağlar.
 
 ## <a name="single-node-training"></a>Tek düğümlü eğitim
-PyTorch Estimator eğitimlerle kullanmaya benzer [Estimator temel](how-to-train-ml-models.md), bu nedenle öncelikle yapılır makaleyi okuyun ve orada tanıtılan kavramları anladığınızdan emin olun.
+İle eğitim `PyTorch` estimator kullanmaya benzer [temel `Estimator` ](how-to-train-ml-models.md), bu nedenle öncelikle yapılır makaleyi okuyun ve orada tanıtılan kavramları anladığınızdan emin olun.
   
 PyTorch işi çalıştırmak için örneği bir `PyTorch` nesne. Oluşturmuş olmanız, [hedef işlem](how-to-set-up-training-targets.md#batch) nesne `compute_target` ve [veri deposu](how-to-access-data.md) nesne `ds`.
 
@@ -40,15 +40,16 @@ pt_est = PyTorch(source_directory='./my-pytorch-proj',
 ```
 
 Burada, PyTorch oluşturucuya aşağıdaki parametreleri belirtin:
-* `source_directory`: Tüm eğitim işine yönelik gerekli kodunuzu içeren yerel bir dizin. Bu klasörü yerel makinenizden uzak bilgisayarda kopyalanır
-* `script_params`: Eğitim betiğinizi komut satırı bağımsız değişkenleri belirtme bir sözlük `entry_script`, < komut satırı bağımsız değişkeni, değer > biçiminde çiftleri
-* `compute_target`: Eğitim betiğinizi, bu durumda çalışır uzak işlem bir [Batch AI](how-to-set-up-training-targets.md#batch) küme
-* `entry_script`: Dosya yolunu (göreli `source_directory`) eğitim betiğin uzak işlem üzerinde çalıştırılacak. Bu dosya ve, bağımlı herhangi bir ek dosyaları bu klasörde bulunmalıdır
-* `conda_packages`: Python paketlerini eğitim betiğinizi gerekli conda aracılığıyla yüklenecek listesi.
-Oluşturucu adlı başka bir parametreye sahip `pip_packages` gereken herhangi bir pip paketleri için kullanabileceğiniz
-* `use_gpu`: Bu bayrağı ayarlanmış `True` eğitim GPU yararlanmak için. Varsayılan olarak `False`
+Parametre | Açıklama
+--|--
+`source_directory` |  Eğitim işine yönelik gerekli kodunuzun tamamını içeren yerel dizin. Bu klasörü yerel makinenizden uzak bilgisayarda kopyalanır
+`script_params` |  Eğitim betiğinizi komut satırı bağımsız değişkenleri belirtme sözlük `entry_script`, < komut satırı bağımsız değişkeni, değer > biçiminde çiftleri
+`compute_target` |  Eğitim betiğinizi, bu durumda çalışır uzak işlem bir [Batch AI](how-to-set-up-training-targets.md#batch) küme
+`entry_script` |  FilePath (göreli `source_directory`) eğitim betiğin uzak işlem üzerinde çalıştırılacak. Bu dosya ve, bağımlı herhangi bir ek dosyaları bu klasörde bulunmalıdır
+`conda_packages` |  Eğitim betiğinizi gerekli conda aracılığıyla yüklenecek Python paketleri listesi. Oluşturucu adlı başka bir parametreye sahip `pip_packages` gereken herhangi bir pip paketleri için kullanabileceğiniz
+`use_gpu` |  Bu bayrağı ayarlanmış `True` eğitim GPU yararlanmak için. Varsayılan olarak `False`
 
-Eğitim için kullanılan kapsayıcı PyTorch estimator kullandığından, varsayılan PyTorch paket ve CPU ve gpu üzerinde eğitim için gereken ilgili bağımlılıklar içerir.
+Kullanmakta olduğunuz beri `PyTorch` tahmin, eğitim için kullanılan kapsayıcı PyTorch paket ve CPU ve gpu üzerinde eğitim için gereken ilgili bağımlılıkları içerecektir.
 
 Ardından, PyTorch işi gönder:
 ```Python
@@ -56,7 +57,7 @@ run = exp.submit(pt_est)
 ```
 
 ## <a name="distributed-training"></a>Dağıtılmış eğitimi
-PyTorch Estimator Azure VM'lerin CPU ve GPU kümeleri arasında uygun ölçekte Modellerinizi eğitmek sağlar. Azure Machine Learning tüm altyapı ve bu iş yüklerinin ölçeğini gerçekleştirmek için gereken düzenleme arka planda yönetecek karşın dağıtılmış PyTorch eğitimi birkaç API çağrısı ile kolayca çalıştırabilirsiniz.
+`PyTorch` Tahmin aracı da Azure Vm'lerini CPU ve GPU kümeleri arasında uygun ölçekte Modellerinizi eğitmek olanak sağlar. Azure Machine Learning tüm altyapı ve bu iş yüklerinin ölçeğini gerçekleştirmek için gereken düzenleme arka planda yönetecek karşın dağıtılmış PyTorch eğitimi birkaç API çağrısı ile kolayca çalıştırabilirsiniz.
 
 Azure Machine Learning şu anda dağıtılmış eğitimi MPI tabanlı PyTorch Horovod framework kullanarak, destekler.
 
@@ -78,10 +79,12 @@ pt_est = PyTorch(source_directory='./my-pytorch-project',
                  use_gpu=True)
 ```
 
-Yukarıdaki kod, aşağıdaki yeni parametreleri PyTorch oluşturucuya kullanıma sunar:
-* `node_count`:, Eğitim işine yönelik kullanmak için düğüm sayısı. Varsayılan olarak bu bağımsız değişken `1`
-* `process_count_per_node`: Her bir düğümde çalıştırılacak işlemleri (veya "çalışanları") sayı. Varsayılan olarak bu bağımsız değişken `1`
-* `distributed_backend`: Başlatmak için arka uç MPI Estimator sunan eğitim dağıtılmış. Bu bağımsız değişken varsayılan olarak `None`. Paralel veya dağıtılmış eğitimini gerçekleştirmek istiyorsanız (örneğin `node_count`> 1 veya `process_count_per_node`> 1 veya her ikisi) MPI (ve Horovod) sahip, `distributed_backend='mpi'`. Azure Machine Learning tarafından kullanılan MPI uygulamasıdır [açık MPI](https://www.open-mpi.org/).
+Bu kod, aşağıdaki yeni parametreleri PyTorch oluşturucuya kullanıma sunar:
+Parametre | Açıklama | Varsayılan
+--|--|--
+`node_count` |  Eğitim işine yönelik kullanmak için düğüm sayısı. | `1`
+`process_count_per_node` |  Her bir düğümde çalıştırılacak işlemleri (veya "çalışanları") sayısı. | `1`
+`distributed_backend` |  Başlatmak için arka uç MPI Estimator sunan eğitim dağıtılmış.  Paralel veya dağıtılmış eğitimini yürütmek için (örneğin `node_count`> 1 veya `process_count_per_node`> 1 veya her ikisi) MPI (ve Horovod) sahip, `distributed_backend='mpi'`. Azure Machine Learning tarafından kullanılan MPI uygulamasıdır [açık MPI](https://www.open-mpi.org/). | `None`
 
 Yukarıdaki örnekte, bir çalışan düğümü başına iki arkadaşlarınızla dağıtılmış eğitimi çalıştırılır.
 
@@ -98,10 +101,10 @@ run = exp.submit(pt_est)
 
 ## <a name="examples"></a>Örnekler
 Tek düğümlü PyTorch eğitim hakkında bir öğretici için bkz:
-* `training/01.train-tune-deploy-pytorch/01.train-tune-deploy-pytorch.ipynb`
+* `training/01.train-hyperparameter-tune-deploy-with-pytorch`
 
 Dağıtılmış PyTorch Horovod ile temel bir öğretici için bkz:
-* `training/02.distributed-pytorch-with-horovod/02.distributed-pytorch-with-horovod.ipynb`
+* `training/02.distributed-pytorch-with-horovod`
 
 Bu not defterlerini alın:
 

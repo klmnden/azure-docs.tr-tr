@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 09/06/2018
 ms.author: diberry
-ms.openlocfilehash: 6831f67a33d114ca5c42ddacf8ef4de704e21711
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 32ef8ba2f6416e1b59fc98595f1b204e94bd2ead
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47036965"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48830999"
 ---
 # <a name="use-phrase-lists-to-boost-signal-of-word-list"></a>Kullanım deyimi word listesinin boost sinyale listeler
 
@@ -46,7 +46,7 @@ LUIS uygulamanızı kendi doğruluğunu artırmak için özellikler ekleyebilirs
 <a name="deactivate-phrase-list"></a>
 
 > [!Note]
-> Düzenlemek, silmek veya üç nokta tümcecik listeden devre dışı bırak (***...*** ) satır eac deyim listesinin sonuna düğmesi.
+> Silme veya üzerinde bağlamsal araç tümcecik listeden devre dışı bırakmak **tümcecik listeleri** sayfası.
 
 ## <a name="pattern-regular-expression-feature"></a>Desen (normal ifade) özelliği 
 **Bu özellik devre dışı**. Yeni düzen özellikleri için LUIS eklenemez. Var olan herhangi bir desen özelliği Mayıs 2018'e kadar desteklenir. Standart LUIS normal ifade eşleme çekme isteği ile katkıda [tanıyıcıları metin Github deposu](https://github.com/Microsoft/Recognizers-Text). 

@@ -2,23 +2,23 @@
 title: Konuşma SDK başvurusu
 description: Konuşma SDK için başvuruları.
 services: cognitive-services
-titleSuffix: Microsoft Cognitive Services
+titleSuffix: Azure Cognitive Services
 author: v-jerkin
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: article
 ms.date: 09/24/2018
 ms.author: v-jerkin
-ms.openlocfilehash: b3770187033ef30982c38d8892c5b014b5dcb7c6
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 76a20a5ce45e9711026897d885f3024a3322bcab
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46950990"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48816982"
 ---
 # <a name="speech-sdk-reference"></a>Konuşma SDK başvurusu
 
-Konuşma Yazılım Geliştirme Seti (SDK), konuşma özellikli yazılım geliştirmeyi kolaylaştıran konuşma hizmeti işlevlerini uygulamaları erişiminizi sağlar. Şu anda, SDK'ları erişmeyi **Konuşmayı metne dönüştürme**, **konuşma çevirisi**, ve **amaç tanıma**.
+Konuşma Yazılım Geliştirme Seti (SDK), konuşma özellikli yazılım geliştirmeyi kolaylaştıran konuşma hizmeti işleve, uygulamaları erişmenizi sağlar. Şu anda, SDK'ları erişmeyi **Konuşmayı metne dönüştürme**, **konuşma çevirisi**, ve **amaç tanıma**.
 
 [!INCLUDE [Speech SDK Platforms](../../../includes/cognitive-services-speech-service-speech-sdk-platforms.md)]
 

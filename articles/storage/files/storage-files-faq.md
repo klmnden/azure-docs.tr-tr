@@ -4,15 +4,15 @@ description: Azure dosyaları hakkında sık sorulan soruların yanıtlarını b
 services: storage
 author: RenaShahMSFT
 ms.service: storage
-ms.date: 09/11/2018
+ms.date: 10/04/2018
 ms.author: renash
 ms.component: files
-ms.openlocfilehash: 1f7fc9916fc856d636b6ad850f831a3235b80632
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: 725aa5ff0d5ac0d6760656fc596fe44ca8661d1f
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48237764"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48816132"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Azure dosyaları hakkında sık sorulan sorular (SSS)
 [Azure dosyaları](storage-files-introduction.md) tam olarak yönetilen dosya paylaşımları endüstri standardı erişilebilen bulutta sunar [sunucu ileti bloğu (SMB) Protokolü](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx). Azure dosya paylaşımları Windows, Linux ve macOS Bulut veya şirket içi dağıtımlarda eşzamanlı olarak bağlayabilir. Ayrıca verilerin kullanıldığı yakın, hızlı erişim için Azure dosya eşitleme'ı kullanarak Azure dosya paylaşımları Windows Server makinelerinde önbelleğe alabilir.
@@ -179,7 +179,7 @@ Bu makalede, Azure dosyaları özellikleri ve işlevleri, Azure dosya eşitleme 
 * <a id="ad-support-regions"></a>
 **Azure ad Önizleme SMB üzerinden Azure dosyaları için tüm Azure bölgelerinde kullanılabilir mi?**
 
-    Dışındaki tüm ortak bölgelerde Önizleme kullanılabilir: Batı ABD, Batı ABD 2, Orta Güney ABD, Doğu ABD, Doğu ABD 2, Orta ABD, Kuzey Orta ABD, Doğu Avustralya, Batı Avrupa, Kuzey Avrupa.
+    Dışındaki tüm ortak bölgelerde Önizleme kullanılabilir: Batı ABD, Güney Orta ABD, Orta ABD, Batı Avrupa, Kuzey Avrupa.
 
 * <a id="ad-support-on-premises"></a>
 **Şirket içi makinelerin Azure AD ile kimlik doğrulama (Önizleme) Azure dosyaları SMB üzerinden Azure AD kimlik doğrulamasını destekliyor mu?**

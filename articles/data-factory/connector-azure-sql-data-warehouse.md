@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/28/2018
 ms.author: jingwang
-ms.openlocfilehash: 77b6149f175723ccf19db660ed500fb8897080e8
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.openlocfilehash: 03f02d9d36ffc6a14334cdcccf2d1455db34e2bc
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48249630"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48815815"
 ---
 #  <a name="copy-data-to-or-from-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Azure Data Factory kullanarak veya Azure SQL veri ambarı veri kopyalayın 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you're using:"]
@@ -70,7 +70,7 @@ Farklı kimlik doğrulama türleri için sırasıyla önkoşulları ve JSON örn
 
 - [SQL kimlik doğrulaması](#sql-authentication)
 - Azure AD uygulama belirteci kimlik doğrulamasını: [hizmet sorumlusu](#service-principal-authentication)
-- Azure AD uygulama belirteci kimlik doğrulamasını: [kimliklerini Azure kaynakları için yönetilen](#managed-service-identity-authentication)
+- Azure AD uygulama belirteci kimlik doğrulamasını: [kimliklerini Azure kaynakları için yönetilen](#managed-identity)
 
 >[!TIP]
 >Hata olarak "UserErrorFailedToConnectToSqlServer" hata koduyla isabet ve gibi ileti "veritabanı için oturum sınırı xxx ve üst sınırına ulaşıldı.", ekleme `Pooling=false` bağlantı dizesi ve yeniden deneyin.
@@ -152,7 +152,7 @@ Hizmet sorumlusu tabanlı Azure AD uygulama belirteci kimlik doğrulamasını ku
 }
 ```
 
-### <a name="managed-identities-for-azure-resources-authentication"></a>Azure kaynaklarında kimlik doğrulaması için yönetilen kimlik
+### <a name="managed-identity"></a> Azure kaynaklarında kimlik doğrulaması için yönetilen kimlik
 
 Veri Fabrikası ile ilişkilendirilmiş bir [yönetilen Azure kaynakları için kimliği](data-factory-service-identity.md) , belirli üretecini temsil eder. Bu hizmet kimliği, Azure SQL veri ambarı kimlik doğrulaması için kullanabilirsiniz. Belirtilen Üreteç erişebilir ve bu kimlik kullanarak veri kopyalama ya da verilerinize ambarı.
 

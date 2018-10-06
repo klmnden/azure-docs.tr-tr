@@ -16,12 +16,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
-ms.openlocfilehash: 3ac97ac5e9ae0a7059d9c74c5918212f1ce02790
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 5a8e43934393c2e6a97b81809284781a5c207e41
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46959963"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48816353"
 ---
 # <a name="application-types-in-v10"></a>V1.0 uygulama türleri
 
@@ -69,7 +69,7 @@ Daha fazla bilgi için edinmek için nasıl [bir uygulamayı Azure AD'ye v1.0 u�
 Geliştirilen ve Azure AD ile tümleştirilmiş uygulamalar iki kategorisi vardır anladığınızda sağlama daha anlaşılır hale gelir:
 
 * **Tek kiracılı uygulama** -tek kiracılı bir uygulama bir kuruluş içinde kullanıma yöneliktir. Bir kurumsal geliştirici tarafından yazılan genellikle satır iş kolu (LoB) uygulamaları şunlardır. Tek kiracılı bir uygulama yalnızca bir dizindeki kullanıcılar tarafından erişilmesi gereken ve sonuç olarak, yalnızca bir dizinde sağlanması gerekir. Bu uygulamalar, genellikle kuruluştaki bir geliştirici tarafından kaydedilir.
-* **Çok kiracılı uygulama** -çok kiracılı bir uygulama pek çok kuruluşta, kullanım için tasarlanmamış yalnızca bir kuruluş. Bir bağımsız yazılım satıcısı (ISV) tarafından yazılan genellikle yazılım olarak-hizmet (SaaS) uygulamalarıyla şunlardır. Çok kiracılı uygulamaları, bunları kaydetmek için kullanıcı veya yönetici onayı gerektiren nerede bunlar kullanılır, her dizinde sağlanması gerekir. Bir uygulama dizinde kayıtlı ve Graph API'sini ya da belki başka bir web API'si için erişim verilir, bu onay işlemini başlatır. Bir kullanıcı veya farklı bir kuruluşun Yöneticisi uygulamasını kullanmak oturum açtığında, onlara uygulama izinleri görüntüleyen bir iletişim kutusu ile gösterilir. Kullanıcı veya yönetici belirtilen uygulama erişmesini sağlayan ve son olarak, dizinde uygulama kaydeder uygulamaya sonra onay verebilir. Daha fazla bilgi için [onay Framework'ün genel bakış](quickstart-v1-integrate-apps-with-azure-ad.md#overview-of-the-consent-framework).
+* **Çok kiracılı uygulama** -çok kiracılı bir uygulama pek çok kuruluşta, kullanım için tasarlanmamış yalnızca bir kuruluş. Bir bağımsız yazılım satıcısı (ISV) tarafından yazılan genellikle yazılım olarak-hizmet (SaaS) uygulamalarıyla şunlardır. Çok kiracılı uygulamaları, bunları kaydetmek için kullanıcı veya yönetici onayı gerektiren nerede bunlar kullanılır, her dizinde sağlanması gerekir. Bir uygulama dizinde kayıtlı ve Graph API'sini ya da belki başka bir web API'si için erişim verilir, bu onay işlemini başlatır. Bir kullanıcı veya farklı bir kuruluşun Yöneticisi uygulamasını kullanmak oturum açtığında, onlara uygulama izinleri görüntüleyen bir iletişim kutusu ile gösterilir. Kullanıcı veya yönetici belirtilen uygulama erişmesini sağlayan ve son olarak, dizinde uygulama kaydeder uygulamaya sonra onay verebilir. Daha fazla bilgi için [onay Framework'ün genel bakış](consent-framework.md).
 
 ### <a name="additional-considerations-when-developing-single-tenant-or-multi-tenant-apps"></a>Tek bir kiracı veya çok kiracılı uygulamalar geliştirirken dikkat edilecek diğer noktalar
 

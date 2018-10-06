@@ -14,27 +14,24 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: celested
-ms.openlocfilehash: 059920c710b202e22a22f8431c536c5dfa19f2b9
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 4a730c340ea4d1e1137a7449c6d1005ea59917bf
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44724244"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48814017"
 ---
 # <a name="how-to-change-the-token-lifetime-defaults-for-a-custom-developed-application"></a>Özel olarak geliştirilmiş bir uygulamada için belirteç ömrü varsayılanlarını değiştirme
 
 Azure AD Premium, uygulama geliştiricileri ve Kiracı yöneticileri gizli olmayan istemciler için verilen belirteçlere ömrünü yapılandırmak için sağlar. Belirteç ömrü ilkeleri, Kiracı genelinde bir temele veya erişilen kaynaklara ayarlanır.
 
- * Bir belirteç ömrü ilkesi ayarlamak için indirmeniz gerekir [Azure AD PowerShell modülünün](https://www.powershellgallery.com/packages/AzureADPreview).
+1. Bir belirteç ömrü ilkesi ayarlamak için indirmeniz gerekir [Azure AD PowerShell modülünün](https://www.powershellgallery.com/packages/AzureADPreview).
+1. Çalıştırma **Connect-AzureAD-onaylayın** komutu.
 
- * Çalıştırma **Connect-AzureAD-onaylayın** komutu.
-
- * En yüksek yaş tek Faktörlü yenileme belirtecini ayarlayan bir örnek ilke aşağıda verilmiştir. İlke Oluştur: ```New-AzureADPolicy -Definition @('{"TokenLifetimePolicy":{"Version":1, "MaxAgeSingleFactor":"until-revoked"}}') -DisplayName "OrganizationDefaultPolicyScenario" -IsOrganizationDefault $true -Type "TokenLifetimePolicy"```
-
- * Kullanıma alma [belirteç ömrü yapılandırma](https://docs.microsoft.com/azure/active-directory/active-directory-configurable-token-lifetimes) belgenin diğer özel oluşturmayı öğrenin.
+    En yüksek yaş tek Faktörlü yenileme belirtecini ayarlayan bir örnek ilke aşağıda verilmiştir. İlke Oluştur: ```New-AzureADPolicy -Definition @('{"TokenLifetimePolicy":{"Version":1, "MaxAgeSingleFactor":"until-revoked"}}') -DisplayName "OrganizationDefaultPolicyScenario" -IsOrganizationDefault $true -Type "TokenLifetimePolicy"```
 
 ## <a name="next-steps"></a>Sonraki adımlar
-[Belirteç ömrü yapılandırma](https://docs.microsoft.com/azure/active-directory/active-directory-configurable-token-lifetimes)<br>
 
-[Azure AD belirteç başvurusu](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims)
+* Bkz: [Azure AD'de yapılandırılabilir belirteç ömrünü](https://docs.microsoft.com/azure/active-directory/active-directory-configurable-token-lifetimes) kuruluşunuzdaki tüm uygulamalar, çok kiracılı uygulama veya belirli bir hizmet için belirteç ömrünü ayarlama dahil olmak üzere Azure AD tarafından verilen belirteç ömrünü yapılandırma hakkında bilgi edinmek için Kuruluşunuzdaki sorumlu. 
+* [Azure AD belirteç başvurusu](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims)
 

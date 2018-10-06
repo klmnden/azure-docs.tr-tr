@@ -17,12 +17,12 @@ ms.date: 10/02/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: c3ecefb689a3dcba791bb3ffa29f84b60725bf19
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.openlocfilehash: 1722f81c55c490d6030dd04e5907e93012051492
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48249494"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48817115"
 ---
 # <a name="v20-protocols---spas-using-the-implicit-flow"></a>v2.0 protokolleri - örtük akışını kullanarak Spa'lar
 
@@ -133,7 +133,7 @@ error=access_denied
 
 Yalnızca bir id_token alma, kullanıcının kimliğini doğrulamak için yeterli değildir; Ayrıca, id_token'ın imzayı doğrulamak ve uygulamanızın gereksinimlerine göre belirteçteki talepleri doğrulamak gerekir. V2.0 uç noktası kullanan [JSON Web belirteçleri (Jwt'ler)](http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html) ve Belirteçleri imzalamak ve geçerli olduğunu doğrulamak için ortak anahtar şifrelemesi.
 
-Doğrulamak seçebileceğiniz `id_token` istemci kodu, ancak yaygın bir uygulama olan göndermek için `id_token` bir arka uç sunucusuna ve orada doğrulama gerçekleştirin. İd_token imzası doğruladıktan sonra birkaç talepleri doğrulamak için gerekli vardır. Bkz: [ `id_token` başvuru](id-tokens.md) daha fazla bilgi edinmek için de dahil olmak üzere [belirteçleri doğrulama](id-tokens.md#validating-idtokens) ve [imzalama anahtarı geçiş işlemi hakkında önemli bilgiler](active-directory-signing-key-rollover.md). Öneririz belirteçleri doğrulamak ve ayrıştırmak için bir kitaplık yapmayı kullanımı - en az bir dil ve platform için kullanılabilir.
+Doğrulamak seçebileceğiniz `id_token` istemci kodu, ancak yaygın bir uygulama olan göndermek için `id_token` bir arka uç sunucusuna ve orada doğrulama gerçekleştirin. İd_token imzası doğruladıktan sonra birkaç talepleri doğrulamak için gerekli vardır. Bkz: [ `id_token` başvuru](id-tokens.md) daha fazla bilgi edinmek için de dahil olmak üzere [belirteçleri doğrulama](id-tokens.md#validating-an-idtoken) ve [imzalama anahtarı geçiş işlemi hakkında önemli bilgiler](active-directory-signing-key-rollover.md). Öneririz belirteçleri doğrulamak ve ayrıştırmak için bir kitaplık yapmayı kullanımı - en az bir dil ve platform için kullanılabilir.
 
 Senaryonuza bağlı olarak ek istekleri doğrulamak isteyebilirsiniz. Bazı ortak doğrulamaları şunlardır:
 

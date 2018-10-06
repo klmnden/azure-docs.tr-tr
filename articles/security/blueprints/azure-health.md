@@ -9,20 +9,22 @@ ms.service: security
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: rarangap
-ms.openlocfilehash: b20da0f31f197ed23aa73b185d127a6d5f2dbd8a
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: cbeee643ee4a2705d3f0202a7206e10fbcc5acab
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39214950"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48831628"
 ---
 # <a name="azure-security-and-compliance-blueprint---hipaahitrust-health-data-and-ai"></a>Azure güvenlik ve uyumluluk planı - HIPAA/HITRUST sağlık verileri ve yapay ZEKA
 
 ## <a name="overview"></a>Genel Bakış
 
-**Azure güvenlik ve uyumluluk planı - HIPAA/HITRUST sağlık verileri ve yapay ZEKA sunan Azure PaaS çözümünü nasıl güvenli bir şekilde almak, depolamak, çözümlemek ve sektör uyumluluk karşılayabiliyor olmanın yanı sıra Sistem Durumu verileriyle etkileşime girerek göstermek için anahtar teslim dağıtımı gereksinimleri. Blueprint bulut benimseme ve düzenlendiğini veri sahip müşteriler için kullanım artırmanıza yardımcı olur.**
+**Azure güvenlik ve uyumluluk planı - HIPAA/HITRUST sağlık verileri ve yapay ZEKA sunan Azure PaaS ve Iaas çözümünü nasıl içe almak, depolamak, çözümlemek, etkileşim, kimlik ve sistem durumu veri çözümleriyle güvenli bir şekilde dağıtmak için bir anahtar teslim dağıtımı sektör uyumluluk gereksinimlerini karşılayabiliyor olması. Blueprint bulut benimseme ve düzenlendiğini veri sahip müşteriler için kullanım artırmanıza yardımcı olur.**
 
-Azure güvenlik ve uyumluluk planı - HIPAA/HITRUST sağlık verileri ve yapay ZEKA şema sağlar, araçları ve güvenli dağıtmak için yönergeler, sağlık sigortası taşınabilirlik ve Sorumluluk Yasası (HIPAA) ve sistem durumu bilgileri güven Alliance (HITRUST) hazır almak, depolamak, çözümlemek ve bir uçtan uca çözüm olarak dağıtılan bir güvenli, çok katmanlı bulut ortamında tıbbi kayıtlarla kişisel ve kişisel olmayan etkileşim için hizmet olarak platform (PaaS) ortamı. Bu yaygın bir başvuru mimarisi gösteren ve Microsoft Azure'nin yayılmasını kolaylaştırmak için tasarlanmıştır. Sağlanan bu mimari, yük ve dağıtım maliyetini azaltmak için bulut tabanlı bir yaklaşım isteyen kuruluşların gereksinimlerini karşılayacak bir çözüm gösterilmektedir.
+Azure güvenlik ve uyumluluk planı - HIPAA/HITRUST sağlık verileri ve yapay ZEKA şema sağlar, araçları ve güvenli dağıtmak için yönergeler, sağlık sigortası taşınabilirlik ve Sorumluluk Yasası (HIPAA) ve sistem durumu bilgileri güven Alliance (HITRUST) hazır almak, depolamak, çözümlemek ve bir uçtan uca çözüm olarak dağıtılan bir güvenli, çok katmanlı bulut ortamında tıbbi kayıtlarla kişisel ve kişisel olmayan etkileşim için hizmet olarak platform (PaaS) ortamı. 
+
+Iaas çözümü, şirket içi SQL tabanlı çözümünü Azure'a geçirmek için ve bir ayrıcalıklı erişim iş istasyonu (bulut tabanlı hizmet ve çözümler güvenli bir şekilde yönetmek için PAW) uygulamak için nasıl sürdürebileceğiniz gösterilecek. Iaas SQL Server veritabanını bir SQL Iaas sanal makinede veriler içeri olası deneme ekler ve kimliği doğrulanmış erişim bir SQL Azure PaaS hizmeti etkileşim kurmak için VM MSI kullanır. Hem bu ortak bir başvuru mimarisi gösteren ve Microsoft Azure'nin yayılmasını kolaylaştırmak için tasarlanmıştır. Sağlanan bu mimari, yük ve dağıtım maliyetini azaltmak için bulut tabanlı bir yaklaşım isteyen kuruluşların gereksinimlerini karşılayacak bir çözüm gösterilmektedir.
 
 ![](images/components.png)
 
@@ -38,23 +40,15 @@ Bu plan, müşterilerin yeni Azure makine öğrenimi denemeleri hem Klinik ve op
 
 ## <a name="deploying-the-automation"></a>Otomasyon dağıtma
 
-- Çözümü dağıtmak için dağıtım kılavuzunda sağlanan yönergeleri izleyin. 
+- Çözümü dağıtmak için bölümlerinde sağlanan yönergeleri izleyin. [Dağıtım Kılavuzu](https://github.com/Azure/Health-Data-and-AI-Blueprint/blob/master/deployment.md). 
 
-[![](./images/deploy.png)](https://aka.ms/healthblueprintdeploy)
-
-Bu çözümü nasıl çalıştığına ilişkin hızlı bir genel bakış için bu izleme [video](https://aka.ms/healthblueprintvideo) açıklayan ve gösteren dağıtımı.
+- Bu çözümü nasıl çalıştığına ilişkin hızlı bir genel bakış için bu izleme [video](https://aka.ms/healthblueprintvideo) açıklayan ve gösteren dağıtımı.
 
 - Sık sorulan sorular bulunabilir [SSS](https://aka.ms/healthblueprintfaq) Kılavuzu.
 
 -   **Mimari diyagramı.** Şema için kullanılan başvuru mimarisi diyagramı gösterir ve örnek kullanım örneği senaryosu.
 
--   **Dağıtım şablonları**. Bu dağıtımda [Azure Resource Manager şablonları](/azure/azure-resource-manager/resource-group-overview#template-deployment) mimarisinin bileşenleri Kurulum sırasında yapılandırma parametrelerini belirterek Microsoft Azure'a otomatik olarak dağıtmak için kullanılır.
-
--   **[Dağıtım betikleri otomatik](https://aka.ms/healthblueprintdeploy)**. Bu betikler, çözümün yardımcı olur. Betikleri oluşur:
-
-
--   Modül yükleme ve [genel yönetici](/azure/active-directory/active-directory-assign-admin-roles-azure-portal) Kurulum betiğini yüklemek ve gerekli PowerShell modülleri ve genel yönetici rolleri düzgün yapılandırıldığını doğrulamak için kullanılır. 
--   PowerShell komut dosyası yüklemesi, önceden oluşturulmuş tanıtım işlevler içeren bir .zip dosyası sağlanan çözümü dağıtmak için kullanılır.
+-   [Iaas uzantısı](https://github.com/Azure/Health-Data-and-AI-Blueprint/blob/master/README%20IaaS.md) Bu çözüm, şirket içi SQL tabanlı çözümünü Azure'a geçirme ve bulut bsed hizmet ve çözümler güvenli bir şekilde yönetmek için Privieged erişim iş istasyonu uygulamak için nasıl gösterilecektir. 
 
 ## <a name="solution-components"></a>Çözüm bileşenleri
 
@@ -70,7 +64,7 @@ Temel mimari aşağıdaki bileşenlerden oluşur:
 # <a name="architectural-diagram"></a>Mimari diyagramı
 
 
-![](images/refarch.png)
+![](images/ra2.png)
 
 ## <a name="roles"></a>Roller
 
@@ -364,7 +358,7 @@ Veri depolama alanı elde etmek için ortak bir API şema hızlı sağlık birli
 ### <a name="application-insights"></a>Application Insights
 - [Application Insights](/azure/application-insights/app-insights-overview) birden çok platformlardaki web geliştiricilerine yönelik genişletilebilir bir uygulama performans yönetimi (APM) hizmetidir. Canlı web uygulamanızı izlemek için kullanabilirsiniz. Bu performans anomalileri algılar. Sorunları tanılamanıza ve kullanıcıların uygulamanızla aslında neler yaptığını anlamanıza yardımcı olan güçlü analiz araçları içerir. Performansı ve kullanılabilirliği sürekli geliştirmenize yardımcı olmak amacıyla tasarlanmıştır.
 
-### <a name="azure-alerts"></a>Azure uyarıları
+### <a name="azure-alerts"></a>Azure Uyarıları
 - [Uyarılar Azure hizmetlerini izleme, bir yöntem sunar ve veriler üzerinde koşullar yapılandırmanıza olanak sağlar. Bir uyarı durumu izleme verilerini eşleştiğinde uyarılar, bildirimler de sağlar.
 
 ### <a name="operations-management-suite-oms"></a>Operations Management Suite'e (OMS)

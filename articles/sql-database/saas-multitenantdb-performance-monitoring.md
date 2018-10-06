@@ -12,18 +12,18 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 09/14/2018
-ms.openlocfilehash: 873660f362d2ad0002f512f911d4149519092787
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: 7681e3fabe9eb216da81d9f09dc584097bcbaf84
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47055954"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48830014"
 ---
 # <a name="monitor-and-manage-performance-of-sharded-multi-tenant-azure-sql-database-in-a-multi-tenant-saas-app"></a>Çok kiracılı SaaS uygulamasında parçalı çok kiracılı Azure SQL veritabanının performansını izleyin ve yönetin
 
 Bu öğreticide, SaaS uygulamalarında kullanılan birkaç temel performans yönetimi senaryosu incelenmektedir. Parçalı çok kiracılı veritabanı arasında etkinliği benzetimi için bir yük oluşturucuyu kullanarak, yerleşik izleme ve uyarı özelliklerini SQL veritabanı'nın gösterilmiştir.
 
-Wingtip bilet SaaS çok kiracılı veritabanı uygulama, mekan (Kiracı) veri potansiyel olarak birden fazla veritabanında Kiracı Kimliğine göre dağıtıldığı bir parçalı çok kiracılı veri modeli kullanır. Birçok SaaS uygulaması gibi, beklenen kiracı iş yükü düzeni öngörülemez ve düzensizdir. Diğer bir deyişle, bilet satışı herhangi bir zamanda gerçekleşebilir. Bu tipik veritabanı kullanım düzeninden yararlanmak için veritabanları çözüm maliyetini en iyi duruma getirmek için yukarı ve aşağı ölçeklendirilebilir. Bu düzen türü ile yükü birden çok veritabanı arasında makul bir şekilde dengelendiğinden emin olmak için veritabanı kaynak kullanımını izlemek önemlidir. Ayrıca ayrı ayrı veritabanları için yeterli kaynağa sahip ve ulaşmadığından emin olmak gerekir, [DTU](sql-database-service-tiers.md#what-are-database-transaction-units-dtus) sınırlar. Bu öğretici, veritabanları ve iş yükündeki değişikliklere yanıt düzeltici eylemlerde nasıl izleyebilir ve yönetebilirsiniz yolları açıklar.
+Wingtip bilet SaaS çok kiracılı veritabanı uygulama, mekan (Kiracı) veri potansiyel olarak birden fazla veritabanında Kiracı Kimliğine göre dağıtıldığı bir parçalı çok kiracılı veri modeli kullanır. Birçok SaaS uygulaması gibi, beklenen kiracı iş yükü düzeni öngörülemez ve düzensizdir. Diğer bir deyişle, bilet satışı herhangi bir zamanda gerçekleşebilir. Bu tipik veritabanı kullanım düzeninden yararlanmak için veritabanları çözüm maliyetini en iyi duruma getirmek için yukarı ve aşağı ölçeklendirilebilir. Bu düzen türü ile yükü birden çok veritabanı arasında makul bir şekilde dengelendiğinden emin olmak için veritabanı kaynak kullanımını izlemek önemlidir. Ayrıca ayrı ayrı veritabanları için yeterli kaynağa sahip ve ulaşmadığından emin olmak gerekir, [DTU](sql-database-service-tiers.md#dtu-based-purchasing-model) sınırlar. Bu öğretici, veritabanları ve iş yükündeki değişikliklere yanıt düzeltici eylemlerde nasıl izleyebilir ve yönetebilirsiniz yolları açıklar.
 
 Bu öğreticide şunların nasıl yapıldığını öğrenirsiniz:
 

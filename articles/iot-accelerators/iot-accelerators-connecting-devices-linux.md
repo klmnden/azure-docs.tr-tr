@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 08/31/2018
 ms.author: dobett
-ms.openlocfilehash: fcc11347d06cde43c79ef4272f5c2ad87555c040
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 5faa91f054e62e2b3d9d317efe57f2d3f659cee6
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45734497"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48829843"
 ---
 # <a name="connect-your-device-to-the-remote-monitoring-solution-accelerator-linux"></a>Cihazınızı Uzaktan izleme çözüm Hızlandırıcısını için (Linux) bağlama
 
@@ -29,15 +29,15 @@ Nasıl yapılır bu kılavuzdaki adımları tamamlamak için Ubuntu sürümü 15
 
 ## <a name="view-the-code"></a>Kod Görünümü
 
-[Örnek kod](https://github.com/Azure/azure-iot-sdk-c/tree/master/samples/solutions/remote_monitoring) kullanılan Kılavuzu Azure IOT C SDK'ları GitHub deposunda kullanılabilir.
+[Örnek kod](https://github.com/Azure/azure-iot-sdk-c/tree/master/samples/solutions/remote_monitoring_client) kullanılan Kılavuzu Azure IOT C SDK'ları GitHub deposunda kullanılabilir.
 
 ### <a name="download-the-source-code-and-prepare-the-project"></a>Kaynak kodunu indirebilir ve proje hazırlama
 
 Proje hazırlamak için Kopyala veya indir [Azure IOT C SDK'ları depo](https://github.com/Azure/azure-iot-sdk-c) github'dan.
 
-Örnek bulunan **çözümleri/samples/remote_monitoring** klasör.
+Örnek bulunan **çözümleri/samples/remote_monitoring_client** klasör.
 
-Açık **remote_monitoring.c** dosyası **çözümleri/samples/remote_monitoring** bir metin düzenleyicisinde klasör.
+Açık **remote_monitoring.c** dosyası **çözümleri/samples/remote_monitoring_client** bir metin düzenleyicisinde klasör.
 
 [!INCLUDE [iot-accelerators-connecting-code](../../includes/iot-accelerators-connecting-code.md)]
 
@@ -59,7 +59,7 @@ Aşağıdaki adımları nasıl kullanılacağını açıklayan *CMake* istemci u
 1. İstemci uygulamasını çalıştırın ve IOT Hub'ına telemetri gönderme:
 
     ```sh
-    ./samples/solutions/remote_monitoring/remote_monitoring_client
+    ./samples/solutions/remote_monitoring_client/remote_monitoring_client
     ```
 
     Konsol iletileri olarak gösterir:

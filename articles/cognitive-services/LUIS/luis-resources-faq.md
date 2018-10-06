@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 5910417696651cad06d6f21513e81728be4181cd
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 0e604138c35e476d1635cb695923bb7d2b83de82
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47432475"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48831271"
 ---
 # <a name="language-understanding-faq"></a>Language Understanding hakkında SSS
 
@@ -135,7 +135,7 @@ LUIS genel kullanıma (GA) şeklindeydi uygulamanız varsa, aboneliğinizdeki LU
 Bir LUIS uygulaması için farklı bir Azure aboneliği aktarmayı LUIS uygulaması dışarı aktarma ve yeni bir hesap kullanarak içe aktarın. Çağıran istemci uygulamasındaki LUIS uygulama kodunu güncelleştirin. Yeni uygulamayı biraz daha farklı LUIS özgün uygulamadan puanları döndürebilir.
 
 ### <a name="how-do-i-download-a-log-of-user-utterances"></a>Kullanıcı konuşma günlüğünü nasıl indiririm?
-Varsayılan olarak, kullanıcıların konuşma LUIS uygulamanızı günlüğe kaydeder. LUIS uygulamanızı kullanıcılara gönderme konuşma günlüğünü indirmek için Git **uygulamalarım**, üç noktaya tıklayın (***...*** ) uygulamanızı listesinde. Ardından **uç nokta günlükleri dışarı aktar**. Günlük bir virgülle ayrılmış değer (CSV) dosyası olarak biçimlendirilir.
+Varsayılan olarak, kullanıcıların konuşma LUIS uygulamanızı günlüğe kaydeder. LUIS uygulamanızı kullanıcılara gönderme konuşma günlüğünü indirmek için Git **uygulamalarım**ve uygulamayı seçin. Bağlamsal araç çubuğunda, seçin **uç nokta günlükleri dışarı aktar**. Günlük bir virgülle ayrılmış değer (CSV) dosyası olarak biçimlendirilir.
 
 ### <a name="how-can-i-disable-the-logging-of-utterances"></a>Konuşma günlüğe kaydetmeyi nasıl devre dışı bırakabilirim?
 Kullanıcı konuşma oturumdan ayarlayarak etkinleştirebilirsiniz `log=false` içinde sorgu LUIS istemci uygulamanızın kullandığı uç nokta URL'si. Ancak, konuşma önerebilir veya temel alan performansı LUIS uygulamanızın olanağı oturumdan kapatma devre dışı bırakır [etkin olarak öğrenmeye](luis-concept-review-endpoint-utterances.md#what-is-active-learning). Ayarlarsanız `log=false` veri gizliliği kaygıları nedeniyle, bu kullanıcı konuşma kaydını LUIS ' indirin veya uygulamanızı geliştirmek için bu konuşma kullanın.

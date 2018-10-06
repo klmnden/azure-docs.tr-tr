@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 09/19/2018
 ms.reviewer: olegan
 ms.author: mbullwin
-ms.openlocfilehash: f3bc64bd010bed9e177fd18cc6cb238b94669248
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 8577f8d682ab1d9d60078d246cbced7722116b72
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46990244"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48829979"
 ---
 # <a name="configuring-the-application-insights-sdk-with-applicationinsightsconfig-or-xml"></a>ApplicationInsights.config veya .xml ile Application Insights SDK yapılandırma
 Application Insights .NET SDK'sı NuGet paketlerini birtakım oluşur. [Çekirdek paket](http://www.nuget.org/packages/Microsoft.ApplicationInsights) Application Insights'a telemetri göndermek için API sağlar. [Ek paketleri](http://www.nuget.org/packages?q=Microsoft.ApplicationInsights) telemetri sağlamak *modülleri* ve *başlatıcılar* telemetri uygulamanız ve onun içeriği otomatik olarak izlemek için. Yapılandırma dosyası ayarlayarak, etkinleştirmek veya telemetri modülleri ve başlatıcılar devre dışı bırakın ve bunlardan bazıları için parametreleri ayarlayın.
@@ -234,19 +234,20 @@ Yerel diskte kalıcı depolama için ayrılan MB en büyük boyutunu belirler. B
 
 #### <a name="local-forwarder"></a>Yerel iletici
 
-[Yerel ileticisi](https://docs.microsoft.com/azure/application-insights/local-forwarder) Application Insights tarafından toplanan bir aracı veya [OpenCensus](https://opencensus.io/) çeşitli SDK'lar ve çerçeveleri alınan telemetri ve uygulama anlayışları'na yönlendirir. Bu, Windows ve Linux altında çalıştırma yeteneğine sahiptir. 
+[Yerel ileticisi](https://docs.microsoft.com/azure/application-insights/opencensus-local-forwarder) Application Insights tarafından toplanan bir aracı veya [OpenCensus](https://opencensus.io/) çeşitli SDK'lar ve çerçeveleri alınan telemetri ve uygulama anlayışları'na yönlendirir. Bu, Windows ve Linux altında çalıştırma yeteneğine sahiptir. Application Insights Java SDK ile birlikte olduğunda yerel ileticisi için tam destek sağlar. [Canlı ölçümleri](app-insights-live-stream.md) ve Uyarlamalı örnekleme.
 
 ```xml
 <Channel type="com.microsoft.applicationinsights.channel.concrete.localforwarder.LocalForwarderTelemetryChannel">
-<DeveloperMode>false</DeveloperMode>
 <EndpointAddress><!-- put the hostname:port of your LocalForwarder instance here --></EndpointAddress>
+
 <!-- The properties below are optional. The values shown are the defaults for each property -->
+
 <FlushIntervalInSeconds>5</FlushIntervalInSeconds><!-- must be between [1, 500]. values outside the bound will be rounded to nearest bound -->
 <MaxTelemetryBufferCapacity>500</MaxTelemetryBufferCapacity><!-- units=number of telemetry items; must be between [1, 1000] -->
 </Channel>
 ```
 
-SpringBoot başlangıç kullanıyorsanız, aşağıdaki yapılandırma dosyanız (application.properies) ekleyin:
+SpringBoot başlangıç kullanıyorsanız, aşağıdaki yapılandırma dosyanız (application.properties) ekleyin:
 
 ```yml
 azure.application-insights.channel.local-forwarder.endpoint-address=<!--put the hostname:port of your LocalForwarder instance here-->

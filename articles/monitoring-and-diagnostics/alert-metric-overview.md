@@ -7,12 +7,12 @@ ms.date: 9/18/2018
 ms.topic: conceptual
 ms.service: azure-monitor
 ms.component: alerts
-ms.openlocfilehash: 586ced5b239b77dd9ae596a754613a66cee371a9
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 0ac19ec18c443f677260ba22b6bce1c06237fb2e
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47405929"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48816439"
 ---
 # <a name="understand-how-metric-alerts-work-in-azure-monitor"></a>Nasıl iş ölçüm uyarıları anlamak Azure İzleyici'de
 
@@ -93,7 +93,43 @@ Uyarı kuralı sıklığı 1 dakika olarak ayarlarsanız ölçüm uyarıları i�
 
 ## <a name="supported-resource-types-for-metric-alerts"></a>Desteklenen kaynak türleri için ölçüm uyarıları
 
-Bu konuda desteklenen kaynak türlerini tam listesini bulabilirsiniz [makale](monitoring-near-real-time-metric-alerts.md#metrics-and-dimensions-supported)
+Bu konuda desteklenen kaynak türlerini tam listesini bulabilirsiniz [makale](monitoring-near-real-time-metric-alerts.md#metrics-and-dimensions-supported).
+
+Bugün Klasik ölçüm uyarıları kullanarak ve ölçüm uyarıları tüm kaynak türleri destekleyip desteklemediğini görmek için arıyorsanız kullanmakta olduğunuz, aşağıdaki tabloda kaynak türleri Klasik ölçüm uyarıları tarafından desteklenen ve bunlar tarafından ölçüm uyarıları bugün ya da olmasın desteklenip desteklenmediğini gösterir.
+
+|Klasik ölçüm uyarıları tarafından desteklenen kaynak türü | Ölçüm uyarıları tarafından desteklenir |
+|-------------------------------------------------|----------------------------|
+| Microsoft.ApiManagement/service | Evet |
+| Microsoft.Batch/batchAccounts| Evet|
+|Microsoft.Cache/redis| Evet
+|Microsoft.ClassicCompute/virtualMachines | Hayır |
+|Microsoft.ClassicCompute/domainNames/slots/roles | Hayır|
+|Microsoft.CognitiveServices/accounts | Hayır |
+|Microsoft.Compute/virtualMachines | Evet|
+|Microsoft.Compute/virtualMachineScaleSets| Evet|
+|Microsoft.ClassicStorage/storageAccounts| Hayır |
+|Microsoft.DataFactory/datafactories | Evet|
+|Microsoft.DBforMySQL/servers| Evet|
+|Microsoft.DBforPostgreSQL/servers| Evet|
+|Microsoft.Devices/ıothubs | Hayır|
+|Microsoft.DocumentDB/databaseAccounts| Hayır|
+|Microsoft.EventHub/namespaces | Evet|
+|Microsoft.Logic/workflows | Evet|
+|Microsoft.Network/loadBalancers |Evet|
+|Microsoft.Network/publicIPAddresses| Evet|
+|Microsoft.Network/applicationGateways| Evet|
+|Microsoft.Network/expressRouteCircuits| Evet|
+|Microsoft.Network/trafficManagerProfiles | Evet|
+|Microsoft.Search/searchServices | Hayır|
+|Microsoft.ServiceBus/namespaces| Hayır|
+|Microsoft.Storage/storageAccounts | Evet|
+|Microsoft.StreamAnalytics/streamingjobs| Evet|
+|Microsoft.TimeSeriesInsights/environments | Evet|
+|Microsoft. Web/serverfarms | Evet |
+|Microsoft. Web/siteleri (işlevler hariç) | Evet|
+|Microsoft. HostingEnvironments/Web/multiRolePools | Hayır|
+|Microsoft. HostingEnvironments/Web/workerPools| Hayır
+|Microsoft.SQL/Servers | Hayır|
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

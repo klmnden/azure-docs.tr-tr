@@ -1,21 +1,21 @@
 ---
-title: Bing Web arama API'leri, Bing analytics | Microsoft Docs
-titleSuffix: Cognitive Services
+title: Bing otomatik öneri API'si için Bing analizi
+titleSuffix: Azure Cognitive Services
 description: Bing otomatik öneri API'si için analiz almayı açıklar.
 services: cognitive-services
 author: swhite-msft
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
 ms.technology: bing-autosuggest
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/10/2018
 ms.author: scottwhi
-ms.openlocfilehash: 03482ce94efe5f5db11f242384d620d401528ccf
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 1582ed32bd929b8d529af9be4eb6c0f6232bd640
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38237694"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48830285"
 ---
 # <a name="how-to-get-analytics-for-bing-autosuggest-api"></a>Bing otomatik öneri API'si için analiz alma
 

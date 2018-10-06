@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/07/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: 1cb66c475f1d0c1b6606db03bfdf4746eeb1bf6b
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 6a0b7139fd8d216397090154a4324c8e4305a939
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44295781"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48816387"
 ---
 # <a name="authenticate-with-azure-active-directory-from-an-azure-storage-application-preview"></a>Bir Azure depolama uygulaması (Önizleme) Azure Active Directory ile kimlik doğrulaması
 
@@ -33,7 +33,7 @@ Depolama kaynaklarına erişim yetkisi vermek için Azure AD kullanarak ilk adı
 
 Uygulamanızı kaydettiğinizde, Azure AD'ye uygulamanız ile ilgili bilgileri sağlayın. Ardından Azure AD, bir istemci kimliği sağlar (olarak da adlandırılan bir *uygulama kimliği*), uygulamanızın çalışma zamanında Azure AD ile ilişkilendirmek için kullanın. İstemci kimliği hakkında daha fazla bilgi için bkz: [uygulaması ve Azure Active Directory'de Hizmet sorumlusu nesneleri](../../active-directory/develop/app-objects-and-service-principals.md).
 
-Azure Storage uygulamanızı kaydetmek için adımları izleyin. [bir uygulama eklendiğinde](../../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md#adding-an-application) konusundaki [uygulamaları Azure Active Directory ile tümleştirme](../../active-directory/active-directory-integrating-applications.md). Uygulamanızı yerel bir uygulama kaydederseniz, için geçerli bir URI belirtebilirsiniz **yeniden yönlendirme URI'si**. Değerin gerçek bir uç nokta olması gerekmez.
+Azure Storage uygulamanızı kaydetmek için adımları izleyin. [bir uygulama eklendiğinde](../../active-directory/develop/quickstart-v1-add-azure-ad-app.md) konusundaki [uygulamaları Azure Active Directory ile tümleştirme](../../active-directory/active-directory-integrating-applications.md). Uygulamanızı yerel bir uygulama kaydederseniz, için geçerli bir URI belirtebilirsiniz **yeniden yönlendirme URI'si**. Değerin gerçek bir uç nokta olması gerekmez.
 
 ![Storage uygulamanızı Azure AD'ye kaydetme işlemini gösteren ekran görüntüsü](./media/storage-auth-aad-app/app-registration.png)
 

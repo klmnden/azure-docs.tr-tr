@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/12/2018
 ms.author: jingwang
-ms.openlocfilehash: c513ef76174507f1ea78b265b1882266b8473737
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.openlocfilehash: e50d1696fdc22916f5ac4699bd17ddc21a82a148
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48248950"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48815877"
 ---
 # <a name="copy-data-to-or-from-azure-sql-database-by-using-azure-data-factory"></a>Azure Data Factory kullanarak Azure SQL veritabanı'ndan ya da veri kopyalama
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you use:"]
@@ -64,7 +64,7 @@ Farklı kimlik doğrulama türleri için sırasıyla önkoşulları ve JSON örn
 
 - [SQL kimlik doğrulaması](#sql-authentication)
 - [Azure AD uygulama belirteci kimlik doğrulamasını: hizmet sorumlusu](#service-principal-authentication)
-- [Azure AD uygulama belirteci kimlik doğrulamasını: kimlikler Azure kaynakları için yönetilen](#managed-service-identity-authentication)
+- [Azure AD uygulama belirteci kimlik doğrulamasını: kimlikler Azure kaynakları için yönetilen](#managed-identity)
 
 >[!TIP]
 >Hata olarak "UserErrorFailedToConnectToSqlServer" hata koduyla isabet ve gibi ileti "veritabanı için oturum sınırı xxx ve üst sınırına ulaşıldı.", ekleme `Pooling=false` bağlantı dizesi ve yeniden deneyin.
@@ -146,7 +146,7 @@ Bir hizmet sorumlusu tabanlı Azure AD uygulama belirteci kimlik doğrulamasın�
 }
 ```
 
-### <a name="managed-identities-for-azure-resources-authentication"></a>Azure kaynaklarında kimlik doğrulaması için yönetilen kimlik
+### <a name="managed-identity"></a> Azure kaynaklarında kimlik doğrulaması için yönetilen kimlik
 
 Veri Fabrikası ile ilişkilendirilmiş bir [yönetilen Azure kaynakları için kimliği](data-factory-service-identity.md) , belirli veri üretecini temsil eder. Bu hizmet kimliği, Azure SQL veritabanı kimlik doğrulaması için kullanabilirsiniz. Belirtilen Üreteç erişebilir ve veri kopyalama ya da veritabanı sunucunuza bu kimliği kullanarak.
 

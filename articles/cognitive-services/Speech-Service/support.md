@@ -8,12 +8,12 @@ ms.component: custom-speech
 ms.topic: article
 ms.date: 07/26/2018
 ms.author: wolfma
-ms.openlocfilehash: 4f296e2a7e7e205715ab232ef137493adf02e0f1
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: f14fee349f5b5d88d628d0322e32bedeacd0562f
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46295623"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48816268"
 ---
 # <a name="support-and-help-options"></a>Destek ve Yardım seçenekleri
 
@@ -43,6 +43,13 @@ Stack Overflow'da, belgeler için aramanızın kapsamını ve kod örnekleri aş
 ```
 
 Burada *{Your arama terimlerini}* arama anahtar sözcüklerinizi olduğu.
+
+## <a name="create-an-azure-support-request"></a>Bir Azure destek isteği oluşturma
+
+Azure müşterileri, oluşturun ve Azure portalında destek isteklerini yönetin.
+
+* [Azure Portal](https://portal.azure.com)
+* [Amerika Birleşik Devletleri kamu için Azure portalı](https://portal.azure.us)
 
 ## <a name="post-a-question-to-stack-overflow"></a>Stack Overflow için bir soru gönderin
 

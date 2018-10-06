@@ -1,64 +1,64 @@
 ---
-title: 'Bing özel arama: decoration işaretçileri metin vurgulayıp | Microsoft Docs'
-description: Metin düzenlemelerinin arama yanıtlarındaki etkinleştirme gösterir.
+title: Metin - Bing özel arama vurgulamak için decoration işaretçileri kullanma
+titlesuffix: Azure Cognitive Services
+description: Metin süslemeleri araması yanıtlarında, etkinleştirme işlemi gösterilmektedir.
 services: cognitive-services
 author: brapel
-manager: ehansen
-ms.assetid: 5365B568-EA55-4D97-8FBE-0AF60158D4D5
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-custom-search
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/28/2017
 ms.author: v-brapel
-ms.openlocfilehash: d2d0070865aa29257ac827bbb4fc313d87ea7282
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: d76cf61f7d7073850c530e6b937bd6503fac68d1
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35351605"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48815299"
 ---
-# <a name="using-decoration-markers-to-highlight-text"></a>Metni vurgulama için decoration işaretlerini kullanma
+# <a name="using-decoration-markers-to-highlight-text"></a>Metni vurgulayacak şekilde decoration işaretçiler kullanma
 
-Bing isabet vurgulama, sorgu terimlerinin işaretler destekler (veya diğer bu Bing bulur ilgili koşulları) bazı yanıtlar görüntü dizelerde. Örneğin, bir Web sayfasının `name`, `displayUrl`, ve `snippet` alanlar sorgu terimlerine işaretlemek.
+Bing, isabet vurgulama, sorgu terimleriyle işaretler destekler (veya diğer, Bing bulursa ilgili koşulları) içinde görünen dizeleri bazı cevaplara ulaştıracaktır. Örneğin, bir Web sayfasının `name`, `displayUrl`, ve `snippet` alanları sorgu terimleriyle işaretleyin.
 
-Varsayılan olarak, Bing görünen dizeler işaretçilerini vurgulama içermez. İşaretçileri dahil etmenize `textDecorations` isteğiniz parametresinde sorgulamak ve ayarlamak **doğru**. Bing başlangıcını ve bitişini koşulunun işaretlemek için E000 ve E001 Unicode karakterler kullanarak sorgu terimlerine işaretler. Örneğin, sorgu Terime yelken açmaya ne dersiniz Dinghy ise ve her iki terim alanı var, terimi isabet vurgulama karakter aşağıdaki örnekte gösterildiği gibi içine alınır:  
+Varsayılan olarak, Bing, görünen dizeleri işaretçilerini vurgulama içermez. İşaretçileri dahil etmenize `textDecorations` ayarlayın ve sorgu parametresi isteğinizdeki **true**. Bing, başlangıç ve sona ermeden işaretlemek için E000 ve E001 Unicode karakterleri kullanılarak sorgu terimleri işaretler. Örneğin, sorgu terimine Dinghy yelken açmaya ne dersiniz ve her iki terim alanı var, terimi isabet vurgulama karakter aşağıdaki örnekte gösterildiği gibi içine alınır:  
   
 ![İsabet vurgulama](./media/bing-hit-highlighting.PNG) 
 
-Dize, kullanıcı arabirimini görüntülemeden önce görüntüleme biçimi için uygun olan karakterlerle Unicode karakterler değiştirirler. Metni HTML olarak görüntülüyorsanız, örneğin, sorgu Terime E000 ile değiştirerek vurgulayın < b\> ve E001 ile < /b\>. Biçimlendirmenin uygulanmasını istemiyorsanız, dizeden işaretlerini kaldırın. 
+Dize, kullanıcı arabirimini görüntülemeden önce Unicode karakterleri, görüntüleme biçimi için uygun olan karakterlerle değiştirirler. HTML olarak metin görüntülüyorsanız, örneğin, sorgu terimine E000 ile değiştirerek vurgulayın < b\> ve ile E001 < /b\>. Biçimlendirme uygulamak istemiyorsanız işaretlerinin dizeden kaldırın. 
 
-Bing Unicode karakter veya HTML etiketleri işaretleyici olarak kullanma seçeneği sunar. Kullanmak için hangi işaretçileri belirtmek için dahil `textFormat` sorgu parametresi. Unicode karakterler içerikle işaretlemek için ayarlanmış `textFormat` Raw (varsayılan) ve HTML etiketlerini içerikle işaretlemek için ayarlamak `textFormat` HTML. 
+Bing, Unicode karakter veya HTML etiketleri işaretçileri olarak kullanma seçeneği sunar. Kullanmak için hangi işaretçilerini belirtmek için dahil `textFormat` sorgu parametresi. Unicode karakterleriyle içeriği işaretlemek için ayarlanmış `textFormat` ham (varsayılan) ve HTML etiketlerini içerikle işaretlemek için ayarlanmış `textFormat` HTML. 
   
-Varsa `textDecorations` olan **doğru**, Bing yanıtlar görüntü dizelerde aşağıdaki işaretleri içerebilir. HTML eşdeğeri ise, HTML tablo hücresi boştur.
+Varsa `textDecorations` olduğu **true**, Bing, yanıtların görünen dizeleri aşağıdaki işaretlerinin içerebilir. HTML eşdeğeri yoksa, HTML tablo hücresi boştur.
 
 |Unicode|HTML|Açıklama
 |-|-|-
-|U + E000|\<b >|(İsabet vurgulama) sorgu Terime başlangıcını işaretler
-|U + E001|\</b >|Sorgu Terime sonunu işaretler
-|U + E002|\<t >|İtalik içerik başlangıcını işaretler 
-|U + E003|\</i >|İtalik içerik sonunu işaretler
+|U + E000|\<b >|(İsabet vurgulama) sorgu terimine başlangıcını işaretleyen
+|U + E001|\</b >|Sorgu döneminin sonunu işaretler
+|U + E002|\<Ben >|İtalik içerik başlangıcını işaretleyen 
+|U + E003|\</i >|İtalik içerik sonunu işaretleyen
 |U + E004|\<br / >|Bir satır sonunu işaretler
-|U + E005||Bir telefon numarası başlangıcını işaretler
-|U + E006||Bir telefon numarası sonunu işaretler
-|U + E007||Bir adresi başlangıcını işaretler
-|U + E008||Bir adresi sonunu işaretler
-|U + E009|\&nbsp;|Bölünemez yer işaretleri
-|U + E00C|\<strong >|Kalın içerik başlangıcını işaretler
-|U + E00D|\</ strong >|Kalın içerik sonunu işaretler
-|U + E00E||Arka planının çevresindeki, arka plan açık olması gereken içerik başlangıcını işaretler
-|U + E00F||Arka planının çevresindeki, arka plan açık olması gereken içerik sonunu işaretler
-|U + E010||Arka planının çevresindeki, arka plan koyu içerik başlangıcını işaretler
-|U + E011||Arka planının çevresindeki, arka plan koyu içerik sonunu işaretler
-|U + E012|\<DEL >|Aracılığıyla harfi içerik başlangıcını işaretler
-|U + E013|\</ DEL >|Aracılığıyla harfi içerik sonunu işaretler
-|U + E016|\<Sub >|Alt simge içerik başlangıcını işaretler
-|U + E017|\</ sub >|Alt simge içerik sonunu işaretler
-|U + E018|\<sup >|Simge içerik başlangıcını işaretler
-|U + E019|\</ sup >|Simge içerik sonunu işaretler
+|U + E005||Bir telefon numarası başlangıcını işaretleyen
+|U + E006||Bir telefon numarası sonunu işaretleyen
+|U + E007||Bir adresi başlangıcını işaretleyen
+|U + E008||Bir adresi sonunu işaretleyen
+|U + E009|\&nbsp;|Bölünemez boşluk işaretler
+|U + E00C|\<strong >|Kalın içerik başlangıcını işaretleyen
+|U + E00D|\</ strong >|Kalın içerik sonunu işaretleyen
+|U + E00E||İçerik arka planının çevresindeki, arka plan açık başlangıcını işaretleyen
+|U + E00F||İçerik arka planının çevresindeki, arka plan açık sonunu işaretleyen
+|U + E010||İçerik arka planının çevresindeki, arka plan koyu başlangıcını işaretleyen
+|U + E011||İçerik arka planının çevresindeki, arka plan koyu sonunu işaretleyen
+|U + E012|\<DEL >|Kaldırılmış içerik başlangıcını işaretleyen
+|U + E013|\</ DEL >|Kaldırılmış içerik sonunu işaretleyen
+|U + E016|\<Sub >|Alt simge içerik başlangıcını işaretleyen
+|U + E017|\</ sub >|Alt simge içerik sonunu işaretleyen
+|U + E018|\<sup >|Simge içerik başlangıcını işaretleyen
+|U + E019|\</ sup >|Simge içerik sonunu işaretleyen
 
-Aşağıdaki örnekte gösterildiği bir `Computation` log(2) sorgu dönem için alt simge işaretçileri içeren yanıt. `expression` Alan içerir işaretçileri yalnızca If ' textDecoration olan **doğru**.
+Aşağıdaki örnekte gösterildiği bir `Computation` log(2) sorgu terimi için alt simge işaretçileri içeren bir yanıt. `expression` Alanında işaretçileri yalnızca şu durumlarda ' textDecoration olduğu **true**.
 
 ![Hesaplama işaretçileri](./media/bing-markers-computation.PNG) 
 
-İstek düzenlemelerinin istemediyseniz ifade log10(2) olacaktır. 
+İstek süslemeleri istemediyseniz, ifade log10(2) olacaktır. 
   

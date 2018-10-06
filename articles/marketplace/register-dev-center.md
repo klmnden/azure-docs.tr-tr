@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: ffc2a9fb7b0ed516645c833f87c9ef5c95ca20ff
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 7416a6ccbb734c031f09bd4185b2674dead71dc8
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45580761"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48816812"
 ---
 # <a name="register-in-dev-center"></a>Geliştirme Merkezi'ne kaydolun  
 Bir tarayıcı kişisel hesaba günlüğe kaydedilmez doğrulanmasına yardımcı olmak için yeni bir InPrivate Internet Explorer veya Chrome gizli gözatma oturumu açın.  
@@ -130,7 +130,10 @@ Ardından, Geliştirme Merkezi kayıt ile ilgili sorunlar varsa, bir destek bile
 > Bir e-posta arayın verify@microsoft.com konu satırı ile "eylem gerekli: Microsoft e-posta hesabınızla doğrulayın". Kaydı tamamlamak için zaman hassas doğrulama bağlantısına tıklayın. *24 saat içinde e-posta almadıysanız Lütfen istenmeyen posta klasörüne bakın.*
 
 *   **Geliştirme Merkezi doğrulamadan sonra sonraki adımlar nelerdir?**
-> "Programlarınızın" gidin (https://developer.microsoft.com/en-us/dashboard/Account/Programs) ve Geliştirme Merkezi hesabı oturum açın. "Sizin için önerilen programlar" başlıklı bir bölümde görmeniz gerekir ve bu, Azure'nın altında. "Başlarken"'a tıklayın ve bir Azure hesabı ayarlama işleminin adımlarını.
+> "Programlarınızın" gidin (https://developer.microsoft.com/dashboard/Account/Programs) ve Geliştirme Merkezi hesabı oturum açın. Kayıtlı bir program olarak Azure'ı görmüyorsanız, "Sizin için önerilen programlar" kısmına bakın ve ardından "Kullanmaya başlayın." seçmek, Azure için arayın
+
+*   **Bulut iş ortağı portalı yayımcı profilime nasıl Geliştirme Merkezi Hesabımı bağlantı?**
+> Son adım, bulut iş ortağı portalı için Geliştirici Merkezi hesabınızda yayımlama DLL'e önce [profili](https://cloudpartner.azure.com/#profile). Geliştirici Merkezi hesabınızda tarihinde hesabınızdan farklı olup olmadığını [bulut iş ortağı portalı](https://cloudpartner.azure.com/#alloffers), Geliştirici Merkezi hesabınızda yeni bir ekleme [kullanıcı](https://cloudpartner.azure.com/#documentation/manage-users) bulut iş ortağı Portalı'nda. Oturum açma [bulut iş ortağı portalı](https://cloudpartner.azure.com/#alloffers) Geliştirme Merkezi hesabınızla. Yayımcı profil menüsünde üstte bulunan web tarayıcınız sağında. Select bağlantı Geliştirme Merkezi hesabı.
 
 *   **Geliştirme Merkezi uygulamam neden reddedildiği?**
 > (Duns & Bradstreet) üçüncü taraf güvenlik incelemesi şirket, telefon numarası sağladığınız ile bağlantı kuramadı. Desteğe başvurun [developer.microsoft.com/windows/support](https://developer.microsoft.com/windows/support) güvenlik incelemesi işlemini yeniden başlatmak için

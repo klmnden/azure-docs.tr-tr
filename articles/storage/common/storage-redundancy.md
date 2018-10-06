@@ -5,15 +5,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 01/21/2018
+ms.date: 10/02/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: 18dfdce827a76d924494e66ceb0d03e2bb3a3ffe
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: bca75f9efa1614c4fa719b21007c827494ecd8f0
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39523769"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48830719"
 ---
 # <a name="azure-storage-replication"></a>Azure Storage çoğaltma
 
@@ -40,6 +40,8 @@ Aşağıdaki tabloda, dayanıklılık ve kullanılabilirlik her çoğaltma strat
 | Bölge genelinde kullanım dışı kalması durumunda (bir bölgede uzaktan, coğrafi olarak çoğaltılmış) verilerinize okuma erişimi | Hayır                              | Hayır                               | Hayır                                   | Evet                                  |
 | Belirli bir yıl nesnelerin ___ dayanıklılık sağlayacak şekilde tasarlanmıştır                                          | en az % 99,999999999 (11 9) | en az % 99,9999999999 (12 9) | en az % 99,99999999999999 (16 9) | en az % 99,99999999999999 (16 9) |
 | Desteklenen depolama hesabı türleri                                                                   | GPv1, GPv2, Blob                | GPv2                             | GPv1, GPv2, Blob                     | GPv1, GPv2, Blob                     |
+| Okuma istekleri için kullanılabilirlik SLA'sı | En az % 99,9 (seyrek erişimli katman için % 99)
+
 
 Bkz: [Azure depolama fiyatlandırması](https://azure.microsoft.com/pricing/details/storage/) fiyatlandırma farklı yedeklilik seçenekleri hakkında daha fazla bilgi için.
 

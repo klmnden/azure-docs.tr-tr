@@ -9,12 +9,12 @@ ms.reviewer: jmartens
 ms.author: tedway
 author: tedway
 ms.date: 10/01/2018
-ms.openlocfilehash: df6637f1a52b679ba9ad0a49fb37d4e4b72f35e4
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: b78a199df9f457b09bb487df74a646363fb172b9
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48237832"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48815078"
 ---
 # <a name="deploy-a-model-as-a-web-service-on-an-fpga-with-azure-machine-learning"></a>Model bir FPGA Azure Machine Learning ile bir web hizmeti olarak dağıtma
 
@@ -165,157 +165,8 @@ registered_model.delete()
 
 ## <a name="secure-fpga-web-services"></a>FPGA web hizmetlerini güvence altına alma
 
-Azure Machine Learning modellerini FPGA üzerinde çalışan, SSL desteği ve anahtar tabanlı kimlik doğrulaması sağlar. Bu, hizmet ve istemcileri tarafından gönderilen güvenli veri erişimi sınırlamak sağlar.
+Azure Machine Learning modellerini FPGA üzerinde çalışan, SSL desteği ve anahtar tabanlı kimlik doğrulaması sağlar. Bu, hizmet ve istemcileri tarafından gönderilen güvenli veri erişimi sınırlamak sağlar. [Web hizmeti güvenli hale getirme hakkında bilgi edinin](how-to-secure-web-service.md).
 
-> [!IMPORTANT]
-> Kimlik doğrulaması, yalnızca bir SSL sertifikası ve anahtar sağladığınız Hizmetleri için etkindir. 
->
-> SSL etkinleştirmezseniz, internet üzerindeki herhangi bir kullanıcı hizmete çağrı yapmak mümkün olacaktır.
->
-> Hizmet erişirken etkinleştirirseniz SSL ve kimlik doğrulama anahtarı gereklidir.
-
-SSL istemci ve hizmet arasında gönderilen verileri şifreler. Bu da sunucunun kimliğini doğrulamak için istemci tarafından kullanılmış.
-
-SSL etkin bir hizmet dağıtmak veya etkinleştirmek için zaten dağıtılmış bir hizmeti güncelleştirin. Aynı adımlar şunlardır:
-
-1. Bir etki alanı adı satın alır.
-
-2. Bir SSL sertifikası alın.
-
-3. Dağıtın veya hizmeti SSL etkin ile güncelleştirin.
-
-4. Hizmete işaret edecek şekilde güncelleştirin.
-
-### <a name="acquire-a-domain-name"></a>Bir etki alanı adını alma
-
-Zaten bir etki alanı adına sahip olmadığınız, birinden, satın alabileceğiniz bir __etki alanı adı kayıt şirketi__. Maliyeti gibi işlemi kaydedicilerin arasında farklılık gösterir. Kayıt şirketi, araçlar da ile etki alanı adı yönetmek için sağlar. Bu araçlar, barındırılan hizmetinizin IP adresi için bir tam etki alanı adı (örneğin, www.contoso.com) eşlemek için kullanılır.
-
-### <a name="acquire-an-ssl-certificate"></a>Bir SSL sertifikası alın
-
-Bir SSL sertifikası almak için birçok yolu vardır. En sık karşılaşılan bir satın almaktır bir __sertifika yetkilisi__ (CA). Sertifika burada elde bağımsız olarak, aşağıdaki dosyaları gerekir:
-
-* A __sertifika__. Sertifikayı tüm sertifika zincirine içermelidir ve PEM kodlu olmalıdır.
-* A __anahtar__. Bu anahtar, PEM kodlu olmalıdır.
-
-> [!TIP]
-> Sertifika yetkilisi sertifika ve anahtarı sağlayamazsa ve PEM kodlu dosyaları olarak gibi bir yardımcı programını kullanın [OpenSSL](https://www.openssl.org/) biçimini değiştirmek için.
-
-> [!IMPORTANT]
-> Otomatik olarak imzalanan sertifikalar yalnızca geliştirme için kullanılması gerekir. Bunlar üretim ortamında kullanılmamalıdır.
->
-> Kendinden imzalı bir sertifika kullanıyorsanız bkz [otomatik olarak imzalanan sertifikalarla tüketen](#self-signed) bölümüne ilişkin özel yönergeler.
-
-> [!WARNING]
-> Sertifika isterken, hizmet için kullanmayı planladığınız adresinin tam etki alanı adı (FQDN) sağlamalısınız. Örneğin, www.contoso.com. Sertifikayı damgalı adresi ve istemciler tarafından kullanılan adres, hizmetin kimliğini doğrularken karşılaştırılır.
->
-> Adresleri eşleşmiyorsa, istemcilerin bir hata alırsınız. 
-
-### <a name="deploy-or-update-the-service-with-ssl-enabled"></a>Dağıtma veya SSL ile etkin hizmetini güncelleştir
-
-SSL etkin hizmeti dağıtmak için ayarlanmış `ssl_enabled` parametresi `True`. Ayarlama `ssl_certificate` parametre değerine __sertifika__ dosya ve `ssl_key` değerine __anahtarı__ dosya. Aşağıdaki örnek, SSL etkin bir hizmeti dağıtmak gösterir:
-
-```python
-from amlrealtimeai import DeploymentClient
-
-subscription_id = "<Your Azure Subscription ID>"
-resource_group = "<Your Azure Resource Group Name>"
-model_management_account = "<Your AzureML Model Management Account Name>"
-location = "eastus2"
-
-model_name = "resnet50-model"
-service_name = "quickstart-service"
-
-deployment_client = DeploymentClient(subscription_id, resource_group, model_management_account, location)
-
-with open('cert.pem','r') as cert_file:
-    with open('key.pem','r') as key_file:
-        cert = cert_file.read()
-        key = key_file.read()
-        service = deployment_client.create_service(service_name, model_id, ssl_enabled=True, ssl_certificate=cert, ssl_key=key)
-```
-
-Yanıtın `create_service` işlem hizmetinin IP adresini içeriyor. Hizmetin IP adresine DNS adı eşleme IP adresi kullanılır.
-
-Yanıtını da içeren bir __birincil anahtar__ ve __ikincil anahtar__ hizmeti kullanmak için kullanılır.
-
-### <a name="update-your-dns-to-point-to-the-service"></a>Hizmete işaret edecek şekilde güncelleştirin
-
-Etki alanı adınız için DNS kaydı güncelleştirmek için etki alanı adı kayıt şirketi tarafından sağlanan araçları kullanın. Kayıt hizmetinin IP adresine işaret etmelidir.
-
-> [!NOTE]
-> Bağlı olarak kayıt şirketi ve süresi (TTL) canlı etki alanı adı için yapılandırılmış, istemciler etki alanı adı çözümleyebilir önce birkaç saate kadar birkaç dakika sürebilir.
-
-### <a name="consume-authenticated-services"></a>Kimliği doğrulanmış hizmetlerini kullanma
-
-Aşağıdaki örnekler, Python ve C# kullanarak bir kimliği doğrulanmış hizmetinin nasıl kullanılacağı hakkında göstermektedir:
-
-> [!NOTE]
-> Değiştirin `authkey` birincil veya ikincil anahtarı ile hizmet oluşturma sırasında döndürdü.
-
-```python
-from amlrealtimeai import PredictionClient
-client = PredictionClient(service.ipAddress, service.port, use_ssl=True, access_token="authKey")
-image_file = R'C:\path_to_file\image.jpg'
-results = client.score_image(image_file)
-```
-
-```csharp
-var client = new ScoringClient(host, 50051, useSSL, "authKey");
-float[,] result;
-using (var content = File.OpenRead(image))
-    {
-        IScoringRequest request = new ImageRequest(content);
-        result = client.Score<float[,]>(request);
-    }
-```
-
-Diğer gRPC istemciler bir yetkilendirme üst bilgisi ayarlayarak isteklerinin kimliğini doğrulayabilir. Genel yaklaşım oluşturmaktır bir `ChannelCredentials` birleştiren nesne `SslCredentials` ile `CallCredentials`. Bu isteğin yetkilendirme üst bilgisi eklenir. Belirli üstbilgilerinizin desteği uygulama konusunda daha fazla bilgi için bkz. [ https://grpc.io/docs/guides/auth.html ](https://grpc.io/docs/guides/auth.html).
-
-Aşağıdaki örnekler, C# ve Git üst bilgi ayarlama işlemini göstermektedir:
-
-```csharp
-creds = ChannelCredentials.Create(baseCreds, CallCredentials.FromInterceptor(
-                      async (context, metadata) =>
-                      {
-                          metadata.Add(new Metadata.Entry("authorization", "authKey"));
-                          await Task.CompletedTask;
-                      }));
-
-```
-
-```go
-conn, err := grpc.Dial(serverAddr, 
-    grpc.WithTransportCredentials(credentials.NewClientTLSFromCert(nil, "")),
-    grpc.WithPerRPCCredentials(&authCreds{
-    Key: "authKey"}))
-
-type authCreds struct {
-    Key string
-}
-
-func (c *authCreds) GetRequestMetadata(context.Context, uri ...string) (map[string]string, error) {
-    return map[string]string{
-        "authorization": c.Key,
-    }, nil
-}
-
-func (c *authCreds) RequireTransportSecurity() bool {
-    return true
-}
-```
-
-### <a id="self-signed"></a>Otomatik olarak imzalanan sertifikalarla hizmetlerini kullanma
-
-Otomatik olarak imzalanan bir sertifika ile güvenli bir sunucu kimlik doğrulaması istemci etkinleştirmek için iki yolu vardır:
-
-* İstemci sisteminde `GRPC_DEFAULT_SSL_ROOTS_FILE_PATH` sertifika dosyasına işaret edecek şekilde İstemci sisteminde ortam değişkeni.
-
-* Oluştururken bir `SslCredentials` nesnesine, yapıcısına sertifika dosyasının içeriğini geçirin.
-
-Her iki yöntemi kullanarak sertifikayı kök sertifika kullanmak üzere gRPC neden olur.
-
-> [!IMPORTANT]
-> gRPC güvenilmeyen sertifikaları kabul etmiyor. Güvenilmeyen bir sertifika kullanarak başarısız olacak olan bir `Unavailable` durum kodu. Hata ayrıntılarını içeren `Connection Failed`.
 
 ## <a name="sample-notebook"></a>Örnek Not Defteri
 

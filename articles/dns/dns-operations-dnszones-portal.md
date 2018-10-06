@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/18/2017
 ms.author: victorh
-ms.openlocfilehash: a9325dff84635955600bc78687ec0156495ae893
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: d0a20de8738e8c7b2719a9de85d5fd16aa5778cf
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46954390"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48829691"
 ---
 # <a name="how-to-manage-dns-zones-in-the-azure-portal"></a>Azure portalında DNS bölgelerini yönetme
 
@@ -32,7 +32,7 @@ Bu makalede, Azure portalını kullanarak DNS bölgelerini yönetme işlemini g�
 ## <a name="create-a-dns-zone"></a>DNS bölgesi oluşturma
 
 1. Azure portalında oturum açın
-2. Hub menüsünde tıklayıp **kaynak Oluştur > Ağ >** ve ardından **DNS bölgesi** oluşturma DNS bölgesi dikey penceresini açın.
+2. Hub menüsünde gidin **kaynak Oluştur > Ağ > DNS bölgesi** açmak için **DNS bölgesi oluştur** dikey penceresi.
 
     ![DNS bölgesi](./media/dns-operations-dnszones-portal/openzone650.png)
 
@@ -51,13 +51,13 @@ Bu makalede, Azure portalını kullanarak DNS bölgelerini yönetme işlemini g�
 
 ## <a name="list-dns-zones"></a>DNS bölgelerini listeleme
 
-Azure portalında gidin **diğer hizmetler** > **ağ** > **DNS bölgelerini**. Her DNS bölgesinin kendi kaynak, kayıt kümesi sayısı gibi bilgileri olan ve bu görünümden ad sunucularını görünebilen ' dir. Sütun **ad SUNUCULARINI** tıklatın eklemek için varsayılan görünümünde değil **sütunları**seçin **ad sunucuları** tıklatıp **Bitti**.
+Azure portalında gidin **diğer hizmetler** > **ağ** > **DNS bölgelerini**. Her DNS bölgesinin kendi kaynak ve kayıt kümelerini gibi bilgileri ve ad sunucuları bu görünümden görüntülenebilir. Sütun **ad SUNUCULARINI** varsayılan görünüm değil. Eklemek için tıklatın **sütunları**seçin **ad sunucuları**ve ardından **Bitti**.
 
 ![DNS bölgelerini listeleme](./media/dns-operations-dnszones-portal/listzones.png)
 
 ## <a name="delete-a-dns-zone"></a>DNS bölgesini silme
 
-Portalda bir DNS bölgesine gidin. Üzerinde **DNS bölgesi** dikey penceresinde tıklayın **bölgeyi Sil**. DNS bölgesini silmek isteyen onaylamanız istenir. Bir DNS bölgesi silindiğinde, bölge içinde bulunan tüm kayıtları siler.
+Portalda bir DNS bölgesine gidin. Üzerinde **DNS bölgesi** dikey penceresinde tıklayın **bölgeyi Sil**. Ardından, DNS bölgesini silmek isteyen onaylamanız istenir. Bir DNS bölgesi silindiğinde bölgede bulunan tüm kayıtları siler.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

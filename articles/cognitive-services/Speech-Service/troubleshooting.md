@@ -1,7 +1,7 @@
 ---
 title: Bilişsel hizmetler konuşma SDK sorunlarını giderme
-description: Bilişsel sorun giderme SDK konuşma Hizmetleri
-titleSuffix: Microsoft Cognitive Services
+description: Bilişsel hizmetler konuşma SDK sorunlarını giderin.
+titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: wolfma61
 ms.service: cognitive-services
@@ -9,41 +9,43 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: wolfma
-ms.openlocfilehash: ff8aba562cfd2d6d54c708ee7fdc4c6ca7185f29
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: 02564021257c97f6c865fcbebf30c73babee859a
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39284131"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48816233"
 ---
-# <a name="troubleshooting-speech-services-sdk"></a>Sorun giderme konuşma Hizmetleri SDK'sı
+# <a name="troubleshoot-the-speech-sdk"></a>SDK'sı konuşma sorunlarını giderme
 
 Bu makalede Speech SDK'sı kullanırken karşılaşabileceğiniz sorunları gidermenize yardımcı olacak bilgiler sağlar.
 
-## <a name="error-websocket-upgrade-failed-with-an-authentication-error-403"></a>Hata `WebSocket Upgrade failed with an authentication error (403).`
+## <a name="error-websocket-upgrade-failed-with-an-authentication-error-403"></a>Hata: WebSocket yükseltme (403) kimlik doğrulama hatası ile başarısız oldu.
 
-Bölge veya hizmetiniz için yanlış uç nokta olabilir. Doğru olduğundan emin olmak için URI denetleyin. Bu abonelik anahtarı veya yetkilendirme ile ilgili bir sorun da olabilir bir sonraki bölüm ayrıca görmeniz belirteci.
+Bölge veya hizmetiniz için yanlış uç nokta olabilir. URI'nin doğru olduğundan emin olmak için kontrol edin. 
 
-## <a name="error-http-403-forbidden-or-error-http-401-unauthorized"></a>Hata `HTTP 403 Forbidden` veya hata `HTTP 401 Unauthorized`
+Ayrıca, bir sorun olabilir abonelik anahtarı veya yetkilendirme belirteci. Daha fazla bilgi için sonraki bölüme bakın.
 
-Bu hata genellikle tarafından kimlik doğrulama sorunları nedeniyle oluşur. Geçerli bir olmadan bağlantı isteklerini `Ocp-Apim-Subscription-Key` veya `Authorization` üstbilgi durum 401 veya 403 reddedilir.
+## <a name="error-http-403-forbidden-or-http-401-unauthorized"></a>Hata: HTTP 403 Yasak veya HTTP 401 Yetkisiz
 
-* Kimlik doğrulaması için bir abonelik anahtarı kullanıyorsanız, bunun nedeni aşağıdakilerden biri olabilir:
+Bu hata genellikle tarafından kimlik doğrulama sorunları nedeniyle oluşur. Geçerli bir olmadan bağlantı isteklerini `Ocp-Apim-Subscription-Key` veya `Authorization` üst bilgi, 403 veya 401 durumuyla reddedilir.
+
+* Kimlik doğrulaması için bir abonelik anahtarı kullanıyorsanız, aşağıdaki hata nedeniyle görebilirsiniz:
 
     - Abonelik anahtarı eksik veya geçersiz
     - Aboneliğinizin kullanımı kotayı aştınız
 
-* Bir yetkilendirme belirteci kimlik doğrulaması için kullanılıyorsa, neden olabilir:
+* Bir yetkilendirme belirteci için kimlik doğrulaması kullanıyorsanız, aşağıdaki hata nedeniyle görebilirsiniz:
 
     - Yetkilendirme belirteci geçersiz.
     - Yetkilendirme belirtecinin süresi doldu
 
 ### <a name="validate-your-subscription-key"></a>Abonelik anahtarınızı doğrulayın
 
-Aşağıdaki komutlardan birini çalıştırarak bir geçerli abonelik anahtarı olduğundan emin olmak için doğrulayabilirsiniz.
+Aşağıdaki komutlardan birini çalıştırarak bir geçerli abonelik anahtarı olduğunu doğrulayabilirsiniz.
 
 > [!NOTE]
-> Değiştirin `YOUR_SUBSCRIPTION_KEY` ve `YOUR_REGION` abonelik anahtarı ve ilgili bölge, sırasıyla.
+> Değiştirin `YOUR_SUBSCRIPTION_KEY` ve `YOUR_REGION` abonelik anahtarı ve ilgili bölge.
 
 * PowerShell
 
@@ -68,7 +70,7 @@ Aşağıdaki komutlardan birini çalıştırarak bir geçerli abonelik anahtarı
 Bir yetkilendirme belirteci kimlik doğrulaması için kullanıyorsanız, yetkilendirme belirtecini hala geçerli olduğunu doğrulamak için aşağıdaki komutlardan birini çalıştırın. Belirteçleri 10 dakika için geçerlidir.
 
 > [!NOTE]
-> Değiştirin `YOUR_AUDIO_FILE` önceden kaydedilmiş ses dosyanızın yoluyla `YOUR_ACCESS_TOKEN` önceki adımda döndürülen yetkilendirme belirtecini ve `YOUR_REGION` doğru bölgeyle.
+> Değiştirin `YOUR_AUDIO_FILE` ile önceden kaydedilmiş ses dosyanızın yolu. Değiştirin `YOUR_ACCESS_TOKEN` yetkilendirme belirteciyle önceki adımda döndürdü. Değiştirin `YOUR_REGION` doğru bölgeyle.
 
 * PowerShell
 
@@ -83,12 +85,12 @@ Bir yetkilendirme belirteci kimlik doğrulaması için kullanıyorsanız, yetkil
       'Content-type' = 'audio/wav; codec=audio/pcm; samplerate=16000'
     }
     
-    # Read audio into byte array
+    # Read audio into byte array.
     $audioBytes = [System.IO.File]::ReadAllBytes("YOUR_AUDIO_FILE")
     
     $RecoResponse = Invoke-RestMethod -Method POST -Uri $SpeechServiceURI -Headers $RecoRequestHeader -Body $audioBytes
     
-    # Show the result
+    # Show the result.
     $RecoResponse
     ```
 
@@ -100,22 +102,23 @@ Bir yetkilendirme belirteci kimlik doğrulaması için kullanıyorsanız, yetkil
 
 ---
 
-## <a name="error-http-400-bad-request"></a>Hata `HTTP 400 Bad Request`
+## <a name="error-http-400-bad-request"></a>Hata: HTTP 400 Hatalı istek.
 
-İstek gövdesi geçersiz ses verilerini içerdiğinde, bu hata genellikle oluşur. Yalnızca `WAV` biçimi destekleniyor. Ayrıca uygun belirttiğinizden emin olmak için istenen üstbilgileri denetleyin `Content-Type` ve `Content-Length`.
+İstek gövdesi geçersiz ses verilerini içerdiğinde, bu hata genellikle oluşur. Yalnızca WAV biçimi desteklenmiyor. Ayrıca, isteğin üstbilgileri için uygun değerleri belirtmenize emin olmak için kontrol `Content-Type` ve `Content-Length`.
 
-## <a name="error-http-408-request-timeout"></a>Hata `HTTP 408 Request Timeout`
+## <a name="error-http-408-request-timeout"></a>Hata: HTTP 408 istek zaman aşımı
 
-Ses veri hizmetine gönderilen nedeni büyük olasılıkla bir hatadır. Bu hata Ayrıca ağ sorunları neden olabilir.
+Ses veri hizmetine gönderilen en olası hata oluşur. Bu hata, ağ sorunları da kaynaklanıyor olabilir.
 
-## <a name="the-recognitionstatus-in-the-response-is-initialsilencetimeout"></a>`RecognitionStatus` İçinde yanıt. `InitialSilenceTimeout`
+## <a name="recognitionstatus-in-the-response-is-initialsilencetimeout"></a>Yanıt "RecognitionStatus" olan "InitialSilenceTimeout"
 
-Ses verisi genellikle soruna neden neden olur. Örneğin:
+Bu sorun genellikle tarafından ses veri neden olur. Çünkü bu hatayı görebilirsiniz:
 
-* Uzun bir esnetme ses başına sessizlik yoktur. Hizmet tanıma birkaç saniye sonra durur ve dönüş `InitialSilenceTimeout`.
+* Uzun bir esnetme ses başına sessizlik yoktur. Bu durumda, hizmet tanıma birkaç saniye sonra durur ve döndürür `InitialSilenceTimeout`.
+
 * Ses sessizlik kabul edilmesi ses verilerini neden olan desteklenmeyen codec biçimi kullanır.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* [Sürüm notları](releasenotes.md)
+* [Sürüm notlarını gözden geçirin](releasenotes.md)
 

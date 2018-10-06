@@ -15,12 +15,12 @@ ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 04/18/2018
 ms.author: danlep
-ms.openlocfilehash: 1f9a2b786db59ecfee6ede53b2b789d84651c975
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: 1347d3aac01c62040c164eee22c7a905b07e8236
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39577127"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48816980"
 ---
 # <a name="authenticate-batch-service-solutions-with-active-directory"></a>Batch hizmeti çözümlerinin Active Directory ile kimlik doğrulaması
 
@@ -68,7 +68,7 @@ Azure AD kimlik doğrulaması kullanarak ilk adımı, uygulamanızı bir Azure A
 
 Uygulamanızı kaydettiğinizde, Azure AD'ye uygulamanız ile ilgili bilgileri sağlayın. Ardından Azure AD uygulama kimliği sağlar (olarak da adlandırılan bir *istemci kimliği*), uygulamanızın çalışma zamanında Azure AD ile ilişkilendirmek için kullanın. Uygulama kimliği hakkında daha fazla bilgi için bkz: [uygulaması ve Azure Active Directory'de Hizmet sorumlusu nesneleri](../active-directory/develop/app-objects-and-service-principals.md).
 
-Batch uygulamanızı kaydetmek için adımları izleyin. [bir uygulama eklendiğinde](../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md#adding-an-application) konusundaki [uygulamaları Azure Active Directory ile tümleştirme][aad_integrate]. Uygulamanızı yerel bir uygulama kaydederseniz, için geçerli bir URI belirtebilirsiniz **yeniden yönlendirme URI'si**. Gerçek bir uç nokta olması gerekmez.
+Batch uygulamanızı kaydetmek için adımları izleyin. [bir uygulama eklendiğinde](../active-directory/develop/quickstart-v1-add-azure-ad-app.md) konusundaki [uygulamaları Azure Active Directory ile tümleştirme][aad_integrate]. Uygulamanızı yerel bir uygulama kaydederseniz, için geçerli bir URI belirtebilirsiniz **yeniden yönlendirme URI'si**. Gerçek bir uç nokta olması gerekmez.
 
 Uygulamanızı kaydettikten sonra uygulama kimliği görürsünüz:
 

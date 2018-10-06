@@ -6,15 +6,15 @@ ms.service: automation
 ms.component: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 09/18/2018
+ms.date: 10/05/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 3e21cb90dbe76a648cbb23729cc5068e75e8e5f7
-ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
+ms.openlocfilehash: 403c52cb2de61f1c2d02ad72e9067da09b40a814
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/20/2018
-ms.locfileid: "46498547"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48816047"
 ---
 # <a name="update-management-solution-in-azure"></a>Güncelleştirme yönetimi çözümünü azure'da
 
@@ -36,6 +36,8 @@ Aşağıdaki diyagramda davranışı kavramsal bir görünümü gösterir ve ver
 ![Güncelleştirme yönetimi işlem akışı](media/automation-update-management/update-mgmt-updateworkflow.png)
 
 Güncelleştirme yönetimi, yerel makine aynı kiracıda birden çok abonelik içinde kullanılabilir. Yerleşik gereken farklı bir kiracıda makineleri yönetmek için bunları olarak [Azure olmayan makineler](automation-onboard-solutions-from-automation-account.md#onboard-a-non-azure-machine). 
+
+Bir CVE kullanıma sunulduğunda, Linux makineleri değerlendirme için gösterilmesi düzeltme eki 2-3 saat sürer.  Windows makineleri için piyasaya sürüldükten sonra değerlendirmesi için gösterilecek yamasının 12-15 saat sürer.
 
 Bilgisayar güncelleştirme uyumluluğu için tarama gerçekleştirdikten sonra aracıyı Azure Log Analytics'e toplu bilgiler iletir. Bir Windows bilgisayarda Uyumluluk taraması varsayılan olarak her 12 saatte bir gerçekleştirilir.
 

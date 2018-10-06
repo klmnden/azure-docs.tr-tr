@@ -1,39 +1,40 @@
 ---
-title: Varlık arama endpoint | Microsoft Docs
-description: Varlık arama API uç noktası özeti.
+title: Bing Varlık Arama uç noktası
+titlesuffix: Azure Cognitive Services
+description: Bing varlık arama API'si uç noktası özeti.
 services: cognitive-services
 author: mikedodaro
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-entity-search
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/05/2017
 ms.author: v-gedod
-ms.openlocfilehash: a2557c6000445544b3b47a05d7d356ccaa9928b4
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: d781a4b3cd0119f5624b4dd20b514894ea339414
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35351401"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48816591"
 ---
 # <a name="entity-search-endpoint"></a>Varlık arama uç noktası
-**Varlık arama API** sorgu temelli bir Web varlıklar döndürüyor bir uç nokta içerir.
+**Varlık arama API'si** bir sorguyu temel alan Web varlık döndüren bir uç nokta içerir.
 
 ## <a name="endpoint"></a>Uç Nokta
-Varlık alma sonuçları kullanarak **Bing API'si**, gönderme bir `GET` şu uç nokta isteği. Üstbilgiler ve URL parametreleri daha ayrıntılı belirtimleri tanımlamak için kullanın.
+Varlık alma sonuçlarını kullanarak **Bing API**, gönderme bir `GET` aşağıdaki uç noktayı isteği. Daha fazla özellikleri tanımlamak için başlık ve URL parametrelerini kullanın.
 
-**Uç noktası:** döndürür tarafından tanımlanan kullanıcının arama sorgusu için uygun olan varlıkları `?q=""`.
+**Uç noktası:** tarafından tanımlanan kullanıcı arama sorgusu için uygun olan varlıklar döndürüyor `?q=""`.
 ```
  GET https://api.cognitive.microsoft.com/bing/v7.0/entities
 ```
 
-Üstbilgiler, parametreleri, Pazar kodları, yanıt nesneleri, hatalar, hakkındaki ayrıntılar için vs., bkz: [Bing varlık arama API v7](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference) başvuru.
+Üstbilgileri, parametreleri, Pazar kodları, yanıt nesneleri, hata hakkındaki ayrıntılar için vb., bkz: [Bing varlık arama API'si v7](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference) başvuru.
 
-## <a name="response-json"></a>Yanıt JSON
-Bir varlık arama isteğine yanıt JSON nesnelerinin sonuçlarını içerir. Sonuçları bir örnekleri için bkz: [başlama](https://docs.microsoft.com/azure/cognitive-services/bing-entities-search/quick-start).
+## <a name="response-json"></a>JSON yanıtı
+Bir varlık arama isteğine yanıt JSON nesneleri sonuçlarını içerir. Sonuçları örnekleri için bkz: [başlama](https://docs.microsoft.com/azure/cognitive-services/bing-entities-search/quick-start).
 
 ## <a name="next-steps"></a>Sonraki adımlar
-**Bing** API'lerini destekleyen tipine göre sonuçları döndüren arama eylemler. Tüm arama uç noktaları sonuçları JSON yanıt nesneler olarak döndürür.  Tüm uç noktaları boylam, enlem ve arama RADIUS tarafından belirli bir dil ve/veya konum döndüren sorgular destekler.
+**Bing** türüne göre sonuçları arama eylemleri API'lerini desteklemektedir. Tüm arama uç noktaları sonuçlar JSON yanıtı nesneler olarak döndürür.  Tüm uç noktalar, belirli bir dil ve/veya konum boylam, enlem ve arama RADIUS döndüren sorgular destekler.
 
-Her bitiş noktası tarafından desteklenen parametreleri hakkında tam bilgi için her tür başvuru sayfalarına bakın.
-Varlık arama'yı API kullanarak örnekler için bkz: [başlama](https://docs.microsoft.com/azure/cognitive-services/bing-entities-search/quick-start) ve [Resizing ve küçük resim görüntüleri kırpma](https://docs.microsoft.com/azure/cognitive-services/bing-entities-search/resize-and-crop-thumbnails).
+Her bir uç noktası tarafından desteklenen parametreleri hakkında tam bilgi için her türü için başvuru sayfalarına bakın.
+Varlık arama API'si kullanan örnekler için [başlama](https://docs.microsoft.com/azure/cognitive-services/bing-entities-search/quick-start) ve [yeniden boyutlandırma ve küçük resim görüntüleri kırpma](https://docs.microsoft.com/azure/cognitive-services/bing-entities-search/resize-and-crop-thumbnails).

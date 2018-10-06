@@ -17,12 +17,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 0c2ff5272fc6cdc4cc18b8d461a8fb7edeee9878
-ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
+ms.openlocfilehash: 91979d46a341f0892d4e5774246bac5a7897f698
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48017996"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48815622"
 ---
 # <a name="azure-active-directory-v20-and-the-openid-connect-protocol"></a>Azure Active Directory v2.0 ve Openıd Connect Protokolü
 
@@ -177,7 +177,7 @@ Aşağıdaki tabloda, döndürülen hata kodları açıklanmaktadır `error` par
 
 Yalnızca bir id_token alma, kullanıcının kimliğini doğrulamak için yeterli değildir; id_token'ın imzayı doğrulamak ve uygulamanızın gereksinimlerini başına belirteçteki talepleri doğrulamak gerekir. V2.0 uç noktası kullanan [JSON Web belirteçleri (Jwt'ler)](http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html) ve Belirteçleri imzalamak ve geçerli olduğunu doğrulamak için ortak anahtar şifrelemesi.
 
-Doğrulamak seçebileceğiniz `id_token` istemci kodu, ancak yaygın bir uygulama olan göndermek için `id_token` bir arka uç sunucusuna ve orada doğrulama gerçekleştirin. İd_token imzası doğruladıktan sonra birkaç talepleri doğrulamak için gerekli vardır. Bkz [ `id_token` başvuru](id-tokens.md) daha fazla bilgi edinmek için de dahil olmak üzere [doğrulama belirteçleri](id-tokens.md#validating-idtokens) ve [önemli bilgiler hakkında imzalama anahtar geçişi](active-directory-signing-key-rollover.md). Öneririz belirteçleri doğrulamak ve ayrıştırmak için bir kitaplık yapmayı kullanımı - en az bir dil ve platform için kullanılabilir.
+Doğrulamak seçebileceğiniz `id_token` istemci kodu, ancak yaygın bir uygulama olan göndermek için `id_token` bir arka uç sunucusuna ve orada doğrulama gerçekleştirin. İd_token imzası doğruladıktan sonra birkaç talepleri doğrulamak için gerekli vardır. Bkz [ `id_token` başvuru](id-tokens.md) daha fazla bilgi edinmek için de dahil olmak üzere [doğrulama belirteçleri](id-tokens.md#validating-an-idtoken) ve [önemli bilgiler hakkında imzalama anahtar geçişi](active-directory-signing-key-rollover.md). Öneririz belirteçleri doğrulamak ve ayrıştırmak için bir kitaplık yapmayı kullanımı - en az bir dil ve platform için kullanılabilir.
 <!--TODO: Improve the information on this-->
 
 Senaryonuza bağlı olarak ek istekleri doğrulamak isteyebilirsiniz. Bazı ortak doğrulamaları şunlardır:
@@ -278,4 +278,4 @@ error=access_denied&error_description=the+user+canceled+the+authentication
 
 Olası hata kodları ve önerilen istemci yanıtları açıklaması için bkz: [yetkilendirme uç noktası hataları için hata kodlarını](#error-codes-for-authorization-endpoint-errors).
 
-Bir yetkilendirme kodunu ve bir kimlik belirteci varsa, kullanıcı oturum açın ve kendi adınıza erişim belirteçlerini almak. Kullanıcının oturum açmak için kimlik belirteci doğrulamak [açıklandığı gibi tam olarak](id-tokens.md#validating-idtokens). Erişim belirteçlerini almak için açıklanan adımları izleyin. [OAuth kod flow belgeleri](v2-oauth2-auth-code-flow.md#request-an-access-token).
+Bir yetkilendirme kodunu ve bir kimlik belirteci varsa, kullanıcı oturum açın ve kendi adınıza erişim belirteçlerini almak. Kullanıcının oturum açmak için kimlik belirteci doğrulamak [açıklandığı gibi tam olarak](id-tokens.md#validating-an-idtoken). Erişim belirteçlerini almak için açıklanan adımları izleyin. [OAuth kod flow belgeleri](v2-oauth2-auth-code-flow.md#request-an-access-token).

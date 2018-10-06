@@ -15,12 +15,12 @@ ms.date: 09/27/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: 6fe9a106975a03fabc9d674ede694e683dc3cd94
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 88667749d9cdf5239be33f3aca52d1a614556a41
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47410281"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48816629"
 ---
 # <a name="built-in-roles-for-azure-resources"></a>Azure kaynakları için yerleşik roller
 [Rol tabanlı erişim denetimi (RBAC)](overview.md) kullanıcılara, gruplara veya hizmet sorumluları için atayabileceğiniz birkaç yerleşik rol tanımlarına sahiptir. Rol atamaları, azure'daki kaynaklara erişimi denetlemek yoludur. Yerleşik roller kuruluşunuzun ihtiyaçlarını karşılamıyorsa kendi [özel rollerinizi](custom-roles.md) oluşturabilirsiniz.
@@ -786,14 +786,14 @@ Aşağıdaki tabloda, yerleşik rollerin kısa açıklamaları verilmiştir. Rol
 > | **Açıklama** | Veri fabrikalarını yönetmenizi sağlar ancak onlara yönelik erişimi yönetme izni vermez. |
 > | **Kimlik** | 673868aa-7521-48A0-acc6-0f60742d39f5 |
 > | **Eylemler** |  |
-> | Microsoft.Authorization/*/read | Okuma rolleri ve rol atamaları |
+> | Microsoft.Authorization/*/read | Rolleri ve rol atamalarını okuyun. |
 > | Microsoft.DataFactory/dataFactories/* | Oluşturun ve veri fabrikaları ve bunların alt kaynaklarını yönetin. |
 > | Microsoft.DataFactory/factories/* | Oluşturun ve veri fabrikaları ve bunların alt kaynaklarını yönetin. |
-> | Microsoft.Insights/alertRules/* | Oluşturma ve uyarı kurallarını yönet |
-> | Microsoft.ResourceHealth/availabilityStatuses/read | Belirtilen kapsamdaki tüm kaynaklar için kullanılabilirlik durumlarını alır |
-> | Microsoft.Resources/deployments/* | Oluşturma ve kaynak grubu dağıtımlarında yönetme |
-> | Microsoft.Resources/subscriptions/resourceGroups/read | Kaynak gruplarını alır veya listeler. |
-> | Microsoft.Support/* | Oluşturma ve Destek biletlerini yönetme |
+> | Microsoft.Insights/alertRules/* | Oluşturun ve uyarı kurallarını yönetin. |
+> | Microsoft.ResourceHealth/availabilityStatuses/read | Kullanılabilirlik durumlarını belirtilen kapsamdaki tüm kaynaklar için alın. |
+> | Microsoft.Resources/deployments/* | Oluşturun ve kaynak grubu dağıtımı yönetin. |
+> | Microsoft.Resources/subscriptions/resourceGroups/read | GET veya kaynak gruplarının listesi. |
+> | Microsoft.Support/* | Oluşturun ve Destek biletlerini yönetebilir. |
 
 ## <a name="data-lake-analytics-developer"></a>Data Lake Analytics Geliştiricisi
 > [!div class="mx-tableFixed"]

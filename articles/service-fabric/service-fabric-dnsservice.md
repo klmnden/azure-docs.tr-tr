@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 7/20/2018
 ms.author: msfussell
-ms.openlocfilehash: 3c8eac98414fa43213136940fb4c91694a78a2c1
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: a420033d96a1366a79f5f2032693c38d7eca4ac3
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39397535"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48830982"
 ---
 # <a name="dns-service-in-azure-service-fabric"></a>Azure Service fabric'te DNS hizmeti
 DNS hizmeti kümenizde DNS protokolünü kullanarak diğer hizmetleri bulmak için etkinleştirebileceğiniz bir isteğe bağlı sistem hizmetidir. 
@@ -132,7 +132,7 @@ Uygulama dağıtıldıktan sonra Service Fabric Explorer hizmet örneği aşağ�
 
 ![Hizmet uç noktaları](./media/service-fabric-dnsservice/service-fabric-explorer-dns.png)
 
-Aşağıdaki örnek, bir durum bilgisi olan hizmet için DNS adını ayarlar `statefulsvc.app`. Hizmet, adlandırılmış bir bölümleme düzeni kullanır. Bölüm adları küçük harf olduğuna dikkat edin. Bu, DNS sorguları hedeflenen bölümleri için bir gereksinimdir; Daha fazla bilgi için [yapmak DNS sorgularına bir durum bilgisi olan hizmet bölüm](#making-dns-queries-on-a-stateful-service-partition).
+Aşağıdaki örnek, bir durum bilgisi olan hizmet için DNS adını ayarlar `statefulsvc.app`. Hizmet, adlandırılmış bir bölümleme düzeni kullanır. Bölüm adları küçük harf olduğuna dikkat edin. Bu, DNS sorguları hedeflenen bölümleri için bir gereksinimdir; Daha fazla bilgi için [yapmak DNS sorgularına bir durum bilgisi olan hizmet bölüm](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-dnsservice#preview-making-dns-queries-on-a-stateful-service-partition).
 
 ```xml
     <Service Name="Stateful1" ServiceDnsName="statefulsvc.app" />
@@ -249,7 +249,7 @@ public class ValuesController : Controller
 }
 ```
 
-## <a name="known-issues"></a>Bilinen sorunlar
+## <a name="known-issues"></a>Bilinen Sorunlar
 * Service Fabric sürümleri 6,3 ve üzeri, DNS adı bir tire içeren hizmet adları için DNS araması bir sorun yoktur. Bu sorun hakkında daha fazla bilgi için lütfen aşağıdaki izleme [GitHub sorunu](https://github.com/Azure/service-fabric-issues/issues/1197). Bunun için bir düzeltme sonraki 6,3 güncelleştirmede kullanıma sunulacaktır. 
 
 ## <a name="next-steps"></a>Sonraki adımlar

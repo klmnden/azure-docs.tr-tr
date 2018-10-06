@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 09/17/2018
 ms.author: dobett
-ms.openlocfilehash: add49aaf96190f782d2133e2a5f620a340f05eaf
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: c20b1d5f3a84e950e37a3236272256db620a5985
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45733840"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48831109"
 ---
 # <a name="connect-your-raspberry-pi-device-to-the-remote-monitoring-solution-accelerator-c"></a>Raspberry Pi'yi Cihazınızı Uzaktan izleme çözüm hızlandırıcısına (C) bağlama
 
@@ -57,15 +57,15 @@ Aşağıdaki adımları Raspberry Pi'yi çözüm hızlandırıcısına bağlanan
 
 ## <a name="view-the-code"></a>Kod Görünümü
 
-[Örnek kod](https://github.com/Azure/azure-iot-sdk-c/tree/master/samples/solutions/remote_monitoring) kullanılan Kılavuzu Azure IOT C SDK'ları GitHub deposunda kullanılabilir.
+[Örnek kod](https://github.com/Azure/azure-iot-sdk-c/tree/master/samples/solutions/remote_monitoring_client) kullanılan Kılavuzu Azure IOT C SDK'ları GitHub deposunda kullanılabilir.
 
 ### <a name="download-the-source-code-and-prepare-the-project"></a>Kaynak kodunu indirebilir ve proje hazırlama
 
 Proje hazırlamak için Kopyala veya indir [Azure IOT C SDK'ları depo](https://github.com/Azure/azure-iot-sdk-c) github'dan.
 
-Örnek bulunan **çözümleri/samples/remote_monitoring** klasör.
+Örnek bulunan **çözümleri/samples/remote_monitoring_client** klasör.
 
-Açık **remote_monitoring.c** dosyası **çözümleri/samples/remote_monitoring** bir metin düzenleyicisinde klasör.
+Açık **remote_monitoring.c** dosyası **çözümleri/samples/remote_monitoring_client** bir metin düzenleyicisinde klasör.
 
 [!INCLUDE [iot-accelerators-connecting-code](../../includes/iot-accelerators-connecting-code.md)]
 
@@ -87,7 +87,7 @@ Aşağıdaki adımları nasıl kullanılacağını açıklayan *CMake* istemci u
 1. İstemci uygulamasını çalıştırın ve IOT Hub'ına telemetri gönderme:
 
     ```sh
-    ./samples/solutions/remote_monitoring/remote_monitoring_client
+    ./samples/solutions/remote_monitoring_client/remote_monitoring_client
     ```
 
     Konsol iletileri olarak gösterir:

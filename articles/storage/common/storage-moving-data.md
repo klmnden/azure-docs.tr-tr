@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 08/26/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: 1df237a65a8b5312b20de19a99399b3a3dd075ff
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 76da33a74ad95d7f074bc4efd3a8d9f97c19d612
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43049619"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48830321"
 ---
 # <a name="moving-data-to-and-from-azure-storage"></a>Azure Storage’a ve Azure Storage’da veri taşıma
 Şirket içi verilerinizi Azure Depolama'ya (veya tersi) taşımak istiyorsanız, bunu yapmak için yol çeşitli vardır. Sizin için en uygun yaklaşımı, senaryoya bağlıdır. Bu makalede farklı senaryolar ve her biri için uygun teklifleri hızlı bir genel bakış sağlar.
@@ -38,7 +38,7 @@ Gerekli veya bir komut satırı yardımcı programı ile (örneğin, sistem yön
 ### <a name="azcopy"></a>AzCopy
 AzCopy, yüksek performans verilerini ve Azure Depolama'dan kopyalamak için tasarlanan bir komut satırı yardımcı programıdır. Ayrıca, bir depolama hesabının içinde veya farklı depolama hesapları arasında verileri kopyalayabilirsiniz. AzCopy, üzerinde kullanılabilir [Windows](storage-use-azcopy.md) ve [Linux](storage-use-azcopy-linux.md).
 
-Bkz: [AzCopy komut satırı yardımcı programı ile veri aktarma](storage-use-azcopy.md) veya [Linux üzerinde AzCopy ile veri aktarımı](storage-use-azcopy-linux.md) daha fazla bilgi için.
+Şirket içi verileri Azure depolama alanına geçiş yapmayı öğrenmek için bkz. [öğretici: şirket içi verileri AzCopy kullanarak bulut depolama alanına geçirme](storage-use-azcopy-migrate-on-premises-data.md).
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 Azure PowerShell, Azure hizmetlerini yönetmek için cmdlet’ler sağlayan bir modüldür. Sistem yönetimi için özel olarak tasarlanan görev tabanlı bir komut satırı kabuğu ve betik dili olarak tanımlanır.

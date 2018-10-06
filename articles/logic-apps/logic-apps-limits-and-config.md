@@ -8,13 +8,13 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
-ms.date: 09/26/2018
-ms.openlocfilehash: c557c3e34fc4588b8bf13d69159a144d059b039e
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.date: 10/03/2018
+ms.openlocfilehash: ac13080ec6100734a5b777cc7cb243720f8424a6
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47452470"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48817169"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Limitler ve yapılandırma bilgilerini Azure Logic Apps
 
@@ -156,6 +156,15 @@ Web API'leri oluşturabileceğiniz özel bağlayıcılar için sınırlar aşağ
 | Özel bağlayıcılar sayısı | Azure aboneliği başına 1000 | 
 | Özel bir bağlayıcı tarafından oluşturulan her bağlantı için dakika başına istek sayısı | Bağlantı başına 500 istek |
 |||| 
+
+<a name="managed-identity"></a>
+
+## <a name="managed-identities"></a>Yönetilen kimlik
+
+| Ad | Sınır | 
+| ---- | ----- | 
+| Azure abonelik kimlikleri sayısı sistem tarafından atanan mantıksal uygulamalarla yönetilen | 10 | 
+|||
 
 <a name="integration-account-limits"></a>
 

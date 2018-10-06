@@ -8,12 +8,12 @@ ms.date: 06/26/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: a6102a6bc28486c24134bbc172b9e8a7e1a61244
-ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
+ms.openlocfilehash: 413b94c1f1845e0dcda54b04882e5d6664b81380
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39308046"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48815503"
 ---
 # <a name="common-issues-and-resolutions-for-azure-iot-edge"></a>Azure IoT Edge için genel sorunlar ve çözümler
 
@@ -310,6 +310,20 @@ Windows Registry Editor Version 5.00
 "EventMessageFile"="C:\\ProgramData\\iotedge\\iotedged.exe"
 "TypesSupported"=dword:00000007
 ```
+
+## <a name="iot-edge-module-fails-to-send-a-message-to-the-edgehub-with-404-error"></a>IOT Edge modülü ileti göndermek için edgeHub 404 hatası ile başarısız olur.
+
+IOT Edge modülü başarısız bir 404 ile edgeHub bir ileti göndermek için özel bir `Module not found` hata. IOT Edge arka plan programı günlüklere şu iletiyi yazdırmaz: 
+
+```output
+Error: Time:Thu Jun  4 19:44:58 2018 File:/usr/sdk/src/c/provisioning_client/adapters/hsm_client_http_edge.c Func:on_edge_hsm_http_recv Line:364 executing HTTP request fails, status=404, response_buffer={"message":"Module not found"}u, 04 ) 
+```
+
+### <a name="root-cause"></a>Kök neden
+IOT Edge arka plan programı, güvenlik nedenleriyle edgeHub bağlanan tüm modüller için işlem kimliği zorlar. Bir modül tarafından gönderilen tüm iletiler modülü ana işlem kimliğinden geldiğini doğrular. Başlangıçta kurulan olandan farklı bir işlem kimliğinden modülü tarafından ileti gönderiliyor ise bir 404 hatası ileti iletinin reddeder.
+
+### <a name="resolution"></a>Çözüm
+Aynı işlem kimliği her zaman özel bir IOT Edge modülü tarafından ileti göndermek için edgeHub için kullanılmadığından emin olun. Örneği için emin olun `ENTRYPOINT` yerine `CMD` Docker dosyanızda beri komutu `CMD` modülü bir işlem kimliği ve ana program ise çalıştıran bash komut için başka bir işlem kimliği için önünü açacak `ENTRYPOINT` önünü açacak bir tek bir işlem kimliği.
 
 
 ## <a name="next-steps"></a>Sonraki adımlar

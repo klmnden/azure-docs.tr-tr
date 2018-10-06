@@ -5,21 +5,24 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 09/18/2018
+ms.date: 10/05/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: 09035146fe3211f9fc46d3ad51326a6e76921b7d
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 48f1afcbef873e1af4346199c00ee2fadb1ad858
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46977307"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48830257"
 ---
 # <a name="connect-a-google-cloud-platform-account"></a>Google Cloud Platform hesaba Bağlan
 
 Var olan Google Cloud Platform hesabınızı Cloudyn'e bağlanabilirsiniz. Hesabınızı Cloudyn'e bağladıktan sonra maliyet ve kullanım verileri, Cloudyn raporlarında kullanılabilir. Bu makalede, yapılandırmak ve Google hesabınızı Cloudyn'e bağlanmak için yardımcı olur.
+
+> [!NOTE]
+> Google, Cloudyn ve Google arasında kurulmasını yeni bağlantıları engelleyen hesabı güvenliklerini değiştirdi. Cloudyn, Cloudyn Google'a bağlı olan kullanıcılar için Google veri toplamaya devam eder. Ancak, yeni Google hesapları Cloudyn'e şu anda ekleme yapamazsınız. Cloudyn takım ne zaman Cloudyn'e yeni Google hesapları ekleme desteği devam edecek bilmez. Destek devam ettiğinde, bu notta kaldıracağız.
 
 ## <a name="collect-project-information"></a>Proje bilgileri toplayın
 

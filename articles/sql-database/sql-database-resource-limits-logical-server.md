@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: sashan,moslake
 manager: craigg
 ms.date: 09/19/2018
-ms.openlocfilehash: cc18d230850166391bf8135bb0571d14575d51a7
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: b48c090cc67d4557140b5734f1a5e1f763b271ab
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48045409"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48829572"
 ---
 # <a name="sql-database-resource-limits-for-single-and-pooled-databases-on-a-logical-server"></a>Bir mantıksal sunucuda tek ve havuza alınmış veritabanları için SQL veritabanı kaynak limitleri 
 
@@ -78,5 +78,5 @@ Oturum veya çalışan yüksek kullanım ile karşılaşıldığında, risk azal
 
 - Bkz: [SQL veritabanı SSS](sql-database-faq.md) sık sorulan soruların yanıtları için.
 - Genel Azure sınırları hakkında daha fazla bilgi için bkz. [Azure aboneliği ve hizmet limitleri, kotalar ve kısıtlamalar](../azure-subscription-service-limits.md).
-- Dtu'lar ve Edtu'lar hakkında daha fazla bilgi için bkz: [Dtu'lar ve Edtu'lar](sql-database-service-tiers.md#what-are-database-transaction-units-dtus).
+- Dtu'lar ve Edtu'lar hakkında daha fazla bilgi için bkz: [Dtu'lar ve Edtu'lar](sql-database-service-tiers.md#dtu-based-purchasing-model).
 - Tempdb boyutu sınırları hakkında daha fazla bilgi için bkz: [Azure SQL veritabanı'nda TempDB](https://docs.microsoft.com/sql/relational-databases/databases/tempdb-database#tempdb-database-in-sql-database).

@@ -12,20 +12,24 @@ ms.author: carlrab
 ms.reviewer: sashan, moslake
 manager: craigg
 ms.date: 10/04/2018
-ms.openlocfilehash: 9056eb6d93b0ead2a62dc5f58984fa6342af2d8e
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 6321c1dab0ae9db231a5ba494c981f47aee3ee6b
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48801668"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48831363"
 ---
-# <a name="choosing-a-vcore-service-tier-compute-memory-storage-and-io-resources"></a>Sanal çekirdek hizmet katmanı seçme, bilgi işlem, bellek, depolama ve GÇ kaynakları
+# <a name="vcore-service-tiers-azure-hybrid-use-benefit-and-migration"></a>Sanal çekirdek hizmet katmanları, Azure hibrit kullanım teklifi ve geçiş
 
 Sanal çekirdek tabanlı satın alma modeli, bağımsız olarak işlem ve depolama kaynaklarının ölçeğini, aynı şirket içi performans ve fiyat iyileştirme sağlar. Ayrıca, donanımın seçmenize olanak sağlar:
+
 - Gen 4 - 24 mantıksal CPU en fazla alan Intel E5-2673 v3 (Haswell) 2,4 GHz işlemcileri, sanal çekirdek = 1 PP (fiziksel çekirdek), çekirdek başına 7 GB SSD bağlı
 - 80 mantıksal CPU en fazla 5 - Gen tabanlı Intel E5-2673 v4 (Broadwell) 2,3 GHz işlemcileri, sanal çekirdek = 1 LP (hiper iş parçacığı), 5.5. Çekirdek, hızlı eNVM SSD başına GB
 
 vCore modeli de kullanmanıza olanak verir [SQL Server için Azure hibrit kullanım teklifi](https://azure.microsoft.com/pricing/hybrid-benefit/) maliyet tasarrufu elde etmek için.
+
+> [!NOTE]
+> DTU tabanlı hizmet katmanları hakkında daha fazla bilgi için bkz: [DTU tabanlı hizmet katmanları](sql-database-service-tiers-dtu.md). DTU tabanlı hizmet katmanları ve sanal çekirdek tabanlı hizmet katmanları ayrım yapma hakkında daha fazla bilgi için bkz: [Azure SQL veritabanı'nın satın alma modeli](sql-database-service-tiers.md).
 
 ## <a name="service-tier-characteristics"></a>Hizmet katmanı özellikleri
 
@@ -38,58 +42,21 @@ Aşağıdaki tabloda, bu iki katmanı arasındaki farklar anlamanıza yardımcı
 |En iyi kullanım alanı:|Çoğu iş yükü. Teklifler yönlendirilmiş Dengeli ve ölçeklenebilir işlem ve depolama seçenekleri bütçe.|Yüksek GÇ gereksinimleri olan iş uygulamaları. Çeşitli yalıtılmış çoğaltmaları kullanarak hatalara karşı en yüksek düzeyde dayanıklılık sağlar.|Çoğu iş yükü ile yüksek düzeyde ölçeklenebilir depolama ve okuma ölçek gereksinimleri|
 |İşlem|4. nesil: 1-24 sanal çekirdek<br/>5. nesil: 80 1 sanal çekirdek|4. nesil: 1-24 sanal çekirdek<br/>5. nesil: 80 1 sanal çekirdek|4. nesil: 1-24 sanal çekirdek<br/>5. nesil: 80 1 sanal çekirdek|
 |Bellek|4. nesil: çekirdek başına 7 GB<br>5. nesil: çekirdek başına 5.5 GB | 4. nesil: çekirdek başına 7 GB<br>5. nesil: çekirdek başına 5.5 GB |4. nesil: çekirdek başına 7 GB<br>5. nesil: çekirdek başına 5.5 GB|
-|Depolama|[Premium uzak depolama](../virtual-machines/windows/premium-storage.md),<br/>Tek veritabanı: 5 GB – 4 TB<br/>Yönetilen örnek: 32 GB - 8 TB |Yerel SSD depolama<br/>Tek veritabanı: 5 GB – 4 TB<br/>Yönetilen örnek: 32 GB - 4 TB |Esnek, gerektiğinde depolama otomatik-büyütün. 100 TB depolama alanı kadar ve ötesinde destekler. Yerel SSD depolaması yerel arabellek havuzu önbellek ve yerel veri depolama. Son uzun süreli veri deposu olarak Azure uzak depolama. |
+|Depolama|[Premium uzak depolama](../virtual-machines/windows/premium-storage.md),<br/>Tek veritabanı: 5 GB – 4 TB<br/>Yönetilen örnek: 32 GB - 8 TB |Yerel SSD depolama<br/>Tek veritabanı: 5 GB – 4 TB<br/>Yönetilen örnek: 32 GB - 4 TB |Esnek, otomatik olarak büyütme gerektiğinde depolama. 100 TB depolama alanı kadar ve ötesinde destekler. Yerel SSD depolaması yerel arabellek havuzu önbellek ve yerel veri depolama. Son uzun süreli veri deposu olarak Azure uzak depolama. |
 |GÇ verimliliği (yaklaşık)|Tek veritabanı: 7000 maksimum IOPS ile sanal çekirdek başına 500 IOPS</br>Yönetilen örnek: bağımlı [dosya boyutu](../virtual-machines/windows/premium-storage-performance.md#premium-storage-disk-sizes)|Çekirdek başına 5000 IOPS'yi 200.000 maksimum IOPS ile|TBD|
 |Kullanılabilirlik|1 çoğaltma, herhangi bir okuma ölçek|3 çoğaltma, 1 [okuma ölçeği çoğaltma](sql-database-read-scale-out.md),<br/>Bölge yedekli HA|?|
-|Yedeklemeler|[RA-GRS](../storage/common/storage-designing-ha-apps-with-ragrs.md), 7-35 gün (varsayılan olarak 7 gün)|[RA-GRS](../storage/common/storage-designing-ha-apps-with-ragrs.md), 7-35 gün (varsayılan olarak 7 gün)|Anlık görüntü tabanlı Yedekleme Azure uzak depolama ve geri yükler, bu anlık görüntüler Hızlı Kurtarma için kullanın. Yedeklemeler anlıktır ve işlem GÇ performansını etkilemez. Geri yüklemeler çok hızlı ve değil veri işlemleri boyutunu (dakika cinsinden saat/gün).|
+|Yedeklemeler|[RA-GRS](../storage/common/storage-designing-ha-apps-with-ragrs.md), 7-35 gün (varsayılan olarak 7 gün)|[RA-GRS](../storage/common/storage-designing-ha-apps-with-ragrs.md), 7-35 gün (varsayılan olarak 7 gün)|Anlık görüntü tabanlı Yedekleme Azure uzak depolama ve geri yükler, bu anlık görüntüler Hızlı Kurtarma için kullanın. Yedeklemeler anlıktır ve işlem GÇ performansını etkilemez. Geri yüklemeler çok hızlıdır ve bir veri işlemi (dakika yerine saatler veya günler katılarak) boyutunu değildir.|
 |Bellek içi|Desteklenmiyor|Desteklenen|Desteklenmiyor|
 |||
 
-Daha fazla bilgi için [tek veritabanı sanal çekirdek kaynak sınırları](sql-database-vcore-resource-limits-single-databases.md) ve [yönetilen örneği'nde sanal çekirdek kaynak sınırları](sql-database-managed-instance.md#vcore-based-purchasing-model). 
+- Daha fazla bilgi için [tek veritabanı sanal çekirdek kaynak sınırları](sql-database-vcore-resource-limits-single-databases.md) ve [yönetilen örneği'nde sanal çekirdek kaynak sınırları](sql-database-managed-instance.md#vcore-based-purchasing-model).
+- Genel amaçlı ve iş açısından kritik hizmet katmanları hakkında daha fazla bilgi için bkz. [genel amaçlı ve iş açısından kritik hizmet katmanlarına](sql-database-service-tiers-general-purpose-business-critical.md).
+- Hiper ölçekli bir hizmet katmanındaki sanal çekirdek tabanlı satın alma modeli hakkında daha fazla bilgi için bkz: [hiper ölçekli hizmet katmanı](sql-database-service-tier-hyperscale.md).  
 
 > [!IMPORTANT]
 > DTU tabanlı satın alma modeli, bilgi işlem kapasitesine saatten daha az sanal çekirdek gerekiyorsa kullanın.
 
-Bkz: [SQL veritabanı SSS](sql-database-faq.md) sık sorulan soruların yanıtları için. 
-
-## <a name="storage-considerations"></a>Depolama hakkında dikkat edilmesi gerekenler
-
-### <a name="general-purpose-and-business-critical-service-tiers"></a>Genel amaçlı ve iş açısından kritik hizmet katmanları
-Aşağıdaki topluluklara bir göz atın:
-- Ayrılmış depolama, veri dosyaları (MDF) ve günlük dosyalarını (LDF) tarafından kullanılır.
-- Varsayılan en büyük boyutu 32 GB olan bir maksimum veritabanı boyutu her tek veritabanı işlem boyutu destekler.
-- Gereken tek veritabanı boyutu (MDF boyutu) yapılandırırken, ek depolama alanı % 30'luk LDF desteklemek için otomatik olarak eklenir
-- Yönetilen örnek depolama boyutu, 32 GB'ın katları şeklinde belirtilmelidir.
-- Desteklenen en fazla 10 GB arasındaki herhangi bir tek veritabanı boyutu seçebilirsiniz.
- - Standart depolama için artırmak veya azaltmak boyutu 10 GB'lık artışlarla
- - Premium depolama için artırmak veya azaltmak boyutu 250 GB'lık artışlarla
-- Genel amaçlı hizmet katmanındaki `tempdb` ekli bir SSD ve bu depolama maliyeti sanal çekirdek fiyatına dahil kullanır.
-- İş açısından kritik hizmet katmanındaki `tempdb` paylaşımları ekli SSD MDF ve LDF dosyaları ve tempDB depolama maliyeti sanal çekirdek fiyatı yer almaktadır.
-
-> [!IMPORTANT]
-> MDF ve LDF için ayrılan toplam depolama alanı için ücretlendirilirsiniz.
-
-MDF ve LDF geçerli toplam boyutunu izlemek için kullanabilirsiniz [bilgilerini sp_spaceused](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-spaceused-transact-sql). Tek tek MDF ve LDF dosyaları geçerli boyutunu izlemek için kullanabilirsiniz [sys.database_files](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-database-files-transact-sql).
-
-> [!IMPORTANT]
-> Bazı durumlarda, kullanılmayan alanı geri kazanmak için bir veritabanı daraltma gerekebilir. Daha fazla bilgi için [Azure SQL veritabanı'nda dosya alanı yönetmek](sql-database-file-space-management.md).
-
-### <a name="hyperscale-service-tier-preview"></a>Hiper ölçekli hizmet Katmanı (Önizleme)
-
-İçin hiper ölçekli veritabanı otomatik olarak yönetilen bir depolama alanıdır. Depolama, gerektiği şekilde genişler. Gerekli hiç sık kullanılan günlük kesme ile hızlı Azure premium depolama SSD depolama "Sonsuz günlüğü".
-
-## <a name="backups-and-storage"></a>Yedekleme ve depolama
-
-### <a name="general-purpose-and-business-critical-service-tiers"></a>Genel amaçlı ve iş açısından kritik hizmet katmanları
-
-Veritabanı Yedeklemeleri için depolama noktası zaman geri yükleme (PITR içinde) desteklemek için ayrılır ve [uzun süreli saklama (LTR)](sql-database-long-term-retention.md) SQL veritabanı özellikleri. Bu depolama alanı ayrı ayrı her veritabanı için ayrılan ve iki ayrı veritabanı başına ücret üzerinden faturalandırılırsınız. 
-
-- **PITR**: tek tek veritabanı yedeklemeleri kopyalanır [RA-GRS depolama](../storage/common/storage-designing-ha-apps-with-ragrs.md) otomatik olarak. Oluşturulan yeni yedekleme depolama alanı boyutu dinamik olarak artar.  Depolama alanı, haftalık tam yedeklemeler, günlük fark yedekleri ve 5 dakikada bir kopyalanan işlem günlüğü yedeklemeleri tarafından kullanılır. Depolama alanı tüketimi, veritabanının ve saklama dönemi değişiklik oranına bağlıdır. 7-35 gün arasında her veritabanı için ayrı tutma süresine yapılandırabilirsiniz. Veri boyutu 1 x ile eşit bir en düşük depolama alanı miktarı, ek ücret alınmadan sağlanır. Çoğu veritabanı için bu miktar 7 güne kadar yedek depolamak için yeterli olacaktır.
-- **LTR**: SQL veritabanı için 10 yıla kadar uzun süreli saklama yedeklerini tam yapılandırma seçeneği sunar. LTR ilkesi etkinleştirilirse, bu yedeklemeler otomatik olarak RA-GRS depolama alanında depolanır, ancak sıklıkla yedeklemeleri kopyalanır denetleyebilirsiniz. Farklı bir uyumluluk gereksinimini karşılamak için haftalık, aylık ve/veya yıllık yedeklemeler için farklı bekletme sürelerinin seçebilirsiniz. Bu yapılandırma, ne kadar depolama alanı LTR yedeklemeleri için kullanılacak tanımlayacaksınız. LTR fiyatlandırma hesaplayıcısını LTR depolama maliyetini tahmin etmek için kullanabilirsiniz. Daha fazla bilgi için bkz. [Uzun süreli saklama](sql-database-long-term-retention.md).
-
-### <a name="hyperscale-service-tier-preview"></a>Hiper ölçekli hizmet Katmanı (Önizleme)
-
-Hiper ölçekli hizmet katmanında, anlık görüntü tabanlı ve uzak Azure Depolama'da depolanan yedeklemeler. Geri yüklemeler bu anlık görüntüler, Hızlı Kurtarma için kullanın. Yedeklemeler anlıktır ve işlem GÇ performansını etkilemez. Geri yüklemeler çok hızlı ve değil veri işlemleri boyutunu (dakika cinsinden saat/gün).
+Bkz: [SQL veritabanı SSS](sql-database-faq.md) sık sorulan soruların yanıtları için.
 
 ## <a name="azure-hybrid-use-benefit"></a>Azure Hibrit Kullanım Teklifi
 
@@ -105,7 +72,7 @@ Sanal çekirdek tabanlı satın alma modeli, mevcut lisanslarınızı kullanarak
 
 İki elastik havuzlar arasında coğrafi çoğaltmayı kullanarak, bir havuz olarak birincil ve diğer – ikincil olarak belirlemeniz önerilir. Bu durumda, geçirme elastik havuzlar, aynı kılavuzu kullanmanız gerekir.  Ancak, teknik olarak birincil ve ikincil veritabanları elastik havuz içerdiğini mümkün değildir. Bu durumda, düzgün bir şekilde geçiş için "birincil" olarak daha yüksek kullanımı havuz işle ve sıralama kuralları buna göre izleyin.  
 
-Aşağıdaki tablo, belirli bir geçiş senaryoları için yönergeler sağlar: 
+Aşağıdaki tablo, belirli bir geçiş senaryoları için yönergeler sağlar:
 
 |Geçerli hizmet katmanı|Hedef hizmet katmanı|Geçiş türü|Kullanıcı eylemleri|
 |---|---|---|---|
@@ -131,9 +98,9 @@ Yalnızca birincil olarak aynı hizmet katmanını kullanarak bir coğrafi-ikinc
 
 ### <a name="using-database-copy-to-convert-a-dtu-based-database-to-a-vcore-based-database"></a>Veritabanı kopyası kullanarak sanal çekirdek tabanlı bir veritabanı için DTU tabanlı bir veritabanı dönüştürmek.
 
-DTU tabanlı işlem boyutu olan herhangi bir veritabanı sanal çekirdek tabanlı işlem boyutu kısıtlamaları veya kaynak veritabanının en büyük veritabanı boyutu hedef işlem boyutu desteklediği sürece özel sıralaması olmayan bir veritabanına kopyalayabilirsiniz. Veritabanı kopyalama kopyalama işleminin başlangıç tarihindeki verileri anlık görüntüsünü oluşturur ve kaynak ve hedef arasında veri eşitlemeye gerçekleştirmez olmasıdır. 
+DTU tabanlı işlem boyutu olan herhangi bir veritabanı sanal çekirdek tabanlı işlem boyutu kısıtlamaları veya kaynak veritabanının en büyük veritabanı boyutu hedef işlem boyutu desteklediği sürece özel sıralaması olmayan bir veritabanına kopyalayabilirsiniz. Veritabanı kopyalama, kopyalama işleminin başlangıç tarihindeki verileri anlık görüntüsünü oluşturur ve kaynak ve hedef arasında veri eşitlemeye gerçekleştirmez.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 - Özel hakkında ayrıntılı bilgi işlem boyutları ve tek veritabanı için kullanılabilir depolama boyutu seçenekleri için bkz: [tek veritabanları için SQL veritabanı sanal çekirdek tabanlı kaynak sınırları](sql-database-vcore-resource-limits-single-databases.md#single-database-storage-sizes-and-compute-sizes)
-- Özel hakkında ayrıntılı bilgi işlem boyutlarına ve elastik havuzlar için kullanılabilir depolama boyutu seçenekleri görmek için [elastik havuzlar için SQL veritabanı sanal çekirdek tabanlı kaynak sınırları](sql-database-vcore-resource-limits-elastic-pools.md#elastic-pool-storage-sizes-and-compute-sizes).
+- Özel hakkında ayrıntılı bilgi işlem boyutları ve elastik havuzlar için kullanılabilir depolama boyutu seçenekleri için bkz: [elastik havuzlar için SQL veritabanı sanal çekirdek tabanlı kaynak sınırları](sql-database-vcore-resource-limits-elastic-pools.md#elastic-pool-storage-sizes-and-compute-sizes).

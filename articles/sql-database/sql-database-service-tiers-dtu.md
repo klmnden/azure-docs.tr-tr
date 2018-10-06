@@ -1,6 +1,6 @@
 ---
 title: Azure SQL veritabanı hizmet katmanları - DTU | Microsoft Docs
-description: Tek hizmet katmanları ve bilgi işlem boyutlarına ve depolama alanı boyutları sağlamak için havuz veritabanları hakkında bilgi edinin.
+description: İşlem boyutları ve depolama alanı boyutları sağlamak tek ve havuza alınmış veritabanları için hizmet katmanları hakkında bilgi edinin.
 services: sql-database
 ms.service: sql-database
 ms.subservice: ''
@@ -11,22 +11,25 @@ author: sachinpMSFT
 ms.author: sachinp
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 09/14/2018
-ms.openlocfilehash: 2f9362a6d771df3cdb11855844025bc8d9ea732e
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.date: 10/04/2018
+ms.openlocfilehash: a9e274cea7543fc3361b1f2d0a60fc18176b6248
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47162381"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48831322"
 ---
-# <a name="choosing-a-dtu-based-service-tier-compute-size-and-storage-resources"></a>DTU tabanlı hizmet katmanı seçme, işlem boyutu ve depolama kaynakları 
+# <a name="dtu-based-service-tiers"></a>DTU tabanlı hizmet katmanları
 
-Hizmet katmanları, bilgi işlem boyutlarına dahil edilen depolama alanı, yedekleme ve sabit fiyat için bekletme süresi sabit tutarda aralığına göre ayrılır. Tüm hizmet katmanlarında işlem boyutları kapalı kalma süresi olmadan değiştirme esnekliği sunar. Tek veritabanları ve elastik havuzlar, hizmet katmanı ve işlem boyutu saatlere göre faturalandırılır.
+DTU tabanlı hizmet katmanları, bilgi işlem boyutlarına dahil edilen depolama alanı, yedekleme ve sabit fiyat için bekletme süresi sabit tutarda aralığına göre ayrılır. Tüm hizmet katmanlarında işlem boyutları kapalı kalma süresi olmadan değiştirme esnekliği sunar. Tek veritabanları ve elastik havuzlar, hizmet katmanı ve işlem boyutu saatlere göre faturalandırılır.
 
 > [!IMPORTANT]
-> SQL veritabanı yönetilen örneği, DTU tabanlı satın alma modeli genel önizlemede şu anda desteklemiyor. Daha fazla bilgi için [Azure SQL veritabanı yönetilen örneği](sql-database-managed-instance.md). 
+> SQL veritabanı yönetilen örneği, DTU tabanlı satın alma modeli genel önizlemede şu anda desteklemiyor. Daha fazla bilgi için [Azure SQL veritabanı yönetilen örneği](sql-database-managed-instance.md).
 
-## <a name="choosing-a-dtu-based-service-tier"></a>DTU tabanlı hizmet katmanı seçme
+> [!NOTE]
+> Sanal çekirdek tabanlı hizmet katmanları hakkında daha fazla bilgi için bkz: [sanal çekirdek tabanlı hizmet katmanları](sql-database-service-tiers-vcore.md). DTU tabanlı hizmet katmanları ve sanal çekirdek tabanlı hizmet katmanları ayrım yapma hakkında daha fazla bilgi için bkz: [Azure SQL veritabanı'nın satın alma modeli](sql-database-service-tiers.md).
+
+## <a name="compare-the-dtu-based-service-tiers"></a>DTU tabanlı hizmet katmanlarını karşılaştırın
 
 Hizmet katmanı seçme, öncelikli olarak iş sürekliliği, depolama ve performans gereksinimlerine bağlıdır.
 ||Temel|Standart|Premium|
@@ -43,7 +46,7 @@ Hizmet katmanı seçme, öncelikli olarak iş sürekliliği, depolama ve perform
 
 ## <a name="single-database-dtu-and-storage-limits"></a>Tek veritabanı DTU ve depolama limitleri
 
-İşlem boyutları, tek veritabanları için veritabanı işlem birimleri (Dtu'lar) ve elastik havuzlar için esnek veritabanı işlem birimleri (Edtu) cinsinden ifade edilir. Dtu'lar ve Edtu'lar hakkında daha fazla bilgi için bkz. [Dtu'lar ve Edtu'lar nelerdir](sql-database-service-tiers.md#what-are-database-transaction-units-dtus)?
+İşlem boyutları, tek veritabanları için veritabanı işlem birimleri (Dtu'lar) ve elastik havuzlar için esnek veritabanı işlem birimleri (Edtu) cinsinden ifade edilir. Dtu'lar ve Edtu'lar hakkında daha fazla bilgi için bkz. [DTU tabanlı satın alma modeli](sql-database-service-tiers.md#dtu-based-purchasing-model)?
 
 ||Temel|Standart|Premium|
 | :-- | --: | --: | --: | --: |
@@ -76,14 +79,17 @@ Hizmet katmanı seçme, öncelikli olarak iş sürekliliği, depolama ve perform
 Gerçek veritabanı iş yükünün benzetimini gerçekleştiren bir Kıyaslama kullanarak kalibre her DTU ölçü için ilişkili fiziksel özelliklerini (CPU, bellek, g/ç).
 
 ### <a name="correlating-benchmark-results-to-real-world-database-performance"></a>Gerçek dünya veritabanı performans için kıyaslama sonuçları ilişkilendirme
+
 Tüm değerlendirmesi yalnızca temsili ve hatırlanması olduğunu anlamak önemlidir. Kıyaslama uygulama ile elde edilen işlem hızları, diğer uygulamalarla elde aynı olması değil. Kıyaslama farklı işlem türleri birçok farklı tablolar ve veri türlerini içeren bir şema karşı çalıştırmak koleksiyonunu içerir. Tüm OLTP iş yükleri için ortak olan temel işlemlerin aynısını Kıyaslama uygular, ancak veritabanı veya uygulamanın belirli herhangi bir sınıf temsil etmiyor. Kıyaslama amacı, göreli zaman arasında bilgi işlem boyutlarına ölçeği artırılabilen veya azaltılabilen beklenebilir bir veritabanı performansını artırmak için makul bir kılavuz sağlamaktır. Veritabanları farklı boyutta ve karmaşıklık gerçekte, farklı iş yüklerini bileşimleri karşılaştığınız ve farklı şekilde yanıt verir. Örneğin, yoğun g/ç uygulama GÇ eşiklerini daha çabuk karşılaşabilirsiniz veya CPU yoğunluklu uygulama CPU sınırları daha çabuk karşılaşabilirsiniz. Herhangi bir veritabanı Kıyaslama artan yük altında aynı şekilde, ölçeği bir garanti yoktur.
 
 Kıyaslama ve metodolojisi aşağıda daha ayrıntılı olarak açıklanmıştır.
 
 ### <a name="benchmark-summary"></a>Kıyaslama özeti
+
 Çevrimiçi işlem işleme (OLTP) iş yükleri en sık gerçekleşen temel veritabanı işlem bir karışımını performansını ASDB ölçer. Kıyaslama bulut bilgi işlem, veritabanı şemasını, veri doldurma göz önünde tasarlanmıştır ve işlem OLTP iş yüklerinde en sık kullanılan temel öğe eyaleti'nde temsili olacak şekilde tasarlanmıştır ancak.
 
 ### <a name="schema"></a>Şema
+
 Şema yeterli çeşitlilik ve karmaşıklığı operations geniş bir destek sağlamak için tasarlanmıştır. Kıyaslama altı tablolarından oluşan bir veritabanına karşı çalışır. Tabloları üç kategoriye ayrılır: sabit-ölçeklendirme ve büyüyen boyutu. İki sabit boyutlu tablo vardır. üç ölçeklendirme tablo; ve giderek büyüyen bir tablo. Sabit boyutlu tablolar sabit sayıda satır vardır. Ölçeklendirme tabloların veritabanı performans için doğru orantılıdır ancak sırasında Kıyaslama değişmez bir kardinalite vardır. Büyüyen tablonun ilk yük ancak satırlar eklenen ve Silinen Kıyaslama çalıştırma sırasında kardinalite değişiklikleri ölçeklendirme bir tablo gibi boyutlandırılır.
 
 Şema, tamsayı dahil olmak üzere, veri türlerinin bir karışımını içeren sayısal, karakter ve tarih/saat. Birincil ve ikincil anahtarları, ancak hiçbir yabancı anahtarlar şeması içerir - diğer bir deyişle, hiçbir başvurusal bütünlük kısıtlamaları tablolar bulunur arasında.
@@ -93,6 +99,7 @@ Bir veri nesil program başlangıç veritabanı verileri oluşturur. Tamsayı ve
 Bir "ölçek faktörü üzerinde." temel veritabanı boyutu Ölçeklendirme ve tabloları büyüyen kardinalite (SF kısaltılır) ölçek faktörü belirler. Aşağıdaki bölümde kullanıcılar ve ilerleme, veritabanı boyutu, kullanıcılar ve tüm diğer derlemekten ölçeklendirme en yüksek performansı sayısı açıklandığı gibi.
 
 ### <a name="transactions"></a>İşlemler
+
 Aşağıdaki tabloda gösterildiği gibi iş yükü dokuz işlem türleri, oluşur. Her işlem, belirli bir veritabanı altyapısı ve sistem donanımı diğer işlemlerden yüksek karşıtlık ile sistem özelliklerine kümesini vurgulamak için tasarlanmıştır. Bu yaklaşım, farklı bileşenleri için genel performans etkisini değerlendirmek kolaylaştırır. Örneğin, "Okuma yoğun" işlem önemli bir diskten okunan işlem sayısını üretir.
 
 | İşlem Türü | Açıklama |
@@ -108,6 +115,7 @@ Aşağıdaki tabloda gösterildiği gibi iş yükü dokuz işlem türleri, oluş
 | CPU yoğun |SEÇİN. bellek içi; oldukça yoğun CPU yükü; salt okunur |
 
 ### <a name="workload-mix"></a>İş yükü karışımı
+
 İşlem, aşağıdaki genel karışımı ile ağırlıklı bir dağıtım rastgele seçilir. Okuma/yazma yaklaşık 2:1 oranında genel karışımı vardır.
 
 | İşlem Türü | Karışımı yüzdesi |
@@ -123,38 +131,41 @@ Aşağıdaki tabloda gösterildiği gibi iş yükü dokuz işlem türleri, oluş
 | CPU yoğun |10 |
 
 ### <a name="users-and-pacing"></a>Kullanıcılar ve hızı
+
 Kıyaslama iş yükünün, işlemler arasında eş zamanlı kullanıcı sayısıyla davranışını benzetmek için bağlantıları birtakım gönderen aracından yönlendirilir. Tüm bağlantılar ve işlemleri oluşturulan makine olsa da, kolaylık olması için bu bağlantıları "kullanıcılar" diyoruz Her kullanıcının diğer tüm kullanıcıları bağımsız olarak çalışır, ancak tüm kullanıcılar aynı döngüsünü aşağıda gösterilen adımları uygulayın:
 
 1. Veritabanı bağlantı kurun.
 2. Çıkmak için sinyal kadar yineleyin:
-   * Bir işlemden rastgele (Ağırlıklı dağılım için) seçin.
-   * Seçili işlem gerçekleştirin ve yanıt süresini ölçme.
-   * İlerleme Gecikmesini tamamlanmasını bekleyin.
+   - Bir işlemden rastgele (Ağırlıklı dağılım için) seçin.
+   - Seçili işlem gerçekleştirin ve yanıt süresini ölçme.
+   - İlerleme Gecikmesini tamamlanmasını bekleyin.
 3. Veritabanı bağlantısını kapatın.
 4. Çıkış.
 
 Gönderilmemiş gecikmeyi (Adım 2c) rastgele seçilir, ancak 1.0 ikinci bir ortalaması olan bir dağıtım ile. Bu nedenle her kullanıcı ortalama olarak, saniyede en fazla bir işlem oluşturur.
 
 ### <a name="scaling-rules"></a>Ölçeklendirme kuralları
+
 Kullanıcı sayısı, veritabanı boyutu (Ölçek faktörü birimleri) tarafından belirlenir. Her beş ölçek faktörü birim için bir kullanıcı yoktur. Gönderilmemiş gecikme nedeniyle, bir kullanıcı en fazla bir işlem, saniyede ortalama oluşturabilirsiniz.
 
 Örneğin, bir ölçek faktörü 500 (SF = 500) veritabanı 100 kullanıcı sahip olur ve en çok 100 TPS saniyede elde edebilirsiniz. Daha yüksek bir TPS sürücüsüne oranı daha fazla kullanıcı ve daha büyük bir veritabanı gerektirir.
 
 ### <a name="measurement-duration"></a>Ölçüm süresi
+
 Geçerli bir Kıyaslama en az bir saat kararlı bir duruma ölçüm bulunulmasını gerektirir.
 
 ### <a name="metrics"></a>Ölçümler
+
 Ana ölçümler Kıyaslama aktarım hızı ve yanıt süresi ' dir.
 
-* Temel performans ölçüsü Kıyaslama aktarım hızıdır. Aktarım hızı birimi,-tüm işlem türleri sayım zamanı başına işlemlerde bildirilir.
-* Yanıt süresi, performans öngörülebilirliğini ölçüsüdür. Yanıt süresi kısıtlaması hizmetiyle aşağıda gösterildiği gibi daha katı bir yanıt zaman gereksinimini olması daha yüksek sınıflarına sınıfının göre değişir.
+- Temel performans ölçüsü Kıyaslama aktarım hızıdır. Aktarım hızı birimi,-tüm işlem türleri sayım zamanı başına işlemlerde bildirilir.
+- Yanıt süresi, performans öngörülebilirliğini ölçüsüdür. Yanıt süresi kısıtlaması hizmetiyle aşağıda gösterildiği gibi daha katı bir yanıt zaman gereksinimini olması daha yüksek sınıflarına sınıfının göre değişir.
 
 | Hizmet sınıfı | Aktarım hızı ölçümü | Yanıt süresi gereksinimi |
 | --- | --- | --- |
 | Premium |Saniye başına işlem |95. yüzdebirlik 0,5 saniye |
 | Standart |Dakika başına işlem |1.0 saniye 90. yüzdebirlik |
 | Temel |Saat başına işlem |2.0 saniye 80. yüzdebirlik |
-
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

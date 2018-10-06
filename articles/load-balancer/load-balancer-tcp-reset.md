@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/26/2018
 ms.author: kumud
-ms.openlocfilehash: 0b533a48e94db880f23d42decc5c3fb39a27e5ac
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: bf55f4f4aa91efaf1c4512339a6d54f893788bae
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47395653"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48816761"
 ---
 # <a name="load-balancer-with-tcp-reset-on-idle-public-preview"></a>Load Balancer ile TCP boşta kalma (genel Önizleme) Sıfırla
 
@@ -43,7 +43,7 @@ TCP boşta kalma zaman aşımını ayarlama sıfırlar, etkinleştirmenizi yarar
 
 ## <a name="enabling-tcp-reset-on-idle-timeout"></a>Boşta kalma zaman aşımını TCP sıfırlama etkinleştirme
 
-API sürümü 2018-07-01 kullanarak, iki TCP sıfırlar yönlü üzerinde bir kural başına temelinde boşta kalma zaman aşımı gönderimi etkinleştirebilirsiniz:
+API sürümü 2018-08-01 kullanarak, iki TCP sıfırlar yönlü üzerinde bir kural başına temelinde boşta kalma zaman aşımı gönderimi etkinleştirebilirsiniz:
 
 ```json
       "loadBalancingRules": [

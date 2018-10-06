@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: andrl
-ms.openlocfilehash: 3c18478fb2996178ee0b75870ce63dfc79ad4c4c
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: 8452f84c1358c410cd0431416a5b65a88a8b903e
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44054732"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48817118"
 ---
 # <a name="azure-cosmos-db-server-side-programming-stored-procedures-database-triggers-and-udfs"></a>Azure Cosmos DB sunucu tarafı programlama: saklı yordamlar, veritabanı tetikleyiciler ve UDF'ler
 
@@ -92,7 +92,7 @@ client.executeStoredProcedureAsync('dbs/testdb/colls/testColl/sprocs/helloWorld'
     });
 ```
 
-Bağlam nesnesi, Cosmos DB depolama üzerinde gerçekleştirilen tüm işlemler erişimin yanı sıra, istek ve yanıt nesnelere erişimi sağlar. Bu durumda, istemciye gönderilen yanıt gövdesinin ayarlamak için yanıt nesnesini kullanın. Daha fazla bilgi için [Azure Cosmos DB JavaScript server SDK Belgeleri](https://azure.github.io/azure-cosmosdb-js-server/).  
+Bağlam nesnesi, Cosmos DB depolama üzerinde gerçekleştirilen tüm işlemler erişimin yanı sıra, istek ve yanıt nesnelere erişimi sağlar. Bu durumda, istemciye gönderilen yanıt gövdesinin ayarlamak için yanıt nesnesini kullanın. Daha fazla bilgi için [Azure Cosmos DB JavaScript sunucu tarafı API Başvurusu](https://azure.github.io/azure-cosmosdb-js-server/).  
 
 Bize bu örneğe göre genişletin ve veritabanı ile ilgili daha fazla işlevsellik saklı yordamı ekleyin. Saklı yordamlar oluşturabilir, güncelleştirme, okuma, sorgulama ve belgeleri ve koleksiyon içinde ekleri silin.    
 
@@ -503,7 +503,7 @@ client.createUserDefinedFunctionAsync('dbs/testdb/colls/testColl', taxUdf)
 ```
 
 ## <a name="javascript-language-integrated-query-api"></a>JavaScript dil ile tümleşik sorgu API'si
-Azure Cosmos DB SQL dil bilgisi kullanarak sorgu göndermeye ek olarak, sunucu tarafı SDK'sı SQL bilgileri olmadan fluent bir JavaScript arabirimi kullanarak en iyi duruma getirilmiş sorgular gerçekleştirmenize olanak sağlar. API koşul işlevleri chainable işleve geçirerek sorguları programlı olarak oluşturmanıza olanak sağlayan JavaScript sorgu ECMAScript5'ın dizi öğelerin ve yaygın olarak kullanılan JavaScript kitaplıklarını Lodash gibi tanıdık bir söz dizimi ile çağırır. Sorgular, Azure Cosmos DB'nin dizinleri verimli bir şekilde kullanarak yürütülecek JavaScript çalışma zamanı tarafından ayrıştırılan.
+Azure Cosmos DB SQL dil bilgisi, kullanarak sorgu göndermeye ek olarak [sunucu tarafı SDK](https://azure.github.io/azure-cosmosdb-js-server/) SQL bilgileri olmadan fluent bir JavaScript arabirimi kullanarak en iyi duruma getirilmiş sorguları yapmanıza olanak tanır. API koşul işlevleri chainable işleve geçirerek sorguları programlı olarak oluşturmanıza olanak sağlayan JavaScript sorgu ECMAScript5'ın dizi öğelerin ve yaygın olarak kullanılan JavaScript kitaplıklarını Lodash gibi tanıdık bir söz dizimi ile çağırır. Sorgular, Azure Cosmos DB'nin dizinleri verimli bir şekilde kullanarak yürütülecek JavaScript çalışma zamanı tarafından ayrıştırılan.
 
 > [!NOTE]
 > `__` (çift alt çizgi) olan bir diğer `getContext().getCollection()`.
@@ -831,9 +831,8 @@ Bir veya daha fazla saklı yordamlar, tetikleyiciler ve kullanıcı tanımlı i�
 
 Ayrıca aşağıdaki başvurular ve kaynaklar yolunuzu Azure Cosmos dB sunucu tarafı programlama hakkında daha fazla bilgi edinmek için yararlı bulabilirsiniz:
 
-* [Azure Cosmos DB SDK'ları](sql-api-sdk-dotnet.md)
+* [Azure Cosmos DB JavaScript sunucu tarafı API Başvurusu](https://azure.github.io/azure-cosmosdb-js-server/)
 * [DocumentDB Studio](https://github.com/mingaliu/DocumentDBStudio/releases)
-* [JSON](http://www.json.org/) 
 * [JavaScript ECMA 262](http://www.ecma-international.org/publications/standards/Ecma-262.htm)
 * [Güvenli ve taşınabilir veritabanı genişletilebilirliği](http://dl.acm.org/citation.cfm?id=276339) 
 * [Hizmet yönelimli veritabanı mimarisi](http://dl.acm.org/citation.cfm?id=1066267&coll=Portal&dl=GUIDE) 

@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/02/2018
 ms.author: andrl
-ms.openlocfilehash: 2f6720e39856366e4bca387effdc2a0624d85826
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.openlocfilehash: c345235fa16a28877a46d5eaef54093d89ffcdd0
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48248003"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48815843"
 ---
 # <a name="set-and-get-throughput-for-azure-cosmos-db-containers-and-database"></a>Azure Cosmos DB kapsayıcıları ve veritabanı için aktarım hızı alma ve ayarlama
 
@@ -35,7 +35,7 @@ Azure portalını kullanarak veya istemci SDK'ları kullanarak, bir Azure Cosmos
    |Veritabanı kimliği  |  Veritabanınızı tanımlamak için benzersiz bir ad belirtin. Veritabanı, bir veya daha fazla koleksiyonların mantıksal bir kapsayıcıdır. Veritabanı adı 1 ila 255 karakterden oluşmalı, boşlukla bitmemeli ve şu karakterleri içermemelidir: /, \\, # ve ?. |
    |Koleksiyon kimliği  | Koleksiyonunuz tanımlamak için benzersiz bir ad belirtin. Koleksiyon kimliği karakter gereksinimleri, veritabanı adlarına ilişkin karakter gereksinimleri ile aynıdır. |
    |Depolama kapasitesi   | Bu değer, veritabanının depolama kapasitesini temsil eder. Depolama kapasitesi, tek bir koleksiyon için aktarım hızı sağlanırken olabilir **sabit (10 GB)** veya **sınırsız**. Sınırsız depolama kapasitesi, verileriniz için bir bölüm anahtarı ayarlamanızı gerektirir.  |
-   |Aktarım hızı   | Her bir koleksiyon ve veritabanı aktarım hızını saniye başına istek birimi olabilir.  Sabit depolama kapasitesi için en düşük aktarım hızı 400 istek birimi (RU/sn) saniyede, için sınırsız depolama kapasitesi, en düşük aktarım hızı 1000 RU/s olarak ayarlanır.|
+   |Aktarım hızı   | Her bir koleksiyon ve veritabanı aktarım hızını saniye başına istek birimi olabilir.  Ve bir koleksiyonu sabit veya sınırsız depolama kapasitesi. |
 
 6. Bu alanlar için değerleri girin, sonra seçin **Tamam** ayarları kaydetmek için.  
 

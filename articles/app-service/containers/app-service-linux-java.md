@@ -12,12 +12,12 @@ ms.devlang: java
 ms.topic: article
 ms.date: 08/29/2018
 ms.author: routlaw
-ms.openlocfilehash: 48d6836a2f1c7eb53fd6d7a08ee5a049cd9503f6
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: e11b115d7a6421c34e7f1371ad8931b6affa0436
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/05/2018
-ms.locfileid: "48803044"
+ms.locfileid: "48815180"
 ---
 # <a name="java-developers-guide-for-app-service-on-linux"></a>Linux'ta App Service için Java Geliştirici Kılavuzu
 
@@ -216,14 +216,18 @@ Paylaşılan sunucu düzeyinde kaynaklar için:
 
 4. Bunları yerleştirerek JDBC sürücüsü dosyaları için Tomcat classloader kullanılabilir olduğundan emin olun `/home/tomcat/lib` dizin. Bu dosyalar, App Service örneğine karşıya yüklemek için aşağıdaki adımları gerçekleştirin:  
     1. Azure App Service webpp uzantıyı yükleyin:
+
       ```azurecli-interactive
       az extension add –name webapp
       ```
+
     2. App Service için yerel sisteminizden SSH tüneli oluşturmaya aşağıdaki CLI komutunu çalıştırın:
+
       ```azurecli-interactive
       az webapp remote-connection create –g [resource group] -n [app name] -p [local port to open]
       ```
-    3. SFTP istemcinizi ile yerel tünel bağlantı noktasına bağlanmak ve dosyaları karşıya yükleme `/home/tomcat/lib`.
+
+    3. SFTP istemcinizi ile yerel tünel bağlantı noktasına bağlanmak ve dosyaları karşıya yükleme `/home/tomcat/lib` klasör.
 
 5. App Service Linux uygulamayı yeniden başlatın. Tomcat sıfırlanır `CATALINA_HOME` için `/home/tomcat` ve sınıfları ve güncelleştirilmiş yapılandırmayı kullanın.
 

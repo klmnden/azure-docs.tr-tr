@@ -12,26 +12,43 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/13/2018
+ms.date: 10/04/2018
 ms.author: magoedte
-ms.openlocfilehash: 2b989fbebe237e4e3746ef2f237193587173dfe4
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 12a8b1f43fd822035417096bc21e0e44f574448d
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46963415"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48830644"
 ---
-# <a name="how-to-stop-monitoring-your-azure-kubernetes-service-aks-azure-monitor-for-containers"></a>İzleme, kapsayıcılar için Azure Kubernetes Service (AKS) Azure İzleyicisi durdurma
+# <a name="how-to-stop-monitoring-your-azure-kubernetes-service-aks-with-azure-monitor-for-containers"></a>Azure Kubernetes Service (AKS) kapsayıcıları için Azure İzleyici ile izleme durdurma
 
-Sonra AKS kümenizi izleme etkinleştirirseniz, artık bunu izlemek istediğiniz karar, yapabilecekleriniz *çıkma* PowerShell cmdlet'i ile sağlanan Azure Resource Manager şablonları kullanarak  **Yeni-AzureRmResourceGroupDeployment** veya Azure CLI. Bir JSON şablonunu belirtir yapılandırmayı *çıkma*. Diğer küme olarak dağıtılan AKS küme kaynağı kimliği ve kaynak grubu belirtmek için yapılandırdığınız parametre değerlerini içerir. 
+Sonra AKS kümenizi izleme etkinleştirirseniz, artık bunu izlemek istediğiniz karar, yapabilecekleriniz *çıkma*.  Bu makalede, Azure CLI kullanarak bunu sağlamak gösterilmektedir veya sağlanan Azure Resource Manager şablonları ile.  
+
+
+## <a name="azure-cli"></a>Azure CLI
+Kullanım [az aks devre dışı bırak-addons](https://docs.microsoft.com/cli/azure/aks?view=azure-cli-latest#az-aks-disable-addons) kapsayıcılar için Azure İzleyici devre dışı bırakma komutu. Komutu, küme düğümlerinden aracıyı kaldırır, çözüm ya da zaten toplanmış ve Log Analytics kaynağınızı depolanan verileri kaldırmaz.  
+
+```azurecli
+az aks disable -a monitoring -n MyExistingManagedCluster -g MyExistingManagedClusterRG
+```
+
+Kümeniz için izleme yeniden etkinleştirmek için bkz: [Azure CLI kullanarak izlemeyi etkinleştirin](monitoring-container-insights-onboard.md#enable-monitoring-using-azure-cli).
+
+## <a name="azure-resource-manager-template"></a>Azure Resource Manager şablonu
+Sağlanan olan iki çözüm kaynakları tutarlı ve sürekli kaynak grubunuzda kaldırma desteklemek için Azure Resource Manager şablonu. Yapılandırmaya belirten bir JSON şablonunu biridir *çıkma* ve diğer küme olarak dağıtılan AKS küme kaynağı kimliği ve kaynak grubu belirtmek için yapılandırdığınız parametre değerlerini içerir. 
 
 Bir şablon kullanarak kaynakları dağıtma kavramıyla bilmiyorsanız, bkz:
 * [Kaynakları Resource Manager şablonları ve Azure PowerShell ile dağıtma](../azure-resource-manager/resource-group-template-deploy.md)
 * [Kaynakları Resource Manager şablonları ve Azure CLI ile dağıtma](../azure-resource-manager/resource-group-template-deploy-cli.md)
 
+>[!NOTE]
+>Şablon, aynı kaynak grubunda kümesi olarak dağıtılması gerekiyor.
+>
+
 Azure CLI'yı kullanmayı seçerseniz, ilk CLI'yi yerel olarak yükleyip kullanmayı gerekir. Azure CLI Sürüm 2.0.27 çalıştırıyor olmanız gerekir veya üzeri. Sürümünüzü belirlemek için çalıştırma `az --version`. Gerekirse yükleyin veya Azure CLI'yı yükseltmek için bkz: [Azure CLI'yı yükleme](https://docs.microsoft.com/cli/azure/install-azure-cli). 
 
-## <a name="create-template"></a>Şablon oluşturma
+### <a name="create-template"></a>Şablon oluşturma
 
 1. Aşağıdaki JSON söz dizimini kopyalayıp dosyanıza yapıştırın:
 
@@ -101,7 +118,7 @@ Azure CLI'yı kullanmayı seçerseniz, ilk CLI'yi yerel olarak yükleyip kullanm
 5. Bu dosyayı farklı Kaydet **OptOutParam.json** yerel bir klasöre.
 6. Bu şablonu dağıtmaya hazırsınız. 
 
-## <a name="remove-the-solution-using-azure-cli"></a>Azure CLI kullanarak çözümünü Kaldır
+### <a name="remove-the-solution-using-azure-cli"></a>Azure CLI kullanarak çözümünü Kaldır
 Çözüm kaldırın ve AKS kümenizde yapılandırma temizlemek için Linux'ta Azure CLI ile aşağıdaki komutu yürütün.
 
 ```azurecli
@@ -116,7 +133,7 @@ Yapılandırma değişikliğinin tamamlanması birkaç dakika sürebilir. Tamaml
 ProvisioningState       : Succeeded
 ```
 
-## <a name="remove-the-solution-using-powershell"></a>PowerShell kullanarak çözümünü Kaldır
+### <a name="remove-the-solution-using-powershell"></a>PowerShell kullanarak çözümünü Kaldır
 
 Çözüm kaldırın ve AKS kümenizi yapılandırmasından temizlemek için şablonu içeren klasörde şu PowerShell komutlarını yürütün.    
 
