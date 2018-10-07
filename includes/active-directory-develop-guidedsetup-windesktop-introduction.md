@@ -3,51 +3,50 @@ title: include dosyası
 description: include dosyası
 services: active-directory
 documentationcenter: dev-center-name
-author: andretms
+author: jmprieur
 manager: mtillman
 editor: ''
-ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
 ms.devlang: na
 ms.topic: include
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/19/2018
-ms.author: andret
+ms.date: 09/17/2018
+ms.author: jmprieur
 ms.custom: include file
-ms.openlocfilehash: e99d4f6676795a846b48ccd2a08856f4d32f269f
-ms.sourcegitcommit: c851842d113a7078c378d78d94fea8ff5948c337
+ms.openlocfilehash: 9f25734259ce34caa0f0d7e844fc985f953b2795
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/18/2018
-ms.locfileid: "36205646"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48843041"
 ---
-# <a name="call-the-microsoft-graph-api-from-a-windows-desktop-app"></a>Windows Masaüstü uygulamasından Microsoft Graph API çağırma
+# <a name="call-the-microsoft-graph-api-from-a-windows-desktop-app"></a>Bir Windows Masaüstü uygulamasından Microsoft Graph API çağırma
 
-Bu kılavuz, nasıl bir yerel Windows Masaüstü .NET (XAML) uygulama erişim belirteci almak ve Microsoft Graph API'si veya bir Azure Active Directory v2 uç noktasından erişim belirteçleri gerektiren diğer API'leri çağırmak gösterir.
+Bu kılavuz nasıl yerel bir Windows Masaüstü .NET (XAML) uygulama erişim belirteci almak ve Microsoft Graph API'si veya bir Azure Active Directory v2 uç noktasından erişim belirteçlerini gerektiren diğer API'leri çağırmak gösterir.
 
-Kılavuzu tamamladıktan sonra uygulamanız (outlook.com, live.com ve diğerleri dahil) kişisel hesapları kullanan korumalı bir API çağrısı kuramaz. Uygulama, ayrıca iş ve Okul hesapları herhangi bir şirket veya Azure Active Directory kullanan kuruluş.  
+Kılavuzu tamamladıktan sonra uygulamanızın kişisel hesaplar (outlook.com, live.com ve diğerleri dahil) kullanan korumalı bir API'yi çağırmak mümkün olacaktır. Uygulama ayrıca iş ve Okul hesapları herhangi bir şirket veya Azure Active Directory kullanan kuruluş.  
 
 > [!NOTE] 
-> Visual Studio 2015 güncelleştirme 3'ü veya Visual Studio 2017 Kılavuzu gerektirir.  Bu sürümlerden birini yok mu? [Visual Studio 2017 için ücretsiz olarak karşıdan](https://www.visualstudio.com/downloads/).
+> Visual Studio 2015 güncelleştirme 3 veya Visual Studio 2017 Kılavuzu gerektirir.  Bu sürümlerden birini yok mu? [Visual Studio 2017'yi ücretsiz olarak indirin](https://www.visualstudio.com/downloads/).
 
-## <a name="how-the-sample-app-generated-by-this-guide-works"></a>Bu kılavuz tarafından oluşturulan örnek uygulaması nasıl çalışır
+## <a name="how-the-sample-app-generated-by-this-guide-works"></a>Bu kılavuzda oluşturulan örnek uygulamasını nasıl çalışır?
 
 ![Bu kılavuz nasıl çalışır?](./media/active-directory-develop-guidedsetup-windesktop-intro/windesktophowitworks.png)
 
-Bu kılavuzu ile oluşturduğunuz örnek uygulamayı Microsoft Graph API'si veya bir Azure Active Directory v2 uç noktasından belirteçleri kabul eder bir Web API sorgular bir Windows masaüstü uygulaması sağlar. Bu senaryo için HTTP isteklerine Authorization Üstbilgisi aracılığıyla bir belirteç ekler. Microsoft kimlik doğrulama kitaplığı (MSAL) belirteç edinme ve yenileme işler.
+Bu kılavuz ile oluşturduğunuz örnek uygulama, Microsoft Graph API'si veya bir Azure Active Directory v2 uç noktasından belirteçleri kabul eden bir Web API'si sorgular bir Windows masaüstü uygulaması sağlar. Bu senaryoda, yetkilendirme üst bilgisi ile HTTP istekleri için bir belirteç ekler. Microsoft Authentication Library (MSAL), belirteç edinme ve yenileme işlemini gerçekleştirir.
 
-## <a name="handling-token-acquisition-for-accessing-protected-web-apis"></a>Korumalı Web API'lerine erişmek için belirteç edinme işleme
+## <a name="handling-token-acquisition-for-accessing-protected-web-apis"></a>Web API'leri korumalı erişim belirteci alma işleme
 
-Kullanıcının kimliği doğrulandıktan sonra örnek uygulamayı Microsoft Graph API veya Azure Active Directory v2 ile güvenli bir Web API sorgulamak için kullanılan bir belirteç isteyip alıyor.
+Örnek uygulama, kullanıcının kimliği doğrulandıktan sonra Microsoft Graph API'si veya Azure Active Directory v2 ile güvenli bir Web API'si sorgulamak için kullanılabilecek bir belirteç alır.
 
-API Microsoft Graph gibi belirli kaynaklara erişmesine izin vermek için bir belirteç gerektirir. Örneğin, bir belirteç kullanıcı profilini okuma, bir kullanıcının Takvim erişmek veya e-posta göndermek için gereklidir. Uygulamanız, API kapsamları belirterek bu kaynaklara erişmek için MSAL kullanarak bir erişim belirteci isteyebilirsiniz. Bu erişim belirteci, ardından HTTP Authorization Üstbilgisi karşı korunan bir kaynağa yapılan her çağrı eklenir. 
+Belirli kaynaklara erişmesine izin vermek için bir belirteç gibi Microsoft Graph API'leri gerektirir. Örneğin, bir belirteç kullanıcı profilini okuyun, bir kullanıcının takvime erişip veya e-posta göndermek için gereklidir. Uygulamanız API kapsamları belirterek bu kaynaklara erişmek için MSAL kullanarak bir erişim belirteci isteyebilirsiniz. Bu erişim belirteci, ardından korumalı kaynağa karşı yapılan her çağrı için HTTP yetkilendirme üst bilgisi eklenir. 
 
-MSAL önbelleğe alma ve erişim belirteçleri, yenileme yönetir uygulamanız gerekmez.
+MSAL önbelleğe alma ve erişim belirteçleri, yenileme yönetir, uygulamanız gerekmez.
 
 ## <a name="nuget-packages"></a>NuGet paketleri
 
-Bu kılavuz aşağıdaki NuGet paketlerini kullanır:
+Bu kılavuz, aşağıdaki NuGet paketlerini kullanır:
 
 |Kitaplık|Açıklama|
 |---|---|

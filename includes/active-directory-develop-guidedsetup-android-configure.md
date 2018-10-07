@@ -6,7 +6,6 @@ documentationcenter: dev-center-name
 author: andretms
 manager: mtillman
 editor: ''
-ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
 ms.devlang: na
 ms.topic: include
@@ -15,18 +14,18 @@ ms.workload: identity
 ms.date: 09/13/2018
 ms.author: andret
 ms.custom: include file
-ms.openlocfilehash: f0e584a4a4a54fc04b5539b56d5c901bfaa42bcc
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 6e20ce083c415bced22231835cc616ede8f0dd04
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46293749"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48843511"
 ---
 ## <a name="register-your-application"></a>Uygulamanızı kaydetme
 Uygulamanızı iki yoldan biriyle sonraki iki bölümde açıklandığı gibi kaydedebilirsiniz.
 
 ### <a name="option-1-express"></a>Seçenek 1: Express
-1. Git [Microsoft uygulama kayıt portalı](https://apps.dev.microsoft.com/portal/register-app?appType=mobileAndDesktopApp&appTech=android&step=configure).
+1. [Microsoft Uygulama Kayıt Portalı](https://apps.dev.microsoft.com/portal/register-app?appType=mobileAndDesktopApp&appTech=android&step=configure)'na gidin.
 2.  İçinde **uygulama adı**, uygulamanız için bir ad girin.
 
 3. Emin **destekli Kurulum** onay kutusunu seçili ve ardından **Oluştur**.
@@ -34,12 +33,12 @@ Uygulamanızı iki yoldan biriyle sonraki iki bölümde açıklandığı gibi ka
 4. Uygulama Kimliği alma yönergeleri izleyin ve kodunuzun yapıştırın.
 
 ### <a name="option-2-advanced"></a>Seçenek 2: Gelişmiş 
-1. Git [Microsoft uygulama kayıt portalı](https://apps.dev.microsoft.com/portal/register-app).
-2. İçinde **uygulama adı** kutusuna, uygulamanız için bir ad girin. 
+1. [Microsoft Uygulama Kayıt Portalı](https://apps.dev.microsoft.com/portal/register-app)'na gidin.
+2. **Uygulama Adı** kutusuna uygulamanız için bir ad girin. 
 
-3. Emin **destekli Kurulum** onay kutusunun temizlenmiş ve ardından **Oluştur**.
+3. **Destekli Kurulum** onay kutusunun işaretli olmadığından emin olun ve **Oluştur**’u seçin.
 
-4. Seçin **Platform Ekle**seçin **yerel uygulama**ve ardından **Kaydet**.
+4. **Platform Ekle**’yi, **Yerel Uygulama**’yı ve **Kaydet**’i seçin.
 
 5. Altında **uygulama** > **java** > **{konak}. { ad alanı}** açın `MainActivity`. 
 

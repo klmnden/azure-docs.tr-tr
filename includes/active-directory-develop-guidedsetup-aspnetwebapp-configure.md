@@ -6,7 +6,6 @@ documentationcenter: dev-center-name
 author: andretms
 manager: mtillman
 editor: ''
-ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
 ms.devlang: na
 ms.topic: include
@@ -15,39 +14,39 @@ ms.workload: identity
 ms.date: 05/04/2018
 ms.author: andret
 ms.custom: include file
-ms.openlocfilehash: f1dc23729f32a7a9535b887acf638cf5464c24bd
-ms.sourcegitcommit: c851842d113a7078c378d78d94fea8ff5948c337
+ms.openlocfilehash: faa3ad2376935aee4508b814f1b67fdacb98cf6e
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/18/2018
-ms.locfileid: "36206124"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48843578"
 ---
 ## <a name="register-your-application"></a>Uygulamanızı kaydetme
 
-Uygulamanızı kaydetme ve uygulama kayıt bilgilerinizi çözümünüze eklemek için iki seçeneğiniz vardır:
+Uygulamanızı kaydetmek ve uygulama kayıt bilgilerinizi çözümünüze eklemek için iki seçeneğiniz vardır:
 
-### <a name="option-1-express-mode"></a>Seçenek 1: Hızlı mod
+### <a name="option-1-express-mode"></a>1. seçenek: Hızlı mod
 
-Aşağıdakileri yaparak, uygulamanızın hızlı bir şekilde kaydedebilirsiniz:
+Aşağıdakileri yaparak, uygulamanızı hızlı bir şekilde kaydedebilirsiniz:
 
-1. Uygulamanızı aracılığıyla kaydetme [Microsoft uygulama kayıt portalı](https://apps.dev.microsoft.com/portal/register-app?appType=serverSideWebApp&appTech=aspNetWebAppOwin&step=configure)
-2.  Uygulamanız ve e-posta için bir ad girin
-3.  Kurulum destekli seçeneğinin işaretli olduğundan emin olun
-4.  Uygulamanıza bir yeniden yönlendirme URL'si eklemek için yönergeleri izleyin
+1. Uygulamanızı kaydetmek [Microsoft uygulama kayıt portalı](https://apps.dev.microsoft.com/portal/register-app?appType=serverSideWebApp&appTech=aspNetWebAppOwin&step=configure)
+2.  Uygulamanız ve e-posta adresiniz için bir ad girin
+3.  Destekli kurulum seçeneğinin işaretli olduğundan emin olun
+4.  Bir yeniden yönlendirme URL'si uygulamanıza eklemek için yönergeleri izleyin
 
-### <a name="option-2-advanced-mode"></a>Seçenek 2: Gelişmiş mod
+### <a name="option-2-advanced-mode"></a>2. seçenek: Gelişmiş mod
 
-Uygulamanızı kaydetme ve uygulama kayıt bilgilerinizi çözümünüze eklemek için aşağıdakileri yapın:
+Uygulamanızı kaydetmek ve uygulama kayıt bilgilerinizi çözümünüze eklemek için aşağıdakileri yapın:
 
-1. Git [Microsoft uygulama kayıt portalı](https://apps.dev.microsoft.com/portal/register-app) bir uygulamayı kaydetmek için
-2. Uygulamanız ve e-posta için bir ad girin 
-3. Destekli kurulumu için seçeneğinin işaretli olduğundan emin olun
-4. Tıklatın `Add Platform`sonra seçin `Web`
-5. Visual Studio'ya geri dönün ve Çözüm Gezgini'nde, projeyi seçin ve ardından (bir özellik penceresinde F4 tuşuna basın görmüyorsanız) özellikleri penceresine bakın gidin
-6. Değişiklik SSL etkin `True`
-7. Visual Studio'da projeye sağ tıklayın ve ardından **özellikleri**ve **Web** sekmesi. İçinde *sunucuları* bölümünde değişiklik *proje URL'sini* SSL URL olması
-8. SSL URL'sini kopyalayın ve bu URL yönlendirme URL'si listesine kayıt Portalı'nın listesinde yönlendirme URL'si ekleyin:<br/><br/>![Proje Özellikleri](media/active-directory-develop-guidedsetup-aspnetwebapp-configure/vsprojectproperties.png)<br />
-9. Aşağıdakileri ekleyin `web.config` bölümünün altında kök klasöründe yer `configuration\appSettings`:
+1. Git [Microsoft uygulama kayıt portalı](https://apps.dev.microsoft.com/portal/register-app) bir uygulamayı kaydetme
+2. Uygulamanız ve e-posta adresiniz için bir ad girin 
+3. Destekli kurulum seçeneğini işaretli olduğundan emin olun
+4. Tıklayın `Add Platform`seçin `Web`
+5. Visual Studio ve geri, Çözüm Gezgini'nde, projeyi seçin ve (bir Özellikler penceresinde, F4 tuşuna görmüyorsanız) özellikler penceresine bakın.
+6. SSL Etkin ayarını `True` olarak değiştirin
+7. Visual Studio'da projeye sağ tıklayın ve ardından **özellikleri**ve **Web** sekmesi. İçinde *sunucuları* bölümünde değişiklik *proje URL'si* SSL URL olmalı
+8. SSL URL'sini kopyalayın ve bu URL yeniden yönlendirme URL'lerini kayıt portalının listesini yeniden yönlendirme URL'lerini listesinde ekleyin:<br/><br/>![Proje özellikleri](media/active-directory-develop-guidedsetup-aspnetwebapp-configure/vsprojectproperties.png)<br />
+9. Aşağıdakileri eklemek `web.config` bölümünde kök klasöründe bulunan `configuration\appSettings`:
 
     ```xml
     <add key="ClientId" value="Enter_the_Application_Id_here" />
@@ -56,6 +55,6 @@ Uygulamanızı kaydetme ve uygulama kayıt bilgilerinizi çözümünüze eklemek
     <add key="Authority" value="https://login.microsoftonline.com/{0}/v2.0" />
     ```
 
-10. Değiştir `ClientId` yalnızca kayıtlı uygulama kimliği
-11. Değiştir `redirectUri` projenizin SSL URL'si
+10. Değiştirin `ClientId` yalnızca kayıtlı uygulama Kimliğine sahip
+11. Değiştirin `redirectUri` projenizin SSL URL'si
 

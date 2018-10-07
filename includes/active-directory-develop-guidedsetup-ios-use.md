@@ -6,7 +6,6 @@ documentationcenter: dev-center-name
 author: andretms
 manager: mtillman
 editor: ''
-ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
 ms.devlang: na
 ms.topic: include
@@ -15,12 +14,12 @@ ms.workload: identity
 ms.date: 09/19/2018
 ms.author: andret
 ms.custom: include file
-ms.openlocfilehash: c6d5fab6ff065dee336c510e3f94583cb0c4960b
-ms.sourcegitcommit: 06724c499837ba342c81f4d349ec0ce4f2dfd6d6
+ms.openlocfilehash: 248f2575e284ae456578b071013e1a5501329116
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46466201"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48843087"
 ---
 ## <a name="use-the-microsoft-authentication-library-msal-to-get-a-token-for-the-microsoft-graph-api"></a>Microsoft Graph API'si için bir belirteç almak için Microsoft kimlik doğrulama kitaplığı (MSAL) kullanma
 
@@ -205,10 +204,10 @@ class ViewController: UIViewController, UITextFieldDelegate, URLSessionDelegate 
 
 <!--start-collapse-->
 ### <a name="more-information"></a>Daha Fazla Bilgi
-#### <a name="getting-a-user-token-interactively"></a>Etkileşimli bir kullanıcı belirteci alma
+#### <a name="getting-a-user-token-interactively"></a>Kullanıcı belirtecini etkileşimli olarak alma
 Çağırma `acquireToken` kullanıcıdan oturum açmak için bir tarayıcı penceresi yöntemi sonuçlanıyor. Uygulamalar genellikle etkileşimli olarak korunan bir kaynağa erişmek için ihtiyaç duydukları ilk kez oturum açmak bir kullanıcı gerektirir ya da bir belirteç başarısız (örneğin kullanıcı parolasının süresi doldu) almak için sessiz bir işlem.
 
-#### <a name="getting-a-user-token-silently"></a>Bir kullanıcı sessizce belirteci alma
+#### <a name="getting-a-user-token-silently"></a>Kullanıcı belirtecini sessizce alma
 `acquireTokenSilent` Belirteç edinme ve herhangi bir kullanıcı etkileşimi olmadan yenileme yöntemi işler. Sonra `acquireToken` ilk kez yürütülür `acquireTokenSilent` veya belirteçleri yenileme isteği için çağrıları sessizce yapıldıkça yapılan sonraki çağrılar için-korunan kaynaklara erişim için kullanılan belirteçleri elde etmek için yaygın kullanılan yöntemdir.
 
 Sonuç olarak, `acquireTokenSilent` – örneğin kullanıcı oturumunuz veya başka bir cihazda parolasını değiştirdiğinden başarısız olur. MSAL etkileşimli bir eylem gerektirerek sorun çözülebilir, harekete algıladığında bir `MSALErrorCode.interactionRequired` özel durum. Uygulamanız, bu özel durumun iki şekilde işleyebilir:

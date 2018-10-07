@@ -6,7 +6,6 @@ documentationcenter: dev-center-name
 author: andretms
 manager: mtillman
 editor: ''
-ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
 ms.devlang: na
 ms.topic: include
@@ -15,22 +14,22 @@ ms.workload: identity
 ms.date: 04/19/2018
 ms.author: andret
 ms.custom: include file
-ms.openlocfilehash: 98bb86be1e1d0dccb5a76b91489e664ee4a30765
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
+ms.openlocfilehash: 167fccd8e0546bc8f5ac1b24489cae68cc14191f
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36943598"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48843048"
 ---
-## <a name="add-a-controller-to-handle-sign-in-and-sign-out-requests"></a>Oturum açma ve oturum kapatma isteklerini işlemek için bir denetleyici ekleyin
+## <a name="add-a-controller-to-handle-sign-in-and-sign-out-requests"></a>Oturum açma ve oturum kapatma istekleri işlemek üzere bir denetleyici ekleyin
 
-Bu adım, oturum açma ve oturum kapatma yöntemlerini kullanıma sunmak için yeni bir denetleyici oluşturulacağını gösterir.
+Bu adım, oturum açma ve oturum kapatma yöntemlerini ortaya çıkarmak için yeni bir denetleyici oluşturma işlemi gösterilmektedir.
 
 1.  Sağ tıklayın `Controllers` klasörü ve seçin `Add` > `Controller`
 2.  `MVC (.NET version) Controller – Empty` öğesini seçin.
-3.  Tıklatın *Ekle*
-4.  Bu ad `HomeController` tıklatıp *Ekle*
-5.  Ekleme *OWIN* sınıfına başvuruyor:
+3.  Tıklayın *Ekle*
+4.  Adlandırın `HomeController` tıklatıp *Ekle*
+5.  Ekleme *OWIN* sınıf başvuruları:
 
     ```csharp
     using Microsoft.Owin.Security;
@@ -38,7 +37,7 @@ Bu adım, oturum açma ve oturum kapatma yöntemlerini kullanıma sunmak için y
     using Microsoft.Owin.Security.OpenIdConnect;
     ```
     
-6. Oturum kapatma ve oturum açma işlemek için aşağıdaki iki yöntem, bir kimlik doğrulaması sınaması kodu aracılığıyla başlatarak denetleyicinize ekleyin:
+6. Oturum açma işlemek için aşağıdaki ve oturum kapatma iki yöntem, bir kod aracılığıyla kimlik doğrulaması sınaması başlatarak denetleyicinize ekleyin:
     
     ```csharp
     /// <summary>
@@ -66,13 +65,13 @@ Bu adım, oturum açma ve oturum kapatma yöntemlerini kullanıma sunmak için y
     }
     ```
 
-## <a name="create-the-apps-home-page-to-sign-in-users-via-a-sign-in-button"></a>Kullanıcılar bir oturum açma düğmesi aracılığıyla imzalamak için uygulamanın giriş sayfası oluşturun
+## <a name="create-the-apps-home-page-to-sign-in-users-via-a-sign-in-button"></a>Kullanıcılar bir oturum açma düğmesi aracılığıyla oturum açmak için uygulama giriş sayfası oluşturma
 
-Visual Studio'da Oturum Aç düğmesini ekleyin ve kimlik doğrulamasından sonra kullanıcı bilgilerini görüntülemek için yeni bir görünüm oluşturun:
+Visual Studio'da oturum açma düğmesini eklemek ve kimlik doğrulaması sonrasında kullanıcı bilgilerini görüntülemek için yeni bir görünüm ekleyin:
 
 1.  Sağ tıklayın `Views\Home` klasörü ve seçin `Add View`
 2.  Bunu, `Index` olarak adlandırın.
-3.  Oturum açma düğmesi içerir, aşağıdaki HTML dosyaya ekleyin:
+3.  Oturum açma düğmesini de içeren aşağıdaki HTML kodunu dosyaya ekleyin:
 
     ```html
     <html>
@@ -114,17 +113,17 @@ Visual Studio'da Oturum Aç düğmesini ekleyin ve kimlik doğrulamasından sonr
 
 <!--start-collapse-->
 > ### <a name="more-information"></a>Daha Fazla Bilgi
-> Bu sayfa bir oturum açma düğmesi siyah bir arka plan ile SVG biçiminde ekler:<br/>![Microsoft ile oturum açın](media/active-directory-develop-guidedsetup-aspnetwebapp-use/aspnetsigninbuttonsample.png)<br/> Daha fazla düğme'nın oturum açma Lütfen gidin [bu sayfayı](https://docs.microsoft.com/azure/active-directory/develop/active-directory-branding-guidelines "yönergeleri marka").
+> Bu sayfa, siyah bir arka plan SVG biçiminde bir oturum açma düğmesi ekler:<br/>![Microsoft'ta oturum açma](media/active-directory-develop-guidedsetup-aspnetwebapp-use/aspnetsigninbuttonsample.png)<br/> Daha fazla düğme'nın oturum açma için lütfen Git [bu sayfayı](https://docs.microsoft.com/azure/active-directory/develop/active-directory-branding-guidelines "marka yönergeleri").
 <!--end-collapse-->
 
-## <a name="add-a-controller-to-display-users-claims"></a>Kullanıcının talepleri görüntülemek için bir denetleyici ekleyin
-Bu denetleyici kullanımını gösteren `[Authorize]` bir denetleyici korumak için öznitelik. Bu öznitelik, yalnızca kimliği doğrulanan kullanıcılar vererek, denetleyiciye erişimi sınırlandırır. Aşağıdaki kodu yapar alındı kullanıcı talepleri, oturum açma parçası olarak görüntülemek için özniteliğini kullanın.
+## <a name="add-a-controller-to-display-users-claims"></a>Kullanıcı talepleri görüntülemek için denetleyici ekleme
+Bu denetleyici bir denetleyiciyi koruma amacıyla `[Authorize]` özniteliğini kullanma şeklini gösterir. Bu öznitelik yalnızca kimliği doğrulanan kullanıcılara izin vererek denetleyici erişimini sınırlar. Aşağıdaki kod yapar alınan kullanıcı taleplerini oturum açmanın bir parçası olarak görüntülenecek özniteliğini kullanın.
 
 1.  Sağ tıklayın `Controllers` klasörü: `Add` > `Controller`
 2.  `MVC {version} Controller – Empty` öğesini seçin.
-3.  Tıklatın *Ekle*
-4.  Adlandırın `ClaimsController`
-5.  Denetleyici sınıfının kodu aşağıdaki - bu ekler değiştirin `[Authorize]` öznitelik sınıfı:
+3.  Tıklayın *Ekle*
+4.  Bunu, `ClaimsController` olarak adlandırın.
+5.  Bu ekler, denetleyici sınıfının kodunu aşağıdaki - kodla değiştirin `[Authorize]` öznitelik sınıfı:
 
     ```csharp
     [Authorize]
@@ -157,16 +156,16 @@ Bu denetleyici kullanımını gösteren `[Authorize]` bir denetleyici korumak i�
 
 <!--start-collapse-->
 > ### <a name="more-information"></a>Daha Fazla Bilgi
-> Kullanımı nedeniyle `[Authorize]` özniteliği, bu denetleyicinin tüm yöntemleri, yalnızca kullanıcının kimliği doğrulanırsa çalıştırılabilir. Kullanıcı kimliği doğrulanmamış ve denetleyici erişmeye çalışırsa, OWIN kimlik doğrulaması sınaması başlatabilir ve kullanıcının kimlik doğrulamasını zorla. Yukarıdaki kod, kullanıcının kimliği belirteçte dahil belirli kullanıcı öznitelikleri için talepler listesinin bakar. Bu öznitelikler, kullanıcının tam adını ve kullanıcı adı yanı sıra, genel kullanıcı tanımlayıcısı konu içerir. Ayrıca içerdiği *Kiracı kimliği*, kullanıcının kuruluş Kimliğini temsil eder. 
+> `[Authorize]` özniteliğinin kullanılması nedeniyle bu denetleyicinin tüm metotları yalnızca kullanıcının kimliğinin doğrulanması durumunda yürütülebilir. Kullanıcı kimliği doğrulanmamış, ve denetleyiciye erişmeye OWIN kimlik doğrulaması sınaması başlatmak ve kullanıcının kimlik doğrulamasını zorla. Yukarıdaki kod, talepler kullanıcının kimliği belirtecinde bulunan belirli bir kullanıcı özniteliklerinin listesi bakar. Bu öznitelik kullanıcının tam adını, kullanıcı adını ve genel kullanıcı tanımlayıcısı nesnesini içerir. Ayrıca kullanıcının kuruluşunun kimliğini temsil eden *Kiracı Kimliği* değerini de içerir. 
 <!--end-collapse-->
 
-## <a name="create-a-view-to-display-the-users-claims"></a>Kullanıcının talepleri görüntülemek için bir görünüm oluşturma
+## <a name="create-a-view-to-display-the-users-claims"></a>Kullanıcı talepleri görüntülemek için bir görünüm oluşturma
 
-Visual Studio'da bir web sayfasında kullanıcının talepleri görüntülemek için yeni bir görünüm oluşturun:
+Visual Studio'da kullanıcının taleplerini bir web sayfasında görüntülemek için yeni bir görünüm oluşturun:
 
 1.  Sağ tıklayın `Views\Claims` klasörü ve: `Add View`
 2.  Bunu, `Index` olarak adlandırın.
-3.  Aşağıdaki HTML dosyaya ekleyin:
+3.  Aşağıdaki HTML kodunu dosyaya ekleyin:
 
     ```html
     <html>

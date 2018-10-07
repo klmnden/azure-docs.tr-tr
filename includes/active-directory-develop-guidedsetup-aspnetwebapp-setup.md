@@ -2,36 +2,42 @@
 title: include dosyası
 description: include dosyası
 services: active-directory
+documentationcenter: dev-center-name
 author: andretms
+manager: mtillman
+editor: ''
 ms.service: active-directory
+ms.devlang: na
 ms.topic: include
-ms.date: 05/08/2018
+ms.tgt_pltfrm: na
+ms.workload: identity
+ms.date: 09/17/2018
 ms.author: andret
 ms.custom: include file
-ms.openlocfilehash: 9c7daf7bc947b08835148f6d09c58b47c9e0186b
-ms.sourcegitcommit: c851842d113a7078c378d78d94fea8ff5948c337
+ms.openlocfilehash: 99eabd8f9c9b3ab86c348350e8924cea0eb668ba
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/18/2018
-ms.locfileid: "36204929"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48843184"
 ---
-## <a name="set-up-your-project"></a>Projenizin kurulumunu
+## <a name="set-up-your-project"></a>Projenizi ayarlama
 
-Bu bölümde yüklemek ve Openıd Connect kullanarak bir ASP.NET projede OWIN ara yazılımı üzerinden kimlik doğrulaması ardışık düzenini yapılandırmak için gereken adımları gösterir. 
+Bu bölüm, yükleme ve Openıd Connect'i kullanarak bir ASP.NET projesi üzerinde OWIN ara yazılımı üzerinden kimlik doğrulaması işlem hattı yapılandırma adımlarını gösterir. 
 
-> Bunun yerine bu örneği ait Visual Studio projesi indirmeyi tercih ediyorsunuz? [Bir proje indirme](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-DotNet/archive/master.zip) ve geçin [yapılandırma adımı](#register-your-application) kod örneği çalıştırmadan önce yapılandırmak için.
+> Bunun yerine bu örneği ait Visual Studio projeyi indirmek tercih ediyorsunuz? [Bir projeyi indirirken](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-DotNet/archive/master.zip) ve atlamak [yapılandırma adımı](#register-your-application) çalıştırmadan önce kodu örneği yapılandırmak için.
 
-### <a name="create-your-aspnet-project"></a>ASP.NET projesi oluşturma
+### <a name="create-your-aspnet-project"></a>ASP.NET projenizi oluşturun
 
 1. Visual Studio'da: `File` > `New` > `Project`
 2. Altında *Visual C# \Web*seçin `ASP.NET Web Application (.NET Framework)`.
 3. Uygulamanızı adlandırın ve tıklayın *Tamam*
 4. Seçin `Empty` eklemek için onay kutusunu seçip `MVC` başvuruları
 
-## <a name="add-authentication-components"></a>Kimlik doğrulaması Bileşenleri Ekle
+## <a name="add-authentication-components"></a>Kimlik doğrulama bileşenleri ekleme
 
 1. Visual Studio'da: `Tools` > `Nuget Package Manager` > `Package Manager Console`
-2. Ekleme *OWIN ara yazılımı NuGet paketlerini* Paket Yöneticisi konsolu penceresinde aşağıdakileri yazarak:
+2. Paket Yöneticisi Konsolu penceresinde aşağıdakileri yazarak *OWIN ara yazılım NuGet paketlerini* ekleyin:
 
     ```powershell
     Install-Package Microsoft.Owin.Security.OpenIdConnect
@@ -41,18 +47,18 @@ Bu bölümde yüklemek ve Openıd Connect kullanarak bir ASP.NET projede OWIN ar
 
 <!--start-collapse-->
 > ### <a name="about-these-libraries"></a>Bu kitaplıklar hakkında
->Çoklu oturum tanımlama bilgisi tabanlı kimlik doğrulaması Openıd Connect kullanarak açma (SSO) yukarıdaki kitaplıkları etkinleştirin. Kimlik doğrulama tamamlandıktan sonra kullanıcıyı temsil eden simge uygulamanıza gönderilir, OWIN ara yazılımı bir oturum tanımlama bilgisi oluşturur. Tarayıcı daha sonra bu tanımlama bilgisi sonraki isteklerde kullanıcının parolayı yeniden yazması gerekmez ve hiçbir ek doğrulama gerektiği şekilde kullanır.
+>Yukarıdaki kitaplıklar, tanımlama bilgisi tabanlı kimlik doğrulaması aracılığıyla OpenID Connect kullanarak çoklu oturum açma (SSO) sağlar. Kimlik doğrulaması tamamlandıktan ve kullanıcıyı temsil eden belirteç uygulamanıza gönderildikten sonra OWIN ara yazılımı bir oturum tanımlama bilgisi oluşturur. Tarayıcı daha sonra bu tanımlama bilgisi sonraki isteklerde authenticateasync kullanıcı parolayı gerekmez ve hiçbir ek doğrulama gerektiği şekilde kullanır.
 <!--end-collapse-->
 
-## <a name="configure-the-authentication-pipeline"></a>Kimlik doğrulama ardışık düzenini yapılandırın
-Aşağıdaki adımlar, bir OWIN ara yazılımı Openıd Connect kimlik doğrulamasını yapılandırmak için başlangıç sınıfı oluşturmak için kullanılır. Bu sınıf, IIS işlemi başladığında otomatik olarak yürütülür.
+## <a name="configure-the-authentication-pipeline"></a>Kimlik doğrulaması işlem hattı yapılandırın
+Aşağıdaki adımlar, bir OWIN ara yazılımını Openıd Connect kimlik doğrulamasını yapılandırmak için başlangıç sınıfı oluşturmak için kullanılır. Bu sınıf, IIS işlemi başladığında, otomatik olarak yürütülür.
 
 > [!TIP]
-> Projenizi yoksa, bir `Startup.cs` dosyası kök klasöründe:
-> 1. Projenin kök klasörü sağ tıklatın: > `Add` > `New Item...` > `OWIN Startup class`<br/>
-> 2. Adlandırın `Startup.cs`
+> Projenizin kök klasöründe `Startup.cs` adlı bir dosya yoksa:
+> 1. Projenin kök klasörüne sağ: > `Add` > `New Item...` > `OWIN Startup class`<br/>
+> 2. Bunu, `Startup.cs` olarak adlandırın.
 >
->> OWIN başlangıç sınıfı ve değil bir standart C# sınıf seçilen sınıf olduğundan emin olun. Bu görürseniz denetleyerek doğrulayabilirsiniz `[assembly: OwinStartup(typeof({NameSpace}.Startup))]` ad alanı üzerinde.
+>> Seçilen sınıfın standart bir C# sınıfı değil OWIN Başlangıç Sınıfı olduğundan emin olun. Doğrulamak için ad alanının üzerinde `[assembly: OwinStartup(typeof({NameSpace}.Startup))]` yazıp yazmadığını kontrol edin.
 
 1. Ekleme *OWIN* ve *Microsoft.IdentityModel* başvurular `Startup.cs`:
 
@@ -137,6 +143,6 @@ Aşağıdaki adımlar, bir OWIN ara yazılımı Openıd Connect kimlik doğrulam
 
 <!--start-collapse-->
 > ### <a name="more-information"></a>Daha Fazla Bilgi
-> Sağladığınız içinde parametreleri *OpenIDConnectAuthenticationOptions* Azure AD ile iletişim kurmak uygulamanın koordinatları olarak hizmet. Openıd Connect ara yazılımı arka planda tanımlama bilgilerini kullandığından, ayrıca tanımlama bilgisi kimlik doğrulamasını gösterir yukarıdaki kodu olarak ayarlamanız gerekir. *Validateıssuer* değer belirli bir kuruluş için erişimi kısıtlamak değil Openıdconnect söyler.
+> *OpenIDConnectAuthenticationOptions* içinde sağladığınız parametreler uygulamanın Azure AD ile iletişim kurmak için kullanacağı koordinatlara benzer. Openıd Connect ara yazılımı arka planda tanımlama bilgileri kullandığından, ayrıca tanımlama bilgisi kimlik doğrulamasını gösterir yukarıdaki kodu olarak ayarlamanız gerekir. *ValidateIssuer* değeri OpenIdConnect öğesine erişimi tek bir kuruluşla sınırlamamasını söyler.
 <!--end-collapse-->
 

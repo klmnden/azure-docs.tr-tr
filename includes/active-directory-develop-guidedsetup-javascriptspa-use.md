@@ -6,7 +6,6 @@ documentationcenter: dev-center-name
 author: navyasric
 manager: mtillman
 editor: ''
-ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
 ms.devlang: na
 ms.topic: include
@@ -15,12 +14,12 @@ ms.workload: identity
 ms.date: 09/17/2018
 ms.author: nacanuma
 ms.custom: include file
-ms.openlocfilehash: be8ffeae1977fb2f56e0f85a716d982a6d2f84dc
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: 77400453e455ff2ebf20f59f888a3e3d641bcf07
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47060729"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48843162"
 ---
 ## <a name="use-the-microsoft-authentication-library-msal-to-sign-in-the-user"></a>Kullanıcının oturum açmak için Microsoft kimlik doğrulama kitaplığı (MSAL) kullanma
 
@@ -132,16 +131,16 @@ Bir kullanıcı tıklattıktan sonra *'Oturum açma'* düğmesini ilk kez `signI
 
 Bu tarafından oluşturulan SPA Kılavuzu çağrıları `acquireTokenSilent` ve/veya `acquireTokenPopup` almak için bir *erişim belirteci* Microsoft Graph API için kullanıcı profili bilgileri sorgulamak için kullanılan. Kimlik belirteci doğrular bir örnek gerekirse göz atın [bu](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi-v2 "Github active-directory-javascript-singlepageapp-dotnet-webapi-v2 örnek") github'da – örnek örnek uygulama bir ASP kullanır Belirteç doğrulama için .NET web API'si.
 
-#### <a name="getting-a-user-token-interactively"></a>Etkileşimli bir kullanıcı belirteci alma
+#### <a name="getting-a-user-token-interactively"></a>Kullanıcı belirtecini etkileşimli olarak alma
 
 İlk oturum açma işleminden sonra bu nedenle kaynak – erişmek için bir belirteç istemek ihtiyaç duydukları her zaman yeniden kimlik doğrulamaya zorlayabilir talep etmek istemediğiniz *acquireTokenSilent* çoğu zaman belirteçlerini almak için kullanılmalıdır. Durumlar vardır ancak kullanıcıları, Azure Active Directory v2 uç noktası ile – etkileşim kurmak gereken bazı örnekler şunlardır:
-- Kullanıcıların parola süresi dolduğundan, kimlik bilgilerini yeniden girmeniz gerekebilir
-- Uygulamanızın kullanıcı onay gerektiren bir kaynağa erişim istiyor
-- İki faktörlü kimlik doğrulaması gereklidir
+- Parolanın süresi dolduğundan kullanıcıların kimlik bilgilerini yeniden girmesi gerektiğinde
+- Uygulamanız kullanıcının onaylaması gereken bir kaynağa erişim istediğinde
+- İki faktörlü kimlik doğrulama gerektiğinde
 
 Çağırma *acquireTokenPopup(scope)* sonuçları bir açılır pencerede (veya *acquireTokenRedirect(scope)* sonuçları kullanıcılarını Azure Active Directory v2 uç noktaya yönlendirme de) burada kullanıcılar gerekir kimlik bilgilerini onaylayan, gerekli kaynak için izin vermek ya da iki faktörlü kimlik doğrulamasını tamamlayan etkileşim kurun.
 
-#### <a name="getting-a-user-token-silently"></a>Bir kullanıcı sessizce belirteci alma
+#### <a name="getting-a-user-token-silently"></a>Kullanıcı belirtecini sessizce alma
 ` acquireTokenSilent` Belirteç edinme ve herhangi bir kullanıcı etkileşimi olmadan yenileme yöntemi işler. Sonra `loginPopup` (veya `loginRedirect`) ilk kez yürütülür `acquireTokenSilent` veya belirteçleri yenileme isteği için çağrıları sessizce yapıldıkça yapılan sonraki çağrılar için-korunan kaynaklara erişim için kullanılan belirteçleri elde etmek için yaygın kullanılan yöntemdir.
 `acquireTokenSilent` başarısız olabilir bazı durumlarda – Örneğin, kullanıcı parolasının süresi doldu. Uygulamanız, bu özel durumun iki şekilde işleyebilir:
 
