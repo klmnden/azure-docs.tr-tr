@@ -1,7 +1,7 @@
 
 ## <a name="open-azure-cloud-shell"></a>Azure Cloud Shell’i açma
 
-Azure Cloud Shell, bu makaledeki adımları çalıştırmak için kullanabileceğiniz ücretsiz bir etkileşimli kabuktur. Yaygın kullanılan Azure araçları hesabınızla kullanmanız için Cloud Shell'de önceden yüklenir ve yapılandırılır. **Kopyala**’ya tıklayarak kodu kopyalamanız, Cloud Shell’e yapıştırmanız ve Enter tuşuna basarak çalıştırmanız yeterlidir. Cloud Shell’i açmanın birkaç yolu vardır:
+Azure Cloud Shell, bu makaledeki adımları çalıştırmak için kullanabileceğiniz ücretsiz bir etkileşimli kabuktur. Yaygın kullanılan Azure araçları hesabınızla kullanmanız için Cloud Shell'de önceden yüklenir ve yapılandırılır. **Kopyala**’ya tıklayarak kodu kopyalamanız, Cloud Shell’e yapıştırmanız ve Enter tuşuna basarak çalıştırmanız yeterlidir. Cloud Shell’i açmaya yönelik birkaç yol vardır, bunlardan dilediğinizi seçebilirsiniz:
 
 |  |   |
 |-----------------------------------------------|---|

@@ -1,4 +1,9 @@
-Azure Media Services'i öğrenme yolları hakkında bilgi için:
+Azure Media Services’ın en son sürümüne göz atın: [Azure Media Services v3](https://docs.microsoft.com/azure/media-services/latest/).
 
-* [Media Services canlı akış iş akışı](https://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
-* [Media Services isteğe bağlı akış iş akışı](https://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+Şu konu başlıklarıyla başlayabilirsiniz: 
+
+* [Genel Bakış](https://docs.microsoft.com/azure/media-services/latest/media-services-overview)
+* [API’leri kullanarak videoları karşıya yükleme, kodlama ve akışla aktarma](https://docs.microsoft.com/azure/media-services/latest/stream-files-tutorial-with-api)
+* [Çözümleme](https://docs.microsoft.com/azure/media-services/latest/analyze-videos-tutorial-with-api)
+* [Canlı akış](https://docs.microsoft.com/azure/media-services/latest/stream-live-tutorial-with-api)
+* [İçeriğinizi koruma](https://docs.microsoft.com/azure/media-services/latest/protect-with-aes128)
