@@ -12,12 +12,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 08/31/2018
 ms.author: jingwang
-ms.openlocfilehash: 932ddf5f377556e815205b7ad34a735815317ac0
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.openlocfilehash: d8bbc3a5e4ac14ed60fcd6e5f19bdf1df03455a6
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48249052"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48817033"
 ---
 # <a name="copy-data-to-or-from-azure-data-lake-storage-gen1-by-using-azure-data-factory"></a>Azure Data Factory kullanarak Azure Data Lake depolama Gen1 gelen veya veri kopyalama
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -65,7 +65,7 @@ Azure Data Lake Store bağlı hizmeti için aşağıdaki özellikler desteklenir
 Aşağıdaki bölümlerde daha fazla özellik ve farklı kimlik doğrulama türleri için JSON örneklerini sırasıyla bakın:
 
 - [Hizmet sorumlusu kimlik doğrulaması kullanma](#using-service-principal-authentication)
-- [Azure kaynakları ile kimlik doğrulaması için yönetilen kimliklerle](#using-managed-service-identity-authentication)
+- [Azure kaynakları ile kimlik doğrulaması için yönetilen kimliklerle](#managed-identity)
 
 ### <a name="using-service-principal-authentication"></a>Hizmet sorumlusu kimlik doğrulaması kullanma
 
