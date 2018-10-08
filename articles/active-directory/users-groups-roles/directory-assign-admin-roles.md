@@ -14,12 +14,12 @@ ms.date: 09/25/2018
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
-ms.openlocfilehash: 293d8376d83d729588aab0aeaa1040d9b3e5e0b5
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
+ms.openlocfilehash: 722a9ada338420cc1ed55eb7c4400f946d58ebac
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47182289"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48831662"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Azure Active Directory'de Yönetici rolü izinleri
 
@@ -84,11 +84,15 @@ Aşağıdaki Yönetici rollerini kullanılabilir:
 
 * **[İş ortağı Tier2 desteği](#partner-tier2-support)**: kullanmayın. Bu rolü kullanım dışıdır ve gelecekte Azure AD'deki kaldırıldı. Bu rol, az sayıda Microsoft satışıyla iş ortakları tarafından kullanılmak üzere tasarlanmış ve genel kullanıma yönelik değildir.
 
-* **[Parola Yöneticisi / Yardım Masası Yöneticisi](#helpdesk-administrator)**: Bu role sahip olan kullanıcılar parolaları değiştirme, yenileme belirteçleri geçersiz kılmak, hizmet isteklerini yönetebilir ve hizmet durumunu izleyin. Yardım Masası yöneticileri parolaları değiştirebilir ve yenileme belirteçleri yalnızca kullanıcıların ve diğer Yardım Masası yöneticileri için geçersiz. Bir yenileme belirteci geçersiz kılmalarını, kullanıcı yeniden oturum açmak için zorlar.
-
+* **[Parola Yöneticisi / Yardım Masası Yöneticisi](#helpdesk-administrator)**: Bu role sahip olan kullanıcılar parolaları değiştirme, yenileme belirteçleri geçersiz kılmak, hizmet isteklerini yönetebilir ve hizmet durumunu izleyin. Bir yenileme belirteci geçersiz kılmalarını, kullanıcı yeniden oturum açmak için zorlar. Yardım Masası yöneticileri, parolaları sıfırlama ve yenileme belirteçleri olmayanların olan diğer kullanıcıların veya yalnızca aşağıdaki rollerinin üyeleri geçersiz kıl:
+  * Dizin Okuyucular
+  * Konuk Davet Eden
+  * Yardım Masası Yöneticisi
+  * İleti Merkezi Okuyucu
+  * Rapor Okuyucu
+  
   > [!NOTE]
   > Microsoft Graph API, Azure AD Graph API ve Azure AD PowerShell'de bu rol "Yardım Masası Yöneticisi" tanımlanır. "Parola Yöneticisi" olarak [Azure portalında](https://portal.azure.com/).
-  >
   >
   
 * **[Power BI Hizmet Yöneticisi](#power-bi-service-administrator)**: Bu role sahip olan kullanıcılar hizmet olduğunda Microsoft Power BI içinde genel izinlere yanı sıra destek biletlerini yönetebilir ve hizmet durumu izleme olanağı vardır. Daha fazla bilgiye [Power BI yönetici rolünü anlama](https://docs.microsoft.com/power-bi/service-admin-role).
@@ -132,11 +136,13 @@ Aşağıdaki Yönetici rollerini kullanılabilir:
 
 * **[Hizmet Yöneticisi takımlar](#teams-service-administrator)**: Bu roldeki kullanıcılar, iş Yönetim Merkezi ve ilgili PowerShell modülleri için Microsoft Teams iş yükü Microsoft Teams ve Skype üzerinden tüm özelliklerini yönetebilir. Bu, diğer alanları arasında telefon, Mesajlaşma, toplantılar ve takımlar için ilgili tüm Yönetim Araçlar içerir. Bu rol, ayrıca Office 365 grupları yönetme olanağı verir.
 
-* **[Kullanıcı hesabı yöneticisi](#user-account-administrator)**: Bu role sahip kullanıcılar oluşturabilir ve kullanıcıların ve grupların tüm özelliklerini yönetebilir. Ayrıca bu rol, destek biletlerini yönetebilir ve hizmet durumu izleme olanağı içerir. Bazı kısıtlamalar geçerlidir. Örneğin, bu rolü genel yönetici silinmesine izin vermiyor değil. Kullanıcı hesabı yöneticileri, parolaları değiştirmeniz ve diğer kullanıcı hesabı yöneticileri yalnızca kullanıcıların ve Yardım Masası yöneticileri için yenileme belirteçleri geçersiz. Bir yenileme belirteci geçersiz kılmalarını, kullanıcı yeniden oturum açmak için zorlar.
+* **[Kullanıcı hesabı yöneticisi](#user-account-administrator)**: Bu role sahip kullanıcılar kullanıcıları oluşturun ve bazı kısıtlamalar (aşağıya bakın) sahip kullanıcılar tüm özelliklerini yönetebilir. Ayrıca, bu role sahip kullanıcılar oluşturun ve tüm gruplarını yönetin. Bu rolü, oluşturma ve kullanıcı görünümleri yönetme, destek biletlerini yönetebilir ve hizmet durumu izleme olanağı da içerir.
 
-| Yapabilirsiniz | Bunu yapamazsınız |
-| --- | --- |
-| <p>Şirket ve kullanıcı bilgilerini görüntüle</p><p>Office destek biletlerini yönetebilir</p><p>Diğer kullanıcı hesabı yöneticileri yalnızca kullanıcıların ve Yardım Masası yöneticileri için parolaları değiştirme</p><p>Oluşturma ve kullanıcı görünümleri yönetme</p><p>Oluşturma, düzenleme ve kullanıcıları ve grupları silme ve kısıtlamalarla kullanıcı lisanslarını yönetme. İsterse bir genel yönetici silemez veya başka Yöneticiler oluşturamaz.</p> |<p>Office ürünleri için faturalama ve satın alma işlemleri gerçekleştirme</p><p>Etki alanlarını yönet</p><p>Şirket bilgilerini yönetme</p><p>Başkalarını yönetici rollerine temsilci seçme</p><p>Dizin eşitleme kullanma</p><p>Etkinleştirmek veya devre dışı çok faktörlü kimlik doğrulaması</p><p>Denetim günlüklerini görüntüleme</p> |
+  | | |
+  | --- | --- |
+  |Genel izinler|<p>Kullanıcılar ve gruplar oluşturma</p><p>Oluşturma ve kullanıcı görünümleri yönetme</p><p>Office destek biletlerini yönetebilir|
+  |<p>Tüm yöneticilerin tüm kullanıcılar dahil</p>|<p>Lisanslarını yönetme</p><p>Kullanıcı asıl adı dışındaki tüm kullanıcı özelliklerini yönetme</p>
+  |Yönetici olmayan ya da aşağıdakilerden birini sınırlı yönetici rolleri yalnızca kullanıcılar üzerinde:<ul><li>Dizin Okuyucular<li>Konuk Davet Eden<li>Yardım Masası Yöneticisi<li>İleti Merkezi Okuyucu<li>Rapor Okuyucu<li>Kullanıcı Hesabı Yöneticisi|<p>Silme ve geri yükleme</p><p>Devre dışı bırakma ve etkinleştirme</p><p>Geçersiz belirteç yenileme</p><p>Kullanıcı asıl adı dahil olmak üzere tüm kullanıcı özelliklerini yönetme</p><p>Parola sıfırlama</p><p>Güncelleştirme (FIDO) cihaz anahtarları</p>
 
 Aşağıdaki tablolarda her rol için belirtilen Azure Active Directory'de özel izinler açıklanmaktadır. Bazı roller, Azure Active Directory Microsoft Hizmetleri outide ek izinlere sahip olabilir.
 
