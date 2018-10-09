@@ -22,6 +22,7 @@
 #### [2 - Ekip geliştirme](team-development-nodejs.md)
 
 ## Nasıl yapılır
+### [Azure Cloud Shell kullanarak Kubernetes kümesi oluşturma](how-to/create-cluster-cloud-shell.md)
 ### [Azure Dev Spaces paylaşma](how-to/share-dev-spaces.md)
 ### [Gizli dizileri yönetme](how-to/manage-secrets.md)
 ### [Özel NuGet akışı kullanma](how-to/use-custom-nuget-feed.md)
