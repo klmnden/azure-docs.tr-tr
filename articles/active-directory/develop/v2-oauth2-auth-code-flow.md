@@ -17,12 +17,12 @@ ms.date: 07/23/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: d94aaa93596a18cf92b745267a6be9966454e36f
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 7ff7167d60a4c22459622aea6a71130bd1e209fb
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46971561"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48868879"
 ---
 # <a name="v20-protocols---oauth-20-authorization-code-flow"></a>v2.0 protokolleri - OAuth 2.0 yetkilendirme kod akışı
 
@@ -234,7 +234,9 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZn
 
 ## <a name="refresh-the-access-token"></a>Erişim belirteci yenileyin
 
-Access_tokens kısa süreli ve kaynaklara erişmeye devam etmek için süresi dolduktan sonra bunları yenilemeniz gerekir. Başka bir göndererek yapabilirsiniz `POST` isteği `/token` uç nokta, bu sefer sağlayan `refresh_token` yerine `code`:
+Access_tokens kısa süreli ve kaynaklara erişmeye devam etmek için süresi dolduktan sonra bunları yenilemeniz gerekir. Başka bir göndererek yapabilirsiniz `POST` isteği `/token` uç nokta, bu sefer sağlayan `refresh_token` yerine `code`.  Yenileme belirteçleri geçerlidir-istemcinizi zaten aldığı tüm izinleri onayı için bu nedenle, bir yenileme belirteci verilen bir talebi `scope=mail.read` için yeni bir erişim belirteci istemek için kullanılan `scope=api://contoso.com/api/UseResource`.  
+
+Yenileme belirteçleri belirtilen ömre sahip değil. Genellikle, yenileme belirteçleri ömrü oldukça uzun olabilir. Ancak, bazı durumlarda, yenileme belirteçleri sona, iptal edilen veya istenen eylemi için yeterli ayrıcalıkları yok. Uygulamanızın beklediğiniz ve işlemek için gereken [belirteç yayınında uç noktası tarafından döndürülen hataları](#error-codes-for-token-endpoint-errors) doğru. 
 
 ```
 // Line breaks for legibility only

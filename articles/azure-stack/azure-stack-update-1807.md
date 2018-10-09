@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2018
+ms.date: 10/07/2018
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: bde8ea74d2b6d36cd070598d0542e5be4bdef244
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: bce76827c56fd660b6ab4353fed1c43f88132587
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48816183"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48868828"
 ---
 # <a name="azure-stack-1807-update"></a>Azure Stack 1807 güncelleştirme
 
@@ -190,7 +190,7 @@ Bu güvenlik açıkları hakkında daha fazla bilgi için yukarıdaki bağlantı
 
 ### <a name="post-update-steps"></a>Güncelleştirme sonrası adımlar
 Bu güncelleştirme yüklendikten sonra geçerli düzeltmeleri yükleyin. Daha fazla bilgi için aşağıdaki Bilgi Bankası makaleleri görüntülemek hem de bizim [hizmet İlkesi](azure-stack-servicing-policy.md). 
-- [KB 4464231 – Azure Stack düzeltme Azure Stack düzeltme 1.1807.1.78](https://support.microsoft.com/help/4464231)
+- [KB 4467061 – Azure Stack düzeltme Azure Stack düzeltme 1.1807.3.82](https://support.microsoft.com/help/4467061/)
 
 <!-- 2933866 – IS --> Bu güncelleştirme yüklendikten sonra gördüğünüz **geliştirilmiş başarısız güncelleştirme yüklemelerini durumu.** Bu iki yeni durum kategorisi yansıtacak şekilde düzenlendi önceki güncelleştirme yükleme hatalarıyla ilgili bilgiler içerebilir. Yeni durum kategorilerinin *PreparationFailed*, ve *InstallationFailed*.  
 
@@ -211,7 +211,7 @@ Bu derleme sürümü için yükleme sonrası bilinen sorunlar verilmiştir.
 - Bu sürümünü çalıştıran yeni bir Azure Stack ortamına yüklediğinizde, uyarıyı gösterir *etkinleştirme gerekli* görüntülenmeyebilir. [Etkinleştirme](azure-stack-registration.md) Market dağıtım kullanabilmeniz için gereklidir.  
 
 <!-- TBD - IS ASDK --> 
-- İki Yönetim abonelik türlerini [1804 sürümü ile sunulan](azure-stack-update-1804.md#new-features) kullanılmamalıdır. Abonelik türleridir **abonelik ölçümü**, ve **tüketim abonelik**. Bu abonelik türlerini 1804 sürümünden başlayarak yeni Azure Stack ortamlarında görülebilir ancak henüz kullanıma sunulmamıştır. Kullanmaya devam etmelidir **varsayılan sağlayıcı** abonelik türü.
+- 1804 sürümü ile sunulan iki Yönetim abonelik türlerini kullanılmamalıdır. Abonelik türleridir **abonelik ölçümü**, ve **tüketim abonelik**. Bu abonelik türlerini 1804 sürümünden başlayarak yeni Azure Stack ortamlarında görülebilir ancak henüz kullanıma sunulmamıştır. Kullanmaya devam etmelidir **varsayılan sağlayıcı** abonelik türü.
 
 <!-- 2403291 - IS ASDK --> 
 - Yatay kaydırma çubuğunun alt kısmında bulunan yönetici ve Kullanıcı Portalı'nın kullanımını olmayabilir. Yatay kaydırma çubuğunun erişemiyorsanız, önceki bir dikey pencere portaldaki dikey penceresinin adı seçerek, gitmek için içerik haritaları en üstünde bulunan içerik haritası listeden görüntülemek istediğiniz kullanım portalın sol.

@@ -14,19 +14,19 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: alsin
-ms.openlocfilehash: e3745efdd0d0ea159afcda177c306f5865ac2aad
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 150147a0fe0fdfcf2e6c9f2b780587749af1ded0
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46366843"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48857916"
 ---
 # <a name="use-serial-console-to-access-grub-and-single-user-mode"></a>GRUB ve tek kullanıcı modu erişmek için seri Konsolu
-GRUB genel birleşik Şifresizdir ' dir. GRUB ' diğer özelliklerin yanı sıra tek kullanıcı moduna önyükleme, önyükleme yapılandırması üzerinde değişiklik yapabilirsiniz. 
+GRUB genel birleşik Şifresizdir ' dir. GRUB ' diğer özelliklerin yanı sıra tek kullanıcı moduna önyükleme, önyükleme yapılandırması üzerinde değişiklik yapabilirsiniz.
 
 Tek kullanıcı modunda, en az bir işlevselliğe sahip en az bir ortamdır. Önyükleme sorunlarını, dosya sistemi sorunları veya ağ sorunları araştırmak için yararlı olabilir. Daha az Hizmetleri arka planda çalıştırabilir ve çalışma düzeyi bağlı olarak bir dosya sistemi bile otomatik olarak takılı.
 
-Tek kullanıcı modunda burada VM'nizi yalnızca oturum açmak için SSH anahtarları kabul edecek şekilde yapılandırılmış olabilir durumlarda da kullanışlıdır. Bu durumda parola kimlik doğrulaması ile hesap oluşturmak için tek kullanıcı modunda kullanmanız mümkün olabilir. 
+Tek kullanıcı modunda burada VM'nizi yalnızca oturum açmak için SSH anahtarları kabul edecek şekilde yapılandırılmış olabilir durumlarda da kullanışlıdır. Bu durumda parola kimlik doğrulaması ile hesap oluşturmak için tek kullanıcı modunda kullanmanız mümkün olabilir.
 
 Tek kullanıcı moduna girmek için yedekleme, sanal Makinenizin önyükleme yaparken GRUB girin ve GRUB önyükleme yapılandırmasında değişiklik gerekecektir. Bu sanal makine seri konsolu ile yapılabilir.
 

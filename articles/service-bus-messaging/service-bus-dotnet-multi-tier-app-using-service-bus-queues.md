@@ -10,12 +10,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 09/05/2018
 ms.author: spelluru
-ms.openlocfilehash: 6ec59c8af290a9ff7b7d9640b2253a0f91886256
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: b905feef4d3a5445ba27b92637448443c3bbb4a3
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47394361"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48855621"
 ---
 # <a name="net-multi-tier-application-using-azure-service-bus-queues"></a>Azure Service Bus kuyruklarını kullanan çok katmanlı .NET uygulaması
 
@@ -352,7 +352,6 @@ Bu bölümde, uygulamanızın görüntülediği çeşitli sayfalar oluşturursun
 ## <a name="next-steps"></a>Sonraki adımlar
 Service Bus hakkında daha fazla bilgi edinmek için şu kaynaklara bakın:  
 
-* [Service Bus ile ilgili temel bilgiler](service-bus-fundamentals-hybrid-solutions.md)
 * [Service Bus kuyruklarını kullanmaya başlama][sbacomqhowto]
 * [Service Bus hizmet sayfası][sbacom]  
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/01/2018
 ms.author: spelluru
-ms.openlocfilehash: 90271758e4092a574d3a44deffe42e3c689a31ca
-ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
+ms.openlocfilehash: 5532c86271fa6a5f2b573e005993a68ac0a9e248
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48784867"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48857083"
 ---
 # <a name="managed-identities-for-azure-resources-with-service-bus"></a>Service Bus ile Azure kaynakları için yönetilen kimlikleri 
 
@@ -83,7 +83,6 @@ Bu değişiklikleri yaptıktan sonra yayımlama ve uygulamayı çalıştırın. 
 
 Service Bus mesajlaşması hakkında daha fazla bilgi edinmek için aşağıdaki konulara bakın:
 
-* [Service Bus ile ilgili temel bilgiler](service-bus-fundamentals-hybrid-solutions.md)
 * [Service Bus kuyrukları, konu başlıkları ve abonelikleri](service-bus-queues-topics-subscriptions.md)
 * [Service Bus kuyrukları ile çalışmaya başlama](service-bus-dotnet-get-started-with-queues.md)
 * [Service Bus konu başlıklarını ve aboneliklerini kullanma](service-bus-dotnet-how-to-use-topics-subscriptions.md)

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2018
 ms.author: juluk
-ms.openlocfilehash: 51dc1280dcc8c47c3cb3ad46fc720e0a38e04b69
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: 9a6f7aeea799787becf0bb99cdfa08bed4e9d355
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48814449"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48867468"
 ---
 # <a name="features--tools-for-azure-cloud-shell"></a>Özellikler ve Azure Cloud Shell için Araçlar
 
@@ -33,12 +33,12 @@ Azure Cloud Shell çalıştığı `Ubuntu 16.04 LTS`.
 
 Cloud Shell'i güvenli bir şekilde ve otomatik olarak Azure PowerShell ve Azure CLI için hesap erişimi doğrular.
 
-### <a name="home-persistence-across-sessions"></a>Oturumlar arasında $Home kalıcılığı
+### <a name="home-persistence-across-sessions"></a>Oturumlar arasında $HOME kalıcılığı
 
 Dosyaları oturumlarda kalıcı hale getirilmesi için Cloud Shell ilk kez başlattığınızda bir Azure dosya paylaşımı ekleme aracılığıyla size.
-Tamamlandığında, Cloud Shell depolama alanınızı otomatik olarak eklenecek (takılamadı `$Home\clouddrive`) gelecekteki tüm oturumları.
-Ayrıca, `$Home` dizin olarak Azure dosya paylaşımınızdaki bir .img kalıcıdır.
-Dışında dosyaları `$Home` ve makine durumu oturumlar arasında sürdürülmez. SSH anahtarları gibi gizli dizilerin depolanmasında en iyi uygulamaları kullanın. Gibi hizmetleri [Azure anahtar kasası kurulumu için öğreticiler sahip](https://docs.microsoft.com/azure/key-vault/key-vault-manage-with-cli2#prerequisites).
+Tamamlandığında, Cloud Shell depolama alanınızı otomatik olarak eklenecek (takılamadı `$HOME\clouddrive`) gelecekteki tüm oturumları.
+Ayrıca, `$HOME` dizin olarak Azure dosya paylaşımınızdaki bir .img kalıcıdır.
+Dışında dosyaları `$HOME` ve makine durumu oturumlar arasında sürdürülmez. SSH anahtarları gibi gizli dizilerin depolanmasında en iyi uygulamaları kullanın. Gibi hizmetleri [Azure anahtar kasası kurulumu için öğreticiler sahip](https://docs.microsoft.com/azure/key-vault/key-vault-manage-with-cli2#prerequisites).
 
 [Cloud shell'de kalıcı dosyaları hakkında daha fazla bilgi edinin.](persisting-shell-storage.md)
 
@@ -61,7 +61,7 @@ Cloud Shell'de önceden yapılandırılmış kimlik doğrulama için Terraform, 
 |---|---|
 |Linux araçları            |Bash<br> zsh<br> Göster<br> tmux<br> dıg<br>               |
 |Azure Araçları            |[Azure CLI](https://github.com/Azure/azure-cli) ve [Klasik Azure CLI](https://github.com/Azure/azure-xplat-cli)<br> [AzCopy](https://docs.microsoft.com/azure/storage/storage-use-azcopy)<br> [Service Fabric CLI](https://docs.microsoft.com/azure/service-fabric/service-fabric-cli)<br> [Batch Shipyard](https://github.com/Azure/batch-shipyard)<br> [blobxfer](https://github.com/Azure/blobxfer)|
-|Metin düzenleyiciler           |vim<br> nano<br> emacs       |
+|Metin düzenleyiciler           |vim<br> nano<br> emacs<br> Kod       |
 |Kaynak denetimi         |git                    |
 |Derleme araçları            |Olun<br> Maven<br> npm<br> pip         |
 |Kapsayıcılar             |[Docker CLI](https://github.com/docker/cli)/[Docker makinesi](https://github.com/docker/machine)<br> [Kubectl](https://kubernetes.io/docs/user-guide/kubectl-overview/)<br> [Helm](https://github.com/kubernetes/helm)<br> [DC/OS CLI'Sİ](https://github.com/dcos/dcos-cli)         |
@@ -76,7 +76,7 @@ Cloud Shell'de önceden yapılandırılmış kimlik doğrulama için Terraform, 
 |Başlayın         |1.9        |
 |Java       |1.8        |
 |Node.js    |8.9.4      |
-|PowerShell |[6.1.0-Preview.4](https://github.com/PowerShell/powershell/releases)       |
+|PowerShell |[6.1.0](https://github.com/PowerShell/powershell/releases)       |
 |Python     |2.7 ve 3.5 (varsayılan)|
 
 ## <a name="next-steps"></a>Sonraki adımlar

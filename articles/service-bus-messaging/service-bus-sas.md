@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/14/2018
 ms.author: spelluru
-ms.openlocfilehash: d75f8654a33d670f107508b9e91661b1a7719755
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: adc9d64c4756e055b3ff9b772feebd80902d2c9f
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47408564"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48857882"
 ---
 # <a name="service-bus-access-control-with-shared-access-signatures"></a>Paylaşılan erişim imzaları ile Service Bus erişim denetimi
 
@@ -31,7 +31,7 @@ SAS, Service Bus yetkilendirme kurallarına göre erişimi korur. Bu, bir ad ala
 
 Paylaşılan erişim imzaları basit belirteçleri kullanarak bir beyana dayalı yetkilendirme mekanizması mevcuttur. SAS kullanarak, anahtarları asla kablo geçirilir. Anahtarlar şifreli olarak daha sonra hizmet tarafından doğrulanabilir bilgi imzalamak için kullanılır. SAS benzer bir kullanıcı adı ve parola düzeni için istemci anında bir yetkilendirme kuralı adı ve eşleşen bir anahtar elinde olduğu kullanılabilir. SAS de benzer bir Federasyon güvenlik modeli, burada istemci bir süre sınırlı ve imzalanmış bir erişim belirteci bir güvenlik belirteci Hizmeti'nden imzalama anahtarı elinde gelmeden alır kullanılabilir.
 
-Service Bus SAS kimlik doğrulaması yapılandırılmış adlı [paylaşılan erişimi yetkilendirme kuralları](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) ilişkili erişim hakları ve bir çift birincil ve ikincil şifreleme anahtarına. Anahtarları Base64 gösterimine 256 bitlik değerler. Ad alanı düzeyinde, hizmet veri yolu kuralları yapılandırabilirsiniz [geçişleri](service-bus-fundamentals-hybrid-solutions.md#relays), [kuyrukları](service-bus-fundamentals-hybrid-solutions.md#queues), ve [konuları](service-bus-fundamentals-hybrid-solutions.md#topics).
+Service Bus SAS kimlik doğrulaması yapılandırılmış adlı [paylaşılan erişimi yetkilendirme kuralları](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) ilişkili erişim hakları ve bir çift birincil ve ikincil şifreleme anahtarına. Anahtarları Base64 gösterimine 256 bitlik değerler. Ad alanı düzeyinde, hizmet veri yolu kuralları yapılandırabilirsiniz [geçişleri](../service-bus-relay/relay-what-is-it.md), [kuyrukları](/service-bus-messaging/service-bus-messaging-overview.md#queues), ve [konuları](/service-bus-messaging/service-bus-messaging-overview.md#topics).
 
 [Paylaşılan erişim imzası](/dotnet/api/microsoft.servicebus.sharedaccesssignaturetokenprovider) belirteç erişilebilir, bir süre sonu anında, kaynağın URI'sini seçilen Yetkilendirme kuralının adını içerir ve HMAC SHA256 şifreleme imzası kullanarak bu alanları hesaplanır birincil veya ikincil şifreleme anahtarı seçilen yetkilendirme kuralı.
 
@@ -301,7 +301,6 @@ Aşağıdaki tablo, Service Bus kaynakları üzerinde çeşitli işlemler için 
 
 Service Bus mesajlaşma hizmeti hakkında daha fazla bilgi edinmek için aşağıdaki konu başlıklarına bakın.
 
-* [Service Bus ile ilgili temel bilgiler](service-bus-fundamentals-hybrid-solutions.md)
 * [Service Bus kuyrukları, konu başlıkları ve abonelikleri](service-bus-queues-topics-subscriptions.md)
 * [Service Bus kuyruklarını kullanma](service-bus-dotnet-get-started-with-queues.md)
 * [Service Bus konu başlıklarını ve aboneliklerini kullanma](service-bus-dotnet-how-to-use-topics-subscriptions.md)

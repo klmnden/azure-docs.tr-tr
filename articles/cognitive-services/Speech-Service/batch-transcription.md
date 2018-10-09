@@ -8,16 +8,16 @@ ms.technology: Speech to Text
 ms.topic: article
 ms.date: 04/26/2018
 ms.author: panosper
-ms.openlocfilehash: 860b58a18fbc14532a8591fc753453d60492d3c0
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: e702cb6da3378e460ebb68542d82e736b9f57a52
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46981381"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48857797"
 ---
 # <a name="batch-transcription"></a>Toplu iş transkripsiyonu
 
-Batch tanıma, ses büyük miktarlarda varsa idealdir. Ses dosyalarının olduğu noktaya ve döküm zaman uyumsuz modda geri dönebilirsiniz.
+Batch tanıma, ses büyük miktarlarda varsa idealdir. Ses dosyaları URI tarafından üzerine gelin ve döküm zaman uyumsuz modda geri dönebilirsiniz.
 
 ## <a name="batch-transcription-api"></a>Batch tanıma API'si
 
@@ -59,7 +59,7 @@ Stereo ses akışları için Batch döküm sırasında transkripsiyonu sol ve sa
 
 ## <a name="authorization-token"></a>Yetkilendirme belirteci
 
-Birleşik konuşma hizmeti tüm özellikleri ile bir abonelik anahtarı oluştururken [Azure portalında](https://portal.azure.com) aşağıdaki bizim [başlangıç kılavuzunu](get-started.md). Bizim temel modellerinden döküm alma planlıyorsanız, daha sonra tek yapmanız gereken budur. 
+Konuşma hizmeti tüm özellikleri ile bir abonelik anahtarı oluştururken [Azure portalında](https://portal.azure.com) aşağıdaki bizim [başlangıç kılavuzunu](get-started.md). Bizim temel modellerinden döküm alma planlıyorsanız, daha sonra tek yapmanız gereken budur. 
 
 Özelleştirme ve özel bir model kullanarak planlıyorsanız bu subscritpion anahtar özel konuşma tanıma Portalı'na aşağıdaki gibi eklemeniz gerekir:
 

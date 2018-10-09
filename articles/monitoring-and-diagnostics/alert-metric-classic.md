@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/18/2018
 ms.author: snmuvva
 ms.component: alerts
-ms.openlocfilehash: e0c9cc342bb4b06053f53abc891ee1c415327998
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 308ba7fd7635dc243d88b73b7785b747969bbbbb
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47410009"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48854023"
 ---
 # <a name="create-view-and-manage-classic-metric-alerts-using-azure-monitor"></a>Oluşturun, görüntüleyin ve Azure İzleyicisi'ni kullanarak Klasik ölçüm uyarılarını yönetme
 
@@ -36,7 +36,7 @@ Azure İzleyici'de klasik ölçüm uyarılarını bildirim almak için bir yol s
 
 6. Seçin **e-posta sahipleri...**  yöneticileri ve ortak yöneticilerin uyarı tetiklendiğinde e-posta bildirimleri almak istiyorsanız.
 
-7. Uyarı tetiklendiğinde ek e-posta adreslerine bildirim gönder istiyorsanız, bunları eklemek **ek yönetici email(s)** alan. Birden çok e-postalar aşağıdaki biçimde bir noktalı virgül ile ayırın:  *email@contoso.com; email2@contoso.com*
+7. Uyarı tetiklendiğinde ek e-posta adreslerine bildirim gönder istiyorsanız, bunları eklemek **ek yönetici email(s)** alan. Birden çok e-postalar aşağıdaki biçimde bir noktalı virgül ile ayırın:  *email@contoso.com;email2@contoso.com*
 
 8. Geçerli bir URI koymak **Web kancası** uyarı tetiklendiğinde çağrılacak istiyorsanız alan.
 

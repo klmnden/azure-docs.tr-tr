@@ -12,30 +12,20 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: article
-ms.date: 09/20/2018
+ms.date: 10/05/2018
 ms.author: yijenj
-ms.openlocfilehash: 0b971535120e51a9aeec7b57da133c6b8db6a09e
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 383f16bf0671e0bdec840afe1abe85e37ed32ce2
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47219423"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48855366"
 ---
 # <a name="azure-marketplace-listing-guidelines"></a>Azure Market listelemesi yönergeleri
 
 Bu belge, yeni teklifler ve Azure Market'te listelenen hizmetler için gözden geçirenler için gereksinim kuralları ve bunun yanı sıra bir denetim listesi içerir.
 
-Tüm teklifleri, "tüm liste gereksinimleri" karşılaması gerekir. Ek gereksinimler ve denetim listeleri de dahil olmak üzere belirli bir liste türleri için sağlanan: teklifleri, SaaS uygulamaları ve kapsayıcılarınızı danışmanlık ekli deneme ile sunar.
-
-**Örnekleri burada listelemek iyi bakın:**
-| Teklif Türü | Teklif bağlantı
-|:--- |:--- |
-| Genel | <br> https://azuremarketplace.microsoft.com/en-us/marketplace/apps/barracudanetworks.waf?tab=Overview <br> https://azuremarketplace.microsoft.com/en-us/marketplace/apps/netapp.netapp-altavault-cloud-integrated-storage-solution?tab=Overview |
-| Deneme | https://azuremarketplace.microsoft.com/en-us/marketplace/apps/intigua.intigua-agent-manager-trial?tab=Overview |
-| SaaS Uygulamaları | https://azuremarketplace.microsoft.com/en-us/marketplace/apps/apptimized.isvtesting?tab=Overview |
-| Kapsayıcılar |https://azuremarketplace.microsoft.com/en-us/marketplace/apps/couchbase.couchbase-server-enterprise-containercouchbase-enterprise-server-container-byol?tab=Overview |
-| Danışmanlık Hizmetleri | https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/wipro-ltd.cmp-wipro?page=1 |
-
+Tüm teklifleri karşılamalıdır [listeleme tüm gereksinimleri](https://docs.microsoft.com/azure/marketplace/marketplace-criteria-content-validation#all-listing-requirements) aşağıda gösterilir. Ek gereksinimler ve denetim listeleri de dahil olmak üzere belirli bir liste türleri için sağlanan: teklifleri bağlı [denemeler](https://docs.microsoft.com/azure/marketplace/marketplace-criteria-content-validation#trial-offer-requirements), [SaaS uygulamaları](https://docs.microsoft.com/azure/marketplace/marketplace-criteria-content-validation#saas-apps-requirements), [kapsayıcıları](https://docs.microsoft.com/azure/marketplace/marketplace-criteria-content-validation#container-offer-requirements)ve [teklifler danışmanlık](https://docs.microsoft.com/azure/marketplace/marketplace-criteria-content-validation#consulting-offer-requirements).
 
 
 ## <a name="all-listing-requirements"></a>Tüm listeyi gereksinimleri
@@ -108,10 +98,8 @@ Tüm teklifleri, "tüm liste gereksinimleri" karşılaması gerekir. Ek gereksin
 | 12 | Daha Fazla Bilgi Edinin  | <br>• Bağlantılar alt (altında açıklama, Market bağlantıları soldaki değil) çözümü hakkında daha fazla bilgi için müşteri adayları ve doğru şekilde genel olarak kullanılabilir ve görüntüleme. <br>• Bağlantılar bir "kolay adı" olmalıdır ve dosya adı herhangi bir indirme olarak görünmeyen | |
 
 
-
-
 ## <a name="next-steps"></a>Sonraki adımlar
-* Farklı teklif türlerinin Market'te hakkında bilgi edinin <br>[SaaS Uygulamaları](https://docs.microsoft.com/azure/marketplace/marketplace-saas-applications-technical-publishing-guide) <br>[Kapsayıcılar](https://docs.microsoft.com/azure/marketplace/marketplace-containers) <br>[Danışmanlık Hizmetleri](https://docs.microsoft.com/azure/marketplace/consulting-services)
+* Farklı teklif türlerinin Market'te hakkında bilgi edinin <br>[SaaS Uygulamaları](https://docs.microsoft.com/azure/marketplace/marketplace-saas-applications-technical-publishing-guide) <br>[Kapsayıcılar](https://docs.microsoft.com/azure/marketplace/marketplace-containers) <br>[Danışmanlık hizmetleri](https://docs.microsoft.com/azure/marketplace/consulting-services)
 *   [Çözümünüz için liste türü belirlenemiyor](https://docs.microsoft.com/azure/marketplace/determine-your-listing-type)
 
  

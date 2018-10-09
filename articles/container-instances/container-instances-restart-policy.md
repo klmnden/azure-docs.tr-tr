@@ -2,18 +2,17 @@
 title: Yeniden başlatma ilkeleri ile Azure Container Instances'da kapsayıcılı görevleri çalıştırma
 description: Derleme, test veya görüntü işleme işlerini gibi tamamlanmak üzere çalıştırılmasını görevleri yürütmek için Azure Container Instances'ı kullanmayı öğrenin.
 services: container-instances
-author: mmacy
-manager: jeconnoc
+author: dlepow
 ms.service: container-instances
 ms.topic: article
 ms.date: 07/26/2018
-ms.author: marsma
-ms.openlocfilehash: f4d30a9902261c0e785a1af36a7c1c7a8a0fec46
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.author: danlep
+ms.openlocfilehash: c9e3fadd5164ca0d770f36ba95c30db933efcd39
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39444954"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48853904"
 ---
 # <a name="run-containerized-tasks-with-restart-policies"></a>Yeniden başlatma ilkeleri ile kapsayıcılı görevleri çalıştırma
 

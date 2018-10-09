@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/21/2018
 ms.author: spelluru
-ms.openlocfilehash: 784709f29772f10968cabc3f3763cc7be7c8b383
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 7045172fcd3c64cb0d979f5e3e8381c49579f1d2
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47393358"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48855264"
 ---
 # <a name="migrate-from-azure-active-directory-access-control-service-to-shared-access-signature-authorization"></a>Azure Active Directory erişim denetimi hizmetinden alınan paylaşılan erişim imzası yetkisi geçirme
 
@@ -66,5 +66,4 @@ Service Bus kimlik doğrulaması hakkında daha fazla bilgi edinmek için aşağ
 
 * [Service Bus kimlik doğrulama ve yetkilendirme](service-bus-authentication-and-authorization.md)
 * [Paylaşılan erişim imzaları ile Service Bus kimlik doğrulaması](service-bus-sas.md)
-* [Service Bus ile ilgili temel bilgiler](service-bus-fundamentals-hybrid-solutions.md)
 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2018
 ms.author: spelluru
-ms.openlocfilehash: bd9d1b813c90be09301eeff1de7580f22c15500b
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 954c16cefe6d7ffe61a0b04b274b9bf92306a587
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47407595"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48857593"
 ---
 # <a name="message-counters"></a>İleti sayaçları
 
@@ -40,13 +40,12 @@ Etkin mesaj sayısı bilmek, bir sıra yukarı ne şu anda dağıtılmış olan 
 -   [TransferDeadLetterMessageCount](/dotnet/api/microsoft.servicebus.messaging.messagecountdetails.transferdeadlettermessagecount#Microsoft_ServiceBus_Messaging_MessageCountDetails_TransferDeadLetterMessageCount): başka bir kuyruk veya konuda aktarımı başarısız oldu ve aktarım sahipsiz sıraya taşınmış iletileri.
 -   [TransferMessageCount](/dotnet/api/microsoft.servicebus.messaging.messagecountdetails.transfermessagecount#Microsoft_ServiceBus_Messaging_MessageCountDetails_TransferMessageCount): başka bir kuyruk veya konuda aktarımı bekleyen iletileri.
 
-Kaynakları kuyruk uzunluğuna göre ölçeklendirmek bir uygulama isterse, bunu bir çok ölçülen yapmanız gerektiğini uygun bir hızda. İleti sayaçları alımını ileti Aracısı içinde pahalı bir işlemdir ve sık sık doğrudan ve olumsuz yürütme varlık performansını etkiler.
+Kaynakları kuyruk uzunluğuna göre ölçeklendirmek bir uygulama isterse, bunu bir ölçülen yapmanız gerektiğini uygun bir hızda. İleti sayaçları alımını ileti Aracısı içinde pahalı bir işlemdir ve sık sık doğrudan ve olumsuz yürütme varlık performansını etkiler.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 Service Bus mesajlaşması hakkında daha fazla bilgi edinmek için aşağıdaki konulara bakın:
 
-* [Service Bus ile ilgili temel bilgiler](service-bus-fundamentals-hybrid-solutions.md)
 * [Service Bus kuyrukları, konu başlıkları ve abonelikleri](service-bus-queues-topics-subscriptions.md)
 * [Service Bus kuyrukları ile çalışmaya başlama](service-bus-dotnet-get-started-with-queues.md)
 * [Service Bus konu başlıklarını ve aboneliklerini kullanma](service-bus-dotnet-how-to-use-topics-subscriptions.md)

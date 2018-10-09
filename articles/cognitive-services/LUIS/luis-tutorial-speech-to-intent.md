@@ -10,12 +10,12 @@ ms.technology: language-understanding
 ms.topic: article
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 1625bb9e9f51f8460db4e7ccbaf6e5eada3f8180
-ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
+ms.openlocfilehash: fb17e2d8c0ef1df5a6d4965730d3ddd3764d58f5
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2018
-ms.locfileid: "48831068"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48868760"
 ---
 # <a name="integrate-speech-service"></a>Konuşma hizmeti tümleştirin
 [Konuşma hizmeti](https://docs.microsoft.com/azure/cognitive-services/Speech-Service/) ses almak ve JSON nesneleri LUIS tahmin dönmek için tek bir istek kullanmanıza olanak tanır. Bu makalede, indirin ve bir mikrofona bir utterance konuşmak ve LUIS tahmin bilgi almak için Visual Studio'da C# projesi kullanın. Konuşma kullandığından [NuGet](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech/) paket, bir başvuru olarak zaten eklendi. 
@@ -26,7 +26,7 @@ Bu makale için ücretsiz bir gereksinim [LUIS] [ LUIS] uygulamayı içeri aktar
 Azure portalında [oluşturma](luis-how-to-azure-subscription.md#create-luis-endpoint-key) bir **Language Understanding** (LUIS) anahtarı. 
 
 ## <a name="import-human-resources-luis-app"></a>İnsan Kaynakları LUIS alma uygulaması
-İnsan Kaynakları LUIS uygulaması kullanılabilir amacı ve bu makalede konuşma arasındadır [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples) Github deposu. İndirme [HumanResources.json](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/HumanResources.json) kaydedin *.json uzantılı bir dosya ve [alma](luis-how-to-start-new-app.md#import-new-app) LUIS içine. 
+İnsan Kaynakları LUIS uygulaması kullanılabilir amacı ve bu makalede konuşma arasındadır [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples) Github deposu. İndirme [HumanResources.json](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/HumanResources.json) ile kaydetmek bir dosya `.json` uzantısı ve [alma](luis-how-to-start-new-app.md#import-new-app) LUIS içine. 
 
 Bu uygulamanın amacı, varlıkları ve İnsan Kaynakları etki ilgili konuşma yok. Örnek konuşma şunlardır:
 
@@ -68,52 +68,24 @@ Speech SDK'sı zaten bir başvuru olarak dahil edilir.
 [![](./media/luis-tutorial-speech-to-intent/nuget-package.png "Visual Studio 2017 ekran görüntüleme Microsoft.CognitiveServices.Speech NuGet paketi")](./media/luis-tutorial-speech-to-intent/nuget-package.png#lightbox)
 
 ## <a name="modify-the-c-code"></a>C# kodu değiştirin
-Açık **LUIS_samples.cs** dosyasını açıp aşağıdaki değişkenleri değiştirin:
+Açık `Program.cs` dosyasını açıp aşağıdaki değişkenleri değiştirin:
 
 |Değişken adı|Amaç|
 |--|--|
-|luisSubscriptionKey|Uç nokta URL'SİNİN abonelik anahtarı değerine Yayımla sayfasından karşılık gelir.|
-|luisRegion|Uç nokta URL'SİNİN ilk alt etki alanı için karşılık gelen|
-|luisAppId|Uç nokta URL'SİNİN yol aşağıdaki karşılık gelen **uygulamalar /**|
+|LUIS_assigned_endpoint_key|Uç nokta URL'SİNİN Yayımla sayfasından aboneliği-anahtar değer atanmış karşılık gelir|
+|LUIS_endpoint_key_region|Uç nokta URL'SİNİN ilk alt etki alanı için örneğin karşılık gelir `westus`|
+|LUIS_app_ID|Uç nokta URL'SİNİN yol aşağıdaki karşılık gelen **uygulamalar /**|
 
-[![](./media/luis-tutorial-speech-to-intent/change-variables.png "Ekran görüntüsü, Visual Studio LUIS_samples.cs değişkenleri görüntüleme 2017")](./media/luis-tutorial-speech-to-intent/change-variables.png#lightbox)
-
-Eşlenen İnsan Kaynakları ıntents dosya zaten var.
-
-[![](./media/luis-tutorial-speech-to-intent/intents.png "Ekran görüntüsü, Visual Studio LUIS_samples.cs ıntents görüntüleme 2017")](./media/luis-tutorial-speech-to-intent/intents.png#lightbox)
+`Program.cs` Dosyası zaten eşlenmiş İnsan Kaynakları hedefleri sahiptir.
 
 Derleme ve uygulamayı çalıştırın. 
 
 ## <a name="test-code-with-utterance"></a>Utterance koduyla test
-Seçin **1** ve mikrofona "Kim John Smith Yöneticisi".
+Mikrofona "Redmond'da onaylanan diş hekimi kim?".
 
-```cmd
-1. Speech recognition of LUIS intent.
-0. Stop.
-Your choice: 1
-LUIS...
-Say something...
-ResultId:cc83cebc9d6040d5956880bcdc5f5a98 Status:Recognized IntentId:<GetEmployeeOrgChart> Recognized text:<Who is the manager of John Smith?> Recognized Json:{"DisplayText":"Who is the manager of John Smith?","Duration":25700000,"Offset":9200000,"RecognitionStatus":"Success"}. LanguageUnderstandingJson:{
-  "query": "Who is the manager of John Smith?",
-  "topScoringIntent": {
-    "intent": "GetEmployeeOrgChart",
-    "score": 0.617331
-  },
-  "entities": [
-    {
-      "entity": "manager of john smith",
-      "type": "builtin.keyPhrase",
-      "startIndex": 11,
-      "endIndex": 31
-    }
-  ]
-}
+[!code-console[Command line response from spoken utterance](~/samples-luis/documentation-samples/tutorial-speech-intent-recognition/console-output.txt "Command line response from spoken utterance")]
 
-Recognition done. Your Choice:
-
-```
-
-Doğru amaç **GetEmployeeOrgChart**, %61 güvenle bulundu. Anahtar cümlesi varlık döndürdü. 
+Doğru amaç **GetEmployeeBenefits**, % 85'lik güvenle bulundu. Anahtar cümlesi varlık döndürdü. 
 
 Speech SDK'sı LUIS yanıtın tamamını döndürür. 
 

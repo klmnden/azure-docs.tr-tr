@@ -11,19 +11,72 @@ author: danimir
 ms.author: v-daljep
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 07/16/2018
-ms.openlocfilehash: c79285247950510791ede915fcf0e5373792044f
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.date: 10/06/2018
+ms.openlocfilehash: 7a83bb527a4ccea10e8d9d59d9b5f8e6e75ae106
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47165050"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48857814"
 ---
 # <a name="monitoring-and-performance-tuning"></a>İzleme ve performans ayarlama
 
 Azure SQL veritabanı otomatik olarak yönetilir ve burada kolayca izleyebilir, kullanım, ekleyebilir veya kaynakları (CPU, bellek, g/ç) kaldırmak esnek veri hizmeti bulun, veritabanınızın performansını veya veritabanı iş yükünüze uyum sağlar. öneriler ve otomatik olarak performansı iyileştirin.
 
+## <a name="the-state-of-an-active-query"></a>Etkin bir sorgu durumu
+
+Azure SQL veritabanı performansını artırmak için her etkin sorgu isteği uygulamanızdan bir çalışan veya bekleme durumunda olduğunu anlayın. Aşağıdaki grafikte, Azure SQL veritabanında bir performans sorunu gidermede dikkat edin:
+
+![İş yükü durumları](./media/sql-database-monitor-tune-overview/workload-states.png)
+
+Performans sorunları olan bir iş yükü için performans sorunu my CPU Çekişme nedeniyle olabilir (bir **çalıştırma ile ilgili** koşul) veya tek tek sorgular üzerinde bir bekleyen (bir **bekleme ilgili** koşul) .
+
+- **Aşırı CPU kullanımı, Azure SQL veritabanı'nda**:
+
+  Aşırı CPU kullanımına neden olan performans sorunları aşağıdaki koşullarda görebilirsiniz:
+
+  - Çok fazla sayıda çalışan sorguları
+  - Çok fazla derleme sorguları
+  - Bir veya daha çok yürütülen sorguları optimum sorgu planı kullanma
+
+  İş yükünüz için Durum buysa, amacınız tanımlamak ve ilişkili sorgularınızı ayarlamak veya işlem boyutu yükseltin veya hizmet katmanını CPU gereksinimleri etkisini azaltmak amacıyla Azure SQL veritabanınızın kapasitesini artırmak için sağlamaktır. Tek veritabanları için kaynakların ölçeklendirilmesi, daha fazla bilgi için [Azure SQL veritabanı'nda tek bir veritabanı kaynakları ölçeklendirme](sql-database-single-database-scale.md) ve elastik havuzlar için kaynakların ölçeklendirilmesi için bkz [Azure SQL elastik havuzu kaynakları ölçeklendirme Veritabanı](sql-database-elastic-pool-scale.md).
+
+- **Tek bir sorgu üzerinde bekliyor**
+
+  Her sorgu için bekleyen sorgu nedeniyle performans sorunları olabilir. Bu senaryoda, kaldırmak veya bekleme süresini azaltmak için amacınız anlamaktır.
+
+### <a name="determine-if-you-have-a-running-related-performance-issue"></a>Bir çalıştırma ile ilgili performans sorunu olup olmadığını belirleme
+
+Çeşitli yöntemler kullanarak çalıştırma ile ilgili performans sorunlarını tespit edebilirsiniz. En sık kullanılan yöntemler şunlardır:
+
+- Kullanım [Azure portalında](#monitor-databases-using-the-azure-portal) CPU yüzdesi kullanımı izlemek için.
+- Aşağıdaki [dinamik yönetim görünümlerini](sql-database-monitoring-with-dmvs.md):
+
+  - [sys.dm_db_resource_stats](sql-database-monitoring-with-dmvs.md#monitor-resource-use) bir Azure SQL veritabanı için CPU, g/ç ve bellek tüketimi döndürür. Veritabanında hiç etkinlik olsa her 15 saniyede bir satır yok. Geçmiş verileri, bir saat boyunca korunur.
+  - [sys.resource_stats](sql-database-monitoring-with-dmvs.md#monitor-resource-use) bir Azure SQL veritabanı için CPU kullanımı ve depolama verilerini döndürür. Veriler toplanır ve beş dakikalık aralıklarla içinde toplanır.
+
+> [!TIP]
+> Genel bir kural olarak, CPU kullanımı veya % 80'de, üzerindeki tutarlı bir şekilde ise bir çalıştırma ile ilgili performans sorunu gerekir.
+
+### <a name="determine-if-you-have-a-waiting-related-performance-issue"></a>Bekleyen ilgili performans sorunu olup olmadığını belirleme
+
+İlk olarak, bu yüksek CPU, çalıştırma ile ilgili performans sorunu olmadığını emin olun. Yüklü değilse, sonraki adımda, uygulama iş yükünüz ile ilişkili üst bekler belirlemektir.  Üst göstermek için ortak yöntemleri türü kategorilerini bekleyin:
+
+- [Query Store](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store) bekleme istatistikleri sorgu başına zamanla sağlar. Query Store bekleme türleri bekleme kategoriler halinde birleştirilir. Eşleme türleri beklemek bekleme kategorilerin kullanılabilir [sys.query_store_wait_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-query-store-wait-stats-transact-sql.md#wait-categories-mapping-table).
+- [sys.dm_db_wait_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-wait-stats-azure-sql-database) işlemi sırasında yürütülen iş parçacığı tarafından karşılaşılan bekler hakkında bilgi verir. Azure SQL veritabanı ve ayrıca özel sorgular ve toplu işler ile performans sorunlarını tanılamak için bu birleşik bir görünüm kullanabilirsiniz.
+- [sys.dm_os_waiting_tasks](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-os-waiting-tasks-transact-sql) bazı kaynak üzerinde bekleyen görevlerin bekleme kuyruk hakkındaki bilgileri döndürür.
+
+Önceki grafikte gösterildiği gibi en yaygın bekler şunlardır:
+
+- Kilitleri (engelleme)
+- G/Ç
+- tempdb ilgili çakışması
+- Bellek verme bekler
+
+Gördüğünüz bağlı olarak, farklı bir sorun giderme yol her bekleme kategorisi vardır.
+
 ## <a name="overview-of-monitoring-database-performance-in-azure-sql-database"></a>Azure SQL database'de veritabanı performansını izlemeye genel bakış
+
 Azure SQL veritabanı performansını izlemeye, seçtiğiniz veritabanı performans düzeyiyle ilgili kaynak kullanımını izleyerek başlarsınız. İzleme yardımcı olur, veritabanınızın gerekenden fazla kapasiteye sahip veya bu kaynakları dışarı ayarlanma çünkü sorun yaşıyor belirlemek ve ardından hizmet katmanları, veritabanı ve işlem boyutunu ayarlamak için süre olup olmadığına karar vermek [DTU tabanlı satın alma Model](sql-database-service-tiers-dtu.md) veya [sanal çekirdek tabanlı satın alma modeli](sql-database-service-tiers-vcore.md). Veritabanınızda izleyebilirsiniz [Azure portalında](https://portal.azure.com) aşağıdaki grafik araçları veya SQL kullanarak [dinamik yönetim görünümlerini (Dmv'ler)](sql-database-monitoring-with-dmvs.md).
 
 Azure SQL veritabanı sayesinde artırmak ve kaynakları değiştirmeden geçirerek sorgu performansını iyileştirmek için fırsatlarını belirlemek [performans ayarlama önerilerinde](sql-database-advisor.md). Veritabanı performansının düşük olmasına yol açan yaygın nedenler, dizinlerin eksik olması ve sorguların hatalı bir şekilde iyileştirilmesidir. İş yükünüzün performansını artırmak için bu ayar önerileri uygulayabilirsiniz.
@@ -37,12 +90,13 @@ Let Azure SQL veritabanı'na ayrıca [otomatik olarak, sorguların performansın
 - Ayrıca [dinamik yönetim görünümlerini (Dmv'ler)](sql-database-monitoring-with-dmvs.md), [Genişletilmiş olaylar (`XEvents`) (sql-database/sql-database-xevent-db-diff-from-svr.md) ve [Query Store](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store) performansı elde etmek için gerçek zamanlı parametreleri. Bkz: [performans rehberi](sql-database-performance-guidance.md) bu raporları ve görünümleri kullanarak bazı sorunu olduğunu belirlerseniz, Azure SQL veritabanı performansını artırmak için kullanabileceğiniz teknikleri bulunacak.
 
 ## <a name="monitor-databases-using-the-azure-portal"></a>Azure portalını kullanarak veritabanlarını izleme
+
 [Azure portalında](https://portal.azure.com/), tek veritabanlarının kullanımını veritabanınızı seçip **İzleme** grafiğine tıklayarak izleyebilirsiniz. Bu işlem sonrasında bir **Ölçüm** penceresi görüntülenir. **Grafiği düzenle** düğmesine tıklayarak değişiklik yapabilirsiniz. Şu ölçümleri ekleyin:
 
-* CPU yüzdesi
-* DTU yüzdesi
-* Veri G/Ç yüzdesi
-* Veri boyutu yüzdesi
+- CPU yüzdesi
+- DTU yüzdesi
+- Veri G/Ç yüzdesi
+- Veri boyutu yüzdesi
 
 Bu ölçümleri ekledikten sonra görüntülemeye devam edebilirsiniz **izleme** grafik hakkında daha fazla bilgi **ölçüm** penceresi. Dört ölçümün tümü de veritabanınızın ortalama **DTU** kullanım yüzdesini gösterir. Bkz: [DTU tabanlı satın alma modeli](sql-database-service-tiers-dtu.md) ve [sanal çekirdek tabanlı satın alma modeli](sql-database-service-tiers-vcore.md) makaleler hizmet katmanları hakkında daha fazla bilgi için.  
 
@@ -56,14 +110,14 @@ Performans ölçümleri, daha düşük bir işlem boyutu için geçemeyeceğiniz
 
 ## <a name="improving-database-performance-with-more-resources"></a>Daha fazla kaynak ile veritabanı performansı iyileştirme
 
-Son olarak, veritabanınızın performansını iyileştirebilir hiçbir eyleme dönüştürülebilir öğe varsa, Azure SQL veritabanı'nda kullanılabilir kaynakların miktarını değiştirebilirsiniz. Daha fazla kaynak değiştirerek atayabilirsiniz [DTU hizmet katmanı](sql-database-service-tiers-dtu.md) tek veritabanı veya elastik havuz edtu'ları dilediğiniz zaman artırın. Alternatif olarak, kullanıyorsanız [sanal çekirdek tabanlı satın alma modeli](sql-database-service-tiers-vcore.md), hizmet katmanını değiştirebilir veya veritabanınız için ayrılan kaynakları artırın. 
+Son olarak, veritabanınızın performansını iyileştirebilir hiçbir eyleme dönüştürülebilir öğe varsa, Azure SQL veritabanı'nda kullanılabilir kaynakların miktarını değiştirebilirsiniz. Daha fazla kaynak değiştirerek atayabilirsiniz [DTU hizmet katmanı](sql-database-service-tiers-dtu.md) tek veritabanı veya elastik havuz edtu'ları dilediğiniz zaman artırın. Alternatif olarak, kullanıyorsanız [sanal çekirdek tabanlı satın alma modeli](sql-database-service-tiers-vcore.md), hizmet katmanını değiştirebilir veya veritabanınız için ayrılan kaynakları artırın.
+
 1. Tek veritabanları için yapabilecekleriniz [hizmet katmanlarını değiştirme](sql-database-service-tiers-dtu.md) veya [işlem kaynaklarını](sql-database-service-tiers-vcore.md) veritabanı performansını artırmak için isteğe bağlı.
 2. Birden fazla veritabanı için kullanmayı [elastik havuzlar](sql-database-elastic-pool-guidance.md) kaynakları otomatik olarak ölçeklendirmek için.
 
 ## <a name="tune-and-refactor-application-or-database-code"></a>Ayarlayın ve yeniden düzenleme uygulama veya veritabanı kod
 
 Uygulama kodunun daha verimli veritabanı kullanmak, dizinleri değiştirin, plan zorlama veya iş yükünüz için veritabanını el ile uyum ipuçlarını kullanma değiştirebilirsiniz. El ile ayarlama ve kodu yeniden yazma için bazı yönergeler ve ipuçları bulabilirsiniz [performans Kılavuzu konu](sql-database-performance-guidance.md) makalesi.
-
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

@@ -1,20 +1,21 @@
 ---
-title: Proje URL'si Önizleme başvurusu - Microsoft Bilişsel hizmetler | Microsoft Docs
+title: Proje URL'si Önizleme başvurusu
+titlesuffix: Azure Cognitive Services
 description: Proje URL'si Önizleme uç noktası için başvuru.
 services: cognitive-services
 author: mikedodaro
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: project-url-preview
-ms.topic: article
+ms.component: project-url-preview
+ms.topic: reference
 ms.date: 03/29/2018
-ms.author: rosh, v-gedod
-ms.openlocfilehash: 46c011d62b6ae51f5f7d292345e6ece0e27a8541
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.author: rosh
+ms.openlocfilehash: 3416fd9bc63c48e976d0b00f42ec9f8119a40eb8
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37865884"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48870817"
 ---
 # <a name="project-url-preview-v7-reference"></a>Proje URL'si Önizleme v7 başvurusu
 
@@ -63,11 +64,11 @@ Maksimum sorgu URL'SİNİN uzunluğu 2.048 karakterdir. URL uzunluğu sınırı 
   
 |Üst bilgi|Açıklama|  
 |------------|-----------------|   
-|<a name="market" />BingAPIs-Pazar|Yanıtı üstbilgisi.<br /><br /> İstek tarafından kullanılan Pazar. Form \<languageCode\>-\<countryCode\>. Örneğin, en-US.|  
-|<a name="traceid" />BingAPIs TraceId|Yanıtı üstbilgisi.<br /><br /> İsteğinin ayrıntılarını içeren günlük girdisi kimliği. Bir hata oluştuğunda, bu kimliği yakalama Belirlemek ve sorunu çözmek mümkün değilse, bu kimliği yanı sıra destek ekibinin sağladığı diğer bilgiler içerir.|  
-|<a name="subscriptionkey" />Ocp-Apim-Subscription-Key|Gerekli isteği üstbilgisi.<br /><br /> Bu hizmet için RMS'ye kaydolurken aldığınız abonelik anahtarını [Bilişsel Hizmetler](https://www.microsoft.com/cognitive-services/).|  
-|<a name="clientid" />X MSEdge ClientID|İsteğe bağlı istek ve yanıt üst bilgisi.<br /><br /> Bing Bing API çağrıları arasında tutarlı bir davranış ile kullanıcılara sağlamak için bu üstbilgiyi kullanır. Bing sıklıkla yeni özellikler ve geliştirmeler uçuşlar ve istemci kimliği farklı uçuşlar trafiğinde atamak için bir anahtar olarak kullanır. Birden çok istekler genelinde bir kullanıcı için aynı istemci Kimliğini kullanmazsanız Bing için birden çok çakışan uçuşlar kullanıcı atayabilir. Birden çok çakışan uçuşlar için atanan bir tutarsız kullanıcı deneyimine neden olabilir. Örneğin, bir farklı uçuş ataması ilk değerinden ikinci isteği varsa deneyimi beklenmeyen olabilir. Bing web sonuçları, istemci için uygun hale getirmek için Ayrıca, istemci Kimliğini kullanabilirsiniz kimliğin arama geçmişi, kullanıcı için daha zengin bir deneyim sağlar.<br /><br /> Bing sonucu sonuçlarımızda bir istemci kimliği tarafından oluşturulan bir etkinlik analiz ederek geliştirmeye yardımcı olmak için bu üst bilgi de kullanır. İlgi geliştirmeleri, Bing API'leri ve sırayla tıklama etkinleştirir daha yüksek ücretler için API tüketici teslim sonuçlarının daha iyi bir nitelikle yardımcı olur.<br /><br />Bu üst bilgiye Uygula temel kullanım kuralları aşağıda verilmiştir.<br /><ul><li>Cihazda uygulamanızın kullandığı her bir kullanıcı bir benzersiz olmalıdır, Bing oluşturulan istemci kimliği.<br /><br/>İstekte bu başlığı eklemezseniz, Bing bir kimlik üretir ve X MSEdge ClientID yanıt üst bilgisinde döndürür. Bir istekte bu üst bilgi içermemelidir yalnızca bir kez ilk kez kullanıcı o cihazda uygulamanızın kullandığı ' dir.<br /><br/></li><li>İstemci Kimliğini, cihazda bu kullanıcı için uygulamanıza yaptığı her Bing API isteği için kullanın.<br /><br/></li><li>**DİKKAT:** bu istemci kimliği için herhangi bir authenticatable kullanıcı hesabı bilgisi değişkenlerinden değil emin olmanız gerekir.</li><br/><li>Kalıcı istemci kimliği. Bir tarayıcı uygulamasında kimliği kalıcı hale getirmek için kalıcı bir HTTP tanımlama bilgisi kimliği tüm oturumlarda kullanıldığından emin olmak için kullanın. Oturum tanımlama bilgisinin kullanmayın. Mobil uygulamalar gibi diğer uygulamalar için cihazın kalıcı depolama kimliği kalıcı hale getirmek için kullanın.<br /><br/>Kullanıcı, cihazda uygulamanızın kullandığı bir sonraki açışınızda, kalıcı bir istemci kimliği alın.</li></ul><br /> **Not:** Bing yanıtlarını olabilir veya bu başlığı içermeyebilir. Bu üst bilgi yanıtı içeriyorsa, istemci kimliği yakalamak ve o cihazdaki kullanıcı için tüm sonraki Bing istekler için kullanın.<br /><br /> **Not:** X MSEdge ClientID eklerseniz, tanımlama bilgilerinin istekte içermemesi gerekir.|  
-|<a name="clientip" />X MSEdge Clientıp|İsteğe bağlı isteği üstbilgisi.<br /><br /> İstemci cihazı IPv4 veya IPv6 adresi. IP adresi, kullanıcının konumunu bulmak için kullanılır. Bing konum bilgileri güvenli arama davranışını belirlemek için kullanır.<br /><br />  Adres (örneğin, son sekizli 0 olarak değiştirerek) karartmak değil. Her yerden gerçek cihazın konumuna olmaması konumu adresi sonuçlarında obfuscating, hangi hatalı sonuçlar sunan Bing içinde neden olabilir.|  
+|<a name="market" />BingAPIs-Market|Yanıt üst bilgisi.<br /><br /> İstek tarafından kullanılan pazar. Biçimi şöyledir: \<languageCode\>-\<countryCode\>. Örneğin, tr-TR.|  
+|<a name="traceid" />BingAPIs-TraceId|Yanıt üst bilgisi.<br /><br /> İsteğin ayrıntılarını içeren günlük girdisinin kimliği. Hata oluştuğunda, bu kimliği yakalayın. Sorunu belirleyemez ve çözemezseniz, Destek ekibine diğer bilgilerle birlikte bu kimliği de sağlayın.|  
+|<a name="subscriptionkey" />Ocp-Apim-Subscription-Key|Gerekli istek üst bilgisi.<br /><br /> [Bilişsel Hizmetler](https://www.microsoft.com/cognitive-services/)'de bu hizmete kaydolduğunuzda aldığınız abonelik anahtarı.|  
+|<a name="clientid" />X-MSEdge-ClientID|İsteğe bağlı istek ve yanıt üst bilgisi.<br /><br /> Bing, kullanıcılara tüm Bing API çağrılarında tutarlı bir davranış sağlamak için bu üst bilgiyi kullanır. Bing sık sık yeni özellikler ve geliştirmeler dağıtır ve farklı dağıtımlarda trafik ataması yapmak için anahtar olarak istemci kimliğini kullanır. Bir kullanıcı için birden çok istekte aynı istemci kimliğini kullanmazsanız, Bing kullanıcıyı birden çok çakışan dağıtıma atayabilir. Birden çok çakışan dağıtıma eklenmek, tutarsız bir kullanıcı deneyimine yol açabilir. Örneğin, ikinci isteğin dağıtım ataması ilkinden farklıysa, beklenmeyen bir deneyim yaşanabilir. Ayrıca, Bing istemci kimliğini kullanarak web sonuçlarını istemci kimliğinin arama geçmişine uyarlayabilir ve bu sayede kullanıcıya daha zengin bir deneyim sağlayabilir.<br /><br /> Bing, istemci kimliği tarafından oluşturulan etkinliği analiz ederek sonuç derecelendirmelerini geliştirmeye yardımcı olması için de bu üst bilgiyi kullanabilir. İlgi geliştirmeleri Bing API'lerinin daha kaliteli sonuçlar vermesine yardımcı olur ve böylelikle API tüketicisi için daha yüksek tıklama oranları getirir.<br /><br />Bu üst bilgi için geçerli olan temel kullanım kuralları şunlardır:<br /><ul><li>Cihazda uygulamanızı kullanan her kullanıcının Bing tarafından oluşturulan benzersiz bir istemci kimliği olmalıdır.<br /><br/>İsteğe bu üst bilgiyi eklemezseniz, Bing bir kimlik oluşturur ve bu kimliği X-MSEdge-ClientID yanıt üst bilgisinde döndürür. İsteğe bu üst bilgiyi EKLEMEMENİZ gereken tek durum, söz konusu cihazda kullanıcının uygulamanızı ilk kez kullanmasıdır.<br /><br/></li><li>Cihazda uygulamanızın bu kullanıcı için yaptığı her Bing API'si isteğinde istemci kimliğini kullanın.<br /><br/></li><li>**DİKKAT:** bu istemci kimliği için herhangi bir authenticatable kullanıcı hesabı bilgisi değişkenlerinden değil emin olmanız gerekir.</li><br/><li>İstemci kimliğinin kalıcı olmasını sağlayın. Tarayıcı uygulamasında kimliği kalıcı hale getirmek için, tüm oturumlarda kimliğin kullanmasını sağlayacak bir kalıcı HTTP tanımlama bilgisi kullanın. Oturum tanımlama bilgisi kullanmayın. Mobil uygulamalar gibi diğer uygulamalarda, kimliği kalıcı hale getirmek için cihazın kalıcı depolamasını kullanın.<br /><br/>Kullanıcı o cihazda uygulamanızı yeniden kullandığında, kalıcı hale getirdiğiniz istemci kimliğini alın.</li></ul><br /> **NOT:** Bing yanıtları bu üst bilgiyi içerebilir veya içermeyebilir. Yanıt bu üst bilgiyi içeriyorsa, istemci kimliğini yakalayın ve o cihazda kullanıcı için bunu izleyen tüm Bing isteklerinde onu kullanın.<br /><br /> **NOT:** X-MSEdge-ClientID üst bilgisini eklerseniz, isteğe tanımlama bilgileri eklememelisiniz.|  
+|<a name="clientip" />X-MSEdge-ClientIP|İsteğe bağlı istek üst bilgisi.<br /><br /> İstemci cihazının IPv4 veya IPv6 adresi. IP adresi, kullanıcının konumunu bulmak için kullanılır. Bing konum bilgisini kullanarak güvenli arama davranışını saptar.<br /><br />  Adresi karartmayın (örneğin, son sekiz karakteri 0'la değiştirerek). Adresin karartılması, cihazın gerçek konumuna yakın olmayan bir konum sonucu verir ve bu da Bing'in hatalı sonuçlar sağlamasına yol açabilir.|  
 <br /><br /></li></ul>   
 
 ## <a name="query-parameters"></a>Sorgu parametreleri  
@@ -76,7 +77,7 @@ Aşağıdaki sorgu parametreleri istek içerebilir. Gerekli Parametreler için g
   
 |Ad|Değer|Tür|Gerekli|  
 |----------|-----------|----------|--------------|  
-|<a name="mkt" />Mkt|Sonuçları nereden geldiğini Pazar. <br /><br />Olası Pazar değerler listesi için bkz. [Pazar kodları](#market-codes).<br /><br /> **Not:** URL önizleme API'sı şu anda yalnızca ABD coğrafya ve İngilizce dilini desteklemektedir.<br /><br />|Dize|Evet|  
+|<a name="mkt" />mkt|Sonuçların geldiği pazar. <br /><br />Olası Pazar değerler listesi için bkz. [Pazar kodları](#market-codes).<br /><br /> **Not:** URL önizleme API'sı şu anda yalnızca ABD coğrafya ve İngilizce dilini desteklemektedir.<br /><br />|Dize|Evet|  
 |<a name="query" />q|Önizleme URL'si|Dize|Evet|  
 |<a name="responseformat" />responseFormat|Yanıt için kullanılacak medya türü. Büyük küçük harf duyarsız olası değerler şunlardır:<br /><ul><li>JSON</li><li>JSONLD</li></ul><br /> JSON varsayılandır. JSON hakkında bilgi yanıt içerdiğini nesneleri için bkz. [yanıt nesneleri](#response-objects).<br /><br />  JsonLd belirtirseniz, yanıt gövdesi, arama sonuçlarını içeren JSON-LD nesneler içerir. JSON-LD hakkında daha fazla bilgi için bkz. [JSON-LD](http://json-ld.org/).|Dize|Hayır|
 |<a name="safesearch"/>safeSearch|Geçersiz yetişkinlere yönelik içeriği veya korsan içeriği, 400 ' hata koduyla engellendi ve *isFamilyFriendly* bayrağı alınmadı. <p>Yetişkinlere yönelik içeriği için yasal, aşağıda davranıştır. Durum kodu 200 döndürür ve *isFamilyFriendly* bayrağı false olarak ayarlanır.<ul><li>safeSearch strict =: Başlık, açıklama, URL ve resmi olmayan döndürülür.</li><li>safeSearch Orta; = Başlık, URL ve açıklama ancak açıklayıcı görüntü alın.</li><li>safeSearch; = Tüm yanıt nesneleri/öğeleri – başlık, URL, açıklama ve resim alın.</li></ul> |Dize|Gerekli değildir. </br> Varsayılan olarak safeSearch için strict =.| 
@@ -109,7 +110,7 @@ Başarısız istek olduğunda yanıt içeren üst düzey nesnesi.
 |Ad|Değer|Tür|  
 |----------|-----------|----------|  
 |_türü|Tür ipucu.|Dize|  
-|<a name="errors" />hataları|İsteğin neden başarısız olma nedenlerini tanımlayan hataların listesi.|[Hata](#error)]|   
+|<a name="errors" />Hataları|İsteğin neden başarısız olma nedenlerini tanımlayan hataların listesi.|[Hata](#error)]|   
   
 
 ### <a name="webpage"></a>Web sayfası  

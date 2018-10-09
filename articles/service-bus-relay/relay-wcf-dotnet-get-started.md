@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 12/20/2017
 ms.author: spelluru
-ms.openlocfilehash: b9701eae026522238424a21ae3ecf2baa40334fa
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 6c8498a43b127fecc02473177ac955ae51a647d6
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43701774"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48854125"
 ---
 # <a name="how-to-use-azure-relay-wcf-relays-with-net"></a>Geçişleri .NET ile Azure geçişi WCF kullanma
 Bu makalede, Azure geçişi hizmetini kullanmayı açıklar. Bu örnekler, C# dilinde yazılmıştır ve Service Bus derlemesinde bulundurulan uzantıları içeren Windows Communication Foundation (WCF) API'sini kullanır. Azure geçişi hakkında daha fazla bilgi için bkz: [Azure geçişine genel bakış](relay-what-is-it.md).
@@ -220,7 +220,6 @@ Uç nokta tanımları App.config dosyasına taşınır. Daha önceden listelenen
 Azure geçişi ile ilgili temel bilgileri öğrendiniz, daha fazla bilgi için bu bağlantıları izleyin.
 
 * [Azure Geçiş nedir?](relay-what-is-it.md)
-* [Azure Service Bus mimarisine genel bakış](../service-bus-messaging/service-bus-fundamentals-hybrid-solutions.md)
 * Service Bus örneklerini indirin [Azure örnekleri] [ Azure samples] veya [Service Bus örneklerine genel bakış][overview of Service Bus samples].
 
 [Shared Access Signature Authentication with Service Bus]: ../service-bus-messaging/service-bus-shared-access-signature-authentication.md

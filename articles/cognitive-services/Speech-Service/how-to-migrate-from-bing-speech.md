@@ -9,12 +9,12 @@ ms.technology: Speech
 ms.topic: article
 ms.date: 10/01/2018
 ms.author: gracez
-ms.openlocfilehash: 432a17b1e3cd065bd6189ffa9f80ca5985629bb7
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: 2dc034ea28075019b74fe9d9be548cf9d355d20e
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48239967"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48857491"
 ---
 # <a name="migrate-from-bing-speech-to-the-speech-service"></a>Konuşma hizmeti için Bing konuşma içeriğinden geçirme
 
@@ -74,11 +74,11 @@ Konuşma hizmeti genel bir uç noktası şu anda sunmaz. Uygulamanızı verimli 
 
 Uygulamanızı uzun süreli bağlantılar kullanır ve kullanılabilir bir SDK'ları kullanamazsınız, WebsSockets bağlantı ve uygun zamanlarda yeniden bağlanmayı tarafından 10 dakikalık zaman aşımı sınırı yönetme kullanabilirsiniz.
 
-Yeni konuşma SDK'sı ile çalışmaya başlamak için:
+Konuşma SDK'sını kullanmaya başlamak için:
 
 1. İndirme [konuşma SDK](speech-sdk.md).
 1. Konuşma hizmeti üzerinden iş [hızlı başlangıç kılavuzları](quickstart-csharp-dotnet-windows.md), [öğreticiler](how-to-recognize-intents-from-speech-csharp.md)bakın [kod örnekleri](samples.md) deneyimi yeni API'ler ile almak için.
-1. Yeni konuşma hizmeti ve API'leri kullanmak için uygulamanızı güncelleştirin.
+1. Konuşma hizmeti ve API'leri kullanmak için uygulamanızı güncelleştirin.
 
 ## <a name="support"></a>Destek
 

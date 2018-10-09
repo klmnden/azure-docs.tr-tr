@@ -1,37 +1,38 @@
 ---
-title: Proje yanıt arama varlığı sorgusu - Microsoft Bilişsel hizmetler | Microsoft Docs
-description: Proje yanıt arama'yı kullanarak varlıklar için sorgu
+title: 'Hızlı Başlangıç: Proje yanıt arama varlık sorgusu'
+titlesuffix: Azure Cognitive Services
+description: Sorguları kullanarak proje yanıt arama varlıkları için
 services: cognitive-services
 author: mikedodaro
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: project-answer-search
+ms.component: project-answer-search
 ms.topic: article
 ms.date: 04/16/2018
-ms.author: rosh, v-gedod
-ms.openlocfilehash: 2b8382b791c02514e5110097700e223d98fafd6a
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.author: rosh
+ms.openlocfilehash: efb46fc7064bcad69b5ea84f9bdfe923d95ccbe6
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35353980"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48867587"
 ---
-# <a name="query-for-entities"></a>Varlıklar için sorgu
+# <a name="quickstart-query-for-entities"></a>Hızlı Başlangıç: Varlıklar sorgu
 
-Sorgu bir kişi, yer veya şey hakkındaki bilgileri isterse, yanıt içerebilir bir `entities` yanıt.  Sorguları, Web sayfaları, her zaman döndürür [bulguları](fact-queries.md) ve/veya [varlıklar](entity-queries.md) sorgu bağımlıdır.
+Sorgu bir kişi, yer veya şey hakkında bilgi isterse, yanıt içerebilir bir `entities` yanıt.  Sorguları, Web sayfaları, her zaman döndürür [gerçekleri](fact-queries.md) ve/veya [varlıkları](entity-queries.md) sorgu bağımlıdır.
 
 Varlıkları üç sorgu senaryoları destekler: 
--   DominantEntity — kullanıcının sorgu ve amacı eşleşen tek bir varlık yok. Örneğin, sorgu, alan iğnenin DominantEntity senaryodur. 
--   Kesinleştirme — kullanıcının sorgu ve amacı eşleşen birden fazla varlık ve doğru varlığı seçin kullanıcıya kadar olur. Örneğin, oyun, Thrones sorgu televizyon programını ve defteri serisini döndüren bir Kesinleştirme senaryodur. 
--   Liste — kullanıcının sorgu ve amacı eşleşen birden çok varlık vardır. Örneğin, "Endangered sağındaki listesi" sorgu satır ve hücre görüntülemek biçimlendirilmiş tablo değer döndüren bir liste senaryodur. 
+-   DominantEntity — kullanıcının sorgu ve amacını eşleşen tek bir varlık yok. Örneğin, sorgu alanı iğne DominantEntity senaryodur. 
+-   Kesinleştirme — kullanıcının sorgu ve amacını eşleşen birden fazla varlık ve doğru varlık seçmek için en fazla kullanıcı olduğu. Örneğin, sorgu, oyun Thrones televizyon programını ve kitap serisi döndüren Kesinleştirme senaryodur. 
+-   Liste — kullanıcının sorgu ve amacını eşleşen birden çok varlık vardır. Örneğin, "Endangered türler listesi" sorgu görüntülenmek üzere satırların ve hücrelerin biçimlendirilmiş tablosal değerleri döndürür bir liste senaryodur. 
  
-Sorgu senaryo belirlemek için `queryScenario` alanını `entities` nesnesi. Varlık içeren verileri varlığın türüne bağlıdır. Aynı temel bilgileri varlıkları içerse de, bazı varlıklar turistik faaliyetler ya da books gibi ek özellikler içerir. Ek özellikler dahil varlıklar dahil `_type` seri hale getirici tarafından kullanılan bir ipucu içeren alan. Aşağıdaki varlıklar ek özellikleri içerir: 
+Sorgu senaryo belirlemek için `queryScenario` alanını `entities` nesne. Varlık içeren verileri varlığın türüne bağlıdır. Varlıkları aynı temel bilgileri içerse de, bazı varlıklar turistik yerleri veya books gibi ek özellikleri içerir. Ek özellikler içeren varlıklar dahil `_type` seri hale getirici tarafından kullanılan bir ipucu içeren alan. Aşağıdaki varlıkların ek özellikler şunlardır: 
 -   Rehberi 
 -   MusicRecording 
 -   Kişi 
 -   Çekim 
  
-Yanıtı içeren varlık türünü belirlemek için `entityTypeHints` alan için fatura ağ geçitlerini sorguda gösterildiği gibi.
+Yanıtı içeren varlık türünü belirlemek için `entityTypeHints` sorguda Bill Gates'le için gösterildiği gibi alan.
 ````
         },
         "description": "Bill Gates is an American business man and philanthropist, co-founder of Microsoft",
@@ -44,7 +45,7 @@ Yanıtı içeren varlık türünü belirlemek için `entityTypeHints` alan için
         "bingId": "6d7d66a7-2cb8-0ae9-637c-f81fd749dc9a"
       }
 ````
-Alanı iğnenin yönelik bir sorgu verilmiştir:
+İğne alanı için bir sorgu verilmiştir:
 ````
 https://api.labs.cognitive.microsoft.com/answerSearch/v7.0/search?q=space+needle&mkt=en-us
 ````
@@ -109,9 +110,9 @@ Yanıt içeriyor `entities` yanıt. Not `entityScenario` ve `entityTypeHints` al
   },
 ````
 
-İlgili ise bir sorgu listesini dönebilirsiniz.
+İlgili ise bir sorgu listesini döndürebilir.
 
-**Sorgu:** aşağıdaki sorgu endangered sağındaki listesini bulur:
+**Sorgu:** aşağıdaki sorgu endangered türler listesini bulur:
 
 ````
 https://api.labs.cognitive.microsoft.com/answerSearch/v7.0/search?q=list+of+endangered+species

@@ -1,6 +1,6 @@
 ---
-title: Uygulama başına ölçeklendirme kullanarak Azure uygulama hizmeti üzerinde yüksek yoğunluklu barındırma | Microsoft Docs
-description: Azure uygulama hizmeti üzerinde yüksek yoğunluklu barındırma
+title: Azure App Service uygulama içi ölçeklendirme kullanarak yüksek yoğunluklu barındırma | Microsoft Docs
+description: Azure App Service üzerinde yüksek yoğunluklu barındırma
 author: btardif
 manager: erikre
 editor: ''
@@ -14,25 +14,25 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 01/22/2018
 ms.author: byvinyal
-ms.openlocfilehash: 97e1efe34417c3bf2f23801b2112b718f55d3416
-ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
+ms.openlocfilehash: f2cf472ef3c2c9950dd9f9382009e21fbf62771b
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36961951"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48856794"
 ---
-# <a name="high-density-hosting-on-azure-app-service-using-per-app-scaling"></a>Uygulama başına ölçeklendirme kullanarak Azure uygulama hizmeti üzerinde yüksek yoğunluklu barındırma
-Varsayılan olarak, uygulama hizmeti uygulamaları ölçeklendirme tarafından ölçeklendirmek [uygulama hizmeti planı](azure-web-sites-web-hosting-plans-in-depth-overview.md) zaman çalışır. Birden çok uygulama aynı uygulama hizmeti planında çalıştırdığınızda, her ölçeklendirilmiş örneği plandaki tüm uygulamaları çalıştırır.
+# <a name="high-density-hosting-on-azure-app-service-using-per-app-scaling"></a>Azure App Service uygulama içi ölçeklendirme kullanarak yüksek yoğunluklu barındırma
+Varsayılan olarak, App Service uygulamalarını ölçeklendirerek ölçeği [App Service planı](azure-web-sites-web-hosting-plans-in-depth-overview.md) zaman çalışır. Aynı App Service planında birden fazla uygulama çalıştırıldığında, her genişletilmiş örneği plandaki tüm uygulamaları çalışır.
 
-Etkinleştirebilirsiniz *uygulama başına ölçeklendirme* uygulama hizmeti planı düzeyi. Bir uygulamadan bağımsız olarak onu barındıran uygulama hizmeti planı ölçeklendirir. Bu şekilde, bir uygulama hizmeti planı 10 örneklerine genişletilebilir, ancak uygulama yalnızca beş kullanacak şekilde ayarlanabilir.
+Etkinleştirebilirsiniz *uygulama başına ölçeklendirme* App Service planı düzeyi. Bir uygulamadan bağımsız olarak onu barındıran App Service planı ölçeklendirir. Bu şekilde, bir App Service planı 10 örnek için ölçeklendirilebilir, ancak uygulama yalnızca beş kullanmak için ayarlanabilir.
 
 > [!NOTE]
-> Uygulama başına ölçeklendirme yalnızca kullanılabilir **standart**, **Premium**, **Premium V2** ve **Isolated** fiyatlandırma katmanları.
+> Uygulama başına ölçeklendirme, yalnızca kullanılabilir **standart**, **Premium**, **Premium V2** ve **yalıtılmış** fiyatlandırma katmanları.
 >
 
 ## <a name="per-app-scaling-using-powershell"></a>Ölçeklendirmeyi PowerShell kullanarak uygulama
 
-Uygulama başına geçirerek ölçeklendirme ile bir plan oluşturmanız ```-perSiteScaling $true``` özniteliğini ```New-AzureRmAppServicePlan``` komutunu
+Uygulama başına geçirerek ölçeklendirme ile bir plan oluşturmanız ```-PerSiteScaling $true``` parametresi ```New-AzureRmAppServicePlan``` cmdlet'i.
 
 ```powershell
 New-AzureRmAppServicePlan -ResourceGroupName $ResourceGroup -Name $AppServicePlan `
@@ -41,28 +41,17 @@ New-AzureRmAppServicePlan -ResourceGroupName $ResourceGroup -Name $AppServicePla
                             -NumberofWorkers 5 -PerSiteScaling $true
 ```
 
-Uygulama başına ölçeklendirme ile var olan bir uygulama hizmeti planı güncelleştirmek için: 
-
-- Hedef plan Al ```Get-AzureRmAppServicePlan```
-- özelliği yerel olarak değiştirme ```$newASP.PerSiteScaling = $true```
-- yaptığınız değişiklikler geri azure gönderme ```Set-AzureRmAppServicePlan``` 
+Uygulama başına geçirerek bir mevcut App Service planı ile ölçeklendirmeyi etkinleştirme `-PerSiteScaling $true` parametresi ```Set-AzureRmAppServicePlan``` cmdlet'i.
 
 ```powershell
-# Get the new App Service Plan and modify the "PerSiteScaling" property.
-$newASP = Get-AzureRmAppServicePlan -ResourceGroupName $ResourceGroup -Name $AppServicePlan
-$newASP
-
-#Modify the local copy to use "PerSiteScaling" property.
-$newASP.PerSiteScaling = $true
-$newASP
-    
-#Post updated app service plan back to azure
-Set-AzureRmAppServicePlan $newASP
+# Enable per-app scaling for the App Service Plan using the "PerSiteScaling" parameter.
+Set-AzureRmAppServicePlan -ResourceGroupName $ResourceGroup `
+   -Name $AppServicePlan -PerSiteScaling $true
 ```
 
-Uygulama düzeyinde uygulama uygulama hizmeti planında kullanabilirsiniz örneklerinin sayısını yapılandırın.
+Uygulama düzeyinde, App Service planında kullanabilecek örnek sayısını yapılandırın.
 
-Aşağıdaki örnekte, uygulama için kullanıma temel alınan uygulama hizmeti planı ölçeklendirir kaç tane bağımsız olarak iki tane sınırlıdır.
+Aşağıdaki örnekte, uygulama için kullanıma temel alınan app service planı ölçeklendirir kaç tane bağımsız olarak iki örneği sınırlıdır.
 
 ```powershell
 # Get the app we want to configure to use "PerSiteScaling"
@@ -76,16 +65,16 @@ Set-AzureRmWebApp $newapp
 ```
 
 > [!IMPORTANT]
-> `$newapp.SiteConfig.NumberOfWorkers` farklı `$newapp.MaxNumberOfWorkers`. Uygulama başına ölçekleme kullanır `$newapp.SiteConfig.NumberOfWorkers` uygulama ölçek özelliklerini belirlemek için.
+> `$newapp.SiteConfig.NumberOfWorkers` farklı `$newapp.MaxNumberOfWorkers`. Uygulama başına ölçeklendirme kullandığı `$newapp.SiteConfig.NumberOfWorkers` uygulamanın ölçeği özelliklerini belirlemek için.
 
-## <a name="per-app-scaling-using-azure-resource-manager"></a>Azure Kaynak Yöneticisi'ni kullanarak uygulama başına ölçeklendirme
+## <a name="per-app-scaling-using-azure-resource-manager"></a>Azure Resource Manager kullanarak uygulama başına ölçeklendirme
 
 Aşağıdaki Azure Resource Manager şablonu oluşturur:
 
-- 10 örneklerine giden ölçeklendirilmiş bir uygulama hizmeti planı
-- yapılandırılmış bir uygulama beş örneklerinin bir Mak ölçeklendirmek için.
+- 10 örneklerine üzerinde anlaşmaya ölçeği bir App Service planı
+- yapılandırılmış bir uygulama ölçeklendirme en fazla beş örnek.
 
-Uygulama hizmeti planı ayarlama **PerSiteScaling** özelliği true olarak `"perSiteScaling": true`. Uygulama ayarı **çalışan sayısı** 5 olarak kullanmak için `"properties": { "numberOfWorkers": "5" }`.
+App Service planı ayarı **PerSiteScaling** özelliği true `"perSiteScaling": true`. Uygulama ayarı **çalışan sayısı** 5 olarak kullanılacak `"properties": { "numberOfWorkers": "5" }`.
 
 ```json
 {
@@ -134,18 +123,18 @@ Uygulama hizmeti planı ayarlama **PerSiteScaling** özelliği true olarak `"per
 }
 ```
 
-## <a name="recommended-configuration-for-high-density-hosting"></a>Yüksek yoğunluklu barındırmak için önerilen yapılandırma
-Uygulama ölçeklendirme başına iki genel Azure bölgelerinde etkin olan bir özelliktir ve [App Service ortamları](environment/app-service-app-service-environment-intro.md). Ancak, önerilen strateji App Service ortamları gelişmiş özelliklerine ve daha büyük havuzlar kapasitesi yararlanacak için kullanmaktır.  
+## <a name="recommended-configuration-for-high-density-hosting"></a>Yüksek yoğunluklu barındırma için önerilen yapılandırma
+Uygulama ölçeklendirme başına iki genel Azure bölgelerinde etkin olan bir özelliktir ve [App Service ortamları](environment/app-service-app-service-environment-intro.md). Ancak, önerilen strateji App Service ortamları kullanmak, Gelişmiş özelliklerden ve daha büyük havuzlar kapasite sağlamaktır.  
 
-Yüksek yoğunluklu, uygulamalarınız için barındırma yapılandırmak için aşağıdaki adımları izleyin:
+Yüksek yoğunluklu barındırma, uygulamalarınız için yapılandırmak için aşağıdaki adımları izleyin:
 
-1. Uygulama hizmeti ortamını yapılandırma ve yüksek yoğunluklu barındırma senaryosu için ayrılmış bir çalışan havuzu seçin.
-1. Tek bir uygulama hizmeti planı oluştur ve tüm kullanılabilir kapasite çalışan havuzunda kullanmak üzere ölçeği.
-1. Ayarlama `PerSiteScaling` bayrağı uygulama hizmeti planında true.
-1. Yeni uygulama oluşturulur ve bu uygulama hizmeti planı ile atanan **numberOfWorkers** özelliğini **1**. Bu yapılandırmayı kullanarak, bu çalışan havuzunda olası en yüksek yoğunluk verir.
-1. Çalışanların sayısını gerektiği gibi ek kaynaklara erişim için uygulama bağımsız olarak yapılandırılabilir. Örneğin:
+1. App Service ortamını yapılandırın ve yüksek yoğunluklu barındırma senaryo için adanmış bir çalışan havuzu seçin.
+1. Tek bir App Service planı oluşturun ve tüm kullanılabilir kapasiteyi çalışan havuzunda kullanacak şekilde ölçeklendirin.
+1. Ayarlama `PerSiteScaling` bayrağı true olarak App Service planı.
+1. Yeni uygulamalar oluşturulur ve bu App Service planı ile atanan **numberOfWorkers** özelliğini **1**. Bu yapılandırmayı kullanarak bu çalışan havuzunda olası en yüksek yoğunluklu verir.
+1. Çalışanların sayısını gerektiği gibi ek kaynaklara erişim izni için uygulama bağımsız olarak yapılandırılabilir. Örneğin:
     - Yüksek kullanım uygulama ayarlayabilirsiniz **numberOfWorkers** için **3** bu uygulama için daha fazla işlem kapasitesi için. 
-    - Düşük kullanım uygulamaları ayarlardı **numberOfWorkers** için **1**.
+    - Düşük kullanımlı uygulamalar ayarlamak **numberOfWorkers** için **1**.
 
 ## <a name="next-steps"></a>Sonraki Adımlar
 

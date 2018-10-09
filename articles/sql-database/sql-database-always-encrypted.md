@@ -12,15 +12,15 @@ author: VanMSFT
 ms.author: vanto
 ms.reviwer: ''
 manager: craigg
-ms.date: 04/01/2018
-ms.openlocfilehash: 4c9b2099308bc6a239a72fe2ebe559cdfa2fd3a1
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.date: 10/05/2018
+ms.openlocfilehash: 343782448d4b508e678108ece268f2ce57b6ac1d
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47064229"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48868150"
 ---
-# <a name="always-encrypted-protect-sensitive-data-in-sql-database-and-store-your-encryption-keys-in-the-windows-certificate-store"></a>Her zaman şifreli: SQL veritabanındaki hassas verileri korumak ve şifreleme anahtarlarınız Windows sertifika deposuna
+# <a name="always-encrypted-protect-sensitive-data-and-store-encryption-keys-in-the-windows-certificate-store"></a>Her zaman şifreli: hassas verilerin korunmasına ve şifreleme anahtarlarını Windows sertifika deposuna
 
 Bu makalede, hassas verileri bir SQL veritabanında veritabanı şifrelemesi kullanarak güvenli hale getirme işlemini göstermektedir [her zaman şifreli sihirbazını](https://msdn.microsoft.com/library/mt459280.aspx) içinde [SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/hh213248.aspx). Ayrıca, Windows sertifika depolama alanında, şifreleme anahtarlarını depolamak nasıl gösterir.
 

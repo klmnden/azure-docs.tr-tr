@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 09/10/2018
+ms.date: 10/07/2018
 ms.author: diberry
-ms.openlocfilehash: 78cc2a8a2b9295654d0c6264cbf4a4d634b16544
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: e65e44ec4deb07e85b9514a1685e4dbb692fd512
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47038179"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48857423"
 ---
 # <a name="enable-active-learning-by-reviewing-endpoint-utterances"></a>Etkin öğrenme konuşma uç noktası inceleyerek etkinleştir
 Etkin öğrenme tahmin doğruluğunu ve kolay uygulama geliştirmek için üç strateji biridir. Etkin öğrenme, doğru amacı ve varlık için gözden geçirme uç nokta Konuşma ile. LUIS, uç nokta konuşma emin seçer.
@@ -36,7 +36,7 @@ Konuşma uç noktası son kullanıcı sorgularını uygulamanın HTTP uç noktas
 Önerilen konuşma gözden geçirme, her gün yapılması gerekmez, ancak, düzenli bakım LUIS'ın bir parçası olması gerekir. 
 
 ## <a name="delete-review-items-programmatically"></a>Gözden geçirme öğelerini program aracılığıyla silme
-Uygulamanızı büyükse, bazı konuşma gözden geçirin ve listeye geri kalanından program aracılığıyla silme tercih edebilirsiniz. Bu ilk tarafından yapılır [alma](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c0a) listesini ve ardından [silme](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/58b6f32139e2bb139ce823c9) konuşma kimliğine göre
+Kullanım **[unlabelled konuşma Sil](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/58b6f32139e2bb139ce823c9)** API. Bu konuşma silme işleminden önce yedekleme  **[günlük dosyalarını dışarı aktarma](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c36)**.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

@@ -1,5 +1,5 @@
 ---
-title: Bilgi Bankası - soru-cevap Oluşturucu geliştirme yaşam döngüsü
+title: Bilgi Bankası - soru-cevap Oluşturucu yaşam döngüsü
 titleSuffix: Azure Cognitive Services
 description: Soru-cevap Oluşturucu, en iyi modeli değişiklikleri, utterance örnekler, yayımlama ve veri toplamayı yinelemeli bir döngüyle uç nokta sorgularından öğrenir.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.component: qna-maker
 ms.topic: article
 ms.date: 09/12/2018
 ms.author: tulasim
-ms.openlocfilehash: 5af829b3355c6d68bace959b66f9511877d08b83
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: ec5e9f92114e9bae1aaa840a1d02f5a42b2fd7bf
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47040923"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48857182"
 ---
 # <a name="knowledge-base-lifecycle"></a>Bilgi Bankası yaşam döngüsü
 Soru-cevap Oluşturucu, en iyi modeli değişiklikleri, utterance örnekler, yayımlama ve veri toplamayı yinelemeli bir döngüyle uç nokta sorgularından öğrenir. 

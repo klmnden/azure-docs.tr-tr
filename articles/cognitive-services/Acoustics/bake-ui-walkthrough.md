@@ -9,12 +9,12 @@ ms.component: acoustics
 ms.topic: article
 ms.date: 08/17/2018
 ms.author: kegodin
-ms.openlocfilehash: a82472ccd5524e7cbe3d92070a6d2b583d8eb4d5
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.openlocfilehash: 7a409b1ecdd693a0f28d2303d55a27b177644eb0
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48249307"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48855417"
 ---
 # <a name="bake-acoustics"></a>Akustik hazırlama
 
@@ -230,25 +230,25 @@ Ne verilen hazırlama maliyetini tahmin etmek için gösterilen değer ele **iş
 Hazırlama işlemi tamamlandıktan sonra çalışma zamanı eklentisi çalıştırarak voxels ve araştırma noktaları beklenen konumlarına olduğunu kontrol edin. Daha fazla bilgi yer [tasarım işlemine genel bakış için akustik](design-process.md).
 
 ## <a name="Local-bake"></a>Yerel bir hazırlama
-Yerel bir hazırlama akustik simülasyonu Azure Batch işlem kümesine boşaltma yerine kendi yerel bilgisayarda çalıştırır. Bu, bir Azure aboneliği ancak akustik benzetimi işlem bakımından yoğun ve simülasyon yapılandırma Sahne boyutuna bağlı olarak uzun zaman alabilir Not gerek kalmadan akustik ile denemek için iyi bir seçenek olabilir ve ham işleme makine bilgi işlem gücü.
+Yerel hazırlama akustik simülasyonu Azure Batch işlem kümesine boşaltma yerine kendi bilgisayar üzerinde çalışır. Bu, bir Azure aboneliğine gerek kalmadan akustik ile denemek için iyi bir seçenek olabilir. Not akustik benzetimi işlem bakımından yoğun ve Sahne, benzetim yapılandırma ve ham işlem gücüne işleme makinenin boyutuna bağlı olarak uzun zaman alabilir.
 
 ### <a name="minimum-hardware-requirements"></a>En düşük donanım gereksinimleri
 en az 8 çekirdek ve 32 GB RAM veya üzerinin 64 bit Intel işlemci.
 
-Örneğin, 8 çekirdek makineye sahip Intel Xeon E5-1660 @ 3 GHz ve 32 GB bellek-
+Örneğin, 8 çekirdek makineye sahip Intel Xeon E5-1660 @ 3 GHz ve 32 GB RAM-
 * 100 araştırmaları ile küçük Sahne yaklaşık 2 saat kaba bir hazırlama ve ince çözümleme hazırlama için yaklaşık 32 saat sürer.
 * Daha büyük Sahne 1000 araştırmaları ile en fazla yaklaşık 20 saat kaba bir çözüm için ve bir ayrıntılı çözümleme hazırlama için ~ 21 gün sürebilir.
 
 ### <a name="setup-docker"></a>Docker Kurulumu
 Yükleme ve Docker benzetim işleyen bilgisayarda yapılandırma-
 1. Yükleme [Docker araç takımı](https://www.docker.com/products/docker-desktop).
-2. Docker ayarları başlatın, "Gelişmiş" seçeneğine gidin ve kaynakları aşağıda gösterildiği gibi yapılandırın. ![Docker kaynakları](media/DockerSettings.png)
-3. "Sürücüleri paylaşılan" seçeneğine gidin ve işleme için kullanılan sürücü için paylaşımı etkinleştirin.![DockerDriveSharing](media/DockerSharedDrives.png)
+2. Docker ayarları başlatın, "Gelişmiş" seçeneğine gidin ve 8 GB RAM leat olması için kaynakları yapılandırma. Daha fazla CPU'ları için Docker ayırabilirsiniz, hazırlama daha hızlı tamamlanır. ![Örnek Docker ayarları](media/DockerSettings.png)
+3. "Paylaşılan sürücüler için" gidin ve işleme için kullanılan sürücü için paylaşımı etkinleştirin.![DockerDriveSharing](media/DockerSharedDrives.png)
 
 ### <a name="run-local-bake"></a>Yerel çalışma hazırlama
-1. Hazırlama sekmesinde "Hazırlama yerel Hazırlama" düğmesine tıklayın ve girdi dosyalarını ve yürütme komut dosyalarının kaydedileceği klasörü seçin. Ardından hazırlama en düşük donanım gereksinimlerini karşıladığından ve bu makineye klasörüne kopyalayarak Docker yüklü olduğu sürece herhangi bir makinede çalıştırabilirsiniz.
-2. Proje akustik Docker görüntüsünü simülasyon işlemi için gerekli araç takımıyla getirmek ve benzetimi Başlat "runlocalbake.bat" komut dosyasını kullanarak simülasyon başlatın. 
-3. Benzetim tamamlandıktan sonra elde edilen .ace dosyasını geri Unity projeniz bir Araştırmalarla sekmede belirtilen konuma kopyalayın. Hedef dosya adı için dosya uzantısı ".bytes" ekleyerek Unity'nın gereksinimlerine uyan emin olun. Ayrıntılı günlükler simülasyonu için "AcousticsLog.txt" dosyasında depolanır. Herhangi bir sorunla karşılaşırsanız çalıştırırsanız, tanı koymaya yardımcı olmak için bu dosyayı paylaşın.
+1. Hazırlama sekmesinde "Hazırlama yerel Hazırlama" düğmesine tıklayın ve girdi dosyalarını ve yürütme betikleri kaydedileceği bir klasör seçin. Ardından hazırlama en düşük donanım gereksinimlerini karşıladığından ve bu makineye klasörüne kopyalayarak Docker yüklü olduğu sürece herhangi bir makinede çalıştırabilirsiniz.
+2. "Runlocalbake.bat" komut dosyası kullanarak bir simülasyon başlatın. Bu betik, proje akustik Docker görüntüsünü simülasyon işlemi için gerekli araç takımıyla getirmek ve benzetimi Başlat. 
+3. Benzetim tamamlandıktan sonra elde edilen .ace dosyası, Unity projenize kopyalayın. Unity bu ikili dosya olarak tanır emin olmak için dosya uzantısı için (örneğin, "Scene1.ace.bytes") ".bytes" ekleyin. Simülasyonu için ayrıntılı günlük "AcousticsLog.txt" depolanır Herhangi bir sorunla karşılaşırsanız çalıştırırsanız, tanı koymaya yardımcı olmak için bu dosyayı paylaşın.
 
 ## <a name="Data-Files"></a>Veri dosyaları
 

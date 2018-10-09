@@ -10,15 +10,15 @@ ms.topic: conceptual
 ms.author: v-daljep
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 04/01/2018
-ms.openlocfilehash: 4f043cfc9c85513abe16bde38c5cac6e16e34af9
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.date: 10/05/2018
+ms.openlocfilehash: 02fae39325e632c087fcd2969fbaf5dd705994ba
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47063328"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48867683"
 ---
-# <a name="enable-automatic-tuning"></a>Otomatik ayarlamayı etkinleştirme
+# <a name="enable-automatic-tuning-to-monitor-queries-and-improve-workload-performance"></a>Sorguları izleme ve iş yükü performansı artırmak otomatik ayarlamayı etkinleştirme
 
 Azure SQL veritabanı, sürekli olarak izler, sorgularınızı ve İş yükünüzün performansını gerçekleştirdiğiniz eylemi tanımlayan bir otomatik olarak yönetilen veri hizmetidir. Yapabilir önerileri gözden geçirin ve el ile uygulayabilirsiniz veya Azure SQL veritabanı, otomatik düzeltici eylemler uygulayın sağlar - bu olarak bilinir **otomatik ayarlama modu**.
 

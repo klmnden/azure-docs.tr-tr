@@ -15,12 +15,12 @@ ms.devlang: azurecli
 ms.date: 06/13/2018
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 578488163482dd0b7b486ca152455ff9686f1a43
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 93ff349eb14823784ca574a70279cd623c720872
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46949222"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48853734"
 ---
 # <a name="add-a-disk-to-a-linux-vm"></a>Linux VM'ye disk ekleme
 Bu makalede verilerinizi - koruyabilmeniz için bile, sanal Makinenizin Bakım veya yeniden boyutlandırma nedeniyle daralıp kalıcı bir disk VM'nize nasıl ekleneceği gösterilmektedir. 
@@ -169,7 +169,7 @@ sudo mount /dev/sdc1 /datadrive
 Sürücüyü otomatik olarak yeniden başlatma sonrası yeniden emin olmak için onu eklenmelidir */etc/fstab* dosya. UUID (evrensel benzersiz tanımlayıcı) kullanıldığını da önemle tavsiye edilir */etc/fstab* yalnızca cihaz adı yerine sürücü başvurmak için (gibi */dev/sdc1*). İşletim sistemi önyüklemesi sırasında disk hata algılarsa, UUID kullanarak belirli bir konuma bağlı hatalı disk önler. Veri diskleri kalan sonra bu cihaz kimlikleri aynı atanır. Sürücünün UUID'sini, yeni bulmak için kullanın `blkid` yardımcı programı:
 
 ```bash
-sudo -i blkid
+sudo blkid
 ```
 
 Çıktı aşağıdaki örneğe benzer:

@@ -9,18 +9,22 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 09/18/2018
+ms.date: 10/08/2018
 ms.author: jingwang
-ms.openlocfilehash: db002f152fb792ab1327cba3487021c567f39260
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: e2b441e0266ac397226b783c66df4ca54e0b3f71
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46368892"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48870171"
 ---
 # <a name="load-data-from-office-365-by-using-azure-data-factory"></a>Azure Data Factory kullanarak Office 365'ten veri yükleme
 
 Bu makalede Data factory'yi gösterilmektedir _veri yükleme Office 365'ten Azure Blob depolama alanına_. Azure Data Lake Gen1 veya 2. nesil veri kopyalamak için benzer adımları izleyebilirsiniz. Başvurmak [Office 365 Bağlayıcısı makalesi](connector-office-365.md) verileri Office 365'ten genel kopyalama.
+
+Dokuz dakikalık bir giriş ve Data Factory, Office 365 verilerine bağlanma ile ilgili tanıtımı için aşağıdaki videoyu izleyin:
+
+> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Get-cloud-scale-analytics-of-Office-365-data-with-Azure-Data-Factory/player]
 
 ## <a name="create-a-data-factory"></a>Veri fabrikası oluşturma
 

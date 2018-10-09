@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2018
 ms.author: juluk
-ms.openlocfilehash: ea7393584e77b51073ca8938ec03e9d6f6ad6fc0
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 85d054be6b72c736ec66384b9caec71208f36802
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47166682"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48869372"
 ---
 # <a name="overview-of-azure-cloud-shell"></a>Azure Cloud shell'e genel bakış
 Azure Cloud Shell'i Azure kaynaklarını yönetmek için etkileşimli ve tarayıcı erişilebilir bir kabuktur.
@@ -78,7 +78,7 @@ Bağlama hakkında bilgi edinmek için daha fazla bilgi edinin bir [yeni veya me
 * Cloud Shell'i Azure dosya paylaşımını bağlanmasını gerektirir.
 * Hem Bash hem PowerShell için cloud Shell aynı Azure dosya paylaşımını kullanır
 * Cloud Shell'de bir makine kullanıcı hesabı başına atanır
-* Cloud Shell'i kullanarak dosya paylaşımınızdaki tutulan bir 5 GB'lık görüntü $Home devam ettirir.
+* Cloud Shell'i kullanarak dosya paylaşımınızdaki tutulan bir 5 GB'lık görüntü $HOME devam ettirir.
 * Bash normal Linux kullanıcı olarak izinleri ayarlayın
 
 Özellikleri hakkında daha fazla bilgi edinin [Cloud Shell'de Bash](features.md) ve [Cloud Shell'deki PowerShell hizmetinde](features-powershell.md).

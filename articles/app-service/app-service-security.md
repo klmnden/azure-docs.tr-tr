@@ -1,7 +1,7 @@
 ---
 title: Azure App Service ve Azure işlevleri'nde güvenlik | Microsoft Docs
 description: App Service güvenli yardımları hakkında uygulamanızı ve nasıl daha fazla uygulamanızı tehditlerden kilitleyebilir öğrenin.
-keywords: Azure app service, web uygulaması, mobil uygulama, API uygulaması, işlev uygulaması, güvenlik, güvenli, güvenli, uyumluluk, uyumlu, sertifika, sertifika, https, ftps, tls, güven, şifreleme, şifreleme, şifrelenmiş, IP kısıtlaması, kimlik doğrulaması, yetkilendirme, authn, autho MSI, yönetilen hizmet kimliği, gizli anahtarları, gizli, düzeltme eki uygulama, düzeltme eki, düzeltme ekleri, sürüm, yalıtım, ağ yalıtımı, ddos, mıtm
+keywords: Azure app service, web uygulaması, mobil uygulama, API uygulaması, işlev uygulaması, güvenlik, güvenli, güvenli, uyumluluk, uyumlu, sertifika, sertifika, https, ftps, tls, güven, şifreleme, şifreleme, şifrelenmiş, IP kısıtlaması, kimlik doğrulaması, yetkilendirme, authn, autho MSI, yönetilen hizmet kimliği, yönetilen kimlik, gizli anahtarları, gizli, düzeltme eki uygulama, düzeltme eki, düzeltme ekleri, sürüm, yalıtım, ağ yalıtımı, ddos, mıtm
 services: app-service
 documentationcenter: ''
 author: cephalin
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/24/2018
 ms.author: cephalin
-ms.openlocfilehash: 40fdd22bdbb3fc0676688430069d58c0422a7ca2
-ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
+ms.openlocfilehash: 3bacc2bf253a6b8c3b869b7a6d4952d982de3ee6
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/01/2018
-ms.locfileid: "43382125"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48857508"
 ---
 # <a name="security-in-azure-app-service-and-azure-functions"></a>Azure App Service ve Azure işlevleri güvenliği
 
@@ -69,7 +69,7 @@ App Service kimlik doğrulaması ve yetkilendirme, Azure Active Directory, Micro
 
 App Service, bir arka uç hizmetine karşı kimlik doğrulamasını yaparken, gereksinimlerinize bağlı olarak iki farklı mekanizma sağlar:
 
-- **Hizmet kimlik** -uzak kaynağa uygulamanın kendi kimliğini kullanarak oturum açın. App Service kolayca oluşturmanıza olanak tanıyan bir [yönetilen hizmet kimliği](app-service-managed-service-identity.md), aşağıdakiler gibi diğer hizmetleri ile kimlik doğrulaması yapmak için kullanabileceğiniz [Azure SQL veritabanı](/azure/sql-database/) veya [Azure anahtar kasası](/azure/key-vault/). Bu yaklaşımın bir uçtan uca öğretici için bkz [yönetilen hizmet kimliği kullanarak App Service'ten Azure SQL veritabanı'nı güvenli bağlantı](app-service-web-tutorial-connect-msi.md).
+- **Hizmet kimlik** -uzak kaynağa uygulamanın kendi kimliğini kullanarak oturum açın. App Service kolayca oluşturmanıza olanak tanıyan bir [yönetilen kimliği](app-service-managed-service-identity.md), aşağıdakiler gibi diğer hizmetleri ile kimlik doğrulaması yapmak için kullanabileceğiniz [Azure SQL veritabanı](/azure/sql-database/) veya [Azure anahtar kasası](/azure/key-vault/). Bu yaklaşımın bir uçtan uca öğretici için bkz [bir yönetilen kimlik kullanarak App Service'ten Azure SQL veritabanı'nı güvenli bağlantı](app-service-web-tutorial-connect-msi.md).
 - **On-behalf-of (OBO)** -Temsilcili erişim kullanıcının adına uzak kaynaklara olun. Azure Active Directory ile kimlik doğrulama sağlayıcısı olarak, App Service uygulamanızı bir uzak hizmete temsilci oturum açma gibi gerçekleştirebilirsiniz [Azure Active Directory Graph API'si](../active-directory/develop/active-directory-graph-api.md) veya App Service'te bir Uzak API uygulaması. Bu yaklaşımın bir uçtan uca öğretici için bkz [kimlik doğrulama ve kullanıcıları uçtan uca Azure App Service'te yetkilendirme](app-service-web-tutorial-auth-aad.md).
 
 ## <a name="connectivity-to-remote-resources"></a>Bağlantı uzak kaynaklar
@@ -106,13 +106,13 @@ Kaynak bağlantısı tamamen azure'da paylaşılan ağları yalıtmak için uygu
 
 Veritabanı kimlik bilgileri, API belirteçleri ve özel anahtarlar gibi uygulama gizli kod veya yapılandırma dosyalarınızda depolamayın. Olarak erişmek için yaygın olarak kabul edilen yaklaşımdır [ortam değişkenlerini](https://wikipedia.org/wiki/Environment_variable) standart deseni kullanarak istediğiniz dilde. App Service ortam değişkenlerini aracılığıyla yoludur [uygulama ayarları](web-sites-configure.md#app-settings) (ve .NET uygulamaları için özellikle [bağlantı dizeleri](web-sites-configure.md#connection-strings)). Uygulama ayarlarının ve bağlantı dizelerinin Azure'da şifrelenmiş olarak depolanır ve bunların uygulama başlatıldığında yalnızca uygulamanızın işlem belleğe eklenmiş önce şifresi. Şifreleme anahtarlarını düzenli olarak döndürülür.
 
-Alternatif olarak, App Service uygulamanızı facebook veya [Azure anahtar kasası](/azure/key-vault/) Gelişmiş gizli dizileri yönetimi. Tarafından [bir yönetilen hizmet kimliği ile anahtar kasası erişim](../key-vault/tutorial-web-application-keyvault.md), App Service uygulamanızı ihtiyacınız gizli dizileri güvenli bir şekilde erişebilir.
+Alternatif olarak, App Service uygulamanızı facebook veya [Azure anahtar kasası](/azure/key-vault/) Gelişmiş gizli dizileri yönetimi. Tarafından [yönetilen bir kimlikle Key Vault'a erişme](../key-vault/tutorial-web-application-keyvault.md), App Service uygulamanızı ihtiyacınız gizli dizileri güvenli bir şekilde erişebilir.
 
 ## <a name="network-isolation"></a>Ağ yalıtımı
 
 Dışında **yalıtılmış** fiyatlandırma katmanı, tüm katmanlar, uygulamalarınızı App Service paylaşılan ağ altyapısında çalıştırın. Örneğin, genel IP adresleri ve ön uç yük Dengeleyiciler diğer kiracılar ile paylaşılır. **Yalıtılmış** katmanı size tam ağ yalıtımı, uygulamalarınız içinde ayrılmış bir çalıştırarak [App Service ortamı](environment/intro.md). App Service ortamı içinde kendi örneğini çalıştıran [Azure sanal ağı](/azure/virtual-network/). Olanak tanır: 
 
-- Ağ erişimi kısıtlamak [ağ güvenlik grupları](../virtual-network/virtual-networks-nsg.md). 
+- Ağ erişimi kısıtlamak [ağ güvenlik grupları](../virtual-network/virtual-networks-dmz-nsg.md). 
 - Uygulamalarınızı bir adanmış genel uç noktası ile özel ön uç işlevi görür.
 - Azure sanal ağınız içindeki yalnızca erişime izin veren bir iç yük dengeleyici (ILB) kullanarak iç uygulama işlevi görür. ILB internet'ten uygulamalarınızın toplam yalıtımı sağlar, özel alt ağdan bir IP adresi vardır.
 - [Bir web uygulaması Güvenlik Duvarı (WAF) arkasındaki bir ILB kullanın](environment/integrate-with-application-gateway.md). WAF, DDoS koruması, URI filtreleme ve SQL ekleme önleme gibi genel kullanıma yönelik uygulamalarınız için kurumsal düzeyde koruma sunar.

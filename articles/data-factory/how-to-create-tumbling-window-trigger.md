@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/27/2018
 ms.author: shlo
-ms.openlocfilehash: c42d6235af8a5ab27fbd550b63c301fd9c6f15b1
-ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
+ms.openlocfilehash: 1a24079292ce8fdd6a514a85484fc10b77491ba6
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39325042"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48868356"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-on-a-tumbling-window"></a>Bir atlayan pencere üzerinde bir işlem hattı çalıştırmalarını tetiği oluşturma
 Bu makalede, oluşturmak, başlatmak ve bir atlayan pencere tetikleyicisi izlemek için adımları sağlar. Tetikleyiciler ve desteklenen türler hakkında genel bilgi için bkz. [işlem hattı yürütme ve Tetikleyicileri](concepts-pipeline-execution-triggers.md).
@@ -80,7 +80,7 @@ Aşağıdaki tabloda, ilgili yinelenmesi ve zamanlanmasıyla atlayan pencere tet
 |:--- |:--- |:--- |:--- |:--- |
 | **type** | Tetikleyici türü. Sabit değer "TumblingWindowTrigger." türüdür | Dize | "TumblingWindowTrigger" | Evet |
 | **runtimeState** | Çalışma zamanı tetikleyicisinin geçerli durumu.<br/>**Not**: Bu öğe \<salt okunur >. | Dize | "Started" "Stopped" "Disabled" | Evet |
-| **frequency** | Tetikleyicinin yineleneceği sıklık birimi (dakika veya saat) temsil eden bir dize. Varsa **startTime** tarih değerleri daha ayrıntılı **sıklığı** değeri **startTime** tarih, zaman penceresi sınırları hesaplanır değerlendirilir. Örneğin, varsa **sıklığı** değerdir, saatlik ve **startTime** değer: 2016-04-01T10:10:10Z, ilk penceredir (2017-09-01T10:10:10Z, 2017-09-01T11:10:10Z). | Dize | "minute", "hour"  | Evet |
+| **frequency** | Tetikleyicinin yineleneceği sıklık birimi (dakika veya saat) temsil eden bir dize. Varsa **startTime** tarih değerleri daha ayrıntılı **sıklığı** değeri **startTime** tarih, zaman penceresi sınırları hesaplanır değerlendirilir. Örneğin, varsa **sıklığı** değerdir, saatlik ve **startTime** değerdir 2017-09-01T10:10:10Z, ilk penceredir (2017-09-01T10:10:10Z, 2017-09-01T11:10:10Z). | Dize | "minute", "hour"  | Evet |
 | **interval** | Tetikleyicinin çalışma sıklığını belirten **frequency** değerinin aralığını gösteren bir pozitif tamsayı. Örneğin, varsa **aralığı** 3'tür ve **sıklığı** "hour" olup tetikleyici 3 saatte bir yinelenir. | Tamsayı | Pozitif bir tamsayı. | Evet |
 | **startTime**| Geçmişte olabilen ilk örneğin. İlk tetikleyici aralığı (**startTime**, **startTime** + **aralığı**). | DateTime | Bir tarih saat değeri. | Evet |
 | **endTime**| Geçmişte olabilen son a geçişi. | DateTime | Bir tarih saat değeri. | Evet |

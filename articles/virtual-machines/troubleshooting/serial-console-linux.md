@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/11/2018
 ms.author: harijay
-ms.openlocfilehash: 642bf03ecef7f6db25c51671635d96ef7baed91a
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: ce799f4201a560077c5bb1b943a9e587a71806f2
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47414324"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48856352"
 ---
 # <a name="virtual-machine-serial-console"></a>Sanal makine seri Konsolu
 
@@ -49,7 +49,7 @@ Windows Vm'leri için seri konsol belgeleri [Buraya](../windows/serial-console.m
 
 
 ## <a name="get-started-with-serial-console"></a>Seri konsol ile çalışmaya başlama
-Sanal makineler için seri konsol üzerinden erişilebilir, yalnızca [Azure portalında](https://portal.azure.com). Portal aracılığıyla sanal makineler için seri konsoluna erişmek için adımları aşağıda verilmiştir 
+Sanal makineler için seri konsol üzerinden erişilebilir, yalnızca [Azure portalında](https://portal.azure.com). Karşıladığınızdan emin olun [önkoşulları](#prerequisites) yukarıda. Portal aracılığıyla sanal makineler için seri konsoluna erişmek için adımlar aşağıdadır:
 
   1. Azure portalını açın
   1. (Bu, sanal Makinenizin parola kimlik doğrulaması kullanan bir kullanıcının varsa atlayın) Kullanıcı adı/parola kimlik doğrulaması ile kullanıcı dikey penceresinde "Parolayı Sıfırla" tıklayarak ekleme

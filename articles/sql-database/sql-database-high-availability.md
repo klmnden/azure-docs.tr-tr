@@ -11,13 +11,13 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlrab, sashan
 manager: craigg
-ms.date: 09/14/2018
-ms.openlocfilehash: dfb1e218218a44aafd318acb53750c875bdf1263
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.date: 10/05/2018
+ms.openlocfilehash: 1c6fb3660f395e709207e788b4ef648a69cae48d
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48247728"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48868584"
 ---
 # <a name="high-availability-and-azure-sql-database"></a>Yüksek kullanılabilirlik ve Azure SQL veritabanı
 
@@ -31,9 +31,9 @@ Azure SQL veritabanı altyapı hataları durumda bile % 99,99 kullanılabilirlik
 
 Azure, yükseltir ve son kullanıcılar için en düşük kapalı kalma süresi ile temel işletim sistemi, sürücüler ve SQL Server Veritabanı Altyapısı'nın şeffaf bir şekilde yamaları. Azure SQL veritabanı, SQL Server veritabanı altyapısı ve Windows işletim sistemi en son kararlı sürümü üzerinde çalışan ve kullanıcıların çoğunun yükseltmeleri sürekli olarak gerçekleştirilen dikkat edin değil.
 
-## <a name="standardgeneral-purpose-availability"></a>Standart/genel amaçlı kullanılabilirlik
+## <a name="basic-standard-and-general-purpose-service-tier-availability"></a>Temel, standart ve genel amaçlı hizmet katmanı kullanılabilirliği
 
-Standart kullanılabilirlik, temel/standart/genel amaçlı katmanda uygulanan % 99,99 SLA'sı ifade eder. Bu mimari modelinde yüksek kullanılabilirlik ve depolama katmanındaki veriler, çoğaltma işlem ve depolama katmanları ayrılması tarafından sağlanır.
+Standart kullanılabilirlik hizmet katmanları temel, standart ve genel amaçlı uygulanan % 99,99 SLA'sı ifade eder. Bu mimari modelinde yüksek kullanılabilirlik ve depolama katmanındaki veriler, çoğaltma işlem ve depolama katmanları ayrılması tarafından sağlanır.
 
 Aşağıdaki şekilde, standart mimari modelinde ayrılmış işlem ve depolama katmanları ile dört düğüm gösterilmektedir.
 
@@ -46,9 +46,9 @@ Standart kullanılabilirlik modelinde iki katman vardır:
 
 Veritabanı altyapısı veya işletim sistemi yükseltme olduğunda, bazı altyapının parçası başarısız olursa veya Sql Server işleminde bazı önemli sorun algılanırsa, başka bir durum bilgisi olmayan bir işlem düğümüne yüklenecek Azure Service Fabric durum bilgisi olmayan SQL Server işlemi taşınır. Yük devretme süresini en aza indirmek için yük devretme durumunda yeni işlem hizmetini çalıştırmak için bekleyen bir dizi düğümü yedek yok. Verileri Azure depolama katmanında etkilenmez ve yeni oluşturulmuş SQL Server işlemi için veri/günlük dosyalar eklenir. Bu işlem, % 99,99 oranında kullanılabilirlik garanti eder, ancak bu geçiş süresi nedeniyle çalıştıran ağır iş yükü üzerindeki bazı performans etkileri olabilir ve yeni SQL Server düğümü olgu soğuk önbellek ile başlar.
 
-## <a name="premiumbusiness-critical-availability"></a>Premium/iş açısından kritik kullanılabilirlik
+## <a name="premium-and-business-critical-service-tier-availability"></a>Premium ve iş açısından kritik hizmet katmanı kullanılabilirliği
 
-Azure SQL veritabanı Premium katmanında Premium kullanılabilirlik etkinleştirilir ve devam eden bakım işlemleri nedeniyle bir performans etkisi kabul edilemez kullanımlı iş yükleri için tasarlanmıştır.
+Premium kullanılabilirlik, Premium ve iş açısından kritik hizmet katmanlarında Azure SQL veritabanı'nın etkinleştirilmiş ve devam eden bakım işlemleri nedeniyle bir performans etkisi kabul edilemez kullanımlı iş yükleri için tasarlanmıştır.
 
 Premium modelde, Azure SQL veritabanı, işlem ve depolama tek düğümde tümleştirir. Bu mimari modelinde yüksek kullanılabilirlik çoğaltma 4 düğümlü dağıtılan hesaplama (SQL Server veritabanı altyapısı işlem) ve depolama (yerel olarak bağlı SSD) tarafından gerçekleştirilir [Always On kullanılabilirlik grupları](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server) kümesi.
 

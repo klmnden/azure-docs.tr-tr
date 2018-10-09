@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 07/31/2018
 ms.reviewer: jonfan, LADocs
 ms.suite: integration
-ms.openlocfilehash: 001dc4d5057767191003697c5fb819e53a8658f2
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 681cafc60661e16d70deb862da71f6baf80509fd
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44719945"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48856539"
 ---
 # <a name="migrate-biztalk-server-edi-solutions-to-biztalk-services-technical-guide"></a>BizTalk Server EDI çözümlerini BizTalk Services'a Geçirme: teknik Kılavuzu
 
@@ -28,7 +28,7 @@ Yazar: Tim Wieman ve Nitin Mehrotra
 Kullanılarak yazılmış: Microsoft Azure BizTalk Services – Şubat 2014 sürümü.
 
 ## <a name="introduction"></a>Giriş
-Elektronik Veri Değişimi (EDI) hangi işletmelerin exchange verilerini en yaygın yöntemlerle elektronik olarak da işletmeler arası veya B2B işlemleri adlandırılır biridir. BizTalk Server EDI desteği ilk BizTalk Server sürümünden bu yana aşkın oluşturdu. BizTalk Hizmetleri ile Microsoft Microsoft Azure platformunda EDI çözümlerini desteği devam eder. B2B işlemlerini çoğunlukla bir kuruluş dışında bulunan ve bu nedenle bir bulut platformunun üzerine uyguladığında uygulamak daha kolay olur. Microsoft Azure BizTalk Hizmetleri aracılığıyla bu yeteneği sağlar.
+Elektronik Veri Değişimi (EDI) hangi işletmelerin exchange verilerini en yaygın yöntemlerle elektronik olarak da işletmeler arası veya B2B işlemleri adlandırılır biridir. BizTalk Server EDI için BizTalk Server ilk yayımlandıktan sonra on yıl destek oluşturdu. BizTalk Hizmetleri ile Microsoft Microsoft Azure platformunda EDI çözümlerini desteği devam eder. B2B işlemlerini çoğunlukla bir kuruluş dışında bulunan ve bu nedenle bir bulut platformunun üzerine uyguladığında uygulamak daha kolay olur. Microsoft Azure BizTalk Hizmetleri aracılığıyla bu yeteneği sağlar.
 
 Bazı müşteriler için yeni EDI çözümlerini bir "Yeşil alan" platform olarak BizTalk Hizmetleri arayın, birçok müşteri Azure'a geçirmek isteyebileceğiniz geçerli BizTalk Server EDI çözümlerini bulunur. BizTalk Hizmetleri EDI desteklemesi için tasarlanmıştır (iş ortakları, varlıklar, anlaşmalar ticaret), BizTalk Server EDI mimari olarak aynı temel varlıklarda temel BizTalk Server EDI yapıtları BizTalk hizmetlerine geçirme mümkün olmasıdır.
 

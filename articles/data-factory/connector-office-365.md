@@ -11,20 +11,24 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/26/2018
+ms.date: 10/08/2018
 ms.author: jingwang
-ms.openlocfilehash: 2229a8a01d29fc167eb3696423224f1d2ef0df4e
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.openlocfilehash: 3caae8ecae66178bc538d0b9d1240293028f33ad
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48248474"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48867366"
 ---
 # <a name="copy-data-from-office-365-into-azure-using-azure-data-factory-preview"></a>Azure Data Factory (Önizleme) kullanarak Azure'da Office 365'ten veri kopyalama 
 
 Azure Data Factory, Office 365'te kurumsal veri ölçeklenebilir bir şekilde Azure'a Kiracı ve analiz uygulamaları oluşturun ve bu değerli veri varlıklarını üzerinde göre içgörü zengin getirmenize olanak sağlar. Privileged Access Management ile tümleştirme için değerli seçkin verileri Office 365'te güvenli erişim denetimi sağlar.  Microsoft Graph veriler üzerinde daha fazla bilgi için Bağlan, lütfen [bu bağlantıyı](https://github.com/OfficeDev/ManagedAccessMSGraph/wiki).
 
 Bu makalede, kopyalama etkinliği Azure Data Factory'de Office 365'ten veri kopyalamak için nasıl kullanılacağını özetlenmektedir. Yapılar [kopyalama etkinliği'ne genel bakış](copy-activity-overview.md) kopyalama etkinliği genel bir bakış sunan makalesi.
+
+Dokuz dakikalık bir giriş ve Data Factory, Office 365 verilerine bağlanma ile ilgili tanıtımı için aşağıdaki videoyu izleyin:
+
+> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Get-cloud-scale-analytics-of-Office-365-data-with-Azure-Data-Factory/player]
 
 ## <a name="supported-capabilities"></a>Desteklenen özellikler
 

@@ -12,12 +12,12 @@ ms.author: xiwu
 ms.reviewer: douglasl
 manager: craigg
 ms.date: 08/09/2018
-ms.openlocfilehash: ae7ac2726ccb97264b387eb9ae5476ae1946a783
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 602bbdcd21e56bb64515a19623e08ae617c99a59
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47161990"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48870923"
 ---
 # <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync"></a>SQL Data Sync ile birden fazla Bulut ve şirket içi veritabanı arasında veri eşitleme
 
@@ -126,6 +126,8 @@ Sağlama ve eşitleme grubu oluşturma, güncelleştirme ve silme işlemi sıras
 -   Nesne (veritabanları, tablolar ve sütunlar) adlarını yazdırılabilir karakterleri nokta (.), köşeli ayraç ([) içeren veya sağa kare köşeli ayraç (]) olamaz.
 
 -   Azure Active Directory kimlik doğrulaması desteklenmiyor.
+
+-   Aynı ada ancak farklı şeması (örneğin, dbo.customers ve sales.customers) sahip tablolar desteklenmez.
 
 #### <a name="unsupported-data-types"></a>Desteklenmeyen veri türleri
 

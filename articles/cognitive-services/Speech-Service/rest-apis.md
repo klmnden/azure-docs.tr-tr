@@ -8,20 +8,20 @@ ms.technology: speech
 ms.topic: article
 ms.date: 05/09/2018
 ms.author: v-jerkin
-ms.openlocfilehash: cc73be09cec4ef963a496687d112f98e05d98802
-ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
+ms.openlocfilehash: 8a441f43a5d7ab3daa3c430dc715fab9ff8c63bb
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48018528"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48868318"
 ---
 # <a name="speech-service-rest-apis"></a>Konuşma hizmeti REST API'leri
 
-Azure Bilişsel hizmetler REST API'lerini birleşik konuşma hizmeti tarafından sağlanan API'leri benzer [Bing konuşma API'si](https://docs.microsoft.com/azure/cognitive-services/Speech). Bing konuşma hizmeti tarafından kullanılan uç noktalarını uç noktalarına farklıdır. Bölgesel uç noktaları kullanılabilir ve kullanmakta olduğunuz uç noktaya karşılık gelen bir abonelik anahtarı kullanması gerekir.
+Azure Bilişsel hizmetler konuşma hizmeti REST API'leri tarafından sağlanan API'leri benzerdir [Bing konuşma API'si](https://docs.microsoft.com/azure/cognitive-services/Speech). Bing konuşma hizmeti tarafından kullanılan uç noktalarını uç noktalarına farklıdır. Bölgesel uç noktaları kullanılabilir ve kullanmakta olduğunuz uç noktaya karşılık gelen bir abonelik anahtarı kullanması gerekir.
 
 ## <a name="speech-to-text"></a>Konuşmayı Metne Dönüştürme
 
-Konuşmayı metne dönüştürme REST API'si uç noktaları aşağıdaki tabloda gösterilmektedir. Eşleşen abonelik bölgenizi kullanın.
+Konuşmayı metne dönüştürme REST API'si uç noktaları aşağıdaki tabloda gösterilmektedir. Eşleşen abonelik bölgenizi kullanın. Başvuru **tanıma modları** değiştirmek için aşağıdaki bölümde `conversation` ya da ile `interactive` veya `dictation` içinde belirli bir API çağrısı, istenen sceanrio için.
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-endpoints-speech-to-text.md)]
 
@@ -29,6 +29,53 @@ Konuşmayı metne dönüştürme REST API'si uç noktaları aşağıdaki tabloda
 > Akustik model veya dil modeli ya da telaffuz özelleştirdiyseniz, özel uç noktanıza kullanın.
 
 Bu API yalnızca kısa konuşma destekler. İstekleri 10 saniyeye kadar ses içeren ve en son 14 saniyede toplam en fazla. REST API, kısmi veya Ara sonuçlar yalnızca Nihai sonuç döndürür. Konuşma hizmeti de sahip bir [toplu transkripsiyonu](batch-transcription.md) uzun ses özelliği API.
+
+### <a name="recognition-modes"></a>Tanıma modları
+
+REST API veya WebSocket Protokolü doğrudan kullanırken, tanıma modunu belirtmek ihtiyaç duyduğu: `interactive`, `conversation`, veya `dictation`. Konuşma tanıma nasıl kullanıcıları duyma olasılığınız olan bağlı tanıma modu ayarlar. Uygulamanız için uygun tanıma modunu seçin.
+
+> [!NOTE]
+> WebSocket Protokolü arkadaşlarınıza kıyasla tanıma modları REST Protokolü farklı davranışları olabilir. Örneğin, REST API sürekli tanıma, hatta konuşma veya Dikte modunda desteklemez.
+> [!NOTE]
+> Bu mod, doğrudan REST veya WebSocket protokolünü kullanırken geçerlidir. [Speech SDK'sı](speech-sdk.md) tanıma yapılandırma belirtmek için farklı parametreler kullanır. Daha fazla bilgi için seçtiğiniz istemci kitaplığı bakın.
+
+Microsoft konuşma hizmeti tüm tanıma modları için yalnızca bir tanıma ifade sonucunu döndürür. Doğrudan REST API veya WebSocket protokolünü kullanırken herhangi tek utterance için 15 saniyelik bir sınır yoktur.
+
+#### <a name="interactive-mode"></a>Etkileşimli mod
+
+İçinde `interactive` modu, kullanıcının kısa isteği yapan ve yanıt olarak bir eylemi gerçekleştirmek için uygulama bekler.
+
+Aşağıdaki özelliklere etkileşimli mod uygulamaları tipik şunlardır:
+
+- Kullanıcılar, başka bir insan değil de, bir makineye iletişim kurmanızı bildirin.
+- Uygulama kullanıcıları, önceden varsayalım, alan uygulama yapmak istediğini üzerinde istedikleri bildirin.
+- Konuşma son hakkında genellikle 2-3 saniye.
+
+#### <a name="conversation-mode"></a>Konuşma modu
+
+İçinde `conversation` modu, kullanıcıların insanlar konuşmada gerçekleştiriliyor.
+
+Aşağıdaki özelliklere konuşma modu uygulamalarının tipik şunlardır:
+
+- Kullanıcılar başka bir kişiye konuşma olduğunu bilirsiniz.
+- Konuşma tanıma, konuşulan metnin görmek bir veya iki katılımcıları vererek İnsan konuşmalar geliştirir.
+- Kullanıcılar, söylemek istediği her zaman planlamıyorsanız.
+- Kullanıcıların sık argo ve resmi olmayan diğer konuşma kullanın.
+
+#### <a name="dictation-mode"></a>Dikte modu
+
+İçinde `dictation` modu, kullanıcılar uygulamaya daha fazla işleme için uzun konuşma belirtmesini.
+
+Aşağıdaki özelliklere dikte modu uygulamalarının tipik şunlardır:
+
+- Kullanıcılar için bir makine konuşma olduğunu bilirsiniz.
+- Kullanıcılara, konuşma tanıma metin sonuçları gösterilir.
+- Söyleyin ve daha resmi bir dil kullanmak istedikleri kullanıcıları genellikle planlayın.
+- Kullanıcılar kullanan tam, son 5-8 saniye cümleler.
+
+> [!NOTE]
+> Yazdırma ve konuşma modlarında Microsoft konuşma hizmeti kısmi sonuçlar döndürmez. Bunun yerine, hizmet sessizlik sınırları ses akışına sonra kararlı tümcecik sonuçlarını döndürür. Microsoft, bu sürekli tanıma modda kullanıcı deneyimini iyileştirmek üzere konuşma Protokolü geliştirmek.
+
 
 ### <a name="query-parameters"></a>Sorgu parametreleri
 
@@ -55,13 +102,19 @@ Aşağıdaki alanlar, HTTP istek bağlığında gönderilir.
 
 ### <a name="audio-format"></a>Ses biçimi
 
-Ses HTTP gövdesi gönderilen `PUT` isteği. 16-bit WAV PCM tek kanalda (tekli) 16 KHz biçiminde olmalıdır.
+Ses HTTP gövdesi gönderilen `PUT` isteği. 16-bit WAV PCM tek kanalda (tekli) 16 KHz aşağıdaki biçimleri/kodlama biçiminde olmalıdır.
+
+* WAV PCM codec biçimiyle
+* Geçerli codec OGG biçimi
+
+>[!NOTE]
+>Yukarıdaki biçimleri, REST API ve konuşma hizmeti, WebSocket üzerinden desteklenir. [Speech SDK'sı](/index.yml) WAV PCM codec ile biçim şu anda yalnızca destekler. 
 
 ### <a name="chunked-transfer"></a>Öbekli aktarım
 
 Öbekli aktarım (`Transfer-Encoding: chunked`) tanıma gecikme süresi, aktarım sırasında ses dosyası işlemesi konuşma tanıma hizmeti izin verdiğinden azaltmaya yardımcı olabilir. REST API, kısmi veya Ara sonuçlar sağlamaz. Bu seçenek, yalnızca yanıt verme hızını artırmak için tasarlanmıştır.
 
-Aşağıdaki kod öbekler halinde ses gönderme işlemini gösterir. `request` HTTPWebRequest nesneyi uygun REST uç noktasına bağlanır. `audioFile` ses dosyası diskte yoludur.
+Aşağıdaki kod öbekler halinde ses gönderme işlemini gösterir. Yalnızca ilk öbekte ses dosyanın üst bilgisi içermelidir. `request` HTTPWebRequest nesneyi uygun REST uç noktasına bağlanır. `audioFile` ses dosyası diskte yoludur.
 
 ```csharp
 using (fs = new FileStream(audioFile, FileMode.Open, FileAccess.Read))
@@ -476,6 +529,6 @@ public class Authentication
 ## <a name="next-steps"></a>Sonraki adımlar
 
 - [Konuşma deneme aboneliğinizi alın](https://azure.microsoft.com/try/cognitive-services/)
-- [Akustik model özelleştirme](how-to-customize-acoustic-models.md)
-- [Dil modeli özelleştirme](how-to-customize-language-model.md)
+- [Akustik modelleri özelleştirme](how-to-customize-acoustic-models.md)
+- [Dil modellerini özelleştirme](how-to-customize-language-model.md)
 

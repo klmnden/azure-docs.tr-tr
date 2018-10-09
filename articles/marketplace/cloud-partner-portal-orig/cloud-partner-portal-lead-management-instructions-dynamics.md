@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.author: pbutlerm
-ms.openlocfilehash: b15224a5be6c3c1df0778c35680836cbbfee2e48
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 8c432146d33db992a0ae612dfc56ace9460ade17
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48811648"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48870868"
 ---
 # <a name="configure-lead-management-for-dynamics-crm-online"></a>Çevrimiçi sağlama Yönetimi Dynamics CRM için yapılandırma
 
@@ -95,7 +95,7 @@ Azure Active Directory için Dynamics CRM yapılandırmak için aşağıdaki ad�
 
 ### <a name="office-365"></a>Office 365
 
-Azure Active Directory kullanmak istemiyorsanız, Office 365 Yönetim portalında yeni bir kullanıcı kaydedebilir. Hesaplanması kullanıcı adı/parola, müşteri adaylarını almaya devam etmek için her 90 günde güncelleştirmek için gerekli.
+Azure Active Directory kullanmak istemiyorsanız, Office 365 Yönetim portalında yeni bir kullanıcı kaydedebilir. Kullanıcı adı/parola, müşteri adaylarını almaya devam etmek için her 90 günde güncelleştirmek için gerekli olacaktır.
 
 Office 365, Dynamics CRM için yapılandırmak için aşağıdaki adımları kullanın.
 

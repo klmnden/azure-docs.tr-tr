@@ -12,12 +12,12 @@ ms.author: dmalik
 ms.reviewer: vanto, genemi
 manager: craigg
 ms.date: 09/18/2018
-ms.openlocfilehash: 90138664e5eab9110f51bbd3d3755dec0ed59ea8
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 0e14a00cbd7f38f7409a6551ac6f29c9f54a7434
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47166818"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48870851"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-sql-database-and-sql-data-warehouse"></a>Azure SQL veritabanı ve SQL veri ambarı için sanal ağ hizmet uç noktaları ve kuralları kullanma
 
@@ -187,7 +187,7 @@ PolyBase, verileri depolama hesaplarından Azure SQLDW yüklemek için yaygın o
 #### <a name="azure-sqldb-blob-auditing"></a>Azure SQLDB Blob denetimi
 BLOB denetimi denetim günlükleri, kendi depolama hesabınıza gönderir. Sanal ağ hizmet uç noktaları özelliği bu depolama hesabı kullanıyorsa, SQLDB Azure depolama hesabı bağlantısı çalışmamasına neden olur.
 
-## <a name="adding-a-vnet-firewall-rule-to-your-server-without-turning-on-vnet-service-endpoints"></a>Üzerinde sanal ağ hizmet uç noktaları açmadan sunucunuza bir VNET güvenlik duvarı kuralı ekleme
+## <a name="adding-a-vnet-firewall-rule-to-your-server-without-turning-on-vnet-service-endpoints"></a>Üzerinde sanal ağ hizmet uç noktaları açmadan sunucunuza bir VNet güvenlik duvarı kuralı ekleme
 
 Uzun zaman önce bu özelliği geliştirilmiştir önce Güvenlik Duvarı'nda canlı bir sanal ağ kuralı uygulayabileceğine önce sanal ağ hizmet uç noktaları açmaları gerekiyordu. Uç noktaları, Azure SQL veritabanı için belirli bir sanal ağ alt ilgili. Ancak artık Ocak 2018'den itibaren bu gereksinim ayarlayarak atlayabilir **IgnoreMissingServiceEndpoint** bayrağı.
 

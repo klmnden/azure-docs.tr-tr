@@ -11,15 +11,16 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 manager: craigg
-ms.date: 04/01/2018
-ms.openlocfilehash: 25bb665d9ea9166d099ab7f3f9696d92da8314e9
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.date: 10/05/2018
+ms.openlocfilehash: c54a644b140d65ccad1a3cba6c5a07a8e201cddb
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47161834"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48869627"
 ---
-# <a name="data-dependent-routing"></a>Verilere bağımlı yönlendirme
+# <a name="use-data-dependent-routing-to-route-a-query-to-appropriate-database"></a>Veri bağımlı bir sorgu için uygun veritabanı yönlendirmek için yönlendirme kullanın
+
 **Verilere bağımlı yönlendirme** veri isteği yönlendirmek için uygun bir veritabanı için sorguda kullanma yeteneğidir. Veri bağımlı yönlendirme temel düzeni, parçalı veritabanları ile çalışırken. Özellikle parçalama anahtarı sorgunun bir parçası değilse, istek bağlamı isteği yönlendirmek için de kullanılabilir. Her özel bir sorgu veya verilere bağımlı yönlendirme kullanarak uygulama işlemde istek başına tek bir veritabanı erişimi sınırlıdır. Azure SQL veritabanı elastik araçlar için bu yönlendirme ile gerçekleştirilir **ShardMapManager** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager._shard_map_manager), [.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.aspx)) sınıfı.
 
 Uygulama çeşitli bağlantı dizelerini veya farklı parçalı ortamında veri dilimleri ilişkili DB konumları izlemeniz gerekmez. Bunun yerine, [parça eşleme Yöneticisi](sql-database-elastic-scale-shard-map-management.md) parça eşlemesi ve uygulamanın isteğin hedefi parçalama anahtarı değerini veriler temelinde gerekli değilse, doğru veritabanlarına bağlantı açar. Genellikle anahtardır *customer_id*, *Kiracı*, *date_key*, veya bir temel veritabanı istek parametresi bazı bir belirli tanımlayıcısı. 

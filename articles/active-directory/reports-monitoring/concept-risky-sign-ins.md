@@ -14,12 +14,12 @@ ms.component: report-monitor
 ms.date: 11/14/2017
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 3fab0648a2ad0e0a4c193d37875913dd27bf9af4
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 38ae18dca08b50a90102149d7e44169c956a1c0e
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45574292"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48869644"
 ---
 # <a name="risky-sign-ins-report-in-the-azure-active-directory-portal"></a>Azure Active Directory portalındaki riskli oturum açma işlemleri raporu
 
@@ -37,6 +37,15 @@ Güvenlik raporlarını, [Azure portalının](https://portal.azure.com) **Azure 
 
 ![Riskli Oturum Açma İşlemleri](./media/concept-risky-sign-ins/10.png)
 
+## <a name="who-can-access-the-risky-sign-ins-report"></a>Riskli oturum açma işlemleri raporu erişebilecek mi?
+
+Riskli oturum açma işlemleri raporları, kullanıcıların aşağıdaki rollerin kullanılabilir:
+
+- Güvenlik Yöneticisi
+- Genel Yönetici
+- Güvenlik Okuyucu
+
+Azure Active Directory'de bir kullanıcıya yönetici rollerini atama hakkında bilgi edinmek için [Azure Active Directory'de yönetici rolleri görüntüleyin ve Ata](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-manage-roles-portal).
 
 ## <a name="what-azure-ad-license-do-you-need-to-access-a-security-report"></a>Güvenlik raporuna erişebilmek için hangi Azure AD lisansınızın olması gerekir?  
 
@@ -48,8 +57,6 @@ Bununla birlikte, rapordaki ayrıntı düzeyi sürümler arasında değişiklik 
 - **Azure Active Directory Premium 1** sürümü bu modeli genişleterek her raporda algılanmış olan temel risk olaylarından bazılarını incelemenize olanak tanır. 
 
 - **Azure Active Directory Premium 2** sürümü, tüm temel risk olayları hakkında en ayrıntılı bilgileri sağlar ve ayrıca, yapılandırılmış risk düzeylerine otomatik olarak yanıt veren güvenlik ilkeleri yapılandırmanıza da olanak tanır.
-
-
 
 ## <a name="azure-active-directory-free-and-basic-edition"></a>Azure Active Directory ücretsiz ve temel sürümleri
 

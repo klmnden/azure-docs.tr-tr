@@ -1,6 +1,6 @@
 ---
 title: Azure PublicIpAddressCombo UI öğesi | Microsoft Docs
-description: Azure portalı için Microsoft.Network.PublicIpAddressCombo kullanıcı Arabirimi öğesi açıklar.
+description: Azure portalına yönelik Microsoft.Network.PublicIpAddressCombo UI öğesi açıklar.
 services: managed-applications
 documentationcenter: na
 author: tfitzmac
@@ -13,21 +13,21 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/28/2018
 ms.author: tomfitz
-ms.openlocfilehash: d06a450595a53fdc65fba74791345abe3a1b3db4
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: c3e8c99f6648f0f4927140f3215978566afb9eb8
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37109578"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48868913"
 ---
-# <a name="microsoftnetworkpublicipaddresscombo-ui-element"></a>Microsoft.Network.PublicIpAddressCombo UI öğesi
-Yeni veya var olan ortak IP adresi seçme denetimlerini grubudur.
+# <a name="microsoftnetworkpublicipaddresscombo-ui-element"></a>Microsoft.Network.PublicIpAddressCombo kullanıcı Arabirimi öğesi
+Yeni veya var olan genel IP adresi seçme denetimlerini grubudur.
 
-## <a name="ui-sample"></a>Kullanıcı Arabirimi örneği
+## <a name="ui-sample"></a>Örnek kullanıcı Arabirimi
 ![Microsoft.Network.PublicIpAddressCombo](./media/managed-application-elements/microsoft.network.publicipaddresscombo.png)
 
-- Kullanıcının ortak IP adresi için ' None' seçerse, etki alanı adı etiketi metin kutusu gizlenir.
-- Kullanıcı var olan bir ortak IP adresi seçer, etki alanı adı etiketi metin kutusu devre dışı bırakılır. Seçili IP adresinin etki alanı adı etiketi değeri olduğu.
+- Genel IP adresi için ' None' kullanıcının seçtiği etki alanı adı etiketi metin kutusu gizlenir.
+- Kullanıcı var olan bir genel IP adresini seçerse, etki alanı adı etiketi metin kutusu devre dışı bırakıldı. Seçili IP adresi, etki alanı ad etiketi kendi değerdir.
 - Otomatik olarak seçilen konum temelinde etki alanı adı soneki (örneğin, westus.cloudapp.azure.com) güncelleştirmeler.
 
 ## <a name="schema"></a>Şema
@@ -63,14 +63,14 @@ Yeni veya var olan ortak IP adresi seçme denetimlerini grubudur.
 ```
 
 ## <a name="remarks"></a>Açıklamalar
-- Varsa `constraints.required.domainNameLabel` ayarlanır **doğru**, kullanıcı, yeni bir ortak IP adresi oluştururken, bir etki alanı adı etiketi sağlamanız gerekir. Bir etiketi olmayan olmadan seçime uygun varolan ortak IP adresleri.
-- Varsa `options.hideNone` ayarlanır **true**, ardından belirleme seçeneği **hiçbiri** için genel IP adresi gizlenir. Varsayılan değer **false**.
-- Varsa `options.hideDomainNameLabel` ayarlanır **doğru**, etki alanı adı etiketi için metin kutusu gizli sonra. Varsayılan değer **false**.
-- Varsa `options.hideExisting` kullanıcı mevcut bir ortak IP adresini seçebilir değil sonra true olur. Varsayılan değer **false**.
-- İçin `zone`, yalnızca genel IP adresi için belirtilen bölge veya bölge dayanıklı genel IP adresleri kullanılabilir.
+- Varsa `constraints.required.domainNameLabel` ayarlanır **true**, kullanıcı, yeni bir ortak IP adresi oluştururken bir etki alanı adı etiketi sağlamanız gerekir. Bir etiketi olmayan olmadan seçilebilir var olan bir genel IP adresleri.
+- Varsa `options.hideNone` ayarlanır **true**, ardından seçme seçeneği **hiçbiri** için genel IP adresi gizlidir. Varsayılan değer **false**.
+- Varsa `options.hideDomainNameLabel` ayarlanır **true**, sonra etki alanı adı etiketi için metin kutusu gizlenir. Varsayılan değer **false**.
+- Varsa `options.hideExisting` kullanıcı var olan bir genel IP adresi seçin sağlayamadığı sonra true olur. Varsayılan değer **false**.
+- İçin `zone`, yalnızca genel IP adresleri için belirtilen bölgesi veya bölge dayanıklı genel IP adresleri kullanılabilir.
 
 ## <a name="sample-output"></a>Örnek çıktı
-Kullanıcının ortak IP adresi seçerse, denetimi aşağıdaki çıktıyı döndürür:
+Genel IP adresi yok kullanıcının seçtiği denetimi aşağıdaki çıktı döndürür:
 
 ```json
 {
@@ -78,7 +78,7 @@ Kullanıcının ortak IP adresi seçerse, denetimi aşağıdaki çıktıyı dön
 }
 ```
 
-Kullanıcı yeni veya var olan bir IP adresi seçer, denetimi aşağıdaki çıktıyı döndürür:
+Yeni veya mevcut bir IP adresi kullanıcının seçtiği denetimi aşağıdaki çıktı döndürür:
 
 ```json
 {
@@ -86,13 +86,14 @@ Kullanıcı yeni veya var olan bir IP adresi seçer, denetimi aşağıdaki çık
   "resourceGroup": "rg01",
   "domainNameLabel": "mydomain",
   "publicIPAllocationMethod": "Dynamic",
+  "sku": "Basic",
   "newOrExistingOrNone": "new"
 }
 ```
 
-- Zaman `options.hideNone` olarak belirtilen **true**, `newOrExistingOrNone` yalnızca bir değeri olur **yeni** veya **varolan**.
+- Zaman `options.hideNone` olarak belirtilen **true**, `newOrExistingOrNone` yalnızca değerine sahip **yeni** veya **mevcut**.
 - Zaman `options.hideDomainNameLabel` olarak belirtilen **true**, `domainNameLabel` bildirilmedi.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* UI tanımları oluşturmak için bir giriş için bkz [CreateUiDefinition ile çalışmaya başlama](create-uidefinition-overview.md).
-* Kullanıcı Arabirimi öğeleri ortak özellikleri açıklaması için bkz: [CreateUiDefinition öğeleri](create-uidefinition-elements.md).
+* UI tanımları oluşturma, bir giriş için bkz. [createuidefinition dosyasını kullanmaya başlama](create-uidefinition-overview.md).
+* Ortak Özellikler UI öğelerinin açıklaması için bkz. [CreateUiDefinition öğeleri](create-uidefinition-elements.md).

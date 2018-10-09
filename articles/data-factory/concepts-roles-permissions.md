@@ -4,7 +4,7 @@ description: Veri fabrikaları oluşturmak ve alt kaynak ile çalışmak için g
 author: douglaslMS
 ms.author: douglasl
 manager: craigg
-ms.date: 10-04/2018
+ms.date: 10/08/2018
 ms.topic: conceptual
 ms.service: data-factory
 services: data-factory
@@ -12,12 +12,12 @@ documentationcenter: ''
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.openlocfilehash: cd6e28298b773f466ea317b7217af7709802aa12
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: 0c915c6b102f3aeedb316048fad1c6dc238fa0ad
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48817531"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48868625"
 ---
 # <a name="roles-and-permissions-for-azure-data-factory"></a>Rolleri ve izinleri için Azure Data Factory
 
@@ -50,6 +50,9 @@ Bu rol hakkında daha fazla bilgi için bkz. [Data Factory Katılımcısı rolü
 ### <a name="resource-manager-template-deployment"></a>Resource Manager şablon dağıtımı
 
 **Data Factory Katılımcısı** rol, kaynak grubu düzeyinde veya bu düzeyin üstünde, Resource Manager şablonlarını dağıtma kullanıcılar olanak tanır. Sonuç olarak, rolünün üyeleri, hem veri fabrikaları ve veri kümeleri, bağlı hizmetler, işlem hatlarını, tetikleyiciler ve tümleştirme çalışma zamanları dahil olmak üzere, kendi alt kaynakları dağıtmak için Resource Manager şablonlarını kullanabilirsiniz. Bu rolün üyeliğini diğer kaynaklar, ancak oluşturmalarına izin vermez.
+
+> [!WARNING]
+> Resource Manager şablon dağıtımı ile **Data Factory Katılımcısı** rol izinlerinizi yükseltmesine değil. Örneğin, bir Azure sanal makine oluşturan bir şablonu dağıtmak ve sanal makineler oluşturmak için izniniz yoksa, dağıtım bir Yetkilendirme hatası ile başarısız olur.
 
 ### <a name="custom-scenarios-and-custom-roles"></a>Özel senaryoları ve özel roller
 

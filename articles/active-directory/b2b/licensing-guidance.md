@@ -5,67 +5,49 @@ services: active-directory
 ms.service: active-directory
 ms.component: B2B
 ms.topic: conceptual
-ms.date: 08/09/2017
+ms.date: 10/04/2018
 ms.author: mimart
 author: msmimart
 manager: mtillman
-ms.reviewer: sasubram
-ms.openlocfilehash: 1d92f68bbb5e8c001594e4f78f90cb10496aaf29
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.reviewer: mal
+ms.openlocfilehash: d80794511f334cd6dc5af418e24fc774b7d8728f
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45984501"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48867519"
 ---
 # <a name="azure-active-directory-b2b-collaboration-licensing-guidance"></a>Azure Active Directory B2B işbirliği lisanslama kılavuzu
 
-Azure AD Hizmetleri ve kuruluşunuzdaki diğer kaynaklara erişmesine izin vermek için Azure AD kiracısına Konuk kullanıcıları davet etmek için Azure AD B2B işbirliği özelliklerini kullanabilirsiniz. B2B işbirliği Konuk kullanıcıları ile lisanslanması gerekir, erişim sağlamak istiyorsanız, ücretli Azure AD özellikleri, Azure AD lisansı uygun. 
+Azure Active Directory (Azure AD) ile işletmeden işletmeye (B2B) işbirliği, ücretli, kullanılacak dış kullanıcılar (veya "konuk kullanıcılar") davet edebilirsiniz Azure AD Hizmetleri. Her Ücretli Azure AD lisansı, bir kullanıcıya atamak için dış kullanıcı indirimi altında en fazla beş Konuk kullanıcılar davet edebilirsiniz.
 
-Bu avantajlar şunlardır:
-* Azure AD ücretsiz özellikleri ek lisans olmadan Konuk kullanıcılar için kullanılabilir.
-* B2B kullanıcıları için sunulan Ücretli Azure AD özellikleri erişim sağlamak istiyorsanız, bu B2B Konuk kullanıcıları desteklemek için yeterli sayıda lisans olmalıdır.
-* B2B işbirliği kullanım hakları kiracısına davet bir ek beş B2B Konuk kullanıcı davet eden bir lisans Ücretli bir Azure AD kiracısıyla sahiptir.
-* Kullanıcıların kaç B2B işbirliği Ücretli Azure AD özellikleri belirlemek için bir davet eden kiracının sahibi müşteri olmalıdır. Ücretli Azure AD bağlı olarak, aynı 5:1 oranını B2B işbirliği kullanıcıları kapsayacak şekilde lisansları kadar Azure AD olmalıdır, Konuk kullanıcılar için istediğiniz özellikleri Ücretli.
+Konuk kullanıcı, kuruluşunuz ve kuruluşunuzun kuruluşları hiçbirini üyesi olmayan bir kullanıcıdır. Konuk kullanıcılar, oturum açmak için kullandıkları kimlik bilgilerini değil ilişkilerini, kuruluşunuz tarafından tanımlanır. Aslında, Konuk kullanıcı, bir dış kimlik bilgilerinizle veya kuruluşunuza ait kimlik bilgileri ile oturum açabilirsiniz.
 
-B2B işbirliği Konuk kullanıcı, bir kullanıcı bir iş ortağı şirketi, değil, kuruluşunuzun bir çalışan veya yan kuruluşu çalışanı, conglomerate içinde farklı bir iş olarak eklenir. B2B Konuk kullanıcı, dış kimlik bilgilerini veya bu makalede anlatıldığı gibi kuruluşunuza ait kimlik bilgilerinizle oturum açabilirsiniz. 
+Aşağıdaki *değil* Konuk kullanıcılar:
+- Çalışanlar, Yükleniciler yerinde ya da yerinde aracıları
+- Çalışanlar, yerinde yüklenici veya yerinde aracıları, bağlı kuruluşlarının
 
-Diğer bir deyişle, B2B lisansı kullanıcı kimliğini nasıl tarafından değil, ancak bunun yerine kuruluşunuz için kullanıcı arasındaki ilişkiyi tarafından ayarlanır. Bu kullanıcılar iş ortakları emin değilseniz, farklı olarak, lisanslama koşulları kabul edilir. B2B işbirliği kullanıcısı kendi UserType "Konuk" işaretlenmiş olsa bile amacıyla lisanslama olması olarak değerlendirilmez Bunlar genellikle, kullanıcı başına bir lisansı lisanslanmalıdır. Bu kullanıcılar şunları içerir:
-* Çalışanlarınızın
-* Dış kimlik kullanarak ekibi
-* Bir çalışan, conglomerate farklı bir işletmenin
+B2B Konuk kullanıcı lisanslama otomatik olarak hesaplanır ve 1:5 oranını tabanlı bildirdi. Şu anda, B2B atamak mümkün değildir Konuk kullanıcı lisanslarını doğrudan konuk kullanıcılara.
 
+Bazı durumlarda değilse Konuk kullanıcı burada raporlanan 1:5 dış kullanıcı indirimi kullanarak. Konuk kullanıcı zaten bir Ücretli varsa, kullanıcının kendi kuruluşundaki, kullanıcının lisans Azure AD B2B Konuk kullanıcı lisanslarınızdan birini kullanır değil. Ayrıca, konuk kullanıcıların kullanabileceği ek lisans gereksinimi ile Azure AD özellikleri boşaltın. Konuk kullanıcıların erişiminin bile sizde yoksa, Azure AD özellikleri boşaltmak için ücretli Azure AD lisansı. 
 
-## <a name="licensing-examples"></a>Lisanslama örnekleri
-- Bir müşteri, 100 kendi Azure AD kiracınıza B2B işbirliği kullanıcıları davet etmek istemektedir. Erişim denetimi ve sağlaması tüm kullanıcılar için müşteri atar ancak 50 kullanıcı MFA ve koşullu erişim de gerektirir. Bu müşteri 10 Azure AD temel lisansı ve doğru şekilde bu B2B kullanıcıları kapsayacak şekilde 10 Azure AD Premium P1 lisansı satın almanız gerekir. Müşteri, kimlik koruması ile B2B kullanıcıları özelliklerine planlıyorsa, davet edilen kullanıcılar aynı 5:1 oranını karşılamak için Azure AD Premium P2 lisansı olması gerekir.
-- Bir müşteri şu anda tüm Azure AD Premium P1 ile lisanslanan 10 kişiden sahiptir. Şirket artık ihtiyaç duyan tüm çok faktörlü kimlik doğrulaması (MFA) 60 B2B kullanıcıları davet etmek istemektedir. 5:1 lisans kuralı altında müşteri 60 B2B işbirliği kullanıcıları kapsayacak şekilde en az 12 Azure AD Premium P1 lisansı olması gerekir. 10 Premium P1 lisansı 10 çalışanlar için sahip oldukları için bunlar MFA gibi Premium P1 özelliklerle 50 B2B kullanıcıları davet etme hakkına sahiptir. Bu örnekte, daha sonra kalan 10 B2B işbirliği kullanıcıları kapsayacak şekilde 2 ek Premium P1 lisansı satın almanız gerekir.
+## <a name="examples-calculating-guest-user-licenses"></a>Örnekler: Konuk kullanıcı lisanslarını hesaplanıyor
+Konuk kullanıcı, ücretli erişmesi gereken belirledikten sonra Azure AD Hizmetleri, gerekli 1:5 oranı, konuk kullanıcıların kapsanması için yeterince Azure AD lisansları Ücretli sahip olduğunuzdan emin olun. İşte bazı örnekler:
 
-> [!NOTE]
-> Henüz bu B2B işbirliği kullanıcı hakları etkinleştirmek için doğrudan B2B kullanıcılara lisans atamak için hiçbir yolu yoktur.
+- Azure AD uygulamaları veya hizmetleri için 100 Konuk kullanıcıları davet etmek istediğiniz ve erişim yönetimi ve tüm Konuk kullanıcılar için sağlama atamak istediğiniz. Ayrıca, 50 bu Konuk kullanıcılar için mfa'yı ve koşullu erişim gerektiren istiyorsunuz. Bu birleşim karşılamak üzere 10 Azure AD temel lisansı ve 10 Azure AD Premium P1 lisansı gerekir. Konuk Kullanıcılarınızla kimlik koruma özelliklerini kullanmayı planlıyorsanız, konuk kullanıcıların kapsanması için aynı 1:5 oranı, Azure AD Premium P2 lisansı gerekir.
+- Bu nedenle en az 12 Azure AD Premium P1 lisansı olması gerekir isteyen tüm MFA'yı 60 Konuk kullanıcılar davet etmek istediğiniz. 1:5 oranı lisansı altında 50 adede kadar Konuk kullanıcı izin Azure AD Premium P1 lisansı ile 10 kişiden var. 10 ek konuk kullanıcıların kapsanması için iki ek Premium P1 lisansı satın almanız gerekir.
 
-Kullanıcıların kaç B2B işbirliği Ücretli Azure AD özellikleri belirlemek için bir davet eden kiracının sahibi müşteri olmalıdır. Azure AD özellikleri için konuk kullanıcılarınızın ödediğiniz miktar bağlı olarak, 5:1 oranını B2B işbirliği kullanıcıları kapsayacak yeterli Azure AD Ücretli lisansı olması gerekir. 
+## <a name="using-the-b2b-collaboration-api-to-invite-users-from-your-affiliates"></a>B2B işbirliği API, bağlı kuruluşlarımızla kullanıcıları davet etmek kullanma
 
-## <a name="additional-licensing-details"></a>Ek lisans ayrıntıları
-- Aslında B2B kullanıcı hesaplarına lisansları atamak için gerek yoktur. 5:1 oranını bağlı olarak, lisans otomatik olarak hesaplanan bildirilen ve.
-- Ücretli Hayır ise, Azure AD lisansınızın kiracısında mevcut Azure AD ücretsiz sürüm sunan hakları her davet edilen kullanıcının alır.
-- Kendi kuruluştan bir B2B işbirliği kullanıcısı zaten bir Ücretli Azure AD lisansı, davet eden kiracının B2B işbirliği lisanstan kullandıkları değil.
+Tanımı gereği, B2B Konuk kullanıcı davet, ücretli kullanmak için bir dış kullanıcı olduğu Azure AD uygulamaları ve Hizmetleri. B2B özellikleri kullanılıyor olsa bile, bir çalışan, yüklenici yerinde veya şirketiniz veya, bağlı kuruluşlarımızla birinin yerinde aracı, B2B işbirliği için uygun olmaz. İşte bazı örnekler: 
+- Kuruluşunuzun bir çalışan bir kullanıcıyı davet etmek için harici kimlik bilgilerini (örneğin, bir sosyal kimlik) kullanmak istiyorsunuz. Bu senaryo, lisanslama gereksinimleriyle uyumlu değil ve izin verilen değil. Dış kimlik bilgileri, bir çalışan bir dış kullanıcının yapmayın.  
+- Kuruluşunuzun kuruluşları birinden bir kullanıcı davet etme B2B API'leri kullanmak istiyorsunuz. Bu senaryoda kullanıcı davet etme B2B API'leri kullansa da, B2B işbirliği kabul değil. Bir kullanıcıdan, bağlı bir dış kullanıcı olmadığından lisanslama gereksinimleriyle uyumlu değil. 
 
-## <a name="advanced-discussion-what-are-the-licensing-considerations-when-we-add-users-from-a-conglomerate-organization-as-members-using-your-apis"></a>Tartışma Gelişmiş: ediyoruz "Apı'lerinizi kullanan üyelerin" olarak kümeleme bir kuruluşun kullanıcı eklerken lisans dikkat edilecek noktalar nelerdir?
-B2B Konuk kullanıcı bir iş ortağı kuruluştan ana kuruluşla çalışmak üzere davet edildiği biridir. Genellikle, diğer bir olay B2B bile, kullanan B2B özellikleri uygun değil. İki durumlara özellikle göz atalım:
-
-1. Bir tüketici adresi kullanarak bir çalışan bir konağa davet ederse
-  * Bu senaryo, bizim lisans ilkeleri ile uyumlu değildir ve önerilmez.
-
-2. Bir konak kuruluş başka bir kümeleme kuruluştan bir kullanıcı eklerse
-  1. Bu durumda, B2B API'lerini kullanarak kullanıcı davet, ancak bu durumda geleneksel B2B değil. İdeal olarak, ki bu kuruluşlardaki diğer kuruluşlar (API'mizi sağlar) üye olarak davet olması gerekir. Bu durumda, davet eden kuruluşunda bulunan kaynaklara erişmek için bu üye için bunları atanan lisanslara sahip.
-
-  2. Bazı kuruluşlar, bir ilke olarak "Konuk" eklenecek kullanıcıları diğer kuruluş 's eklemek isteyebilirsiniz. Burada iki durum vardır:
-      * Kümeleme kuruluş zaten Azure AD'yi kullanarak ve davet edilen kullanıcılar diğer kuruluştaki lisanslanır: Bu durumda, biz bu belgenin önceki bölümlerinde düzenlendiği 1:5 formül izlemeniz gereken davet edilen kullanıcıların beklemiyoruz. 
-
-      * Kümeleme kuruluş Azure AD'ye kullanmıyor veya uygun lisansları yok: Bu durumda, bu belgenin önceki bölümlerinde düzenlendiği 1:5 formül izleyin.
+Bu senaryoların her ikisinde üye olarak davet B2B API'yi kullanmak için daha iyi çözüm olduğundan (invitedUserType = üyesi) ve bunları her bir Azure AD lisansı atayın. 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Azure AD B2B işbirliği hakkında aşağıdaki makalelere bakın:
+Azure AD B2B işbirliği hakkında aşağıdaki kaynaklara bakın:
 
 * [Azure AD B2B işbirliği nedir?](what-is-b2b.md)
 * [Azure Active Directory B2B işbirliği sık sorulan sorular (SSS)](faq.md)

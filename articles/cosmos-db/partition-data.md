@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 07/26/2018
 ms.author: andrl
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c35082d107b538e7e908162c00facafecc406bc6
-ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
+ms.openlocfilehash: 9b7d9a0dd439b7c25180c8f250a87ae5ee184139
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48785656"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48870579"
 ---
 # <a name="partition-and-scale-in-azure-cosmos-db"></a>Bölümleme ve ölçeklendirme Azure Cosmos DB'de
 
@@ -119,6 +119,8 @@ Bölünmüş grafik kapsayıcısı oluştururken aşağıdaki ayrıntıları gö
 
 - **Graf sorgularını, bölüm anahtarını belirtmelidir**. Mümkün olduğunda, yatay Azure Cosmos DB'de bölümleme tam grafik yararlanmak için sorgular bölüm anahtarını içermesi gerekir. Örneğin, tek bir köşe seçilir. Aşağıdaki örnek sorgularda, bir veya daha fazla köşe bölümlenmiş bir grafikte seçerken bölüm anahtarını dahil gösterilmektedir:
 
+    - **Şu anda kullanamazsınız `/id` Gremlin API içinde bir kapsayıcı için bölüm anahtarı olarak**.
+
     - Ardından Kimliğe göre bir köşe seçerek **kullanın `.has()` bölüm anahtar özelliği belirtmek için adım**: 
     
         ```
@@ -147,7 +149,7 @@ Bölünmüş grafik kapsayıcısı oluştururken aşağıdaki ayrıntıları gö
 
 * **Giden yön kenarlar sorgulanırken kullanın** her mümkündür. Kenarlar, kendi kaynak köşe giden yönde ile depolanır. Bu bölümler arası sorgular için maksimum olasılığını unutmayın, bu düzendeki veriler ve sorgular tasarlanırsa küçültülür anlamına gelir.
 
-## <a name="designing-for-partitioning"></a> Bölüm anahtarı oluşturma 
+## <a name="designing-for-partitioning"></a> Bir bölüm anahtarı oluşturma 
 Kapsayıcı oluşturma ve bunları herhangi bir zamanda ölçeklendirmek için Azure portal veya Azure CLI'yı kullanabilirsiniz. Bu bölümde her API kullanarak sağlanan aktarım hızı ve bölüm anahtarı belirtin ve kapsayıcı oluşturma işlemi gösterilmektedir.
 
 
@@ -225,6 +227,9 @@ Daha fazla bilgi için [tablo API'si ile geliştirme](tutorial-develop-table-dot
 ### <a name="gremlin-api"></a>Gremlin API
 
 Gremlin API'si ile bir grafiğini temsil eden bir kapsayıcı oluşturmak için Azure portal veya Azure CLI'yı kullanabilirsiniz. Alternatif olarak, Azure Cosmos DB çok modelli olduğundan, diğer API'lerden birini oluşturacağınız ve ölçeklendireceğiniz, grafik kapsayıcısı için kullanabilirsiniz.
+
+> [!NOTE]
+> Kullanamazsınız `/id` Gremlin API içinde bir kapsayıcı için bölüm anahtarı olarak. 
 
 Bölüm anahtarına ve Kimliğine Gremlin kullanarak, herhangi bir köşe veya kenarın okuyabilirsiniz. Örneğin, bölüm anahtarını ve satır anahtarı olarak "Seattle" olarak ("ABD") bölgesi olan bir grafik için aşağıdaki sözdizimini kullanarak, bir köşe bulabilirsiniz:
 

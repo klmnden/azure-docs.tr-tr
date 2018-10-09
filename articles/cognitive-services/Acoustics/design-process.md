@@ -9,12 +9,12 @@ ms.component: acoustics
 ms.topic: article
 ms.date: 08/17/2018
 ms.author: kegodin
-ms.openlocfilehash: b6bb04d9cec690198de663189dacd41fcbe960eb
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.openlocfilehash: bb3e5010f1839f7b18396cc8e177ed07e52ea98a
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48248613"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48867659"
 ---
 # <a name="design-process-overview"></a>Tasarım işlemine genel bakış
 Proje akustik iş akışı, tüm üç aşamada tasarım amacınızla ifade edebilirsiniz: önceden hazırlama Sahne Kurulum, ses kaynak yerleştirme ve sonrası hazırlama tasarım. Tasarımcı denetime nasıl Sahne sesleri korurken Yankı birimler yerleştirme ile ilişkili daha az biçimlendirme işlemi gerektirir.
@@ -37,6 +37,21 @@ Verilen bir malzeme odasında reverberation süresini 0,01 için 0,20 aralığı
 
 Voxel görünen, görsel bileşenleri oyununda bir dönüştürme uygulanmış olup olmadığını belirlemeye yardımcı olabilir. Bu durumda, aynı dönüşüm GameObject barındırmak üzere uygulama **akustik Manager**.
 
+### <a name="voxel-size-discrepancies"></a>Voxel boyutu tutarsızlıklar
+Akustik hazırlama içinde kafesleri katılmak, sahnenin göstermek için kullanılan voxels boyutunun tasarım zamanı ve çalışma zamanı görünümlerinde farklı olduğunu fark edebilirsiniz. Bu fark, kalite/ayrıntı düzeyi, seçili benzetimi sıklık etkilemez ancak yerine biproduct voxelized sahnenin çalışma zamanı kullanım değildir. Çalışma zamanında benzetimi voxels "kaynak konumları arasında bir ilişkilendirme desteklemek için daraltılmış". Bu, aynı zamanda bu yana hiçbir ses bir acoustically treated kafes içeren kaynakları bir voxel iç yapmayın benzetimi voxel boyutu – izin verdiğinden tasarım Sahne kafesleri ses kaynakları yakın zaman konumlandırmasını etkinleştirir.
+
+Unity eklenti tarafından görselleştirilen olarak tasarım (ön hazırlama) voxels ve çalışma zamanı (sonrası hazırlama) voxels arasındaki farkı gösteren iki görüntü şunlardır:
+
+Tasarım zamanı voxels:
+
+![VoxelsDesignTime](media/VoxelsDesignTime.png)
+
+Çalışma zamanı voxels:
+
+![VoxelsRuntime](media/VoxelsRuntime.png)
+
+Tasarım modu voxels daraltılmış voxels değil çalışma zamanı görselleştirmesini kullanarak voxel kafes mimari/yapısal Sahne kafesleri doğru olup olmadığını gösteren şirket kararı yapılmalıdır.
+
 ## <a name="post-bake-design"></a>Tasarım sonrası hazırlama
 Hazırlama sonuçları Sahne boyunca tüm dinleyici kaynak konum çiftleri için kapatma ve reverberation parametreler olarak ACE dosyasında depolanır. Bu fiziksel olarak doğru sonuç, projeniz için kullanılabilir- ve tasarımı için harika bir başlangıç noktası. Hazırlama sonrası tasarım süreci zamanında hazırlama sonucu parametreleri dönüştürme kuralları belirtir.
 
@@ -53,22 +68,22 @@ Kanal Şerit Unity'nın tüm kaynakları için parametrelerini ayarlamak için t
 ![Mixer özelleştirme](media/MixerParameters.png)
 
 ### <a name="tuning-source-parameters"></a>Kaynak parametrelerini ayarlama
-İliştirme **AcousticsDesign** betik bir kaynak için bu kaynak için ayar parametreleri sağlar. Komut dosyası eklemek için tıklatın **Bileşen Ekle** alt kısmındaki **denetçisi** gidin ve panel **betikleri > akustik tasarım**. Betik altı denetimlerine sahiptir:
+İliştirme **AcousticsAdjust** betik bir kaynak için bu kaynak için ayar parametreleri sağlar. Komut dosyası eklemek için tıklatın **Bileşen Ekle** alt kısmındaki **denetçisi** gidin ve panel **betikleri > akustik ayarlamak**. Betik altı denetimlerine sahiptir:
 
-![AcousticsDesign](media/AcousticsDesign.png)
+![AcousticsAdjust](media/AcousticsAdjust.png)
 
-* **Kapatma faktörü** -çarpanı akustik sistem tarafından hesaplanan kapatma dB düzeyinde uygulanır. Bu çarpan 1'den büyükse, kapatma exaggerated değerleri 1'den küçük kapatma etkisini daha hafif olun ve kapatma 0 değerini devre dışı bırakır.
-* **İletim (dB)** -geometri iletim kaynaklanan zayıflama (veritabanında) ayarlayın. Bu kaydırıcı iletimini devre dışı bırakmak için en düşük düzeyine ayarlayın. Akustik Sahne geometri (portaling) geçici olarak gelen olarak ilk kuru ses spatializes. İletim satırı görüş yönde spatialized ek bir kuru varış sağlar. Uzaklık zayıflama eğrinin kaynağı için de geçerli olduğunu unutmayın.
-* **Wetness Ayarla (dB)** -Yankı güç, dB, kaynaktan daha fazla mesafe göre ayarlar. Negatif değerler ses daha kuru yaparken pozitif değerlere ses daha reverberant olun. Eğri Düzenleyicisi ' getirmek için eğri denetim (yeşil bir çizgi) tıklayın. Eğriyi noktaları eklemek için sol tıklatma ve istediğiniz işlev oluşturmak için bu noktaları sürükleyerek değiştirin. X ekseni kaynak uzaklığı ve y ekseni DB'de Yankı ayarlama. Bkz. Bu [Unity el ile](https://docs.unity3d.com/Manual/EditingCurves.html) eğrilerini düzenleme hakkında daha fazla bilgi. Eğriyi geri varsayılana sıfırlamak için sağ tıklayın **Wetness ayarlamak** seçip **sıfırlama**.
-* **Zaman ölçeğini decay** -çarpanı decay saatini ayarlar. Örneğin, hazırlama sonucu 750 milisaniye decay süresini belirtir, ancak bu değeri 1,5 olarak ayarlanır, kaynak decay uygulanırken 1,125 milisaniyedir.
 * **Akustik etkinleştirme** -bu kaynak için akustik uygulanıp uygulanmayacağını denetler. İşaretlenmediğinde, kaynak HRTFs ile ancak akustik anlamsızdır, kapatma ve düzeyi ve decay zamanı gibi dinamik reverberation parametreleri olmadan anlamına gelir, spatialized. Reverberation yine de bir sabit düzeyi ve decay saat ile uygulanır.
-* **Outdoorness ayarlama** -kaynak üzerinde reverberation nasıl "dışarıda" ses bir ek ayarlama akustik sistemin tahmini. Bu ayarı 1 bir kaynağı her zaman tamamen dışarıda ses yapar, ayar çalışırken, -1'e bir kaynak içeride ses bulabilmesini sağlar.
+* **Kapatma** -çarpanı akustik sistem tarafından hesaplanan kapatma dB düzeyinde uygulanır. Bu çarpan 1'den büyükse, kapatma exaggerated değerleri 1'den küçük kapatma etkisini daha hafif olun ve kapatma 0 değerini devre dışı bırakır.
+* **İletim (dB)** -geometri iletim kaynaklanan zayıflama (veritabanında) ayarlayın. Bu kaydırıcı iletimini devre dışı bırakmak için en düşük düzeyine ayarlayın. Akustik Sahne geometri (portaling) geçici olarak gelen olarak ilk kuru ses spatializes. İletim satırı görüş yönde spatialized ek bir kuru varış sağlar. Uzaklık zayıflama eğrinin kaynağı için de geçerli olduğunu unutmayın.
+* **Wetness (dB)** -Yankı güç, dB, kaynaktan daha fazla mesafe göre ayarlar. Negatif değerler ses daha kuru yaparken pozitif değerlere ses daha reverberant olun. Eğri Düzenleyicisi ' getirmek için eğri denetim (yeşil bir çizgi) tıklayın. Eğriyi noktaları eklemek için sol tıklatma ve istediğiniz işlev oluşturmak için bu noktaları sürükleyerek değiştirin. X ekseni kaynak uzaklığı ve y ekseni DB'de Yankı ayarlama. Bkz. Bu [Unity el ile](https://docs.unity3d.com/Manual/EditingCurves.html) eğrilerini düzenleme hakkında daha fazla bilgi. Eğriyi geri varsayılana sıfırlamak için sağ tıklayın **Wetness** seçip **sıfırlama**.
+* **Zaman ölçeğini decay** -çarpanı decay saatini ayarlar. Örneğin, hazırlama sonucu 750 milisaniye decay süresini belirtir, ancak bu değeri 1,5 olarak ayarlanır, kaynak decay uygulanırken 1,125 milisaniyedir.
+* **Outdoorness** -kaynak üzerinde reverberation nasıl "dışarıda" ses bir ek ayarlama akustik sistemin tahmini. Bu ayarı 1 bir kaynağı her zaman tamamen dışarıda ses yapar, ayar çalışırken, -1'e bir kaynak içeride ses bulabilmesini sağlar.
 
-Farklı kaynaklar estetik veya oyun bazı efektler elde etmek farklı ayarlar gerektirebilir. İletişim bir olası bir örnektir. İletişim genellikle oyun için anlaşılır olması gerekiyor ancak İnsan kulak daha konuşma, reverberation attuned. Bu iletişim olmayan-diegetic taşıyarak yapmadan hesap **Wetness ayarlamak** aşağı yönde, ayarlama **Algısal uzaklık Warp** bazı ekleme,aşağıdaaçıklananparametresi**İletim** duvarları yayılan ve/veya azaltma kuru bazı ses boost için **kapatma faktörü** portallar aracılığıyla ulaşması daha fazla ses 1.
+Farklı kaynaklar estetik veya oyun bazı efektler elde etmek farklı ayarlar gerektirebilir. İletişim bir olası bir örnektir. İletişim genellikle oyun için anlaşılır olması gerekiyor ancak İnsan kulak daha konuşma, reverberation attuned. Bu iletişim olmayan-diegetic taşıyarak yapmadan hesap **Wetness** aşağı yönde, ayarlama **Algısal uzaklık Warp** bazı ekleme, aşağıda açıklanan parametresi  **İletim** duvarları yayılan ve/veya azaltma kuru bazı ses boost için **kapatma** portallar aracılığıyla ulaşması daha fazla ses 1.
 
-İliştirme **AcousticsDesignExperimental** betik bir kaynak için bu kaynak için ek Deneysel ayarlama parametrelerini sağlar. Komut dosyası eklemek için tıklatın **Bileşen Ekle** alt kısmındaki **denetçisi** gidin ve panel **betikleri > akustik tasarım Deneysel**. Şu anda Deneysel bir denetimdir:
+İliştirme **AcousticsAdjustExperimental** betik bir kaynak için bu kaynak için ek Deneysel ayarlama parametrelerini sağlar. Komut dosyası eklemek için tıklatın **Bileşen Ekle** alt kısmındaki **denetçisi** gidin ve panel **betikleri > akustik ayarlamak Deneysel**. Şu anda Deneysel bir denetimdir:
 
-![AcousticsDesignExperimental](media/AcousticsDesignExperimental.png)
+![AcousticsAdjustExperimental](media/AcousticsAdjustExperimental.png)
 
 * **Algısal uzaklık Warp** -üstel kuru ıslak oranını hesaplamak için kullanılan uzaklık çarpıtma uygulayın. Akustik sistem alanı boyunca düzgün uzaklığı ile değişir ve Algısal uzaklık ipuçlarını sağlama ıslak düzeylerine hesaplar. Daha fazla mesafe ilgili reverberation düzeyleri artırarak Bu etkiyi 1 exaggerate değerleri çarpıtma, yapmayı ses "uzak", 1'den az yapma sesi yapmanın daha hafif uzaklık tabanlı reverberation değişiklik değerleri çarpıtma sırasında "var."
 

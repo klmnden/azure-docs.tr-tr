@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/06/2018
 ms.author: jeffpatt
 ms.component: files
-ms.openlocfilehash: 2b2d817c85528ef56fd0baef80d17c7cd6eae543
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 8c6736d52ea0854a83bb213077c21946dc23141f
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48802245"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48857440"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Azure Dosya Eşitleme ile ilgili sorunları giderme
 Kuruluşunuzun dosya paylaşımlarını Azure dosyaları'nda esneklik, performans ve bir şirket içi dosya sunucusunun uyumluluğu korurken merkezileştirmek için Azure dosya eşitleme'yi kullanın. Azure dosya eşitleme Windows Server, Azure dosya paylaşımınızın hızlı bir önbelleğine dönüştürür. SMB, NFS ve FTPS gibi verilerinizi yerel olarak erişmek için Windows Server üzerinde kullanılabilir olan herhangi bir protokolünü kullanabilirsiniz. Dünya genelinde gereken sayıda önbellek olabilir.
@@ -780,11 +780,11 @@ Bir sunucuda katmanlama etkinliğini izlemek için olay kimliği 9002 9003 ve 90
 <a id="monitor-recall-activity"></a>**Bir sunucuya geri çağırma Etkinlik izleme**  
 Bir sunucuya geri çağırma etkinliğini izlemek için 9007 (uygulamalar ve Olay Görüntüleyicisi'nde Services\Microsoft\FileSync\Agent altında bulunur) Telemetri olay günlüğündeki olay kimliği 9005, 9006, kullanın. Unutmayın, bu olayları saatlik kaydedilir.
 
-- Olay Kimliği 9005 bir sunucu uç noktası için geri çağırma güvenilirlik sağlar. Örneğin, erişilen, benzersiz dosyaları toplam benzersiz başarısız erişim, vb. ile toplam sayısı.
+- Olay Kimliği 9005 sunucu uç noktası için geri çağırma güvenilirlik sağlar. Örneğin, erişilen, benzersiz dosyaları toplam benzersiz başarısız erişim, vb. ile toplam sayısı.
 
 - Sunucu uç noktası için geri çağırma hatası dağıtım öğesini belirten Olay No. 9006 sağlar. Örneğin, toplam başarısız istekler, hata kodu, vb. Unutmayın, hata kodu bir olay kaydedilir.
 
-- Olay Kimliği 9007 bir sunucu uç noktası için geri çağırma performans sağlar. Örneğin, TotalRecallIOSize, TotalRecallTimeTaken, vb.
+- Olay Kimliği 9007 sunucu uç noktası için geri çağırma performans sağlar. Örneğin, TotalRecallIOSize, TotalRecallTimeTaken, vb.
 
 <a id="files-fail-tiering"></a>**Tier başarısız dosyaları sorunlarını giderme**  
 Azure dosyaları'na Tier dosyaları başarısız olursa:

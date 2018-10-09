@@ -2,18 +2,17 @@
 title: Azure Container Registry'de resim depolama
 description: Docker kapsayıcı görüntülerinizi Azure Container Registry'de güvenlik, yedeklilik ve kapasite de dahil olmak üzere nasıl depolandığı ayrıntıları.
 services: container-registry
-author: mmacy
-manager: jeconnoc
+author: dlepow
 ms.service: container-registry
 ms.topic: article
 ms.date: 03/21/2018
-ms.author: marsma
-ms.openlocfilehash: 65ff60be992440c69e50a084b467a8efbb19574e
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.author: danlep
+ms.openlocfilehash: ba3c6a6bd4fb330eb64b5408eb72095f4de46a7b
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43307158"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48856658"
 ---
 # <a name="container-image-storage-in-azure-container-registry"></a>Kapsayıcı görüntüsü Azure Container Registry depolamada
 

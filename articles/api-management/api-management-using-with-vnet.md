@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/05/2017
 ms.author: apimpm
-ms.openlocfilehash: 1a02fd604d08e87c84a73657b7204ecb42b3498b
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: c94d4d4beea22e68a581cd208a25f915e4217614
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47393188"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48870885"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Sanal ağlar ile Azure API Management'ı kullanma
 Azure sanal ağları (Vnet) herhangi birini kullanarak Azure kaynaklarınızı erişimini denetleyen bir ağdaki internet olmayan routeable yerleştirmenize olanak sağlar. Bu ağlar ardından teknolojiler VPN kullanarak şirket içi ağa bağlanabilir. Buradaki bilgileri ile Başlat Azure sanal ağları hakkında daha fazla bilgi edinmek için: [Azure sanal ağa genel bakış](../virtual-network/virtual-networks-overview.md).
@@ -106,19 +106,21 @@ Bir sanal ağa API Management hizmet dağıtımı sırasında oluşabilecek yayg
 
 API Management hizmet örneği, sanal ağ içinde barındırıldığında, aşağıdaki tabloda bağlantı noktaları kullanılır.
 
-| Kaynak / hedef bağlantı noktaları | Yön | Aktarım Protokolü | Kaynak / hedef | Amaç (*) | Sanal ağ türü |
-| --- | --- | --- | --- | --- | --- |
-| * / 80, 443 |Gelen |TCP |INTERNET / VIRTUAL_NETWORK|İstemci iletişimi için API Yönetimi|Dış |
-| * / 3443 |Gelen |TCP |APIMANAGEMENT / VIRTUAL_NETWORK|Azure portalı ve Powershell yönetim uç noktası |Dış ve iç |
-| * / 80, 443 |Giden |TCP |Vırtual_network / depolama|**Azure depolama üzerinde bağımlılık**|Dış ve iç |
-| * / 80, 443 |Giden |TCP |VIRTUAL_NETWORK / INTERNET| Azure Active Directory (uygunsa)|Dış ve iç |
-| * / 1433 |Giden |TCP |VIRTUAL_NETWORK / SQL|**Azure SQL uç noktalarına erişimi** |Dış ve iç |
-| * / 5672 |Giden |TCP |Vırtual_network / EventHub |Olay hub'ı İlkesi ve İzleme Aracısı için günlük bağımlılığı |Dış ve iç |
-| * / 445 |Giden |TCP |Vırtual_network / depolama |Azure dosya paylaşımı için GIT bağımlılığı |Dış ve iç |
-| * / 1886 |Giden |TCP |VIRTUAL_NETWORK / INTERNET|Kaynak Durumu'nda sistem durumu yayımlamak gerekli |Dış ve iç |
-| * / 25028 |Giden |TCP |VIRTUAL_NETWORK / INTERNET|E-postaları göndermek için SMTP geçişi bağlanma |Dış ve iç |
-| * / 6381 - 6383 |Gelen ve giden |TCP |VIRTUAL_NETWORK / VIRTUAL_NETWORK|Roleınstances arasında erişim Redis önbelleği örnekleri |Dış ve iç |
-| * / * | Gelen |TCP |AZURE_LOAD_BALANCER / VIRTUAL_NETWORK| Azure altyapı yük Dengeleyicisini |Dış ve iç |
+| Kaynak / hedef bağlantı noktaları | Yön          | Aktarım Protokolü | Kaynak / hedef                  | Amaç (*)                                                 | Sanal ağ türü |
+|------------------------------|--------------------|--------------------|---------------------------------------|-------------------------------------------------------------|----------------------|
+| * / 80, 443                  | Gelen            | TCP                | INTERNET / VIRTUAL_NETWORK            | İstemci iletişimi için API Yönetimi                      | Dış             |
+| * / 3443                     | Gelen            | TCP                | APIMANAGEMENT / VIRTUAL_NETWORK       | Azure portalı ve Powershell yönetim uç noktası         | Dış ve iç  |
+| * / 80, 443                  | Giden           | TCP                | Vırtual_network / depolama             | **Azure depolama üzerinde bağımlılık**                             | Dış ve iç  |
+| * / 80, 443                  | Giden           | TCP                | VIRTUAL_NETWORK / INTERNET            | Azure Active Directory (uygunsa)                   | Dış ve iç  |
+| * / 1433                     | Giden           | TCP                | VIRTUAL_NETWORK / SQL                 | **Azure SQL uç noktalarına erişimi**                           | Dış ve iç  |
+| * / 5672                     | Giden           | TCP                | Vırtual_network / EventHub            | Olay hub'ı İlkesi ve İzleme Aracısı için günlük bağımlılığı | Dış ve iç  |
+| * / 445                      | Giden           | TCP                | Vırtual_network / depolama             | Azure dosya paylaşımı için GIT bağımlılığı                      | Dış ve iç  |
+| * / 1886                     | Giden           | TCP                | VIRTUAL_NETWORK / INTERNET            | Kaynak Durumu'nda sistem durumu yayımlamak gerekli          | Dış ve iç  |
+| * / 25                       | Giden           | TCP                | VIRTUAL_NETWORK / INTERNET            | E-postalar göndermek için SMTP geçişi bağlanma                    | Dış ve iç  |
+| * / 587                      | Giden           | TCP                | VIRTUAL_NETWORK / INTERNET            | E-postalar göndermek için SMTP geçişi bağlanma                    | Dış ve iç  |
+| * / 25028                    | Giden           | TCP                | VIRTUAL_NETWORK / INTERNET            | E-postalar göndermek için SMTP geçişi bağlanma                    | Dış ve iç  |
+| * / 6381 - 6383              | Gelen ve giden | TCP                | VIRTUAL_NETWORK / VIRTUAL_NETWORK     | Roleınstances arasında erişim Redis önbelleği örnekleri          | Dış ve iç  |
+| * / *                        | Gelen            | TCP                | AZURE_LOAD_BALANCER / VIRTUAL_NETWORK | Azure altyapı yük Dengeleyicisini                          | Dış ve iç  |
 
 >[!IMPORTANT]
 > İçin hangi bağlantı noktalarını *amaçlı* olduğu **kalın** sorunsuz dağıtılması API Management hizmeti için gereklidir. Diğer bağlantı noktalarının engellenmesi ancak performans düşüşü kullanma ve çalışan hizmetin izleme olanağı neden olur.
@@ -129,11 +131,13 @@ API Management hizmet örneği, sanal ağ içinde barındırıldığında, aşa�
 
 * **Ölçümler ve sistem durumu izleme**: giden ağ bağlantısını aşağıdaki etki alanlarının altında çözmek Azure izleme uç: 
 
-    | Azure ortamı | Uç Noktalar |
-    | --- | --- |
-    | Azure kamu | <ul><li>prod.warmpath.msftcloudes.com</li><li>shoebox2.Metrics.nsatc.NET</li><li>prod3.Metrics.nsatc.NET</li><li>prod3 black.prod3.metrics.nsatc.net</li><li>prod3 red.prod3.metrics.nsatc.net</li><li>prod.Warm.ingestion.msftcloudes.com</li><li>`azure region`. warm.ingestion.msftcloudes.com Burada `East US 2` eastus2.warm.ingestion.msftcloudes.com olduğu</li></ul> |
-    | Azure Kamu | <ul><li>fairfax.warmpath.usgovcloudapi.NET</li><li>shoebox2.Metrics.nsatc.NET</li><li>prod3.Metrics.nsatc.NET</li></ul> |
-    | Azure Çin | <ul><li>mooncake.warmpath.chinacloudapi.CN</li><li>shoebox2.Metrics.nsatc.NET</li><li>prod3.Metrics.nsatc.NET</li></ul> |
+    | Azure ortamı | Uç Noktalar                                                                                                                                                                                                                                                                                                                                                              |
+    |-------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+    | Azure kamu      | <ul><li>prod.warmpath.msftcloudes.com</li><li>shoebox2.Metrics.nsatc.NET</li><li>prod3.Metrics.nsatc.NET</li><li>prod3 black.prod3.metrics.nsatc.net</li><li>prod3 red.prod3.metrics.nsatc.net</li><li>prod.Warm.ingestion.msftcloudes.com</li><li>`azure region`. warm.ingestion.msftcloudes.com Burada `East US 2` eastus2.warm.ingestion.msftcloudes.com olduğu</li></ul> |
+    | Azure Kamu  | <ul><li>fairfax.warmpath.usgovcloudapi.NET</li><li>shoebox2.Metrics.nsatc.NET</li><li>prod3.Metrics.nsatc.NET</li></ul>                                                                                                                                                                                                                                                |
+    | Azure Çin       | <ul><li>mooncake.warmpath.chinacloudapi.CN</li><li>shoebox2.Metrics.nsatc.NET</li><li>prod3.Metrics.nsatc.NET</li></ul>                                                                                                                                                                                                                                                |
+
+* **SMTP geçiş**: giden ağ bağlantısını altında konak çözümler SMTP geçiş `ies.global.microsoft.com`.
 
 * **Azure portalı tanılama**: giden erişim için bir sanal ağ içinde API Management uzantısını kullanarak Azure Portal'dan tanılama günlüklerinin akışını etkinleştirmek için `dc.services.visualstudio.com` bağlantı noktası 443 gereklidir. Bu, uzantısı kullanırken karşılaştığınız sorunları gidermeye yardımcı olur.
 

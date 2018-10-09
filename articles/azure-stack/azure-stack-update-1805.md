@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 09/26/2018
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: 7cf3e08caad93bb7fb7fd221b6fdb9b2fc39397a
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: b6cb095736bbf41d53359bf7d07206703de5335c
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48816744"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48870019"
 ---
 # <a name="azure-stack-1805-update"></a>Azure Stack 1805 güncelleştirme
 
@@ -72,8 +72,8 @@ Bu güncelleştirme Azure Stack için aşağıdaki geliştirmeleri içerir.
 ## <a name="before-you-begin"></a>Başlamadan önce    
 
 ### <a name="prerequisites"></a>Önkoşullar
-- Azure yığını'nı yükleme [1804 güncelleştirme](azure-stack-update-1804.md) Azure Stack 1805 güncelleştirmeyi uygulamadan önce.  
-- En son kullanılabilir yükleme [güncelleştirme veya düzeltme sürümü 1804](azure-stack-update-1804.md#post-update-steps).   
+- Azure Stack 1805 güncelleştirmeyi uygulamadan önce Azure Stack 1804 güncelleştirmesini yükleyin.  
+- En son kullanılabilir güncelleştirme veya düzeltme sürümü 1804 yükleyin.   
 - 1805 güncelleştirme yüklemesi başlamadan önce çalıştırması [Test AzureStack](azure-stack-diagnostic-test.md) Azure Stack durumunu doğrulamak ve bulunan tüm çalışma sorunlarını çözün. Ayrıca etkin Uyarıları gözden geçirin ve eylemi gerektiren tüm çözümleyin. 
 
 ### <a name="known-issues-with-the-update-process"></a>Güncelleştirme işlemi ile ilgili bilinen sorunlar   
@@ -117,7 +117,7 @@ Bu derleme sürümü için yükleme sonrası bilinen sorunlar verilmiştir.
   Geçici çözüm: Bu güncelleştirmeyi yükledikten sonra bu sorunu çözmek için 3 adımda kullanın [yapılandırmak için tetikleyici Otomasyon Talep sağlayıcı güveni Azure Stack'te](azure-stack-integrate-identity.md#trigger-automation-to-configure-claims-provider-trust-in-azure-stack-1) varsayılan sağlayıcı aboneliğin sahibi sıfırlamak için yordamı.   
 
 <!-- TBD - IS ASDK --> 
-- Bazı yönetim abonelik türlerinde kullanılamaz.  Azure Stack bu sürüme yükseltme yaptığınızda iki abonelik türlerini başlatılmalı [1804 sürümü ile sunulan](azure-stack-update-1804.md#new-features) konsolunda görünmez. Bu beklenen bir durumdur. Kullanılabilir abonelik türleridir *abonelik ölçümü*, ve *tüketim abonelik*. Bu abonelik türlerini 1804 sürümünden başlayarak yeni Azure Stack ortamlarında görülebilir ancak henüz kullanıma sunulmamıştır. Kullanmaya devam etmelidir *varsayılan sağlayıcı* abonelik türü.  
+- Bazı yönetim abonelik türlerinde kullanılamaz. Azure Stack bu sürüme yükseltme yaptığınızda 1804 sürümü ile sunulan iki abonelik türlerini konsolunda görünmez. Bu beklenen bir durumdur. Kullanılabilir abonelik türleridir *abonelik ölçümü*, ve *tüketim abonelik*. Bu abonelik türlerini 1804 sürümünden başlayarak yeni Azure Stack ortamlarında görülebilir ancak henüz kullanıma sunulmamıştır. Kullanmaya devam etmelidir *varsayılan sağlayıcı* abonelik türü.  
 
 <!-- 2403291 - IS ASDK --> 
 - Yatay kaydırma çubuğunun alt kısmında bulunan yönetici ve Kullanıcı Portalı'nın kullanımını olmayabilir. Yatay kaydırma çubuğunun erişemiyorsanız, önceki bir dikey pencere portaldaki dikey penceresinin adı seçerek, gitmek için içerik haritaları en üstünde bulunan içerik haritası listeden görüntülemek istediğiniz kullanım portalın sol.

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 6af4533a4ab374071b904cc4b03ca239a3e83364
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 309c7275a1e775ed2bd689520ac39501e8bd6052
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39008968"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48857831"
 ---
 # <a name="overview-of-azure-cloud-services"></a>Azure bulut hizmetlerine genel bakış
 Azure Cloud Services, örneği bir [bir hizmet olarak platform](https://azure.microsoft.com/overview/what-is-paas/) (PaaS). Gibi [Azure App Service](../app-service/app-service-web-overview.md), bu teknoloji, ölçeklenebilir, güvenilir ve uygun maliyetli uygulamaları desteklemek için tasarlanmıştır. App Service sanal makinelerinde (VM'ler), bu nedenle barındırıldığını aynı şekilde Azure Cloud Services çok uzun. Ancak, sanal makineleri hakkında daha fazla denetime sahip. Azure Cloud Services kullanan Vm'lerde kendi yazılım yükleyebilirsiniz ve Uzaktan erişim.
@@ -33,7 +33,7 @@ Azure Cloud Services rolleri iki tür vardır. İkisi arasındaki tek fark, rol�
 
 * **Çalışan rolü**: IIS kullanmaz ve, uygulama başına çalıştırır.
 
-Örneğin, basit bir uygulama yalnızca bir tek bir web rolü, hizmet veren bir Web sitesi kullanabilirsiniz. Daha karmaşık bir uygulama kullanıcılardan gelen istekleri işlemek için bir web rolü kullanın ve ardından bu istekleri işlemek için bir çalışan rolü geçirin. (Bu iletişim kullanabilir [Azure Service Bus](../service-bus-messaging/service-bus-fundamentals-hybrid-solutions.md) veya [Azure kuyruk depolama](../storage/common/storage-introduction.md).)
+Örneğin, basit bir uygulama yalnızca bir tek bir web rolü, hizmet veren bir Web sitesi kullanabilirsiniz. Daha karmaşık bir uygulama kullanıcılardan gelen istekleri işlemek için bir web rolü kullanın ve ardından bu istekleri işlemek için bir çalışan rolü geçirin. (Bu iletişim kullanabilir [Azure Service Bus](../service-bus-messaging/service-bus-messaging-overview.md) veya [Azure kuyruk depolama](../storage/common/storage-introduction.md).)
 
 Önceki şekilde anlaşılacağı gibi tek bir uygulamanın tüm sanal makineler aynı bulut hizmetinde çalıştırın. Uygulamanın sanal makinelerde kullanıcılara erişim tek bir genel IP adresi, isteklerle üzerinden uygulama otomatik olarak yük dengeli. Platform [dağıtır ve ölçekler](cloud-services-how-to-scale-portal.md) Vm'leri bir Azure Cloud Services uygulamasında bir şekilde tek bir donanım hata noktası sorununu önler.
 

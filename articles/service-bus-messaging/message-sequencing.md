@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2018
 ms.author: spelluru
-ms.openlocfilehash: a15e726e237bcdbd9d380aaf9232e5d16a2e648f
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 631c4334b1e2ca37dfc87709718b6639c2762c5c
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47409144"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48857695"
 ---
 # <a name="message-sequencing-and-timestamps"></a>İleti sıralama ve zaman damgaları
 
@@ -26,7 +26,7 @@ Sıralama ve zaman damgası olan tüm Service Bus varlıklarının her zaman etk
 
 Mutlak iletilerin sırasını önemli olduğu durumlara yönelik ve/veya, bir tüketici güvenilir benzersiz bir tanımlayıcı iletileri, bir boşluk içermeyen ile Aracısı Damgalar iletileri için sıra numarası kuyruğuna veya konusuna göre artan gerekir. Bölümlenen varlıklar için sıra numarasına göre bölüm verilir.
 
-**SequenceNumber** olarak kabul edilir ve işlevleri ve Aracısı kendi iç tanımlayıcı olarak depolanan bir ileti atanmış bir benzersiz bir 64-bit tamsayı değeridir. Bölümlenen varlıklar için bölüm tanımlayıcısı üst 16 bit yansıtır. 48/64 bit aralığı kaldığında sıra numaraları sıfır olarak geçir.
+**SequenceNumber** olarak kabul edilir ve işlevleri ve Aracısı kendi iç tanımlayıcı olarak depolanan bir ileti atanmış bir benzersiz bir 64-bit tamsayı değeridir. Bölümlenen varlıklar için bölüm tanımlayıcısı üst 16 bit yansıtır. Sıra numaraları 48/64 bit aralığı kaldığında sıfır olarak geçir.
 
 Orta ve bağımsız bir yetkili tarafından ve istemciler tarafından atandıktan sonra sıra numarası benzersiz bir tanımlayıcı olarak güvenilir olabilir. Ayrıca varış true sırayı temsil eder ve zaman damgaları yeterince yüksek bir çözünürlük ileti olağanüstü fiyatlarıyla olmayabilir ve (ancak en düşük) saat eğriltme durumlarda tabi olabilir çünkü zaman damgası bir sipariş ölçütü olarak daha kesin burada Aracısı sahipliği düğümler arasında geçiş yapar.
 
@@ -50,7 +50,6 @@ Service Bus özelliği tek bir ileti sabitlenmiştir ve iletileri yalnızca sır
 
 Service Bus mesajlaşması hakkında daha fazla bilgi edinmek için aşağıdaki konulara bakın:
 
-* [Service Bus ile ilgili temel bilgiler](service-bus-fundamentals-hybrid-solutions.md)
 * [Service Bus kuyrukları, konu başlıkları ve abonelikleri](service-bus-queues-topics-subscriptions.md)
 * [Service Bus kuyrukları ile çalışmaya başlama](service-bus-dotnet-get-started-with-queues.md)
 * [Service Bus konu başlıklarını ve aboneliklerini kullanma](service-bus-dotnet-how-to-use-topics-subscriptions.md)

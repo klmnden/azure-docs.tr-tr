@@ -12,13 +12,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 10/04/2018
-ms.openlocfilehash: 747ef66b3d60e42e0d28669fb58364fd7c393438
-ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
+ms.date: 10/05/2018
+ms.openlocfilehash: c564dac4ec31f48b71cfdb0d7c5dd596ddd0df7e
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2018
-ms.locfileid: "48831239"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48868845"
 ---
 # <a name="the-azure-sql-database-service"></a>Azure SQL veritabanı hizmeti
 
@@ -32,12 +32,17 @@ Azure SQL Veritabanı, bir Azure SQL veritabanı için aşağıdaki dağıtım s
 
 Aşağıdaki şekilde bu dağıtım seçenekleri gösterilmektedir:
 
-![dağıtım seçenekleri](./media/sql-database-technical-overview/deployment-options.png) 
+![dağıtım seçenekleri](./media/sql-database-technical-overview/deployment-options.png)
 
 SQL Veritabanı, [Microsoft SQL Server veritabanı altyapısı](https://docs.microsoft.com/sql/sql-server/sql-server-technical-documentation) ile aynı kod tabanını kullanır. Microsoft'un bulut öncelikli stratejisi kapsamında en yeni SQL Server özellikleri önce SQL Veritabanı'na, ardından da SQL Server'ın kendine uygulanır. Bu yaklaşım sayesinde düzeltme veya yükseltme zahmetine girmeden milyonlarca veritabanında test edilmiş en yeni SQL Server özelliklerine sahip olabilirsiniz. Yeni özellikler açıklandıkça haberdar olmak için bkz:
 
-- **[SQL Veritabanı için Azure Yol Haritası](https://azure.microsoft.com/roadmap/?category=databases)**: Bu ürün yol haritasında, yenilikleri ve gelecekte sizi nelerin beklediğini bulabilirsiniz.
-- **[Azure SQL Veritabanı blogu](https://azure.microsoft.com/blog/topics/database)**: SQL Server ürün ekibi üyelerinin SQL Veritabanı haberleri ve özellikleri hakkında yazdıkları blog.
+- **[SQL veritabanı için Azure yol haritası](https://azure.microsoft.com/roadmap/?category=databases)**:
+
+  Yenilikleri ve yakında çıkacak öğrenmek için bir yer.
+
+- **[Azure SQL veritabanı blogu](https://azure.microsoft.com/blog/topics/database)**:
+
+  SQL Server ürün ekibi üyeleri blog SQL veritabanı haberleri ve özellikleri hakkında burada bir yer.
 
 > [!IMPORTANT]
 > SQL Veritabanı ile SQL Server arasındaki özellik farklarını anlamak için bkz. [SQL özellikleri](sql-database-features.md).
@@ -61,7 +66,7 @@ SQL Veritabanı bir [DTU tabanlı satın alma modeli](sql-database-service-tiers
 Düşük bir maliyetle genel amaçlı hizmet katmanındaki aylık küçük, tek bir veritabanı üzerinde ilk uygulamanızı oluşturun ve ardından Hizmet katmanını elle veya programlama yoluyla herhangi bir zamanda iş kritik hizmet katmanına çözümünüzün gereksinimlerini karşılayacak şekilde değiştirebilirsiniz. Performansı uygulamanız veya müşterileriniz kesinti yaşamadan ayarlayabilirsiniz. Dinamik ölçeklenebilirlik, veritabanınızın hızla değişen kaynak gereksinimlerine hızlı şekilde yanıt vermesini ve yalnızca ihtiyaç duyduğunuz kaynaklara ve ihtiyaç duyduğunuz süre boyunca ödeme yapmanızı sağlar.
 
 > [!IMPORTANT]
-> [Hiper ölçekli hizmet katmanı](sql-database-service-tier-hyperscale.md) şu anda genel Önizleme aşamasındadır. Tüm üretim iş yüklerini hiper ölçekli veritabanlarında henüz çalıştıran önerilmemektedir. Diğer hizmet katmanları için bir hiper ölçekli veritabanı güncelleştirilemiyor. Test amacıyla geçerli veritabanınızın bir kopyasını alın ve kopyasını hiper ölçekli hizmet katmanına güncelleştirmek önerilir...
+> [Hiper ölçekli hizmet katmanı](sql-database-service-tier-hyperscale.md) şu anda genel Önizleme aşamasındadır. Tüm üretim iş yüklerini hiper ölçekli veritabanlarında henüz çalıştıran önerilmemektedir. Diğer hizmet katmanları için bir hiper ölçekli veritabanı güncelleştirilemiyor. Test amacıyla geçerli veritabanınızın bir kopyasını alın ve kopyasını hiper ölçekli hizmet katmanına güncelleştirmek öneririz.
 
 Dinamik ölçeklenebilirlik, otomatik ölçeklendirmeden farklıdır. Bir hizmet ölçütlere dayalı olarak otomatik şekilde ölçeklendirildiğinde otomatik ölçeklendirme oluşurken, dinamik ölçeklenebilirlik ise kesinti süresi olmadan el ile ölçeklendirmeye olanak sağlar. Tek Azure SQL Veritabanı, el ile dinamik ölçeklenebilirliği destekler, ancak otomatik ölçeklendirmeyi desteklemez. Daha *otomatik* bir deneyim için, veritabanlarının tek tek veritabanı gereksinimlerine göre bir havuzdaki kaynakları paylaşmasına olanak sağlayan elastik havuzları kullanın. Ancak, tek bir Azure SQL Veritabanı için ölçeklenebilirliğin otomatikleştirilmesine yardımcı olabilecek betikler vardır. Örnek için bkz. [PowerShell kullanarak tek bir SQL Veritabanını izleme ve ölçeklendirme](scripts/sql-database-monitor-and-scale-database-powershell.md).
 
@@ -98,19 +103,29 @@ SQL Veritabanı ayrıca izlemeyi kolaylaştırmak için [ölçümler ve tanılam
 
 Azure'ın Microsoft yönetimindeki veri merkezlerinin küresel bir ağı tarafından desteklenen ve endüstri lideri niteliğinde %99,99'luk bir kullanılabilirlik oranı sunan hizmet düzeyi sözleşmesi [(SLA)](http://azure.microsoft.com/support/legal/sla/), uygulamanızın 7/24 kesintiye uğramamasına yardımcı olur. Azure platformu tüm Azure SQL Veritabanlarını tam kapsamlı olarak yönetir ve veri kaybı yaşanmayacağı ve yüksek oranda veri kullanılabilirliği garantisi verir. Azure düzeltme eki uygulama, yedekleme, çoğaltma, hata algılama, arka plandaki potansiyel donanım, yazılım veya ağ arızaları, hata giderme, yük devretme, veritabanı yükseltmesi ve diğer bakım görevlerini otomatik olarak gerçekleştirir. Standart kullanılabilirlik düzeyine ulaşmak için işlem ve depolama katmanları ayrılır. Premium kullanılabilirlik düzeyine ulaşmak için ise işlem ve depolama katmanları performans için tek bir düğüm üzerinde tümleştirilirken arka planda AlwaysOn Kullanılabilirlik Grupları uygulanır. Azure SQL veritabanı yüksek kullanılabilirlik özellikleri tam bir irdelemesi için bkz: [SQL veritabanı kullanılabilirlik](sql-database-high-availability.md). SQL Veritabanı ayrıca aşağıdakiler dahil olmak üzere yerleşik [iş sürekliliği ve global ölçeklenebilirlik](sql-database-business-continuity.md) özelliklerine sahiptir:
 
-- **[Otomatik yedekleme](sql-database-automated-backups.md)**: SQL Veritabanı otomatik olarak tam, değişiklik ve işlem günlüğü kapsamlı yedeklemeler gerçekleştirir.
-- **[Belirli bir noktaya geri yükleme](sql-database-recovery-using-backups.md)**: SQL Veritabanı otomatik yedek elde tutma süresi içindeki bir noktaya geri yüklemeyi destekler.
-- **[Etkin coğrafi çoğaltma](sql-database-geo-replication-overview.md)**: SQL Veritabanı aynı yerde veya global ölçekte dağıtılmış Azure veri merkezlerinde en fazla dört okunabilir ikincil veritabanı yapılandırmanızı sağlar.  Örneğin, yüksek hacimli eşzamanlı salt okunur işlemlere sahip bir katalog veritabanı kullanan bir SaaS uygulamanız varsa, etkin coğrafi çoğaltmayı kullanarak global okuma ölçeğini etkinleştirebilir ve birincil veritabanı üzerindeki okuma iş yükü kaynaklı performans sorunlarını ortadan kaldırabilirsiniz. 
-- **[Yük devretme grupları](sql-database-geo-replication-overview.md)**: SQL Veritabanı saydam coğrafi çoğaltma ve çok sayıda veritabanı ve elastik havuz için yük devretme dahil olmak üzere global ölçekte yüksek kullanılabilirlik ve yük dengeleme gerçekleştirmenizi sağlar. Yük devretme grupları ve etkin coğrafi çoğaltma asgari düzeyde yönetimle global olarak dağıtılmış SaaS uygulamalarının oluşturulmasını sağlar ve tüm karmaşık izleme, yönlendirme ve yük devretme düzenlemesini SQL Veritabanı'na bırakır.
-- **[Sıfır yedekli veritabanları](sql-database-high-availability.md)**: SQL Veritabanını kullanarak birden fazla kullanılabilirlik alanında Premium veya İş Açısından Kritik veritabanları ya da elastik havuzlar sağlayabilirsiniz. Bu veritabanları ve elastik havuzlar yüksek kullanılabilirlik için birden fazla yedekli çoğaltma içerdiğinden, bu çoğaltmaların birden fazla kullanılabilirlik alanına yerleştirilmesi, veri merkezi ölçek hatalarından veri kaybı olmadan otomatik olarak kurtarma becerisi de dahil olmak üzere daha yüksek esneklik sağlar.  
+- **[Otomatik yedeklemeler](sql-database-automated-backups.md)**:
+
+  SQL veritabanı, tam, değişiklik yedeklemelerinin ve işlem günlüğü yedeklemeleri otomatik olarak gerçekleştirir.
+- **[Zaman içinde nokta geri yüklemeler](sql-database-recovery-using-backups.md)**:
+
+  SQL veritabanı otomatik yedek elde tutma dönemi içinde zaman içinde bir noktaya geri destekler.
+- **[Etkin coğrafi çoğaltma](sql-database-geo-replication-overview.md)**:
+
+  SQL veritabanı aynı ya da Global olarak dağıtılmış Azure veri merkezlerinde en fazla dört okunabilir ikincil veritabanı yapılandırmanızı sağlar.  Örneğin, yüksek hacimli eşzamanlı salt okunur işlemlere sahip bir katalog veritabanı kullanan bir SaaS uygulamanız varsa, etkin coğrafi çoğaltmayı kullanarak global okuma ölçeğini etkinleştirebilir ve birincil veritabanı üzerindeki okuma iş yükü kaynaklı performans sorunlarını ortadan kaldırabilirsiniz.
+- **[Yük devretme grupları](sql-database-geo-replication-overview.md)**:
+
+  SQL veritabanı, yüksek kullanılabilirliği etkinleştirme ve Yük Dengeleme saydam coğrafi çoğaltma ve yük devretme veritabanları ve elastik havuzların büyük kümeleri dahil olmak üzere global ölçekte olanak tanır. Yük devretme grupları ve etkin coğrafi çoğaltma asgari düzeyde yönetimle global olarak dağıtılmış SaaS uygulamalarının oluşturulmasını sağlar ve tüm karmaşık izleme, yönlendirme ve yük devretme düzenlemesini SQL Veritabanı'na bırakır.
+- **[Bölgesel olarak yedekli veritabanları](sql-database-high-availability.md)**:
+
+  SQL veritabanı, sağlama Premium veya iş açısından kritik veritabanlarını isterseniz elastik havuzları birden çok kullanılabilirlik alanında sağlar. Bu veritabanları ve elastik havuzlar yüksek kullanılabilirlik için birden fazla yedekli çoğaltma içerdiğinden, bu çoğaltmaların birden fazla kullanılabilirlik alanına yerleştirilmesi, veri merkezi ölçek hatalarından veri kaybı olmadan otomatik olarak kurtarma becerisi de dahil olmak üzere daha yüksek esneklik sağlar.  
 
 ## <a name="built-in-intelligence"></a>Yerleşik zeka
 
-SQL Veritabanı ile veritabanı çalıştırma ve yönetim maliyetlerini önemli ölçüde azaltmanıza yardımcı olan ve uygulamanızı hem performans hem de güvenlik açısından üst düzeye taşıyan yerleşik zekaya sahip olursunuz. Her saniye milyonlarca müşterinin iş yükünü çalıştıran SQL Veritabanı çok büyük miktarlarda telemetri verilerini toplayıp işlemenin yanı sıra arka planda müşteri gizliliğini de korumaktadır. Telemetri verilerini sürekli değerlendiren çok farklı algoritmalar sayesinde hizmet uygulamanızı öğrenip kendini ona göre uyarlayabilir. Hizmet bu analize dayalı olarak iş yükünüze özel performans geliştirme önerileri sunar. 
+SQL Veritabanı ile veritabanı çalıştırma ve yönetim maliyetlerini önemli ölçüde azaltmanıza yardımcı olan ve uygulamanızı hem performans hem de güvenlik açısından üst düzeye taşıyan yerleşik zekaya sahip olursunuz. Her saniye milyonlarca müşterinin iş yükünü çalıştıran SQL Veritabanı çok büyük miktarlarda telemetri verilerini toplayıp işlemenin yanı sıra arka planda müşteri gizliliğini de korumaktadır. Telemetri verilerini sürekli değerlendiren çok farklı algoritmalar sayesinde hizmet uygulamanızı öğrenip kendini ona göre uyarlayabilir. Hizmet bu analize dayalı olarak iş yükünüze özel performans geliştirme önerileri sunar.
 
 ### <a name="automatic-performance-monitoring-and-tuning"></a>Otomatik performans izleme ve ayarlama
 
-SQL Veritabanı izlemeniz gereken sorgularla ilgili ayrıntılı öngörüler sunar. SQL Veritabanı'nın veritabanı desenleriniz hakkında öğrendikleri sayesinde veritabanı şemanızı iş yükünüze uyarlayabilirsiniz. SQL Veritabanı, [performans ayarlama önerilerinde](sql-database-advisor.md) bulunur. Siz de bu ayarları gözden geçirebilir ve uygulayabilirsiniz. 
+SQL Veritabanı izlemeniz gereken sorgularla ilgili ayrıntılı öngörüler sunar. SQL Veritabanı'nın veritabanı desenleriniz hakkında öğrendikleri sayesinde veritabanı şemanızı iş yükünüze uyarlayabilirsiniz. SQL Veritabanı, [performans ayarlama önerilerinde](sql-database-advisor.md) bulunur. Siz de bu ayarları gözden geçirebilir ve uygulayabilirsiniz.
 
 Ancak özellikle birden fazla veritabanıyla ilgilenirken bir veritabanını sürekli izlemek zor ve yorucu bir görevdir. [Akıllı Öngörüler](sql-database-intelligent-insights.md), SQL Veritabanı performansını otomatik olarak ölçekte izleyerek bu işi sizin için yapar ve performans düşüşü sorunlarını size bildirir, sorunun kök kaynağını belirler ve mümkün olduğunda performans iyileştirme önerileri sağlar.
 
@@ -129,15 +144,21 @@ SQL Veritabanı'na çok durumlu tablo değerli işlevler için araya eklemeli y�
 
 ## <a name="advanced-security-and-compliance"></a>Gelişmiş koruma ve uyumluluk
 
-SQL Veritabanı, uygulamanızın çeşitli güvenlik ve uyumluluk gereksinimlerine uygun olmasına yardımcı olmak için bir dizi [yerleşik güvenlik ve uyum özelliğine](sql-database-security-overview.md) sahiptir. 
+SQL Veritabanı, uygulamanızın çeşitli güvenlik ve uyumluluk gereksinimlerine uygun olmasına yardımcı olmak için bir dizi [yerleşik güvenlik ve uyum özelliğine](sql-database-security-overview.md) sahiptir.
 
 ### <a name="advance-threat-protection"></a>Gelişmiş Tehdit Koruması
 
 SQL Gelişmiş Tehdit Koruması, gelişmiş SQL güvenlik özellikleri için birleştirilmiş bir paket sunar. Hassas verileri keşfedip sınıflandırma, veritabanınızın güvenlik açıklarını yönetme ve veritabanınıza ilişkin bir tehdit belirtisi olabilecek anormal etkinlikleri algılamaya yönelik işlevsellik sağlar. Bu özellikler tek bir konumdan etkinleştirilebilir ve yönetilebilir.
 
-- [Veri Bulma ve Sınıflandırma](sql-database-data-discovery-and-classification.md) (önizleme sürümündedir), veritabanlarınızdaki hassas verileri keşfetmek, sınıflandırmak, etiketlemek ve korumak için yerleşik Azure SQL Veritabanı özellikleri sunar. Veri sınıflandırma durumunuz için görünürlük sağlamanın yanı sıra veritabanı içindeki ve dışındaki hassas verilere erişimin izlenmesi için kullanılabilir.
-- [Güvenlik Açığı Değerlendirmesi](sql-vulnerability-assessment.md) olası veritabanı güvenlik açıklarını keşfetmenizi ve izlemenizi sağlamanın yanı sıra bunları gidermeye yardımcı olan yapılandırması kolay bir hizmettir. Güvenlik durumunuz hakkında görünürlük sağlamasının yanı sıra güvenlik sorunlarınızı çözmek ve veritabanı güçlendirmelerinizi geliştirmek için eyleme dönüştürülebilir adımlar sunar.
-- [Tehdit Algılama](sql-database-threat-detection.md), veritabanlarına erişme veya bunları kullanma konusunda olağandışı ve potansiyel olarak zararlı girişimleri gösteren anormal etkinlikleri tespit eder. Veritabanınızı şüpheli etkinliklere karşı sürekli izler ve olası güvenlik açıkları, SQL ekleme saldırıları ve anormal veritabanı erişim modelleri hakkında anında güvenlik uyarıları sunar. Tehdit Algılama uyarıları, şüpheli etkinliğin ayrıntılarının yanı sıra tehdidi araştırmak ve ortadan kaldırmak için önerilen eylemleri içerir.
+- [Veri bulma & sınıflandırma](sql-database-data-discovery-and-classification.md):
+
+  Bu özellik (şu anda önizlemede), bulma, Sınıflandırma, etiketleme ve veritabanlarınızı hassas verileri korumak için Azure SQL veritabanında yerleşik özellikler sağlar. Veri sınıflandırma durumunuz için görünürlük sağlamanın yanı sıra veritabanı içindeki ve dışındaki hassas verilere erişimin izlenmesi için kullanılabilir.
+- [Güvenlik Açığı değerlendirmesi](sql-vulnerability-assessment.md):
+
+  Bu hizmet, bulmak, izlemek ve olası veritabanı güvenlik açıklarını düzeltin yardımcı. Güvenlik durumunuz hakkında görünürlük sağlamasının yanı sıra güvenlik sorunlarınızı çözmek ve veritabanı güçlendirmelerinizi geliştirmek için eyleme dönüştürülebilir adımlar sunar.
+- [Tehdit algılama](sql-database-threat-detection.md):
+
+  Bu özellik erişmek veya veritabanınızı yararlanmak için sıra dışı ve zararlı olabilecek girişimleri gösteren anormal etkinlikleri algılar. Veritabanınızı şüpheli etkinliklere karşı sürekli izler ve olası güvenlik açıkları, SQL ekleme saldırıları ve anormal veritabanı erişim modelleri hakkında anında güvenlik uyarıları sunar. Tehdit Algılama uyarıları, şüpheli etkinliğin ayrıntılarının yanı sıra tehdidi araştırmak ve ortadan kaldırmak için önerilen eylemleri içerir.
 
 ### <a name="auditing-for-compliance-and-security"></a>Uyumluluk ve güvenlik denetimi
 
@@ -159,10 +180,18 @@ SQL Veritabanı düzenli olarak denetimden geçmektedir ve birden fazla uyumlulu
 
 SQL Veritabanı uygulama oluşturma ve uygulamaların bakımını yapma işlemlerinin daha kolay ve daha verimli şekilde yapılmasını sağlar. SQL Veritabanı size, en iyi yaptığınız işe; mükemmel uygulamalar oluşturmaya odaklanma seçeneği sunar. Sahip olduğunuz araçları ve becerileri kullanarak SQL Veritabanı ile yönetebilir ve geliştirebilirsiniz.
 
-- **[Azure portalı](https://portal.azure.com/)**: Tüm Azure hizmetlerini yönetebileceğiniz web tabanlı uygulama 
-- **[SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)**: SQL Server'dan SQL Veritabanı'na tüm SQL altyapılarını yönetebileceğiniz ücretsiz ve indirilebilir istemci uygulaması
-- **[Visual Studio'daki SQL Server Veri Araçları](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt)**: SQL Server ilişkisel veritabanları, Azure SQL veritabanları, Integration Services paketleri, Analysis Services veri modelleri ve Reporting Services raporları geliştirebileceğiniz ücretsiz ve indirilebilir istemci uygulaması.
-- **[Visual Studio Code](https://code.visualstudio.com/docs)**: Microsoft SQL Server, Azure SQL Veritabanı ve SQL Veri Ambarı'nı sorgulamak için [mssql uzantısı](https://aka.ms/mssql-marketplace) dahil olmak üzere uzantıları destekleyen Windows, macOS ve Linux üzerinde çalışabilen ücretsiz, indirilebilir ve açık kaynak kod düzenleyicisi.
+- **[Azure portalında](https://portal.azure.com/)**:
+
+  Tüm Azure hizmetleri yönetmek için web tabanlı bir uygulama
+- **[SQL Server Management Studio'yu](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)**:
+
+  SQL Server'dan SQL veritabanı tüm SQL altyapılarını yönetebileceğiniz ücretsiz ve indirilebilir istemci uygulaması
+- **[SQL Server veri araçları, Visual Studio'da](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt)**:
+
+  SQL Server ilişkisel veritabanları, Azure SQL veritabanları, Integration Services paketleri, Analysis Services veri modelleri ve Reporting Services raporları geliştirmeye yönelik ücretsiz ve indirilebilir istemci uygulaması.
+- **[Visual Studio Code'u](https://code.visualstudio.com/docs)**:
+
+  Windows, macOS ve Linux dahil olmak üzere uzantıları destekleyen bir ücretsiz, indirilebilir ve açık kaynak kod Düzenleyicisi [mssql uzantısı](https://aka.ms/mssql-marketplace) Microsoft SQL Server, Azure SQL veritabanı ve SQL veri ambarı'nı sorgulamak için.
 
 SQL Veritabanı MacOS, Linux ve Windows üzerinde Python, Java, Node.js, PHP, Ruby ve .NET ile uygulama oluşturmayı destekler. SQL Veritabanı, SQL Server ile aynı [bağlantı kitaplıklarını destekler](sql-database-libraries.md).
 
@@ -177,7 +206,6 @@ SQL Veritabanı MacOS, Linux ve Windows üzerinde Python, Java, Node.js, PHP, Ru
 ## <a name="next-steps"></a>Sonraki adımlar
 
 - Tek veritabanı ve elastik havuz maliyet karşılaştırmaları ve hesaplayıcıları için bkz. [fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/sql-database/).
-
 - Başlamanıza yardımcı olacak şu hızlı başlangıçlara bakın:
 
   - [Azure portalda SQL veritabanı oluşturma](sql-database-get-started-portal.md)  

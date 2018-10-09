@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: yshoukry, LADocs
 ms.topic: article
 ms.date: 07/20/2018
-ms.openlocfilehash: daeb0c5436d851b6e234c1b97583df526192659e
-ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
+ms.openlocfilehash: 5fc4ccacaaedfc3fe6c77fa9a0ad693530bdde93
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48018783"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48855434"
 ---
 # <a name="install-on-premises-data-gateway-for-azure-logic-apps"></a>Azure Logic Apps için şirket içi veri ağ geçidi yükleme
 
@@ -211,7 +211,7 @@ Ağ geçidi için proxy bilgilerini sağlamak için bkz: [proxy ayarlarını yap
 > [!NOTE]
 > Bu komut yalnızca ağ bağlantısını ve Azure Service Bus bağlantısını test eder. Ağ geçidi veya şifreler ve kimlik bilgilerini ve ağ geçidi ayrıntıları depolar ağ geçidi bulut hizmeti ile komut yaramıyor. 
 >
-> Ayrıca, bu komut yalnızca Windows Server 2012 R2 veya daha sonra kullanılabilir ve Windows 8.1 veya üzeri. Önceki işletim sistemi sürümlerinde, Telnet bağlantısını test etmek için kullanabilirsiniz. Daha fazla bilgi edinin [Azure Service Bus ve karma çözümler](../service-bus-messaging/service-bus-fundamentals-hybrid-solutions.md).
+> Ayrıca, bu komut yalnızca Windows Server 2012 R2 veya daha sonra kullanılabilir ve Windows 8.1 veya üzeri. Önceki işletim sistemi sürümlerinde, Telnet bağlantısını test etmek için kullanabilirsiniz. Daha fazla bilgi edinin [Azure Service Bus ve karma çözümler](../service-bus-messaging/service-bus-messaging-overview.md).
 
 Sonuçlarınızı ile bu örneğe benzemelidir **TcpTestSucceeded** kümesine **True**:
 
@@ -232,7 +232,7 @@ Güvenlik Duvarı'nı, ayrıca Azure veri merkezlerine sağlayan Azure Service B
 
 ## <a name="configure-ports"></a>Bağlantı noktalarını yapılandırma
 
-Ağ geçidi için bir giden bağlantı oluşturur [Azure Service Bus](https://azure.microsoft.com/services/service-bus/) ve giden bağlantı noktaları üzerinden iletişim kurar: TCP 443 (varsayılan), 5671, 5672, 9350-9354. Ağ geçidi, gelen bağlantı noktası gerekmez. Daha fazla bilgi edinin [Azure Service Bus ve karma çözümler](../service-bus-messaging/service-bus-fundamentals-hybrid-solutions.md).
+Ağ geçidi için bir giden bağlantı oluşturur [Azure Service Bus](https://azure.microsoft.com/services/service-bus/) ve giden bağlantı noktaları üzerinden iletişim kurar: TCP 443 (varsayılan), 5671, 5672, 9350-9354. Ağ geçidi, gelen bağlantı noktası gerekmez. Daha fazla bilgi edinin [Azure Service Bus ve karma çözümler](../service-bus-messaging/service-bus-messaging-overview.md).
 
 Ağ geçidi bu tam etki alanı adlarını kullanır:
 

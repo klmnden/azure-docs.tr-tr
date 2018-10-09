@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/29/2018
+ms.date: 10/08/2018
 ms.author: kumud
-ms.openlocfilehash: 308e085bf98dea179a81b3ac28c14de2994b5927
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.openlocfilehash: 1f34a9319b8bbfba3f4a6f7446f949fc576aa4fa
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44390861"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48869066"
 ---
 # <a name="standard-load-balancer-and-availability-zones"></a>Standard Load Balancer ve Kullanılabilirlik Bölgeleri
 
@@ -54,7 +54,7 @@ Birden çok ön uç kullanırken gözden [Load Balancer için birden çok ön u�
 
 #### <a name="zone-redundant-by-default"></a>Bölge varsayılan olarak yedekli
 
-Kullanılabilirlik alanları ile bir bölgede standart yük dengeleyici ön uç, bölgesel olarak yedekli varsayılan olarak.  Tek bir ön uç IP adresi bölge hatası hayatta kalamaz ve bölge ne olursa olsun tüm arka uç havuzu üyelerine erişmek için kullanılabilir. Bu hitless veri yolu gelmez, ancak herhangi bir yeniden deneme veya reestablishment başarılı olur. DNS yedeklilik düzenleri gerekli değildir. Ön uç'ın tek bir IP adresi, her bir kullanılabilirlik alanında bağımsız altyapı dağıtımları tarafından aynı anda sunulur.  Bölgesel olarak yedekli tüm gelen veya giden akışlar aynı anda tek bir IP adresi kullanarak bir bölgedeki tüm kullanılabilirlik alanları tarafından sunulan anlamına gelir.
+Kullanılabilirlik alanları ile bir bölgede standart yük dengeleyici ön uç, bölgesel olarak yedekli varsayılan olarak.  Tek bir ön uç IP adresi bölge hatası hayatta kalamaz ve bölge ne olursa olsun tüm arka uç havuzu üyelerine erişmek için kullanılabilir. Bu hitless veri yolu gelmez, ancak herhangi bir yeniden deneme veya reestablishment başarılı olur. DNS yedeklilik düzenleri gerekli değildir. Ön uç'ın tek bir IP adresi, aynı anda birden fazla kullanılabilirlik alanına birden çok bağımsız altyapı dağıtımı tarafından sunulur.  Bölgesel olarak yedekli tüm gelen veya giden akışlar aynı anda tek bir IP adresi kullanarak bir bölgede birden fazla kullanılabilirlik tarafından sunulan anlamına gelir.
 
 Bir veya daha fazla kullanılabilirlik başarısız olabilir ve veri yolu olduğu sürece bir bölgede bölge kalır sağlıklı devam eder. Bölgesel olarak yedekli yapılandırma varsayılandır ve hiçbir ek eylem gerektirir.  Bir bölge kullanılabilirlik alanlarını destekleyen olanağı elde edince, var olan bir ön uç otomatik olarak bölgesel olarak yedekli hale gelir.
 
@@ -99,7 +99,7 @@ Bir veya daha fazla kullanılabilirlik başarısız olabilir ve veri yolu olduğ
 
 #### <a name="optional-zone-guarantee"></a>İsteğe bağlı bölge garantisi
 
-Tek bir bölge için garantili bir ön ucu olarak da bilinen sahip olmadığınıza bir *bölgesel ön uç*.  Bu, bir bölgedeki tek bir bölge tarafından sunulan herhangi bir gelen veya giden akış anlamına gelir.  Ön uç sunucularınızın kader bölge durumunu paylaşır.  Veri yolu, burada garanti dışındaki bölgelerde hataları tarafından etkilenmez. Bölgesel ön uçlar, bir IP adresi kullanılabilirlik alanı başına kullanıma sunmak için kullanabilirsiniz.  Ayrıca, bölgesel ön uçlar doğrudan kullanmak veya kullanabilirsiniz, ön uç genel IP adreslerini oluşuyorsa bunları DNS Yük Dengeleme gibi ürün tümleştirin [Traffic Manager](../traffic-manager/traffic-manager-overview.md) ve bir istemci için çözümler tek bir DNS adı kullanın birden çok bölgesel IP adresi.  Ayrıca bu tek tek her bölge izlemek için bölge yükü dengelenmiş Uç noktalara kullanıma sunmak için kullanabilirsiniz.  Bu kavramlar (Bölgesel olarak yedekli ve aynı arka uç için bölgesel) blend isterseniz, gözden [Azure Load Balancer için birden çok ön uç](load-balancer-multivip-overview.md).
+Tek bir bölge için garantili bir ön ucu olarak da bilinen sahip olmadığınıza bir *bölgesel ön uç*.  Bu, bir bölgedeki tek bir bölge tarafından sunulan herhangi bir gelen veya giden akış anlamına gelir.  Ön uç sunucularınızın kader bölge durumunu paylaşır.  Veri yolu, burada garanti dışındaki bölgelerde hataları tarafından etkilenmez. Bölgesel ön uçlar, bir IP adresi kullanılabilirlik alanı başına kullanıma sunmak için kullanabilirsiniz.  Ayrıca, bölgesel ön uçlar doğrudan kullanmak veya kullanabilirsiniz, ön uç genel IP adreslerini oluşuyorsa bunları gibi yük dengeleyici DNS ürün tümleştirin [Traffic Manager](../traffic-manager/traffic-manager-overview.md) ve bir istemci için çözümler tek bir DNS adı kullanın birden çok bölgesel IP adresi.  Ayrıca bu tek tek her bölge izlemek için bölge yükü dengelenmiş Uç noktalara kullanıma sunmak için kullanabilirsiniz.  Bu kavramlar (Bölgesel olarak yedekli ve aynı arka uç için bölgesel) blend isterseniz, gözden [Azure Load Balancer için birden çok ön uç](load-balancer-multivip-overview.md).
 
 Bir genel yük dengeleyiciye ön uç için eklediğiniz bir *bölgeleri* parametre ön uç IP yapılandırması tarafından başvurulan genel IP için.  
 
@@ -198,10 +198,10 @@ Kullanılabilirlik kazançlar kullanılabilirlik alanları kullanılırken silin
 
 - Uygulamanızın üç bölgelerinde bölgesel olarak yedekli bir yük dengeleyici ön uç ve bölgeler arası sanal makine ölçek kümesi gibi iki bileşenleri varsa, kaynaklarınızı hatasından etkilenmeyenler bölgelerinde kullanıma sunulacaktır ancak uçtan uca hizmet kapasitenizi düzeyi düşürülmüş olabilir Bölge sırasında hata oluştu. Bir altyapı açısından dağıtımınızı bir veya daha fazla bölge hatalara ve bu aşağıdaki soruları başlatır:
   - Uygulamanız bu tür hataları ve azaltılmış kapasitesi hakkında nasıl neden biliyor musunuz?
-  - Bir yük devretme gerekiyorsa bir bölge çiftine zorlamak için hizmetinizde tedbirler gerekiyor mu?
+  - Bir bölge çiftine gerekirse bir yük devretmeye zorlamak için hizmetinizde tedbirler gerekiyor mu?
   - Nasıl, izlemek, algılamak ve böyle bir senaryo azaltmak? Standard Load Balancer Tanılama, izleme, uçtan uca hizmet performansını artırmak için kullanmanız mümkün olabilir. Kullanılabilir nedir ve ne için eksiksiz bir resim güçlendirme gerekebilir göz önünde bulundurun.
 
-- Bölgeler, daha kolay anlaşılan ve bulunan hataları yapabilirsiniz.  Ancak, zaman aşımı, yeniden denemeler ve geri alma algoritmaları gibi kavramları söz konusu olduğunda bölge hatası diğer hatalarından farklı değildir. Azure Load Balancer bölgesel olarak yedekli yollar sağlar ve gerçek zamanlı bir paket düzeyinde hızlı bir şekilde, kurtarılır çalışır halde yeniden iletimleri üst sınırı veya reestablishments başladıkları sırasında bir hata ortaya çıkabilir ve nasıl ile uygulamanızı copes anlaşılması önemlidir hataları. Yük Dengeleme düzeni kalmaya devam eder, ancak aşağıdakiler için planlama yapmanız:
+- Bölgeler, daha kolay anlaşılan ve bulunan hataları yapabilirsiniz.  Ancak, zaman aşımı, yeniden denemeler ve geri alma algoritmaları gibi kavramları söz konusu olduğunda bölge hatası diğer hatalarından farklı değildir. Azure Load Balancer bölgesel olarak yedekli yollar sağlar ve gerçek zamanlı bir paket düzeyinde hızlı bir şekilde, kurtarılır çalışır halde yeniden iletimleri üst sınırı veya reestablishments başladıkları sırasında bir hata ortaya çıkabilir ve nasıl ile uygulamanızı copes anlaşılması önemlidir hataları. Yük Dengeleme düzeninizi kalmaya devam eder, ancak aşağıdakiler için planlama yapmanız:
   - Bir bölge başarısız olduğunda, uçtan uca hizmetiniz bu anlıyor mu ve durumu kaybolursa, nasıl, kurtarılır?
   - Bir bölge geri döndüğünde, uygulamanızın nasıl güvenli biçimde anlıyor mu?
 

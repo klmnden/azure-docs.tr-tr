@@ -9,12 +9,12 @@ ms.author: mattfarm
 ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.date: 06/15/2018
-ms.openlocfilehash: 2ffb1f7edef0cf92cbbf7adc4314967858bcfeb1
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 8fbc84b4016659b6d0d6ce9ec47c05a0b241c3d9
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43128652"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48855383"
 ---
 # <a name="enterprise-integration-architecture-with-queues-and-events"></a>Kuyruklar ve olayları ile Kurumsal tümleştirme mimarisi
 
@@ -81,7 +81,7 @@ Event Grid, sunucusuz bir model kullanır. Faturalandırma işlemleri (olay yür
 
 ### <a name="use-peeklock-to-consume-service-bus-messages"></a>Service Bus iletileri tüketmeye PeekLock kullanın
 
-Service Bus iletileri kullanmak için bir mantıksal uygulama oluşturduğunuzda, mantıksal uygulamanızı kullanmak sahip [PeekLock](../service-bus-messaging/service-bus-fundamentals-hybrid-solutions.md#queues) iletiler grubunu erişmek için. Mantıksal uygulama, PeekLock kullandığınızda her iletiyi tamamlamak ya da ileti durdurmadan önce doğrulamak için adımları gerçekleştirebilirsiniz. Bu yaklaşım, yanlışlıkla ileti kaybına karşı korur.
+Service Bus iletileri kullanmak için bir mantıksal uygulama oluşturduğunuzda, mantıksal uygulamanızı kullanmak sahip [PeekLock](../service-bus-messaging/service-bus-messaging-overview.md#queues) iletiler grubunu erişmek için. Mantıksal uygulama, PeekLock kullandığınızda her iletiyi tamamlamak ya da ileti durdurmadan önce doğrulamak için adımları gerçekleştirebilirsiniz. Bu yaklaşım, yanlışlıkla ileti kaybına karşı korur.
 
 ### <a name="check-for-multiple-objects-when-an-event-grid-trigger-fires"></a>Bir Event Grid Tetikleyici etkinleştirildiğinde, birden çok nesne için işaretleyin
 

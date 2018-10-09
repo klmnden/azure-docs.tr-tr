@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/14/2018
+ms.date: 10/03/2018
 ms.author: sethm
-ms.reviewer: jeffgo
-ms.openlocfilehash: 9e579123124615df83483e244ef11810ca590844
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.reviewer: avishwan
+ms.openlocfilehash: 40ecb474b4faa4031cb364dfc1151c6fe6f09dd6
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45633972"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48856464"
 ---
 # <a name="create-and-publish-a-marketplace-item"></a>Market öğesi oluşturma ve yayımlama
 
@@ -29,12 +29,15 @@ ms.locfileid: "45633972"
 1. [İndirme](http://www.aka.ms/azurestackmarketplaceitem) Azure galeri Paketleyici araç ve örnek Azure Stack Marketini öğesi.
 2. Örnek Market öğesi açın ve yeniden adlandırma **SimpleVMTemplate** klasör. (Market öğesi--aynı adı kullanın, örneğin, **Contoso.TodoList**.) Bu klasör içerir:
    
-       /Contoso.TodoList/
-       /Contoso.TodoList/Manifest.json
-       /Contoso.TodoList/UIDefinition.json
-       /Contoso.TodoList/Icons/
-       /Contoso.TodoList/Strings/
-       /Contoso.TodoList/DeploymentTemplates/
+   ```shell
+   /Contoso.TodoList/
+   /Contoso.TodoList/Manifest.json
+   /Contoso.TodoList/UIDefinition.json
+   /Contoso.TodoList/Icons/
+   /Contoso.TodoList/Strings/
+   /Contoso.TodoList/DeploymentTemplates/
+   ```
+
 3. [Bir Azure Resource Manager şablonu oluşturma](../azure-resource-manager/resource-group-authoring-templates.md) ya da Github'dan bir şablon seçin. Market öğesi, bir kaynak oluşturmak için bu şablonu kullanılmaktadır.
 
     > [!Note]  
@@ -52,22 +55,30 @@ ms.locfileid: "45633972"
 8. İçinde **manifest.json** dosya, değişiklik **adı** , Market öğesi adı. Ayrıca **yayımcı** ad ya da şirket için.
 9. Altında **yapıtları**, değiştirme **adı** ve **yolu** dahil Azure Resource Manager şablonu için doğru bilgileri için.
    
-         "artifacts": [
-            {
-                "name": "Type your template name",
-                "type": "Template",
-                "path": "DeploymentTemplates\\Type your path",
-                "isDefault": true
-            }
+   ```json
+   "artifacts": [
+      {
+          "name": "Type your template name",
+          "type": "Template",
+          "path": "DeploymentTemplates\\Type your path",
+          "isDefault": true
+      }
+   ```
+
 10. Değiştirin **My Market öğesi** , Market öğesi göründüğü kategori listesi ile.
     
-             "categories":[
-                 "My Marketplace Items"
-              ],
+   ```json
+   "categories":[
+   "My Marketplace Items"
+   ],
+   ```
+
 11. İçin diğer tüm düzenlemeleri manifest.json için başvurmak [başvuru: Market öğesi bazıları manifest.json](#reference-marketplace-item-manifestjson).
 12. Klasörleri bir .azpkg dosyasına paketlemek için bir komut istemi açın ve aşağıdaki komutu çalıştırın:
     
-        AzureGalleryPackager.exe package –m <path to manifest.json> -o <output location for the package>
+   ```shell
+   AzureGalleryPackager.exe package –m <path to manifest.json> -o <output location for the package>
+   ```
     
     > [!NOTE]
     > Çıkış paketi tam yolu olmalıdır. Örneğin, çıkış yolunu C:\MarketPlaceItem\yourpackage.azpkg ise, ' % s'klasörü C:\MarketPlaceItem mevcut olması gerekir.
@@ -79,8 +90,10 @@ ms.locfileid: "45633972"
 2. İstemci sanal makinesinde Microsoft Azure Stack ortamında, Hizmet Yöneticisi kimlik bilgilerinizle PowerShell oturumunuzu ayarlandığını doğrulayın. Azure Stack'te PowerShell'de kimlik doğrulaması hakkında yönergeler bulabilirsiniz [bir şablonu PowerShell ile dağıtma](user/azure-stack-deploy-template-powershell.md).
 3. Kullandığınızda [PowerShell 1.3.0]( azure-stack-powershell-install.md) veya daha sonra kullanabileceğiniz **Ekle AzsGalleryItem** Azure Stack'e Market öğesi yayımlama için PowerShell cmdlet'i. PowerShell 1.3.0 kullanılmadan önce cmdlet'ini kullanın **Ekle AzureRMGalleryitem** yerine **Ekle AzsGalleryItem**.  Örneğin, PowerShell 1.3.0 kullanırken ya da daha sonra:
    
-       Add-AzsGalleryItem -GalleryItemUri `
-       https://sample.blob.core.windows.net/gallerypackages/Microsoft.SimpleTemplate.1.0.0.azpkg –Verbose
+   ```powershell
+   Add-AzsGalleryItem -GalleryItemUri `
+   https://sample.blob.core.windows.net/gallerypackages/Microsoft.SimpleTemplate.1.0.0.azpkg –Verbose
+   ```
    
    | Parametre | Açıklama |
    | --- | --- |
@@ -102,7 +115,9 @@ ms.locfileid: "45633972"
 
 6. Bir Market öğesi kullanarak kaldırabilirsiniz **Remove-AzureRMGalleryItem** cmdlet'i. Örnek:
    
-        Remove-AzsGalleryItem -Name Microsoft.SimpleTemplate.1.0.0  –Verbose
+   ```powershell
+   Remove-AzsGalleryItem -Name Microsoft.SimpleTemplate.1.0.0  –Verbose
+   ```
    
    > [!NOTE]
    > Bir öğe kaldırdıktan sonra Market UI bir hata gösterebilir. Hatayı düzeltmek için tıklatın **ayarları** portalında. Ardından, **değişiklikleri atmak** altında **portalı özelleştirme**.

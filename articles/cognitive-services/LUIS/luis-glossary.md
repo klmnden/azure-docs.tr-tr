@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: a741cb1c2643e48080018e5c9f4ada7038bce29e
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: b24b21ee5fc929d3e7bd026191ce8791d79f9abc
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47434815"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48870783"
 ---
 # <a name="glossary"></a>Sözlük
 LUIS API'si hizmeti ile çalışırken, Language Understanding (LUIS), koşulları sözlüğü açıklar karşılaşabilirsiniz.
@@ -74,7 +74,7 @@ LUIS bağlamında bir **etki alanı** bilgi alanıdır. Etki alanınız, Bilgi B
 
 ## <a name="endpoint"></a>Uç noktası
 
-[LUIS uç nokta](https://aka.ms/luis-endpoint-apis) URL'dir sonra LUIS sorguları gönderdiğinizde burada [LUIS uygulaması](#luis-app) yazılan ve yayımlandı. Yayımlanmış uygulama ve bunun yanı sıra uygulama kimliği bölge uç nokta URL'sini içerir Uç nokta bulabilirsiniz **[anahtarları ve uç noktaları](/luis-how-to-manage-keys.md)** sayfasında, uygulamanızı veya uç nokta URL'sini alabilirsiniz [uygulama bilgi al](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c37) API.
+[LUIS uç nokta](https://aka.ms/luis-endpoint-apis) URL'dir sonra LUIS sorguları gönderdiğinizde burada [LUIS uygulaması](#luis-app) yazılan ve yayımlandı. Yayımlanmış uygulama ve bunun yanı sıra uygulama kimliği bölge uç nokta URL'sini içerir Uç nokta bulabilirsiniz **[anahtarları ve uç noktaları](luis-how-to-manage-keys.md)** sayfasında, uygulamanızı veya uç nokta URL'sini alabilirsiniz [uygulama bilgi al](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c37) API.
 
 Örnek uç nokta şu şekilde görünür:
 

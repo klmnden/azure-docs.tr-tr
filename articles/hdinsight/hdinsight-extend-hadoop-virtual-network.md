@@ -7,13 +7,13 @@ ms.author: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 07/26/2018
-ms.openlocfilehash: 6df64afa5e99ea5fe3d3c6531e6e50425520286b
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.date: 10/08/2018
+ms.openlocfilehash: 724d3d7fe8ff037b82bbce797e391c21060aa53d
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48801973"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48870970"
 ---
 # <a name="extend-azure-hdinsight-using-an-azure-virtual-network"></a>Azure HDInsight'ın bir Azure sanal ağı kullanarak genişletme
 
@@ -302,7 +302,7 @@ Ağ güvenlik grupları veya kullanıcı tanımlı yollar kullanıyorsanız, HDI
 
     Azure kamu için kullanılacak IP adresleri hakkında daha fazla bilgi için bkz: [Azure kamu INTELLIGENCE + Analytıcs](https://docs.microsoft.com/azure/azure-government/documentation-government-services-intelligenceandanalytics) belge.
 
-3. Sanal ağınız ile özel bir DNS sunucusu kullanıyorsanız, erişiminden de izin vermeniz gerekir __168.63.129.16__. Azure'nın yinelemeli çözümleyici adresidir. Daha fazla bilgi için [VM'ler ve rol için ad çözümlemesi örnekleri](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md) belge.
+3. Erişim de izin vermeniz gerekir __168.63.129.16__. Azure'nın yinelemeli çözümleyici adresidir. Daha fazla bilgi için [VM'ler ve rol için ad çözümlemesi örnekleri](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md) belge.
 
 Daha fazla bilgi için [ağ trafiğini denetleme](#networktraffic) bölümü.
 

@@ -10,19 +10,19 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
-ms.date: 10/04/2018
+ms.date: 10/05/2018
 ms.author: curtand
 ms.reviewer: elkuzmen
-ms.openlocfilehash: 65c3fa4c667fdb2d670ff259b190db140b4d968f
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: d5f926ac41bb90ba716e0c52b790a60fd74e0631
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48803928"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48854924"
 ---
 # <a name="managing-custom-domain-names-in-your-azure-active-directory"></a>Azure Active Directory'de özel etki alanı adlarını yönetme
 
-Bir etki alanı adı için çok sayıda dizin kaynaklarını tanımlayıcının önemli bir parçasıdır: bir grup adresi bir parçası olan bir kullanıcı için bir kullanıcı adı veya e-posta adresi bir parçasıdır ve uygulamanın uygulama kimliği URI'SİNİN bir bölümü olabilir. Azure Active Directory'de (Azure AD) bir kaynak zaten kaynağı içeren dizine göre ait olarak doğrulanmış bir etki alanı adı ekleyebilirsiniz. Yalnızca bir genel yönetici, Azure AD'deki etki alanı yönetim görevlerini gerçekleştirebilirsiniz.
+Bir etki alanı adı için çok sayıda dizin kaynaklarını tanımlayıcının önemli bir parçasıdır: bir grup adresi bir parçası olan bir kullanıcı için bir kullanıcı adı veya e-posta adresi bir parçasıdır ve bazen bir uygulama için uygulama kimliği URI'SİNİN bir bölümü olabilir. Azure Active Directory'de (Azure AD) bir kaynak tarafından kaynağı içeren dizine ait bir etki alanı adı ekleyebilirsiniz. Yalnızca bir genel yönetici, Azure AD'de etki alanlarını yönetebilir.
 
 ## <a name="set-the-primary-domain-name-for-your-azure-ad-directory"></a>Azure AD dizininiz için birincil etki alanı adı ayarlayın
 
@@ -38,19 +38,19 @@ Dizininiz oluşturulurken 'contoso.onmicrosoft.com' gibi bir ilk etki alanı ad�
   
    ![Bir etki alanı adı birincil yap](./media/domains-manage/make-primary-domain.png)
 
-Dizininiz birleşik bir doğrulanmış özel etki alanı için birincil etki alanı adını değiştirebilirsiniz. Dizininiz için birincil etki alanı değiştirmek, var olan tüm kullanıcılar kullanıcı adlarını değiştirmez.
+Federasyon olmayan tüm doğrulanmış özel etki alanında olmasını dizininiz için birincil etki alanı adını değiştirebilirsiniz. Dizininiz için birincil etki alanı değiştirme, var olan tüm kullanıcılar için kullanıcı adı değişmez.
 
 ## <a name="add-custom-domain-names-to-your-azure-ad-tenant"></a>Azure AD kiracınız ile özel etki alanı ekleme
 
-En fazla 900 yönetilen etki alanı ekleyebilirsiniz. Şirket içi Active Directory ile Federasyon için etki alanları yapılandırıyorsanız, size her dizinde 450 etki alanı adı ekleyebilirsiniz. 
+900 yönetilen etki alanı adları ekleyebilir. Şirket içi Active Directory ile Federasyon için etki alanları yapılandırıyorsanız, her dizin için en fazla 450 etki alanı adları ekleyebilir.
 
 ## <a name="add-subdomains-of-a-custom-domain"></a>Özel bir etki alanının alt etki alanlarını ekleme
 
-'Europe.contoso.com' gibi bir üçüncü düzey etki alanı adı dizininize eklemek istiyorsanız, öncelikle ekleyin ve ikinci düzey etki alanı, contoso.com gibi doğrulamanız gerekir. Alt etki alanı, Azure AD tarafından otomatik olarak doğrulanır. Yeni eklediğiniz alt etki alanı doğrulandı görmek için etki alanları listelenir tarayıcıda sayfayı yenileyin.
+'Europe.contoso.com' gibi bir üçüncü düzey etki alanı adı dizininize eklemek istiyorsanız, öncelikle ekleyin ve ikinci düzey etki alanı, contoso.com gibi doğrulamanız gerekir. Alt etki alanı, Azure AD tarafından otomatik olarak doğrulanır. Eklediğiniz bir alt etki alanı doğrulanır görmek için tarayıcıda etki alanı listesini yenileyin.
 
 ## <a name="what-to-do-if-you-change-the-dns-registrar-for-your-custom-domain-name"></a>DNS kayıt şirketi için özel etki alanınızın adını değiştirirseniz yapmanız gerekenler
 
-DNS kayıt şirketi için özel etki alanınızın adını değiştirirseniz, özel etki alanı adınızı Azure AD'ye kendi kesinti olmadan ek yapılandırma görevleri ve kullanmaya devam edebilirsiniz. Office 365, Intune veya Azure AD'de özel etki alanı adları, diğer hizmetler ile özel etki alanınızın adını kullanırsanız, bu hizmetlerin belgelerine başvurun.
+DNS kaydedicilerin değiştirirseniz, Azure AD'de hiçbir ek yapılandırma görevleri vardır. Kesinti olmadan Azure AD ile etki alanı adını kullanmaya devam edebilirsiniz. Office 365, Intune veya Azure AD'de özel etki alanı adları, diğer hizmetler ile özel etki alanınızın adını kullanırsanız, bu hizmetleri belgelerine bakın.
 
 ## <a name="delete-a-custom-domain-name"></a>Özel etki alanı Sil
 
@@ -83,7 +83,7 @@ Hata olduğunda döndürülür:
 
 * Yeniden adlandırılacak nesneleri sayısı 1000'den büyük
 * Yeniden adlandırılacak ve uygulamalardan birinin bir çok kiracılı uygulamasıdır
-  
+
 ### <a name="frequently-asked-questions"></a>Sık sorulan sorular
 
 **S: neden etki alanı silme işlemi, bu etki alanı adına yönetilen Exchange gruplarını sahip olduğunu belirten bir hata ile başarısız oluyor?** <br>

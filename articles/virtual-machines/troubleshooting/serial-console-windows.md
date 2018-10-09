@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/07/2018
 ms.author: harijay
-ms.openlocfilehash: e1884048d0f02de1b3a354bc4dac2b3e98dcccc9
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 17fec61e73298a6250cf6805bb9a713ff3d3a488
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47414881"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48858018"
 ---
 # <a name="virtual-machine-serial-console"></a>Sanal makine seri Konsolu
 
@@ -28,7 +28,7 @@ Azure'da sanal makine seri konsolu, Windows sanal makineler için metin tabanlı
 
 Linux VM'ler için seri konsol belgeleri [Buraya](serial-console-linux.md).
 
-> [!Note] 
+> [!NOTE] 
 > Sanal makineler için seri konsol genel Azure bölgelerinde genel kullanıma sunulmuştur. Bu noktada seri konsol henüz Azure kamu veya Azure China Bulutları içinde kullanılamaz.
 
  
@@ -83,9 +83,12 @@ Windows Önyükleme Yükleyicisi'ni etkinleştirmek gerekiyorsa göstermek için
 1. Windows sanal makinenize Uzak Masaüstü aracılığıyla bağlanma
 2. Bir yönetici komut isteminden aşağıdaki komutları çalıştırın. 
 * `bcdedit /set {bootmgr} displaybootmenu yes`
-* `bcdedit /set {bootmgr} timeout 5`
+* `bcdedit /set {bootmgr} timeout 30`
 * `bcdedit /set {bootmgr} bootems yes`
 3. Önyükleme menüsünün etkinleştirilmesi sistemi yeniden başlatın
+
+> [!NOTE] 
+> Önyükleme Yöneticisi menüsünün gösterilmesi ayarladığınız zaman aşımı, işletim sistemi önyükleme zamanı gelecekte etkiler. Bazı Önyükleme Yöneticisi seri konsol görünür olduğundan emin olun 30 ikinci zaman aşımı eklemek için kabul edilebilir olabilir, ancak diğerleri daha kısa bir zaman aşımı isteyebilirsiniz. Zaman aşımı değeri yararlanacağınız bir değere ayarlayın.
 
 ## <a name="use-serial-console-for-nmi-calls-in-windows-vms"></a>Windows vm'lerinde NMI çağrıları için seri Konsolu
 Maskelenemez olmayan bir kesinti (NMI) yazılımı bir sanal makinede değil yoksayacak bir sinyal oluşturmak için tasarlanmıştır. Tarihsel olarak, NMIs belirli yanıt süreleri gerektiren sistemleri donanım sorunları izlemek için kullanılır.  Bugün, programcılar ve sistem yöneticileri bir mekanizma NMI hata ayıklama veya askıya sistemler gidermek için genellikle kullanın.
@@ -99,7 +102,7 @@ Kilitlenme bilgi dökümü bir NMI aldığında oluşturmak için Windows yapıl
 ## <a name="disable-serial-console"></a>Seri konsol devre dışı bırak
 Varsayılan olarak, seri konsol erişimi tüm VM'ler için Etkin Abonelikler var. Abonelik düzeyinde veya VM düzeyi seri konsol devre dışı bırakabilir.
 
-> [!Note]       
+> [!NOTE]       
 > Etkinleştirmek veya devre dışı seri konsol için bir abonelik için abonelik için yazma izinleri olmalıdır. Bu, içerir, ancak için yönetici veya sahip rollerinin sınırlı değildir. Özel roller ayrıca yazma izinlerine sahip.
 
 ### <a name="subscription-level-disable"></a>Abonelik düzeyinde devre dışı bırak

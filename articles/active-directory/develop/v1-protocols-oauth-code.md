@@ -16,12 +16,12 @@ ms.date: 07/23/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: bd9d3a677d9fea54331200258d4b9b8e07a54312
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: e896392404c23e88d697d45146f802576d6045d3
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46956906"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48870834"
 ---
 # <a name="authorize-access-to-azure-active-directory-web-applications-using-the-oauth-20-code-grant-flow"></a>OAuth 2.0 kodu verme akışı kullanarak Azure Active Directory web uygulamalarına erişim yetkisi verme
 
@@ -274,7 +274,7 @@ RFC 6750 belirtimi taşıyıcı düzeni ve WWW-Authenticate üstbilgisi yanıt o
 
 ## <a name="refreshing-the-access-tokens"></a>Erişim belirteçlerini yenileme
 
-Erişim belirteçleri kısa ömürlüdür ve kaynaklara erişmeye devam etmek için süresi dolduktan sonra yenilenmesi gerekiyor. Yenileme işlemini `access_token` başka göndererek `POST` isteği `/token` uç noktası, ancak bu zaman sağlama `refresh_token` yerine `code`.
+Erişim belirteçleri kısa ömürlüdür ve kaynaklara erişmeye devam etmek için süresi dolduktan sonra yenilenmesi gerekiyor. Yenileme işlemini `access_token` başka göndererek `POST` isteği `/token` uç noktası, ancak bu zaman sağlama `refresh_token` yerine `code`.  Yenileme belirteçleri tüm geçerli istemci verilen kaynaklar onay erişmek için - böylece bir talebi veren bir yenileme belirteci `resource=https://graph.microsoft.com` için yeni bir erişim belirteci istemek için kullanılan `resource=https://contoso.com/api`. 
 
 Yenileme belirteçleri belirtilen ömre sahip değil. Genellikle, yenileme belirteçleri ömrü oldukça uzun olabilir. Ancak, bazı durumlarda, yenileme belirteçleri sona, iptal edilen veya istenen eylemi için yeterli ayrıcalıkları yok. Beklediğiniz ve doğru belirteci verme uç noktası tarafından döndürülen hataları işlemek uygulamanız gerekir.
 

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/20/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 50b4470ee1d958081f4dd090d20a810b88a40560
-ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
+ms.openlocfilehash: 39b9c2d9eb982eaffa7cb6246fd0b22375939f52
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48268132"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48868709"
 ---
 # <a name="add-adfs-as-a-saml-identity-provider-using-custom-policies-in-azure-active-directory-b2c"></a>ADFS, Azure Active Directory B2C'de özel ilkeleri kullanarak SAML kimlik sağlayıcısı olarak Ekle
 
@@ -144,7 +144,7 @@ Yerinde bir düğmeye sahip olduğunuza göre bir eyleme bağlamanız gerekir. E
 ADFS, Azure AD B2C'de kimlik sağlayıcısı olarak kullanmak için bir AD FS bağlı olan taraf güveni oluşturma Azure AD B2C SAML meta verileriyle gerekir. Aşağıdaki örnek, bir URL adresi için bir Azure AD B2C'Teknik profili SAML meta verilerini gösterir:
 
 ```
-https://login.microsoftonline.com/your-tenant/your-policy/samlp/metadata?idptp=your-technical-profile
+https://login.microsoftonline.com/te/your-tenant/your-policy/samlp/metadata?idptp=your-technical-profile
 ```
 
 Aşağıdaki değerleri değiştirin:

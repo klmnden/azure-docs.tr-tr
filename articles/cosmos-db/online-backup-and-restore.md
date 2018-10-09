@@ -10,15 +10,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/15/2017
 ms.author: govindk
-ms.openlocfilehash: 77f22201b897703f6e74a5a3626a2ccc04a814f4
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 580c7410119a26ed3601c7c6ee020a13029339fe
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48043235"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48867808"
 ---
 # <a name="automatic-online-backup-and-restore-with-azure-cosmos-db"></a>Otomatik çevrimiçi yedekleme ve geri yükleme işlemi Azure Cosmos DB
-Azure Cosmos DB, tüm verilerinizin yedeklerini düzenli aralıklarla otomatik olarak alır. Otomatik yedeklemeler, performans veya veritabanı işlemlerinizi kullanılabilirliğini etkilemeden alınır. Tüm yedeklemeler ayrı olarak başka bir depolama hizmetinde depolanır ve bu yedekleri bölgesel felaketlere karşı dayanıklılık için genel olarak çoğaltılır. Cosmos DB kapsayıcınız kaza ve daha sonra veri kurtarma veya bir olağanüstü durum kurtarma çözümü gerektiğinde otomatik yedekleme senaryoları için tasarlanmıştır.  
+Azure Cosmos DB, tüm verilerinizin yedeklerini düzenli aralıklarla otomatik olarak alır. Otomatik yedeklemeler, performans veya veritabanı işlemlerinizi kullanılabilirliğini etkilemeden alınır. Tüm yedeklemeler ayrı olarak başka bir depolama hizmetinde depolanır ve bu yedekleri bölgesel felaketlere karşı dayanıklılık için genel olarak çoğaltılır. Otomatik yedeklemeler, Cosmos DB kapsayıcınız kaza ve daha sonra veri kurtarma gerektiren senaryolar için amacını taşımaktadır.  
 
 Bu makalede bilgiler Cosmos DB'de kullanılabilirliği ve veri yedekliliği ile başlar ve sonra yedeklemeler açıklanır. 
 
@@ -67,14 +67,17 @@ Veritabanınızı (burada bir kapsayıcı içindeki belgeler silinir çalışmal
 
 Azure Cosmos DB veritabanı hesabının her bölümün son iki yedeklerini korur. Bu model iyi bir kapsayıcı (belge, grafik, tablo koleksiyonu) çalışır veya son sürümleri birini geri yüklenebilir olduğundan bir veritabanı yanlışlıkla silinmiş. Ancak, durumda kullanıcılar bir veri bozulma sorunu neden olabilir, Azure Cosmos DB veri bozulmasını farkında olabilir ve bozulma mevcut yedeklemeler üzerine mümkündür. 
 
-Bozulma algılandı hemen sonra yaklaşık süreyi bozulma ile veritabanı hesabı ve kapsayıcı bilgilerle müşteri hizmetlerine ulaşın. Başka bir eylem durumunda, kullanıcının gerçekleştirebilirsiniz (veri silme/updation) bozuk bozuk verilerle üzerine yedeklemeleri korunması kullanıcı bozuk kapsayıcıyı (koleksiyon/grafik/table) silmeniz gerekir.  
+Bozulma algılandı hemen sonra yedeklemeler bozuk verilerle üzerine korunması kullanıcı bozuk kapsayıcıyı (koleksiyon/grafik/table) silmeniz gerekir. En önemlisi Microsoft Support ulaşın ve önem derecesi 2'in belirli bir istek ile bir bilet oluşturun. 
 
 Aşağıdaki görüntüde verilerin yanlışlıkla silinmesini veya bir kapsayıcı içindeki veri güncelleştirmek için Azure portal aracılığıyla container(collection/graph/table) geri yüklemek için destek isteği oluşturma gösterilmektedir.
 
 ![Hatalı güncelleştirme için bir kapsayıcı geri yükleyin veya Cosmos DB'de veri silme](./media/online-backup-and-restore/backup-restore-support.png)
 
-Bu tür senaryolara - için geri yükleme gerçekleştirildiğinde veriler başka bir hesaba geri (soneki ile "-geri") ve kapsayıcı. Bu geri yükleme, Müşteri verilerinin doğrulama yapmak ve verileri gereken şekilde taşımak için bir fırsat sağlamak için yerinde yapılmaz. Geri yüklenen aynı RU'ları ve dizin oluşturma ilkeleri ile aynı bölgede kapsayıcıdır. 
+Bu tür senaryolara - için geri yükleme gerçekleştirildiğinde veriler başka bir hesaba geri (soneki ile "-geri") ve kapsayıcı. Bu geri yükleme, Müşteri verilerinin doğrulama yapmak ve verileri gereken şekilde taşımak için bir fırsat sağlamak için yerinde yapılmaz. Geri yüklenen aynı RU'ları ve dizin oluşturma ilkeleri ile aynı bölgede kapsayıcıdır. Abonelik Yöneticisi veya ortak yöneticisi olan kullanıcı, bu geri yüklenen hesap görebilirsiniz.
 
+
+> [!NOTE]
+> Veri bozulma sorunu düzeltmek için geri yükleme ya da yalnızca test için bunları kaldırmak Lütfen plan göreviniz geri olarak gerçekleştirilir yakında kapsayıcılar veya veritabanı maliyetlidir, ek - sağlanan aktarım hızına göre. 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 Birden çok veri merkezinde veritabanınızda çoğaltmak için bkz: [verilerinizi Cosmos DB ile küresel olarak dağıtmak](distribute-data-globally.md). 

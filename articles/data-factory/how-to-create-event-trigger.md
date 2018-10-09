@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/23/2018
 ms.author: douglasl
-ms.openlocfilehash: 53ea7425f0497eca7c95ddefeaa09aa40259672b
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: 38fbb62de60bc5604210c8ad7339368a04967c27
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39216286"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48867061"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-in-response-to-an-event"></a>Bir olaya yanıt olarak bir işlem hattı çalıştırmalarını tetiği oluşturma
 
@@ -58,11 +58,11 @@ Dosya depolama konumunuz ulaştığında ve karşılık gelen blob oluşturulduk
 
 ### <a name="map-trigger-properties-to-pipeline-parameters"></a>İşlem hattı parametrelerinin harita tetikleyici özellikleri
 
-Belirli bir blob için bir Olay Tetikleyici etkinleştirildiğinde, olay özelliklerini blob klasörü yolu ve dosya adını yakalar `@triggerBody().folderPath` ve `@triggerBody().fileName`. Bir işlem hattı, bu özelliklerin değerlerini kullanmak için işlem hattı parametrelerinin özelliklerini eşlemeniz gerekir. Parametreleri eşleme özellikleri sonra Tetikleyici tarafından yakalanan değerlerine erişebilirsiniz `@pipeline.parameters.parameterName` işlem hattı boyunca ifade.
+Belirli bir blob için bir Olay Tetikleyici etkinleştirildiğinde, olay özelliklerini blob klasörü yolu ve dosya adını yakalar `@triggerBody().folderPath` ve `@triggerBody().fileName`. Bir işlem hattı, bu özelliklerin değerlerini kullanmak için işlem hattı parametrelerinin özelliklerini eşlemeniz gerekir. Parametreleri eşleme özellikleri sonra Tetikleyici tarafından yakalanan değerlerine erişebilirsiniz `@pipeline().parameters.parameterName` işlem hattı boyunca ifade.
 
 ![İşlem hattı parametrelerinin özellikleri eşleme](media/how-to-create-event-trigger/event-based-trigger-image4.png)
 
-Örneğin, önceki ekran görüntüsünde. Tetikleyici ne zaman sonu bir blob yolu ateşlenmesine yapılandırılmış `.csv` içinde depolama hesabı oluşturulur. Sonuç olarak, bir blob olduğunda `.csv` uzantısı her yerde depolama hesabında oluşturulan `folderPath` ve `fileName` özellikleri yeni blobunun konumunu yakalama. Örneğin, `@triggerBody().folderPath` gibi bir değere sahip `/containername/foldername/nestedfoldername` ve `@triggerBody().fileName` gibi bir değere sahip `filename.csv`. Bu değerleri örnek işlem hattı parametrelerine eşlenen `sourceFolder` ve `sourceFile`. İşlem hattı boyunca kullanabilirsiniz `@pipeline.parameters.sourceFolder` ve `@pipeline.parameters.sourceFile` sırasıyla.
+Örneğin, önceki ekran görüntüsünde. Tetikleyici ne zaman sonu bir blob yolu ateşlenmesine yapılandırılmış `.csv` içinde depolama hesabı oluşturulur. Sonuç olarak, bir blob olduğunda `.csv` uzantısı her yerde depolama hesabında oluşturulan `folderPath` ve `fileName` özellikleri yeni blobunun konumunu yakalama. Örneğin, `@triggerBody().folderPath` gibi bir değere sahip `/containername/foldername/nestedfoldername` ve `@triggerBody().fileName` gibi bir değere sahip `filename.csv`. Bu değerleri örnek işlem hattı parametrelerine eşlenen `sourceFolder` ve `sourceFile`. İşlem hattı boyunca kullanabilirsiniz `@pipeline().parameters.sourceFolder` ve `@pipeline().parameters.sourceFile` sırasıyla.
 
 ## <a name="json-schema"></a>JSON şeması
 

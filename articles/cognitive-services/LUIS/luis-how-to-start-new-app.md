@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 401c4fb8942aee73c036ae2b248a030eaea4917a
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 55af0559c98c9fc63fd6902d80b4e6f2f0a7d2da
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47031263"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48870124"
 ---
 # <a name="create-an-app"></a>Uygulama oluşturma
 Çeşitli şekillerde LUIS uygulaması oluşturmak için vardır. Bir LUIS uygulaması oluşturabileceğiniz [LUIS](https://www.luis.ai) portal ya da yazma LUIS aracılığıyla [API'leri](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c2f).
@@ -22,9 +22,9 @@ ms.locfileid: "47031263"
 ## <a name="using-the-luis-portal"></a>LUIS portalı kullanma
 Çeşitli şekillerde LUIS portalında yeni bir uygulama oluşturabilirsiniz:
 
-* [Başlangıç](#create-new-app) boş bir uygulama ile ve hedefleri, konuşma ve varlıklar oluşturun.
-* [Başlangıç](#create-new-app) boş bir uygulama ile ve bir [önceden oluşturulmuş etki alanı](luis-how-to-use-prebuilt-domains.md).
-* [Bir LUIS uygulaması içeri](#import-new-app) zaten amacı, konuşma ve varlıkları içeren bir JSON dosyasından.
+* Boş bir uygulama ile başlayın ve hedefleri, konuşma ve varlıklar oluşturun.
+* Boş bir uygulamayla başlayıp bir [önceden oluşturulmuş etki alanı](luis-how-to-use-prebuilt-domains.md).
+* Bir LUIS uygulaması zaten hedefleri ve konuşma varlıklarını içeren bir JSON dosyasından içeri aktarın.
 
 ## <a name="using-the-authoring-apis"></a>Yazma API'leri kullanma
 Çeşitli şekillerde yazma API'leri ile yeni bir uygulama oluşturabilirsiniz:

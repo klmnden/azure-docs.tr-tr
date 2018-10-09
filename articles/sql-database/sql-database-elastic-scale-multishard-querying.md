@@ -11,16 +11,18 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 manager: craigg
-ms.date: 04/01/2018
-ms.openlocfilehash: 5af6779bfb6075aa3606cc32939ae715241afe8d
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.date: 10/05/2018
+ms.openlocfilehash: 93408b266a239e897b49ab2482818a5221742685
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47166325"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48870411"
 ---
-# <a name="multi-shard-querying"></a>Çok parçalı sorgulama
+# <a name="multi-shard-querying-using-elastic-database-tools"></a>Esnek veritabanı araçlarını kullanarak çok parçalı sorgulama
+
 ## <a name="overview"></a>Genel Bakış
+
 İle [esnek veritabanı araçlarını](sql-database-elastic-scale-introduction.md), parçalı veritabanı çözümleri oluşturabilirsiniz. **Çok parçalı sorgulama** koleksiyon/çalışan bir sorgu gerektiren raporlama verilerini birden fazla parçaya uzatır gibi görevler için kullanılır. (Bu Karşıtlık [verilere bağımlı yönlendirme](sql-database-elastic-scale-data-dependent-routing.md), tek bir parçanın tüm çalışma gerçekleştirir.) 
 
 1. Alma bir **RangeShardMap** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.map._range_shard_map), [.NET](https://msdn.microsoft.com/library/azure/dn807318.aspx)) veya **ListShardMap** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.map._list_shard_map), [.NET ](https://msdn.microsoft.com/library/azure/dn807370.aspx)) kullanarak **TryGetRangeShardMap** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager._shard_map_manager.trygetrangeshardmap), [.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.trygetrangeshardmap.aspx)), **TryGetListShardMap** ([ Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager._shard_map_manager.trygetlistshardmap), [.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.trygetlistshardmap.aspx)), veya **GetShardMap** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager._shard_map_manager.getshardmap), [.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.getshardmap.aspx)) yöntemi. Bkz: **[bir ShardMapManager oluşturmak](sql-database-elastic-scale-shard-map-management.md#constructing-a-shardmapmanager)** ve  **[RangeShardMap veya ListShardMap](sql-database-elastic-scale-shard-map-management.md#get-a-rangeshardmap-or-listshardmap)**.
@@ -31,6 +33,7 @@ ms.locfileid: "47166325"
 6. Kullanarak sonuçları görüntülemek **MultiShardResultSet veya MultiShardDataReader** ([Java](/java/api/com.microsoft.azure.elasticdb.query.multishard._multi_shard_result_set), [.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.query.multisharddatareader.aspx)) sınıfı. 
 
 ## <a name="example"></a>Örnek
+
 Aşağıdaki kodu kullanarak sorgulama çok parçalı kullanımını bir verilen **ShardMap** adlı *myShardMap*. 
 
 ```csharp
@@ -63,8 +66,7 @@ using (MultiShardConnection conn = new MultiShardConnection(myShardMap.GetShards
 Çok parçalı sorgulama ile bir şu anda doğrulama parçalar ve sorgulanır parçacıklarda eksikliği sınırlamasıdır. Verilere bağımlı yönlendirme sorgulama sırasında verilen parça parça eşlemesinin bir parçası olduğunu doğrular, ancak çok parçalı sorgular, bu onay gerçekleştirmeyin. Bu çok parçalı sorgular parça eşlemesinden kaldırılmış olan veritabanlarında çalışan neden olabilir.
 
 ## <a name="multi-shard-queries-and-split-merge-operations"></a>Çok parçalı sorgular ve ayırma-birleştirme işlemleri
+
 Çok parçalı sorgular parçacıklara sorgulanan veritabanı üzerinde devam eden bölme-birleştirme işlemleri katılan olup olmadığını doğrulamayın. (Bkz [elastik veritabanı bölme-birleştirme aracını kullanarak ölçeklendirme](sql-database-elastic-scale-overview-split-and-merge.md).) Burada aynı çok parçalı sorguda birden çok veritabanları için aynı parçacık satırları göster bu tutarsızlıklara yol açabilir. Bu sınırlamaları unutmayın ve boşaltma bölme-birleştirme işlemleri ve parça eşlemesi değişiklikler çok parçalı sorgular gerçekleştirirken göz önünde bulundurun.
 
 [!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
-
-

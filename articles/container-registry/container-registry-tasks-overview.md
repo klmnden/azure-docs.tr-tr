@@ -2,17 +2,17 @@
 title: İşletim sistemi ve Azure Container kayıt defteri görevleri ile (ACR) framework düzeltme eki uygulama otomatikleştirin
 description: Giriş ACR görevlere güvenliğini sağlayan Azure Container Registry'de özellikleri içeren bir paketi otomatik olarak kapsayıcı görüntüsü derleme ve bulutta düzeltme eki uygulama.
 services: container-registry
-author: mmacy
+author: dlepow
 ms.service: container-registry
 ms.topic: article
 ms.date: 09/24/2018
-ms.author: marsma
-ms.openlocfilehash: 3ba08a0c2422adcd987fa6ed601b666106e8503c
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.author: danlep
+ms.openlocfilehash: 63affd4ad22d5246274ddfa3160d5675f702003f
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47048319"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48855774"
 ---
 # <a name="automate-os-and-framework-patching-with-acr-tasks"></a>İşletim sistemi ve framework ACR görevlerle düzeltme eki uygulama otomatikleştirin
 
@@ -76,7 +76,7 @@ Bir kapsayıcı görüntüsü oluşturduğunda ACR görevleri temel görüntü b
 > [!NOTE]
 > Temel görüntü yalnızca hem temel sınıfını hem uygulama görüntüleri aynı Azure container Registry'de bulunabilir veya temel bir genel Docker Hub deposundaki bulunduğu tetikleyici yapılar güncelleştirir.
 
-## <a name="multi-step-tasks-preview"></a>Çok adımlı görevler (Önizleme)
+## <a name="multi-step-tasks-preview"></a>Çok adımlı görevler (önizleme)
 
 Çok adımlı görevler, bir önizleme özelliği, ACR görevleri adım tabanlı görev tanımı ve derleme, test etme ve bulutta kapsayıcı görüntülerini düzeltme eki uygulama için yürütme sağlar. Görev adımları, tek tek kapsayıcı görüntü derlemesi tanımlama ve işlemleri gönderin. Bunlar ayrıca, yürütme ortamı olarak kullanarak kapsayıcının her adımını içeren bir veya daha fazla kapsayıcı yürütülmesini tanımlayabilirsiniz.
 

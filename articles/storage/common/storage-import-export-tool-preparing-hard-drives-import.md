@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/29/2017
 ms.author: muralikk
 ms.component: common
-ms.openlocfilehash: 9d8509e97ad83dd636f0a1b1892a2fa67c69e0b7
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 7fc3e68e9d714ca95a28a28b470b1e1fdbff2c47
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39521804"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48870902"
 ---
 # <a name="preparing-hard-drives-for-an-import-job"></a>Sabit sürücüleri içeri aktarma işine hazırlama
 
@@ -124,7 +124,7 @@ Sürücüleri içeri aktarma işine hazırlamak için WAImportExport aracıyla �
 Tek/birden çok Disk (bağlı olarak hangi CSV dosyasında belirtilir) WAImportExport aracına PrepImport komut dizinleri ve/veya yeni bir kopya oturumu dosyaları kopyalamak ilk kopyalama oturumu için bir Single/Multiple dizine kopyalamak için ilk kopya oturumu:
 
 ```
-WAImportExport.exe PrepImport /j:<JournalFile> /id:<SessionId> [/logdir:<LogDirectory>] [/sk:<StorageAccountKey>] [/silentmode] [/InitialDriveSet:<driveset.csv>] DataSet:<dataset.csv>
+WAImportExport.exe PrepImport /j:<JournalFile> /id:<SessionId> [/logdir:<LogDirectory>] [/sk:<StorageAccountKey>] [/silentmode] [/InitialDriveSet:<driveset.csv>] /DataSet:<dataset.csv>
 ```
 
 **Örnek:**

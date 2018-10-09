@@ -2,18 +2,17 @@
 title: Hızlı Başlangıç - Azure Container Registry'ye gönderme olayları Event Grid'e
 description: Bu hızlı başlangıçta, nginx kapsayıcısı kayıt defteriniz için Event Grid olaylarını etkinleştirmek sonra kapsayıcı görüntüsü gönderme Gönder ve örnek bir uygulama olayları Sil.
 services: container-registry
-author: mmacy
-manager: jeconnoc
+author: dlepow
 ms.service: container-registry
 ms.topic: article
 ms.date: 08/23/2018
-ms.author: marsma
-ms.openlocfilehash: 4b29804690b951083810d4f75b68ff23fca44a44
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.author: danlep
+ms.openlocfilehash: 88265ee6f8a340909880ba70bd9f37a49ef85bf5
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47039624"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48857372"
 ---
 # <a name="quickstart-send-container-registry-events-to-event-grid"></a>Hızlı Başlangıç: kapsayıcı kayıt defteri olayları Event Grid'e göndermek.
 

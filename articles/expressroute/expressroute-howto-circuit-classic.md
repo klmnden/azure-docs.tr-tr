@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 07/26/2018
 ms.author: ganesr;cherylmc
-ms.openlocfilehash: 407782ff59147f227f5f34bc3318333093b4f57e
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: 820caf1ef1b5a92ccea066ef1b5fc8e20737ef21
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39283580"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48870428"
 ---
 # <a name="modify-an-expressroute-circuit-using-powershell-classic"></a>PowerShell (Klasik) kullanarak bir ExpressRoute bağlantı hattını değiştirme
 
@@ -47,7 +47,7 @@ Azure hesabınızda oturum açmak için aşağıdaki örneği kullanın:
 
 1. PowerShell konsolunuzu yükseltilmiş haklarla açın ve hesabınıza bağlanın. Bağlanmanıza yardımcı olması için aşağıdaki örneği kullanın:
 
-  ```powershel
+  ```powershell
   Connect-AzureRmAccount
   ```
 2. Hesapla ilişkili abonelikleri kontrol edin.
@@ -225,7 +225,7 @@ At line:1 char:1
 
 * ExpressRoute bağlantı hattı için bu işlemin başarılı olması için tüm sanal ağlardan bağlantısını kaldırmanız gerekir. Bu işlem başarısız olursa işlem hattına bağlı sanal ağlara sahip olup olmadığını denetleyin.
 * ExpressRoute bağlantı hattı Hizmet Sağlayıcısı sağlama durumu ise **sağlama** veya **sağlanan** kendi tarafında bağlantı hattını sağlamasını kaldırmak için hizmet sağlayıcınızla birlikte çalışmanız gerekir. Kaynak ayırmanıza ve hizmeti sağlayıcısı devreyi sağlamayı kaldırma tamamlandıktan ve bize bildiren kadar faturalandırılırsınız devam ediyoruz.
-* Hizmet sağlayıcısı devreyi sağlamayı durdurduğunda varsa (Hizmet Sağlayıcısı sağlama durumu ayarlamak **sağlanmadı**), bağlantı hattının sonra silebilirsiniz. Bu, bağlantı hattı için Faturalaması durdurulur.
+* Hizmet sağlayıcısı devreyi sağlamayı durdurduğunda varsa (Hizmet Sağlayıcısı sağlama durumu ayarlamak **sağlanmadı**), bağlantı hattının sonra silebilirsiniz. Bu durumda bağlantı hattının faturalandırılması durdurulur.
 
 #### <a name="delete-a-circuit"></a>Bir bağlantı hattını Sil
 

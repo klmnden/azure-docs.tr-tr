@@ -2,18 +2,17 @@
 title: Azure Container ınstances'da kapsayıcı güncelleştir
 description: Azure Container Instances'a kapsayıcı gruplarınızı içinde çalışan kapsayıcıları güncelleştirme hakkında bilgi edinin.
 services: container-instances
-author: mmacy
-manager: jeconnoc
+author: dlepow
 ms.service: container-instances
 ms.topic: article
 ms.date: 08/01/2018
-ms.author: marsma
-ms.openlocfilehash: 5a42b0983b0f754b119fa304317e758a976fb4f6
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.author: danlep
+ms.openlocfilehash: 2df6a2724cbdcd6bbb6c6ca6636256b7e399da8e
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39432625"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48854550"
 ---
 # <a name="update-containers-in-azure-container-instances"></a>Azure Container ınstances'da kapsayıcı güncelleştir
 
@@ -23,7 +22,7 @@ Kapsayıcı örneklerinizin normal işlem sırasında bir kapsayıcı grubundaki
 
 Bir kapsayıcı grubundaki kapsayıcı değiştirilmiş en az bir özellik ile varolan bir grubu yeniden dağıtmaya gerek güncelleştirin. Kapsayıcı grubu güncelleştirdiğinizde, gruptaki tüm çalışan kapsayıcıları yeniden yerinde.
 
-Create komutu (veya Azure portalını kullanın) vererek var olan bir kapsayıcı grubunu yeniden dağıtın ve mevcut bir grubun adını belirtin. Yeniden dağıtım tetiklemek için create komutu verdiğinizde grubunun en az bir geçerli özellik değiştirin. Tüm kapsayıcı grubu özelliklerini, yeniden dağıtım için geçerlidir. Bkz: [silme için gereken özellikleri](#properties-that-require-delete) desteklenmeyen özelliklerin bir listesi için.
+Create komutu (veya Azure portalını kullanın) vererek var olan bir kapsayıcı grubunu yeniden dağıtın ve mevcut bir grubun adını belirtin. Yeniden dağıtım tetiklemek için create komutu verdiğinizde grubunun en az bir geçerli özellik değiştirin. Tüm kapsayıcı grubu özelliklerini, yeniden dağıtım için geçerlidir. Bkz: [silme için gereken özellikleri](#properties-that-require-container-delete) desteklenmeyen özelliklerin bir listesi için.
 
 Aşağıdaki Azure CLI örnek, bir kapsayıcı grubu yeni bir DNS ad etiketi ile güncelleştirir. DNS ad etiketi özelliği grubuna değiştiğinden kapsayıcı grubunun imzalanmasını ve kapsayıcılarında yeniden başlatıldı.
 

@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 10/02/2018
-ms.openlocfilehash: 1bcaceb0f4d96b66d7fd25b1733b3f505316fe5a
-ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
+ms.date: 10/05/2018
+ms.openlocfilehash: 660252c987c06a7afd8974a65cd57009b4973a25
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2018
-ms.locfileid: "48830564"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48868301"
 ---
 # <a name="azure-sql-database-purchasing-models"></a>Azure SQL veritabanı'nı satın alma modeli
 
@@ -41,7 +41,7 @@ Aşağıdaki tablo ve grafik karşılaştırın ve bu iki satın alma modeli.
 
 ## <a name="vcore-based-purchasing-model"></a>Sanal çekirdek tabanlı satın alma modeli 
 
-Sanal çekirdek, fiziksel donanım (örneğin, sayı çekirdekleri, bellek, depolama boyutu) özelliklerini ve donanım Nesilleri arasında seçim yapma olanağı ile sunulan mantıksal CPU'yu temsil eder. Sanal çekirdek tabanlı satın alma modeli, esneklik, denetimi, bireysel kaynak kullanımının saydamlığı sağlar ve basit bir yol çevirmek için şirket iş yükü gereksinimlerini buluta. Bu model, işlem, bellek ve depolama iş yükü gereksinimlerine göre seçmenize olanak sağlar. Sanal çekirdek tabanlı satın alma modeli, arasından seçim yapabilirsiniz [genel amaçlı](sql-database-high-availability.md#standardgeneral-purpose-availability) ve [iş açısından kritik](sql-database-high-availability.md#premiumbusiness-critical-availability) hizmet katmanları için her ikisi de [tek veritabanları](sql-database-single-database-scale.md), [ Yönetilen örnek](sql-database-managed-instance.md), ve [elastik havuzlar](sql-database-elastic-pool.md). Tek veritabanları için de seçebilirsiniz [hiper ölçekli (Önizleme)](sql-database-service-tier-hyperscale.md) hizmet katmanı.
+Sanal çekirdek, fiziksel donanım (örneğin, sayı çekirdekleri, bellek, depolama boyutu) özelliklerini ve donanım Nesilleri arasında seçim yapma olanağı ile sunulan mantıksal CPU'yu temsil eder. Sanal çekirdek tabanlı satın alma modeli, esneklik, denetimi, bireysel kaynak kullanımının saydamlığı sağlar ve basit bir yol çevirmek için şirket iş yükü gereksinimlerini buluta. Bu model, işlem, bellek ve depolama iş yükü gereksinimlerine göre seçmenize olanak sağlar. Sanal çekirdek tabanlı satın alma modeli, arasından seçim yapabilirsiniz [genel amaçlı](sql-database-high-availability.md#basic-standard-and-general-purpose-service-tier-availability) ve [iş açısından kritik](sql-database-high-availability.md#premium-and-business-critical-service-tier-availability) hizmet katmanları için her ikisi de [tek veritabanları](sql-database-single-database-scale.md), [ Yönetilen örnek](sql-database-managed-instance.md), ve [elastik havuzlar](sql-database-elastic-pool.md). Tek veritabanları için de seçebilirsiniz [hiper ölçekli (Önizleme)](sql-database-service-tier-hyperscale.md) hizmet katmanı.
 
 Sanal çekirdek tabanlı satın alma modeli, bağımsız olarak işlem ve depolama kaynaklarını seçin, aynı şirket içi performans ve fiyat iyileştirme sağlar. Sanal çekirdek tabanlı satın alma modeli, müşteriler için ödeme yapar:
 

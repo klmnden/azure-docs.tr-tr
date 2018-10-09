@@ -2,18 +2,18 @@
 title: include dosyası
 description: include dosyası
 services: storage
-author: rogara
+author: roygara
 ms.service: storage
 ms.topic: include
 ms.date: 04/09/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 26c3e8a096a3ee7bc5146759f8de62e5c1c7fed1
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 796614a9e60ccb7ab155bc986b39c04c781224e8
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47389932"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48874072"
 ---
 ## <a name="about-vhds"></a>VHD'ler hakkında
 
@@ -34,11 +34,11 @@ Bir kaynak .vhd dosyasını silmeden önce diski veya görüntüyü silerek kira
 
 Azure Diskleri %99,999 kullanılabilirlik sunacak şekilde tasarlanmıştır. Azure diskleri ile sektör lideri Kurumsal düzeyde dayanıklılık sunarak hata oranı % tutarlı bir şekilde teslim.
 
-Disklerinizi Premium SSD diskleri, standart SSD (Önizleme) ve standart HDD depolama oluştururken seçebileceğiniz depolama için üç performans katmanı vardır. Ayrıca, yönetilmeyen ve yönetilen diskler--iki tür vardır.
+Disklerinizi Premium SSD diskleri, standart SSD ve HDD depolama standart oluştururken seçebileceğiniz depolama için üç performans katmanı vardır. Ayrıca, yönetilmeyen ve yönetilen diskler--iki tür vardır.
 
 ### <a name="standard-hdd-disks"></a>Standart HDD diskler
 
-Standart HDD diskler, HDD'ler ile desteklenir ve düşük maliyetli depolama sunar. Standart HDD depolama bir veri merkezinde yerel olarak çoğaltılabilir veya birincil ve ikincil veri merkezleri ile coğrafi olarak yedekli. Depolama çoğaltma hakkında daha fazla bilgi için bkz. [Azure depolama çoğaltma](../articles/storage/common/storage-redundancy.md). 
+Standart HDD diskler, HDD'ler ile desteklenir ve düşük maliyetli depolama sunar. Standart HDD depolama bir veri merkezinde yerel olarak çoğaltılabilir veya birincil ve ikincil veri merkezleri ile coğrafi olarak yedekli. Depolama çoğaltma hakkında daha fazla bilgi için bkz. [Azure depolama çoğaltma](../articles/storage/common/storage-redundancy.md).
 
 Standart HDD diskleri kullanma hakkında daha fazla bilgi için bkz. [standart depolama ve diskler](../articles/virtual-machines/windows/standard-storage.md).
 

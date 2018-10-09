@@ -1,26 +1,18 @@
 ---
-title: DNS kayıt kümeleri ve Azure DNS kayıtlarını yönetme | Microsoft Docs
+title: DNS kayıt kümeleri ve Azure DNS kayıtlarını yönetme
 description: Azure DNS, DNS kayıt kümeleri ve kayıtları etki alanınızı barındırmaya olduğunda yönetme olanağı sağlar.
 services: dns
-documentationcenter: na
 author: vhorne
-manager: jeconnoc
-editor: ''
-tags: azure-resource-manager
-ms.assetid: 18ed44a1-7bfe-454f-964e-922ad978264a
 ms.service: dns
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 08/16/2016
+ms.date: 10/6/2018
 ms.author: victorh
-ms.openlocfilehash: e24aa8d0fb72147b0ac30e7c495b598d6e9ea96f
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: 891adfacde6e46b1d8fe8e2f6b5fb39c90ce27a0
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47451401"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48853717"
 ---
 # <a name="manage-dns-records-and-record-sets-by-using-the-azure-portal"></a>DNS kayıtlarını yönetme ve Azure portalını kullanarak kayıt kümeleri
 
@@ -120,3 +112,4 @@ SOA silemezsiniz ve NS kayıt kümeleri bölgenin tepesinde (ad = "\@") oluştur
 * Azure DNS hakkında daha fazla bilgi için bkz. [Azure DNS'ye genel bakış](dns-overview.md).
 * DNS otomatikleştirme hakkında daha fazla bilgi için bkz. [oluşturma DNS bölgeleri ve .NET SDK kullanarak kayıt kümelerini](dns-sdk.md).
 * Ters DNS kayıtlarını hakkında daha fazla bilgi için bkz: [geriye doğru DNS ve Azure desteği'na genel bakış](dns-reverse-dns-overview.md).
+* Azure DNS diğer ad kayıtlarını hakkında daha fazla bilgi için bkz. [Azure DNS diğer ad kayıtlarını genel bakış](dns-alias.md).
