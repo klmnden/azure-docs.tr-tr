@@ -1,6 +1,6 @@
 ---
 title: Bu hızlı başlangıçta Python kullanarak X.509 cihazlarını Azure Cihaz Sağlama Hizmeti'ne kaydetme adımları gösterilmektedir | Microsoft Docs
-description: Bu hızlı başlangıçta Python kullanarak X.509 cihazlarını Azure IoT Hub Cihaz Sağlama Hizmeti'ne kaydedeceksiniz
+description: Bu hızlı başlangıçta Python kullanarak X.509 cihazlarını Azure IoT Hub Cihazı Sağlama Hizmeti'ne kaydedeceksiniz
 author: wesmc7777
 ms.author: wesmc
 ms.date: 01/25/2018
@@ -10,12 +10,12 @@ services: iot-dps
 manager: timlt
 ms.devlang: python
 ms.custom: mvc
-ms.openlocfilehash: f6c6c4abf80a67c654b17771787ae530461ca3b4
-ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
+ms.openlocfilehash: 84ec165a78f873f6378e840d7f339cb7590dc098
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "42023852"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47227393"
 ---
 # <a name="quickstart-enroll-x509-devices-to-the-device-provisioning-service-using-python"></a>Hızlı başlangıç: Python kullanarak X.509 cihazlarını Cihaz Sağlama Hizmeti'ne kaydetme
 

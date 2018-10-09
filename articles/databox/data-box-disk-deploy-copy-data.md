@@ -12,15 +12,15 @@ ms.devlang: NA
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/05/2018
+ms.date: 09/28/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: f25d0b3522658d5fcd4b34110cb03b624dd9e7b1
-ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
+ms.openlocfilehash: 776f70b6b24288006d52cb0e91797d1074180160
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43841514"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47452624"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-disk-and-verify"></a>Öğretici: Verileri Azure Data Box Disk'e kopyalama ve doğrulama
 
@@ -30,17 +30,14 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
 > [!div class="checklist"]
 > * Verileri Data Box Disk'e kopyalama
-> * Veri bütünlüğünü doğrulama
+> * Verileri doğrulama
 
 ## <a name="prerequisites"></a>Ön koşullar
 
 Başlamadan önce aşağıdakilerden emin olun:
 - [Öğretici: Azure Data Box Disk'inizi takma ve yapılandırma](data-box-disk-deploy-set-up.md) adımlarını tamamladınız.
-- Disklerinizi paketten çıkarıp açtınız.
-- Disklere veri kopyalamak için kullanacağınız bir ana bilgisayarınız var. Ana bilgisayarınız:
-    - [Desteklenen bir işletim sistemi](data-box-disk-system-requirements.md) çalıştırılmalıdır.
-    - [Windows PowerShell 4 yüklü](https://www.microsoft.com/download/details.aspx?id=40855) olmalıdır.
-    - [.NET Framework 4.5 yüklü](https://www.microsoft.com/download/details.aspx?id=30653) olmalıdır.
+- Disklerinizin kilitleri açılır ve diskler bir istemci bilgisayara bağlanır.
+- Disklere veri kopyalamak için kullanılan istemci bilgisayar [Desteklenen işletim sistemi](data-box-disk-system-requirements.md) çalıştırmalıdır.
 
 
 ## <a name="copy-data-to-disks"></a>Disklere veri kopyalama
@@ -59,6 +56,7 @@ Bilgisayarınızla Data Box Disk arasında bağlantı kurmak ve veri kopyalamak 
 
     Kapsayıcı ve blob adlarıyla ilgili Azure adlandırma gereksinimlerine bakın.
 
+    #### <a name="azure-naming-conventions-for-container-and-blob-names"></a>Kapsayıcı ve blob adları için Azure adlandırma kuralları
     |Varlık   |Kurallar  |
     |---------|---------|
     |Blok blobu ve sayfa blobu için kapsayıcı adları     |Bir harf veya rakamla başlamalıdır ve yalnızca küçük harf, rakam ve kısa çizgi (-) içerebilir. Kısa çizgiden (-) hemen önce ve sonra bir harf veya rakam gelmelidir. Adlarda kısa çizgiler art arda kullanılamaz. <br>3 ila 63 karakter uzunluğunda geçerli bir DNS adı olmalıdır.          |
@@ -165,17 +163,21 @@ Bilgisayarınızla Data Box Disk arasında bağlantı kurmak ve veri kopyalamak 
 > -  Veri kopyalama sırasında veri boyutunun [Azure depolama ve Data Box Disk sınırları](data-box-disk-limits.md) içinde belirtilen boyut sınırlarına uygun olduğundan emin olun. 
 > - Data Box Disk tarafından yüklenen verilerin Data Box Disk haricinde başka bir uygulama tarafından da yüklenmesi durumunda yükleme işinde hata oluşabilir ve veri bozulması yaşanabilir.
 
-## <a name="verify-data-integrity"></a>Veri bütünlüğünü doğrulama
+## <a name="verify-data"></a>Verileri doğrulama 
 
-Veri bütünlüğünü doğrulamak için aşağıdaki adımları gerçekleştirin.
+Verileri doğrulamak için aşağıdaki adımları uygulayın.
 
-1. Sağlama toplamı doğrulaması için `AzureExpressDiskService.ps1` dosyasını çalıştırın. Dosya Gezgini'nde sürücünün *AzureImportExport* klasörüne gidin. Sağ tıklayın ve **PowerShell ile Çalıştır**'ı seçin. 
+1. Sağlama toplamı doğrulaması için sürücünüzün *AzureImportExport* klasöründe `DataBoxDiskValidation.cmd` komutunu çalıştırın. 
+    
+    ![Data Box Diski doğrulama aracı çıktısı](media/data-box-disk-deploy-copy-data/data-box-disk-validation-tool-output.png)
 
-    ![Sağlama toplamını çalıştırma](media/data-box-disk-deploy-copy-data/data-box-disk-checksum.png)
-
-2. Bu adım verilerinizin boyutuna bağlı olarak uzun sürebilir. Betik çalıştırıldığında veri bütünlüğü denetimi işleminin özetinin yanı sıra işlemin tamamlanması için kalan süre görüntülenir. Komut penceresini kapatmak için **Enter** tuşuna basabilirsiniz.
+2. Uygun olanı seçin. **Her zaman 2. seçeneği işaretleyerek dosyaları doğrulamanızı ve sağlama toplamları oluşturmanızı öneririz**. Bu adım verilerinizin boyutuna bağlı olarak uzun sürebilir. Betik tamamlandığında komut penceresinden çıkın. Doğrulama ve sağlama toplamı alma sırasında herhangi bir hata olursa size bildirilir ve hata günlüklerine bir bağlantı sunulur.
 
     ![Sağlama toplamı çıktısı](media/data-box-disk-deploy-copy-data/data-box-disk-checksum-output.png)
+
+    > [!TIP]
+    > - Aracı iki çalıştırma arasında sıfırlayın.
+    > - Küçük dosyalar (KB düzeyinde) içeren büyük veri kümeleriyle ilgili dosyaları doğrulamak için 1. seçeneği kullanın. Bu örneklerde sağlama toplamı alma çok uzun sürebilir ve performans çok düşük olabilir.
 
 3. Birden çok disk kullanıyorsanız, komutu her disk için çalıştırın.
 

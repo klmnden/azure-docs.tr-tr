@@ -1,42 +1,43 @@
 ---
-title: Bilişsel hizmetler Azure, Bing Video arama API için PHP hızlı başlangıç | Microsoft Docs
-description: Hızlı bir şekilde yardımcı olmak için bilgi ve kod örnekleri get Bing Video arama API Azure üzerinde Microsoft Bilişsel Hizmetleri'ndeki kullanmaya başlayın.
+title: 'Hızlı Başlangıç: Bing Video Arama, PHP'
+titlesuffix: Azure Cognitive Services
+description: Bing Video Arama API'sini kısa sürede kullanmaya başlamanıza yardımcı olacak bilgi ve kod örnekleri alın.
 services: cognitive-services
-documentationcenter: ''
 author: v-jerkin
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-video-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 9/21/2017
 ms.author: v-jerkin
-ms.openlocfilehash: 2e7dc1fc82f143b51461595f9c92294a359bdc62
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
-ms.translationtype: MT
+ms.openlocfilehash: 4e64771802564da1e1cb9efccef1ef63b38c2b80
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35354527"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47224724"
 ---
-# <a name="quickstart-for-bing-video-search-api-with-php"></a>Bing Video arama API PHP ile için hızlı başlangıç
+# <a name="quickstart-bing-video-search-api-with-php"></a>Hızlı Başlangıç: PHP ile Bing Video Arama API'si
 
-Bu makalede, Microsoft Bilişsel hizmetler Azure üzerinde bir parçası Bing Video arama API kullanma gösterilmektedir. Bu makalede PHP kullanır, ancak bir RESTful Web hizmeti, HTTP isteklerini hale getirebilir ve JSON ayrıştırma programlama dili ile uyumlu API'dir. 
+Bu makale, Azure'da Microsoft Bilişsel Hizmetleri'nin parçası olan Bing Video Arama API'sini kullanmayı göstermektedir. Bu makalede PHP kullanılmakla birlikte API HTTP istekleri gönderebilecek ve JSON ayrıştırabilecek her programlama diliyle uyumlu bir RESTful Web hizmetidir. 
 
-Kod örneği, PHP 5.6 altında çalışması için yazılmıştır.
+Örnek kod PHP 5.6 ile çalışmak üzere yazılmıştır.
 
-Başvurmak [API Başvurusu](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference) API'leri hakkında teknik ayrıntılar için.
+API'lerle ilgili teknik ayrıntılar için [API başvurusu](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference)'na bakın.
 
-## <a name="prerequisites"></a>Önkoşullar
+## <a name="prerequisites"></a>Ön koşullar
 
-Bilmeniz gereken bir [Bilişsel Hizmetleri API hesabı](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) ile **Bing arama API'leri**. [Ücretsiz deneme sürümü](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) Bu Hızlı Başlangıç için yeterlidir. Ücretsiz deneme sürümünüzü etkinleştirmek ya da Ücretli abonelik anahtarı Azure panonuza kullanabilir sağlanan erişim anahtarı gerekir.
+**Bing Arama API'leri**'nde bir [Bilişsel Hizmetler API hesabınız](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) olması gerekir. [Ücretsiz deneme](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) bu hızlı başlangıç için yeterlidir. Ücretsiz denemenizi etkinleştirdiğinizde sağlanan erişim anahtarınız olması veya Azure panonuzdan ücretli bir abonelik anahtarı kullanmanız gerekir.
 
 ## <a name="bing-video-search"></a>Bing video arama
 
-[Bing Video arama API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference) arama motoru Bing'den video sonuçları döndürür.
+[Bing Video Arama API'si](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference) Bing arama motorundan video sonuçları döndürür.
 
-1. Güvenli HTTP desteği etkinleştirildiğinden emin olun, `php.ini` kod açıklamada açıklandığı gibi.
-2. Sık kullanılan IDE veya Düzenleyicisi içinde yeni bir PHP projesi oluşturun.
-3. Aşağıda sunulan kodu ekleyin.
-4. Değiştir `accessKey` aboneliğiniz için geçerli bir erişim anahtarı ile değer.
-5. Programını çalıştırın.
+1. Kod açıklamasında belirtildiği gibi `php.ini` dosyanızda güvenli HTTP desteğinin etkinleştirildiğinden emin olun.
+2. Sık kullandığınız IDE veya düzenleyicide yeni bir PHP projesi oluşturun.
+3. Aşağıda sağlanan kodu ekleyin.
+4. `accessKey` değerini, aboneliğiniz için geçerli olan bir erişim anahtarı ile değiştirin.
+5. Programı çalıştırın.
 
 ```php
 <?php
@@ -100,7 +101,7 @@ echo json_encode(json_decode($json), JSON_PRETTY_PRINT);
 
 **Yanıt**
 
-Başarılı yanıt JSON'da, aşağıdaki örnekte gösterildiği gibi verilir: 
+Başarılı yanıt, aşağıdaki örnekte gösterildiği gibi JSON biçiminde döndürülür: 
 
 ```json
 {
@@ -211,9 +212,9 @@ Başarılı yanıt JSON'da, aşağıdaki örnekte gösterildiği gibi verilir:
 ## <a name="next-steps"></a>Sonraki adımlar
 
 > [!div class="nextstepaction"]
-> [Disk belleği videolar](paging-videos.md)
-> [Resizing ve küçük resim görüntüleri kırpma](resize-and-crop-thumbnails.md)
+> [Video çağırma](paging-videos.md)
+> [Küçük resimleri yeniden boyutlandırma ve kırpma](resize-and-crop-thumbnails.md)
 
 ## <a name="see-also"></a>Ayrıca bkz. 
 
- [Web videolar için arama](search-the-web.md) [deneyin](https://azure.microsoft.com/services/cognitive-services/bing-video-search-api/)
+ [Web'de video arama](search-the-web.md) [Deneyin](https://azure.microsoft.com/services/cognitive-services/bing-video-search-api/)

@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 27f271a20af2bb9910f1cf7d63e6033d78e67b83
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: f2f2208f325728275706eeed9ff16e8afc3b11cf
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "41919812"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47166886"
 ---
 # <a name="tutorial-azure-ad-password-reset-from-the-login-screen"></a>Öğretici: Oturum açma ekranından Azure AD parola sıfırlama
 
@@ -45,8 +45,6 @@ Oturum açma ekranından parola sıfırlama yapılmasını sağlayan yapılandı
    * İsteğe bağlı olarak, profil için anlamlı bir açıklama girin
    * Platform **Windows 10 ve üstü**
    * Profil türü **Özel**
-
-   ![CreateProfile][CreateProfile]
 
 3. **Ayarlar**'ı yapılandırın
    * Parolayı sıfırla bağlantısını etkinleştirmek için şu OMA-URI Ayarını **ekleyin**
@@ -100,7 +98,6 @@ Artık ilke yapılandırıldığı ve atandığına göre, kullanıcı açısın
 ![Oturum Açma Ekranı][LoginScreen]
 
 Kullanıcılar oturum açmayı denediklerinde, artık oturum açma ekranında self servis parola sıfırlama deneyimini açan bir Parolayı sıfırla bağlantısı görürler. Bu işlev kullanıcıların web tarayıcısına erişmek için başka bir cihaz kullanmalarına gerek kalmadan parolalarını sıfırlamalarına olanak tanır.
-Kullanıcılar oturum açmayı denediklerinde, artık oturum açma ekranında self servis parola sıfırlama deneyimini açan bir Parolayı sıfırla bağlantısı görürler. Bu işlev kullanıcıların web tarayıcısına erişmek için başka bir cihaz kullanmalarına gerek kalmadan parolalarını sıfırlamalarına olanak tanır.
 
 Kullanıcılarınız bu özelliği kullanma yönergelerini [İş veya okul parolanızı sıfırlama](../user-help/active-directory-passwords-update-your-own-password.md#reset-password-at-sign-in) konusunda bulabilirler
 
@@ -114,7 +111,11 @@ Uzak Masaüstü kullanarak bu işlevi test ederken, "Parolayı sıfırla" bağla
 
 * Şu anda Uzak Masaüstü'nden parola sıfırlama desteklenmiyor.
 
-Windows kilit ekranı kayıt defteri anahtarı veya grup ilkesi ile devre dışı bırakılırsa **Parolayı sıfırla** özelliği kullanılamaz.
+Windows kilit ekranı kayıt defteri anahtarı veya grup ilkesi ile devre dışı bırakılırsa **Parolayı sıfırla** özelliği bulunmaz.
+
+Azure AD denetim günlüğü parola sıfırlamanın oluştuğu yerin IP adresi ve ClientType'ı hakkında bilgi içerir.
+
+![Azure AD denetim günlüğünde oturum açma ekranı parola sıfırlaması örneği](media/tutorial-sspr-windows/windows-sspr-azure-ad-audit-log.png)
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 
@@ -127,6 +128,5 @@ Bu öğreticide kullanıcıların parolalarını Windows 10 oturum açma ekranı
 > [!div class="nextstepaction"]
 > [Oturum açma sırasında risk değerlendirmesi yapma](tutorial-risk-based-sspr-mfa.md)
 
-[CreateProfile]: ./media/tutorial-sspr-windows/create-profile.png "Windows 10 oturum açma ekranında Parolayı sıfırla bağlantısını etkinleştirmek için Intune cihaz yapılandırma profili oluşturma"
 [Assignment]: ./media/tutorial-sspr-windows/profile-assignment.png "Bir grup Windows 10 cihazına Intune cihaz yapılandırma ilkesi atama"
 [LoginScreen]: ./media/tutorial-sspr-windows/logon-reset-password.png "Windows 10 oturum açma ekranında Parolayı sıfırla bağlantısı"

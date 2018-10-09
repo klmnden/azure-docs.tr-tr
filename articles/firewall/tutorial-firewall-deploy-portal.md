@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 727d38cae6c2f98d2922d5760f116ab85d75b8ac
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: ff8df51011ef664950ecfeb9eef0b201306c8ad5
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46983523"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47221677"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-using-the-azure-portal"></a>Öğretici: Azure portalı kullanarak Azure Güvenlik Duvarı'nı dağıtma ve yapılandırma
 
@@ -31,9 +31,7 @@ Ağ trafiğinizi güvenlik duvarından alt ağın varsayılan ağ geçidi olarak
 
 Uygulama ve ağ kuralları, *kural koleksiyonları* halinde depolanır. Kural koleksiyonu, aynı eylemi ve önceliği paylaşan kuralların listesidir.  Ağ kuralı koleksiyonu ağ kurallarından, uygulama kuralı koleksiyonu ise uygulama kurallarından oluşan bir listedir.
 
-Azure Güvenlik Duvarında gelen kuralları ve giden kuralları kavramı yoktur. Uygulama kuralları ve ağ kuralları mevcuttur, bunlar güvenlik duvarına gelen tüm trafiğe uygulanır. Önce ağ kuralları, sonrasında uygulama kuralları uygulanır ve kurallar sonlandırıcıdır.
-
-Örneğin bir ağ kuralı eşleşirse paket uygulama kuralları tarafından değerlendirilmez. Ağ kuralı eşleşmesi yoksa ve paket protokolü HTTP/HTTPS ise paket ardından uygulama kuralları tarafından değerlendirilir. Hala eşleşme bulunamamışsa paket, altyapı kural koleksiyonu ile değerlendirilir. Ardından hala eşleşme yoksa paket varsayılan olarak reddedilir.
+Azure Güvenlik Duvarı'nda NAT kuralları, ağ kuralları ve uygulama kuralları vardır. Azure Güvenlik Duvarı kural işleme mantığı hakkında daha fazla bilgi için bkz: [Azure Güvenlik Duvarı kural işleme mantığı](rule-processing.md).
 
 Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
@@ -215,9 +213,6 @@ Srv-Work sanal makinesinin **Ayarlar** sayfasını yapılandırmak için aşağ�
 11. **Ekle**'ye tıklayın.
 
 Azure Güvenlik Duvarı'nda varsayılan olarak izin verilen altyapı FQDN'leri için yerleşik bir kural koleksiyonu bulunur. Bu FQDN'ler platforma özgüdür ve başka amaçlarla kullanılamaz. Daha fazla bilgi için bkz. [Altyapı FQDN'leri](infrastructure-fqdns.md).
-
-> [!Note]
-> FQDN etiketleri şu anda yalnızca Azure PowerShell ve REST ile yapılandırılabilir. Daha fazla bilgi için [buraya](https://aka.ms/firewallapplicationrule) tıklayın. 
 
 ## <a name="configure-network-rules"></a>Ağ kurallarını yapılandırma
 

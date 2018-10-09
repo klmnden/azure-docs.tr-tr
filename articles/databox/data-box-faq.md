@@ -13,14 +13,14 @@ ms.topic: overview
 ms.custom: ''
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 09/24/2018
+ms.date: 09/27/2018
 ms.author: alkohli
-ms.openlocfilehash: d0da9107fe1dd34481ca0bf1aa9a0b260bb10951
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: e47ffbe15291275a7104d5e201a597d084cdbdd9
+ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46946638"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47422873"
 ---
 # <a name="azure-data-box-frequently-asked-questions"></a>Azure Data Box: Sık Sorulan Sorular
 
@@ -117,7 +117,7 @@ A.
 A.-->
 
 ### <a name="q-the-system-fault-indicator-led-on-the-front-operating-panel-is-on-what-should-i-do"></a>S. Ön paneldeki sistem hatası göstergesi LED ışığı yanıyor. Ne yapmalıyım?
-A. Sistem hatası göstergesi LED ışığının yanması sisteminizin iyi durumda olmadığını gösterir. Sonraki adımlar için Microsoft Desteği'ne başvurun.
+A. Sistem hatası göstergesi LED ışığının yanması sisteminizin iyi durumda olmadığını gösterir. Sonraki adımlar için [Microsoft Desteği](data-box-disk-contact-microsoft-support.md)'ne başvurun.
 
 ### <a name="q-i-cant-access-the-data-box-unlock-password-in-the-azure-portal-why-would-this-be"></a>S. Azure portalda Data Box kilit açma parolasına erişemiyorum. Neden olabilir?
 A. Azure portalda kilit açma parolasına erişemiyorsanız aboneliğinizin ve depolama hesabınızın izinlerini kontrol edin. Kaynak grubu düzeyinde katkıda bulunan veya sahip izinlerine sahip olduğunuzdan emin olun. Bu izinlere sahip değilseniz kimlik bilgilerine erişmek için en azından Data Box Operatörü rolü izinlerine sahip olmanız gerekir.
@@ -127,8 +127,8 @@ A. Azure portalda kilit açma parolasına erişemiyorsanız aboneliğinizin ve d
 ### <a name="q-how-do-i-track-the-data-box-from-when-i-placed-the-order-to-shipping-the-device-back"></a>S. Data Box'ı geri göndermek için sipariş oluşturduktan sonra cihazı nasıl takip edebilirim? 
 A.  Data Box siparişinin durumunu Azure portaldan takip edebilirsiniz. Siparişi oluşturduğunuzda bildirimlerin gönderileceği bir e-posta adresi girmeniz de istenir. E-posta adresi girdiyseniz sipariş durumundaki tüm değişiklikler bu adrese gönderilir. [Bilgilendirme e-postalarını yapılandırma](data-box-portal-ui-admin.md#edit-notification-details) hakkında daha fazla bilgi edinin.
 
-### <a name="q-how-do-i-return-the-disks"></a>S. Diskleri nasıl iade edebilirim? 
-A.  Microsoft, elektronik mürekkep ekranında bir sevkiyat etiketi görüntüler. Etiketi kutunun üzerine yapıştırın ve kapattığınız paketi sevkiyat şirketine teslim edin. Etiketin hasar görmesi veya kaybolması durumunda **Genel bakış > Sevkiyat etiketini indir** sayfasına gidin ve yeni bir sevkiyat etiketi indirin.
+### <a name="q-how-do-i-return-the-device"></a>S. Cihazı nasıl iade ederim? 
+A.  Microsoft, E-mürekkep ekranında bir sevkiyat etiketi görüntüler. Sevkiyat etiketi E-mürekkep ekranında görünmüyorsa **Genel bakış > Sevkiyat etiketi indirme**'ye gidin. Etiketi indirin ve yazdırın, etiketi cihazın üzerindeki şeffaf plastik etikete takın ve cihazı sevkiyatı yapacak taşıyıcı şirkete bırakın. 
 
 ### <a name="q-i-received-an-email-notification-that-my-device-has-reached-the-azure-datacenter-how-do-i-find-out-if-the-data-upload-is-in-progress"></a>S. Cihazımın Azure veri merkezine ulaştığını bildiren bir e-posta bildirimi aldım. Veri yükleme işleminin ilerleme durumunu nasıl takip edebilirim?
 A. Azure portalda Data Box siparişinize gidip **Genel bakış** sayfasını inceleyebilirsiniz. Azure'a veri yükleme işlemi başladıysa kopyalama ilerleme durumu sağ taraftaki bölmede gösterilir. 
@@ -181,11 +181,11 @@ A. Hasarlı bir şekilde ulaşan veya bariz kurcalama izleri bulunan cihazları 
 ### <a name="q-can-i-use-my-own-shipping-carrier-to-ship-data-box"></a>S. Data Box'ı göndermek için kendi gönderim şirketimi kullanabilir miyim?
 A. Data Box hizmetinde cihazların Azure veri merkezine geliş gidişi Microsoft tarafından koordine edilir. Kendi gönderim şirketinizi kullanmak istiyorsanız Azure İçeri/Dışarı Aktarma hizmetini kullanabilirsiniz. Daha fazla bilgi için bkz. [Azure İçeti/Dışarı Aktarma hizmeti nedir?](../storage/common/storage-import-export-service.md)
 
-### <a name="q-e-ink-display-is-not-showing-the-return-shipment-label-what-should-i-do"></a>S. Elektronik mürekkep üzerinde iade sevkiyat etiketi gösterilmiyor. Ne yapmalıyım?
-A. Elektronik mürekkepte iade sevkiyat etiketi gösterilmiyorsa aşağıdaki adımları gerçekleştirin:
+### <a name="q-e-ink-display-is-not-showing-the-return-shipment-label-what-should-i-do"></a>S. E-mürekkep üzerinde iade sevkiyat etiketi gösterilmiyor. Ne yapmalıyım?
+A. E-mürekkepte iade sevkiyat etiketi gösterilmiyorsa aşağıdaki adımları uygulayın:
 - Eski sevkiyat etiketini ve önceki sevkiyat işleminden kalan diğer tüm etiketleri sökün.
-- Azure portalda sipariş sayfasına gidin. Genel bakış bölümüne gidip sevkiyat etiketini indirin. Daha fazla bilgi için bkz. [Sevkiyat etiketini indirme](data-box-portal-admin.md#download-shipping-label).
-- Sevkiyat etiketini yazdırın ve cihaz üzerindeki şeffaf bölüme yerleştirin. 
+- Azure portalda sipariş sayfasına gidin. **Genel bakış**'a ve **Sevkiyat etiketini indir**'e gidin. Daha fazla bilgi için bkz. [Sevkiyat etiketini indirme](data-box-portal-admin.md#download-shipping-label).
+- Sevkiyat etiketini yazdırın ve cihaz üzerindeki şeffaf plastik cebe yerleştirin. 
 - Sevkiyat etiketinin net bir şekilde göründüğünden emin olun. 
 
 ### <a name="q-how-is-my-data-protected-during-transit"></a>S. Verilerim aktarım sırasında nasıl korunur? 
@@ -204,12 +204,11 @@ A. Evet. Cihazı açarak daha fazla veri ekleyebilirsiniz. Veri kopyalama işlem
 A.  **Veri Kopyalama** işlemi için sipariş durumu **Tamamlandı** olarak değiştiğinde verilerinize doğrudan erişim sağlayabilirsiniz.
 
 ### <a name="q-where-is-my-data-located-in-azure-after-the-upload"></a>S. Yükleme sonrasında verilerim Azure'da hangi konumda bulunur?
-A.  Data Box'a veri kopyaladığınızda verileriniz blok blobu, sayfa blobu veya Azure dosyaları türlerine göre Azure Depolama hesabınızdaki ilgili yollardan birine yüklenir:
- - `<You_storage_account_name_BlockBlob>/<my_container>/Blob` 
- - `<Your_storage_account_name_PageBlob>/<my_container>/Blob`
- - `<Your_storage_account_name_AzFile>/` 
-
-Blok blobu ve sayfa blobu paylaşımlarının altında birinci düzeydeki varlıklar kapsayıcılar, ikinci düzeydeki varlıklar ise bloblardır. Azure Dosyaları paylaşımlarında birinci düzeydeki varlıklar paylaşımlar, ikinci düzeydeki varlıklar ise dosyalardır.
+A.  Data Box'a veri kopyaladığınızda bunlar blok blobu, sayfa blobu veya Azure dosyası olmalarına bağlı olarak Azure Depolama hesabınızda aşağıdaki yollardan birine yüklenir.
+ - `https://<storage_account_name>.blob.core.windows.net/<containername>` 
+ -  `https://<storage_account_name>.file.core.windows.net/<sharename>`
+ 
+ Alternatif olarak Azure portalda Azure depolama hesabınıza gidip oradan ilerleyebilirsiniz.
 
 ### <a name="q-i-just-noticed-that-i-did-not-follow-the-azure-naming-requirements-for-my-containers-will-my-data-fail-to-upload-to-azure"></a>S. Kapsayıcılarım için Azure adlandırma gereksinimlerine uygun hareket etmediğimi fark ettim. Verilerim yine de Azure'a yüklenir mi?
 A.  Kapsayıcı adlarında büyük harf kullandıysanız bunlar otomatik olarak küçük harfe dönüştürülür. Adlar diğer kurallara (özel karakterler, diğer diller gibi) uygun değilse yükleme işlemi başarısız olur. Paylaşımları adlandırma konusundaki en iyi yöntemler hakkında daha fazla bilgi için bkz. 

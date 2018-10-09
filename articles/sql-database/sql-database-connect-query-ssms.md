@@ -3,19 +3,22 @@ title: 'SSMS: Azure SQL Veritabanında verileri bağlama ve sorgulama | Microsof
 description: SQL Server Management Studio (SSMS) kullanarak Azure'da SQL Database'e nasıl bağlanılacağını öğrenin. Ardından, verileri sorgulamak ve düzenlemek için Transact-SQL (T-SQL) deyimleri çalıştırın.
 keywords: sql veritabanına bağlanma,sql server management studio
 services: sql-database
-author: CarlRabeler
-manager: craigg
 ms.service: sql-database
-ms.custom: mvc,DBs & servers
+ms.subservice: operations
+ms.custom: ''
+ms.devlang: ''
 ms.topic: quickstart
-ms.date: 08/01/2018
+author: CarlRabeler
 ms.author: carlrab
-ms.openlocfilehash: 9177ad9cc4cbb668599d35b295ab939cea148a5a
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.reviewer: ''
+manager: craigg
+ms.date: 08/01/2018
+ms.openlocfilehash: 4c8b8a609fe5aa531570805d7a58141a6df84090
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39412823"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47063226"
 ---
 # <a name="azure-sql-database-use-sql-server-management-studio-to-connect-and-query-data"></a>Azure SQL Veritabanı: SQL Server Management Studio kullanarak verileri bağlama ve sorgulama
 
@@ -26,6 +29,8 @@ ms.locfileid: "39412823"
 Bu hızlı başlangıçta başlangıç noktası olarak bu hızlı başlangıçlardan birinde oluşturulan kaynaklar kullanılır:
 
 [!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
+
+Bu hızlı başlangıç ayrıca sunucu düzeyinde bir güvenlik duvarı kuralı yapılandırması gerektirir. Bunun nasıl yapılacağını gösteren bir hızlı başlangıç için bkz: [Sunucu düzeyinde güvenlik duvarı kuralı oluşturma](sql-database-get-started-portal-firewall.md).
 
 #### <a name="install-the-latest-ssms"></a>En son SSMS’yi yükleyin
 

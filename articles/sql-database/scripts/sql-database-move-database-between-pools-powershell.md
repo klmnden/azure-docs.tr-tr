@@ -2,30 +2,26 @@
 title: PowerShell örneği-Azure SQL veritabanını taşıma-SQL elastik havuzu | Microsoft Docs
 description: PowerShell kullanarak elastik havuzlar arasında bir SQL veritabanını taşımak için Azure PowerShell örnek betiği
 services: sql-database
-documentationcenter: sql-database
-author: CarlRabeler
-manager: craigg
-editor: carlrab
-tags: azure-service-management
-ms.assetid: ''
 ms.service: sql-database
-ms.custom: monitor & tune, mvc
+ms.subservice: data-movement
+ms.custom: ''
 ms.devlang: PowerShell
 ms.topic: sample
-ms.tgt_pltfrm: sql-database
-ms.workload: database
-ms.date: 09/07/2018
+author: CarlRabeler
+ms.reviewer: ''
 ms.author: carlrab
-ms.openlocfilehash: 55ba42bda592652b7921df5f25f9b5747fc9baf2
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+manager: craigg
+ms.date: 09/14/2018
+ms.openlocfilehash: e71c1b1f184fe5c240e258295c144db405e25527
+ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44049480"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47054838"
 ---
 # <a name="use-powershell-to-create-elastic-pools-and-move-databases-between-elastic-pools"></a>PowerShell kullanarak elastik havuzlar oluşturma ve elastik havuzlar arasında veritabanlarını taşıma
 
-Bu PowerShell betiği örneği, iki elastik havuz oluşturur ve bir veritabanını bir elastik havuzdan başka bir elastik havuza taşır, sonra da veritabanını elastik havuzun dışındaki tek bir veritabanı performans düzeyine taşır. 
+Bu PowerShell betiği örneği, iki elastik havuz oluşturur ve bir veritabanını bir elastik havuzdan başka bir elastik havuza taşır, sonra da veritabanını elastik havuzun dışındaki tek bir veritabanı işlem boyutuna taşır. 
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]

@@ -8,12 +8,12 @@ ms.service: dns
 ms.topic: tutorial
 ms.date: 6/13/2018
 ms.author: victorh
-ms.openlocfilehash: 44f5bf9a28d56e85bae1d50136c50868ec96eb4e
-ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
+ms.openlocfilehash: ea0dc257d691326bc073b4cbff37e847a6990f02
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39205450"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47452315"
 ---
 # <a name="tutorial-host-your-domain-in-azure-dns"></a>Öğretici: Azure DNS’te etki alanınızı barındırma
 
@@ -70,6 +70,9 @@ Azure DNS, bölgenizdeki yetkili NS kayıtlarını atanan ad sunucularını içe
 Artık DNS bölgesi oluşturulduğuna ve ad sunucularınız olduğuna göre, üst etki alanını Azure DNS ad sunucularıyla güncelleştirmeniz gerekir. Her kayıt şirketi, bir etki alanının ad sunucusu kayıtlarını değiştirmek için kendi DNS yönetim araçlarına sahiptir. Kayıt şirketinin DNS yönetim sayfasında NS kayıtlarını düzenleyin ve NS kayıtlarını Azure DNS ad sunucularıyla değiştirin.
 
 Bir etki alanını Azure DNS'ye devrederken Azure DNS tarafından sağlanan ad sunucularını kullanmanız gerekir. Etki alanınızın adından bağımsız olarak dört ad sunucusunun tamamını kullanmanız önerilir. Etki alanı temsilcisi, bir ad sunucusunun etki alanınızla aynı üst düzey etki alanını kullanmasını gerektirmez.
+
+> [!NOTE]
+> Ad sunucusu adreslerini kopyalarken adresinin sonundaki noktayı da kopyaladığınızdan emin olun. Sondaki nokta bir tam etki alanı adının sonuna gösterir. NS adının sonunda yoksa, bazı kaydediciler noktayı ekleyebilir. Ancak her kaydedicinin bunu yapacağını varsaymanız doğru olmayacağından DNS RFC ile uyumlu olması için sondaki noktayı eklemelisiniz.
 
 Kendi bölgenizdeki ad sunucularını kullanan ve bazen *gösterim ad sunucuları* olarak adlandırılan temsilci seçimleri şu anda Azure DNS'de desteklenmemektedir.
 

@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 07/03/2018
+ms.date: 09/14/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: f659c424f7d5e705343c113d2ba0971164ca622a
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: fcc9f338ad69322091199ce9d5d2d1d6f9f2165e
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43108815"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47227291"
 ---
 # <a name="quickstart-create-a-linux-virtual-machine-in-the-azure-portal"></a>Hızlı başlangıç: Azure portalında Linux sanal makinesi oluşturma
 
@@ -49,26 +49,27 @@ http://portal.azure.com adresinden Azure portalında oturum açın
 
 1. Azure portalının sol üst köşesinde bulunan **Kaynak oluştur** öğesini seçin.
 
-2. Azure Market kaynaklarının listesi üzerindeki arama kutusunda, Canonical tarafından sağlanan **Ubuntu Server 16.04 LTS** işletim sistemini arayıp seçin ve ardından **Oluştur**’u seçin.
+1. Azure Market kaynaklarının listesi üzerindeki arama kutusunda, Canonical tarafından sağlanan **Ubuntu Server 16.04 LTS** işletim sistemini arayıp seçin ve ardından **Oluştur**’u seçin.
 
-3. *myVM* gibi bir VM adı girin, disk türünü *SSD* olarak bırakın ve *azureuser* gibi bir kullanıcı adı girin.
+1. **Temel Bilgiler** sekmesinde, **Proje ayrıntıları** altında doğru aboneliğin seçildiğinden emin olun, ardından **Kaynak grubu** altından **Yeni oluştur**'u seçin. Açılan pencerede kaynak grubunun adı için *myResourceGroup* yazın ve **Tamam*'ı seçin. 
 
-4. **Kimlik doğrulama türü** için **SSH genel anahtarı**,’nı seçip genel anahtarınızı metin kutusuna yapıştırın. Genel anahtarınızdan önce veya sonra gelen tüm boşlukları kaldırmaya dikkat edin.
+    ![VM'niz için yeni bir kaynak grubu oluşturma](./media/quick-create-portal/project-details.png)
 
-    ![Portal dikey penceresinde VM’niz ile ilgili temel bilgileri girin](./media/quick-create-portal/create-vm-portal-basic-blade.png)
+1. **Örnek ayrıntıları** altında, **Sanal makine adı** için *myVM* yazın ve **Bölge** için *East US*'yi seçin. Diğer varsayılan değerleri bırakın.
 
-5. **Yeni oluştur**’u seçerek yeni bir kaynak grubu oluşturun ve ardından *myResourceGroup* gibi bir ad girin. İstediğiniz **Konum**’u ve ardından **Tamam**’ı seçin.
+    ![Örnek ayrıntıları bölümü](./media/quick-create-portal/instance-details.png)
 
-4. VM için bir boyut seçin. Örneğin, *İşlem türü* veya *Disk türü*’ne göre filtreleyebilirsiniz. Önerilen VM boyutu: *D2s_v3*.
+1. **Yönetici hesabı** altından **SSH ortak anahtarı**'nı seçin, kullanıcı adınızı yazın, sonra ortak anahtarınızı metin kutusuna yapıştırın. Ortak anahtarınızda varsa baştaki ve sondaki tüm boşlukları kaldırın.
 
-    ![VM boyutlarını gösteren ekran görüntüsü](./media/quick-create-portal/create-linux-vm-portal-sizes.png)
+    ![Yönetici hesabı](./media/quick-create-portal/administrator-account.png)
 
-5. **Ayarlar** sayfasının **Ağ** > **Ağ Güvenlik Grubu** > **Ortak gelen bağlantı noktası seçin** bölümündeki açılan menüden **HTTP** ve **SSH (22)** seçimlerini yapın. Diğer varsayılan ayarları olduğu gibi bırakın ve **Tamam**’ı seçin.
+1. **Gelen bağlantı noktası kuralları** > **Ortak gelen bağlantı noktaları** altından **Seçilen bağlantı noktalarına izin ver**'i, sonra aşağı açılan listeden **SSH (22)** ve **HTTP (80)** değerlerini seçin. 
 
-6. Özet sayfasında **Oluştur**’u seçerek sanal makine dağıtımını başlatın.
+    ![RDP ve HTTP için bağlantı noktaları açma](./media/quick-create-portal/inbound-port-rules.png)
 
-7. VM, Azure portalı panosuna sabitlenir. Dağıtım tamamlandıktan sonra VM özeti otomatik olarak açılır.
+1. Kalan varsayılan ayarları bırakın, ardından sayfanın alt kısmındaki **Gözden geçir + oluştur** düğmesini seçin.
 
+    
 ## <a name="connect-to-virtual-machine"></a>Sanal makineye bağlanma
 
 VM ile bir SSH bağlantısı oluşturun.

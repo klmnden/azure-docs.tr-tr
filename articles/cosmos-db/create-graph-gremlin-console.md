@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 01/08/2018
 ms.author: lbosq
-ms.openlocfilehash: 905873a695635ba80de258cbf458c8dd3e18d443
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: e73b0e88a98c1b06216378078626b4338c598816
+ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43700347"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47422975"
 ---
 # <a name="azure-cosmos-db-create-query-and-traverse-a-graph-in-the-gremlin-console"></a>Azure Cosmos DB: Gremlin konsolunda oluşturma, sorgulama ve çapraz geçiş yapma
 
@@ -90,21 +90,16 @@ serializer: { className: org.apache.tinkerpop.gremlin.driver.ser.GraphSONMessage
 
 5. Ardından tüm konsol komutlarını uzak sunucuya yönlendirmek için `:remote console` komutunu çalıştırın.
 
+   > [!NOTE]
+   > `:remote console` komutunu çalıştırmaz ancak tüm konsol komutlarını uzak sunucuya yönlendirmek isterseniz, komutun önüne `:>` ekleyin; örneğin komutu `:> g.V().count()` olarak çalıştırın. Bu önek komutun bir parçasıdır ve Azure Cosmos DB ile Gremlin konsolunu kullanırken önemlidir. Bu öneki çıkararak konsola komutu yerel olarak; genellikle bellek içi bir grafikte yürütmesini söylemiş olursunuz. Bu `:>` önekini kullandığınızda, konsola, bu örnekte Azure Cosmos DB'de (localhost öykünücüsü veya bir Azure örneği) olmak üzere uzak bir komutu yürütmesini söylemiş olursunuz.
+
 Harika! Kurulumu tamamladığımıza göre, bazı konsol komutlarını çalıştırmaya başlayalım.
 
 Basit bir count() komutunu deneyelim. İstendiğinde konsola aşağıdakileri yazın:
-```
-:> g.V().count()
-```
 
-> [!TIP]
-> `:>` öğesinin `g.V().count()` metninden önce yazıldığına dikkat edin. 
->
-> Bu yazmanız gereken komutun bir parçasıdır. Gremlin Console ile Azure Cosmos DB birlikte kullanıldığında bu kısım önemlidir.  
->
-> Bu `:>` ön ekini attığınızda, konsola komutu yerel olarak (genellikle bellek içi bir grafikte) yürütmesini söylemiş olursunuz.
-> `:>` ön ekini kullandığınızda, bu örnekte Cosmos DB'de (localhost öykünücüsü veya bir > Azure örneği) olmak üzere, konsola uzaktan komut yürütmesini söylemiş olursunuz.
-
+```
+g.V().count()
+```
 
 ## <a name="create-vertices-and-edges"></a>Köşe ve kenar oluşturma
 
@@ -113,7 +108,7 @@ Basit bir count() komutunu deneyelim. İstendiğinde konsola aşağıdakileri ya
 Giriş (Thomas):
 
 ```
-:> g.addV('person').property('firstName', 'Thomas').property('lastName', 'Andersen').property('age', 44).property('userid', 1)
+g.addV('person').property('firstName', 'Thomas').property('lastName', 'Andersen').property('age', 44).property('userid', 1)
 ```
 
 Çıktı:
@@ -124,7 +119,7 @@ Giriş (Thomas):
 Giriş (Mary Kay):
 
 ```
-:> g.addV('person').property('firstName', 'Mary Kay').property('lastName', 'Andersen').property('age', 39).property('userid', 2)
+g.addV('person').property('firstName', 'Mary Kay').property('lastName', 'Andersen').property('age', 39).property('userid', 2)
 
 ```
 
@@ -138,7 +133,7 @@ Giriş (Mary Kay):
 Giriş (Robin):
 
 ```
-:> g.addV('person').property('firstName', 'Robin').property('lastName', 'Wakefield').property('userid', 3)
+g.addV('person').property('firstName', 'Robin').property('lastName', 'Wakefield').property('userid', 3)
 ```
 
 Çıktı:
@@ -150,7 +145,7 @@ Giriş (Robin):
 Giriş (Ben):
 
 ```
-:> g.addV('person').property('firstName', 'Ben').property('lastName', 'Miller').property('userid', 4)
+g.addV('person').property('firstName', 'Ben').property('lastName', 'Miller').property('userid', 4)
 
 ```
 
@@ -163,7 +158,7 @@ Giriş (Ben):
 Giriş (Jack):
 
 ```
-:> g.addV('person').property('firstName', 'Jack').property('lastName', 'Connor').property('userid', 5)
+g.addV('person').property('firstName', 'Jack').property('lastName', 'Connor').property('userid', 5)
 ```
 
 Çıktı:
@@ -178,7 +173,7 @@ Ardından, kişilerimiz arasındaki ilişkiler için kenarlar ekleyelim.
 Giriş (Thomas -> Mary Kay):
 
 ```
-:> g.V().hasLabel('person').has('firstName', 'Thomas').addE('knows').to(g.V().hasLabel('person').has('firstName', 'Mary Kay'))
+g.V().hasLabel('person').has('firstName', 'Thomas').addE('knows').to(g.V().hasLabel('person').has('firstName', 'Mary Kay'))
 ```
 
 Çıktı:
@@ -190,7 +185,7 @@ Giriş (Thomas -> Mary Kay):
 Giriş (Thomas -> Robin):
 
 ```
-:> g.V().hasLabel('person').has('firstName', 'Thomas').addE('knows').to(g.V().hasLabel('person').has('firstName', 'Robin'))
+g.V().hasLabel('person').has('firstName', 'Thomas').addE('knows').to(g.V().hasLabel('person').has('firstName', 'Robin'))
 ```
 
 Çıktı:
@@ -202,7 +197,7 @@ Giriş (Thomas -> Robin):
 Giriş (Robin -> Ben):
 
 ```
-:> g.V().hasLabel('person').has('firstName', 'Robin').addE('knows').to(g.V().hasLabel('person').has('firstName', 'Ben'))
+g.V().hasLabel('person').has('firstName', 'Robin').addE('knows').to(g.V().hasLabel('person').has('firstName', 'Ben'))
 ```
 
 Çıktı:
@@ -217,7 +212,7 @@ Giriş (Robin -> Ben):
 
 Giriş:
 ```
-:> g.V().hasLabel('person').has('firstName', 'Thomas').property('age', 45)
+g.V().hasLabel('person').has('firstName', 'Thomas').property('age', 45)
 ```
 Çıktı:
 
@@ -234,7 +229,7 @@ Giriş:
 Giriş (filtre sorgusu):
 
 ```
-:> g.V().hasLabel('person').has('age', gt(40))
+g.V().hasLabel('person').has('age', gt(40))
 ```
 
 Çıktı:
@@ -248,7 +243,7 @@ Ardından, 40 yaşından büyük kişiler için ad planlaması yapalım.
 Giriş (filtre + planlama sorgusu):
 
 ```
-:> g.V().hasLabel('person').has('age', gt(40)).values('firstName')
+g.V().hasLabel('person').has('age', gt(40)).values('firstName')
 ```
 
 Çıktı:
@@ -264,7 +259,7 @@ Giriş (filtre + planlama sorgusu):
 Giriş (Thomas’ın arkadaşları):
 
 ```
-:> g.V().hasLabel('person').has('firstName', 'Thomas').outE('knows').inV().hasLabel('person')
+g.V().hasLabel('person').has('firstName', 'Thomas').outE('knows').inV().hasLabel('person')
 ```
 
 Çıktı: 
@@ -279,7 +274,7 @@ Ardından, sonraki köşe katmanlarını alalım. Thomas'ın arkadaşlarının t
 Giriş (Thomas’ın arkadaşlarının arkadaşları):
 
 ```
-:> g.V().hasLabel('person').has('firstName', 'Thomas').outE('knows').inV().hasLabel('person').outE('knows').inV().hasLabel('person')
+g.V().hasLabel('person').has('firstName', 'Thomas').outE('knows').inV().hasLabel('person').outE('knows').inV().hasLabel('person')
 ```
 Çıktı:
 
@@ -294,7 +289,7 @@ Giriş (Thomas’ın arkadaşlarının arkadaşları):
 Giriş (Jack köşesini bırakın):
 
 ```
-:> g.V().hasLabel('person').has('firstName', 'Jack').drop()
+g.V().hasLabel('person').has('firstName', 'Jack').drop()
 ```
 
 ## <a name="clear-your-graph"></a>Grafınızı temizleme
@@ -304,8 +299,8 @@ Son olarak, veritabanındaki tüm köşe ve kenarları temizleyelim.
 Giriş:
 
 ```
-:> g.E().drop()
-:> g.V().drop()
+g.E().drop()
+g.V().drop()
 ```
 
 Tebrikler! Bu Azure Cosmos DB: Gremlin API’si öğreticisini tamamladınız!

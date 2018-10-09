@@ -12,15 +12,15 @@ ms.devlang: NA
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/24/2018
+ms.date: 09/26/2018
 ms.author: alkohli
 ms.custom: ''
-ms.openlocfilehash: bf744d2aaab168b8ce918f7b776d8855cdc5ad16
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: ad498dc8c5bea9516bef5a62495fc0d0cc8f7399
+ms.sourcegitcommit: 3150596c9d4a53d3650cc9254c107871ae0aab88
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46975256"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47419704"
 ---
 # <a name="tutorial-provision-azure-data-box-gateway-in-hyper-v-preview"></a>Öğretici: Azure Data Box Gateway'i Hyper-V'de sağlama (Önizleme)
 
@@ -74,7 +74,7 @@ Cihazı dağıtmadan önce şunlardan emin olun:
 Başlamadan önce:
 
 - Data Box Gateway dağıtma ağ gereksinimlerini gözden geçirin ve veri merkezi ağını gereksinimlere göre yapılandırın. Daha fazla bilgi için bkz. [Data Box Gateway ağ gereksinimleri](data-box-gateway-system-requirements.md#networking-requirements).
-- Cihazın en iyi şekilde çalışması için İnternet bant genişliğinin minimumda 20 Mb/sn olduğundan emin olun.
+- Cihazın en iyi şekilde çalışması için Internet bant genişliğinin en az 20 Mb/sn olduğundan emin olun.
 
 
 ## <a name="check-the-host-system"></a>Ana bilgisayar sistemini denetleyin
@@ -87,7 +87,7 @@ Sanal cihaz oluşturmak için şunlara ihtiyacınız vardır:
 
     * En az 4 çekirdek.
     * En az 8 GB RAM.
-    * İnternet trafiği için ağa bağlı bir ağ arabirimi. .
+    * İnternet trafiği için ağa bağlı bir ağ arabirimi. 
     * 250 GB işletim sistemi diski.
     * Sistem verileri için 2 TB sanal disk.
 
@@ -105,9 +105,6 @@ Hiper yöneticinizde cihaz sağlamak için aşağıdaki adımları gerçekleşti
    ![](./media/data-box-gateway-deploy-provision-hyperv/image2.png)
 4. Yeni Sanal Makine Sihirbazı'nın **Başlamadan önce** sayfasında **İleri**'ye tıklayın.
 5. **Ad ve konum belirtin** sayfasında sanal cihazınız için bir **Ad** girin. **İleri**’ye tıklayın.
-   
-   > [!IMPORTANT]
-   > Bu sürümde sanal cihazınızın adında yalnızca büyük harf kullanabilirsiniz.
 
    ![](./media/data-box-gateway-deploy-provision-hyperv/image3.png)
 6. **Nesli belirtin** sayfasında .vhdx görüntü türü için **2. Nesil**'i seçin ve **İleri**'ye tıklayın.    
@@ -171,17 +168,10 @@ Sanal cihazınızı başlatmak ve bağlantı kurmak için aşağıdaki adımlar�
 3. Cihazın hazır olması için 10-15 dakika beklemeniz gerekebilir. Konsolda ilerleme durumunu gösteren bir durum iletisi görüntülenir. Cihaz hazır olduktan sonra **Eylem** bölümüne gidin. Sanal cihazda oturum açmak için `Ctrl + Alt + Delete` tuşlarına basın. Varsayılan kullanıcı *EdgeUser*, varsayılan parola ise *Password1* şeklindedir.
 
    ![](./media/data-box-gateway-deploy-provision-hyperv/image21.png)
-4. Güvenlik nedeniyle cihazın yönetici parolasının ilk oturum açma işleminin ardından değiştirilmesi gerekir. Parolayı değiştirmeniz istenir.
-
-   En az 8 karakterden oluşan bir parola girin. Parolanın şu 4 gereksinimden en az 3 tanesini karşılaması gerekir: büyük harf, küçük harf, rakam ve özel karakter. Onaylamak için parolayı yeniden girin. Parolanın değiştirildiği bildirilir.
    
-5. Parola başarıyla değiştirildikten sonra sanal cihaz yeniden başlatılabilir. Cihazın başlatılmasını bekleyin.  Cihazın Windows PowerShell konsolu ve ilerleme çubuğu gösterilir.
-
-   ![](./media/data-box-gateway-deploy-provision-hyperv/image22.png)
-
-6. Adım 6-8 yalnızca DHCP bulunmayan bir ortamdaki önyükleme süreci için geçerlidir. DHCP ortamındaysanız bu adımları atlayıp 9. adımla devam edebilirsiniz. Cihazınızı DHCP olmayan bir ortamda çalıştırdıysanız bunu belirten bir ileti açılacaktır.
+6. Adım 5-7 yalnızca DHCP bulunmayan bir ortamdaki önyükleme süreci için geçerlidir. DHCP ortamındaysanız bu adımları atlayabilirsiniz. Cihazınızı DHCP olmayan bir ortamda çalıştırdıysanız bunu belirten bir ileti açılacaktır.
     
-7. Ağı yapılandırmak için `Get-HcsIpAddress` komutunu kullanarak sanal cihazınızda etkinleştirilmiş olan ağ arabirimlerini listeleyin. Cihazınızda tek bir ağ arabirimi varsa `DATA1` varsayılan adı atanır.
+7. Ağı yapılandırmak için `Get-HcsIpAddress` komutunu kullanarak sanal cihazınızda etkinleştirilmiş olan ağ arabirimlerini listeleyin. Cihazınızda tek bir ağ arabirimi varsa `Ethernet` varsayılan adı atanır.
 
 8. Ağı yapılandırmak için `Set-HcsIpAddress` cmdlet'ini kullanın. Aşağıdaki örneğe bakın:
 
@@ -192,7 +182,7 @@ Sanal cihazınızı başlatmak ve bağlantı kurmak için aşağıdaki adımlar�
    ![](./media/data-box-gateway-deploy-provision-hyperv/image23.png)
       
 
-Cihazınız minimum yapılandırma gereksinimlerini karşılamıyorsa başlık metninde hata iletisi görüntülenir. Cihaz yapılandırmasını minimum gereksinimleri karşılayacak şekilde değiştirin. Ardından cihazı yeniden başlatıp bağlantı kurabilirsiniz. Minimum yapılandırma gereksinimleri için bkz. [1. Adım: Ana bilgisayarın minimum cihaz gereksinimlerini karşıladığından emin olma](#step-1-ensure-that-the-host-system-meets-minimum-virtual-device-requirements).
+Cihazınız minimum yapılandırma gereksinimlerini karşılamıyorsa başlık metninde hata iletisi görüntülenir. Cihaz yapılandırmasını minimum gereksinimleri karşılayacak şekilde değiştirin. Ardından cihazı yeniden başlatıp bağlantı kurabilirsiniz. En düşük yapılandırma gereksinimleri için bkz. [Konağın en düşük cihaz gereksinimlerini karşıladığından emin olma](#check-the-host-system).
 
 <!--If you face any other error during the initial configuration using the local web UI, refer to the following workflows:
 

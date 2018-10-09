@@ -1,32 +1,32 @@
 ---
-title: Bing görsel arama karşıya yükleme görüntüsünü Öğreticisi | Microsoft Docs
-titleSuffix: Bing Web Search APIs - Cognitive Services
-description: Ve ardından ayrıştırma ve yanıt görüntüleme hakkında öngörüleri almak için Bing görüntüyü karşıya yükleme işleminin ayırır.
+title: 'Öğretici: Resmi karşıya yükleme - Bing Görsel Arama'
+titleSuffix: Azure Cognitive Services
+description: Resim hakkında içgörüler almak için resmi Bing'e yükleme, sonra da yanıtı ayrıştırma ve görüntüleme işlemini bölümlerine ayırır.
 services: cognitive-services
 author: swhite-msft
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
 ms.technology: bing-visual-search
-ms.topic: article
+ms.topic: tutorial
 ms.date: 07/10/2018
 ms.author: scottwhi
-ms.openlocfilehash: 1352ccbcda35c693c5ac0b36156af199ae46bee9
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
-ms.translationtype: MT
+ms.openlocfilehash: a5bc5197ecd1f35b4d0026caa076a844c9d57c40
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39068677"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47221338"
 ---
-# <a name="tutorial-breaking-down-bing-visual-search-upload"></a>Öğretici: Bozucu Bing görsel arama karşıya yükleme
+# <a name="tutorial-breaking-down-bing-visual-search-upload"></a>Öğretici: Bing Görsel Arama karşıya yükleme işlemini bölümlerine ayırma
 
-Bu öğreticide, bir görüntü Bing'e yüklemek ve öngörü geri alma işlemi keser. Ayrıca, erişmek ve JSON yanıtta öngörüleri görüntüleme işlemini gösterir. Tam HTML ve JavaScript bir örnek için bkz. [tamamlamak kod](#complete-code).
+Bu öğreticide resmi Bing'e yükleme ve içgörüleri geri alma işlemi bölümlerine ayrılır. Ayrıca, JSON yanıtında içgörülere nasıl erişileceği ve bunların nasıl görüntüleneceği de gösterilir. Eksiksiz bir HTML ve JavaScript örneği için bkz. [Tam kod](#complete-code).
 
-Bu öğreticide, Bing görsel arama yanıtının içeriğini incelemek isteyen bir geliştirici için sağlanır. Değil tüm uygulanır ve gereksinimlerini görüntüleyin (örneğin, bir bağlantı Microsoft gizlilik ilkesi sağlamaz). Tüm kullanım gereksinimleri için bkz [Bing kullanım ve görüntü gereksinimleri](./use-and-display-requirements.md).
+Bu öğretici Bing Görsel Arama yanıtının içeriğini incelemek isteyen geliştiricilere yöneliktir. Tüm kullanım ve görüntüleme gereksinimlerini içermez (örneğin, Microsoft'un gizlilik ilkesinin bağlantısını sağlamaz). Tüm kullanım gereksinimleri için bkz. [Bing Kullanım ve Görüntüleme Gereksinimleri](./use-and-display-requirements.md).
 
 
-## <a name="where-to-start"></a>Nereden başlayacağınızı?
+## <a name="where-to-start"></a>Nereden başlamalı?
 
-Bing görüntü gönderir ve öngörüleri geri alır ve görüntüler bir HTML sayfası ile başlayalım. Sık kullandığınız düzenleyicinizde uploaddemo.html adlı bir dosya oluşturun. Aşağıdaki temel HTML yapısı dosyaya ekleyin.
+Bing'e resim gönderen, sonra da içgörüleri alıp görüntüleyen HTML sayfasından başlayalım. Tercih ettiğiniz düzenleyicide uploaddemo.html adlı bir dosya oluşturun. Aşağıdaki temel HTML yapısını dosyaya ekleyin.
 
 ```html
 <!DOCTYPE html>
@@ -40,7 +40,7 @@ Bing görüntü gönderir ve öngörüleri geri alır ve görüntüler bir HTML 
 </html>      
 ```
 
-Başlamak için şimdi sayfayı burada kullanıcının istekte bulunmak için gereken tüm bilgiler sağlayan bir istek bölümü ve öngörüleri görüntülendiği bir yanıt bölümü halinde bölün. Aşağıdaki \<div\> için etiketler \<gövdesi\>. \<İk\> etiketi betimleyen görsel olarak yanıt bölümünden isteği bölümü.
+Başlangıç olarak, sayfayı kullanıcının istekte bulunmak için gereken tüm bilgileri sağladığı istek bölümüne ve içgörülerin görüntülendiği yanıt bölümüne ayıralım. Aşağıdaki \<div\> etiketlerini \<body\> bölümüne ekleyin. \<hr\> etiketi yanıt bölümünden istek bölümünü görsel olarak betimler.
 
 ```html
         <div id="requestSection"></div>
@@ -50,13 +50,13 @@ Başlamak için şimdi sayfayı burada kullanıcının istekte bulunmak için ge
         <div id="responseSection"></div>
 ```
 
-## <a name="get-the-file-to-upload"></a>Karşıya yüklenecek dosyanın Al
+## <a name="get-the-file-to-upload"></a>Karşıya yüklenecek dosyayı alma
 
-Görüntünün karşıya yüklemek için seçmesine izin vermek için tanıtım kullanan \<giriş\> dosya türü özniteliği etiketi. Bunu yapmak kullanıcı arabirimini gerekiyor tanıtım Bing arama sonuçlarını almak için kullandığı temizleyin. 
+Kullanıcının karşıya yüklenecek resmi seçebilmesini sağlamak için, tanıtımda dosyaya ayarlanmış tür özniteliği içeren \<input\> etiketi kullanılır. Kullanıcı arabiriminin, arama sonuçlarını almak için tanıtımda Bing kullanıldığını açıkça göstermesi gerekir. 
 
-Aşağıdaki \<div\> requestSection DIV için Dosya giriş tek bir dosyayı (örneğin, .jpg, .gif, .png) herhangi bir görüntü tür kabul eder. `onchange` Olayı, bir kullanıcı bir dosyayı seçtiğinde çağrılan işleyici belirtir.
+requestSection div'e aşağıdaki \<div\> öğesini ekleyin. Dosya girişi, herhangi bir resim türünde tek dosya kabul eder (örneğin, .jpg, .gif, .png). `onchange` olayı, kullanıcı dosyayı seçtiğinde çağrılan işleyiciyi belirtir.
 
-\<Çıkış\> etiketi, seçilen görüntü, bir küçük resim görüntülemek için kullanılır.
+\<output\> çıkışı, seçilen resmin küçük resmini görüntülemek için kullanılır.
 
 
 ```html
@@ -69,14 +69,14 @@ Aşağıdaki \<div\> requestSection DIV için Dosya giriş tek bir dosyayı (ör
             </div>
 ```
 
-İşleyici ekleme önce bir \<betik\> etiketini \<baş\> etiketi.
+İşleyiciyi eklemeden önce, \<head\> etiketine \<script\> etiketini ekleyin.
 
 ```html
         <script>
         <\script>
 ```
 
-Seçilen görüntü yakalar işleyici gösterir. İşleyici, boyutu 1 MB olduğunu ve seçili dosya bir resim dosyası olduğundan emin olmak için mantığı içerir veya daha az. Kullanıcının daha büyük dosyaları seçmesine izin verebilirsiniz ancak Bing'e karşıya yüklemeden önce görüntünün boyutu 1 MB'tan küçük bir süre için azaltmak gerekir. İşleyici mu son kullanıcının görsel bir anımsatıcı Seçili dosyanın bir küçük resim görüntüsünün görüntülemenize şeydir.
+Aşağıda, seçilen resmi yakalayan işleyici gösterilir. İşleyici seçilen dosyanın bir resim dosyası olduğundan ve boyutunun 1 MB'ı aşmadığından emin olmak için gereken mantığı içerir. Kullanıcının daha büyük dosyalar seçmesine izin verebilirsiniz ama resmi Bing'e yüklemeden önce boyutunu 1 MB'ın altına düşürmelisiniz. İşleyicinin yaptığı son işlem, resmin bir küçük resmini görüntülemektir. Böylelikle kullanıcıya seçtiği dosyanın görsel anımsatıcısı sağlanmış olur.
 
 ```javascript
         function handleFileSelect(selector) {
@@ -126,9 +126,9 @@ Seçilen görüntü yakalar işleyici gösterir. İşleyici, boyutu 1 MB olduğu
 ```
 
 
-## <a name="what-else-is-needed-before-making-the-call-to-bing"></a>Başka ne Bing arama yapmadan önce gerekli?
+## <a name="what-else-is-needed-before-making-the-call-to-bing"></a>Bing'e çağrı yapmadan önce başka ne gereklidir?
 
-Tanıtım hala bir abonelik anahtarı gerekir. Uygulamada, büyük olasılıkla güvenli depolamadan abonelik anahtarını elde edersiniz ancak bu tanıtımda kolaylık olması için kullanıcı Arabiriminde sağlamanız gerekir. Aşağıdaki \<giriş\> etiketi (özniteliğiyle text olarak ayarlandığında türü) için \<gövdesi\> dosyanın hemen altındaki \<çıkış\> etiketi.
+Tanıtımın hala bir abonelik anahtarına ihtiyacı vardır. Pratikte, abonelik anahtarını büyük olasılıkla güvenli bir depolama alanından alırsınız ama bu tanıtımı basit olması için anahtarı kullanıcı arabiriminde sağlamalısınız. Aşağıdaki \<input\> etiketini (text olarak ayarlanmış type özniteliğiyle), dosyanın \<output\> etiketinin hemen altındaki \<body\> bölümüne ekleyin.
 
 ```html
         <div>
@@ -138,9 +138,9 @@ Tanıtım hala bir abonelik anahtarı gerekir. Uygulamada, büyük olasılıkla 
         </div>
 ```
 
-Yansıma ve abonelik anahtarı el ile görüntü ile ilgili öngörüleri almak için Bing görsel arama çağrısı yapabilirsiniz. Güvenli arama değerlerini ve varsayılan Pazar çağrı kullanmanız gerekir (en-us ve orta, sırasıyla).
+Resim ve abonelik anahtarı elinizin altında olduğundan, resim hakkındaki içgörüleri almak için Bing Görsel Arama'ya çağrı yapabilirsiniz. Çağrıda varsayılan pazar ve güvenli arama değerleri kullanılabilir (sırasıyla en-us ve moderate).
 
-Bu Tanıtım, kullanıcı bu değerleri değiştirme seçeneği sağlar. Aşağıdaki \<div\> abonelik anahtar DIV aşağıda Tanıtım kullanan bir \<seçin\> pazara çıkma sürelerini ve güvenli arama değerler için bir açılan listesi sağlamak için etiket. Bing'in varsayılan değer her iki liste görüntüler.
+Bu tanıtımda kullanıcıya bu değerleri değiştirme seçeneği sağlanır. Abonelik anahtarı div'inin altına aşağıdaki \<div\> öğesini ekleyin. Pazar ve güvenli arama değerlerinin açılan listesini sağlamak için tanıtımda \<select\> etiketi kullanılır. Her iki liste de Bing'in varsayılan değerini gösterir.
 
  
 ```html
@@ -203,7 +203,7 @@ Bu Tanıtım, kullanıcı bu değerleri değiştirme seçeneği sağlar. Aşağ�
         </div>
 ```
 
-Tanıtım sorgu seçenekleri bağlantı tarafından denetlenen daraltılabilir bir div listelerinde gizler. Sorgu seçenekleri bağlantısına tıkladığınızda, böylece görebilir ve sorgu seçeneklerini değiştirme div genişletir. Tıklarsanız sorgu seçeneklerini div daraltır tekrar, bağlantı ve gizlenir. Aşağıdaki sorgu seçenekleri bağlantının onclick işleyici gösterir. İşleyici div genişletilmiş veya daraltılmış olup olmadığını denetler. İçin bu işleyiciyi eklemek \<betik\> bölümü. İşleyicisi Tanıtıma içindeki tüm daraltılabilir div'leri tarafından kullanılır.
+Tanıtımda listeler, Sorgu seçenekleri bağlantısı tarafından denetlenen daraltılabilir div'de gizlenir. Sorgu seçenekleri bağlantısına tıkladığınızda, div genişletilerek sorgu seçeneklerini görebilmeniz ve değiştirebilmeniz sağlanır. Sorgu seçenekleri bağlantısına yeniden tıklarsanız, div daraltılır ve gizlenir. Aşağıda Sorgu seçenekleri bağlantının onclick işleyicisi gösterilir. İşleyici, div'in genişletilmesini ve daraltılmasını denetler. Bu işleyiciyi \<script\> bölümüne ekleyin. İşleyici, tanıtımdaki tüm daraltılabilir div'ler tarafından kullanılır.
 
 ```javascript
         // Contains the toggle state of divs.
@@ -226,15 +226,15 @@ Tanıtım sorgu seçenekleri bağlantı tarafından denetlenen daraltılabilir b
 ```
 
 
-## <a name="making-the-call"></a>Çağrıyı yapan
+## <a name="making-the-call"></a>Çağrıyı yapma
 
-Aşağıdaki Get ınsights düğmesi seçenekleri div aşağıda gövdesinde ekleyin. Düğme, aramayı başlatmak kullanıcı sağlar. Kullanıcı düğmeye tıkladığında imleç dönen bekleme imleci değiştirilir ve onclick işleyicisinde çağrılır.
+Aşağıdaki Get insights düğmesini gövdedeki seçenekler div'inin altına ekleyin. Düğme, kullanıcının çağrıyı başlatmasına olanak tanır. Kullanıcı düğmeye tıkladığında, imleç dönen bekleme imlecine dönüşür ve onclick işleyicisi çağrılır.
 
 ```html
         <p><input type="button" id="query" value="Get insights" onclick="document.body.style.cursor='wait'; handleQuery()" /></p>
 ```
 
-Düğmenin onclick işleyicisine ekleyin \<betik\> etiketi. İşleyici abonelik anahtarının mevcut olduğundan ve 32 karakter uzunluğunda ve görüntü seçildi emin olur. Ayrıca, bir önceki sorgunun herhangi bir öngörü temizler. Her şeyin sorunsuz çağrı yapmak için sendRequest işlevini çağırır.
+Düğmenin onclick işleyicisini \<script\> etiketine ekleyin. İşleyici, abonelik anahtarının var olduğundan, 32 karakter uzunluğunda olduğundan ve bir resmin seçildiğinden emin olmanızı sağlar. Ayrıca önceki sorgudan talan tüm içgörüleri de temizler. Her şey sorunsuz çalışıyorsa, çağrıyı yapmak için sendRequest işlevini çağırır.
 
 ```javascript
         function handleQuery() {
@@ -271,7 +271,7 @@ Düğmenin onclick işleyicisine ekleyin \<betik\> etiketi. İşleyici abonelik 
         }
 ```
 
-SendRequest işlevi uç nokta URL'sini biçimlendirir, abonelik anahtarı Ocp-Apim-Subscription-Key üstbilgisini ayarlar, görüntünün karşıya yüklemek için ikili ekler, yanıt işleyici belirtir ve çağrıda bulunur. 
+sendRequest işlevi uç nokta URL'sini biçimlendirir, Ocp-Apim-Subscription-Key üst bilgisini abonelik anahtarına ayarlar, karşıya yüklemek üzere resmin ikili dosyasını ekler, yanıt işleyicisini belirtir ve çağrıyı yapar. 
 
 ```javascript
         function sendRequest(file, key) {
@@ -291,13 +291,13 @@ SendRequest işlevi uç nokta URL'sini biçimlendirir, abonelik anahtarı Ocp-Ap
         }
 ```
 
-## <a name="handling-the-response"></a>Yanıt işleme
+## <a name="handling-the-response"></a>Yanıtı işleme
 
-Bing görsel arama çağrısından yanıt handleResponse işlevi işler. Çağrı başarılı olursa, JSON yanıtı öngörüleri içeren bireysel etiketleri ayrıştırır. Ardından, Bing internet arama sonuçları, dize verilerinin Bing'den geldiğini kullanıcıya sayfasına ekler.
+handleResponse işlevi, Bing Görsel Arama'ya yapılan çağrıdan gelen yanıtı işler. Çağrı başarılı olursa, JSON yanıtını içgörüleri içeren tek tek etiketlere ayrıştırır. Ardından, Bing internet search results (Bing İnternet araması sonuçları) dizesini sayfaya ekleyerek kullanıcının verilerin Bing'den geldiğini bilmesini sağlar.
 
-Sayfaya tüm ınsights tanıtım dökümünü al, ancak bazı görüntüleri çok fazla tüketen zor oluşturan veri döndürür. Bunun yerine kullanıcının göreceği ne kadar veri yönetimi için tanıtım her etiket için daraltılabilir bir div oluşturur.
+Tanıtım sayfaya tüm içgörülerin dökümünü alabilir ama bazı resimler çok fazla veri döndürür ve bu da kullanımı zorlaştırır. Bunun yerine, tanıtımda her etiket için daraltılabilir bir div oluşturulur. Böylelikle kullanıcı ne kadar veri göreceğini yönetebilir.
 
-Ekleyebilirsiniz \<betik\> bölümü.
+İşleyiciyi \<script\> bölümüne ekleyin.
 
 ```javascript
         function handleResponse() {
@@ -334,7 +334,7 @@ Ekleyebilirsiniz \<betik\> bölümü.
         }
 ```
 
-BuildTagSections işlevi ayrıştırılmış JSON etiketleri yinelenir ve her etiket için bir div oluşturmak için buildDiv işlevi çağırır. Sorgu seçeneği ile olduğu gibi her etiket bir bağlantı olarak görüntülenir. Kullanıcı bağlantıyı tıklattığında, etiketle ilişkili içgörüleri gösteren etiketi genişletir. Kullanıcı yeniden bağlantıya tıklar, bölüm öngörüleri kullanıcı görüntüleyemeyeceklerini daraltır.
+buildTagSections işlevi ayrıştırılmış JSON etiketlerini tekrarlar ve her etikete bir div oluşturmak için buildDiv işlevini çağırır. Aynı Sorgu seçeneğinde olduğu gibi, her etiket bir bağlantı olarak görüntülenir. Kullanıcı bağlantıya tıkladığında, etiket genişletilir ve etiketle ilişkilendirilmiş içgörüler gösterilir. Kullanıcı bağlantıya yeniden tıklarsa, bölüm daraltılır ve içgörüler kullanıcıdan gizlenir.
 
 ```javascript
         function buildTagSections(tags) {
@@ -372,11 +372,11 @@ BuildTagSections işlevi ayrıştırılmış JSON etiketleri yinelenir ve her et
         }
 ```
 
-Her etiketin daraltılabilir DIV içeriğini oluşturulacak addDivContent işlevi buildDiv işlevi çağırır
+Her etiketin daraltılabilir div'inin içeriğini oluşturmak için buildDiv işlevi addDivContent işlevini çağırır.
 
-Bir etiketin, etiket için yanıtından JSON içeriği. Tanıtım arkasındaki JSON görmek istiyorsanız bu geliştiriciler için JSON dosyasını içerir. Başlangıçta, yalnızca ilk 100 karakteri json'un gösterilir ancak JSON göstermek için JSON dizesi tıklayabilirsiniz. Tekrar tıklayın, 100 karakter ile JSON dizesi daraltır.
+Etiketin içeriğinde, etiket için yanıttan gelen JSON yer alır. Yanıtın arkasındaki JSON'u görmek isteyen geliştiriciler için tanıtıma JSON eklenmiştir. Başlangıçta JSON'un yalnızca ilk 100 karakteri gösterilir ama JSON dizesine tıklayarak tüm JSON'u gösterebilirsiniz. Yeniden tıklarsanız, JSON dizesi tekrar 100 karaktere daraltılır.
 
-Ardından, etiketinde bulunan eylem türleri ekleyin. Her eylem türü için kendi ınsights eklemek için çeşitli işlevler çağırın.
+Ardından, etikette bulunan eylem türlerini ekleyin. Her eylem türü için, çeşitli işlevleri çağırarak içgörülerini ekleyin.
 
 ```javascript
         function addDivContent(div, tag, json) {
@@ -451,9 +451,9 @@ Ardından, etiketinde bulunan eylem türleri ekleyin. Her eylem türü için ken
         }
 ```
 
-Farklı eylemleri için ınsights görüntüleyen tüm işlevler şunlardır: Bu işlevlerin çoğu oldukça &mdash; ya da bir tıklanabilir bir resim veya görüntü (Bing.com veya görüntünün konak Web) hakkında daha fazla bilgi edinebileceğiniz bir Web sayfası için kullanıcının gerçekleştirdiği tıklatılabilir bir bağlantı sağlar. Öğreticiyi Insight ile ilişkili tüm verileri görüntülemez. Bir öngörü için kullanılabilir tüm alanları görmek için bkz: [Bing görsel Arama başvurusu](https://aka.ms/bingvisualsearchreferencedoc).
+Farklı eylemler için içgörüleri görüntüleyen tüm işlevleri aşağıda bulabilirsiniz. Bu işlevlerin çoğu basittir; kullanıcıyı resim hakkında daha fazla bilgi edinebileceği bir web sayfasına (Bing.com veya resmin ana web sayfası) götüren tıklanabilir bir resim veya tıklanabilir bir bağlantı sağlar. Öğreticide içgörüyle ilişkilendirilmiş verilerin tümü gösterilmez. İçgörünün tüm alanlarını görmek için bkz. [Bing Görsel Arama Başvurusu](https://aka.ms/bingvisualsearchreferencedoc).
 
-En düşük düzeyde veri görüntülemeniz gerekir, geri kalan, en fazla olduğunu unutmayın. Uyumluluk olduğunuzdan emin olmak için bkz: [Bing kullanım ve görüntü gereksinimleri](./use-and-display-requirements.md).
+Unutmayın; görüntülemeniz gereken çok az miktarda veri vardır ve kalan veriler size bağlıdır. Uyumluluğu koruduğunuzdan emin olmak için bkz. [Bing Kullanım ve Görüntüleme Gereksinimleri](./use-and-display-requirements.md).
 
 
 ```javascript
@@ -676,9 +676,9 @@ En düşük düzeyde veri görüntülemeniz gerekir, geri kalan, en fazla olduğ
 
 
 
-## <a name="adding-styles-to-make-the-page-display-correctly"></a>Sayfanın düzgün görüntülenmesi yapmak için stil ekleme
+## <a name="adding-styles-to-make-the-page-display-correctly"></a>Sayfanın düzgün görüntülenmesi için stilleri ekleme
 
-Aşağıdaki \<stili\> bölümünü \<baş\> etiketi.
+\<head\> etiketine aşağıdaki \<style\> bölümünü ekleyin.
 
 ```html
         <style>
@@ -715,7 +715,7 @@ Aşağıdaki \<stili\> bölümünü \<baş\> etiketi.
 
 ## <a name="complete-code"></a>Tam kod
 
-Tam HTML ve JavaScript örneği aşağıda verilmiştir.
+Burada eksiksiz HTML ve JavaScript örneği gösterilmektedir.
 
 ```html
 <!DOCTYPE html>
@@ -1331,4 +1331,4 @@ Tam HTML ve JavaScript örneği aşağıda verilmiştir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Öngörüler alınıyor ve öngörüleri kullanarak belirteci, bkz: nasıl çalıştığını görmek için [Bing görsel arama SDK ImageInsightsToken öğretici](.\tutorial-visual-search-insights-token.md).
+İçgörü belirtecini kullanarak içgörüleri alma işleminin nasıl çalıştığını görmek için bkz. [Bing Görsel Arama SDK'sı ImageInsightsToken öğreticisi](.\tutorial-visual-search-insights-token.md).

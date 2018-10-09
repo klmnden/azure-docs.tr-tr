@@ -1,25 +1,27 @@
 ---
-title: Görüntü İşleme API'si C# hızlı başlangıç sdk el yazısı metni | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: Bu hızlı başlangıçta, Bilişsel Hizmetler’de Windows C# istemci kitaplığıyla Görüntü İşleme kullanarak bir görüntüden el yazısı metni ayıklayacaksınız.
+title: "Hızlı Başlangıç: Metni ayıklama - C# SDK'sı - Görüntü İşleme"
+titleSuffix: Azure Cognitive Services
+description: Bu hızlı başlangıçta Görüntü İşleme Windows C# istemci kitaplığını kullanarak bir görüntüden metin ayıklayacaksınız.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
-ms.date: 08/28/2018
-ms.author: v-deken
-ms.openlocfilehash: 7eb87e3d4b1703bf1ee0e30c930b0bc724b7f22f
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.date: 09/27/2018
+ms.author: nolachar
+ms.openlocfilehash: 86808756721b2dc983df6eaf8a9e643a12d73969
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43772578"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47409029"
 ---
-# <a name="quickstart-extract-handwritten-text---sdk-c35"></a>Hızlı Başlangıç: El yazısı metin ayıklama - SDK, C&#35;
+# <a name="quickstart-extract-text-using-the-computer-vision-sdk-and-c"></a>Hızlı Başlangıç: Görüntü İşleme SDK'sı ve C# kullanarak metin ayıklama
 
-Bu hızlı başlangıçta, Windows istemci kitaplığıyla Görüntü İşleme kullanarak bir görüntüden el yazısı metni ayıklayacaksınız.
+Bu hızlı başlangıçta Görüntü İşleme Windows istemci kitaplığını kullanarak bir görüntüden el yazısı veya basılı metin ayıklayacaksınız.
+
+Bu örneğin kaynak kodu [Github](https://github.com/Azure-Samples/cognitive-services-vision-csharp-sdk-quickstarts/tree/master/ComputerVision)'da mevcuttur.
 
 ## <a name="prerequisites"></a>Ön koşullar
 
@@ -29,7 +31,7 @@ Bu hızlı başlangıçta, Windows istemci kitaplığıyla Görüntü İşleme k
 
 ## <a name="recognizetextasync-method"></a>RecognizeTextAsync metodu
 
-`RecognizeTextAsync` ve `RecognizeTextInStreamAsync` metotları sırasıyla uzak ve yerel görüntüler için [Metin Tanıma API’sini](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2c6a154055056008f200) sarmalar. `GetTextOperationResultAsync` metodu [Metin Tanıma İşlemi Sonuçlarını Alma API'sini](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2cf1154055056008f201) sarmalar.  Bu metotları kullanarak bir görüntüdeki el yazısı metni algılayabilir ve tanınan karakterleri makine tarafından kullanılabilir bir karakter akışı halinde ayıklayabilirsiniz.
+`RecognizeTextAsync` ve `RecognizeTextInStreamAsync` metotları sırasıyla uzak ve yerel görüntüler için [Metin Tanıma API’sini](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2c6a154055056008f200) sarmalar. `GetTextOperationResultAsync` metodu [Metin Tanıma İşlemi Sonuçlarını Alma API'sini](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2cf1154055056008f201) sarmalar.  Bu metotları kullanarak bir görüntüdeki bir metni algılayabilir ve tanınan karakterleri makine tarafından kullanılabilir bir karakter akışı halinde ayıklayabilirsiniz.
 
 Örneği çalıştırmak için aşağıdaki adımları uygulayın:
 
@@ -40,7 +42,8 @@ Bu hızlı başlangıçta, Windows istemci kitaplığıyla Görüntü İşleme k
     1. Görüntülendiğinde **Microsoft.Azure.CognitiveServices.Vision.ComputerVision** öğesini seçin ve projenizin adının yanındaki onay kutusuna tıklayıp **Yükle**’ye tıklayın.
 1. `Program.cs` öğesini aşağıdaki kodla değiştirin.
 1. `<Subscription Key>` değerini geçerli abonelik anahtarınızla değiştirin.
-1. Gerekirse `computerVision.AzureRegion = AzureRegions.Westcentralus` değerini abonelik anahtarlarınızı aldığınız konumla değiştirin.
+1. Gerekirse `computerVision.Endpoint` değerini abonelik anahtarlarınız ile ilişkili Azure bölgesi ile değiştirin.
+1. İsterseniz `textRecognitionMode` değerini `TextRecognitionMode.Printed` olarak ayarlayabilirsiniz.
 1. `<LocalImage>` değerini yerel görüntünün yolu ve dosya adıyla değiştirin.
 1. İsteğe bağlı olarak, `remoteImageUrl` öğesini farklı bir görüntüye ayarlayın.
 1. Programı çalıştırın.
@@ -53,12 +56,16 @@ using System;
 using System.IO;
 using System.Threading.Tasks;
 
-namespace ImageHandText
+namespace ExtractText
 {
     class Program
     {
         // subscriptionKey = "0123456789abcdef0123456789ABCDEF"
         private const string subscriptionKey = "<SubscriptionKey>";
+
+        // For printed text, change to TextRecognitionMode.Printed
+        private const TextRecognitionMode textRecognitionMode =
+            TextRecognitionMode.Handwritten;
 
         // localImagePath = @"C:\Documents\LocalImage.jpg"
         private const string localImagePath = @"<LocalImage>";
@@ -72,33 +79,33 @@ namespace ImageHandText
 
         static void Main(string[] args)
         {
-            ComputerVisionAPI computerVision = new ComputerVisionAPI(
+            ComputerVisionClient computerVision = new ComputerVisionClient(
                 new ApiKeyServiceClientCredentials(subscriptionKey),
                 new System.Net.Http.DelegatingHandler[] { });
 
             // You must use the same region as you used to get your subscription
             // keys. For example, if you got your subscription keys from westus,
-            // replace "Westcentralus" with "Westus".
+            // replace "westcentralus" with "westus".
             //
             // Free trial subscription keys are generated in the westcentralus
             // region. If you use a free trial subscription key, you shouldn't
             // need to change the region.
 
             // Specify the Azure region
-            computerVision.AzureRegion = AzureRegions.Westcentralus;
+            computerVision.Endpoint = "https://westcentralus.api.cognitive.microsoft.com";
 
             Console.WriteLine("Images being analyzed ...");
-            var t1 = ExtractRemoteHandTextAsync(computerVision, remoteImageUrl);
-            var t2 = ExtractLocalHandTextAsync(computerVision, localImagePath);
+            var t1 = ExtractRemoteTextAsync(computerVision, remoteImageUrl);
+            var t2 = ExtractLocalTextAsync(computerVision, localImagePath);
 
             Task.WhenAll(t1, t2).Wait(5000);
-            Console.WriteLine("Press any key to exit");
+            Console.WriteLine("Press ENTER to exit");
             Console.ReadLine();
         }
 
         // Recognize text from a remote image
-        private static async Task ExtractRemoteHandTextAsync(
-            ComputerVisionAPI computerVision, string imageUrl)
+        private static async Task ExtractRemoteTextAsync(
+            ComputerVisionClient computerVision, string imageUrl)
         {
             if (!Uri.IsWellFormedUriString(imageUrl, UriKind.Absolute))
             {
@@ -108,15 +115,16 @@ namespace ImageHandText
             }
 
             // Start the async process to recognize the text
-            RecognizeTextHeaders textHeaders = await computerVision.RecognizeTextAsync(
-                    imageUrl, TextRecognitionMode.Handwritten);
+            RecognizeTextHeaders textHeaders =
+                await computerVision.RecognizeTextAsync(
+                    imageUrl, textRecognitionMode);
 
             await GetTextAsync(computerVision, textHeaders.OperationLocation);
         }
 
         // Recognize text from a local image
-        private static async Task ExtractLocalHandTextAsync(
-            ComputerVisionAPI computerVision, string imagePath)
+        private static async Task ExtractLocalTextAsync(
+            ComputerVisionClient computerVision, string imagePath)
         {
             if (!File.Exists(imagePath))
             {
@@ -130,7 +138,7 @@ namespace ImageHandText
                 // Start the async process to recognize the text
                 RecognizeTextInStreamHeaders textHeaders =
                     await computerVision.RecognizeTextInStreamAsync(
-                        imageStream, TextRecognitionMode.Handwritten);
+                        imageStream, textRecognitionMode);
 
                 await GetTextAsync(computerVision, textHeaders.OperationLocation);
             }
@@ -138,7 +146,7 @@ namespace ImageHandText
 
         // Retrieve the recognized text
         private static async Task GetTextAsync(
-            ComputerVisionAPI computerVision, string operationLocation)
+            ComputerVisionClient computerVision, string operationLocation)
         {
             // Retrieve the URI where the recognized text will be
             // stored from the Operation-Location header
@@ -165,7 +173,7 @@ namespace ImageHandText
             // Display the results
             Console.WriteLine();
             var lines = result.RecognitionResult.Lines;
-            foreach(Line line in lines)
+            foreach (Line line in lines)
             {
                 Console.WriteLine(line.Text);
             }
@@ -179,7 +187,7 @@ namespace ImageHandText
 
 Başarılı bir yanıt her görüntü için tanınan metin satırlarını görüntüler.
 
-Ham JSON çıktısı örneği için bkz. [API Hızlı Başlangıçları: C# ile el yazısı metnini ayıklama](../QuickStarts/CSharp-hand-text.md#recognize-text-response) for an example of raw JSON output.
+Ham JSON çıktı örneği için bkz: [Hızlı Başlangıç: El yazısı metin ayıklama - REST, C# ](../QuickStarts/CSharp-hand-text.md#examine-the-response).
 
 ```cmd
 Calling GetHandwritingRecognitionOperationResultAsync()

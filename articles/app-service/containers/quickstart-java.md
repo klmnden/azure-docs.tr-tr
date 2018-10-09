@@ -15,147 +15,107 @@ ms.topic: quickstart
 ms.date: 03/07/2018
 ms.author: msangapu
 ms.custom: mvc
-ms.openlocfilehash: 49702349b1c2476f5743122b33cb3375e54df191
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: b9e8d2b9eacfa5c427ffe3f27ea99bbd35651d57
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37930105"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47165985"
 ---
 # <a name="quickstart-create-a-java-web-app-in-app-service-on-linux"></a>Hızlı Başlangıç: Linux üzerindeki App Service’te Java web uygulaması oluşturma
 
-Linux üzerinde App Service şu anda Java web uygulamalarını desteklemek için bir önizleme özelliği sunmaktadır. Önizlemeler hakkında daha fazla bilgi için lütfen [Microsoft Azure Önizlemeleri için Ek Kullanım Koşulları](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)’nı inceleyin. 
-
-[Linux üzerindeki App Service](app-service-linux-intro.md) Linux işletim sistemini kullanan yüksek oranda ölçeklenebilir, otomatik olarak düzeltme eki uygulayan bir web barındırma hizmeti sağlar. Bu hızlı başlangıçta, [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli)’yı [Azure Web Apps için Maven Eklentisi (Önizleme)](https://github.com/Microsoft/azure-maven-plugins/tree/develop/azure-webapp-maven-plugin) ile birlikte kullanarak yerleşik bir Linux görüntüsü ile bir Java web uygulamasını dağıtma işlemi gösterilmektedir.
+[Linux üzerindeki App Service](app-service-linux-intro.md) Linux işletim sistemini kullanan yüksek oranda ölçeklenebilir, otomatik olarak düzeltme eki uygulayan bir web barındırma hizmeti sağlar. Bu hızlı başlangıç, [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli)'nın [Azure Web Uygulamaları için Maven Eklentisi (Önizleme)](https://github.com/Microsoft/azure-maven-plugins/tree/develop/azure-webapp-maven-plugin) bileşeni ile bir Java Web uygulaması Web arşiv (WAR) dosyası dağıtmak için nasıl kullanılacağını göstermektedir.
 
 ![Azure'da çalışan örnek uygulama](media/quickstart-java/java-hello-world-in-browser.png)
 
-[IntelliJ için Azure Araç Setini kullanarak Java web uygulamalarını buluttaki bir Linux kapsayıcısına dağıtmak](https://docs.microsoft.com/java/azure/intellij/azure-toolkit-for-intellij-hello-world-web-app-linux), Java uygulamanızı kendi kapsayıcınıza dağıtmanın alternatif bir yoludur.
-
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-
-## <a name="prerequisites"></a>Ön koşullar
-
-Bu hızlı başlangıcı tamamlamak için: 
-
-* Yerel olarak yüklü [Azure CLI 2.0 veya üzeri](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
-* [Apache Maven](http://maven.apache.org/).
-
-
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 ## <a name="create-a-java-app"></a>Java uygulaması oluşturma
 
-Yeni bir *helloworld* web uygulaması oluşturmak için Maven kullanarak aşağıdaki komutu yürütün:  
+`helloworld` adlı yeni bir Web uygulaması oluşturmak için Cloud Shell isteminde aşağıdaki Maven komutunu yürütün:
 
-    mvn archetype:generate -DgroupId=example.demo -DartifactId=helloworld -DarchetypeArtifactId=maven-archetype-webapp
+```bash
+mvn archetype:generate -DgroupId=example.demo -DartifactId=helloworld -DarchetypeArtifactId=maven-archetype-webapp
+```
 
-Yeni *helloworld* proje dizinine geçin ve aşağıdaki komutu kullanarak tüm modüllerin derleyin:
+## <a name="configure-the-maven-plugin"></a>Maven eklentisini yapılandırma
 
-    mvn verify
+Maven'dan dağıtım için, Cloud Shell'deki kod düzenleyiciyi kullanarak `helloworld` dizinindeki proje `pom.xml` dosyasını açın. 
 
-Bu komut, *helloworld/target* alt dizinindeki *helloworld.war* dosyası dahil olmak üzere tüm modülleri doğrulayıp oluşturur.
+```bash
+code pom.xml
+```
 
-
-## <a name="deploying-the-java-app-to-app-service-on-linux"></a>Java uygulamasını Linux üzerinde App Service'e dağıtma
-
-Java web uygulamalarınızı Linux üzerinde App Service’e dağıtmak için birden fazla dağıtım seçeneği mevcuttur. Bu seçenekler şunlardır:
-
-* [Azure Web Apps için Maven Eklentisi ile dağıtma](https://github.com/Microsoft/azure-maven-plugins/tree/develop/azure-webapp-maven-plugin)
-* [ZIP veya WAR aracılığıyla dağıtma](https://docs.microsoft.com/azure/app-service/app-service-deploy-zip)
-* [FTP aracılığıyla dağıtma](https://docs.microsoft.com/azure/app-service/app-service-deploy-ftp)
-
-Bu hızlı başlangıçta, Azure web uygulamaları için Maven eklentisini kullanacaksınız. Maven’a göre kullanımının kolay olması ve sizin için gerekli Azure kaynaklarını (kaynak grubu, app service planı ve web uygulaması) oluşturması bakımından avantajları vardır.
-
-### <a name="deploy-with-maven"></a>Maven ile dağıtma
-
-Maven’dan dağıtmak için *pom.xml* dosyasındaki `<build>` öğesinin içinde bulunan aşağıdaki eklenti tanımını ekleyin:
+Sonra `pom.xml` dosyasının `<build>` öğesinin içine aşağıdaki eklenti tanımını ekleyin.
 
 ```xml
-    <plugins>
-      <plugin>
-        <groupId>com.microsoft.azure</groupId> 
-        <artifactId>azure-webapp-maven-plugin</artifactId> 
-        <version>1.2.0</version>
-        <configuration> 
-          <resourceGroup>YOUR_RESOURCE_GROUP</resourceGroup> 
-          <appName>YOUR_WEB_APP</appName> 
-          <linuxRuntime>tomcat 9.0-jre8</linuxRuntime>
-          <deploymentType>ftp</deploymentType> 
-          <resources> 
-              <resource> 
-                  <directory>${project.basedir}/target</directory> 
-                  <targetPath>webapps</targetPath> 
-                  <includes> 
-                      <include>*.war</include> 
-                  </includes> 
-                  <excludes> 
-                      <exclude>*.xml</exclude> 
-                  </excludes> 
-              </resource> 
-          </resources> 
+<plugins>
+    <!--*************************************************-->
+    <!-- Deploy to Tomcat in App Service Linux           -->
+    <!--*************************************************-->
+      
+    <plugin>
+        <groupId>com.microsoft.azure</groupId>
+        <artifactId>azure-webapp-maven-plugin</artifactId>
+        <version>1.4.0</version>
+        <configuration>
+   
+            <!-- Web App information -->
+            <resourceGroup>${RESOURCEGROUP_NAME}</resourceGroup>
+            <appName>${WEBAPP_NAME}</appName>
+            <region>${REGION}</region>
+   
+            <!-- Java Runtime Stack for Web App on Linux-->
+            <linuxRuntime>tomcat 8.5-jre8</linuxRuntime>
+   
         </configuration>
-      </plugin>
-    </plugins>
+    </plugin>
+</plugins>
 ```    
+
+
+> [!NOTE] 
+> Bu makalede yalnızca WAR dosyalarıyla paketlenmiş Java uygulamalarıyla çalışacağız. Eklenti ayrıca JAR web uygulamalarını da destekler. Bu uygulamalar için aşağıdaki alternatif eklenti tanımını kullanın. Bu yapılandırma Maven ile derlenmiş bir JAR dosyasını yerel dosya sisteminizde `${project.build.directory}/${project.build.finalName}.jar` konumuna dağıtır.
+>
+>```xml
+><plugin>
+>            <groupId>com.microsoft.azure</groupId>
+>            <artifactId>azure-webapp-maven-plugin</artifactId>
+>            <version>1.4.0</version>
+>            <configuration>
+>                <deploymentType>jar</deploymentType>
+>
+>           <!-- Web App information -->
+>            <resourceGroup>${RESOURCEGROUP_NAME}</resourceGroup>
+>            <appName>${WEBAPP_NAME}</appName>
+>            <region>${REGION}</region>  
+>
+>                <!-- Java Runtime Stack for Web App on Linux-->
+>                <linuxRuntime>jre8</linuxRuntime>
+>            </configuration>
+>         </plugin>
+>```    
+
 
 Eklenti yapılandırmasında aşağıdaki yer tutucuları güncelleştirin:
 
 | Yer tutucu | Açıklama |
 | ----------- | ----------- |
-| `YOUR_RESOURCE_GROUP` | Web uygulamanızın oluşturulacağı yeni kaynak grubunun adı. Uygulamanın tüm kaynaklarını bir gruba koyarak birlikte yönetebilirsiniz. Örneğin, kaynak grubunu sildiğinizde uygulamayla ilişkili tüm kaynaklar da silinir. Bu değeri *TestResources* gibi benzersiz bir yeni kaynak grubu adı ile güncelleştirin. Bu kaynak grubunu daha sonraki bir bölümde tüm Azure kaynaklarını temizlemek için kullanacaksınız. |
-| `YOUR_WEB_APP` | Uygulama adı, Azure’a dağıtıldığında web uygulamasının ana bilgisayar adının bir parçası olacaktır (YOUR_WEB_APP.azurewebsites.net). Bu değeri, Java uygulamanızı barındıracak yeni Azure web uygulamanızın benzersiz adıyla (*contoso* gibi) değiştirin. |
+| `RESOURCEGROUP_NAME` | Web uygulamanızın oluşturulacağı yeni kaynak grubunun adı. Uygulamanın tüm kaynaklarını bir gruba koyarak birlikte yönetebilirsiniz. Örneğin, kaynak grubunu sildiğinizde uygulamayla ilişkili tüm kaynaklar da silinir. Bu değeri *TestResources* gibi benzersiz bir yeni kaynak grubu adı ile güncelleştirin. Bu kaynak grubunu daha sonraki bir bölümde tüm Azure kaynaklarını temizlemek için kullanacaksınız. |
+| `WEBAPP_NAME` | Uygulama adı, Azure’a dağıtıldığında web uygulamasının konak adının parçası haline gelir (UYGULAMA_ADI.azurewebsites.net). Bu değeri, Java uygulamanızı barındıracak yeni Azure web uygulamanızın benzersiz adıyla (*contoso* gibi) değiştirin. |
+| `REGION` | Web uygulamasının barındırıldığı bir Azure bölgesi; örneğin `westus2`. Cloud Shell'den veya CLI'dan `az account list-locations` komutunu kullanarak bölgelerin bir listesini alabilirsiniz. |
 
-Yapılandırmanın `linuxRuntime` öğesi, uygulamanızla birlikte hangi yerleşik Linux görüntüsünün kullanıldığını denetler. Desteklenen tüm çalışma zamanı yığınlarına [bu bağlantıdan](https://github.com/Microsoft/azure-maven-plugins/tree/develop/azure-webapp-maven-plugin#runtime-stacks) ulaşabilirsiniz. 
+## <a name="deploy-the-app"></a>Uygulamayı dağıtma
 
-
-> [!NOTE] 
-> Bu makalede yalnızca WAR dosyalarıyla çalışıyoruz. Ancak eklenti, bir *pom.xml* dosyasının `<build>` öğesi içindeki aşağıdaki eklentiyi kullanarak JAR web uygulamalarını destekler:
->
->```xml
->    <plugins>
->      <plugin>
->        <groupId>com.microsoft.azure</groupId> 
->        <artifactId>azure-webapp-maven-plugin</artifactId> 
->        <version>1.2.0</version>
->        <configuration> 
->          <resourceGroup>YOUR_RESOURCE_GROUP</resourceGroup> 
->          <appName>YOUR_WEB_APP</appName> 
->          <linuxRuntime>jre8</linuxRuntime>   
->          <!-- This is to make sure the jar file will not be occupied during the deployment -->
->          <stopAppDuringDeployment>true</stopAppDuringDeployment>
->          <deploymentType>ftp</deploymentType> 
->          <resources> 
->              <resource> 
->                  <directory>${project.basedir}/target</directory> 
->                  <targetPath>webapps</targetPath> 
->                  <includes> 
->                      <!-- Currently it is required to set as app.jar -->
->                      <include>app.jar</include> 
->                  </includes>  
->              </resource> 
->          </resources> 
->        </configuration>
->      </plugin>
->    </plugins>
->```    
-
-Azure CLI ile kimlik doğrulaması yapmak için aşağıdaki komutu yürütün ve tüm yönergeleri izleyin:
-
-    az login
-
-Aşağıdaki komutu kullanarak Java uygulamanızı web uygulamasına dağıtın:
-
-    mvn clean package azure-webapp:deploy
-
-
-Dağıtım tamamlandıktan sonra, web tarayıcınızda aşağıdaki URL’yi kullanarak dağıtılan uygulamanın konumuna göz atın.
+Aşağıdaki komutu kullanarak Java uygulamanızı Azure'a dağıtın:
 
 ```bash
-http://<app_name>.azurewebsites.net/helloworld
+mvn package azure-webapp:deploy
 ```
 
-Java örnek kodu bir web uygulaması yerleşik görüntüsünde çalışır.
+Dağıtım tamamlandıktan sonra, web tarayıcınızda aşağıdaki URL’yi kullanarak dağıtılan uygulamanın konumuna gidin; örneğin `http://<webapp>.azurewebsites.net/helloworld`. 
 
 ![Azure'da çalışan örnek uygulama](media/quickstart-java/java-hello-world-in-browser-curl.png)
 
@@ -167,7 +127,7 @@ Java örnek kodu bir web uygulaması yerleşik görüntüsünde çalışır.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu hızlı başlangıçta, Maven kullanarak bir Java web uygulaması oluşturdunuz, ardından Java web uygulamasını Linux üzerindeki App Service’e dağıttınız. Azure ile Java kullanma hakkında daha fazla bilgi almak için aşağıdaki bağlantıyı izleyin.
+Bu hızlı başlangıçta bir Java uygulaması oluşturmak için Maven kullandınız, [Azure Web Apps için Maven Eklentisi (Önizleme)](https://github.com/Microsoft/azure-maven-plugins/tree/develop/azure-webapp-maven-plugin) bileşenini yapılandırdınız, ardından Web arşiviyle paketlenmiş bir Java Web uygulamasını Linux üzerinde App Service'e dağıttınız. Azure ile Java kullanma hakkında daha fazla bilgi almak için aşağıdaki bağlantıyı izleyin.
 
 > [!div class="nextstepaction"]
 > [Java Geliştiricileri için Azure](https://docs.microsoft.com/java/azure/)

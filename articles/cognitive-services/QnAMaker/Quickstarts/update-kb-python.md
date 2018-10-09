@@ -1,24 +1,26 @@
 ---
-title: Bilgi Bankasını Güncelleştirme, Python Hızlı Başlangıcı - Azure Bilişsel Hizmetler | Microsoft Docs
+title: 'Hızlı Başlangıç: Python Bilgi bankası güncelleştirme - Soru-Cevap Oluşturucu'
 description: Python’da Soru-Cevap Oluşturma için bilgi bankası nasıl güncelleştirilir?
 services: cognitive-services
-author: noellelacharite
-manager: nolachar
+author: diberry
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: qna-maker
+ms.component: qna-maker
 ms.topic: quickstart
-ms.date: 06/18/2018
-ms.author: nolachar
-ms.openlocfilehash: 79b2af150558aa5da8e060e1b5117b91ffd34387
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.date: 09/12/2018
+ms.author: diberry
+ms.openlocfilehash: d58e12df30ab1b45e460cf8a4ea098d350164ec3
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "43772532"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47031943"
 ---
 # <a name="update-a-knowledge-base-in-python"></a>Python’da bilgi bankası güncelleştirme
 
 Aşağıdaki kod, [Güncelleştirme](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da7600) yöntemini kullanarak mevcut bir bilgi bankasını güncelleştirir.
+
+[!INCLUDE [Code is available in Azure-Samples Github repo](../../../../includes/cognitive-services-qnamaker-python-repo-note.md)]
 
 Henüz bir bilgi bankanız yoksa, bu hızlı başlangıçta kullanmak için bir örneğini oluşturabilirsiniz: [Yeni bilgi bankası oluşturma](create-new-kb-python.md).
 
@@ -164,7 +166,7 @@ while False == done:
 
 ## <a name="understand-what-qna-maker-returns"></a>Soru-Cevap Oluşturma’nın ne döndürdüğünü anlama
 
-Başarılı bir yanıt, aşağıdaki örnekte gösterildiği gibi JSON biçiminde döndürülür: Sonuçlarınız biraz farklılık gösterebilir. Son çağrı "Başarılı" durumunu döndürürse, bilgi bankanız başarıyla güncelleştirilmiştir. Sorun gidermek için Soru-Cevap Oluşturma API'sine ait [Bilgi Bankasını Güncelleştir](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da7600) yanıt kodlarına başvurun.
+Başarılı bir yanıt, aşağıdaki örnekte gösterildiği gibi JSON biçiminde döndürülür. Sonuçlarınız biraz farklılık gösterebilir. Son çağrı "Başarılı" durumunu döndürürse, bilgi bankanız başarıyla güncelleştirilmiştir. Sorun gidermek için Soru-Cevap Oluşturma API'sine ait [Bilgi Bankasını Güncelleştir](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da7600) yanıt kodlarına başvurun.
 
 ```json
 {
@@ -188,7 +190,7 @@ Press any key to continue.
 
 Bilgi bankanız güncelleştirildikten sonra Soru-Cevap Oluşturma Portalı’nızdaki [Bilgi bankalarım](https://www.qnamaker.ai/Home/MyServices) sayfasından görüntüleyebilirsiniz. Yeni bir Soru-Cevap çiftinin eklendiğini ve veritabanınızın artık 'New KB Name' olarak adlandırıldığını görebilirsiniz.
 
-Bilgi bankanızın diğer öğelerini değiştirmek için Soru-Cevap Oluşturma [JSON şeması](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da7600)’na başvurun ve `req` dizesini değiştirin.
+Bilgi bankanızın diğer öğelerini değiştirmek için Soru-Cevap Oluşturma [JSON şemasına](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da7600) başvurun ve `req` dizesini değiştirin.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

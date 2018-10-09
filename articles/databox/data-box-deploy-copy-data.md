@@ -12,14 +12,14 @@ ms.devlang: NA
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/24/2018
+ms.date: 09/25/2018
 ms.author: alkohli
-ms.openlocfilehash: 0204445464a9d61b4e25be1d71373ce8394b32f0
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 9bc84a9b08c4cfbdf7f24416c923e0dbd7076556
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46957680"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47161939"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box"></a>Öğretici: Azure Data Box'a veri kopyalama 
 
@@ -45,7 +45,7 @@ Başlamadan önce aşağıdakilerden emin olun:
 ## <a name="connect-to-data-box"></a>Data Box'a bağlanma
 
 Seçilen depolama hesabına bağlı olarak, Data Box şunların tamamını veya bir bölümünü oluşturabilir:
-- İlişkili her depolama hesabı için üç paylaşım (GPv1 ve GPv2).
+- İlişkili her depolama hesabına GPv1 ve GPv2 için üç paylaşım.
 - Premium veya blob depolama hesabı için bir paylaşım. 
 
 Blok blobu ve sayfa blobu paylaşımlarının altında birinci düzeydeki varlıklar kapsayıcılar, ikinci düzeydeki varlıklar ise bloblardır. Azure Dosyaları paylaşımlarında birinci düzeydeki varlıklar paylaşımlar, ikinci düzeydeki varlıklar ise dosyalardır.
@@ -233,7 +233,7 @@ Veri bütünlüğünü sağlamak için sağlama toplamı veri kopyalama sırası
 
 Linux ana bilgisayar kullanıyorsanız Robocopy ile benzer bir kopyalama yardımcı programı kullanabilirsiniz. Linux için kullanabileceğiniz bazı alternatifler: [rsync](https://rsync.samba.org/), [FreeFileSync](https://www.freefilesync.org/), [Unison](https://www.cis.upenn.edu/~bcpierce/unison/) veya [Ultracopier](https://ultracopier.first-world.info/).  
 
-cp komutu, dizin kopyalamak için kullanılabilecek en iyi seçeneklerden biridir. Kullanımı hakkında daha fazla bilgi için [cp man sayfalarına](http://man7.org/linux/man-pages/man1/cp.1.html) gidin.
+`cp` komutu, dizin kopyalamak için en iyi seçeneklerden biridir. Kullanımı hakkında daha fazla bilgi için [cp man sayfalarına](http://man7.org/linux/man-pages/man1/cp.1.html) gidin.
 
 Çok iş parçacığına sahip olan bir kopyalama işlemi için rsync seçeneğini kullanıyorsanız şu yönergeleri izleyin:
 
@@ -273,7 +273,7 @@ Son adım cihazı göndermeye hazırlamaktır. Bu adımda tüm cihaz paylaşıml
    
     ![Göndermeye hazırlama 1](media/data-box-deploy-copy-data/prepare-to-ship1.png)
 
-2. Sağlama toplamı etkinleştirilmediyse bu özelliği etkinleştirme seçeneği sunulur. Veri bütünlüğü açısından sağlama toplamı doğrulamasını gerçekleştirmenizi öneririz. **Sağlama toplamını etkinleştir**'i seçtiğinizde sağlama toplamı hesaplaması başlatılır ve bu işlemin süresi verilerinizin boyutuna göre değişir. **Hazırlamayı başlat**'a tıklayın.
+2. Sağlama toplamları varsayılan olarak göndermeye hazırlama sırasında satır içinde hesaplanır. Sağlama toplamı hesaplaması, verilerinizin boyutuna bağlı olarak biraz zaman alabilir. **Hazırlamayı başlat**'a tıklayın.
     1. Göndermeye hazırlama aşamasında cihaz paylaşımları çevrimdışı duruma geçer ve cihaz kilitlenir.
         
         ![Göndermeye hazırlama 1](media/data-box-deploy-copy-data/prepare-to-ship2.png) 

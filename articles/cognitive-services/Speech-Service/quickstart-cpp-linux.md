@@ -1,137 +1,143 @@
 ---
-title: "Hızlı Başlangıç: Bilişsel hizmetler konuşma SDK'sı kullanarak Linux'ta c++ konuşma tanıma"
+title: "Hızlı Başlangıç: Bilişsel Hizmetler Konuşma SDK'sını kullanarak Linux üzerinde C++ dilinde konuşma tanıma"
 titleSuffix: Microsoft Cognitive Services
-description: Bilişsel hizmetler konuşma SDK'sı kullanarak Linux'ta c++ Konuşma tanımayı öğrenmesine
+description: Bilişsel Hizmetler Konuşma SDK'sını kullanarak Linux üzerinde C++ dilinde konuşma tanımayı öğrenin
 services: cognitive-services
 author: wolfma61
 ms.service: cognitive-services
 ms.technology: Speech
-ms.topic: article
-ms.date: 07/16/2018
+ms.topic: quickstart
+ms.date: 09/24/2018
 ms.author: wolfma
-ms.openlocfilehash: 92bd5980ac2e6befbe352df6ddf8644f04d37d34
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
-ms.translationtype: MT
+ms.openlocfilehash: 98007a11ceadcdddbcd881607f7dda1222d90bc4
+ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43126874"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47055926"
 ---
-# <a name="quickstart-recognize-speech-in-c-on-linux-using-the-speech-sdk"></a>Hızlı Başlangıç: c++ konuşma Speech SDK'sı kullanarak Linux'ta tanıması
+# <a name="quickstart-recognize-speech-in-c-on-linux-by-using-the-speech-sdk"></a>Hızlı Başlangıç: Konuşma SDK'sını kullanarak Linux üzerinde C++ dilinde konuşma tanıma
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
-Bu makalede, Linux (Ubuntu 16.04) Konuşmayı metne dönüştürme özelliği Bilişsel hizmetler konuşma SDK'sını kullanarak bir C++ konsol uygulaması oluşturmayı öğrenin.
+Bu makalede Ubuntu Linux 16.04 için bir C++ konsol uygulaması oluşturacaksınız. Bilgisayarınızın mikrofonundan gerçek zamanda konuşmayı metne dönüştürmek için Bilişsel Hizmetler [Konuşma SDK'sı](speech-sdk.md)'nı kullanırsınız. Uygulama [Linux için Konuşma SDK'sı](https://aka.ms/csspeech/linuxbinary) ve Linux dağıtımınızın C++ derleyicisi (örneğin `g++`) ile oluşturulur.
 
-## <a name="prerequisites"></a>Önkoşullar
+## <a name="prerequisites"></a>Ön koşullar
 
-* Konuşma hizmeti için bir abonelik anahtarı. Bkz: [konuşma hizmeti ücretsiz olarak deneyin](get-started.md).
-* Bir Ubuntu 16.04 bilgisayar bir çalışma mikrofon ile.
-* Yüklenecek paketler oluşturmak ve bu örneği çalıştırmak için gereken şu komutu çalıştırın:
+Bu Hızlı Başlangıç'ı tamamlamak için bir Konuşma hizmeti abonelik anahtarınız olması gerekir. Anahtarı ücretsiz edinebilirsiniz. Ayrıntılar için bkz: [Konuşma hizmetini ücretsiz olarak deneme](get-started.md).
 
-  ```sh
-  sudo apt-get update
-  sudo apt-get install build-essential libssl1.0.0 libcurl3 libasound2 wget
-  ```
-
-## <a name="get-the-speech-sdk"></a>Konuşma SDK'sı Al
+## <a name="install-speech-sdk"></a>Konuşma SDK'sını yükleme
 
 [!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
-Bilişsel hizmetler konuşma SDK'ın geçerli sürümü `0.6.0`.
+Bilişsel Hizmetler Konuşma SDK'sının geçerli sürümü: `1.0.0`.
 
-Bilişsel hizmetler konuşma SDK'sı Linux, 64-bit ve 32-bit uygulamaları derleme için kullanılabilir.
-Gerekli dosyaları tar dosyasından olarak indirilebilir https://aka.ms/csspeech/linuxbinary.
-İndirin ve SDK'sını aşağıda gösterildiği gibi yükleyin:
+Linux için Konuşma SDK'sı, gerek 64 bit gerekse 32 bit uygulamalar derlemek için kullanılabilir. Gerekli kitaplıklar ve üstbilgi dosyaları https://aka.ms/csspeech/linuxbinary adresinden bir TAR dosyası olarak indirilebilir.
 
-1. Bir dizin (mutlak yol), üst bilgiler ve Speech SDK'sı ikili dosyaları yerleştirmek istediğiniz seçin.
-   Örneğin, yol çekme `speechsdk` giriş dizininizin altında:
+SDK'yı aşağıda gösterildiği gibi indirin ve yükleyin:
+
+1. SDK'nın bağımlılık dosyalarının yüklü olduğundan emin olun.
+
+   ```sh
+   sudo apt-get update
+   sudo apt-get install build-essential libssl1.0.0 libcurl3 libasound2 wget
+   ```
+
+1. Konuşma SDK'sı dosyalarının ayıklanacağı bir dizin seçin ve `SPEECHSDK_ROOT` ortam değişkenini bu dizine işaret edecek şekilde ayarlayın. Bu değişken, ileride komutlarda bu dizine başvurmayı kolaylaştırır. Örneğin, giriş dizininizdeki `speechsdk` dizinine başvurmak istiyorsanız, şunun gibi bir komut kullanın:
 
    ```sh
    export SPEECHSDK_ROOT="$HOME/speechsdk"
    ```
 
-1. Henüz yoksa bir dizin oluşturun:
+1. Henüz yoksa dizini oluşturun.
 
    ```sh
    mkdir -p "$SPEECHSDK_ROOT"
    ```
 
-1. İndirin ve ayıklayın `.tar.gz` Speech SDK'sı ikili dosyalarla arşiv:
+1. Konuşma SDK'sı ikili dosyalarını içeren `.tar.gz` arşivini indirin ve açın:
 
    ```sh
    wget -O SpeechSDK-Linux.tar.gz https://aka.ms/csspeech/linuxbinary
    tar --strip 1 -xzf SpeechSDK-Linux.tar.gz -C "$SPEECHSDK_ROOT"
    ```
 
-1. Ayıklanan paketin en üst düzey dizinin içeriklerini doğrulama:
+1. Açılan paketin en üst düzey dizininin içeriğini doğrulayın:
 
    ```sh
    ls -l "$SPEECHSDK_ROOT"
    ```
 
-   Üçüncü taraf bildirimi ve lisans dosyaları göstermelidir yanı sıra bir `include` üstbilgi dizinini ve `lib` kitaplıkları için dizin.
+   Dizinde üçüncü taraf bildirim ve lisans dosyaları, ayrıca üstbilgi (`.h`) dosyalarını içeren bir `include` dizini ve kitaplıkları içeren bir `lib` dizini olmalıdır.
 
    [!INCLUDE [Linux Binary Archive Content](../../../includes/cognitive-services-speech-service-linuxbinary-content.md)]
 
-## <a name="add-the-sample-code"></a>Örnek kod ekleyin
+## <a name="add-sample-code"></a>Örnek kodu ekleyin
 
-1. Adlı bir dosyaya aşağıdaki kodu ekleyin `helloworld.cpp`:
+1. `helloworld.cpp` adlı bir C++ kaynak dosyası oluşturun ve aşağıdaki kodu dosyaya yapıştırın.
 
-  [!code-cpp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/cpp-linux/helloworld.cpp#code)]
+   [!code-cpp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/cpp-linux/helloworld.cpp#code)]
 
-1. Dize değiştirin `YourSubscriptionKey` abonelik.
+1. Bu yeni dosyada `YourSubscriptionKey` dizesini Konuşma hizmeti abonelik anahtarınız ile değiştirin.
 
-1. Dize değiştirin `YourServiceRegion` ile [bölge](regions.md) aboneliğinizle ilişkili (örneğin, `westus` ücretsiz deneme aboneliği için).
+1. `YourServiceRegion` dizesini aboneliğinizle ilişkili [bölge](regions.md) ile (örneğin ücretsiz deneme aboneliğinde `westus`) değiştirin.
 
-## <a name="building"></a>Derleniyor
+## <a name="build-the-app"></a>Uygulama oluşturma
 
 > [!NOTE]
-> Aşağıdaki yapı komutları olarak kopyalayıp emin bir _tek satırlı_.
+> Aşağıdaki komutları _tek bir komut satırı_ olarak girdiğinizden emin olun. Bunu yapmanın en kolay yolu, komutu her komutun yanındaki **Kopyala** düğmesini kullanarak kopyalayıp kabuk isteminize yapıştırmaktır.
 
-* Üzerinde bir **x64** makine, uygulamayı oluşturmak için aşağıdaki komutu çalıştırın:
+* Uygulamayı derlemek için **x64**  (64 bit) bir sistemde aşağıdaki komutu çalıştırın.
 
   ```sh
   g++ helloworld.cpp -o helloworld -I "$SPEECHSDK_ROOT/include/cxx_api" -I "$SPEECHSDK_ROOT/include/c_api" --std=c++14 -lpthread -lMicrosoft.CognitiveServices.Speech.core -L "$SPEECHSDK_ROOT/lib/x64" -l:libssl.so.1.0.0 -l:libcurl.so.4 -l:libasound.so.2
   ```
 
-* Üzerinde bir **x86** makine, uygulamayı oluşturmak için aşağıdaki komutu çalıştırın:
+* Uygulamayı derlemek için **x86** (32 bit) bir sistemde aşağıdaki komutu çalıştırın.
 
   ```sh
   g++ helloworld.cpp -o helloworld -I "$SPEECHSDK_ROOT/include/cxx_api" -I "$SPEECHSDK_ROOT/include/c_api" --std=c++14 -lpthread -lMicrosoft.CognitiveServices.Speech.core -L "$SPEECHSDK_ROOT/lib/x86" -l:libssl.so.1.0.0 -l:libcurl.so.4 -l:libasound.so.2
   ```
 
-## <a name="run-the-sample"></a>Örneği çalıştırma
+## <a name="run-the-app"></a>Uygulamayı çalıştırma
 
-1. Yapılandırma yükleyicisinin kitaplık yolu Speech SDK'sı Kitaplığı'na işaret edecek şekilde yapılandırın.
+1. Yükleyicinin kitaplık yolunu Konuşma SDK'sı kitaplığına işaret edecek şekilde yapılandırın.
 
-   * Üzerinde bir **x64** makine çalıştırın:
+   * **x64** (64 bit) bir sistemde, aşağıdaki komutu girin.
 
      ```sh
      export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:$SPEECHSDK_ROOT/lib/x64"
      ```
 
-   * Üzerinde bir **x86** makine çalıştırın:
+   * **x86** (32 bit) bir sistemde, aşağıdaki komutu girin.
 
      ```sh
      export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:$SPEECHSDK_ROOT/lib/x86"
      ```
 
-1. Uygulamayı şu şekilde çalıştırın:
+1. Uygulamayı çalıştırın.
 
    ```sh
    ./helloworld
    ```
 
-1. Şuna benzer bir çıktı görmeniz gerekir:
+1.  Konsol penceresinde bir istem görünerek bir şey söylemenizi ister. İngilizce bir deyim ya da cümle söyleyin. Söyledikleriniz Konuşma hizmetine aktarılır ve metne dönüştürülür; metin aynı pencerede görünür.
 
    ```text
    Say something...
-   We recognized: What's the weather
+   We recognized: What's the weather like?
    ```
 
-[!INCLUDE [Download the sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
-Bu örnekte arayın `quickstart/cpp-linux` klasör.
+[!INCLUDE [Download this sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
+Bu örneği `quickstart/cpp-linux` klasöründe arayın.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* [Örneklerimizi Al](speech-sdk.md#get-the-samples)
+> [!div class="nextstepaction"]
+> [C++ için Konuşma SDK'sını kullanarak konuşmadaki amacı tanıma](how-to-recognize-intents-from-speech-cpp.md)
+
+## <a name="see-also"></a>Ayrıca bkz.
+
+- [Konuşmayı çevirme](how-to-translate-speech-csharp.md)
+- [Akustik modelleri özelleştirme](how-to-customize-acoustic-models.md)
+- [Dil modellerini özelleştirme](how-to-customize-language-model.md)

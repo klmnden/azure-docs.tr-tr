@@ -1,27 +1,27 @@
 ---
-title: Bing görsel arama API'si için Java hızlı başlangıç | Microsoft Docs
-titleSuffix: Bing Web Search APIs - Cognitive Services
-description: Bing görsel arama API'sine bir görüntüyü karşıya yükleme ve görüntü ile ilgili Öngörüler geri alma işlemi gösterilmektedir.
+title: 'Hızlı Başlangıç: Görsel arama sorgusu oluşturma, Java - Bing Görsel Arama'
+titleSuffix: Azure Cognitive Services
+description: Bing Görsel Arama API’sine görüntü yükleme ve görüntü hakkında içgörü alma.
 services: cognitive-services
 author: swhite-msft
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
 ms.technology: bing-visual-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 5/16/2018
 ms.author: scottwhi
-ms.openlocfilehash: 41e0855b126ca6e54d0a487a88fe59a0be6f72f6
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
-ms.translationtype: MT
+ms.openlocfilehash: 56e1b943f03128fa6703a7b15bd0d6ade09089d6
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39072004"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47222633"
 ---
-# <a name="your-first-bing-visual-search-query-in-java"></a>İlk Bing görsel arama sorgunuzda Java
+# <a name="quickstart-your-first-bing-visual-search-query-in-java"></a>Hızlı Başlangıç: Java’da ilk Bing Görsel Arama sorgunuz
 
-Bing görsel arama API'sine sağlayan bir görüntü ile ilgili bilgi döndürür. Belirteç, ya da bir görüntü yükleyerek bir ınsights görüntünün URL'sini kullanarak görüntü sağlayabilir. Bu seçenekler hakkında daha fazla bilgi için bkz: [Bing görsel arama API'si nedir?](../overview.md) Bu makalede, bir resim karşıya gösterilmektedir. Görüntüyü karşıya yükleme, iyi bilinen bir yer işareti resmini Al ve geri hakkında bilgi alın mobil senaryolarda yararlı olabilir. Örneğin, öngörüleri, yer işareti hakkında bilgi dahil olabilir. 
+Bing Görsel Arama API’si, verdiğiniz bir görüntü hakkında bilgi döndürür. Bir URL veya bir içgörü belirteci kullanarak ya da karşıya resim yükleyerek görüntüyü verebilirsiniz. Bu seçenekler hakkında bilgi için bkz. [Bing Görsel Arama API’si nedir?](../overview.md) Bu makalede, karşıya görüntü yükleme gösterilmektedir. Karşıya resim yüklemek, mobil bir cihazla tanınmış bir yerin resmini çekip bu yer hakkında bilgi almak istediğiniz bir durumda kullanışlı olabilir. Örneğin, içgörüler bu yer hakkındaki önemsiz küçük ayrıntıları içerebilir. 
 
-Yerel bir görüntüyü karşıya yükleme, aşağıdaki form verilerini POST gövdesinde içermelidir gösterir. Form verileri içerik düzeni üstbilgisini içermelidir. Kendi `name` parametresi ayarlanması gerekir "Görüntü" ve `filename` parametreyi bir dizeye ayarlayın. Form içeriğini ikili görüntünün olur. Karşıya yükleyebilirsiniz en yüksek görüntü boyutu 1 MB'dir. 
+Aşağıda, yerel bir görüntüyü karşıya yükleyeceğiniz zaman POST’un gövdesine dahil etmeniz gereken form verileri gösterilmektedir. Form verileri, Content-Disposition üst bilgisini içermelidir. `name` parametresi, "image" olarak, `filename` parametresi ise herhangi bir dize olarak ayarlanmalıdır. Formun içerikleri, görüntünün ikili verisidir. Karşıya yükleyebileceğiniz maksimum görüntü boyutu 1 MB’tır. 
 
 ```
 --boundary_1234-abcd
@@ -32,26 +32,26 @@ Content-Disposition: form-data; name="image"; filename="myimagefile.jpg"
 --boundary_1234-abcd--
 ```
 
-Bu makale, Bing görsel arama API'sine bir istek gönderir ve JSON arama sonuçlarını görüntüleyen basit bir konsol uygulaması içerir. Bu uygulama, Java dilinde yazılmış olsa da, HTTP istekleri ve JSON Ayrıştır programlama dili ile uyumlu bir RESTful Web hizmeti API'dir. 
+Bu makale, bir Bing Görsel Arama API’si isteği gönderen ve JSON arama sonuçlarını görüntüleyen basit bir konsol uygulamasını içermektedir. Bu uygulama Java ile yazılmış olmakla birlikte API, HTTP istekleri gönderebilen ve JSON ayrıştırabilen her programlama diliyle uyumlu bir RESTful Web hizmetidir. 
 
 
-## <a name="prerequisites"></a>Önkoşullar
+## <a name="prerequisites"></a>Ön koşullar
 
-İhtiyacınız olacak [JDK 7 veya 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) derlemek ve bu kodu çalıştırmak için. Sık kullanılan varsa, ancak bir metin düzenleyicisi ucun yetip Java IDE kullanabilirsiniz.
+Bu kodu derleyip çalıştırmak için [JDK 7 veya 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)’e ihtiyacınız olacak. Varsa, sık kullandığınız bir Java IDE’yi veya bir metin düzenleyicisini kullanabilirsiniz.
 
-Bu hızlı başlangıçta, kullanabileceğiniz bir [ücretsiz deneme sürümü](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) abonelik anahtarı veya Ücretli abonelik anahtarı.
+Bu hızlı başlangıçta bir [ücretsiz deneme](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) abonelik anahtarı veya ücretli abonelik anahtarı kullanabilirsiniz.
 
 ## <a name="running-the-application"></a>Uygulamayı çalıştırma
 
-Java'da MultipartEntityBuilder kullanarak görüntüyü karşıya yükleme işlemini gösterir.
+Aşağıda, Java’da MultipartEntityBuilder kullanarak görüntüyü karşıya yükleme işlemi gösterilmektedir.
 
-Bu uygulamayı çalıştırmak için aşağıdaki adımları izleyin:
+Bu uygulamayı çalıştırmak için şu adımları izleyin:
 
-1. İndirmenize veya yüklemenize [gson Kitaplığı](https://github.com/google/gson). Ayrıca Maven alabilirsiniz.
-2. Yeni bir Java projesi, sık kullandığınız IDE veya düzenleyici oluşturun.
-3. Adlı bir dosyada sağlanan kod ekleme `VisualSearch.java`.
-4. Değiştirin `subscriptionKey` abonelik anahtarınız ile değeri.
-4. Değiştirin `imagePath` görüntünün karşıya yükleme yolunu içeren değer.
+1. [Gson kitaplığı](https://github.com/google/gson)’nı indirip yükleyin. Maven aracılığıyla da edinebilirsiniz.
+2. Sık kullandığınız IDE veya düzenleyicide yeni bir Java projesi oluşturun.
+3. Sağlanan kodu `VisualSearch.java` adlı bir dosyaya ekleyin.
+4. `subscriptionKey` değerini, abonelik anahtarınızla değiştirin.
+4. `imagePath` değerini, karşıya yüklenecek görüntünün yoluyla değiştirin.
 5. Programı çalıştırın.
 
 
@@ -146,11 +146,11 @@ public class UploadImage2 {
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-[Insights belirteci kullanarak bir görüntü ile ilgili Öngörüler elde edin](../use-insights-token.md)  
-[Bing görsel arama görüntüsünü karşıya yükleme Öğreticisi](../tutorial-visual-search-image-upload.md)
-[Bing görsel arama tek sayfalı uygulama Öğreticisi](../tutorial-bing-visual-search-single-page-app.md)  
-[Bing görsel arama genel bakış](../overview.md)  
+[İçgörü belirteci kullanarak bir görüntü ile ilgili içgörüler elde edin](../use-insights-token.md)  
+[Bing Görsel Arama görüntü karşıya yükleme öğreticisi](../tutorial-visual-search-image-upload.md)
+[Bing Görsel Arama tek sayfalı uygulama öğreticisi](../tutorial-bing-visual-search-single-page-app.md)  
+[Bing Görsel Arama’ya genel bakış](../overview.md)  
 [Deneyin](https://aka.ms/bingvisualsearchtryforfree)  
-[Ücretsiz deneme erişim anahtarını alma](https://azure.microsoft.com/try/cognitive-services/?api=bing-visual-search-api)  
-[Bing görsel arama API'si başvurusu](https://aka.ms/bingvisualsearchreferencedoc)
+[Ücretsiz deneme erişim anahtarı alın](https://azure.microsoft.com/try/cognitive-services/?api=bing-visual-search-api)  
+[Bing Görsel Arama API’si başvurusu](https://aka.ms/bingvisualsearchreferencedoc)
 

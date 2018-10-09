@@ -13,14 +13,14 @@ ms.topic: overview
 ms.custom: mvc
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 09/04/2018
+ms.date: 09/28/2018
 ms.author: alkohli
-ms.openlocfilehash: 26f8f59d940c1e4a25e24229c2a3df75052e63e4
-ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ms.openlocfilehash: 611dcb2cb904b5d3ee6ce0f571c2d04cfd7e7c35
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43783299"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47451759"
 ---
 # <a name="what-is-azure-data-box-disk-preview"></a>Azure Data Box Disk nedir? (Önizleme)
 
@@ -45,7 +45,7 @@ A.  Azure Data Box hizmeti, çevrimdışı veri alımı için tasarlanmıştır.
 ### <a name="q-what-are-azure-data-box-disks"></a>S. Azure Data Box Diskleri nedir?
 A. Azure Data Box Diskleri terabaytlarca veriyi Azure'da çift yönlü olarak hızlı, uygun maliyetli ve güvenli bir şekilde aktarmanızı sağlar. Microsoft size toplamda maksimum 35 TB depolama kapasitesi sunan 1 ile 5 arasında disk gönderir. Bu diskleri Azure portalda Data Box hizmetiyle kolayca yapılandırabilir, bağlayabilir ve disklerin kilidini açabilirsiniz.  
 
-Diskler, Microsoft BitLocker sürücü şifrelemesi ile şifrelenir ve şifreleme anahtarlarınız, Azure portalda yönetilir. Ardından müşterinin sunucularındaki verileri kopyalarsınız. Microsoft verilerinizi veri merkezinde hızlı ve özel bir ağ yükleme bağlantısı aracılığıyla sürücüden buluta geçirir ve Azure'a yükler.
+Diskler Microsoft BitLocker sürücü şifrelemesi ile şifrelenir ve şifreleme anahtarlarınız Azure portalda yönetilir. Ardından müşterinin sunucularındaki verileri kopyalarsınız. Microsoft verilerinizi veri merkezinde hızlı ve özel bir ağ yükleme bağlantısı aracılığıyla sürücüden buluta geçirir ve Azure'a yükler.
 
 ### <a name="q-when-should-i-use-data-box-disks"></a>S. Data Box Disklerini ne zaman kullanmalıyım?
 A. Azure'a aktarmak istediğiniz 40 TB (veya daha az) boyutunda veriniz varsa Data Box Disklerinden faydalanabilirsiniz.
@@ -54,7 +54,7 @@ A. Azure'a aktarmak istediğiniz 40 TB (veya daha az) boyutunda veriniz varsa Da
 A. Önizleme sırasında Data Box Diskleri ücretsiz olarak kullanılabilir. Sevkiyat da ücretsizdir ancak Azure depolama ücretleri tahsil edilecektir.
 
 ### <a name="q-how-do-i-get-data-box-disks"></a>S. Data Box Disklerini nasıl edinebilirim? 
-A.  Azure Data Box Disklerini edinmek için öncelikle [Data Box Disk önizlemesine](http://aka.ms/AzureDataBox) kaydolun. Ardından Azure portalda oturum açın ve diskler için bir Data Box siparişi oluşturun. İletişim bilgilerinizi girin ve bildirim ayarlarını yapın. Sipariş verdikten sonra kullanılabilirlik durumuna göre diskler 10 gün içinde gönderilir.   
+A.  Azure Data Box Disklerini edinmek için öncelikle [Data Box Disk önizlemesine](http://aka.ms/AzureDataBox) kaydolun. Ardından Azure portalda oturum açın ve diskler için bir Data Box siparişi oluşturun. İletişim bilgilerinizi ve bildirim ayrıntılarını girin. Sipariş verdikten sonra kullanılabilirlik durumuna göre diskler 10 gün içinde gönderilir.   
 
 ### <a name="q-what-is-the-maximum-amount-of-data-i-can-transfer-with-data-box-disks-in-one-instance"></a>S. Data Box Disklerine tek seferde en fazla ne kadar veri aktarabilirim?
 A. Her biri 8 TB boyutunda (7 TB kullanılabilir kapasite) 5 disk için kullanabileceğiniz maksimum kapasite 35 TB olacaktır. Dolayısıyla tek seferde en fazla 35 TB veri aktarabilirsiniz.  Daha fazla veri aktarmak için daha fazla disk sipariş etmeniz gerekir.
@@ -74,10 +74,12 @@ A. Data Box Diskleriyle ilgili sorun yaşamanız halinde lütfen [Data Box Disk 
 A.  Hayır. Verilerinizin boyutuna ve disklerin kullanılabilirliğine göre 8 TB boyutunda diskler (en fazla 5 disk) gönderilir.  
 
 ### <a name="q-how-do-i-unlock-the-data-box-disks"></a>S. Data Box Disklerinin kilidini nasıl açabilirim? 
-A.  Azure portalda Data Box Disk siparişinize gidin ve **Cihaz ayrıntıları**'na gidin. Destek anahtarını kopyalayın. Data Box Disk kilit açma aracını Azure portaldan indirin, ayıklayın ve *DataBoxDiskUnlock.exe* uygulamasını disklere kopyalamak istediğiniz verilerin bulunduğu bilgisayarda çalıştırın. Disklerin kilidini açmak için destek anahtarını girin. Aynı destek anahtarı tüm disklerin kilidini açar.
+A.  Azure portalda Data Box Disk siparişinize ve **Cihaz ayrıntıları**'na gidin. Geçiş anahtarını kopyalayın. İşletim sisteminiz için Azure portaldan Data Box kilidi açma aracını indirip açın. Aracı, disklere kopyalamak istediğiniz verileri içeren bilgisayarda çalıştırın. Disklerin kilidini açmak için geçiş anahtarını girin. Aynı geçiş anahtarı tüm disklerin kilidini açar. 
+
+Yönerge adımları için [Windows istemcisinde disk kilidi açma](data-box-disk-deploy-set-up.md#unlock-disks-on-windows-client)'ya veya [Linux istemcisinde disk kilidi açma](data-box-disk-deploy-set-up.md#unlock-disks-on-linux-client)'ya gidin.
 
 ### <a name="q-can-i-use-a-linux-host-computer-to-connect-and-copy-the-data-on-to-the-data-box-disks"></a>S. Data Box Disklerine bağlanmak ve veri kopyalamak için Linux ana bilgisayarı kullanabilir miyim?
-A.  Hayır. Yalnızca Windows bilgisayarlar desteklenir. Daha fazla bilgi için ana bilgisayarınızın [Desteklenen işletim sistemleri](data-box-disk-system-requirements.md) listesine gidin.
+A.  Evet. Bağlanmak ve Data Box Disklerine veri kopyalamak için gerek Linux, gerekse Windows istemcisi kullanılabilir. Daha fazla bilgi için ana bilgisayarınıza ilişkin [Desteklenen işletim sistemleri](data-box-disk-system-requirements.md) listesine gidin.
 
 ### <a name="q-my-disks-are-dispatched-but-now-i-want-to-cancel-this-order-why-is-the-cancel-button-not-available"></a>S. Disklerim yola çıktı ancak şimdi siparişimi iptal etmek istiyorum. Neden iptal düğmesi kullanılamıyor?
 A.  Siparişi yalnızca disk siparişi verdikten sonra ancak diskler gönderilmeden önce iptal edebilirsiniz. Diskler yola çıktıktan sonra siparişi iptal edemezsiniz. Önizleme süresi boyunca disklerinizi ücretsiz olarak iade edebilirsiniz ancak bu durum muhtemelen çözüm genel kullanıma sunulduğunda değişecektir. 
@@ -105,7 +107,7 @@ A.  Maksimum boyutlar Azure Depolama sınırları ile belirlenir. Maksimum blok 
 A. USB 3.0 bağlantısıyla yapılan testlerde disk performansının 430 MB/sn seviyesine çıkabildiği görülmüştür. Gerçek performans kullanılan dosya boyutuna göre değişiklik gösterecektir. Daha küçük dosyalarda performans daha düşük olabilir.
 
 ### <a name="q-how-do-i-know-that-my-data-is-secure-during-transit"></a>S. Verilerimin aktarım sırasında güvende olduğundan nasıl emin olabilirim? 
-A.  Data Box Diskleri BitLocker AES-128 bit şifreleme kullanılarak şifrelenir ve destek anahtarına yalnızca Azure portaldan erişilebilir. Destek anahtarını almak için hesap kimlik bilgilerinizi kullanarak Azure portalda oturum açın. Data Box Disk kilit açma aracını çalıştırdığınızda bu destek anahtarını kullanın.
+A.  Data Box Diskleri BitLocker AES-128 bit şifreleme kullanılarak şifrelenir ve geçiş anahtarına yalnızca Azure portaldan erişilebilir. Geçiş anahtarını almak için hesap kimlik bilgilerinizi kullanarak Azure portalda oturum açın. Data Box Disk kilit açma aracını çalıştırdığınızda bu geçiş anahtarını kullanın.
 
 ### <a name="q-how-do-i-copy-the-data-to-the-data-box-disks"></a>S. Data Box Disklerine nasıl veri kopyalayabilirim? 
 A.  Robocopy, Diskboss veya Windows Dosya Gezgini gibi bir SMB kopyalama aracı kullanarak verileri sürükleyip diske bırakın. 
@@ -139,16 +141,16 @@ A.  Veri Kopyalama işlemi için sipariş durumu tamamlandı olarak değiştiği
 A.  Verileri diskinizdeki *BlockBlob* ve *PageBlob* klasörlerinin altına kopyaladığınızda Azure depolama hesabında *BlockBlob* ve *PageBlob* klasörünün her alt klasörü için bir kapsayıcı oluşturulur. Dosyaları doğrudan *BlockBlob* ve *PageBlob* klasörlerine kopyaladıysanız Azure Depolama hesabında *$root* adlı varsayılan kapsayıcıya yerleştirilir. 
 
 ### <a name="q-i-just-noticed-that-i-did-not-follow-the-azure-naming-requirements-for-my-containers-will-my-data-fail-to-upload-to-azure"></a>S. Kapsayıcılarım için Azure adlandırma gereksinimlerine uygun hareket etmediğimi fark ettim. Verilerim yine de Azure'a yüklenir mi?
-A. Kapsayıcı adlarında büyük harf kullandıysanız bunlar otomatik olarak küçük harfe dönüştürülür. Adlar diğer kurallara (özel karakterler, diğer diller gibi) uygun değilse yükleme işlemi başarısız olur.
+A. Kapsayıcı adlarında büyük harf kullandıysanız bunlar otomatik olarak küçük harfe dönüştürülür. Adlar diğer kurallara (özel karakterler, diğer diller gibi) uygun değilse yükleme işlemi başarısız olur. Daha fazla bilgi için [Azure adlandırma kurallarına](data-box-disk-limits.md#azure-block-blob-and-page-blob-naming-conventions) gidin.
 
 ### <a name="q-how-do-i-verify-the-data-i-copied-onto-multiple-data-box-disks"></a>S. Birden fazla Data Box Diskine kopyaladığım verileri nasıl doğrulayabilirim?
-A.  Veri kopyalama işlemini tamamladıktan sonra *AzureImportExport* klasöründe bulunan `AzureExpressDiskService.cmd` uygulamasını çalıştırarak doğrulama için sağlama toplamı oluşturabilirsiniz. Birden fazla diskiniz varsa her disk için bir komut penceresi açarak bu komutu çalıştırmanız gerekir. Bu işlemin verilerinizin boyutuna göre uzun sürebileceğini (birkaç saat) unutmayın.
+A.  Veri kopyalama işlemi tamamlandıktan sonra *DataBoxDiskImport* klasöründe bulunan `DataBoxDiskValidation.cmd` uygulamasını çalıştırarak doğrulama için sağlama toplamları alabilirsiniz. Birden fazla diskiniz varsa her disk için bir komut penceresi açarak bu komutu çalıştırmanız gerekir. Bu işlemin verilerinizin boyutuna göre uzun sürebileceğini (birkaç saat) unutmayın.
 
 ### <a name="q-what-happens-to-my-data-after-i-have-returned-the-disks"></a>S. Diskleri iade ettiğimde verilerime ne olur?
 A.  Veriler Azure'a kopyalandıktan sonra disklerdeki veriler NIST SP 800-88 Revision 1 yönergelerine uygun ve güvenli bir şekilde silinir.  
 
 ### <a name="q-how-is-my-data-protected-during-transit"></a>S. Verilerim aktarım sırasında nasıl korunur? 
-A.  Data Box Diskleri AES-128 Microsoft BitLocker şifrelemesi ile korunur. Tüm disklerin kilidini açmak ve verilere erişmek için tek bir destek anahtarı kullanılması gerekir.
+A.  Data Box Diskleri AES-128 Microsoft BitLocker şifrelemesi ile korunur. Tüm disklerin kilidini açmak ve verilere erişmek için tek bir geçiş anahtarı kullanılması gerekir.
 
 ### <a name="q-do-i-need-to-rerun-checksum-validation-if-i-add-more-data-to-the-data-box-disks"></a>S. Data Box Disklerine daha fazla veri eklersem sağlama toplamı doğrulama işlemini tekrar çalıştırmam gerekir mi?
 A. Evet. Verilerinizi doğrulamaya karar verirseniz (bunu yapmanızı öneririz!) disklere daha fazla veri eklemeniz durumunda doğrulama işlemini tekrarlamanız gerekir.

@@ -12,19 +12,19 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/22/2018
+ms.date: 09/27/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 161687ec2275558adb235dc63b5244a0a8ff7e47
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: 27600cd4656f70b4cd01745667c0e0fd2a2f4997
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37110802"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47405828"
 ---
 # <a name="tutorial-deploy-a-linux-service-fabric-cluster-into-an-azure-virtual-network"></a>Öğretici: Azure sanal ağına Linux Service Fabric kümesi dağıtma
 
-Bu öğretici, bir dizinin birinci bölümüdür. Öğreticide, Azure CLI ile bir şablon kullanarak bir [Azure sanal ağına (VNET)](../virtual-network/virtual-networks-overview.md) ve [ağ güvenlik grubuna (NSG) ](../virtual-network/virtual-networks-nsg.md) Linux Service Fabric kümesi dağıtma hakkında bilgi verilir. Öğretici tamamladığınızda, bulutta çalışan ve uygulama dağıtabileceğiniz bir kümeniz olur. PowerShell kullanarak Windows kümesi oluşturmak için bkz. [Azure’da güvenli bir Windows kümesi oluşturma](service-fabric-tutorial-create-vnet-and-windows-cluster.md).
+Bu öğretici, bir dizinin birinci bölümüdür. Öğreticide Azure CLI ve bir şablon kullanarak bir [Azure sanal ağına (VNET)](../virtual-network/virtual-networks-overview.md) Linux Service Fabric kümesi dağıtma hakkında bilgi edinilebilir. Öğreticiyi tamamladığınızda, bulutta çalışan ve uygulama dağıtabileceğiniz bir kümeniz olur. PowerShell kullanarak Windows kümesi oluşturmak için bkz. [Azure’da güvenli bir Windows kümesi oluşturma](service-fabric-tutorial-create-vnet-and-windows-cluster.md).
 
 Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
@@ -40,7 +40,7 @@ Bu öğretici dizisinde şunların nasıl yapıldığını öğrenirsiniz:
 > * Azure’da güvenli bir küme oluşturma
 > * [Bir kümenin ölçeğini daraltma veya genişletme](service-fabric-tutorial-scale-cluster.md)
 > * [Bir kümenin çalışma zamanını yükseltme](service-fabric-tutorial-upgrade-cluster.md)
-> * [Service Fabric ile API Management dağıtma](service-fabric-tutorial-deploy-api-management.md)
+> * [Küme silme](service-fabric-tutorial-delete-cluster.md)
 
 ## <a name="prerequisites"></a>Ön koşullar
 
@@ -48,7 +48,7 @@ Bu öğreticiye başlamadan önce:
 
 * Azure aboneliğiniz yoksa [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun
 * [Service Fabric CLI](service-fabric-cli.md)'yı yükleyin
-* [Azure CLI 2.0](/cli/azure/install-azure-cli)’ı yükleyin
+* [Azure CLI](/cli/azure/install-azure-cli)'yı yükleme
 
 Aşağıdaki yordamlarda beş düğümlü bir Service Fabric kümesi oluşturulur. Azure’da Service Fabric kümesi çalıştırmaktan kaynaklanan maliyetleri hesaplamak için [Azure Fiyatlandırma Hesaplayıcısı](https://azure.microsoft.com/pricing/calculator/)’nı kullanın.
 
@@ -78,10 +78,10 @@ Bu öğreticide tek bir küme türündeki beş düğüme sahip bir küme dağıt
 
 Aşağıdaki Resource Manager şablonu dosyalarını indirin:
 
-* [vnet-linuxcluster.json][template]
-* [vnet-linuxcluster.parameters.json][parameters]
+* [AzureDeploy.json][template]
+* [AzureDeploy.Parameters.json][parameters]
 
-[vnet-linuxcluster.json][template] tarafından aşağıdakiler dahil çeşitli kaynaklar dağıtılır.
+Bu şablon sanal bir ağa beş sanal makineden ve tek bir düğüm türünden oluşan güvenli bir küme dağıtır.  Diğer örnek şablonlar [GitHub](https://github.com/Azure-Samples/service-fabric-cluster-templates)'da bulunabilir. [AzureDeploy.json][template] aşağıdakiler dahil bir grup kaynak dağıtır.
 
 ### <a name="service-fabric-cluster"></a>Service Fabric kümesi
 
@@ -106,29 +106,18 @@ Bir yük dengeleyici dağıtılır ve aşağıdaki bağlantı noktalarını ara�
 * uygulama bağlantı noktası: 80
 * uygulama bağlantı noktası: 443
 
-### <a name="virtual-network-subnet-and-network-security-group"></a>Sanal ağ, alt ağ ve ağ güvenlik grubu
+### <a name="virtual-network-and-subnet"></a>Sanal ağ ve alt ağ
 
-Sanal ağ, alt ağ ve ağ güvenlik grubunun adları şablon parametrelerinde bildirilir.  Sanal ağ ve alt ağın adres alanları da şablon parametrelerinde bildirilir:
+Sanal ağın ve alt ağın adları şablon parametrelerinde bildirilmiştir.  Sanal ağ ve alt ağın adres alanları da şablon parametrelerinde bildirilir:
 
 * sanal ağ adres alanı: 10.0.0.0/16
 * Service Fabric alt ağ adres alanı: 10.0.2.0/24
 
-Ağ güvenlik grubunda aşağıdaki gelen trafik kuralları etkindir. Şablon değişkenlerini değiştirerek bağlantı noktası değerlerini değiştirebilirsiniz.
-
-* ClientConnectionEndpoint (TCP): 19000
-* HttpGatewayEndpoint (HTTP/TCP): 19080
-* SMB : 445
-* Internodecommunication - 1025, 1026, 1027
-* Kısa ömürlü bağlantı noktası aralığı – 49152-65534 (en az 256 bağlantı noktası gerekir)
-* Uygulamanın kullanımına yönelik bağlantı noktaları: 80 ve 443
-* Uygulama bağlantı noktası aralığı – 49152-65534 (hizmetler arası iletişim için kullanılır ve diğerlerinden farklı olarak Yük dengeleyicide açılmaz)
-* Diğer tüm bağlantı noktalarını engelleyin
-
-Başka bir uygulama bağlantı noktası gerekiyorsa Microsoft.Network/loadBalancers kaynağı ile Microsoft.Network/networkSecurityGroups kaynağını trafiğin geçmesine izin verecek şekilde ayarlamanız gerekir.
+Başka bir uygulama bağlantı noktası gerekiyorsa, gelen trafiğe izin vermek için Microsoft.Network/loadBalancers kaynağını ayarlamak gerekir.
 
 ## <a name="set-template-parameters"></a>Şablon parametrelerini ayarlama
 
-[vnet-cluster.parameters.json][parameters] parametre dosyası tarafından kümenin ve ilişkili kaynakların dağıtılması için kullanılan birçok değer bildirilir. Dağıtımınız için değiştirmeniz gerekebilecek bazı parametreler:
+[AzureDeploy.Parameters][parameters] parametre dosyası, kümenin ve ilişkili kaynakların dağıtılması için kullanılan birçok değeri bildirir. Dağıtımınız için değiştirmeniz gerekebilecek bazı parametreler:
 
 |Parametre|Örnek değer|Notlar|
 |---|---||
@@ -136,7 +125,7 @@ Başka bir uygulama bağlantı noktası gerekiyorsa Microsoft.Network/loadBalanc
 |adminPassword|Password#1234| Küme VM’leri için yönetici parolası.|
 |clusterName|mysfcluster123| Kümenin adı. |
 |location|southcentralus| Kümenin konumu. |
-|certificateThumbprint|| <p>Otomatik olarak imzalanan bir sertifika oluşturuluyor veya sertifika dosyası sağlanıyorsa değer boş olmalıdır.</p><p>Daha önce bir anahtar kasasına yüklenmiş mevcut bir sertifikayı kullanmak için sertifika parmak izi değerini girin. Örneğin: "6190390162C988701DB5676EB81083EA608DCCF3". </p>|
+|certificateThumbprint|| <p>Otomatik olarak imzalanan bir sertifika oluşturuluyor veya sertifika dosyası sağlanıyorsa değer boş olmalıdır.</p><p>Daha önce bir anahtar kasasına yüklenmiş mevcut bir sertifikayı kullanmak için sertifika SHA1 parmak izi değerini girin. Örneğin: "6190390162C988701DB5676EB81083EA608DCCF3". </p>|
 |certificateUrlValue|| <p>Otomatik olarak imzalanan bir sertifika oluşturuluyor veya sertifika dosyası sağlanıyorsa değer boş olmalıdır.</p><p>Daha önce bir anahtar kasasına yüklenmiş mevcut bir sertifikayı kullanmak için sertifika URL’sini girin. Örneğin, "https://mykeyvault.vault.azure.net:443/secrets/mycertificate/02bea722c9ef4009a76c5052bcbf8346".</p>|
 |sourceVaultValue||<p>Otomatik olarak imzalanan bir sertifika oluşturuluyor veya sertifika dosyası sağlanıyorsa değer boş olmalıdır.</p><p>Daha önce bir anahtar kasasına yüklenmiş mevcut bir sertifikayı kullanmak için kaynak kasa değerini girin. Örneğin: "/subscriptions/333cc2c84-12fa-5778-bd71-c71c07bf873f/resourceGroups/MyTestRG/providers/Microsoft.KeyVault/vaults/MYKEYVAULT".</p>|
 
@@ -144,7 +133,9 @@ Başka bir uygulama bağlantı noktası gerekiyorsa Microsoft.Network/loadBalanc
 
 ## <a name="deploy-the-virtual-network-and-cluster"></a>Sanal ağı ve kümeyi dağıtma
 
-Ardından, ağ topolojisini ayarlayın ve Service Fabric kümesini dağıtın. [vnet-linuxcluster.json][template] Resource Manager şablonu bir sanal ağın (VNET) yanı sıra Service Fabric için bir alt ağ ve ağ güvenlik grubu (NSG) da oluşturur. Şablon tarafından sertifika güvenliği etkin bir küme de dağıtılır.  Üretim kümeleri için küme sertifikası olarak bir sertifika yetkilisinden (CA) alınan bir sertifika kullanın. Test kümelerinin güvenliğinin sağlanması için otomatik olarak imzalanan bir sertifika kullanılabilir.
+Ardından, ağ topolojisini ayarlayın ve Service Fabric kümesini dağıtın. [AzureDeploy.json] [ template] Resource Manager şablonu Service Fabric için bir sanal ağ (VNET) ve bir alt ağ oluşturur. Şablon tarafından sertifika güvenliği etkin bir küme de dağıtılır.  Üretim kümeleri için küme sertifikası olarak bir sertifika yetkilisinden (CA) alınan bir sertifika kullanın. Test kümelerinin güvenliğinin sağlanması için otomatik olarak imzalanan bir sertifika kullanılabilir.
+
+### <a name="create-a-cluster-using-an-existing-certificate"></a>Mevcut bir sertifikayı kullanarak küme oluşturma
 
 Aşağıdaki betik, mevcut bir sertifikayla güvenliği sağlanmış yeni bir küme dağıtmak için [az sf cluster create](/cli/azure/sf/cluster?view=azure-cli-latest#az_sf_cluster_create) komutunu ve şablonunu kullanır. Ayrıca, komut tarafından Azure’da yeni bir anahtar kasası oluşturulur ve sertifikanız karşıya yüklenir.
 
@@ -167,7 +158,23 @@ az group create --name $ResourceGroupName --location $Location
 az sf cluster create --resource-group $ResourceGroupName --location $Location \
    --certificate-password $Password --certificate-file $CertPath \
    --vault-name $VaultName --vault-resource-group $ResourceGroupName  \
-   --template-file vnet-linuxcluster.json --parameter-file vnet-linuxcluster.parameters.json
+   --template-file AzureDeploy.json --parameter-file AzureDeploy.Parameters.json
+```
+
+### <a name="create-a-cluster-using-a-new-self-signed-certificate"></a>Yeni ve otomatik olarak imzalanan bir sertifika ile küme oluşturma
+
+Aşağıdaki betik, Azure'a yeni bir küme dağıtmak için [az sf cluster create](/cli/azure/sf/cluster?view=azure-cli-latest#az_sf_cluster_create) komutunu ve bir şablonu kullanır. Komut ayrıca Azure’da yeni bir anahtar kasası oluşturup bu kasaya otomatik olarak imzalanan yeni bir sertifika ekler ve sertifika dosyasını yerel olarak indirir.
+
+```azurecli
+ResourceGroupName="sflinuxclustergroup"
+ClusterName="sflinuxcluster"
+Location="southcentralus"
+Password="q6D7nN%6ck@6"
+VaultName="linuxclusterkeyvault"
+VaultGroupName="linuxclusterkeyvaultgroup"
+CertPath="C:\MyCertificates"
+
+az sf cluster create --resource-group $ResourceGroupName --location $Location --cluster-name $ClusterName --template-file C:\temp\cluster\AzureDeploy.json --parameter-file C:\temp\cluster\AzureDeploy.Parameters.json --certificate-password $Password --certificate-output-folder $CertPath --certificate-subject-name $ClusterName.$Location.cloudapp.azure.com --vault-name $VaultName --vault-resource-group $ResourceGroupName
 ```
 
 ## <a name="connect-to-the-secure-cluster"></a>Güvenli kümeye bağlanma
@@ -187,13 +194,7 @@ sfctl cluster health
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 
-Bu öğretici serisindeki diğer makalelerde, az önce oluşturduğunuz küme kullanılır. Hemen bir sonraki makaleye geçmeyecekseniz ücretlendirmeden kaçınmak için kümeyi silmek isteyebilirsiniz. Kümeyi ve kullandığı tüm kaynakları silmenin en basit yolu, kaynak grubunun silinmesidir.
-
-Azure’da oturum açın ve kümeyi kaldırmak istediğiniz abonelik kimliğini seçin.  Abonelik kimliğinizi, [Azure portalında](http://portal.azure.com) oturum açarak öğrenebilirsiniz. [az group delete](/cli/azure/group?view=azure-cli-latest#az_group_delete) komutunu kullanarak kaynak grubunu ve tüm küme kaynaklarını silin.
-
-```azurecli
-az group delete --name $ResourceGroupName
-```
+Bu öğretici serisindeki diğer makalelerde, az önce oluşturduğunuz küme kullanılır. Hemen bir sonraki makaleye geçmeyecekseniz ücret alınmaması için [kümeyi silmeniz](service-fabric-cluster-delete.md) iyi olur.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
@@ -210,5 +211,5 @@ Ardından, kümenizi nasıl ölçeklendirebileceğinizi öğrenmek üzere aşağ
 > [!div class="nextstepaction"]
 > [Küme Ölçeklendirme](service-fabric-tutorial-scale-cluster.md)
 
-[template]:https://github.com/Azure/service-fabric-scripts-and-templates/blob/master/templates/cluster-tutorial/vnet-linuxcluster.json
-[parameters]:https://github.com/Azure/service-fabric-scripts-and-templates/blob/master/templates/cluster-tutorial/vnet-linuxcluster.parameters.json
+[template]:https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/5-VM-Ubuntu-1-NodeTypes-Secure/AzureDeploy.json
+[parameters]:https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/5-VM-Ubuntu-1-NodeTypes-Secure/AzureDeploy.Parameters.json

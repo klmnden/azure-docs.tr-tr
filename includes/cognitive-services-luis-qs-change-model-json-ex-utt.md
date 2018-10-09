@@ -3,25 +3,25 @@ title: include dosyası
 description: include dosyası
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: luis
 ms.topic: include
 ms.custom: include file
 ms.date: 08/16/2018
 ms.author: diberry
-ms.openlocfilehash: 419f15901b665b43b850922f77bd32d7aac8d3a2
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
-ms.translationtype: MT
+ms.openlocfilehash: a1b0afce31d7202c38b049addf546350ff347719
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42920522"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47044194"
 ---
-Örnek konuşma dosyası **utterances.json**, belirli bir biçimdedir. 
+Örnek konuşma dosyası **utterances.json** belirli bir biçimdedir. 
 
-`text` Alan örnek utterance metni içerir. `intentName` Alan LUIS uygulaması mevcut bir amaca adı gelmelidir. `entityLabels` alanı gereklidir. Herhangi bir varlık etiketi istemiyorsanız, boş bir dizi sağlar.
+`text` alanı, örnek konuşmanın metnini içerir. `intentName` alanı, LUIS uygulaması içindeki mevcut bir amacın adına karşılık gelmelidir. `entityLabels` alanı gereklidir. Herhangi bir varlığı etiketlemek istemiyorsanız, boş bir dizi girin.
 
-EntityLabels dizisi boş değilse `startCharIndex` ve `endCharIndex` başvurulan varlık işaretlemek gereken `entityName` alan. Dizin sıfır, "S" alanı ile Seattle ve büyük harf s önce üst örnekte 6 başvurduğu anlamına gelir. Başlamak veya bitiş etiketi boşlukla metin konuşma eklemek için API çağrısı başarısız olur.
+entityLabels dizisi boş değilse `startCharIndex` ve `endCharIndex` değerlerinin `entityName` alanında başvurulan varlığı işaretlemesi gerekir. Dizin sıfır tabanlıdır, yani üstteki örnekte 6 sayısı Seattle sözcüğünün baş harfi S'den önceki boşluğa değil S harfine karşılık gelmektedir. Etiketi metindeki bir boşlukla başlatır veya bitirirseniz, konuşmaları eklemek için yapılan API çağrısı başarısız olur.
 
 ```JSON
 [

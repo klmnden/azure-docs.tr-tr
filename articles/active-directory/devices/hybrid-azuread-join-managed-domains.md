@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 08/25/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: b1f1c85cea9aa7c48478ef6ee1c9a4609a3df8e0
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: ff2a161cbc39cdb4cf35cad2b8bd403ef2d3260c
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43045135"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47222176"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-managed-domains"></a>Öğretici: Yönetilen etki alanları için hibrit Azure Active Directory'ye katılımı yapılandırma
 
@@ -156,7 +156,7 @@ Aşağıdaki ilke **Tümü** olarak ayarlanmalıdır: **Kullanıcılar cihazlar�
 
 ### <a name="configure-the-local-intranet-settings-for-device-registration"></a>Cihaz kaydı için yerel intranet ayarlarını yapılandırma
 
-Windows alt düzey cihazlarınızın hibrit Azure AD'ye katılımını başarıyla tamamlamak ve cihazlar Azure AD'ye kimlik doğrulaması yaparken sertifika istemlerini engellemek için, Internet Explorer'da Yerel İntranet bölgesine aşağıdaki URL'leri eklemek üzere etki alanına katılmış cihazlarınıza bir ilke gönderebilirsiniz:
+Windows aşağı düzey cihazlarınızın karma Azure AD'ye katılmasını başarıyla tamamlamak ve cihazlar Azure AD'de kimlik doğrularken sertifika istemlerini atlamak için etki alanına katılmış cihazlarınıza Internet Explorer'da Yerel Intranet bölgesine aşağıdaki URL'leri eklemek üzere bir ilke gönderebilirsiniz:
 
 - `https://device.login.microsoftonline.com`
 
@@ -171,7 +171,7 @@ Azure kiracınızda cihaz kaydı durumunu doğrulamak için, **[Azure Active Dir
 Hizmet ayrıntılarını kontrol etmek için **Get-MSolDevice** cmdlet kullanırken:
 
 - Windows istemcisindeki kimlik ile eşleşen **cihaz kimliğine** sahip bir nesnenin bulunması gerekir.
-- **DeviceTrustType** değerinin **Etki Alanına Katılmış** olması gerekir. Bu, Azure AD portal'da Cihazlar sayfasındaki **Hibrit Azure AD'ye katılmış** durumuna eşdeğerdir.
+- **DeviceTrustType** değerinin **Etki Alanına Katılmış** olması gerekir. Bu, Azure AD portalında Cihazlar sayfasındaki **Hibrit Azure AD'ye katılmış** durumuna eşdeğerdir.
 - **Enabled** değerinin, koşullu erişimde kullanılan cihazlar için **True** olması gerekir. 
 
 

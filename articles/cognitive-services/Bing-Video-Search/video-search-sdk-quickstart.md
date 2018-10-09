@@ -1,59 +1,59 @@
 ---
-title: Video arama SDK C# hızlı başlangıç | Microsoft Docs
-description: Video arayın SDK konsol uygulaması ayarlayın.
-titleSuffix: Azure cognitive services setup News search SDK C# console application
+title: "Hızlı Başlangıç: Bing Video Arama SDK'sı, C#"
+titleSuffix: Azure Cognitive Services
+description: Bing Video Arama SDK'sı konsol uygulaması için kurulum.
 services: cognitive-services
 author: mikedodaro
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-video-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 01/29/2018
-ms.author: v-gedod
-ms.openlocfilehash: f53e2d0f0052ccfabb6d750556cb532f069c9121
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
-ms.translationtype: MT
+ms.author: rosh
+ms.openlocfilehash: 6cf7a16fa28602e5e3733741db8bfb7296882487
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35355294"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47219949"
 ---
-# <a name="video-search-sdk-c-quickstart"></a>Video arama SDK C# hızlı başlangıç
+# <a name="quickstart-bing-video-search-sdk-with-c"></a>Hızlı Başlangıç: C# ile Bing Video Arama SDK'sı 
 
-Bing Video arama SDK web isteklerini ve ayrıştırma sonuçları için REST API işlevselliğini içerir.
+Bing Video Arama SDK'sı, web istekleri ve sonuçları ayrıştırma için REST API işlevselliğini içerir.
 
-[Kaynak kodu C# Bing Video arama SDK örnekleri için](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7/BingVideoSearch) Git hub'da kullanılabilir.
+[C# Bing Video Arama SDK'sı örneklerinin kaynak kodu](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7/BingVideoSearch) Git Hub'dan edinilebilir.
 
 ## <a name="application-dependencies"></a>Uygulama bağımlılıkları
 
-Bing Video arama SDK'yı kullanarak bir konsol uygulaması ayarlamak için Gözat `Manage NuGet Packages` Visual Studio'daki Çözüm Gezgini'nden seçeneği.  Ekleme `Microsoft.Azure.CognitiveServices.Search.VideoSearch` paket.
+Bing Video Arama SDK'sını kullanarak bir konsol uygulaması kurmak için Visual Studio’da Çözüm Gezgini'nde `Manage NuGet Packages` seçeneğine gidin.  `Microsoft.Azure.CognitiveServices.Search.VideoSearch` paketini ekleyin.
 
-Yükleme [[NuGet Video arama SDK paketi]](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.VideoSearch/1.2.0) de dahil olmak üzere bağımlılıkları yükler:
+[[NuGet Video Arama SDK'sı paketini]](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.VideoSearch/1.2.0) yüklemek aşağıdakiler dahil bağımlılık dosyalarını da yükler:
 * Microsoft.Rest.ClientRuntime
 * Microsoft.Rest.ClientRuntime.Azure
 * Newtonsoft.Json
 
 
-## <a name="video-search-client"></a>Video arama istemci
-Örneği oluşturmak için `VideoSearchAPI` istemci, yönergeleri kullanarak ekleyin:
+## <a name="video-search-client"></a>Video Arama istemcisi
+`VideoSearchAPI` istemcisinin bir örneğini oluşturmak için şu "using" yönergelerini ekleyin:
 ```
 using Microsoft.Azure.CognitiveServices.Search.VideoSearch;
 using Microsoft.Azure.CognitiveServices.Search.VideoSearch.Models;
 
 ```
-Ardından, istemci örneği:
+Ardından, istemciyi örneklendirin:
 ```
 var client = new VideoSearchAPI(new ApiKeyServiceClientCredentials("YOUR-ACCESS-KEY"));
 
 
 ```
-İstemci, videolar için bir sorgu metinle "SwiftKey" aramak için kullanın.
+İstemciyle videolarda "SwiftKey" sorgu metnini arayın.
 ```
 var videoResults = client.Videos.SearchAsync(query: "SwiftKey").Result;
 Console.WriteLine("Search videos for query \"SwiftKey\"");
 
 ```
 
-Sonuçları ayrıştırma sonra sonuçları sayısını doğrulayın ve kimliği, adı ve url ilk video sonucunun yazdırın.
+Sonuçları ayrıştırın, sonra sonuç sayısını doğrulayın ve ilk video sonucunun ID, name ve url değerlerini yazdırın.
 ```
 if (videoResults == null)
 {
@@ -79,7 +79,7 @@ else
 ```
 ## <a name="complete-console-application"></a>Tam konsol uygulaması
 
-Aşağıdaki konsol uygulaması önceden tanımlanmış sorguyu çalıştırır ve sonuçları ayrıştırır.
+Aşağıdaki konsol uygulaması önceden tanımlanan sorguyu yürütür ve sonuçları ayrıştırır.
 
 ```
 using System;
@@ -142,7 +142,7 @@ namespace VideoSrchSDK
 ```
 ## <a name="url-parameters"></a>URL parametreleri
 
-Sorgu metni "Bellevue toplamı" değişmeden, kısa videolar ve 1080 p çözüm arayın.  Sonuç sayısı doğrulayın ve yazdırma kimliği, adı ve url ilk video sonucunun.
+Değiştirilmemiş, kısa ve 1080 piksel çözünürlüklü videolarda "Bellevue Trailer" sorgu metnini arayın.  Sonuç sayısı doğrulayın ve ilk video sonucunun ID, name ve url değerlerini yazdırın.
 
 ```
         public static void VideoSearchWithFilters(VideoSearchAPI client)
@@ -184,7 +184,7 @@ Sorgu metni "Bellevue toplamı" değişmeden, kısa videolar ve 1080 p çözüm 
 
 ```
 ## <a name="trending-videos"></a>Popüler videolar
-Oluşturan eğilim video arayın, ardından başlık kutucukları ve kategorileri doğrulayın.
+Popüler videoları arayın, ardından başlık kutucuklarını ve kategorileri doğrulayın.
 ```
         public static void VideoTrending(VideoSearchAPI client)
         {
@@ -259,7 +259,7 @@ Oluşturan eğilim video arayın, ardından başlık kutucukları ve kategoriler
 
 ```
 ## <a name="details"></a>Ayrıntılar
-Videolar "Bellevue toplamı" için arama ve ilk video ayrıntılı bilgi için arama yapın.
+Videolarda "Bellevue Trailer" ifadesini, ardından ilk videonun ayrıntılı bilgilerini arayın.
 ```
         public static void VideoDetail(VideoSearchAPI client)
         {
@@ -323,4 +323,4 @@ Videolar "Bellevue toplamı" için arama ve ilk video ayrıntılı bilgi için a
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-[Bilişsel hizmetler .NET SDK'sı örneği](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7)
+[Bilişsel Hizmetler .NET SDK örnekleri](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7)

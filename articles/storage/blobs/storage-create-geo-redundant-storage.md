@@ -9,14 +9,14 @@ ms.date: 03/26/2018
 ms.author: tamram
 ms.custom: mvc
 ms.component: blobs
-ms.openlocfilehash: b3916fb0de48f30bd4809d1fc42dde6ac78c07b6
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: d50291a33a9456fad20382d8e646bf6a19d6179e
+ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44023275"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47180890"
 ---
-# <a name="make-your-application-data-highly-available-with-azure-storage"></a>Azure depolama ile uygulama verilerinizi yüksek oranda kullanılabilir hale getirme
+# <a name="tutorial-make-your-application-data-highly-available-with-azure-storage"></a>Öğretici: Uygulama verilerinizi Azure depolama ile yüksek oranda kullanılabilir yapma
 
 Bu öğretici, uygulama verilerinizi Azure’da yüksek oranda kullanılabilir hale getirmeyi açıklayan bir serinin ilk bölümüdür. Öğreticiyi tamamladığınızda [okuma erişimli coğrafi olarak yedekli](../common/storage-redundancy-grs.md#read-access-geo-redundant-storage) (RA-GRS) bir depolama hesabına blob yükleyen ve buradan blob alan bir konsol uygulamanız olur. RA-GRS, birincil bölgedeki işlemleri ikincil bölgede çoğaltarak çalışır. Bu çoğaltma işlemi, ikincil bölgedeki verilerin nihai olarak tutarlı olmasını sağlar. Uygulama, hangi uç noktaya bağlanılacağını belirlemek için [Devre Kesici](/azure/architecture/patterns/circuit-breaker) düzenini kullanır. Bir hatanın simülasyonu yapıldığında uygulama ikincil uç noktaya geçer.
 

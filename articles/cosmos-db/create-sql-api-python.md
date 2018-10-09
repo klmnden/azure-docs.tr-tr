@@ -9,14 +9,14 @@ ms.component: cosmosdb-sql
 ms.custom: quick start connect, mvc, devcenter
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 04/13/2018
+ms.date: 09/24/2018
 ms.author: sngun
-ms.openlocfilehash: d03b890bc0ffda41c1059e216382d79f4b35c5a5
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 666b99bcca460e3dd756c9d94912d01945c68909
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 09/24/2018
-ms.locfileid: "46995406"
+ms.locfileid: "47035938"
 ---
 # <a name="azure-cosmos-db-build-a-sql-api-app-with-python-and-the-azure-portal"></a>Azure Cosmos DB: Python ve Azure portalı ile bir SQL API'si uygulaması derleme
 
@@ -30,7 +30,7 @@ ms.locfileid: "46995406"
 
 Azure Cosmos DB, Microsoft'un genel olarak dağıtılmış çok modelli veritabanı hizmetidir. Bu hizmetle belge, anahtar/değer ve grafik veritabanlarını kolayca oluşturup sorgulayabilir ve tüm bunları yaparken Azure Cosmos DB'nin genel dağıtım ve yatay ölçeklendirme özelliklerinden faydalanabilirsiniz. 
 
-Bu hızlı başlangıç belgesinde Azure portalını kullanarak bir Azure Cosmos DB [SQL API](sql-api-introduction.md) hesabını, belge veritabanını ve koleksiyonunu nasıl oluşturacağınız anlatılmıştır. Bu adımların ardından [SQL Python API'si](sql-api-sdk-python.md) kullanarak bir konsol uygulaması derleyebilir ve çalıştırabilirsiniz.
+Bu hızlı başlangıçta Azure portalı kullanarak bir Azure Cosmos DB [SQL API](sql-api-introduction.md) hesabı, belge veritabanı ve kapsayıcı oluşturma gösterilmektedir. Daha sonra [SQL API](sql-api-sdk-python.md)'si için Python SDK'sı ile bir konsol uygulamasını derleyip çalıştıracaksınız. Bu hızlı başlangıç [Python SDK] 3.0 sürümünü kullanmaktadır.(https://pypi.org/project/azure-cosmos)
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
@@ -58,7 +58,7 @@ Bu hızlı başlangıç belgesinde Azure portalını kullanarak bir Azure Cosmos
 
 ## <a name="clone-the-sample-application"></a>Örnek uygulamayı kopyalama
 
-Şimdi GitHub'dan bir SQL API'si uygulaması kopyalayalım, bağlantı dizesini ayarlayalım ve uygulamayı çalıştıralım. Verilerle programlı bir şekilde çalışmanın ne kadar kolay olduğunu görüyorsunuz. 
+Şimdi GitHub'dan bir SQL API uygulaması kopyalayalım, bağlantı dizesini ayarlayalım ve uygulamayı çalıştıralım.
 
 1. Bir komut istemini açın, git-samples adlı yeni bir klasör oluşturun ve komut istemini kapatın.
 
@@ -75,27 +75,29 @@ Bu hızlı başlangıç belgesinde Azure portalını kullanarak bir Azure Cosmos
 3. Örnek depoyu kopyalamak için aşağıdaki komutu çalıştırın. Bu komut bilgisayarınızda örnek uygulamanın bir kopyasını oluşturur. 
 
     ```bash
-    git clone https://github.com/Azure-Samples/azure-cosmos-db-documentdb-python-getting-started.git
+    git clone https://github.com/Azure-Samples/azure-cosmos-db-python-getting-started.git
     ```  
     
 ## <a name="review-the-code"></a>Kodu gözden geçirin
 
 Bu adım isteğe bağlıdır. Veritabanı kaynaklarının kodda nasıl oluşturulduğunu öğrenmekle ilgileniyorsanız aşağıdaki kod parçacıklarını gözden geçirebilirsiniz. Aksi durumda, [Bağlantı dizenizi güncelleştirme](#update-your-connection-string) bölümüne atlayabilirsiniz. 
 
-Aşağıdaki kod parçacıklarının tamamı, DocumentDBGetStarted.py dosyasından alınır.
+Python SDK'sının eski sürümünü kullandıysanız "koleksiyon" ve "belge" terimlerine aşina olabilirsiniz. Azure Cosmos DB birden fazla API modelini desteklediğinden Python SDK'sının 3.0 ve üzeri sürümlerinde koleksiyon, grafik veya tablo olabilen "kapsayıcı" genel terimi, kapsayıcının içeriğini anlatmak içinse "öğe" terimi kullanılmaktadır.
 
-* DocumentClient başlatılır.
+Aşağıdaki kod parçacıklarının tümü `CosmosGetStarted.py` dosyasından alınmıştır.
+
+* CosmosClient başlatılır.
 
     ```python
-    # Initialize the Python client
-    client = document_client.DocumentClient(config['ENDPOINT'], {'masterKey': config['MASTERKEY']})
+    # Initialize the Cosmos client
+    client = cosmos_client.CosmosClient(url_connection=config['ENDPOINT'], auth={'masterKey': config['MASTERKEY']})
     ```
 
 * Yeni bir veritabanı oluşturulur.
 
     ```python
     # Create a database
-    db = client.CreateDatabase({ 'id': config['SQL_DATABASE'] })
+    db = client.CreateDatabase({ 'id': config['DATABASE'] })
     ```
 
 * Yeni bir koleksiyon oluşturulur.
@@ -103,64 +105,69 @@ Aşağıdaki kod parçacıklarının tamamı, DocumentDBGetStarted.py dosyasınd
     ```python
     # Create collection options
     options = {
-        'offerEnableRUPerMinuteThroughput': True,
-        'offerVersion': "V2",
         'offerThroughput': 400
     }
 
-    # Create a collection
-    collection = client.CreateCollection(db['_self'], { 'id': config['SQL_COLLECTION'] }, options)
+    # Create a container
+    container = client.CreateContainer(db['_self'], container_definition, options)
     ```
 
-* Birkaç belge oluşturulur.
+* Kapsayıcıya bazı öğeler eklenir.
 
     ```python
-    # Create some documents
-    document1 = client.CreateDocument(collection['_self'],
-        { 
-            'id': 'server1',
-            'Web Site': 0,
-            'Cloud Service': 0,
-            'Virtual Machine': 0,
-            'name': 'some' 
-        })
+    # Create and add some items to the container
+    item1 = client.CreateItem(container['_self'], {
+        'serverId': 'server1',
+        'Web Site': 0,
+        'Cloud Service': 0,
+        'Virtual Machine': 0,
+        'message': 'Hello World from Server 1!'
+        }
+    )
+
+    item2 = client.CreateItem(container['_self'], {
+        'serverId': 'server2',
+        'Web Site': 1,
+        'Cloud Service': 0,
+        'Virtual Machine': 0,
+        'message': 'Hello World from Server 2!'
+        }
+    )
     ```
 
 * SQL kullanılarak bir sorgu gerçekleştirilir
 
     ```python
-    # Query them in SQL
-    query = { 'query': 'SELECT * FROM server s' }    
-            
-    options = {} 
+    query = {'query': 'SELECT * FROM server s'}
+
+    options = {}
     options['enableCrossPartitionQuery'] = True
     options['maxItemCount'] = 2
 
-    result_iterable = client.QueryDocuments(collection['_self'], query, options)
-    results = list(result_iterable);
-
-    print(results)
+    result_iterable = client.QueryItems(container['_self'], query, options)
+    for item in iter(result_iterable):
+        print(item['message'])
     ```
 
 ## <a name="update-your-connection-string"></a>Bağlantı dizenizi güncelleştirme
 
 Bu adımda Azure portalına dönerek bağlantı dizesi bilgilerinizi kopyalayıp uygulamaya ekleyin.
 
-1. [Azure portalında](http://portal.azure.com/), Azure Cosmos DB hesabınızın sol gezinti menüsünden **Anahtarlar**'a tıklayın. Ekranın sağ tarafındaki kopyalama düğmelerini kullanarak **URI** ve **Birincil Anahtar** değerlerini kopyalayarak sonraki adımda DocumentDBGetStarted.py dosyasına yapıştırın.
+1. [Azure portalında](http://portal.azure.com/), Azure Cosmos DB hesabınızın sol gezinti menüsünden **Anahtarlar**'a tıklayın. Ekranın sağ tarafındaki kopyalama düğmelerini kullanarak **URI** ve **Primary Key** değerlerini kopyalayıp sonraki adımda bunları `CosmosGetStarted.py` dosyasına yapıştırın.
 
     ![Azure portalında erişim anahtarı görüntüleme ve kopyalama, Anahtarlar dikey penceresi](./media/create-sql-api-dotnet/keys.png)
 
-2. Visual Studio Code’da C:\git-samples\azure-cosmos-db-documentdb-python-getting-startedDocumentDBGetStarted.py dosyasını açın. 
+2. C:\git-samples\azure-cosmos-db-python-getting-started klasöründeki `CosmosGetStarted.py` dosyasını Visual Studio Code'da açın.
 
-3. Portaldaki **URI** değerinizi kopyalayın (kopyalama düğmesini kullanarak) ve DocumentDBGetStarted.py dosyasına **uç nokta** anahtarının değeri olarak yapıştırın. 
+3. **URI** değerinizi (kopyalama düğmesini kullanarak) portaldan kopyalayın ve ``CosmosGetStarted.py`` dosyasına **endpoint** anahtarının değeri olarak yapıştırın. 
 
     `'ENDPOINT': 'https://FILLME.documents.azure.com',`
 
-4. Ardından portaldaki **BİRİNCİL ANAHTAR** değerinizi kopyalayıp DocumentDBGetStarted.py içinde **config.MASTERKEY** öğesinin değeri yapın. Bu adımlarla uygulamanıza Azure Cosmos DB ile iletişim kurması için gereken tüm bilgileri eklemiş oldunuz. 
+4. Ardından portaldan **PRIMARY KEY** değerinizi kopyalayın ve ``CosmosGetStarted.py`` dosyasında **config.PRIMARYKEY** değeri yapın. Bu adımlarla uygulamanıza Azure Cosmos DB ile iletişim kurması için gereken tüm bilgileri eklemiş oldunuz. 
 
-    `'MASTERKEY': 'FILLME',`
+    `'PRIMARYKEY': 'FILLME',`
 
-5. DocumentDBGetStarted.py dosyasını kaydedin.
+5. ``CosmosGetStarted.py`` dosyasını kaydedin.
     
 ## <a name="run-the-app"></a>Uygulamayı çalıştırma
 
@@ -170,29 +177,29 @@ Bu adımda Azure portalına dönerek bağlantı dizesi bilgilerinizi kopyalayıp
 
     Visual Studio Code’daki alt bilgi, seçilen yorumlayıcıyı belirtmek için güncelleştirilir. 
 
-3. Visual Studio SCode tümleşik terminalini açmak için **Görünüm** > **Tümleşik Terminal**'i seçin.
+3. Visual Studio Code tümleşik terminalini açmak için **Görünüm** > **Tümleşik Terminal**'i seçin.
 
-4. Tümleşik terminal penceresinde, azure-cosmos-db-documentdb-python-getting-started klasöründe olduğunuzdan emin olun. Değilseniz, örnek klasörü değiştirmek için aşağıdaki komutu çalıştırın. 
-
-    ```
-    cd "C:\git-samples\azure-cosmos-db-documentdb-python-getting-started"`
-    ```
-
-5. pydocumentdb paketini yüklemek için şu komutu çalıştırın. 
+4. Tümleşik terminal penceresinde, azure-cosmos-db-python-getting-started klasöründe olduğunuzdan emin olun. Değilseniz, örnek klasörü değiştirmek için aşağıdaki komutu çalıştırın. 
 
     ```
-    pip3 install pydocumentdb
+    cd "C:\git-samples\azure-cosmos-db-python-getting-started"`
     ```
 
-    Pydocumentdb yüklemeye çalışırken erişim engellendi hatası alıyorsanız, [VS Code’u yönetici olarak çalıştırmanız gerekir](https://stackoverflow.com/questions/37700536/visual-studio-code-terminal-how-to-run-a-command-with-administrator-rights).
+5. azure-cosmos package'i yüklemek için aşağıdaki komutu çalıştırın. 
+
+    ```
+    pip3 install azure-cosmos
+    ```
+
+    azure-cosmos'u yüklemeye çalışırken erişim engellendi hatası alırsanız, [VS Code’u yönetici olarak çalıştırmanız gerekir](https://stackoverflow.com/questions/37700536/visual-studio-code-terminal-how-to-run-a-command-with-administrator-rights).
 
 6. Örneği çalıştırmak ve Azure Cosmos dB’de yeni belgeler oluşturup depolamak için aşağıdaki komutu çalıştırın.
 
     ```
-    python DocumentDBGetStarted.py
+    python CosmosGetStarted.py
     ```
 
-7. Yeni belgelerin oluşturulduğunu ve kaydedildiğini onaylamak için, Azure portalında, **Veri Gezgini**’ni seçin, **coll** seçeneğini genişletin, **Belgeler** seçeneğini genişletin ve ardından **server1** belgesini seçin. Server1 belgesinin içerikleri tümleşik terminal pencerede döndürülen içerikle eşleşir. 
+7. Yeni öğelerin oluşturulup kaydedildiğini onaylamak için, Azure portalda, **Veri Gezgini**’ni seçin, **coll** seçeneğini genişletin, **Belgeler** seçeneğini genişletin ve ardından **server1** belgesini seçin. Server1 belgesinin içerikleri tümleşik terminal pencerede döndürülen içerikle eşleşir. 
 
     ![Yeni belgeleri Azure portalında görüntüleme](./media/create-sql-api-python/azure-cosmos-db-confirm-documents.png)
 

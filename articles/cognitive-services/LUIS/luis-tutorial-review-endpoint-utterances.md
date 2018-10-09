@@ -1,97 +1,109 @@
 ---
-title: Language Understanding'de (LUIS) uç nokta konuşmalarını gözden geçirme öğreticisi - Azure | Microsoft Docs
-description: Bu öğreticide, LUIS'de İnsan Kaynakları etki alanındaki uç nokta konuşmalarını gözden geçirmeyi öğreneceksiniz.
+title: 'Öğretici 1: Uç nokta konuşmalarını etkin öğrenme ile inceleme'
+titleSuffix: Azure Cognitive Services
+description: LUIS HTTP uç noktası üzerinden alınan ifadeleri doğrulayarak veya düzelterek LUIS'in emin olmadığı uygulama tahminlerini geliştirin. Bazı konuşmaların amacının, diğerlerinin ise varlığının doğrulanması gerekebilir. Zamanlanmış LUIS bakımınızın normal bir parçası olarak uç noktası konuşmalarını gözden geçirmeniz gerekir.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: luis
+ms.component: language-understanding
 ms.topic: tutorial
-ms.date: 08/03/2018
+ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: db44bfad5ece59ed3373699c10d6134201bf1879
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: 1047c117228b57f7361a1e386bc6cde7acbfdde8
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44160090"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47042287"
 ---
-# <a name="tutorial-review-endpoint-utterances"></a>Öğretici: Uç nokta konuşmalarını gözden geçirme
-Bu öğreticide, LUIS HTTP uç noktası üzerinden alınan konuşmaları doğrulayarak veya düzelterek uygulama tahminlerini geliştirin. 
+# <a name="tutorial-1-fix-unsure-predictions"></a>Öğretici 1: Emin olunmayan tahminleri düzeltme
+Bu öğreticide, LUIS HTTP uç noktası üzerinden alınan ifadeleri doğrulayarak veya düzelterek LUIS'in emin olmadığı uygulama tahminlerini geliştireceksiniz. Bazı konuşmaların amaç, diğerlerinin ise varlık için doğrulanması gerekebilir. Zamanlanmış LUIS bakımınızın normal bir parçası olarak uç noktası konuşmalarını gözden geçirmeniz gerekir. 
 
-<!-- green checkmark -->
-> [!div class="checklist"]
-> * Uç nokta konuşmalarını gözden geçirmeyi anlama 
-> * İnsan Kaynakları (İK) etki alanı için LUIS uygulaması kullanma 
-> * Uç nokta konuşmasını gözden geçirme
-> * Uygulamayı eğitme ve yayımlama
-> * LUIS JSON yanıtını görmek için uygulamanın uç noktasını sorgulama
-
-[!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
-
-## <a name="before-you-begin"></a>Başlamadan önce
-[Yaklaşım](luis-quickstart-intent-and-sentiment-analysis.md) öğreticisinden İnsan Kaynakları uygulamanız yoksa, uygulamayı [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-sentiment-HumanResources.json) Github deposundan indirin. Bu öğreticiyi yeni, içeri aktarılan bir uygulama olarak kullanıyorsanız, ayrıca bunu eğitmeniz, yayımlamanız ve bir [betikle](https://github.com/Microsoft/LUIS-Samples/blob/master/examples/demo-upload-endpoint-utterances/endpoint.js) veya tarayıcıda uç noktadan konuşmaları eklemeniz gerekir. Eklenecek konuşmalar:
-
-   [!code-nodejs[Node.js code showing endpoint utterances to add](~/samples-luis/examples/demo-upload-endpoint-utterances/endpoint.js?range=15-26)]
-
-Özgün İnsan Kaynakları uygulamasını tutmak istiyorsanız [Settings](luis-how-to-manage-versions.md#clone-a-version) (Ayarlar) sayfasında sürümü kopyalayıp adını `review` olarak değiştirin. Kopyalama, özgün sürümünüzü etkilemeden farklı LUIS özelliklerini deneyebileceğiniz ideal bir yol sunar. 
-
-Öğretici serisi aracılığıyla uygulamanın tüm sürümlerine sahipseniz, **Uç nokta konuşmalarını gözden geçir** listesinin sürüme göre değişmediğini görmek sizi şaşırtabilir. Etkin olarak hangi sürümün konuşmasını düzenlediğinizden veya uç noktada uygulamanın hangi sürümünün yayımlandığından bağımsız olarak, gözden geçirilecek tek bir konuşma havuzu vardır. 
-
-## <a name="purpose-of-reviewing-endpoint-utterances"></a>Uç nokta konuşmalarını gözden geçirmenin amacı
-Bu gözden geçirme işlemi, LUIS için uygulama etki alanınızı öğrenmenin bir diğer yoludur. LUIS gözden geçirme listesinde konuşmaları seçer. Bu liste:
+Bu gözden geçirme işlemi, LUIS için uygulama alanınızı öğrenmenin bir diğer yoludur. LUIS, gözden geçirme listesinde görünen konuşmaları seçmiştir. Bu liste:
 
 * Uygulamaya özeldir.
 * Uygulamanın tahmin doğruluğunu geliştirmek için hazırlanmıştır. 
 * Düzenli aralıklarla gözden geçirilmelidir. 
 
-Uç nokta konuşmalarını gözden geçirerek, konuşmanın tahmin edilen amacını doğrular veya düzeltirsiniz. Ayrıca, tahmin edilmemiş olan özel varlıkları da etiketlersiniz. 
+Uç nokta ifadelerini gözden geçirerek, ifadenin tahmin edilen amacını doğrular veya düzeltirsiniz. Tahmin edilmeyen veya yanlış tahmin edilen özel varlıkları da etiketlersiniz. 
 
-## <a name="review-endpoint-utterances"></a>Uç nokta konuşmasını gözden geçirme
+**Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:**
 
-1. İnsan Kaynakları uygulamanızın LUIS sisteminin **Build** (Derleme) bölümünde olduğundan emin olun. Sağ taraftaki menü çubuğunun en üstünde bulunan **Build** (Derleme) ifadesini seçerek bu bölüme geçebilirsiniz. 
+<!-- green checkmark -->
+> [!div class="checklist"]
+> * Mevcut öğretici uygulamasını kullanma
+> * Uç nokta ifadelerini gözden geçirme
+> * Tümcecik listesini güncelleştirme
+> * Uygulamayı eğitme
+> * Uygulama yayımlama
+> * LUIS JSON yanıtını görmek için uygulamanın uç noktasını sorgulama
 
-2. Sol gezintiden **Uç nokta konuşmalarını gözden geçir**'i seçin. Bu liste **ApplyForJob** amacı için filtrelenmiştir. 
+[!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
-    [ ![Sol gezintideki uç nokta konuşmalarını gözden geçir düğmesinin ekran görüntüsü](./media/luis-tutorial-review-endpoint-utterances/entities-view-endpoint-utterances.png)](./media/luis-tutorial-review-endpoint-utterances/entities-view-endpoint-utterances.png#lightbox)
+## <a name="use-existing-app"></a>Mevcut uygulamayı kullanma
+
+Son öğreticide oluşturulan **HumanResources** adlı uygulamayla devam edin. 
+
+Önceki öğreticinin HumanResources uygulaması elinizde yoksa, aşağıdaki adımları izleyin:
+
+1.  [Uygulama JSON dosyasını](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/custom-domain-sentiment-HumanResources.json) indirin ve kaydedin.
+
+2. JSON'ı yeni bir uygulamaya içeri aktarın.
+
+3. **Yönet** bölümünde, **Sürümler** sekmesinde, sürümü kopyalayın ve `review` olarak adlandırın. Kopyalama, özgün sürümünüzü etkilemeden farklı LUIS özelliklerini deneyebileceğiniz ideal bir yol sunar. Sürüm adı URL rotasının bir parçası olarak kullanıldığından ad bir URL'de geçerli olmayan hiçbir karakter içeremez.
+
+    Bu öğreticiyi yeni, içeri aktarılan bir uygulama olarak kullanıyorsanız, uygulamayı eğitmeniz, yayımlamanız ve sonra da bir [betikle](https://github.com/Microsoft/LUIS-Samples/blob/master/examples/demo-upload-endpoint-utterances/endpoint.js) veya tarayıcıdaki uç noktadan ifadeleri uç noktaya eklemeniz gerekir. Eklenecek konuşmalar:
+
+   [!code-nodejs[Node.js code showing endpoint utterances to add](~/samples-luis/examples/demo-upload-endpoint-utterances/endpoint.js?range=15-26)]
+
+    Öğretici serisi aracılığıyla uygulamanın tüm sürümlerine sahipseniz, **Review endpoint utterances** (Uç nokta ifadelerini gözden geçir) listesinin sürüme göre değişmediğini görmek sizi şaşırtabilir. Hangi sürümü etkin olarak düzenlemekte olduğunuzdan veya uç noktada uygulamanın hangi sürümünün yayımlandığından bağımsız olarak gözden geçirilecek tek bir konuşma havuzu vardır. 
+
+## <a name="review-endpoint-utterances"></a>Uç nokta ifadelerini gözden geçirme
+
+1. [!include[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
+
+2. Sol gezintiden **Uç nokta ifadelerini gözden geçir**'i seçin. Bu liste **ApplyForJob** amacı için filtrelenmiştir. 
+
+    [ ![Sol gezintideki uç nokta konuşmalarını gözden geçir düğmesinin ekran görüntüsü](./media/luis-tutorial-review-endpoint-utterances/review-endpoint-utterances-with-entity-view.png)](./media/luis-tutorial-review-endpoint-utterances/review-endpoint-utterances-with-entity-view.png#lightbox)
 
 3. Etiketlenmiş varlıkları görmek için **Varlıklar görünümüne** geçin. 
     
-    [ ![Varlıklar görünümü iki durumlu düğmesini vurgulandığı Uç nokta konuşmalarını gözden geçir ekran görüntüsü](./media/luis-tutorial-review-endpoint-utterances/select-entities-view.png)](./media/luis-tutorial-review-endpoint-utterances/select-entities-view.png#lightbox)
+    [ ![Varlıklar görünümü iki durumlu düğmesini vurgulandığı Uç nokta konuşmalarını gözden geçir ekran görüntüsü](./media/luis-tutorial-review-endpoint-utterances/review-endpoint-utterances-with-token-view.png)](./media/luis-tutorial-review-endpoint-utterances/review-endpoint-utterances-with-token-view.png#lightbox)
 
-    |Konuşma|Doğru amaç|Eksik varlıklar|
+    |İfade|Doğru amaç|Eksik varlıklar|
     |:--|:--|:--|
     |Doğal Dil İşleme ile ilgili bir iş arıyorum|GetJobInfo|İş - "Doğal Dil İşleme"|
 
-    Bu konuşma doğru amaçta değildir ve puanı %50'den düşüktür. **ApplyForJob** amacının 21 konuşması varken, **GetJobInformation** amacının yedi konuşması vardır. Uç nokta konuşmasını düzgün hizalamanın yanı sıra, **GetJobInformation** amacına daha fazla konuşma da eklenmelidir. Bu, kendi başınıza tamamlamanız için bir alıştırma olarak bırakılmıştır. **Hiçbiri** amacı dışındaki her amacın kabaca aynı sayıda örnek konuşması olmalıdır. **Hiçbiri** amacındaki konuşma sayısının, uygulamadaki konuşmaların %10'u kadar olması gerekir. 
+    Bu ifade doğru amaçta değildir ve puanı %50'den düşüktür. **ApplyForJob** amacının 21 ifadesi varken, **GetJobInformation** amacının yedi ifadesi vardır. Uç nokta ifadesini doğru eşleştirmenin yanı sıra, **GetJobInformation** amacına daha fazla ifade de eklenmelidir. Bu, kendi başınıza tamamlamanız için bir alıştırma olarak bırakılmıştır. **Hiçbiri** amacı dışındaki her amacın kabaca aynı sayıda örnek ifadesi olmalıdır. **Hiçbiri** amacındaki ifade sayısının, uygulamadaki ifadelerin %10'u kadar olması gerekir. 
 
-    **Belirteçler Görünümünde**, konuşmada mavi metinlerin üzerine gelerek tahmin edilen varlık adını görebilirsiniz. 
+4. `I'm looking for a job with Natual Language Processing` amacı olarak, **Eşleşmiş amaç** sütununda doğru amaç olan **GetJobInformation**'ı seçin. 
 
-4. `I'm looking for a job with Natual Language Processing` amacı olarak, **Hizalı amaç** sütununda doğru amaç olan **GetJobInformation**'ı seçin. 
+    [ ![İfadeyi amaca eşleyen Uç nokta ifadelerini gözden geçir ekran görüntüsü](./media/luis-tutorial-review-endpoint-utterances/align-intent-1.png)](./media/luis-tutorial-review-endpoint-utterances/align-intent-1.png#lightbox)
 
-    [ ![Konuşmayı amaca hizalayan Uç nokta konuşmaları gözden geçir ekran görüntüsü](./media/luis-tutorial-review-endpoint-utterances/align-intent-1.png)](./media/luis-tutorial-review-endpoint-utterances/align-intent-1.png#lightbox)
+5. Aynı ifadede `Natural Language Processing` varlığı keyPhrase'dir. Bunun yerine bu bir **Job** varlığı olmalıdır. `Natural Language Processing` öğesini ve ardından listede **Job** varlığını seçin.
 
-5. Aynı konuşmada `Natural Language Processing` varlığı keyPhrase'dir. Bunun yerine bu bir **Job** varlığı olmalıdır. `Natural Language Processing` öğesini ve ardından listede **Job** varlığını seçin.
+    [ ![İfadede varlığın etiketlendiği Uç nokta ifadelerini gözden geçir ekran görüntüsü](./media/luis-tutorial-review-endpoint-utterances/label-entity.png)](./media/luis-tutorial-review-endpoint-utterances/label-entity.png#lightbox)
 
-    [ ![Konuşmada varlığın etiketlendiği Uç nokta konuşmalarını gözden geçir ekran görüntüsü](./media/luis-tutorial-review-endpoint-utterances/label-entity.png)](./media/luis-tutorial-review-endpoint-utterances/label-entity.png#lightbox)
+6. Aynı satırda, **Eşleşmiş amaca ekle** sütununda yuvarlak için alınmış onay işaretini seçin. 
 
-6. Aynı satırda, **Hizalanmış amaca ekle** sütununda yuvarlak için alınmış onay işaretini seçin. 
+    [ ![Amaçta ifade eşleşmesini son haline getirme ekran görüntüsü](./media/luis-tutorial-review-endpoint-utterances/align-utterance.png)](./media/luis-tutorial-review-endpoint-utterances/align-utterance.png#lightbox)
 
-    [ ![Amaçta konuşma hizalamasını son haline getirme ekran görüntüsü](./media/luis-tutorial-review-endpoint-utterances/align-utterance.png)](./media/luis-tutorial-review-endpoint-utterances/align-utterance.png#lightbox)
+    Bu eylem ifadeyi **Uç nokta ifadelerini gözden geçir** ekranından **GetJobInformation** amacına taşır. Uç nokta ifadesi şimdi söz konusu amaç için örnek bir ifade olmuştur. 
 
-    Bu eylem konuşmayı **Uç nokta konuşmalarını gözden geçir** ekranından **GetJobInformation** amacına taşır. Uç nokta konuşması şimdi söz konusu amaç için örnek bir konuşma olmuştur. 
+7. Bu amaçtaki diğer ifadeleri gözden geçirin, ifadeleri etiketleyin ve **Eşleşmiş amaç** yanlışsa düzeltin.
 
-7. Bu amaçtaki diğer konuşmaları gözden geçirin, konuşmaları etiketleyin ve **Hizalanmış amaç** yanlışsa düzeltin.
+8. Tüm ifadeler doğru olduğunda, her satırdaki onay kutusunu seçin ve ardından **Seçileni ekle**'yi seçerek ifadeleri doğru eşleştirin. 
 
-8. Tüm konuşmalar doğru olduğunda, her satırdaki onay kutusunu seçin ve ardından **Seçileni ekle**'yi seçerek konuşmaları doğru hizalayın. 
+    [ ![Eşleşmiş amacın kalan ifadelerine son haline getirme ekran görüntüsü](./media/luis-tutorial-review-endpoint-utterances/finalize-utterance-alignment.png)](./media/luis-tutorial-review-endpoint-utterances/finalize-utterance-alignment.png#lightbox)
 
-    [ ![Hizalanmış amacın kalan konuşmalarına son haline getirme ekran görüntüsü](./media/luis-tutorial-review-endpoint-utterances/finalize-utterance-alignment.png)](./media/luis-tutorial-review-endpoint-utterances/finalize-utterance-alignment.png#lightbox)
+9. Artık listede bu ifadeler yer almamalıdır. Başka konuşmalar da görünürse, liste boşalana kadar amaçları düzelterek ve eksik varlıkları etiketleyerek listede çalışmaya devam edin. 
 
-9. Artık listede bu konuşmalar yer almamalıdır. Başka konuşmalar da gösteriliyorsa, listede çalışmaya devam edin ve liste boşalana kadar amaçları düzeltin ve eksik varlıkları etiketleyin. Filtre listesinde bir sonraki amacı seçin, sonra konuşmaları düzeltmeye ve varlıkları etiketlemeye devam edin. Her amacın son adımının konuşma satırında **Hizalanmış amaca ekle**'yi seçmek veya her amacın yanındaki kutuyu işaretleyip yukarıdaki tabloda **Seçileni ekle**'yi seçmek olduğunu unutmayın. 
+10. Filtre listesinde bir sonraki amacı seçin, sonra ifadeleri düzeltmeye ve varlıkları etiketlemeye devam edin. Her amacın son adımının ifade satırında **Eşleşmiş amaca ekle**'yi seçmek veya her amacın yanındaki kutuyu işaretleyip yukarıdaki tabloda **Seçileni ekle**'yi seçmek olduğunu unutmayın.
 
-    Bu çok küçük bir uygulamadır. Gözden geçirme işlemi yalnızca birkaç dakika sürer.
+    Filtre listesindeki tüm amaçların ve varlıkların boş bir listesi olana kadar devam edin. Bu çok küçük bir uygulamadır. Gözden geçirme işlemi yalnızca birkaç dakika sürer. 
 
-## <a name="add-new-job-name-to-phrase-list"></a>Tümcecik listesine yeni iş adı ekleme
+## <a name="update-phrase-list"></a>Tümcecik listesini güncelleştirme
 Tüm yeni eklenen iş adlarıyla tümcecik listesini güncel tutun. 
 
 1. Sol gezintiden **Tümcecik listeleri**'ni seçin.
@@ -100,25 +112,25 @@ Tüm yeni eklenen iş adlarıyla tümcecik listesini güncel tutun.
 
 3. `Natural Language Processing` öğesini bir değer olarak ekleyin ve ardından **Kaydet**'i seçin. 
 
-## <a name="train-the-luis-app"></a>LUIS uygulamasını eğitme
+## <a name="train"></a>Eğitim
 
 LUIS eğitilene kadar bu değişiklikten haberdar olmaz. 
 
 [!INCLUDE [LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
-## <a name="publish-the-app-to-get-the-endpoint-url"></a>Uç nokta URL'sini almak için uygulamayı yayımlama
+## <a name="publish"></a>Yayımlama
 
 Bu uygulamayı içeri aktardıysanız, **Yaklaşım analizi**'ni seçmelisiniz.
 
 [!INCLUDE [LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
-## <a name="query-the-endpoint-with-an-utterance"></a>Uç noktayı bir konuşmayla sorgulama
+## <a name="get-intent-and-entities-from-endpoint"></a>Uç noktasındaki amacı ve varlıkları alma
 
-Düzeltilmiş konuşmaya yakın bir konuşma deneyin. 
+Düzeltilmiş ifadeye yakın bir ifade deneyin. 
 
 1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
-2. Adres çubuğundaki URL'nin sonuna gidip `Are there any natural language processing jobs in my department right now?` yazın. Son sorgu dizesi parametresi konuşma **s**orgusu olan `q` öğesidir. 
+2. Adres çubuğundaki URL'nin sonuna gidip `Are there any natural language processing jobs in my department right now?` yazın. Son sorgu dizesi parametresi ifade **s**orgusu olan `q` öğesidir. 
 
   ```JSON
   {
@@ -219,20 +231,18 @@ Düzeltilmiş konuşmaya yakın bir konuşma deneyin.
 
   Doğru amaç yüksek puanla tahmin edilmiş ve **Job** varlığı `natural language processing` olarak algılanmıştır. 
 
-## <a name="can-reviewing-be-replaced-by-adding-more-utterances"></a>Gözden geçirme işleminin yerini daha fazla konuşma ekleme alabilir mi? 
-Neden daha fazla örnek konuşma eklenmediğini merak ediyor olabilirsiniz. Uç nokta konuşmalarını gözden geçirmenin amacı nedir? Gerçek dünyadaki bir LUIS uygulamasında, uç nokta konuşmaları henüz alışmadığınız sözcük seçimi ve yerleşimi olan kullanıcılara aittir. Aynı sözcük seçimini ve yerleşimini daha önce kullandıysanız, özgün tahminin yüzdesi yüksek olabilir. 
+## <a name="can-reviewing-be-replaced-by-adding-more-utterances"></a>Gözden geçirme işleminin yerini daha fazla ifade ekleme alabilir mi? 
+Neden daha fazla örnek ifade eklenmediğini merak ediyor olabilirsiniz. Uç nokta ifadelerini gözden geçirmenin amacı nedir? Gerçek dünyadaki bir LUIS uygulamasında, uç nokta ifadeleri henüz alışmadığınız sözcük seçimi ve yerleşimi olan kullanıcılara aittir. Aynı sözcük seçimini ve yerleşimini daha önce kullandıysanız, özgün tahminin yüzdesi yüksek olabilir. 
 
-## <a name="why-is-the-top-intent-on-the-utterance-list"></a>En üst amaç neden konuşma listesinde yer alıyor? 
-Bazı uç nokta konuşmalarının gözden geçirme listesinde yüksek bir yüzdesi olacaktır. Bu konuşmaları yine de gözden geçirmeniz ve doğrulamanız gerekir. Bunların listede olmasının nedeni, bir sonraki yüksek amacın puanının en üst amaç puanına yakın olmasıdır. 
-
-## <a name="what-has-this-tutorial-accomplished"></a>Bu öğretici hangi işlemleri gerçekleştirdi?
-Bu uygulamanın tahmin doğruluğu, uç noktadan konuşmalar gözden geçirilerek artırıldı. 
+## <a name="why-is-the-top-intent-on-the-utterance-list"></a>En üst amaç neden ifade listesinde yer alıyor? 
+Bazı uç nokta konuşmalarının gözden geçirme listesinde yüksek bir tahmin puanı olacaktır. Bu ifadeleri yine de gözden geçirmeniz ve doğrulamanız gerekir. Bunların listede olmasının nedeni, bir sonraki yüksek amacın puanının en üst amaç puanına yakın olmasıdır. İlk iki amaç arasında yaklaşık %15 bir fark olmasını istersiniz.
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 
 [!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>Sonraki adımlar
+Bu öğreticide uç noktada gönderilen LUIS'in emin olmadığı konuşmaları incelediniz. Bu konuşmalar doğrulandıktan ve örnek konuşmalar olarak doğru amaçlara taşındıktan sonra LUIS tahmin etme doğruluğunu artıracaktır.
 
 > [!div class="nextstepaction"]
 > [Desenleri kullanmayı öğrenin](luis-tutorial-pattern.md)

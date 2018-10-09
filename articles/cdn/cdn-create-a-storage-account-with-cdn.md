@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 05/24/2018
 ms.author: v-deasim
 ms.custom: mvc
-ms.openlocfilehash: 05ce8c932e9d3d812e34e23c082d459c3193ea40
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 1f720c8921a9a49e76465cce1c8226232fdb12ea
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34608510"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47096250"
 ---
 # <a name="quickstart-integrate-an-azure-storage-account-with-azure-cdn"></a>Hızlı Başlangıç: Azure depolama hesabını Azure CDN ile tümleştirme
 Bu hızlı başlangıçta [Azure İçerik Teslim Ağı'nı (CDN)](cdn-overview.md) Azure depolamadan önbelleğe içerik almak için etkinleştireceksiniz. Azure CDN, geliştiricilere yüksek bant genişlikli içerik sunmak için genel bir çözüm sunmaktadır. İşlem örneklerinin bloblarını ve statik içeriğini Birleşik Devletler, Avrupa, Asya, Avustralya ve Güney Amerika'daki fiziksel düğümlerde önbelleğe alabilir.
@@ -84,7 +84,7 @@ Bir depolama hesabı oluşturmak için Azure portal ve PowerShell dahil olmak ü
 
 ## <a name="enable-azure-cdn-for-the-storage-account"></a>Depolama hesabı için Azure CDN'yi etkinleştirme
 
-Azure CDN'yi doğrudan depolama hesabınızdan depolama hesabınız için etkinleştirebilirsiniz. CDN uç noktanız için, en iyi duruma getirme türü gibi gelişmiş yapılandırma ayarları belirtmek istiyorsanız, bunun yerine bir CDN profili veya bir CDN uç noktası oluşturmak için [Azure CDN uzantısını](cdn-create-new-endpoint.md) kullanın.
+Azure CDN'yi doğrudan depolama hesabınızdan depolama hesabınız için etkinleştirebilirsiniz. CDN uç noktanız için [büyük dosya indirmeyi en iyi duruma getirme](cdn-optimization-overview.md#large-file-download) gibi gelişmiş yapılandırma ayarları belirtmek istiyorsanız, bir CDN profili ve uç noktası oluşturmak üzere bunun yerine [Azure CDN uzantısını](cdn-create-new-endpoint.md) kullanabilirsiniz.
 
 1. Panodan bir depolama hesabını ve ardından sol bölmeden **Azure CDN**'yi seçin. **Azure CDN** düğmesi hemen görünmüyorsa, bulmak için CDN'yi sol bölmenin **Arama** kutusuna girebilirsiniz.
     
@@ -109,6 +109,9 @@ Azure CDN'yi doğrudan depolama hesabınızdan depolama hesabınız için etkinl
 CDN uç noktası yapılandırma sayfasını açmak için depolama hesabı **Azure CDN** sayfasında listeden CDN uç noktasını seçin. Bu sayfadan [sıkıştırma](cdn-improve-performance.md), [sorgu dizesi önbelleğe alma](cdn-query-string.md) ve [coğrafi filtreleme](cdn-restrict-access-by-country.md) gibi ek CDN özelliklerini sunduğunuz içerik için etkinleştirebilirsiniz. 
     
 ![Depolama CDN uç noktası yapılandırması](./media/cdn-create-a-storage-account-with-cdn/cdn-storage-endpoint-configuration.png)
+
+## <a name="enable-sas"></a>SAS'yi etkinleştirme
+Özel depolama kapsayıcılarına sınırlı erişim vermek istiyorsanız, Azure depolama hesabınızın Paylaşılan Erişim İmzası (SAS) özelliğini kullanabilirsiniz. Bir SAS, hesap anahtarınızı açığa çıkarmadan Azure Depolama kaynaklarınıza kısıtlı erişim hakları veren bir URI'dir. Daha fazla bilgi için bkz. [Azure CDN'yi SAS ile kullanma](cdn-sas-storage-support.md).
 
 ## <a name="access-cdn-content"></a>CDN içeriğine erişme
 CDN'de önbelleğe alınmış içeriğe erişmek için portalda verilen CDN URL'sini kullanın. Önbelleğe alınan bir blobun adresi aşağıdaki biçimdedir:
@@ -139,8 +142,8 @@ Azure CDN'de daha önce önbelleğe alınmış bir nesne, yaşam süresi sona er
 3. Depolama hesabınızı silmek için, hesabı panodan seçin, sonra üstteki menüden **Sil**'i seçin.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-CDN uç noktanıza özel etki alanı ekleme hakkında bilgi edinmek için aşağıdaki öğreticiye bakın:
+CDN uç noktanıza özel etki alanı ekleme ve uç noktada HTTPS'yi etkinleştirme hakkında bilgi edinmek için aşağıdaki öğreticiye bakın:
 
 > [!div class="nextstepaction"]
-> [Öğretici: Azure CDN uç noktanıza özel etki alanı ekleme](cdn-map-content-to-custom-domain.md)
+> [Öğretici: Depolama bloblarına HTTPS üzerinden Azure CDN özel etki alanı kullanarak erişme](cdn-storage-custom-domain-https.md)
 

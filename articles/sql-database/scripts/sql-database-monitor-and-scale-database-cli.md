@@ -2,43 +2,39 @@
 title: CLI örneği-tek bir Azure SQL veritabanı izleme-ölçeklendirme | Microsoft Docs
 description: Tek bir Azure SQL veritabanını izleme ve ölçeklendirmeye yönelik Azure CLI örnek betiği
 services: sql-database
-documentationcenter: sql-database
-author: CarlRabeler
-manager: craigg
-editor: carlrab
-tags: azure-service-management
-ms.assetid: ''
 ms.service: sql-database
-ms.custom: monitor & tune, mvc
+ms.subservice: performance
+ms.custom: ''
 ms.devlang: azurecli
 ms.topic: sample
-ms.tgt_pltfrm: sql-database
-ms.workload: database
-ms.date: 04/01/2018
+author: CarlRabeler
 ms.author: carlrab
-ms.openlocfilehash: 00464de212b7a2faa62eeac15bc4db1fd0f84b4f
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.reviewer: ''
+manager: craigg
+ms.date: 09/28/2018
+ms.openlocfilehash: 3484c402f85985a4de70ae2077404613539eaeb6
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34364446"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47451808"
 ---
 # <a name="use-cli-to-monitor-and-scale-a-single-sql-database"></a>CLI kullanarak tek bir SQL veritabanını izleme ve ölçeklendirme
 
-Bu Azure CLI betik örneği, veritabanının boyut bilgilerini sorguladıktan sonra tek bir Azure SQL veritabanı örneğini farklı bir performans düzeyine ölçeklendirir. 
+Bu Azure CLI betik örneği, veritabanının boyut bilgilerini sorguladıktan sonra tek bir Azure SQL veritabanı örneğini farklı bir işlem boyutuna ölçeklendirir. 
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-CLI'yi yerel olarak yükleyip kullanmayı tercih ederseniz bu makale için Azure CLI 2.0 veya sonraki bir sürümünü kullanmanız gerekir. Sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI 2.0 yükleme]( /cli/azure/install-azure-cli). 
+CLI'yi yerel olarak yükleyip kullanmayı tercih ederseniz bu makale için Azure CLI 2.0 veya sonraki bir sürümünü kullanmanız gerekir. Sürümü bulmak için `az --version` komutunu çalıştırın. Yükleme veya yükseltme yapmanız gerekirse bkz. [Azure CLI’yı yükleme]( /cli/azure/install-azure-cli). 
 
 ## <a name="sample-script"></a>Örnek betik
 
 [!code-azurecli-interactive[main](../../../cli_scripts/sql-database/monitor-and-scale-database/monitor-and-scale-database.sh "Monitor and scale single SQL Database")]
 
 > [!TIP]
-> Veritabanı üzerinde gerçekleştirilen işlemlerin listesini almak için [az sql db op list](/cli/azure/sql/db/op?#az_sql_db_op_list), veritabanı üzerindeki bir güncelleştirme işlemini iptal etmek için [az sql db op cancel](/cli/azure/sql/db/op#az_sql_db_op_cancel) komutunu kullanın.
+> Veritabanı üzerinde gerçekleştirilen işlemlerin listesini almak için [az sql db op list](/cli/azure/sql/db/op?#az-sql-db-op-list), veritabanı üzerindeki bir güncelleştirme işlemini iptal etmek için [az sql db op cancel](/cli/azure/sql/db/op#az-sql-db-op-cancel) komutunu kullanın.
 
 ## <a name="clean-up-deployment"></a>Dağıtımı temizleme
 
@@ -54,11 +50,11 @@ Bu betik aşağıdaki komutları kullanır. Tablodaki her komut, komuta özgü b
 
 | Komut | Notlar |
 |---|---|
-| [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | Tüm kaynakların depolandığı bir kaynak grubu oluşturur. |
-| [az sql server create](https://docs.microsoft.com/cli/azure/sql/server#az_sql_server_create) | Veritabanını barındıran bir mantıksal sunucu oluşturur. |
-| [az sql db show-usage](https://docs.microsoft.com/cli/azure/sql/db#az_sql_db_show_usage) | Bir veritabanının boyut kullanım bilgilerini gösterir. |
-| [az sql db update](https://docs.microsoft.com/cli/azure/sql/db#az_sql_db_update) | Veritabanı özelliklerini (hizmet katmanı veya performans düzeyi) güncelleştirir veya bir veritabanını elastik havuzun içine veya dışına ya da elastik havuzlar arasında taşır. |
-| [az group delete](https://docs.microsoft.com/cli/azure/vm/extension#az_vm_extension_set) | Bir kaynak grubunu tüm iç içe geçmiş kaynaklar dahil siler. |
+| [az group create](https://docs.microsoft.com/cli/azure/group#az-group-create) | Tüm kaynakların depolandığı bir kaynak grubu oluşturur. |
+| [az sql server create](https://docs.microsoft.com/cli/azure/sql/server#az-sql-server-create) | Veritabanını barındıran bir mantıksal sunucu oluşturur. |
+| [az sql db show-usage](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-show-usage) | Bir veritabanının boyut kullanım bilgilerini gösterir. |
+| [az sql db update](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-update) | Veritabanı özelliklerini (hizmet katmanı veya işlem boyutu) güncelleştirir veya bir veritabanını elastik havuzun içine veya dışına ya da elastik havuzlar arasında taşır. |
+| [az group delete](https://docs.microsoft.com/cli/azure/vm/extension#az-vm-extension-set) | Bir kaynak grubunu tüm iç içe geçmiş kaynaklar dahil siler. |
 |||
 
 ## <a name="next-steps"></a>Sonraki adımlar

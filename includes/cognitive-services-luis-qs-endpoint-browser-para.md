@@ -3,33 +3,33 @@ title: include dosyası
 description: include dosyası
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: luis
 ms.topic: include
 ms.custom: include file
 ms.date: 08/16/2018
 ms.author: diberry
-ms.openlocfilehash: dae56e05f01e83f05e75fdf378c0c50679d18728
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
-ms.translationtype: MT
+ms.openlocfilehash: e507a7c45e286473abe9b9e4365e80fb29eba2a4
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42820268"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47044048"
 ---
-LUIS tahmin uç nokta ne döndürür anlamak için bir web tarayıcısında tahmin sonuç görüntüleyin. Genel Uygulama sorgulamak için kendi anahtarını ve uygulama kimliğini gerekir Ortak IOT uygulama kimliği `df67dcdb-c37d-46af-88e1-8b97951ca1c2`, Birinci adımdaki URL'nin bir parçası olarak sağlanır.
+Bir LUIS tahmin uç noktasının ne döndüğünü anlamak için bir tahmin sonucunu bir Web tarayıcısında görüntüleyin. Ortak bir uygulamayı sorgulamak için kendi anahtarınız ve uygulama kimliğiniz olması gerekir. Ortak IoT uygulama kimliği `df67dcdb-c37d-46af-88e1-8b97951ca1c2`, birinci adımda URL'nin bir parçası olarak verilmiştir.
 
-URL biçimi bir **alma** uç nokta isteği:
+Bir **GET** uç nokta isteğinin URL'sinin biçimi:
 
 ```JSON
 https://<region>.api.cognitive.microsoft.com/luis/v2.0/apps/<appID>?subscription-key=<YOUR-KEY>&q=<user-utterance>
 ```
 
-1. Genel IOT uygulama uç noktası bu biçimdedir: `https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/df67dcdb-c37d-46af-88e1-8b97951ca1c2?subscription-key=<YOUR_KEY>&q=turn on the bedroom light`
+1. Ortak IoT uygulamasının uç noktasının biçimi: `https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/df67dcdb-c37d-46af-88e1-8b97951ca1c2?subscription-key=<YOUR_KEY>&q=turn on the bedroom light`
 
-    URL'yi kopyalayın ve anahtarınızı değerinin yerine `<YOUR_KEY>`.
+    URL'yi kopyalayın ve `<YOUR_KEY>` değerini anahtarınız ile değiştirin.
 
-2. URL'yi bir tarayıcı penceresine yapıştırıp Enter tuşuna basın. LUIS algıladığını belirten bir JSON sonucu tarayıcı görüntüler `HomeAutomation.TurnOn` üst hedefi olarak hedefi ve `HomeAutomation.Room` değerle varlık `bedroom`.
+2. URL'yi bir tarayıcı penceresine yapıştırıp Enter tuşuna basın. Tarayıcıda LUIS'in `HomeAutomation.TurnOn` amacını en önemli amaç olarak ve `HomeAutomation.Room` varlığını `bedroom` değeriyle algıladığını gösteren bir JSON sonucu görüntülenir.
 
     ```JSON
     {
@@ -50,7 +50,7 @@ https://<region>.api.cognitive.microsoft.com/luis/v2.0/apps/<appID>?subscription
     }
     ```
 
-3. URL'deki `q=` parametresinin değerini `turn off the living room light` olarak değiştirip Enter tuşuna basın. Sonuç artık LUIS algılandığını gösterir `HomeAutomation.TurnOff` üst hedefi olarak hedefi ve `HomeAutomation.Room` değerle varlık `living room`. 
+3. URL'deki `q=` parametresinin değerini `turn off the living room light` olarak değiştirip Enter tuşuna basın. Sonuç şimdi LUIS'in `HomeAutomation.TurnOff` amacını en önemli amaç olarak ve `HomeAutomation.Room` varlığını `living room` değeriyle algıladığını gösterir. 
 
     ```JSON
     {

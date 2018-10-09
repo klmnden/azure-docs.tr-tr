@@ -1,42 +1,44 @@
 ---
-title: Azure Content Moderator - .NET kullanarak orta görüntüleri | Microsoft Docs
-description: .NET için Azure Content Moderator SDK'sını kullanarak görüntüleri Orta nasıl
+title: 'Hızlı Başlangıç: .NET kullanarak görüntü denetleme - Content Moderator'
+titlesuffix: Azure Cognitive Services
+description: .NET için Content Moderator SDK'sını kullanarak görüntü denetleme
 services: cognitive-services
 author: sanjeev3
-manager: mikemcca
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
-ms.topic: article
+ms.topic: quickstart
 ms.date: 09/10/2018
 ms.author: sajagtap
-ms.openlocfilehash: 9c662558d21bf52b6e9e5c9e781fee7121493ea2
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
-ms.translationtype: MT
+ms.openlocfilehash: d89d9b8a2e3b00155e82cc28105007ab39fc549c
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 09/26/2018
-ms.locfileid: "47182017"
+ms.locfileid: "47226173"
 ---
-# <a name="moderate-images-using-net"></a>.NET kullanarak orta görüntüleri
+# <a name="quickstart-moderate-images-using-net"></a>Hızlı Başlangıç: .NET kullanarak görüntü denetleme
 
-Bu makalede bilgiler sağlanmaktadır ve yardımcı olması için kod örnekleri, kullanmaya başlama [Content Moderator SDK'sı .NET için](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) için: 
-- Yetişkinlere yönelik veya müstehcen içerik için bir görüntü denetleyin
-- Algılama ve bir görüntüden metni Ayıkla
-- Görüntüdeki yüzleri algılayın
+Bu makalede, aşağıdaki amaçlarla [.NET için Content Moderator SDK'sı](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/)'nı kullanmaya başlamanıza yardımcı olacak bilgi ve kod örnekleri sağlanmaktadır: 
 
-Bu makalede, zaten Visual Studio ve C# ile ilgili bilgi sahibi olduğunuz varsayılır.
+- Bir görüntüyü yetişkinlere yönelik veya müstehcen içerik için denetleme
+- Bir görüntüdeki metni algılama ve ayıklama
+- Bir görüntüdeki yüzleri algılama
 
-## <a name="sign-up-for-content-moderator-services"></a>Content Moderator Hizmetleri için kaydolun
+Bu makale, Visual Studio ve C# hakkında bilgi sahibi olduğunuzu varsayar.
 
-Content Moderator Hizmetleri REST API veya SDK aracılığıyla kullanabilmeniz için önce bir API anahtarı ve bölge API hesabınızın gerekir.
-Başvurmak [hızlı](quick-start.md) hem de elde etmek Content Moderator için kaydolma hakkında bilgi edinmek için.
+## <a name="sign-up-for-content-moderator-services"></a>Content Moderator hizmetleri için kaydolma
 
-## <a name="create-your-visual-studio-project"></a>Visual Studio projenizi oluşturun
+REST API veya SDK aracılığıyla Content Moderator hizmetlerini kullanabilmeniz için önce bir API anahtarı ve API hesabınızın bölgesi gerekir.
+Bunları edinmek için, Content Moderator'a kaydolmayı öğreten [Hızlı Başlangıç](quick-start.md)'a başvurun.
 
-1. Yeni bir **konsol uygulaması (.NET Framework)** çözümünüze bir proje.
+## <a name="create-your-visual-studio-project"></a>Visual Studio projenizi oluşturma
 
-   Örnek kodda, projeyi adlandırın **ImageModeration**.
+1. Çözümünüze yeni bir **Console uygulaması (.NET Framework)** projesi ekleyin.
 
-1. Bu proje, çözüm için tek bir başlangıç projesi olarak seçin.
+   Örnek kodda projeyi **ImageModeration** olarak adlandırın.
+
+1. Bu projeyi çözümün tek başlatma projesi olarak seçin.
 
 
 ### <a name="install-required-packages"></a>Gerekli paketleri yükleme
@@ -47,9 +49,9 @@ Aşağıdaki NuGet paketlerini yükleyin:
 - Microsoft.Rest.ClientRuntime
 - Newtonsoft.Json
 
-### <a name="update-the-programs-using-statements"></a>Deyimleri kullanarak program güncelleştirme
+### <a name="update-the-programs-using-statements"></a>Programı deyimler kullanarak güncelleştirme
 
-Değiştirme deyimleri kullanarak program.
+Programı deyimler kullanarak değiştirin.
 
     using Microsoft.Azure.CognitiveServices.ContentModerator;
     using Microsoft.CognitiveServices.ContentModerator;
@@ -60,12 +62,12 @@ Değiştirme deyimleri kullanarak program.
     using System.IO;
     using System.Threading;
 
-### <a name="create-the-content-moderator-client"></a>Content Moderator istemcisi oluşturma
+### <a name="create-the-content-moderator-client"></a>Content Moderator istemcisini oluşturma
 
-Aboneliğiniz için bir Content Moderator istemcisi oluşturmak için aşağıdaki kodu ekleyin.
+Aboneliğiniz için bir Content Moderator istemcisi oluşturmak üzere aşağıdaki kodu ekleyin.
 
 > [!IMPORTANT]
-> Güncelleştirme **AzureRegion** ve **CMSubscriptionKey** bölge tanımlayıcısı ve abonelik anahtarınızın değerlerini.
+> **AzureRegion** ve **CMSubscriptionKey** alanlarını bölge tanımlayıcınız ve abonelik anahtarınız ile değiştirin.
 
     /// <summary>
     /// Wraps the creation and configuration of a Content Moderator client.
@@ -109,9 +111,9 @@ Aboneliğiniz için bir Content Moderator istemcisi oluşturmak için aşağıda
         }
     }
 
-### <a name="initialize-application-specific-settings"></a>Uygulamaya özgü ayarları başlatmak
+### <a name="initialize-application-specific-settings"></a>Uygulamaya özgü ayarları başlatma
 
-Aşağıdaki statik alanları ekleme **Program** Program.cs sınıfında.
+Aşağıdaki statik alanları Program.cs dosyasındaki **Program** sınıfına ekleyin.
 
     ///<summary>
     ///The name of the file that contains the image URLs to evaluate.
@@ -130,13 +132,13 @@ Aşağıdaki statik alanları ekleme **Program** Program.cs sınıfında.
 
 
 > [!NOTE]
-> Örnek aşağıdaki görüntüler bu hızlı başlangıç için çıktı üretmek için kullanır.
+> Örnek, bu hızlı başlangıcın çıktısını üretmek için aşağıdaki görüntüleri kullanır.
 > - https://moderatorsampleimages.blob.core.windows.net/samples/sample2.jpg
 > - https://moderatorsampleimages.blob.core.windows.net/samples/sample5.png
 
-## <a name="store-the-analysis-results"></a>Analiz sonuçları Store
+## <a name="store-the-analysis-results"></a>Analiz sonuçlarını depolama
 
-Aşağıdaki sınıfa eklemek **Program** sınıfı. Gözden geçirilme görüntüleri için denetleme sonuçları kaydetmek için bu sınıfın bir örneği kullanın.
+Aşağıdaki sınıfı **Program** sınıfına ekleyin. Gözden geçirilen görüntülerin denetim sonuçlarını kaydetmek için bu sınıfın bir örneğini kullanın.
 
     /// <summary>
     /// Contains the image moderation results for an image, 
@@ -165,14 +167,14 @@ Aşağıdaki sınıfa eklemek **Program** sınıfı. Gözden geçirilme görünt
         public FoundFaces FaceDetection;
     }
 
-## <a name="evaluate-an-individual-image"></a>Tek başına bir resmi değerlendir
+## <a name="evaluate-an-individual-image"></a>Tek bir görüntüyü değerlendirme
 
-**Program** sınıfına aşağıdaki yöntemi ekleyin. Bu yöntem, tek bir görüntü değerlendirir ve değerlendirme sonuçlarını döndürür.
+**Program** sınıfına aşağıdaki yöntemi ekleyin. Bu yöntem, tek bir görüntüyü değerlendirir ve değerlendirme sonuçlarını döndürür.
 
 > [!NOTE]
-> Content Moderator hizmet anahtarınız bir istek başına ikinci (RP'ler) hız sınırı vardır ve sınırını aşarsanız, SDK'sı, 429 hata koduna sahip bir özel durum oluşturur. 
+> Content Moderator hizmet anahtarınızın saniye başına istek (RPS) hız sınırı vardır ve bu sınırı aşarsanız SDK 429 hata kodu ile bir özel durum oluşturur. 
 >
-> Ücretsiz katmanı anahtarı bir RPS oranı sınırı vardır.
+> Ücretsiz katman anahtarı bir RPS'lik hız sınırına sahiptir.
 
 
     /// <summary>
@@ -213,18 +215,18 @@ Aşağıdaki sınıfa eklemek **Program** sınıfı. Gözden geçirilme görünt
         return imageData;
     }
 
-**EvaluateUrlInput** yöntemidir resim denetimi REST API'si için bir sarmalayıcı.
-Döndürülen değer, API çağrısından döndürülen nesne içerir.
+**EvaluateUrlInput** yöntemi, Görüntü Denetim REST API'si için bir sarmalayıcıdır.
+Döndürülen değer, API çağrısından döndürülen nesneyi içerir.
 
-**OCRUrlInput** yöntemidir resim OCR REST API'si için bir sarmalayıcı.
-Döndürülen değer, API çağrısından döndürülen nesne içerir.
+**OCRUrlInput** yöntemi, Görüntü OCR REST API'si için bir sarmalayıcıdır.
+Döndürülen değer, API çağrısından döndürülen nesneyi içerir.
 
-**FindFacesUrlInput** görüntü bulma yüzler REST API için bir sarmalayıcı yöntemidir.
-Döndürülen değer, API çağrısından döndürülen nesne içerir.
+**FindFacesUrlInput** yöntemi, Görüntüde Yüzler Bulma REST API'si için bir sarmalayıcıdır.
+Döndürülen değer, API çağrısından döndürülen nesneyi içerir.
 
-## <a name="process-the-image-urls-in-your-code"></a>Resim URL'leri, kodunuzda işleme
+## <a name="process-the-image-urls-in-your-code"></a>Görüntü URL'lerini kodunuzda işleme
 
-Aşağıdaki kodu ekleyin **ana** yöntemi.
+Aşağıdaki kodu **Main** yöntemine ekleyin.
 
     // Create an object to store the image moderation results.
     List<EvaluationData> evaluationData = new List<EvaluationData>();
@@ -257,13 +259,13 @@ Aşağıdaki kodu ekleyin **ana** yöntemi.
         outputWriter.Close();
     }
 
-## <a name="run-the-program-and-review-the-output"></a>Programı çalıştırın ve çıktıyı gözden geçirin
+## <a name="run-the-program-and-review-the-output"></a>Programı çalıştırma ve çıktıyı gözden geçirme
 
-Program çıktısı aşağıdaki JSON nesnesi içerir.
+Aşağıdaki JSON nesnesi program çıktısını içerir.
 
 > [!NOTE]
-> `isImageAdultClassified` olası görüntülerini cinsel açık veya bazı durumlarda yetişkinlere yönelik olarak kabul edilebilir varlığını temsil eder.
-> `isImageRacyClassified` olası görüntülerini cinsel müstehcen veya bazı durumlarda olgun düşünülebilecek varlığını temsil eder.
+> `isImageAdultClassified`, belirli durumlarda açık saçık veya yetişkinlere yönelik olarak değerlendirilebilecek görüntülerin mevcut olma olasılığını gösterir.
+> `isImageRacyClassified`, belirli durumlarda davetkar veya yetişkinlere yönelik olarak değerlendirilebilecek görüntülerin mevcut olma olasılığını gösterir.
 >
 
     [
@@ -451,4 +453,4 @@ Program çıktısı aşağıdaki JSON nesnesi içerir.
 
 ## <a name="next-steps---get-the-source-code"></a>Sonraki adımlar - kaynak kodunu alma
 
-Alma [Content Moderator .NET SDK'sı](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) ve [Visual Studio çözümü](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator) bu ve diğer Content Moderator hızlı başlangıçlar, .NET için ve tümleştirmenizi üzerinde çalışmaya başlayın.
+Bu ve diğer .NET için Content Moderator hızlı başlangıçları için [Content Moderator .NET SDK'sını](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) ve [Visual Studio çözümünü](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator) alın ve tümleştirmeniz üzerinde çalışmaya başlayın.

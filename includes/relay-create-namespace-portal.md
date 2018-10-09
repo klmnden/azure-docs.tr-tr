@@ -1,5 +1,5 @@
 1. [Azure portalında][Azure portal] oturum açın.
-2. Soldaki menüden **+ Kaynak oluştur**'u seçin. Ardından **Kurumsal tümleştirme** > **Geçiş**'i seçin.
+2. Soldaki menüden **+ Kaynak oluştur**'u seçin. Ardından **Tümleştirme** > **Geçiş**'i seçin. Listede **Geçiş**'i görmüyorsanız sağ üst köşedeki **Tümünü Gör**'ü seçin. 
 3. **Ad alanı oluştur** bölümüne bir ad alanı adı girin. Adın kullanılabilirliği sistem tarafından hemen denetlenir.
 4. **Abonelik** kutusunda, ad alanı oluşturmak için kullanmak istediğiniz Azure aboneliğini seçin.
 5. [Kaynak grubu](../articles/azure-resource-manager/resource-group-portal.md) kutusunda, ad alanını barındırmak üzere var olan bir kaynak grubunu seçin veya yeni bir kaynak grubu oluşturun.  

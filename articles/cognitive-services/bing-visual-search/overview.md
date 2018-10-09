@@ -1,55 +1,55 @@
 ---
-title: Bing görsel arama API'sine genel bakış | Microsoft Docs
-titleSuffix: Bing Web Search APIs - Cognitive Services
-description: Ayrıntıları veya benzer resimler veya alışveriş kaynakları gibi bir görüntü ile ilgili Öngörüler alma işlemi gösterilmektedir.
+title: Bing Görsel Arama nedir?
+titleSuffix: Azure Cognitive Services
+description: Bing Görsel Arama bir resimle ilgili olarak benzer resimler veya alışveriş kaynakları gibi ayrıntılar veya içgörüler sağlar.
 services: cognitive-services
 author: swhite-msft
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
 ms.technology: bing-visual-search
-ms.topic: article
+ms.topic: overview
 ms.date: 04/10/2018
 ms.author: scottwhi
-ms.openlocfilehash: aa563d89b1834f5be952f13c31a2451d809709b1
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
-ms.translationtype: MT
+ms.openlocfilehash: 2ab73281eb050a52b596504ea9cc0e478144ff24
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39006538"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47226782"
 ---
 # <a name="what-is-bing-visual-search-api"></a>Bing Görsel Arama API’si nedir?
 
-Bing görsel arama API'sine Bing.com/images üzerinde gösterilen görüntü ayrıntılarını için benzer bir deneyim sağlar. Görsel arama ile resim karşıya yükleyin ve geri görsel açıdan benzer resimler, alışveriş kaynakları, görüntü ve daha fazlasını içeren Web sayfalarının görüntü ile ilgili Öngörüler edinin. Bir görüntü yüklemek yerine, görüntüleri arama sonuçlarındaki bir görüntüden aldığınız bir ınsights belirteci de sağlayabilirsiniz (bkz [Bing resimler API](../bing-image-search/overview.md)).
+Bing Görsel Arama API’si, Bing.com/images sayfasında gösterilen resim ayrıntılarına benzer bir deneyim sağlar. Görsel Arama ile, karşıya bir resim yükleyebilir ve resim hakkında görsel olarak benzer resimler, alışveriş kaynakları ve resmi içeren web sayfaları gibi içgörüler alabilirsiniz. Resmi karşıya yüklemek yerine, resim arama sonuçlarındaki bir resimden aldığınız içgörü belirtecini de sağlayabilirsiniz (bkz. [Bing Görüntü API’si](../bing-image-search/overview.md)).
 
-Görsel arama ünlüleri, anıtları ve yer işareti, resim, ev mobilyaları, biçimde, ürünler, karakter tanıma (OCR) ve daha fazla tanımlayabilirsiniz.
+Görsel Arama ünlüleri, anıtları ve önemli yerleri, sanat yapıtlarını, mobilyaları, modayı, ürünleri, karakter tanımayı (OCR) ve daha birçok öğeyi tanımlayabilir.
 
-Görsel arama bulmanıza olanak tanır ınsights aşağıda verilmiştir.
+Görsel Arama’nın keşfetmenizi sağladığı içgörüleri aşağıda bulabilirsiniz.
 
-- Görsel olarak benzer resimler&mdash;giriş görüntünün görsel olarak benzer resimler listesi
-- Görsel olarak benzer ürünleri&mdash;giriş görüntüde verilen ürün görsel olarak benzer ürünleri içeren görüntülerin listesini
-- Kaynakları alışveriş&mdash;yerleri burada satın alabilirsiniz giriş görüntüde verilen öğe listesi
-- İlgili aramalar&mdash;diğerlerinden veya, tarafından yapılan ilgili aramalar bir listesini resmin içeriğini temel alan
-- Görüntü içeren Web sayfaları&mdash;girdi görüntüsünün içeren Web sayfalarının listesi
-- Tarif&mdash;giriş görüntüde verilen tabağın için tarif içeren Web sayfalarının listesi
+- Görsel olarak benzer resimler&mdash;Girilen resimle görsel olarak benzer resimler listesi
+- Görsel olarak benzer ürünler&mdash;Giriş resminde gösterilen ürüne görsel olarak benzeyen ürünlerin bulunduğu resimlerin listesi
+- Alışveriş kaynakları&mdash;Giriş resminde gösterilen öğeyi satın alabileceğiniz yerlerin listesi
+- İlgili aramalar&mdash;Başkaları tarafından yapılan veya resimdeki içeriği temel alan ilgili aramaların listesi
+- Resmi içeren web sayfaları&mdash;Giriş resmini içeren web sayfalarının listesi
+- Yemek tarifleri&mdash;Giriş resminde gösterilen yemeğin tarifini içeren web sayfalarının listesi
 
-Bu Öngörüler yanı sıra, görsel arama de giriş görüntüden türetilmiş koşulları (etiketler) farklı bir dizi döndürür. Bu etiketler, kullanıcıların görüntüde bulunan kavramlarını keşfedin izin verin. Örneğin, girdi görüntüsünün ünlü bir athlete ise, etiketler biri athlete adını olabilir, başka bir etiket Spor olabilir. Veya bir apple pasta girdi görüntüsünün ise kullanıcılar ilgili kavramları gözatabilirsiniz etiketleri Apple pasta, pasta, Desserts olabilir.
+Bu içgörülere ek olarak, Görsel Arama giriş resminden türetilen çeşitli terimler (etiketler) de döndürür. Bu etiketler kullanıcıların resimde bulunan kavramları incelemesine olanak tanır. Örneğin, giriş resmi ünlü bir sporcuya aitse, etiketlerden biri sporcunun adı ve bir diğeri de Spor olabilir. Öte yandan giriş resminde elmalı tart gösteriliyorsa, etiketler Elmalı Tart, Tart, Tatlılar olabilir ve bu sayede kullanıcılar ilgili kavramları inceleyebilir.
 
-Görsel arama sonuçları, sınırlayıcı kutular bölgeler için görüntüde faiz de içerir. Örneğin, görüntüyü birkaç ünlüleri içeriyorsa, sonuçları her biri, görüntüde tanınan ünlüleri için sınırlayıcı kutular içerebilir. Veya bir ürün veya görüntüde giysi Bing tanır, tanınan bir ürün veya giysi öğe için bir sınırlayıcı kutu sonucu içerebilir.
+Görsel Arama sonuçları, resimdeki ilgi çekici bölgeler için sınırlayıcı kutular da içerir. Örneğin resimde birkaç ünlü görünüyorsa, sonuçlar resimde tanınan ünlülerden her biri için sınırlayıcı kutular içerebilir. Öte yandan Bing resimde bir ürün veya giysi bulunduğunu tanırsa, sonuç tanınan ürünün veya giysi parçası için sınırlayıcı kutu içerebilir.
 
 > [!IMPORTANT]
-> / Resimler/Ayrıntılar uç noktasına kullanıyorsanız [resim öngörüleri alın](../bing-image-search/image-insights.md), çünkü daha kapsamlı içgörüler sağlar görsel arama kullanmanız için kodunuzu güncelleştirmeniz gerekir.
+> [Resim içgörüleri almak](../bing-image-search/image-insights.md) için /images/details uç noktasını kullanıyorsanız, kodunuzu bunun yerine Görsel Arama'yı kullanacak şekilde güncelleştirmelisiniz çünkü Görsel Arama daha kapsamlı içgörüler sağlar.
 
 
 ## <a name="the-request"></a>İstek
 
-Bir görüntü ile ilgili öngörüleri almak için Seçenekler şunlardır: 
+Resimle ilgili içgörüleri almak için aşağıda seçeneklerden sağlanır. 
 
-- Bir görüntüden birine önceki bir çağrı alma bir ınsights belirteci Gönder [Bing resimler API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference) uç noktaları
-- Görüntü URL'sini gönderin
-- Bir görüntü (ikili) yükleyin
+- Önceki bir çağrıdaki resimden aldığınız içgörü belirtecini [Bing Resimler API'si](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference) uç noktalarından birine gönderme
+- Resmin URL'sini gönderme
+- Resmi karşıya yükleme (ikili)
 
 
-Aşağıda, bir görüntü belirteç veya URL görsel arama gönderirseniz, POST gövdesinde içermelidir JSON nesnesi gösterilmektedir. 
+Görsel Arama'ya resim belirteci veya URL gönderirseniz, POST'un gövdesine eklemeniz gereken JSON nesnesi aşağıda gösterilmiştir. 
 
 ```json
 {
@@ -71,67 +71,67 @@ Aşağıda, bir görüntü belirteç veya URL görsel arama gönderirseniz, POST
 }
 ```
 
-`imageInfo` Nesne ya da içermelidir `url` veya `imageInsightsToken` alan ancak ikisine birden değil. Ayarlama `url` Internet erişilebilir görüntünün URL'sini alanı. Desteklenen en yüksek görüntü boyutu 1 MB'dir.
+`imageInfo` nesnesi `url` veya `imageInsightsToken` alanını içermelidir ama ikisini birden içermemelidir. `url` alanını İnternet'ten erişilebilir bir resmin URL'sine ayarlayın. Desteklenen resim boyutu üst sınırı 1 MB'tır.
 
-`imageInsightsToken` Bir ınsights belirtecine ayarlamanız gerekir. Insights belirteç almak için Bing resim API'sini çağırın. Yanıta bir listesini içeren `Image` nesneleri. Her `Image` nesne içeren bir `imageInsightsToken` belirteç içeren alan.
+`imageInsightsToken`, içgörü belirtecine ayarlanmalıdır. İçgörü belirtecini almak için, Bing Resim API'sini çağırın. Yanıt bir `Image` nesneleri listesi içerir. Her `Image` nesnesinde belirteci içeren bir `imageInsightsToken` alanı vardır.
 
-`cropArea` Alandır isteğe bağlı. Kırpma alanının üst, sol üst köşedeki ve alt, bir ilgi bölgesi sağ köşesindeki belirtir. 0.0 ile 1.0 aralığında değerleri belirtin. Toplam genişlik ve yükseklik yüzdesi değerlerdir. Örneğin, yukarıdaki örnek sağ yarısında görüntünün ilgi bölgesi işaretler. İlgi bölgesi ınsights isteği sınırlamak istiyorsanız bunu içerir.
+`cropArea` alanı isteğe bağlıdır. Kırpma alanı ilgilenilen bölgenin sol üst köşesiyle sağ alt köşesini belirtir. 0,0 ile 1,0 arasında değerler belirtin. Değerler bütün genişliğin veya yüksekliğin oranıdır. Örneğin, yukarıdaki örnek ilgilenilen bölge olarak resmin sağ yarısını işaretler. İçgörü isteğini ilgilenilen bölgeyle sınırlandırmak istiyorsanız bunu ekleyin.
 
-`filters` Nesne içeren bir site filtre (bkz `site` alanı) için belirli bir etki alanı benzer resimler ve benzer ürünleri sonuçları kısıtlamak için kullanabilirsiniz. Örneğin bir Surface Book görüntüyse ayarlayabilirsiniz `site` www.microsoft.com için. 
+`filters` nesnesi, benzer resim ve benzer ürün sonuçlarını belirli bir etki alanıyla sınırlandırmak için kullanabileceğiniz bir site filtresi içerir (`site` alanına bakın). Örneğin, resim bir Surface Book ile ilgiliyse, `site` alanını www.microsoft.com olarak ayarlayabilirsiniz. 
 
-Görüntüyü yerel bir kopyasını ilgili Öngörüler almak istiyorsanız, görüntüyü ikili veri olarak yükleyin.
+Bir resmin yerel kopyasıyla ilgili içgörüler almak istiyorsanız, resmi ikili veri olarak karşıya yükleyin.
 
-Gönderinin gövdesi içinde bu seçenekleri dahil olmak üzere hakkında daha fazla ayrıntı için bkz [içerik form türleri](#content-form-types).
+Bu seçenekleri POST’un gövdesine ekleme hakkındaki ayrıntılar için bkz. [İçerik formu türleri](#content-form-types).
 
 
 ### <a name="endpoint"></a>Uç Nokta
 
-Görsel arama uç noktadır: https:\/\/api.cognitive.microsoft.com/bing/v7.0/images/visualsearch.
+Görsel Arama uç noktası şudur: https:\/\/api.cognitive.microsoft.com/bing/v7.0/images/visualsearch.
 
-İstekleri yalnızca HTTP POST istekleri gönderilmesi gerekir. 
+İstekler yalnızca HTTP POST istekleri olarak gönderilmelidir. 
 
 
 ### <a name="query-parameters"></a>Sorgu parametreleri
 
-İsteğiniz belirtmelidir sorgu parametreleri şunlardır: En azından, içermelidir `mkt` sorgu parametresi.
+Aşağıdakiler, isteğinizde belirtilmesi gereken sorgu parametreleridir. En azından `mkt` sorgu parametresini eklemelisiniz.
 
-|Ad|Değer|Tür|Gerekli|  
+|Adı|Değer|Tür|Gerekli|  
 |----------|-----------|----------|--------------|  
-|<a name="cc" />Cc|Sonuçları nereden geldiğini ülkenin 2 karakterli ülke kodu.<br /><br /> Bu parametre ayarlarsanız, ayrıca belirtmelisiniz [Accept-Language](#acceptlanguage) başlığı. Bing diller listesinden bulur ve sonuçları döndürmek için Pazar belirlemek için belirtin ülke kodu ile dil birleştirir ilk desteklenen dilini kullanır. Dillerin listesi desteklenen bir dil içermiyorsa, Bing en yakın dil ve istek destekleyen Pazar bulur. Ya da bir toplu kullanın veya pazar sonuçları yerine belirtilen varsayılan olabilir.<br /><br /> Bu sorgu parametresini kullanmanız gerekir ve `Accept-Language` sorgu parametresi birden çok dil belirtirseniz; Aksi takdirde, kullanmanız gereken `mkt` ve `setLang` sorgu parametreleri.<br /><br /> Bu parametre ve [mkt](#mkt) sorgu parametresi karşılıklı olarak birbirini dışlar&mdash;her ikisini birden belirtmeyin.|Dize|Hayır|  
-|<a name="mkt" />Mkt|Sonuçları nereden geldiğini Pazar. <br /><br /> **Not:** biliniyorsa marketiyle ilgili her zaman belirtmek için önerilir. Pazar belirtme isteği yönlendirmek ve uygun ve en iyi bir yanıt Bing yardımcı olur.<br /><br /> Bu parametre ve [cc](#cc) sorgu parametresi karşılıklı olarak birbirini dışlar&mdash;her ikisini birden belirtmeyin.|Dize|Evet|  
-|<a name="safesearch" />safeSearch|Yetişkinlere yönelik içeriğe filtrelemek için kullanılan bir filtre. Olası büyük küçük harf duyarsız filtre değerleri şunlardır.<br /><ul><li>Kapalı&mdash;yetişkinlere yönelik metin veya görüntü ile Web sayfalarını döndürür.<br /><br/></li><li>Orta&mdash;yetişkinlere yönelik metin ancak yetişkin değil görüntüleri Web sayfalarının döndürür.<br /><br/></li><li>Katı&mdash;yetişkinlere yönelik metin veya görüntü ile Web sayfalarını döndürmüyor.</li></ul><br /> Orta varsayılandır.<br /><br /> **Not:** isteği bir pazar geliyorsa, gerektiren bu Bing'in yetişkinlere yönelik ilke `safeSearch` sıkı ayarlanması, Bing yoksayar `safeSearch` değeri ve Strıct kullanır.<br/><br/>**Not:** kullanırsanız `site:` sorgu işleci yanıt ne bakılmaksızın yetişkinlere yönelik içerik içerebilir fırsat yok `safeSearch` sorgu parametresi ayarlanır. Kullanım `site:` yalnızca sitedeki içerikleri haberdar ve senaryonuz yetişkinlere yönelik içeriğe olasılığını destekler. |Dize|Hayır|  
-|<a name="setlang" />setLang|Kullanıcı arabirimi dizeleri için kullanılacak dili. ISO 639-1 2 harfli dil kodunu kullanarak dili belirtin. Örneğin, İngilizce dil kodu tr ' dir. TR (Türkçe) varsayılandır.<br /><br /> İsteğe bağlı olsa da, her zaman dil belirtmeniz gerekir. Genellikle, ayarladığınız `setLang` tarafından belirtilen ile aynı dile `mkt` kullanıcının farklı bir dilde görüntülenen kullanıcı arabirimi dizeleri istediği sürece.<br /><br /> Bu parametre ve [Accept-Language](#acceptlanguage) üstbilgi karşılıklı olarak birbirini dışlar&mdash;her ikisini birden belirtmeyin.<br /><br /> Bir kullanıcı arabirimi dizesi kullanıcı arabiriminde bir etiket olarak kullanılan bir dizedir. JSON yanıtı nesneleri birkaç kullanıcı arabirimi dizeleri vardır. Ayrıca, herhangi bir bağlantı Bing.com yanıt nesnelerinin özelliklerinde belirtilen dil uygulayın.|Dize|Hayır| 
+|<a name="cc" />cc|Sonuçların geldiği ülkenin 2 karakterli ülke kodudur.<br /><br /> Bu parametreyi ayarlarsanız, [Accept-Language](#acceptlanguage) üst bilgisini de belirtmelisiniz. Bing dil listesinde bulduğu ilk desteklenen dili kullanır ve dili sizin belirttiğiniz ülke koduyla birleştirerek sonuçları hangi pazardan döndüreceğini saptar. Dil listesi desteklenen bir dil içermiyorsa, Bing isteği destekleyen en yakın dili ve pazarı bulur. Öte yandan, sonuçlarda belirtilen pazar yerine toplu veya varsayılan bir pazarı da kullanılabilir.<br /><br /> Bu sorgu parametresini ve `Accept-Language` sorgu parametresini ancak birden çok dil belirttiyseniz kullanmalısınız; aksi takdirde `mkt` ve `setLang` sorgu parametrelerini kullanmanız gerekir.<br /><br /> Bu parametre ve [mkt](#mkt) sorgu parametresi karşılıklı olarak birbirini dışlar. İkisini birlikte belirtmeyin.|Dize|Hayır|  
+|<a name="mkt" />mkt|Sonuçların geldiği pazar. <br /><br /> **NOT:** Biliniyorsa, her zaman pazarın belirtilmesini öneririz. Pazarın belirtilmesi Bing’in isteği yönlendirmesine, uygun ve en iyi yanıtı döndürmesine yardımcı olur.<br /><br /> Bu parametre ve [cc](#cc) sorgu parametresi karşılıklı olarak birbirini dışlar. İkisini birlikte belirtmeyin.|Dize|Yes|  
+|<a name="safesearch" />safeSearch|Yetişkinlere yönelik içeriği filtrelemek için kullanılan bir filtre. Aşağıdakiler, büyük/küçük harfe duyarlı olmayan olası filtre değerleridir.<br /><ul><li>Off&mdash;Yetişkinlere yönelik metin veya resim içeren web sayfalarını döndürür.<br /><br/></li><li>Moderate&mdash;Yetişkinlere yönelik metin içeren web sayfalarını döndürür ama yetişkinlere yönelik resim içerenleri döndürmez.<br /><br/></li><li>Strict&mdash;Yetişkinlere yönelik metin veya resim içeren web sayfalarını döndürmez.</li></ul><br /> Varsayılan ayar Moderate değeridir.<br /><br /> **NOT:** İstek, Bing'in yetişkinlere yönelik içerik ilkesinin `safeSearch` parametresinde Strict ayarlanmasını gerektirdiği bir pazardan geliyorsa, Bing `safeSearch` değerini yoksayar ve Strict değerini kullanır.<br/><br/>**NOT:** `site:` sorgu işlecini kullanmanız durumunda, `safeSearch` parametresinin ayarına bakılmaksızın yanıtta yetişkinlere yönelik içerik bulunabilir. `site:` işlecini yalnızca sitenin içeriği hakkında bilgi sahibiyseniz ve senaryonuz, yetişkinlere yönelik içeriğin mevcut olma ihtimalini destekliyorsa kullanın. |Dize|Hayır|  
+|<a name="setlang" />setLang|Kullanıcı arabirimi dizelerinde kullanılacak dil. Dili belirtirken ISO 639-1 2 harfi dil kodunu kullanın. Örneğin, Türkçe için dil kodu TR'dir. Varsayılan değer EN (İngilizce) ayarıdır.<br /><br /> İsteğe bağlı olsa da, her zaman dil belirtmelisiniz. Kullanıcı tarafından kullanıcı arabirimi dizelerinin farklı dilde görüntülenmesi istenmediği sürece, normalde `setLang` parametresini `mkt` parametresiyle aynı dile ayarlarsınız.<br /><br /> Bu parametre ve [Accept-Language](#acceptlanguage) üst bilgisi karşılıklı olarak birbirini dışlar. İkisini birlikte belirtmeyin.<br /><br /> Kullanıcı arabirimi dizesi, kullanıcı arabiriminde etiket olarak kullanılan dizedir. JSON yanıt nesnelerinde çok az kullanıcı arabirimi dizesi vardır. Ayrıca, yanıt nesnelerinde Bing.com özelliklerine yönelik bağlantılar da belirtilen dildedir.|Dize|Hayır| 
 
 ### <a name="headers"></a>Üst bilgiler
 
-İsteğiniz belirtmelidir üst bilgiler verilmiştir. Content-Type ve Ocp-Apim-Subscription-Key üstbilgileri yalnızca gerekli üst bilgileri olan ancak kullanıcı aracısı, X MSEdge ClientID, X MSEdge Clientıp ve X arama konumu da içermelidir.
+Aşağıdakiler, isteğinizde belirtilmesi gereken üst bilgilerdir. Yalnızca Content-Type ve Ocp-Apim-Subscription-Key üst bilgileri gereklidir, ama User-Agent, X-MSEdge-ClientID, X-MSEdge-ClientIP ve X-Search-Location üst bilgilerini de eklemelisiniz.
 
 
 |Üst bilgi|Açıklama|  
 |------------|-----------------|  
-|<a name="acceptlanguage" />Kabul dil|İsteğe bağlı isteği üstbilgisi.<br /><br /> Kullanıcı arabirimi dizeleri için kullanılacak dil virgülle ayrılmış listesi. Tercih sırasına göre azalan düzende listesidir. Beklenen biçim'dahil olmak üzere daha fazla bilgi için bkz. [RFC2616](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html).<br /><br /> Bu üst bilgi ve [setLang](#setlang) sorgu parametresi karşılıklı olarak birbirini dışlar&mdash;her ikisini birden belirtmeyin.<br /><br /> De belirtmeniz gerekir bu başlığı ayarlarsanız [cc](#cc) sorgu parametresi. Pazar için sonuçlar döndürecek şekilde belirlemek için Bing listeden bulur ve bununla birleştirir ilk desteklenen dil kullanan `cc` parametre değeri. Liste, desteklenen bir dil içermiyorsa, Bing en yakın dil ve istek destekleyen Pazar bulur veya pazar sonuçları için varsayılan veya bir toplanmış kullanır. Bing kullanılan Pazar belirlemek için BingAPIs pazara açılma üstbilgi bakın.<br /><br /> Bu üstbilgiyi kullanır ve `cc` birden çok dil belirtirseniz sorgu parametresi. Aksi takdirde kullanın [mkt](#mkt) ve [setLang](#setlang) sorgu parametreleri.<br /><br /> Bir kullanıcı arabirimi dizesi kullanıcı arabiriminde bir etiket olarak kullanılan bir dizedir. JSON yanıtı nesneleri birkaç kullanıcı arabirimi dizeleri vardır. Yanıt nesnelerinin Bing.com özelliklerinde herhangi bir bağlantı belirtilen dili uygulayın.|  
-|<a name="contenttype" />İçerik türü|Gerekli isteği üstbilgisi.<br /><br />Multipart/form-data'için ayarlanmış olması gerekir ve bir sınır parametresi içerir (örneğin, multipart/form-data; sınır =\<sınır dize\>). Daha fazla bilgi için [içerik form türleri](#content-form-types).
-|<a name="market" />BingAPIs-Pazar|Yanıtı üstbilgisi.<br /><br /> İstek tarafından kullanılan Pazar. Form \<languageCode\>-\<countryCode\>. Örneğin, en-US.|  
-|<a name="traceid" />BingAPIs TraceId|Yanıtı üstbilgisi.<br /><br /> İsteğinin ayrıntılarını içeren günlük girdisi kimliği. Bir hata oluştuğunda, bu kimliği yakalama Belirlemek ve sorunu çözmek mümkün değilse, bu kimliği yanı sıra destek ekibinin sağladığı diğer bilgiler içerir.|  
-|<a name="subscriptionkey" />Ocp-Apim-Subscription-Key|Gerekli isteği üstbilgisi.<br /><br /> Bu hizmet için RMS'ye kaydolurken aldığınız abonelik anahtarını [Bilişsel Hizmetler](https://www.microsoft.com/cognitive-services/).|  
-|<a name="pragma" />Pragması|İsteğe bağlı bir istek üst bilgisi<br /><br /> Varsayılan olarak, önbelleğe alınmış içeriği varsa Bing döndürür. Önbelleğe alınan içerik döndürmesini Bing önlemek için Pragma üstbilgisi no-cache olarak ayarlayın (örneğin, Pragması: no-cache).
-|<a name="useragent" />Kullanıcı Aracısı|İsteğe bağlı isteği üstbilgisi.<br /><br /> İsteğin kaynaklandığı kullanıcı aracısı. Bing, mobil kullanıcıların iyileştirilmiş bir deneyim sağlamak için Kullanıcı aracısını kullanır. İsteğe bağlı olsa da, her zaman bu üstbilgisi belirtmeniz önerilir.<br /><br /> Kullanıcı Aracısı, yaygın olarak kullanılan tüm tarayıcılar gönderen aynı dize olmalıdır. Kullanıcı aracıları hakkında daha fazla bilgi için bkz. [RFC 2616](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html).<br /><br /> Kullanıcı Aracısı dizeleri örnekleri aşağıda verilmiştir.<br /><ul><li>Windows Phone&mdash;Mozilla/5.0 (uyumlu; MSIE 10.0; Windows Phone 8.0; Trident/6.0; IEMobile/10.0; ARM; Dokunma; NOKIA; Lumia 822)<br /><br /></li><li>Android&mdash;Mozilla/5.0 (Linux; U; Android 2.3.5; en-us; SCH-I500 derleme/GINGERBREAD) AppleWebKit/533.1 (KHTML; ister Gecko) sürüm/4.0 mobil Safari/533.1<br /><br /></li><li>iPhone&mdash;Mozilla/5.0 (iPhone; Mac OS X gibi CPU iPhone OS 6_1) AppleWebKit/536.26 (KHTML; ister Gecko) mobil/10B142 iPhone4; BingWeb/3.03.1428.20120423 1<br /><br /></li><li>PC&mdash;Mozilla/5.0 (Windows NT 6.3; WOW64; Trident/7.0; Dokunma; RV:11.0) Gecko ister<br /><br /></li><li>iPad&mdash;Mozilla/5.0 (iPad; Mac OS X gibi CPU işletim sistemi 7_0) AppleWebKit/537.51.1 (Gecko gibi KHTML) sürüm/7.0 Mobile/11A465 Safari/9537.53</li></ul>|
-|<a name="clientid" />X MSEdge ClientID|İsteğe bağlı istek ve yanıt üst bilgisi.<br /><br /> Bing Bing API çağrıları arasında tutarlı bir davranış ile kullanıcılara sağlamak için bu üstbilgiyi kullanır. Bing sıklıkla yeni özellikler ve geliştirmeler uçuşlar ve istemci kimliği farklı uçuşlar trafiğinde atamak için bir anahtar olarak kullanır. Birden çok istekler genelinde bir kullanıcı için aynı istemci Kimliğini kullanmazsanız Bing için birden çok çakışan uçuşlar kullanıcı atayabilir. Birden çok çakışan uçuşlar için atanan bir tutarsız kullanıcı deneyimine neden olabilir. Örneğin, bir farklı uçuş ataması ilk değerinden ikinci isteği varsa deneyimi beklenmeyen olabilir. Bing web sonuçları, istemci için uygun hale getirmek için Ayrıca, istemci Kimliğini kullanabilirsiniz kimliğin arama geçmişi, kullanıcı için daha zengin bir deneyim sağlar.<br /><br /> Bing sonucu sonuçlarımızda bir istemci kimliği tarafından oluşturulan bir etkinlik analiz ederek geliştirmeye yardımcı olmak için bu üst bilgi de kullanır. İlgi geliştirmeleri, Bing API'leri ve sırayla tıklama etkinleştirir daha yüksek ücretler için API tüketici teslim sonuçlarının daha iyi bir nitelikle yardımcı olur.<br /><br /> **Önemli:** isteğe bağlı olsa da, bu üst bilgi gerekli göz önünde bulundurmanız gerekir. İstemci kimliği aynı son kullanıcı ve cihaz birleşimi için birden çok istekler genelinde kalıcı tutarlı bir kullanıcı deneyimi ve daha iyi sonuçlar kalitesini aracılığıyla 2) daha yüksek tıklama oranları Bing API'lerinden almak 1) API tüketici sağlar.<br /><br /> Bu üst bilgiye Uygula temel kullanım kuralları aşağıda verilmiştir.<br /><ul><li>Cihazda uygulamanızın kullandığı her bir kullanıcı bir benzersiz olmalıdır, Bing oluşturulan istemci kimliği.<br /><br/>İstekte bu başlığı eklemezseniz, Bing bir kimlik üretir ve X MSEdge ClientID yanıt üst bilgisinde döndürür. Bir istekte bu üst bilgi içermemelidir yalnızca bir kez ilk kez kullanıcı o cihazda uygulamanızın kullandığı ' dir.<br /><br/></li><li>**DİKKAT:** bu istemci kimliği için herhangi bir kimliği doğrulanmış kullanıcı hesabı bilgisi değişkenlerinden değil emin olmanız gerekir.</li><li>İstemci Kimliğini, cihazda bu kullanıcı için uygulamanıza yaptığı her Bing API isteği için kullanın.<br /><br/></li><li>Kalıcı istemci kimliği. Bir tarayıcı uygulamasında kimliği kalıcı hale getirmek için kalıcı bir HTTP tanımlama bilgisi kimliği tüm oturumlarda kullanıldığından emin olmak için kullanın. Oturum tanımlama bilgisinin kullanmayın. Mobil uygulamalar gibi diğer uygulamalar için cihazın kalıcı depolama kimliği kalıcı hale getirmek için kullanın.<br /><br/>Kullanıcı, cihazda uygulamanızın kullandığı bir sonraki açışınızda, kalıcı bir istemci kimliği alın.</li></ul><br /> **Not:** Bing yanıtlarını olabilir veya bu başlığı içermeyebilir. Bu üst bilgi yanıtı içeriyorsa, istemci kimliği yakalamak ve o cihazdaki kullanıcı için tüm sonraki Bing istekler için kullanın.<br /><br /> **Not:** X MSEdge ClientID eklerseniz, tanımlama bilgilerinin istekte içermemesi gerekir.|  
-|<a name="clientip" />X MSEdge Clientıp|İsteğe bağlı isteği üstbilgisi.<br /><br /> İstemci cihazı IPv4 veya IPv6 adresi. IP adresi, kullanıcının konumunu bulmak için kullanılır. Bing konum bilgileri güvenli arama davranışını belirlemek için kullanır.<br /><br /> **Not:** isteğe bağlı olsa da, her zaman bu üst bilgi ve X-Search-Location üst bilgisini belirtmeniz önerilir.<br /><br /> Adres (örneğin, son sekizli 0 olarak değiştirerek) karartmak değil. Her yerden gerçek cihazın konumuna olmaması konumu adresi sonuçlarında obfuscating, hangi hatalı sonuçlar sunan Bing içinde neden olabilir.|  
-|<a name="location" />X arama konumu|İsteğe bağlı isteği üstbilgisi.<br /><br /> İstemcinin coğrafi konumunu tanımlayan anahtar/değer çiftleri noktalı virgülle ayrılmış listesi. Güvenli arama davranışlarını belirlemek ve ilgili yerel içeriğini döndürmek için Bing konum bilgileri kullanır. Anahtar/değer çifti olarak belirtmek \<anahtarı\>:\<değer\>. Kullanıcının konumunu belirtmek üzere kullanacak anahtarlar şunlardır:<br /><br /><ul><li>LAT&mdash;gerekli. Derece cinsinden istemcinin konumun enlem. Büyüktür veya eşittir-90.0 enlem olmalıdır ve +90.0 küçüktür veya eşittir. Güney latitudes negatif değerleri göstermek ve Kuzey latitudes pozitif değerleri gösterir.<br /><br /></li><li>uzun&mdash;gerekli. Derece cinsinden istemcinin konumun boylam. Büyüktür veya eşittir-180.0 boylam olmalıdır ve +180.0 küçüktür veya eşittir. Batı longitudes negatif değerleri göstermek ve Doğu longitudes pozitif değerleri gösterir.<br /><br /></li><li>RE&mdash;gerekli. Koordinatları yatay doğruluğunu belirten RADIUS, ölçümleri içinde. Cihazın konum hizmeti tarafından döndürülen değeri geçirin. GPS/Wi-Fi için 22 m, hücre tower Üçlü 380 m ve 18, 000 m ters IP araması için normal değerler olabilir.<br /><br /></li><li>TS&mdash;isteğe bağlı. İstemci konumu ne zaman, UTC UNIX zaman damgası. (UNIX zaman damgası 1 Ocak 1970'ten beri geçen saniye sayısı sayısıdır.)<br /><br /></li><li>HEAD&mdash;isteğe bağlı. İstemcinin göreli başlığını veya seyahat yönü. 0 ile göreli true Kuzey saat yönünde sayım 360 derece olarak seyahat yönünü belirtin. Bu anahtar yalnızca, belirtin `sp` anahtardır sıfır.<br /><br /></li><li>SP&mdash;isteğe bağlı. İstemci cihazı dolaşan saniye başına metre olarak yatay hız (hızlı).<br /><br /></li><li>alt&mdash;isteğe bağlı. İstemci aygıtı ölçümleri yüksekliği.<br /><br /></li><li>olan&mdash;isteğe bağlı. Koordinatları dikey doğruluğunu belirten RADIUS, ölçümleri içinde. Yalnızca belirtirseniz, bu anahtarı belirtirsiniz `alt` anahtarı.<br /><br /></li></ul> **Not:** anahtarların birçok isteğe bağlı, ancak daha doğru konuma sonucu olan sağlayan daha fazla bilgi.<br /><br /> **Not:** isteğe bağlı olsa da, her zaman kullanıcının coğrafi konumu belirtmek için önerilir. Konum (örneğin, istemci VPN kullanıyorsa) istemcinin IP adresini kullanıcının fiziksel konum doğru şekilde yansıtmaz durumunda özellikle önemlidir. En iyi sonuçlar için bu başlığı ve X MSEdge Clientıp başlığı içermelidir, ancak en az bu başlığı içermelidir.|
+|<a name="acceptlanguage" />Accept-Language|İsteğe bağlı istek üst bilgisi.<br /><br /> Kullanıcı arabirimi dizelerinde kullanılacak virgülle sınırlanmış bir dil listesi. Liste, tercih edilme durumuna göre azalan düzende sıralanır. Beklenen biçim de içinde olmak üzere daha fazla bilgi için bkz. [RFC2616](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html).<br /><br /> Bu üst bilgi ve [setLang](#setlang) sorgu parametresi karşılıklı olarak birbirini dışlar. İkisini birlikte belirtmeyin.<br /><br /> Bu üst bilgiyi ayarlarsanız, [cc](#cc) sorgu parametresini de belirtmelisiniz. Hangi pazardan sonuç döndürüleceğini belirlemek için, Bing listeden bulduğu ilk desteklenen dili kullanır ve bunu `cc` parametresinin değeriyle birleştirir. Liste desteklenen bir dil içermiyorsa, Bing isteği destekleyen en yakın dili ve pazarı bulur ya da sonuçlar için toplu veya varsayılan bir pazar kullanır. Bing'in kullandığı pazarı saptamak için BingAPIs-Market üst bilgisine bakın.<br /><br /> Ancak birden çok dil belirtirseniz bu üst bilgiyi ve `cc` sorgu parametresini kullanın. Aksi takdirde, [mkt](#mkt) ile [setLang](#setlang) sorgu parametrelerini kullanın.<br /><br /> Kullanıcı arabirimi dizesi, kullanıcı arabiriminde etiket olarak kullanılan dizedir. JSON yanıt nesnelerinde çok az kullanıcı arabirimi dizesi vardır. Yanıt nesnelerinde Bing.com özelliklerine yönelik bağlantılar da belirtilen dildedir.|  
+|<a name="contenttype" />Content-Type|Gerekli istek üst bilgisi.<br /><br />Multipart/form-data olarak ayarlanmalı ve bir sınır parametresi içermelidir (örneğin, multipart/form-data; boundary=\<sınır dizesi\>). Daha fazla bilgi için bkz. [İçerik formu türleri](#content-form-types).
+|<a name="market" />BingAPIs-Market|Yanıt üst bilgisi.<br /><br /> İstek tarafından kullanılan pazar. Biçimi şöyledir: \<languageCode\>-\<countryCode\>. Örneğin, tr-TR.|  
+|<a name="traceid" />BingAPIs-TraceId|Yanıt üst bilgisi.<br /><br /> İsteğin ayrıntılarını içeren günlük girdisinin kimliği. Hata oluştuğunda, bu kimliği yakalayın. Sorunu belirleyemez ve çözemezseniz, Destek ekibine diğer bilgilerle birlikte bu kimliği de sağlayın.|  
+|<a name="subscriptionkey" />Ocp-Apim-Subscription-Key|Gerekli istek üst bilgisi.<br /><br /> [Bilişsel Hizmetler](https://www.microsoft.com/cognitive-services/)'de bu hizmete kaydolduğunuzda aldığınız abonelik anahtarı.|  
+|<a name="pragma" />Pragma|İsteğe bağlı istek üst bilgisi<br /><br /> Varsayılan olarak, Bing önbelleğe alınmış içeriği (varsa) döndürür. Bing'in önbelleğe alınmış içeriği döndürmesini önlemek için, Pragma üst bilgisini no-cache olarak ayarlayın (örneğin, Pragma: no-cache).
+|<a name="useragent" />User-Agent|İsteğe bağlı istek üst bilgisi.<br /><br /> İsteği başlatan kullanıcı aracısı. Bing, mobil kullanıcılara iyileştirilmiş bir deneyim sağlamak için kullanıcı aracısını kullanır. İsteğe bağlı olsa da, bu üst bilgiyi her zaman belirtmeniz önerilir.<br /><br /> User-agent, yaygın olarak kullanılan tarayıcılardan gönderilen dizeyle aynı olmalıdır. Kullanıcı aracıları hakkında bilgi için bkz. [RFC 2616](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html).<br /><br /> Aşağıda örnek user-agent dizelerini bulabilirsiniz.<br /><ul><li>Windows Phone&mdash;Mozilla/5.0 (compatible; MSIE 10.0; Windows Phone 8.0; Trident/6.0; IEMobile/10.0; ARM; Touch; NOKIA; Lumia 822)<br /><br /></li><li>Android&mdash;Mozilla/5.0 (Linux; U; Android 2.3.5; en-us; SCH-I500 Build/GINGERBREAD) AppleWebKit/533.1 (KHTML; like Gecko) Version/4.0 Mobile Safari/533.1<br /><br /></li><li>iPhone&mdash;Mozilla/5.0 (iPhone; CPU iPhone OS 6_1 like Mac OS X) AppleWebKit/536.26 (KHTML; like Gecko) Mobile/10B142 iPhone4;1 BingWeb/3.03.1428.20120423<br /><br /></li><li>PC&mdash;Mozilla/5.0 (Windows NT 6.3; WOW64; Trident/7.0; Touch; rv:11.0) like Gecko<br /><br /></li><li>iPad&mdash;Mozilla/5.0 (iPad; CPU OS 7_0 like Mac OS X) AppleWebKit/537.51.1 (KHTML, like Gecko) Version/7.0 Mobile/11A465 Safari/9537.53</li></ul>|
+|<a name="clientid" />X-MSEdge-ClientID|İsteğe bağlı istek ve yanıt üst bilgisi.<br /><br /> Bing, kullanıcılara tüm Bing API çağrılarında tutarlı bir davranış sağlamak için bu üst bilgiyi kullanır. Bing sık sık yeni özellikler ve geliştirmeler dağıtır ve farklı dağıtımlarda trafik ataması yapmak için anahtar olarak istemci kimliğini kullanır. Bir kullanıcı için birden çok istekte aynı istemci kimliğini kullanmazsanız, Bing kullanıcıyı birden çok çakışan dağıtıma atayabilir. Birden çok çakışan dağıtıma eklenmek, tutarsız bir kullanıcı deneyimine yol açabilir. Örneğin, ikinci isteğin dağıtım ataması ilkinden farklıysa, beklenmeyen bir deneyim yaşanabilir. Ayrıca, Bing istemci kimliğini kullanarak web sonuçlarını istemci kimliğinin arama geçmişine uyarlayabilir ve bu sayede kullanıcıya daha zengin bir deneyim sağlayabilir.<br /><br /> Bing, istemci kimliği tarafından oluşturulan etkinliği analiz ederek sonuç derecelendirmelerini geliştirmeye yardımcı olması için de bu üst bilgiyi kullanabilir. İlgi geliştirmeleri Bing API'lerinin daha kaliteli sonuçlar vermesine yardımcı olur ve böylelikle API tüketicisi için daha yüksek tıklama oranları getirir.<br /><br /> **ÖNEMLİ:** İsteğe bağlı olsa da, bu üst bilgiyi gerekli olarak kabul edebilirsiniz. Aynı son kullanıcı ile cihaz bileşimi için birden çok istekte aynı istemci kimliğini kullanıldığında, 1) API tüketicisi tutarlı bir kullanıcı deneyimi elde eder ve 2) Bing API'lerinden daha kaliteli sonuçlar alındığından tıklama oranları daha yüksek olur.<br /><br /> Bu üst bilgi için geçerli olan temel kullanım kuralları şunlardır:<br /><ul><li>Cihazda uygulamanızı kullanan her kullanıcının Bing tarafından oluşturulan benzersiz bir istemci kimliği olmalıdır.<br /><br/>İsteğe bu üst bilgiyi eklemezseniz, Bing bir kimlik oluşturur ve bu kimliği X-MSEdge-ClientID yanıt üst bilgisinde döndürür. İsteğe bu üst bilgiyi EKLEMEMENİZ gereken tek durum, söz konusu cihazda kullanıcının uygulamanızı ilk kez kullanmasıdır.<br /><br/></li><li>**DİKKAT:** Bu İstemci Kimliğinin, kimliği doğrulanmış hiçbir kullanıcı hesabı bilgisine bağlanabilir olmadığından emin olmalısınız.</li><li>Cihazda uygulamanızın bu kullanıcı için yaptığı her Bing API'si isteğinde istemci kimliğini kullanın.<br /><br/></li><li>İstemci kimliğinin kalıcı olmasını sağlayın. Tarayıcı uygulamasında kimliği kalıcı hale getirmek için, tüm oturumlarda kimliğin kullanmasını sağlayacak bir kalıcı HTTP tanımlama bilgisi kullanın. Oturum tanımlama bilgisi kullanmayın. Mobil uygulamalar gibi diğer uygulamalarda, kimliği kalıcı hale getirmek için cihazın kalıcı depolamasını kullanın.<br /><br/>Kullanıcı o cihazda uygulamanızı yeniden kullandığında, kalıcı hale getirdiğiniz istemci kimliğini alın.</li></ul><br /> **NOT:** Bing yanıtları bu üst bilgiyi içerebilir veya içermeyebilir. Yanıt bu üst bilgiyi içeriyorsa, istemci kimliğini yakalayın ve o cihazda kullanıcı için bunu izleyen tüm Bing isteklerinde onu kullanın.<br /><br /> **NOT:** X-MSEdge-ClientID üst bilgisini eklerseniz, isteğe tanımlama bilgileri eklememelisiniz.|  
+|<a name="clientip" />X-MSEdge-ClientIP|İsteğe bağlı istek üst bilgisi.<br /><br /> İstemci cihazının IPv4 veya IPv6 adresi. IP adresi, kullanıcının konumunu bulmak için kullanılır. Bing konum bilgisini kullanarak güvenli arama davranışını saptar.<br /><br /> **NOT:** İsteğe bağlı olsa da, bu üst bilgiyi ve X-Search-Location üst bilgisini her zaman belirtmeniz önerilir.<br /><br /> Adresi karartmayın (örneğin, son sekiz karakteri 0'la değiştirerek). Adresin karartılması, cihazın gerçek konumuna yakın olmayan bir konum sonucu verir ve bu da Bing'in hatalı sonuçlar sağlamasına yol açabilir.|  
+|<a name="location" />X-Search-Location|İsteğe bağlı istek üst bilgisi.<br /><br /> İstemcinin coğrafi konumunu açıklayan noktalı virgülle sınırlanmış anahtar/değer çifti listesi. Bing konum bilgisini kullanarak güvenli arama davranışını saptar ve ilgili yerel içeriği döndürür. Anahtar/değer çiftini \<anahtar\>:\<değer\> olarak belirtin. Aşağıda, kullanıcının konumunu belirtmek için kullandığınız anahtarlar gösterilir.<br /><br /><ul><li>lat&mdash;Gerekli. İstemcinin konumunun derece cinsinden enlemi. Enlem -90,0 değerinden büyük veya bu değere eşit ve +90,0 değerinden küçük veya bu değere eşit olmalıdır. Negatif değerler güney enlemlerini ve pozitif değerler de kuzey enlemlerini gösterir.<br /><br /></li><li>long&mdash;Gerekli. İstemcinin konumunun derece cinsinden boylamı. Boylam -180,0 değerinden büyük veya bu değere eşit ve +180,0 değerinden küçük veya bu değere eşit olmalıdır. Negatif değerler batı boylamlarını ve pozitif değerler de doğu boylamlarını gösterir.<br /><br /></li><li>re&mdash;Gerekli. Koordinatların yatay doğruluğunu belirten metre cinsinden yarıçap. Cihazın konum hizmeti tarafından döndürülen değeri geçirin. Normalde değerler GPS/Wi-Fi için 22 m, baz istasyonu triangülasyonu için 380 m ve ters IP araması için 18.000 m'dir.<br /><br /></li><li>ts&mdash;İsteğe bağlı. İstemcinin ne zaman konumda olduğunu gösteren UTC UNIX zaman damgası. (UNIX zaman damgası 1 Ocak 1970'den başlayarak saniye sayısıdır.)<br /><br /></li><li>head&mdash;İsteğe bağlı. İstemcinin göreli seyahat yönü. Gerçek kuzeye göre saat yönünün tersine 0 ile 360 derece arasında bir seyahat yönü belirtin. Bu anahtarı ancak `sp` anahtarı sıfırdan farklı bir değer olduğunda belirtin.<br /><br /></li><li>sp&mdash;İsteğe bağlı. Saniyedeki metre cinsinden istemci cihazının seyahat ettiği yatay hız.<br /><br /></li><li>alt&mdash;İsteğe bağlı. İstemci cihazının metre cinsinden deniz seviyesinden yüksekliği.<br /><br /></li><li>are&mdash;İsteğe bağlı. Koordinatların dikey doğruluğunu belirten metre cinsinden yarıçap. Bu anahtarı ancak `alt` anahtarı belirttiğiniz durumda belirtin.<br /><br /></li></ul> **NOT:** Anahtarların çoğu isteğe bağlı olsa da, ne kadar çok bilgi sağlarsanız konum sonuçları o kadar doğru olur.<br /><br /> **NOT:** İsteğe bağlı olsa da, kullanıcının coğrafi konumunu her zaman belirtmeniz önerilir. İstemcinin IP adresi kullanıcının fiziksel konumunu doğru yansıtmıyorsa (örneğin istemci VPN kullanıyorsa), konumun belirtilmesi özellikle önemlidir. En iyi sonuçları elde etmek için, bu üst bilgiyi ve X-MSEdge-ClientIP üst bilgisini eklemelisiniz; ama en azından bu üst bilgiyi eklemeniz gerekir.|
 
 > [!NOTE] 
-> Kullanım Koşulları ile ilgili bu üstbilgileri kullanımı dahil olmak üzere ilgili tüm yasalara uyumluluk gerekli olduğunu unutmayın. Örneğin, Avrupa gibi belirli daireleri de kullanıcı aygıtları üzerinde belirli izleme cihazları yerleştirme önce kullanıcı onayı almak için gereksinimi yoktur.
+> Kullanım Koşulları'nın, bu üst bilgilerin kullanımıyla ilgili olanlar da dahil olmak üzere tüm ilgili yasalara uymayı gerektirdiğini unutmayın. Örneğin, Avrupa gibi bazı yasama bölgelerinde kullanıcı cihazlarına izleme cihazları takmadan önce kullanıcının iznini almak gerekir.
 
 
 <a name="content-form-types" />
 
-### <a name="content-form-types"></a>İçerik form türleri
+### <a name="content-form-types"></a>İçerik formu türleri
 
-Her istek, Content-Type üst bilgisi içermesi gerekir. Üst bilgi ayarlanmalıdır: multipart/form-data; sınır =\<sınır dize\>burada \<sınır dize\> sınır form verileri tanımlayan benzersiz ve donuk bir dizedir. Örneğin, sınır boundary_1234 abcd =.
+Her istek Content-Type üst bilgisini içermelidir. Üst bilgi şöyle ayarlanmalıdır: multipart/form-data; boundary=\<sınır dizesi\>; burada \<sınır dizesi\>, form verilerinin sınırını tanımlayan benzersiz, opak bir dizedir. Örneğin, boundary=boundary_1234-abcd.
 
 
-Bir görüntü belirteç veya URL görsel arama gönderirseniz, aşağıdaki form verilerini POST gövdesinde içermelidir gösterir. Form verileri içerik düzeni üstbilgisini içermelidir ve kendi `name` "knowledgeRequest" parametresi ayarlanmalıdır Hakkındaki ayrıntılar için `imageInfo` nesne, bkz: [istek](#the-request).
+Görsel Arama'ya resim belirteci veya URL gönderirseniz, POST'un gövdesine eklemeniz gereken form verileri aşağıda gösterilmiştir. Form verileri Content-Disposition üst bilgisini içermeli ve `name` parametresi "knowledgeRequest" olarak ayarlanmalıdır. `imageInfo` nesnesi hakkındaki ayrıntılar için bkz. [İstek](#the-request).
 
 
 ```
@@ -147,7 +147,7 @@ Content-Disposition: form-data; name="knowledgeRequest"
 --boundary_1234-abcd--
 ```
 
-Yerel bir görüntüyü karşıya yükleme, aşağıdaki form verilerini POST gövdesinde içermelidir gösterir. Form verileri içerik düzeni üstbilgisini içermelidir. Kendi `name` parametresi ayarlanması gerekir "Görüntü" ve `filename` parametreyi bir dizeye ayarlayın. Content-Type üstbilgisi tüm yaygın olarak kullanılan resim mime türü için ayarlanabilir. Form içeriğini ikili görüntünün olur. Karşıya yükleyebilirsiniz en yüksek görüntü boyutu 1 MB'dir. En büyük genişliği veya yüksekliği 1.500 piksel olmalıdır veya daha az.
+Aşağıda yerel bir görüntüyü karşıya yükleyeceğiniz zaman POST'un gövdesine dahil etmeniz gereken form verileri gösterilir. Form verileri Content-Disposition üst bilgisini içermelidir. `name` parametresi "image" olarak ayarlanmalıdır, `filename` parametresi ise herhangi bir dizeye ayarlanabilir. Content-Type üst bilgisi sık kullanılan herhangi bir resim mime türüne ayarlanabilir. Formun içeriği resmin ikili verisidir. Karşıya yükleyebileceğiniz resim boyutu üst sınırı 1 MB'tır. Genişlik veya yükseklik üst sınırı ise 1.500 pikseldir.
 
 
 ```
@@ -160,7 +160,7 @@ Content-Type: image/jpeg
 --boundary_1234-abcd--
 ```
 
-Karşıya yüklenen görüntünün bir bölgeyi belirtmek nasıl gösterir.
+Aşağıda, karşıya yüklenen resmin ilgilenilen bölgesinin nasıl belirtildiği gösterilir.
 
 ```
 --boundary_1234-abcd
@@ -191,7 +191,7 @@ Content-Type: image/jpeg
 
 ### <a name="example-request"></a>Örnek istek
 
-Bir görüntü belirteci ve ilgi bölgesi geçen tam görüntü ınsights istek gösterir. Bir önceki çağrıya /images/search ınsights belirteci alın.
+Aşağıda, resim belirtecini ve ilgilenilen bölgeyi geçiren eksiksiz bir resim içgörüleri isteği gösterilir. İçgörü belirtecini önceki /images/search çağrısından alırsınız.
 
 
 ```  
@@ -224,7 +224,7 @@ Content-Disposition: form-data; name="knowledgeRequest"
 
 ## <a name="the-response"></a>Yanıt
 
-Görüntü için kullanılabilir ınsights varsa, bir veya daha fazla yanıt içeren `tags` öngörüleri içerir. `image` Alan girdi görüntüsünün yönelik Öngörüler belirtecini içerir.
+Resim için içgörüler varsa, yanıtta içgörüleri içeren bir veya birden çok `tags` bulunur. `image` alanı, giriş resminin içgörü belirtecini içerir.
 
 ```json
 {
@@ -242,7 +242,7 @@ Görüntü için kullanılabilir ınsights varsa, bir veya daha fazla yanıt iç
 }
 ```
 
-`tags` Alan bir görünen ad ve eylemleri (Öngörüler) bir listesini içerir. Etiketlerinden birini içeren bir `displayName` boş dize olarak ayarlamak alanı. Bu etiket, görüntü, görsel açıdan benzer resimler ve görüntüde bulunan öğelerin alışveriş kaynaklar içeren Web sayfaları gibi varsayılan ınsights içerir. Görüntünün ilgi olduğundan, varsayılan ınsights etiket sınırlayıcı kutular bölgeleri için ilgilendiğiniz içermez.
+`tags` alanı, görünen adı ve eylem (içgörü) listesini içerir. Etiketlerden birinin boş dizeye ayarlanmış bir `displayName` alanı vardır. Bu etiket resmi, görsel olarak benzer resimleri ve resimde bulunan öğelerin alışveriş kaynaklarını içeren web sayfaları gibi varsayılan içgörüleri içerir. Resmin tamamıyla ilgilenildiğinden, varsayılan içgörü etiketi ilgilenilen bölgeler için sınırlayıcı kutular içermez.
 
 
 ```json
@@ -269,19 +269,19 @@ Görüntü için kullanılabilir ınsights varsa, bir veya daha fazla yanıt iç
 }
 ```
 
-Varsayılan ınsights listesi için bkz. [varsayılan ınsights](./default-insights-tag.md).
+Varsayılan içgörülerin listesi için bkz. [Varsayılan içgörüler](./default-insights-tag.md).
 
 
 
-Kalan etiketleri, kullanıcı ilginizi çekebilecek diğer bilgileri içerir. Örneğin, görüntünün metin içeriyorsa, etiketlerinden birini tanınan bir metni içeren bir TextResults Insight içerebilir. Veya, Bing görüntüde bir varlık (kişi, yer veya bir şey) tanıyorsa etiketlerinden birini varlığı belirlemek. Görsel arama, ayrıca giriş görüntüden türetilmiş koşulları (etiketler) farklı bir dizi döndürür. Bu etiketler, kullanıcıların görüntüde bulunan kavramlarını keşfedin izin verin. Girdi görüntüsünün ünlü bir athlete ise, örneğin, etiketlerinden birini spor, görüntüleri, spor bağlantılar içeren olabilir.
+Kalan etiketler kullanıcının ilgisini çekebilecek diğer içgörüleri içerir. Örneğin resimde metin varsa, etiketlerden biri tanınan metnin bulunduğu TextResults içgörüsünü içerebilir. Öte yandan Bing resimde bir varlığı (kişi, yer veya eşya) tanırsa, etiketlerden biri varlığı tanımlayabilir. Görsel Arama giriş resminden türetilen çeşitli terimler (etiketler) de döndürür. Bu etiketler kullanıcıların resimde bulunan kavramları incelemesine olanak tanır. Örneğin giriş resmi ünlü bir sporcuya aitse, etiketlerden biri Spor olabilir ve spor resimlerinin bağlantılarını içerebilir.
 
-Her etiket, Insight uygulandığı ilgi, Öngörüler ve bir küçük resim görüntüsünün bölgelerini tanımlayan sınırlayıcı öngörülere kategorilere ayırmak için kullanabileceğiniz bir görünen ad içerir. Örneğin, bir spor jersey takmış bir kişi görüntünün ise etiketlerinden birini jersey sınırların ve VisualSearch ve ProductVisualSearch Öngörüler içeren bir sınırlayıcı kutu içerebilir. Ve başka bir etiket topically ilgili görüntüleri almak bir /images/search API isteği için bir URL veya Bing.com resim araması sonuçları kullanıcıya alan Bing.com arama URL'si içeren bir ImageResults öngörü içerebilir.
+Her etiket içgörüyü kategorilere ayırmak için kullanabileceğiniz bir görünen adı, içgörünün geçerli olduğu ilgilenilen bölgeyi tanımlayan sınırlayıcı kutuyu, içgörüleri ve resmin bir küçük resmini içerir. Örneğin resim spor forması giymiş birine aitse, etiketlerden biri formayı sınırlayan bir sınırlayıcı kutu ile VisualSearch ve ProductVisualSearch içgörülerini içerebilir. Bir diğer etikette de konuları bakımından birbiriyle ilgili resimleri almaya yönelik /images/search API isteğinin URL'sini içeren bir ImageResults içgörüsü veya kullanıcıyı Bing.com resim arama sonuçlarına götüren Bing.com arama URL'si bulunabilir.
 
-Sınırlayıcı görüntüde faiz bölgeleri kutular varsayılan ınsights etiket dışındaki tüm etiketleri içerir. Örneğin, görüntüyü birden çok tanınan kişi içeriyorsa, etiketlerin her kişi için sınırlayıcı kutular içerebilir veya görüntü tanınan giysi öğeler içeriyorsa, etiketleri sınırlayıcı kutular her tanınan giysi öğesi içerebilir. Ayırma-birleştirme görüntünün üzerine tıklandığında oluşturun, görüntünün bölgede içeriği ile ilgili ayrıntıları sağlayın sınırlayıcı kutular kullanabilirsiniz. Ayırma-birleştirme görüntünün tanımlayan sınırlayıcı kutular için bir görüntü içermemesi gerekir.
+Varsayılan içgörü etiketleri dışındaki tüm etiketlerde, resimde ilgilenilen bölgeyi tanımlayan sınırlayıcı kutular vardır. Örneğin resimde tanınan birden çok kişi varsa, etiketler kişilerden her biri için sınırlayıcı kutular içerebilir veya resimde tanınan giyim eşyaları varsa, etiketlerde tanınan her giyim eşyası için sınırlayıcı kutular bulunabilir. Sınırlayıcı kutuları kullanarak, tıklandığında resmin ilgili bölgesinin içeriği hakkında ayrıntılar sağlayan etkin noktalar oluşturabilirsiniz. Resmin tamamını tanımlayan sınırlayıcı kutular için etkin nokta eklememelisiniz.
 
 ### <a name="text-recognition"></a>Metin tanıma
 
-Görüntü hizmeti tanıdığı metni içeriyorsa, etiketlerinden birini TextResults Insight (işlem) içerir. InSight'ın `displayName` tanınan metin içeriyor. 
+Resim hizmetin tanıdığı metinler içeriyorsa, etiketlerden biri bir TextResults içgörüsü (eylemi) içerir. İçgörünün `displayName` alanı tanınan metni içerir. 
 
 ```json
     {
@@ -311,10 +311,10 @@ Görüntü hizmeti tanıdığı metni içeriyorsa, etiketlerinden birini TextRes
     }
 ```
 
-Çünkü etiketin `displayName` alan ##TextRecognition içeriyorsa, kategoriyi UX'i içinde olarak kullanmayın Gelecek herhangi bir görüntü adı ile başlayan ##. Bunun yerine eylem görüntüleme adı kullanın.
+Etiketin `displayName` alanı ##TextRecognition öğesini içereceğinden, UX'te bunu bir kategori başlığı olarak kullanmayın. Bu durum ## ile başlayan tüm görünen adlar için geçerlidir. Bunun yerine eylemin görünen adını kullanın.
 
 
-Metin tanıma, telefon numarası ve e-posta adresleri gibi belirli bir kartvizitler şirket iletişim bilgilerini de tanıyabilirsiniz. Sınırlayıcı kutu bilgilerini kartındaki konumunu belirtir. 
+Metin tanıma, kartvizitlerin üzerindeki telefon numarası ve e-posta adresi gibi kişi bilgilerini de tanıyabilir. Sınırlayıcı kutu, kartvizitte kişi bilgilerinin konumunu belirler. 
 
 ```json
     {
@@ -400,7 +400,7 @@ Metin tanıma, telefon numarası ve e-posta adresleri gibi belirli bir kartvizit
     }
 ```
 
-Görüntünün bir kişi, yer veya bir şey gibi tanınmış bir varlık içeriyorsa, etiketlerinden birini bir varlık öngörü içerebilir. 
+Resimde bir kişi, yer veya eşya gibi tanınan bir varlık bulunuyorsa, etiketlerden biri Entity içgörüsünü içerebilir. 
 
 ```json
     {
@@ -437,12 +437,12 @@ Görüntünün bir kişi, yer veya bir şey gibi tanınmış bir varlık içeriy
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Hızlı başlangıçlar ilk isteğinizi hızlıca başlamak için bkz: [C#](quickstarts/csharp.md) | [Java](quickstarts/java.md) | [node.js](quickstarts/nodejs.md)  |  [Python](quickstarts/python.md).
+İlk isteğinize hızlı bir başlangıç yapmak için, şu hızlı başlangıçlara bakın: [C#](quickstarts/csharp.md) | [Java](quickstarts/java.md) | [node.js](quickstarts/nodejs.md) | [Python](quickstarts/python.md).
 
-API'yi deneyin. Git [görsel arama API'si sınama Konsolu'nu](https://dev.cognitive.microsoft.com/docs/services/878c38e705b84442845e22c7bff8c9ac). 
+API'yi deneyin. [Görsel Arama API'si Test Konsolu](https://dev.cognitive.microsoft.com/docs/services/878c38e705b84442845e22c7bff8c9ac)'na gidin. 
 
 
-İle kendinizi alıştırın [görsel arama API'si başvurusu](https://aka.ms/bingvisualsearchreferencedoc). Başvuruda arama sonuçlarını istemek için kullanabileceğiniz uç noktaların, üst bilgilerin ve sorgu parametrelerinin listesi yer alır. Ayrıca yanıt nesnelerinin tanımları da bulunur. 
+[Görsel Arama API'si Başvurusu](https://aka.ms/bingvisualsearchreferencedoc)'nu inceleyin. Başvuruda arama sonuçlarını istemek için kullanabileceğiniz uç noktaların, üst bilgilerin ve sorgu parametrelerinin listesi yer alır. Ayrıca yanıt nesnelerinin tanımları da bulunur. 
 
 Arama sonuçlarını kullanma kurallarına uygun hareket ettiğinizden emin olmak için [Bing Kullanım ve Görüntüleme Gereksinimleri](./use-and-display-requirements.md)'ni okumayı unutmayın.
 

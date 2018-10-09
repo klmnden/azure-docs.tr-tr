@@ -5,26 +5,22 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 9/25/2018
+ms.date: 9/27/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 766ad04251fbe404d43734115e41e23ae0a4be28
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 894389ec07fb8e371a269f895473fe82985de7c3
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46982061"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47405980"
 ---
 # <a name="tutorial-filter-inbound-traffic-with-azure-firewall-dnat-using-the-azure-portal"></a>Öğretici: Azure portalını kullanarak Azure Güvenlik Duvarı DNAT ile gelen trafiği filtreleme
 
-Alt ağlarınıza gelen trafiği çevirmek ve filtrelemek için Azure Güvenlik Duvarı Hedef Ağ Adresi Çevirisi’ni (DNAT) yapılandırabilirsiniz. Azure Güvenlik Duvarı'nda gelen kuralları ve giden kuralları kavramı yoktur. Uygulama kuralları ve ağ kuralları vardır; bunlar güvenlik duvarına gelen tüm trafiğe uygulanır. Önce ağ kuralları, sonrasında uygulama kuralları uygulanır ve kurallar sonlandırıcıdır.
+Alt ağlarınıza gelen trafiği çevirmek ve filtrelemek için Azure Güvenlik Duvarı Hedef Ağ Adresi Çevirisi’ni (DNAT) yapılandırabilirsiniz. DNAT’yi yapılandırdığınızda NAT kuralı koleksiyon eylemi **Hedef Ağ Adresi Çevirisi (DNAT)** olarak ayarlanır. Daha sonra NAT kural koleksiyonundaki her kural, güvenlik duvarı ortak IP'nizi ve bağlantı noktanızı özel bir IP'ye ve bağlantı noktasına çevirmek için kullanılabilir. DNAT kuralları, çevrilen trafiğe izin verecek ilgili ağ kuralını örtük olarak ekler. Bu davranışı, çevrilen trafikle eşleşen reddetme kuralları olan bir ağ kural koleksiyonunu açıkça ekleyerek geçersiz kılabilirsiniz. Azure Güvenlik Duvarı kural işleme mantığı hakkında daha fazla bilgi için bkz: [Azure Güvenlik Duvarı kural işleme mantığı](rule-processing.md).
 
->[!NOTE]
->Güvenlik Duvarı DNAT özelliği şu anda yalnızca Azure PowerShell’de ve REST’de kullanılabilir.
-
-Örneğin bir ağ kuralı eşleşirse paket uygulama kuralları tarafından değerlendirilmez. Ağ kuralı eşleşmesi yoksa ve paket protokolü HTTP/HTTPS ise bu durumda paket uygulama kuralları tarafından değerlendirilir. Hala eşleşme bulunamamışsa paket, [altyapı kural koleksiyonu](infrastructure-fqdns.md) ile değerlendirilir. Ardından hala eşleşme yoksa paket varsayılan olarak reddedilir.
-
-DNAT’yi yapılandırdığınızda NAT kuralı koleksiyon eylemi **Hedef Ağ Adresi Çevirisi (DNAT)** olarak ayarlanır. Güvenlik duvarı genel IP’si ve bağlantı noktası özel IP adresine ve bağlantı noktasına çevrilir. Daha sonra kurallar, önce ağ kuralları, sonra da uygulama kuralları olmak üzere alışıldığı gibi uygulanır. Örneğin, TCP bağlantı noktası 3389 üzerinden Uzak Masaüstü trafiğine izin verecek şekilde bir ağ kuralı yapılandırmak isteyebilirsiniz. Önce adres çevirisi yapılır ve ardından çevrilen adresler kullanılarak ağ ve uygulama kuralları uygulanır.
+> [!NOTE]
+> DNAT, bağlantı noktası 80 ve 22 üzerinde çalışmaz. Yakın gelecekte bu sorunu düzeltmek için çalışıyoruz. Bu sırada NAT kurallarında hedef bağlantı noktası olarak başka bir bağlantı noktası kullanın. Bağlantı noktası 80 veya 22 hala çevrilmiş bağlantı noktası olarak kullanılabilir. Örneğin ortak ip:81 değerini özel ip:80 değeriyle eşleyebilirsiniz.
 
 Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
@@ -33,7 +29,6 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 > * Güvenlik duvarı dağıtma
 > * Varsayılan rota oluşturma
 > * DNAT kuralını yapılandırma
-> * Ağ kuralını yapılandırma
 > * Güvenlik duvarını test etme
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
@@ -199,48 +194,18 @@ Dağıtım bittikten sonra sanal makineyle ilişkili özel IP adresini not alın
 
 ## <a name="configure-a-dnat-rule"></a>DNAT kuralını yapılandırma
 
-```azurepowershell-interactive
- $rgName  = "RG-DNAT-Test"
- $firewallName = "FW-DNAT-test"
- $publicip = type the Firewall public ip
- $newAddress = type the private IP address for the Srv-Workload virtual machine 
- 
-# Get Firewall
-    $firewall = Get-AzureRmFirewall -ResourceGroupName $rgName -Name $firewallName
-  # Create NAT rule
-    $natRule = New-AzureRmFirewallNatRule -Name RL-01 -SourceAddress * -DestinationAddress $publicip -DestinationPort 3389 -Protocol TCP -TranslatedAddress $newAddress -TranslatedPort 3389
-  # Create NAT rule collection
-    $natRuleCollection = New-AzureRmFirewallNatRuleCollection -Name RC-DNAT-01 -Priority 200 -Rule $natRule
-  # Add NAT Rule collection to firewall:
-    $firewall.AddNatRuleCollection($natRuleCollection)
-  # Save:
-    $firewall | Set-AzureRmFirewall
-```
-## <a name="configure-a-network-rule"></a>Ağ kuralını yapılandırma
-
-1. **RG-DNAT-Test**’i açın ve **FW-DNAT-test** güvenlik duvarına tıklayın.
-1. **FW-DNAT-test** sayfasının **Ayarlar** bölümünde **Kurallar**'a tıklayın.
-2. **Ağ kuralı koleksiyonu ekle**'ye tıklayın.
-
-Aşağıdaki tabloyu kullanarak kuralı yapılandırın ve **Ekle**’ye tıklayın:
-
-
-|Parametre  |Değer  |
-|---------|---------|
-|Adı     |**RC-Net-01**|
-|Öncelik     |**200**|
-|Eylem     |**İzin ver**|
-
-**Kurallar** altında:
-
-|Parametre  |Ayar  |
-|---------|---------|
-|Adı     |**RL-RDP**|
-|Protokol     |**TCP**|
-|Kaynak Adresler     |*|
-|Hedef Adresler     |**Srv-Workload** özel IP adresi|
-|Hedef bağlantı noktaları|**3389**|
-
+1. **RG-DNAT-Test**’i açın ve **FW-DNAT-test** güvenlik duvarına tıklayın. 
+1. **FW-DNAT-test** sayfasının **Ayarlar** bölümünde **Kurallar**'a tıklayın. 
+2. **DNAT kural koleksiyonu ekle**'ye tıklayın. 
+3. **Ad** için **RC-DNAT-01** yazın. 
+1. **Öncelik** alanına **200** yazın. 
+6. **Kurallar**'ın altında, **Ad** için **RL-01** yazın. 
+7. **Kaynak Adresler** için * yazın. 
+8. **Hedef Adresler** için güvenlik duvarının ortak IP adresini yazın. 
+9. **Hedef bağlantı noktaları** için **3389** yazın. 
+10. **Çevrilmiş Adres** için Srv-Workload sanal makinesinin özel IP adresini yazın. 
+11. **Çevrilmiş bağlantı noktası** için **3389** yazın. 
+12. **Ekle**'ye tıklayın. 
 
 ## <a name="test-the-firewall"></a>Güvenlik duvarını test etme
 
@@ -262,7 +227,6 @@ Bu öğreticide, şunların nasıl yapıldığını öğrendiniz:
 > * Güvenlik duvarı dağıtma
 > * Varsayılan rota oluşturma
 > * DNAT kuralını yapılandırma
-> * Ağ kuralını yapılandırma
 > * Güvenlik duvarını test etme
 
 Şimdi Azure Güvenlik Duvarı günlüklerini izleyebilirsiniz.

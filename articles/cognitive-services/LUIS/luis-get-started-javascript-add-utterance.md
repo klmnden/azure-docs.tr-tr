@@ -1,20 +1,21 @@
 ---
-title: 'Hızlı başlangıç: JavaScript kullanarak bir LUIS uygulamasına konuşma eklemeyi öğrenme - Azure Bilişsel Hizmetler | Microsoft Docs'
+title: JavaScript Hızlı Başlangıç - modeli değiştirme ve LUIS uygulamasını eğitme
+titleSuffix: Azure Cognitive Services
 description: Bu hızlı başlangıçta JavaScript kullanarak bir LUIS uygulamasını çağırmayı öğreneceksiniz.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: quickstart
-ms.date: 08/24/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 0920a194d3e9c93883b88b7131f7e81dc8fb3302
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: 38e25b0634b53f4fcc0507091e78ab49b29c8d38
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44159699"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47033405"
 ---
 # <a name="quickstart-change-model-using-javascript"></a>Hızlı Başlangıç: JavaScript kullanarak model değiştirme
 

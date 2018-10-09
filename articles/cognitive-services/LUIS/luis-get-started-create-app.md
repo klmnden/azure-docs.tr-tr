@@ -1,20 +1,21 @@
 ---
-title: 10 dakikada ilk Language Understanding (LUIS) uygulamanızı oluşturma - Cognitive Services LUIS | Microsoft Docs
-description: Bu hızlı başlangıçta ışıkları ve cihazları açıp kapatmak için önceden oluşturulmuş `HomeAutomation` etki alanını kullanan bir LUIS uygulaması oluşturacaksınız. Önceden oluşturulmuş olan bu etki alanı amaçlara, varlıklara ve örnek konuşmalara sahiptir. İşlemi tamamladığınızda bulut üzerinde çalışan bir LUIS uç noktasına sahip olacaksınız.
+title: İlk LUIS uygulamanıza 10 dakika var
+titleSuffix: Azure Cognitive Services
+description: Işıkları ve cihazları açıp kapatmak için önceden oluşturulmuş `HomeAutomation` etki alanını kullanan bir LUIS uygulaması oluşturun. Önceden oluşturulmuş olan bu etki alanı amaçlara, varlıklara ve örnek konuşmalara sahiptir. İşlemi tamamladığınızda bulut üzerinde çalışan bir LUIS uç noktasına sahip olacaksınız.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: quickstart
-ms.date: 08/22/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 457f23936dec0cf85e9aebbf3e54bba37c2f3ca3
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.openlocfilehash: 12a660b49d1a81865c34ceda38f041de9be31eb1
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "43772539"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47037482"
 ---
 # <a name="quickstart-use-prebuilt-home-automation-app"></a>Hızlı başlangıç: Önceden oluşturulmuş ev otomasyonu uygulamasını kullanma
 
@@ -54,11 +55,7 @@ Etki alanı başarıyla eklendiğinde önceden oluşturulmuş etki alanı kutusu
 
 ## <a name="intents-and-entities"></a>Amaçlar ve varlıklar
 
-HomeAutomation etki alanının amaçlarını incelemek için sol taraftaki gezinti bölmesinden **Amaçlar**'ı seçin. 
-
-[![](media/luis-quickstart-new-app/home-automation-intents.png "Amaç adlarının vurgulanmış olduğu Amaçlar listesinin ekran görüntüsü")](media/luis-quickstart-new-app/home-automation-intents.png)
-
-Her amaçta örnek konuşmalar bulunur.
+HomeAutomation etki alanının amaçlarını incelemek için sol taraftaki gezinti bölmesinden **Amaçlar**'ı seçin. Her amaçta örnek konuşmalar bulunur.
 
 > [!NOTE]
 > **Hiçbiri**, tüm LUIS uygulamaları tarafından sağlanan bir amaçtır. Uygulamanızın sağladığı işlevleri karşılamayan konuşmaların işlenmesi için bunu seçersiniz. 
@@ -67,11 +64,9 @@ Her amaçta örnek konuşmalar bulunur.
 
 [![](media/luis-quickstart-new-app/home-automation-turnon.png "HomeAutomation.TurnOff amacının ekran görüntüsü")](media/luis-quickstart-new-app/home-automation-turnon.png)
 
-## <a name="train-your-app"></a>Uygulamanızı eğitme
+## <a name="train-the-luis-app"></a>LUIS uygulamasını eğitme
 
-Üst gezinti bölmesinde **Eğit**'i seçin.
-
-[![](media/luis-quickstart-new-app/trained.png "Yeşil renkli başarı bildirimi ile HomeAutomation.TurnOff amacının ekran görüntüsü")](media/luis-quickstart-new-app/trained.png)
+[!include[LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
 ## <a name="test-your-app"></a>Uygulamanızı test etme
 Uygulamanızı eğittikten sonra test edebilirsiniz. Üst gezinti bölmesinde **Test**'i seçin. Etkileşimli Test bölmesine "Turn off the lights" (Işıkları kapat) gibi bir test konuşması yazın. 
@@ -89,29 +84,23 @@ Bu örnekte "Turn off the lights" (Işıkları kapat), olması gereken şekilde 
 
 Test bölmesini daraltmak için yeniden **Test**'i seçin. 
 
-## <a name="publish-your-app"></a>Uygulamanızı yayımlama
-Üst gezinti bölmesinden **Yayımla**'yı seçin. 
+<a name="publish-your-app"></a>
 
-[![](media/luis-quickstart-new-app/publish.png "Yayımla düğmesi vurgulanmış uygulamanın ekran görüntüsü")](media/luis-quickstart-new-app/publish.png)
+## <a name="publish-the-app-to-get-the-endpoint-url"></a>Uç nokta URL'sini almak için uygulamayı yayımlama
 
-Production (Üretim) yuvasını ve ardından **Publish** (Yayımla) düğmesini seçin.
+[!include[LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
-Üstteki yeşil bildirim çubuğu, uygulamanın başarıyla yayımlandığını gösterir.
+## <a name="query-the-endpoint-with-a-different-utterance"></a>Uç noktayı farklı bir konuşmayla sorgulama
 
-[![](media/luis-quickstart-new-app/published.png "Başarıyla yayımlanmış olan uygulamanın ekran görüntüsü")](media/luis-quickstart-new-app/published.png)
+1. [!include[LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)] 
 
-Uygulama başarıyla yayımlandıktan sonra **Uygulamayı yayımla** sayfasında görüntülenen uç nokta URL'sini seçebilirsiniz.
+2. Adresteki URL'nin sonuna gidin ve `turn off the living room light` tümcesini girip Enter tuşuna basın. Tarayıcıda HTTP uç noktanızın JSON yanıtı görüntülenir.
 
-[![](media/luis-quickstart-new-app/endpoint.png "Uç nokta URL'si vurgulanmış Yayımla sayfası ekran görüntüsü")](media/luis-quickstart-new-app/endpoint.png)
-
-## <a name="use-your-app"></a>Uygulamanızı kullanma
-Yayımlanan uç noktanızı oluşturulan URL'yi kullanarak tarayıcıda test edebilirsiniz. Bu URL'yi tarayıcınızda açın ve "&q" URL parametresini test sorgunuza göre ayarlayın. Örneğin URL'nin sonuna `turn off the living room light` ekleyin ve Enter tuşuna basın. Tarayıcıda HTTP uç noktanızın JSON yanıtı görüntülenir.
-
-
-[![](media/luis-quickstart-new-app/turn-off-living-room.png "TurnOff amacını belirleyen JSON sonucunun gösterildiği tarayıcı ekran görüntüsü")](media/luis-quickstart-new-app/turn-off-living-room.png)
-
+    [![](media/luis-quickstart-new-app/turn-off-living-room.png "TurnOff amacını belirleyen JSON sonucunun gösterildiği tarayıcı ekran görüntüsü")](media/luis-quickstart-new-app/turn-off-living-room.png)
+    
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
-İhtiyacınız kalmadıysa LUIS uygulamasını silebilirsiniz. Bunu yapmak için uygulama listesinde uygulama adının yanındaki üç nokta (***...***) düğmesini ve sonra da **Delete** (Sil) öğesini seçin. Açılan **Delete app?** (Uygulama silinsin mi?) iletişim kutusunda **Ok** (Tamam) öğesini seçin.
+
+[!include[LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

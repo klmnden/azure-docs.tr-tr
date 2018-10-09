@@ -1,50 +1,50 @@
 ---
-title: Azure içerik denetleyici kod örnekleri | Microsoft Docs
-description: İçerik yöneticiyi uygulamalarınızda kullanmak
+title: Kod örnekleri - Content Moderator, .NET
+description: Uygulamalarınızda Content Moderator kullanın
 services: cognitive-services
 author: sanjeev3
-manager: mikemcca
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
-ms.topic: article
+ms.topic: sample
 ms.date: 01/10/2018
 ms.author: sajagtap
-ms.openlocfilehash: a7f5b0a7433631e303de47667871cc1354053c08
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
-ms.translationtype: MT
+ms.openlocfilehash: c5465a2de0924037eb93b9de652e93e85f166737
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35352570"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47223160"
 ---
-# <a name="net-sdk-samples"></a>.NET SDK'sı örneği
+# <a name="net-sdk-samples"></a>.NET SDK örnekleri
 
-Aşağıdaki listede, .NET için Azure içerik denetleyici SDK kullanılarak oluşturulan kod örnekleri bağlantılarını içerir.
+Aşağıdaki listede .NET için Azure Content Moderator SDK'sı kullanılarak derlenen kod örneklerine bağlantılar bulunmaktadır.
 
-- **Yardımcı kitaplık**: [kullanmak için bir içerik denetleyici istemcisi diğer örnekleri oluşturma](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/ContentModerator/ModeratorHelper/Clients.cs). Bkz: [Hızlı Başlangıç](content-moderator-helper-quickstart-dotnet.md).
+- **Yardımcı kitaplık**: [Diğer örneklerde kullanmak üzere bir Content Moderator istemcisi oluşturun](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/ContentModerator/ModeratorHelper/Clients.cs). Bkz: [hızlı başlangıç](content-moderator-helper-quickstart-dotnet.md).
 
 ## <a name="moderation"></a>Denetleme
 
-- **Görüntü yönetimini**: [yazıtipleri, metin ve içeriği yetişkin ve saldırganlardan resmi değerlendirmek](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/ContentModerator/ImageModeration/Program.cs). Bkz: [Hızlı Başlangıç](image-moderation-quickstart-dotnet.md).
-- **Özel resimler**: [özel görüntü listeleriyle orta](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/ContentModerator/ImageListManagement/Program.cs). Bkz: [Hızlı Başlangıç](image-lists-quickstart-dotnet.md).
+- **Görüntü denetimi**: [Bir görüntüyü yetişkinlere yönelik ve müstehcen içerik, metin ve yüzler için değerlendirme](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/ContentModerator/ImageModeration/Program.cs). Bkz: [hızlı başlangıç](image-moderation-quickstart-dotnet.md).
+- **Özel görüntüler**: [Özel görüntü listeleriyle denetim](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/ContentModerator/ImageListManagement/Program.cs). Bkz: [hızlı başlangıç](image-lists-quickstart-dotnet.md).
 
 > [!NOTE]
-> Maksimum sınırı yoktur **5 görüntü listeleri** her listesine ile **10.000 görüntüleri aşmaması**.
+> Listesi sayısı üst sınırı, her biri **10.000 görüntüyü aşmamak** kaydıyla **5 listedir**.
 >
 
-- **Metin denetleme**: [ekran uygunsuz metin ve kişisel bilgileri (PII) için metin](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/ContentModerator/TextModeration/Program.cs). Bkz: [Hızlı Başlangıç](text-moderation-quickstart-dotnet.md).
-- **Özel terimler**: [özel terim listeleriyle orta](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/ContentModerator/TermListManagement/Program.cs). Bkz: [Hızlı Başlangıç](term-lists-quickstart-dotnet.md).
+- **Metin denetimi**: [Metinde küfür ve kişisel bilgiler (PII) arama](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/ContentModerator/TextModeration/Program.cs). Bkz: [hızlı başlangıç](text-moderation-quickstart-dotnet.md).
+- **Özel terimler**: [Özel terim listeleriyle denetim](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/ContentModerator/TermListManagement/Program.cs). Bkz: [hızlı başlangıç](term-lists-quickstart-dotnet.md).
 
 > [!NOTE]
-> Maksimum sınırı yoktur **5 terim listeler** her listesine ile **10.000 koşulları aşmaması**.
+> Üst sınır, her biri **10.000 terimi aşmamak** kaydıyla **5 listedir**.
 >
 
-- **Video yönetimini**: [yetişkin ve saldırganlardan içerik için bir video tarama ve sonuçları elde](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/ContentModerator/VideoModeration/Program.cs). Bkz: [Hızlı Başlangıç](video-moderation-api.md).
+- **Video denetimi**: [Videoda yetişkinlere yönelik ve müstehcen içerik arama ve sonuçları getirme](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/ContentModerator/VideoModeration/Program.cs). Bkz: [hızlı başlangıç](video-moderation-api.md).
 
-## <a name="review"></a>İncele
+## <a name="review"></a>Gözden geçirme
 
-- **Görüntü işleri**: [tarayan ve incelemeler oluşturan bir denetleme işi başlatmak](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/ContentModerator/ImageJobs/Program.cs). Bkz: [Hızlı Başlangıç](moderation-jobs-quickstart-dotnet.md).
-- **Görüntü incelemeler**: [oluşturma incelemeler İnsan-içinde--döngü için](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/ContentModerator/ImageReviews/Program.cs). Bkz: [Hızlı Başlangıç](moderation-reviews-quickstart-dotnet.md).
-- **Video incelemeleri**: [oluşturma video incelemeleri İnsan-içinde--for döngüsü](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/ContentModerator/VideoReviews/Program.cs). Bkz: [hızlı başlangıç](video-reviews-quickstart-dotnet.md)
-- **Video Dökümü incelemeleri**: [oluşturma video dökümü incelemeleri İnsan-içinde--for döngüsü](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/ContentModerator/VideoTranscriptReviews/Program.cs) görmek [hızlı başlangıç](video-reviews-quickstart-dotnet.md)
+- **Görüntü işleri**: [Tarama yapan ve gözden geçirmeler oluşturan bir denetim işi başlatma](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/ContentModerator/ImageJobs/Program.cs). Bkz: [hızlı başlangıç](moderation-jobs-quickstart-dotnet.md).
+- **Görüntü incelemeleri**: [Devrede insan araştıran gözden geçirmeler oluşturma](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/ContentModerator/ImageReviews/Program.cs). Bkz: [hızlı başlangıç](moderation-reviews-quickstart-dotnet.md).
+- **Görüntü incelemeleri**: [Devrede insan araştıran video gözden geçirmeleri oluşturma](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/ContentModerator/VideoReviews/Program.cs). Bkz: [hızlı başlangıç](video-reviews-quickstart-dotnet.md)
+- **Videoyu metne dönüştürme gözden geçirmeleri**: [Devrede insan araştırma için videoyu metne dönüştürme gözden geçirmeleri oluşturun](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/ContentModerator/VideoTranscriptReviews/Program.cs) Bkz: [hızlı başlangıç](video-reviews-quickstart-dotnet.md)
 
-Konumundaki tüm .NET örnekleri görmek [içerik denetleyici .NET örnekleri github'da](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator).
+[GitHub'daki Content Moderator .NET örnekleri](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator) arasında tüm .NET örneklerine bakın.

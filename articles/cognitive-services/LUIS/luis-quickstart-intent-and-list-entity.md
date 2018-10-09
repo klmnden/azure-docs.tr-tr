@@ -1,75 +1,63 @@
 ---
-title: 'Öğretici: Listelenen verilerle tam eşleşen metinleri almak için bir LUIS uygulaması oluşturma - Azure | Microsoft Docs'
-description: Bu öğreticide veri ayıklama amacıyla amaçları ve liste varlıklarını kullanan basit bir LUIS uygulaması oluşturmayı öğrenerek hızlı bir başlangıç yapacaksınız.
+title: 'Öğretici 4: Tam metin eşleşmesi - LUIS liste varlığı'
+titleSuffix: Azure Cognitive Services
+description: Bir listedeki önceden tanımlanmış öğelerle eşleşen verileri alma. Listedeki her öğenin tam olarak eşleşen eş anlamlıları da olabilir
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: luis
+ms.component: language-understanding
 ms.topic: tutorial
-ms.date: 08/02/2018
+ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: 04411f415b7cfe07d893c43e758bd2a4a226472a
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: b4fdf094653a4b16dead6397fe8e1a9f1a0258b9
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44162207"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47162092"
 ---
-# <a name="tutorial-4-add-list-entity"></a>Öğretici: 4. Liste varlığı ekleme
-Bu öğreticide önceden tanımlanmış bir listeyle eşleşen verileri nasıl alacağınızı gösteren bir uygulama oluşturacaksınız. 
+# <a name="tutorial-4-extract-exact-text-matches"></a>Öğretici 4: Tam metin eşleşmelerini ayıklama
+Bu öğreticide bir listedeki önceden tanımlı öğelerle eşleşen verileri almayı öğreneceksiniz. Listeden her öğenin bir eşanlamlı sözcükler listesi olabilir. İnsan kaynakları uygulamasında, bir çalışan ad, e-posta, telefon numarası ve ABD federal vergi numarası gibi birkaç başlıca bilgi ile tanımlanabilir. 
 
-<!-- green checkmark -->
-> [!div class="checklist"]
-> * Liste varlıklarını anlama 
-> * MoveEmployee amacıyla İnsan Kaynakları (İK) alanında yeni bir LUIS uygulaması oluşturma
-> * Konuşmadan Çalışanı ayıklamak için liste varlığı ekleme
-> * Uygulamayı eğitme ve yayımlama
-> * LUIS JSON yanıtını görmek için uygulamanın uç noktasını sorgulama
+İnsan Kaynakları uygulamasının hangi çalışanın bir binadan başka bir binaya taşındığını belirlemesi gerekiyor. LUIS, çalışan taşıma ile ilgili bir konuşmadan amacı belirliyor ve istemci uygulama tarafından çalışanı taşımak üzere standart bir emir oluşturulabilmesi için çalışanı çıkarıyor.
 
-[!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
-
-## <a name="before-you-begin"></a>Başlamadan önce
-[Normal ifade varlığı](luis-quickstart-intents-regex-entity.md) öğreticisinde oluşturulan İnsan Kaynakları uygulamasına sahip değilseniz JSON verilerini [içe aktararak](luis-how-to-start-new-app.md#import-new-app) [LUIS](luis-reference-regions.md#luis-website) web sitesinde yeni bir uygulama oluşturun. İçeri aktarmanız gereken uygulama [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-regex-HumanResources.json) Github deposunda bulunmaktadır.
-
-Özgün İnsan Kaynakları uygulamasını tutmak istiyorsanız [Settings](luis-how-to-manage-versions.md#clone-a-version) (Ayarlar) sayfasında sürümü kopyalayıp adını `list` olarak değiştirin. Kopyalama, özgün sürümünüzü etkilemeden farklı LUIS özelliklerini deneyebileceğiniz ideal bir yol sunar. 
-
-## <a name="purpose-of-the-list-entity"></a>Liste varlığının amacı
-Bu uygulama, bir çalışanı bir binadan farklı bir binaya taşıma hakkındaki konuşmaları tahmin eder. Bu uygulama, bir çalışanı ayıklamak için liste varlığı kullanır. Çalışandan ad, telefon numarası, e-posta adresi veya ABD sosyal güvenlik numarasıyla söz edilebilir. 
-
-Liste varlığı birçok öğe ve her birinin eş anlamlısını barındırabilir. Küçük-orta büyüklükte bir şirkette çalışan bilgilerini ayıklamak için liste varlığı kullanılır. 
-
-Her öğenin kurallı adı, çalışan numarasıdır. Bu etki alanı için eş anlamlı örnekleri şunlardır: 
-
-|Eş anlamlı amacı|Eş anlamlı değeri|
-|--|--|
-|Adı|John W. Smith|
-|E-posta adresi|john.w.smith@mycompany.com|
-|Dahili telefon|x12345|
-|Kişisel cep telefonu numarası|425-555-1212|
-|ABD sosyal güvenlik numarası|123-45-6789|
+Bu uygulama çalışanı çıkarmak için bir varlık listesi kullanıyor. Çalışana ad, şirket telefonu, cep telefonu numarası, e-posta veya ABD federal sosyal güvenlik numarası kullanılarak değinilebilir. 
 
 Liste varlığı bu veri türü için iyi bir seçimdir:
 
 * Veri değerleri bilinen bir kümedir.
 * Küme, bu varlık türü için maksimum LUIS [sınırlarını](luis-boundaries.md) aşmaz.
-* Konuşmadaki metin, bir eş anlamlı ile tam eşleşmedir. 
+* Konuşmadaki metin bir eşanlamlı sözcük veya kurallı ad ile tam olarak eşleşiyor. 
 
-LUIS çalışanı istemci uygulamasıyla standart bir çalışanı taşıma emri oluşturacak şekilde ayıklar.
-<!--
-## Example utterances
-Simple example utterances for a `MoveEmployee` inent:
+**Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:**
 
-```
-move John W. Smith from B-1234 to H-4452
-mv john.w.smith@mycompany from office b-1234 to office h-4452
+<!-- green checkmark -->
+> [!div class="checklist"]
+> * Mevcut öğretici uygulamasını kullanma
+> * MoveEmployee amacını ekleme
+> * Liste varlığı ekleme 
+> * Eğitim 
+> * Yayımlama
+> * Uç noktasındaki amaçları ve varlıkları alma
 
-```
--->
+[!include[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
-## <a name="add-moveemployee-intent"></a>MoveEmployee amacını ekleme
+## <a name="use-existing-app"></a>Mevcut uygulamayı kullanma
+Son öğreticide oluşturulan **HumanResources** adlı uygulamayla devam edin. 
 
-1. İnsan Kaynakları uygulamanızın LUIS sisteminin **Build** (Derleme) bölümünde olduğundan emin olun. Sağ taraftaki menü çubuğunun en üstünde bulunan **Build** (Derleme) ifadesini seçerek bu bölüme geçebilirsiniz. 
+Önceki öğreticinin HumanResources uygulaması elinizde yoksa aşağıdaki adımları izleyin:
+
+1.  [Uygulama JSON dosyasını](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/custom-domain-regex-HumanResources.json) indirin ve kaydedin.
+
+2. JSON'ı yeni bir uygulamaya içeri aktarın.
+
+3. **Yönet** bölümünde, **Sürümler** sekmesinde, sürümü kopyalayın ve `list` olarak adlandırın. Kopyalama, özgün sürümünüzü etkilemeden farklı LUIS özelliklerini deneyebileceğiniz ideal bir yol sunar. Sürüm adı URL rotasının bir parçası olarak kullanıldığından ad bir URL'de geçerli olmayan hiçbir karakter içeremez. 
+
+
+## <a name="moveemployee-intent"></a>MoveEmployee amacı
+
+1. [!include[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
 2. **Create new intent** (Yeni amaç oluştur) öğesini seçin. 
 
@@ -94,8 +82,23 @@ mv john.w.smith@mycompany from office b-1234 to office h-4452
 
     [ ![Yeni konuşmaların vurgulandığı Intent (Amaç) sayfasının ekran görüntüsü](./media/luis-quickstart-intent-and-list-entity/hr-enter-utterances.png) ](./media/luis-quickstart-intent-and-list-entity/hr-enter-utterances.png#lightbox)
 
-## <a name="create-an-employee-list-entity"></a>Çalışan listesi varlığı oluşturma
-**MoveEmployee** amacına konuşmalar eklendiğine göre LUIS uygulamasının çalışanın ne olduğunu anlaması gerekir. 
+    Buradaki number ve datetimeV2 varlıklarının önceki bir öğreticide eklendiğini ve herhangi bir örnek konuşmada bulunduğunda otomatik olarak etiketleneceğini unutmayın.
+
+    [!include[Do not use too few utterances](../../../includes/cognitive-services-luis-too-few-example-utterances.md)]  
+
+## <a name="employee-list-entity"></a>Çalışan listesi varlığı
+**MoveEmployee** amacına örnek konuşmalar eklendiğine göre artık LUIS uygulamasının çalışanın ne olduğunu anlaması gerekir. 
+
+Her öğenin birincil adı olan _kurallı ad_ çalışanın numarasıdır. Bu etki alanı için her kurallı adın eş anlamlı sözcüklerinin örnekleri şunlardır: 
+
+|Eş anlamlı amacı|Eş anlamlı değeri|
+|--|--|
+|Adı|John W. Smith|
+|E-posta adresi|john.w.smith@mycompany.com|
+|Dahili telefon|x12345|
+|Kişisel cep telefonu numarası|425-555-1212|
+|ABD sosyal güvenlik numarası|123-45-6789|
+
 
 1. Sol panelde **Entities** (Varlıklar) öğesini seçin.
 
@@ -133,15 +136,15 @@ mv john.w.smith@mycompany from office b-1234 to office h-4452
     |Kişisel cep telefonu numarası|425-555-0000|
     |ABD sosyal güvenlik numarası|234-56-7891|
 
-## <a name="train-the-luis-app"></a>LUIS uygulamasını eğitme
+## <a name="train"></a>Eğitim
 
 [!INCLUDE [LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
-## <a name="publish-the-app-to-get-the-endpoint-url"></a>Uç nokta URL'sini almak için uygulamayı yayımlama
+## <a name="publish"></a>Yayımlama
 
 [!INCLUDE [LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
-## <a name="query-the-endpoint-with-a-different-utterance"></a>Uç noktayı farklı bir konuşmayla sorgulama
+## <a name="get-intent-and-entities-from-endpoint"></a>Uç noktasından amacı ve varlıkları alma
 
 1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)] 
 
@@ -259,22 +262,12 @@ mv john.w.smith@mycompany from office b-1234 to office h-4452
 
   Çalışan bulundu, `Employee` türü ve `Employee-24612` çözünürlük değeriyle döndürüldü.
 
-## <a name="where-is-the-natural-language-processing-in-the-list-entity"></a>Doğal dil işleme, List (Liste) varlığının hangi bölümünde gerçekleştirilir? 
-Liste varlığı tam metin eşleşmesi olduğundan dil işleme (veya makine öğrenmesi) kullanmaz. LUIS, doğru en yüksek puanlı amacı seçmek için doğal dil işleme (veya makine öğrenmesi) süreçlerini kullanır. Ayrıca bir konuşma birden fazla varlığın karışımı veya birden fazla varlık türü olabilir. Her konuşma doğal dil işleme (veya makine öğrenmesi) dahil olmak üzere uygulamadaki tüm varlıklar için işlenir.
-
-## <a name="what-has-this-luis-app-accomplished"></a>Bu LUIS uygulaması hangi işlemleri gerçekleştirdi?
-Bir liste varlığına sahip olan bu uygulama, doğru çalışanı ayıkladı. 
-
-Sohbet botunuz artık `MoveEmployee` birincil eylemini ve taşınacak çalışanı belirlemek için yeterli bilgiye sahip. 
-
-## <a name="where-is-this-luis-data-used"></a>Bu LUIS verileri nerede kullanılır? 
-LUIS uygulamasının bu istek üzerinde gerçekleştirebileceği işlemler bu kadardır. Sohbet botu gibi bir çağrı uygulaması topScoringIntent sonucunu ve varlık verilerini alarak bir sonraki adımı gerçekleştirebilir. LUIS, bot veya çağrı uygulaması için programlama işini gerçekleştirmez. LUIS yalnızca kullanıcının amacını belirler. 
-
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 
 [!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>Sonraki adımlar
+Bu öğreticide yeni bir amaç oluşturuldu, örnek konuşmalar eklendi, ardından konuşmalardan tam metin eşleşmeleri ayıklamak için bir liste varlığı oluşturuldu. Uygulama eğitildikten ve yayımlandıktan sonra uç noktaya gönderilen bir sorgu amacı tanımladı ve ayıklanan verileri döndürdü.
 
 > [!div class="nextstepaction"]
 > [Uygulamaya hiyerarşik varlık ekleme](luis-quickstart-intent-and-hier-entity.md)

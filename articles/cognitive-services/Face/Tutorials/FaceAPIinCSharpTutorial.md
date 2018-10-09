@@ -1,21 +1,21 @@
 ---
-title: Yüz Tanıma API'si C# öğreticisi | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: Bu öğreticide, resimdeki yüzleri algılamak ve çerçeve içine almak için Bilişsel Hizmetler Yüz Tanıma hizmetini kullanan bir Windows uygulaması oluşturursunuz.
+title: "Öğretici: Bir görüntüdeki yüzleri algılama ve çerçeveleme - Yüz Tanıma API'si, C#"
+titleSuffix: Azure Cognitive Services
+description: Bu öğreticide bir görüntüdeki yüzleri algılamak ve çerçevelemek için Yüz Tanıma API'sini kullanan bir Windows uygulaması oluşturacaksınız.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: face-api
 ms.topic: tutorial
-ms.date: 06/29/2018
+ms.date: 09/24/2018
 ms.author: nolachar
-ms.openlocfilehash: e4f2192c40f0b650b31ed59642dee89e42eca703
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: 657c471761c36de5095763623210909308f55c2a
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39125958"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47162621"
 ---
 # <a name="tutorial-create-a-wpf-app-to-detect-and-frame-faces-in-an-image"></a>Öğretici: Resimdeki yüzleri algılamak ve çerçeve içine almak için WPF uygulaması oluşturma
 
@@ -36,7 +36,7 @@ Bu öğretici şunların nasıl yapıldığını gösterir:
 
 - Örneği çalıştırmanız için bir abonelik anahtarınız olmalıdır. [Bilişsel Hizmetleri Deneme](https://azure.microsoft.com/try/cognitive-services/?api=face-api)'den ücretsiz deneme abonelik anahtarları alabilirsiniz.
 - [Visual Studio 2015 veya 2017](https://www.visualstudio.com/downloads/)'nin herhangi bir sürümü. Visual Studio 2017 için, .NET Desktop uygulama geliştirme iş yükü gereklidir. Bu öğreticide Visual Studio 2017 Community Edition kullanılır.
-- [Microsoft.Azure.CognitiveServices.Vision.Face 2.0.0-preview](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.Face/2.0.0-preview) istemci kitaplığı NuGet paketi. Paketi indirmek gerekli değildir. Yükleme yönergeleri aşağıda verilmiştir.
+- [Microsoft.Azure.CognitiveServices.Vision.Face 2.2.0-preview](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.Face/2.2.0-preview) istemci kitaplığı NuGet paketi. Paketi indirmek gerekli değildir. Yükleme yönergeleri aşağıda verilmiştir.
 
 ## <a name="create-the-visual-studio-solution"></a>Visual Studio çözümünü oluşturma
 
@@ -54,7 +54,7 @@ Windows WPF uygulama projesini oluşturmak için bu adımları izleyin.
 1. **Araçlar** menüsünden **NuGet Paket Yöneticisi**’ni ve ardından **Paket Yöneticisi Konsolu**’nu seçin.
 1. **Paket Yöneticisi Konsolu**'nda aşağıdakini yapıştırın ve **Enter** tuşuna basın.
 
-    `Install-Package Microsoft.Azure.CognitiveServices.Vision.Face -Version 2.0.0-preview`
+    `Install-Package Microsoft.Azure.CognitiveServices.Vision.Face -Version 2.2.0-preview`
 
 ## <a name="add-the-initial-code"></a>Başlangıç kodunu ekleme
 
@@ -122,8 +122,8 @@ namespace FaceTutorial
         // NOTE: Free trial subscription keys are generated in the westcentralus
         // region, so if you are using a free trial subscription key, you should
         // not need to change this region.
-        private const string baseUri =
-            "https://westcentralus.api.cognitive.microsoft.com/face/v1.0";
+        private const string faceEndpoint =
+            "https://westcentralus.api.cognitive.microsoft.com";
 
         private readonly IFaceClient faceClient = new FaceClient(
             new ApiKeyServiceClientCredentials(subscriptionKey),
@@ -137,13 +137,13 @@ namespace FaceTutorial
         {
             InitializeComponent();
 
-            if (Uri.IsWellFormedUriString(baseUri, UriKind.Absolute))
+            if (Uri.IsWellFormedUriString(faceEndpoint, UriKind.Absolute))
             {
-                faceClient.BaseUri = new Uri(baseUri);
+                faceClient.Endpoint = faceEndpoint;
             }
             else
             {
-                MessageBox.Show(baseUri,
+                MessageBox.Show(faceEndpoint,
                     "Invalid URI", MessageBoxButton.OK, MessageBoxImage.Error);
                 Environment.Exit(0);
             }
@@ -197,8 +197,8 @@ namespace FaceTutorial
 - *MainWindow.xaml.cs* dosyasında aşağıdaki satırı bulun ve abonelik anahtarınızla ilişkilendirilmiş Azure bölgesini değiştirin veya doğrulayın:
 
     ```csharp
-    private const string baseUri =
-        "https://westcentralus.api.cognitive.microsoft.com/face/v1.0";
+    private const string Endpoint =
+        "https://westcentralus.api.cognitive.microsoft.com";
     ```
 
     Konumun, abonelik anahtarlarınızı aldığınız yerle aynı olduğundan emin olun. Örneğin abonelik anahtarlarınızı **westus** bölgesinden aldıysanız, `Westcentralus` değerini `Westus` ile değiştirin.

@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 03/20/2018
 ms.author: marsma
 ms.custom: include file
-ms.openlocfilehash: 95a8cf4eca7969631d069a31c9d08ba52c8b02b4
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: be61695cc57eca3ddf2c03aeb4912348e9535741
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30193491"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47060315"
 ---
 Bu öğreticiyi tamamlamak için aşağıdaki gereksinimleri karşılamanız gerekir:
 
-**Azure CLI**: Yerel bilgisayarınızda Azure CLI 2.0.29 veya sonraki bir sürümü yüklenmiş olmalıdır. Sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI 2.0 yükleme][azure-cli-install].
+**Azure CLI**: Yerel bilgisayarınızda Azure CLI 2.0.29 veya sonraki bir sürümü yüklenmiş olmalıdır. Sürümü bulmak için `az --version` komutunu çalıştırın. Yükleme veya yükseltme yapmanız gerekirse bkz. [Azure CLI'yı yükleme][azure-cli-install].
 
 **Docker**: Bu öğreticide kapsayıcılar, kapsayıcı görüntüleri ve temel `docker` komutları gibi temel Docker kavramları hakkında bilgi sahibi olduğunuz varsayılmıştır. Docker ve kapsayıcı temel bilgileri ile ilgili giriş yapmak için [Docker’a genel bakış][docker-get-started] bölümüne bakın.
 

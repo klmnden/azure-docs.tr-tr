@@ -3,21 +3,21 @@ title: include dosyası
 description: include dosyası
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: luis
 ms.topic: include
 ms.custom: include file
 ms.date: 08/16/2018
 ms.author: diberry
-ms.openlocfilehash: e14f29593d588a8b13162b374372b723c50db8e9
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
-ms.translationtype: MT
+ms.openlocfilehash: ec178827a2f27a4566f509fe76b58e451329efd4
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42920446"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47044177"
 ---
-`response` Başarı veya başarısızlık ile her örnek utterance için örnek Konuşma ekleme gösterir dizi `hasError` özelliği. Her iki konuşma başarıyla eklendi şu JSON yanıtı gösterilir. 
+Örnek konuşmaları eklemek için `response` dizisi `hasError` özelliği ile her örnekte başarı veya hata gösterir. Aşağıdaki JSON yanıtı her iki konuşmanın da başarıyla eklendiğini göstermektedir. 
 
 ```json
     "response": [
@@ -50,7 +50,7 @@ Aşağıdaki JSON kodunda başarılı bir eğitim isteğinin sonucu gösterilmi�
 }
 ```
 
-Aşağıdaki JSON başarılı bir istek için eğitim durum sonucunu gösterir. Her ModelID bir hedeftir. Intent'e ait konuşma yanı sıra ıntent'e ait olmayan konuşma doğru bir şekilde tanımlamak için üzerinde tüm sesleri düşünürler her anlaşılabilmelidir. 
+Aşağıdaki JSON kodu başarılı bir eğitim durumu isteğinin sonucunu göstermektedir. Her model kimliği bir amaçtır. Amaca ait olan konuşmalar ile amaca ait olmayan konuşmaların doğru tanımlanması için her amacın tüm konuşmalarda eğitilmesi gerekir. 
 
 ```JSON
 [

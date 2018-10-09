@@ -1,46 +1,68 @@
 ---
-title: Görüntü İşleme API'si Java hızlı başlangıcı | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: Bu hızlı başlangıçta, Bilişsel Hizmetler’de Java ile Görüntü İşleme kullanarak bir görüntüden küçük resim oluşturacaksınız.
+title: 'Hızlı Başlangıç: Küçük resim oluşturma - REST, Java - Görüntü İşleme'
+titleSuffix: Azure Cognitive Services
+description: Bu hızlı başlangıçta, Java ile Görüntü İşleme API'sini kullanarak bir görüntüden küçük resim oluşturacaksınız.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: v-deken
-ms.openlocfilehash: 8907b104cacfbcce53f6e490e348f108580d84a3
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 8627a3b2e5f0a1e250401bdddc1870381979dca8
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43772650"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47225923"
 ---
-# <a name="quickstart-generate-a-thumbnail---rest-java"></a>Hızlı Başlangıç: Küçük resim oluşturma - REST, Java
+# <a name="quickstart-generate-a-thumbnail-using-the-rest-api-and-java-in-computer-vision"></a>Hızlı Başlangıç: REST API ve Java ile Görüntü İşleme kullanarak küçük resim oluşturma
 
-Bu hızlı başlangıçta, Görüntü İşleme kullanarak bir görüntüden küçük resim oluşturacaksınız.
+Bu hızlı başlangıçta, Görüntü İşleme REST API'sini kullanarak bir görüntüden küçük resim oluşturacaksınız. [Küçük Resim Alma](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fb) yöntemi ile bir görüntünün küçük resmini alabilirsiniz. Giriş görüntüsünün en boy oranından farklı olabilen bir yükseklik ve genişlik belirtirsiniz. Görüntü İşleme, ilgi bölgesini akıllı bir şekilde belirlemek için akıllı kırpma özelliğini kullanır ve ilgili bölgeyi temel alan kırpma koordinatları oluşturur.
+
+Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) oluşturun.
 
 ## <a name="prerequisites"></a>Ön koşullar
 
-Görüntü İşleme’yi kullanmak için, bir abonelik anahtarınızın olması gerekir; bkz. [Abonelik Anahtarlarını Alma](../Vision-API-How-to-Topics/HowToSubscribe.md).
+- [Java&trade; Platform, Standard Edition Geliştirme Seti 7 veya 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) (JDK 7 veya 8) yüklü olmalıdır.
+- Görüntü İşleme için bir abonelik anahtarınız olması gerekir. Bir abonelik anahtarı almak için bkz. [Abonelik Anahtarları Alma](../Vision-API-How-to-Topics/HowToSubscribe.md).
 
-## <a name="get-thumbnail-request"></a>Küçük Resim Alma isteği
+## <a name="create-and-run-the-sample-application"></a>Örnek uygulamayı oluşturma ve çalıştırma
 
-[Küçük Resim Alma yöntemi](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fb) ile, bir görüntünün küçük resmini oluşturabilirsiniz. Giriş görüntüsünün en boy oranından farklı olabilen bir yükseklik ve genişlik belirtirsiniz. Görüntü İşleme, ilgi bölgesini akıllı bir şekilde belirlemek için akıllı kıprma özelliğini kullanır ve ilgili bölgeyi temel alan kırpma koordinatları oluşturur.
+Örneği oluşturup çalıştırmak için aşağıdaki adımları uygulayın:
 
-Örneği çalıştırmak için aşağıdaki adımları uygulayın:
+1. Tercih ettiğiniz IDE veya düzenleyicide bir Java projesi oluşturun. Seçenek yoksa, Java projesini bir komut satırı uygulaması şablondan oluşturun.
+1. Aşağıdaki kitaplıkları Java projenize içeri aktarın. Maven kullanıyorsanız, her bir kitaplık için Maven koordinatları sağlanır.
+   - [Apache HTTP istemcisi](https://hc.apache.org/downloads.cgi) (org.apache.httpcomponents:httpclient:4.5.5)
+   - [Apache HTTP çekirdek](https://hc.apache.org/downloads.cgi) (org.apache.httpcomponents:httpcore:4.4.9)
+   - [JSON kitaplığı](https://github.com/stleary/JSON-java) (org.json:json:20180130)
+1. Aşağıdaki `import` deyimlerini projeniz için `Main` ortak sınıfını içeren dosyaya ekleyin.  
 
-1. Yeni bir komut satırı uygulaması oluşturun.
-1. Main sınıfını aşağıdaki kod ile değiştirin (tüm `package` deyimlerini tutun).
-1. `<Subscription Key>` değerini geçerli abonelik anahtarınızla değiştirin.
-1. Gerekirse `uriBase` değerini abonelik anahtarlarınızı aldığınız konumla değiştirin.
-1. İsterseniz `imageToAnalyze` değerini başka bir görüntüyle değiştirin.
-1. Bu kitaplıkları Maven Deposu’ndan projenizdeki `lib` dizinine indirin:
-   * `org.apache.httpcomponents:httpclient:4.5.5`
-   * `org.apache.httpcomponents:httpcore:4.4.9`
-   * `org.json:json:20180130`
-1. 'Main' komutunu çalıştırın.
+   ```java
+   import java.awt.*;
+   import javax.swing.*;
+   import java.net.URI;
+   import java.io.InputStream;
+   import javax.imageio.ImageIO;
+   import java.awt.image.BufferedImage;
+   import org.apache.http.HttpEntity;
+   import org.apache.http.HttpResponse;
+   import org.apache.http.client.methods.HttpPost;
+   import org.apache.http.entity.StringEntity;
+   import org.apache.http.client.utils.URIBuilder;
+   import org.apache.http.impl.client.CloseableHttpClient;
+   import org.apache.http.impl.client.HttpClientBuilder;
+   import org.apache.http.util.EntityUtils;
+   import org.json.JSONObject;
+   ```
+
+1. `Main` ortak sınıfını aşağıdaki kodla değiştirin, ardından kodda gereken yerlerde aşağıdaki değişiklikleri yapın:
+   1. `subscriptionKey` değerini abonelik anahtarınızla değiştirin.
+   1. Gerekirse `uriBase` değerini [Küçük Resim Al](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fb)  yönteminin abonelik anahtarlarınızı aldığınız Azure bölgesinden uç nokta URL'si ile değiştirin.
+   1. `imageToAnalyze` değerini isterseniz küçük resmini oluşturmak istediğiniz başka bir görüntünün URL'si ile de değiştirebilirsiniz.
+1. Kaydedin, ardından Java projesini derleyin.
+1. Bir IDE kullanıyorsanız, `Main` yöntemini çalıştırın. Kullanmıyorsanız, bir komut istemi penceresi açın ve ardından derlenmiş sınıfı çalıştırmak için `java` komutunu kullanın. Örneğin, `java Main`.
 
 ```java
 // This sample uses the following libraries:
@@ -48,22 +70,6 @@ Görüntü İşleme’yi kullanmak için, bir abonelik anahtarınızın olması 
 //  - Apache HTTP core (org.apache.httpcomponents:httpccore:4.4.9)
 //  - JSON library (org.json:json:20180130).
 
-import java.awt.*;
-import javax.swing.*;
-import java.net.URI;
-import java.io.InputStream;
-import javax.imageio.ImageIO;
-import java.awt.image.BufferedImage;
-
-import org.apache.http.HttpEntity;
-import org.apache.http.HttpResponse;
-import org.apache.http.client.methods.HttpPost;
-import org.apache.http.entity.StringEntity;
-import org.apache.http.client.utils.URIBuilder;
-import org.apache.http.impl.client.CloseableHttpClient;
-import org.apache.http.impl.client.HttpClientBuilder;
-import org.apache.http.util.EntityUtils;
-import org.json.JSONObject;
 
 public class Main {
     // **********************************************
@@ -73,12 +79,14 @@ public class Main {
     // Replace <Subscription Key> with your valid subscription key.
     private static final String subscriptionKey = "<Subscription Key>";
 
-    // You must use the same region in your REST call as you used to get your
-    // subscription keys. For example, if you got your subscription keys from
-    // westus, replace "westcentralus" in the URI below with "westus".
+    // You must use the same Azure region in your REST API method as you used to
+    // get your subscription keys. For example, if you got your subscription keys
+    // from the West US region, replace "westcentralus" in the URL
+    // below with "westus".
     //
-    // Free trial subscription keys are generated in the westcentralus region. If you
-    // use a free trial subscription key, you shouldn't need to change this region.
+    // Free trial subscription keys are generated in the West Central US region.
+    // If you use a free trial subscription key, you shouldn't need to change
+    // this region.
     private static final String uriBase =
         "https://westcentralus.api.cognitive.microsoft.com/vision/v2.0/generateThumbnail";
 
@@ -96,7 +104,7 @@ public class Main {
             uriBuilder.setParameter("height", "150");
             uriBuilder.setParameter("smartCropping", "true");
 
-            // Prepare the URI for the REST API call.
+            // Prepare the URI for the REST API method.
             URI uri = uriBuilder.build();
             HttpPost request = new HttpPost(uri);
 
@@ -109,7 +117,7 @@ public class Main {
                     new StringEntity("{\"url\":\"" + imageToAnalyze + "\"}");
             request.setEntity(requestEntity);
 
-            // Make the REST API call and get the response entity.
+            // Call the REST API method and get the response entity.
             HttpResponse response = httpClient.execute(request);
             HttpEntity entity = response.getEntity();
 
@@ -154,32 +162,17 @@ public class Main {
 }
 ```
 
-## <a name="get-thumbnail-response"></a>Küçük Resim Alma yanıtı
+## <a name="examine-the-response"></a>Yanıtı inceleme
 
-Başarılı bir yanıt, küçük resim görüntü ikili dosyasını içerir. İstek başarısız olursa yanıt, bir hata kodu ve nelerin yanlış gittiğini belirlemeye yardımcı olması için bir ileti içerir. Aşağıdaki metin, başarılı bir yanıt örneğidir.
+Küçük resmin görüntü verilerini temsil eden ikili veri halinde başarılı bir yanıt döndürülür. İstek başarılı olursa, küçük resim yanıttaki ikili veriden oluşturulur ve örnek uygulama tarafından oluşturulan ayrı bir pencerede görüntülenir. İstek başarısız olursa, yanıt konsol penceresinde görüntülenir. Başarısız isteğin yanıtı, neyin yanlış gittiğini belirlemeye yardımcı olması için bir hata kodu ve bir ileti içerir.
 
-```text
-Response:
+## <a name="clean-up-resources"></a>Kaynakları temizleme
 
-StatusCode: 200, ReasonPhrase: 'OK', Version: 1.1, Content: System.Net.Http.StreamContent, Headers:
-{
-  Pragma: no-cache
-  apim-request-id: 131eb5b4-5807-466d-9656-4c1ef0a64c9b
-  Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
-  x-content-type-options: nosniff
-  Cache-Control: no-cache
-  Date: Tue, 06 Jun 2017 20:54:07 GMT
-  X-AspNet-Version: 4.0.30319
-  X-Powered-By: ASP.NET
-  Content-Length: 5800
-  Content-Type: image/jpeg
-  Expires: -1
-}
-```
+Artık gerek kalmadığında Java projesini, derlenen sınıf ve içeri aktarılan kitaplıklarla birlikte silin.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Optik karakter tanıma (OCR) gerçekleştirmek için Görüntü İşleme kullanan bir Java Swing uygulaması keşfedin. Akıllı kırpılmış küçük resimler oluşturun. Buna ek olarak, bir görüntüdeki yüzler gibi görsel özellikleri algılayın, kategorilere ayırın, etiketleyin ve açıklayın. Görüntü İşleme API'lerini hızlı bir şekilde denemeniz için [Open API test konsolu](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console) konusuna göz atın.
+Optik karakter tanıma (OCR) gerçekleştirmek için Görüntü İşleme kullanan bir Java Swing uygulaması keşfedin. Akıllı kırpılmış küçük resimler oluşturun. Buna ek olarak, bir görüntüdeki yüzler gibi görsel özellikleri algılayın, kategorilere ayırın, etiketleyin ve açıklayın. Görüntü İşleme API'sini hızlı bir şekilde denemeniz için [Open API test konsolu](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console) konusuna bakın.
 
 > [!div class="nextstepaction"]
 > [Görüntü İşleme API'si Java Öğreticisi](../Tutorials/java-tutorial.md)

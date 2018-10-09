@@ -1,51 +1,51 @@
 ---
-title: Video arama SDK Python hızlı başlangıç | Microsoft Docs
-description: Video arama SDK konsol uygulaması kurulumu.
-titleSuffix: Azure Video Search SDK Python quickstart
+title: 'Hızlı Başlangıç: Video Arama SDK’sı, Python'
+titleSuffix: Azure Cognitive Services
+description: Video Arama SDK'sı konsol uygulaması için kurulum.
 services: cognitive-services
 author: mikedodaro
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-video-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 02/15/2018
-ms.author: v-gedod
-ms.openlocfilehash: 1c4769a6ca3391fa595cc078651beff330bbfd60
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
-ms.translationtype: MT
+ms.author: rosh
+ms.openlocfilehash: 9784894ea9a9deb350171e0d19042eb65644093b
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35355282"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47225659"
 ---
-# <a name="video-search-sdk-python-quickstart"></a>Video arama SDK Python hızlı başlangıç
+# <a name="quickstart-bing-video-search-sdk-with-python"></a>Hızlı Başlangıç: Python ile Bing Video Arama SDK'sı
 
-Bing görüntü arama SDK web sorguları ve ayrıştırma sonuçları için REST API işlevselliğini içerir.
+Bing Görüntü Arama SDK'sı, web sorguları ve sonuçları ayrıştırmak için REST API işlevselliğini içerir.
 
-[Kaynak kodu Python Bing Video arama SDK örnekleri için](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/blob/master/samples/search/video_search_samples.py) Git hub'da kullanılabilir.
+[Python Bing Video Arama SDK'sı örnekleri için kaynak kodu](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/blob/master/samples/search/video_search_samples.py) Git Hub'dan edinilebilir.
 
 
 ## <a name="application-dependencies"></a>Uygulama bağımlılıkları
-Zaten sahip değilseniz, Python yükleyin. SDK 3.3, 3.4, 3.5 ve 3.6 gibi Python 2.7 ile uyumludur.
+Henüz yüklemediyseniz Python'ı yükleyin. SDK, Python 2.7, 3.3, 3.4, 3.5 ve 3.6 ile uyumludur.
 
-Python geliştirme için genel öneri kullanmaktır bir [sanal ortam](https://docs.python.org/3/tutorial/venv.html). Yükleme ve sanal ortamıyla başlatma [venv Modülü](https://pypi.python.org/pypi/virtualenv). Python 2.7 için virtualenv yükleyin.
+Python geliştirmesi için genel öneri [sanal bir ortam](https://docs.python.org/3/tutorial/venv.html) kullanmaktır. Sana ortamı [venv modülü](https://pypi.python.org/pypi/virtualenv) ile yükleyin ve başlatın. Python 2.7 için virtualenv dosyasını yükleyin.
 ```
 python -m venv mytestenv
 ```
-Bing videolar arama SDK bağımlılıkları yükler:
+Bing Video Arama SDK'sı bağımlılık dosyalarını yükleyin:
 ```
 cd mytestenv
 python -m pip install azure-cognitiveservices-search-videosearch
 ```
-## <a name="video-search-client"></a>Video arama istemci
-Alma bir [Bilişsel hizmetler erişim tuşu](https://azure.microsoft.com/try/cognitive-services/) altında *arama*. İçeri aktarmaları ekleyin:
+## <a name="video-search-client"></a>Video Arama istemcisi
+*Arama* altından bir [Bilişsel Hizmetler erişim anahtarı](https://azure.microsoft.com/try/cognitive-services/) alın. İçeri aktarmaları ekleyin:
 ```
 subscription_key = "YOUR-SUBSCRIPTION-KEY"
 ```
-Bir örneğini oluşturmak `CognitiveServicesCredentials`ve istemci örneği:
+`CognitiveServicesCredentials` nesnesinin bir örneğini oluşturun ve istemcinin bir örneğini başlatın:
 ```
 client = VideoSearchAPI(CognitiveServicesCredentials(subscription_key))
 ```
-Videoları (SwiftKey) için arama yapın ve ardından sonuçları sayısını doğrulayın. Out yazdırma `ID`, `name` ve `URL` ilk video sonuç.
+(SwiftKey) videoları için arama yapın ve ardından sonuçların sayısını doğrulayın. İlk video sonucunun `ID`, `name` ve `URL` çıkışlarını yazdırın.
 ```
 client = VideoSearchAPI(CognitiveServicesCredentials(subscription_key))
 
@@ -66,7 +66,7 @@ except Exception as err:
     print("Encountered exception. {}".format(err))
 
 ```
-(Bellevue toplamı) için kısa ücretsiz, videolar ve 1080 p çözüm arayın. Sonuç sayısı doğrulayın ve yazdırmanız `ID`, `name` ve `URL` ilk video sonuç.
+(Bellevue Trailer) için ücretsiz, kısa ve 1080 piksel çözünürlüklü videolar arayın. Sonuç sayısını doğrulayın ve ilk video sonucunun `ID`, `name` ve `URL` değerlerini yazdırın.
 ```
 def video_search_with_filtering(subscription_key):
 
@@ -95,7 +95,7 @@ def video_search_with_filtering(subscription_key):
 
 ```
 
-Oluşturan eğilim sonuçları alın. Başlık kutucukları ve kategorilere doğrulayın:
+Popüler sonuçları alın. Başlık kutucuklarını ve kategorileri doğrulayın:
 ```
 def video_trending(subscription_key):
 
@@ -139,7 +139,7 @@ def video_trending(subscription_key):
         print("Encountered exception. {}".format(err))
 
 ```
-Videoları (Bellevue toplamı) için arama ve ilk video ayrıntılı bilgi için arama yapın.
+Videolarda (Bellevue Trailer) ifadesini, ardından ilk videonun ayrıntılı bilgilerini arayın.
 ```
 def video_detail(subscription_key):
 
@@ -181,5 +181,5 @@ def video_detail(subscription_key):
 ```
 ## <a name="next-steps"></a>Sonraki adımlar
 
-[Bilişsel hizmetler Python SDK'sı örneği](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples)
+[Bilişsel Hizmetler Python SDK'sı örnekleri](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples)
 

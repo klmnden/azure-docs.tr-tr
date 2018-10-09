@@ -1,27 +1,27 @@
 ---
-title: Bing görsel arama API'si için C# hızlı başlangıç | Microsoft Docs
-titleSuffix: Bing Web Search APIs - Cognitive Services
-description: Bing görsel arama API'sine bir görüntüyü karşıya yükleme ve görüntü ile ilgili Öngörüler geri alma işlemi gösterilmektedir.
+title: 'Hızlı Başlangıç: Görsel arama sorgusu oluşturma, C# - Bing Görsel Arama'
+titleSuffix: Azure Cognitive Services
+description: Bing Görsel Arama API'sine görüntü yüklemeyi ve görüntü hakkında içgörü almayı gösterir.
 services: cognitive-services
 author: swhite-msft
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
 ms.technology: bing-visual-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 5/16/2018
 ms.author: scottwhi
-ms.openlocfilehash: 930a89e3b1996c44f12bd3773565eda40e93ca9c
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
-ms.translationtype: MT
+ms.openlocfilehash: e6e969d9ff0556211ca6080645888d44554b286c
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39070935"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47218776"
 ---
-# <a name="your-first-bing-visual-search-query-in-c"></a>Bing görsel arama sorgunuz ilk C#
+# <a name="quickstart-your-first-bing-visual-search-query-in-c"></a>Hızlı Başlangıç: C#'ta ilk Bing Görsel Arama sorgunuz
 
-Bing görsel arama API'sine sağlayan bir görüntü ile ilgili bilgi döndürür. Belirteç, ya da bir görüntü yükleyerek bir ınsights görüntünün URL'sini kullanarak görüntü sağlayabilir. Bu seçenekler hakkında daha fazla bilgi için bkz: [Bing görsel arama API'si nedir?](../overview.md) Bu makalede, bir resim karşıya gösterilmektedir. Görüntüyü karşıya yükleme, iyi bilinen bir yer işareti resmini Al ve geri hakkında bilgi alın mobil senaryolarda yararlı olabilir. Örneğin, öngörüleri, yer işareti hakkında bilgi dahil olabilir. 
+Bing Görsel Arama API'si, verdiğiniz bir görüntü hakkında bilgi döndürür. Görüntüyü, bir URL veya bir içgörü belirteci kullanarak veya karşıya resim yükleyerek verebilirsiniz. Bu seçenekler hakkında bilgi için bkz. [Bing Görsel Arama API'si nedir?](../overview.md) Bu makale karşıya görüntü yüklemeyi göstermektedir. Karşıya resim yüklemek, mobil bir cihazla tanınmış bir yerin resmini çekip bu yer hakkında bilgi almak istediğiniz bir durumda kullanışlı olabilir. Örneğin içgörüler bu yer hakkındaki önemsiz küçük ayrıntıları içerebilir. 
 
-Yerel bir görüntüyü karşıya yükleme, aşağıdaki form verilerini POST gövdesinde içermelidir gösterir. Form verileri içerik düzeni üstbilgisini içermelidir. Kendi `name` parametresi ayarlanması gerekir "Görüntü" ve `filename` parametreyi bir dizeye ayarlayın. Form içeriğini ikili görüntünün olur. Karşıya yükleyebilirsiniz en yüksek görüntü boyutu 1 MB'dir. 
+Aşağıda yerel bir görüntüyü karşıya yükleyeceğiniz zaman POST'un gövdesine dahil etmeniz gereken form verileri gösterilmektedir. Form verileri Content-Disposition üstbilgisini içermelidir. `name` parametresi "image" olarak, `filename` parametresi ise herhangi bir dize olarak ayarlanmalıdır. Formun içeriği görüntünün ikili verisidir. Karşıya yükleyebileceğiniz görüntünün en büyük boyutu 1 MB'dir. 
 
 ```
 --boundary_1234-abcd
@@ -32,27 +32,27 @@ Content-Disposition: form-data; name="image"; filename="myimagefile.jpg"
 --boundary_1234-abcd--
 ```
 
-Bu makale, Bing görsel arama API'sine bir istek gönderir ve JSON arama sonuçlarını görüntüleyen basit bir konsol uygulaması içerir. Bu uygulama C# dilinde yazılmıştır, ancak HTTP istekleri ve JSON Ayrıştır programlama dili ile uyumlu bir RESTful Web hizmeti API'dir. 
+Bu makale, bir Bing Görsel Arama API'si isteği gönderen ve JSON arama sonuçlarını görüntüleyen basit bir konsol uygulamasını içermektedir. Bu uygulama C# ile yazılmış olmakla birlikte API HTTP istekleri gönderebilen ve JSON ayrıştırabilen her programlama diliyle uyumlu bir RESTful Web hizmetidir. 
 
-Örnek program, yalnızca .NET Core sınıfları kullanır ve .NET CLR kullanarak Windows veya Linux veya macOS kullanarak çalışan [Mono](http://www.mono-project.com/).
+Örnek program yalnızca .NET Core sınıflarını kullanır ve Windows üzerine .NET CLR kullanarak veya Linux ya da Mac OS üzerinde [Mono](http://www.mono-project.com/) kullanarak çalışır.
 
 
-## <a name="prerequisites"></a>Önkoşullar
+## <a name="prerequisites"></a>Ön koşullar
 
-İhtiyacınız olacak [Visual Studio 2017](https://www.visualstudio.com/downloads/) Windows üzerinde çalışan bu kod alınamıyor. (Ücretsiz Community sürümü çalışır.)
+Bu kodun Windows üzerinde çalıştırılması için [Visual Studio 2017](https://www.visualstudio.com/downloads/) gerekir. (Ücretsiz Community Edition’ı kullanabilirsiniz.)
 
-Bu hızlı başlangıçta, kullanabileceğiniz bir [ücretsiz deneme sürümü](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) abonelik anahtarı veya Ücretli abonelik anahtarı.
+Bu hızlı başlangıçta bir [ücretsiz deneme](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) abonelik anahtarı veya ücretli abonelik anahtarı kullanabilirsiniz.
 
 ## <a name="running-the-application"></a>Uygulamayı çalıştırma
 
-HttpWebRequest kullanarak ileti gönderme işlemini gösterir. HttpClient HttpRequestMessage ve MultipartFormDataContent kullanan bir örnek için bkz: [kullanarak HttpClient](#using-httpclient).
+Aşağıda iletinin HttpWebRequest kullanılarak gönderilmesi gösterilmiştir. HttpClient, HttpRequestMessage ve MultipartFormDataContent kullanan bir örnek için bkz: [HttpClient Kullanma](#using-httpclient).
 
 Bu uygulamayı çalıştırmak için aşağıdaki adımları izleyin:
 
-1. Visual Studio'da yeni bir konsol çözümü oluşturun.
-1. Öğesinin içeriğini değiştirin `Program.cs` Bu hızlı başlangıçta gösterilen kod ile.
-2. Değiştirin `accessKey` abonelik anahtarınız ile değeri.
-2. Değiştirin `imagePath` görüntünün karşıya yükleme yolunu içeren değer.
+1. Visual Studio'da yeni bir Konsol çözümü oluşturun.
+1. `Program.cs` dosyasının içeriğini bu hızlı başlangıçta gösterilen kod ile değiştirin.
+2. `accessKey` değerini abonelik anahtarınızla değiştirin.
+2. `imagePath` değerini karşıya yüklenecek görüntünün yolu ile değiştirin.
 3. Programı çalıştırın.
 
 
@@ -305,7 +305,7 @@ namespace VisualSearchUpload
 
 ## <a name="using-httpclient"></a>HttpClient kullanma
 
-HttpClient kullanırsanız, MultipartFormDataContent form verilerini oluşturmak için kullanabilirsiniz. Yalnızca önceki örnekte aynı adlı yöntemlerin değiştirilecek kod aşağıdaki bölümleri kullanın.
+HttpClient kullanırsanız, form verilerini oluşturmak için MultipartFormDataContent kullanabilirsiniz. Önceki örnekteki aynı adlı yöntemleri değiştirmek için kodda aşağıdaki bölümleri kullanmanız yeterlidir.
 
 Main yöntemini şu kodla değiştirin:
 
@@ -386,10 +386,10 @@ BingImageSearch yöntemini şu kodla değiştirin:
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-[Insights belirteci kullanarak bir görüntü ile ilgili Öngörüler elde edin](../use-insights-token.md)  
-[Bing görsel arama görüntüsünü karşıya yükleme Öğreticisi](../tutorial-visual-search-image-upload.md)
-[Bing görsel arama tek sayfalı uygulama öğretici](../tutorial-bing-visual-search-single-page-app.md)
-[Bing görsel arama genel bakış](../overview.md)  
+[Bir içgörü belirteci kullanarak bir görüntü ile ilgili içgörüler elde edin](../use-insights-token.md)  
+[Karşıya Bing Görsel Arama görüntüsü yükleme öğreticisi](../tutorial-visual-search-image-upload.md)
+[Bing Görsel Arama tek sayfalı uygulama öğreticisi](../tutorial-bing-visual-search-single-page-app.md)
+[Bing Görsel Arama'ya genel bakış](../overview.md)  
 [Deneyin](https://aka.ms/bingvisualsearchtryforfree)  
-[Ücretsiz deneme erişim anahtarını alma](https://azure.microsoft.com/try/cognitive-services/?api=bing-visual-search-api)  
-[Bing görsel arama API'si başvurusu](https://aka.ms/bingvisualsearchreferencedoc)
+[Ücretsiz deneme erişim anahtarı alın](https://azure.microsoft.com/try/cognitive-services/?api=bing-visual-search-api)  
+[Bing Görsel Arama API'si başvurusu](https://aka.ms/bingvisualsearchreferencedoc)

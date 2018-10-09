@@ -1,50 +1,50 @@
 ---
-title: Görsel arama SDK Python hızlı başlangıç | Microsoft Docs
-description: Görsel arama SDK Python konsol uygulaması kurulumu.
+title: "Hızlı Başlangıç: Bing Görsel Arama SDK'sı, Python"
 titleSuffix: Azure Cognitive Services
+description: Python Görsel Arama SDK'sı konsol uygulamasını kurma.
 services: cognitive-services
 author: mikedodaro
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: bing-web-search
-ms.topic: article
+ms.component: bing-visual-search
+ms.topic: quickstart
 ms.date: 06/11/2018
 ms.author: v-gedod
-ms.openlocfilehash: f7a1f275f9059abdceaef577fb5ca722c9951366
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
-ms.translationtype: MT
+ms.openlocfilehash: 269eaccbf834646b540123dfeeeec7c569b8ced4
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36939482"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47222650"
 ---
-# <a name="visual-search-sdk-python-quickstart"></a>Görsel arama SDK Python hızlı başlangıç
+# <a name="quickstart-bing-visual-search-sdk-python"></a>Hızlı Başlangıç: Bing Görsel Arama SDK'sı Python
 
-Bing Visual arama SDK web isteklerini ve ayrıştırma sonuçları için REST API işlevselliğini kullanır.
-[Kaynak kodu Python Bing Visual arama SDK örnekleri için](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/blob/master/samples/search/visual_search_samples.py) Git hub'da kullanılabilir.
+Bing Görsel Arama SDK'sı, web istekleri ve sonuçları ayrıştırma için REST API işlevlerini kullanır.
+[Python Bing Görsel Arama SDK'sı örnekleri için kaynak kodu](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/blob/master/samples/search/visual_search_samples.py) Git Hub'dan edinilebilir.
 
 Kod senaryoları aşağıdaki başlıklar altında belgelenmiştir:
-* [Görsel arama istemci](#client)
+* [Görsel Arama İstemcisi](#client)
 * [Tam konsol uygulaması](#complete-console)
-* [Görüntü ikili post cropArea ile](#binary-crop)
+* [cropArea ile görüntü ikili gönderisi](#binary-crop)
 * [KnowledgeRequest parametresi](#knowledge-req)
-* [Etiketler, Eylemler ve actionType](#tags-actions)
+* [Etiketler, eylemler ve actionType](#tags-actions)
 
 ## <a name="application-dependencies"></a>Uygulama bağımlılıkları
-* Bilişsel hizmetler API anahtarı SDK çağrıları kimlik doğrulaması için gereklidir. Kaydolun bir [ücretsiz deneme anahtarı](https://azure.microsoft.com/try/cognitive-services/?api=search-api-v7). Deneme anahtarı saniyede 1 çağrıyla yedi gün için uygundur. Üretim senaryosu için [erişim anahtarı satın](https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7). Ayrıca bkz. [fiyatlandırma bilgileri](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/visual/).
-* Zaten sahip değilseniz, Python yükleyin. SDK 3.3, 3.4, 3.5 ve 3.6 gibi Python 2.7 ile uyumludur.
-* Python geliştirme için genel öneri kullanmaktır bir [sanal ortam](https://docs.python.org/3/tutorial/venv.html). Yükleme ve sanal ortamıyla başlatma [venv Modülü](https://pypi.python.org/pypi/virtualenv). Python 2.7 için virtualenv yükleyin.
+* SDK çağrılarının kimliğini doğrulamak için bir bilişsel hizmetler API anahtarı gerekir. [Ücretsiz deneme anahtarına](https://azure.microsoft.com/try/cognitive-services/?api=search-api-v7) kaydolun. Deneme anahtarı yedi gün boyunca saniyede 1 çağrı için kullanılabilir. Üretim aşaması senaryosu için [erişim anahtarı satın alın](https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7). Ayrıca bkz: [fiyatlandırma bilgileri](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/visual/).
+* Henüz yüklemediyseniz Python'ı yükleyin. SDK, Python 2.7, 3.3, 3.4, 3.5 ve 3.6 ile uyumludur.
+* Python geliştirmesi için genel öneri [sanal bir ortam](https://docs.python.org/3/tutorial/venv.html) kullanmaktır. Sana ortamı [venv modülü](https://pypi.python.org/pypi/virtualenv) ile yükleyin ve başlatın. Python 2.7 için virtualenv dosyasını yükleyin.
 ```
 python -m venv mytestenv
 ```
-Bing Visual arama SDK bağımlılıkları yükler:
+Bing Görsel Arama SDK'sı bağımlılık dosyalarını yükleyin:
 ```
 cd mytestenv
 python -m pip install azure-cognitiveservices-search-visualsearch
 ```
 
 <a name="client"></a> 
-## <a name="visual-search-client"></a>Görsel arama istemci
-Örneği oluşturmak için `VisualSearchAPI` istemci, aşağıdaki kitaplıkları içeri aktarma:
+## <a name="visual-search-client"></a>Görsel Arama istemcisi
+`VisualSearchAPI` istemcisinin bir örneğini oluşturmak için aşağıdaki kitaplıkları içeri aktarın:
 ```
 import http.client, urllib.parse
 import json
@@ -58,15 +58,15 @@ from azure.cognitiveservices.search.visualsearch.models import (
     KnowledgeRequest,
 )
 ```
-SubscriptionKey dize değeri geçerli bir abonelik anahtarınızla değiştirin.
+subscriptionKey dizesi değerini geçerli abonelik anahtarınız ile değiştirin.
 ```
 subscription_key = 'YOUR-VISUAL-SEARCH-ACCESS-KEY'
 ```
-Ardından, istemci örneği:
+Ardından, istemciyi örneklendirin:
 ```
 var client = new WebSearchAPI(new ApiKeyServiceClientCredentials("YOUR-ACCESS-KEY"));
 ```
-İstemci resimleri arama ve sonuçlarını ayrıştırmak için kullanın:
+Görüntü arama ve sonuçları ayrıştırma için istemciyi kullanın:
 ```
 PATH = 'C:\\Users\\USER\\azure-cognitive-samples\\mytestenv\\TestImages\\'
 image_path = os.path.join(PATH, "image.jpg")
@@ -108,7 +108,7 @@ with open(image_path, "rb") as image_fd:
 <a name="complete-console"></a> 
 ## <a name="complete-console-application"></a>Tam konsol uygulaması
 
-Aşağıdaki konsol uygulaması önceden tanımlanmış sorguyu çalıştırır ve sonuçları ayrıştırır:
+Aşağıdaki konsol uygulaması önceden tanımlanmış sorguyu yürütür ve sonuçları ayrıştırır:
 ```
 import http.client, urllib.parse
 import json
@@ -173,12 +173,12 @@ with open(image_path, "rb") as image_fd:
 
 ```
 
-Bing arama örnekleri SDK çeşitli özellikleri gösterir.  Aşağıdaki işlevleri için önceden tanımlanmış eklemek `VisualSrchSDK` sınıfı.
+Bing arama örnekleri SDK'nın çeşitli özelliklerini gösterir.  Önceden tanımlanmış `VisualSrchSDK` sınıfına aşağıdaki işlevleri ekleyin.
 
 <a name="binary-crop"></a>
-## <a name="image-binary-post-with-croparea"></a>Görüntü ikili post cropArea ile
+## <a name="image-binary-post-with-croparea"></a>cropArea ile görüntü ikili gönderisi
 
-Aşağıdaki kod bir görüntü ikili cropArea nesne birlikte post isteğinin gövdesinde gönderir.  Ardından imageInsightsToken, etiket sayısı, eylemlerin sayısını ve ilk actionType yazdırır.
+Aşağıdaki kod, gönderi isteğinin gövdesinde cropArea nesnesinin yanı sıra görüntünün ikili verilerini gönderir.  Ardından imageInsightsToken değerini, etiket sayısını, eylem sayısını ve ilk actionType değerini yazdırır.
 
 ```
 def search_image_binary_with_crop_area(client, sub_key, file_path):
@@ -227,7 +227,7 @@ def search_image_binary_with_crop_area(client, sub_key, file_path):
 <a name="knowledge-req"></a>
 ## <a name="knowledgerequest-parameter"></a>KnowledgeRequest parametresi
 
-Aşağıdaki kod bir resim URL'si gönderir `knowledgeRequest` parametresi ile birlikte bir \"site: www.bing.com\" Filtresi. Bunu yazdırır sonra `imageInsightsToken`, etiket sayısı, eylemlerin sayısını ve ilk actionType.
+Aşağıdaki kod, `knowledgeRequest` parametresinde, bir \"site:www.bing.com\" filtresi ile birlikte bir resim URL'si gönderir. Ardından `imageInsightsToken` değerini, etiket sayısını, eylem sayısını ve ilk actionType değerini yazdırır.
 ```
 def search_url_with_filters(client_in, sub_key):
 
@@ -274,9 +274,9 @@ def search_url_with_filters(client_in, sub_key):
 
 ```
 <a name="tags-actions"></a>
-## <a name="tags-actions-and-actiontype"></a>Etiketler, Eylemler ve actionType
+## <a name="tags-actions-and-actiontype"></a>Etiketler, eylemler ve actionType
 
-Aşağıdaki kod, knowledgeRequest parametresinde bir cropArea nesnesi ile birlikte bir görüntü Öngörüler belirteci gönderir. Ardından imageInsightsToken, etiket sayısı, eylemlerin sayısını ve ilk actionType yazdırır.
+Aşağıdaki kod, knowledgeRequest parametresinde cropArea nesnesi ile birlikte bir görüntü içgörüleri belirteci gönderir. Ardından imageInsightsToken değerini, etiket sayısını, eylem sayısını ve ilk actionType değerini yazdırır.
 
 ```
     client = client_in
@@ -325,4 +325,4 @@ Aşağıdaki kod, knowledgeRequest parametresinde bir cropArea nesnesi ile birli
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-[Bilişsel hizmetler .NET SDK'sı örnekleri](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7).
+[Bilişsel Hizmetler .NET SDK örnekleri](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7).

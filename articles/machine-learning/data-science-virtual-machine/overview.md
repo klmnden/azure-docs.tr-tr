@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 10/27/2017
 ms.author: gokuma
-ms.openlocfilehash: 661c757cda2f70b03d136f3726c7afe633fbbe04
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: 62c8ff225b9c649afa7532ad5edfdd627e573d81
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42023993"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47032249"
 ---
 # <a name="introduction-to-azure-data-science-virtual-machine-for-linux-and-windows"></a>Linux ve Windows için Azure Veri Bilimi Sanal Makinesi’ne Giriş
 
@@ -137,3 +137,5 @@ Veri Bilimi Sanal Makinesi halihazırda yüklenmiş ve yapılandırılmış olan
 * Ubuntu DSVM oluşturma ve kullanma hakkında daha fazla bilgi için bkz. [Linux için Veri Bilimi Sanal Makinesi Sağlama (Ubuntu)](dsvm-ubuntu-intro.md). CentOS DSVM oluşturma ve kullanma hakkında daha fazla bilgi için bkz. [Azure’da Linux CentOS Veri Bilimi Sanal Makinesi Sağlama](linux-dsvm-intro.md).
 * Linux VM (hem CentOS hem de Ubuntu) ile çeşitli genel veri bilimi görevlerini nasıl gerçekleştireceğinizi gösteren bir kılavuz için bkz. [Linux Veri Bilimi Sanal Makinesi üzerinde veri bilimi](linux-dsvm-walkthrough.md).
 
+## <a name="next-steps"></a>Sonraki adımlar
+[R geliştiricisi Azure kılavuzu](../r-developers-guide.md)

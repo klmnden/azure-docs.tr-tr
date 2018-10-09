@@ -1,26 +1,32 @@
 ---
-title: Azure Kapsayıcılar için Web App’te bir Python uygulaması dağıtma
-description: Kapsayıcılar için Web App’e yönelik Python uygulaması çalıştıran bir Docker görüntüsü dağıtma.
-keywords: azure app service, web uygulaması, python, docker, kapsayıcı
-services: app-service
+title: Linux üzerinde Azure App Service'te bir Python web uygulaması oluşturma | Microsoft Docs
+description: Linux üzerinde Azure App Service'te ilk Python merhaba dünya uygulamanızı birkaç dakika içinde dağıtın.
+services: app-service\web
+documentationcenter: ''
 author: cephalin
 manager: jeconnoc
-ms.service: app-service
-ms.devlang: python
+editor: ''
+ms.assetid: ''
+ms.service: app-service-web
+ms.workload: web
+ms.tgt_pltfrm: na
+ms.devlang: na
 ms.topic: quickstart
-ms.date: 07/13/2018
+ms.date: 09/13/2018
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 6d328d8a3556f565e7eac8ee079bd191b7dcadef
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: c3089ad11dc951d3105b25b6857b7697f8c38d1a
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39433451"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47432078"
 ---
-# <a name="deploy-a-python-web-app-in-web-app-for-containers"></a>Kapsayıcılar için Web App’te bir Python web uygulaması dağıtma
+# <a name="create-a-python-web-app-in-azure-app-service-on-linux-preview"></a>Linux üzerinde Azure App Service'te bir Python web uygulaması oluşturma (Önizleme)
 
-[Linux’ta App Service](app-service-linux-intro.md) Linux işletim sistemini kullanan yüksek oranda ölçeklenebilir, otomatik olarak düzeltme eki uygulayan bir web barındırma hizmeti sağlar. Bu hızlı başlangıçta bir web uygulaması oluşturma ve özel bir Docker Hub görüntüsü kullanarak basit bir Flask uygulaması dağıtma adımları gösterilmektedir. Web uygulamasını [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) kullanarak oluşturursunuz.
+[Linux’ta App Service](app-service-linux-intro.md) Linux işletim sistemini kullanan yüksek oranda ölçeklenebilir, otomatik olarak düzeltme eki uygulayan bir web barındırma hizmeti sağlar. Bu hızlı başlangıçta, bir Python uygulamasının [Azure CLI](/cli/azure/install-azure-cli) kullanılarak Linux üzerinde App Service'te yerleşik olan Python görüntüsü (Önizleme) üzerine dağıtılması gösterilmektedir.
+
+Mac, Windows veya Linux makinesi kullanarak bu makaledeki adımları izleyebilirsiniz.
 
 ![Azure'da çalışan örnek uygulama](media/quickstart-python/hello-world-in-browser.png)
 
@@ -28,67 +34,50 @@ ms.locfileid: "39433451"
 
 ## <a name="prerequisites"></a>Ön koşullar
 
-Bu öğreticiyi tamamlamak için:
+Bu hızlı başlangıcı tamamlamak için:
 
+* <a href="https://www.python.org/downloads/" target="_blank">Python 3.7 sürümünü yükleme</a>
 * <a href="https://git-scm.com/" target="_blank">Git'i yükleyin</a>
-* <a href="https://www.docker.com/community-edition" target="_blank">Docker Community Edition'ı yükleyin</a>
-* <a href="https://hub.docker.com/" target="_blank">Docker Hub hesabı için kaydolma</a>
 
 ## <a name="download-the-sample"></a>Örneği indirme
 
-Bir terminal penceresinde, örnek uygulamayı yerel makinenize kopyalamak ve örnek kodu içeren dizine gitmek için aşağıdaki komutları çalıştırın.
+Bir terminal penceresinde, örnek uygulamayı yerel makinenize kopyalamak ve örnek kodun bulunduğu dizine gitmek için aşağıdaki komutları çalıştırın.
 
 ```bash
 git clone https://github.com/Azure-Samples/python-docs-hello-world
 cd python-docs-hello-world
 ```
 
-Bu deponun _/app_ klasöründe basit bir Flask uygulaması ve üç öğe belirten bir _Dockerfile_ bulunur:
-
-- [tiangolo/uwsgi-nginx-flask:python3.6-alpine3.7](https://hub.docker.com/r/tiangolo/uwsgi-nginx-flask/) temel görüntüsünü kullanın.
-- Kapsayıcının 8000 numaralı bağlantı noktasını dinlemesi gerekir.
-- `/app` dizinini kapsayıcının `/app` dizinine kopyalayın.
-
-Yapılandırmada [temel görüntü talimatları](https://hub.docker.com/r/tiangolo/uwsgi-nginx-flask/) kullanılmaktadır.
-
 ## <a name="run-the-app-locally"></a>Uygulamayı yerel olarak çalıştırma
 
-Uygulamayı Docker kapsayıcısında çalıştırın.
+Azure'a dağıttığınızda nasıl görüneceğini görmek için uygulamayı yerel olarak çalıştırın. Gerekli bağımlılık dosyalarını yüklemek ve yerleşik geliştirme sunucusunu başlatmak için bir terminal penceresi açın ve aşağıdaki komutları kullanın. 
 
 ```bash
-docker build --rm -t flask-quickstart .
-docker run --rm -it -p 8000:8000 flask-quickstart
+# In Bash
+python3 -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
+FLASK_APP=application.py flask run
+
+# In PowerShell
+py -3 -m venv env
+env\scripts\activate
+pip install -r requirements.txt
+Set-Item Env:FLASK_APP ".\application.py"
+flask run
 ```
 
-Bir web tarayıcısı açın ve `http://localhost:8000` konumundaki örnek uygulamaya gidin.
+Bir web tarayıcısı açın ve `http://localhost:5000/` konumundaki örnek uygulamaya gidin.
 
-Sayfada gösterilen örnek uygulamada **Hello World** iletisini görebilirsiniz.
+Sayfada gösterilen örnek uygulamada **Merhaba Dünya!** iletisini görürsünüz.
 
-![Yerel olarak çalışan örnek uygulama](media/quickstart-python/localhost-hello-world-in-browser.png)
+![Yerel olarak çalışan örnek uygulama](media/quickstart-python/hello-world-in-browser.png)
 
-Terminal penceresinde **Ctrl+C** tuşlarına basarak kapsayıcıyı durdurun.
-
-## <a name="deploy-image-to-docker-hub"></a>Görüntüyü Docker Hub'a dağıtma
-
-Docker Hub hesabınızda oturum açın. Yönlendirmeleri izleyerek Docker Hub kimlik bilgilerinizi girin.
-
-```bash
-docker login
-```
-
-Görüntünüzü etiketleyin ve Docker Hub hesabınızda `flask-quickstart` adlı yeni bir _genel_ depoya gönderin. *\<dockerhub_id>* yerine Docker Hub kimliğinizi yazın.
-
-```bash
-docker tag flask-quickstart <dockerhub_id>/flask-quickstart
-docker push <dockerhub_id>/flask-quickstart
-```
-
-> [!NOTE]
-> `docker push`, belirtilen depo bulunamadığında bir genel depo oluşturulmasını sağlar. Bu hızlı başlangıçta Docker Hub'da bir genel depo olduğu kabul edilmektedir. Özel depoya göndermek isterseniz daha sonra Docker Hub kimlik bilgilerinizi Azure App Service'te yapılandırmanız gerekir. Bkz. [Web uygulaması oluşturma](#create-a-web-app).
-
-Görüntü gönderme işlemi tamamlandıktan sonra Azure web uygulamanızda kullanabilirsiniz.
+Terminal pencerenizde **Ctrl+C** tuşlarına basarak web sunucusundan çıkın.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+
+[!INCLUDE [Configure deployment user](../../../includes/configure-deployment-user.md)]
 
 [!INCLUDE [Create resource group](../../../includes/app-service-web-create-resource-group-linux.md)]
 
@@ -96,99 +85,100 @@ Görüntü gönderme işlemi tamamlandıktan sonra Azure web uygulamanızda kull
 
 ## <a name="create-a-web-app"></a>Web uygulaması oluşturma
 
-[az webapp create](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) komutuyla `myAppServicePlan` App Service planında bir [web uygulaması](../app-service-web-overview.md) oluşturun. *\<app name>* yerine global olarak benzersiz bir uygulama adı, *\<dockerhub_id>* yerine de Docker Hub kimliğinizi yazın.
+[!INCLUDE [Create app service plan](../../../includes/app-service-web-create-web-app-python-linux-no-h.md)]
 
-```azurecli-interactive
-az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app name> --deployment-container-image-name <dockerhub_id>/flask-quickstart
+Yerleşik görüntü ile yeni oluşturduğunuz web uygulamasını görmek için siteye göz atın. _&lt;app name>_ değerini kendi web uygulamanızın adıyla değiştirin.
+
+```bash
+http://<app_name>.azurewebsites.net
 ```
 
-Web uygulaması oluşturulduğunda Azure CLI aşağıda yer alan çıktıdaki gibi bilgiler gösterir:
+Yeni web uygulamanız aşağıdaki gibi görünmelidir:
 
-```json
-{
-  "availabilityState": "Normal",
-  "clientAffinityEnabled": true,
-  "clientCertEnabled": false,
-  "cloningInfo": null,
-  "containerSize": 0,
-  "dailyMemoryTimeQuota": 0,
-  "defaultHostName": "<app name>.azurewebsites.net",
-  "deploymentLocalGitUrl": "https://<username>@<app name>.scm.azurewebsites.net/<app name>.git",
-  "enabled": true,
-  < JSON data removed for brevity. >
-}
-```
+![Boş web uygulaması sayfası](media/quickstart-php/app-service-web-service-created.png)
 
-Önceden yüklediğiniz bir özel depo varsa Docker Hub kimlik bilgilerini App Service'te yapılandırmanız gerekir. Daha fazla bilgi için bkz. [Docker Hub'daki bir özel görüntüyü kullanma](tutorial-custom-docker-image.md#use-a-private-image-from-docker-hub-optional).
+[!INCLUDE [Push to Azure](../../../includes/app-service-web-git-push-to-azure.md)] 
 
-### <a name="specify-container-port"></a>Kapsayıcı bağlantı noktasını belirtme
-
-_Dockerfile_ içinde belirtildiği üzere kapsayıcınız 8000 numaralı bağlantı noktasını dinler. App Service'in isteğinizi doğru bağlantı noktasından yönlendirmesi için *WEBSITES_PORT* uygulama ayarını kullanmanız gerekir.
-
-Cloud Shell'de, [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) komutunu çalıştırın.
-
-
-```azurecli-interactive
-az webapp config appsettings set --name <app_name> --resource-group myResourceGroup --settings WEBSITES_PORT=8000
-```
+```bash
+Counting objects: 42, done.
+Delta compression using up to 8 threads.
+Compressing objects: 100% (39/39), done.
+Writing objects: 100% (42/42), 9.43 KiB | 0 bytes/s, done.
+Total 42 (delta 15), reused 0 (delta 0)
+remote: Updating branch 'master'.
+remote: Updating submodules.
+remote: Preparing deployment for commit id 'c40efbb40e'.
+remote: Generating deployment script.
+remote: Generating deployment script for python Web Site
+.
+.
+.
+remote: Finished successfully.
+remote: Running post deployment command(s)...
+remote: Deployment successful.
+remote: App container will begin restart within 10 seconds.
+To https://user2234@cephalin-python.scm.azurewebsites.net/cephalin-python.git
+ * [new branch]      master -> master
+ ```
 
 ## <a name="browse-to-the-app"></a>Uygulamaya göz atma
 
+Web tarayıcınızı kullanarak, dağıtılan uygulamanın konumuna gidin.
+
 ```bash
-http://<app_name>.azurewebsites.net/
+http://<app_name>.azurewebsites.net
 ```
+
+Python örnek kodu bir web uygulaması yerleşik görüntüsünde çalışmaktadır.
 
 ![Azure'da çalışan örnek uygulama](media/quickstart-python/hello-world-in-browser.png)
 
-> [!NOTE]
-> Web uygulaması ilk kez çağrıldığında Docker Hub görüntüsünün indirilmesi ve çalışması gerektiğinden başlaması biraz uzun sürebilir. Uzun bir süre bekledikten sonra hata görürseniz sayfayı yenilemeniz yeterlidir.
+**Tebrikler!** Linux üzerinde App Service'e ilk Python uygulamanızı dağıttınız.
 
-**Tebrikler!** Kapsayıcılar için Web App’e yönelik Python uygulaması çalıştıran özel bir Docker görüntüsü dağıttınız.
+## <a name="update-locally-and-redeploy-the-code"></a>Kodu yerel makinede güncelleştirme ve yeniden dağıtma
 
-## <a name="update-locally-and-redeploy"></a>Yerel olarak güncelleştirme ve yeniden dağıtma
-
-Yerel bir metin düzenleyici kullanarak `app/main.py` dosyasını Python uygulamasında açın ve `return` deyiminin yanındaki metinde küçük bir değişiklik yapın:
+Yerel depoda, `application.py` dosyasını açın ve son satırdaki metinde küçük bir değişiklik yapın:
 
 ```python
-return 'Hello, Azure!'
+return "Hello Azure!"
 ```
 
-Görüntüyü yeniden oluşturun ve yeniden Docker Hub'a gönderin.
+Değişikliklerinizi Git’e işleyin ve ardından kod değişikliklerini Azure’a gönderin.
 
 ```bash
-docker build --rm -t flask-quickstart .
-docker tag flask-quickstart <dockerhub_id>/flask-quickstart
-docker push <dockerhub_id>/flask-quickstart
+git commit -am "updated output"
+git push azure master
 ```
 
-Cloud Shell'de uygulamayı yeniden başlatın. Uygulamayı yeniden başlatma, tüm ayarların uygulandığından ve kayıt defterinden en son kapsayıcının alındığından emin olmanızı sağlar.
-
-```azurecli-interactive
-az webapp restart --resource-group myResourceGroup --name <app_name>
-```
-
-App Service'in güncelleştirilmiş görüntüyü çekmesi için yaklaşık 15 saniye bekleyin. **Uygulamaya göz atma** adımında açılan tarayıcı penceresine dönüp sayfayı yenileyin.
+Dağıtım tamamlandıktan sonra **Uygulamaya göz atma** adımında açılan tarayıcı penceresine dönüp sayfayı yenileyin.
 
 ![Azure'da çalışan güncelleştirilmiş örnek uygulama](media/quickstart-python/hello-azure-in-browser.png)
 
-## <a name="manage-your-azure-web-app"></a>Azure web uygulamanızı yönetme
+## <a name="manage-your-new-azure-web-app"></a>Yeni Azure web uygulamanızı yönetme
 
-Oluşturduğunuz web uygulamasını görmek için [Azure portalına](https://portal.azure.com) gidin.
+Oluşturduğunuz web uygulamasını yönetmek için <a href="https://portal.azure.com" target="_blank">Azure portalına</a> gidin.
 
-Sol menüden **Uygulama Hizmetleri**’ne ve ardından Azure web uygulamanızın adına tıklayın.
+Sol menüden **Uygulama Hizmetleri**'ne ve ardından Azure web uygulamanızın adına tıklayın.
 
 ![Portaldan Azure web uygulamasına gitme](./media/quickstart-python/app-service-list.png)
 
-Portal, varsayılan olarak web uygulamanızın **Genel Bakış** sayfasında görünür. Bu sayfa, uygulamanızın nasıl çalıştığını gösterir. Buradan ayrıca göz atma, durdurma, başlatma, yeniden başlatma ve silme gibi temel yönetim görevlerini gerçekleştirebilirsiniz. Sayfanın sol tarafındaki sekmeler, açabileceğiniz farklı yapılandırma sayfalarını gösterir.
+Web uygulamanızın Genel Bakış sayfasını görürsünüz. Buradan göz atma, durdurma, başlatma, yeniden başlatma ve silme gibi temel yönetim görevlerini gerçekleştirebilirsiniz.
 
-![Azure portalında App Service sayfası](./media/quickstart-python/app-service-detail.png)
+![Azure portalında App Service sayfası](media/quickstart-python/app-service-detail.png)
 
-[!INCLUDE [Clean-up section](../../../includes/cli-script-clean-up.md)]
+Soldaki menü, uygulamanızı yapılandırmak için farklı sayfalar sağlar. 
+
+[!INCLUDE [cli-samples-clean-up](../../../includes/cli-samples-clean-up.md)]
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
+Linux üzerinde App Service'teki yerleşik Python görüntüsü şu anda Önizleme aşamasındadır. Bunun yerine özel bir kapsayıcı kullanarak üretim aşamasında Python uygulamaları oluşturabilirsiniz.
+
 > [!div class="nextstepaction"]
-> [PostgreSQL ile Python](tutorial-docker-python-postgresql-app.md)
+> [PostgreSQL ile Python](tutorial-python-postgresql-app.md)
+
+> [!div class="nextstepaction"]
+> [Yerleşik Python görüntüsünü yapılandırma](how-to-configure-python.md)
 
 > [!div class="nextstepaction"]
 > [Özel görüntüleri kullanma](tutorial-custom-docker-image.md)

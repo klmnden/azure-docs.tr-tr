@@ -1,67 +1,67 @@
 ---
-title: Görsel arama SDK C# hızlı başlangıç | Microsoft Docs
-description: Görsel arama SDK C# konsol uygulaması için kurulumu.
+title: "Hızlı Başlangıç: Bing Görsel Arama SDK'sı, C# kullanma"
 titleSuffix: Azure Cognitive Services
+description: Görsel Arama SDK'sı C# konsol uygulamasını kurma.
 services: cognitive-services
 author: mikedodaro
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-web-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 05/16/2018
 ms.author: v-gedod
-ms.openlocfilehash: e9b93c46cf0702dc58398e247fef79c3f31bb50c
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
-ms.translationtype: MT
+ms.openlocfilehash: 938768ad366611b8651adc3d554c44c16a3830ef
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39213114"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47224537"
 ---
-# <a name="visual-search-sdk-c-quickstart"></a>Görsel arama SDK C# hızlı başlangıç
+# <a name="quickstart-bing-visual-search-sdk-c"></a>Hızlı Başlangıç: Bing Görsel Arama SDK'sı C#
 
-Bing görsel arama SDK web isteklerini ve ayrıştırma sonuçları için REST API işlevlerini kullanır.
-[Kaynak kodu için C# Bing görsel arama SDK örnekleri](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7/BingVisualSearch) Git hub'da kullanılabilir.
+Bing Görsel Arama SDK'sı, web istekleri ve sonuçları ayrıştırma için REST API işlevlerini kullanır.
+[C# Bing Görsel Arama SDK'sı örneklerinin kaynak kodu](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7/BingVisualSearch) Git Hub'dan edinilebilir.
 
-Aşağıdaki başlıklar altında kod senaryoları belgelenmiştir:
-* [Görsel arama istemci](#client)
-* [Eksiksiz bir konsol uygulaması](#complete)
-* [Görüntü ikili cropArea gönderiyle](#binary-crop)
+Kod senaryoları aşağıdaki başlıklar altında belgelenmiştir:
+* [Görsel Arama İstemcisi](#client)
+* [Tam konsol uygulaması](#complete)
+* [cropArea ile görüntü ikili gönderisi](#binary-crop)
 * [KnowledgeRequest parametresi](#knowledge-req)
-* [Etiketler, Eylemler ve actionType](#tags-actions)
-* [Etiketler, Eylemler ve ilk actionType sayısı sayısı](#num-tags-actions)
+* [Etiketler, eylemler ve actionType](#tags-actions)
+* [Etiketlerin sayısı, eylemlerin sayısı ve ilk actionType](#num-tags-actions)
 
-## <a name="prerequisites"></a>Önkoşullar
+## <a name="prerequisites"></a>Ön koşullar
 
-* Visual Studio 2017. Gerekirse, ücretsiz bir topluluk sürümünü buradan indirebilirsiniz varsa: https://www.visualstudio.com/vs/community/.
-* Bilişsel hizmetler API anahtarı SDK çağrıları kimlik doğrulaması için gereklidir. Kaydolun bir [ücretsiz deneme sürümü anahtarı](https://azure.microsoft.com/try/cognitive-services/?api=search-api-v7). Deneme anahtarı ile saniye başına çağrı yedi gün için uygundur. Üretim senaryosu için [erişim anahtarı satın](https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7). Ayrıca bkz: [fiyatlandırma bilgileri](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/visual/).
-* .NET core SDK'sı, .net core 1.1 uygulamaları çalıştırma olanağı. Çekirdek çerçevesi ve çalışma zamanı buradan edinebilirsiniz: https://www.microsoft.com/net/download/.
+* Visual Studio 2017. Gerekirse ücretsiz topluluk sürümünü şuradan indirebilirsiniz varsa: https://www.visualstudio.com/vs/community/.
+* SDK çağrılarının kimliğini doğrulamak için bir Bilişsel Hizmetler API anahtarı gerekir. [Ücretsiz deneme anahtarına](https://azure.microsoft.com/try/cognitive-services/?api=search-api-v7) kaydolun. Deneme anahtarı yedi gün boyunca saniyede bir çağrı için kullanılabilir. Üretim aşaması senaryosu için [erişim anahtarı satın alın](https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7). Ayrıca bkz: [fiyatlandırma bilgileri](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/visual/).
+* .NET Core SDK'sını, .NET Core 1.1 uygulamalarını çalıştırma olanağı. Core, Framework ve Çalışma Zamanı sürümlerini şuradan alabilirsiniz: https://www.microsoft.com/net/download/.
 
 ## <a name="application-dependencies"></a>Uygulama bağımlılıkları
 
-Bing Web araması SDK'sını kullanarak bir konsol uygulaması oluşturma için göz atın `Manage NuGet Packages` Visual Studio'daki Çözüm Gezgini'nden seçeneği.  Ekleme `Microsoft.Azure.CognitiveServices.Search.VisualSearch` paket.
+Bing Web Araması SDK'sını kullanarak bir konsol uygulaması kurmak için Visual Studio’da Çözüm Gezgini'nde `Manage NuGet Packages` seçeneğine gidin.  `Microsoft.Azure.CognitiveServices.Search.VisualSearch` paketini ekleyin.
 
-Yükleme [Web Search SDK'sı NuGet paketi](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.VisualSearch/1.0) de dahil olmak üzere, bağımlılıkları yükler:
+[NuGet Web Araması SDK'sı paketini](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.VisualSearch/1.0) yüklemek, aşağıdakiler dahil bağımlılık dosyalarını da yükler:
 * Microsoft.Rest.ClientRuntime
 * Microsoft.Rest.ClientRuntime.Azure
 * Newtonsoft.Json
 
 <a name="client"></a>
 
-## <a name="visual-search-client"></a>Görsel arama istemci
-Bir örneğini oluşturmak için `VisualSearchAPI` istemci, using yönergelerini ekleyin:
+## <a name="visual-search-client"></a>Görsel Arama istemcisi
+`VisualSearchAPI` istemcisinin bir örneğini oluşturmak için şu "using" yönergelerini ekleyin:
 
 ```csharp
 using Microsoft.Azure.CognitiveServices.Search.VisualSearch;
 using Microsoft.Azure.CognitiveServices.Search.VisualSearch.Models;
 ```
 
-Ardından, istemci örneği:
+Ardından, istemciyi örneklendirin:
 
 ```csharp
 var client = new WebSearchAPI(new ApiKeyServiceClientCredentials("YOUR-ACCESS-KEY"));
 ```
 
-İstemci görüntülerini aramak için kullanın:
+İstemciyi görüntü aramak için kullanın:
 
 ```csharp
  System.IO.FileStream stream = new FileStream(Path.Combine("TestImages", "image.jpg"), FileMode.Open;
@@ -69,7 +69,7 @@ var client = new WebSearchAPI(new ApiKeyServiceClientCredentials("YOUR-ACCESS-KE
  var visualSearchResults = client.Images.VisualSearchMethodAsync(image: stream, knowledgeRequest: (string)null).Result;
 ```
 
-Önceki sorgunun sonuçlarını ayrıştırılamıyor:
+Önceki sorgunun sonuçlarını ayrıştırın:
 
 ```csharp
 // Visual Search results
@@ -103,9 +103,9 @@ if (visualSearchResults.Tags.Count > 0)
 
 <a name="complete"></a> 
 
-## <a name="complete-console-application"></a>Eksiksiz bir konsol uygulaması
+## <a name="complete-console-application"></a>Tam konsol uygulaması
 
-Aşağıdaki konsol uygulamasında önceden tanımlanmış sorguyu çalıştırır ve sonuçları ayrıştırır:
+Aşağıdaki konsol uygulaması, önceden tanımlanmış sorguyu yürütür ve sonuçları ayrıştırır:
 
 ```csharp
 using Microsoft.Azure.CognitiveServices.Search.VisualSearch;
@@ -200,13 +200,13 @@ namespace VisualSrchSDK
 }
 ```
 
-Bing arama örnekleri SDK'ın çeşitli özelliklerini gösterir.  Önceden tanımlanmış aşağıdaki işlevleri ekleyin `VisualSrchSDK` sınıfı.
+Bing arama örnekleri SDK'nın çeşitli özelliklerini gösterir.  Aşağıdaki işlevleri önceden tanımlanmış `VisualSrchSDK` sınıfına ekleyin.
 
 <a name="binary-crop"></a>
 
-## <a name="image-binary-post-with-croparea"></a>Görüntü ikili cropArea gönderiyle
+## <a name="image-binary-post-with-croparea"></a>cropArea ile görüntü ikili gönderisi
 
-Aşağıdaki kod bir görüntü ikili cropArea nesne yanı sıra bir post isteğinin gövdesi gönderir.  Ardından imageInsightsToken, etiket sayısı, eylemlerin sayısını ve ilk actionType yazdırır.
+Aşağıdaki kod, gönderi isteğinin gövdesinde cropArea nesnesinin yanı sıra görüntünün ikili verilerini de gönderir.  Ardından imageInsightsToken değerini, etiket sayısını, eylem sayısını ve ilk actionType değerini yazdırır.
 
 ```csharp
 public static void VisualSearchImageBinaryWithCropArea(string subscriptionKey)
@@ -280,7 +280,7 @@ public static void VisualSearchImageBinaryWithCropArea(string subscriptionKey)
 
 ## <a name="knowledgerequest-parameter"></a>KnowledgeRequest parametresi
 
-Aşağıdaki kod bir resim URL'si gönderir `knowledgeRequest` parametresi ile birlikte bir \"site: www.bing.com\" filtre.  Yazar daha sonra `imageInsightsToken`, ilk actionType etiket sayısı ve işlemlerinin sayısı.
+Aşağıdaki kod, `knowledgeRequest` parametresinde bir \"site:www.bing.com\" filtresi ile birlikte bir resim URL'si gönderir.  Ardından `imageInsightsToken` değerini, etiket sayısını, eylem sayısını ve ilk actionType değerini yazdırır.
 
 ```csharp
 public static void VisualSearchUrlWithFilters(string subscriptionKey)
@@ -353,9 +353,9 @@ public static void VisualSearchUrlWithFilters(string subscriptionKey)
 
 <a name="tags-actions"></a>
 
-## <a name="tags-actions-and-actiontype"></a>Etiketler, Eylemler ve actionType
+## <a name="tags-actions-and-actiontype"></a>Etiketler, eylemler ve actionType
 
-Aşağıdaki kod, knowledgeRequest parametresinde cropArea nesnesi ile birlikte bir görüntü ınsights belirteci gönderir.  Ardından imageInsightsToken, etiket sayısı, eylemlerin sayısını ve ilk actionType yazdırır.
+Aşağıdaki kod, knowledgeRequest parametresinde cropArea nesnesi ile birlikte bir görüntü içgörüleri belirteci gönderir.  Ardından imageInsightsToken değerini, etiket sayısını, eylem sayısını ve ilk actionType değerini yazdırır.
 
 ```csharp
 public static void VisualSearchInsightsTokenWithCropArea(string subscriptionKey)
@@ -427,9 +427,9 @@ public static void VisualSearchInsightsTokenWithCropArea(string subscriptionKey)
 
 <a name="num-tags-actions"></a>
 
-## <a name="number-of-tags-number-of-actions-and-first-actiontype"></a>Etiketler, Eylemler ve ilk actionType sayısı sayısı
+## <a name="number-of-tags-number-of-actions-and-first-actiontype"></a>Etiketlerin sayısı, eylemlerin sayısı ve ilk actionType
 
-Aşağıdaki kod, bir resim URL'si knowledgeRequest parametresinde bir kırpma alanının yanı sıra gönderir.  Ardından imageInsightsToken, etiket sayısı, eylemlerin sayısını ve ilk actionType yazdırır.
+Aşağıdaki kod, knowledgeRequest parametresinde bir resim URL'si ve bir kırpma alanı gönderir.  Ardından imageInsightsToken değerini, etiket sayısını, eylem sayısını ve ilk actionType değerini yazdırır.
 
 ```csharp
 public static void VisualSearchUrlWithJson(string subscriptionKey)
@@ -514,4 +514,4 @@ public static void VisualSearchUrlWithJson(string subscriptionKey)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-[Bilişsel hizmetler .NET SDK'sı örnekleri](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7).
+[Bilişsel Hizmetler .NET SDK örnekleri](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7).

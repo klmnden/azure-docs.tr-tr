@@ -1,20 +1,21 @@
 ---
-title: 'Hızlı Başlangıç: Ruby kullanarak model değiştirme ve LUIS uygulamasını eğitme - Azure Bilişsel Hizmetler | Microsoft Docs'
+title: Ruby Hızlı Başlangıç - modeli değiştirme ve LUIS uygulamasını eğitme
+titleSuffix: Azure Cognitive Services
 description: Bu Ruby hızlı başlangıcında, bir Ev Otomasyonu uygulamasına örnek konuşmalar ekleyip uygulamayı eğitin. Örnek konuşmalar, bir amaçla eşleşmiş kullanıcı konuşma metinleridir. Amaçlar için örnek konuşmalar sağlayarak, LUIS’e kullanıcı tarafından sağlanan hangi tür metinlerin hangi amaca ait olduğunu öğretirsiniz.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: quickstart
-ms.date: 08/24/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 537ebe2d008e313d2fb29d05143804c3478567e8
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: 2d4633592742bd81cc6972884a0c4f5141aa9943
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44159461"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47030920"
 ---
 # <a name="quickstart-change-model-using-ruby"></a>Hızlı Başlangıç: Ruby kullanarak model değiştirme
 

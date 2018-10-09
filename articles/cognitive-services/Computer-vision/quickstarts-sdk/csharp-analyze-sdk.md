@@ -1,25 +1,27 @@
 ---
-title: Görüntü İşleme API'si C# hızlı başlangıç sdk görüntü analizi | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: Bu hızlı başlangıçta, Bilişsel Hizmetler’de Görüntü İşleme Windows C# istemci kitaplığını kullanarak bir görüntüyü analiz edeceksiniz.
+title: "Hızlı Başlangıç: Görüntü analiz etme - C# SDK'sı - Görüntü İşleme"
+titleSuffix: Azure Cognitive Services
+description: Bu hızlı başlangıçta Görüntü İşleme Windows C# istemci kitaplığını kullanarak bir görüntüyü analiz edeceksiniz.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
-ms.date: 08/28/2018
-ms.author: v-deken
-ms.openlocfilehash: 3ff3a4702ab0b1fb663ee896f268065caf043809
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.date: 09/14/2018
+ms.author: nolachar
+ms.openlocfilehash: 0315b1c90eeae27d30a237aea76e66465818fba4
+ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43772636"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47056096"
 ---
-# <a name="quickstart-analyze-an-image---sdk-c35"></a>Hızlı Başlangıç: Resim analiz etme - SDK, C&#35;
+# <a name="quickstart-analyze-an-image-using-the-computer-vision-sdk-and-c"></a>Hızlı Başlangıç: Görüntü İşleme SDK'sını ve C# dilini kullanarak bir görüntüyü analiz etme
 
 Bu hızlı başlangıçta, Görüntü İşleme Windows istemci kitaplığını kullanarak görsel özellikleri ayıklamak için yerel ve uzak bir görüntüyü analiz edeceksiniz.
+
+Bu örneğin kaynak kodu [Github](https://github.com/Azure-Samples/cognitive-services-vision-csharp-sdk-quickstarts/tree/master/ComputerVision)'da mevcuttur.
 
 ## <a name="prerequisites"></a>Ön koşullar
 
@@ -48,7 +50,7 @@ Bu hızlı başlangıçta, Görüntü İşleme Windows istemci kitaplığını k
     1. Görüntülendiğinde **Microsoft.Azure.CognitiveServices.Vision.ComputerVision** öğesini seçin ve projenizin adının yanındaki onay kutusuna tıklayıp **Yükle**’ye tıklayın.
 1. `Program.cs` öğesini aşağıdaki kodla değiştirin.
 1. `<Subscription Key>` değerini geçerli abonelik anahtarınızla değiştirin.
-1. Gerekirse `computerVision.AzureRegion = AzureRegions.Westcentralus` değerini abonelik anahtarlarınızı aldığınız konumla değiştirin.
+1. Gerekirse `computerVision.Endpoint` değerini abonelik anahtarlarınız ile ilişkili Azure bölgesi ile değiştirin.
 1. `<LocalImage>` değerini yerel görüntünün yolu ve dosya adıyla değiştirin.
 1. İsteğe bağlı olarak, `remoteImageUrl` öğesini farklı bir görüntüye ayarlayın.
 1. Programı çalıştırın.
@@ -86,33 +88,33 @@ namespace ImageAnalyze
 
         static void Main(string[] args)
         {
-            ComputerVisionAPI computerVision = new ComputerVisionAPI(
-                new ApiKeyServiceClientCredentials(subscriptionKey), 
+            ComputerVisionClient computerVision = new ComputerVisionClient(
+                new ApiKeyServiceClientCredentials(subscriptionKey),
                 new System.Net.Http.DelegatingHandler[] { });
 
             // You must use the same region as you used to get your subscription
             // keys. For example, if you got your subscription keys from westus,
-            // replace "Westcentralus" with "Westus".
+            // replace "westcentralus" with "westus".
             //
             // Free trial subscription keys are generated in the westcentralus
             // region. If you use a free trial subscription key, you shouldn't
             // need to change the region.
 
             // Specify the Azure region
-            computerVision.AzureRegion = AzureRegions.Westcentralus;
+            computerVision.Endpoint = "https://westcentralus.api.cognitive.microsoft.com";
 
             Console.WriteLine("Images being analyzed ...");
             var t1 = AnalyzeRemoteAsync(computerVision, remoteImageUrl);
             var t2 = AnalyzeLocalAsync(computerVision, localImagePath);
 
             Task.WhenAll(t1, t2).Wait(5000);
-            Console.WriteLine("Press any key to exit");
+            Console.WriteLine("Press ENTER to exit");
             Console.ReadLine();
         }
 
         // Analyze a remote image
         private static async Task AnalyzeRemoteAsync(
-            ComputerVisionAPI computerVision, string imageUrl)
+            ComputerVisionClient computerVision, string imageUrl)
         {
             if (!Uri.IsWellFormedUriString(imageUrl, UriKind.Absolute))
             {
@@ -128,7 +130,7 @@ namespace ImageAnalyze
 
         // Analyze a local image
         private static async Task AnalyzeLocalAsync(
-            ComputerVisionAPI computerVision, string imagePath)
+            ComputerVisionClient computerVision, string imagePath)
         {
             if (!File.Exists(imagePath))
             {
@@ -159,9 +161,9 @@ namespace ImageAnalyze
 
 Başarılı bir yanıtta her görüntü için en ilgili resim yazısı görüntülenecektir.
 
-Ham JSON çıktısı örneği için bkz. [API Hızlı Başlangıçları: C# ile yerel görüntü analizi](../QuickStarts/CSharp-analyze.md#analyze-image-response).
+Ham JSON çıktısı örneği için bkz. [API Hızlı Başlangıçları: C# ile yerel görüntü analizi](../QuickStarts/CSharp-analyze.md#examine-the-response).
 
-```cmd
+```
 http://upload.wikimedia.org/wikipedia/commons/3/3c/Shaki_waterfall.jpg
 a large waterfall over a rocky cliff
 ```

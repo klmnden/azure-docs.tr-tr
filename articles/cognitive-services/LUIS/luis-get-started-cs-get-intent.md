@@ -1,22 +1,23 @@
 ---
-title: C# kullanarak Language Understanding’de (LUIS) doğal dil metni analiz etme - Azure Bilişsel Hizmetler | Microsoft Docs
+title: C# Hızlı Başlangıç - amacı tahmin etme - LUIS
+titleSuffix: Azure Cognitive Services
 description: Bu hızlı başlangıçta, kullanılabilir genel bir LUIS uygulamasını kullanarak konuşma metninden bir kullanıcının amacını belirleyin. C# kullanarak kullanıcının amacını genel uygulamanın HTTP tahmin uç noktasına metin olarak gönderin. Uç noktada, LUIS genel uygulamanın modelini uygulayarak anlam oluşturmak için doğal dil metnini analiz eder, böylece genel amacı belirler ve uygulamanın konu etki alanıyla ilgili verileri ayıklar.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: quickstart
-ms.date: 08/23/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: b6ddd48fc6bfa5c099e42f3717a2113f871b4f9a
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: 51c23029cc771db5351575ce329944a9f06dd286
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44163269"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47035853"
 ---
-# <a name="quickstart-analyze-text-using-c"></a>Hızlı Başlangıç: C# kullanarak metin analiz etme
+# <a name="quickstart-get-intent-using-c"></a>Hızlı Başlangıç: C# kullanarak amacı alma
 
 [!INCLUDE [Quickstart introduction for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-intro-para.md)]
 
@@ -35,11 +36,11 @@ ms.locfileid: "44163269"
 
 [!INCLUDE [Use authoring key for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-get-key-para.md)]
 
-## <a name="analyze-text-with-browser"></a>Tarayıcı ile metin analiz etme
+## <a name="get-intent-with-browser"></a>Amacı tarayıcı ile alma
 
 [!INCLUDE [Use authoring key for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-browser-para.md)]
 
-## <a name="analyze-text-with-c"></a>C# ile metin analiz etme 
+## <a name="get-intent-programmatically"></a>Amacı programlamayla alma
 
 Önceki bölümde tarayıcı penceresinde gördüğünüz sonuçları almak için C# ile tahmin uç noktası GET [API](https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee78)'sini kullanın. 
 

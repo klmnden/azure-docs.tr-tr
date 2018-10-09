@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 07/03/2018
+ms.date: 09/14/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: f5a92d421bbf7bfe485252c148d5f64ae2fb8e23
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 692d8c0a1a427fa65a94d474f78792b1a071de46
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37916124"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47219728"
 ---
 # <a name="quickstart-create-a-windows-virtual-machine-in-the-azure-portal"></a>Hızlı başlangıç: Azure portalda Windows sanal makinesi oluşturma
 
@@ -37,23 +37,28 @@ https://portal.azure.com adresinden Azure portalında oturum açın.
 
 1. Azure portalının sol üst köşesinde bulunan **Kaynak oluştur** öğesini seçin.
 
-2. Azure Market kaynaklarının listesi üzerindeki arama kutusunda, **Windows Server 2016 Datacenter**’ı arayıp seçin ve ardından **Oluştur**’u belirleyin.
+1. Azure Market kaynaklarının listesi üzerindeki arama kutusunda, **Windows Server 2016 Datacenter**’ı arayıp seçin ve ardından **Oluştur**’u belirleyin.
 
-3. *myVM* gibi bir VM adı girin, disk türünü *SSD* olarak bırakın ve *azureuser* gibi bir kullanıcı adı girin. Parola en az 12 karakter uzunluğunda olmalı ve [tanımlanmış karmaşıklık gereksinimlerini](faq.md#what-are-the-password-requirements-when-creating-a-vm) karşılamalıdır.
+1. **Temel Bilgiler** sekmesinde, **Proje ayrıntıları** altında, doğru aboneliğin seçildiğinden emin olun, ardından **Yeni oluştur** kaynak grubunu seçin. Ad için *myResourceGroup* yazın. 
 
-    ![Portal dikey penceresinde VM’niz ile ilgili temel bilgileri girin](./media/quick-create-portal/create-windows-vm-portal-basic-blade.png)
+    ![VM'niz için yeni bir kaynak grubu oluşturma](./media/quick-create-portal/project-details.png)
 
-5. **Yeni oluştur**’u seçerek yeni bir kaynak grubu oluşturun ve ardından *myResourceGroup* gibi bir ad girin. **Konum**’u ve ardından **Tamam**’ı seçin.
+1. **Örnek ayrıntıları** altında, **Sanal makine adı** için *myVM* yazın ve **Konum** için *East US*'yi seçin. Diğer varsayılan değerleri bırakın.
 
-4. VM için bir boyut seçin. Örneğin, *İşlem türü* veya *Disk türü*’ne göre filtreleyebilirsiniz. Önerilen VM boyutu: *D2s_v3*. Boyut belirledikten sonra **Seç**'e tıklayın.
+    ![Örnek ayrıntıları bölümü](./media/quick-create-portal/instance-details.png)
 
-    ![VM boyutlarını gösteren ekran görüntüsü](./media/quick-create-portal/create-windows-vm-portal-sizes.png)
+1. **Yönetici hesabı** altında, *azureuser* gibi bir kullanıcı adı ve bir parola girin. Parola en az 12 karakter uzunluğunda olmalı ve [tanımlanmış karmaşıklık gereksinimlerini](faq.md#what-are-the-password-requirements-when-creating-a-vm) karşılamalıdır.
 
-5. **Ayarlar** sayfasının **Ağ** > **Ağ Güvenlik Grubu** > **Ortak gelen bağlantı noktası seçin** bölümündeki açılan menüden **HTTP** ve **RDP (3389)** seçimlerini yapın. Diğer varsayılan ayarları olduğu gibi bırakın ve **Tamam**’ı seçin.
+    ![Kullanıcı adınızı ve parolanızı girin](./media/quick-create-portal/administrator-account.png)
 
-6. Özet sayfasında **Oluştur**’u seçerek sanal makine dağıtımını başlatın.
+1. **Gelen bağlantı noktası kuralları** altında **Seçilen bağlantı noktalarına izin ver**'i, sonra aşağı açılan listeden **RDP (3389)** ve **HTTP** değerlerini seçin.
 
-7. VM, Azure portalı panosuna sabitlenir. Dağıtım tamamlandıktan sonra VM özeti otomatik olarak açılır.
+    ![RDP ve HTTP için bağlantı noktaları açma](./media/quick-create-portal/inbound-port-rules.png)
+
+1. Kalan varsayılan ayarları bırakın, ardından sayfanın alt kısmındaki **Gözden geçir + oluştur** düğmesini seçin.
+
+    ![Gözden geçirme ve oluşturma](./media/quick-create-portal/review-create.png)
+
 
 ## <a name="connect-to-virtual-machine"></a>Sanal makineye bağlanma
 
@@ -61,7 +66,7 @@ Sanal makine ile bir uzak masaüstü bağlantısı oluşturun. Bu yönergeler VM
 
 1. Sanal makine özellikleri sayfasında **Bağlan** düğmesine tıklayın. 
 
-    ![Portaldan bir Azure sanal makinesine bağlanma](./media/quick-create-portal/quick-create-portal/portal-quick-start-9.png)
+    ![Portaldan bir Azure sanal makinesine bağlanma](./media/quick-create-portal/portal-quick-start-9.png)
     
 2. **Sanal makineye bağlan** sayfasında, 3389 numaralı bağlantı noktası üzerinden DNS adına göre bağlanmak için varsayılan seçenekleri olduğu gibi bırakın ve **RDP dosyasını indir**’e tıklayın.
 

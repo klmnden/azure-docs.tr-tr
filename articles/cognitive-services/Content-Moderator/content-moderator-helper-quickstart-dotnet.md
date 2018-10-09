@@ -1,45 +1,46 @@
 ---
-title: Azure içerik denetleyici için SDK'sı .NET yardımcı yöntem | Microsoft Docs
-description: .NET için Azure içerik denetleyici SDK'sını kullanarak bir içerik denetleyici istemci iade etme
+title: "Hızlı Başlangıç: .NET yardımcı yöntemi için Content Moderator SDK'sı"
+titlesuffix: Azure Cognitive Services
+description: .NET için Azure Content Moderator SDK'sını kullanarak bir Content Moderator istemcisi döndürme
 services: cognitive-services
 author: sanjeev3
-manager: mikemcca
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
-ms.topic: article
+ms.topic: quickstart
 ms.date: 01/04/2018
 ms.author: sajagtap
-ms.openlocfilehash: 36f2124708731f78f34849d8210ed39ea8f59140
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
-ms.translationtype: MT
+ms.openlocfilehash: 0c167de3af8aea6820962e7cc8d0c21f5ba61807
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35351467"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47223279"
 ---
-# <a name="helper-code-to-return-a-content-moderator-client"></a>Bir içerik denetleyici istemci döndürmek için yardımcı kodu
+# <a name="quickstart-helper-code-to-return-a-content-moderator-client"></a>Hızlı Başlangıç: Content Moderator istemcisi döndürmek için yardımcı kodu
 
-Bu makalede bilgiler sağlar ve yardımcı olması için kod örnekleri, aboneliğiniz için bir içerik denetleyici istemci oluşturmak için .NET için içerik denetleyici SDK ile çalışmaya başlamak.
+Bu makalede, aboneliğiniz için bir Content Moderator istemcisi oluşturmak üzere .NET için Content Moderator SDK'sını kullanmaya başlamanıza yardımcı olacak bilgi ve kod örnekleri sağlanmaktadır.
 
-Kitaplığı, bu bölümdeki diğer quickstarts tarafından kullanılır.
+Kitaplık, bu bölümdeki diğer hızlı başlangıçlar tarafından kullanılmaktadır.
 
-Bu makalede, Visual Studio ve C# ile bilginiz olduğunu varsayar.
+Bu makale, Visual Studio ve C# hakkında bilgi sahibi olduğunuzu varsayar.
 
 > [!IMPORTANT]
-> Bu sınıf kitaplığı yalnızca tanıtım amacıyla hedeflenen kodunu içerir.
-> Üretimde kullanım için bu kodu uyum, depolama ve içerik denetleyici abonelik anahtarınızı kullanarak güvenli bir yöntem kullanın.
+> Bu sınıf kitaplığı yalnızca gösterime yönelik olarak tasarlanmış kod içerir.
+> Bu kodu üretim aşamasında kullanmak üzere uyarlarsanız, Content Moderator abonelik anahtarınızı depolamak ve kullanmak için güvenli bir yöntem kullanın.
 
-## <a name="sign-up-for-content-moderator-services"></a>İçerik denetleyici Hizmetleri için kaydolun
+## <a name="sign-up-for-content-moderator-services"></a>Content Moderator hizmetleri için kaydolma
 
-REST API veya SDK üzerinden içerik denetleyici Hizmetleri kullanabilmeniz için önce bir abonelik anahtarı gerekir.
-Başvurmak [Hızlı Başlangıç](quick-start.md) anahtarı nasıl edinebilirsiniz öğrenin.
+Content Moderator hizmetlerini REST API veya SDK aracılığıyla kullanabilmeniz için önce bir abonelik anahtarınız olması gerekir.
+Anahtarı nasıl edinebileceğinizi öğrenmek için bkz [Hızlı Başlangıç](quick-start.md).
 
-## <a name="create-your-visual-studio-project"></a>Visual Studio projesi oluşturma
+## <a name="create-your-visual-studio-project"></a>Visual Studio projenizi oluşturun
 
-1. Yeni bir **sınıf kitaplığı (.NET Framework)** projesi.
+1. Yeni bir **Sınıf Kitaplığı (.NET Framework)** projesi oluşturun.
 
-   Örnek kodda ı proje adı **ModeratorHelper**.
+   Örnek kodda projeye **ModeratorHelper** adı verildi.
 
-1. Bir başvuru ekleyin **System.Configuration** Framework derleme.
+1. **System.Configuration** Framework bütünleştirilmiş koduna bir başvuru ekleyin.
 
 ### <a name="install-required-packages"></a>Gerekli paketleri yükleme
 
@@ -49,7 +50,7 @@ Aşağıdaki NuGet paketlerini yükleyin:
 - Microsoft.Rest.ClientRuntime
 - Newtonsoft.Json
 
-### <a name="create-the-content-moderator-client"></a>İçerik denetleyici istemcisi oluşturma
+### <a name="create-the-content-moderator-client"></a>Content Moderator istemcisini oluşturma
 
 ModeratorHelper.cs dosyasının içeriğini aşağıdaki kodla değiştirin:
 
@@ -102,10 +103,10 @@ ModeratorHelper.cs dosyasının içeriğini aşağıdaki kodla değiştirin:
 
 
 > [!IMPORTANT]
-> Güncelleştirme **AzureRegion** ve **CMSubscriptionKey** bölge tanımlayıcısı ve abonelik anahtarı değerlerini içeren alanlar.
+> **AzureRegion** ve **CMSubscriptionKey** alanlarını bölge tanımlayıcınız ve abonelik anahtarınız ile değiştirin.
 
-Artık, aboneliğiniz için bir içerik denetleyici istemci oluşturmanın hızlı bir yolu vardır.
+Artık aboneliğiniz için hemen bir Content Moderator istemcisi oluşturabilecek durumdasınız.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-[Visual Studio çözümü indirme](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator) bu ve diğer içerik denetleyici hızlı başlangıç ipuçları için .NET için ve tümleştirme üzerinde başlayın.
+Bu ve diğer .NET için Content Moderator hızlı başlangıçları için [Visual Studio çözümünü indirin](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator) ve tümleştirmeniz üzerinde çalışmaya başlayın.

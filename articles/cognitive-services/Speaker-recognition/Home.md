@@ -1,60 +1,61 @@
 ---
-title: Konuşmacı tanıma API'si | Microsoft Docs
-description: Konuşmacı doğrulama ve Bilişsel hizmetler Konuşmacı tanıma API'si Konuşmacı kimliği için gelişmiş algoritmalar kullanın.
+title: Konuşmacı Tanıma nedir?
+titlesuffix: Azure Cognitive Services
+description: Konuşmacı Tanıma API'si ile konuşmacı doğrulama ve konuşmacı belirleme için gelişmiş algoritmalar kullanın.
 services: cognitive-services
 author: dwlin
-manager: zhang
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: speaker-recognition
-ms.topic: article
+ms.topic: overview
 ms.date: 03/20/2016
 ms.author: dwlin
-ms.openlocfilehash: 6d5e4e4bbe0cb5e57d2556f680ffcf8d16ee1818
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
-ms.translationtype: MT
+ms.openlocfilehash: 13a95aff8b2b0d5dad0574e6107958a20576702a
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35352168"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47227342"
 ---
 # <a name="speaker-recognition-api"></a>Konuşmacı Tanıma API’si
 
-Microsoft Konuşmacı tanıma API'leri hoşgeldiniz. Konuşmacı tanıma API'leri Konuşmacı doğrulama ve Konuşmacı kimliği için en gelişmiş algoritmalar sağlayan bulut tabanlı apı'leridir. Konuşmacı tanıma iki kategoride bölünmüş: Konuşmacı doğrulama ve Konuşmacı kimliği.
+Konuşmacı Tanıma API’lerine hoş geldiniz. Konuşmacı Tanıma API’leri, konuşmacı doğrulama ve konuşmacı belirleme için en gelişmiş algoritmaları sağlayan bulut tabanlı API’lerdir. Konuşmacı Tanıma, iki kategoriye ayrılabilir: konuşmacı doğrulama ve konuşmacı belirleme.
 
 
 ## <a name="speaker-verification"></a>Konuşmacı Doğrulama
 
 
-Ses parmak izi gibi bir kişiyi tanımlamak için kullanılan benzersiz özelliklere sahiptir.  Erişim denetimi ve kimlik doğrulama senaryoları için sinyal ortaya çıktı yeni bir yenilikçi aracı gibi sesli – müşteriler için kimlik doğrulama deneyimi basitleştirir güvenlik aslında bir düzeye desteklemekteyiz.
+Ses, tıpkı parmak izi gibi bir kişiyi tanımlamak için kullanılabilen benzersiz özelliklere sahiptir.  Erişim denetimi ve kimlik doğrulama senaryoları için sinyal olarak ses kullanımı, yeni bir yenilikçi araç olarak ortaya çıkmış olup temelde müşteriler için kimlik doğrulaması deneyimini kolaylaştıran bir üst düzey güvenlik sunar.
 
-Konuşmacı doğrulama API'leri otomatik olarak doğrulayın ve bunların ses veya konuşma kullanan kullanıcıları doğrula.
+Konuşmacı Doğrulama API’leri, ses veya konuşmalarını kullanarak otomatik şekilde kullanıcıları doğrulayabilir ve kullanıcıların kimliğini doğrulayabilir.
 
 ### <a name="enrollment"></a>Kayıt
 
-Konuşmacı doğrulama için kayıt metin kayıt ve doğrulama aşamaları sırasında kullanmak için bir özel parola deyimi seçmenizi konuşmacılar gereksinim anlamına gelir, bağlıdır. 
+Konuşmacı doğrulama için kayıt, metne bağımlıdır; başka bir deyişle, konuşmacıların hem kayıt hem de doğrulama aşamalarında kullanılacak belirli bir parolayı seçmesi gerekir. 
 
-Kayıt, konuşmacı sesli belirli bir deyimi belirten kaydedilir ve daha sonra birtakım özellikleri ayıklanır ve seçilen tümcecik tanınır. Birlikte ayıklanan özellikleri ve seçilen form benzersiz sesli imza tümce.
+Kayıt sırasında konuşmacının belirli bir tümceciği söylerken sesi kaydedilir daha sonra birçok özellik ayıklanır ve seçilen tümcecik tanınır. Ayıklanan özellikler ve seçilen tümcecik birlikte benzersiz bir ses imzasını oluşturur.
 
 ### <a name="verification"></a>Doğrulama
 ###
-Doğrulama, bir giriş ses ve tümcecik kayıt ait ses imza ve tümcecik karşı karşılaştırılır – aynı kişiden olup olmadığı ve doğru tümcecik belirten varsa doğrulamak için.
+Doğrulama aşamasında bir giriş sesi ve tümcecik, kaydın ses imzası ve tümceciği ile karşılaştırılarak aynı kişiden olup olmadığı ve doğru tümceciğin söylenip söylenmediğini doğrulanır.
 
-Konuşmacı doğrulama hakkında daha fazla ayrıntı için lütfen API'sine başvurun [Konuşmacı - doğrulama](https://westus.dev.cognitive.microsoft.com/docs/services/563309b6778daf02acc0a508/operations/563309b7778daf06340c9652).
+Konuşmacı doğrulama hakkında daha fazla ayrıntı için lütfen [Konuşmacı - Doğrulama](https://westus.dev.cognitive.microsoft.com/docs/services/563309b6778daf02acc0a508/operations/563309b7778daf06340c9652) API’sine bakın.
 
-## <a name="speaker-identification"></a>Konuşmacı Tanıma
+## <a name="speaker-identification"></a>Konuşmacı Belirleme
 
-Konuşmacı tanıma API'leri olası konuşmacılar grubu verilen bir ses dosyası konuşarak kişi otomatik olarak tanımlayabilirsiniz. Giriş Ses konuşmacılar sağlanan grup karşı eşleştirilmiş ve bulunan eşleşmesi durumda Konuşmacı kimlik döndürülür.
+Konuşmacı Belirleme API’leri, bir grup olası konuşmacı grubu varken ses dosyasında konuşan kişiyi otomatik olarak belirleyebilir. Giriş sesi, sağlanan konuşmacı grubu ile eşlenir ve bir eşleşme bulunması durumunda, konuşmacının kimliği döndürülür.
 
-Tüm konuşmacılar ilk sisteme kayıtlı kullanıcıların sesli almak için bir kayıt işleminde gidin ve oluşturulan bir sesli yazdırın olması gerekir.
+Tüm konuşmacıların seslerinin sisteme kaydolması ve ses izlerinin oluşturulması için bir kayıt işleminden geçmesi gerekir.
 
 
 ### <a name="enrollment"></a>Kayıt
 
-Konuşmacı tanımlama için kayıt metin, ses ne Konuşmacı diyor üzerinde herhangi bir kısıtlama olduğu anlamına gelir, bağımsızdır. Konuşmacı sesli kaydedilir ve benzersiz sesli imza oluşturmak için bir dizi özellik ayıklanır. 
+Konuşmacı belirleme için kayıt metinden bağımsızdır; başka bir deyişle, konuşmacının ses kaydında söyleyecekleri üzerinde bir kısıtlama yoktur. Konuşmacının sesi kaydedilir ve benzersiz bir ses imzası oluşturmak için birçok özellik ayıklanır. 
 
 
-### <a name="recognition"></a>Oney Belgesi
+### <a name="recognition"></a>Tanıma
 
-Konuşmacılar, olası grubunun birlikte bilinmeyen Konuşmacı ses tanıma sırasında sağlanır. Giriş sesli karşılaştırıldığında, sesli belirlemek için tüm konuşmacılar karşı olduğunu ve Konuşmacı kimliğini bulunan bir eşleşme varsa, döndürülür.
+Tanıma sırasında, olası konuşmacı grubu ile birlikte, bilinmeyen konuşmacının sesi de sağlanır. Sesin kime ait olduğunu belirlemek için giriş sesi, tüm konuşmacılarla karşılaştırılır ve bir eşleşme bulunursa konuşmacının kimliği döndürülür.
 
 
-Konuşmacı tanımlama hakkında daha fazla ayrıntı için lütfen API'sine başvurun [Konuşmacı - kimliği](https://westus.dev.cognitive.microsoft.com/docs/services/563309b6778daf02acc0a508/operations/5645c068e597ed22ec38f42e).
+Konuşmacı belirleme hakkında daha fazla ayrıntı için lütfen [Konuşmacı - Belirleme](https://westus.dev.cognitive.microsoft.com/docs/services/563309b6778daf02acc0a508/operations/5645c068e597ed22ec38f42e) API’sine bakın.

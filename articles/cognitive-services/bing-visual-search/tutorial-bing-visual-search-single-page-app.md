@@ -1,36 +1,36 @@
 ---
-title: Bing görüntü arama tek sayfa Web uygulaması | Microsoft Docs
-titleSuffix: Bing Web Search APIs - Cognitive Services
-description: Bir tek sayfalı Web uygulamasında Bing görüntü arama API kullanmayı gösterir.
+title: 'Öğretici: Tek sayfalı Web uygulaması geliştirme - Bing Görsel Arama'
+titleSuffix: Azure Cognitive Services
+description: Bing Görsel Arama API'sinin tek sayfalı bir Web uygulamasında kullanılmasını gösterir.
 services: cognitive-services
 author: brapel
-manager: ehansen
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: bing-image-search
-ms.topic: article
+ms.component: bing-visual-search
+ms.topic: tutorial
 ms.date: 10/04/2017
 ms.author: v-brapel
-ms.openlocfilehash: 303d7745167d2ea25fda083ed99881ac4e0a7ec7
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
-ms.translationtype: MT
+ms.openlocfilehash: e3cd36d799256406b3ae12f35303bd2406468b3c
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35354137"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47227189"
 ---
-# <a name="tutorial-visual-search-single-page-web-app"></a>Öğretici: Visual arama tek sayfalı Web uygulaması
+# <a name="tutorial-visual-search-single-page-web-app"></a>Öğretici: Tek sayfalı Web uygulamasında Görsel Arama
 
-Bing Visual arama API Bing.com/images üzerinde gösterilen görüntü ayrıntıları benzer bir deneyim sağlar. Visual arama ile birlikte bir görüntü belirtin ve görsel olarak benzer görüntüleri, alışveriş kaynakları, görüntü ve daha fazlasını içeren Web sayfalarının görüntü ile ilgili Öngörüler ulaşırsınız. 
+Bing Görsel Arama API'si, Bing.com/images sayfasında gösterilen resim ayrıntılarına benzer bir deneyim sağlar. Görsel Arama ile bir görüntü belirtebilir ve görüntü hakkında görsel olarak benzer görüntüler, alışveriş kaynakları ve görüntüyü içeren web sayfaları gibi içgörüler alabilirsiniz. 
 
-Bu öğretici tek sayfa web uygulaması Bing görüntü arama öğretici genişletir (bkz [tek sayfalı Web uygulaması](../Bing-Image-Search/tutorial-bing-image-search-single-page-app.md)). Tam kaynak kodu Bu öğretici başlatmak, bkz: [tek sayfalı Web uygulaması (kaynak kodu)](../Bing-Image-Search/tutorial-bing-image-search-single-page-app-source.md). Bu öğreticinin son kaynak kodunu bkz [Visual arama tek sayfalı Web uygulaması](tutorial-bing-visual-search-single-page-app-source.md).
+Bu öğretici Bing Görüntü Arama öğreticisindeki tek sayfalı web uygulamasını (bkz. [Tek sayfalı Web uygulaması](../Bing-Image-Search/tutorial-bing-image-search-single-page-app.md)) genişletir. Bu öğreticinin kaynak kodunun ilk halinin tamamı için bkz: [Tek sayfalı Web uygulaması (kaynak kodu)](../Bing-Image-Search/tutorial-bing-image-search-single-page-app-source.md). Bu öğreticinin kaynak kodunun son hali için bkz: [Görsel Arama Tek sayfalı Web uygulaması](tutorial-bing-visual-search-single-page-app-source.md).
 
-Kapsanan görevleri şunlardır:
+Ele alınan görevler şunlardır:
 
 > [!div class="checklist"]
-> * Bir görüntü Öngörüler belirteciyle Bing Visual arama API çağrısı
-> * Benzer resimleri görüntüleme
+> * Bing Görsel Arama API'sini bir görüntü içgörü belirteciyle arama
+> * Benzer resimler görüntüleme
 
-## <a name="call-bing-visual-search"></a>Bing Visual arama çağırın
-Bing görüntü arama öğretici düzenleyin ve komut dosyası öğesi satırı 409 sonuna aşağıdaki kodu ekleyin. Bu kod Bing Visual arama API çağrılarının ve sonuçları görüntüler.
+## <a name="call-bing-visual-search"></a>Bing Görsel Aramayı çağırma
+Bing Görüntü Arama öğreticisini düzenleyin ve aşağıdaki kodu 409. satırdaki betik öğesinin sonuna ekleyin. Bu kod Bing Görsel Arama API'sini çağırır ve sonuçları görüntüler.
 
 ``` javascript
 function handleVisualSearchResponse(){
@@ -94,15 +94,15 @@ function bingVisualSearch(insightsToken){
 }
 ```
 
-## <a name="capture-insights-token"></a>Öngörüler belirteci yakalama
-Aşağıdaki kodu ekleyin `searchItemsRenderer` 151 satırında nesne. Bu kod ekleyen bir **benzer bulmak** çağırır bağlantı `bingVisualSearch` tıklatıldığında işlev. İşlev bağımsız değişken olarak imageInsightsToken alır.
+## <a name="capture-insights-token"></a>İçgörü elde etme belirteci
+Aşağıdaki kodu 151. satırdaki `searchItemsRenderer` nesnesine ekleyin. Bu kod, tıklandığında `bingVisualSearch` işlevini çağıran bir **benzerlerini bulma** bağlantısı ekler. İşlev imageInsightsToken değerini bağımsız değişken olarak alır.
 
 ``` javascript
 html.push("<a href='javascript:bingVisualSearch(\"" + item.imageInsightsToken + "\");'>find similar</a><br>");
 ```
 
-## <a name="display-similar-images"></a>Benzer resimleri görüntüleme
-Aşağıdaki HTML kod satırında 601 ekleyin. Bu biçimlendirme kodu Bing Visual arama API çağrısının sonuçlarını görüntülemek için kullanılan bir öğe ekler.
+## <a name="display-similar-images"></a>Benzer resimler görüntüleme
+Aşağıdaki HTML kodunu 601. satıra ekleyin. Bu işaretleme kodu Bing Görsel Arama API'si çağrısının sonuçlarını görüntülemek için kullanılan bir öğe ekler.
 
 ``` html
 <div id="insights">
@@ -111,10 +111,10 @@ Aşağıdaki HTML kod satırında 601 ekleyin. Bu biçimlendirme kodu Bing Visua
 </div>
 ```
 
-Tüm yeni JavaScript kodu ve yerinde HTML öğeleri ile arama sonuçları ile görüntülenir bir **benzer bulmak** bağlantı. Doldurmak için bağlantıyı tıklatın **benzer** bölüm görüntülerle seçtiğiniz benzer. Genişletmeniz gerekebilir **benzer** görüntüleri göstermek için bölümü.
+Yeni JavaScript kodu ve HTML öğeleri yerleştirildikten sonra arama sonuçları bir **benzerlerini bul** bağlantısıyla görüntülenir. **Benzerleri** bölümünü seçtiğinize benzer görüntülerle doldurmak için bağlantıya tıklayın. Görüntüleri göstermek için **Benzerleri** bölümünü genişletmeniz gerekebilir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 > [!div class="nextstepaction"]
-> [Görsel arama tek sayfalı Web Uygulama kaynağı](tutorial-bing-visual-search-single-page-app-source.md)
-> [Bing Visual arama API Başvurusu](https://aka.ms/bingvisualsearchreferencedoc)
+> [Tek Sayfalı Web uygulaması kaynağında Görsel Arama](tutorial-bing-visual-search-single-page-app-source.md)
+> [Bing Görsel Arama API'si başvurusu](https://aka.ms/bingvisualsearchreferencedoc)

@@ -1,89 +1,98 @@
 ---
-title: "Hızlı Başlangıç: C# Bilişsel hizmetler konuşma SDK'sını kullanarak Windows üzerinde .NET Core altında konuşma tanıma"
+title: "Hızlı Başlangıç: Bilişsel Hizmetler Konuşma SDK'sını kullanarak Windows'da .NET Core altında C# ile konuşma tanıma"
 titleSuffix: Microsoft Cognitive Services
-description: Bilişsel hizmetler konuşma SDK'sını kullanarak Windows üzerinde .NET Core altında C# ' de Konuşma tanıma öğrenin
+description: Bilişsel Hizmetler Konuşma SDK'sını kullanarak Windows'da .NET Core altında C# ile konuşma tanımayı öğrenin
 services: cognitive-services
 author: wolfma61
 ms.service: cognitive-services
 ms.component: speech-service
-ms.topic: article
-ms.date: 07/16/2018
+ms.topic: quickstart
+ms.date: 09/24/2018
 ms.author: wolfma
-ms.openlocfilehash: ee83443c76851506fffbfcaaa12e72790d077cb0
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
-ms.translationtype: MT
+ms.openlocfilehash: 2cb89606986645d567136655d5ab3f07223ba70d
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43128511"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47434781"
 ---
-# <a name="quickstart-recognize-speech-in-c-under-net-core-on-windows-using-the-speech-sdk"></a>Hızlı Başlangıç: C# Speech SDK'sı kullanarak Windows üzerinde .NET Core altında konuşma tanıma
+# <a name="quickstart-recognize-speech-in-c-under-net-core-on-windows-by-using-the-speech-sdk"></a>Hızlı Başlangıç: Konuşma SDK'sını kullanarak Windows'da .NET Core altında C# ile konuşma tanıma
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
-Bu makalede, Konuşmayı metne dönüştürme özelliği Bilişsel hizmetler konuşma SDK'sını kullanarak Windows üzerinde .NET Core için bir C# konsol uygulaması oluşturulacağını öğrenin.
-Uygulamanın oluşturulduğu [Microsoft Bilişsel hizmetler konuşma SDK'sı NuGet paketi](https://aka.ms/csspeech/nuget) ve Microsoft Visual Studio 2017.
+Bu makalede Bilişsel Hizmetler[Konuşma SDK'sı](speech-sdk.md)'nı kullanarak Windows'da .NET Core için bir C# konsol uygulaması oluşturacaksınız. Bilgisayarınızın mikrofonundan gerçek zamanda konuşmayı metne dönüştüreceksiniz. Uygulama [Konuşma SDK'sı NuGet paketi](https://aka.ms/csspeech/nuget) ve Microsoft Visual Studio 2017 (herhangi bir sürüm) ile geliştirilmiştir.
 
 > [!NOTE]
-> .NET core, bir açık kaynaklı, platformlar arası .NET platformu uygulama [.NET Standard](https://docs.microsoft.com/dotnet/standard/net-standard) belirtimi.
+> .NET Core, [.NET Standard](https://docs.microsoft.com/dotnet/standard/net-standard) teknik özelliklerini gerçekleştiren açık kaynaklı, platformlar arası bir .NET platformudur.
 
-## <a name="prerequisites"></a>Önkoşullar
+Bu Hızlı Başlangıç'ı tamamlamak için bir Konuşma hizmeti abonelik anahtarınız olması gerekir. Anahtarı ücretsiz edinebilirsiniz. Ayrıntılar için bkz: [Konuşma hizmetini ücretsiz olarak deneme](get-started.md).
 
-* Konuşma hizmeti için bir abonelik anahtarı. Bkz: [konuşma hizmeti ücretsiz olarak deneyin](get-started.md).
-* Bir çalışma mikrofon içeren bir Windows bilgisayar.
-* [Microsoft Visual Studio 2017](https://www.visualstudio.com/), Community sürümü veya üzeri.
-* **.NET Core çoklu platform geliştirme** Visual Studio'da iş yükü. İçinde etkinleştirebilirsiniz **Araçları** \> **araçları ve özellikleri Al**.
-
-  ![.NET Core çoklu platform geliştirme etkinleştir](media/sdk/vs-enable-net-core-workload.png)
 
 ## <a name="create-a-visual-studio-project"></a>Visual Studio projesi oluşturma
 
-1. Visual Studio 2017'de yeni Visual C# .NET Core konsol uygulaması oluşturun. İçinde **yeni proje** iletişim kutusunda, sol bölmeden genişletin **yüklü** \> **Visual C#** \> **.NET Core**seçip **konsol uygulaması (.NET Core)**. Proje adı olarak *helloworld*.
+1. Visual Studio 2017'yi başlatın.
 
-    ![Visual C# konsol uygulaması (.NET Core) oluşturma](media/sdk/qs-csharp-dotnetcore-windows-01-new-console-app.png "Visual C# konsol uygulaması (.NET Core) oluşturma")
+1. **.NET platformlar arası geliştirme** iş yükünün bulunduğundan emin olun. Visual Studio yükleyicisini açmak için Visual Studio menü çubuğundan **Araçlar** > **Araçları ve Özellikleri Al**'ı seçin. Bu iş yükü zaten etkinse iletişim kutusunu kapatın.
 
-1. Yükleme ve başvuru [konuşma SDK'sı NuGet paketi](https://aka.ms/csspeech/nuget). Çözüm Gezgini'nde çözüme sağ tıklayıp seçin **çözüm için NuGet paketlerini Yönet**.
+    ![Visual Studio yükleyicisinin İş yükleri sekmesi vurgulanmış olarak ekran görüntüsü](media/sdk/vs-enable-net-core-workload.png)
 
-    ![Sağ tıklatın, çözüm için NuGet paketlerini Yönet](media/sdk/qs-csharp-dotnetcore-windows-02-manage-nuget-packages.png "çözüm için NuGet paketlerini Yönet")
+    Etkin değilse **.NET Core platformlar arası geliştirme**'nin yanındaki kutuyu işaretleyin ve iletişim kutusunun sağ alt köşesindeki **Değiştir**'i seçin. Yeni özelliğin yüklenme birkaç saniye sürer.
 
-1. Sağ üst köşede, içinde **paket kaynağı** alanın, Seç **Nuget.org**. Arama ve yükleme `Microsoft.CognitiveServices.Speech` paketini ve yükleme içine **helloworld** proje.
+1. Yeni bir Visual C# .NET Core Konsol Uygulaması oluşturun. **Yeni Proje** iletişim kutusunda, sol panelden **Yüklü** > **Visual C#** > **.NET Core**'u genişletin. Ardından **Console App (.NET Core)** seçeneğine tıklayın. Proje adı olarak *helloworld* girin.
 
-    ![Microsoft.CognitiveServices.Speech NuGet paketini yüklemek](media/sdk/qs-csharp-dotnetcore-windows-03-nuget-install-0.5.0.png "yükleme Nuget paketi")
+    ![Yeni Project iletişim kutusunun ekran görüntüsü](media/sdk/qs-csharp-dotnetcore-windows-01-new-console-app.png "Visual C# Konsol Uygulaması (.NET Core) Oluştur")
 
-1. Görüntülenen lisansı kabul edin.
+1. [Konuşma SDK NuGet paketi](https://aka.ms/csspeech/nuget)'ni yükleyip başvurulara ekleyin. Çözüm Gezgini'nde çözüme sağ tıklayın ve ardından **Çözüm için NuGet Paketlerini Yönet**'i seçin.
 
-    ![Bu lisansı kabul](media/sdk/qs-csharp-dotnetcore-windows-04-nuget-license.png "lisansı kabul edin")
+    ![Çözüm Gezgini'nin, Çözüm için NuGet Paketlerini Yönet vurgulanmış olarak ekran görüntüsü](media/sdk/qs-csharp-dotnetcore-windows-02-manage-nuget-packages.png "Çözüm için NuGet Paketlerini Yönet")
 
-## <a name="add-the-sample-code"></a>Örnek kod ekleyin
+1. Sağ üst köşede, **Paket Kaynağı** alanında **nuget.org**'u seçin. `Microsoft.CognitiveServices.Speech` paketini arayın ve **helloworld** projesine yükleyin.
 
-1. Açık `Program.cs` ve tüm kodu aşağıdakiyle değiştirin.
+    ![Çözüm için Paketleri Yönet iletişim kutusunun ekran görüntüsü](media/sdk/qs-csharp-dotnetcore-windows-03-nuget-install-1.0.0.png "NuGet paketini yükle")
+
+1. NuGet paketinin yükleme işlemini başlatmak için görüntülenen lisansı kabul edin.
+
+    ![Lisans Kabulü iletişim kutusunun ekran görüntüsü](media/sdk/qs-csharp-dotnetcore-windows-04-nuget-license.png "Lisansı kabul et")
+
+Paket yüklendikten sonra Paket Yöneticisi konsolunda bir onay görünür.
+
+
+## <a name="add-sample-code"></a>Örnek kodu ekleyin
+
+1. `Program.cs` dosyasını açın ve tüm kodu aşağıdakiyle değiştirin.
 
     [!code-csharp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/csharp-dotnetcore-windows/helloworld/Program.cs#code)]
 
-1. Dize değiştirin `YourSubscriptionKey` abonelik.
+1. Aynı dosyada `YourSubscriptionKey` dizesini abonelik anahtarınız ile değiştirin.
 
-1. Dize değiştirin `YourServiceRegion` ile [bölge](regions.md) aboneliğinizle ilişkili (örneğin, `westus` ücretsiz deneme aboneliği için).
+1. Ayrıca `YourServiceRegion` dizesini de aboneliğinizle ilişkili [bölge](regions.md) ile (örneğin ücretsiz deneme aboneliğinde `westus`) değiştirin.
 
 1. Değişiklikleri projeye kaydedin.
 
-## <a name="build-and-run-the-sample"></a>Örneği derleme ve çalıştırma
+## <a name="build-and-run-the-app"></a>Uygulamayı derleme ve çalıştırma
 
-1. Uygulamayı oluşturun. Menü çubuğundan seçin **derleme** > **Çözümü Derle**. Kod hatasız artık derlemeniz gerekir.
+1. Uygulamayı derleyin. Menü çubuğundan **Derle** > **Çözümü Derle**'yi seçin. Kodun hatasız derlenmesi gerekir.
 
-    ![Başarılı derleme](media/sdk/qs-csharp-dotnetcore-windows-05-build.png "başarılı derleme")
+    ![Visual Studio uygulamasının, Çözümü Derle seçeneği vurgulanmış olarak ekran görüntüsü](media/sdk/qs-csharp-dotnetcore-windows-05-build.png "Başarılı derleme")
 
-1. Uygulamayı başlatın. Menü çubuğundan seçin **hata ayıklama** > **hata ayıklamayı Başlat**, veya basın **F5**.
+1. Uygulamayı başlatın. Menü çubuğundan **Hata Ayıklama** > **Hata Ayıklamayı Başlat**'ı seçin veya **F5** tuşuna basın.
 
-    ![Uygulamayı hata ayıklama içine başlatın](media/sdk/qs-csharp-dotnetcore-windows-06-start-debugging.png "INTO hata ayıklaması uygulamayı başlatın")
+    ![Visual Studio uygulamasının, Hata Ayıklamayı Başlat seçeneği vurgulanmış olarak ekran görüntüsü](media/sdk/qs-csharp-dotnetcore-windows-06-start-debugging.png "Uygulamayı hata ayıklamada başlatma")
 
-1. Söyleyin bir şey (İngilizce) isteyip istemediğinizi soran bir konsol penceresi görünür. Tanınan metin ardından aynı pencerede görünür.
+1. Bir şey söylemenizi isteyen bir konsol penceresi görünür. İngilizce bir deyim ya da cümle söyleyin. Söyledikleriniz Konuşma hizmetine aktarılır ve metne dönüştürülür; metin aynı pencerede görünür.
 
-    ![Konsol çıktısı sonra başarılı tanıma](media/sdk/qs-csharp-dotnetcore-windows-07-console-output.png "başarılı tanıma sonra konsol çıktısı")
+    ![Başarılı tanımadan sonra konsol çıktısının ekran görüntüsü](media/sdk/qs-csharp-dotnetcore-windows-07-console-output.png "Başarılı tanımadan sonra konsol çıktısı")
 
-[!INCLUDE [Download the sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
-Bu örnekte arayın `quickstart/csharp-dotnetcore-windows` klasör.
+[!INCLUDE [Download this sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
+`quickstart/csharp-dotnetcore-windows` klasöründe bu örneği arayın.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- [Konuşma Çevir](how-to-translate-speech-csharp.md)
-- [Akustik model özelleştirme](how-to-customize-acoustic-models.md)
-- [Dil modeli özelleştirme](how-to-customize-language-model.md)
+> [!div class="nextstepaction"]
+> [C# için Konuşma SDK'sını kullanarak konuşmadaki amacı tanıma](how-to-recognize-intents-from-speech-csharp.md)
+
+## <a name="see-also"></a>Ayrıca bkz.
+
+- [Konuşmayı çevirme](how-to-translate-speech-csharp.md)
+- [Akustik modelleri özelleştirme](how-to-customize-acoustic-models.md)
+- [Dil modellerini özelleştirme](how-to-customize-language-model.md)

@@ -1,57 +1,58 @@
 ---
-title: Azure içerik denetleyicinin genel bakış | Microsoft Docs
-description: İçerik denetleyici izlemek, bayrak, değerlendirmek ve kullanıcı tarafından oluşturulan içeriğin uygunsuz içeriği filtrelemek için nasıl kullanılacağını öğrenin.
+title: Content Moderator nedir?
+titlesuffix: Azure Cognitive Services
+description: Kullanıcıların oluşturduğu içeriği izlemek, işaretlemek, değerlendirmek ve uygunsuz içeriği filtrelemek için Content Moderator kullanmayı öğrenin.
 services: cognitive-services
 author: sanjeev3
-manager: mikemcca
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
-ms.topic: article
+ms.topic: overview
 ms.date: 06/15/2017
 ms.author: sajagtap
-ms.openlocfilehash: cd9e2e9c10e9dc5ba118c8319f76174bf6f0da9f
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
-ms.translationtype: MT
+ms.openlocfilehash: e109376f47d921fb18d7bb9a6252e80315419ec0
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35355144"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47226050"
 ---
-# <a name="what-is-content-moderator"></a>İçerik denetleyici nedir?
+# <a name="what-is-content-moderator"></a>Content Moderator nedir?
 
-İçerik Yönetimi için olası rahatsız edici, istenmeyen ve riskli içerik izleme işlemidir. Yönetilen içerikler görüntüleri, metin ve videolar olabilir.
+İçerik denetleme; rahatsız edici olabilecek, istenmeyen ve riskli içeriği izleme işlemidir. Denetlenen içerik görüntü, metin veya video olabilir.
 
-## <a name="where-it-is-used"></a>Nerede kullanılır
+## <a name="where-it-is-used"></a>Kullanıldığı yerler
 
-Aşağıdaki listede, içerik denetleyici kullanıldığı birkaç örnek senaryolar gösterilmektedir:
+Aşağıdaki liste, Content Moderator'ın kullanıldığı bazı örnek senaryoları göstermektedir:
 
-- Çevrimiçi Pazar ürün katalogları ve oluşturulan kullanıcı içeriği yönetme
-- Kullanıcı yönetme oyun şirketler oyun yapıları ve sohbet odaları oluşturulan
-- Sosyal Mesajlaşma platform görüntüleri, metin ve bunların kullanıcılar tarafından eklenen videolar yönetme
-- Kurumsal ortam şirketler içeriklerini için merkezi içerik yönetimini uygulama
-- Öğrenciler ve eğitimcilere için hatalı ve rahatsız edici içeriği filtreleme K-12 eğitim çözüm sağlayıcıları
+- Ürün kataloglarını ve kullanıcıların oluşturduğu içeriği denetleyen çevrimiçi marketler
+- Kullanıcıların oluşturduğu yapıtları ve sohbet odalarını denetleyen oyun şirketleri
+- Kullanıcıların eklediği görüntüleri, metinleri ve videoları denetleyen sosyal mesajlaşma platformları
+- İçerikleri için merkezi içerik denetimi uygulayan kurumsal medya şirketleri
+- Öğrenciler ve eğitimciler için kötü olabilecek veya rahatsız edici içeriği filtreleyen K-12 eğitim çözümü sağlayıcılar
 
 ## <a name="what-it-includes"></a>Neleri içerir
 
-İçerik birçok web hizmeti denetleyicinin oluşur API'leri ve yerleşik İnsan-içinde--döngü Orta görüntüleri, metin ve videolar yardımcı aracı gözden geçirin.
+Content Moderator; görüntü, metin ve video denetlemeye yardımcı olan birkaç Web hizmeti API'sinden ve döngüde insan araştıran yerleşik bir inceleme aracından oluşur.
 
-![İçerik denetleyici Blok Diyagramı](images/content-moderator-block-diagram.png)
+![Content Moderator engelleme şeması](images/content-moderator-block-diagram.png)
 
 ## <a name="apis"></a>API'ler
 
-İçerik denetleyici aşağıdaki API'leri içerir:
-  - [**Metin denetleme API**](text-moderation-api.md): olası uygunsuz metin açık, müstehcen, rahatsız edici ve kişisel bilgileri (PII) için metin taramak için bu API'yi kullanın.
-  - [**Özel terim listesi API'si**](try-terms-list-api.md): yerleşik koşulları yanı sıra terimlerin özel listeler eşleştirilecek bu API'yi kullanın. Engellemek veya içeriği, içerik ilkelerinize göre izin vermek için bu listeyi kullanın.  
-  - [**Görüntü Yönetimi API**](image-moderation-api.md): görüntüleri yetişkin ve saldırganlardan içerik için tarama, metin optik karakter tanıma özelliği görüntülerle algılamak ve yüzeyleri algılamak için bu API kullanın.
-  - [**Özel görüntü listesi API'si**](try-image-list-api.md): görüntüleri, yeniden sınıflandırmaya gerek yoktur önceden tanımlanan içerik özel listeler karşı eşleştirmek için bu API'yi kullanın.
-  - [**Video yönetimini API**](video-moderation-api.md): olası yetişkin ve saldırganlardan içeriği için videolar taramak için bu API'yi kullanın.
-  - [**Gözden API'leri**](try-review-api-job.md): kullanın [işleri](try-review-api-job.md), [incelemeler](try-review-api-review.md), ve [iş akışı](try-review-api-workflow.md) oluşturmak ve İnsan-içinde--döngü iş akışlarını otomatikleştirmek için işlemler gözden geçirme aracı.
+Content Moderator aşağıdaki API'leri içerir:
+  - [**Metin denetimi API'si**](text-moderation-api.md): Metinde olabilecek küfürlü, müstehcen, davetkar, rahatsız edici ve kişisel bilgileri (PII) taramak için bu API'yi kullanın.
+  - [**Özel terim listesi API'si**](try-terms-list-api.md): Yerleşik terimlere ek olarak özel bir listedeki terimler ile eşleştirme için bu API'yi kullanın. Bu listeleri, ilkelerinize bağlı olarak içeriğe izin vermek ya da vermemek için kullanın.  
+  - [**Görüntü denetimi API'si**](image-moderation-api.md): Görüntülerde yetişkinlere yönelik veya müstehcen görüntü taramak, Optik Karakter Tanıyıcı (OCR) ile görüntüde metin tanımak ve yüz algılamak için bu API'yi kullanın.
+  - [**Özel görüntü listesi API'si**](try-image-list-api.md): Özel bir görüntü listesiyle, yeniden sınıflandırmanız gerekmeyen önceden tanımlı içerikle eşleştirme için bu API'yi kullanın.
+  - [**Video denetimi API'si**](video-moderation-api.md): Yetişkinlere yönelik veya müstehcen olabilecek videoları taramak için bu API'yi kullanın.
+  - [**Gözden geçirme API'leri**](try-review-api-job.md): İnceleme aracında döngüde insan araştırma iş akışları oluşturma ve otomatikleştirme için [İşler](try-review-api-job.md), [İncelemeler](try-review-api-review.md) ve [İş Akışı](try-review-api-workflow.md) işlemlerini kullanın.
 
-## <a name="human-review-tool"></a>İnsan tarafından inceleme aracı
+## <a name="human-review-tool"></a>İnsan inceleme aracı
 
-Yerleşik içerik denetleyici aboneliğiniz içerir [İnsan gözden geçirme aracı](Review-Tool-User-Guide/human-in-the-loop.md). Metin, görüntüler ve son kararlar almak, İnsan araburucu için videolar incelenmesi oluşturmak için yukarıda açıklanan gözden geçirme API kullanın.
+Content Moderator aboneliğinize yerleşik [insan inceleme aracı](Review-Tool-User-Guide/human-in-the-loop.md) dahildir. İnsan denetimcilerinizin karar alabilmesi amacıyla metinlerin, görüntülerin ve videoların incelemelerini oluşturmak için daha önce değinilen İnceleme API'sini kullanın.
 
-![İçerik denetleyici video aracı gözden geçirin](images/video-review-default-view.png)
+![Content Moderator video inceleme aracı](images/video-review-default-view.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Kullanım [Hızlı Başlangıç](quick-start.md) içerik Denetleyici ile çalışmaya başlamak için.
+Content Moderator'ı kullanmaya başlamak için [Hızlı Başlangıç](quick-start.md)'ı kullanın.

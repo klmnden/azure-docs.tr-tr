@@ -1,27 +1,27 @@
 ---
-title: Bing görsel arama API'si için JavaScript hızlı başlangıç | Microsoft Docs
-titleSuffix: Bing Web Search APIs - Cognitive Services
-description: Bing görsel arama API'sine bir görüntüyü karşıya yükleme ve görüntü ile ilgili Öngörüler geri alma işlemi gösterilmektedir.
+title: 'Hızlı Başlangıç: Görsel arama sorgusu oluşturma, Node.js - Bing Görsel Arama'
+titleSuffix: Azure Cognitive Services
+description: Bing Görsel Arama API'sine görüntü yükleme ve görüntü hakkında içgörü alma.
 services: cognitive-services
 author: swhite-msft
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
 ms.technology: bing-visual-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 5/16/2018
 ms.author: scottwhi
-ms.openlocfilehash: 60b1dc9b8ea9eda258e9776b8967df38c97d964e
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
-ms.translationtype: MT
+ms.openlocfilehash: b13738c5bfd8fc75224bf934ae8be56e7c2edd69
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39071712"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47225506"
 ---
-# <a name="your-first-bing-visual-search-query-in-javascript"></a>İlk Bing görsel arama sorgunuzda JavaScript
+# <a name="quickstart-your-first-bing-visual-search-query-in-javascript"></a>Hızlı Başlangıç: JavaScript ile ilk Bing Görsel Arama sorgunuz
 
-Bing görsel arama API'sine sağlayan bir görüntü ile ilgili bilgi döndürür. Belirteç, ya da bir görüntü yükleyerek bir ınsights görüntünün URL'sini kullanarak görüntü sağlayabilir. Bu seçenekler hakkında daha fazla bilgi için bkz: [Bing görsel arama API'si nedir?](../overview.md) Bu makalede, bir resim karşıya gösterilmektedir. Görüntüyü karşıya yükleme, iyi bilinen bir yer işareti resmini Al ve geri hakkında bilgi alın mobil senaryolarda yararlı olabilir. Örneğin, öngörüleri, yer işareti hakkında bilgi dahil olabilir. 
+Bing Görsel Arama API'si, verdiğiniz bir görüntü hakkında bilgi döndürür. Görüntüyü, bir URL veya bir içgörü belirteci kullanarak veya karşıya resim yükleyerek verebilirsiniz. Bu seçenekler hakkında bilgi için bkz. [Bing Görsel Arama API'si nedir?](../overview.md) Bu makale karşıya görüntü yüklemeyi göstermektedir. Karşıya resim yüklemek, mobil bir cihazla tanınmış bir yerin resmini çekip bu yer hakkında bilgi almak istediğiniz bir durumda kullanışlı olabilir. Örneğin içgörüler bu yer hakkındaki önemsiz küçük ayrıntıları içerebilir. 
 
-Yerel bir görüntüyü karşıya yükleme, aşağıdaki form verilerini POST gövdesinde içermelidir gösterir. Form verileri içerik düzeni üstbilgisini içermelidir. Kendi `name` parametresi ayarlanması gerekir "Görüntü" ve `filename` parametreyi bir dizeye ayarlayın. Form içeriğini ikili görüntünün olur. Karşıya yükleyebilirsiniz en yüksek görüntü boyutu 1 MB'dir. 
+Aşağıda yerel bir görüntüyü karşıya yükleyeceğiniz zaman POST'un gövdesine dahil etmeniz gereken form verileri gösterilmektedir. Form verileri Content-Disposition üstbilgisini içermelidir. `name` parametresi "image" olarak, `filename` parametresi ise herhangi bir dize olarak ayarlanmalıdır. Formun içeriği görüntünün ikili verisidir. Karşıya yükleyebileceğiniz görüntünün en büyük boyutu 1 MB'dir. 
 
 ```
 --boundary_1234-abcd
@@ -32,33 +32,33 @@ Content-Disposition: form-data; name="image"; filename="myimagefile.jpg"
 --boundary_1234-abcd--
 ```
 
-Bu makale, Bing görsel arama API'sine bir istek gönderir ve JSON arama sonuçlarını görüntüleyen basit bir konsol uygulaması içerir. Bu uygulamanın, JavaScript'te yazılmış olsa da, HTTP istekleri ve JSON Ayrıştır programlama dili ile uyumlu bir RESTful Web hizmeti API'dir. 
+Bu makale, bir Bing Görsel Arama API'si isteği gönderen ve JSON arama sonuçlarını görüntüleyen basit bir konsol uygulamasını içermektedir. Bu uygulama JavaScript ile yazılmış olmakla birlikte API HTTP istekleri gönderebilen ve JSON ayrıştırabilen her programlama diliyle uyumlu bir RESTful Web hizmetidir. 
 
-## <a name="prerequisites"></a>Önkoşullar
+## <a name="prerequisites"></a>Ön koşullar
 
-Gereksinim duyduğunuz [Node.js 6](https://nodejs.org/en/download/) bu kodu çalıştırmak için.
+Bu kodu çalıştırmak için [Node.js 6](https://nodejs.org/en/download/) gerekir.
 
-Bu hızlı başlangıçta, kullanabileceğiniz bir [ücretsiz deneme sürümü](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) abonelik anahtarı veya Ücretli abonelik anahtarı.
+Bu hızlı başlangıçta bir [ücretsiz deneme](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) abonelik anahtarı veya ücretli abonelik anahtarı kullanabilirsiniz.
 
 ## <a name="running-the-application"></a>Uygulamayı çalıştırma
 
-Node.js'de çıkışlardan form verisi kullanarak ileti gönderme işlemini gösterir.
+Aşağıda Node.js'te FormData kullanılarak ileti gönderme işlemi gösterilmektedir.
 
 Bu uygulamayı çalıştırmak için aşağıdaki adımları izleyin:
 
-1. Projeniz için bir klasör oluşturun (veya sık kullandığınız IDE veya düzenleyici kullanın).
-2. Bir komut istemi veya terminal, az önce oluşturduğunuz klasöre gidin.
+1. Projeniz için bir klasör oluşturun (veya sık kullandığınız IDE'yi veya düzenleyiciyi kullanın).
+2. Bir komut isteminden veya terminalden az önce oluşturduğunuz klasöre gidin.
 3. İstek modüllerini yükleyin:  
   ```  
   npm install request  
   ```  
-3. Form verileri modüllerini yükleyin:  
+3. Form verisi modüllerini yükleyin:  
   ```  
   npm install form-data  
   ```  
-4. GetVisualInsights.js adlı bir dosya oluşturun ve aşağıdaki kodu ekleyin.
-5. Değiştirin `subscriptionKey` abonelik anahtarınız ile değeri.
-6. Değiştirin `imagePath` görüntünün karşıya yükleme yolunu içeren değer.
+4. GetVisualInsights.js adlı bir dosya oluşturun ve içine aşağıdaki kodu ekleyin.
+5. `subscriptionKey` değerini abonelik anahtarınızla değiştirin.
+6. `imagePath` değerini karşıya yüklenecek görüntünün yolu ile değiştirin.
 7. Programı çalıştırın.  
   ```
   node GetVisualInsights.js
@@ -94,10 +94,10 @@ function requestCallback(err, res, body) {
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-[Insights belirteci kullanarak bir görüntü ile ilgili Öngörüler elde edin](../use-insights-token.md)  
-[Bing görsel arama görüntüsünü karşıya yükleme Öğreticisi](../tutorial-visual-search-image-upload.md)
-[Bing görsel arama tek sayfalı uygulama Öğreticisi](../tutorial-bing-visual-search-single-page-app.md)  
-[Bing görsel arama genel bakış](../overview.md)  
+[Bir içgörü belirteci kullanarak bir görüntü ile ilgili içgörüler elde edin](../use-insights-token.md)  
+[Bing Görsel Arama görüntü yükleme öğreticisi](../tutorial-visual-search-image-upload.md)
+[Bing Görsel Arama tek sayfalı uygulama öğreticisi](../tutorial-bing-visual-search-single-page-app.md)  
+[Bing Görsel Arama'ya genel bakış](../overview.md)  
 [Deneyin](https://aka.ms/bingvisualsearchtryforfree)  
-[Ücretsiz deneme erişim anahtarını alma](https://azure.microsoft.com/try/cognitive-services/?api=bing-visual-search-api)  
-[Bing görsel arama API'si başvurusu](https://aka.ms/bingvisualsearchreferencedoc)
+[Ücretsiz deneme erişim anahtarı alma](https://azure.microsoft.com/try/cognitive-services/?api=bing-visual-search-api)  
+[Bing Görsel Arama API'si başvurusu](https://aka.ms/bingvisualsearchreferencedoc)

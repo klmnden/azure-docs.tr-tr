@@ -3,18 +3,18 @@ title: include dosyası
 description: include dosyası
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: luis
 ms.topic: include
 ms.custom: include file
 ms.date: 08/16/2018
 ms.author: diberry
-ms.openlocfilehash: 91ae5f39b981a3124335271f702157dd6628d8e1
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
-ms.translationtype: MT
+ms.openlocfilehash: 51badea3a8bef6aeabb0b24481b024eb006220cb
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42820187"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47044040"
 ---
-Bu hızlı başlangıçta, kolaylık olması için yazma anahtarı kullanır. Anahtar öncelikle model yazmak için olan, ancak küçük bir sayı izin vermez (1000) uç nokta istekleri. Daha fazla uç nokta istekleri bir test, aşama veya üretim ortamı için hazır olduğunuzda, oluşturun bir **Language Understanding** Azure portalında kaynak ve LUIS portalında LUIS uygulaması atayın. 
+Bu hızlı başlangıçta kolaylık olması için yazarlık anahtarı kullanılmaktadır. Anahtar öncelikle yazarlık modeli içindir ancak küçük sayıda (1000) uç noktası isteğine de izin verir. Bir test, aşama veya üretim ortamında daha fazla sayıda uç nokta isteği için hazır olduğunuzda Azure portalda bir **Dil Anlama** kaynağı oluşturun ve bunu LUIS portalında LUIS uygulamasına atayın. 

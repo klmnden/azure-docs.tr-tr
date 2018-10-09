@@ -3,7 +3,7 @@ title: Öğretici - Azure’da Linux VM’ler için Azure Güvenlik Merkezi’ni
 description: Bu öğreticide, Azure’da Linux sanal makinelerinizi korumaya ve güvenliğini sağlamaya yardımcı olmak için Azure Güvenlik Merkezi özelliklerini öğreneceksiniz.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 05/07/2017
-ms.author: iainfou
+ms.date: 06/11/2018
+ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: e049bed6336f87d8077726843bbc870be90c633f
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 562fc267a056d6908af5b89fd7a93e858f1c6165
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32188852"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47092620"
 ---
 # <a name="tutorial-use-azure-security-center-to-monitor-linux-virtual-machines"></a>Öğretici: Linux sanal makinelerini izlemek için Azure Güvenlik Merkezi kullanma
 
@@ -47,12 +47,13 @@ Güvenlik Merkezi, algıladığı sorunlara yönelik öneriler sağlamak için v
 
 ## <a name="set-up-data-collection"></a>Veri toplamayı ayarlama
 
-Sanal makine güvenlik yapılandırmalarına yönelik görünürlük elde edebilmeniz için önce Güvenlik Merkezi veri toplama ayarlamanız gerekir. Bu işlem, veri koleksiyonunun açılmasını ve toplanan verileri barındıracak bir Azure depolama hesabı oluşturulmasını kapsar. 
+Sanal makine güvenlik yapılandırmalarına yönelik görünürlük elde edebilmeniz için önce Güvenlik Merkezi veri toplama ayarlamanız gerekir. Microsoft Monitoring Agent'ı aboneliğinizdeki tüm VM'lere otomatik olarak yükleyen veri toplamayı açmayı içerir.
 
 1. Güvenlik Merkezi panosunda **Güvenlik ilkesi**’ne tıklayın ve sonra aboneliğinizi seçin. 
-2. **Veri toplama** için **Açık** seçeneğini belirleyin.
-3. Depolama hesabı oluşturmak için **Depolama hesabı seçin** seçeneğini belirleyin. Sonra **Tamam**’ı seçin.
-4. **Güvenlik İlkesi** dikey penceresinde **Kaydet**’i seçin. 
+2. **Veri toplama** için, **Otomatik Sağlama**'da **Açık**'ı seçin.
+3. **Varsayılan çalışma alanı yapılandırması**'nı **Güvenlik Merkezinin oluşturduğu çalışma alanlarını kullan (varsayılan)** olarak bırakın.
+4. **Güvenlik Olayları**'nın altında varsayılan **Ortak** seçeneğini koruyun.
+4. Sayfanın üst kısmından **Kaydet**'e tıklayın. 
 
 Güvenlik Merkezi veri toplama aracısı tüm sanal makinelere yüklenir ve veri toplama başlar. 
 
@@ -60,26 +61,12 @@ Güvenlik Merkezi veri toplama aracısı tüm sanal makinelere yüklenir ve veri
 
 Güvenlik ilkeleri, Güvenlik Merkezi’nin kendisi için veriler topladığı ve önerilerde bulunduğu öğeleri tanımlamak için kullanılır. Farklı Azure kaynaklarına farklı güvenlik ilkeleri uygulayabilirsiniz. Varsayılan olarak Azure kaynakları tüm ilke öğelerine karşı değerlendirilse de, tüm Azure kaynakları için veya bir kaynak grubu için tek tek ilke öğelerini kapatabilirsiniz. Güvenlik Merkezi güvenlik ilkeleri hakkında ayrıntılı bilgi için bkz. [Azure Güvenlik Merkezi’nde güvenlik ilkelerini ayarlama](../../security-center/security-center-policies.md). 
 
-Tüm Azure kaynaklarına yönelik bir güvenlik ilkesi ayarlamak için:
+Aboneliğin tümüne bir güvenlik ilkesi oluşturmak için:
 
-1. Güvenlik Merkezi panosunda **Güvenlik ilkesi**’ni seçin ve sonra aboneliğinizi seçin.
-2. **Önleme ilkesi**’ni seçin.
-3. Tüm Azure kaynaklarına uygulamak istediğiniz ilke öğelerini açın veya kapatın.
-4. Ayarlarınızı seçmeyi tamamladığınızda **Tamam**’ı seçin.
-5. **Güvenlik ilkesi** dikey penceresinde **Kaydet**’i seçin. 
-
-Belirli bir kaynak grubuna yönelik ilke ayarlamak için:
-
-1. Güvenlik Merkezi panosunda **Güvenlik ilkesi**’ni seçin ve sonra bir kaynak grubu seçin.
-2. **Önleme ilkesi**’ni seçin.
-3. Kaynak grubuna uygulamak istediğiniz ilke öğelerini açın veya kapatın.
-4. **DEVRALMA** bölümünde **Benzersiz**’i seçin.
-5. Ayarlarınızı seçmeyi tamamladığınızda **Tamam**’ı seçin.
-6. **Güvenlik ilkesi** dikey penceresinde **Kaydet**’i seçin.  
-
-Bu sayfada belirli bir kaynak grubu için veri toplamayı da kapatabilirsiniz.
-
-Aşağıdaki örnekte, *myResoureGroup* adlı bir kaynak grubu için benzersiz bir ilke oluşturulmuştur. Bu ilkede, disk şifreleme ve web uygulaması güvenlik duvarı önerileri kapatılmıştır.
+1. Güvenlik Merkezi panosunda **Güvenlik ilkesi**’ni, ardından aboneliğinizi seçin.
+2. **Güvenlik ilkesi** dikey penceresinde **Güvenlik ilkesi**'ni seçin. 
+3. ** Güvenlik ilkesi - Güvenlik ilkesi ** dikey penceresinde, aboneliğe uygulanmasını istediğiniz ilke öğelerini açın, diğerlerini kapatın.
+4. Ayarlarınızı seçmeyi tamamladığınızda dikey pencerenin en üstünden **Kaydet**'i seçin. 
 
 ![Benzersiz ilke](./media/tutorial-azure-security/unique-policy.png)
 
@@ -91,12 +78,12 @@ Veriler toplanırken, her bir sanal makine ve ilgili Azure kaynağı için kayna
 
 Kaynak durumunu görüntülemek için:
 
-1.  Güvenlik Merkezi panosunda **Kaynak güvenlik durumu** bölümünde **İşlem**’i seçin. 
-2.  **İşlem** dikey penceresinde **Sanal makineler**’i seçin. Bu görünüm, tüm sanal makinelerinizin yapılandırma durumunun özetini sağlar.
+1.  Güvenlik Merkezi panosunda, **Önleme**'nin altından **İşlem**'i seçin. 
+2.  **İşlem** dikey penceresinde **VM'ler ve bilgisayarlar**'ı seçin. Bu görünüm, tüm sanal makinelerinizin yapılandırma durumunun özetini sağlar.
 
 ![İşlem durumu](./media/tutorial-azure-security/compute-health.png)
 
-Bir sanal makineye yönelik tüm önerileri görmek için sanal makineyi seçin. Bu öğreticinin sonraki kısmında öneriler ve düzeltme adımları ayrıntılı olarak ele alınmaktadır.
+Bir sanal makineye yönelik tüm önerileri görmek için sanal makineyi seçin. 
 
 ## <a name="remediate-configuration-issues"></a>Yapılandırma sorunlarını düzeltme
 
@@ -106,7 +93,7 @@ Tüm önerilerin listesini göstermek için:
 
 1. Güvenlik Merkezi panosunda **Öneriler**’i seçin.
 2. Belirli bir öneri seçin. Önerinin geçerli olduğu tüm kaynakların listesi görüntülenir.
-3. Bir öneri uygulamak için belirli bir kaynak seçin. 
+3. Bir öneriyi uygulamak için kaynağı seçin. 
 4. Düzeltme adımları için yönergeleri izleyin. 
 
 Çoğu durumda Güvenlik Merkezi, Güvenlik Merkezi’nden çıkmadan bir öneriyi ele almak için uygulayabileceğiniz adımları sağlar. Aşağıdaki örnekte Güvenlik Merkezi, sınırsız gelen kuralı olan bir ağ güvenlik grubunu algılar. Öneri sayfasında **Gelen kurallarını düzenle** düğmesini seçebilirsiniz. Kuralı değiştirmek için gerekli kullanıcı arabirimi görüntülenir. 
@@ -119,14 +106,14 @@ Tüm önerilerin listesini göstermek için:
 
 Güvenlik Merkezi, kaynak yapılandırma önerilerine ek olarak tehdit algılama uyarıları görüntüler. Güvenlik uyarıları özelliği, Azure kaynaklarına karşı güvenlik tehditlerini algılamak için her bir sanal makineden, Azure ağ bağlantısı günlükleri ve bağlantılı iş ortağı çözümlerinden toplanan verileri bir araya getirir. Güvenlik Merkezi tehdit algılama özellikleri hakkında ayrıntılı bilgi için [Azure Güvenlik Merkezi algılama özellikleri](../../security-center/security-center-detection-capabilities.md) konusuna bakın.
 
-Güvenlik uyarıları özelliği, Güvenlik Merkezi fiyatlandırma katmanının *Ücretsiz* katmanından *Standart* katmanına yükseltilmesini gerektirir. Bu yüksek fiyatlandırma katmanına geçtiğinizde 30 günlük **ücretsiz deneme sürümü** kullanılabilir. 
+Güvenlik uyarıları özelliği, Güvenlik Merkezi fiyatlandırma katmanının *Ücretsiz* katmanından *Standart* katmanına yükseltilmesini gerektirir. Bu daha yüksek fiyatlandırma katmanına geçtiğinizde 60 günlük bir **ücretsiz deneme sürümü** bulunur. 
 
 Fiyatlandırma katmanını değiştirmek için:  
 
 1. Güvenlik Merkezi panosunda **Güvenlik ilkesi**’ne tıklayın ve sonra aboneliğinizi seçin.
 2. **Fiyatlandırma katmanı**'nı seçin.
-3. Yeni katmanı seçin ve sonra **Seç**’e tıklayın.
-4. **Güvenlik ilkesi** dikey penceresinde **Kaydet**’i seçin. 
+3. **Standart**'ı ve dikey pencerenin en üstünden **Kaydet**'i seçin.
+
 
 Fiyatlandırma katmanını değiştirmenizin ardından, güvenlik tehditleri algılandıkça güvenlik uyarıları grafı doldurulmaya başlar.
 

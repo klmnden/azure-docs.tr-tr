@@ -10,12 +10,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 04/04/2018
-ms.openlocfilehash: 6b924e0555ea7a57f8d5e5309a266b6d2fb44f44
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 1955fc033e0351be9da89bbee11dc41d6281a63a
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43702536"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47433999"
 ---
 # <a name="create-a-stream-analytics-job-to-analyze-phone-call-data-and-visualize-results-in-a-power-bi-dashboard"></a>Telefon araması verilerini analiz etmek ve sonuçları bir Power BI panosunda görselleştirmek için Stream Analytics işi oluşturma
  
@@ -101,12 +101,12 @@ TelcoGenerator uygulamasını başlatmadan önce bunu, daha önce oluşturduğun
 5. Daha sonra bir komut penceresi açıp, TelcoGenerator uygulamasının sıkıştırmasını açtığınız klasöre geçin ve aşağıdaki komutu girin:
 
    ```
-   telcodatagen.exe 1000 .2 2
+   telcodatagen.exe 1000 0.2 2
    ```
 
    Bu komut aşağıdaki parametreleri alır:
    * **Saat başına arama verisi kaydının sayısı**.  
-   * **Sahtekarlık olasılığının yüzdesi**: uygulamanın ne sıklıkta sahte arama benzetimi gerçekleştirmesi gerektiği. .2 değeri arama kayıtlarının %20’sinin sahte görüneceğini anlamına gelir.  
+   * **Sahtekarlık olasılığının yüzdesi**: uygulamanın ne sıklıkta sahte arama benzetimi gerçekleştirmesi gerektiği. 0.2 değeri arama kayıtlarının %20'sinin sahte görüneceğini anlamına gelir.  
    * **Saat cinsinden süre**: uygulamanın çalışması gereken saat sayısı. Ayrıca, komut satırında işlemi sonlandırarak (Ctrl+C) uygulamayı dilediğiniz zaman durdurabilirsiniz.
 
    Birkaç saniye sonra uygulama, telefon araması kayıtlarını olay hub'ına gönderirken ekranda bu kayıtları görüntülemeye başlar. Telefon araması verileri aşağıdaki alanları içerir:
@@ -228,7 +228,7 @@ Bir sorguyu sorgu düzenleyicisinden test edebilirsiniz ve sorgu testi için ör
 
 3. **Dakika**’yı 3 olarak ayarlayıp **Tamam**’ı seçin. Üç dakikalık veriler, giriş akışından örneklenir ve örnek veriler hazır olduğunda bilgilendirilirsiniz. Bildirim çubuğundan örneklemenin durumunu görüntüleyebilirsiniz. 
 
-   Örnek veriler geçici olarak depolanır ve sorgu penceresi açıkken kullanılabilir. Sorgu penceresini kapatırsanız örnek veriler atılır ve yeni bir örnek veri kümesi oluşturmanız gerekir. Alternatif olarak, [GitHub](https://github.com/Azure/azure-stream-analytics/blob/master/Sample Data/telco.json)’dan örnek veriler içeren bir .json dosyası alabilir ve bunu CallStream girişi için örnek veri olarak kullanmak üzere karşıya yükleyebilirsiniz.  
+   Örnek veriler geçici olarak depolanır ve sorgu penceresi açıkken kullanılabilir. Sorgu penceresini kapatırsanız örnek veriler atılır ve yeni bir örnek veri kümesi oluşturmanız gerekir. Alternatif olarak, [GitHub](https://github.com/Azure/azure-stream-analytics/blob/master/Sample%20Data/telco.json)’dan örnek veriler içeren bir .json dosyası alabilir ve bunu CallStream girişi için örnek veri olarak kullanmak üzere karşıya yükleyebilirsiniz.  
 
 4. Sorguyu test etmek için **Test**’i seçtiğinizde çıkış sonuçlarını şu ekran görüntüsünde gösterildiği görürsünüz:  
 
@@ -262,7 +262,7 @@ Bir sorguyu sorgu düzenleyicisinden test edebilirsiniz ve sorgu testi için ör
 
 Öğreticinin bu bölümünde, PowerBI ekibi tarafından panonuza eklenmesi için oluşturulan örnek bir [ASP.NET](http://asp.net/) web uygulamasını kullanacaksınız. Pano ekleme hakkında daha fazla bilgi için [Power BI ile ekleme](https://docs.microsoft.com/power-bi/developer/embedding) başlıklı makaleye bakın.
 
-Bu öğreticide, User Owns Data (Verilerin Sahibi Kullanıcıdır) uygulamasına yönelik adımları uygulayacağız. Uygulamayı ayarlamak için [PowerBI-Developer-Samples](https://github.com/Microsoft/PowerBI-Developer-Samples) Github deposuna gidin ve **User Owns Data** (Verilerin Sahibi Kullanıcıdır) bölümündeki yönergeleri uygulayın. (**integrate-dashboard-web-app** alt bölümündeki yönlendirme ve ana sayfa URL’lerini kullanın.) Pano örneğini kullandığımızdan [GitHub deposunda](https://github.com/Microsoft/PowerBI-Developer-Samples/tree/master/User Owns Data/integrate-dashboard-web-app) bulunan integrate-dashboard-web-app örnek kodunu kullanın.
+Bu öğreticide, User Owns Data (Verilerin Sahibi Kullanıcıdır) uygulamasına yönelik adımları uygulayacağız. Uygulamayı ayarlamak için [PowerBI-Developer-Samples](https://github.com/Microsoft/PowerBI-Developer-Samples) Github deposuna gidin ve **User Owns Data** (Verilerin Sahibi Kullanıcıdır) bölümündeki yönergeleri uygulayın. (**integrate-dashboard-web-app** alt bölümündeki yönlendirme ve ana sayfa URL’lerini kullanın.) Pano örneğini kullandığımızdan [GitHub deposunda](https://github.com/Microsoft/PowerBI-Developer-Samples/tree/master/User%20Owns%20Data/integrate-dashboard-web-app) bulunan integrate-dashboard-web-app örnek kodunu kullanın.
 Uygulamayı tarayıcınızda çalıştırmaya başladıktan sonra, daha önce oluşturduğunuz panoyu web sayfasına eklemek için şu adımları uygulayın:
 
 1. Uygulamaya, PowerBI hesabınızdaki panolara erişme izni veren **Power BI'da oturum aç** seçeneğini belirleyin.  

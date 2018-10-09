@@ -1,165 +1,166 @@
 ---
-title: Azure Content Moderator ile Facebook içerik denetleme | Microsoft Docs
-description: Content Moderator Orta Facebook sayfaları ile makine öğrenimi tabanlı
+title: 'Öğretici: Facebook içeriğinin moderasyonu - Azure Content Moderator'
+titlesuffix: Azure Cognitive Services
+description: Facebook sayfalarını Content Moderator ile denetleyin.
 services: cognitive-services
 author: sanjeev3
-manager: mikemcca
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
-ms.topic: article
+ms.topic: tutorial
 ms.date: 09/18/2017
 ms.author: sajagtap
-ms.openlocfilehash: 66caea65c21bb1f8bb6efa9b50c917599bb71e2f
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
-ms.translationtype: MT
+ms.openlocfilehash: ead8c1d445bf32ecaaf236b4e73c2a583c755049
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43093986"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47223947"
 ---
-# <a name="facebook-content-moderation-with-content-moderator"></a>Content Moderator ile Facebook içerik denetleme
+# <a name="tutorial-facebook-content-moderation-with-content-moderator"></a>Öğretici: Content Moderator ile Facebook içeriğinin moderasyonu
 
-Bu öğreticide, biz Orta Facebook gönderilerinizi ve açıklamalar yardımcı olması için makine öğrenme tabanlı Content Moderator kullanmayı öğrenin.
+Bu öğreticide, makine öğrenmesi tabanlı Content Moderator'ı kullanarak Facebook gönderilerini ve yorumlarını denetlemeyi öğreniyoruz.
 
-Öğreticinin Bu adımlarda size yol gösterir:
+Öğretici, şu adımlarda size yol gösterir:
 
-1. Content Moderator takım oluşturun.
-2. Content Moderator ve Facebook HTTP olayları dinler Azure işlevleri oluşturun.
-3. Bir Facebook sayfasında ve uygulama oluşturun ve Content Moderator için bağlanın.
+1. Content Moderator takımı oluşturma.
+2. Content Moderator'dan ve Facebook'tan HTTP olaylarını dinleyen Azure İşlevleri oluşturma.
+3. Facebook Sayfası ve Uygulaması oluşturma, bunu Content Moderator'a bağlama.
 
-Biz tamamladıktan sonra Facebook Content Moderator yayımlanacağını ve Ziyaretçiler tarafından gönderilen içerik gönderir. Eşleşme eşiklere dayanarak, Content Moderator akışlarınızı içerik yayımlama veya gözden geçirme aracı içinde gözden geçirmeleri oluşturabilirsiniz. 
+İşimiz bittiğinde, Facebook ziyaretçiler tarafından gönderilen içeriği Content Moderator'a gönderecek. Eşleştirme eşikleri temelinde, Content Moderator iş akışlarınız içeriği yayımlayacak veya inceleme aracı içinde incelemeler oluşturacak. 
 
-Çözüm yapı taşları aşağıdaki şekilde gösterilmiştir.
+Aşağıdaki şekilde, çözümün yapı taşları gösterilir.
 
 ![Facebook gönderilerini denetleme](images/tutorial-facebook-moderation.png)
 
-## <a name="create-a-content-moderator-team"></a>Content Moderator takım oluştur
+## <a name="create-a-content-moderator-team"></a>Content Moderator takımı oluşturma
 
-Başvurmak [hızlı](quick-start.md) Content Moderator için kaydolun ve bir takım oluşturmak için sayfa.
+Content Moderator'a kaydolmak ve takım oluşturmak için [Hızlı Başlangıç](quick-start.md) sayfasına bakın.
 
-## <a name="configure-image-moderation-workflow-threshold"></a>Görüntü denetimi iş akışı (eşik) yapılandırma
+## <a name="configure-image-moderation-workflow-threshold"></a>Görüntü moderasyonu iş akışını (eşik) yapılandırma
 
-Başvurmak [iş akışları](review-tool-user-guide/workflows.md) özel görüntü (eşik) iş akışı yapılandırma sayfası. İş akışı Not **adı**.
+Özel bir görüntü iş akışı (eşik) yapılandırmak için [İş Akışları](review-tool-user-guide/workflows.md) sayfasına bakın. İş akışının **adını** not alın.
 
-## <a name="3-configure-text-moderation-workflow-threshold"></a>3. Metin denetimi iş akışı (eşik) yapılandırma
+## <a name="3-configure-text-moderation-workflow-threshold"></a>3. Metin moderasyonu iş akışını (eşik) yapılandırma
 
-Benzer adımları [iş akışları](review-tool-user-guide/workflows.md) bir özel metin eşik ve iş akışı yapılandırma sayfası. İş akışı Not **adı**.
+Özel bir metin eşiği ve iş akışı yapılandırmak için [İş Akışları](review-tool-user-guide/workflows.md) sayfasındakilere benzer adımlar kullanın. İş akışının **adını** not alın.
 
-![Metin iş akışını yapılandırın](images/text-workflow-configure.PNG)
+![Metin İş Akışını Yapılandırma](images/text-workflow-configure.PNG)
 
-İş akışınızı "İş akışı yürütme" düğmesini kullanarak test edin.
+"İş Akışını Yürüt" düğmesini kullanarak iş akışınızı test edin.
 
-![Metin iş akışını test etme](images/text-workflow-test.PNG)
+![Metin İş Akışını Test Etme](images/text-workflow-test.PNG)
 
-## <a name="create-azure-functions"></a>Azure işlevleri oluşturun
+## <a name="create-azure-functions"></a>Azure İşlevleri oluşturma
 
-Oturum [Azure Yönetim Portalı](https://portal.azure.com/) , Azure işlevleri. Şu adımları uygulayın:
+Azure İşlevlerinizi oluşturmak için [Azure Yönetim Portalı](https://portal.azure.com/)'nda oturum açın. Şu adımları uygulayın:
 
-1. Gösterilen şekilde bir Azure işlev uygulaması oluşturma [Azure işlevleri](https://docs.microsoft.com/azure/azure-functions/functions-create-function-app-portal) sayfası.
-2. Yeni oluşturulan işlev uygulaması'nı açın.
-3. Uygulamanın içinde gidin **Platform özellikleri -> Uygulama ayarları**
-4. Aşağıdakileri tanımlayın [uygulama ayarları](https://docs.microsoft.com/azure/azure-functions/functions-how-to-use-azure-function-app-settings#settings):
+1. [Azure İşlevleri](https://docs.microsoft.com/azure/azure-functions/functions-create-function-app-portal) sayfasında gösterildiği gibi bir Azure İşlev Uygulaması oluşturun.
+2. Yeni oluşturulan İşlev Uygulamasını açın.
+3. Uygulamanın içinde, **Platform özellikleri -> Uygulama Ayarları**'na gidin
+4. Aşağıdaki [uygulama ayarlarını](https://docs.microsoft.com/azure/azure-functions/functions-how-to-use-azure-function-app-settings#settings) tanımlayın:
 
 > [!NOTE]
-> **Cm: Bölge** (tüm boşluksuz) bölge adı olmalıdır.
-> Örneğin, **westeurope**, Batı Avrupa değil, **westcentralus**, değil Batı Orta ABD ve benzeri.
+> **cm: Region**, bölgenin adı olmalıdır (boşluk içermemelidir).
+> Örneğin Batı Avrupa değil **westeurope**, Orta Batı ABD değil **westcentralus** kullanılır.
 >
 
-| Uygulama ayarı | Açıklama   | 
+| Uygulama Ayarı | Açıklama   | 
 | -------------------- |-------------|
-| cm:TeamId   | Content Moderator teamıd değeri  | 
-| cm:SubscriptionKey | Content Moderator abonelik anahtarınızı - bakın [kimlik bilgileri](review-tool-user-guide/credentials.md) | 
-| cm:Region | Content Moderator bölgesi adınız boşluk olmadan. Önceki nota bakın. |
-| cm:ImageWorkflow | İş akışının görüntülerde çalışmasını adı |
-| cm:TextWorkflow | Metin üzerinde çalıştırmak için iş akışının adı |
-| cm:CallbackEndpoint | Bu kılavuzda daha sonra oluşturduğunuz CMListener işlev uygulaması için URL |
-| FB:VerificationToken | Olaylar için Facebook abone olmak için de kullanılan gizli belirteç akışı |
-| FB:PageAccessToken | Facebook graph API'si erişim belirteci dolmaz ve işlev Gizle/Delete gönderileri sizin adınıza sağlar. |
+| cm:TeamId   | Content Moderator Takım Kimliğiniz  | 
+| cm:SubscriptionKey | Content Moderator abonelik anahtarınız. Bkz. [Kimlik Bilgileri](review-tool-user-guide/credentials.md) | 
+| cm:Region | Content Moderator bölge adınız (boşluk içermez). Önceki nota bakın. |
+| cm:ImageWorkflow | Görüntüler üzerinde çalıştırılacak iş akışının adı |
+| cm:TextWorkflow | Metinler üzerinde çalıştırılacak iş akışının adı |
+| cm:CallbackEndpoint | Bu kılavuzda daha sonra oluşturacağınız CMListener İşlev Uygulamasının Url'si |
+| fb:VerificationToken | Facebook akış olaylarına abone olmak için de kullanılan gizli dizi belirteci |
+| fb:PageAccessToken | Facebook graph api'si erişim belirtecinin süresi dolmaz ve işlevin sizin adınıza gönderileri Gizlemesini/Silmesini sağlar. |
 
-5. Yeni bir **HttpTrigger-CSharp** adlı işlev **FBListener**. Bu işlev, Facebook'tan olaylarını alır. Bu işlev, aşağıdaki adımları izleyerek oluşturun:
+5. **FBListener** adlı yeni bir **HttpTrigger-CSharp** işlevi oluşturun. Bu işlev Facebook'tan olayları alır. Bu işlevi oluşturmak için aşağıdaki adımları izleyin:
 
-    1. Tutun [Azure işlevleri oluşturma](https://docs.microsoft.com/azure/azure-functions/functions-create-function-app-portal) sayfasını başvurusunu açık.
-    2. Tıklayın **+** yeni işlev oluşturmak için ekleyin.
-    3. Yerleşik şablonlar yerine seçin **kendi özel işlevinizi başlama** seçeneği.
-    4. İfadesini içeren kutucuğa tıklayın **HttpTrigger-CSharp**.
-    5. Bir ad girin **FBListener**. **Yetkilendirme düzeyi** alan ayarlanmalıdır **işlevi**.
+    1. Başvuru amacıyla [Azure İşlevleri Oluşturma](https://docs.microsoft.com/azure/azure-functions/functions-create-function-app-portal) sayfasını açık bırakın.
+    2. Yeni işlev oluşturmak için **+** ekle'ye tıklayın.
+    3. Yerleşik şablonlar yerine, **Kendi/özel işlevinizi başlatma** seçeneğini kullanın.
+    4. **HttpTrigger-CSharp** etiketli kutucuğa tıklayın.
+    5. **FBListener** adını girin. **Yetkilendirme Düzeyi** alanı **İşlev** olarak ayarlanmalıdır.
     6. **Oluştur**’a tıklayın.
-    7. Öğesinin içeriğini değiştirin **run.csx** içeriğiyle [ **FbListener/run.csx**](https://github.com/MicrosoftContentModerator/samples-fbPageModeration/blob/master/FbListener/run.csx).
+    7. **run.csx**'in içeriğini [**FbListener/run.csx**](https://github.com/MicrosoftContentModerator/samples-fbPageModeration/blob/master/FbListener/run.csx)'ten alınan içerikle değiştirin.
 
-6. Yeni bir **HttpTrigger-CSharp** adlı işlev **CMListener**. Bu işlev, Content Moderator olayları alır. Bu işlev oluşturmak için aşağıdaki adımları izleyin.
+6. **CMListener** adlı yeni bir **HttpTrigger-CSharp** işlevi oluşturun. Bu işlev Content Moderator'dan olayları alır. Bu işlevi oluşturmak için şu adımları izleyin.
 
-    1. Tutun [Azure işlevleri oluşturma](https://docs.microsoft.com/azure/azure-functions/functions-create-function-app-portal) sayfasını başvurusunu açık.
-    2. Tıklayın **+** yeni işlev oluşturmak için ekleyin.
-    3. Yerleşik şablonlar yerine seçin **kendi özel işlevinizi başlama** seçeneği.
-    4. İfadesini içeren kutucuğa tıklayın **HttpTrigger-CSharp**
-    5. Bir ad girin **CMListener**. **Yetkilendirme düzeyi** alan ayarlanmalıdır **işlevi**.
+    1. Başvuru amacıyla [Azure İşlevleri Oluşturma](https://docs.microsoft.com/azure/azure-functions/functions-create-function-app-portal) sayfasını açık bırakın.
+    2. Yeni işlev oluşturmak için **+** ekle'ye tıklayın.
+    3. Yerleşik şablonlar yerine, **Kendi/özel işlevinizi başlatma** seçeneğini kullanın.
+    4. **HttpTrigger-CSharp** etiketli kutucuğa tıklayın
+    5. **CMListener** adını girin. **Yetkilendirme Düzeyi** alanı **İşlev** olarak ayarlanmalıdır.
     6. **Oluştur**’a tıklayın.
-    7. Öğesinin içeriğini değiştirin **run.csx** içeriğiyle [ **CMListener/run.csx**](https://github.com/MicrosoftContentModerator/samples-fbPageModeration/blob/master/CmListener/run.csx).
+    7. **run.csx**'in içeriğini [**CMListener/run.csx**](https://github.com/MicrosoftContentModerator/samples-fbPageModeration/blob/master/CmListener/run.csx)'ten alınan içerikle değiştirin.
 
-## <a name="configure-the-facebook-page-and-app"></a>Facebook sayfası ve uygulama yapılandırma
-1. Facebook uygulaması oluşturun.
+## <a name="configure-the-facebook-page-and-app"></a>Facebook sayfasını ve Uygulamasını yapılandırma
+1. Facebook Uygulaması oluşturun.
 
-    1. Gidin [Facebook Geliştirici sitesi](https://developers.facebook.com/)
-    2. Tıklayarak **uygulamalarım**.
-    3. Yeni bir uygulama ekleyin.
-    4. Seçin **Web kancaları, Get -> başlatıldı**
-    5. Seçin **sayfasında bu konuya abone ol ->**
-    6. Sağlamak **FBListener Url** geri çağırma URL'si olarak ve **doğrulama belirteci** altında yapılandırmış **işlev uygulaması ayarları**
-    7. Abone sonra akış ve select aşağı kaydırma **abone**.
+    1. [Facebook geliştirici sitesine](https://developers.facebook.com/) gidin
+    2. **My Apps** (Uygulamalarım) öğesine tıklayın.
+    3. Yeni Uygulama ekleyin.
+    4. **Webhooks -> Get Started** (Web Kancaları -> Başlarken) seçeneğini kullanın
+    5. **Page -> Subscribe to this topic** (Sayfa -> Bu konuya abone ol) öğesini seçin
+    6. Geri Arama URL'si olarak **FBListener Url'sini** sağlayın ve **İşlevi Uygulaması Ayarları** altında yapılandırdığınız **Belirteci Doğrulayın**
+    7. Abone olduktan sonra, akışı aşağı kaydırıp **subscribe** (abone ol) öğesini seçin.
 
-2. Bir Facebook sayfası oluşturun.
+2. Facebook Sayfası oluşturun.
 
-    1. Gidin [Facebook](https://www.facebook.com/bookmarks/pages) oluşturup bir **yeni Facebook sayfasında**.
-    2. Facebook uygulaması, aşağıdaki adımları izleyerek bu sayfaya erişmek izin ver:
-        1. Gidin [grafik API'si Gezgini](https://developers.facebook.com/tools/explorer/).
-        2. Seçin **uygulama**.
-        3. Seçin **sayfası erişim belirteci**, gönderme bir **alma** isteği.
-        4. Tıklayın **sayfa kimliği** yanıt.
-        5. Artık ekleme **/subscribed_apps** URL'si ve gönderme bir **alma** (boş yanıt) istek.
-        6. Gönderme bir **Post** isteği. Yanıt olarak alma **başarılı: true**.
+    1. [Facebook](https://www.facebook.com/bookmarks/pages)'a gidin ve **yeni bir Facebook Sayfası** oluşturun.
+    2. Şu adımları izleyerek Facebook Uygulamasının bu sayfaya erişmesine izin verin:
+        1. [Graph API Explorer](https://developers.facebook.com/tools/explorer/)'a gidin.
+        2. **Uygulama**'yı seçin.
+        3. **Sayfa Erişim Belirteci**'ni seçin. Bir **Get** isteği gönderin.
+        4. Yanıtta **Sayfa Kimliği**'ne tıklayın.
+        5. Şimdi **/subscribed_apps** bölümünü URL'ye ekleyin ve bir **Get** (boş yanıt) isteği gönderin.
+        6. **Post** isteği gönderin. **success: true** gibi bir yanıt alırsınız.
 
-3. Süresiz Graph API'sine erişim belirteci oluşturun.
+3. Süresi dolmayan bir Graph API erişim belirteci oluşturun.
 
-    1. Gidin [grafik API'si Gezgini](https://developers.facebook.com/tools/explorer/).
-    2. Seçin **uygulama** seçeneği.
-    3. Seçin **kullanıcı erişim belirteci Al** seçeneği.
-    4. Altında **Select izinleri**seçin **manage_pages** ve **publish_pages** seçenekleri.
-    5. Kullanacağız **erişim belirteci** (kısa ömürlü belirteci) sonraki adımda.
+    1. [Graph API Explorer](https://developers.facebook.com/tools/explorer/)'a gidin.
+    2. **Uygulama** seçeneğini belirtin.
+    3. **Kullanıcı Erişim Belirteci Al** seçeneğini belirtin.
+    4. **İzin Seç** bölümünde **manage_pages** ve **publish_pages** seçeneklerini belirtin.
+    5. **Erişim belirtecini** (Kısa Ömürlü Belirteç) sonraki adımda kullanacağız.
 
-4. Sonraki birkaç adımı için Postman kullanıyoruz.
+4. Önümüzdeki birkaç adımda Postman kullanıyoruz.
 
-    1. Açık **Postman** (veya bunu [burada](https://www.getpostman.com/)).
-    2. Bu iki dosyayı içeri aktarın:
-        1. [Postman koleksiyonu](https://github.com/MicrosoftContentModerator/samples-fbPageModeration/blob/master/Facebook%20Permanant%20Page%20Access%20Token.postman_collection.json)
-        2. [Postman ortamı](https://github.com/MicrosoftContentModerator/samples-fbPageModeration/blob/master/FB%20Page%20Access%20Token%20Environment.postman_environment.json)       
-    3. Bu ortam değişkenleri güncelleştirin:
+    1. **Postman**'ı açın (veya [buradan](https://www.getpostman.com/) alın).
+    2. Şu iki dosyayı içeri aktarın:
+        1. [Postman Collection](https://github.com/MicrosoftContentModerator/samples-fbPageModeration/blob/master/Facebook%20Permanant%20Page%20Access%20Token.postman_collection.json)
+        2. [Postman Environment](https://github.com/MicrosoftContentModerator/samples-fbPageModeration/blob/master/FB%20Page%20Access%20Token%20Environment.postman_environment.json)       
+    3. Şu ortam değişkenlerini güncelleştirin:
     
     | Anahtar | Değer   | 
     | -------------------- |-------------|
-    | Uygulama Kimliği   | Facebook uygulama tanımlayıcısı ekleme  | 
-    | appSecret | Burada Facebook uygulama gizli anahtarı Ekle | 
-    | short_lived_token | Önceki adımda oluşturulan kısa ömürlüdür kullanıcı erişim belirteci Ekle |
-    4. 3 çalıştırmam API'leri koleksiyonunda listelenir: 
-        1. Seçin **Long-Lived erişim belirteci oluşturma** tıklatıp **Gönder**.
-        2. Seçin **kullanıcı kimliği Al** tıklatıp **Gönder**.
-        3. Seçin **kalıcı sayfası erişim belirteci Al** tıklatıp **Gönder**.
-    5. Kopyalama **access_token** değer yanıttan ve uygulama ayarının, Ata **fb:PageAccessToken**.
+    | appId   | Buraya Facebook Uygulama Tanımlayıcınızı ekleyin  | 
+    | appSecret | Buraya Facebook Uygulamanızın gizli dizisini ekleyin | 
+    | short_lived_token | Önceki adımda oluşturduğunuz kısa ömürlü kullanıcı erişim belirtecini ekleyin |
+    4. Şimdi koleksiyonda listelenen 3 API'yi çalıştırın: 
+        1. **Uzun Ömürlü Erişim Belirteci Oluştur**'u seçin ve **Gönder**'e tıklayın.
+        2. **Kullanıcı Kimliğini Al**'ı seçin ve **Gönder**'e tıklayın.
+        3. **Kalıcı Sayfa Erişim Belirtecini Al**'ı seçin ve **Gönder**'e tıklayın.
+    5. Yanıttan **access_token** değerini kopyalayın ve bunu **fb:PageAccessToken** Uygulama ayarına atayın.
 
 İşte bu kadar!
 
-Çözüm, tüm görüntüler ve metinler için Content Moderator Facebook sayfanızda gönderilen gönderir. Daha önce yapılandırdığınız iş akışları çağrılır. İş akışları sonuçlarında incelemelerde İnceleme aracını içinde tanımlanan ölçütlerinizle geçirmez içeriği. İçeriği geri kalanını yayımlanan.
+Çözüm, Facebook sayfanıza gönderilen tüm resimleri ve metinleri Content Moderator'a gönderir. Daha önce yapılandırdığınız iş akışları çağrılır. İş akışlarında tanımlanan ölçütlerinizi geçemeyen içerikler sonuçta inceleme aracında incelemeye alınır. İçeriğin kalan bölümü yayımlanır.
 
 ## <a name="license"></a>Lisans
 
-MIT lisansı ile birlikte, tüm Microsoft Bilişsel hizmetler SDK'lar ve örnekler lisanslanır. Daha fazla ayrıntı için [lisans](https://microsoft.mit-license.org/).
+Tüm Microsoft Bilişsel Hizmetler SDK'ları ve örnekler, MIT Lisansı ile lisanslanmıştır. Diğer ayrıntılar için bkz. [LİSANS](https://microsoft.mit-license.org/).
 
 ## <a name="developer-code-of-conduct"></a>Geliştirici Kullanım Kuralları
 
-Bu istemci kitaplığı ve örnek, Bilişsel hizmetler kullanan geliştiriciler bekleniyor "Geliştirici kod birini gerçekleştirmek için Microsoft Bilişsel Hizmetler" izleyin, bulunan http://go.microsoft.com/fwlink/?LinkId=698895.
+Bu istemci kitaplığı ve örnek de dahil olmak üzere Bilişsel Hizmetler'i kullanan geliştiricilerin, http://go.microsoft.com/fwlink/?LinkId=698895 adresinde bulunan "Microsoft Bilişsel Hizmetler için Geliştirici Kullanım Kuralları"na uyması beklenir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-1. [(Video) tanıtımı izleyin](https://channel9.msdn.com/Events/Build/2017/T6033) Microsoft Build 2017'den bu çözümü.
-1. [Github'da Facebook örneği](https://github.com/MicrosoftContentModerator/samples-fbPageModeration)
+1. Microsoft Build 2017'den bu çözümün [tanıtımını izleyin (video)](https://channel9.msdn.com/Events/Build/2017/T6033).
+1. [GitHub'da Facebook örneği](https://github.com/MicrosoftContentModerator/samples-fbPageModeration)
 1. https://docs.microsoft.com/azure/azure-functions/functions-create-github-webhook-triggered-function
 2. http://ukimiawz.github.io/facebook/2015/08/12/webhook-facebook-subscriptions/
 3. http://stackoverflow.com/questions/17197970/facebook-permanent-page-access-token

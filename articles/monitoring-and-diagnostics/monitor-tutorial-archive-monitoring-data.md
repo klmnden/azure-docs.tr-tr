@@ -9,16 +9,22 @@ ms.date: 09/25/2017
 ms.author: johnkem
 ms.custom: mvc
 ms.component: metrics
-ms.openlocfilehash: f6b7b9fe73f5e815e08bbf4f6493ee181a0c692b
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: be6f3efd74d013e9ddb02c44031dd6a402f00871
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37918280"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47409499"
 ---
-# <a name="archive-azure-monitoring-data"></a>Azure izleme verilerini arşivleme
+# <a name="archive-azure-metric-and-log-data-using-azure-storage"></a>Azure Depolama’yı kullanarak Azure ölçümlerini ve günlük verilerini arşivleme
 
-Azure ortamınızın birkaç katmanında, bir Azure Depolama Hesabında arşivlenebilen günlük ve ölçüm verileri oluşturulur. Verileri Log Analytics veya Azure İzleyici’de saklama süresi geçtikten sonra zaman içinde verileri izleme geçmişini hesaplı, aranabilir olmayan bir depoda korumak için bu arşivlemeyi yapmak isteyebilirsiniz. Bu öğreticide, verileri bir depolama hesabında arşivlemek üzere Azure ortamınızı yapılandırma işlemi adım adım gösterilmektedir.
+Azure ortamınızın birkaç katmanında, bir Azure Depolama hesabında arşivlenebilen günlük ve ölçüm verileri oluşturulur. Geçmiş izleme verilerini bunların saklanma dönemi bittikten sonra uzun süre düşük maliyetli, aranabilir olmayan bir depoda tutmak için bu arşivlemeyi kullanmanız iyi olur. 
+
+- Azure Monitor platform ölçümleri 93 gün boyunca tutulur. 
+- Kaynak tanılama günlükleri yalnızca en az 30 günlük yapılandırılabilir bir saklama sürelerinin olduğu Log Analytics'e yönlendirilmişse görünür. 
+- Etkinlik günlüğü girişleri 90 gün boyunca tutulur.  
+
+Bu öğreticide, verileri bir depolama hesabında arşivlemek üzere Azure ortamınızı yapılandırma işlemi adım adım gösterilmektedir.
 
 > [!div class="checklist"]
 > * İzleme verilerini tutmak için depolama hesabı oluşturma

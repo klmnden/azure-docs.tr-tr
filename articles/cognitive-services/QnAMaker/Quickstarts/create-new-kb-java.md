@@ -1,24 +1,27 @@
 ---
-title: Yeni bir bilgi bankası oluşturma - hızlı başlangıç Java - Microsoft Soru-Cevap Oluşturma API (V4) için - Azure Bilişsel Hizmetler | Microsoft Docs
-description: Sık sorulan sorularınızı veya ürün kılavuzlarınızı tutmak için Java’da bir bilgi bankası oluşturun ve bu sayede Soru-Cevap Oluşturma’yı kullanmaya başlayın.
+title: 'Hızlı Başlangıç: API Java - Bilgi bankası oluşturma - Soru-Cevap Oluşturma'
+titlesuffix: Azure Cognitive Services
+description: Bu hızlı başlangıçta Bilişsel Hizmetler API hesabınızda görünen örnek bir Soru-Cevap Oluşturma bilgi bankasını programlamayla oluşturma adımları gösterilmektedir.
 services: cognitive-services
-author: noellelacharite
-manager: nolachar
+author: diberry
+manager: cgronlun
 ms.service: cognitive-services
 ms.technology: qna-maker
 ms.topic: quickstart
-ms.date: 06/15/2018
-ms.author: nolachar
-ms.openlocfilehash: 3d637a4a046318a95eeeb532cbb7a9938cb1004d
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.date: 09/12/2018
+ms.author: diberry
+ms.openlocfilehash: 5dfea3a8b4b5a79585b910fd2fad4ffbda4729fd
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "43772500"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47037618"
 ---
 # <a name="create-a-new-knowledge-base-in-java"></a>Java’da yeni bilgi bankası oluşturma
 
 Bu hızlı başlangıç, Bilişsel Hizmetler API hesabınızda görünen örnek bir Soru-Cevap Oluşturma bilgi bankasını programatik olarak oluşturma konusunda size yol gösterir.
+
+[!INCLUDE [Code is available in Azure-Samples Github repo](../../../../includes/cognitive-services-qnamaker-java-repo-note.md)]
 
 Aşağıda içerik sağlayan iki örnek SSS URL’si (**getKB()** öğesinde 'kb.urls' içinde) verilmiştir. Soru-Cevap Oluşturma, bu [veri kaynakları](../Concepts/data-sources-supported.md) belgesinde daha ayrıntılı bir şekilde açıklandığı şekilde SSS gibi yarı yapılandırılmış içerikten soru ve cevapları otomatik olarak ayıklar. Bu hızlı başlangıçta kendi SSS URL’lerinizi de kullanabilirsiniz.
 

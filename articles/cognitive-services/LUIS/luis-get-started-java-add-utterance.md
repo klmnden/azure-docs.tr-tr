@@ -1,20 +1,21 @@
 ---
-title: 'Hızlı Başlangıç: Java kullanarak model değiştirme ve LUIS uygulamasını eğitme - Azure Bilişsel Hizmetler | Microsoft Docs'
+title: Java Hızlı Başlangıç - modeli değiştirme ve LUIS uygulamasını eğitme
+titleSuffix: Azure Cognitive Services
 description: Bu Java hızlı başlangıcında, bir Ev Otomasyonu uygulamasına örnek konuşmalar ekleyip uygulamayı eğitin. Örnek konuşmalar, bir amaçla eşleşmiş kullanıcı konuşma metinleridir. Amaçlar için örnek konuşmalar sağlayarak, LUIS’e kullanıcı tarafından sağlanan hangi tür metinlerin hangi amaca ait olduğunu öğretirsiniz.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: quickstart
-ms.date: 08/24/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: ddb22bce77dda55ad6e83efa8c0ca2c476f78836
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: 8500dfdd639b4f1de46a0b79b87a8564d338b6ab
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44161127"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47042033"
 ---
 # <a name="quickstart-change-model-using-java"></a>Hızlı Başlangıç: Java kullanarak model değiştirme 
 

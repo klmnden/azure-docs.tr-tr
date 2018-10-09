@@ -1,23 +1,25 @@
 ---
-title: 'Hızlı Başlangıç: Bing Web Araması API’sini çağırmak için Node.js kullanma'
+title: "Hızlı Başlangıç: Node.js ile arama gerçekleştirme - Bing Web Araması API'si"
+titleSuffix: Azure Cognitive Services
 description: Bu hızlı başlangıçta, Node.js kullanarak ilk Bing Web Araması API'si çağrınızı yapmayı ve bir JSON yanıtı almayı öğreneceksiniz.
 services: cognitive-services
 author: erhopf
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-web-search
 ms.topic: quickstart
-ms.date: 8/16/2018
+ms.date: 9/26/2018
 ms.author: erhopf
-ms.openlocfilehash: 7a46500f7cbf319c788761bccfaa92197ef67490
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.openlocfilehash: debaa63adeb97063d0ea42e1da36352dc2c9c4e7
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42886940"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47405865"
 ---
 # <a name="quickstart-use-nodejs-to-call-the-bing-web-search-api"></a>Hızlı Başlangıç: Bing Web Araması API’sini çağırmak için Node.js kullanma  
 
-10 dakikadan daha kısa bir sürede ilk Bing Web Araması API'si çağrınızı yapmak ve bir JSON yanıtı almak için bu hızlı başlangıcı kullanın.  
+10 dakikadan daha kısa bir sürede ilk Bing Web Araması API'si çağrınızı yapmak ve bir JSON yanıtı almak için bu hızlı başlangıcı kullanın.
 
 [!INCLUDE [bing-web-search-quickstart-signup](../../../../includes/bing-web-search-quickstart-signup.md)]
 
@@ -26,102 +28,120 @@ ms.locfileid: "42886940"
 Bu hızlı başlangıcı çalıştırmak için aşağıdakilere ihtiyacınız olacaktır:
 
 * [Node.js 6](https://nodejs.org/en/download/) veya üzeri
-* Abonelik anahtarı  
+* Abonelik anahtarı
 
 ## <a name="create-a-project-and-declare-required-modules"></a>Bir proje oluşturun ve gerekli modülleri bildirin
 
-Sık kullandığınız IDE veya düzenleyicide yeni bir Node.js projesi oluşturun. Ardından aşağıdaki kod parçacığını projenize kopyalayın. Bu hızlı başlangıçta katı mod kullanılmaktadır ve veri gönderip almak için `https` modülü gerekir.
+Sık kullandığınız IDE veya düzenleyicide yeni bir Node.js projesi oluşturun.
+Ardından aşağıdaki kod parçacığını projenizde `search.js` adlı bir dosyaya kopyalayın.
 
 ```javascript
-// Use strict mode.
-'use strict';
-
-// Require the https module.
-let https = require('https');
+// Use this simple app to query the Bing Web Search API and get a JSON response.
+// Usage: node search.js "your query".
+const https = require('https')
 ```
 
-## <a name="define-variables"></a>Değişkenleri tanımlama
+## <a name="set-the-subscription-key"></a>Abonelik anahtarını ayarlama
 
-Devam etmeden önce birkaç değişkeni ayarlamamız gerekir. `host` ve `path` öğelerinin geçerli olduğunu doğrulayın ve `subscriptionKey` değerini Azure hesabınızdan geçerli bir abonelik anahtarı ile değiştirin. `term` için değeri değiştirerek arama sorgusunu değiştirebilirsiniz.
+Bu kod parçacığı, abonelik anahtarınızı depolamak için, kod dağıtırken anahtarlarınızın yanlışlıkla ortaya çıkmasını engellemek için iyi bir uygulama olarak `AZURE_SUBSCRIPTION_KEY` ortam değişkenini kullanır. Abonelik anahtarınızı aramak için [buraya tıklayın](https://azure.microsoft.com/try/cognitive-services/my-apis/?apiSlug=search-api-v7).
+
+Ortam değışkeni kullanmaya alışkın değilseniz veya bu uygulamayı olabildiğince çabuk çalıştırmak istiyorsanız, `process.env['AZURE_SUBSCRIPTION_KEY']` değişkenini abonelik anahtar kümenizle dize olarak değiştirebilirsiniz.
 
 ```javascript
-// Replace with a valid subscription key.
-let subscriptionKey = 'enter key here';
-
-/*
- * Verify the endpoint URI. If you
- * encounter unexpected authorization errors, double-check this host against
- * the endpoint for your Bing Web search instance in your Azure dashboard.  
- */
-let host = 'api.cognitive.microsoft.com';
-let path = '/bing/v7.0/search';
-let term = 'Microsoft Cognitive Services';
-
-// Validate the subscription key.
-if (subscriptionKey.length === 32) {
-    bing_web_search(term);
-} else {
-    console.log('Invalid Bing Search API subscription key!');
-    console.log('Please paste yours into the source code.');
+const SUBSCRIPTION_KEY = process.env['AZURE_SUBSCRIPTION_KEY']
+if (!SUBSCRIPTION_KEY) {
+  throw new Error('AZURE_SUBSCRIPTION_KEY is not set.')
 }
 ```
 
-## <a name="create-a-response-handler"></a>Yanıt işleyici oluşturma
+## <a name="create-a-function-to-make-the-request"></a>İstekte bulunmak için işlev oluşturma
 
-Yanıtı dizeye dönüştürmek ve ayrıştırmak için bir işleyici oluşturun. Bir sonraki bölümde göreceğiniz üzere `response_handler`, Bing Web Araması API'sine her istek gönderildiğinde çağrılır.
+Bu işlev, arama sorgusunu yola parametre olarak kaydederek güvenli bir GET isteği gönderir. `encodeURIComponent` geçersiz karakterleri atlatmak için kullanılır ve abonelik anahtarı bir üstbilgide geçilir. Geri çağrı, JSON gövdesini birleştirmek için `data` olayına, sorunları günlüğe kaydetmek için `error` olayına ve iletinin ne zaman tamamlanmış kabul edileceğini bilmek için de `end` olayına abone olan bir [yanıt](https://nodejs.org/dist/latest-v10.x/docs/api/http.html#http_class_http_serverresponse) alır. İşlem tamamlandığında uygulama ilgi çekici üstbilgileri ve ileti gövdesini yazdırır. Renkleri değiştirebilir ve derinliği tercihinize göre ayarlayabilirsiniz; `1` derinliği yanıtın güzel bir özetini verir.
 
 ```javascript
-let response_handler = function (response) {
-    let body = '';
-    response.on('data', function (d) {
-        body += d;
-    });
-    response.on('end', function () {
-        console.log('\nRelevant Headers:\n');
-        for (var header in response.headers)
-            // Headers are lowercased by Node.js.
-            if (header.startsWith("bingapis-") || header.startsWith("x-msedge-"))
-                 console.log(header + ": " + response.headers[header]);
-        // Stringify and parse the response body.
-        body = JSON.stringify(JSON.parse(body), null, '  ');
-        console.log('\nJSON Response:\n');
-        console.log(body);
-    });
-    response.on('error', function (e) {
-        console.log('Error: ' + e.message);
-    });
-};
+function bingWebSearch(query) {
+  https.get({
+    hostname: 'api.cognitive.microsoft.com',
+    path:     '/bing/v7.0/search?q=' + encodeURIComponent(query),
+    headers:  { 'Ocp-Apim-Subscription-Key': SUBSCRIPTION_KEY },
+  }, res => {
+    let body = ''
+    res.on('data', part => body += part)
+    res.on('end', () => {
+      for (var header in res.headers) {
+        if (header.startsWith("bingapis-") || header.startsWith("x-msedge-")) {
+          console.log(header + ": " + res.headers[header])
+        }
+      }
+      console.log('\nJSON Response:\n')
+      console.dir(JSON.parse(body), { colors: false, depth: null })
+    })
+    res.on('error', e => {
+      console.log('Error: ' + e.message)
+      throw e
+    })
+  })
+}
+```
+
+## <a name="get-the-query"></a>Sorguyu alma
+
+Sorguyu bulmak için programın bağımsız değişkenlerine bakalım. İlk bağımsız değişken düğüme giden yoldur, ikincisi dosyamızın adıdır, üçüncüsü ise sorgunuzdur. Sorgu yoksa, varsayılan olarak "Microsoft Bilişsel Hizmetler" sorgusu kullanılır.
+
+```javascript
+const query = process.argv[2] || 'Microsoft Cognitive Services'
 ```
 
 ## <a name="make-a-request-and-print-the-response"></a>İstekte bulunma ve yanıtı yazdırma
 
-İsteği oluşturun ve Bing Web Araması API'sine bir çağrı gönderin. İstek gerçekleştirildikten sonra `response_handler` işlevi çağrılır ve yanıt yazdırılır.
+Artık her şey tanımlandığına göre işlevimizi çağıralım!
 
 ```javascript
-let bing_web_search = function (search) {
-    console.log('Searching the Web for: ' + term);
-        // Declare the method, hostname, path, and headers.
-        let request_params = {
-            method : 'GET',
-            hostname : host,
-            path : path + '?q=' + encodeURIComponent(search),
-            headers : {
-                'Ocp-Apim-Subscription-Key' : subscriptionKey,
-            }
-        };
-    // Request to the Bing Web Search API.
-    let req = https.request(request_params, response_handler);
-    req.end();
-}
+bingWebSearch(query)
 ```
 
 ## <a name="put-it-all-together"></a>Hepsini bir araya getirin
 
-Son adım kodunuzu çalıştırmaktır! Kodunuzu bizimkiyle karşılaştırmak isterseniz [GitHub'daki örnek kodu inceleyebilirsiniz](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/nodejs/Search/BingWebSearchv7.js).
+Son adım kodunuzu çalıştırmaktır: `node search.js "<your query>"`.
+
+Kodunuzu bizimkiyle karşılaştırmak isterseniz, tam program aşağıdadır:
+
+```javascript
+const https = require('https')
+const SUBSCRIPTION_KEY = process.env['AZURE_SUBSCRIPTION_KEY']
+if (!SUBSCRIPTION_KEY) {
+  throw new Error('Missing the AZURE_SUBSCRIPTION_KEY environment varable')
+}
+function bingWebSearch(query) {
+  https.get({
+    hostname: 'api.cognitive.microsoft.com',
+    path:     '/bing/v7.0/search?q=' + encodeURIComponent(query),
+    headers:  { 'Ocp-Apim-Subscription-Key': SUBSCRIPTION_KEY },
+  }, res => {
+    let body = ''
+    res.on('data', part => body += part)
+    res.on('end', () => {
+      for (var header in res.headers) {
+        if (header.startsWith("bingapis-") || header.startsWith("x-msedge-")) {
+          console.log(header + ": " + res.headers[header])
+        }
+      }
+      console.log('\nJSON Response:\n')
+      console.dir(JSON.parse(body), { colors: false, depth: null })
+    })
+    res.on('error', e => {
+      console.log('Error: ' + e.message)
+      throw e
+    })
+  })
+}
+const query = process.argv[2] || 'Microsoft Cognitive Services'
+bingWebSearch(query)
+```
 
 ## <a name="sample-response"></a>Örnek yanıt
 
-Bing Web Araması API'si yanıtları JSON biçiminde döndürülür. Bu örnek yanıt, tek bir sonuç göstermek için kısaltıldı.  
+Bing Web Araması API'si yanıtları JSON biçiminde döndürülür. Bu örnek yanıt, tek bir sonuç göstermek için kısaltıldı.
 
 ```json
 {
@@ -157,7 +177,7 @@ Bing Web Araması API'si yanıtları JSON biçiminde döndürülür. Bu örnek y
           },
           {
             "name": "Emotion",
-            "url": "https://www.microsoft.com/cognitive-services/en-us/emotion-api",
+            "url": "https://www.microsoft.com/cognitive-services/emotion-api",
             "snippet": "Cognitive Services Emotion API - microsoft.com"
           },
           {

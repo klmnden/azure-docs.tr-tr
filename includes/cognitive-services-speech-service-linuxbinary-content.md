@@ -5,16 +5,16 @@ ms.topic: include
 ms.date: 05/07/2018
 ms.author: wolfma
 ms.openlocfilehash: 5da7410cc2d6431a450b0097807d5a85a106ad15
-ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
-ms.translationtype: MT
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39326131"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47105532"
 ---
 | Yol | Açıklama |
 |:-----|:----|
 | `license.md` | Lisans
 | `third-party-notices.md` | Üçüncü taraf bildirimleri.
-| `include` | C ve C++ için gereken üst bilgi dosyaları
-| `lib/x64` | Uygulamanızı bağlamak için gerekli x64 için yerel kitaplığı
-| `lib/x86` | Uygulamanızı bağlamak için gerekli x86 için yerel kitaplığı
+| `include` | C ve C++ için gereken üstbilgi dosyaları
+| `lib/x64` | Uygulamanızı bağlamak için gereken x64 yerel kitaplığı
+| `lib/x86` | Uygulamanızı bağlamak için gereken x86 yerel kitaplığı

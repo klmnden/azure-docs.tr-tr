@@ -1,69 +1,70 @@
 ---
-title: machine learning ve Azure içerik Denetleyici ile AI ile e-ticaret katalog denetleme | Microsoft Docs
-description: Otomatik olarak e-ticaret kataloglarıyla machine learning ve AI Orta
+title: 'Öğretici: eTicaret katalog denetimi - Content Moderator'
+titlesuffix: Azure Cognitive Services
+description: Makine öğrenmesi ve AI ile eTicaret kataloglarını otomatik olarak denetleyin.
 services: cognitive-services
 author: sanjeev3
-manager: mikemcca
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
-ms.topic: article
+ms.topic: tutorial
 ms.date: 09/25/2017
 ms.author: sajagtap
-ms.openlocfilehash: 6177758eaa3e611ad67da0778d889df48b052d90
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
-ms.translationtype: MT
+ms.openlocfilehash: 2405ba9087e63b57c7bd6bc6f290cdafacaf7a49
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37095760"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47227359"
 ---
-# <a name="ecommerce-catalog-moderation-with-machine-learning"></a>machine learning ile e-ticaret katalog denetleme
+# <a name="tutorial-ecommerce-catalog-moderation-with-machine-learning"></a>Öğretici: Makine öğrenmesi ile eTicaret katalog denetimi
 
-Bu öğreticide, bir akıllı Kataloğu sistemi sağlamak için İnsan yönetimini makine destekli AI teknolojileri birleştirerek machine-learning-tabanlı akıllı e-ticaret katalog yönetimini uygulamak nasıl öğrenin.
+Bu öğreticide, akıllı bir katalog sistemi sağlamak için makine destekli AI teknolojilerini insan denetimiyle birleştirerek makine öğrenmesi tabanlı akıllı eticaret kataloğu denetiminin nasıl gerçekleştirildiğini öğreneceğiz.
 
-![Sınıflandırılmış ürün görüntüleri](images/tutorial-ecommerce-content-moderator.PNG)
+![Sınıflandırılmış ürün resimleri](images/tutorial-ecommerce-content-moderator.PNG)
 
 ## <a name="business-scenario"></a>İş senaryosu
 
-Sınıflandırmak ve ürün görüntüleri kategorilerdeki Orta için makine destekli teknolojileri kullanır:
+Makine destekli teknolojileri kullanarak ürün resimlerini şu kategoriler altında sınıflandırın ve denetleyin:
 
-1. Yetişkin (çıplak görüntüler)
-2. Saldırganlardan (müstehcen)
-3. Çok ünlüler
-4. ABD bayrakları
-5. Toys
+1. Yetişkin (Çıplaklık)
+2. Müstehcen (Kışkırtıcı)
+3. Ünlüler
+4. US Etiketleri
+5. Oyuncaklar
 6. Kalemler
 
-## <a name="tutorial-steps"></a>Eğitmen adımları
+## <a name="tutorial-steps"></a>Öğretici adımları
 
-Öğretici, bu adımları uygularken size yol gösterir:
+Öğretici, şu adımlarda size yol gösterir:
 
-1. Kaydolun ve içerik denetleyici ekibi oluşturun.
-2. Olası ünlülerle ve bayrağı içerik yönetimini etiketler (etiketleri) yapılandırın.
-3. Olası yetişkin ve saldırganlardan içerik için tarama için içerik denetleyicinin görüntü API kullanın.
-4. Olası çok ünlüler için taramak üzere bilgisayar görme API kullanın.
-5. Olası bayrakları varlığını taramak için özel görme hizmeti kullanın.
-6. İnsan gözden geçirme ve son kararlar nuanced tarama sonuçlarını sunar.
+1. Kaydolma ve Content Moderator takımı oluşturma.
+2. Olası ünlü ve bayrak içeriği için denetim etiketlerini yapılandırma.
+3. Olası yetişkinlere yönelik ve müstehcen içerik taraması için Content Moderator'ın resim API'sini kullanma.
+4. Olası ünlüler taraması için Görüntü İşleme API'sini kullanma.
+5. Olası bayrak varlığını taramak için Özel Görüntü İşleme hizmetini kullanma.
+6. İnsan incelemesi ve son karar için ayrıntılı tarama sonuçlarını sunma.
 
 ## <a name="create-a-team"></a>Takım oluşturma
 
-Başvurmak [Hızlı Başlangıç](quick-start.md) içerik denetleyici için kaydolun ve bir ekip oluşturmak için sayfa. Not **Takım Kimliği** gelen **kimlik bilgileri** sayfası.
+Content Moderator'a kaydolmak ve takım oluşturmak için [Hızlı Başlangıç](quick-start.md) sayfasına bakın. **Kimlik Bilgileri** sayfasındaki **Takım Kimliği**'ni not alın.
 
 
-## <a name="define-custom-tags"></a>Özel etiketler tanımlayın
+## <a name="define-custom-tags"></a>Özel etiketler tanımlama
 
-Başvurmak [etiketleri](https://docs.microsoft.com/azure/cognitive-services/content-moderator/review-tool-user-guide/tags) makale özel etiketler ekleyin. Yerleşik yanı sıra **yetişkin** ve **saldırganlardan** etiketleri, yeni etiketler etiketleri için açıklayıcı adlarını görüntülemek İnceleme aracı izin verin.
+Özel etiketler eklemek için [Etiketler](https://docs.microsoft.com/azure/cognitive-services/content-moderator/review-tool-user-guide/tags) makalesine bakın. Yerleşik **adult** ve **racy** etiketlerine ek olarak, yeni etiketler de inceleme aracının etiketler için tanımlayıcı adlar görüntülemesine izin verir.
 
-Örneğimizde, biz bu özel etiketler tanımlayın (**ünlülerle**, **bayrağı**, **bize**, **Oyuncak**, **kalem**):
+Biz örneğimizde şu özel etiketleri tanımladık (**celebrity**, **flag**, **us**, **toy**, **pen**):
 
-![Özel etiketler yapılandırın](images/tutorial-ecommerce-tags2.PNG)
+![Özel etiketleri yapılandırma](images/tutorial-ecommerce-tags2.PNG)
 
-## <a name="list-your-api-keys-and-endpoints"></a>API anahtarları ve uç noktaları listesi
+## <a name="list-your-api-keys-and-endpoints"></a>API anahtarlarınızı ve uç noktalarınızı listeleme
 
-1. Öğretici, üç API'ları ve ilgili anahtarları ve API uç noktaları kullanır.
-2. Abonelik bölgeleri ve içerik denetleyici gözden geçirme ekibi kimliğe göre API uç noktalarınız farklı
+1. Öğreticide üç API, bunlara karşılık gelen anahtarlar ve API uç noktaları kullanılır.
+2. Abonelik bölgelerinize ve Content Moderator İnceleme Takımı Kimliğinize bağlı olarak, API uç noktaları farklı olacaktır.
 
 > [!NOTE]
-> Öğretici, aşağıdaki uç noktalardan görünür bölgelerdeki Abonelik anahtarları kullanmak için tasarlanmıştır. API anahtarlarınızı URI'ler aksi anahtarlarınızı şu uç noktalar ile çalışmayabilir bölgesi ile eşleşecek şekilde emin olun:
+> Öğretici, aşağıdaki uç noktalarda görünür olan bölgelerdeki abonelik anahtarlarını kullanacak şekilde tasarlanmıştır. API anahtarlarınızla bölge Uri'lerinin eşleştiğinden emin olun; aksi takdirde anahtarlarınız aşağıdaki uç noktalarla çalışmayabilir:
 
          // Your API keys
         public const string ContentModeratorKey = "XXXXXXXXXXXXXXXXXXXX";
@@ -76,12 +77,12 @@ Başvurmak [etiketleri](https://docs.microsoft.com/azure/cognitive-services/cont
         public const string ComputerVisionUri = "https://westcentralus.api.cognitive.microsoft.com/vision/v1.0";
         public const string CustomVisionUri = "https://southcentralus.api.cognitive.microsoft.com/customvision/v1.0/Prediction/XXXXXXXXXXXXXXXXXXXX/url";
 
-## <a name="scan-for-adult-and-racy-content"></a>Yetişkin ve saldırganlardan içeriği tara
+## <a name="scan-for-adult-and-racy-content"></a>Yetişkinlere yönelik ve müstehcen içerikleri tarama
 
-1. İşlev, parametre olarak bir resim URL'si ve anahtar-değer çiftleri dizisi alır.
-2. Yetişkin ve Racy puanları almak için içerik denetleyicinin görüntü API çağırır.
-3. Puan (aralık: 0-1) 0.4 daha büyükse, değeri ayarlar **ReviewTags** için dizi **doğru**.
-4. **ReviewTags** dizi gözden geçirme Aracı'nı karşılık gelen etiketinde vurgulamak için kullanılır.
+1. İşlev, resim URL'sini ve bir anahtar-değer çifti dizisini parametre olarak alır.
+2. Yetişkin ve Müstehcen puanlarını almak için Content Moderator'ın Görüntü API'sini çağırır.
+3. Puan 0,4'ten büyükse (0 ile 1 aralığındadır), **ReviewTags** dizisindeki değeri **True** olarak ayarlar.
+4. İnceleme aracında buna karşılık gelen etiketi vurgulamak için **ReviewTags** dizisi kullanılır.
 
         public static bool EvaluateAdultRacy(string ImageUrl, ref KeyValuePair[] ReviewTags)
         {
@@ -119,17 +120,17 @@ Başvurmak [etiketleri](https://docs.microsoft.com/azure/cognitive-services/cont
             return response.IsSuccessStatusCode;
         }
 
-## <a name="scan-for-celebrities"></a>Çok ünlüler tara
+## <a name="scan-for-celebrities"></a>Ünlüleri tarama
 
-1. Kaydolun bir [ücretsiz deneme sürümü](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision) , [bilgisayar görme API](https://azure.microsoft.com/services/cognitive-services/computer-vision/).
-2. Tıklatın **alma API anahtarı** düğmesi.
+1. [Görüntü İşleme API'sinin](https://azure.microsoft.com/services/cognitive-services/computer-vision/) [ücretsiz denemesine](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision) kaydolun.
+2. **API Anahtarını Al** düğmesine tıklayın.
 3. Koşulları kabul edin.
-4. Oturum açmak için kullanılabilir Internet hesapları listesinden seçin.
-5. Hizmet sayfasında görüntülenen API anahtarları unutmayın.
+4. Oturum açmak için, kullanılabilir İnternet hesapları listesinden seçim yapın.
+5. Hizmet sayfanızda görüntülenen API anahtarlarını not alın.
     
-   ![Bilgisayar görme API anahtarları](images/tutorial-computer-vision-keys.PNG)
+   ![Görüntü İşleme API'si anahtarları](images/tutorial-computer-vision-keys.PNG)
     
-6. Bilgisayar görme API görüntüsüyle tarar işlevi için proje kaynak koduna bakın.
+6. Resmi Görüntü İşleme API'si ile tarayan işlev için proje kaynak koduna bakın.
 
          public static bool EvaluateComputerVisionTags(string ImageUrl, string ComputerVisionUri, string ComputerVisionKey, ref KeyValuePair[] ReviewTags)
         {
@@ -156,13 +157,13 @@ Başvurmak [etiketleri](https://docs.microsoft.com/azure/cognitive-services/cont
             return Response.IsSuccessStatusCode;
         }
 
-## <a name="classify-into-flags-toys-and-pens"></a>Flags, toys ve kalemler sınıflandırma
+## <a name="classify-into-flags-toys-and-pens"></a>Bayraklar, oyuncaklar ve kalemler olarak sınıflandırma
 
-1. [Oturum](https://azure.microsoft.com/en-us/services/cognitive-services/custom-vision-service/) için [özel görme API Önizleme](https://www.customvision.ai/).
-2. Kullanım [Hızlı Başlangıç](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/getting-started-build-a-classifier) bayrakları, toys ve kalemler olası varolup olmadığını algılamak için özel sınıflandırıcı oluşturmak için.
-   ![Özel görme eğitim görüntüleri](images/tutorial-ecommerce-custom-vision.PNG)
-3. [Tahmin uç nokta URL'sini alma](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/use-prediction-api) özel sınıflandırıcı için.
-4. Görüntünüzü taramak için özel sınıflandırıcı tahmin uç noktanızı çağıran işlevi görmek için proje kaynak koduna bakın.
+1. [Özel Görüntü İşleme API'si önizlemesinde](https://www.customvision.ai/) [oturum açın](https://azure.microsoft.com/en-us/services/cognitive-services/custom-vision-service/).
+2. Bayrakların, oyuncakların ve kalemlerin olası varlığını algılamak üzere kendi özel sınıflandırıcınızı oluşturmak için [Hızlı Başlangıç](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/getting-started-build-a-classifier) bölümünü kullanın.
+   ![Özel İşleme Eğitimi Resimleri](images/tutorial-ecommerce-custom-vision.PNG)
+3. Özel sınıflandırıcınız için [tahmin uç noktası URL'sini alın](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/use-prediction-api).
+4. Resminizi taramak üzere özel sınıflandırıcı tahmin uç noktanızı çağıran işlevi görmek için proje kaynak koduna bakın.
 
         public static bool EvaluateCustomVisionTags(string ImageUrl, string CustomVisionUri, string CustomVisionKey, ref KeyValuePair[] ReviewTags)
         {
@@ -180,11 +181,11 @@ Başvurmak [etiketleri](https://docs.microsoft.com/azure/cognitive-services/cont
             return response.IsSuccessStatusCode;
         }       
  
-## <a name="reviews-for-human-in-the-loop"></a>İncelemeler İnsan-içinde--döngü için
+## <a name="reviews-for-human-in-the-loop"></a>Döngüye insanı da dahil eden incelemeler
 
-1. Önceki bölümlerde gelen yetişkin ve görüntülerinin saldırganlardan (içerik aracı), çok ünlüler (bilgisayar görme) ve bayrakları (özel görme) taraması.
-2. Bizim eşleşme eşikleri her tarama bağlı olarak, nuanced durumlarda İnsan gözden geçirme için İnceleme aracı kullanımına.
-        ortak statik bool CreateReview (dize ImageUrl, KeyValuePair [] meta veriler) {
+1. Önceki bölümlerde, gelen resimleri yetişkinlere yönelik ve müstehcen içerik (Content Moderator), ünlüler (Görüntü İşleme) ve Bayraklar (Özel Görüntü İşleme) için taradınız.
+2. Her tarama için eşleşme eşiklerimiz temelinde, inceleme aracında insan incelemesi için sağlanan ayrıntılı örnekleri hazırlayın.
+        public static bool CreateReview(string ImageUrl, KeyValuePair[] Metadata) {
 
             ReviewCreationRequest Review = new ReviewCreationRequest();
             Review.Item[0] = new ReviewItem();
@@ -202,11 +203,11 @@ Başvurmak [etiketleri](https://docs.microsoft.com/azure/cognitive-services/cont
             return response.IsSuccessStatusCode;
         }
 
-## <a name="submit-batch-of-images"></a>Görüntülerin toplu iş gönderme
+## <a name="submit-batch-of-images"></a>Toplu resimleri gönderme
 
-1. Bu öğretici bir "C:Test" dizin görüntü URL'lerin listesini içeren bir metin dosyası varsayar.
-2. Aşağıdaki kodu dosyanın varlığını denetler ve tüm URL'leri belleğe okur.
-            Görüntü var topdir taramak için URL'lerin listesini içeren bir metin dosyası için bir test dizin denetle = @"C:\test\"; var Urlsfile = topdir +"Urls.txt";
+1. Bu öğreticide, resim Url'leri listesini içeren bir metin dosyasının bulunduğu "C:Test" dizinin var olduğu varsayılır.
+2. Aşağıdaki kod dosyanın var olup olmadığını denetler ve tüm Url'leri belleğe okur.
+            // Resim Url'lerini içeren metin dosyası için test dizinini denetleyip şu taramayı yapın: var topdir = @"C:\test\"; var Urlsfile = topdir + "Urls.txt";
 
             if (!Directory.Exists(topdir))
                 return;
@@ -219,11 +220,11 @@ Başvurmak [etiketleri](https://docs.microsoft.com/azure/cognitive-services/cont
             // Read all image URLs in the file
             var Urls = File.ReadLines(Urlsfile);
 
-## <a name="initiate-all-scans"></a>Tüm taramaları başlatmak
+## <a name="initiate-all-scans"></a>Tüm taramaları başlatma
 
-1. Daha önce bahsedilen metin dosyasındaki tüm görüntü URL'ler aracılığıyla bu üst düzey işlevi döngüsü.
-2. Her API ile tarar ve eşleşme güvenirlik puan bizim ölçüt içinde düşerse bir gözden geçirme için İnsan araburucu oluşturur.
-             her biri için resim URL'si dosyasındaki... foreach (URL'lerde var Url) {/ / yeni bir gözden geçirme etiketleri dizi ReviewTags Initiatize yeni KeyValuePair [MAXTAGSCOUNT]; =
+1. Bu üst düzey işlev, daha önce belirttiğimiz metin dosyasındaki tüm resim URL'lerinde döngü yapar.
+2. Her API'yle bunları tarar ve eşleşme güvenilirlik puanı ölçütlerimize uyarsa insan denetleyiciler için bir inceleme oluşturur.
+             // dosyadaki her resim URL'si için... foreach (var Url in Urls) { // Yeni bir inceleme etiketleri dizisi başlatın ReviewTags = new KeyValuePair[MAXTAGSCOUNT];
 
                 // Evaluate for potential adult and racy content with Content Moderator API
                 EvaluateAdultRacy(Url, ref ReviewTags);
@@ -240,12 +241,12 @@ Başvurmak [etiketleri](https://docs.microsoft.com/azure/cognitive-services/cont
 
 ## <a name="license"></a>Lisans
 
-Tüm Microsoft Bilişsel Services SDK'ları ve örnekleri MIT lisansı ile lisanslanır. Daha fazla ayrıntı için bkz: [lisans](https://microsoft.mit-license.org/).
+Microsoft Bilişsel Hizmetler SDK'ları ve örnekler, MIT Lisansı ile lisanslanmıştır. Diğer ayrıntılar için bkz. [LİSANS](https://microsoft.mit-license.org/).
 
 ## <a name="developer-code-of-conduct"></a>Geliştirici Kullanım Kuralları
 
-Bilişsel hizmetler, istemci Kitaplığı & örnek, bu da dahil olmak üzere kullanan geliştiriciler bekleniyor "Developer kod, yürütmek için Microsoft Bilişsel Hizmetler" izleyin, bulunan http://go.microsoft.com/fwlink/?LinkId=698895.
+Bu istemci kitaplığı ve örnek de dahil olmak üzere Bilişsel Hizmetler'i kullanan geliştiricilerin, http://go.microsoft.com/fwlink/?LinkId=698895 adresinde bulunan "Microsoft Bilişsel Hizmetler için Geliştirici Kullanım Kuralları"na uyması beklenir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Derleme ve kullanarak öğreticiyi genişletme [kaynak dosyaları proje](https://github.com/MicrosoftContentModerator/samples-eCommerceCatalogModeration) github'da.
+Github'daki [proje kaynak dosyalarını](https://github.com/MicrosoftContentModerator/samples-eCommerceCatalogModeration) kullanarak öğreticiyi derleyin ve genişletin.

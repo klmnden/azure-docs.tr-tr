@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: 095da0b2f234fa4c883ff8512516c87fe193fccf
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: bf194e9627f5ad683c854f1c0d9891ba9315e119
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44158067"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47223047"
 ---
 # <a name="tutorial-use-a-linux-vm-system-assigned-managed-identity-to-access-azure-storage-via-access-key"></a>Öğretici: Erişim anahtarı yoluyla Azure Depolama'ya erişmek için Linux VM sistem tarafından atanan yönetilen kimliği kullanma
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-Bu öğreticide, depolama hesabı erişim anahtarlarını almak amacıyla, Linux sanal makinesi (VM) için sistem tarafından atanmış bir yönetilen kimliği nasıl kullanacağınız gösterilmektedir. Depolama işlemleri yaparken, örneğin Depolama SDK'sını kullanırken depolama erişim anahtarını olağan şekilde kullanabilirsiniz. Bu öğreticide, Azure CLI kullanarak blob'ları karşıya yüklüyor ve indiriyoruz. Şunları öğrenirsiniz:
+Bu öğreticide depolama hesabı erişim anahtarlarını almak amacıyla bir Linux sanal makinesi (VM) için sistem tarafından atanmış yönetilen bir kimliği nasıl kullanacağınız gösterilmektedir. Depolama işlemleri yaparken, örneğin Depolama SDK'sını kullanırken depolama erişim anahtarını olağan şekilde kullanabilirsiniz. Bu öğreticide, Azure CLI kullanarak blob'ları karşıya yüklüyor ve indiriyoruz. Şunları öğrenirsiniz:
 
 > [!div class="checklist"]
 > * VM’inize Resource Manager’da yer alan depolama hesabı erişim anahtarı için erişim verme 

@@ -1,24 +1,27 @@
 ---
-title: Bilgi Bankası Yayımlama - C# Hızlı Başlangıcı - Azure Bilişsel Hizmetler | Microsoft Docs
+title: 'Hızlı Başlangıç: C# Bilgi Bankası yayımlama - Soru-Cevap Oluşturucu'
+titleSuffix: Azure Cognitive Services
 description: Soru-Cevap Oluşturma için C# dilinde nasıl bilgi bankası yayımlanılır?
 services: cognitive-services
-author: noellelacharite
-manager: nolachar
+author: diberry
+manager: cgronlun
 ms.service: cognitive-services
 ms.technology: qna-maker
 ms.topic: quickstart
-ms.date: 06/18/2018
-ms.author: nolachar
-ms.openlocfilehash: 2517e7d70b3235c419faf98f452d2b5f43dfad88
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.date: 09/12/2018
+ms.author: diberry
+ms.openlocfilehash: 232b8a31ccfd8fad580af1f71b6816f93342faea
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "43770819"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47033065"
 ---
 # <a name="publish-a-knowledge-base-in-c"></a>C# dilinde bilgi bankası yayımlama
 
 Aşağıdaki kod, [Yayımla](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fe) yöntemini kullanarak mevcut bir bilgi bankasını yayımlar.
+
+[!INCLUDE [Code is available in Azure-Samples Github repo](../../../../includes/cognitive-services-qnamaker-csharp-repo-note.md)]
 
 1. Sık kullandığınız IDE'de yeni bir C# projesi oluşturun.
 2. Aşağıda sağlanan kodu ekleyin.

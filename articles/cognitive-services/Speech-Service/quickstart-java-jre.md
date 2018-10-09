@@ -1,115 +1,119 @@
 ---
-title: 'Hızlı Başlangıç: Java (Windows veya Linux), konuşma tanıma'
+title: 'Hızlı Başlangıç: Java’da (Windows veya Linux) konuşma tanıma'
 titleSuffix: Microsoft Cognitive Services
-description: Java (Windows veya Linux) konuşma tanımayı öğrenmesine
+description: Java’da (Windows veya Linux) konuşma tanıma işlemini öğrenin
 services: cognitive-services
 author: fmegen
 ms.service: cognitive-services
 ms.technology: Speech
-ms.topic: article
-ms.date: 08/16/2018
+ms.topic: quickstart
+ms.date: 09/24/2018
 ms.author: fmegen
-ms.openlocfilehash: 923ab3378d5e2d833e11c5111d4dd9964fea6dc4
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
-ms.translationtype: MT
+ms.openlocfilehash: 00603c467ec96e52fc2b7745263153a68d20f584
+ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43126622"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47053971"
 ---
-# <a name="quickstart-recognize-speech-in-java-windows-or-linux"></a>Hızlı Başlangıç: Java (Windows veya Linux), konuşma tanıma
+# <a name="quickstart-recognize-speech-in-java-on-windows-or-linux-by-using-the-speech-sdk"></a>Hızlı Başlangıç: Konuşma SDK’sını kullanarak Windows veya Linux sisteminde Java’da konuşma tanıma
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
-Bu belge, bir Java tabanlı bir konsol uygulaması Java Çalışma zamanı ortamı (yaptığı konuşma SDK'yı JRE için) oluşturmayı açıklar.
-Microsoft Bilişsel hizmetler SDK Maven paketi tabanlı bir uygulama.
-Eclipse bir tümleşik geliştirme ortamı (IDE) olarak kullanırız.
+Bu makalede, [Konuşma SDK'sı](speech-sdk.md) kullanarak bir Java konsol uygulaması oluşturacaksınız. Bilgisayarınızın mikrofonundan gerçek zamanlı olarak konuşmayı metne dönüştüreceksiniz. Uygulama; 64 bit Windows veya Ubuntu Linux 16.04’te Eclipse Java IDE (v4.8) ve Konuşma SDK’sı Maven paketi ile derlenmiştir. 64 bit Java 8 çalışma zamanı ortamında (JRE) çalışır.
 
-## <a name="prerequisites"></a>Önkoşullar
+> [!NOTE]
+> Konuşma Cihazları SDK’sı ve Roobo cihazı için bkz. [Konuşma Cihazları SDK’sı](speech-devices-sdk.md).
 
-* Konuşma hizmeti için bir abonelik anahtarı. Bkz: [konuşma hizmeti ücretsiz olarak deneyin](get-started.md).
-* Bir bilgisayar (x64 Windows, Ubuntu 16.04 x64) ile çalışma mikrofon Eclipse çalıştırma yeteneği.
-* 64 bit JRE/JDK 8 Java için.
-* 4.8 sürümünü [Eclipse](https://www.eclipse.org), 64 bit sürümü.
-* Ubuntu 16.04 üzerinde gerekli paketleri yüklemek için aşağıdaki komutları çalıştırın:
+## <a name="prerequisites"></a>Ön koşullar
+
+Bu Hızlı Başlangıcı tamamlamak için bir Konuşma hizmeti abonelik anahtarınız olması gerekir. Anahtarı ücretsiz edinebilirsiniz. Ayrıntılar için bkz. [Konuşma hizmetini ücretsiz olarak deneme](get-started.md).
+
+
+## <a name="create-and-configure-project"></a>Proje oluşturma ve yapılandırma
+
+Ubuntu 16.04 kullanıyorsanız, Eclipse’i başlatmadan önce gerekli paketlerin yüklendiğinden emin olmak için aşağıdaki komutları çalıştırın.
 
   ```sh
   sudo apt-get update
   sudo apt-get install build-essential libssl1.0.0 libcurl3 libasound2 wget
   ```
 
-## <a name="create-and-configure-your-project"></a>Oluşturun ve projenizi yapılandırın
+1. Eclipse’i başlatın.
 
-1. Eclipse'i başlatın.
+1. Eclipse Başlatıcısı’nda **Çalışma Alanı** alanına yeni bir çalışma alanı dizininin adını girin. Ardından **Başlat**’ı seçin.
 
-1. Eclipse başlatıcısında yeni bir dizin adını **çalışma** alan.
-   Ardından **başlatma**.
+   ![Eclipse Başlatıcısı ekran görüntüsü](media/sdk/qs-java-jre-01-create-new-eclipse-workspace.png)
 
-   ![Eclipse çalışma alanı oluşturma](media/sdk/qs-java-jre-01-create-new-eclipse-workspace.png)
+1. Çok geçmeden Eclipse IDE ana penceresi görüntülenir. Varsa, Hoş Geldiniz ekranını kapatın.
 
-1. Bir süre sonra Eclipse IDE'yi ana penceresi gösterilir.
-   Varsa bir Hoş Geldiniz ekranı içinde kapatın.
+1. Eclipse menü çubuğundan, **Dosya** > **Yeni** > **Proje** seçeneklerini belirleyerek yeni bir proje oluşturun.
 
-1. Seçin **dosya** \> **yeni** \> **proje**.
+1. **Yeni Proje** iletişim kutusu görünür. **Java Projesi**’ni ve sonra **İleri**’yi seçin.
 
-1. İçinde **yeni proje** select görüntülenen Sihirbazı **Java projesi**, tıklatıp **sonraki**.
+   ![Java Projesi vurgulanmış şekilde, Yeni Proje iletişim kutusunun ekran görüntüsü](media/sdk/qs-java-jre-02-select-wizard.png)
 
-   ![Sihirbaz seçin](media/sdk/qs-java-jre-02-select-wizard.png)
+1. Yeni Java Projesi sihirbazı başlatılır. **Proje adı** alanına **hızlı başlangıç** yazın ve yürütme ortamı olarak **JavaSE-1.8** seçeneğini belirleyin. **Son**’u seçin.
 
-1. Sonraki penceresinde girin **hızlı** bir proje olarak adlandırın ve seçin **JavaSE 1.8** (veya üzeri) yürütme ortamı olarak.
-   **Son**'a tıklayın.
+   ![Yeni Java Projesi sihirbazının ekran görüntüsü](media/sdk/qs-java-jre-03-create-java-project.png)
 
-   ![Sihirbaz seçin](media/sdk/qs-java-jre-03-create-java-project.png)
+1. **İlişkili Perspektif Açılsın mı?** penceresi görüntülenirse **Perspektifi Aç**’ı seçin.
 
-1. Başlıklı bir pencere durumunda **ilişkili perspektifi Aç?** açılarak, select **perspektifi Aç**.
+1. **Paket gezgini**’nde **hızlı başlangıç** projesine sağ tıklayın. Bağlam menüsünden **Yapılandır** > **Maven Projesine Dönüştür**’ü seçin.
 
-1. İçinde **paket Gezgini**, sağ **hızlı** proje ve seçin **yapılandırma** \> **MavenprojesineDönüştür**.
+   ![Paket gezgininin ekran görüntüsü](media/sdk/qs-java-jre-04-convert-to-maven-project.png)
 
-   ![Maven projesine Dönüştür](media/sdk/qs-java-jre-04-convert-to-maven-project.png)
+1. **Yeni POM Oluştur** penceresi görüntülenir. **Grup Kimliği** alanına **com.microsoft.cognitiveservices.speech.samples** girin ve **Yapıt Kimliği** alanına **hızlı başlangıç** yazın. Ardından **Son**’u seçin.
 
-1. Açılan pencerede girin **com.microsoft.cognitiveservices.speech.samples** olarak **Grup Kimliği** ve **hızlı** olarak **Yapıt kimliği**. **Son**’u seçin.
+   ![Yeni POM Oluştur penceresinin ekran görüntüsü](media/sdk/qs-java-jre-05-configure-maven-pom.png)
 
-   ![Maven POM yapılandırın](media/sdk/qs-java-jre-05-configure-maven-pom.png)
+1. **pom.xml** dosyasını açıp düzenleyin.
 
-1. Düzen **pom.xml** dosya.
+   * Dosyanın sonunda, `</project>` kapanış etiketinden önce burada gösterildiği gibi Konuşma SDK’sı için Maven deposuna başvuru içeren bir depolar bölümü oluşturun:
 
-  * Kapanış etiketi önce dosyanın sonunda `</project>`, Maven deposu başvurusuyla Speech SDK'sı için depoları bölümünde oluşturun:
+     [!code-xml[POM Repositories](~/samples-cognitive-services-speech-sdk/quickstart/java-jre/pom.xml#repositories)]
 
-    [!code-xml[POM Repositories](~/samples-cognitive-services-speech-sdk/quickstart/java-jre/pom.xml#repositories)]
+  * Ayrıca daha sonra bağımlılık olarak Konuşma SDK’sı sürümü 1.0.0 ile bir bağımlılıklar bölümü ekleyin:
 
-  * Ayrıca, daha sonra bir bağımlılıklar bölümüne Speech SDK'sı 0.6.0 sürümü ile bir bağımlılık olarak ekleyin:
+     [!code-xml[POM Dependencies](~/samples-cognitive-services-speech-sdk/quickstart/java-jre/pom.xml#dependencies)]
 
-    [!code-xml[POM Dependencies](~/samples-cognitive-services-speech-sdk/quickstart/java-jre/pom.xml#dependencies)]
+   * Değişiklikleri kaydedin.
 
-  * Değişiklikleri kaydedin.
+## <a name="add-sample-code"></a>Örnek kod ekleme
 
-## <a name="add-the-sample-code"></a>Örnek kod ekleyin
+1. Java projenize yeni bir boş sınıf eklemek için **Dosya** > **Yeni** > **Sınıf** seçeneklerini belirleyin.
 
-1. Seçin **dosya** \> **yeni** \> **sınıfı** Java projenize yeni bir boş sınıf eklemek için.
+1. **Yeni Java Sınıfı** penceresinde, **Paket** alanına **speechsdk.quickstart** ve **Ad** alanına da **Ana** girin.
 
-1. Penceresinde **yeni Java sınıfı** girin **speechsdk.quickstart** içine **paket** alan ve **ana** içine **adı**  alan.
+   ![Yeni Java Sınıfı penceresinin ekran görüntüsü](media/sdk/qs-java-jre-06-create-main-java.png)
 
-   ![Main sınıfı oluşturma](media/sdk/qs-java-jre-06-create-main-java.png)
-
-1. Tüm değiştirin `Main.java` aşağıdaki kod parçacığıyla:
+1. `Main.java` içindeki tüm kodları şu kod parçacığıyla değiştirin:
 
    [!code-java[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/java-jre/src/speechsdk/quickstart/Main.java#code)]
 
-1. Dize değiştirin `YourSubscriptionKey` abonelik.
+1. `YourSubscriptionKey` dizesini abonelik anahtarınızla değiştirin.
 
-1. Dize değiştirin `YourServiceRegion` ile [bölge](regions.md) aboneliğinizle ilişkili (örneğin, `westus` ücretsiz deneme aboneliği için).
+1. `YourServiceRegion` dizesini, aboneliğinizle ilişkili [bölge](regions.md) ile (örneğin, ücretsiz deneme aboneliği için `westus`) değiştirin.
 
-1. Değişiklikleri projeye kaydedin.
+1. Proje üzerindeki değişiklikleri kaydedin.
 
-## <a name="build-and-run-the-sample"></a>Örneği derleme ve çalıştırma
+## <a name="build-and-run-the-app"></a>Uygulamayı derleme ve çalıştırma
 
-F11 tuşuna basın veya **çalıştırma** \> **hata ayıklama**.
-Sonraki 15 saniye Konuşma giriş mikrofonu den tanınan ve konsol penceresinde günlüğe kaydedilir.
+F11 tuşuna basın veya **Çalıştır** > **Hata Ayıkla** seçeneğini belirleyin.
+Mikrofonunuzdan yapılan sonraki 15 saniyelik konuşma girişi tanınır ve konsol penceresinde günlüğe kaydedilir.
 
-![Başarılı tanıma sonra konsol çıktısı](media/sdk/qs-java-jre-07-console-output.png)
+![Başarılı tanıma sonrasında konsol çıktısının ekran görüntüsü](media/sdk/qs-java-jre-07-console-output.png)
 
-[!INCLUDE [Download the sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
-Bu örnekte arayın `quickstart/java-jre` klasör.
+[!INCLUDE [Download this sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
+`quickstart/java-jre` klasöründe bu örneği arayın.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* [Örneklerimizi Al](speech-sdk.md#get-the-samples)
+> [!div class="nextstepaction"]
+> [Java için Konuşma SDK’sını kullanarak konuşmadaki amacı tanıma](how-to-recognize-intents-from-speech-java.md)
+
+## <a name="see-also"></a>Ayrıca bkz.
+
+- [Konuşmayı çevirme](how-to-translate-speech-csharp.md)
+- [Akustik modelleri özelleştirme](how-to-customize-acoustic-models.md)
+- [Dil modellerini özelleştirme](how-to-customize-language-model.md)

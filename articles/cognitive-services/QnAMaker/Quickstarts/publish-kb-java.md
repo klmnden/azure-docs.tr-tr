@@ -1,24 +1,27 @@
 ---
-title: Bilgi Bankası Yayımlama - Java Hızlı Başlangıcı - Azure Bilişsel Hizmetler | Microsoft Docs
+title: 'Hızlı Başlangıç: Java Bilgi Bankası yayımlama - Soru-Cevap Oluşturucu'
+titleSuffix: Azure Cognitive Services
 description: Soru-Cevap Oluşturma için Java’da nasıl bilgi bankası yayımlanılır?
 services: cognitive-services
-author: noellelacharite
-manager: nolachar
+author: diberry
+manager: cgronlun
 ms.service: cognitive-services
 ms.technology: qna-maker
 ms.topic: quickstart
-ms.date: 06/18/2018
-ms.author: nolachar
-ms.openlocfilehash: fd815802643a67fe340098e97687fc6438a18ea0
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.date: 09/12/2018
+ms.author: diberry
+ms.openlocfilehash: a625151a0f6595e02ed899f2f8f7273c8e4f5cde
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "43770816"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47036931"
 ---
 # <a name="publish-a-knowledge-base-in-java"></a>Java’da bilgi bankası yayımlama
 
 Aşağıdaki kod, [Yayımla](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fe) yöntemini kullanarak mevcut bir bilgi bankasını yayımlar.
+
+[!INCLUDE [Code is available in Azure-Samples Github repo](../../../../includes/cognitive-services-qnamaker-java-repo-note.md)]
 
 1. Sık kullandığınız IDE'de yeni bir Java projesi oluşturun.
 2. Aşağıda sağlanan kodu ekleyin.

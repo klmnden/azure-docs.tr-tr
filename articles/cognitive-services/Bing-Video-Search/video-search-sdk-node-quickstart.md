@@ -1,44 +1,44 @@
 ---
-title: Video arama SDK düğümü hızlı başlangıç | Microsoft Docs
-description: Video arama SDK konsol uygulaması kurulumu.
-titleSuffix: Azure cognitive services
+title: "Hızlı Başlangıç: Bing Video Arama SDK'sı, Node"
+titleSuffix: Azure Cognitive Services
+description: Bing Video Arama SDK'sı konsol uygulaması için kurulum.
 services: cognitive-services
 author: mikedodaro
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-video-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 02/12/2018
-ms.author: v-gedod
-ms.openlocfilehash: 5718c750288e0a5605db3296d2911cca5e03375c
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
-ms.translationtype: MT
+ms.author: rosh
+ms.openlocfilehash: 4dcc9220d4d38bfe34514edd6a3ad47c7a7d4ba8
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "35355750"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47225625"
 ---
-# <a name="video-search-sdk-node-quickstart"></a>Video arama SDK düğümü hızlı başlangıç
+# <a name="quickstart-bing-video-search-sdk-with-node"></a>Hızlı Başlangıç: Node ile Bing Video Arama SDK'sı
 
-Bing Video arama SDK video sorgular ve ayrıştırma sonuçları için REST API işlevselliğini içerir. 
+Bing Video Arama SDK'sı, video sorguları ve sonuçları ayrıştırma için REST API işlevselliğini içerir. 
 
-[Kaynak kodu düğümü Bing Video arama SDK örnekleri için](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/blob/master/Samples/videoSearch.js) Git hub'da kullanılabilir.
+[Node Bing Video Arama SDK'sı örnekleri için kaynak kodu](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/blob/master/Samples/videoSearch.js) Git Hub'dan edinilebilir.
 
 ## <a name="application-dependencies"></a>Uygulama bağımlılıkları
 
-Bing Video arama SDK'yı kullanarak bir konsol uygulaması ayarlamak için çalıştırın `npm install azure-cognitiveservices-videosearch` geliştirme ortamınızda.
+Bing Video Arama SDK'sını kullanan bir konsol uygulaması kurmak için geliştirme ortamınızda `npm install azure-cognitiveservices-videosearch` komutunu çalıştırın.
 
-## <a name="video-search-client"></a>Video arama istemci
-Alma bir [Bilişsel hizmetler erişim tuşu](https://azure.microsoft.com/try/cognitive-services/) altında *arama*. Bir örneğini oluşturmak `CognitiveServicesCredentials`:
+## <a name="video-search-client"></a>Video Arama istemcisi
+*Arama* altından bir [Bilişsel Hizmetler erişim anahtarı](https://azure.microsoft.com/try/cognitive-services/) alın. `CognitiveServicesCredentials` nesnesinin bir örneğini oluşturun:
 ```
 const CognitiveServicesCredentials = require('ms-rest-azure').CognitiveServicesCredentials;
 let credentials = new CognitiveServicesCredentials('YOUR-ACCESS-KEY');
 ```
-Ardından, istemci örneği:
+Ardından, istemciyi örneklendirin:
 ```
 const VideoSearchAPIClient = require('azure-cognitiveservices-videosearch');
 let client = new VideoSearchAPIClient(credentials);
 ```
-Arama sonuçları için.
+Sonuçları arayın.
 ```
 client.videosOperations.search('Interstellar Trailer').then((result) => {
     console.log(result.value);
@@ -57,4 +57,4 @@ The code prints `result.value` items to the console without parsing any text. Th
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-[Bilişsel hizmetler Node.js SDK'sı örneği](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples)
+[Bilişsel hizmetler Node.js SDK'sı örnekleri](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples)

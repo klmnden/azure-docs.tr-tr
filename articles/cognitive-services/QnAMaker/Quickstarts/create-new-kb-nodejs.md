@@ -1,24 +1,26 @@
 ---
-title: Yeni bir bilgi bankası oluşturma - hızlı başlangıç Node.js - Microsoft Soru-Cevap Oluşturma API (V4) için - Azure Bilişsel Hizmetler | Microsoft Docs
-description: Sık sorulan sorularınızı veya ürün kılavuzlarınızı tutmak için Node.js’de bir bilgi bankası oluşturun ve bu sayede Soru-Cevap Oluşturma’yı kullanmaya başlayın.
+title: 'Hızlı Başlangıç: API Node.js - Bilgi bankası oluşturma - QnA Maker'
+description: Bu hızlı başlangıç, Bilişsel Hizmetler API hesabınızda görünen örnek bir Soru-Cevap Oluşturma bilgi bankasını program aracılığıyla oluşturma konusunda size yol gösterir.
 services: cognitive-services
-author: noellelacharite
-manager: nolachar
+author: diberry
+manager: cgronlun
 ms.service: cognitive-services
 ms.technology: qna-maker
 ms.topic: quickstart
-ms.date: 06/15/2018
-ms.author: nolachar
-ms.openlocfilehash: cbf89aa3a10012ea2d99972c6a83dd351739c5a6
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.date: 09/12/2018
+ms.author: diberry
+ms.openlocfilehash: 435c937e64d0befc5a3bf30f9d58ccd303247b9e
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "43772504"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47037312"
 ---
 # <a name="create-a-new-knowledge-base-in-nodejs"></a>Node.js’de yeni bilgi bankası oluşturma
 
 Bu hızlı başlangıç, Bilişsel Hizmetler API hesabınızda görünen örnek bir Soru-Cevap Oluşturma bilgi bankasını programatik olarak oluşturma konusunda size yol gösterir.
+
+[!INCLUDE [Code is available in Azure-Samples Github repo](../../../../includes/cognitive-services-qnamaker-nodejs-repo-note.md)]
 
 Aşağıda içerik sağlayan iki örnek SSS URL’si (**req={}** öğesinde 'urls' içinde) verilmiştir. Soru-Cevap Oluşturma, bu [veri kaynakları](../Concepts/data-sources-supported.md) belgesinde açıklandığı şekilde yarı yapılandırılmış içerikten soru ve cevapları otomatik olarak ayıklar. Bu hızlı başlangıçta kendi SSS URL’lerinizi de kullanabilirsiniz.
 

@@ -12,15 +12,15 @@ ms.devlang: NA
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/28/2018
+ms.date: 09/24/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: 6fcc7823a7e2f2f1e280622a1fa05d4417a71546
-ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
+ms.openlocfilehash: e4a913aaeb6eeb3c58b70dbcd714f1360875594f
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43143491"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47161545"
 ---
 # <a name="tutorial-unpack-connect-and-unlock-azure-data-box-disk"></a>Öğretici: Azure Data Box Disk'i paketinden çıkarma, bağlama ve kilidini açma
 
@@ -30,7 +30,9 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
 > [!div class="checklist"]
 > * Data Box Disk'inizi paketinden çıkarma
-> * Data Box Disk'i bağlama ve kilidini açma.
+> * Disklere bağlanma ve destek anahtarı alma
+> * Windows istemcide disklerin kilidini açma
+> * Linux istemcide disklerin kilidini açma
 
 ## <a name="prerequisites"></a>Ön koşullar
 
@@ -38,12 +40,9 @@ Başlamadan önce aşağıdakilerden emin olun:
 
 1. [Öğretici: Azure Data Box Disk sipariş etme](data-box-disk-deploy-ordered.md) konusunu tamamladınız.
 2. Disklerinizi aldınız ve portaldaki iş durumu **Teslim Edildi** olarak güncelleştirildi.
-3. Data Box Disk kilidini açma aracını yükleyebileceğiniz bir konak bilgisayarınız var. Konak bilgisayarınızda:
-    - [Desteklenen bir işletim sistemi](data-box-disk-system-requirements.md) çalıştırılmalıdır.
-    - [Windows PowerShell 4 yüklü](https://www.microsoft.com/download/details.aspx?id=40855) olmalıdır.
-    - [.NET Framework 4.5.1 yüklü](https://www.microsoft.com/download/details.aspx?id=30653) olmalıdır.
-    - [BitLocker etkin](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-how-to-deploy-on-windows-server) olmalıdır.
-    - [Windows Management Framework 4 yüklü](https://www.microsoft.com/en-us/download/details.aspx?id=40855) olmalıdır. 
+3. Data Box Disk kilidi açma aracını yükleyebileceğiniz bir istemci bilgisayarınız var. İstemci bilgisayarınızda:
+    - [Desteklenen bir işletim sistemi](data-box-disk-system-requirements.md#supported-operating-systems-for-clients) çalıştırılmalıdır.
+    - Windows istemciyse diğer [gerekli yazılımlar](data-box-disk-system-requirements.md#other-required-software-for-windows-clients) yüklenmiş olmalıdır.  
 
 ## <a name="unpack-your-disks"></a>Disklerinizi paketinden çıkarma
 
@@ -60,22 +59,31 @@ Başlamadan önce aşağıdakilerden emin olun:
 
 4. Disklerin iade gönderimi için kutuyu ve ambalaj köpüklerini saklayın.
 
-## <a name="connect-and-unlock-your-disks"></a>Disklerinizi bağlama ve kilitlerini açma
+## <a name="connect-to-disks-and-get-the-passkey"></a>Disklere bağlanma ve destek anahtarı alma 
 
-Disklerinizi bağlamak ve kilitlerini açmak için aşağıdaki adımları gerçekleştirin.
-
-1. Diski önkoşullarda belirtildiği gibi desteklenen bir işletim sisteminin çalıştırıldığı Windows bilgisayarına bağlamak için, verilen kabloyu kullanın. 
+1. Diski önkoşullarda belirtildiği gibi desteklenen bir işletim sisteminin çalıştırıldığı istemci bilgisayara bağlamak için, verilen kabloyu kullanın. 
 
     ![Data Box Disk bağlantısı](media/data-box-disk-deploy-set-up/data-box-disk-connect-unlock.png)    
     
-2. Azure portalda **Genel > Cihaz ayrıntıları**'na gidin. 
-3. **Data Box Disk kilidi açma aracını indirin**'e tıklayın. 
+2. Azure portalda **Genel > Cihaz ayrıntıları**'na gidin. Destek anahtarını kopyalamak için kopyala simgesini kullanın. Disklerin kilidini açmak için bu destek anahtarı kullanılacaktır.
 
-    ![Data Box Disk kilidi açma aracını indirme](media/data-box-disk-deploy-set-up/data-box-disk-unload1.png)     
+    ![Data Box Disk kilidi açma destek anahtarı](media/data-box-disk-deploy-set-up/data-box-disk-get-passkey.png) 
 
-4. Aracı, verileri kopyalamak için kullanacağınız bilgisayarda ayıklayın.
-5. Aynı bilgisayarda bir Komut İstemi penceresi açın veya yönetici olarak Windows PowerShell'i çalıştırın.
-6. (İsteğe bağlı) Diskin kilidini açarken kullandığınız bilgisayarın işletim sistemi gereksinimlerini karşıladığını doğrulamak için, system check komutunu çalıştırın. Örnek çıktı aşağıda gösterilmiştir. 
+Bir Windows veya Linux istemciye bağlı olup olmadığınıza bağlı olarak, disklerin kilidini açma adımları farklıdır.
+
+## <a name="unlock-disks-on-windows-client"></a>Windows istemcide disklerin kilidini açma
+
+Disklerinizi bağlamak ve kilitlerini açmak için aşağıdaki adımları gerçekleştirin.
+     
+1. Azure portalda **Genel > Cihaz ayrıntıları**'na gidin. 
+2. Windows istemciye karşılık gelen Data Box Disk araç takımını indirin. 
+
+    > [!div class="nextstepaction"]
+    > [Windows için Data Box Disk araç takımını indirin](http://aka.ms/databoxdisktoolswin)         
+
+3. Aracı, verileri kopyalamak için kullanacağınız bilgisayarda ayıklayın.
+4. Aynı bilgisayarda bir Komut İstemi penceresi açın veya yönetici olarak Windows PowerShell'i çalıştırın.
+5. (İsteğe bağlı) Diskin kilidini açarken kullandığınız bilgisayarın işletim sistemi gereksinimlerini karşıladığını doğrulamak için, system check komutunu çalıştırın. Örnek çıktı aşağıda gösterilmiştir. 
 
     ```powershell
     Windows PowerShell
@@ -86,13 +94,12 @@ Disklerinizi bağlamak ve kilitlerini açmak için aşağıdaki adımları gerç
     PS C:\DataBoxDiskUnlockTool\DiskUnlock>
     ``` 
 
-7. Azure portalda **Genel > Cihaz ayrıntıları**'na gidin. Destek anahtarını kopyalamak için kopyala simgesini kullanın.
-8. `DataBoxDiskUnlock.exe` öğesini çalıştırın ve destek anahtarını sağlayın. Diske atanan sürücü harfi görüntülenir. Örnek çıktı aşağıda gösterilmiştir.
+6. `DataBoxDiskUnlock.exe` dosyasını çalıştırın ve [Disklere bağlanma ve destek anahtarı alma](#Connect-to-disks-and-get-the-passkey) bölümünde edindiğiniz destek anahtarını girin. Diske atanan sürücü harfi görüntülenir. Örnek çıktı aşağıda gösterilmiştir.
 
     ```powershell
     PS C:\WINDOWS\system32> cd C:\DataBoxDiskUnlockTool\DiskUnlock
     PS C:\DataBoxDiskUnlockTool\DiskUnlock> .\DataBoxDiskUnlock.exe
-    Enter the passkeys (format: passkey1;passkey2;passkey3):
+    Enter the passkey :
     testpasskey1
     
     Following volumes are unlocked and verified.
@@ -101,26 +108,155 @@ Disklerinizi bağlamak ve kilitlerini açmak için aşağıdaki adımları gerç
     PS C:\DataBoxDiskUnlockTool\DiskUnlock>
     ```
 
-9. Gelecekte yeniden disk eklerken 6-8 arası adımları yineleyin. Data Box Disk kilidini açma aracıyla ilgili yardıma ihtiyacınız olursa, help komutunu kullanın.   
+7. Tüm gelecek disk yeniden eklemeleri için kilidi açma adımlarını yineleyin. Data Box Disk kilidi açma aracıyla ilgili yardıma ihtiyacınız olursa `help` komutunu kullanın.   
 
     ```powershell
     PS C:\DataBoxDiskUnlockTool\DiskUnlock> .\DataBoxDiskUnlock.exe /help
     USAGE:
-    DataBoxUnlock /PassKeys:<passkey_list_separated_by_semicolon>
+    DataBoxUnlock /PassKey:<passkey_from_Azure_portal>
     
-    Example: DataBoxUnlock /PassKeys:<your passkey>
+    Example: DataBoxUnlock /PassKey:<your passkey>
     Example: DataBoxUnlock /SystemCheck
     Example: DataBoxUnlock /Help
     
-    /PassKeys:       Get this passkey from Azure DataBox Disk order. The passkey unlocks your disks.
+    /PassKey:        Get this passkey from Azure DataBox Disk order. The passkey unlocks your disks.
     /SystemCheck:    This option checks if your system meets the requirements to run the tool.
     /Help:           This option provides help on cmdlet usage and examples.
     
     PS C:\DataBoxDiskUnlockTool\DiskUnlock>
     ```  
-10. Diskin kilidi açıldıktan sonra, disk içeriğini görüntüleyebilirsiniz.    
+8. Diskin kilidi açıldıktan sonra, disk içeriğini görüntüleyebilirsiniz.    
 
     ![Data Box Disk içeriği](media/data-box-disk-deploy-set-up/data-box-disk-content.png) 
+
+## <a name="unlock-disks-on-linux-client"></a>Linux istemcide disklerin kilidini açma
+
+1. Azure portalda **Genel > Cihaz ayrıntıları**'na gidin. 
+2. Linux istemciye karşılık gelen Data Box Disk araç takımını indirin.  
+
+    > [!div class="nextstepaction"]
+    > [Linux için Data Box Disk araç takımını indirin](http://aka.ms/databoxdisktoolslinux) 
+
+3. Linux istemcinizde bir terminal açın. Yazılımı indirdiğiniz klasöre gidin. Bu dosyaları yürütebilmeniz için dosya izinlerini değiştirin. Aşağıdaki komutu yazın: 
+
+    `chmod +x DataBoxDiskUnlock_x86_64` 
+    
+    `chmod +x DataBoxDiskUnlock_Prep.sh` 
+ 
+    Örnek çıktı aşağıda gösterilmiştir. Chmod komutu çalıştırıldıktan sonra, `ls` komutunu çalıştırarak dosya izinlerinin değiştirildiğini doğrulayabilirsiniz. 
+ 
+    ```
+        [user@localhost Downloads]$ chmod +x DataBoxDiskUnlock_x86_64  
+        [user@localhost Downloads]$ chmod +x DataBoxDiskUnlock_Prep.sh   
+        [user@localhost Downloads]$ ls -l  
+        -rwxrwxr-x. 1 user user 1152664 Aug 10 17:26 DataBoxDiskUnlock_x86_64  
+        -rwxrwxr-x. 1 user user 795 Aug 5 23:26 DataBoxDiskUnlock_Prep.sh
+    ```
+4. Data Box Disk Kilidi Açma yazılımı için gereken tüm ikili dosyaları yükleyecek şekilde betiği yürütün. Komutu kök olarak çalıştırmak için `sudo` öğesini kullanın. İkili dosyalar başarıyla yüklendikten sonra terminal üzerinde bu etkiye yönelik bir not görürsünüz.
+
+    `sudo ./DataBoxDiskUnlock_Prep.sh`
+
+    Betik ilk olarak istemci bilgisayarınızın desteklenen bir işletim sistemini çalıştırıp çalıştırmadığını denetler. Örnek çıktı aşağıda gösterilmiştir. 
+ 
+    ```
+    [user@localhost Documents]$ sudo ./DataBoxDiskUnlock_Prep.sh 
+        OS = CentOS Version = 6.9 
+        Release = CentOS release 6.9 (Final) 
+        Architecture = x64 
+    
+        The script will install the following packages and dependencies. 
+        epel-release 
+        dislocker 
+        ntfs-3g 
+        fuse-dislocker 
+        Do you wish to continue? y|n :|
+    ```
+    
+ 
+5. Yüklemeye devam etmek için `y` yazın. Betiğin yüklediği paketler şunlardır: 
+    - **epel-release** - Aşağıdaki üç paketi içeren depo. 
+    - **dislocker ve fuse-dislocker** - Bu yardımcı program, BitLocker şifreli disklerin şifresinin çözülmesine yardımcı olabilir. 
+    - **ntfs-3g** - NTFS birimlerinin takılmasına yardımcı olan paket. 
+ 
+    Paketler başarıyla yüklendikten sonra terminal, bu etkiye yönelik bir bildirim görüntüler.     
+    ```
+    Dependency Installed: compat-readline5.x86 64 0:5.2-17.I.el6 dislocker-libs.x86 64 0:0.7.1-8.el6 mbedtls.x86 64 0:2.7.4-l.el6        ruby.x86 64 0:1.8.7.374-5.el6 
+    ruby-libs.x86 64 0:1.8.7.374-5.el6 
+    Complete! 
+    Loaded plugins: fastestmirror, refresh-packagekit, security 
+    Setting up Remove Process 
+    Resolving Dependencies 
+    --> Running transaction check 
+    ---> Package epel-release.noarch 0:6-8 will be erased --> Finished Dependency Resolution 
+    Dependencies Resolved 
+    Package        Architecture        Version        Repository        Size 
+    Removing:  epel-release        noarch         6-8        @extras        22 k 
+    Transaction Summary                                 
+    Remove        1 Package(s) 
+    Installed size: 22 k 
+    Downloading Packages: 
+    Running rpmcheckdebug 
+    Running Transaction Test 
+    Transaction Test Succeeded 
+    Running Transaction 
+    Erasing : epel-release-6-8.noarch 
+    Verifying : epel-release-6-8.noarch 
+    Removed: 
+    epel-release.noarch 0:6-8 
+    Complete! 
+    Dislocker is installed by the script. 
+    OpenSSL is already installed.
+    ```
+
+6. Data Box Disk Kilidi Açma aracını çalıştırın. [Disklere bağlanma ve destek anahtarı alma](#Connect-to-disks-and-get-the-passkey) bölümünde edindiğiniz Azure portaldan destek anahtarını girin. İsteğe bağlı olarak, kilidi açılacak BitLocker şifreli birimlerin listesini belirtin. Destek anahtarı ve birim listesi tek tırnak içinde belirtilmelidir. 
+
+    Aşağıdaki komutu yazın.
+ 
+    `sudo ./DataBoxDiskUnlock_x86_64 /PassKey:’<Your passkey from Azure portal>’ /Volumes:’<list of volumes>’`         
+
+    Aşağıda örnek çıktı gösterilmektedir. 
+ 
+    ```
+    [user@localhost Downloads]$ sudo ./DataBoxDiskUnlock_x86_64 /Passkey:’qwerqwerqwer’ /Volumes:’/dev/sdbl’ 
+    
+    START: Mon Aug 13 14:25:49 2018 
+    Volumes: /dev/sdbl 
+    Passkey: qwerqwerqwer 
+    
+    Volumes for data copy : 
+    /dev/sdbl: /mnt/DataBoxDisk/mountVoll/ 
+    END: Mon Aug 13 14:26:02 2018
+    ```
+    Verilerinizi kopyalayabildiğiniz birim için bağlama noktası görüntülenir.
+
+7. Tüm gelecek disk yeniden eklemeleri için kilidi açma adımlarını yineleyin. Data Box Disk kilidi açma aracıyla ilgili yardıma ihtiyacınız olursa `help` komutunu kullanın. 
+    
+    `sudo ./DataBoxDiskUnlock_x86_64 /Help` 
+
+    Aşağıda örnek çıktı gösterilmektedir. 
+ 
+    ```
+    [user@localhost Downloads]$ sudo ./DataBoxDiskUnlock_x86_64 /Help  
+    START: Mon Aug 13 14:29:20 2018 
+    USAGE: 
+    sudo DataBoxDiskUnlock /PassKey:’<passkey from Azure_portal>’ 
+    
+    Example: sudo DataBoxDiskUnlock /PassKey:’passkey’ 
+    Example: sudo DataBoxDiskUnlock /PassKey:’passkey’ /Volumes:’/dev/sdbl’ 
+    Example: sudo DataBoxDiskUnlock /Help Example: sudo DataBoxDiskUnlock /Clean 
+    
+    /PassKey: This option takes a passkey as input and unlocks all of your disks. 
+    Get the passkey from your Data Box Disk order in Azure portal. 
+    /Volumes: This option is used to input a list of BitLocker encrypted volumes. 
+    /Help: This option provides help on the tool usage and examples. 
+    /Unmount: This option unmounts all the volumes mounted by this tool. 
+   
+    END: Mon Aug 13 14:29:20 2018 [user@localhost Downloads]$
+    ```
+    
+8. Diskin kilidi açıldıktan sonra, bağlama noktasına gidip diskin içeriklerini görüntüleyebilirsiniz. Şimdi *BlockBlob* veya *PageBlob* klasörlerine veri kopyalamaya hazırsınız demektir. 
+
+    ![Data Box Disk içeriği](media/data-box-disk-deploy-set-up/data-box-disk-content-linux.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
@@ -128,7 +264,9 @@ Bu öğreticide aşağıdaki Azure Data Box Disk konularını öğrendiniz:
 
 > [!div class="checklist"]
 > * Data Box Disk'inizi paketinden çıkarma
-> * Data Box Disk'lerini bağlama ve kilidini açma
+> * Disklere bağlanma ve destek anahtarı alma
+> * Windows istemcide disklerin kilidini açma
+> * Linux istemcide disklerin kilidini açma
 
 
 Data Box Disk'inize verileri kopyalama hakkında bilgi edinmek için sonraki öğreticiye geçin.

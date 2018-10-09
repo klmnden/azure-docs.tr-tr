@@ -3,8 +3,8 @@ title: Azure'da Node.js web uygulaması oluşturma | Microsoft Docs
 description: Azure App Service Web Uygulamalarında ilk Node.js Hello World uygulamanızı birkaç dakika içinde dağıtın.
 services: app-service\web
 documentationcenter: ''
-author: cephalin
-manager: cfowler
+author: msangapu
+manager: jeconnoc
 editor: ''
 ms.assetid: 582bb3c2-164b-42f5-b081-95bfcb7a502a
 ms.service: app-service-web
@@ -12,15 +12,15 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 08/24/2018
-ms.author: cephalin;cfowler
+ms.date: 09/27/2018
+ms.author: cephalin;msangapu
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 63e65ffc17ba71a5d2cf00cb5f04e3e0f87c1bfe
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: 05dd53fdfda5446cf848a7b8503a09bc5e5c2d20
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43184389"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47433472"
 ---
 # <a name="create-a-nodejs-web-app-in-azure"></a>Azure App Service'te Node.js web uygulaması oluşturma
 
@@ -28,7 +28,7 @@ ms.locfileid: "43184389"
 > Bu makalede bir uygulamanın Windows üzerinde App Service'e dağıtımı yapılır. _Linux_ üzerinde App Service'e dağıtım yapmak için bkz. [Linux üzerinde Azure App Service'te Node.js web uygulaması oluşturma](./containers/quickstart-nodejs.md).
 >
 
-[Azure Web Apps](app-service-web-overview.md) yüksek oranda ölçeklenebilen, kendi kendine düzeltme eki uygulayan bir web barındırma hizmeti sunar.  Bu hızlı başlangıç öğreticisinde, Azure Web Apps'te ilk Node.js uygulamasının nasıl dağıtılacağı gösterilmektedir. [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli)'yi kullanarak web uygulamasını oluşturabilir ve örnek Node.js kodunu web uygulamasında dağıtmak için Git'i kullanabilirsiniz.
+[Azure Web Apps](app-service-web-overview.md) yüksek oranda ölçeklenebilen, kendi kendine düzeltme eki uygulayan bir web barındırma hizmeti sunar.  Bu hızlı başlangıç öğreticisinde, Azure Web Apps'te ilk Node.js uygulamasının nasıl dağıtılacağı gösterilmektedir. [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli)'yi kullanarak Web uygulamasını oluşturun ve örnek Node.js kodunu Web uygulamasına dağıtmak için Git'i kullanın.
 
 ![Azure'da çalışan örnek uygulama](media/app-service-web-get-started-nodejs-poc/hello-world-in-browser.png)
 
@@ -47,6 +47,9 @@ Bu hızlı başlangıcı tamamlamak için:
 [https://github.com/Azure-Samples/nodejs-docs-hello-world/archive/master.zip](https://github.com/Azure-Samples/nodejs-docs-hello-world/archive/master.zip) adresinden örnek Node.js projesini indirin ve ZIP arşivini ayıklayın.
 
 Terminal penceresinde, örnek Node.js projesinin kök dizinine gidin (_index.js_ dosyasını içeren dizin).
+
+> [!NOTE]
+> Örnek uygulamamızı kullanmanız gerekmez; isterseniz kendi Node kodunuzu kullanabilirsiniz. Ancak uygulamanızın PORT değerinin Azure tarafından çalışma zamanında ayarlandığını ve bu değerin `process.env.PORT` olarak kullanılabileceğini unutmayın. Express kullanıyorsanız, başlangıçta `process.env.PORT || 3000` için bir denetim (`app.listen`) yaptığınızdan emin olun. Bunu yapmazsanız ve bağlantı noktanız Azure tarafından çalışma zamanında ayarlanan ile eşleşmezse, bir `Service Unavailable` iletisi görürsünüz. 
 
 ## <a name="run-the-app-locally"></a>Uygulamayı yerel olarak çalıştırma
 
@@ -71,21 +74,19 @@ Terminal pencerenizde **Ctrl+C** tuşlarına basarak web sunucusundan çıkın.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-[!INCLUDE [Create resource group](../../includes/app-service-web-create-resource-group.md)] 
+[!INCLUDE [Create resource group](../../includes/app-service-web-create-resource-group-scus.md)] 
 
-[!INCLUDE [Create app service plan](../../includes/app-service-web-create-app-service-plan.md)] 
+[!INCLUDE [Create app service plan](../../includes/app-service-web-create-app-service-plan-scus.md)] 
 
 ## <a name="create-a-web-app"></a>Web uygulaması oluşturma
 
 Cloud Shell’de, [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) komutuyla `myAppServicePlan` App Service planında bir web uygulaması oluşturun. 
 
-Aşağıdaki örnekte `<app_name>` kısmını genel olarak benzersiz bir uygulama adıyla değiştirin (geçerli karakterler `a-z`, `0-9` ve `-` şeklindedir). Çalışma zamanı `NODE|6.9` olarak ayarlanmıştır. Desteklenen tüm çalışma zamanları görmek için [`az webapp list-runtimes`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-list-runtimes) komutunu çalıştırın. 
+Aşağıdaki örnekte `<app_name>` kısmını genel olarak benzersiz bir uygulama adıyla değiştirin (geçerli karakterler `a-z`, `0-9` ve `-` şeklindedir).
 
 ```azurecli-interactive
-# Bash
-az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app_name> --runtime "NODE|6.9"
-# PowerShell
-az --% webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app_name> --runtime "NODE|6.9"
+# Bash and Powershell
+az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app_name>
 ```
 
 Web uygulaması oluşturulduğunda Azure CLI aşağıda yer alan çıktıdaki gibi bilgiler gösterir:
@@ -104,6 +105,15 @@ Web uygulaması oluşturulduğunda Azure CLI aşağıda yer alan çıktıdaki gi
 }
 ```
 
+### <a name="set-nodejs-runtime"></a>Node.js çalışma zamanını ayarlama
+
+Node çalışma zamanını 8.11.1 olarak ayarlayın. <!-- To see all supported runtimes, run [`az webapp list-runtimes`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-list-runtimes). -->
+
+```azurecli-interactive
+# Bash and Powershell
+az webapp config appsettings set --resource-group myResourceGroup --name <app_name> --settings WEBSITE_NODE_DEFAULT_VERSION=8.11.1
+```
+
 Yeni oluşturduğunuz web uygulamasına göz atın. _&lt;app name>_ değerini benzersiz bir uygulama adıyla değiştirin.
 
 ```bash
@@ -112,7 +122,7 @@ http://<app name>.azurewebsites.net
 
 Yeni web uygulamanız aşağıdaki gibi görünmelidir:
 
-![Boş web uygulaması sayfası](media/app-service-web-get-started-php/app-service-web-service-created.png)
+![Boş web uygulaması sayfası](media/app-service-web-get-started-nodejs-poc/app-service-web-service-created.png)
 
 [!INCLUDE [Deploy ZIP file](../../includes/app-service-web-deploy-zip.md)]
 
@@ -148,7 +158,7 @@ zip -r myUpdatedAppFiles.zip .
 Compress-Archive -Path * -DestinationPath myUpdatedAppFiles.zip
 ``` 
 
-[ZIP dosyasını karşıya yükleme](#upload-the-zip-file) altında verilen adımları kullanarak bu yeni ZIP dosyasını App Service'e dağıtın.
+[ZIP dosyası dağıtma](#deploy-zip-file)'daki adımları kullanarak bu yeni ZIP dosyasını App Service'e dağıtın.
 
 **Uygulamaya göz atma** adımında açılan tarayıcı penceresine dönüp sayfayı yenileyin.
 

@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 08/25/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: f4659d2dc8dfd52ae6f7ec19dc29ec31c9b3ca6b
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: bc2b391457d7652b62558c9a752376b07b50a8c1
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43047351"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47391822"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-federated-domains"></a>Öğretici: Federasyon etki alanları için hibrit Azure Active Directory'ye katılımı yapılandırma
 
@@ -122,7 +122,7 @@ Azure AD Connect kullanarak bir hibrit Azure AD'ye katılımı yapılandırmak i
 
     a. Ormanı seçin.
 
-    b. Kimlik doğrulama hizmetini seçin.
+    b. Kimlik doğrulama hizmetini seçin. Kuruluşunuzda sadece Windows 10 istemcileri yoksa AD FS sunucusu seçmeniz gerekir.
 
     c. Kuruluş yöneticisinin kimlik bilgilerini girmek için **Ekle** seçeneğine tıklayın.
 
@@ -170,7 +170,7 @@ Aşağıdaki ilke **Tümü** olarak ayarlanmalıdır: **Kullanıcılar cihazlar�
 
 ### <a name="configure-the-local-intranet-settings-for-device-registration"></a>Cihaz kaydı için yerel intranet ayarlarını yapılandırma
 
-Windows alt düzey cihazlarınızın hibrit Azure AD'ye katılımını başarıyla tamamlamak ve cihazlar Azure AD'ye kimlik doğrulaması yaparken sertifika istemlerini engellemek için, Internet Explorer'da Yerel İntranet bölgesine aşağıdaki URL'leri eklemek üzere etki alanına katılmış cihazlarınıza bir ilke gönderebilirsiniz:
+Windows aşağı düzey cihazlarınızın karma Azure AD'ye katılmasını başarıyla tamamlamak ve cihazlar Azure AD'de kimlik doğrularken sertifika istemlerini atlamak için etki alanına katılmış cihazlarınıza Internet Explorer'da Yerel Intranet bölgesine aşağıdaki URL'leri eklemek üzere bir ilke gönderebilirsiniz:
 
 - `https://device.login.microsoftonline.com`
 

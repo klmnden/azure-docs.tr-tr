@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 08/15/2018
 ms.author: anithaa
 ms.custom: ''
-ms.openlocfilehash: a4824cadfaad2115a64427df618bac5e6c6df6ee
-ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
+ms.openlocfilehash: dcc0456637c17e779593b121025596149398afba
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/01/2018
-ms.locfileid: "43382306"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47410230"
 ---
 # <a name="virtual-network-service-endpoints"></a>Sanal Ağ Hizmeti Uç Noktaları
 
@@ -28,15 +28,20 @@ Sanal Ağ hizmet uç noktaları, sanal ağ özel adres alanınızı ve sanal ağ
 
 Bu özellik aşağıdaki Azure hizmetleri ve bölgeleri için sağlanır:
 
+**Genel kullanıma sunuldu**
+
 - **[Azure Depolama](../storage/common/storage-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json#grant-access-from-a-virtual-network)**: Tüm Azure bölgelerinde genel kullanıma sunuldu.
 - **[Azure SQL Veritabanı](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: Tüm Azure bölgelerinde genel kullanıma sunuldu.
+- **[PostgreSQL için Azure Veritabanı sunucusu](../postgresql/howto-manage-vnet-using-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: Veritabanı hizmetinin sağlandığı Azure bölgelerinde genel olarak kullanılabilir.
+- **[MySQL için Azure Veritabanı sunucusu](../mysql/howto-manage-vnet-using-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: Veritabanı hizmetinin sağlandığı Azure bölgelerinde genel olarak kullanılabilir.
 - **[Azure Cosmos DB](../cosmos-db/vnet-service-endpoint.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: Tüm Azure genel bulut bölgelerinde Genel Kullanıma sunuldu.
 - **[Azure Key Vault](https://blogs.technet.microsoft.com/kv/2018/06/25/announcing-virtual-network-service-endpoints-for-key-vault-preview/)**: Tüm Azure genel bulut bölgelerinde genel kullanıma sunuldu.
+
+**Önizleme**
+
 - **[Azure SQL Veri Ambarı](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: Tüm Azure genel bulut bölgelerini önizleme aşamasında kullanıma sunuldu.
 - **[Azure Service Bus](../service-bus-messaging/service-bus-service-endpoints.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: Önizleme sürümünde kullanılabilir.
 - **[Azure Event Hubs](../event-hubs/event-hubs-service-endpoints.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: Önizleme sürümünde kullanılabilir.
-- **[PostgreSQL için Azure Veritabanı sunucusu](../postgresql/howto-manage-vnet-using-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: Veritabanı hizmetinin sağlandığı Azure bölgelerinde genel olarak kullanılabilir.
-- **[MySQL için Azure Veritabanı sunucusu](../mysql/howto-manage-vnet-using-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: Veritabanı hizmetinin sağlandığı Azure bölgelerinde genel olarak kullanılabilir.
 
 En güncel bildirimler için [Azure Sanal Ağ güncelleştirmeleri](https://azure.microsoft.com/updates/?product=virtual-network) sayfasını inceleyin.
 

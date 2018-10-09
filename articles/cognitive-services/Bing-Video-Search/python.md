@@ -1,35 +1,37 @@
 ---
-title: Bilişsel hizmetler Azure, Bing Video arama API için Python hızlı başlangıç | Microsoft Docs
-description: Hızlı bir şekilde yardımcı olmak için bilgi ve kod örnekleri get Bing Video arama API Azure üzerinde Microsoft Bilişsel Hizmetleri'ndeki kullanmaya başlayın.
+title: 'Hızlı Başlangıç: Bing Video Arama, Python'
+titlesuffix: Azure Cognitive Services
+description: Bing Video Arama API'sini kısa sürede kullanmaya başlamanıza yardımcı olacak bilgi ve kod örnekleri alın.
 services: cognitive-services
 author: v-jerkin
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-video-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 9/21/2017
 ms.author: v-jerkin
-ms.openlocfilehash: ce4356f05e69540bc3bc3241e2ec1751ff7a7276
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
-ms.translationtype: MT
+ms.openlocfilehash: 797eb476aa3386949b08efb957edf48a97e40d6b
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35352342"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47220031"
 ---
-# <a name="quickstart-for-bing-video-search-api-with-python"></a>Bing Video arama API'si ile Python için hızlı başlangıç
+# <a name="quickstart-bing-video-search-api-with-python"></a>Hızlı Başlangıç: Python ile Bing Video Arama API'si
 
-Bu kılavuzda Microsoft Bilişsel hizmetler Azure üzerinde bir parçası Bing Video arama API kullanmayı gösterir. Başvurmak [API Başvurusu](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference) API'leri hakkında teknik ayrıntılar için.
+Bu yazıda Azure'da Microsoft Bilişsel Hizmetleri'nin parçası olan Bing Video Arama API'sini kullanma adımları gösterilmektedir. API'lerle ilgili teknik ayrıntılar için [API başvurusu](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference)'na bakın.
 
-Bu örneği Jupyter not defteri çalıştırmak [MyBinder](https://mybinder.org) başlatılırken bağlayıcı tıklayarak göstergeye: 
+Bu örneği başlatma Bağlayıcı rozetine tıklayarak [Bağlayıcım](https://mybinder.org)'da bir Jupyter not defteri olarak çalıştırabilirsiniz: 
 
 [![Bağlayıcı](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/Microsoft/cognitive-services-notebooks/master?filepath=BingVideoSearchAPI.ipynb)
 
 
-## <a name="prerequisites"></a>Önkoşullar
-Bilmeniz gereken bir [Bilişsel Hizmetleri API hesabı](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) ile **Bing arama API'leri**. [Ücretsiz deneme sürümü](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) Bu Hızlı Başlangıç için yeterlidir. Ücretsiz deneme sürümünüzü etkinleştirmek ya da Ücretli abonelik anahtarı Azure panonuza kullanabilir sağlanan erişim anahtarı gerekir.
+## <a name="prerequisites"></a>Ön koşullar
+**Bing Arama API'leri**'nde bir [Bilişsel Hizmetler API hesabınız](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) olması gerekir. [Ücretsiz deneme](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) bu hızlı başlangıç için yeterlidir. Ücretsiz denemenizi etkinleştirdiğinizde verilen erişim anahtarınız olması veya Azure panonuzdan ücretli bir abonelik anahtarı kullanmanız gerekir.
 
-## <a name="running-the-walkthrough"></a>İzlenecek yol çalıştırma
+## <a name="running-the-walkthrough"></a>Adımları çalıştırma
 
-Öncelikle, ayarlamış `subscription_key` API anahtarınıza Bing API'si hizmeti için.
+Önce `subscription_key` değerini Bing API hizmeti için API anahtarınıza ayarlayın.
 
 
 ```python
@@ -37,21 +39,21 @@ subscription_key = None
 assert subscription_key
 ```
 
-Ardından, doğrulayın `search_url` doğru uç noktadır. Bu yazma sırasında tek bir uç nokta Bing arama API'leri için kullanılır. Yetkilendirme hatalarla karşılaşırsanız, bu değer Azure panonuza Bing arama uç karşı denetleyin.
+Ardından `search_url` uç noktasını doğrulayın. Bu yazının yazıldığı tarihte Bing arama API'leri için tek bir uç nokta kullanılıyordu. Yetkilendirme hatalarıyla karşılaşırsanız bu değeri Azure panonuzdaki Bing arama uç noktasından tekrar kontrol edin.
 
 
 ```python
 search_url = "https://api.cognitive.microsoft.com/bing/v7.0/videos/search"
 ```
 
-Ayarlama `search_term` kediler videolar için aramak için
+Kedi yavrusu videoları aramak için `search_term` değerini ayarlayın
 
 
 ```python
 search_term = "kittens"
 ```
 
-Aşağıdaki kullanımları engellemek `requests` Bing arama API'leri duyurmak ve sonuçları bir JSON nesnesi olarak dönmek için Python kitaplığında. Biz API anahtarında geçirmek gözlemlemek `headers` sözlük ve arama terimi aracılığıyla `params` sözlük. Arama sonuçlarını filtrelemek için kullanılabilir seçenekleri tam listesini görmek için bkz [REST API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference) belgeleri.
+Aşağıdaki blok, Bing Arama API'lerini çağırmak ve sonuçları bir JSON nesnesi olarak döndürmek için Python'da `requests` kitaplığını kullanmaktadır. API anahtarını `headers` sözlüğü ile geçtiğimize ve terimi `params` sözlüğü ile aradığımıza dikkat edin. Arama sonuçlarını filtrelemek için kullanılabilecek seçeneklerin tam listesi için [REST API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference) belgelerine başvurun.
 
 
 ```python
@@ -64,7 +66,7 @@ response.raise_for_status()
 search_results = response.json()
 ```
 
-`search_results` Nesnesini içeren zengin meta verileri ile birlikte ilgili videolar. Görünüme videoları birini kullanın, `embedHtml` özelliği ve ekleyip içine bir `IFrame`.
+`search_results` nesnesi terimle ilgili videoların yanı sıra zengin meta veriler içerir. Videolardan birini görüntülemek için videonun `embedHtml` özelliğini kullanın ve videoyu `IFrame` içine ekleyin.
 
 
 ```python
@@ -75,9 +77,9 @@ HTML(search_results["value"][0]["embedHtml"].replace("autoplay=1","autoplay=0"))
 ## <a name="next-steps"></a>Sonraki adımlar
 
 > [!div class="nextstepaction"]
-> [Disk belleği videolar](paging-videos.md)
-> [Resizing ve küçük resim görüntüleri kırpma](resize-and-crop-thumbnails.md)
+> [Video çağırma](paging-videos.md)
+> [Küçük resimleri yeniden boyutlandırma ve kırpma](resize-and-crop-thumbnails.md)
 
 ## <a name="see-also"></a>Ayrıca bkz. 
 
- [Web videolar için arama](search-the-web.md) [deneyin](https://azure.microsoft.com/services/cognitive-services/bing-video-search-api/)
+ [Web'de video arama](search-the-web.md) [Deneyin](https://azure.microsoft.com/services/cognitive-services/bing-video-search-api/)

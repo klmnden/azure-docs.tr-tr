@@ -12,15 +12,15 @@ ms.devlang: NA
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/24/2018
+ms.date: 09/26/2018
 ms.author: alkohli
 ms.custom: ''
-ms.openlocfilehash: d0c6f8723909b71501894c9363932c752c1e130c
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 5a173340be424c74c76da659816b1b95b74c465f
+ms.sourcegitcommit: 3150596c9d4a53d3650cc9254c107871ae0aab88
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46989864"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47419551"
 ---
 # <a name="tutorial-provision-azure-data-box-gateway-in-vmware-preview"></a>Öğretici: Azure Data Box Gateway'i VMware'de sağlama (Önizleme)
 
@@ -34,7 +34,7 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
 > [!div class="checklist"]
 > * Ana bilgisayarın minimum cihaz gereksinimlerini karşıladığından emin olma
-> * Hiper yöneticide bir sanal cihaz sağlama
+> * VMware'de sanal cihaz sağlama
 > * Sanal cihazı başlatma ve IP adresini alma
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
@@ -74,7 +74,7 @@ Sanal cihazı dağıtmadan önce şunlardan emin olun:
 Başlamadan önce:
 
 - Data Box Gateway dağıtma ağ gereksinimlerini gözden geçirin ve veri merkezi ağını gereksinimlere göre yapılandırın. Daha fazla bilgi için bkz. [Data Box Gateway ağ gereksinimleri](data-box-gateway-system-requirements.md#networking-requirements).
-- Cihazın en iyi şekilde çalışması için İnternet bant genişliğinin minimumda 20 Mb/sn olduğundan emin olun.
+- Cihazın en iyi şekilde çalışması için Internet bant genişliğinin en az 20 Mb/sn olduğundan emin olun.
 
 ## <a name="check-the-host-system"></a>Ana bilgisayar sistemini denetleyin
 
@@ -198,7 +198,7 @@ Sanal cihazınızı başlatmak ve bağlantı kurmak için aşağıdaki adımlar�
 
 6. Adım 5-7 yalnızca DHCP bulunmayan bir ortamdaki önyükleme süreci için geçerlidir. DHCP ortamındaysanız bu adımları atlayıp 8. adımla devam edebilirsiniz. Cihazınızı DHCP olmayan bir ortamda çalıştırdıysanız bunu belirten bir ileti açılacaktır: **Ağı yapılandırmak için Set-HcsIPAddress cmdlet'ini kullanın**. 
    
-7. Ağı yapılandırmak için komut isteminde `Get-HcsIpAddress` komutunu kullanarak sanal cihazınızda etkinleştirilmiş olan ağ arabirimlerini listeleyin. Cihazınızda tek bir ağ arabirimi varsa `DATA1` varsayılan adı atanır.
+7. Ağı yapılandırmak için komut isteminde `Get-HcsIpAddress` komutunu kullanarak sanal cihazınızda etkinleştirilmiş olan ağ arabirimlerini listeleyin. Cihazınızda tek bir ağ arabirimi varsa `Ethernet` varsayılan adı atanır.
 
 8. Ağı yapılandırmak için `Set-HcsIpAddress` cmdlet'ini kullanın. Aşağıda bir örnek gösterilmiştir:
 
@@ -208,7 +208,7 @@ Sanal cihazınızı başlatmak ve bağlantı kurmak için aşağıdaki adımlar�
 
    ![](./media/data-box-gateway-deploy-provision-vmware/image24.png)
 
-Cihazınız minimum yapılandırma gereksinimlerini karşılamıyorsa başlık metninde hata iletisi görüntülenir (aşağıda gösterilmiştir). Cihaz yapılandırmasını minimum gereksinimleri karşılayacak şekilde değiştirmeniz gerekir. Ardından cihazı yeniden başlatıp bağlantı kurabilirsiniz. Minimum yapılandırma gereksinimleri için bkz. [1. Adım: Ana bilgisayarın minimum cihaz gereksinimlerini karşıladığından emin olma](#step-1-ensure-host-system-meets-minimum-virtual-device-requirements).
+Cihazınız minimum yapılandırma gereksinimlerini karşılamıyorsa başlık metninde hata iletisi görüntülenir (aşağıda gösterilmiştir). Cihaz yapılandırmasını minimum gereksinimleri karşılayacak şekilde değiştirmeniz gerekir. Ardından cihazı yeniden başlatıp bağlantı kurabilirsiniz. En düşük yapılandırma gereksinimleri için bkz. [Konağın en düşük cihaz gereksinimlerini karşıladığından emin olma](#check-the-host-system).
 
 <!---If you face any other error during the initial configuration using the local web UI, refer to the following workflows:
 
@@ -221,7 +221,7 @@ Bu öğreticide, aşağıdaki Data Box Gateway konularını öğrendiniz:
 
 > [!div class="checklist"]
 > * Ana bilgisayarın minimum cihaz gereksinimlerini karşıladığından emin olma
-> * Hiper yöneticide bir sanal cihaz sağlama
+> * VMware'de sanal cihaz sağlama
 > * Sanal cihazı başlatma ve IP adresini alma
 
 Sanal cihazınıza bağlanma, kurulumunu yapma ve etkinleştirme adımları için bir sonraki öğreticiye geçin.

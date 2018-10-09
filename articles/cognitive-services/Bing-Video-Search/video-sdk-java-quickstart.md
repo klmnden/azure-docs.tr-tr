@@ -1,30 +1,30 @@
 ---
-title: Bing Video arama SDK Java hızlı başlangıç | Microsoft Docs
-description: Bing Video arama SDK konsol uygulama ayarlama öğrenin.
+title: "Hızlı Başlangıç: Bing Video Arama SDK'sı, Java"
 titleSuffix: Azure Cognitive Services
+description: Bing Video Arama SDK'sı konsol uygulamasını kurma konusunda bilgi edinin.
 services: cognitive-services
 author: mikedodaro
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-video-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 02/18/2018
-ms.author: v-gedod
-ms.openlocfilehash: 1d9ccd88de4b91060861c39ab20f6a203c820384
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
-ms.translationtype: MT
+ms.author: rosh
+ms.openlocfilehash: b0e083a7397378956d9fe0d0ae2257aaf0bbdf1e
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35355277"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47223440"
 ---
-# <a name="bing-video-search-sdk-java-quickstart"></a>Bing Video arama SDK Java hızlı başlangıç
+# <a name="quickstart-bing-video-search-sdk-java"></a>Hızlı Başlangıç: Bing Video Arama SDK'sı Java
 
-Bing Video arama SDK video sorgular ve ayrıştırma sonuçları için REST API işlevsellik sağlar.
+Bing Video Arama SDK'sı, video sorguları ve sonuçları ayrıştırma için REST API işlevselliğini sunar.
 
-[Kaynak kodu Java Bing Video arama SDK örnekleri için](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master/Search/BingVideoSearch) Git hub'da kullanılabilir.
+[Java Bing Video Arama SDK'sı örneklerinin kaynak kodu](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master/Search/BingVideoSearch) Git Hub'dan edinilebilir.
 
 ## <a name="application-dependencies"></a>Uygulama bağımlılıkları
-Alma bir [Bilişsel hizmetler erişim tuşu](https://azure.microsoft.com/try/cognitive-services/) altında **arama**. Bing Video arama SDK bağımlılığı Maven, Gradle veya başka bir bağımlılık yönetimi sistemi kullanarak yükleyin. Maven POM dosya bildirimi gerektirir:
+**Arama** altından bir [Bilişsel Hizmetler erişim anahtarı](https://azure.microsoft.com/try/cognitive-services/) alın. Bing Video Arama SDK'sı bağımlılık dosyalarını Maven, Gradle veya başka bir bağımlılık dosyası yönetim sistemini kullanarak yükleyin. Maven POM dosyası şu bildirimi gerektirir:
 ```
   <dependencies>
     <dependency>
@@ -34,8 +34,8 @@ Alma bir [Bilişsel hizmetler erişim tuşu](https://azure.microsoft.com/try/cog
     </dependency>
   </dependencies> 
 ```
-## <a name="video-search-client"></a>Video arama istemci
-İçeri aktarmalar için sınıf uygulamasını ekleyin.
+## <a name="video-search-client"></a>Video Arama istemcisi
+Sınıf uygulamasına içeri aktarmaları ekleyin.
 ```
 import com.microsoft.azure.cognitiveservices.videosearch.*;
 import com.microsoft.azure.cognitiveservices.videosearch.Freshness;
@@ -54,7 +54,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 ```
-Uygulama **VideoSearchAPIImpl** bir örneğini gerektirir istemci **ServiceClientCredentials** sınıfı.
+**ServiceClientCredentials** sınıfının bir örneğini gerektiren **VideoSearchAPIImpl** istemcisini uygulayın.
 ```
 public static VideoSearchAPIImpl getClient(final String subscriptionKey) {
     return new VideoSearchAPIImpl("https://api.cognitive.microsoft.com/bing/v7.0/",
@@ -78,7 +78,7 @@ public static VideoSearchAPIImpl getClient(final String subscriptionKey) {
             });
 }
 ```
-"SwiftKey." ile ilgili videolar arayın Sonuç sayısını doğrulayın. Kimliği, adı ve URL için ilk video sonuç yazdırın.
+Videolarda "SwiftKey" ifadesini arayın. Sonuç sayısını doğrulayın. İlk video sonucu için ID, name ve URL değerlerini yazdırın.
 ```
 public static void VideoSearch(String subscriptionKey)
 {
@@ -120,7 +120,7 @@ public static void VideoSearch(String subscriptionKey)
 
 
 ```
-"Bellevue toplamı." ile ilgili videolar arayın Arama ile filtre *ücretsiz*, *kısa*, ve *1080p çözümleme* parametreleri. Sonuç sayısını doğrulayın. Kimliği, adı ve URL için ilk video sonuç yazdırın.
+Videolarda "Bellevue Trailer" ifadesini arayın. Aramayı *ücretsiz*, *kısa* ve *1080 piksel çözünürlüklü* parametreleriyle filtreleyin. Sonuç sayısını doğrulayın. İlk video sonucu için ID, name ve URL değerlerini yazdırın.
 ```
 public static void VideoSearchWithFilters(String subscriptionKey)
 {
@@ -160,7 +160,7 @@ public static void VideoSearchWithFilters(String subscriptionKey)
 }
 
 ```
-Oluşturan eğilim video arayın. Doğrulama **bannerTiles** ve **kategorileri** parametreleri.
+Popüler videoları arayın. **bannerTiles** ve **categories** parametrelerini doğrulayın.
 ```
 public static void VideoTrending(String subscriptionKey)
 {
@@ -245,7 +245,7 @@ public static void VideoTrending(String subscriptionKey)
 }
 
 ```
-"Bellevue toplamı" ile ilgili videolar aramak ve ilk video sonucu ile ilgili ayrıntılar için arama yapın.
+Videolarda "Bellevue Trailer" ifadesini, ardından ilk video sonucunun ayrıntılarını arayın.
 ```
 public static void VideoDetail(String subscriptionKey)
 {
@@ -315,7 +315,7 @@ public static void VideoDetail(String subscriptionKey)
     }
 }
 ```
-Bir sınıfa kod yürütmek için ana işleviyle bu makalede açıklanan yöntemleri ekleyin.
+Kodu yürütmek için bir main işlevi olan bir sınıfa bu makalede anlatılan metotları ekleyin.
 ```
 package videoSDK;
 import com.microsoft.azure.cognitiveservices.videosearch.*;
@@ -337,4 +337,4 @@ public class VideoSDK {
 ```
 ## <a name="next-steps"></a>Sonraki adımlar
 
-[Bilişsel hizmetler Java SDK'sı örneği](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples)
+[Bilişsel Hizmetler Java SDK örnekleri](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples)

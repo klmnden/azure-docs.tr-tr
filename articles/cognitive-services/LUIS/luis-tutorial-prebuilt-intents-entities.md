@@ -1,47 +1,56 @@
 ---
-title: Language Understanding'de ortak verileri ayıklamak için önceden oluşturulmuş amaçları ve varlıkları ekleme - Azure | Microsoft Docs
-description: Önceden oluşturulmuş amaçları ve varlıkları, farklı varlık verisi türlerini ayıklamak için kullanmayı öğrenin.
+title: "Öğretici 2: Önceden oluşturulmuş amaçlar ve varlıklar - önceden oluşturulmuş yaygın konuşmaları kullanma - LUIS'de ortak veri ayıklama"
+titleSuffix: Azure Cognitive Services
+description: Hızlıca amaç tahmini ve veri ayıklaması gerçekleştirmek için İnsan Kaynakları öğretici uygulamasına önceden oluşturulmuş amaçlar ve varlıklar ekleyin. Herhangi bir konuşmayı önceden oluşturulmuş varlıklarla etiketlemeniz gerekmez. Varlık otomatik olarak algılanır.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: luis
+ms.component: language-understanding
 ms.topic: tutorial
-ms.date: 08/03/2018
+ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: 0e45b659508c71a9f1220ef5e76b9a95438fa1e6
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: d42aed76ecdbc2bd840e17517db2ca0b6ba11aa0
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44162249"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47034442"
 ---
-# <a name="tutorial-2-add-prebuilt-intents-and-entities"></a>Öğretici: 2. Önceden derlenmiş amaçlar ve varlıklar ekleme
-Hızlıca amaç tahmini ve veri ayıklaması gerçekleştirmek için İnsan Kaynakları öğretici uygulamasına önceden oluşturulmuş amaçlar ve varlıklar ekleyin. 
+# <a name="tutorial-2-identify-common-intents-and-entities"></a>Öğretici 2: Ortak amaçları ve varlıkları tanımlama
+Bu öğreticide İnsan Kaynakları uygulamasında değiştireceksiniz. Hızlıca amaç tahmini ve veri ayıklaması gerçekleştirmek için İnsan Kaynakları öğretici uygulamasına önceden oluşturulmuş amaçlar ve varlıklar ekleyin. Varlıklar otomatik algılandığından herhangi bir konuşmayı önceden oluşturulmuş varlıklarla etiketlemeniz gerekmez.
 
-Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
+Genel konu etki alanlarının ve veri türlerinin önceden oluşturulmuş modelleri, modelinizi hızla oluşturmanıza yardımcı olmanın yanı sıra modellerin yapısını gösteren bir örnek de sağlar. 
+
+**Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:**
 
 > [!div class="checklist"]
-* Önceden oluşturulmuş amaçları ekleme 
-* Önceden oluşturulmuş datetimeV2 ve number varlıklarını ekleme
-* Eğitme ve yayımlama
-* LUIS uygulamasını sorgulama ve tahmin yanıtını alma
+> * Mevcut öğretici uygulamasını kullanma
+> * Önceden oluşturulmuş amaçları ekleme 
+> * Önceden oluşturulmuş varlıkları ekleme 
+> * Eğitim 
+> * Yayımlama 
+> * Uç noktasındaki amaçları ve varlıkları alma
 
 [!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
-## <a name="before-you-begin"></a>Başlamadan önce
-Bir önceki öğreticide oluşturulan [İnsan Kaynakları](luis-quickstart-intents-only.md) uygulamasına sahip değilseniz [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-intent-only-HumanResources.json) Github deposundaki JSON verilerini [LUIS](luis-reference-regions.md#luis-website) web sitesinde yeni bir uygulamaya [aktarın](luis-how-to-start-new-app.md#import-new-app).
+## <a name="use-existing-app"></a>Mevcut uygulamayı kullanma
+Son öğreticide oluşturulan **HumanResources** adlı uygulamayla devam edin. 
 
-Özgün İnsan Kaynakları uygulamasını tutmak istiyorsanız [Settings](luis-how-to-manage-versions.md#clone-a-version) (Ayarlar) sayfasında sürümü kopyalayıp adını `prebuilts` olarak değiştirin. Kopyalama, özgün sürümünüzü etkilemeden farklı LUIS özelliklerini deneyebileceğiniz ideal bir yol sunar. 
+Önceki öğreticinin HumanResources uygulaması elinizde yoksa, aşağıdaki adımları izleyin:
+
+1.  [Uygulama JSON dosyasını](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/custom-domain-intent-only-HumanResources.json) indirin ve kaydedin.
+
+2. JSON'ı yeni bir uygulamaya içeri aktarın.
+
+3. **Yönet** bölümünde, **Sürümler** sekmesinde, sürümü kopyalayın ve `prebuilts` olarak adlandırın. Kopyalama, özgün sürümünüzü etkilemeden farklı LUIS özelliklerini deneyebileceğiniz ideal bir yol sunar. Sürüm adı URL rotasının bir parçası olarak kullanıldığından ad bir URL'de geçerli olmayan hiçbir karakter içeremez. 
 
 ## <a name="add-prebuilt-intents"></a>Önceden oluşturulmuş amaçları ekleme
 LUIS, ortak kullanıcı amaçları konusunda yardımcı olmak için önceden oluşturulmuş birçok amaca sahiptir.  
 
-1. Uygulamanızın LUIS sisteminin **Build** (Derleme) bölümünde olduğundan emin olun. Sağ taraftaki menü çubuğunun en üstünde bulunan **Build** (Derleme) ifadesini seçerek bu bölüme geçebilirsiniz. 
+1. [!include[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
-2. **Add prebuilt domain intent** (Önceden oluşturulmuş etki alanı amacı ekle) öğesini seçin. 
-
-    [ ![Add prebuilt domain intent (Önceden oluşturulmuş etki alanı amacı ekle) düğmesi vurgulanmış Intents (Amaçlar) sayfasının ekran görüntüsü](./media/luis-tutorial-prebuilt-intents-and-entities/add-prebuilt-domain-button.png) ](./media/luis-tutorial-prebuilt-intents-and-entities/add-prebuilt-domain-button.png#lightbox)
+2. **Önceden oluşturulmuş amacı ekle**'yi seçin. 
 
 3. `Utilities` arayın. 
 
@@ -61,33 +70,27 @@ LUIS, ortak veri ayıklama işlemi için önceden oluşturulmuş birkaç varlık
 
 1. Sol gezinti menüsünden **Entities** (Varlıklar) öğesini seçin.
 
-    [ ![Sol gezinti bölmesinde vurgulanmış Entities (Varlıklar) düğmesine sahip Intents (Amaçlar) listesinin ekran görüntüsü](./media/luis-tutorial-prebuilt-intents-and-entities/entities-navigation.png)](./media/luis-tutorial-prebuilt-intents-and-entities/entities-navigation.png#lightbox)
-
-2. **Manage prebuilt entities** (Önceden oluşturulan varlıkları yönet) düğmesini seçin.
-
-    [ ![Manage prebuilt entities (Önceden oluşturulan varlıkları yönet) düğmesi vurgulanmış Entities (Varlıklar) listesinin ekran görüntüsü](./media/luis-tutorial-prebuilt-intents-and-entities/manage-prebuilt-entities-button.png)](./media/luis-tutorial-prebuilt-intents-and-entities/manage-prebuilt-entities-button.png#lightbox)
+2. **Önceden oluşturulmuş varlıkları yönet** düğmesini seçin.
 
 3. Önceden oluşturulmuş varlık listesinden **number** ve **datetimeV2** girişlerini ve ardından **Done** (Bitti) öğesini seçin.
 
     ![Önceden oluşturulmuş varlıklar iletişim kutusunda sayının seçildiğini gösteren ekran görüntüsü](./media/luis-tutorial-prebuilt-intents-and-entities/select-prebuilt-entities.png)
 
-## <a name="train-and-publish-the-app"></a>Uygulamayı eğitme ve yayımlama
+## <a name="train"></a>Eğitim
 
 [!INCLUDE [LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
-## <a name="publish-app-to-endpoint"></a>Uygulamayı uç noktasına yayımlama
+## <a name="publish"></a>Yayımlama
 
 [!INCLUDE [LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
-## <a name="query-endpoint-with-an-utterance"></a>Uç noktayı bir konuşmayla sorgulama
+## <a name="get-intent-and-entities-from-endpoint"></a>Uç noktasındaki amacı ve varlıkları alma
 
 1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
-2. Adres çubuğundaki URL'nin sonuna gidip `I want to cancel on March 3` yazın. Son sorgu dizesi parametresi konuşma **sorgusu** olan `q` öğesidir. 
+2. Tarayıcı adres çubuğundaki URL'nin sonuna gidip `I want to cancel on March 3` yazın. Son sorgu dizesi parametresi konuşma **sorgusu** olan `q` öğesidir. 
 
-    Sonuç Utilities.Cancel amacını tahmin etmiş ve 3 Mart tarihi ile 3 rakamını ayıklamıştır. 
-
-    ```
+    ```JSON
     {
       "query": "I want to cancel on March 3",
       "topScoringIntent": {
@@ -162,15 +165,17 @@ LUIS, ortak veri ayıklama işlemi için önceden oluşturulmuş birkaç varlık
     }
     ```
 
-    Konuşmada 3 Mart tarihinin geçmişte mi yoksa gelecekte mi olduğu belirtilmediğinden 3 Mart için iki değer vardır. Gerekirse varsayımda bulunma veya netleştirmek üzere soru sorma kararı LUIS çağrı uygulamasına aittir. 
+    Sonuç Utilities.Cancel amacını tahmin etmiş ve 3 Mart tarihi ile 3 rakamını ayıklamıştır. 
 
-    Önceden oluşturulmuş amaçları ve varlıkları kolayca ve hızla ekleyerek istemci uygulaması konuşma yönetimi ekleyebilir ve ortak veri türlerini ayıklayabilir. 
+    Konuşmada 3 Mart tarihinin geçmişte mi yoksa gelecekte mi olduğu belirtilmediğinden 3 Mart için iki değer vardır. Gerekirse varsayımda bulunma veya netleştirmek üzere soru sorma kararı istemci uygulamasına aittir. 
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 
 [!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>Sonraki adımlar
+
+İstemci uygulama, önceden oluşturulmuş varlıklar ekleyerek yaygın kullanıcı amaçlarını belirleyebilir ve ortak veri türlerini ayıklayabilir. 
 
 > [!div class="nextstepaction"]
 > [Uygulamaya normal ifade varlığı ekleme](luis-quickstart-intents-regex-entity.md)

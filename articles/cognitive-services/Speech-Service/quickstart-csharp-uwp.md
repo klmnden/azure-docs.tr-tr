@@ -1,122 +1,126 @@
 ---
-title: "Hızlı Başlangıç: Bilişsel hizmetler konuşma SDK'sını kullanarak bir UWP uygulamasında C# ' de Konuşma tanıma"
+title: "Hızlı Başlangıç: Bilişsel Hizmetler Konuşma SDK'sını kullanarak UWP uygulamasında C# dilinde konuşma tanıma"
 titleSuffix: Microsoft Cognitive Services
-description: Bilişsel hizmetler konuşma SDK'sını kullanarak bir UWP uygulamasında Konuşma tanımayı öğrenmesine
+description: Bilişsel Hizmetler Konuşma SDK'sını kullanarak UWP uygulamasında C# dilinde konuşma tanımayı öğrenin
 services: cognitive-services
 author: wolfma61
 ms.service: cognitive-services
 ms.component: speech-service
-ms.topic: article
-ms.date: 07/16/2018
+ms.topic: quickstart
+ms.date: 09/24/2018
 ms.author: wolfma
-ms.openlocfilehash: b709b2791ae7472689cc2c7ca747f75ce0f1e6bf
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
-ms.translationtype: MT
+ms.openlocfilehash: 2eb6bda7066a01e5532fe7c0e20b0ee13f4289b6
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43126099"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47432996"
 ---
-# <a name="quickstart-recognize-speech-in-a-uwp-app-using-the-speech-sdk"></a>Hızlı Başlangıç: bir UWP uygulamasında Speech SDK'sı kullanarak konuşma tanıma
+# <a name="quickstart-recognize-speech-in-a-uwp-app-by-using-the-speech-sdk"></a>Hızlı Başlangıç: Konuşma SDK'sını kullanarak UWP uygulamasında konuşma tanıma
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
-Bu makalede, Konuşmayı metne dönüştürme özelliği Bilişsel hizmetler konuşma SDK'sını kullanarak bir evrensel Windows Platformu (UWP) uygulamanın nasıl oluşturulacağını öğrenin.
-Uygulamanın oluşturulduğu [Microsoft Bilişsel hizmetler konuşma SDK'sı NuGet paketi](https://aka.ms/csspeech/nuget) ve Microsoft Visual Studio 2017.
+Bu makalede Bilişsel Hizmetler[Konuşma SDK'sı](speech-sdk.md)'nı kullanarak bir C# Evrensel Windows Platformu (UWP) uygulaması oluşturacaksınız. Cihazınızın mikrofonundan gerçek zamanda konuşmayı metne dönüştüreceksiniz. Uygulama [Konuşma SDK'sı NuGet Paketi](https://aka.ms/csspeech/nuget) ve Microsoft Visual Studio 2017 (herhangi bir sürüm) ile geliştirilmiştir.
 
 > [!NOTE]
-> Evrensel Windows platformu, Windows 10 bilgisayarları, Xbox, Surface Hub ve diğer cihazları dahil olmak üzere, destekleyen herhangi bir cihaz üzerinde çalışan uygulamalar geliştirmenize olanak tanır. Konuşma SDK'yı kullanarak uygulamaları, Windows uygulama sertifikası Kiti (WACK) henüz geçmeyin. Uygulamanızı, ancak şu anda Windows Store için gönderilen dışarıdan yükleme için mümkündür.
+> Evrensel Windows Platformu; PC, Xbox, Surface Hub ve diğer cihazlar dahil olmak üzere Windows 10 destekleyen tüm cihazlarda çalışan uygulamalar geliştirmenize olanak tanır.
 
-## <a name="prerequisites"></a>Önkoşullar
+## <a name="prerequisites"></a>Ön koşullar
 
-* Konuşma hizmeti için bir abonelik anahtarı. Bkz: [konuşma hizmeti ücretsiz olarak deneyin](get-started.md).
-* Bir Windows PC (Windows 10 Fall Creators Update veya üzeri) ile çalışma mikrofon.
-* [Microsoft Visual Studio 2017](https://www.visualstudio.com/), Community sürümü veya üzeri.
-* **Evrensel Windows platformu geliştirme** Visual Studio.You iş yükünde içinde etkinleştirebilir **Araçları** \> **araçları ve özellikleri Al**.
-
-  ![Evrensel Windows platformu geliştirme etkinleştir](media/sdk/vs-enable-uwp-workload.png)
+Bu Hızlı Başlangıç'ı tamamlamak için bir Konuşma hizmeti abonelik anahtarınız olması gerekir. Anahtarı ücretsiz edinebilirsiniz. Ayrıntılar için bkz. [Konuşma hizmetini ücretsiz olarak deneme](get-started.md).
 
 ## <a name="create-a-visual-studio-project"></a>Visual Studio projesi oluşturma
 
-1. Visual Studio 2017'de yeni bir Visual C# Windows Evrensel boş uygulaması oluşturun. İçinde **yeni proje** iletişim kutusunda, sol bölmeden genişletin **yüklü** \> **Visual C#** \> **WindowsEvrensel** seçip **boş uygulama (Evrensel Windows)**. Proje adı olarak *helloworld*.
+1. Visual Studio 2017'yi başlatın.
 
-    ![](media/sdk/qs-csharp-uwp-01-new-blank-app.png)
+1. **Evrensel Windows Platformu geliştirmesi** iş yükünün bulunduğundan emin olun. Visual Studio yükleyicisini açmak için Visual Studio menü çubuğundan **Araçlar** > **Araçları ve Özellikleri Al**'ı seçin. Bu iş yükü zaten etkinse iletişim kutusunu kapatın. 
 
-1. İçinde **yeni evrensel Windows platformu projesi** açılarak Seç penceresi **Windows 10 Fall Creators Update (10.0; 16299 yapı)** olarak **en düşük sürüm**ve bu ya da sonraki bir sürümünü olarak **hedef sürümü**, ardından **Tamam**.
+    ![Visual Studio yükleyicisinin İş yükleri sekmesi vurgulanmış olarak ekran görüntüsü](media/sdk/vs-enable-uwp-workload.png)
 
-    ![](media/sdk/qs-csharp-uwp-02-new-uwp-project.png)
+    Etkin değilse **.NET çoklu platform geliştirme**'nin yanındaki kutuyu ve iletişim kutusunun sağ alt köşesindeki **Değiştir**'i seçin. Yeni özelliğin yüklenmesi bir dakika sürer.
 
-1. Bir 64 bit Windows yüklemesinde çalıştırıyorsanız, yapı platformunuz geçiş yapabilirsiniz `x64`.
+1. Boş bir Visual C# Evrensel Windows uygulaması oluşturun. İlk olarak, menüden **Dosya** > **Yeni** > **Proje** seçeneğini belirleyin. **Yeni Proje** iletişim kutusunda, sol bölmeden **Yüklü** > **Visual C#** > **Windows Evrensel**'i genişletin. Sonra **Boş Uygulama (Evrensel Windows)** seçeneğini belirleyin. Proje adı olarak *helloworld* girin.
 
-   ![Yapı platformunu x64 geçiş](media/sdk/qs-csharp-uwp-03-switch-to-x64.png)
+    ![Yeni Proje iletişim kutusunun ekran görüntüsü](media/sdk/qs-csharp-uwp-01-new-blank-app.png)
+
+1. Hız SDK’sı, uygulamanızın Windows 10 Fall Creators Update veya sonraki sürümü için derlenmiş olmasını gerektirir. Çıkan **Yeni Evrensel Windows Platformu Projesi** penceresinde **Windows 10 Fall Creators Update (10.0; Sürüm 16299)** seçeneğini **En düşük sürüm** olarak belirleyin. **Hedef sürümü** kutusunda, bu veya sonraki bir sürümü seçin ve ardından **Tamam**’a tıklayın.
+
+    ![Yeni Evrensel Windows Platformu Projesi penceresinin ekran görüntüsü](media/sdk/qs-csharp-uwp-02-new-uwp-project.png)
+
+1. 64 bit Windows işletim sistemini kullanıyorsanız, Visual Studio araç çubuğundaki açılan menüyü kullanarak yapı platformunuzu `x64` işletim sistemine geçirebilirsiniz. (64 bit Windows, 32 bit uygulamaları çalıştırabilir, bu yüzden dilerseniz `x86` olarak ayarlanmış şekilde bırakabilirsiniz.)
+
+   ![x64 seçeneğinin vurgulandığı Visual Studio araç çubuğunun ekran görüntüsü](media/sdk/qs-csharp-uwp-03-switch-to-x64.png)
 
    > [!NOTE]
-   > Şu anda Speech SDK'sı Intel uyumlu işlemci yanı sıra, ARM değil de destekler.
+   > Konuşma SDK'sı yalnızca Intel uyumlu işlemcileri destekler. ARM şu anda desteklenmiyor.
 
-1. Yükleme ve başvuru [konuşma SDK'sı NuGet paketi](https://aka.ms/csspeech/nuget). Çözüm Gezgini'nde çözüme sağ tıklayıp seçin **çözüm için NuGet paketlerini Yönet**.
+1. [Konuşma SDK NuGet paketi](https://aka.ms/csspeech/nuget)'ni yükleyip başvurulara ekleyin. Çözüm Gezgini'nde çözüme sağ tıklayın ve **Çözüm için NuGet Paketlerini Yönet**'i seçin.
 
-    ![Sağ tıklatın, çözüm için NuGet paketlerini Yönet](media/sdk/qs-csharp-uwp-04-manage-nuget-packages.png)
+    ![Çözüm Gezgini'nin, Çözüm için NuGet Paketlerini Yönet seçeneğinin vurgulandığı ekran görüntüsü](media/sdk/qs-csharp-uwp-04-manage-nuget-packages.png)
 
-1. Sağ üst köşede, içinde **paket kaynağı** alanın, Seç **Nuget.org**. Arama ve yükleme `Microsoft.CognitiveServices.Speech` paketini ve yükleme içine **helloworld** proje.
+1. Sağ üst köşede, **Paket Kaynağı** alanında **nuget.org**'u seçin. `Microsoft.CognitiveServices.Speech` paketini arayın ve **helloworld** projesine yükleyin.
 
-    ![Microsoft.CognitiveServices.Speech NuGet paketini yüklemek](media/sdk/qs-csharp-uwp-05-nuget-install-0.5.0.png "yükleme Nuget paketi")
+    ![Çözüm için Paketleri Yönet iletişim kutusunun ekran görüntüsü](media/sdk/qs-csharp-uwp-05-nuget-install-1.0.0.png "NuGet paketini yükle")
 
-1. Görüntülenen lisansı kabul edin.
+1. NuGet paketinin yükleme işlemini başlatmak için görüntülenen lisansı kabul edin.
 
-    ![Bu lisansı kabul](media/sdk/qs-csharp-uwp-06-nuget-license.png "lisansı kabul edin")
+    ![Lisans Kabulü iletişim kutusunun ekran görüntüsü](media/sdk/qs-csharp-uwp-06-nuget-license.png "Lisansı kabul et")
 
-1. Paket Yöneticisi Konsolu'nda aşağıdaki çıktı satırı görüntülenir.
+1. Paket Yöneticisi konsolunda aşağıdaki çıkış satırı görüntülenir.
 
    ```text
-   Successfully installed 'Microsoft.CognitiveServices.Speech 0.6.0' to helloworld
+   Successfully installed 'Microsoft.CognitiveServices.Speech 1.0.0' to helloworld
    ```
 
-## <a name="add-the-sample-code"></a>Örnek kod ekleyin
+1. Uygulama, konuşma girdisi için mikrofon kullandığından, **Mikrofon** özelliğini projeye ekleyin. Çözüm Gezgini'nde, uygulama bildiriminizi düzenlemek için **Package.appxmanifest** dosyasına çift tıklayın. Ardından **Özellikler** sekmesine geçin, **Mikrofon** özelliği kutusunu seçin ve değişikliklerinizi kaydedin.
 
-1. Çözüm Gezgini'nde çift tıklayarak **Package.appxmanifest** uygulama bildiriminizi düzenlenecek.
-   Seçin **özellikleri** sekmesinde, onay kutusunu seçip **mikrofon** özelliği ve değişikliklerinizi kaydedin.
+   ![Özellikler ve Mikrofonun vurgulandığı Visual Studio uygulama bildiriminin ekran görüntüsü](media/sdk/qs-csharp-uwp-07-capabilities.png)
 
-   ![](media/sdk/qs-csharp-uwp-07-capabilities.png)
 
-1. Uygulamanızın kullanıcı arabirimi çift tıklayarak düzenleme `MainPage.xaml` Çözüm Gezgini'nde. 
+## <a name="add-sample-code"></a>Örnek kodu ekleme
 
-    Tasarımcının XAML görünümünde, aşağıdaki XAML kod parçacığı kılavuz etiketine ekleyin (arasında `<Grid>` ve `</Grid>`).
+1. Uygulamanın kullanıcı arabirimini XAML kullanılarak tanımlanır. `MainPage.xaml` dosyasını Çözüm Gezgini'nde açın. Tasarımcının XAML görünümünde, aşağıdaki XAML kod parçacığını Kılavuz etiketine ekleyin (`<Grid>` ve `</Grid>` arasında).
 
    [!code-xml[UI elements](~/samples-cognitive-services-speech-sdk/quickstart/csharp-uwp/helloworld/MainPage.xaml#StackPanel)]
 
-1. XAML kodu arka plan çift tıklayarak düzenleme `MainPage.xaml.cs` Çözüm Gezgini'nde (altında gruplandırılmış `MainPage.xaml` öğesi).
-   Bu dosyadaki tüm kodu aşağıdakiyle değiştirin.
+1. Arka plan kod kaynak dosyasını açın `MainPage.xaml.cs` (`MainPage.xaml` altında gruplandırılmış olarak bulabilirsiniz). İçindeki tüm kodu aşağıdakiyle değiştirin.
 
    [!code-csharp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/csharp-uwp/helloworld/MainPage.xaml.cs#code)]
 
-1. İçinde `SpeechRecognitionFromMicrophone_ButtonClicked` işleyicisi dizesini değiştirin `YourSubscriptionKey` abonelik.
+1. Bu dosyadaki `SpeechRecognitionFromMicrophone_ButtonClicked` işleyicisinde `YourSubscriptionKey` dizesini abonelik anahtarınız ile değiştirin.
 
-1. İçinde `SpeechRecognitionFromMicrophone_ButtonClicked` işleyicisi dizesini değiştirin `YourServiceRegion` ile [bölge](regions.md) aboneliğinizle ilişkili (örneğin, `westus` ücretsiz deneme aboneliği için).
+1. `SpeechRecognitionFromMicrophone_ButtonClicked` işleyicisinde `YourServiceRegion` dizesini aboneliğinizle ilişkili [bölge](regions.md) ile (örneğin ücretsiz deneme aboneliğinde `westus`) değiştirin.
 
-1. Tüm değişiklikleri projeye kaydedin.
+1. Değişiklikleri projeye kaydedin.
 
-## <a name="build-and-run-the-sample"></a>Örneği derleme ve çalıştırma
+## <a name="build-and-run-the-app"></a>Uygulamayı derleme ve çalıştırma
 
-1. Uygulamayı oluşturun. Menü çubuğundan seçin **derleme** > **Çözümü Derle**. Kod hatasız artık derlemeniz gerekir.
+1. Uygulamayı derleyin. Menü çubuğundan **Derle** > **Çözümü Derle**'yi seçin. Kodun artık hatasız derlenmesi gerekir.
 
-    ![Başarılı derleme](media/sdk/qs-csharp-uwp-08-build.png "başarılı derleme")
+    ![Visual Studio uygulamasının, Çözümü Derle seçeneği vurgulanmış olarak ekran görüntüsü](media/sdk/qs-csharp-uwp-08-build.png "Başarılı derleme")
 
-1. Uygulamayı başlatın. Menü çubuğundan seçin **hata ayıklama** > **hata ayıklamayı Başlat**, veya basın **F5**.
+1. Uygulamayı başlatın. Menü çubuğundan **Hata Ayıklama** > **Hata Ayıklamayı Başlat**'ı seçin veya **F5** tuşuna basın.
 
-    ![Uygulamayı hata ayıklama içine başlatın](media/sdk/qs-csharp-uwp-09-start-debugging.png "INTO hata ayıklaması uygulamayı başlatın")
+    ![Visual Studio uygulamasının, Hata Ayıklamayı Başlat seçeneği vurgulanmış olarak ekran görüntüsü](media/sdk/qs-csharp-uwp-09-start-debugging.png "Uygulamayı hata ayıklamada başlatma")
 
-1. GUI penceresi açılır. İlk **etkinleştirme mikrofon** düğmesine ve görüntülenen iletideki izin isteği kabul etmiş olursunuz.
+1. Bir pencere açılır. **Mikrofonu Etkinleştir**’i seçin ve çıkan izin isteğini kabul edin.
 
-    ![Uygulamayı hata ayıklama içine başlatın](media/sdk/qs-csharp-uwp-10-access-prompt.png "INTO hata ayıklaması uygulamayı başlatın")
+    ![İzin isteğinin ekran görüntüsü](media/sdk/qs-csharp-uwp-10-access-prompt.png "Uygulamayı hata ayıklamada başlat")
 
-1. Tıklayın **mikrofon giriş ile Konuşma tanıma** ve cihazınızın mikrofona kısa ifade. Tanınan metin penceresinde görünür.
+1. **Mikrofon girdisi ile konuşma tanıma**’yı seçin ve cihazınızın mikrofonuna İngilizce bir deyim ya da cümle söyleyin. Söyledikleriniz Konuşma hizmetine aktarılır ve metne dönüştürülür; metin pencerede görünür.
 
-    ![](media/sdk/qs-csharp-uwp-11-ui-result.png)
+    ![Konuşma tanıma kullanıcı arabiriminin ekran görüntüsü](media/sdk/qs-csharp-uwp-11-ui-result.png)
 
-[!INCLUDE [Download the sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
-Bu örnekte arayın `quickstart/csharp-uwp` klasör.
+[!INCLUDE [Download this sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
+`quickstart/csharp-uwp` klasöründe bu örneği arayın.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- [Konuşma Çevir](how-to-translate-speech-csharp.md)
-- [Akustik model özelleştirme](how-to-customize-acoustic-models.md)
-- [Dil modeli özelleştirme](how-to-customize-language-model.md)
+> [!div class="nextstepaction"]
+> [C# için Konuşma SDK'sını kullanarak konuşmadaki amacı tanıma](how-to-recognize-intents-from-speech-csharp.md)
+
+## <a name="see-also"></a>Ayrıca bkz.
+
+- [Konuşmayı çevirme](how-to-translate-speech-csharp.md)
+- [Akustik modelleri özelleştirme](how-to-customize-acoustic-models.md)
+- [Dil modellerini özelleştirme](how-to-customize-language-model.md)

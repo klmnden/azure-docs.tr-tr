@@ -1,49 +1,50 @@
 ---
-title: Azure'da özel konuşma hizmeti genel bakış | Microsoft Docs
-description: Özel konuşma hizmeti kullanıcıların konuşma modelleri için metne dönüştürme konuşma transkripsiyonu özelleştirme olanak sağlayan bir bulut tabanlı bir hizmettir.
+title: Özel Konuşma Tanıma Hizmeti nedir?
+titlesuffix: Azure Cognitive Services
+description: Özel Konuşma Tanıma Hizmeti, kullanıcıların konuşmayı metne dönüştürme transkripsiyonu için konuşma modellerini özelleştirmesine olanak sağlayan bulut tabanlı bir hizmettir.
 services: cognitive-services
 author: PanosPeriorellis
-manager: onano
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: custom-speech
-ms.topic: article
+ms.topic: overview
 ms.date: 02/07/2017
 ms.author: panosper
 ROBOTS: NOINDEX
-ms.openlocfilehash: da88989753069f7ba8ca2c2e2806a648f3df4e3c
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: MT
+ms.openlocfilehash: f90fc40a42806cfb002da2d9943eaa41736df4d7
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46948375"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47222752"
 ---
 # <a name="what-is-custom-speech-service"></a>Özel Konuşma Tanıma Hizmeti nedir?
 
-Özel konuşma hizmeti, kullanıcıların konuşma modelleri için metne dönüştürme konuşma transkripsiyonu özelleştirme olanağı sağlayan bir bulut tabanlı bir hizmettir.
-Özel konuşma hizmeti kullanmak için başvurmak [özel konuşma hizmeti portalı](https://cris.ai).
+Özel Konuşma Tanıma Hizmeti, kullanıcıların Konuşmayı Metne dönüştürme transkripsiyonu için konuşma modellerini özelleştirmesine olanak sağlayan bulut tabanlı bir hizmettir.
+Özel Konuşma Tanıma Hizmetini kullanmak için [Özel Konuşma Tanıma Hizmeti Portalı](https://cris.ai)’na bakın.
 
-Özel konuşma hizmeti, özel dil modelleri ve uygulamanız ve kullanıcılarınız için özel akustik modeller oluşturmanızı sağlar. Özel konuşma hizmeti için özel konuşma tanıma ve/veya metin veri yükleyerek, Microsoft'un mevcut durumu resim konuşma modelleri ile birlikte kullanılabilecek özel modeller oluşturabilirsiniz.
+Özel Konuşma Tanıma Hizmeti, uygulamanıza ve kullanıcınıza göre uyarlanmış, özelleştirilmiş dil modelleri ve akustik modeller oluşturmanıza olanak sağlar. Özel konuşma ve/veya metin verilerinizi Özel Konuşma Tanıma Hizmetine yükleyerek, Microsoft’un mevcut yeni konuşma modelleriyle birlikte kullanılabilecek özel modeller oluşturabilirsiniz.
 
-Örneğin, bir cep telefonu, tablet veya PC uygulamaya sesli etkileşim ekliyorsanız, uygulamanız için özellikle tasarlanmış bir metne dönüştürme konuşma uç noktası oluşturmak için akustik model Microsoft'un birlikte bir özel dil modeli oluşturabilirsiniz. Uygulamanız için belirli bir kullanıcı bir popülasyon kullanılarak veya belirli bir ortamda tasarlanmışsa, oluşturabilir ve bu hizmeti ile özel akustik model dağıtma.
+Örneğin, bir cep telefonu, tablet veya PC uygulamasına sesli etkileşim ekliyorsanız, uygulamanız için özel olarak tasarlanmış, konuşmayı metne dönüştürme uç noktası oluşturmak için Microsoft’un akustik modeliyle birleştirilebilen özel bir dil modeli oluşturabilirsiniz. Uygulamanız, belirli bir ortamda veya belirli bir kullanıcı popülasyonu tarafından kullanılmak üzere tasarlanmışsa, bu hizmetle özel bir akustik model oluşturabilir ve dağıtabilirsiniz.
 
 
 ## <a name="how-do-speech-recognition-systems-work"></a>Konuşma tanıma sistemleri nasıl çalışır?
-Konuşma tanıma sistemleri birlikte çalışan birkaç bileşenden oluşur. En önemli bileşenleri akustik model ve dil modeli ikisidir.
+Konuşma tanıma sistemleri, birlikte çalışan birçok bileşenden oluşur. En önemli bileşenlerin ikisi, akustik model ve dil modelidir.
 
-Akustik model bir dizi Fonem ya da ses birimi, belirli bir dilde birine kısa ses parçalarını etiketleyen bir sınıflandırıcıdır. Örneğin, "Okuma" sözcük "s p IY ch" dört Fonem oluşur. Bu sınıflandırmalar, saniyede yaklaşık 100 kez gerçekleştirilir.
+Akustik model, kısa ses parçalarını belirli bir dildeki çeşitli fonemlerden veya ses birimlerinden birine göre etiketleyen bir sınıflandırıcıdır. Örneğin, İngilizcedeki “speech” (konuşma) sözcüğü, “s p iy ch” şeklinde dört fonemden oluşur. Bu sınıflandırmalar, saniyede yaklaşık 100 kez gerçekleştirilir.
 
 Dil modeli, sözcük dizileri üzerine bir olasılık dağılımıdır. Dil modeli sistemin, söyleniş biçimi birbirine benzeyen söz dizileri arasından seçim yapmasına yardımcı olur. Sistem bu seçimi, söz dizisinin kullanılma olasılığına göre yapar. Örneğin, “konuşma tanıma” ile “konuş vatanıma” ifadelerinin söylenişi birbirine benzer, ancak birinci hipotezin gerçekleşme olasılığı çok daha yüksek olduğundan dil modeli, birinci modele daha yüksek bir puan atar.
 
-Akustik ve dil modelleri, eğitim verileri öğrenilen istatistiksel modelleridir. Uygulamalarında kullanıldığında karşılaştıkları konuşma benzer veriler eğitim sırasında gözlemlenen olduğunda sonuç olarak, bunlar en iyi şekilde çalışır. Microsoft konuşma metin altyapısındaki akustik ve dil modellerini metin ve konuşma devasa bir koleksiyon üzerinde geliştirilen ve durumu resim performans, akıllı üzerinde Cortana ile etkileşim kurma gibi yaygın kullanım senaryoları için telefon, tablet veya PC, Web'de sesli arama veya kısa mesaj bir arkadaşınıza dikte.
+Akustik ve dil modelleri, eğitim verilerinden öğrenilen istatistiksel modellerdir. Sonuç olarak, uygulamalarda kullanıldığında karşılaştıkları konuşma, eğitim sırasında gözlemlenen verilere benzer olduğunda en yüksek performansı gösterir. Microsoft Konuşmayı Metne Dönüştürme altyapısındaki akustik ve dil modelleri, devasa bir konuşma ve metin koleksiyonu üzerinde eğitilmiş olup web’de sesle arama yaparak veya metin iletilerini bir arkadaşa dikte ederek akıllı telefonunuzda, tabletinizde veya PC’nizde Cortana ile etkileşim kurma gibi en yaygın kullanım senaryoları için en iyi performansı sunar.
 
-## <a name="why-use-the-custom-speech-service"></a>Özel konuşma hizmeti neden kullanmalısınız?
-Microsoft Konuşmayı metne dönüştürme altyapısı birinci sınıf olsa da, yukarıda açıklanan senaryolardan doğru yöneliktir. Ancak, sesli sorguların belirli sözlük öğelerini ürün adları veya tipik konuşma dilinde nadiren gerçekleşen terminolojisinin içerecek şekilde uygulamanıza bekliyorsanız, dil modelini özelleştirerek geliştirilmiş performans elde edebilirsiniz.
+## <a name="why-use-the-custom-speech-service"></a>Özel Konuşma Tanıma Hizmeti neden kullanılmalıdır?
+Microsoft Konuşmayı Metne Dönüştürme altyapısı birinci sınıf olsa da, yukarıda açıklanan senaryolara yöneliktir. Ancak uygulamanıza yönelik sesli sorguların belirli sözlük öğelerini (ürün adları veya gündelik konuşmada nadiren kullanılan terimler) içermesini bekliyorsanız, dil modelini özelleştirerek daha iyi bir performans elde edebilirsiniz.
 
 Örneğin, MSDN’de sesli arama gerçekleştirmeye yönelik bir uygulama oluşturuyor olsaydınız “nesne odaklı”, “ad alanı” veya “dot net” gibi terimler, normal ses tanıma uygulamalarına kıyasla daha sık görülürdü. Dil modelinin özelleştirilmesi, sistemin bunu öğrenmesine olanak tanır.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Özel konuşma hizmeti kullanma hakkında daha fazla bilgi için bkz. [özel konuşma hizmeti portalı] (https://cris.ai).
+Özel Konuşma Tanıma Hizmetini kullanma hakkında daha fazla bilgi için bkz. [Özel Konuşma Tanıma Hizmeti Portalı] (https://cris.ai).
 
 * [Kullanmaya Başlama](cognitive-services-custom-speech-get-started.md)
 * [SSS](cognitive-services-custom-speech-faq.md)
