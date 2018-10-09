@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/13/2018
+ms.date: 10/03/2018
 ms.author: sethm
-ms.reviewer: jeffgo
-ms.openlocfilehash: abcf71f81d89f8b6a8c7b9523dd67592b8808baa
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.reviewer: ''
+ms.openlocfilehash: 785161d0f897b583c0c5536440afc1e8f05e736e
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45630296"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48854839"
 ---
 # <a name="download-marketplace-items-from-azure-to-azure-stack"></a>Azure Stack için Azure Market öğelerini indirme
 
@@ -121,15 +121,12 @@ Bu senaryo iki bölümü vardır:
 
    ```
 
-5. Dağıtım modülü içeri aktarın ve ardından aşağıdaki komutu çalıştırarak Aracı'nı başlatın. Değiştirin *hedef klasör yolu* Azure Marketi'nden de dosyaları depolamak için bir konum.   
+5. Dağıtım modülü içeri aktarın ve ardından aşağıdaki komutları çalıştırarak Aracı'nı başlatın. Değiştirin `Destination folder path` Azure Marketi'nden de dosyaları depolamak için bir konum.   
 
    ```PowerShell  
    Import-Module .\Syndication\AzureStack.MarketplaceSyndication.psm1
 
-   Sync-AzSOfflineMarketplaceItem `
-     -destination "Destination folder path" `
-     -AzureTenantID $AzureContext.Tenant.TenantId `
-     -AzureSubscriptionId $AzureContext.Subscription.Id  
+   Export-AzSOfflineMarketplaceItem -destination "Destination folder path"
    ```
 
 6. Araç çalıştığında Azure hesabı kimlik bilgilerinizi girmeniz istenir. Azure Stack kaydetmek için kullanılan Azure hesabınızda oturum açın. Oturum açma başarılı olduktan sonra aşağıdaki görüntüyle kullanılabilir Market öğelerinin listesi gibi bir ekran görürsünüz.  

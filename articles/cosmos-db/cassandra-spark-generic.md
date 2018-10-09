@@ -10,12 +10,12 @@ ms.devlang: spark-scala
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ankhanol
-ms.openlocfilehash: f2f5aebf32cf5860ca8fc32ab741177c6df15c60
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 38a972d39b845dca39bcc4dcf921c603301af582
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47227206"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48869661"
 ---
 # <a name="connect-to-azure-cosmos-db-cassandra-api-from-spark"></a>Spark'tan Azure Cosmos DB Cassandra API'sine bağlanma
 
@@ -24,7 +24,7 @@ Bu makalede bir dizi makale Azure Cosmos DB Cassandra API'sine tümleştirme spa
 ## <a name="prerequisites"></a>Önkoşullar
 * [Bir Azure Cosmos DB Cassandra API hesabı sağlayın.](create-cassandra-dotnet.md#create-a-database-account)
 
-* Spark ortam tercih ettiğiniz sağlama [[Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal) | [Azure HDInsight Spark](https://docs.microsoft.com/azure/hdinsight/spark/apache-spark-jupyter-spark-sql) | Diğer].
+* Spark ortam tercih ettiğiniz sağlama [Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal) | [Azure HDInsight Spark](https://docs.microsoft.com/azure/hdinsight/spark/apache-spark-jupyter-spark-sql) | [Diğer].
 
 ## <a name="dependencies-for-connectivity"></a>Bağlantı için bağımlılıklar
 * **Cassandra için Spark Bağlayıcısı:** Spark Bağlayıcısı Azure Cosmos DB Cassandra API'sine bağlanmak için kullanılır.  Tanımlamak ve bulunan bağlayıcı sürümünü kullanmanız [Maven central]( https://mvnrepository.com/artifact/com.datastax.spark/spark-cassandra-connector) Spark ortamınızı Spark ve Scala sürümleriyle uyumlu.
@@ -64,7 +64,7 @@ Aşağıdaki komutları cqlsh Azure CosmosDB Cassandra API'sine bağlanma ayrın
 ```bash
 export SSL_VERSION=TLSv1_2
 export SSL_VALIDATE=false
-cqlsh.py YOUR-COSMOSDB-ACCOUNT-NAME.cassandra.cosmosdb.windows-ppe.net 10350 -u YOUR-COSMOSDB-ACCOUNT-NAME -p YOUR-COSMOSDB-ACCOUNT-KEY --ssl
+cqlsh.py YOUR-COSMOSDB-ACCOUNT-NAME.cassandra.cosmosdb.azure.com 10350 -u YOUR-COSMOSDB-ACCOUNT-NAME -p YOUR-COSMOSDB-ACCOUNT-KEY --ssl
 ```
 
 ### <a name="1--azure-databricks"></a>1.  Azure Databricks

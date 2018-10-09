@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/06/2018
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: eac6c6d76bcc3b3d9cfeda7d8ca4e52e28ba9d8f
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 2d1a6bdb0cb53e3e58b4b4e8fed4bf29957d6489
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44369315"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48858086"
 ---
 Dengeli CPU / bellek oranı genel amaçlı sanal makine boyutları sağlar. Test ve geliştirme, küçük - orta boyutlu veritabanları, düşük - orta yoğunluklu trafiğe sahip web sunucuları için idealdir. Bu makalede, Vcpu, veri diskleri ve NIC yanı sıra bu gruplandırmaki boyutları için depolama aktarım hızı sayısı hakkında bilgi sağlar. 
 
@@ -26,6 +26,8 @@ Dengeli CPU / bellek oranı genel amaçlı sanal makine boyutları sağlar. Test
 - Dv3 serisi özellikleri 2,4 GHz Intel Xeon® E5-2673 v3 (Haswell) işlemci veya en son 2,3 GHz Intel XEON® E5-2673 v4 (Broadwell) işlemciyi sağlayarak daha iyi bir değer önerisi en genel amaçlı iş yükleri için hiper iş parçacıklı bir yapılandırmada,.  Disk ve ağ sınırlarını hiper iş parçacıklı Git ile hizalamak için çekirdek başına temelinde ayarlanmış durumdayken (Başlangıç ~3.5 GiB/vCPU için 4 GiB/vCPU) bellek genişletildi.  Dv3 artık yüksek bellek VM boyutları D/Dv2 ailelerinin sahipse, bu yeni Ev3 ailesi için taşınmıştır.
 
   D serisi kullanım örnekleri, kurumsal düzeyde uygulamalar, ilişkisel veritabanları, bellek içi önbelleğe alma ve analiz içerir. 
+  
+- [DC serisi](#dc-series) veri bütünlüğü ve gizliliği koruma ve genel bulutta işlenirken kod yardımcı olabilecek bir Azure sanal makineler'de yeni bir seridir. Bu makineler en son nesil 3.7 GHz tarafından yedeklenen SGX teknolojisine sahip Intel XEON E - 2176G İşlemci. Bu makineler, Intel Turbo Boost Technology ile 4.7 GHz'e varan gidebilirsiniz. DC serisi örnekleri kullanımda olduğu sırada, kod ve verileri korumak için güvenli kuşatma dayalı uygulamalar oluşturmak müşterilerin etkinleştir
 
 ## <a name="b-series"></a>B serisi
 
@@ -138,6 +140,7 @@ Premium Depolama: Desteklenmez
 
 Premium depolama önbelleğe alma: Desteklenmez
 
+
 | Boyut            | Sanal işlemci | Bellek: GiB | Geçici depolama (SSD) GiB | Maksimum geçici depolama aktarım hızı: IOPS / Okuma MB/sn / Yazma MB/sn | Maksimum veri diski/aktarım hızı: IOPS | Maks NIC / beklenen ağ bant genişliği (MB/sn) | 
 |-----------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|
 | Standard_A1_v2  | 1         | 2           | 10             | 1000/20/10                                           | 2/2x500               | 2 / 250                 |
@@ -149,6 +152,22 @@ Premium depolama önbelleğe alma: Desteklenmez
 | Standard_A8m_v2 | 8         | 64          | 80             | 8000/160/80                                          | 16/16x500             | 8 / 2000                     |
 
 <br>
+
+
+## <a name="dc-series"></a>DC serisi
+
+Premium Depolama: desteklenir
+
+Premium depolama önbelleğe alma: desteklenir
+
+
+
+| Boyut          | Sanal işlemci | Bellek: GiB | Geçici depolama (SSD) GiB | Maksimum veri diskleri | Maksimum önbelleğe alınmış ve geçici depolama aktarım hızı: IOPS-MB/sn (önbellek boyutu GiB biriminde) | Maksimum önbelleğe alınmamış disk aktarım hızı: IOPS-MB/sn | Maks NIC / beklenen ağ bant genişliği (MB/sn) |
+|---------------|------|-------------|------------------------|----------------|-------------------------------------------------------------------------|-------------------------------------------|----------------------------------------------|
+| Standard_DC2s | 2    | 8           | 100                    | 2              | 4000 / 32 (43)                                                          | 3200/48 boyutundaki                                  | 2 / 1500                                     |
+| Standard_DC4s | 4    | 16          | 200                    | 4              | 8000 / 64 (86)                                                          | 6400 /96                                  | 2 / 3000                                     |
+
+
 
 
 
