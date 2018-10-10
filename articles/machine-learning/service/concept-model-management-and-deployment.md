@@ -9,12 +9,12 @@ ms.reviewer: jmartens
 author: hjerez
 ms.author: hjerez
 ms.date: 09/24/2018
-ms.openlocfilehash: afba483172bc34b9d54afc3af755f0967affc875
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: b09ef259d73744612c41adc4fc40ea0235da9bcb
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48239175"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48885076"
 ---
 # <a name="manage-deploy-and-monitor-models-with-azure-machine-learning-service"></a>Yönetin, dağıtın ve modeller Azure Machine Learning hizmeti ile izleme
 
@@ -71,7 +71,7 @@ Aşağıdakiler için kendi görüntülerinizi dağıtabilirsiniz [dağıtım he
 * Azure FPGA makineler
 * Azure IOT Edge cihazları
 
-Hizmetinizi dağıtılan gibi çıkarım isteği otomatik olarak yük dengeli ve isteğe bağlı herhangi bir ani artış karşılamak için küme Ölçeklendirildi. [Hizmetinizi hakkında telemetri](https://docs.microsoft.com/python/api/azureml-telemetry/azureml.telemetry?view=azure-ml-py) çalışma alanınızla ilişkili Azure Application Insights hizmetine yakalanabilir.
+Hizmetinizi dağıtılan gibi çıkarım isteği otomatik olarak yük dengeli ve isteğe bağlı herhangi bir ani artış karşılamak için küme Ölçeklendirildi. [Hizmetinizi hakkında telemetri tutulabilir](how-to-enable-app-insights.md) çalışma alanınızla ilişkili Azure Application Insights hizmetine.
 
 ## <a name="step-4-monitor-models-and-collect-data"></a>4. adım: modelleri izlemek ve veri toplama
 

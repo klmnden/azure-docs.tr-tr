@@ -12,59 +12,79 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 12/13/2017
+ms.date: 09/27/2018
 ms.author: cynthn
-ms.openlocfilehash: 2820dcabf042d7463f9776b42f277a0457caf3b6
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: cac17403425f53593d4f48692b4216a92c8624e3
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37929024"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48884394"
 ---
 # <a name="how-to-open-ports-to-a-virtual-machine-with-the-azure-portal"></a>Azure portalı ile bir sanal makineye bağlantı noktaları açma
 [!INCLUDE [virtual-machines-common-nsg-quickstart](../../../includes/virtual-machines-common-nsg-quickstart.md)]
 
-## <a name="quick-commands"></a>Hızlı komutlar
-Ayrıca [Azure PowerShell kullanarak aşağıdaki adımları gerçekleştirmek](nsg-quickstart-powershell.md).
 
-İlk olarak, ağ güvenlik grubu oluşturun. Portalda bir kaynak grubu seçin, **Ekle**öğesini arayın ve seçin **ağ güvenlik grubu**:
+## <a name="sign-in-to-azure"></a>Azure'da oturum açma
+https://portal.azure.com adresinden Azure portalında oturum açın.
 
-![Ağ güvenlik grubu Ekle](./media/nsg-quickstart-portal/add-nsg.png)
+## <a name="create-a-network-security-group"></a>Ağ güvenlik grubu oluşturma
 
-Ağ güvenlik grubu için bir ad girin, seçin veya bir kaynak grubu oluşturun ve bir konum seçin. Seçin **Oluştur** tamamlandığında:
+1. İçin arama yapın ve sanal makine için kaynak grubunu seçin, **Ekle**öğesini arayın ve seçin **ağ güvenlik grubu**.
 
-![Ağ güvenlik grubu oluşturma](./media/nsg-quickstart-portal/create-nsg.png)
+2. **Oluştur**’u seçin.
 
-Yeni ağ güvenlik grubunuzu seçin. 'Gelen güvenlik kuralları' seçip **Ekle** bir kural oluşturmak için:
+    **Ağ güvenlik grubu oluştur** penceresi açılır.
 
-![Bir gelen kuralı ekleyin](./media/nsg-quickstart-portal/add-inbound-rule.png)
+    ![Ağ güvenlik grubu oluşturma](./media/nsg-quickstart-portal/create-nsg.png)
 
-Trafiğe izin veren bir kural oluşturmak için:
+2. Ağ güvenlik grubu için bir ad girin. 
 
-- Seçin **temel** düğmesi. Varsayılan olarak, **Gelişmiş** penceresi altında bazı ek yapılandırma seçeneklerini gibi belirli kaynak IP Blok veya bağlantı noktası aralığını tanımlamak üzere olarak sağlar.
-- Ortak bir seçin **hizmet** aşağı açılan menüden gibi *HTTP*. Belirleyebilirsiniz *özel* kullanmak için belirli bir bağlantı sağlamak için. 
-- İsterseniz öncelik veya adını değiştirin. Öncelik, kuralları uygulanır - sırası alt sayısal değer etkiler, kural önce uygulanır.
-- Hazır olduğunuzda seçin **Tamam** kuralı oluşturmak için:
+3. Seçin veya bir kaynak grubu oluşturun ve sonra bir konum seçin.
 
-![Bir gelen kuralı oluşturma](./media/nsg-quickstart-portal/create-inbound-rule.png)
+4. Seçin **Oluştur** ağ güvenlik grubu oluşturun.
 
-Son adımınız, ağ güvenlik grubunuzu bir alt ağ veya belirli bir ağ arabirimine ilişkilendirin sağlamaktır. Şimdi ağ güvenlik grubu bir alt ağı ile ilişkilendirin. Seçin **alt ağlar**, ardından **ilişkilendirmek**:
+## <a name="create-an-inbound-security-rule"></a>Bir gelen güvenlik kuralı oluşturma
 
-![Bir ağ güvenlik grubu bir alt ağı ile ilişkilendirin](./media/nsg-quickstart-portal/associate-subnet.png)
+1. Yeni ağ güvenlik grubunuzu seçin. 
 
-Sanal ağ seçin ve ardından uygun alt ağ seçin:
+2. Seçin **gelen güvenlik kuralları**, ardından **Ekle**.
 
-![Bir ağ güvenlik grubu, sanal ağ ile ilişkilendirme](./media/nsg-quickstart-portal/select-vnet-subnet.png)
+    ![Gelen Kuralı Ekle](./media/nsg-quickstart-portal/add-inbound-rule.png)
 
-80 numaralı bağlantı noktasında trafiğe izin verir ve bir alt ağla ilişkili bir gelen kuralı oluşturulan bir ağ güvenlik grubu oluşturdunuz. Bu alt ağa bağlanma herhangi bir VM bağlantı noktası 80 üzerinde erişilebilir.
+3. **Gelişmiş**'i seçin. 
 
-## <a name="more-information-on-network-security-groups"></a>Ağ güvenlik grupları hakkında daha fazla bilgi
-Hızlı komutlar Burada, sanal makinenizde akan trafikle ayarlayıp çalıştırmaya başlamasına olanak tanır. Ağ güvenlik grupları, çok sayıda harika özellik ve kaynaklarınıza erişimi denetlemek için ayrıntı düzeyi sağlar. Daha fazla bilgi edinebilirsiniz [oluşturma bir ağ güvenlik grubu ve ACL kurallarını burada](../../virtual-network/tutorial-filter-network-traffic.md).
+4. Ortak bir seçin **hizmet** aşağı açılan menüden gibi **HTTP**. Belirleyebilirsiniz **özel** kullanmak için belirli bir bağlantı noktası sağlamak istiyorsanız. 
 
-Yüksek oranda kullanılabilir web uygulamaları için Vm'lerinizi bir Azure yük dengeleyici arkasında yerleştirmeniz gerekir. Yük Dengeleyici trafik filtreleme sağlar bir ağ güvenlik grubu Vm'lerle trafiği dağıtır. Daha fazla bilgi için [nasıl yükleneceğini yüksek oranda kullanılabilir bir uygulama oluşturmak için azure'da Linux sanal makineleri Bakiye](tutorial-load-balancer.md).
+5. İsterseniz değiştirme **öncelik** veya **adı**. Öncelik kuralları uygulanma sırası etkiler: sayısal kural uygulandığında değer azaldıkça, daha önce.
+
+6. Seçin **Ekle** kuralı oluşturmak için.
+
+## <a name="associate-your-network-security-group-with-a-subnet"></a>Ağ güvenlik grubunuzu bir alt ağı ile ilişkilendirin
+
+Gerçekleştirmeniz gereken son adım, ağ güvenlik grubunuzu bir alt ağ ile veya belirli bir ağ arabirimiyle ilişkilendirmektir. Bu örnekte, biz ağ güvenlik grubu bir alt ağ ile ilişkilendireceksiniz. 
+
+1. Seçin **alt ağlar**, ardından **ilişkilendirmek**.
+
+    ![Bir ağ güvenlik grubu bir alt ağı ile ilişkilendirin](./media/nsg-quickstart-portal/associate-subnet.png)
+
+2. Sanal ağınızı ve ardından uygun alt ağı seçin.
+
+    ![Bir ağ güvenlik grubu, sanal ağ ile ilişkilendirme](./media/nsg-quickstart-portal/select-vnet-subnet.png)
+
+    Bu alt ağa bağlanma herhangi bir VM, artık bağlantı noktası 80 üzerinde erişilebilir.
+
+## <a name="additional-information"></a>Ek bilgiler
+
+Ayrıca [Azure PowerShell kullanarak bu makaledeki adımları gerçekleştirmek](nsg-quickstart-powershell.md).
+
+Bu makalede açıklanan komutları VM'nize akan trafiği hızlı şekilde ulaşmasını sağlar. Ağ güvenlik grupları, çok sayıda harika özellik ve kaynaklarınıza erişimi denetlemek için ayrıntı düzeyi sağlar. Daha fazla bilgi için [bir ağ güvenlik grubu ile ağ trafiğini filtreleme](../../virtual-network/tutorial-filter-network-traffic.md).
+
+Yüksek oranda kullanılabilir web uygulamaları için Vm'lerinizi bir Azure yük dengeleyici arkasında yerleştirmeyi göz önünde bulundurun. Yük Dengeleyici, trafiği filtreleme sağlayan bir ağ güvenlik grubu ile VM'ler, trafiği dağıtır. Daha fazla bilgi için [Yük Dengelemesi yüksek oranda kullanılabilir bir uygulama oluşturmak için azure'da Windows sanal makineleri](tutorial-load-balancer.md).
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Bu örnekte, HTTP trafiğine izin veren basit bir kuralı oluşturuldu. Aşağıdaki makalelerde daha ayrıntılı ortamları oluşturma hakkında bilgi bulabilirsiniz:
+Bu makalede, bağlantı noktası 80 üzerinde HTTP trafiğine izin verir ve ardından bu kural için bir alt ağla ilişkili bir gelen kuralı oluşturulan bir ağ güvenlik grubu oluşturulur. 
 
-* [Azure Resource Manager'a genel bakış](../../azure-resource-manager/resource-group-overview.md)
-* [Bir ağ güvenlik grubu nedir?](../../virtual-network/security-overview.md)
+Aşağıdaki makalelerde daha ayrıntılı ortamları oluşturma hakkında bilgi bulabilirsiniz:
+- [Azure Resource Manager'a genel bakış](../../azure-resource-manager/resource-group-overview.md)
+- [Güvenlik grupları](../../virtual-network/security-overview.md)

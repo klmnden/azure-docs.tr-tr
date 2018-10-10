@@ -1,6 +1,6 @@
 ---
 title: Hızlı Başlangıç - Azure Active Directory koşullu erişim tarafından korunan bulut uygulamaları erişmeden önce kabul edilmesi için kullanım koşullarını gerektiren | Microsoft Docs
-description: Bu hızlı başlangıçta, seçili bulut uygulamalarına erişim tarafından tarafından Azure Active Directory koşullu erişim sağlanmadan önce kullanım koşullarınızı kabul edildiğini nasıl gerektirebilir öğrenin.
+description: Bu hızlı başlangıçta, Azure Active Directory koşullu erişim tarafından seçilen bulut uygulamalarına erişim sağlanmadan önce kullanım koşullarınızı kabul edildiğini nasıl gerektirebilir öğrenin.
 services: active-directory
 keywords: uygulamalar, Azure AD ile koşullu erişim, şirket kaynaklarına koşullu erişim ilkeleri, kullanım koşullarını güvenli erişim için koşullu erişim
 documentationcenter: ''
@@ -16,12 +16,12 @@ ms.workload: identity
 ms.date: 06/13/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 2b06dcfd4bdeb68d114c0c6dd57134fadfef57b5
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: e121cfddf8dc598771d630e011b4410217f5e92b
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45605853"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48901898"
 ---
 # <a name="quickstart-require-terms-of-use-to-be-accepted-before-accessing-cloud-apps"></a>Hızlı Başlangıç: Bulut uygulamaları erişmeden önce kabul edilmesi için kullanım koşullarını gerektirir 
 
@@ -193,7 +193,7 @@ Bu bölümde, gerekli koşullu erişim ilkesi oluşturma işlemi gösterilmekted
 
 ## <a name="evaluate-a-simulated-sign-in"></a>Bir sanal oturum değerlendir
 
-Koşullu erişim ilkenizi yapılandırdığınıza göre büyük olasılıkla beklenen şekilde çalışıp çalışmadığını bilmek ister. İlk adım, koşullu erişim ilkesi durum aracı bir oturum açma, test kullanıcının benzetimini yapmak için kullanın. Benzetim etkisi bu oturum açma ilkelerinizi üzerinde sahip ve bir simülasyon rapor oluşturan tahmin eder.  
+Koşullu erişim ilkenizi yapılandırdığınıza göre şimdi beklenen şekilde çalışıp çalışmadığını kontrol etmek isteyebilirsiniz. İlk adım, koşullu erişim ilkesi durum aracı bir oturum açma, test kullanıcının benzetimini yapmak için kullanın. Benzetim, bu oturum açma işleminin ilkeleriniz üzerindeki etkisini tahmin eder ve bir benzetim raporu oluşturur.  
 
 İlke değerlendirmesi aracı, ayarlarsanız ne başlatmak için:
 

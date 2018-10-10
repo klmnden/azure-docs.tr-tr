@@ -2,20 +2,20 @@
 title: Azure veritabanı geçiş Hizmeti'ne genel bakış | Microsoft Docs
 description: Birçok veritabanı kaynaklarından sorunsuz geçişler için Azure veri platformu sağlayan Azure veritabanı geçiş hizmeti, genel bakış.
 services: database-migration
-author: HJToland3
+author: pochiraju
 ms.author: rajpo
 manager: ''
 ms.reviewer: douglasl
 ms.service: database-migration
 ms.workload: data-services
 ms.topic: article
-ms.date: 10/05/2018
-ms.openlocfilehash: 44c536d3633286f8279cda89dd95cd7b29a81eb7
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.date: 10/09/2018
+ms.openlocfilehash: 064d7ca2f544dbf1c968310842e322d8c0db2ca1
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48803860"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48884451"
 ---
 # <a name="what-is-the-azure-database-migration-service"></a>Azure veritabanı geçiş hizmeti nedir?
 Azure veritabanı geçiş hizmeti, birden çok veritabanı kaynağını sorunsuz geçiş için en düşük kapalı kalma süresi (çevrimiçi geçiş) Azure Data platformlarına sağlamak için tasarlanmış tam olarak yönetilen bir hizmettir.

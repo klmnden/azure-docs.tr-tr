@@ -3,17 +3,17 @@ title: Azure AD DS kullanarak bir HDInsight kümesi Kurumsal güvenlik paketi il
 description: Ayarlama ve Azure Active Directory Domain Services'ı kullanarak bir HDInsight Kurumsal güvenlik paketi küme yapılandırma hakkında bilgi edinin.
 services: hdinsight
 ms.service: hdinsight
-author: omidm1
-ms.author: omidm
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: hrasheed
 ms.topic: conceptual
-ms.date: 10/3/2018
-ms.openlocfilehash: 84ee24b9002237d0993a30190944dbd6dd190ac8
-ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
+ms.date: 10/9/2018
+ms.openlocfilehash: c56158a5e8df2e8781ec8e4431c75beadd154297
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48784960"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48901660"
 ---
 # <a name="configure-a-hdinsight-cluster-with-enterprise-security-package-by-using-azure-active-directory-domain-services"></a>Azure Active Directory Domain Services'ı kullanarak bir HDInsight kümesi Kurumsal güvenlik paketi ile yapılandırma
 
@@ -25,6 +25,9 @@ Bu makalede, Azure Active Directory etki alanı Hizmetleri (Azure AD DS) kullana
 >ESP HDI 3.6 için Hadoop Spark ve etkileşimli olarak GA ' dir. ESP HBase ve Kafka küme türleri için Önizleme aşamasındadır.
 
 ## <a name="enable-azure-ad-ds"></a>Azure'ı etkinleştirme AD DS
+
+> [!NOTE]
+> Kiracı yöneticileri yalnızca bir Azure AD DS'yi örneği oluşturmak için ayrıcalıklara sahip. Küme depolama, Azure Data Lake Store (ADLS) olup olmadığını Gen1 veya 2. nesil, devre dışı multi-Factor Authentication (MFA) kümeye erişen kullanıcılar için. Küme depolama alanı Azure Blob Storage (WASB) ise, mfa'yı devre dışı bırakmayın.
 
 Bir HDInsight kümesi ile ESP oluşturabilmeniz için önce AzureAD DS etkinleştirme önkoşuldur. Daha fazla bilgi için [etkinleştirme Azure Active Directory etki alanı Azure portalını kullanarak Hizmetleri](../../active-directory-domain-services/active-directory-ds-getting-started.md). 
 
@@ -40,8 +43,7 @@ Azure AD DS sanal ağı seçerek bu özel IP'ler kullanılacak DNS sunucuların�
 
 ![VNET DNS yapılandırması güncelleştiriliyor](./media/apache-domain-joined-configure-using-azure-adds/hdinsight-aadds-vnet-configuration.png)
 
-> [!NOTE]
-> Kiracı yöneticileri yalnızca bir Azure AD DS'yi örneği oluşturmak için ayrıcalıklara sahip. Multi-Factor authentication, kümeye erişen kullanıcılar için devre dışı bırakılması gerekir.
+
 
 Güvenli LDAP etkinleştirilirken sertifika konu adında bir etki alanı adı veya konu alternatif adı yerleştirin. Örneğin, etki alanı adınızı ise *contoso.com*, bu tam adı, sertifika konu adı veya konu diğer adı var olduğundan emin olun. Daha fazla bilgi için [güvenli LDAP yapılandırma için bir Azure AD-DS yönetilen etki alanı](../../active-directory-domain-services/active-directory-ds-admin-guide-configure-secure-ldap.md).
 

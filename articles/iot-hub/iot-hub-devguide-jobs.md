@@ -6,14 +6,14 @@ manager: timlt
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 01/29/2018
+ms.date: 10/09/2018
 ms.author: dobett
-ms.openlocfilehash: cb6afd04dacf3ae5c3d88293e2b96e180e69c33d
-ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
+ms.openlocfilehash: b9ad7a0e1947c9ca95b343a443688e976c306f95
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47585467"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48884233"
 ---
 # <a name="schedule-jobs-on-multiple-devices"></a>Birden fazla cihazda işleri zamanlama
 
@@ -29,82 +29,82 @@ Planlamak ve ilerlemeyi izlemek gerektiğinde aşağıdaki etkinliklerin herhang
 
 ## <a name="job-lifecycle"></a>İş yaşam döngüsü
 
-İşleri çözüm arka ucu tarafından başlatılan ve IOT Hub tarafından korunur. Hizmet kullanıma yönelik bir URI aracılığıyla bir işi başlatabilirsiniz (`{iot hub}/jobs/v2/{device id}/methods/<jobID>?api-version=2016-11-14`) ve hizmeti kullanıma yönelik bir URI aracılığıyla yürütülürken bir işin ilerlemesi için sorgu (`{iot hub}/jobs/v2/<jobId>?api-version=2016-11-14`). Bir iş başlatıldıktan sonra işleri çalıştırma durumunu yenilemek için bir iş sorgusu çalıştırın.
+İşleri çözüm arka ucu tarafından başlatılan ve IOT Hub tarafından korunur. Hizmet kullanıma yönelik bir URI aracılığıyla bir işi başlatabilirsiniz (`PUT https://<iot hub>/jobs/v2/<jobID>?api-version=2018-06-30`) ve hizmeti kullanıma yönelik bir URI aracılığıyla yürütülürken bir işin ilerlemesi için sorgu (`GET https://<iot hub>/jobs/v2/<jobID?api-version=2018-06-30`). Bir iş başlatıldıktan sonra işleri çalıştırma durumunu yenilemek için bir iş sorgusu çalıştırın.
 
 > [!NOTE]
 > Bir işi başlattığınızda, özellik adları ve değerleri yalnızca US-ASCII yazdırılabilir içerebilir alfasayısal karakterler, aşağıdaki, tüm hariç: `$ ( ) < > @ , ; : \ " / [ ] ? = { } SP HT`
-> 
 
 ## <a name="jobs-to-execute-direct-methods"></a>Doğrudan yöntemler çalıştırılacak işleri
 
 Aşağıdaki kod parçacığını yürütmeye yönelik HTTPS 1.1 istek ayrıntılarını gösterir bir [doğrudan yöntemini](iot-hub-devguide-direct-methods.md) bir iş kullanarak cihazları bir dizi:
 
-    ```
-    PUT /jobs/v2/<jobId>?api-version=2016-11-14
+```
+PUT /jobs/v2/<jobId>?api-version=2018-06-30
 
-    Authorization: <config.sharedAccessSignature>
-    Content-Type: application/json; charset=utf-8
-    Request-Id: <guid>
-    User-Agent: <sdk-name>/<sdk-version>
+Authorization: <config.sharedAccessSignature>
+Content-Type: application/json; charset=utf-8
+Request-Id: <guid>
+User-Agent: <sdk-name>/<sdk-version>
 
-    {
-        jobId: '<jobId>',
-        type: 'scheduleDirectRequest', 
-        cloudToDeviceMethod: {
-            methodName: '<methodName>',
-            payload: <payload>,                 
-            responseTimeoutInSeconds: methodTimeoutInSeconds 
-        },
-        queryCondition: '<queryOrDevices>', // query condition
-        startTime: <jobStartTime>,          // as an ISO-8601 date string
-        maxExecutionTimeInSeconds: <maxExecutionTimeInSeconds>        
-    }
-    ```
+{
+    "jobId": "<jobId>",
+    "type": "scheduleDirectMethod",
+    "cloudToDeviceMethod": {
+        "methodName": "<methodName>",
+        "payload": <payload>,
+        "responseTimeoutInSeconds": methodTimeoutInSeconds
+    },
+    "queryCondition": "<queryOrDevices>", // query condition
+    "startTime": <jobStartTime>,          // as an ISO-8601 date string
+    "maxExecutionTimeInSeconds": <maxExecutionTimeInSeconds>
+}
+```
 
 Sorgu koşulu, bir tek bir cihaz kimliği veya cihaz aşağıdaki örneklerde gösterildiği gibi kimlikleri listesi de olabilir:
 
 ```
-queryCondition = "deviceId = 'MyDevice1'"
-queryCondition = "deviceId IN ['MyDevice1','MyDevice2']"
-queryCondition = "deviceId IN ['MyDevice1']
+"queryCondition" = "deviceId = 'MyDevice1'"
+"queryCondition" = "deviceId IN ['MyDevice1','MyDevice2']"
+"queryCondition" = "deviceId IN ['MyDevice1']"
 ```
+
 [IOT Hub sorgu dili](iot-hub-devguide-query-language.md) ek ayrıntılı IOT Hub sorgu dili kapsar.
 
 ## <a name="jobs-to-update-device-twin-properties"></a>Cihaz ikizi özelliklerini güncelleştirmek için işlemler
 
 Aşağıdaki kod parçacığında, bir iş kullanarak cihaz ikizi özelliklerini güncelleştirmek için HTTPS 1.1 istek ayrıntılarını gösterir:
 
-    ```
-    PUT /jobs/v2/<jobId>?api-version=2016-11-14
-    
-    Authorization: <config.sharedAccessSignature>
-    Content-Type: application/json; charset=utf-8
-    Request-Id: <guid>
-    User-Agent: <sdk-name>/<sdk-version>
+```
+PUT /jobs/v2/<jobId>?api-version=2018-06-30
 
-    {
-        jobId: '<jobId>',
-        type: 'scheduleTwinUpdate', 
-        updateTwin: <patch>                 // Valid JSON object
-        queryCondition: '<queryOrDevices>', // query condition
-        startTime: <jobStartTime>,          // as an ISO-8601 date string
-        maxExecutionTimeInSeconds: <maxExecutionTimeInSeconds>        // format TBD
-    }
-    ```
+Authorization: <config.sharedAccessSignature>
+Content-Type: application/json; charset=utf-8
+Request-Id: <guid>
+User-Agent: <sdk-name>/<sdk-version>
+
+{
+    "jobId": "<jobId>",
+    "type": "scheduleTwinUpdate",
+    "updateTwin": <patch>                 // Valid JSON object
+    "queryCondition": "<queryOrDevices>", // query condition
+    "startTime": <jobStartTime>,          // as an ISO-8601 date string
+    "maxExecutionTimeInSeconds": <maxExecutionTimeInSeconds>
+}
+```
 
 ## <a name="querying-for-progress-on-jobs"></a>Devam eden işler üzerinde sorgulama
 
 Aşağıdaki kod parçacığı için işleri sorgulamak için HTTPS 1.1 istek ayrıntılarını gösterir:
 
-    ```
-    GET /jobs/v2/query?api-version=2016-11-14[&jobType=<jobType>][&jobStatus=<jobStatus>][&pageSize=<pageSize>][&continuationToken=<continuationToken>]
+```
+GET /jobs/v2/query?api-version=2018-06-30[&jobType=<jobType>][&jobStatus=<jobStatus>][&pageSize=<pageSize>][&continuationToken=<continuationToken>]
 
-    Authorization: <config.sharedAccessSignature>
-    Content-Type: application/json; charset=utf-8
-    Request-Id: <guid>
-    User-Agent: <sdk-name>/<sdk-version>
-    ```
-    
+Authorization: <config.sharedAccessSignature>
+Content-Type: application/json; charset=utf-8
+Request-Id: <guid>
+User-Agent: <sdk-name>/<sdk-version>
+```
+
 Yanıttan continuationToken sağlanır.
 
 Her bir cihaz kullanarak iş yürütme durumunu sorgulayabilirsiniz [cihaz ikizleri, işler ve ileti yönlendirme için IOT Hub sorgu dili](iot-hub-devguide-query-language.md).

@@ -1,20 +1,21 @@
 ---
-title: Proje akustik - Bilişsel hizmetler ile çalışmaya başlama
+title: Proje akustik ile çalışmaya başlama
+titlesuffix: Azure Cognitive Services
 description: Bu Hızlı Başlangıç Kılavuzu, nasıl içinde Unity projenizde eklenti tümleştirme, hazırlama, Sahne ve akustik ses kaynakları için geçerlidir gösterilmektedir.
 services: cognitive-services
 author: kegodin
-manager: noelc
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: acoustics
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/17/2018
 ms.author: kegodin
-ms.openlocfilehash: f07fa60555f1bf866d39cb69c4824cfd93dc54f8
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: 62b6b40e6289ccca92c0a92d8bb7d0489dd44246
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48869457"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48902952"
 ---
 # <a name="getting-started-with-project-acoustics"></a>Proje akustik ile çalışmaya başlama
 Bu Hızlı Başlangıç Kılavuzu, nasıl içinde Unity projenizde eklenti tümleştirme, hazırlama, Sahne ve akustik ses kaynakları için geçerlidir gösterilmektedir. Bu hızlı başlangıçta ilk oluşturmanız gerekecek bir [Azure batch hesabı](create-azure-account.md). Bu kılavuz, Unity bazı bilindiğini varsayar.

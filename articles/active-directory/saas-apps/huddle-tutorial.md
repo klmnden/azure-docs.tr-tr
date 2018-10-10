@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/13/2018
+ms.date: 10/08/2018
 ms.author: jeedes
-ms.openlocfilehash: fc4ea2538ebe5876e8f3572ab8ad76c4b3b44b8c
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: 050a5a210ab10a557b149513a0416b188f4618ba
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45634345"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48885912"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-huddle"></a>Öğretici: Azure Active Directory Huddle ile tümleştirme
 
@@ -61,7 +61,7 @@ Azure AD'de Huddle tümleştirmesini yapılandırmak için Huddle Galeriden yön
 
 **Galeriden Huddle eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
+1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
     ![Active Directory][1]
 
@@ -73,11 +73,7 @@ Azure AD'de Huddle tümleştirmesini yapılandırmak için Huddle Galeriden yön
 
     ![Uygulamalar][3]
 
-4. Arama kutusuna **Huddle**.
-
-    ![Bir Azure AD test kullanıcısı oluşturma](./media/huddle-tutorial/tutorial_huddle_search.png)
-
-5. Sonuçlar panelinde seçin **Huddle**ve ardından **Ekle** uygulama eklemek için Ekle düğmesine.
+4. Arama kutusuna **Huddle**. Seçin **Huddle** sonuçlar paneli ve ardından **Ekle** uygulama eklemek için Ekle düğmesine.
 
     ![Bir Azure AD test kullanıcısı oluşturma](./media/huddle-tutorial/tutorial_huddle_addfromgallery.png)
 
@@ -105,34 +101,43 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve H
 
     ![Çoklu oturum açmayı yapılandırın][4]
 
-2. Üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** çoklu oturum açmayı etkinleştirmek için.
+2. Tıklayın **değişiklik çoklu oturum açma modunu** seçmek için ekranın en üstünde **SAML** modu.
 
-    ![Çoklu oturum açmayı yapılandırın](./media/huddle-tutorial/tutorial_huddle_samlbase.png)
+    ![Çoklu oturum açmayı yapılandırın](./media/huddle-tutorial/tutorial_general_300.png)
 
-3. Üzerinde **Huddle etki alanı ve URL'ler** bölümünde, uygulamada yapılandırmak istiyorsanız aşağıdaki adımları gerçekleştirin **IDP** başlatılan modu:
+3. Üzerinde **tek bir oturum açma yönteminizi seçmeniz** iletişim kutusunu tıklatın **seçin** için **SAML** modu, çoklu oturum açmayı etkinleştirmek için.
+
+    ![Çoklu oturum açmayı yapılandırın](./media/huddle-tutorial/tutorial_general_301.png)
+
+4. Üzerinde **yukarı çoklu oturum açma SAML ile ayarlanmış** sayfasında **Düzenle** açmak için simgeyi **temel SAML yapılandırma** iletişim.
+
+    ![Çoklu oturum açmayı yapılandırın](./media/huddle-tutorial/tutorial_general_302.png)
+
+5. Üzerinde **temel SAML yapılandırma** bölümü, uygulamada yapılandırmak istiyorsanız, aşağıdaki adımları gerçekleştirin **IDP** intiated modu:
 
     > [!NOTE]
     > Huddle örneğinizin aşağıdaki girdiğiniz etki alanından otomatik olarak algılanır.
 
     ![Etki alanı ve URL'ler tek oturum açma bilgileri huddle](./media/huddle-tutorial/tutorial_huddle_url.png)
 
-    a. İçinde **tanımlayıcı** metin herhangi biri şu biçimi kullanarak URL'yi yazın:
+    a. İçinde **tanımlayıcı** metin kutusuna bir URL:
 
     | | |
     |--|--|
-    | `https://<customsubdomain>.huddle.net`|
-    | `https://my.huddle.net` |
+    | `https://login.huddle.net`|
+    | `https://login.huddle.com`|
     | |
 
-    b. İçinde **yanıt URL'si** metin herhangi biri şu biçimi kullanarak URL'yi yazın:
+    b. İçinde **yanıt URL'si** metin kutusuna bir URL:
 
     | | |
     |--|--|
-    | `https://<customsubdomain>.huddle.net/saml/idp-initiated-sso`|
-    | `https://my.huddle.net/saml/idp-initiated-sso`|
+    | `https://login.huddle.net/saml/browser-sso`|
+    | `https://login.huddle.com/saml/browser-sso`|
+    | `https://login.huddle.com/saml/idp-initiated-sso`|
     | |
 
-4. Denetleme **Gelişmiş URL ayarlarını göster** ve uygulamada yapılandırmak istiyorsanız, aşağıdaki adımı uygulayın **SP** başlatılan modu:
+    c. Tıklayın **ek URL'lerini ayarlayın** ve uygulamada yapılandırmak istiyorsanız, aşağıdaki adımı uygulayın **SP** başlatılan modu:
 
     ![Etki alanı ve URL'ler tek oturum açma bilgileri huddle](./media/huddle-tutorial/tutorial_huddle_url1.png)
 
@@ -140,62 +145,51 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve H
 
     | | |
     |--|--|
-    | `https://<customsubdomain>.huddle.net`|
+    | `https://<customsubdomain>.huddle.com`|
+    | `https://us.huddle.com`|
     | |
 
     > [!NOTE]
-    > Bu değerler gerçek değildir. Bu değerler gerçek tanımlayıcısı, yanıt URL'si ve oturum açma URL'si ile güncelleştirin. İlgili kişi [Huddle istemci Destek ekibine](https://huddle.zendesk.com) bu değerleri almak için.
+    > Oturum açma URL değeri, gerçek değil. Bu değer, gerçek oturum açma URL'si ile güncelleştirin. İlgili kişi [Huddle istemci Destek ekibine](https://huddle.zendesk.com) bu değeri alınamıyor.
 
-5. Üzerinde **SAML imzalama sertifikası** bölümünde **Certificate(Base64)** ve bilgisayarınızdaki sertifika dosyasını kaydedin.
+6. Üzerinde **yukarı çoklu oturum açma SAML ile Ayarla** sayfasında **SAML imzalama sertifikası** bölümünde **indirme** olarak başına uygun sertifikayı indirmek için gereksinim ve bilgisayarınıza kaydedin.
 
-    ![Çoklu oturum açmayı yapılandırın](./media/huddle-tutorial/tutorial_huddle_certificate.png) 
+    ![Çoklu oturum açmayı yapılandırın](./media/huddle-tutorial/tutorial_huddle_certificate.png)
 
-6. Tıklayın **Kaydet** düğmesi.
+7. Üzerinde **Huddle kümesi** bölümünde, ihtiyacınıza göre uygun URL'lerini kopyalayın.
 
-    ![Çoklu oturum açmayı yapılandırın](./media/huddle-tutorial/tutorial_general_400.png)
+    ![Çoklu oturum açmayı yapılandırın](./media/huddle-tutorial/tutorial_huddle_configure.png)
 
-7. Üzerinde **Huddle yapılandırma** bölümünde **yapılandırma Huddle** açmak için **yapılandırma oturum açma** penceresi. Kopyalama **SAML varlık kimliği ve SAML çoklu oturum açma hizmeti URL'si** gelen **hızlı başvuru bölümü.**
-
-    ![Çoklu oturum açmayı yapılandırın](./media/huddle-tutorial/tutorial_huddle_configure.png) 
-
-8. Çoklu oturum açma Huddle tarafında yapılandırmak için indirilen göndermek gereken **sertifika**, **SAML çoklu oturum açma hizmeti URL'si**, ve **SAML varlık kimliği** için [ İstemci Destek ekibine huddle](https://huddle.zendesk.com). Bunlar, her iki kenarı da düzgün ayarlandığından SAML SSO bağlantı sağlamak için bu ayarı ayarlayın.  
+8. Çoklu oturum açmayı yapılandırma **Huddle** tarafı, yüklediğiniz sertifikanın ve kopyalanan URL'leri göndermek için ihtiyacınız **ayarlanan** **Huddle** bölümü için Azure portalından [Huddle istemci Destek ekibine](https://huddle.zendesk.com). Bunlar, her iki kenarı da düzgün ayarlandığından SAML SSO bağlantı sağlamak için bu ayarı ayarlayın.
 
     >[!NOTE]
     > Çoklu oturum açma Huddle destek ekibi tarafından etkinleştirmesi gerekir. Yapılandırma tamamlandıktan sonra bir bildirim alırsınız.
-    >
 
 ### <a name="creating-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
 
 Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcısı oluşturmaktır.
 
-![Azure AD kullanıcısı oluşturun][100]
+1. Azure portalında, sol bölmede seçin **Azure Active Directory**seçin **kullanıcılar**ve ardından **tüm kullanıcılar**.
 
-**Azure AD'de bir test kullanıcısı oluşturmak için aşağıdaki adımları gerçekleştirin:**
+    ![Azure AD kullanıcısı oluşturun][100]
 
-1. İçinde **Azure portalında**, sol gezinti bölmesinde **Azure Active Directory** simgesi.
+2. Seçin **yeni kullanıcı** ekranın üstünde.
 
     ![Bir Azure AD test kullanıcısı oluşturma](./media/huddle-tutorial/create_aaduser_01.png) 
 
-2. Kullanıcıların listesini görüntülemek için Git **kullanıcılar ve gruplar** tıklatıp **tüm kullanıcılar**.
-    
-    ![Bir Azure AD test kullanıcısı oluşturma](./media/huddle-tutorial/create_aaduser_02.png) 
+3. Kullanıcı özellikleri, aşağıdaki adımları gerçekleştirin.
 
-3. Açmak için **kullanıcı** iletişim kutusunda, tıklayın **Ekle** iletişim kutusunun üst kısmındaki.
- 
-    ![Bir Azure AD test kullanıcısı oluşturma](./media/huddle-tutorial/create_aaduser_03.png) 
+    ![Bir Azure AD test kullanıcısı oluşturma](./media/huddle-tutorial/create_aaduser_02.png)
 
-4. Üzerinde **kullanıcı** iletişim sayfasında, aşağıdaki adımları gerçekleştirin:
- 
-    ![Bir Azure AD test kullanıcısı oluşturma](./media/huddle-tutorial/create_aaduser_04.png) 
+    a. İçinde **adı** alana **BrittaSimon**.
+  
+    b. İçinde **kullanıcı adı** alan türü **brittasimon@yourcompanydomain.extension**  
+    Örneğin, BrittaSimon@contoso.com
 
-    a. İçinde **adı** metin kutusuna **BrittaSimon**.
+    c. Seçin **özellikleri**seçin **Show parola** onay kutusunu işaretleyin ve ardından parola kutusunda görüntülenen değeri yazın.
 
-    b. İçinde **kullanıcı adı** metin kutusuna **e-posta adresi** BrittaSimon biri.
+    d. **Oluştur**’u seçin.
 
-    c. Seçin **Göster parola** ve değerini yazma **parola**.
-
-    d. **Oluştur**’a tıklayın.
- 
 ### <a name="creating-a-huddle-test-user"></a>Huddle test kullanıcısı oluşturma
 
 Huddle için oturum açmak Azure AD kullanıcılarının etkinleştirmek için bunların Huddle sağlanması gerekir. Huddle söz konusu olduğunda, sağlama bir el ile gerçekleştirilen bir görevdir.
@@ -207,38 +201,32 @@ Huddle için oturum açmak Azure AD kullanıcılarının etkinleştirmek için b
 2. Tıklayın **çalışma**.
 
 3. Tıklayın **kişiler \> kişileri davet edin**.
-   
+
     ![Kişiler](./media/huddle-tutorial/IC787838.png "kişiler")
 
 4. İçinde **yeni bir davet oluşturma** bölümünde, aşağıdaki adımları gerçekleştirin:
-   
+  
     ![Yeni davet](./media/huddle-tutorial/IC787839.png "yeni davet")
-   
+  
     a. İçinde **insanları katılmaya davet etmek için bir takım seçin** listesinden **takım**.
 
     b. Tür **e-posta adresi** geçerli bir Azure AD hesabı içinde sağlamak istediğiniz **davet etmek istediğiniz kişilerin e-posta adresi girin** metin.
 
-    c. Tıklayın **davet**.   
-   
+    c. Tıklayın **davet**.
+
     >[!NOTE]
-    > Azure AD hesap sahibinin etkin hale gelir önce hesabı onaylamak için bir bağlantı içeren bir e-posta alırsınız. 
-    > 
+    > Azure AD hesap sahibinin etkin hale gelir önce hesabı onaylamak için bir bağlantı içeren bir e-posta alırsınız.
 
 >[!NOTE]
->Azure AD kullanıcı hesapları sağlamak için herhangi bir Huddle kullanıcı hesabı oluşturma araçları veya Huddle tarafından sağlanan API'leri kullanabilirsiniz. 
-> 
+>Azure AD kullanıcı hesapları sağlamak için herhangi bir Huddle kullanıcı hesabı oluşturma araçları veya Huddle tarafından sağlanan API'leri kullanabilirsiniz.
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Azure AD test kullanıcı atama
 
 Bu bölümde, Azure çoklu oturum açma kullanmak için Huddle erişim vererek Britta Simon etkinleştirin.
 
-![Kullanıcı Ata][200] 
+1. Azure portalında **kurumsal uygulamalar**seçin **tüm uygulamaları**.
 
-**Britta Simon Huddle için atamak için aşağıdaki adımları gerçekleştirin:**
-
-1. Azure portalında uygulama görünümü açtığınız dizin görünümüne gidin ve Git **kurumsal uygulamalar** ardından **tüm uygulamaları**.
-
-    ![Kullanıcı Ata][201] 
+    ![Kullanıcı Ata][201]
 
 2. Uygulamalar listesinde **Huddle**.
 
@@ -246,18 +234,16 @@ Bu bölümde, Azure çoklu oturum açma kullanmak için Huddle erişim vererek B
 
 3. Soldaki menüde **kullanıcılar ve gruplar**.
 
-    ![Kullanıcı Ata][202] 
+    ![Kullanıcı Ata][202]
 
 4. Tıklayın **Ekle** düğmesi. Ardından **kullanıcılar ve gruplar** üzerinde **atama Ekle** iletişim.
 
     ![Kullanıcı Ata][203]
 
-5. Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** kullanıcıları listesinde.
+5. İçinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** 'a tıklayın kullanıcı listesinde **seçin** ekranın alt kısmındaki düğmesi.
 
-6. Tıklayın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.
+6. İçinde **atama Ekle** iletişim kutusunda **atama** düğmesi.
 
-7. Tıklayın **atama** düğmesini **atama Ekle** iletişim.
-    
 ### <a name="testing-single-sign-on"></a>Çoklu oturum açma testi
 
 Bu bölümde, erişim panelini kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.

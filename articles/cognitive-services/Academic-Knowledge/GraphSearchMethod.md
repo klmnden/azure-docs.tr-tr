@@ -1,24 +1,25 @@
 ---
-title: Akademik bilgi API'si arama yönteminde graph | Microsoft Docs
-description: Grafik Search yöntemini akademik bilgi API'si Microsoft Bilişsel Hizmetleri'ndeki belirli grafik desenleri dayalı akademik varlık kümesi döndürmek için kullanın.
+title: Graph arama yöntemi - akademik bilgi API'si
+titlesuffix: Azure Cognitive Services
+description: Graph arama yöntemi, akademik varlıklara belirli grafik eğilimlere bağlı olarak bir dizi döndürmek için akademik bilgi API'sini kullanın.
 services: cognitive-services
 author: alch-msft
-manager: kuansanw
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: academic-knowledge
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/23/2017
 ms.author: alch
-ms.openlocfilehash: d811db117c934c0d41fbfea1220d241cc022e4a8
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 83f29106d72f564f894c968102b703ab6bb5d8c2
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35351389"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48902392"
 ---
-# <a name="graph-search-method"></a>Grafik arama yöntemi
+# <a name="graph-search-method"></a>Graph arama yöntemi
 
-**Grafik arama** REST API verilen grafikle düzenlerini esas alarak akademik varlık kümesi döndürmek için kullanılır.  Yanıt, kullanıcı tanımlı kısıtlamalar çağıran grafik yolları kümesidir. Bir grafik yolu bir araya eklemeli grafik düğümleri ve kenarları biçiminde dizisidir _v0, e0, v1, e1,..., vn_, burada _v0_ yolun başlangıç düğümdür.
+**Grafik arama** REST API, akademik varlıklara verilen grafikle eğilimlere bağlı olarak bir dizi döndürmek için kullanılır.  Yanıt, kullanıcı tarafından belirtilen kısıtlamalara karşılamadığınızı grafik yolları kümesidir. Bir grafik yolu bir araya eklemeli graf düğümler ve kenarlar biçiminde dizisidir _v0, e0, v1, e1,..., vn_burada _v0_ yolun başlangıç düğümüdür.
 <br>
 
 **REST uç noktası:**  
@@ -30,28 +31,28 @@ https://westus.api.cognitive.microsoft.com/academic/v1.0/graph/search?
 ## <a name="request-parameters"></a>İstek Parametreleri  
 Ad     | Değer | Gerekli mi?  | Açıklama
 -----------|-----------|---------|--------
-**modu**       | Metin dizesi | Evet | Kullanmak istediğiniz mod adı. Ya da değerdir *json* veya *lambda*.
+**Modu**       | Metin dizesi | Evet | Kullanmak istediğiniz mod adı. Değerin geçerli *json* veya *lambda*.
 
-Bir HTTP POST isteği grafik arama yöntemi çağrılmalıdır. Post isteğini içerik türü üstbilgisi içermelidir: **uygulama/json**.
+Graph arama yöntemi, bir HTTP POST isteği çağrılmalıdır. Post isteğinin içerik türü üst bilgisi içermelidir: **application/json**.
 
 ##### <a name="json-search"></a>JSON arama 
 
-İçin *json* arama, posta gövdesi bir JSON nesnesi değil. JSON nesnesi kullanıcı tanımlı kısıtlamaları olan bir yol deseni açıklar (bkz [belirtimi JSON nesnesinin](JSONSearchSyntax.md) için *json* arama).
+İçin *json* arama, POST gövdesini, bir JSON nesnesi. JSON nesnesi kullanıcı tanımlı kısıtlamalar içeren bir yol deseni açıklar (bkz [JSON nesnesinin belirtimi](JSONSearchSyntax.md) için *json* arama).
 
 
 ##### <a name="lambda-search"></a>Lambda arama
 
-İçin *lambda* arama, POST gövdenin düz metin dizesi olur. POSTA gövdesi tek bir C# deyimi bir LIKQ lambda sorgu dizesi olan (bkz [sorgu dizesi belirtimi](LambdaSearchSyntax.md) için *lambda* arama). 
+İçin *lambda* arama, POST gövdesini, düz metin dizesi. POST gövdesini olan tek bir C# deyimi, bir LIKQ lambda sorgu dizesi (bkz [belirtimi sorgu dizesinin](LambdaSearchSyntax.md) için *lambda* arama). 
 
 <br>
 ## <a name="response-json"></a>Yanıt (JSON)
 Ad | Açıklama
 -------|-----   
-**Sonuçları** | 0 veya sorgu ifadesi eşleşen daha fazla varlık dizisi. Her varlığın istenen özniteliklerinin değerlerini içerir. İstek başarıyla işlendi, bu alan mevcuttur.
-**hata** | HTTP durum kodları. Bu alan, istek başarısız olursa mevcuttur.
-**İleti** | Hata iletisi. Bu alan, istek başarısız olursa mevcuttur.
+**Sonuçları** | 0 veya sorgu ifadesi ile eşleşen daha fazla varlık dizisi. Her varlık, istenen özniteliklerinin değerlerini içerir. İstek başarıyla işlendi, bu alan mevcuttur.
+**Hata** | HTTP durum kodları. İstek başarısız olursa, bu alan mevcuttur.
+**İleti** | Hata iletisi. İstek başarısız olursa, bu alan mevcuttur.
 
-İçinde bir sorgu işlenemiyor, _800 ms_, _zaman aşımı_ hata döndürülecek. 
+Bir sorgu içinde işlenemiyor, _800 ms_, _zaman aşımı_ hata döndürülür. 
 
 <br>
 #### <a name="example"></a>Örnek:
@@ -61,7 +62,7 @@ Ad | Açıklama
 https://westus.api.cognitive.microsoft.com/academic/v1.0/graph/search?mode=json
 ```
 <br>
-İçin *json* arama başlıkları içeren "altyapısı graph" yazıları almak istiyoruz ve "bin shao" tarafından yazılmış, biz sorgu şu şekilde belirtebilirsiniz.
+İçin *json* arama başlıklarını içeren "altyapısı graf" incelemeler almak istiyoruz ve "tarafından bin shao" yazılmış, sorundan sorgu gibi belirtebilirsiniz.
 
 ```JSON
 {
@@ -82,7 +83,7 @@ https://westus.api.cognitive.microsoft.com/academic/v1.0/graph/search?mode=json
 }
 ```
 
-Bir sorgu çıktısı, grafik yolları dizisidir. Bir grafik yolu sorgu yolunda belirtilen düğümleri karşılık gelen düğüm nesneleri dizisidir. Bu düğüm nesneleri en az bir özellik olan *CellID*, varlık kimliğini temsil eder Diğer özellikler select işlecini aracılığıyla özellik adları belirterek alınabilir bir [ *geçişi eylem nesnesi*](JSONSearchSyntax.md).
+Bir sorgu çıktısı, grafik yolları dizisidir. Bir grafik yolu, düğüm nesneleri sorgu yolunda belirtilen düğümlerin karşılık gelen bir dizidir. Bu düğüm nesnelerin en az bir özellik olan *CellID*, varlık kimliğini temsil eder Özellik adlarını seçme işleci aracılığıyla belirterek diğer özellikler alınabilir bir [ *geçişi eylem nesnesi*](JSONSearchSyntax.md).
 
 ```JSON
 {
@@ -133,7 +134,7 @@ Bir sorgu çıktısı, grafik yolları dizisidir. Bir grafik yolu sorgu yolunda 
 https://westus.api.cognitive.microsoft.com/academic/v1.0/graph/search?mode=lambda
 ```
 <br>
-İçin *lambda* arama, biz Yazar verilen kağıt kimliklerini almak istiyorsanız, biz yazabilirler aşağıdakine benzer bir sorgu.
+İçin *lambda* arama, yazarın belirli bir inceleme kimliklerini almak istiyoruz, biz yazabilirsiniz aşağıdakine benzer bir sorgu.
 
 ```
 MAG.StartFrom(@"{
@@ -144,7 +145,7 @@ MAG.StartFrom(@"{
 }").FollowEdge("AuthorIDs").VisitNode(Action.Return)
 ```
 
-Çıktısını bir *lambda* arama sorgusu olduğunu da grafik yolları dizisi:
+Çıktısını bir *lambda* arama sorgusu, da grafik yolları dizisi:
 
 ```JSON
 {
@@ -177,8 +178,8 @@ MAG.StartFrom(@"{
 }
 ```
  
-## <a name="graph-schema"></a>Grafik şeması
+## <a name="graph-schema"></a>Graf şeması
 
-Grafik şema grafik arama sorguları yazmak için yararlıdır. Aşağıdaki çizimde gösterilmiştir.
+Graf şeması, grafik arama sorguları yazmak için yararlıdır. Aşağıdaki çizimde gösterilmektedir.
 
-![Microsoft akademik grafik şeması](./Images/AcademicGraphSchema.png)
+![Microsoft akademik graf şeması](./Images/AcademicGraphSchema.png)

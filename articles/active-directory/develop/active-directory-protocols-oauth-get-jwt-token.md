@@ -1,5 +1,5 @@
 ---
-title: Azure AD kimlik doğrulaması ve JWT belirteci kullanarak OAuth 2.0 alma
+title: Azure AD kimlik doğrulaması ve OAuth 2.0 kullanarak bir JWT belirteci alma
 description: Güvenli web uygulamaları ve web API'leri kuruluşunuzdaki erişmek için OAuth 2.0 kullanarak Azure Active Directory ile kimlik doğrulaması yapmayı gösteren kod örneği.
 services: active-directory
 author: rloutlaw
@@ -13,14 +13,14 @@ ms.topic: article
 ms.date: 06/12/2018
 ms.author: routlaw
 ms.custom: aaddev
-ms.openlocfilehash: d77af898d5baef4fa7970132b0eb8deddb8f68cb
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: f4bcbb2064a8f7fcdfd2002d2e8d6e0c4f679ffc
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46981806"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48902918"
 ---
-# <a name="request-an-access-token-using-oauth-20-to-access-web-apis-and-applications-secured-by-azure-active-directory"></a>OAuth 2.0 erişim web API'leri ve uygulamaları Azure Active Directory tarafından güvenli kullanarak bir erişim belirteci isteği
+# <a name="how-to-request-an-access-token-using-oauth-20-to-access-web-apis-and-applications-secured-by-azure-ad"></a>Nasıl yapılır: erişim web API'leri ve Azure AD tarafından güvenliği sağlanan uygulama OAuth 2.0 kullanarak bir erişim belirteci isteği
 
 Bu makalede, bir JSON Web Token (JWT) Azure AD tarafından güvenli hale getirilmiş kaynaklara erişmek için alınacağı gösterilmektedir. Sahip olduğunuz varsayılır bir [yetkilendirme belirteci](/azure/active-directory/develop/active-directory-protocols-oauth-code#request-an-authorization-code) kullanıcı izni veya aracılığıyla bir [hizmet sorumlusu](/azure/active-directory/develop/active-directory-application-objects).
 
@@ -45,7 +45,6 @@ Aşağıdaki üst bilgiler gereklidir:
 |--------------------|-----------------|  
 | *Ana bilgisayar:* | https://login.microsoftonline.com |
 | *İçerik türü:*| Application/x-www-form-urlencoded işlemek |
- 
 
 ### <a name="uri-parameters"></a>URI parametreleri
 
@@ -59,6 +58,7 @@ Aşağıdaki üst bilgiler gereklidir:
 | redirect_uri  | gerekli              | Authorization_code almak için kullanılan aynı redirect_uri değer.                                                                                                                                                                                                                                                                                                                                                             |
 | client_secret | Web apps için gerekli | Uygulama kayıt Portalı'nda uygulamanız için oluşturduğunuz uygulama gizli anahtarı. Yerel bir uygulamada kullanmayın, çünkü client_secrets cihazlarda güvenilir bir şekilde depolanamaz. Web uygulamaları ve web client_secret güvenli bir şekilde sunucu tarafında depolama yeteneği olan API'leri için gereklidir.  İstemci gizli dizileri gönderilmeden önce URL kodlamalı olmalıdır.                                                                                 |
 | code_verifier | isteğe bağlı              | Authorization_code elde etmek için kullanılan aynı code_verifier. PKCE bir yetkilendirme kodu verme istekte kullanılan gereklidir. Daha fazla bilgi için [PKCE RFC](https://tools.ietf.org/html/rfc7636)                                                                                                                                                                                                                                                                                             |
+
 ## <a name="handle-the-response"></a>Yanıtı işleme
 
 Başarılı bir token yanıt JWT belirtecini içerir ve görünür:
@@ -81,6 +81,3 @@ Başarılı bir token yanıt JWT belirtecini içerir ve görünür:
 | scope         | Access_token için geçerli olan kapsamları.                                                                                                                                                                                                                                                                                                                                                                                                         |
 | refresh_token | OAuth 2.0 yenileme belirteci. Bu belirteç kullanabilecek geçerli erişim belirtecinin süresi dolduktan sonra ek erişim belirteçlerini almak. Refresh_tokens uzun süreli ve uzun süre için kaynaklarına erişimi korumak için kullanılabilir. Daha fazla ayrıntı için başvurmak [v2.0 kod başvurusu vermek](v2-oauth2-auth-code-flow.md#refresh-the-access-token). <br> **Not:** yalnızca sağlanan if `offline_access` kapsam istendi.                                               |
 | id_token      | Bir işaretsiz JSON Web Token (JWT). Uygulama isteği açan kullanıcı hakkında bilgi için bu belirteci parçalarını çözebilen. Uygulama değerleri önbelleğe ve bunları görüntüleyebilirsiniz, ancak, bunlar üzerinde herhangi bir yetkilendirme veya güvenlik sınırları için doğrulamamalısınız. İd_tokens hakkında daha fazla bilgi için bkz: [ `id_token reference` ](id-tokens.md). <br> **Not:** yalnızca sağlanan if `openid` kapsam istendi. |
-
-
-

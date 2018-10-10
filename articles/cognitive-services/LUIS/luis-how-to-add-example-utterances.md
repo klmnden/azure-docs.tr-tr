@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 09/06/2018
 ms.author: diberry
-ms.openlocfilehash: 387668263a6bab6e12a21adf04aebfbbf108a006
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: adb44dcc8c41b1a7846ff346d141dc0c4b028e96
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47036500"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48888297"
 ---
 # <a name="add-example-utterances-and-label-with-entities"></a>Örnek konuşma ve varlık etiketi Ekle
 
@@ -92,12 +92,12 @@ Eşanlamlısı utterance içinde bir sözcük veya tümcecik seçerek için list
 
 Utterance eş anlamlı sözcük gibi seçin `aqua` su için liste varlık adı aşağı açılan listesinde, aşağıdaki gibi seçip **bol**, ardından **eş anlamlı ayarlamak**, listeyi seçin olduğu gibi ile eşanlamlıdır öğesi **su**.
 
-![İle vurgulanmış yeni bir eş anlamlı Oluştur ekran görüntüsü, hedefleri Ayrıntıları sayfası](./media/luis-how-to-add-example-utterances/set-agua-as-synonym.png)
+![Ekran görüntüsü, hedefleri Ayrıntıları sayfası, yeni bir normalleştirilmiş görünümü vurgulanmış oluştur](./media/luis-how-to-add-example-utterances/set-agua-as-synonym.png)
 
 ## <a name="create-new-item-for-list-entity"></a>Liste varlığı için yeni öğe oluşturun
-Bir sözcük veya tümcecik içinde utterance seçerek var olan bir liste varlığı için yeni bir öğe oluşturun. Liste ve eklemek istediğiniz bir içecek varsa `tea` yeni bir öğe adımları izleyin:
+Bir sözcük veya tümcecik içinde utterance seçerek var olan bir liste varlığı için yeni bir öğe oluşturun. Liste ve eklemek istediğiniz bir çalışan varsa `Bob Smith` yeni bir öğe adımları izleyin:
 
-Utterance içinde yeni bir liste öğesi için word gibi seçin `tea`, liste varlık adı aşağı açılan listesinde, aşağıdaki gibi seçin **bol**, ardından **yeni bir eş anlamlı oluşturma**. 
+Bir sözcük veya tümcecik yeni liste öğesinin utterance içinde gibi seçin `Bob Smith`, liste varlık adı aşağı açılan listesinde, aşağıdaki gibi seçin **çalışan**, ardından **yeni bir normalleştirilmiş Görünümoluşturma**. 
 
 ![Yeni liste öğesi ekleme işleminin ekran görüntüsü](./media/luis-how-to-add-example-utterances/list-entity-create-new-item.png)
 

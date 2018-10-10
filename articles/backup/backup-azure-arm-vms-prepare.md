@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 9/10/2018
 ms.author: markgal
-ms.openlocfilehash: ebfd879fcd619dab48e4a08130f86afc68f91207
-ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
+ms.openlocfilehash: 7ab88ce3565ccf79f20847a3a5e744c495d5fcb1
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48785435"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48884942"
 ---
 # <a name="prepare-your-environment-to-back-up-resource-manager-deployed-virtual-machines"></a>Resource Manager ile dağıtılan sanal makineleri yedeklemek için ortamınızı hazırlama
 
@@ -62,6 +62,9 @@ Ortamınızı hazırlama önce bu sınırlamalar anladığınızdan emin olun:
   * Sanal makineler altında Yük Dengeleyiciyi yapılandırma (iç ve dış)
   * Birden çok ayrılmış IP adreslerine sahip sanal makineler
   * Birden çok ağ bağdaştırıcısı ile sanal makineler
+
+  > [!NOTE]
+  > Azure Backup'ın destekledikleri [SSD standart yönetilen diskler](https://azure.microsoft.com/blog/announcing-general-availability-of-standard-ssd-disks-for-azure-virtual-machine-workloads/), Microsoft Azure sanal makineler için kalıcı depolama için yeni bir tür. Üzerinde yönetilen diskler için desteklenir [Azure VM yedekleme yığını v2'ye](backup-upgrade-to-vm-backup-stack-v2.md).
 
 ## <a name="create-a-recovery-services-vault-for-a-vm"></a>Bir VM için kurtarma Hizmetleri kasası oluşturma
 Kurtarma Hizmetleri kasası, yedeklemeleri ve zaman içinde oluşturulan kurtarma noktalarını depolayan bir varlıktır. Kurtarma Hizmetleri kasası Ayrıca, korunan sanal makinelerle ilişkili yedekleme ilkeleri içerir.

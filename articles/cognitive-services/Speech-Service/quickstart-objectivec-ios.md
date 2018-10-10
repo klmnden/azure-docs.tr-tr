@@ -5,16 +5,16 @@ description: Bilişsel hizmetler konuşma SDK'sı kullanarak iOS üzerinde Objec
 services: cognitive-services
 author: chlandsi
 ms.service: cognitive-services
-ms.technology: Speech
+ms.component: Speech
 ms.topic: article
 ms.date: 09/24/2018
 ms.author: chlandsi
-ms.openlocfilehash: e343c24a5ef223e1fd6dc618f41d4acf89fc2f5d
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 3945bf0ae6edc0af0db90efca6811aeb22494592
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47226033"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48883441"
 ---
 # <a name="quickstart-recognize-speech-in-objective-c-on-ios-using-the-cognitive-services-speech-sdk"></a>Hızlı Başlangıç: Bilişsel hizmetler konuşma SDK'sı kullanarak iOS Objective-C, konuşma tanıma
 
@@ -31,7 +31,7 @@ Bu makalede, Objective-C ses dosyası ile kaydedilen Konuşmayı metne dönüşt
 
 [!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
-Bilişsel hizmetler konuşma SDK'ın geçerli sürümü `1.0.0`.
+Bilişsel Hizmetler Konuşma SDK'sının geçerli sürümü: `1.0.0`.
 
 Bilişsel hizmetler konuşma SDK'sı Mac ve iOS için şu anda bir Cocoa çerçeve dağıtılır.
 Dan indirilebilir https://aka.ms/csspeech/iosbinary. Dosyayı giriş dizininize yükleyin.
@@ -83,8 +83,8 @@ Tıklayın **son** ayarları değiştirmeden aşağıdaki iletişim.
 
     <string>Need microphone access for speech recognition from microphone.</string>
     ```
-1. Dize değiştirin `YourSubscriptionKey` abonelik.
-1. Dize değiştirin `YourServiceRegion` ile [bölge](regions.md) aboneliğinizle ilişkili (örneğin, `westus` ücretsiz deneme aboneliği için).
+1. `YourSubscriptionKey` dizesini abonelik anahtarınızla değiştirin.
+1. `YourServiceRegion` dizesini, aboneliğinizle ilişkili [bölge](regions.md) ile (örneğin, ücretsiz deneme aboneliği için `westus`) değiştirin.
 
 
 ## <a name="building-and-running-the-sample"></a>Oluşturma ve çalıştırma örneği
@@ -96,7 +96,7 @@ Tıklayın **son** ayarları değiştirmeden aşağıdaki iletişim.
  ![Benzetimli iOS uygulaması](media/sdk/qs-objectivec-simulated-app.png)
 
 [!INCLUDE [Download the sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
-Bu örnekte arayın `quickstart/objectivec-ios` klasör.
+`quickstart/objectivec-ios` klasöründe bu örneği arayın.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

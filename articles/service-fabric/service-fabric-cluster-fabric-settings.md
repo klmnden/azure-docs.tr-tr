@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/27/2018
+ms.date: 10/08/2018
 ms.author: aljo
-ms.openlocfilehash: 69f29eac17ecdf5381a550bc182c547fa0c25278
-ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
+ms.openlocfilehash: 7a80693090b92db55ad2feed52fdbb2a455e3c39
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48018987"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48884502"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>Service Fabric küme ayarlarını özelleştirme
 Bu makalede, Service Fabric kümeniz için çeşitli yapı ayarları özelleştirmeyi açıklar. Azure'da barındırılan kümeler için ayarları aracılığıyla özelleştirebilirsiniz [Azure portalında](https://portal.azure.com) veya bir Azure Resource Manager şablonu kullanarak. Tek başına kümeler için ClusterConfig.json dosyası güncelleştiriliyor ve kümenizde bir yapılandırma yükseltme gerçekleştirme ayarlarını özelleştirin. 
@@ -361,6 +361,7 @@ Bir liste verilmiştir dokusu özelleştirebileceğiniz, ayarları bölümü tar
 |DeploymentMaxFailureCount|Int, varsayılan 20'dir| Dinamik|Uygulama dağıtımı düğümde, uygulama dağıtımını başarısızlığından önce geçen DeploymentMaxFailureCount zamanları yeniden denenecek.| 
 |DeploymentMaxRetryInterval| Zaman aralığı, Common::TimeSpan::FromSeconds(3600) varsayılandır|Dinamik| Saniye cinsinden zaman aralığı belirtin. Dağıtım için en fazla yeniden deneme aralığı. Her sürekli hata durumunda yeniden deneme aralığı (DeploymentMaxRetryInterval; Min hesaplanır. Sürekli hata sayısı * DeploymentRetryBackoffInterval) |
 |DeploymentRetryBackoffInterval| Zaman aralığı, Common::TimeSpan::FromSeconds(10) varsayılandır|Dinamik|Saniye cinsinden zaman aralığı belirtin. Dağıtım hatası için geri alma aralığı. Her sürekli dağıtım hatası sistem dağıtımının MaxDeploymentFailureCount kadar yeniden deneyecek. Yeniden deneme aralığı, bir ürün sürekli dağıtım hatası ve dağıtımı geri alma aralığı ' dir. |
+|DisableDockerRequestRetry|bool, varsayılan FALSE olur. |Dinamik| Varsayılan olarak SF gg (docker dameon) ile 'DockerRequestTimeout' kendisine gönderilen her http isteği için bir zaman aşımı ile iletişim kurar. DD yoksa bu süre içinde yanıt verir; Zaman remining üst düzey işlem hala varsa, BT isteği yeniden gönderir.  Hyperv kapsayıcıyla; DD, bazen kapsayıcınızı getirebilirsiniz veya devre dışı çok daha uzun zaman. Böyle durumlarda gg isteği zaman aşımına SF Perspektif ve SF işlemi yeniden dener. Bazen bu ekler daha fazla baskısı üzerinde gg gibi görünüyor Bu yapılandırma, bu yeniden deneme devre dışı bırakın ve yanıt vermesi için DD bekleyin imkan tanır. |
 |EnableActivateNoWindow| bool, varsayılan FALSE olur.|Dinamik| Etkin işlem arka planda herhangi bir konsol olmadan oluşturulur. |
 |EnableContainerServiceDebugMode|bool, varsayılan true'dur.|Statik|Docker kapsayıcıları için günlük kaydını etkinleştir/devre dışı bırak.  Yalnızca Windows.|
 |EnableDockerHealthCheckIntegration|bool, varsayılan true'dur.|Statik|Service Fabric sistem durumu raporu ile docker HEALTHCHECK olayları entegrasyonunu sağlar |
@@ -422,6 +423,7 @@ Bir liste verilmiştir dokusu özelleştirebileceğiniz, ayarları bölümü tar
 |SharedLogId |Varsayılan bir dize ise "" |Statik|Paylaşılan günlük kapsayıcı için benzersiz GUID. Kullanım "" fabric veri kökü altındaki varsayılan yol kullanıyorsanız. |
 |SharedLogPath |Varsayılan bir dize ise "" |Statik|Paylaşılan günlük kapsayıcı yerleştirileceği konum için yolu ve dosya adı. Kullanım "" fabric veri kökü altındaki varsayılan yol kullanma. |
 |SharedLogSizeInMB |Int, 8192 varsayılandır |Statik|Paylaşılan günlük kapsayıcısında ayrılacak MB sayısı. |
+|SharedLogThrottleLimitInPercentUsed|int, varsayılan 0'dır | Statik | Azaltma anlamına paylaşılan günlük kullanım yüzdesi. Değer 0 ile 100 arasında olmalıdır. 0 değeri, varsayılan yüzde değeri kullanarak anlamına gelir. Hiçbir kısıtlama 100 değerini gösterir. 1 ile 99 arasında bir değer yukarıdaki hangi azaltma meydana gelir günlük kullanım yüzdesini belirtir. Paylaşılan günlük 10 GB ve değeri ise örnek 90 için 9 GB kullanımda olduğunda throttleing meydana gelir. Varsayılan değerin kullanılması önerilir.|
 |WriteBufferMemoryPoolMaximumInKB | int, varsayılan 0'dır |Dinamik|Yazma arabellek belleği havuzu kadar büyümesine izin vermek için KB sayısı. 0 sınır belirtmek için kullanın. |
 |WriteBufferMemoryPoolMinimumInKB |Int, 8388608 varsayılandır |Dinamik|Başlangıçta yazma arabellek belleği havuzu için ayrılacak KB sayısı. Varsayılan sınır belirtmek için 0 kullanın SharedLogSizeInMB aşağıdaki ile tutarlı olmalıdır. |
 

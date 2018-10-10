@@ -9,14 +9,21 @@ ms.component: custom-vision
 ms.topic: conceptual
 ms.date: 08/28/2018
 ms.author: anroth
-ms.openlocfilehash: 61fa0b1d2fc40daed8b3b99a0ab0d36de802ce3d
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 8b4ba1601a7c5a9f523f7f8145a032861aac5d8c
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46367993"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48901337"
 ---
 # <a name="custom-vision-service-release-notes"></a>Özel görüntü işleme hizmeti sürüm notları
+
+## <a name="october-9-2018"></a>9 Ekim 2018
+- Nesne algılama Ücretli Önizleme girer. Bu gibi durumlarda, nesne algılama projeleri artık bir Azure kaynağı ile oluşturabilirsiniz.
+- Bir Azure'a bağlamak için sınırlı deneme sürümünde projeyi yükseltmesine daha kolay hale getirmek için Web sitesine, "Azure Taşı" özelliği eklendi. Kaynak bağlı projesi (F0 veya S0.) Bu ürün için Ayarlar sayfasında bulabilirsiniz.  
+- Windows ML Windows 2018 Ekim güncelleştirme sürümünü destekleyecek şekilde ONNX 1.2 aktarma eklendi.
+Hata düzeltmeleri için ONNX dahil olmak üzere, özel karakterler ile dışarı aktarın. 
+
 
 ## <a name="august-14-2018"></a>14 Ağustos 2018
 - Eklenen "Başlarken" pencere öğesi customvision.ai sitesine proje eğitimi aracılığıyla kullanıcı kılavuzu. 
@@ -24,12 +31,12 @@ ms.locfileid: "46367993"
 
 ## <a name="june-28-2018"></a>28 Haziran 2018'e
 - Hata düzeltmeleri ve arka uç geliştirmeleri.
-- Görüntüleri tam olarak bir etiketi bulunduğu projeler için Enabeled veya çoklu sınıflar sınıflandırması. Çok sınıflı modu için Öngörüler içinde olasılıklar birine nüfuslarını toplayacağız (tüm görüntüleri belirtilen etiketlerinizi arasında sınıflandırılan).
+- Görüntüleri tam olarak bir etiketi bulunduğu projeler için çok sınıflı sınıflandırma etkin. Çok sınıflı modu için Öngörüler içinde olasılıklar birine nüfuslarını toplayacağız (tüm görüntüleri belirtilen etiketlerinizi arasında sınıflandırılan).
 
 ## <a name="june-13-2018"></a>13 Haziran 2018
 - UX yenileme, kullanım kolaylığı ve erişilebilirlik üzerinde odaklanır. 
 - Çok sayıda etiket multilabel projeleriyle yararlanmak için makine öğrenimi işlem hattı iyileştirmeleri.
-- TensorFlow dışarı aktarma hata düzeltildi. Yinelemeler birden çok kez dışarı aktarılabilir şekilde Enabeled modeli sürüm oluşturma, dışarı aktarılan. 
+- TensorFlow dışarı aktarma hata düzeltildi. Dışarı aktarılan modeli sürüm oluşturma, yinelemeler birden çok kez dışarı aktarılabilir için etkin. 
 
 ## <a name="may-7-2018"></a>7 Mayıs 2018
 - Sınırlı Deneme Sürümü projeleri için önizleme sürümündeki Nesne Algılama özelliği eklendi.
@@ -38,7 +45,7 @@ ms.locfileid: "46367993"
 - Görüntü sınıflandırma projeleri için makine öğrenmesi işlem hattında önemli arka uç geliştirmeleri yapıldı. 27 Nisan 2018 sonrasında eğitilen projeler bu güncelleştirmeden faydalanabilecek.
 - Windows ML ile kullanılmak üzere modelleri ONNX biçiminde dışarı aktarma özelliği eklendi.
 - Dockerfile biçiminde model dışarı aktarma özelliği eklendi. Bu özellik yapıtları indirerek DockerFile, TensorFlow modeli ve hizmet kodu dahil olmak üzere kendi Windows veya Linux kapsayıcılarınızı oluşturmanızı sağlar. 
-- Yeni eğitilen ve Genel (Sıkıştırılmış) ve Yer İşareti (Sıkıştırılmış) alanlarda TensorFlow'a aktarılan modeller için tüm projelerde tutarlılığı sağlama amacıyla [Ortalama Değerler artık (0,0,0)](https://github.com/azure-samples/cognitive-services-android-customvision-sample). 
+- Genel (CD) ve önemli yer (CD) etki alanları, TensorFlow dışarı modelleri için yeni eğitim [ortalama değerler artık (0,0,0)](https://github.com/azure-samples/cognitive-services-android-customvision-sample), tüm projeler genelinde tutarlılık sağlamak için. 
 
 ## <a name="march-1-2018"></a>1 Mart 2018
 - Ücretli önizleme dönemine geçildi ve Azure portala eklendi. Projeler artık F0 (Ücretsiz) veya S0 (Standard) katmandaki Azure kaynaklarına eklenebilir. 100 etikete ve 25.000 görüntüye izin veren S0 katmanı projeleri eklendi. 

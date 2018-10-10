@@ -13,19 +13,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/27/2018
+ms.date: 10/9/2018
 ms.author: Kumud
-ms.openlocfilehash: 43945dc8810151eb701aa9e1aa1be47d4fbb0491
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 0711b52b76a22e32d05f27e6aae6c981bd2c148a
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43125653"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48902612"
 ---
 # <a name="metrics-and-health-diagnostics-for-standard-load-balancer"></a>Standard Load Balancer ölçümleri ve sistem durumu tanılama
 
-Azure Standard Load Balancer, kaynakları aşağıdaki tanılama özellikleri sağlar:
-* **Çok boyutlu ölçümler**: yeni bir çok boyutlu tanılama özellikleri için hem genel hem de iç yük dengeleyici yapılandırmalarının sağlar. İzleme, yönetme ve sorun giderme, yük dengeleyici kaynakları.
+Azure Standard Load Balancer Azure Standard Load Balancer verir kaynaklarınızı aşağıdaki tanılama özellikleri sunar:
+* **Çok boyutlu ölçümler**: üzerinden çok boyutlu yeni tanılama özellikleri sağlar [Azure İzleyici](https://docs.microsoft.com/azure/azure-monitor/overview) hem genel hem de iç için yük dengeleyici yapılandırmalarının. İzleme, yönetme ve sorun giderme, yük dengeleyici kaynakları.
 
 * **Kaynak durumu**: Azure portalında yük dengeleyici sayfası ve kaynak durumu sayfası (izleme altında) standart Load Balancer'ın herkese açık yük dengeleyici yapılandırması için kaynak durumu bölümünde kullanıma sunar.
 
@@ -219,6 +219,7 @@ Aşağıdaki tabloda çeşitli kaynak sistem durumları ve açıklamalarının l
 
 - [Standart Yük Dengeleyici](load-balancer-standard-overview.md) hakkında daha fazla bilgi edinin.
 - Daha fazla bilgi edinin, [yük dengeleyici giden bağlantı](https://aka.ms/lboutbound).
+- Hakkında bilgi edinin [Azure İzleyici](https://docs.microsoft.com/azure/azure-monitor/overview).
 - Hakkında bilgi edinin [Azure İzleyici ölçümleri REST API](https://docs.microsoft.com/rest/api/monitor/metrics/).
 
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: cephalin;dariac
-ms.openlocfilehash: 66d375022d200cc916c77c059fa64eb6dbbc17e2
-ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
+ms.openlocfilehash: f82a01f3a2b88e66988717eb008a65c8f2aecf28
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39308155"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48900334"
 ---
 # <a name="deploy-your-app-to-azure-app-service-using-ftps"></a>Uygulamanızı FTP/S kullanarak Azure App Service'e dağıtma
 
@@ -66,7 +66,7 @@ Gelişmiş güvenlik için FTP SSL üzerinden yalnızca izin vermeniz. FTP dağ�
 
 Uygulamanızın kaynak sayfasında [Azure portalında](https://portal.azure.com)seçin **uygulama ayarları** sol gezinti bölmesinde.
 
-Şifrelenmemiş FTP devre dışı bırakmak için seçin **yalnızca FTPS**. FTP ve FTPS hem tamamen devre dışı bırakmak için seçin **devre dışı**. İşiniz bittiğinde tıklayın **Kaydet**. Kullanıyorsanız **yalnızca FTPS** giderek TLS 1.1 veya üzeri zorlamalıdır **SSL ayarları** web uygulamanızın dikey penceresinde. TLS 1.0 ile desteklenmiyor **yalnızca FTPS**.
+Şifrelenmemiş FTP devre dışı bırakmak için seçin **yalnızca FTPS**. FTP ve FTPS hem tamamen devre dışı bırakmak için seçin **devre dışı**. İşlemi tamamladıktan sonra **Kaydet**’e tıklayın. Kullanıyorsanız **yalnızca FTPS** giderek TLS 1.1 veya üzeri zorlamalıdır **SSL ayarları** web uygulamanızın dikey penceresinde. TLS 1.0 ile desteklenmiyor **yalnızca FTPS**.
 
 ![FTP/S devre dışı bırak](./media/app-service-deploy-ftp/disable-ftp.png)
 
@@ -109,4 +109,4 @@ Daha gelişmiş dağıtım senaryoları için deneyin [Git ile azure'a dağıtma
 
 ## <a name="more-resources"></a>Daha Fazla Kaynak
 
-* [Azure App Service'e dağıtım kimlik bilgileri](app-service-deploy-ftp.md)
+* [Azure App Service'e dağıtım kimlik bilgileri](app-service-deployment-credentials.md)

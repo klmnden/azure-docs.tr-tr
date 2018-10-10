@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/11/2018
 ms.author: harijay
-ms.openlocfilehash: ce799f4201a560077c5bb1b943a9e587a71806f2
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: bccf53ed5554579f4ff0a864c38562b7b7f0d3ca
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48856352"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48885298"
 ---
 # <a name="virtual-machine-serial-console"></a>Sanal makine seri Konsolu
 
@@ -44,7 +44,7 @@ Windows Vm'leri için seri konsol belgeleri [Buraya](../windows/serial-console.m
 
     ![](./media/virtual-machines-serial-console/virtual-machine-serial-console-reset-password.png)
 
-* Linux dağıtımları için özel ayarları için bkz: [seri konsoluna erişmek için Linux](#Serial-Console-Linux-distro-availability)
+* Linux dağıtımları için özel ayarları için bkz: [seri Konsolu Linux distro kullanılabilirlik](#serial-console-linux-distro-availability)
 
 
 
@@ -206,7 +206,7 @@ A. Katkıda bulunan düzeyinde erişime sahip olmalıdır veya üzeri bir VM san
 
 **SORU. Seri konsolumda herhangi bir şey ne yapmalıyım gösterilmiyor?**
 
-A. Görüntünüzü seri konsol erişimi için büyük olasılıkla yanlış yapılandırılmış. Bkz: [Linux için erişim seri konsol](#Access-Serial-Console-for-Linux) görüntünüzü seri konsol etkinleştirmek için yapılandırma hakkında ayrıntılar için.
+A. Görüntünüzü seri konsol erişimi için büyük olasılıkla yanlış yapılandırılmış. Bkz: [seri Konsolu Linux distro kullanılabilirlik](#serial-console-linux-distro-availability) görüntünüzü seri konsol etkinleştirmek için yapılandırma hakkında ayrıntılar için.
 
 **SORU. Seri konsol sanal makine ölçek kümeleri için kullanılabilir mi?**
 

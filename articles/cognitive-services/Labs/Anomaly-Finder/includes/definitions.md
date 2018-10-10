@@ -5,17 +5,17 @@ services: cognitive-services
 author: chliang
 manager: bix
 ms.service: cognitive-services
-ms.technology: anomaly-finder
+ms.component: anomaly-finder
 ms.topic: include
 ms.date: 04/13/2018
 ms.author: chliang
 ms.custom: include file
-ms.openlocfilehash: ff36202b67f6262b7ba67fe48ef37f2b656b91fa
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: a49df0c18ef9db9d0d41ca2e714474e6386ae7d1
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35353351"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48904546"
 ---
 <a name="definitions"></a>
 ## <a name="definitions"></a>Tanımlar
@@ -25,8 +25,8 @@ ms.locfileid: "35353351"
 
 |Ad|Açıklama|Şema|
 |---|---|---|
-|**Zaman damgası**  <br>*İsteğe bağlı*|Veri noktası için zaman damgası. Bunu hizalar gece ve bir UTC tarih saat dize, örneğin, kullanım 2017 emin olun-08-01T00:00:00Z.|dize (tarih)|
-|**Değer**  <br>*İsteğe bağlı*|Bir veri ölçü birimi değeri.|sayı (double)|
+|**Zaman damgası**  <br>*İsteğe bağlı*|Veri noktası için zaman damgası. Bunu hizalar gece yarısı ve bir UTC tarih saat dizesi, örneğin, kullanım 2017 emin olun-08-01T00:00:00Z.|dize (tarih)|
+|**Değer**  <br>*İsteğe bağlı*|Veri ölçü birimi değeri.|sayı (çift)|
 
 
 <a name="request"></a>
@@ -34,8 +34,8 @@ ms.locfileid: "35353351"
 
 |Ad|Açıklama|Şema|
 |---|---|---|
-|**Süresi**  <br>*İsteğe bağlı*|Veri noktalarının süre. Değeri null ya da mevcut değil ise API dönemi otomatik olarak belirleyin.|sayı (double)|
-|**Noktaları**  <br>*İsteğe bağlı*|Zaman serisi veri noktası. Veri anomali sonuç eşleşecek şekilde artan zaman damgalarıyla sıralanmış. Verileri doğru sıralı değil ya da yinelenen zaman damgası API anomali noktaları doğru algılar ancak girişle döndürülen noktaları iyi eşlenemedi. Böyle bir durumda bir uyarı iletisi yanıta eklenir.|< [noktası](#point) > dizisi|
+|**Dönem**  <br>*İsteğe bağlı*|Veri noktalarının süre. Değeri null ya da mevcut değil, API dönemi otomatik olarak belirler.|sayı (çift)|
+|**noktaları**  <br>*İsteğe bağlı*|Zaman serisi veri noktaları. Zaman damgası anomali sonucu eşleşecek şekilde artan veri sıralanmalıdır. Veriler düzgün şekilde sıralanır değil veya yinelenen zaman damgası API anomali noktaları doğru algılar, ancak giriş ile döndürülen noktaları da eşlenemedi. Böyle bir durumda bir uyarı iletisi yanıta eklenir.|< [işaret](#point) > dizi|
 
 
 <a name="response"></a>
@@ -43,14 +43,14 @@ ms.locfileid: "35353351"
 
 |Ad|Açıklama|Şema|
 |---|---|---|
-|**ExpectedValues**  <br>*İsteğe bağlı*|Bilgi edinerek tahmin edilen bir değer model tabanlı. Girdi veri noktası artan zaman damgası tarafından sıraladıysanız dizinin dizini beklenen değer ve özgün değeri eşlemek için kullanılabilir.|< sayı (double) > dizisi|
-|**IsAnomaly**  <br>*İsteğe bağlı*|Sonuç veri noktalarını bozukluklar olup alan veya her iki yönde (ani veya dıps). doğru anomali noktasıdır anlamına gelir, yanlış anomali olmayan noktasıdır anlamına gelir. Girdi veri noktası artan zaman damgası tarafından sıraladıysanız dizinin dizini beklenen değer ve özgün değeri eşlemek için kullanılabilir.|< Boole > dizisi|
-|**IsAnomaly_Neg**  <br>*İsteğe bağlı*|Veri noktaları (dıps) olumsuz yönde bozukluklar olup sonucu. TRUE anomali yönünü negatif olduğu anlamına gelir. Girdi veri noktası artan zaman damgası tarafından sıraladıysanız dizinin dizini beklenen değer ve özgün değeri eşlemek için kullanılabilir.|< Boole > dizisi|
-|**IsAnomaly_Pos**  <br>*İsteğe bağlı*|Veri noktaları (ani) pozitif yönde bozukluklar olup sonucu. TRUE anomali yönünü pozitif olduğu anlamına gelir. Girdi veri noktası artan zaman damgası tarafından sıraladıysanız dizinin dizini beklenen ve özgün değeri eşlemek için kullanılabilir.|< Boole > dizisi|
-|**LowerMargin**  <br>*İsteğe bağlı*|Veri noktası olan alt sınır hala normal olarak zorlayıcı (ExpectedValue - LowerMargin) belirler. Girdi veri noktası artan zaman damgası tarafından sıraladıysanız dizinin dizini beklenen değer ve özgün değeri eşlemek için kullanılabilir.|< sayı (double) > dizisi|
-|**Süresi**  <br>*İsteğe bağlı*|API anomali noktalarını algılamak için kullanılan süre.|sayı (kayan nokta)|
-|**UpperMargin**  <br>*İsteğe bağlı*|Veri noktası üst sınır hala normal olarak zorlayıcı ExpectedValue ve UpperMargin toplamı belirler. Girdi veri noktası artan zaman damgası tarafından sıraladıysanız dizinin dizini beklenen değer ve özgün değeri eşlemek için kullanılabilir.|< sayı (double) > dizisi|
-|**WarningText**  <br>*İsteğe bağlı*|Sağlanan girdi veri noktası API gerektirir ve veri API'si tarafından hala algılanabilir kuralı değil izliyorsanız, API verileri çözümlemek ve bu alanda uyarı bilgilerini ekleyin.|dize|
+|**ExpectedValues**  <br>*İsteğe bağlı*|Tahmin edilen değer öğrenme modeli temel. Giriş noktaları zaman damgası tarafından artan düzende sıralanır, dizini dizinin beklenen değerini ve özgün değeri eşlemek için kullanılabilir.|dizi < sayı (çift) >|
+|**IsAnomaly**  <br>*İsteğe bağlı*|Sonuç veri noktaları anomalileri olup olmadığı veya her iki yönde (ani artışlar veya Düşüşler) içinde değil. doğru anomali noktasıdır anlamına gelir, yanlış anomali olmayan noktasıdır anlamına gelir. Giriş noktaları zaman damgası tarafından artan düzende sıralanır, dizini dizinin beklenen değerini ve özgün değeri eşlemek için kullanılabilir.|< Boole > dizi|
+|**IsAnomaly_Neg**  <br>*İsteğe bağlı*|Veri noktaları (dıps) olumsuz yönde anomalileri olup üzerinde sonucu. doğru anomali yönünü negatiftir anlamına gelir. Giriş noktaları zaman damgası tarafından artan düzende sıralanır, dizini dizinin beklenen değerini ve özgün değeri eşlemek için kullanılabilir.|< Boole > dizi|
+|**IsAnomaly_Pos**  <br>*İsteğe bağlı*|Veri noktaları (ani) olumlu yönde anomalileri olup üzerinde sonucu. doğru anomali yönünü pozitiftir anlamına gelir. Giriş noktaları zaman damgası tarafından artan düzende sıralanır, dizini dizinin beklenen ve özgün değeri eşlemek için kullanılabilir.|< Boole > dizi|
+|**LowerMargin**  <br>*İsteğe bağlı*|Veri noktası olan alt sınır hala normal olarak düşünülebilir (ExpectedValue - LowerMargin) belirler. Giriş noktaları zaman damgası tarafından artan düzende sıralanır, dizini dizinin beklenen değerini ve özgün değeri eşlemek için kullanılabilir.|dizi < sayı (çift) >|
+|**Dönem**  <br>*İsteğe bağlı*|API anomali noktalarını algılamak için kullanılan süre.|sayı (kayan nokta)|
+|**UpperMargin**  <br>*İsteğe bağlı*|Veri noktası üst sınırını hala normal olarak düşünülebilir ExpectedValue ve UpperMargin belirler. Giriş noktaları zaman damgası tarafından artan düzende sıralanır, dizini dizinin beklenen değerini ve özgün değeri eşlemek için kullanılabilir.|dizi < sayı (çift) >|
+|**WarningText**  <br>*İsteğe bağlı*|Sağlanan giriş veri noktaları API gerekir ve veriler yine de API tarafından algılanabilir kural takip etmiyorsunuz, API verileri analiz etmek ve bu alan uyarı bilgileri ekleyin.|dize|
 
 
 

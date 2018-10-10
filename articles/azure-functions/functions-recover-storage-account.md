@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/05/2018
 ms.author: alkarche
-ms.openlocfilehash: f5e23a5734f8451b99823f238b577a21a4752c18
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: babad23743a0a3c9631c0bcf406de3521174264a
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47048278"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48887228"
 ---
 # <a name="how-to-troubleshoot-functions-runtime-is-unreachable"></a>"İşlevler çalışma zamanı erişilemiyor" sorunlarını giderme
 
@@ -28,7 +28,7 @@ Bu belge, İşlevler portalında görüntülendiğinde aşağıdaki hatayı gide
 `Error: Azure Functions Runtime is unreachable. Click here for details on storage configuration`
 
 ### <a name="summary"></a>Özet
-Bu sorun, Azure unctions çalışma zamanı başlatılamıyor oluşur. Gerçekleşmesi bu hatanın en yaygın nedeni, kendi depolama hesabınıza erişim hakkını kaybetmesini işlev uygulamasının aynısıdır. [Depolama hesabı gereksinimleri hakkında daha fazla bilgi](https://docs.microsoft.com/azure/azure-functions/functions-create-function-app-portal#storage-account-requirements)
+Bu sorun, Azure işlevleri çalışma zamanı başlatılamıyor oluşur. Gerçekleşmesi bu hatanın en yaygın nedeni, kendi depolama hesabınıza erişim hakkını kaybetmesini işlev uygulamasının aynısıdır. [Depolama hesabı gereksinimleri hakkında daha fazla bilgi](https://docs.microsoft.com/azure/azure-functions/functions-create-function-app-portal#storage-account-requirements)
 
 ### <a name="troubleshooting"></a>Sorun giderme
 Dört en yaygın hata durumları, belirleme ve nasıl çözümleneceğini her durumda aracılığıyla alacağız.

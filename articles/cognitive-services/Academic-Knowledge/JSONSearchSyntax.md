@@ -1,22 +1,23 @@
 ---
-title: Akademik bilgi API'si JSON arama söz dizimi | Microsoft Docs
-description: Akademik bilgi API'si Microsoft Bilişsel Hizmetleri'ndeki kullanabileceğiniz JSON arama söz dizimi hakkında bilgi edinin.
+title: JSON arama söz dizimi - akademik bilgi API'si
+titlesuffix: Azure Cognitive Services
+description: Akademik bilgi API'si kullanabileceğiniz JSON arama söz dizimi hakkında bilgi edinin.
 services: cognitive-services
 author: alch-msft
-manager: kuansanw
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: academic-knowledge
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/23/2017
 ms.author: alch
-ms.openlocfilehash: a4b9cf535dae60258d71c43bba6f9eec1444bd41
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 5ece028f89ad9e93840211383db97a5d8a80069a
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35351365"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48900419"
 ---
-# <a name="json-search-syntax"></a>JSON arama söz dizimi
+# <a name="json-search-syntax"></a>JSON Arama Söz Dizimi
 
 ```javascript
 /* Query Object:
@@ -32,9 +33,9 @@ ms.locfileid: "35351365"
 }
 ```
 
-Bir sorgu yolunda düğüm adı (_v0, v1,..._ ) sorgu nesnesinde; başvurulabilir düğümü tanımlayıcıları olarak hizmet edge adları (_e0, e1,..._ ) karşılık gelen kenarları türlerini yolu temsil eder. Bir yıldız işareti kullanırız _*_ (dışında hangi verilmelidir başlangıç düğümü,) düğüm veya kenar adı olarak bildirmek için var olan bu tür bir öğe üzerinde hiç bir kısıtlama. Örneğin, bir sorgu yolu `/v0/*/v1/e1/*/` kenar türünü kısıtlamadan grafikten yolları alır _(v0, v1)_. Bu sırada, sorgu kısıtlamaları yolun hedef (son düğümü) ya da yok.
+Bir sorgu yolda düğüm adları (_v0, v1,..._ ) sorgu nesnesinde; başvurulabilir düğüm tanımlayıcıları görür edge adları (_e0, e1,..._ ) yolu ilgili kenarları türlerini temsil eder. Bir yıldız işareti kullanabiliriz _*_ (hariç, verilmesi gereken başlangıç düğümü) bir düğüm veya kenar adı olarak bildirmek için vardır hiçbir kısıtlamaları bu tür bir öğe. Örneğin, bir sorgu yolu `/v0/*/v1/e1/*/` edge türünü kısıtlamadan grafikten yolları alır _(v0, v1)_. Bu arada, sorguya yolun (son düğüm) hedef kısıtlamaları ya da yok.
 
-Bir yol yalnızca tek bir düğüm içerdiğinde söyleyin _v0_, sorgu sadece kısıtlamaları karşılayan tüm varlıkları döndürür. Başlangıç düğüme uygulanan bir kısıtlama nesnesi olarak adlandırılan bir *Başlangıç sorgu nesnesi*, olan belirtimi gibi verilen.
+Bir yolu, tek bir düğüm içeriyorsa, söyleyin _v0_, sorgu sadece kısıtlamalar karşılayan tüm varlıkları döndürür. Başlangıç düğüme uygulanan bir kısıtlama nesnesi olarak adlandırılan bir *Başlangıç sorgu nesnesi*, olan belirtimi aşağıda verilmiştir.
 
 ```javascript
 /* Starting Query Object:
@@ -63,7 +64,7 @@ Bir yol yalnızca tek bir düğüm içerdiğinde söyleyin _v0_, sorgu sadece k�
 }
 ```
 
-Bir yol daha fazlasını başlangıç düğümü içeriyorsa, Sorgu işlemcisi belirtilen yol deseni izleyen bir grafik geçişi gerçekleştirir. Bir düğümde geldiğinde, kullanıcı tarafından belirtilen geçişi Eylemler, diğer bir deyişle, tetiklenecek mi, yoksa geçerli düğümde durdurup dönmek için grafik keşfetmeye devam etmek için. Herhangi bir çapraz geçişi eylemi belirtildiğinde, varsayılan eylemleri ulaşabilirsiniz. Bir ara için varsayılan eylem grafiği keşfetmeye devam etmek için düğümdür. Son bir yolu için varsayılan eylem durdurup dönmek için düğümdür. Çapraz Geçişi eylemleri belirten bir kısıtlama nesnesi olarak adlandırılan bir *geçişi eylem nesnesi*. Belirtimindekini aşağıda verilmiştir:
+Sorgu işlemcisi, bir yol yalnızca bir başlangıç düğümü içeriyorsa, belirtilen yol deseni izleyen bir graf geçişi gerçekleştirir. Bir düğümde geldiğinde, kullanıcı tarafından belirtilen geçişi eylemlerini, diğer bir deyişle, tetiklenip geçerli düğümde durdurup dönmek için veya graph incelemeye devam edin. Varsayılan Eylemler, herhangi bir çapraz geçiş eylemi belirtildiğinde alınır. Ara bir düğüm için grafik keşfetmeye devam etmek için varsayılan eylem vardır. Son bir yol için varsayılan eylem durdurup dönmek için düğümüdür. Geçişi Eylemler belirten bir kısıtlama nesnesi olarak adlandırılan bir *geçişi eylem nesnesi*. Kendi belirtimi aşağıda verilmiştir:
 
 ```javascript
 /* Traversal Action Object:
@@ -106,7 +107,7 @@ Bir yol daha fazlasını başlangıç düğümü içeriyorsa, Sorgu işlemcisi b
 }
 ```
 
-POST gövdesinde bir *json* arama sorgusu bulunması gereken en az bir *yolu* düzeni. Çapraz eylem nesneleri isteğe bağlıdır. Aşağıda, iki örnek verilmiştir.
+POST gövdesini bir *json* arama sorgusu bulunması gereken en az bir *yolu* deseni. Çapraz eylem nesneleri isteğe bağlıdır. İki örnek aşağıda verilmiştir.
 
 ```JSON
 {

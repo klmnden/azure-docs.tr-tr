@@ -11,15 +11,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2018
+ms.date: 10/08/2018
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.openlocfilehash: 82d99f575837b47a29bd6d8330ee58f442b6110a
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 71fdf609badd6c8a9f4db5a5a1d2aa70c8c2e5f5
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47409363"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48887481"
 ---
 # <a name="deploy-kubernetes-to-azure-stack"></a>Kubernetes için Azure Stack dağıtma
 
@@ -165,6 +165,9 @@ Asıl kaynakları oluşturabilmesi aboneliğinizde hizmet sorumlusu erişimi ver
 2. Ayarlarınızı gözden geçirin.
 
 3. Seçin **Tamam** kümenize dağıtmak için.
+
+> [!TIP]  
+>  Dağıtımınız hakkında sorularınız varsa sorunuzu gönderin veya birisi zaten sorusuna cevap verdi varsa bkz [Azure Stack Forumu](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack). 
 
 ## <a name="connect-to-your-cluster"></a>Kümenize bağlanın
 

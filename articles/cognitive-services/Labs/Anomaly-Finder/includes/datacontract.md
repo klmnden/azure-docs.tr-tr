@@ -5,31 +5,31 @@ services: cognitive-services
 author: chliang
 manager: bix
 ms.service: cognitive-services
-ms.technology: anomaly-finder
+ms.component: anomaly-finder
 ms.topic: include
 ms.date: 04/13/2018
 ms.author: chliang
 ms.custom: include file
-ms.openlocfilehash: e37d3ef5b6f65ad31bc19f9f8c15350014d1c9ad
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 9280790f6692096a0b3909c9d1dfab2e94a8c0d7
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35353356"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48904532"
 ---
-İle [Anomali Bulucu API](https://labs.cognitive.microsoft.com/en-us/project-anomaly-finder), JSON biçiminde zaman serisi veri API uç noktasına karşıya yükleyin ve ardından sonucu API yanıtından okuyun. Zaman serisi verilerini karşıya yükleyebilir, her veri noktası içerir:  
+İle [Anomali Bulucu API](https://labs.cognitive.microsoft.com/en-us/project-anomaly-finder), zaman serisi verilerini JSON biçiminde API uç noktasına yükleyin ve sonra sonucu API yanıtı okuyun. Zaman serisi verilerini karşıya yükleme, her veri noktası içerir:  
 * Zaman damgası - veri noktası için zaman damgası. Örneğin, bir UTC tarih saat dizesi kullandığı emin olun "2017-08-01T00:00:00Z"
-* Değer - o veri noktası ölçümü
+* Değer - söz konusu veri noktasının ölçümü
 
 Sonuçları oluşur:
-* Dönem - API'si anormallikleri algılamak için kullanılan dönemsellik
+* Süre - anormallikleri için API kullanan dönemsellik
 * WarningText - olası uyarı bilgileri
-* ExpectedValue - tahmin edilen bir değer öğrenme tabanlı modeli
-* IsAnomaly - sonucun veri noktalarını bozukluklar olup alan veya her iki yönde (ani veya dıps)
-* IsAnomaly_Neg - veri noktaları (dıps) olumsuz yönde bozukluklar olup sonucu
-* IsAnomaly_Pos - veri noktaları (ani) pozitif yönde bozukluklar olup sonucu
-* Veri noktası üst sınır hala normal olarak zorlayıcı UpperMargin - ExpectedValue ve UpperMargin toplamı belirler
-* LowerMargin - (ExpectedValue - LowerMargin) alt sınır veri noktası hala normal olarak düşünüldüğü olduğunu belirler
+* ExpectedValue - öğrenme tahmin edilen değer tabanlı modeli
+* IsAnomaly - sonucu veri noktaları anomalileri olup olmadığı veya her iki yönde (ani artışlar veya Düşüşler) içinde değil
+* IsAnomaly_Neg - veri noktaları (dıps) olumsuz yönde anomalileri olup üzerinde sonucu
+* IsAnomaly_Pos - veri noktaları (ani) olumlu yönde anomalileri olup üzerinde sonucu
+* Veri noktası üst sınırını hala normal olarak düşünülebilir ExpectedValue ve UpperMargin UpperMargin - belirler
+* LowerMargin - (ExpectedValue - LowerMargin), alt sınır veri noktası hala normal olarak düşünüldüğü olduğunu belirler
 
-Veri sözleşmesi ayrıntılarını bulunabilir [burada](../apiref.md).
+Veri anlaşması ayrıntılarını bulunabilir [burada](../apiref.md).
 

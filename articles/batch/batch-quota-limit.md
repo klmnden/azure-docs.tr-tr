@@ -12,15 +12,15 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/24/2018
+ms.date: 09/10/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b3f4907d99b25df31ac7f081282cebe700f55b62
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 25a8150a2fcf7cdd4e3c82478c0b3db3dad870b4
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39423751"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48887573"
 ---
 # <a name="batch-service-quotas-and-limits"></a>Batch hizmet kotaları ve limitleri
 
@@ -53,7 +53,9 @@ Havuz ayırma modu ayarlamak bir Batch hesabı oluşturduysanız **kullanıcı a
 | [Uygulamaları](batch-application-packages.md) Batch hesabı başına |20 |
 | Uygulama başına uygulama paketleri |40 |
 | En fazla görev ömrü | 7 gün<sup>1</sup> |
-| Düğümler arası iletişim, işlem düğümleri havuzu etkin | 100 |
+| İşlem düğümleri, [etkin düğümler arası iletişimin havuzu](batch-mpi.md) | 100 |
+| Adanmış işlem düğümleri [havuzu ile özel VM görüntüsü oluşturuldu](batch-custom-images.md) | 2500 |
+| Düşük öncelikli işlem düğümlerini [havuzu ile özel VM görüntüsü oluşturuldu](batch-custom-images.md) | 1000 |
 
 <sup>1</sup> tamamlandığında, gelen ne zaman işe eklenir, görevin en fazla yaşam süresi 7 gündür. Tamamlanan görevler süresiz olarak kalır. En uzun yaşam süresi içinde tamamlanmamış görevlerin verileri erişilemez.
 

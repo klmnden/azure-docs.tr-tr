@@ -5,17 +5,19 @@ services: virtual-machines
 author: jonbeck7
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 07/06/2018
+ms.date: 10/08/2018
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: 2d1a6bdb0cb53e3e58b4b4e8fed4bf29957d6489
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 8297e324f03d263acaa30dfa2147f7ee713bd265
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48858086"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48904658"
 ---
 Dengeli CPU / bellek oranı genel amaçlı sanal makine boyutları sağlar. Test ve geliştirme, küçük - orta boyutlu veritabanları, düşük - orta yoğunluklu trafiğe sahip web sunucuları için idealdir. Bu makalede, Vcpu, veri diskleri ve NIC yanı sıra bu gruplandırmaki boyutları için depolama aktarım hızı sayısı hakkında bilgi sağlar. 
+
+- [DC serisi](#dc-series) veri bütünlüğü ve gizliliği koruma ve genel bulutta işlenirken kod yardımcı olabilecek bir Azure sanal makineler'de yeni bir seridir. Bu makineler en son nesil 3.7 GHz tarafından yedeklenen SGX teknolojisine sahip Intel XEON E - 2176G İşlemci. Bu makineler, Intel Turbo Boost Technology ile 4.7 GHz'e varan gidebilirsiniz. DC serisi örnekleri, müşterilerin kullanımda olduğu sırada, kod ve verileri korumak için güvenli kuşatma tabanlı uygulamalar oluşturmanıza olanak sağlar.
 
 - Av2 serisi VM'ler, çeşitli donanım türleri ve işlemciler üzerinde dağıtılabilir. A serisi VM'ler, geliştirme ve test gibi giriş düzeyinde iş yüküne en uygun CPU performansına ve bellek yapılandırmasına sahiptir. Dağıtıldığı donanımdan bağımsız olarak, çalışan örneğe tutarlı işlemci performansı sunmak için boyut donanıma göre genişletilir. Bu boyutun dağıtıldığı fiziksel donanımı belirlemek için Sanal Makinenin içinden sanal donanımı sorgulayın.
 
@@ -27,7 +29,6 @@ Dengeli CPU / bellek oranı genel amaçlı sanal makine boyutları sağlar. Test
 
   D serisi kullanım örnekleri, kurumsal düzeyde uygulamalar, ilişkisel veritabanları, bellek içi önbelleğe alma ve analiz içerir. 
   
-- [DC serisi](#dc-series) veri bütünlüğü ve gizliliği koruma ve genel bulutta işlenirken kod yardımcı olabilecek bir Azure sanal makineler'de yeni bir seridir. Bu makineler en son nesil 3.7 GHz tarafından yedeklenen SGX teknolojisine sahip Intel XEON E - 2176G İşlemci. Bu makineler, Intel Turbo Boost Technology ile 4.7 GHz'e varan gidebilirsiniz. DC serisi örnekleri kullanımda olduğu sırada, kod ve verileri korumak için güvenli kuşatma dayalı uygulamalar oluşturmak müşterilerin etkinleştir
 
 ## <a name="b-series"></a>B serisi
 

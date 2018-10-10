@@ -12,23 +12,23 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/12/2018
+ms.date: 10/05/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: d924c1fc9697bff77f12f7f0bf33a1654d1e7d6e
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 56b0f0ce39d421e80890ad0dbad9b7cfe0812cdb
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39597982"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48902884"
 ---
-# <a name="optional-claims-in-azure-ad-preview"></a>İsteğe bağlı bir talep Azure AD'de (Önizleme)
+# <a name="how-to-provide-optional-claims-to-your-azure-ad-app-public-preview"></a>Nasıl yapılır: Azure AD uygulamanızı (genel Önizleme) için isteğe bağlı bir talep sağla
 
 Bu özellik, uygulama geliştiriciler tarafından hangi kullanıcıların uygulamaya gönderilen belirteçlerde istediği talepleri belirtmek için kullanılır. İsteğe bağlı talepleri kullanabilirsiniz:
--   Ek talep belirteçleri uygulamanıza eklemek için seçin.
--   Azure AD belirteçleri döndüren belirli talep davranışını değiştirin.
--   Ekleme ve özel talepler uygulamanıza erişebilirsiniz. 
+- Ek talep belirteçleri uygulamanıza eklemek için seçin.
+- Azure AD belirteçleri döndüren belirli talep davranışını değiştirin.
+- Ekleme ve özel talepler uygulamanıza erişebilirsiniz. 
 
 > [!Note]
 > Bu özellik şu anda genel Önizleme aşamasındadır. Değişiklikleri geri almaya veya kaldırmaya hazırlıklı olun. Bu özellik, herhangi bir Azure AD aboneliğiniz genel Önizleme sırasında kullanılabilir. Ancak, bazı yönlerini özellik özelliği genel kullanıma sunulduğunda, bir Azure AD premium aboneliği gerektirebilir.
@@ -39,12 +39,13 @@ Hedeflerinden [Azure AD v2.0 uç noktası](active-directory-appmodel-v2-overview
 
 **Tablo 1: uygulanabilirliği**
 
-| Hesap türü | V1.0 uç noktası                      | V2.0 uç noktası  |
-|--------------|------------------------------------|----------------|
+| Hesap türü | V1.0 uç noktası | V2.0 uç noktası  |
+|--------------|---------------|----------------|
 | Kişisel Microsoft hesabı  | Yok - RPS biletleri yerine kullanılır | Destek yakında |
-| Azure AD hesabı          | Desteklenen                          | Desteklenen      |
+| Azure AD hesabı            | Desteklenen                          | Desteklenen      |
 
 ## <a name="standard-optional-claims-set"></a>Standart isteğe bağlı bir talep kümesi
+
 İsteğe bağlı varsayılan olarak kullanılabilir talepler için uygulamaları kullanmaya kümesini aşağıda listelenmiştir.  Uygulamanız için isteğe bağlı özel talepler eklemek için bkz [dizin genişletmeleri](active-directory-optional-claims.md#Configuring-custom-claims-via-directory-extensions)aşağıdaki. 
 
 > [!Note]
@@ -76,6 +77,7 @@ Hedeflerinden [Azure AD v2.0 uç noktası](active-directory-appmodel-v2-overview
 | `upn`                      | UserPrincipalName talep.  | JWT, SAML  |           | Bu talep otomatik olarak dahil olsa da, Konuk kullanıcı durumda davranışını değiştirmek için ek özellikler eklemek için isteğe bağlı bir talep olarak belirtebilirsiniz.  <br> Ek özellikleri: <br> `include_externally_authenticated_upn` <br> `include_externally_authenticated_upn_without_hash` |
 
 ### <a name="v20-optional-claims"></a>İsteğe bağlı taleplerin v2.0
+
 Bu talepler her zaman v1.0 belirteçlerinde dahil, ancak v2.0 belirteçlerinde istenmedikçe dahil değildir.  Bu talepler yalnızca (kimlik ve erişim belirteçler) Jwt'ler için geçerlidir.  
 
 **Tablo 3: Yalnızca V2.0 isteğe bağlı talepleri**
@@ -106,8 +108,7 @@ Bazı isteğe bağlı bir talep, talep döndürülen şeklini değiştirmek içi
 > [!Note]
 >Bir ek özellik olmadan upn isteğe bağlı talebi, belirteçte verilen yeni bir talep görmek için herhangi bir davranış – değiştirmez belirtilmesi, en az bir ek özellikler eklenmelidir. 
 
-
-#### <a name="additional-properties-example"></a>Ek özellikleri örneği:
+#### <a name="additional-properties-example"></a>Ek özellikleri örneği
 
 ```json
  "optionalClaims": 
@@ -171,7 +172,6 @@ Bir uygulama tarafından istenen isteğe bağlı talepleri bildirir. Bir uygulam
 | `accessToken` | Koleksiyon (OptionalClaim) | JWT erişim belirtecinde verilen talepleri isteğe bağlı. |
 | `saml2Token`  | Koleksiyon (OptionalClaim) | SAML belirtecinde verilen talepleri isteğe bağlı.       |
 
-
 ### <a name="optionalclaim-type"></a>OptionalClaim türü
 
 Bir uygulama veya hizmet sorumlusu ile ilişkili isteğe bağlı bir talep içerir. Idtoken accessToken ve saml2Token özelliklerini [OptionalClaims](https://msdn.microsoft.com/library/azure/ad/graph/api/entity-and-complex-type-reference#optionalclaims-type) türü OptionalClaim koleksiyonudur.
@@ -185,7 +185,6 @@ Belirli bir talep tarafından destekleniyorsa, ayrıca AdditionalProperties alan
 | `source`               | Edm.String              | Kaynağı (dizin nesnesi) talep. Önceden tanımlanmış talep ve kullanıcı tanımlı talep uzantı özelliklerinden vardır. Kaynak değeri null ise, talep önceden tanımlanmış isteğe bağlı bir talep var. Kullanıcı kaynak değeri ise name özelliği kullanıcı nesnesi uzantı özelliği değer. |
 | `essential`            | Edm.Boolean             | Değer true ise, istemci tarafından belirtilen talep son kullanıcı tarafından istenen belirli görev için bir yumuşak yetkilendirme deneyimi sağlamak gereklidir. Varsayılan değer false'tur.                                                                                                                 |
 | `additionalProperties` | Koleksiyon (Edm.String) | Talep ek özellikleri. Bu koleksiyonda bir özellik varsa, belirtilen ad özelliği isteğe bağlı bir talep davranışını değiştirir.                                                                                                                                                   |
-
 ## <a name="configuring-custom-claims-via-directory-extensions"></a>Özel talepler dizin uzantıları aracılığıyla yapılandırma
 
 Standart isteğe bağlı talep kümesine ek olarak, belirteçleri directory şema uzantıları içerecek şekilde de yapılandırılabilir (bkz [Directory şema uzantılarını makalesi](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-directory-schema-extensions) daha fazla bilgi için).  Bu özellik, uygulamanızı – örneğin kullanabileceğiniz ek kullanıcı bilgileri, bir ek tanımlayıcı veya kullanıcı önemli yapılandırma seçeneğini eklemek için yararlıdır. 
@@ -193,7 +192,7 @@ Standart isteğe bağlı talep kümesine ek olarak, belirteçleri directory şem
 > [!Note]
 > Uygulamanızı bildirim istekleri, özel uzantı ve bir MSA kullanıcısı oturum uygulamanıza directory şema uzantıları yalnızca AAD özelliği olduğundan, bu uzantıları döndürülmez. 
 
-### <a name="values-for-configuring-additional-optional-claims"></a>İsteğe bağlı ek talep yapılandırma değerleri 
+### <a name="values-for-configuring-additional-optional-claims"></a>İsteğe bağlı ek talep yapılandırma değerleri
 
 Uzantı öznitelikleri için uzantı tam adını kullanın (biçimde: `extension_<appid>_<attributename>`) uygulama bildiriminde. `<appid>` Talep isteyen uygulama kimliği ile eşleşmelidir. 
 
@@ -209,12 +208,13 @@ Bu bölümde, isteğe bağlı bir talep özelliği, uygulamanız için nasıl ku
 -   Kullanan bir uygulamayı yazmak mümkündür [Graph API'si](https://docs.microsoft.com/azure/active-directory/develop/active-directory-graph-api) uygulamanızı güncelleştirmek için. [Varlık ve karmaşık tür başvurusu](https://msdn.microsoft.com/library/azure/ad/graph/api/entity-and-complex-type-reference#optionalclaims-type) Graph API Başvurusu Kılavuzu, isteğe bağlı talepleri yapılandırmaya yardımcı olabilir.
 
 **Örnek:** aşağıdaki örnekte, erişim kimliği ve SAML talepleri eklemek için bir uygulamanın bildirim değiştirecek uygulama için amaçlanan belirteçleri.
-1.  [Azure Portal](https://portal.azure.com) oturum açın.
-2.  Kimlik doğrulaması yaptınız sonra sayfanın sağ üst köşesinde seçerek Azure AD kiracınızı seçin.
-3.  Seçin **Azure AD uzantısı** tıklayın ve sol gezinti bölmesi **uygulama kayıtları**.
-4.  İsteğe bağlı talepler için listeden yapılandırın ve üzerine tıklayarak istediğiniz uygulamayı bulun.
-5.  Uygulama sayfasında **bildirim** satır içi bildirim düzenleyicisini açın. 
-6.  Bu düzenleyici kullanılarak bildirimde doğrudan düzenleyebilirsiniz. Bildirim için şema izleyen [uygulama varlığı](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#application-entity)ve otomatik biçimleri bildirim kez kaydedildi. Yeni öğeleri eklenecek `OptionalClaims` özelliği.
+
+1. [Azure Portal](https://portal.azure.com) oturum açın.
+1. Kimlik doğrulaması yaptınız sonra sayfanın sağ üst köşesinde seçerek Azure AD kiracınızı seçin.
+1. Seçin **Azure AD uzantısı** tıklayın ve sol gezinti bölmesi **uygulama kayıtları**.
+1. İsteğe bağlı talepler için listeden yapılandırın ve üzerine tıklayarak istediğiniz uygulamayı bulun.
+1. Uygulama sayfasında **bildirim** satır içi bildirim düzenleyicisini açın. 
+1. Bu düzenleyici kullanılarak bildirimde doğrudan düzenleyebilirsiniz. Bildirim için şema izleyen [uygulama varlığı](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#application-entity)ve otomatik biçimleri bildirim kez kaydedildi. Yeni öğeleri eklenecek `OptionalClaims` özelliği.
 
       ```json
       "optionalClaims": 
@@ -243,8 +243,11 @@ Bu bölümde, isteğe bağlı bir talep özelliği, uygulamanız için nasıl ku
       ```
       Bu durumda, isteğe bağlı farklı talepler her uygulama alabilir belirteci türüne eklendi. Kimlik belirteçlerini artık tam formunda Federasyon kullanıcıları için UPN içerecektir (`<upn>_<homedomain>#EXT#@<resourcedomain>`). Erişim belirteçleri artık auth_time talep alır. SAML belirteçlerini skypeId directory şema uzantısı şimdi içerecektir (Bu örnekte, bu uygulama için uygulama kimliği ab603c56068041afb2f6832e2a17e237 olduğu).  SAML belirteçlerini Skype kimliği olarak açığa çıkarır `extension_skypeId`.
 
-7.  Aktualizuje SE manifest tamamladığınızda, tıklayın **Kaydet** bildirimi kaydetmek için
+1. Aktualizuje SE manifest tamamladığınızda, tıklayın **Kaydet** bildirimi kaydetmek için
 
+## <a name="next-steps"></a>Sonraki adımlar
 
-## <a name="related-content"></a>İlgili içerik
-* Daha fazla bilgi edinin [standart talep](v1-id-and-access-tokens.md) Azure AD tarafından sağlanan. 
+Azure AD tarafından sağlanan standart talepler hakkında daha fazla bilgi edinin.
+
+- [Kimliği belirteçleri](id-tokens.md)
+- [Erişim belirteçleri](access-tokens.md)

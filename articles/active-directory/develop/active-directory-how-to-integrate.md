@@ -17,14 +17,15 @@ ms.date: 04/27/2017
 ms.author: celested
 ms.reviewer: bryanla
 ms.custom: aaddev
-ms.openlocfilehash: fdc33f4009ce9434b241611851fecec451783a1a
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: cde2706db255746293ddc29c6d5bdd31d970e535
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39495348"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48901558"
 ---
 # <a name="integrating-with-azure-active-directory"></a>Azure Active Directory ile tümleştirme
+
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
 
 Azure Active Directory, bulut uygulamalarınız için kurumsal düzeyde kimlik yönetimi ile kuruluşlar sağlar. Azure AD tümleştirmesi, kullanıcılarınızın kolaylaştırılmış bir oturum açma deneyimi sağlar ve uygulamanızın BT ilkesine uygun yardımcı olur.

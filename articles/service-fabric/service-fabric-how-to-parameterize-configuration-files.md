@@ -1,6 +1,6 @@
 ---
-title: Azure Service Fabric yapılandırma dosyalarında Parametreleştirme nasıl | Microsoft Docs
-description: Service Fabric yapılandırma dosyalarında Parametreleştirme gösterilmektedir
+title: Yapılandırma dosyaları Azure Service fabric'te Parametreleştirme | Microsoft Docs
+description: Service Fabric yapılandırma dosyalarında Parametreleştirme öğrenin.
 documentationcenter: .net
 author: mikkelhegn
 manager: msfussell
@@ -10,70 +10,59 @@ ms.devlang: dotNet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 12/06/2017
+ms.date: 10/09/2018
 ms.author: mikhegn
-ms.openlocfilehash: e5bb2f270cc5a6f288e1e995f4bfa74f4e3551b7
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 9057cdc22e277e4e12e9f439f3fbe0c5a5cda2a2
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34207827"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48900522"
 ---
 # <a name="how-to-parameterize-configuration-files-in-service-fabric"></a>Service Fabric yapılandırma dosyalarında Parametreleştirme nasıl
 
-Bu makalede Service Fabric yapılandırma dosyasında Parametreleştirme gösterilmiştir.
+Bu makalede bir Service Fabric yapılandırma dosyasında Parametreleştirme gösterilmektedir.  Zaten birden çok ortam için uygulamaları yönetme temel kavramlar hakkında bilgi sahibi değilseniz, okuma [birden çok ortam için uygulamaları yönetme](service-fabric-manage-multiple-environment-app-configuration.md).
 
 ## <a name="procedure-for-parameterizing-configuration-files"></a>Yapılandırma dosyaları kümesini parametreleştirme yordamı
 
 Bu örnekte, uygulama dağıtımınızı parametrelerini kullanarak bir yapılandırma değeri geçersiz.
 
-1. Config\Settings.xml dosyasını açın.
-1. Bir yapılandırma parametresi aşağıdaki XML ekleyerek ayarlayın:
+1. Açık  *<MyService>\PackageRoot\Config\Settings.xml* hizmet projenizi dosyasında.
+1. Bir yapılandırma parametresi ad ve değer, örneğin önbellek boyutu, 25 eşit aşağıdaki XML ekleyerek ayarlayın:
 
-    ```xml
-      <Section Name="MyConfigSection">
-        <Parameter Name="CacheSize" Value="25" />
-      </Section>
-    ```
+  ```xml
+    <Section Name="MyConfigSection">
+      <Parameter Name="CacheSize" Value="25" />
+    </Section>
+  ```
 
 1. Dosyayı kaydedin ve kapatın.
-1. `ApplicationManifest.xml` dosyasını açın.
-1. Ekleme bir `ConfigOverride` öğesi, bir yapılandırma paketi, bölüm ve parametresi başvuruyor.
+1. Açık  *<MyApplication>\ApplicationPackageRoot\ApplicationManifest.xml* dosya.
+1. ApplicationManifest.xml dosyasına bir parametre ve varsayılan değer bildirmek `Parameters` öğesi.  Parametre adı hizmeti (örneğin, "MyService") adını içeren önerilir.
 
-      ```xml
-        <ConfigOverrides>
-          <ConfigOverride Name="Config">
-              <Settings>
-                <Section Name="MyConfigSection">
-                    <Parameter Name="CacheSize" Value="[Stateless1_CacheSize]" />
-                </Section>
-              </Settings>
-          </ConfigOverride>
-        </ConfigOverrides>
-      ```
+  ```xml
+    <Parameters>
+      <Parameter Name="MyService_CacheSize" DefaultValue="80" />
+    </Parameters>
+  ```
+1. İçinde `ServiceManifestImport` bölümü ApplicationManifest.xml dosyasının ekleme bir `ConfigOverride` öğesi, yapılandırma paketi, bölüm ve parametresi başvuruyor.
 
-1. Hala ApplicationManifest.xml dosyasında sonra parametresinde belirttiğiniz `Parameters` öğesi
-
-    ```xml
-      <Parameters>
-        <Parameter Name="Stateless1_CacheSize" />
-      </Parameters>
-    ```
-
-1. Ve tanımlayan bir `DefaultValue`
-
-    ```xml
-      <Parameters>
-        <Parameter Name="Stateless1_CacheSize" DefaultValue="80" />
-      </Parameters>
-    ```
+  ```xml
+    <ConfigOverrides>
+      <ConfigOverride Name="Config">
+          <Settings>
+            <Section Name="MyConfigSection">
+                <Parameter Name="CacheSize" Value="[MyService_CacheSize]" />
+            </Section>
+          </Settings>
+      </ConfigOverride>
+    </ConfigOverrides>
+  ```
 
 > [!NOTE]
-> Bir ConfigOverride eklediğiniz durumda Service Fabric uygulama parametreleri ya da uygulama bildiriminde belirtilen varsayılan değer her zaman seçer.
+> Bir ConfigOverride eklediğiniz durumda da, Service Fabric her zaman uygulama parametreleri veya uygulama bildiriminde belirtilen varsayılan değerin seçer.
 >
 >
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Bu makalede açıklanan kavramları bazıları hakkında daha fazla bilgi için bkz: [birden çok ortamları makaleler için uygulamaları yönetmek](service-fabric-manage-multiple-environment-app-configuration.md).
-
-Visual Studio'da kullanılabilir olan diğer uygulama yönetim özellikleri hakkında daha fazla bilgi için bkz: [Visual Studio'da, Service Fabric uygulamaları yönetmek](service-fabric-manage-application-in-visual-studio.md).
+Visual Studio içinde kullanılabilir olan diğer uygulama yönetim özellikleri hakkında daha fazla bilgi için bkz: [Visual Studio'da Service Fabric uygulamalarınızı yönetmek](service-fabric-manage-application-in-visual-studio.md).

@@ -1,6 +1,6 @@
 ---
 title: Kiracınızdaki - Azure abonelik yönetimini etkinleştirme | Microsoft Docs
-description: Azure AD Privileged Identity Management (PIM) kullanırken, kiracınızdaki etkin abonelik yönetimi etkinleştirme konusunda bilgi edinin.
+description: Azure AD Privileged Identity Management (PIM) kullanırken, kiracınızdaki abonelik yönetimini etkinleştirme hakkında bilgi edinin.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -14,12 +14,12 @@ ms.component: pim
 ms.date: 03/27/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 89bb6fd48c58b7672b7a2251a172cc169093d368
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: bcaea64484010672a53050cb806c4256a17b19a8
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43190004"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48901184"
 ---
 # <a name="enable-subscription-management-in-your-tenant"></a>Kiracınızdaki abonelik yönetimini etkinleştirme
 

@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 02/15/2018
 ms.author: dobett
-ms.openlocfilehash: 66494ca6bd9b4d8276469e85f4c6bb435ae245f7
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 154d82ab5e309631df0bfa40df7fe14902327f46
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44716409"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48884284"
 ---
 # <a name="frequently-asked-questions-for-iot-solution-accelerators"></a>IOT Çözüm Hızlandırıcıları için sık sorulan sorular
 
@@ -41,6 +41,10 @@ DevKit cihaz kullanıyorsanız, kaynakları ve örnekleri bulabilirsiniz [IOT De
 ### <a name="what-advantages-does-the-new-open-sourced-microservices-based-architecture-provide-in-the-new-update"></a>Yeni güncelleştirme yeni açık kaynaklı mikro hizmet tabanlı mimariye sağladığı avantajları sağlar?
 
 Son iki yıl içinde bulut mimarisi büyük ölçüde geliştirilmiştir. Mikro hizmetler geliştirme hızdan ödün vermeden ölçek ve esneklik elde etmek için harika bir düzen olarak ortaya çıkmıştır. Bu mimari deseni harika güvenilirlik ve ölçeklenebilirlik sonuçları ile çeşitli Microsoft hizmetleriyle dahili olarak kullanılır. Biz bu uygulamada böylece bunları müşterilerimizin yararlı öğrenme yerleştirirsiniz.
+
+### <a name="where-can-i-find-information-about-the-previous-version-of-the-remote-monitoring-solution"></a>Uzaktan izleme çözümünün önceki sürümü hakkında bilgileri nerede bulabilirim?
+
+Uzaktan izleme çözüm Hızlandırıcısını önceki sürümünü IOT paketi uzaktan önceden yapılandırılmış izleme çözümü olarak bilinir. Arşivlenen belgeleri bulabilirsiniz [ https://docs.microsoft.com/previous-versions/azure/iot-suite/ ](https://docs.microsoft.com/previous-versions/azure/iot-suite/).
 
 ### <a name="is-the-new-solution-accelerator-available-in-the-same-geographic-region-as-the-existing-solution"></a>Yeni çözüm Hızlandırıcısını varolan bir çözümü ile aynı coğrafi bölgede kullanılabilir mi?
 

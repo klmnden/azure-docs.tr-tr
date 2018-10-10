@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: alsin
-ms.openlocfilehash: ba42c3cc50466f9b5bf46cd1eef8f0d4e48bf89a
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 9dcec525adf7676b23c6dec14dff07c6d419c085
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48856012"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48884651"
 ---
 # <a name="use-serial-console-for-sysrq-and-nmi-calls"></a>Seri konsol SysRq ve NMI çağrıları için kullanın.
 
@@ -30,11 +30,11 @@ SysRq sıralı teslim sonra Çekirdek yapılandırmasını sistemin nasıl yanı
 
 Azure seri konsol, aşağıda gösterilen komut çubuğunda klavye simgesini kullanarak bir Azure sanal makine bir SysRq göndermek için kullanılabilir.
 
-![](/media/virtual-machines-serial-console/virtual-machine-serial-console-command-menu.jpg)
+![](../media/virtual-machines-serial-console/virtual-machine-serial-console-command-menu.jpg)
 
 "SysRq komutu Gönder" seçme ortak SysRq seçenekleri sağlamak veya bir dizi iletişim kutusuna girilen SysRq komutları kabul bir iletişim kutusu açılır.  SysRq dizi kullanarak güvenli bir yeniden başlatma gibi üst düzey bir işlemi gerçekleştirmek için kullanıcının bu izin verir: `REISUB`.
 
-![](/media/virtual-machines-serial-console/virtual-machine-serial-console-sysreq_UI.png)
+![](../media/virtual-machines-serial-console/virtual-machine-serial-console-sysreq_UI.png)
 
 Sanal makinelerde, durduruldu veya duyarlı olmayan bir durumda olan çekirdek SysRq komutu kullanılamaz. (örneğin çekirdek Panik).
 
@@ -103,8 +103,9 @@ Maskelenemez olmayan bir kesinti (NMI) yazılımı bir sanal makinede değil yok
 
 Seri konsol, aşağıda gösterilen komut çubuğunda klavye simgesini kullanarak bir Azure sanal makine bir NMI göndermek için kullanılabilir. NMI teslim sonra sanal makine yapılandırması sistemin nasıl yanıt vereceğini denetleyin.  Linux işletim sistemleri için kilitlenme yapılandırılabilir ve bir bellek dökümü işletim sistemi oluşturma, bir NMI alır.
 
-![](/media/virtual-machines-serial-console/virtual-machine-serial-console-command-menu.jpg) <br>
+![](../media/virtual-machines-serial-console/virtual-machine-serial-console-command-menu.jpg) <br>
 
+### <a name="enable-nmi"></a>NMI etkinleştir
 Çekirdek parametreleri yapılandırmak için sysctl destekleyen Linux sistemleri için aşağıdaki komutu kullanarak bu NMI alırken bir Panik etkinleştirebilirsiniz:
 1. Bu satıra ekleyerek */etc/sysctl.conf* <br>
     `kernel.panic_on_unrecovered_nmi=1`

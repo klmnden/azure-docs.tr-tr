@@ -12,12 +12,12 @@ documentationcenter: ''
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.openlocfilehash: 0c915c6b102f3aeedb316048fad1c6dc238fa0ad
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: 10f325f3b7c93b91180b6a170c8b7accb75eb03b
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48868625"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48883780"
 ---
 # <a name="roles-and-permissions-for-azure-data-factory"></a>Rolleri ve izinleri için Azure Data Factory
 
@@ -51,7 +51,7 @@ Bu rol hakkında daha fazla bilgi için bkz. [Data Factory Katılımcısı rolü
 
 **Data Factory Katılımcısı** rol, kaynak grubu düzeyinde veya bu düzeyin üstünde, Resource Manager şablonlarını dağıtma kullanıcılar olanak tanır. Sonuç olarak, rolünün üyeleri, hem veri fabrikaları ve veri kümeleri, bağlı hizmetler, işlem hatlarını, tetikleyiciler ve tümleştirme çalışma zamanları dahil olmak üzere, kendi alt kaynakları dağıtmak için Resource Manager şablonlarını kullanabilirsiniz. Bu rolün üyeliğini diğer kaynaklar, ancak oluşturmalarına izin vermez.
 
-> [!WARNING]
+> [!IMPORTANT]
 > Resource Manager şablon dağıtımı ile **Data Factory Katılımcısı** rol izinlerinizi yükseltmesine değil. Örneğin, bir Azure sanal makine oluşturan bir şablonu dağıtmak ve sanal makineler oluşturmak için izniniz yoksa, dağıtım bir Yetkilendirme hatası ile başarısız olur.
 
 ### <a name="custom-scenarios-and-custom-roles"></a>Özel senaryoları ve özel roller

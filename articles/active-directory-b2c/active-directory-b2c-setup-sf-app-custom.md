@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/21/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: f75f6b66e4176459023088ca944348055aabff1b
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
+ms.openlocfilehash: ebce7a661ab305e5dcfda191ddbad54a4e9d33a1
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47182731"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48887266"
 ---
 # <a name="set-up-sign-in-with-a-salesforce-saml-provider-by-using-custom-policies-in-azure-active-directory-b2c"></a>Salesforce SAML sağlayıcısı ile oturum açma Azure Active Directory B2C'de özel ilkeler kullanarak ayarlama
 
@@ -195,6 +195,18 @@ Yerinde bir düğmeye sahip olduğunuza göre bir eyleme bağlamanız gerekir. E
 
 3. Kaydet *TrustFrameworkExtensions.xml* dosya ve doğrulama için yeniden yükleyin.
 
+## <a name="create-an-azure-ad-b2c-application"></a>Azure AD B2C'yi uygulama oluşturma
+
+Azure AD B2c ile iletişim kiracınızda oluşturduğunuz bir uygulama üzerinden gerçekleşir. Bu bölümde zaten yapmadıysanız, bir test uygulaması oluşturmak için tamamlayabilirsiniz isteğe bağlı adımlar listelenir.
+
+1. [Azure Portal](https://portal.azure.com) oturum açın.
+2. Azure AD B2C kiracınızı tıklayarak içeren dizine kullandığınızdan emin olun **dizin ve abonelik filtresi** üst menü ve kiracınız içeren dizine seçme.
+3. Seçin **tüm hizmetleri** Azure portalı ve ardından arayın ve seçin, sol üst köşedeki **Azure AD B2C**.
+4. Seçin **uygulamaları**ve ardından **Ekle**.
+5. Uygulama için bir ad girin, örneğin *testapp1*.
+6. İçin **Web uygulaması / Web API'sini**seçin `Yes`yazıp enter `https://jwt.ms` için **yanıt URL'si**.
+7. **Oluştur**’a tıklayın.
+
 ## <a name="update-and-test-the-relying-party-file"></a>Güncelleştirme ve bağlı olan taraf dosyayı test etme
 
 Yeni oluşturduğunuz kullanıcı yolculuğu başlatan bağlı olan taraf (RP) dosyasını güncelleştirin:
@@ -203,4 +215,5 @@ Yeni oluşturduğunuz kullanıcı yolculuğu başlatan bağlı olan taraf (RP) d
 2. Yeni dosyayı açın ve değeri güncelleştirme **Policyıd** özniteliğini **TrustFrameworkPolicy** benzersiz bir değere sahip. Örneğin, `SignUpSignInSalesforce`.
 3. Değerini güncelleştirin **PublicPolicyUri** ilkesi için URI ile. Örneğin,`http://contoso.com/B2C_1A_signup_signin_salesforce`
 4. Değerini güncelleştirin **Referenceıd** özniteliğini **DefaultUserJourney** (SignUpSignInSalesforce) oluşturduğunuz yeni kullanıcı yolculuğu kimliği eşleştirmek için.
-5. Yaptığınız değişiklikleri kaydedin, dosyayı karşıya yükleyin ve açıp tıklatarak test **Şimdi Çalıştır**.
+5. Yaptığınız değişiklikleri kaydedin, dosyayı karşıya yükleyin ve ardından listeden yeni ilkeyi seçin.
+6. İçinde oluşturduğunuz bir Azure AD B2C uygulamasını seçili olduğundan emin olun **uygulama seçin** alan ve ardından tıklayarak test **Şimdi Çalıştır**.

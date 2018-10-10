@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 07/26/2018
 ms.author: andrl
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9b7d9a0dd439b7c25180c8f250a87ae5ee184139
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: d7c1c28b3d7b2f51c31f5f05cdef66cc8d71e192
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48870579"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48886393"
 ---
 # <a name="partition-and-scale-in-azure-cosmos-db"></a>Bölümleme ve ölçeklendirme Azure Cosmos DB'de
 
@@ -104,50 +104,6 @@ Bölümleme ve ölçeklendirme için dikkate alınması gereken önkoşullar şu
 * Aktarım hızı kapsayıcıların kümesinin bir parçası paylaşmak üzere yapılandırılmış tüm kapsayıcıları olarak kabul **sınırsız** kapsayıcıları.
 
 Oluşturduysanız bir **sabit** olmadan kapsayıcı 1. 000'den az RU/sn bölüm anahtarı veya üretilen iş, kapsayıcı otomatik ölçeklendirmeyi olur. Sınırsız bir kapsayıcıya sabit bir kapsayıcıdan verileri geçirmek için kullanmanız gerekir [veri geçiş aracı](import-data.md) veya [değişiklik akışı Kitaplığı](change-feed.md). 
-
-## <a name="PartitionedGraph"></a>Bölünmüş grafik gereksinimleri
-
-Bölünmüş grafik kapsayıcısı oluştururken aşağıdaki ayrıntıları göz önünde bulundurun:
-
-- **Bölümleme yedekleme ayarı gereklidir** kapsayıcı boyutu 10 GB'den fazla olması beklenir ve/veya 10. 000'den fazla istek birimi (RU/sn) saniyede ayırma gerekli olursa.
-
-- **Köşe ve kenarlar JSON belgeleri olarak depolanır** bir Azure Cosmos DB Gremlin API'si, arka uçtaki.
-
-- **Köşe gerektiren bir bölüm anahtarı**. Bu anahtar, köşe depolamak için kullanılacak olan bölümünü belirler ve bu işlem bir karma algoritma kullanır. Bu bölüm anahtarı adı boşluk veya özel karakter içermeyen bir Tek sözcüklü dizedir ve aşağıdaki biçimi kullanarak yeni bir kapsayıcı oluşturulurken tanımlanan `/partitioning-key-name`.
-
-- **Kenarlar, kendi kaynak köşe ile depolanan**. Diğer bir deyişle, her köşe için bölüm anahtarını köşe ve kenarlarını giden depolandığı tanımlar. Bu bölümler arası sorgular kullanırken önlemek için yapılır `out()` graf sorgularını kardinalitesini.
-
-- **Graf sorgularını, bölüm anahtarını belirtmelidir**. Mümkün olduğunda, yatay Azure Cosmos DB'de bölümleme tam grafik yararlanmak için sorgular bölüm anahtarını içermesi gerekir. Örneğin, tek bir köşe seçilir. Aşağıdaki örnek sorgularda, bir veya daha fazla köşe bölümlenmiş bir grafikte seçerken bölüm anahtarını dahil gösterilmektedir:
-
-    - **Şu anda kullanamazsınız `/id` Gremlin API içinde bir kapsayıcı için bölüm anahtarı olarak**.
-
-    - Ardından Kimliğe göre bir köşe seçerek **kullanın `.has()` bölüm anahtar özelliği belirtmek için adım**: 
-    
-        ```
-        g.V('vertex_id').has('partitionKey', 'partitionKey_value')
-        ```
-    
-    - Bir köşe tarafından seçilmesi **bölüm anahtarı değeri ve kimliği de dahil olmak üzere bir tanımlama grubu belirterek**: 
-    
-        ```
-        g.V(['partitionKey_value', 'vertex_id'])
-        ```
-        
-    - Bir köşe belirleyerek bir **bölüm anahtarı değerlerine ve kimlikleri içeren tanımlama gruplarının dizisi**:
-    
-        ```
-        g.V(['partitionKey_value0', 'verted_id0'], ['partitionKey_value1', 'vertex_id1'], ...)
-        ```
-        
-    - Bir dizi köşelerle seçerek **bölüm anahtar değerlerin bir listesini belirtme**: 
-    
-        ```
-        g.V('vertex_id0', 'vertex_id1', 'vertex_id2', …).has('partitionKey', within('partitionKey_value0', 'partitionKey_value01', 'partitionKey_value02', …)
-        ```
-
-* **Her zaman bir köşe sorgulanırken bölüm anahtarı değeri belirtin**. Bilinen bir bölümün dışında bir köşe edinme, performans açısından en verimli yoludur.
-
-* **Giden yön kenarlar sorgulanırken kullanın** her mümkündür. Kenarlar, kendi kaynak köşe giden yönde ile depolanır. Bu bölümler arası sorgular için maksimum olasılığını unutmayın, bu düzendeki veriler ve sorgular tasarlanırsa küçültülür anlamına gelir.
 
 ## <a name="designing-for-partitioning"></a> Bir bölüm anahtarı oluşturma 
 Kapsayıcı oluşturma ve bunları herhangi bir zamanda ölçeklendirmek için Azure portal veya Azure CLI'yı kullanabilirsiniz. Bu bölümde her API kullanarak sağlanan aktarım hızı ve bölüm anahtarı belirtin ve kapsayıcı oluşturma işlemi gösterilmektedir.

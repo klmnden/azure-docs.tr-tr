@@ -7,17 +7,17 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 9/21/2018
 ms.author: tyfox
-ms.openlocfilehash: bb7cdbc340c6e9763277d5cdacc0cfb510fdc0db
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 8beb75748c2e9fe3f71ad321c4cd523e344fb90c
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47048391"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48901915"
 ---
 # <a name="hdinsight-go-management-sdk-preview"></a>HDInsight Git Yönetimi SDK önizlemesi
 
 ## <a name="overview"></a>Genel Bakış
-HDInsight Go SDK sınıfları ve işlevleri, HDInsight kümelerinizi yönetmenizi sağlar. Bu, oluşturma, silme, güncelleştirme, liste, ölçeklendirme, betik eylemleri yürütmek, izlemek ve HDInsight kümelerine ve daha özelliklerini alma işlemlerinin içerir.
+HDInsight Go SDK sınıfları ve işlevleri, HDInsight kümelerinizi yönetmenizi sağlar. Bu, oluşturma, silme, güncelleştirme, listesinde, yeniden boyutlandırma, betik eylemleri yürütmek, izlemek, HDInsight kümelerine ve daha özelliklerini alma işlemlerini içerir.
 
 > [!NOTE]
 >Bu SDK için GoDoc başvuru malzemesi olduğunu da [buradan kullanılabilir](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/preview/hdinsight/mgmt/2018-06-01-preview/hdinsight).
@@ -325,9 +325,9 @@ client.Update(context.Background(), "<Resource Group Name>", "<Cluster Name>", h
 client.Update(context.Background(), "SDKTestRG", "SDKTest", hdi.ClusterPatchParameters{map[string]*string{"tag1Name" : to.StringPtr("tag1Value"), "tag2Name" : to.StringPtr("tag2Value")}})
 ```
 
-### <a name="scale-cluster"></a>Küme ölçeklendirme
+### <a name="resize-cluster"></a>Küme yeniden boyutlandırma
 
-Çalışan düğümü sayısı belirli bir kümenin yeni boyutunu belirterek ölçeğini şu şekilde:
+Yeni boyutunu belirterek belirli bir kümenin çalışan düğümlerinin sayısını yeniden boyutlandırabilirsiniz şu şekilde:
 
 ```golang
 client.Resize(context.Background(), "<Resource Group Name>", "<Cluster Name>", hdi.ClusterResizeParameters{<Num of Worker Nodes (int)>})
@@ -437,7 +437,7 @@ for (page.NotDone()) {
 
 ### <a name="list-all-scripts-execution-history"></a>Tüm betikleri yürütme geçmişini listesi
 
-Bu işlem için oluşturmanız gerekir. bir `ScriptExecutionHistoryClient` , benzer şekilde nasıl oluşturduğunuz için kullanılmak üzere `ClusterClient` yönetim işlemleri için kullanılacak. Yukarıdaki kimlik doğrulaması bölümü tamamladıktan sonra oluşturabileceğiniz bir `ScriptActionsClient` şu şekilde:
+Bu işlem için oluşturmanız gerekir. bir `ScriptExecutionHistoryClient`, nasıl oluşturduğunuz benzer şekilde `ClusterClient` yönetim işlemleri için kullanılacak. Yukarıdaki kimlik doğrulaması bölümü tamamladıktan sonra oluşturabileceğiniz bir `ScriptActionsClient` şu şekilde:
 
 ```golang
 scriptExecutionHistoryClient := hdi.NewScriptExecutionHistoryClient(SUBSCRIPTION_ID)

@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 10/05/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 403c52cb2de61f1c2d02ad72e9067da09b40a814
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: 8cdff34078c759379b5b939bdcdbc55155b51251
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48816047"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48887464"
 ---
 # <a name="update-management-solution-in-azure"></a>Güncelleştirme yönetimi çözümünü azure'da
 
@@ -515,7 +515,7 @@ Yönetim çözümü System Center Configuration Manager ile tümleştirmeyi öğ
 
 ## <a name="inclusion-behavior"></a>Ekleme davranışı
 
-Güncelleştirme ekleme uygulamak için belirli güncelleştirmeleri belirtmenizi sağlar. Düzeltme ekleri veya dahil edilmek üzere ayarlanmış olan paketler, dağıtım için seçtiğiniz sınıflandırmaları ne olursa olsun yüklenir.
+Güncelleştirme ekleme uygulamak için belirli güncelleştirmeleri belirtmenizi sağlar. Düzeltme ekleri veya dahil edilmek üzere ayarlanmış olan paketler yüklenir. Düzeltme ekleri veya paketleri dahil edilmesi için ayarlanır ve de sınıflandırması seçildiğinde dahil edilen öğeleri ve Sınıflandırmayı karşılayan öğeleri yüklenir.
 
 Linux makineler için bir paket dahildir ancak specifcally kapsamı dışında olan bir bağımlı paketi varsa paket yüklü değil.
 

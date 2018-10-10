@@ -5,16 +5,16 @@ description: Bilişsel hizmetler konuşma SDK'sını kullanarak bir tarayıcıda
 services: cognitive-services
 author: fmegen
 ms.service: cognitive-services
-ms.technology: Speech
+ms.component: Speech
 ms.topic: article
 ms.date: 09/24/2018
 ms.author: fmegen
-ms.openlocfilehash: 9ac48bd77087a8dc050ccd1ee8fe63ec5c25a643
-ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
+ms.openlocfilehash: 75dcda643741e3aeb1238f82128e4c5b058be840
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48018393"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48883675"
 ---
 # <a name="quickstart-recognize-speech-in-javascript-in-a-browser-using-the-cognitive-services-speech-sdk"></a>Hızlı Başlangıç: Bilişsel hizmetler konuşma SDK'sını kullanarak bir tarayıcıda JavaScript dilinde konuşma tanıma
 
@@ -103,7 +103,7 @@ Uygulamayı başlatmak için index.html dosyasını çift tıklatın veya index.
 Uygulamanızı başlatın, sık kullandığınız web tarayıcınızı açın ve klasör barındırın genel URL'ye noktası için girin, [bölge](regions.md)ve mikrofon kullanarak bir tanıma tetikleyin. Yapılandırılmışsa, bir belirteç, belirteç kaynağınızdan alacaksınız.
 
 [!INCLUDE [Download the sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
-Bu örnekte arayın `quickstart/js-browser` klasör.
+`quickstart/js-browser` klasöründe bu örneği arayın.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

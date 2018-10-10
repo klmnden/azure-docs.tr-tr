@@ -6,16 +6,16 @@ author: rayne-wiselman
 manager: carmonm
 ms.topic: conceptual
 ms.service: site-recovery
-ms.date: 08/30/2018
+ms.date: 10/09/2018
 ms.author: raynew
-ms.openlocfilehash: c71f683355a09c8ba2381db406eeb1ccabdb7afa
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 802c2223a72a89dbe2a97404aab4b0fc85c391ed
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43697705"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48902833"
 ---
-# <a name="replicate-azure-stack-vms-to-azure-preview"></a>Azure Stack Vm'lerini (Önizleme) Azure'a çoğaltma
+# <a name="replicate-azure-stack-vms-to-azure"></a>Azure Stack sanal makinelerini Azure'a çoğaltma
 
 Bu makalede, Azure Stack Vm'leri için Azure'da olağanüstü durum kurtarma ayarlama işlemini kullanarak göstermektedir [Azure Site Recovery hizmeti](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview).
 
@@ -25,10 +25,6 @@ Site Recovery, iş sürekliliği ve olağanüstü durum kurtarma (BCDR) strateji
 - Birincil sitenizde bir kesinti oluştuğunda, Azure'a yük devri için Site RECOVERY'yi kullanın.
 - Yük devretmede, depolanan sanal makine verileri Azure Vm'leri oluşturulur ve kullanıcıların bu Azure Vm'lerinde çalışan iş yükleri erişmeye devam.
 - Her şeyi yeniden çalışır olduğunda, birincil sitenize geri Azure Vm'leri başarısız ve Azure depolama için yeniden çoğaltmaya başlayın.
-
-
-> [!NOTE]
-> Azure Stack için Site Recovery şu anda genel Önizleme aşamasındadır.
 
 
 Bu makalede şunları öğreneceksiniz:

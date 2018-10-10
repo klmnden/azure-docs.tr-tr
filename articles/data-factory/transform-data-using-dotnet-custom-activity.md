@@ -10,14 +10,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/01/2018
+ms.date: 10/18/2018
 ms.author: douglasl
-ms.openlocfilehash: fa13b6509052438a0f59c4610f250d0b88b41f2b
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 77e5d6c278436a1fc192421c9867106409389a66
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48043088"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48888230"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Bir Azure Data Factory işlem hattında özel etkinlikler kullanma
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -293,6 +293,23 @@ Aşağı Akış etkinliklerde stdout.txt içeriği istiyorsanız, ifadede stdout
   > [!IMPORTANT]
   > - Activity.json linkedServices.json ve datasets.json Batch görevin çalışma zamanı klasöründe depolanır. Bu örnekte, activity.json linkedServices.json ve datasets.json depolanır "https://adfv2storage.blob.core.windows.net/adfjobs/<GUID>/runtime/" yolu. Gerekirse, ayrı ayrı temizlenmesi gerekir. 
   > - Şirket içinde barındırılan tümleştirme çalışma zamanı, anahtarlar veya parolalar gibi hassas bilgilerin kimlik bilgileri sağlamak için şirket içinde barındırılan Integration Runtime tarafından şifrelenir bağlı hizmetler kullanımlar için özel ağ ortamına müşteri kalır tanımlı. Bu şekilde, özel uygulama kodu tarafından başvurulduğunda hassas bazı alanlar eksik olabilir. Bağlı hizmet başvurusunu gerekirse kullanmak yerine extendedProperties SecureString kullanın. 
+
+## <a name="retrieve-securestring-outputs"></a>SecureString çıkışlar alınamıyor
+
+Türü belirlenmiş önemli özellik değerlerini *SecureString*bazı bu makaledeki örneklerde gösterildiği gibi izleme sekmesinde Data Factory kullanıcı arabiriminde out maskelenir.  Ancak gerçek işlem hattı yürütme içinde bir *SecureString* özelliği içinde JSON olarak serileştirilmiş `activity.json` dosyasında düz metin olarak. Örneğin:
+
+```json
+"extendedProperties": {
+    "connectionString": {
+        "type": "SecureString",
+        "value": "aSampleSecureString"
+    }
+}
+```
+
+Bu seri hale getirme tamamen güvenli değildir ve güvenli olacak şekilde tasarlanmamıştır. Amaç dışlamaktır izleme sekmesinde değeri maskelemek için Data factory'ye ipucu.
+
+Türü özelliklerine erişmek için *SecureString* özel bir etkinlikten okuma `activity.json` dosyasını aynı klasöre yerleştirilir. EXE, JSON seri durumdan ve ardından JSON özelliği erişim (extendedProperties = > [propertyName] = > değer).
 
 ## <a name="compare-v2-v1"></a> V2 özel etkinlik ve sürüm 1 (özel) karşılaştırma DotNet etkinliği
 

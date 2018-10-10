@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/08/2018
 ms.author: glenga
-ms.openlocfilehash: a477554c836a7f84e1694c5d00abd6373f544aa6
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 704a41ec840e2a252a1bbb5c20688f722bd0cdfd
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47036210"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48887045"
 ---
 # <a name="hostjson-reference-for-azure-functions"></a>Azure işlevleri için Host.JSON başvurusu
 
@@ -49,7 +49,7 @@ Aşağıdaki örnek *host.json* dosyaları belirtilen tüm olası seçeneklerin 
         },
         "http": {
             "routePrefix": "api",
-            "maxConcurrentRequests": 5,
+            "maxConcurrentRequests": 100,
             "maxOutstandingRequests": 30
         },
         "queues": {
@@ -443,7 +443,7 @@ Yapılandırma ayarlarını kullanarak oluşturduğunuz günlükleri için bir `
 |consoleLevel|bilgi|Konsol günlüğü için izleme düzeyi. Seçenekler şunlardır: `off`, `error`, `warning`, `info`, ve `verbose`.|
 |fileLoggingMode|debugOnly|Dosya günlüğü için izleme düzeyi. Seçenekler `never`, `always`, `debugOnly`.| 
 
-## <a name="version"></a>sürüm
+## <a name="version"></a>version
 
 *Sürüm 2.x*
 

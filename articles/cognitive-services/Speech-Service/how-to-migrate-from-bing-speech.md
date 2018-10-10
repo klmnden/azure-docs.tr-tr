@@ -5,16 +5,16 @@ description: Bing konuşma tanıma ve konuşma hizmeti arasındaki farklar Geli�
 services: cognitive-services
 author: wsturman
 ms.service: cognitive-services
-ms.technology: Speech
+ms.component: Speech
 ms.topic: article
 ms.date: 10/01/2018
 ms.author: gracez
-ms.openlocfilehash: 2dc034ea28075019b74fe9d9be548cf9d355d20e
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: e72cf547ac911b22a03cae6032351c8c0f22de8e
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48857491"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48884858"
 ---
 # <a name="migrate-from-bing-speech-to-the-speech-service"></a>Konuşma hizmeti için Bing konuşma içeriğinden geçirme
 

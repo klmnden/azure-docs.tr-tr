@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 8/2/2018
 ms.author: markgal
-ms.openlocfilehash: efe08eddaceb5a764dbd5393e79644eac1e2e106
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 9168a67366664f50a49ae04ef8ddc2f7aa9d665b
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47406167"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48886526"
 ---
 # <a name="questions-about-the-azure-backup-service"></a>Azure Backup hizmetiyle ilgili sorular
 Bu makalede, Azure Backup bileşenleri hakkında sık sorulan sorular yanıtlanmaktadır. Bazı yanıtlarda, kapsamlı bilgiler içeren makalelerin bağlantıları vardır. **Yorumlar**’a (sağda) tıklayarak Azure Backup hakkında soru sorabilirsiniz. Yorumlar bu makalenin altında görünür. Yorum yapmak için bir Livefyre hesabı gerekir. Ayrıca Azure Backup hizmeti ile ilgili sorularınızı [tartışma forumunda](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup) paylaşabilirsiniz.
@@ -43,10 +43,10 @@ Hayır. Kasa abonelik düzeyinde oluşturulur ve başka bir aboneliğe yeniden a
 Hayır. Bir kasada depolanan yedekleme verileri, farklı bir kasaya taşınamaz.
 
 ### <a name="can-i-change-from-grs-to-lrs-after-a-backup-br"></a>Bir yedeklemeden sonra GRS LRS için değiştirebilirim? <br/>
-Hayır. Bir kurtarma Hizmetleri kasası, yalnızca depolanan yedeklemelere önce depolama seçenekleri değiştirebilirsiniz. 
+Hayır. Bir kurtarma Hizmetleri kasası, yalnızca depolanan yedeklemelere önce depolama seçenekleri değiştirebilirsiniz.
 
 ### <a name="recovery-services-vaults-are-resource-manager-based-are-backup-vaults-still-supported-br"></a>Kurtarma Hizmetleri kasaları Resource Manager tabanlıdır. Yedekleme kasaları hâlâ destekleniyor? <br/>
-Yedekleme kasaları kurtarma Hizmetleri kasalarına dönüştürüldü. Bir kurtarma Hizmetleri kasasına yedekleme kasasına dönüştürülüp, ardından yedekleme kasası kurtarma Hizmetleri kasası için sizin için dönüştürüldü. 
+Yedekleme kasaları kurtarma Hizmetleri kasalarına dönüştürüldü. Bir kurtarma Hizmetleri kasasına yedekleme kasasına dönüştürülüp, ardından yedekleme kasası kurtarma Hizmetleri kasası için sizin için dönüştürüldü.
 
 ### <a name="can-i-migrate-a-backup-vault-to-a-recovery-services-vault-br"></a>Bir Backup kasasının Kurtarma Hizmetleri kasasına geçişini sağlayabilir miyim? <br/>
 Tüm yedekleme kasaları kurtarma Hizmetleri kasalarına dönüştürüldü. Bir kurtarma Hizmetleri kasasına yedekleme kasasına dönüştürülüp, ardından yedekleme kasası kurtarma Hizmetleri kasası için sizin için dönüştürüldü.
@@ -60,7 +60,6 @@ Soruların ayrıntılı listesini [Azure VM yedeklemesi hakkında SSS](backup-az
 ## <a name="back-up-vmware-servers"></a>VMware sunucularını yedekleme
 
 ### <a name="can-i-back-up-vmware-vcenter-servers-to-azure"></a>VMware vCenter sunucularını Azure'a yedekleyebilir miyim?
-
 Evet. VMware vCenter ve ESXi’yi Azure’a yedeklemek için Azure Backup Sunucusu'nu kullanabilirsiniz. Desteklenen VMware sürümü hakkında daha fazla bilgi için [Azure Backup Sunucusu koruma matrisi](backup-mabs-protection-matrix.md) adlı makaleye bakın. Adım adım yönergeler için bkz. [VMware sunucusunu yedeklemek için Azure Backup Sunucusu’nu kullanma](backup-azure-backup-server-vmware.md).
 
 ### <a name="do-i-need-a-separate-license-to-recover-a-full-on-premises-vmwarehyper-v-cluster-from-dpm-or-azure-backup-serverbr"></a>DPM veya Azure Backup sunucusu tam şirket içi VMware/Hyper-V kümesi kurtarmak için ayrı bir lisans gerekiyor mu?<br/>
@@ -74,17 +73,14 @@ Evet.
 Hayır. DPM veya MABS sunucuları yalnızca bir kasaya kaydedilebilir.
 
 ### <a name="which-version-of-system-center-data-protection-manager-is-supported"></a>System Center Data Protection Manager’ın hangi sürümü desteklenir?
-
-[En son](http://aka.ms/azurebackup_agent) Azure Backup aracısını, System Center Data Protection Manager'ın (DPM) en son güncelleştirme paketi (UR) üzerine yüklemeniz önerilir. 
+[En son](http://aka.ms/azurebackup_agent) Azure Backup aracısını, System Center Data Protection Manager'ın (DPM) en son güncelleştirme paketi (UR) üzerine yüklemeniz önerilir.
 - System Center DPM 2012 R2 için [güncelleştirme paketi 14](https://support.microsoft.com/help/4043315/update-rollup-14-for-system-center-2012-r2-data-protection-manager) en son güncelleştirmesidir.
 - System Center DPM 2016, [güncelleştirme dökümü 2](https://support.microsoft.com/en-us/help/3209593) en son güncelleştirmesidir.
 
 ### <a name="i-have-installed-azure-backup-agent-to-protect-my-files-and-folders-can-i-install-system-center-dpm-to-protect-on-premises-applicationvm-workloads-to-azure"></a>Dosya ve klasörlerimi korumak için Azure Backup aracısını yükledim. Şirket içi uygulama/VM iş yüklerini azure'a korumak için System Center DPM yükleyebilirim?
-
 Evet. Ancak, Azure Backup, System Center Data Protection Manager (DPM) ile kullanmak için önce DPM'yi yükleyin ve ardından Azure Backup aracısını yükleyin. Azure Backup bileşenlerinin bu sırada yüklenmesi, Azure Backup aracısının DPM ile çalışmasını sağlar. Azure Backup aracısının DPM yüklenmeden önce yüklenmesi önerilmez veya desteklenmez.
 
 ### <a name="can-i-use-dpm-to-back-up-apps-in-azure-stack"></a>Uygulamaları Azure Stack'te yedeklemek için DPM'yi kullanabilir miyim?
-
 Hayır. Azure Stack korumak için Azure Backup kullanabilmenize rağmen Azure Backup şu anda Azure Stack'te uygulama yedeklemek için DPM'yi kullanarak desteklemez.
 
 ## <a name="how-azure-backup-works"></a>Azure Backup nasıl çalışır?
@@ -115,7 +111,7 @@ Azure Backup, Azure Backup Sunucusu ve System Center Data Protection Manager (DP
 | Windows Server 2016 |64 bit |Standard, Datacenter, Essentials |
 | Windows Server 2012 R2 ve en son SP'ler |64 bit |Standard, Datacenter, Foundation |
 | Windows Server 2012 ve en son SP'ler |64 bit |Datacenter, Foundation, Standard |
-| Windows Storage Server 2016 ve en son SP'ler |64 bit |Standard, Workgroup | 
+| Windows Storage Server 2016 ve en son SP'ler |64 bit |Standard, Workgroup |
 | Windows Storage Server 2012 R2 ve en son SP'ler |64 bit |Standard, Workgroup |
 | Windows Storage Server 2012 ve en son SP'ler |64 bit |Standard, Workgroup |
 | Windows Server 2012 R2 ve en son SP'ler |64 bit |Essential |
@@ -192,7 +188,7 @@ Evet. Veriler AES256 kullanılarak şirket içi sunucu/istemci/SCDPM makinesi ü
 Evet. Azure'a gönderilen veriler (bekleyen) şifreli olarak kalır. Microsoft herhangi bir noktada yedekleme verilerinin şifresini çözmez. Azure Backup bir Azure VM’yi yedeklerken sanal makinenin şifrelemesini kullanır. Örneğin, VM’niz Azure Disk Şifrelemesi veya başka bir şifreleme teknolojisi kullanılarak şifrelendiyse, Azure Backup verilerinizi korumak için bu şifrelemeyi kullanır.
 
 ### <a name="what-is-the-minimum-length-of-encryption-key-used-to-encrypt-backup-data-br"></a>Yedekleme verilerini şifrelemek için kullanılan şifreleme anahtarının minimum uzunluğu nedir? <br/>
-Azure Backup aracısını kullanırken şifreleme anahtarı en az 16 karakter olmalıdır. Azure VM'lerde, Azure KeyVault tarafından kullanılan anahtarlar için boyut sınırlaması yoktur. 
+Azure Backup aracısını kullanırken şifreleme anahtarı en az 16 karakter olmalıdır. Azure VM'lerde, Azure KeyVault tarafından kullanılan anahtarlar için boyut sınırlaması yoktur.
 
 ### <a name="what-happens-if-i-misplace-the-encryption-key-can-i-recover-the-data-or-can-microsoft-recover-the-data-br"></a>Şifreleme anahtarını kaybedersem ne olur? Verileri kurtarabilir miyim?/Microsoft, verileri kurtarabilir mi? <br/>
 Yedekleme verilerini şifrelemek için kullanılan anahtar yalnızca müşterinin şirketinde bulunur. Microsoft, Azure üzerinde anahtarın bir kopyasını tutmaz ve anahtara erişim sahibi değildir. Müşteri, anahtarı kaybederse Microsoft, yedekleme verilerini kurtaramaz.

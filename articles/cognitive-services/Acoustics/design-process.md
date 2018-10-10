@@ -1,20 +1,21 @@
 ---
-title: Tasarım işlemine genel bakış için akustik - Bilişsel hizmetler
+title: Proje akustik tasarım işlemi genel bakış
+titlesuffix: Azure Cognitive Services
 description: Bu belge, tasarım amacı proje akustik iş akışı, tüm üç aşamada express açıklar.
 services: cognitive-services
 author: kegodin
-manager: noelc
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: acoustics
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/17/2018
 ms.author: kegodin
-ms.openlocfilehash: bb3e5010f1839f7b18396cc8e177ed07e52ea98a
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: 46e2e276086f836ff881fde1db6462f6e7788e22
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48867659"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48901371"
 ---
 # <a name="design-process-overview"></a>Tasarım işlemine genel bakış
 Proje akustik iş akışı, tüm üç aşamada tasarım amacınızla ifade edebilirsiniz: önceden hazırlama Sahne Kurulum, ses kaynak yerleştirme ve sonrası hazırlama tasarım. Tasarımcı denetime nasıl Sahne sesleri korurken Yankı birimler yerleştirme ile ilişkili daha az biçimlendirme işlemi gerektirir.

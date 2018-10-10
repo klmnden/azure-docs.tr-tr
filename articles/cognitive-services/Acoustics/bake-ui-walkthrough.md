@@ -1,20 +1,21 @@
 ---
-title: Akustik proje akustik - Bilişsel hizmetler ile hazırlama
+title: Akustik proje akustik ile hazırlama
+titlesuffix: Azure Cognitive Services
 description: Bu belgede, Unity editor uzantısını kullanarak bir akustik hazırlama gönderme işlemi açıklanmaktadır.
 services: cognitive-services
 author: kegodin
-manager: noelc
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: acoustics
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/17/2018
 ms.author: kegodin
-ms.openlocfilehash: 7a409b1ecdd693a0f28d2303d55a27b177644eb0
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: c37e050cd762cb173d64f78b5267e4ad252d17a9
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48855417"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48902255"
 ---
 # <a name="bake-acoustics"></a>Akustik hazırlama
 

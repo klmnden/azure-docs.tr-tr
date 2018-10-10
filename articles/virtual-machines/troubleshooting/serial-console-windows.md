@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/07/2018
 ms.author: harijay
-ms.openlocfilehash: 17fec61e73298a6250cf6805bb9a713ff3d3a488
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 705366dbb055679a2d0adc628938fa419609f6ed
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48858018"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48885128"
 ---
 # <a name="virtual-machine-serial-console"></a>Sanal makine seri Konsolu
 
@@ -222,7 +222,7 @@ A. Katkıda bulunan düzeyinde erişime sahip olmalıdır veya üzeri bir VM san
 
 **SORU. Seri konsolumda herhangi bir şey ne yapmalıyım gösterilmiyor?**
 
-A. Görüntünüzü seri konsol erişimi için büyük olasılıkla yanlış yapılandırılmış. Bkz: [eski veya özel görüntüleri seri konsolunda etkinleştirme](#Enable-Serial-Console-in-custom-or-older-images) görüntünüzü seri konsol etkinleştirmek için yapılandırma hakkında ayrıntılar için.
+A. Görüntünüzü seri konsol erişimi için büyük olasılıkla yanlış yapılandırılmış. Bkz: [eski veya özel görüntüleri seri konsolunda etkinleştirme](#enable-serial-console-in-custom-or-older-images) görüntünüzü seri konsol etkinleştirmek için yapılandırma hakkında ayrıntılar için.
 
 **SORU. Seri konsol sanal makine ölçek kümeleri için kullanılabilir mi?**
 

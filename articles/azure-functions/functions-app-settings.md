@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/22/2018
 ms.author: glenga
-ms.openlocfilehash: 4e40a731530e9423c7be6f2e2449aad970bb327c
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: b3b96bec7a56a0d1f8471f0290ae928ef80d7b3a
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47040253"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48883746"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Azure işlevleri için uygulama ayarları başvurusu
 
@@ -114,7 +114,7 @@ Geçerli değerler şunlardır: "readwrite" ve "salt okunur".
 
 ## <a name="functionsextensionversion"></a>İŞLEVLERİ\_UZANTISI\_SÜRÜMÜ
 
-Bu işlev uygulamasında kullanmak için Azure işlevleri çalışma zamanı sürümü. Bir tilde ana sürümle (örneğin, "~ 2") bu ana sürüm en son sürümünü kullanmanız anlamına gelir. Aynı ana sürüm için yeni sürümler kullanılabilir olduğunda işlev uygulamasına otomatik olarak yüklenirler. Belirli bir sürüme uygulamayı sabitlemek için tam sürüm numarası (örneğin, "2.0.12345") kullanın. "~ 2" varsayılandır.
+Bu işlev uygulamasında kullanmak için İşlevler çalışma zamanı sürümü. Bir tilde ana sürümle (örneğin, "~ 2") bu ana sürüm en son sürümünü kullanmanız anlamına gelir. Aynı ana sürüm için yeni sürümler kullanılabilir olduğunda işlev uygulamasına otomatik olarak yüklenirler. Belirli bir sürüme uygulamayı sabitlemek için tam sürüm numarası (örneğin, "2.0.12345") kullanın. "~ 2" varsayılandır. Değerini `~1` sürümü uygulamanıza sabitler çalışma zamanının 1.x.
 
 |Anahtar|Örnek değer|
 |---|------------|
@@ -122,7 +122,7 @@ Bu işlev uygulamasında kullanmak için Azure işlevleri çalışma zamanı sü
 
 ## <a name="functionsworkerruntime"></a>İŞLEVLERİ\_ÇALIŞAN\_ÇALIŞMA ZAMANI
 
-İşlev uygulamasına yüklemek için dil alt çalışma zamanı.  Bu, uygulamada (örneğin, "dotnet") kullanılan dil karşılık gelir. Birden çok dilde işlevler için her bir karşılık gelen alt çalışma zamanı değeri ile birden fazla uygulama yayımlamak gerekir.  Geçerli değerler `dotnet`, `node`, ve `java`.
+İşlev uygulamasına yüklemek için dil alt çalışma zamanı.  Bu, uygulamada (örneğin, "dotnet") kullanılan dil karşılık gelir. Birden çok dilde işlevler için her bir karşılık gelen alt çalışma zamanı değeri ile birden fazla uygulama yayımlamak gerekir.  Geçerli değerler `dotnet` (C# /F #), `node` (JavaScript) ve `java` (Java).
 
 |Anahtar|Örnek değer|
 |---|------------|

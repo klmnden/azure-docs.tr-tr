@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry, michmcla
-ms.openlocfilehash: 7776ca63dd5c02e470ead35e3dad73c051731fd1
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: a8bcbc37ffba2caace0934c5414e1ccfd6fbb558
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42056264"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48902000"
 ---
 # <a name="what-are-authentication-methods"></a>Kimlik doğrulama yöntemleri nelerdir?
 
@@ -31,6 +31,7 @@ Microsoft, birine erişiminizin olmadığı durumda birden çok kimlik doğrulam
 | Güvenlik soruları | SSPR yalnızca |
 | E-posta adresi | SSPR yalnızca |
 | Microsoft Authenticator uygulaması | MFA ve SSPR için genel önizlemeye sunuldu |
+| OATH donanım belirteci | MFA ve SSPR için genel önizlemeye sunuldu |
 | SMS | MFA ve SSPR |
 | Sesli çağrı | MFA ve SSPR |
 | Uygulama parolaları | Yalnızca belirli durumlarda MFA |
@@ -39,7 +40,7 @@ Microsoft, birine erişiminizin olmadığı durumda birden çok kimlik doğrulam
 
 |     |
 | --- |
-| Mobil uygulama bildirimi ve mobil uygulama kodu olarak yöntemleri için Azure AD Self Servis parola sıfırlama, Azure Active Directory genel Önizleme özelliklerinden sunulmuştur. Önizlemeler hakkında daha fazla bilgi için bkz: [ek kullanım koşulları Microsoft Azure önizlemeleri için](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
+| MFA ve SSPR ve mobil uygulama bildirimi ya da mobil uygulama kodu için OATH donanım belirteçleri olarak yöntemleri için Azure AD Self Servis parola sıfırlama olan Azure Active Directory genel Önizleme özellikleri. Önizlemeler hakkında daha fazla bilgi için bkz: [ek kullanım koşulları Microsoft Azure önizlemeleri için](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
 |     |
 
 ## <a name="password"></a>Parola
@@ -146,6 +147,28 @@ Microsoft Authenticator uygulamasını veya diğer üçüncü taraf uygulamalar�
 > [!WARNING]
 > Ne zaman sıfırlama doğrulama kodu kullanıcıları için kullanılabilecek tek seçenek için bir yöntem gereklidir yalnızca Self Servis parola sıfırlama için **yüksek düzeyde güvenlik sağlamak için**.
 >
+
+## <a name="oath-hardware-tokens"></a>OATH donanım belirteçleri
+
+OATH nasıl tek kullanımlık parola (OTP) kodları belirten açık bir standart üretilir. Azure AD 30 saniyelik veya 60 saniye çeşitli OATH-TOTP SHA-1 belirteçleri kullanımını destekler. Müşteriler bu belirteçleri, kendi seçtikleri satıcıdan tedarik. Gizli anahtarları birlikte tüm belirteçlerin uyumlu olmayabilir 128 karakterle sınırlı olduğuna dikkat edin.
+
+![Azure portalı MFA Server OATH belirteçleri dikey penceresine OATH belirteçlerini karşıya yükleme](media/concept-authentication-methods/oath-tokens-azure-ad.png)
+
+Belirteçleri elde edilen sonra aşağıda gösterildiği örnek olarak UPN, seri numarası, gizli anahtar, zaman aralığı, üretici ve model dahil olmak üzere bir virgülle ayrılmış değerler (CSV) dosya biçiminde yüklenmelidir.
+
+```
+upn,serial number,secret key,timeinterval,manufacturer,model
+Helga@contoso.com,1234567,1234567890abcdef1234567890abcdef,60,Contoso,HardwareKey
+```
+
+> [!NOTE]
+> Yukarıda da gösterildiği gibi CSV dosyasında üst bilgi satırı eklediğinizden emin olun.
+
+Bir CSV dosyası olarak bir yönetici ardından Azure portalında oturum açın ve gidin kez düzgün biçimlendirilmiş **Azure Active Directory**, **MFA sunucusu**, **OATH belirteçleri**, ve Sonuçta elde edilen CSV dosyasını karşıya yükleyin.
+
+CSV dosyasının boyutuna bağlı olarak, bu işlem birkaç dakika sürebilir. Tıklayın **Yenile** geçerli durumunu almak için düğme. Dosyayı herhangi bir hata varsa, hataları çözmek size listeleyen bir CSV dosyasını indirmek için seçeneğine sahip olursunuz.
+
+Hataları giderdikten sonra yönetici ardından her anahtar tıklayarak etkinleştirebilirsiniz **etkinleştirme** etkinleştirilmesi için belirteç ve girmek için OTP belirtecinde güncel olarak görüntülenen.
 
 ## <a name="mobile-phone"></a>Cep telefonu
 

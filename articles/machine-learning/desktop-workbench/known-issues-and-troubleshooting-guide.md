@@ -11,12 +11,12 @@ ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 01/12/2018
-ms.openlocfilehash: d72f1b986671bfab1d79772ac50935918da7e681
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 8177808fd4d666ea04b1bc097f261c7643931704
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46963279"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48885059"
 ---
 # <a name="azure-machine-learning-workbench---known-issues-and-troubleshooting-guide"></a>Learning Workbench'i - bilinen sorunlar ve sorun giderme kılavuzu azure makine 
 Bu makalede, bulma ve hataları düzeltin veya Azure Machine Learning Workbench uygulamasını kullanarak bir parçası olarak karşılaşılan hatalar yardımcı olur. 
@@ -25,7 +25,7 @@ Bu makalede, bulma ve hataları düzeltin veya Azure Machine Learning Workbench 
 Destek Ekibi ile iletişim kurarken, yapı numarası Workbench uygulamasının eklemek önemlidir. Windows üzerinde yapı numarasını tıklayarak bulabilirsiniz **yardımcı** menüsünü seçip **Azure ML Workbench hakkında**. MacOS üzerinde tıklayabilirsiniz **Azure ML Workbench** menüsünü seçip **Azure ML Workbench hakkında**.
 
 ## <a name="machine-learning-msdn-forum"></a>Machine Learning MSDN Forumu
-Bir MSDN forumuna soru gönderebilir sahibiz. Ürün ekibine forumun etkin bir şekilde izler. URL forum [ https://aka.ms/azureml-forum ](https://aka.ms/azureml-forum). 
+Bir MSDN forumuna soru gönderebilir sahibiz. Ürün ekibine forumun etkin bir şekilde izler. URL forum [ https://aka.ms/aml-forum-service ](https://aka.ms/aml-forum-service). 
 
 ## <a name="gather-diagnostics-information"></a>Tanılama bilgilerini toplama
 Bazen Yardım isteme, tanılama bilgilerini sağlarsanız, yararlı olabilir. Günlük dosyaları burada Canlı aşağıda verilmiştir:

@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2018
 ms.author: clemensv
-ms.openlocfilehash: ccb759a9151d734aa99a6f6b9c68e6072874dd84
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: c6e9eef762d4a9eb95685d94c61ce10d499bb155
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47394837"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48884812"
 ---
 # <a name="use-ip-filters"></a>IP filtreleri kullanma
 
@@ -48,6 +48,8 @@ IP Filtresi kurallarının sırayla uygulanır ve IP adresi ile eşleşen ilk ku
 > Reddetme IP adresleri, diğer Azure Hizmetleri (örneğin, Azure Stream Analytics, Azure sanal makineler veya Portalı'nda Device Explorer) Service Bus ile etkileşim engelleyebilirsiniz.
 
 ### <a name="creating-a-virtual-network-rule-with-azure-resource-manager-templates"></a>Azure Resource Manager şablonları ile bir sanal ağ kuralı oluşturuluyor
+
+> ! [ÖNEMLİ] Sanal ağlar yalnızca desteklenen **premium** katman hizmet veri yolu.
 
 Aşağıdaki Resource Manager şablonu var olan bir Service Bus ad alanı için bir sanal ağ kuralı ekleyerek sağlar.
 

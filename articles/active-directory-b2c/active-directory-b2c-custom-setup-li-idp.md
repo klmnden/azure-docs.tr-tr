@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/20/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 4817ad918af66080cec1faead96c6c9448387556
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
+ms.openlocfilehash: b5022e1475b9f15738dd015e16946b754fcd49c9
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47181219"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48887317"
 ---
 # <a name="set-up-sign-in-with-a-linkedin-account-using-custom-policies-in-azure-active-directory-b2c"></a>Azure Active Directory B2C'de özel ilkeleri kullanarak bir LinkedIn hesabıyla oturum açma özelliğini ayarlama
 
@@ -163,6 +163,18 @@ Yerinde bir düğmeye sahip olduğunuza göre bir eyleme bağlamanız gerekir. E
 
 3. Kaydet *TrustFrameworkExtensions.xml* dosya ve doğrulama için yeniden yükleyin.
 
+## <a name="create-an-azure-ad-b2c-application"></a>Azure AD B2C'yi uygulama oluşturma
+
+Azure AD B2c ile iletişim kiracınızda oluşturduğunuz bir uygulama üzerinden gerçekleşir. Bu bölümde zaten yapmadıysanız, bir test uygulaması oluşturmak için tamamlayabilirsiniz isteğe bağlı adımlar listelenir.
+
+1. [Azure Portal](https://portal.azure.com) oturum açın.
+2. Azure AD B2C kiracınızı tıklayarak içeren dizine kullandığınızdan emin olun **dizin ve abonelik filtresi** üst menü ve kiracınız içeren dizine seçme.
+3. Seçin **tüm hizmetleri** Azure portalı ve ardından arayın ve seçin, sol üst köşedeki **Azure AD B2C**.
+4. Seçin **uygulamaları**ve ardından **Ekle**.
+5. Uygulama için bir ad girin, örneğin *testapp1*.
+6. İçin **Web uygulaması / Web API'sini**seçin `Yes`yazıp enter `https://jwt.ms` için **yanıt URL'si**.
+7. **Oluştur**’a tıklayın.
+
 ## <a name="update-and-test-the-relying-party-file"></a>Güncelleştirme ve bağlı olan taraf dosyayı test etme
 
 Oluşturduğunuz kullanıcı yolculuğu başlatır bağlı olan taraf (RP) dosyasını güncelleştirin.
@@ -171,4 +183,5 @@ Oluşturduğunuz kullanıcı yolculuğu başlatır bağlı olan taraf (RP) dosya
 2. Yeni dosyayı açın ve değeri güncelleştirme **Policyıd** özniteliğini **TrustFrameworkPolicy** benzersiz bir değere sahip. Örneğin, `SignUpSignInLinkedIn`.
 3. Değerini güncelleştirin **PublicPolicyUri** ilkesi için URI ile. Örneğin,`http://contoso.com/B2C_1A_signup_signin_linkedin`
 4. Değerini güncelleştirin **Referenceıd** özniteliğini **DefaultUserJourney** (SignUpSignLinkedIn) oluşturduğunuz yeni kullanıcı yolculuğu kimliği eşleştirmek için.
-5. Yaptığınız değişiklikleri kaydedin, dosyayı karşıya yükleyin ve açıp tıklatarak test **Şimdi Çalıştır**.
+5. Yaptığınız değişiklikleri kaydedin, dosyayı karşıya yükleyin ve ardından listeden yeni ilkeyi seçin.
+6. İçinde oluşturduğunuz bir Azure AD B2C uygulamasını seçili olduğundan emin olun **uygulama seçin** alan ve ardından tıklayarak test **Şimdi Çalıştır**.

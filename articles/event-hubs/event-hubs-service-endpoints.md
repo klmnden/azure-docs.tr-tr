@@ -10,16 +10,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2018
 ms.author: shvija
-ms.openlocfilehash: b8c3270149c254898ad3180b92a4ff398f3efb6c
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.openlocfilehash: ff0ebbb140627caaaa71c5d09d0a4078eca86055
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42745918"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48888162"
 ---
 # <a name="use-virtual-network-service-endpoints-with-azure-event-hubs"></a>Azure Event Hubs ile sanal ağ hizmet uç noktaları kullanma
 
 Event Hubs ile tümleştirilmesi [(VNet) sanal ağ hizmet uç noktaları] [ vnet-sep] sanal olana bağlanmış sanal makineleri gibi iş yükleri için Mesajlaşma işlevlerini güvenli erişim sağlar Her iki End'i korunan ağ trafiği yoluyla ağ. 
+
+> [!IMPORTANT]
+> Sanal ağlar desteklenir **standart** ve **adanmış** Event Hubs'ın katmanları. Temel katmanda desteklenmiyor. 
 
 En az bir sanal ağ alt ağı için hizmet uç noktasını bağlanacak yapılandırıldıktan sonra ilgili Event Hubs ad alanı artık her yerde trafiği kabul eder, ancak sanal ağlar yetkili. Sanal ağ açısından bakıldığında, sanal ağ alt ağından bir yalıtılmış ağ tüneli Mesajlaşma hizmeti için hizmet uç noktası bir Event Hubs ad alanı bağlama yapılandırır.
 

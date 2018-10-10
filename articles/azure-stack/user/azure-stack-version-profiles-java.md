@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 09/28/2018
 ms.author: sethm
 ms.reviewer: sijuman
-ms.openlocfilehash: ffd22f3612d55258737cb9c004b2b0f4e9326f07
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: 5a97a683e7f25029199ba68ce3d5cee410c3cf29
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47452522"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48886833"
 ---
 # <a name="use-api-version-profiles-with-java-in-azure-stack"></a>Java'da Azure Stack ile API Sürüm profillerini kullanma
 
@@ -40,7 +40,7 @@ Bir API profili, kaynak sağlayıcıları ve API sürümlerini birleşimidir. Bi
     
       - .NET ile olduğu gibi doğru sınıf açılır listeden seçerseniz Pom.xml dosyasında modüller otomatik olarak yükleyen bir bağımlılık olarak belirtilmesi budur.
         
-          - Her modülün en üstüne aşağıdaki gibi görünür:         
+      - Her modülün en üstüne aşağıdaki gibi görünür:         
            `Import com.microsoft.azure.management.resources.v2018_03_01.ResourceGroup`
              
 
@@ -93,11 +93,11 @@ Azure Java SDK'sı, Azure Stack ile kullanmak için aşağıdaki değerleri giri
 
 | Değer                     | Ortam değişkenleri | Açıklama                                                                                                                                                                                                          |
 | ------------------------- | --------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Kiracı Kimliği                 | KİRACI            | Azure Stack değerini [ <span class="underline">Kiracı kimliği</span>](../azure-stack-identity-overview.md).                                                          |
-| İstemci Kimliği                 | CLIENT_ID             | Hizmet sorumlusu uygulama kimliği bu belgenin önceki bölümde üzerinde hizmet sorumlusu oluşturulurken kaydedilen.                                                                                              |
-| Abonelik Kimliği           | SUBSCRIPTION_ID      | [ <span class="underline">Abonelik kimliği</span> ](../azure-stack-plan-offer-quota-overview.md#subscriptions) nasıl, teklifler eriştiği Azure Stack'te.                |
-| İstemci Gizli Anahtarı             | CLIENT_SECRET        | Hizmet sorumlusu oluştururken hizmet sorumlusu uygulama gizli anahtarı kaydedildi.                                                                                                                                   |
-| Resource Manager uç noktası | UÇ NOKTASI              | Bkz: [ <span class="underline">Azure Stack Kaynak Yöneticisi uç noktası</span>](../user/azure-stack-version-profiles-ruby.md#the-azure-stack-resource-manager-endpoint). |
+| Kiracı Kimliği                 | AZURE_TENANT_ID            | Azure Stack değerini [ <span class="underline">Kiracı kimliği</span>](../azure-stack-identity-overview.md).                                                          |
+| İstemci Kimliği                 | AZURE_CLIENT_ID             | Hizmet sorumlusu uygulama kimliği bu belgenin önceki bölümde üzerinde hizmet sorumlusu oluşturulurken kaydedilen.                                                                                              |
+| Abonelik Kimliği           | AZURE_SUBSCRIPTION_ID      | [ <span class="underline">Abonelik kimliği</span> ](../azure-stack-plan-offer-quota-overview.md#subscriptions) nasıl, teklifler eriştiği Azure Stack'te.                |
+| İstemci Gizli Anahtarı             | AZURE_CLIENT_SECRET        | Hizmet sorumlusu oluştururken hizmet sorumlusu uygulama gizli anahtarı kaydedildi.                                                                                                                                   |
+| Resource Manager uç noktası | ARM_ENDPOINT              | Bkz: [ <span class="underline">Azure Stack Kaynak Yöneticisi uç noktası</span>](../user/azure-stack-version-profiles-ruby.md#the-azure-stack-resource-manager-endpoint). |
 | Konum                  | RESOURCE_LOCATION    | Azure Stack için yerel                                                                                                                                                                                                |
 
 Azure Stack için Kiracı Kimliğini bulmak için bulunan yönergeleri takip [burada](../azure-stack-csp-ref-operations.md). Ortam değişkenlerini ayarlamak için aşağıdakileri yapın:
@@ -107,7 +107,7 @@ Azure Stack için Kiracı Kimliğini bulmak için bulunan yönergeleri takip [bu
 Bir Windows Komut İstemi'nde ortam değişkenlerini ayarlamak için aşağıdaki biçimi kullanın:
 
 ```shell
-Set Azure_Tenant_ID=<Your_Tenant_ID>
+Set AZURE_TENANT_ID=<Your_Tenant_ID>
 ```
 
 ### <a name="macos-linux-and-unix-based-systems"></a>macOS, Linux ve UNIX tabanlı sistemlerde
@@ -115,7 +115,7 @@ Set Azure_Tenant_ID=<Your_Tenant_ID>
 UNIX tabanlı sistemlerde, aşağıdaki komutu kullanabilirsiniz:
 
 ```shell
-Export Azure_Tenant_ID=<Your_Tenant_ID>
+Export AZURE_TENANT_ID=<Your_Tenant_ID>
 ```
 
 ### <a name="the-azure-stack-resource-manager-endpoint"></a>Azure Stack Kaynak Yöneticisi uç noktası
@@ -162,7 +162,8 @@ Aşağıdaki kod, Azure Stack hizmet sorumlusu kimliğini doğrular. Kimliği ve
 ```java
 AzureTokenCredentials credentials = new ApplicationTokenCredentials(client, tenant, key, AZURE_STACK)
                     .withDefaultSubscriptionId(subscriptionId);
-            Azure azureStack = Azure.configure().withLogLevel(com.microsoft.rest.LogLevel.BASIC)
+Azure azureStack = Azure.configure()
+                    .withLogLevel(com.microsoft.rest.LogLevel.BASIC)
                     .authenticate(credentials, credentials.defaultSubscriptionId());
 ```
 
@@ -182,7 +183,7 @@ AzureEnvironment AZURE_STACK = new AzureEnvironment(new HashMap<String, String>(
                     put("activeDirectoryResourceId", settings.get("audience"));
                     put("activeDirectoryGraphResourceId", settings.get("graphEndpoint"));
                     put("storageEndpointSuffix", armEndpoint.substring(armEndpoint.indexOf('.')));
-                    put("keyVaultDnsSuffix", ".adminvault" + armEndpoint.substring(armEndpoint.indexOf('.')));
+                    put("keyVaultDnsSuffix", ".vault" + armEndpoint.substring(armEndpoint.indexOf('.')));
                 }
             });
 ```
@@ -205,8 +206,7 @@ HttpGet getRequest = new
 HttpGet(String.format("%s/metadata/endpoints?api-version=1.0",
 armEndpoint));
 
-// Add additional header to getRequest which accepts application/xml
-data
+// Add additional header to getRequest which accepts application/xml data
 getRequest.addHeader("accept", "application/xml");
 
 // Execute request and catch response
@@ -217,37 +217,37 @@ HttpResponse response = httpClient.execute(getRequest);
 
 .NET ve Azure Stack API profilleriyle çözümleri oluşturmak için aşağıdaki GitHub örneklerine başvuru olarak kullanabilirsiniz:
 
-  - [Kaynak gruplarını yönetme](https://github.com/viananth/resources-java-manage-resource-group/tree/stack/Hybrid)
+  - [Kaynak gruplarını yönetme](https://github.com/Azure-Samples/Hybrid-resources-java-manage-resource-group)
 
-  - [Depolama hesaplarını yönetme](https://github.com/viananth/storage-java-manage-storage-accounts/tree/stack/Hybrid)
+  - [Depolama hesaplarını yönetme](https://github.com/Azure-Samples/hybrid-storage-java-manage-storage-accounts)
 
-  - [Bir sanal makineyi yönetin](https://github.com/viananth/compute-java-manage-vm/tree/stack/Hybrid)
+  - [Bir sanal makineyi yönetin](https://github.com/Azure-Samples/hybrid-compute-java-manage-vm)
 
 ### <a name="sample-unit-test-project"></a>Örnek birim testi projesi 
 
 1.  Aşağıdaki komutu kullanarak depoyu kopyalayın:
     
-    `git clone https://github.com/viananth/resources-java-manage-resource-group/tree/stack/Hybrid`
+    `git clone https://github.com/Azure-Samples/Hybrid-resources-java-manage-resource-group.git`
 
 2.  Bir Azure hizmet sorumlusu oluşturma ve aboneliğe erişmek için bir rol atayın. Bir hizmet sorumlusu oluşturma hakkında yönergeler için bkz: [bir sertifika ile hizmet sorumlusu oluşturmak için Azure PowerShell kullanarak](../azure-stack-create-service-principals.md).
 
 3.  Aşağıdaki gerekli ortam değişken değerleri alın:
     
-   1.  KİRACI
-   2.  CLIENT_ID
-   3.  CLIENT_SECRET
-   4.  SUBSCRIPTION_ID
-   5.  ARM_ENDPOINT
-   6.  RESOURCE_LOCATION
+    -  AZURE_TENANT_ID
+    -  AZURE_CLIENT_ID
+    -  AZURE_CLIENT_SECRET
+    -  AZURE_SUBSCRIPTION_ID
+    -  ARM_ENDPOINT
+    -  RESOURCE_LOCATION
 
 4.  Komut istemi kullanarak oluşturduğunuz hizmet Sorumlusundan alınan bilgileri kullanarak, aşağıdaki ortam değişkenlerini ayarlayın:
     
-   1. Kiracı dışarı {Kiracı kimliğinizi} =
-   2. dışarı aktarma CLIENT_ID {istemci kimliğiniz} =
-   3. dışarı aktarma CLIENT_SECRET {istemci gizli anahtarı} =
-   4. SUBSCRIPTION_ID dışarı {abonelik kimliğinizi} =
-   5. dışarı aktarma ARM_ENDPOINT {, Azure Stack Kaynak Yöneticisi URL'si} =
-   6. dışarı aktarma RESOURCE_LOCATION {location Azure Stack} =
+    - dışarı aktarma AZURE_TENANT_ID {Kiracı kimliğinizi} =
+    - dışarı aktarma AZURE_CLIENT_ID {istemci kimliğiniz} =
+    - dışarı aktarma AZURE_CLIENT_SECRET {istemci gizli anahtarı} =
+    - dışarı aktarma AZURE_SUBSCRIPTION_ID {abonelik kimliğinizi} =
+    - dışarı aktarma ARM_ENDPOINT {, Azure Stack Kaynak Yöneticisi URL'si} =
+    - dışarı aktarma RESOURCE_LOCATION {location Azure Stack} =
 
    Windows içinde kullanmak **ayarlamak** yerine **dışarı**.
 

@@ -1,44 +1,45 @@
 ---
-title: Akademik bilgi API'si lambda arama söz dizimi | Microsoft Docs
-description: Akademik bilgi API'si Microsoft Bilişsel Hizmetleri'ndeki kullanabileceğiniz Lambda arama söz dizimi hakkında bilgi edinin.
+title: Lambda arama söz dizimi - akademik bilgi API'si
+titlesuffix: Azure Cognitive Services
+description: Akademik bilgi API'si kullanabilirsiniz Lambda arama söz dizimi hakkında bilgi edinin.
 services: cognitive-services
 author: alch-msft
-manager: kuansanw
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: academic-knowledge
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/23/2017
 ms.author: alch
-ms.openlocfilehash: f486368e1d0258087091acb846a84b125712db40
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 284f1d90f043e2634e143508e2ab0e98cd309f46
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35351479"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48902697"
 ---
 # <a name="lambda-search-syntax"></a>Lambda arama söz dizimi
 
-Her *lambda* arama sorgu dizesi bir grafik deseni açıklar. Bir sorgu hangi grafik düğümden biz geçişi başlatmak belirtme en az bir başlangıç düğümü olmalıdır. Bir başlangıç düğümü belirtmek için arama *MANYETİK. StartFrom()* yöntemi ve bir veya daha fazla düğümde veya bir sorgu Kimlikleri'ni geçişinde nesnesi arama kısıtlamaları belirtir. *StartFrom()* yöntemi üç aşırı sahiptir. Bunların tümünün ikinci olan ile iki bağımsız değişken isteğe bağlı olur. İlk bağımsız değişken uzun tamsayı, uzun tamsayı numaralandırılabilir bir koleksiyonunu olabilir veya nesne JSON temsil eden bir dize olarak aynı semantiği ile *json* ara:
+Her *lambda* dizeyi tanımlayan bir grafik desenini arama sorgusu. Bir sorgu grafik düğüm biz geçişi Başlat belirterek en az bir başlangıç düğümü olmalıdır. Başlangıç düğümünün belirtmek için çağrı *MAG. StartFrom()* nesne yöntemi ve bir veya daha fazla düğüm veya bir sorgu kimlikleri geçişinde arama kısıtlamaları belirtir. *StartFrom()* yöntemi üç aşırı yüklemeleri vardır. Bunların tümünde ikinci olan ile iki bağımsız değişken isteğe bağlı almaz. İlk bağımsız değişken büyük bir tamsayı, büyük tamsayı, numaralandırılabilir bir koleksiyonunu olabilir veya olarak aynı semantiğe sahip bir JSON temsil eden bir dize nesnesi *json* arama:
 ```
 StartFrom(long cellid, IEnumerable<string> select = null)
 StartFrom(IEnumerable<long> cellid, IEnumerable<string> select = null)
 StartFrom(string queryObject, IEnumerable<string> select = null)
 ```
 
-Bir düğümden diğerine yol için bir lambda arama sorgusu yazma işlemi gerçekleşir. Kenarın size yol türünü belirtmek için kullanın *FollowEdge()* ve istenen kenara türlerinde geçirin. *FollowEdge()* rastgele sayıda dize bağımsız değişkeni alır:
+Lambda arama sorgusu yazma işleminin bir düğümden başka bir yol sağlamaktır. İzlenecek yol için edge türünü belirtmek için kullanın *FollowEdge()* ve istenen edge türlerinde geçirin. *FollowEdge()* tercihe bağlı sayıda dize bağımsız değişkeni alır:
 ```
 FollowEdge(params string[] edgeTypes)
 ```
 > [!NOTE]
-> Biz izlemek için edge(s) türleri hakkında önemli değil, yalnızca sütunsa *FollowEdge()* iki düğüm arasında: Sorgu bu iki düğüm arasında olası tüm kenarları boyunca size yol gösterir.
+> Sadece biz izlemenizi edge(s) türlerini hakkında önemsemiyorsanız atlamak *FollowEdge()* iki düğüm arasındaki: Sorgu bu iki düğüm arasında tüm olası kenarları boyunca size yol gösterir.
 
-Aracılığıyla bir düğüme üzerinde gerçekleştirilecek geçişi eylemleri belirttiğimiz *VisitNode()*, diğer bir deyişle, bu düğümde durdurmak ve sonuç olarak geçerli yolda dönmek için mi grafiği keşfetmeye devam etmek için.  Enum türü *eylem* iki tür eylem tanımlar: *Action.Return* ve *Action.Continue*. Bu tür bir enum değeri doğrudan geçiş yapabilir *VisitNode()*, bit düzeyinde ile birleştirerek- and işleci '&'. İki eylem birleştirilir, her iki eylemlerin gerçekleştirilmesi anlamına gelir. Not: Bitsel kullanmayın- or işleci ' |' eylemleri. Bunun yapılması, herhangi bir şey dönmeden sonlandırmak sorgu neden olur. Atlanıyor *VisitNode()* iki arasında *FollowEdge()* çağrıları koşulsuz olarak grafiği bir düğümde ulaşan sonra keşfetmek sorgu neden olur.
+Bir düğüme uygulanacak geçişi eylemleri belirttiğimiz *VisitNode()*, diğer bir deyişle, bu düğümde durdurun ve sonucu olarak geçerli bir yol döndürür veya graph incelemeye devam edin.  Enum türü *eylem* iki tür eylem tanımlar: *Action.Return* ve *Action.Continue*. Biz bu tür bir sabit listesi değeri doğrudan geçirebilirsiniz *VisitNode()*, veya bit düzeyinde ile birleştirip- and işleci '&'. İki eylem birleştirilir, hem eylemler gerçekleştirilecek anlamına gelir. Not: bit düzeyinde kullanmayın- or işleci ' |' eylemleri. Bunun yapılması, hiçbir şey dönmeden sonlandırmak sorgu neden olur. Atlama *VisitNode()* iki *FollowEdge()* koşulsuz olarak bir düğümde geldikten sonra graf keşfetmek sorgu çağrıları neden olur.
 
 ```
 VisitNode(Action action, IEnumerable<string> select = null)
 ```
 
-İçin *VisitNode()*, biz de türünde lambda ifadesinde geçirebilirsiniz *ifade\<Func\<Inode, eylemi\>\>*, bir aldığı*Inode* ve çapraz geçişi eylem döndürür:
+İçin *VisitNode()*, tür lambda ifadesinde biz de geçirebilirsiniz *ifade\<Func\<Inode, eylem\>\>*, bir aldığı*Inode* ve geçişi eylem döndürür:
 
 ```
 VisitNode(Expression<Func<INode, Action>> action, IEnumerable<string> select = null)
@@ -46,7 +47,7 @@ VisitNode(Expression<Func<INode, Action>> action, IEnumerable<string> select = n
 
 ## <a name="inode"></a>*Inode* 
 
-*Inode* sağlar *salt okunur* veri erişim arabirimleri ve bir düğüm üzerindeki birkaç yerleşik yardımcı işlevleri. 
+*Inode* sağlar *salt okunur* verilere arabirimleri ve bir düğüm üzerinde birkaç yerleşik yardımcı işlevleri. 
 
 ### <a name="basic-data-access-interfaces"></a>Temel veri erişim arabirimleri
 
@@ -54,45 +55,45 @@ VisitNode(Expression<Func<INode, Action>> action, IEnumerable<string> select = n
 
 Düğümün 64-bit kimliği. 
 
-##### <a name="t-getfieldtstring-fieldname"></a>T GetField\<T\>(fieldName dize)
+##### <a name="t-getfieldtstring-fieldname"></a>T GetField\<T\>(fieldName string)
 
-Belirtilen özellik değerini alır. *T* alan yorumlanan beklenir istenen tür. İstenen türü örtük olarak alan türünden dönüştürülemiyorsa otomatik tür atama denenir. Not: özellik olduğunda birden çok değerli *GetField\<dize\>*  bir Json dizesinde ["değer1", "değer2",...] serileştirilmesi listeye neden olur. Özellik mevcut değilse, bir özel durum ve geçerli grafik araştırması iptal.
+Belirtilen özelliğin değerini alır. *T* alan olarak yorumlanması için beklenen istenen türü. İstenen türü örtük olarak alan türünden döndürülemezse otomatik tür atama denenecek. Not: özelliği olduğunda birden çok değerli *GetField\<dize\>*  listenin bir Json dizesi ["değ1", "değ2",...] serileştirilecek neden olur. Özellik mevcut değilse bir özel durum ve geçerli grafik araştırmayı durdur.
 
 ##### <a name="bool-containsfieldstring-fieldname"></a>bool ContainsField (dize fieldName)
 
-Verilen ada sahip bir alan geçerli düğümdeki var olup olmadığını bildirir.
+Belirtilen ada sahip bir alan geçerli düğüm olup olmadığını söyler.
 
-##### <a name="string-getstring-fieldname"></a>dize (dize fieldName) Al
+##### <a name="string-getstring-fieldname"></a>dize (dize fieldName) alın
 
-Gibi çalışır *GetField\<dize\>(fieldName)*. Ancak, alanın bulunamadığında özel durumlar oluşturmadığını, bunun yerine boş bir string("") döndürür.
+Gibi çalışır *GetField\<dize\>(fieldName)*. Ancak, alanı bulunamazsa özel durum oluşturmaz, bunun yerine boş bir string("") döndürür.
 
-##### <a name="bool-hasstring-fieldname"></a>bool (dize fieldName) sahip
+##### <a name="bool-hasstring-fieldname"></a>bool (dize fieldName) sahiptir.
 
-Sağlanan özellik geçerli düğümdeki var olup olmadığını bildirir. Aynı *ContainsField(fieldName)*.
+Sağlanan özellik geçerli düğüm olup olmadığını söyler. Aynı *ContainsField(fieldName)*.
 
-##### <a name="bool-hasstring-fieldname-string-value"></a>bool (dize fieldName, dize değeri) sahip
+##### <a name="bool-hasstring-fieldname-string-value"></a>bool (fieldName dize, dize değeri) sahip.
 
-Özellik verilen değer olup olmadığını bildirir. 
+Özelliği, verilen değer olup olmadığını söyler. 
 
 ##### <a name="int-countstring-fieldname"></a>int sayısı (dize fieldname)
 
-Belirli bir özellik değerlerini sayısını alın. Özellik yok, 0 döndürür.
+Verilen özellik değerlerinin sayısı alın. Özellik yok, 0 döndürür.
 
 ### <a name="built-in-helper-functions"></a>Yerleşik yardımcı işlevleri
 
 ##### <a name="action-returnifbool-condition"></a>Eylem return_if (bool koşul)
 
-Döndürür *Action.Return* koşul ise *doğru*. Koşul ise *false* ve bu ifade başka eylemler bit tarafından katılmamışsa- and işleci, grafik araştırması iptal edilecek.
+Döndürür *Action.Return* koşul ise *true*. Koşul ise *false* ve bu ifadeyi başka eylemler tarafından bit düzeyinde katılmamışsa- and işleci, grafik keşfi iptal edilecek.
 
 ##### <a name="action-continueifbool-condition"></a>Eylem continue_if (bool koşul)
 
-Döndürür *Action.Continue* koşul ise *doğru*. Koşul ise *false* ve bu ifade başka eylemler bit tarafından katılmamışsa- and işleci, grafik araştırması iptal edilecek.
+Döndürür *Action.Continue* koşul ise *true*. Koşul ise *false* ve bu ifadeyi başka eylemler tarafından bit düzeyinde katılmamışsa- and işleci, grafik keşfi iptal edilecek.
 
-##### <a name="bool-dicedouble-p"></a>bool bölmek (çift p)
+##### <a name="bool-dicedouble-p"></a>bool dice (çift p)
 
-Büyük veya eşit 0,0 ile 1,0'den küçük rastgele bir sayı oluşturur. Bu işlev, döndürür *true* sayı küçük veya eşit ise *p*.
+Büyüktür veya eşittir 0,0 ile 1,0'den küçük rastgele bir sayı oluşturur. Bu işlev döndürür *true* sayı ya da eşit ise *p*.
 
-İle karşılaştırılan *json* arama *lambda* arama daha açıklayıcı: C# lambda ifadeleri doğrudan sorgu desenlerine belirtmek için kullanılabilir. Aşağıda, iki örnek verilmiştir.
+İle karşılaştırıldığında *json* arama *lambda* arama daha ifadesel: C# lambda ifadeleri doğrudan sorgu desenleri belirtmek için kullanılabilir. İki örnek aşağıda verilmiştir.
 
 ```
 MAG.StartFrom(@"{

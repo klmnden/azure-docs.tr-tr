@@ -1,48 +1,49 @@
 ---
-title: Sorgu ifade sözdizimi akademik bilgi API'sindeki | Microsoft Docs
-description: Akademik bilgi API'si Microsoft Bilişsel hizmetler için sorgu ifade sözdizimi kullanmayı öğrenin.
+title: Sorgu ifadesi söz dizimi - akademik bilgi API'si
+titlesuffix: Azure Cognitive Services
+description: Sorgu ifadesi söz dizimi içinde akademik bilgi API'sini kullanmayı öğrenin.
 services: cognitive-services
 author: alch-msft
-manager: kuansanw
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: academic-knowledge
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/27/2017
 ms.author: alch
-ms.openlocfilehash: 6ec338fff09954e2f14066ce2b83bc1228794af8
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: bf6dbde725670030046aad4fccf41554b8d917fe
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35351436"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48901286"
 ---
-# <a name="query-expression-syntax"></a>Sorgu ifade sözdizimi
+# <a name="query-expression-syntax"></a>Sorgu ifadesi söz dizimi
 
-Biz gördünüz yanıta bir **yorumlama** istek sorgu ifadesi içerir. Kullanıcının sorgu yorumlanan dilbilgisi her yorumlama için sorgu ifadesi oluşturulur. Bir sorgu ifadesi sonra kullanılabilir sorun için bir **değerlendirmek** varlık arama sonuçları almak için isteği.
+Gördük yanıt olarak bir **yorumlama** istek sorgu ifadesi içerir. Kullanıcının sorgu yorumlanan dilbilgisi bir sorgu ifadesi her yorumu için oluşturuldu. Bir sorgu ifadesinde, kullanılabilir verilecek bir **değerlendirmek** varlık arama sonuçları almak için isteği.
 
-Ayrıca kendi sorgu ifadeleri oluşturmak ve bunları kullanan bir **değerlendirmek** isteği. Bu, kullanıcının eylemlerine yanıt olarak bir sorgu ifadesi oluşturur, kendi kullanıcı arabirimi oluşturuluyorsa yararlı olabilir. Bunu yapmak için sorgu ifadeleri için söz dizimi bilmeniz gerekir.  
+Ayrıca kendi sorgu ifadeleri oluşturmak ve bunları kullanmak bir **değerlendirmek** isteği. Bu, kendi kullanıcı arabirimi yanıt kullanıcının eylemleri için bir sorgu ifadesinde oluşturan oluşturuyorsanız yararlı olabilir. Bunu yapmak için sorgu ifade sözdizimi bilmeniz gerekir.  
 
-Sorgu ifadesinde bulunan her varlık özniteliği, belirli bir veri türüne ve olası sorgu işleçleri kümesi vardır. Varlık öznitelikleri ve her özniteliği için desteklenen işleçleri kümesi içinde belirtilen [varlık öznitelikleri](EntityAttributes.md). Tek değerli sorgu desteklemek için öznitelik gerektiriyor *eşittir* işlemi. Bir önek sorgu desteklemek için öznitelik gerektirir *StartsWith* işlemi. Sayısal aralığın sorguları gerektirir desteklemek için öznitelik *IsBetween* işlemi.
+Bir sorgu ifadesine dahil her varlık öznitelik, bir özel veri türü ve olası sorgu işleçleri kümesini sahiptir. Varlık öznitelikleri ve her bir öznitelik için desteklenen işleçleri kümesini belirtilen [varlık öznitelikleri](EntityAttributes.md). Destek için özniteliği tek değerli sorgu gerektirir *eşittir* işlemi. Bir ön ek sorgu desteklemek için öznitelik gerektirir *StartsWith* işlemi. Sayısal Aralık sorguları desteklemek için öznitelik gerektirir *IsBetween* işlemi.
 
-Bir nokta tarafından belirtildiği gibi bazı varlık veri bileşik öznitelikleri olarak depolanır '.' özniteliğinin adı. Örneğin, yazar/ilişkisi bilgileri bileşik bir öznitelik olarak temsil edilir. 4 bileşenleri içerir: AuN, AuId, AfN, AfId. Bu bileşenleri tek bir varlık öznitelik değeri form verileri ayrı parçalarıdır.
+Bazı varlık veri noktayla belirtildiği gibi bileşik öznitelikleri depolanır '.' öznitelik adı. Örneğin, yazar/bağlantı bilgileri, bileşik bir özniteliği olarak temsil edilir. 4 bileşenleri içerir: AuN, AuId, AfN, AfId. Bu bileşenleri tek bir varlık öznitelik değeri form verileri ayrı parçalarıdır.
 
 
-**Dize özniteliği: Tek bir değer** (eş anlamlıları karşı eşleşmeleri içerir)  
-TI 'göre görünmeyen anlamsal analizi dizinini' =  
-Bileşik (AA. AuN 'dumais yeniden' =)
+**Dize özniteliği: Tek bir değer** (eş anlamlılar karşı eşleşmeleri içerir)  
+Za 'görünmeyen bir anlam analizi tarafından dizin oluşturma' =  
+Bileşik (AA. AuN 'dumais Oya' =)
 
-**Dize özniteliği: Tam tek değer** (yalnızca kurallı değerlere eşleşir)  
-TI 'göre görünmeyen anlamsal analizi dizinini' ==  
-Bileşik (AA. AuN 'Çiğdem t dumais' ==)
+**Dizesi özniteliği: Tek değer tam** (yalnızca kurallı değerlere eşleşir)  
+Za 'görünmeyen bir anlam analizi tarafından dizin oluşturma' ==  
+Bileşik (AA. AuN 'susan t dumais' ==)
      
-**Dize özniteliği: Önek değeri**   
-TI 'tarafından görünmeyen seman dizin' =...  
-Bileşik (AA. AuN 'du yeniden' =...)
+**Dize özniteliği: Ön eki değeri**   
+Za 'görünmeyen seman tarafından dizin oluşturma' =...  
+Bileşik (AA. AuN 'du Oya' =...)
 
-**Sayısal öznitelik: Tek değer**  
+**Sayısal özniteliği: Tek değer**  
 Y = 2010
  
-**Sayısal öznitelik: Aralık değeri**  
+**Sayısal özniteliği: Aralık değeri**  
 Y &GT; 2005  
 Y &GT; 2005 =  
 Y &LT; 2010  
@@ -50,41 +51,41 @@ Y &LT; 2010 =
 Y =\[2010, 2012\) (yalnızca sol sınır değeri içerir: 2010, 2011)  
 Y =\[2010, 2012\] (her iki sınır değerleri içerir: 2010, 2011, 2012)
  
-**Sayısal öznitelik: Önek değeri**  
-Y '19' =... (19 ile başlayan bir sayısal değer) 
+**Sayısal özniteliği: Önek değeri**  
+Y = '19'... (19 ile başlayan herhangi bir sayısal değer) 
  
 **Tarihi özniteliği: Tek değer**  
 D ='2010-02-04'
 
-**Tarih öznitelik: Aralık değeri**  
+**Tarihi özniteliği: Aralık değeri**  
 D &GT;'2010-02-03'  
 D = ['2010-02-03', ' 2010-02-05']
 
 **Ve/veya sorgular:**  
-Ve (Y = 1985, tı 'disordered elektronik sistemleri' =)  
-Veya (tı 'disordered elektronik sistemleri' tı = 'hataya dayanıklılık ilkeleri ve uygulama' =)  
-And(OR(Y=1985,Y=2008), tı 'disordered elektronik sistemleri' =)
+Ve (Y = 1985, ZA = 'disordered elektronik sistemleri')  
+Veya (Za 'disordered elektronik sistemleri' Ti = 'hata toleransı ilkeleri ve uygulama' =)  
+And(OR(Y=1985,Y=2008), ZA = 'disordered elektronik sistemleri')
  
 **Bileşik sorgular:**  
-Bileşik özniteliği sorgu bileşenine Composite() işlevi bileşik özniteliğine başvuruyor sorgu ifadesi parçası içine gerekir. 
+Bileşik bir öznitelik sorgu bileşenine Composite() işlevi bileşik özniteliğine başvuruyor sorgu ifadesinin parçası içine gerekir. 
 
-Örneğin, raporlar için yazar adıyla sorgulamak için aşağıdaki sorguyu kullanın:
+Örneğin, incelemeler için yazar adına göre sorgulamak için aşağıdaki sorguyu kullanın:
 ```
 Composite(AA.AuN='mike smith')
 ```
-<br>Belirli bir yazar tarafından yazıları için yazar belirli bir kurum etkinken sorgulamak için aşağıdaki sorguyu kullanın:
+<br>Belirli bir yazar tarafından İnceleme yazar, belirli bir kurum ederken sorgulamak için aşağıdaki sorguyu kullanın:
 ```
 Composite(And(AA.AuN='mike smith',AA.AfN='harvard university'))
 ```
-<br>Composite() işlevi bileşik öznitelik iki bölümden birbirine bağlar. Bu, biz yalnızca yazıları kendisinin Harvard etkinken yazarlar birini "Can Etikan" olduğu aldığını anlamına gelir. 
+<br>Bileşik öznitelik iki bölümden bağdaştırabilir Composite() işlevi. Bu, biz yalnızca incelemeler o Harvard ederken biri yazarlar, "Mike Smith" olduğu aldığını anlamına gelir. 
 
-Yazıları belirli Yazar ilişkiler için belirli bir kurum (diğer) yazarların ile tarafından sorgulamak için aşağıdaki sorguyu kullanın:
+İlişkiler, belirli bir kuruluşa (diğer) yazarların ile belirli bir yazar tarafından incelemeler sorgulamak için aşağıdaki sorguyu kullanın:
 ```
 And(Composite(AA.AuN='mike smith'),Composite(AA.AfN='harvard university'))
 ```
-<br>Composite() yazar ve tek tek And() önce ilişkisi uygulandığından bu sürümde, biz burada yazarlar birini "Can Etikan" ve "Harvard" yazarların üyelikler, biri tüm incelemeler alın. Bu önceki sorgu örnektekine benzer sesleri, ancak aynı değil.
+<br>Bu sürümde, yazar ve ayrı ayrı And() önce ilişkisi Composite() uygulandığından burada yazarlar, "Mike Smith" biridir ve yazarların ilişkiler biri "Harvard" olan tüm raporlar aldığımız. Bu sorgu önceki örneğe benzer görünüyor, ancak aynı şey değildir.
 
-Genel olarak, aşağıdaki örnekte göz önünde bulundurun: A ve b iki bileşenden oluşur bileşik bir öznitelik C sahibiz Bir varlık birden çok değer C. olabilir Bizim varlıklar şunlardır:
+Genel olarak, aşağıdaki örneği inceleyin: A ve b iki bileşenden oluşur bileşik bir öznitelik C sahibiz. Bir varlık birden çok değer C. olabilir. Bizim varlıkları şunlardır:
 ```
 E1: C={A=1, B=1}  C={A=1,B=2}  C={A=2,B=3}
 E2: C={A=1, B=3}  C={A=3,B=2}
@@ -95,15 +96,15 @@ E2: C={A=1, B=3}  C={A=3,B=2}
 Composite(And(C.A=1, C.B=2))
 ```
 
-<br>burada C.A bileşen 1 ve C.B bileşen 2 C için bir değere sahip varlıklar eşleşir. Bu sorgu yalnızca E1 eşleşir.
+<br>burada C.A bileşen 1, 2 C.B bileşeni ise C için bir değere sahip varlıklar eşleşir. Bu sorgu yalnızca E1 eşleşir.
 
 Sorgu 
 ```
 And(Composite(C.A=1), Composite(C.B=2))
 ```
-<br>C.A 1 olduğu için C bir değere sahip ve ayrıca bir değer için C C.B 2 olduğu varlıklar eşleşir. Bu sorgu E1 ve E2 eşleşmesi.
+<br>bir değer için C C.A 1 olduğu ve burada C.B 2, C için de bir değere sahip varlıklar eşleşir. Bu sorgu hem E1 ve E2 eşleştirin.
 
 Lütfen unutmayın:  
 - Bileşik bir öznitelik Composite() işlevi dışında bir parçası başvuramaz.
-- Aynı Composite() işlevi içinde iki farklı bileşik öznitelikler bölümlerini başvuramaz.
-- Bileşik bir öznitelik Composite() işlevi içine parçası olmayan bir öznitelik başvuramaz.
+- Aynı Composite() işlevin içindeki iki farklı bileşik öznitelikleri bölümlerini başvuramaz.
+- Bileşik bir öznitelik Composite() işlevi içinde bir parçası olmayan bir öznitelik başvuramaz.

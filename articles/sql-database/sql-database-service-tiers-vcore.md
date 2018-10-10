@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: sashan, moslake
 manager: craigg
-ms.date: 10/04/2018
-ms.openlocfilehash: 6321c1dab0ae9db231a5ba494c981f47aee3ee6b
-ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
+ms.date: 10/09/2018
+ms.openlocfilehash: e93de9b3642e0b01bf65b6761d8832b0d4c2a431
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2018
-ms.locfileid: "48831363"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48901694"
 ---
 # <a name="vcore-service-tiers-azure-hybrid-use-benefit-and-migration"></a>Sanal çekirdek hizmet katmanları, Azure hibrit kullanım teklifi ve geçiş
 
@@ -33,7 +33,7 @@ vCore modeli de kullanmanıza olanak verir [SQL Server için Azure hibrit kullan
 
 ## <a name="service-tier-characteristics"></a>Hizmet katmanı özellikleri
 
-İki hizmet katmanıyla genel amaçlı ve iş açısından kritik vCore modeli sağlar. Hizmet katmanları, bir dizi işlem boyutları, yüksek kullanılabilirlik tasarımı, hata yalıtımı, depolama türleri ve g/ç aralığı tarafından ayrılır. Müşteri, gerekli depolama ve saklama dönemi yedeklemeler için ayrı olarak yapılandırmanız gerekir.
+İki hizmet katmanıyla genel amaçlı ve iş açısından kritik vCore modeli sağlar. Hizmet katmanları, bir dizi işlem boyutları, yüksek kullanılabilirlik tasarımı, hata yalıtımı, depolama türleri ve g/ç aralığı tarafından ayrılır. Müşteri, gerekli depolama ve saklama dönemi yedeklemeler için ayrı olarak yapılandırmanız gerekir. Ayrı olarak, gerekli depolama ve saklama dönemi yedeklemeleri için yapılandırmanız gerekir. Azure portalında (veritabanı değil) sunucusuna gidin > Yönetilen yedekleme > ilkesini yapılandırma > noktası içinde zaman geri yükleme yapılandırması > 7-35 gün.
 
 Aşağıdaki tabloda, bu iki katmanı arasındaki farklar anlamanıza yardımcı olur:
 

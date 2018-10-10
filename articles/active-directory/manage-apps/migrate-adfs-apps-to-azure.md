@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.date: 03/02/2018
 ms.author: barbkess
-ms.openlocfilehash: 8d5f31f09d51794f9ad3c126edf2fd935f379221
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: fa19c932a18102107068303e1474abd992df3161
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46296489"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48903037"
 ---
 # <a name="migrate-ad-fs-on-premises-apps-to-azure"></a>AD FS şirket içi uygulamalarını Azure'a geçirme 
 
@@ -151,7 +151,7 @@ Bugün kolayca geçirebileceğiniz uygulamalar, standart yapılandırma öğeler
 - Verilen ad.
 - Soyadı.
 - Azure AD posta özniteliği, posta öneki, çalışan kimliği, 1-15 uzantı öznitelikleri veya şirket içi **SamAccountName** özniteliği dahil olmak üzere SAML **NameID** gibi alternatif öznitelik. Daha fazla bilgi için bkz. [NameIdentifier talebini düzenleme](../develop/active-directory-saml-claims-customization.md).
-- Özel talepler. Desteklenen talep eşlemeleri hakkında bilgi için bkz. [Azure Active Directory'de talep eşlemesi](../active-directory-claims-mapping.md) ve [Azure Active Directory'de kurumsal uygulamalar için SAML belirtecinde verilen talepleri özelleştirme](../develop/active-directory-saml-claims-customization.md).
+- Özel talepler. Desteklenen talep eşlemeleri hakkında bilgi için bkz. [Azure Active Directory'de talep eşlemesi](../develop/active-directory-claims-mapping.md) ve [Azure Active Directory'de kurumsal uygulamalar için SAML belirtecinde verilen talepleri özelleştirme](../develop/active-directory-saml-claims-customization.md).
 
 Özel taleplere ve **NameID** öğelerine ek olarak, geçiş işlemi kapsamında Azure AD'de başka yapılandırma adımları gerektiren yapılandırmalar:
 - AD FS'de özel yetkilendirme veya Multi-Factor Authentication kuralları. Bunları [Azure AD koşullu erişim](../active-directory-conditional-access-azure-portal.md) özelliğini kullanarak yapılandırırsınız.
@@ -171,7 +171,7 @@ Aşağıdaki özellikleri gerektiren uygulamalar bugün geçirilemez. Bu özelli
 - Belirteç içindeki talep özellikleri:
     - Şirket içi grup adlarını talep olarak verme.
     - Azure AD dışındaki depolardan gelen talepler.
-    - Karmaşık talep verme dönüştürme kuralları. Desteklenen talep eşlemeleri hakkında bilgi için bkz. [Azure Active Directory'de talep eşlemesi](../active-directory-claims-mapping.md) ve [Azure Active Directory'de kurumsal uygulamalar için SAML belirtecinde verilen talepleri özelleştirme](../develop/active-directory-saml-claims-customization.md).
+    - Karmaşık talep verme dönüştürme kuralları. Desteklenen talep eşlemeleri hakkında bilgi için bkz. [Azure Active Directory'de talep eşlemesi](../develop/active-directory-claims-mapping.md) ve [Azure Active Directory'de kurumsal uygulamalar için SAML belirtecinde verilen talepleri özelleştirme](../develop/active-directory-saml-claims-customization.md).
     - Dizin uzantılarını talep olarak verme.
     - **NameID** biçiminin özel belirtimi.
     - Çok değerli öznitelikler verme.

@@ -1,6 +1,6 @@
 ---
-title: Azure Active Directory'de kurumsal uygulamalar için SAML belirtecinde verilen talepleri özelleştirme | Microsoft Docs
-description: Azure Active Directory'de kurumsal uygulamalar için SAML belirtecinde verilen talepleri özelleştirme hakkında bilgi edinin
+title: Azure AD'de kurumsal uygulamalar için SAML belirtecinde verilen talepleri özelleştirme | Microsoft Docs
+description: Azure AD'de kurumsal uygulamalar için SAML belirtecinde verilen talepleri özelleştirme öğrenin.
 services: active-directory
 documentationcenter: ''
 author: CelesteDG
@@ -17,20 +17,20 @@ ms.date: 09/11/2018
 ms.author: celested
 ms.reviewer: jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 80842f7e99ee0c58f1615892f3c3c4adf03119b6
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 5633dfbf59396e79226b196c2b699981409092ab
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46956981"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48902034"
 ---
-# <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications-in-azure-ad"></a>Nasıl yapılır: Azure AD'de kurumsal uygulamalar için SAML belirtecinde verilen talepleri özelleştirme
+# <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>Nasıl yapılır: Kurumsal uygulamalar için SAML belirtecinde verilen talepleri özelleştirme
 
-Bugün Azure Active Directory çoklu oturum açma ile Azure AD uygulama galerisinde yanı sıra özel uygulamalar önceden tümleştirilmiş iki uygulama da dahil olmak üzere çoğu kuruluş uygulamaları destekler. Bir kullanıcı, uygulamanın SAML 2.0 protokolünü kullanarak Azure AD üzerinden kimliğini doğrular, Azure AD belirteç (bir HTTP POST) aracılığıyla uygulamaya gönderir. Ve daha sonra uygulama doğrular ve belirteci yerine bir kullanıcı adı ve parola bilgilerini isteyen kullanıcının oturumunu açmak için kullanır. Bu SAML belirteçlerini, "talepler" olarak bilinen kullanıcı hakkında bilgiler içerir.
+Bugün Azure Active Directory (Azure AD) çoklu oturum açma ile Azure AD uygulama galerisinde yanı sıra özel uygulamalar önceden tümleştirilmiş iki uygulama da dahil olmak üzere çoğu kuruluş uygulamaları destekler. Bir kullanıcı, uygulamanın SAML 2.0 protokolünü kullanarak Azure AD üzerinden kimliğini doğrular, Azure AD belirteç (bir HTTP POST) aracılığıyla uygulamaya gönderir. Ve daha sonra uygulama doğrular ve belirteci yerine bir kullanıcı adı ve parola bilgilerini isteyen kullanıcının oturumunu açmak için kullanır. Bu SAML belirteçlerini, "talepler" olarak bilinen kullanıcı hakkında bilgiler içerir.
 
-İçinde kimlik-konuşurken, "talep" bildiren bir kimlik sağlayıcısı, o kullanıcı için sorun belirteci içindeki kullanıcı hakkındaki bilgileri. İçinde [SAML belirteci](http://en.wikipedia.org/wiki/SAML_2.0), bu veriler genellikle SAML özniteliği deyimde yer alır. Kullanıcının benzersiz kimliği genellikle SAML ad tanımlayıcısı da bilinen konu temsil edilir.
+A *talep* bildiren bir kimlik sağlayıcısı, sorunu bu kullanıcı için belirteç içinde bir kullanıcı hakkında bilgi. İçinde [SAML belirteci](http://en.wikipedia.org/wiki/SAML_2.0), bu veriler genellikle SAML özniteliği deyimde yer alır. Kullanıcının benzersiz kimliği genellikle SAML ad tanımlayıcısı da bilinen konu temsil edilir.
 
-Varsayılan olarak, Azure Active Directory, Azure AD'de kullanıcının kullanıcı adını (AKA kullanıcı asıl adı) değerini içeren bir NameIdentifier talebini içeren uygulamanıza SAML belirteci verir. Bu değer, kullanıcıyı benzersiz şekilde tanımlayabilir. SAML belirtecindeki Ayrıca, kullanıcının e-posta adresi, ad ve soyadını içeren ek talepleri de içerir.
+Varsayılan olarak, Azure AD uygulamanızı Azure AD'de kullanıcının kullanıcı adını (AKA kullanıcı asıl adı) değerini içeren bir NameIdentifier talebini içeren bir SAML belirteci verir. Bu değer, kullanıcıyı benzersiz şekilde tanımlayabilir. SAML belirtecindeki Ayrıca, kullanıcının e-posta adresi, ad ve soyadını içeren ek talepleri de içerir.
 
 Görüntülemek veya uygulamaya SAML belirtecinde verilen talepleri düzenlemek için Azure portalında uygulama açın. Ardından **görünümü ve diğer tüm kullanıcı özniteliklerini düzenleyin** onay kutusu **kullanıcı öznitelikleri** uygulama bölümü.
 
@@ -38,7 +38,7 @@ Görüntülemek veya uygulamaya SAML belirtecinde verilen talepleri düzenlemek 
 
 SAML belirtecinde verilen talepleri düzenlemeniz gerekebilir neden iki olası nedeni vardır:
 * Uygulamayı farklı bir URI'leri talep kümesi gerektirir veya talep değerleri hedefine yazıldı.
-* Uygulama, Azure Active Directory'de depolanan kullanıcı adı (AKA kullanıcı asıl adı) dışında bir şey olacak şekilde NameIdentifier talebini gerektirdiği şekilde dağıtıldı.
+* Uygulama, Azure AD'de depolanan kullanıcı adı (AKA kullanıcı asıl adı) dışında bir şey olacak şekilde NameIdentifier talebini gerektirdiği şekilde dağıtıldı.
 
 Varsayılan talep değerleri düzenleyebilirsiniz. SAML belirteci öznitelikleri tablodaki talep satırı seçin. Bu açılır **özniteliğini Düzenle** bölümüne ve ardından talep ada, değere ve taleple ilişkili ad alanı düzenleyebilirsiniz.
 
@@ -130,8 +130,9 @@ SAML bazı kısıtlı talep vardır. Ardından Azure AD, bu talepler eklerseniz,
     | http://schemas.microsoft.com/identity/claims/scope |
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* [Azure Active Directory'de uygulama yönetimi](../manage-apps/what-is-application-management.md)
-* [Azure Active Directory uygulama galerisinde bulunmayan uygulamalar için çoklu oturum açmayı yapılandırma](../manage-apps/configure-federated-single-sign-on-non-gallery-applications.md)
+
+* [Azure AD'de uygulama yönetimi](../manage-apps/what-is-application-management.md)
+* [Azure AD uygulama galerisinde bulunmayan uygulamalar için çoklu oturum açma yapılandırılıyor](../manage-apps/configure-federated-single-sign-on-non-gallery-applications.md)
 * [SAML tabanlı çoklu oturum açma sorunlarını giderme](howto-v1-debug-saml-sso-issues.md)
 
 <!--Image references-->

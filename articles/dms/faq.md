@@ -2,7 +2,7 @@
 title: Azure veritabanı geçiş hizmeti ile ilgili SSS | Microsoft Docs
 description: Veritabanı geçişleri gerçekleştirmek için Azure veritabanı geçiş hizmeti kullanma hakkında sık sorulan sorular hakkında bilgi edinin.
 services: database-migration
-author: HJToland3
+author: pochiraju
 ms.author: rajpo
 manager: ''
 ms.reviewer: ''
@@ -10,13 +10,13 @@ ms.service: database-migration
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 06/19/2018
-ms.openlocfilehash: 08158843d0dfb3e5eb0635b5f5b5d015938d895e
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.date: 10/09/2018
+ms.openlocfilehash: f1f67921e7eadded4292f244f5754c8f00341a15
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48804421"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48887113"
 ---
 # <a name="faq-about-using-the-azure-database-migration-service"></a>Azure veritabanı geçiş hizmeti kullanma hakkında SSS
 Bu makalede, Azure veritabanı geçiş hizmeti ilgili yanıtları ile birlikte kullanma hakkında sık sorulan soruların listelenmektedir.
@@ -53,15 +53,15 @@ Bir normal, basit bir veritabanı geçiş sırasında:
 Azure veritabanı geçiş Hizmeti'nin veritabanı geçişlerini gerçekleştirirken sorunsuz çalıştığından emin olmak için gereken birkaç önkoşul vardır. Bazı Önkoşullar, diğer ön koşulları için belirli bir senaryoya benzersiz çalışırken service tarafından desteklenen tüm senaryolarda (kaynak-hedef çiftlerinin) arasında geçerlidir.
 Tüm desteklenen geçiş senaryoları arasında ortak olan azure veritabanı geçiş hizmeti Önkoşullar dahil etme gereksinimi:
 - Azure Resource Manager dağıtım modelini kullanarak Azure Veritabanı Geçiş Hizmeti için [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) veya [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways) kullanarak şirket içi kaynak sunucularınıza siteden siteye bağlantı sağlayan bir sanal ağ oluşturun.
-- Azure Sanal Ağı (VNET) Ağ Güvenlik Grubu kurallarının 443, 53, 9354, 445, 12000 numaralı iletişim bağlantı noktalarını engellemediğinden emin olun. Azure VNET NSG trafiğini filtreleme hakkında ayrıntılı bilgi için [Ağ güvenlik grupları ile ağ trafiğini filtreleme](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg) makalesine bakın.
+- Azure Sanal Ağ (VNET) Ağ Güvenlik Grubu kurallarının 443, 53, 9354, 445 ve 12000 numaralı iletişim bağlantı noktalarını engellemediğinden emin olun. Azure VNET NSG trafiğini filtreleme hakkında ayrıntılı bilgi için [Ağ güvenlik grupları ile ağ trafiğini filtreleme](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg) makalesine bakın.
 - Kaynak veritabanlarınızın önünde bir güvenlik duvarı cihazı kullanıyorsanız, Azure Veritabanı Geçiş Hizmeti'nin geçiş amacıyla kaynak veritabanlarına erişmesi için güvenlik duvarı kuralları eklemeniz gerekebilir.
  
 Azure veritabanı geçiş hizmetini kullanarak belirli bir geçiş senaryoları mücadele etmek için gereken tüm önkoşulları listesi için Azure veritabanı geçiş hizmeti ilgili öğreticilerde bakın [belgeleri](https://docs.microsoft.com/azure/dms/dms-overview) üzerinde docs.microsoft.com.
 
 ### <a name="q-how-do-i-find-the-ip-address-for-the-azure-database-migration-service-so-that-i-can-create-an-allow-list-for-the-firewall-rules-used-to-access-my-source-database-for-migration"></a>S. Böylece geçiş için kaynak Veritabanım erişmek için kullanılan güvenlik duvarı kuralları için bir izin verilenler listesi oluşturmak nasıl IP adresi için Azure veritabanı geçiş hizmeti bulabilirim?
-Geçiş için kaynak veritabanınıza erişmek Azure veritabanı geçiş hizmeti sağlayan güvenlik duvarı kuralları eklemeniz gerekebilir. Hizmeti için IP adresi dinamik, ancak Express Route kullanıyorsanız, bu adresi şirket ağınıza tarafından özel olarak atanır. İlişkili ağ arabirimi bulmak için aynı kaynak grubunda sağlanan Azure veritabanı geçiş Hizmeti'nin kaynak olarak aramaktır uygun IP adresini tanımlamak için en kolay yolu. Genellikle ağ arabirimi kaynağın adını NIC ön Ekle başlayan ve ardından bir benzersiz karakter ve örnek NIC jj6tnztnmarpsskr82rbndyp sayı dizisi. Bu ağ arabirimi kaynağı'nı seçerek kaynak genel bakış Azure portal sayfasındaki izin verilenler listesine dahil edilmesi gereken IP adresini görebilirsiniz.
+Geçiş için kaynak veritabanınıza erişmek Azure veritabanı geçiş hizmeti sağlayan güvenlik duvarı kuralları eklemeniz gerekebilir. Hizmeti için IP adresi dinamik, ancak Express Route kullanıyorsanız, bu adresi şirket ağınıza tarafından özel olarak atanır. İlişkili ağ arabirimi bulmak için aynı kaynak grubunda sağlanan Azure veritabanı geçiş Hizmeti'nin kaynak olarak aramaktır uygun IP adresini tanımlamak için en kolay yolu. Genellikle ağ arabirimi kaynağın adını NIC ön Ekle başlayan ve ardından bir benzersiz karakter ve sayı dizisi, örneğin NIC jj6tnztnmarpsskr82rbndyp. Bu ağ arabirimi kaynağı'nı seçerek kaynak genel bakış Azure portal sayfasındaki izin verilenler listesine dahil edilmesi gereken IP adresini görebilirsiniz.
 
-İzin verilenler listesinde SQL sunucusunun dinleme yaptığı bağlantı noktası kaynağını dahil etmek gerekebilir. Varsayılan olarak 1433 numaralı bağlantı noktası olduğundan, ancak diğer bağlantı noktalarında dinlemek için kaynak SQL Server yapılandırılabilir. Bu durumda, bu bağlantı noktalarına izin verilenler listesine de eklemeniz gerekir. SQL Server dinamik yönetim görünümünde sorgu kullanarak dinlediği bağlantı noktasını belirleyebilirsiniz:
+İzin verilenler listesinde SQL sunucusunun dinleme yaptığı bağlantı noktası kaynağını dahil etmek gerekebilir. Varsayılan olarak, ancak diğer bağlantı noktalarında dinlemek için SQL Server yapılandırılabilir kaynak bağlantı noktası 1433 güçlendirin. Bu durumda, bu bağlantı noktalarına izin verilenler listesine de eklemeniz gerekir. SQL Server dinamik yönetim görünümünde sorgu kullanarak dinlediği bağlantı noktasını belirleyebilirsiniz:
 
 ```sql
     SELECT DISTINCT 

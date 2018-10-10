@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/15/2017
 ms.author: govindk
-ms.openlocfilehash: 580c7410119a26ed3601c7c6ee020a13029339fe
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: 657b75e5e3bb5c35bb23221235e62298fc797046
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48867808"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48902682"
 ---
 # <a name="automatic-online-backup-and-restore-with-azure-cosmos-db"></a>Otomatik çevrimiçi yedekleme ve geri yükleme işlemi Azure Cosmos DB
 Azure Cosmos DB, tüm verilerinizin yedeklerini düzenli aralıklarla otomatik olarak alır. Otomatik yedeklemeler, performans veya veritabanı işlemlerinizi kullanılabilirliğini etkilemeden alınır. Tüm yedeklemeler ayrı olarak başka bir depolama hizmetinde depolanır ve bu yedekleri bölgesel felaketlere karşı dayanıklılık için genel olarak çoğaltılır. Otomatik yedeklemeler, Cosmos DB kapsayıcınız kaza ve daha sonra veri kurtarma gerektiren senaryolar için amacını taşımaktadır.  
@@ -47,12 +47,18 @@ Aşağıdaki görüntüde tüm Cosmos DB varlıkların GRS Azure depolama alanı
 ## <a name="backup-retention-period"></a>Yedekleme bekletme süresi
 Yukarıda açıklandığı gibi Azure Cosmos DB bölüm düzeyinde dört saatte verilerinizin anlık görüntüleri alır. Herhangi bir zamanda yalnızca son iki anlık görüntüleri korunur. Ancak, kapsayıcı/veritabanı silinirse, Azure Cosmos DB tüm verilen kapsayıcı/veritabanı silinmiş bölümleri için mevcut anlık görüntü 30 gün boyunca tutar.
 
-Kendi anlık görüntüleri tutmak istiyorsanız, SQL API'si için JSON seçeneği ver Azure Cosmos DB'de kullanabileceğiniz [veri geçiş aracı](import-data.md#export-to-json-file) ek Yedeklemeler zamanlamak için.
+Kendi anlık görüntüleri tutmak istiyorsanız, SQL API'si için aşağıdaki seçenekleri kullanarak bunu yapabilirsiniz:
+
+* Azure Cosmos DB'de JSON seçeneği ver kullanın [veri geçiş aracı](import-data.md#export-to-json-file) ek Yedeklemeler zamanlamak için.
+
+* Kullanım [Azure Data Factory](../data-factory/connector-azure-cosmos-db.md) düzenli aralıklarla veri taşımak için.
+
+* Azure Cosmos DB kullanmayı [değişiklik akışını](change-feed.md) tam yedekleme için belirli aralıklarla ve artımlı bir değişiklik için ayrı olarak veri okuyup, blob hedefe taşıyın. 
+
+* Orta Gecikmeli yedeklemeler yönetmek için verileri düzenli aralıklarla değişiklik akıştan okumak ve başka bir koleksiyona, yazma gecikme mümkündür. Bu, verileri geri yüklemek gerekmez ve çıkış verilerini hemen bakabilirsiniz garanti eder. 
 
 > [!NOTE]
-> Geri yükleme tam veritabanı hesap düzeyinde olur, "Veritabanı düzeyinde kapsayıcı bir dizi için Aktarım sağlama –" Lütfen unutmayın. Ayrıca Destek ekibine 8 saat içinde kapsayıcınızı yanlışlıkla silinmiş ulaşmak için emin olmanız gerekir. 8 saat içinde Destek ekibine başvurun yoksa varsa veri geri yüklenemez. 
-
-
+> Geri yükleme tam veritabanı hesap düzeyinde olur, "Veritabanı düzeyinde kapsayıcı bir dizi için Aktarım sağlama –" Lütfen unutmayın. Ayrıca Destek ekibine 8 saat içinde kapsayıcınızı kaza ile silerseniz ulaşmak için emin olmanız gerekir. 8 saat içinde Destek ekibine başvurun yoksa varsa veri geri yüklenemez.
 
 ## <a name="restoring-a-database-from-an-online-backup"></a>Bir veritabanı çevrimiçi bir yedekten geri yükleme
 
@@ -61,7 +67,7 @@ Veritabanı veya kapsayıcı kaza ile silerseniz, şunları yapabilirsiniz [bir 
 Veritabanınızı (burada bir kapsayıcı içindeki belgeler silinir çalışmaları içerir) veri bozulma sorunu nedeniyle geri yüklemek gerekirse bkz [veri bozulması işleme](#handling-data-corruption) bozuk veriler önlemek için ek adımlar atmanız gereken şekilde Mevcut yedeklemeler üzerine yazmasını. Belirli bir anlık görüntüye geri yüklenmesi, yedekleme için Cosmos DB, verileri bu anlık görüntü için yedekleme döngüsü boyunca kullanılabilir olduğunu gerektirir.
 
 > [!NOTE]
-> Koleksiyonları veya veritabanlarını geri yüklemek için yalnızca bir müşteri isteklerini sonra geri yüklenebilir. Hemen verileri geri yükledikten sonra kapsayıcı veya veritabanı silme, müşterinin responsbility sağlar. Geri yüklenen veritabanı veya koleksiyon silme, geri yüklenen koleksiyonu veya veritabanı oranını maliyetle neden olur. Böylece, hemen silmek çok önemlidir. 
+> Yalnızca açık müşteri isteklerini temel koleksiyonları veya veritabanlarını geri yüklenebilir. Veri karşılaştırma hemen sonra kapsayıcı veya veritabanı silme müşterinin sorumluluğundadır. Geri yüklenen veritabanı veya koleksiyon silmezseniz, bunlar istek birimleri, depolama ve çıkış için bir ücret.
 
 ## <a name="handling-data-corruption"></a>Veri bozulması işleme
 
@@ -73,7 +79,7 @@ Aşağıdaki görüntüde verilerin yanlışlıkla silinmesini veya bir kapsayı
 
 ![Hatalı güncelleştirme için bir kapsayıcı geri yükleyin veya Cosmos DB'de veri silme](./media/online-backup-and-restore/backup-restore-support.png)
 
-Bu tür senaryolara - için geri yükleme gerçekleştirildiğinde veriler başka bir hesaba geri (soneki ile "-geri") ve kapsayıcı. Bu geri yükleme, Müşteri verilerinin doğrulama yapmak ve verileri gereken şekilde taşımak için bir fırsat sağlamak için yerinde yapılmaz. Geri yüklenen aynı RU'ları ve dizin oluşturma ilkeleri ile aynı bölgede kapsayıcıdır. Abonelik Yöneticisi veya ortak yöneticisi olan kullanıcı, bu geri yüklenen hesap görebilirsiniz.
+Bu tür senaryolara - için geri yükleme gerçekleştirildiğinde veriler başka bir hesaba geri (soneki ile "-geri") ve kapsayıcı. Bu geri yükleme, Müşteri verilerinin doğrulama yapmak ve verileri gereken şekilde taşımak için bir fırsat sağlamak için yerinde yapılmaz. Geri yüklenen aynı RU'ları ve dizin oluşturma ilkeleri ile aynı bölgede kapsayıcıdır. Abonelik Yöneticisi veya coadmin olan kullanıcı, bu geri yüklenen hesap görebilirsiniz.
 
 
 > [!NOTE]

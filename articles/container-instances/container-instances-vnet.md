@@ -7,12 +7,12 @@ ms.service: container-instances
 ms.topic: article
 ms.date: 09/24/2018
 ms.author: danlep
-ms.openlocfilehash: 6d319c09b8a935b5ca81a6d5815daa5d2f706f45
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: feb9547b004141a3c1d02ef4b356b9d00b74fc95
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48854632"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48902381"
 ---
 # <a name="deploy-container-instances-into-an-azure-virtual-network"></a>Azure sanal ağına Container Instances'ı dağıtma
 
@@ -174,15 +174,85 @@ index.html           100% |*******************************|  1663   0:00:00 ETA
 
 Günlük çıktısını gösteren `wget` bağlanmak ve özel IP adresini kullanarak yerel alt ağdaki ilk kapsayıcısından dizin dosyası indirmek mümkün oldu. İki kapsayıcı grupları arasındaki ağ trafiğini sanal ağ içinde kaldı.
 
+## <a name="deploy-to-existing-virtual-network---yaml"></a>Mevcut bir sanal ağa - YAML dağıtma
+
+Ayrıca, bir YAML dosyası kullanarak bir kapsayıcı grubu mevcut bir sanal ağa dağıtabilirsiniz. Bir sanal ağ içindeki alt ağ dağıtmak için çeşitli ek özellikler YAML içinde belirtin:
+
+* `ipAddress`: Kapsayıcı grubu için IP adresi ayarları.
+  * `ports`: Varsa, açmak için bağlantı noktaları.
+  * `protocol`: Protokolü (TCP veya UDP) bağlantı noktasının açık.
+* `networkProfile`: Bir Azure kaynağı için alt ağ ve sanal ağ gibi ağ ayarlarını belirtir.
+  * `id`: Tam Resource Manager kaynak kimliği `networkProfile`.
+
+Kapsayıcı grubu, bir YAML dosyası ile bir sanal ağa dağıtmak için önce ağ profilini Kimliğini almanız gerekir. Yürütme [az ağ profili listesi] [ az-network-profile-list] sanal ağınız ile temsil edilen alt ağ içeren kaynak grubunun adını belirterek komutu.
+
+``` azurecli
+az network profile list --resource-group myResourceGroup --query [0].id --output tsv
+```
+
+Komut çıktısı, ağ profili için tam kaynak Kimliğini görüntüler:
+
+```console
+$ az network profile list --resource-group myResourceGroup --query [0].id --output tsv
+/subscriptions/<Subscription ID>/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkProfiles/aci-network-profile-aci-vnet-aci-subnet
+```
+
+Profil Kimliği, adlı yeni bir dosyaya aşağıdaki YAML'ye kopyalayın ağ oluşturduktan sonra *vnet dağıtma aci.yaml*. Altında `networkProfile`, değiştirin `id` kimliği henüz değeriyle alınmış değiştirip dosyayı kaydedin. Adlı bir kapsayıcı grubu bu YAML oluşturur *appcontaineryaml* sanal ağınızda.
+
+```YAML
+apiVersion: '2018-09-01'
+location: westus
+name: appcontaineryaml
+properties:
+  containers:
+  - name: appcontaineryaml
+    properties:
+      image: microsoft/aci-helloworld
+      ports:
+      - port: 80
+        protocol: TCP
+      resources:
+        requests:
+          cpu: 1.0
+          memoryInGB: 1.5
+  ipAddress:
+    type: Private
+    ports:
+    - protocol: tcp
+      port: '80'
+  networkProfile:
+    id: /subscriptions/<Subscription ID>/resourceGroups/container/providers/Microsoft.Network/networkProfiles/aci-network-profile-aci-vnet-subnet
+  osType: Linux
+  restartPolicy: Always
+tags: null
+type: Microsoft.ContainerInstance/containerGroups
+```
+
+Kapsayıcı grubu dağıtma [az kapsayıcı oluşturma] [ az-container-create] YAML dosyası adını belirterek komutu `--file` parametresi:
+
+```azurecli
+az container create --resource-group myResourceGroup --file vnet-deploy-aci.yaml
+```
+
+Dağıtım tamamlandıktan sonra Çalıştır [az container show] [ az-container-show] komut durumunu görüntülemek için:
+
+```console
+$ az container show --resource-group myResourceGroup --name appcontaineryaml --output table
+Name              ResourceGroup    Status    Image                     IP:ports     Network    CPU/Memory       OsType    Location
+----------------  ---------------  --------  ------------------------  -----------  ---------  ---------------  --------  ----------
+appcontaineryaml  myResourceGroup  Running   microsoft/aci-helloworld  10.0.0.5:80  Private    1.0 core/1.5 gb  Linux     westus
+```
+
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 
 ### <a name="delete-container-instances"></a>Azure Container Instances
 
-İşiniz bittiğinde kapsayıcı örneklerle çalışma oluşturduğunuz, aşağıdaki komutlarla hem de Sil:
+İşiniz bittiğinde kapsayıcı örnekleri ile çalışma, oluşturduğunuz ve aşağıdaki komutlarla silin:
 
 ```azurecli
 az container delete --resource-group myResourceGroup --name appcontainer -y
 az container delete --resource-group myResourceGroup --name commchecker -y
+az container delete --resource-group myResourceGroup --name appcontaineryaml -y
 ```
 
 ### <a name="delete-network-resources"></a>Ağ kaynakları silme
@@ -239,4 +309,6 @@ Birden çok sanal ağ kaynakları ve özellikler bu makalede, ancak kısaca ele 
 
 <!-- LINKS - Internal -->
 [az-container-create]: /cli/azure/container#az-container-create
+[az-container-show]: /cli/azure/container#az-container-show
 [az-network-vnet-create]: /cli/azure/network/vnet#az-network-vnet-create
+[az-network-profile-list]: /cli/azure/network/profile#az-network-profile-list

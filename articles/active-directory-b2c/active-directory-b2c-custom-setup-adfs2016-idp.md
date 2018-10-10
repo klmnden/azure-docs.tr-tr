@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/20/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 39b9c2d9eb982eaffa7cb6246fd0b22375939f52
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: e8737e379dc69385b2bd5ac2b2af89bf8d38b63a
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48868709"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48886883"
 ---
 # <a name="add-adfs-as-a-saml-identity-provider-using-custom-policies-in-azure-active-directory-b2c"></a>ADFS, Azure Active Directory B2C'de özel ilkeleri kullanarak SAML kimlik sağlayıcısı olarak Ekle
 
@@ -170,6 +170,18 @@ Bir tarayıcı açın ve URL'ye gidin. Doğru URL'yi yazın ve XML meta veri dos
 13. Sunucu Yöneticisi'nde **Araçları**ve ardından **ADFS Yönetim**.
 14. Oluşturduğunuz bağlı taraf güvenini seçin, **Federasyon meta verilerini güncelleştirmesi**ve ardından **güncelleştirme**. 
 
+## <a name="create-an-azure-ad-b2c-application"></a>Azure AD B2C'yi uygulama oluşturma
+
+Azure AD B2c ile iletişim kiracınızda oluşturduğunuz bir uygulama üzerinden gerçekleşir. Bu bölümde zaten yapmadıysanız, bir test uygulaması oluşturmak için tamamlayabilirsiniz isteğe bağlı adımlar listelenir.
+
+1. [Azure Portal](https://portal.azure.com) oturum açın.
+2. Azure AD B2C kiracınızı tıklayarak içeren dizine kullandığınızdan emin olun **dizin ve abonelik filtresi** üst menü ve kiracınız içeren dizine seçme.
+3. Seçin **tüm hizmetleri** Azure portalı ve ardından arayın ve seçin, sol üst köşedeki **Azure AD B2C**.
+4. Seçin **uygulamaları**ve ardından **Ekle**.
+5. Uygulama için bir ad girin, örneğin *testapp1*.
+6. İçin **Web uygulaması / Web API'sini**seçin `Yes`yazıp enter `https://jwt.ms` için **yanıt URL'si**.
+7. **Oluştur**’a tıklayın.
+
 ### <a name="update-and-test-the-relying-party-file"></a>Güncelleştirme ve bağlı olan taraf dosyayı test etme
 
 Oluşturduğunuz kullanıcı yolculuğu başlatır bağlı olan taraf (RP) dosyasını güncelleştirin.
@@ -178,4 +190,6 @@ Oluşturduğunuz kullanıcı yolculuğu başlatır bağlı olan taraf (RP) dosya
 2. Yeni dosyayı açın ve değeri güncelleştirme **Policyıd** özniteliğini **TrustFrameworkPolicy** benzersiz bir değere sahip. Örneğin, `SignUpSignInADFS`.
 3. Değerini güncelleştirin **PublicPolicyUri** ilkesi için URI ile. Örneğin,'http://contoso.com/B2C_1A_signup_signin_adfs">
 4. Değerini güncelleştirin **Referenceıd** özniteliğini **DefaultUserJourney** (SignUpSignInADFS) oluşturduğunuz yeni kullanıcı yolculuğu kimliği eşleştirmek için.
-5. Yaptığınız değişiklikleri kaydedin, dosyayı karşıya yükleyin ve açıp tıklatarak test **Şimdi Çalıştır**.
+5. Yaptığınız değişiklikleri kaydedin, dosyayı karşıya yükleyin ve ardından listeden yeni ilkeyi seçin.
+6. İçinde oluşturduğunuz bir Azure AD B2C uygulamasını seçili olduğundan emin olun **uygulama seçin** alan ve ardından tıklayarak test **Şimdi Çalıştır**.
+

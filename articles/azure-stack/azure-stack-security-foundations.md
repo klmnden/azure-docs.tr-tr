@@ -1,5 +1,5 @@
 ---
-title: Azure Stack güvenlik denetimleri anlama | Microsoft Docs
+title: Azure Stack güvenlik denetimleri anlama
 description: Hizmet Yöneticisi olarak Azure Stack için uygulanan güvenlik denetimleri hakkında bilgi edinin
 services: azure-stack
 documentationcenter: ''
@@ -11,20 +11,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/12/2018
+ms.date: 10/9/2018
 ms.author: patricka
-ms.openlocfilehash: 048a2e8204b3b8776b5a7e0e425dbc5fdf3d504c
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 32c268c1e4a0ff4d17c5b03f0ffd33b0ddf5b927
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44719027"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48901490"
 ---
 # <a name="azure-stack-infrastructure-security-posture"></a>Azure Stack altyapısını güvenlik durumu
 
 *İçin geçerlidir: Azure Stack tümleşik sistemleri*
 
-Güvenlik hususlarının yanı sıra uyumluluk düzenlemelerini kullanarak karma Bulutlar için ana sürücüleri arasındadır. Azure Stack bu senaryolar için tasarlanmıştır ve Azure Stack zaten yerinde denetimleri anlamak önemlidir.
+Güvenlik hususlarının yanı sıra uyumluluk düzenlemelerini kullanarak karma Bulutlar için ana sürücüleri arasındadır. Azure Stack, bu senaryolar için tasarlanmıştır. Bu makalede, Azure Stack için güvenlik denetimleri açıklanmaktadır.
 
 İki güvenlik duruşunu katmanları Azure Stack'te bir arada. Donanım bileşenleri kadar Azure Resource Manager içeren Azure Stack altyapısının ilk katmanıdır. İlk katman, yönetici ve Kiracı portalı içerir. Yönetilen kiracılar tarafından oluşturulan ve dağıtılan iş yüklerinin ikinci katman oluşur. İkinci Katman sanal makine ve uygulama hizmetleri web siteleri gibi öğeleri içerir.
 
@@ -50,14 +50,14 @@ Tüm dış altyapı uç noktaları, REST uç noktalarını ya da Azure Stack por
 Otomatik olarak imzalanan sertifikalar bu dış uç noktaları için kullanılabilir, ancak Microsoft bunları kullanılmamasını önerir. 
 
 ## <a name="secret-management"></a>Gizli dizi Yönetimi
-Azure Stack altyapısının parolalar gibi gizli dizileri birçok işlev için kullanır. 24 saatte bir döndürme Grup yönetilen hizmet hesapları, çünkü çoğu, sık sık otomatik olarak döndürülür.
+Azure Stack altyapısının parolalar gibi gizli dizileri birçok işlev için kullanır. 24 saatte bir döndürme Group-Managed hizmet hesapları, çünkü çoğu, sık sık otomatik olarak döndürülür.
 
-Grup yönetilen hizmet hesapları, bir komut dosyası ayrıcalıklı uç noktasını el ile döndürülebilen olmayan diğer gizli dizileri.
+Group-Managed hizmet hesapları, bir komut dosyası ayrıcalıklı uç noktasını el ile döndürülebilen olmayan diğer gizli dizileri.
 
 ## <a name="code-integrity"></a>Kod bütünlüğü
 Azure Stack yapar en son Windows Server 2016 ' kullanan güvenlik özellikleri. Windows Defender cihaz uygulama beyaz listesini sağlayan ve sağlar, yalnızca Azure Stack altyapısının içinde kod çalıştırır yetkili koruyucusu, bunlardan biridir. 
 
-Yetkili kod Microsoft veya OEM iş ortağı tarafından imzalanır ve Microsoft tarafından tanımlanan bir ilkede belirtilen izin verilen yazılım listesine eklenir. Diğer bir deyişle, yalnızca Azure Stack altyapısının içinde çalıştırmak için onaylanmış yazılımlar çalıştırılabilir. Yetkisiz kod yürütme girişimi engellenir ve bir denetim oluşturulur.
+Yetkili kod, Microsoft veya OEM iş ortağı tarafından imzalanır. İmzalı yetkili kod Microsoft tarafından tanımlanan bir ilkede belirtilen izin verilen yazılım listesi dahil edilir. Diğer bir deyişle, yalnızca Azure Stack altyapısının içinde çalıştırmak için onaylanmış yazılımlar çalıştırılabilir. Yetkisiz kod yürütme girişimi engellenir ve bir denetim oluşturulur.
 
 Device Guard İlkesi de üçüncü taraf aracılarını veya yazılımını Azure Stack altyapısının çalışmasını engeller.
 
@@ -67,7 +67,7 @@ Başka bir Windows Server 2016 güvenlik Azure Stack'te Azure Stack altyapısın
 ## <a name="antimalware"></a>Kötü Amaçlı Yazılımdan Koruma
 Azure Stack'te (Hyper-V konakları ve sanal makineler) her bir bileşeni, Windows Defender virüsten koruma ile korunur.
 
-Birbirine bağlı senaryolarda, virüsten koruma tanımı ve motor güncelleştirmelerini günde birden çok kez uygulanır. Bağlantısı kesilmiş senaryolarda, kötü amaçlı yazılımdan koruma güncelleştirmeleri aylık Azure Stack güncelleştirmelerin bir parçası uygulanır. Bkz: [Windows Defender virüsten koruma Azure Stack'te güncelleştirme](azure-stack-security-av.md) daha fazla bilgi için.
+Birbirine bağlı senaryolarda, virüsten koruma tanımı ve motor güncelleştirmelerini günde birden çok kez uygulanır. Bağlantısı kesilmiş senaryolarda, kötü amaçlı yazılımdan koruma güncelleştirmeleri aylık Azure Stack güncelleştirmelerin bir parçası uygulanır. Daha fazla bilgi için [Windows Defender virüsten koruma Azure Stack'te güncelleştirme](azure-stack-security-av.md).
 
 ## <a name="constrained-administration-model"></a>Kısıtlı yönetim modeli
 Azure Stack yönetiminde, her biri belirli bir amaca sahip üç giriş noktaları kullanılarak denetlenir: 
@@ -76,12 +76,24 @@ Azure Stack yönetiminde, her biri belirli bir amaca sahip üç giriş noktalar�
 3. Belirli düşük düzey işlemler, örneğin veri merkezi tümleştirmesi veya senaryoları desteklemek için Azure Stack adlı bir PowerShell uç noktasını kullanıma sunar [ayrıcalıklı uç nokta](azure-stack-privileged-endpoint.md). Bu uç nokta yalnızca izin verilenler listesinde cmdlet'ler kümesi sunan ve yoğun olarak denetlenir.
 
 ## <a name="network-controls"></a>Ağ denetimleri
-Azure Stack altyapısının, birden çok ağ erişim denetimi List(ACL) katmanlarla sunulur. ACL, altyapı bileşenleri için yetkisiz erişimi önlemek ve kendi işlevi için gerekli olan yollar için altyapı iletişimi sınırlayabilirsiniz. 
+Azure Stack altyapısının, birden çok ağ erişim denetimi listesi (ACL) katmanlarla sunulur. ACL, altyapı bileşenleri için yetkisiz erişimi önlemek ve kendi işlevi için gerekli olan yollar için altyapı iletişimi sınırlayabilirsiniz. 
 
 Ağ ACL'leri, üç katmanda uygulanır:
 1.  Raf üstü anahtarları
 2.  Yazılım tanımlı ağ
 3.  Konak ve sanal makine işletim sistemi güvenlik duvarları
+
+## <a name="regulatory-compliance"></a>Mevzuata uyumluluk
+
+Azure Stack biçimsel bir değerlendirme üçüncü taraf bağımsız bir denetleme firmasının geçti. Sonuç olarak, Azure Stack altyapısının çeşitli önemli uyumluluk standartları ilgili denetimleri nasıl karşıladığını üzerinde belgeleri kullanılabilir. Belgeler, çeşitli personeli ve işlem ilgili denetimleri de dahil olmak üzere standartları nedeniyle Azure Stack bir sertifika değil. Bunun yerine, müşteriler kendi sertifika alma süreci hızlı giriş yapmak için bu belgeleri kullanabilir.
+
+Değerlendirmeler, aşağıdaki standartları şunlardır:
+
+- [PCI-DSS](https://www.pcisecuritystandards.org/pci_security/) ödeme kartı sektörüyle yöneliktir.
+- [CSA bulut denetim matrisi](https://cloudsecurityalliance.org/group/cloud-controls-matrix/#_overview) FedRAMP Orta, ISO27001, HIPAA, HITRUST, ITAR, NIST SP800-53 ve diğerleri dahil olmak üzere birden çok standartları kapsamlı bir eşlemedir.
+- [FedRAMP yüksek](https://www.fedramp.gov/fedramp-releases-high-baseline/) kamu müşterileri için.
+
+Uyumluluk belgeleri bulunabilir [Microsoft hizmet güveni portalı](https://servicetrust.microsoft.com/ViewPage/Blueprint). Uyumluluk kılavuzları, korumalı bir kaynaktır ve Azure bulut hizmeti kimlik bilgilerinizle oturum açmanız gerekir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

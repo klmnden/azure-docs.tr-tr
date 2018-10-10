@@ -15,12 +15,12 @@ ms.date: 10/11/2017
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: aae73816b883fe782eff27c56174c71f14c253c4
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: 53d613052713e5144cb9d96aeeb937392fd4736a
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39577195"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48902935"
 ---
 # <a name="header-based-authentication-for-single-sign-on-with-application-proxy-and-pingaccess"></a>Üst bilgi tabanlı kimlik doğrulaması için uygulama proxy'si ile PingAccess ile çoklu oturum açma
 
@@ -162,10 +162,10 @@ Bu örnekte [Azure portalında](https://portal.azure.com) güncelleştirme için
 >[!NOTE]
 >Bir özel talep kullanmak için tanımlanan ve uygulamaya atanan özel bir ilke olmalıdır.  Bu ilke, tüm gerekli özel öznitelikler içermelidir.
 >
->İlke tanımı ve atama, PowerShell, Azure AD Graph Gezgini veya MS Graph yapılabilir.  Bunu PowerShell'de yapıyorsanız, ilk kullanmanız gerekebilir `New-AzureADPolicy `ve uygulama ile atamak `Set-AzureADServicePrincipalPolicy`.  Daha fazla bilgi için [Azure AD İlkesi belgeleri](../active-directory-claims-mapping.md#claims-mapping-policy-assignment).
+>İlke tanımı ve atama, PowerShell, Azure AD Graph Gezgini veya MS Graph yapılabilir.  Bunu PowerShell'de yapıyorsanız, ilk kullanmanız gerekebilir `New-AzureADPolicy `ve uygulama ile atamak `Set-AzureADServicePrincipalPolicy`.  Daha fazla bilgi için [Azure AD İlkesi belgeleri](../develop/active-directory-claims-mapping.md#claims-mapping-policy-assignment).
 
 ### <a name="optional---use-a-custom-claim"></a>İsteğe bağlı - özel talep kullanın
-Uygulamanızın özel talep kullanın ve ek alanları dahil olmak üzere, ayrıca sahip olduğunuzdan emin olun [bir özel talep İlkesi eşlemesi oluşturulur ve uygulamaya atanan](../active-directory-claims-mapping.md#claims-mapping-policy-assignment).
+Uygulamanızın özel talep kullanın ve ek alanları dahil olmak üzere, ayrıca sahip olduğunuzdan emin olun [bir özel talep İlkesi eşlemesi oluşturulur ve uygulamaya atanan](../develop/active-directory-claims-mapping.md#claims-mapping-policy-assignment).
 
 ## <a name="download-pingaccess-and-configure-your-app"></a>PingAccess indirin ve uygulamanızı yapılandırın
 
