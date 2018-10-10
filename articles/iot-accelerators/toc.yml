@@ -97,61 +97,6 @@ items:
       href: iot-accelerators-remote-monitoring-rbac.md
     - name: Telemetri gezginine erişim verme
       href: iot-accelerators-remote-monitoring-rbac-tsi.md
-  - name: Uzaktan İzleme (önceki sürüm)
-    items:
-    - name: Önceden yapılandırılmış çözümler nelerdir?
-      href: ../iot-suite/iot-suite-v1-what-are-preconfigured-solutions.md
-    - name: SSS
-      href: ../iot-suite/iot-suite-v1-faq.md
-    - name: Başlarken
-      items:
-      - name: Önceden yapılandırılmış çözümleri kullanmaya başlama
-        href: ../iot-suite/iot-suite-v1-getstarted-preconfigured-solutions.md
-      - name: azureiotsuite.com sitesindeki izinler
-        href: ../iot-suite/iot-suite-v1-permissions.md
-      - name: Uzaktan İzleme çözüm kılavuzu
-        href: ../iot-suite/iot-suite-v1-remote-monitoring-sample-walkthrough.md
-      - name: Raspberry Pi’nize bağlanma
-        href: ../iot-suite/iot-suite-v1-raspberry-pi-kit-get-started.md
-        items:
-        - name: C kullanma
-          items:
-          - name: Sanal veriler
-            href: ../iot-suite/iot-suite-v1-raspberry-pi-kit-c-get-started-simulator.md
-          - name: Gerçek algılayıcılar kullanma
-            href: ../iot-suite/iot-suite-v1-raspberry-pi-kit-c-get-started-basic.md
-          - name: Üretici yazılımı güncelleştirmesini uygulama
-            href: ../iot-suite/iot-suite-v1-raspberry-pi-kit-c-get-started-advanced.md
-        - name: Node.js kullanma
-          items:
-          - name: Sanal veriler
-            href: ../iot-suite/iot-suite-v1-raspberry-pi-kit-node-get-started-simulator.md
-          - name: Gerçek algılayıcılar kullanma
-            href: ../iot-suite/iot-suite-v1-raspberry-pi-kit-node-get-started-basic.md
-          - name: Üretici yazılımı güncelleştirmesini uygulama
-            href: ../iot-suite/iot-suite-v1-raspberry-pi-kit-node-get-started-advanced.md
-      - name: MXChip IoT DevKit’inize bağlanma
-        href: ../iot-hub/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring.md
-    - name: Nasıl yapılır kılavuzları
-      items:
-      - name: Sanal cihaza bağlanma
-        items:
-        - name: Windows üzerinde C
-          href: ../iot-suite/iot-suite-v1-connecting-devices.md
-        - name: Linux üzerinde C
-          href: ../iot-suite/iot-suite-v1-connecting-devices-linux.md
-        - name: Node.js
-          href: ../iot-suite/iot-suite-v1-connecting-devices-node.md
-      - name: Mantıksal Uygulama’yı Uzaktan İzleme çözümüne bağlama
-        href: ../iot-suite/iot-suite-v1-logic-apps-tutorial.md
-      - name: Çözüm hızlandırıcısını özelleştirme
-        href: ../iot-suite/iot-suite-v1-guidance-on-customizing-preconfigured-solutions.md
-      - name: Uzaktan İzleme çözümüyle dinamik telemetri kullanma
-        href: ../iot-suite/iot-suite-v1-dynamic-telemetry.md
-      - name: Uzaktan İzleme çözümünde özel kural oluşturma
-        href: ../iot-suite/iot-suite-v1-custom-rule.md
-      - name: Uzaktan İzleme çözümündeki cihaz bilgileri
-        href: ../iot-suite/iot-suite-v1-remote-monitoring-device-info.md
   - name: Bağlı Fabrika
     items:
     - name: Panoyu kullanma
@@ -203,7 +148,7 @@ items:
   - name: Çözümler
     items:
     - name: IoT çözüm hızlandırıcıları
-      href: /azure/iot-suite
+      href: /azure/iot-accelerators
     - name: IoT Central
       href: https://docs.microsoft.com/microsoft-iot-central/
   - name: Platform Hizmetleri
@@ -256,9 +201,9 @@ items:
     href: https://stackoverflow.com/questions/tagged/azure-iot-suite
   - name: IoT çözüm hızlandırıcıları öğrenme yolu
     href: https://azure.microsoft.com/documentation/learning-paths/iot-suite/
-ms.openlocfilehash: 935b9acf2eeaaee73745426eefb5625f470f62b7
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: f0efa66bd9ed85ed4ab79f5937355bd19c404a64
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46365477"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48884353"

@@ -25,7 +25,7 @@
 # Nasıl yapılır
 ## Planlama ve tasarım
 ### [Azure AD mimarisini anlama](fundamentals/active-directory-architecture.md)
-### [Azure Active Directory’de talep eşlemesi](active-directory-claims-mapping.md)
+### [Azure Active Directory’de talep eşlemesi](develop/active-directory-claims-mapping.md)
 ### [Karma kimlik çözümü dağıtma](hybrid/plan-hybrid-identity-design-considerations-overview.md)
 #### Gereksinimlerini belirleme
 ##### [Kimlik](hybrid/plan-hybrid-identity-design-considerations-business-needs.md)
@@ -200,7 +200,7 @@
 #### [Kiracı kısıtlamaları](manage-apps/tenant-restrictions.md)
 #### [SCIM kullanıcı sağlama hizmetinden yararlanma](manage-apps/use-scim-to-provision-users-and-groups.md)
 
-### [Azure AD uygulaması onay deneyimlerini anlama](application-consent-experience.md)
+### [Azure AD uygulaması onay deneyimlerini anlama](develop/application-consent-experience.md)
 
 ### Sorun giderme
 
@@ -323,7 +323,7 @@
 
 ### [Azure AD Connect kullanarak şirket içi kimlikleri tümleştirme](hybrid/whatis-hybrid-identity.md)
 
-### [Belirteç ömrünü yapılandırma](active-directory-configurable-token-lifetimes.md)
+### [Belirteç ömrünü yapılandırma](develop/active-directory-configurable-token-lifetimes.md)
 
 ## Kimliklerinizi güvenli hale getirme
 
