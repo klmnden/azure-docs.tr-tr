@@ -12,15 +12,15 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 08/29/2018
+ms.date: 09/05/2018
 ms.author: cephalin
 ms.custom: mvc, devcenter, vs-azure
-ms.openlocfilehash: d7b93c28bf83e468d1470b0962dcf9d87a52adb2
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: 00a1f7edfb24d9bd44e48161f3cd2e69cba36bfc
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43189585"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44052131"
 ---
 # <a name="create-an-aspnet-core-web-app-in-azure"></a>Azure’da ASP.NET Core web uygulaması oluşturma
 
@@ -36,11 +36,12 @@ ms.locfileid: "43189585"
 
 ## <a name="prerequisites"></a>Ön koşullar
 
-Bu öğreticiyi tamamlamak için:
+Bu öğreticiyi tamamlamak için **ASP.NET ve web geliştirme** iş yüküyle <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2017</a>’yi yükleyin.
 
-**ASP.NET ve web geliştirme** iş yüküyle <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2017</a>’yi yükleyin.
+Visual Studio 2017'yi zaten yüklediyseniz:
 
-Visual Studio’yu önceden yüklediyseniz, **Araçlar** > **Araçları ve Özellikleri Al** seçeneklerine tıklayarak Visual Studio’da iş yükünü ekleyin.
+- **Yardım** > **Güncelleştirmeleri Denetle**'ye tıklayarak Visual Studio'daki en son güncelleştirmeleri yükleyin.
+- **Araçlar** > **Araçları ve Özellikleri Al**'a tıklayarak iş yükünü ekleyin.
 
 ## <a name="create-an-aspnet-core-web-app"></a>ASP.NET Core web uygulaması oluşturma
 
@@ -52,7 +53,7 @@ Uygulamayı _myFirstAzureWebApp_ olarak adlandırın ve ardından **Tamam**’ı
    
 ![Yeni Proje iletişim kutusu](./media/app-service-web-get-started-dotnet/new-project.png)
 
-Azure’a herhangi bir türde ASP.NET Core web uygulaması dağıtabilirsiniz. Bu hızlı başlangıçta **Web Uygulaması** şablonunu seçin ve kimlik doğrulamasının **Kimlik Doğrulaması Yok** olarak ayarlandığından emin olun.
+Azure’a herhangi bir türde ASP.NET Core web uygulaması dağıtabilirsiniz. Bu hızlı başlangıçta **Web Uygulaması** şablonunu seçin ve kimlik doğrulamasının **Kimlik Doğrulaması Yok** olarak ayarlandığından ve başka seçenek belirtilmediğinden emin olun.
       
 **Tamam**’ı seçin.
 
@@ -62,21 +63,19 @@ Menüden **Hata Ayıkla > Hata Ayıklamadan Başla**’yı seçerek web uygulama
 
 ![Uygulamayı yerel olarak çalıştırma](./media/app-service-web-get-started-dotnet/razor-web-app-running-locally.png)
 
-## <a name="publish-to-azure"></a>Azure’da Yayımlama
+## <a name="launch-the-publish-wizard"></a>Yayımlama sihirbazını başlatma
 
 **Çözüm Gezgini**’nde **myFirstAzureWebApp** projesine sağ tıklayıp **Yayımla**’yı seçin.
 
 ![Çözüm Gezgini'nden yayımlama](./media/app-service-web-get-started-dotnet/right-click-publish.png)
 
-**Microsoft Azure App Service**’in seçili olduğundan emin olup **Yayımla**’yı seçin.
+Yayımlama sihirbazı otomatik olarak başlatılır. **App Service** > **Yayımla**'yı seçerek **App Service Oluştur** iletişim kutusunu açın.
 
 ![Projeye genel bakış sayfasından yayımlama](./media/app-service-web-get-started-dotnet/publish-to-app-service.png)
 
-Bu işlem, ASP.NET Core web uygulamasını Azure’da çalıştırmak için gereken tüm Azure kaynaklarını oluşturmanıza yardımcı olan **App Service Oluştur** iletişim kutusunu açar.
-
 ## <a name="sign-in-to-azure"></a>Azure'da oturum açma
 
-**App Service Oluştur** iletişim kutusunda **Hesap ekle**’ye tıklayın ve Azure aboneliğinizde oturum açın. Oturumunuz zaten açıksa, açılan menüden istediğiniz aboneliği içeren hesabı seçin.
+**App Service Oluştur** iletişim kutusunda **Hesap ekle**’ye tıklayın ve Azure aboneliğinizde oturum açın. Zaten oturum açmış durumdaysanız, açılan listeden istediğiniz hesabı seçin.
 
 > [!NOTE]
 > Zaten oturum açtıysanız **Oluştur** öğesini henüz seçmeyin.
@@ -96,9 +95,9 @@ Kaynak grubunuzu **myResourceGroup** olarak adlandırıp **Tamam**’ı seçin.
 
 [!INCLUDE [app-service-plan](../../includes/app-service-plan.md)]
 
-**App Service Planı**’nın yanındaki **Yeni**’yi seçin. 
+**Barındırma Planı**'nın yanındaki **Yeni**'yi seçin. 
 
-**App Service Planını Yapılandır** iletişim kutusunda, ekran görüntüsünü izleyerek tablodaki ayarları kullanın.
+**Barındırma Planını Yapılandır** iletişim kutusunda, ekran görüntüsünün altındaki tabloda verilen ayarları kullanın.
 
 ![App Service planı oluşturma](./media/app-service-web-get-started-dotnet/configure-app-service-plan.png)
 
@@ -112,17 +111,17 @@ Kaynak grubunuzu **myResourceGroup** olarak adlandırıp **Tamam**’ı seçin.
 
 ## <a name="create-and-publish-the-web-app"></a>Web uygulaması oluşturma ve yayımlama
 
-**Web Uygulaması Adı**’na benzersiz bir ad girin (geçerli karakterler `a-z`, `0-9` ve `-` karakterleridir) veya otomatik olarak oluşturulan adı kabul edin. Web uygulamasının URL'si `http://<app_name>.azurewebsites.net` şeklindedir; burada `<app_name>`, web uygulamanızın adıdır.
+**Uygulama Adı**’na benzersiz bir ad girin (geçerli karakterler `a-z`, `0-9` ve `-` karakterleridir) veya otomatik olarak oluşturulan benzersiz adı kabul edin. Web uygulamasının URL'si `http://<app_name>.azurewebsites.net` şeklindedir; burada `<app_name>`, uygulamanızın adıdır.
 
 Azure kaynaklarını oluşturmaya başlamak için **Oluştur**’u seçin.
 
-![Web uygulaması adını yapılandırma](./media/app-service-web-get-started-dotnet/web-app-name.png)
+![Uygulama adını yapılandırma](./media/app-service-web-get-started-dotnet/web-app-name.png)
 
 Sihirbaz tamamlandıktan sonra ASP.NET Core web uygulamasını Azure’da yayımlar ve ardından uygulamayı varsayılan tarayıcıda başlatır.
 
 ![Azure’da yayımlanmış ASP.NET web uygulaması](./media/app-service-web-get-started-dotnet/web-app-running-live.png)
 
-[Oluşturma ve yayımlama adımında](#create-and-publish-the-web-app) belirtilen web uygulaması adı `http://<app_name>.azurewebsites.net` biçiminde URL ön eki olarak kullanılır.
+[Oluşturma ve yayımlama adımında](#create-and-publish-the-web-app) belirtilen uygulama adı `http://<app_name>.azurewebsites.net` biçiminde URL ön eki olarak kullanılır.
 
 Tebrikler, ASP.NET Core web uygulamanız Azure App Service’te çalışıyor.
 
@@ -130,7 +129,7 @@ Tebrikler, ASP.NET Core web uygulamanız Azure App Service’te çalışıyor.
 
 **Çözüm Gezgini** menüsünden _Pages/Index.cshtml_ dosyasını açın.
 
-Üst kısımda `<div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="6000">` HTML etiketini bulun ve tüm öğeyi aşağıdaki kodla değiştirin:
+İki `<div>` etiketini aşağıdaki kodla değiştirin:
 
 ```HTML
 <div class="jumbotron">

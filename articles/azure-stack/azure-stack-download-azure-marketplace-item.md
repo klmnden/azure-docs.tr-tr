@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/03/2018
+ms.date: 10/09/2018
 ms.author: sethm
 ms.reviewer: ''
-ms.openlocfilehash: 785161d0f897b583c0c5536440afc1e8f05e736e
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: cf6bc980f6fd821056a987d0c830863bd15ba779
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48854839"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48902017"
 ---
 # <a name="download-marketplace-items-from-azure-to-azure-stack"></a>Azure Stack için Azure Market öğelerini indirme
 
@@ -126,7 +126,10 @@ Bu senaryo iki bölümü vardır:
    ```PowerShell  
    Import-Module .\Syndication\AzureStack.MarketplaceSyndication.psm1
 
-   Export-AzSOfflineMarketplaceItem -destination "Destination folder path"
+   Sync-AzSOfflineMarketplaceItem 
+      -Destination "Destination folder path in quotes" `
+      -AzureTenantID $AzureContext.Tenant.TenantId `
+      -AzureSubscriptionId $AzureContext.Subscription.Id 
    ```
 
 6. Araç çalıştığında Azure hesabı kimlik bilgilerinizi girmeniz istenir. Azure Stack kaydetmek için kullanılan Azure hesabınızda oturum açın. Oturum açma başarılı olduktan sonra aşağıdaki görüntüyle kullanılabilir Market öğelerinin listesi gibi bir ekran görürsünüz.  
