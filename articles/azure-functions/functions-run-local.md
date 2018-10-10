@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: glenga
-ms.openlocfilehash: 52330d9f999676301e3a92487c0106f2fa59bc76
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: e77e81624c93bf1189afd556a8257362197c6b60
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48237957"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48902969"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>İle Azure işlevleri çekirdek Araçları çalışma
 
@@ -180,7 +180,7 @@ Daha fazla bilgi için [Azure işlevleri Tetikleyicileri ve bağlamaları kavram
 
 ## <a name="local-settings-file"></a>Yerel ayarlar dosyası
 
-Uygulama ayarları, bağlantı dizeleri ve Azure işlevleri çekirdek araçları için ayarları dosyası local.settings.json depolar. Bunu, aşağıdaki yapıya sahiptir:
+Uygulama ayarları, bağlantı dizeleri ve Azure işlevleri çekirdek araçları için ayarları dosyası local.settings.json depolar. Local.settings.json dosyasında ayarları, yalnızca yerel olarak çalıştırılırken işlevleri araçları tarafından kullanılır. Varsayılan olarak, projeyi Azure'da yayımlandığında bu ayarlar otomatik olarak geçirilmez. Kullanım `--publish-local-settings` geçiş [yayımladığınızda](#publish) bu ayarlar, Azure işlev uygulamasında eklenir emin olmak için. Değerler Not **ConnectionStrings** hiçbir zaman yayımlanır. Dosya aşağıdaki yapıya sahiptir:
 
 ```json
 {
@@ -214,11 +214,9 @@ Uygulama ayarları, bağlantı dizeleri ve Azure işlevleri çekirdek araçları
 
 + [C# önceden derlenmiş](functions-dotnet-class-library.md#environment-variables)
 + [C# betiği (.csx)](functions-reference-csharp.md#environment-variables)
-+ [F#](functions-reference-fsharp.md#environment-variables)
++ [F # betik (.fsx)](functions-reference-fsharp.md#environment-variables)
 + [Java](functions-reference-java.md#environment-variables) 
 + [JavaScript](functions-reference-node.md#environment-variables)
-
-Local.settings.json dosyasında ayarları, yalnızca yerel olarak çalıştırılırken işlevleri araçları tarafından kullanılır. Varsayılan olarak, projeyi Azure'da yayımlandığında bu ayarlar otomatik olarak geçirilmez. Kullanım `--publish-local-settings` geçiş [yayımladığınızda](#publish) bu ayarlar, Azure işlev uygulamasında eklenir emin olmak için. Değerler **ConnectionStrings** hiçbir zaman yayımlanır.
 
 İçin geçerli bir depolama bağlantı dizesi ayarlandığında **AzureWebJobsStorage** ve öykünücü kullanılmıyor, aşağıdaki hata iletisi gösterilir:  
 
@@ -425,7 +423,7 @@ func run MyHttpTrigger -c '{\"name\": \"Azure\"}'
 
 ## <a name="publish"></a>Azure'da yayımlama
 
-Temel araçları, dağıtım, iki tür işlevi proje dosyalarını doğrudan işlev uygulamanızı dağıtma ve yalnızca desteklenen özel bir Linux kapsayıcısı dağıtmayı destekler 2.x.
+Temel araçları, dağıtım, iki tür işlevi proje dosyalarını doğrudan işlev uygulamanızı dağıtma ve yalnızca desteklenen özel bir Linux kapsayıcısı dağıtmayı destekler 2.x. Önceden olmalıdır [Azure aboneliğinizde bir işlev uygulamanız oluşturulurken](functions-cli-samples.md#create).
 
 Sürüm 2.x olmalıdır [uzantılarınızı kayıtlı](#register-extensions) yayımlamadan önce projenizdeki. Derleme gerektiren projeler, böylece ikili dosyaları dağıtılabilir oluşturulmalıdır.
 
@@ -444,13 +442,8 @@ Bu komut var olan işlev uygulamanızı Azure'a yayımlar. Bir hata oluşursa, `
 `publish` Komut işlevleri proje dizininin içeriğini yükler. Dosyaları yerel olarak silerseniz `publish` komut silinmez Azure'dan. Kullanarak Azure dosyaları silebilirsiniz [Kudu aracı](functions-how-to-use-azure-function-app-settings.md#kudu) içinde [Azure portal].  
 
 >[!IMPORTANT]  
-> Azure'da bir işlev uygulaması oluşturduğunuzda, bu sürüm kullanır 2.x varsayılan olarak işlev çalışma zamanı. İşlev uygulaması kullanım sürümü yapmak için çalışma zamanının 1.x uygulama ayarı ekleme `FUNCTIONS_EXTENSION_VERSION=~1`.  
-Bu ayar işlev uygulamanıza eklemek için aşağıdaki Azure CLI kod kullanın:
-
-```azurecli-interactive
-az functionapp config appsettings set --name <function_app> \
---resource-group myResourceGroup --settings FUNCTIONS_EXTENSION_VERSION=~1
-```
+> Azure portalında bir işlev uygulaması oluşturduğunuzda, bu sürüm kullanır 2.x varsayılan olarak işlev çalışma zamanı. İşlev uygulaması kullanım sürümü yapmak için 1.x çalışma zamanı'ndaki yönergeleri izleyin [sürümünde çalışmasını 1.x](functions-versions.md#creating-1x-apps).  
+> Mevcut işlevleri sahip bir işlev uygulaması için çalışma zamanı sürümünü değiştiremezsiniz.
 
 Sürümler, 1.x ve 2.x'i için uygulama aşağıdaki Yayımlama seçenekleri kullanabilirsiniz:
 

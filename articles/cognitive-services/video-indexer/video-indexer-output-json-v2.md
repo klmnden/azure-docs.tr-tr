@@ -8,19 +8,19 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: video-indexer
 ms.topic: conceptual
-ms.date: 09/15/2018
+ms.date: 10/08/2018
 ms.author: juliako
-ms.openlocfilehash: 76f83e7ad70e3e1906bc1aa90c74d600053aeb6f
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 27f24d588cf1cac5f580a41cc0901a8907b66652
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45985652"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48884299"
 ---
 # <a name="examine-the-video-indexer-output-produced-by-v2-api"></a>V2 API'si tarafından üretilen Video dizinleyici çıktısını İnceleme
 
 > [!Note]
-> Video Indexer V1 API, 1 Ağustos 2018'de kullanım dışı bırakıldı. Artık, Video Indexer v2 API'si kullanmanız gerekir. <br/>Video Indexer v2 API'leri ile geliştirme için lütfen bulunan yönergeleri okuyun [burada](https://api-portal.videoindexer.ai/). 
+> Video Indexer V1 API, 1 Ağustos 2018'de kullanım dışı bırakıldı. Artık, Video Indexer v2 API kullanılmalıdır. <br/>Video Indexer v2 API'leri ile geliştirme çalışmaları yapmak için [buradaki](https://api-portal.videoindexer.ai/) yönergelere bakın. 
 
 Çağırdığınızda **alma Video dizini** API ve yanıt durumunu Tamam, yanıt içeriği olarak ayrıntılı bir JSON çıktısını alın. JSON içeriği belirtilen video öngörüleri ayrıntılarını içerir. Insights gibi boyutları içerir: dökümleri, karakterlerini, yüzleri, konular, blokları vb. Boyutları, her boyut bir videoda özelliğiyken gösteren zaman aralıklarının örneğe sahip.  
 
@@ -115,7 +115,7 @@ Bu bölümde, içgörüler özetini gösterir.
 |publishedUrlProxy|Videodan (Apple cihazlar için) akış URL'si.|
 |viewToken|Video akışı için bir kısa süreli görünümü belirteci.|
 |sourceLanguage|Video kaynak dili.|
-|dil|Videonun gerçek dili (çeviri).|
+|language|Videonun gerçek dili (çeviri).|
 |indexingPreset|Videonun dizini oluşturmak için kullanılan hazır.|
 |streamingPreset|Videoyu yayımlama için kullanılan hazır.|
 |linguisticModelId|CRI model video özelliği kullanılır.|
@@ -155,7 +155,7 @@ Yüz kimliği, bir ad, bir küçük resim, diğer meta veriler ve zamana bağlı
 |Sürüm|Kod sürümü|
 |---|---|
 |sourceLanguage|Video kaynak dili (bir ana dil varsayılarak). Biçiminde bir [BCP-47](https://tools.ietf.org/html/bcp47) dize.|
-|dil|Insights dili (kaynak dili çevrilir). Biçiminde bir [BCP-47](https://tools.ietf.org/html/bcp47) dize.|
+|language|Insights dili (kaynak dili çevrilir). Biçiminde bir [BCP-47](https://tools.ietf.org/html/bcp47) dize.|
 |transkript|[Döküm](#transcript) boyut.|
 |OCR|[Ocr](#ocr) boyut.|
 |anahtar sözcükler|[Anahtar sözcükleri](#keywords) boyut.|
@@ -205,7 +205,7 @@ id|Blok kimliği.|
 |---|---|
 |id|Satır kimliği|
 |metin|Transkripti kendisi.|
-|dil|Döküm dili. Transkript desteklemek her satırı farklı bir dil sahip olduğu yöneliktir.|
+|language|Döküm dili. Transkript desteklemek her satırı farklı bir dil sahip olduğu yöneliktir.|
 |örnekler|Bu satırı nerede göründüğü zaman aralıkları listesi. Transkript örneğiyse yalnızca 1 örneğin olacaktır.|
 
 Örnek:
@@ -244,7 +244,7 @@ id|Blok kimliği.|
 |id|OCR satır kimliği|
 |metin|OCR metin.|
 |güven|Tanıma güvenilirlik.|
-|dil|OCR dili.|
+|language|OCR dili.|
 |örnekler|Bu OCR nerede göründüğü zaman aralıkları listesi (aynı OCR birden çok kez görünebilir).|
 
 ```json
@@ -287,7 +287,7 @@ id|Blok kimliği.|
 |id|Anahtar sözcük kimliği.|
 |metin|Anahtar sözcüğü metin.|
 |güven|Anahtar sözcüğü'nın tanıma güvenilirlik.|
-|dil|Anahtar sözcüğü (çevrildiğinde) dili.|
+|language|Anahtar sözcüğü (çevrildiğinde) dili.|
 |örnekler|Bu anahtar sözcük nerede göründüğü zaman aralıkları listesi (bir anahtar sözcüğü, birden çok kez görünebilir).|
 
 ```json
@@ -332,7 +332,7 @@ id|Blok kimliği.|
 |Ad|Açıklama|
 |---|---|
 |id|Face ID|
-|ad|Yüz tanıma adı. 'Bilinmeyen #0', tanımlanmış bir ünlü veya müşteri eğitilen kişi olabilir.|
+|ad|Yüz tanıma adı. Bu olabilir ' Bilinmeyen #0, tanımlanan bir ünlü veya müşteri eğitilen kişi.|
 |güven|Yüz tanıma güvenilirlik.|
 |açıklama|Ünlü açıklaması. |
 |thumbnalId|Yüz tanıma, küçük resim kimliği.|
@@ -378,7 +378,7 @@ id|Blok kimliği.|
 |---|---|
 |id|Etiket Kimliği|
 |ad|Etiket adı (örneğin, 'Bilgisayara', 'TV').|
-|dil|Etiket adı (çevrildiğinde) dili. BCP-47|
+|language|Etiket adı (çevrildiğinde) dili. BCP-47|
 |örnekler|Bu etiket nerede göründüğü zaman aralıkları listesi (bir etiket birden çok kez görünebilir). Her örnek güvenle alana sahiptir. |
 
 
@@ -678,7 +678,7 @@ Video Indexer, konuşma tanıma ve ses ipuçları üzerinde bağlı olarak duygu
 |Ad|Açıklama|
 |---|---|
 |id|Duygu tanıma kimliği.|
-|type|Konuşma tanıma ve ses ipuçları göre tanımlanan duygu tanıma şu. Duygu tanıma olabilir: oyun, üzüntü, kızgınlık veya Korkmayın.|
+|type|Konuşma tanıma ve ses ipuçları göre tanımlanan duygu tanıma şu. Şu duygular belirlenebilir: sevinç, üzüntü, kızgınlık ve korku.|
 |örnekler|Bu duygu tanıma nerede göründüğü zaman aralıkları listesi.|
 
 ```json
@@ -771,7 +771,7 @@ Video Indexer dökümleri ana konulardan biri çıkarımı yapar. Mümkün oldu�
 |ad|Konu adı, örneğin: "Eczacılık".|
 |Başvuru Kimliği|Konuları hiyerarşi yansıtan bir içerik haritası. Örneğin: "sistem durumu ve wellbeing / TIP ve sağlık hizmetleri / Eczacılık".|
 |güven|[0,1] aralığındaki güvenilirlik puanı. Daha fazla emindir.|
-|dil|Bu konuda kullanılan dil.|
+|language|Bu konuda kullanılan dil.|
 |iptcName|IPTC ortam adı algılanırsa kod.|
 |örnekler |Bu nedenle tüm video ve aralık olarak kullanılır. şu anda, Video Indexer zaman aralıkları için bir konu dizinini oluşturmaz.|
 
