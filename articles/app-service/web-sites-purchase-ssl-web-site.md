@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/01/2017
 ms.author: apurvajo;cephalin
-ms.openlocfilehash: c223e8fb000686aedefa1c02e93c1c8cbb30ec73
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.openlocfilehash: 0c2adcfa4e11e444f66e1a9c04bea6e3d352f117
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42888302"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49077735"
 ---
 # <a name="buy-and-configure-an-ssl-certificate-for-your-azure-app-service"></a>Azure App Service için SSL Sertifikası Satın Alma ve Yapılandırma
 
@@ -198,14 +198,6 @@ Sertifikayı bunun yerine el ile yenilemek için tıklayın **el ile yenileme** 
 
 > [!NOTE]
 > Yenilenen sertifikanın otomatik olarak uygulamanıza el ile yenilenmesi ya da otomatik olarak yenilendiğinde bağlı değil. Uygulamanıza bağlamak için bkz: [sertifikaları yenileme](./app-service-web-tutorial-custom-ssl.md#renew-certificates). 
-
-<a name="notrenewed"></a>
-## <a name="why-is-my-certificate-not-auto-renewed"></a>Neden Sertifikamı otomatik-yenilenmez?
-
-SSL sertifikanızı otomatik yenileme için yapılandırılmış, ancak otomatik olarak yenilenmediği, bekleyen bir etki alanı doğrulama olabilir. Şunlara dikkat edin: 
-
-- App Service sertifikaları oluşturur, bir GoDaddy etki alanı doğrulaması iki yılda bir kez gerektirir. Etki alanı yöneticisi etki alanını doğrulamak için her üç yılda bir e-posta alır. E-postayı denetlemek veya etki alanınızı doğrulayın, App Service sertifikasını otomatik olarak yenilenir engeller. 
-- (Otomatik yenilemeyi için sertifika etkin olsa bile) GoDaddy ilkesinde değişiklik nedeniyle, bir sonraki yenileme sırasında etki alanının reverification 1 Mart 2017'den önce verilen tüm App Service sertifikaları gerektirir. E-postanızı kontrol edin ve App Service sertifikası otomatik yenilemeyi devam etmek için bu tek seferlik bir etki alanı doğrulaması tamamlayın. 
 
 ## <a name="more-resources"></a>Diğer kaynaklar
 

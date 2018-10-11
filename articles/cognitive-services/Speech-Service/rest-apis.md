@@ -8,12 +8,12 @@ ms.component: speech
 ms.topic: article
 ms.date: 05/09/2018
 ms.author: v-jerkin
-ms.openlocfilehash: dd43aff91568ba4bd93f27e88cc63a50b9d8e4bd
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: fea4f762a46963f923ba8f44644df37b29fc77a6
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48886445"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49068749"
 ---
 # <a name="speech-service-rest-apis"></a>Konuşma hizmeti REST API'leri
 
@@ -21,7 +21,7 @@ Azure Bilişsel hizmetler konuşma hizmeti REST API'leri tarafından sağlanan A
 
 ## <a name="speech-to-text"></a>Konuşmayı Metne Dönüştürme
 
-Konuşmayı metne dönüştürme REST API'si uç noktaları aşağıdaki tabloda gösterilmektedir. Eşleşen abonelik bölgenizi kullanın. Başvuru **tanıma modları** değiştirmek için aşağıdaki bölümde `conversation` ya da ile `interactive` veya `dictation` içinde belirli bir API çağrısı, istenen sceanrio için.
+Konuşmayı metne dönüştürme REST API'si uç noktaları aşağıdaki tabloda gösterilmektedir. Eşleşen abonelik bölgenizi kullanın. 
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-endpoints-speech-to-text.md)]
 
@@ -29,52 +29,6 @@ Konuşmayı metne dönüştürme REST API'si uç noktaları aşağıdaki tabloda
 > Akustik model veya dil modeli ya da telaffuz özelleştirdiyseniz, özel uç noktanıza kullanın.
 
 Bu API yalnızca kısa konuşma destekler. İstekleri 10 saniyeye kadar ses içeren ve en son 14 saniyede toplam en fazla. REST API, kısmi veya Ara sonuçlar yalnızca Nihai sonuç döndürür. Konuşma hizmeti de sahip bir [toplu transkripsiyonu](batch-transcription.md) uzun ses özelliği API.
-
-### <a name="recognition-modes"></a>Tanıma modları
-
-REST API veya WebSocket Protokolü doğrudan kullanırken, tanıma modunu belirtmek ihtiyaç duyduğu: `interactive`, `conversation`, veya `dictation`. Konuşma tanıma nasıl kullanıcıları duyma olasılığınız olan bağlı tanıma modu ayarlar. Uygulamanız için uygun tanıma modunu seçin.
-
-> [!NOTE]
-> WebSocket Protokolü arkadaşlarınıza kıyasla tanıma modları REST Protokolü farklı davranışları olabilir. Örneğin, REST API sürekli tanıma, hatta konuşma veya Dikte modunda desteklemez.
-> [!NOTE]
-> Bu mod, doğrudan REST veya WebSocket protokolünü kullanırken geçerlidir. [Speech SDK'sı](speech-sdk.md) tanıma yapılandırma belirtmek için farklı parametreler kullanır. Daha fazla bilgi için seçtiğiniz istemci kitaplığı bakın.
-
-Microsoft konuşma hizmeti tüm tanıma modları için yalnızca bir tanıma ifade sonucunu döndürür. Doğrudan REST API veya WebSocket protokolünü kullanırken herhangi tek utterance için 15 saniyelik bir sınır yoktur.
-
-#### <a name="interactive-mode"></a>Etkileşimli mod
-
-İçinde `interactive` modu, kullanıcının kısa isteği yapan ve yanıt olarak bir eylemi gerçekleştirmek için uygulama bekler.
-
-Aşağıdaki özelliklere etkileşimli mod uygulamaları tipik şunlardır:
-
-- Kullanıcılar, başka bir insan değil de, bir makineye iletişim kurmanızı bildirin.
-- Uygulama kullanıcıları, önceden varsayalım, alan uygulama yapmak istediğini üzerinde istedikleri bildirin.
-- Konuşma son hakkında genellikle 2-3 saniye.
-
-#### <a name="conversation-mode"></a>Konuşma modu
-
-İçinde `conversation` modu, kullanıcıların insanlar konuşmada gerçekleştiriliyor.
-
-Aşağıdaki özelliklere konuşma modu uygulamalarının tipik şunlardır:
-
-- Kullanıcılar başka bir kişiye konuşma olduğunu bilirsiniz.
-- Konuşma tanıma, konuşulan metnin görmek bir veya iki katılımcıları vererek İnsan konuşmalar geliştirir.
-- Kullanıcılar, söylemek istediği her zaman planlamıyorsanız.
-- Kullanıcıların sık argo ve resmi olmayan diğer konuşma kullanın.
-
-#### <a name="dictation-mode"></a>Dikte modu
-
-İçinde `dictation` modu, kullanıcılar uygulamaya daha fazla işleme için uzun konuşma belirtmesini.
-
-Aşağıdaki özelliklere dikte modu uygulamalarının tipik şunlardır:
-
-- Kullanıcılar için bir makine konuşma olduğunu bilirsiniz.
-- Kullanıcılara, konuşma tanıma metin sonuçları gösterilir.
-- Söyleyin ve daha resmi bir dil kullanmak istedikleri kullanıcıları genellikle planlayın.
-- Kullanıcılar kullanan tam, son 5-8 saniye cümleler.
-
-> [!NOTE]
-> Yazdırma ve konuşma modlarında Microsoft konuşma hizmeti kısmi sonuçlar döndürmez. Bunun yerine, hizmet sessizlik sınırları ses akışına sonra kararlı tümcecik sonuçlarını döndürür. Microsoft, bu sürekli tanıma modda kullanıcı deneyimini iyileştirmek üzere konuşma Protokolü geliştirmek.
 
 
 ### <a name="query-parameters"></a>Sorgu parametreleri

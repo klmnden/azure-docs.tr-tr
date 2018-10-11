@@ -3,18 +3,16 @@ title: Azure'da kubernetes Helm ile kapsayıcıları dağıtın
 description: Azure Kubernetes Service (AKS) kümesini kapsayıcıları dağıtmak için Helm paketleme Aracı'nı kullanın
 services: container-service
 author: iainfoulds
-manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 07/13/2018
+ms.date: 10/01/2018
 ms.author: iainfou
-ms.custom: mvc
-ms.openlocfilehash: dd2deba25615373765dd3492d03c1ba547c8ba8c
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: d95f7ad337e52aed47656c2ea60e6b193a427946
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39055143"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49068586"
 ---
 # <a name="install-applications-with-helm-in-azure-kubernetes-service-aks"></a>Azure Kubernetes Service (AKS) Helm ile uygulamaları yükleme
 
@@ -26,32 +24,11 @@ Bu makalede yapılandırma ve bir Kubernetes kümesinde AKS üzerinde Helm kulla
 
 Bu belgedeki adımlarda bir AKS kümesi oluşturduğunuz ve belirledik varsayılır bir `kubectl` kümeyle bağlantı. Bu öğelere gereksiniminiz varsa, bkz: [AKS hızlı başlangıçları][aks-quickstart].
 
-## <a name="install-helm-cli"></a>Helm CLI yükleme
-
-Helm CLI geliştirme sisteminizde çalışan ve başlatma, durdurma ve Helm ile uygulamaları yönetmenize olanak sağlayan bir istemcidir.
-
-Azure Cloud Shell'i kullanırsanız, Helm CLI zaten yüklüdür. Mac bilgisayarlarda Helm CLI'yı yüklemek için kullanın `brew`. Ek yükleme seçenekleri için bkz., [yükleme Helm][helm-install-options].
-
-```console
-brew install kubernetes-helm
-```
-
-Çıktı:
-
-```
-==> Downloading https://homebrew.bintray.com/bottles/kubernetes-helm-2.9.1.high_sierra.bottle.tar.gz
-######################################################################## 100.0%
-==> Pouring kubernetes-helm-2.9.1.high_sierra.bottle.tar.gz
-==> Caveats
-Bash completion has been installed to:
-  /usr/local/etc/bash_completion.d
-==> Summary
-🍺  /usr/local/Cellar/kubernetes-helm/2.9.1: 50 files, 66.2MB
-```
+Helm yüklü CLI geliştirme sisteminizde çalışan ve başlatma, durdurma ve Helm ile uygulamaları yönetmenize olanak tanır istemci de gerekir. Azure Cloud Shell'i kullanırsanız, Helm CLI zaten yüklüdür. Yükleme yönergeleri, yerel platformunda görmek için [yükleme Helm][helm-install].
 
 ## <a name="create-a-service-account"></a>Bir hizmet hesabı oluşturun
 
-Bir hizmet hesabı ve rol bağlama RBAC özellikli bir kümede Helm dağıtabilmeniz için önce Tiller hizmeti için gereklidir. Helm güvenliğini sağlama konusunda daha fazla bilgi için / Tiller bir RBAC, etkin küme, bkz: [Tiller, ad alanları ve RBAC][tiller-rbac]. Kümenizi RBAC etkin değilse, bu adımı atlayın.
+Bir hizmet hesabı ve rol bağlama bir RBAC özellikli AKS kümesinde Helm dağıtabilmeniz için önce Tiller hizmeti için gereklidir. Helm güvenliğini sağlama konusunda daha fazla bilgi için / Tiller bir RBAC, etkin küme, bkz: [Tiller, ad alanları ve RBAC][tiller-rbac]. AKS kümenizi RBAC etkin değilse, bu adımı atlayın.
 
 Adlı bir dosya oluşturun `helm-rbac.yaml` aşağıdaki YAML'ye kopyalayın:
 
@@ -76,10 +53,10 @@ subjects:
     namespace: kube-system
 ```
 
-Hizmet hesabı oluşturup rolü bağlamayla `kubectl create` komutu:
+Hizmet hesabı oluşturup rolü bağlamayla `kubectl apply` komutu:
 
 ```console
-kubectl create -f helm-rbac.yaml
+kubectl apply -f helm-rbac.yaml
 ```
 
 ## <a name="secure-tiller-and-helm"></a>Güvenli Tiller ve Helm
@@ -96,7 +73,7 @@ Temel Tiller bir AKS kümesi dağıtmayı kullanın [helm init] [ helm-init] kom
 helm init --service-account tiller
 ```
 
-TLS/SSL Helm Tiller arasındaki yapılandırılıp yapılandırılmadığını sağlamak `--tiller-tls-` parametreleri ve aşağıdaki örnekte gösterildiği gibi kendi sertifikalarınızı adları:
+TLS/SSL Helm Tiller arasındaki yapılandırılıp yapılandırılmadığını sağlamak `--tiller-tls-*` parametreleri ve aşağıdaki örnekte gösterildiği gibi kendi sertifikalarınızı adları:
 
 ```console
 helm init \

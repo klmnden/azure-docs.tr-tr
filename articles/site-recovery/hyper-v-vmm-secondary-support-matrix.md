@@ -5,15 +5,15 @@ services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
-ms.topic: article
-ms.date: 07/06/2018
+ms.topic: conceptual
+ms.date: 10/10/2018
 ms.author: raynew
-ms.openlocfilehash: 13b4dc6e49c67ae9fd880ab64880966835242dec
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: e1a0ee2a9ad958a5938569927a489785edd8ee1f
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37921503"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49078855"
 ---
 # <a name="support-matrix-for-replication-of-hyper-v-vms-to-a-secondary-site"></a>Hyper-V Vm'lerini ikincil bir siteye çoğaltma için destek matrisi
 
@@ -97,7 +97,7 @@ Sık erişimli Ekle/Kaldır disk | Hayır
 Diski hariç tutma | Evet
 Çok yollu (MPIO) | Evet
 
-## <a name="vaults"></a>Kasaları
+## <a name="vaults"></a>Kasalar
 
 **Eylem** | **Destekleniyor**
 --- | --- 
@@ -108,7 +108,7 @@ Depolama, ağ, Azure Vm'leri (içinde veya abonelikler arasında) kaynak gruplar
 
 Sağlayıcı, VMM sunucuları arasındaki iletişimi düzenler. 
 
-**En son** | **Güncelleştirmeler**
+**en son** | **Güncelleştirmeler**
 --- | --- | --- | --- | ---
 5.1.19 ([portalında kullanılabilir](http://aka.ms/downloaddra) | [En son özellikler ve düzeltmeler](https://support.microsoft.com/kb/3155002)
 

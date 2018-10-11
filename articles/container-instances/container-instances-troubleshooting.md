@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 07/19/2018
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: 6f57bc41cddc997a69f92ba4e8ca66faaeb29738
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: d2e4491f2ee21deedd674a5a8a64e4dd99149924
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39424611"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49079370"
 ---
 # <a name="troubleshoot-common-issues-in-azure-container-instances"></a>Azure Container ınstances'da yaygın sorunlarını giderme
 
@@ -89,11 +89,24 @@ Görüntü çekilen, olayları aşağıdaki gibi çıktısında gösterilen [az 
 ],
 ```
 
-## <a name="container-continually-exits-and-restarts"></a>Kapsayıcı sürekli olarak çıkar ve yeniden başlatır
+## <a name="container-continually-exits-and-restarts-no-long-running-process"></a>Kapsayıcı sürekli olarak çıkar ve yeniden başlatılır (uzun süren işlem)
 
-Kapsayıcınızı tamamlanana kadar çalışmasını sağlamalı ve otomatik olarak yeniden başlatır, ayarlamanız gerekebilir bir [yeniden başlatma ilkesi](container-instances-restart-policy.md) , **OnFailure** veya **hiçbir zaman**. Belirtirseniz **OnFailure** ve hala bakın sürekli yeniden başlatıldıktan sonra uygulama veya betik kapsayıcınızda yürütülen bir sorun olabilir.
+Kapsayıcı grupları için varsayılan değer bir [yeniden başlatma ilkesi](container-instances-restart-policy.md) , **her zaman**, bunlar tamamlanana kadar çalıştırdıktan sonra kapsayıcı grubundaki kapsayıcı her zaman yeniden başlatın. Bu değişiklik yapmanız gerekebilir **OnFailure** veya **hiçbir zaman** görev-tabanlı kapsayıcıları çalıştırmak istiyorsanız. Belirtirseniz **OnFailure** ve hala bakın sürekli yeniden başlatıldıktan sonra uygulama veya betik kapsayıcınızda yürütülen bir sorun olabilir.
 
-Kapsayıcı örnekleri API'yi içeren bir `restartCount` özelliği. Bir kapsayıcı için yeniden başlatma sayısını denetlemek için kullanabileceğiniz [az container show] [ az-container-show] Azure CLI komutu. Gördüğünüz (Bu konuyu uzatmamak amacıyla kesildi) örnek çıktı aşağıdaki `restartCount` çıktının sonunda özelliği.
+Kapsayıcı grupları olmadan uzun süre çalışan işlemleri çalıştırırken, yinelenen çıkar ve Ubuntu gibi veya Alpine görüntülerle yeniden görebilirsiniz. Aracılığıyla bağlanan [EXEC](container-instances-exec.md) kapsayıcı canlı tutma hiçbir işlem olarak çalışmıyor. Bunu çözmek için kapsayıcıyı tutmak için bir başlangıç komutu kapsayıcı grubu dağıtımınız ile aşağıdaki gibi ekleyin.
+
+```azurecli-interactive
+## Deploying a Linux container
+az container create -g MyResourceGroup --name myapp --image ubuntu --command-line "tail -f /dev/null"
+```
+
+```azurecli-interactive 
+## Deploying a Windows container
+az container create -g myResourceGroup --name mywindowsapp --os-type Windows --image windowsservercore:ltsc2016
+ --command-line "ping -t localhost"
+```
+
+Kapsayıcı örnekleri API ve Azure portaldaki bir `restartCount` özelliği. Bir kapsayıcı için yeniden başlatma sayısını denetlemek için kullanabileceğiniz [az container show] [ az-container-show] Azure CLI komutu. Aşağıdaki örnekte, (olduğu için kısaltma kesildi) çıktı gördüğünüz `restartCount` çıktının sonunda özelliği.
 
 ```json
 ...

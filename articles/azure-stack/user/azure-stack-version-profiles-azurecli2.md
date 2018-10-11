@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 09/08/2018
 ms.author: sethm
 ms.reviewer: sijuman
-ms.openlocfilehash: 59b637e6887a645430d902cd846cacda13b14cfe
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 6042aa4dd8b26a0986737edc3c89b8e165ae970a
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46972819"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49067712"
 ---
 # <a name="use-api-version-profiles-with-azure-cli-in-azure-stack"></a>Azure Stack'te Azure CLI ile API Sürüm profillerini kullanma
 
@@ -168,7 +168,8 @@ Azure Stack'e bağlanmak için aşağıdaki adımları kullanın:
 
 1. Azure Stack ortamınıza kullanarak oturum açın `az login` komutu. Azure Stack ortamına veya bir kullanıcı olarak oturum bir [hizmet sorumlusu](https://docs.microsoft.com/azure/active-directory/develop/active-directory-application-objects). 
 
-   * Olarak oturum bir *kullanıcı*: kullanıcı adı ve parola doğrudan içinde ya da belirtebilirsiniz `az login` komutu veya bir tarayıcı kullanarak kimlik doğrulaması. Çok faktörlü kimlik doğrulaması etkin hesabınız varsa, ikincisi yapmanız gerekir.
+    * AAD ortamları
+      * Olarak oturum bir *kullanıcı*: kullanıcı adı ve parola doğrudan içinde ya da belirtebilirsiniz `az login` komutu veya bir tarayıcı kullanarak kimlik doğrulaması. Çok faktörlü kimlik doğrulaması etkin hesabınız varsa, ikincisi yapmanız gerekir.
 
       ```azurecli
       az login \
@@ -179,7 +180,7 @@ Azure Stack'e bağlanmak için aşağıdaki adımları kullanın:
       > [!NOTE]
       > Çok faktörlü kimlik doğrulaması etkin kullanıcı hesabınız varsa kullanabileceğiniz `az login command` sağlamadan `-u` parametresi. Komut çalıştıran bir URL ve kimlik doğrulaması yapmak için kullanmanız gereken kodu sağlar.
    
-   * Olarak oturum bir *hizmet sorumlusu*: oturum açarken, önce [Azure Portalı aracılığıyla hizmet sorumlusu oluşturma](azure-stack-create-service-principals.md) veya CLI ve bir rol atayın. Aşağıdaki komutu kullanarak şimdi oturum açın:
+      * Olarak oturum bir *hizmet sorumlusu*: oturum açarken, önce [Azure Portalı aracılığıyla hizmet sorumlusu oluşturma](azure-stack-create-service-principals.md) veya CLI ve bir rol atayın. Aşağıdaki komutu kullanarak şimdi oturum açın:
 
       ```azurecli
       az login \
@@ -188,6 +189,22 @@ Azure Stack'e bağlanmak için aşağıdaki adımları kullanın:
         -u <Application Id of the Service Principal> \
         -p <Key generated for the Service Principal>
       ```
+    * AD FS ortamları
+
+        * Olarak oturum bir *hizmet sorumlusu*: 
+          1.    Hizmet sorumlusu oturum açma için kullanılacak .pem dosyasını hazırlayın.
+                * Asıl oluşturulduğu istemci makinede hizmet sorumlusu sertifikasını bir pfx ile özel anahtarı dışarı aktar (cert: \CurrentUser\My; bulunan sertifika adı asıl aynı ada sahiptir).
+
+                *   Pfx pem (kullanım OpenSSL yardımcı programı) dönüştürün.
+
+          1.    CLI'yı oturum açın. :
+                ```azurecli
+                az login --service-principal \
+                 -u <Client ID from the Service Principal details> \
+                 -p <Certificate's fully qualified name. Eg. C:\certs\spn.pem>
+                 --tenant <Tenant ID> \
+                 --debug 
+                ```
 
 ## <a name="test-the-connectivity"></a>Bağlantısını test etme
 

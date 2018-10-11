@@ -10,12 +10,12 @@ ms.component: text-analytics
 ms.topic: conceptual
 ms.date: 10/01/2018
 ms.author: ashmaka
-ms.openlocfilehash: 9d09115d3d55d5ba44d35cb0b2009d800ab42a2b
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: 63c8ebe8eda049a770cecfd445757e4b5a2de1ea
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48886660"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49067050"
 ---
 # <a name="language-and-region-support-for-the-text-analytics-api"></a>Metin analizi API'si için dil ve bölge desteği
 
@@ -50,11 +50,13 @@ Dil desteği başlangıçta Mezun genel kullanıma (GA) durumuna birbirinden ve 
 | Portekizce (Portekiz) | `pt-PT`| ✔        |  ✔          |       |`pt` Ayrıca kabul edildi|
 | Portekizce (Brezilya)   | `pt-BR`|          |  ✔   |         |     |
 | Rusça     | `ru`          | ✔ \*     | ✔           |             |     |
-| İspanyolca     | `es`          | ✔        | ✔           |     |     |
+| İspanyolca     | `es`          | ✔        | ✔           |   ✔ \*\*      |     |
 | İsveç dili     | `sv`          | ✔ \*     | ✔           |             |     |
 | Türkçe     | `tr`          | ✔ \*     |             |             |  |
 
 \* dil desteği Önizleme gösterir
+
+\*\* Varlık ayıklama İspanyolca için kullanılabilir, yalnızca [(sürüm 2.1 Önizleme)](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1-Preview/operations/5ac4251d5b4ccd1554da7634)
 
 ## <a name="see-also"></a>Ayrıca bkz.
 

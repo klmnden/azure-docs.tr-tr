@@ -11,17 +11,16 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/29/2018
+ms.date: 10/10/2018
 ms.author: mbullwin
-ms.openlocfilehash: ef79ff7c8e238a0a90912d099b4b9dfe2a387c1d
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 5ea026de228f3c93eed04770ad931d072387aa95
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45577233"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49079081"
 ---
 # <a name="data-collection-retention-and-storage-in-application-insights"></a>Application Insights ile veri toplama, tutma ve depolama
-
 
 Yüklediğinizde [Azure Application Insights] [ start] buluta uygulamanızla ilgili telemetri gönderdiği SDK'sını uygulamanıza. Doğal olarak, sorumlu geliştiriciler tam olarak hangi veriler gönderilir, verilere ne olur ve denetimini nasıl tutabilirsiniz bilmek istersiniz. Özellikle, hassas verileri gönderilebilir, depolanan ve ne kadar güvenli olduğu nedir? 
 
@@ -90,6 +89,8 @@ Bu yazarak yazılabilir bir [telemetri işlemci eklentisi](app-insights-api-filt
 Ham veri noktalarını (diğer bir deyişle, Analytics'te sorgu ve arama İnceleme öğeleri) 90 gün boyunca tutulur. Daha uzun verileri tutmak gerekirse kullanabileceğiniz [sürekli dışarı aktarma](app-insights-export-telemetry.md) bir depolama hesabına kopyalamak için.
 
 Toplanan verileri (diğer bir deyişle, sayıları, ortalamalar ve ölçüm Gezgini'nde gördüğünüz diğer istatistiksel veriler), 90 gün boyunca 1 dakikalık bir dilimi korunur.
+
+[Anlık görüntü hata ayıklama](app-insights-snapshot-debugger.md) yedi gün boyunca saklanır. Bu bekletme ilkesi, bir uygulama başına temelinde ayarlanır. Bu değeri arttırmak gerekiyorsa, Azure portalında bir destek talebi açarak artışı isteyebilirsiniz.
 
 ## <a name="who-can-access-the-data"></a>Verilere kimler erişebilir?
 Verileri sizin için görünür olur ve bir kuruluş hesabı veya takım üyeleriniz varsa. 

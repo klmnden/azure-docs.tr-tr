@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 04/10/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: 6aaf9b42677064b31c56be96775692c75812e145
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: b178744911d03547509de58e35be5cd99e046391
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48044629"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49079064"
 ---
 # <a name="create-and-manage-alert-rules-in-log-analytics-with-rest-api"></a>Oluşturma ve REST API ile Log analytics'teki uyarı kurallarını yönet
 Log Analytics uyarı REST API oluşturma ve Uyarıları Operations Management Suite (OMS) yönetmenize olanak sağlar.  Bu makalede, farklı işlemler gerçekleştirmek için API ve birkaç örnek ayrıntılarını sağlar.
@@ -138,6 +138,7 @@ Bir ve yalnızca bir uyarı eylemi bir zamanlamaya sahip olmalıdır.  Uyarı ey
 |:--- |:--- |:--- |
 | Eşik |Eylem çalıştırıldığında ölçütleri.| Her uyarı için önce veya sonra Azure'a genişletilmiş olan gereklidir. |
 | Severity |Uyarı tetiklendiğinde sınıflandırmak için kullanılan etiketi belirtin.| Her uyarı için önce veya sonra Azure'a genişletilmiş olan gereklidir. |
+| Gizle |Uyarı bildirimleri durdurmak için seçenek. | Her uyarı için isteğe bağlı önce veya sonra Azure'a genişletildi. |
 | Eylem Grupları |Azure burada gerekli Eylemler belirtilmiştir, e-postalar, SMSs, sesli aramalar, Web kancaları, Otomasyon runbook'ları, ITSM bağlayıcılar, vb. gibi - ActionGroup kimlikleri.| Uyarılar Azure'a genişletilmiş olan sonra gerekli|
 | Eylemleri Özelleştirin|ActionGroup select eylemler için standart çıktı değiştirme| Her uyarı için isteğe bağlı kullanılabilir sonra uyarılar Azure'a genişletilir. |
 | EmailNotification |Birden çok alıcıya e-posta gönderin. | Uyarılar Azure'a uzatıldıysa, gerekli değildir|
@@ -213,6 +214,37 @@ Put yöntemi, bir zamanlama için bir önem derecesi eylem değiştirmek için v
 
     $thresholdWithSevJson = "{'etag': 'W/\"datetime'2016-02-25T20%3A54%3A20.1302566Z'\"','properties': { 'Name': 'My Threshold', 'Version':'1','Severity': 'critical', 'Type':'Alert', 'Threshold': { 'Operator': 'gt', 'Value': 10 } }"
     armclient put /subscriptions/{Subscription ID}/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/mythreshold?api-version=2015-03-20 $thresholdWithSevJson
+
+#### <a name="suppress"></a>Gizle
+Log Analytics uyarı eşiği karşılanmadığından veya aşıldığından her zaman ateşlenir sorgu tabanlı. Sorguda kapsanan mantıksal bağlı olarak, bu uyarı bir dizi aralıkları için tetiklendi neden olabilir ve bu nedenle bildirimleri de gönderilen sürekli olarak. Bu senaryoyu engellemek için bir kullanıcı bir görünürlüğe süre bildirim uyarı kuralı ikinci kez tetiklenir önce beklenecek Log Analytics söyleyen gösterme seçeneği ayarlayabilirsiniz. Dolayısıyla bastır 30 dakika boyunca; ayarlayın ardından uyarı ilk defa at ve yapılandırılmış bildirimler gönderin. Ancak daha sonra 30 uyarı kuralı için bildirimi yeniden kullanılmadan önce dakika bekleyin. Ara dönemde uyarı kuralı çalışmaya devam edecek - yalnızca bildirim için uyarı kuralı bu dönemde harekete kaç kez bakılmaksızın belirtilen zaman Log Analytics tarafından bastırılır.
+
+Log Analytics uyarı kuralı kullanarak belirtilen özelliği Gizle *azaltma* değeri ve gizleme dönem kullanarak *Dakika Cinsiden Süre* değeri.
+
+Aşağıdaki örnek yanıt için bir eylem ile yalnızca bir eşik, önem derecesi ve özelliğini Gizle
+
+    "etag": "W/\"datetime'2016-02-25T20%3A54%3A20.1302566Z'\"",
+    "properties": {
+        "Type": "Alert",
+        "Name": "My threshold action",
+        "Threshold": {
+            "Operator": "gt",
+            "Value": 10
+        },
+        "Throttling": {
+          "DurationInMinutes": 30
+        },
+        "Severity": "critical",
+        "Version": 1    }
+
+Önem derecesine sahip yeni bir eylem için bir zamanlama oluşturmak için benzersiz işlem Kimliğine sahip Put yöntemini kullanın.  
+
+    $AlertSuppressJson = "{'properties': { 'Name': 'My Threshold', 'Version':'1','Severity': 'critical', 'Type':'Alert', 'Throttling': { 'DurationInMinutes': 30 },'Threshold': { 'Operator': 'gt', 'Value': 10 } }"
+    armclient put /subscriptions/{Subscription ID}/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/myalert?api-version=2015-03-20 $AlertSuppressJson
+
+Put yöntemi, bir zamanlama için bir önem derecesi eylem değiştirmek için var olan bir eylem kimliği ile kullanın.  İstek gövdesi, eylemin etag içermesi gerekir.
+
+    $AlertSuppressJson = "{'etag': 'W/\"datetime'2016-02-25T20%3A54%3A20.1302566Z'\"','properties': { 'Name': 'My Threshold', 'Version':'1','Severity': 'critical', 'Type':'Alert', 'Throttling': { 'DurationInMinutes': 30 },'Threshold': { 'Operator': 'gt', 'Value': 10 } }"
+    armclient put /subscriptions/{Subscription ID}/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/myalert?api-version=2015-03-20 $AlertSuppressJson
 
 #### <a name="action-groups"></a>Eylem Grupları
 Azure'daki tüm uyarılar eylemlerini işleyen varsayılan bir mekanizma olarak eylem grubu kullanın. Eylem grubu ile bir kez eylemleri belirtin ve birden çok uyarı - eylem grubuna Azure genelinde ilişkilendirin. Tekrar tekrar aynı eylemleri tekrar tekrar bildirme gerek kalmadan. Eylem grupları, birden fazla eylem - e-posta, SMS, sesli arama, ITSM bağlantısı, Otomasyon Runbook'u, Web kancası URI ve benzeri destekler. 

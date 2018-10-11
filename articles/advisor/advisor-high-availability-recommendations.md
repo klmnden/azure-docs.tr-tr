@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/16/2016
 ms.author: makohli
-ms.openlocfilehash: 541ab91bf3a79b1b91fa237880f48bd8e0ccc152
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 2216b915c47ea05d3303ca02e51e976490ea36c6
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44348081"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49068367"
 ---
 # <a name="advisor-high-availability-recommendations"></a>Advisor yüksek kullanılabilirlik önerisi
 
@@ -82,7 +82,7 @@ Etkinleştirme [geçici silme](https://docs.microsoft.com/azure/storage/blobs/st
 Danışman önerileri hakkında daha fazla bilgi için bkz:
 * [Azure Danışmanı giriş](advisor-overview.md)
 * [Danışman’ı kullanmaya başlama](advisor-get-started.md)
-* [Advisor maliyet önerileri](advisor-performance-recommendations.md)
+* [Advisor maliyet önerileri](advisor-cost-recommendations.md)
 * [Danışmanı performans önerileri](advisor-performance-recommendations.md)
 * [Advisor güvenlik önerileri](advisor-security-recommendations.md)
 

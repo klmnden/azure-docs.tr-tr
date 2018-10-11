@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/17/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 0368d9822df193fbf00d8a2069108e23100a58cd
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: c9ed3f3511def085f5e0658bbcbd7978e3a7ce20
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48811596"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49079330"
 ---
 <a name="saas-sell-through-azure---apis"></a>Azure - API'leri ile SaaS satış
 ==============================
@@ -63,12 +63,14 @@ Azure portalını kullanarak yeni bir uygulamayı kaydetmek için aşağıdaki a
 
 4.  Uygulama Oluştur sayfasında girin\'s kayıt bilgileri:
     -   **Ad**: anlamlı uygulama adı girin
-    -   **Uygulama türü**: seçin **Web uygulaması / API** için [istemci uygulamaları](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#client-application) ve [kaynak/API uygulamaları](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#resource-server) güvenli bir sunucuya yüklenir. Bu ayar, OAuth gizli kullanılır [web istemcileri](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#web-client) ve genel [kullanıcı aracı tabanlı istemciler](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#user-agent-based-client).
+    -   **Uygulama türü**: 
+        - Bir cihaza yerel olarak yüklenen [istemci uygulamaları](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#client-application) için **Yerel**'i seçin. Bu ayar OAuth ortak [yerel istemcileri](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#native-client) için kullanılır.
+        - Seçin **Web uygulaması / API** için [istemci uygulamaları](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#client-application) ve [kaynak/API uygulamaları](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#resource-server) güvenli bir sunucuya yüklenir. Bu ayar, OAuth gizli kullanılır [web istemcileri](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#web-client) ve genel [kullanıcı aracı tabanlı istemciler](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#user-agent-based-client).
         Aynı uygulama gerek bir istemciyi, gerekse kaynağı/API'yi sunabilir.
     -   **Oturum açma URL'si**: Web uygulaması/API uygulamaları, uygulamanızın temel URL'si sağlayın. Örneğin, **http://localhost:31544** yerel makinenizde çalışan bir web uygulaması URL'si olabilir. Kullanıcılar, bir web istemci uygulamasına oturum açmak için bu URL'yi daha sonra kullanmanız gerekir.
     -   **Yeniden yönlendirme URI'si**: Azure AD'nin belirteç yanıtlarını döndürmek için kullanılan URI için yerel uygulamalar sağlar. Uygulamanıza özgü bir değer girin, örneğin **http://MyFirstAADApp**.
 
-        Web uygulamaları veya yerel uygulamalar için belirli örnekler için hızlı başlangıç kullanıma destekli bölmesinin Başlarken bölümünde kullanılabilir ayarlar [Azure AD Geliştirici Kılavuzu](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide#get-started).
+        ![SaaS AD uygulama kayıtları](media/saas-offer-publish-with-subscription-apis/saas-offer-app-registration-2.png) web uygulamaları veya yerel uygulamalar için belirli örnekler için hızlı başlangıç kullanıma destekli bölmesinin Başlarken bölümünde kullanılabilir ayarlar [Azure AD Geliştirici Kılavuzu](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide#get-started).
 
 5.  Tamamladığınızda **Oluştur**’a tıklayın. Azure AD uygulamanız ve sizin için benzersiz bir uygulama kimliği atar\'re uygulamanıza geçen\'s ana kayıt sayfası. Web uygulaması ya da yerel uygulama olmasına bağlı olarak uygulamanıza ek özellikler eklemek için değişik seçenekler sunulur.
 
@@ -112,7 +114,7 @@ HTTP yöntemi
 |  Grant_type değeri         | True         | İzin verme türü. Varsayılan değer `client_credentials` şeklindedir.                    |
 |  Client_id          | True         |  Azure AD uygulama ile ilişkili istemci/uygulama tanımlayıcısı.                  |
 |  client_secret      | True         |  Azure AD uygulama ile ilişkili parola.                               |
-|  Kaynak           | True         |  Belirtecin istendiği hedef kaynak. Varsayılan değer `b3cca048-ed2e-406c-aff2-40cf19fe7bf5` şeklindedir. |
+|  Kaynak           | True         |  Belirtecin istendiği hedef kaynak. Varsayılan değer `62d94f6c-d599-489b-a797-3e10e42fbe22` şeklindedir. |
 |  |  |  |
 
 
@@ -120,7 +122,7 @@ HTTP yöntemi
 
 |  **Ad**  | **Tür**       |  **Açıklama**    |
 | ---------- | -------------  | ------------------- |
-| 200 TAMAM /    | TokenResponse  | İstek başarılı   |
+| 200 TAMAM    | TokenResponse  | İstek başarılı   |
 |  |  |  |
 
 *TokenResponse*
@@ -170,6 +172,7 @@ GÖNDERİSİNİ eyleme çözmek bir kalıcı kaynak kimliği için bir belirteç
 | x-ms-bağıntı kimliği | Hayır           | İstemci üzerinde işlem için benzersiz bir dize değeri. Bu istemci işlemi tüm olayları sunucu tarafında olaylarıyla ilişkilendirir. Bu değer sağlanmazsa, bir oluşturulur ve yanıt üst bilgilerinde sağlanan. |
 | içerik türü       | Evet          | `application/json`                                        |
 | Yetkilendirme      | Evet          | JSON web token (JWT) taşıyıcı belirteç.                    |
+| x-ms-Pazar-token| Evet| Kullanıcı, Azure SaaS ISV Web sitesine yönlendirilir, URL'deki belirteci sorgu parametresi. **Not:** URL kullanmadan önce belirteç değeri tarayıcısından kod çözme.|
 |  |  |  |
   
 
@@ -178,14 +181,16 @@ GÖNDERİSİNİ eyleme çözmek bir kalıcı kaynak kimliği için bir belirteç
  ``` json       
     { 
         “id”: “”, 
+        “subscriptionName”: “”,
         “offerId”:””, 
-         “planId”:””, 
+         “planId”:””
     }     
 ```
 
 | **Parametre adı** | **Veri türü** | **Açıklama**                       |
 |--------------------|---------------|---------------------------------------|
 | id                 | Dize        | SaaS aboneliğin kimliği.          |
+| subscriptionName| Dize| SaaS hizmetine abone sırasında azure'da kullanıcı tarafından ayarlanan SaaS abonelik adı.|
 | OfferId            | Dize        | Teklif kullanıcıya abone kimliği. |
 | Planıd             | Dize        | Bir kullanıcı abone kimliği planlayın.  |
 |  |  |  |
@@ -224,7 +229,7 @@ Abone uç noktası bir SaaS hizmetine belirli bir plan için bir abonelik başla
 
 | **Parametre adı**  | **Açıklama**                                       |
 |---------------------|-------------------------------------------------------|
-| subscriptionId      | Abonelik kimliği, SaaS.                              |
+| subscriptionId      | Belirteç çözmek API aracılığıyla çözdükten sonra elde edilen saas abonelik benzersiz kimliği.                              |
 | API sürümü         | Bu istek için kullanılacak işlem sürümü. |
 |  |  |
 
@@ -237,19 +242,20 @@ Abone uç noktası bir SaaS hizmetine belirli bir plan için bir abonelik başla
 | IF-Match/If-None-Match |   Hayır         |   Güçlü Doğrulayıcı ETag değeri.                                                          |
 | içerik türü           |   Evet        |    `application/json`                                                                   |
 |  Yetkilendirme         |   Evet        |    JSON web token (JWT) taşıyıcı belirteç.                                               |
+| x-ms-Pazar-oturum-modu| Hayır | Bir SaaS teklife abone sırasında prova modunu etkinleştirmek için bayrak. Ayarlanırsa, abonelik ücret uygulanmayan durumunda. ISV senaryolarını test etmek için kullanışlıdır. Lütfen kümesine **'prova'**|
 |  |  |  |
 
 *Gövde*
 
 ``` json
   { 
-      “planId”:””, 
+      “planId”:””
    }      
 ```
 
 | **Öğe adı** | **Veri türü** | **Açıklama**                      |
 |------------------|---------------|--------------------------------------|
-| Planıd           | Dize        | Bir kullanıcı abone kimliği planlayın. |
+| Planıd           | (Gerekli) Dize        | SaaS hizmeti kullanıcı plan kimliği için abone oluyor.  |
 |  |  |  |
 
 *Yanıt kodları*
@@ -264,6 +270,8 @@ Abone uç noktası bir SaaS hizmetine belirli bir plan için bir abonelik başla
 | 429                  | `RequestThrottleId`  | Hizmetidir istekleri işlemekle meşgul, daha sonra yeniden deneyin.                  |
 | 503                  | `ServiceUnavailable` | Hizmet olduğu aşağı geçici olarak, daha sonra yeniden deneyin.                          |
 |  |  |  |
+
+'İşlemi-konum' üst bilgisi, istek işlemin durumu için 202 yanıt, iletişim kurun. Kimlik doğrulaması diğer Market API'leri ile aynıdır.
 
 *Yanıt Üstbilgileri*
 
@@ -306,14 +314,14 @@ Değişiklik uç noktası şu anda abone planlarına dönüştürmek için yeni 
 
 ``` json
                 { 
-                    “planId”:””, 
+                    “planId”:””
                 } 
 ```
 
 
 |  **Öğe adı** |  **Veri türü**  | **Açıklama**                              |
 |  ---------------- | -------------   | --------------------------------------       |
-|  Planıd           |  Dize         | Bir kullanıcı abone kimliği planlayın.         |
+|  Planıd           |  (Gerekli) Dize         | SaaS hizmeti kullanıcı plan kimliği için abone oluyor.          |
 |  |  |  |
 
 *Yanıt kodları*
@@ -377,6 +385,8 @@ Abone uç noktası silme eylemini belirtilen kimliğe sahip bir aboneliği silme
 | 429                  | `RequestThrottleId`  | Hizmet istekleri işlemekle meşgul, lütfen daha sonra yeniden deneyin.                  |
 | 503                  | `ServiceUnavailable` | Hizmet geçici olarak kullanılamıyor. Lütfen daha sonra yeniden deneyin.                          |
 |  |  |  |
+
+'İşlemi-konum' üst bilgisi, istek işlemin durumu için 202 yanıt, iletişim kurun. Kimlik doğrulaması diğer Market API'leri ile aynıdır.
 
 *Yanıt Üstbilgileri*
 
@@ -457,7 +467,6 @@ Bu uç noktayı (abonelik/Aboneliği Kaldır/Değiştir planı) bir tetiklenen z
 | x-ms-bağıntı kimliği | Evet          | Bağıntı kimliği istemci tarafından aksi takdirde bu aktarılırsa server bağıntı kimliğidir.                   |
 | x-ms-etkinlik kimliği    | Evet          | Hizmet isteği izlemek için benzersiz bir dize değeri. Bu, tüm Mutabakatları için kullanılır. |
 | Yeniden deneme sonrasında        | Evet          | Zaman aralığı ile hangi istemci durumu kontrol edebilirsiniz.                                                       |
-| İşlem konumu | Evet          | İşlem durumunu almak için bir kaynak bağlayın.                                                        |
 |  |  |  |
 
 ### <a name="get-subscription"></a>Aboneliği edinin
@@ -493,9 +502,9 @@ Get eylemini abone uç noktası ile belirtilen kaynak tanımlayıcı bir aboneli
       “saasSubscriptionName”:””, 
       “offerId”:””, 
        “planId”:””, 
-      “saasSubscriptionStatus”:”” 
-      “created”:”” 
-      “lastModified”: “”, 
+      “saasSubscriptionStatus”:””, 
+      “created”:””, 
+      “lastModified”: “” 
   }
 ```
 | **Parametre adı**     | **Veri türü** | **Açıklama**                               |
@@ -541,7 +550,7 @@ Abonelik uç noktasında alma işlemi ISV tüm abonelikler için tüm teklifleri
 
 **GET**
 
-**https://marketplaceapi.microsoft.com/api/saas/subscriptions/subscriptions?api-version=2017-04-15**
+**https://marketplaceapi.microsoft.com/api/saas/subscriptions?api-version=2017-04-15**
 
 | **Parametre adı**  | **Açıklama**                                       |
 |---------------------|-------------------------------------------------------|
@@ -566,9 +575,9 @@ Abonelik uç noktasında alma işlemi ISV tüm abonelikler için tüm teklifleri
       “saasSubscriptionName”:””, 
       “offerId”:””, 
        “planId”:””, 
-      “saasSubscriptionStatus”:”” 
-      “created”:”” 
-      “lastModified”: “”, 
+      “saasSubscriptionStatus”:””, 
+      “created”:””, 
+      “lastModified”: “”
   }
 ```
 

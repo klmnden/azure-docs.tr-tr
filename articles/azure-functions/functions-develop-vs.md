@@ -8,14 +8,14 @@ manager: jeconnoc
 ms.service: azure-functions
 ms.custom: vs-azure
 ms.topic: conceptual
-ms.date: 09/12/2018
+ms.date: 10/08/2018
 ms.author: glenga
-ms.openlocfilehash: 63a2d5a62cf2cdfa2a1a08c56ef5a87aaaa13529
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 3ba8919a499da0db8e2deb626d8cf4d5067c1c25
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47395552"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49069186"
 ---
 # <a name="develop-azure-functions-using-visual-studio"></a>Visual Studio kullanarak Azure işlevleri geliştirme  
 
@@ -198,6 +198,20 @@ Ayrıca şu diğer yöntemlerden birini kullanarak uygulama ayarları yönetebil
 * [Azure portalını kullanarak](functions-how-to-use-azure-function-app-settings.md#settings).
 * [Kullanarak `--publish-local-settings` Azure işlevleri çekirdek araçları seçeneği yayımlama](functions-run-local.md#publish).
 * [Azure CLI kullanarak](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set). 
+
+## <a name="monitoring-functions"></a>İzleme işlevleri
+
+Azure Application Insights ile tümleştirerek Azure işlevinizin yürütülmesini izlemek için önerilen yöntem olduğu. Bu tümleştirme, Azure portalında bir işlev uygulaması oluşturduğunuzda, sizin için varsayılan olarak gerçekleştirilir. Ancak, Visual Studio yayımlama sırasında işlev uygulamanızı oluşturmak, işlev uygulamanızı azure'da tümleştirme bitti değil. Bunun yerine, yerleşik sahip günlük kaydı önerilmez.
+
+Azure'da işlev uygulamanız için Application Insights'ı etkinleştirmek için:
+
+1. Application Insights örneği oluşturma [Azure portalında](https://portal.azure.com) ve kendi izleme anahtarını kopyalayın. Bilgi edinmek için bkz [App Insights kaynağı el ile bağlanmanız](functions-monitoring.md#manually-connect-an-app-insights-resource).  
+
+1. Adlı ayar uygulama ekleme `APPINSIGHTS_INSTRUMENTATIONKEY` açıklandığı gibi Azure işlev uygulaması ayarları [işlev uygulaması ayarları](#function-app-settings). Bu uygulama ayarı, önceki adımda oluşturduğunuz izleme anahtarı bulunur.
+
+1. Kaldırma `AzureWebJobsDashboard` yerleşik günlük kaydetme devre dışı bırakan bir Azure işlev uygulaması uygulama ayarı.  
+
+Daha fazla bilgi için bkz. [İzleyici Azure işlevleri](functions-monitoring.md).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

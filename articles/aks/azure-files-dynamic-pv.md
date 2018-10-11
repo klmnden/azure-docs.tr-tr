@@ -1,28 +1,34 @@
 ---
-title: Azure dosya AKS ile kullanma
-description: AKS ile Azure disklerini kullanma
+title: Dinamik olarak Azure Kubernetes Service (AKS) için birden çok podunuz dosyaları birim oluşturma
+description: Dinamik olarak eşzamanlı birden çok podunuz Azure Kubernetes Service (AKS) ile kullanmak için Azure dosyaları ile kalıcı hacim oluşturmayı öğrenin
 services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: article
-ms.date: 08/15/2018
+ms.date: 10/08/2018
 ms.author: iainfou
-ms.openlocfilehash: dfc9171f54effe3da7a0f13695ab233d561357d4
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: 022ffeaf75f8f03447b931ed9c3a474286a17f89
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43285694"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49067814"
 ---
-# <a name="persistent-volumes-with-azure-files"></a>Azure dosyaları ile kalıcı birimleri
+# <a name="dynamically-create-and-use-a-persistent-volume-with-azure-files-in-azure-kubernetes-service-aks"></a>Dinamik olarak oluşturabilen ve Azure dosyaları Azure Kubernetes Service (AKS) ile kalıcı hacim kullanma
 
-Kalıcı hacim, bir Kubernetes kümesinde kullanmak için oluşturulan depolama parçasıdır. Kalıcı hacim, bir veya daha çok pod'ları tarafından kullanılabilir ve dinamik veya statik olarak oluşturulabilir. Bu belge ayrıntıları **dinamik oluşturma** kalıcı bir birim olarak bir Azure dosya paylaşımının.
+Kalıcı hacim Kubernetes pod'ları ile kullanmak için sağlanan depolama parçasını temsil eder. Kalıcı hacim, bir veya daha çok pod'ları tarafından kullanılabilir ve dinamik veya statik olarak sağlanabilir. Birden çok pod'ların aynı depolama birimine eş zamanlı erişim gerekiyorsa, Azure dosyaları kullanarak bağlanmak için kullanabileceğiniz [sunucu ileti bloğu (SMB) Protokolü][smb-overview]. Bu makalede, dinamik olarak bir Azure Kubernetes Service (AKS) kümesi içinde birden çok podunuz tarafından kullanılmak üzere bir Azure dosya paylaşımı oluşturma işlemini gösterir.
 
-Kubernetes hakkında daha fazla bilgi için bkz: kalıcı birimleri statik oluşturma dahil, [Kubernetes kalıcı birimler][kubernetes-volumes].
+Kubernetes sürekli birimleri hakkında daha fazla bilgi için bkz. [Kubernetes kalıcı birimler][kubernetes-volumes].
+
+## <a name="before-you-begin"></a>Başlamadan önce
+
+Bu makalede, var olan bir AKS kümesi olduğunu varsayar. AKS hızlı bir AKS kümesi gerekirse bkz [Azure CLI kullanarak] [ aks-quickstart-cli] veya [Azure portalını kullanarak][aks-quickstart-portal].
+
+Ayrıca Azure CLI Sürüm 2.0.46 gerekir veya daha sonra yüklü ve yapılandırılmış. Sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI yükleme][install-azure-cli].
 
 ## <a name="create-a-storage-account"></a>Depolama hesabı oluşturma
 
-Dinamik olarak Kubernetes birimi olarak Azure dosya paylaşımı oluştururken, AKS içinde olduğu sürece herhangi bir depolama hesabı kullanılabilir **düğüm** kaynak grubu. Bu grubun sahip olduğu *MC_* AKS kümesi için kaynakları sağlama tarafından oluşturulan ön eki. [Az aks Göster] [az-aks-Göster] komutunu kaynak grubu adını alın.
+Kubernetes birimi olarak Azure dosyaları paylaşımına dinamik olarak oluşturduğunuzda, AKS içinde olduğu sürece herhangi bir depolama hesabı kullanılabilir **düğüm** kaynak grubu. Bu grubun sahip olduğu *MC_* AKS kümesi için kaynakları sağlama tarafından oluşturulan ön eki. Kaynak grubu adını alın [az aks show] [ az-aks-show] komutu.
 
 ```azurecli
 $ az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv
@@ -77,7 +83,7 @@ Gerekli depolama kaynakları oluşturmak üzere Azure platformunun izin vermek i
 
 ```yaml
 ---
-apiVersion: rbac.authorization.k8s.io/v1beta1
+apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
   name: system:azure-cloud-provider
@@ -86,7 +92,7 @@ rules:
   resources: ['secrets']
   verbs:     ['get','create']
 ---
-apiVersion: rbac.authorization.k8s.io/v1beta1
+apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
 metadata:
   name: system:azure-cloud-provider
@@ -154,11 +160,18 @@ metadata:
   name: mypod
 spec:
   containers:
-    - name: myfrontend
-      image: nginx
-      volumeMounts:
-      - mountPath: "/mnt/azure"
-        name: volume
+  - name: mypod
+    image: nginx:1.15.5
+    resources:
+      requests:
+        cpu: 100m
+        memory: 128Mi
+      limits:
+        cpu: 250m
+        memory: 256Mi
+    volumeMounts:
+    - mountPath: "/mnt/azure"
+      name: volume
   volumes:
     - name: volume
       persistentVolumeClaim:
@@ -175,9 +188,9 @@ Artık takılabilir diskinizi Azure ile çalışan bir pod sahip */mnt/azure* di
 
 ```
 Containers:
-  myfrontend:
+  mypod:
     Container ID:   docker://053bc9c0df72232d755aa040bfba8b533fa696b123876108dec400e364d2523e
-    Image:          nginx
+    Image:          nginx:1.15.5
     Image ID:       docker-pullable://nginx@sha256:d85914d547a6c92faa39ce7058bd7529baacab7e0cd4255442b04577c4d1f424
     State:          Running
       Started:      Wed, 15 Aug 2018 22:22:27 +0000
@@ -189,7 +202,7 @@ Containers:
 Volumes:
   volume:
     Type:       PersistentVolumeClaim (a reference to a PersistentVolumeClaim in the same namespace)
-    ClaimName:  azurefile2
+    ClaimName:  azurefile
     ReadOnly:   false
 [...]
 ```
@@ -198,7 +211,7 @@ Volumes:
 
 Varsayılan *fileMode* ve *dirMode* değerler aşağıdaki tabloda açıklandığı gibi Kubernetes sürümleri arasında farklılık gösterir.
 
-| sürüm | değer |
+| version | değer |
 | ---- | ---- |
 | v1.6.x, v1.7.x | 0777 |
 | v1.8.0-v1.8.5 | 0700 |
@@ -244,7 +257,7 @@ spec:
   - file_mode=0777
   - uid=1000
   - gid=1000
-  ```
+```
 
 Sürüm 1.8.0 - 1.8.4, kümesi kullanılıyorsa bir güvenlik bağlamı ile belirtilebilir *farklıkullanıcı* değerine *0*. Pod güvenlik bağlamı hakkında daha fazla bilgi için bkz. [bir güvenlik bağlamı yapılandırma][kubernetes-security-context].
 
@@ -267,6 +280,7 @@ Azure dosyaları'nı kullanarak Kubernetes kalıcı birimleri hakkında daha faz
 [kubernetes-volumes]: https://kubernetes.io/docs/concepts/storage/persistent-volumes/
 [pv-static]: https://kubernetes.io/docs/concepts/storage/persistent-volumes/#static
 [kubernetes-rbac]: https://kubernetes.io/docs/reference/access-authn-authz/rbac/
+[smb-overview]: /windows/desktop/FileIO/microsoft-smb-protocol-and-cifs-protocol-overview
 
 <!-- LINKS - internal -->
 [az-group-create]: /cli/azure/group#az-group-create
@@ -277,3 +291,7 @@ Azure dosyaları'nı kullanarak Kubernetes kalıcı birimleri hakkında daha faz
 [az-storage-key-list]: /cli/azure/storage/account/keys#az-storage-account-keys-list
 [az-storage-share-create]: /cli/azure/storage/share#az-storage-share-create
 [mount-options]: #mount-options
+[aks-quickstart-cli]: kubernetes-walkthrough.md
+[aks-quickstart-portal]: kubernetes-walkthrough-portal.md
+[install-azure-cli]: /cli/azure/install-azure-cli
+[az-aks-show]: /cli/azure/aks#az-aks-show

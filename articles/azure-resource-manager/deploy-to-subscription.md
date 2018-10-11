@@ -9,14 +9,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/22/2018
+ms.date: 10/10/2018
 ms.author: tomfitz
-ms.openlocfilehash: 6166161f6d50e747681217281a0afc6514df78fb
-ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
+ms.openlocfilehash: 1d281ebe80c6089c559cfaa77f4875a856566092
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42617460"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49079387"
 ---
 # <a name="deploy-resources-to-an-azure-subscription"></a>Bir Azure aboneliğine kaynakları dağıtma
 
@@ -38,13 +38,13 @@ Abonelik düzeyi dağıtımları vardır bazı önemli noktalar şablon işlevle
 * [ResourceId()](resource-group-template-functions-resource.md#resourceid) işlevi desteklenir. Abonelik düzeyi dağıtımları sırasında kullanılan kaynaklar için kaynak Kimliğini almak için kullanın. Örneğin, bir ilke tanımı için kaynak Kimliğini alın `resourceId('Microsoft.Authorization/roleDefinitions/', parameters('roleDefinition'))`
 * [Reference()](resource-group-template-functions-resource.md#reference) ve [list()](resource-group-template-functions-resource.md#list) işlevler desteklenir.
 
-## <a name="assign-policy"></a>İlke atama
+## <a name="assign-policy"></a>İlke ata
 
 Aşağıdaki örnek, var olan bir ilke tanımı aboneliğe atar. İlke parametreleri alırsa, bunları bir nesne olarak sağlayın. İlke parametre almasa bile varsayılan boş nesnesi kullanın.
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "policyDefinitionID": {
@@ -136,7 +136,7 @@ Yapabilecekleriniz [tanımlamak](../azure-policy/policy-definition.md) ve aynı 
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {},
     "variables": {},
@@ -144,7 +144,7 @@ Yapabilecekleriniz [tanımlamak](../azure-policy/policy-definition.md) ve aynı 
         {
             "type": "Microsoft.Authorization/policyDefinitions",
             "name": "locationpolicy",
-            "apiVersion": "2018-03-01",
+            "apiVersion": "2018-05-01",
             "properties": {
                 "policyType": "Custom",
                 "parameters": {},
@@ -162,7 +162,7 @@ Yapabilecekleriniz [tanımlamak](../azure-policy/policy-definition.md) ve aynı 
         {
             "type": "Microsoft.Authorization/policyAssignments",
             "name": "location-lock",
-            "apiVersion": "2018-03-01",
+            "apiVersion": "2018-05-01",
             "dependsOn": [
                 "locationpolicy"
             ],
@@ -199,7 +199,7 @@ Aşağıdaki örnek, bir kullanıcı veya gruba bir rolü atar.
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "principalId": {
@@ -214,7 +214,7 @@ Aşağıdaki örnek, bir kullanıcı veya gruba bir rolü atar.
         {
             "type": "Microsoft.Authorization/roleAssignments",
             "name": "[guid(parameters('principalId'), deployment().name)]",
-            "apiVersion": "2017-05-01",
+            "apiVersion": "2017-09-01",
             "properties": {
                 "roleDefinitionId": "[resourceId('Microsoft.Authorization/roleDefinitions', parameters('roleDefinitionId'))]",
                 "principalId": "[parameters('principalId')]"

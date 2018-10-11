@@ -1,19 +1,19 @@
 ---
 title: include dosyası
 description: include dosyası
-services: iot-suite
-author: dominicbetts
-ms.service: iot-suite
+services: iot-fundamentals
+author: robinsh
+ms.service: iot-fundamentals
 ms.topic: include
-ms.date: 04/24/2018
-ms.author: dobett
+ms.date: 08/07/2018
+ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: 1137f1dac9570b56dc202194e5f94dfd72c31c9f
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 64c7525be9bd44b0d33fdcd8da717e9fe893e057
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39029946"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49070194"
 ---
 # <a name="internet-of-things-security-architecture"></a>Nesnelerin interneti güvenliği mimarisi
 
@@ -185,7 +185,7 @@ Her Azure IOT mimaride özetlenen kategorileri, bu örnek veri/bilgi bulunmaktad
 
 Tehditleri bu kategorideki bazı örnekleri aşağıda verilmiştir:
 
-Kimlik sahtekarlığı: Bir saldırgan şifreleme anahtar malzemesi bir CİHAZDAN yazılım veya donanım düzeyinde ve sonradan gelen anahtar malzemesi cihazın kimliği altında farklı bir fiziksel veya sanal cihaz sistemiyle gerçekleştirilen erişim ayıklayın.
+**Kimlik sahtekarlığı**: bir saldırgan, bir CİHAZDAN ya da yazılım veya donanım düzeyinde şifreleme anahtar malzemesi ayıklamak ve daha sonra erişimi sistemiyle kimliği altında farklı bir fiziksel veya sanal cihaz cihazın anahtar malzemesi gelen alınmış.
 
 **Hizmet reddi**: bir cihazı çalışmıyor veya radyo frekansları veya kesme kablo ile uğratarak iletişim kuramadığı işlenebilir. Örneğin, kasıtlı olarak gizleyen güç veya ağ bağlantısı olan bir gözetim kamera hiç veri bildiremezsiniz.
 

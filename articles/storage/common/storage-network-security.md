@@ -8,18 +8,18 @@ ms.topic: article
 ms.date: 10/25/2017
 ms.author: cbrooks
 ms.component: common
-ms.openlocfilehash: ff382becb71f187ac38b0ef5d31c1b29c43f3fe7
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: bcb772185f0a16183b8a6c9674419781ef41be3e
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46972565"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49068545"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Azure depolama güvenlik duvarlarını ve sanal ağları yapılandırma
 Azure depolama, belirli bir ağa izin kümesi, depolama hesaplarınıza güvenli olanak tanıyan bir katmanlı güvenlik modeli sağlar.  Ağ kuralları yapılandırıldığında, yalnızca izin verilen ağları uygulamalardan bir depolama hesabına erişebilir.  İzin verilen bir ağdan çağırırken uygulamalar (geçerli bir erişim anahtarı veya SAS belirteci) depolama hesabına erişmek için uygun yetkilendirme gerektirecek şekilde devam edin.
 
 > [!IMPORTANT]
-> Depolama hesabınız için güvenlik duvarı kurallarını etkinleştirmek, gelen istekleri için diğer Azure Hizmetleri dahil olmak üzere, veri erişimi engeller.  Bu günlükler, vb. yazmak, portalı kullanarak içerir.  Katılımcı Hizmetleri aracılığıyla işlevsellik yeniden etkinleştirebilirsiniz [özel durumları](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions) bölümüne bakın.  Portala erişmek için bir makine ayarlamış olduğunuz güvenilen sınır (IP veya VNet) içinde bunu gerekecektir.
+> Depolama hesabınız için güvenlik duvarı kurallarını etkinleştirmek, gelen istekleri için diğer Azure Hizmetleri dahil olmak üzere, veri erişimi engeller.  Bu günlükler, vb. yazmak, portalı kullanarak içerir.  Gelen bir Vnet'te çalışan azure Hizmetleri, alt ağ hizmeti örneğinin vererek erişim verilebilir.  Bir sanal ağ içinde gelen çalıştırmayın azure Hizmetleri Güvenlik Duvarı tarafından engellenir.  Sınırlı sayıda senaryo aracılığıyla etkinleştirilebilir [özel durumları](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions) aşağıda açıklanan mekanizması.  Portala erişmek için bir makine ayarlamış olduğunuz güvenilen sınır (IP veya VNet) içinde bunu gerekecektir.
 >
 
 ## <a name="scenarios"></a>Senaryolar

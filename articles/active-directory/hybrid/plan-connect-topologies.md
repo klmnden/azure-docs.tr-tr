@@ -15,18 +15,16 @@ ms.topic: article
 ms.date: 10/09/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 26049b1e7283d53be7214130ff64cf830935708c
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: ef72829d507d6a471ec9a8972ead262da7f7b582
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/10/2018
-ms.locfileid: "48901811"
+ms.locfileid: "49068714"
 ---
 # <a name="topologies-for-azure-ad-connect"></a>Azure AD Connect için topolojiler
 Bu makalede, çeşitli şirket içi ve Azure AD Connect eşitleme anahtar tümleştirme çözümü olarak kullanan Azure Active Directory (Azure AD) topolojileri açıklanır. Bu makale, desteklenen ve desteklenmeyen yapılandırmalar içerir.
 
->[!IMPORTANT]
->Azure AD ile Active Directory eşitleme için Azure AD Connect dışında bir çözüm kullanarak, tutarsız veya desteklenmeyen bir duruma yol açacak. Sonuç olarak, Microsoft bu tür dağıtımlar için teknik destek sağlayamaz.
 
 Gösterge makalede resimler için şu şekildedir:
 

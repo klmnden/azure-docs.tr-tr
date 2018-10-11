@@ -4,14 +4,14 @@ description: Bu makalede, Application Gateway için web uygulaması Güvenlik Du
 services: application-gateway
 author: amsriva
 ms.service: application-gateway
-ms.date: 10/6/2017
+ms.date: 10/11/2018
 ms.author: amsriva
-ms.openlocfilehash: a16f8d988c900d015810bfe72b04ff5e9eb0682a
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: 10a67eab142287cf9303e54005b6b167e9890df0
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48815677"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49068460"
 ---
 # <a name="web-application-firewall-waf"></a>Web uygulaması güvenlik duvarı (WAF)
 
@@ -47,21 +47,43 @@ Application Gateway ve web uygulaması güvenlik duvarının sunduğu temel avan
 
 ## <a name="features"></a>Özellikler
 
-Web uygulaması güvenlik duvarı, CRS 3.0 ile varsayılan olarak önceden yapılandırılmış halde gelir veya 2.2.9’u kullanmayı seçebilirsiniz. CRS 3.0, 2.2.9 sürümüne göre daha az hatalı pozitif sonuç verir. [Kuralları gereksinimlerinize göre özelleştirme olanağı](application-gateway-customize-waf-rules-portal.md) sağlanır. Web uygulaması güvenlik duvarının koruma sağladığı bazı yaygın web güvenlik açıkları şunlardır:
+- SQL ekleme koruması
+- Siteler arası komut dosyası koruması
+- Komut ekleme, HTTP isteği kaçakçılığı, HTTP yanıtı bölme ve uzak dosya ekleme saldırıcı gibi Yaygın Web Saldırıları Koruması
+- HTTP protokolü ihlallerine karşı koruma
+- Eksik konak kullanıcısı-aracısı ve kabul üst bilgileri gibi HTTP protokolü anormalliklerine karşı koruma
+- Robotlar, gezginler ve tarayıcıları önleme
+- Yaygın yanlış uygulama yapılandırmalarını (diğer bir deyişle, Apache, IIS, vb.) algılama
 
-* SQL ekleme koruması
-* Siteler arası komut dosyası koruması
-* Komut ekleme, HTTP isteği kaçakçılığı, HTTP yanıtı bölme ve uzak dosya ekleme saldırıcı gibi Yaygın Web Saldırıları Koruması
-* HTTP protokolü ihlallerine karşı koruma
-* Eksik konak kullanıcısı-aracısı ve kabul üst bilgileri gibi HTTP protokolü anormalliklerine karşı koruma
-* Robotlar, gezginler ve tarayıcıları önleme
-* Yaygın yanlış uygulama yapılandırmalarını (diğer bir deyişle, Apache, IIS, vb.) algılama
+### <a name="public-preview-features"></a>Genel Önizleme özellikleri
 
-Kurallar ve korumalarını içeren daha ayrıntılı bir liste için aşağıdaki [Çekirdek kural kümeleri](#core-rule-sets) bölümüne bakın.
+SKU incudes aşağıdaki özellikleri geçerli WAF genel önizleme:
+
+- **İstek boyutu sınırları** -Web uygulaması güvenlik duvarı, istek boyutu sınırları içinde alt ve üst sınırları yapılandırmak kullanıcıların sağlar.
+- **Hariç tutma listeleri** -WAF hariç tutma listeleri, kullanıcıların belirli bir WAF değerlendirme özniteliklerini atlamak olanak tanır. Yaygın olarak karşılaşılan örneklerden, Active Directory kimlik doğrulaması veya parola alanı için kullanılan belirteçleri eklenen ' dir.
+
+WAF genel önizleme hakkında daha fazla bilgi için bkz: [Web uygulaması güvenlik duvarı istek boyutu sınırları ve hariç tutma listeleri (genel Önizleme)](application-gateway-waf-configuration.md).
+
+
+
+
 
 ### <a name="core-rule-sets"></a>Çekirdek kural kümeleri
 
 Application Gateway CRS 3.0 ve CRS 2.2.9 şeklinde iki kural kümesini destekler. Bu çekirdek kural kümeleri, web uygulamalarınızı kötü amaçlı etkinliğe karşı koruyan kurallar içeren koleksiyonlardır.
+
+Web uygulaması güvenlik duvarı, CRS 3.0 ile varsayılan olarak önceden yapılandırılmış halde gelir veya 2.2.9’u kullanmayı seçebilirsiniz. CRS 3.0, 2.2.9 sürümüne göre daha az hatalı pozitif sonuç verir. [Kuralları gereksinimlerinize göre özelleştirme olanağı](application-gateway-customize-waf-rules-portal.md) sağlanır. Web uygulaması güvenlik duvarının koruma sağladığı bazı yaygın web güvenlik açıkları şunlardır:
+
+- SQL ekleme koruması
+- Siteler arası komut dosyası koruması
+- Komut ekleme, HTTP isteği kaçakçılığı, HTTP yanıtı bölme ve uzak dosya ekleme saldırıcı gibi Yaygın Web Saldırıları Koruması
+- HTTP protokolü ihlallerine karşı koruma
+- Eksik konak kullanıcısı-aracısı ve kabul üst bilgileri gibi HTTP protokolü anormalliklerine karşı koruma
+- Robotlar, gezginler ve tarayıcıları önleme
+- Yaygın yanlış uygulama yapılandırmalarını (i.e. Apache, IIS vb.) algılama
+
+Kurallar ve korumalarını içeren daha ayrıntılı bir listesi için bkz. [çekirdek kural kümeleri](#core-rule-sets).
+
 
 #### <a name="owasp30"></a>OWASP_3.0
 

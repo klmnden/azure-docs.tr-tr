@@ -8,12 +8,12 @@ ms.service: postgresql
 ms.topic: article
 ms.date: 09/20/2018
 ms.author: mbolz
-ms.openlocfilehash: c3242d9c1725d88c7feded01b95bb889dedcc1c7
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 392947919813753dc57422957029e961a037a616
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47048333"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49066947"
 ---
 # <a name="azure-database-for-postgresql-advanced-threat-protection"></a>PostgreSQL için Azure veritabanı Gelişmiş tehdit koruması
 
@@ -34,8 +34,8 @@ PostgreSQL için Azure veritabanı için Gelişmiş tehdit koruması, yeni katma
 ## <a name="advanced-threat-protection-alerts"></a>Gelişmiş tehdit koruması uyarıları 
 PostgreSQL için Azure veritabanı için Gelişmiş tehdit koruması erişim veritabanı açıklıklarından yararlanmaya yönelik sıra dışı ve zararlı olabilecek girişimleri gösteren anormal etkinlikleri algılar ve aşağıdaki uyarılar tetikleyebilirsiniz:
 - **Olağan dışı bir konumdan erişim**: Burada birisi oturum açmış PostgreSQL sunucudan olağan dışı bir coğrafi için Azure veritabanı, PostgreSQL sunucusu için Azure veritabanı erişim deseninde değişiklik olduğunda bu uyarı tetiklenir konum. Bazı durumlarda uyarı güvenli işlemleri (yeni bir uygulama veya geliştirici bakımı gibi) de algılar. Diğer durumlarda, uyarı kötü amaçlı işlemleri (önceki çalışan ve şirket dışı saldırgan gibi) algılar.
-- **Azure veri merkezinden erişim**: Burada birisi oturum açmış SQL Server'a bu görülmemiş bir Azure veri merkezinden PostgreSQL sunucusu için Azure veritabanına erişim deseninde değişiklik olduğunda bu uyarı tetiklenir son dönemde sunucusu. Bazı durumlarda uyarı güvenli işlemleri (yeni uygulamanızın sorgu Düzenleyicisi PostgreSQL için Azure, Power BI, Azure veritabanında) algılar. Diğer durumlarda, uyarı Azure kaynağı/hizmetinden kaynaklanan kötü amaçlı işlemleri (önceki çalışan ve şirket dışı saldırgan gibi) algılar.
-- **Erişim**: bir PostgreSQL sunucusu, burada birisi oturum açmış bir sorumludan (PostgreSQL için Azure veritabanı'nı kullanarak SQL server için Azure veritabanı erişim deseninde değişiklik olduğunda bu uyarı tetiklenir Kullanıcı). Bazı durumlarda uyarı güvenli işlemleri (yeni uygulama ve geliştirici bakımı gibi) de algılar. Diğer durumlarda, uyarı kötü amaçlı işlemleri (önceki çalışan ve şirket dışı saldırgan gibi) algılar.
+- **Azure veri merkezinden erişim**: Burada birisi oturum açmış sunucuya bu görülmemiş bir Azure veri merkezinden PostgreSQL sunucusu için Azure veritabanına erişim deseninde değişiklik olduğunda bu uyarı tetiklenir son dönemde sunucusu. Bazı durumlarda uyarı güvenli işlemleri (yeni uygulamanızın sorgu Düzenleyicisi PostgreSQL için Azure, Power BI, Azure veritabanında) algılar. Diğer durumlarda, uyarı Azure kaynağı/hizmetinden kaynaklanan kötü amaçlı işlemleri (önceki çalışan ve şirket dışı saldırgan gibi) algılar.
+- **Erişim**: Burada birisi oturum açmış bir sorumludan (PostgreSQL için Azure veritabanı'nı kullanarak sunucuyu PostgreSQL sunucusu için Azure veritabanına erişim deseninde değişiklik olduğunda bu uyarı tetiklenir Kullanıcı). Bazı durumlarda uyarı güvenli işlemleri (yeni uygulama ve geliştirici bakımı gibi) de algılar. Diğer durumlarda, uyarı kötü amaçlı işlemleri (önceki çalışan ve şirket dışı saldırgan gibi) algılar.
 - **Zararlı olabilecek bir uygulamadan erişim**: Bu uyarı, zararlı olabilecek bir uygulama veritabanına erişmeye çalıştığında tetiklenir. Bazı durumlarda, uyarı güvenlik testlerini algılar. Diğer durumlarda, yarı yaygın saldırı araçlarının kullandığı saldırıları algılar.
 - **Azure veritabanı PostgreSQL kimlik bilgilerini yanılma**: Bu uyarı bir olağandışı yüksek sayıda farklı kimlik bilgileri başarısız oturum açma denemesi olduğunda tetiklenir. Bazı durumlarda, uyarı güvenlik testlerini algılar. Diğer durumlarda, uyarı deneme yanılma saldırılarını algılar.
 

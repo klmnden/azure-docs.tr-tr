@@ -12,14 +12,14 @@ ms.topic: article
 ms.date: 10/05/2018
 ms.author: celested
 ms.reviewer: hirsin, jeedes
-ms.openlocfilehash: c188b800e2227a5c9f3a11d7d8d752af3efdf66a
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: 43b17c54014d2f1beedd02f9ec627dd087e65d5a
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/10/2018
-ms.locfileid: "48904412"
+ms.locfileid: "49069276"
 ---
-# <a name="how-to-customize-claims-emitted-in-tokens-for-a-specific-app-in-a-tenant-public-preview"></a>Nasıl yapılır: bir kiracıdaki (genel Önizleme) belirli bir uygulamayı belirteçlerinde yayılan talep özelleştirme
+# <a name="how-to-customize-claims-emitted-in-tokens-for-a-specific-app-in-a-tenant-preview"></a>Nasıl yapılır: bir kiracıdaki (Önizleme) belirli bir uygulamayı belirteçlerinde yayılan talep özelleştirme
 
 > [!NOTE]
 > Bu özellik değiştirir ve yerine geçen [özelleştirme talep](active-directory-saml-claims-customization.md) bugün Portalı aracılığıyla sunulan. Bu belgede ayrıntılandırılan graf/PowerShell yöntemin yanı sıra portalı kullanarak talep özelleştirirseniz aynı uygulama için uygulama yapılandırma Portalı'nda yoksayacak verilen belirteçler. Bu belgede ayrıntılandırılan yöntemleri aracılığıyla yapılan yapılandırmalar portalda yansıtılmaz.

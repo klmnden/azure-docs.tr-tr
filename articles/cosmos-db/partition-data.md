@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 07/26/2018
 ms.author: andrl
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d7c1c28b3d7b2f51c31f5f05cdef66cc8d71e192
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: 968651e2bd06d54c8b735bf2418e0d84b94f315d
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48886393"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49078577"
 ---
 # <a name="partition-and-scale-in-azure-cosmos-db"></a>Bölümleme ve ölçeklendirme Azure Cosmos DB'de
 
@@ -185,7 +185,7 @@ Daha fazla bilgi için [tablo API'si ile geliştirme](tutorial-develop-table-dot
 Gremlin API'si ile bir grafiğini temsil eden bir kapsayıcı oluşturmak için Azure portal veya Azure CLI'yı kullanabilirsiniz. Alternatif olarak, Azure Cosmos DB çok modelli olduğundan, diğer API'lerden birini oluşturacağınız ve ölçeklendireceğiniz, grafik kapsayıcısı için kullanabilirsiniz.
 
 > [!NOTE]
-> Kullanamazsınız `/id` Gremlin API içinde bir kapsayıcı için bölüm anahtarı olarak. 
+> `/id` ve `/label` Gremlin API içinde bir kapsayıcı için bölüm anahtarı olarak desteklenmez.
 
 Bölüm anahtarına ve Kimliğine Gremlin kullanarak, herhangi bir köşe veya kenarın okuyabilirsiniz. Örneğin, bölüm anahtarını ve satır anahtarı olarak "Seattle" olarak ("ABD") bölgesi olan bir grafik için aşağıdaki sözdizimini kullanarak, bir köşe bulabilirsiniz:
 

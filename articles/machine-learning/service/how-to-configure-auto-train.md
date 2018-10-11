@@ -9,12 +9,12 @@ ms.service: machine-learning
 ms.component: core
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: cbd475ae4ce944db3ebf57b415b60e7abdd52677
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 33126c094a55bc57edd49a54fbc4f5acd7401998
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47163860"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49079013"
 ---
 # <a name="configure-your-automated-machine-learning-experiment"></a>Otomatik makine öğrenimi deneme yapılandırma
 
@@ -184,13 +184,13 @@ Bu tabloda parametre ayarlarını denemenizi ve varsayılan değerleri için kul
 Özellik |  Açıklama | Varsayılan Değer
 --|--|--
 `task`  |Machine learning sorun türünü belirtin. İzin verilen değerler: <li>sınıflandırma</li><li>Regresyon</li>    | None |
-`primary_metric` |Modelinizi oluşturmak en iyi duruma getirmek istediğiniz ölçümü. Örneğin, doğruluk primary_metric belirtirseniz, ML otomatik en yüksek doğruluğa sahip modeli bulmak için görünür. Yalnızca deneme başına bir primary_metric belirtebilirsiniz. İzin verilen değerler: <br/>**Sınıflandırma**:<br/><li> Doğruluğu  </li><li> AUC_weighted</li><li> precision_score_weighted </li><li> balanced_accuracy </li><li> average_precision_score_weighted </li><br/>**Regresyon**: <br/><li> normalized_mean_absolute_error </li><li> spearman_correlation </li><li> normalized_root_mean_squared_error </li><li> normalized_root_mean_squared_log_error</li><li> R2_score    </li> | Sınıflandırma: doğruluğu <br/>Regresyon için: spearman_correlation <br/> |
+`primary_metric` |Modelinizi oluşturmak en iyi duruma getirmek istediğiniz ölçümü. Örneğin, doğruluk primary_metric belirtirseniz, ML otomatik en yüksek doğruluğa sahip modeli bulmak için görünür. Yalnızca deneme başına bir primary_metric belirtebilirsiniz. İzin verilen değerler: <br/>**Sınıflandırma**:<br/><li> accuracy  </li><li> AUC_weighted</li><li> precision_score_weighted </li><li> balanced_accuracy </li><li> average_precision_score_weighted </li><br/>**Regresyon**: <br/><li> normalized_mean_absolute_error </li><li> spearman_correlation </li><li> normalized_root_mean_squared_error </li><li> normalized_root_mean_squared_log_error</li><li> R2_score    </li> | Sınıflandırma: doğruluğu <br/>Regresyon için: spearman_correlation <br/> |
 `exit_score` |  Hedef değer, primary_metric için ayarlayabilirsiniz. Bir model primary_metric hedef karşılayan bulunduğunda otomatik ML yineleme durdurur ve deneme sona erer. Bu değer (varsayılan) ayarlanmazsa, ML otomatik deneme yinelemelerini belirtilen yineleme sayısını çalışmaya devam eder. Bir çift değer alır. Hedef hiçbir zaman ulaşırsa, yinelemeler içinde belirtilen yineleme sayısını ulaşana kadar otomatik ML devam eder.|   None
 `iterations` |En yüksek yineleme sayısı. Her yineleme, bir işlem hattı, sonuçları bir eğitim işini eşittir. İşlem hattı, verileri ön işleme ve modeli ' dir. Yüksek kaliteli model almak için 250 veya daha fazlasını kullanın | 100
 `Concurrent_iterations`|    En fazla paralel olarak çalıştırılması için yineleme sayısı. Bu ayar, yalnızca uzak işlem için çalışır.|    1
 `max_cores_per_iteration`   | Kaç tane çekirdeğim işlem hedef tek bir işlem hattını eğitmek için kullanılan gösterir. Birden çok çekirdek algoritması yararlanabilir, bu çok çekirdekli makine performansını artırır. Tüm çekirdekler üzerinde bir makineyi kullanmak için-1 ayarlayabilirsiniz.|  1
 `max_time_sec` |    Belirli bir yinelemeye geçen süreyi (saniye) miktarını sınırlar. Bir yineleme belirtilen miktarı aşarsa, bu yineleme iptal. Aksi durumda ayarlama, yineleme işlemi tamamlanana kadar çalışmaya devam edecektir. |   None
-`n_cross_validations`   |Çapraz doğrulama bölmelerini sayısı| None
+`n_cross_validations`   |Çapraz doğrulama bölmelerinin sayısı| None
 `validation_size`   |Tüm eğitim örnek bir yüzdesi olarak ayarlanmış doğrulama boyutu.|  None
 `preprocess` | True/False <br/>Giriş ön işleme gerçekleştirmek için doğru etkinleştirir deneyin. Aşağıdaki ön işleme'nın bir alt kümesidir<li>Veriler eksik: veri-sayısal ortalama, çoğu occurance metinle birlikte eksik Imputes </li><li>Kategorik değerlere: veri türü sayısal ve benzersiz değerleri ise daha az yüzde 5'inden, sık erişimli bir kodlama içinde dönüştürür </li><li>Tam liste denetimi vb. [GitHub deposu](https://aka.ms/aml-notebooks)</li><br/>Not: veri seyrek ise kullanamazsınız önişle = true |  False | 
 `blacklist_algos`   | Otomatik ML deneme çalışır birçok farklı algoritma vardır. ML deneme belirli algoritmaları dışlanacak otomatik yapılandırın. Algoritmalarından kümeniz için iyi çalışmaz farkında olması durumunda yararlıdır. Algoritmalar hariç kaydettiğinizde kaynaklar ve eğitim süresini hesaplayabilirsiniz.<br/>Sınıflandırma için izin verilen değerler<br/><li>Lojistik regresyon</li><li>SGD Sınıflandırıcısı</li><li>MultinomialNB</li><li>BernoulliNB</li><li>SVM</li><li>LinearSVM</li><li>kNN</li><li>DT</li><li>RF</li><li>Ek ağaçları</li><li>Gradyan artırma</li><li>lgbm_classifier</li><br/>Regresyon için izin verilen değerler<br/><li>Elastik net</li><li>Gradyan artırırken regresörü</li><li>DT regresörü</li><li>kNN regresörü</li><li>Lars Şekil</li><li>SGD regresörü</li><li>RF regresörü</li><li>Ek ağaçları regresörü</li>|   None
@@ -225,8 +225,7 @@ Aşağıdaki ölçümler her yinelemede kaydedilir
 * AUC_macro
 * AUC_micro
 * AUC_weighted
-* AUC_weighted_max
-* Doğruluğu
+* accuracy
 * average_precision_score_macro
 * average_precision_score_micro
 * average_precision_score_weighted

@@ -1,19 +1,19 @@
 ---
 title: include dosyası
 description: include dosyası
-services: iot-suite
-author: dominicbetts
-ms.service: iot-suite
+services: iot-fundamentals
+author: robinsh
+ms.service: iot-fundamentals
 ms.topic: include
 ms.date: 04/24/2018
-ms.author: dobett
+ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: 181432c3050bbc614898b1ddf779bc90239a35be
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: 8137a292045377c5dccb69c21a8118d0dc17874e
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39189434"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49069955"
 ---
 # <a name="internet-of-things-security-from-the-ground-up"></a>Nesnelerin interneti güvenliği baştan
 
@@ -62,7 +62,9 @@ Bulutta Azure IOT hub'ı erişim denetimi ilkeleri, bir cihaz IOT dağıtımınd
 Ek cihaz güvenlik özellikleri içerir:
 
 * Cihazlar istenmemiş ağ bağlantılarını kabul etmeyen. Bunlar, yalnızca giden bir şekilde tüm bağlantılar ve rotalar oluşturun. Bir cihazın arka uçtan bir komut alması için cihazın tüm bekleyen komutları işlemek denetlemek için bir bağlantı başlatması gerekir. Güvenli bir şekilde cihaz ile IOT hub'ı arasında bir bağlantı kurulduktan sonra buluttan cihaza ve CİHAZDAN buluta ileti şeffaf bir şekilde gönderilebilir.
+
 * Cihazları yalnızca bağlanmak veya ile kullanıcılar, Azure IOT Hub gibi eşlenmiş eşlendikleri hizmetlerden rotalar oluşturun.
+
 * Sistem düzeyinde yetkilendirme ve kimlik doğrulama cihaz başına kimlik, erişim kimlik bilgileri ve izinleri neredeyse yapmadan kullanın-anında iptal edilebilir.
 
 ### <a name="secure-connectivity"></a>Güvenli bağlantı
@@ -76,7 +78,9 @@ Verimliliği, kaynakları ve kaynak kısıtlı bir ortam işlem koruma sağlamak
 Ek bağlantı güvenlik özellikleri içerir:
 
 * Ağ geçidi ve Azure IOT Hub'ı arasında veya Azure IOT Hub ile cihazlar arasındaki iletişim yolunun, sektör standardı Aktarım Katmanı Güvenliği (TLS) kullanarak X.509 protokolünü kullanarak kimlik doğrulaması Azure IOT Hub ile sağlanır.
+
 * Gelen istekte bulunulmamış gelen bağlantıları cihazları korumak için Azure IOT Hub cihaz herhangi bir bağlantı açılmaz. Cihaz tüm bağlantıları başlatır.
+
 * Azure IOT Hub, arızaya iletileri cihazlar için depolar ve cihazın bağlanmak için bekler. Bu komutlar, tutularak gerçekleştirilir, bu komutları almak üzere güç veya bağlantı sorunları nedeniyle, bağlanan cihazları etkinleştirme iki gün boyunca saklanır. Azure IOT Hub, her cihaz için bir cihaz başına kuyruk oluşturur.
 
 ### <a name="secure-processing-and-storage-in-the-cloud"></a>İşlem ve depolama bulutta güvenli hale getirme
@@ -100,8 +104,13 @@ Nesnelerin interneti nesnelerinizle başlatır; işletmeler için en önemli şe
 Her Çözüm Hızlandırıcısı gibi Azure hizmetlerini örneklerini oluşturur:
 
 * [**Azure IOT hub'ı**](https://azure.microsoft.com/services/iot-hub/): Bulut aygıtına bağlayan ağ geçidi. Hub ve işlem çok geniş hacimlerdeki verileri başına bağlantı milyonlarca cihaz başına kimlik doğrulama desteği, çözümünüzün güvenliğini sağlamanıza yardımcı ölçeklendirebilirsiniz.
+
 * [**Azure Cosmos DB**](https://azure.microsoft.com/services/cosmos-db/): cihazlar için meta verileri yöneten yarı yapılandırılmış veriler için ölçeklenebilir, tam olarak dizini oluşturulan veritabanı hizmet, öznitelikler, yapılandırma ve güvenlik özellikleri gibi sağlayın. Azure Cosmos DB, yüksek performanslı ve yüksek performanslı işleme, veri ve zengin bir SQL sorgusu arabirimi şemadan dizin sunar.
+
 * [**Azure Stream Analytics**](https://azure.microsoft.com/services/stream-analytics/): Gerçek zamanlı akış işleme sayesinde hızlı bir şekilde geliştirin ve cihazlar, algılayıcılar, altyapı ve uygulamalardan gerçek zamanlı Öngörüler açığa çıkarmak için düşük maliyetli bir analiz çözümü dağıtmak bulut . Bu tümüyle yönetilen bu hizmet verileri, herhangi bir birim için yine de yüksek aktarım hızı, düşük gecikme süresi ve dayanıklılık elde edin ölçeklendirebilirsiniz.
+
 * [**Azure uygulama hizmetleri**](https://azure.microsoft.com/services/app-service/): güçlü web uygulamaları ve bağlanan her yerden veri; bulutta veya şirket içi mobil uygulamalar oluşturmak için bir bulut platformu. iOS, Android ve Windows için ilgi çekici mobil uygulamalar oluşturun. Yazılım olarak hizmet (SaaS) ve onlarca bulut tabanlı hizmetler için kullanıma hazır bağlantısı ile Kurumsal uygulamalar ve kurumsal uygulamaları ile tümleştirin. En sevdiğiniz dilde ve IDE'de kodlamaya — .NET, Node.js, PHP, Python veya Java — için web uygulamaları ve API'leri her zamankinden daha hızlı oluşturun.
+
 * [**Logic Apps**](https://azure.microsoft.com/services/app-service/logic/): Azure App Service'in Logic Apps özelliği, IOT çözümünüzün var olan satır iş kolu sistemlerinize tümleştirin ve iş akışı işlemlerini otomatikleştirmek yardımcı olur. Logic Apps, geliştiricilerin bir tetikleyiciyle başlatılan ve bir dizi adım yürüten iş akışları tasarlamasına olanak tanır; kurallar ve İş süreçlerinizi ile tümleştirmek için güçlü bağlayıcıları kullanma eylemler. Logic Apps geniş bir SaaS, bulut tabanlı ekosistemine kullanıma hazır bağlantısı sunar ve şirket içi uygulamaları.
-* [**Azure blob depolama**](https://azure.microsoft.com/services/storage/): cihazlarınızı buluta gönderme veriler için güvenilir, ekonomik bulut depolama.
+
+* [**Azure Blob Depolama**](https://azure.microsoft.com/services/storage/): cihazlarınızı buluta gönderme veriler için güvenilir, ekonomik bulut depolama.

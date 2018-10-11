@@ -9,16 +9,17 @@ author: bryanla
 ms.author: bryanla
 manager: mbaldwin
 ms.date: 10/03/2018
-ms.openlocfilehash: 80601ed30785af37346f801b7e4f1c90e897b3cd
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: b5b30f7f5ffc7fcbef918162bc736c1f0a888d1b
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48888164"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49067746"
 ---
 # <a name="azure-key-vault-storage-account-keys"></a>Azure anahtar kasası depolama hesabı anahtarları
 
-[!NOTE] [Azure storage artık AAD yetkilendirme destekler](https://docs.microsoft.com/azure/storage/common/storage-auth-aad). Kullanıcılar, kendi depolama hesabı anahtarlarını döndürme hakkında endişelenmenize gerek yok mıydı gibi Azure Active Directory kimlik doğrulaması ve yetkilendirme için depolama kullanmanızı öneririz. 
+> [!NOTE]
+> [Azure storage artık AAD yetkilendirme destekler](https://docs.microsoft.com/azure/storage/common/storage-auth-aad). Kullanıcılar, kendi depolama hesabı anahtarlarını döndürme hakkında endişelenmenize gerek yok mıydı gibi Azure Active Directory kimlik doğrulaması ve yetkilendirme için depolama kullanmanızı öneririz.
 
 - Azure Key Vault, anahtarları bir Azure depolama hesabı (ASA) yönetir.
     - Dahili olarak, Azure Key Vault (eşitleme) Azure depolama hesabı anahtarları listeleyebilirsiniz.    
