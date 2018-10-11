@@ -4,17 +4,17 @@ description: Azure Stack depolama Geliştirme Araçları'nı kullanmaya başlama
 services: azure-stack
 author: mabriggs
 ms.author: mabrigg
-ms.date: 07/03/2018
+ms.date: 10/10/2018
 ms.topic: get-started-article
 ms.service: azure-stack
 manager: femila
 ms.reviewer: xiaofmao
-ms.openlocfilehash: 40f256b7a2be5a5a1d642983fa6ce018ee602ac2
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 3eefa13a7283febbebd2adc16047b28ffcae55fe
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37441721"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49078384"
 ---
 # <a name="get-started-with-azure-stack-storage-development-tools"></a>Azure Stack depolama geliştirme araçları ile çalışmaya başlama
 

@@ -3,7 +3,7 @@ title: Azure Stack için VPN gateway hakkında | Microsoft Docs
 description: Azure Stack ile kullandığınız VPN ağ geçitlerini yapılandırmak ve bilgi edinin.
 services: azure-stack
 documentationcenter: ''
-author: brenduns
+author: sethmanheim
 manager: femila
 editor: ''
 ms.assetid: 0e30522f-20d6-4da7-87d3-28ca3567a890
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/02/2018
-ms.author: brenduns
-ms.openlocfilehash: ed405a0f8892b278d81f2494ad90f776ad5faa41
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.author: sethm
+ms.openlocfilehash: 8f45535b0e75c3f95a56148ea92a343bb0d8a9f5
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48857100"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49079268"
 ---
 # <a name="about-vpn-gateway-for-azure-stack"></a>Azure Stack için VPN gateway hakkında
 

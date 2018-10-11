@@ -3,7 +3,7 @@ title: Azure Stack ExpressRoute kullanarak Azure'a bağlanma
 description: Azure Stack sanal ağları ExpressRoute kullanarak azure'daki sanal ağlara bağlanma hakkında bilgi edinin.
 services: azure-stack
 documentationcenter: ''
-author: brenduns
+author: sethmanheim
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/12/2018
-ms.author: brenduns
+ms.author: sethm
 ms.reviewer: ''
-ms.openlocfilehash: db9f19154668fa33bb94e59a4da6735b1a6d3d49
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: eee4407af8d7def94061002941d758a99237645f
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44720506"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49078707"
 ---
 # <a name="connect-azure-stack-to-azure-using-azure-expressroute"></a>Azure Stack, Azure ExpressRoute kullanarak Azure'a bağlanma
 
@@ -345,7 +345,7 @@ Bağlantısındaki [PowerShell kullanarak ExpressRoute için sanal ağ geçidi y
 
 ExpressRoute bağlantı hattı merkez sanal ağa bağlamak için adımları izleyin. [bir sanal ağı ExpressRoute devresine bağlama](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md).
 
-### <a name="peer-the-vnets"></a>Sanal ağları eşleyebilme
+### <a name="peer-the-vnets"></a>Sanal ağları eşleme
 
 Eş merkez ve uç sanal ağları içindeki adımları kullanarak [Azure portalını kullanarak bir sanal ağ eşlemesi oluşturma](../virtual-network/virtual-networks-create-vnetpeering-arm-portal.md). VNet eşlemesi yapılandırırken aşağıdaki seçenekleri kullandığınızdan emin olun:
 

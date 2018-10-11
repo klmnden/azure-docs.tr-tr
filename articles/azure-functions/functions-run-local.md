@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: glenga
-ms.openlocfilehash: e77e81624c93bf1189afd556a8257362197c6b60
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: 1827e54f5e1e68ec324b4f521de843be48935391
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/10/2018
-ms.locfileid: "48902969"
+ms.locfileid: "49079421"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>İle Azure işlevleri çekirdek Araçları çalışma
 
@@ -326,6 +326,8 @@ func host start
 | **`--nodeDebugPort -n`** | Kullanmak düğüm hata ayıklayıcısı bağlantı noktası. Varsayılan: Launch.json veya 5858 arasında bir değer. Sürümü yalnızca 1.x. |
 | **`--password`** | Parola veya bir .pfx dosyası için parolayı içeren dosya. Yalnızca kullanılan `--cert`. Sürüm 2.x yalnızca. |
 | **`--port -p`** | Dinlemenin yapılacağı yerel bağlantı noktası. Varsayılan değer: 7071. |
+| **`--pause-on-error`** | Duraklatma işlemi çıkmadan önce ek giriş. Yalnızca temel araçları bir tümleşik geliştirme ortamından (IDE) başlatma sırasında kullanılır.|
+| **`--script-root --prefix`** | Çalıştırın veya dağıtılmış bir işlev uygulaması, kök yolunu belirtmek için kullanılır. Bu, bir alt klasöre proje dosyalarını oluşturmak derlenen projeler için kullanılır. Örneğin, bir C# sınıf kitaplığı projesi, host.json, local.settings.json ve function.json dosyaları oluşturduğunuzda oluşturulur bir *kök* bir yola sahip alt ister `MyProject/bin/Debug/netstandard2.0`. Bu durumda, ön eki olarak ayarlamak `--script-root MyProject/bin/Debug/netstandard2.0`. Azure'da çalışan işlev uygulamasını kök budur. |
 | **`--timeout -t`** | Saniyeler içinde başlatılacak işlevleri konak için zaman aşımı. Varsayılan: 20 saniye.|
 | **`--useHttps`** | Bağlama `https://localhost:{port}` yerine çok `http://localhost:{port}`. Varsayılan olarak, bu seçenek bilgisayarınızda güvenilen bir sertifika oluşturur.|
 
@@ -333,7 +335,7 @@ Bir C# sınıf kitaplığı projesi için (.csproj) eklemeniz gerekir `--build` 
 
 İşlevleri ana bilgisayar başladığında, URL HTTP tetiklemeli işlevleri çıkarır:
 
-```bash
+```output
 Found the following functions:
 Host.Functions.MyHttpTrigger
 
