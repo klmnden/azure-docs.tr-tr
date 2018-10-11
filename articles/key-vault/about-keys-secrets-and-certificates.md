@@ -1,6 +1,6 @@
 ---
-title: Anahtarlar, gizli diziler ve sertifikalar hakkında
-description: REST arabirimi ve KV Geliştirici Ayrıntıları'na genel bakış
+title: Azure Key Vault anahtarlara, parolalara ve sertifikalara hakkında
+description: Azure anahtar kasası REST arabirimi ve geliştirici ayrıntılarını anahtarlara, parolalara ve sertifikalara genel bakış.
 services: key-vault
 documentationcenter: ''
 author: BryanLa
@@ -12,59 +12,31 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/14/2018
+ms.date: 10/09/2018
 ms.author: bryanla
-ms.openlocfilehash: 60b8689e602f0716cdd1a383ab6568979a37e7c0
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: b1330f2f912f3e5974a43e43f649576561fbcc11
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44302954"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49079234"
 ---
 # <a name="about-keys-secrets-and-certificates"></a>Anahtarlar, parolalar ve sertifikalar hakkında
-Azure Key Vault, depolamak ve Microsoft Azure ortamında şifreleme anahtarlarını kullanmak kullanıcıların sağlar. Key Vault, birden çok anahtar türleri ve algoritmalarını destekler ve yüksek değerli anahtarlar donanım güvenlik modülleri (HSM) kullanılmasına olanak tanır. Ayrıca, Key Vault gizli dizileri güvenli bir şekilde depolamak kullanıcıların sağlar. Gizli dizileri boyutlarının sekizli hiçbir belirli semantikler nesneleridir. Key Vault, anahtarları ve gizli anahtarları üzerine yapılandırılmıştır ve otomatik yenileme özelliğini ekleyin sertifikalarını da destekler.
 
-Azure Key Vault hakkında daha fazla genel bilgi için bkz. [Azure anahtar kasası nedir?](/azure/key-vault/key-vault-whatis)
+Azure Key Vault, Microsoft Azure uygulamalarını ve birden fazla gizli dizi/anahtar verileri depolamak ve kullanıcılar sağlar:
 
-**Key Vault genel ayrıntıları**
+- Şifreleme anahtarları: birden çok anahtar türleri ve algoritmalarını destekler ve yüksek değerli anahtarlar donanım güvenlik modülleri (HSM) kullanılmasına olanak tanır. 
+- Gizli diziler: parolalar gibi gizli dizileri güvenli bir şekilde depolamak kullanıcıların sağlar. Gizli dizileri boyutlarının sekizli hiçbir belirli semantikler nesneleridir. 
+- Sertifikaları: anahtarları ve gizli anahtarları üzerine yapılandırılmıştır ve otomatik yenileme özelliğini ekleyin destekler sertifikaları.
+- Azure Depolama: sizin için bir Azure depolama hesabı anahtarlarını yönetebilirsiniz. Dahili olarak, anahtar kasası bir Azure depolama hesabı ile (eşitleme) anahtarları listeleme ve (döndürme) yeniden anahtarlarını düzenli aralıklarla. 
 
--   [Standartlarını destekleyen](#BKMK_Standards)
--   [Veri türleri](#BKMK_DataTypes)  
--   [Nesne tanımlayıcıları ve sürüm oluşturma](#BKMK_ObjId)  
+Key Vault hakkında daha fazla genel bilgi için bkz. [Azure anahtar kasası nedir?](/azure/key-vault/key-vault-whatis)
 
-**Anahtarlar hakkında**
+## <a name="azure-key-vault"></a>Azure Key Vault
 
--   [Anahtarları ve anahtar türleri](#BKMK_KeyTypes)  
--   [RSA algoritmalarını](#BKMK_RSAAlgorithms)  
--   [RSA HSM algoritmaları](#BKMK_RSA-HSMAlgorithms)  
--   [Şifreleme koruma](#BKMK_Cryptographic)
--   [Anahtar işlemleri](#BKMK_KeyOperations)  
--   [Anahtar öznitelikleri](#BKMK_KeyAttributes)  
--   [Anahtarını etiketleri](#BKMK_Keytags)  
+Aşağıdaki bölümlerde, Key Vault hizmeti, uygulama ilgili genel bilgiler sunar.
 
-**Gizli dizileri hakkında** 
-
--   [Gizli anahtarlarla çalışma](#BKMK_WorkingWithSecrets)  
--   [Gizli dizi öznitelikleri](#BKMK_SecretAttrs)  
--   [Gizli etiketleri](#BKMK_SecretTags)  
--   [Gizli anahtar erişim denetimi](#BKMK_SecretAccessControl)  
-
-**Sertifikalar hakkında**
-
--   [Sertifika oluşturma](#BKMK_CompositionOfCertificate)  
--   [Sertifika öznitelikler ve etiketler](#BKMK_CertificateAttributesAndTags)  
--   [Sertifika İlkesi](#BKMK_CertificatePolicy)  
--   [Sertifikayı veren](#BKMK_CertificateIssuer)  
--   [Sertifika kişileri](#BKMK_CertificateContacts)  
--   [Sertifika erişim denetimi](#BKMK_CertificateAccessControl)  
-
---
-
-## <a name="key-vault-general-details"></a>Key Vault genel ayrıntıları
-
-Aşağıdaki bölümlerde, Azure Key Vault hizmeti, uygulama ilgili genel bilgiler sunar.
-
-###  <a name="BKMK_Standards"></a> Standartlarını destekleyen
+###  <a name="supporting-standards"></a>Standartlarını destekleyen
 
 JavaScript nesne gösterimi (JSON) ve JavaScript nesne imzalama ve şifreleme (JOSE) belirtimleri önemli bilgiler var.  
 
@@ -73,28 +45,28 @@ JavaScript nesne gösterimi (JSON) ve JavaScript nesne imzalama ve şifreleme (J
 -   [JSON Web algoritmalar (JWA)](http://tools.ietf.org/html/draft-ietf-jose-json-web-algorithms)  
 -   [JSON Web imza (JWS)](http://tools.ietf.org/html/draft-ietf-jose-json-web-signature)  
 
-### <a name="BKMK_DataTypes"></a> veri türleri
+### <a name="data-types"></a>Veri türleri
 
-Başvurmak [JOSE belirtimleri](#BKMK_Standards) anahtarlarını, şifreleme ve imzalama için ilgili veri türleri için.  
+Anahtarlar, şifreleme ve imzalama için ilgili veri türleri için JOSE belirtimlerine bakın.  
 
 -   **algoritma** -anahtar işlemi, örneğin, RSA1_5 için desteklenen bir algoritması  
 -   **ciphertext değerli** -metin sekizlik tabanda Base64URL kullanılarak kodlanır, şifre  
 -   **Özet-değer** -Base64URL kullanılarak kodlanan bir karma algoritması çıktısı  
--   **anahtar türü** -desteklenen anahtar türleri, örneğin RSA biri.  
+-   **anahtar türü** -bir desteklenen anahtar türleri, örneğin RSA (Rivest-Shamir-Adleman).  
 -   **düz metin değeri** -Base64URL kullanılarak kodlanır, düz metin sekizli  
 -   **İmza değeri** - çıkış Base64URL kullanılarak kodlanan bir imza algoritması  
 -   **base64URL** -bir Base64URL [RFC4648] kodlanmış ikili değer  
 -   **Boole** -true veya false  
 -   **Kimlik** - bir kimlik gelen Azure Active Directory (AAD).  
--   **IntDate** - 1970'ten saniye sayısını temsil eden bir JSON ondalık değeri-01-kadar belirtilen UTC tarihi/saati UTC 01T0:0:0Z. Tarih ile ilgili ayrıntılar için bkz. [RFC3339] / genel saatleri ve özellikle UTC.  
+-   **IntDate** - 1970'ten saniye sayısını temsil eden bir JSON ondalık değeri-01-kadar belirtilen UTC tarihi/saati UTC 01T0:0:0Z. Özellikle ilişkin ayrıntılarla ilgili genel date/times RFC3339 ve UTC bakın.  
 
-###  <a name="BKMK_ObjId"></a> Nesne tanımlayıcıları ve sürüm oluşturma
+###  <a name="objects-identifiers-and-versioning"></a>Nesne tanımlayıcıları ve sürüm oluşturma
 
-Azure anahtar Kasası'nda depolanan nesnelere sürümleri, yeni bir örneğini bir nesne oluşturulur ve her sürümde bir benzersiz tanımlayıcı ve URL korur. Bir nesne ilk oluşturulduğunda benzersiz sürüm tanımlayıcısı verilir ve nesnenin geçerli sürümü olarak işaretlenir. Aynı nesne adı ile yeni bir örneğinin oluşturulmasını benzersiz sürüm tanımlayıcısı yeni nesne sağlar ve geçerli sürüme duruma neden olur.  
+Yeni bir örneğini bir nesne oluşturulduğunda, anahtar Kasası'nda depolanan nesnelere tutulur. Her sürüm, bir benzersiz tanımlayıcı ve URL atanır. Bir nesne ilk oluşturulduğunda verilen benzersiz sürüm tanımlayıcısı ve nesnenin geçerli sürümü olarak işaretlenmiş. Aynı nesne adı ile yeni bir örneğinin oluşturulmasını, yeni nesne geçerli sürümü duruma neden olan bir benzersiz sürüm tanımlayıcısı sağlar.  
 
-Azure anahtar Kasası'nda nesneleri geçerli tanımlayıcısı veya bir sürüme özgü tanımlayıcısı kullanarak çözülebilir. Örneğin, "MasterKey" ada sahip bir anahtar göz önünde bulundurulduğunda, geçerli bir tanımlayıcı işlemler gerçekleştirme sistemi en son sürüme neden olur. Sürüme özgü tanımlayıcıyı işlemler gerçekleştirme, nesne belirli bir sürümünü kullanmak sistemi neden olur.  
+Anahtar Kasası'nda nesneleri geçerli tanımlayıcısı veya bir sürüme özgü tanımlayıcısı kullanarak çözülebilir. Örneğin, verili bir anahtarın adıyla `MasterKey`, geçerli bir tanımlayıcı işlemler gerçekleştirme sistemi en son sürüme neden olur. Sürüme özgü tanımlayıcıyı işlemler gerçekleştirme, nesne belirli bir sürümünü kullanmak sistemi neden olur.  
 
-Nesneler iki nesne sisteminde, coğrafi konum, bağımsız olarak aynı URL'ye sahip olacak bir URL kullanarak Azure Key Vault içinde benzersiz şekilde tanımlanır. Tam URL bir nesne için nesne tanımlayıcısı olarak adlandırılır ve Key Vault, nesne türünü tanımlayan bir önek bölümü oluşur, bir kullanıcı nesne adı ve bir nesne sürümü sağlandı. Nesne adı büyük/küçük harfe ve değişmez. Nesne sürümü içermeyen tanımlayıcıları temel tanımlayıcı olarak adlandırılır.  
+Nesneleri bir URL kullanarak Key Vault içinde benzersiz şekilde tanımlanır. İki nesne sistemde coğrafi konumdan bağımsız olarak aynı URL'ye sahip. Tam URL bir nesne için nesne tanımlayıcısı olarak adlandırılır. Key Vault, nesne türü tanımlayan bir önek URL oluşuyorsa, kullanıcı tarafından sağlanan nesne adı ve bir nesne sürümü. Nesne adı büyük/küçük harfe ve değişmez. Nesne sürümü içermez tanımlayıcıları temel tanımlayıcı olarak adlandırılır.  
 
 Daha fazla bilgi için [kimlik doğrulaması, istekleri ve yanıtları](authentication-requests-and-responses.md)
 
@@ -106,37 +78,37 @@ Konumlar:
 
 |||  
 |-|-|  
-|`keyvault-name`|Microsoft Azure anahtar kasası hizmetindeki bir anahtar kasası adı.<br /><br /> Key Vault adları, kullanıcı tarafından seçilen ve genel olarak benzersiz.<br /><br /> Anahtar Kasası adı, 3-24 karakter uzunluğundaki bir dize olmalı ve yalnızca 0-9, a-z, A-Z ve - karakterlerini içermelidir.|  
+|`keyvault-name`|Microsoft Azure anahtar kasası hizmetindeki bir anahtar kasası adı.<br /><br /> Key Vault adları, kullanıcı tarafından seçilen ve genel olarak benzersiz.<br /><br /> Key Vault adı yalnızca 0-9, içeren bir 3-24 karakter dizesi olmalıdır a-z, A-Z ve -.|  
 |`object-type`|"Anahtarlar" veya "gizli" nesnenin türü.|  
-|`object-name`|Bir `object-name` için bir kullanıcı tarafından sağlanan ad ve bir Key Vault içinde benzersiz olmalıdır. Adı bir dize 1-127 olmalıdır karakter uzunluğunda içeren yalnızca 0-9, a-z, A-Z ve -.|  
-|`object-version`|Bir `object-version` olduğu bir sistem tarafından oluşturulan, isteğe bağlı olarak bir nesnenin benzersiz bir sürüm adresi için kullanılan 32 karakterli dize tanımlayıcı.|  
+|`object-name`|Bir `object-name` için bir kullanıcı tarafından sağlanan ad ve bir Key Vault içinde benzersiz olmalıdır. Ad yalnızca 0-9, içeren 1-127 karakter dizesi olmalıdır a-z, A-Z ve -.|  
+|`object-version`|Bir `object-version` bir sistem tarafından oluşturulmuş, isteğe bağlı olarak bir nesnenin benzersiz bir sürüm adresi için kullanılan 32 karakterli dize tanımlayıcı.|  
 
 ## <a name="key-vault-keys"></a>Key Vault anahtarları
 
-###  <a name="BKMK_KeyTypes"></a> Anahtarları ve anahtar türleri
+###  <a name="keys-and-key-types"></a>Anahtarları ve anahtar türleri
 
-Azure Key vault'taki şifreleme anahtarları, JSON Web anahtarı [JWK] nesneler olarak temsil edilir. Temel belirtimler JWK/JWA ayrıca Azure anahtar kasası uygulama için benzersiz anahtar türleri etkinleştirmek için genişletilir, örneğin güvenli nakliyatı etkinleştirmek için HSM satıcı (Thales) belirli paketleme kullanarak Azure Key Vault için anahtar alma gibi anahtarları, Bunlar, yalnızca Azure anahtar kasası Hsm'lerine içinde kullanılabilir.  
+Şifreleme anahtarları Key vault'ta JSON Web anahtarı [JWK] nesneler olarak temsil edilir. Temel belirtimler JWK/JWA da anahtar kasası uygulama için benzersiz anahtar türleri etkinleştirmek için genişletilir. Örneğin, anahtarları HSM satıcıya özgü paketleme kullanarak içeri aktarma, anahtar kasası Hsm'lerde yalnızca kullanılan anahtarların güvenli taşıma sağlar.  
 
-- **"Soft" anahtarları**: bir anahtar, anahtar kasası tarafından yazılımda işlenir ancak bir HSM'de bir sistem anahtarı kullanılarak, bekleme sırasında şifrelenir. İstemciler mevcut bir RSA veya EC anahtarını içeri aktarın veya Azure anahtar kasası bir oluşturma isteği.
-- **"Sabit" anahtarları**: anahtar bir HSM (donanım güvenlik modülü) işlenir. Bu anahtarları Azure Key Vault HSM güvenlik Dünyaları birinde korunur (yalıtım sağlamak için bir güvenlik Dünyası Coğrafya başına yoktur). İstemciler bir RSA veya EC anahtarı geçici bir form veya uyumlu bir HSM CİHAZDAN vererek alma veya Azure anahtar kasası bir oluşturma isteği. Bu anahtar türü T öznitelik ekler HSM anahtar malzemesi yürütmek için için JWK edinin.
+- **"Soft" anahtarları**: bir anahtar, anahtar kasası tarafından yazılımda işlenir ancak bir HSM'de bir sistem anahtarı kullanılarak, bekleme sırasında şifrelenir. İstemciler mevcut bir RSA veya EC (Eliptik Eğri) anahtarını içeri aktarın veya Key Vault bir oluşturma isteği.
+- **"Sabit" anahtarları**: anahtar bir HSM (donanım güvenlik modülü) işlenir. Bu anahtarlar, anahtar kasası HSM güvenlik Dünyaları birinde korunur (bir güvenlik yalıtımı sağlamak dünya Coğrafya başına yoktur). İstemciler, bir RSA veya EC anahtarı, esnek bir biçimde veya uyumlu bir HSM CİHAZDAN vererek alabilirsiniz. İstemciler, bir anahtar oluşturmak için Key Vault ayrıca isteyebilir. Bu anahtar türü T öznitelik ekler HSM anahtar malzemesi yürütmek için için JWK edinin.
 
      Coğrafi sınırlar hakkında daha fazla bilgi için bkz. [Microsoft Azure Trust Center](https://azure.microsoft.com/support/trust-center/privacy/)  
 
-RSA ve Eliptik Eğri anahtarlar yalnızca Azure Key Vault destekler. gelecek sürümlerde destekleyebilir diğer anahtar türleri gibi simetrik.
+Key Vault RSA ve Eliptik Eğri anahtarlar yalnızca destekler. Gelecek sürümlerde destekleyebilir diğer anahtar türleri gibi simetrik.
 
 -   **EC**: "Soft" Eliptik Eğri anahtar.
 -   **HSM EC**: "Sabit" Eliptik Eğri anahtar.
 -   **RSA**: "Soft" RSA anahtarı.
 -   **RSA HSM**: "Sabit" RSA anahtarı.
 
-Azure Key Vault RSA anahtarları 2048, 3072 ve 4096 boyutlarını destekler ve Eliptik Eğri anahtarlarını yazın P-256, p-384, p-521 ve P-256_K.
+Key Vault, 2048, 3072 ve 4096 boyuttaki RSA anahtarlarını destekliyor. Key Vault destekler Eliptik Eğri anahtar türleri P-256, p-384, p-521 ve P - 256 K.
 
-### <a name="BKMK_Cryptographic"></a> Şifreleme koruma
+### <a name="cryptographic-protection"></a>Şifreleme koruma
 
-Azure anahtar Kasası'nı kullandığından, şifreleme modüllerini HSM veya yazılım, FIPS doğrulanmış olduğunu belirtir. FIPS modunda çalışacak şekilde özel herhangi bir şey yapmanız gerekmez. Varsa, **oluşturma** veya **alma** olarak HSM korumalı anahtarlar, bunlar garanti edilir HSM'ler, FIPS 140-2 Düzey 2 veya daha yüksek doğrulanmış içinde işlenecek. Varsa, **oluşturma** veya **alma** anahtarı yazılım korumalı içinde şifreleme modüllerine işlenene sonra olarak doğrulanmış FIPS 140-2 Düzey 1 veya daha yüksek. Daha fazla bilgi için [anahtarları ve anahtar türleri](#BKMK_KeyTypes).
+Anahtar Kasası'nı kullandığından, şifreleme modüllerini HSM veya yazılım, FIPS doğrulanmış (Federal Bilgi işleme standartları) olduğunu belirtir. FIPS modunda çalışacak şekilde özel herhangi bir şey yapmanız gerekmez. Varsa, **oluşturma** veya **alma** olarak HSM korumalı anahtarlar, bunlar garanti doğrulanmış FIPS 140-2 Düzey 2 veya daha yüksek bir HSM'nin içinde işlenecek. Varsa, **oluşturma** veya **alma** olarak, yazılım korumalı anahtarlar, bunlar işlenen içinde şifreleme modüllerine doğrulanmış FIPS 140-2 Düzey 1 veya daha yüksek. Daha fazla bilgi için [anahtarları ve anahtar türleri](#keys-and-key-types).
 
-###  <a name="BKMK_ECAlgorithms"></a> EC algoritmaları
- Aşağıdaki algoritması tanımlayıcıları EC ve EC-HSM anahtarları Azure Key vault'ta desteklenir. 
+###  <a name="ec-algorithms"></a>EC algoritmaları
+ Aşağıdaki algoritması tanımlayıcıları EC ve EC-HSM anahtarları Key vault'ta desteklenir. 
 
 #### <a name="signverify"></a>OTURUM VE DOĞRULAYIN
 
@@ -145,8 +117,8 @@ Azure anahtar Kasası'nı kullandığından, şifreleme modüllerini HSM veya ya
 -   **ES384** - ECDSA için SHA-384 özetleyen ve anahtarları p-384 eğri ile oluşturulur. Bu algoritma [RFC7518] açıklanmıştır.
 -   **ES512** - ECDSA için SHA-512 özetleyen ve anahtarları, p-521 eğrisini ile oluşturulur. Bu algoritma [RFC7518] açıklanmıştır.
 
-###  <a name="BKMK_RSAAlgorithms"></a> RSA algoritmalarını  
- RSA ve RSA HSM anahtarları Azure Key vault'ta aşağıdaki algoritması tanımlayıcılar desteklenir.  
+###  <a name="rsa-algorithms"></a>RSA algoritmalarını  
+ RSA ve RSA HSM anahtarları Key vault'ta aşağıdaki algoritması tanımlayıcılar desteklenir.  
 
 #### <a name="wrapkeyunwrapkey-encryptdecrypt"></a>/ UNWRAPKEY, WRAPKEY ŞİFRELEME/ŞİFRE ÇÖZME
 
@@ -160,136 +132,150 @@ Azure anahtar Kasası'nı kullandığından, şifreleme modüllerini HSM veya ya
 -   **RS512** - RSASSA-PKCS-v1_5 SHA-512 kullanarak. Sağlanan uygulama Özet değeri SHA-512'ı kullanarak hesaplanan olmalıdır ve uzunluğu 64 baytın olmalıdır.  
 -   **RSNULL** -bakın [RFC2437], bir özel kullanım belirli TLS senaryoları etkinleştirmek için örneği.  
 
-###  <a name="BKMK_KeyOperations"></a> Anahtar işlemleri
+###  <a name="key-operations"></a>Anahtar işlemleri
 
-Azure Key Vault anahtar nesneler üzerinde aşağıdaki işlemleri destekler:  
+Key Vault anahtar nesneler üzerinde aşağıdaki işlemleri destekler:  
 
--   **Oluşturma**: Azure anahtar Kasası'nda bir anahtar oluşturmak bir istemci sağlar. Anahtar değerini Azure Key Vault tarafından oluşturulan ve depolanan ve istemciye serbest bırakılmaz. Asimetrik (ve gelecekte Eliptik Eğri ve simetrik) anahtar Azure anahtar Kasası'nda oluşturulabilir.  
--   **İçeri aktarma**: var olan bir anahtar Azure anahtar Kasası'na içeri aktarmak bir istemci sağlar. Asimetrik (ve gelecekte Eliptik Eğri ve simetrik) anahtarları farklı paketleme yöntemler JWK yapısı içinde bir dizi kullanarak Azure Key Vault için aktarılabilir.  
--   **Güncelleştirme**: daha önce Azure Key Vault içinde depolanan bir anahtar ile ilişkili meta verileri (anahtar öznitelikleri) değiştirmek için yeterli izinlere sahip bir istemci sağlar.  
--   **Silme**: Azure Key Vault'tan bir anahtar silmek için yeterli izinlere sahip bir istemci sağlar.  
--   **Liste**: bir istemci belirli bir Azure anahtar Kasası'nda tüm anahtarların listelenmesi sağlar.  
--   **Sürümleri Listele**: tüm belirli bir Azure anahtar Kasası'nda belirli bir anahtarın sürümlerini listeleme istemciye sağlar.  
--   **Alma**: genel bir Azure anahtar Kasası'nda belirli bir anahtarın bölümlerini almak bir istemci sağlar.  
+-   **Oluşturma**: anahtar Kasası'nda bir anahtar oluşturmak bir istemci sağlar. Anahtar değerini Key Vault tarafından oluşturulan ve tutulan ve istemciye serbest değil. Asimetrik (ve gelecekte Eliptik Eğri ve simetrik) anahtarları Key Vault'ta oluşturulabilir.  
+-   **İçeri aktarma**: mevcut bir anahtarı anahtar Kasası'na içeri aktarmak bir istemci sağlar. Asimetrik anahtarlar, farklı paketleme yöntemler JWK yapısı içinde bir dizi kullanarak Key Vault alınabilir. Eliptik Eğri ve simetrik gelecekte de olacaktır aynı paketlenir.
+-   **Güncelleştirme**: daha önce Key Vault içinde depolanan bir anahtar ile ilişkili meta verileri (anahtar öznitelikleri) değiştirmek için yeterli izinlere sahip bir istemci sağlar.  
+-   **Silme**: Key Vault'tan bir anahtar silmek için yeterli izinlere sahip bir istemci sağlar.  
+-   **Liste**: bir istemci belirli bir anahtar Kasası'nda tüm anahtarların listelenmesi sağlar.  
+-   **Sürümleri Listele**: tüm belirli bir anahtar Kasası'nda belirli bir anahtarın sürümlerini listeleme istemciye sağlar.  
+-   **Alma**: belirli bir anahtarı bir anahtar Kasası'nda genel bölümlerini almak bir istemci sağlar.  
 -   **Yedekleme**: korumalı bir formda bir anahtar verir.  
 -   **Geri yükleme**: daha önce yedeklenen bir anahtarı içeri aktarır.  
 
 Daha fazla bilgi için [anahtarı anahtar kasası REST API Başvurusu işlemlerinde](/rest/api/keyvault).  
 
-Bir anahtar Azure anahtar Kasası'nda oluşturulduktan sonra aşağıdaki şifreleme işlemleri anahtar kullanılarak gerçekleştirilebilir:  
+Bir anahtarı anahtar Kasası'nda oluşturulduktan sonra aşağıdaki şifreleme işlemleri anahtar kullanılarak gerçekleştirilebilir:  
 
--   **Oturum ve Doğrula**: Azure anahtar kasası içeriğini imza oluşturmanın bir parçası karma desteklemediğinden kesinlikle, bu işlem "imza karması" veya "karma doğrulama" olur. Uygulamaları, verileri yerel olarak oturum açmanız ve sonra Azure Key Vault oturum karma istek karma. İmzalı karmalarının doğrulama [genel] anahtar malzemesi için erişiminiz olmayabilir uygulamalar için bir kolaylık işlem olarak desteklenir. Biz öneririz için en iyi uygulama performansı, yerel olarak gerçekleştirilen işlemler doğrulayın.  
--   **Anahtar şifreleme / kaydırma**: Azure Key Vault'ta depolanan bir anahtar, başka bir anahtar, bir simetrik içerik şifreleme anahtarı (CEK) genellikle korumak için kullanılabilir. Azure Key Vault anahtarı asimetrik olduğunda, anahtar şifreleme kullanılır, örneğin RSA OAEP ve WRAPKEY/UNWRAPKEY işlemleri için şifreleme/şifre çözme eşdeğerdir. Anahtar Azure anahtar Kasası'nda simetrik anahtarı sarmalama kullanılır; Örneğin AES-KW. [Genel] anahtar malzemesi için erişiminiz olmayabilir uygulamalar için bir kolaylık olarak WRAPKEY işlemi desteklenmez. en iyi uygulama performansını WRAPKEY işlemler yerel olarak gerçekleştirilir, önerilir.  
--   **Şifreleme ve şifre çözme**: Azure Key Vault'ta depolanan bir anahtar şifreleme veya tek bir blok boyutu, seçilen şifreleme algoritması ve anahtar türü tarafından belirlenir verilerin şifresini çözmek için kullanılabilir. Şifreleme işlemi [genel] anahtar malzemesi için erişiminiz olmayabilir uygulamalar için kolaylık sağlamak için sağlanır; Bu, en iyi uygulama performansını önerilir, şifreleme işlemlerini yerel olarak gerçekleştirilir.  
+-   **Oturum ve Doğrula**: Key Vault içeriğini imza oluşturmanın bir parçası karma desteklemediğinden kesinlikle, bu "imza karması" veya "karma doğrulama", bir işlemdir. Uygulamalar verileri yerel olarak imzalanmasını karma ardından bu Key Vault oturum karma istek. İmzalı karmalarının doğrulama [genel] anahtar malzemesi için erişiminiz olmayabilir uygulamalar için bir kolaylık işlemi olarak desteklenir. En iyi uygulama performansını işlemlerini yerel olarak gerçekleştirildiğinden emin olun.  
+-   **Anahtar şifreleme / kaydırma**: Key Vault'ta depolanan bir anahtar, başka bir anahtar, bir simetrik içerik şifreleme anahtarı (CEK) genellikle korumak için kullanılabilir. Anahtar şifreleme anahtarı anahtar Kasası'nda asimetrik olduğunda kullanılır. Örneğin, RSA OAEP ve WRAPKEY/UNWRAPKEY işlemleri için şifreleme/şifre çözme eşdeğerdir. Simetrik anahtarı anahtar Kasası'nda, sarmalama anahtar kullanılır. Örneğin, AES-KW. WRAPKEY işlemi [genel] anahtar malzemesi için erişiminiz olmayabilir uygulamalar için bir kolaylık olarak desteklenir. En iyi uygulama performansını WRAPKEY işlemlerini yerel olarak gerçekleştirilmelidir.  
+-   **Şifreleme ve şifre çözme**: Key Vault'ta depolanan bir anahtar şifreleme veya tek bir blok verilerin şifresini çözmek için kullanılabilir. Blok boyutu, seçilen şifreleme algoritması ve anahtar türü tarafından belirlenir. Şifreleme işlemi [genel] anahtar malzemesi için erişiminiz olmayabilir uygulamalar için bir kolaylık olması için sağlanmıştır. En iyi uygulama performansı için şifreleme işlemlerini yerel olarak gerçekleştirilmelidir.  
 
-WRAPKEY/UNWRAPKEY asimetrik anahtarlarla şifreleme/şifre çözme işlemi eşdeğerdir gibi gereksiz görünebilir, ancak ayrı operasyon kullanımını sağlamak önemli anlamsal olarak kabul edilir ve bu işlemleri ve tutarlılık yetkilendirme ayrımı ne zaman diğer anahtar türleri, hizmet tarafından desteklenir.  
+(İşlemi şifreleme/şifre çözme için eşdeğer olduğu gibi) WRAPKEY/UNWRAPKEY asimetrik anahtarlarla gereksiz görünebilir, ayrı işlem kullanımı önemlidir. Ayrımın semantic sağlar ve bu işlemleri ve diğer anahtar türleri, hizmet tarafından desteklendiğinde tutarlılık yetkilendirme ayrımı.  
 
-Azure Key Vault, dışa aktarma işlemleri desteklemiyor: bir anahtar sağlandıktan sonra sistemde ayıklanamıyor veya kendi anahtar malzemesi değiştirdi.  Ancak, kullanıcılar Azure anahtar kasası kullanan diğer için kendi anahtarını gerektirebilir kullanım veya Azure anahtar Kasası'nda silindikten sonra korumalı bir form anahtarı içeri/dışarı aktarma için yedekleme ve geri yükleme işlemleri kullanabilir. Yedekleme işlemi tarafından oluşturulan anahtarları Azure Key Vault dışında kullanılamaz. Alternatif olarak, içeri aktarma işlemi birden çok Azure Key Vault örneği karşı kullanılabilir.  
+Key Vault, dışa aktarma işlemleri desteklemez. Bir anahtar sistemde sağlandıktan sonra bunu ayıklanamıyor veya kendi anahtar malzemesi değiştirilemiyor. Ancak, diğer kullanmak için silinmiş durumda gibi olarak sonra Key Vault kullanıcıları kendi anahtar gerektirebilir. Bu durumda, bunlar korumalı bir form anahtarında içeri/dışarı aktarma için yedekleme ve geri yükleme işlemleri kullanabilir. Yedekleme işlemi tarafından oluşturulan anahtarları Key Vault dışında kullanılamaz. Alternatif olarak, içeri aktarma işlemi birden çok Key Vault örneği karşı kullanılabilir.  
 
-Kullanıcılar, herhangi bir Azure Key Vault JWK key_ops özelliğini kullanarak anahtarı başına temelinde destekleyen şifreleme işlemlerini kısıtlayabilirsiniz.  
+Kullanıcılar, herhangi bir Key Vault JWK key_ops özelliğini kullanarak anahtarı başına temelinde desteklediği şifreleme işlemleri kısıtlayabilir.  
 
 JWK nesneleri hakkında daha fazla bilgi için bkz. [JSON Web anahtarı (JWK)](http://tools.ietf.org/html/draft-ietf-jose-json-web-key).  
 
-###  <a name="BKMK_KeyAttributes"></a> Anahtar öznitelikleri
+###  <a name="key-attributes"></a>Anahtar öznitelikleri
 
 Anahtar malzemesi ek olarak, aşağıdaki öznitelikleri belirtilebilir. Bir JSON isteği, öznitelikleri anahtar sözcüğü ve küme ayraçları, ' {' '}', belirtilen öznitelikleri olsa bile gereklidir.  
 
-- *Etkin*: Boole, isteğe bağlı, varsayılan **true**. Anahtarın etkin ve şifreleme işlemleri için kullanılabilir olup olmadığını belirtir. *Etkin* özniteliği ile birlikte kullanılır *nbf* ve *exp*. Bir işlemi oluştuğunda arasında *nbf* ve *exp*, varsa yalnızca verilmez *etkin* ayarlanır **true**. İşlemler dışındaki *nbf* / *exp* penceresi otomatik olarak izin verilmez, belirli işlem türleri altında dışında [belirli koşullar](#BKMK_key-date-time-ctrld-ops).
-- *NBF*: IntDate, isteğe bağlı, varsayılan sunuldu. *Nbf* (değil önce) öznitelik tanımlar, önce anahtarı değil kullanılmalıdır altında belirli işlem türlerini hariç şifreleme işlemleri için zaman [belirli koşullar](#BKMK_key-date-time-ctrld-ops). İşlenmesini *nbf* özniteliği gerektirir geçerli tarih/saat sonra olmanız gerekir veya eşit olmayan-listelenen tarih/saat önce *nbf* özniteliği. Azure Key Vault için saat eğriltme hesap için genellikle en fazla birkaç dakika bazı küçük leeway için sağlayabilir. Değerini IntDate değerini içeren bir sayı olmalıdır.  
-- *exp*: IntDate, isteğe bağlı, varsayılan değer "sonsuz". *Exp* (süre) öznitelik tanımlar ve sonrasında, bu anahtar gerekir altında belirli işlem türlerini hariç şifreleme işlemi için kullanılan süre sonu zamanı [belirli koşullar](#BKMK_key-date-time-ctrld-ops). İşlenmesini *exp* özniteliği gerektirir süre sonu tarihi/saati listelenen önce geçerli tarih/saat olmalıdır *exp* özniteliği. Azure Key Vault için saat eğriltme hesap için genellikle en fazla birkaç dakika bazı küçük leeway için sağlayabilir. Değerini IntDate değerini içeren bir sayı olmalıdır.  
+- *Etkin*: Boole, isteğe bağlı, varsayılan **true**. Anahtarın etkin ve şifreleme işlemleri için kullanılabilir olup olmadığını belirtir. *Etkin* özniteliği ile birlikte kullanılır *nbf* ve *exp*. Bir işlemi oluştuğunda arasında *nbf* ve *exp*, varsa yalnızca verilmez *etkin* ayarlanır **true**. İşlemler dışındaki *nbf* / *exp* penceresi otomatik olarak izin verilmez, belirli işlem türleri altında dışında [belirli koşullar](#date-time-controlled-operations).
+- *NBF*: IntDate, isteğe bağlı, varsayılan sunuldu. *Nbf* (değil önce) öznitelik tanımlar, önce anahtarı değil kullanılmalıdır altında belirli işlem türlerini hariç şifreleme işlemleri için zaman [belirli koşullar](#date-time-controlled-operations). İşlenmesini *nbf* özniteliği gerektirir geçerli tarih/saat sonra olmanız gerekir veya eşit olmayan-listelenen tarih/saat önce *nbf* özniteliği. Bazı küçük leeway için Key Vault sağlayabilir, normalde saati hesap için en fazla birkaç dakika eğme. Değerini IntDate değerini içeren bir sayı olmalıdır.  
+- *exp*: IntDate, isteğe bağlı, varsayılan değer "sonsuz". *Exp* (süre) öznitelik tanımlar ve sonrasında, bu anahtar gerekir altında belirli işlem türlerini hariç şifreleme işlemi için kullanılan süre sonu zamanı [belirli koşullar](#date-time-controlled-operations). İşlenmesini *exp* özniteliği gerektirir süre sonu tarihi/saati listelenen önce geçerli tarih/saat olmalıdır *exp* özniteliği. Bazı küçük leeway için Key Vault sağlayabilir, genellikle saat için hesap için en fazla birkaç dakika eğme. Değerini IntDate değerini içeren bir sayı olmalıdır.  
 
 Anahtar öznitelikleri içeren bir yanıta dahil ek salt okunur özniteliği vardır:  
 
-- *oluşturulan*: IntDate, isteğe bağlı. *Oluşturulan* öznitelik, bu anahtarın sürümü ne zaman oluşturulduğunu gösterir. Bu değer, bu öznitelik eklenmesini önce oluşturulan anahtarları için null. Değerini IntDate değerini içeren bir sayı olmalıdır.  
-- *güncelleştirilmiş*: IntDate, isteğe bağlı. *Güncelleştirilmiş* öznitelik, bu anahtarın sürümü ne zaman güncelleştirildiği gösterir. Bu değer, bu öznitelik eklenmesini önce en son güncelleştirildiği anahtarları için null. Değerini IntDate değerini içeren bir sayı olmalıdır.  
+- *oluşturulan*: IntDate, isteğe bağlı. *Oluşturulan* öznitelik, bu anahtarın sürümü ne zaman oluşturulduğunu gösterir. Değer, bu öznitelik eklenmesini önce oluşturulan anahtarları için null. Değerini IntDate değerini içeren bir sayı olmalıdır.  
+- *güncelleştirilmiş*: IntDate, isteğe bağlı. *Güncelleştirilmiş* öznitelik, bu anahtarın sürümü ne zaman güncelleştirildiği gösterir. Değer, bu öznitelik eklenmesini önce en son güncelleştirildiği anahtarları için null. Değerini IntDate değerini içeren bir sayı olmalıdır.  
 
-IntDate ve diğer veri türleri hakkında daha fazla bilgi için bkz. [veri türleri](#BKMK_DataTypes)  
+IntDate ve diğer veri türleri hakkında daha fazla bilgi için bkz. [veri türleri](#data-types)  
 
-#### <a name="BKMK_key-date-time-ctrld-ops"></a> Tarih-saat denetimli işlemleri
+#### <a name="date-time-controlled-operations"></a>Tarih-saat denetimli işlemleri
 
-Not henüz geçerli ve süresi dolan anahtarlar, bu dış *nbf* / *exp* penceresinde için çalışır **şifresini**, **sarmalamadan çıkarma** ve **doğrulayın** işlemleri (403, iade olmaz Yasak). Stratejinin değil ancak geçerli durum kullanmak için üretim kullanılmadan önce test edilecek bir anahtar izin vermektir. Süresi dolmuş kullanmaya yönelik bir stratejinin anahtarının geçerli olduğu zaman, oluşturulan veri kurtarma işlemleri sağlamaktır. Key Vault ilkelerini kullanarak bir anahtar veya güncelleştirerek erişimini devre dışı bırakabilirsiniz ayrıca *etkin* anahtar özniteliğiyle **false**.
+Not henüz geçerli ve anahtarlar, dış süresi *nbf* / *exp* penceresinde için çalışır **şifresini**, **sarmalamadan çıkarma**ve **doğrulayın** işlemleri (403, iade olmaz Yasak). Stratejinin değil ancak geçerli durum kullanmak için üretim kullanılmadan önce test edilecek bir anahtar izin vermektir. Süresi dolmuş kullanmaya yönelik bir stratejinin anahtarının geçerli olduğu zaman, oluşturulan veri kurtarma işlemleri sağlamaktır. Key Vault ilkelerini kullanarak bir anahtar veya güncelleştirerek erişimini devre dışı bırakabilirsiniz ayrıca *etkin* anahtar özniteliğiyle **false**.
 
-Veriler üzerinde daha fazla bilgi için bkz: türleri, [veri türleri](#BKMK_DataTypes).
+Veri türleri hakkında daha fazla bilgi için bkz. [veri türleri](#data-types).
 
 Diğer olası öznitelikleri hakkında daha fazla bilgi için bkz. [JSON Web anahtarı (JWK)](http://tools.ietf.org/html/draft-ietf-jose-json-web-key).
 
-### <a name="BKMK_Keytags"></a> Anahtarını etiketleri
+### <a name="key-tags"></a>Anahtarını etiketleri
 
-Ek uygulamaya özgü meta veri etiketleri biçiminde belirtebilirsiniz. Azure Key Vault, en fazla 15 etiket, her biri olan 256 karakterlik bir ad ve 256 karakter değeri destekler.  
+Ek uygulamaya özgü meta veri etiketleri biçiminde belirtebilirsiniz. Key Vault, en fazla 15 etiket, her biri olan 256 karakterlik bir ad ve 256 karakter değeri destekler.  
 
 >[!Note]
->Bunlar varsa etiketleri çağıran tarafından okunabilir *listesi* veya *alma* söz konusu nesne türü; izni anahtarları, parola veya sertifikalara.
+>Bunlar varsa etiketleri çağıran tarafından okunabilir *listesi* veya *alma* söz konusu nesne türü (anahtarlar, parola veya sertifikalara) izni.
 
-###  <a name="BKMK_KeyAccessControl"></a> Anahtar erişim denetimi
+###  <a name="key-access-control"></a>Anahtar erişim denetimi
 
-Key Vault tarafından yönetilen anahtarlar için erişim denetimi, anahtar kapsayıcısı olarak davranan bir Key Vault düzeyinde sağlanır. Anahtarları için erişim denetimi İlkesi aynı Key Vault'ta ' gizli diziler için farklı bir erişim denetimi İlkesi yoktur. Kullanıcılar, anahtarları tutmak için bir veya daha fazla kasalarını oluşturabilir ve senaryoya uygun segmentlere ayırma ve anahtar yönetimi korumak için gereklidir. Anahtarlar için erişim denetimi, gizli dizileri için erişim denetimi bağımsızdır.  
+Key Vault tarafından yönetilen anahtarlar için erişim denetimi, anahtar kapsayıcısı olarak davranan bir Key Vault düzeyinde sağlanır. Anahtarlar için erişim denetimi İlkesi aynı Key Vault'ta ' gizli diziler için erişim denetimi ilkesini farklı. Kullanıcılar, anahtarları tutmak için bir veya daha fazla kasalarını oluşturabilir ve senaryoya uygun segmentlere ayırma ve anahtar yönetimi tutmaları zorunludur. Anahtarlar için erişim denetimi, gizli dizileri için erişim denetimi bağımsızdır.  
 
 Aşağıdaki izinleri, üzerinde verilebilecek bir kullanıcı / hizmet sorumlusu aralıklarla bir kasasındaki anahtarları erişim denetim girişi. Bu izinleri bir anahtar nesnesi üzerinde izin verilen işlemleri yakından yansıtabilirsiniz:  
 
--   *oluşturma*: yeni anahtarları oluşturma
--   *Alma*: bir anahtar yanı sıra, özniteliklerini ortak bölümünü okuyun
--   *Liste*: anahtar kasasında depolanan bir anahtarın sürümlerini ve anahtarlar listesi
--   *Güncelleştirme*: anahtarı için öznitelikleri güncelleştir
--   *silme*: anahtar nesnesini silme
--   *oturum*: özetleyen imzalamak için anahtar kullanımı
--   *doğrulama*: anahtar özetler doğrulamak için kullanılır
--   *wrapKey*: anahtar bir simetrik anahtar korumak için kullanılır
--   *unwrapKey*: korumasını kaldırmak için anahtar kullanımı sarmalanmış simetrik anahtarlar
--   *şifreleme*: anahtar bir rastgele bayt dizisini korumak için kullanılır
--   *şifre çözme*: bayt dizisini korumasını kaldırmak için kullanma
--   *içeri aktarma*: bir anahtar kasasına bir anahtar aktarma
--   *Yedekleme*: anahtar kasasında bir anahtarı yedekleme
--   *geri yükleme*: yedeklenen bir key vault için anahtarı geri yükleme
--   *tüm*: tüm izinler
+- Anahtar yönetimi işlemleri için izinleri
+  - *Alma*: bir anahtar yanı sıra, özniteliklerini ortak bölümünü okuyun
+  - *Liste*: anahtar kasasında depolanan bir anahtarın sürümlerini ve anahtarlar listesi
+  - *Güncelleştirme*: anahtarı için öznitelikleri güncelleştir
+  - *oluşturma*: yeni anahtarları oluşturma
+  - *içeri aktarma*: bir anahtar kasasına bir anahtar aktarma
+  - *silme*: anahtar nesnesini silme
+  - *Kurtarma*: silinen bir anahtar kurtarma
+  - *Yedekleme*: anahtar kasasında bir anahtarı yedekleme
+  - *geri yükleme*: yedeklenen bir key vault için anahtarı geri yükleme
+
+- Şifreleme işlemleri için izinleri
+  - *şifre çözme*: bayt dizisini korumasını kaldırmak için kullanma
+  - *şifreleme*: anahtar bir rastgele bayt dizisini korumak için kullanılır
+  - *unwrapKey*: korumasını kaldırmak için anahtar kullanımı sarmalanmış simetrik anahtarlar
+  - *wrapKey*: anahtar bir simetrik anahtar korumak için kullanılır
+  - *doğrulama*: anahtar özetler doğrulamak için kullanılır  
+  - *oturum*: özetleyen imzalamak için anahtar kullanımı
+    
+- Ayrıcalıklı işlemleri için izinleri
+  - *Temizleme*: Temizle (kalıcı) silinen bir anahtar
+
+Anahtarları ile çalışma hakkında daha fazla bilgi için bkz. [anahtarı anahtar kasası REST API Başvurusu işlemlerinde](/rest/api/keyvault). İzinler oluşturma hakkında daha fazla bilgi için bkz: [kasaları - oluştur veya Güncelleştir](/rest/api/keyvault/vaults/createorupdate) ve [kasaları - güncelleştirme erişim ilkesi](/rest/api/keyvault/vaults/updateaccesspolicy). 
 
 ## <a name="key-vault-secrets"></a>Key Vault gizli dizileri 
 
-###  <a name="BKMK_WorkingWithSecrets"></a> Gizli anahtarlarla çalışma
+### <a name="working-with-secrets"></a>Gizli anahtarlarla çalışma
 
-Azure Key Vault gizli dizileri en fazla 25 k bayt her sekizli dizileri var. Azure Key Vault hizmeti, gizli dizileri için tüm semantikler sağlamaz; yalnızca verileri kabul eder, şifreler ve bunu bir gizli dizi tanımlayıcısı, "gizli daha sonraki bir zamanda almak için kullanılabilir kimliği" döndüren depolar.  
+Gizli anahtar Kasası'nda, en fazla 25 k bayt her sekizli dizileri:. Key Vault hizmeti, gizli dizileri için semantiği sağlamaz. Yalnızca verileri kabul eder, şifreler, depoladığı ve bir gizli dizi tanımlayıcısı ("id") döndürür. Tanımlayıcı, daha sonraki bir zamanda gizli diziyi almak için kullanılabilir.  
 
-Yüksek oranda gizli veriler için ek Azure Key Vault'ta depolanan veriler için koruma katmanları istemciler düşünmelisiniz; Örneğin önceden verileri şifreleyerek ayrı koruma anahtarı kullanma.  
+Yüksek oranda gizli veriler için ek veri koruma katmanları istemciler dikkate almanız gerekir. Key Vault'ta depolama önce bir ayrı koruma anahtarı kullanılarak veri şifrelenirken bir örnektir.  
 
-Azure Key Vault, ayrıca bir contentType alanı için gizli dizilerini destekler. İstemciler, içerik türü "contentType" gizli verileri yorumlama alındığı sırada yardımcı olmak üzere gizli dizi belirtebilirsiniz. Bu alan en fazla uzunluğu 255 karakterdir. Önceden tanımlanmış değerler yoktur. Önerilen kullanım için gizli verileri yorumlama ipucu gibidir. Örneğin, bir uygulama gizli dizi olarak hem parola hem de sertifikaları depolamak ardından belirtmek için bu alanı kullanın. Önceden tanımlanmış değerler yoktur.  
+Key Vault, ayrıca bir contentType alanı için gizli dizilerini destekler. İstemciler, içerik türünü gizli verileri yorumlama alındığı sırada yardımcı olmak için bir gizli anahtarı belirtebilir. Bu alan en fazla uzunluğu 255 karakterdir. Önceden tanımlanmış değerler yoktur. Önerilen kullanım için gizli verileri yorumlama ipucu gibidir. Örneği için bir uygulama hem parolalar ve sertifikalar gizli dizi olarak depolamak ve ardından ayırt etmek için bu alanı kullanın. Önceden tanımlanmış değerler yoktur.  
 
-###  <a name="BKMK_SecretAttrs"></a> Gizli dizi öznitelikleri
+### <a name="secret-attributes"></a>Gizli dizi öznitelikleri
 
 Gizli veriler ek olarak, aşağıdaki öznitelikleri belirtilebilir:  
 
-- *exp*: IntDate, isteğe bağlı, varsayılan **sonsuza kadar**. *Exp* (süre) öznitelik tanımlar ve sonrasında, gizli verilerin alınması GEREKTİĞİNİ değil, sona erme zamanı hariç [belirli durumlarda](#BKMK_secret-date-time-ctrld-ops). Bu alan için olan **bilgilendirici** yalnızca belirli bir gizli dizi kullanılamaz anahtar kasası hizmeti, kullanıcıları bilgilendirir gibi amacıyla. Değerini IntDate değerini içeren bir sayı olmalıdır.   
-- *NBF*: IntDate, isteğe bağlı, varsayılan **artık**. *Nbf* (değil önce) öznitelik tanımlar önüne gizli verileri SecurityDescriptor, zaman hariç [belirli durumlarda](#BKMK_secret-date-time-ctrld-ops). Bu alan için olan **bilgilendirici** yalnızca amacıyla. Değerini IntDate değerini içeren bir sayı olmalıdır. 
-- *Etkin*: Boole, isteğe bağlı, varsayılan **true**. Bu öznitelik, gizli veriler alınabilir olup olmadığını belirtir. Etkinleştirilmiş bir öznitelik ile birlikte kullanılır ve *exp* arasında bir işlem olduğunda oluşur ve bu exp, yalnızca etkinleştirilirse ayarlanır **true**. İşlemler dışındaki *nbf* ve *exp* penceresi olan otomatik olarak izin verilmeyen, içinde hariç [belirli durumlarda](#BKMK_secret-date-time-ctrld-ops).  
+- *exp*: IntDate, isteğe bağlı, varsayılan **sonsuza kadar**. *Exp* (süre) öznitelik tanımlar ve sonrasında, gizli verilerin alınması GEREKTİĞİNİ değil, sona erme zamanı hariç [belirli durumlarda](#date-time-controlled-operations). Bu alan için olan **bilgilendirici** yalnızca belirli bir gizli dizi kullanılamaz anahtar kasası hizmeti, kullanıcıları bilgilendirir gibi amacıyla. Değerini IntDate değerini içeren bir sayı olmalıdır.   
+- *NBF*: IntDate, isteğe bağlı, varsayılan **artık**. *Nbf* (değil önce) öznitelik tanımlar önüne gizli verileri SecurityDescriptor, zaman hariç [belirli durumlarda](#date-time-controlled-operations). Bu alan için olan **bilgilendirici** yalnızca amacıyla. Değerini IntDate değerini içeren bir sayı olmalıdır. 
+- *Etkin*: Boole, isteğe bağlı, varsayılan **true**. Bu öznitelik, gizli veriler alınıp alınamayacağını belirtir. Etkinleştirilmiş bir öznitelik ile birlikte kullanılır ve *exp* arasında bir işlem olduğunda oluşur ve bu exp, yalnızca etkinleştirilirse ayarlanır **true**. İşlemler dışındaki *nbf* ve *exp* penceresi olan otomatik olarak izin verilmeyen, içinde hariç [belirli durumlarda](#date-time-controlled-operations).  
 
 Gizli dizi öznitelikleri içeren bir yanıta dahil ek salt okunur özniteliği vardır:  
 
 - *oluşturulan*: IntDate, isteğe bağlı. Oluşturulan öznitelik, bu gizli dizi sürümü ne zaman oluşturulduğunu gösterir. Bu değer, bu öznitelik eklenmesini önce oluşturulan gizli dizileri için null. Değerini IntDate değerini içeren bir sayı olmalıdır.  
 - *güncelleştirilmiş*: IntDate, isteğe bağlı. Bu gizli dizi sürümü ne zaman güncelleştirildiği güncelleştirilmiş öznitelik gösterir. Bu değer, bu öznitelik eklenmesini önce en son güncelleştirildiği gizli dizileri için null. Değerini IntDate değerini içeren bir sayı olmalıdır.
 
-#### <a name="BKMK_secret-date-time-ctrld-ops"></a> Tarih-saat denetimli işlemleri
+#### <a name="date-time-controlled-operations"></a>Tarih-saat denetimli işlemleri
 
 Bir parolanın **alma** işlemi dışında değil henüz geçerli ve süresi dolan gizli diziler çalışır *nbf* / *exp* penceresi. Bir parolanın çağırma **alma** değil henüz geçerli bir gizli dizi için bir işlemi test amaçları için kullanılabilir. Alınıyor (**alma**ing) süresi dolmuş bir parola kurtarma işlemleri için kullanılabilir.
 
-Veriler üzerinde daha fazla bilgi için bkz: türleri, [veri türleri](#BKMK_DataTypes).  
+Veri türleri hakkında daha fazla bilgi için bkz. [veri türleri](#data-types).  
 
-###  <a name="BKMK_SecretAccessControl"></a> Gizli anahtar erişim denetimi
+### <a name="secret-access-control"></a>Parola erişim denetimi
 
-Bu gizli dizileri kapsayıcı gibi davranır bir Key Vault düzeyinde erişim denetimi için Azure anahtar Kasası'nda yönetilen gizli dizileri sağlanır. Parolalar için aynı anahtar kasasındaki anahtarlar için erişim denetimi ilkesini farklı bir erişim denetimi İlkesi yoktur. Kullanıcılar, gizli tutmak için bir veya daha fazla kasalarını oluşturabilir ve senaryoya uygun segmentlere ayırma ve gizli dizilerinin Yönetimi korumak için gereklidir. Erişim denetimleri için gizli dizileri, anahtarlar için erişim denetimi bağımsızdır.  
+Anahtar Kasası'nda yönetilen gizli dizileri için erişim denetimi, bu gizli dizileri içeren anahtar kasası düzeyinde sağlanır. Erişim denetimi ilkesi için gizli dizileri, aynı anahtar kasasındaki anahtarlar için erişim denetimi ilkesini farklı. Kullanıcılar, gizli tutmak için bir veya daha fazla kasalarını oluşturabilir ve senaryoya uygun segmentlere ayırma ve gizli dizilerinin Yönetimi tutmaları zorunludur.   
 
 Aşağıdaki izinleri, bir asıl başına temelinde bir kasasındaki gizli dizileri erişim denetim girişi ve kullanılabilir bir gizli dizi nesnesinde izin verilen işlemleri yakından yansıtma:  
 
--   *ayarlama*: yeni gizli dizileri oluşturma  
--   *Alma*: gizli dizi okumak  
--   *Liste*: gizli dizileri ya da Key Vault'ta depolanan bir gizli anahtarın sürümlerini listeler.  
--   *silme*: gizli anahtarı silme  
--   *tüm*: tüm izinler  
+- Gizli dizi yönetimi işlemleri için izinleri
+  - *Alma*: gizli dizi okumak  
+  - *Liste*: gizli dizileri ya da Key Vault'ta depolanan bir gizli anahtarın sürümlerini listeler.  
+  - *ayarlama*: gizli dizi oluşturma  
+  - *silme*: gizli anahtarı silme  
+  - *Kurtarma*: silinen bir gizli dizi Kurtar
+  - *Yedekleme*: bir anahtar kasasındaki gizli dizi yedekleme
+  - *geri yükleme*: yedeklenen bir gizli bir anahtar kasası için yedekleme geri yükleme
 
-Gizli anahtarlarla çalışma hakkında daha fazla bilgi için bkz. [Key Vault REST API Başvurusu'ndaki gizli dizi işlemleri](/rest/api/keyvault).  
+- Ayrıcalıklı işlemleri için izinleri
+  - *Temizleme*: Temizle (kalıcı) silinen bir gizli dizi
 
-###  <a name="BKMK_SecretTags"></a> Gizli etiketleri  
-Ek uygulamaya özgü meta veri etiketleri biçiminde belirtebilirsiniz. Azure Key Vault, en fazla 15 etiket, her biri olan 256 karakterlik bir ad ve 256 karakter değeri destekler.  
+Gizli anahtarlarla çalışma hakkında daha fazla bilgi için bkz. [Key Vault REST API Başvurusu'ndaki gizli dizi işlemleri](/rest/api/keyvault). İzinler oluşturma hakkında daha fazla bilgi için bkz: [kasaları - oluştur veya Güncelleştir](/rest/api/keyvault/vaults/createorupdate) ve [kasaları - güncelleştirme erişim ilkesi](/rest/api/keyvault/vaults/updateaccesspolicy). 
+
+### <a name="secret-tags"></a>Gizli etiketleri  
+Ek uygulamaya özgü meta veri etiketleri biçiminde belirtebilirsiniz. Key Vault, en fazla 15 etiket, her biri olan 256 karakterlik bir ad ve 256 karakter değeri destekler.  
 
 >[!Note]
->Bunlar varsa etiketleri çağıran tarafından okunabilir *listesi* veya *alma* söz konusu nesne türü; izni anahtarları, parola veya sertifikalara.
+>Bunlar varsa etiketleri çağıran tarafından okunabilir *listesi* veya *alma* söz konusu nesne türü (anahtarlar, parola veya sertifikalara) izni.
 
 ## <a name="key-vault-certificates"></a>Anahtar kasası sertifikaları
 
@@ -304,25 +290,25 @@ Key Vault sertifikaları destek sağlar, x509 yönetimi için sertifikaları ve 
 >[!Note]
 >Olmayan iş Birliği yaparak sağlayıcıları/yetkilileri de izin verilir ancak otomatik yenileme özelliğini desteklemez.
 
-###  <a name="BKMK_CompositionOfCertificate"></a> Sertifika oluşturma
+### <a name="composition-of-a-certificate"></a>Sertifika oluşturma
 
 Anahtar kasası sertifikası oluşturulurken bir adreslenebilir anahtar ve gizli dizi de aynı ada sahip oluşturulur. Key Vault anahtarı anahtar işlemleri ve Key Vault gizli sertifika değeri bir gizli dizi olarak alınmasına olanak sağlar. Anahtar kasası sertifikası ortak x509 de içeren sertifika meta verileri.  
 
 Sertifikaların sürümü ve tanımlayıcı, anahtar ve gizli dizi benzer. Key Vault sertifikası yanıtta bir adreslenebilir anahtar ve gizli anahtar kasası sertifikası sürümüyle oluşturulan belirli bir sürümü kullanılabilir.
  
-![Karmaşık nesneler Cetificates kullanılabilir](media/azure-key-vault.png)
+![Karmaşık nesneler sertifikalardır](media/azure-key-vault.png)
 
-###  <a name="BKMK_CertificateExportableOrNonExportableKey"></a> Anahtar dışarı aktarılabilir veya olmayan dışarı aktarılabilir
+### <a name="exportable-or-non-exportable-key"></a>Anahtar dışarı aktarılabilir veya olmayan dışarı aktarılabilir
 
-Anahtar kasası sertifikası oluşturulduğunda, sertifikayı oluşturmak için kullanılan ilke anahtarı verilebilir belirtilmişse, adreslenebilir gizli anahtarından PFX veya PEM biçiminde özel anahtarla alınabilir. Key Vault sertifikası oluşturmak için kullanılan ilkeyi aktarılamaz olmanın anahtarı belirtilmişse, ardından özel anahtar değerinin bir gizli dizi alınırken bir parçası değil.  
+Anahtar kasası sertifikası oluşturulduğunda, adreslenebilir gizli anahtarından PFX veya PEM biçiminde özel anahtarla alınabilir. Bir sertifika oluşturmak için kullanılan ilke anahtarı verilebilir belirtmeniz gerekir. İlkeyi dışarı aktarılabilir olmayan gösteriyorsa, özel anahtar değerinin bir gizli dizi alınırken bir parçası değil.  
 
 Adreslenebilir anahtar KV sertifikaları aktarılamaz daha ilgili hale gelir. Gelen adreslenebilir KV anahtarının operations eşlenen *keyusage* KV sertifika ilkesi KV sertifikayı oluşturmak için kullanılan alan.  
 
 İki anahtar türleri desteklenir: *RSA* veya *RSA HSM* sertifikalara sahip. Dışarı aktarılabilir yalnızca RSA HSM tarafından desteklenmeyen RSA ile izin verilir.  
 
-###  <a name="BKMK_CertificateAttributesAndTags"></a> Sertifika öznitelikler ve etiketler
+### <a name="certificate-attributes-and-tags"></a>Sertifika öznitelikler ve etiketler
 
-Sertifika meta veriler ek olarak, bir adreslenebilir anahtar ve, adreslenebilir bir gizli dizi, anahtar kasası sertifikası öznitelikler ve etiketler içerir.  
+Sertifika meta verileri, bir adreslenebilir anahtar ve adreslenebilir gizli dizi ek olarak, anahtar kasası sertifikası öznitelikler ve etiketler de içerir.  
 
 #### <a name="attributes"></a>Öznitelikler
 
@@ -330,7 +316,7 @@ Sertifika öznitelikleri, öznitelikleri adreslenebilir anahtar ve gizli dizi KV
 
 Bir Key Vault sertifika aşağıdaki özniteliklere sahiptir:  
 
--   *Etkin*: Boole, isteğe bağlı, varsayılan **true**. Bu öznitelik, gizli ya da çalıştırılabilir bir anahtar olarak sertifika verileri alınabilir, belirtmek için belirtilebilir. Bu ile birlikte kullanılan *nbf* ve *exp* bir işlemi oluştuğunda arasında *nbf* ve *exp*, etkinleştirildiğinde yalnızca verilir ayarlanmış true. İşlemler dışındaki *nbf* ve *exp* penceresi otomatik olarak izin verilmiyor.  
+-   *Etkin*: Boole, isteğe bağlı, varsayılan **true**. Sertifika verileri gizli ya da çalıştırılabilir bir anahtar olarak alınabilir, belirtmek için belirtilebilir. Ayrıca ile birlikte kullanılan *nbf* ve *exp* bir işlemi oluştuğunda arasında *nbf* ve *exp*ve etkinleştirildiğinde yalnızca izin verilir ayarlanmış true. İşlemler dışındaki *nbf* ve *exp* penceresi otomatik olarak izin verilmiyor.  
 
 Yanıta dahil ek salt okunur özniteliği vardır:
 
@@ -347,20 +333,18 @@ Yanıta dahil ek salt okunur özniteliği vardır:
  İstemci belirtilen benzer etiketler anahtarları ve gizli anahtar-değer çiftlerinin dictionary'si.  
 
  > [!Note]
-> Bunlar varsa etiketleri çağıran tarafından okunabilir *listesi* veya *alma* söz konusu nesne türü; izni anahtarları, parola veya sertifikalara.
+> Bunlar varsa etiketleri çağıran tarafından okunabilir *listesi* veya *alma* söz konusu nesne türü (anahtarlar, parola veya sertifikalara) izni.
 
-###  <a name="BKMK_CertificatePolicy"></a> Sertifika İlkesi
+### <a name="certificate-policy"></a>Sertifika İlkesi
 
-Bir sertifika ilkesi oluşturup bir KV sertifikanın yaşam döngüsünü yönetme hakkında bilgi içerir. Özel anahtara sahip bir sertifikayı anahtar kasasına içeri aktarıldığında, varsayılan bir ilke x509 okuyarak oluşturulan sertifika.  
+Bir sertifika ilkesi oluşturup bir Key Vault sertifikanın yaşam döngüsünü yönetme hakkında bilgi içerir. Özel anahtara sahip bir sertifikayı anahtar kasasına içeri aktarıldığında, varsayılan bir ilke x509 okuyarak oluşturulan sertifika.  
 
-Sıfırdan KV sertifika oluşturulurken bir ilke bu KV sertifika sürümü veya sonraki KV sertifika sürümü oluşturma hakkında bilgilendirmek için Key Vault sağlanması gerekir. İlke oluşturulduktan sonra art arda ile gerekli olmasa oluşturma işlemleri bir sonraki KV sertifika sürümleri oluşturmak için.  
+Anahtar kasası sertifikası sıfırdan oluşturulduğunda, bir ilke sağlanması gerekir. İlke bu Key Vault sertifikası sürümü veya sonraki Key Vault sertifikası sürümü oluşturulacağını belirtir. İlke oluşturulduktan sonra art arda ile gerekli değildir oluşturma işlemleri gelecekteki sürümleri. Anahtar kasası sertifikası tüm sürümleri için bir ilke yalnızca bir örneği vardır.  
 
-Yalnızca bir örneğini KV sertifika tüm sürümleri için bir ilke yoktur.  
+Bir sertifika ilkesi, yüksek düzeyde, aşağıdaki bilgileri içerir:  
 
-Yüksek düzeyde, bir sertifika ilkesi aşağıdakileri içerir:  
-
--   Sertifika Özellikleri X509: içeren konu adı, konu alternatif adları vb. x x509 oluşturmak için kullanılan sertifika isteği.  
--   Anahtar özellikleri: anahtar türü içeren anahtar uzunluğu, dışarı aktarılabilir ve anahtar alanları yeniden kullanabilirsiniz. Bu alanlar, anahtar kasasına bir anahtar oluşturmak nasıl isteyin.  
+-   Sertifika Özellikleri X509: konu adı ve konu alternatif adlarını x x509 oluşturmak için kullanılan diğer özellikleri içeren sertifika isteği.  
+-   Anahtar özellikleri: anahtar türü içeren anahtar dışarı aktarılabilir, uzunluğu ve anahtar alanları yeniden kullanabilirsiniz. Bu alanlar, anahtar kasasına bir anahtar oluşturmak nasıl isteyin.  
 -   Gizli dizi özellikleri: içerik türünü gizli dizi olarak sertifika almak için gizli değer üretmek için adreslenebilir gizli gibi gizli dizi özelliklerini içerir.  
 -   Yaşam süresi eylemler: KV sertifika ömrü eylemleri içerir. Her yaşam süresi eylem içerir:  
 
@@ -386,7 +370,7 @@ Aşağıdaki tabloda, anahtar kullanım ilkesi anahtar etkin anahtar işlemleri 
 |İnkar edilemez|oturum, doğrulayın| Yok |
 |crlsign|oturum, doğrulayın| Yok |
 
-###  <a name="BKMK_CertificateIssuer"></a> Sertifikayı veren
+### <a name="certificate-issuer"></a>Sertifikayı veren
 
 Bir Key Vault sertifikası nesnesi sipariş x509 sertifikaları için seçilen sertifika veren sağlayıcısıyla iletişim kurmak için kullanılan bir yapılandırma tutar.  
 
@@ -413,37 +397,79 @@ Key Vault farklı veren sağlayıcı yapılandırması ile birden çok veren nes
 
 Veren nesneleri kasaya oluşturulur ve yalnızca aynı kasaya KV sertifikaları ile kullanılabilir.  
 
-###  <a name="BKMK_CertificateContacts"></a> Sertifika kişileri
+### <a name="certificate-contacts"></a>Sertifika kişileri
 
 Sertifika kişileri sertifika ömrü olaylar tarafından tetiklenen bildirimleri göndermek için kişi bilgilerini içerir. Kişi bilgileri tarafından tüm sertifikalar anahtar kasasında paylaşılır. Anahtar Kasası'nda herhangi bir sertifika için bir olay için belirtilen tüm kişilere bildirim gönderilir.  
 
-Ardından bir sertifika ilkesi için Otomatik yenilemeyi ayarlarsanız, aşağıdaki olaylar üzerinde bir bildirim gönderilir.  
+Ardından bir sertifika ilkesi için otomatik yenileme ayarlarsanız, aşağıdaki olaylar üzerinde bir bildirim gönderilir.  
 
 -   Önce sertifika yenileme
 -   Sertifika başarıyla yenilendi belirten veya bir hata varsa, sertifikanın el ile yenileme gerekliliği sertifika yenileme sonra.  
 
  Bir sertifika ilkesi el ile olarak ayarlanmışsa yenilenen (e-posta yalnızca) sonra bir bildirim gönderilir, sertifikayı yenilemek için saat olduğunda.  
 
-###  <a name="BKMK_CertificateAccessControl"></a> Sertifika erişim denetimi
+### <a name="certificate-access-control"></a>Sertifika erişim denetimi
 
- Erişim denetimi sertifikalar için Key Vault tarafından yönetildiğinden ve bu sertifikaların kapsayıcı gibi davranır bir Key Vault düzeyinde sağlanır. Sertifikalar için anahtarları ve gizli anahtarları aynı anahtar Kasası'nda için erişim denetimi ilkesini farklı bir erişim denetimi İlkesi yoktur. Kullanıcıların, sertifikaları tutmak için bir veya daha fazla kasalarını oluşturabilir ve senaryoya uygun segmentlere ayırma ve yönetim sertifikaları sağlamak için gereklidir.  
+ Erişim denetimi sertifikalar için Key Vault tarafından yönetildiğinden ve içeren bu sertifikaları Key Vault tarafından sağlanır. Sertifikalar için erişim denetimi İlkesi, anahtarları ve gizli anahtarları aynı anahtar Kasası'nda için erişim denetim ilkeleri'nden farklıdır. Kullanıcılar senaryoya uygun segmentlere ayırma ve yönetim sertifikaları sağlamak için sertifikaları tutmak için bir veya daha fazla kasalarını oluşturabilir.  
 
  Bir asıl başına temelinde, gizli dizileri erişim denetim girişi bir key vault ile yakından yansıtmalar bir gizli dizi nesnesinde izin verilen işlemleri üzerinde aşağıdaki izinlere kullanılabilir:  
 
--   *Alma*: get Geçerli sertifika sürümü veya herhangi bir sürümünü bir sertifika verir. 
--   *Liste*: geçerli bir sertifika veya sertifika sürümleri listesini sağlar.  
--   *silme*: sertifika, ilkesini ve tüm sürümlerini silme sağlar  
--   *oluşturma*: sağlar anahtar kasası sertifikası oluşturun.  
--   *içeri aktarma*: bir anahtar kasası sertifikayı içeri aktarma sertifika malzeme sağlar.  
--   *Güncelleştirme*: bir sertifikanın güncelleştirilmesi sağlar.  
--   *managecontacts*: Key Vault sertifika kişileri yönetilmesine izin verir  
--   *getissuers*: get, bir sertifika verenler sağlar  
--   *listissuers*: sertifika verenler listesini sağlar.  
--   *setissuers*: sağlayan oluşturma veya güncelleştirme Key Vault sertifika verenler  
--   *deleteissuers*: Key Vault sertifika verenler silme sağlar  
--   *tüm*: tüm izinleri sağlar  
+- Sertifika yönetimi işlemleri için izinleri
+  - *Alma*: geçerli sertifika sürümü veya herhangi bir sürümünü bir sertifika alın 
+  - *Liste*: geçerli bir sertifika veya sertifika sürümleri listesi  
+  - *Güncelleştirme*: sertifika güncelleştirmesi
+  - *oluşturma*: bir anahtar kasası sertifikası oluşturma
+  - *içeri aktarma*: sertifika malzemeleri bir Key Vault sertifikası alma
+  - *silme*: bir sertifikanın, ilke ve tüm sürümlerini Sil  
+  - *Kurtarma*: silinen bir sertifika Kurtar
+  - *Yedekleme*: bir sertifika bir anahtar kasasına yedekleme
+  - *geri yükleme*: yedeklenen sertifika bir anahtar Kasası'na geri yükleme
+  - *managecontacts*: anahtar Kasası'nı yönetmek için sertifika kişileri  
+  - *manageissuers*: Key Vault yönetme sertifika yetkilileri/verenler
+  - *getissuers*: bir sertifika yetkilileri/verenler Al
+  - *listissuers*: bir sertifika yetkilileri/verenler listesi  
+  - *setissuers*: bir Key Vault sertifika yetkilileri/verenler güncelle  
+  - *deleteissuers*: bir Key Vault sertifika yetkilileri/verenler Sil  
+ 
+- Ayrıcalıklı işlemleri için izinleri
+  - *Temizleme*: Temizle (kalıcı) bir sertifika silindi
 
-Daha fazla bilgi için [sertifika anahtar kasası REST API Başvurusu'ndaki işlemleri](/rest/api/keyvault). 
+Daha fazla bilgi için [sertifika anahtar kasası REST API Başvurusu'ndaki işlemleri](/rest/api/keyvault). İzinler oluşturma hakkında daha fazla bilgi için bkz: [kasaları - oluştur veya Güncelleştir](/rest/api/keyvault/vaults/createorupdate) ve [kasaları - güncelleştirme erişim ilkesi](/rest/api/keyvault/vaults/updateaccesspolicy).
+
+## <a name="azure-storage-account-key-management"></a>Azure depolama hesabı anahtarı yönetimi
+
+Key Vault, Azure depolama hesabı anahtarlarını yönetebilirsiniz:
+
+- Dahili olarak, anahtar kasası (eşitleme) Azure depolama hesabı anahtarları listeleyebilirsiniz. 
+- Key Vault oluşturur (döndürür) anahtarlarını düzenli aralıklarla.
+- Anahtar değerler hiçbir zaman yanıt arayana döndürülür.
+- Depolama hesapları hem de klasik depolama hesabı anahtarlarını Key Vault yönetir.
+
+Daha fazla bilgi için [Azure Key Vault depolama hesabı anahtarları](key-vault-ovw-storage-keys.md)
+
+### <a name="storage-account-access-control"></a>Depolama hesabı erişim denetimi
+
+Aşağıdaki izinleri, kullanıcı veya uygulama asıl yetkilendirirken yönetilen bir depolama hesabı üzerinde işlem gerçekleştirmek için kullanılabilir:  
+
+- Yönetilen depolama hesabı ve SaS tanımı işlemleri için izinleri
+  - *Alma*: bir depolama hesabıyla ilgili bilgileri alır 
+  - *Liste*: Key Vault tarafından yönetilen depolama hesapları Listele
+  - *Güncelleştirme*: bir depolama hesabı güncelleştirme
+  - *silme*: bir depolama hesabını Sil  
+  - *Kurtarma*: silinen depolama hesabını Kurtar
+  - *Yedekleme*: yedekleme depolama hesabı
+  - *geri yükleme*: yedekleme depolama hesabı, bir anahtar Kasası'na geri yükleme
+  - *ayarlama*: oluşturun veya bir depolama hesabı güncelleştirin
+  - *üretir*: bir depolama hesabı için belirtilen bir anahtar değeri yeniden oluştur
+  - *getsas*: bir depolama hesabı için bir SAS tanımı hakkında bilgi alma
+  - *listsas*: listesinde bir depolama hesabı için depolama SAS tanımları
+  - *deletesas*: bir depolama hesabından bir SAS tanımını sil
+  - *setsas*: bir yeni SAS tanımı/öznitelikler için bir depolama hesabı güncelle
+
+- Ayrıcalıklı işlemleri için izinleri
+  - *Temizleme*: Temizle (kalıcı) yönetilen bir depolama hesabı
+
+Daha fazla bilgi için [depolama hesabı anahtar kasası REST API Başvurusu işlemlerinde](/rest/api/keyvault). İzinler oluşturma hakkında daha fazla bilgi için bkz: [kasaları - oluştur veya Güncelleştir](/rest/api/keyvault/vaults/createorupdate) ve [kasaları - güncelleştirme erişim ilkesi](/rest/api/keyvault/vaults/updateaccesspolicy).
 
 ## <a name="see-also"></a>Ayrıca Bkz.
 

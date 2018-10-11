@@ -5,17 +5,17 @@ services: azure-stack
 keywords: ''
 author: mattbriggs
 manager: femila
-ms.author: brenduns
 ms.date: 08/02/2018
 ms.topic: article
 ms.service: azure-stack
+ms.author: mabrigg
 ms.reviewer: scottnap
-ms.openlocfilehash: 50fe3c0c7fda745047c71afb8eedf7fa8806c4ec
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 1863236a51d89dd311cd8aacfcd737faddf21ab0
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "42056161"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49079200"
 ---
 # <a name="considerations-for-azure-stack-networking"></a>Azure Stack ağ iletişimi için dikkat edilmesi gerekenler
 
@@ -40,7 +40,7 @@ Bu makalede, Azure Stack ağ iletişimi ve özelliklerini benzersiz konularına 
 |  | Ölçek kümesi IP yapılandırmaları | Desteklenen | Henüz desteklenmiyor. |
 |  | Özel Erişim Hizmetleri (alt ağ) | Desteklenen | Henüz desteklenmiyor. |
 |  | Hizmet Uç Noktaları | Azure Hizmetleri için iç (Internet olmayan) bağlantısı için desteklenir. | Henüz desteklenmiyor. |
-| Yalnızca IPv4 desteklenir. | Hizmet uç noktası İlkesi | Desteklenen | Henüz desteklenmiyor. |
+| Yalnızca IPv4 desteklenir. | Hizmet Uç Noktası İlkeleri | Desteklenen | Henüz desteklenmiyor. |
 |  | Hizmet tüneli | Desteklenen | Henüz desteklenmiyor.  |
 | Ağ Güvenlik Grupları | Genişletilmiş Güvenlik kuralları | Desteklenen | Henüz desteklenmiyor. |
 |  | Geçerli güvenlik kuralları | Desteklenen | Henüz desteklenmiyor. |

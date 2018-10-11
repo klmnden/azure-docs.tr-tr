@@ -5,14 +5,14 @@ services: event-grid
 author: tfitzmac
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 09/13/2018
+ms.date: 10/10/2018
 ms.author: tomfitz
-ms.openlocfilehash: 15d68e4da6dd03751300f87ea5830c2db0470b60
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: 4d53c33daefaadb4c58ce500a5d564af7988b606
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45604867"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49077097"
 ---
 # <a name="event-grid-message-delivery-and-retry"></a>Event Grid iletiyi teslim ve yeniden deneyin
 
@@ -22,7 +22,7 @@ Event Grid, sürekli teslimi sağlar. Bu, her ileti her abonelik için en az bir
 
 Şu anda Event Grid her olay için aboneleri ayrı ayrı gönderir. Abone ile tek bir olay dizisi alır.
 
-## <a name="retry-intervals-and-duration"></a>Yeniden deneme aralıkları ve süresi
+## <a name="retry-schedule-and-duration"></a>Yeniden deneme zamanlaması ve süresi
 
 Event Grid olay teslimi için bir üstel geri alma yeniden deneme ilkesi kullanır. Bir uç nokta yanıt vermiyor veya bir hata kodu döndürüyor, Event Grid teslim aşağıdaki zamanlamaya göre yeniden deneme:
 
@@ -34,7 +34,7 @@ Event Grid olay teslimi için bir üstel geri alma yeniden deneme ilkesi kullan�
 6. 30 dakika
 7. 1 saat
 
-Event Grid, tüm yeniden deneme aralıkları için küçük bir rastgele seçim ekler. Bir saat sonra olay teslimi saatte bir kez yeniden denendi.
+Event Grid, tüm yeniden deneme adımları küçük rastgele ekler. Bir saat sonra olay teslimi saatte bir kez yeniden denendi.
 
 Varsayılan olarak, Event Grid, 24 saat içinde teslim olmayan tüm olayların süresi dolar. Yapabilecekleriniz [yeniden deneme ilkesi özelleştirme](manage-event-delivery.md) bir olay aboneliği oluştururken. Yaşam süresi (varsayılan değer 30) teslim denemesi ve olay sayısını sağlar (varsayılan değer 1440 dakika).
 

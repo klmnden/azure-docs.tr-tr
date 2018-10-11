@@ -7,12 +7,12 @@ ms.service: storage
 ms.date: 10/04/2018
 ms.author: renash
 ms.component: files
-ms.openlocfilehash: 7cab1d0594792437c03427177159b193765aa92e
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: b3aca33bea8f7847b7069bba3f2a6dcd143cf29c
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48871004"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49079146"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Azure dosyaları hakkında sık sorulan sorular (SSS)
 [Azure dosyaları](storage-files-introduction.md) tam olarak yönetilen dosya paylaşımları endüstri standardı erişilebilen bulutta sunar [sunucu ileti bloğu (SMB) Protokolü](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx). Azure dosya paylaşımları Windows, Linux ve macOS Bulut veya şirket içi dağıtımlarda eşzamanlı olarak bağlayabilir. Ayrıca verilerin kullanıldığı yakın, hızlı erişim için Azure dosya eşitleme'ı kullanarak Azure dosya paylaşımları Windows Server makinelerinde önbelleğe alabilir.
@@ -149,7 +149,7 @@ Bu makalede, Azure dosyaları özellikleri ve işlevleri, Azure dosya eşitleme 
 
 * <a id="afs-tiered-files-out-of-endpoint"></a>
 **Neden katmanlı dosyaları dışında sunucu uç noktası ad var mı?**  
-    Azure dosya eşitleme Aracısı sürüm 3 önce Azure dosya eşitleme taşıma katmanlı dosyaların sunucu uç noktasını dışında fakat sunucu uç noktası ile aynı birimde engellendi. Kopyalama işlemlerini olmayan katmanlı dosya taşır ve için katmanlı taşır diğer birimleri etkilenmez. Bu davranışın nedeni instanenous yeniden adlandırma işlemlerinden aynı birim üzerindeki işlemler (yaklaşık) olan taşıdığınız dosya Gezgini ve diğer Windows API'ları olan örtük varsayımına oluştu. Bu hamle dosya Gezgini yapar veya diğer taşıma yöntemleri ile (örneğin, komut satırından veya PowerShell) Azure dosya eşitleme bulut verileri geri çekme sırasında yanıt vermeyen görünür anlamına gelir. İle başlayarak [Azure dosya eşitleme Aracısı sürüm 3.0.12.0](storage-files-release-notes.md#agent-version-30120), Azure dosya eşitleme katmanlı bir dosya sunucu uç noktasını dışında taşımanıza olanak sağlayacaktır. Biz, katmanlı sunucu uç noktasını dışında bir katmanlı dosya olarak mevcut dosyaya izin verme ve ardından dosya arka planda geri çağırma tarafından daha önce bahsedilen olumsuz etkileri kaçının. Başka bir deyişle, aynı birim instaneous olan ve dosyayı diske taşıma tamamlandıktan sonra geri çağırma iş yaptığımız taşır. 
+    Azure dosya eşitleme Aracısı sürüm 3 önce Azure dosya eşitleme taşıma katmanlı dosyaların sunucu uç noktasını dışında fakat sunucu uç noktası ile aynı birimde engellendi. Kopyalama işlemlerini olmayan katmanlı dosya taşır ve için katmanlı taşır diğer birimleri etkilenmez. Bu davranışın nedeni instanenous yeniden adlandırma işlemlerinden aynı birim üzerindeki işlemler (yaklaşık) olan taşıdığınız dosya Gezgini ve diğer Windows API'ları olan örtük varsayımına oluştu. Bu hamle dosya Gezgini yapar veya diğer taşıma yöntemleri ile (örneğin, komut satırından veya PowerShell) Azure dosya eşitleme bulut verileri geri çekme sırasında yanıt vermeyen görünür anlamına gelir. İle başlayarak [Azure dosya eşitleme Aracısı sürüm 3.0.12.0](storage-files-release-notes.md#supported-versions), Azure dosya eşitleme katmanlı bir dosya sunucu uç noktasını dışında taşımanıza olanak sağlayacaktır. Biz, katmanlı sunucu uç noktasını dışında bir katmanlı dosya olarak mevcut dosyaya izin verme ve ardından dosya arka planda geri çağırma tarafından daha önce bahsedilen olumsuz etkileri kaçının. Başka bir deyişle, aynı birim instaneous olan ve dosyayı diske taşıma tamamlandıktan sonra geri çağırma iş yaptığımız taşır. 
 
 * <a id="afs-do-not-delete-server-endpoint"></a>
 **My server (eşitleme, bulut katmanlama, vb.) Azure dosya eşitleme ile ilgili bir sorun yaşıyorum. Kaldırın ve paylaşabilirim my server uç noktası yeniden?**  

@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/28/2018
 ms.author: lbosq
-ms.openlocfilehash: a513d186f895c33ef9329ce0464c70de5884330d
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: bf91ec77f8d7248c6fa2047636f295c187f626c8
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48891076"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49078231"
 ---
 # <a name="using-a-partitioned-graph-in-azure-cosmos-db"></a>Bölümlenmiş bir grafik Azure Cosmos DB içinde kullanma
 
@@ -41,7 +41,7 @@ Bölünmüş grafik kapsayıcısı oluştururken önce anlamanız gereken Ayrın
 
 - **Bir bölüm anahtarı belirtmeniz gerekir graf sorgularını**. Tek bir köşe seçildiğinde mümkün olduğunda yatay Azure Cosmos DB'de bölümleme tam avantajından yararlanmak için bölüm anahtarı belirtilmesi gerekir. Bölümlenmiş bir grafikte bir veya daha fazla köşe seçmeye yönelik sorgular şunlardır:
 
-    - Şu anda kullanamazsınız `/id` Gremlin API içinde bir kapsayıcı için bölüm anahtarı olarak.
+    - `/id` ve `/label` Gremlin API içinde bir kapsayıcı için bölüm anahtarı olarak desteklenmiyor...
 
 
     - Ardından Kimliğe göre bir köşe seçerek **kullanarak `.has()` bölüm anahtar özelliği belirtmek için adım**: 

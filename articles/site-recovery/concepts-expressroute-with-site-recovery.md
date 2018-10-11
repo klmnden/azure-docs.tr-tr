@@ -9,12 +9,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: manayar
-ms.openlocfilehash: ac64c73ac26c610c08dceff13cbd524916853146
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: eb28a3d165bcb6cc5e63162053029ce14b0d7f8f
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37916430"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49078146"
 ---
 # <a name="azure-expressroute-with-azure-site-recovery"></a>Azure Site Recovery ile Azure ExpressRoute
 
@@ -49,7 +49,7 @@ Azure Site kurtarma sağlayan olağanüstü durum kurtarma [Azure sanal makinele
 
 Azure VM'LERİNDE olağanüstü durum kurtarma için varsayılan olarak, ExpressRoute çoğaltma için gerekli değildir. Sanal makineler üzerinde hedef Azure bölgesi başarısız olduktan sonra bunları erişebilirsiniz kullanarak [özel eşdüzey hizmet sağlama](../expressroute/expressroute-circuit-peerings.md#azure-private-peering).
 
-Kaynak bölgesi Azure Vm'lerinde, şirket içi veri merkezinizden bağlanmak için zaten ExpressRoute kullanıyorsanız, yük devretme hedef bölgede ExpressRoute bağlantınızın yeniden kurmak için planlayabilirsiniz. Hedef bölgede yeni bir sanal ağ bağlantısı üzerinden bağlanmak veya ayrı bir ExpressRoute bağlantı hattı ve olağanüstü durum kurtarma için bağlantı kullanmak için aynı ExpressRoute bağlantı hattı kullanabilirsiniz. Farklı olası senaryolar açıklanmıştır [burada](azure-vm-disaster-recovery-with-expressroute.md#failover-models-with-expressroute).
+Kaynak bölgesi Azure Vm'lerinde, şirket içi veri merkezinizden bağlanmak için zaten ExpressRoute kullanıyorsanız, yük devretme hedef bölgede ExpressRoute bağlantınızın yeniden kurmak için planlayabilirsiniz. Hedef bölgede yeni bir sanal ağ bağlantısı üzerinden bağlanmak veya ayrı bir ExpressRoute bağlantı hattı ve olağanüstü durum kurtarma için bağlantı kullanmak için aynı ExpressRoute bağlantı hattı kullanabilirsiniz. Farklı olası senaryolar açıklanmıştır [burada](azure-vm-disaster-recovery-with-expressroute.md#fail-over-azure-vms-when-using-expressroute).
 
 Herhangi bir Azure bölgesine ayrıntılı olarak aynı coğrafi kümedeki Azure sanal makinelerini çoğaltma [burada](../site-recovery/azure-to-azure-support-matrix.md#region-support). Seçtiğiniz hedef Azure bölgesi aynı jeopolitik bölgede kaynağı olarak içinde değilse, ExpressRoute Premium etkinleştirmeniz gerekebilir. Daha fazla ayrıntı için denetleyin [ExpressRoute konumları](../expressroute/expressroute-locations.md#azure-regions-to-expressroute-locations-within-a-geopolitical-region) ve [ExpressRoute fiyatlandırması](https://azure.microsoft.com/pricing/details/expressroute/).
 

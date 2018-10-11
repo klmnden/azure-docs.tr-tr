@@ -10,63 +10,122 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/12/2018
+ms.date: 10/10/2018
 ms.author: tomfitz
-ms.openlocfilehash: 9cb9fcbb6750bf854cca74ed6bd08a91caed9e26
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 06719f3a92dae805081ea85c346df97ebed0e0dc
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44717599"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49078079"
 ---
 # <a name="use-azure-key-vault-to-pass-secure-parameter-value-during-deployment"></a>Dağıtım sırasında güvenli bir parametre geçirmek için Azure Key Vault'u kullanma
 
 (Parola gibi) güvenli bir değerle, dağıtım sırasında parametre olarak geçirmeniz gerektiğinde, değerini almak bir [Azure anahtar kasası](../key-vault/key-vault-whatis.md). Değeri, anahtar kasasını ve gizli parametre dosyanızdaki başvurarak alın. Anahtar kasası kimliğini yalnızca başvuru değeri hiçbir zaman sunulur Anahtar kasası, dağıtım yaptığınız kaynak grubundan farklı bir abonelikte bulunabilir.
 
-## <a name="enable-access-to-the-secret"></a>Gizli dizi erişimi etkinleştirme
-
-Şablon dağıtımı sırasında bir anahtar kasasına erişmek için bulunması gereken iki önemli koşullar vardır:
-
-1. Anahtar kasası özelliği `enabledForTemplateDeployment` olmalıdır `true`.
-2. Şablonu dağıtarak kullanıcı, gizli dizi erişiminiz olması gerekir. Kullanıcının olmalıdır `Microsoft.KeyVault/vaults/deploy/action` anahtar kasası için izni. [Sahibi](../role-based-access-control/built-in-roles.md#owner) ve [katkıda bulunan](../role-based-access-control/built-in-roles.md#contributor) rollerinin her ikisi de bu erişim verin.
-
-Şablonu ile bir Key Vault kullanırken bir [yönetilen uygulamayı](../managed-applications/overview.md), erişim izni vermesi gerekir **Gereci kaynak sağlayıcısı** hizmet sorumlusu. Daha fazla bilgi için [Azure yönetilen uygulamaları dağıtırken Access Key Vault gizli](../managed-applications/key-vault-access.md).
-
-
 ## <a name="deploy-a-key-vault-and-secret"></a>Bir anahtar kasası veya gizli anahtarı dağıtın
 
-Bir anahtar kasasını ve gizli dizi oluşturmak için Azure CLI veya PowerShell kullanın. Anahtar kasası şablon dağıtımı için etkinleştirildiğini dikkat edin. 
+Bir anahtar kasasını ve gizli dizi oluşturmak için Azure CLI veya PowerShell kullanın. `enabledForTemplateDeployment` anahtar kasası özelliğidir. Resource Manager dağıtımından bu Key Vault içinde gizli dizileri erişmeye `enabledForTemplateDeployment` olmalıdır `true`. 
+
+Aşağıdaki örnek Azure PowerShell ve Azure CLI betiği, Key Vault ve gizli dizi oluşturma işlemini gösterir.
 
 Azure CLI için şunu kullanın:
 
 ```azurecli-interactive
-vaultname={your-unique-vault-name}
-password={password-value}
+keyVaultName='{your-unique-vault-name}'
+resourceGroupName='{your-resource-group-name}'
+location='centralus'
+userPrincipalName='{your-email-address-associated-with-your-subscription}'
 
-az group create --name examplegroup --location 'South Central US'
+# Create a resource group
+az group create --name $resourceGroupName --location $location
+
+# Create a Key Vault
 az keyvault create \
-  --name $vaultname \
-  --resource-group examplegroup \
-  --location 'South Central US' \
+  --name $keyVaultName \
+  --resource-group $resourceGroupName \
+  --location $location \
   --enabled-for-template-deployment true
-az keyvault secret set --vault-name $vaultname --name examplesecret --value $password
+az keyvault set-policy --upn $userPrincipalName --name $keyVaultName --secret-permissions set delete get list
+
+# Create a secret with the name, vmAdminPassword
+password=$(openssl rand -base64 32)
+echo $password
+az keyvault secret set --vault-name $keyVaultName --name 'vmAdminPassword' --value $password
 ```
 
 PowerShell için şunu kullanın:
 
-```powershell
-$vaultname = "{your-unique-vault-name}"
-$password = "{password-value}"
+```azurepowershell-interactive
+$keyVaultName = "{your-unique-vault-name}"
+$resourceGroupName="{your-resource-group-name}"
+$location='Central US'
+$userPrincipalName='{your-email-address-associated-with-your-subscription}'
 
-New-AzureRmResourceGroup -Name examplegroup -Location "South Central US"
+New-AzureRmResourceGroup -Name $resourceGroupName -Location $location
+
 New-AzureRmKeyVault `
-  -VaultName $vaultname `
-  -ResourceGroupName examplegroup `
-  -Location "South Central US" `
+  -VaultName $keyVaultName `
+  -resourceGroupName $resourceGroupName `
+  -Location $location `
   -EnabledForTemplateDeployment
+Set-AzureRmKeyVaultAccessPolicy -VaultName $keyVaultName -UserPrincipalName $userPrincipalName -PermissionsToSecrets set,delete,get,list
+
+$password = openssl rand -base64 32
+echo $password
 $secretvalue = ConvertTo-SecureString $password -AsPlainText -Force
-Set-AzureKeyVaultSecret -VaultName $vaultname -Name "examplesecret" -SecretValue $secretvalue
+Set-AzureKeyVaultSecret -VaultName $keyVaultName -Name "vmAdminPassword" -SecretValue $secretvalue
 ```
+
+PowerShell komut dosyasını Cloud shell'e dışında çalışır, bunun yerine parola oluşturmak için aşağıdaki komutu kullanın:
+
+```powershell
+Add-Type -AssemblyName System.Web
+[System.Web.Security.Membership]::GeneratePassword(16,3)
+```
+
+Resource Manager şablonu kullanarak için: bkz [öğretici: Resource Manager şablon dağıtımı'da Azure anahtar kasası tümleştirme](./resource-manager-tutorial-use-key-vault.md#prepare-the-key-vault).
+
+> [!NOTE]
+> Her bir Azure hizmeti, belirli parola gereksinimleri vardır. Örneğin, Azure sanal makine gereksinimleri bölümünde bulunabilir [parola gereksinimleri bir VM oluşturulurken nelerdir?](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm).
+
+## <a name="enable-access-to-the-secret"></a>Gizli dizi erişimi etkinleştirme
+
+Dışında ayarlama `enabledForTemplateDeployment` için `true`, şablon dağıtımı kullanıcının olmalıdır `Microsoft.KeyVault/vaults/deploy/action` içeren kaynak grubunu ve anahtar kasası dahil olmak üzere anahtar kasası kapsam izni. [Sahibi](../role-based-access-control/built-in-roles.md#owner) ve [katkıda bulunan](../role-based-access-control/built-in-roles.md#contributor) rollerinin her ikisi de bu erişim verin. Key Vault oluşturun, böylece iznine sahip sahibi olursunuz. Key Vault farklı bir abonelik altında ise, Key Vault sahibi genel erişim gerekir.
+
+Aşağıdaki yordam bir rolü ile en düşük permssion oluşturma ve kullanıcıya atamak nasıl gösterir
+1. Özel rol tanımı JSON dosyası oluşturun:
+
+    ```json
+    {
+      "Name": "Key Vault resource manager template deployment operator",
+      "IsCustom": true,
+      "Description": "Lets you deploy a resource manager template with the access to the secrets in the Key Vault.",
+      "Actions": [
+        "Microsoft.KeyVault/vaults/deploy/action"
+      ],
+      "NotActions": [],
+      "DataActions": [],
+      "NotDataActions": [],
+      "AssignableScopes": [
+        "/subscriptions/00000000-0000-0000-0000-000000000000"
+      ]
+    }
+    ```
+    ": 00000000-0000-0000-0000-000000000000" şablonları dağıtmak için gereken kullanıcı abonelik kimliği ile değiştirin.
+
+2. JSON dosyasını kullanarak yeni bir rolü oluşturun:
+
+    ```azurepowershell
+    $resourceGroupName= "<Resource Group Name>" # the resource group which contains the Key Vault
+    $userPrincipalName = "<Email Address of the deployment operator>"
+    New-AzureRmRoleDefinition -InputFile "<PathToTheJSONFile>" 
+    New-AzureRmRoleAssignment -ResourceGroupName $resourceGroupName -RoleDefinitionName "Key Vault resource manager template deployment operator" -SignInName $userPrincipalName
+    ```
+
+    `New-AzureRmRoleAssignment` Örnek kaynak grubu düzeyinde kullanıcı özel rol atayabilirsiniz.  
+
+Şablonu ile bir Key Vault kullanırken bir [yönetilen uygulamayı](../managed-applications/overview.md), erişim izni vermesi gerekir **Gereci kaynak sağlayıcısı** hizmet sorumlusu. Daha fazla bilgi için [Azure yönetilen uygulamaları dağıtırken Access Key Vault gizli](../managed-applications/key-vault-access.md).
 
 ## <a name="reference-a-secret-with-static-id"></a>Gizli dizi ile statik kimliği başvurusu
 
@@ -147,7 +206,7 @@ Gizli dizi geçerli sürümü dışında bir sürümünü kullanmanız gerekir, 
 Azure CLI için şunu kullanın:
 
 ```azurecli-interactive
-az group create --name datagroup --location "South Central US"
+az group create --name datagroup --location $location
 az group deployment create \
     --name exampledeployment \
     --resource-group datagroup \
@@ -157,8 +216,8 @@ az group deployment create \
 
 PowerShell için şunu kullanın:
 
-```powershell
-New-AzureRmResourceGroup -Name datagroup -Location "South Central US"
+```powershell-interactive
+New-AzureRmResourceGroup -Name datagroup -Location $location
 New-AzureRmResourceGroupDeployment `
   -Name exampledeployment `
   -ResourceGroupName datagroup `
@@ -274,7 +333,7 @@ Yukarıdaki şablonu dağıtın ve parametreler için değerler sağlayın. Gith
 Azure CLI için şunu kullanın:
 
 ```azurecli-interactive
-az group create --name datagroup --location "South Central US"
+az group create --name datagroup --location $location
 az group deployment create \
     --name exampledeployment \
     --resource-group datagroup \
@@ -285,7 +344,7 @@ az group deployment create \
 PowerShell için şunu kullanın:
 
 ```powershell
-New-AzureRmResourceGroup -Name datagroup -Location "South Central US"
+New-AzureRmResourceGroup -Name datagroup -Location $location
 New-AzureRmResourceGroupDeployment `
   -Name exampledeployment `
   -ResourceGroupName datagroup `
