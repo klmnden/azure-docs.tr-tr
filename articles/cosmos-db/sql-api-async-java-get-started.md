@@ -11,12 +11,12 @@ ms.devlang: java
 ms.topic: tutorial
 ms.date: 06/29/2018
 ms.author: sngun
-ms.openlocfilehash: faa213caf415f98c230af741822e17a511b6fe43
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: aa2613f7cb73c2c338189aaaa48587c49a3093f5
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43696304"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46962230"
 ---
 # <a name="build-a-java-application-by-using-azure-cosmos-db-async-java-sdk"></a>Azure Cosmos DB Async Java SDK'sını kullanarak bir Java uygulaması derleme 
 
@@ -26,7 +26,6 @@ ms.locfileid: "43696304"
 > * [Java](sql-api-java-get-started.md)
 > * [Async Java](sql-api-async-java-get-started.md)
 > * [Node.js](sql-api-nodejs-get-started.md)
-> * [Node.js- v2](sql-api-nodejs-get-started-preview.md) 
 > 
 
 Azure Cosmos DB global olarak dağıtılmış, çok modelli bir veritabanıdır. Bu öğreticide Azure Cosmos DB SQL API'sinin Async Java uygulaması kullanarak veri depolama ve verilere erişme amacıyla nasıl kullanılacağı gösterilmektedir. 
@@ -101,7 +100,7 @@ public class AccountSettings
 ![Bir Java konsol uygulaması oluşturmak için NoSQL öğreticisi tarafından kullanılan Azure Portal’ın ekran görüntüsü. Azure Cosmos DB hesabı dikey penceresinde ANAHTARLAR düğmesi vurgulanmış, ETKİN hub'ı vurgulanmış ve Anahtarlar dikey penceresinde URI, BİRİNCİL ANAHTAR ve İKİNCİL ANAHTAR değerleri vurgulanmış bir Azure Cosmos DB hesabını gösterir][keys]
 
 ## <a name="step-4-initialize-the-client-object"></a>4. Adım: İstemci nesnesini başlatma
-“AccountSettings.java” dosyasında tanımlı ana bilgisayar URI'si ve birincil anahtar değerlerini kullanarak istemci nesnesini başlatın
+"AccountSettings.java" dosyasında tanımlı ana bilgisayar URI'si ve birincil anahtar değerlerini kullanarak istemci nesnesini başlatın
 
 ```java
 client = new AsyncDocumentClient.Builder()
@@ -201,7 +200,7 @@ private void createDocumentCollectionIfNotExists() throws Exception
 
 ## <a id="CreateDoc"></a>7. Adım: JSON belgeleri oluşturma
 
-Bir [belge](sql-api-resources.md#documents), DocumentClient sınıfının createDocument metodu kullanılarak oluşturulabilir. Belgeler, kullanıcı tanımlı (rastgele) JSON içerikleridir. Şimdi bir veya daha fazla belge ekleyebiliriz. “src/main/java/com/microsoft/azure/cosmosdb/sample/Families.java” JSON belgeleri ailesini tanımlar 
+Bir [belge](sql-api-resources.md#documents), DocumentClient sınıfının createDocument metodu kullanılarak oluşturulabilir. Belgeler, kullanıcı tanımlı (rastgele) JSON içerikleridir. Şimdi bir veya daha fazla belge ekleyebiliriz. "src/main/java/com/microsoft/azure/cosmosdb/sample/Families.java" JSON belgeleri ailesini tanımlar 
 
 ```java
 public static Family getJohnsonFamilyDocument() {

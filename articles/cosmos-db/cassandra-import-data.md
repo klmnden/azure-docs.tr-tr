@@ -1,105 +1,113 @@
 ---
-title: Cassandra verilerini Azure Cosmos DB’ye aktarma | Microsoft Docs
-description: Cassandra verilerini Azure Cosmos DB içine kopyalamak için CQL Kopyala komutunu kullanmayı öğrenin.
+title: Verilerinizi Azure Cosmos DB Cassandra API hesabına geçirme
+description: CQL Copy komutuyla Spark'ı kullanarak verileri Apache Cassandra'dan Azure Cosmos DB Cassandra API'ye kopyalamayı öğrenin.
 services: cosmos-db
 author: kanshiG
-manager: kfile
 ms.service: cosmos-db
 ms.component: cosmosdb-cassandra
-ms.devlang: dotnet
-ms.topic: tutorial
-ms.date: 11/15/2017
 ms.author: govindk
-ms.custom: mvc
-ms.openlocfilehash: f8c84cc501ea6a979d90d254abeceea8fcc6bddf
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.topic: tutorial
+ms.date: 09/24/2018
+ms.reviewer: sngun
+ms.openlocfilehash: 0bf5e47513ded4b2c65e7291db497e53a42776a8
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44053028"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46976185"
 ---
 # <a name="migrate-your-data-to-azure-cosmos-db-cassandra-api-account"></a>Verilerinizi Azure Cosmos DB Cassandra API hesabına geçirme
 
-Bu öğreticide Cassandra Sorgu Dili (CQL) COPY komutu kullanılarak Cassandra verilerini Azure Cosmos DB'ye aktarma yönergeleri sağlanmaktadır. 
+Bu öğreticide Apache Cassandra verilerini Azure Cosmos DB Cassandra API'ye geçirme yönergeleri sağlanır. 
 
 Bu öğretici aşağıdaki görevleri kapsar:
 
 > [!div class="checklist"]
-> * Bağlantı dizenizi alma
-> * Cqlsh COPY komutunu kullanarak verileri içeri aktarma
-> * Spark bağlayıcısını kullanarak içeri aktarma 
+> * Geçiş planlaması
+> * Geçiş önkoşulları
+> * cqlsh COPY komutunu kullanarak verileri geçirme
+> * Spark'ı kullanarak verileri geçirme 
 
-# <a name="prerequisites"></a>Ön koşullar
+## <a name="plan-for-migration"></a>Geçiş planlaması
 
-* [Apache Cassandra](http://cassandra.apache.org/download/)’yı yükleyin ve özellikle *cqlsh* öğesinin bulunduğundan emin olun.  
+Verileri Azure Cosmos DB Cassandra API'ye geçirmeden önce, iş yükünüzün aktarım hızı gereksinimlerini tahmin etmelisiniz. Genel olarak, CRUD işlemlerine gereken ortalama aktarım hızıyla başlamanız ve ardından Ayıklama Dönüştürme Yükleme (ETL) için veya öngörülemeyen işlemler için gereken fazladan aktarım hızını eklemeniz önerilir. Geçişi planlamak için şu ayrıntılara ihtiyacınız vardır: 
 
-* Aktarım hızını artırma: Veri geçişinizin süresi, Tablolarınız için sağladığınız aktarım hızı miktarına bağlıdır. Büyük veri geçişleri için aktarım hızını artırdığınızdan emin olun. Geçişi tamamladıktan sonra maliyet tasarrufu sağlamak için aktarım hızını azaltın. [Azure portalında](https://portal.azure.com) aktarım hızını artırma hakkında daha fazla bilgi için bkz. [Azure Cosmos DB kapsayıcıları için aktarım hızını ayarlama](set-throughput.md).  
+* **Mevcut veri boyutu veya tahmini veri boyutu:** Minimum veritabanı boyutunu ve aktarım hızı gereksinimini tanımlar. Yeni uygulama için veri boyutu tahmini yapıyorsanız, verilerin satırlara düzgün dağıtıldığını varsayabilir ve veri boyutuyla çarparak değeri tahmin edebilirsiniz. 
 
-* SSL’yi etkinleştir: Azure Cosmos DB sıkı güvenlik gereksinimleri ve standartlarına sahiptir. Hesabınız ile etkileşim kurarken SSL’yi etkinleştirdiğinizden emin olun. SSH ile CQL kullandığınızda, SSL bilgilerini sağlama seçeneğine sahip olursunuz. 
+* **Gerekli aktarım hızı:** Yaklaşık okuma (sorgulama/alma) ve yazma (güncelleştirme/silme/ekleme) aktarım hızı. Bu değer hem gerekli istek birimlerini hem de eylemsizlik durumunda veri boyutu hesaplamak için gereklidir.  
 
-## <a name="get-your-connection-string"></a>Bağlantı dizenizi alma
+* **Şemayı alma:** Mevcut Cassandra kümenize cqlsh ile bağlanın ve şemayı Cassandra'dan dışarı aktarın: 
 
-1. [Azure portalında](https://portal.azure.com), en solda **Azure Cosmos DB** seçeneğine tıklayın.
+  ```bash
+  cqlsh [IP] "-e DESC SCHEMA" > orig_schema.cql
+  ```
 
-2. **Abonelikler** bölmesinde, hesabınızın adını seçin.
+Mevcut iş yükünüzün gereksinimlerini tanımladıktan sonra, toplanan aktarım hızı gereksinimlerine göre bir Azure Cosmos DB hesabı, veritabanı ve kapsayıcılar oluşturmanız gerekir.  
 
-3. **Bağlantı Dizesi**’ne tıklayın. Sağ bölme, hesabınıza başarıyla bağlanmak için gereken tüm bilgileri içerir.
+* **Bir işlem için RU ücretini saptama:** İstediğiniz Azure Cosmos DB Cassandra API SDK'sını kullanarak RU'ları saptayabilirsiniz. Bu örnekte .NET sürümünün RU ücretleri gösterilmektedir.
 
-    ![Bağlantı dizesi sayfası](./media/cassandra-import-data/keys.png)
+  ```csharp
+  var tableInsertStatement = table.Insert(sampleEntity);
+  var insertResult = await tableInsertStatement.ExecuteAsync();
 
-## <a name="migrate-data-by-using-cqlsh-copy"></a>cqlsh COPY komutunu kullanarak veri geçirme
+  foreach (string key in insertResult.Info.IncomingPayload)
+    {
+       byte[] valueInBytes = customPayload[key];
+       string value = Encoding.UTF8.GetString(valueInBytes);
+       Console.WriteLine($"CustomPayload:  {key}: {value}");
+    }
+  ```
 
-Cassandra verilerini Cassandra API’si ile birlikte kullanmak üzere Azure Cosmos DB’ye içeri aktarmak için aşağıdaki kılavuzu kullanın:
+* **Gerekli aktarım hızını ayırma** Gereksinimleriniz arttıkça Azure Cosmos DB depolamayı ve aktarım hızını otomatik olarak ölçeklendirilebilir. Aktarım hızı gereksinimlerinizi tahmin etmek için [Azure Cosmos DB istek birimi hesaplayıcısını](https://www.documentdb.com/capacityplanner) kullanabilirsiniz. 
 
-1. Portaldan bağlantı bilgilerini kullanarak cqhsh oturumu açın.
-2. Yerel verileri Apache Cassandra API uç noktasına kopyalamak için [CQL COPY komutunu](http://cassandra.apache.org/doc/latest/tools/cqlsh.html#cqlsh) kullanın. Gecikme sorunlarını en aza indirmek için kaynak ve hedefin aynı veri merkezinde olduğundan emin olun.
+## <a name="prerequisites-for-migration"></a>Geçiş önkoşulları
 
-### <a name="steps-to-move-data-with-cqlsh"></a>cqlsh ile veri taşıma adımları
+* **Azure Cosmos DB Cassandra API hesabında tabloları oluşturma:** Verileri geçirmeye başlamadan önce, Azure portalından veya cqlsh'den tüm tablolarınızı oluşturun.
 
-1. Tablonuzu önceden oluşturup ölçeklendirin:
-    * Varsayılan olarak, Azure Cosmos DB yeni bir Cassandra API tablosunu saniyede 1.000 istek birimiyle (RU/s) sağlar (CQL tabanlı oluşturma 400 RU/s ile sağlanır). Cqlsh kullanarak geçişe başlamadan önce, [Azure portal](https://portal.azure.com) veya cqlsh’den tüm tablolarınızı önceden oluşturun. 
+* **Aktarım hızını artırma:** Veri geçişinizin süresi, Azure Cosmos DB'deki tablolar için sağladığınız aktarım hızı miktarına bağlıdır. Geçiş süresince aktarım hızını artırın. Daha yüksek aktarım hızı ile, hız sınırlamayı önleyebilir ve daha kısa sürede geçişi tamamlayabilirsiniz. Geçişi tamamladıktan sonra maliyet tasarrufu sağlamak için aktarım hızını azaltın. Aktarım hızını artırma hakkında daha fazla bilgi için Azure Cosmos DB kapsayıcıları için [aktarım hızını ayarlama](set-throughput.md) konusuna bakın. Ayrıca Azure Cosmos DB hesabınızın kaynak veritabanınızla aynı bölgede olması da önerilir. 
 
-    * [Azure portalından](https://portal.azure.com), geçiş süresi boyunca tablolarınızın aktarım hızını varsayılan değerden (400 veya 1000 RU/s) 10.000 RU/s değerine artırın. Daha yüksek aktarım hızı ile, hız sınırlamayı önleyebilir ve daha kısa sürede geçişi tamamlayabilirsiniz. Azure Cosmos DB’de saatlik faturalandırma ile, maliyet tasarrufu sağlamak için geçiş işleminden hemen sonra aktarım hızını azaltabilirsiniz.
+* **SSL’yi etkinleştirme:** Azure Cosmos DB sıkı güvenlik gereksinimleri ve standartlarına sahiptir. Hesabınız ile etkileşim kurarken SSL’yi etkinleştirdiğinizden emin olun. SSH ile CQL kullandığınızda, SSL bilgilerini sağlama seçeneğine sahip olursunuz.
 
-2. Bir işlem için RU ücretini belirleyin. Bunu istediğiniz Azure Cosmos DB Cassandra API SDK’sını kullanarak yapabilirsiniz. Bu örnekte .NET sürümünün RU ücretleri gösterilmektedir. 
+## <a name="options-to-migrate-data"></a>Verileri geçirme seçenekleri
 
-    ```csharp
-    var tableInsertStatement = table.Insert(sampleEntity);
-    var insertResult = await tableInsertStatement.ExecuteAsync();
+Verileri mevcut Cassandra iş yüklerinden Azure Cosmos DB'ye taşırken şu seçenekleri kullanabilirsiniz:
 
-    foreach (string key in insertResult.Info.IncomingPayload)
-            {
-                byte[] valueInBytes = customPayload[key];
-                string value = Encoding.UTF8.GetString(valueInBytes);
-                Console.WriteLine($"CustomPayload:  {key}: {value}");
-            }
- 
-    ``` 
+* [cqlsh COPY komutunu kullanma](#using-cqlsh-copy-command)  
+* [Spark'ı kullanma](#using-spark) 
 
-3. Makinenizden Azure Cosmos DB hizmetine gecikmeyi belirleyin. Bir Azure Veri merkezindeyseniz, gecikme düşük bir tek basamaklı milisaniyelik sayı olmalıdır. Azure Veri Merkezi’nin dışındaysanız, konumunuzdan yaklaşık uzaklığı almak için psping veya azurespeed.com kullanabilirsiniz.   
+## <a name="migrate-data-using-cqlsh-copy-command"></a>cqlsh COPY komutunu kullanarak verileri geçirme
 
-4. İyi performans sağlayan parametreler (NUMPROCESS, INGESTRATE, MAXBATCHSIZE veya MINBATCHSIZE) için uygun değerleri hesaplayın. 
+[CQL COPY komutu](http://cassandra.apache.org/doc/latest/tools/cqlsh.html#cqlsh), yerel verileri Azure Cosmos DB Cassandra API hesabına kopyalamak için kullanılır. Verileri kopyalamak için aşağıdaki adımları kullanın:
 
-5. Son geçiş komutunu çalıştırın. Bu komutun çalıştırılması, cqlsh’yi bağlantı dizesini bilgilerini kullanarak başlattığınızı varsayar.
+1. Cassandra API hesabınızın bağlantı dizesi bilgilerini alın:
+
+   * [Azure portalında](https://portal.azure.com) oturum açın ve Azure Cosmos DB hesabınıza gidin.
+
+   * cqlsh'den Cassandra API hesabınıza bağlanmak için ihtiyacınız olan tüm bilgilerin yer aldığı **Bağlantı Dizesi** bölmesini açın.
+
+2. Portaldan bağlantı bilgilerini kullanarak cqhsh oturumu açın.
+
+3. Yerel verileri Cassandra API hesabına kopyalamak için CQL COPY komutunu kullanın.
 
    ```bash
    COPY exampleks.tablename FROM filefolderx/*.csv 
    ```
 
-## <a name="migrate-data-by-using-spark"></a>Spark'ı kullanarak veri geçirme
+## <a name="migrate-data-using-spark"></a>Spark'ı kullanarak verileri geçirme 
 
-Azure sanal makinelerinde mevcut bir kümede bulunan veriler için, verileri Spark kullanarak içeri aktarmak da uygun bir seçenektir. Bu, Spark’ın bir kez veya normal alma için aracı olarak ayarlanmasını gerektirir. 
+Verileri Azure Cosmos DB Cassandra API'ye Spark'la geçirmek için aşağıdaki adımları kullanın:
+
+- Bir [Azure Databricks](cassandra-spark-databricks.md) veya [HDInsight kümesi](cassandra-spark-hdinsight.md) sağlayın 
+
+- Verileri hedef Cassandra API uç noktasına taşımak için [tablo kopyalama işlemini](cassandra-spark-table-copy-ops.md) kullanın 
+
+Azure sanal makinelerindeki veya başka herhangi bir buluttaki mevcut kümede bekleyen verileriniz varsa, verilerin Spark işleri kullanılarak geçirilmesi önerilir. Bu, Spark’ın bir kez veya düzenli alma için aracı olarak ayarlanmasını gerektirir. Şirket içi ile Azure arasında Express Route bağlantısı kullanarak bu geçişi hızlandırabilirsiniz. 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu öğreticide aşağıdaki görevleri tamamlamayı öğrendiniz:
-
-> [!div class="checklist"]
-> * Bağlantı dizenizi alma
-> * Cql copy komutunu kullanarak verileri içeri aktarma
-> * Spark bağlayıcısını kullanarak içeri aktarma 
-
-Şimdi Azure Cosmos DB hakkında daha fazla bilgi için Kavramlar bölümüne geçebilirsiniz. 
+Bu öğreticide verilerinizi Azure Cosmos DB Cassandra API hesabına geçirmeyi öğrendiniz. Şimdi Azure Cosmos DB hakkında daha fazla bilgi için kavramlar bölümüne geçebilirsiniz. 
 
 > [!div class="nextstepaction"]
->[Azure Cosmos DB'deki ayarlanabilir tutarlılık düzeyleri](../cosmos-db/consistency-levels.md)
+> [Azure Cosmos DB'deki ayarlanabilir tutarlılık düzeyleri](../cosmos-db/consistency-levels.md)
+
+

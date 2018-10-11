@@ -1,25 +1,25 @@
 ---
-title: Azure Maliyet Yönetimi ile CSP İş Ortağı bilgilerini kullanarak kaydolma | Microsoft Docs
-description: Azure Maliyet Yönetimi’ne kaydolmak için CSP İş Ortağı bilgilerinizi kullanın.
+title: Azure’da Cloudyn ile CSP İş Ortağı bilgilerini kullanarak kaydolma | Microsoft Docs
+description: Cloudyn’e kaydolmak için CSP İş Ortağı bilgilerinizi kullanın.
 services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 08/06/2018
+ms.date: 09/18/2018
 ms.topic: quickstart
 ms.custom: ''
 ms.service: cost-management
 manager: dougeby
-ms.openlocfilehash: e97ac06d5740a793d5f811e1a7ac01fef1a32806
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: 698ddab4f5bca5aacf79cb952a51c385a67eee32
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39578067"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46985461"
 ---
 # <a name="register-with-the-csp-partner-program-and-view-cost-data"></a>CSP İş Ortağı programına kaydolun ve maliyetle ilgili verileri görüntüleyin
 
-CSP iş ortağı olarak, Azure Maliyet Yönetimi’ne kaydolabilirsiniz. Kaydınız Cloudyn portalına erişim sağlar. Bu hızlı başlangıçta bir Cloudyn deneme aboneliği oluşturmak ve Cloudyn portalında oturum açmak için gereken kayıt işlemleri açıklanmaktadır. Ayrıca nasıl maliyet verilerini hemen görüntülemeye başlayabileceğinizi gösterir.
+CSP iş ortağı olarak, Cloudyn’e kaydolabilirsiniz. Kaydınız Cloudyn portalına erişim sağlar. Bu hızlı başlangıçta bir Cloudyn deneme aboneliği oluşturmak ve Cloudyn portalında oturum açmak için gereken kayıt işlemleri açıklanmaktadır. Ayrıca nasıl maliyet verilerini hemen görüntülemeye başlayabileceğinizi gösterir.
 
 
 >[!NOTE]
@@ -35,12 +35,12 @@ Daha fazla bilgi için bkz. [İş Ortağı Merkezi API’sine bağlanma](https:/
 
 - http://portal.azure.com adresinden Azure portalında oturum açın.
 
-## <a name="register-with-azure-cost-management"></a>Azure Maliyeti Yönetimi ile kaydetme
+## <a name="register-with-cloudyn"></a>Cloudyn’e kaydolma
 
 1. Azure portalında, hizmetler listesinde **Maliyet Yönetimi + Faturalama**’ya tıklayın.
-2. **Genel Bakış** altında, **Maliyet Yönetimi**’ne tıklayın  
-    ![Maliyet Yönetimi sayfası](./media/quick-register-csp/cost-mgt-billing-service.png)
-3. **Maliyet Yönetimi** sayfasında, Cloudyn kayıt sayfasını yeni bir pencerede açmak için **Maliyet Yönetimi’ne git**’e tıklayın.
+2. **Genel Bakış** altında, **Cloudyn**’e tıklayın  
+    ![Cloudyn sayfası](./media/quick-register-csp/cost-mgt-billing-service.png)
+3. **Cloudyn** sayfasında, Cloudyn kayıt sayfasını yeni bir pencerede açmak için **Cloudyn’e git**’e tıklayın.
 4. Cloudyn portal deneme kayıt sayfasında, şirketinizin adını yazıp **Microsoft CSP İş Ortağı Programı Yöneticisi**’ni seçin ve daha sonra **İleri**’ye tıklayın.  
 5. **Uygulama Kimliği**, **Ticari Kimlik** veya **Uygulama Gizli Anahtarı** girin ve **Varsayılan Fiyatlandırma Planı**’nı seçin. Elinizde gerekli bilgiler yoksa, birincil yönetici hesabınızla [https://partnercenter.microsoft.com](https://partnercenter.microsoft.com) adresindeki İş Ortağı Merkezi portalında oturum açın ve aşağıdaki adımları izleyin:
   1. **Pano**'ya gidin, **Ayarlar** simgesine tıklayın, **İş ortağı ayarları**'na ve ardından **Uygulama yönetimi**'ne tıklayın.
@@ -62,7 +62,7 @@ Daha fazla bilgi için bkz. [İş Ortağı Merkezi API’sine bağlanma](https:/
 Dolaylı CSP müşterileri ile iş ortaklarına erişim sağlamak için, [Deneme kaydı oluşturma](#create-a-trial-registration) başlığındaki adımları izleyerek deneme kaydı oluşturun. Şimdi, aşağıdaki adımları izleyerek Cloudyn varlık gruplarını kullanarak dolaylı CSP verilerini gruplandıracağız. Sonra, varlık gruplarına uygun kullanıcı izinlerini atayacağız.
 
 1. [Varlık oluşturma ](tutorial-user-access.md#create-and-manage-entities) konusundaki bilgilerle varlık grubu oluşturun.
-2. [Maliyet Varlıklarına abonelik atama](https://support.cloudyn.com/hc/en-us/articles/115005139425-Video-Assigning-subscriptions-to-Cost-Entities) konusundaki adımları izleyin. Dolaylı CSP müşterisinin hesabını ve önceden oluşturduğunuz varlıkla ilgili Azure aboneliğini ilişkilendirin.
+2. [Maliyet Varlıklarına abonelik atama](https://support.cloudyn.com/hc/articles/115005139425-Video-Assigning-subscriptions-to-Cost-Entities) konusundaki adımları izleyin. Dolaylı CSP müşterisinin hesabını ve önceden oluşturduğunuz varlıkla ilgili Azure aboneliğini ilişkilendirin.
 3. Yönetici erişimine sahip bir kullanıcı hesabı oluşturmak için [Yönetici erişimine sahip bir kullanıcı oluşturma](tutorial-user-access.md#create-a-user-with-admin-access) konusuna göz atın. Sonra, kullanıcı hesabının dolaylı hesap için daha önce oluşturduğunuz belirli varlıklara erişimi olduğundan emin olun.
 
 Dolaylı CSP iş ortakları, Cloudyn portalında, kendileri için oluşturduğunuz hesapları kullanarak oturum açar.
@@ -72,7 +72,7 @@ Dolaylı CSP iş ortakları, Cloudyn portalında, kendileri için oluşturduğun
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu hızlı başlangıçta, Maliyet Yönetimi ile kaydolmak için CSP bilgilerinizi kullandınız. Ayrıca Cloudyn portalında oturum açarak maliyet verilerini görüntülemeye başladınız. Azure Maliyet Yönetimi hakkında daha fazla bilgi almak için, Maliyet Yönetimi öğreticisi ile devam edin.
+Bu hızlı başlangıçta, Cloudyn’e kaydolmak için CSP bilgilerinizi kullandınız. Ayrıca Cloudyn portalında oturum açarak maliyet verilerini görüntülemeye başladınız. Cloudyn hakkında daha fazla bilgi için Cloudyn öğreticisine geçin.
 
 > [!div class="nextstepaction"]
 > [Kullanımı ve maliyetleri gözden geçirme](./tutorial-review-usage.md)

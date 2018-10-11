@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 11/23/2017
 ms.author: suhuruli
 ms.custom: mvc, devcenter
-ms.openlocfilehash: cedc13cb18440eee32e333d395494043e2eca9d1
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 702d247bf331a4231b4b71ae6661ff88c9e0be2e
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39442522"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46982775"
 ---
 # <a name="quickstart-deploy-a-java-spring-boot-application-to-service-fabric"></a>Hızlı Başlangıç: Service Fabric'e Java Spring Boot uygulaması dağıtma
 
@@ -187,7 +187,7 @@ Oturum açın ve bir [Linux kümesine](http://aka.ms/tryservicefabric) katılın
 Service Fabric, bir kümeyi ve uygulamalarını yönetmek için kullanabileceğiniz birçok araç sağlar:
 
 * Tarayıcı tabanlı bir araç: Service Fabric Explorer.
-* Azure CLI 2.0 üzerinde çalışan Service Fabric Komut Satırı Arabirimi (CLI).
+* Azure CLI üzerinde çalışan Service Fabric Komut Satırı Arabirimi (CLI).
 * PowerShell komutları.
 
 Bu hızlı başlangıçta, Service Fabric CLI ve Service Fabric Explorer’ı kullanacaksınız.

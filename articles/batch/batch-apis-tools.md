@@ -6,14 +6,14 @@ author: dlepow
 manager: jeconnoc
 ms.service: batch
 ms.topic: get-started-article
-ms.date: 05/15/2018
+ms.date: 06/18/2018
 ms.author: danlep
-ms.openlocfilehash: 3f2551fbc91b91cdc5f7d6e764c5345ddbd18544
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 62eafcc6d5d8f9aa99404964167db48c9bba0c37
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43121993"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46957338"
 ---
 # <a name="overview-of-batch-apis-and-tools"></a>Batch API'lerine ve araçlarına genel bakış
 
@@ -60,7 +60,7 @@ Batch için Azure Resource Manager API'leri, Batch hesaplarına programlı eriş
 Bu komut satırı araçları, Batch hizmeti ve Batch Yönetimi API'leri ile aynı işlevi sağlar: 
 
 * [Batch PowerShell cmdlet'leri][batch_ps]: [Azure PowerShell](/powershell/azure/overview) modülündeki Azure Batch cmdlet'leri PowerShell ile Batch kaynaklarını yönetmenizi sağlar.
-* [Azure CLI 2.0](/cli/azure): Azure Komut Satırı Arabirimi (Azure CLI), Batch hizmeti ve Batch Yönetimi hizmeti de dahil olmak üzere çok sayıda Azure hizmetiyle etkileşim için kabuk komutları sağlayan, platformlar arası bir araç takımıdır. Azure CLI’yı Batch ile birlikte kullanma hakkında daha fazla bilgi için bkz. [Azure CLI ile Batch kaynaklarını yönetme](batch-cli-get-started.md).
+* [Azure CLI](/cli/azure): Azure CLI, Batch hizmeti ve Batch Yönetimi hizmeti de dahil olmak üzere çok sayıda Azure hizmetiyle etkileşim için kabuk komutları sağlayan, platformlar arası bir araç takımıdır. Azure CLI’yı Batch ile birlikte kullanma hakkında daha fazla bilgi için bkz. [Azure CLI ile Batch kaynaklarını yönetme](batch-cli-get-started.md).
 
 ## <a name="other-tools-for-application-development"></a>Uygulama geliştirme için diğer araçlar
 

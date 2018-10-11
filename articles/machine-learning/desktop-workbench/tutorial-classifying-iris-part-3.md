@@ -1,6 +1,6 @@
 ---
-title: Azure Machine Learning hizmetleri için model öğreticisi dağıtma
-description: Bu eksiksiz öğreticide Azure Machine Learning hizmetlerinin uçtan uca nasıl kullanılacağı gösterilmektedir. Bu üçüncü bölümde dağıtım modeli ele alınmaktadır.
+title: Azure Machine Learning hizmeti için model öğreticisi dağıtma
+description: Bu eksiksiz öğreticide Azure Machine Learning hizmetinin uçtan uca nasıl kullanılacağı gösterilmektedir. Bu üçüncü bölümde dağıtım modeli ele alınmaktadır.
 services: machine-learning
 author: aashishb
 ms.author: aashishb
@@ -12,14 +12,18 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 3/13/2018
-ms.openlocfilehash: de0c93ef5b907b56e6ad66a04bb728b5b9aabb9a
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ROBOTS: NOINDEX
+ms.openlocfilehash: 2eb6eb5090b0a68a189e2d4f1148d3238bc3ee0d
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "41917776"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46946621"
 ---
 # <a name="tutorial-3-classify-iris-deploy-a-model"></a>Öğretici 3: Iris Sınıflandırma: Model dağıtma
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)]
+
 Azure Machine Learning (önizleme) uzman veri bilimcilerine yönelik tümleşik, uçtan uca ve gelişmiş bir analiz çözümüdür. Veri bilimcileri bu çözümü kullanarak veri hazırlayabilir, denemeler geliştirebilir ve bulut ölçeğinde modeller dağıtabilir.
 
 Bu öğretici **üç bölümden oluşan bir serinin üçüncü bölümüdür**. Öğreticinin bu bölümünde aşağıdakileri yapmak için Machine Learning (önizleme) kullanırsınız:
@@ -38,7 +42,7 @@ Bu öğreticide zamansız [Iris çiçeği veri kümesi](https://en.wikipedia.org
 
 Bu öğreticiyi tamamlamak için aşağıdakiler gerekir:
 - Azure aboneliği. Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun. 
-- Bu [hızlı başlangıçta](../service/quickstart-installation.md) açıklandığı gibi, bir deneme hesabı ve Azure Machine Learning Workbench yüklenmiş olmalıdır
+- Bu [hızlı başlangıçta](quickstart-installation.md) açıklandığı gibi, bir deneme hesabı ve Azure Machine Learning Workbench yüklenmiş olmalıdır
 - [Öğreticinin 2. bölümündeki](tutorial-classifying-iris-part-2.md) sınıflandırma modeli
 - Yerel ortamda Docker altyapısının yüklenmiş ve çalışıyor olması gerekir
 
@@ -224,9 +228,9 @@ Geliştirme ve test için _yerel modu_ kullanabilirsiniz. Modeli hazır hale get
 1. Gerçek zamanlı bir web hizmeti oluşturmak için aşağıdaki komutu kullanın:
 
    ```azurecli
-   az ml service create realtime -f score_iris.py --model-file model.pkl -s service_schema.json -n irisapp -r python --collect-model-data true -c aml_config\conda_dependencies.yml
+   az ml service create realtime -f score_iris.py --model-file model.pkl -s ./output/service_schema.json -n irisapp -r python --collect-model-data true -c aml_config\conda_dependencies.yml
    ```
-   Bu komut daha sonra kullanabileceğiniz bir web hizmeti kimliği oluşturur.
+   Bu komut daha sonra kullanabileceğiniz bir web hizmeti kimliği oluşturur. Dizüstü bilgisayar kullanılıyorsa çıkış dizinini atlayın.
 
    **az ml service create realtime** komutuyla aşağıdaki anahtarlar kullanılır:
 
@@ -276,9 +280,9 @@ Daha önce gösterilen **az ml service create realtime** komutunun bir alternati
    Bildirim oluşturmak için aşağıdaki komutu kullanın ve önceki adımdan gelen model kimliği çıktısını sağlayın:
 
    ```azurecli
-   az ml manifest create --manifest-name <new manifest name> -f score_iris.py -r python -i <model ID> -s service_schema.json -c aml_config\conda_dependencies.yml
+   az ml manifest create --manifest-name <new manifest name> -f score_iris.py -r python -i <model ID> -s ./output/service_schema.json -c aml_config\conda_dependencies.yml
    ```
-   Bu komut bir bildirim kimliği oluşturur.
+   Bu komut bir bildirim kimliği oluşturur.  Dizüstü bilgisayar kullanılıyorsa çıkış dizinini atlayın.
 
 1. Bir Docker görüntüsü oluşturun.
 

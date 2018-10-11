@@ -1,30 +1,30 @@
 ---
-title: 'Öğretici: Azure Maliyet Yönetimi ile ayrılmış örnek maliyetlerini iyileştirme | Microsoft Docs'
+title: 'Öğretici: Azure’da Cloudyn ile ayrılmış örnek maliyetlerini iyileştirme | Microsoft Docs'
 description: Bu öğreticide, Azure ve Amazon Web Services (AWS) için ayrılmış örnek maliyetlerinizi nasıl iyileştireceğinizi öğreneceksiniz.
 services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 04/26/2018
+ms.date: 09/18/2018
 ms.topic: tutorial
 ms.service: cost-management
 ms.custom: ''
 manager: dougeby
-ms.openlocfilehash: f0edad58256ecc29e2fd215095e8b5ab13d69ce8
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: c50259f0df955c3a22edc979dfebc8bfb2059e16
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32177332"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46987801"
 ---
 <!-- Intent: As a cloud-consuming administrator, I need to ensure that my reserved instances are optimized for cost and usage
 -->
 
 # <a name="tutorial-optimize-reserved-instances"></a>Öğretici: Ayrılmış örnekleri iyileştirme
 
-Bu öğreticide, Maliyet Yönetimi'nin Azure ve Amazon Web Services (AWS) için ayrılmış örnek maliyetlerinizi ve kullanımını iyileştirmenize nasıl yardımcı olabileceğini öğreneceksiniz. Bulut hizmet sağlayıcılarıyla ayrılmış örnek, sanal makinenin gelecekteki kullanımı için önceden taahhütte bulunduğunuz uzun vadeli bir taahhüttür. Ayrıca, sanal makinelerin standart Kullandığın Kadar Öde fiyatlandırma modeline göre önemli bir tasarruf sağlama potansiyeline sahiptir. Potansiyel tasarrufların gerçekleşmesi için ayrılmış örneklerinizi tam kapasiteyle kullanmanız gerekir.
+Bu öğreticide, Cloudyn'in Azure ve Amazon Web Services (AWS) için ayrılmış örnek maliyetlerinizi ve kullanımını iyileştirmenize nasıl yardımcı olabileceğini öğreneceksiniz. Bulut hizmet sağlayıcılarıyla ayrılmış örnek, sanal makinenin gelecekteki kullanımı için önceden taahhütte bulunduğunuz uzun vadeli bir taahhüttür. Ayrıca, sanal makinelerin standart Kullandığın Kadar Öde fiyatlandırma modeline göre önemli bir tasarruf sağlama potansiyeline sahiptir. Potansiyel tasarrufların gerçekleşmesi için ayrılmış örneklerinizi tam kapasiteyle kullanmanız gerekir.
 
-Bu öğreticide, Azure 'un ve AWS Ayrılmış Örneklerin (RI) Maliyet Yönetimi tarafından nasıl desteklendiği anlatılır. Ayrıca ayrılmış örnek maliyetlerini nasıl iyileştirebileceğiniz de açıklanır. Bunun için öncelikle ayırmalarınızın tümüyle kullanıldığından emin olmalısınız. Bu öğreticide şunları yapacaksınız:
+Bu öğreticide, Azure 'un ve AWS Ayrılmış Örneklerin (RI) Cloudyn tarafından nasıl desteklendiği anlatılır. Ayrıca ayrılmış örnek maliyetlerini nasıl iyileştirebileceğiniz de açıklanır. Bunun için öncelikle ayırmalarınızın tümüyle kullanıldığından emin olmalısınız. Bu öğreticide şunları yapacaksınız:
 
 > [!div class="checklist"]
 > * Azure RI maliyetlerini anlama
@@ -41,7 +41,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 ## <a name="prerequisites"></a>Ön koşullar
 
 - Azure hesabınız olmalıdır.
-- Azure Maliyet Yönetimi için bir deneme kaydı veya ücretli aboneliğe sahip olmalısınız.
+- Cloudyn için bir deneme kaydı veya ücretli aboneliğe sahip olmanız gerekir.
 - Azure veya AWS'de RI satın almış olmalısınız.
 
 ## <a name="understand-azure-ri-costs"></a>Azure RI maliyetlerini anlama
@@ -85,7 +85,7 @@ Paylaşılan satın alma kapsamı en esnek kapsamdır ve mümkün olduğunca bun
 
 ## <a name="optimize-azure-ri-costs"></a>Azure RI maliyetlerini iyileştirme
 
-Azure Maliyet Yönetimi ayrılmış örnekleri ve Karma Avantajları şu yolla destekler:
+Cloudyn ayrılmış örnekleri ve Karma Avantajları şu yolla destekler:
 
 - Size fiyatlandırma modelleriyle ilişkilendirilmiş maliyetleri gösterir
 - RI kullanımını izler
@@ -116,7 +116,7 @@ Ayrılmış Örnek Satın Alma Etkisi raporunda bir VM boyutu (Örnek Türü), K
 
 ## <a name="view-ri-costs"></a>RI maliyetlerini görüntüleme
 
-Ayırma satın aldığınızda, bir kerelik ödeme yaparsınız. Maliyet Yönetimi'nde ödemeyi görüntülemenin iki yolu vardır:
+Ayırma satın aldığınızda, bir kerelik ödeme yaparsınız. Cloudyn'de ödemeyi görüntülemenin iki yolu vardır:
 
 - Gerçek Maliyet
 - Amorti Edilmiş Maliyet

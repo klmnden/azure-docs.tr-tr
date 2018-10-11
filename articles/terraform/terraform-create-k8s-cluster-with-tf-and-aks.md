@@ -8,13 +8,13 @@ author: tomarcher
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
-ms.date: 09/06/2018
-ms.openlocfilehash: cd1219fda7821fdc99e334de58826317113415d4
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.date: 09/08/2018
+ms.openlocfilehash: f261c59193349d55d407e6079002b75884273e84
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44053650"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46960252"
 ---
 # <a name="create-a-kubernetes-cluster-with-azure-kubernetes-service-and-terraform"></a>Azure Kubernetes Service ve Terraform ile bir Kubernetes kümesi oluşturma
 [Azure Kubernetes Service (AKS)](/azure/aks/), barındırılan Kubernetes ortamınızı yöneterek kapsayıcılı uygulamaları, kapsayıcı yönetimi uzmanlığı gerekmeden hızla ve kolayca dağıtma olanağı sunar. Ayrıca, kaynakları isteğe bağlı olarak sağlama, yükseltme ve ölçeklendirme işlemlerini uygulamalarınızı çevrimdışı duruma geçirmeden yaparak sürekliliği olan işlemlerin ve bakımların yükünü ortadan kaldırır.
@@ -32,7 +32,7 @@ Bu öğreticide aşağıdaki [Terraform](http://terraform.io) ve AKS'yi kullanar
 
 - **Terraform'u yapılandırma**: [Terraform'u yükleme ve Azure erişimini yapılandırma](/azure/virtual-machines/linux/terraform-install-configure) makalesindeki yönergeleri izleyin
 
-- **Azure hizmet sorumlusu**: [Azure CLI 2.0 ile Azure hizmet sorumlusu oluşturma](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest#create-the-service-principal) makalesinin **Hizmet sorumlusunu oluşturma** bölümündeki yönergeleri izleyin. appId, displayName, password ve tenant değerlerini not edin.
+- **Azure hizmet sorumlusu**: [Azure CLI ile Azure hizmet sorumlusu oluşturma](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest#create-the-service-principal) makalesinin **Hizmet sorumlusunu oluşturma** bölümündeki yönergeleri izleyin. appId, displayName, password ve tenant değerlerini not edin.
 
 ## <a name="create-the-directory-structure"></a>Dizin yapısını oluşturma
 İlk adım, bu alıştırmadaki Terraform yapılandırma dosyalarınızı barındıracak olan dizini oluşturmaktır.
@@ -295,7 +295,14 @@ Bu bölümde `terraform init` komutunu kullanarak önceki bölümlerde oluşturd
 
     !["terraform init" komutunun sonuçları](./media/terraform-create-k8s-cluster-with-tf-and-aks/terraform-init-complete.png)
 
-1. `terraform plan` komutunu çalıştırarak altyapı öğelerini tanımlayan Terraform planını oluşturun. Komut için iki değer gerekir: **var.client_id** ve **var.client_secret**. **var.client_id** değişkeni için hizmet sorumlunuzla ilişkilendirilmiş olan **appId** değerini girin. **var.client_secret** değişkeni için hizmet sorumlunuzla ilişkilendirilmiş olan **password** değerini girin.
+1. Hizmet sorumlusu kimlik bilgilerini dışarı aktarma &lt;your-client-id> ve &lt;your-client-secret> yer tutucularını, sırasıyla hizmet sorumlunuzla ilişkili **appId** ve **password** değerleri ile değiştirin.
+
+    ```bash
+    export TF_VAR_client_id=<your-client-id>
+    export TF_VAR_client_secret=<your-client-secret>
+    ```
+
+1. `terraform plan` komutunu çalıştırarak altyapı öğelerini tanımlayan Terraform planını oluşturun. 
 
     ```bash
     terraform plan -out out.plan

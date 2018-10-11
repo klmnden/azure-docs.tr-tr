@@ -1,6 +1,6 @@
 ---
-title: Azure Machine Learning hizmetlerinde Iris öğreticisini sınıflandırmak için verileri hazırlama (önizleme) | Microsoft Docs
-description: Bu eksiksiz öğreticide Azure Machine Learning hizmetlerinin (önizleme) uçtan uca nasıl kullanılacağı gösterilmektedir. Bu, birinci bölümdür ve veri hazırlığını açıklar.
+title: Azure Machine Learning hizmetinde Iris öğreticisini sınıflandırmak için verileri hazırlama (önizleme) | Microsoft Docs
+description: Bu eksiksiz öğreticide Azure Machine Learning hizmetinin (önizleme) uçtan uca nasıl kullanılacağı gösterilmektedir. Bu, birinci bölümdür ve veri hazırlığını açıklar.
 services: machine-learning
 author: hning86
 ms.author: haining
@@ -12,18 +12,21 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 3/7/2018
-ms.openlocfilehash: 56f1d26d5d687982366b9a8fb20235ff338a9573
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ROBOTS: NOINDEX
+ms.openlocfilehash: 272b8250a80fee42780311dec92f6d47c221c160
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38722992"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46990170"
 ---
 # <a name="tutorial-1-classify-iris---preparing-the-data"></a>Öğretici 1: Iris Sınıflandırması - Verileri hazırlama
 
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)]
+
 Azure Machine Learning hizmeti (önizleme) uzman veri bilimcilerinin bulut ölçeğinde veri hazırlamasını, deney geliştirmesini ve model dağıtmasını sağlayan tümleşik, uçtan uca ve gelişmiş bir analiz çözümüdür.
 
-Bu öğretici, **üç bölümden oluşan bir serinin birinci bölümüdür**. Bu öğreticide, Azure Machine Learning hizmetleri (önizleme) hakkındaki temel bilgileri adım adım inceleyerek şunların nasıl yapıldığını öğrenirsiniz:
+Bu öğretici, **üç bölümden oluşan bir serinin birinci bölümüdür**. Bu öğreticide, Azure Machine Learning hizmeti (önizleme) hakkındaki temel bilgileri adım adım inceleyerek şunların nasıl yapıldığını öğrenirsiniz:
 
 > [!div class="checklist"]
 > * Azure Machine Learning Workbench’te proje oluşturma
@@ -31,6 +34,8 @@ Bu öğretici, **üç bölümden oluşan bir serinin birinci bölümüdür**. Bu
 > * Veri hazırlama paketini çağırmak için Python/PySpark kodu oluşturma
 
 Bu öğreticide zamansız [Iris çiçeği veri kümesi](https://en.wikipedia.org/wiki/Iris_flower_data_set) kullanılmıştır. 
+
+[!INCLUDE [aml-preview-note](../../../includes/aml-preview-note.md)]
 
 ## <a name="prerequisites"></a>Ön koşullar
 
@@ -40,11 +45,11 @@ Bu öğreticiyi tamamlamak için aşağıdakiler gereklidir:
 - Bir Azure Machine Learning Denemesi hesabı
 - Azure Machine Learning Workbench'in yüklü olması
 
-Henüz bu ön gereksinimleri karşılamıyorsanız [Hızlı başlangıç: Yükleme ve başlatma](../service/quickstart-installation.md) makalesindeki adımları izleyerek hesaplarınızı ayarlayın ve Azure Machine Learning Workbench uygulamasını yükleyin. 
+Henüz bu ön gereksinimleri karşılamıyorsanız [Hızlı başlangıç: Yükleme ve başlatma](quickstart-installation.md) makalesindeki adımları izleyerek hesaplarınızı ayarlayın ve Azure Machine Learning Workbench uygulamasını yükleyin. 
 
 ## <a name="create-a-new-project-in-workbench"></a>Workbench'te yeni proje oluşturma
 
-[Hızlı başlangıç: Yükleme ve başlatma](../service/quickstart-installation.md) makalesindeki adımları izlediyseniz bu projeye zaten sahipsiniz demektir ve bir sonraki bölüme atlayabilirsiniz.
+[Hızlı başlangıç: Yükleme ve başlatma](quickstart-installation.md) makalesindeki adımları izlediyseniz bu projeye zaten sahipsiniz demektir ve bir sonraki bölüme atlayabilirsiniz.
 
 1. Azure Machine Learning Workbench uygulamasını açın ve gerekirse oturum açın. 
    
@@ -62,7 +67,7 @@ Henüz bu ön gereksinimleri karşılamıyorsanız [Hızlı başlangıç: Yükle
    Proje adı | myIris |Hesabınızı tanımlayan benzersiz bir ad girin. Kendi adınızı veya denemeyi en iyi şekilde tanımlayan departman ya da proje adını kullanabilirsiniz. Adı 2-32 karakter arasında olmalıdır. Yalnızca alfasayısal karakterler ve kısa çizgi (-) karakteri kullanılabilir. 
    Proje dizini | c:\Temp\ | Projenin oluşturulduğu dizini belirtin.
    Proje açıklaması | _boş bırakın_ | Projeleri açıklamak için kullanışlı bir isteğe bağlı alan.
-   Visualstudio.com GIT Deposu URL’si |_boş bırakın_ | İsteğe bağlı alan. Bir projeyi, kaynak denetimi ve işbirliği için isteğe bağlı olarak Visual Studio Team Services’de bir Git deposuyla ilişkilendirebilirsiniz. [Bunun nasıl ayarlanacağını öğrenin](https://docs.microsoft.com/azure/machine-learning/desktop-workbench/using-git-ml-project#step-3-set-up-a-machine-learning-project-and-git-repo). 
+   Visualstudio.com GIT Deposu URL’si |_boş bırakın_ | İsteğe bağlı alan. Bir projeyi, kaynak denetimi ve işbirliği için isteğe bağlı olarak Azure DevOps’ta bir Git deposuyla ilişkilendirebilirsiniz. [Bunun nasıl ayarlanacağını öğrenin](https://docs.microsoft.com/azure/machine-learning/desktop-workbench/using-git-ml-project#step-3-set-up-a-machine-learning-project-and-git-repo). 
    Seçili çalışma alanı | IrisGarden (varsa) | Azure portalında Deneme hesabınız için oluşturduğunuz bir çalışma alanını seçin. <br/>Hızlı Başlangıç’ı izlediyseniz, IrisGarden adlı bir çalışma alanınız olmalıdır. Bu çalışma alanı yoksa, Deneme hesabınızı açtığınızda oluşturduğunuz çalışma alanını veya kullanmak istediğiniz başka bir çalışma alanını seçin.
    Proje şablonu | Classifying Iris | Şablonlar, ürünü keşfetmek için kullanabileceğiniz betikleri ve verileri içerir. Bu şablon, bu hızlı başlangıcın yanı sıra bu belge sitesindeki diğer öğreticiler için gereksinim duyduğunuz betikleri ve verileri de içerir. 
 

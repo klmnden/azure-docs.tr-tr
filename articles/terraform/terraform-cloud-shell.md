@@ -9,12 +9,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 10/19/2017
-ms.openlocfilehash: 107a6dd82465ce1455a3c2922c8f9cba6b73dd64
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: a5f44edf201ce9a2e2c0da6b5da9031958a11fdc
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43667971"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46959318"
 ---
 # <a name="terraform-cloud-shell-development"></a>Terraform Cloud Shell geliştirme 
 
@@ -45,7 +45,7 @@ Cloud Shell, `terraform` CLI komutlarından biri kullanıldığında `azurerm` s
 
 Azure Depolama dosyaları ve kabuk durumları Cloud Shell oturumları arasında kalıcı olur. [Azure Depolama Gezgini](/azure/vs-azure-tools-storage-manage-with-storage-explorer)'ni kullanarak Cloud Shell'den yerel bilgisayarınızla dosya kopyalama ve yükleme işlemleri gerçekleştirebilirsiniz.
 
-Cloud Shell'de bulunan Azure CLI 2.0, yapılandırma testi ve `terraform apply` veya `terraform destroy` işlemlerinin ardından kontrol gerçekleştirmek için kullanışlı bir araçtır.
+Cloud Shell'de bulunan Azure CLI, yapılandırma testi ve `terraform apply` veya `terraform destroy` işlemlerinin ardından kontrol gerçekleştirmek için kullanışlı bir araçtır.
 
 
 ## <a name="next-steps"></a>Sonraki adımlar

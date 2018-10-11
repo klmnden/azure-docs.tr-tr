@@ -1,6 +1,6 @@
 ---
-title: 'Öğretici: Service Fabric Mesh’e bir Service Fabric Mesh uygulaması dağıtma | Microsoft Docs'
-description: Arka uç web hizmetiyle iletişim kuran bir ASP.NET Core web sitesini içeren bir Azure Service Fabric Mesh uygulamasını dağıtmayı öğrenin.
+title: 'Öğretici: Service Fabric Mesh uygulaması dağıtma | Microsoft Docs'
+description: Visual Studio kullanarak arka uç web hizmetiyle iletişim kuran ASP.NET Core web sitesi içeren bir Azure Service Fabric Mesh uygulamasını dağıtmayı öğrenin.
 services: service-fabric-mesh
 documentationcenter: .net
 author: TylerMSFT
@@ -12,35 +12,35 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/26/2018
+ms.date: 09/18/2018
 ms.author: twhitney
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 350749161260768071afbb47b854cb2e9184bd9d
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: 467484824ec3a3ceffb6dfa692953406ed6acc1b
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39284736"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46963330"
 ---
-# <a name="tutorial-deploy-a-service-fabric-mesh-web-application"></a>Öğretici: Service Fabric Mesh web uygulaması dağıtma
+# <a name="tutorial-deploy-a-service-fabric-mesh-application"></a>Öğretici: Service Fabric Mesh uygulaması dağıtma
 
 Bir serinin üçüncü kısmı olan bu öğreticide doğrudan Visual Studio'dan bir Azure Service Fabric Mesh web uygulaması yayımlamayı öğreneceksiniz.
 
 Bu öğreticide şunların nasıl yapıldığını öğrenirsiniz:
 > [!div class="checklist"]
-> * Uygulamayı Azure’da yayımlama.
+> * Visual Studio kullanarak uygulamayı yayımlayın.
 > * Uygulama dağıtım durumunu denetleme
 > * Aboneliğinize dağıtılmış olan tüm uygulamaları görme
-> * Uygulama günlüklerine bakma
-> * Uygulama tarafından kullanılan kaynakları temizleme.
 
-Bu öğretici serisinde şunların nasıl yapıldığını öğrenirsiniz:
+Bu öğretici dizisinde şunların nasıl yapıldığını öğrenirsiniz:
 > [!div class="checklist"]
-> * [Service Fabric Mesh web uygulaması derleme](service-fabric-mesh-tutorial-create-dotnetcore.md)
-> * [Yerel ortamda uygulama hatalarını ayıklama](service-fabric-mesh-tutorial-debug-service-fabric-mesh-app.md)
-> * Uygulamayı Azure’da yayımlama
+> * [Visual Studio’da Service Fabric Mesh uygulaması oluşturma](service-fabric-mesh-tutorial-create-dotnetcore.md)
+> * [Yerel geliştirme kümenizde çalışan bir Service Fabric Mesh uygulamasının hatalarını ayıklama](service-fabric-mesh-tutorial-debug-service-fabric-mesh-app.md)
+> * Service Fabric Mesh uygulaması dağıtma
+> * [Service Fabric Mesh uygulamasını yükseltme](service-fabric-mesh-tutorial-upgrade.md)
+> * [Service Fabric Mesh kaynaklarını temizleme](service-fabric-mesh-tutorial-cleanup-resources.md)
 
-ASP.NET web ön ucu ve ASP.NET Core Web API arka uç hizmeti olan bir Azure Service Fabric Mesh uygulaması oluşturmayı öğreneceksiniz. Ardından yerel geliştirme kümenizde uygulamanın hatalarını ayıklayacak ve uygulamayı Azure'da yayımlayacaksınız. İşlemleri tamamladığınızda bir Service Fabric Mesh uygulamasında hizmetler arası çağrı oluşturmayı gösteren basit bir yapılacak işler uygulamasına sahip olacaksınız.
+[!INCLUDE [preview note](./includes/include-preview-note.md)]
 
 ## <a name="prerequisites"></a>Ön koşullar
 
@@ -62,7 +62,7 @@ Uygulama `src\todolistapp` dizininin altındadır.
 
 ## <a name="publish-to-azure"></a>Azure’da Yayımlama
 
-Service Fabric Mesh projenizi Azure'da yayımlamak için Visual Studio'da **ServiceFabricMeshApp** girişine sağ tıklayıp **Yayımla...** öğesini seçin.
+Service Fabric Mesh projenizi Azure'da yayımlamak için Visual Studio'da **todolistapp** girişine sağ tıklayıp **Yayımla...** öğesini seçin.
 
 Ardından **Service Fabric Uygulamasını Yayımla** iletişim kutusunu göreceksiniz.
 
@@ -74,9 +74,9 @@ Azure hesabınızı ve aboneliğinizi seçin. **Konum** seçin. Bu makalede **Do
 
 ![Visual Studio Service Fabric Mesh yeni kaynak grubu iletişim kutusu](./media/service-fabric-mesh-tutorial-deploy-dotnetcore/visual-studio-publish-new-resource-group-dialog.png)
 
-**Service Fabric Uygulamasını Yayımla** iletişim kutusunun **Azure Container Registry** bölümünde **\<Yeni Azure Container Registry oluştur...>** öğesini seçin. **Container Registry Oluştur** iletişim kutusunda **Container registry adı** için benzersiz bir ad girin. Bir **Konum** belirtin (bu öğreticide **Doğu ABD** kullanılmıştır). Açılan menüden önceki adımda oluşturduğunuz **Kaynak grubu** adını seçin, örneğin **sfmeshTutorial1RG**. **SKU** için **Temel** ayarını belirleyin ve ardından **Oluştur**'a basarak yayımla iletişim kutusuna dönün.
+**Service Fabric Uygulamasını Yayımla** iletişim kutusunun **Azure Container Registry** bölümünde **\<Yeni Azure Container Registry oluştur...>** öğesini seçin. **Container Registry Oluştur** iletişim kutusunda **Container registry adı** için benzersiz bir ad girin. Bir **Konum** belirtin (bu öğreticide **Doğu ABD** kullanılmıştır). Açılan menüden önceki adımda oluşturduğunuz **Kaynak grubu** adını seçin, örneğin **sfmeshTutorial1RG**. **SKU** değerini **Temel**’e ayarladıktan sonra **Oluştur**’a basarak özel Azure kapsayıcı kayıt defterini kapatıp yayımlama iletişim kutusuna geri dönün.
 
-![Visual Studio Service Fabric Mesh yeni kaynak grubu iletişim kutusu](./media/service-fabric-mesh-tutorial-deploy-dotnetcore/visual-studio-publish-new-container-registry-dialog.png)
+![Visual Studio Service Fabric Mesh yeni kapsayıcı kayıt defteri iletişim kutusu](./media/service-fabric-mesh-tutorial-deploy-dotnetcore/visual-studio-publish-new-container-registry-dialog.png)
 
 Aboneliğiniz için bir kaynak sağlayıcısı kaydedilmediğini belirten bir hata alırsanız gerekli kaydı yapabilirsiniz. Öncelikle kaynak sağlayıcısının aboneliğiniz için kullanılabilir durumda olup olmadığına bakın:
 
@@ -109,7 +109,6 @@ Bir web tarayıcısı açıp URL'ye giderek Azure'da çalışan web sitenizi gö
 ## <a name="set-up-service-fabric-mesh-cli"></a>Service Fabric Mesh CLI’yi ayarlama 
 Kalan adımlar için Azure Cloud Shell veya yerel bir Azure CLI yüklemesi kullanabilirsiniz. Şu [yönergeleri](service-fabric-mesh-howto-setup-cli.md) izleyerek Azure Service Fabric Mesh CLI uzantısı modülünü yükleyin.
 
-
 ## <a name="check-application-deployment-status"></a>Uygulama dağıtım durumunu denetleme
 
 Bu noktada uygulamanız artık dağıtılmış durumdadır. `app show` komutunu kullanarak durumunu kontrol edebilirsiniz. 
@@ -124,46 +123,20 @@ az mesh app show --resource-group $rg --name ServiceMeshApp
 
 Aboneliğinize dağıttığınız uygulamaların listesini almak için "app list" komutunu kullanabilirsiniz.
 
-```cli
+```azurecli-interactive
 az mesh app list --output table
 ```
 
-## <a name="see-the-application-logs"></a>Uygulama günlüklerine bakma
-
-Dağıtılan uygulamanın günlüklerini inceleyin:
-
-```azurecli-interactive
-az mesh code-package-log get --resource-group $rg --application-name ServiceMeshApp --service-name todoservice --replica-name 0 --code-package-name ServiceMeshApp
-```
-
-## <a name="clean-up-resources"></a>Kaynakları temizleme
-
-Artık gerekli değilse oluşturduğunuz tüm kaynakları silebilirsiniz. Hem ACR hem de Service Fabric Mesh hizmeti kaynaklarını barındıracak yeni bir kaynak grubu oluşturduğunuzdan bu kaynak grubunu silerek ilgili tüm kaynakların da silinmesini sağlayabilirsiniz.
-
-```azurecli
-az group delete --resource-group sfmeshTutorial1RG
-```
-
-```powershell
-Remove-AzureRmResourceGroup -Name sfmeshTutorial1RG
-```
-
-Alternatif olarak kaynak grubunu [portaldan](../azure-resource-manager/resource-group-portal.md#delete-resource-group-or-resources) silebilirsiniz. 
-
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Öğreticinin bu bölümünde şunları öğrendiniz:
+Öğreticinin bu bölümünde, şunların nasıl yapıldığını öğrendiniz:
 > [!div class="checklist"]
 > * Uygulamayı Azure’da yayımlama.
 > * Uygulama dağıtım durumunu denetleme
 > * Aboneliğinize dağıtılmış olan tüm uygulamaları görme
-> * Uygulama günlüklerine bakma
-> * Uygulama tarafından kullanılan kaynakları temizleme.
 
-Azure'da bir Service Fabric Mesh uygulaması yayımlamayı tamamladığınıza göre aşağıdakileri deneyebilirsiniz:
-
-* Hizmetler arası iletişimin farklı bir örneğini görmek için [Oy verme uygulaması örneğini](https://github.com/Azure-Samples/service-fabric-mesh/tree/master/src/votingapp) keşfedin.
-* [Service Fabric kaynaklarını](service-fabric-mesh-service-fabric-resources.md) okuyun
-* [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) hakkında bilgi edinin
+Sonraki öğreticiye ilerleyin:
+> [!div class="nextstepaction"]
+> [Service Fabric Mesh uygulamasını yükseltme](service-fabric-mesh-tutorial-upgrade.md)
 
 [azure-cli-install]: https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest

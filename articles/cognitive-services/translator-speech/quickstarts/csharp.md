@@ -1,41 +1,43 @@
 ---
-title: C# Hızlı Başlangıç için Azure Bilişsel hizmetler, Microsoft Translator konuşma tanıma API'si | Microsoft Docs
-description: Microsoft Translator konuşma tanıma API'si, Azure üzerinde Microsoft Bilişsel hizmetler kullanarak hızlı bir şekilde yardımcı olmak için bilgi ve kod örnekleri get başlayın.
+title: "Hızlı Başlangıç: Translator Konuşma Çevirisi API'si C#"
+titlesuffix: Azure Cognitive Services
+description: Translator Konuşma Çevirisi API'sini kısa sürede kullanmaya başlamanıza yardımcı olacak bilgi ve kod örnekleri alın.
 services: cognitive-services
-documentationcenter: ''
 author: v-jaswel
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-speech
-ms.topic: article
+ms.topic: quickstart
 ms.date: 3/5/2018
 ms.author: v-jaswel
-ms.openlocfilehash: c8c1945d8343ad966fe4b09f67099bccdae4be29
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
-ms.translationtype: MT
+ROBOTS: NOINDEX
+ms.openlocfilehash: 7d1f5968fe6ddffce3194f070b6a17aca4d3d9ab
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43128546"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46995049"
 ---
-# <a name="quickstart-for-microsoft-translator-speech-api-with-c"></a>Microsoft Translator konuşma tanıma API'si ile C# için hızlı başlangıç 
+# <a name="quickstart-translator-speech-api-with-c"></a>Hızlı Başlangıç: C# dilinde Translator Konuşma Çevirisi API'si 
 <a name="HOLTop"></a>
 
-Bu makalede, Microsoft Translator konuşma tanıma API'si .wav dosyasında konuşulan kelimeleri için nasıl kullanılacağını gösterir.
+Bu makalede Translator Konuşma Çevirisi API'si’ni kullanarak bir .wav dosyasında konuşulan sözcüklerin nasıl çevrileceği gösterilir.
 
-## <a name="prerequisites"></a>Önkoşullar
+## <a name="prerequisites"></a>Ön koşullar
 
-İhtiyacınız olacak [Visual Studio 2017](https://www.visualstudio.com/downloads/) Windows üzerinde bu kodu çalıştırmak için. (Ücretsiz Community Edition’ı kullanabilirsiniz.)
+Bu kodu Windows’da çalıştırmak için [Visual Studio 2017](https://www.visualstudio.com/downloads/) gerekir. (Ücretsiz Community Edition’ı kullanabilirsiniz.)
 
-Koddan derleme yürütülebilir dosya ile aynı klasörde yer alan "speak.wav" adlı bir .wav dosyası gerekir. Bu .wav dosya standart PCM 16 bit, 16 kHz, mono biçiminde olmalıdır.
+Aşağıdaki koddan derlediğiniz yürütülebilir dosya ile aynı klasörün içinde "speak.wav" adlı bir .wav dosyanız olmalıdır. Bu .wav dosyası standart PCM, 16 bit, 16 kHz, mono biçiminde olmalıdır.
 
-Olmalıdır bir [Bilişsel hizmetler API hesabı](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) ile **Microsoft Translator konuşma tanıma API'si**. Ücretli aboneliğe anahtarından gerekir, [Azure panosuna](https://portal.azure.com/#create/Microsoft.CognitiveServices).
+**Microsoft Konuşma Çevirisi API'sine** sahip bir [Bilişsel Hizmetler API hesabınızın](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) olması gerekir. [Azure panonuzdan](https://portal.azure.com/#create/Microsoft.CognitiveServices) ücretli bir abonelik anahtarına ihtiyacınız olacak.
 
 ## <a name="translate-speech"></a>Konuşmayı çevirme
 
-Aşağıdaki kod, konuşma bir dilden diğerine çevirir.
+Aşağıdaki kod, konuşmayı bir dilden diğerine çevirir.
 
 1. Sık kullandığınız IDE'de yeni bir C# projesi oluşturun.
-2. Aşağıda sağlanan kod ekleyin.
-3. Değiştirin `key` aboneliğiniz için geçerli bir erişim anahtarı ile değeri.
+2. Aşağıda sağlanan kodu ekleyin.
+3. `key` değerini, aboneliğiniz için geçerli olan bir erişim anahtarı ile değiştirin.
 4. Programı çalıştırın.
 
 ```csharp
@@ -142,18 +144,18 @@ namespace TranslateSpeechQuickStart
 }
 ```
 
-**Konuşma yanıt Çevir**
+**Konuşma yanıtını çevirme**
 
-Başarılı "speak2.wav" adlı bir dosya oluşturulmasını oluşur. Dosya çevirisi "speak.wav içinde" konuşulan sözcükleri içerir.
+"speak2.wav" adlı bir dosya oluşturulduğunda sonuç başarılıdır. Dosya, "speak.wav" içinde konuşulan sözcüklerin çevirisini içerir.
 
 [Başa dön](#HOLTop)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 > [!div class="nextstepaction"]
-> [Translator Konuşma Öğreticisi](../tutorial-translator-speech-csharp.md)
+> [Translator Konuşma Çevirisi öğreticisi](../tutorial-translator-speech-csharp.md)
 
 ## <a name="see-also"></a>Ayrıca bkz. 
 
-[Translator konuşma genel bakış](../overview.md)
+[Translator Konuşma Çevirisine genel bakış](../overview.md)
 [API Başvurusu](https://docs.microsoft.com/azure/cognitive-services/translator-speech/reference)

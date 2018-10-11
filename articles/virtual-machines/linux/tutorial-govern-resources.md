@@ -1,6 +1,6 @@
 ---
-title: Öğretici - Azure CLI 2.0 ile Azure sanal makinelerini yönetme | Microsoft Docs
-description: Bu öğreticide, RBAC, ilkeler, kilitler ve etiketler uygulayarak Azure sanal makinelerini yönetmek üzere Azure CLI 2.0 kullanmayı öğrenirsiniz
+title: Öğretici - Azure CLI ile Azure sanal makinelerini yönetme | Microsoft Docs
+description: Bu öğreticide, RBAC, ilkeler, kilitler ve etiketler uygulayarak Azure sanal makinelerini yönetmek üzere Azure CLI kullanmayı öğrenirsiniz
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: tfitzmac
@@ -14,20 +14,20 @@ ms.topic: tutorial
 ms.date: 07/20/2018
 ms.author: tomfitz
 ms.custom: mvc
-ms.openlocfilehash: 18ea9920ef3f3602721bc27001a66bcd2fc2b0fd
-ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
+ms.openlocfilehash: 2d19488d9b4d6ae6c71610788345b45c38e51cfa
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39205706"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46968824"
 ---
-# <a name="tutorial-learn-about-linux-virtual-machine-governance-with-azure-cli-20"></a>Öğretici: Azure CLI 2.0 ile Linux sanal makine yönetimi hakkında bilgi edinin
+# <a name="tutorial-learn-about-linux-virtual-machine-governance-with-azure-cli"></a>Öğretici: Azure CLI ile Linux sanal makine yönetimi hakkında bilgi edinin
 
 [!INCLUDE [Resource Manager governance introduction](../../../includes/resource-manager-governance-intro.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-CLI'yi yerel olarak yükleyip kullanmayı tercih ederseniz bu öğretici için Azure CLI 2.0.30 veya sonraki bir sürümünü çalıştırmanız gerekir. Sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI 2.0 yükleme]( /cli/azure/install-azure-cli).
+CLI'yi yerel olarak yükleyip kullanmayı tercih ederseniz bu öğretici için Azure CLI 2.0.30 veya sonraki bir sürümünü çalıştırmanız gerekir. Sürümü bulmak için `az --version` komutunu çalıştırın. Yükleme veya yükseltme yapmanız gerekiyorsa bkz. [Azure CLI'yı yükleme]( /cli/azure/install-azure-cli).
 
 ## <a name="understand-scope"></a>Kapsamı anlama
 

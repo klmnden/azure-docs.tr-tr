@@ -10,15 +10,19 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: tutorial
 ms.date: 10/15/2017
-ms.openlocfilehash: 10fe861682da6c1d1ac701a565cef11f9b44cd1e
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ROBOTS: NOINDEX
+ms.openlocfilehash: b9b515a2ccaedc40fc531d6a1cc58cbe98212b4a
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "41924844"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46967906"
 ---
 # <a name="tutorial-classifying-iris-using-the-command-line-interface"></a>Öğretici: Komut satırı arabirimini kullanarak Süsen Sınıflandırması
-Azure Machine Learning hizmetleri (önizleme) uzman veri bilimcilerinin bulut ölçeğinde veri hazırlamasını, deney geliştirmesini ve model dağıtmasını sağlayan tümleşik, uçtan uca ve gelişmiş bir analiz çözümüdür.
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)]
+
+Azure Machine Learning hizmeti (önizleme) uzman veri bilimcilerinin bulut ölçeğinde veri hazırlamasını, deney geliştirmesini ve model dağıtmasını sağlayan tümleşik, uçtan uca ve gelişmiş bir analiz çözümüdür.
 
 Bu öğreticide, Azure Machine Learning önizleme özelliklerinde komut satırı arabirimini (CLI) kullanarak şunları yapmayı öğrenirsiniz: 
 > [!div class="checklist"]
@@ -34,7 +38,7 @@ Bu öğreticiyi tamamlamak için aşağıdakiler gerekir:
   
   Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 
-- Azure Machine Learning Workbench uygulaması, [Hızlı Başlangıç: Azure Machine Learning hizmetlerini yükleme ve başlatma](../service/quickstart-installation.md) altında açıklandığı gibi yüklenir. 
+- Azure Machine Learning Workbench uygulaması, [Hızlı Başlangıç: Azure Machine Learning hizmetini yükleme ve başlatma](quickstart-installation.md) altında açıklandığı gibi yüklenir. 
 
   >[!IMPORTANT]
   >Azure Machine Learning hizmet hesaplarını oluşturmayın çünkü bu işlemi bu makalede CLI kullanarak yapacaksınız.
@@ -139,16 +143,16 @@ $ az ml project create --name <project name> --workspace <workspace name> --acco
 ```
 
 ### <a name="create-a-new-project-associated-with-a-cloud-git-repository"></a>Bulut Git deposuyla ilişkilendirilmiş yeni proje oluşturma
-VSTS (Visual Studio Team Service) Git deposuyla ilişkilendirilmiş yeni bir proje oluşturabilirsiniz. Deneme her gönderildiğinde, tüm proje klasörünün anlık görüntüsü uzak Git deposuna işlenir. Diğer ayrıntılar için bkz. [Azure Machine Learning Workbench projesiyle Git deposunu kullanma](using-git-ml-project.md).
+Azure DevOps Git deposuyla ilişkilendirilmiş yeni bir proje oluşturabilirsiniz. Deneme her gönderildiğinde, tüm proje klasörünün anlık görüntüsü uzak Git deposuna işlenir. Diğer ayrıntılar için bkz. [Azure Machine Learning Workbench projesiyle Git deposunu kullanma](using-git-ml-project.md).
 
 > [!NOTE]
-> Azure Machine Learning yalnızca VSTS'de oluşturulmuş boş Git depolarını destekler.
+> Azure Machine Learning yalnızca Azure DevOps'ta oluşturulmuş boş Git depolarını destekler.
 
 ```azure-cli
 $ az ml project create --name <project name> --workspace <workspace name> --account <experimentation account name> --resource-group <resource group name> --path <local folder path> --repo <VSTS repo URL>
 ```
 > [!TIP]
-> "Depo url'si geçersiz olabilir veya kullanıcının erişimi olmayabilir" hatasını alıyorsanız, VSTS'de bir güvenlik belirteci oluşturabilir (_Güvenlik_ altında, _Kişisel erişim belirteçleri ekle_ menüsü) ve projenizi oluştururken `--vststoken` bağımsız değişkenini kullanabilirsiniz. 
+> "Depo url'si geçersiz olabilir veya kullanıcının erişimi olmayabilir" hatasını alıyorsanız, Azure DevOps'ta bir güvenlik belirteci oluşturabilir (_Güvenlik_ altında, _Kişisel erişim belirteçleri ekle_ menüsü) ve projenizi oluştururken `--vststoken` bağımsız değişkenini kullanabilirsiniz. 
 
 ### <a name="sample_create"></a>Örnekten yeni proje oluşturma
 Bu örnekte, şablon olarak bir örnek proje kullanıp yeni proje oluşturursunuz.

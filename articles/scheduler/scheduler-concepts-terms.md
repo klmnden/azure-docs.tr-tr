@@ -1,200 +1,323 @@
 ---
-title: Scheduler kavramları, terimleri ve varlıkları | Microsoft Belgeleri
-description: İşler ve iş koleksiyonları dahil Azure Scheduler kavramları, terminolojisi ve varlık hiyerarşisi.  Zamanlanan bir işin kapsamlı bir örneği gösterilmektedir.
+title: Kavramlar, terimler ve varlıklar - Azure Scheduler | Microsoft Docs
+description: İşler ve iş koleksiyonları dahil Azure Scheduler kavramları, terminolojisi ve varlık hiyerarşisi hakkında bilgi edinin
 services: scheduler
-documentationcenter: .NET
-author: derek1ee
-manager: kevinlam1
-editor: ''
-ms.assetid: 3ef16fab-d18a-48ba-8e56-3f3e0a1bcb92
 ms.service: scheduler
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: na
-ms.devlang: dotnet
+ms.suite: infrastructure-services
+author: derek1ee
+ms.author: deli
+ms.reviewer: klam
+ms.assetid: 3ef16fab-d18a-48ba-8e56-3f3e0a1bcb92
 ms.topic: get-started-article
 ms.date: 08/18/2016
-ms.author: deli
-ms.openlocfilehash: 91302d57c43a6c9d14aeeee95df3d61fa6f73172
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 07b7cce4b026464ba34296b54c4ae90d6d2b1afa
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31418851"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46981170"
 ---
-# <a name="scheduler-concepts-terminology--entity-hierarchy"></a>Scheduler kavramları ve terminolojisi + varlık hiyerarşisi
-## <a name="scheduler-entity-hierarchy"></a>Scheduler varlık hiyerarşisi
-Aşağıdaki tabloda Scheduler API’si tarafından gösterilen ya da kullanılan ana kaynaklar açıklanır:
+# <a name="concepts-terminology-and-entities-in-azure-scheduler"></a>Azure Scheduler kavramları, terminolojisi ve varlıkları
 
-| Kaynak | Açıklama |
-| --- | --- |
-| **İş koleksiyonu** |İş koleksiyonu, bir grup işi içerir ve koleksiyondaki işler tarafından paylaşılan ayarlar, kotalar ve kısıtlamaları tutar. İş koleksiyonu abonelik sahibi tarafından oluşturulur ve işleri kullanım veya uygulama sınırlarına göre gruplandırır. Tek bir bölge için kısıtlanmıştır. Ayrıca, bu koleksiyondaki tüm işlerin kullanımını kısıtlamak için kotaları da uygulamayı sağlar. Kotalar MaxJobs ve MaxRecurrence değerlerini içerir. |
-| **İş** |Bir iş, yürütmek üzere basit ya da karmaşık stratejilerle tek bir yinelenen eylemi tanımlar. Eylemler HTTP, depolama kuyruğu, hizmet veri yolu kuyruğu ya da hizmet veri yolu konusu isteklerini içerebilir. |
-| **İş geçmişi** |İş geçmişi bir işin yürütülmesine ilişkin ayrıntılarını temsil eder. Bu başarılı ve hatalı karşılaştırmasının yanı sıra tüm yanıt ayrıntılarını içerir. |
+> [!IMPORTANT]
+> Kullanımdan kaldırılan Azure Scheduler uygulamasının yerini [Azure Logic Apps](../logic-apps/logic-apps-overview.md) alacaktır. İş zamanlamak için [Azure Logic Apps'ı deneyebilirsiniz](../scheduler/migrate-from-scheduler-to-logic-apps.md). 
 
-## <a name="scheduler-entity-management"></a>Scheduler varlık yönetimi
-Yüksek düzeyde, scheduler ve hizmet yönetimi API’si kaynaklarda aşağıdaki işlemleri kullanır:
+## <a name="entity-hierarchy"></a>Varlık hiyerarşisi
 
-| Özellik | Açıklama ve URI adresi |
-| --- | --- |
-| **İş koleksiyonu yönetimi** |İş koleksiyonları ve burada yer alan işleri oluşturma ve değiştirmeye yönelik AL, KOY ve SİL desteği. İş koleksiyonu, kotalar ve paylaşılan ayarlara yönelik işler ve eşlemeler için kapsayıcıdır. İleride açıklanan kota örnekleri, maksimum iş sayısı ve en küçük yineleme aralığıdır. <p>KOY ve SİL: `https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scheduler/jobCollections/{jobCollectionName}`</p><p>AL: `https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scheduler/jobCollections/{jobCollectionName}`</p> |
-| **İş yönetimi** |İşleri oluşturma ve değiştirmeye yönelik AL, KOY, YAYIMLA, DÜZELTME EKİ UYGULA ve SİL desteği. Açık oluşturma olmaması için, tüm işler önceden mevcut bir iş koleksiyonuna ait olmalıdır. <p>`https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scheduler/jobCollections/{jobCollectionName}/jobs/{jobName}`</p> |
-| **İş geçmişi yönetimi** |İş geçen süresi ve iş yürütme sonuçları gibi, 60 günlük iş yürütme geçmişi getirmek üzere AL desteği. Durum ve duruma göre filtreleme için sorgu dizesi parametresi desteği ekler. <P>`https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scheduler/jobCollections/{jobCollectionName}/jobs/{jobName}/history`</p> |
+Azure Scheduler REST API'si şu ana varlıkları veya kaynakları kullanıma sunar ve kullanır:
+
+| Varlık | Açıklama |
+|--------|-------------|
+| **İş** | Yürütmek üzere basit veya karmaşık stratejilere sahip tek bir yinelenen eylemi tanımlar. Eylemler HTTP, Depolama kuyruğu, Service Bus kuyruğu ya da Service Bus konusu isteklerini içerebilir. | 
+| **İş koleksiyonu** | Bir grup işi içerir ve koleksiyondaki işler tarafından paylaşılan ayarlar, kotalar ve kısıtlamaları tutar. Azure aboneliği sahibi olarak iş koleksiyonları oluşturabilir ve işleri kullanım veya uygulama sınırlarına göre gruplandırabilirsiniz. Bir iş koleksiyonu şu özniteliklere sahiptir: <p>- Tek bir bölge için kısıtlanmıştır. <br>- Koleksiyondaki tüm işlerin kullanımını kısıtlamak için kota uygulamanızı sağlar. <br>- Kotalar MaxJobs ve MaxRecurrence değerlerini içerir. | 
+| **İş geçmişi** | Durum ve yanıt ayrıntıları gibi iş yürütme ayrıntılarını açıklar. |
+||| 
+
+## <a name="entity-management"></a>Varlık yönetimi
+
+En geniş anlamıyla Scheduler REST API'si, varlıkların yönetilmesi için bu işlemleri kullanıma sunar.
+
+### <a name="job-management"></a>İş yönetimi
+
+İş oluşturma ve düzenleme işlemlerini destekler. Açık oluşturma olmaması için tüm işlerin var olan bir iş koleksiyonuna ait olması gerekir. Daha fazla bilgi için bkz. [Scheduler REST API - İşler](https://docs.microsoft.com/rest/api/scheduler/jobs). Bu işlemlerin URI adresi şu şekilde olacaktır:
+
+`https://management.azure.com/subscriptions/{subscriptionID}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scheduler/jobCollections/{jobCollectionName}/jobs/{jobName}`
+
+### <a name="job-collection-management"></a>İş koleksiyonu yönetimi
+
+Kotalar ve paylaşılan ayarlarla eşleştirilen işlerin ve iş koleksiyonlarının oluşturulmasını ve düzenlenmesini destekler. Örneğin kotalar, maksimum iş sayısını ve en küçük yineleme aralığını belirtir. Daha fazla bilgi için bkz. [Scheduler REST API - İş Koleksiyonları](https://docs.microsoft.com/rest/api/scheduler/jobcollections). Bu işlemlerin URI adresi şu şekilde olacaktır:
+
+`https://management.azure.com/subscriptions/{subscriptionID}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scheduler/jobCollections/{jobCollectionName}`
+
+### <a name="job-history-management"></a>İş geçmişi yönetimi
+
+Geçen iş süresi ve iş yürütme sonuçları gibi 60 günlük iş yürütme geçmişinin alınması için GET işleminin kullanılmasını destekler. Durum ve duruma göre filtreleme için sorgu dizesi parametresi desteği sunar. Daha fazla bilgi için bkz. [Scheduler REST API - İşler - İş Geçmişini Listeleme](https://docs.microsoft.com/rest/api/scheduler/jobs/listjobhistory). Bu işlemin URI adresi şu şekilde olacaktır:
+
+`https://management.azure.com/subscriptions/{subscriptionID}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scheduler/jobCollections/{jobCollectionName}/jobs/{jobName}/history`
 
 ## <a name="job-types"></a>İş türleri
-Birden çok iş türü vardır: HTTP işleri (SSL destekleyen HTTPS işleri dahil), depolama kuyruğu işleri, hizmet veri yolu kuyruğu işleri ve hizmet veri yolu konusu işleri. HTTP işleri, mevcut bir iş yükünde ya da hizmette uç noktaya sahipseniz idealdir. Bu işleri depolama kuyrukları kullanan iş yükleri için ideal olacağından, depolama kuyruğu işlerini depolama kuyruklarında ileti yayımlamakta kullanabilirsiniz. Benzer şekilde, hizmet veri yolu işleri hizmet veri yolu kuyrukları ve konuları kullanan iş yükleri için idealdir.
 
-## <a name="the-job-entity-in-detail"></a>Ayrıntılı "job" varlığı
-Temel düzeyde, zamanlanan bir iş birkaç bölümden oluşur:
+Azure Scheduler, birden fazla iş türünü destekler: 
 
-* İş zamanlayıcı başlatıldığında gerçekleştirilecek iş  
-* (İsteğe bağlı) İşin çalıştırma süresi  
-* (İsteğe bağlı) İşin ne zaman ve ne sıklıkta tekrarlanacağı  
-* (İsteğe bağlı) Birincil eylem başarısız olursa tetiklenecek eylem  
+* Var olan bir hizmetin veya iş yükünün uç noktasına sahip olduğunuzda SSL desteği sunan HTTPS işleri dahil olmak üzere HTTP işleri
+* Depolama kuyruklarına ileti gönderme gibi Depolama kuyruklarını kullanan iş yükleri için Depolama kuyruğu işleri
+* Service Bus kuyruklarını kullanan iş yükleri için Service Bus kuyruğu işleri
+* Service Bus konularını kullanan iş yükleri için Service Bus konusu işleri
 
-Dahili olarak, zamanlanan bir iş ayrıca sonraki zamanlanan yürütme zamanı gibi sistem tarafından sağlanan verileri de içerir.
+## <a name="job-definition"></a>İş tanımı
 
-Aşağıdaki kodda zamanlanan bir işin kapsamlı örneği gösterilmektedir. Ayrıntılar sonraki bölümlerde verilmiştir.
+Bir Scheduler işi genel olarak şu temel bölümlerden oluşur:
 
-    {
-        "startTime": "2012-08-04T00:00Z",               // optional
-        "action":
-        {
-            "type": "http",
-            "retryPolicy": { "retryType":"none" },
-            "request":
-            {
-                "uri": "http://contoso.com/foo",        // required
-                "method": "PUT",                        // required
-                "body": "Posting from a timer",         // optional
-                "headers":                              // optional
+* İş zamanlayıcı başlatıldığında çalıştırılan eylem
+* İsteğe bağlı: İşin çalıştırma süresi
+* İsteğe bağlı: İşin ne zaman ve ne sıklıkta tekrarlanacağı
+* İsteğe bağlı: Birincil eylem başarısız olursa çalıştırılacak hata eylemi
 
-                {
-                    "Content-Type": "application/json"
-                },
-            },
-           "errorAction":
-           {
-               "type": "http",
-               "request":
-               {
-                   "uri": "http://contoso.com/notifyError",
-                   "method": "POST",
-               },
-           },
-        },
-        "recurrence":                                   // optional
-        {
-            "frequency": "week",                        // can be "year" "month" "day" "week" "minute"
-            "interval": 1,                              // optional, how often to fire (default to 1)
-            "schedule":                                 // optional (advanced scheduling specifics)
-            {
-                "weekDays": ["monday", "wednesday", "friday"],
-                "hours": [10, 22]
-            },
-            "count": 10,                                 // optional (default to recur infinitely)
-            "endTime": "2012-11-04",                     // optional (default to recur infinitely)
-        },
-        "state": "disabled",                           // enabled or disabled
-        "status":                                       // controlled by Scheduler service
-        {
-            "lastExecutionTime": "2007-03-01T13:00:00Z",
-            "nextExecutionTime": "2007-03-01T14:00:00Z ",
-            "executionCount": 3,
-                                                "failureCount": 0,
-                                                "faultedCount": 0
-        },
-    }
+İş aynı zamanda işin bir sonraki zamanlanmış çalışma zamanı gibi sistem tarafından sağlanan verileri de içerir. İşin kod tanımı, şu öğelere sahip olan bir JavaScript Nesne Gösterimi (JSON) biçimli nesnedir:
 
-Yukarıdaki örnek zamanlanan işte görülüğü gibi, bir iş tanımı birkaç bölümden oluşur:
+| Öğe | Gerekli | Açıklama | 
+|---------|----------|-------------| 
+| [**startTime**](#start-time) | Hayır | [ISO 8601 biçiminde](http://en.wikipedia.org/wiki/ISO_8601) saat dilimi farkına sahip olan işin başlangıç zamanı | 
+| [**action**](#action) | Yes | **errorAction** nesnesi de içerebilecek birincil eylem ayrıntıları | 
+| [**errorAction**](#error-action) | Hayır | Birincil eylemin başarısız olması durumunda çalışan ikinci eylemin ayrıntıları |
+| [**recurrence**](#recurrence) | Hayır | Yinelenen bir işin sıklık ve aralık gibi ayrıntıları | 
+| [**retryPolicy**](#retry-policy) | Hayır | Bir eylemin yeniden deneme sıklığını belirten ayrıntılar | 
+| [**state**](#state) | Yes | İşin geçerli durumunun ayrıntıları |
+| [**status**](#status) | Yes | Hizmet tarafından denetlenen geçerli iş durumu ayrıntıları |
+||||
 
-* Başlangıç zamanı ("startTime")  
-* Hata eylemi ("errorAction") içeren eylem ("eylem")
-* Yineleme ("recurrence")  
-* Durum ("state")  
-* Durum ("status")  
-* Yeniden deneme ilkesi ("retryPolicy")  
+Bu örnekte bir HTTP eyleminin kapsamlı iş tanımı gösterilmiştir ve öğeler sonraki bölümlerde ayrıntılı bir şekilde açıklanacaktır: 
 
-Şimdi bunların her birini ayrıntılı inceleyelim:
+```json
+"properties": {
+   "startTime": "2012-08-04T00:00Z",
+   "action": {
+      "type": "Http",
+      "request": {
+         "uri": "http://contoso.com/some-method", 
+         "method": "PUT",          
+         "body": "Posting from a timer",
+         "headers": {
+            "Content-Type": "application/json"
+         },
+         "retryPolicy": { 
+             "retryType": "None" 
+         },
+      },
+      "errorAction": {
+         "type": "Http",
+         "request": {
+            "uri": "http://contoso.com/notifyError",
+            "method": "POST"
+         }
+      }
+   },
+   "recurrence": {
+      "frequency": "Week",
+      "interval": 1,
+      "schedule": {
+         "weekDays": ["Monday", "Wednesday", "Friday"],
+         "hours": [10, 22]
+      },
+      "count": 10,
+      "endTime": "2012-11-04"
+   },
+   "state": "Disabled",
+   "status": {
+      "lastExecutionTime": "2007-03-01T13:00:00Z",
+      "nextExecutionTime": "2007-03-01T14:00:00Z ",
+      "executionCount": 3,
+      "failureCount": 0,
+      "faultedCount": 0
+   }
+}
+```
+
+<a name="start-time"></a>
 
 ## <a name="starttime"></a>startTime
-"startTime" başlangıç zamanıdır ve arayanın hat üzerinde [ISO 8601 biçiminde](http://en.wikipedia.org/wiki/ISO_8601) bir saat dilimi farkı belirtmesini sağlar.
 
-## <a name="action-and-erroraction"></a>action ve errorAction
-“action” her meydana gelişte çağrılan eylemdir ve hizmet başlatma türünü açıklar. Eylem, sağlanan zamanlamadan yürütülecek olan şeydir. Scheduler, HTTP, depolama kuyruğu, hizmet veri yolu konusu ve hizmet veri yolu kuyruğu eylemlerini destekler.
+**startTime** nesnesinde başlangıç zamanını ve saat dilimi farkını [ISO 8601 biçiminde](http://en.wikipedia.org/wiki/ISO_8601) belirtebilirsiniz.
 
-Yukarıdaki örnekteki eylem bir HTTP eylemidir. Bir depolama kuyruğu eylemi örneği aşağıdadır:
+<a name="action"></a>
 
-    {
-            "type": "storageQueue",
-            "queueMessage":
-            {
-                "storageAccount": "myStorageAccount",  // required
-                "queueName": "myqueue",                // required
-                "sasToken": "TOKEN",                   // required
-                "message":                             // required
-                    "My message body",
-            },
+## <a name="action"></a>action
+
+Scheduler işiniz belirtilen zamanlamayı kullanarak birincil **eylemi** çalıştırır. Scheduler HTTP, Depolama kuyruğu, Service Bus kuyruğu ve Service Bus konusu eylemlerini destekler. Birincil **action** nesnesi başarısız olursa Scheduler hatayı işleyen ikincil [**errorAction**](#errorAction) nesnesini çalıştırabilir. **action** nesnesi şu öğeleri tanımlar:
+
+* Eylemin hizmet türü
+* Eylemin ayrıntıları
+* Alternatif bir **errorAction**
+
+Yukarıdaki örnekte bir HTTP eylemi açıklanmıştır. Depolama kuyruğu eylemi örneği aşağıda verilmiştir:
+
+```json
+"action": {
+   "type": "storageQueue",
+   "queueMessage": {
+      "storageAccount": "myStorageAccount",  
+      "queueName": "myqueue",                
+      "sasToken": "TOKEN",                   
+      "message": "My message body"
     }
+}
+```
 
-Bir hizmet veri yolu konusu eylemi örneği aşağıdadır:
+Service Bus kuyruğu eylemi örneği aşağıda verilmiştir:
 
-  "action": { "type": "serviceBusTopic", "serviceBusTopicMessage": { "topicPath": "t1",  
-      "namespace": "mySBNamespace", "transportType": "netMessaging", // Can be either netMessaging or AMQP "authentication": { "sasKeyName": "QPolicy", "type": "sharedAccessKey" }, "message": "Some message", "brokeredMessageProperties": {}, "customMessageProperties": { "appname": "FromScheduler" } }, }
+```json
+"action": {
+   "type": "serviceBusQueue",
+   "serviceBusQueueMessage": {
+      "queueName": "q1",  
+      "namespace": "mySBNamespace",
+      "transportType": "netMessaging", // Either netMessaging or AMQP
+      "authentication": {  
+         "sasKeyName": "QPolicy",
+         "type": "sharedAccessKey"
+      },
+      "message": "Some message",  
+      "brokeredMessageProperties": {},
+      "customMessageProperties": {
+         "appname": "FromScheduler"
+      }
+   }
+},
+```
 
-Bir hizmet veri yolu kuyruğu eylemi örneği aşağıdadır:
+Service Bus konusu eylemi örneği aşağıda verilmiştir:
 
-  "action": { "serviceBusQueueMessage": { "queueName": "q1",  
-      "namespace": "mySBNamespace", "transportType": "netMessaging", // netMessaging ya da AMQP olabilir "authentication": {  
-        "sasKeyName": "QPolicy", "type": "sharedAccessKey" }, "message": "Some message",  
-      "brokeredMessageProperties": {}, "customMessageProperties": { "appname": "FromScheduler" } }, "type": "serviceBusQueue" }
+```json
+"action": {
+   "type": "serviceBusTopic",
+   "serviceBusTopicMessage": {
+      "topicPath": "t1",  
+      "namespace": "mySBNamespace",
+      "transportType": "netMessaging", // Either netMessaging or AMQP
+      "authentication": {
+         "sasKeyName": "QPolicy",
+         "type": "sharedAccessKey"
+      },
+      "message": "Some message",
+      "brokeredMessageProperties": {},
+      "customMessageProperties": {
+         "appname": "FromScheduler"
+      }
+   }
+},
+```
 
-"errorAction", birincil eylem başarısız olduğunda çağrılan hata işleyicidir. Bu değişkeni bir hata işleme uç noktasını çağırmak ya da kullanıcı bildirimi göndermek için kullanabilirsiniz. Bu, birincilin kullanılabilir olmaması durumunda (örneğin, uç nokta sitesinde olağanüstü durum halinde) ikincil uç noktaya erişim için veya bir hata işleme uç noktasını bildirmek için kullanılabilir. Birincil eylemde olduğu gibi, hata eylemi diğer eylemler temelinde basit ya da birleşik mantıklı olabilir. SAS belirteci oluşturmayı öğrenmek için bkz. [Paylaşılan Erişim İmzası Oluşturma ve Kullanma](https://msdn.microsoft.com/library/azure/jj721951.aspx).
+Paylaşılan Erişim İmzası (SAS) belirteçleri hakkında daha fazla bilgi için bkz. [Paylaşılan Erişim İmzasıyla Yetkilendirme](../storage/common/storage-dotnet-shared-access-signature-part-1.md).
+
+<a name="error-action"></a>
+
+## <a name="erroraction"></a>errorAction
+
+İşinizin birincil **action** nesnesi başarısız olursa Scheduler hatayı işleyen bir **errorAction** nesnesini çalıştırabilir. Birincil **action** nesnesinde bir **errorAction** nesnesi belirterek Scheduler uygulamasının uç nokta hatasını işlemesini veya kullanıcıya bildirim göndermesini sağlayabilirsiniz. 
+
+Örneğin birincil uç noktada olağanüstü durum oluşursa **errorAction** kullanarak ikincil uç noktayı çağırabilir veya hata işleme uç noktasını bilgilendirebilirsiniz. 
+
+Birincil **eylemde** olduğu gibi, hata eylemi diğer eylemler temelinde basit ya da birleşik mantıklı olabilir. 
+
+<a name="recurrence"></a>
 
 ## <a name="recurrence"></a>yineleme
-Yineleme birkaç bölümden oluşur:
 
-* Sıklık: Dakika, saat, gün, hafta, ay, yıldan biri  
-* Aralık: Yineleme için belirlenen sıklıktaki aralık  
-* Belirtilen zamanlama: Yinelemeye ilişkin dakika, saat, hafta içi günü, ay ve ayın günü değerlerini belirtin  
-* Sayı: Yineleme sayısı  
-* Bitiş zamanı: Belirtilen bitiş zamanından sonra hiç bir iş yürütülmez.  
+İşin JSON tanımında **recurrence** nesnesi varsa o iş yinelenir, örneğin:
 
-Bir iş, JSON tanımında belirtilen yinelenen nesneye sahipse yinelenendir. Sayı ve endTime belirtilmişse, önce meydana gelen tamamlama kuralı uygulanır.
+```json
+"recurrence": {
+   "frequency": "Week",
+   "interval": 1,
+   "schedule": {
+      "hours": [10, 22],
+      "minutes": [0, 30],
+      "weekDays": ["Monday", "Wednesday", "Friday"]
+   },
+   "count": 10,
+   "endTime": "2012-11-04"
+},
+```
 
-## <a name="state"></a>durum
-İşin durumu dört değerden biridir: etkin, devre dışı, tamamlandı ya da hatalı. Etkin ya da devre dışı durumuna güncelleştirmek amacıyla işleri KOYABİLİR ya da DÜZELTME EKİ UYGULAYABİLİRSİNİZ. Bir işin durumu tamamlandı ya da hatalı ise, bu güncelleştirilemeyecek son aşamadır (iş yine de SİLİNEBİLİR) Durum özelliğinin bir örneği aşağıdaki gibidir:
+| Özellik | Gerekli | Değer | Açıklama | 
+|----------|----------|-------|-------------| 
+| **frequency** | **recurrence** kullanıldığında evet | "Minute", "Hour", "Day", "Week", "Month", "Year" | Yinelemeler arası zaman birimi | 
+| **interval** | Hayır | 1-1000 arası, ikisi de dahil | **frequency** nesnesine göre yinelemeler arasındaki zaman birimi sayısını belirleyen pozitif tamsayı | 
+| **schedule** | Hayır | Değişir | Daha karmaşık ve gelişmiş zamanlamaların ayrıntıları. Bkz. **hours**, **minutes**, **weekDays**, **months** ve **monthDays** | 
+| **hours** | Hayır | 1-24 arası | İşin çalıştırılacağı saati belirten dizi | 
+| **minutes** | Hayır | 1-24 arası | İşin çalıştırılacağı dakikayı belirten dizi | 
+| **months** | Hayır | 1-12 arası | İşin çalıştırılacağı ayı belirten dizi | 
+| **monthDays** | Hayır | Değişir | İşin çalıştırılacağı ayın gününü belirten dizi | 
+| **weekDays** | Hayır | "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday" | İşin çalıştırılacağı haftanın gününü belirten dizi | 
+| **count** | Hayır | <*none*> | Yineleme sayısı. Varsayılan değer sonsuzdur. **count** ve **endTime** nesnelerini birlikte kullanamazsınız ancak ilk tamamlanan kural uygulanır. | 
+| **endTime** | Hayır | <*none*> | Yinelemenin durdurulacağı tarih ve saat. Varsayılan değer sonsuzdur. **count** ve **endTime** nesnelerini birlikte kullanamazsınız ancak ilk tamamlanan kural uygulanır. | 
+||||
 
-        "state": "disabled", // enabled, disabled, completed, or faulted
-Tamamlanan ve hatalı işler 60 gün sonra silinir.
+Bu öğeler hakkında daha fazla bilgi için bkz. [Karmaşık zamanlamalar ve gelişmiş yinelemeler oluşturma](../scheduler/scheduler-advanced-complexity.md).
 
-## <a name="status"></a>durum
-Scheduler işi başladıktan sonra, işin geçerli durumu hakkında bilgi döndürülür. Bu nesne kullanıcı tarafından ayarlanamaz— sistem tarafından ayarlanır. Ancak, bir kimsenin işin durumunu kolayca edinebileceği şekilde iş nesnesinde yer alır (ayrı bağlantılı bir kaynak yerine).
-
-İş durumu, önceki yürütme saatini (varsa), sonraki zamanlanan yürütmeyi (devam eden işler için) ve iş yürütme sayısını içerir.
+<a name="retry-policy"></a>
 
 ## <a name="retrypolicy"></a>retryPolicy
-Scheduler işi başarısız olursa, eylemin yeniden denenip denenmeyeceğini ve bunun nasıl yapılacağını belirlemek için bir yeniden deneme ilkesi belirlemek mümkündür. Bu **retryType** nesnesi tarafından belirlenir; yukarıda gösterildiği gibi yeniden deneme ilkesi yoksa, **yok** olarak ayarlanır. Yeniden deneme ilkesi varsa, **sabit** olarak ayarlayın.
 
-Bir yeniden deneme ilkesi ayarlamak için iki ek ayar belirtilebilir: yeniden deneme aralığı (**retryInterval**) ve yeniden deneme sayısı (**retryCount**).
+Bir Scheduler işinin başarısız olması durumunda Scheduler uygulamasının eylemi yeniden deneme kararını ve şeklini belirleyen bir yenileme ilkesi ayarlayabilirsiniz. Scheduler varsayılan olarak işi 30 saniyelik aralıklarla dört kez daha dener. Bu ilkeyi daha katı veya gevşek haline getirebilirsiniz. Örneğin şu ilke eylemi günde iki kez dener:
 
-**retryInterval** nesnesi ile belirtilen yeniden deneme aralığı, yeniden denemeler arasındaki aralıktır. Varsayılan değer 30 saniye, minimum yapılandırılabilir değeri 15 saniye, ve maksimum değeri 18 aydır. ISO 8601 biçiminde tanımlıdır. Benzer şekilde, yeniden deneme sayısı değeri **retryCount** nesnesiyle belirtilir; bu yeniden denemeye çalışılacak sayıdır. Varsayılan değer 4, maksimum değer ise 20 olarak belirlenmiştir. **retryInterval** ve **retryCount** parametreleri isteğe bağlıdır. **retryType** **sabit** olara ayarlanır ve açık şekilde bir değer belirtilmezse, bunlar belirtilen varsayılan değerlerdir.
+```json
+"retryPolicy": { 
+   "retryType": "Fixed",
+   "retryInterval": "PT1D",
+   "retryCount": 2
+},
+```
+
+| Özellik | Gerekli | Değer | Açıklama | 
+|----------|----------|-------|-------------| 
+| **retryType** | Yes | **Fixed**, **None** | Bir yenileme ilkesi belirtip (**fixed**) belirtmediğinizi (**none**) belirler. | 
+| **retryInterval** | Hayır | PT30S | Yeniden deneme girişimleri arasındaki aralığı ve sıklığı [ISO 8601 biçiminde](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) belirtir. Minimum değer 15 saniye, maksimum değer ise 18 aydır. | 
+| **retryCount** | Hayır | 4 | Yeniden deneme girişimlerinin sayısını belirtir. Maksimum değer 20'dir. | 
+||||
+
+Daha fazla bilgi için bkz. [Yüksek kullanılabilirlik ve güvenilirlik](../scheduler/scheduler-high-availability-reliability.md).
+
+<a name="status"></a>
+
+## <a name="state"></a>durum
+
+Bir işin durumu **Etkin**, **Devre Dışı**, **Tamamlandı** veya **Hatalı** olacaktır, örneğin: 
+
+`"state": "Disabled"`
+
+İşleri **Etkin** veya **Devre Dışı** durumuna almak için işlerde PUT veya PATCH işlemlerini kullanabilirsiniz.
+Ancak bir işin durumu **Tamamlandı** veya **Arızalı** şeklindeyse durumu güncelleştiremezsiniz ancak iş üzerinde DELETE işlemini gerçekleştirebilirsiniz. Scheduler, tamamlandı ve arızalı durumundaki işleri 60 gün sonra siler. 
+
+<a name="status"></a>
+
+## <a name="status"></a>durum
+
+Bir iş başlatıldıktan sonra Scheduler, yalnızca Scheduler tarafından denetlenen **status** nesnesiyle iş durumu hakkında bilgi döndürür. Ancak **status** nesnesini **job** nesnesinin içinde bulabilirsiniz. İş durumunda bulunan bilgiler şunlardır:
+
+* Varsa bir önceki yürütme işleminin zamanı
+* Devam eden işler için bir sonraki zamanlanmış yürütmenin zamanı
+* İş yürütme sayısı
+* Varsa başarısız işlem sayısı
+* Varsa hatalı işlem sayısı
+
+Örnek:
+
+```json
+"status": {
+   "lastExecutionTime": "2007-03-01T13:00:00Z",
+   "nextExecutionTime": "2007-03-01T14:00:00Z ",
+   "executionCount": 3,
+   "failureCount": 0,
+   "faultedCount": 0
+}
+```
 
 ## <a name="see-also"></a>Ayrıca bkz.
- [Scheduler nedir?](scheduler-intro.md)
 
- [Azure portalında Scheduler’ı kullanmaya başlama](scheduler-get-started-portal.md)
-
- [Azure Scheduler’da planlar ve faturalama](scheduler-plans-billing.md)
-
- [Azure Scheduler ile karmaşık zamanlamalar ve gelişmiş yineleme oluşturma](scheduler-advanced-complexity.md)
-
- [Azure Scheduler REST API başvurusu](https://msdn.microsoft.com/library/mt629143)
-
- [Azure Scheduler PowerShell cmdlet’leri başvurusu](scheduler-powershell-reference.md)
-
- [Yüksek Azure Scheduler kullanılabilirliği ve güvenilirliği](scheduler-high-availability-reliability.md)
-
- [Azure Scheduler sınırları, varsayılanları ve hata kodları](scheduler-limits-defaults-errors.md)
-
- [Azure Scheduler giden bağlantı kimlik doğrulaması](scheduler-outbound-authentication.md)
-
+* [Azure Scheduler nedir?](scheduler-intro.md)
+* [Kavramlar, terminoloji ve varlık hiyerarşisi](scheduler-concepts-terms.md)
+* [Karmaşık zamanlamalar ve gelişmiş yinelemeler oluşturma](scheduler-advanced-complexity.md)
+* [Sınırlar, kotalar, varsayılan değerler ve hata kodları](scheduler-limits-defaults-errors.md)
+* [Azure Scheduler REST API başvurusu](https://docs.microsoft.com/rest/api/schedule)
+* [Azure Scheduler PowerShell cmdlet’leri başvurusu](scheduler-powershell-reference.md)

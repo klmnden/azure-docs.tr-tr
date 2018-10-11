@@ -1,6 +1,6 @@
 ---
 title: Öğretici - Azure CLI ile Azure disklerini yönetme | Microsoft Docs
-description: Bu öğreticide, Azure CLI 2.0 kullanarak sanal makineler için Azure diskleri oluşturup yönetmeyi öğrenirsiniz
+description: Bu öğreticide, Azure CLI kullanarak sanal makineler için Azure diskleri oluşturup yönetmeyi öğrenirsiniz
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
@@ -16,14 +16,14 @@ ms.workload: infrastructure
 ms.date: 05/30/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 889facbf9612f2462a10c886a428ac052becefd8
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 04fad24b17d7f74211deae53c0d044f2049660f2
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38704496"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46978327"
 ---
-# <a name="tutorial---manage-azure-disks-with-the-azure-cli-20"></a>Öğretici - Azure CLI 2.0 ile Azure disklerini yönetme
+# <a name="tutorial---manage-azure-disks-with-the-azure-cli"></a>Öğretici - Azure CLI ile Azure disklerini yönetme
 
 Azure sanal makineleri (VM) işletim sistemini, uygulamalarını ve verilerini depolamak için diskleri kullanır. VM oluştururken, beklenen iş yüküne uygun disk boyutu ve yapılandırmasını seçmek önemlidir. Bu öğreticide, VM disklerini dağıtma ve yönetme işlemleri gösterilir. Şunları öğreneceksiniz:
 
@@ -38,7 +38,7 @@ Azure sanal makineleri (VM) işletim sistemini, uygulamalarını ve verilerini d
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-CLI'yi yerel olarak yükleyip kullanmayı tercih ederseniz bu öğretici için Azure CLI 2.0.30 veya sonraki bir sürümünü çalıştırmanız gerekir. Sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI 2.0 yükleme](/cli/azure/install-azure-cli).
+CLI'yi yerel olarak yükleyip kullanmayı tercih ederseniz bu öğretici için Azure CLI 2.0.30 veya sonraki bir sürümünü çalıştırmanız gerekir. Sürümü bulmak için `az --version` komutunu çalıştırın. Yükleme veya yükseltme yapmanız gerekiyorsa bkz. [Azure CLI'yı yükleme](/cli/azure/install-azure-cli).
 
 ## <a name="default-azure-disks"></a>Varsayılan Azure diskleri
 

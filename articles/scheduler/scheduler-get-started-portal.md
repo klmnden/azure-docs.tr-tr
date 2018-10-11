@@ -1,155 +1,152 @@
 ---
-title: Azure portalında Azure Scheduler’ı kullanmaya başlama | Microsoft Belgeleri
-description: Azure portalda Azure Scheduler kullanmaya başlama
+title: Azure Scheduler ile zamanlanmış iş oluşturma - Azure portal | Microsoft Docs
+description: Azure Scheduler ile Azure portalda ilk otomatik işinizi oluşturmayı, zamanlamayı ve çalıştırmayı öğrenin
 services: scheduler
-documentationcenter: .NET
-author: derek1ee
-manager: kevinlam1
-editor: ''
-ms.assetid: e69542ec-d10f-4f17-9b7a-2ee441ee7d68
 ms.service: scheduler
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: na
-ms.devlang: dotnet
-ms.topic: hero-article
-ms.date: 08/10/2016
+ms.suite: infrastructure-services
+author: derek1ee
 ms.author: deli
-ms.openlocfilehash: f03ddb475835b30e9b931b7f057c062b57ac45f3
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.reviewer: klam
+ms.assetid: e69542ec-d10f-4f17-9b7a-2ee441ee7d68
+ms.topic: hero-article
+ms.date: 09/17/2018
+ms.openlocfilehash: f1f7e67fbd5d8a9ebfae03c00eb0de36e86d9a97
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31413439"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46949596"
 ---
-# <a name="get-started-with-azure-scheduler-in-azure-portal"></a>Azure portalda Azure Scheduler kullanmaya başlama
-Azure Scheduler’da zamanlanmış işler oluşturmak kolaydır. Bu öğreticide bir iş oluşturmayı öğreneceksiniz: Ayrıca Scheduler’ın izleme ve yönetim özelliklerini öğreneceksiniz.
+# <a name="create-and-schedule-your-first-job-with-azure-scheduler---azure-portal"></a>Azure Scheduler ile ilk işinizi oluşturun ve zamanlayın - Azure portal
 
-## <a name="create-a-job"></a>Bir iş oluşturma
-1. [Azure portalda](https://portal.azure.com/) oturum açın.  
-2. **+ Yeni**’ye tıklayın arama kutusuna > *Scheduler* yazın > sonuçlarda **Scheduler**’ı seçin > **Oluştur**’a tıklayın.
-   
-    ![][marketplace-create]
-3. Şimdi bir GET isteğiyle http://www.microsoft.com/ adresine işaret eden bir iş oluşturalım. **Scheduler İşi** ekranına, aşağıdaki bilgileri girin:
-   
-   1. **Ad:** `getmicrosoft`  
-   2. **Abonelik:** Azure aboneliğiniz   
-   3. **İş Koleksiyonu:** Mevcut bir iş koleksiyonu seçin veya tıklatın **Yeni Oluştur**’a tıklayın > bir ad girin.
-4. Sonra, **Eylem Ayarları**’nda, aşağıdaki değerleri tanımlayın:
-   
-   1. **Eylem Türü:** ` HTTP`  
-   2. **Yöntem:** `GET`  
-   3. **URL:** ` http://www.microsoft.com`  
-      
-      ![][action-settings]
-5. Son olarak, şimdi bir zamanlama tanımlayalım. İş bir kerelik iş olarak tanımlanabilir, ancak bir yineleme zamanlaması seçelim.
-   
-   1. **Yineleme**: `Recurring`
-   2. **Başlat**: Bugünün tarihi
-   3. **Yineleme sıklığı**: `12 Hours`
-   4. **Bitiş tarihi**: Bugünden itibaren iki gün  
-      
-      ![][recurrence-schedule]
-6. **Oluştur**'a tıklayın
+> [!IMPORTANT]
+> Kullanımdan kaldırılan Azure Scheduler uygulamasının yerini [Azure Logic Apps](../logic-apps/logic-apps-overview.md) alacaktır. İş zamanlamak için [Azure Logic Apps'ı deneyebilirsiniz](../scheduler/migrate-from-scheduler-to-logic-apps.md). 
 
-## <a name="manage-and-monitor-jobs"></a>İşleri yönetme ve izleme
-Bir işi oluşturulduktan sonra, ana Azure panosunda görünür. İşe tıkladığınızda aşağıdaki sekmeleri içeren yeni bir pencere açılır:
+Bu öğreticide bir iş oluşturma, zamanlama ve ardından bu işi izleyip yönetme adımları gösterilmektedir. 
 
-1. Özellikler  
-2. Eylem Ayarları  
-3. Zamanlama  
-4. Geçmiş
-5. Kullanıcılar
+Azure aboneliğiniz yoksa <a href="https://azure.microsoft.com/free/" target="_blank">ücretsiz bir Azure hesabı için kaydolun</a>.
+
+## <a name="create-job"></a>İş oluştur
+
+1. [Azure Portal](https://portal.azure.com/) oturum açın.  
+
+1. Azure ana menüsünde **Kaynak oluştur**'u seçin. Arama kutusuna "scheduler" yazın. Sonuç listesinden **Scheduler**'ı ve ardından **Oluştur**'u seçin.
+
+   ![Scheduler kaynağı oluşturma](./media/scheduler-get-started-portal/scheduler-v2-portal-marketplace-create.png)
+
+   Şimdi şu URL'ye GET isteği gönderen bir iş oluşturun: `http://www.microsoft.com/` 
+
+1. **Scheduler İşi** bölümüne şu bilgileri girin:
+
+   | Özellik | Örnek değer | Açıklama |
+   |----------|---------------|-------------| 
+   | **Ad** | getMicrosoft | İşinizin adı | 
+   | **İş koleksiyonu** | <*job-collection-name*> | İş koleksiyonu oluşturun veya var olan bir koleksiyonu seçin. | 
+   | **Abonelik** | <*Azure-subscription-name*> | Azure aboneliğinizin adı | 
+   |||| 
+
+1. **Eylem ayarları - Yapılandır**'ı seçin, bu bilgileri girin ve işlemi tamamladığınızda **Tamam**'ı seçin:
+
+   | Özellik | Örnek değer | Açıklama |
+   |----------|---------------|-------------| 
+   | **Eylem** | **Http** | Çalıştırılacak eylemin türü | 
+   | **Yöntem** | **Get** | Çağrılacak yöntem | 
+   | **URL** | **http://www.microsoft.com** | Hedef URL | 
+   |||| 
    
-   ![][job-overview]
+   ![İşi tanımlama](./media/scheduler-get-started-portal/scheduler-v2-portal-action-settings.png)
+
+1. **Zamanlama - Yapılandırma**'yı seçin, zamanlamayı tanımlayın ve işlemi tamamladığınızda **Tamam**'ı seçin:
+
+   Tek seferlik bir iş oluşturabilirsiniz ancak bu örnekte yineleme zamanlaması ayarlanmaktadır.
+
+   | Özellik | Örnek değer | Açıklama |
+   |----------|---------------|-------------| 
+   | **Yineleme** | **Yinelenen** | Tek seferlik veya yinelenen bir iş | 
+   | **Başlangıç saati:** | <*bugünün tarihi*> | İşin başlangıç tarihi | 
+   | **Yineleme sıklığı:** | **1 Saat** | Yineleme aralığı ve sıklığı | 
+   | **Bitiş** | **Bitiş tarihi:** Bugünden itibaren iki gün | İşin bitiş tarihi | 
+   | **UTC farkı** | **UTC +08:00** | Eşgüdümlü Evrensel Saat (UTC) ile konumunuzda kullanılan saat arasındaki zaman farkı | 
+   |||| 
+
+   ![Zamanlamayı tanımlama](./media/scheduler-get-started-portal/scheduler-v2-portal-recurrence-schedule.png)
+
+1. Hazır olduğunuzda **Oluştur**’u seçin.
+
+   İşiniz oluşturulduktan sonra Azure tarafından dağıtılır ve Azure panosunda görüntülenir. 
+
+1. Azure, dağıtımın başarılı olduğunu belirten bir bildirim gösterdiğinde **Panoya sabitle**'yi seçin. Alternatif olarak Azure araç çubuğundaki **Bildirimler** simgesini (zil) ve ardından **Panoya sabitle**'yi seçebilirsiniz.
+
+## <a name="monitor-and-manage-jobs"></a>İşleri izleme ve yönetme
+
+Gözden geçirmek, izlemek ve yönetmek için işinizi Azure panosundan seçin. **Ayarlar** sayfasında işinizi gözden geçirip yönetebileceğiniz şu alanlar vardır:
+
+![İş ayarları](./media/scheduler-get-started-portal/scheduler-v2-portal-job-overview-1.png)
+
+Bu alanlar hakkında daha fazla bilgi için birini seçebilirsiniz:
+
+* [**Özellikler**](#properties)
+* [**Eylem ayarları**](#action-settings)
+* [**Zamanlama**](#schedule)
+* [**Geçmiş**](#history)
+* [**Kullanıcılar**](#users)
+
+<a name="properties"></a>
 
 ### <a name="properties"></a>Özellikler
-Bu salt okunur özellikler Scheduler işi için yönetim meta verilerini açıklar.
 
-   ![][job-properties]
+İşinizin yönetim meta verilerini tanımlayan salt okunur özellikleri görüntülemek için **Özellikler**'i seçin.
+
+![İş özelliklerini görüntüleme](./media/scheduler-get-started-portal/scheduler-v2-portal-job-properties.png)
+
+<a name="action-settings"></a>
 
 ### <a name="action-settings"></a>Eylem ayarları
-**İşler** ekranındaki bir işe tıklamak bu işi yapılandırmanıza olanak tanır. Bu, bunları hızlı oluşturma sihirbazında yapılandırmadıysanız, gelişmiş ayarları yapılandırmanızı sağlar.
 
-Tüm eylem türleri için, yeniden deneme ilkesini ve hata eylemini değiştirebilirsiniz.
+İşinizin gelişmiş ayarlarını değiştirmek için **Eylem ayarları**'nı seçin. 
 
-HTTP ve HTTPS iş eylemi türleri için, izin verilen bir HTTP fiiline ilişkin yöntemi değiştirebilirsiniz. Ayrıca başlık ve temel kimlik doğrulama bilgileri ekleyebilir, silebilir veya değiştirebilirsiniz.
+![Eylem ayarlarını gözden geçirme](./media/scheduler-get-started-portal/scheduler-v2-portal-job-action-settings.png)
 
-Depolama kuyruğu eylem türleri için, depolama hesabı, kuyruk adı, SAS belirteci ve gövdeyi değiştirebilirsiniz.
+| Eylem türü | Açıklama | 
+|-------------|-------------| 
+| Tüm türler | **Yeniden deneme ilkesi** ve **Hata eylemi** ayarlarını değiştirebilirsiniz. | 
+| HTTP ve HTTPS | **Yöntem** için izin verilen değerlerden birini seçebilirsiniz. Ayrıca başlık ve temel kimlik doğrulama bilgileri ekleyebilir, silebilir veya değiştirebilirsiniz. | 
+| Depolama kuyruğu| Depolama hesabını, kuyruk adını, SAS belirtecini ve gövdeyi değiştirebilirsiniz. | 
+| Service Bus | Ad alanı, konu veya kuyruk yolu, kimlik doğrulama ayarları, aktarım türü, ileti özellikleri ve ileti gövdesini değiştirebilirsiniz. | 
+||| 
 
-Hizmet veri yolu eylemi türleri için, ad alanı, konu/kuyruk yolu, kimlik doğrulama ayarları, aktarım türü, ileti özellikleri ve ileti gövdesini değiştirebilirsiniz.
-
-   ![][job-action-settings]
+<a name="schedule"></a>
 
 ### <a name="schedule"></a>Zamanlama
-Bu, hızlı oluşturma sihirbazında oluşturduğunuz zamanlamayı değiştirmek istediğinizde, zamanlamayı yeniden yapılandırmanızı sağlar.
 
-Bu, [işinizde karmaşık zamanlamalar ve gelişmiş yineleme](scheduler-advanced-complexity.md) oluşturmak için bir fırsattır
+Zamanlamayı iş sihirbazı aracılığıyla ayarladıysanız yinelenen işler için başlangıç tarihi ile saati, yineleme zamanlaması ve bitiş tarihi ile saati gibi zamanlama ayarlarını değiştirebilirsiniz.
+Daha [karmaşık zamanlamalar ve gelişmiş yinelemeler](scheduler-advanced-complexity.md) de oluşturabilirsiniz.
 
-Başlangıç tarihini ve saatini, yineleme zamanlamasını ve bitiş tarihini ve saatini değiştirebilirsiniz (iş yineleniyorsa).
+İşinizin zamanlamasını görüntülemek veya değiştirmek için **Zamanlama**'yı seçin:
 
-   ![][job-schedule]
+![İş zamanlamasını görüntüleme](./media/scheduler-get-started-portal/scheduler-v2-portal-job-schedule.png)
+
+<a name="history"></a>
 
 ### <a name="history"></a>Geçmiş
-**Geçmişi** sekmesi seçili iş için sistemdeki her iş yürütme için seçilen ölçümleri görüntüler. Bu ölçümler Scheduler sistem durumunuz ile ilgili gerçek zamanlı değerleri belirtir:
 
-1. Durum  
-2. Ayrıntılar  
-3. Yeniden deneme sayısı
-4. Oluşma 1., 2., 3., vs.
-5. Yürütme başlangıç saati  
-6. Yürütme bitiş saati
-   
-   ![][job-history]
+Seçilen bir işin her bir çalıştırmasıyla ilgili ölçümleri görüntülemek için **Geçmiş**'i seçin. Bu ölçümler durum, yeniden deneme sayısı, yineleme sayısı, başlangıç zamanı ve bitiş zamanı gibi işinizin durumuyla ilgili gerçek zamanlı değerler sunar.
 
-Her yürütmeye ilişkin tüm yanıtlar dahil **Geçmiş Ayrıntıları**’nı görüntülemek için bir yürütmeye tıklayabilirsiniz. Bu iletişim kutusu yanıtı panoya kopyalamanızı da sağlar.
+![İş geçmişini ve ölçümlerini görüntüleme](./media/scheduler-get-started-portal/scheduler-v2-portal-job-history.png)
 
-   ![][job-history-details]
+Çalıştırma yanıtının tamamı gibi bir çalıştırmanın geçmiş ayrıntılarını görüntülemek için **Geçmiş** bölümünde istediğiniz çalıştırmayı seçin. 
+
+![İş geçmişi ayrıntılarını görüntüleme](./media/scheduler-get-started-portal/scheduler-v2-portal-job-history-details.png)
+
+<a name="users"></a>
 
 ### <a name="users"></a>Kullanıcılar
-Azure Rol Tabanlı Erişim Denetimi (RBAC), Azure Scheduler için ayrıntılı erişim yönetimi sağlar. Kullanıcılar sekmesini kullanmayı öğrenmek için, bkz. [Azure Rol Tabanlı Erişim Denetimi](../role-based-access-control/role-assignments-portal.md)
 
-## <a name="see-also"></a>Ayrıca bkz.
- [Scheduler nedir?](scheduler-intro.md)
+Azure Rol Tabanlı Erişim Denetimi (RBAC) ile her bir kullanıcının Azure Scheduler erişimini ayrıntılı bir şekilde yönetebilirsiniz. Rol tabanlı erişim denetimi ayarları hakkında daha fazla bilgi için bkz. [RBAC kullanarak erişimi yönetme](../role-based-access-control/role-assignments-portal.md)
 
- [Scheduler kavramları, terminolojisi ve varlık hiyerarşisi](scheduler-concepts-terms.md)
+## <a name="next-steps"></a>Sonraki adımlar
 
- [Azure Scheduler’da planlar ve faturalama](scheduler-plans-billing.md)
-
- [Azure Scheduler ile karmaşık zamanlamalar ve gelişmiş yineleme oluşturma](scheduler-advanced-complexity.md)
-
- [Scheduler REST API başvurusu](https://msdn.microsoft.com/library/mt629143)
-
- [Scheduler PowerShell cmdlet’leri başvurusu](scheduler-powershell-reference.md)
-
- [Yüksek Scheduler kullanılabilirliği ve güvenilirliği](scheduler-high-availability-reliability.md)
-
- [Scheduler sınırları, varsayılanları ve hata kodları](scheduler-limits-defaults-errors.md)
-
- [Scheduler giden bağlantı kimlik doğrulaması](scheduler-outbound-authentication.md)
-
-[marketplace-create]: ./media/scheduler-get-started-portal/scheduler-v2-portal-marketplace-create.png
-[action-settings]: ./media/scheduler-get-started-portal/scheduler-v2-portal-action-settings.png
-[recurrence-schedule]: ./media/scheduler-get-started-portal/scheduler-v2-portal-recurrence-schedule.png
-[job-properties]: ./media/scheduler-get-started-portal/scheduler-v2-portal-job-properties.png
-[job-overview]: ./media/scheduler-get-started-portal/scheduler-v2-portal-job-overview-1.png
-[job-action-settings]: ./media/scheduler-get-started-portal/scheduler-v2-portal-job-action-settings.png
-[job-schedule]: ./media/scheduler-get-started-portal/scheduler-v2-portal-job-schedule.png
-[job-history]: ./media/scheduler-get-started-portal/scheduler-v2-portal-job-history.png
-[job-history-details]: ./media/scheduler-get-started-portal/scheduler-v2-portal-job-history-details.png
-
-
-[1]: ./media/scheduler-get-started-portal/scheduler-get-started-portal001.png
-[2]: ./media/scheduler-get-started-portal/scheduler-get-started-portal002.png
-[3]: ./media/scheduler-get-started-portal/scheduler-get-started-portal003.png
-[4]: ./media/scheduler-get-started-portal/scheduler-get-started-portal004.png
-[5]: ./media/scheduler-get-started-portal/scheduler-get-started-portal005.png
-[6]: ./media/scheduler-get-started-portal/scheduler-get-started-portal006.png
-[7]: ./media/scheduler-get-started-portal/scheduler-get-started-portal007.png
-[8]: ./media/scheduler-get-started-portal/scheduler-get-started-portal008.png
-[9]: ./media/scheduler-get-started-portal/scheduler-get-started-portal009.png
-[10]: ./media/scheduler-get-started-portal/scheduler-get-started-portal010.png
-[11]: ./media/scheduler-get-started-portal/scheduler-get-started-portal011.png
-[12]: ./media/scheduler-get-started-portal/scheduler-get-started-portal012.png
-[13]: ./media/scheduler-get-started-portal/scheduler-get-started-portal013.png
-[14]: ./media/scheduler-get-started-portal/scheduler-get-started-portal014.png
-[15]: ./media/scheduler-get-started-portal/scheduler-get-started-portal015.png
+* [Kavramlar, terminoloji ve varlık hiyerarşisi](scheduler-concepts-terms.md) hakkında bilgi edinin
+* [Karmaşık zamanlamalar ve gelişmiş yinelemeler oluşturma](scheduler-advanced-complexity.md)
+* [Yüksek Scheduler kullanılabilirliği ve güvenilirliği](scheduler-high-availability-reliability.md) hakkında bilgi edinin
+* [Sınırlar, kotalar, varsayılan değerler ve hata kodları](scheduler-limits-defaults-errors.md) hakkında bilgi edinin

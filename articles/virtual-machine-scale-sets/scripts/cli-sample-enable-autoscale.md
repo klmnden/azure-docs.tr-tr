@@ -1,6 +1,6 @@
 ---
-title: Azure CLI 2.0 Örnekleri - Ana bilgisayar tabanlı otomatik ölçeklendirmeyi etkinleştirme | Microsoft Docs
-description: Azure CLI 2.0 Örnekleri
+title: Azure CLI Örnekleri - Ana bilgisayar tabanlı otomatik ölçeklendirmeyi etkinleştirme | Microsoft Docs
+description: Azure CLI Örnekleri
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: cynthn
@@ -16,14 +16,14 @@ ms.workload: na
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 2f41ca6f85e28f57d6606d85c3a1d58ee390148c
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: f146f673127d4495c2a2a392e26c1f51cd82a188
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38652148"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46951279"
 ---
-# <a name="automatically-scale-a-virtual-machine-scale-set-with-the-azure-cli-20"></a>Azure CLI 2.0 ile sanal makine ölçek kümesini otomatik olarak ölçeklendirme
+# <a name="automatically-scale-a-virtual-machine-scale-set-with-the-azure-cli"></a>Azure CLI ile sanal makine ölçek kümesini otomatik olarak ölçeklendirme
 Bu betik, CPU yükü değiştikçe otomatik olarak ölçeklendirmek için Ubuntu çalıştıran ve ana bilgisayar tabanlı ölçümler kullanan bir sanal makine ölçek kümesi oluşturur.
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
@@ -51,6 +51,6 @@ Bu betik, bir kaynak grubu, sanal makine ölçek kümesi ve tüm ilgili kaynakla
 | [az group delete](/cli/azure/ad/group#delete) | Bir kaynak grubunu tüm iç içe geçmiş kaynaklar dahil siler. |
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Azure CLI 2.0 hakkında daha fazla bilgi için [Azure CLI 2.0 belgelerine](https://docs.microsoft.com/cli/azure/overview) bakın.
+Azure CLI hakkında daha fazla bilgi için bkz. [Azure CLI belgeleri](https://docs.microsoft.com/cli/azure/overview).
 
-Ek sanal makine ölçek kümesi Azure CLI 2.0 betik örnekleri, [Azure sanal makine ölçek kümesi belgelerinde](../cli-samples.md) bulunabilir.
+Ek sanal makine ölçek kümesi Azure CLI betik örnekleri, [Azure sanal makine ölçek kümesi belgelerinde](../cli-samples.md) bulunabilir.

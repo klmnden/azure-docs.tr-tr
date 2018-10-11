@@ -1,6 +1,6 @@
 ---
-title: Azure CLI Betik Örneği - Azure CLI 2.0 kullanarak Web Uygulamasını el ile ölçeklendirme | Microsoft Docs
-description: Azure CLI Betik Örneği - Azure CLI 2.0 kullanarak Web Uygulamasını el ile ölçeklendirme
+title: Azure CLI Betik Örneği - Azure CLI kullanarak Web Uygulamasını el ile ölçeklendirme | Microsoft Docs
+description: Azure CLI Betik Örneği - Azure CLI kullanarak Web Uygulamasını el ile ölçeklendirme
 services: appservice
 documentationcenter: appservice
 author: syntaxc4
@@ -16,12 +16,12 @@ ms.workload: web
 ms.date: 12/11/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: 844250dce567bac280ae3a9a688cc8e5bc5852c9
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 28ca20d44d18e8fe25153b7f9298d5174412ad79
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/30/2018
-ms.locfileid: "30282455"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46988589"
 ---
 # <a name="scale-a-web-app-manually"></a>Web uygulamasını el ile ölçeklendirme
 
@@ -31,7 +31,7 @@ Bu örnek betik bir kaynak grubu, bir App Service planı ve bir web uygulaması 
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-CLI'yi yerel olarak yükleyip kullanmayı tercih ederseniz Azure CLI 2.0 veya sonraki bir sürümünü kullanmanız gerekir. Sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI 2.0 yükleme]( /cli/azure/install-azure-cli).
+CLI'yi yerel olarak yükleyip kullanmayı tercih ederseniz Azure CLI 2.0 veya sonraki bir sürümünü kullanmanız gerekir. Sürümü bulmak için `az --version` komutunu çalıştırın. Yükleme veya yükseltme yapmanız gerekirse bkz. [Azure CLI’yı yükleme]( /cli/azure/install-azure-cli).
 
 ## <a name="sample-script"></a>Örnek betik
 

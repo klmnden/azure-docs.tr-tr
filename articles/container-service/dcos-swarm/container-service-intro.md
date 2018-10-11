@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 03/01/2017
 ms.author: rogardle
 ms.custom: H1Hack27Feb2017, mvc
-ms.openlocfilehash: d89e9b4dcfe44648f1e3ddd95fb01b62a36295df
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 6bb13ad19f9b0b6137cdb2b4a9afbb2f325b9d36
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32166346"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46975068"
 ---
 # <a name="introduction-to-docker-container-hosting-solutions-with-azure-container-service"></a>Azure Container Service ile Docker kapsayıcı barındırma çözümlerine giriş 
 
@@ -30,7 +30,7 @@ Azure Container Service’i kullanarak Azure’un kuruluş düzeyindeki özellik
 Azure Container Service’i ile amacımız, günümüzde müşterilerimiz arasında popüler olan açık kaynak araçları ve teknolojileri kullanan bir kapsayıcı barındırma ortamı sunmaktır. Şu an kullandığınız düzenleyici (DC/OS, Docker Swarm veya Kubernetes) için standart API uç noktalarını kullanıma sunuyoruz. Bu uç noktaları kullanarak, ilgili uç noktalarla iletişim kurma özelliğine sahip olan tüm yazılımlardan faydalanabilirsiniz. Örneğin, Docker Swarm uç noktasıyla Docker komut satırı arabirimini (CLI) kullanabilirsiniz. DC/OS için DCOS CLI bileşenini seçebilirsiniz. Kubernetes için `kubectl` seçeneğini belirleyebilirsiniz.
 
 ## <a name="creating-a-docker-cluster-by-using-azure-container-service"></a>Azure Container Service’i kullanarak Docker kümesi oluşturma
-Azure Container Service’i kullanmaya başlamak için bir Azure Resource Manager şablonunu ([Docker Swarm](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-swarm), [DC/OS](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-dcos) veya [Kubernetes](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-kubernetes)) ya da [Azure CLI 2.0](container-service-create-acs-cluster-cli.md) bileşenini kullanarak portal aracılığıyla (Market’te **Azure Container Service** ifadesini aratın) bir Azure Container Service kümesi dağıtırsınız. Sunulan hızlı başlangıç şablonu, ek veya gelişmiş Azure yapılandırmalarını dahil edecek şekilde değiştirilebilir. Daha fazla bilgi edinmek için bkz. [Azure Container Service kümesi dağıtma](container-service-deployment.md).
+Azure Container Service’i kullanmaya başlamak için bir Azure Resource Manager şablonunu ([Docker Swarm](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-swarm), [DC/OS](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-dcos) veya [Kubernetes](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-kubernetes)) ya da [Azure CLI](container-service-create-acs-cluster-cli.md) bileşenini kullanarak portal aracılığıyla (Market’te **Azure Container Service** ifadesini aratın) bir Azure Container Service kümesi dağıtırsınız. Sunulan hızlı başlangıç şablonu, ek veya gelişmiş Azure yapılandırmalarını dahil edecek şekilde değiştirilebilir. Daha fazla bilgi edinmek için bkz. [Azure Container Service kümesi dağıtma](container-service-deployment.md).
 
 ## <a name="deploying-an-application"></a>Uygulama dağıtma
 Azure Container Service’te düzenleme için Docker Swarm, DC/OS veya Kubernetes seçenekleri sunulmaktadır. Uygulamanızı nasıl dağıtacağınız, düzenleme seçiminize göre değişiklik gösterir.
@@ -55,7 +55,8 @@ Azure Container Service üzerinde çalışan DC/OS, varsayılan olarak planlanm�
 ![Azure Container Service’te DC/OS Evreni](media/dcos/universe.png)
 
 #### <a name="using-marathon"></a>Marathon’u kullanma
-Marathon, cgroups hizmetleri için küme çapında bir başlatma ve denetim sistemidir. Azure Container Service için bu, Docker biçimli kapsayıcılardır. Marathon’un sunduğu web arabirimini kullanarak uygulamalarınızı dağıtabilirsiniz. Buna `http://DNS_PREFIX.REGION.cloudapp.azure.com` gibi bir URL’den erişebilirsiniz. Buradaki DNS\_PREFIX ve REGION, dağıtım sırasında tanımlanır. Elbette, kendi DNS adınızı da kullanabilirsiniz. Marathon web arabirimini kullanarak kapsayıcı çalıştırma hakkında daha fazla bilgi edinmek için bkz. [Marathon web kullanıcı arabirimi aracılığıyla DC/OS kapsayıcısını yönetme](container-service-mesos-marathon-ui.md).
+Marathon, cgroups hizmetleri için küme çapında bir başlatma ve denetim sistemidir. Azure Container Service için bu, Docker biçimli kapsayıcılardır. Marathon’un sunduğu web arabirimini kullanarak uygulamalarınızı dağıtabilirsiniz. Buna `http://DNS_PREFIX.REGION.cloudapp.azure.com` gibi bir URL'den erişebilirsiniz
+Burada DNS\_PREFIX ve REGION değerlerinin ikisi de dağıtım sırasında tanımlanır. Elbette, kendi DNS adınızı da kullanabilirsiniz. Marathon web arabirimini kullanarak kapsayıcı çalıştırma hakkında daha fazla bilgi edinmek için bkz. [Marathon web kullanıcı arabirimi aracılığıyla DC/OS kapsayıcısını yönetme](container-service-mesos-marathon-ui.md).
 
 ![Marathon Uygulamalarının Listesi](media/dcos/marathon-applications-list.png)
 
@@ -102,4 +103,4 @@ Azure Container Service ile Uygulama Oluşturma (Derleme 2016)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-[Portal](container-service-deployment.md)’ı veya [Azure CLI 2.0](container-service-create-acs-cluster-cli.md) aracını kullanarak bir kapsayıcı hizmeti kümesi dağıtın.
+[Portal](container-service-deployment.md)’ı veya [Azure CLI](container-service-create-acs-cluster-cli.md) aracını kullanarak bir Container Service kümesi dağıtın.

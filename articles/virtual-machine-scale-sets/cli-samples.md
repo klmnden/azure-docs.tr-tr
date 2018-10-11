@@ -1,6 +1,6 @@
 ---
-title: Azure CLI 2.0 Örnekleri | Microsoft Docs
-description: Azure CLI 2.0 Örnekleri
+title: Azure CLI Örnekleri | Microsoft Docs
+description: Azure CLI Örnekleri
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: cynthn
@@ -16,16 +16,16 @@ ms.workload: na
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: ca362f79ff45a886ed570cfdf68b731064d1c17f
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: d563afc6545cd84654ef1bfa0fac3931e2b80152
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38597375"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46970371"
 ---
-# <a name="azure-cli-20-samples-for-virtual-machine-scale-sets"></a>Sanal makine ölçek kümeleri için Azure CLI 2.0 örnekleri
+# <a name="azure-cli-samples-for-virtual-machine-scale-sets"></a>Sanal makine ölçek kümeleri için Azure CLI örnekleri
 
-Aşağıdaki tablo, Azure CLI 2.0 kullanılarak oluşturulan bash betiklerine yönelik bağlantılar içerir.
+Aşağıdaki tablo, Azure CLI’si kullanılarak oluşturulan bash komut dosyalarına yönelik bağlantılar içerir.
 
 | | |
 |---|---|

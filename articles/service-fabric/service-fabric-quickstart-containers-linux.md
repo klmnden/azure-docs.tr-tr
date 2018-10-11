@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 04/11/2018
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: b0ded0fb274f6b64935ddaba75abf23a94063120
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: c84470936dfc9610f23dacb55d8d8643a2651f71
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38452660"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46948409"
 ---
 # <a name="quickstart-deploy-linux-containers-to-service-fabric"></a>Hızlı başlangıç: Linux kapsayıcıları Service Fabric'e dağıtma
 
@@ -65,7 +65,7 @@ Oturum açın ve bir [Linux kümesine](http://aka.ms/tryservicefabric) katılın
 Service Fabric, bir kümeyi ve uygulamalarını yönetmek için kullanabileceğiniz birçok araç sağlar:
 
 - Tarayıcı tabanlı bir araç: Service Fabric Explorer.
-- Azure CLI 2.0 üzerinde çalışan Service Fabric Komut Satırı Arabirimi (CLI).
+- Azure CLI üzerinde çalışan Service Fabric Komut Satırı Arabirimi (CLI). 
 - PowerShell komutları.
 
 Bu hızlı başlangıçta, Cloud Shell içinde Service Fabric CLI ve Service Fabric Explorer’ı kullanacaksınız. Aşağıdaki bölümlerde bu araçlarla güvenli kümenize bağlanmak için gereken sertifikanın nasıl yükleneceği gösterilmiştir.

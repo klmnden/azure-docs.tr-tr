@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 10/23/2017
 ms.author: suhuruli
 ms.custom: mvc, devcenter
-ms.openlocfilehash: ed5da0afe67deaa7000c1bf3b8d75bdea14f2ecd
-ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
+ms.openlocfilehash: 7fcf0b924868d755bc76f7d1e695e73afc4eae6a
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42616335"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46993400"
 ---
 # <a name="quickstart-deploy-a-java-reliable-services-application-to-service-fabric"></a>Hızlı başlangıç: Service Fabric'e bir Java güvenilir hizmetler uygulaması dağıtma
 
@@ -101,7 +101,7 @@ Oturum açın ve bir [Linux kümesine](http://aka.ms/tryservicefabric) katılın
 Service Fabric, bir kümeyi ve uygulamalarını yönetmek için kullanabileceğiniz birçok araç sağlar:
 
 * Tarayıcı tabanlı bir araç: Service Fabric Explorer.
-* Azure CLI 2.0 üzerinde çalışan Service Fabric Komut Satırı Arabirimi (CLI).
+* Azure CLI üzerinde çalışan Service Fabric Komut Satırı Arabirimi (CLI).
 * PowerShell komutları.
 
 Bu hızlı başlangıçta, Service Fabric CLI ve Service Fabric Explorer’ı kullanacaksınız.

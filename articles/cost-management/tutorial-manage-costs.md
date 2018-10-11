@@ -1,26 +1,29 @@
 ---
-title: 'Öğretici: Azure Maliyet Yönetimi ile maliyetleri yönetme | Microsoft Docs'
+title: 'Öğretici: Azure’da Cloudyn ile maliyetleri yönetme | Microsoft Docs'
 description: Bu öğreticide, maliyet dağıtımı, ücret hesaplama raporları ve ücret yansıtma raporları kullanarak maliyetleri yönetmeyi öğrenirsiniz.
 services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 04/26/2018
+ms.date: 09/18/2018
 ms.topic: tutorial
 ms.service: cost-management
 ms.custom: ''
 manager: dougeby
-ms.openlocfilehash: 16f86eace9b5848f263e0d0772db441a123f21ae
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 743576d8cbd7135369fb692e601360cb57a6c3bd
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46989644"
 ---
-# <a name="tutorial-manage-costs-by-using-azure-cost-management"></a>Öğretici: Azure Maliyet Yönetimi’ni kullanarak maliyetleri yönetme
+# <a name="tutorial-manage-costs-by-using-cloudyn"></a>Öğretici: Cloudyn kullanarak maliyetleri yönetme
 
-Maliyetlerin etiketler temelinde dağıtımını yaparak Azure Maliyet Yönetimi'nde maliyetleri yönetir ve ücret hesaplama raporları oluşturursunuz. Maliyet dağıtımı işlemi, maliyetleri tüketilen bulut kaynaklarınıza dağıtır. Kaynaklarınızın tümü etiketler kullanılarak kategorilere ayrıldığında maliyetler tam olarak dağıtılır. Maliyetler dağıtıldıktan sonra, panolar ve raporlarla kullanıcılarınıza ücret hesaplama ve ücret yansıtma raporları sağlayabilirsiniz. Bununla birlikte, Maliyet Yönetimi'ni kullanmaya başladığınızda birçok kaynak etiketsiz veya etiketlenemez durumda olabilir.
+Maliyetlerin etiketler temelinde dağıtımını yaparak Cloudyn'de maliyetleri yönetir ve ücret hesaplama raporları oluşturursunuz. Maliyet dağıtımı işlemi, maliyetleri tüketilen bulut kaynaklarınıza dağıtır. Kaynaklarınızın tümü etiketler kullanılarak kategorilere ayrıldığında maliyetler tam olarak dağıtılır. Maliyetler dağıtıldıktan sonra, panolar ve raporlarla kullanıcılarınıza ücret hesaplama ve ücret yansıtma raporları sağlayabilirsiniz. Bununla birlikte, Cloudyn'i kullanmaya başladığınızda birçok kaynak etiketsiz veya etiketlenemez durumda olabilir.
 
 Örneğin, mühendislik maliyetleri için geri ödeme almak isteyebilirsiniz. Mühendislik ekibinize, kaynak maliyetleri temelinde belirli bir miktar almanız gerektiğini gösterebilmelisiniz. Tüm tüketilen *mühendislik* etiketli kaynaklar için onlara bir rapor gösterebilirsiniz.
+
+Bu makalede, etiketler ve kategoriler bazen eş anlamlı kullanılmıştır. Kategorileri geniş koleksiyonlardır ve birçok şey olabilir. Bunlar iş birimlerini, maliyet merkezlerini, web hizmetlerini veya etiketlenmiş herhangi bir şeyi içerebilir. Etiketler, birden fazla kaynağa ve kaynak grubuna aynı etiketi uygulayarak kaynakları kategorilere ayırmanızı, birleşik fatura bilgilerini görüntülemenizi ve yönetmenizi sağlayan ad/değer çiftleridir. Azure portalının önceki sürümlerinde *etiket adı*, *anahtar* olarak adlandırılıyordu. Etiketler tek bir Azure aboneliği için oluşturulur ve bu abonelikte depolanır. AWS etiketleri anahtar/değer çiftlerinden oluşur. Hem Azure'da hem de AWS'de kullanıldığından, Cloudyn'de de *anahtar* terimi kullanılır. Kategori Yöneticisi, etiketleri birleştirmek için anahtarları (etiket adları) kullanır.
 
 Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
@@ -33,13 +36,22 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 ## <a name="prerequisites"></a>Ön koşullar
 
 - Azure hesabınız olmalıdır.
-- Azure Maliyet Yönetimi için bir deneme kaydı veya ücretli aboneliğe sahip olmalısınız.
+- Cloudyn için bir deneme kaydına veya ücretli aboneliğe sahip olmanız gerekir.
+- Cloudyn portalında [etkinleştirilmemiş hesaplar etkinleştirilmelidir](activate-subs-accounts.md).
+- Sanal makinelerinizde [konuk düzeyi izleme](azure-vm-extended-metrics.md) etkinleştirilmelidir.
+
 
 ## <a name="use-custom-tags-to-allocate-costs"></a>Maliyetleri dağıtmak için özel etiketler kullanma
 
+Cloudyn kaynak grubu etiket verilerini Azure'dan alır ve etiket bilgilerini otomatik olarak kaynaklara yayar. Maliyet dağıtımında, kaynak etiketlerine göre maliyeti görebilirsiniz.
+
+Maliyetlerinizi gruplandırmak ve etiketlenmemiş maliyetleri işleyecek kuralları tanımlamak için, Maliyet Dağıtma modelini kullanarak dahili olarak kategorilere ayrılmamış (etiketlenmemiş) kaynaklara uygulanacak kategorileri (etiketleri) tanımlarsınız. Maliyet dağıtma kuralları, bir hizmetin maliyetlerinin başka bir hizmete dağıtılmasına yönelik kaydedilmiş yönergelerinizdir. Bundan sonra, kaynaklarınız oluşturduğunuz modeli seçerek etiketleri/kategorileri *maliyet dağıtma* raporlarında görüntüler.
+
+*Maliyet analizi* raporlarında söz konusu kaynaklar için etiket bilgilerinin gösterilmediğini unutmayın. Ayrıca, maliyet ayırma kullanılarak Cloudyn'de uygulanan etiketler Azure'a gönderilmez. Dolayısıyla bunları Azure portalında görmezsiniz.
+
 Maliyet dağıtımına başladığınızda, ilk olarak bir maliyet modeli kullanıp kapsamı tanımlarsınız. Maliyet modeli maliyetleri değiştirmez, bunları dağıtır. Maliyet modeli oluşturduğunuzda, verilerinizi maliyet varlığı, hesap veya aboneliğe göre ya da birden çok etikete göre segmentlere ayırırsınız. Yaygın kullanılan örnek etiketler arasında faturalama kodu, maliyet merkezi veya grup adı sayılabilir. Etiketler, kuruluşunuz diğer bölümlerine ücret hesaplama ve ücret yansıtma işlemleri gerçekleştirmenize de yardımcı olur.
 
-Özel bir maliyet dağıtma modeli oluşturmak için, raporun menüsünde **Maliyet** &gt; **Maliyet Yönetimi** &gt; **360° Maliyet Dağıtma**'yı seçin.
+Özel bir maliyet dağıtma modeli oluşturmak için, raporun menüsünde **Maliyetler** &gt; **Maliyet Yönetimi** &gt; **360° Maliyet Dağıtma**'yı seçin.
 
 ![360 Maliyet Dağıtma seçimi](./media/tutorial-manage-costs/cost-allocation-360.png)
 
@@ -59,7 +71,7 @@ Ardından, **Kategorilere Ayrılmamış Kaynaklar**'ı seçin ve dağıtılmamı
 
 
 
-Farklı bir örnekte, tüm Azure ağ maliyetlerinizi kuruluşunuzdaki belirli bir iş birimine dağıtmak isteyebilirsiniz. Bunu yapmak için, **Azure/Ağ** hizmetini seçin ve sonra da **Açık Dağıtım**'ı seçin. Ardından, dağıtım yüzdesini 100 olarak ayarlayın ve iş birimini seçin (aşağıdaki resimde **G&amp;A**):
+Farklı bir örnekte, tüm Azure ağ maliyetlerinizi kuruluşunuzdaki belirli bir iş birimine dağıtmak isteyebilirsiniz. Bunu yapmak için, **Azure/Ağ** hizmetini seçin ve sonra da **Dağıtma Kuralını Tanımla**'nın altında **Açık Dağıtım**'ı seçin. Ardından, dağıtım yüzdesini 100 olarak ayarlayın ve iş birimini seçin (aşağıdaki resimde **G&amp;A**):
 
 ![Belirli bir iş birimine yönelik maliyet modeli dağıtma kuralı örneği](./media/tutorial-manage-costs/cost-model03.png)
 
@@ -97,9 +109,9 @@ Cloudyn raporlarında gördüğünüz etiket verileri üç konumdan kaynaklanır
     - Cloudyn varlık etiketleri - Cloudyn varlıklarına uygulanan kullanıcı tanımlı meta veri etiketleri
     - Kategori Yöneticisi - mevcut etiketlere uygulanan kurallar temelinde yeni etiketler oluşturan bir veri temizleme aracı
 
-Cloudyn maliyet raporlarında bulut sağlayıcısı etiketlerini görüntülemek için, 360 Maliyet Dağıtma kullanarak özel bir maliyet dağıtma modeli oluşturmalısınız. Bunu yapmak için, **Maliyet** > **Maliyet Yönetimi** > **360 Maliyet Yönetme** öğesine gidin, istenen etiketleri seçin ve ardından etiketlenmemiş maliyetleri işlemek üzere kurallar tanımlayın. Sonra da yeni maliyet modelini oluşturun. Bunun ardından, Maliyet Dağıtma Analizi'nde raporlarınızı görüntüleyerek Azure kaynak etiketleriniz üzerinde görüntüleme, filtreleme ve sıralama işlemleri yapabilirsiniz.
+Cloudyn maliyet raporlarında bulut sağlayıcısı etiketlerini görüntülemek için, 360 Maliyet Dağıtma kullanarak özel bir maliyet dağıtma modeli oluşturmalısınız. Bunu yapmak için, **Maliyetler** > **Maliyet Yönetimi** > **360 Maliyet Dağıtma** öğesine gidin, istenen etiketleri seçin ve ardından etiketlenmemiş maliyetleri işlemek üzere kurallar tanımlayın. Sonra da yeni maliyet modelini oluşturun. Bunun ardından, Maliyet Dağıtma Analizi'nde raporlarınızı görüntüleyerek Azure kaynak etiketleriniz üzerinde görüntüleme, filtreleme ve sıralama işlemleri yapabilirsiniz.
 
-Azure kaynak etiketleri yalnızca **Maliyet Dağıtma Analizi** raporlarında gösterilir.
+Azure kaynak etiketleri yalnızca **Maliyetler** > **Maliyet Dağıtma Analizi** raporlarında gösterilir.
 
 Bulut sağlayıcısı faturalandırma etiketleri tüm maliyet raporlarında gösterilir.
 

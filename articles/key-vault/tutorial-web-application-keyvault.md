@@ -9,32 +9,32 @@ ms.assetid: 0e57f5c7-6f5a-46b7-a18a-043da8ca0d83
 ms.service: key-vault
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 05/17/2018
+ms.date: 09/05/2018
 ms.author: barclayn
 ms.custom: mvc
-ms.openlocfilehash: 91e2047998d6e743691821c631e15c94cd63cf15
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: d1776fc2347eb1a1f03a834b6a5f847ef5c551e4
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41920938"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46948892"
 ---
 # <a name="tutorial-configure-an-azure-web-application-to-read-a-secret-from-key-vault"></a>Öğretici: Anahtar Kasasından gizli dizi okumak için bir Azure web uygulaması yapılandırma
 
-Bu öğreticide, Azure web uygulamasının yönetilen hizmet kimliklerini kullanarak Anahtar Kasasından bilgi okumasını sağlamak için gerekli adımların üzerinden geçeceksiniz. Aşağıdakileri nasıl yapacağınızı öğrenirsiniz:
+Bu öğreticide, Azure web uygulamasının Azure kaynakları için yönetilen kimlikleri kullanarak Anahtar Kasasından bilgi okumasını sağlamak üzere gereken adımların üzerinden geçeceksiniz. Aşağıdakileri nasıl yapacağınızı öğrenirsiniz:
 
 > [!div class="checklist"]
 > * Anahtar Kasası oluşturun.
 > * Anahtar Kasasında bir gizli dizi depolayın.
-> * Azure Web Uygulaması oluşturun.
-> * Yönetilen hizmet kimliklerini etkinleştirme
+> * Bir Azure web uygulaması oluşturun.
+> * Web uygulaması için yönetilen kimliği etkinleştirin.
 > * Uygulamanın Anahtar Kasasından verileri okuması için gereken izinleri verin.
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-CLI'yi yerel olarak yükleyip kullanmayı tercih ederseniz bu öğretici için Azure CLI 2.0.4 veya sonraki bir sürümünü kullanmanız gerekir. Sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI 2.0 yükleme]( /cli/azure/install-azure-cli).
+CLI'yi yerel olarak yükleyip kullanmayı tercih ederseniz bu öğretici için Azure CLI 2.0.4 veya sonraki bir sürümünü kullanmanız gerekir. Sürümü bulmak için `az --version` komutunu çalıştırın. Yükleme veya yükseltme yapmanız gerekirse bkz. [Azure CLI’yı yükleme]( /cli/azure/install-azure-cli).
 
 CLI kullanarak Azure'da oturum açmak için şunu yazabilirsiniz:
 
@@ -218,9 +218,9 @@ Web uygulamanız için yüklemiş olmanız gereken iki NuGet paketi vardır. Bun
 >[!IMPORTANT]
 > Tarayıcı penceresi açılır ve 502.5 - İşlem Hatası iletisini görürsünüz. Bu beklenen bir durumdur. Anahtar Kasasından gizli dizileri okumak için uygulama kimliği hakları vermeniz gerekir.
 
-## <a name="enable-managed-service-identity"></a>Yönetilen Hizmet Kimliğini etkinleştirme
+## <a name="enable-a-managed-identity-for-the-web-app"></a>Web uygulaması için yönetilen kimliği etkinleştirme
 
-Azure Key Vault kimlik bilgilerini ve diğer anahtarlarla gizli dizileri güvenle depolamak için bir yol sağlar, ama bunları alabilmek için kodunuzun Key Vault'ta kimlik doğrulaması yapması gerekir. Yönetilen Hizmet Kimliği (MSI), Azure hizmetlerine Azure Active Directory (Azure AD) üzerinde otomatik olarak yönetilen bir kimlik vererek bu soruna daha basit bir çözüm getirir. Bu kimliği kullanarak, Key Vault da dahil olmak üzere Azure AD kimlik doğrulamasını destekleyen tüm hizmetlerde kodunuzda kimlik bilgileri bulunmasına gerek kalmadan kimlik doğrulaması yapabilirsiniz.
+Azure Key Vault kimlik bilgilerini ve diğer anahtarlarla gizli dizileri güvenle depolamak için bir yol sağlar, ama bunları alabilmek için kodunuzun Key Vault'ta kimlik doğrulaması yapması gerekir. [Azure kaynakları için yönetilen kimliklere genel bakış](../active-directory/managed-identities-azure-resources/overview.md), Azure hizmetlerine Azure Active Directory (Azure AD) üzerinde otomatik olarak yönetilen bir kimlik vererek bu soruna daha basit bir çözüm getirir. Bu kimliği kullanarak, Key Vault da dahil olmak üzere Azure AD kimlik doğrulamasını destekleyen tüm hizmetlerde kodunuzda kimlik bilgileri bulunmasına gerek kalmadan kimlik doğrulaması yapabilirsiniz.
 
 1. Azure CLI'ye dönme
 2. Bu uygulamanın kimliğini oluşturmak için assign-identity komutunu çalıştırın:
@@ -230,7 +230,7 @@ az webapp identity assign --name "WebKeyVault" --resource-group "ContosoResource
 ```
 
 >[!NOTE]
->Bu komut, portala gidip web uygulaması özelliklerinde **Yönetilen hizmet kimliği** ayarını **Açık** duruma getirmekle eşdeğerdir.
+>Bu komut, portala gidip web uygulaması özelliklerinde **Kimlik/Sistem tarafından atanan** ayarını **Açık** duruma getirmekle eşdeğerdir.
 
 ## <a name="grant-rights-to-the-application-identity"></a>Uygulama kimliğine haklar verme
 

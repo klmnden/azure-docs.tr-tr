@@ -1,6 +1,6 @@
 ---
-title: İç Temel Yük Dengeleyicisi oluşturma - Azure CLI 2.0 | Microsoft Docs
-description: Azure CLI 2.0 kullanarak iç yük dengeleyiciyi nasıl oluşturabileceğinizi öğrenin
+title: İç Temel Yük Dengeleyicisi oluşturma - Azure CLI | Microsoft Docs
+description: Azure CLI kullanarak iç yük dengeleyiciyi nasıl oluşturabileceğinizi öğrenin
 services: load-balancer
 documentationcenter: na
 author: KumudD
@@ -15,20 +15,20 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/27/2018
 ms.author: kumud
-ms.openlocfilehash: bd4dda835279a21509f77814f4d5f9e30e8a42c1
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 7e556d3900d257410050e37b714d2005675e185d
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39439207"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46967719"
 ---
-# <a name="create-an-internal-load-balancer-to-load-balance-vms-using-azure-cli-20"></a>Azure CLI 2.0 kullanarak sanal makinelerin yük dengelemesi için iç yük dengeleyici oluşturma
+# <a name="create-an-internal-load-balancer-to-load-balance-vms-using-azure-cli"></a>Azure CLI kullanarak sanal makinelerin yük dengelemesi için iç yük dengeleyici oluşturma
 
 Bu makalede, sanal makinelerin yük dengelemesi için iç yük dengeleyicinin nasıl oluşturulacağı gösterilmektedir. Yük dengeleyiciyi test etmek için, Ubuntu server çalıştıran iki sanal makine (VM) dağıtarak bir web uygulamasının yük dengelemesini sağlayın.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)] 
 
-CLI'yi yerel olarak yükleyip kullanmayı tercih ederseniz bu öğretici için Azure CLI 2.0.28 veya sonraki bir sürümünü kullanmanız gerekir. Sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI 2.0 yükleme]( /cli/azure/install-azure-cli).
+CLI'yi yerel olarak yükleyip kullanmayı tercih ederseniz bu öğretici için Azure CLI 2.0.28 veya sonraki bir sürümünü kullanmanız gerekir. Sürümü bulmak için `az --version` komutunu çalıştırın. Yükleme veya yükseltme yapmanız gerekiyorsa bkz. [Azure CLI'yı yükleme]( /cli/azure/install-azure-cli).
 
 ## <a name="create-a-resource-group"></a>Kaynak grubu oluşturma
 

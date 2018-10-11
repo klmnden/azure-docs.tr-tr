@@ -1,27 +1,24 @@
 ---
-title: Azure Hızlı Başlangıç - Depolama hesabı oluşturma | Microsoft Docs
-description: Azure portalı, Azure PowerShell veya Azure CLI kullanarak hızlı bir şekilde yeni bir depolama hesabı oluşturmayı öğrenin.
+title: 'Hızlı Başlangıç: Depolama hesabı oluşturma - Azure Depolama'
+description: Bu hızlı başlangıçta Azure portalı, Azure PowerShell veya Azure CLI kullanarak bir depolama hesabı oluşturmayı öğreneceksiniz. Azure depolama hesabı, Azure Depolama hizmetinde oluşturduğunuz veri nesnelerini depolamak ve bunlara erişmek için Microsoft Azure’da benzersiz bir ad alanı sağlar.
 services: storage
 author: tamram
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 07/03/2018
+ms.date: 09/18/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: 91e98f74fd6cd88533a5090a383897eaa0e60648
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: a695e333f48ed0bbf1ad5656c20964232feff4d7
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39524029"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46990136"
 ---
 # <a name="create-a-storage-account"></a>Depolama hesabı oluşturma
 
-Azure depolama hesabı, Azure Depolamada veri nesnelerinizi depolamak ve bunlara erişmek için benzersiz ad alanı sağlar. Bir depolama hesabı, söz konusu hesap altında oluşturduğunuz herhangi bir blob, dosya, kuyruk, tablo ve diski içerir. 
-
-Azure Depolama'yı kullanmaya başlamak için öncelikle yeni bir depolama hesabı oluşturmanız gerekir. [Azure portalı](https://portal.azure.com/), [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) veya [Azure CLI](https://docs.microsoft.com/cli/azure?view=azure-cli-latest) kullanarak bir Azure depolama hesabı oluşturabilirsiniz. Bu hızlı başlangıçta, yeni depolama hesabınızı oluşturmak için bu seçeneklerin her birinin nasıl kullanılacağı gösterilmektedir. 
-
+Bu hızlı başlangıçta [Azure portalı](https://portal.azure.com/), [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) veya [Azure CLI](https://docs.microsoft.com/cli/azure?view=azure-cli-latest) kullanarak bir depolama hesabı oluşturmayı öğreneceksiniz.  
 
 ## <a name="prerequisites"></a>Ön koşullar
 
@@ -54,7 +51,7 @@ Düğme bu hızlı başlangıçtaki adımları uygulamak için kullanabileceğin
 
 ### <a name="install-the-cli-locally"></a>CLI’yi yerel olarak yükleme
 
-Ayrıca, Azure CLI’yi yerel olarak yükleyip kullanabilirsiniz. Bu hızlı başlangıç için Azure CLI 2.0.4 veya sonraki bir sürümü kullanmanız gerekir. Sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI 2.0 yükleme](/cli/azure/install-azure-cli). 
+Ayrıca, Azure CLI’yi yerel olarak yükleyip kullanabilirsiniz. Bu hızlı başlangıç için Azure CLI 2.0.4 veya sonraki bir sürümü kullanmanız gerekir. Sürümü bulmak için `az --version` komutunu çalıştırın. Yükleme veya yükseltme yapmanız gerekirse bkz. [Azure CLI’yı yükleme](/cli/azure/install-azure-cli). 
 
 ---
 
@@ -84,26 +81,21 @@ az login
 
 ---
 
-## <a name="create-a-resource-group"></a>Kaynak grubu oluşturma
+## <a name="create-a-storage-account"></a>Depolama hesabı oluşturma
 
-Azure kaynak grubu, Azure kaynaklarının dağıtıldığı ve yönetildiği bir mantıksal kapsayıcıdır. Kaynak grupları hakkında daha fazla bilgi için bkz. [Azure Resource Manager’a genel bakış](../../azure-resource-manager/resource-group-overview.md).
+Artık depolama hesabınızı oluşturmaya hazırsınız.
+
+Her depolama hesabı bir Azure kaynak grubuna ait olmalıdır. Kaynak grubu, Azure hizmetlerinizi gruplandırmaya yönelik mantıksal bir kapsayıcıdır. Bir depolama hesabı oluşturduğunuzda, yeni bir kaynak grubu oluşturma veya var olan bir kaynak grubu kullanma seçeneğiniz vardır. Bu hızlı başlangıçta, yeni bir kaynak grubu oluşturma işlemi gösterilmektedir. 
+
+**Genel amaçlı v2** depolama hesabı, tüm Azure Depolama hizmetlerine erişim sağlar: blob'lar, dosyalar, kuyruklar, tablolar ve diskler. Hızlı başlangıç bir genel amaçlı v2 depolama hesabı oluşturur, ancak herhangi bir türde depolama hesabı oluşturma adımları da benzerdir.   
 
 # <a name="portaltabportal"></a>[Portal](#tab/portal)
 
-Azure portalında bir kaynak grubu oluşturmak için şu adımları izleyin:
-
-1. Azure portalında sol taraftaki menüyü genişleterek hizmet menüsünü açın ve **Kaynak Grupları**'nı seçin.
-2. **Ekle**’ye tıklayarak yeni bir kaynak grubu ekleyin.
-3. Yeni kaynak grubu için bir ad girin.
-4. Yeni kaynak grubunun oluşturulacağı aboneliği seçin.
-5. Kaynak grubu için konum seçin.
-6. **Oluştur** düğmesine tıklayın.  
-
-![Azure portalında kaynak grubu oluşturmayı gösteren ekran görüntüsü](./media/storage-quickstart-create-account/create-resource-group.png)
+[!INCLUDE [storage-create-account-portal-include](../../../includes/storage-create-account-portal-include.md)]
 
 # <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
 
-PowerShell ile yeni bir kaynak grubu oluşturmak için [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) komutunu kullanın: 
+İlk olarak, [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) komutunu kullanarak PowerShell ile yeni bir kaynak grubu oluşturun: 
 
 ```powershell
 # put resource group in a variable so you can use the same group name going forward,
@@ -119,64 +111,7 @@ Get-AzureRmLocation | select Location
 $location = "westus"
 ```
 
-# <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
-
-Azure CLI ile yeni bir kaynak grubu oluşturmak için [az group create](/cli/azure/group#az_group_create) komutunu kullanın. 
-
-```azurecli-interactive
-az group create \
-    --name storage-quickstart-resource-group \
-    --location westus
-```
-
-`--location` parametresi için hangi bölgeyi belirteceğinizden emin değilseniz, [az account list-locations](/cli/azure/account#az_account_list) komutuyla aboneliğiniz için desteklenen bölgelerin bir listesini alabilirsiniz.
-
-```azurecli-interactive
-az account list-locations \
-    --query "[].{Region:name}" \
-    --out table
-```
-
----
-
-## <a name="create-a-general-purpose-storage-account"></a>Genel amaçlı depolama hesabı oluşturma
-
-Genel amaçlı bir depolama hesabı, tüm Azure Depolama hizmetlerine erişim sağlar: blob'lar, dosyalar, kuyruklar ve tablolar. Genel amaçlı bir depolama hesabı, standart veya premium katmanında oluşturulabilir. Bu makaledeki örnekler, standart katmanda (varsayılan) genel amaçlı bir depolama hesabı oluşturmayı gösterir.
-
-Azure Depolama, iki tür genel amaçlı depolama hesabı sunar:
-
-- Genel amaçlı v2 hesapları 
-- Genel amaçlı v1 hesapları. 
-
-> [!NOTE]
-> Yeni depolama hesaplarını **genel amaçlı v2 hesapları** olarak oluşturmanız önerilir, böylece bu hesaplara sunulan yeni özelliklerden yararlanabilirsiniz.  
-
-Depolama hesabı türleri hakkında daha fazla bilgi için bkz. [Azure Depolama hesabı seçenekleri](storage-account-options.md).
-
-Depolama hesabınızı adlandırırken şu kuralları göz önünde bulundurun:
-
-- Depolama hesabı adları 3 ile 24 karakter arasında olmalı ve yalnızca sayıyla küçük harf içermelidir.
-- Depolama hesabınızın adının Azure içinde benzersiz olması gerekir. İki depolama hesabı aynı ada sahip olamaz.
-
-# <a name="portaltabportal"></a>[Portal](#tab/portal)
-
-Azure portalında genel amaçlı v2 bir depolama hesabı oluşturmak için aşağıdaki adımları izleyin:
-
-1. Azure portalında sol taraftaki menüyü genişleterek hizmet menüsünü açın ve **Tüm hizmetler**'i seçin. Ardından **Depolama** bölümüne inin ve **Depolama hesapları**'nı seçin. Açılan **Depolama Hesapları** penceresinde **Ekle**'yi seçin.
-2. Depolama hesabınız için bir ad girin.
-3. **Hesap türü** alanını, **StorageV2 (genel amaçlı v2)** olarak ayarlayın.
-4. **Çoğaltma** alanını, **Yerel Olarak Yedekli Depolama (LRS)** olarak bırakın. Alternatif olarak, **Bölgesel olarak yedekli depolama (ZRS)**, **Coğrafi olarak yedekli depolama (GRS)** veya **Okuma erişimli coğrafi olarak yedekli depolama (RA-GRS)** seçeneklerinden birini de belirleyebilirsiniz.
-5. Şu alanları varsayılan değerlerinde bırakın: **Dağıtım modeli**, **Performans**, **Güvenli aktarım gerekli**.
-6. Depolama hesabını oluşturmak istediğiniz aboneliği seçin.
-7. **Kaynak grubu** bölümünde **Var olanı kullan**’ı seçin, ardından önceki bölümde oluşturduğunuz kaynak grubunu seçin.
-8. Yeni depolama hesabınız için konum seçin.
-9. Depolama hesabını oluşturmak için **Oluştur**’a tıklayın.      
-
-![Azure portalında depolama hesabı oluşturmayı gösteren ekran görüntüsü](./media/storage-quickstart-create-account/create-account-portal.png)
-
-# <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
-
-PowerShell’den yerel olarak yedekli depolama (LRS) ile genel amaçlı bir v2 depolama hesabı oluşturmak için [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/New-AzureRmStorageAccount) komutunu kullanın: 
+Ardından, yerel olarak yedekli depolama (LRS) ile bir genel amaçlı v2 depolama hesabı oluşturun. [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/New-AzureRmStorageAccount) komutunu kullanın: 
 
 ```powershell
 New-AzureRmStorageAccount -ResourceGroupName $resourceGroup `
@@ -197,7 +132,23 @@ Bölgesel olarak yedekli depolama (ZRS) (önizleme), coğrafi olarak yedekli dep
 
 # <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-Azure CLI’dan yerel olarak yedekli depolama ile genel amaçlı v2 depolama hesabı oluşturmak için [az storage account create](/cli/azure/storage/account#az_storage_account_create) komutunu kullanın.
+İlk olarak, [az group create](/cli/azure/group#az_group_create) komutunu kullanarak Azure CLI ile yeni bir kaynak grubu oluşturun. 
+
+```azurecli-interactive
+az group create \
+    --name storage-quickstart-resource-group \
+    --location westus
+```
+
+`--location` parametresi için hangi bölgeyi belirteceğinizden emin değilseniz, [az account list-locations](/cli/azure/account#az_account_list) komutuyla aboneliğiniz için desteklenen bölgelerin bir listesini alabilirsiniz.
+
+```azurecli-interactive
+az account list-locations \
+    --query "[].{Region:name}" \
+    --out table
+```
+
+Ardından, yerel olarak yedekli depolama ile bir genel amaçlı v2 depolama hesabı oluşturun. [az storage account create](/cli/azure/storage/account#az_storage_account_create) komutunu kullanın:
 
 ```azurecli-interactive
 az storage account create \
@@ -258,16 +209,16 @@ Bu hızlı başlangıçta, genel amaçlı bir standart depolama hesabı oluştur
 # <a name="portaltabportal"></a>[Portal](#tab/portal)
 
 > [!div class="nextstepaction"]
-> [Azure portalını kullanarak nesneleri Azure Blob depolama içine/dışına aktarma](../blobs/storage-quickstart-blobs-portal.md)
+> [Azure portalını kullanarak bloblarla çalışma](../blobs/storage-quickstart-blobs-portal.md)
 
 # <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
 
 > [!div class="nextstepaction"]
-> [PowerShell kullanarak nesneleri Azure Blob depolama içine/dışına aktarma](../blobs/storage-quickstart-blobs-powershell.md)
+> [PowerShell kullanarak bloblarla çalışma](../blobs/storage-quickstart-blobs-powershell.md)
 
 # <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 > [!div class="nextstepaction"]
-> [Azure CLI kullanarak nesneleri Azure Blob depolama içine ve dışına aktarma](../blobs/storage-quickstart-blobs-cli.md)
+> [Azure CLI kullanarak blob depolama alanı ile çalışma](../blobs/storage-quickstart-blobs-cli.md)
 
 ---

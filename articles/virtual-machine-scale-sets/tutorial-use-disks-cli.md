@@ -1,6 +1,6 @@
 ---
-title: Öğretici - Azure CLI 2.0 ile ölçek kümeleri için diskler oluşturma ve kullanma | Microsoft Docs
-description: Disk ekleme, hazırlama, listeleme ve ayırma gibi, Azure CLI 2.0 kullanılarak sanal makine ölçek kümesi ile Yönetilen Diskler oluşturma ve kullanma işlemlerinin nasıl yapılacağını öğrenin.
+title: Öğretici - Azure CLI ile ölçek kümeleri için diskler oluşturma ve kullanma | Microsoft Docs
+description: Disk ekleme, hazırlama, listeleme ve ayırma gibi, Azure CLI kullanılarak sanal makine ölçek kümesi ile Yönetilen Diskler oluşturma ve kullanma işlemlerinin nasıl yapılacağını öğrenin.
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: cynthn
@@ -16,14 +16,14 @@ ms.topic: tutorial
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 3c34ebda3700bb34952fb067bc965069004aee75
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: ae26e851e60f654a502779fe2a8b41e13dc47915
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38719488"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46993638"
 ---
-# <a name="tutorial-create-and-use-disks-with-virtual-machine-scale-set-with-the-azure-cli-20"></a>Öğretici: Azure CLI 2.0 ile sanal makine ölçek kümesi içeren diskler oluşturma ve kullanma
+# <a name="tutorial-create-and-use-disks-with-virtual-machine-scale-set-with-the-azure-cli"></a>Öğretici: Azure CLI ile sanal makine ölçek kümesi içeren diskler oluşturma ve kullanma
 Sanal makine ölçek kümeleri, sanal makine örneğinin işletim sistemini, uygulamalarını ve verilerini depolamak için diskleri kullanır. Bir ölçek kümesi oluştururken ve yönetirken, beklenen iş yüküne uygun disk boyutu ve yapılandırmasını seçmek önemlidir. Bu öğretici, sanal makine disklerinin oluşturulmasını ve yönetilmesini kapsar. Bu öğreticide şunların nasıl yapıldığını öğrenirsiniz:
 
 > [!div class="checklist"]
@@ -37,7 +37,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-CLI'yi yerel olarak yükleyip kullanmayı tercih ederseniz bu öğretici için Azure CLI 2.0.29 veya sonraki bir sürümünü kullanmanız gerekir. Sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI 2.0 yükleme]( /cli/azure/install-azure-cli).
+CLI'yi yerel olarak yükleyip kullanmayı tercih ederseniz bu öğretici için Azure CLI 2.0.29 veya sonraki bir sürümünü kullanmanız gerekir. Sürümü bulmak için `az --version` komutunu çalıştırın. Yükleme veya yükseltme yapmanız gerekiyorsa bkz. [Azure CLI'yı yükleme]( /cli/azure/install-azure-cli).
 
 
 ## <a name="default-azure-disks"></a>Varsayılan Azure diskleri
@@ -298,7 +298,7 @@ az group delete --name myResourceGroup --no-wait --yes
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Bu öğreticide, Azure CLI 2.0 ile ölçek kümeleri içeren diskler oluşturma ve kullanma işleminin nasıl yapılacağını öğrendiniz:
+Bu öğreticide, Azure CLI ile ölçek kümeleri içeren diskler oluşturma ve kullanma işleminin nasıl yapılacağını öğrendiniz:
 
 > [!div class="checklist"]
 > * İşletim sistemi diskleri ve geçici diskler

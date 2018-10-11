@@ -12,12 +12,12 @@ ms.date: 12/15/2017
 ms.author: glenga
 ms.reviewer: sunayv
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: f2f4e7d96c4d8725d9d34314854665440d86ce8d
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: a085d7e25854a928778802d2b4ef50cf9e57eff9
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44095088"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46960932"
 ---
 # <a name="create-an-openapi-definition-for-a-function"></a>Bir işlev için OpenAPI tanımı oluşturma
 REST API’ler genellikle bir OpenAPI tanımı (eski adıyla [Swagger](http://swagger.io/) dosyası) kullanılarak açıklanır. Bu tanım, bir API’de hangi işlemlerin kullanılabildiğinin yanı sıra API için istek ve yanıt verilerinin nasıl yapılandırılması gerektiğiyle ilgili bilgileri içerir.
@@ -31,6 +31,9 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 > * OpenAPI araçlarını kullanarak OpenAPI tanımı oluşturma
 > * Tanımı ek meta veri sağlayacak şekilde değiştirme
 > * İşleve çağrı yaparak tanımı test etme
+
+> [!IMPORTANT]
+> OpenAPI önizleme özelliği şu anda yalnızca 1.x çalışma zamanında kullanılabilir. 1.x işlev uygulaması oluşturma hakkında bilgi [burada bulunabilir](./functions-versions.md#creating-1x-apps).
 
 ## <a name="create-a-function-app"></a>İşlev uygulaması oluşturma
 

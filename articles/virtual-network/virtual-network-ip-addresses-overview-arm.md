@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/02/2017
+ms.date: 09/24/2018
 ms.author: jdial
-ms.openlocfilehash: f55dfa8ffadc4ddee1ff3861682e5596b675f0d0
-ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
+ms.openlocfilehash: 65dc420b6832b7b0a4cf14d63203d4c66e2a4254
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39325294"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46993604"
 ---
 # <a name="ip-address-types-and-allocation-methods-in-azure"></a>Azure’da IP adresi türleri ve ayırma yöntemleri
 
@@ -28,6 +28,8 @@ Diğer Azure kaynaklarıyla, şirket içi ağınızla ve İnternet’le iletişi
 
 * **Genel IP adresleri**: Genel kullanıma yönelik Azure hizmetleri dahil olmak üzere Internet ile iletişim için kullanılır.
 * **Özel IP adresleri**: Bir Azure sanal ağı (VNet) içinde ve şirket içi ağınızı Azure'a genişletmek için bir VPN ağ geçidi veya ExpressRoute bağlantı hattı kullanıyorsanız şirket içi ağınız içinde iletişim kurmak için kullanılır.
+
+Ayrıca bir genel IP ön eki aracılığıyla statik genel IP adreslerinden oluşan bitişik bir aralık oluşturabilirsiniz. [Genel IP ön eki hakkında bilgi edinin.](public-ip-address-prefix.md)
 
 > [!NOTE]
 > Azure’da kaynak oluşturmak ve bunlarla çalışmak için iki farklı dağıtım modeli vardır:  [Resource Manager ve klasik](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json).  Bu makale, Microsoft’un çoğu yeni dağıtım için [klasik dağıtım modeli](virtual-network-ip-addresses-overview-classic.md) yerine önerdiği Resource Manager dağıtım modelini açıklamaktadır.

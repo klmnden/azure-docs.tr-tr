@@ -1,56 +1,43 @@
 ---
 title: Azure Scheduler nedir? | Microsoft Docs
-description: Azure Scheduler, bulutta çalıştırmak üzere eylemleri bildirimli olarak tanımlamanızı sağlar. Sonra, bu eylemleri otomatik olarak zamanlar ve çalıştırır.
+description: Azure'un içinde veya dışındaki hizmetleri çağıran otomatik işler oluşturmayı, zamanlamayı ve çalıştırmayı öğrenin
 services: scheduler
-documentationcenter: .NET
-author: derek1ee
-manager: kevinlam1
-editor: ''
-ms.assetid: 52aa6ae1-4c3d-43fb-81b0-6792c84bcfae
 ms.service: scheduler
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: na
-ms.devlang: dotnet
-ms.topic: hero-article
-ms.date: 08/18/2016
+ms.suite: infrastructure-services
+author: derek1ee
 ms.author: deli
-ms.openlocfilehash: a3bf1aacd6978499d7ef77cbcb451a06b857ac38
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.reviewer: klam
+ms.assetid: 52aa6ae1-4c3d-43fb-81b0-6792c84bcfae
+ms.topic: hero-article
+ms.date: 09/17/2018
+ms.openlocfilehash: 4d4f7bf9c77dad21f9e66ab0fa023a4898163f1f
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "22715123"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46989198"
 ---
 # <a name="what-is-azure-scheduler"></a>Azure Scheduler nedir?
-Azure Scheduler, bulutta çalıştırmak üzere eylemleri bildirimli olarak tanımlamanızı sağlar. Sonra, bu eylemleri otomatik olarak zamanlar ve çalıştırır.  Scheduler bunu [Azure portal](scheduler-get-started-portal.md), kod, [REST API](https://msdn.microsoft.com/library/mt629143.aspx) ya da Azure PowerShell kullanarak yapar.
 
-Scheduler zamanlanan iş oluşturur, korur ve çağırır.  Scheduler iş yükü barındırmaz ya da kod çalıştırmaz. Yalnızca başka bir yerde (Azure’da, şirket içi ya da başka sağlayıcıda) barındırılan kodu *çağırır*. HTTP, HTTPS, depolama kuyruğu, hizmet veri yolu kuyruğu ya da hizmet veri yolu konusu aracılığıyla çağırır.
+> [!IMPORTANT]
+> Kullanımdan kaldırılan Azure Scheduler uygulamasının yerini [Azure Logic Apps](../logic-apps/logic-apps-overview.md) alacaktır. İş zamanlamak için [Azure Logic Apps'ı deneyebilirsiniz](../scheduler/migrate-from-scheduler-to-logic-apps.md). 
 
-Scheduler [işleri](scheduler-concepts-terms.md) zamanlar, birinin gözden geçirebileceği iş yürütme sonuçlarının geçmişini tutar ve yürütülecek iş yüklerini kesin ve güvenilir bir şekilde çalışması zamanlar. Azure WebJobs (Azure App Service’te Web Apps özelliğini bir parçası) ve diğer Azure zamanlama özellikleri arka planda Scheduler kullanır. [Scheduler REST API](https://msdn.microsoft.com/library/mt629143.aspx) bu eylemler için iletişimi yönetmeye yardımcı olur. Bu şekilde, Scheduler kolayca [karmaşık zamanlamalar ve gelişmiş yineleme oluşturmayı](scheduler-advanced-complexity.md) destekler.
+[Azure Scheduler](https://azure.microsoft.com/services/scheduler/), eylemleri açık bir şekilde bildirerek bulutta çalışan [işler](../scheduler/scheduler-concepts-terms.md) oluşturmanıza yardımcı olur. Hizmet bundan sonra bu eylemleri otomatik olarak zamanlar ve çalıştırır. Örneğin, Azure'un içinden ve dışında hizmetleri çağırabilir (HTTP veya HTTPS uç noktalarını çağırmak gibi), ayrıca Azure Depolama kuyruklarıyla Azure Service Bus kuyruklarına veya konularına iletiler gönderebilirsiniz. İşleri hemen çalıştırabileceğiniz gibi daha sonra da çalıştırabilirsiniz. Scheduler kolayca [karmaşık zamanlamalar ve gelişmiş yineleme oluşturmayı](../scheduler/scheduler-advanced-complexity.md) destekler. Scheduler işlerin ne zaman çalıştırılacağını belirtir, gözden geçirebilmeniz için iş sonuçlarının geçmişini tutar ve ardından iş yüklerini çalıştırmak için öngörülebilir ve güvenilir zamanlamalar yapar.
 
-Kendilerini Scheduler kullanımına ödünç veren çeşitli senaryolar vardır. Örnek:
+Scheduler'ı kullanarak zamanlanmış iş yüklerini oluşturabilir, koruyabilir ve çalıştırabilirsiniz ama Scheduler iş yüklerini barındırmaz veya kod çalıştırmaz. Hizmet yalnızca başka bir yerde (örneğin Azure’da, şirket içinde veya başka sağlayıcıda) barındırılan hizmetleri veya kodu *çağırır*. Scheduler HTTP, HTTPS, Depolama kuyruğu, Service Bus kuyruğu veya Service Bus konusu aracılığıyla çağırabilir. İşleri oluşturmak, yönetmek ve zamanlamak için [Azure portalını](../scheduler/scheduler-get-started-portal.md), kodu, [Scheduler REST API](https://docs.microsoft.com/rest/api/scheduler/)'yi veya [Azure Scheduler PowerShell cmdlet'leri başvurusunu](scheduler-powershell-reference.md) kullanabilirsiniz. Örneğin, Azure portalında ve betikleri kullanarak program aracılığıyla işleri ve [iş koleksiyonlarını](../scheduler/scheduler-concepts-terms.md) oluşturabilir, görüntüleyebilir, güncelleştirebilir, yönetebilir veya silebilirsiniz.
 
-* *Yinelenen uygulama eylemleri:* Twitter’dan akışa düzenli aralıklarla veri toplama.
-* *Günlük bakım:* Günlüklerin günlük ayıklanması, yedeklemelerin ve diğer bakım görevlerinin gerçekleştirilmesi. Örneğin, bir yönetici, sonraki dokuz ay boyunca her gün saat 01: 00'da veritabanını yedeklemeyi seçebilir.
+Diğer Azure zamanlama özellikleri, örneğin Azure App Service'te bir [Web Apps](https://azure.microsoft.com/services/app-service/web/) özelliği olan [Azure Web İşleri](../app-service/web-sites-create-web-jobs.md) de arka planda Scheduler'ı kullanır. [Scheduler REST API](https://docs.microsoft.com/rest/api/scheduler/)'yi kullanarak bu eylemler için iletişimi yönetebilirsiniz. bu eylemler için iletişimi yönetmeye yardımcı olur.
 
-Scheduler, programlı olarak, betikleri kullanarak ve portalda işler ve [iş koleksiyonları](scheduler-concepts-terms.md) oluşturmanızı, silmenizi, görüntülemenizi ve yönetmenizi sağlar.
+Burada Scheduler'ın size yardımcı olabileceği bazı senaryolar verilmiştir:
 
-## <a name="see-also"></a>Ayrıca bkz.
- [Azure Scheduler kavramları, terminolojisi ve varlık hiyerarşisi](scheduler-concepts-terms.md)
+* **Yinelenen uygulama eylemlerini çalıştırma**: Örneğin, Twitter'dan düzenli aralıklarla bir akışa veri toplama.
 
- [Azure portalında Scheduler’ı kullanmaya başlama](scheduler-get-started-portal.md)
+* **Günlük bakım yapma:** Günlüklerin günlük ayıklanması, yedeklemelerin ve diğer bakım görevlerinin gerçekleştirilmesi. 
 
- [Azure Scheduler’da planlar ve faturalama](scheduler-plans-billing.md)
+  Örneğin, yönetici olarak önümüzdeki dokuz ay boyunca veritabanınızı her gün saat 1:00'da yedeklemek isteyebilirsiniz.
 
- [Azure Scheduler ile karmaşık zamanlamalar ve gelişmiş yineleme oluşturma](scheduler-advanced-complexity.md)
+## <a name="next-steps"></a>Sonraki adımlar
 
- [Azure Scheduler REST API başvurusu](https://msdn.microsoft.com/library/mt629143)
-
- [Azure Scheduler PowerShell cmdlet’leri başvurusu](scheduler-powershell-reference.md)
-
- [Yüksek Azure Scheduler kullanılabilirliği ve güvenilirliği](scheduler-high-availability-reliability.md)
-
- [Azure Scheduler sınırları, varsayılanları ve hata kodları](scheduler-limits-defaults-errors.md)
-
- [Azure Scheduler giden bağlantı kimlik doğrulaması](scheduler-outbound-authentication.md)
-
+* [Azure portalında Scheduler’ı kullanmaya başlama](scheduler-get-started-portal.md)
+* [Azure Scheduler için planlar ve faturalandırma](scheduler-plans-billing.md) hakkında bilgi edinin
+* [Azure Scheduler ile karmaşık zamanlamalar ve gelişmiş yineleme oluşturmayı](scheduler-advanced-complexity.md) öğrenin

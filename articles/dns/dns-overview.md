@@ -5,14 +5,14 @@ author: vhorne
 manager: jeconnoc
 ms.service: dns
 ms.topic: overview
-ms.date: 6/7/2018
+ms.date: 9/24/2018
 ms.author: victorh
-ms.openlocfilehash: 0812f5e3e23fbf49afec91524b4de2ff0eb7cd9a
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: e3e04bf7e35b22a56465810f476323ed217e047a
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45574190"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46967634"
 ---
 # <a name="what-is-azure-dns"></a>Azure DNS nedir?
 
@@ -52,6 +52,14 @@ Etki alanlarınızı ve kayıtlarınızı yönetmek için Azure portalı, Azure 
 Azure DNS genel önizleme sürümündeki özel DNS etki alanlarını da destekler. Bu da özel sanal ağlarınızda Azure tarafından sağlanan adların yerine özel etki alanı adlarınızı kullanmanızı sağlar.
 
 Daha fazla bilgi için bkz. [Azure DNS'yi özel etki alanları için kullanma](private-dns-overview.md).
+
+## <a name="alias-records"></a>Diğer ad kayıtları
+
+Azure DNS, diğer adı kayıt kümelerini destekler. Azure Genel IP adresi veya Traffic Manager profili gibi bir Azure kaynağına başvurmak için diğer ad kayıt kümesini kullanabilirsiniz. Temel alınan kaynağın IP adresi değişirse, diğer ad kayıt kümesi DNS çözümlemesi sırasında kendisini sorunsuz bir şekilde güncelleştirir. Diğer ad kaydı kümesi, hizmet örneğini işaret eder ve hizmet örneği bir IP adresi ile ilişkilidir. 
+
+Ayrıca, apex veya çıplak etki alanınızı (örneğin, contoso.com) diğer ad kaydı kullanarak bir Traffic Manager profiline yönlendirebilirsiniz.
+
+Daha fazla bilgi için bkz. [Azure DNS diğer ad kayıtlarına genel bakış](dns-alias.md).
 
 
 ## <a name="next-steps"></a>Sonraki adımlar

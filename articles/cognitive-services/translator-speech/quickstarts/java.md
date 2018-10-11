@@ -1,55 +1,57 @@
 ---
-title: Java Hızlı Başlangıç için Azure Bilişsel hizmetler, Microsoft Translator konuşma tanıma API'si | Microsoft Docs
-description: Microsoft Translator konuşma tanıma API'si, Azure üzerinde Microsoft Bilişsel hizmetler kullanarak hızlı bir şekilde yardımcı olmak için bilgi ve kod örnekleri get başlayın.
+title: "Hızlı Başlangıç: Translator Konuşma Çevirisi API'si Java"
+titlesuffix: Azure Cognitive Services
+description: Translator Konuşma Çevirisi API'sini kısa sürede kullanmaya başlamanıza yardımcı olacak bilgi ve kod örnekleri alın.
 services: cognitive-services
-documentationcenter: ''
 author: v-jaswel
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-speech
-ms.topic: article
+ms.topic: quickstart
 ms.date: 3/5/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 0db55f4064d3415cb647519ea9030936012a8446
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
-ms.translationtype: MT
+ROBOTS: NOINDEX
+ms.openlocfilehash: dde7d3dc7c1a744da9a22c0e4c0a483a186aa327
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "41988150"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46969470"
 ---
-# <a name="quickstart-for-microsoft-translator-speech-api-with-java"></a>Microsoft Translator konuşma tanıma API'si ile Java için hızlı başlangıç 
+# <a name="quickstart-translator-speech-api-with-java"></a>Hızlı Başlangıç: Java dilinde Translator Konuşma Çevirisi API'si 
 <a name="HOLTop"></a>
 
-Bu makalede, Microsoft Translator konuşma tanıma API'si .wav dosyasında konuşulan kelimeleri için nasıl kullanılacağını gösterir.
+Bu makalede Translator Konuşma Çevirisi API'si’ni kullanarak bir .wav dosyasında konuşulan sözcüklerin nasıl çevrileceği gösterilir.
 
-## <a name="prerequisites"></a>Önkoşullar
+## <a name="prerequisites"></a>Ön koşullar
 
-İhtiyacınız olacak [JDK 7 veya 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) derlemek ve bu kodu çalıştırmak için. Sık kullanılan varsa, ancak bir metin düzenleyicisi ucun yetip Java IDE kullanabilirsiniz.
+Bu kodu derleyip çalıştırmak için [JDK 7 veya 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)’e ihtiyacınız olacak. Varsa, sık kullandığınız bir Java IDE’yi veya bir metin düzenleyicisini kullanabilirsiniz.
 
-Aşağıdaki dosyaları gerekir.
-- [javax.websocket API 1.1.jar (veya daha yeni)](https://mvnrepository.com/artifact/javax.websocket/javax.websocket-api)
-- [jetty http 9.4.11.v20180605.jar (veya daha yeni)](https://mvnrepository.com/artifact/org.eclipse.jetty/jetty-http)
-- [jetty GÇ 9.4.11.v20180605.jar (veya daha yeni)](https://mvnrepository.com/artifact/org.eclipse.jetty/jetty-io)
-- [jetty util 9.4.11.v20180605.jar (veya daha yeni)](https://mvnrepository.com/artifact/org.eclipse.jetty/jetty-util)
-- [websocket API'si 9.4.11.v20180605.jar (veya daha yeni)](https://mvnrepository.com/artifact/org.eclipse.jetty.websocket/websocket-api)
-- [websocket istemcisi 9.4.11.v20180605.jar (veya daha yeni)](https://mvnrepository.com/artifact/org.eclipse.jetty.websocket/websocket-client)
-- [websocket ortak 9.4.11.v20180605.jar (veya daha yeni)](https://mvnrepository.com/artifact/org.eclipse.jetty.websocket/websocket-common)
-- [javax-websocket-istemci-Impl-9.4.11.v20180605.jar (veya daha yeni)](https://mvnrepository.com/artifact/org.eclipse.jetty.websocket/javax-websocket-client-impl)
-- [jetty istemci 9.4.11.v20180605.jar (veya daha yeni)](https://mvnrepository.com/artifact/org.eclipse.jetty/jetty-client)
+Aşağıdaki dosyaları gerekli olacaktır.
+- [javax.websocket-api-1.1.jar (veya sonrası)](https://mvnrepository.com/artifact/javax.websocket/javax.websocket-api)
+- [jetty-http-9.4.11.v20180605.jar (veya sonrası)](https://mvnrepository.com/artifact/org.eclipse.jetty/jetty-http)
+- [jetty-io-9.4.11.v20180605.jar (veya sonrası)](https://mvnrepository.com/artifact/org.eclipse.jetty/jetty-io)
+- [jetty-util-9.4.11.v20180605.jar (veya sonrası)](https://mvnrepository.com/artifact/org.eclipse.jetty/jetty-util)
+- [websocket-api-9.4.11.v20180605.jar (veya sonrası)](https://mvnrepository.com/artifact/org.eclipse.jetty.websocket/websocket-api)
+- [websocket-client-9.4.11.v20180605.jar (veya sonrası)](https://mvnrepository.com/artifact/org.eclipse.jetty.websocket/websocket-client)
+- [websocket-common-9.4.11.v20180605.jar (veya sonrası)](https://mvnrepository.com/artifact/org.eclipse.jetty.websocket/websocket-common)
+- [javax-websocket-client-impl-9.4.11.v20180605.jar (veya sonrası)](https://mvnrepository.com/artifact/org.eclipse.jetty.websocket/javax-websocket-client-impl)
+- [jetty-client-9.4.11.v20180605.jar (veya sonrası)](https://mvnrepository.com/artifact/org.eclipse.jetty/jetty-client)
 
-Koddan derleme yürütülebilir dosya ile aynı klasörde yer alan "speak.wav" adlı bir .wav dosyası gerekir. Bu .wav dosya standart PCM 16 bit, 16 kHz, mono biçiminde olmalıdır. Böyle bir .wav dosyasından edinebilirsiniz [metin okuma API'si](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/rest-apis#text-to-speech).
+Aşağıdaki koddan derlediğiniz yürütülebilir dosya ile aynı klasörün içinde "speak.wav" adlı bir .wav dosyanız olmalıdır. Bu .wav dosyası standart PCM, 16 bit, 16 kHz, mono biçiminde olmalıdır. Bu tür bir .wav dosyasını [Metin Okuma API'sinden](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/rest-apis#text-to-speech) edinebilirsiniz.
 
-Olmalıdır bir [Bilişsel hizmetler API hesabı](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) ile **Microsoft Translator konuşma tanıma API'si**. Ücretli aboneliğe anahtarından gerekir, [Azure panosuna](https://portal.azure.com/#create/Microsoft.CognitiveServices).
+**Microsoft Translator Konuşma Çevirisi API'sine** sahip bir [Bilişsel Hizmetler API hesabınızın](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) olması gerekir. [Azure panonuzdan](https://portal.azure.com/#create/Microsoft.CognitiveServices) ücretli bir abonelik anahtarına ihtiyacınız olacak.
 
 ## <a name="translate-speech"></a>Konuşmayı çevirme
 
-Aşağıdaki kod, konuşma bir dilden diğerine çevirir.
+Aşağıdaki kod, konuşmayı bir dilden diğerine çevirir.
 
 1. Sık kullandığınız IDE'de yeni bir Java projesi oluşturun.
-2. Aşağıda sağlanan kod ekleyin.
-3. Değiştirin `key` aboneliğiniz için geçerli bir erişim anahtarı ile değeri.
+2. Aşağıda sağlanan kodu ekleyin.
+3. `key` değerini, aboneliğiniz için geçerli olan bir erişim anahtarı ile değiştirin.
 4. Programı çalıştırın.
 
-Config.Java:
+Config.java:
 
 ```java
 import java.util.*;
@@ -71,7 +73,7 @@ public class Config extends ClientEndpointConfig.Configurator {
 }
 ```
 
-Client.Java:
+Client.java:
 
 ```java
 import java.io.*;
@@ -214,7 +216,7 @@ See:
 }
 ```
 
-Speak.Java:
+Speak.java:
 
 ```java
 /*
@@ -263,18 +265,18 @@ public class Speak {
 }
 ```
 
-**Konuşma yanıt Çevir**
+**Konuşma yanıtını çevirme**
 
-Başarılı "speak2.wav" adlı bir dosya oluşturulmasını oluşur. Dosya çevirisi "speak.wav içinde" konuşulan sözcükleri içerir.
+"speak2.wav" adlı bir dosya oluşturulduğunda sonuç başarılıdır. Dosya, "speak.wav" içinde konuşulan sözcüklerin çevirisini içerir.
 
 [Başa dön](#HOLTop)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 > [!div class="nextstepaction"]
-> [Translator Konuşma Öğreticisi](../tutorial-translator-speech-csharp.md)
+> [Translator Konuşma Çevirisi öğreticisi](../tutorial-translator-speech-csharp.md)
 
 ## <a name="see-also"></a>Ayrıca bkz. 
 
-[Translator konuşma genel bakış](../overview.md)
+[Translator Konuşma Çevirisine genel bakış](../overview.md)
 [API Başvurusu](https://docs.microsoft.com/azure/cognitive-services/translator-speech/reference)

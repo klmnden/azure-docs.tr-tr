@@ -1,25 +1,25 @@
 ---
-title: 'Öğretici: Azure Maliyet Yönetimi ile harcama tahmini | Microsoft Docs'
+title: 'Öğretici: Azure’da Cloudyn ile harcama tahmini | Microsoft Docs'
 description: Bu öğreticide, geçmiş kullanımı ve harcanan verileri kullanarak harcama tahmini yapmayı öğrenirsiniz.
 services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 04/26/2018
+ms.date: 09/18/2018
 ms.topic: tutorial
 ms.service: cost-management
 ms.custom: ''
 manager: dougeby
-ms.openlocfilehash: 411b4797510b26dec43ea7f2232457199808c857
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 587459be69fe250b3e73fb9eb9d5cd08cf2e7a42
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32162203"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46953693"
 ---
 # <a name="tutorial-forecast-future-spending"></a>Öğretici: Gelecek harcamaları tahmin etme
 
-Azure Maliyet Yönetimi, geçmiş kullanımı ve harcanan verileri kullanarak gelecek harcamaları tahmin etmenize yardımcı olur. Tüm maliyet yansıtma verilerini görüntülemek için Cloudyn raporlarını kullanırsınız. Bu öğreticideki örnekler, raporları kullanarak maliyet yansımalarını gözden geçirmeniz konusunda size yol gösterir. Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
+Cloudyn, geçmiş kullanımı ve harcanan verileri kullanarak gelecek harcamaları tahmin etmenize yardımcı olur. Tüm maliyet yansıtma verilerini görüntülemek için Cloudyn raporlarını kullanırsınız. Bu öğreticideki örnekler, raporları kullanarak maliyet yansımalarını gözden geçirmeniz konusunda size yol gösterir. Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
 > [!div class="checklist"]
 > * Gelecek harcamaları tahmin etme
@@ -29,7 +29,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 ## <a name="prerequisites"></a>Ön koşullar
 
 - Azure hesabınız olmalıdır.
-- Azure Maliyet Yönetimi için bir deneme kaydı veya ücretli aboneliğe sahip olmalısınız.
+- Cloudyn için bir deneme kaydı veya ücretli aboneliğe sahip olmanız gerekir.
 
 ## <a name="forecast-future-spending"></a>Gelecek harcamaları tahmin etme
 
@@ -37,7 +37,7 @@ Cloudyn, zaman içindeki kullanımınızı temel alarak harcama tahmini yapmanı
 
 Geçerli Ay Öngörülen Maliyet raporu, hizmetlerinizin maliyetini gösterir. Ayın başlangıcına ve önceki aya ait maliyetleri kullanarak tahmini maliyeti gösterir. Portalın üstündeki raporlar menüsünde **Maliyet** > **Öngörü ve Bütçe** > **Geçerli Ay Öngörülen Maliyet** seçeneklerine tıklayın. Aşağıdaki resimde bir örnek gösterilir.
 
-![geçerli ay öngörülen maliyet](./media/tutorial-forecast-spending/project-month01.png)
+![Geçerli ay öngörülen maliyet](./media/tutorial-forecast-spending/project-month01.png)
 
 Örnekte, en fazla harcama yapılan hizmetleri görebilirsiniz. Azure maliyetleri, AWS maliyetlerinden daha düşüktü. Azure VM'ler için maliyet öngörü ayrıntılarını görmek istiyorsanız, **Filtre** listesinde **Azure/VM**’i seçin.
 
@@ -49,7 +49,7 @@ Yıllık Öngörülen Maliyet raporu, hizmetlerinizin sonraki 12 ay boyunca orta
 
 Portalın üstündeki raporlar menüsünde **Maliyet** > **Öngörü ve Bütçe** > **Yıllık Öngörülen Maliyet** seçeneklerine tıklayın. Aşağıdaki resimde bir örnek gösterilir.
 
-![yıllık öngörülen maliyet raporu](./media/tutorial-forecast-spending/project-annual01.png)
+![Yıllık öngörülen maliyet raporu](./media/tutorial-forecast-spending/project-annual01.png)
 
 Örnekte, en fazla harcama yapılan hizmetleri görebilirsiniz. Aylık örnekteki gibi, Azure maliyetleri AWS maliyetlerinden daha düşüktü. Azure VM'ler için maliyet öngörü ayrıntılarını görmek istiyorsanız, **Filtre** listesinde **Azure/VM**’i seçin.
 

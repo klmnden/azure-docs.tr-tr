@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/07/2018
+ms.date: 09/24/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: d0d140a1656719b406567fee431d8e48a51852c5
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ms.openlocfilehash: 37498394bc163852d397337cf5728b4941ae45a7
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39714460"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46956515"
 ---
 # <a name="what-is-role-based-access-control-rbac"></a>Rol tabanlı erişim denetimi (RBAC) nedir?
 
@@ -89,7 +89,7 @@ Azure'da [yönetim grubu](../azure-resource-manager/management-groups-overview.m
 - [Okuyucu](built-in-roles.md#reader) rolünü bir gruba abonelik kapsamında atadığınızda grubun üyeleri aboneliğin içindeki tüm kaynak gruplarını ve kaynakları görüntüleyebilir.
 - [Katkıda bulunan](built-in-roles.md#contributor) rolünü bir uygulamaya kaynak grubu kapsamında atadığınızda ilgili grup bu kaynak grubundaki her türlü kaynağı yönetebilir ancak abonelikteki diğer kaynak gruplarını yönetemez.
 
-### <a name="role-assignment"></a>Rol ataması
+### <a name="role-assignments"></a>Rol atamaları
 
 *Rol ataması*, bir rol tanımının erişim verme amacıyla belirli bir kapsamda bir kullanıcı, grup veya hizmet sorumlusuyla ilişkilendirilmesidir. Erişim, rol ataması oluşturularak sağlanır ve rol ataması kaldırıldığında iptal edilir.
 
@@ -98,6 +98,32 @@ Aşağıdaki diyagramda rol ataması örneği gösterilmektedir. Bu örnekte Mar
 ![Erişim denetimi için rol ataması](./media/overview/rbac-overview.png)
 
 Rol atamalarını oluşturmak için Azure portal, Azure CLI, Azure PowerShell, Azure SDK'ları veya REST API'lerini kullanabilirsiniz. Her abonelikte en fazla 2000 rol ataması gerçekleştirebilirsiniz. Rol ataması oluşturmak ve kaldırmak için `Microsoft.Authorization/roleAssignments/*` iznine sahip olmanız gerekir. Bu izin, [Sahip](built-in-roles.md#owner) veya [Kullanıcı Erişimi Yöneticisi](built-in-roles.md#user-access-administrator) rolleriyle verilir.
+
+## <a name="deny-assignments"></a>Reddetme atamaları
+
+Daha önce, RBAC reddetme seçeneği olmayan yalnızca izin verme modeliydi ama şimdi RBAC sınırlı bir yoldan reddetme atamalarını da destekliyor. Rol atamasına benzer biçimde, *reddetme ataması* erişimi reddetmek amacıyla belirli bir kapsamda kullanıcıya, gruba veya hizmet sorumlusuna bir dizi reddetme eylemi bağlar. Rol ataması *izin verilen* bir dizi eylem tanımlarken, reddetme ataması *izin verilmeyen* bir dizi eylem tanımlar. Başka bir deyişle, reddetme atamaları kullanıcıların belirtilen eylemleri gerçekleştirmesini (rol ataması izin vermiş olsa bile) engeller. Reddetme atamaları rol atamalarından daha önceliklidir.
+
+Şu anda, reddetme atamaları **salt okunurdu** ve yalnızca Azure tarafından ayarlanabilir. Kendi reddetme atamalarınızı oluşturamıyor olsanız bile, reddetme atamalarını listeleyebilirsiniz çünkü bunlar sizin geçerli izinlerinizi etkileyebilir. Reddetme ataması hakkında bilgi almak için, [yerleşik rollerin](built-in-roles.md#owner) çoğuna eklenmiş olan `Microsoft.Authorization/denyAssignments/read` izninizin olması gerekir. Daha fazla bilgi için bkz. [Reddetme atamalarını anlama](deny-assignments.md).
+
+## <a name="how-rbac-determines-if-a-user-has-access-to-a-resource"></a>RBAC kullanıcının bir kaynağa erişimi olduğunu nasıl saptar?
+
+Aşağıdakiler, RBAC'nin yönetim düzleminde bir kaynağa erişiminizin olup olmadığını saptamak için kullandığı üst düzey adımlardır. Bunları anlamak, bir erişim sorununu gidermeye çalışırken işinize yarayabilir.
+
+1. Kullanıcı (veya hizmet sorumlusu) Azure Resource Manager için bir belirteç alır.
+
+    Belirteç kullanıcının grup üyeliğini (geçişli grup üyelikleri de dahil) içerir.
+
+1. Kullanıcı, belirteci de ekleyerek Azure Resource Manager'a bir REST API çağrısı yapar.
+
+1. Azure Resource Manager, üzerinde eylem gerçekleştirilen kaynak için geçerli olan tüm rol atamalarını ve reddetme atamalarını alır.
+
+1. Azure Resource Manager, rol atamalarını bu kullanıcıya veya onun grubuna uygulananlarla daraltır ve kullanıcının bu kaynak için hangi role sahip olduğunu saptar.
+
+1. Azure Resource Manager, API çağrısındaki eylemin bu kaynak için kullanıcının sahip olduğu rollere eklenip eklenmediğini saptar.
+
+1. Kullanıcının istenen kapsamda eylemi içeren rolü yoksa, erişim verilmez. Aksi takdirde, Azure Resource Manager bir reddetme atamasının geçerli olup olmadığını denetler.
+
+1. Reddetme ataması geçerliyse, erişim engellenir. Aksi takdirde erişim izni verilir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

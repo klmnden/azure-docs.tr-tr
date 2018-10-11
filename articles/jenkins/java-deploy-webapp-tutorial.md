@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 07/31/2018
-ms.openlocfilehash: b1af82060d316a18cd6427f70695ca4fa982064d
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 81959159d4860512c184ada25930da814b5ae044
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43106806"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46946587"
 ---
 # <a name="set-up-continuous-integration-and-deployment-to-azure-app-service-with-jenkins"></a>Jenkins ile Azure App Service’e sürekli tümleştirme ve dağıtım ayarlama
 
@@ -35,7 +35,7 @@ Bu öğreticiyi tamamlamak için aşağıdakiler gerekir:
 
 * JDK ve Maven araçları yapılandırılmış şekilde [Jenkins](https://jenkins.io/). Jenkins sisteminiz yoksa [Jenkins çözüm şablonunu](/azure/jenkins/install-jenkins-solution-template) kullanarak şimdi Azure’da oluşturabilirsiniz.
 * Bir [GitHub](https://github.com) hesabı.
-* Yerel komut satırınızdan veya [Azure Cloud Shell](/azure/cloud-shell/overview)’den [Azure CLI 2.0](/cli/azure)
+* Yerel komut satırınızdan veya [Azure Cloud Shell](/azure/cloud-shell/overview)’den [Azure CLI](/cli/azure)
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 

@@ -1,6 +1,6 @@
 ---
 title: 'Öğretici: Azure CLI’yı kullanarak MySQL için Azure Veritabanı tasarlama'
-description: Bu öğreticide, MySQL sunucusu ve veritabanı için komut satırından Azure CLI 2.0 kullanarak Azure Veritabanının nasıl oluşturulup yönetileceği açıklanır.
+description: Bu öğreticide, MySQL sunucusu ve veritabanı için komut satırından Azure CLI kullanarak Azure Veritabanının nasıl oluşturulup yönetileceği açıklanır.
 services: mysql
 author: ajlam
 ms.author: andrela
@@ -11,12 +11,12 @@ ms.devlang: azure-cli
 ms.topic: tutorial
 ms.date: 04/01/2018
 ms.custom: mvc
-ms.openlocfilehash: 07dc1c2fa166be066df9bd8a663e08db830fe1af
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 60cfb5e1c5fa44952ca6a5e6fc411f4a6ab0e8be
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39446339"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46966988"
 ---
 # <a name="tutorial-design-an-azure-database-for-mysql-using-azure-cli"></a>Öğretici: Azure CLI’yı kullanarak MySQL için Azure Veritabanı tasarlama
 
@@ -31,11 +31,11 @@ MySQL için Azure Veritabanı, MySQL Community Edition veritabanı altyapısın�
 > * Verileri güncelleştirme
 > * Verileri geri yükleme
 
-Bu öğreticide kod bloklarını çalıştırmak için tarayıcıda Azure Cloud Shell kullanabilir ya da kendi bilgisayarınıza [Azure CLI 2.0 yükleyebilirsiniz]( /cli/azure/install-azure-cli).
+Bu öğreticide kod bloklarını çalıştırmak için tarayıcıda Azure Cloud Shell kullanabilir ya da kendi bilgisayarınıza [Azure CLI yükleyebilirsiniz]( /cli/azure/install-azure-cli).
 
 [!INCLUDE [cloud-shell-try-it](../../includes/cloud-shell-try-it.md)]
 
-CLI'yi yerel olarak yükleyip kullanmayı tercih ederseniz bu makale için Azure CLI 2.0 veya sonraki bir sürümünü kullanmanız gerekir. Sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI 2.0 yükleme]( /cli/azure/install-azure-cli). 
+CLI'yi yerel olarak yükleyip kullanmayı tercih ederseniz bu makale için Azure CLI 2.0 veya sonraki bir sürümünü kullanmanız gerekir. Sürümü bulmak için `az --version` komutunu çalıştırın. Yükleme veya yükseltme yapmanız gerekiyorsa bkz. [Azure CLI'yı yükleme]( /cli/azure/install-azure-cli). 
 
 Birden fazla aboneliğiniz varsa kaynağın mevcut olduğu ve faturalandırıldığı uygun aboneliği seçin. [az account set](/cli/azure/account#az-account-set) komutunu kullanarak hesabınız altındaki belirli bir abonelik kimliğini seçin.
 ```azurecli-interactive

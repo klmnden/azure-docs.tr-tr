@@ -1,6 +1,6 @@
 ---
-title: Öğretici - Azure CLI 2.0 ile ölçek kümesini otomatik ölçeklendirme| Microsoft Docs
-description: CPU talepleri arttıkça ve azaldıkça, sanal makine ölçek kümesini Azure CLI 2.0 ile otomatik olarak ölçeklendirmeyi öğrenin
+title: Öğretici - Azure CLI ile ölçek kümesini otomatik ölçeklendirme| Microsoft Docs
+description: CPU talepleri arttıkça ve azaldıkça, sanal makine ölçek kümesini Azure CLI ile otomatik olarak ölçeklendirmeyi öğrenin
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: cynthn
@@ -16,14 +16,14 @@ ms.topic: tutorial
 ms.date: 05/18/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 4dedf4a84d5eaa47018fe0cd1cb6fd9a92d8ef7e
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 7c3d536cd4fb99d6d83b973989279d289e8434a8
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38630161"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46995403"
 ---
-# <a name="tutorial-automatically-scale-a-virtual-machine-scale-set-with-the-azure-cli-20"></a>Öğretici: Azure CLI 2.0 ile sanal makine ölçek kümesini otomatik olarak ölçeklendirme
+# <a name="tutorial-automatically-scale-a-virtual-machine-scale-set-with-the-azure-cli"></a>Öğretici: Azure CLI ile sanal makine ölçek kümesini otomatik olarak ölçeklendirme
 
 Ölçek kümesi oluşturduğunuzda, çalıştırmak istediğiniz sanal makine örneği sayısını tanımlarsınız. Uygulamanızın talebi değiştikçe, sanal makine örneklerinin sayısını otomatik olarak artırabilir veya azaltabilirsiniz. Otomatik ölçeklendirme özelliği, uygulamanızın yaşam döngüsü boyunca uygulama performansındaki değişikliklere veya müşteri taleplerine ayak uydurmanıza olanak tanır. Bu öğreticide şunların nasıl yapıldığını öğrenirsiniz:
 
@@ -37,7 +37,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-CLI'yi yerel olarak yükleyip kullanmayı tercih ederseniz bu öğretici için Azure CLI 2.0.32 veya sonraki bir sürümünü çalıştırmanız gerekir. Sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI 2.0 yükleme]( /cli/azure/install-azure-cli).
+CLI'yi yerel olarak yükleyip kullanmayı tercih ederseniz bu öğretici için Azure CLI 2.0.32 veya sonraki bir sürümünü çalıştırmanız gerekir. Sürümü bulmak için `az --version` komutunu çalıştırın. Yükleme veya yükseltme yapmanız gerekiyorsa bkz. [Azure CLI'yı yükleme]( /cli/azure/install-azure-cli).
 
 ## <a name="create-a-scale-set"></a>Ölçek kümesi oluşturma
 
@@ -216,7 +216,7 @@ az group delete --name myResourceGroup --yes --no-wait
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu öğreticide, Azure CLI 2.0 ile otomatik olarak bir ölçek kümesinin ölçeğini daraltma veya genişletme işleminin nasıl yapılacağını öğrendiniz.
+Bu öğreticide, Azure CLI ile otomatik olarak bir ölçek kümesinin ölçeğini daraltma veya genişletme işleminin nasıl yapılacağını öğrendiniz:
 
 > [!div class="checklist"]
 > * Ölçek kümesi ile otomatik ölçeklendirmeyi kullanma
@@ -224,7 +224,7 @@ Bu öğreticide, Azure CLI 2.0 ile otomatik olarak bir ölçek kümesinin ölçe
 > * Sanal makine örneklerinde stres testi yapma ve otomatik ölçeklendirme kurallarını tetikleme
 > * Talep düştüğünde geriye doğru otomatik ölçeklendirme
 
-Çalışır haldeki sanal makine ölçek kümelerinin daha fazla örneğini görmek için aşağıdaki Azure CLI 2.0 örnek betiklerine bakın:
+Çalışır haldeki sanal makine ölçek kümelerinin daha fazla örneğini görmek için aşağıdaki Azure CLI örnek betiklerine bakın:
 
 > [!div class="nextstepaction"]
-> [Azure CLI 2.0 için ölçek kümesi betik örnekleri](cli-samples.md)
+> [Azure CLI için ölçek kümesi betik örnekleri](cli-samples.md)

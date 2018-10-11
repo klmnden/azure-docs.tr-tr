@@ -1,6 +1,6 @@
 ---
-title: Azure CLI Betik Örneği - Visual Studio Team Services’den sürekli dağıtım ile bir web uygulaması oluşturma | Microsoft Docs
-description: Azure CLI Betik Örneği - Visual Studio Team Services’den sürekli dağıtım ile bir web uygulaması oluşturma
+title: Azure CLI Betik Örneği - Azure DevOps Services’den sürekli dağıtım ile bir web uygulaması oluşturma | Microsoft Docs
+description: Azure CLI Betik Örneği - Azure DevOps Services’den sürekli dağıtım ile bir web uygulaması oluşturma
 services: app-service\web
 documentationcenter: ''
 author: syntaxc4
@@ -16,30 +16,30 @@ ms.topic: sample
 ms.date: 12/11/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: e3748654f85e32edeb6f0c7478418068aeb4ae5f
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: fcb55c72f63a9964f04fba1e2b8abbaf39fe6b46
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/30/2018
-ms.locfileid: "30282887"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46967056"
 ---
-# <a name="create-a-web-app-with-continuous-deployment-from-visual-studio-team-services"></a>Visual Studio Team Services’den sürekli dağıtım ile bir web uygulaması oluşturma
+# <a name="create-a-web-app-with-continuous-deployment-from-azure-devops"></a>Azure DevOps’tan sürekli dağıtım ile bir web uygulaması oluşturma
 
-Bu örnek betik, App Service’te ilgili kaynaklarıyla birlikte bir web uygulaması oluşturur ve sonra bir Visual Studio Team Services deposundan sürekli dağıtımı ayarlar. Bu örnekte şunlar gereklidir:
+Bu örnek betik, App Service’te ilgili kaynaklarıyla birlikte bir web uygulaması oluşturur ve sonra bir Azure DevOps deposundan sürekli dağıtımı ayarlar. Bu örnekte şunlar gereklidir:
 
-* Yönetme izinlerine sahip olduğunuz uygulama kodu ile bir Visual Studio Team Services deposu.
-* Visual Studio Team Services hesabınız için bir [Kişisel Erişim Belirteci (PAT)](https://www.visualstudio.com/docs/setup-admin/team-services/use-personal-access-tokens-to-authenticate).
+* Yönetme izinlerine sahip olduğunuz uygulama kodu ile bir Azure DevOps deposu.
+* Azure DevOps kuruluşunuz için bir [Kişisel Erişim Belirteci (PAT)](https://docs.microsoft.com/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate?view=vsts).
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-CLI'yi yerel olarak yükleyip kullanmayı tercih ederseniz Azure CLI 2.0 veya sonraki bir sürümünü kullanmanız gerekir. Sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI 2.0 yükleme]( /cli/azure/install-azure-cli).
+CLI'yi yerel olarak yükleyip kullanmayı tercih ederseniz Azure CLI 2.0 veya sonraki bir sürümünü kullanmanız gerekir. Sürümü bulmak için `az --version` komutunu çalıştırın. Yükleme veya yükseltme yapmanız gerekirse bkz. [Azure CLI’yı yükleme]( /cli/azure/install-azure-cli).
 
 ## <a name="sample-script"></a>Örnek betik
 
-[!code-azurecli-interactive[main](../../../cli_scripts/app-service/deploy-vsts-continuous/deploy-vsts-continuous.sh?highlight=3-4 "Create a web app with continuous deployment from Visual Studio Team Services")]
+[!code-azurecli-interactive[main](../../../cli_scripts/app-service/deploy-vsts-continuous/deploy-vsts-continuous.sh?highlight=3-4 "Create a web app with continuous deployment from Azure DevOps")]
 
 [!INCLUDE [cli-script-clean-up](../../../includes/cli-script-clean-up.md)]
 

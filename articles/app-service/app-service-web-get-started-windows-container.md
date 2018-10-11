@@ -11,21 +11,80 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 08/07/2018
+ms.date: 09/17/2018
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: e8f357347e39c2e8ff071e8f4af8e69dcce3940e
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: e2d058cfe6d6a31f557708277902063e51f54bc5
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39640297"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46971380"
 ---
 # <a name="run-a-custom-windows-container-in-azure-preview"></a>Azure'da özel Windows kapsayıcısı çalıştırma (Önizleme)
 
-[Azure App Service](app-service-web-overview.md), Windows'da IIS üzerinde çalışan ASP.NET veya Node.js gibi önceden tanımlı uygulama yığınları sunar. Önceden yapılandırılmış Windows ortamı, işletim sistemini yönetimsel erişime, yazılım yüklemesine ve genel derleme önbelleğine ve benzeri uygulamalara karşı kilitler (bkz. [Azure App Service'teki işletim sistemi işlevleri](web-sites-available-operating-system-functionality.md)). Uygulamanız önceden yapılandırılmış ortamın sunduğundan daha fazla erişime ihtiyaç duyuyorsa özel bir Windows kapsayıcısı dağıtabilirsiniz. Bu hızlı başlangıçta Azure App Service'ten [Docker Hub](https://hub.docker.com/)'a özel IIS görüntüsü dağıtma adımları gösterilmektedir.
+[Azure App Service](app-service-web-overview.md), Windows'da IIS üzerinde çalışan ASP.NET veya Node.js gibi önceden tanımlı uygulama yığınları sunar. Önceden yapılandırılmış Windows ortamı, işletim sistemini yönetimsel erişime, yazılım yüklemesine ve genel derleme önbelleğine ve benzeri uygulamalara karşı kilitler (bkz. [Azure App Service'teki işletim sistemi işlevleri](web-sites-available-operating-system-functionality.md)). Uygulamanız önceden yapılandırılmış ortamın sunduğundan daha fazla erişime ihtiyaç duyuyorsa özel bir Windows kapsayıcısı dağıtabilirsiniz. Bu hızlı başlangıçta bir Windows görüntüsündeki ASP.NET uygulamasını Visual Studio’dan [Docker Hub](https://hub.docker.com/)’a dağıtma ve Azure App Service’teki bir özel kapsayıcıda çalıştırma işlemi gösterilmektedir.
 
-![](media/app-service-web-get-started-windows-container/app-running.png)
+![](media/app-service-web-get-started-windows-container/app-running-vs.png)
+
+## <a name="prerequisites"></a>Ön koşullar
+
+Bu öğreticiyi tamamlamak için:
+
+- <a href="https://hub.docker.com/" target="_blank">Docker Hub hesabı için kaydolma</a>
+- <a href="https://docs.docker.com/docker-for-windows/install/" target="_blank">Docker for Windows'u yükleyin</a>.
+- <a href="https://docs.microsoft.com/virtualization/windowscontainers/quick-start/quick-start-windows-10#2-switch-to-windows-containers" target="_blank">Windows kapsayıcılarını çalıştırmak için Docker’a geçiş yapın</a>.
+- **ASP.NET ve web geliştirme** ve **Azure geliştirme** iş yükleriyle <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2017</a>’yi yükleyin. Visual Studio 2017'yi zaten yüklediyseniz:
+    - **Yardım** > **Güncelleştirmeleri Denetle**'ye tıklayarak Visual Studio'daki en son güncelleştirmeleri yükleyin.
+    - **Araçlar** > **Araçları ve Özellikleri Al**'a tıklayarak iş yüklerini Visual Studio’ya ekleyin.
+
+## <a name="create-an-aspnet-web-app"></a>ASP.NET web uygulaması oluşturma
+
+Visual Studio'da **Dosya > Yeni > Proje**’yi seçerek bir proje oluşturun. 
+
+**Yeni Proje** iletişim kutusunda **Visual C# > Web > ASP.NET Web Uygulaması (.NET Framework)** öğesini seçin.
+
+Uygulamayı _myFirstAzureWebApp_ olarak adlandırın ve ardından **Tamam**’ı seçin.
+   
+![Yeni Proje iletişim kutusu](./media/app-service-web-get-started-windows-container/new-project.png)
+
+Azure’a herhangi bir türde ASP.NET web uygulaması dağıtabilirsiniz. Bu hızlı başlangıçta **MVC** şablonunu seçin ve kimlik doğrulamasının **Kimlik Doğrulaması Yok** olarak ayarlandığından emin olun.
+
+**Docker Compose desteğini etkinleştir**’i seçin.
+
+**Tamam**’ı seçin.
+
+![Yeni ASP.NET Projesi iletişim kutusu](./media/app-service-web-get-started-windows-container/select-mvc-template.png)
+
+_Dockerfile_ dosyası otomatik olarak açılmazsa **Çözüm Gezgini**’nden açın.
+
+[Desteklenen bir üst görüntü](#use-a-different-parent-image) kullanmanız gerekir. `FROM` satırını aşağıdaki kod ile değiştirerek üst görüntüyü değiştirin ve dosyayı kaydedin:
+
+```Dockerfile
+FROM microsoft/aspnet:4.7.1
+```
+
+Menüden **Hata Ayıkla > Hata Ayıklamadan Başla**’yı seçerek web uygulamasını yerel olarak çalıştırın.
+
+![Uygulamayı yerel olarak çalıştırma](./media/app-service-web-get-started-windows-container/local-web-app.png)
+
+## <a name="publish-to-docker-hub"></a>Docker Hub'da yayımlama
+
+**Çözüm Gezgini**’nde **myFirstAzureWebApp** projesine sağ tıklayıp **Yayımla**’yı seçin.
+
+![Çözüm Gezgini'nden yayımlama](./media/app-service-web-get-started-windows-container/solution-explorer-publish.png)
+
+Yayımlama sihirbazı otomatik olarak başlatılır. **Container Registry** > **Docker Hub** > **Yayımla**’yı seçin.
+
+![Projeye genel bakış sayfasından yayımlama](./media/app-service-web-get-started-windows-container/publish-to-docker.png)
+
+Docker Hub hesabı kimlik bilgilerinizi belirtin ve **Kaydet**’e tıklayın. 
+
+Dağıtımın tamamlanmasını bekleyin. **Yayımla** sayfasında, daha sonra App Service’te kullanacağınız depo adı gösterilir.
+
+![Projeye genel bakış sayfasından yayımlama](./media/app-service-web-get-started-windows-container/published-docker-repository.png)
+
+Bu depo adını daha sonrası için kopyalayın.
 
 ## <a name="sign-in-to-azure"></a>Azure'da oturum açma
 
@@ -37,7 +96,7 @@ https://portal.azure.com adresinden Azure portalında oturum açın.
 
 2. Azure Market kaynakları listesinin üzerindeki arama kutusunda **Kapsayıcılar için Web App**'i arayın ve seçin.
 
-3. *mywebapp* gibi bir uygulama adı girin, varsayılan değerleri kabul ederek yeni kaynak grubu oluşturun ve **İşletim sistemi** kutusunda **Windows (Önizleme)** seçeneğine tıklayın.
+3. *win-container-demo* gibi bir uygulama adı girin, varsayılan değerleri kabul ederek yeni kaynak grubu oluşturun ve **İşletim sistemi** kutusunda **Windows (Önizleme)** seçeneğine tıklayın.
 
     ![](media/app-service-web-get-started-windows-container/portal-create-page.png)
 
@@ -45,11 +104,11 @@ https://portal.azure.com adresinden Azure portalında oturum açın.
 
     ![](media/app-service-web-get-started-windows-container/portal-create-plan.png)
 
-5. **Kapsayıcıyı yapılandır**'a tıklayın, **Resim ve isteğe bağlı etiket** içine _microsoft/iis:latest_ yazın ve **Tamam**'a tıklayın.
+5. **Kapsayıcıyı yapılandır**’a tıklayın. **Görüntü ve isteğe bağlı etiket** alanında, [Docker Hub’da Yayımla](#publish-to-docker-hub) işleminde kopyaladığınız depo adını kullanın, ardından **Tamam**’a tıklayın.
 
-    ![](media/app-service-web-get-started-windows-container/portal-configure-container.png)
+    ![](media/app-service-web-get-started-windows-container/portal-configure-container-vs.png)
 
-    Bu makalede genel [microsoft/iis:latest](https://hub.docker.com/r/microsoft/iis/) Docker Hub görüntüsünü kullanacaksınız. Web uygulamanız için [Azure Container Registry](/azure/container-registry/) gibi başka bir konumda veya başka özel bir depoda bulunan özel görüntünüz varsa bu adımda yapılandırabilirsiniz.
+    Web uygulamanız için [Azure Container Registry](/azure/container-registry/) gibi başka bir konumda veya başka özel bir depoda bulunan özel görüntünüz varsa bu adımda yapılandırabilirsiniz.
 
 6. **Oluştur**'a tıklayın ve Azure'un gereken kaynakları oluşturmasını bekleyin.
 
@@ -67,9 +126,9 @@ Aşağıdaki sayfayla yeni bir tarayıcı sayfası açılır:
 
 ![](media/app-service-web-get-started-windows-container/app-starting.png)
 
-Birkaç dakika bekleyin ve IIS hoş geldiniz sayfasını görene kadar tekrar deneyin:
+Birkaç dakika bekleyin ve varsayılan ASP.NET giriş sayfasını görene kadar tekrar deneyin:
 
-![](media/app-service-web-get-started-windows-container/app-running.png)
+![](media/app-service-web-get-started-windows-container/app-running-vs.png)
 
 **Tebrikler!** Azure App Service'te ilk özel Windows kapsayıcınızı çalıştırıyorsunuz.
 
@@ -90,7 +149,32 @@ Akışı yapılan günlükler şuna benzer:
 27/07/2018 12:05:05.020 INFO - Site: win-container-demo - Container started successfully
 ```
 
-## <a name="use-a-different-docker-image"></a>Farklı bir Docker görüntüsü kullanma
+## <a name="update-locally-and-redeploy"></a>Yerel olarak güncelleştirme ve yeniden dağıtma
+
+**Çözüm Gezgini** menüsünden _Görünümler\Giriş\Index.cshtml_ dosyasını açın.
+
+Üst kısımda `<div class="jumbotron">` HTML etiketini bulun ve tüm öğeyi aşağıdaki kodla değiştirin:
+
+```HTML
+<div class="jumbotron">
+    <h1>ASP.NET in Azure!</h1>
+    <p class="lead">This is a simple app that we’ve built that demonstrates how to deploy a .NET app to Azure App Service.</p>
+</div>
+```
+
+Azure’a yeniden dağıtmak için **Çözüm Gezgini**’nde **myFirstAzureWebApp** projesine sağ tıklayıp **Yayımla**’yı seçin.
+
+Yayımlama sayfasında **Yayımla**’yı seçin ve yayımlama işleminin tamamlanmasını bekleyin.
+
+App Service’in Docker Hub’dan yeni görüntüyü çekmesini istemek için uygulamayı yeniden başlatın. Portaldaki uygulama sayfasına geri dönerek **Yeniden Başlat** > **Evet**’e tıklayın.
+
+![Azure’da web uygulamasını yeniden başlatma](./media/app-service-web-get-started-windows-container/portal-restart-app.png)
+
+Yeniden [Kapsayıcı uygulamasına göz atın](#browse-to-the-container-app). Web sayfasını yenilediğinizde, uygulama ilk olarak "Başlangıç" sayfasına geri dönmeli, birkaç dakika sonra ise güncellenmiş web sayfasını tekrar görüntülemelidir.
+
+![Azure’da güncelleştirilmiş web uygulaması](./media/app-service-web-get-started-windows-container/azure-web-app-updated.png)
+
+## <a name="use-a-different-parent-image"></a>Farklı bir üst görüntü kullanma
 
 Uygulamanızı çalıştırmak için farklı bir özel Docker görüntüsü kullanabilirsiniz. Ancak istediğiniz çerçeve için doğru [üst görüntüyü](https://docs.docker.com/develop/develop-images/baseimages/) seçmeniz gerekir: 
 
@@ -104,3 +188,8 @@ Uygulama başlatılırken üst görüntünün indirilmesi zaman alabilir. Ancak 
 - [microsoft/aspnet](https://hub.docker.com/r/microsoft/aspnet/):4.7.2-windowsservercore-ltsc2016, 4.7.2, latest
 - [microsoft/dotnet](https://hub.docker.com/r/microsoft/dotnet/):2.1-aspnetcore-runtime
 - [microsoft/dotnet](https://hub.docker.com/r/microsoft/dotnet/):2.1-sdk
+
+## <a name="next-steps"></a>Sonraki adımlar
+
+> [!div class="nextstepaction"]
+> [Azure'da Windows kapsayıcısına geçirme](app-service-web-tutorial-windows-containers-custom-fonts.md)

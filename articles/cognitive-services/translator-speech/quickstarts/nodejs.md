@@ -1,43 +1,45 @@
 ---
-title: Node.js Hızlı Başlangıç için Azure Bilişsel hizmetler, Microsoft Translator konuşma tanıma API'si | Microsoft Docs
-description: Microsoft Translator konuşma tanıma API'si, Azure üzerinde Microsoft Bilişsel hizmetler kullanarak hızlı bir şekilde yardımcı olmak için bilgi ve kod örnekleri get başlayın.
+title: "Hızlı Başlangıç: Translator Konuşma Çevirisi API'si Node.js"
+titlesuffix: Azure Cognitive Services
+description: Translator Konuşma Çevirisi API'sini kısa sürede kullanmaya başlamanıza yardımcı olacak bilgi ve kod örnekleri alın.
 services: cognitive-services
-documentationcenter: ''
 author: v-jaswel
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-speech
-ms.topic: article
+ms.topic: quickstart
 ms.date: 3/5/2018
 ms.author: v-jaswel
-ms.openlocfilehash: e652ee1e201e60d0d75f10bb8fceb4fbcd205381
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
-ms.translationtype: MT
+ROBOTS: NOINDEX
+ms.openlocfilehash: 533faeca37f021beb86148a4f11a0f04c631a30a
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "41987500"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46954594"
 ---
-# <a name="quickstart-for-microsoft-translator-speech-api-with-nodejs"></a>Microsoft Translator konuşma tanıma API'si ile Node.js için hızlı başlangıç 
+# <a name="quickstart-translator-speech-api-with-nodejs"></a>Hızlı Başlangıç: Node.js dilinde Translator Konuşma Çevirisi API'si 
 <a name="HOLTop"></a>
 
-Bu makalede, Microsoft Translator konuşma tanıma API'si .wav dosyasında konuşulan kelimeleri için nasıl kullanılacağını gösterir.
+Bu makalede Translator Konuşma Çevirisi API'si’ni kullanarak bir .wav dosyasında konuşulan sözcüklerin nasıl çevrileceği gösterilir.
 
-## <a name="prerequisites"></a>Önkoşullar
+## <a name="prerequisites"></a>Ön koşullar
 
-Gereksinim duyduğunuz [Node.js 6](https://nodejs.org/en/download/) bu kodu çalıştırmak için.
+Bu kodu çalıştırmak için [Node.js 6](https://nodejs.org/en/download/) gerekir.
 
-Yüklemeniz gereken [Websocket paket](https://www.npmjs.com/package/websocket) Node.js için.
+Node.js için [Websocket paketini](https://www.npmjs.com/package/websocket) yüklemeniz gerekir.
 
-Aşağıdaki kod derleme yürütülebilir dosya ile aynı klasörde yer alan "speak.wav" adlı bir .wav dosyası gerekir. Bu .wav dosya standart PCM 16 bit, 16 kHz, mono biçiminde olmalıdır. Böyle bir .wav dosyasından edinebilirsiniz [metin okuma API'si](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/rest-apis#text-to-speech).
+Aşağıdaki koddan derlediğiniz yürütülebilir dosya ile aynı klasörün içinde "speak.wav" adlı bir .wav dosyanız olmalıdır. Bu .wav dosyası standart PCM, 16 bit, 16 kHz, mono biçiminde olmalıdır. Bu tür bir .wav dosyasını [Metin Okuma API'sinden](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/rest-apis#text-to-speech) edinebilirsiniz.
 
-Olmalıdır bir [Bilişsel hizmetler API hesabı](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) ile **Microsoft Translator konuşma tanıma API'si**. Ücretli aboneliğe anahtarından gerekir, [Azure panosuna](https://portal.azure.com/#create/Microsoft.CognitiveServices).
+**Microsoft Translator Konuşma Çevirisi API'sine** sahip bir [Bilişsel Hizmetler API hesabınızın](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) olması gerekir. [Azure panonuzdan](https://portal.azure.com/#create/Microsoft.CognitiveServices) ücretli bir abonelik anahtarı gereklidir.
 
 ## <a name="translate-speech"></a>Konuşmayı çevirme
 
-Aşağıdaki kod, konuşma bir dilden diğerine çevirir.
+Aşağıdaki kod, konuşmayı bir dilden diğerine çevirir.
 
-1. Sık kullandığınız IDE'de yeni bir Node.js projesi oluşturun.
-2. Aşağıda sağlanan kod ekleyin.
-3. Değiştirin `key` aboneliğiniz için geçerli bir erişim anahtarı ile değeri.
+1. Sık kullandığınız IDE’de yeni bir Node.js projesi oluşturun.
+2. Aşağıda sağlanan kodu ekleyin.
+3. `key` değerini, aboneliğiniz için geçerli olan bir erişim anahtarı ile değiştirin.
 4. Programı çalıştırın.
 
 ```nodejs
@@ -155,18 +157,18 @@ function connect() {
 connect();
 ```
 
-**Konuşma yanıt Çevir**
+**Konuşma yanıtını çevirme**
 
-Başarılı "speak2.wav" adlı bir dosya oluşturulmasını oluşur. Dosya çevirisi "speak.wav içinde" konuşulan sözcükleri içerir.
+"speak2.wav" adlı bir dosya oluşturulduğunda sonuç başarılıdır. Dosya, "speak.wav" içinde konuşulan sözcüklerin çevirisini içerir.
 
 [Başa dön](#HOLTop)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 > [!div class="nextstepaction"]
-> [Translator Konuşma Öğreticisi](../tutorial-translator-speech-csharp.md)
+> [Translator Konuşma Çevirisi öğreticisi](../tutorial-translator-speech-csharp.md)
 
 ## <a name="see-also"></a>Ayrıca bkz. 
 
-[Translator konuşma genel bakış](../overview.md)
+[Translator Konuşma Çevirisine genel bakış](../overview.md)
 [API Başvurusu](https://docs.microsoft.com/azure/cognitive-services/translator-speech/reference)

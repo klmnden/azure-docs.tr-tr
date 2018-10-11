@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 03/27/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 05ec147e705da4951735616881ad19ad265b403d
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: d1d760c2642e0c986e50570630d31dda11d17478
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "41918026"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46964747"
 ---
 # <a name="tutorial-create-a-development-infrastructure-on-a-linux-vm-in-azure-with-jenkins-github-and-docker"></a>Öğretici: Azure’da Jenkins, GitHub ve Docker ile bir Linux sanal makinesi üzerinde geliştirme altyapısı oluşturma
 
@@ -37,7 +37,7 @@ Uygulama geliştirme sürecinin derleme ve test aşamasını otomatikleştirmek 
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-CLI'yi yerel olarak yükleyip kullanmayı tercih ederseniz bu öğretici için Azure CLI 2.0.30 veya sonraki bir sürümünü çalıştırmanız gerekir. Sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI 2.0 yükleme]( /cli/azure/install-azure-cli).
+CLI'yi yerel olarak yükleyip kullanmayı tercih ederseniz bu öğretici için Azure CLI 2.0.30 veya sonraki bir sürümünü çalıştırmanız gerekir. Sürümü bulmak için `az --version` komutunu çalıştırın. Yükleme veya yükseltme yapmanız gerekiyorsa bkz. [Azure CLI'yı yükleme]( /cli/azure/install-azure-cli).
 
 ## <a name="create-jenkins-instance"></a>Jenkins örneği oluşturma
 [İlk önyüklemede Linux sanal makinelerini özelleştirme](tutorial-automate-vm-deployment.md) konulu önceki bir öğreticide, cloud-init ile VM özelleştirmeyi nasıl otomatikleştirebileceğinizi öğrendiniz. Bu öğreticide, bir VM’ye Jenkins ve Docker yüklemek için cloud-init dosyası kullanılır. Jenkins, sürekli tümleştirme (CI) ve sürekli teslimi (CD) etkinleştirmek için Azure ile sorunsuz bir şekilde tümleştirilen popüler bir açık kaynak otomasyon sunucusudur. Jenkins kullanmayla ilgili diğer öğreticiler için bkz. [Azure’da Jenkins merkezi](https://docs.microsoft.com/azure/jenkins/).
@@ -241,7 +241,7 @@ Bu öğreticide, GitHub’ı her kod işlemesinde bir Jenkins derleme işi çal�
 > * Uygulamanız için bir Docker görüntüsü oluşturma
 > * GitHub işlemelerinin yeni Docker görüntüsü oluşturduğunu ve çalışmakta olan uygulamayı güncelleştirdiğini doğrulama
 
-Jenkins’i Visual Studio Team Services ile tümleştirme hakkında daha fazla bilgi edinmek için bir sonraki öğretici ilerleyin.
+Jenkins’i Azure DevOps Services ile tümleştirme hakkında daha fazla bilgi edinmek için bir sonraki öğretici ilerleyin.
 
 > [!div class="nextstepaction"]
-> [Jenkins ve Team Services ile uygulama dağıtma](tutorial-build-deploy-jenkins.md)
+> [Jenkins ve Azure DevOps Services ile uygulama dağıtma](tutorial-build-deploy-jenkins.md)

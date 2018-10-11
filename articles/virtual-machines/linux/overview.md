@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 11/29/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017, mvc
-ms.openlocfilehash: 1ac55b728a29ff1bb8129087da5992ffe5f23df9
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.openlocfilehash: 6ed1ef6019e339768c4ba6a62d8b4d99d844f254
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42820320"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46949542"
 ---
 # <a name="azure-and-linux"></a>Azure ve Linux
 Microsoft Azure; çözümlerinizi barındırmak için ideal olan ve giderek büyüyen bir analiz, sanal makine, veritabanı, mobil kullanım, ağ, depolama ve web dahil tümleşik genel bulut hizmetleri koleksiyonudur.  Microsoft Azure şirket içi donanım için yatırım yapmanıza gerek olmadan istediğiniz zaman yalnızca kullandığınız hizmetler için ödeme yapmanızı sağlayan ölçeklenebilir bir bilgi işlem platformu sunar.  Azure, çözümlerinizin ölçeğini artırmaya hazır olduğunuzda müşterilerinizin ihtiyaçlarını karşılamak için gereken ölçeğe yükseltilmek için hazırdır.
@@ -37,7 +37,7 @@ Azure, sanal makineyi tüm diskler için premium depolamayla dağıtmanız koşu
 
 ## <a name="managed-disks"></a>Yönetilen Diskler
 
-Yönetilen Diskler, Azure Depolama hesabı oluşturma ve yönetme işlemini arka planda gerçekleştirir ve depolama hesabının ölçeklenebilirlik sınırları hakkında endişe etmeniz gerekmez. Azure’ın diski oluşturup yönetebilmesi için disk boyutunu ve performans katmanını (Standart veya Premium) belirtmeniz yeterlidir. Disk eklediğinizde veya VM ölçeğini artırıp azalttığınızda kullanılan depolama alanı konusunda endişelenmeniz gerekmez. Yeni VM'ler oluşturuyorsanız, VM'leri Yönetilen işletim sistemi ve veri diskleriyle oluşturmak için [Azure CLI 2.0](quick-create-cli.md) veya Azure Portal kullanın. Yönetilmeyen diskleri olan VM'leriniz varsa, [VM'leri Yönetilen Disklerle desteklenecek şekilde dönüştürebilirsiniz](convert-unmanaged-to-managed-disks.md).
+Yönetilen Diskler, Azure Depolama hesabı oluşturma ve yönetme işlemini arka planda gerçekleştirir ve depolama hesabının ölçeklenebilirlik sınırları hakkında endişe etmeniz gerekmez. Azure’ın diski oluşturup yönetebilmesi için disk boyutunu ve performans katmanını (Standart veya Premium) belirtmeniz yeterlidir. Disk eklediğinizde veya VM ölçeğini artırıp azalttığınızda kullanılan depolama alanı konusunda endişelenmeniz gerekmez. Yeni VM'ler oluşturuyorsanız, VM'leri Yönetilen işletim sistemi ve veri diskleriyle oluşturmak için [Azure CLI](quick-create-cli.md) veya Azure portalını kullanın. Yönetilmeyen diskleri olan VM'leriniz varsa, [VM'leri Yönetilen Disklerle desteklenecek şekilde dönüştürebilirsiniz](convert-unmanaged-to-managed-disks.md).
 
 Ayrıca, her Azure bölgesinde bir depolama hesabındaki özel görüntülerinizi yönetebilir ve aynı abonelikte yüzlerce VM oluşturmak için kullanabilirsiniz. Yönetilen Diskler hakkında daha fazla bilgi için bkz. [Yönetilen Disklere Genel Bakış](../linux/managed-disks-overview.md).
 
@@ -91,7 +91,7 @@ Azure'ı kullanmaya başlamak için bir Azure hesabına, yüklü Azure CLI'ye ve
 Azure Cloud kullanmanın ilk adımı Azure hesabı için kaydolmaktır.  Başlamak için [Azure Hesap Kaydı](https://azure.microsoft.com/pricing/free-trial/) sayfasına gidin.
 
 ### <a name="install-the-cli"></a>CLI'yi yükleme
-Yeni Azure hesabınızla, web tabanlı bir yönetim paneli olan Azure Portal'ı kullanmaya hemen başlayabilirsiniz.  Azure Cloud'u komut satırı üzerinden yönetmek için `azure-cli`'yi yüklersiniz.  Mac veya Linux iş istasyonunuza [Azure CLI 2.0](/cli/azure/install-azure-cli)'ı yükleyin.
+Yeni Azure hesabınızla, web tabanlı bir yönetim paneli olan Azure Portal'ı kullanmaya hemen başlayabilirsiniz.  Azure Cloud'u komut satırı üzerinden yönetmek için `azure-cli`'yi yüklersiniz.  Mac veya Linux iş istasyonunuza [Azure CLI](/cli/azure/install-azure-cli) yükleyin.
 
 ### <a name="create-an-ssh-key-pair"></a>SSH anahtar çifti oluşturma
 Artık Azure hesabınız, Azure web portalınız ve Azure CLI'niz vardır.  Sonraki adım, parola kullanmadan Linux'ta SSH için kullanılan SSH anahtar çiftini oluşturmaktır.  Parolasız oturum açmak ve daha iyi bir güvenlik elde etmek için [Linux ve Mac'te SSH anahtarları oluşturun](mac-create-ssh-keys.md).

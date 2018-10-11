@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 10/26/2017
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: b206d93d7c72f5d8ff3dd3baa277cd0db33ba583
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.openlocfilehash: 97e192312619455c0055a917df880cc48eb082dd
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42811922"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46978934"
 ---
 # <a name="virtual-network-traffic-routing"></a>Sanal ağ trafiğini yönlendirme
 
@@ -105,13 +105,13 @@ Kullanıcı tanımlı yollarda sonraki atlama türü olarak **VNet eşlemesi** v
 
 Sonraki atlama türleri için gösterilen ve başvurulan ad, Azure portalı ile komut satırı araçları ve Azure Resource Manager ile klasik dağıtım modelleri arasında farklıdır. Aşağıdaki tabloda farklı araçlar ve [dağıtım modelleri](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ile her bir sonraki atlama türüne başvurmak için kullanılan adlar listelenir:
 
-|Sonraki atlama türü                   |Azure CLI 2.0 ve PowerShell (Resource Manager) |Azure CLI 1.0 ve PowerShell (klasik)|
+|Sonraki atlama türü                   |Azure CLI ve PowerShell (Resource Manager) |Azure klasik CLI ve PowerShell (klasik)|
 |-------------                   |---------                                       |-----|
 |Sanal ağ geçidi         |VirtualNetworkGateway                           |VPNGateway|
-|Sanal ağ                 |VNetLocal                                       |VNETLocal (CLI 1.0 asm modunda kullanılamaz)|
-|Internet                        |Internet                                        |İnternet (CLI 1.0 asm modunda kullanılamaz)|
+|Sanal ağ                 |VNetLocal                                       |VNETLocal (asm modunda klasik CLI’de kullanılamaz)|
+|Internet                        |Internet                                        |İnternet (asm modunda klasik CLI’de kullanılamaz)|
 |Sanal gereç               |VirtualAppliance                                |VirtualAppliance|
-|None                            |None                                            |Null (CLI 1.0 asm modunda kullanılamaz)|
+|None                            |None                                            |Null (asm modunda klasik CLI’de kullanılamaz)|
 |Sanal ağ eşleme         |VNet eşlemesi                                    |Uygulanamaz|
 |Sanal ağ hizmet uç noktaları|VirtualNetworkServiceEndpoint                   |Uygulanamaz|
 

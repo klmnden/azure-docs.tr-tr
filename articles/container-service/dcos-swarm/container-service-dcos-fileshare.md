@@ -1,6 +1,6 @@
 ---
 title: Azure DC/OS kümesi için dosya paylaşımı
-description: Oluşturma ve Azure kapsayıcı hizmeti DC/OS kümesinde bir dosya paylaşımını bağlama
+description: Azure Container Service’te dosya oluşturma ve bu dosyayı DC/OS kümesine bağlama
 services: container-service
 author: julienstroheker
 manager: dcaro
@@ -9,31 +9,31 @@ ms.topic: tutorial
 ms.date: 06/07/2017
 ms.author: juliens
 ms.custom: mvc
-ms.openlocfilehash: c1c318f4204efd24a2d9d3d83bb1cb71f5775bdb
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: 4e03a0b450c9806edfb81a867fba97052659ec44
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2017
-ms.locfileid: "26331211"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46973516"
 ---
-# <a name="create-and-mount-a-file-share-to-a-dcos-cluster"></a>Oluşturma ve DC/OS kümesi için bir dosya paylaşımını bağlama
+# <a name="create-and-mount-a-file-share-to-a-dcos-cluster"></a>Dosya oluşturma ve bu dosyayı DC/OS kümesine bağlama
 
-Bu öğretici Azure'da bir dosya paylaşımı oluşturun ve her bir aracı ve DC/OS kümesi ana bağlamak nasıl ayrıntılarını verir. Bir dosya paylaşımı ayarlama, küme yapılandırması, erişim, günlükler ve daha fazla gibi içinde dosya paylaşmak üzere kolaylaştırır. Bu öğreticide aşağıdaki görevler tamamlanır:
+Bu öğreticide, Azure'da dosya paylaşımı oluşturma ve bunu DC/OS kümesinin her aracısına ve ana düğümüne bağlama işlemi ayrıntılarıyla açıklanır. Dosya paylaşımı ayarlamak, yapılandırma, erişim ve günlükler gibi daha birçok dosyanın kümeniz genelinde paylaşılmasını kolaylaştırır. Bu öğreticide aşağıdaki görevler tamamlanır:
 
 > [!div class="checklist"]
 > * Azure Storage hesabı oluşturma
 > * Dosya paylaşımı oluşturma
-> * DC/OS kümesinde paylaşımını bağlama
+> * Paylaşımı DC/OS kümesine bağlama
 
-Bu öğreticide adımları tamamlamak için bir ACS DC/OS kümesi gerekir. Gerekirse, [bu komut dosyası örneği](./../kubernetes/scripts/container-service-cli-deploy-dcos.md) sizin için bir tane oluşturabilirsiniz.
+Bu öğreticideki adımları tamamlamak için bir ACS DC/OS kümesi gerekir. Gerekirse, [bu betik örneği](./../kubernetes/scripts/container-service-cli-deploy-dcos.md) sizin için bir tane oluşturabilir.
 
-Bu öğretici, Azure CLI 2.0.4 veya sonraki bir sürümü gerektirir. Sürümü bulmak için `az --version` komutunu çalıştırın. Yükseltme gerekiyorsa, bkz. [Azure CLI 2.0 yükleme]( /cli/azure/install-azure-cli). 
+Bu öğretici, Azure CLI 2.0.4 veya sonraki bir sürümü gerektirir. Sürümü bulmak için `az --version` komutunu çalıştırın. Yükseltme gerekiyorsa, bkz. [Azure CLI yükleme]( /cli/azure/install-azure-cli). 
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-## <a name="create-a-file-share-on-microsoft-azure"></a>Microsoft Azure üzerinde bir dosya paylaşımı oluşturma
+## <a name="create-a-file-share-on-microsoft-azure"></a>Microsoft Azure'da dosya paylaşımı oluşturma
 
-Bir ACS DC/OS kümesi ile Azure dosya paylaşımının kullanmadan önce depolama hesabı ve dosya paylaşımı oluşturulması gerekir. Depolama ve dosya paylaşımı oluşturmak için aşağıdaki betiği çalıştırın. Parametreler, ortamınızdan thoes ile güncelleştirin.
+Azure dosya paylaşımını ACS DC/OS kümesiyle kullamadan önce, depolama hesabı ve dosya paylaşımı oluşturulmalıdır. Depolamayı ve dosya paylaşımını oluşturmak için aşağıdaki betiği çalıştırın. Parametreleri kendi ortamınızın parametreleriyle güncelleştirin.
 
 ```azurecli-interactive
 # Change these four parameters
@@ -52,13 +52,13 @@ export AZURE_STORAGE_CONNECTION_STRING=`az storage account show-connection-strin
 az storage share create -n $DCOS_PERS_SHARE_NAME
 ```
 
-## <a name="mount-the-share-in-your-cluster"></a>Kümenizdeki paylaşımını bağlama
+## <a name="mount-the-share-in-your-cluster"></a>Paylaşımı kümenize bağlama
 
-Ardından, dosya paylaşımı, küme içindeki her sanal makineye bağlı gerekir. Bu görev CIFS aracı/protokolü kullanılarak tamamlanır. Bağlama işlemi, her bir düğümde kümenin veya kümedeki her düğümde karşı bir komut dosyası çalıştırarak el ile tamamlanabilir.
+Bundan sonra, dosya paylaşımının kümenizin içindeki her sanal makineye bağlanması gerekir. Bu görevi tamamlamak için cifs aracı/protokolü kullanılır. Bağlama işlemi kümenin her düğümünde el ile veya kümedeki her düğümde bir betik çalıştırılarak tamamlanabilir.
 
-Bu örnekte, iki komut dosyaları çalıştırılır, bir Azure dosya paylaşımı ve DC/OS kümesi her düğümde bu komut dosyasını çalıştırmak için ikinci bir bağlama.
+Bu örnekte, iki betik çalıştırılır: biri Azure dosya paylaşımını bağlamak için ve ikincisi de bu betiği DC/OS kümesinin her düğümünde çalıştırmak için.
 
-İlk olarak, Azure depolama hesabı adı ve erişim anahtarı gereklidir. Bu bilgileri almak için aşağıdaki komutları çalıştırın. Not her biri, bir sonraki adımda bu değerler kullanılır.
+İlk olarak, Azure depolama hesabı adı ve erişim anahtarı gerekir. Aşağıdaki komutları çalıştırarak bu bilgileri alın. Bu değerleri not alın çünkü sonraki bir adımda kullanılacaklar.
 
 Depolama hesabı adı:
 
@@ -67,33 +67,33 @@ STORAGE_ACCT=$(az storage account list --resource-group $DCOS_PERS_RESOURCE_GROU
 echo $STORAGE_ACCT
 ```
 
-Depolama hesabının erişim anahtarı:
+Depolama hesabı erişim anahtarı:
 
 ```azurecli-interactive
 az storage account keys list --resource-group $DCOS_PERS_RESOURCE_GROUP --account-name $STORAGE_ACCT --query "[0].value" -o tsv
 ```
 
-Ardından, DC/OS asıl FQDN'sini almak ve bir değişkende saklayın.
+Sonra, DC/OS ana şablonunun FQDN'sini alın ve bir değişkende depolayın.
 
 ```azurecli-interactive
 FQDN=$(az acs list --resource-group $DCOS_PERS_RESOURCE_GROUP --query "[0].masterProfile.fqdn" --output tsv)
 ```
 
-Özel anahtarınızı ana düğüme kopyalayın. Bu anahtar oluşturmak için gereken bir ssh bağlantısı kümedeki tüm düğümlerle. Varsayılan olmayan bir değer kümesi oluştururken kullanılan kullanıcı adını güncelleştirin. 
+Özel anahtarınızı ana düğüme kopyalayın. Bu anahtar, kümedeki tüm düğümlerle ssh bağlantısı oluşturmak için gerekir. Küme oluşturulurken varsayılan olmayan bir değeri kullanıldıysa kullanıcı adını güncelleştirin. 
 
 ```azurecli-interactive
 scp ~/.ssh/id_rsa azureuser@$FQDN:~/.ssh
 ```
 
-Bir SSH bağlantısı asıl (veya ilk ana) DC/OS tabanlı kümenizin ile oluşturun. Varsayılan olmayan bir değer kümesi oluştururken kullanılan kullanıcı adını güncelleştirin.
+DC/OS tabanlı kümenizin ana şablonuyla (veya ilk ana şablonuyla) bir SSH bağlantısı oluşturun. Küme oluşturulurken varsayılan olmayan bir değeri kullanıldıysa kullanıcı adını güncelleştirin.
 
 ```azurecli-interactive
 ssh azureuser@$FQDN
 ```
 
-Adlı bir dosya oluşturun **cifsMount.sh**ve aşağıdaki içeriği buraya kopyalayın. 
+**cifsMount.sh** adlı bir dosya oluşturun ve şu içerikleri dosyaya kopyalayın. 
 
-Bu komut dosyası ve Azure dosya paylaşımı bağlamak için kullanılır. Güncelleştirme `STORAGE_ACCT_NAME` ve `ACCESS_KEY` bilgileri değişkenlerle toplanan daha önce.
+Bu betik Azure dosya paylaşımını bağlamak için kullanılır. `STORAGE_ACCT_NAME` ve `ACCESS_KEY` değişkenlerini daha önce toplanan bilgilerle güncelleştirin.
 
 ```azurecli-interactive
 #!/bin/bash
@@ -112,9 +112,9 @@ if [ ! -d "/mnt/share/$SHARE_NAME" ]; then sudo mkdir -p "/mnt/share/$SHARE_NAME
 # Mount the share under the previous local folder created
 sudo mount -t cifs //$STORAGE_ACCT_NAME.file.core.windows.net/$SHARE_NAME /mnt/share/$SHARE_NAME -o vers=3.0,username=$STORAGE_ACCT_NAME,password=$ACCESS_KEY,dir_mode=0777,file_mode=0777
 ```
-Adlı ikinci bir dosya oluşturun **getNodesRunScript.sh** ve aşağıdaki içeriği dosyaya kopyalayın. 
+**getNodesRunScript.sh** adıyla ikinci bir dosya oluşturun ve aşağıdaki içerikleri dosyaya kopyalayın. 
 
-Bu komut tüm küme düğümlerine bulur ve ardından çalıştırır **cifsMount.sh** her dosya paylaşımını bağlama için komut dosyası.
+Bu betik tüm küme düğümlerini bulur ve sonra da **cifsMount.sh** betiğini çalıştırarak her birine dosya paylaşımını bağlar.
 
 ```azurecli-interactive
 #!/bin/bash
@@ -132,24 +132,24 @@ do
   done
 ```
 
-Azure dosya paylaşımı kümenin tüm düğümlerinde bağlamak için komut dosyasını çalıştırın.
+Azure dosya paylaşımını kümenin tüm düğümlerine bağlamak için betiği çalıştırın.
 
 ```azurecli-interactive
 sh ./getNodesRunScript.sh
 ```  
 
-Dosya Paylaşımı artık adresindeki erişilebilen `/mnt/share/dcosshare` kümedeki her düğümde.
+Artık dosya paylaşımına kümenin her düğümünde `/mnt/share/dcosshare` konumundan erişilebilir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu öğreticide Azure dosya paylaşımı adımları kullanarak bir DC/OS kümesi sunulmuştur:
+Bu öğreticide, aşağıdaki adımlar kullanılarak bir DC/OS kümesine bir Azure dosya paylaşımı sağlandı:
 
 > [!div class="checklist"]
 > * Azure Storage hesabı oluşturma
 > * Dosya paylaşımı oluşturma
-> * DC/OS kümesinde paylaşımını bağlama
+> * Paylaşımı DC/OS kümesine bağlama
 
-Azure kapsayıcı kayıt defteri DC/OS Azure ile tümleştirme hakkında bilgi edinmek için sonraki öğretici ilerleyin.  
+Azure Container Registry’yi Azure'da DC/OS ile tümleştirmeyi öğrenmek için sonraki öğreticiye ilerleyin.  
 
 > [!div class="nextstepaction"]
 > [Uygulamalarda yük dengeleme gerçekleştirme](container-service-dcos-acr.md)

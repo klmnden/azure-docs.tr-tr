@@ -1,5 +1,5 @@
 ---
-title: 'Öğretici: Çok hizmet sunan bir web uygulaması oluşturup Service Fabric Mesh’e dağıtma ve bu uygulamada hata ayıklama | Microsoft Docs'
+title: 'Öğretici: Çok hizmet sunan bir web uygulaması oluşturma, hata ayıklama, Service Fabric Mesh’e dağıtma ve izleme | Microsoft Docs'
 description: Bu öğreticide bir arka uç web hizmetiyle iletişim kuran bir ASP.NET Core web sitesini içeren çok hizmet sunan bir Azure Service Fabric Mesh uygulaması oluşturacak, yerel ortamda hatalarını ayıklayacak ve Azure'da yayımlayacaksınız.
 services: service-fabric-mesh
 documentationcenter: .net
@@ -12,26 +12,28 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/17/2018
+ms.date: 09/18/2018
 ms.author: twhitney
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 59ff3434e7b984f4530ad4f8b03b27991d3a9c1c
-ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
+ms.openlocfilehash: 09112aafdbabf0cda2b3ae13af73a9223533a6e1
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "41918024"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46979204"
 ---
-# <a name="tutorial-create-debug-and-deploy-a-multi-service-web-application-to-service-fabric-mesh"></a>Öğretici: Çok hizmet sunan bir web uygulaması oluşturup Service Fabric Mesh’e dağıtma ve bu uygulamada hata ayıklama
+# <a name="tutorial-create-debug-deploy-and-upgrade-a-multi-service-service-fabric-mesh-app"></a>Öğretici: Çok hizmet sunan bir Service Fabric Mesh uygulaması oluşturma, hata ayıklama, dağıtma ve yükseltme
 
-Bu öğretici, bir dizinin birinci bölümüdür. ASP.NET web ön ucu ve ASP.NET Core Web API arka uç hizmeti olan bir Azure Service Fabric Mesh uygulaması oluşturmayı öğreneceksiniz. Ardından yerel geliştirme kümenizde uygulamanın hatalarını ayıklayacak ve uygulamayı Azure'da yayımlayacaksınız. İşlemleri tamamladığınızda Azure Service Fabric Mesh'te çalışan bir Service Fabric Mesh uygulamasında hizmetler arası çağrı oluşturmayı gösteren basit bir yapılacak işler uygulamasına sahip olacaksınız.
+Bu öğretici, bir dizinin birinci bölümüdür. Visual Studio kullanarak ASP.NET web ön ucu ve ASP.NET Core Web API arka uç hizmeti olan bir Azure Service Fabric Mesh uygulaması oluşturmayı öğreneceksiniz. Ardından yerel geliştirme kümenizde uygulamanın hatalarını ayıklayacaksınız. Uygulamayı Azure’da yayımlayacak ve sonra yapılandırma ve kod değişiklikleri yapıp uygulamayı yükselteceksiniz. Son olarak, kullanmadığınız kaynaklar için ücret yansıtılmaması amacıyla, kullanılmayan Azure kaynaklarını temizleyeceksiniz.
+
+İşiniz bittiğinde, uygulama yaşam döngüsü yönetiminin birçok aşamasından geçmiş ve bir Service Fabric Mesh uygulamasıda hizmetten hizmete çağrı gösteren bir uygulama derlemiş olacaksınız.
 
 Yapılacak işler uygulamasını el ile oluşturmak istemiyorsanız, tamamlanmış uygulamanın [kaynak kodunu indirebilir](https://github.com/azure-samples/service-fabric-mesh) ve [Yerel ortamda uygulama hatalarını ayıklama](service-fabric-mesh-tutorial-debug-service-fabric-mesh-app.md) bölümüne atlayabilirsiniz.
 
 Serinin birinci bölümünde şunları öğrenirsiniz:
 
 > [!div class="checklist"]
-> * ASP.NET web ön ucu içeren bir Service Fabric Mesh uygulaması oluşturma.
+> * ASP.NET web ön ucu içeren bir Service Fabric Mesh uygulaması oluşturmak için Visual Studio kullanın.
 > * Yapılacak işleri temsil eden bir model oluşturma.
 > * Bir arka uç hizmeti oluşturma ve ondan veri alma.
 > * Arka uç hizmeti için Model Görünüm Denetleyicisi modelinin bir parçası olarak bir denetleyici ve DataContext ekleme.
@@ -40,9 +42,11 @@ Serinin birinci bölümünde şunları öğrenirsiniz:
 
 Bu öğretici dizisinde şunların nasıl yapıldığını öğrenirsiniz:
 > [!div class="checklist"]
-> * Bir Service Fabric Mesh uygulaması oluşturma
-> * [Yerel ortamda uygulama hatalarını ayıklama](service-fabric-mesh-tutorial-debug-service-fabric-mesh-app.md)
-> * [Uygulamayı Azure’da yayımlama](service-fabric-mesh-tutorial-deploy-service-fabric-mesh-app.md)
+> * Visual Studio’da Service Fabric Mesh uygulaması oluşturma
+> * [Yerel geliştirme kümenizde çalışan bir Service Fabric Mesh uygulamasının hatalarını ayıklama](service-fabric-mesh-tutorial-debug-service-fabric-mesh-app.md)
+> * [Service Fabric Mesh uygulaması dağıtma](service-fabric-mesh-tutorial-deploy-service-fabric-mesh-app.md)
+> * [Service Fabric Mesh uygulamasını yükseltme](service-fabric-mesh-tutorial-upgrade.md)
+> * [Service Fabric Mesh kaynaklarını temizleme](service-fabric-mesh-tutorial-cleanup-resources.md)
 
 [!INCLUDE [preview note](./includes/include-preview-note.md)]
 
@@ -54,9 +58,7 @@ Bu öğreticiye başlamadan önce:
 
 * [Geliştirme ortamınızı ayarladığınızdan](service-fabric-mesh-howto-setup-developer-environment-sdk.md) ve Service Fabric çalışma zamanı, SDK, Docker ve Visual Studio 2017'yi yüklediğinizden emin olun.
 
-* Bu öğreticideki uygulamanın şu an için İngilizce yerel ayarı kullanılarak derlenmesi gerekir.
-
-## <a name="create-a-service-fabric-mesh-project"></a>Service Fabric Mesh projesi oluşturma
+## <a name="create-a-service-fabric-mesh-project-in-visual-studio"></a>Visual Studio’da Service Fabric Mesh projesi oluşturma
 
 Visual Studio'yu çalıştırın ve **Dosya** > **Yeni** > **Proje...** yolunu izleyin.
 
@@ -212,10 +214,7 @@ public static class DataContext
 
     static DataContext()
     {
-        ToDoList = new Model.ToDoList("Main List");
-
         // Seed to-do list
-
         ToDoList.Add(Model.ToDoItem.Load("Learn about microservices", 0, true));
         ToDoList.Add(Model.ToDoItem.Load("Learn about Service Fabric", 1, true));
         ToDoList.Add(Model.ToDoItem.Load("Learn about Service Fabric Mesh", 2, false));
@@ -368,6 +367,7 @@ service.yaml dosyasının `environmentVariables` bölümüne aşağıdaki deği�
 
 > [!IMPORTANT]
 > service.yaml dosyasındaki değişkenleri girintilemek için sekme değil boşluk kullanılması gerekir, aksi halde dosya derlenmez. Ortam değişkeni eklediğinizde Visual Studio sekme ekleyebilir. Tüm sekmeleri boşluklarla değiştirin. **Derleme** hata ayıklama çıkışında hata görünse de uygulama başlatılacaktır. Ancak sekmeleri boşluklarla değiştirene kadar çalışmayacaktır. service.yaml dosyasında sekme bulunmadığından emin olmak için **Düzenle**  > **Gelişmiş**  > **Boşlukları Görüntüle** yolunu izleyerek Visual Studio düzenleyicisindeki boşlukları görünür duruma getirebilirsiniz.
+> service.yaml dosyalarının İngilizce dil ayarı kullanılarak işlendiğini unutmayın.  Örneğin, ondalık ayırıcı kullanmanız gerekirse, virgül yerine nokta kullanın.
 
 **WebFrontEnd** projenizin **service.yaml** dosyasının aşağıdakine benzer olması gerekir ancak `ApiHostPort` değeriniz muhtemelen farklı olacaktır:
 
@@ -380,7 +380,7 @@ Artık Service Fabric Mesh uygulaması görüntüsünü arka uç web hizmetiyle 
 Öğreticinin bu bölümünde, şunların nasıl yapıldığını öğrendiniz:
 
 > [!div class="checklist"]
-> * ASP.NET web ön ucu içeren bir Service Fabric Mesh uygulaması oluşturma.
+> * ASP.NET web ön ucu içeren bir Service Fabric Mesh uygulaması oluşturun.
 > * Yapılacak işleri temsil eden bir model oluşturma.
 > * Bir arka uç hizmeti oluşturma ve ondan veri alma.
 > * Arka uç hizmeti için Model Görünüm Denetleyicisi modelinin bir parçası olarak bir denetleyici ve DataContext ekleme.
@@ -389,4 +389,4 @@ Artık Service Fabric Mesh uygulaması görüntüsünü arka uç web hizmetiyle 
 
 Sonraki öğreticiye ilerleyin:
 > [!div class="nextstepaction"]
-> [Yerel ortamda çalışan bir Service Fabric Mesh uygulamasında hata ayıklama](service-fabric-mesh-tutorial-debug-service-fabric-mesh-app.md)
+> [Yerel geliştirme kümenizde çalışan bir Service Fabric Mesh uygulamasının hatalarını ayıklama](service-fabric-mesh-tutorial-debug-service-fabric-mesh-app.md)

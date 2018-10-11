@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 6/7/2017
-ms.openlocfilehash: 7d9565db8fe46ee26fafa7bd021d771e728e9a77
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: b9ca8848da543bbfb27246109c3a4ab97eb6bc58
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43101621"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46974927"
 ---
 # <a name="deploy-to-azure-app-service-with-jenkins-and-the-azure-cli"></a>Jenkins ve Azure CLI ile Azure App Service'e dağıtım yapma
 Azure'a Java web uygulaması dağıtmak için [Jenkins İşlem Hattı](https://jenkins.io/doc/book/pipeline/)'ndaki Azure CLI'yi kullanabilirsiniz. Bu öğreticide, aşağıdakileri öğrenerek bir Azure sanal makinesinde CI/CD işlem hattı oluşturursunuz:
@@ -26,7 +26,7 @@ Azure'a Java web uygulaması dağıtmak için [Jenkins İşlem Hattı](https://j
 > * Jenkins işlem hattı oluşturma
 > * İşlem hattını çalıştırma ve web uygulamasını doğrulama
 
-Bu öğretici, Azure CLI 2.0.4 veya sonraki bir sürümü gerektirir. Sürümü bulmak için `az --version` komutunu çalıştırın. Yükseltme gerekiyorsa, bkz. [Azure CLI 2.0 yükleme]( /cli/azure/install-azure-cli).
+Bu öğretici, Azure CLI 2.0.4 veya sonraki bir sürümü gerektirir. Sürümü bulmak için `az --version` komutunu çalıştırın. Yükseltme gerekiyorsa, bkz. [Azure CLI yükleme]( /cli/azure/install-azure-cli).
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -147,7 +147,7 @@ withCredentials([azureServicePrincipal('<mySrvPrincipal>')]) {
 ## <a name="create-jenkins-pipeline"></a>Jenkins işlem hattı oluşturma
 Jenkins'i bir web tarayıcısında açın ve **New Item**'a (Yeni Öğe) tıklayın. 
 
-* İş için bir ad girin ve **İşlem Hattı**'nı seçin. **Tamam**'a tıklayın.
+* İş için bir ad girin ve **İşlem Hattı**'nı seçin. **Tamam** düğmesine tıklayın.
 * Ardından, **Pipeline** (İşlem hattı) sekmesine tıklayın. 
 * **Definition** (Tanım) için **Pipeline script from SCM**'yi (SCM'den işlem hattı betiği) seçin.
 * **SCM** için **Git**'i seçin.
