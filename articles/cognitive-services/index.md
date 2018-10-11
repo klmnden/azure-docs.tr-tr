@@ -11,12 +11,12 @@ ms.date: 09/24/2018
 ms.topic: hub-page
 ms.prod: cognitive-services
 ms.technology: cognitive-services
-ms.openlocfilehash: 5403ec448725504c0b0a57a3d82853d0884c7c48
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 1c07a02369af90580615fd9e7eaf6e239949ea36
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46985453"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49068477"
 ---
 <h1>Azure Bilişsel Hizmetler Belgeleri</h1>
         <p style="font-size: 1.12rem;margin-bottom: 1rem;">Uygulamalarınıza, web sitelerinize ve botlarınıza, kullanıcılarınızın ihtiyaçlarını görmek, duymak, dile getirmek ve anlamak için doğal iletişim yöntemlerinden yararlanan akıllı algoritmalar oluşturmayı öğrenin. Öğreticiler, hızlı başlangıçlar, API başvuruları ve örnekler size bunu nasıl yapacağınızı gösterir.</p>
@@ -28,7 +28,7 @@ ms.locfileid: "46985453"
                     <div class="cardPadding">
                         <div class="card">
                             <div class="cardImageOuter">
-                                <div class="cardImage"> 
+                                <div class="cardImage">
                                     <img src="media/index/i_overview.svg" alt="" />
                                 </div>
                             </div>
@@ -115,6 +115,8 @@ ms.locfileid: "46985453"
                         <h3>Konuşma Tanıma hizmeti ile konuşma tanıma</h3>
                         <p><a href="/azure/cognitive-services/speech-service/quickstart-csharp-windows/">C# kullanma</a></p>
                         <p><a href="/azure/cognitive-services/speech-service/quickstart-java-jre">Java kullanma</a></p>
+                        <p><a href="/azure/cognitive-services/speech-service/quickstart-objectivec-ios">Objective-C kullanma</a></p>
+                        <p><a href="/azure/cognitive-services/speech-service/quickstart-js-browser">JavaScript kullanma</a></p>
                         <p><a href="/azure/cognitive-services/speech-service/quickstart-cpp-windows">C++ kullanma</a></p>
                     </div>
                 </div>
@@ -243,7 +245,7 @@ ms.locfileid: "46985453"
     <li>
         <a class="card" href="/azure/cognitive-services/bing-image-search/tutorial-bing-image-search-single-page-app" data-linktype="external"><img class="cardImage" alt="" src="media/index/i_tasks.svg" data-linktype="external">
             <div class="cardText">
-                <h3>Bing Görüntü Araması uygulaması oluşturma</h3>
+                <h3>Bing Resim Arama uygulaması oluşturma</h3>
             </div>
         </a>
     </li>
@@ -274,7 +276,7 @@ ms.locfileid: "46985453"
                 <div class="card">
                     <div class="cardText">
                         <h3>Konuşma API'si</h3>
-                        <p><a href="/azure/cognitive-services/speech-service">Konuşma Hizmeti</a></p>
+                        <p><a href="/azure/cognitive-services/speech-service">Konuşma Hizmeti API’si</a></p>
                         <p><a href="/azure/cognitive-services/speech/home">Bing Konuşma API'si</a></p>
                         <p><a href="/azure/cognitive-services/custom-speech-service/cognitive-services-custom-speech-home"><span>Özel Konuşma Tanıma Hizmeti&nbsp;<sup style="font-size:70%">ÖNİZLEME</sup></span></a></p>
                         <p><a href="/azure/cognitive-services/speaker-recognition/home"><span>Konuşmacı Tanıma&nbsp;<sup style="font-size:70%">ÖNİZLEME</sup></span></a></p>
