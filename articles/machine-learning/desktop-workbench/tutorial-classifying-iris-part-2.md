@@ -1,6 +1,6 @@
 ---
-title: Azure Machine Learning hizmetleri için model öğreticisi oluşturma (önizleme) | Microsoft Docs
-description: Bu eksiksiz öğreticide Azure Machine Learning hizmetlerinin (önizleme) uçtan uca nasıl kullanılacağı gösterilmektedir. Bu ikinci bölümde deneme konusu ele alınmaktadır.
+title: Azure Machine Learning hizmeti için model öğreticisi oluşturma (önizleme) | Microsoft Docs
+description: Bu eksiksiz öğreticide Azure Machine Learning hizmetinin (önizleme) uçtan uca nasıl kullanılacağı gösterilmektedir. Bu ikinci bölümde deneme konusu ele alınmaktadır.
 services: machine-learning
 author: hning86
 ms.author: haining
@@ -12,17 +12,21 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 3/15/2018
-ms.openlocfilehash: 4f9b14762332bd11fd69a855d8fabdb206e34919
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ROBOTS: NOINDEX
+ms.openlocfilehash: 6faabc3003048c93c08451c537496e762352b50b
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "41920382"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46997340"
 ---
 # <a name="tutorial-2-classify-iris---build-a-model"></a>Öğretici 2: Iris Sınıflandırma: Model derleme
-Azure Machine Learning hizmetleri (önizleme) uzman veri bilimcilerinin bulut ölçeğinde veri hazırlamasını, deney geliştirmesini ve model dağıtmasını sağlayan tümleşik bir veri bilimi ve gelişmiş bir analiz çözümüdür.
 
-Bu öğretici **üç bölümden oluşan bir serinin ikinci bölümüdür**. Öğreticinin bu bölümünde Azure Machine Learning hizmetlerini kullanarak aşağıdakileri yapmayı öğreneceksiniz:
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)]
+
+Azure Machine Learning hizmeti (önizleme) uzman veri bilimcilerinin bulut ölçeğinde veri hazırlamasını, deney geliştirmesini ve model dağıtmasını sağlayan tümleşik bir veri bilimi ve gelişmiş bir analiz çözümüdür.
+
+Bu öğretici **üç bölümden oluşan bir serinin ikinci bölümüdür**. Öğreticinin bu bölümünde Azure Machine Learning hizmetini kullanarak aşağıdakileri yapmayı öğreneceksiniz:
 
 > [!div class="checklist"]
 > * Betikleri açma ve kodları gözden geçirme
@@ -39,7 +43,7 @@ Bu öğreticide zamansız [Iris çiçeği veri kümesi](https://en.wikipedia.org
 
 Bu öğreticiyi tamamlamak için aşağıdakiler gerekir:
 - Azure aboneliği. Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun. 
-- Bu [hızlı başlangıçta](../service/quickstart-installation.md) açıklandığı gibi, bir deneme hesabı ve Azure Machine Learning Workbench yüklenmiş olmalıdır
+- Bu [hızlı başlangıçta](quickstart-installation.md) açıklandığı gibi, bir deneme hesabı ve Azure Machine Learning Workbench yüklenmiş olmalıdır
 - Proje ve [Öğretici bölüm 1](tutorial-classifying-iris-part-1.md)’de hazırlanan Iris verileri
 - Yüklü ve yerel ortamda çalışan bir Docker altyapısı. Docker Community Edition yeterlidir. Docker yükleme hakkında buradan bilgi alın: https://docs.docker.com/engine/installation/.
 

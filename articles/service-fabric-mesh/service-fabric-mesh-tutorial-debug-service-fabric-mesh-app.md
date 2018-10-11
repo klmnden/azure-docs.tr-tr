@@ -1,5 +1,5 @@
 ---
-title: Öğretici- Azure Service Fabric Mesh web uygulamasında hata ayıklama | Microsoft Docs
+title: 'Öğretici: Yerel geliştirme kümenizde çalışan bir Azure Service Fabric Mesh web uygulamasının hatalarını ayıklama | Microsoft Docs'
 description: Bu öğreticide, yerel kümenizde çalışan bir Azure Service Fabric Mesh uygulamasında hata ayıklaması yaparsınız.
 services: service-fabric-mesh
 documentationcenter: .net
@@ -12,19 +12,19 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/17/2018
+ms.date: 09/18/2018
 ms.author: twhitney
 ms.custom: mvc, devcenter
-ms.openlocfilehash: c519d24a8401823039f3d6598276890ec6498bbc
-ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
+ms.openlocfilehash: 27e4c8f6ac24d40a6afacf10175413745f5151d9
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "41919821"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46997021"
 ---
-# <a name="tutorial-debug-a-service-fabric-mesh-web-application"></a>Öğretici: Service Fabric Mesh web uygulamasında hata ayıklama
+# <a name="tutorial-debug-a-service-fabric-mesh-application-running-in-your-local-development-cluster"></a>Öğretici: Yerel geliştirme kümenizde çalışan bir Service Fabric Mesh uygulamasının hatalarını ayıklama
 
-Bir serinin ikinci kısmı olan bu öğreticide, yerel geliştirme kümenizdeki bir Azure Service Fabric Mesh web uygulamasında hata ayıklama işleminin nasıl yapıldığı gösterilir.
+Bir serinin ikinci kısmı olan bu öğreticide, yerel geliştirme kümenizdeki bir Azure Service Fabric Mesh uygulamasında derleme ve hata ayıklama işleminin nasıl yapıldığı gösterilir.
 
 Bu öğreticide şunları öğreneceksiniz:
 
@@ -34,9 +34,11 @@ Bu öğreticide şunları öğreneceksiniz:
 
 Bu öğretici dizisinde şunların nasıl yapıldığını öğrenirsiniz:
 > [!div class="checklist"]
-> * [Service Fabric Mesh uygulaması oluşturma](service-fabric-mesh-tutorial-create-dotnetcore.md)
-> * Uygulamada yerel olarak hata ayıklama
-> * [Uygulamayı Azure’da yayımlama](service-fabric-mesh-tutorial-deploy-service-fabric-mesh-app.md)
+> * [Visual Studio’da Service Fabric Mesh uygulaması oluşturma](service-fabric-mesh-tutorial-create-dotnetcore.md)
+> * Yerel geliştirme kümenizde çalışan bir Service Fabric Mesh uygulamasının hatalarını ayıklama
+> * [Service Fabric Mesh uygulaması dağıtma](service-fabric-mesh-tutorial-deploy-service-fabric-mesh-app.md)
+> * [Service Fabric Mesh uygulamasını yükseltme](service-fabric-mesh-tutorial-upgrade.md)
+> * [Service Fabric Mesh kaynaklarını temizleme](service-fabric-mesh-tutorial-cleanup-resources.md)
 
 [!INCLUDE [preview note](./includes/include-preview-note.md)]
 
@@ -105,4 +107,4 @@ Visual Studio'da Service Fabric Mesh uygulamasında hata ayıkladığınızda ye
 
 Sonraki öğreticiye ilerleyin:
 > [!div class="nextstepaction"]
-> [Service Fabric Mesh web uygulamasını yayımlama](service-fabric-mesh-tutorial-deploy-service-fabric-mesh-app.md)
+> [Service Fabric Mesh uygulaması dağıtma](service-fabric-mesh-tutorial-deploy-service-fabric-mesh-app.md)
