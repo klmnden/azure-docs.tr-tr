@@ -27,7 +27,7 @@ Bir işlev uygulaması, belirli bir Azure işlevleri çalışma zamanı sürüm�
 
 `FUNCTIONS_EXTENSION_VERSION` işlev uygulaması uygulama ayarını kullanarak çalışma zamanında belirli bir sürümün hedeflemesini sağlayabilirsiniz. İşlev uygulaması, yeni bir sürüm çıksa dahi sizin belirttiğiniz ana sürüm üzerinde tutulur.
 
-Yalnızca birincil sürüm ("~" için 2 2.x veya "~ 1" 1.x) belirtirseniz, yeni ikincil sürümler yayınlandığında işlev uygulaması çalışma zamanı otomatik olarak güncelleştirilir. Yeni ikincil sürümler, uygulamaları kıracak değişiklikler içermez. Eğer ikincil sürüm (örneğin, "2.0.12345") belirtirseniz, işlev uygulamasını siz değiştirene kadar belirttiğiniz sürümüne sabitlenir.
+Yalnızca birincil sürüm (2.x için "~2" veya 1.x için "~1") belirtirseniz, yeni ikincil sürümler yayınlandığında işlev uygulaması çalışma zamanı otomatik olarak güncelleştirilir. Yeni ikincil sürümler, uygulamaları kıracak değişiklikler içermez. Eğer ikincil sürüm (örneğin, "2.0.12345") belirtirseniz, işlev uygulamasını siz değiştirene kadar belirttiğiniz sürümüne sabitlenir.
 
 Yeni bir sürüm genel kullanıma açıldığında, Azure Portal'da göreceğiniz bir uyarı size uygulamanızın çalışma zamanını yükseltme şansı tanır. Yeni bir sürüme taşındıktan sonra her zaman `FUNCTIONS_EXTENSION_VERSION` ayarını kullanarak önceki bir sürüme geri dönebilirsiniz.
 
