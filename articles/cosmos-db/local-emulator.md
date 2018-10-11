@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/20/2018
 ms.author: danoble
-ms.openlocfilehash: 7067a71eea3ffbfadf006a102ee926fb15347f63
-ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
+ms.openlocfilehash: a5481f9b2b443a0860ce0df5643427f357e1c294
+ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47423655"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48785380"
 ---
 # <a name="use-the-azure-cosmos-db-emulator-for-local-development-and-testing"></a>Yerel geliştirme ve test için Azure Cosmos DB Öykünücüsünü kullanma
 
@@ -466,54 +466,6 @@ Hata ayıklama izlemelerini toplamak için bir yönetici komut isteminden aşağ
 2. Windows arama kutusuna **Uygulamalar ve özellikler** yazın ve **Uygulamalar ve özellikler (Sistem ayarları)** sonucuna tıklayın.
 3. Uygulamalar listesinde **Azure Cosmos DB Öykünücüsü**’ne gidip bunu seçin, **Kaldır**’a tıklayın, daha sonra onaylayıp yeniden **Kaldır**’a tıklayın.
 4. Uygulama kaldırıldığında `C:\Users\<user>\AppData\Local\CosmosDBEmulator` klasörüne gidip klasörü silin. 
-
-## <a name="change-list"></a>Değişiklik listesi
-
-Görev çubuğundaki yerel öykünücü simgesine sağ tıklayıp hakkında menü öğesine tıklayarak sürüm numarasını denetleyebilirsiniz.
-
-### <a name="1220-released-on-april-20-2018"></a>1.22.0. 20 Nisan 2018’de yayınlandı
-
-Cosmos DB bulut hizmetleriyle eşlik için öykünücü hizmetlerini güncelleştirmeye ek olarak gelişmiş PowerShell belgeleri ve bazı çeşitli hata düzeltmeleri de ekledik.
-
-### <a name="12106-released-on-march-27-2018"></a>1.21.0.6 27 Mart 2018’de yayınlandı
-
-Cosmos DB bulut hizmetleriyle eşlik için öykünücü hizmetlerini güncelleştirmeye ek olarak bu yayında yeni bir özellik ve iki hata düzeltmesi de ekledik.
-
-#### <a name="features"></a>Özellikler
-
-1. Start-CosmosDbEmulator komutu artık başlatma seçenekleri içerir.
-
-#### <a name="bug-fixes"></a>Hata düzeltmeleri
-
-1. Microsoft.Azure.CosmosDB.Emulator PowerShell modülü artık `ServiceControllerStatus` sabit listesinin yüklendiğinden emin olur.
-
-2. Microsoft.Azure.CosmosDB.Emulator PowerShell modülü artık bir bildirim içerir; bu, birinci yayından çıkarılmıştır.
-
-### <a name="1201084-released-on-february-14-2018"></a>1.20.108.4 14 Şubat 2018’de yayınlandı
-
-Bu yayında bir yeni özellik ve iki hata düzeltmesi vardır. Bu sorunları bulup düzeltmemize yardımcı olan müşterilere teşekkür ederiz.
-
-#### <a name="bug-fixes"></a>Hata düzeltmeleri
-
-1. Öykünücü artık 1 veya 2 çekirdekli bilgisayarlarda (veya sanal CPU’larda) çalışır
-
-   Cosmos DB, çeşitli hizmetleri gerçekleştirmek için görevler ayırır. Ayrılan görev sayısı, bir ana bilgisayardaki çekirdek sayısının katsayısıdır. Varsayılan katsayı, çekirdek sayısının büyük olduğu üretim ortamlarında düzgün çalışır. Ancak 1 veya 2 işlemcili makinelerde, bu katsayı uygulandığında bu hizmetleri gerçekleştirmek için bir görev ayrılmaz.
-
-   Öykünücüye bir yapılandırma geçersiz kılması ekleyerek bunu düzelttik. Şimdi 1 katsayısını uygularız. Çeşitli hizmetleri gerçekleştirmek için ayrılan görev sayısı artık bir ana bilgisayardaki çekirdek sayısına eşittir.
-
-   Bu yayın için başka bir şey yapmadıysak, bu sorunu ele almak içindir. Öykünücüyü barındıran çoğu geliştirme/test ortamının 1 veya 2 çekirdek içerdiğini görüyoruz.
-
-2. Artık öykünücü için yeniden dağıtılabilir Microsoft Visual C++ 2015’in yüklenmesi gerekmez.
-
-   Yeni Windows yüklemelerinin (masaüstü ve sunucu sürümleri) bu yeniden dağıtılabilir paketi içermediğini belirledik. Bu nedenle artık yeniden dağıtılabilir ikilileri öykünücüyle birlikte paketliyoruz.
-
-#### <a name="features"></a>Özellikler
-
-Görüştüğümüz müşterilerin çoğu öykünücünün betik yazılabilir olmasının iyi olacağını söyledi. Bu nedenle, bu sürümde bazı betik yetenekleri ekledik. Artık öykünücü kendisini başlatmak, durdurmak, durumunu almak ve kaldırmak için bir PowerShell modülü içermektedir: `Microsoft.Azure.CosmosDB.Emulator`. 
-
-### <a name="120911-released-on-january-26-2018"></a>1.20.91.1 26 Ocak 2018’de yayınlandı
-
-* Varsayılan olarak MongoDB toplama işlem hattı etkinleştirildi.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

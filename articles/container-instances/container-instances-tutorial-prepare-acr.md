@@ -2,19 +2,18 @@
 title: Azure Container Instances öğreticisi - Azure Container Registry’i Hazırlama
 description: Azure Container Instances öğreticisi, 2/3. Bölüm - Azure Container Registry’i Hazırlama
 services: container-instances
-author: mmacy
-manager: jeconnoc
+author: dlepow
 ms.service: container-instances
 ms.topic: tutorial
 ms.date: 03/21/2018
-ms.author: marsma
+ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: e01c736896043ac7639a374c4f75390c4a0e2e52
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: e7cf9c5fad6219e71205c181b2dbb6828595afdd
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39422221"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48855451"
 ---
 # <a name="tutorial-deploy-and-use-azure-container-registry"></a>Öğretici: Azure Container Registry’yi dağıtma ve kullanma
 

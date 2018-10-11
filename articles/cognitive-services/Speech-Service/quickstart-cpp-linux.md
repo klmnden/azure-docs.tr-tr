@@ -5,16 +5,16 @@ description: Bilişsel Hizmetler Konuşma SDK'sını kullanarak Linux üzerinde 
 services: cognitive-services
 author: wolfma61
 ms.service: cognitive-services
-ms.technology: Speech
+ms.component: Speech
 ms.topic: quickstart
 ms.date: 09/24/2018
 ms.author: wolfma
-ms.openlocfilehash: 98007a11ceadcdddbcd881607f7dda1222d90bc4
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: f3bcbc7bcbd57e9baa5a01f3a2ef572b09128260
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47055926"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48886254"
 ---
 # <a name="quickstart-recognize-speech-in-c-on-linux-by-using-the-speech-sdk"></a>Hızlı Başlangıç: Konuşma SDK'sını kullanarak Linux üzerinde C++ dilinde konuşma tanıma
 
@@ -24,7 +24,7 @@ Bu makalede Ubuntu Linux 16.04 için bir C++ konsol uygulaması oluşturacaksın
 
 ## <a name="prerequisites"></a>Ön koşullar
 
-Bu Hızlı Başlangıç'ı tamamlamak için bir Konuşma hizmeti abonelik anahtarınız olması gerekir. Anahtarı ücretsiz edinebilirsiniz. Ayrıntılar için bkz: [Konuşma hizmetini ücretsiz olarak deneme](get-started.md).
+Bu Hızlı Başlangıcı tamamlamak için bir Konuşma hizmeti abonelik anahtarınız olması gerekir. Anahtarı ücretsiz alabilirsiniz. Ayrıntılar için bkz: [Konuşma hizmetini ücretsiz olarak deneme](get-started.md).
 
 ## <a name="install-speech-sdk"></a>Konuşma SDK'sını yükleme
 
@@ -80,7 +80,7 @@ SDK'yı aşağıda gösterildiği gibi indirin ve yükleyin:
 
 1. Bu yeni dosyada `YourSubscriptionKey` dizesini Konuşma hizmeti abonelik anahtarınız ile değiştirin.
 
-1. `YourServiceRegion` dizesini aboneliğinizle ilişkili [bölge](regions.md) ile (örneğin ücretsiz deneme aboneliğinde `westus`) değiştirin.
+1. `YourServiceRegion` dizesini, aboneliğinizle ilişkili [bölge](regions.md) ile (örneğin, ücretsiz deneme aboneliği için `westus`) değiştirin.
 
 ## <a name="build-the-app"></a>Uygulama oluşturma
 
@@ -129,7 +129,7 @@ SDK'yı aşağıda gösterildiği gibi indirin ve yükleyin:
    ```
 
 [!INCLUDE [Download this sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
-Bu örneği `quickstart/cpp-linux` klasöründe arayın.
+`quickstart/cpp-linux` klasöründe bu örneği arayın.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

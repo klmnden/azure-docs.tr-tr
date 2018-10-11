@@ -2,19 +2,18 @@
 title: 'Hızlı Başlangıç: Azure portalıyla Azure’da özel bir Docker kayıt defteri oluşturun'
 description: Azure portalıyla hızlıca özel bir Docker kapsayıcısı kayıt defteri oluşturmayı öğrenin.
 services: container-registry
-author: mmacy
-manager: jeconnoc
+author: dlepow
 ms.service: container-registry
 ms.topic: quickstart
 ms.date: 03/03/2018
-ms.author: marsma
+ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 55da52e0d314c353c669c56ad918c4dd6bef44c3
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: a75d7e599b10b1d56bd41db1d6785dace67d5d06
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32169814"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48857848"
 ---
 # <a name="quickstart-create-a-container-registry-using-the-azure-portal"></a>Hızlı başlangıç: Azure portalını kullanarak kapsayıcı kayıt defteri oluşturma
 

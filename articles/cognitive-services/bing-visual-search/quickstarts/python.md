@@ -6,22 +6,22 @@ services: cognitive-services
 author: swhite-msft
 manager: cgronlun
 ms.service: cognitive-services
-ms.technology: bing-visual-search
+ms.component: bing-visual-search
 ms.topic: quickstart
 ms.date: 5/16/2018
 ms.author: scottwhi
-ms.openlocfilehash: 145749f52f64adf565eb33ab7fe92dd5494f9354
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 16d3d0ddf77e37e32cc50961a3870b820ac2748e
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47223736"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48884250"
 ---
 # <a name="quickstart-your-first-bing-visual-search-query-in-python"></a>Hızlı başlangıç: Python'da ilk Bing Görsel Arama sorgunuz
 
-Bing Görsel Arama API'si, verdiğiniz bir görüntü hakkında bilgi döndürür. Görüntüyü, bir URL veya bir içgörü belirteci kullanarak veya karşıya resim yükleyerek verebilirsiniz. Bu seçenekler hakkında bilgi için bkz. [Bing Görsel Arama API'si nedir?](../overview.md) Bu makale karşıya görüntü yüklemeyi göstermektedir. Karşıya resim yüklemek, mobil bir cihazla tanınmış bir yerin resmini çekip bu yer hakkında bilgi almak istediğiniz bir durumda kullanışlı olabilir. Örneğin içgörüler bu yer hakkındaki önemsiz küçük ayrıntıları içerebilir. 
+Bing Görsel Arama API'si, verdiğiniz bir görüntü hakkında bilgi döndürür. Bir URL veya bir içgörü belirteci kullanarak ya da karşıya resim yükleyerek görüntüyü verebilirsiniz. Bu seçenekler hakkında bilgi için bkz. [Bing Görsel Arama API’si nedir?](../overview.md) Bu makalede, karşıya görüntü yükleme gösterilmektedir. Karşıya resim yüklemek, mobil bir cihazla tanınmış bir yerin resmini çekip bu yer hakkında bilgi almak istediğiniz bir durumda kullanışlı olabilir. Örneğin, içgörüler bu yer hakkındaki önemsiz küçük ayrıntıları içerebilir. 
 
-Aşağıda yerel bir görüntüyü karşıya yükleyeceğiniz zaman POST'un gövdesine dahil etmeniz gereken form verileri gösterilmektedir. Form verileri Content-Disposition üstbilgisini içermelidir. `name` parametresi "image" olarak, `filename` parametresi ise herhangi bir dize olarak ayarlanmalıdır. Formun içeriği görüntünün ikili verisidir. Karşıya yükleyebileceğiniz görüntünün en büyük boyutu 1 MB'dir. 
+Aşağıda, yerel bir görüntüyü karşıya yükleyeceğiniz zaman POST’un gövdesine dahil etmeniz gereken form verileri gösterilmektedir. Form verileri, Content-Disposition üst bilgisini içermelidir. `name` parametresi, "image" olarak, `filename` parametresi ise herhangi bir dize olarak ayarlanmalıdır. Formun içerikleri, görüntünün ikili verisidir. Karşıya yükleyebileceğiniz maksimum görüntü boyutu 1 MB’tır. 
 
 ```
 --boundary_1234-abcd
@@ -47,7 +47,7 @@ Bu uygulamayı çalıştırmak için aşağıdaki adımları izleyin:
 1. Sık kullandığınız IDE'de veya düzenleyicide yeni bir Python projesi oluşturun.
 2. visualsearch.py adlı bir dosya oluşturun ve bu hızlı başlangıçta gösterilen kodu ekleyin.
 3. `SUBSCRIPTION_KEY` değerini abonelik anahtarınızla değiştirin.
-3. `imagePath` değerini karşıya yüklenecek görüntünün yolu ile değiştirin.
+3. `imagePath` değerini, karşıya yüklenecek görüntünün yoluyla değiştirin.
 4. Programı çalıştırın.
 
 
@@ -99,10 +99,10 @@ if __name__ == '__main__':
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-[Bir içgörü belirteci kullanarak bir görüntü ile ilgili içgörüler elde edin](../use-insights-token.md)  
-[Bing Görsel Arama görüntü yükleme öğreticisi](../tutorial-visual-search-image-upload.md)
+[İçgörü belirteci kullanarak bir görüntü ile ilgili içgörüler elde edin](../use-insights-token.md)  
+[Bing Görsel Arama görüntü karşıya yükleme öğreticisi](../tutorial-visual-search-image-upload.md)
 [Bing Görsel Arama tek sayfalı uygulama öğreticisi](../tutorial-bing-visual-search-single-page-app.md)  
-[Bing Görsel Arama'ya genel bakış](../overview.md)  
+[Bing Görsel Arama’ya genel bakış](../overview.md)  
 [Deneyin](https://aka.ms/bingvisualsearchtryforfree)  
-[Ücretsiz deneme erişim anahtarı alma](https://azure.microsoft.com/try/cognitive-services/?api=bing-visual-search-api)  
-[Bing Görsel Arama API'si başvurusu](https://aka.ms/bingvisualsearchreferencedoc)
+[Ücretsiz deneme erişim anahtarı alın](https://azure.microsoft.com/try/cognitive-services/?api=bing-visual-search-api)  
+[Bing Görsel Arama API’si başvurusu](https://aka.ms/bingvisualsearchreferencedoc)

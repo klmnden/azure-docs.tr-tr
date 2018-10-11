@@ -6,22 +6,22 @@ services: cognitive-services
 author: swhite-msft
 manager: cgronlun
 ms.service: cognitive-services
-ms.technology: bing-visual-search
+ms.component: bing-visual-search
 ms.topic: quickstart
 ms.date: 5/16/2018
 ms.author: scottwhi
-ms.openlocfilehash: e6e969d9ff0556211ca6080645888d44554b286c
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 6cec0e178c4ff5b27722cb8de258a1f78e6acc51
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47218776"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48883352"
 ---
 # <a name="quickstart-your-first-bing-visual-search-query-in-c"></a>Hızlı Başlangıç: C#'ta ilk Bing Görsel Arama sorgunuz
 
-Bing Görsel Arama API'si, verdiğiniz bir görüntü hakkında bilgi döndürür. Görüntüyü, bir URL veya bir içgörü belirteci kullanarak veya karşıya resim yükleyerek verebilirsiniz. Bu seçenekler hakkında bilgi için bkz. [Bing Görsel Arama API'si nedir?](../overview.md) Bu makale karşıya görüntü yüklemeyi göstermektedir. Karşıya resim yüklemek, mobil bir cihazla tanınmış bir yerin resmini çekip bu yer hakkında bilgi almak istediğiniz bir durumda kullanışlı olabilir. Örneğin içgörüler bu yer hakkındaki önemsiz küçük ayrıntıları içerebilir. 
+Bing Görsel Arama API'si, verdiğiniz bir görüntü hakkında bilgi döndürür. Bir URL veya bir içgörü belirteci kullanarak ya da karşıya resim yükleyerek görüntüyü verebilirsiniz. Bu seçenekler hakkında bilgi için bkz. [Bing Görsel Arama API’si nedir?](../overview.md) Bu makalede, karşıya görüntü yükleme gösterilmektedir. Karşıya resim yüklemek, mobil bir cihazla tanınmış bir yerin resmini çekip bu yer hakkında bilgi almak istediğiniz bir durumda kullanışlı olabilir. Örneğin, içgörüler bu yer hakkındaki önemsiz küçük ayrıntıları içerebilir. 
 
-Aşağıda yerel bir görüntüyü karşıya yükleyeceğiniz zaman POST'un gövdesine dahil etmeniz gereken form verileri gösterilmektedir. Form verileri Content-Disposition üstbilgisini içermelidir. `name` parametresi "image" olarak, `filename` parametresi ise herhangi bir dize olarak ayarlanmalıdır. Formun içeriği görüntünün ikili verisidir. Karşıya yükleyebileceğiniz görüntünün en büyük boyutu 1 MB'dir. 
+Aşağıda, yerel bir görüntüyü karşıya yükleyeceğiniz zaman POST’un gövdesine dahil etmeniz gereken form verileri gösterilmektedir. Form verileri, Content-Disposition üst bilgisini içermelidir. `name` parametresi, "image" olarak, `filename` parametresi ise herhangi bir dize olarak ayarlanmalıdır. Formun içerikleri, görüntünün ikili verisidir. Karşıya yükleyebileceğiniz maksimum görüntü boyutu 1 MB’tır. 
 
 ```
 --boundary_1234-abcd
@@ -52,7 +52,7 @@ Bu uygulamayı çalıştırmak için aşağıdaki adımları izleyin:
 1. Visual Studio'da yeni bir Konsol çözümü oluşturun.
 1. `Program.cs` dosyasının içeriğini bu hızlı başlangıçta gösterilen kod ile değiştirin.
 2. `accessKey` değerini abonelik anahtarınızla değiştirin.
-2. `imagePath` değerini karşıya yüklenecek görüntünün yolu ile değiştirin.
+2. `imagePath` değerini, karşıya yüklenecek görüntünün yoluyla değiştirin.
 3. Programı çalıştırın.
 
 
@@ -386,10 +386,10 @@ BingImageSearch yöntemini şu kodla değiştirin:
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-[Bir içgörü belirteci kullanarak bir görüntü ile ilgili içgörüler elde edin](../use-insights-token.md)  
+[İçgörü belirteci kullanarak bir görüntü ile ilgili içgörüler elde edin](../use-insights-token.md)  
 [Karşıya Bing Görsel Arama görüntüsü yükleme öğreticisi](../tutorial-visual-search-image-upload.md)
 [Bing Görsel Arama tek sayfalı uygulama öğreticisi](../tutorial-bing-visual-search-single-page-app.md)
 [Bing Görsel Arama'ya genel bakış](../overview.md)  
 [Deneyin](https://aka.ms/bingvisualsearchtryforfree)  
 [Ücretsiz deneme erişim anahtarı alın](https://azure.microsoft.com/try/cognitive-services/?api=bing-visual-search-api)  
-[Bing Görsel Arama API'si başvurusu](https://aka.ms/bingvisualsearchreferencedoc)
+[Bing Görsel Arama API’si başvurusu](https://aka.ms/bingvisualsearchreferencedoc)

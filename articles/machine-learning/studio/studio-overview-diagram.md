@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 ms.date: 04/04/2017
-ms.openlocfilehash: f1364435d2f7b50c642d1bb5b41708ec52bda533
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 240be0e7dc199a84130739244743d245b780b608
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46946213"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48902085"
 ---
 # <a name="overview-diagram-of-azure-machine-learning-studio-capabilities"></a>Azure Machine Learning Studio işlevlerine genel bakış diyagramı
 **Microsoft Azure Machine Learning Studio İşlevlerine Genel Bakış** diyagramı, tahmine dayalı bir analiz modeli geliştirmek ve bunu Azure bulutunda faaliyete geçirmek için Studio'yu nasıl kullanacağınız konusunda üst düzey bir genel bakış sağlar.
@@ -47,7 +47,7 @@ Bu şemada bu parçaların nasıl uyumlu bir şekilde bir araya geldiği göster
 
 
 ## <a name="more-help-with-machine-learning-studio"></a>Machine Learning Studio hakkında daha fazla yardım
-* Microsoft Azure Machine Learning'e genel bakış için bkz. [Microsoft Azure'da makine öğrenimine giriş](what-is-machine-learning.md)
+* Microsoft Azure Machine Learning'e genel bakış için bkz. [Microsoft Azure'da makine öğrenimine giriş](../service/overview-what-is-azure-ml.md)
 * Machine Learning Studio'ya genel bakış için bkz. [Azure Machine Learning Studio nedir?](what-is-ml-studio.md).
 * Machine Learning Studio'da kullanılabilen makine öğrenimi algoritmalarının ayrıntılı bir incelemesi için bkz. [Microsoft Azure Machine Learning'de algoritma seçme](algorithm-choice.md)
 

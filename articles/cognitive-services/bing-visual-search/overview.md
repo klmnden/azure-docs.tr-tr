@@ -6,20 +6,20 @@ services: cognitive-services
 author: swhite-msft
 manager: cgronlun
 ms.service: cognitive-services
-ms.technology: bing-visual-search
+ms.component: bing-visual-search
 ms.topic: overview
 ms.date: 04/10/2018
 ms.author: scottwhi
-ms.openlocfilehash: 2ab73281eb050a52b596504ea9cc0e478144ff24
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 85240f1f44278cec0f76c9b4e2e79aa065224840
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47226782"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48886304"
 ---
 # <a name="what-is-bing-visual-search-api"></a>Bing Görsel Arama API’si nedir?
 
-Bing Görsel Arama API’si, Bing.com/images sayfasında gösterilen resim ayrıntılarına benzer bir deneyim sağlar. Görsel Arama ile, karşıya bir resim yükleyebilir ve resim hakkında görsel olarak benzer resimler, alışveriş kaynakları ve resmi içeren web sayfaları gibi içgörüler alabilirsiniz. Resmi karşıya yüklemek yerine, resim arama sonuçlarındaki bir resimden aldığınız içgörü belirtecini de sağlayabilirsiniz (bkz. [Bing Görüntü API’si](../bing-image-search/overview.md)).
+Bing Görsel Arama API'si, Bing.com/images sayfasında gösterilen resim ayrıntılarına benzer bir deneyim sağlar. Görsel Arama ile, karşıya bir resim yükleyebilir ve resim hakkında görsel olarak benzer resimler, alışveriş kaynakları ve resmi içeren web sayfaları gibi içgörüler alabilirsiniz. Resmi karşıya yüklemek yerine, resim arama sonuçlarındaki bir resimden aldığınız içgörü belirtecini de sağlayabilirsiniz (bkz. [Bing Görüntü API’si](../bing-image-search/overview.md)).
 
 Görsel Arama ünlüleri, anıtları ve önemli yerleri, sanat yapıtlarını, mobilyaları, modayı, ürünleri, karakter tanımayı (OCR) ve daha birçok öğeyi tanımlayabilir.
 
@@ -147,7 +147,7 @@ Content-Disposition: form-data; name="knowledgeRequest"
 --boundary_1234-abcd--
 ```
 
-Aşağıda yerel bir görüntüyü karşıya yükleyeceğiniz zaman POST'un gövdesine dahil etmeniz gereken form verileri gösterilir. Form verileri Content-Disposition üst bilgisini içermelidir. `name` parametresi "image" olarak ayarlanmalıdır, `filename` parametresi ise herhangi bir dizeye ayarlanabilir. Content-Type üst bilgisi sık kullanılan herhangi bir resim mime türüne ayarlanabilir. Formun içeriği resmin ikili verisidir. Karşıya yükleyebileceğiniz resim boyutu üst sınırı 1 MB'tır. Genişlik veya yükseklik üst sınırı ise 1.500 pikseldir.
+Aşağıda yerel bir görüntüyü karşıya yükleyeceğiniz zaman POST'un gövdesine dahil etmeniz gereken form verileri gösterilir. Form verileri, Content-Disposition üst bilgisini içermelidir. `name` parametresi "image" olarak ayarlanmalıdır, `filename` parametresi ise herhangi bir dizeye ayarlanabilir. Content-Type üst bilgisi sık kullanılan herhangi bir resim mime türüne ayarlanabilir. Formun içeriği resmin ikili verisidir. Karşıya yükleyebileceğiniz resim boyutu üst sınırı 1 MB'tır. Genişlik veya yükseklik üst sınırı ise 1.500 pikseldir.
 
 
 ```
