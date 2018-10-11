@@ -8,12 +8,12 @@ ms.service: container-service
 ms.topic: overview
 ms.date: 12/05/2017
 ms.author: seozerca
-ms.openlocfilehash: cebd98ec31ae6089c20952924c39ee240cb5d6a2
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: d0b6fc1ebd08b29b9acc28cfb0107b815c7d7bad
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39002707"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49068253"
 ---
 # <a name="integrate-with-azure-managed-services-using-open-service-broker-for-azure-osba"></a>Azure için Açık Hizmet Aracısı (OSBA) kullanarak Azure tarafından yönetilen hizmetlerle tümleştirme
 
@@ -195,7 +195,7 @@ Diğer güncelleştirilmiş OSBA tabanlı Helm grafiklerine erişmek için [Azur
 
 <!-- LINKS - external -->
 [helm-charts]: https://github.com/Azure/helm-charts
-[helm-cli-install]: kubernetes-helm.md#install-helm-cli
+[helm-cli-install]: https://docs.helm.sh/helm/#helm-install
 [helm-create-new-chart]: https://github.com/Azure/helm-charts#creating-a-new-chart
 [kubernetes-service-catalog]: https://github.com/kubernetes-incubator/service-catalog
 [open-service-broker-azure]: https://github.com/Azure/open-service-broker-azure

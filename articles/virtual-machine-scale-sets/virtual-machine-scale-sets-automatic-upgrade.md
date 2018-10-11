@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2018
 ms.author: rajraj
-ms.openlocfilehash: 1ca0ec7185707d9b9f9712c2ace8dacb361f7b5b
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: cf25d08fc9a0e1ae458d350be93af31447928ecb
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47394378"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49069463"
 ---
 # <a name="azure-virtual-machine-scale-set-automatic-os-image-upgrades"></a>Otomatik işletim sistemi görüntüsü yükseltmeleri Azure sanal makine ölçek kümesi
 
@@ -92,7 +92,12 @@ PUT or PATCH on `/subscriptions/subscription_id/resourceGroups/myResourceGroup/p
 } 
 ```
 
-Bu özellik Azure PowerShell ve CLI 2.0 aracılığıyla yapılandırma desteği, 10/09 sunulacaktır.
+Aşağıdaki örnek, Azure CLI'yı kullanır (2.0.47 veya üzeri) adlı ölçek kümesi için otomatik güncelleştirmeleri yapılandırmak için *myVMSS* adlı kaynak grubunda *myResourceGroup*:
+
+```azurecli
+az vmss update --name myVMSS --resource-group myResourceGroup --set UpgradePolicy.AutomaticOSUpgradePolicy.EnableAutomaticOSUpgrade=true
+```
+Bu özellik Azure PowerShell aracılığıyla yapılandırma desteği yakında sunulacaktır.
 
 ## <a name="using-application-health-probes"></a>Kullanarak uygulama sistem durumu araştırmaları 
 
@@ -139,10 +144,10 @@ Get-AzureRmVmss -ResourceGroupName myResourceGroup -VMScaleSetName myVMSS -OSUpg
 ```
 
 ### <a name="azure-cli-20"></a>Azure CLI 2.0
-Aşağıdaki örnek, Azure CLI'yı kullanır (2.0.20 veya sonraki) adlı ölçek kümesi durumunu denetlemek için *myVMSS* adlı kaynak grubunda *myResourceGroup*:
+Aşağıdaki örnek, Azure CLI'yı kullanır (2.0.47 veya üzeri) adlı ölçek kümesi durumunu denetlemek için *myVMSS* adlı kaynak grubunda *myResourceGroup*:
 
 ```azurecli
-az vmss rolling-upgrade get-latest --resource-group myResourceGroup --name myVMSS
+az vmss get-os-upgrade-history --resource-group myResourceGroup --name myVMSS
 ```
 
 ### <a name="rest-api"></a>REST API
@@ -192,10 +197,18 @@ GET çağrı özellikleri, aşağıdaki örnek çıktıya benzer döndürür:
 
 ## <a name="how-to-get-the-latest-version-of-a-platform-os-image"></a>Bir platform işletim sistemi görüntüsünün son sürümünü almak nasıl? 
 
-Desteklenen SKU'ları kullanarak otomatik işletim sistemi yükseltme, yansıma sürümü alabilir aşağıdaki PowerShell cmdlet'leri: 
+Desteklenen SKU'ları kullanarak otomatik işletim sistemi yükseltme, yansıma sürümü alabilir örnekleri aşağıda: 
+
+```
+GET on `/subscriptions/subscription_id/providers/Microsoft.Compute/locations/{location}/publishers/{publisherName}/artifacttypes/vmimage/offers/{offer}/skus/{skus}/versions?api-version=2018-10-01`
+```
 
 ```powershell
 Get-AzureRmVmImage -Location "westus" -PublisherName "Canonical" -Offer "UbuntuServer" -Skus "16.04-LTS"
+```
+
+```azurecli
+az vm image list --location "westus" --publisher "Canonical" --offer "UbuntuServer" --sku "16.04-LTS" --all
 ```
 
 ## <a name="deploy-with-a-template"></a>Bir şablon ile dağıtım

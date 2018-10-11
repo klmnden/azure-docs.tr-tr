@@ -1,9 +1,9 @@
 ---
-title: Azure yığınına Linux görüntüleri ekleme
-description: Bilgi Linux görüntüleri Azure yığınına nasıl eklenir.
+title: Azure Stack'e Linux görüntüleri ekleme
+description: Bilgi nasıl Linux görüntüleri Azure Stack'e ekleme.
 services: azure-stack
 documentationcenter: ''
-author: brenduns
+author: sethmanheim
 manager: femila
 editor: ''
 ms.service: azure-stack
@@ -12,36 +12,36 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/08/2018
-ms.author: brenduns
+ms.author: sethm
 ms.reviewer: jeffgo
-ms.openlocfilehash: 64a860bc925b9c7499363c1fe39d03df88a9a51d
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: db52d145c3bfbd9415072be13ccb502969f07374
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33935728"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49077656"
 ---
-# <a name="add-linux-images-to-azure-stack"></a>Azure yığınına Linux görüntüleri ekleme
+# <a name="add-linux-images-to-azure-stack"></a>Azure Stack'e Linux görüntüleri ekleme
 
-*Uygulandığı öğe: Azure yığın tümleşik sistemleri ve Azure yığın Geliştirme Seti*
+*İçin geçerlidir: Azure Stack tümleşik sistemleri ve Azure Stack Geliştirme Seti*
 
-Linux tabanlı bir görüntüyü Azure yığın Market ekleyerek Azure yığında Linux sanal makineleri (VM'ler) dağıtabilirsiniz. Market yönetiminden Azure yığınına Linux görüntüsü eklemek için en kolay yoludur. Bu görüntüleri hazır ve Azure yığını ile uyumluluk için test.
+Linux sanal makineleri (VM'ler), Linux tabanlı bir görüntü Azure Stack Marketini ekleyerek, bir Azure Stack üzerinde dağıtabilirsiniz. Market Yönetimi üzerinden kolay bir Linux görüntüsü Azure Stack'e ekleme yoludur. Bu görüntüleri hazırlanan ve Azure Stack ile uyumluluk için test.
 
 ## <a name="marketplace-management"></a>Market Yönetimi
 
-Azure Marketi'nden Linux görüntüleri indirmek için aşağıdaki makaleyi yordamları kullanın. Kullanıcılar, Azure yığında sunmak istediğinize Linux görüntülerini seçin. 
+Azure Market'teki Linux görüntüleri indirmek için şu makalede yordamları kullanın. Azure Stack kullanıcıları sunmak istediğiniz Linux görüntülerini seçin. 
 
-[Market öğesi Azure'dan Azure yığınına karşıdan](azure-stack-download-azure-marketplace-item.md).
+[Azure Stack için Azure Market öğelerini indirme](azure-stack-download-azure-marketplace-item.md).
 
-Bu görüntüler için sık güncelleştirmeler olduğuna dikkat edin, Market genellikle güncel tutmak üzere Yönetim kontrol edin.
+Bu görüntüler için sık sık güncelleştirme olduğunu unutmayın, bu nedenle Market genellikle güncel tutmak için yönetim denetleyin.
 
-## <a name="prepare-your-own-image"></a>Kendi görüntüsünü hazırlama
+## <a name="prepare-your-own-image"></a>Kendi görüntünüzü hazırlama
 
- Mümkün olduğunda, hazır ve Azure yığını için test Market Yönetimi aracılığıyla kullanılabilen görüntüleri indirin. 
+ Mümkün olduğunda, Market hazırlanan ve Azure Stack için test yönetimi aracılığıyla sağlanan görüntülerin indirin. 
  
- Azure Linux Aracısı'nı (genellikle adlı `WALinuxAgent` veya `walinuxagent`) gereklidir ve Azure yığında Aracısı'nın tüm sürümlerinde çalışır. Sürüm 2.2.18 veya sürümünü kullanmalısınız kendi görüntünüzü oluşturabilir. Unutmayın [bulut init](https://cloud-init.io/) Azure yığın üzerinde şu anda desteklenmiyor.
+ Azure Linux Aracısı (genellikle adlı `WALinuxAgent` veya `walinuxagent`) gereklidir ve aracıyı'nin tüm sürümleri Azure Stack'te çalışır. Sürüm 2.2.18 veya sürümünü kullanmalısınız kendi görüntünüzü oluşturabilir. Unutmayın [cloud-init](https://cloud-init.io/) Azure Stack üzerinde şu anda desteklenmiyor.
 
- Aşağıdaki yönergeleri kullanarak kendi Linux görüntüsü hazırlayabilirsiniz:
+ Aşağıdaki yönergeleri kullanarak kendi Linux görüntünüzü hazırlayabilirsiniz:
 
    * [CentOS tabanlı dağıtımlar](../virtual-machines/linux/create-upload-centos.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
    * [Debian Linux](../virtual-machines/linux/debian-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
@@ -50,8 +50,8 @@ Bu görüntüler için sık güncelleştirmeler olduğuna dikkat edin, Market ge
    * [Ubuntu Server](../virtual-machines/linux/create-upload-ubuntu.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
     
-## <a name="add-your-image-to-the-marketplace"></a>Market görüntü ekleme
+## <a name="add-your-image-to-the-marketplace"></a>Market'te görüntünüzü ekleme
  
-İzleyin [Market görüntüsü eklemek](azure-stack-add-vm-image.md). Olduğundan emin olun `OSType` parametrenin ayarlanmış `Linux`.
+İzleyin [ve Market görüntüsü ekleme](azure-stack-add-vm-image.md). Emin olun `OSType` parametrenin ayarlanmış `Linux`.
 
-Market görüntü ekledikten sonra Market öğesi oluşturulur ve Linux sanal makine kullanıcılara dağıtabilirsiniz.
+Görüntü Marketi'nde ekledikten sonra bir Market öğesi oluşturulur ve kullanıcıların bir Linux sanal makinesi olarak dağıtabilirsiniz.

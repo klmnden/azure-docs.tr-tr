@@ -5,16 +5,16 @@ description: Bilişsel Hizmetler Konuşma SDK'sını kullanarak Windows üzerind
 services: cognitive-services
 author: wolfma61
 ms.service: cognitive-services
-ms.technology: Speech
+ms.component: Speech
 ms.topic: quickstart
 ms.date: 09/24/2018
 ms.author: wolfma
-ms.openlocfilehash: e6f8b8f2a3bcdf78de28bddc73502872e851da12
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 12faf7ae7e45e6f6ede739b24d9ead28ff26313e
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47434305"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48886338"
 ---
 # <a name="quickstart-recognize-speech-in-c-on-windows-by-using-the-speech-sdk"></a>Hızlı Başlangıç: Konuşma SDK'sını kullanarak Windows üzerinde C++ dilinde konuşma tanıma
 
@@ -24,7 +24,7 @@ Bu makalede Windows için bir C++ konsol uygulaması oluşturacaksınız. Bilgis
 
 ## <a name="prerequisites"></a>Ön koşullar
 
-Bu Hızlı Başlangıç'ı tamamlamak için bir Konuşma hizmeti abonelik anahtarınız olması gerekir. Anahtarı ücretsiz edinebilirsiniz. Ayrıntılar için bkz. [Konuşma hizmetini ücretsiz olarak deneme](get-started.md).
+Bu Hızlı Başlangıcı tamamlamak için bir Konuşma hizmeti abonelik anahtarınız olması gerekir. Anahtarı ücretsiz alabilirsiniz. Ayrıntılar için bkz. [Konuşma hizmetini ücretsiz olarak deneme](get-started.md).
 
 ## <a name="create-a-visual-studio-project"></a>Visual Studio projesi oluşturma
 
@@ -77,7 +77,7 @@ Paket yüklendikten sonra Paket Yöneticisi konsolunda bir onay görünür.
 
 1. `YourServiceRegion` dizesini aboneliğinizle ilişkili [bölge](regions.md) ile (örneğin ücretsiz deneme aboneliğinde `westus`) değiştirin.
 
-1. Değişiklikleri projeye kaydedin.
+1. Proje üzerindeki değişiklikleri kaydedin.
 
 ## <a name="build-and-run-the-app"></a>Uygulamayı derleme ve çalıştırma
 

@@ -12,12 +12,12 @@ ms.devlang: nodejs
 ms.topic: reference
 ms.date: 03/04/2018
 ms.author: glenga
-ms.openlocfilehash: 24f7faa0fb111e4e537a7db3f5e1eea709d1ca59
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: c4206b3178cd02082b8e0815081fedf59a6836b1
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46957750"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49068320"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Azure işlevleri JavaScript Geliştirici Kılavuzu
 Bu kılavuz, Azure işlevleri ile JavaScript Yazma ayrıntılı olarak incelenmektedir hakkında bilgi içerir.
@@ -66,6 +66,8 @@ module.exports = function(context, myTrigger, myInput, myOtherInput) {
     // function logic goes here :)
     context.done();
 };
+```
+```javascript
 // You can also use 'arguments' to dynamically handle inputs
 module.exports = async function(context) {
     context.log('Number of inputs: ' + arguments.length);
@@ -79,6 +81,37 @@ module.exports = async function(context) {
 Tetikleyiciler ve bağlamalar giriş (bağlamalarını `direction === "in"`) işlevi için parametre olarak geçirilebilir. İçinde tanımlanan aynı sırada işlevine geçirilen *function.json*. JavaScript kullanarak girişleri de dinamik olarak işleyebilir [ `arguments` ](https://msdn.microsoft.com/library/87dw3w1k.aspx) nesne. Örneğin, `function(context, a, b)` ve değiştirmek için `function(context, a)`, değeri almaya devam `b` başvuran tarafından işlevi kodda `arguments[2]`.
 
 Yön bağımsız olarak tüm bağlamaları boyunca da geçirilir `context` kullanarak nesne `context.bindings` özelliği.
+
+### <a name="exporting-an-async-function"></a>Bir zaman uyumsuz işlev dışarı aktarma
+JavaScript kullanırken [ `async function` ](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/async_function) bildirim veya düz JavaScript [gösterir](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise) (kullanılabilir değil hatasıyla işlevleri v1.x), açıkça çağırmak ihtiyacınız olmayan [ `context.done` ](#contextdone-method) işlevinizi tamamlandığını göstermek için geri çağırma. Dışarı aktarılan zaman uyumsuz işlev/Promise tamamlandığında işlevinizi tamamlanır.
+
+Örneğin, tetiklendi ve hemen bir kısayoldur günlüğe kaydeden basit bir işlevi budur.
+``` javascript
+module.exports = async function (context) {
+    context.log('JavaScript trigger function processed a request.');
+};
+```
+
+Bir zaman uyumsuz işlev verirken çıkış bağlamaları almak için de yapılandırabilirsiniz `return` değeri. Çıktılar kullanılarak atamaya alternatif bir yaklaşım budur [ `context.bindings` ](#contextbindings-property) özelliği.
+
+Kullanarak bir çıkış atamak `return`, değiştirme `name` özelliğini `$return` içinde `function.json`.
+```json
+{
+  "type": "http",
+  "direction": "out",
+  "name": "$return"
+}
+```
+JavaScript işlev kodunuzu şöyle görünebilir:
+```javascript
+module.exports = async function (context, req) {
+    context.log('JavaScript HTTP trigger function processed a request.');
+    // You can call and await an async method here
+    return {
+        body: "Hello, world!"
+    };
+}
+```
 
 ## <a name="context-object"></a>bağlam nesnesi
 Çalışma zamanı kullanan bir `context` nesne için ve işlevinizden veri iletmek için ve çalışma zamanı ile iletişim kurmasına izin vermek için.

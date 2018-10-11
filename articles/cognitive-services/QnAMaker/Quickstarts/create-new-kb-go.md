@@ -1,21 +1,21 @@
 ---
 title: 'Hızlı Başlangıç: API Go - Bilgi bankası oluşturma - Soru-Cevap Oluşturma'
 titlesuffix: Azure Cognitive Services
-description: Bu hızlı başlangıç, Bilişsel Hizmetler API hesabınızda görünen örnek bir Soru-Cevap Oluşturma bilgi bankasını program aracılığıyla oluşturma konusunda size yol gösterir.
+description: Bu hızlı başlangıç, Bilişsel Hizmetler API hesabınızda görünen örnek bir Soru-Cevap Oluşturma bilgi bankasını programatik olarak oluşturma konusunda size yol gösterir.
 services: cognitive-services
 author: diberry
 manager: cgronlun
 ms.service: cognitive-services
-ms.technology: qna-maker
+ms.component: qna-maker
 ms.topic: quickstart
 ms.date: 09/12/2018
 ms.author: diberry
-ms.openlocfilehash: 17d4a03966b1d6e3f278d5a507e46f9f6fcafa05
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: b9c98596f14229e33e9286e8bda61def428b0afe
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47034068"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48887174"
 ---
 # <a name="create-a-new-knowledge-base-in-go"></a>Go’da yeni bilgi bankası oluşturma
 

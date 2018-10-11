@@ -9,12 +9,12 @@ ms.date: 10/03/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 74310e50f37e40856d5fe379baec071b4773f80e
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 6094236269df881eac6f8cd2fd04183dd9d6df3b
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48801429"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49068766"
 ---
 # <a name="store-data-at-the-edge-with-azure-blob-storage-on-iot-edge-preview"></a>IOT Edge (Önizleme) Azure Blob Depolama ile uçta veri Store
 
@@ -60,7 +60,7 @@ Modüller IOT Edge cihazına dağıtmak için birkaç yolu vardır ve bunların 
 
 BLOB Depolama, Azure portalı üzerinden dağıtmak için adımları izleyin. [dağıtma Azure IOT Edge modülleri Azure portalından](how-to-deploy-modules-portal.md). Önce modülünüzde dağıtmak, resim URI'sini kopyalayın ve kapsayıcısı hazırlama Git oluşturduğunuz kapsayıcı işletim sisteminize bağlı seçenekleri. Bu değerleri kullanmak **bir dağıtım bildirimi yapılandırma** dağıtım makalesindeki bölümüne bakın. 
 
-Görüntü URI'si için blob depolama modülü sağlayın: **mcr.microsoft.com/azure-blob-storage**. 
+Görüntü URI'si için blob depolama modülü sağlayın: **mcr.microsoft.com/azure-blob-storage:latest**. 
    
 Aşağıdaki JSON şablon için kullandığınız **kapsayıcı oluşturma seçenekleri** alan. JSON, depolama hesabı adı, depolama hesabı anahtarı ve depolama dizini bağlama ile yapılandırın.  
    
@@ -86,8 +86,10 @@ JSON oluşturma seçeneklerinde güncelleştirme `\<your storage account name\>`
 JSON oluşturma seçeneklerinde güncelleştirme `<storage directory bind>` kapsayıcı işletim sisteminize bağlı olarak. Adını sağlayın bir [birim](https://docs.docker.com/storage/volumes/) veya istediğiniz verileri depolamak için blob modülü IOT Edge Cihazınızda dizinine mutlak yolu.  
 
    * Linux kapsayıcıları:  **\<depolama yolu >: / blobroot**. Örneğin, / srv/containerdata: / blobroot. Veya, birim my: / blobroot. 
-   * Windows kapsayıcıları:  **\<depolama yolu >: C: / BlobRoot**. Örneğin, C: / ContainerData:C: / BlobRoot. Veya, my-birim: C: / blobroot. 
-
+   * Windows kapsayıcıları:  **\<depolama yolu >: C: / BlobRoot**. Örneğin, C: / ContainerData:C: / BlobRoot. Veya, my-birim: C: / blobroot.
+   
+   > [!CAUTION]
+   > Değişmez "/ blobroot" Linux ve "C:/BlobRoot" için Windows için  **\<depolama dizini bağlama >** değerleri.
 
 IOT Edge üzerinde Azure Blob depolamaya erişmek için kayıt defteri kimlik bilgilerini sağlamanız gerekmez ve dağıtımınız için tüm rotalar bildirmenize gerek yoktur. 
 
@@ -111,7 +113,7 @@ Bir blob depolama modülü ile yeni bir IOT Edge çözüm oluşturmak için aşa
    
    4. **Bir modül adı sağlayın** -gibi modül için tanınabilir bir ad girin **azureBlobStorage**.
    
-   5. **İçin modülü Docker görüntüsü sağlayın** -resim URI'sini girin: **mcr.microsoft.com/azure-blob-storage**
+   5. **İçin modülü Docker görüntüsü sağlayın** -resim URI'sini girin: **mcr.microsoft.com/azure-blob-storage:latest**
 
 VS Code, sağlanan bir IOT Edge çözümü oluşturur ve ardından yeni bir pencerede yüklenir bilgilerini alır. 
 
@@ -133,6 +135,9 @@ VS Code, sağlanan bir IOT Edge çözümü oluşturur ve ardından yeni bir penc
 
    * Linux kapsayıcıları:  **\<depolama yolu >: / blobroot**. Örneğin, / srv/containerdata: / blobroot. Veya, birim my: / blobroot.
    * Windows kapsayıcıları:  **\<depolama yolu >: C: / BlobRoot**. Örneğin, C: / ContainerData:C: / BlobRoot. Veya, my-birim: C: / blobroot.
+   
+   > [!CAUTION]
+   > Değişmez "/ blobroot" Linux ve "C:/BlobRoot" için Windows için  **\<depolama dizini bağlama >** değerleri.
 
 5. Kaydet **deployment.template.json**.
 
@@ -159,7 +164,13 @@ Hesap adı ve IOT Edge Cihazınızda blob depolamaya erişmek, bir modül için 
 
 IOT Edge Cihazınızı herhangi bir depolama alanı için blob uç nokta olarak belirtmek için yaptığınız istekleri. Yapabilecekleriniz [bir açık depolama uç noktası için bir bağlantı dizesi oluşturma](../storage/common/storage-configure-connection-string.md#create-a-connection-string-for-an-explicit-storage-endpoint) IOT Edge cihaz bilgileri ve yapılandırdığınız hesabı adını kullanarak. 
 
-IOT Edge üzerinde Azure Blob Depolama için blob uç nokta `http://<IoT Edge device hostname>:11002/<account name>`. 
+1. "Azure Blob Depolama üzerinde IOT Edge" çalıştığı aynı uç cihaza dağıtılan modülleri için blob uç noktadır: `http://<Module Name>:11002/<account name>`. 
+2. Burada "Azure Blob Depolama üzerinde IOT Edge" çalışıyor ve ardından blob uç noktası, kurulumunuza olarak sınır cihazı değerinden farklı edge cihazı üzerinde dağıtılan modüller için: `http://<device IP >:11002/<account name>` veya `http://<IoT Edge device hostname>:11002/<account name>` veya `http://<FQDN>:11002/<account name>`
+
+## <a name="logs"></a>Günlükler
+
+Kapsayıcının içinde günlükleri altında bulabilirsiniz: 
+* Linux için: /blobroot/logs/platformblob.log
 
 ## <a name="deploy-multiple-instances"></a>Birden fazla örnek dağıtın
 
@@ -193,7 +204,7 @@ Tüm Azure Blob Depolama işlemleri, IOT Edge üzerinde Azure Blob Depolama tara
 ### <a name="account"></a>Hesap
 
 Desteklenen: 
-* Liste kapsayıcıları
+* Kapsayıcıları listeleme
 
 Desteklenmeyen: 
 * Alma ve blob hizmeti özelliklerini ayarla

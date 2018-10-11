@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: 941c29506aa8f17dcb6262495b28dd26e78194d5
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: e0cdda629ddded121a424af61377c04ee8d958d3
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47036074"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48867553"
 ---
 # <a name="tutorial-7-extract-names-with-simple-entity-and-phrase-list"></a>Öğretici 7: Basit varlık ve tümcecik listesi ile adları ayıklama
 
@@ -299,7 +299,7 @@ LUIS-Samples Github deposundaki [jobs-phrase-list.csv](https://github.com/Micros
 
     [![](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-2.png "Create new phrase list (Yeni tümcecik listesi oluştur) iletişim kutusu ve tümcecik listesindeki değerler kutusunda sözcükler bulunan ekran görüntüsü")](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-2.png#lightbox)
 
-5. Tümcecik listesini kullanmak için uygulamayı tekrar [eğitin](#train-the-luis-app) ve [yayımlayın](#publish-the-app-to-get-the-endpoint-URL).
+5. Tümcecik listesini kullanmak için uygulamayı tekrar [eğitin](#train) ve [yayımlayın](#publish).
 
 6. Uç noktayı aynı konuşmayla yeniden sorgulayın: `This is the lead welder paperwork.`
 

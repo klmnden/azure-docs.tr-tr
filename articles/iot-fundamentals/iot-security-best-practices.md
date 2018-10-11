@@ -1,26 +1,22 @@
 ---
 title: IoT güvenliği için en iyi uygulamalar
 description: IOT altyapınızı güvenliğini sağlamaya yönelik en iyi güvenlik uygulamaları
-author: dominicbetts
-manager: timlt
+author: robinsh
 ms.service: iot-fundamentals
 services: iot-fundamentals
 ms.topic: conceptual
-ms.date: 06/14/2018
-ms.author: dobett
-ms.openlocfilehash: dd34cbb2cf79bb5a490e7cf19319a3fce7e8178f
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.date: 10/09/2018
+ms.author: robinsh
+ms.openlocfilehash: 2cddb68aa83d131b11932e53f6f2c08600088010
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "42061078"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49066981"
 ---
 [!INCLUDE [iot-security-best-practices](../../includes/iot-security-best-practices.md)]
 
 ## <a name="see-also"></a>Ayrıca bkz.
-Bir IOT Çözüm Hızlandırıcısı tarafından oluşturulan bir çözüm güvenliğini sağlama hakkında daha fazla bilgi için bkz. [IOT dağıtımınızın güvenliğini sağlama][lnk-security-deployment].
+Bir IOT Çözüm Hızlandırıcısı tarafından oluşturulan bir çözüm güvenliğini sağlama hakkında daha fazla bilgi için bkz. [IOT dağıtımınızın güvenliğini sağlama](iot-security-deployment.md).
 
-IOT Hub güvenlik hakkında bilgi edinin [IOT hub'a erişimi denetleme] [ lnk-devguide-security] IOT Hub Geliştirici Kılavuzu'nda.
-
-[lnk-security-deployment]: iot-security-deployment.md
-[lnk-devguide-security]: /azure/iot-hub/iot-hub-devguide-security
+IOT Hub güvenlik hakkında bilgi edinin [IOT hub'a erişimi denetleme](../iot-hub/iot-hub-devguide-security.md) IOT Hub Geliştirici Kılavuzu'nda.

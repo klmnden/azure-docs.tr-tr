@@ -12,15 +12,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 09/05/2018
+ms.date: 10/10/2018
 ms.author: alkohli
 ms.custom: ''
-ms.openlocfilehash: fe42380288c0f139a2bae80a12f0ebc428a4c286
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: d1aeabd2de529d2c6b3159d9cd65996fb5096d0a
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46993094"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49069378"
 ---
 # <a name="azure-data-box-limits"></a>Azure Data Box sınırları
 
@@ -35,7 +35,7 @@ Limitler, dağıtmanıza ve Microsoft Azure Data Box'ınızı gibi düşünün. 
 
 ## <a name="data-box-limits"></a>Veri kutusu sınırları
 
-- Veri kutusu en fazla 5 milyon dosyaları depolayabilir.
+- Veri kutusu en fazla 500 milyon dosya depolayabilir.
 
 ## <a name="azure-storage-limits"></a>Azure depolama sınırları
 
@@ -44,7 +44,7 @@ Bu bölümde, Azure dosyaları, Azure blok BLOB'ları ve Data Box hizmeti uyguns
 Azure depolama hizmet sınırları ve adlandırma paylaşımları, kapsayıcılar ve dosyalar için en iyi yöntemler üzerinde en son bilgiler için bkz:
 
 - [Adlandırma ve kapsayıcıları başvurma](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata)
-- [Adlandırma ve paylaşımları başvurma](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata)
+- [Paylaşımları adlandırma ve onlara başvurma](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata)
 - [Blok blobları ve sayfa blob kuralları](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs)
 
 > [!IMPORTANT]

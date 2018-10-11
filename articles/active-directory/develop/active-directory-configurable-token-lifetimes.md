@@ -16,14 +16,15 @@ ms.date: 10/05/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: hirsin
-ms.openlocfilehash: 292783d3710914af27870b1ae5259b43e284242d
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: 1fa5a2f9d63dfd9af006285beec256395d7ac668
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/10/2018
-ms.locfileid: "48904405"
+ms.locfileid: "49069514"
 ---
-# <a name="configurable-token-lifetimes-in-azure-active-directory-public-preview"></a>Azure Active Directory'de (genel Önizleme) yapılandırılabilir belirteç ömürleri
+# <a name="configurable-token-lifetimes-in-azure-active-directory-preview"></a>Azure Active Directory'de (Önizleme) yapılandırılabilir belirteç ömürleri
+
 Azure Active Directory (Azure AD) tarafından verilmiş bir belirteç ömrünü belirtebilirsiniz. Kuruluşunuzda, kuruluşunuzdaki tüm uygulamalar, çok kiracılı (çok kuruluşlu) bir uygulama veya belirli bir hizmet sorumlusu için belirteç ömrünü ayarlayabilirsiniz.
 
 > [!IMPORTANT]
@@ -47,7 +48,7 @@ Yenileme belirteçleri, erişim belirteçleri, oturumu belirteçleri ve kimlik b
 İstemciler, korunan bir kaynağa erişmek için erişim belirteçleri kullanır. Bir erişim belirteci yalnızca belirli bir birleşimi kullanıcı, istemci ve kaynak için kullanılabilir. Erişim belirteçleri iptal edilemiyor ve bunların sona erme tarihine kadar geçerlidir. Bir erişim belirteci elde kötü amaçlı bir aktör, yaşam süresi bir uzantı için kullanabilirsiniz. Bir erişim belirteci ömrü ayarlama, sistem performansı artırmak ve kullanıcı hesabının devre dışı bırakıldıktan sonra istemci erişimi korur süre miktarını artırmak arasında bir dengedir. İyileştirilmiş sistem performansı, yeni erişim belirteci almak için bir istemci gereken sayısını azaltarak elde edilir.  1 saat - varsayılan değer 1 saat sonra istemci yenileme belirteci (genellikle sessizce) yeni bir yenileme belirteci alma ve belirtecine erişmek için kullanmanız gerekir. 
 
 ### <a name="refresh-tokens"></a>Yenileme belirteçlerini
-Bir istemci bir korumalı kaynağa erişmek için bir erişim belirteci alır, istemci ayrıca bir yenileme belirteci alır. Yenileme belirteci, geçerli erişim belirtecinin süresi dolduğunda yeni erişim/yenileme belirteci çiftleri elde etmek için kullanılır. Kullanıcı ve istemci bir birleşimi için bağlı bir yenileme belirteci. Bir yenileme belirteci olabilir [herhangi bir zamanda İptal](v1-id-and-access-tokens.md#token-revocation), ve belirteç her kullanılışında belirtecin geçerlilik denetlenir.  
+Bir istemci bir korumalı kaynağa erişmek için bir erişim belirteci alır, istemci ayrıca bir yenileme belirteci alır. Yenileme belirteci, geçerli erişim belirtecinin süresi dolduğunda yeni erişim/yenileme belirteci çiftleri elde etmek için kullanılır. Kullanıcı ve istemci bir birleşimi için bağlı bir yenileme belirteci. Bir yenileme belirteci olabilir [herhangi bir zamanda İptal](access-tokens.md#token-revocation), ve belirteç her kullanılışında belirtecin geçerlilik denetlenir.  
 
 Bu yenileme belirteçleri ne kadar süre kullanılabilir etkiliyor gibi gizli ve genel istemciler arasında bir ayrım yapmak önemlidir. Farklı istemci türleri hakkında daha fazla bilgi için bkz: [RFC 6749](https://tools.ietf.org/html/rfc6749#section-2.1).
 

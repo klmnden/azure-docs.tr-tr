@@ -8,12 +8,12 @@ ms.service: mysql
 ms.topic: article
 ms.date: 09/20/2018
 ms.author: mbolz
-ms.openlocfilehash: 21fd686854782826439b807ca57ba773e80c3a22
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: e123acd09e4cbfdbaf0531db72598dbd478fa1c9
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47048292"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49069395"
 ---
 # <a name="azure-database-for-mysql-advanced-threat-protection"></a>MySQL için Azure veritabanı Gelişmiş tehdit koruması
 
@@ -34,8 +34,8 @@ MySQL için Azure veritabanı için Gelişmiş tehdit koruması, yeni katmanı m
 ## <a name="advanced-threat-protection-alerts"></a>Gelişmiş tehdit koruması uyarıları 
 MySQL için Azure veritabanı için Gelişmiş tehdit koruması erişim veritabanı açıklıklarından yararlanmaya yönelik sıra dışı ve zararlı olabilecek girişimleri gösteren anormal etkinlikleri algılar ve aşağıdaki uyarılar tetikleyebilirsiniz:
 - **Olağan dışı bir konumdan erişim**: Burada birisi oturum açmış MySQL sunucusu için Azure veritabanı olağan dışı bir coğrafi konumdan, MySQL sunucusu için Azure veritabanına erişim deseninde değişiklik olduğunda bu uyarı tetiklenir. Bazı durumlarda uyarı güvenli işlemleri (yeni bir uygulama veya geliştirici bakımı gibi) de algılar. Diğer durumlarda, uyarı kötü amaçlı işlemleri (önceki çalışan ve şirket dışı saldırgan gibi) algılar.
-- **Azure veri merkezinden erişim**: Burada birisi oturum açmış SQL Server'a bu sunucuda görünen bir Azure veri merkezi, MySQL sunucusu için Azure veritabanına erişim deseninde değişiklik olduğunda bu uyarı tetiklenir kısa süre. Bazı durumlarda uyarı güvenli işlemleri (Azure, Power BI, Azure veritabanı için MySQL sorgu Düzenleyicisi'ni yeni, uygulamanızda) algılar. Diğer durumlarda, uyarı Azure kaynağı/hizmetinden kaynaklanan kötü amaçlı işlemleri (önceki çalışan ve şirket dışı saldırgan gibi) algılar.
-- **Erişim**: Burada birisi oturum açmış bir sorumludan (MySQL kullanıcısı için Azure veritabanı) kullanarak SQL server, MySQL sunucusu için Azure veritabanına erişim deseninde değişiklik olduğunda bu uyarı tetiklenir. Bazı durumlarda uyarı güvenli işlemleri (yeni uygulama ve geliştirici bakımı gibi) de algılar. Diğer durumlarda, uyarı kötü amaçlı işlemleri (önceki çalışan ve şirket dışı saldırgan gibi) algılar.
+- **Azure veri merkezinden erişim**: Burada birisi oturum açmış sunucuya bu sunucuda görünen bir Azure veri merkezi, MySQL sunucusu için Azure veritabanına erişim deseninde değişiklik olduğunda bu uyarı tetiklenir kısa süre. Bazı durumlarda uyarı güvenli işlemleri (Azure, Power BI, Azure veritabanı için MySQL sorgu Düzenleyicisi'ni yeni, uygulamanızda) algılar. Diğer durumlarda, uyarı Azure kaynağı/hizmetinden kaynaklanan kötü amaçlı işlemleri (önceki çalışan ve şirket dışı saldırgan gibi) algılar.
+- **Erişim**: Burada birisi oturum açmış bir sorumludan (MySQL kullanıcısı için Azure veritabanı) kullanarak sunucuyu, MySQL sunucusu için Azure veritabanına erişim deseninde değişiklik olduğunda bu uyarı tetiklenir. Bazı durumlarda uyarı güvenli işlemleri (yeni uygulama ve geliştirici bakımı gibi) de algılar. Diğer durumlarda, uyarı kötü amaçlı işlemleri (önceki çalışan ve şirket dışı saldırgan gibi) algılar.
 - **Zararlı olabilecek bir uygulamadan erişim**: Bu uyarı, zararlı olabilecek bir uygulama veritabanına erişmeye çalıştığında tetiklenir. Bazı durumlarda, uyarı güvenlik testlerini algılar. Diğer durumlarda, yarı yaygın saldırı araçlarının kullandığı saldırıları algılar.
 - **Azure veritabanı için MySQL kimlik bilgilerinin yanılma**: Bu uyarı bir olağandışı yüksek sayıda farklı kimlik bilgileri başarısız oturum açma denemesi olduğunda tetiklenir. Bazı durumlarda, uyarı güvenlik testlerini algılar. Diğer durumlarda, uyarı deneme yanılma saldırılarını algılar.
 

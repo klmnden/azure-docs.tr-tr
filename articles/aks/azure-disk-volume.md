@@ -1,22 +1,25 @@
 ---
 title: Azure Kubernetes Service (AKS) pod'ları için statik bir birim oluşturun
-description: El ile Azure disklerini pod'ları Azure Kubernetes Service (AKS) ile kullanım için bir birim oluşturmayı öğrenin
+description: El ile bir pod Azure Kubernetes Service (AKS) ile kullanılmak üzere Azure diskleri olan bir birim oluşturmayı öğrenin
 services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: article
-ms.date: 09/26/2018
+ms.date: 10/08/2018
 ms.author: iainfou
-ms.openlocfilehash: 20c7d20399392e653668953029bcb81886863ce4
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 9c5879474568885d9a705e7bfd16e2a4e2304b96
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47404628"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49068194"
 ---
-# <a name="manually-create-and-use-kubernetes-volume-with-azure-disks-in-azure-kubernetes-service-aks"></a>El ile oluşturma ve Azure diskleri Azure Kubernetes Service (AKS) ile Kubernetes hacmi kullanma
+# <a name="manually-create-and-use-a-volume-with-azure-disks-in-azure-kubernetes-service-aks"></a>El ile oluşturma ve birim Azure diskleri Azure Kubernetes Service (AKS) kullanma
 
-Kapsayıcı tabanlı uygulamalar genellikle erişmek ve bir dış veri birimdeki veriler kalıcı hale getirmek gerekir. Azure diskleri bu dış veri deposu olarak kullanılabilir. AKS, birimler, kalıcı hacim talep kullanarak dinamik olarak oluşturulabilir veya el ile oluşturun ve bir Azure diskinin doğrudan ekleyin. Bu makalede, el ile bir Azure disk oluşturun ve bir pod aks'deki ekleme işlemini göstermektedir.
+Kapsayıcı tabanlı uygulamalar genellikle erişmek ve bir dış veri birimdeki veriler kalıcı hale getirmek gerekir. Tek bir pod depolama erişmesi gerekirse, uygulama kullanımı için yerel bir birime sunmak için Azure diskleri kullanabilirsiniz. Bu makalede, el ile bir Azure disk oluşturun ve bir pod aks'deki ekleme işlemini göstermektedir.
+
+> [!NOTE]
+> Bir Azure diskinin aynı anda yalnızca tek bir pod bağlanabilir. Kalıcı hacim birden çok podunuz arasında paylaşmak ihtiyacınız varsa [Azure dosyaları][azure-files-volume].
 
 Kubernetes birimleri hakkında daha fazla bilgi için bkz. [Kubernetes birimleri][kubernetes-volumes].
 
@@ -65,15 +68,22 @@ Azure disk pod bağlamak için birim kapsayıcı spec içinde yapılandırın. A
 apiVersion: v1
 kind: Pod
 metadata:
- name: azure-disk-pod
+  name: mypod
 spec:
- containers:
-  - image: microsoft/sample-aks-helloworld
-    name: azure
+  containers:
+  - image: nginx:1.15.5
+    name: mypod
+    resources:
+      requests:
+        cpu: 100m
+        memory: 128Mi
+      limits:
+        cpu: 250m
+        memory: 256Mi
     volumeMounts:
       - name: azure
         mountPath: /mnt/azure
- volumes:
+  volumes:
       - name: azure
         azureDisk:
           kind: Managed
@@ -87,7 +97,32 @@ Kullanım `kubectl` pod oluşturmak için komutu.
 kubectl apply -f azure-disk-pod.yaml
 ```
 
-Artık takılı olduğu bir Azure diskinin ile çalışan bir pod sahip `/mnt/azure`. Kullanabileceğiniz `kubectl describe pod azure-disk-pod` disk başarıyla oluşturulmuş doğrulayın.
+Artık takılı olduğu bir Azure diskinin ile çalışan bir pod sahip `/mnt/azure`. Kullanabileceğiniz `kubectl describe pod mypod` disk başarıyla oluşturulmuş doğrulayın. Aşağıdaki sıkıştırılmış örneğe çıktı kapsayıcıda takılı birim gösterir:
+
+```
+[...]
+Volumes:
+  azure:
+    Type:         AzureDisk (an Azure Data Disk mount on the host and bind mount to the pod)
+    DiskName:     myAKSDisk
+    DiskURI:      /subscriptions/<subscriptionID/resourceGroups/MC_myResourceGroupAKS_myAKSCluster_eastus/providers/Microsoft.Compute/disks/myAKSDisk
+    Kind:         Managed
+    FSType:       ext4
+    CachingMode:  ReadWrite
+    ReadOnly:     false
+  default-token-z5sd7:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  default-token-z5sd7
+    Optional:    false
+[...]
+Events:
+  Type    Reason                 Age   From                               Message
+  ----    ------                 ----  ----                               -------
+  Normal  Scheduled              1m    default-scheduler                  Successfully assigned mypod to aks-nodepool1-79590246-0
+  Normal  SuccessfulMountVolume  1m    kubelet, aks-nodepool1-79590246-0  MountVolume.SetUp succeeded for volume "default-token-z5sd7"
+  Normal  SuccessfulMountVolume  41s   kubelet, aks-nodepool1-79590246-0  MountVolume.SetUp succeeded for volume "azure"
+[...]
+```
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
@@ -107,3 +142,4 @@ AKS hakkında daha fazla bilgi için kümeleri ile Azure disklerini etkileşim, 
 [aks-quickstart-portal]: kubernetes-walkthrough-portal.md
 [az-aks-show]: /cli/azure/aks#az-aks-show
 [install-azure-cli]: /cli/azure/install-azure-cli
+[azure-files-volume]: azure-files-volume.md

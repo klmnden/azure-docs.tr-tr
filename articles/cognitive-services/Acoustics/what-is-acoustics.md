@@ -1,20 +1,21 @@
 ---
-title: Acoustics'e giriş - Bilişsel Hizmetler
+title: Project Acoustics nedir?
+titlesuffix: Azure Cognitive Services
 description: Project Acoustics Unity eklentisi, VR ve geleneksel ekranları hedefleyen projeler için kapatma, yansıma ve mekansallaştırma sunar.
 services: cognitive-services
 author: kegodin
-manager: noelc
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: acoustics
 ms.topic: overview
 ms.date: 08/17/2018
 ms.author: kegodin
-ms.openlocfilehash: 08c6d8b8e229aabcc05fdfde2d8ffadf3a6346c2
-ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
+ms.openlocfilehash: 6a3c97ead40cfb24604edac0624e38a9b0713fc0
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "40181029"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48901033"
 ---
 # <a name="what-is-project-acoustics"></a>Project Acoustics nedir?
 Project Acoustics Unity eklentisi, VR ve geleneksel ekranları hedefleyen projeler için kapatma, yansıma ve mekansallaştırma sunar. Oyun akustiği tasarımı için tasarımcı amaçlarını fizik tabanlı dalga benzetimi üzerine bir katman olarak yerleştiren bir yöntem sunar.

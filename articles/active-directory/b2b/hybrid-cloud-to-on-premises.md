@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.component: B2B
 ms.topic: conceptual
-ms.date: 04/20/2018
+ms.date: 10/10/2018
 ms.author: mimart
 author: msmimart
 manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: 65f43eb28ef2ef51409469934d59e1add7e83666
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 57c807b7729b58d2537ee09ddd5d05d4f2afb55e
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46297223"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49068852"
 ---
 # <a name="grant-b2b-users-in-azure-ad-access-to-your-on-premises-applications"></a>GRANT B2B kullanıcıları Azure AD'de, şirket içi uygulamalarınıza erişim
 
@@ -65,9 +65,9 @@ Aşağıdaki diyagramda, dizin iş birlikte B2B kullanıcıları şirket içi IW
 - Uygulama proxy'si kimlik doğrulaması sırasında MFA kullanılmasını sağlamak amacıyla Konuk kullanıcı için çok faktörlü kimlik doğrulaması (MFA) ilkeleri ayarlayabilirsiniz. Daha fazla bilgi için [B2B işbirliği kullanıcıları için koşullu erişim](conditional-access.md).
 - Tüm sponsorships, erişim gözden geçirmeleri, hesap doğrulamaları vb. kullanıcı şirket içi kullanıcılar için geçerliyse bulutta B2B gerçekleştirilen. Örneğin, bulut kullanıcı yaşam döngüsü yönetimi ilkelerinizi silinirse, şirket içi kullanıcı de MIM eşitleme veya Azure AD Connect eşitleme yoluyla silinir. Daha fazla bilgi için [Konuk erişimi yönetme ile Azure AD erişim gözden geçirmeleri](../governance/manage-guest-access-with-access-reviews.md).
 
-### <a name="create-b2b-guest-user-objects-through-mim-preview"></a>B2B Konuk kullanıcı nesneleri MIM (Önizleme) ile oluşturun
+### <a name="create-b2b-guest-user-objects-through-mim"></a>B2B Konuk kullanıcı nesneleri MIM ile oluşturma
 
-MIM 2016 Hizmet Paketi 1 ve MIM yönetim aracısı için Microsoft Graph şirket içi dizinde Konuk kullanıcı nesneleri oluşturmak için nasıl kullanılacağı hakkında daha fazla bilgi için bkz. [Azure AD ile Microsoft Identity işletmeden işletmeye (B2B) işbirliği Azure uygulama ara sunucusu (genel Önizleme) ile Manager (MIM) 2016 SP1](https://docs.microsoft.com/microsoft-identity-manager/microsoft-identity-manager-2016-graph-b2b-scenario).
+MIM 2016 Hizmet Paketi 1 ve MIM yönetim aracısı için Microsoft Graph şirket içi dizinde Konuk kullanıcı nesneleri oluşturmak için nasıl kullanılacağı hakkında daha fazla bilgi için bkz. [Azure AD ile Microsoft Identity işletmeden işletmeye (B2B) işbirliği Azure uygulama proxy'si ile Manager (MIM) 2016 SP1](https://docs.microsoft.com/microsoft-identity-manager/microsoft-identity-manager-2016-graph-b2b-scenario).
 
 ### <a name="create-b2b-guest-user-objects-through-a-script-preview"></a>Bir betik (Önizleme) ile B2B Konuk kullanıcı nesneleri oluşturma
 

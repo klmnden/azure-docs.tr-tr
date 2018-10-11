@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: a9159ade6e16c1d14149197e85cee8720dd98b09
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: b226aeac86084c56a49d00c2a2f8deddaf7b0f68
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44381686"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49068783"
 ---
 # <a name="claimsproviders"></a>ClaimsProviders 
 
@@ -52,7 +52,7 @@ Bir talep sağlayıcı kümesini içeren [teknik profiller](technicalprofiles.md
 
 | Öğe | Oluşumlar | Açıklama |
 | ------- | ---------- | ----------- |
-| Domain | 0:1 | Talep sağlayıcının etki alanı adını içeren bir dize. Örneğin, Facebook teknik profili, Talep sağlayıcı içeriyorsa, etki alanı adı Facebook.com ' dir. Bu etki alanı adı, teknik profili tarafından geçersiz kılınmadığı sürece Talep sağlayıcı tanımlanan tüm teknik profiller için kullanılır. |
+| Domain | 0:1 | Talep sağlayıcının etki alanı adını içeren bir dize. Örneğin, Facebook teknik profili, Talep sağlayıcı içeriyorsa, etki alanı adı Facebook.com ' dir. Bu etki alanı adı, teknik profili tarafından geçersiz kılınmadığı sürece Talep sağlayıcı tanımlanan tüm teknik profiller için kullanılır. Etki alanı adı da içinde başvurulabilir bir **domain_hint**. Daha fazla bilgi için **sosyal sağlayıcılar için yönlendirme oturum** bölümünü [doğrudan Azure Active Directory B2C kullanarak oturum kümesi](direct-signin.md). |
 | DisplayName | 0:1 | Kullanıcılara gösterilen Talep sağlayıcı adını içeren bir dize. |
 | [TechnicalProfiles](technicalprofiles.md) | 0:1 | Talep sağlayıcı tarafından desteklenen teknik profiller bir dizi |
 

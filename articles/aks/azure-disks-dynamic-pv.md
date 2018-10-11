@@ -1,26 +1,33 @@
 ---
-title: Azure Kubernetes hizmeti ile kalıcı birimler oluşturun
-description: Azure diskleri kalıcı birimleri pod'ları için Azure Kubernetes Service (AKS) oluşturmak için kullanmayı öğrenin
+title: Dinamik olarak Azure Kubernetes Service (AKS) için birden çok podunuz bir Disk birimi oluşturma
+description: Dinamik olarak birden çok eş zamanlı pod Azure Kubernetes Service (AKS) ile kullanılmak üzere Azure diskleri olan bir kalıcı hacim oluşturmayı öğrenin
 services: container-service
 author: iainfoulds
-manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 07/20/2018
+ms.date: 10/08/2018
 ms.author: iainfou
-ms.openlocfilehash: 7048ab4e08d25fd5181857a4e7592d0bcb7d3b5f
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.openlocfilehash: 4fea0f63f3e28f25392ef909d9735c6129df69e7
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42885603"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49067016"
 ---
-# <a name="create-persistent-volumes-with-azure-disks-for-azure-kubernetes-service-aks"></a>Kalıcı birimleri, Azure Kubernetes Service (AKS) ile Azure disklerini oluşturma
+# <a name="dynamically-create-and-use-a-persistent-volume-with-azure-disks-in-azure-kubernetes-service-aks"></a>Dinamik olarak oluşturabilen ve Azure diskleri Azure Kubernetes Service (AKS) ile kalıcı hacim kullanma
 
-Kalıcı hacim Kubernetes pod'ları ile kullanmak için sağlanan depolama parçasını temsil eder. Kalıcı hacim, bir veya daha çok pod'ları tarafından kullanılabilir ve dinamik veya statik olarak sağlanabilir. Kubernetes sürekli birimleri hakkında daha fazla bilgi için bkz. [Kubernetes kalıcı birimler][kubernetes-volumes]. Bu makalede Azure Kubernetes Service (AKS) kümesini Azure diskleri ile kalıcı birimler kullanmayı gösterir.
+Kalıcı hacim Kubernetes pod'ları ile kullanmak için sağlanan depolama parçasını temsil eder. Kalıcı hacim, bir veya daha çok pod'ları tarafından kullanılabilir ve dinamik veya statik olarak sağlanabilir. Bu makalede dinamik olarak Azure Kubernetes Service (AKS) kümesi içinde tek bir pod tarafından kullanılmak üzere Azure disklerle kalıcı birimler oluşturma işlemini gösterir.
 
 > [!NOTE]
-> Bir Azure diskinin yalnızca ile bağlanabilir *erişim modu* türü *ReadWriteOnce*, hangi kullanılabilir hale getirir, yalnızca tek bir AKS düğümü. Kalıcı hacim paylaşan birden fazla düğümde gerek kalmadan kullanmayı [Azure dosyaları][azure-files-pvc].
+> Bir Azure diskinin yalnızca ile bağlanabilir *erişim modu* türü *ReadWriteOnce*, hangi kullanılabilir hale getirir, yalnızca tek bir pod için AKS. Kalıcı hacim birden çok podunuz arasında paylaşmak ihtiyacınız varsa [Azure dosyaları][azure-files-pvc].
+
+Kubernetes sürekli birimleri hakkında daha fazla bilgi için bkz. [Kubernetes kalıcı birimler][kubernetes-volumes].
+
+## <a name="before-you-begin"></a>Başlamadan önce
+
+Bu makalede, var olan bir AKS kümesi olduğunu varsayar. AKS hızlı bir AKS kümesi gerekirse bkz [Azure CLI kullanarak] [ aks-quickstart-cli] veya [Azure portalını kullanarak][aks-quickstart-portal].
+
+Ayrıca Azure CLI Sürüm 2.0.46 gerekir veya daha sonra yüklü ve yapılandırılmış. Sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI yükleme][install-azure-cli].
 
 ## <a name="built-in-storage-classes"></a>Yerleşik depolama sınıfları
 
@@ -44,7 +51,7 @@ managed-premium     kubernetes.io/azure-disk   1h
 ```
 
 > [!NOTE]
-> Kalıcı hacim talep GiB belirtildi, ancak Azure yönetilen diskler için belirli bir boyut SKU tarafından faturalandırılır. Bu SKU'ları 32GiB S4 veya P4 diskleri ile arasındadır 4TiB S50 veya P50 disk için. Aktarım hızı ve IOPS performansı bir Premium yönetilen disk, her iki SKU üzerinde bağlıdır ve AKS kümesindeki düğümlere örneği boyutu. Daha fazla bilgi için [fiyatlandırma ve yönetilen diskler performans][managed-disk-pricing-performance].
+> Kalıcı hacim talep GiB belirtildi, ancak Azure yönetilen diskler için belirli bir boyut SKU tarafından faturalandırılır. Bu SKU'ları aralığından 32GiB S4 veya P4 disk için 32TiB S80 veya P80 diskler için. Aktarım hızı ve IOPS performansı bir Premium yönetilen disk, her iki SKU üzerinde bağlıdır ve AKS kümesindeki düğümlere örneği boyutu. Daha fazla bilgi için [fiyatlandırma ve yönetilen diskler performans][managed-disk-pricing-performance].
 
 ## <a name="create-a-persistent-volume-claim"></a>Kalıcı hacim talep oluşturma
 
@@ -69,10 +76,10 @@ spec:
 > [!TIP]
 > Standart depolama kullanan bir disk oluşturmak için kullanın `storageClassName: default` yerine *premium yönetilen*.
 
-Kalıcı hacim taleple oluşturma [kubectl oluşturma] [ kubectl-create] komut ve belirtin, *azure premium.yaml* dosya:
+Kalıcı hacim taleple oluşturma [kubectl uygulamak] [ kubectl-apply] komut ve belirtin, *azure premium.yaml* dosyası:
 
 ```
-$ kubectl create -f azure-premium.yaml
+$ kubectl apply -f azure-premium.yaml
 
 persistentvolumeclaim/azure-managed-disk created
 ```
@@ -90,21 +97,28 @@ metadata:
   name: mypod
 spec:
   containers:
-    - name: myfrontend
-      image: nginx
-      volumeMounts:
-      - mountPath: "/mnt/azure"
-        name: volume
+  - name: mypod
+    image: nginx:1.15.5
+    resources:
+      requests:
+        cpu: 100m
+        memory: 128Mi
+      limits:
+        cpu: 250m
+        memory: 256Mi
+    volumeMounts:
+    - mountPath: "/mnt/azure"
+      name: volume
   volumes:
     - name: volume
       persistentVolumeClaim:
         claimName: azure-managed-disk
 ```
 
-Pod ile oluşturma [kubectl oluşturma] [ kubectl-create] aşağıdaki örnekte gösterildiği gibi komut:
+Pod ile oluşturma [kubectl uygulamak] [ kubectl-apply] aşağıdaki örnekte gösterildiği gibi komut:
 
 ```
-$ kubectl create -f azure-pvc-disk.yaml
+$ kubectl apply -f azure-pvc-disk.yaml
 
 pod/mypod created
 ```
@@ -124,7 +138,7 @@ Volumes:
     Type:        Secret (a volume populated by a Secret)
     SecretName:  default-token-smm2n
     Optional:    false
-
+[...]
 Events:
   Type    Reason                 Age   From                               Message
   ----    ------                 ----  ----                               -------
@@ -189,11 +203,18 @@ metadata:
   name: mypodrestored
 spec:
   containers:
-    - name: myfrontendrestored
-      image: nginx
-      volumeMounts:
-      - mountPath: "/mnt/azure"
-        name: volume
+  - name: mypodrestored
+    image: nginx:1.15.5
+    resources:
+      requests:
+        cpu: 100m
+        memory: 128Mi
+      limits:
+        cpu: 250m
+        memory: 256Mi
+    volumeMounts:
+    - mountPath: "/mnt/azure"
+      name: volume
   volumes:
     - name: volume
       azureDisk:
@@ -202,10 +223,10 @@ spec:
         diskURI: /subscriptions/<guid>/resourceGroups/MC_myResourceGroupAKS_myAKSCluster_eastus/providers/Microsoft.Compute/disks/pvcRestored
 ```
 
-Pod ile oluşturma [kubectl oluşturma] [ kubectl-create] aşağıdaki örnekte gösterildiği gibi komut:
+Pod ile oluşturma [kubectl uygulamak] [ kubectl-apply] aşağıdaki örnekte gösterildiği gibi komut:
 
 ```
-$ kubectl create -f azure-restored.yaml
+$ kubectl apply -f azure-restored.yaml
 
 pod/mypodrestored created
 ```
@@ -237,7 +258,7 @@ Azure diskleri kullanarak Kubernetes kalıcı birimleri hakkında daha fazla bil
 
 <!-- LINKS - external -->
 [access-modes]: https://kubernetes.io/docs/concepts/storage/persistent-volumes/#access-modes
-[kubectl-create]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#create
+[kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 [kubernetes-storage-classes]: https://kubernetes.io/docs/concepts/storage/storage-classes/
 [kubernetes-volumes]: https://kubernetes.io/docs/concepts/storage/persistent-volumes/
@@ -251,3 +272,6 @@ Azure diskleri kullanarak Kubernetes kalıcı birimleri hakkında daha fazla bil
 [az-snapshot-create]: /cli/azure/snapshot#az-snapshot-create
 [az-disk-create]: /cli/azure/disk#az-disk-create
 [az-disk-show]: /cli/azure/disk#az-disk-show
+[aks-quickstart-cli]: kubernetes-walkthrough.md
+[aks-quickstart-portal]: kubernetes-walkthrough-portal.md
+[install-azure-cli]: /cli/azure/install-azure-cli

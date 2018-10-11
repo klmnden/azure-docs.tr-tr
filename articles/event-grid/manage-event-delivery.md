@@ -5,14 +5,14 @@ services: event-grid
 author: tfitzmac
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 09/13/2018
+ms.date: 10/10/2018
 ms.author: tomfitz
-ms.openlocfilehash: 5db53567b1df9e726fb0c507f0302536ea45b7f4
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: fcf3ecaff6e8ba1421496a96d01428946cf8ab8e
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45603779"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49077791"
 ---
 # <a name="dead-letter-and-retry-policies"></a>Atılacak Mektubu ve yeniden deneme ilkeleri
 
@@ -48,7 +48,7 @@ Ulaşmayan devre dışı bırakmak için olay aboneliğini oluşturmak için kom
 
 Event Grid aboneliği oluştururken, Event Grid olay teslim etmek ne kadar süreyle denemelisiniz değerleri ayarlayabilirsiniz. Varsayılan olarak, Event Grid 24 saat (1440 dakika) çalışır ve en fazla 30 kata çalışır. Event grid aboneliğiniz için bu değerleri ya da ayarlayabilirsiniz. Olay yaşam süresi'için değer 1440 ile 1 arasında bir tamsayı olmalıdır. En fazla teslim denemeleri değeri 30 ile 1 arasında bir tamsayı olmalıdır.
 
-Yapılandıramazsınız [yeniden deneme aralığı](delivery-and-retry.md#retry-intervals-and-duration).
+Yapılandıramazsınız [yeniden deneme planı](delivery-and-retry.md#retry-schedule-and-duration).
 
 Olay yaşam süresi 1440 dakika dışında bir değere ayarlamak için kullanın:
 

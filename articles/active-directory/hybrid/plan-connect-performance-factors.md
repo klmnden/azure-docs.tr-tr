@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 10/06/2018
 ms.reviewer: martincoetzer
 ms.author: billmath
-ms.openlocfilehash: 6ad8e04a3cd61061b44ca9b6a216f92d69a70f6b
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: 7cf0e2b211f9d34f6d8f4fe89a230d8a2e97512a
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/10/2018
-ms.locfileid: "48903003"
+ms.locfileid: "49069022"
 ---
 # <a name="factors-influencing-the-performance-of-azure-ad-connect"></a>Azure AD Connect performansını etkileyen faktörler
 
@@ -62,15 +62,13 @@ Sağlama altyapısının performansını iyileştirmek için farklı çalıştı
 
 ### <a name="delta-sync-profile"></a>Delta eşitleme profili
 
-Eşitleme işlemini en iyi duruma getirmek için bu farklı çalıştır profili yalnızca işlem değişiklikleri (oluşturur, siler ve güncelleştirmeleri) son eşitleme işlemini beri bağlı dizinlerinizi nesne. Varsayılan olarak, delta eşitleme profili 30 dakikada bir çalışır. Kuruluşlar için 30 dakika, Azure AD güncel olduğundan emin olmak için süresini tutmak çaba göstermelisiniz. Azure AD Connect durumunu izlemek için kullanın [İzleme Aracısı sistem durumu](how-to-connect-health-sync.md) işleminin tüm sorunları görmek için. Delta eşitleme profili, aşağıdaki adımları içerir:
+Eşitleme işlemini en iyi duruma getirmek için bu farklı çalıştır profili yalnızca işlem değişiklikleri (oluşturur, siler ve güncelleştirmeleri) son eşitleme işlemini beri bağlı dizinlerinizi nesne. Varsayılan olarak, delta eşitleme profili 30 dakikada bir çalışır. Kuruluşlar için 30 dakika, Azure AD güncel olduğundan emin olmak için süresini tutmak çaba göstermelisiniz. Azure AD Connect durumunu izlemek için kullanın [İzleme Aracısı sistem durumu](how-to-connect-health-sync.md) işlemi ile ilgili tüm sorunları görmek için. Delta eşitleme profili, aşağıdaki adımları içerir:
 
 1. Delta içeri aktarma işlemi sırasında tüm bağlayıcılar
 2. Tüm bağlayıcılar delta eşitleme
 3. Tüm bağlayıcılarda dışarı aktarma
 
 Tipik kurumsal kuruluş delta eşitleme senaryosu şöyledir:
-
-
 
 - yaklaşık 1 %'Nesne silindi
 - oluşturulan nesnelerin yaklaşık %1
@@ -94,7 +92,7 @@ Aşağıdaki işlemleri, bir tam eşitleme döngüsünde dahildir:
 3. Tüm bağlayıcılarda dışarı aktarma
 
 > [!NOTE]
-> Active Directory veya Azure AD çok sayıda nesne toplu güncelleştirmeler yaparken dikkatli planlama gereklidir. Toplu güncelleştirmeler, delta eşitleme işlemi, nesneleri çok fazla değiştirilmiş olduğundan, içeri aktarılırken uzun sürmesine neden olur. Toplu güncelleştirme eşitleme işlemini etkilemez olsa bile uzun içeri aktarmalar oluşabilir. Örneğin, birçok kullanıcılara lisanslar atama Azure AD'de bir uzun alma döngüsü Azure AD'den neden olur, ancak Active Directory'deki öznitelik değişiklikleri açmayacaktır.
+> Active Directory veya Azure AD çok sayıda nesne toplu güncelleştirmeler yaparken dikkatli planlama gereklidir. Toplu güncelleştirmeler, delta eşitleme işlemi, nesneleri çok fazla değiştirilmiş olduğundan, içeri aktarılırken uzun sürmesine neden olur. Toplu güncelleştirme eşitleme işlemini etkilemek değil olsa bile uzun içeri aktarmalar oluşabilir. Örneğin, birçok kullanıcılara lisanslar atama Azure AD'de bir uzun alma döngüsü Azure AD'den neden olur, ancak Active Directory'deki öznitelik değişiklikleri açmayacaktır.
 
 ### <a name="synchronization"></a>Eşitleme
 
@@ -147,7 +145,7 @@ Azure AD Connect performansını içeri aktarır ve verir bağlı dizinleri perf
 
 ### <a name="active-directory-factors"></a>Active Directory faktörleri
 
-Alınacak nesne sayısı, daha önce belirtildiği gibi performansı önemli ölçüde etkiler. [Donanım ve Azure AD Connect önkoşulları](how-to-connect-install-prerequisites.md) dağıtımınızın boyutuna göre belirli donanım katmanda özetler. Azure AD Connect açıklandığı gibi belirli topolojileri yalnızca Destek [Azure AD Connect için topolojiler](plan-connect-topologies.md). Hiçbir performans iyileştirmeleri ve desteklenmeyen topolojiler için öneriler bulunmaktadır.
+Daha önce belirtildiği gibi alınacak nesne sayısı performansını önemli ölçüde etkiler. [Donanım ve Azure AD Connect önkoşulları](how-to-connect-install-prerequisites.md) dağıtımınızın boyutuna göre belirli donanım katmanda özetler. Azure AD Connect açıklandığı gibi belirli topolojileri yalnızca Destek [Azure AD Connect için topolojiler](plan-connect-topologies.md). Hiçbir performans iyileştirmeleri ve desteklenmeyen topolojiler için öneriler bulunmaktadır.
 
 Azure AD Connect sunucunuzu içeri aktarmak istediğiniz, Active Directory boyutuna göre donanım gereksinimlerini karşıladığından emin olun. Azure AD Connect sunucusu ve Active Directory etki alanı denetleyicilerinizin arasında hatalı veya yavaş ağ bağlantısı içeri aktarma işleminiz yavaşlatabilir.
 
@@ -183,10 +181,10 @@ Azure AD Connect uygulamanızın performansını iyileştirmek için aşağıdak
 - Kullanım [donanım yapılandırması önerilen](how-to-connect-install-prerequisites.md) Azure AD Connect sunucusu için uygulama boyutuna bağlı.
 - Azure AD Connect büyük ölçekli dağıtımlarda yükseltirken kullanmayı [swing geçişi yöntemi](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-upgrade-previous-version#swing-migration), en az kapalı kalma süresi ve güvenilirlik en iyi olduğundan emin olun. 
 - SQL veritabanı için en iyi performans yazmak için SSD kullanın.
-- Active Directory etki alanı, OU ve öznitelik filtreleme kullanarak Azure AD'de sağlanması gereken nesneleri kapsamına filtreleyin.
+- Active Directory kapsamı yalnızca etki alanı, OU ve öznitelik filtreleme kullanarak Azure AD'de sağlanması gereken nesneleri içerecek şekilde filtreleyin.
 - Varsayılan öznitelik akışı kuralları değiştirmeniz gerekiyorsa, ilk kuralı kopyalamak, sonra kopyayı değiştirmek ve özgün kuralı devre dışı bırak. Tam eşitleme yeniden unutmayın.
 - İlk tam eşitleme çalıştırma profili için yeterli zaman planlayın.
-- Delta eşitleme çaba döngüsü 30 dakika içinde tamamlanır. Delta eşitleme profili 30 dakika içerisinde tamamlanmazsa, varsayılan eşitleme sıklığı, tam delta eşitleme döngüsü içerecek şekilde değiştirin.
+- Delta eşitleme döngüsü 30 dakika içinde tamamlamak çaba harcar. Delta eşitleme profili 30 dakika içerisinde tamamlanmazsa, varsayılan eşitleme sıklığı, tam delta eşitleme döngüsü içerecek şekilde değiştirin.
 - İzleyici, [Azure AD Connect eşitleme durumu](how-to-connect-health-agent-install.md) Azure AD'de.
 
 ## <a name="next-steps"></a>Sonraki adımlar
