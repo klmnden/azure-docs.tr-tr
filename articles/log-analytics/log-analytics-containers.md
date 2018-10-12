@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 04/26/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 80749fedde17a9567aa13e1e72677dfdd027ca36
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: f9876f3e21a7cfccae2fb7f70913269d4ca1fdf4
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48043269"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49115378"
 ---
 # <a name="container-monitoring-solution-in-log-analytics"></a>Log analytics'te kapsayıcı izleme çözümü
 
@@ -36,7 +36,7 @@ Bu makalede ayarlamak ve Docker ve Windows görüntüleme ve yönetme yardımcı
 - Service Fabric
 - Red Hat OpenShift
 
-İlgilendiğiniz iş yüklerinizin performansını izleme Kubernetes ortamlarını (Azure Container Service) üzerinde barındırılan AKS dağıtılmasını bkz [Azure Container Service'i izleme](../monitoring/monitoring-container-health.md).  Kapsayıcı izleme çözümü, platform izlemek için destek içermez.  
+Dağıtılmış iş yüklerinizin performansını izleme ilgileniyorsanız Kubernetes ortamlarını barındırılan Azure Kubernetes Service (AKS), bkz: [İzleyici Azure Kubernetes hizmeti](../monitoring/monitoring-container-health.md). Kapsayıcı izleme çözümü, platform izlemek için destek içermez.  
 
 Aşağıdaki diyagram çeşitli kapsayıcı konağında ve Log Analytics ile aracıları arasındaki ilişkiler gösterilmektedir.
 

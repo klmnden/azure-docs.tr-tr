@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/04/2017
 ms.author: jeedes
-ms.openlocfilehash: 2ca95f6fd94036e86aae2059c05a3fbb0380005e
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 2a8fe814801d00b3f27e52484d742cbe6c7b0770
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39446305"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49114015"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-velpic-saml"></a>Öğretici: Azure Active Directory Velpic SAML ile tümleştirme
 
@@ -37,7 +37,7 @@ Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek ist
 
 Azure AD tümleştirmesi Velpic SAML ile yapılandırmak için aşağıdaki öğeler gerekir:
 
-- Azure AD aboneliğiniz
+- Azure AD aboneliği
 - Bir Velpic SAML çoklu oturum açma etkin aboneliği
 
 > [!NOTE]

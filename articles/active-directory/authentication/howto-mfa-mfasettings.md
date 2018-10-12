@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: 8ba1286f7283a1062b2b94d58c2439e8461c1573
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: a66a7537632aac2190cd39f13665bcd8d4ed6ce7
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48817135"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49115003"
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>Azure multi-Factor Authentication ayarlarını yapılandırma
 
@@ -322,11 +322,11 @@ _Çok faktörlü kimlik doğrulamasını anımsa_ özelliğidir cihazlar ve kull
 
 ### <a name="how-the-feature-works"></a>Özelliği nasıl çalışır
 
-Bir kullanıcı seçtiğinde anımsa multi-Factor Authentication özelliğini tarayıcıda kalıcı bir tanımlama bilgisi ayarlar **X için bir daha sorma gün** oturum açma seçeneği. Tanımlama bilgisi süresi doluncaya kadar tekrar için multi-Factor Authentication, aynı tarayıcıdan kullanıcıdan değil. Kullanıcının aynı cihazda farklı bir tarayıcı açar veya kendi tanımlama bilgilerini temizler, bunlar yeniden doğrulayın istenir. 
+Bir kullanıcı seçtiğinde anımsa multi-Factor Authentication özelliğini tarayıcıda kalıcı bir tanımlama bilgisi ayarlar **X için bir daha sorma gün** oturum açma seçeneği. Tanımlama bilgisi süresi doluncaya kadar tekrar için multi-Factor Authentication, aynı tarayıcıdan kullanıcıdan değil. Kullanıcının aynı cihazda farklı bir tarayıcı açar veya kendi tanımlama bilgilerini temizler, bunlar yeniden doğrulayın istenir.
 
-**X için bir daha sorma gün** seçeneği, tarayıcı olmayan uygulamaları uygulaması modern kimlik doğrulamasını destekleyip desteklemediğini üzerinde göremiyorsanız. Bu uygulamaları kullanabilmek _yenileme belirteçleri_ her saat yeni erişim belirteçleri sağlar. Bir yenileme belirteci doğrulandığında, Azure AD'ye son iki aşamalı doğrulama belirtilen gün sayısı içinde oluştu denetler. 
+**X için bir daha sorma gün** seçeneği, tarayıcı olmayan uygulamaları uygulaması modern kimlik doğrulamasını destekleyip desteklemediğini üzerinde göremiyorsanız. Bu uygulamaları kullanabilmek _yenileme belirteçleri_ her saat yeni erişim belirteçleri sağlar. Bir yenileme belirteci doğrulandığında, Azure AD'ye son iki aşamalı doğrulama belirtilen gün sayısı içinde oluştu denetler.
 
-Bu özellik, normal olarak her zaman sor web apps'te, kimlik doğrulama sayısını azaltır. Bu özellik, normalde her 90 günde ister modern kimlik doğrulaması istemcileri kimlik doğrulamalarını sayısını artırır.
+Bu özellik, normal olarak her zaman sor web apps'te, kimlik doğrulama sayısını azaltır. Bu özellik, normalde her 90 günde ister modern kimlik doğrulaması istemcileri kimlik doğrulamalarını sayısını artırır. Ayrıca, koşullu erişim ilkeleriyle birlikte kullanıldığında doğrulama sayısını artırabilir.
 
 >[!IMPORTANT]
 >**Çok faktörlü kimlik doğrulamasını anımsa** özelliği ile uyumlu değil **Oturumumu açık bırak** kullanıcılar gerçekleştirirken iki aşamalı doğrulama için AD FS ile Azure multi-Factor Authentication AD FS özelliği Kimlik doğrulama sunucusu veya bir üçüncü taraf multi-Factor authentication çözümünü.
