@@ -5,15 +5,15 @@ author: johnkemnetz
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: reference
-ms.date: 8/21/2018
+ms.date: 10/11/2018
 ms.author: johnkem
 ms.component: logs
-ms.openlocfilehash: 06d9fda01a89340eb019b4900c02e321e0b73cf5
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.openlocfilehash: 3b665ed0539a41ffeca87511154f3607a57cff4a
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42818973"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49116202"
 ---
 # <a name="supported-services-schemas-and-categories-for-azure-diagnostic-logs"></a>Desteklenen hizmetler, şemalar ve Azure tanılama günlükleri için kategorileri
 
@@ -53,13 +53,14 @@ Kaynak tanılama günlükleri için şema, kaynak ve günlük kategorisine bağl
 | Uygulama Ağ Geçitleri |[Uygulama ağ geçidi için tanılama günlüğünü](../application-gateway/application-gateway-diagnostics.md) |
 | Azure Otomasyonu |[Azure otomasyonu için log analytics](../automation/automation-manage-send-joblogs-log-analytics.md) |
 | Azure Batch |[Azure Batch tanılama günlüğüne kaydetme](../batch/batch-diagnostics.md) |
+| MySQL için Azure Veritabanı | [Tanılama günlükleri MySQL için Azure veritabanı](../mysql/concepts-server-logs.md#diagnostic-logs) |
+| PostgreSQL için Azure Veritabanı | [Tanılama günlükleri PostgreSQL için Azure veritabanı](../postgresql/concepts-server-logs.md#diagnostic-logs) |
 | Bilişsel Hizmetler | Şema kullanılabilir değil. |
 | Content Delivery Network | [CDN için Azure tanılama günlükleri](../cdn/cdn-azure-diagnostic-logs.md) |
 | CosmosDB | [Azure Cosmos DB günlüğe kaydetme](../cosmos-db/logging.md) |
 | Data Factory | [Azure İzleyicisi'ni kullanarak veri Fabrikalarını izleme](../data-factory/monitor-using-azure-monitor.md) |
 | Data Lake Analytics |[Azure Data Lake Analytics’te tanılama günlüklerine erişim](../data-lake-analytics/data-lake-analytics-diagnostic-logs.md) |
 | Data Lake Store |[Azure Data Lake Store tanılama günlüklerine erişme](../data-lake-store/data-lake-store-diagnostic-logs.md) |
-| PostgreSQL için DB |  Şema kullanılabilir değil. |
 | Event Hubs |[Azure Event Hubs tanılama günlükleri](../event-hubs/event-hubs-diagnostic-logs.md) |
 | Express Route | Şema kullanılabilir değil. |
 | Azure Güvenlik Duvarı | Şema kullanılabilir değil. |
@@ -104,6 +105,7 @@ Kaynak tanılama günlükleri için şema, kaynak ve günlük kategorisine bağl
 |Microsoft.DataLakeAnalytics/accounts|İstekler|Günlükleri iste|
 |Microsoft.DataLakeStore/accounts|Denetim|Denetim Günlükleri|
 |Microsoft.DataLakeStore/accounts|İstekler|Günlükleri iste|
+|Microsoft.DBforMySQL/servers|MySqlSlowLogs|MySQL yavaş sorgu günlükleri|
 |Microsoft.DBforPostgreSQL/servers|PostgreSQLLogs|PostgreSQL sunucusu günlükleri|
 |Microsoft.Devices/ıothubs|Bağlantılar|Bağlantılar|
 |Microsoft.Devices/ıothubs|DeviceTelemetry|Cihaz Telemetrisi|

@@ -12,19 +12,19 @@ ms.topic: conceptual
 ms.date: 07/01/2018
 ms.author: jehollan
 ms.custom: mvc, devcenter
-ms.openlocfilehash: b28e7b158af939defd37734c3ff9fe2309e3ab85
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: d641688b5e2da7bf571b536aa9cc340e9a5b2ace
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44094408"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49115429"
 ---
 # <a name="create-your-first-function-with-java-and-intellij-preview"></a>Intellij (Önizleme) ve Java ile ilk işlevinizi oluşturma
 
 > [!NOTE] 
 > Azure İşlevleri için Java şu anda önizleme aşamasındadır.
 
-Bu makalede nasıl oluşturulacağını gösterir bir [sunucusuz](https://azure.microsoft.com/overview/serverless-computing/) işlev projesi Intellij Idea ve Apache Maven ile test ve kendi bilgisayarınıza IDE'den hata ayıklama ve Azure işlevleri'ne dağıtın. 
+Bu makalede nasıl oluşturulacağını gösterir bir [sunucusuz](https://azure.microsoft.com/solutions/serverless/) işlev projesi Intellij Idea ve Apache Maven ile test ve kendi bilgisayarınıza IDE'den hata ayıklama ve Azure işlevleri'ne dağıtın. 
 
 <!-- TODO ![Access a Hello World function from the command line with cURL](media/functions-create-java-maven/hello-azure.png) -->
 

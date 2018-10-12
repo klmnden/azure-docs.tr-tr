@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/17/2018
 ms.author: cynthn
-ms.openlocfilehash: f79b1d4c1afc4d5a516a46a9bf6cb1790034b279
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 58fd3afa37d965cfbe21dcf23823ddb8425442b9
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45986304"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49116720"
 ---
 # <a name="time-sync-for-linux-vms-in-azure"></a>Azure'da Linux VM'ler için zaman eşitleme
 
@@ -44,7 +44,7 @@ Sanal makine konak etkileşim saati da etkileyebilir. Sırasında [Bakımı koru
 
 Zaman eşitleme çalışmıyor olmadan, sanal makinedeki saatin hataları accumulate. Yalnızca bir VM olduğunda, iş yüküne yüksek oranda doğru zaman tutma gerektirmedikçe etkisini önemli olmayabilir. Ancak çoğu durumda, biz birden fazla varsa, birbirine bağlı işlemler ve süre tüm dağıtım tutarlı olması gerekiyor izlemek için zaman kullanan VM'ler. Zaman VM'ler arasında farklı olduğunda, aşağıdaki etkileri görebilirsiniz:
 
-- Güvenlik protokolleri Kerberos ister veya sertifika bağımlı teknolojisini kullanan sistemler arasında tutarlı olan zaman. 
+- Kimlik doğrulaması başarısız olur. Güvenlik protokolleri Kerberos ister veya sertifika bağımlı teknolojisini kullanan sistemler arasında tutarlı olan zaman.
 - Günlükleri (veya diğer verileri) zamanında kabul etmiyorsanız ne bir sistemde bulmamız çok zordur. Aynı olay, farklı zamanlarda yapmayı bağıntı zor oluştu gibi görünür.
 - Saat kapalıysa, faturalandırma yanlış hesaplanması.
 

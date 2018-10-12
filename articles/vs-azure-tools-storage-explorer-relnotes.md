@@ -14,26 +14,168 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/12/2018
 ms.author: cawa
-ms.openlocfilehash: e3efb19010f36a6ef1fa0a191695a0e2c9f39d19
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: 70e4e131cd83c6e80bc9b61a91cfd98adee0c952
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43190530"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49116955"
 ---
 # <a name="microsoft-azure-storage-explorer-release-notes"></a>Microsoft Azure Depolama Gezgini sürüm notları
 
-Bu makale, Azure Depolama Gezgini 1.4.1 yayın yönelik sürüm notlarına yanı sıra, önceki sürümleri için sürüm notları içerir.
+Bu makale, Azure Depolama Gezgini 1.4.3 yayın yönelik sürüm notlarına yanı sıra, önceki sürümleri için sürüm notları içerir.
 
 [Microsoft Azure Depolama Gezgini](./vs-azure-tools-storage-manage-with-storage-explorer.md) Windows, macOS ve Linux'ta Azure depolama verileriyle kolayca çalışmanızı sağlayan bir tek başına uygulamadır.
 
+## <a name="version-143"></a>Sürüm 1.4.3
+11/10/2018
+
+### <a name="download-azure-storage-explorer-143"></a>Azure Depolama Gezgini 1.4.3 indirin
+- [Windows için Azure Depolama Gezgini 1.4.3](https://go.microsoft.com/fwlink/?LinkId=708343)
+- [Mac için Azure Depolama Gezgini 1.4.3](https://go.microsoft.com/fwlink/?LinkId=708342)
+- [Linux için Azure Depolama Gezgini 1.4.3](https://go.microsoft.com/fwlink/?LinkId=722418)
+
+### <a name="hotfixes"></a>Düzeltmeler
+* Azure kaynak yönetimi API'si sürümü, Azure ABD kamu kullanıcıları engelini kaldırmak için geri alındı. [#696](https://github.com/Microsoft/AzureStorageExplorer/issues/696)
+* Yüklenirken değer değiştiriciler, Depolama Gezgini tarafından kullanılan GPU miktarını azaltmak için CSS animasyonları artık kullanıyor. [#653](https://github.com/Microsoft/AzureStorageExplorer/issues/653)
+
+### <a name="new"></a>Yeni
+* Dış kaynak ekler, örneğin SAS bağlantılarının ve Öykünücüler, önemli ölçüde geliştirilmiştir. Artık şunları yapabilirsiniz:
+   * Görünen ad iliştirmekte olduğunuz kaynak özelleştirin. [#31](https://github.com/Microsoft/AzureStorageExplorer/issues/31)
+   * Farklı bağlantı noktalarını kullanarak birden çok yerel öykünücüleri ekleyin. [#193](https://github.com/Microsoft/AzureStorageExplorer/issues/193)
+   * Bağlı kaynaklar, hızlı erişim ekleyin. [#392](https://github.com/Microsoft/AzureStorageExplorer/issues/392)
+* Depolama Gezgini, artık geçici silme destekler. Şunları yapabilirsiniz:
+   * Depolama hesabınız için Blob kapsayıcıları düğümünü sağ tıklayarak bir geçici silme ilkesi yapılandırın.
+   * Görünüm geçici silinen blobları Blob seçerek Düzenleyicisi'nde "etkin ve Silinen blobları" gezinti çubuğunun yanındaki açılır.
+   * Geçici silinen blobları silmeyi geri alma.
+
+### <a name="fixes"></a>Düzeltmeleri
+* Premium depolama hesabı CORS desteklemediği "CORS ayarlarını yapılandır" eylemi artık Premium depolama hesaplarında kullanılabilir. [#142](https://github.com/Microsoft/AzureStorageExplorer/issues/142)
+* Artık bir SAS bağlı Hizmetleri için paylaşılan erişim imzası özelliği yoktur. [#184](https://github.com/Microsoft/AzureStorageExplorer/issues/184)
+* "Varsayılan erişim katmanını ayarlama" eylemi için hızlı erişim sabitlenmiş kullanılabilir için Blob ve GPV2 depolama hesapları sunulmuştur. [#229](https://github.com/Microsoft/AzureStorageExplorer/issues/229)
+* Bazı durumlarda, Depolama Gezgini, Klasik depolama hesapları gösterecek şekilde başarısız olur. [#323](https://github.com/Microsoft/AzureStorageExplorer/issues/323)
+
+### <a name="known-issues"></a>Bilinen Sorunlar
+* Öykünücüler, Azure Storage öykünücüsü veya Azurite, gibi kullanırken, bunları kendi varsayılan bağlantı noktalarından bağlantıları için dinlemek sahip olması gerekir. Aksi takdirde, Depolama Gezgini bunlara bağlanmak mümkün olmayacaktır.
+* Mac için VS kullanın ve özel bir AAD yapılandırmasına hiç olmadığı kadar oluşturdunuz, oturum açma alınamıyor olabilir. Sorunu çözmek için içeriğini silin. ~ /. IdentityService/AadConfigurations. Bunun yapılması engeli değil, lütfen yorum [bu sorunu](https://github.com/Microsoft/AzureStorageExplorer/issues/97).
+* Azurite henüz tam olarak tüm depolama API'leri uygulamadı. Bu nedenle, beklenmeyen hatalar veya olabilir davranışı Azurite geliştirme depolaması için kullanılırken.
+* Nadiren de olsa, ağaç odağı Hızlı erişimi takılabilir. Odağı Ayır için Tümünü Yenile yapabilirsiniz.
+* Nodejs'de bir hata nedeniyle, OneDrive klasöründen karşıya çalışmaz. Hata düzeltildi, ancak henüz Elektron tümleşik.
+* Azure Stack hedeflerken, ekleme blobları gibi belirli dosyaları karşıya yükleme başarısız olabilir.
+* "İptal" görevde tıklandıktan sonra onu iptal etmek bu görev için biraz zaman alabilir. Açıklanan iptal filtre geçici çözümü kullanıyoruz olmasıdır [burada](https://github.com/Azure/azure-storage-node/issues/317).
+* Yanlış PIN/akıllı kart sertifikası seçeneğini belirlerseniz, depolama Gezgini'nin kararı unutursanız studio'durdurup yeniden başlatmanız gerekir.
+* BLOB'ları (ayrı ayrı veya yeniden adlandırılmış blob kapsayıcının içinde) yeniden adlandırma, anlık görüntüler korumaz. Diğer tüm özellikleri ve meta verileri bloblar, dosyalar ve varlıklar için bir yeniden adlandırma sırasında korunur.
+* Azure Stack, şu anda dosya paylaşımlarını desteklemiyor olsa da, dosya paylaşımları düğümündeki bağlı bir Azure Stack depolama hesaplarının altında görünmeye devam eder.
+* Depolama Gezgini tarafından kullanılan Elektron Kabuk bazı GPU (grafik işlem birimi) Donanım hızlandırmalı sorun vardır. Depolama Gezgini (boş) bir boş ana penceresi görüntüleniyorsa, deneyebileceğiniz Depolama Gezgini komut satırından başlatmak ve ekleyerek GPU hızlandırmasını devre dışı bırakma `--disable-gpu` geçin:
+
+```
+./StorageExplorer.exe --disable-gpu
+```
+
+* Linux kullanıcıları için yüklemeniz gerekecek [.NET Core 2.0](https://docs.microsoft.com/en-us/dotnet/core/linux-prerequisites?tabs=netcore2x).
+* Ubuntu 14.04 kullanıcıları için GCC güncel - bu aşağıdaki komutları çalıştırıp makinenizi yeniden başlatarak yapılabilir emin olmak gerekir:
+
+    ```
+    sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+    sudo apt-get update
+    sudo apt-get upgrade
+    sudo apt-get dist-upgrade
+    ```
+
+* Ubuntu 17.04 kullanıcıları, GConf yüklemeniz gerekir - bu aşağıdaki komutları çalıştırıp makinenizi yeniden başlatarak yapılabilir:
+
+    ```
+    sudo apt-get install libgconf-2-4
+    ```
+
+## <a name="previous-releases"></a>Önceki sürümler
+
+* [Sürüm 1.4.2](#version-142)
+* [Sürüm 1.4.1](#version-141)
+* [Sürüm 1.3.0](#version-130)
+* [Sürümü 1.2.0](#version-120)
+* [Sürüm 1.1.0](#version-110)
+* [Sürüm 1.0.0](#version-100)
+* [Sürüm 0.9.6](#version-096)
+* [Sürüm 0.9.5](#version-095)
+* [0.9.4 ve 0.9.3 sürümü](#version-094-and-093)
+* [Sürüm 0.9.2](#version-092)
+* [0.9.1 ve 0.9.0 sürümü](#version-091-and-090)
+* [Sürüm 0.8.16](#version-0816)
+* [Sürüm 0.8.14](#version-0814)
+* [Sürüm 0.8.13](#version-0813)
+* [Sürüm 0.8.12 ve 0.8.11 ve 0.8.10](#version-0812-and-0811-and-0810)
+* [Sürüm 0.8.9 ve 0.8.8](#version-089-and-088)
+* [Sürüm 0.8.7](#version-087)
+* [Sürüm 0.8.6](#version-086)
+* [Sürüm 0.8.5](#version-085)
+* [Sürüm 0.8.4](#version-084)
+* [Sürüm 0.8.3](#version-083)
+* [Sürüm 0.8.2](#version-082)
+* [Sürüm 0.8.0](#version-080)
+* [Sürüm 0.7.20160509.0](#version-07201605090)
+* [Sürüm 0.7.20160325.0](#version-07201603250)
+* [Sürüm 0.7.20160129.1](#version-07201601291)
+* [Sürüm 0.7.20160105.0](#version-07201601050)
+* [Sürüm 0.7.20151116.0](#version-07201511160)
+
+## <a name="version-142"></a>Sürüm 1.4.2
+24/09/2018
+
+### <a name="hotfixes"></a>Düzeltmeler
+* Azure kaynak yönetimi API sürümü yeni Azure depolama hesabı türleri için destek eklemek için 2018-07-01 güncelleştirin. [#652](https://github.com/Microsoft/AzureStorageExplorer/issues/652)
+
+### <a name="new"></a>Yeni
+* Dış kaynak ekler, örneğin SAS bağlantılarının ve Öykünücüler, önemli ölçüde geliştirilmiştir. Artık şunları yapabilirsiniz:
+   * Görünen ad iliştirmekte olduğunuz kaynak özelleştirin. [#31](https://github.com/Microsoft/AzureStorageExplorer/issues/31)
+   * Farklı bağlantı noktalarını kullanarak birden çok yerel öykünücüleri ekleyin. [#193](https://github.com/Microsoft/AzureStorageExplorer/issues/193)
+   * Bağlı kaynaklar, hızlı erişim ekleyin. [#392](https://github.com/Microsoft/AzureStorageExplorer/issues/392)
+* Depolama Gezgini, artık geçici silme destekler. Şunları yapabilirsiniz:
+   * Depolama hesabınız için Blob kapsayıcıları düğümünü sağ tıklayarak bir geçici silme ilkesi yapılandırın.
+   * Görünüm geçici silinen blobları Blob seçerek Düzenleyicisi'nde "etkin ve Silinen blobları" gezinti çubuğunun yanındaki açılır.
+   * Geçici silinen blobları silmeyi geri alma.
+
+### <a name="fixes"></a>Düzeltmeleri
+* Premium depolama hesabı CORS desteklemediği "CORS ayarlarını yapılandır" eylemi artık Premium depolama hesaplarında kullanılabilir. [#142](https://github.com/Microsoft/AzureStorageExplorer/issues/142)
+* Artık bir SAS bağlı Hizmetleri için paylaşılan erişim imzası özelliği yoktur. [#184](https://github.com/Microsoft/AzureStorageExplorer/issues/184)
+* "Varsayılan erişim katmanını ayarlama" eylemi için hızlı erişim sabitlenmiş kullanılabilir için Blob ve GPV2 depolama hesapları sunulmuştur. [#229](https://github.com/Microsoft/AzureStorageExplorer/issues/229)
+* Bazı durumlarda, Depolama Gezgini, Klasik depolama hesapları gösterecek şekilde başarısız olur. [#323](https://github.com/Microsoft/AzureStorageExplorer/issues/323)
+
+### <a name="known-issues"></a>Bilinen Sorunlar
+* Öykünücüler, Azure Storage öykünücüsü veya Azurite, gibi kullanırken, bunları kendi varsayılan bağlantı noktalarından bağlantıları için dinlemek sahip olması gerekir. Aksi takdirde, Depolama Gezgini bunlara bağlanmak mümkün olmayacaktır.
+* Mac için VS kullanın ve özel bir AAD yapılandırmasına hiç olmadığı kadar oluşturdunuz, oturum açma alınamıyor olabilir. Sorunu çözmek için içeriğini silin. ~ /. IdentityService/AadConfigurations. Bunun yapılması engeli değil, lütfen yorum [bu sorunu](https://github.com/Microsoft/AzureStorageExplorer/issues/97).
+* Azurite henüz tam olarak tüm depolama API'leri uygulamadı. Bu nedenle, beklenmeyen hatalar veya olabilir davranışı Azurite geliştirme depolaması için kullanılırken.
+* Nadiren de olsa, ağaç odağı Hızlı erişimi takılabilir. Odağı Ayır için Tümünü Yenile yapabilirsiniz.
+* Nodejs'de bir hata nedeniyle, OneDrive klasöründen karşıya çalışmaz. Hata düzeltildi, ancak henüz Elektron tümleşik.
+* Azure Stack hedeflerken, ekleme blobları gibi belirli dosyaları karşıya yükleme başarısız olabilir.
+* "İptal" görevde tıklandıktan sonra onu iptal etmek bu görev için biraz zaman alabilir. Açıklanan iptal filtre geçici çözümü kullanıyoruz olmasıdır [burada](https://github.com/Azure/azure-storage-node/issues/317).
+* Yanlış PIN/akıllı kart sertifikası seçeneğini belirlerseniz, depolama Gezgini'nin kararı unutursanız studio'durdurup yeniden başlatmanız gerekir.
+* BLOB'ları (ayrı ayrı veya yeniden adlandırılmış blob kapsayıcının içinde) yeniden adlandırma, anlık görüntüler korumaz. Diğer tüm özellikleri ve meta verileri bloblar, dosyalar ve varlıklar için bir yeniden adlandırma sırasında korunur.
+* Azure Stack, şu anda dosya paylaşımlarını desteklemiyor olsa da, dosya paylaşımları düğümündeki bağlı bir Azure Stack depolama hesaplarının altında görünmeye devam eder.
+* Depolama Gezgini tarafından kullanılan Elektron Kabuk bazı GPU (grafik işlem birimi) Donanım hızlandırmalı sorun vardır. Depolama Gezgini (boş) bir boş ana penceresi görüntüleniyorsa, deneyebileceğiniz Depolama Gezgini komut satırından başlatmak ve ekleyerek GPU hızlandırmasını devre dışı bırakma `--disable-gpu` geçin:
+
+```
+./StorageExplorer.exe --disable-gpu
+```
+
+* Linux kullanıcıları için yüklemeniz gerekecek [.NET Core 2.0](https://docs.microsoft.com/en-us/dotnet/core/linux-prerequisites?tabs=netcore2x).
+* Ubuntu 14.04 kullanıcıları için GCC güncel - bu aşağıdaki komutları çalıştırıp makinenizi yeniden başlatarak yapılabilir emin olmak gerekir:
+
+    ```
+    sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+    sudo apt-get update
+    sudo apt-get upgrade
+    sudo apt-get dist-upgrade
+    ```
+
+* Ubuntu 17.04 kullanıcıları, GConf yüklemeniz gerekir - bu aşağıdaki komutları çalıştırıp makinenizi yeniden başlatarak yapılabilir:
+
+    ```
+    sudo apt-get install libgconf-2-4
+    ```
+
 ## <a name="version-141"></a>Sürüm 1.4.1
 08/28/2018
-
-### <a name="download-azure-storage-explorer-141"></a>Azure Depolama Gezgini 1.4.1 indirin
-- [Windows için Azure Depolama Gezgini 1.4.1](https://go.microsoft.com/fwlink/?LinkId=708343)
-- [Mac için Azure Depolama Gezgini 1.4.1](https://go.microsoft.com/fwlink/?LinkId=708342)
-- [Linux için Azure Depolama Gezgini 1.4.1](https://go.microsoft.com/fwlink/?LinkId=722418)
 
 ### <a name="hotfixes"></a>Düzeltmeler
 * İlk başlatma sırasında Depolama Gezgini hassas verileri şifrelemek için kullanılan anahtar oluşturamıyor. Bu hızlı erişim kullanılırken sorunlara neden ve kaynaklar ekleme. [#535](https://github.com/Microsoft/AzureStorageExplorer/issues/535)
@@ -91,35 +233,6 @@ Bu makale, Azure Depolama Gezgini 1.4.1 yayın yönelik sürüm notlarına yanı
     ```
     sudo apt-get install libgconf-2-4
     ```
-
-## <a name="previous-releases"></a>Önceki sürümler
-
-* [Sürüm 1.3.0](#version-130)
-* [Sürümü 1.2.0](#version-120)
-* [Sürüm 1.1.0](#version-110)
-* [Sürüm 1.0.0](#version-100)
-* [Sürüm 0.9.6](#version-096)
-* [Sürüm 0.9.5](#version-095)
-* [0.9.4 ve 0.9.3 sürümü](#version-094-and-093)
-* [Sürüm 0.9.2](#version-092)
-* [0.9.1 ve 0.9.0 sürümü](#version-091-and-090)
-* [Sürüm 0.8.16](#version-0816)
-* [Sürüm 0.8.14](#version-0814)
-* [Sürüm 0.8.13](#version-0813)
-* [Sürüm 0.8.12 ve 0.8.11 ve 0.8.10](#version-0812-and-0811-and-0810)
-* [Sürüm 0.8.9 ve 0.8.8](#version-089-and-088)
-* [Sürüm 0.8.7](#version-087)
-* [Sürüm 0.8.6](#version-086)
-* [Sürüm 0.8.5](#version-085)
-* [Sürüm 0.8.4](#version-084)
-* [Sürüm 0.8.3](#version-083)
-* [Sürüm 0.8.2](#version-082)
-* [Sürüm 0.8.0](#version-080)
-* [Sürüm 0.7.20160509.0](#version-07201605090)
-* [Sürüm 0.7.20160325.0](#version-07201603250)
-* [Sürüm 0.7.20160129.1](#version-07201601291)
-* [Sürüm 0.7.20160105.0](#version-07201601050)
-* [Sürüm 0.7.20151116.0](#version-07201511160)
 
 ## <a name="version-130"></a>Sürüm 1.3.0
 07/09/2018

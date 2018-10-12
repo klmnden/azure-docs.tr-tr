@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 01/23/2018
 ms.author: stevelas
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: be8adf9779c2d168c0ac7a0ed7dbc3e85935df68
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: c0c2323d1864be24edbf6005d634ae1d08bba8ea
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44293737"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49116615"
 ---
 # <a name="authenticate-with-a-private-docker-container-registry"></a>Özel Docker kapsayıcı kayıt defteri ile kimlik doğrulaması
 
@@ -48,7 +48,7 @@ Hizmet sorumluları gözetimsiz bağlantı bir kayıt defterine hem İtme hem de
 
   * *Okuyucu*: Kubernetes, DC/OS ve Docker Swarm dahil düzenleme sistemleri için bir kayıt defterinden kapsayıcı dağıtımı. Aynı zamanda kapsayıcı kayıt defterleri için ilgili Azure Hizmetleri gibi çekebilirsiniz [AKS](../aks/index.yml), [App Service](../app-service/index.yml), [Batch](../batch/index.yml), [Service Fabric](/azure/service-fabric/), ve diğerleri.
 
-  * *Katkıda bulunan*: gibi Azure DevOps veya kapsayıcı görüntülerinizi oluşturmak ve bunları bir kayıt defterine iletin, Jenkins sürekli tümleştirme ve dağıtım çözümleri.
+  * *Katkıda bulunan*: gibi Azure işlem hatları veya kapsayıcı görüntülerinizi oluşturmak ve bunları bir kayıt defterine iletin, Jenkins sürekli tümleştirme ve dağıtım çözümleri.
 
 > [!TIP]
 > Çalıştırarak bir hizmet sorumlusu parolası yeniden oluşturabilirsiniz [az ad sp reset-credentials](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-reset-credentials) komutu.
