@@ -22,6 +22,10 @@ items:
     href: tutorial-deploy-models-with-aml.md
   - name: Otomatik ML modellerini eğitme
     href: tutorial-auto-train-models.md
+- name: Örnekler
+  items:
+  - name: Jupyter notebook’lar (GitHub)
+    href: http://aka.ms/aml-notebooks
 - name: Kavramlar
   items:
   - name: Bu hizmet nasıl çalışır?
@@ -115,6 +119,8 @@ items:
   items:
   - name: Machine learning SDK
     href: http://aka.ms/aml-sdk
+  - name: Veri hazırlığı SDK’sı
+    href: http://aka.ms/data-prep-sdk
   - name: Machine learning CLI
     href: reference-azure-machine-learning-cli.md
 - name: Kaynaklar
@@ -333,9 +339,9 @@ items:
       href: ../desktop-workbench/frequently-asked-questions.md
     - name: Eski Sorunlar
       href: ../desktop-workbench/known-issues-and-troubleshooting-guide.md
-ms.openlocfilehash: f5d778c032383f0573ce7e60f6bf0ab46b0126b3
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 6e0224a614bdf457e210b00f186bd531b5053bf4
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49079523"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49113690"

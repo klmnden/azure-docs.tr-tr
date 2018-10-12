@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 10/16/2017
 ms.reviewer: ramach
 ms.author: mbullwin
-ms.openlocfilehash: 2da281f52a85992c6fade360c94fbf473c38dc20
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: eb2ec0c0b77e71a54d1e7f852a22d82203abf7b6
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39424033"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49091989"
 ---
 # <a name="enable-application-insights-profiler-for-azure-vms-service-fabric-and-azure-cloud-services"></a>Azure Vm'leri, Service Fabric ve Azure Cloud Services için Application Insights Profiler ' ı etkinleştir
 
@@ -48,7 +48,7 @@ Profiler tam olarak etkinleştirmek için üç konumda yapılandırmasını değ
 
    ![İzleme anahtarını konumu](./media/enable-profiler-compute/CopyAIKey.png)
 
-1. Profiler için Application Insights örneği ayarlama işlemini sonlandırmak için [etkinleştirmek Profiler. içinde açıklanan yordamı tamamlayın. Adımları app services kaynağa özgü olduğundan web uygulamalarını ilişkilendirerek gerekmez. Profiler içinde etkin olduğundan emin olun **yapılandırma Profiler** bölmesi.
+1. Profiler için Application Insights örneği ayarlama işlemini sonlandırmak için açıklanan yordamı tamamlayın [Profiler etkinleştirme](https://docs.microsoft.com/azure/application-insights/app-insights-profiler). Adımları app services kaynağa özgü olduğundan web uygulamalarını ilişkilendirerek gerekmez. Profiler içinde etkin olduğundan emin olun **yapılandırma Profiler** bölmesi.
 
 
 ## <a name="set-up-the-application-source-code"></a>Uygulama kaynak kodunu ayarlayın
@@ -163,7 +163,7 @@ Ortamınızı ayarlamak için aşağıdakileri yapın:
 
 ### <a name="azure-cloud-services"></a>Azure Cloud Services
 
-1. Kullandığınızdan emin olmak için [.NET Framework 4.6.1](https://docs.microsoft.com/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed) veya daha sonra onaylamak yeterli *ServiceConfiguration.\*. cscfg* dosyalarınız bir `osFamily` değeri "5" veya sonraki sürümüne yükseltilmesi.
+1. Kullandığınızdan emin olmak için [.NET Framework 4.6.1](https://docs.microsoft.com/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed) veya daha sonra onaylamak yeterli *ServiceConfiguration.\*.cscfg* dosyalarınız bir `osFamily` değeri "5" veya sonraki sürümüne yükseltilmesi.
 
 1. Bulun [Azure tanılama](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) *diagnostics.wadcfgx* burada gösterildiği gibi uygulama rolü için dosya:  
 
@@ -191,7 +191,7 @@ Ortamınızı ayarlamak için aşağıdakileri yapın:
 >  * Tarafından kullanılan anahtarı `ApplicationInsights` havuz.  
 >  * Tarafından kullanılan anahtarı `ApplicationInsightsProfiler` havuz.  
 >
-> Tarafından kullanılan gerçek araçları anahtar değerini bulabilirsiniz `ApplicationInsights` havuz *ServiceConfiguration.\*. cscfg* dosyaları.  
+> Tarafından kullanılan gerçek araçları anahtar değerini bulabilirsiniz `ApplicationInsights` havuz *ServiceConfiguration.\*.cscfg* dosyaları.  
 > Visual Studio 15.5 Azure SDK'sı sürüm, uygulama tarafından kullanılan izleme anahtarı sonra ve `ApplicationInsightsProfiler` birbiriyle aynı havuz gerekir.
 
 

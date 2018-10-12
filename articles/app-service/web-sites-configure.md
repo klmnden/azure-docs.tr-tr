@@ -1,6 +1,6 @@
 ---
 title: Azure Uygulama Hizmeti’nde Web uygulamalarını yapılandırma
-description: Azure App Services web uygulamasını yapılandırma
+description: Azure uygulama Hizmetleri'nde bir web uygulamasını yapılandırma
 services: app-service\web
 documentationcenter: ''
 author: cephalin
@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: cephalin
-ms.openlocfilehash: 84bd2019e9586fa008560dba07119323ecb7f02e
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: cf3a6fe24082a10db6a5b1267b70435d9e36b720
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36293725"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49115531"
 ---
 # <a name="configure-web-apps-in-azure-app-service"></a>Azure Uygulama Hizmeti’nde Web uygulamalarını yapılandırma
 
-Bu konuda, bir web uygulamasını kullanarak yapılandırmak açıklanmaktadır [Azure Portal].
+Bu konu başlığında, bir web uygulamasını kullanarak yapılandırmak açıklanmaktadır [Azure Portal].
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
@@ -33,56 +33,57 @@ Bu konuda, bir web uygulamasını kullanarak yapılandırmak açıklanmaktadır 
 
 ![Uygulama Ayarları][configure01]
 
-**Uygulama ayarları** dikey birkaç kategoriler altında gruplanmış ayarlara sahip.
+**Uygulama ayarları** çeşitli kategoriler altında gruplandırılmış ayarları dikey penceresinde bulunur.
 
 ### <a name="general-settings"></a>Genel ayarlar
-**Framework sürümlerini**. Uygulamanız herhangi bu çerçeveleri kullanıyorsa bu seçenekleri ayarlayın: 
+**Framework sürümlerini**. Uygulamanız herhangi bu çerçeveler kullanıyorsa, bu seçenekleri ayarlayın: 
 
 * **.NET framework**: .NET framework sürümünü ayarlayın. 
 * **PHP**: PHP sürümünü ayarlayın veya **OFF** PHP devre dışı bırakmak için. 
-* **Java**: Java sürümü seçin veya **OFF** Java devre dışı bırakmak için. Kullanım **Web kapsayıcısına** Tomcat ve Jetty sürümleri arasında seçmek için seçeneği.
-* **Python**: Python sürümü seçin veya **OFF** Python devre dışı bırakmak için.
+* **Java**: Java sürümü seçin veya **OFF** Java devre dışı bırakmak için. Kullanım **Web kapsayıcısını** Tomcat ve Jetty sürümleri arasında seçmek için seçeneği.
+* **Python**: Python sürümünü seçin veya **OFF** Python devre dışı bırakmak için.
 
-Teknik nedenlerle .NET, PHP ve Python seçenekleri uygulamanız için Java'yı etkinleştirme devre dışı bırakır.
+Teknik nedenlerle, uygulamanız için Java'yı etkinleştirme .NET, PHP ve Python seçenekleri devre dışı bırakır.
 
 <a name="platform"></a>
-**Platform**. Web uygulamanızı 32 bit veya 64-bit bir ortamda çalışır olup olmadığını belirler. 64 bit ortamı temel veya standart katmanı gerektirir. Ücretsiz ve paylaşılan katmanı her zaman bir 32 bit ortamda çalıştırın.
+**Platform**. 32 bit veya 64-bit bir ortamda web uygulamanızı çalıştıran olup olmadığını belirler. 64-bit ortam, temel veya standart katman gerektirir. Ücretsiz ve paylaşılan katmanın her zaman bir 32-bit ortamında çalıştırın.
 
 [!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
 
-**Web yuvaları**. Ayarlama **ON** WebSocket Protokolü; etkinleştirmek için web uygulamanızın kullanıyorsa, örneğin, [ASP.NET SignalR] veya [Socket.IO](https://socket.io/).
+**Web yuvaları**. Ayarlama **ON** WebSocket Protokolü; etkinleştirmek için örneğin, web uygulamanızın kullandığı [ASP.NET SignalR] veya [socket.io](https://socket.io/).
 
 <a name="alwayson"></a>
-**Always On**. Varsayılan olarak, belirli bir süre için boşta olmaları durumunda web uygulamaları kaldırılır. Bu kaynakların tasarrufu sistem sağlar. Temel veya standart modunda etkinleştirebilirsiniz **her zaman açık** uygulama korumak için her zaman yüklenir. Sürekli Webjob'lar uygulamanızın çalıştırdığı veya çalıştığı Web işleri tetiklenen CRON ifade kullanılarak, etkinleştirmeniz gerekir **her zaman açık**, ya da web işleri güvenilir bir şekilde çalışmayabilir.
+**Her zaman açık**. Belirli bir süre için boşta olmaları durumunda varsayılan olarak, web uygulamaları kaldırılır. Bu kaynak tasarrufu yapmak sistemi sağlar. Temel veya standart modunda etkinleştirebilirsiniz **Always On** uygulama korumak için her zaman yüklenir. Sürekli WebJobs uygulamanız çalışırken veya çalıştırmaları WebJobs tetiklenen bir CRON ifadesi kullanarak, etkinleştirmeniz gereken **Always On**, ya da web işleri güvenilir bir şekilde çalışmayabilir.
 
-**Yönetilen ardışık düzen sürüm**. IIS ayarlar [ardışık düzen modu]. IIS daha eski bir sürümü gerektiren eski bir uygulama yoksa bu kümesi tümleşik (varsayılan) bırakın.
+**Yönetilen ardışık düzen sürümü**. IIS ayarlar [ardışık düzen modu]. Bu IIS daha eski bir sürümünü gerektiren eski bir uygulama olmadığı sürece tümleşik (varsayılan) bırakın.
 
 **HTTP sürümü**. Kümesine **2.0** desteğini etkinleştirmek için [HTTPS/2](https://wikipedia.org/wiki/HTTP/2) protokolü. 
 
 > [!NOTE]
-> Çoğu modern tarayıcılar HTTP/2 protokol TLS şifrelenmemiş trafik HTTP/1.1 kullanmaya devam ederken yalnızca desteklemez. Bu istemci emin olmak için tarayıcılar HTTP/2 ile uygulamanızı ya da bağlanmak [bir uygulama hizmet sertifikası satın](web-sites-purchase-ssl-web-site.md) uygulamanızın özel etki alanı veya [bir üçüncü taraf sertifika bağlama](app-service-web-tutorial-custom-ssl.md).
+> Çoğu modern tarayıcılar HTTP/2 protokolüne TLS üzerinden trafiği şifrelenmemiş HTTP/1.1 kullanmaya devam ederken yalnızca destekler. İstemci emin olmak için tarayıcılar HTTP/2 ile uygulamanıza ya da bağlama [bir App Service sertifikası satın alma](web-sites-purchase-ssl-web-site.md) uygulamanızın özel etki alanı veya [bir üçüncü taraf sertifika bağlama](app-service-web-tutorial-custom-ssl.md).
 
-**ARR benzeşim**. Bir uygulamada, giden birden çok VM örnekleri, ARR benzeşim tanımlama bilgilerini istemci oturumu için aynı örneğini yönlendirilir garanti ölçeklendirilir. Durum bilgisiz uygulamaların performansını artırmak için bu seçeneği belirlemek **devre dışı**.   
+**ARR benzeşimi**. Bir uygulamada, out birden çok sanal makine örneklerine, ARR benzeşimi tanımlama bilgilerini istemci oturumunun ömrü aynı örneğine yönlendirilir garanti ölçeklendirilir. Durum bilgisiz uygulamaların performansını artırmak için bu seçeneği belirlemek **kapalı**.   
 
-**Otomatik Takas**. Otomatik Takas için bir dağıtım yuvası etkinleştirirseniz, bu yuva için bir güncelleştirme bastığınızda uygulama hizmeti otomatik olarak web uygulaması üretime değiştireceksiniz. Daha fazla bilgi için bkz: [hazırlama yuvası için Azure App Service'te web uygulamalarını dağıtma](web-sites-staged-publishing.md).
+**Otomatik Takas**. Otomatik Takas için bir dağıtım yuvası etkinleştirirseniz, bu yuva için bir güncelleştirme gönderdiğinizde App Service otomatik olarak web uygulamasını üretim ortamında değiştireceksiniz. Daha fazla bilgi için [hazırlama yuvaları için Azure App Service'te web uygulamalarını dağıtma](web-sites-staged-publishing.md).
 
 ### <a name="debugging"></a>Hata ayıklama
-**Uzaktan hata ayıklama**. Uzaktan hata ayıklamayı etkinleştirir. Etkinleştirildiğinde, web uygulamanızı doğrudan bağlanmak için Visual Studio uzaktan hata ayıklayıcı kullanabilirsiniz. Uzaktan hata ayıklama 48 saat boyunca etkin kalır. 
+**Uzaktan hata ayıklama**. Uzaktan hata ayıklamasını etkinleştirir. Etkin olduğunda, web uygulamanızı doğrudan bağlanmak için Visual Studio uzaktan hata ayıklayıcıyı kullanabilirsiniz. Uzaktan hata ayıklama 48 saat boyunca etkin kalır. 
 
 ### <a name="app-settings"></a>Uygulama ayarları
-Bu bölüm, web uygulamanızın başlangıç yükleyecek ad/değer çiftleri içerir. 
+Bu bölümde, web uygulamanızın başlangıç yükleyecek ad/değer çiftleri içerir. 
 
-* .NET yapılandırmanızı eklenen .NET uygulamaları için bu ayarları `AppSettings` çalışma zamanında mevcut ayarları geçersiz kılar. 
-* PHP, Python, Java ve düğüm uygulamalar, bu ayarlar çalışma zamanında ortam değişkenleri olarak erişebilir. Her uygulama ayarı için iki ortam değişkenin oluşturulur; bir uygulama ayarı giriş ve APPSETTING_ önekine sahip başka bir tarafından belirtilen ada sahip. Her ikisi de aynı değeri içerir.
+* .NET uygulamaları için .NET yapılandırmanızın bu ayarları eklenmiş `AppSettings` çalışma zamanında mevcut ayarları geçersiz kılar. 
+* App Service Linux veya, kapsayıcılar için Web App için sizin adınıza json anahtar yapısı iç içe ister `ApplicationInsights:InstrumentationKey` sahip olması gerekir `ApplicationInsights__InstrumentationKey` anahtar adı. Bu nedenle herhangi bir fark `:` tarafından değiştirilmelidir `__` (yani çift alt çizgi).
+* PHP, Python, Java ve Node uygulamaları, bu ayarlar çalışma zamanında ortam değişkenleri olarak erişebilir. Her uygulama ayarı için iki ortam değişkenlerini oluşturulur; bir uygulama ayarı girişi ve başka bir önek APPSETTING_ tarafından belirtilen ada sahip. Her ikisi de aynı değeri içerecek.
 
-Uygulama ayarları depolandığında her zaman şifrelenir (şifrelenmiş çalışmıyorken-).
+Uygulama ayarları depolandığında her zaman şifrelenir (şifrelenmiş bekleyen).
 
 ### <a name="connection-strings"></a>Bağlantı dizeleri
-Bağlantılı kaynaklar için bağlantı dizelerini. 
+Bağlı kaynaklar için bağlantı dizelerini. 
 
-.NET uygulamaları için bu bağlantı dizeleri .NET yapılandırmanızı eklenmiş `connectionStrings` çalışma zamanında girdilerinin burada anahtar eşittir bağlantılı veritabanı adı geçersiz kılma ayarları. 
+.NET uygulamaları için bu bağlantı dizeleri .NET yapılandırmanızın eklenmiş `connectionStrings` çalışma zamanında, girişlerin nereye anahtar eşittir bağlantılı veritabanı adı ayarları. 
 
-PHP, Python, Java ve düğüm uygulamalar için bu ayarlar bağlantı türü ile önek zamanında ortam değişkenleri olarak kullanılabilir. Ortam değişkeni önekleri aşağıdaki gibidir: 
+PHP, Python, Java ve Node uygulamaları için bu ayarlar bağlantı türü ile önek zamanında ortam değişkenleri olarak kullanılabilir. Ortam değişkeni önekleri aşağıdaki gibidir: 
 
 * SQL Server: `SQLCONNSTR_`
 * MySQL: `MYSQLCONNSTR_`
@@ -91,75 +92,75 @@ PHP, Python, Java ve düğüm uygulamalar için bu ayarlar bağlantı türü ile
 
 Örneğin, bir MySql bağlantı dizesi olarak adlandırılmışsa `connectionstring1`, ortam değişkeni erişilebilecek `MYSQLCONNSTR_connectionString1`.
 
-Bağlantı dizeleri depolandığında her zaman şifrelenir (şifrelenmiş çalışmıyorken-).
+Bağlantı dizeleri depolandığında her zaman şifrelenir (şifrelenmiş bekleyen).
 
 ### <a name="default-documents"></a>Varsayılan belgeler
-Varsayılan belge bir Web sitesinin kök URL'sindeki görüntülenen bir web sayfasıdır.  Listedeki ilk eşleşen dosya kullanılır. 
+Varsayılan belge kök URL'si için bir Web sitesi görüntülenir bir web sayfasıdır.  Listedeki ilk eşleşen dosya kullanılır. 
 
-Web uygulamaları rota URL'sine bağlı yerine, bu nedenle bir varsayılan belge statik içerik vardır; bu durumda hizmet olan modülleri kullanabilir.    
+Web uygulamaları, URL yolu tabanlı yerine, bu nedenle hiçbir varsayılan belge statik içerik sunan bu durumda var olan modülleri kullanabilir.    
 
 ### <a name="handler-mappings"></a>İşleyici eşlemeleri
-Bu alan, belirli dosya uzantıları için istekleri işlemek üzere özel betik işleyicileri eklemek için kullanın. 
+Belirli dosya uzantıları için istekleri işleyecek bir özel betik işleyicileri eklemek için bu alanı kullanın. 
 
-* **Uzantı**. , *.Php veya handler.fcgi gibi işlenecek dosya uzantısı. 
-* **Betik işleyici yolu**. Betik işleyici mutlak yolu. Dosya uzantısı ile eşleşen dosyaları isteklerine betik işleyici tarafından işlenir. Yolun kullanmak `D:\home\site\wwwroot` , uygulamanızın kök dizinine başvurmak için.
+* **Uzantı**. *.Php veya handler.fcgi gibi ele alınması için dosya uzantısı. 
+* **Betik işleyici yolu**. Betik işleyici mutlak yolu. Dosya uzantısı ile eşleşen dosyaları isteklerine betik işleyici tarafından işlenir. Yolu kullanmak `D:\home\site\wwwroot` uygulamanızın kök dizini belirtmek için.
 * **Ek bağımsız değişkenler**. Betik işleyici için isteğe bağlı komut satırı bağımsız değişkenleri 
 
 ### <a name="virtual-applications-and-directories"></a>Sanal uygulamalar ve dizinler
-Sanal uygulamaları ve dizinleri yapılandırmak için her sanal dizini ve Web sitesi köküne ilişkin karşılık gelen fiziksel yolu belirtin. İsteğe bağlı olarak seçebileceğiniz **uygulama** bir sanal dizin bir uygulama olarak işaretlemek için onay kutusunu.
+Sanal uygulamaları ve dizinleri yapılandırmak için her bir sanal dizin ve Web sitesi köküne karşılık gelen fiziksel yolu belirtin. İsteğe bağlı olarak seçebileceğiniz **uygulama** bir sanal dizin bir uygulama olarak işaretlemek için onay kutusu.
 
 ## <a name="enabling-diagnostic-logs"></a>Tanılama günlüklerini etkinleştirme
 Tanılama günlüklerini etkinleştirmek için:
 
-1. Web uygulamanız için dikey penceresinde tıklayın **tüm ayarları**.
-2. Tıklatın **tanılama günlükleri**. 
+1. Web uygulamanızın dikey penceresinde **tüm ayarlar**.
+2. **Tanılama günlükleri**’ne tıklayın. 
 
-Bir web uygulamasından tanılama günlüklerini yazma seçenekleri, günlük kaydı destekler: 
+Günlük destekleyen bir web uygulamasından tanılama günlükleri yazmak için seçenekleri: 
 
-* **Uygulama günlüğü**. Uygulama günlüklerini dosya sistemine yazar. Lasts 12 saatlik bir dönem için günlüğe kaydetme. 
+* **Uygulama günlüğü**. Uygulama günlükleri, dosya sistemine yazma. 12 saat boyunca bağlanabilmesini günlüğe kaydetme. 
 
-**Düzey**. Uygulama günlüğü etkinleştirildiğinde, bu seçenek olacaktır bilgi miktarını (hata, uyarı, bilgi veya ayrıntılı) kaydedilen belirtir.
+**Düzey**. Uygulama günlüğü etkinleştirildiğinde, bu seçenek olacak bilgi miktarını (hata, uyarı, bilgi veya ayrıntılı) kaydedilen belirtir.
 
-**Web sunucusu günlüğü**. Günlükleri, W3C Genişletilmiş günlük dosyası biçiminde kaydedilir. 
+**Web sunucusu günlüğü**. Günlükleri W3C Genişletilmiş günlük dosyası biçiminde kaydedilir. 
 
-**Ayrıntılı hata iletileri**. .Htm dosyaları kaydeder ayrıntılı hata iletileri. Dosyalar /LogFiles/DetailedErrors altında kaydedilir. 
+**Ayrıntılı hata iletileri**. .Htm dosyaları kaydeder ayrıntılı hata iletileri. Dosyaların altında /LogFiles/DetailedErrors kaydedilir. 
 
-**Başarısız istek izleme**. Günlükleri XML dosyaları için istekleri başarısız oldu. Dosyalar/LogFiles/altında W3SVC kaydedilir*xxx*, burada xxx benzersiz bir tanımlayıcıdır. Bu klasör bir XSL dosyası ve bir veya daha fazla XML dosyalarını içerir. Biçimlendirme ve XML dosyalarının içeriğini filtreleme için işlevsellik sağlar çünkü XSL dosyasını karşıdan yüklemek emin olun.
+**Başarısız istek izlemeyi**. Günlükleri, XML dosyaları için istekleri başarısız oldu. Dosyalar/LogFiles/altında W3SVC kaydedilir*xxx*, burada xxx benzersiz bir tanımlayıcıdır. Bu klasör, XSL dosyası ve bir veya daha fazla XML dosyalarını içerir. Biçimlendirme ve XML dosyalarının içeriğini filtreleme için işlevsellik sağlar çünkü XSL dosyası indirme girişiminde emin olun.
 
 Günlük dosyalarını görüntülemek için FTP kimlik bilgileri, şu şekilde oluşturmanız gerekir:
 
-1. Web uygulamanız için dikey penceresinde tıklayın **tüm ayarları**.
-2. Tıklatın **dağıtım kimlik bilgileri**.
+1. Web uygulamanızın dikey penceresinde **tüm ayarlar**.
+2. Tıklayın **dağıtım kimlik bilgileri**.
 3. Bir kullanıcı adı ve parola girin.
 4. **Kaydet**’e tıklayın.
 
 ![Dağıtım kimlik bilgilerini ayarlama][configure03]
 
-Tam FTP kullanıcı adı "app\username" olduğu *uygulama* web uygulamanızın adıdır. Kullanıcı adı web uygulaması dikey penceresinde altında listelenen **Essentials**.
+Tam FTP kullanıcı adı "app\username" olduğu *uygulama* web uygulamanızın adıdır. Kullanıcı adı altında web uygulaması dikey penceresinde listelenen **Essentials**.
 
-![FTP dağıtımı kimlik bilgileri][configure02]
+![FTP dağıtım kimlik bilgileri][configure02]
 
 ## <a name="other-configuration-tasks"></a>Diğer yapılandırma görevleri
 ### <a name="ssl"></a>SSL
-Temel veya standart modunda özel bir etki alanı için SSL sertifikalarını karşıya yükleyebilirsiniz. Daha fazla bilgi için bkz: [bir web uygulaması için HTTPS'yi etkinleştir](app-service-web-tutorial-custom-ssl.md). 
+Temel veya standart modunda özel etki alanı için SSL sertifikaları karşıya yükleyebilirsiniz. Daha fazla bilgi için [bir web uygulaması için HTTPS'yi etkinleştirme](app-service-web-tutorial-custom-ssl.md). 
 
-Karşıya yüklenen sertifikalarınızı görüntülemek için **tüm ayarları** > **özel etki alanları ve SSL**.
+Karşıya yüklenen sertifikaların görüntülemek için tıklayın **tüm ayarlar** > **özel etki alanları ve SSL**.
 
 ### <a name="domain-names"></a>Etki alanı adları
-Web uygulamanız için özel etki alanı adlarını ekleyin. Daha fazla bilgi için bkz: [Azure App Service'te bir web uygulaması için bir özel etki alanı adı yapılandırma](app-service-web-tutorial-custom-domain.md).
+Web uygulamanız için özel etki alanı adlarını ekleyin. Daha fazla bilgi için [Azure App Service'te bir web uygulaması için özel etki alanı adı yapılandırma](app-service-web-tutorial-custom-domain.md).
 
-Etki alanı adlarını görüntülemek için **tüm ayarları** > **özel etki alanları ve SSL**.
+Etki alanı adlarınızı görüntülemek için tıklayın **tüm ayarlar** > **özel etki alanları ve SSL**.
 
 ### <a name="deployments"></a>Dağıtımlar
 * Sürekli dağıtım ayarlayın. Bkz: [kullanarak Azure App Service'te Web uygulamalarını dağıtmak için Git](app-service-deploy-local-git.md).
-* Dağıtım yuvaları. Bkz: [Azure App Service'te Web uygulamalarını için hazırlama ortamlarını dağıtma].
+* Dağıtım yuvaları. Bkz: [Azure App Service'te Web uygulamaları için hazırlama ortamlarını dağıtma].
 
-Dağıtım yuvaları görüntülemek için **tüm ayarları** > **dağıtım yuvası**.
+Dağıtım yuvaları görüntülemek için tıklayın **tüm ayarlar** > **dağıtım yuvalarını**.
 
 ### <a name="monitoring"></a>İzleme
-Temel veya standart modunda en çok üç coğrafi olarak dağıtılmış konumlardan HTTP veya HTTPS uç kullanılabilirliğini test edebilirsiniz. HTTP yanıt kodu bir hata (4xx veya 5xx) ya da 30 saniyeden fazla yanıt alır, izleme testi başarısız olur. Bir uç nokta izleme testlerinin belirtilen tüm konumlarda başarılı olması kullanılabilir olarak kabul edilir. 
+Temel veya standart modunda Üçe kadar coğrafi olarak dağıtılmış konumlardan HTTP veya HTTPS uç kullanılabilirliğini test edebilirsiniz. İzleme testi başarısız olursa HTTP yanıt kodunu (4xx veya 5xx) bir hata veya 30 saniyeden uzun yanıt alır. Bir uç nokta izleme testlerinin belirtilen tüm konumlarda başarılı olması için kullanılabilir olarak kabul edilir. 
 
-Daha fazla bilgi için bkz: [Nasıl yapılır: web uç noktası durumu izleme].
+Daha fazla bilgi için [Nasıl yapılır: izleme web uç noktası durumu].
 
 > [!NOTE]
 > Azure hesabı için kaydolmadan önce Azure App Service’i kullanmaya başlamak isterseniz, App Service’te hemen kısa süreli bir başlangıç web uygulaması oluşturabileceğiniz [App Service’i Deneyin] sayfasına gidin. Kredi kartı ve taahhüt gerekmez.
@@ -168,21 +169,21 @@ Daha fazla bilgi için bkz: [Nasıl yapılır: web uç noktası durumu izleme].
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * [Azure App Service'te özel etki alanı adını yapılandırma]
-* [Azure uygulama hizmetinde bir uygulama için HTTPS'yi etkinleştir]
-* [Bir web uygulamasını Azure App Service'te ölçeklendirme]
-* [Azure App Service'deki Web uygulamaları için izleme temelleri]
+* [Azure App Service'te bir uygulama için HTTPS'yi etkinleştirme]
+* [Azure App Service'te bir web uygulamasını ölçeklendirme]
+* [Azure App Service'te Web uygulamaları için temel izleme]
 
 <!-- URL List -->
 
 [ASP.NET SignalR]: http://www.asp.net/signalr
 [Azure Portal]: https://portal.azure.com/
 [Azure App Service'te özel etki alanı adını yapılandırma]: ./app-service-web-tutorial-custom-domain.md
-[Azure App Service'te Web uygulamalarını için hazırlama ortamlarını dağıtma]: ./web-sites-staged-publishing.md
-[Azure uygulama hizmetinde bir uygulama için HTTPS'yi etkinleştir]: ./app-service-web-tutorial-custom-ssl.md
-[Nasıl yapılır: web uç noktası durumu izleme]: http://go.microsoft.com/fwLink/?LinkID=279906
-[Azure App Service'deki Web uygulamaları için izleme temelleri]: ./web-sites-monitor.md
+[Azure App Service'te Web uygulamaları için hazırlama ortamlarını dağıtma]: ./web-sites-staged-publishing.md
+[Azure App Service'te bir uygulama için HTTPS'yi etkinleştirme]: ./app-service-web-tutorial-custom-ssl.md
+[Nasıl yapılır: izleme web uç noktası durumu]: http://go.microsoft.com/fwLink/?LinkID=279906
+[Azure App Service'te Web uygulamaları için temel izleme]: ./web-sites-monitor.md
 [Ardışık Düzen modu]: http://www.iis.net/learn/get-started/introduction-to-iis/introduction-to-iis-architecture#Application
-[Bir web uygulamasını Azure App Service'te ölçeklendirme]: ./web-sites-scale.md
+[Azure App Service'te bir web uygulamasını ölçeklendirme]: ./web-sites-scale.md
 [App Service’i Deneyin]: https://azure.microsoft.com/try/app-service/
 
 <!-- IMG List -->
