@@ -3,16 +3,17 @@ title: Contoso uygulamasına Azure Web uygulaması için ve Azure SQL veritaban�
 description: Nasıl geçiş yaparak Contoso şirket içi uygulama rehosts öğrenmek için bir Azure Web uygulaması ve Azure SQL Server veritabanı.
 services: site-recovery
 author: rayne-wiselman
+manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 09/20/2018
+ms.date: 10/11/2018
 ms.author: raynew
-ms.openlocfilehash: 39444b20dfefd947abb2f2bc00a9945398996dd0
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 923a1ab9020925c17b3b19d24c7524ab2f8f3356
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47040542"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49092771"
 ---
 # <a name="contoso-migration-refactor-an-on-premises-app-to-an-azure-web-app-and-azure-sql-database"></a>Contoso geçiş: bir şirket içi uygulamayı bir Azure Web uygulaması ve Azure SQL veritabanını yeniden düzenleme
 
@@ -35,6 +36,7 @@ Makale 9: bir uygulamayı bir Azure Web uygulaması ve Azure SQL veritabanını 
 [Makale 11: TFS Azure DevOps hizmetleri yeniden düzenleyin.](contoso-migration-tfs-vsts.md) | Geçiş yaparak Contoso şirket içi Team Foundation Server (TFS) dağıtımının nasıl geçirdiğini gösterir, azure'da Azure DevOps hizmetlerine. | Kullanılabilir
 [Makale 12: bir uygulamayı Azure kapsayıcıları ve Azure SQL veritabanı yeniden oluşturma](contoso-migration-rearchitect-container-sql.md) | Contoso geçirir ve Azure SmartHotel uygulamasının rearchitects nasıl gösterir. Bunlar, bir Windows kapsayıcısı ve bir Azure SQL veritabanı'nda uygulama veritabanı uygulama web katmanla yeniden oluşturma. | Kullanılabilir
 [Makale 13: uygulamanızı Azure'a yeniden oluşturun.](contoso-migration-rebuild.md) | Contoso Azure özellikleri ve Hizmetleri, uygulama hizmetleri, Azure Kubernetes, Azure işlevleri, Bilişsel hizmetler ve Cosmos DB dahil olmak üzere çeşitli kullanarak SmartHotel uygulamasının nasıl yeniden gösterir. | Kullanılabilir
+[Makale 14: azure'da bir geçiş ölçeklendirin](contoso-migration-scale.md) | Geçiş birleşimleri denedikten sonra Contoso Azure tam geçişi ölçeklendirilebilecek şekilde hazırlar. | Kullanılabilir
 
 Bu makalede, iki katmanlı Windows Contoso geçirir. Azure'a VMware Vm'lerinde çalışan NET SmartHotel360 uygulaması. Bu uygulamayı kullanmak istiyorsanız, açık kaynak sağlanır ve buradan indirebileceğiniz [GitHub](https://github.com/Microsoft/SmartHotel360).
 
@@ -300,7 +302,7 @@ Contoso yöneticileri artık Azure DevOps, derleme ve yayın işlem yapılandır
 
 5. Bu ilk derleme başlatıyor. Bunlar işlemini izlemek için yapı sayıya tıklayın. Tamamlandıktan sonra işlem geri bildirim görebildikleri ve tıklayın **Yapıtları** yapı sonuçlarını gözden geçirmek için.
 
-    ![İncele](./media/contoso-migration-refactor-web-app-sql/pipeline5.png)
+    ![Gözden geçirme](./media/contoso-migration-refactor-web-app-sql/pipeline5.png)
 
 6. Klasör **bırak** yapı sonuçlarını içerir.
 

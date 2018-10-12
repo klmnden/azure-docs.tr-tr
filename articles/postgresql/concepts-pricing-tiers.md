@@ -8,13 +8,13 @@ manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 09/27/2018
-ms.openlocfilehash: 696932135cdd3850e04d25370867c0273b99b3bf
-ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
+ms.date: 10/10/2018
+ms.openlocfilehash: aab867e5c58ba9de17b3c68c8e507fca5354eb90
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47423553"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49093450"
 ---
 # <a name="azure-database-for-postgresql-pricing-tiers"></a>Fiyatlandırma katmanları PostgreSQL için Azure veritabanı
 
@@ -46,8 +46,8 @@ Bir sunucu oluşturduktan sonra sanal çekirdek, donanım oluşturma ve fiyatlan
 
 | **Azure bölgesi** | **4. nesil** | **5. nesil** |
 |:---|:----------:|:--------------------:|
-| Orta ABD | X | X |
-| Doğu ABD | X | X |
+| Orta ABD |  | X |
+| Doğu ABD |  | X |
 | Doğu ABD 2 | X | X |
 | Orta Kuzey ABD | X | X |
 | Orta Güney ABD | X | X |
@@ -97,7 +97,7 @@ G/ç tüketiminiz Azure portalında veya Azure CLI komutlarını kullanarak izle
 
 ### <a name="reaching-the-storage-limit"></a>Depolama sınırı ulaşma
 
-Boş depolama alanı miktarı az 5 GB veya sağlanan depolama alanı, %5 ulaştığında sunucu salt okunur olarak işaretlenmiş, küçüktür. Örneğin, 100 GB depolama alanı sağlamış ve gerçek kullanımı gider salt okunur 95 GB, sunucunun işaretlenir. 5 GB depolama alanını sağladıysanız, boş depolama alanı 250 MB'tan az ulaştığında alternatif olarak, sunucunun salt okunur işaretlenir.  
+Boş depolama alanı miktarı 5 GB veya sağlanan depolama alanının %5'i (hangisi daha düşükse) olduğunda sunucu salt okunur olarak işaretlenir. Örneğin, 100 GB depolama alanı sağlamış ve gerçek kullanımı gider salt okunur 95 GB, sunucunun işaretlenir. Alternatif olarak, 5 GB depolama alanı sağladıysanız boş depolama alanı 250 MB seviyesinin altına düştüğünde sunucu salt okunur olarak işaretlenir.  
 
 Sunucu salt okunur ayarlandığında, tüm mevcut oturumlarının bağlantısı kesilir ve kaydedilmemiş işlemleri geri alınır. Herhangi bir sonraki yazma işlemleri ve işlem başarısız kaydeder. Tüm sonraki okuma sorguları kesintisiz olarak çalışır.  
 

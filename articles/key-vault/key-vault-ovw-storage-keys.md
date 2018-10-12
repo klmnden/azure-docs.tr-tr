@@ -9,12 +9,12 @@ author: bryanla
 ms.author: bryanla
 manager: mbaldwin
 ms.date: 10/03/2018
-ms.openlocfilehash: b5b30f7f5ffc7fcbef918162bc736c1f0a888d1b
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: adc8b84f0f22e85de88c4bd80c10a2a35d7b490a
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49067746"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49114609"
 ---
 # <a name="azure-key-vault-storage-account-keys"></a>Azure anahtar kasası depolama hesabı anahtarları
 
@@ -38,24 +38,19 @@ ms.locfileid: "49067746"
 -------------------------
 
 1. Yönetmek istediğiniz Azure depolama hesabının kaynak Kimliğini alın.
-    a. Biz bir depolama hesabı oluşturduktan sonra 
+    a. Bir depolama hesabı oluşturduktan sonra yönetmek istediğiniz depolama hesabının kaynak Kimliğini almak için aşağıdaki komutu çalıştırın
     ```
     az storage account show -n storageaccountname (Copy ID out of the result of this command)
     ```
-2. Yönetmek istediğiniz Azure depolama hesabının kaynak Kimliğini alın.
-    ```
-    az storage account show -n storageaccountname (Take ID out of this)
-    ```
-3. Uygulama kimliği, Azure anahtar Kasası'nın hizmet sorumlusu alma 
+2. Uygulama kimliği, Azure anahtar Kasası'nın hizmet sorumlusu alma 
     ```
     az ad sp show --id cfa8b339-82a2-471a-a3c9-0fc0be7a4093
     ```
-4. Azure Key Vault kimlik için depolama anahtarı operatörü rolünü atama
+3. Azure Key Vault kimlik için depolama anahtarı operatörü rolünü atama
     ```
     az role assignment create --role "Storage Account Key Operator Service Role"  --assignee-object-id hhjkh --scope idofthestorageaccount
     ```
-5. Anahtar kasası oluşturma yönetilen depolama hesabı.     <br /><br />
-   Komut, Key Vault anahtarı 90 günde bir yeniden sorar.
+4. Anahtar kasası oluşturma yönetilen depolama hesabı.     <br /><br />
    Komut, depolamanın erişim anahtarlarını düzenli aralıklarla yeniden üretme nokta ile yeniden oluşturmak için Key Vault ister. Aşağıda, bir oluşturma süresini 90 gün ayarlıyorsunuz. 90 günün sonunda, Key Vault yeniden 'anahtar1' ve 'anahtar1' active 'anahtar2' anahtarını değiştirme.
    ### <a name="key-regeneration"></a>Yeniden anahtar oluşturma
     ```

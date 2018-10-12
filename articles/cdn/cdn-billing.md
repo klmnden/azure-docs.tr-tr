@@ -1,10 +1,10 @@
 ---
-title: Azure CDN faturalama anlama | Microsoft Docs
-description: Bu SSS, Azure CDN faturalama nasıl çalıştığı açıklanmaktadır.
+title: Azure CDN faturalamasını anlama | Microsoft Docs
+description: Bu SSS, Azure CDN faturalamasını nasıl çalıştığını açıklar.
 services: cdn
 documentationcenter: ''
-author: dksimpson
-manager: akucer
+author: mdgattuso
+manager: danielgi
 editor: ''
 ms.assetid: ''
 ms.service: cdn
@@ -13,20 +13,20 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/20/2018
-ms.author: v-deasim
-ms.openlocfilehash: 218c493c772dc8fd212efaf60a0599fa2e896411
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.author: magattus
+ms.openlocfilehash: 0bb52943eac3e35b5012e3f54bfb841cf491ed18
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32163521"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49091820"
 ---
-# <a name="understanding-azure-cdn-billing"></a>Azure CDN faturalama anlama
+# <a name="understanding-azure-cdn-billing"></a>Azure CDN faturalamasını anlama
 
-Bu SSS, Azure içerik teslim ağı (CDN) tarafından barındırılan içerik için fatura yapısını açıklar.
+Bu SSS, Azure içerik teslim ağı (CDN) tarafından barındırılan içerik için faturalandırma yapısını açıklar.
 
-## <a name="what-is-a-billing-region"></a>Bir fatura bölge nedir?
-Hangi oranı nesneleri teslimat için Azure CDN doludur belirlemek için kullanılan bir coğrafi bölge bir fatura bölgedir. Geçerli fatura bölgeleri ve bunların bölgeleri aşağıdaki gibidir:
+## <a name="what-is-a-billing-region"></a>Fatura bölgesi nedir?
+Hangi nesnelerin teslim edilmek üzere Azure CDN from ücretlendirilir belirlemek için kullanılan bir coğrafi bölge bir fatura bölgedir. Geçerli fatura alanları ve bunların bölgeleri aşağıdaki gibidir:
 
 - Bölge 1: Kuzey Amerika, Avrupa, Orta Doğu ve Afrika
 
@@ -38,51 +38,51 @@ Hangi oranı nesneleri teslimat için Azure CDN doludur belirlemek için kullan�
 
 - Bölge 5: Hindistan
 
-Bulunma noktası (POP) bölgeler hakkında daha fazla bilgi için bkz: [bölgeye göre Azure CDN POP konumları](https://docs.microsoft.com/azure/cdn/cdn-pop-locations). Örneğin, Meksika içinde bulunan POP Kuzey Amerika bölgede olması ve bu nedenle 1 bölgesinde eklenir. 
+Varlık noktası (POP) bölgeleri hakkında daha fazla bilgi için bkz: [bölgeye göre Azure CDN POP konumları](https://docs.microsoft.com/azure/cdn/cdn-pop-locations). Örneğin, Meksika'da bulunan POP Kuzey Amerika bölgesi içinde olduğundan ve bu nedenle bölge 1 dahil edilir. 
 
-Azure CDN fiyatlandırma hakkında daha fazla bilgi için bkz: [içerik teslim ağı fiyatlandırma](https://azure.microsoft.com/is-is/pricing/details/cdn/).
+Azure CDN fiyatlandırması hakkında daha fazla bilgi için bkz: [Content Delivery Network fiyatlandırması](https://azure.microsoft.com/is-is/pricing/details/cdn/).
 
-## <a name="how-are-delivery-charges-calculated-by-region"></a>Teslimat giderleri bölgeye göre nasıl hesaplanır?
-Azure CDN fatura bölge için son kullanıcı içerik teslim kaynak sunucusunun konumunu temel alır. İstemcinin (fiziksel konumunu) hedef fatura bölge dikkate alınmaz.
+## <a name="how-are-delivery-charges-calculated-by-region"></a>Nasıl teslim ücretler bölgeye göre hesaplanır?
+Azure CDN fatura bölgesi içeriği son kullanıcıya teslim kaynak sunucusunun konumunu temel alır. ' % S'hedef (fiziksel konumunu) istemcinin bulunduğu faturalama bölgesinde olarak kabul edilmez.
 
-Örneğin, Meksika içinde bulunan bir kullanıcı isteği yayınlar ve bu isteği bir Amerika Birleşik Devletleri POP eşliği veya trafiği koşul nedeniyle bulunan bir sunucu tarafından hizmet verilen fatura bölge Amerika Birleşik Devletleri olacaktır.
+Örneğin, Meksika'da bulunan bir kullanıcı isteği yayınlar ve bu isteği bir Amerika Birleşik Devletleri POP eşlemesi ya da trafiği koşullar nedeniyle bulunan bir sunucu tarafından hizmet verilen, Amerika Birleşik Devletleri bulunduğu faturalama bölgesinde olacaktır.
 
 ## <a name="what-is-a-billable-azure-cdn-transaction"></a>Faturalanabilir Azure CDN işlem nedir?
-Tüm yanıt türleri içerir Faturalanabilir bir olay CDN sonlandırır herhangi bir HTTP (S) istek olduğu: başarı, hata veya diğer. Ancak, farklı yanıtlar farklı trafik tutarlar oluşturabilir. Örneğin, *304 değişiklik* ve küçük olduklarından az trafik diğer yalnızca üstbilgi yanıtları oluşturmak üstbilgisi yanıt; benzer şekilde, hata yanıtları (örneğin, *404 Bulunamadı*) Faturalanabilir olan ancak küçük yanıt yükü nedeniyle küçük bir maliyet doğurur.
+CDN sonlandıran tüm HTTP (S) tüm yanıt türleri içeren Faturalanabilir bir olay isteğidir: başarı, başarısızlık veya diğer. Ancak, farklı yanıtlar miktarları farklı trafik oluşturabilir. Örneğin, *304 değiştirilmedi* ve küçük oldukları için biraz trafik diğer yalnızca üstbilgi yanıtları oluşturmak üst bilgi yanıtı; benzer şekilde, hata yanıtları (örneğin, *404 Bulunamadı*) Faturalanabilir niteliktedir ancak küçük yanıt yükünde nedeniyle küçük bir ücret.
 
-## <a name="what-other-azure-costs-are-associated-with-azure-cdn-use"></a>Diğer Azure maliyetler Azure CDN kullanım ile ilişkilidir?
-Azure CDN kullanarak, bazı nesneler için kaynak kullanılan hizmetleri kullanım ücretleri doğurur. Bu maliyetleri genellikle CDN kullanım masraflar küçük bir bölümünü yayımlanır.
+## <a name="what-other-azure-costs-are-associated-with-azure-cdn-use"></a>Azure CDN kullanım ile ilişkili diğer Azure maliyetlerini misiniz?
+Azure CDN kullanarak, ayrıca, nesneler için kaynak kullanılan hizmetler bazı kullanım ücreti alınmaz. Bu genellikle genel CDN kullanım maliyeti küçük bir bölümünü ücretlerdir.
 
-İçeriğiniz için kaynak Azure Blob Depolama Birimi kullanıyorsanız, siz de aşağıdaki depolama önbellek dolgular için ücretlendirme:
+İçeriğiniz için kaynağı Azure Blob Depolama kullanıyorsanız, önbellek dolguları için aşağıdaki depolama ücretleri de ücretler:
 
-- Kullanılan gerçek GB: kaynağı nesnelerinizi depolamanın.
+- Gerçek GB kullanıldı: kaynak nesnelerinizin gerçek depolama.
 
-- GB cinsinden aktarımları: aktarılan veri miktarını CDN önbellekleri doldurmak için.
+- GB cinsinden aktarımları: CDN önbellekleri doldurmak için aktarılan veri miktarı.
 
-- Önbellek doldurmak için gerektiği gibi işlemler:.
+- Önbelleği doldurma gerektiği gibi işlemler:.
 
-Azure Storage faturalama hakkında daha fazla bilgi için bkz: [anlama Azure depolama faturalama – bant genişliği, işlemleri ve kapasite](https://blogs.msdn.microsoft.com/windowsazurestorage/2010/07/08/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity/).
+Azure depolama faturalamasını hakkında daha fazla bilgi için bkz: [anlama Azure depolama Faturalaması – bant genişliği, işlemler ve kapasite](https://blogs.msdn.microsoft.com/windowsazurestorage/2010/07/08/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity/).
 
-Kullanıyorsanız *hizmet teslim barındırılan*, aşağıdaki gibi ücret uygulanabilir:
+Kullanıyorsanız *barındırılan hizmet sunumu*, şu şekilde ücretlendirilirsiniz:
 
-- Azure işlem saati: kaynağı hareket işlem örnekleri.
+- Azure işlem süresi: kaynağı davranan işlem örnekleri.
 
-- Azure işlem aktarımı: verileri Azure CDN önbellekleri doldurmak için işlem örneklerden aktarır.
+- Azure işlem aktarım: Azure CDN önbellekleri doldurmak için işlem örneklerden veri aktarır.
 
 İstemci (bağımsız olarak kaynak hizmeti) bayt aralığı isteklerini kullanıyorsa, aşağıdaki maddeler geçerlidir:
 
-- A *bayt aralığı isteği* CDN adresindeki Faturalanabilir bir işlemdir. Bir istemci bir bayt aralığı isteği gönderdiğinde, bu istek bir alt nesne için (aralık) kümesidir. CDN istenen içeriğin yalnızca kısmi bir bölümü ile yanıt verir. Bu kısmi yanıt Faturalanabilir bir işlemdir ve aktarımı miktarı boyutu aralık yanıt (artı üstbilgileri) sınırlıdır.
+- A *bayt aralığı istek* CDN, Faturalanabilir bir işlemdir. Bir istemci bir bayt aralığı isteği gönderdiğinde, bu isteği bir alt nesne için (aralık) kümesidir. CDN'nin istenen içeriği yalnızca kısmi bir bölümü ile yanıt verir. Bu kısmi yanıt Faturalanabilir bir işlemdir ve aktarımı miktarı aralığı yanıt (ek üst bilgiler) boyutuyla sınırlıdır.
 
-- Bir istek (bayt aralığı üstbilgi belirterek) yalnızca bir nesnenin parçası ulaştığında, CDN kendi önbelleğine tüm nesne getirin. Sonuç olarak, CDN Faturalanabilir işlem için bir kısmi yanıt olsa bile kaynaktan Faturalanabilir işlem nesnesinin tam boyutunu gerektirebilir.
+- Bir istek yalnızca bir nesnenin bir parçası için (bir byte-range üst bilgisini belirterek) ulaştığında, CDN kendi önbelleğine tüm nesne getirin. Sonuç olarak, CDN Faturalanabilir işlem kısmi yanıt olsa bile, Faturalanabilir işlem kaynaktan tam nesnenin boyutunu içerebilir.
 
-## <a name="how-much-transfer-activity-occurs-to-support-the-cache"></a>Önbellek desteklemek için ne kadar aktarımı etkinlik oluşur?
-CDN POP önbelleğini doldurmak için gereken her zaman bu önbelleğe alınması nesnesi için kaynağı isteğinde bulunur. Sonuç olarak, kaynak her önbellek isabetsizliği Faturalanabilir bir işlemde doğurur. Önbellek İsabetsizlik Sayısı bir dizi etkene bağlıdır:
+## <a name="how-much-transfer-activity-occurs-to-support-the-cache"></a>Önbellek desteklemek için ne kadar aktarım etkinlik gerçekleşir?
+CDN POP önbelleğini doldurmak için her durumda önbelleğe alınmasını nesne başlangıcı için bir talep gönderir. Sonuç olarak, her önbellek isabetsizliği bir Faturalanabilir işlem kaynağı doğurur. Önbellek kaçaklarının sayısı, bir dizi faktöre bağlıdır:
 
-- Nasıl alınabilir içeriktir: (time-to-live) yüksek TTL içeriğe sahip / geçerlilik süresi değerleri ve olduğundan, bu kalması sık erişilen önbellek sonra çoğunluğu yükü de popüler CDN tarafından işlenir. Bir tipik iyi önbellek isabet üzerinde % 90'ını istemci isteklerini % 10'değerinden ' nin kaynak için döndürmeniz anlamına gelir, bir önbellek isabetsizliği veya nesne için yenileme iyi orandır.
+- İçeriğin nasıl önbelleğe alınabilir olduğu: içeriği yüksek TTL (zaman yaşam) sahip / zaman aşımı değerleri ve ise, uyumlu şekilde ilerlemesi için sık erişilen önbellek, ardından yükünü büyük çoğunluğu, popüler CDN tarafından işlenir. Tipik bir iyi isabetli önbellek okuması oranı iyi istemci isteklerine % 10'küçüktür ' nin başlangıç noktasına döndürmeniz anlamına gelir % 90, bir önbellek isabetsizliği veya nesne için yenileyin.
 
-- Kaç tane düğümleri nesne yüklemeniz gerekir: isteğe bağlı olarak bir düğümün bir nesne kaynaktan her yüklenişinde Faturalanabilir hareket doğurur. Sonuç olarak, daha fazla genel içerik (daha fazla düğümü erişilir) daha Faturalanabilir işlemlerinde sonuçlanır.
+- Kaç tane düğümleri nesne yüklemeniz gerekir: isteğe bağlı olarak bir düğüm bir nesne ve kaynaktan her yüklenişinde bir Faturalanabilir işlem doğurur. Sonuç olarak, daha fazla küresel içerik (daha fazla düğümünden erişilebilir) içinde daha Faturalandırılabilir sonuçlanır.
 
-- TTL etkisi: bir nesne için daha yüksek bir TTL kaynaktan daha az sıklıkta getirilmesi gerekir anlamına gelir. Ayrıca, istemciler, tarayıcıları gibi daha uzun CDN hareketlerle azaltabilir nesne önbelleğe alabilir anlamına gelir.
+- TTL etkiler: bir nesne için daha yüksek bir TTL kaynaktan daha az sıklıkta getirilmesi için ihtiyaç duyduğu anlamına gelir. Ayrıca, istemciler, tarayıcılar gibi uzun, CDN işlemleri azaltabilirsiniz nesne önbelleğe alabilir anlamına gelir.
 
-## <a name="how-do-i-manage-my-costs-most-effectively"></a>My maliyetleri en verimli şekilde nasıl yönetebilirim?
-İçeriğinizi üzerinde olası en uzun TTL ayarlayın. 
+## <a name="how-do-i-manage-my-costs-most-effectively"></a>My maliyetlerini en etkili bir şekilde nasıl yönetebilirim?
+İçeriğinizi olası en uzun TTL ayarlayın. 

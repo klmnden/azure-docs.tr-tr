@@ -6,15 +6,15 @@ ms.service: automation
 ms.component: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 10/05/2018
+ms.date: 10/11/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 8cdff34078c759379b5b939bdcdbc55155b51251
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: 6127e300ee46dbd33f8537f0138963cd4e3b5cc8
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48887464"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49094148"
 ---
 # <a name="update-management-solution-in-azure"></a>Güncelleştirme yönetimi çözümünü azure'da
 
@@ -517,7 +517,7 @@ Yönetim çözümü System Center Configuration Manager ile tümleştirmeyi öğ
 
 Güncelleştirme ekleme uygulamak için belirli güncelleştirmeleri belirtmenizi sağlar. Düzeltme ekleri veya dahil edilmek üzere ayarlanmış olan paketler yüklenir. Düzeltme ekleri veya paketleri dahil edilmesi için ayarlanır ve de sınıflandırması seçildiğinde dahil edilen öğeleri ve Sınıflandırmayı karşılayan öğeleri yüklenir.
 
-Linux makineler için bir paket dahildir ancak specifcally kapsamı dışında olan bir bağımlı paketi varsa paket yüklü değil.
+Özel durumlar eklenen geçersiz kılma bilmek önemlidir. Örneği için bir çıkarma kuralı tanımlarsanız `*`, tüm hariç tutulan gibi hiçbir düzeltme ekleri veya paketler yüklü. Linux makineler için bir paket dahildir ancak specifcally kapsamı dışında olan bir bağımlı paketi varsa paket yüklü değil.
 
 ## <a name="patch-linux-machines"></a>Düzeltme eki Linux makineleri
 

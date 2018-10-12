@@ -8,16 +8,16 @@ manager: kfile
 editor: jasonwhowell
 ms.service: mysql
 ms.topic: article
-ms.date: 09/17/2018
-ms.openlocfilehash: 3c9e0acfe9f8ffb159cacf50923f249be175ea77
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.date: 10/03/2018
+ms.openlocfilehash: c2248f185c5c1c5dd8c4e1d4a24e6145a82ec5cb
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45981952"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49091564"
 ---
 # <a name="monitoring-in-azure-database-for-mysql"></a>MySQL için Azure veritabanı'nda izleme
-İzleme verilerini sunucularınız hakkında sorun giderme ve iş yükünüz için iyileştirmenize yardımcı olur. MySQL için Azure veritabanı, MySQL server'ı destekleyen kaynaklarda davranışını öngörü sunan çeşitli ölçümleri sağlar. 
+İzleme verilerini sunucularınız hakkında sorun giderme ve iş yükünüz için iyileştirmenize yardımcı olur. MySQL için Azure veritabanı sunucunuzu davranışını öngörü sunan çeşitli ölçümleri sağlar.
 
 ## <a name="metrics"></a>Ölçümler
 Tüm Azure ölçümleri bir dakikalık sıklığı, ve 30 günlük geçmişi her ölçüm sağlar. Ölçümler üzerinde uyarılar yapılandırabilirsiniz. Adım adım yönergeler için bkz. [uyarıları ayarlamak nasıl](howto-alert-on-metric.md). Diğer görevler otomatik eylemleri ayarlama, Gelişmiş analiz gerçekleştirme ve geçmiş arşivleme içerir. Daha fazla bilgi için [Azure ölçümlerine genel bakış](../monitoring-and-diagnostics/monitoring-overview-metrics.md).
@@ -41,6 +41,9 @@ Bu ölçümler, MySQL için Azure veritabanı için kullanılabilir:
 |seconds_behind_master|Saniyeler içinde çoğaltma gecikmesi|Sayı|Çoğaltma sunucusu, ana sunucu karşı geciken saniye sayısı.|
 |network_bytes_egress|Ağ Çıkışı|Bayt|Ağ çıkışı arasında etkin bağlantılar.|
 |network_bytes_ingress|Ağ Girişi|Bayt|Ağ içinde arasında etkin bağlantılar.|
+
+## <a name="server-logs"></a>Sunucu günlükleri
+Yavaş sorgu günlüğü sunucunuzda etkinleştirebilirsiniz. Bu günlükler, OMS Log Analytics, olay hub'ları ve depolama hesabı Azure tanılama günlükleri aracılığıyla da kullanılabilir. Günlüğe kaydetme hakkında daha fazla bilgi edinmek için [sunucu günlükleri](concepts-server-logs.md) sayfası.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 - Bkz: [uyarıları ayarlamak nasıl](howto-alert-on-metric.md) bir ölçüme göre bir uyarı oluşturma hakkında yönergeler için.

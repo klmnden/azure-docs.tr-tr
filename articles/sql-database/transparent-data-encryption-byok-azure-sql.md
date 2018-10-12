@@ -12,12 +12,12 @@ ms.author: aliceku
 ms.reviewer: vanto
 manager: craigg
 ms.date: 10/05/2018
-ms.openlocfilehash: 2308897737014befb831cbef9880065856c20c77
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: aff1d59000a95f2b8f029b9db30ff1facb2f8ba6
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48868805"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49114677"
 ---
 # <a name="azure-sql-transparent-data-encryption-bring-your-own-key-support"></a>Azure SQL saydam veri şifrelemesi: Destek kendi anahtarını Getir
 
@@ -66,7 +66,14 @@ TDE varsayılan TDE koruyucusu Key vault'tan kullanmak için yapılandırıldı�
   > [!NOTE]
   > Varsa Azure AD kimlik **olan yanlışlıkla silinmiş veya sunucunun izinler iptal** anahtar kasasının erişim ilkesi kullanarak sunucu anahtar kasası erişimi kaybeder ve şifrelenmiş TDE veritabanları, 24 saat içinde bırakılır.
 
-- Azure anahtar Kasası'olmadan bir sanal ağ veya Güvenlik Duvarı'nı yapılandırın.  SQL anahtar kasası erişimi kaybederse, şifrelenmiş TDE veritabanları 24 saat içinde bırakılır.
+- Güvenlik duvarları ve sanal ağlar ile Azure Key Vault kullanırken aşağıdakileri yapılandırmanız gerekir: 
+  - "Seçili ağlar" dan erişime izin ver 
+  - Var olan sanal ağları ekleyin ve SQL veritabanı ağ varsa (Bu tek veritabanları için isteğe bağlı yönetilen örnekleri için gerekli değil) seçin. 
+  - Güvenilen Microsoft hizmetlerinin bu güvenlik duvarını geçmesine izin ver: Evet seçti 
+         
+    > [!NOTE] 
+    > TDE şifrelenmiş güvenlik duvarı atlama olamaz çünkü SQL veritabanları anahtar kasası erişimi kaybedersiniz, veritabanları, 24 saat içinde bırakılır.
+
 - Denetim ve tüm şifreleme anahtarlarını raporlama etkinleştir: Key Vault, diğer güvenlik bilgileri ve Olay yönetimi (SIEM) araçları eklenmek üzere kolay günlüklerini sunar. Operations Management Suite (OMS) [Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-key-vault) zaten tümleşik bir hizmet örneğidir.
 - Her mantıksal sunucu şifreli veritabanlarına yüksek kullanılabilirlik sağlamak için farklı bölgelerde bulunan iki Azure Key Vault ile yapılandırın.
 

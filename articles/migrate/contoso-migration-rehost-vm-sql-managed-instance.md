@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 09/05/2018
+ms.date: 10/11/2018
 ms.author: raynew
-ms.openlocfilehash: 12baa21c8661012cd7ef96217724150a3d8c56f3
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 0e4576ad4f7eece543ef572073919bcf3ca3a4e9
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44303446"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49116151"
 ---
 # <a name="contoso-migration-rehost-an-on-premises-app-on-an-azure-vm-and-sql-database-managed-instance"></a>Contoso geçiş: şirket içi uygulama bir Azure VM ve SQL veritabanı yönetilen örneği yeniden barındırma
 
@@ -40,6 +40,7 @@ Bu makalede, şirket içi kaynaklara Contoso adlı kurgusal şirketin Microsoft 
 [Makale 11: Team Foundation Server üzerinde Azure DevOps hizmetleri yeniden düzenleyin.](contoso-migration-tfs-vsts.md) | Contoso geçiş yaparak kendi şirket içi Team Foundation Server dağıtımı geçirir, azure'da Azure DevOps hizmetlerine. | Kullanılabilir
 [Makale 12: bir uygulamayı Azure kapsayıcıları ve Azure SQL veritabanı yeniden oluşturma](contoso-migration-rearchitect-container-sql.md) | Contoso Azure SmartHotel, uygulama geçirir ve sonra uygulamayı rearchitects. Contoso rearchitects olarak bir Windows kapsayıcı uygulaması web katmanı ve Azure SQL veritabanı kullanarak uygulama veritabanı rearchitects. | Kullanılabilir
 [Makale 13: uygulamanızı Azure'a yeniden oluşturun.](contoso-migration-rebuild.md) | Contoso Azure özellikleri ve Hizmetleri, Azure App Service, Azure Kubernetes hizmeti, Azure işlevleri, Azure Bilişsel hizmetler ve Azure Cosmos DB dahil olmak üzere çeşitli kullanarak kendi SmartHotel uygulaması oluşturur. | Kullanılabilir
+[Makale 14: azure'da bir geçiş ölçeklendirin](contoso-migration-scale.md) | Geçiş birleşimleri denedikten sonra Contoso Azure tam geçişi ölçeklendirilebilecek şekilde hazırlar. | Kullanılabilir
 
 
 

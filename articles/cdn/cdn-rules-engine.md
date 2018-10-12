@@ -1,10 +1,10 @@
 ---
 title: Azure CDN kurallar altyapısı kullanarak HTTP davranışı geçersiz kılma | Microsoft Docs
-description: Kurallar altyapısı, belirli türde bir içerik teslim engelleme gibi HTTP isteklerini Azure CDN tarafından nasıl işleneceğini özelleştirme, önbellek ilkesi tanımlayın ve HTTP üstbilgileri değiştirmenize olanak sağlar.
+description: Kural altyapısı belirli türlerdeki içerik teslimini engelleme gibi HTTP isteklerini Azure CDN tarafından nasıl işlendiğini özelleştirme, bir önbelleğe alma ilkesi tanımlama ve HTTP üst bilgilerini değiştirme sağlar.
 services: cdn
 documentationcenter: ''
-author: dksimpson
-manager: cfowler
+author: mdgattuso
+manager: danielgi
 editor: ''
 ms.assetid: 625a912b-91f2-485d-8991-128cc194ee71
 ms.service: cdn
@@ -13,86 +13,86 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/11/2018
-ms.author: v-deasim
-ms.openlocfilehash: df8114aaf5b4672ea51482978abde6f0ce724528
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.author: magattus
+ms.openlocfilehash: 2ac43b472758f3403bc87bf3d64321eb97109f53
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35261058"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49092410"
 ---
 # <a name="override-http-behavior-using-the-azure-cdn-rules-engine"></a>Azure CDN kurallar altyapısı kullanarak HTTP davranışı geçersiz kılma
 [!INCLUDE [cdn-premium-feature](../../includes/cdn-premium-feature.md)]
 
 ## <a name="overview"></a>Genel Bakış
-Azure CDN kurallar altyapısı HTTP isteklerinin işlenme özelleştirmenizi sağlar. Örneğin, bir önbellek ilkesi tanımlama veya bir HTTP üstbilgisi değiştirirken belirli içerik türlerini teslimini engelliyor. Bu öğretici CDN varlıklar önbelleğe alma davranışını değiştiren bir kuralın nasıl oluşturulacağı gösterilmektedir. Kurallar altyapısı sözdizimi hakkında daha fazla bilgi için bkz: [Azure CDN kurallar altyapısı başvuru](cdn-rules-engine-reference.md).
+Azure CDN kurallar altyapısı nasıl HTTP isteklerinin işleneme şeklini özelleştirmenizi sağlar. Örneğin, bir önbelleğe alma ilkesi tanımlama veya HTTP üstbilgisi değiştirme belirli içerik türlerini teslimini engelleme. Bu öğreticide, varlıklar CDN önbelleğe alma davranışını değiştiren bir kuralın nasıl oluşturulacağı gösterilmektedir. Kural altyapısı sözdizimi hakkında daha fazla bilgi için bkz. [Azure CDN kural altyapısı başvurusu](cdn-rules-engine-reference.md).
 
 ## <a name="access"></a>Access
-Kurallar altyapısı erişmek için önce seçmelisiniz **Yönet** üstünden **CDN profili** Azure CDN Yönetim sayfasına erişmek için sayfa. Uç noktanız için dinamik site ivmesini (DSA) olup olmadığını getirilmiştir bağlı olarak kuralları, uç nokta türü için uygun kuralları altyapısıyla sonra erişim:
+Kural altyapısı erişmek için önce seçmelisiniz **Yönet** üstünden **CDN profili** Azure CDN Yönetim sayfasına erişmek için sayfa. Uç noktanız için dinamik site Hızlandırma (DSA) olup olmadığını iyileştirilmiştir bağlı olarak, uç nokta türü için uygun olan kurallar kümesini içeren kural altyapısı ardından erişin:
 
-- Genel web teslim veya diğer DSA olmayan iyileştirme için en iyi duruma getirilmiş uç noktalar: 
+- Genel web teslimatı veya diğer DSA olmayan iyileştirme için en iyi duruma getirilmiş uç noktalar: 
     
-    Seçin **HTTP büyük** sekmesini ve ardından **kurallar altyapısı**.
+    Seçin **HTTP büyük** sekmesine ve ardından seçin **kurallar altyapısı**.
 
     ![HTTP için kurallar altyapısı](./media/cdn-rules-engine/cdn-http-rules-engine.png)
 
 - DSA için en iyi duruma getirilmiş uç noktalar: 
     
-    Seçin **ADN** sekmesini ve ardından **kurallar altyapısı**. 
+    Seçin **ADN** sekmesine ve ardından seçin **kurallar altyapısı**. 
     
-    ADN tarafından Verizon DSA içeriği belirtmek için kullanılan bir terimdir. Burada oluşturduğunuz herhangi bir kuralın, DSA için optimize edilmemiş tüm uç noktaları profilinizde göz ardı edilir. 
+    ADN Verizon tarafından DSA içeriği belirtmek için kullanılan bir terimdir. Burada oluşturduğunuz herhangi bir kural, DSA için optimize edilmemiş tüm uç noktalar profilinizde göz ardı edilir. 
 
-    ![DSA için kurallar altyapısı](./media/cdn-rules-engine/cdn-dsa-rules-engine.png)
+    ![Kural altyapısı DSA](./media/cdn-rules-engine/cdn-dsa-rules-engine.png)
 
 ## <a name="tutorial"></a>Öğretici
-1. Gelen **CDN profili** sayfasında, **Yönet**.
+1. Gelen **CDN profili** sayfasında **Yönet**.
    
     ![CDN profili Yönet düğmesi](./media/cdn-rules-engine/cdn-manage-btn.png)
    
-    CDN Yönetim Portalı'nı açar.
+    CDN yönetim portalına açılır.
 
-2. Seçin **HTTP büyük** sekmesini ve ardından **kurallar altyapısı**.
+2. Seçin **HTTP büyük** sekmesine ve ardından seçin **kurallar altyapısı**.
    
     Yeni bir kural için seçenekler görüntülenir.
    
     ![CDN yeni kural seçenekleri](./media/cdn-rules-engine/cdn-new-rule.png)
    
    > [!IMPORTANT]
-   > Birden çok kural listelenmiş görevlerin sırası nasıl işlendiğini etkiler. Bir sonraki kural önceki bir kural tarafından belirtilen eylemleri geçersiz kılabilir.
+   > Birden çok kural listelendiği sırayı nasıl işleneceğini etkiler. Bir sonraki kural, bir önceki kuralı tarafından belirtilen eylemleri geçersiz kılabilir.
    > 
 
-3. Bir ad girin **adı / açıklaması** metin kutusu.
+3. Bir ad girin **adı / açıklaması** metin.
 
-4. Kuralın uygulanacağı istekleri türünü tanımlayın. Varsayılan eşleşme koşulunu kullanmak **her zaman**. 
+4. Kuralın uygulanacağı istek türlerini tanımlayın. Varsayılan eşleşme koşulu kullanmak **her zaman**. 
    
-   ![CDN kural eşleşen koşulu](./media/cdn-rules-engine/cdn-request-type.png)
+   ![CDN kural eşleşme koşulu](./media/cdn-rules-engine/cdn-request-type.png)
    
    > [!NOTE]
-   > Açılır listede birden çok eşleme koşulları kullanılabilir. Şu anda seçili eşleşme koşulu hakkında daha fazla bilgi için solunda mavi Bilgi simgesini seçin.
+   > Birden çok eşleşme koşulu, açılan listede kullanılabilir. Şu anda seçili eşleşme koşulu hakkında daha fazla bilgi için etiketin solunda mavi Bilgi simgesini seçin.
    > 
-   >  Koşullu deyimler ayrıntılı bir listesi için bkz [kurallar altyapısı koşullu ifadeler](cdn-rules-engine-reference-match-conditions.md).
+   >  Koşullu ifadeler ayrıntılı bir listesi için bkz. [kural altyapısı koşullu ifadeleri](cdn-rules-engine-reference-match-conditions.md).
    >  
-   > Eşleşme koşullar ayrıntılı bir listesi için bkz [kurallar altyapısı eşleşme koşullar](cdn-rules-engine-reference-match-conditions.md).
+   > Eşleştirme koşulları ayrıntılı bir listesi için bkz. [kural altyapısı eşleştirme koşulları](cdn-rules-engine-reference-match-conditions.md).
    > 
    > 
 
-5. Yeni bir özellik eklemek için seçin **+** düğmesine **özellikleri**.  Sol taraftaki açılır menüde seçin **zorla iç Max-Age**.  Görüntülenen metin kutusuna girin **300**. Geri kalan varsayılan değerler değiştirmeyin.
+5. Yeni bir özellik eklemek için seçin **+** düğmesinin yanındaki **özellikleri**.  Sol taraftaki açılan listede seçin **zorla iç Max-Age**.  Görünen metin kutusuna girin **300**. Kalan varsayılan değerleri değiştirmeyin.
    
    ![CDN kural özelliği](./media/cdn-rules-engine/cdn-new-feature.png)
    
    > [!NOTE]
-   > Açılır listede birden çok özellikleri kullanılabilir. Şu anda seçili özelliği hakkında daha fazla bilgi için solunda mavi Bilgi simgesini seçin. 
+   > Birden çok özellik açılan listede kullanılabilir. Şu anda seçilen özelliği hakkında daha fazla bilgi için etiketin solunda mavi Bilgi simgesini seçin. 
    >
-   > İçin **zorla iç Max-Age**, varlığın `Cache-Control` ve `Expires` üstbilgileri zaman CDN kenar düğümüne kaynaktan varlık yeniler denetlemek için geçersiz kılınır. Bu örnekte, 300 saniye veya 5 kendi kaynaktan varlık yeniler önce dakika varlık CDN kenar düğümüne önbelleğe alır.
+   > İçin **zorla iç Max-Age**, varlığın `Cache-Control` ve `Expires` üstbilgileri, CDN kenar düğümüne kaynaktan bir varlık yeniler denetlemek için geçersiz kılınır. Bu örnekte, 300 saniye veya 5, kaynaktan bir varlık yenilenmeden önce dakika varlık CDN kenar düğümüne önbelleğe alır.
    > 
-   > Özelliklerin ayrıntılı bir listesi için bkz: [kurallar altyapısı özellikleri](cdn-rules-engine-reference-features.md).
+   > Özelliklerin ayrıntılı listesi için bkz. [kural altyapısı özellikleri](cdn-rules-engine-reference-features.md).
    > 
    > 
 
-6. Seçin **Ekle** yeni kuralını kaydetmek için.  Yeni Kural artık onayını bekliyor. Bunu onaylandıktan sonra durum değişiklikleri **bekleyen XML** için **etkin XML**.
+6. Seçin **Ekle** yeni kuralını kaydetmek için.  Yeni Kural artık onayını bekliyor. Bunu onaylandıktan sonra durumu değişir **bekleyen XML** için **etkin XML**.
    
    > [!IMPORTANT]
-   > Kuralları değişiklikleri Azure yayılması 10 dakika kadar sürebilir.
+   > Kuralları değişiklikleri Azure CDN'de yayılması 10 dakika sürebilir.
    > 
    > 
 
@@ -102,4 +102,4 @@ Kurallar altyapısı erişmek için önce seçmelisiniz **Yönet** üstünden **
 * [Kural altyapısı eşleştirme koşulları](cdn-rules-engine-reference-match-conditions.md)
 * [Kural altyapısı koşullu ifadeleri](cdn-rules-engine-reference-conditional-expressions.md)
 * [Kural altyapısı özellikleri](cdn-rules-engine-reference-features.md)
-* [Azure Cuma: Azure CDN'ın güçlü yeni premium özellikleri](https://azure.microsoft.com/documentation/videos/azure-cdns-powerful-new-premium-features/) (video)
+* [Azure Fridays: Azure CDN'ın güçlü yeni premium özellikleri](https://azure.microsoft.com/documentation/videos/azure-cdns-powerful-new-premium-features/) (video)

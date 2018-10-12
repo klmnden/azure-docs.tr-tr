@@ -10,12 +10,12 @@ author: shivanipatel
 manager: cgronlun
 ms.reviewer: larryfr
 ms.date: 09/24/2018
-ms.openlocfilehash: 66370aec76044454ab4f11eb432fe2e9b0cdb9cf
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.openlocfilehash: 7d706cf71761496fd740c729224ee4331eeb2911
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48248594"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49091632"
 ---
 # <a name="prepare-to-deploy-models-on-iot-edge"></a>IOT Edge üzerinde modelleri dağıtmaya hazırlanma
 
@@ -45,9 +45,6 @@ Cihazınızı kaydedemedik ve IOT çalışma zamanı yükleme konusunda bilgi al
 
 Azure IOT Edge modülleri, kapsayıcı görüntüleri üzerinde temel alır. Modelinizi IOT Edge cihazına dağıtmak için bir Azure Machine Learning hizmeti çalışma alanında, modelinize kaydetmek ve bir Docker görüntüsü oluşturmak için aşağıdaki adımları kullanın. 
 
-> [!IMPORTANT]
-> Bu durumda, Azure Machine Learning çalışma alanınızda zaten kaydedilebilir, modeli eğitmek için kullanılan, 3. adımına geçin.
-
 1. Çalışma alanını Başlat ve config.json dosyası yüklenemiyor:
 
     ```python
@@ -58,6 +55,9 @@ Azure IOT Edge modülleri, kapsayıcı görüntüleri üzerinde temel alır. Mod
     ```    
 
 1. Çalışma alanınıza modeli kaydedin. Varsayılan metni modeli yolu, adınızı, etiketler ve açıklaması ile değiştirin:
+
+    > [!IMPORTANT]
+    > Azure Machine Learning modeli eğitmek için kullanılan, çalışma alanında zaten kaydedilebilir. Bu durumda, bu adımı atlayın. Bu çalışma alanı ile kayıtlı modelleri listesini görmek için `Model.list(ws)`.
 
     ```python
     from azureml.core.model import Model
@@ -81,9 +81,9 @@ Azure IOT Edge modülleri, kapsayıcı görüntüleri üzerinde temel alır. Mod
 
 1. Oluşturma bir **Puanlama betik** adlı `score.py`. Bu dosya, resim içindeki model çalıştırmak için kullanılır. Aşağıdaki işlevleri içermesi gerekir:
 
-    * `init()` İşlevin genellikle modeli genel bir nesnesine yükler. Bu işlev, yalnızca Docker kapsayıcı başlatıldığında bir kez çalıştırılır. 
+    * Normalde modeli genel bir nesneye yükleyen `init()` işlevi. Bu işlev, Docker kapsayıcısı başlatıldığında tek bir kez çalıştırılır. 
 
-    * `run(input_data)` İşlevi, giriş verileri temel alan bir değer tahmin modeli kullanır. Girişler ve çıkışlar farklı çalıştır genellikle JSON için seri hale getirme ve serinin kullanır, ancak diğer biçimleri desteklenir.
+    * `run(input_data)` işlevi, giriş verileri temelinde bir değer tahmin etmek için modeli kullanır. Çalıştırmanın girişleri ve çıkışlarında serileştirme ve seriden çıkarma için normal olarak JSON kullanılır ama başka biçimler de desteklenir.
 
     Bir örnek için bkz. [görüntü sınıflandırma Öğreticisi](tutorial-deploy-models-with-aml.md#make-script).
 
@@ -120,7 +120,7 @@ Azure IOT Edge modülleri, kapsayıcı görüntüleri üzerinde temel alır. Mod
 
 Azure IOT, kapsayıcı kayıt defterine docker görüntüleri depolayan Azure Machine Learning hizmeti için kimlik bilgileri gerekir. Kimlik bilgilerini almak için aşağıdaki adımları kullanın:
 
-1. [Azure Portal](https://portal.azure.com/signin/index)’da oturum açın.
+1. [Azure Portal](https://portal.azure.com/signin/index) oturum açın.
 
 1. Azure Machine Learning hizmeti çalışma alanınıza gidin ve seçin __genel bakış__. Kapsayıcı kayıt defteri ayarları'na gidin, seçin __kayıt defteri__ bağlantı.
 

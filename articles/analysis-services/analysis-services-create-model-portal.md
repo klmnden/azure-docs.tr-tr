@@ -5,21 +5,23 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 07/03/2018
+ms.date: 10/11/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: dcfcfb24d2b47a8272c576856fc3accc547f354a
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: 837601a55bbe97e904f3dece9f4c87563d6dd4e9
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42062121"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49092686"
 ---
 # <a name="create-a-model-in-azure-portal"></a>Azure portalında bir model oluşturma
 
 Azure portalında Azure Analysis Services web Tasarımcısı (Önizleme) özelliği ve tablosal modeller düzenleme ve model veri sağ tarayıcınızda sorgu oluşturmanın hızlı ve kolay bir yolunu sağlar. 
 
-Web Tasarımcısı göz önünde bulundurun, **Önizleme**. İşlevselliği sınırlıdır. Daha gelişmiş model geliştirme ve test için Visual Studio (SSDT) ve SQL Server Management Studio (SSMS) en iyisidir.
+> [!IMPORTANT]
+> Bu özellik kullanım dışı bırakılmıştır. Kaldırılan veya gelecek bir güncelleştirmede önemli ölçüde değiştirilmiş olabilir. İleride yapılacak güncelleştirmelerle uyumluluğu korumak için yeni ve mevcut projeleri bu özellikleri kullanmaya devam önerilir. Daha gelişmiş model geliştirme ve test için Visual Studio (SSDT) ve SQL Server Management Studio (SSMS) en iyisidir.
+
 
 ## <a name="before-you-begin"></a>Başlamadan önce
 

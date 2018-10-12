@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/28/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: 3f2609ea57ea5a5a0cce2544a1031c55199d137b
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: bc6d615409f3c2d0f46286d2ad2ba20c32574afd
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39531719"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49091731"
 ---
 # <a name="deciding-when-to-use-azure-blobs-azure-files-or-azure-disks"></a>Azure Blobları, Azure dosyaları veya Azure diskleri ne zaman kullanılacağını belirleme
 
@@ -64,8 +64,8 @@ Aşağıdaki tabloda, Azure dosyaları Azure diskleri ile karşılaştırır.
 |Temizleme|Automatic|El ile|  
 |REST kullanarak erişimi|İçindeki VHD dosyaları erişilemiyor|Bir paylaşımda depolanan dosyalara erişilebilir|  
 |En Yüksek Boyut|4 TiB disk|5 TiB dosya paylaşımını ve 1 TiB dosya paylaşımı içinde|  
-|En fazla 8KB IOPS|500 IOPS|1000 IOPS|  
-|Aktarım hızı|Disk başına en fazla 60 MiB/sn|Dosya Paylaşımı başına en fazla 60 MiB/sn|  
+|En fazla IOPS|500 IOPS|1000 IOPS|  
+|Aktarım hızı|Disk başına en fazla 60 MiB/sn|(Daha yüksek g/ç boyutları için daha yüksek alabilirsiniz) dosya paylaşımı başına 60 MiB/sn hedefidir.|  
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

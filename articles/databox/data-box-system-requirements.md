@@ -1,25 +1,19 @@
 ---
 title: Microsoft Azure Data Box sistem gereksinimleri | Microsoft Docs
-description: Yazılım ve Azure Data Box'ınızı için ağ gereksinimleri hakkında bilgi edinin
+description: Azure Data Box'ınızın yazılım ve ağ gereksinimleri hakkında bilgi edinin
 services: databox
-documentationcenter: NA
 author: alkohli
-manager: twooley
-editor: ''
-ms.assetid: ''
 ms.service: databox
-ms.devlang: NA
+ms.subservice: pod
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 09/24/2018
 ms.author: alkohli
-ms.openlocfilehash: f97c6174adf454a031e94942843075c457236575
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 957100e042da1d41fb7c8fa27a5663cf99a41c20
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46982993"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49093944"
 ---
 # <a name="azure-data-box-system-requirements"></a>Azure Data Box sistem gereksinimleri
 
@@ -88,7 +82,7 @@ Yerel web kullanıcı Arabirimi için desteklenen web tarayıcıları listesi a�
 
 ## <a name="networking-requirements"></a>Ağ gereksinimleri
 
-Veri merkezinizi yüksek hızlı ağ olmalıdır. En az bir sahip olmanızı öneririz 10 GbE bağlantı. 10 GbE bağlantı kullanılabilir değilse, verileri kopyalamak için 1 GbE veri bağlantısı kullanılabilir ancak kopyalama hızı etkilenir.
+Veri merkezinizin yüksek hızlı ağı olmalıdır. En az bir adet 10 GbE bağlantınızın olması önemle tavsiye edilir. 10 GbE bağlantı kullanılabilir değilse, verileri kopyalamak için 1 GbE veri bağlantısı kullanılabilir ancak kopyalama hızı etkilenir.
 
 ## <a name="next-step"></a>Sonraki adım
 

@@ -3,8 +3,8 @@ title: Azure tanılama günlükleri | Microsoft Docs
 description: Müşteri, Azure CDN için günlük analizi etkinleştirebilirsiniz.
 services: cdn
 documentationcenter: ''
-author: dksimpson
-manager: cfowler
+author: mdgattuso
+manager: danielgi
 editor: ''
 ms.assetid: ''
 ms.service: cdn
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2018
-ms.author: v-deasim
-ms.openlocfilehash: 0baa43977099af9c6c0d9c2e4c03abc121ec279d
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.author: magattus
+ms.openlocfilehash: 6834222ec2befa305b558abf0976a1c9899a7086
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47097015"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49093035"
 ---
 # <a name="azure-diagnostic-logs"></a>Azure tanılama günlükleri
 
@@ -49,7 +49,7 @@ Tanılama günlükleri hakkında daha fazla bilgi için bkz. [tanılama günlük
 
 Bu adımları etkinleştir CDN çekirdek analiz ile günlüğe kaydetme izleyin:
 
-[Azure Portal](http://portal.azure.com)’da oturum açın. Akışınız için CDN yoksa zaten etkinleştirdiğiniz varsa [bir Azure CDN profili ve uç noktası oluşturma](cdn-create-new-endpoint.md) devam etmeden önce.
+[Azure Portal](http://portal.azure.com) oturum açın. Akışınız için CDN yoksa zaten etkinleştirdiğiniz varsa [bir Azure CDN profili ve uç noktası oluşturma](cdn-create-new-endpoint.md) devam etmeden önce.
 
 1. Azure portalında gidin **CDN profili**.
 

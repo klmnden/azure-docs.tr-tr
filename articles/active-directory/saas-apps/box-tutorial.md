@@ -8,212 +8,190 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: 3b565c8d-35e2-482a-b2f4-bf8fd7d8731f
 ms.service: active-directory
-ms.component: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/12/2018
+ms.date: 10/09/2018
 ms.author: jeedes
-ms.openlocfilehash: f5aa724e9848c9794eef093aef15b0aaed9cae97
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 535f59b1b0dc56b183c8a019d101b4fd4f1bfad6
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39435769"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49116134"
 ---
-# <a name="integrate-azure-active-directory-with-box"></a>Azure Active Directory kutusu ile tümleştirme
+# <a name="tutorial-azure-active-directory-integration-with-box"></a>Öğretici: Azure Active Directory Tümleştirme kutusu
 
-Bu öğreticide, Azure Active Directory (Azure AD) tümleştirme kutusuyla öğrenin.
+Bu öğreticide, kutusu Azure Active Directory (Azure AD) ile tümleştirmeyi öğrenin.
 
-Azure AD tümleştirdiğinizde kutusuyla aşağıdaki avantajlardan yararlanabilirsiniz:
+Kutusu Azure AD ile tümleştirme ile aşağıdaki avantajları sağlar:
 
 - Box'a erişimi, Azure AD'de kontrol edebilirsiniz.
-- Oturumunuz otomatik olarak kutusuna (çoklu oturum açma veya SSO) ile Azure AD hesaplarına kullanıcılarınıza etkinleştirebilirsiniz.
-- Hesaplarınız bir merkezi konumda, Azure portalında yönetebilir.
+- Otomatik olarak imzalanan kutusuna (çoklu oturum açma) ile Azure AD hesaplarına açma, kullanıcılarınızın etkinleştirebilirsiniz.
+- Hesaplarınız bir merkezi konumda - Azure portalında yönetebilir.
 
-Azure AD ile SaaS uygulama tümleştirmesi hakkında bilgi edinmek için bkz. [uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir?](../manage-apps/what-is-single-sign-on.md).
+Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz. [uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Önkoşullar
 
 Azure AD tümleştirmesi kutusuyla yapılandırmak için aşağıdaki öğeler gerekir:
 
-- Azure AD aboneliğiniz
-- Kutusu SSO etkin bir abonelik
+- Azure AD aboneliği
+- Abonelik kutusu çoklu oturum açma etkin
 
 > [!NOTE]
-> Bu öğreticideki adımları test ettiğinizde, bunu yapmanızı öneririz *değil* bir üretim ortamı kullanın.
+> Bu öğreticideki adımları test etmek için üretim ortamı kullanarak önermiyoruz.
 
-Bu öğreticideki adımları test etmek için aşağıdaki önerileri uygulayın:
+Bu öğreticideki adımları test etmek için bu önerileri izlemelidir:
 
 - Gerekli olmadıkça, üretim ortamında kullanmayın.
 - Azure AD deneme ortamı yoksa, şunları yapabilirsiniz [bir aylık deneme sürümü edinin](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Senaryo açıklaması
-Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. 
-
-Bu öğreticide açıklanan senaryo iki temel yapı taşları oluşur:
+Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide özetlenen senaryo iki temel yapı taşları oluşur:
 
 1. Galeriden kutusu ekleme
-1. Yapılandırma ve test Azure AD çoklu oturum açma
+2. Yapılandırma ve test Azure AD çoklu oturum açma
 
-## <a name="add-box-from-the-gallery"></a>Galeriden kutusu ekleme
-Kutusuyla Azure AD'ye tümleştirmesini yapılandırmak için kutusunda aşağıdakileri yaparak Galeriden yönetilen SaaS uygulamaları listenize ekleyin:
+## <a name="adding-box-from-the-gallery"></a>Galeriden kutusu ekleme
+Azure AD'de kutusunun tümleştirmesini yapılandırmak için kutusu Galeriden yönetilen SaaS uygulamaları listesine eklemeniz gerekir.
 
-1. İçinde [Azure portalında](https://portal.azure.com), sol bölmede seçin **Azure Active Directory**. 
+**Galeriden kutusunu eklemek için aşağıdaki adımları gerçekleştirin:**
 
-    ![Azure Active Directory düğmesi][1]
+1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
 
-1. Seçin **kurumsal uygulamalar** > **tüm uygulamaları**.
+    ![image](./media/box-tutorial/selectazuread.png)
 
-    !["Kurumsal uygulamalar" penceresi][2]
+2. Gidin **kurumsal uygulamalar**. Ardından **tüm uygulamaları**.
+
+    ![image](./media/box-tutorial/a_select_app.png)
     
-1. Yeni bir uygulama eklemek için seçin **yeni uygulama** penceresinin üstünde düğme.
+3. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmındaki düğmesi.
 
-    !["Yeni uygulama" düğmesi][3]
+    ![image](./media/box-tutorial/a_new_app.png)
 
-1. Arama kutusuna **kutusu**seçin **kutusu** sonuç listesini ve ardından **Ekle**.
+4. Arama kutusuna **kutusu**seçin **kutusu** sonucu panelinden ardından **Ekle** uygulama eklemek için Ekle düğmesine.
 
-    ![Sonuçlar listesinde kutusu](./media/box-tutorial/tutorial_box_search.png)
-### <a name="configure-and-test-azure-ad-single-sign-on"></a>Yapılandırma ve Azure AD çoklu oturum açmayı test etme
+     ![image](./media/box-tutorial/tutorial_Box_addfromgallery.png)
 
-Bu bölümde, yapılandırma ve Azure AD çoklu oturum açma kutusunu "Britta Simon." adlı bir test kullanıcı ile test etme
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Yapılandırma ve Azure AD çoklu oturum açmayı test etme
 
-Tek iş için oturum açma için Azure AD kutusuna kullanıcı ve kendisine karşılık gelen Azure AD'de tanımlaması gerekir. Diğer bir deyişle, bir Azure AD kullanıcısı ve aynı kullanıcı kutusunda arasında bir bağlantı ilişki kurulması gerekir.
+Bu bölümde, yapılandırın ve Azure AD çoklu oturum açma kutusunu "Britta Simon" adlı bir test kullanıcısı üzerinde sınayın.
 
-Bağlantı kurmak için bir kutu olarak atama *kullanıcıadı* değerini *kullanıcı adı* Azure AD'de.
+Tek iş için oturum açma için Azure AD kutusuna karşılık gelen kullanıcı için bir kullanıcı Azure AD'de nedir bilmesi gerekir. Diğer bir deyişle, bir Azure AD kullanıcısının kutusunda ilgili kullanıcı arasında bir bağlantı ilişkisi kurulması gerekir.
 
-Yapılandırma ve Azure AD çoklu oturum açma kutusu test etmek için sonraki beş bölümlerde yapı taşlarını tamamlayın.
+Yapılandırma ve Azure AD çoklu oturum açma kutusu test etmek için aşağıdaki yapı taşlarını tamamlanması gerekir:
+
+1. **[Azure AD çoklu oturum açmayı yapılandırmayı](#configure-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
+2. **[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
+3. **[Kutusunu test kullanıcısı oluşturma](#create-a-box-test-user)**  - kullanıcı Azure AD gösterimini bağlı kutusunda Britta simon'un bir karşılığı vardır.
+4. **[Azure AD test kullanıcı atama](#assign-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
+5. **[Çoklu oturum açmayı test](#test-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırın
 
-Azure AD çoklu oturum açma Azure portalında etkinleştirin ve çoklu oturum açma aşağıdakileri yaparak kutusu uygulamanızda yapılandırın:
+Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve kutusu uygulamanızda çoklu oturum açmayı yapılandırın.
 
-1. Azure portalında, **kutusu** uygulama tümleştirme penceresinde, seçin **çoklu oturum açma**.
+**Azure AD çoklu oturum açma kutusuyla yapılandırmak için aşağıdaki adımları gerçekleştirin:**
 
-    !["Çoklu oturum açma" bağlantısı][4]
+1. İçinde [Azure portalında](https://portal.azure.com/), **kutusu** uygulama tümleştirme sayfasında **çoklu oturum açma**.
 
-1. İçinde **çoklu oturum açma** penceresi içinde **çoklu oturum açma modunu** kutusunda **SAML tabanlı oturum açma**.
- 
-    !["Çoklu oturum açma" penceresi](./media/box-tutorial/tutorial_box_samlbase.png)
+    ![image](./media/box-tutorial/b1_b2_select_sso.png)
 
-1. Altında **kutusu etki alanı ve URL'ler**, aşağıdakileri yapın:
+2. Üzerinde **tek bir oturum açma yönteminizi seçmeniz** iletişim kutusunu tıklatın **seçin** için **SAML** modu, çoklu oturum açmayı etkinleştirmek için.
 
-    !["Etki alanı ve URL'ler kutusuna" çoklu oturum açma bilgileri](./media/box-tutorial/url3.png)
+    ![image](./media/box-tutorial/b1_b2_saml_sso.png)
 
-    a. İçinde **oturum açma URL'si** kutusuna bir URL aşağıdaki biçimde yazın: *https://\<alt etki alanı >. box.com*.
+3. Üzerinde **yukarı çoklu oturum açma SAML ile ayarlanmış** sayfasında **Düzenle** açmak için düğmeyi **temel SAML yapılandırma** iletişim.
 
-    b. İçinde **tanımlayıcı** metin kutusuna **box.net**.
-     
+    ![image](./media/box-tutorial/b1-domains_and_urlsedit.png)
+
+4. Üzerinde **temel SAML yapılandırma** bölümünde, aşağıdaki adımları gerçekleştirin:
+
+    a. İçinde **oturum açma URL'si** metin kutusuna şu biçimi kullanarak bir URL yazın: `https://<SUBDOMAIN>.account.box.com`
+
+    b. İçinde **tanımlayıcı** metin kutusuna bir URL:`box.net`
+
+    ![image](./media/box-tutorial/tutorial_box_url.png)
+
     > [!NOTE] 
-    > Yukarıdaki değerleri gerçek değildir. Bunları tanımlayıcısı ve gerçek oturum açma URL'si ile güncelleştirin. Değerlerini almak için iletişime geçin [kutusu istemci Destek ekibine](https://community.box.com/t5/custom/page/page-id/submit_sso_questionaire). 
+    > Oturum açma URL değeri, gerçek değil. Değerini gerçek oturum açma URL'si ile güncelleştirin. İlgili kişi [kutusu Destek ekibine](https://community.box.com/t5/custom/page/page-id/submit_sso_questionaire) değeri alınamıyor.
+ 
+5. Üzerinde **yukarı çoklu oturum açma SAML ile ayarlanmış** sayfasında **SAML imzalama sertifikası** bölümünde **indirme** indirmek için **Federasyon meta veri XML**  ve bilgisayarınıza kaydedin.
 
-1. Altında **SAML imzalama sertifikası**seçin **meta veri XML**ve bilgisayarınızda meta veri dosyasını kaydedin.
+    ![image](./media/box-tutorial/tutorial_Box_certificate.png)
 
-    ![Sertifika indirme bağlantısı](./media/box-tutorial/tutorial_box_certificate.png) 
+6. Uygulamanız için SSO'yu yapılandırmak için verilen yordamı izleyin [SSO'yu kendi ayarlamak](https://community.box.com/t5/How-to-Guides-for-Admins/Setting-Up-Single-Sign-On-SSO-for-your-Enterprise/ta-p/1263#ssoonyourown). 
 
-1. **Kaydet**’i seçin.
-
-    ![Çoklu oturum açma Kaydet düğmesi yapılandırın](./media/box-tutorial/tutorial_general_400.png)
-    
-1. Uygulamanız için SSO'yu yapılandırmak için verilen yordamı izleyin [SSO'yu kendi ayarlamak](https://community.box.com/t5/How-to-Guides-for-Admins/Setting-Up-Single-Sign-On-SSO-for-your-Enterprise/ta-p/1263#ssoonyourown).
-
-> [!NOTE] 
-> Box hesabınıza SSO ayarlarını etkinleştiremiyor, başvurmanız gerekebilir [kutusu istemci Destek ekibine](https://community.box.com/t5/custom/page/page-id/submit_sso_questionaire) ve indirilen XML dosyasını sağlayın.
-
-> [!TIP]
-> Uygulamayı hazırlama tutunun gibi önceki yönergeleri kısa bir sürümünü edinebilirsiniz [Azure portalında](https://portal.azure.com). Uygulamayı ekledikten sonra **Active Directory** > **kurumsal uygulamalar** bölümünden **çoklu oturum açma** sekmesine ve ardından erişim belgelerinde katıştırılmış **yapılandırma** alttaki bölümü. Ekli belge özelliği hakkında daha fazla bilgi için bkz. [Azure AD belgeleri katıştırılmış]( https://go.microsoft.com/fwlink/?linkid=845985).
->
+>[!NOTE]
+>Box hesabınıza için SSO ayarlarını yapılandırmaya bulamıyorsanız, indirilen göndermem gerekiyor **Federasyon meta verileri XML** için [kutusu Destek ekibine](https://community.box.com/t5/custom/page/page-id/submit_sso_questionaire). Bunlar, her iki kenarı da düzgün ayarlandığından SAML SSO bağlantı sağlamak için bu ayarı ayarlayın.
 
 ### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
 
-Bu bölümde, aşağıdakileri yaparak Azure portalında, Britta Simon test kullanıcısı oluşturun:
+Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcısı oluşturmaktır.
 
-![Bir Azure AD test kullanıcısı oluşturma][100]
+1. Azure portalında, sol bölmede seçin **Azure Active Directory**seçin **kullanıcılar**ve ardından **tüm kullanıcılar**.
 
-1. Azure portalında, sol bölmede seçin **Azure Active Directory**.
+    ![image](./media/box-tutorial/d_users_and_groups.png)
 
-    ![Azure Active Directory bağlantısı](./media/box-tutorial/create_aaduser_01.png)
+2. Seçin **yeni kullanıcı** ekranın üstünde.
 
-1. Geçerli kullanıcıların bir listesini görüntülemek için seçin **kullanıcılar ve gruplar** > **tüm kullanıcılar**.
+    ![image](./media/box-tutorial/d_adduser.png)
 
-    !["Kullanıcılar ve Gruplar" ve "Tüm kullanıcılar" bağlantıları](./media/box-tutorial/create_aaduser_02.png)
+3. Kullanıcı özellikleri, aşağıdaki adımları gerçekleştirin.
 
-1. Üst kısmındaki **tüm kullanıcılar** penceresinde **Ekle**.
+    ![image](./media/box-tutorial/d_userproperties.png)
 
-    ![Ekle düğmesi](./media/box-tutorial/create_aaduser_03.png)
+    a. İçinde **adı** alana **BrittaSimon**.
+  
+    b. İçinde **kullanıcı adı** alan türü **brittasimon@yourcompanydomain.extension**  
+    Örneğin, BrittaSimon@contoso.com
 
-    **Kullanıcı** penceresi açılır.
-
-1. İçinde **kullanıcı** penceresinde aşağıdakileri yapın:
-
-    ![Kullanıcı penceresi](./media/box-tutorial/create_aaduser_04.png)
-
-    a. İçinde **adı** kutusuna **BrittaSimon**.
-
-    b. İçinde **kullanıcı adı** Britta Simon kullanıcı e-posta adresini yazın.
-
-    c. Seçin **Göster parola** onay kutusunu işaretleyin ve ardından görüntülenen değeri yazın **parola** kutusu.
+    c. Seçin **özellikleri**seçin **Show parola** onay kutusunu işaretleyin ve ardından parola kutusunda görüntülenen değeri yazın.
 
     d. **Oluştur**’u seçin.
  
 ### <a name="create-a-box-test-user"></a>Kutusunu test kullanıcısı oluşturma
 
-Bu bölümde, Britta Simon kutusunda test kullanıcısı oluşturun. Kutusunu tam zamanında sağlama, varsayılan olarak etkin olduğu destekler. Bir kullanıcı zaten mevcut değilse kutusu erişmeye çalıştığında yeni bir tane oluşturulur. Herhangi bir eylemi, kullanıcı oluşturmak için gerekli değildir.
+Bu bölümün amacı, Britta Simon kutusunda adlı bir kullanıcı oluşturmaktır. Kutusunu tam zamanında sağlama, varsayılan olarak etkin olan destekler. Bu bölümde, hiçbir eylem öğesini yoktur. Yeni bir kullanıcı, henüz yoksa kutusu erişme denemesi sırasında oluşturulur.
+>[!Note]
+>Bir kullanıcı el ile oluşturmanız gerekiyorsa, kişi [kutusu Destek ekibine](https://community.box.com/t5/custom/page/page-id/submit_sso_questionaire).
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atayın
 
-Bu bölümde, kullanıcı Box'a erişim izni verdiğinizde, Azure çoklu oturum açma kullanılacak Britta Simon etkinleştirin. Bunu yapmak için aşağıdakileri yapın:
+Bu bölümde, Box'a erişim izni verdiğinizde, Azure çoklu oturum açma kullanılacak Britta Simon etkinleştirin.
 
-![Kullanıcı rolü atayın][200]
+1. Azure portalında **kurumsal uygulamalar**seçin **tüm uygulamaları**.
 
-1. Azure portalında açın **uygulamaları** görünümü, Git **dizin** görüntüleyin ve ardından **kurumsal uygulamalar** > **tüm uygulamaları**.
+    ![image](./media/box-tutorial/d_all_applications.png)
 
-    !["Kurumsal uygulamalar" ve "Tüm uygulamalar" bağlantıları][201] 
+2. Uygulamalar listesinde **kutusu**.
 
-1. İçinde **uygulamaları** listesinden **kutusu**.
+    ![image](./media/box-tutorial/tutorial_Box_app.png)
 
-    ![Kutusu bağlantısı](./media/box-tutorial/tutorial_box_app.png)  
+3. Soldaki menüde **kullanıcılar ve gruplar**.
 
-1. Sol bölmede seçin **kullanıcılar ve gruplar**.
+    ![image](./media/box-tutorial/d_leftpaneusers.png)
 
-    !["Kullanıcılar ve Gruplar" bağlantısı][202]
+4. Seçin **Ekle** düğmesine ve ardından **kullanıcılar ve gruplar** içinde **atama Ekle** iletişim.
 
-1. Seçin **Ekle** ve daha sonra **atama Ekle** bölmesinde **kullanıcılar ve gruplar**.
+    ![image](./media/box-tutorial/d_assign_user.png)
 
-    ![Atama Ekle bölmesi][203]
+4. İçinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** 'a tıklayın kullanıcı listesinde **seçin** ekranın alt kısmındaki düğmesi.
 
-1. İçinde **kullanıcılar ve gruplar** penceresi içinde **kullanıcılar** listesinden **Britta Simon**.
-
-1. Seçin **seçin** düğmesi.
-
-1. İçinde **atama Ekle** penceresinde **atama**.
+5. İçinde **atama Ekle** iletişim kutusunda **atama** düğmesi.
     
 ### <a name="test-single-sign-on"></a>Çoklu oturum açma testi
 
-Bu bölümde, erişim paneli kullanarak Azure AD çoklu oturum açma yapılandırmanızı test.
+Bu bölümde, erişim panelini kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
 
-Seçtiğinizde, **kutusu** kutusunu uygulamanıza oturum açma için oturum açma sayfasına erişim panelinde açık, kutucuğu.
+Seçtiğinizde, **kutusu** kutucuğuna erişim panelinde kutusunu uygulamanıza oturum açma için oturum açma sayfası alın.
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
-* [Azure Active Directory ile SaaS uygulamalarını tümleştirme hakkında öğreticiler listesi](tutorial-list.md)
+* [SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi](tutorial-list.md)
 * [Azure Active Directory ile uygulama erişimi ve çoklu oturum açma özellikleri nelerdir?](../manage-apps/what-is-single-sign-on.md)
 * [Kullanıcı sağlamayı yapılandırma](box-userprovisioning-tutorial.md)
 
-
-
-<!--Image references-->
-
-[1]: ./media/box-tutorial/tutorial_general_01.png
-[2]: ./media/box-tutorial/tutorial_general_02.png
-[3]: ./media/box-tutorial/tutorial_general_03.png
-[4]: ./media/box-tutorial/tutorial_general_04.png
-
-[100]: ./media/box-tutorial/tutorial_general_100.png
-
-[200]: ./media/box-tutorial/tutorial_general_200.png
-[201]: ./media/box-tutorial/tutorial_general_201.png
-[202]: ./media/box-tutorial/tutorial_general_202.png
-[203]: ./media/box-tutorial/tutorial_general_203.png
 

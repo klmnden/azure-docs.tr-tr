@@ -2,31 +2,25 @@
 title: Microsoft Azure Data Box Disk sistem gereksinimleri | Microsoft Docs
 description: Yazılım ve ağ, Azure Data Box Disk gereksinimleri hakkında bilgi edinin
 services: databox
-documentationcenter: NA
 author: alkohli
-manager: twooley
-editor: ''
-ms.assetid: ''
 ms.service: databox
-ms.devlang: NA
+ms.subservice: disk
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 09/06/2018
 ms.author: alkohli
-ms.openlocfilehash: aaa4e4bb24ca42adb9d283e6286dbef879bcb1ea
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: d10ca5d704892ae0a1494d729b46abf0fc06aa64
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44299857"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49092261"
 ---
 # <a name="azure-data-box-disk-system-requirements-preview"></a>Azure Data Box Disk sistem gereksinimleri (Önizleme)
 
 Bu makalede, Microsoft Azure Data Box Disk çözümünüz için ve Data Box Disk için bağlanan istemciler için önemli sistem gereksinimlerini açıklar. Önce Data Box Disk dağıtın ve ardından geri gerekirse dağıtım ve sonraki işlemi sırasında başvurduğu bilgileri dikkatlice gözden öneririz.
 
 > [!IMPORTANT]
-> Data Box Disk Önizleme aşamasındadır. Lütfen inceleyin [Önizleme kullanım koşulları](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) bu çözümü dağıtmadan önce. 
+> Data Box Disk Önizleme aşamasındadır. Bu çözümü dağıtmadan önce lütfen [Önizleme için kullanım koşullarını](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) gözden geçirin. 
 
 Sistem gereksinimleri, diskler, desteklenen depolama hesapları ve depolama türleri için bağlanan istemciler için desteklenen platformları içerir.
 

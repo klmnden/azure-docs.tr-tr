@@ -1,10 +1,10 @@
 ---
-title: Bir Azure CDN profili Verizon standart Verizon Premium geçirme | Microsoft Docs
-description: Bir profili Verizon standart Verizon Premium geçiş işleminin ayrıntıları hakkında bilgi edinin.
+title: Azure CDN profili Verizon standart Verizon Premium sürümüne geçirme | Microsoft Docs
+description: Bir profili Verizon standart Verizon Premium'a geçiş ayrıntıları hakkında bilgi edinin.
 services: cdn
 documentationcenter: ''
-author: dksimpson
-manager: cfowler
+author: mdgattuso
+manager: danielgi
 editor: ''
 ms.assetid: ''
 ms.service: cdn
@@ -13,42 +13,42 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/21/2018
-ms.author: v-deasim
+ms.author: magattus
 ms.custom: ''
-ms.openlocfilehash: 074dbb094e7ae2cd1f1719016928bd7348da3949
-ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
+ms.openlocfilehash: 7768dde424aedc295b53512db50c9dfc9db9ab8c
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36958064"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49091479"
 ---
-# <a name="migrate-an-azure-cdn-profile-from-standard-verizon-to-premium-verizon"></a>Bir Azure CDN profili standart Verizon Premium Verizon geçirme
+# <a name="migrate-an-azure-cdn-profile-from-standard-verizon-to-premium-verizon"></a>Azure CDN profili için Premium Verizon standart Verizon geçirme
 
-Azure CDN uç noktalarınızı yönetmek için bir Azure içerik teslim ağı (CDN) profili oluşturduğunuzda, dört farklı ürünler, içinden seçim yapabileceğiniz için sunar. Farklı ürün ve bunların kullanılabilir özellikleri hakkında daha fazla bilgi için bkz: [karşılaştırmak Azure CDN ürün özellikleri](cdn-features.md).
+Uç noktalarınızı yönetmek için bir Azure Content Delivery Network (CDN) profili oluşturduğunuzda, Azure CDN, içinden seçim yapabileceğiniz için dört farklı ürün sunar. Çeşitli ürünlerin ve bunların kullanılabilir özellikleri hakkında daha fazla bilgi için bkz. [karşılaştırma Azure CDN ürün özellikleri](cdn-features.md).
 
-Olduğunuz oluşturursanız, bir **verizon'dan Azure CDN standart** profil ve CDN uç noktalarınızı yönetmek için kullandığınız kendisine yükseltme seçeneğine sahip bir **verizon'dan Azure CDN Premium** profili. Yükselttiğinizde, CDN uç noktalarınızı ve tüm verileriniz korunur. 
+Olduğunuz oluşturursanız, bir **verizon'dan Azure CDN standart** profili ve CDN uç noktalarınızı yönetmek için kullandığınız için yükseltme seçeneğine sahip bir **verizon'dan Azure CDN Premium** profili. Yükselttiğinizde, CDN uç noktalarınızı ve tüm verileriniz korunur. 
 
 > [!IMPORTANT]
-> Yükseltme yaparsam sonra bir **verizon'dan Azure CDN Premium** profili, daha sonra dönüştüremiyor onu geri bir **verizon'dan Azure CDN standart** profili.
+> İçin yükselttikten sonra bir **verizon'dan Azure CDN Premium** profili, daha sonra dönüştürülemiyor, başa bir **verizon'dan Azure CDN standart** profili.
 > 
 
 Yükseltmek için bir **verizon'dan Azure CDN standart** profili, kişi [Microsoft Support](https://azure.microsoft.com/support/options/).
 
 ## <a name="profile-comparison"></a>Profil karşılaştırma
-**Verizon'dan Azure CDN Premium** profilleri sahip aşağıdaki anahtar farkları **verizon'dan Azure CDN standart** profilleri:
-- Azure CDN özellikleri gibi belirli [sıkıştırma](cdn-improve-performance.md), [kuralları önbelleğe alma](cdn-caching-rules.md), ve [coğrafi filtreleme](cdn-restrict-access-by-country.md)Azure CDN arabirimi kullanamazsınız, Verizon portalı yoluyla kullanmanız gerekir **Yönet** düğmesi.
-- API: Aksine standart Verizon ile API Premium Verizon Portalı'ndan erişilen bu özellikleri denetlemek için kullanamazsınız. Ancak, bir uç nokta oluşturma/silme, önbelleğe alınan varlıklar temizleme/yükleme ve etkinleştirme/özel bir etki alanı devre dışı bırakma gibi diğer ortak özellikleri denetlemek için API'yi kullanabilirsiniz.
-- Fiyatlandırma: Premium Verizon standart Verizon'den veri aktarımları için farklı bir fiyatlandırma yapısına vardır. Daha fazla bilgi için bkz: [içerik teslim ağı fiyatlandırma](https://azure.microsoft.com/pricing/details/cdn/).
+**Verizon'dan Azure CDN Premium** profilleri, aşağıdaki anahtar fark sahip **verizon'dan Azure CDN standart** profilleri:
+- Azure CDN özellikleri gibi belirli [sıkıştırma](cdn-improve-performance.md), [önbelleğe alma kuralları](cdn-caching-rules.md), ve [coğrafi filtreleme](cdn-restrict-access-by-country.md), Azure CDN arabirimini kullanamazsınız, Verizon portalı üzerinden kullanmanız gerekir **Yönet** düğmesi.
+- API: Aksine standart Verizon ile API Premium Verizon portaldan erişilen bu özellikleri denetlemek için kullanamazsınız. Ancak, bir uç nokta oluşturma/silme, önbelleğe alınan varlıkları temizleme/yükleme ve etkinleştirme/özel bir etki alanını devre dışı bırakma gibi diğer ortak özellikleri denetlemek için API'yi kullanabilirsiniz.
+- Fiyatlandırma: Premium Verizon standart Verizon daha veri aktarımları için farklı bir fiyatlandırma yapısına sahiptir. Daha fazla bilgi için [Content Delivery Network fiyatlandırması](https://azure.microsoft.com/pricing/details/cdn/).
 
-**Verizon'dan Azure CDN Premium** profilleri aşağıdaki ek özellikleri vardır:
-- [Belirteç kimlik doğrulama](cdn-token-auth.md): kullanıcıların elde edilir ve güvenli kaynaklar getirmek için bir belirteç olanak sağlar.
-- [Kurallar altyapısı](cdn-rules-engine.md): HTTP isteklerinin işlenme özelleştirmenize olanak tanır.
+**Verizon'dan Azure CDN Premium** profilleri şu ek özellikleri vardır:
+- [Belirteç kimlik doğrulaması](cdn-token-auth.md): kullanıcıların elde edilir ve güvenli kaynaklara getirmek için bir belirteç verir.
+- [Kural altyapısı](cdn-rules-engine.md): HTTP isteklerinin nasıl işleneceğini özelleştirmenize olanak sağlar.
 - Gelişmiş analiz araçları:
    - [Ayrıntılı HTTP analizi](cdn-advanced-http-reports.md)
-   - [Edge Performans Analizi](cdn-edge-performance.md)
+   - [Uç Performans Analizi](cdn-edge-performance.md)
    - [Gerçek zamanlı analiz](cdn-real-time-alerts.md)
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Kurallar altyapısı hakkında daha fazla bilgi için bkz: [Azure CDN kurallar altyapısı başvuru](cdn-rules-engine-reference.md).
+Kural altyapısı hakkında daha fazla bilgi için bkz: [Azure CDN kural altyapısı başvurusu](cdn-rules-engine-reference.md).
 

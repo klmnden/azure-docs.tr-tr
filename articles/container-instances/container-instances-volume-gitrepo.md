@@ -7,12 +7,12 @@ ms.service: container-instances
 ms.topic: article
 ms.date: 06/15/2018
 ms.author: danlep
-ms.openlocfilehash: 9f693299d2466b560e0957a77e898e1b10433fb0
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 1df251522c6ca14c5eb8967771fd609c04ffe2ea
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48857419"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49114952"
 ---
 # <a name="mount-a-gitrepo-volume-in-azure-container-instances"></a>Azure Container ınstances'da bir gitRepo birimi
 
@@ -89,17 +89,17 @@ Kapsayıcı örneği dağıtımıyla bir Azure Resource Manager şablonu ile bir
 --gitrepo-url https://gituser:abcdef1234fdsa4321abcdef@github.com/GitUser/some-private-repository
 ```
 
-Azure DevOps Git deposu için geçerli bir PAT birlikte ("azuredevopsuser" aşağıdaki örnekte olduğu gibi kullanabilirsiniz) herhangi bir kullanıcı adı belirtin:
+Bir Azure depoları Git deposu için geçerli bir PAT birlikte ("azurereposuser" aşağıdaki örnekte olduğu gibi kullanabilirsiniz) herhangi bir kullanıcı adı belirtin:
 
 ```azurecli
---gitrepo-url https://azuredevopsuser:abcdef1234fdsa4321abcdef@azuredevopsorganizationname.visualstudio.com/_git/some-private-repository
+--gitrepo-url https://azurereposuser:abcdef1234fdsa4321abcdef@dev.azure.com/your-org/_git/some-private-repository
 ```
 
-GitHub ve Azure DevOps için kişisel erişim belirteçleri hakkında daha fazla bilgi için aşağıdakilere bakın:
+GitHub ve Azure depoları için kişisel erişim belirteçleri hakkında daha fazla bilgi için aşağıdakilere bakın:
 
 GitHub: [komut satırı için bir kişisel erişim belirteci oluşturma][pat-github]
 
-Azure DevOps: [kimlik doğrulaması yapmak için kişisel erişim belirteçleri oluşturun][pat-vsts]
+Azure depoları: [kimlik doğrulaması yapmak için kişisel erişim belirteçleri oluşturun][pat-repos]
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
@@ -112,7 +112,7 @@ Azure Container ınstances'da diğer birim türleri bağlama işlemleri gerçekl
 <!-- LINKS - External -->
 [aci-helloworld]: https://github.com/Azure-Samples/aci-helloworld
 [pat-github]: https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/
-[pat-vsts]: https://docs.microsoft.com/vsts/organizations/accounts/use-personal-access-tokens-to-authenticate
+[pat-repos]: https://docs.microsoft.com/en-us/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate
 
 <!-- LINKS - Internal -->
 [az-container-create]: /cli/azure/container#az-container-create

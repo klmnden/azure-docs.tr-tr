@@ -2,25 +2,18 @@
 title: Azure Data Box Disk sınırlar | Microsoft Docs
 description: Sistem sınırlarını ve önerilen boyut için Microsoft Azure Data Box Disk açıklar.
 services: databox
-documentationcenter: NA
 author: alkohli
-manager: twooley
-editor: ''
-ms.assetid: ''
 ms.service: databox
-ms.devlang: NA
+ms.subservice: disk
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: TBD
 ms.date: 09/04/2018
 ms.author: alkohli
-ms.custom: ''
-ms.openlocfilehash: b7de39ca8723df2d15da7677b7032c98e84ecb1d
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: bbaf1f10284fb520cc3a52a6c04c4150de3b6546
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46960626"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49092023"
 ---
 # <a name="azure-data-box-disk-limits-preview"></a>Azure Data Box Disk sınırları (Önizleme)
 
@@ -28,7 +21,7 @@ ms.locfileid: "46960626"
 Limitler, dağıtmanıza ve Microsoft Azure Data Box Disk çözümünüz olarak düşünün. 
 
 > [!IMPORTANT] 
-> Azure Data Box Disk Önizleme aşamasındadır. Gözden geçirme [Önizleme kullanım koşulları](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) bu çözümü dağıtmadan önce. 
+> Azure Data Box Disk Önizleme aşamasındadır. Bu çözümü dağıtmadan önce [önizleme için kullanım koşullarını](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) gözden geçirin. 
 
 
 ## <a name="data-box-service-limits"></a>Veri kutusu hizmeti sınırları
@@ -47,7 +40,7 @@ Bu bölümde, Azure dosyaları, Azure blok BLOB'ları ve Data Box hizmeti uyguns
 Azure depolama hizmet sınırları ve adlandırma paylaşımları, kapsayıcılar ve dosyalar için en iyi yöntemler üzerinde en son bilgiler için bkz:
 
 - [Adlandırma ve kapsayıcıları başvurma](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata)
-- [Adlandırma ve paylaşımları başvurma](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata)
+- [Paylaşımları adlandırma ve onlara başvurma](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata)
 - [Blok blobları ve sayfa blob kuralları](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs)
 
 > [!IMPORTANT]

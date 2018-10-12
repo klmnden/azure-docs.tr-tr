@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 05/30/2018
 ms.author: sethm
 ms.reviewer: alfredop
-ms.openlocfilehash: 54a81e6c5c6e1fe5c37b985e40174dc369edfe6d
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: cf6604730ab3bd9ee04fac36e703022f63dcb949
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45630418"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49090374"
 ---
 # <a name="report-azure-stack-usage-data-to-azure"></a>Azure Stack kullanım verileri Azure'a rapor 
 
@@ -95,10 +95,6 @@ Azure Stack multinode için Kurumsal Anlaşma (EA) ve CSP abonelikleri desteklen
 ## <a name="does-usage-data-reporting-work-in-sovereign-clouds"></a>Kullanım verilerini bağımsız bulutlarda iş raporlama mu?
 
 Azure Stack geliştirme Seti'ni veri Kullanım raporlaması genel Azure sistemde oluşturulan abonelikleri gerektirir. Kullanım raporlama verilerini desteklemeyen şekilde bağımsız bulutlarda (Azure kamu, Azure Almanya ve Azure China Bulutları) birinde oluşturulmuş abonelikler Azure ile kaydedilemez.
-
-## <a name="how-can-users-identify-azure-stack-usage-data-in-the-azure-billing-portal"></a>Kullanıcılar, Azure Stack kullanım verilerini Azure fatura Portalı'nda nasıl belirleyebilir misiniz?
-
-Kullanıcılar, Azure Stack kullanım dosyasındaki veriler, kullanım ayrıntılarını görebilirsiniz. Kullanım ayrıntılarını dosya elde etme hakkında bilmesi için bakın [kullanım dosyasını indirin Azure hesap merkezi makaledeki](https://docs.microsoft.com/azure/billing/billing-download-azure-invoice-daily-usage-date#download-usage-from-the-account-center-csv). Azure Stack depolama ve VM'lerin tanımlayan Azure Stack ölçümlerini kullanım ayrıntılarını dosyası içerir. Azure Stack'te kullanılan tüm kaynakları "Azure Stack." adlı bölgenin altında raporlanır.
 
 ## <a name="why-doesnt-the-usage-reported-in-azure-stack-match-the-report-generated-from-azure-account-center"></a>Neden Azure Stack'te bildirilen kullanım Azure hesap Merkezi'nden oluşturulan raporu eşleşmeyen?
 

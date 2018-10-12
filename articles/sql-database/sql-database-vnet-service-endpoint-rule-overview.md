@@ -12,12 +12,12 @@ ms.author: dmalik
 ms.reviewer: vanto, genemi
 manager: craigg
 ms.date: 09/18/2018
-ms.openlocfilehash: 0e14a00cbd7f38f7409a6551ac6f29c9f54a7434
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: 3cfff932834682471990236c9e96b499e20d33f1
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48870851"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49092567"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-sql-database-and-sql-data-warehouse"></a>Azure SQL veritabanı ve SQL veri ambarı için sanal ağ hizmet uç noktaları ve kuralları kullanma
 
@@ -148,10 +148,9 @@ Azure SQL veritabanı için hizmet uç noktaları kullanarak, aşağıdaki konul
 
 #### <a name="expressroute"></a>ExpressRoute
 
-Ağınız aracılığıyla Azure ağına bağlı olup olmadığını [ExpressRoute][expressroute-indexmd-744v], her bağlantı hattı, Microsoft Edge, iki genel IP adresi ile yapılandırılır. İki IP adresi, Microsoft Services gibi Azure depolama için Azure ortak eşleme kullanarak bağlanmak için kullanılır.
-
-Azure SQL veritabanı için bağlantı hattınızın gelen iletişimlere izin vermesi için genel IP adresleri, bağlantı hatları için IP ağ kuralları oluşturmanız gerekir. ExpressRoute devreniz genel IP adreslerini bulmak için Azure portalını kullanarak ExpressRoute ile bir destek bileti açın.
-
+Kullanıyorsanız [ExpressRoute](../expressroute/expressroute-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json) şirket içinden ortak eşleme veya Microsoft eşlemesi için kullanılan NAT IP adreslerini tanımlamanız gerekecek. Ortak eşleme için, her bir ExpressRoute varsayılan olarak bağlantı hattında trafik Microsoft Azure omurga ağına girdiğinde Azure hizmet trafiğine uygulanan iki NAT IP adresi kullanılır. Microsoft eşlemesi için, kullanılan NAT IP adresleri müşteri tarafından sağlanır veya hizmet sağlayıcısı tarafından sağlanır. Hizmet kaynaklarınıza erişime izin vermek için, bu genel IP adreslerine kaynak IP güvenlik duvarı ayarında izin vermeniz gerekir. Ortak eşleme ExpressRoute bağlantı hattı IP adreslerinizi bulmak için Azure portalında [ExpressRoute ile bir destek bileti açın](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview). [ExpressRoute genel ve Microsoft eşlemesi için NAT](../expressroute/expressroute-nat.md?toc=%2fazure%2fvirtual-network%2ftoc.json#nat-requirements-for-azure-public-peering) hakkında daha fazla bilgi edinin.
+  
+Azure SQL veritabanı için bağlantı hattınızın gelen iletişimlere izin vermesi için IP ağ kuralları, NAT'ın, genel IP adresleri için oluşturun
 
 <!--
 FYI: Re ARM, 'Azure Service Management (ASM)' was the old name of 'classic deployment model'.

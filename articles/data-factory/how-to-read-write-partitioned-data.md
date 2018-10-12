@@ -1,6 +1,6 @@
 ---
-title: Azure Data Factory veri okumak veya yazmak nasıl bölümlenmiş | Microsoft Docs
-description: Azure Data Factory'de bölümlenmiş veri okunamıyor veya yazılamıyor öğrenin.
+title: Azure Data factory'de veri okumak veya yazmak nasıl bölümlenmiş | Microsoft Docs
+description: Okuma veya Azure Data Factory'de bölümlenmiş verileri yazma konusunda bilgi edinin.
 services: data-factory
 documentationcenter: ''
 author: sharonlo101
@@ -13,18 +13,20 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/15/2018
 ms.author: shlo
-ms.openlocfilehash: 59644f3318e2bf9c4f0ea6c3f5699fe1d19f2089
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 24464d110b00508cfb3fde4ab1a050773511e255
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37053719"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49091058"
 ---
-# <a name="how-to-read-or-write-partitioned-data-in-azure-data-factory"></a>Azure Data Factory veri okumak veya yazmak nasıl bölümlenmiş
-Sürüm 1'de, Azure Data Factory veri okunurken veya bölümlenmiş SliceStart/SliceEnd/WindowStart/WindowEnd sistem değişkenleri kullanılarak yazılırken desteklenir. Veri Fabrikası geçerli sürümde parametresinin değeri bir ardışık düzen parametre ve tetikleyici başlangıç saati ve zamanlanan saat'ı kullanarak bu davranışı elde edebilirsiniz. 
+# <a name="how-to-read-or-write-partitioned-data-in-azure-data-factory"></a>Azure Data factory'de veri okumak veya yazmak nasıl bölümlenir
 
-## <a name="use-a-pipeline-parameter"></a>Ardışık Düzen parametresini kullanın 
-Sürüm 1'de, aşağıdaki örnekte gösterildiği gibi SliceStart sistem değişkeni ve partitionedBy özelliği kullanabilirsiniz: 
+Azure Data Factory sürüm 1, size okuma veya bölümlenmiş verileri kullanarak yazma **SliceStart**, **SliceEnd**, **WindowStart**, ve **WindowEnd** sistem değişkenleri. Veri Fabrikası'nın geçerli sürümünde, parametre değeri bir işlem hattı parametre ve bir tetikleyicinin başlangıç saati veya zamanlanan saati'ı kullanarak bu davranışı elde edebilirsiniz. 
+
+## <a name="use-a-pipeline-parameter"></a>Bir işlem hattı parametresini kullanın 
+
+Data Factory sürüm 1'da, kullanabileceğinizi **partitionedBy** özelliği ve **SliceStart** aşağıdaki örnekte gösterildiği gibi sistem değişkeni: 
 
 ```json
 "folderPath": "adfcustomerprofilingsample/logs/marketingcampaigneffectiveness/{Year}/{Month}/{Day}/",
@@ -35,13 +37,13 @@ Sürüm 1'de, aşağıdaki örnekte gösterildiği gibi SliceStart sistem deği�
 ],
 ```
 
-PartitonedBy özelliği hakkında daha fazla bilgi için bkz: [sürüm 1 Azure Blob bağlayıcı](v1/data-factory-azure-blob-connector.md#dataset-properties) makalesi. 
+Hakkında daha fazla bilgi için **partitonedBy** özelliğine bakın [veri kopyalama ya da Azure Blob depolamadan Azure Data Factory kullanarak](v1/data-factory-azure-blob-connector.md#dataset-properties). 
 
-Veri Fabrikası geçerli sürümünde bu davranışı elde etmenin bir yolu aşağıdaki eylemleri yapmaktır: 
+Veri Fabrikası'nın geçerli sürümünde bu davranışı elde etmek için: 
 
-1. Tanımlayan bir **parametresi kanal** dize türünde. Aşağıdaki örnekte, ardışık düzen parametre adıdır **windowStartTime**. 
-2. Ayarlama **folderPath** ardışık düzen parametresinin değeri başvurmak için veri kümesi tanımında. 
-3. Ardışık Düzen isteğe bağlı çağrılırken parametresi için gerçek değer geçti veya bir tetikleyicinin başlangıç saati ve zamanlanan saat çalışma zamanında dinamik olarak geçirin. 
+1. Tanımlayan bir *parametresi ardışık düzen* türü **dize**. Aşağıdaki örnekte, işlem hattı parametresi adıdır **windowStartTime**. 
+2. Ayarlama **folderPath** işlem hattı parametresinin değeri başvurmak için veri kümesi tanımında. 
+3. İsteğe bağlı işlem hattı çağırdığınızda, gerçek parametre değerini geçirin. Ayrıca, bir tetikleyici başlangıç zamanı veya çalışma zamanında dinamik olarak zamanlanmış zamanı geçirebilirsiniz. 
 
 ```json
 "folderPath": {
@@ -50,8 +52,9 @@ Veri Fabrikası geçerli sürümünde bu davranışı elde etmenin bir yolu aşa
 },
 ```
 
-## <a name="pass-in-value-from-a-trigger"></a>Değer tetikleyiciden geçirmek
-Aşağıdaki dönen pencere tetikleyici tanımında, ardışık düzen parametresi için bir değer olarak penceresi başlangıç zamanı tetikleyicinin geçirilen **windowStartTime**: 
+## <a name="pass-in-a-value-from-a-trigger"></a>Bir tetikleyici ile bir değer geçirin
+
+Aşağıdaki atlayan pencere tetikleyicisi tanımında, işlem hattı parametresi için bir değer olarak penceresi başlangıç zamanı tetikleyicisinin geçirilen **windowStartTime**: 
 
 ```json
 {
@@ -80,7 +83,7 @@ Aşağıdaki dönen pencere tetikleyici tanımında, ardışık düzen parametre
 
 ## <a name="example"></a>Örnek
 
-Örnek veri kümesi tanımı aşağıda verilmiştir:
+Bir örnek veri kümesi tanımı aşağıda verilmiştir:
 
 ```json
 {
@@ -116,7 +119,7 @@ Aşağıdaki dönen pencere tetikleyici tanımında, ardışık düzen parametre
 }
 ```
 
-Ardışık düzen tanımı: 
+İşlem hattı tanımı: 
 
 ```json
 {
@@ -176,4 +179,6 @@ Ardışık düzen tanımı:
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Veri Fabrikası sahip işlem hattı oluşturma izlenecek tam yol için bkz: [hızlı başlangıç: bir veri fabrikası oluşturun](quickstart-create-data-factory-powershell.md). 
+
+Bir işlem hattına sahip bir veri fabrikası oluşturma hakkında tam bir kılavuz için bkz: [hızlı başlangıç: veri fabrikası oluşturma](quickstart-create-data-factory-powershell.md). 
+

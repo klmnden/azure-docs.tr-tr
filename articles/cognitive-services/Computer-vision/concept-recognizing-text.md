@@ -10,12 +10,12 @@ ms.component: computer-vision
 ms.topic: conceptual
 ms.date: 08/29/2018
 ms.author: v-deken
-ms.openlocfilehash: 49cba0e9b6958beb07b6f074e6dc748679514525
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 2a77306f408e87d5055a292d6f403cc041790eba
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45985320"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49093876"
 ---
 # <a name="recognizing-printed-and-handwritten-text"></a>Yazdırılmış ve el yazısı ile yazılan metinleri tanıma
 
@@ -29,7 +29,7 @@ Görüntü işleme, aşağıdaki gereksinimleri karşılaması görüntüdeki ba
 
 - Görüntü JPEG, PNG veya BMP biçiminde sunulması
 - Görüntünün dosya boyutunun 4 megabayt (MB) değerini aşmaması gerekir
-- Görüntü boyutları 40 x 40 3200 x 3200 piksel arasında olmalıdır
+- Görüntü boyutları 50 x 50 ile 4200 x 4200 piksel arasında olmalıdır
 
 > [!NOTE]
 > Bu teknoloji şu an Önizleme aşamasındadır ve yalnızca İngilizce metinlerde kullanılabilir.

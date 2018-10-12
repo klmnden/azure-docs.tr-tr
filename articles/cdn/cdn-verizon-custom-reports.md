@@ -3,8 +3,8 @@ title: Verizon özel raporları | Microsoft Docs
 description: "Aşağıdaki Raporlar'ı kullanarak, CDN kullanım biçimlerini görüntüleyebilirsiniz: bant genişliğini, aktarılan veriler, isabet sayısı, önbellek durumları, önbellek isabet oranını, IPv4/IPv6 aktarılan veriler."
 services: cdn
 documentationcenter: ''
-author: dksimpson
-manager: ''
+author: mdgattuso
+manager: danielgi
 editor: ''
 ms.assetid: ''
 ms.service: cdn
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/11/2017
-ms.author: v-deasim
-ms.openlocfilehash: f18b6edb900640e48e5ca87639f71cec9287af38
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.author: magattus
+ms.openlocfilehash: 75a1fb4beb4025dc3ec63d29944331d07be35d8a
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44159750"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49092075"
 ---
 # <a name="custom-reports-from-verizon"></a>Verizon özel raporları
 

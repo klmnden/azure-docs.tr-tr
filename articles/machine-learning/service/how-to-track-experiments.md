@@ -9,12 +9,12 @@ ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/24/2018
-ms.openlocfilehash: ced10a54d569531b06ee47b646130f43cedd2963
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 3256c8815b19f9b070cce3cd422f92c296e3e5c3
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46984611"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49115191"
 ---
 # <a name="track-experiments-and-training-metrics-in-azure-machine-learning"></a>Denemeler ve Azure Machine learning'de eğitim metriklerini izleme
 
@@ -148,7 +148,7 @@ Bu örnek, yukarıda temel sklearn Ridge modeli genişletir. Alfa değerleri öl
           "test": {"X": X_test, "y": y_test}}
 
   # list of numbers from 0.0 to 1.0 with a 0.05 interval
-  alphas = np.arange(0.0, 1.0, 0.05)
+  alphas = mylib.get_alphas()
 
   for alpha in alphas:
       # Use Ridge algorithm to create a regression model
@@ -213,7 +213,7 @@ Bu örnek, yukarıda temel sklearn Ridge modeli genişletir. Alfa değerleri öl
 ## <a name="view-run-details"></a>Çalıştırma Ayrıntıları görünümü
 
 ### <a name="monitor-run-with-jupyter-notebook-widgets"></a>İzleyici pencere öğelerinde Jupyter not defteri çalıştırma
-Kullanırken **ScriptRunConfig** göndermek için gereken yöntemini çalıştırır, Jupyter not defteri olan bir pencere öğesi ile çalışma ilerlemesini izleyebilirsiniz. Çalıştırma gönderim gibi pencere öğesi zaman uyumsuz ve canlı güncelleştirmeler 10-15 iş tamamlanana kadar saniyede sağlar.
+Kullanırken **ScriptRunConfig** göndermek için gereken yöntemini çalıştırır, Jupyter not defteri olan bir pencere öğesi ile çalışma ilerlemesini izleyebilirsiniz. Çalıştırma gönderimi gibi pencere öğesi de zaman uyumsuzdur ve iş tamamlanana kadar her 10-15 saniyede bir canlı güncelleştirmeler sağlar.
 
 1. Jupyter pencere öğesi, çalışma tamamlanması beklenirken görüntüleyin.
 
@@ -224,7 +224,7 @@ Kullanırken **ScriptRunConfig** göndermek için gereken yöntemini çalıştı
 
   ![Ekran görüntüsü, Jupyter not defteri pencere öğesi](./media/how-to-track-experiments/widgets.PNG)
 
-### <a name="get-log-results-upon-completion"></a>Tamamlandıktan sonra günlük sonuçlar elde edin
+### <a name="get-log-results-upon-completion"></a>Tamamlandıktan sonra günlük sonuçlarını alma
 
 Beklerken diğer görevleri çalıştırabileceği şekilde onlara eğitim ve izleme modeli arka planda gerçekleştirilir. Ayrıca daha fazla kod çalıştırmadan önce eğitim modeli tamamlanana kadar bekleyebilirsiniz. Kullanırken **ScriptRunConfig**, kullanabileceğiniz ```run.wait_for_completion(show_output = True)``` modeli eğitimi ne zaman tamamlandığını göstermek için. ```show_output``` Bayrağı ayrıntılı çıkış sağlar. 
   
@@ -247,8 +247,8 @@ Ayrıca, herhangi bir çıkış veya çalıştırma için günlükleri görünt�
 
 ## <a name="example-notebooks"></a>Örnek Not Defterleri
 Aşağıdaki not defterleri, bu makaledeki kavramları göstermektedir:
-* `01.getting-started/01.train-within-notebook/01.train-within-notebook.ipynb`
-* `01.getting-started/02.train-on-local/02.train-on-local.ipynb`
+* [01.Getting-Started/01.Train-within-Notebook/01.Train-within-Notebook.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/01.train-within-notebook)
+* [01.Getting-Started/02.Train-on-Local/02.Train-on-Local.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/02.train-on-local)
 
 Bu not defterlerini alın: [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
 

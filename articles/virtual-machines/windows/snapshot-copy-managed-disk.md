@@ -1,6 +1,6 @@
 ---
-title: VHD bir anlık görüntü oluşturma | Microsoft Docs
-description: Bir Azure VM geri yukarı veya sorunlarını gidermek için kullanmak üzere bir kopyasını oluşturmayı öğrenin.
+title: Azure'da bir VHD anlık görüntüsünü oluşturma | Microsoft Docs
+description: Bir kopyasını yukarı veya ilgili sorunları gidermeye yönelik bir yedekleme kullanmak üzere bir Azure VM oluşturmayı öğrenin.
 documentationcenter: ''
 author: cynthn
 manager: jeconnoc
@@ -12,38 +12,38 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 04/10/2018
+ms.date: 10/08/2018
 ms.author: cynthn
-ms.openlocfilehash: 7d45fd749fea4036d944d740541d8b8607553835
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 87d78178c32aea3ae601983ec14e9df0732b59e2
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34658164"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49091309"
 ---
-# <a name="create-a-snapshot"></a>Bir anlık görüntü oluşturma
+# <a name="create-a-snapshot"></a>Anlık görüntü oluşturma
 
-Yedekleme veya VM sorun giderme için VHD sorunları bir işletim sistemi veya veri diski bir anlık görüntüsünü. Bir VHD tam, salt okunur bir kopyasını bir anlık görüntüdür. 
+Bir anlık görüntü sanal sabit disk (VHD), tam, salt okunur bir kopyasıdır. Bir yedek olarak kullanmak ya da sanal makine (VM) sorunlarını gidermek için VHD bir işletim sistemi veya veri diskinin anlık görüntüsünü alabilir. 
 
-## <a name="use-azure-portal-to-take-a-snapshot"></a>Bir anlık görüntüsünü için Azure portalını kullanma 
+## <a name="use-the-azure-portal"></a>Azure portalı kullanma 
 
 1. [Azure Portal](https://portal.azure.com) oturum açın.
-2. Sol üst başlayarak, tıklatın **kaynak oluşturma** arayın ve **anlık görüntü**.
-3. Anlık görüntü dikey penceresinde tıklayın **oluşturma**.
-4. Girin bir **adı** anlık görüntü için.
-5. Varolan [Kaynak grubunu](../../azure-resource-manager/resource-group-overview.md#resource-groups) seçin veya yenisi için adı yazın. 
-6. Azure veri merkezi konum seçin.  
-7. İçin **kaynak disk**, anlık görüntü için yönetilen diski seçin.
-8. Seçin **hesap türü** anlık görüntü deposu için kullanılacak. Öneririz **Standard_LRS** yüksek performanslı bir diskte depolanan gerekmedikçe.
-9. **Oluştur**’a tıklayın.
+2. Sol menüden **kaynak Oluştur**, arayın ve seçin **anlık görüntü**.
+3. İçinde **anlık görüntü** penceresinde **Oluştur**. **Oluşturma anlık görüntüsü** penceresi görüntülenir.
+4. Girin bir **adı** anlık görüntü.
+5. Mevcut bir seçin [kaynak grubu](../../azure-resource-manager/resource-group-overview.md#resource-groups) veya yeni bir ad girin. 
+6. Azure veri merkezi **Konumu** seçin.  
+7. İçin **kaynak disk**, yönetilen diskin anlık görüntüsünü seçin.
+8. Seçin **hesap türü** anlık görüntü deposu için kullanılacak. Seçin **Standard_HDD**, yüksek performanslı bir diskte depolanacak anlık görüntü gerekmedikçe.
+9. **Oluştur**’u seçin.
 
-## <a name="use-powershell-to-take-a-snapshot"></a>Bir anlık görüntüsünü için PowerShell kullanma
+## <a name="use-powershell"></a>PowerShell kullanma
 
-Aşağıdaki adımlar VHD diskin kopyalanması, anlık görüntü yapılandırmaları oluşturma ve kullanarak bir disk anlık görüntüsünü alma gösterir [yeni AzureRmSnapshot](/powershell/module/azurerm.compute/new-azurermsnapshot) cmdlet'i. 
+Aşağıdaki adımları kullanarak disk anlık VHD diski kopyalayın ve anlık görüntü yapılandırması oluşturma işlemini göstermektedir [yeni AzureRmSnapshot](/powershell/module/azurerm.compute/new-azurermsnapshot) cmdlet'i. 
 
-Başlamadan önce AzureRM.Compute PowerShell modülü en son sürümüne sahip olduğunuzdan emin olun. Bu makale Modül sürümü 5.7.0 AzureRM gerektirir veya sonraki bir sürümü. Sürümü bulmak için `Get-Module -ListAvailable AzureRM` komutunu çalıştırın. Yükseltmeniz gerekirse, bkz. [Azure PowerShell modülünü yükleme](/powershell/azure/install-azurerm-ps). PowerShell'i yerel olarak çalıştırıyorsanız Azure bağlantısı oluşturmak için `Connect-AzureRmAccount` komutunu da çalıştırmanız gerekir.
+Başlamadan önce sürüm 5.7.0 olmalıdır AzureRM.Compute PowerShell modülünün en son sürüm olduğundan emin olun veya üzeri. Sürümü bulmak için `Get-Module -ListAvailable AzureRM` komutunu çalıştırın. Yükseltmeniz gerekirse, bkz. [Azure PowerShell modülünü yükleme](/powershell/azure/install-azurerm-ps). PowerShell'i yerel olarak çalıştırıyorsanız, çalıştırma [Connect-AzureRmAccount](https://docs.microsoft.com/powershell/module/azurerm.profile/connect-azurermaccount) Azure ile bir bağlantı oluşturmak için.
 
-Bazı parametreler ayarlayın. 
+1. Bazı parametrelerini ayarla: 
 
  ```azurepowershell-interactive
 $resourceGroupName = 'myResourceGroup' 
@@ -52,39 +52,36 @@ $vmName = 'myVM'
 $snapshotName = 'mySnapshot'  
 ```
 
-VM Al
+2. VM Al:
 
  ```azurepowershell-interactive
 $vm = get-azurermvm `
-   -ResourceGroupName $resourceGroupName `
+   -ResourceGroupName $resourceGroupName 
    -Name $vmName
 ```
 
-Anlık görüntü yapılandırmasını oluşturun. Bu örnekte, biz anlık görüntü için işletim sistemi diski adımıdır.
+3. Anlık görüntü yapılandırmasını oluşturun. Bu örnekte, işletim sistemi diskinin anlık görüntüsüdür:
 
  ```azurepowershell-interactive
-$snapshot =  New-AzureRmSnapshotConfig `
-   -SourceUri $vm.StorageProfile.OsDisk.ManagedDisk.Id `
-   -Location $location `
+$snapshot =  New-AzureRmSnapshotConfig 
+   -SourceUri $vm.StorageProfile.OsDisk.ManagedDisk.Id 
+   -Location $location 
    -CreateOption copy
 ```
    
-> [!NOTE]
-> Bölge esnek depolama alanında, anlık görüntü deposu istiyorsanız destekleyen bir bölgede oluşturmanıza gerek [kullanılabilirlik bölgeleri](../../availability-zones/az-overview.md) ve dahil `-SkuName Standard_ZRS` parametresi.   
-
+   > [!NOTE]
+   > Bölge dayanıklı depolama, anlık görüntü depolamak istiyorsanız, desteklediği bir bölgede oluşturun [kullanılabilirlik](../../availability-zones/az-overview.md) ve `-SkuName Standard_ZRS` parametresi.   
    
-Anlık görüntü alın.
+4. Anlık görüntü alın:
 
-```azurepowershell-interactive
-New-AzureRmSnapshot `
-   -Snapshot $snapshot `
-   -SnapshotName $snapshotName `
+ ```azurepowershell-interactive
+New-AzureRmSnapshot 
+   -Snapshot $snapshot 
+   -SnapshotName $snapshotName 
    -ResourceGroupName $resourceGroupName 
 ```
 
 
-
-
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bir sanal makine bir anlık görüntüden bir anlık görüntüden yönetilen bir disk oluşturarak ve ardından yeni yönetilen işletim sistemi diski olarak diskindeki oluşturun. Daha fazla bilgi için bkz: [bir anlık görüntüden bir VM oluşturma](./../scripts/virtual-machines-windows-powershell-sample-create-vm-from-snapshot.md?toc=%2fpowershell%2fmodule%2ftoc.json) örnek.
+Bir sanal makinenin bir anlık görüntüden yönetilen disk oluşturma ve ardından yeni bir yönetilen diski işletim sistemi diski olarak ekleyerek bir anlık görüntüden oluşturun. Örnekte daha fazla bilgi için bkz. [PowerShell ile anlık görüntüden VM oluşturma](./../scripts/virtual-machines-windows-powershell-sample-create-vm-from-snapshot.md?toc=%2fpowershell%2fmodule%2ftoc.json).

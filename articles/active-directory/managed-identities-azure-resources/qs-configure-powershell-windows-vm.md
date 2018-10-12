@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/27/2017
 ms.author: daveba
-ms.openlocfilehash: e8d85144b89d81e67d5ac225f0b6467230608ce0
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 3cd0a88747379edb15385014fcc93287d95295e0
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47107037"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49114048"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-an-azure-vm-using-powershell"></a>PowerShell kullanarak bir Azure sanal makinesinde Azure kaynakları için yönetilen kimlik Yapılandır
 
@@ -175,6 +175,9 @@ Mevcut bir Azure VM'yi bir kullanıcı tarafından atanan bir yönetilen kimlik 
    ```
 3. Kullanarak VM özelliklerini almak `Get-AzureRmVM` cmdlet'i. Ardından, kullanıcı tarafından atanan bir yönetilen kimlik Azure VM'sine atanacak kullanın `-IdentityType` ve `-IdentityID` açın [Update-AzureRmVM](/powershell/module/azurerm.compute/update-azurermvm) cmdlet'i.  Değeri`-IdentityId` parametresi `Id` , önceki adımda not ettiğiniz.  Değiştirin `<VM NAME>`, `<SUBSCRIPTION ID>`, `<RESROURCE GROUP>`, ve `<USER ASSIGNED IDENTITY NAME>` kendi değerlerinizle.
 
+   > [!WARNING]
+   > VM'ye atanmış tüm daha önce kullanıcı tarafından atanan yönetilen kimlikleri korumak için sorgu `Identity` VM nesnesinin özelliği (örneğin, `$vm.Identity`).  Herhangi bir kullanıcı atanmış yönetilen kimlikleri döndürülür, sanal Makineye atamak istediğiniz yeni kullanıcı tarafından atanan yönetilen kimliği ile birlikte aşağıdaki komutu ekleyin.
+
    ```powershell
    $vm = Get-AzureRmVM -ResourceGroupName <RESOURCE GROUP> -Name <VM NAME>
    Update-AzureRmVM -ResourceGroupName <RESOURCE GROUP> -VM $vm -IdentityType UserAssigned -IdentityID "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/<RESROURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<USER ASSIGNED IDENTITY NAME>"
@@ -189,7 +192,7 @@ Mevcut bir Azure VM'yi bir kullanıcı tarafından atanan bir yönetilen kimlik 
 
 ### <a name="remove-a-user-assigned-managed-identity-from-an-azure-vm"></a>Kullanıcı tarafından atanan bir yönetilen kimlik bir Azure VM'den kaldırın.
 
-Sanal makinenize birden çok kullanıcı tarafından atanan yönetilen kimlik varsa, aşağıdaki komutları kullanarak tüm sonuncu kaldırabilirsiniz. `<RESOURCE GROUP>` ve `<VM NAME>` parametre değerlerini kendi değerlerinizle değiştirmeyi unutmayın. `<USER ASSIGNED IDENTITY NAME>` VM üzerinde kalmalıdır kullanıcı tarafından atanan yönetilen kimliğin adı özelliği. Bu bilgileri kullanarak VM kimlik bölümünde bulunabilir `az vm show`:
+Sanal makinenize birden çok kullanıcı tarafından atanan yönetilen kimlik varsa, aşağıdaki komutları kullanarak tüm sonuncu kaldırabilirsiniz. `<RESOURCE GROUP>` ve `<VM NAME>` parametre değerlerini kendi değerlerinizle değiştirmeyi unutmayın. `<USER ASSIGNED IDENTITY NAME>` VM üzerinde kalmalıdır kullanıcı tarafından atanan yönetilen kimliğin adı özelliği. Bu bilgiler sorgulanarak bulunabilir `Identity` VM nesnesinin özelliği.  Örneğin, `$vm.Identity`:
 
 ```powershell
 $vm = Get-AzureRmVm -ResourceGroupName myResourceGroup -Name myVm

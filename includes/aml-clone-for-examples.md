@@ -9,15 +9,13 @@ manager: cgronlund
 ms.custom: include file
 ms.topic: include
 ms.date: 09/24/2018
-ms.openlocfilehash: 98e168ccb600bd1371da7f125531f3b4421b3d80
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: e9e338e32e570ce98854e059ecdda21d99fda728
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47018643"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49117261"
 ---
 1. [![Azure not defterleri](https://notebooks.azure.com/launch.png)](https://aka.ms/aml-clone-azure-notebooks)
-[örnek not defterleri Azure not defterlerine alma](https://aka.ms/aml-clone-azure-notebooks).
-1.  Bir çalışma alanı ve yapılandırma dosyası oluşturun (**config.json**) makalesindeki yönergeleri kullanarak [Azure Machine Learning hizmeti için bir geliştirme ortamı yapılandırma](https://aka.ms/aml-how-to-configure-environment).
-2. Seçin `+New` eklemek için araç çubuğunda, **config.json** not defteri ile aynı klasöre dosya.
-3. Not defterini açın.
+[örnek not defterleri Azure not defterlerine alma](https://aka.ms/aml-clone-azure-notebooks). (Kuruluşunuzun gerektirebilir [yönetici onayı](https://notebooks.azure.com/help/signing-up/work-or-school-account/admin-consent) oturum açmadan önce.)
+1. Not defterlerini çalıştırmak daha fazla yönerge için içeri aktarılan kitaplığında Benioku DOSYASINA bakın.

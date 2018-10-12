@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/07/2018
 ms.author: harijay
-ms.openlocfilehash: 705366dbb055679a2d0adc628938fa419609f6ed
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: ceff8f6134f04409a4df1045a764c06597d997fc
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48885128"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49092839"
 ---
 # <a name="virtual-machine-serial-console"></a>Sanal makine seri Konsolu
 
@@ -83,12 +83,12 @@ Windows Önyükleme Yükleyicisi'ni etkinleştirmek gerekiyorsa göstermek için
 1. Windows sanal makinenize Uzak Masaüstü aracılığıyla bağlanma
 2. Bir yönetici komut isteminden aşağıdaki komutları çalıştırın. 
 * `bcdedit /set {bootmgr} displaybootmenu yes`
-* `bcdedit /set {bootmgr} timeout 30`
+* `bcdedit /set {bootmgr} timeout 10`
 * `bcdedit /set {bootmgr} bootems yes`
 3. Önyükleme menüsünün etkinleştirilmesi sistemi yeniden başlatın
 
 > [!NOTE] 
-> Önyükleme Yöneticisi menüsünün gösterilmesi ayarladığınız zaman aşımı, işletim sistemi önyükleme zamanı gelecekte etkiler. Bazı Önyükleme Yöneticisi seri konsol görünür olduğundan emin olun 30 ikinci zaman aşımı eklemek için kabul edilebilir olabilir, ancak diğerleri daha kısa bir zaman aşımı isteyebilirsiniz. Zaman aşımı değeri yararlanacağınız bir değere ayarlayın.
+> Önyükleme Yöneticisi menüsünün gösterilmesi ayarladığınız zaman aşımı, işletim sistemi önyükleme zamanı gelecekte etkiler. Bazı Önyükleme Yöneticisi seri konsol görünür olduğundan emin olmak için 10 ikinci zaman aşımı eklemek için kabul edilebilir olabilir, ancak diğerleri daha kısa veya uzun bir zaman aşımı isteyebilirsiniz. Zaman aşımı değeri yararlanacağınız bir değere ayarlayın.
 
 ## <a name="use-serial-console-for-nmi-calls-in-windows-vms"></a>Windows vm'lerinde NMI çağrıları için seri Konsolu
 Maskelenemez olmayan bir kesinti (NMI) yazılımı bir sanal makinede değil yoksayacak bir sinyal oluşturmak için tasarlanmıştır. Tarihsel olarak, NMIs belirli yanıt süreleri gerektiren sistemleri donanım sorunları izlemek için kullanılır.  Bugün, programcılar ve sistem yöneticileri bir mekanizma NMI hata ayıklama veya askıya sistemler gidermek için genellikle kullanın.

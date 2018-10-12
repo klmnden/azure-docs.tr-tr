@@ -8,16 +8,16 @@ manager: kfile
 editor: jasonwhowell
 ms.service: mysql
 ms.topic: article
-ms.date: 05/23/2018
-ms.openlocfilehash: 1b6dded1521489353e65b630ef5432ba6ff8f3e8
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.date: 10/10/2018
+ms.openlocfilehash: f2a9348e267ad6a5929fda64cc08dcd837243e71
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45631574"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49093349"
 ---
 # <a name="supported-azure-database-for-mysql-server-versions"></a>MySQL server sürümleri için desteklenen Azure veritabanı
-MySQL için Azure veritabanı geliştirilen gelen [MySQL Community Edition](https://www.mysql.com/products/community/), Innodb altyapısı kullanarak.  MySQL için Azure veritabanı şu anda aşağıdaki sürümlerini destekler:
+MySQL için Azure veritabanı geliştirilen gelen [MySQL Community Edition](https://www.mysql.com/products/community/), Innodb altyapısı kullanarak. MySQL için Azure veritabanı şu anda aşağıdaki sürümlerini destekler:
 
 ## <a name="mysql-version-5639"></a>MySQL sürümü 5.6.39
 Mysql'e başvuran [belgeleri](https://dev.mysql.com/doc/relnotes/mysql/5.6/en/news-5-6-39.html) geliştirmeleri ve MySQL 5.6.39 düzeltmeler hakkında daha fazla bilgi için.
@@ -29,7 +29,7 @@ Mysql'e başvuran [belgeleri](https://dev.mysql.com/doc/relnotes/mysql/5.7/en/ne
 > Hizmeti, bir ağ geçidi sunucu örnekleri bağlantılarını yeniden yönlendirmek için kullanılır. Bağlantı kurulduktan sonra MySQL istemci değil, MySQL server örneğinde çalışan asıl sürümü ağ geçidi kümesindeki MySQL sürümünü gösterir. MySQL server örneğinin sürümü belirlemek için `SELECT VERSION();` MySQL isteminde komutu.
 
 ## <a name="managing-updates-and-upgrades"></a>Yönetme güncelleştirmeler ve yükseltmeler
-Alt sürüm güncelleştirmeleri için düzeltme eki uygulama, hizmet otomatik olarak yönetir. Şu anda ana sürüm yükseltme desteklenmez. Örneğin, MySQL 5.6 ' MySQL 5.7 için yükseltme desteklenmiyor. Bir sonraki ana sürümüne yükseltmek istiyorsanız, olması bir [döküm ve geri yükleme](./concepts-migrate-dump-restore.md) yeni altyapısı sürümü ile oluşturulmuş bir sunucu için.
+Hata düzeltmesi sürüm güncelleştirmeleri için düzeltme eki uygulama, hizmet otomatik olarak yönetir. Şu anda, alt sürüm yükseltme desteklenmez. Örneğin, MySQL 5.6 ' MySQL 5.7 için yükseltme desteklenmiyor. Sonraki alt sürüme yükseltmek istiyorsanız, olması bir [döküm ve geri yükleme](./concepts-migrate-dump-restore.md) yeni altyapısı sürümü ile oluşturulmuş bir sunucu için.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

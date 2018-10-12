@@ -13,12 +13,12 @@ ms.author: vanto
 ms.reviewer: ''
 manager: craigg
 ms.date: 10/05/2018
-ms.openlocfilehash: 2d735225782398b4e22a42816586a56cab54b763
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: 79613ab7a0e96405abbb3b380800f5ba951c3bdc
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48870205"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49092704"
 ---
 # <a name="always-encrypted-protect-sensitive-data-and-store-encryption-keys-in-azure-key-vault"></a>Her zaman şifreli: hassas verilerin korunmasına ve şifreleme anahtarları Azure Key Vault'ta depolama
 
@@ -55,6 +55,7 @@ Alınacak *uygulama kimliği* ve *anahtarı*, adımları [bir Azure Active Direc
 
 Aşağıdaki betiği çalıştırarak, bir anahtar kasası hızlıca oluşturabilirsiniz. Bu cmdlet'ler ve oluşturma ve bir anahtar Kasası'nı yapılandırma hakkında daha fazla bilgi ayrıntılı bir açıklaması için bkz. [Azure anahtar kasası ile çalışmaya başlama](../key-vault/key-vault-get-started.md).
 
+```powershell
     $subscriptionName = '<your Azure subscription name>'
     $userPrincipalName = '<username@domain.com>'
     $applicationId = '<application ID from your AAD application>'
@@ -72,7 +73,7 @@ Aşağıdaki betiği çalıştırarak, bir anahtar kasası hızlıca oluşturabi
 
     Set-AzureRmKeyVaultAccessPolicy -VaultName $vaultName -ResourceGroupName $resourceGroupName -PermissionsToKeys create,get,wrapKey,unwrapKey,sign,verify,list -UserPrincipalName $userPrincipalName
     Set-AzureRmKeyVaultAccessPolicy  -VaultName $vaultName  -ResourceGroupName $resourceGroupName -ServicePrincipalName $applicationId -PermissionsToKeys get,wrapKey,unwrapKey,sign,verify,list
-
+```
 
 
 
@@ -107,6 +108,7 @@ Bu bölümde, Hasta verileri tutmak için bir tablo oluşturacaksınız. Başlan
 2. Sağ **Clinic** tıklayın ve veritabanı **yeni sorgu**.
 3. Yeni sorgu penceresine aşağıdaki Transact-SQL (T-SQL) yapıştırın ve **yürütme** bu.
 
+```sql
         CREATE TABLE [dbo].[Patients](
          [PatientId] [int] IDENTITY(1,1),
          [SSN] [char](11) NOT NULL,
@@ -120,7 +122,7 @@ Bu bölümde, Hasta verileri tutmak için bir tablo oluşturacaksınız. Başlan
          [BirthDate] [date] NOT NULL
          PRIMARY KEY CLUSTERED ([PatientId] ASC) ON [PRIMARY] );
          GO
-
+```
 
 ## <a name="encrypt-columns-configure-always-encrypted"></a>(Her zaman şifreli yapılandırma) sütun şifreleme
 SSMS kolayca ayarlayarak sütun ana anahtarı, sütun şifreleme anahtarı ve şifrelenmiş sütunlar için Always Encrypted yapılandırmanıza yardımcı olacak bir sihirbaz sağlar.
@@ -183,9 +185,10 @@ Always Encrypted ayarlamak, gerçekleştiren bir uygulama oluşturabilirsiniz *e
 
 Bu iki kod satırlarını Paket Yöneticisi Konsolu'nda çalıştırın.
 
+```powershell
     Install-Package Microsoft.SqlServer.Management.AlwaysEncrypted.AzureKeyVaultProvider
     Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory
-
+```
 
 
 ## <a name="modify-your-connection-string-to-enable-always-encrypted"></a>Always Encrypted'ı etkinleştirmek için bağlantı dizesini değiştirme
@@ -204,6 +207,7 @@ Aşağıdaki anahtar sözcüğü, bağlantı dizenizi ekleyin.
 ### <a name="enable-always-encrypted-with-sqlconnectionstringbuilder"></a>SqlConnectionStringBuilder ile her zaman şifreli etkinleştir
 Aşağıdaki kod her zaman şifreli ayarlayarak etkinleştirme gösterir [SqlConnectionStringBuilder.ColumnEncryptionSetting](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnectionstringbuilder.columnencryptionsetting.aspx) için [etkin](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnectioncolumnencryptionsetting.aspx).
 
+```CS
     // Instantiate a SqlConnectionStringBuilder.
     SqlConnectionStringBuilder connStringBuilder =
        new SqlConnectionStringBuilder("replace with your connection string");
@@ -211,10 +215,12 @@ Aşağıdaki kod her zaman şifreli ayarlayarak etkinleştirme gösterir [SqlCon
     // Enable Always Encrypted.
     connStringBuilder.ColumnEncryptionSetting =
        SqlConnectionColumnEncryptionSetting.Enabled;
+```
 
 ## <a name="register-the-azure-key-vault-provider"></a>Azure Key Vault sağlayıcısını Kaydet
 Aşağıdaki kod, ADO.NET sürücüsü ile Azure Key Vault sağlayıcısının kaydettirmek gösterilmektedir.
 
+```C#
     private static ClientCredential _clientCredential;
 
     static void InitializeAzureKeyVaultProvider()
@@ -230,8 +236,7 @@ Aşağıdaki kod, ADO.NET sürücüsü ile Azure Key Vault sağlayıcısının k
        providers.Add(SqlColumnEncryptionAzureKeyVaultProvider.ProviderName, azureKeyVaultProvider);
        SqlConnection.RegisterColumnEncryptionKeyStoreProviders(providers);
     }
-
-
+```
 
 ## <a name="always-encrypted-sample-console-application"></a>Her zaman şifreli örnek konsol uygulaması
 Bu örnek gösterir nasıl yapılır:
@@ -244,7 +249,7 @@ Bu örnek gösterir nasıl yapılır:
 Öğesinin içeriğini değiştirin **Program.cs** aşağıdaki kod ile. Geçerli bağlantı dizenizi Azure portalından Main yöntemiyle doğrudan önündeki satır genel connectionString değişken için bağlantı dizesini değiştirin. Bu kod için yapmanız gereken tek değişiklik budur.
 
 Always Encrypted nasıl çalıştığını görmek için uygulamayı çalıştırın.
-
+```CS
     using System;
     using System.Collections.Generic;
     using System.Linq;
@@ -584,7 +589,7 @@ Always Encrypted nasıl çalıştığını görmek için uygulamayı çalıştı
         public DateTime BirthDate { get; set; }
     }
     }
-
+```
 
 
 ## <a name="verify-that-the-data-is-encrypted"></a>Verilerin şifrelendiğinden emin olun
@@ -592,7 +597,9 @@ Hastalara verileri SSMS ile sorgulama yaparak sunucunun gerçek veriler şifrele
 
 Clinic veritabanında aşağıdaki sorguyu çalıştırın.
 
+```sql
     SELECT FirstName, LastName, SSN, BirthDate FROM Patients;
+```
 
 Herhangi bir düz metin veri içermemesi şifrelenmiş sütunları görebilirsiniz.
 
@@ -608,12 +615,13 @@ Ardından Ekle *sütun şifreleme ayarı = etkin* bağlantınızı sırasında p
    
     ![Yeni konsol uygulaması](./media/sql-database-always-encrypted-azure-key-vault/ssms-connection-parameter.png)
 4. Clinic veritabanında aşağıdaki sorguyu çalıştırın.
-   
-        SELECT FirstName, LastName, SSN, BirthDate FROM Patients;
-   
-     Şimdi, şifrelenmiş sütunlarda düz metin verileri görebilirsiniz.
 
-    ![Yeni konsol uygulaması](./media/sql-database-always-encrypted-azure-key-vault/ssms-plaintext.png)
+   ```sql
+      SELECT FirstName, LastName, SSN, BirthDate FROM Patients;
+   ```
+
+     Şimdi, şifrelenmiş sütunlarda düz metin verileri görebilirsiniz.
+     ![Yeni konsol uygulaması](./media/sql-database-always-encrypted-azure-key-vault/ssms-plaintext.png)
 
 
 ## <a name="next-steps"></a>Sonraki adımlar

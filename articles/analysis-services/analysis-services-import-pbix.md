@@ -5,25 +5,27 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 09/27/2018
+ms.date: 10/11/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: e164488a1bf176d5b6c0e28a84cd1ec22cae4cce
-ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
+ms.openlocfilehash: 8882a44b0b6db1b3c23c017a072ebddfe9aa20f5
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47423587"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49090884"
 ---
 # <a name="import-a-power-bi-desktop-file"></a>Power BI Desktop dosyasını içeri aktarın
 
 Azure Analysis Services'e Power BI Desktop dosyası (pbıx) veri modelinde içeri aktarabilirsiniz. Model meta verileri, önbelleğe alınmış verileri ve veri kaynağı bağlantıları içeri aktarılır. Raporlar ve görselleştirmeler içeri aktarılmaz. Power BI Desktop'tan modelleri kullanarak 1400 uyumluluk düzeyinde veri alma işlemi.
 
+> [!IMPORTANT]
+> Bu özellik kullanım dışı bırakılmıştır. Kaldırılan veya gelecek bir güncelleştirmede önemli ölçüde değiştirilmiş olabilir. İleride yapılacak güncelleştirmelerle uyumluluğu korumak için yeni ve mevcut projeleri bu özellikleri kullanmaya devam önerilir. Daha gelişmiş model geliştirme ve test için Visual Studio (SSDT) ve SQL Server Management Studio (SSMS) en iyisidir.
+
 **Kısıtlamaları**   
 
-- Olan portalında kullanan web Tasarımcısı özelliğiyle bir pbıx dosyasından içeri aktarma **Önizleme**. İşlevselliği sınırlıdır. Daha gelişmiş model geliştirme ve test için Visual Studio (SSDT) ve SQL Server Management Studio (SSMS) en iyisidir.
-- Power BI Desktop'ta veri modelinizi oluşturduysanız Temmuz 2018 Güncelleştirmesi (2.60.5169.3201) veya daha sonra hiçbir Önizleme özelliklerinin etkin olduğu emin olun. Önizleme özellikleri, Azure Analysis Services'de henüz desteklenmiyor.  
-İçeri aktarılırken aşağıdaki hata iletisini alırsanız pbıx dosyasını henüz Azure Analysis Services'de desteklenmemektedir etkin Önizleme özellikleri vardır.
+
+- Power BI Desktop'ta veri modelinizi oluşturduysanız Temmuz 2018 Güncelleştirmesi (2.60.5169.3201) veya daha sonra hiçbir Önizleme özelliklerinin etkin olduğu emin olun. Önizleme özellikleri, Azure Analysis Services'de henüz desteklenmiyor. İçeri aktarılırken aşağıdaki hata iletisini alırsanız pbıx dosyasını henüz Azure Analysis Services'de desteklenmemektedir etkin Önizleme özellikleri vardır.
 
     ![Uyumluluk düzeyi Uyarısı](./media/analysis-services-import-pbix/aas-import-pbix-cl-warning.png)   
 - Bir pbıx dosyasından içeri aktarmak için sunucu yöneticisi izinleri olmalıdır.

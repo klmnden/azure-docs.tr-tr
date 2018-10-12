@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/27/2018
 ms.author: chackdan
-ms.openlocfilehash: d1d17ff331d3e770b77ce729904e57cf88ebc16c
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 86099c5385c14ce7cf10bbc84ebe1b5e70b2b3e6
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44348577"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49094216"
 ---
 # <a name="service-fabric-cluster-capacity-planning-considerations"></a>Service Fabric kümesi kapasite planlaması konuları
 Herhangi bir üretim dağıtımı için kapasite planlaması önemli bir adımdır. Bu işlemin bir parçası olarak dikkate almanız gereken öğelerden bazıları aşağıda verilmiştir.
@@ -165,6 +165,7 @@ Küme kapasitesi gereksinimlerini belirlenir olduğundan, kümedeki çalıştır
 - 14 GB yerel SSD en düşük gereksinimdir. Bizim en az 50 GB önerilir. Özellikle Windows kapsayıcıları ne zaman çalışan, iş yükleriniz için daha büyük disklerin gereklidir. 
 - Kısmi çekirdek gibi standart A0 VM SKU'ları üretim iş yükleri için desteklenmiyor.
 - Standart A1 SKU, performans nedenleriyle üretim iş yükleri için desteklenmiyor.
+- Düşük öncelikli VM'ler desteklenmez.
 
 > [!WARNING]
 > Birincil düğüm üzerinde çalışan bir küme VM SKU boyutu değiştirme bir ölçeklendirme işlemi ve belirtilmiştir [sanal makine ölçek kümesi ölçeği genişletme](virtual-machine-scale-set-scale-node-type-scale-out.md) belgeleri.

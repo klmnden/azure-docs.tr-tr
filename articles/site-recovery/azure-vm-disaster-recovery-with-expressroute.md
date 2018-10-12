@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 10/02/2018
 ms.author: manayar
-ms.openlocfilehash: 2e8df15da0572e037dedb9e0dd27a0728953ba4a
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: c3fc8edf1601b3bb6f670df64d444edc9dcfbd6d
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49079438"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49114885"
 ---
 # <a name="integrate-azure-expressroute-with-disaster-recovery-for-azure-vms"></a>Azure ExpressRoute, Azure Vm'leri için olağanüstü durum kurtarma ile tümleştirin
 
@@ -166,7 +166,7 @@ Bu yapılandırma birincil ise ExpressRoute bağlantı hattının hatasına kar�
 
 Bu yapılandırmada yalnızca bir Expressroute bağlantı hattı yoktur. Bir arıza durumunda devre yedekli bağlantı sahip olsa da, bir tek route bağlantı hattı eşleme bölgenizi kalırsa dayanıklılık sağlamaz. Şunlara dikkat edin:
 
-- Azure sanal makinelerine herhangi bir Azure bölgesine çoğaltabilirsiniz [aynı coğrafi konumda](azure-to-azure-support-matrix.md#region-support). ' % S'hedef Azure bölgeniz kaynak ile aynı konumda değilse, tek bir ExpressRoute bağlantı hattı kullanıyorsanız, ExpressRoute Premium etkinleştirmeniz gerekir. Hakkında bilgi edinin [ExpressRoute konumları](../expressroute/expressroute-locations.md#azure-regions-to-expressroute-locations-within-a-geopolitical-region) ve [ExpressRoute fiyatlandırması](https://azure.microsoft.com/pricing/details/expressroute/).
+- Azure Vm'leri, herhangi bir Azure bölgesine çoğaltabilirsiniz [aynı coğrafi konumda](azure-to-azure-support-matrix.md#region-support). ' % S'hedef Azure bölgeniz kaynak ile aynı konumda değilse, tek bir ExpressRoute bağlantı hattı kullanıyorsanız, ExpressRoute Premium etkinleştirmeniz gerekir. Hakkında bilgi edinin [ExpressRoute konumları](../expressroute/expressroute-locations.md#azure-regions-to-expressroute-locations-within-a-geopolitical-region) ve [ExpressRoute fiyatlandırması](https://azure.microsoft.com/pricing/details/expressroute/).
 - Hedef bölge üzerinde aynı IP adresi alanını kullanılıyorsa, kaynak ve hedef sanal ağlar bağlantı hattına aynı anda bağlanamıyor. Bu senaryoda:    
     -  Kaynak tarafı bağlantısını kesmek ve ardından hedef tarafı bağlantısı oluşturmalıdır. Site Recovery kurtarma planının bir parçası Bu bağlantı değişiklik yazılabilir. Şunlara dikkat edin:
         - Birincil bölge erişilemiyorsa, bölgesel bir hata, bağlantıyı kesme işlemi başarısız olabilir. Bu bağlantı oluşturma için hedef bölgede etkileyebilir.

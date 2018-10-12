@@ -1,6 +1,6 @@
 ---
-title: Bir Windows VM - Azure bir yönetilen veri diski Ekle | Microsoft Docs
-description: Bir Windows VM Resource Manager dağıtım modelini kullanarak Azure portalında yeni yönetilen veri diski ekleme yapma.
+title: Yönetilen bir veri diski bir Windows VM - Azure | Microsoft Docs
+description: Azure portalını kullanarak bir Windows VM'ye yönetilen bir veri diski ekleme yapma.
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
@@ -13,73 +13,71 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 12/13/2017
+ms.date: 10/08/2018
 ms.author: cynthn
-ms.openlocfilehash: 14721b2f2bc7913c2b7eadfc5ee801a223201ea9
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 8d83af114ebb5e5ff78372897d3e08ed592d4012
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30913425"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49093910"
 ---
-# <a name="how-to-attach-a-managed-data-disk-to-a-windows-vm-in-the-azure-portal"></a>Nasıl bir Windows VM Azure portalında bir yönetilen veri diski kullanıma açın
+# <a name="attach-a-managed-data-disk-to-a-windows-vm-by-using-the-azure-portal"></a>Azure portalını kullanarak bir Windows VM'ye yönetilen bir veri diski ekleme
 
-Bu makalede Windows sanal makineleri Azure portalında yeni bir yönetilen veri diski ekleme gösterilmiştir. Bunu önce bu ipuçlarını gözden geçirin:
-
-* Sanal makinenin boyutunu, iliştirebilirsiniz kaç tane veri diskleri denetler. Ayrıntılar için bkz [sanal makineler için Boyutlar](sizes.md).
-* Yeni bir disk için bunu eklediğinizde Azure bunu oluşturduğundan ilk oluşturmanız gerekmez.
-
-Ayrıca [Powershell kullanarak bir veri diskini](attach-disk-ps.md).
+Bu makalede, Azure portalını kullanarak bir Windows sanal makinesi (VM) için yeni bir yönetilen veri diski ekleme işlemini göstermektedir. VM boyutunu, iliştirebilirsiniz kaç veri diskinin belirler. Daha fazla bilgi için [sanal makine boyutları](sizes.md).
 
 
+## <a name="add-a-data-disk"></a>Veri diski ekleme
 
-## <a name="add-a-data-disk"></a>Bir veri diski Ekle
-1. Soldaki menüde tıklatın **sanal makineleri**.
-2. Listeden sanal makineyi seçin.
-3. Sanal makine sayfasında, tıklatın **diskleri**.
-4. Üzerinde **diskleri** sayfasında, **+ Ekle veri diski**.
-5. Açılan yeni disk için seçin **oluşturma disk**.
-6. İçinde **oluşturma yönetilen disk** sayfasında, disk için bir ad yazın ve diğer ayarları gerektiği gibi ayarlayın. İşiniz bittiğinde **Oluştur**’a tıklayın.
-7. İçinde **diskleri** sayfasında, **kaydetmek** VM için yeni disk yapılandırmasını kaydetmek için.
-6. Azure disk oluşturur ve sanal makineye iliştirir sonra yeni disk sanal makinenin disk ayarları altında listelenen **veri diskleri**.
+1. İçinde [Azure portalında](https://portal.azure.com), sol taraftaki menüden **sanal makineler**.
+2. Listeden bir sanal makine seçin.
+3. Üzerinde **sanal makine** sayfasında **diskleri**.
+4. Üzerinde **diskleri** sayfasında **Ekle veri diski**.
+5. Açılan menü için yeni disk, seçin **Oluştur disk**.
+6. İçinde **yönetilen disk oluşturma** sayfasında, disk için bir ad yazın ve diğer ayarları gerektiği gibi ayarlayın. İşiniz bittiğinde **Oluştur**’u seçin.
+7. İçinde **diskleri** sayfasında **Kaydet** VM için yeni disk yapılandırmasını kaydetmek için.
+8. Azure disk oluşturur ve sanal makineye iliştirir sonra yeni disk sanal makinenin disk ayarları altında listelenir **veri diskleri**.
 
 
 ## <a name="initialize-a-new-data-disk"></a>Yeni bir veri diski başlatın
 
-1. VM'ye bağlanın.
-1. Başlat menüsünü türü ve VM içinde **diskmgmt.msc** ve isabet **Enter**. Disk Yönetimi ek bileşenini açar.
-2. Disk Yönetimi tanıdığı yeni ve başlatılmamış bir disk olması ve **diski başlatma** penceresi açılır.
-3. Yeni disk seçildiğinden emin olun ve tıklayın **Tamam** başlatmak üzere.
-4. Yeni disk olarak görüntülenir **ayrılmamış**. Herhangi bir yere sağ tıklatın ve disk **yeni basit birim**. **Yeni Basit Birim Sihirbazı** açar.
-5. Seçim yapıldığında tüm varsayılanları, tutma Sihirbazı aracılığıyla gidin **son**.
-6. Disk Yönetimi'ni kapatın.
-7. Kullanabilmeniz için önce yeni diski biçimlendirmek için gereken bir açılır pencere alın. Tıklatın **biçimi disk**.
-8. İçinde **biçimi yeni disk** iletişim ayarlarını kontrol edin ve ardından **Başlat**.
-9. Diskleri biçimlendirme tüm verileri siler, bir uyarı almak, tıklatın **Tamam**.
-10. Biçimlendirme tamamlandığında tıklatın **Tamam**.
+1. VM’ye bağlanın.
+1. Windows seçin **Başlat** çalışan VM içindeki menü girin **diskmgmt.msc** arama kutusuna. **Disk Yönetimi** konsolu açılır.
+2. Disk Yönetimi tanıdığı yeni, başlatılmamış bir disk olması ve **diski başlatma** penceresi görüntülenir.
+3. Yeni disk, seçilen ve ardından doğrulamak **Tamam** başlatmak üzere.
+4. Yeni disk olarak görünür **ayrılmamış**. Herhangi bir yere sağ tıklatın ve disk **yeni basit birim**. **Yeni Basit Birim Sihirbazı** penceresi açılır.
+5. Tüm Varsayılanları, tutma sihirbazdaki adımları izleyin ve select bitirdiğinizde **son**.
+6. Kapat **Disk Yönetimi**.
+7. Kullanabilmeniz için önce yeni diski biçimlendirmek için gereken bildiren bir açılır pencere görüntülenir. Seçin **diski Biçimlendir**.
+8. İçinde **yeni diski Biçimlendir** penceresinde ayarlarını kontrol edin ve ardından **Başlat**.
+9. Diskleri biçimlendirme tüm verileri siler olduğunu bildiren bir uyarı görüntülenir. **Tamam**’ı seçin.
+10. Biçimlendirme tamamlandıktan sonra seçin **Tamam**.
 
-## <a name="use-trim-with-standard-storage"></a>Standart depolama ile kullanmak üzere KIRPMA
+## <a name="use-trim-with-standard-storage"></a>TRIM standart depolama ile kullanma
 
-Standart depolama (HDD) kullanırsanız, KIRPMA etkinleştirmeniz gerekir. Yalnızca gerçekten kullandığınız depolama için faturalandırılır şekilde KIRPMA diskte kullanılmayan blokları atar. Büyük dosyaları oluşturmak ve bunları silerseniz bu maliyetleri kaydedebilirsiniz. 
+Standart depolama (HDD) kullanıyorsanız, etkinleştirmelisiniz **TRIM** komutu. **TRIM** komutu, yalnızca gerçekten kullandığınız depolama için faturalandırılırsınız. böylece diskte kullanılmayan blokları atar. Kullanarak **TRIM**, büyük dosyaları oluşturur ve daha sonra bunları silin maliyetlerinden tasarruf edebilirler. 
 
-KIRPMA ayarını denetlemek için bu komutu çalıştırabilirsiniz. Windows VM ve türü bir komut istemi açın:
+Denetlenecek **TRIM** ayarı, Windows sanal makinesinde bir komut istemi açın ve aşağıdaki komutu girin:
 
 ```
 fsutil behavior query DisableDeleteNotify
 ```
 
-Komut 0 döndürürse, KIRPMA doğru şekilde etkinleştirilir. 1 değeri döndürülürse, KIRPMA etkinleştirmek için aşağıdaki komutu çalıştırın:
+Komut, 0, döndürürse **TRIM** doğru şekilde etkinleştirilir. 1 döndürür, aksi takdirde, etkinleştirmek için aşağıdaki komutu çalıştırın **TRIM**:
+
 ```
 fsutil behavior set DisableDeleteNotify 0
 ```
 
-Veri diskinizden sildikten sonra düzgün çalıştırarak temizleme KIRPMA işlemleri KIRPMA ile birleştirme sağlayabilirsiniz:
+Diskinizden verileri sildikten sonra sağlayabilirsiniz **TRIM** düzgün şekilde çalıştırarak temizleme işlemleri birleştirme ile **TRIM**:
 
 ```
 defrag.exe <volume:> -l
 ```
 
-Ayrıca, tüm birim birim biçimlendirme kırpılır emin olabilirsiniz.
+Ayrıca, tüm birim kırpılır emin olmak için birim biçimlendirebilirsiniz.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Uygulamanızı D: kullanması gerekirse, verileri depolamak için sürücü, şunları yapabilirsiniz [Windows geçici disk sürücü harfini değiştirin](change-drive-letter.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
+
+- Ayrıca [PowerShell kullanarak veri diski ekleme](attach-disk-ps.md).
+- Uygulamanızın kullanması gerekirse *D:* verileri depolamak için sürücü, yapabilecekleriniz [Windows geçici diskinin sürücü harfini değiştirme](change-drive-letter.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).

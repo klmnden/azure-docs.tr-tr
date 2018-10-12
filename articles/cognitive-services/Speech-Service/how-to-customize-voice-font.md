@@ -7,12 +7,12 @@ ms.service: cognitive-services
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: nolach
-ms.openlocfilehash: 843ff39f49141ff78219771a6d4af2e9e6e7644b
-ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
+ms.openlocfilehash: 21b37d2b61af81e6481de4c5e7537a3382d895b6
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48017491"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49113929"
 ---
 # <a name="creating-custom-voice-fonts"></a>Özel ses tipi olarak oluşturma
 
@@ -22,12 +22,9 @@ Ses tipi oluşturmak için studio kaydını yapabilir ve ilişkili betikler eği
 
 Az miktarda bir kavram kanıtı için verileri ile başlayabilirsiniz. Ancak daha fazla veri sağlarsanız, daha doğal ve professional, ses çalar.
 
-
 ## <a name="prerequisites"></a>Önkoşullar
 
-**Metin okuma** ses özelleştirme özelliği şu anda özel Önizleme aşamasındadır. [Uygulama formu doldurun](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR0N8Vcdi8MZBllkZb70o6KdURjRaUzhBVkhUNklCUEMxU0tQMEFPMjVHVi4u) erişim için kabul edilmesi için.
-
-Ayrıca bir Azure hesabı ve konuşma hizmeti için bir abonelik gerekir. [Bir oluşturma](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started) henüz yapmadıysanız. Aboneliğinizi şu şekilde özel sesli Portalı'na bağlanın:
+Bir Azure hesabı ve konuşma hizmeti için bir abonelik gerekir. [Bir oluşturma](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started) henüz yapmadıysanız. Aboneliğiniz, burada gösterildiği gibi özel sesli Portalı'na bağlanın.
 
 1. Oturum [özel sesli portalı](https://customvoice.ai) erişimi uygulamak için kullandığınız aynı Microsoft hesabını kullanarak.
 
@@ -37,7 +34,6 @@ Ayrıca bir Azure hesabı ve konuşma hizmeti için bir abonelik gerekir. [Bir o
 
 3. Abonelikler sayfasında seçin **mevcut aboneliğe bağlanma**. Konuşma Hizmetleri farklı bölgelerdeki desteklediğini unutmayın. Burada abonelik anahtarınızı oluşturuldu ve anahtarınızı doğru alt portala bağlandığınızdan emin olun bölgeyi denetleyin.  
 
-     
 4. Aşağıdaki örnekte gösterildiği gibi abonelik anahtarınızı tabloya yapıştırın. Her aboneliğin iki anahtarı vardır ve bunlardan birini kullanabilirsiniz.
 
      ![Abonelik Ekle](media/custom-voice/add-subscription.png)

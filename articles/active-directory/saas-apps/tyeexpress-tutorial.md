@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/03/2017
 ms.author: jeedes
-ms.openlocfilehash: f3b9a2ed9b374192151a8a737a5b51d9085d53ff
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: ff4d634fb7f6f8057e5f370a694e46ca5e0d772d
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39430926"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49114082"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-te-express"></a>Öğretici: Azure Active Directory tümleştirmesiyle T & E Express
 
@@ -37,7 +37,7 @@ Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek ist
 
 T & E Express ile Azure AD tümleştirmesini yapılandırmak için aşağıdaki öğeler gerekir:
 
-- Azure AD aboneliğiniz
+- Azure AD aboneliği
 - Bir T & E Express çoklu oturum açma etkin aboneliği
 
 > [!NOTE]

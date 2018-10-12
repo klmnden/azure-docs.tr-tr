@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/07/2018
+ms.date: 10/10/2018
 ms.author: jeedes
-ms.openlocfilehash: 6feafba41cf65a752dd5bf0819b0b93bacff0aff
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.openlocfilehash: 48dcb4a3b1e06ab62905092055ba1b48bd0dddb7
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "42061075"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49114505"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-salesforce-sandbox"></a>Öğretici: Azure Active Directory Tümleştirme ile Salesforce korumalı alan
 
@@ -107,30 +107,38 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve S
 
     ![Çoklu oturum açma bağlantısı yapılandırma][4]
 
-2. Üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** çoklu oturum açmayı etkinleştirmek için.
+2. Tıklayın **değişiklik çoklu oturum açma modunu** seçmek için ekranın en üstünde **SAML** modu.
 
-    ![Çoklu oturum açma iletişim kutusu](./media/salesforce-sandbox-tutorial/tutorial_salesforcesandbox_samlbase.png)
+      ![Çoklu oturum açma bağlantısı yapılandırma](./media/salesforce-sandbox-tutorial/tutorial_general_300.png)
 
-3. Üzerinde **Salesforce korumalı alan etki alanı ve URL'ler** bölümünde, uygulamada yapılandırmak istiyorsanız aşağıdaki adımları gerçekleştirin **IDP** başlatılan modu:
+3. Üzerinde **tek bir oturum açma yönteminizi seçmeniz** iletişim kutusunu tıklatın **seçin** için **SAML** modu, çoklu oturum açmayı etkinleştirmek için.
 
-   ![Salesforce korumalı alan etki alanı ve URL'ler tek oturum açma bilgileri](./media/salesforce-sandbox-tutorial/tutorial_salesforcesandbox_url1.png)
+    ![Çoklu oturum açma bağlantısı yapılandırma](./media/salesforce-sandbox-tutorial/tutorial_general_301.png)
 
-   İçinde **yanıt URL'si** metin yazın, kuruluşunuzun özel **yanıt URL'si**.
+4. Üzerinde **yukarı çoklu oturum açma SAML ile ayarlanmış** sayfasında **Düzenle** açmak için düğmeyi **temel SAML yapılandırma** iletişim.
+   
+    ![Çoklu oturum açma bağlantısı yapılandırma](./media/salesforce-sandbox-tutorial/tutorial_general_302.png)
 
-   > [!NOTE]
-   > Yanıt URL'si değeri, bu öğreticinin ilerleyen bölümlerinde açıklanan gerçek yanıt URL'si ile güncelleştirin.
+5. Üzerinde **temel SAML yapılandırma** bölümünde, uygulamada yapılandırmak istiyorsanız aşağıdaki adımları gerçekleştirin **IDP** başlatılan modu:
 
-4. Üzerinde **SAML imzalama sertifikası** bölümünde **Certificate(RAW)** ve bilgisayarınızdaki sertifika dosyasını kaydedin.
+    a. Tıklayın **meta veri dosyasını karşıya yükleme**.
+
+    ![Meta veri dosyasını yükleyin](./media/salesforce-sandbox-tutorial/upload_metadata.png)
+
+    b. Tıklayarak **klasör logosu** meta veri dosyası seçin ve **karşıya**.
+
+    ![meta veri dosyası seçin](./media/salesforce-sandbox-tutorial/browse_upload_metadata.png)
+
+    > [!NOTE]
+    > Hizmet sağlayıcısı, öğreticinin ilerleyen bölümlerinde açıklanan Salesforce korumalı alan Yönetim Portalı'ndan meta veri dosyası alırsınız.
+
+    c. Meta veri dosyası başarıyla karşıya yüklendikten sonra **yanıt URL'si** değer otomatik olarak doldurulmuş elde **yanıt URL'si** metin.
+
+    ![Salesforce korumalı alan etki alanı ve URL'ler tek oturum açma bilgileri](./media/salesforce-sandbox-tutorial/tutorial_salesforcesandbox_url1.png)
+
+6. Üzerinde **SAML imzalama sertifikası** bölümü tıklatın üzerinde **indirme** indirmek için **Federasyon meta verileri XML** ve bilgisayarınızda xml dosyasını kaydedin.
 
     ![Sertifika indirme bağlantısı](./media/salesforce-sandbox-tutorial/tutorial_salesforcesandbox_certificate.png)
-
-5. Tıklayın **Kaydet** düğmesi.
-
-    ![Çoklu oturum açma Kaydet düğmesi yapılandırın](./media/salesforce-sandbox-tutorial/tutorial_general_400.png)
-
-6. Üzerinde **Salesforce korumalı alan yapılandırma** bölümünde **yapılandırma Salesforce korumalı alan** açmak için **yapılandırma oturum açma** penceresi. Kopyalama **SAML varlık kimliği ve SAML çoklu oturum açma hizmeti URL'si** gelen **hızlı başvuru bölümü.**
-
-    ![Çoklu oturum açmayı yapılandırın](./media/salesforce-sandbox-tutorial/tutorial_salesforcesandbox_configure.png)
 
 7. Tarayıcınızda yeni bir sekme açın ve Salesforce korumalı alan yönetici hesabınızda oturum açın.
 
@@ -150,41 +158,21 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve S
 
     ![Çoklu oturum açmayı yapılandırın](./media/salesforce-sandbox-tutorial/sf-enable-saml.png)
 
-12. SAML çoklu oturum açma ayarlarınızı yapılandırmak için tıklayın **yeni**.
+12. SAML çoklu oturum açma ayarlarınızı yapılandırmak için tıklayın **yeni meta veri dosyasından**.
 
     ![Çoklu oturum açmayı yapılandırın](./media/salesforce-sandbox-tutorial/sf-admin-sso-new.png)
 
-13. Üzerinde **çoklu oturum açma ayarları** bölümünde, aşağıdaki adımları gerçekleştirin:
+13. Tıklayın **Dosya Seç** Azure portal'ı seçin ve indirilen meta veri XML dosyasını karşıya yüklemek için **Oluştur**.
 
-    ![Çoklu oturum açmayı yapılandırın](./media/salesforce-sandbox-tutorial/sf-saml-config1.png)
+    ![Çoklu oturum açmayı yapılandırın](./media/salesforce-sandbox-tutorial/xmlchoose.png)
 
-    a. Seçin **SAML etkin** onay kutusu.
+14. Üzerinde **SAML çoklu oturum açma ayarları** sayfasında alanları otomatik olarak doldurur ve Kaydet'e tıklayın.
 
-    b. İçinde **veren** alan, değerini yapıştırın **SAML varlık kimliği**, hangi Azure Portalı'ndan kopyaladığınız.
+    ![Çoklu oturum açmayı yapılandırın](./media/salesforce-sandbox-tutorial/salesforcexml.png)
 
-    c. Karşıya yüklenecek **kimlik sağlayıcısı sertifikası**, tıklayın **Gözat** ve Azure portalından indirdiğiniz sertifika dosyasını seçmek için.
-
-    d. İçinde **kimlik sağlayıcısı oturum açma URL'si** metin değerini yapıştırın **çoklu oturum açma hizmeti URL'si**, hangi Azure Portalı'ndan kopyaladığınız.
-
-    e. Olarak **SAML kimlik türü**, aşağıdaki seçeneklerden birini belirleyin:
-
-      * Seçin **onaylamayı kullanıcının Salesforce kullanıcı adını içeren**, kullanıcının Salesforce kullanıcı adı SAML onayı iletilmezse
-
-      * Seçin **onaylamayı içeren kullanıcı nesnesinden Federasyon kimliği**, SAML onaylama işlemi içinde geçirilen kullanıcı nesnesinden Federasyon kimliği
-  
-    f. Olarak **SAML kimlik konumu**seçin **kimliğidir Attribute öğesi**.
-
-    g. SAML oturum kapatma SFDC desteklemez.  Geçici bir çözüm olarak yapıştırmak `https://login.microsoftonline.com/common/wsfederation?wa=wsignout1.0` içine **özel oturum kapatma URL'si** metin.
-
-    h. **Kaydet**’e tıklayın.
-
-14. Üzerinde **çoklu oturum açma ayarları** sayfasında **meta verileri indirme** düğmesi.
+15. Üzerinde **çoklu oturum açma ayarları** sayfasında, **meta verileri indirme** düğmesi, hizmet sağlayıcısı meta verileri dosyası indirilemedi. Bu dosyada kullanmak **temel SAML yapılandırma** yukarıda açıklandığı gibi gerekli URL'leri yapılandırmak için Azure portalında bölümü.
 
     ![Çoklu oturum açmayı yapılandırın](./media/salesforce-sandbox-tutorial/configure4.png)
-
-15. İndirilen meta verileri farklı bir tarayıcı penceresi ve kopyalama açın **konumu** yapıştırın ve değer **yanıt URL'si** metin üzerinde **Salesforce korumalı alan etki alanı ve URL'ler**bölümünde Azure portalında.  
-
-    ![Çoklu oturum açmayı yapılandırın](./media/salesforce-sandbox-tutorial/configure5.png)
 
 16. Uygulamada yapılandırmak istiyorsanız **SP** başlatılan modu, aşağıdaki ilgili Önkoşullar şunlardır:
 
@@ -192,7 +180,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve S
 
     b. Salesforce korumalı alan etki alanınızda etkinleştirmeniz ve yapılandırmanız gerekir, bu adımlar, bu öğreticinin ilerleyen bölümlerinde açıklanmıştır.
 
-    c. Azure portalında, üzerinde **Salesforce korumalı alan etki alanı ve URL'ler** bölümünde onay **Gelişmiş URL ayarlarını göster** ve aşağıdaki adımı uygulayın:
+    c. Azure portalında, üzerinde **temel SAML yapılandırma** bölümünde **ek URL'lerini ayarlayın** ve aşağıdaki adımı uygulayın:
   
     ![Salesforce korumalı alan etki alanı ve URL'ler tek oturum açma bilgileri](./media/salesforce-sandbox-tutorial/tutorial_salesforcesandbox_url.png)
 
@@ -201,71 +189,41 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve S
     > [!NOTE]
     > Etki alanı etkinleştirdikten sonra bu değer Salesforce korumalı alan portaldan kopyalanmalıdır.
 
-17. Üzerinde **SAML imzalama sertifikası** bölümünde **Certificate(RAW)** ve bilgisayarınızdaki sertifika dosyasını kaydedin.
+17. Üzerinde **SAML imzalama sertifikası** bölümünde **Federasyon meta verileri XML** ve bilgisayarınızda xml dosyasını kaydedin.
 
     ![Sertifika indirme bağlantısı](./media/salesforce-sandbox-tutorial/tutorial_salesforcesandbox_certificate.png)
 
-18. Tıklayın **Kaydet** düğmesi.
+18. Tarayıcınızda yeni bir sekme açın ve Salesforce korumalı alan yönetici hesabınızda oturum açın.
 
-    ![Çoklu oturum açma Kaydet düğmesi yapılandırın](./media/salesforce-sandbox-tutorial/tutorial_general_400.png)
-
-19. Üzerinde **Salesforce korumalı alan yapılandırma** bölümünde **yapılandırma Salesforce korumalı alan** açmak için **yapılandırma oturum açma** penceresi. Kopyalama **SAML varlık kimliği ve SAML çoklu oturum açma hizmeti URL'si** gelen **hızlı başvuru bölümü.**
-
-    ![Çoklu oturum açmayı yapılandırın](./media/salesforce-sandbox-tutorial/tutorial_salesforcesandbox_configure.png)
-
-20. Tarayıcınızda yeni bir sekme açın ve Salesforce korumalı alan yönetici hesabınızda oturum açın.
-
-21. Tıklayarak **Kurulum** altında **ayarlar simgesine** sayfanın sağ üst köşesinde.
+19. Tıklayarak **Kurulum** altında **ayarlar simgesine** sayfanın sağ üst köşesinde.
 
     ![Çoklu oturum açmayı yapılandırın](./media/salesforce-sandbox-tutorial/configure1.png)
 
-22. Ekranı aşağı kaydırarak **ayarları** sol gezinti bölmesinden **kimlik** ilgili bölümü genişletin. Ardından **çoklu oturum açma ayarları**.
+20. Ekranı aşağı kaydırarak **ayarları** sol gezinti bölmesinden **kimlik** ilgili bölümü genişletin. Ardından **çoklu oturum açma ayarları**.
 
     ![Çoklu oturum açmayı yapılandırın](./media/salesforce-sandbox-tutorial/sf-admin-sso.png)
 
-23. Üzerinde **çoklu oturum açma ayarları** sayfasında **Düzenle** düğmesi.
+21. Üzerinde **çoklu oturum açma ayarları** sayfasında **Düzenle** düğmesi.
 
     ![Çoklu oturum açmayı yapılandırın](./media/salesforce-sandbox-tutorial/configure3.png)
 
-24. Seçin **SAML etkin**ve ardından **Kaydet**.
+22. Seçin **SAML etkin**ve ardından **Kaydet**.
 
     ![Çoklu oturum açmayı yapılandırın](./media/salesforce-sandbox-tutorial/sf-enable-saml.png)
 
-25. SAML çoklu oturum açma ayarlarınızı yapılandırmak için tıklayın **yeni**.
+23. SAML çoklu oturum açma ayarlarınızı yapılandırmak için tıklayın **yeni meta veri dosyasından**.
 
     ![Çoklu oturum açmayı yapılandırın](./media/salesforce-sandbox-tutorial/sf-admin-sso-new.png)
 
-26. İkinci bir örneği ekliyorsanız, yukarıda belirtildiği bir etki alanı etkinleştirmeniz gerekiyor (SP tarafından başlatılan durumda). SAML çoklu oturum açma ayarları bölümünde aşağıdaki adımları gerçekleştirin:
+24. Tıklayın **Dosya Seç** meta veri XML dosyasını karşıya yükleyin ve tıklayın **Oluştur**.
+
+    ![Çoklu oturum açmayı yapılandırın](./media/salesforce-sandbox-tutorial/xmlchoose.png)
+
+25. Üzerinde **SAML çoklu oturum açma ayarları** sayfasında alanları otomatik olarak doldurmak, yapılandırma adını yazın (örneğin: *SPSSOWAAD_Test*) içinde **adı** metin kutusu ve Kaydet'e tıklayın.
 
     ![Çoklu oturum açmayı yapılandırın](./media/salesforce-sandbox-tutorial/sf-saml-config.png)
 
-    a. İçinde **adı** metin yapılandırma adını yazın (örneğin: *SPSSOWAAD_Test*).
-
-    b. İçinde **veren** alan, değerini yapıştırın **SAML varlık kimliği**, hangi Azure Portalı'ndan kopyaladığınız.
-
-    c. İçinde **varlık kimliği** metin kullanım `https://test.salesforce.com` ilk örnek için değer ve ikinci uygulama örneğinden Kiracı belirli tanımlayıcı değerini kullanabilirsiniz.
-
-    d. Karşıya yüklenecek **kimlik sağlayıcısı sertifikası**, tıklayın **Dosya Seç** ve Azure portalından indirdiğiniz sertifika dosyasını seçmek için.
-
-    e. Olarak **SAML kimlik türü**, aşağıdaki seçeneklerden birini belirleyin:
-
-      * Seçin **onaylamayı kullanıcının Salesforce kullanıcı adını içeren**, kullanıcının Salesforce kullanıcı adı SAML onayı iletilmezse
-
-      * Seçin **onaylamayı içeren kullanıcı nesnesinden Federasyon kimliği**, SAML onaylama işlemi içinde geçirilen kullanıcı nesnesinden Federasyon kimliği
-
-      * Seçin **onaylamayı içeren kullanıcı nesnesinin kullanım Kimliğinden**, SAML onaylama işlemi içinde geçirilen kullanıcı nesnesinden kullanıcı kimliği
-
-    f. Olarak **SAML kimlik konumu**seçin **kimliğidir konu deyiminin NameIdentifier öğesinde**.
-
-    g. Olarak **hizmet sağlayıcısı tarafından başlatılan bağlama isteği**seçin **HTTP POST**.
-
-    h. İçinde **kimlik sağlayıcısı oturum açma URL'si** metin değerini yapıştırın **çoklu oturum açma hizmeti URL'si**, hangi Azure Portalı'ndan kopyaladığınız.
-
-    i. SAML oturum kapatma SFDC desteklemez.  Geçici bir çözüm olarak yapıştırmak `https://login.microsoftonline.com/common/wsfederation?wa=wsignout1.0` içine **özel oturum kapatma URL'si** metin.
-
-    j. **Kaydet**’e tıklayın.
-
-27. Salesforce korumalı alan etki alanınızda etkinleştirmek için aşağıdaki adımları gerçekleştirin:
+26. Salesforce korumalı alan etki alanınızda etkinleştirmek için aşağıdaki adımları gerçekleştirin:
 
     > [!NOTE]
     > Etki alanı etkinleştirmeden önce aynı Salesforce korumalı alan üzerinde oluşturmanız gerekir. Daha fazla bilgi için [etki alanı adınız tanımlama](https://help.salesforce.com/HTViewHelpDoc?id=domain_name_define.htm&language=en_US). Etki alanı oluşturulduktan sonra Lütfen doğru yapılandırıldığından emin olun.
@@ -286,33 +244,26 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve S
 
 Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcısı oluşturmaktır.
 
-   ![Bir Azure AD test kullanıcısı oluşturma][100]
+1. Azure portalında, sol bölmede seçin **Azure Active Directory**seçin **kullanıcılar**ve ardından **tüm kullanıcılar**.
 
-**Azure AD'de bir test kullanıcısı oluşturmak için aşağıdaki adımları gerçekleştirin:**
+    ![Azure AD kullanıcısı oluşturun][100]
 
-1. Azure portalında, sol bölmede, tıklayın **Azure Active Directory** düğmesi.
+2. Seçin **yeni kullanıcı** ekranın üstünde.
 
-    ![Azure Active Directory düğmesi](./media/salesforce-sandbox-tutorial/create_aaduser_01.png)
+    ![Bir Azure AD test kullanıcısı oluşturma](./media/salesforce-sandbox-tutorial/create_aaduser_01.png) 
 
-2. Kullanıcıların listesini görüntülemek için Git **kullanıcılar ve gruplar**ve ardından **tüm kullanıcılar**.
+3. Kullanıcı özellikleri, aşağıdaki adımları gerçekleştirin.
 
-    !["Kullanıcılar ve Gruplar" ve "Tüm kullanıcılar" bağlantıları](./media/salesforce-sandbox-tutorial/create_aaduser_02.png)
+    ![Bir Azure AD test kullanıcısı oluşturma](./media/salesforce-sandbox-tutorial/create_aaduser_02.png)
 
-3. Açmak için **kullanıcı** iletişim kutusu, tıklayın **Ekle** en üstündeki **tüm kullanıcılar** iletişim kutusu.
+    a. İçinde **adı** alana **BrittaSimon**.
+  
+    b. İçinde **kullanıcı adı** alan türü **brittasimon@yourcompanydomain.extension**  
+    Örneğin, BrittaSimon@contoso.com
 
-    ![Ekle düğmesi](./media/salesforce-sandbox-tutorial/create_aaduser_03.png)
+    c. Seçin **özellikleri**seçin **Show parola** onay kutusunu işaretleyin ve ardından parola kutusunda görüntülenen değeri yazın.
 
-4. İçinde **kullanıcı** iletişim kutusunda, aşağıdaki adımları gerçekleştirin:
-
-    ![Kullanıcı iletişim kutusu](./media/salesforce-sandbox-tutorial/create_aaduser_04.png)
-
-    a. İçinde **adı** kutusuna **BrittaSimon**.
-
-    b. İçinde **kullanıcı adı** Britta Simon kullanıcı e-posta adresini yazın.
-
-    c. Seçin **Göster parola** onay kutusunu işaretleyin ve ardından görüntülenen değeri yazın **parola** kutusu.
-
-    d. **Oluştur**’a tıklayın.
+    d. **Oluştur**’u seçin.
 
 ### <a name="create-a-salesforce-sandbox-test-user"></a>Salesforce korumalı alan test kullanıcısı oluşturma
 
@@ -338,7 +289,7 @@ Bu bölümde, Azure çoklu oturum açma kullanmak için Salesforce korumalı ala
 
     !["Kullanıcılar ve Gruplar" bağlantısı][202]
 
-4. Tıklayın **Ekle** düğmesi. Ardından **kullanıcılar ve gruplar** üzerinde **atama Ekle** iletişim.
+4. Tıklayın **Kullanıcı Ekle** düğmesi. Ardından **kullanıcılar ve gruplar** üzerinde **atama Ekle** iletişim.
 
     ![Atama Ekle bölmesi][203]
 
@@ -360,7 +311,6 @@ Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](
 * [SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi](tutorial-list.md)
 * [Azure Active Directory ile uygulama erişimi ve çoklu oturum açma özellikleri nelerdir?](../manage-apps/what-is-single-sign-on.md)
 * [Kullanıcı sağlamayı yapılandırma](salesforce-sandbox-provisioning-tutorial.md)
-
 
 <!--Image references-->
 

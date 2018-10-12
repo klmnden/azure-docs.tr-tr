@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 10/06/2018
 ms.reviewer: martincoetzer
 ms.author: billmath
-ms.openlocfilehash: 7cf0e2b211f9d34f6d8f4fe89a230d8a2e97512a
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: cdca1b31f9b6cf10113dc0dba70b8f8991bafa2b
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49069022"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49093978"
 ---
 # <a name="factors-influencing-the-performance-of-azure-ad-connect"></a>Azure AD Connect performansını etkileyen faktörler
 
@@ -30,7 +30,7 @@ Azure AD Connect'in Active Directory'nizi Azure AD'ye eşitler. Bu sunucu, kulla
 | Yapılandırma| Azure AD Connect işlemleri dizinleri ve bilgiler. |
 | Yükleme| Nesne değişikliklerini sıklığı. Yükler, bir saat, gün veya hafta değişebilir. Bileşene bağlı olarak, yoğun yük veya ortalama yük için tasarlamak gerekebilir. |
 
-Bu belgenin amacı, Azure AD Connect sağlama altyapısının performansını etkileyen performansla ilgili önemli noktalar açıklanmaktadır sağlamaktır. Azure AD Connect, diğer bileşenleri gibi [Azure AD Connect health](how-to-connect-health-agent-install.md) ve aracıları değil dahil burada.
+Bu belgenin amacı, altyapısı sağlama Azure AD Connect performansını etkileyen faktörler açıklanmaktadır sağlamaktır. Bunlar Burada özetlenen herhangi bir performans sorunu yaşarsanız büyük veya karmaşık kuruluşların (100. 000'den fazla nesneleri sağlama kuruluşlar), Azure AD Connect geliştirdikleri iyileştirmek için önerileri kullanabilirsiniz. Azure AD Connect, diğer bileşenleri gibi [Azure AD Connect health](how-to-connect-health-agent-install.md) ve aracıları değil dahil burada.
 
 > [!IMPORTANT]
 > Microsoft, değiştirme veya Azure AD Connect resmi olarak belgelenen Eylemler dışında çalışan desteklemiyor. Bu eylemler, tutarsız veya desteklenmeyen Azure AD Connect eşitlemesi durumuyla sonuçlanabilir. Sonuç olarak Microsoft, bu tür dağıtımlar için teknik destek sağlayamaz.

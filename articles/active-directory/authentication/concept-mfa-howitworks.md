@@ -5,17 +5,17 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.component: authentication
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 10/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: f6067a6270010aaf57a404f66b8a99cbafa525ca
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 4a90dc1d97121426e7b161b1d5c92df78b0925a6
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48041707"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49114167"
 ---
 # <a name="how-it-works-azure-multi-factor-authentication"></a>Nasıl çalıştığını: Azure multi-Factor Authentication
 
@@ -42,15 +42,6 @@ Azure multi-Factor Authentication (MFA) erişimi korumaya yardımcı olur ve kol
 > [!NOTE]
 > Yeni müşteriler artık etkin 1 Eylül Mayıs 2018 sunan bir tek başına olarak Azure multi-Factor Authentication satın alabilirsiniz. Çok faktörlü kimlik doğrulaması, Azure AD Premium lisansınız kullanılabilir bir özellik olmaya devam edecektir.
 
-### <a name="auth-provider-or-mfa-license"></a>Kimlik doğrulama sağlayıcısı veya MFA lisans
-
-Azure AD Premium veya Azure AD Premium içeren başka bir lisans paketini varsa, Azure mfa'yı zaten sahip. Kuruluşunuz, tüm kullanıcılar için iki aşamalı doğrulama özelliğini genişletmek için ek herhangi bir şey gerekmez. Yalnızca bir kullanıcıya bir lisans ataması gerekir ve ardından MFA'yı etkinleştirebilirsiniz.
-
-Azure mfa'yı içerir veya oluşturabileceğiniz daha sonra tüm kullanıcılarınızı kapsamaya yetecek sayıda lisansınız yoksa lisans yoksa bir [MFA kimlik doğrulama sağlayıcısı](concept-mfa-authprovider.md) bunları isteyen kullanıcılar için MFA'ın tüm özelliklerini genişletmek için.
-
-> [!IMPORTANT]
-> Tüm kullanıcılar için yeterince lisansa sahip değilseniz, bir kullanıcı başına çok faktörlü yetki Sağlayıcı'nın kuruluşunuzun rest kapsayacak şekilde oluşturabilirsiniz. Kimlik doğrulaması başına multi-Factor Auth sağlayıcısı oluşturmayın. Bunu yaparsanız, doğrulama istekleri zaten lisanslara sahip kullanıcılardan ödeme son.
-
 ## <a name="supportability"></a>Desteklenebilirlik
 
 Çoğu kullanıcı kimlik doğrulaması için yalnızca parola kullanmaya alışkın olduğundan, kuruluşunuz bu işlem ile ilgili tüm kullanıcılara iletişim kuran önemlidir. Farkındalık, kullanıcılar için mfa'yı ilgili önemsiz sorunlar için Yardım Masasını arayın. olasılığını azaltabilirsiniz. Ancak, geçici olarak mfa'yı devre dışı bırakma gerekli olduğu bazı senaryolar vardır. Bu senaryoları nasıl ele alınacağını anlamak için aşağıdaki yönergeleri kullanın:
@@ -65,8 +56,8 @@ Azure mfa'yı içerir veya oluşturabileceğiniz daha sonra tüm kullanıcılar�
 
 - Adım adım bir mfa'yı edinme [dağıtım planı](https://aka.ms/MFADeploymentPlan)
 
-- Hakkındaki ayrıntıları bulabilirsiniz [kullanıcılarınıza lisans](concept-mfa-licensing.md)
+- [Kullanıcılarınızı lisanslama](concept-mfa-licensing.md) ile ilgili ayrıntıları keşfedin
 
-- Hakkında ayrıntılı bilgi edinin [dağıtmak için hangi sürümü](concept-mfa-whichversion.md)
+- [Dağıtılacak sürümle](concept-mfa-whichversion.md) ilgili ayrıntılara erişin
 
-- Bul yanıtlar [sık sorulan sorular](multi-factor-authentication-faq.md)
+- [Sık sorulan soruların](multi-factor-authentication-faq.md) yanıtlarına ulaşın

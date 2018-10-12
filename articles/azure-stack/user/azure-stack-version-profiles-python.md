@@ -14,12 +14,12 @@ ms.date: 08/15/2018
 ms.author: sethm
 ms.reviewer: sijuman
 <!-- dev: viananth -->
-ms.openlocfilehash: c55dcf0736642690f245f680db5cb1620c2175e7
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.openlocfilehash: c4600eda74fbc0ae53f30dac00e0127a984a4fff
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44390971"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49093424"
 ---
 # <a name="use-api-version-profiles-with-python-in-azure-stack"></a>Azure stack'teki Python ile API Sürüm profillerini kullanma
 
@@ -129,7 +129,7 @@ Her işlem, açıkça bir açıklama ve yazdırma işlevi ile etiketlenir.
     export ARM_ENDPOINT={your AzureStack Resource Manager Endpoint}
     ```
 
-7.  Bu örneği çalıştırmak için Ubuntu 16.04 LTS ve Windows Server 2012 R2 Datacenter görüntüleri Azure Stack Pazar yerinde mevcut olması gerekir. Bunlar olabilir [Azure'dan indirilen](https://docs.microsoft.com/azure/azure-stack/azure-stack-download-azure-marketplace-item) veya [Platform görüntü deposuna eklendi](https://docs.microsoft.com/azure/azure-stack/azure-stack-add-vm-image).
+7.  Bu örneği çalıştırmak için Ubuntu 16.04 LTS ve Windows Server 2012 R2 Datacenter görüntüleri Azure Stack marketinde mevcut olması gerekir. Bunlar olabilir [Azure'dan indirilen](https://docs.microsoft.com/azure/azure-stack/azure-stack-download-azure-marketplace-item) veya [Platform görüntü deposuna eklendi](https://docs.microsoft.com/azure/azure-stack/azure-stack-add-vm-image).
 
 8. Örnek uygulamayı çalıştırın.
 

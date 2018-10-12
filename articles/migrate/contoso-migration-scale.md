@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 10/08/2018
 ms.author: raynew
-ms.openlocfilehash: 82674aec8d62388d0d0f26e730f66b8b078a5d75
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: 5c1858fca1ca5f6bc48f5225ecf2d52dee055c91
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48904429"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49092760"
 ---
 # <a name="contoso---scale-a-migration-to-azure"></a>Contoso - ölçek azure'a geçiş
 
@@ -37,7 +37,7 @@ Bu makalede şirket içi kaynaklarını Contoso adlı kurgusal şirketin Microso
 [Makale 11: Team Foundation Server üzerinde Azure DevOps hizmetleri yeniden düzenleyin.](contoso-migration-tfs-vsts.md) | Contoso, Azure DevOps Hizmetleri azure'da, şirket içi Team Foundation Server dağıtımı geçirir. | Kullanılabilir
 [Makale 12: bir uygulamayı Azure kapsayıcıları ve Azure SQL veritabanı yeniden oluşturma](contoso-migration-rearchitect-container-sql.md) | Contoso, SmartHotel uygulamayı Azure'a geçirir. Ardından, Azure Service Fabric ve Azure SQL veritabanı ile uygulama veritabanı çalıştıran bir Windows kapsayıcısı olarak app web katmanından rearchitects. | Kullanılabilir    
 [Makale 13: uygulamanızı Azure'a yeniden oluşturun.](contoso-migration-rebuild.md) | Contoso Azure özellikleri ve Hizmetleri, Azure App Service, Azure Kubernetes Service (AKS), Azure işlevleri, Azure Bilişsel hizmetler ve Azure Cosmos DB dahil olmak üzere çeşitli kullanarak kendi SmartHotel uygulaması oluşturur. | Kullanılabilir 
-Makale 14: azure'da bir geçiş ölçeklendirin | Geçiş birleşimleri denedikten sonra Contoso Azure tam geçişi ölçeklendirilebilecek şekilde artık hazırlanıyor. | Bu makalede
+Makale 14: azure'da bir geçiş ölçeklendirin | Geçiş birleşimleri denedikten sonra Contoso Azure tam geçişi ölçeklendirilebilecek şekilde hazırlar. | Bu makalede
 
 ## <a name="business-drivers"></a>İş sürücüleri
 
@@ -65,7 +65,7 @@ Contoso bulut takım hedeflerini bu geçiş için aşağı sabitlenmiş. Bu hede
 
 Hedefleri ve gereksinimleri sabitleme sonra Contoso BT kaplama inceler ve geçiş işlemini tanımlar.
 
-## <a name="current-app"></a>Geçerli uygulama
+## <a name="current-deployment"></a>Geçerli dağıtım
 
 Planlama ve ayarlama sonra bir [Azure altyapı](contoso-migration-infrastructure.md) ve farklı kavram kanıtı (POC) geçiş birleşimleri olarak yukarıdaki tabloda açıklandığı gibi denemeye, Contoso tam bir geçiş Azure'da uygun ölçekte süreçlerle hazırdır. Contoso geçmek istediği aşağıda verilmiştir.
 

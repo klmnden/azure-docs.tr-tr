@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: a4ea483104a28e436ac35b50b962d3a153483789
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 13b21c4f8fde2b11722d012c207ed75447a7f970
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48804183"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49114660"
 ---
 # <a name="password-policies-and-restrictions-in-azure-active-directory"></a>Parola ilkeleri ve Azure Active Directory'de kısıtlamaları
 
@@ -80,7 +80,7 @@ Azure AD'de oturum açmak için gereken her bir kullanıcı hesabını hesaplar�
 
 | Özellik | UserPrincipalName gereksinimleri |
 | --- | --- |
-| İzin verilen karakter |<ul> <li>A – Z</li> <li>a - z</li><li>0 – 9</li> <li> \. - \_ ! \# ^ \~</li></ul> |
+| İzin verilen karakter |<ul> <li>A – Z</li> <li>a - z</li><li>0 – 9</li> <li> ' \. - \_ ! \# ^ \~</li></ul> |
 | Karakterlere izin verilmez |<ul> <li>Tüm "\@ \" kullanıcı etki alanı adından ayırarak olmayan karakter.</li> <li>Nokta karakteri içeremez "." hemen "\@ \" simgesi</li></ul> |
 | Uzunluk kısıtlamaları |<ul> <li>Toplam uzunluğu 113 karakterden uzun olmamalıdır</li><li>Önce en fazla 64 karakter olabilir "\@ \" simgesi</li><li>Sonra en fazla 48 karakter olabilir "\@ \" simgesi</li></ul> |
 

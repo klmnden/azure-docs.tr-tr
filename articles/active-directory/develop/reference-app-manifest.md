@@ -17,12 +17,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: sureshja
-ms.openlocfilehash: 74bcd1e795186eba652d2da986c290e1989dd1d1
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: bc7999d56da8398b4f54b0144a595ee7c2e2ea35
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47041583"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49115119"
 ---
 # <a name="azure-active-directory-app-manifest"></a>Azure Active Directory Uygulama bildirimi
 
@@ -43,7 +43,7 @@ Azure Active Directory (Azure AD) ile tümleştiren uygulamalar Azure AD kiracı
 | `appId` | Kimlik dizesi | Azure AD tarafından atanmış bir uygulama uygulama için benzersiz tanımlayıcısını belirtir. | `"601790de-b632-4f57-9523-ee7cb6ceba95"` |
 | `appRoles` | Dizi türü | Bir uygulamanın bildirebileceği rolleri koleksiyonunu belirtir. Bu roller, kullanıcıları, grupları veya hizmet sorumlularına atanabilir. Daha fazla örnekler ve bilgi için bkz. [uygulamanızda uygulama rolleri eklemek ve bunları belirteci alma](howto-add-app-roles-in-azure-ad-apps.md) | <code>[<br>&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;"allowedMemberTypes": [<br>&emsp;&nbsp;&nbsp;&nbsp;"User"<br>&nbsp;&nbsp;&nbsp;],<br>&nbsp;&nbsp;&nbsp;"description":"Read-only access to device information",<br>&nbsp;&nbsp;&nbsp;"displayName":"Read Only",<br>&nbsp;&nbsp;&nbsp;"id":guid,<br>&nbsp;&nbsp;&nbsp;"isEnabled":true,<br>&nbsp;&nbsp;&nbsp;"value":"ReadOnly"<br>&nbsp;&nbsp;}<br>]</code>  |
 | `groupMembershipClaims` | dize | Yapılandıran bir bit maskesi `groups` bir kullanıcı veya uygulamanın beklediği OAuth 2.0 erişim belirteci veren talep. Bit maskesi değerleri şunlardır:<br>0: yok<br>1: güvenlik grupları ve Azure AD rolleri<br>2: ayrılmış<br>4: ayrılmış<br>Bit maskesi 7 olarak ayarlanması tüm güvenlik grupları, dağıtım grupları ve oturum açmış kullanıcının üyesi olduğu bir Azure AD Dizin rolleri alırsınız. | `1` |
-| `optionalClaims` | dize | İsteğe bağlı talepleri özel bu uygulama için güvenlik belirteci hizmeti tarafından belirteç döndürdü. Daha fazla bilgi için bkz. [isteğe bağlı bir talep](active-directory-optional-claims.md). | `null` |
+| `optionalClaims` | dize | İsteğe bağlı talepleri özel bu uygulama için güvenlik belirteci hizmeti tarafından belirteç döndürdü.<br>Şu anda, hem kişisel hesapları hem de Azure AD (kayıtlı uygulama kayıt portalı üzerinden) destekleyen uygulamalar, isteğe bağlı bir talep kullanamazsınız. Ancak, yalnızca Azure AD v2.0 uç noktası kullanmak için kayıtlı uygulamalar bildiriminde talep isteğe bağlı bir talep elde edebilirsiniz. Daha fazla bilgi için bkz. [isteğe bağlı bir talep](active-directory-optional-claims.md). | `null` |
 | `id` | Kimlik dizesi | Uygulama dizinindeki benzersiz tanımlayıcısı. Bu kimliği, herhangi bir protokol işlem uygulamayı tanımlamak için kullanılan tanımlayıcı değil. Dizin sorguları nesneye başvurmak için kullanılır. | `"f7f9acfc-ae0c-4d6c-b489-0a81dc1652dd"` |
 | `identifierUris` | Dize dizisi | Çok kiracılı bir uygulama ise, bir Web uygulaması doğrulanmış özel etki alanı veya kendi Azure AD kiracısı içinde benzersiz olarak tanımlayan kullanıcı tanımlı URI(s). | <code>[<br>&nbsp;&nbsp;"https://MyRegistererdApp"<br>]</code> |
 | `informationalUrls` | dize | Uygulamanın koşullarını hizmet ve gizlilik bildirimi bağlantıları belirtir. Koşulları hizmet ve gizlilik bildirimi kullanıcı onayı deneyimi aracılığıyla kullanıcılara çıkarılır. Daha fazla bilgi için bkz. [nasıl yapılır: kayıtlı Azure AD uygulamaları için hizmet ve gizlilik bildirimini koşulları ekleme](howto-add-terms-of-service-privacy-statement.md). | <code>{<br>&nbsp;&nbsp;&nbsp;"marketing":"https://MyRegisteredApp/marketing",<br>&nbsp;&nbsp;&nbsp;"privacy":"https://MyRegisteredApp/privacystatement",<br>&nbsp;&nbsp;&nbsp;"support":"https://MyRegisteredApp/support",<br>&nbsp;&nbsp;&nbsp;"termsOfService":"https://MyRegisteredApp/termsofservice"<br>}</code> |

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/18/2017
 ms.author: chackdan
-ms.openlocfilehash: 0b731e94675992e59f79b61a2f3a15fa20bdf8a7
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: fe86e94e745ae9ba65636ab0d1ccfead83261515
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42060381"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49094267"
 ---
 # <a name="commonly-asked-service-fabric-questions"></a>Sık sorulan sorular Service Fabric
 
@@ -95,6 +95,9 @@ Geliştirilmiş bir deneyim üzerinde bugün çalışıyoruz ancak yükseltme i�
 
 ### <a name="can-i-encrypt-attached-data-disks-in-a-cluster-node-type-virtual-machine-scale-set"></a>Ben bir küme düğümü türü (sanal makine ölçek kümesi) bağlı veri diskleri şifreleyebilir mi?
 Evet.  Daha fazla bilgi için [bağlı veri diskleri ile küme oluşturma](../virtual-machine-scale-sets/virtual-machine-scale-sets-attached-disks.md#create-a-service-fabric-cluster-with-attached-data-disks), [şifrelemek diskler (PowerShell)](../virtual-machine-scale-sets/virtual-machine-scale-sets-encrypt-disks-ps.md), ve [şifrelemek diskler (CLI)](../virtual-machine-scale-sets/virtual-machine-scale-sets-encrypt-disks-cli.md).
+
+### <a name="can-i-use-low-priority-vms-in-a-cluster-node-type-virtual-machine-scale-set"></a>Düşük öncelikli VM'ler bir küme düğümü türü (sanal makine ölçek kümesi) kullanabilir miyim?
+Hayır. Düşük öncelikli VM'ler desteklenmez. 
 
 ### <a name="what-are-the-directories-and-processes-that-i-need-to-exclude-when-running-an-anti-virus-program-in-my-cluster"></a>Dizinleri ve virüsten koruma programı kümem içinde çalışırken hariç gereken işlemler nelerdir?
 
