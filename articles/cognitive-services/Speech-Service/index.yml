@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 01b288136036fc5ff719c179821801aeac95c5c5
-ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
+ms.openlocfilehash: 7bfa1becd3eed5bcf3e2d0bec160a4b4e2f254a3
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2018
-ms.locfileid: "48830541"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49091888"
 documentType: LandingData
 title: Konuşma Tanıma Hizmeti SDK'sı Belgeleri
 metadata:
@@ -26,15 +26,6 @@ metadata:
   ms.author: nitinme
 abstract:
   description: Konuşma Tanıma Hizmetini ve Konuşma Tanıma SDK'sını kullanarak uygulamalarınıza konuşma özellikleri eklemeyi öğrenin. Konuşma Tanıma SDK'sını kullanarak uygulamalarınıza <i>konuşmayı metne dönüştürme</i> (konuşma tanıma/SR), <i>amaç</i>, <i>çeviri</i> ve <i>metni konuşmaya dönüştürme</i> (TTS) özellikleri katabilirsiniz. Ayrıca Konuşma Tanıma Hizmeti, HTTP isteği oluşturabilen tüm programlama dilleriyle çalışan bir REST API'ye sahiptir.
-  aside:
-    image:
-      alt: 
-      height: 110
-      src: ../media/index/speech-landing-page-video.png
-      width: 250
-    title: Konuşma Tanıma Hizmetine genel bakış (10:34)
-    href: https://azure.microsoft.com/resources/videos/connect-2017-microsoft-cognitive-services-overview-of-advanced-speech-capabilities/
-    width: 250
 sections:
 - items:
   - type: list

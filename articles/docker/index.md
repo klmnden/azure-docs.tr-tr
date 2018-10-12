@@ -11,12 +11,12 @@ ms.devlang: devops
 ms.topic: landing-page
 ms.date: 06/19/2017
 ms.author: carolz
-ms.openlocfilehash: 76afc558048f1890e5e2440fd002361172acbea2
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: c1dab114ddd010daa88222f380ad7a47f1dd1767
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47433846"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49090714"
 ---
 <div class="content">
    <h1>Azure'da Docker</h1>   
@@ -38,7 +38,7 @@ Docker, Linux ve Windows üzerindeki kapsayıcılarla hızlı bir şekilde çal�
 </ol>
 <h2>Kaynaklar</h2>
 <p>Azure üzerinde Docker ile çalışmaya yönelik diğer başvuru malzemeleri ve araçlar için aşağıdaki bağlantıları ziyaret edin.</p>
-<a href="https://www.docker.com/docker-azure">Docker Azure sitesi</a><br/>
+<a href="https://docs.docker.com/docker-for-azure/why/">Docker Azure sitesi</a><br/>
 <a href="https://docs.docker.com/machine/drivers/azure/">Docker Azure sürücüsü</a><br/>
 <a href="https://docker.com">Docker hakkında bilgi edinin</a><br/>
 </div>
