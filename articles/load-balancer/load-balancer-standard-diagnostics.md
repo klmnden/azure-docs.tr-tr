@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/9/2018
+ms.date: 10/11/2018
 ms.author: Kumud
-ms.openlocfilehash: 0711b52b76a22e32d05f27e6aae6c981bd2c148a
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: 6c730455e2d8b590a4e4b9ca0392985918678bf4
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48902612"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49167707"
 ---
 # <a name="metrics-and-health-diagnostics-for-standard-load-balancer"></a>Standard Load Balancer ölçümleri ve sistem durumu tanılama
 
@@ -220,6 +220,6 @@ Aşağıdaki tabloda çeşitli kaynak sistem durumları ve açıklamalarının l
 - [Standart Yük Dengeleyici](load-balancer-standard-overview.md) hakkında daha fazla bilgi edinin.
 - Daha fazla bilgi edinin, [yük dengeleyici giden bağlantı](https://aka.ms/lboutbound).
 - Hakkında bilgi edinin [Azure İzleyici](https://docs.microsoft.com/azure/azure-monitor/overview).
-- Hakkında bilgi edinin [Azure İzleyici ölçümleri REST API](https://docs.microsoft.com/rest/api/monitor/metrics/).
+- Hakkında bilgi edinin [Azure İzleyici REST API](https://docs.microsoft.com/rest/api/monitor/) ve [REST API aracılığıyla ölçümleri almak nasıl](https://docs.microsoft.com/rest/api/monitor/metrics/metrics_list).
 
 

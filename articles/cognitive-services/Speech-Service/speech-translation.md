@@ -3,18 +3,18 @@ title: Konuşma çevirisi hakkında
 description: Konuşma çevirisi özelliklerine genel bakış
 titleSuffix: Microsoft Cognitive Services
 services: cognitive-services
-author: v-jerkin
+author: erhopf
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: article
 ms.date: 04/28/2018
-ms.author: v-jerkin
-ms.openlocfilehash: f80c0f3cdc114b53c002266820e8d9b8773acc5d
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.author: erhopf
+ms.openlocfilehash: f3c22589270ccee2c60ca5ea5b15047d9c81fabe
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47432198"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49165446"
 ---
 # <a name="about-the-speech-translation-api"></a>Konuşma çevirisi API'si hakkında
 
@@ -32,7 +32,7 @@ Konuşma çevirisi API'si, çeşitli Microsoft ürünleri ve Hizmetleri güç te
 
 Microsoft'un çeviri altyapısı temel olan iki farklı yaklaşım: istatistiksel makine çevirisi (SMT) ve sinirsel makine çevirisi (NMT). İkincisi, sinir ağları kullanan bir yapay zeka yaklaşım makine çevirisi için daha modern bir yaklaşımdır. Daha iyi Çeviriler NMT sağlar — değil yalnızca daha doğru ancak aynı zamanda daha fluent ve doğal. Bu akıcılığın temel nedeni, NMT'nin sözcükleri çevirmek için cümlenin bağlamından bütünüyle yararlanmasıdır.
 
-Bugün Microsoft NMT için en popüler diller için yalnızca daha az sık kullanılan dillerde SMT kullanan geçiş yaptı. Tüm [konuşma konuşma çevirisi için kullanılabilen dilleri](language-support.md#speech-translation) NMT tarafından desteklenir. Konuşma metin çeviri dili çifti bağlı olarak SMT veya NMT kullanabilir. Hedef Dil NMT tarafından destekleniyorsa, tüm çeviri NMT destekli. Hedef Dil NMT tarafından desteklenmiyorsa, çeviri NMT ve İngilizce olarak bir "Özet" arasında iki dilleri kullanarak, SMT karmadır.
+Bugün Microsoft NMT için en popüler diller için yalnızca daha az sık kullanılan dillerde SMT kullanan geçiş yaptı. Tüm [konuşma konuşma çevirisi için kullanılabilen dilleri](language-support.md#speech-translation) NMT tarafından desteklenir. Konuşma metin çeviri dili çifti bağlı olarak SMT veya NMT kullanabilir. Hedef dil NMT tarafından destekleniyorsa, çevirinin tamamı NMT destekli olur. Hedef Dil NMT tarafından desteklenmiyorsa, çeviri NMT ve İngilizce olarak bir "Özet" arasında iki dilleri kullanarak, SMT karmadır.
 
 Modelleri arasındaki farkları çeviri Altyapısı'na iç. Son kullanıcılar yalnızca geliştirilmiş çeviri kalitesi, özellikle Çince, Japonca ve Arapça dikkat edin.
 

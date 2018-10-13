@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: lizross
 ms.reviewer: librown
-ms.openlocfilehash: 590f9e2a9cf531a1124f9cb132791f2956227d9c
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 5b8264667e09e7dd6c048fae11e363ee8dfdca33
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47048275"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49165385"
 ---
 # <a name="get-started-with-the-microsoft-authenticator-app"></a>Microsoft Authenticator uygulaması ile çalışmaya başlama
 
@@ -25,7 +25,7 @@ Microsoft Authenticator uygulamasını hesaplarına ve sahte işlemleri çalış
 
 Uygulama için iki aşamalı doğrulamayı kullanırken, iki yoldan biriyle çalışabilirsiniz:
 
-- **Bildirim.** Uygulama, cihazınıza bir bildirim gönderir. Bildirim, sağ ve ardından olduğundan emin olun **doğrulama**. Bildirim tanımıyorsanız seçin **Reddet**.
+- **Bildirim.** Uygulama, cihazınıza bir bildirim gönderir. Bildirim, sağ ve ardından olduğundan emin olun **doğrulama**. Bildirim tanımıyorsanız seçin **Reddet**. Kullanıcılara, bunlar reddederse istek sahtekarlığı işaretlemek için fırsatı verilir. 
 
 - **Doğrulama kodu.** Kullanıcı kimliğiniz ve parolanızı girdikten sonra uygulamayı açıp sağlanan doğrulama kodu kopyalayın **hesapları** ekran oturum açma ekranı açın. Doğrulama kodu, ikinci bir kimlik doğrulama biçimi görev yapar.
 

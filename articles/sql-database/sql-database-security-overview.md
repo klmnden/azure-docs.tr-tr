@@ -7,17 +7,17 @@ ms.subservice: security
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: ronitr
-ms.author: ronitr
-ms.reviewer: vanto, carlrab
+author: aliceku
+ms.author: aliceku
+ms.reviewer: vanto, carlrab, ronitr
 manager: craigg
-ms.date: 10/05/2018
-ms.openlocfilehash: 8d3a14228d31c8f4507dbcac7b9bd47ae1c4de0a
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.date: 10/11/2018
+ms.openlocfilehash: b8bb9cbf53b297d8dca1ac67bae8765edcc2c9f4
+ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48902172"
+ms.lasthandoff: 10/13/2018
+ms.locfileid: "49311212"
 ---
 # <a name="an-overview-of-azure-sql-database-security-capabilities"></a>Azure SQL veritabanı güvenlik özelliklerine genel bakış
 
@@ -37,7 +37,7 @@ SQL Veritabanı, hareket halindeki verileriniz için [Aktarım Katmanı Güvenli
 Verilerinizi şifrelemek için kullanabileceğiniz diğer yöntemler şunlardır:
 
 - [Hücre düzeyinde şifreleme](https://msdn.microsoft.com/library/ms179331.aspx): Belirli sütunları hatta veri hücrelerini farklı şifreleme anahtarlarıyla şifrelemenizi sağlar.
-- Donanım Güvenlik Modülüne veya şifreleme anahtarı hiyerarşinizi bir noktadan yönetmeye ihtiyacınız varsa [Azure VM'de SQL Server ile Azure Anahtar Kasası](http://blogs.technet.com/b/kv/archive/2015/01/12/using-the-key-vault-for-sql-server-encryption.aspx)'nı kullanın.
+-  Bir donanım güvenlik modülüne veya Getir bilgisayarınızı kendi anahtarını (BYOK) teknolojisi için saydam veri şifrelemesi gerekiyorsa, kullanmayı [Azure SQL saydam veri şifrelemesi: kendi anahtarını Getir Destek](transparent-data-encryption-byok-azure-sql.md).
 
 ### <a name="data-discovery--classification"></a>Veri bulma & sınıflandırma
 

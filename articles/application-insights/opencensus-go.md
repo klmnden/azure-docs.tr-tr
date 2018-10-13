@@ -9,12 +9,12 @@ ms.date: 09/15/2018
 ms.service: application-insights
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 6262c7029a76deec2dc1169783e9cbf6311fc3f1
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 853fd1e9939631b6c459caf89994299e7a8406b0
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46958280"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49165550"
 ---
 # <a name="collect-distributed-traces-from-go-preview"></a>Toplama dağıtılmış izlemelerinden Git (Önizleme)
 
@@ -182,47 +182,47 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz](https://azure.microsoft.
             log.Fatal(http.ListenAndServe(":50030", &ochttp.Handler{Propagation: &tracecontext.HTTPFormat{}}))
         
         }
-        ```
+     ```
 
-3. Once the simple go app is running navigate to `http://localhost:50030`. Each refresh of the browser will generate the text "hello world" accompanied by corresponding span data that is picked up by the local forwarder.
+3. Basit bir go uygulaması çalıştıran bir kez gidin `http://localhost:50030`. Her yenileme tarayıcı "yerel ileticisi tarafından devralındığında karşılık gelen bir aralık veri eşlik metin hello world" oluşturur.
 
-4. To confirm that the **local forwarder** is picking up the traces check the `LocalForwarder.config` file. If you followed the steps in the [prerequisite](https://docs.microsoft.com/azure/application-insights/local-forwarder#windows-service), it will be located in `C:\LF-WindowsServiceHost`.
+4. Onaylamak için **yerel ileticisi** izlemeleri denetimi çekme `LocalForwarder.config` dosya. Adımları izlediyseniz [önkoşul](https://docs.microsoft.com/azure/application-insights/local-forwarder#windows-service), içinde almayacaktır `C:\LF-WindowsServiceHost`.
 
-    In the image below of the log file, you can see that prior to running the second script where we added an exporter `OpenCensus input BatchesReceived` was 0. Once we started running the updated script `BatchesReceived` incremented equal to the number of values we entered:
+    Günlük dosyasının içinde görüntü bir verici burada ekledik, ikinci komut çalıştırılmadan önce gördüğünüz gibi `OpenCensus input BatchesReceived` 0. Güncelleştirilmiş betiği çalıştıran başladıktan sonra `BatchesReceived` girdiğimiz değerlerinin sayısı artan eşit:
     
-    ![New App Insights resource form](./media/opencensus-go/0004-batches-received.png)
+    ![Yeni App Insights kaynağı formu](./media/opencensus-go/0004-batches-received.png)
 
-## Start monitoring in the Azure portal
+## <a name="start-monitoring-in-the-azure-portal"></a>Azure portalında izlemeyi başlatma
 
-1. You can now reopen the Application Insights **Overview** page in the Azure portal, to view details about your currently running application. Select **Live Metric Stream**.
+1. Artık Application ınsights'ı yeniden açabilirsiniz **genel bakış** şu anda çalışan uygulamanızın hakkında ayrıntıları görüntülemek için Azure portalında sayfası. Seçin **ölçüm Stream canlı**.
 
-   ![Screenshot of overview pane with live metric stream selected in red box](./media/opencensus-go/0005-overview-live-metrics-stream.png)
+   ![Canlı ölçüm akışı kırmızı kutu içinde seçili genel bakış bölmesinin ekran görüntüsü](./media/opencensus-go/0005-overview-live-metrics-stream.png)
 
-2. If you run the second Go app again and start refreshing the browser for `http://localhost:50030`, you will see live trace data as it arrives in Application Insights from the local forwarder service.
+2. İkinci bir Go uygulaması'nı yeniden çalıştırın ve başlatmak için tarayıcıyı yenilemeyi `http://localhost:50030`, göreceğiniz Canlı İzleme verilerini Application Insights'da yerel ileticisi hizmetinden gelir.
 
-   ![Screenshot of live metric stream with performance data displayed](./media/opencensus-go/0006-stream.png)
+   ![Canlı ölçüm akışı görüntülenen performans verileri ile ekran görüntüsü](./media/opencensus-go/0006-stream.png)
 
-3. Navigate back to the **Overview** page and select **Application Map** for a visual layout of the dependency relationships and call timing between your application components.
+3. Geri gidin **genel bakış** sayfasından seçim yapıp **Uygulama Haritası** çağrı zamanlama uygulama bileşenleriniz arasındaki bağımlılık ilişkileri ve görsel düzeni için.
 
-    ![Screenshot of basic application map](./media/opencensus-go/0007-application-map.png)
+    ![Temel Uygulama Haritası ekran görüntüsü](./media/opencensus-go/0007-application-map.png)
 
-    Since we were only tracing one method call, our application map isn't as interesting. But application map can scale to visualize far more distributed applications:
+    Biz yalnızca bir yöntem çağrısının izleme olduğundan, bizim Uygulama Haritası olarak ilginç değil. Ancak, Uygulama Haritası daha dağıtılmış uygulamalar görselleştirmek için ölçeklendirebilirsiniz:
 
-   ![Application Map](./media/app-insights-nodejs-quick-start/application-map.png)
+   ![Uygulama Eşlemesi](./media/app-insights-nodejs-quick-start/application-map.png)
 
-4. Select **Investigate Performance** to perform detailed performance analysis and determine the root cause of slow performance.
+4. Seçin **araştırmak performans** ayrıntılı Performans Analizi gerçekleştirebilir ve performansın kök nedenini belirlemek için.
 
-    ![Screenshot of performance pane](./media/opencensus-go/0008-performance.png)
+    ![Performans bölmesinin ekran görüntüsü](./media/opencensus-go/0008-performance.png)
 
-5. Selecting **Samples** and then clicking on any of the samples that appear in the right-hand pane will launch the end-to-end transaction details experience. While our sample app will just show us a single event, a more complex application would allow you to explore the end-to-end transaction down to level of an individual event's call stack.
+5. Seçme **örnekleri** ve ardından sağ bölmede görüntülenen örnekleri hiçbirinde uçtan uca işlem ayrıntıları deneyimi başlayacaktır. Örnek uygulamamız yalnızca tek bir olay gösterecek, ancak daha karmaşık bir uygulama, tek tek olay çağrı yığını düzeyini aşağı uçtan uca işlem keşfetmek çalıştırmasına olanak tanır.
 
-     ![Screenshot of end-to-end transaction interface](./media/opencensus-go/0009-end-to-end-transaction.png)
+     ![Uçtan uca işlem arabiriminin ekran görüntüsü](./media/opencensus-go/0009-end-to-end-transaction.png)
 
-## OpenCensus trace for Go
+## <a name="opencensus-trace-for-go"></a>Go için OpenCensus izleme
 
-We only covered the basics of integrating OpenCensus for Go with the local forwarder and Application Insights. The [official OpenCensus Go usage guidance](https://godoc.org/go.opencensus.io) covers more advanced topics.
+Yalnızca ele aldığımız OpenCensus Go için Application Insights ve yerel iletici ile tümleştirmeye ilişkin temel bilgileri. [Resmi OpenCensus Git Kullanım Kılavuzu](https://godoc.org/go.opencensus.io) daha gelişmiş konuları kapsar.
 
-## Next steps
+## <a name="next-steps"></a>Sonraki adımlar
 
-* [Application map](./app-insights-app-map.md)
-* [End-to-end performance monitoring](./app-insights-tutorial-performance.md)
+* [Uygulama Haritası](./app-insights-app-map.md)
+* [Uçtan uca performans izleme](./app-insights-tutorial-performance.md)

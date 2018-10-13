@@ -8,13 +8,13 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
-ms.date: 10/03/2018
-ms.openlocfilehash: ac13080ec6100734a5b777cc7cb243720f8424a6
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.date: 10/11/2018
+ms.openlocfilehash: 8aa2627f46be1e375fb3c3e565848a930ba6726b
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48817169"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49167452"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Limitler ve yapılandırma bilgilerini Azure Logic Apps
 
@@ -143,6 +143,18 @@ Bazı bağlayıcı işlemler zaman uyumsuz çağrıları yapmak veya bu işlemle
 | Yeniden deneme sayısı | 90 | Varsayılan 4'tür. Varsayılan değiştirmek için kullanın [ilke parametresi yeniden](../logic-apps/logic-apps-workflow-actions-triggers.md). | 
 | En uzun gecikme yeniden deneyin | 1 gün | Varsayılan değiştirmek için kullanın [ilke parametresi yeniden](../logic-apps/logic-apps-workflow-actions-triggers.md). | 
 | Yeniden deneme gecikmesi Min | 5 saniye | Varsayılan değiştirmek için kullanın [ilke parametresi yeniden](../logic-apps/logic-apps-workflow-actions-triggers.md). |
+|||| 
+
+<a name="sftp"></a>
+
+## <a name="sftp-and-sftp-ssh-limits"></a>SFTP ve SFTP-SSH sınırları
+
+### <a name="file-size"></a>Dosya boyutu
+
+| Ad | Sınır | Notlar |
+|------|-------|-------|
+| SFTP | 50 MB | Bu sınırı geçici olarak çözmek için kullanın [SFTP-SSH bağlayıcı](../connectors/connectors-sftp-ssh.md) veya [Öbekleme ile büyük iletileri işleyen](../logic-apps/logic-apps-handle-large-messages.md). Ancak, bazı bağlayıcılar ve API Öbekleme desteklemez veya varsayılan sınır bile. | 
+| SFTP-SSH | 1 GB | Bu sınırını çözmek için bkz: [Öbekleme ile büyük iletileri işleyen](../logic-apps/logic-apps-handle-large-messages.md). Ancak, bazı bağlayıcılar ve API Öbekleme desteklemez veya varsayılan sınır bile. | 
 |||| 
 
 <a name="custom-connector-limits"></a>

@@ -9,12 +9,12 @@ ms.component: content-moderator
 ms.topic: article
 ms.date: 06/25/2017
 ms.author: sajagtap
-ms.openlocfilehash: 6477879953dc2bb2c7503eb0b2d4b5effa7b6a11
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 911d62fc2baa50cce6d40f8b5bcc455f308d21d7
+ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44024664"
+ms.lasthandoff: 10/13/2018
+ms.locfileid: "49309664"
 ---
 # <a name="manage-credentials"></a>Kimlik bilgilerini yönetme
 
@@ -66,11 +66,11 @@ Ayrıca, bölge tanımlayıcısı API uç noktanız için unutmayın. Örneğin,
 
 ### <a name="resource-id"></a>Kaynak kimliği
 
-Bu bölümde ele aldığımız [gözden geçirme aracı ve API'si ile Azure hesabınızı kullanarak](credentials.md#how-to-use-your-azure-account-with-the-review-tool) bölümü. Bu alan için önceki bölümde açıklandığı gibi Azure kaynak kimliği eklemediğiniz sürece bu genellikle boş bir alandır.
+Bu alan kümesi önceki bölümde ele alınmıştır [gözden geçirme aracı ve API'si ile Azure hesabı kullanmak](credentials.md#use-the-azure-account-with-the-review-tool-and-review-api). Bu alan için önceki bölümde açıklandığı gibi Azure kaynak kimliği eklemediğiniz sürece bu genellikle boş bir alandır.
 
 ### <a name="workflows"></a>İş akışları
 
-Biz bu önceki bölümde yer alan kümesi kapsamında [iş akışlarını çalıştırmak için Azure anahtarınızı kullanarak](credentials.md#use-the-azure-account-with-the-workflows-in-the-review-tool). Varsayılan olarak, iş akışlarını çalıştırmak için otomatik olarak oluşturulan deneme anahtarıyla gözden geçirme Aracı'nı kullanır, ve hangi başlangıç olarak gösterilir. Terim ve görüntü listeleri ekran metin ve resim değerlendirmek işlemlerinde içinse diğer iki alanı sağlar.
+Bu alan kümesi önceki bölümde ele alınmıştır [gözden geçirme aracı iş akışları ile Azure hesabını kullanma](credentials.md#use-the-azure-account-with-the-workflows-in-the-review-tool). Varsayılan olarak, iş akışlarını çalıştırmak için otomatik olarak oluşturulan deneme anahtarıyla gözden geçirme Aracı'nı kullanır, ve hangi başlangıç olarak gösterilir. Terim ve görüntü listeleri ekran metin ve resim değerlendirmek işlemlerinde içinse diğer iki alanı sağlar.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

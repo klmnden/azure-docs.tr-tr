@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 1ddcbba4eacad040420efaf087f170e6c06ab2a0
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
+ms.openlocfilehash: 5f6ce3564cf4056dc9295e1885be425bbe3d7701
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47182408"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49165309"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-google-account-using-azure-active-directory-b2c"></a>Azure Active Directory B2C kullanarak bir Google hesabı ile kaydolma ve oturum açma ayarlama
 
@@ -28,7 +28,7 @@ Bir Google hesabı bir Azure Active Directory (Azure AD) B2C kimlik sağlayıcı
 3. Girin bir **proje adı**, tıklayın **Oluştur**ve ardından yeni proje kullandığınızdan emin olun.
 3. Seçin **kimlik bilgilerini** sol menüsünü ve ardından **kimlik bilgilerini oluştur** > **Oauth istemcisi kimliği**.
 4. Seçin **Yapılandır onay ekranında**.
-5. Seçin veya geçerli **e-posta adresi**, sağlayan bir **kullanıcılara gösterilen ürün adı**, tıklatıp **Kaydet**.
+5. Seçin veya geçerli bir belirtin **e-posta adresi**, sağlayan bir **kullanıcılara gösterilen ürün adı**, ekleyin `b2clogin.com` için **etki alanlarında yetkilendirilmiş**, tıklayın **Kaydet** .
 6. Altında **uygulama türü**seçin **Web uygulaması**.
 7. Girin bir **adı** uygulamanız için girin `https://your-tenant-name.b2clogin.com` içinde **yetkili JavaScript kaynakları**, ve `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp` içinde **yetkili yeniden yönlendirme URI'leri**. Değiştirin `your-tenant-name` kiracınızın ada sahip. Tüm harfleri büyük harflerle Azure AD B2C ile Kiracı tanımlansa bile Kiracı adınızın girerken kullanmanız gerekir.
 8. **Oluştur**’a tıklayın.

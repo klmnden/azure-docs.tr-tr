@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/05/2018
 ms.author: yuemlu
 ms.custom: include file
-ms.openlocfilehash: e3d904358282f303a2d1ab35cf4fdc8026d7db55
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: f1fe45283ef2886a50bf6a36e50e7ffe42055ee2
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47060828"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49312461"
 ---
 # <a name="cost-effective-standard-storage-and-unmanaged-and-managed-azure-vm-disks"></a>Uygun maliyetli standart depolama ile yönetilmeyen ve yönetilen Azure VM diskleri
 
@@ -25,7 +25,7 @@ Bu makalede, SSD ve HDD standart diskler kullanımı üzerinde odaklanır. Depol
 
 Standart diskler, Azure Vm'leri için oluşturmanın iki yolu vardır:
 
-**Yönetilmeyen diskler**: Bu tür bir disk özgün, VM diskleri için karşılık gelen VHD dosyalarını depolamak için kullanılan depolama hesapları yönettiğiniz yöntemidir. VHD dosyaları, depolama hesaplarındaki sayfa blobları olarak depolanır. Yönetilmeyen diskler, öncelikle DSv2 ve GS serisi gibi Premium depolama kullanan VM'ler dahil olmak üzere, herhangi bir Azure VM boyutu iliştirilebilir. Azure VM'ler VM başına en fazla 256 PiB sağlayan birkaç standart diskler, iliştirilmeyi destekler. Önizleme disk boyutları kullanırsanız, sanal makine başına yaklaşık 2 PiB kadar olabilir. 
+**Yönetilmeyen diskler**: Bu tür bir disk özgün, VM diskleri için karşılık gelen VHD dosyalarını depolamak için kullanılan depolama hesapları yönettiğiniz yöntemidir. VHD dosyaları, depolama hesaplarındaki sayfa blobları olarak depolanır. Yönetilmeyen diskler, öncelikle DSv2 ve GS serisi gibi Premium depolama kullanan VM'ler dahil olmak üzere, herhangi bir Azure VM boyutu iliştirilebilir. Azure sanal makineler en fazla 256 Tib'a kadar depolama alanı sağlayan birkaç standart diskler, iliştirilmeyi destekler. Önizleme disk boyutları kullanırsanız, sanal makine başına yaklaşık 2 PiB kadar olabilir.
 
 [**Azure yönetilen diskler**](../articles/virtual-machines/windows/managed-disks-overview.md): Bu özellik, VM diskleri için kullanılan depolama hesapları yönetir. Türü (Premium SSD, standart SSD veya HDD standart) ve boyutunu belirtmeniz duyduğunuz disk ve Azure oluşturur ve diski oluşturup yönetebilmesi. Diskler her şeyi Azure gerçekleştirir, sizin için--depolama hesapları için ölçeklenebilirlik sınırları içinde kalmasını sağlamak için birden çok depolama hesabında yerleştirme hakkında endişelenmeniz gerekmez.
 

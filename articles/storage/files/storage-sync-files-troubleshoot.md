@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/06/2018
 ms.author: jeffpatt
 ms.component: files
-ms.openlocfilehash: 3565793347a8c9704e51e893e5aa916cf54cab8e
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: b53be5a5683ca8fcc8760a2d4cb7e766904a44a3
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49115582"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49167673"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Azure Dosya Eşitleme ile ilgili sorunları giderme
 Kuruluşunuzun dosya paylaşımlarını Azure dosyaları'nda esneklik, performans ve bir şirket içi dosya sunucusunun uyumluluğu korurken merkezileştirmek için Azure dosya eşitleme'yi kullanın. Azure dosya eşitleme Windows Server, Azure dosya paylaşımınızın hızlı bir önbelleğine dönüştürür. SMB, NFS ve FTPS gibi verilerinizi yerel olarak erişmek için Windows Server üzerinde kullanılabilir olan herhangi bir protokolünü kullanabilirsiniz. Dünya genelinde gereken sayıda önbellek olabilir.
@@ -135,6 +135,21 @@ Bu sorunu çözmek için aşağıdaki adımları gerçekleştirin:
 2. Güvenlik Duvarı ve Proxy ayarlarının doğru yapılandırıldığından doğrulayın:
     - Sunucu bir güvenlik duvarının arkasındaysa, 443 giden bağlantı noktası izin verilen doğrulayın. Güvenlik Duvarı trafiği belirli etki alanlarına erişimi kısıtlıyorsa, Güvenlik Duvarı'nda listelenen etki alanları onaylayın [belgeleri](https://docs.microsoft.com/en-us/azure/storage/files/storage-sync-files-firewall-and-proxy#firewall) erişilebilir.
     - Sunucu bir proxy'nin arkasındaysa, Proxy adımları izleyerek makineye veya uygulamaya özel proxy ayarlarını yapılandırın [belgeleri](https://docs.microsoft.com/en-us/azure/storage/files/storage-sync-files-firewall-and-proxy#proxy).
+
+<a id="endpoint-noactivity-sync"></a>**Sunucu uç noktası "No etkinlik" sistem durumunu ve kayıtlı sunucuları dikey penceresinde sunucu durumu "Çevrimiçi"**  
+
+Sunucu uç noktasını eşitleme etkinliği son iki saat içinde açtı değil "No etkinlik" sunucu uç noktası sistem durumunu gösterir.
+
+Sunucu uç noktası eşitleme etkinliği aşağıdaki nedenlerden dolayı kaydedebilir değil:
+
+- Sunucu, en fazla eşzamanlı bir eşitleme oturum sayısını ulaştı. Azure dosya eşitleme, şu anda en fazla 8 active eşitleme oturumu sunucu başına veya işlemci başına 2 active sync oturumları destekler.
+
+- Sunucu, etkin bir VSS eşitleme oturumu (SnapshotSync) sahiptir. Sunucu uç noktası için bir VSS eşitleme oturumu etkinken, sunucudaki diğer sunucu uç noktaları VSS eşitleme oturumu tamamlanana kadar bir Başlangıç eşitleme oturumu başlatılamıyor.
+
+Sunucudaki geçerli eşitleme etkinliği denetlemek için bkz [nasıl geçerli eşitleme oturumunun ilerleme izlerim?](#how-do-i-monitor-the-progress-of-a-current-sync-session).
+
+> [!Note]  
+> Kayıtlı sunucular dikey penceresinde sunucu durumu "Çevrimdışı olarak görünür" ise, konusunda belgelenen adımları [sunucu uç noktası olan bir sistem durumu "No etkinliği" veya "Bekliyor" ve "çevrimdışı görünüyor" kayıtlı sunucuları dikey penceresinde sunucu durumu ](#server-endpoint-noactivity) bölümü.
 
 ## <a name="sync"></a>Sync
 <a id="afs-change-detection"></a>**Bir dosya my Azure dosya paylaşımı doğrudan portal üzerinden ya da SMB üzerinden oluşturduğum, ne kadar dosya sunucularına eşitleme grubundaki eşitleme zaman alır?**  

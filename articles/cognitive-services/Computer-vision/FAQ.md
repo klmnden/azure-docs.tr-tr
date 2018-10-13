@@ -10,12 +10,12 @@ ms.component: computer-vision
 ms.topic: conceptual
 ms.date: 01/26/2017
 ms.author: kefre
-ms.openlocfilehash: 5c0a4e981a290b9a758c8401a75e546c61618b45
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 55b474d0edbb8dc01b9f35d4f8799e53e37862df
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45983910"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49166381"
 ---
 # <a name="computer-vision-api-frequently-asked-questions"></a>Görüntü işleme API'si hakkında sık sorulan sorular
 
@@ -44,7 +44,7 @@ ms.locfileid: "45983910"
 | Danca (da DK)  | Felemenkçe (nl-NL)     | Türkçe           | Fince (fi-FI)            |Fransızca (fr-FR)
 | Almanca (de-DE)  | Yunanca (el-GR)     | Macarca (hu-HU) | İtalyanca (it-IT)            | Japonca (ja-JP)
 | Korece (ko-KR)  | Norveççe (nb-yok) | Lehçe (pl-PL)    | Portekizce (pt-BR) (pt-PT) | Rusça (ru-RU)
-| İspanyolca (es-ES)   | İsveç dili (sv-SV)     | Türkçe (tr-işleme birimi)   |                            |
+| İspanyolca (es-ES)   | İsveç dili (sv-SV)     | Türkçe (tr-TR)   |                            |
 
 -----
 

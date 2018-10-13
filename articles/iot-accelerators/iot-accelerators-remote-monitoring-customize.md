@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 01/17/2018
 ms.topic: conceptual
-ms.openlocfilehash: e8b3cd0e1e1d1f3940a103f614cf2746b2770e3f
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 59f2860168782d96bf82d0a27f9bb9eeed0f1020
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49092057"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49167503"
 ---
 # <a name="customize-the-remote-monitoring-solution-accelerator"></a>Uzaktan izleme çözüm Hızlandırıcısını özelleştirme
 
@@ -465,7 +465,7 @@ Bu makalede, Uzaktan izleme çözüm Hızlandırıcısını web kullanıcı Arab
 * [Uzaktan izleme çözüm Hızlandırıcı web kullanıcı Arabirimine özel sayfa ekleme](iot-accelerators-remote-monitoring-customize-page.md)
 * [Uzaktan izleme çözüm Hızlandırıcı web kullanıcı Arabirimine özel hizmet ekleme](iot-accelerators-remote-monitoring-customize-service.md)
 * [Uzaktan izleme çözüm Hızlandırıcı web kullanıcı Arabirimine özel kılavuz ekleme](iot-accelerators-remote-monitoring-customize-grid.md)
-* [Bir özel çıkış Uzaktan izleme çözüm Hızlandırıcı web kullanıcı Arabirimi ekleme](iot-accelerators-remote-monitoring-customize-flyout.md)
+* [Uzaktan izleme çözüm Hızlandırıcı web kullanıcı Arabirimine özel bir açılır öğesi Ekle](iot-accelerators-remote-monitoring-customize-flyout.md)
 * [Uzaktan izleme çözüm Hızlandırıcı Web kullanıcı Arabiriminde panoya özel panel ekleme](iot-accelerators-remote-monitoring-customize-panel.md)
 
 Uzaktan izleme çözüm Hızlandırıcısını hakkında daha fazla kavramsal bilgi için bkz. [Uzaktan izleme mimarisi](iot-accelerators-remote-monitoring-sample-walkthrough.md)

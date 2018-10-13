@@ -8,12 +8,12 @@ services: mariadb
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 9b22890bceba6205c995a01105cdf11a08a9c10b
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 551fe303994f6c72f8a4bf39e76f12c62f58026b
+ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46998755"
+ms.lasthandoff: 10/13/2018
+ms.locfileid: "49309544"
 ---
 # <a name="migrate-your-mariadb-database-to-azure-database-for-mariadb-using-dump-and-restore"></a>MariaDB veritabanı, döküm ve geri yükleme kullanarak MariaDB için Azure veritabanı'na geçirme
 Bu makalede, MariaDB için Azure veritabanı veritabanlarını geri iki yaygın yolları açıklanmaktadır.
@@ -30,7 +30,9 @@ Bu nasıl yapılır kılavuzunda adımlamak için sahip olmanız gerekir:
 Uzaktan bağlanmak ve verileri MariaDB için Azure veritabanı'na geri yüklemek için genel yardımcı programları ve MySQL Workbench, mysqldump, kurbağa veya Navicat gibi araçları kullanın. MariaDB için Azure veritabanı'na bağlanmak için bir internet bağlantısı olan istemci makinenizde gibi araçlar kullanın. Bir SSL şifreli bağlantı için en iyi güvenlik uygulamalarını kullanın, ayrıca bkz: [SSL bağlantısını yapılandırma MariaDB için Azure veritabanı'nda](concepts-ssl-connection-security.md). MariaDB için Azure veritabanı'na geçirirken döküm dosyaları herhangi bir özel bulutun konumuna taşımak gerekmez. 
 
 ## <a name="common-uses-for-dump-and-restore"></a>Döküm ve geri yükleme için yaygın kullanımları
-MariaDB sunucu çeşitli ortak senaryolar için Azure veritabanı'na MySQL yardımcı programları mysqldump ve dump ve load veritabanlarına mysqlpump gibi kullanabilir. <!--In other scenarios, you may use the [Import and Export](concepts-migrate-import-export.md) approach instead.-->
+MariaDB sunucu çeşitli ortak senaryolar için Azure veritabanı'na MySQL yardımcı programları mysqldump ve dump ve load veritabanlarına mysqlpump gibi kullanabilir. 
+
+<!--In other scenarios, you may use the [Import and Export](howto-migrate-import-export.md) approach instead.-->
 
 - Tüm veritabanını geçirirken veritabanı kullanmak dökümünü yapar. Bu öneri, büyük miktarda veri taşırken ya da Canlı siteler veya uygulamalar için hizmet kesintilerini en aza indirmek istediğiniz zaman barındırır. 
 -  MariaDB için Azure veritabanı'na veri yükleme zaman veritabanındaki tüm tabloları Innodb depolama altyapısı kullandığınızdan emin olun. MariaDB için Azure veritabanı, yalnızca Innodb depolama altyapısını destekler ve alternatif depolama altyapılarını desteklemez. Tablolarınızı diğer depolama altyapıları ile yapılandırıldıysa, MariaDB için Azure veritabanı geçiş işleminden önce Innodb altyapısı biçimine dönüştürün.

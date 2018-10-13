@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/29/2018
 ms.author: dobett
-ms.openlocfilehash: 041eed3a65faeb4e6c19cd9220a9e6393e18532a
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: 3e6e42da7f3c1423ecf2de507f3c2f0257fbb21f
+ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47452216"
+ms.lasthandoff: 10/13/2018
+ms.locfileid: "49311244"
 ---
 # <a name="understand-the-identity-registry-in-your-iot-hub"></a>IOT hub'ınızdaki kimlik kayıt defterinde anlama
 
@@ -29,7 +29,9 @@ Gerektiğinde, kimlik kayıt defterini kullanın:
 * Her cihaz/başına-modül, hub'ın cihaz veya modül'e yönelik uç erişimi denetler.
 
 > [!NOTE]
-> Kimlik kayıt defteri, uygulamaya özgü meta verileri içermiyor.
+> * Kimlik kayıt defteri, uygulamaya özgü meta verileri içermiyor.
+> * Modül kimliği ve modül ikizi genel Önizleme aşamasındadır. Genel olduğunda, modül kimliği özelliği desteklenecektir kullanılabilir.
+>
 
 ## <a name="identity-registry-operations"></a>Kimlik kayıt defteri işlemleri
 
@@ -40,7 +42,6 @@ IOT Hub kimlik kayıt defteri aşağıdaki işlemleri gösterir:
 * Cihaz veya modül kimliği Kimliğe göre Al
 * Cihaz veya modül Kimliği Sil
 * 1000'e kadar kimlikleri listesi
-> Modül kimliği ve modül ikizi genel Önizleme aşamasındadır. Genel olduğunda, modül kimliği özelliği desteklenecektir kullanılabilir.
 * Azure blob depolama alanına cihaz kimliklerini dışarı aktarma
 * Cihaz kimliklerini Azure blob depolama alanından içeri aktarma
 
@@ -60,7 +61,7 @@ Bir IOT çözümünü genellikle uygulamaya özgü meta veriler içeren ayrı bi
 > [!IMPORTANT]
 > Yalnızca kimlik kayıt defteri, cihaz yönetimi ve sağlama işlemleri için kullanın. Yüksek aktarım hızı işlemleri çalışma zamanında kimlik kayıt defterinde işlemleri üzerinde bağlı olmaması gerekir. Örneğin, bir komut göndermeden önce bir cihazın bağlantı durumunu denetleme desteklenen düzeni değil. Mutlaka denetleyin [azaltma hızları](iot-hub-devguide-quotas-throttling.md) kimlik kayıt defteri ve [cihaz sinyal](iot-hub-devguide-identity-registry.md#device-heartbeat) deseni.
 
-## <a name="disable-devices"></a>Cihazları devre dışı bırak
+## <a name="disable-devices"></a>Cihazları devre dışı bırakma
 
 Güncelleştirerek cihazları devre dışı bırakabilirsiniz **durumu** kimlik kayıt defterinde bir kimlik özelliği. Genellikle, bu özelliğin iki senaryoda kullanır:
 

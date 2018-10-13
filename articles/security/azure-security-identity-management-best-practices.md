@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/17/2018
 ms.author: barclayn
-ms.openlocfilehash: f6640e7d179199fbfb5b0c2b0c384729b6f53bcf
-ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
+ms.openlocfilehash: b1002d046014abd15452489e343ecf7c30b00d73
+ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/20/2018
-ms.locfileid: "46498258"
+ms.lasthandoff: 10/13/2018
+ms.locfileid: "49311346"
 ---
 # <a name="azure-identity-management-and-access-control-security-best-practices"></a>Azure kimlik yönetimi ve erişim en iyi güvenlik denetimi
 
@@ -113,7 +113,7 @@ Birden fazla Kiracı varsa veya kullanıcılara etkinleştirmek istediğiniz [ku
 
 Seçeneklerinizi ve Avantajlarınızı iki aşamalı doğrulamayı etkinleştirmek için aşağıda verilmiştir:
 
-**1. seçenek**: [kullanıcı durumunu değiştirerek multi-Factor Authentication'ı Etkinleştir](../active-directory/authentication/howto-mfa-userstates.md#enable-azure-mfa-by-changing-user-status).   
+**1. seçenek**: [kullanıcı durumunu değiştirerek multi-Factor Authentication'ı Etkinleştir](../active-directory/authentication/howto-mfa-userstates.md).   
 **Avantajı**: Bu, iki aşamalı doğrulama gerektirme geleneksel yöntemidir. Her ikisi de çalıştığını [Azure multi-Factor Authentication Bulut ve Azure multi-Factor Authentication sunucusu](../active-directory/authentication/concept-mfa-whichversion.md). Bu yöntemi kullanarak oturum açtıklarında her açtığınızda iki aşamalı doğrulamayı gerçekleştirmek üzere kullanıcıların gerektirir ve koşullu erişim ilkeleri geçersiz kılar.
 
 **2. seçenek**: [koşullu erişim ilkesi ile multi-Factor Authentication'ı Etkinleştir](../active-directory/authentication/howto-mfa-getstarted.md#enable-multi-factor-authentication-with-conditional-access).   
@@ -121,7 +121,7 @@ Seçeneklerinizi ve Avantajlarınızı iki aşamalı doğrulamayı etkinleştirm
 
 Kullanıcılarınız için iki aşamalı doğrulamayı etkinleştirmek için en esnek yolu budur. Koşullu erişim ilkesini etkinleştirme yalnızca bulutta Azure multi-Factor Authentication için geçerlidir ve Azure AD premium özelliğidir. Bu yöntemde hakkında daha fazla bilgi bulabilirsiniz [Azure multi-Factor Authentication'ı bulut tabanlı dağıtım](../active-directory/authentication/howto-mfa-getstarted.md).
 
-**Seçenek 3**: koşullu erişim ilkeleriyle kullanıcı ve oturum açma riskini değerlendirmek tarafından çok faktörlü kimlik doğrulamasını etkinleştir [Azure AD kimlik koruması](../active-directory/active-directory-identityprotection.md).   
+**Seçenek 3**: koşullu erişim ilkeleriyle kullanıcı ve oturum açma riskini değerlendirmek tarafından çok faktörlü kimlik doğrulamasını etkinleştir [Azure AD kimlik koruması](../active-directory/authentication/tutorial-risk-based-sspr-mfa.md).   
 **Avantajı**: Bu seçeneği sağlar:
 
 - Kuruluşunuzun kimliklerini etkileyen olası güvenlik açıklarını algılama.
@@ -131,7 +131,7 @@ Kullanıcılarınız için iki aşamalı doğrulamayı etkinleştirmek için en 
 Kullanıcı ve oturum açma riski tüm bulut uygulamalarınız için iki aşamalı doğrulamayı gerekli olup olmadığını belirlemek için Azure AD kimlik koruması risk değerlendirmesine göre bu yöntemi kullanır. Bu yöntem, Azure Active Directory P2 lisansı gerektirir. Bu yöntemde hakkında daha fazla bilgi bulabilirsiniz [Azure Active Directory kimlik koruması](../active-directory/identity-protection/overview.md).
 
 > [!Note]
-> Seçenek 1, kullanıcı durumunu değiştirerek çok faktörlü kimlik doğrulamasını etkinleştirme, koşullu erişim ilkelerini geçersiz kılar. Seçenek 2 ve 3 koşullu erişim ilkeleri kullandığınızdan, 1. seçenek kendileriyle kullanamazsınız.
+> Seçenek 1, kullanıcı durumunu değiştirerek çok faktörlü kimlik doğrulamasını etkinleştirme, koşullu erişim ilkeleri geçersiz kılar. Seçenek 2 ve 3 koşullu erişim ilkeleri kullandığınızdan, 1. seçenek kendileriyle kullanamazsınız.
 
 Kimlik koruması, iki aşamalı doğrulama gibi ek katmanları eklemeyen kuruluşları için kimlik bilgisi hırsızlığı saldırısına daha açıktır. Bir kimlik bilgisi hırsızlığı saldırısına veri güvenliğinin aşılmasına yol açabilir.
 

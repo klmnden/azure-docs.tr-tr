@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/21/2018
 ms.author: tomfitz
 ms.custom: include file
-ms.openlocfilehash: 5dc4ce00685c74b2974cf1bfb5e8606eb3063e8d
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
-ms.translationtype: HT
+ms.openlocfilehash: 5914789675edba0d56e6899728fc2c3c7768374a
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38740588"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49312384"
 ---
 Kaynak grubuna iki etiket eklemek için [Set-AzureRmResourceGroup](/powershell/module/azurerm.resources/set-azurermresourcegroup) komutunu kullanın:
 
@@ -84,6 +84,18 @@ Birkaç değeri tek etikette birleştirmek için bir JSON dizesi kullanın.
 
 ```azurepowershell-interactive
 Set-AzureRmResourceGroup -Name myResourceGroup -Tag @{ CostCenter="{`"Dept`":`"IT`",`"Environment`":`"Test`"}" }
+```
+
+Mevcut olan etiketlerin kaybetmeden birkaç değerlerle yeni bir etiket eklemek için mevcut etiketleri alın, yeni etiket için bir JSON dizesi kullanın ve etiket koleksiyonu yeniden uygulayın:
+
+```azurepowershell-interactive
+# Get existing tags and add a new tag
+$ResourceGroup = Get-AzureRmResourceGroup -Name myResourceGroup
+$Tags = $ResourceGroup.Tags
+$Tags.Add("CostCenter", "{`"Dept`":`"IT`",`"Environment`":`"Test`"}")
+
+# Reapply the updated set of tags
+$ResourceGroup | Set-AzureRmResourceGroup -Tag $Tags
 ```
 
 Tüm etiketleri kaldırmak için bir boş karma tablosu geçirirsiniz.

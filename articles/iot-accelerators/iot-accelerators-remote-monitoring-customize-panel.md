@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 10/05/2018
 ms.topic: conceptual
-ms.openlocfilehash: 656a2375b8b1033e9b698d5d8e1e2bbc32b32a79
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 3b855c3bed75945f44b55463bdacd049b7930aa7
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49094588"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49165887"
 ---
 # <a name="add-a-custom-panel-to-the-dashboard-in-the-remote-monitoring-solution-accelerator-web-ui"></a>Uzaktan izleme çözüm Hızlandırıcı Web kullanıcı Arabiriminde panoya özel panel ekleme
 
@@ -35,7 +35,7 @@ Nasıl yapılır bu kılavuzdaki adımları tamamlamak için aşağıdaki yazıl
 
 Bölümündeki adımları tamamlamanız [Uzaktan izleme çözüm Hızlandırıcı web kullanıcı Arabirimine özel sayfa ekleme](iot-accelerators-remote-monitoring-customize-page.md) devam etmeden önce makalesi.
 
-## <a name="add-a-panel"></a>Bir panel ekleme
+## <a name="add-a-panel"></a>Panel ekleme
 
 Web kullanıcı Arabirimine bir panel eklemek için bölmenin tanımlayan kaynak dosyaları ekleyin ve ardından paneli görüntülemek için panoyu değiştirin gerekir.
 
@@ -82,7 +82,7 @@ Sayfa içeriğini kılavuzunda aşağıdaki hücre tanımına ekleyin:
           </Cell>
 ```
 
-## <a name="test-the-fly-out"></a>Çıkış test
+## <a name="test-the-flyout"></a>Açılır öğesi test etme
 
 Web kullanıcı Arabirimi yerel olarak çalışır durumda değilse, yerel kopyanızı deponun kök dizininde aşağıdaki komutu çalıştırın:
 

@@ -4,16 +4,16 @@ description: Bu makalede çözüm için bağlantılar sağlar ve yardımcı olab
 services: active-directory-b2c
 author: davidmu1
 ms.author: davidmu
-ms.date: 09/07/2018
+ms.date: 10/11/2018
 ms.topic: conceptual
 ms.service: active-directory
 ms.component: b2c
-ms.openlocfilehash: bdacbe425aa3140f8a3d60fdf121712d1e6eda3e
-ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
+ms.openlocfilehash: 74598aa83a9ed47ee85ef71593745faccfb81ee3
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45541611"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49165956"
 ---
 # <a name="solutions-and-training-for-azure-active-directory-b2c"></a>Çözümler ve Azure Active Directory B2C için eğitim
 
@@ -22,6 +22,7 @@ Azure Active Directory (Azure AD) B2C, kuruluşların kendi müşteriler ile ba�
 | Unvan | Açıklama |
 | ----- | ----------- |
 | [Azure AD B2C ile müşteri Kimlik Yönetimi](https://channel9.msdn.com/Shows/On-NET/Customer-Identity-Management-with-Azure-AD-B2C) | Bu genel bakışta hizmetin Parakh Jain ([@jainparakh](https://twitter.com/jainparakh)) Azure AD B2C'den takım bize hizmetinin nasıl çalıştığı, genel bir bakış sağlar ve ayrıca nasıl biz hızla B2C'yi bir ASP.NET Core uygulaması için bağlayabileceğiniz gösterilmektedir. |
+| [Azure AD B2C kullanmanın avantajları](https://aka.ms/b2coverview) | Azure AD B2C'yi ve, uygulamaları bu CIAM hizmeti nasıl yararlanabileceğiniz, yaygın senaryolar ve avantajları anlayın. |
 | [Azure AD B2C uzmanlığı elde: geliştiriciler için bir kurs](https://aka.ms/learnAADB2C) | Bu uçtan uca kurs geliştiricilere kimlik doğrulama mekanizması olarak Azure AD B2C ile uygulama geliştirme üzerinde tam bir yolculuk kazanır. On ayrıntılı modülleri laboratuvarlarla müşterilerinizle yolculuklarından tanımladığınız özel ilkeleri oluşturmak için bir Azure aboneliği ayarlama kadar her şeyi kapsar. |
 | [İş ortakları, satıcılar ve müşteriler Azure active Directory ile uygulamalarına erişmek için etkinleştirme](https://aka.ms/aadexternalidentities) | Boyutunu, sektör, veya uyumluluk ve güvenlik duruşunu bağımsız olarak her kuruluşun başarısı diğer kuruluşlarla işbirliği yapıyorsa ve müşteriler ile bağlantı kuruluş özelliğini kullanır.<br><br>Bir araya Azure AD, Azure AD B2C'yi ve Azure AD B2B işbirliği, bu kılavuzda ayrıntılı iş değeri ve birleşik kimlik doğrulama deneyimi sağlayan bir uygulama veya web deneyimi uyarlanmış içerikleri oluşturma mekanizması, Çalışanlar, iş ortakları ve sağlayıcıları ve müşteriler. |
 | [Azure AD B2C'ye karma bir ortamda uygulama kimlik doğrulamasını geçirme](https://aka.ms/MigratetoAADB2C) | Günümüzün modern kuruluşta, dijital Dönüşüm ve buluta geçiş gerçekleşir, aşama, çoğu kuruluş, en azından geçici olarak bir karma kimlik ortamda çalışmak için gerek.<br><br>Bu kılavuz, ilk uygulamanızı Azure AD B2C'ye taşımak için geçiş planı oluşturmaya odaklıdır ve karma bir ortamda kimlik ancak bunun yapılması konuları kapsar. |

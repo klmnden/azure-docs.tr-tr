@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/07/2018
+ms.date: 10/12/2018
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: a870ba238239a20af154f611f88e7c2fdb95f9f7
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: 2e913881faadd4892ad1ebc8cb404efe6489eb0d
+ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48870936"
+ms.lasthandoff: 10/13/2018
+ms.locfileid: "49310907"
 ---
 # <a name="azure-stack-1808-update"></a>Azure Stack 1808 güncelleştirme
 
@@ -40,7 +40,7 @@ Azure Stack 1808 güncelleştirmenin yapı numarasıdır **1.1808.0.97**.
 Bu güncelleştirme Azure Stack için aşağıdaki geliştirmeleri içerir.
 
 <!--  2682594   | IS  --> 
-- **Tüm Azure Stack ortamlarında artık Eşgüdümlü Evrensel Saat (UTC) saat dilimi biçimini kullanın.**  Tüm veri günlük ve UTC biçiminde artık ilgili bilgileri görüntüler. UTC saat kullanarak yüklenmedi önceki bir sürümden güncelleştirmezseniz ortamınız UTC kullanmak için güncelleştirilir. 
+- **Tüm Azure Stack ortamlarında artık Eşgüdümlü Evrensel Saat (UTC) saat dilimi biçimini kullanın.**  Tüm günlük verileri ve ilgili bilgileri artık UTC biçiminde görüntüler. UTC saat kullanarak yüklenmedi önceki bir sürümden güncelleştirmezseniz ortamınız UTC kullanmak için güncelleştirilir. 
 
 <!-- 2437250  | IS  ASDK --> 
 - **Yönetilen diskleri desteklenir.** Azure Stack sanal makineler ve sanal makine ölçek kümeleri artık yönetilen diskler kullanabilirsiniz. Daha fazla bilgi için [Azure Stack yönetilen diskler: farklılıklar ve dikkat edilmesi gerekenler](/azure/azure-stack/user/azure-stack-managed-disk-considerations).
@@ -52,7 +52,7 @@ Bu güncelleştirme Azure Stack için aşağıdaki geliştirmeleri içerir.
 - **Uzantı ana bilgisayar için hazırlama**. Uzantısı konağı gerekli TCP/IP bağlantı noktası sayısını azaltarak güvenli Azure Stack yardımcı olmak için kullanabilirsiniz. 1808 güncelleştirmesiyle, hazırlama, Azure Stack uzantısı konağı için hazırlanın. Daha fazla bilgi için [hazırlamak için Azure Stack için uzantısı konağı](/azure/azure-stack/azure-stack-extension-host-prepare).
 
 <!-- IS --> 
-- **Sanal makine ölçek kümeleri için galeri öğeleri yerleşik artık**. Sanal makine ölçek kümesi galeri öğesini şimdi indirmek zorunda kalmadan kullanıcı ve Yönetici portalındaki yapılır.  1808 için yükseltirseniz, Yükseltme tamamlandığında kullanılabilir.  
+- **Sanal makine ölçek kümeleri için galeri öğeleri artık yerleşiktir**. Sanal makine ölçek kümesi galeri öğesini şimdi indirmek zorunda kalmadan kullanıcı ve Yönetici portalındaki yapılır.  1808 için yükseltirseniz, Yükseltme tamamlandığında kullanılabilir.  
 
 <!-- IS, ASDK --> 
 - **Sanal makine ölçek kümesi ölçeklendirme**. Portala kullanabileceğiniz [bir sanal makine ölçek kümesi ölçeği](azure-stack-compute-add-scalesets.md#scale-a-virtual-machine-scale-set) (VMSS).    
@@ -61,10 +61,10 @@ Bu güncelleştirme Azure Stack için aşağıdaki geliştirmeleri içerir.
 - **Özel IPSec/IKE İlkesi yapılandırmalarını desteği** için [Azure Stack hizmetinde VPN ağ geçitlerinin](/azure/azure-stack/azure-stack-vpn-gateway-about-vpn-gateways).
 
 <!-- | IS ASDK--> 
-- **Kubernetes Market öğesi**. Şimdi kullanarak Kubernetes kümelerini dağıtmayı [Kubernetes Market öğesi](azure-stack-solution-template-kubernetes-cluster-add.md). Kullanıcılar, Kubernetes öğeyi seçin ve Azure Stack'e bir Kubernetes kümesi dağıtmak için bazı parametreleri doldurun. Şablonları amacı, kullanıcıların Kurulum geliştirme/test Kubernetes dağıtımları birkaç adımda basit olmasını sağlamaktır.
+- **Kubernetes Market öğesi**. Şimdi kullanarak Kubernetes kümelerini dağıtmayı [Kubernetes Market öğesi](azure-stack-solution-template-kubernetes-cluster-add.md). Kullanıcılar, Kubernetes öğeyi seçin ve Azure Stack'e bir Kubernetes kümesi dağıtmak için bazı parametreleri doldurun. Şablonları amacı, geliştirme/test Kubernetes dağıtımları birkaç adımda ayarlamak için kullanıcılara basit olmasını sağlamaktır.
 
 <!-- | IS ASDK--> 
-- **Blok zinciri şablonları**. Artık yürütebilir [Ethereum consortium dağıtımları](azure-stack-ethereum.md) Azure Stack'te. Üç yeni şablonlarında bulabilirsiniz [Azure Stack hızlı başlangıç şablonlarından](https://github.com/Azure/AzureStack-QuickStart-Templates). Bunlar dağıtma ve Azure ve Ethereum minimum bilgi ile çok üye consortium Ethereum ağ yapılandırma izin verin. Şablonları amacı, kullanıcıların Kurulum geliştirme/test Blockchain dağıtımları birkaç adımda basit olmasını sağlamaktır.
+- **Blok zinciri şablonları**. Artık yürütebilir [Ethereum consortium dağıtımları](azure-stack-ethereum.md) Azure Stack'te. Üç yeni şablonlarında bulabilirsiniz [Azure Stack hızlı başlangıç şablonlarından](https://github.com/Azure/AzureStack-QuickStart-Templates). Bunlar dağıtma ve Azure ve Ethereum minimum bilgi ile çok üye consortium Ethereum ağ yapılandırma izin verin. Şablonları amacı, geliştirme/test Blockchain dağıtımları birkaç adımda ayarlamak için kullanıcılara basit olmasını sağlamaktır.
 
 <!-- | IS ASDK--> 
 - **API Sürüm profili 2017-03-09-profile 2018-03-01-karma güncelleştirildi**. API profillerini Azure kaynak sağlayıcısı ve Azure REST uç noktaları için API sürümü belirtin. Profilleri hakkında daha fazla bilgi için bkz. [yönetme API sürümü profillerini Azure Stack'te](/azure/azure-stack/user/azure-stack-version-profiles).
@@ -145,6 +145,13 @@ Bu güncelleştirme ayrıca L1 Terminal içinde açıklanan hata (L1TF) olarak b
 
 ### <a name="known-issues-with-the-update-process"></a>Güncelleştirme işlemi ile ilgili bilinen sorunlar
 
+<!-- TBD - IS -->
+- Art arda görünür ve daha sonra Azure Stack sisteminizde kaybolur aşağıdaki uyarılar görebilirsiniz:
+   - *Altyapı rol örneği kullanılamıyor*
+   - *Ölçek birimi düğümü çevrimdışı.*
+   
+  Lütfen çalıştırın [Test AzureStack](azure-stack-diagnostic-test.md) altyapı rol örneklerinin durumunu doğrulamak ve birim düğümlerini ölçeklendirme cmdlet'i. Hiçbir sorun tarafından algılanan [Test AzureStack](azure-stack-diagnostic-test.md), bu uyarılar yoksayabilirsiniz. Bir sorun algılandığında, altyapı rol örneği veya Yönetim Portalı veya PowerShell kullanarak bir düğümü başlatma girişiminde bulunabilir.
+
 - Çalıştırdığınızda [Test AzureStack](azure-stack-diagnostic-test.md) 1808 Güncelleştirme tamamlandıktan sonra temel kart yönetim denetleyicisi (BMC) bir uyarı iletisi görüntülenir. Bu uyarıyı güvenle yok sayabilirsiniz.
 
 <!-- 2468613 - IS --> 
@@ -170,7 +177,7 @@ Bu derleme sürümü için yükleme sonrası bilinen sorunlar verilmiştir.
 - Azure Stack teknik belgeleri, en son sürüm üzerinde odaklanır. Sürümler arasında Portal değişiklikleri nedeniyle Azure Stack portalı kullanırken gördüğünüz belgelerinde gördüğünüz verilerden değişebilir. 
 
 <!-- TBD - IS ASDK --> 
-- Bir boş Pano portalında görebilirsiniz. Pano kurtarmak için **Pano düzenleme**, sonra sağ tıklatın ve seçin **varsayılan durumuna sıfırlansın**.
+- Bir boş Pano portalında görebilirsiniz. Pano kurtarmak için **Pano düzenleme**, sonra sağ tıklayıp **varsayılan durumuna sıfırlansın**.
 
 <!-- 2930718 - IS ASDK --> 
 - Yönetici portalında herhangi bir kullanıcı aboneliği ayrıntıları tıklandığında ve dikey pencereyi kapatmadan sonra erişirken **son**, kullanıcı abonelik adı görünmez.
@@ -226,7 +233,7 @@ Bu derleme sürümü için yükleme sonrası bilinen sorunlar verilmiştir.
 
 
 <!-- 2812138 | IS --> 
-- İçin bir uyarı görebileceğiniz **depolama** aşağıdaki ayrıntıları olan bir bileşeni:
+- İçin bir uyarı görebileceğiniz **depolama** aşağıdaki ayrıntıları içeren bileşeni:
 
    - Ad: Depolama hizmeti iç iletişim hatası  
    - Önem DERECESİ: kritik  

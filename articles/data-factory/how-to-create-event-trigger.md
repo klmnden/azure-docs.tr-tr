@@ -10,14 +10,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/23/2018
+ms.date: 10/11/2018
 ms.author: douglasl
-ms.openlocfilehash: 38fbb62de60bc5604210c8ad7339368a04967c27
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: 20ee69654a6b19365c9b7c46e1fa11e102168365
+ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48867061"
+ms.lasthandoff: 10/13/2018
+ms.locfileid: "49309375"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-in-response-to-an-event"></a>Bir olaya yanıt olarak bir işlem hattı çalıştırmalarını tetiği oluşturma
 
@@ -80,7 +80,7 @@ Aşağıdaki tabloda, olay tabanlı Tetikleyicileri için ilgili şema öğeleri
 Bu bölümde, olay tabanlı tetikleyici ayarlarını örnekleri sağlar.
 
 -   **BLOB yolu ile başlayan**('/ containername /') – kapsayıcısında tüm bloblar için olayları alır.
--   **BLOB yolu ile başlayan**('/ containername/blobları/foldername') – containername kapsayıcı ve KlasörAdı klasöründe tüm bloblar için olaylarını alır.
+-   **BLOB yolu ile başlayan**('/ containername/blobları/foldername') – containername kapsayıcı ve KlasörAdı klasöründe tüm bloblar için olaylarını alır. Ayrıca, bir alt klasör başvurabilir; Örneğin, ' / containername/blobları/KlasörAdı/altklasöradı /'.
 -   **BLOB yolu ile başlayan**('/ containername/blobs/foldername/file.txt') – containername kapsayıcısı altında KlasörAdı klasöründeki dosya.txt adlı bir blob için olaylarını alır.
 -   **BLOB yolu ile sona erer**('dosya.txt') – alır olayları bir blobun herhangi bir yola dosya.txt adlı.
 -   **BLOB yolu ile sona erer**('/ containername/blobs/file.txt') – dosya.txt kapsayıcı containername altında adlı bir blob için olaylarını alır.

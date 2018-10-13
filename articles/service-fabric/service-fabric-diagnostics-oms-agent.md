@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/16/2018
 ms.author: srrengar
-ms.openlocfilehash: d9d40a111faefee705c3ce1987c380ee2ba695ec
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 21c9441e2b3d3ad54d491834e6de097a8880b5b7
+ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48040196"
+ms.lasthandoff: 10/13/2018
+ms.locfileid: "49311125"
 ---
 # <a name="performance-monitoring-with-log-analytics"></a>Performans log Analytics ile izleme
 
@@ -66,7 +66,7 @@ Log Analytics aracısını kümenize eklemek için en iyi yolu, Azure CLI ile AP
 
 ## <a name="add-the-agent-via-the-resource-manager-template"></a>Resource Manager şablonu aracılığıyla Aracısı Ekle
 
-Bir Azure Log Analytics çalışma alanı dağıtma ve her düğümleriniz bir aracı ekleyin, örnek Resource Manager şablonları, kullanılabilir [Windows](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/SF%20OMS%20Samples/Windows) veya [Linux](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/SF%20OMS%20Samples/Linux).
+Bir Azure Log Analytics çalışma alanı dağıtma ve her düğümleriniz bir aracı ekleyin, örnek Resource Manager şablonları, kullanılabilir [Windows](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Windows-OMS-UnSecure) veya [Linux](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/SF%20OMS%20Samples/Linux).
 
 İndirin ve en iyi sonucu gereksinimlerinize uyan bir küme dağıtmak için bu şablonu değiştirin.
 

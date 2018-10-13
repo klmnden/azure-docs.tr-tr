@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.topic: conceptual
 ms.date: 04/20/2018
 ms.author: eugenesh
-ms.openlocfilehash: 5897740a1b5a183738c08b4dfde571be652aff3e
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: f92b49ebdff71fc0561cc490cb70ffb479f7fc9e
+ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47092258"
+ms.lasthandoff: 10/13/2018
+ms.locfileid: "49310955"
 ---
 # <a name="connecting-azure-sql-database-to-azure-search-using-indexers"></a>Azure SQL veritabanı dizin oluşturucuları kullanarak Azure Search'e bağlanma
 
@@ -277,7 +277,7 @@ Geçici silme tekniği kullanarak, geçici silme ilkesi şu şekilde oluştururk
         }
     }
 
-**SoftDeleteMarkerValue** bir dize olması gerekir: Gerçek, değerin dize gösterimini kullanın. Örneğin, burada silinen satırlar işaretlenmiş 1 değeri bir tamsayı sütunu varsa, kullanmak `"1"`. Burada silinen satırlar işaretlenir Boolean true değeriyle bir BIT sütun varsa `"True"`.
+**SoftDeleteMarkerValue** bir dize olması gerekir: Gerçek, değerin dize gösterimini kullanın. Örneğin, burada silinen satırlar işaretlenmiş 1 değeri bir tamsayı sütunu varsa, kullanmak `"1"`. Burada silinen satırlar işaretlenir Boolean true değeriyle bir BIT sütununuz varsa, dize sabit değeri kullanın `True` veya `true`, böyle olması fark etmez.
 
 <a name="TypeMapping"></a>
 

@@ -10,13 +10,13 @@ ms.reviewer: klam, LADocs
 ms.assetid: 697eb8b0-4a66-40c7-be7b-6aa6b131c7ad
 ms.topic: article
 tags: connectors
-ms.date: 08/24/2018
-ms.openlocfilehash: 8f430477883543aa8f87eb3fb0fb49ab31e2d723
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.date: 10/11/2018
+ms.openlocfilehash: 77a76aa4fbb051e5999053279798c1b0147ae8e9
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43042047"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49166789"
 ---
 # <a name="monitor-create-and-manage-sftp-files-by-using-azure-logic-apps"></a>İzleme, oluşturma ve Azure Logic Apps kullanarak SFTP dosyalarını yönetme
 
@@ -27,8 +27,10 @@ Azure Logic Apps ve SFTP Bağlayıcısı ile otomatik görevler ve iş akışlar
 * Dosya içeriğini ve meta verileri alın.
 * Arşivi klasöre ayıklayın.
 
-SFTP sunucunuzdan yanıtlar almak ve çıkış diğer eylemler için kullanılabilir Tetikleyicileri kullanabilirsiniz. Logic apps eylemleri, dosyaları SFTP sunucunuzdaki görevleri gerçekleştirmek için kullanabilirsiniz. Ayrıca SFTP eylemleri çıktısını kullanan diğer eylemler olabilir. Örneğin, düzenli olarak dosyaları SFTP sunucunuzdan almak, Office 365 Outlook Bağlayıcısı veya Outlook.com Bağlayıcısı'nı kullanarak bu dosyaları ve bunların içeriğini hakkında e-posta gönderebilirsiniz.
-Logic apps kullanmaya yeni başladıysanız gözden [Azure Logic Apps nedir?](../logic-apps/logic-apps-overview.md)
+SFTP sunucunuzdan yanıtlar almak ve çıkış diğer eylemler için kullanılabilir Tetikleyicileri kullanabilirsiniz. Logic apps eylemleri, dosyaları SFTP sunucunuzdaki görevleri gerçekleştirmek için kullanabilirsiniz. Ayrıca SFTP eylemleri çıktısını kullanan diğer eylemler olabilir. Örneğin, düzenli olarak dosyaları SFTP sunucunuzdan almak, Office 365 Outlook Bağlayıcısı veya Outlook.com Bağlayıcısı'nı kullanarak bu dosyaları ve bunların içeriğini hakkında e-posta gönderebilirsiniz. Logic apps kullanmaya yeni başladıysanız gözden [Azure Logic Apps nedir?](../logic-apps/logic-apps-overview.md)
+
+> [!NOTE]
+> 50 MB'tan büyük dosyalar için ve yukarı 1 GB kullanabilirsiniz [SFTP-SSH bağlayıcı](../connectors/connectors-sftp-ssh.md). SFTP Bağlayıcısı 50 MB üzerinde olan dosyaları destekler veya kullanılmadıkça daha küçük [büyük iletileri işlemek için Öbekleme](../logic-apps/logic-apps-handle-large-messages.md). 
 
 ## <a name="prerequisites"></a>Önkoşullar
 

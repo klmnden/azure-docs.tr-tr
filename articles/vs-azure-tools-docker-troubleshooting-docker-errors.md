@@ -1,6 +1,6 @@
 ---
-title: Visual Studio kullanarak Windows Docker istemci hatalarında sorun giderme | Microsoft Docs
-description: Visual Studio oluşturmak ve Visual Studio 2017 kullanarak web uygulamaları Docker Windows dağıtmak için kullanırken karşılaştığınız sorunları giderin.
+title: Visual Studio kullanarak Windows Docker istemcisi hatalarında sorun giderme | Microsoft Docs
+description: Visual Studio oluşturma ve Visual Studio 2017'yi kullanarak web uygulamaları Windows üzerindeki Docker dağıtma kullanırken karşılaştığınız sorunları giderin.
 services: azure-container-service
 documentationcenter: na
 author: devinb
@@ -14,41 +14,45 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 10/13/2017
 ms.author: devinb
-ms.openlocfilehash: 90dd5df4a607568e2f3a60791da2948af7ce4e50
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: cd88dec2ad79ad9f4b4c004866060be86b777cd9
+ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/06/2017
-ms.locfileid: "24002939"
+ms.lasthandoff: 10/13/2018
+ms.locfileid: "49311193"
 ---
 # <a name="troubleshoot-visual-studio-2017-development-with-docker"></a>Visual Studio 2017 geliştirme Docker ile ilgili sorunları giderme
 
-Docker için Visual Studio Araçları ile çalışırken, oluşturma veya uygulamanızın hatalarını ayıklama sırasında sorunlarla karşılaşabilirsiniz. Aşağıda bazı genel sorun giderme adımları şunlardır.
+Docker için Visual Studio Araçları ile çalışırken, oluşturma veya uygulamanızı hata ayıklama sırasında sorunlarla karşılaşabilirsiniz. Aşağıda bazı ortak adımlar giderirken.
 
-## <a name="volume-sharing-is-not-enabled-enable-volume-sharing-in-the-docker-ce-for-windows-settings--linux-containers-only"></a>Birimi paylaşan etkin değil. Windows CE Docker ayarları (yalnızca Linux kapsayıcıları) paylaşımı birimi etkinleştirilemedi
+## <a name="volume-sharing-is-not-enabled-enable-volume-sharing-in-the-docker-ce-for-windows-settings--linux-containers-only"></a>Birim paylaşımı etkin değil. Birim, paylaşım için Docker CE Windows ayarları (yalnızca Linux kapsayıcıları) etkinleştir
 
-Bu sorunu gidermek için:
+Bu sorunu çözmek için:
 
-1. Sağ **Windows için Docker** bildirim alanına ve ardından **ayarları**.
-1. Seçin **paylaşılan sürücüleri** ve projeyi bulunduğu sürücü yanı sıra sistem sürücüsünün paylaşın.
+1. Sağ **için Docker Windows** bildirim alanına tıklayın ve ardından içinde **ayarları**.
+1. Seçin **paylaşılan sürücüleri** ve projenin bulunduğu sürücü yanı sıra sistem sürücüsünün paylaşın.
 
 > [!NOTE]
-> Dosyaları paylaşılan görünüyorsa, birimi paylaşan yeniden etkinleştirmek için iletişim kutusunun altındaki "sıfırlama kimlik..." bağlantısını tıklatın gerekebilir.
+> Dosyaları paylaşılan görünüyorsa, birimi paylaşan yeniden etkinleştirmek için iletişim kutusunun alt kısmındaki "... kimlik bilgilerini Sıfırla" bağlantısını tıklatın gerekebilir. Kimlik bilgilerini sıfırlama sonra devam etmek için Visual Studio'yu yeniden başlatmanız gerekebilir.
 
-![Paylaşılan sürücüler](./media/vs-azure-tools-docker-troubleshooting-docker-errors/shareddrives.png)
+![Paylaşılan sürücüleri](./media/vs-azure-tools-docker-troubleshooting-docker-errors/shareddrives.png)
+
+## <a name="mounts-denied"></a>Takar reddedildi
+
+MacOS için Docker'ı kullanırken, klasör /usr/local/share/dotnet/sdk/NuGetFallbackFolder başvuran bir hatayla karşılaşabilir. Docker dosya paylaşımı sekmesine klasörü ekleyin.
 
 ## <a name="unable-to-start-debugging"></a>Hata ayıklama başlatılamıyor
 
-Nedenlerinden biri, kullanıcı profili klasörünüzde eski hata ayıklama bileşenleri zorunda ilgili olabilir. Böylece en son hata ayıklama bileşenleri sonraki hata ayıklama oturumunda indirilir bu klasörleri kaldırmak için aşağıdaki komutları yürütün.
+Nedenlerinden biri, kullanıcı profili klasöründe eski hata ayıklama bileşenleri bulunması ilgili olabilir. En son hata ayıklama bileşenleri sonraki hata ayıklama oturumunda yüklenir, böylece bu klasörleri kaldırmak için aşağıdaki komutları yürütün.
 
 - DEL %userprofile%\vsdbg
 - DEL %userprofile%\onecoremsvsmon
 
-## <a name="errors-specific-to-networking-when-debugging-your-application"></a>Uygulamanızı hata ayıklama sırasında ağa belirli hataları
+## <a name="errors-specific-to-networking-when-debugging-your-application"></a>Uygulamanızı hata ayıklama sırasında ağ ile belirli hataları
 
-Dan indirilebilir komut dosyası yürütme deneyin [temizleme kapsayıcı konak ağ](https://github.com/MicrosoftDocs/Virtualization-Documentation/tree/master/windows-server-container-tools/CleanupContainerHostNetworking), hangi ana makinenizde ağla ilgili bileşenler Yenile.
+Dan indirilebilir komut dosyası yürütme deneyin [temizleme kapsayıcı konağı ağ](https://github.com/MicrosoftDocs/Virtualization-Documentation/tree/master/windows-server-container-tools/CleanupContainerHostNetworking), hangi ana makinenizde ağ ile ilgili bileşenler Yenile.
 
 
-## <a name="microsoftdockertools-github-repo"></a>Microsoft/DockerTools GitHub depo
+## <a name="microsoftdockertools-github-repo"></a>Microsoft/DockerTools GitHub deposu
 
-Karşılaştığınız diğer herhangi bir sorun için bkz: [Microsoft/DockerTools](https://github.com/microsoft/dockertools/issues) sorunları.
+Karşılaştığınız başka herhangi bir sorun için bkz: [Microsoft/DockerTools](https://github.com/microsoft/dockertools/issues) sorunları.

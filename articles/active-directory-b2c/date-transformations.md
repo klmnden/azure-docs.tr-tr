@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: ff96b9a63e7340788ef2474ce9934145c184e1e1
-ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
+ms.openlocfilehash: b287e7f3846de4391de02cce2cedd6a5df3cbc4a
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45542778"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49167656"
 ---
 # <a name="date-claims-transformations"></a>Tarih dönüştürmeleri talep
 
@@ -92,7 +92,7 @@ Dönüştürür bir **tarih** için ClaimType bir **DateTime** ClaimType. Talep 
 
 | Öğe | TransformationClaimType | Veri Türü | Notlar |
 | ---- | ----------------------- | --------- | ----- |
-| Inputclaim | Inputclaim | tarih | Dönüştürülecek ClaimType. |
+| Inputclaim | Inputclaim | date | Dönüştürülecek ClaimType. |
 | outputClaim | outputClaim | Tarih/saat | Bu ClaimsTransformation çağrıldıktan sonra üreten ClaimType. |
 
 Aşağıdaki örnek, talep dönüştürme gösterir `dateOfBirth` (date veri türü) için başka bir talep `dateOfBirthWithTime` (TarihSaat veri türü).
@@ -158,7 +158,7 @@ Talep dönüştürmeyi çalıştırmak için öncelikle geçerli tarih ve saat a
     <InputClaim ClaimTypeReferenceId="extension_LastTOSAccepted" TransformationClaimType="secondDateTime" />
   </InputClaims>
   <InputParameters>
-    <InputParameter Id="operator" DataType="string" Value="greater than" />
+    <InputParameter Id="operator" DataType="string" Value="later than" />
     <InputParameter Id="timeSpanInSeconds" DataType="int" Value="7776000" />
   </InputParameters>
   <OutputClaims>
@@ -173,7 +173,7 @@ Talep dönüştürmeyi çalıştırmak için öncelikle geçerli tarih ve saat a
     - **firstDateTime**: 2018-01-01T00:00:00.100000Z
     - **secondDateTime**: 2018-04-01T00:00:00.100000Z
 - Giriş parametreleri:
-    - **İşleç**: büyüktür
+    - **İşleç**: daha
     - **timeSpanInSeconds**: 7776000 (90 gün)
 - Çıkış talep: 
     - **Sonuç**: true

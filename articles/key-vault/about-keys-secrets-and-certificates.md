@@ -12,21 +12,21 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/09/2018
+ms.date: 10/12/2018
 ms.author: bryanla
-ms.openlocfilehash: b1330f2f912f3e5974a43e43f649576561fbcc11
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 1d6f84612dd2bac34c238ad7eaf323dc7fa00ba3
+ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49079234"
+ms.lasthandoff: 10/13/2018
+ms.locfileid: "49311363"
 ---
 # <a name="about-keys-secrets-and-certificates"></a>Anahtarlar, parolalar ve sertifikalar hakkında
 
 Azure Key Vault, Microsoft Azure uygulamalarını ve birden fazla gizli dizi/anahtar verileri depolamak ve kullanıcılar sağlar:
 
 - Şifreleme anahtarları: birden çok anahtar türleri ve algoritmalarını destekler ve yüksek değerli anahtarlar donanım güvenlik modülleri (HSM) kullanılmasına olanak tanır. 
-- Gizli diziler: parolalar gibi gizli dizileri güvenli bir şekilde depolamak kullanıcıların sağlar. Gizli dizileri boyutlarının sekizli hiçbir belirli semantikler nesneleridir. 
+- Gizli diziler: parola ve veritabanı bağlantı dizeleri gibi gizli anahtarlarının güvenli depolama sağlar.
 - Sertifikaları: anahtarları ve gizli anahtarları üzerine yapılandırılmıştır ve otomatik yenileme özelliğini ekleyin destekler sertifikaları.
 - Azure Depolama: sizin için bir Azure depolama hesabı anahtarlarını yönetebilirsiniz. Dahili olarak, anahtar kasası bir Azure depolama hesabı ile (eşitleme) anahtarları listeleme ve (döndürme) yeniden anahtarlarını düzenli aralıklarla. 
 
@@ -94,7 +94,7 @@ Konumlar:
 
      Coğrafi sınırlar hakkında daha fazla bilgi için bkz. [Microsoft Azure Trust Center](https://azure.microsoft.com/support/trust-center/privacy/)  
 
-Key Vault RSA ve Eliptik Eğri anahtarlar yalnızca destekler. Gelecek sürümlerde destekleyebilir diğer anahtar türleri gibi simetrik.
+Key Vault RSA ve Eliptik Eğri anahtarlar yalnızca destekler. 
 
 -   **EC**: "Soft" Eliptik Eğri anahtar.
 -   **HSM EC**: "Sabit" Eliptik Eğri anahtar.
@@ -105,7 +105,7 @@ Key Vault, 2048, 3072 ve 4096 boyuttaki RSA anahtarlarını destekliyor. Key Vau
 
 ### <a name="cryptographic-protection"></a>Şifreleme koruma
 
-Anahtar Kasası'nı kullandığından, şifreleme modüllerini HSM veya yazılım, FIPS doğrulanmış (Federal Bilgi işleme standartları) olduğunu belirtir. FIPS modunda çalışacak şekilde özel herhangi bir şey yapmanız gerekmez. Varsa, **oluşturma** veya **alma** olarak HSM korumalı anahtarlar, bunlar garanti doğrulanmış FIPS 140-2 Düzey 2 veya daha yüksek bir HSM'nin içinde işlenecek. Varsa, **oluşturma** veya **alma** olarak, yazılım korumalı anahtarlar, bunlar işlenen içinde şifreleme modüllerine doğrulanmış FIPS 140-2 Düzey 1 veya daha yüksek. Daha fazla bilgi için [anahtarları ve anahtar türleri](#keys-and-key-types).
+Anahtar Kasası'nı kullandığından, şifreleme modüllerini HSM veya yazılım, FIPS doğrulanmış (Federal Bilgi işleme standartları) olduğunu belirtir. FIPS modunda çalışacak şekilde özel herhangi bir şey yapmanız gerekmez. Anahtarları **oluşturulan** veya **içeri** HSM korumalı olan işlenen FIPS doğrulanmış HSM'nin içinde 140-2 Düzey 2 veya üzeri. Anahtarları **oluşturulan** veya **içeri** doğrulanmış FIPS 140-2 Düzey 1 veya daha yüksek şifreleme modüllerine içinde yazılım korumalı olarak işlenir. Daha fazla bilgi için [anahtarları ve anahtar türleri](#keys-and-key-types).
 
 ###  <a name="ec-algorithms"></a>EC algoritmaları
  Aşağıdaki algoritması tanımlayıcıları EC ve EC-HSM anahtarları Key vault'ta desteklenir. 
@@ -136,8 +136,8 @@ Anahtar Kasası'nı kullandığından, şifreleme modüllerini HSM veya yazılı
 
 Key Vault anahtar nesneler üzerinde aşağıdaki işlemleri destekler:  
 
--   **Oluşturma**: anahtar Kasası'nda bir anahtar oluşturmak bir istemci sağlar. Anahtar değerini Key Vault tarafından oluşturulan ve tutulan ve istemciye serbest değil. Asimetrik (ve gelecekte Eliptik Eğri ve simetrik) anahtarları Key Vault'ta oluşturulabilir.  
--   **İçeri aktarma**: mevcut bir anahtarı anahtar Kasası'na içeri aktarmak bir istemci sağlar. Asimetrik anahtarlar, farklı paketleme yöntemler JWK yapısı içinde bir dizi kullanarak Key Vault alınabilir. Eliptik Eğri ve simetrik gelecekte de olacaktır aynı paketlenir.
+-   **Oluşturma**: anahtar Kasası'nda bir anahtar oluşturmak bir istemci sağlar. Anahtar değerini Key Vault tarafından oluşturulan ve tutulan ve istemciye serbest değil. Asimetrik anahtarlar, anahtar Kasası'nda oluşturulabilir.  
+-   **İçeri aktarma**: mevcut bir anahtarı anahtar Kasası'na içeri aktarmak bir istemci sağlar. Asimetrik anahtarlar, farklı paketleme yöntemler JWK yapısı içinde bir dizi kullanarak Key Vault alınabilir. 
 -   **Güncelleştirme**: daha önce Key Vault içinde depolanan bir anahtar ile ilişkili meta verileri (anahtar öznitelikleri) değiştirmek için yeterli izinlere sahip bir istemci sağlar.  
 -   **Silme**: Key Vault'tan bir anahtar silmek için yeterli izinlere sahip bir istemci sağlar.  
 -   **Liste**: bir istemci belirli bir anahtar Kasası'nda tüm anahtarların listelenmesi sağlar.  
@@ -226,7 +226,7 @@ Anahtarları ile çalışma hakkında daha fazla bilgi için bkz. [anahtarı ana
 
 ### <a name="working-with-secrets"></a>Gizli anahtarlarla çalışma
 
-Gizli anahtar Kasası'nda, en fazla 25 k bayt her sekizli dizileri:. Key Vault hizmeti, gizli dizileri için semantiği sağlamaz. Yalnızca verileri kabul eder, şifreler, depoladığı ve bir gizli dizi tanımlayıcısı ("id") döndürür. Tanımlayıcı, daha sonraki bir zamanda gizli diziyi almak için kullanılabilir.  
+Bir geliştiricinin bakış açısından, anahtar kasası API'leri kabul edin ve gizli anahtar değerleri dize olarak döndürür. Dahili olarak, anahtar kasası depolar ve gizli dizileri ile en fazla 25 k bayt her sekizlik tabanda (8-bit bayt), bir dizisi yönetir. Key Vault hizmeti, gizli dizileri için semantiği sağlamaz. Yalnızca verileri kabul eder, şifreler, depoladığı ve bir gizli dizi tanımlayıcısı ("id") döndürür. Tanımlayıcı, daha sonraki bir zamanda gizli diziyi almak için kullanılabilir.  
 
 Yüksek oranda gizli veriler için ek veri koruma katmanları istemciler dikkate almanız gerekir. Key Vault'ta depolama önce bir ayrı koruma anahtarı kullanılarak veri şifrelenirken bir örnektir.  
 
@@ -247,7 +247,7 @@ Gizli dizi öznitelikleri içeren bir yanıta dahil ek salt okunur özniteliği 
 
 #### <a name="date-time-controlled-operations"></a>Tarih-saat denetimli işlemleri
 
-Bir parolanın **alma** işlemi dışında değil henüz geçerli ve süresi dolan gizli diziler çalışır *nbf* / *exp* penceresi. Bir parolanın çağırma **alma** değil henüz geçerli bir gizli dizi için bir işlemi test amaçları için kullanılabilir. Alınıyor (**alma**ing) süresi dolmuş bir parola kurtarma işlemleri için kullanılabilir.
+Bir parolanın **alma** işlemi dışında değil henüz geçerli ve süresi dolan gizli diziler çalışır *nbf* / *exp* penceresi. Bir parolanın çağırma **alma** değil henüz geçerli bir gizli dizi için bir işlemi test amaçları için kullanılabilir. Alınıyor (**alma**eğerlendirmesi) süresi dolmuş bir parola kurtarma işlemleri için kullanılabilir.
 
 Veri türleri hakkında daha fazla bilgi için bkz. [veri türleri](#data-types).  
 
@@ -263,7 +263,7 @@ Aşağıdaki izinleri, bir asıl başına temelinde bir kasasındaki gizli dizil
   - *ayarlama*: gizli dizi oluşturma  
   - *silme*: gizli anahtarı silme  
   - *Kurtarma*: silinen bir gizli dizi Kurtar
-  - *Yedekleme*: bir anahtar kasasındaki gizli dizi yedekleme
+  - *Yedekleme*: bir anahtar kasasındaki gizli dizi yedekleyin
   - *geri yükleme*: yedeklenen bir gizli bir anahtar kasası için yedekleme geri yükleme
 
 - Ayrıcalıklı işlemleri için izinleri
@@ -281,7 +281,7 @@ Ek uygulamaya özgü meta veri etiketleri biçiminde belirtebilirsiniz. Key Vaul
 
 Key Vault sertifikaları destek sağlar, x509 yönetimi için sertifikaları ve aşağıdaki davranışları:  
 
--   Sertifikayı içeri aktarma veya Key Vault oluşturma işlemi aracılığıyla bir sertifika oluşturmak bir sertifika sahibinin sağlar. Sertifika yetkilisi sertifikalarını oluşturulur ve bu otomatik olarak imzalanan hem de içerir.
+-   Sertifikayı içeri aktarma veya Key Vault oluşturma işlemi aracılığıyla bir sertifika oluşturmak bir sertifika sahibinin sağlar. İçerir hem de otomatik olarak imzalanan ve sertifika yetkilisi sertifikalarını oluşturulur.
 -   Güvenli Depolama ve Yönetimi X509 uygulamak bir anahtar kasası sertifikası sahibi sağlayan sertifika özel anahtar malzemesi etkileşim olmadan.  
 -   Bir sertifika yaşam döngüsünü yönetmek için Key Vault yönlendiren bir ilke oluşturmak bir sertifika sahibinin sağlar.  
 -   Kişi hakkında bilgi için bildirim yaşam döngüsü olayları geçerlilik süresi ve sertifikanın yenilenmesini sağlamak sertifika sahipleri sağlar.  
@@ -406,7 +406,7 @@ Ardından bir sertifika ilkesi için otomatik yenileme ayarlarsanız, aşağıda
 -   Önce sertifika yenileme
 -   Sertifika başarıyla yenilendi belirten veya bir hata varsa, sertifikanın el ile yenileme gerekliliği sertifika yenileme sonra.  
 
- Bir sertifika ilkesi el ile olarak ayarlanmışsa yenilenen (e-posta yalnızca) sonra bir bildirim gönderilir, sertifikayı yenilemek için saat olduğunda.  
+ (E-posta yalnızca) el ile olarak ayarlanmış bir Sertifika İlkesi yenilendiğinde, sertifikayı yenilemek için saat olduğunda bir bildirim gönderilir.  
 
 ### <a name="certificate-access-control"></a>Sertifika erişim denetimi
 

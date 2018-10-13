@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: markvi
-ms.openlocfilehash: 56df09f461458071093088159d3b468755b0e4ad
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 71d8bfa116fd4d0e824d80da26df7271121a595c
+ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47434951"
+ms.lasthandoff: 10/13/2018
+ms.locfileid: "49311380"
 ---
 # <a name="enable-enterprise-state-roaming-in-azure-active-directory"></a>Azure Active Directory'de Kurumsal Durumda Dolaşımı etkinleştirme
 Kurumsal durumda dolaşım, tüm kuruluşa bir Azure AD Premium veya Enterprise Mobility + Security (EMS) lisansı ile kullanılabilir. Azure AD aboneliğiniz alma hakkında daha fazla bilgi için bkz. [Azure AD'ye ürün sayfası](https://azure.microsoft.com/services/active-directory).
@@ -32,9 +32,9 @@ Kurumsal durumda Dolaşım etkinleştirdiğinizde, kuruluşunuz Azure Informatio
 
 1. Oturum [Azure AD yönetim merkezini](https://aad.portal.azure.com/).
 
-2. Seçin **Azure Active Directory** &gt; **cihazları** &gt; **Kurumsal durumda Dolaşım**.
+1. Seçin **Azure Active Directory** &gt; **cihazları** &gt; **Kurumsal durumda Dolaşım**.
 
-3. Seçin **kullanıcılar eşitleme ayarları ve uygulama verilerini cihazlarda**. Daha fazla bilgi için [cihaz ayarlarının nasıl yapılandırılacağı](https://docs.microsoft.com/azure/active-directory/device-management-azure-portal).
+1. Seçin **kullanıcılar eşitleme ayarları ve uygulama verilerini cihazlarda**. Daha fazla bilgi için [cihaz ayarlarının nasıl yapılandırılacağı](https://docs.microsoft.com/azure/active-directory/device-management-azure-portal).
   
   ![Etiketli Kullanıcılar Cihaz ayarı görüntüsü cihazlarda ayarları ve uygulama verilerini eşitleyebilir](./media/active-directory-windows-enterprise-state-roaming-enable/device-settings.png)
   
@@ -57,15 +57,15 @@ Kullanıcı başına cihaz eşitleme Durum raporunda görüntülemek için aşa�
 
 1. Oturum [Azure AD yönetim merkezini](https://aad.portal.azure.com/).
 
-2. Seçin **Azure Active Directory** &gt; **kullanıcılar** &gt; **tüm kullanıcılar**.
+1. Seçin **Azure Active Directory** &gt; **kullanıcılar** &gt; **tüm kullanıcılar**.
 
-3. Kullanıcıyı seçin ve ardından **cihazları**.
+1. Kullanıcıyı seçin ve ardından **cihazları**.
 
-4. Altında **Göster**seçin **ayarları ve uygulama verilerini eşitleyen cihazlar** eşitleme durumunu göstermek için.
+1. Altında **Göster**seçin **ayarları ve uygulama verilerini eşitleyen cihazlar** eşitleme durumunu göstermek için.
   
   ![cihaz eşitleme verilerini ayarın görüntüsü](./media/active-directory-windows-enterprise-state-roaming-enable/sync-status.png)
   
-5. Bu kullanıcı için eşitleyen cihazlar varsa, burada gösterildiği gibi cihazlar bakın.
+1. Bu kullanıcı için eşitleyen cihazlar varsa, burada gösterildiği gibi cihazlar bakın.
   
   ![cihaz eşitleme sütunlu verilerin görüntüsü](./media/active-directory-windows-enterprise-state-roaming-enable/device-status-row.png)
 
