@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 06/07/2018
+ms.date: 10/12/2018
 ms.author: sethm
 ms.reviewer: ''
-ms.openlocfilehash: 70ed5d45701133434c708ad80aaafc58645297e8
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 343c29db4ac5fba37d8ea1b17862b86566ae15ca
+ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49077128"
+ms.lasthandoff: 10/13/2018
+ms.locfileid: "49309204"
 ---
 # <a name="plan-offer-quota-and-subscription-overview"></a>Plan, teklif, kota ve aboneliğe genel bakış
 
@@ -40,7 +40,7 @@ Bir hizmeti sunmak, üst düzey adımları izleyin:
 2. Bir veya daha fazla hizmet sahip bir plan oluşturun. Bir plan oluştururken seçin veya kaynak sınırları her hizmetin planında tanımlamak kotalar oluşturun.
 3. Bir veya daha fazla plan içeren bir teklif oluşturun. Bu teklif, temel planlar ve isteğe bağlı eklenti planları dahil edebilirsiniz.
 
-Teklif oluşturduktan sonra kullanıcılarınızın teklif sağlar Hizmetleri ve kaynaklarına erişmek için abone olabilirsiniz. Kullanıcılar istedikleri sayıda teklifler için abone olabilirsiniz. Aşağıdaki diyagramda iki tekliflere abone bir kullanıcının basit bir örnek gösterilmektedir. Bir plan veya iki her bir teklifin vardır ve her plan bunları hizmetlerine erişmenizi sağlar.
+Teklif oluşturduktan sonra kullanıcılarınızın teklif sağlar Hizmetleri ve kaynaklarına erişmek için abone olabilirsiniz. Kullanıcılar istedikleri sayıda teklifler için abone olabilirsiniz. Aşağıdaki şekilde iki tekliflere abone bir kullanıcının basit bir örnek gösterilmektedir. Bir plan veya iki her bir teklifin vardır ve her plan bunları hizmetlerine erişmenizi sağlar.
 
 ![Kiracı abonelik teklifleri ve planlar](media/azure-stack-key-features/image4.png)
 
@@ -50,7 +50,7 @@ Bir veya daha fazla hizmet gruplandırmalarını planları oluşturulabilir. Azu
 
 ### <a name="quotas"></a>Kotalar
 
-Bulut kapasitenizi yönetmenize yardımcı olmak için önceden yapılandırılmış kotalarını kullanın veya bir plandaki her hizmet için yeni bir kota oluşturun. Kotalar bir kullanıcı aboneliği sağlama veya tüketen üst kaynak sınırlarını tanımlayın. Örneğin, bir kota beş adede kadar sanal makineler (VM'ler) oluşturmak bir kullanıcı izin verebilir. Sanal makinelerde, RAM ve CPU çekirdeği gibi ek kotalar ayarlayın.
+Bulut kapasitenizi yönetmenize yardımcı olmak için kullanabileceğiniz önceden yapılandırılmış *kotalar*, veya bir plandaki her hizmet için yeni bir kota oluşturun. Kotalar bir kullanıcı aboneliği sağlama veya tüketen üst kaynak sınırlarını tanımlayın. Örneğin, bir kota beş adede kadar sanal makineler (VM'ler) oluşturmak bir kullanıcı izin verebilir.
 
 Bölgeye göre kotalarını yapılandırabilirsiniz. Örneğin, bir bölge için bilgi işlem hizmetleri sağlayan bir plan kota 4 GB RAM ve 8 CPU çekirdeği ile iki VM olabilir.
 
@@ -61,7 +61,7 @@ Daha fazla bilgi edinin [kota türleri Azure Stack'te](azure-stack-quota-types.m
 
 ### <a name="base-plan"></a>Temel plan
 
-Hizmet Yöneticisi, bir teklifi oluştururken, temel plan içerebilir. Bu temel plan, kullanıcı söz konusu teklife abone olduğunda varsayılan olarak dahil edilir. Bir kullanıcı abone olduğunda, bu temel planlar (ilgili kotalar. ile) belirtilen tüm kaynak sağlayıcıları erişime sahip
+Hizmet Yöneticisi, bir teklifi oluştururken, temel plan içerebilir. Bu temel plan, kullanıcı söz konusu teklife abone olduğunda varsayılan olarak dahil edilir. Bir kullanıcı abone olduğunda, bu temel planlar (ile ilgili kotalar) belirtilen tüm kaynak sağlayıcılarına erişim için sahiptirler.
 
 ### <a name="add-on-plans"></a>Eklenti planları
 
@@ -81,8 +81,8 @@ Her bir teklif olan bir kullanıcı birleşimi benzersiz bir aboneliktir. Bir ku
 
 ### <a name="default-provider-subscription"></a>Varsayılan sağlayıcı aboneliği
 
-Azure Stack geliştirme Seti'ni dağıttığınızda varsayılan sağlayıcı aboneliği otomatik olarak oluşturulur. Bu abonelik, Azure Stack yönetmek, ek kaynak sağlayıcıları dağıtmak ve planlar ve teklifler için kullanıcı oluşturmak için kullanılabilir. Güvenlik ve lisans nedenleriyle müşterinin iş yüklerini ve uygulamaları çalıştırmak için kullanılmamalıdır.
+Azure Stack geliştirme Seti'ni dağıttığınızda varsayılan sağlayıcı aboneliği otomatik olarak oluşturulur. Bu abonelik, Azure Stack yönetmek, ek kaynak sağlayıcıları dağıtmak ve planlar ve teklifler için kullanıcı oluşturmak için kullanılabilir. Güvenlik ve lisans nedenleriyle, müşteri iş yüklerini ve uygulamaları çalıştırmak için kullanılmamalıdır.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-[Plan oluşturma](azure-stack-create-plan.md)
+Planlar ve teklifler hakkında daha fazla bilgi için bkz: [bir plan oluşturmanız](azure-stack-create-plan.md).
