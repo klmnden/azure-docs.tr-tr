@@ -8,12 +8,12 @@ ms.devlang: c
 ms.topic: conceptual
 ms.date: 08/25/2017
 ms.author: yizhon
-ms.openlocfilehash: 0c2f39ed1610598ab4f7f857da3df817089bcb38
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 5e29dcde80da75fa70fe6dcbf35d7f319a5ca3cb
+ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48044748"
+ms.lasthandoff: 10/13/2018
+ms.locfileid: "49311160"
 ---
 # <a name="azure-iot-device-sdk-for-c"></a>C için Azure IOT cihaz SDK'sı
 
@@ -87,29 +87,29 @@ Device explorer aracı ile ilgili bilgi sahibi değilseniz, aşağıdaki yordam�
 
 1. Device explorer aracı yüklemek için bkz [Device Explorer için IOT Hub cihazlarını nasıl](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer).
 
-2. Programını çalıştırdığınızda, bu arabirim bakın:
+1. Programını çalıştırdığınızda, bu arabirim bakın:
 
   ![Device Explorer İkizi ekran görüntüsü](./media/iot-hub-device-sdk-c-intro/DeviceExplorerTwinConfigTab.png)
 
-3. Girin, **IOT Hub bağlantı dizesine** ilk alan tıklayıp **güncelleştirme**. Bu adım, IOT Hub ile iletişim kurabilmesi için Aracı'nı yapılandırır. 
+1. Girin, **IOT Hub bağlantı dizesine** ilk alan tıklayıp **güncelleştirme**. Bu adım, IOT Hub ile iletişim kurabilmesi için Aracı'nı yapılandırır. 
 
 **Bağlantı dizesi** altında bulunan **IOT Hub hizmeti** > **ayarları** > **paylaşılan erişim ilkesi**  >  **iothubowner**.
 
-4. IOT Hub bağlantı dizesine yapılandırıldığında tıklayın **Yönetim** sekmesinde:
+1. IOT Hub bağlantı dizesine yapılandırıldığında tıklayın **Yönetim** sekmesinde:
 
   ![Device Explorer İkizi / yönetim ekran görüntüsü](./media/iot-hub-device-sdk-c-intro/DeviceExplorerTwinManagementTab.png)
 
 Bu sekme, IOT hub'ına kayıtlı cihazları yönettiğiniz kullanılabilir.
 
-5. Tıklayarak bir cihaz oluşturun **Oluştur** düğmesi. Bir iletişim kutusu, bir dizi önceden doldurulmuş anahtarlar (birincil ve ikincil) birlikte görüntüler. Girin bir **cihaz kimliği** ve ardından **Oluştur**.
+1. Tıklayarak bir cihaz oluşturun **Oluştur** düğmesi. Bir iletişim kutusu, bir dizi önceden doldurulmuş anahtarlar (birincil ve ikincil) birlikte görüntüler. Girin bir **cihaz kimliği** ve ardından **Oluştur**.
 
   ![Cihaz ekran oluşturma](./media/iot-hub-device-sdk-c-intro/CreateDevice.png)
 
-6. Cihaz oluşturulduğunda, cihazları yeni oluşturduğunuz de dahil olmak üzere tüm kayıtlı cihazlarla güncelleştirmeleri listeleyin. Yeni Cihazınızı sağ tıkladığınızda bu menü bakın:
+1. Cihaz oluşturulduğunda, cihazları yeni oluşturduğunuz de dahil olmak üzere tüm kayıtlı cihazlarla güncelleştirmeleri listeleyin. Yeni Cihazınızı sağ tıkladığınızda bu menü bakın:
 
   ![Device Explorer İkizi sağ sonucu](./media/iot-hub-device-sdk-c-intro/DeviceExplorerTwinManagementTab_RightClick.png)
 
-7. Seçerseniz **seçili cihaz için bağlantı dizesini kopyalayın**, cihaz bağlantı dizesini panoya kopyalandı. Cihaz bağlantı dizesini bir kopyasını tutun. Aşağıdaki bölümlerde açıklanan örnek uygulamaları çalıştırırken gerekir.
+1. Seçerseniz **seçili cihaz için bağlantı dizesini kopyalayın**, cihaz bağlantı dizesini panoya kopyalandı. Cihaz bağlantı dizesini bir kopyasını tutun. Aşağıdaki bölümlerde açıklanan örnek uygulamaları çalıştırırken gerekir.
 
 Yukarıdaki adımları tamamladıktan sonra biraz kod çalıştırmaya başlamak hazırsınız demektir. Çoğu örnekleri bir sabit bir bağlantı dizesi girin olanak tanıyan ana kaynak dosyasının en üstüne sahip. Örneğin, karşılık gelen satırından **iothub\_istemci\_örnek\_mqtt** uygulamayı şu şekilde görünür.
 
@@ -320,7 +320,7 @@ Kullanım **IoTHubMessage\_GetByteArray** işlevi bir dize iletisi alınamıyor.
 
 Olayları gönderme ve alma iletileri işiniz bittiğinde, IOT kitaplık geri alınıyor. Bunu yapmak için aşağıdaki işlev çağrısı yürütün:
 
-```
+```c
 IoTHubClient_LL_Destroy(iotHubClientHandle);
 ```
 

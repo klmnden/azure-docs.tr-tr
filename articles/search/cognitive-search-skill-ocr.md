@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.date: 05/01/2018
 ms.author: luisca
-ms.openlocfilehash: 234651ad3672982e4de9617561a926712697945a
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 97d594a232c3576d0a0163b2d6847f06328bcd7b
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45734042"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49167520"
 ---
 # <a name="ocr-cognitive-skill"></a>OCR bilişsel beceri
 
@@ -176,7 +176,7 @@ Aşağıdaki örnek becerilerine oluşturur bir *merged_text* alan OCRed metnin 
       ],
       "outputs": [
         {
-          "name": "mergedText", "targetname" : "merged_text"
+          "name": "mergedText", "targetName" : "merged_text"
         }
       ]
     }

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/12/2018
 ms.author: anwestg
-ms.openlocfilehash: 9f584213a65b9f2408d4ca2a06108cf18222376d
-ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
+ms.openlocfilehash: 08f08d926a9e27e421ff8db46051d8a1e7229041
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48268808"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49166891"
 ---
 # <a name="add-an-app-service-resource-provider-to-azure-stack"></a>Azure Stack'e bir App Service kaynak sağlayıcısı ekleme
 
@@ -130,7 +130,7 @@ App Service kaynak sağlayıcısı dağıtmak için aşağıdaki adımları izle
 11. App Service kaynak sağlayıcısı veritabanlarını barındırmak ve ardından seçmek için kullanılan sunucu örneği için SQL Server ayrıntıları girin **sonraki**. Yükleyici SQL bağlantı özelliklerini doğrular.
 
     > [!NOTE]
-    > Yükleyici, devam etmeden önce SQL Server bağlantısını test etmek çalışır. Ancak, bir sanal ağınız dağıtıyorsanız, bu bağlantı testi dosyası. Size bir uyarı ve bir komut istemi devam etmek için verilir. SQL Server bilgilerin doğru olduğundan, dağıtımın devam edin.
+    > Yükleyici, devam etmeden önce SQL Server bağlantısını test etmek çalışır. Ancak, bir sanal ağınız dağıtıyorsanız, bu bağlantı testi başarısız olabilir. Size bir uyarı ve bir komut istemi devam etmek için verilir. SQL Server bilgilerin doğru olduğundan, dağıtımın devam edin.
     >
     > Azure App Service'ten Azure Stack 1.3 ve üzeri üzerinde yükleyici SQL Server veritabanı kapsama SQL sunucu düzeyinde etkin olduğunu denetler.  Yüklü değilse, şu özel durumla istenir:
     > ```sql

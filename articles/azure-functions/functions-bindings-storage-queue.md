@@ -12,12 +12,12 @@ ms.topic: reference
 ms.date: 09/03/2018
 ms.author: glenga
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: 68352db238b92d39119b420ed0d573e88a95bc78
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: cb72b3f6b0a665f1a4d39d1e8533be51faa4c107
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47394463"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49167146"
 ---
 # <a name="azure-queue-storage-bindings-for-azure-functions"></a>Azure işlevleri için Azure kuyruk depolama bağlamaları
 
@@ -146,11 +146,16 @@ Aşağıdaki örnek, bir kuyruk tetikleyicisi bağlama gösterir. bir *function.
 
 [Yapılandırma](#trigger---configuration) bölümde, bu özellikleri açıklanmaktadır.
 
+> [!NOTE]
+> Name parametresi olarak yansıtır `context.bindings.<name>` Kuyruk öğesi yükünü içeren JavaScript kodunda. Bu yük, aynı zamanda ikinci parametre olarak işleve geçirilir.
+
 JavaScript kod aşağıdaki gibidir:
 
 ```javascript
-module.exports = function (context) {
-    context.log('Node.js queue trigger function processed work item', context.bindings.myQueueItem);
+module.exports = async function (context, message) {
+    context.log('Node.js queue trigger function processed work item', message);
+    // OR access using context.bindings.<name>
+    // context.log('Node.js queue trigger function processed work item', context.bindings.myQueueItem);
     context.log('queueTrigger =', context.bindingData.queueTrigger);
     context.log('expirationTime =', context.bindingData.expirationTime);
     context.log('insertionTime =', context.bindingData.insertionTime);
@@ -244,7 +249,7 @@ Aşağıdaki tabloda ayarladığınız bağlama yapılandırma özelliklerini a�
 |---------|---------|----------------------|
 |**type** | yok| Ayarlanmalıdır `queueTrigger`. Bu özellik, Azure portalında tetikleyicisi oluşturduğunuzda otomatik olarak ayarlanır.|
 |**direction**| yok | İçinde *function.json* yalnızca dosya. Ayarlanmalıdır `in`. Bu özellik, Azure portalında tetikleyicisi oluşturduğunuzda otomatik olarak ayarlanır. |
-|**Adı** | yok |İşlev kodunu kuyrukta temsil eden değişken adı.  | 
+|**Adı** | yok |İşlev kodunu Kuyruk öğesi yükteki içeren değişkenin adı.  | 
 |**queueName** | **queueName**| Yoklama kurulacak Kuyruğun adı. | 
 |**bağlantı** | **bağlantı** |Bu bağlama için kullanılacak depolama bağlantı dizesi içeren bir uygulama ayarı adı. Uygulama ayarı adı "AzureWebJobs" ile başlıyorsa, adın Buraya yalnızca geri kalanında belirtebilirsiniz. Örneğin, ayarlarsanız `connection` "AzureWebJobsMyStorage." adlı bir uygulama ayarı için "Depolamam", İşlevler çalışma zamanı arar. Bırakırsanız `connection` boş, İşlevler çalışma zamanı varsayılan depolama bağlantı dizesi uygulama ayarlarında adlı kullanır `AzureWebJobsStorage`.|
 

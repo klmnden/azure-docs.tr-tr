@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: cephalin
-ms.openlocfilehash: 2c08522df598bd5c6313c3f026efe48e1c4a2c56
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: f426982163a5e49264bc4f222f6869d9cbb40c89
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39449368"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49166075"
 ---
 # <a name="manage-an-app-service-plan-in-azure"></a>Azure App Service planı yönetme
 
@@ -57,6 +57,12 @@ Boş bir App Service planı oluşturabilir veya uygulama oluşturmanın bir par�
 
 Kaynak planı ve hedef plan içinde olduğu sürece, uygulama başka bir App Service planına taşıyabilirsiniz _aynı kaynak grubunda ve coğrafi bölgede_.
 
+> [!NOTE]
+> Azure, her yeni App Service planı dahili bir Web alanı adlı bir dağıtım birimi dağıtır. Her bölgede birçok için Web alanlarının olabilir ancak uygulamanız yalnızca aynı Web alanına oluşturulan planlar arasında taşıyabilirsiniz. App Service ortamı yalıtılmış bir Web alanı olduğundan uygulamaları planlarında farklı App Service ortamları arasında değil ancak aynı App Service Ortamı'nda planları arasında taşınabilir.
+>
+> Bir plan oluştururken istediğiniz Web alanı belirtemezsiniz, ancak bir plan var olan bir planı olarak aynı aboneliğindeki oluşturulduğunu sağlamak mümkündür. Kısaca, tüm planlar ile aynı kaynak grubu oluşturulur ve bölge birleşimi, aynı Web alanı dağıtılır. Örneğin, bir kaynak grubu ve bölgesinde B bir plan oluşturduysanız, daha sonra bir kaynak grubu ve bölgesinde B oluşturma herhangi bir plan ile aynı aboneliğindeki dağıtılır. Bunlar oluşturduktan sonra "aynı Web alanı" bir plana taşınamıyor şekilde planları için Web alanlarının taşıyamazsınız, başka bir plan olarak başka bir kaynak grubuna taşıyarak unutmayın.
+> 
+
 1. İçinde [Azure portalında](https://portal.azure.com), taşımak istediğiniz uygulamaya göz atın.
 
 1. Menüde Ara **App Service planı** bölümü.
@@ -67,16 +73,7 @@ Kaynak planı ve hedef plan içinde olduğu sürece, uygulama başka bir App Ser
 
 1. İçinde **App Service planı** bu uygulamaya taşımak için mevcut bir planı Seçici, seçin.   
 
-> [!IMPORTANT]
-> **Seçin App Service planı** sayfası şu ölçüte göre filtrelendi: 
-> - Aynı kaynak grubunda var 
-> - Aynı coğrafi bölgede var 
-> - Aynı Web alanına var  
-> 
-> A _Web alanı_ App Service'te bir gruplandırma server kaynakları tanımlayan mantıksal bir yapıdır. Coğrafi bölge (örneğin, Batı ABD) birçok için Web alanlarının App Service kullanan müşteriler ayırabilmek içerir. Şu anda, App Service kaynaklarını Web alanlarının arasında taşıyamazsınız. 
-> 
-
-[!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
+**Seçin App Service planı** sayfası aynı kaynak grubunu ve geçerli uygulamanın App Service planı coğrafi bölgede olan planları gösterir.
 
 Her bir planı kendi fiyatlandırma katmanı vardır. Örneğin, bir siteden taşıma bir **ücretsiz** için katmanı bir **standart** katmanı sağlayan özellikler ve kaynakları kullanmak için kendisine atanan tüm uygulamalar **standart** katmanı. Ancak, uygulama daha yüksek katmanlı bir plandan daha düşük katmanlı bir plana taşımak artık belirli özelliklere erişim olduğu anlamına gelir. Uygulamanızı hedef plana kullanılabilir olmayan bir özellik kullanır, hangi özelliği kullanılamıyor kullanımda olduğunu gösteren bir hata alırsınız. 
 

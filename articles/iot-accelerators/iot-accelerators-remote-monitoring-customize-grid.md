@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 10/04/2018
 ms.topic: conceptual
-ms.openlocfilehash: 71f2164c9c419604c513261df7e1264060a2c374
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: e1c694847a1ec16d4d7a7b1118df71cb06396186
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49094617"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49165939"
 ---
 # <a name="add-a-custom-grid-to-the-remote-monitoring-solution-accelerator-web-ui"></a>Uzaktan izleme çözüm Hızlandırıcı web kullanıcı Arabirimine özel kılavuz ekleme
 
@@ -38,7 +38,7 @@ Devam etmeden önce aşağıdaki makaleleri adımları tamamlaması gerekir:
 - [Uzaktan izleme çözüm Hızlandırıcı web kullanıcı Arabirimine özel sayfa ekleme](iot-accelerators-remote-monitoring-customize-page.md).
 - [Uzaktan izleme çözüm Hızlandırıcı web kullanıcı Arabirimine özel hizmet ekleme](iot-accelerators-remote-monitoring-customize-service.md)
 
-## <a name="add-a-grid"></a>Bir kılavuz ekleme
+## <a name="add-a-grid"></a>Kılavuz ekleme
 
 Web kullanıcı Arabirimine bir kılavuz eklemek için kılavuz tanımlayan kaynak dosyaları ekleyin ve web kullanıcı Arabirimi yeni bileşen haberdar olmak için bazı mevcut dosyaları değiştirmek gerekir.
 
@@ -188,11 +188,11 @@ npm start
 
 Kılavuz satırları seçmek için bir kullanıcı etkinleştirme iki seçenek vardır:
 
-### <a name="hard-select-rows"></a>Sabit select satırları
+### <a name="hard-select-rows"></a>Select sabit satır
 
 Bir kullanıcı aynı anda birden çok satırda yapması gerekiyorsa satırlarda onay kutularını kullanın:
 
-1. Sabit satır seçimini etkinleştirmek bir **checkboxColumn** için **columnDefs** kılavuza sağlanan. **checkboxColumn** tanımlanan **/src/components/shared/pcsGrid/pcsGrid.js**:
+1. Seçimi satır sabit etkinleştirmek bir **checkboxColumn** için **columnDefs** kılavuza sağlanan. **checkboxColumn** tanımlanan **/src/components/shared/pcsGrid/pcsGrid.js**:
 
     ```js
     this.columnDefs = [
@@ -214,7 +214,7 @@ Bir kullanıcı aynı anda birden çok satırda yapması gerekiyorsa satırlarda
     };
     ```
 
-1. Kılavuzda bir satıra sabit seçildiğinde sayfanın bağlam düğmeleri sağlar:
+1. Kılavuzundaki bir satır seçili sabit olduğunda sayfa bağlamı düğmeleri sağlar:
 
     ```js
     this.contextBtns = [
@@ -243,9 +243,9 @@ Bir kullanıcı aynı anda birden çok satırda yapması gerekiyorsa satırlarda
     };
     ```
 
-### <a name="soft-select-rows"></a>Yazılım Seç satırları
+### <a name="soft-select-rows"></a>Satırları geçici seçin
 
-Kullanıcı yalnızca tek bir satırda yapması gerekiyorsa, bir veya daha fazla sütun yazılım Seç bağlantısı yapılandırma **columnDefs**.
+Kullanıcı yalnızca tek bir satırda yapması gerekiyorsa, bir veya daha fazla sütun için bir yumuşak seçin bağlantısını yapılandırmak **columnDefs**.
 
 1. İçinde **exampleGridConfig.js**, ekleme **SoftSelectLinkRenderer** olarak **cellRendererFramework** için bir **columnDef**.
 
@@ -260,7 +260,7 @@ Kullanıcı yalnızca tek bir satırda yapması gerekiyorsa, bir veya daha fazla
     };
     ```
 
-1. Geçici bir select bağlantısına tıklandığında, tetikler **onSoftSelectChange** olay. Her eylem bir ayrıntıları çıkış açma gibi ilgili satır için istenen gerçekleştirin. Bu örnek yalnızca konsola yazar:
+1. Bir yazılım Seç bağlantısına tıklandığında tetikler **onSoftSelectChange** olay. Hangi eylemi ayrıntıları açılan menüyü açarak gibi ilgili satır için istenen gerçekleştirin. Bu örnek yalnızca konsola yazar:
 
     ```js
     onSoftSelectChange = (rowId, rowEvent) => {
@@ -281,6 +281,6 @@ Kullanıcı yalnızca tek bir satırda yapması gerekiyorsa, bir veya daha fazla
 
 Bu makalede, ekleme veya Uzaktan izleme çözüm Hızlandırıcısını Web kullanıcı Arabiriminde sayfalarını özelleştirme yardımcı olacak kaynaklar hakkında bilgi edindiniz.
 
-Sonraki adım bir kılavuz tanımladığınız artık içerir [bir özel çıkış Uzaktan izleme çözüm Hızlandırıcı web kullanıcı Arabirimi ekleme](iot-accelerators-remote-monitoring-customize-flyout.md) örnek sayfasında görüntüler.
+Sonraki adım bir kılavuz tanımladığınız artık içerir [Uzaktan izleme çözüm Hızlandırıcı web kullanıcı Arabirimine özel bir geçici açılır pencere ekleme](iot-accelerators-remote-monitoring-customize-flyout.md) örnek sayfasında görüntüler.
 
 Uzaktan izleme çözüm Hızlandırıcısını hakkında daha fazla kavramsal bilgi için bkz. [Uzaktan izleme mimarisi](iot-accelerators-remote-monitoring-sample-walkthrough.md).

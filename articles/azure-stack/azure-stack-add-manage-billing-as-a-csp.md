@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 08/30/2018
 ms.author: sethm
 ms.reviewer: alfredo
-ms.openlocfilehash: b8c00795c7777e5485f4725e1da63fc764973f43
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: b4df9d3b107945b2c0797875718f3266b7fd0b10
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45628939"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49166552"
 ---
 # <a name="manage-usage-and-billing-for-azure-stack-as-a-cloud-service-provider"></a>Kullanım ve faturalandırma için Azure Stack bulut hizmeti sağlayıcısı olarak yönetme 
 
@@ -35,7 +35,7 @@ Aşağıdaki diyagramda, paylaşılan hizmetler hesabınızı seçin ve Azure St
 
 ![Kullanımı ve bir bulut hizmeti sağlayıcısı Yönetimi etkinleştirme işlemi.](media\azure-stack-add-manage-billing-as-a-csp\process-add-useage-as-a-csp.png)
 
-## <a name="create-a-csp-or-cspss-subscription"></a>CSP veya CSPSS abonelik oluşturma
+## <a name="create-a-csp-or-apss-subscription"></a>CSP veya APSS abonelik oluşturma
 
 ### <a name="cloud-service-provider-subscription-types"></a>Bulut hizmeti sağlayıcısı abonelik türleri
 
@@ -44,13 +44,13 @@ Azure Stack için kullandığınız paylaşılan hizmetler hesap türünü seçm
  - Bulut hizmeti sağlayıcısı 
  - İş ortağı paylaşılan Services aboneliği 
 
-#### <a name="csp-shared-services"></a>CSP paylaşılan hizmetler
+#### <a name="azure-partner-shared-services"></a>Azure iş ortağı paylaşılan hizmetler
 
-Bulut hizmet sağlayıcısı paylaşılan hizmetler (CSPSS) abonelikleri doğrudan bir CSP, kayıt için tercih edilen seçenektir veya CSP dağıtıcı Azure Stack'te çalışır.
+Azure iş ortağı paylaşılan hizmetler (APSS) abonelikleri doğrudan bir CSP, kayıt için tercih edilen seçenektir veya CSP dağıtıcı Azure Stack'te çalışır.
 
-CSPSS abonelikler, paylaşılan hizmetler Kiracı ile ilişkilidir. Azure Stack kaydolduğunuzda, bir aboneliğin sahibi olan bir hesap için kimlik bilgilerini sağlamanız gerekir. Azure Stack kaydetmek için kullandığınız hesabın, dağıtım için kullandığınız yönetici hesabına ait farklı olabilir. Ayrıca, iki hesap yapmak *değil* aynı etki alanına ait olmaları gerekir. Diğer bir deyişle, kullanmakta olduğunuz kiracıyı kullanarak dağıtabilirsiniz. Örneğin, ContosoCSP.onmicrosoft.com kullanın ve sonra Örneğin IURContosoCSP.onmicrosoft.com farklı bir kiracıya kullanarak kaydedin. Bunu yapmak için günlük Azure Stack yönetim yaptığınızda ContosoCSP.onmicrosoft.com kullanarak oturum unutmayın gerekecektir. Kayıt işlemleri yapmanız gerektiğinde IURContosoCSP.onmicrosoft.com kullanarak Azure'a ne zaman oturum açın.
+APSS abonelikler, paylaşılan hizmetler Kiracı ile ilişkilidir. Azure Stack kaydolduğunuzda, bir aboneliğin sahibi olan bir hesap için kimlik bilgilerini sağlamanız gerekir. Azure Stack kaydetmek için kullandığınız hesabın, dağıtım için kullandığınız yönetici hesabına ait farklı olabilir. Ayrıca, iki hesap yapmak *değil* aynı etki alanına ait olmaları gerekir. Diğer bir deyişle, kullanmakta olduğunuz kiracıyı kullanarak dağıtabilirsiniz. Örneğin, ContosoCSP.onmicrosoft.com kullanın ve sonra Örneğin IURContosoCSP.onmicrosoft.com farklı bir kiracıya kullanarak kaydedin. Bunu yapmak için günlük Azure Stack yönetim yaptığınızda ContosoCSP.onmicrosoft.com kullanarak oturum unutmayın gerekecektir. Kayıt işlemleri yapmanız gerektiğinde IURContosoCSP.onmicrosoft.com kullanarak Azure'a ne zaman oturum açın.
 
-Açıklamasını CSPSS abonelikleri ve yönergeler için aşağıdaki abonelik oluşturma başvurmak [Azure iş ortağı Paylaşılan Hizmetler](https://msdn.microsoft.com/partner-center/shared-services).
+Açıklamasını APSS abonelikleri ve yönergeler için aşağıdaki abonelik oluşturma başvurmak [Azure iş ortağı Paylaşılan Hizmetler](https://msdn.microsoft.com/partner-center/shared-services).
 
 #### <a name="csp-subscriptions"></a>CSP abonelikleri
 
@@ -58,7 +58,7 @@ Bulut hizmeti sağlayıcısı (CSP) abonelikleri CSP satıcısı, kayıt için t
 
 ## <a name="register-azure-stack"></a>Azure Stack kaydetme
 
-Azure Stack Azure ile kaydetmek için aşağıdaki bilgiler önceki bölümde oluşturduğunuz CSPSS aboneliği kullanın. Daha fazla bilgi için [kaydetme Azure Stack, Azure aboneliğiniz ile](azure-stack-registration.md).
+Azure Stack Azure ile kaydetmek için aşağıdaki bilgiler önceki bölümde oluşturduğunuz APSS aboneliği kullanın. Daha fazla bilgi için [kaydetme Azure Stack, Azure aboneliğiniz ile](azure-stack-registration.md).
 
 ## <a name="add-end-customer"></a>Son müşteri ekleme
 
@@ -72,7 +72,7 @@ Azure Stack kayıt kullanabilirsiniz:
  - Azure ticari için Azure Stack kullanım verilerini iletmek ve bir Azure aboneliğine fatura.
  - Her bir müşterinin kullanım çok kiracılı bir Azure Stack dağıtımı ile farklı bir abonelikte rapor. Azure Stack, farklı kuruluşların aynı Azure Stack örneğinde desteklemek çok kiracılı mimari sağlar.
 
-Her Azure Stack için varsayılan bir abonelik ve birçok abonelikleri Kiracı. Varsayılan bir kiracıya özgü abonelik yoksa ücretlendirilir bir Azure aboneliğine aboneliktir. Bu ilk aboneliğe kayıtlı olmalıdır. Çalışmak için raporlama çok kiracılı kullanım için abonelik bir CSP veya CSPSS aboneliğiniz olması gerekir.
+Her Azure Stack için varsayılan bir abonelik ve birçok abonelikleri Kiracı. Varsayılan bir kiracıya özgü abonelik yoksa ücretlendirilir bir Azure aboneliğine aboneliktir. Bu ilk aboneliğe kayıtlı olmalıdır. Çalışmak için raporlama çok kiracılı kullanım için abonelik bir CSP veya APSS aboneliğiniz olması gerekir.
 
 Ardından, kayıt, Azure Stack kullanacak her Kiracı için bir Azure aboneliği ile güncelleştirilir. Kiracı abonelik CSP türünde olmalıdır ve varsayılan abonelik sahibi iş ortağı toplamak gerekir. Diğer bir deyişle, başkasının müşteriler kaydedilemiyor.
 

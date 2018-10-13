@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/11/2018
+ms.date: 10/12/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: ba6b357b00fb99c8ec339e3949b151440b6fde7d
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: b3ee62ec6b8155841121eed6c4ab9c12b08f0e9b
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49091675"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49165230"
 ---
 # <a name="client-libraries-for-connecting-to-azure-analysis-services"></a>Azure Analysis Services'a bağlanmak için istemci kitaplıkları
 
@@ -23,10 +23,10 @@ ms.locfileid: "49091675"
 
 |İndirme  |Ürün sürümü  | 
 |---------|---------|
-|[MSOLAP (amd64)](https://go.microsoft.com/fwlink/?linkid=829576)    |    15.0.1.795      |
-|[MSOLAP (x86)](https://go.microsoft.com/fwlink/?linkid=829575)     |    15.0.1.795      |
-|[AMO](https://go.microsoft.com/fwlink/?linkid=829578)     |   15.5.0.0    |
-|[ADOMD](https://go.microsoft.com/fwlink/?linkid=829577)     |    15.5.0.0     |
+|[MSOLAP (amd64)](https://go.microsoft.com/fwlink/?linkid=829576)    |    15.0.2.39      |
+|[MSOLAP (x86)](https://go.microsoft.com/fwlink/?linkid=829575)     |    15.0.2.39      |
+|[AMO](https://go.microsoft.com/fwlink/?linkid=829578)     |   15.7.0.2    |
+|[ADOMD](https://go.microsoft.com/fwlink/?linkid=829577)     |    15.7.0.2     |
 
 ## <a name="amo-and-adomd-nuget-packages"></a>AMO ve ADOMD (NuGet paketlerini)
 

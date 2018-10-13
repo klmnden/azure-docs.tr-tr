@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/13/2018
 ms.author: asrastog
-ms.openlocfilehash: a4ebb64d14b325680a65ffd52f6a07836c1e6ede
-ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
+ms.openlocfilehash: abc32b726eea55f08a052f29a12f1eb237d4f5d6
+ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47585688"
+ms.lasthandoff: 10/13/2018
+ms.locfileid: "49311329"
 ---
 # <a name="use-message-routing-to-send-device-to-cloud-messages-to-different-endpoints"></a>Farklı uç noktalar için CİHAZDAN buluta iletileri göndermek için ileti yönlendirme kullanın
 
@@ -21,7 +21,7 @@ ms.locfileid: "47585688"
 
 İleti yönlendirme, otomatik, ölçeklenebilir ve güvenilir bir şekilde bulut Hizmetleri için cihazlarınızdan alınan iletileri göndermesini sağlar. İleti yönlendirme için kullanılabilir: 
 
-* **Cihazın telemetri iletileri ve bunun yanı sıra olayları gönderme** yani, cihaz yaşam döngüsü olayları ve değişiklik olayları uç yerleşik ve özel uç noktalar için cihaz ikizi. Hakkında bilgi edinin [yönlendirme uç noktaları](##routing-endpoints).
+* **Cihazın telemetri iletileri ve bunun yanı sıra olayları gönderme** yani, cihaz yaşam döngüsü olayları ve değişiklik olayları uç yerleşik ve özel uç noktalar için cihaz ikizi. Hakkında bilgi edinin [yönlendirme uç noktaları](#routing-endpoints).
 
 * **Çeşitli uç noktalar ile yönlendirme önce verileri filtreleme** zengin sorguların uygulayarak. İleti yönlendirme sorgu ileti özellikleri ve ileti gövdesi hem de cihaz ikizi etiketleri ve cihaz ikizi özelliklerini sağlar. Kullanma hakkında daha fazla bilgi edinin [sorguları içinde ileti yönlendirme](iot-hub-devguide-routing-query-syntax.md).
 

@@ -5,14 +5,14 @@ services: storage
 author: seguler
 ms.service: storage
 ms.topic: article
-ms.date: 05/10/2018
+ms.date: 10/11/2018
 ms.author: seguler
-ms.openlocfilehash: 9964aa4d263e0b75eb59b4e1434a9b3f0aac6ea1
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: 4f29933fbd4b9ea5c9868e307a6affa7e2273e3d
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39400444"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49165190"
 ---
 # <a name="how-to-mount-blob-storage-as-a-file-system-with-blobfuse"></a>BLOB Depolama blobfuse ile bir dosya sistemi olarak takmak nasıl
 
@@ -27,7 +27,7 @@ Bu kılavuzda blobfuse kullanın ve Blob Depolama kapsayıcısı üzerinde Linux
 > 
 
 ## <a name="install-blobfuse-on-linux"></a>Linux'ta blobfuse yükleme
-Blobfuse ikili dosyaları, üzerinde kullanılabilir [Linux için Microsoft yazılım depoları](https://docs.microsoft.com/windows-server/administration/Linux-Package-Repository-for-Microsoft-Software). Blobfuse yükleyebilmek için bu depolar birini yapılandırın.
+Blobfuse ikili dosyaları, üzerinde kullanılabilir [Linux için Microsoft yazılım depoları](https://docs.microsoft.com/windows-server/administration/Linux-Package-Repository-for-Microsoft-Software) Ubuntu ve RHEL'de dağıtımlar için. Bu dağıtımlarında blobfuse yükleyebilmek için liste depolarından birini yapılandırın. Ayrıca, yükleme adımları izleyerek kaynak kodu ikili dosyaları oluşturabilirsiniz [burada](https://github.com/Azure/azure-storage-fuse/wiki/1.-Installation#option-2---build-from-source) dağıtımınız için hiçbir ikili dosyalar yoksa.
 
 ### <a name="configure-the-microsoft-package-repository"></a>Microsoft Paket Deposu yapılandırın
 Yapılandırma [Microsoft ürünleri için Linux Paket Deposu](https://docs.microsoft.com/windows-server/administration/Linux-Package-Repository-for-Microsoft-Software).
@@ -89,7 +89,7 @@ Aşağıdaki biçimde bir metin dosyasında saklanan kimlik bilgilerinizi Blobfu
 
 ```
 accountName myaccount
-accountKey myaccesskey==
+accountKey 9fD-/KjshdfLDERmcIjabcdefhAUSIHD/asdhfoiasiaAISOIabcdef/askdfewiAASJDNFL+askdlfj==
 containerName mycontainer
 ```
 
@@ -97,6 +97,10 @@ Bu dosyayı oluşturduktan sonra başka bir kullanıcı okuyabilmesi için eriş
 ```bash
 chmod 700 fuse_connection.cfg
 ```
+
+> [!NOTE]
+> Windows üzerindeki yapılandırma dosyasını oluşturduysanız çalıştırıldığından emin olun `dos2unix` temizleyin ve UNIX biçimine dönüştürün. 
+>
 
 ### <a name="create-an-empty-directory-for-mounting"></a>Bağlama için boş bir dizin oluşturun
 ```bash

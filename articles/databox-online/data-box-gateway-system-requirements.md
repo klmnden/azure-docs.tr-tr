@@ -1,25 +1,19 @@
 ---
 title: Microsoft Azure veri kutusu ağ geçidi sistem gereksinimleri | Microsoft Docs
 description: Yazılım ve Azure veri kutusu ağ geçidi için ağ gereksinimleri hakkında bilgi edinin
-services: databox-edge-gateway
-documentationcenter: NA
+services: databox
 author: alkohli
-manager: twooley
-editor: ''
-ms.assetid: ''
-ms.service: databox-edge-gateway
-ms.devlang: NA
+ms.service: databox
+ms.subservice: gateway
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 09/24/2018
 ms.author: alkohli
-ms.openlocfilehash: 915190f6f2773d22d14c75be1140f96b7dd40559
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 16d9604100d3ec37cef7ad4ebbdc376967006e15
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46991581"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49166704"
 ---
 # <a name="azure-data-box-gateway-system-requirements-preview"></a>Azure veri kutusu ağ geçidi sistem gereksinimleri (Önizleme)
 
@@ -31,7 +25,7 @@ Veri kutusu ağ geçidi sanal cihaz için sistem gereksinimleri şunlardır:
 - **Cihaz için ağ gereksinimleri** -sanal cihazın işlemi için herhangi bir ağ gereksinimleri hakkında bilgi sağlar.
 
 > [!IMPORTANT]
-> Veri kutusu ağ geçidi Önizleme aşamasındadır. Lütfen inceleyin [Önizleme kullanım koşulları](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) bu çözümü dağıtmadan önce. 
+> Data Box Gateway, Önizleme aşamasındadır. Bu çözümü dağıtmadan önce lütfen [Önizleme için kullanım koşullarını](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) gözden geçirin. 
 
 ## <a name="supported-os-for-clients-connected-to-device"></a>Cihaz için bağlanan istemciler için desteklenen işletim sistemi
 
@@ -134,7 +128,7 @@ Veri kutusu liberally çoğu zaman sabit IP adresleri, ağ geçidi temel giden t
 
 Veri kutusu ağ geçidi cihazlarınız için kullanılabilir minimum Internet bant genişliği için aşağıdaki gereksinimler geçerlidir.
 
-- Ayrılmış bir 20 MB/sn Internet bant genişliği (veya daha fazla) veri kutusu ağ geçidi olduğundan her zaman kullanılabilir. Bu bant genişliği ile diğer uygulamaları Paylaşılmaması gereken. 
+- Data Box Gateway'inize her zaman ayrılmış 20 Mb/sn İnternet bant genişliği (veya daha fazlası) sağlanıyor. Bu bant genişliği başka hiçbir uygulamayla paylaşılmamalıdır. 
 - Veri kutusu ağ geçidinizi ayrılmış 32 MB/sn Internet bant genişliği (veya daha fazla) sahip ağ kapasitesi azaltma kullanırken.
 
 ## <a name="next-step"></a>Sonraki adım

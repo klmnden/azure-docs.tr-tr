@@ -8,17 +8,17 @@ ms.topic: include
 ms.date: 06/08/2018
 ms.author: cephalin
 ms.custom: include file
-ms.openlocfilehash: ac2cf4d688b1bdc54ed2d7341f0e195d3b2fe42d
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: 91a4a9ae1d3d84f1396adad07d1cda73ee3747c9
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35236482"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49312584"
 ---
-## <a name="what-happens-to-my-app-during-deployment"></a>Dağıtım sırasında uygulamama neler?
+## <a name="what-happens-to-my-app-during-deployment"></a>Dağıtım sırasında uygulamama ne?
 
-Tüm resmi olarak desteklenen dağıtım yöntemleri tek şey ortaktır: Bunlar dosyalarında değişiklik `/site/home/wwwroot` klasörü, uygulamanızın. Bunlar, üretim ortamında çalışması aynı dosyalardır. Bu nedenle, dağıtım kilitli dosyalar nedeniyle başarısız olabilir veya tüm dosyaları aynı anda güncelleştirilmediğinden üretim uygulama dağıtımı sırasında beklenmeyen davranışlara olabilir. Bu sorunları önlemek için birkaç farklı yolu vardır:
+Resmi olarak desteklenen dağıtım yöntemleri ortak bir şey vardır: dosyalarda değişiklikleri yapmaları `/site/home/wwwroot` uygulamanızın klasör. Bunlar üretimde çalışan aynı dosyalardır. Bu nedenle, dağıtımı kilitli dosyalar nedeniyle başarısız olabilir veya tüm dosyaları aynı anda güncelleştirildiğinden uygulamayı Üretim dağıtımı sırasında öngörülemeyen davranışlara sahip olabilir. Bu sorunlarla karşılaşmamak için birkaç farklı yolu vardır:
 
-- Uygulamanızı durdurma veya çevrimdışı modda, uygulamanız için dağıtım sırasında etkinleştirin. Daha fazla bilgi için bkz: [dağıtımı sırasında kilitli dosyalarla ilgili](https://github.com/projectkudu/kudu/wiki/Dealing-with-locked-files-during-deployment).
-- Dağıtma bir [hazırlık yuvasındaki](../articles/app-service/web-sites-staged-publishing.md) ile [otomatik takas](../articles/app-service/web-sites-staged-publishing.md#configure-auto-swap) etkin. 
-- Kullanım [çalışma alanından Zip](https://github.com/Azure/app-service-announcements/issues/84) yerine.
+- Uygulamanızı durdurma veya dağıtım sırasında uygulamanız için çevrimdışı modunu etkinleştirin. Daha fazla bilgi için [dağıtım sırasında kilitli dosyalarla ilgili](https://github.com/projectkudu/kudu/wiki/Dealing-with-locked-files-during-deployment).
+- Dağıtım bir [hazırlama yuvasındaki](../articles/app-service/web-sites-staged-publishing.md) ile [otomatik takas](../articles/app-service/web-sites-staged-publishing.md#configure-auto-swap) etkin. 
+- Kullanım [paketi çalıştırmak](https://github.com/Azure/app-service-announcements/issues/84) yerine.

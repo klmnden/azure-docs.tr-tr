@@ -9,16 +9,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: sngun
-ms.openlocfilehash: b7908f9f9aef51857f0ffb07102e1df245b7a259
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: c183bbe2c20bdc1772160cbbd8260dece0b6eb54
+ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47064467"
+ms.lasthandoff: 10/13/2018
+ms.locfileid: "49309510"
 ---
-# <a name="azure-cosmos-db-serverless-database-computing-using-azure-functions"></a>Azure Cosmos DB: Azure işlevleri ile sunucusuz veritabanı bilgi işlem
+# <a name="serverless-database-computing-using-azure-cosmos-db-and-azure-functions"></a>Azure Cosmos DB ile Azure işlevleri'ni kullanarak sunucusuz veritabanı bilgi işlem
 
-Sunucusuz bilgi işlem tekrarlanabilir ve durum bilgisi olan tek tek parçalarını mantığı üzerinde odaklanma tüm olanağı hakkındadır. Bu parçaları bir altyapı Yönetimi gerektirir ve saniye veya milisaniye, bunlar için çalıştırmak için yalnızca kullandıkları kaynaklar. Azure ekosistemindeki tarafından kullanıma sunulan işlevleri, sunucusuz bilgi işlem taşıma özünde olan [Azure işlevleri](https://azure.microsoft.com/services/functions).
+Sunucusuz bilgi işlem tekrarlanabilir ve durum bilgisi olan tek tek parçalarını mantığı üzerinde odaklanma tüm olanağı hakkındadır. Bu parçaları bir altyapı Yönetimi gerektirir ve saniye veya milisaniye, bunlar için çalıştırmak için yalnızca kullandıkları kaynaklar. Azure ekosistemindeki tarafından kullanıma sunulan işlevleri, sunucusuz bilgi işlem taşıma özünde olan [Azure işlevleri](https://azure.microsoft.com/services/functions). Diğer Azure görüyor sunucusuz yürütme ortamları hakkında bilgi edinmek için [azure'da sunucusuz](https://azure.microsoft.com/solutions/serverless/) sayfası. 
 
 Arasında yerel tümleştirme ile [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db) ve Azure işlevleri, oluşturabileceğiniz veritabanı tetikleyici, giriş bağlamaları ve çıkış bağlamaları doğrudan Azure Cosmos DB hesabınızdan. Azure işlevleri ve Azure Cosmos DB kullanarak oluşturun ve genel kullanıcı tabanı için zengin veri düşük gecikme süreli erişim ile olay tabanlı sunucusuz uygulamalar dağıtın.
 

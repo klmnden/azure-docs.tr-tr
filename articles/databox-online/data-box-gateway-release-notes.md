@@ -1,25 +1,19 @@
 ---
 title: Azure veri kutusu ağ geçidi Preivew sürüm notları | Microsoft Docs
 description: Azure veri kutusu önizleme sürümünü çalıştıran ağ geçidi için açık kritik sorunlar ve çözümleri açıklanmaktadır.
-services: databox-edge-gateway
-documentationcenter: ''
+services: databox
 author: alkohli
-manager: twooley
-editor: ''
-ms.assetid: ''
-ms.service: databox-edge-gateway
-ms.devlang: NA
+ms.service: databox
+ms.subservice: gateway
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 09/24/2018
 ms.author: alkohli
-ms.openlocfilehash: 2668279b33d2d8d1c0adf92c138cc6347c95bd4d
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: f5e19d59dfddc3be849700f3678519179b5b39ba
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47035360"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49164578"
 ---
 # <a name="azure-data-box-gateway-preview-release-notes"></a>Azure Data Box ağ geçidi önizlemesi sürüm notları
 
@@ -49,7 +43,7 @@ Aşağıdaki tabloda, önizleme sürümünü çalıştıran, veri kutusu ağ ge�
 | **1.** |Güncelleştirmeler |Önceki Önizleme sürümleri bu sürüme güncelleştirilemez oluşturulan veri kutusu ağ geçidi cihazı. |Sanal disk görüntüleri yeni sürümü karşıdan yüklemek ve yapılandırmak ve yeni cihazlara dağıtabilirsiniz. Daha fazla bilgi için Git [Azure veri kutusu ağ geçidi dağıtmaya hazırlanma](data-box-gateway-deploy-prep.md). |
 | **2.** |Sağlanan veri diski |Bir veri diskinin belirli bir belirtilen boyutta bir kez sağladığınız ve oluşturulan karşılık gelen veri kutusu ağ geçidi, veri diski küçültmeye gerekir değil. Cihazdaki tüm yerel verilerin kaybı disk sonuçları daraltmak çalışıyor. | |
 | **3.** |Yenile |Bu sürümde, aynı anda yalnızca bir paylaşım yenileyebilirsiniz. | |
-| **4.** |Yeniden adlandır |Nesneleri yeniden adlandırma desteklenmiyor. |Bu özellik, akışınız için önemliyse, Microsoft Support başvurun. |
+| **4.** |Yeniden Adlandır |Nesneleri yeniden adlandırma desteklenmiyor. |Bu özellik, akışınız için önemliyse, Microsoft Support başvurun. |
 | **5.** |Kopyala| Salt okunur bir dosya cihaza kopyalanırsa, salt okunur özelliği korunmaz. | |
 | **6.** |Günlükler| Bu sürümde bir hata nedeniyle hata kodunu 110 örneklerini görebileceğiniz *error.xml* tanınmayan öğesi adları ile. | |
 | **7.** |Karşıya Yükle | Bu sürümde bir hata nedeniyle, belirli dosyaları karşıya yükleme sırasında hata kodu 2003 örneklerini görebilirsiniz. | |
