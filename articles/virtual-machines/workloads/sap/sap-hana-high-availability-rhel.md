@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/16/2018
 ms.author: sedusch
-ms.openlocfilehash: 637e926676c727c01c60fe0d3e4e758173bdbd18
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: 77f4eeec1aa87f42c90d4e93f98f460a8b54b9a9
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45637565"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49167420"
 ---
 # <a name="high-availability-of-sap-hana-on-azure-vms-on-red-hat-enterprise-linux"></a>Red Hat Enterprise Linux Vm'lerinde Azure üzerinde SAP hana yüksek kullanılabilirlik
 
@@ -643,8 +643,9 @@ Resource Group: g_ip_HN1_03
 </code></pre>
 
 SAP HANA Yöneticisi olarak çalıştığı düğüm ağ arabiriminde devre dışı bırakarak Azure çitlemek aracı Kurulumu test edebilirsiniz.
+Bkz: [Red Hat Bilgi Bankası makalesi 79523](https://access.redhat.com/solutions/79523) ağ hata benzetimi yapma konusunda bir descricption için. Bu örnekte, tüm ağ erişimi engellemek için net_breaker komut dosyasını kullanın.
 
-<pre><code>[root@hn1-db-1 ~]# sudo ifdown eth0
+<pre><code>[root@hn1-db-1 ~]# sh ./net_breaker.sh BreakCommCmd 10.0.0.6
 </code></pre>
 
 Sanal makine şimdi yeniden başlatın veya küme yapılandırmanıza bağlı olarak Durdur gerekir.
