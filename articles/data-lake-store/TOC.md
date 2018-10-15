@@ -28,6 +28,7 @@
 ### [Erişim denetimi](data-lake-store-access-control.md)
 ### [Depolanan verilerin güvenliğini sağlama](data-lake-store-secure-data.md)
 ### [Şifreleme](data-lake-store-encryption.md)
+### [Sanal ağ tümleştirmesi (önizleme)](data-lake-store-network-security.md)
 
 ## Data Lake Storage Gen1 ile kimlik doğrulaması
 ### [Kimlik doğrulaması seçenekleri](data-lakes-store-authentication-using-azure-active-directory.md)

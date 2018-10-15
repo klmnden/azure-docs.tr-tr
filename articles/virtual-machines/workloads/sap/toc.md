@@ -1,5 +1,5 @@
 # Genel Bakış
-## [Kullanmaya başlama](get-started.md)
+## [Kullanmaya Başlama](get-started.md)
 ## [Sertifikalar](sap-certifications.md)
 # Azure’da SAP HANA (Büyük Örnekler)
 ## Genel Bakış
@@ -77,6 +77,7 @@
 #### [(A)SCS Örneği için Paylaşılan Disk ile Windows’da Yüksek Kullanılabilirlik](sap-high-availability-guide-wsfc-shared-disk.md)
 #### [(A)SCS Örneği için SOFS Dosya Paylaşımı ile Windows’da Yüksek Kullanılabilirlik](sap-high-availability-guide-wsfc-file-share.md)
 #### [(A)SCS Örneği için SUSE Linux’ta Yüksek Kullanılabilirlik](high-availability-guide-suse.md)
+#### [(A)SCS Örneği için Red Hat Enterprise Linux üzerinde HA](high-availability-guide-rhel.md)
 ### Azure Altyapı Hazırlığı
 #### [(A)SCS Örneği için Paylaşılan Disk ile Windows](sap-high-availability-infrastructure-wsfc-shared-disk.md)
 #### [(A)SCS Örneği için SOFS Dosya Paylaşımı ile Windows](sap-high-availability-infrastructure-wsfc-file-share.md)

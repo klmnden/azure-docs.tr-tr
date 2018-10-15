@@ -1,23 +1,22 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: f4ef48157896d7cf4947fbc8ef6eba8b59ec414b
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 7056f5478838eec1cccf6329e172d86ea90d4dd8
+ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46986532"
+ms.lasthandoff: 10/13/2018
+ms.locfileid: "49311057"
 documentType: LandingData
-title: Çevrimdışı aktarım için Azure Data Box
+title: Azure Data Box Belgeleri - Çevrimdışı Aktarım
 metadata:
-  title: Çevrimdışı aktarım için Azure Data Box Belgeleri
-  description: Azure Data Box ailesi hızlı, ucuz ve güvenilir bir yolla yüzlerce terabayt boyutundaki veriyi Azure'a aktarmanıza olanak tanır. Süre, ağ veya maliyet konusunda sınırlarınız varsa çevrimdışı veri aktarımı için Data Box cihazlarını kullanabilirsiniz.
+  title: Azure Data Box Belgeleri - Çevrimdışı Aktarım
+  description: Süre, ağ veya maliyet konusunda sınırlarınız varsa Azure’a çevrimdışı veri aktarımı için Data Box cihazlarını kullanabilirsiniz.
   services: databox
   author: alkohli
   manager: twooley
   ms.service: databox
-  ms.tgt_pltfrm: na
-  ms.devlang: na
+  ms.subservice: pod
   ms.topic: landing-page
-  ms.date: 09/24/2018
+  ms.date: 10/12/2018
   ms.author: alkohli
 abstract:
   description: "Azure Data Box ailesi hızlı, ucuz ve güvenilir bir yolla yüzlerce terabayt boyutundaki veriyi Azure'a aktarmanıza olanak tanır. Süre, ağ veya maliyet konusunda sınırlarınız varsa çevrimdışı veri aktarımı için Data Box cihazlarını kullanabilirsiniz.<p>Verilerinizin boyutuna göre Data Box Disk, Data Box<SUP>Önizleme</SUP> veya Data Box Heavy<SUP>Önizleme</SUP> çözümlerinden birini seçebilirsiniz. Her cihazda Azure'a aktarım 4 kolay adımda gerçekleşir: sipariş, teslim alma, verileri cihaza kopyalama ve cihazı Azure'a geri gönderme. Azure veri merkezinde veriler yüklenir ve ardından cihazdan silinir.</p><p>Çevrimdışı veri aktarımı için Data Box ürünlerini kullanma hakkında bilgi edinmek için hızlı başlangıçlara ve öğreticilere göz atın.</p>"
