@@ -12,15 +12,15 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 08/29/2018
+ms.date: 09/05/2018
 ms.author: cephalin
 ms.custom: mvc, devcenter
-ms.openlocfilehash: f6f443dfe637e68b0e1e13f7c3b9e718ae48a85d
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: cce14d91509fe051beef87acdaeac9a92d998ef6
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43191327"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44053787"
 ---
 # <a name="create-an-aspnet-framework-web-app-in-azure"></a>Azure’da ASP.NET Framework web uygulaması oluşturma
 
@@ -32,11 +32,12 @@ ms.locfileid: "43191327"
 
 ## <a name="prerequisites"></a>Ön koşullar
 
-Bu öğreticiyi tamamlamak için:
+Bu öğreticiyi tamamlamak için **ASP.NET ve web geliştirme** iş yüküyle <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2017</a>’yi yükleyin.
 
-**ASP.NET ve web geliştirme** iş yüküyle <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2017</a>’yi yükleyin.
+Visual Studio 2017'yi zaten yüklediyseniz:
 
-Visual Studio’yu önceden yüklediyseniz, **Araçlar** > **Araçları ve Özellikleri Al** seçeneklerine tıklayarak Visual Studio’da iş yüklerini ekleyin.
+- **Yardım** > **Güncelleştirmeleri Denetle**'ye tıklayarak Visual Studio'daki en son güncelleştirmeleri yükleyin.
+- **Araçlar** > **Araçları ve Özellikleri Al**'a tıklayarak iş yükünü ekleyin.
 
 ## <a name="create-an-aspnet-web-app"></a>ASP.NET web uygulaması oluşturma
 
@@ -58,17 +59,15 @@ Menüden **Hata Ayıkla > Hata Ayıklamadan Başla**’yı seçerek web uygulama
 
 ![Uygulamayı yerel olarak çalıştırma](./media/app-service-web-get-started-dotnet-framework/local-web-app.png)
 
-## <a name="publish-to-azure"></a>Azure’da Yayımlama
+## <a name="launch-the-publish-wizard"></a>Yayımlama sihirbazını başlatma
 
 **Çözüm Gezgini**’nde **myFirstAzureWebApp** projesine sağ tıklayıp **Yayımla**’yı seçin.
 
 ![Çözüm Gezgini'nden yayımlama](./media/app-service-web-get-started-dotnet-framework/solution-explorer-publish.png)
 
-**Microsoft Azure App Service**’in seçili olduğundan emin olup **Yayımla**’yı seçin.
+Yayımlama sihirbazı otomatik olarak başlatılır. **App Service** > **Yayımla**'yı seçerek **App Service Oluştur** iletişim kutusunu açın.
 
 ![Projeye genel bakış sayfasından yayımlama](./media/app-service-web-get-started-dotnet-framework/publish-to-app-service.png)
-
-Bu işlem, ASP.NET web uygulamasını Azure’da çalıştırmak için gereken tüm Azure kaynaklarını oluşturmanıza yardımcı olan **App Service Oluştur** iletişim kutusunu açar.
 
 ## <a name="sign-in-to-azure"></a>Azure'da oturum açma
 
@@ -93,9 +92,9 @@ Kaynak grubunuzu **myResourceGroup** olarak adlandırıp **Tamam**’ı seçin.
 
 [!INCLUDE [app-service-plan](../../includes/app-service-plan.md)]
 
-**App Service Planı**’nın yanındaki **Yeni**’yi seçin. 
+**Barındırma Planı**'nın yanındaki **Yeni**'yi seçin. 
 
-**App Service Planını Yapılandır** iletişim kutusunda, ekran görüntüsünü izleyerek tablodaki ayarları kullanın.
+**Barındırma Planını Yapılandır** iletişim kutusunda, ekran görüntüsünün altındaki tabloda verilen ayarları kullanın.
 
 ![App Service planı oluşturma](./media/app-service-web-get-started-dotnet-framework/configure-app-service-plan.png)
 
@@ -109,17 +108,17 @@ Kaynak grubunuzu **myResourceGroup** olarak adlandırıp **Tamam**’ı seçin.
 
 ## <a name="create-and-publish-the-web-app"></a>Web uygulaması oluşturma ve yayımlama
 
-**Web Uygulaması Adı**’na benzersiz bir ad girin (geçerli karakterler `a-z`, `0-9` ve `-` karakterleridir) veya otomatik olarak oluşturulan adı kabul edin. Web uygulamasının URL'si `http://<app_name>.azurewebsites.net` şeklindedir; burada `<app_name>`, web uygulamanızın adıdır.
+**Uygulama Adı**’na benzersiz bir ad girin (geçerli karakterler `a-z`, `0-9` ve `-` karakterleridir) veya otomatik olarak oluşturulan benzersiz adı kabul edin. Web uygulamasının URL'si `http://<app_name>.azurewebsites.net` şeklindedir; burada `<app_name>`, uygulamanızın adıdır.
 
 Azure kaynaklarını oluşturmaya başlamak için **Oluştur**’u seçin.
 
-![Web uygulaması adını yapılandırma](./media/app-service-web-get-started-dotnet-framework/web-app-name.png)
+![Uygulama adını yapılandırma](./media/app-service-web-get-started-dotnet-framework/web-app-name.png)
 
 Sihirbaz tamamlandıktan sonra ASP.NET web uygulamasını Azure’da yayımlar ve ardından uygulamayı varsayılan tarayıcıda başlatır.
 
 ![Azure’da yayımlanmış ASP.NET web uygulaması](./media/app-service-web-get-started-dotnet-framework/published-azure-web-app.png)
 
-[Oluşturma ve yayımlama adımında](#create-and-publish-the-web-app) belirtilen web uygulaması adı `http://<app_name>.azurewebsites.net` biçiminde URL ön eki olarak kullanılır.
+[Oluşturma ve yayımlama adımında](#create-and-publish-the-web-app) belirtilen uygulama adı `http://<app_name>.azurewebsites.net` biçiminde URL ön eki olarak kullanılır.
 
 Tebrikler, ASP.NET web uygulamanız Azure App Service’te çalışıyor.
 

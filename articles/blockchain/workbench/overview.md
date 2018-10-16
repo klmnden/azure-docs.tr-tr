@@ -37,7 +37,7 @@ Blockchain Workbench, ileti tabanlı API’sine gönderilen iletileri, blok zinc
 
 Workbench, aşağı akış tüketicilerine ileti göndermek için Service Bus ve Event Grid’e otomatik olarak olaylar sunar. Geliştiriciler, işlemleri desteklemek ve sonuçlara bakmak için bu ileti sistemlerinin herhangi biriyle tümleştirme gerçekleştirebilir.
 
-## <a name="deploy-a-blockchain-network"></a>Bok zinciri ağını dağıtma
+## <a name="deploy-a-blockchain-network"></a>Blok zinciri ağını dağıtma
 
 Azure Blockchain Workbench, Azure Resource Manager çözüm şablonuyla önceden yapılandırılmış bir çözüm olarak konsorsiyum blok zinciri ağının kurulumunu kolaylaştırır. Şablon, bir konsorsiyumu çalıştırmak için gereken tüm bileşenleri dağıtan, basitleştirilmiş dağıtım sağlar. Şu anda Blockchain Workbench, Ethereum’u desteklemektedir.
 
