@@ -9,14 +9,12 @@ ms.service: cognitive-services
 ms.author: nitinme
 ms.date: 09/24/2018
 ms.topic: hub-page
-ms.prod: cognitive-services
-ms.technology: cognitive-services
-ms.openlocfilehash: 1c07a02369af90580615fd9e7eaf6e239949ea36
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: 87c10bbcec2467808220c3d2351976fb4676e92b
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49068477"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49319007"
 ---
 <h1>Azure Bilişsel Hizmetler Belgeleri</h1>
         <p style="font-size: 1.12rem;margin-bottom: 1rem;">Uygulamalarınıza, web sitelerinize ve botlarınıza, kullanıcılarınızın ihtiyaçlarını görmek, duymak, dile getirmek ve anlamak için doğal iletişim yöntemlerinden yararlanan akıllı algoritmalar oluşturmayı öğrenin. Öğreticiler, hızlı başlangıçlar, API başvuruları ve örnekler size bunu nasıl yapacağınızı gösterir.</p>

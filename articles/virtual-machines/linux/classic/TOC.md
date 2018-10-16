@@ -33,7 +33,6 @@
 ### [Rails web uygulamasında Ruby](ruby-rails-web-app.md)
 ### [Cassandra ve Node.js istemcisi](cassandra-nodejs.md)
 ### [Tomcat](setup-tomcat.md)
-### [MPI uygulamalarını çalıştırmak için RDMA kümesi](rdma-cluster.md)
 ### HPC Pack
 #### [Linux iş yükleri için küme oluşturma](hpcpack-cluster-powershell-script.md)
 #### [Linux düğümleri ile küme yönetme](hpcpack-cluster.md)
