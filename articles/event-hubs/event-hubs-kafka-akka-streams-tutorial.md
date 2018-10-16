@@ -13,12 +13,12 @@ ms.topic: article
 ms.custom: mvc
 ms.date: 08/06/2018
 ms.author: bahariri
-ms.openlocfilehash: 063f8bc050064d191dd502b74156be85df4f0031
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
+ms.openlocfilehash: a7eb335a2e4764287ab9e0b67dc75c2443ba2856
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47182235"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49322014"
 ---
 # <a name="using-akka-streams-with-event-hubs-for-apache-kafka"></a>Akka akışları için Apache Kafka ile Event hubs'ı kullanma
 Bu öğreticide Protokolü istemcilerinize değiştirme veya kendi kümeleri çalıştıran Akka akışları Kafka özellikli event hubs'a bağlanma gösterilmektedir. Kafka için Azure Event Hubs'ı destekleyen [Apache Kafka sürüm 1.0.](https://kafka.apache.org/10/documentation.html)
@@ -29,6 +29,9 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 > * Örnek projesini kopyalama
 > * Üretici Akka akışları çalıştırma 
 > * Tüketici Akka akışları çalıştırma
+
+> [!NOTE]
+> Bu örnek [GitHub](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/akka/java)'da sağlanır
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -50,11 +53,11 @@ Tüm Event Hubs hizmetinden gönderileceği ve alınacağı bir Event Hubs ad al
 
 ## <a name="clone-the-example-project"></a>Örnek projesini kopyalama
 
-Event Hubs, Kafka özellikli bir bağlantı dizesi olduğuna göre Azure Event Hubs depoyu kopyalamak ve gidin `akka` alt klasörü:
+Event Hubs, Kafka özellikli bir bağlantı dizesi olduğuna göre Azure Event Hubs Kafka deposu için kopyalama ve gidin `akka` alt klasörü:
 
 ```shell
-git clone https://github.com/Azure/azure-event-hubs.git
-cd azure-event-hubs/samples/kafka/akka
+git clone https://github.com/Azure/azure-event-hubs-for-kafka.git
+cd azure-event-hubs-for-kafka/tutorials/akka/java
 ```
 
 ## <a name="run-akka-streams-producer"></a>Üretici Akka akışları çalıştırma
@@ -149,5 +152,6 @@ Kafka için Event Hubs ile Event Hubs hakkında daha fazla bilgi edinmek için �
 
 * [Event Hubs hakkında bilgi edinin](event-hubs-what-is-event-hubs.md)
 * [Kafka için Event Hubs hakkında bilgi edinin](event-hubs-for-kafka-ecosystem-overview.md)
+* [Daha fazla örnek için Kafka GitHub üzerinde Event hubs'ı keşfedin](https://github.com/Azure/azure-event-hubs-for-kafka)
 * [MirrorMaker](https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=27846330) kullanarak [olayları Kafka şirket içinden bulutta Kafka etkin Event Hubs’a akışla aktarın.](event-hubs-kafka-mirror-maker-tutorial.md)
 * Kafka akışı yapmayı öğrenin etkin Event Hubs kullanarak [yerel Kafka uygulamalar](event-hubs-quickstart-kafka-enabled-event-hubs.md) veya [Apache Flink](event-hubs-kafka-flink-tutorial.md)

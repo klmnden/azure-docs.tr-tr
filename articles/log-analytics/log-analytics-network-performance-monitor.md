@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: abshamsft
 ms.component: ''
-ms.openlocfilehash: e12c513f8812381897804412616be1ef7c743a3d
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 953a004f48bfd9bd68b9500d312240c45cbf3292
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48044102"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49321912"
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Ağ Performansı İzleyicisi çözüm azure'da
 
@@ -271,7 +271,7 @@ Azure Portalı aracılığıyla bir uyarı oluşturan bir NPM kullanıcı varsa:
 3. Eylem grupları kullanmayı seçerseniz, daha önce oluşturulan eylem grubu seçmeniz gerekecektir. Bir eylem grubu oluşturmak nasıl öğrenebilirsiniz [burada.](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups#create-an-action-group-by-using-the-azure-portal) 
 4. Uyarı başarıyla oluşturulduktan sonra Uyarıları Yönet bağlantısına Uyarıları yönetmek için kullanabilirsiniz. 
 
-##<a name="pricing"></a>Fiyatlandırma
+## <a name="pricing"></a>Fiyatlandırma
 
 Fiyatlandırma hakkında daha fazla bilgi edinilebilir [çevrimiçi](log-analytics-network-performance-monitor-pricing-faq.md).
 

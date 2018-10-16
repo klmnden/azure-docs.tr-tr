@@ -1,6 +1,6 @@
 ---
-title: Dış izleme çözümü Azure yığın ile tümleştirme | Microsoft Docs
-description: Dış bir izleme çözümü, veri merkezinizdeki Azure yığın tümleştirileceğini öğrenin.
+title: Azure Stack ile dış izleme çözümünü tümleştirmek | Microsoft Docs
+description: Azure Stack, veri merkezinizdeki dış bir izleme çözümü ile tümleştirmeyi öğrenin.
 services: azure-stack
 documentationcenter: ''
 author: jeffgilb
@@ -11,90 +11,90 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: article
-ms.date: 05/10/2018
+ms.date: 10/15/2018
 ms.author: jeffgilb
 ms.reviewer: thoroet
-ms.openlocfilehash: d7c8520602132722fd0c7138de4a276b9ac2208a
-ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.openlocfilehash: 66cd20eaa401261bcb18bedbbc16f5bcf40ee192
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34807348"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49342992"
 ---
-# <a name="integrate-external-monitoring-solution-with-azure-stack"></a>Dış izleme çözümü Azure yığın ile tümleştirme
+# <a name="integrate-external-monitoring-solution-with-azure-stack"></a>Dış izleme çözümü, Azure Stack ile tümleştirin
 
-Dış Azure yığın altyapı izleme için Azure yığın yazılım, fiziksel bilgisayarları ve fiziksel ağ anahtarları izlemeniz gerekir. Bu alanların her biri, sistem durumu ve uyarı bilgilerini almak için bir yöntem sunar:
+Azure Stack altyapısını dış izleme için Azure Stack yazılımı, fiziksel bilgisayarları ve fiziksel ağ anahtarları izlemeniz gerekir. Bu alanların her biri, durum ve uyarı bilgilerini almak için bir yöntem sunar:
 
-- Azure yığın yazılım sistem durumu ve uyarıları almak için REST tabanlı bir API sunar. Depolama alanları doğrudan, depolama durumunu ve Uyarıları gibi yazılım tanımlı teknolojileri kullanan yazılım izleme bölümü.
-- Fiziksel bilgisayar sistem durumunu ve uyarı bilgilerini temel kart yönetim denetçileri (BMC) aracılığıyla kullanılabilir hale getirebilirsiniz.
-- Fiziksel ağ aygıtlarını sistem durumu ve uyarı bilgileri SNMP protokolü aracılığıyla kullanılabilir hale getirebilirsiniz.
+- Azure Stack yazılımı sistem durumu ve uyarıları almak için REST tabanlı bir API sunar. Depolama alanları doğrudan, depolama durumunu ve uyarılar gibi yazılım tanımlı teknolojilerinin kullanılması yazılım izleme bir parçası olan.
+- Fiziksel bilgisayar sistem durumu ve uyarı bilgilerini temel kart yönetim denetleyicileri (Bmc'ler) aracılığıyla kullanılabilir hale getirir.
+- Fiziksel ağ aygıtlarının durumunu ve uyarı bilgileri SNMP protokolü aracılığıyla kullanılabilir hale getirebilirsiniz.
 
-Her Azure yığın çözüm donanım yaşam döngüsü ana bilgisayar ile birlikte gelir. Bu ana bilgisayar özgün donanım üreticisi (OEM) donanım satıcısının izleme yazılım fiziksel sunucuları ve ağ aygıtları için çalışır. İsterseniz, bu çözümleri izleme atlayabilir ve doğrudan, veri merkezinizde mevcut izleme çözümleriyle tümleştirin.
+Her Azure Stack çözüm donanım yaşam döngüsü konak ile birlikte gelir. Bu konak fiziksel sunucuları ve ağ cihazlarını izleme yazılımı orijinal ekipman üreticisi (OEM) donanım satıcısının çalıştırır. İsterseniz, bu çözümleri izleme atlamak ve doğrudan veri merkezinizde mevcut izleme çözümleriyle tümleştirin.
 
 > [!IMPORTANT]
-> Kullandığınız dış izleme çözümü aracısız olması gerekir. Azure yığın bileşenleri içindeki üçüncü taraf aracılar yükleyemezsiniz.
+> Kullandığınız dış izleme çözümü aracısız olması gerekir. Azure Stack bileşenleri içindeki üçüncü taraf aracılar yükleyemezsiniz.
 
-Aşağıdaki diyagramda bir Azure tümleşik yığını sistem, donanım yaşam döngüsü konak, dış bir izleme çözümü ve bir dış raporlama/veri toplama sistemi arasındaki trafik akışını gösterir.
+Aşağıdaki diyagramda bir Azure Stack tümleşik sistemi, donanım yaşam döngüsü konak, dış izleme çözümünü ve bir dış bilet oluşturma/veri toplama sistem arasındaki trafik akışını gösterir.
 
-![İzleme ve raporlama çözümü yığını, Azure arasındaki trafiği gösteren diyagram.](media/azure-stack-integrate-monitor/MonitoringIntegration.png)  
+![Azure Stack, izleme ve bilet oluşturma çözümü arasındaki trafiği gösteren diyagram.](media/azure-stack-integrate-monitor/MonitoringIntegration.png)  
 
-Bu makalede, Azure yığın System Center Operations Manager ve Nagios gibi dış izleme çözümü ile tümleştirmek açıklanmaktadır. Ayrıca, uyarılarla programlı olarak REST API çağrıları aracılığıyla veya PowerShell kullanarak nasıl çalışılacağı içerir.
+Bu makalede, Azure Stack, System Center Operations Manager ve Nagios gibi dış izleme çözümleriyle tümleştirmek açıklanmaktadır. Ayrıca uyarılarla PowerShell kullanarak veya REST API çağrıları üzerinden programlı bir şekilde çalışmanın nasıl içerir.
 
 ## <a name="integrate-with-operations-manager"></a>Operations Manager ile tümleştirme
 
-Operations Manager dış Azure yığınını izlemek için kullanabilirsiniz. Microsoft Azure yığın için System Center Yönetim Paketi tek bir Operations Manager örneği birden çok Azure yığın dağıtım izlemenize olanak sağlar. Yönetim Paketi, Azure yığın ile iletişim kurmak için sistem durumu kaynak sağlayıcısı ve güncelleştirme kaynak sağlayıcısı REST API'lerini kullanır. Donanım yaşam döngüsü konakta çalışan yazılım izleme OEM geçiş yapmayı planlıyorsanız, fiziksel sunucuları izlemek için satıcı yönetim paketleri yükleyebilirsiniz. Operations Manager ağ aygıtı bulma, ağ anahtarları izlemek için de kullanabilirsiniz.
+Azure Stack dış izlemek için Operations Manager kullanabilirsiniz. System Center Yönetim Paketi Microsoft Azure Stack için tek bir Operations Manager örneği ile birden çok Azure Stack dağıtımı izlemenizi sağlar. Yönetim Paketi, Azure Stack ile iletişim kurmak için sistem durumu kaynak sağlayıcısı ve güncelleştirme kaynak sağlayıcısı REST API'leri kullanır. Donanım yaşam döngüsü konakta çalışan yazılım izleme OEM atlama planlıyorsanız, fiziksel sunucuları izlemek için satıcı yönetim paketlerini yükleyebilirsiniz. Operations Manager ağ cihazı bulma, ağ anahtarlarını izlemek için de kullanabilirsiniz.
 
-Azure yığını için yönetim paketi aşağıdaki yetenekleri sağlar:
+Azure Stack için yönetim paketi aşağıdaki özellikleri sağlar:
 
-- Birden çok Azure yığın dağıtımlarını yönetebilir
+- Birden çok Azure Stack dağıtımı yönetebilirsiniz.
 - Azure Active Directory (Azure AD) ve Active Directory Federasyon Hizmetleri (AD FS) için destek
 - Alabilir ve Uyarıları Kapat
 - Bir sistem durumu ve kapasite Panosu
-- Düzeltme eki ve güncelleştirme (P & U) olduğunda ediyor için otomatik Bakım modu algılama içerir
+- Düzeltme eki ve güncelleştirme (P & U) olduğunda ediyor için otomatik Bakım modu algılama dahildir
 - Dağıtım ve bölge için zorla güncelleştirme görevleri içerir
-- Bir bölgeye özel bilgiler ekleyebilirsiniz.
-- Destekler bildirim ve Raporlama
+- Bir bölgeye özel bilgiler ekleyebilirsiniz
+- Bildirim destekler ve Raporlama
 
-System Center Yönetim Paketi için Microsoft Azure yığın ve ilişkili indirebilirsiniz [Kullanıcı Kılavuzu](https://www.microsoft.com/en-us/download/details.aspx?id=55184), ya da Operations Manager'dan doğrudan.
+System Center Yönetim Paketi, Microsoft Azure Stack ve ilişkili indirebilirsiniz [Kullanıcı Kılavuzu](https://www.microsoft.com/en-us/download/details.aspx?id=55184), veya doğrudan Operations Manager.
 
-Bilet çözümü için Operations Manager System Center Service Manager ile tümleştirebilirsiniz. Tümleşik ürün Bağlayıcısı'nı bir hizmet isteği Hizmet Yöneticisi'nde çözdükten sonra Azure yığını ve Operations Manager bir uyarıyı kapatmak izin veren çift yönlü iletişim sağlar.
+Bilet oluşturma çözümü için Operations Manager, System Center Service Manager ile tümleştirebilirsiniz. Tümleşik bir ürün bağlayıcısının Service Manager'da hizmet isteği çözdükten sonra Azure Stack ve Operations Manager bir uyarı kapatmak izin veren iki yönlü iletişimi sağlar.
 
-Aşağıdaki diyagram, mevcut bir System Center dağıtım ile Azure yığınının tümleştirme gösterir. Hizmet Yöneticisi daha fazla ile System Center Orchestrator veya Service Management Automation (SMA) Azure yığınında işlemlerini çalıştırmak için otomatik hale getirebilirsiniz.
+Aşağıdaki diyagram, mevcut bir System Center dağıtım ile Azure Stack tümleştirme gösterir. Service Manager daha fazla Azure Stack'te işlemleri çalıştırmak için System Center Orchestrator'ı veya Service Management Automation (SMA) ile otomatik hale getirebilirsiniz.
 
-![OM, Service Manager ve SMA ile tümleştirme gösteren diyagram.](media/azure-stack-integrate-monitor/SystemCenterIntegration.png)
+![SMA OM ve Service Manager ile tümleştirme gösteren diyagram.](media/azure-stack-integrate-monitor/SystemCenterIntegration.png)
 
-## <a name="integrate-with-nagios"></a>Nagios ile tümleştirme
+## <a name="integrate-with-nagios"></a>Nagios ile tümleştirin
 
-Eklentisi izleme Nagios izin veren ücretsiz yazılım lisansı altında – MIT (Massachusetts Teknoloji Enstitüsü'nün) kullanılabilir olan iş ortağı Cloudbase çözümleriyle birlikte geliştirilmiştir.
+Eklenti izleme bir Nagios İhtiyari ücretsiz yazılım lisansı – MIT (Massachusetts Teknoloji Enstitüsü'nün) altında kullanılabilir olan iş ortağı Cloudbase çözümleriyle birlikte sunulmuştur geliştirilmiştir.
 
-Eklenti Python içinde yazılmış ve sistem durumu kaynak sağlayıcısı REST API kullanır. Almak ve Azure yığın içindeki uyarıları Kapat temel işlevleri sunar. System Center Yönetim Paketi gibi birden çok Azure yığın dağıtımları eklemek ve bildirimleri göndermek için sağlar.
+Eklenti Python'da yazılmıştır ve sistem durumu kaynak sağlayıcısı REST API'si yararlanır. Alma ve Azure stack'teki uyarıları kapatmak için temel işlevleri sunar. System Center Yönetim Paketi gibi birden fazla Azure Stack dağıtım eklemek ve bildirim göndermek için sağlar.
 
-Eklenti Nagios Enterprise ve Nagios çekirdek ile çalışır. Karşıdan yükleyebileceğiniz [burada](https://exchange.nagios.org/directory/Plugins/Cloud/Monitoring-AzureStack-Alerts/details). İndirme site ayrıca yükleme ve yapılandırma ayrıntılarını içerir.
+Eklenti Nagios Kurumsal ve Nagios Core ile çalışır. İndirebilirsiniz [burada](https://exchange.nagios.org/directory/Plugins/Cloud/Monitoring-AzureStack-Alerts/details). İndirme sitesinde ayrıca yükleme ve yapılandırma ayrıntılarını içerir.
 
-### <a name="plugin-parameters"></a>Eklentisi parametreleri
+### <a name="plugin-parameters"></a>Eklenti parametreleri
 
-Eklenti dosyası "Azurestack_plugin.py" aşağıdaki parametrelerle yapılandırın:
+"Azurestack_plugin.py" eklenti dosyası aşağıdaki parametrelerle yapılandırın:
 
 | Parametre | Açıklama | Örnek |
 |---------|---------|---------|
-| *arm_endpoint* | Azure Kaynak Yöneticisi (Yönetici) uç noktası |https://adminmanagement.local.azurestack.external |
-| *api_endpoint* | Azure Kaynak Yöneticisi (Yönetici) uç noktası  | https://adminmanagement.local.azurestack.external |
-| *Tenant_id* | Yönetici abonelik kimliği | Yönetici portalı veya PowerShell aracılığıyla Al |
+| *arm_endpoint* | Azure Resource Manager (Yönetici) uç noktası |https://adminmanagement.local.azurestack.external |
+| *api_endpoint* | Azure Resource Manager (Yönetici) uç noktası  | https://adminmanagement.local.azurestack.external |
+| *Kiracı* | Yönetim abonelik kimliği | Yönetici portalı veya PowerShell üzerinden alın |
 | *User_name* | İşleç abonelik kullanıcı adı | operator@myazuredirectory.onmicrosoft.com |
-| *User_password* | İşleç abonelik parola | İstanbul |
-| *client_id* | İstemci | 0a7bdc5c-7b57-40be-9939-d4c5fc7cd417* |
-| *Bölge* |  Azure yığın bölge adı | yerel |
+| *User_password* | İşleç abonelik parolası | parolam |
+| *Client_id* | İstemci | 0a7bdc5c-7b57-40be-9939-d4c5fc7cd417* |
+| *Bölge* |  Azure Stack bölge adı | yerel |
 |  |  |
 
 * PowerShell sağlanan Evrensel GUID'dir. Her dağıtım için kullanabilirsiniz.
 
-## <a name="use-powershell-to-monitor-health-and-alerts"></a>İzleyici sistem durumu ve Uyarılar için PowerShell kullanın
+## <a name="use-powershell-to-monitor-health-and-alerts"></a>İzleyici sistem durumu ve uyarıları için PowerShell kullanma
 
-Operations Manager, Nagios veya Nagios tabanlı bir çözümü kullanmıyorsanız, Azure yığın ile tümleştirmek için çözümlerini izleme geniş etkinleştirmek için PowerShell kullanabilirsiniz.
+Operations Manager, Nagios ve Nagios tabanlı bir çözümü kullanmıyorsanız, Azure Stack ile tümleştirme çözümlerini izleme geniş etkinleştirmek için PowerShell kullanabilirsiniz.
 
-1. PowerShell kullanmak için bilgisayarınızda yüklü olduğundan emin olun [PowerShell yüklenmiş ve yapılandırılmış](azure-stack-powershell-configure-quickstart.md) Azure yığın işleci ortamı için. PowerShell Kaynak Yöneticisi (Yönetici) uç noktası ulaşabilir yerel bir bilgisayara yükleme (https://adminmanagement. [ Bölge]. [External_FQDN]).
+1. PowerShell kullanmak için bilgisayarınızda yüklü olduğundan emin olun [PowerShell yüklenmiş ve yapılandırılmış](azure-stack-powershell-configure-quickstart.md) Azure Stack operatörü ortam için. PowerShell'i Resource Manager (Yönetici) uç noktası ulaşan yerel bir bilgisayara yükleme (https://adminmanagement. [ Bölge]. [External_FQDN]).
 
-2. Bir Azure yığın işleç olarak Azure yığın ortama bağlanmak için aşağıdaki komutları çalıştırın:
+2. Azure Stack operatör olarak Azure Stack ortamınıza bağlanmak için aşağıdaki komutları çalıştırın:
 
    ```PowerShell  
     Add-AzureRMEnvironment -Name "AzureStackAdmin" -ArmEndpoint https://adminmanagement.[Region].[External_FQDN]
@@ -102,7 +102,7 @@ Operations Manager, Nagios veya Nagios tabanlı bir çözümü kullanmıyorsanı
    Add-AzureRmAccount -EnvironmentName "AzureStackAdmin"
    ```
 
-3. Uyarılarla çalışma için aşağıdaki örneklerde olduğu gibi komutları kullanın:
+3. Aşağıdaki örnekler gibi uyarılarla çalışma için komutları kullanın:
    ```PowerShell
     #Retrieve all alerts
     Get-AzsAlert
@@ -125,8 +125,8 @@ Operations Manager, Nagios veya Nagios tabanlı bir çözümü kullanmıyorsanı
 
 ## <a name="learn-more"></a>Daha fazla bilgi edinin
 
-Yerleşik sistem durumu izleme hakkında daha fazla bilgi için bkz: [sistem durumu ve Uyarıları Azure yığınında izleme](azure-stack-monitor-health.md).
+Yerleşik sistem durumu izleme hakkında daha fazla bilgi için bkz: [izleme sistem durumu ve Uyarıları Azure Stack'te](azure-stack-monitor-health.md).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-[Güvenlik tümleştirme](azure-stack-integrate-security.md)
+[Güvenlik tümleştirmesi](azure-stack-integrate-security.md)

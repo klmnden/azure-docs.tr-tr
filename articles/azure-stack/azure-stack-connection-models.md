@@ -1,6 +1,6 @@
 ---
-title: Azure yığın tümleşik sistemleri bağlantı modelleri | Microsoft Docs
-description: Dağıtım Planlama kararları çok düğümlü Azure yığınının belirler.
+title: Azure Stack tümleşik sistemleri bağlantı modelleri | Microsoft Docs
+description: Dağıtım Planlama çok düğümlü Azure Stack için kararları belirleyin.
 services: azure-stack
 documentationcenter: ''
 author: jeffgilb
@@ -12,42 +12,42 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/31/2018
+ms.date: 10/15/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: e6c94ef1172ea6380a94d5907c24069ed8c48ff5
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 7509d00815f56dc46bd276ffc67c4c607c54070a
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
-ms.locfileid: "29118797"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49338905"
 ---
-# <a name="azure-stack-integrated-systems-connection-models"></a>Azure tümleşik yığını sistemleri bağlantı modelleri
-Bir Azure tümleşik yığını sistemde düşünüyorsanız anlamanız gerekir [birçok veri merkezi tümleştirme konuları](azure-stack-datacenter-integration.md) sistem merkeziniz nasıl sığacak belirlemek Azure yığın dağıtımı için. Ayrıca, tam olarak nasıl, Azure yığın karma bulut ortamınıza tümleştirecek karar vermeniz gerekir. Bu makalede Azure bağlantısı, kimlik deposu dahil ve model kararları faturalama bu önemli kararlar genel bir bakış sağlar.
+# <a name="azure-stack-integrated-systems-connection-models"></a>Azure Stack tümleşik sistemleri bağlantı modelleri
+Bir Azure Stack tümleşik sisteminde ilgileniyorsanız, anlamanız gereken [birden çok veri merkezinde tümleştirme konuları](azure-stack-datacenter-integration.md) sistem Merkezinizde nasıl sığacak belirlemek Azure Stack dağıtımı için. Ayrıca, tam olarak nasıl, Azure Stack, hibrit bulut ortamına tümleştirilecek karar vermeniz gerekir. Bu makalede, bu önemli kararlar modeli karar fatura ve Azure bağlantısı, kimlik deposu dahil olmak üzere genel bir bakış sağlar.
 
-Tümleşik bir sistem satın almak karar verirseniz, daha ayrıntılı planlama işleminin büyük bölümü size kılavuzluk özgün donanım üreticisi (OEM) donanım satıcınıza yardımcı olur. Ayrıca gerçek dağıtım işlemini gerçekleştirecek.
+Bir tümleşik sistem satın almak karar verirseniz, orijinal ekipman üreticisi (OEM) donanım satıcınıza çok daha ayrıntılı Planlama işlemi boyunca size rehberlik yardımcı olur. Bunlar ayrıca gerçek dağıtım yapar.
 
-## <a name="choose-an-azure-stack-deployment-connection-model"></a>Bir Azure yığın dağıtım bağlantı modeli seçin
-Azure internet (ve Azure) bağlı veya bağlantısı kesilmiş yığını dağıtmayı seçebilirsiniz. Çoğu Azure Azure yığını ve Azure arasında karma senaryolar da dahil olmak üzere yığından elde etmek için dağıtmak için Azure bağlı istediğiniz. Bu seçenek, kimlik deposu (Azure Active Directory veya Active Directory Federasyon Hizmetleri) ve faturalama modeli için kullanılabilir olan seçenekleri tanımlar (, kullanım tabanlı ücret ödersiniz faturalama veya kapasite tabanlı fatura) Aşağıdaki diyagramda ve tabloda özetlenen: 
+## <a name="choose-an-azure-stack-deployment-connection-model"></a>Bir Azure Stack dağıtım bağlantı modeli seçin
+İnternet'e (Azure) bağlı veya bağlantısı kesilmiş bir Azure Stack dağıtmayı tercih edebilirsiniz. Azure Stack, Azure Stack ve Azure arasında hibrit senaryoları da dahil olmak üzere en çok faydayı alın, dağıtılacak Azure'a bağlı isteyebilirsiniz. Bu seçenek (Azure Active Directory veya Active Directory Federasyon Hizmetleri) kimlik deposu ve faturalandırma modeli için hangi seçenekler kullanılabilir tanımlar (siz kullanım tabanlı ödemesi fatura veya kapasite tabanlı faturalandırma) Aşağıdaki diyagramda ve tabloda özetlendiği gibi: 
 
-![Azure yığın dağıtımına ve senaryoları faturalama](media/azure-stack-connection-models/azure-stack-scenarios.png)  
+![Azure Stack dağıtımı ve faturalama senaryoları](media/azure-stack-connection-models/azure-stack-scenarios.png)  
   
 > [!IMPORTANT]
-> Bu bir anahtar karar noktasıdır! Active Directory Federasyon Hizmetleri (AD FS) veya Azure Active Directory (Azure AD) seçerek dağıtım sırasında yapmanız gereken tek seferlik bir karardır. Bu daha sonra tüm sistemin yeniden dağıtmadan değiştiremezsiniz.  
+> Bir anahtar karar noktası budur! Active Directory Federasyon Hizmetleri (AD FS) veya Azure Active Directory (Azure AD) seçme dağıtım sırasında yapmanız gereken tek seferlik bir karardır. Bu daha sonra tüm sistemin yeniden dağıtmadan değiştiremezsiniz.  
 
 
 |Seçenekler|Azure'a bağlı|Azure'dan bağlantısı kesildi|
 |-----|-----|-----|
 |Azure AD|![Desteklenen](media/azure-stack-connection-models/check.png)| |
 |AD FS|![Desteklenen](media/azure-stack-connection-models/check.png)|![Desteklenen](media/azure-stack-connection-models/check.png)|
-|Tüketim tabanlı faturalama|![Desteklenen](media/azure-stack-connection-models/check.png)| |
-|Kapasite tabanlı faturalama|![Desteklenen](media/azure-stack-connection-models/check.png)|![Desteklenen](media/azure-stack-connection-models/check.png)|
-|Güncelleştirme paketleri doğrudan Azure yığın indirin|![Desteklenen](media/azure-stack-connection-models/check.png)|  |
+|Kullanıma dayalı faturalandırma|![Desteklenen](media/azure-stack-connection-models/check.png)| |
+|Kapasite kullanıma dayalı faturalandırma|![Desteklenen](media/azure-stack-connection-models/check.png)|![Desteklenen](media/azure-stack-connection-models/check.png)|
+|Doğrudan Azure Stack için güncelleştirme paketleri indirin|![Desteklenen](media/azure-stack-connection-models/check.png)|  |
 
-Azure yığın dağıtımı için kullanılacak Azure bağlantı modelinde karar verdim sonra ek, bağlantı bağımlı kararları kimlik deposu ve fatura yöntemi için yapılması gerekir. 
+Azure bağlantı modelinde Azure Stack dağıtımı için kullanılacak geçirmeye karar verdikten sonra ek olarak, bağlantı bağlı kararları kimlik deposunu ve ödeme yöntemi için yapılması gerekir. 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-[Azure bağlı Azure yığın dağıtım kararları](azure-stack-connected-deployment.md)
+[Azure bağlı Azure Stack dağıtım kararları](azure-stack-connected-deployment.md)
 
-[Azure Azure yığın dağıtım kararları bağlantısı kesildi](azure-stack-disconnected-deployment.md)
+[Azure, Azure Stack dağıtım kararlarını bağlantısı kesildi](azure-stack-disconnected-deployment.md)

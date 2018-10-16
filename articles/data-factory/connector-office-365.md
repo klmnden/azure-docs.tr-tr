@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/08/2018
+ms.date: 10/15/2018
 ms.author: jingwang
-ms.openlocfilehash: 3caae8ecae66178bc538d0b9d1240293028f33ad
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: 8a36053fe3189a72c33ea14445a6b064260eec01
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48867366"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49318325"
 ---
 # <a name="copy-data-from-office-365-into-azure-using-azure-data-factory-preview"></a>Azure Data Factory (Önizleme) kullanarak Azure'da Office 365'ten veri kopyalama 
 
@@ -55,7 +55,7 @@ Azure'da Office 365'ten veri kopyalamak için aşağıdaki önkoşul adımların
 
 Bu ilk kez kullanıyorsanız, bu bağlam için verileri isteyen (veri erişimi tablo olmasından, hangi hedef hesap, içine yüklenen verilerdir ve hangi kullanıcı kimliğini veri yapıyor birlikte erişim isteği), kopyalama etkinliği görürsünüz. durumu "Sürüyor" olarak ve yalnızca içine tıkladığınızda ["Details" bağlantı Eylemler altında](copy-activity-overview.md#monitoring) "RequestingConsent" durumu görürsünüz.  Veri erişim onaylayan grubunun bir üyesi, Privileged Access Management istekte veri ayıklama devam etmeden önce onaylamanız gerekir.
 
-Başvuran [burada](https://github.com/OfficeDev/ManagedAccessMSGraph/wiki/Approving-a-data-access-request) onaylayan nasıl onaylayabilirsiniz veri erişim isteği ve başvuru [burada](https://github.com/OfficeDev/ManagedAccessMSGraph/wiki/On-boarding) Privileged Access Management genel tümleştirme bir açıklama için verileri ayarlama dahil olmak üzere erişim onaylayan grubu.
+Başvuran [burada](https://github.com/OfficeDev/MS-Graph-Data-Connect/wiki/Approving-data-access-requests) onaylayan nasıl onaylayabilirsiniz veri erişim isteği ve başvuru [burada](https://github.com/OfficeDev/MS-Graph-Data-Connect/wiki/Capabilities#integration-with-privileged-access-management) Privileged Access Management genel tümleştirme bir açıklama için verileri ayarlama dahil olmak üzere erişim onaylayan grubu.
 
 ## <a name="policy-validation"></a>İlke doğrulama
 
@@ -124,7 +124,7 @@ Office 365'ten veri kopyalamak için aşağıdaki özellikler desteklenir:
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
 | type | Dataset öğesinin type özelliği ayarlanmalıdır: **Office365Table** | Evet |
-| tableName | Office 365'ten ayıklamak için veri kümesinin adı. Office 365 veri kümeleri için ayıklama kullanılabilir listesi için buraya bakın. | Evet |
+| tableName | Office 365'ten ayıklamak için veri kümesinin adı. Başvuru [burada](https://github.com/OfficeDev/MS-Graph-Data-Connect/wiki/Capabilities#datasets) Office 365 veri kümeleri için ayıklama kullanılabilir listesi. | Evet |
 | Karşılaştırma | Office 365'ten ayıklamak için belirli satırları filtrelemek için kullanılan bir koşul ifadesi.  Hangi sütunların her bir tabloyu ve filtre ifade biçimi için koşul filtreleme için kullanılan çıkış bulmak için buraya bakın. | Hayır<br>(Hiçbir koşul sağlanırsa, son 30 güne ait verileri ayıklamak için varsayılandır) |
 
 **Örnek**

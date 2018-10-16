@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 69f6ed7814feacbd5adf60325aae123d388ffb61
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: f523e2e2d55a34825bbb76a5a879c7c046b6b554
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39222797"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49318971"
 ---
 # <a name="customize-the-azure-ad-functionality-for-self-service-password-reset"></a>Azure AD Self Servis parola sıfırlama işlevselliği özelleştirme
 
@@ -55,7 +55,9 @@ Active Directory Federasyon Hizmetleri (AD FS) yöneticileri ekleyebileceğiniz 
 
 AD FS oturum açma sayfasına bir bağlantı eklemek için AD FS sunucusunda aşağıdaki komutu kullanın. Kullanıcıların SSPR iş akışı girmek için bu sayfayı kullanabilirsiniz.
 
-``` Set-ADFSGlobalWebContent -SigninPageDescriptionText "<p><A href='https://passwordreset.microsoftonline.com' target='_blank'>Can’t access your account?</A></p>" ```
+``` powershell
+Set-ADFSGlobalWebContent -SigninPageDescriptionText "<p><A href='https://passwordreset.microsoftonline.com' target='_blank'>Can’t access your account?</A></p>"
+```
 
 ## <a name="customize-the-sign-in-page-and-access-panel-look-and-feel"></a>Oturum açma sayfasında ve erişim paneli görünümünü özelleştirme
 
@@ -65,8 +67,8 @@ Seçtiğiniz grafikler aşağıdaki durumlarda gösterilir:
 
 * Bir kullanıcı, kullanıcı adlarını girdikten sonra
 * Kullanıcı özelleştirilmiş URL'ye erişirse:
-    * Geçirerek *whr* parametre parola sıfırlama sayfasına, gibi "https://login.microsoftonline.com/?whr=contoso.com"
-    * Geçirerek *kullanıcıadı* parametre parola sıfırlama sayfasına, gibi "https://login.microsoftonline.com/?username=admin@contoso.com"
+    * Geçirerek `whr` parametre parola sıfırlama sayfasına, gibi "https://login.microsoftonline.com/?whr=contoso.com"
+    * Geçirerek `username` parametre parola sıfırlama sayfasına, gibi "https://login.microsoftonline.com/?username=admin@contoso.com"
 
 Şirket markası makalesinde yapılandırma konusunda bilgi [şirket Azure AD'de oturum açma sayfanız için markası ekleme](../fundamentals/customize-branding.md).
 

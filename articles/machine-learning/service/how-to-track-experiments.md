@@ -9,30 +9,33 @@ ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/24/2018
-ms.openlocfilehash: 3256c8815b19f9b070cce3cd422f92c296e3e5c3
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: b3e1fd5331b97fc2120819b17f7fbba57dadf7b1
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49115191"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49345059"
 ---
 # <a name="track-experiments-and-training-metrics-in-azure-machine-learning"></a>Denemeler ve Azure Machine learning'de eğitim metriklerini izleme
 
 Azure Machine Learning hizmetinde denemelerinizi izleyebilir ve modeli oluşturma işlemi geliştirmek için ölçümleri izleyin. Bu makalede, günlük eğitim betiğinizi eklemek için farklı yollar hakkında bilgi edineceksiniz ile deneme gönderme **start_logging** ve **ScriptRunConfig**, ilerleme durumunu denetlemek nasıl bir çalışan iş ve çalıştırmanın sonuçlarını görüntüleme. 
 
+>[!NOTE]
+> Bu makalede kod Azure Machine Learning SDK sürüm 0.168 ile test edilmiştir 
+
 ## <a name="list-of-training-metrics"></a>Eğitim ölçümlerin listesi 
 
 Aşağıdaki ölçümler, bir denemeyi eğitim sırasında çalıştırılacak eklenebilir. Bir çalıştırmada izlenebilir daha ayrıntılı bir listesi görmek için bkz: [SDK başvuru belgeleri](https://docs.microsoft.com/python/api/overview/azure/azure-ml-sdk-overview?view=azure-ml-py).
 
-|Tür| Funkce Pythonu | Notlar|
-|----|:----:|:----:|
-|Skaler değerler | `run.log(name, value, description='')`| Ölçüm değeri, verilen ada sahip farklı çalıştır oturum açın. Bir ölçüm için bir çalıştırma günlüğe kaydetme, denemeyi çalıştırma kaydı depolanması, ölçüm neden olur.  Bu ölçüm oluşan bir vektörü olarak kabul sonucu bir çalıştırma içinde birden çok kez aynı Ölçüm oturum açabilirsiniz.|
-|Listeler| `run.log_list(name, value, description='')`|Bir liste ölçüm değeri, verilen ada sahip farklı çalıştır oturum açın.|
-|Satır| `run.log_row(name, description=None, **kwargs)`|Kullanarak *log_row* kwargs içinde anlatıldığı gibi bir tablo ölçüm sütunları oluşturur. Her adlandırılmış parametre ile belirtilen değer bir sütun oluşturur.  *log_row* rasgele bir tanımlama grubu ya da birden çok kez bir döngüde tam bir tablo oluşturmak için oturum volat pouze jednou.|
-|Tablo| `run.log_table(name, value, description='')`| Belirtilen ada sahip farklı çalıştır tablo ölçüm oturum. |
-|Görüntüler| `run.log_image(name, path=None, plot=None)`|Bir görüntü ölçümü çalıştırma kaydı için oturum açın. Bir görüntü dosyası veya bir matplotlib oturum log_image kullanın çizim farklı çalıştır.  Bu görüntüler, görünür ve çalışma kaydındaki benzer olacaktır.|
-|Bir etiketi| `run.tag(key, value=None)`|Bir dize anahtarı ve isteğe bağlı dize değeri olan çalıştırma etiketleyin.|
-|Dosya veya dizin karşıya yükleme|`run.upload_file(name, path_or_stream)`|Çalıştırma kaydı için bir dosya yükleyin. Çalıştırmaları otomatik olarak varsayılan olarak belirtilen çıkış dizini dosyasında yakala ". / çıkışlar" türleri çoğu çalıştırın.  Yalnızca ek dosyalar yüklenmek üzere gerektiğinde kullanım upload_file veya bir çıktı dizini belirtilmedi. Eklemeyi önerin `outputs` BT'nin çıkış dizinine karşıya, böylece adı. Tüm ilişkili olan dosyaları listeleyebilirsiniz bu çalıştırma kaydı tarafından çağırılır `run.get_file_names()`|
+|Tür| Funkce Pythonu | Örnek | Notlar|
+|----|:----|:----|:----|
+|Skaler değerler | `run.log(name, value, description='')`| `run.log("accuracy", 0.95) ` |Günlük bir sayısal veya dize değeri belirtilen ada sahip farklı çalıştır. Bir ölçüm için bir çalıştırma günlüğe kaydetme, denemeyi çalıştırma kaydı depolanması, ölçüm neden olur.  Bu ölçüm oluşan bir vektörü olarak kabul sonucu bir çalıştırma içinde birden çok kez aynı Ölçüm oturum açabilirsiniz.|
+|Listeler| `run.log_list(name, value, description='')`| `run.log_list("accuracies", [0.6, 0.7, 0.87])` | Belirtilen ada sahip farklı çalıştır değerlerin bir listesini oturum.|
+|Satır| `run.log_row(name, description=None, **kwargs)`| `run.log_row("Y over X", x=1, y=0.4)` | Kullanarak *log_row* kwargs içinde anlatıldığı gibi birden çok sütun içeren bir ölçü oluşturur. Her adlandırılmış parametre ile belirtilen değer bir sütun oluşturur.  *log_row* rasgele bir tanımlama grubu ya da birden çok kez bir döngüde tam bir tablo oluşturmak için oturum volat pouze jednou.|
+|Tablo| `run.log_table(name, value, description='')`| `run.log_table("Y over X", {"x":[1, 2, 3], "y":[0.6, 0.7, 0.89]})` | Sözlük nesnesi, verilen ada sahip farklı çalıştır oturum açın. |
+|Görüntüler| `run.log_image(name, path=None, plot=None)`| `run.log_image("ROC", plt)` | Görüntü çalıştırma kaydı için oturum açın. Bir görüntü dosyası veya bir matplotlib oturum log_image kullanın çizim farklı çalıştır.  Bu görüntüler, görünür ve çalışma kaydındaki benzer olacaktır.|
+|Bir etiketi| `run.tag(key, value=None)`| `run.tag("selected", "yes")` | Bir dize anahtarı ve isteğe bağlı dize değeri olan çalıştırma etiketleyin.|
+|Dosya veya dizin karşıya yükleme|`run.upload_file(name, path_or_stream)`| Run.upload_file ("best_model.pkl", ". / model.pkl") | Çalıştırma kaydı için bir dosya yükleyin. Çalıştırmaları otomatik olarak varsayılan olarak belirtilen çıkış dizini dosyasında yakala ". / çıkışlar" türleri çoğu çalıştırın.  Yalnızca ek dosyalar yüklenmek üzere gerektiğinde kullanım upload_file veya bir çıktı dizini belirtilmedi. Eklemeyi önerin `outputs` BT'nin çıkış dizinine karşıya, böylece adı. Tüm ilişkili olan dosyaları listeleyebilirsiniz bu çalıştırma kaydı tarafından çağırılır `run.get_file_names()`|
 
 > [!NOTE]
 > Skalerler, listeler, satır ve tablolar için ölçümleri türü olabilir: kayan noktalı sayı, tamsayı veya dize.
@@ -141,7 +144,7 @@ Bu örnek, yukarıda temel sklearn Ridge modeli genişletir. Alfa değerleri öl
 
   X, y = load_diabetes(return_X_y = True)
 
-  run = Run.get_submitted_run()
+  run = Run.get_context()
 
   X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.2, random_state = 0)
   data = {"train": {"X": X_train, "y": y_train},

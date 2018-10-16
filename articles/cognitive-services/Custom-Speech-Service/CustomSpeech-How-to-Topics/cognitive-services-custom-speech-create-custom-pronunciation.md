@@ -1,24 +1,25 @@
 ---
-title: Özel Söyleniş - özel konuşma hizmeti kullanın
-titlesuffix: Azure Cognitive Services
-description: Özel konuşma hizmeti sayesinde bir dil modeli oluşturmayı öğrenin.
+title: Azure'da özel konuşma hizmeti ile özel telaffuz kullanma | Microsoft Docs
+description: Bilişsel hizmetler, özel konuşma hizmeti ile bir dil modeli oluşturmayı öğrenin.
 services: cognitive-services
 author: PanosPeriorellis
-manager: cgronlun
+manager: onano
 ms.service: cognitive-services
 ms.component: custom-speech
-ms.topic: conceptual
+ms.topic: article
 ms.date: 11/23/2017
 ms.author: panosper
-ROBOTS: NOINDEX
-ms.openlocfilehash: 6442eec3e622282ecf6a3bf884110cd435fc18be
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 1e9de9755ef4baee7e2a0e6c093e2cf27cb4281f
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47223483"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49339823"
 ---
 # <a name="enable-custom-pronunciation"></a>Özel telaffuz etkinleştir
+
+[!INCLUDE [Deprecation note](../../../../includes/cognitive-services-custom-speech-deprecation-note.md)]
+
 Özel Söyleniş kullanıcıların fonetik formu ve görüntüleme bir sözcük veya terimi tanımlamasına olanak sağlar. Ürün adları veya kısaltmalar gibi özelleştirilmiş koşullarını işlemek için kullanışlıdır. İhtiyacınız olan telaffuz dosyası (Basit .txt dosyası).
 
 Şekli aşağıda verilmiştir. Bir tek bir .txt dosyasına birden çok özel telaffuz girişi girebilirsiniz. Yapı aşağıdaki gibidir:

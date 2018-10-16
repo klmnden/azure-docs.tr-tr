@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 07/06/2018
 ms.author: manayar
-ms.openlocfilehash: aed804a257376308c668ce0c2f3e8ce652ee9b3f
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.openlocfilehash: 0e73abf0fc170079d4b2bc093df45c998e68d184
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "42055559"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49320535"
 ---
 # <a name="map-virtual-networks-in-different-azure-regions"></a>Farklı Azure bölgelerindeki sanal ağları eşleme
 
@@ -106,7 +106,7 @@ Kaynak alt ağ ve hedef alt ağ farklı adres alanları varsa, hedef alt ağdaki
 -İle bir sonraki kullanılabilir IP'yi olan alt ağ adres aralığı sonundan devredilen VM'nin atanır: 10.0.0.254 </br>
 
 **Not:** terminoloji **üretim vNet** 'olağanüstü durum kurtarma yapılandırması sırasında eşlenmiş hedef ağ' denir.
-####<a name="2-if-the-target-network-chosen-is-not-the-production-vnet-but-has-the-same-subnet-range-as-production-network"></a>2. Seçilen hedef ağ üretim vNet değil ancak üretim ağı ile aynı alt ağ aralığında varsa 
+#### <a name="2-if-the-target-network-chosen-is-not-the-production-vnet-but-has-the-same-subnet-range-as-production-network"></a>2. Seçilen hedef ağ üretim vNet değil ancak üretim ağı ile aynı alt ağ aralığında varsa 
 
 - Kurtarma IP (hedef IP) statik bir IP ile olacaktır **aynı IP adresini** (yani, statik IP adresi yapılandırılmış) yük devretme için ayrılmış. Aynı IP adresi kullanılabilir sağlanır.
 - Ardından yapılandırılmış statik IP, bazı diğer VM/cihaza zaten atanmışsa, Kurtarma IP alt ağ adres aralığı sonundaki bir sonraki kullanılabilir IP'yi olacaktır.

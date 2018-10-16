@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/09/2018
+ms.date: 09/28/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: addb99478025757257bce465a02287ebedd40bb1
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: f0791173450d5db3b33762ec9d5ed5c1adf96788
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46314982"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49321640"
 ---
 # <a name="prerequisites-for-azure-ad-connect"></a>Azure AD Connect önkoşulları
 Bu konu ön koşullar ve Azure AD Connect için donanım gereksinimlerini açıklar.
@@ -29,11 +29,11 @@ Bu konu ön koşullar ve Azure AD Connect için donanım gereksinimlerini açık
 Azure AD Connect'i yüklemeden önce gereken birkaç şey vardır.
 
 ### <a name="azure-ad"></a>Azure AD
-* Bir Azure aboneliği veya bir [Azure deneme aboneliğine](https://azure.microsoft.com/pricing/free-trial/). Bu aboneliğin yalnızca olduğu için Azure AD Connect kullanarak değil ve Azure portalına erişim için gereklidir. Daha sonra PowerShell veya Office 365 kullanıyorsanız, Azure AD Connect'i kullanmak için bir Azure aboneliği gerekmez. Office 365 lisansı varsa, Office 365 portalını da kullanabilirsiniz. Ücretli bir Office 365 lisansı ile Azure portalında Office 365 portalından alabilirsiniz.
-  * Ayrıca [Azure portalında](https://portal.azure.com). Bu portalı bir Azure AD lisansı gerektirmez.
+* Azure AD kiracısı. İle edinebileceğinizi bir [Azure ücretsiz deneme](https://azure.microsoft.com/pricing/free-trial/). Azure AD Connect yönetmek için aşağıdaki portalları birini kullanabilirsiniz:
+  * [Azure portalında](https://portal.azure.com).
+  * [Office portalı](https://portal.office.com).  
 * [Ekleme ve etki alanı doğrulama](../active-directory-domains-add-azure-portal.md) Azure AD'de kullanmayı planlayın. Örneğin, contoso.com kullanıcılarınız için kullanın. ardından emin planlıyorsanız, bu etki alanı doğrulandı ve contoso.onmicrosoft.com varsayılan etki alanı yalnızca kullanmıyorsanız.
 * Azure AD kiracısı tarafından varsayılan 50 k nesneleri sağlar. Etki alanınızı doğrulayın, sınır 300 k nesnelere artar. Azure AD'de daha da fazla nesneleri ihtiyacınız varsa daha da artırılmış sınırda olacak şekilde bir destek talebi açmanız gerekir. 500'den fazla k nesneleri gerekiyorsa, Office 365, Azure AD temel, Azure AD Premium veya Enterprise Mobility ve güvenlik gibi bir lisans gerekir.
-* ADSyncPrep Azure AD Connect için Active Directory ortamınızı hazırlamak için kullanılan işlevleri sağlayan bir PowerShell Betiği modüldür.  ADSyncPrep gerektirir [Azure AD Microsoft çevrimiçi v1.1 PowerShell Modülü](https://docs.microsoft.com/powershell/azure/active-directory/install-msonlinev1?view=azureadps-1.0).  Sürüm 2 işe yaramaz. Modülünü kullanarak yükleyebileceğiniz `Install-Module` cmdlet'i.  Daha fazla bilgi için sağlanan bağlantıya bakın.
 
 ### <a name="prepare-your-on-premises-data"></a>Şirket içi verilerinizi hazırlayın
 * Kullanım [Idfix](https://support.office.com/article/Install-and-run-the-Office-365-IdFix-tool-f4bd2439-3e41-4169-99f6-3fabdfa326ac) Azure AD'ye eşitlemeden önce yinelemeleri ve dizininizdeki biçimlendirme sorunları gibi hataları belirlemek için ve Office 365.
@@ -47,7 +47,7 @@ Azure AD Connect'i yüklemeden önce gereken birkaç şey vardır.
 * Önerilir [Active Directory geri dönüşüm kutusunu etkinleştirme](how-to-connect-sync-recycle-bin.md).
 
 ### <a name="azure-ad-connect-server"></a>Azure AD Connect sunucusu
-* Azure AD Connect, Windows Server Essentials ve Small Business Server açıp yüklenemez. Sunucu Windows Server standard veya daha iyi kullanıyor olmanız gerekir.
+* Azure AD Connect yüklenemez Small Business Server veya Windows Server Essentials 2019 önce (Windows Server Essentials 2019 desteklenir). Sunucu Windows Server standard veya daha iyi kullanıyor olmanız gerekir.
 * Azure AD Connect sunucusu tam GUI yüklü olması gerekir. Bu **desteklenmiyor** sunucu Çekirdeğinde yüklemek için.
 * Azure AD Connect, Windows Server 2008 veya üzeri yüklü olmalıdır. Hızlı ayarları kullanarak, bu sunucu bir etki alanı denetleyicisi veya üye sunucu olabilir. Özel ayarları kullanırsanız, sunucunun tek başına olabilir ve bir etki alanına katılması gerekmez.
 * Windows Server 2008 veya Windows Server 2008 R2'de Azure AD Connect'i yüklemek, Windows Update'ten en son düzeltmeler uyguladığınızdan emin olun. Yükleme yüklenmemiş bir sunucuyla başlatmanız mümkün değil.
@@ -69,8 +69,8 @@ Azure AD Connect'i yüklemeden önce gereken birkaç şey vardır.
 
 ### <a name="accounts"></a>Hesaplar
 * Azure AD kiracısı için Azure AD genel yönetici hesabı ile tümleştirmek istediğiniz. Bu hesap olmalıdır bir **okul veya kuruluş hesabı** ve bir **Microsoft hesabı**.
-* Hızlı ayarları kullan veya Dirsync'ten yükseltme, yerel Active Directory'nizde için Kurumsal Yönetici hesabı olmalıdır.
-* [Active Directory'de hesapları](reference-connect-accounts-permissions.md) özel ayarlarını yükleme yolunu kullanır.
+* Hızlı ayarları kullan veya Dirsync'ten yükseltme, şirket içi Active Directory'niz için Kurumsal Yönetici hesabı olmalıdır.
+* [Active Directory'de hesapları](reference-connect-accounts-permissions.md) şirket içi Active Directory'niz için özel ayarlarını yükleme yolu veya bir kuruluş yöneticisi hesabı kullanıyorsanız.
 
 ### <a name="connectivity"></a>Bağlantı
 * Azure AD Connect sunucusu, hem intranet hem de internet DNS çözümlemesi gerekir. DNS sunucusu adları hem şirket içi Active Directory'niz ve Azure AD uç noktaları çözümleyebilmesi gerekir.
@@ -184,7 +184,6 @@ Active Directory Federasyon Hizmetleri veya Web uygulama proxy'si dağıtmak iç
 Azure AD Connect, Azure AD Connect'in yüklü olduğu sunucuya yüklenen bileşenlerin bir listesi verilmiştir. Bu liste için temel bir Express yüklemesidir. Eşitleme hizmetlerini yükleme sayfasında farklı bir SQL Server'ı kullanmayı seçerseniz, SQL Express LocalDB yerel olarak yüklenmedi.
 
 * Azure AD Connect Health
-* Microsoft Online Services oturum açma Yardımcısı (ancak hiçbir bağımlılığı yüklü) BT uzmanları için
 * Microsoft SQL Server 2012 komut satırı yardımcı programları
 * Microsoft SQL Server 2012 Express LocalDB
 * Microsoft SQL Server 2012 yerel istemcisi

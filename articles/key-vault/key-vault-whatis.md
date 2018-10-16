@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/05/2018
 ms.author: barclayn
-ms.openlocfilehash: fa8605f4822ff0ee5ba25ee0baca4fb2fec83b17
-ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
+ms.openlocfilehash: 7e98853b5b2ccc779dca970337fc44217977c8c9
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/20/2018
-ms.locfileid: "46497612"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49342578"
 ---
 # <a name="what-is-azure-key-vault"></a>Azure Anahtar Kasası nedir?
 
@@ -35,7 +35,7 @@ Azure Key Vault, gizli dizilerin güvenli bir şekilde depolanması ve bunlara e
 
 Temelde anahtar Kasası'na kimlik doğrulaması için izleyebileceğiniz 3 yol vardır
 
-1. **Kullanarak [yönetilen hizmet kimliği](https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/overview)**  (**önerilen ve en iyi Practise**): azure'da bir sanal makinede bir uygulamayı dağıttığınızda, erişimi olan, sanal makine için bir kimlik atayabilirsiniz. Anahtar kasası için. Listelenen diğer azure kaynakları için kimlikleri de atayabilirsiniz [burada](https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/overview). Bu yaklaşımın avantajı, uygulama / hizmet ilk gizli döndürmesini yönetmeye değil. Azure, otomatik olarak kimliğini döndürür. 
+1. **Kullanarak [kimliklerini Azure kaynakları için yönetilen](https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/overview)**  (**önerilen ve en iyi**): azure'da bir sanal makinede bir uygulamayı dağıttığınızda, sanal makinenize bir kimlik atayabilir. Bu anahtar kasası erişimi vardır. Listelenen diğer azure kaynakları için kimlikleri de atayabilirsiniz [burada](https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/overview). Bu yaklaşımın avantajı, uygulama / hizmet ilk gizli döndürmesini yönetmeye değil. Azure, otomatik olarak kimliğini döndürür. 
 2. **Hizmet sorumlusu ve sertifika kullanılarak:** 2 seçenek bir hizmet sorumlusu ve anahtar kasası erişimi olan ilişkili bir sertifika kullanmaktır. Uygulama sahibi veya Geliştirici sertifika döndürme kullanýldýðýnýanýmsama olduğunu ve bu nedenle bu önerilmez
 3. **Hizmet sorumlusu gizli anahtarı ile:** 3 (değil tercih edilen seçenek) anahtar Kasası'na kimlik doğrulaması için bir hizmet sorumlusu ve bir gizli dizi kullanmak için bir seçenektir
 

@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 057af5e0e5b467ab60e8de7534e9f4428b96c3dc
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 668882b8b39052c3c8e7d7b72c881a64c5c05a10
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46298328"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49321810"
 ---
 # <a name="troubleshoot-self-service-password-reset"></a>Self Servis parola sıfırlama sorunlarını giderme
 
@@ -173,16 +173,14 @@ Daha fazla ayrıntı için güncelleştirilmiş listesini başvuru [Microsoft Az
 
 Daha fazla bilgi için bağlantı önkoşulları gözden geçirin [Azure AD Connect önkoşulları](../hybrid/how-to-connect-install-prerequisites.md) makalesi.
 
-
-
 ### <a name="restart-the-azure-ad-connect-sync-service"></a>Azure AD Connect eşitleme hizmetini yeniden başlatın
 
 Bağlantı sorunları veya hizmeti ile geçici diğer sorunları gidermek için Azure AD Connect eşitleme hizmeti yeniden başlatın:
 
    1. Bir yönetici olarak seçin **Başlat** Azure AD Connect'i çalıştıran sunucu üzerinde.
-   2. ENTER **services.msc** arama alanını seçip **Enter**.
-   3. Aranacak **Microsoft Azure AD eşitleme** girişi.
-   4. Servis girişine sağ tıklayın, **yeniden**ve işlemin tamamlanmasını bekleyin.
+   1. ENTER **services.msc** arama alanını seçip **Enter**.
+   1. Aranacak **Microsoft Azure AD eşitleme** girişi.
+   1. Servis girişine sağ tıklayın, **yeniden**ve işlemin tamamlanmasını bekleyin.
 
    ![Azure AD eşitleme hizmetini yeniden başlatın][Service restart]
 
@@ -193,15 +191,15 @@ Bu adımlar, bulut hizmeti, bağlantıyı yeniden kurun ve herhangi bir kesinti 
 Bağlantı sorunlarını gidermek için devre dışı bırakın ve sonra da parola geri yazma özelliğini yeniden etkinleştirin:
 
    1. Yönetici olarak, Azure AD Connect yapılandırma sihirbazını açın.
-   2. İçinde **Azure ad Connect**, Azure AD genel yönetici kimlik bilgilerinizi girin.
-   3. İçinde **AD DS'ye Bağlan**, AD etki alanı Hizmetleri yönetici kimlik bilgilerinizi girin.
-   4. İçinde **kullanıcılarınız eşsiz şekilde tanımlanıyor**seçin **sonraki** düğmesi.
-   5. İçinde **isteğe bağlı özellikler**temizleyin **parola geri yazma** onay kutusu.
-   6. Seçin **sonraki** gelene kadar değiştirmeden herhangi bir şey kalan iletişim kutusu sayfaları aracılığıyla **yapılandırma için hazır** sayfası.
-   7. Emin **sayfasını yapılandırmak hazır** gösterir **parola geri yazma** olarak seçeneğini **devre dışı** seçip yeşil **yapılandırma** Değişikliklerinizi kaydetmek için düğme.
-   8. İçinde **tamamlandı**temizleyin **Şimdi Eşitle** seçeneğini belirtin ve ardından **son** sihirbazı kapatın.
-   9. Azure AD Connect yapılandırma sihirbazını açın.
-   10. 2-8 dışında seçtiğinizden emin olun, arasındaki adımları yineleyin **parola geri yazma** seçeneğini **isteğe bağlı özellikler** hizmeti yeniden etkinleştirmek için sayfa.
+   1. İçinde **Azure ad Connect**, Azure AD genel yönetici kimlik bilgilerinizi girin.
+   1. İçinde **AD DS'ye Bağlan**, AD etki alanı Hizmetleri yönetici kimlik bilgilerinizi girin.
+   1. İçinde **kullanıcılarınız eşsiz şekilde tanımlanıyor**seçin **sonraki** düğmesi.
+   1. İçinde **isteğe bağlı özellikler**temizleyin **parola geri yazma** onay kutusu.
+   1. Seçin **sonraki** gelene kadar değiştirmeden herhangi bir şey kalan iletişim kutusu sayfaları aracılığıyla **yapılandırma için hazır** sayfası.
+   1. Emin **sayfasını yapılandırmak hazır** gösterir **parola geri yazma** olarak seçeneğini **devre dışı** seçip yeşil **yapılandırma** Değişikliklerinizi kaydetmek için düğme.
+   1. İçinde **tamamlandı**temizleyin **Şimdi Eşitle** seçeneğini belirtin ve ardından **son** sihirbazı kapatın.
+   1. Azure AD Connect yapılandırma sihirbazını açın.
+   1. 2-8 dışında seçtiğinizden emin olun, arasındaki adımları yineleyin **parola geri yazma** seçeneğini **isteğe bağlı özellikler** hizmeti yeniden etkinleştirmek için sayfa.
 
 Bu adımlar, müşterilerimize bulut hizmeti, bağlantıyı yeniden kurun ve herhangi bir kesinti yaşıyor olabilir çözümleyin.
 
@@ -215,10 +213,11 @@ Yalnızca, daha önce açıklanan ilk iki adımını denemeden sonra bu adımı 
 
 > [!WARNING]
 > Kullanıma hazır eşitleme kurallarını özelleştirdiyseniz *yükseltme işlemine devam etmeden önce yedeklemek ve işiniz bittiğinde sonra sonra el ile bunları yeniden dağıtın.*
+>
 
-   1. Azure AD Connect'ten en son sürümünü indirin [Microsoft Download Center](http://go.microsoft.com/fwlink/?LinkId=615771).
-   2. Azure AD Connect'in yüklü olduğundan, Azure AD Connect yüklemenizin en son sürüme güncelleştirmek için bir yerinde yükseltme gerçekleştirmek için gerekir.
-   3. İndirilen paketi yürütün ve izleyin ekrandaki yönergeleri, Azure AD Connect makinenizi.
+1. Azure AD Connect'ten en son sürümünü indirin [Microsoft Download Center](http://go.microsoft.com/fwlink/?LinkId=615771).
+1. Azure AD Connect'in yüklü olduğundan, Azure AD Connect yüklemenizin en son sürüme güncelleştirmek için bir yerinde yükseltme gerçekleştirmek için gerekir.
+1. İndirilen paketi yürütün ve izleyin ekrandaki yönergeleri, Azure AD Connect makinenizi.
 
 Önceki adımları, müşterilerimize bulut hizmeti, bağlantıyı yeniden kurun ve herhangi bir kesinti yaşıyor olabilir çözümlemek.
 
@@ -228,34 +227,33 @@ Azure AD Connect sunucusu en son sürümünü yükleme sorunu çözmezse, devre 
 
 Azure AD Connect'in, Active Directory gerektirir **parolayı Sıfırla** parola geri yazma gerçekleştirme izni. Azure AD Connect belirli şirket içi Active Directory kullanıcı hesabı için gerekli izne sahip olup olmadığını öğrenmek için Windows etkili izne özelliğini kullanabilirsiniz:
 
-   1. Azure AD Connect sunucusu için oturum açın ve başlangıç **Eşitleme Hizmeti Yöneticisi** seçerek **Başlat** > **eşitleme hizmeti**.
-   2. Altında **Bağlayıcılar** sekmesinde, şirket içi seçin **Active Directory Domain Services** bağlayıcı tıklayın ve ardından **özellikleri**.  
-
+1. Azure AD Connect sunucusu için oturum açın ve başlangıç **Eşitleme Hizmeti Yöneticisi** seçerek **Başlat** > **eşitleme hizmeti**.
+1. Altında **Bağlayıcılar** sekmesinde, şirket içi seçin **Active Directory Domain Services** bağlayıcı tıklayın ve ardından **özellikleri**.  
    ![Etkili izne - 2. adım](./media/active-directory-passwords-troubleshoot/checkpermission01.png)  
   
-   3. Açılır pencerede seçin **Active Directory ormanına Bağlan** ve Not **kullanıcı adı** özelliği. Bu özellik, dizin eşitlemeyi gerçekleştirmek için Azure AD Connect tarafından kullanılan AD DS hesabı olur. Parola geri yazma gerçekleştirmek Azure AD Connect için AD DS hesap parolasını izni sıfırlamanız gerekir.  
+1. Açılır pencerede seçin **Active Directory ormanına Bağlan** ve Not **kullanıcı adı** özelliği. Bu özellik, dizin eşitlemeyi gerçekleştirmek için Azure AD Connect tarafından kullanılan AD DS hesabı olur. Parola geri yazma gerçekleştirmek Azure AD Connect için AD DS hesap parolasını izni sıfırlamanız gerekir.  
    
    ![Etkili izne - 3. adım](./media/active-directory-passwords-troubleshoot/checkpermission02.png) 
   
-   4. Bir şirket içi etki alanı denetleyicisine oturum açın ve başlangıç **Active Directory Kullanıcıları ve Bilgisayarları** uygulama.
-   5. Seçin **görünümü** emin **Gelişmiş Özellikler** seçeneği etkinleştirilir.  
+1. Bir şirket içi etki alanı denetleyicisine oturum açın ve başlangıç **Active Directory Kullanıcıları ve Bilgisayarları** uygulama.
+1. Seçin **görünümü** emin **Gelişmiş Özellikler** seçeneği etkinleştirilir.  
    
    ![Etkili izne - 5. adım](./media/active-directory-passwords-troubleshoot/checkpermission03.png) 
   
-   6. Doğrulamak istediğiniz Active Directory kullanıcı hesabı için bakın. Hesap adına sağ tıklayıp **özellikleri**.  
+1. Doğrulamak istediğiniz Active Directory kullanıcı hesabı için bakın. Hesap adına sağ tıklayıp **özellikleri**.  
    
    ![Etkili izne - 6. adım](./media/active-directory-passwords-troubleshoot/checkpermission04.png) 
 
-   7. Açılır pencerede Git **güvenlik** sekmenize **Gelişmiş**.  
+1. Açılır pencerede Git **güvenlik** sekmenize **Gelişmiş**.  
    
    ![Etkili izne - 7. adım](./media/active-directory-passwords-troubleshoot/checkpermission05.png) 
    
-   8. İçinde **yönetici için Gelişmiş güvenlik ayarları** açılır pencere, Git **etkili erişim** sekmesi.
-   9. Seçin **bir kullanıcı seçin**, Azure AD tarafından kullanılan AD DS hesabı seçin (bkz. 3. adım) bağlanın ve ardından **etkili erişimi görüntüle**.  
-   
+1. İçinde **yönetici için Gelişmiş güvenlik ayarları** açılır pencere, Git **etkili erişim** sekmesi.
+1. Seçin **bir kullanıcı seçin**, Azure AD tarafından kullanılan AD DS hesabı seçin (bkz. 3. adım) bağlanın ve ardından **etkili erişimi görüntüle**.
+
    ![Etkili izne - 9. adım](./media/active-directory-passwords-troubleshoot/checkpermission06.png) 
   
-   10. Ekranı aşağı kaydırın ve Ara **parolayı Sıfırla**. Giriş bir onay işareti varsa, AD DS hesabı seçili Active Directory kullanıcı hesabının parolasını sıfırlama izni vardır.  
+1. Ekranı aşağı kaydırın ve Ara **parolayı Sıfırla**. Giriş bir onay işareti varsa, AD DS hesabı seçili Active Directory kullanıcı hesabının parolasını sıfırlama izni vardır.  
    
    ![Etkili izne - 10. adım](./media/active-directory-passwords-troubleshoot/checkpermission07.png)  
 
@@ -285,8 +283,6 @@ Düzgün bir şekilde yardımcı olması için bir servis talebi açılırken m�
     * Bu, bir yalnızca bulut kullanıcı mı?
 * **Lisanslama**: bir Azure AD Premium veya Azure AD temel lisansı atanmış kullanıcı yok?
 * **Uygulama olay günlüğüne**: parola geri yazma özelliğini kullanıyorsanız ve şirket içi altyapınızı hatası ise, uygulama olay günlüğü Azure AD Connect sunucusundan sıkıştırılmış bir kopyasını içerir.
-
-
 
 [Service restart]: ./media/active-directory-passwords-troubleshoot/servicerestart.png "Azure AD eşitleme hizmetini yeniden başlatın"
 [Support code]: ./media/active-directory-passwords-troubleshoot/supportcode.png "Destek kodu pencerenin alt sağ tarafta bulunur"

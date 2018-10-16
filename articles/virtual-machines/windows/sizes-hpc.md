@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 07/06/2018
+ms.date: 10/12/2018
 ms.author: jonbeck
-ms.openlocfilehash: 31e81741d2a627888e478b3871bdbab4e6b6d6f5
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: e00a4c5f5ee307a2d574702844e481894d28cb93
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37902648"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49340316"
 ---
 # <a name="high-performance-compute-vm-sizes"></a>Yüksek performanslı bilgi işlem VM boyutları
 
@@ -50,12 +50,19 @@ ms.locfileid: "37902648"
   
   Daha fazla bilgi için [sanal makine uzantıları ve özellikleri](extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Uzantıları ile dağıtılmış VM'ler için çalışabilir [Klasik dağıtım modeli](classic/manage-extensions.md).
 
+### <a name="cluster-configuration-options"></a>Küme yapılandırma seçenekleri
 
-## <a name="using-hpc-pack"></a>HPC Pack kullanma
+Azure, RDMA ağ aracılığıyla iletişim kuran bir Windows HPC VM kümeleri oluşturmak için çeşitli seçenekler sunar dahil olmak üzere: 
 
-[Microsoft HPC Pack](https://technet.microsoft.com/library/jj899572.aspx), Microsoft'un ücretsiz HPC küme ve iş yönetimi çözümü olan Windows tabanlı MPI uygulamaları ve diğer HPC iş yüklerini çalıştırmak için bir seçenek, Azure'da bir işlem kümesini oluşturun. HPC Pack 2012 R2 ve sonraki sürümler için RDMA özellikli VM'ler üzerinde dağıtılan Azure RDMA ağ kullanan MS MPI çalışma zamanı ortamı içerir.
+* **Sanal makineler** -RDMA özellikli HPC VM'lerin aynı kullanılabilirlik (Azure Resource Manager dağıtım modeli kullandığınız zaman) kümesinde dağıtın. Klasik dağıtım modelini kullanıyorsanız, aynı bulut hizmetindeki sanal makineleri dağıtın. 
 
+* **Sanal makine ölçek kümeleri** - bir VM ölçek kümesi, tek bir yerleştirme grubu dağıtımı sınırladığınızdan emin olun. Örneğin, bir Resource Manager şablonunda ayarlamak `singlePlacementGroup` özelliğini `true`. 
 
+* **Azure CycleCloud** -bir HPC kümesi oluşturma [Azure CycleCloud](/azure/cyclecloud/) Windows düğümlerinde MPI işlerini çalıştırma için.
+
+* **Azure Batch** -oluşturma bir [Azure Batch](/azure/batch/) Windows Server'da MPI iş yüklerini çalıştırmak için havuz işlem düğümlerini. Daha fazla bilgi için [kullanım RDMA özellikli veya GPU özellikli örnekler Batch havuzlarında](../../batch/batch-pool-compute-intensive-sizes.md). Ayrıca bkz: [Batch Shipyard](https://github.com/Azure/batch-shipyard) toplu olarak kapsayıcı tabanlı iş yüklerini çalıştırmaya yönelik proje.
+
+* **Microsoft HPC Pack** - [HPC Pack](https://docs.microsoft.com/powershell/high-performance-computing/overview) RDMA Özellikli Windows Vm'lerinde dağıtılan Azure RDMA ağ kullanan MS MPI çalışma zamanı ortamı içerir. Örneğin dağıtımlar için bkz. [MPI uygulamalarını çalıştırmak için HPC Pack ile Windows RDMA kümesi ayarlama](classic/hpcpack-rdma-cluster.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
 ## <a name="other-sizes"></a>Diğer boyutları
 - [Genel amaçlı](sizes-general.md)

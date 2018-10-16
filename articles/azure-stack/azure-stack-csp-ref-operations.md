@@ -11,33 +11,37 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2018
+ms.date: 10/15/2018
 ms.author: mabrigg
 ms.reviewer: alfredo
-ms.openlocfilehash: 9396d49f455f8f4af1abf7f0020e95e8fd0a14cc
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 67e1e22bc5569e7d6e20332ee86ffe4c7dd6a354
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45729595"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49343852"
 ---
 # <a name="manage-tenant-registration-in-azure-stack"></a>Azure Stack Kiracı kaydı yönetme
 
 *İçin geçerlidir: Azure Stack tümleşik sistemleri*
 
-Bu makalede operations kayıtlarınızı Kiracı ve Kiracı kullanımının nasıl izleneceğini yönetmek için kullanabileceğiniz ilgili ayrıntıları içerir. Ekleme, liste, ya da Kiracı eşlemeleri kaldırmak hakkında ayrıntılı bilgi bulabilirsiniz. İzleme kullanımınızı yönetmek için PowerShell veya faturalandırma API'si uç noktaları'nı kullanabilirsiniz.
+Bu makalede, kayıt işlemleri ilgili ayrıntıları içerir. Bu işlemler için kullanabilirsiniz:
+- Kiracı kayıtları Yönet
+- Kiracı kullanım izlemeyi Yönet
+
+Ekleme, liste, ya da Kiracı eşlemeleri kaldırmak hakkında ayrıntılı bilgi bulabilirsiniz. İzleme kullanımınızı yönetmek için PowerShell veya faturalandırma API'si uç noktaları'nı kullanabilirsiniz. Ekleme, liste, ya da Kiracı eşlemeleri kaldırmak hakkında ayrıntılı bilgi bulabilirsiniz. İzleme kullanımınızı yönetmek için PowerShell veya faturalandırma API'si uç noktaları'nı kullanabilirsiniz.
 
 ## <a name="add-tenant-to-registration"></a>Kiracı kayıt ekleme
 
-Böylece kendi Azure Active Directory (Azure AD) kiracısı ile bağlı bir Azure aboneliği altında bildirilen kullanımları kaydınızı için yeni bir kiracı eklemek istediğiniz zaman bu işlemi kullanın.
+Yeni bir kiracı için kaydınızı eklemek istediğinizde işlemi kullanın. Kiracı kullanımı, Azure Active Directory (Azure AD) kiracısı ile bağlı bir Azure aboneliği kapsamında raporlanır.
 
-Bir kiracı ile ilişkili aboneliği değiştirmek istiyorsanız bu işlemi de kullanabilirsiniz, PUT/New-AzureRMResource yeniden çağırabilirsiniz. Eski eşleme üzerine yazılır.
+Bir kiracı ile ilişkili aboneliği değiştirmek istiyorsanız işlemi de kullanabilirsiniz. Önceki eşleme üzerine yazmak için PUT/New-AzureRMResource çağırın.
 
-Yalnızca bir Azure aboneliği bir kiracı ile ilişkilendirilmiş olabileceğini unutmayın. İkinci bir abonelik için mevcut bir kiracınız eklemeyi denerseniz, ilk aşırı yazılı aboneliktir. 
+Tek bir Azure aboneliğinde bir kiracıyla ilişkilendirebilirsiniz. İkinci bir abonelik için mevcut bir kiracınız eklemeyi denerseniz, ilk aşırı yazılı aboneliktir.
 
 ### <a name="use-api-profiles"></a>API profillerini kullanma
 
-Bu makalede yer alan cmdlet'ler, PowerShell çalıştırırken bir API profili belirtmenizi gerektirir. API profilleri, bir Azure kaynak sağlayıcıları ve API sürümlerini kümesini temsil eder. Doğru sürüme sahip API ile birden çok Azure Bulutu, örneğin kullanılırken kullanmanıza yardımcı genel Azure ve Azure Stack ile çalışırken. Profilleri, yayın tarihi ile eşleşen bir ada göre belirtilir. Bu makalede ile kullanmanız gerekecektir **2017-09-03** profili.
+Kayıt cmdlet'leri, PowerShell çalıştırırken bir API profili belirtmenizi gerektirir. API profilleri, bir Azure kaynak sağlayıcıları ve API sürümlerini kümesini temsil eder. Birden çok Azure bulut ile etkileşim kurulurken API doğru sürümünü kullanmanıza yardımcı olurlar. Örneğin, genel Azure ve Azure Stack ile çalışırken, birden çok bulut ile çalışırsınız. Profilleri, yayın tarihi ile eşleşen bir ad belirtin. Kullanmanız gerekecektir **2017-09-03** profili.
 
 Azure Stack ve API profilleri hakkında daha fazla bilgi için bkz. [yönetme API sürümü profillerini Azure Stack'te](user/azure-stack-version-profiles.md). PowerShell ile API profili ile çalışır hakkında yönergeler için bkz: [PowerShell'de Azure Stack için kullanım API sürümü profillerini](user/azure-stack-version-profiles-powershell.md).
 
@@ -46,7 +50,7 @@ Azure Stack ve API profilleri hakkında daha fazla bilgi için bkz. [yönetme AP
 | Parametre                  | Açıklama |
 |---                         | --- |
 | registrationSubscriptionID | İlk kayıt için kullanılan Azure aboneliği. |
-| customerSubscriptionID     | Kaydedilecek müşteriye ait Azure aboneliği (Azure Stack değil). Oluşturulmalıdır bulut hizmeti sağlayıcısı (CSP) teklifte. Uygulamada, bu iş ortağı merkezi üzerinden anlamına gelir. Bir müşteri birden fazla Kiracı varsa, bu abonelik Azure Stack açarken kullanılacak kiracıdaki oluşturulması gerekir. |
+| customerSubscriptionID     | Kaydedilecek müşteriye ait Azure aboneliği (Azure Stack değil). Oluşturulmalıdır iş ortağı merkezi aracılığıyla bulut hizmeti sağlayıcısı (CSP) teklifte. Bir müşteri birden fazla Kiracı varsa, Azure Stack açmak bir kiracı için bir abonelik oluşturuldu. |
 | Kaynak grubu              | Kaydınızı depolandığı Azure kaynak grubunda. |
 | registrationName           | Azure Stack kayıt adı. Bu, Azure'da depolanan bir nesnedir. Form azurestack-Cloudıd Azure Stack dağıtımınıza bulut kimliği olduğu Cloudıd içinde genellikle adıdır. |
 

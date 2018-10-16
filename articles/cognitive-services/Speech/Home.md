@@ -10,23 +10,21 @@ ms.component: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
-ROBOTS: NOINDEX
-ms.openlocfilehash: ca1045bcec889e1de47b44a44322579f8b60598f
-ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
+ms.openlocfilehash: 960d2d402f223b306aa6ff05b567d13525e3d525
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47586212"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49340367"
 ---
 # <a name="what-is-bing-speech"></a>Bing konuşma tanıma nedir?
+
+[!INCLUDE [Deprecation note](../../../includes/cognitive-services-bing-speech-api-deprecation-note.md)]
 
 Bulut tabanlı Microsoft Bing konuşma tanıma API'si, geliştiricilerin uygulamalarında, sesli komut denetimi, doğal konuşma konuşma ve konuşma transkripsiyonu ve dikte kullanarak kullanıcı iletişim gibi konuşma tanıma özellikli güçlü özellikler oluşturmak için kolay bir yol sağlar. Microsoft konuşma tanıma API'si her ikisini de destekler *Konuşmayı metne dönüştürme* ve *metin okuma* dönüştürme.
 
 - **Konuşmayı metne dönüştürme** API İnsan konuşma uygulamanızı denetlemek için komutları veya girdi kullanılabilir metne dönüştürür.
 - **Metin okuma** API uygulamanızın kullanıcıya çalınabilecek ses akışları metin dönüştürür.
-
-> [!NOTE] 
-> Eylül 2018'den yeni beri [konuşma hizmeti](../speech-service/index.yml) sunuldu haline gelmiştir. Öneriyoruz [ücretsiz denemenin](../speech-service/get-started.md).
 
 ## <a name="speech-to-text-speech-recognition"></a>Konuşmadan metne (konuşma tanıma)
 

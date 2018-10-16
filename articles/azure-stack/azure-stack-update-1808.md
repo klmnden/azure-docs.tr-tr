@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/12/2018
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: 2e913881faadd4892ad1ebc8cb404efe6489eb0d
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.openlocfilehash: 2e40f0520c0f5e605974f883b3327699ff26313e
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49310907"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49321827"
 ---
 # <a name="azure-stack-1808-update"></a>Azure Stack 1808 güncelleştirme
 
@@ -145,13 +145,6 @@ Bu güncelleştirme ayrıca L1 Terminal içinde açıklanan hata (L1TF) olarak b
 
 ### <a name="known-issues-with-the-update-process"></a>Güncelleştirme işlemi ile ilgili bilinen sorunlar
 
-<!-- TBD - IS -->
-- Art arda görünür ve daha sonra Azure Stack sisteminizde kaybolur aşağıdaki uyarılar görebilirsiniz:
-   - *Altyapı rol örneği kullanılamıyor*
-   - *Ölçek birimi düğümü çevrimdışı.*
-   
-  Lütfen çalıştırın [Test AzureStack](azure-stack-diagnostic-test.md) altyapı rol örneklerinin durumunu doğrulamak ve birim düğümlerini ölçeklendirme cmdlet'i. Hiçbir sorun tarafından algılanan [Test AzureStack](azure-stack-diagnostic-test.md), bu uyarılar yoksayabilirsiniz. Bir sorun algılandığında, altyapı rol örneği veya Yönetim Portalı veya PowerShell kullanarak bir düğümü başlatma girişiminde bulunabilir.
-
 - Çalıştırdığınızda [Test AzureStack](azure-stack-diagnostic-test.md) 1808 Güncelleştirme tamamlandıktan sonra temel kart yönetim denetleyicisi (BMC) bir uyarı iletisi görüntülenir. Bu uyarıyı güvenle yok sayabilirsiniz.
 
 <!-- 2468613 - IS --> 
@@ -174,7 +167,7 @@ Bu derleme sürümü için yükleme sonrası bilinen sorunlar verilmiştir.
 
 ### <a name="portal"></a>Portal
 
-- Azure Stack teknik belgeleri, en son sürüm üzerinde odaklanır. Sürümler arasında Portal değişiklikleri nedeniyle Azure Stack portalı kullanırken gördüğünüz belgelerinde gördüğünüz verilerden değişebilir. 
+- Azure Stack teknik belgeleri, Azure Stack en son sürüm üzerinde odaklanır. Sürümler arasında Portal değişiklikleri nedeniyle Azure Stack portalı kullanırken gördüğünüz belgelerinde gördüğünüz verilerden değişebilir. 
 
 <!-- TBD - IS ASDK --> 
 - Bir boş Pano portalında görebilirsiniz. Pano kurtarmak için **Pano düzenleme**, sonra sağ tıklayıp **varsayılan durumuna sıfırlansın**.
@@ -214,6 +207,14 @@ Bu derleme sürümü için yükleme sonrası bilinen sorunlar verilmiştir.
 
 
 ### <a name="health-and-monitoring"></a>Sistem durumu ve izleme
+
+<!-- TBD - IS -->
+- Art arda görünür ve daha sonra Azure Stack sisteminizde kaybolur aşağıdaki uyarılar görebilirsiniz:
+   - *Altyapı rol örneği kullanılamıyor*
+   - *Ölçek birimi düğümü çevrimdışı.*
+   
+  Lütfen çalıştırın [Test AzureStack](azure-stack-diagnostic-test.md) altyapı rol örneklerinin durumunu doğrulamak ve birim düğümlerini ölçeklendirme cmdlet'i. Hiçbir sorun tarafından algılanan [Test AzureStack](azure-stack-diagnostic-test.md), bu uyarılar yoksayabilirsiniz. Bir sorun algılandığında, altyapı rol örneği veya Yönetim Portalı veya PowerShell kullanarak bir düğümü başlatma girişiminde bulunabilir.
+
 <!-- 1264761 - IS ASDK --> 
 - Uyarıları görebilirsiniz **sistem durumu denetleyicisi** aşağıdaki ayrıntıları olan bir bileşeni:  
 

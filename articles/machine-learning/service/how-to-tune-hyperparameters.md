@@ -9,12 +9,12 @@ ms.service: machine-learning
 ms.component: core
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 1171ff64bea99d7bc736a5a4fe88d9c08324b9d9
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: 950d985ca87cce484edeb7930ca1bda34d812f33
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49116479"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49344141"
 ---
 # <a name="tune-hyperparameters-for-your-model"></a>İçin model ayarlama hiperparametreleri
 
@@ -36,6 +36,8 @@ Derin öğrenme / machine learning senaryolarda model performansını yoğun ola
 
 Azure Machine Learning, Hiper parametre araştırma verimli bir şekilde otomatik hale getirmek önemli zamandan ve kaynaklardan tasarruf sağlar. Hiper parametre değerleri aralığı belirtin ve eğitim en fazla çalıştırır. Sistem sonra otomatik olarak farklı parametre yapılandırmaları ile birden çok eş zamanlı çalıştırma başlatır ve seçtiğiniz bir ölçüme göre ölçülen en iyi performansı sonuçlanır yapılandırma bulur. Zayıf performanslı eğitim çalıştırmalarının otomatik olarak erken sonlandırıldı, bilgi işlem kaynaklarının gereksiz azaltır. Bu kaynaklar, diğer hiper parametre yapılandırmalarını keşfetmek için bunun yerine kullanılır.
 
+>[!NOTE]
+> Bu makalede kod Azure Machine Learning SDK sürüm 0.168 ile test edilmiştir 
 
 ## <a name="define-search-space"></a>Arama alanı tanımlayın
 
@@ -164,7 +166,7 @@ Bu ölçüm, aşağıdaki örnek kod parçacığı ile eğitim betiğinizde gün
 
 ```Python
 from azureml.core.run import Run
-run_logger = Run.get_submitted_run()
+run_logger = Run.get_context()
 run_logger.log("accuracy", float(val_accuracy))
 ```
 

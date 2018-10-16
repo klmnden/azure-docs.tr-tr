@@ -12,13 +12,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 10/05/2018
-ms.openlocfilehash: c564dac4ec31f48b71cfdb0d7c5dd596ddd0df7e
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.date: 10/15/2018
+ms.openlocfilehash: 86031c6a51197247fc327179c61076df0727e680
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48868845"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49342492"
 ---
 # <a name="the-azure-sql-database-service"></a>Azure SQL veritabanı hizmeti
 
@@ -101,7 +101,7 @@ SQL Veritabanı ayrıca izlemeyi kolaylaştırmak için [ölçümler ve tanılam
 
 ## <a name="availability-capabilities"></a>Kullanılabilirlik özellikleri
 
-Azure'ın Microsoft yönetimindeki veri merkezlerinin küresel bir ağı tarafından desteklenen ve endüstri lideri niteliğinde %99,99'luk bir kullanılabilirlik oranı sunan hizmet düzeyi sözleşmesi [(SLA)](http://azure.microsoft.com/support/legal/sla/), uygulamanızın 7/24 kesintiye uğramamasına yardımcı olur. Azure platformu tüm Azure SQL Veritabanlarını tam kapsamlı olarak yönetir ve veri kaybı yaşanmayacağı ve yüksek oranda veri kullanılabilirliği garantisi verir. Azure düzeltme eki uygulama, yedekleme, çoğaltma, hata algılama, arka plandaki potansiyel donanım, yazılım veya ağ arızaları, hata giderme, yük devretme, veritabanı yükseltmesi ve diğer bakım görevlerini otomatik olarak gerçekleştirir. Standart kullanılabilirlik düzeyine ulaşmak için işlem ve depolama katmanları ayrılır. Premium kullanılabilirlik düzeyine ulaşmak için ise işlem ve depolama katmanları performans için tek bir düğüm üzerinde tümleştirilirken arka planda AlwaysOn Kullanılabilirlik Grupları uygulanır. Azure SQL veritabanı yüksek kullanılabilirlik özellikleri tam bir irdelemesi için bkz: [SQL veritabanı kullanılabilirlik](sql-database-high-availability.md). SQL Veritabanı ayrıca aşağıdakiler dahil olmak üzere yerleşik [iş sürekliliği ve global ölçeklenebilirlik](sql-database-business-continuity.md) özelliklerine sahiptir:
+Azure'ın Microsoft yönetimindeki veri merkezlerinin küresel bir ağı tarafından desteklenen ve endüstri lideri niteliğinde %99,99'luk bir kullanılabilirlik oranı sunan hizmet düzeyi sözleşmesi [(SLA)](http://azure.microsoft.com/support/legal/sla/), uygulamanızın 7/24 kesintiye uğramamasına yardımcı olur. Azure platformu tüm Azure SQL Veritabanlarını tam kapsamlı olarak yönetir ve veri kaybı yaşanmayacağı ve yüksek oranda veri kullanılabilirliği garantisi verir. Azure düzeltme eki uygulama, yedekleme, çoğaltma, hata algılama, arka plandaki potansiyel donanım, yazılım veya ağ arızaları, hata giderme, yük devretme, veritabanı yükseltmesi ve diğer bakım görevlerini otomatik olarak gerçekleştirir. Standart kullanılabilirlik düzeyine ulaşmak için işlem ve depolama katmanları ayrılır. Premium kullanılabilirliği, işlem ve depolama performansı için tek bir düğümde tümleştirme ve ardından perde Always On kullanılabilirlik grupları için benzer teknoloji uygulayarak elde edilir. Azure SQL veritabanı yüksek kullanılabilirlik özellikleri tam bir irdelemesi için bkz: [SQL veritabanı kullanılabilirlik](sql-database-high-availability.md). SQL Veritabanı ayrıca aşağıdakiler dahil olmak üzere yerleşik [iş sürekliliği ve global ölçeklenebilirlik](sql-database-business-continuity.md) özelliklerine sahiptir:
 
 - **[Otomatik yedeklemeler](sql-database-automated-backups.md)**:
 

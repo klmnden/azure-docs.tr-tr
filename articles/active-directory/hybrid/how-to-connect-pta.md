@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/19/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 8055faad3cd546e538def5e7292287b49ce96cb4
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 4ae84ff481b25f1e91a29c067dea74ba25f924aa
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46314513"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49320331"
 ---
 # <a name="user-sign-in-with-azure-active-directory-pass-through-authentication"></a>Kullanıcı oturum açma ile Azure Active Directory geçişli kimlik doğrulaması
 
@@ -38,7 +38,7 @@ Geçişli kimlik doğrulaması ile birleştirebilirsiniz [sorunsuz çoklu oturum
 
 ## <a name="key-benefits-of-using-azure-ad-pass-through-authentication"></a>Azure AD geçişli kimlik doğrulaması kullanmanın önemli avantajları
 
-- *Harika kullanıcı deneyimini*
+- *Harika kullanıcı deneyimi*
   - Kullanıcılar, hem şirket içi hem de bulut tabanlı uygulamalarda oturum açmak için aynı parolayı kullanın.
   - Kullanıcılar, BT Yardım Masası çözme parolası ile ilgili sorunlar için Konuşmayı daha az zaman harcayın.
   - Kullanıcılar tamamlayabilir [Self Servis parola yönetimi](../authentication/active-directory-passwords-overview.md) bulutta görevleri.
@@ -69,7 +69,7 @@ Geçişli kimlik doğrulaması ile birleştirebilirsiniz [sorunsuz çoklu oturum
 ## <a name="next-steps"></a>Sonraki adımlar
 
 - [Hızlı Başlangıç](how-to-connect-pta-quick-start.md) - getirmek ve Azure AD geçişli kimlik doğrulaması çalıştırma.
-- [AD FS'den doğrudan kimlik doğrulamaya geçiş](https://github.com/Identity-Deployment-Guides/Identity-Deployment-Guides/blob/master/Authentication/Migrating%20from%20Federated%20Authentication%20to%20Pass-through%20Authentication.docx) -geçişli kimlik doğrulaması için AD FS (veya diğer Federasyon teknolojileri) geçirmek için ayrıntılı bir kılavuz.
+- [AD FS'den doğrudan kimlik doğrulamaya geçiş](https://github.com/Identity-Deployment-Guides/Identity-Deployment-Guides/blob/master/Authentication/Migrating%20from%20Federated%20Authentication%20to%20Pass-through%20Authentication.docx?raw=true) -geçişli kimlik doğrulaması için AD FS (veya diğer Federasyon teknolojileri) geçirmek için ayrıntılı bir kılavuz.
 - [Akıllı kilitleme](../authentication/howto-password-smart-lockout.md) -kullanıcı hesapları korumak için kiracınızı yapılandırın akıllı kilitleme özelliği.
 - [Geçerli sınırlamalar](how-to-connect-pta-current-limitations.md) -hangi senaryolar desteklenir ve hangilerinin olmayan öğrenin.
 - [Teknik yakından bakışın](how-to-connect-pta-how-it-works.md) -bu özelliği nasıl çalıştığını anlayın.

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/07/2018
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: bce76827c56fd660b6ab4353fed1c43f88132587
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: b4ee3354d024034fd47ee50ae78d25d5bb4a38f5
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48868828"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49345280"
 ---
 # <a name="azure-stack-1807-update"></a>Azure Stack 1807 güncelleştirme
 
@@ -232,6 +232,14 @@ Bu derleme sürümü için yükleme sonrası bilinen sorunlar verilmiştir.
 
 
 ### <a name="health-and-monitoring"></a>Sistem durumu ve izleme
+
+<!-- TBD - IS -->
+- Art arda görünür ve daha sonra Azure Stack sisteminizde kaybolur aşağıdaki uyarılar görebilirsiniz:
+   - *Altyapı rol örneği kullanılamıyor*
+   - *Ölçek birimi düğümü çevrimdışı.*
+   
+  Lütfen çalıştırın [Test AzureStack](azure-stack-diagnostic-test.md) altyapı rol örneklerinin durumunu doğrulamak ve birim düğümlerini ölçeklendirme cmdlet'i. Hiçbir sorun tarafından algılanan [Test AzureStack](azure-stack-diagnostic-test.md), bu uyarılar yoksayabilirsiniz. Bir sorun algılandığında, altyapı rol örneği veya Yönetim Portalı veya PowerShell kullanarak bir düğümü başlatma girişiminde bulunabilir.
+
 <!-- 1264761 - IS ASDK -->  
 - Uyarıları görebilirsiniz **sistem durumu denetleyicisi** aşağıdaki ayrıntıları olan bir bileşeni:  
 

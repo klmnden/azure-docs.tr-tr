@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/29/2018
 ms.author: spelluru
-ms.openlocfilehash: 8a7346f884a065a21b6f0a822b2236fa7ce5dff0
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 497249baa10956c37762172bd0c48fad7be14e0b
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45732566"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49319328"
 ---
 # <a name="process-apache-kafka-for-event-hubs-events-using-stream-analytics"></a>Stream Analytics kullanarak Event Hubs için Apache Kafka olaylarını işleme 
 Bu makalede, veri akışı Kafka özellikli Event Hubs'a ve Azure Stream Analytics ile işlemek gösterilmektedir. Aşağıdaki adımları gösterilmektedir: 
@@ -73,8 +73,8 @@ Artık Kafka protokolünü kullanan uygulamalarınızdaki olayların akışını
 
 ## <a name="send-messages-with-kafka-in-event-hubs"></a>Olay hub'ları, Kafka ile iletileri gönder
 
-1. Kopya [Azure Event Hubs depo](https://github.com/Azure/azure-event-hubs) makinenize.
-2. Klasöre gidin: `azure-event-hubs/samples/kafka/quickstart/producer`. 
+1. Kopya [Kafka deposu için Azure Event Hubs](https://github.com/Azure/azure-event-hubs-for-kafka) makinenize.
+2. Klasöre gidin: `azure-event-hubs-for-kafka/quickstart/java/producer`. 
 4. İçinde üretici için yapılandırma ayrıntılarını güncelleştirme `src/main/resources/producer.config`. Belirtin **adı** ve **bağlantı dizesi** için **olay hub'ı ad alanı**. 
 
     ```xml
@@ -84,7 +84,7 @@ Artık Kafka protokolünü kullanan uygulamalarınızdaki olayların akışını
     sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required username="$ConnectionString" password="{CONNECTION STRING for EVENT HUB NAMESPACE}";
     ```
 
-5. Gidin `azure-event-hubs/samples/kafka/quickstart/producer/src/main/java/com/example/app`açın **TestDataReporter.java** tercih ettiğiniz bir düzenleyicide dosya. 
+5. Gidin `azure-event-hubs-for-kafka/quickstart/java/producer/src/main/java/com/example/app`açın **TestDataReporter.java** tercih ettiğiniz bir düzenleyicide dosya. 
 6. Aşağıdaki kod satırını açıklama satırı yapın:
 
     ```java
@@ -97,7 +97,7 @@ Artık Kafka protokolünü kullanan uygulamalarınızdaki olayların akışını
     ```
 
     Bu kod olay verileri gönderir **JSON** biçimi. Stream Analytics işine ilişkin giriş yapılandırdığınızda, giriş veri biçimi olarak JSON belirtin. 
-7. **Üretici çalıştırma** ve Kafka özellikli Event hubs'ta akışa. Kullanırken Windows makinesinde, bir **Node.js komut istemi**, geçiş `azure-event-hubs/samples/kafka/quickstart/producer` bu komutları çalıştırmadan önce klasörü. 
+7. **Üretici çalıştırma** ve Kafka özellikli Event hubs'ta akışa. Kullanırken Windows makinesinde, bir **Node.js komut istemi**, geçiş `azure-event-hubs-for-kafka/quickstart/java/producer` bu komutları çalıştırmadan önce klasörü. 
    
     ```shell
     mvn clean package
@@ -205,7 +205,10 @@ Gelen bir veri akışını okumak için bir Stream Analytics işi ayarladıktan 
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Bu makalede protokol istemcilerinizi değiştirmenize veya kendi kümelerinizi çalıştırmanıza gerek kalmadan Kafka etkin Event Hubs’a nasıl akış oluşturacağınızı öğrendiniz. Daha fazla bilgi edinmek için aşağıdaki öğreticiyle devam edin:
+Bu makalede protokol istemcilerinizi değiştirmenize veya kendi kümelerinizi çalıştırmanıza gerek kalmadan Kafka etkin Event Hubs’a nasıl akış oluşturacağınızı öğrendiniz. Kafka için Event Hubs ile Event Hubs hakkında daha fazla bilgi edinmek için şu konuya bakın:  
 
-> [!div class="nextstepaction"]
-> [Event Hubs ile Kafka MirrorMaker'ı kullanma](event-hubs-kafka-mirror-maker-tutorial.md)
+* [Event Hubs hakkında bilgi edinin](event-hubs-what-is-event-hubs.md)
+* [Kafka için Event Hubs hakkında bilgi edinin](event-hubs-for-kafka-ecosystem-overview.md)
+* [Daha fazla örnek için Kafka GitHub üzerinde Event hubs'ı keşfedin](https://github.com/Azure/azure-event-hubs-for-kafka)
+* [MirrorMaker](https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=27846330) kullanarak [olayları Kafka şirket içinden bulutta Kafka etkin Event Hubs’a akışla aktarın.](event-hubs-kafka-mirror-maker-tutorial.md)
+* Kafka akışı yapmayı öğrenin etkin Event Hubs kullanarak [yerel Kafka uygulamalar](event-hubs-quickstart-kafka-enabled-event-hubs.md), [Apache Flink](event-hubs-kafka-flink-tutorial.md), veya [Akka akışları](event-hubs-kafka-akka-streams-tutorial.md)

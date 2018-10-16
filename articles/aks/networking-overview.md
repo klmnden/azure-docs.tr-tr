@@ -5,14 +5,14 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: article
-ms.date: 08/31/2018
+ms.date: 10/11/2018
 ms.author: iainfou
-ms.openlocfilehash: d278e47979e696183b703f7e67e39757d854fdb2
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 258eb744cf86fcd14250be8f2e8ec18b5a0fada3
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48857746"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49319430"
 ---
 # <a name="network-configuration-in-azure-kubernetes-service-aks"></a>Ağ yapılandırması Azure Kubernetes Service (AKS)
 
@@ -73,23 +73,19 @@ IP adresi planı bir AKS kümesi bir sanal oluşur için ağ, düğümler, pod'l
 
 Pod'ların bir AKS kümesindeki düğüm başına varsayılan en büyük sayısını temel ve Gelişmiş Ağ ve küme dağıtım yöntemi arasında değişir.
 
-### <a name="default-maximum"></a>Varsayılan üst sınır
-
-Bunlar *varsayılan* bir AKS dağıttığınızda üst sınırlar küme dağıtım sırasında pod'ların sayısını belirtmeden:
-
 | Dağıtım yöntemi | Temel | Gelişmiş | Dağıtım sırasında yapılandırılabilir |
 | -- | :--: | :--: | -- |
-| Azure CLI | 110 | 30 | Evet |
-| Resource Manager şablonu | 110 | 30 | Evet |
+| Azure CLI | 110 | 30 | Evet (en fazla 110) |
+| Resource Manager şablonu | 110 | 30 | Evet (en fazla 110) |
 | Portal | 110 | 30 | Hayır |
 
 ### <a name="configure-maximum---new-clusters"></a>Maksimum - yeni kümeleri yapılandırma
 
-Bir AKS kümesi dağıtırken bir pod'ların düğüm başına en fazla sayısını farklı belirtmek için:
+Pod'ların düğüm başına en fazla sayısını yapılandırabilirsiniz *küme dağıtım sırasında yalnızca*. Azure CLI veya Resource Manager şablonu ile dağıtırsanız, en fazla pod'ların her 110 yüksek olan düğüm değeri ayarlayabilirsiniz.
 
-* **Azure CLI**: belirtin `--max-pods` ile bir küme dağıtılırken bağımsız değişken [az aks oluşturma] [ az-aks-create] komutu.
-* **Resource Manager şablonu**: belirtin `maxPods` özelliğinde [ManagedClusterAgentPoolProfile] bir Resource Manager şablonu ile bir küme dağıtılırken nesne.
-* **Azure portalında**: Azure portalı ile bir küme dağıtılırken pod'ların düğüm başına en fazla sayısını değiştiremezsiniz. Gelişmiş Ağ kümeleri 30 pod'ları Azure Portalı'nda dağıtılan düğüm başına sınırlıdır.
+* **Azure CLI**: belirtin `--max-pods` ile bir küme dağıtılırken bağımsız değişken [az aks oluşturma] [ az-aks-create] komutu. En fazla 110 değerdir.
+* **Resource Manager şablonu**: belirtin `maxPods` özelliğinde [ManagedClusterAgentPoolProfile] bir Resource Manager şablonu ile bir küme dağıtılırken nesne. En fazla 110 değerdir.
+* **Azure portalında**: Azure portalı ile bir küme dağıtılırken, pod'ların düğüm başına en fazla sayısını değiştiremezsiniz. Azure portalını kullanarak dağıttığınızda Gelişmiş Ağ kümelerine düğüm başına 30 pod'ların sınırlıdır.
 
 ### <a name="configure-maximum---existing-clusters"></a>Maksimum - var olan kümeleri yapılandırma
 

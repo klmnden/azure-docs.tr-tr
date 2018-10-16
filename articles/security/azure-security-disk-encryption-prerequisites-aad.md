@@ -7,12 +7,12 @@ ms.subservice: Azure Disk Encryption
 ms.topic: article
 ms.author: mstewart
 ms.date: 10/12/2018
-ms.openlocfilehash: 9fefe75d43630a68a2d22bdc3270f255587030d0
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.openlocfilehash: 8b0f682e481ef73019d3371af2b84f6270e021ee
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49311015"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49341897"
 ---
 # <a name="azure-disk-encryption-prerequisites-previous-release"></a>Azure Disk şifrelemesi önkoşulları (önceki sürüm)
 
@@ -54,8 +54,8 @@ Veri diskleri bağlayın ve gerekli/etc/fstab girişleri oluşturmak için kulla
   - Şifreleme anahtarları için anahtar kasanıza yazmak için Iaas VM anahtar kasası uç noktasına bağlanabilir olmalıdır.
   - Iaas VM Azure uzantısı depoyu ve VHD dosyalarını barındıran Azure depolama hesabı'nı barındıran bir Azure depolama uç noktasına bağlanabiliyor olmanız gerekir.
   -  Güvenlik ilkeniz Azure vm'lerinden Internet erişimi sınırlayan, önceki URI çözmek ve IP'ler giden bağlantıya izin verecek bir kuralı yapılandırın. Daha fazla bilgi için [bir güvenlik duvarının ardındayken Azure anahtar kasası](../key-vault/key-vault-access-behind-firewall.md).
-  - Windows üzerinde TLS 1.0 açıkça devre dışı bırakıldı ve .NET sürümünü 4.6 veya üzeri güncelleştirilmemiş aşağıdaki kayıt defteri değişikliği daha yeni TLS sürümünü seçmek ADE etkinleştirir: ' Windows Kayıt Defteri Düzenleyicisi'ni sürüm 5.00
-
+  - Windows üzerinde TLS 1.0 açıkça devre dışı bırakıldı ve .NET sürümünü 4.6 veya üzeri güncelleştirilmemiş ADE daha yeni TLS sürümünü seçmek aşağıdaki kayıt defteri değişikliği olanak tanıyacak:
+    
         [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\.NETFramework\v4.0.30319]
         "SystemDefaultTlsVersions"=dword:00000001
         "SchUseStrongCrypto"=dword:00000001
@@ -63,6 +63,7 @@ Veri diskleri bağlayın ve gerekli/etc/fstab girişleri oluşturmak için kulla
         [HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\.NETFramework\v4.0.30319]
         "SystemDefaultTlsVersions"=dword:00000001
         "SchUseStrongCrypto"=dword:00000001` 
+     
 
  
 

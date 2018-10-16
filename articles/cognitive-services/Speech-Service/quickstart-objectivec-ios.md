@@ -7,14 +7,14 @@ author: chlandsi
 ms.service: cognitive-services
 ms.component: Speech
 ms.topic: article
-ms.date: 09/24/2018
+ms.date: 10/12/2018
 ms.author: chlandsi
-ms.openlocfilehash: 3945bf0ae6edc0af0db90efca6811aeb22494592
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: ce9979d8d300f2308a4b7a22791c242409f2c988
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48883441"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49341183"
 ---
 # <a name="quickstart-recognize-speech-in-objective-c-on-ios-using-the-cognitive-services-speech-sdk"></a>Hızlı Başlangıç: Bilişsel hizmetler konuşma SDK'sı kullanarak iOS Objective-C, konuşma tanıma
 
@@ -31,11 +31,10 @@ Bu makalede, Objective-C ses dosyası ile kaydedilen Konuşmayı metne dönüşt
 
 [!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
-Bilişsel Hizmetler Konuşma SDK'sının geçerli sürümü: `1.0.0`.
+Bilişsel Hizmetler Konuşma SDK'sının geçerli sürümü: `1.0.1`.
 
 Bilişsel hizmetler konuşma SDK'sı Mac ve iOS için şu anda bir Cocoa çerçeve dağıtılır.
 Dan indirilebilir https://aka.ms/csspeech/iosbinary. Dosyayı giriş dizininize yükleyin.
-
 
 ## <a name="create-an-xcode-project"></a>Bir Xcode projesi oluştur 
 
@@ -46,7 +45,7 @@ Xcode başlatın ve tıklayarak yeni bir proje başlatın **dosya** > **yeni** >
 
 1. Proje Seçenekleri iletişim kutusu
     1. Hızlı Başlangıç uygulaması için bir ad girin, örneğin `helloworld`.
-    1. Apple Geliştirici hesabınız zaten varsa, bir uygun kuruluş adı ve kuruluş tanımlayıcısı girin. Test amacıyla gibi herhangi bir ad yalnızca seçebilir `testorg`. Uygulamayı imzalamak için de uygun bir sağlama profili çok gerekir. Lütfen [Apple Geliştirici sitesine](https://developer.apple.com/) Ayrıntılar için.
+    1. Apple Geliştirici hesabınız zaten varsa, bir uygun kuruluş adı ve kuruluş tanımlayıcısı girin. Test amacıyla gibi herhangi bir ad yalnızca seçebilir `testorg`. Uygulamayı imzalamak için de uygun bir sağlama profili gerekir. Lütfen [Apple Geliştirici sitesine](https://developer.apple.com/) Ayrıntılar için.
     1. Objective-C proje dili olarak seçilmiş olduğundan emin olun.
     1. Testleri ve temel veri tüm onay kutularını devre dışı bırakın.
     ![Proje ayarları](media/sdk/qs-objectivec-project-settings.png)
@@ -60,10 +59,9 @@ Xcode başlatın ve tıklayarak yeni bir proje başlatın **dosya** > **yeni** >
         1. Dizin Ekle `$(SRCROOT)/..` için *çerçeve arama yollarını* altında **arama yollarını** başlığı.
         ![Çerçeve arama yolu ayarını](media/sdk/qs-objectivec-framework-search-paths.png)
 
-
 ## <a name="set-up-the-ui"></a>UI'yi Kur
 
-Örnek uygulamayı çok basit bir kullanıcı Arabirimi olacaktır: dosya ve sonucu görüntülemek için bir metin etiketi işlemeye başlamak için bir düğme.
+Örnek uygulamayı çok basit bir kullanıcı Arabirimi olacaktır: dosya veya mikrofon girişi ve sonucu görüntülemek için bir metin etiketi konuşma tanıma başlatmak için iki düğme.
 Kullanıcı arabirimini ayarlanır `Main.storyboard` projenin bir parçası.
 Film şeridi XML görünümünü açın, sağ tıklayarak `Main.storyboard` projenin giriş ağacı ve seçme **farklı Aç...**   >  **Kaynak kodu**.
 Otomatik olarak oluşturulan XML şununla değiştirin:
@@ -77,23 +75,25 @@ Tıklayın **son** ayarları değiştirmeden aşağıdaki iletişim.
 1. Otomatik olarak oluşturulan içeriklerini `ViewController.m` tarafından dosya:
 
    [!code-objectivec[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/objectivec-ios/helloworld/helloworld/ViewController.m#code)]
-1. Mikrofon erişimi için istek ekleyin. Proje ağacında Info.plist girişi sağ tıklatın ve seçin **farklı Aç...**   >  **Kaynak kodu**. İçine aşağıdaki satırları ekleyin `<dict>` bölümüne ve ardından dosyayı kaydedin.
-    ```xml
-    <key>NSMicrophoneUsageDescription</key>
-
-    <string>Need microphone access for speech recognition from microphone.</string>
-    ```
 1. `YourSubscriptionKey` dizesini abonelik anahtarınızla değiştirin.
 1. `YourServiceRegion` dizesini, aboneliğinizle ilişkili [bölge](regions.md) ile (örneğin, ücretsiz deneme aboneliği için `westus`) değiştirin.
-
+1. Mikrofon erişimi için istek ekleyin. Sağ tıklayın `Info.plist` girişi seçin ve proje ağacı **farklı Aç...**   >  **Kaynak kodu**. İçine aşağıdaki satırları ekleyin `<dict>` bölümüne ve ardından dosyayı kaydedin.
+    ```xml
+    <key>NSMicrophoneUsageDescription</key>
+    <string>Need microphone access for speech recognition from microphone.</string>
+    ```
 
 ## <a name="building-and-running-the-sample"></a>Oluşturma ve çalıştırma örneği
 
 1. Hata ayıklama çıkışını görünür hale getirmek (**görünümü** > **hata ayıklama alan** > **etkinleştirme konsol**).
-1. Derlemek ve örnek kod seçerek iOS simulator'da çalıştırmak **ürün** -> **çalıştırma** menüsünden veya **Play** düğmesi. Bir iOS cihaz üzerinde çalışan, geliştirme makinenize cihazı bağlayın ve çalışan hedef cihaz seçin. Şu anda Speech SDK'sı, yalnızca 64 bit iOS platformunu destekler.
-1. "Tanı!" düğmesine tıkladıktan sonra uygulamada, düğme görmeniz gerekir "Gibi bir hava durumu nedir?" içeriğini ses dosyası ekranın alt bölümünde üzerinde.
+1. İOS simülatörü veya listeden bir uygulama için hedef olarak geliştirme makinenize bağlı bir iOS cihazı seçin **ürün** -> **hedef** menüsü.
+1. Derlemek ve örnek kod seçerek iOS simulator'da çalıştırmak **ürün** -> **çalıştırma** menüsünden veya **Play** düğmesi.
+Şu anda Speech SDK'sı, yalnızca 64 bit iOS platformlarını destekler.
+1. "Tanı (dosya)" düğmesine tıkladıktan sonra "Gibi bir hava durumu nedir?" ses dosyasının içeriğini görmeniz gerekir ekranın alt bölümünde üzerinde.
 
  ![Benzetimli iOS uygulaması](media/sdk/qs-objectivec-simulated-app.png)
+
+1. Uygulamayı "Tanı (mikrofon)" düğmesine tıklayın ve birkaç sözcük söyleyin sonra ekranın alt bölümünde, konuşulan metnin görmeniz gerekir.
 
 [!INCLUDE [Download the sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
 `quickstart/objectivec-ios` klasöründe bu örneği arayın.
@@ -102,3 +102,4 @@ Tıklayın **son** ayarları değiştirmeden aşağıdaki iletişim.
 
 > [!div class="nextstepaction"]
 > [Örneklerimizi Al](speech-sdk.md#get-the-samples)
+

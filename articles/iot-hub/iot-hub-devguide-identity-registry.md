@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/29/2018
 ms.author: dobett
-ms.openlocfilehash: 3e6e42da7f3c1423ecf2de507f3c2f0257fbb21f
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.openlocfilehash: 6291350cab41c123b41f7fee811bf72a21d9ff35
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49311244"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49319141"
 ---
 # <a name="understand-the-identity-registry-in-your-iot-hub"></a>IOT hub'ınızdaki kimlik kayıt defterinde anlama
 
@@ -198,6 +198,9 @@ Cihaz kimliklerini aşağıdaki özelliklerle JSON belgeleri olarak temsil edili
 > [!NOTE]
 > Bağlantı durumu yalnızca bağlantının durumunu IOT Hub görünümünü temsil edebilir. Ağ koşulları ve yapılandırmaları bağlı olarak bu durum güncelleştirmeleri gecikebilir.
 
+> [!NOTE]
+> Şu anda cihaz SDK'ları kullanarak desteklemeyen `+` ve `#` öğesindeki karakterler **DeviceID**.
+
 ## <a name="module-identity-properties"></a>Modülü kimlik özellikleri
 
 Modül kimlikleri, aşağıdaki özelliklere sahip JSON belgeleri olarak temsil edilir:
@@ -216,6 +219,9 @@ Modül kimlikleri, aşağıdaki özelliklere sahip JSON belgeleri olarak temsil 
 | connectionState |salt okunur |Bağlantı durumu gösteren bir alan: ya da **bağlı** veya **bağlantısı kesilmiş**. Bu alan, cihaz bağlantı durumunun IOT Hub görünümünü temsil eder. **Önemli**: Bu alan yalnızca geliştirme/hata ayıklama amacıyla kullanılmalıdır. Bağlantı durumu yalnızca MQTT veya AMQP kullanan cihazlar için güncelleştirilir. Ayrıca, protokol düzeyinde ping (ping MQTT veya AMQP ping) dayalıdır ve yalnızca 5 dakikada en fazla gecikme olabilir. Bu nedenlerden dolayı olabilir hatalı pozitif sonuçları gibi cihazları bağlı olarak bildirilen ancak, kesilir. |
 | connectionStateUpdatedTime |salt okunur |Bağlantı durumu son bir saat ve tarihi gösteren bir zamana bağlı göstergesi güncelleştirildi. |
 | lastActivityTime |salt okunur |Zamana bağlı bir göstergesi son bir saat ve tarihi cihazı gösteren bağlı, alınan veya gönderilen ileti. |
+
+> [!NOTE]
+> Şu anda cihaz SDK'ları kullanarak desteklemeyen `+` ve `#` öğesindeki karakterler **DeviceID** ve **Moduleıd**.
 
 ## <a name="additional-reference-material"></a>Ek başvuru malzemesi
 

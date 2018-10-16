@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 04/09/2018
 ms.reviewer: sergkanz
 ms.author: mbullwin
-ms.openlocfilehash: 78ae04d3c51cf8039dcdd067594afafae606f5e3
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.openlocfilehash: d9b6f5c08eed5efceafc71feaf654ad8f4fcafa0
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49310564"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49341132"
 ---
 # <a name="telemetry-correlation-in-application-insights"></a>Application ınsights telemetri bağıntısı
 
@@ -105,17 +105,19 @@ public void ConfigureServices(IServiceCollection services)
 
 ## <a name="open-tracing-and-application-insights"></a>Açık izleme ve Application Insights
 
-[İzlemeyi Aç](http://opentracing.io/) ve Application Insights'ın veri modelleri görünüyor 
+[Açık izleme veri modeli belirtimi](http://opentracing.io/) ve Application Insights veri modelleri, aşağıdaki şekilde eşlenir:
 
-- `request`, `pageView` eşlendiği **yayılma** ile `span.kind = server`
-- `dependency` eşlendiği **yayılma** ile `span.kind = client`
-- `id` bir `request` ve `dependency` eşlendiği **Span.Id**
-- `operation_Id` eşlendiği **TraceId**
-- `operation_ParentId` eşlendiği **başvuru** türü `ChildOf`
+| Application Insights                  | İzlemeyi Aç                                      |
+|------------------------------------   |-------------------------------------------------  |
+| `Request`, `PageView`                 | `Span` ile `span.kind = server`                  |
+| `Dependency`                          | `Span` ile `span.kind = client`                  |
+| `Id` ' ın `Request` ve `Dependency`    | `SpanId`                                          |
+| `Operation_Id`                        | `TraceId`                                         |
+| `Operation_ParentId`                  | `Reference` tür `ChildOf` (üst aralık)   |
 
-Bkz: [veri modeli](application-insights-data-model.md) için Application Insights türleri ve veri modeli.
+Application Insights veri modeli hakkında daha fazla bilgi için bkz. [veri modeli](application-insights-data-model.md). 
 
-Bkz: [belirtimi](https://github.com/opentracing/specification/blob/master/specification.md) ve [semantic_conventions](https://github.com/opentracing/specification/blob/master/semantic_conventions.md) açık izleme kavramları tanımları için.
+Bkz: açık izleme [belirtimi](https://github.com/opentracing/specification/blob/master/specification.md) ve [semantic_conventions](https://github.com/opentracing/specification/blob/master/semantic_conventions.md) açık izleme kavramları tanımları için.
 
 
 ## <a name="telemetry-correlation-in-net"></a>. NET'te telemetri bağıntısı

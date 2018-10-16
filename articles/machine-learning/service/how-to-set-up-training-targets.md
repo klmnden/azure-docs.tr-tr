@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.component: core
 ms.topic: article
 ms.date: 09/24/2018
-ms.openlocfilehash: 84cba0cb156e1d847c92596a9f2f6017a429b9d2
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: 18188b8c0572057fb9277294c381de12df196439
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49113827"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49343937"
 ---
 # <a name="select-and-use-a-compute-target-to-train-your-model"></a>Seçme ve modelinizi eğitmek için işlem hedefi kullanma
 
@@ -24,6 +24,9 @@ Azure Machine Learning hizmeti ile birçok farklı ortamlarda modelinizi eğiteb
 Bir işlem hedefine dağıtıldığında, eğitim betiği veya Konaklara modelinizi bir web hizmeti olarak çalışan bir kaynaktır. Bunlar oluşturulabilir ve Azure Machine Learning SDK'sı veya CLI kullanılarak yönetilebilir. Başka bir işlem tarafından (örneğin, Azure portal veya Azure CLI) oluşturulan işlem hedefleri varsa, Azure Machine Learning hizmeti çalışma alanınıza ekleyerek kullanabilirsiniz.
 
 Makinenizde yerel çalışmalar başlayın ve ardından GPU veya Azure Batch AI ile uzak veri bilimi sanal makineler gibi diğer ortamlara ve ölçeklendirin. 
+
+>[!NOTE]
+> Bu makalede kod Azure Machine Learning SDK sürüm 0.168 ile test edilmiştir 
 
 ## <a name="supported-compute-targets"></a>Desteklenen işlem hedefleri
 
@@ -106,7 +109,7 @@ from azureml.core.conda_dependencies import CondaDependencies
 run_config_system_managed = RunConfiguration()
 
 run_config_system_managed.environment.python.user_managed_dependencies = False
-run_config_system_managed.prepare_environment = True
+run_config_system_managed.auto_prepare_environment = True
 
 # Specify conda dependencies with scikit-learn
 

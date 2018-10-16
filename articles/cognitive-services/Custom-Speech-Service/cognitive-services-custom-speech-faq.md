@@ -1,24 +1,24 @@
 ---
-title: Sık sorulan sorular - özel konuşma hizmeti
-titlesuffix: Azure Cognitive Services
+title: Azure üzerinde sık sorulan sorular için özel konuşma hizmeti | Microsoft Docs
 description: Özel konuşma hizmeti ile ilgili en yaygın soruların yanıtları aşağıdadır.
 services: cognitive-services
 author: PanosPeriorellis
-manager: cgronlun
+manager: onano
 ms.service: cognitive-services
 ms.component: custom-speech
-ms.topic: faq
+ms.topic: article
 ms.date: 11/21/2016
 ms.author: panosper
-ROBOTS: NOINDEX
-ms.openlocfilehash: 2de2efe3287cbb0b915434c2c9ad982fe162d741
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 8e3d5e0e2b70d8f97099103ed369e48dd74d56e2
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47223738"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49341370"
 ---
 # <a name="custom-speech-service-frequently-asked-questions"></a>Özel konuşma hizmeti hakkında sık sorulan sorular
+
+[!INCLUDE [Deprecation note](../../../includes/cognitive-services-custom-speech-deprecation-note.md)] 
 
 Bu SSS'de sorularınızın yanıtlarını bulamazsanız, üzerinde özel konuşma hizmeti Topluluğu'na sorun deneyin [StackOverflow](https://stackoverflow.com/questions/tagged/project-oxford+or+microsoft-cognitive) ve [UserVoice](https://cognitive.uservoice.com/)
 

@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.reviewer: Dale.Koetke
 ms.date: 08/11/2018
 ms.author: mbullwin
-ms.openlocfilehash: 221d0d8a78a46cad9f1994e9313b21e2867d9563
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.openlocfilehash: 4407322dd415a7c8b2ef8b7ff470a247b8d68f69
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42058299"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49319464"
 ---
 # <a name="manage-pricing-and-data-volume-in-application-insights"></a>Application ınsights fiyatlandırma ve veri hacmini yönetme
 
@@ -159,6 +159,10 @@ Azure kaynak Yönetimi'ni kullanarak fiyatını planı ayarlamak için bir betik
 ## <a name="limits-summary"></a>Sınırları özeti
 
 [!INCLUDE [application-insights-limits](../../includes/application-insights-limits.md)]
+
+## <a name="disable-daily-cap-e-mails"></a>Günlük sınır e-postalar devre dışı bırak
+
+Günlük birim sınırı e-postalar, altında devre dışı bırakmak için **yapılandırma** Application Insights kaynağınıza bölümünü, **kullanım ve Tahmini maliyetler** bölmesinde **günlük üst sınır** . Sınırına ulaşıldığında, ayarlanabilir bir uyarı düzeyine ulaşıldı yanı sıra e-posta göndermek için ayarları vardır. Tüm günlük devre dışı bırakmak istiyorsanız her iki e-posta kutusunun işaretini kaldırın uç birim ilgili.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

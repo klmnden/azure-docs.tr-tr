@@ -1,31 +1,31 @@
 ---
-title: Grubu durumu - Azure Logic Apps temel eylemleri kapsamları ekleyin | Microsoft Docs
-description: Grup eylem durumu Azure Logic Apps içinde temel iş akışı eylemleri Çalıştırma kapsamı oluşturma
+title: Alan grubu durumu - Azure Logic Apps eylemleri çalıştırmak kapsamları ekleyin | Microsoft Docs
+description: Grup eylem durumu Azure Logic apps'te temel iş akışı eylemleri Çalıştırma kapsamı oluşturma
 services: logic-apps
 ms.service: logic-apps
+ms.suite: integration
 author: ecfan
 ms.author: estfan
 manager: jeconnoc
-ms.date: 03/05/2018
-ms.topic: article
 ms.reviewer: klam, LADocs
-ms.suite: integration
-ms.openlocfilehash: 1258175eb3d28d39be8be08498ba8d2e0998aa43
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.date: 10/03/2018
+ms.topic: article
+ms.openlocfilehash: ac184ce790a0700fcacc63f70c2bb321142d7224
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35298823"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49320552"
 ---
-# <a name="create-scopes-that-run-workflow-actions-based-on-group-status-in-azure-logic-apps"></a>Azure mantıksal uygulamaları Grup durumu temel iş akışı eylemleri çalıştırmak kapsamları oluşturun
+# <a name="run-actions-based-on-group-status-with-scopes-in-azure-logic-apps"></a>Azure Logic apps'te kapsamları Grup durumuyla göre eylemleri çalıştırma
 
-Başka bir grup işlemlerin başarılı veya başarısız sonra eylemleri çalıştırmak için bu eylemleri içinde grup bir *kapsam*. Bu yapı, mantıksal grup olarak Eylemler düzenlemek, o grubun durumunu değerlendirmek ve kapsamın durum üzerinde temel eylemleri gerçekleştirmek istediğiniz yararlıdır. Çalıştırma kapsamı içindeki tüm eylemler tamamladıktan sonra kapsam Ayrıca kendi durumlarını alır. Örneğin, uygulamak istediğiniz zaman kapsamlarını kullanabilirsiniz [özel durumu ve hata işleme](../logic-apps/logic-apps-exception-handling.md#scopes). 
+Başka bir grup eylemlerin başarılı veya başarısız sonra eylemleri çalıştırmak için bu eylemlerin içinde grubunda bir *kapsam*. Bu yapı, mantıksal grup olarak eylemleri düzenlemek, bu grubun durumunu değerlendirmek ve kapsamın durumuna dayalı eylemleri gerçekleştirmek istediğinizde yararlıdır. Bir kapsam içindeki tüm eylemleri çalıştırma işlemini tamamladıktan sonra kapsam, ayrıca kendi durumlarını alır. Örneğin, uygulamak istediğiniz zaman kapsamlarını kullanabilirsiniz [özel durum ve hata işleme](../logic-apps/logic-apps-exception-handling.md#scopes). 
 
-Bir kapsamın durumu denetlemek için bir mantığı belirlemek için kullandığınız aynı ölçütleri kullanabilirsiniz uygulamaları durumu "Başarılı", "Başarısız", "İptal edildi" vb. gibi çalıştırın. Kapsamın tüm eylemler başarılı olduğunda, varsayılan olarak, kapsamın durumu "Başarılı" olarak işaretlenmiş Ancak kapsamı içinde herhangi bir işlem başarısız olduğunda veya iptal edildi, kapsamın durumu "Başarısız" olarak işaretlenmiş Kapsamlar üzerinde sınırları için bkz: [sınırları ve yapılandırma](../logic-apps/logic-apps-limits-and-config.md). 
+Bir kapsamın durumu denetlemek için bir mantıksal belirlemek için kullandığınız aynı kriteri kullanabilirsiniz uygulamaların durumu "Başarılı", "Başarısız", "İptal edildi" ve benzeri gibi çalıştırın. Kapsamın tüm eylemleri başarılı olduğunda, varsayılan olarak, kapsamın durumu "Başarılı" olarak işaretlenmiş Ancak kapsamdaki herhangi bir işlem başarısız olduğunda veya iptal edildi, kapsamın durumu "Başarısız" olarak işaretlenmiş Kapsamlar hakkında daha fazla limitleri için bkz [limitler ve yapılandırma](../logic-apps/logic-apps-limits-and-config.md). 
 
-Örneğin, belirli eylemleri ve kapsamın durumunu denetlemek için bir koşul çalıştırmak için bir kapsam kullandığı bir üst düzey mantıksal uygulama aşağıdadır. Kapsamdaki herhangi bir eylem başarısız veya beklenmedik şekilde sona, kapsam sırasıyla "Başarısız" veya "İptal edildi" işaretlenir ve mantıksal uygulama bir "Kapsam başarısız oldu" iletisi gönderir. Tüm kapsamlı eylemleri başarılı olursa, mantıksal uygulama "Kapsam başarılı" iletisi gönderir.
+Örneğin, belirli eylemleri ve kapsamın durumu kontrol etme koşulu çalıştırmak için bir kapsam kullanan bir üst düzey mantıksal uygulama aşağıdadır. Kapsamdaki herhangi bir eylem başarısız veya beklenmedik şekilde sona, kapsamı sırasıyla "Başarısız" veya "İptal edildi" işaretlenir ve mantıksal uygulama bir "Kapsam başarısız oldu" iletisi gönderir. Kapsamı belirli eylemlerin tümü başarısız olursa mantıksal uygulama bir "Kapsam başarılı oldu" iletisi gönderir.
 
-!["Zamanlama – Recurrence" tetikleyecek](./media/logic-apps-control-flow-run-steps-group-scopes/scope-high-level.png)
+!['Zamanlama – yinelenme"tetikleyicisini ' ayarlayın](./media/logic-apps-control-flow-run-steps-group-scopes/scope-high-level.png)
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -33,37 +33,37 @@ Bu makaledeki örnek takip etmek için bu öğeler gerekir:
 
 * Azure aboneliği. Aboneliğiniz yoksa, [ücretsiz bir Azure hesabı için kaydolun](https://azure.microsoft.com/free/). 
 
-* Logic Apps tarafından desteklenen herhangi bir e-posta sağlayıcıdan gelen e-posta hesabı. Bu örnek, Outlook.com kullanır. Farklı bir sağlayıcı kullanırsanız, genel akış aynı kalır, ancak UI farklı görünür.
+* Logic Apps tarafından desteklenen herhangi bir e-posta sağlayıcısından bir e-posta hesabı. Bu örnek, Outlook.com kullanır. Farklı bir sağlayıcı kullanıyorsanız genel akışı aynı kalır, ancak kullanıcı Arabirimi farklı görünür.
 
-* Bing Haritalar anahtarı. Bu anahtarı almak için bkz: <a href="https://msdn.microsoft.com/library/ff428642.aspx" target="_blank">Bing Haritalar anahtarı alma</a>.
+* Bing Haritalar anahtarını. Bu anahtarı almak için bkz: <a href="https://msdn.microsoft.com/library/ff428642.aspx" target="_blank">Bing Haritalar anahtarını alma</a>.
 
-* Hakkındaki temel bilgileri [mantıksal uygulamalar oluşturma](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+* Hakkında temel bilgilere [mantıksal uygulamalar oluşturma](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
 ## <a name="create-sample-logic-app"></a>Örnek mantıksal uygulama oluşturma
 
-Böylece bir kapsam daha sonra ekleyebilirsiniz ilk olarak, bu örnek mantıksal uygulama oluşturun:
+İlk olarak, daha sonra bir kapsam ekleyebilirsiniz, böylece bu örnek mantıksal uygulama oluşturun:
 
 ![Örnek mantıksal uygulama oluşturma](./media/logic-apps-control-flow-run-steps-group-scopes/finished-sample-app.png)
 
-* A **çizelgesi - yineleme** , belirttiğiniz bir zaman aralığında Bing Haritalar hizmetini denetler tetikleyici
-* A **Bing Haritalar - Get yol** iki konum arasında seyahat süresi denetleyen eylemin
-* Seyahat belirtilen seyahat zaman aralığını aşan olup olmadığını denetleyen bir koşul deyimi
-* Belirtilen zamanınızı geçerli seyahat bundan e-posta gönderen bir eylem aşıyor
+* A **zamanlama - yinelenme** Bing Haritalar hizmetini denetler, belirttiğiniz bir zaman aralığında tetikleyicisi
+* A **Bing Haritalar - rota Al** iki konum arasında seyahat süresini denetleyen eylemin
+* Seyahat süresi, belirtilen seyahat süresini aşan olup olmadığını denetleyen bir koşul deyimi
+* Bu geçerli seyahat süresini e-posta gönderen bir eylem, belirtilen zaman aşıyor
 
-Herhangi bir zamanda mantıksal uygulamanızı kaydetme, genellikle çalışmalarınızı kaydedin.
+Mantıksal uygulamanızı kaydetmek istediğiniz zaman, genellikle çalışmalarınızı kaydedin.
 
-1. Oturum <a href="https://portal.azure.com" target="_blank">Azure portal</a>, henüz yapmadıysanız. Boş bir mantıksal uygulama oluşturma.
+1. Oturum <a href="https://portal.azure.com" target="_blank">Azure portalında</a>, henüz yapmadıysanız. Boş bir mantıksal uygulama oluşturma.
 
-2. Ekleme **çizelgesi - yinelenme** bu ayarlarla tetikleyici: **aralığı** = "1" ve **sıklığı** "Dakika" =
+1. Ekleme **zamanlama - yinelenme** şu ayarlarla tetikleyici: **aralığı** = "1" ve **sıklığı** "Minute" =
 
-   !["Zamanlama – Recurrence" tetikleyecek](./media/logic-apps-control-flow-run-steps-group-scopes/recurrence.png)
+   !['Zamanlama – yinelenme"tetikleyicisini ' ayarlayın](./media/logic-apps-control-flow-run-steps-group-scopes/recurrence.png)
 
    > [!TIP]
-   > Görsel olarak görünümünüzü basitleştirmek ve her eylemin ayrıntıları Tasarımcısı'nda gizlemek için bu adımları ilerlemeyi olarak her eylemin şekli daraltın.
+   > Görsel olarak görünümünüzü basitleştirin ve her eylemin ayrıntıları Tasarımcısı'nda gizlemek için bu adımları ilerlemeyi olarak her eylemin şekli daraltın.
 
-3. Ekleme **Bing Haritalar - Get yol** eylem. 
+1. Ekleme **Bing Haritalar - rota Al** eylem. 
 
-   1. Bing Haritalar bağlantı yoksa, bir bağlantı oluşturmak için sorulur.
+   1. Bing Haritalar bağlantınız yoksa bir bağlantı oluşturmanız istenir.
 
       | Ayar | Değer | Açıklama |
       | ------- | ----- | ----------- |
@@ -71,137 +71,170 @@ Herhangi bir zamanda mantıksal uygulamanızı kaydetme, genellikle çalışmala
       | **API Anahtarı** | <*your-Bing-Maps-key*> | Daha önce aldığınız Bing Haritalar anahtarını girin. | 
       ||||  
 
-   2. Ayarlama, **Get yol** bu görüntüyü aşağıdaki tabloda gösterildiği gibi eylem:
+   1. Ayarlama, **rota Al** bu görüntünün altındaki tabloda gösterildiği gibi bir eylem:
 
-      !["Bing Haritalar - Get yol" ayarlamak eylemi](./media/logic-apps-control-flow-run-steps-group-scopes/get-route.png) 
+      !["Bing Haritalar - rota Al" ayarlamak eylemi](./media/logic-apps-control-flow-run-steps-group-scopes/get-route.png) 
 
       Bu parametreler hakkında daha fazla bilgi için bkz. [Rota hesaplama](https://msdn.microsoft.com/library/ff701717.aspx).
 
       | Ayar | Değer | Açıklama |
       | ------- | ----- | ----------- |
-      | **Güzergah noktası 1** | <*Başlat*> | Rotanın kaynak girin. | 
-      | **Güzergah noktası 2** | <*Bitiş*> | Rotanın hedef girin. | 
-      | **Kaçının** | None | Otoyollar gibi rotada tolls, önlemek üzere öğeleri girin. Olası değerler için bkz: [bir rota hesaplamak](https://msdn.microsoft.com/library/ff701717.aspx). | 
-      | **İyileştir** | timeWithTraffic | Uzaklık, süresiyle geçerli trafik bilgileri vb. gibi rota en iyi duruma getirmek için bir parametre seçin. Bu örnekte bu değeri kullanır: "timeWithTraffic" | 
-      | **Mesafe birimi** | <*your-preference*> | Rota hesaplamak için uzaklık birimi girin. Bu örnekte bu değeri kullanır: "Mil" | 
-      | **Seyahat modu** | Sürüş | Seyahat modu için yol girin. Bu örnekte bu değer "Driving" kullanır. | 
-      | **Toplu Ulaşım Tarih-Saati** | None | Yalnızca aktarım modu için geçerlidir. | 
-      | **Geçiş türü tarih türü** | None | Yalnızca aktarım modu için geçerlidir. | 
+      | **Güzergah noktası 1** | <*Başlangıç*> | Rotanızın girin. | 
+      | **Güzergah noktası 2** | <*Son*> | Rotanızın hedefi girin. | 
+      | **Kaçının** | None | Ücretli geçişler, Otoyollar gibi yönlendiricilerin önlemek ve benzeri öğeleri girin. Olası değerler için bkz. [rota hesaplama](https://msdn.microsoft.com/library/ff701717.aspx). | 
+      | **İyileştir** | timeWithTraffic | Uzaklık, zaman ile geçerli trafik bilgileri vb. gibi Rotanızı iyileştirmeye yönelik bir parametre seçin. Bu örnekte bu değer: "timeWithTraffic" | 
+      | **Mesafe birimi** | <*your-preference*> | Hesaplamak rotanız için mesafe birimi girin. Bu örnekte bu değer: "Mil" | 
+      | **Seyahat modu** | Sürüş | Rotanız için seyahat modunu girin. Bu örnekte bu değer "Driving" kullanır. | 
+      | **Toplu Ulaşım Tarih-Saati** | None | Yalnızca toplu ulaşım modu için geçerlidir. | 
+      | **Aktarım türü tarih türü** | None | Yalnızca toplu ulaşım modu için geçerlidir. | 
       ||||  
 
-4. Geçerli seyahat trafiği ile belirtilen bir zaman aralığını aşan olup olmadığını denetle için bir koşul ekleyin. Bu örnekte, bu görüntüyü altındaki adımları izleyin:
+1. [Koşul Ekle](../logic-apps/logic-apps-control-flow-conditional-statement.md) geçerli seyahat süresi trafik ile belirli bir süre aşıyor olup olmadığını denetler. Bu örnekte, aşağıdaki adımları izleyin:
 
-   ![Koşul oluşturma](./media/logic-apps-control-flow-run-steps-group-scopes/build-condition.png)
+   1. Koşulu şu açıklama ile yeniden adlandırın: **trafiği zaman belirtilen süreden fazlaysa**
 
-   1. Bu açıklama koşuluyla yeniden adlandırın: **trafiğin belirtilen süreden daha zamanında**
+   1. En soldaki sütunda içine tıklayın **bir değer seçin** dinamik içerik listesinde görünecek şekilde kutusu. Bu listeden **seyahat süresi trafik** saniyeler içinde alanı. 
 
-   2. Parametre listesinden **seyahat süresi trafiği** saniye alan. 
+      ![Koşul derleme](./media/logic-apps-control-flow-run-steps-group-scopes/build-condition.png)
 
-   3. Bu işleç karşılaştırma işleci için seçin: **büyüktür:**
+   1. Orta kutusunda şu işleci seçin: **büyüktür**
 
-   4. Karşılaştırma değeri için girin **600**, olduğu saniye ve 10 dakika ile eşdeğerdir.
+   1. En sağdaki sütunda equivlent 10 dakika ve saniye içinde bu karşılaştırma değeri girin: **600**
 
-5. Koşulunun içinde **true ise** dal, e-posta sağlayıcınız için bir "e-posta Gönder" eylemini ekleyin. Bu eylem ayrıntılarıyla bu görüntüyü altındaki tabloda gösterildiği gibi ayarlayın:
+      İşlem tamamlandığında koşulunuz şu örnekteki gibi görünür:
 
-   !["True ise" Ekle "bir e-posta Gönder" eylemi için şube](./media/logic-apps-control-flow-run-steps-group-scopes/send-email.png)
+      ![Tamamlanmış koşul](./media/logic-apps-control-flow-run-steps-group-scopes/finished-condition.png)
 
-   1. İçin **için** alanında, test amacıyla e-posta adresinizi girin.
+1. İçinde **doğruysa** dal, e-posta sağlayıcınız için bir "e-posta Gönder" eylemini ekleyin. Bu eylem, bu görüntünün altındaki adımları izleyerek ayarlama:
 
-   2. İçin **konu** alanında, bu metin girin:
+   !["True ise", "e-posta Gönder" eylemini ekleme dal](./media/logic-apps-control-flow-run-steps-group-scopes/send-email.png)
+
+   1. İçinde **için** test amacıyla e-posta adresinizi girin.
+
+   1. İçinde **konu** alan, şu metni girin:
 
       ```Time to leave: Traffic more than 10 minutes```
 
-   3. İçin **gövde** alan, bir boşluk bu metin girin: 
+   1. İçinde **gövdesi** bir boşluk koyarak şu metni girin: 
 
       ```Travel time: ```
 
-      İmleci görünür ancak **gövde** alan, dinamik içerik listesi kalır açık bu noktada kullanılabilir herhangi bir parametre seçebilirsiniz.
+      İmlecinizi görünür ancak **gövdesi** alan, dinamik içerik listesinden kalır açık bu noktada kullanılabilir herhangi bir parametre seçebilirsiniz.
 
-   4. Dinamik içerik listesinde **İfade**’yi seçin.
+   1. Dinamik içerik listesinde **İfade**’yi seçin.
 
-   5. Bulmak ve seçmek **div ()** işlevi.
+   1. Bulmak ve seçmek **div()** işlevi. 
+   İmlecinizi, işlevin parantez içinde yerleştirin.
 
-   6. İmleci işlevin parantez içinde olsa da, seçin **dinamik içerik** ekleyebilirsiniz böylece **trafiği süresi trafiği** parametresi sonraki.
+   1. İmlecinizi bir işlevin parantez içinde olsa da, seçin **dinamik içerik** dinamik içerik listesini görüntüleyin. 
+   
+   1. Gelen **rota Al** bölümünden **trafiği süresi trafik** alan.
 
-   7. Altında **Get yol** dinamik parametreyi listeden seçin **trafiği süresi trafiği** alan.
+      !["Trafiği süresi trafik" seçin](./media/logic-apps-control-flow-run-steps-group-scopes/send-email-2.png)
 
-      !["Trafik süresi trafiği" seçin](./media/logic-apps-control-flow-run-steps-group-scopes/send-email-2.png)
-
-   8. JSON biçimine alan çözümler sonra eklemek bir **virgülle** (```,```) sayının ```60``` böylece değeri Dönüştür **trafiği süresi trafiği** dakika saniyeye gelen. 
+   1. JSON biçimine alan çözümlendikten sonra ekleme bir **virgülle** (```,```) bir sayı ```60``` değeri dönüştürme böylece **trafiği süresi trafik** saniyelerden dakikalara. 
    
       ```
       div(body('Get_route')?['travelDurationTraffic'],60)
       ```
 
-      İfadeniz şimdi aşağıdaki gibi görünür:
+      Şimdi ifadeniz şu örnekteki gibi görünür:
 
-      ![Bitiş ifade](./media/logic-apps-control-flow-run-steps-group-scopes/send-email-3.png)  
+      ![İfadeyi tamamlayın](./media/logic-apps-control-flow-run-steps-group-scopes/send-email-3.png)  
 
-   9. Seçtiğinizden emin olun **Tamam** tamamladığınızda.
+   1. İşiniz bittiğinde seçin **Tamam**.
 
-  10. İfade çözümler sonra bu metni başında boşluk ile ekleyin: ``` minutes```
+  1. İfade çözümlendikten sonra başında boşluk koyarak şu metni ekleyin: ``` minutes```
   
-      **Gövde** alan şimdi aşağıdaki gibi görünür:
+     **Gövdesi** alan artık şu örnekteki gibi görünür:
 
-      ![Tamamlandı "Body" alanı](./media/logic-apps-control-flow-run-steps-group-scopes/send-email-4.png)
+     ![Tamamlanmış "Gövde" alanı](./media/logic-apps-control-flow-run-steps-group-scopes/send-email-4.png)
 
-6. Mantıksal uygulamanızı kaydedin.
+1. Mantıksal uygulamanızı kaydedin.
 
-Ardından, böylece belirli eylemleri gruplamak ve bunların durumunu değerlendirmek kapsam ekleyin.
+Ardından, böylece belirli eylemleri grup ve bunların durumunu değerlendirmek kapsam ekleyin.
 
 ## <a name="add-a-scope"></a>"Kapsam" ekle
 
-1. Henüz yapmadıysanız, mantıksal uygulamanızı mantığı Uygulama Tasarımcısı'nda açın. 
+1. Henüz yapmadıysanız, mantıksal uygulamanızı Logic Apps Tasarımcısı'nda açın. 
 
-2. Bir kapsam istediğiniz iş akışı konumunda ekleyin. Örneğin:
+1. Bir kapsam, istediğiniz iş akışı konumunda ekleyin. Örneğin, bir kapsamı arasında var olan mantıksal uygulama iş akışı adımları eklemek için aşağıdaki adımları izleyin: 
 
-   * Mantıksal uygulama iş akışı içinde varolan adımlar arasındaki bir kapsam eklemek için oku kapsamı eklemek istediğiniz işaretçiyi. 
-   Seçin **artı** (**+**) > **bir kapsam eklemek**.
+   1. İmlecinizi, kapsamı eklemek istediğiniz okun üzerine getirin. 
+   Seçin **artı** (**+**) > **Eylem Ekle**.
 
-     !["Kapsam" ekle](./media/logic-apps-control-flow-run-steps-group-scopes/add-scope.png)
+      !["Kapsam" ekle](./media/logic-apps-control-flow-run-steps-group-scopes/add-scope.png)
 
-     Mantıksal uygulamanızı sonundaki akışınıza sonuna bir kapsam eklemek istediğinizde belirleyin **+ yeni adım** > **... Daha fazla** > **bir kapsam eklemek**.
+   1. Arama kutusuna filtreniz olarak "scope" girin. 
+   Seçin **kapsam** eylem.
 
-3. Şimdi adımlar ekleyebilir veya kapsam içinde çalıştırmak istediğiniz varolan adımları sürükleyin. Bu örnekte, bu eylemleri kapsam içine sürükleyin:
+## <a name="add-steps-to-scope"></a>Kapsama adımlar ekleyin
+
+1. Artık adımlar eklemeniz veya kapsam içinde çalıştırmak istediğiniz var olan adımları sürükleyin. Bu örnekte, bu eylemleri kapsamına sürükleyin:
       
    * **Rota Al**
-   * **Trafiğin belirtilen süreden daha zamanında**, her ikisini de içeren **true** ve **false** dalları
+   * **Trafik zaman belirtilen süreden fazlaysa**, her ikisini de içeren **true** ve **false** dallar
 
-   Mantıksal uygulamanız şimdi aşağıdaki gibi görünür:
+   Mantıksal uygulamanız artık şu örnekteki gibi görünür:
 
-   ![Eklenen kapsamı](./media/logic-apps-control-flow-run-steps-group-scopes/scope-added.png)
+   ![Kapsam eklendi](./media/logic-apps-control-flow-run-steps-group-scopes/scope-added.png)
 
-4. Kapsam altında kapsamın durumu denetleyen bir koşul ekleyin. Bu açıklama koşuluyla yeniden adlandırın: **kapsam başarısız olursa**
+1. Kapsam altında kapsamın durumu denetleyen bir koşul ekleyin. Koşulu şu açıklama ile yeniden adlandırın: **kapsam başarısız olduysa**
 
    ![Kapsam durumunu denetlemek için koşul Ekle](./media/logic-apps-control-flow-run-steps-group-scopes/add-condition-check-scope-status.png)
   
-5. Kapsamın durumu eşit olup olmadığını denetler bu deyim derleme `Failed` veya `Aborted`.
+1. Koşul kapsamın durumu "Başarısız" veya "İptal edildi" eşit olup olmadığını denetleyin. Bu ifadeler ekleyin. 
 
-   ![Kapsamın durumunu denetler ifade ekleyin](./media/logic-apps-control-flow-run-steps-group-scopes/build-expression-check-scope-status.png)
+   1. Başka bir satır eklemek için **Ekle**. 
 
-   Ya da bu ifade metin olarak girmeyi seçerseniz **Gelişmiş modda Düzenle**.
+   1. Dinamik içerik listesinde görünecek şekilde her satırda sol kutusunun içine tıklayın. 
+   Dinamik içerik listesinden seçin **ifade**. Düzenleme kutusuna şu ifadeyi girin ve ardından **Tamam**: 
+   
+      `result('Scope')[0]['status']`
 
-   ```@equals('@result(''Scope'')[0][''status'']', 'Failed, Aborted')```
+      ![Kapsamın durumu denetleyen bir ifade ekleyin](./media/logic-apps-control-flow-run-steps-group-scopes/check-scope-status.png)
 
-6. İçinde **true ise** ve **false ise** dal, ekleyebilir, gerçekleştirmek istediğiniz eylemleri Örneğin, e-posta veya bir ileti gönderin.
+   1. Her iki satır seçin **eşittir** işleci olarak. 
+   
+   1. Karşılaştırma değerlerinin ilk satırını girin `Failed`. 
+   İkinci satırda girin `Aborted`. 
 
-   ![Kapsamın durumunu denetler ifade ekleyin](./media/logic-apps-control-flow-run-steps-group-scopes/handle-true-false-branches.png)
+      İşlem tamamlandığında koşulunuz şu örnekteki gibi görünür:
 
-7. Mantıksal uygulamanızı kaydedin.
+      ![Kapsamın durumu denetleyen bir ifade ekleyin](./media/logic-apps-control-flow-run-steps-group-scopes/check-scope-status-finished.png)
 
-Tamamlanmış mantıksal uygulamanızı şimdi genişletilmiş tüm şekiller ile aşağıdaki gibi görünür:
+      Şimdi koşulun ayarlamak `runAfter` koşul kapsamı durumunu denetler ve eşleşen eylemi çalıştıran özelliğini daha sonraki adımlarda tanımlayın.
+
+   1. Üzerinde **kapsam başarısız olduysa** koşul öğesini **üç nokta** (...) düğmesini ve ardından **sonrasında çalıştırmayı Yapılandır**.
+
+      !['RunAfter' özelliği'ni yapılandırma](./media/logic-apps-control-flow-run-steps-group-scopes/configure-run-after.png)
+
+   1. Bu kapsam durumlarını seçin: **başarılı**, **başarısız oldu**, **atlandı**, ve **zaman aşımına uğradı**
+
+      ![Kapsam durumlarını seçin](./media/logic-apps-control-flow-run-steps-group-scopes/select-run-after-statuses.png)
+
+   1. İşlemi tamamladığınızda, seçin **Bitti**. 
+   Koşul artık bir "bilgi" simgesi gösterir.
+
+1. İçinde **doğruysa** ve **false ise** dallar ekleme gerçekleştirmek istediğiniz eylemleri her kapsam duruma göre örneğin, bir e-posta veya ileti gönderin.
+
+   ![Kapsam durumuna göre gerçekleştirilecek eylemler ekleyin](./media/logic-apps-control-flow-run-steps-group-scopes/handle-true-false-branches.png)
+
+1. Mantıksal uygulamanızı kaydedin.
+
+Tamamlanmış mantıksal uygulamanız artık şu örnekteki gibi görünür:
 
 ![Tamamlanmış mantıksal uygulama kapsamlı](./media/logic-apps-control-flow-run-steps-group-scopes/scopes-overview.png)
 
-## <a name="test-your-work"></a>Çalışmanızı test
+## <a name="test-your-work"></a>İşinizi test etme
 
-Tasarımcı araç çubuğunda seçin **çalıştırmak**. Tüm kapsamlı eylemleri başarılı olursa, "Kapsam başarılı oldu" iletisi alıyorum. Kapsamlı eylemleri işinde başarılı olursa, "Kapsam başarısız oldu" iletisini alırsınız. 
+Tasarımcı araç çubuğunda **çalıştırma**. Kapsamı belirli eylemlerin tümü başarılı olursa, "Kapsam başarılı oldu" iletisi alıyorum. Kapsamı belirlenmiş eylemleri yoksa başarılı olursa, "Kapsam başarısız oldu" iletisi alıyorum. 
 
 <a name="scopes-json"></a>
 
 ## <a name="json-definition"></a>JSON tanımı
 
-Kod görünümünde çalışıyorsanız, kapsam yapısı mantığı uygulamanızın JSON tanımında yerine tanımlayabilirsiniz. Örneğin, tetikleyici ve önceki mantıksal uygulama eylemler için JSON tanımını şöyledir:
+Kod Görünümü'nde çalışıyorsanız, mantıksal uygulamanızın JSON tanımında bir kapsama yapısı yerine tanımlayabilirsiniz. Örneğin, tetikleyici ve Eylemler önceki mantıksal uygulama için JSON tanımı şöyledir:
 
 ``` json
 "triggers": {
@@ -210,7 +243,7 @@ Kod görünümünde çalışıyorsanız, kapsam yapısı mantığı uygulamanız
     "recurrence": {
        "frequency": "Minute",
        "interval": 1
-    },
+    }
   }
 }
 ```
@@ -224,7 +257,7 @@ Kod görünümünde çalışıyorsanız, kapsam yapısı mantığı uygulamanız
         "type": "ApiConnection",
         "inputs": {
           "body": {
-            "Body": "Scope failed",
+            "Body": "Scope failed. Scope status: @{result('Scope')[0]['status']}",
             "Subject": "Scope failed",
             "To": "<your-email@domain.com>"
           },
@@ -245,7 +278,7 @@ Kod görünümünde çalışıyorsanız, kapsam yapısı mantığı uygulamanız
           "type": "ApiConnection",
           "inputs": {
             "body": {
-              "Body": "None",
+              "Body": "Scope succeeded. Scope status: @{result('Scope')[0]['status']}",
               "Subject": "Scope succeeded",
               "To": "<your-email@domain.com>"
             },
@@ -261,10 +294,28 @@ Kod görünümünde çalışıyorsanız, kapsam yapısı mantığı uygulamanız
         }
       }
     },
-    "expression": "@equals('@result(''Scope'')[0][''status'']', 'Failed, Aborted')",
+    "expression": {
+      "or": [ 
+         {
+            "equals": [ 
+              "@result('Scope')[0]['status']", 
+              "Failed"
+            ]
+         },
+         {
+            "equals": [
+               "@result('Scope')[0]['status']", 
+               "Aborted"
+            ]
+         } 
+      ]
+    },
     "runAfter": {
       "Scope": [
-        "Succeeded"
+        "Failed",
+        "Skipped",
+        "Succeeded",
+        "TimedOut"
       ]
     }
   },
@@ -291,14 +342,14 @@ Kod görünümünde çalışıyorsanız, kapsam yapısı mantığı uygulamanız
         },
         "runAfter": {}
       },
-      "If_traffic_time_more_than_specified_time": {
+      "If_traffic_time_is_more_than_specified_time": {
         "type": "If",
         "actions": {
           "Send_mail_when_traffic_exceeds_10_minutes": {
             "type": "ApiConnection",
             "inputs": {
               "body": {
-                 "Body": "Travel time:@{div(body('Get_route')?['travelDurationTraffic'], 60)} minutes",
+                 "Body": "Travel time:@{div(body('Get_route')?['travelDurationTraffic'],60)} minutes",
                  "Subject": "Time to leave: Traffic more than 10 minutes",
                  "To": "<your-email@domain.com>"
               },
@@ -313,7 +364,16 @@ Kod görünümünde çalışıyorsanız, kapsam yapısı mantığı uygulamanız
             "runAfter": {}
           }
         },
-        "expression": "@greater(body('Get_route')?['travelDurationTraffic'], 600)",
+        "expression": {
+          "and" : [
+            {
+               "greater": [ 
+                  "@body('Get_route')?['travelDurationTraffic']", 
+                  600
+               ]
+            }
+          ]
+        },
         "runAfter": {
           "Get_route": [
             "Succeeded"
@@ -323,17 +383,17 @@ Kod görünümünde çalışıyorsanız, kapsam yapısı mantığı uygulamanız
     },
     "runAfter": {}
   }
-}
+},
 ```
 
 ## <a name="get-support"></a>Destek alın
 
 * Sorularınız için [Azure Logic Apps forumunu](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps) ziyaret edin.
-* Gönderme veya özellikleri ve öneriler oylamak için ziyaret [Azure Logic Apps kullanıcı geri bildirim sitesi](http://aka.ms/logicapps-wish).
+* Gönderin veya özellikleri ve önerileri oylamak için şurayı ziyaret edin [Azure Logic Apps kullanıcı geri bildirim sitesinde](http://aka.ms/logicapps-wish).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* [Bir koşula göre (koşullu deyimler) adımları çalıştırın](../logic-apps/logic-apps-control-flow-conditional-statement.md)
-* [Farklı değerlerini (switch deyimleri) temel alan adımları çalıştırın](../logic-apps/logic-apps-control-flow-switch-statement.md)
-* [Çalıştırma ve (döngüler) arasındaki adımları yineleyin](../logic-apps/logic-apps-control-flow-loops.md)
-* [Çalıştırmak veya paralel adımları (dal) birleştirme](../logic-apps/logic-apps-control-flow-branches.md)
+* [Bir koşula göre (koşullu deyimler) adımlarını çalıştırmayı](../logic-apps/logic-apps-control-flow-conditional-statement.md)
+* [Farklı değerlere (switch deyimleri) adımlarını çalıştırmayı](../logic-apps/logic-apps-control-flow-switch-statement.md)
+* [Çalıştırma ve yineleme adımları (döngüler)](../logic-apps/logic-apps-control-flow-loops.md)
+* [Çalıştırın veya paralel adımları (dallar) birleştirme](../logic-apps/logic-apps-control-flow-branches.md)

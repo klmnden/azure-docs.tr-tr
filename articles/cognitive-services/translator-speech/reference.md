@@ -10,19 +10,20 @@ ms.component: translator-speech
 ms.topic: reference
 ms.date: 05/18/2018
 ms.author: v-jansko
-ROBOTS: NOINDEX
-ms.openlocfilehash: 46aeab52014a28d1a962195de802d0e000b62509
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 1fc48687141ea8a7e8cb30d3438d81e8f1088e4f
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46978718"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49340452"
 ---
 # <a name="translator-speech-api"></a>Translator Konuşma Çevirisi API’si
 
+[!INCLUDE [Deprecation note](../../../includes/cognitive-services-translator-speech-deprecation-note.md)]
+
 Bu hizmet, bir akış API'sini bir dilden damıtarak konuşma bağlamında kullanılabilen konuşma başka bir dil metne özelliği sunar. API, geri çevrilen metni seslendirme için metin okuma özellikleri de tümleştirir. Translator konuşma tanıma API'si, Skype Translator görüldüğü gibi gerçek zamanlı konuşma çevirisi gibi senaryolara olanak sağlar.
 
-Translator konuşma tanıma API'si ile istemci uygulamaları, hizmet konuşma sesine akışla aktarma ve geri tanınan metin kaynak dili ve çevirisini hedef dil dahil metin tabanlı sonuçları bir akışını alın. Metin sonuçlarını, otomatik konuşma tanıma (ASR) gelen bir ses akışı için derin sinir ağı tarafından desteklenen uygulayarak oluşturulur. Ham ASR çıktı daha yakından kullanıcının amacını yansıtmak için TrueText adında yeni bir teknik tarafından daha fazla geliştirildi. Örneğin, TrueText disfluencies (hmms ve coughs) ve geri yükleme uygun noktalama işaretleri ve büyük/küçük harf kaldırır. Maske veya profanities hariç olanağı da dahil edilir. Tanıma ve çevirisi altyapılarını damıtarak konuşma bağlamında kullanılabilen konuşma işlemek için özellikle eğitilir. Konuşma çevirisi hizmeti sessizlik algılama bir utterance sonuna belirlemek için kullanır. Ses etkinliği bir duraklamadan sonra hizmet tekrar tamamlanmış utterance nihai sonucu akışı sağlanacak. Hizmet ayrıca Ara tanıma ve bir utterance Çeviriler, devam eden veren geri kısmi sonuçları gönderebilirsiniz. Son sonuçlar için hizmet konuşulan metnin hedef dilde konuşma (okuma) sentezlemek olanağı sağlar. Metin okuma ses, istemci tarafından belirtilen biçimde oluşturulur. WAV ve MP3 biçimi vardır.
+Translator konuşma tanıma API'si ile istemci uygulamaları, hizmet konuşma sesine akışla aktarma ve geri tanınan metin kaynak dili ve çevirisini hedef dil dahil metin tabanlı sonuçları bir akışını alın. Metin sonuçları, gelen ses akışına derin sinir ağlarıyla desteklenen Otomatik Konuşma Tanıma (ASR) uygulanarak oluşturulur. Ham ASR çıktı daha yakından kullanıcının amacını yansıtmak için TrueText adında yeni bir teknik tarafından daha fazla geliştirildi. Örneğin, TrueText disfluencies (hmms ve coughs) ve geri yükleme uygun noktalama işaretleri ve büyük/küçük harf kaldırır. Küfürleri maskeleme veya çıkarma olanağı da sağlanır. Tanıma ve çeviri altyapıları, konuşmaları işlemek için özel olarak eğitilmiştir. Konuşma çevirisi hizmeti sessizlik algılama bir utterance sonuna belirlemek için kullanır. Ses etkinliğinde bir duraklama olduktan sonra, hizmet tamamlanan konuşma için nihai sonucun geri akışını yapar. Ayrıca hizmet kısmi sonuçları da geri gönderebilir; bu yolla devam eden konuşma için ara tanıma ve çeviriler sağlanır. Son sonuçlar için hizmet konuşulan metnin hedef dilde konuşma (okuma) sentezlemek olanağı sağlar. Metni konuşmaya dönüştürme sesi, istemci tarafından belirtilen biçimde oluşturulur. WAV ve MP3 biçimleri kullanılabilir.
 
 Translator konuşma tanıma API'si, istemci ve sunucu arasında bir tam çift yönlü iletişim kanalı sağlayan WebSocket Protokolü yararlanır. Bir uygulama hizmeti kullanmak için aşağıdaki adımları gerektirir:
 

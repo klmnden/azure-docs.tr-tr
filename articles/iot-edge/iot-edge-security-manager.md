@@ -2,19 +2,19 @@
 title: Azure IOT Edge Güvenlik Yöneticisi | Microsoft Docs
 description: IOT Edge cihaz güvenlik tutum sergilemek ve güvenlik hizmetleri bütünlüğünü yönetir.
 services: iot-edge
-keywords: Güvenlik, öğe, kuşatma, IOT Edge
+keywords: Güvenlik, güvenli öğesi, kuşatma, TEE, IOT Edge
 author: eustacea
 manager: timlt
 ms.author: eustacea
 ms.date: 07/30/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 4594685291396b8b80e62abe57be109f0abbd81d
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: f0e548cdd1c59dc894899ddbac127dd76db7db26
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46126352"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49321198"
 ---
 # <a name="azure-iot-edge-security-manager"></a>Azure IOT Edge Güvenlik Yöneticisi
 
@@ -113,7 +113,7 @@ Tüm kök geliştirici veya IOT Edge kullanıcıdan miktarı yalıtmak için gü
 
 ## <a name="secure-silicon-root-of-trust-hardware"></a>Silikon kök güven donanım güvenliğini sağlama
 
-Güvenli Silikon, IOT Edge cihaz donanım içinde yer işareti güven için gereklidir.  Silikon güvenli, Güvenilir Platform Modülü (TPM), katıştırılmış güvenli öğesi (eSM), ARM Trustzone, Intel SGX ve özel güvenli Silikon teknolojileri dahil etmek için çeşitli gelir.  Fiziksel olarak IOT cihazları erişilebilirlikle ilgili tehditleri verilen güvenli Silikon kök güven cihazlarında kullanımını önemle tavsiye edilir.
+Güvenli Silikon, IOT Edge cihaz donanım içinde yer işareti güven için gereklidir.  Silikon güvenli, Güvenilir Platform Modülü (TPM), katıştırılmış güvenli öğesi (eSE), ARM TrustZone, Intel SGX ve özel güvenli Silikon teknolojileri dahil etmek için çeşitli gelir.  Fiziksel olarak IOT cihazları erişilebilirlikle ilgili tehditleri verilen güvenli Silikon kök güven cihazlarında kullanımını önemle tavsiye edilir.
 
 ## <a name="iot-edge-security-manager-integration-and-maintenance"></a>IOT Edge Güvenlik Yöneticisi tümleştirmesi ve bakımı
 

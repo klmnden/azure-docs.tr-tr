@@ -12,12 +12,12 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 11/11/2017
 ms.author: ghogen
-ms.openlocfilehash: 56b01855a5996bb62f721bda2bfc207684227854
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 1ec587f4a4519f86efceb7cefa0acb372035a9a9
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42059665"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49318223"
 ---
 # <a name="configuring-your-azure-project-in-visual-studio-to-use-multiple-service-configurations"></a>Azure projenizi Visual Studio'da birden fazla hizmet yapılandırması kullanmak için yapılandırma
 
@@ -75,8 +75,9 @@ Bir bağlantı dizesi oluşturmak için Seç **ayar Ekle** ayarlayıp **türü**
 Yeni veya var olan bağlantı dizeleri için seçin **...** * sağ tarafındaki **değer** açmak için alan **depolama bağlantı dizesi oluştur** iletişim:
 
 1. Altında **bağlanırken**, seçin **aboneliğinizi** seçeneği bir abonelikten bir depolama hesabı seçin. Visual Studio, ardından depolama hesabı kimlik bilgilerini otomatik olarak edinir `.publishsettings` dosya.
-1. Seçme **el ile kimlik bilgileri girilen** hesap adını belirtin ve anahtar kullanarak doğrudan Azure portalından bilgi sağlar. Hesap anahtarını kopyalayın: bir. Azure portal ve select depolama hesabına gidin **anahtarları Yönet**.
-    2. Hesap anahtarı kopyalamak için depolama hesabı seçin Azure Portal'da gidin **ayarlar > erişim anahtarları**, sonra birincil erişim anahtarını panoya kopyalamak için Kopyala düğmesini kullanın.
+1. Seçme **el ile kimlik bilgileri girilen** hesap adını belirtin ve anahtar kullanarak doğrudan Azure portalından bilgi sağlar. Hesap anahtarı kopyalamak için:
+    1. Azure portal ve select depolama hesabına gidin **anahtarları Yönet**.
+    1. Hesap anahtarı kopyalamak için depolama hesabı seçin Azure Portal'da gidin **ayarlar > erişim anahtarları**, sonra birincil erişim anahtarını panoya kopyalamak için Kopyala düğmesini kullanın.
 1. Bağlantı seçeneklerinden birini seçin. **Özel uç noktalar belirtin** kuyruklar ve BLOB'lar, tablolar için belirli URL'leri belirtin isteyip istemediğinizi sorar. Özel uç noktalar kullanmanıza izin verir [özel etki alanları](storage/blobs/storage-custom-domain-name.md) ve daha kesin olarak erişimi denetleme. Bkz: [Azure Storage bağlantı dizelerini yapılandırma](./storage/common/storage-configure-connection-string.md).
 1. Seçin **Tamam**, ardından **Dosya > Kaydet** yeni bağlantı dizesiyle yapılandırmasını güncelleştirmek için.
 

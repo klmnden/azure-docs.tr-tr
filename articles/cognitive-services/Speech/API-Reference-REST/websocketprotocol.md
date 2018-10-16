@@ -10,15 +10,16 @@ ms.component: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
-ROBOTS: NOINDEX
-ms.openlocfilehash: 6ee61a38615ac8cbf4c4fcf6b8d631c5f9a8f7d1
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 0bbc6b638d11335e6d46501fa651996f05957dd5
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46962785"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49341829"
 ---
 # <a name="bing-speech-websocket-protocol"></a>Bing konuşma WebSocket Protokolü
+
+[!INCLUDE [Deprecation note](../../../../includes/cognitive-services-bing-speech-api-deprecation-note.md)]
 
 Bing konuşma metin dönüştürme konuşma sesine kullanılabilir en gelişmiş algoritmalar özellikleri bir bulut tabanlı bir platformdur. Bing konuşma protokolü tanımlar [bağlantı kurma](#connection-establishment) istemci uygulamaları, hizmet ve ortaklarınıza arasında alınıp verilen konuşma tanıma iletileri arasındaki ([istemci kaynaklı iletiler](#client-originated-messages) ve [hizmeti kaynaklı iletiler](#service-originated-messages)). Ayrıca, [telemetri iletilerini](#telemetry-schema) ve [hata işleme](#error-handling) açıklanmıştır.
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/01/2017
 ms.author: apurvajo;cephalin
-ms.openlocfilehash: 0c2adcfa4e11e444f66e1a9c04bea6e3d352f117
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 38f7f82d293409a49c41381cedaa1f7600068cd3
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49077735"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49319413"
 ---
 # <a name="buy-and-configure-an-ssl-certificate-for-your-azure-app-service"></a>Azure App Service için SSL Sertifikası Satın Alma ve Yapılandırma
 
@@ -78,7 +78,7 @@ Aynı **sertifika Yapılandırması** adım 3'te kullanılan sayfasında **2. ad
 
 Tercih edilen etki alanı doğrulama yöntemi seçin. 
 
-App Service sertifikaları tarafından desteklenen etki alanı doğrulaması dört tür vardır: App Service, etki alanı ve el ile doğrulama. Bu doğrulama türleri daha ayrıntılı olarak açıklanmıştır [bölümü Gelişmiş](#advanced).
+Etki alanı doğrulaması App Service sertifikaları tarafından desteklenen üç tür vardır: App Service, etki alanı ve el ile doğrulama. Bu doğrulama türleri daha ayrıntılı olarak açıklanmıştır [bölümü Gelişmiş](#advanced).
 
 > [!NOTE]
 > **App Service doğrulaması** doğrulamak istediğiniz etki alanını aynı Abonelikteki bir App Service uygulaması zaten eşlenmiş en uygun seçenektir. App Service uygulaması zaten etki alanı sahipliğini doğruladı olgu avantajlarından yararlanır.

@@ -10,14 +10,15 @@ ms.component: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
-ROBOTS: NOINDEX
-ms.openlocfilehash: 3b1e82d65a3eafb9e41277a18569270ef02cd8e5
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 4c5243ec14a4494222168bb33b3e840b96f8465e
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46989050"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49345263"
 ---
+[!INCLUDE [Deprecation note](../../../../includes/cognitive-services-bing-speech-api-deprecation-note.md)]
+
 # <a name="quickstart-use-the-bing-speech-recognition-api-in-java-on-android"></a>Hızlı Başlangıç: Java API Bing konuşma tanıma Android kullanın.
 
 Bing konuşma tanıma API'SİYLE konuşma kayıtlarını metne dönüştürmek için Bing konuşma bulut tabanlı hizmet kullanan Android uygulamaları geliştirebilirsiniz. Uygulamanız aynı anda olabilir ve zaman uyumsuz olarak hizmete ses gönderiyor aynı anda kısmi tanıma sonuçları almak için gerçek zamanlı akış, API'yi destekler.

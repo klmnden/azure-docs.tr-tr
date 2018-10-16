@@ -1,7 +1,7 @@
 ---
-title: Azure uygulama hizmeti Linux dağıtımda - özel görüntü, çok kapsayıcı ya da yerleşik platform görüntüsü?  | Microsoft Docs
-description: Uygulama hizmeti Linux'ta için özel Docker kapsayıcısı dağıtımı, birden çok kapsayıcı ve yerleşik uygulama çerçevesi arasında karar verme
-keywords: Azure uygulama hizmeti, web uygulaması, linux, oss
+title: Azure App Service Linux dağıtımı - özel görüntü, çok kapsayıcılı veya yerleşik platform görüntüsü üzerinde?  | Microsoft Docs
+description: Linux'ta App Service için özel Docker kapsayıcı dağıtımı, çok kapsayıcılı ve yerleşik uygulama çerçevesi arasında karar verme
+keywords: Azure app service, web uygulaması, linux, oss
 services: app-service
 documentationCenter: ''
 authors: msangapu
@@ -15,65 +15,65 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2018
 ms.author: msangapu
-ms.openlocfilehash: 012f78fc07f237e8ed532246c81a3c86bb6ab4ac
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: c619ae164f8f8b6e94d9061c4346de58bd6cb795
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33764351"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49319447"
 ---
-# <a name="custom-image-multi-container-or-built-in-platform-image"></a>Özel görüntü, çok kapsayıcı veya yerleşik platform görüntüsü?
+# <a name="custom-image-multi-container-or-built-in-platform-image"></a>Özel görüntü, çok kapsayıcılı veya yerleşik platform görüntüsü?
 
-[Uygulama hizmeti Linux'ta](app-service-linux-intro.md) uygulamanız Web'de yayımlanan alma için üç farklı yollarını sunar:
+[Linux üzerinde App Service'te](app-service-linux-intro.md) Web'de yayımlanan uygulamanızı edinmenin üç farklı yollar sunar:
 
-- **Özel görüntü dağıtımı**: "tüm dosyaları ve bağımlılıkları hazır Çalıştır paketi içeren bir Docker görüntüye uygulamanızı Dockerize".
-- **Birden çok kapsayıcı dağıtım**: "uygulamanızı Docker Compose veya bir Kubernetes yapılandırma dosyası kullanarak birden çok kapsayıcı arasında Dockerize". Daha fazla bilgi için bkz: [çok kapsayıcı uygulama](#multi-container-apps-supportability).
-- **Uygulama dağıtımı bir yerleşik platform görüntüsü ile**: ortak web uygulama çalışma zamanları ve bağımlılıklar düğümü ve PHP gibi bizim yerleşik platform görüntüleri içerir. Herhangi birini kullanmak [Azure uygulama hizmeti dağıtım yöntemleri](../app-service-deploy-local-git.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json) web uygulamanızın depolama birimine uygulamanızı dağıtmak ve çalıştırmak için bir yerleşik platform görüntüsü kullanın.
+- **Özel görüntü dağıtımı**: "uygulamanızı farklı tüm dosyaları ve çalıştırılmaya hazır paket bağımlılıkları içeren bir Docker görüntüsü docker kapsayıcılarında çalıştırın".
+- **Çok kapsayıcılı dağıtım**: "uygulamanızı bir Docker Compose veya Kubernetes yapılandırma dosyası kullanarak birden çok kapsayıcıya docker kapsayıcılarında çalıştırın". Daha fazla bilgi için [çok kapsayıcılı uygulama](#multi-container-apps-supportability).
+- **Yerleşik platform görüntüsü ile uygulama dağıtımı**: ortak web uygulaması çalışma zamanları ve bağımlılıkları, düğüm ve PHP gibi yerleşik platform görüntülerimizi içerir. Herhangi birini kullanan [Azure App Service dağıtım yöntemleri](../app-service-deploy-local-git.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json) uygulamanız için web uygulamanızın depolama dağıtmak ve çalıştırmak için bir yerleşik platform görüntüsü'i kullanın.
 
-##<a name="which-method-is-right-for-your-app"></a>Hangi yöntemi uygulamanız için uygun hangisi? 
+## <a name="which-method-is-right-for-your-app"></a>Uygulamanız için hangi yöntemi hangisi? 
 
-Dikkate alınması gereken birincil faktörleri şunlardır:
+Dikkate alınması gereken temel unsurlar şunlardır:
 
-- **Docker kullanılabilirlik geliştirme iş akışınızda**: özel görüntü geliştirme Docker geliştirme iş akışının temel bilgi gerektirir. Bir web uygulaması için özel bir görüntü dağıtımı özel görüntünüzü Docker hub'a gibi deposu konağa yayımlanmasını gerektirir. Docker ile sahibiyseniz ve Docker görevleri yapı iş akışınız ekleyebilirsiniz ya da uygulamanızı Docker görüntü olarak zaten yayımlıyorsanız, özel bir görüntü neredeyse kesinlikle en iyi seçimdir.
-- **Çok katmanlı mimarisi**: web uygulama katmanı ve yetenekleri çok kapsayıcısını kullanarak ayırmak için bir API katmanı gibi birden çok kapsayıcı dağıtma. 
-- **Uygulama performansı**: gibi Redis önbelleği Katmanı'nı kullanarak çok kapsayıcı uygulamanızı performansı arttırır. Bunu başarmak için çok kapsayıcısı seçin.
-- **Benzersiz çalışma zamanı gereksinimleri**: yerleşik platform görüntüleri çoğu web uygulamalarının ihtiyaçlarını karşılamak üzere tasarlanmıştır, ancak bunların özelleştirilebilirliğini sınırlıdır. Uygulamanızı benzersiz bağımlılıkları veya yerleşik görüntüleri yeteneğine nelerdir aşan diğer çalışma zamanı gereksinimleri olabilir.
-- **Derleme gereksinimleri**: ile [sürekli dağıtım](../app-service-continuous-deployment.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json), uygulamanız hazır ve çalışır Azure üzerinde doğrudan kaynak kodundan alabilirsiniz. Dış bir yapı veya yayın işlem gereklidir. Ancak, derleme araçları içinde kullanılabilirliğini ve özelleştirilebilirliğini için bir sınır yoktur [Kudu](https://github.com/projectkudu/kudu/wiki) dağıtım altyapısı. Bağımlılıklar veya özel derleme mantığı için gereksinimleri arttıkça, uygulamanızın Kudu'nin özellikleri outgrow.
-- **Disk okuma/yazma gereksinimleri**: tüm web uygulamaları, web içeriği için bir depolama birimi ayrılır. Azure Storage tarafından yedeklenen bu birimin takılı `/home` uygulamanın dosya sistemi içinde. Kapsayıcı filesystem dosyalarında aksine, bir uygulamanın tüm ölçek örneklerde içerik birimdeki dosyaları erişilebilir ve değişiklikler uygulama yeniden başlatmaları arasındaki korunur. Ancak, içerik biriminin disk gecikmesi yüksektir ve yerel kapsayıcı dosya sistemi ve erişim gecikmesi'den daha fazla değişken platformu yükseltmeleri, Planlanmamış kapalı kalma süresi ve ağ bağlantısı sorunları tarafından etkilenebilir. İçerik dosyaları ağır salt okunur erişim gerektiren uygulamalar görüntü dosya sistemi yerine içerik birim üzerindeki dosyaları yerleştirir özel görüntü dağıtımından yararlı.
-- **Kaynak kullanımı yapı**: kaynağından bir uygulama dağıtıldığında, dağıtım betikleri Kudu kullandığı aynı App Service planı işlem ve depolama kaynaklarını çalışan uygulaması gibi çalıştırabilir. Daha fazla kaynak ya da istenen zamanından büyük uygulama dağıtımları tüketebilir. Özellikle, birçok dağıtım iş akışları yoğun disk etkinliği gibi etkinlik için optimize edilmemiş uygulama içerik birim oluşturun. Özel görüntü tüm uygulamanızın dosyaları ve bağımlılıkları için Azure ek dosya aktarımları veya dağıtım eylemleri için gerekli olan tek bir paket sunar.
-- **Hızlı yineleme için gereken**: bir uygulama Dockerizing ek yapılandırma adımları gerektirir. Değişikliklerin etkili olabilmesi için her güncelleştirme deponuza yeni görüntünüzü göndermelisiniz. Bu güncelleştirmeler, ardından Azure ortamına alınır. Kaynak sunucudan dağıtma yerleşik kapsayıcıları birini uygulamanızın gereksinimlerini karşılıyorsa, daha hızlı geliştirme iş akışı sunabilir.
+- **Docker'ın geliştirme iş akışınızın kullanılabilirlik**: özel görüntü geliştirme Docker geliştirme iş akışının temel bilgi gerektirir. Bir web uygulamasına özel bir görüntü dağıtımı, özel görüntü Docker Hub gibi bir depo konağına yayımlanmasını gerektirir. Docker ile ilgili bilgi sahibi olduğunuz ve Docker görevleri için yapı iş ekleyebilirsiniz veya uygulamanızla bir Docker görüntüsü yayımlıyorsanız, özel bir görüntü olasılıkla en iyi seçenektir.
+- **Çok katmanlı mimarinin**: web uygulama katmanı ve çok kapsayıcılı kullanarak özellikleri ayırmak için bir API katmanı gibi birden çok kapsayıcı dağıtma. 
+- **Uygulama performansı**: Redis gibi bir önbellek katmanı kullanarak çok Kapsayıcılı uygulamanızı performansını artırın. Bunu yapmanın çok kapsayıcıyı seçin.
+- **Benzersiz bir çalışma zamanı gereksinimleri**: yerleşik platform görüntüleri çoğu web uygulamalarının ihtiyaçlarını karşılamak için tasarlanan, ancak bunların sağlamadığından sınırlıdır. Uygulamanızı benzersiz bağımlılıkları veya yerleşik görüntüleri yeteneğine nelerdir aşan başka bir çalışma zamanı gereksinimleri olabilir.
+- **Derleme gereksinimleri**: ile [sürekli dağıtım](../app-service-continuous-deployment.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json), uygulamanız çalışmaya Azure'da doğrudan kaynak koddan elde edebilirsiniz. Dış bir derleme veya yayın işlem gereklidir. Ancak, özelleştirmeyi ölçme ve derleme araçları içinde kullanılabilirlik için bir sınır yoktur [Kudu](https://github.com/projectkudu/kudu/wiki) dağıtım altyapısı. Bağımlılıklar veya özel yapı mantığı için gereksinimleri arttıkça uygulamanızın Kudu'nın özellikleri aşıyorsa.
+- **Disk okuma/yazma gereksinimleri**: tüm web uygulamaları, web içeriği için bir depolama birimi ayrılır. Azure Depolama tarafından desteklenen, bu birimin takılı `/home` uygulamanın dosya sistemi içinde. Kapsayıcı dosya sistemi dosyaları, farklı bir uygulamanın tüm ölçek örneklerde içerik birimdeki dosyalar erişilebilir olur ve değişiklikler uygulama yeniden başlatmaları arasındaki açık kalır. Ancak, içerik biriminin disk gecikmesi yüksektir ve yerel kapsayıcı dosya sistemi ve erişim gecikme değerinden daha fazla değişken platformu yükseltmeleri, Planlanmamış kapalı kalma süresi ve ağ bağlantısı sorunları etkilenebilir. İçerik dosyaları için ağır salt okunur erişim gerektiren uygulamaları, görüntü dosya sistemi yerine içerik birim üzerindeki dosyaları yerleştirir özel görüntü dağıtımından faydalanabilir.
+- **Kaynak kullanımı derleme**: kaynağından bir uygulama dağıtıldığında, dağıtım betikleri Kudu kullanarak aynı App Service planı işlem ve depolama kaynakları çalışan uygulamayı çalıştırın. Daha fazla kaynak ya da istenen saatten büyük uygulama dağıtımları tüketebilir. Özellikle, bu tür bir etkinlik için optimize edilmemiş uygulama içerik birim yoğun disk etkinlik birçok dağıtım iş akışları oluşturun. Özel bir görüntü, uygulamanızın dosyaları ve bağımlılıkları tümünün tek bir pakette ak dosya aktarımlarının veya dağıtım eylemleri gerek kalmaz Azure'a sunar.
+- **Hızlı yineleme için gereksinim**: uygulama Dockerizing ek derleme adımları gerektirir. Değişikliklerin etkili olması için yeni görüntünüzü bir depoyla her bir güncelleştirme göndermeniz gerekir. Bu güncelleştirmeler, ardından Azure ortamı alınır. Yerleşik kapsayıcılardan birini uygulamanızın gereksinimlerini karşılıyorsa, daha hızlı bir geliştirme iş akışı kaynağından dağıtma sunabilir.
 
-## <a name="multi-container-apps-supportability"></a>Birden çok kapsayıcı uygulamaları desteklenebilirlik
+## <a name="multi-container-apps-supportability"></a>Çok kapsayıcılı uygulamalar desteklenebilirliği
 
-### <a name="supported-docker-compose-configuration-options"></a>Desteklenen Docker Compose yapılandırma seçenekleri
-- komutu
-- EntryPoint
+### <a name="supported-docker-compose-configuration-options"></a>Docker Compose desteklenen yapılandırma seçenekleri
+- command
+- entrypoint
 - environment
-- görüntü
-- Bağlantı noktaları
-- Yeniden başlatma
-- Hizmetleri
-- Birimleri
+- image
+- ports
+- restart
+- services
+- volumes
 
 ### <a name="unsupported-docker-compose-configuration-options"></a>Desteklenmeyen Docker Compose yapılandırma seçenekleri
-- derleme (izin yok)
-- depends_on (göz ardı)
-- ağları (göz ardı)
-- Gizli (göz ardı)
-- 80 ve 8080 (göz ardı) dışındaki bağlantı noktaları
+- build (izin verilmez)
+- depends_on (yoksayılır)
+- networks (yoksayılır)
+- secrets (yoksayılır)
+- 80 ve 8080 (yoksayıldı) dışındaki bağlantı noktaları
 
 > [!NOTE]
-> Açıkça çağrılan diğer seçenekleri de genel önizlemede göz ardı edilir.
+> Açıkça çağrılmayan diğer tüm seçenekler de Genel Önizleme'de yoksayılır.
 
 ### <a name="supported-kubernetes-configuration-options"></a>Desteklenen Kubernetes yapılandırma seçenekleri
-- bağımsız değişken
-- komutu
+- args
+- command
 - containers
-- görüntü
+- image
 - ad
-- Bağlantı noktaları
-- belirtimi
+- ports
+- spec
 
 > [!NOTE]
->Açıkça çağrılan diğer Kubernetes seçenekleri genel önizlemede desteklenmez.
+>Açıkça çağrılmayan diğer tüm Kubernetes seçenekleri de Genel Önizleme'de desteklenmez.
 >

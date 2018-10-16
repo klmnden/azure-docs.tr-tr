@@ -10,12 +10,12 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 10/01/2018
 ms.author: panosper
-ms.openlocfilehash: 4b5d0b66c4d39320a082cb9e76252bfc00db6c3a
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: db09a85daff553dc911d039d37c826343e93d240
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48854148"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49338531"
 ---
 # <a name="migrate-from-the-custom-speech-service-to-the-speech-service"></a>Konuşma hizmeti için özel konuşma hizmeti geçirme
 
@@ -58,8 +58,6 @@ Mevcut müşteriler, konuşma tanıma hizmeti portalı konuşma hizmeti, var ola
 2. Seçin **seçili abonelik geçişi**.
 
 3. Metin kutusuna abonelik anahtarını girin ve seçin **geçirme**.
-
-    ![Aboneliği taşımak için girin](./media/migrate-from-custom-speech-service/migrate-dialog.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

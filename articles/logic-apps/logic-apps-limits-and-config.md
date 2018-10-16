@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 10/11/2018
-ms.openlocfilehash: 8aa2627f46be1e375fb3c3e565848a930ba6726b
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 52f30adf1ea383b098d3f187a315257f101e8a9b
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49167452"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49320450"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Limitler ve yapılandırma bilgilerini Azure Logic Apps
 
@@ -111,9 +111,22 @@ Bir tek bir mantıksal uygulama çalıştırması sınırları şunlardır:
 
 Normal işleme bu sınırların üzerinde gidin veya bu sınırların üzerinde geçebilir, yük testi çalıştırmak için [Logic Apps ekibiyle](mailto://logicappsemail@microsoft.com) gereksinimlerinizi ile ilgili Yardım için.
 
+<a name="sftp"></a>
+
+## <a name="ftp-sftp-and-sftp-ssh-limits"></a>FTP, SFTP ve SFTP-SSH sınırları
+
+### <a name="file-size"></a>Dosya boyutu
+
+| Ad | Sınır | Notlar |
+|------|-------|-------|
+| FTP | 50 MB | Bu sınırını çözmek için bkz: [Öbekleme ile büyük iletileri işleyen](../logic-apps/logic-apps-handle-large-messages.md). Ancak, bazı bağlayıcılar ve API Öbekleme desteklemez veya varsayılan sınır bile. | 
+| SFTP | 50 MB | Bu sınırı geçici olarak çözmek için kullanın [SFTP-SSH bağlayıcı](../connectors/connectors-sftp-ssh.md) veya [Öbekleme ile büyük iletileri işleyen](../logic-apps/logic-apps-handle-large-messages.md). Ancak, bazı bağlayıcılar ve API Öbekleme desteklemez veya varsayılan sınır bile. | 
+| SFTP-SSH | 1 GB | Bu sınırını çözmek için bkz: [Öbekleme ile büyük iletileri işleyen](../logic-apps/logic-apps-handle-large-messages.md). Ancak, bazı bağlayıcılar ve API Öbekleme desteklemez veya varsayılan sınır bile. | 
+|||| 
+
 <a name="request-limits"></a>
 
-## <a name="http-request-limits"></a>HTTP istek sınırları
+## <a name="http-limits"></a>HTTP sınırları
 
 Tek HTTP isteği veya zaman uyumlu bağlayıcı çağrı sınırları şunlardır:
 
@@ -143,18 +156,6 @@ Bazı bağlayıcı işlemler zaman uyumsuz çağrıları yapmak veya bu işlemle
 | Yeniden deneme sayısı | 90 | Varsayılan 4'tür. Varsayılan değiştirmek için kullanın [ilke parametresi yeniden](../logic-apps/logic-apps-workflow-actions-triggers.md). | 
 | En uzun gecikme yeniden deneyin | 1 gün | Varsayılan değiştirmek için kullanın [ilke parametresi yeniden](../logic-apps/logic-apps-workflow-actions-triggers.md). | 
 | Yeniden deneme gecikmesi Min | 5 saniye | Varsayılan değiştirmek için kullanın [ilke parametresi yeniden](../logic-apps/logic-apps-workflow-actions-triggers.md). |
-|||| 
-
-<a name="sftp"></a>
-
-## <a name="sftp-and-sftp-ssh-limits"></a>SFTP ve SFTP-SSH sınırları
-
-### <a name="file-size"></a>Dosya boyutu
-
-| Ad | Sınır | Notlar |
-|------|-------|-------|
-| SFTP | 50 MB | Bu sınırı geçici olarak çözmek için kullanın [SFTP-SSH bağlayıcı](../connectors/connectors-sftp-ssh.md) veya [Öbekleme ile büyük iletileri işleyen](../logic-apps/logic-apps-handle-large-messages.md). Ancak, bazı bağlayıcılar ve API Öbekleme desteklemez veya varsayılan sınır bile. | 
-| SFTP-SSH | 1 GB | Bu sınırını çözmek için bkz: [Öbekleme ile büyük iletileri işleyen](../logic-apps/logic-apps-handle-large-messages.md). Ancak, bazı bağlayıcılar ve API Öbekleme desteklemez veya varsayılan sınır bile. | 
 |||| 
 
 <a name="custom-connector-limits"></a>

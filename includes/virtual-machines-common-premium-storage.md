@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/24/2018
 ms.author: ramankum
 ms.custom: include file
-ms.openlocfilehash: 097fc837807d28e02732cf8820afac74c33e16d9
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: a05d0c623c1abdb5713c1d49b0b577298c1d6c7d
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48240094"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49347052"
 ---
 # <a name="high-performance-premium-storage-and-managed-disks-for-vms"></a>Yüksek performanslı Premium depolama ve VM'ler için yönetilen diskler
 
@@ -51,7 +51,7 @@ Premium depolama özelliklerinden bazıları şunlardır:
 
 * **Premium depolama diskleri**
 
-    Premium depolama için belirli boyut serisi VM'ler eklenebilecek VM disklerini destekler. Premium depolama, çok çeşitli Azure Vm'leri destekler. Sekiz GA disk boyutları seçeneğiniz: P4 (32 GiB) P6 (64 GiB) P10 (128 Gib'a) P15 (256 GiB), P20 (512 Gib'a) P30 (1024 GiB), P40 (2.048 GiB) P50 (4.095 GiB). Yanı sıra üç disk boyutunda önizleme: P60 olmak üzere 8.192 GiB (8 tib'a kadar), P70 16,348 GiB (16 tib'a kadar), P80 32.767 GiB (32 tib'a kadar). P4, P6 P60 P70 ve P80 disk boyutları şu anda yalnızca yönetilen diskler için desteklenir. Her disk boyutu, kendi performans özellikleri vardır. Uygulama gereksinimlerinize bağlı olarak, sanal makinenizde bir veya daha fazla disk ekleyebilirsiniz. Özellikleri daha ayrıntılı olarak açıklanmaktadır [Premium depolama ölçeklenebilirlik ve performans hedefleri](#scalability-and-performance-targets).
+    Premium depolama için belirli boyut serisi VM'ler eklenebilecek VM disklerini destekler. Premium depolama, çok çeşitli Azure Vm'leri destekler. Sekiz GA disk boyutları seçeneğiniz: P4 (32 GiB) P6 (64 GiB) P10 (128 Gib'a) P15 (256 GiB), P20 (512 Gib'a) P30 (1024 GiB), P40 (2.048 GiB) P50 (4.095 GiB). Yanı sıra üç disk boyutunda önizleme: P60 olmak üzere 8.192 GiB (8 tib'a kadar), P70 16,348 GiB (16 tib'a kadar), P80 32.767 GiB (32 tib'a kadar). P4, P6, P15, P60, P70 ve P80 disk boyutları şu anda yalnızca yönetilen diskler için desteklenir. Her disk boyutu, kendi performans özellikleri vardır. Uygulama gereksinimlerinize bağlı olarak, sanal makinenizde bir veya daha fazla disk ekleyebilirsiniz. Özellikleri daha ayrıntılı olarak açıklanmaktadır [Premium depolama ölçeklenebilirlik ve performans hedefleri](#scalability-and-performance-targets).
 
 * **Premium sayfa blobları**
 
@@ -149,7 +149,7 @@ Daha fazla bilgi için [Azure depolama ölçeklenebilirlik ve performans hedefle
 Yönetilmeyen diskler için premium depolama hesapları kullandığınız ve uygulamanızı bir tek bir depolama hesabı ölçeklenebilirlik hedefleri aşarsa, yönetilen disklere geçirmek isteyebilirsiniz. Yönetilen disklere geçirmek istemiyorsanız, birden çok depolama hesaplarını kullanmak için uygulamanızı oluşturun. Ardından, bu depolama hesabı arasında veri bölümleme. Örneğin, birden çok VM arasında 51 TB disk eklemek istiyorsanız, bunları iki depolama hesabı arasında yayılabilir. Tek bir premium depolama hesabı için belirlenen sınırı 35 TB'dir. Tek bir premium depolama hesabı hiçbir zaman sağlanan diskleri 35 TB'den fazla olduğundan emin olun.
 
 ### <a name="premium-storage-disk-limits"></a>Premium depolama disk limitleri
-Premium depolama disk sağlarken, diskin maksimum IOPS ve aktarım hızı (bant) belirler. Azure premium depolama disklerini sekiz türlerini sunar: P4 (yönetilen diskler yalnızca), P6 (yönetilen diskler yalnızca), P10, P15, P20, P30, P40 ve P50. Her premium depolama disk türüne, IOPS ve aktarım hızı için belirli sınırları vardır. Disk türleri için sınırlar aşağıdaki tabloda açıklanmıştır:
+Premium depolama disk sağlarken, diskin maksimum IOPS ve aktarım hızı (bant) belirler. Azure premium depolama disklerini sekiz GA türlerini sunar: P4 (yönetilen diskler yalnızca), P6 (yönetilen diskler yalnızca), P10, P15 (yönetilen diskler yalnızca), P20, P30, P40 ve P50. Yanı sıra üç disk boyutunda önizleme: P60 P70 ve P80. Her premium depolama disk türüne, IOPS ve aktarım hızı için belirli sınırları vardır. Disk türleri için sınırlar aşağıdaki tabloda açıklanmıştır:
 
 | Premium diskler türü | P4 | P6 | P10 | P15 | P20 | P30 | P40 | P50 | P60 | P70 | P80 | |---|---|---|---|---|---|---|---|---|| -------|| -------|| -------| | Disk boyutu | 32 Gib'a | 64 giB | 128 Gib'a | 256 giB | 512 Gib'a | 1024 (1 TiB) giB | 2048 giB (2 TiB) | 4095 giB (4 TiB) | 8192 giB (8 tib'a kadar) | 16,384 giB (16 tib'a kadar) | 32.767 giB (32 tib'a kadar) || Disk başına IOPS | 120 | 240 | 500 | 1100 | 2300 | 5000 | 7500 | 7500 | 12.500 | 15.000 | 20.000 || Disk başına aktarım hızı | Saniye başına 25 MB | Saniye başına 50 MB | Saniye başına 100 MB | Saniye başına 125 MB | 150 MB / saniye | Saniye başına 200 MB | Saniye başına 250 MB | Saniye başına 250 MB | Saniye başına 480 MB | Saniye başına 750 MB | Saniye başına 750 MB |
 

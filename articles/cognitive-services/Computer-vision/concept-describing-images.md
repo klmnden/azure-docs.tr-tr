@@ -3,19 +3,19 @@ title: Görüntüleri - görüntü işleme açıklayan
 titleSuffix: Azure Cognitive Services
 description: Görüntü işleme API'sini kullanarak görüntüleri tanımlamaya ilgili kavramları.
 services: cognitive-services
-author: deken
+author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: conceptual
 ms.date: 08/29/2018
-ms.author: v-deken
-ms.openlocfilehash: dc472a0a3f76dce8f3172689567e77c0b73ce8d9
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.author: pafarley
+ms.openlocfilehash: 423d1be57bc800108a08a81b72587ca2711bbc3d
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48238757"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49342424"
 ---
 # <a name="describing-images"></a>Resimleri açıklama
 

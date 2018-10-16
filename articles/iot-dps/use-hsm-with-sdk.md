@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 manager: arjmands
 ms.custom: mvc
-ms.openlocfilehash: c94b5d4800f5776b51247c6ec2f6662a6ab26abc
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: 4ab558b680a0d00d1b9bdfbcb1529219f6c37b37
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42057048"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49319262"
 ---
 # <a name="how-to-use-different-attestation-mechanisms-with-device-provisioning-service-client-sdk-for-c"></a>Azure’da Cihaz Sağlama Hizmeti İstemci SDK'sı ile farklı kanıtlama mekanizmaları kullanma
 
@@ -143,6 +143,7 @@ Cihaz kaydını oluşturmadan önce SDK'yı derleyin.
 TPM kullanıyorsanız [“IoT Hub Cihazı Sağlama Hizmetini kullanarak simülasyon cihazı oluşturma ve sağlama”](./quick-create-simulated-device.md) talimatlarını uygulayarak Cihaz Sağlama Hizmetinizde bir cihaz kaydı girişi oluşturun ve ilk önyüklemeyi simüle edin.
 
 ### <a name="x509"></a>X **.** 509
+
 1. Bir cihazı sağlama hizmetine kaydetmek için her cihazın İstemci SDK'sı ile verilen Sağlama Aracı'nda görüntülenen Onay Anahtarı ve Kayıt Kimliği bilgilerini not etmeniz gerekir. Kök CA sertifikasını (kayıt grupları için) ve yaprak sertifikayı (tek kayıt için) yazdırmak için aşağıdaki komutu çalıştırın:
       ```
       ./azure-iot-sdk-c/dps_client/tools/x509_device_provision/x509_device_provision.exe
@@ -185,4 +186,3 @@ Cihaz, sağlama hizmetiyle sağlandıktan sonra bu API, IoT Hub ile bağlantı k
   ```
   IOTHUB_CLIENT_LL_HANDLE handle = IoTHubClient_LL_CreateFromDeviceAuth(iothub_uri, device_id, iothub_transport);
   ```
-

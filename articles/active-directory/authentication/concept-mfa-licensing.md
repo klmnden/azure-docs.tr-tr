@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: e5915157c1ff2c1f58779e5c3b1d784241464b32
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: 372670a482ec984fcc9bd9c28ca3a8625e959a77
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43669055"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49320671"
 ---
 # <a name="how-to-get-azure-multi-factor-authentication"></a>Azure multi-Factor Authentication'ı edinme
 
@@ -23,6 +23,7 @@ ms.locfileid: "43669055"
 
 > [!IMPORTANT]
 > Bu makalede, Azure multi-Factor Authentication'ı satın almak için farklı yollarını anlamanıza yardımcı olması için bir kılavuz olarak tasarlanmıştır. Fiyatlandırma ve faturalandırma hakkında belirli Ayrıntılar için her zaman başvurmanız gerekir [multi-Factor Authentication fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/multi-factor-authentication/).
+>
 
 ## <a name="available-versions-of-azure-multi-factor-authentication"></a>Azure multi-Factor Authentication'ın kullanılabilir sürümleri
 
@@ -43,6 +44,7 @@ Aşağıdaki tabloda, çeşitli Azure multi-Factor Authentication sürümlerinde
 
 > [!NOTE]
 > Bu karşılaştırma tablosu, her bir multi-Factor Authentication sürümü parçası olan özellikler açıklanmaktadır. Tam Azure multi-Factor Authentication hizmeti varsa, bazı özellikler kullanmak isteyip istemediğinize bağlı olarak mevcut olmayabilir [bulutta MFA veya MFA şirket içi](concept-mfa-whichversion.md).
+>
 
 | Özellik | Office 365 için Multi-Factor Authentication | Azure AD yöneticileri için multi-Factor Authentication | Azure Multi-Factor Authentication |
 | --- |:---:|:---:|:---:|
@@ -93,11 +95,13 @@ Azure multi-Factor Authentication sağlayıcısı kullanırken, Azure aboneliği
   > Faturalandırma örnek 1: 5000 kullanıcılar için mfa'yı bugün etkin olması. MFA sistem bu sayıyı o gün için 31 ve raporları 161.29 kullanıcı tarafından böler. Yarın MFA sistem 161.77 kullanıcı o gün için raporlar için 15 daha fazla kullanıcı sağlar. Fatura dönemi sonunda Azure aboneliğinize faturalandırılır kullanıcıların toplam sayısı 5.000 kadar ekler.
   >
   > Faturalandırma örnek 2: bir kullanıcı başına Azure MFA Sağlayıcısı'nın farkını yapmak zorunda lisansların ve kullanıcıların olmadan, bir karışımı vardır. 4.500 vardır Enterprise Mobility + Security Lisanslarımı kiracınıza ancak MFA için etkinleştirilmiş 5.000 kullanıcılar. Azure aboneliğiniz 500 kullanıcı için fatura, günlere eşit olarak dağıtılır ve günlük 16.13 kullanıcılar olarak bildirilen.
+  >
 
-2. **Kimlik doğrulaması başına** - çok sayıda seyrek kimlik doğrulaması gereken kullanıcılar için iki aşamalı doğrulamayı etkinleştirmek istediğiniz kuruluşlara yöneliktir. Bu doğrulamaları başarısız veya reddedilen bağımsız olarak iki aşamalı doğrulama isteklerinin sayısı göre faturalandırılır. Bu faturalandırma Azure kullanım ekstreniz 10 kimlik doğrulama paketlerine görünür ve günlük olarak bildirilir.
+1. **Kimlik doğrulaması başına** - çok sayıda seyrek kimlik doğrulaması gereken kullanıcılar için iki aşamalı doğrulamayı etkinleştirmek istediğiniz kuruluşlara yöneliktir. Bu doğrulamaları başarısız veya reddedilen bağımsız olarak iki aşamalı doğrulama isteklerinin sayısı göre faturalandırılır. Bu faturalandırma Azure kullanım ekstreniz 10 kimlik doğrulama paketlerine görünür ve günlük olarak bildirilir.
 
   > [!NOTE]
   > Faturalandırma örnek 3: Bugün Azure MFA hizmeti 3,105 iki aşamalı doğrulama isteklerini aldı. Azure aboneliğiniz için 310.5 kimlik doğrulama paketlerini faturalandırılır.
+  >
 
 Lisansları olabilir, ancak tüketim tabanlı yapılandırma için yine de faturalandırılır mıyım dikkat edin önemlidir. Bir kimlik doğrulaması başına Azure MFA sağlayıcısını ayarlama, olanlar lisansına sahip kullanıcılar tarafından gerçekleştirilen her iki aşamalı doğrulama isteği için faturalandırılırsınız. Azure AD kiracınıza bağlı olmayan bir etki alanındaki bir kullanıcı başına Azure MFA sağlayıcısını ayarlama, kullanıcılarınızın Azure AD lisansına sahip olsa bile etkinleştirilen kullanıcı başına faturalandırılır.
 

@@ -5,23 +5,23 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 10/1/2018
+ms.date: 10/4/2018
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-ms.openlocfilehash: fd3ff0087ee51c392d9cebb32c8bcc969f9a4601
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: caaee4cb155fc05b78bc47f1e53c79ecb0597183
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48243501"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49341948"
 ---
 # <a name="azure-blockchain-workbench-configuration-reference"></a>Azure Blockchain Workbench yapılandırma başvurusu
 
  Azure Blockchain Workbench çok taraflı iş akışlarını yapılandırma meta verilerini ve akıllı sözleşme kodu tarafından tanımlanan uygulamalardır. Yapılandırma meta verilerini, üst düzey iş akışları ve blok zinciri uygulaması etkileşim modelini tanımlar. Blok zinciri iş mantığına nitelikli akıllı anlaşmalar tanımlayın. Workbench, blok zinciri uygulaması kullanıcı deneyimleri oluşturmak için yapılandırma ve akıllı sözleşme kodu kullanır.
 
-Her blok zinciri uygulaması için aşağıdaki bilgileri yapılandırma meta verilerini belirtir: 
+Her blok zinciri uygulaması için aşağıdaki bilgileri yapılandırma meta verilerini belirtir:
 
 * Ad ve açıklama blok zinciri uygulaması
 * Benzersiz rolleri hareket veya blok zinciri uygulaması içinde katılan kullanıcıları için
@@ -42,7 +42,7 @@ Bir blok zinciri uygulaması kimin işlem veya uygulama içinde katılmak yapıl
 | Alan | Açıklama | Gerekli |
 |-------|-------------|:--------:|
 | ApplicationName | Benzersiz uygulama adı. Karşılık gelen akıllı sözleşmenin aynı kullanmalısınız **ApplicationName** uygulanabilir bir sözleşme sınıfı.  | Evet |
-| DisplayName | Uygulama kolay görünen adı. | Evet |
+| displayName | Uygulama kolay görünen adı. | Evet |
 | Açıklama | Uygulama açıklaması. | Hayır |
 | ApplicationRoles | Koleksiyonu [ApplicationRoles](#application-roles). İşlem veya uygulama içinde katılmak kullanıcı rolleri.  | Evet |
 | İş akışları | Koleksiyonu [iş akışları](#workflows). Her bir iş akışı, iş mantığı akışını denetlemek için bir Durum Makinesi görev yapar. | Evet |
@@ -56,7 +56,7 @@ Bir uygulamanın iş mantığı, burada bir durumdan diğerine taşımak için i
 | Alan | Açıklama | Gerekli |
 |-------|-------------|:--------:|
 | Ad | Benzersiz iş akışının adı. Karşılık gelen akıllı sözleşmenin aynı kullanmalısınız **adı** uygulanabilir bir sözleşme sınıfı. | Evet |
-| DisplayName | İş akışı kolay görünen adı. | Evet |
+| displayName | İş akışı kolay görünen adı. | Evet |
 | Açıklama | İş akışı tanımı. | Hayır |
 | Başlatıcılar | Koleksiyonu [ApplicationRoles](#application-roles). İş akışında sözleşmeleri oluşturmak için yetkili kullanıcılara atanan roller. | Evet |
 | StartState | İş akışı yapının başlangıç durumunun adı. | Evet |
@@ -73,17 +73,44 @@ Desteklenen veri türleri.
 
 | Tür | Açıklama |
 |-------|-------------|
-| Adresi  | Blok zinciri adres türü gibi *sözleşmeleri* veya *kullanıcılar* |
-| bool     | Boole veri türü |
-| Sözleşme | Adres türü Sözleşmesi |
-| Sabit listesi     | Adlandırılmış değerler numaralandırılmış kümesi. Enum türü kullanırken, ayrıca EnumValues listesini belirtin. Her değer 255 karakterle sınırlıdır. Geçerli değer üst karakterler ve küçük harfler (A-Z, a-z) ve sayılar (0-9). |
-| int      | Tamsayı veri türü |
-| para    | Para veri türü |
-| durum    | İş akışı durumu |
-| dize   | Dize veri türü |
-| kullanıcı     | Türü kullanıcı adresi |
-| time     | Saat veri türü |
+| Adresi  | Blok zinciri adres türü gibi *sözleşmeleri* veya *kullanıcılar*. |
+| array    | Tek düzey dizi türü tamsayı, bool, para ve zaman. Diziler, statik veya dinamik olabilir. Kullanım **ElementType** dizinin içindeki öğelerin veri türü belirtmek için. Bkz: [örnek yapılandırma](#example-configuration-of-type-array). |
+| bool     | Boole veri türü. |
+| Sözleşme | Sözleşme türü adresi. |
+| Sabit listesi     | Adlandırılmış değerler numaralandırılmış kümesi. Enum türü kullanırken, ayrıca EnumValues listesini belirtin. Her değer 255 karakterle sınırlıdır. Geçerli değer üst karakterler ve küçük harfler (A-Z, a-z) ve sayılar (0-9). Bkz: [örnek yapılandırma ve kullanım Solidity](#example-configuration-of-type-enum). |
+| int      | Tamsayı veri türü. |
+| para    | Para veri türü. |
+| durum    | İş akışı durumu. |
+| dize  | Dize veri türü. 4000 karakter üst sınırı. Bkz: [örnek yapılandırma](#example-configuration-of-type-string). |
+| kullanıcı     | Türü kullanıcı adresi. |
+| time     | Saat veri türü. |
 |`[ Application Role Name ]`| Uygulama rolünde belirtilen herhangi bir ad. Rol türü kullanıcıların sınırlar. |
+
+### <a name="example-configuration-of-type-array"></a>Dizi türünde bir örnek yapılandırma
+
+```json
+{
+  "Name": "Quotes",
+  "Description": "Market quotes",
+  "DisplayName": "Quotes",
+  "Type": {
+    "Name": "array",
+    "ElementType": {
+        "Name": "int"
+    }
+  }
+}
+```
+
+#### <a name="using-a-property-of-type-array"></a>Dizi türünde bir özelliğini kullanma
+
+Bir özelliğin yapılandırma türü dizi olarak tanımlarsanız, dizi türünün ortak özelliği Solidity döndürmek için bir açık get işlevi eklemeniz gerekir. Örneğin:
+
+```
+function GetQuotes() public constant returns (int[]) {
+     return Quotes;
+}
+```
 
 ### <a name="example-configuration-of-type-string"></a>Dize türündeki örnek yapılandırma
 
@@ -183,7 +210,7 @@ Bir iş akışı örneği için giriş parametrelerini tanımlar.
 | Alan | Açıklama | Gerekli |
 |-------|-------------|:--------:|
 | Ad | İşlev benzersiz adı. Karşılık gelen akıllı sözleşmenin aynı kullanmalısınız **adı** geçerli işlev. | Evet |
-| DisplayName | İşlev kolay görünen adı. | Evet |
+| displayName | İşlev kolay görünen adı. | Evet |
 | Açıklama | İşlev açıklaması | Hayır |
 | Parametreler | Koleksiyonu [tanımlayıcıları](#identifiers) karşılık gelen işlevin parametreleri. | Evet |
 
@@ -231,7 +258,7 @@ Bir iş akışındaki benzersiz durumlar koleksiyonudur. Her durum, iş mantığ
 | Alan | Açıklama | Gerekli |
 |-------|-------------|:--------:|
 | Ad | Durumun benzersiz adı. Karşılık gelen akıllı sözleşmenin aynı kullanmalısınız **adı** geçerli durumu için. | Evet |
-| DisplayName | Durumun kolay görünen adı. | Evet |
+| displayName | Durumun kolay görünen adı. | Evet |
 | Açıklama | Durum açıklaması. | Hayır |
 | PercentComplete | İş mantığı denetim akışı içinde ilerleme durumunu göstermek için Blockchain Workbench'i kullanıcı arabiriminde görüntülenen bir tamsayı değeri. | Evet |
 | Stil | Durumu'başarı veya başarısızlık durumu temsil edip etmediğini gösteren görsel ipucu. Geçerli iki değer vardır: `Success` veya `Failure`. | Evet |
@@ -301,7 +328,7 @@ Kullanılabilir eylemler için sonraki durum. Bir veya daha fazla kullanıcı ro
 |-------|-------------|:--------:|
 | AllowedRoles | Geçişi başlatmak için izin verilen uygulamalar rollerinin listesi. Belirtilen rolün tüm kullanıcılar eylemi gerçekleştirmek mümkün olabilir. | Hayır |
 | AllowedInstanceRoles | Katılma veya geçiş başlatmasına izin verilmiş akıllı sözleşmede belirtilen kullanıcı rolleri listesi. Örnek rollerinizin tanımlanmış **özellikleri** içinde iş akışları. AllowedInstanceRoles akıllı sözleşmenin bir örneğine katılan bir kullanıcıyı temsil eder. AllowedInstanceRoles bir eylemde bir sözleşme örneğinde bir kullanıcı rolüne sınırlandırılmasına olanak sağlar.  Örneğin, yalnızca Rol türü (sahibi) içindeki tüm kullanıcılar yerine AllowedRoles içinde rol belirtilmişse sonlandıramaz sözleşmenin (InstanceOwner) oluşturan kullanıcıya izin vermek isteyebilirsiniz. | Hayır |
-| DisplayName | Geçiş kolay görünen adı. | Evet |
+| displayName | Geçiş kolay görünen adı. | Evet |
 | Açıklama | Geçişin açıklaması. | Hayır |
 | İşlev | Geçişi başlatmak için işlevin adı. | Evet |
 | NextStates | Başarılı bir geçiş sonrasında olası sonraki durumları koleksiyonu. | Evet |
@@ -368,7 +395,7 @@ Tanımlayıcılar, iş akışı özellikleri, kurucu ve işlev parametrelerini t
 | Alan | Açıklama | Gerekli |
 |-------|-------------|:--------:|
 | Ad | Özellik veya parametre benzersiz adı. Karşılık gelen akıllı sözleşmenin aynı kullanmalısınız **adı** için geçerli bir özellik veya parametre. | Evet |
-| DisplayName | Özellik veya parametre kolay görünen adı. | Evet |
+| displayName | Özellik veya parametre kolay görünen adı. | Evet |
 | Açıklama | Özellik veya parametre açıklaması. | Hayır |
 
 ### <a name="identifiers-example"></a>Tanımlayıcıları örneği

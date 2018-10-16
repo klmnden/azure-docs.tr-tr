@@ -11,18 +11,18 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: glenga
-ms.openlocfilehash: 0ea2a58e61d781e6ebfb72b860a3b7aed6ce0c7d
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 0726bd3ded0618d7fb45a589c21325717da7a5cf
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47394496"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49319039"
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions-2x"></a>Azure işlevleri için Azure Cosmos DB bağlamaları 2.x
 
 > [!div class="op_single_selector" title1="Select the version of the Azure Functions runtime you are using: "]
-> * [Sürüm 1 - Genel Kullanım](functions-bindings-cosmosdb.md)
-> * [Sürüm 2 - Önizleme](functions-bindings-cosmosdb-v2.md)
+> * [Sürüm 1](functions-bindings-cosmosdb.md)
+> * [Sürüm 2](functions-bindings-cosmosdb-v2.md)
 
 Bu makalede ile nasıl çalışılacağı açıklanmaktadır [Azure Cosmos DB](..\cosmos-db\serverless-computing-database.md) Azure işlevleri'nde bağlamaları 2.x. Tetiklemek, giriş ve çıktı bağlaması Azure Cosmos DB için Azure işlevleri destekler.
 

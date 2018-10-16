@@ -10,15 +10,16 @@ ms.component: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
-ROBOTS: NOINDEX
-ms.openlocfilehash: a0fa11633efc610407755ebc109649f3fefdcb55
-ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
+ms.openlocfilehash: 2682236ae9f9256b91d1259248e72139c907c8e5
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47585824"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49345025"
 ---
 # <a name="get-started-with-bing-speech-service-client-libraries"></a>Bing konuşma hizmeti istemci kitaplıkları ile çalışmaya başlama
+
+[!INCLUDE [Deprecation note](../../../../includes/cognitive-services-bing-speech-api-deprecation-note.md)]
 
 Bing konuşma hizmeti, bir REST API aracılığıyla doğrudan HTTP isteğinde bulunan yanı sıra, geliştiricilere farklı dillerde konuşma istemci kitaplıkları sağlar. Konuşma istemci kitaplıkları:
 
@@ -33,9 +34,6 @@ Bing konuşma hizmeti, bir REST API aracılığıyla doğrudan HTTP isteğinde b
 - [JavaScript kitaplığı](GetStartedJSWebsockets.md)
 - [Android için Java kitaplığı](GetStartedJavaAndroid.md)
 - [Objective-C kitaplığını iOS için](Get-Started-ObjectiveC-iOS.md)
-
-> [!NOTE] 
-Eylül 2018'den yeni beri [konuşma hizmeti](../../speech-service/index.yml) sunuldu haline gelmiştir. Öneriyoruz [ücretsiz denemenin](../../speech-service/get-started.md). 
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 

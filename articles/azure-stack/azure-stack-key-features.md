@@ -1,6 +1,6 @@
 ---
-title: Anahtar özellikleri ve Azure yığınında kavramları | Microsoft Docs
-description: Anahtar özellikleri ve Azure yığınında kavramları hakkında bilgi edinin.
+title: Anahtar özellikleri ve Azure stack'teki kavramları | Microsoft Docs
+description: Temel özellikler ve Azure stack'teki kavramlar hakkında bilgi edinin.
 services: azure-stack
 documentationcenter: ''
 author: jeffgilb
@@ -12,157 +12,157 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/10/2018
+ms.date: 10/15/2018
 ms.author: jeffgilb
 ms.reviewer: ''
-ms.openlocfilehash: 851530910c702d388cd4dc8607bf09ecb5fa44e0
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 16c908dabd313cd9d64ce5be9b7d0299423a7675
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34198482"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49344694"
 ---
-# <a name="key-features-and-concepts-in-azure-stack"></a>Anahtar özellikleri ve Azure yığınında kavramları
-Microsoft Azure yığın yeniyseniz, bu hüküm ve özellik açıklamalarını faydalı olabilir.
+# <a name="key-features-and-concepts-in-azure-stack"></a>Temel özellikler ve kavramlar Azure Stack'te
+Microsoft Azure Stack için yeniyseniz, bu hüküm ve özellik açıklamaları faydalı olabilir.
 
-## <a name="personas"></a>Kişiler
-Kullanıcı Microsoft Azure yığın bulut işleci (sağlayıcısı) ve Kiracı (tüketici) iki çeşit vardır.
+## <a name="personas"></a>Kişilikler
+Kullanıcı için Microsoft Azure Stack, bulut işleci (sağlayıcı) ve Kiracı (müşteri) iki çeşit vardır.
 
-* A **bulut operatörü** Azure yığın yapılandırabilir ve teklifler, planları, hizmetleri, kotalar ve fiyatlandırma kiracıları için kaynakları sağlamak üzere yönetebilirsiniz.  Bulut operatörleri ayrıca kapasite yönetme ve uyarılara yanıt.  
-* A **Kiracı** (bir kullanıcı olarak da bilinir) bulut yöneticisine sunar Hizmetleri kullanır. Kiracılar sağlamak, izlemek ve bunlar, Web uygulamaları, depolama ve sanal makineler gibi abone olduğunuz hizmetleri yönetme.
+* A **bulut işleci** Azure Stack yapılandırabilir ve tekliflerini, planları, hizmetleri, kotalar ve fiyatlandırma, kiracıları için kaynak sağlamak için yönetin.  Bulut operatörleri kapasitesini yönetmek ve uyarılarını yanıtlama.  
+* A **Kiracı** (bir kullanıcı olarak da bilinir) sunan bulut Yöneticisi hizmetlerini kullanır. Kiracılar sağlama, izleme ve bunlar, Web uygulamaları, depolama ve sanal makineler gibi abone olduğunuz Hizmetleri yönetin.
 
 ## <a name="portal"></a>Portal
-Microsoft Azure yığın ile etkileşim, birincil Yönetici portalı, kullanıcı portalı ve PowerShell yöntemleridir.
+Microsoft Azure Stack ile etkileşim kurmanın birincil Yönetici portalı, kullanıcı portalı ve PowerShell yöntemlerdir.
 
-Azure yığın portalları her ayrı örnekleri Azure Kaynak Yöneticisi'nin tarafından desteklenir.  Bir bulut operatörü, Azure yığın yönetmek ve Kiracı tekliflerini oluşturmak gibi şeyler için Yönetici portalı'nı kullanır.  (Kiracı portalı olarak da bilinir) Kullanıcı Portalı sanal makineler, depolama hesapları ve Web uygulamaları gibi bulut kaynaklarının kullanımını bir Self Servis deneyimi sağlar. Daha fazla bilgi için bkz: [Azure yığın yönetici ve kullanıcı portalı kullanarak](azure-stack-manage-portals.md).
+Azure Stack portalı her ayrı örnekleri, Azure Resource Manager tarafından desteklenir.  Bulut operatörü, Azure Stack yönetmek ve Kiracı sunumları oluşturma gibi işlemler yapmak için Yönetici portalını kullanır.  (Kiracı portalı olarak da bilinir) kullanıcı portalı için sanal makineler, depolama hesapları ve Web Apps gibi bulut kaynaklarını kullanım bir Self Servis deneyimi sağlar. Daha fazla bilgi için [Azure Stack yönetici ve Kullanıcı Portalı'nı kullanarak](azure-stack-manage-portals.md).
 
 ## <a name="identity"></a>Kimlik 
-Azure yığını, Azure Active Directory (AAD) veya Active Directory Federasyon Hizmetleri (AD FS) bir kimlik sağlayıcısı kullanır.  
+Azure Stack, kimlik sağlayıcısı olarak Azure Active Directory (AAD) veya Active Directory Federasyon Hizmetleri (AD FS) kullanır.  
 
 ### <a name="azure-active-directory"></a>Azure Active Directory
-Azure Active Directory, Microsoft'un bulut tabanlı, çok kiracılı kimlik sağlayıcısıdır.  Çoğu karma senaryolar Azure Active Directory kimlik deposu olarak kullanın.
+Azure Active Directory, Microsoft'un bulut tabanlı, çok kiracılı kimlik sağlayıcıdır.  Karma senaryo, Azure Active Directory kimlik deposu olarak kullanırsınız.
 
 ### <a name="active-directory-federation-services"></a>Active Directory Federasyon Hizmetleri
-Azure yığınının bağlantısı kesilmiş dağıtımlar için Active Directory Federasyon Hizmetleri (AD FS) kullanmayı seçebilirsiniz.  Azure Active Directory ile olduğu gibi azure yığını, kaynak sağlayıcıları ve diğer uygulamalar AD FS ile benzer şekilde çalışır. Azure yığın kendi AD FS ve Active Directory örneği ve bir Active Directory grafik API'si içerir. Azure yığın Geliştirme Seti aşağıdaki AD FS senaryoları destekler:
+Azure Stack'i bağlantısız dağıtımları için Active Directory Federasyon Hizmetleri (AD FS) kullanmayı tercih edebilirsiniz.  Azure Active Directory ile yaptıkları gibi azure Stack, kaynak sağlayıcıları ve diğer uygulamalar çok AD FS ile aynı şekilde çalışır. Azure Stack, kendi AD FS ve Active Directory örneği ve bir Active Directory Graph API'sini içerir. Azure Stack geliştirme Seti'ni aşağıdaki AD FS senaryoları destekler:
 
 - AD FS kullanarak dağıtım için oturum açın.
-- Anahtar kasasına gizli anahtarları ile bir sanal makine oluşturun
-- Parolaları depolamak/erişmek için bir kasa oluşturun
-- Abonelikte özel RBAC roller oluşturma
-- Kaynakları RBAC rollerinde kullanıcılar atayın
-- Sistem genelinde RBAC rolleri Azure PowerShell aracılığıyla oluşturma
+- Gizli anahtar Kasası'nda bir sanal makine oluşturun
+- Gizli dizileri depolamak/erişmek için bir kasa oluşturun
+- Özel bir RBAC rollerini aboneliği oluşturabilir.
+- Kaynaklar RBAC rolleri için kullanıcıları atama
+- Azure PowerShell aracılığıyla sistem genelinde RBAC rolleri oluşturma
 - Azure PowerShell aracılığıyla bir kullanıcı olarak oturum açın
 - Hizmet oluşturma ilkeleri için Azure PowerShell oturum açmak için bunları kullanın
 
 
-## <a name="regions-services-plans-offers-and-subscriptions"></a>Bölgeler, hizmetleri, planları, teklifleri ve abonelikleri
-Azure yığınında Hizmetleri bölgeler, abonelikler, teklifleri ve planları kullanarak kiracılara teslim edilir. Kiracılar için birden çok teklifleri abone olabilir. Bir veya daha fazla plan teklifleri olabilir ve bir veya daha fazla hizmet planları olabilir.
+## <a name="regions-services-plans-offers-and-subscriptions"></a>Bölgeler, hizmetleri, planlar, teklifler ve abonelikler
+Azure Stack'te hizmetler, bölgeler, abonelikler, teklifleri ve planları kullanarak kiracılara teslim edilir. Kiracılar için birden çok teklife abone olabilir. Bir veya daha fazla plan Teklife sahip olabilirsiniz ve bir veya daha fazla hizmet planları olabilir.
 
 ![](media/azure-stack-key-features/image4.png)
 
 Örnek hiyerarşisini teklifleri, değişen her bir kiracının abonelik planları ve Hizmetleri.
 
 ### <a name="regions"></a>Bölgeler
-Azure yığın bölgeleri, ölçek ve yönetim temel öğesidir. Bir kuruluş, her bölgede kullanılabilir kaynaklar ile birden çok bölgeye olabilir. Bölgeler farklı hizmet teklifleri kullanılabilir da sahip olabilirsiniz. Azure yığın Geliştirme Seti, yalnızca tek bir bölge desteklenir ve otomatik olarak adlı *yerel*.
+Azure Stack bölgeleri ölçeklendirme ve yönetim temel bir öğe var. Bir kuruluş, her bölgede birden çok bölgede bulunan kaynaklara sahip olabilir. Bölgeler, farklı hizmet teklifleri de olabilir. Azure Stack geliştirme Seti'ni, yalnızca tek bir bölgede desteklenen ve otomatik olarak adlandırılır *yerel*.
 
 ### <a name="services"></a>Hizmetler
-Microsoft Azure yığın çok çeşitli hizmetler ve uygulamalar, sanal makineler, SQL Server veritabanları, SharePoint, Exchange ve daha fazlası gibi sunmak sağlayıcılarının sağlar.
+Microsoft Azure Stack, çok çeşitli Hizmetleri ve sanal makineler, SQL Server veritabanları, SharePoint, Exchange ve daha fazlası gibi uygulamalar sunmak sağlayıcılarının sağlar.
 
 ### <a name="plans"></a>Planlar
-Bir veya daha fazla hizmet gruplandırmaları planlarının. Bir sağlayıcısı olarak, kiracılarınıza sunmak için planları oluşturun. Böylece kiracılarınız tekliflerinize abone olarak, bu tekliflerin içerdiği planları ve hizmetleri kullanabilir.
+Bir veya daha fazla hizmet gruplandırmalarını planları oluşturulabilir. Bir sağlayıcı, kiracılarınıza sunabileceğiniz planlar oluşturun. Böylece kiracılarınız tekliflerinize abone olarak, bu tekliflerin içerdiği planları ve hizmetleri kullanabilir.
 
-Bir plana eklediğiniz her bir hizmet, bulut kapasitesi yönetmenize yardımcı olmak için kota ayarları ile yapılandırılabilir. Kotalar VM, RAM ve CPU sınırları gibi kısıtlamaları içerebilir ve kullanıcı abonelik başına uygulanır. Kotalar konuma göre ayırt. Örneğin, A bölgesinden işlem hizmetleri içeren bir planı iki sanal makine, 4 GB RAM ve 10 CPU çekirdek kotası olabilir.
+Bir plana eklenen her bir hizmet, bulut kapasitesini yönetmenize yardımcı olmak için kota ayarları ile yapılandırılabilir. Kotalar, VM, RAM ve CPU sınırları gibi kısıtlamalara içerebilir ve kullanıcı aboneliği uygulanır. Kotalar konuma göre ayırt edilebilir. Örneğin, bir bölgeden işlem hizmetlerini içeren bir plan iki sanal makine, 4 GB RAM ve 10 CPU çekirdek kotası olabilir.
 
-Bir teklifi oluştururken, Hizmet Yöneticisi dahil edebileceğiniz bir **temel plan**. Bu teklif için bir kiracı abone olduğunda bu temel planları varsayılan olarak dahil edilir. Bir kullanıcı abone olur (ve abonelik oluşturulan olduğunda), kullanıcı bu temel planlarıyla (karşılık gelen kotaları) içinde belirtilen tüm kaynak sağlayıcıları erişebilir.
+Bir teklifi oluştururken, Hizmet Yöneticisi dahil edebilirsiniz bir **temel plan**. Bir kiracı söz konusu teklife abone olduğunda, bu temel planlar varsayılan olarak dahil edilir. Bir kullanıcı abone (ve abonelik oluşturdunuz,), kullanıcı bu temel planlar (ile ilgili kotalar) belirtilen tüm kaynak sağlayıcıları erişimi vardır.
 
-Hizmet Yöneticisi da içerebilir **eklenti planları** bir teklifte. Eklenti planları Abonelikteki varsayılan olarak dahil edilmez. Eklenti, abonelik sahibi kendi abonelikleri ekleyebilir bir teklif bulunan ek planlar (kotaları) planlarının.
+Hizmet Yöneticisi de içerebilir **eklenti planları** içinde bir teklif. Eklenti planı varsayılan abonelik olarak dahil edilmez. Eklenti planları, ek planları (kotalar) abonelikleri için abonelik sahibi ekleyen bir teklifi bulunan oluşturulabilir.
 
 ### <a name="offers"></a>Teklifler
-Teklifleri satın almak için kiracıların sağlayıcılardan bir veya daha fazla plan bir gruplarıdır (abone). Örneğin, teklif alfa planı A içerebilir içeren bir dizi işlem Hizmetleri ve depolama ve ağ hizmetleri kümesini içeren B planlayın.
+Teklifleri kiracılara satın almak için sağlayıcıları sunan bir veya daha fazla planları gruplarıdır (abone olmaları). Örneğin, alfa teklif planı A içerebilir içeren bir dizi işlem Hizmetleri ve depolama ve ağ hizmetleri kümesi içeren B planlayın.
 
-Temel plan bir dizi teklif gelir ve hizmet yöneticileri, kiracılar aboneliğine ekleyebileceği eklenti planları oluşturabilirsiniz.
+Bir teklif bir temel plan kümesi ile birlikte gelir ve hizmet yöneticileri kiracılar aboneliğine ekleyebilmeniz için eklenti planları oluşturabilirsiniz.
 
 ### <a name="subscriptions"></a>Abonelikler
-Bir abonelik nasıl kiracılar, teklifleri satın ' dir. Abonelik, bir kiracı teklif ile birleşimidir. Bir kiracı birden çok teklifleri abone olabilir. Her abonelik için yalnızca bir teklif geçerlidir. Bir kiracının abonelikleri erişebilecekleri planları/Hizmetleri belirleyin.
+Kiracılar tekliflerinizi nasıl satın bir aboneliktir. Bir abonelik teklif kiracıyla birleşimidir. Bir kiracı birden çok teklife abone olabilir. Her abonelik yalnızca bir teklif için geçerlidir. Bir kiracının abonelik planları/Hizmetleri erişebilmek belirleyin.
 
-Abonelikler, düzenlemek ve bulut kaynaklarına ve hizmetlerine erişmek sağlayıcıları yardımcı olur.
+Abonelikleri düzenleme ve bulut kaynaklarına ve hizmetlerine erişmek sağlayıcıları yardımcı olur.
 
-Yöneticisi, dağıtım sırasında bir varsayılan sağlayıcı abonelik oluşturulur. Bu abonelik Azure yığın yönetmek, daha fazla kaynak sağlayıcıları dağıtmak ve kiracılar için planlar ve teklifleri oluşturmak için kullanılabilir. Müşteri iş yüklerini ve uygulamaları çalıştırmak için kullanılmamalıdır. 1804 sürümünden başlayarak, iki ek abonelikleri varsayılan sağlayıcı abonelik tamamlayacak; Ölçüm abonelik ve tüketim abonelik. Bu eklemeler, çekirdek altyapıyı, ek kaynak sağlayıcıları ve iş yükleri Yönetimi ayırarak kolaylaştırır.  
+Yöneticisi, dağıtım sırasında varsayılan sağlayıcı aboneliği oluşturulur. Bu abonelik, Azure Stack yönetmek, daha fazla kaynak sağlayıcıları dağıtmak ve kiracılar için planlar ve teklifler oluşturmak için kullanılabilir. Müşteri iş yüklerini ve uygulamaları çalıştırmak için kullanılmamalıdır. 1804 sürümünden başlayarak, iki ek abonelikler varsayılan sağlayıcı aboneliği tamamlar; bir ölçüm abonelik ve tüketim abonelik. Çekirdek altyapısı, ek kaynak sağlayıcıları ve iş yükleri Yönetimi ayırarak bu eklemeler kolaylaştırır.  
 
 ## <a name="azure-resource-manager"></a>Azure Resource Manager
-Azure Kaynak Yöneticisi'ni kullanarak altyapı kaynaklarınızı şablona dayalı, bildirim temelli bir model ile çalışabilirsiniz.   Dağıtma ve çözüm bileşenlerini yönetmek için kullanabileceğiniz tek bir arabirim sağlar. Tam bilgi ve yönergeler için bkz: [Azure Resource Manager'a genel bakış](../azure-resource-manager/resource-group-overview.md).
+Azure Resource Manager'ı kullanarak, şablona dayalı, bildirim temelli bir modelde altyapı kaynakları çalışabilir.   Bu, dağıtmak ve çözüm bileşenlerinizi yönetmek için kullanabileceğiniz tek bir arabirim sağlar. Tüm bilgiler ve yönergeler için bkz. [Azure Resource Manager'a genel bakış](../azure-resource-manager/resource-group-overview.md).
 
 ### <a name="resource-groups"></a>Kaynak grupları
-Kaynak grupları olan kaynaklar, hizmetler ve uygulamalar koleksiyonları — ve her bir kaynağın sanal makineler, sanal ağlar, genel IP'ler, depolama hesapları ve Web siteleri gibi bir türe sahip. Her kaynak bir kaynak grubunda olması ve kaynak grupları mantıksal olarak inceleyeceğini kaynaklar gibi iş yükü veya konumu düzenlemek gerekir.  Microsoft Azure yığın içinde planları ve teklifleri gibi kaynakları kaynak gruplarına ayrıca yönetilir.
+Kaynak grupları olan kaynakları, hizmetleri ve uygulamaları koleksiyonları — ve her kaynak sanal makineler, sanal ağlar, genel IP'ler, depolama hesapları ve Web siteleri gibi bir türü vardır. Her kaynak bir kaynak grubu ve kaynak gruplarını mantıksal olarak yardımcı olmak için kaynaklar gibi iş yükü veya konuma göre düzenlemek gerekir.  Microsoft Azure Stack'te planlar ve teklifler gibi kaynakları kaynak gruplarına ayrıca yönetilir.
 
-Farklı [Azure](../azure-resource-manager/resource-group-move-resources.md), kaynak grupları arasında kaynakları taşıyamazsınız. Azure yığın Yönetim Portalı'nda bir kaynak veya kaynak grubunun özelliklerini görüntülediğinizde *taşıma* düğmesi grileştirilmiş ve kullanılamaz. 
+Farklı [Azure](../azure-resource-manager/resource-group-move-resources.md), kaynak grupları arasında kaynaklar taşınamıyor. Azure Stack Yönetim Portalı'nda bir kaynağa veya kaynak grubu özelliklerini görüntülediğinizde *taşıma* düğmesidir grileştirilmiş ve kullanılamaz. 
  
 ### <a name="azure-resource-manager-templates"></a>Azure Resource Manager şablonları
-Azure Resource Manager ile dağıtım ve uygulamanızın yapılandırmasını tanımlayan bir şablon (JSON biçiminde) oluşturabilirsiniz. Bu şablon, Azure Resource Manager şablonu olarak bilinir ve dağıtımı tanımlamanın bildirim temelli bir yolunu sağlar. Bir şablon kullanarak uygulamanızı yaşam döngüsü boyunca defalarca dağıtabilirsiniz. Kaynaklarınızın tutarlı bir durumda dağıtılması da size güven verir.
+Azure Resource Manager ile dağıtım ve uygulamanızı yapılandırmayı tanımlayan bir şablon (JSON biçiminde) oluşturabilirsiniz. Bu şablon, bir Azure Resource Manager şablonu olarak bilinir ve dağıtımı tanımlamanın bildirim temelli bir yöntemini sağlar. Bir şablon kullanarak uygulamanızı yaşam döngüsü boyunca defalarca dağıtabilirsiniz. Kaynaklarınızın tutarlı bir durumda dağıtılması da size güven verir.
 
-## <a name="resource-providers-rps"></a>Kaynak sağlayıcıları (RPs)
-Kaynak sağlayıcıları için tüm Azure tabanlı Iaas temelini web hizmetleri ve PaaS Hizmetleri altındadır. Azure Resource Manager hizmetine erişim sağlamak için farklı RPs kullanır.
+## <a name="resource-providers-rps"></a>Kaynak sağlayıcıları (Rp'ler)
+Kaynak sağlayıcıları için Azure tabanlı tüm Iaas temelini web hizmetleri ve PaaS Hizmetleri altındadır. Azure Resource Manager hizmetine erişim sağlamak için farklı RPs kullanır.
 
-Dört temel RPs vardır: ağ, depolama, hesaplama ve KeyVault. Her bu RPs yapılandırmanıza ve ilgili kaynaklarını denetlemenize yardımcı olur. Hizmet yöneticileri, yeni özel kaynak sağlayıcıları da ekleyebilirsiniz.
+Dört temel RPs vardır: ağ, depolama, işlem ve anahtar kasası. Her biri bu RPs yapılandırın ve ilgili kaynaklarını denetlemenize yardımcı olur. Hizmet yöneticileri, yeni özel kaynak sağlayıcılarını da ekleyebilirsiniz.
 
 ### <a name="compute-rp"></a>RP işlem
-İşlem kaynak sağlayıcısı (CRP) kendi sanal makineler oluşturmak Azure yığın kiracılar sağlar. CRP sanal makine uzantılarının yanı sıra sanal makineler oluşturma özelliğini içerir. Sanal makine uzantısı hizmeti, Windows ve Linux sanal makineleri için Iaas özelliklerini sağlamaya yardımcı olur.  Örnek olarak, bir Linux sanal makine sağlama ve VM yapılandırmak için dağıtım sırasında Bash betikleri çalıştırmak için CRP kullanabilirsiniz.
+Azure Stack kiracıların kendi sanal makinelerini oluşturmak işlem kaynak sağlayıcısı (CRP) sağlar. CRP, sanal makine uzantıları yanı sıra, sanal makineler oluşturma özelliği içerir. Sanal makine uzantısı hizmeti, Iaas özelliklerini sağlamak için Windows ve Linux sanal makineleri yardımcı olur.  Örnek olarak, CRP'nin bir Linux sanal makinesi sağlama ve VM'yi yapılandırmak için dağıtım sırasında Bash betikleri çalıştırmak için kullanabilirsiniz.
 
 ### <a name="network-rp"></a>Ağ RP
-Ağ kaynak sağlayıcısı (NRP) bir dizi özel bulut için yazılım tanımlı ağ (SDN) ve ağ işlevi sanallaştırma (NFV) özellikleri sunar.  NRP, yazılım yük dengeleyici, genel IP'ler, ağ güvenlik grupları, sanal ağlar gibi kaynakları oluşturmak için kullanabilirsiniz.
+Yazılım tanımlı ağ (SDN) ve ağ işlevi sanallaştırma (NFV) özelliklerini özel bulut için bir dizi ağ kaynak Sağlayıcısı'nı (NRP) sunar.  NRP, yazılım yük dengeleyici, genel IP'ler, ağ güvenlik grupları, sanal ağlar gibi kaynakları oluşturmak için kullanabilirsiniz.
 
-### <a name="storage-rp"></a>Depolama RP
-Depolama RP dört tutarlı Azure depolama hizmetleri sunar: blob, tablo, kuyruk ve hesap yönetimi. Ayrıca, Azure tutarlı depolama hizmetleri hizmet sağlayıcısı yönetimini kolaylaştırmak için bir depolama bulut Yönetimi hizmet sunar. Azure depolama depolamak ve büyük miktarlarda belgeler ve medya dosyalarını Azure BLOB'ları ile gibi yapılandırılmamış veri almak için esneklik sağlar ve yapılandırılmış NoSQL verileri Azure tablolar ile bağlı. Azure Storage hakkında daha fazla bilgi için bkz: [Microsoft Azure Storage'a giriş](../storage/common/storage-introduction.md).
+### <a name="storage-rp"></a>RP depolama
+Depolama RP dört tutarlı Azure depolama hizmetleri sunar: blob, tablo, kuyruk ve hesap yönetimi. Ayrıca, tutarlı Azure depolama hizmetleri hizmet sağlayıcısı yönetimini kolaylaştırmak için bir depolama bulut yönetim hizmeti sunar. Azure depolama, depolama ve büyük miktarlardaki yapılandırılmamış veriler, belgeler ve medya dosyalarını Azure BLOB'ları ile gibi alma esnekliği sağlar ve Azure tabloları verilerle yapılandırılmış NoSQL tabanlı. Azure depolama hakkında daha fazla bilgi için bkz. [Microsoft Azure Storage'a giriş](../storage/common/storage-introduction.md).
 
-#### <a name="blob-storage"></a>Blob depolama alanı
-BLOB storage herhangi bir veri kümesi depolar. Blob; bir belge, ortam dosyası veya uygulama yükleyici gibi herhangi bir türde metin veya ikili veri olabilir. Table storage yapılandırılmış veri kümelerini depolar. Table Storage, yüksek miktarda verinin hızla dağıtılmasını ve verilere hızla erişilebilmesini sağlayan NoSQL anahtar özniteliği veri deposudur. Kuyruk depolama, iş akışı işleme ve bulut Hizmetleri bileşenleri arasındaki iletişim için güvenilir Mesajlaşma sağlar.
+#### <a name="blob-storage"></a>Blob depolama
+BLOB Depolama, herhangi bir veri kümesi depolar. Blob; bir belge, ortam dosyası veya uygulama yükleyici gibi herhangi bir türde metin veya ikili veri olabilir. Tablo depolama, yapılandırılmış veri kümelerini depolar. Table Storage, yüksek miktarda verinin hızla dağıtılmasını ve verilere hızla erişilebilmesini sağlayan NoSQL anahtar özniteliği veri deposudur. Kuyruk depolama, iş akışı işlemeye ve bulut hizmetlerinin bileşenleri arasında iletişime yönelik güvenilir Mesajlaşma sağlar.
 
-Her blob bir kapsayıcı altında düzenlenmiştir. Kapsayıcılar ayrıca nesne gruplarına güvenlik ilkeleri atamaya ilişkin kullanışlı bir yöntem sunar. Bir kapsayıcı herhangi bir sayıda depolama hesabının 500 TB kapasite sınırını dolduracak kadar BLOB içerebilir ve bir depolama hesabı kapsayıcıların herhangi bir sayı içerebilir. Blob Storage blok blobları, ekleme blobları ve sayfa blobları (diskler) olmak üzere üç türde blob sunar. Blok blobları bulut nesnelerinin akış ve depolanması için en iyi duruma getirilmiştir ve belge, ortam dosyaları ve yedekler vb. öğelerin depolanması için uygun bir seçenektir. Ekleme blobları blok bloblarına benzer ancak ekleme işlemleri için en iyi duruma getirilmiştir. Bir ekleme blobu yalnızca sonuna yeni bir blok eklenerek güncelleştirilebilir. Ekleme blobları, yeni verilerin yalnızca blobun sonuna yazılması gereken günlüğe kaydetme gibi senaryolar için iyi bir seçenektir. Sayfa blobları Iaas disklerini temsil etmek için en iyi duruma getirilir ve rastgele destekleme yazar ve 1 TB'ye kadar olabilir. IaaS diskine bağlı bir Azure Virtual Machine ağı, sayfa blobu olarak kaydedilen bir VHD’dir.
+Her blob kapsayıcısı altında düzenlenmiştir. Kapsayıcılar ayrıca nesne gruplarına güvenlik ilkeleri atamaya ilişkin kullanışlı bir yöntem sunar. Bir depolama hesabında herhangi bir sayıda kapsayıcı olabilir ve bir kapsayıcı herhangi bir sayıda depolama hesabının 500 TB kapasite sınırını dolduracak kadar BLOB içerebilir. Blob Storage blok blobları, ekleme blobları ve sayfa blobları (diskler) olmak üzere üç türde blob sunar. Blok blobları bulut nesnelerinin akış ve depolanması için en iyi duruma getirilmiştir ve belge, ortam dosyaları ve yedekler vb. öğelerin depolanması için uygun bir seçenektir. Ekleme blobları blok bloblarına benzer ancak ekleme işlemleri için en iyi duruma getirilmiştir. Bir ekleme blobu yalnızca sonuna yeni bir blok eklenerek güncelleştirilebilir. Ekleme blobları, yeni verilerin yalnızca blobun sonuna yazılması gereken günlüğe kaydetme gibi senaryolar için iyi bir seçenektir. Sayfa blobları Iaas disklerini temsil etmek için optimize edilmiş ve rastgele destekleyen yazar ve 1 TB'ye kadar olabilir. IaaS diskine bağlı bir Azure Virtual Machine ağı, sayfa blobu olarak kaydedilen bir VHD’dir.
 
-#### <a name="table-storage"></a>Tablo depolama alanı
-Table storage Microsoft'un NoSQL anahtar/öznitelik deposudur – şemaları, geleneksel ilişkisel veritabanlarından farklı yapmadan olmadan bir tasarıma sahiptir. Yetersiz şemaları verilerini depolayan olduğundan, uygulamanızın ihtiyaçları geliştikçe verilerinizi uyarlamak kolaydır. Table Storage’ın kullanımı son derece kolaydır, böylece geliştiriciler uygulamalarını hızla geliştirebilir. Table Storage bir anahtar öznitelik deposudur; bu, bir tablodaki her değerin türü belirtilmiş bir özellik adıyla depolandığı anlamına gelir. Özellik adı filtreleme ve seçim kriterlerinin belirlenmesi için kullanılabilir. Özellik ve değerlerinin toplamı bir varlığı oluşturur. Tablo depolama eksikliği şemalarını itibaren iki varlık aynı tablodaki farklı özellik koleksiyonları içerebilir ve bu özellikler farklı türde olabilir. Web uygulamaları için kullanıcı verileri, adres defterleri, cihaz bilgileri ve hizmetiniz için gerekli olan tüm diğer meta veri türleri gibi esnek veri kümelerini depolamak üzere Table Storage’ı kullanabilirsiniz. Bir tabloda istediğiniz kadar varlık depolayabilirsiniz ve bir depolama hesabı kapasite limitini dolduracak kadar tablo içerebilir.
+#### <a name="table-storage"></a>Table Storage
+Tablo depolama, Microsoft'un NoSQL anahtar/öznitelik deposu – olmadan şemaları, geleneksel ilişkisel veritabanlarından farklı bir tasarıma sahiptir. Bu yana olmaması şemaları verilerini depolayan ihtiyaçları, uygulama geliştikçe verilerinizi uyarlamak da kolaylaşır. Table Storage’ın kullanımı son derece kolaydır, böylece geliştiriciler uygulamalarını hızla geliştirebilir. Table Storage bir anahtar öznitelik deposudur; bu, bir tablodaki her değerin türü belirtilmiş bir özellik adıyla depolandığı anlamına gelir. Özellik adı filtreleme ve seçim kriterlerinin belirlenmesi için kullanılabilir. Özellik ve değerlerinin toplamı bir varlığı oluşturur. Tablo depolama olmaması şemalarını,'den itibaren iki varlık aynı tablodaki farklı özellik koleksiyonları içerebilir ve bu özellikler farklı türde olabilir. Web uygulamaları için kullanıcı verileri, adres defterleri, cihaz bilgileri ve hizmetiniz için gerekli olan tüm diğer meta veri türleri gibi esnek veri kümelerini depolamak üzere Table Storage’ı kullanabilirsiniz. Bir tabloda istediğiniz kadar varlık depolayabilirsiniz ve bir depolama hesabı kapasite limitini dolduracak kadar tablo içerebilir.
 
 #### <a name="queue-storage"></a>Kuyruk Depolama
 Azure Queue depolama birimi, uygulama bileşenleri arasında bulut mesajlaşma özelliği sağlar. Ölçeklendirmek üzere uygulama tasarlarken, uygulama bileşenleri birbirinden bağımsız şekilde ölçeklenebilmek için genellikle birbirinden ayrılır. Kuyruk depolama bulutta, masaüstünde, şirket içi sunucuda veya mobil bir cihazda çalışan uygulama bileşenleri arasındaki iletişim için zaman uyumsuz mesajlaşma sunar. Kuyruk depolama ayrıca zaman uyumsuz görevlerin yönetilmesini ve süreç iş akışlarının oluşturulmasını destekler.
 
 ### <a name="keyvault"></a>KeyVault
-KeyVault RP yönetimi ve parolaları ve sertifikaları gibi gizli denetlenmesini sağlar. Örnek olarak, bir kiracı yönetici parolalarını veya anahtarları VM dağıtımı sırasında sağlamak için KeyVault RP kullanın.
+KeyVault RP, yönetimi ve parolalar ve sertifikalar gibi gizli denetlenmesini sağlar. Örneğin, bir kiracı yönetici parola veya anahtarlarını VM dağıtımı sırasında sağlamak için KeyVault RP kullanabilirsiniz.
 
-## <a name="high-availability-for-azure-stack"></a>Azure yığını için yüksek kullanılabilirlik
-*Uygulandığı öğe: Azure yığın 1802 veya daha sonraki sürümler*
+## <a name="high-availability-for-azure-stack"></a>Azure Stack için yüksek kullanılabilirlik
+*İçin geçerlidir: Azure Stack 1802 veya daha sonraki sürümler*
 
-Çoklu VM üretim sisteminin azure'da yüksek kullanılabilirlik elde etmek için birden çok hata etki alanları ve güncelleme etki alanına yayılan bir kullanılabilirlik kümesindeki sanal makineleri yerleştirilir. Bu şekilde [kullanılabilirlik kümelerinde dağıtılan VM'ler](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-availability-sets) birbirinden fiziksel olarak yalıtılmış hatası dayanıklılık için aşağıdaki çizimde gösterildiği gibi izin vermek için ayrı sunucu rafları üzerinde şunlardır:
+Bir çoklu VM üretim sisteminin azure'da yüksek kullanılabilirlik elde etmek için birden çok hata etki alanları ve güncelleme etki alanları arasında yayılan bir kullanılabilirlik kümesindeki Vm'leri yerleştirilir. Bu şekilde [kullanılabilirlik kümelerinde dağıtılan Vm'leri](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-availability-sets) birbirinden fiziksel olarak yalıtılmış Aşağıdaki diyagramda da görüldüğü gibi hata dayanıklılığı için izin vermek için ayrı sunucu rafları üzerinde:
 
-  ![Azure yığın yüksek kullanılabilirlik](media/azure-stack-key-features/high-availability.png)
+  ![Azure Stack yüksek kullanılabilirlik](media/azure-stack-key-features/high-availability.png)
 
-### <a name="availability-sets-in-azure-stack"></a>Azure yığınında kullanılabilirlik kümeleri
-Azure yığınının altyapısı zaten hatalarına dayanıklı olsa da, bir donanım hatası ise (Yük Devretme Kümelemesi) temel alınan teknoloji hala miktar kapalı kalma süresi VM'ler için etkilenen bir fiziksel sunucuda doğurur. En fazla üç hata etki alanları ile Azure ile tutarlı olması için bir kullanılabilirlik kümesinde sahip Azure yığını destekler.
+### <a name="availability-sets-in-azure-stack"></a>Azure Stack'te kullanılabilirlik kümeleri
+Azure Stack altyapısını zaten hatalara karşı dayanıklı olsa da, bir donanım hatası olursa (Yük Devretme Kümelemesi) temel alınan teknoloji hala bazı kapalı kalma süresi VM'ler için etkilenen bir fiziksel sunucuda artmasına neden olur. Azure Stack, Azure ile tutarlı olacak şekilde en fazla üç hata etki alanı ile bir kullanılabilirlik sahip destekler.
 
-- **Hata etki alanları**. Bir kullanılabilirlik kümesine yerleştirilen sanal makineleri onları mümkün olduğunca eşit birden çok hata etki alanları (Azure yığın düğümler) yayarak birbirinden fiziksel olarak yalıtılmış olacaktır. Bir donanım hatası varsa, başarısız hata etki alanı Vm'lerden diğer hata etki alanı yeniden, ancak, mümkünse, aynı kullanılabilirlik kümesindeki diğer vm'lerden ayrı hata etki alanı tutulur. Donanımı yeniden çevrimiçi olduğunda, sanal makineleri yüksek kullanılabilirliği sürdürmek için yeniden dengelenir. 
+- **Hata etki alanları**. Vm'leri bir kullanılabilirlik kümesine yerleştirilir bunları mümkün olduğunca eşit olarak birden çok hata etki alanları üzerinde (Azure Stack düğüm) yayarak birbirinden fiziksel olarak izole edilmiş olur. Bir donanım hatası varsa, başarısız hata etki alanı Vm'lerden diğer hata etki alanları yeniden, ancak, mümkün olduğunda, aynı kullanılabilirlik kümesindeki diğer vm'lerden ayrı hata etki alanlarında tutulur. Donanım tekrar çevrimiçi olduğunda, yüksek kullanılabilirliği sürdürmek için Vm'leri yeniden Dengelenecek. 
  
-- **Güncelleme etki alanları**. Güncelleme etki alanına kullanılabilirlik kümeleri yüksek kullanılabilirlik sağlayan başka bir Azure kavramıdır. Bir güncelleştirme etki alanı, bakım aynı anda uygulayabilir temel alınan donanım mantıksal grubudur. Aynı güncelleştirme etki alanında yer alan VM'ler planlı bakım sırasında birlikte yeniden başlatılır. Kiracılar sanal makineleri bir kullanılabilirlik kümesi içinde oluşturmak gibi Azure platformu otomatik olarak VM'ler bunlar arasında dağıtır güncelleştirme etki alanları. Azure yığınında temel alınan ana bilgisayarları güncelleştirilmeden önce kümedeki diğer çevrimiçi konaklar arasında geçişi, sanal makineleri dinamik. Konak güncelleştirme sırasında Kiracı kapalı olduğundan, Azure yığında güncelleştirme etki alanı özelliği yalnızca Azure ile şablonu uyumluluk için bulunmaktadır. 
+- **Güncelleme etki alanları**. Güncelleştirme etki alanlarını kullanılabilirlik kümelerinde yüksek kullanılabilirlik sağlayan başka bir Azure kavramdır. Bir güncelleme etki alanı, aynı anda bakımdan geçirilebilen temel alınan donanım mantıksal grubudur. Aynı güncelleştirme etki alanında bulunan VM'ler, planlanan bakım sırasında birlikte yeniden başlatılır. Kiracılar, bir kullanılabilirlik kümesinde VM'ler oluşturduğunuzda, Azure platformu otomatik olarak Vm'leri bunlar arasında dağıtır güncelleştirme etki alanı. Azure Stack'te kendi temel konak güncelleştirilmeden önce kümedeki çevrimiçi diğer konaklar arasında geçişi, Vm'leri Canlı. Bir konak güncelleştirme sırasında kapalı kalma süresi olmadan Kiracı olduğundan, Azure Stack'te güncelleştirme etki alanı özelliği yalnızca şablon Azure ile uyumluluk için bulunmaktadır. 
 
 ### <a name="upgrade-scenarios"></a>Yükseltme senaryoları 
-Azure yığın sürüm 1802 verilmiştir önce hataya ve güncelleştirme etki alanlarının sayısı varsayılan, oluşturulmuş kullanılabilirlik kümesindeki sanal makineleri (1 ve 1 sırasıyla). Bu önceden var olan kullanılabilirlik kümeleri VM'ler için yüksek kullanılabilirlik sağlamak için önce var olan sanal makineleri silin ve yeni bir kullanılabilirlik açıklandığı gibi doğru arıza ve güncelleştirme etki alanı sayılarıyla kümesi uygulamasına dağıtmanız [Değiştir Kullanılabilirlik kümesi için bir Windows VM](https://docs.microsoft.com/azure/virtual-machines/windows/change-availability-set). 
+Azure Stack sürüm 1802 verilir önce hatası ve güncelleme etki alanları sayısı varsayılan, oluşturulan kullanılabilirlik kümelerindeki VM'ler (1 ile 1 sırasıyla). Önceden mevcut olan bu kullanılabilirlik kümelerindeki VM'ler için yüksek kullanılabilirlik sağlamak için önce mevcut sanal makineleri silin ve yeni bir kullanılabilirlik ile doğru hatası ve güncelleme etki alanı sayıları açıklandığı kümesi içinde dağıtmanız [Değiştir Kullanılabilirlik kümesi için bir Windows VM](https://docs.microsoft.com/azure/virtual-machines/windows/change-availability-set). 
 
-Sanal makine ölçek kümeleri için bir kullanılabilirlik kümesi dahili bir varsayılan hata etki alanı ve güncelleştirme etki alanı sayısı ile oluşturulur (3. ve 5 sırasıyla). Varsayılan hata ve güncelleştirme etki alanı 1802 güncelleştirme, kullanılabilirlik ile kümesi yerleştirilecek önce oluşturulan tüm sanal makine ölçek kümeleri sayar (1 ve 1 sırasıyla). Yeni forma elde etmek için bu sanal makine ölçek kümesi örneklerinin güncelleştirmek için sanal makine ölçek kümeleri 1802 güncelleştirmeden önce mevcut örnek sayısına göre ölçeklendirme ve sanal makine ölçek kümeleri eski örneklerini silin. 
+Sanal makine ölçek kümeleri için kullanılabilirlik kümesi dahili olarak bir varsayılan hata etki alanı ve güncelleştirme etki alanı sayısı ile oluşturulur (3. ve 5 sırasıyla). Bir kullanılabilirlik kümesi 1802 güncelleştirme yerleştirileceği önce oluşturulan tüm sanal makine ölçek kümeleri varsayılan hata ve güncelleme etki alanı sayısı (1 ile 1 sırasıyla). Yeni forma elde etmek için bu sanal makine ölçek kümesi örneklerine güncelleştirmek için sanal makine ölçek kümeleri 1802 güncelleştirmeden önce mevcut örnekleri sayısına göre ölçeklendirin ve sanal makine ölçek kümeleri eski örneklerini silin. 
 
 ## <a name="role-based-access-control-rbac"></a>Rol tabanlı erişim denetimi (RBAC)
-Abonelik, kaynak grubu veya tek başına bir kaynak düzeyinde rolleri atayarak yetkili kullanıcılar, gruplar ve hizmetlere sistem erişim vermek için RBAC kullanabilirsiniz. Her rol, bir kullanıcı, Grup veya hizmet Microsoft Azure yığın kaynaklara sahip erişim düzeyini tanımlar.
+Sistem yetkili kullanıcılar, gruplar ve Hizmetleri için bir abonelik, kaynak grubu veya tek başına bir kaynak düzeyinde rolleri atayarak erişim için RBAC kullanabilirsiniz. Her bir rol, bir kullanıcı, Grup veya hizmet Microsoft Azure Stack kaynaklara sahip erişim düzeyini tanımlar.
 
-Azure RBAC sahip tüm kaynak türleri için geçerli üç temel roller: sahibi, katkıda bulunan ve okuyucu. Sahibi temsilci başkalarına erişimi hakkı dahil olmak üzere tüm kaynaklara tam erişimi vardır. Katkıda bulunan oluşturabilir ve tüm türlerini Azure kaynaklarını yönetmek ancak başkalarına erişim izni veremiyor. Okuyucu yalnızca var olan Azure kaynaklarını görüntüleyebilirsiniz. Azure RBAC rollerin geri kalanı belirli Azure kaynaklarının yönetimini sağlar. Örneğin, sanal makine katılımcı rolü oluşturma ve sanal makinelerin yönetimini sağlar ancak Yönetim sanal ağ veya sanal makine bağlandığı alt ağ izin vermiyor.
+Azure RBAC sahip tüm kaynak türleri için geçerli olan üç temel rol: sahibi, katkıda bulunan ve okuyucu. Sahip tüm kaynaklara temsilci erişimi başkalarına hakkı dahil olmak üzere tam erişimi vardır. Katkıda bulunan oluşturabilir ve tüm Azure kaynakları türlerini yönetmek, ancak diğerleri için erişim izni veremiyor. Okuyucu, mevcut Azure kaynakları yalnızca görüntüleyebilir. Azure RBAC rolleri kalan belirli bir Azure kaynak yönetimi sağlar. Örneğin, sanal makine Katılımcısı rolü oluşturma ve sanal makinelerin yönetimini sağlar ancak Yönetim sanal ağ veya sanal makine bağlanan bir alt ağ izin vermiyor.
 
 ## <a name="usage-data"></a>Kullanım verileri
-Microsoft Azure yığın toplar ve tüm kaynak sağlayıcıları kullanım verilerini toplayan ve onu Azure'a işleme için Azure commerce iletir. Azure yığında toplanan kullanım verileri bir REST API üzerinden görüntülenebilir. Bir Azure tutarlı Kiracı API'si yanı sıra sağlayıcısı ve sağlayıcı API'leri temsilci Kiracı abonelikler arasında kullanım verilerini almak için yoktur. Bu veriler, bir dış aracı veya faturalama veya geri ödeme hizmeti ile tümleştirmek için kullanılabilir. Kullanım Azure commerce işlendikten sonra Azure fatura Portalı'nda görüntülenebilir.
+Microsoft Azure Stack toplar ve tüm kaynak sağlayıcılarını kullanım verilerini toplayan ve bunu Azure'a işleme için Azure ticaret tarafından iletir. Azure Stack'te toplanan kullanım verileri, bir REST API aracılığıyla görüntülenebilir. Bir Azure ile tutarlı Kiracı API'si yanı sıra sağlayıcısı ve sağlayıcı API'leri temsilci tüm Kiracı aboneliklerindeki kullanım verilerini almak için yoktur. Bu veriler, bir dış aracı ya da hizmet için fatura veya geri ödeme ile tümleştirmek için kullanılabilir. Azure ticaret tarafından kullanım işlendikten sonra Azure fatura Portalı'nda görüntülenebilir.
 
-## <a name="in-development-build-of-azure-stack-development-kit"></a>Azure yığın geliştirme Seti'nin geliştirme, derleme
-Geliştirme derlemeleri önce-Azure yığın Geliştirme Seti en son sürümünü değerlendirmek Benimseyenler olanak tanır. Artımlı derlemeler en son ana yayımını temel alan olup olmadıklarını. Ana sürüm birkaç ayda yayımlanacak devam ederken, geliştirme derlemeleri aralıklı önemli sürümler arasında serbest bırakır.
+## <a name="in-development-build-of-azure-stack-development-kit"></a>Azure Stack geliştirme Seti'ni geliştirme yapısı
+Azure Stack geliştirme Seti'ni en son sürümünü değerlendirmek teknolojisini daha önce benimseyen geliştirme derlemeler sağlar. Artımlı derlemeler üzerinde en son ana sürümüne bağlı oldukları. Ana sürüm birkaç ayda yayımlanacak devam edecek, ancak geliştirme derlemeleri ana sürümler arasında aralıklı olarak serbest bırakır.
 
-Geliştirme derlemeleri aşağıdaki avantajları sağlar:
+Geliştirme yapılar aşağıdaki avantajları sağlar:
 - Hata düzeltmeleri
 - Yeni Özellikler
-- Diğer geliştirmeler
+- Diğer iyileştirmeler
 
 ## <a name="next-steps"></a>Sonraki adımlar
-[Azure yığın Geliştirme Seti değerlendir](azure-stack-deploy-overview.md)
+[Yönetim temel bilgileri](azure-stack-manage-basics.md)
 

@@ -9,16 +9,34 @@ author: hning86
 ms.author: haining
 ms.reviewer: j-martens
 ms.date: 03/28/2018
-ms.openlocfilehash: be12a9ef0d6b520c741f95903d43f81727bc3b9b
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: c45ce91735dc47ecb5a2741395ed79d4fa7b6f3f
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48238019"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49321807"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Azure Machine Learning hizmeti sürüm notları
 
 Bu makalede, Azure Machine Learning hizmet sürümleri hakkında bilgi edinin. 
+
+## <a name="2018-10-12"></a>2018-10-12
+
+### <a name="azure-machine-learning-sdk-for-python-v0168"></a>Azure Machine SDK için Python v0.1.68 Learning
+
+#### <a name="new-features"></a>Yeni Özellikler
+ * Yeni çalışma alanı oluştururken, birden çok Kiracı desteği.
+
+#### <a name="breaking-changes"></a>Yeni değişiklikler
+ * **Yaklaşan bir sonraki sürümde** *Workspace.compute_targets, veri depoları, denemeleri, resimler, modeller* ve *webservices'a* yöntemleri yerine özellikler olur. Örneğin, *Workspace.compute_targets()* ile *Workspace.compute_targets*.
+
+#### <a name="bugs-fixed"></a>Düzeltilen hatalar
+ * Pynacl kitaplığı sürüm artık web hizmetine dağıtırken sabitlenmiş gerekir.
+
+### <a name="azure-machine-learning-data-prep-sdk-v030"></a>Azure Machine Learning veri hazırlama SDK v0.3.0
+
+#### <a name="new-features"></a>Yeni Özellikler:
+* Kullanıcıların yürütmek için bir Python dosyası yolunda geçirilecek yöntemi transform_partition_with_file(script_path) eklendi
 
 ## <a name="2018-10-01"></a>2018-10-01
 

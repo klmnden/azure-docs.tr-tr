@@ -10,12 +10,12 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 6193a515f0d8136e0d420b7554cf26fee8f50953
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: a80577bb226cbec080edf5e06dbd0f31c80a5890
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39173110"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49321436"
 ---
 # <a name="how-to-use-multi-value-entities-with-a-conversation-learner-model"></a>Konuşma Öğrenici modeli ile birden çok değerli varlıklar kullanma
 Bu öğretici, varlıkların "birden çok değerli" özelliğini gösterir.
@@ -24,7 +24,7 @@ Bu öğretici, varlıkların "birden çok değerli" özelliğini gösterir.
 
 [![Öğreticinin 6 Preview](http://aka.ms/cl-tutorial-06-preview)](http://aka.ms/blis-tutorial-06)
 
-##<a name="requirements"></a>Gereksinimler
+## <a name="requirements"></a>Gereksinimler
 Bu öğreticide, genel öğretici bot çalışıyor olması gerekir
 
     npm run tutorial-general

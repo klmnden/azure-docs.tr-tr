@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.date: 10/10/2018
 ms.topic: conceptual
 ms.author: raynew
-ms.openlocfilehash: 83c23933acf1ed621728991fbdeea088911cf36c
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 7c5316aea2bfdb9a96b9aeb2dd5387b2643a92b2
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49078673"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49319736"
 ---
 # <a name="common-questions---hyper-v-to-azure-replication"></a>Sık sorulan sorular - Hyper-V'den Azure'a çoğaltma
 
@@ -135,7 +135,7 @@ Azure'a çoğalttığınızda, çoğaltma trafiği ortak uç noktalar Azure depo
 
 Çoğaltma için bir Hyper-V VM, desteklenen bir işletim sistemi çalıştırmalıdır. Ayrıca, VM, Azure Vm'leri için gereksinimleri karşılaması gerekir. [Daha fazla bilgi edinin](hyper-v-azure-support-matrix.md#replicated-vms) destek matrisi içinde.
 
-###<a name="how-often-can-i-replicate-to-azure"></a>Azure'a ne sıklıkta çoğaltabilirim?
+### <a name="how-often-can-i-replicate-to-azure"></a>Azure'a ne sıklıkta çoğaltabilirim?
 
 Hyper-V Vm'lerini her 30 saniye (hariç, premium depolama), 5 dakika veya 15 dakika çoğaltılabilir.
 
@@ -207,6 +207,3 @@ Azure esneklik için tasarlanmıştır. Site kurtarma, ikincil bir Azure veri me
 
 ### <a name="can-i-fail-back-to-a-different-location"></a>Ben, farklı bir konuma başarısız olabilir?
 Evet, Azure'a yük devretmesi, ilkinin kullanılamıyorsa farklı bir konuma başarısız olabilir. [Daha fazla bilgi edinin](hyper-v-azure-failback.md#failback-to-an-alternate-location-in-hyper-v-environment).
-
-
-

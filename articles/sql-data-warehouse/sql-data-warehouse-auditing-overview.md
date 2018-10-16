@@ -10,12 +10,12 @@ ms.component: manage
 ms.date: 04/11/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
-ms.openlocfilehash: c894fed56393e1504f54999e57bba6f9ffed27a7
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: 18a6234eb56902625fdcc8f150a41b7551d229cc
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43288263"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49318546"
 ---
 # <a name="auditing-in-azure-sql-data-warehouse"></a>Azure SQL veri ambarı'nda denetleme
 
@@ -112,7 +112,7 @@ Denetimi kullanıyorsanız onay denetim ayarlamadan önce bir ["Alt düzey istem
 
 ## <a id="subheading-3"></a>Denetim günlüklerini ve raporları analiz edin
 
-###<a name="server-level-policy-audit-logs"></a>Sunucu düzeyindeki ilke Denetim günlükleri
+### <a name="server-level-policy-audit-logs"></a>Sunucu düzeyindeki ilke Denetim günlükleri
 Sunucu düzeyi denetim günlüklerine yazılır **ekleme Blobları** Azure aboneliğinizde bir Azure Blob Depolama alanında. Adlı bir kapsayıcı içinde blob dosyaları koleksiyonu olarak kaydedilirler **sqldbauditlogs**.
 
 Depolama klasörü hiyerarşisi hakkında daha fazla ayrıntı için bkz: adlandırma kuralları ve günlük biçimi, [Blob denetim günlük biçimi başvurusu](https://go.microsoft.com/fwlink/?linkid=829599).
@@ -147,7 +147,7 @@ Blob günlükleri denetleme görüntülemek için kullanabileceğiniz birkaç y�
 
 
 <br>
-###<a name="database-level-policy-audit-logs"></a>Veritabanı düzeyinde İlkesi denetim günlükleri
+### <a name="database-level-policy-audit-logs"></a>Veritabanı düzeyinde İlkesi denetim günlükleri
 Veritabanı düzeyinde denetim günlüklerini toplu Store tablolarla koleksiyonundaki bir **SQLDBAuditLogs** Kurulum sırasında seçtiğiniz Azure depolama hesabı ön eki. Günlük dosyaları gibi bir araç kullanarak görüntüleyebileceğiniz [Azure Depolama Gezgini](http://azurestorageexplorer.codeplex.com).
 
 Önceden yapılandırılmış Pano rapor şablonu olarak kullanılabilir bir [indirilebilir Excel elektronik tablosu](http://go.microsoft.com/fwlink/?LinkId=403540) günlük verilerinin hızla analiz etmenize yardımcı olmak için. Denetim günlüklerinizi şablonu kullanmak için Excel 2013 veya üzeri ile yapabilecekleriniz Power Query ihtiyacınız [buradan indirin](http://www.microsoft.com/download/details.aspx?id=39379).

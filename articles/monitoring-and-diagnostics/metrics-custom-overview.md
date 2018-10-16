@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ancav
 ms.component: metrics
-ms.openlocfilehash: c136772e27dab014c22234f1ef1d2baddd2ffe58
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 1bdf1e1f5e58ecb0939d5876e0cef349e32de517
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46978089"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49344768"
 ---
 # <a name="custom-metrics-in-azure-monitor"></a>Azure İzleyicisi'nde özel ölçümler
 
@@ -31,14 +31,14 @@ Kaynakları ve uygulamaları azure'da dağıtmak gibi performans ve sistem durum
 
 ### <a name="authentication"></a>Kimlik Doğrulaması
 Azure İzleyici için özel ölçümleri göndermek için ölçüm gönderme varlık geçerli bir Azure Active Directory belirteci "Bearer" istek üst bilgisinde olmalıdır. Geçerli bir taşıyıcı belirteç almak için desteklenen birkaç yolu vardır:
-1. [MSI (yönetilen hizmet kimliği)](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) -bir Azure kaynağının (örneğin, bir VM) bir kimlik sağlar. MSI kaynakları belirli işlemleri – izin vermek için örneğin, kendisi hakkında ölçümler yaymak bir kaynak sağlayan tasarlanmıştır. Bir kaynak (veya kendi MSI) "İzleme ölçümleri Publisher" izinlerini başka bir kaynak, böylelikle de diğer kaynakların ölçümlerini yaymak MSI etkinleştirme verilebilir.
+1. [Kimlikler Azure kaynakları için yönetilen](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) -bir Azure kaynağının (örneğin, bir VM) bir kimlik sağlar. MSI kaynakları belirli işlemleri – izin vermek için örneğin, kendisi hakkında ölçümler yaymak bir kaynak sağlayan tasarlanmıştır. Bir kaynak (veya kendi MSI) "İzleme ölçümleri Publisher" izinlerini başka bir kaynak, böylelikle de diğer kaynakların ölçümlerini yaymak MSI etkinleştirme verilebilir.
 2. [AAD hizmet sorumlusu](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals) -burada bir AAD uygulaması (hizmet) bir Azure kaynağı ile ilgili ölçümleri yaymak için izinler atanabilir bir senaryodur.
 İsteğin kimliğini doğrulamak için Azure İzleyici AAD ortak anahtarları kullanarak uygulama belirtecini doğrular. Azure portalında kullanılabilir olan bu izin, mevcut "İzleme ölçümleri yayımcı" rolü zaten var. Hizmet sorumlusu, özel ölçümler yayma hangi kaynaklara bağlı olarak gereken kapsam (abonelik, kaynak grubuna ya da belirli kaynak) "İzleme ölçümleri Publisher" rolü verilebilir.
 
 > [!NOTE]
 > Ne zaman isteyen özel ölçümler yaymak için bir AAD belirteci sağlamak belirteç istenen kaynak için İzleyici/kaynak https://monitoring.azure.com/ (sondaki eklediğinizden emin olun '/')
 
-### <a name="subject"></a>Konu
+### <a name="subject"></a>Özne
 Bu özellik, özel bir ölçü için bildirilen hangi Azure kaynak Kimliğini yakalar. Bu bilgiler yapılan API çağrısı URL'de kodlamalı. Her API, yalnızca tek bir Azure kaynak için ölçüm değerleri gönderebilirsiniz.
 
 > [!NOTE]

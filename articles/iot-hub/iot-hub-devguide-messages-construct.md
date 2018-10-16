@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/13/2018
 ms.author: asrastog
-ms.openlocfilehash: 168f78ed2236d70a37a111c628e45e7bf0bbfa4b
-ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
+ms.openlocfilehash: 164f3b8ef42d07606d98d200fa9bebcd0add3d38
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47585416"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49319583"
 ---
 # <a name="create-and-read-iot-hub-messages"></a>IoT Hub iletilerini oluşturma ve okuma
 
@@ -31,7 +31,7 @@ Bir IOT Hub iletisi oluşur:
 
 * Donuk bir ikili gövdesi.
 
-Özellik adlarını ve değerlerini içerebilir ASCII alfasayısal karakterler, artı ```{'!', '#', '$', '%, '&', "'", '*', '+', '-', '.', '^', '_', '`', '|', '~'}``` CİHAZDAN buluta iletileri HTTPS kullanarak iletişim kuralı veya Bulut buluttan cihaza iletileri gönderme gönderdiğinizde.
+Özellik adlarını ve değerlerini içerebilir ASCII alfasayısal karakterler, artı `{'!', '#', '$', '%, '&', ''', '*', '+', '-', '.', '^', '_', '`', ' |', ' ~'} ' ne zaman gönderdiğiniz CİHAZDAN buluta iletileri HTTPS kullanarak iletişim kuralı veya Bulut buluttan cihaza iletileri gönderme.
 
 CİHAZDAN buluta iletileri IOT Hub ile aşağıdaki özelliklere sahiptir:
 
@@ -49,19 +49,19 @@ Aşağıdaki tabloda, IOT Hub iletilerini Sistem özelliklerinde kümesini liste
 
 | Özellik | Açıklama | Kullanıcı ayarlanabilir mi? |
 | --- | --- | --- |
-| MessageId |İstek-yanıt desenlerinde kullanılan ileti için kullanıcı ayarlanabilir bir tanımlayıcı. Biçim: Bir büyük küçük harfe duyarlı dize (en çok 128 karakterden uzun), ASCII 7 bit alfasayısal karakterlerin + `{'-', ':',’.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '$', '''}`. | Evet |
-| Sıra numarası |Her bulut buluttan cihaza iletiye IOT Hub tarafından atanmış bir sayı (benzersiz cihaz kuyruk). | C2D iletileri için Hayır '; Evet, aksi takdirde. |
-| Alıcı |Belirtilen bir hedef [bulut-cihaz](iot-hub-devguide-c2d-guidance.md) iletileri. | C2D iletileri için Hayır '; Evet, aksi takdirde. |
-| ExpiryTimeUtc |Tarih ve saat ileti sonu. | Evet |
-| EnqueuedTime |Tarih ve saat [bulut-cihaz](iot-hub-devguide-c2d-guidance.md) ileti, IOT Hub tarafından alındı. | C2D iletileri için Hayır '; Evet, aksi takdirde. |
-| CorrelationId |Genellikle istek, istek-yanıt desenleri MessageID içeren bir yanıt iletisi bir dize özelliği. | Evet |
-| UserId |İletileri kaynağını belirtmek için kullanılan bir kimliği. İletileri IOT Hub tarafından oluşturulduğunda ayarlanır `{iot hub name}`. | Hayır |
-| ACK |Geri bildirim iletisi Oluşturucusu. Bu özellik bulut-cihaz iletilerini cihaz tarafından sonucunda iletinin Tüketim geri bildirim iletileri oluşturmak için IOT hub'ı istemek için kullanılır. Olası değerler: **hiçbiri** (varsayılan): hiçbir geri bildirim iletisi oluşturulur, **pozitif**: ileti tamamlanmışsa, bir geri bildirim iletisi **negatif**: alma bir iletinin süresi (veya en yüksek teslimat sayısı ulaşıldı varsa) ve cihaz tarafından tamamlanmasını olmadan geri bildirim iletisi veya **tam**: pozitif ve negatif. 
+| ileti kimliği |İstek-yanıt desenlerinde kullanılan ileti için kullanıcı ayarlanabilir bir tanımlayıcı. Biçim: Bir büyük küçük harfe duyarlı dize (en çok 128 karakterden uzun), ASCII 7 bit alfasayısal karakterlerin + `{'-', ':', '.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '$', '''}`. | Evet |
+| sıra numarası |Her bulut buluttan cihaza iletiye IOT Hub tarafından atanmış bir sayı (benzersiz cihaz kuyruk). | C2D iletileri için Hayır '; Evet, aksi takdirde. |
+| - |Belirtilen bir hedef [bulut-cihaz](iot-hub-devguide-c2d-guidance.md) iletileri. | C2D iletileri için Hayır '; Evet, aksi takdirde. |
+| süre sonu mutlak |Tarih ve saat ileti sonu. | Evet |
+| iothub-enqueuedtime |Tarih ve saat [bulut-cihaz](iot-hub-devguide-c2d-guidance.md) ileti, IOT Hub tarafından alındı. | C2D iletileri için Hayır '; Evet, aksi takdirde. |
+| Bağıntı Kimliği |Genellikle istek, istek-yanıt desenleri MessageID içeren bir yanıt iletisi bir dize özelliği. | Evet |
+| Kullanıcı Kimliği |İletileri kaynağını belirtmek için kullanılan bir kimliği. İletileri IOT Hub tarafından oluşturulduğunda ayarlanır `{iot hub name}`. | Hayır |
+| iothub-ack |Geri bildirim iletisi Oluşturucusu. Bu özellik bulut-cihaz iletilerini cihaz tarafından sonucunda iletinin Tüketim geri bildirim iletileri oluşturmak için IOT hub'ı istemek için kullanılır. Olası değerler: **hiçbiri** (varsayılan): hiçbir geri bildirim iletisi oluşturulur, **pozitif**: ileti tamamlanmışsa, bir geri bildirim iletisi **negatif**: alma bir iletinin süresi (veya en yüksek teslimat sayısı ulaşıldı varsa) ve cihaz tarafından tamamlanmasını olmadan geri bildirim iletisi veya **tam**: pozitif ve negatif. 
 <!-- robinsh For more information, see [Message feedback][lnk-feedback].--> | Evet |
-| ConnectionDeviceId |CİHAZDAN buluta iletileri IOT Hub tarafından ayarlanmış bir kimlik. İçerdiği **DeviceID** iletiyi gönderen cihazın. | D2C iletileri için Hayır '; Evet, aksi takdirde. |
-| ConnectionDeviceGenerationId |CİHAZDAN buluta iletileri IOT Hub tarafından ayarlanmış bir kimlik. İçerdiği **Generationıd** (olarak başına [cihaz kimlik özelliklerini](iot-hub-devguide-identity-registry.md#device-identity-properties)) iletiyi gönderen cihazın. | D2C iletileri için Hayır '; Evet, aksi takdirde. |
-| ConnectionAuthMethod |CİHAZDAN buluta iletileri IOT Hub tarafından ayarlanmış bir kimlik doğrulama yöntemi. Bu özellik, iletinin gönderme cihazın kimliğini doğrulamak için kullanılan kimlik doğrulama yöntemi hakkında bilgi içerir. <!-- ROBINSH For more information, see [Device to cloud anti-spoofing][lnk-antispoofing].--> | D2C iletileri için Hayır '; Evet, aksi takdirde. |
-| CreationTimeUtc | Tarih ve saat ileti bir cihazda oluşturuldu. Bir cihaz, bu değeri açıkça ayarlamanız gerekir. | Evet |
+| ıothub bağlantı cihaz kimliği |CİHAZDAN buluta iletileri IOT Hub tarafından ayarlanmış bir kimlik. İçerdiği **DeviceID** iletiyi gönderen cihazın. | D2C iletileri için Hayır '; Evet, aksi takdirde. |
+| iothub-bağlantı-kimlik doğrulama-oluşturma kimliği |CİHAZDAN buluta iletileri IOT Hub tarafından ayarlanmış bir kimlik. İçerdiği **Generationıd** (olarak başına [cihaz kimlik özelliklerini](iot-hub-devguide-identity-registry.md#device-identity-properties)) iletiyi gönderen cihazın. | D2C iletileri için Hayır '; Evet, aksi takdirde. |
+| ıothub bağlantı kimlik doğrulama yöntemi |CİHAZDAN buluta iletileri IOT Hub tarafından ayarlanmış bir kimlik doğrulama yöntemi. Bu özellik, iletinin gönderme cihazın kimliğini doğrulamak için kullanılan kimlik doğrulama yöntemi hakkında bilgi içerir. <!-- ROBINSH For more information, see [Device to cloud anti-spoofing][lnk-antispoofing].--> | D2C iletileri için Hayır '; Evet, aksi takdirde. |
+| ıothub oluşturma zamanı utc | Tarih ve saat ileti bir cihazda oluşturuldu. Bir cihaz, bu değeri açıkça ayarlamanız gerekir. | Evet |
 
 ## <a name="message-size"></a>İleti boyutu
 
@@ -77,13 +77,13 @@ Bayt cinsinden boyutu dize uzunluğu eşittir özellik adlarını ve değerlerin
 
 Tüm Damgalar cihaz IOT hub'ı, CİHAZDAN buluta iletileri kimlik sahtekarlığı önlemek için aşağıdaki özelliklere sahip iletileri:
 
-* **ConnectionDeviceId**
-* **ConnectionDeviceGenerationId**
-* **ConnectionAuthMethod**
+* **ıothub bağlantı cihaz kimliği**
+* **iothub-bağlantı-kimlik doğrulama-oluşturma kimliği**
+* **ıothub bağlantı kimlik doğrulama yöntemi**
 
 İlk iki içeren **DeviceID** ve **Generationıd** kaynak cihazın olarak başına [cihaz kimlik özelliklerini](iot-hub-devguide-identity-registry.md#device-identity-properties).
 
-**ConnectionAuthMethod** özelliği, aşağıdaki özelliklere sahip bir seri hale getirilmiş JSON nesnesi içerir:
+**İothub-bağlantı-kimlik doğrulama-method** özelliği, aşağıdaki özelliklere sahip bir seri hale getirilmiş JSON nesnesi içerir:
 
 ```json
 {

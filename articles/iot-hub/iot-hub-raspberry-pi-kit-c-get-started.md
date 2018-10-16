@@ -10,12 +10,12 @@ ms.devlang: c
 ms.topic: conceptual
 ms.date: 04/11/2018
 ms.author: rangv
-ms.openlocfilehash: 8962f41d971ac88134f639a61ef0b42c60bbd419
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: c8e2dcfef1db8bfe3d76ac917f8c14a4060e3968
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44161501"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49318767"
 ---
 # <a name="connect-raspberry-pi-to-azure-iot-hub-c"></a>Raspberry Pi için Azure IoT Hub (C) bağlanma
 
@@ -61,10 +61,9 @@ Aşağıdaki öğeler isteğe bağlıdır:
 * 6 F/dk anahtar kablolarına.
 * Yayılmış 10 mm LED.
 
-
 > [!NOTE] 
-Kod örneği desteği sensör verilerini benzetimli çünkü bu öğeler isteğe bağlıdır.
-
+> Kod örneği desteği sensör verilerini benzetimli çünkü bu öğeler isteğe bağlıdır.
+>
 
 [!INCLUDE [iot-hub-get-started-create-hub-and-device](../../includes/iot-hub-get-started-create-hub-and-device.md)]
 
@@ -97,7 +96,8 @@ MicroSD kartı Raspbian görüntüyü yüklemesi için hazırlayın.
    ![SPI ve Raspberry Pi üzerinde SSH'ı etkinleştir](media/iot-hub-raspberry-pi-kit-c-get-started/2_enable-spi-ssh-on-raspberry-pi.png)
 
 > [!NOTE] 
-SSH ve SPI etkinleştirmek için daha fazla başvuru belgeleri üzerinde bulabilirsiniz [raspberrypi.org](https://www.raspberrypi.org/documentation/remote-access/ssh/) ve [RASPI-CONFIG](https://www.raspberrypi.org/documentation/configuration/raspi-config.md).
+> SSH ve SPI etkinleştirmek için daha fazla başvuru belgeleri üzerinde bulabilirsiniz [raspberrypi.org](https://www.raspberrypi.org/documentation/remote-access/ssh/) ve [RASPI-CONFIG](https://www.raspberrypi.org/documentation/configuration/raspi-config.md).
+>
 
 ### <a name="connect-the-sensor-to-pi"></a>Pi algılayıcı bağlanma
 
@@ -171,6 +171,7 @@ Pi üzerinde mikro USB kablosu ve güç kaynağı kullanarak etkinleştirin. Pi,
 
    > [!NOTE] 
    > Varsa, **fiziksel BME280 yoksa**, kullanabilirsiniz '--simulated-data' sıcaklık ve nem verileri benzetimini yapmak için komut satırı parametresi olarak. `sudo ./setup.sh --simulated-data`
+   >
 
 ### <a name="build-and-run-the-sample-application"></a>Örnek uygulaması derleme ve çalıştırma
 
@@ -179,6 +180,7 @@ Pi üzerinde mikro USB kablosu ve güç kaynağı kullanarak etkinleştirin. Pi,
    ```bash
    cmake . && make
    ```
+   
    ![Derleme çıkışı](media/iot-hub-raspberry-pi-kit-c-get-started/7_build-output.png)
 
 1. Aşağıdaki komutu çalıştırarak örnek uygulamayı çalıştırın:
@@ -188,8 +190,8 @@ Pi üzerinde mikro USB kablosu ve güç kaynağı kullanarak etkinleştirin. Pi,
    ```
 
    > [!NOTE] 
-   Kopyalama cihaz bağlantı dizesini tek tırnak yapıştırma emin olun.
-
+   > Kopyalama cihaz bağlantı dizesini tek tırnak yapıştırma emin olun.
+   >
 
 Algılayıcı verilerini ve IOT hub'ınıza gönderdiği iletileri gösterir aşağıdaki çıktıyı görmeniz gerekir.
 

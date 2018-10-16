@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 07/13/2018
 ms.author: jomolesk
-ms.openlocfilehash: 6fe85d7ac527179ab39e89739f5744f3aa1ef8e2
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 1c2294004245e0ef64b9b708a5b57ec0d34cc45f
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44297564"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49321997"
 ---
 # <a name="azure-security-and-compliance-blueprint-paas-web-application-hosting-for-uk-official-workloads"></a>Azure güvenlik ve uyumluluk planı: PaaS Web UK resmi iş yükleri için uygulama barındırma
 
@@ -52,7 +52,6 @@ Dağıtım mimarisi, güvenli depolama sağlama, izleme ve günlüğe kaydetme, 
 Bu çözüm, aşağıdaki Azure hizmetlerini kullanır. Ayrıntılar için bkz dağıtım mimarisi [dağıtım mimarisi](#deployment-architecture) bölümü.
 
 - Azure Active Directory
-- Yönetilen Hizmet Kimliği
 - App Service
 - Web Uygulaması
 - API App
@@ -107,13 +106,13 @@ Azure Web Apps barındırma ortamı altyapıyı yönetmek zorunda kalmadan, Java
 
 App Service, [ISO, SOC ve PCI uyumlu](https://www.microsoft.com/TrustCenter/) ve ile kullanıcıların kimliklerini doğrulayabilirsiniz [Azure Active Directory](https://docs.microsoft.com/azure/app-service/app-service-mobile-how-to-configure-active-directory-authentication) veya sosyal oturum açma ([Google](https://docs.microsoft.com/azure/app-service/app-service-mobile-how-to-configure-google-authentication), [Facebook](https://docs.microsoft.com/azure/app-service/app-service-mobile-how-to-configure-facebook-authentication), [Twitter](https://docs.microsoft.com/azure/app-service/app-service-mobile-how-to-configure-twitter-authentication), ve [Microsoft kimlik doğrulama](https://docs.microsoft.com/azure/app-service/app-service-mobile-how-to-configure-microsoft-authentication).
 
-Temel, standart ve Premium planlar, üretim iş yüklerine yöneliktir ve adanmış sanal makine örneklerinde çalıştırılır. Her örnek, birden çok uygulama ve etki alanlarını destekleyebilir. Uygulama Hizmetleri ayrıca Destek [IP adresi sınırlamaları](https://docs.microsoft.com/azure/app-service/app-service-ip-restrictions) gerekirse güvenilen IP adreslerine trafiği güvenli hale getirmek için ve ayrıca [yönetilen hizmet kimliği](https://docs.microsoft.com/azure/app-service/app-service-managed-service-identity) gibidiğerPaaShizmetlerinegüvenlibağlantıiçin[ Anahtar kasası](https://azure.microsoft.com/services/key-vault/) ve [Azure SQL veritabanı](https://azure.microsoft.com/services/sql-database/). Ek güvenlik gerekli olduğu yalıtılmış planımız, uygulamaları özel, adanmış bir Azure ortamında barındırır ve şirket içi ağa veya ek performans ve ölçek ile güvenli bağlantılar gerektiren uygulamalar için idealdir.
+Temel, standart ve Premium planlar, üretim iş yüklerine yöneliktir ve adanmış sanal makine örneklerinde çalıştırılır. Her örnek, birden çok uygulama ve etki alanlarını destekleyebilir. Uygulama Hizmetleri ayrıca Destek [IP adresi sınırlamaları](https://docs.microsoft.com/azure/app-service/app-service-ip-restrictions) gerekirse güvenilen IP adreslerine trafiği güvenli hale getirmek için ve ayrıca [kimliklerini Azure kaynakları için yönetilen](https://docs.microsoft.com/azure/app-service/app-service-managed-service-identity) güvenli bağlantı için diğer PaaS Hizmetleri gibi [anahtar kasası](https://azure.microsoft.com/services/key-vault/) ve [Azure SQL veritabanı](https://azure.microsoft.com/services/sql-database/). Ek güvenlik gerekli olduğu yalıtılmış planımız, uygulamaları özel, adanmış bir Azure ortamında barındırır ve şirket içi ağa veya ek performans ve ölçek ile güvenli bağlantılar gerektiren uygulamalar için idealdir.
 
 Bu şablon, aşağıdaki App Service özellikleri dağıtır:
 
 - [Standart](https://docs.microsoft.com/azure/app-service/azure-web-sites-web-hosting-plans-in-depth-overview) App Service planı katmanı
 - Birden çok Web uygulaması [dağıtım yuvalarını](https://docs.microsoft.com/azure/app-service/web-sites-staged-publishing): geliştirme, Önizleme, QA, UAT ve Elbette üretim (varsayılan yuva).
-- [Yönetilen hizmet kimliği](https://docs.microsoft.com/azure/app-service/app-service-managed-service-identity) bağlanmak için [Azure anahtar kasası](https://azure.microsoft.com/services/key-vault/) (Bu erişimi sağlamak için de kullanılabilir [Azure SQL veritabanı](https://azure.microsoft.com/services/sql-database/) 
+- [Kimlikler Azure kaynakları için yönetilen](https://docs.microsoft.com/azure/app-service/app-service-managed-service-identity) bağlanmak için [Azure anahtar kasası](https://azure.microsoft.com/services/key-vault/) (Bu erişimi sağlamak için de kullanılabilir [Azure SQL veritabanı](https://azure.microsoft.com/services/sql-database/) 
 - İle tümleştirme [Azure Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-azure-web-apps) performansını izlemek için
 - [Tanılama Günlükleri](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) 
 - Ölçüm [uyarıları](https://docs.microsoft.com/azure/application-insights/app-insights-alerts) 
@@ -164,7 +163,7 @@ Azure depolama güvenliğini sağlama hakkında ayrıntılı bilgi bulunabilir [
 
 #### <a name="azure-key-vault-in-this-blueprint"></a>Azure anahtar Kasası'nda bu şema
 
-- Verilen okuma erişimli depolama erişim anahtarı tutan [yönetilen hizmet kimliği](https://docs.microsoft.com/azure/app-service/app-service-managed-service-identity) müşteriye dönük web uygulaması
+- Verilen okuma erişimli depolama erişim anahtarı tutan [yönetilen kimliği](https://docs.microsoft.com/azure/app-service/app-service-managed-service-identity) müşteriye dönük web uygulaması
 - SQL Server DBA parolası (içinde ayrı bir kasa) tutar.
 - Tanılama günlükleri
 

@@ -1,24 +1,25 @@
 ---
-title: Özel konuşma tanıma uç noktası - özel konuşma hizmeti kullanma
-titlesuffix: Azure Cognitive Services
-description: Özel konuşma hizmeti ile özel bir konuşmayı metne uç noktasını kullanmayı öğrenin.
+title: Azure'da özel konuşma hizmeti ile özel konuşma tanıma uç noktası kullanma | Microsoft Docs
+description: Bilişsel hizmetler'deki özel konuşma hizmeti ile özel bir konuşmayı metne uç noktasını kullanmayı öğrenin.
 services: cognitive-services
 author: PanosPeriorellis
-manager: cgronlun
+manager: onano
 ms.service: cognitive-services
 ms.component: custom-speech
-ms.topic: conceptual
+ms.topic: article
 ms.date: 02/08/2017
 ms.author: panosper
-ROBOTS: NOINDEX
-ms.openlocfilehash: 98c1b58e58490199b0258dfcc8df183c3fe9a8bd
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 9f1a21d6f099bc27c81e8c254f7df73d6c3e585d
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47223381"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49341814"
 ---
 # <a name="use-a-custom-speech-to-text-endpoint"></a>Özel bir konuşmayı metne dönüştürme uç noktası kullanma
+
+[!INCLUDE [Deprecation note](../../../../includes/cognitive-services-custom-speech-deprecation-note.md)]
+
 Varsayılan Bilişsel hizmetler konuşma uç noktası için mümkün olduğunca benzer şekilde bir Azure özel konuşma hizmeti konuşma metin uç noktasına istekler gönderebilir. Bu uç noktaları konuşma tanıma API'si varsayılan uç noktalar için işlevsel olarak aynıdır. İstemci kitaplığı veya konuşma tanıma API'si için REST API aracılığıyla kullanılabilir olan aynı işlevleri bu nedenle, aynı zamanda özel uç noktanız için olarak kullanılabilir.
 
 Bu hizmeti kullanarak oluşturduğunuz uç noktaları, farklı sayıda eş zamanlı istekleri işleyebilir. Birim aboneliğinizle ilişkili fiyatlandırma katmanına bağlıdır. Çok fazla istek alındı, bir hata meydana gelir. Ücretsiz katman, istekleri aylık sınırı vardır.

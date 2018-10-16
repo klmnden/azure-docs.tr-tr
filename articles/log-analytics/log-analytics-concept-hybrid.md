@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/03/2018
+ms.date: 10/15/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 43f077ef07597604eaf42cb4af47cbc2f0e6c524
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 9decd861ff20a45939f700eef99245b6555829f8
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48042012"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49319753"
 ---
 # <a name="collect-data-in-a-hybrid-environment-with-log-analytics-agent"></a>Log Analytics aracısını ile karma bir ortamda veri topla
 
@@ -51,15 +51,30 @@ Aşağıdaki Windows işletim sistemi sürümleri Windows aracısı için resmi 
 * Windows 7 SP1 ve üzeri.
 
 ## <a name="supported-linux-operating-systems"></a>Desteklenen Linux işletim sistemleri
-Resmi olarak desteklenen aşağıdaki Linux dağıtımları.  Ancak, Linux Aracısı listelenmeyen diğer dağıtımlarında da çalışabilir.  Aksi belirtilmediği sürece, listelenen her ana sürümünün tüm ikincil sürümleri desteklenir.  
+Bu bölümde, desteklenen Linux dağıtımları hakkında ayrıntılar sağlar.    
 
-* Amazon Linux için 2015.09 2012.09 (x86/x64)
-* CentOS Linux 5, 6 ve 7 (x86/x64)  
-* Oracle Linux 5, 6 ve 7 (x86/x64) 
-* Red Hat Enterprise Linux Server 5, 6 ve 7 (x86/x64)
-* Debian GNU/Linux 6, 7 ve 8 (x86/x64)
-* Ubuntu 12.04 LTS, 14.04 LTS, 16.04 LTS (x86/x64)
-* SUSE Linux Enterprise Server 11 ve 12 (x86/x64)
+Ağustos 2018 tarihinden sonraki sürümleri ile başlayarak, aşağıdaki değişiklikleri destek modelimizi yapıyoruz:  
+
+* Yalnızca sunucu sürümleri desteklenir, istemci değil.  
+* Yeni sürümlerini [Azure destekli Linux dağıtımları](../virtual-machines/linux/endorsed-distros.md) her zaman desteklenir.  
+* Listelenen her ana sürümünün tüm ikincil sürümleri desteklenir.
+* Üreticinin destek bitiş tarihi geçmiş sürümleri desteklenmez.  
+* AMI yeni sürümleri desteklenmez.  
+* SSL çalıştıran sürümler 1.x varsayılan olarak desteklenir.
+
+Bir distro veya destek modelimizi hizalama değil ve şu anda desteklenmeyen bir sürümünü kullanıyorsanız, Microsoft destek sürümleri çatalı aracı ile ilgili Yardım sağlamaz sıkan Bu deponun çatalını oluşturmanız önerilir.
+
+* Amazon Linux 2017.09 (x 64)
+* CentOS Linux 6 (x86/x64) ve 7 (x 64)  
+* Oracle Linux 6 ve 7 (x86/x64) 
+* Red Hat Enterprise Linux Server 6 (x86/x64) ve 7 (x 64)
+* Debian GNU/Linux 8 ve 9 (x86/x64)
+* Ubuntu 14.04 LTS (x86/x64), 16.04 LTS (x86/x64) ve 18.04 LTS (x64)
+* SUSE Linux Enterprise Server 12 (x 64)
+
+>[!NOTE]
+>OpenSSL 1.1.0 yalnızca x86_x64 platformları (64-bit) ve OpenSSL 1.x herhangi bir platformda desteklenmiyor ' den önceki desteklenir.
+>
 
 ## <a name="tls-12-protocol"></a>TLS 1.2 Protokolü
 Log analytics'e Aktarımdaki verilerin güvenliğini sağlamak üzere en az kullanmak üzere yapılandırmak için önemle öneririz Aktarım Katmanı Güvenliği (TLS) 1.2. TLS/Güvenli Yuva Katmanı (SSL) daha eski sürümleri, savunmasız bulundu ve bunlar yine de şu anda geriye dönük uyumluluk izin vermek için çalışırken, bunlar **önerilmez**.  Ek bilgi için gözden [TLS 1.2 kullanarak güvenli bir şekilde veri gönderen](log-analytics-data-security.md#sending-data-securely-using-tls-12). 

@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/09/2018
+ms.date: 10/15/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: dd1e64d5ad6982c85a8205e3036d30a2ede92f7c
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: 6da81ab90a87285f9e1874e3f10eff4570124192
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37930299"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49344022"
 ---
 # <a name="start-and-stop-azure-stack"></a>Azure Stack başlatıp
 Düzgün bir şekilde kapatılmasını ve Azure Stack hizmetlerini yeniden başlatmak için bu makaleyi yordamlarını izlemelisiniz. Kapatma fiziksel olarak tüm Azure Stack ortamı güç. Başlangıç tüm altyapı rollerinde güçlendirir ve Kiracı kaynaklarını bunlar önce kapatma olan güç durumunu döndürür.
@@ -90,4 +90,4 @@ Altyapı ve Kiracı Hizmetleri, Azure Stack ortamınıza başarıyla 2 saat sonr
 
 ## <a name="next-steps"></a>Sonraki adımlar 
 
-Azure Stack'te Tanılama aracı hakkında daha fazla bilgi edinin ve günlük sorun için bkz: [Azure Stack'te tanılama araçları](azure-stack-diagnostics.md).
+Daha fazla bilgi edinin [Azure Stack'te tanılama araçları](azure-stack-diagnostics.md)

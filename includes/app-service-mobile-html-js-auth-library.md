@@ -2,7 +2,7 @@
 Mobile Apps hizmetinin uygulamanızdaki kimlik doğrulama işlemini yönetmesi için kimlik sağlayıcınıza uygulamanızı kaydetmeniz gerekir. Ardından, Azure App Service'te sağlayıcınız tarafından verilen uygulama kimliği ile parolasını yapılandırmanız gerekir.
 Daha fazla bilgi için [Uygulamanıza kimlik doğrulaması ekleme](../articles/app-service-mobile/app-service-mobile-cordova-get-started-users.md) öğreticisine bakın.
 
-Kimlik sağlayıcınızı kaydettikten sonra sağlayıcınızın adıyla `.login()` yöntemini çağırın. Örneğin, aşağıdaki kodu Facebook kullanımı ile imzalamak için şunu yazın:
+Kimlik sağlayıcınızı kaydettikten sonra sağlayıcınızın adıyla `.login()` yöntemini çağırın. Örneğin, aşağıdaki kodu Facebook kullanımı ile oturum açmak için şunu yazın:
 
 ```
 client.login("facebook").done(function (results) {
@@ -17,9 +17,9 @@ client.login("facebook").done(function (results) {
 > [!NOTE]
 > Google Kimlik Doğrulaması şu anda Sunucu Akışı ile çalışmamaktadır.  Google kimlik doğrulamasını yapmak için bir [istemci akışı yöntemi](#client-auth) kullanmanız gerekir.
 
-Bu durumda, OAuth 2.0 kimlik doğrulama akışını Azure App Service yönetir.  Seçili sağlayıcıyı oturum açma sayfasını görüntüler ve sonra başarılı oturum açma kimlik sağlayıcısı ile bir uygulama hizmeti kimlik doğrulama belirteci oluşturur. Oturum açma işlevi tamamlandığında, hem kullanıcı kimliğini hem de App Service kimlik doğrulama belirtecini sırasıyla userId ve authenticationToken alanlarında ortaya çıkaran bir JSON nesnesi döndürür. Bu belirteç önbelleğe alınabilir süresi sona erene kadar yeniden kullanılabilir.
+Bu durumda, OAuth 2.0 kimlik doğrulama akışını Azure App Service yönetir.  Seçili sağlayıcının oturum açma sayfasını görüntüler ve sonra başarılı oturum açma kimlik sağlayıcısı ile bir App Service kimlik doğrulama belirteci oluşturur. Oturum açma işlevi tamamlandığında, hem kullanıcı kimliğini hem de App Service kimlik doğrulama belirtecini sırasıyla userId ve authenticationToken alanlarında ortaya çıkaran bir JSON nesnesi döndürür. Bu belirteç önbelleğe alınabilir süresi sona erene kadar yeniden kullanılabilir.
 
-###<a name="client-auth"></a>Nasıl yapılır: Bir sağlayıcı ile (İstemci Akışı) kimlik doğrulaması
+### <a name="client-auth"></a>Nasıl yapılır: Bir sağlayıcı ile (İstemci Akışı) kimlik doğrulaması
 
 Uygulamanız kimlik sağlayıcısı ile bağımsız olarak da iletişim kurabilir ve sonra döndürülen belirteci kimlik doğrulaması için App Service’e döndürebilir. Bu istemci akışı, kullanıcılar için çoklu oturum açma deneyimi sağlamanıza veya kimlik sağlayıcısından ek kullanıcı verileri almanıza olanak tanır.
 
@@ -61,7 +61,7 @@ WL.login({ scope: "wl.basic"}).then(function (result) {
 
 Bu örnek, Live Connect’ten, oturum açma işlevi çağrılarak App Service hizmetinize sunulan bir belirteç alır.
 
-###<a name="auth-getinfo"></a>Nasıl yapılır: Kimliği doğrulanmış kullanıcı hakkında bilgi edinme
+### <a name="auth-getinfo"></a>Nasıl yapılır: Kimliği doğrulanmış kullanıcı hakkında bilgi edinme
 
 Kimlik doğrulama bilgileri, herhangi bir AJAX kitaplığı ile HTTP çağrısı kullanılarak `/.auth/me` uç noktasından alınabilir.  `X-ZUMO-AUTH` üst bilgisini kimlik doğrulama belirtecinize ayarlandığınızdan emin olun.  Kimlik doğrulama belirteci `client.currentUser.mobileServiceAuthenticationToken` içine depolanır.  Örneğin, fetch API’sini kullanmak için:
 

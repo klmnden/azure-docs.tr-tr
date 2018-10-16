@@ -10,12 +10,12 @@ ms.component: manage
 ms.date: 10/08/2018
 ms.author: mausher
 ms.reviewer: twounder
-ms.openlocfilehash: 3206895b455238033dbb93347e0c06fd71027b0a
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: f2fe1bc06f4122a1d27b22288784b3db167c300c
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48904388"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49321708"
 ---
 # <a name="whats-new-in-azure-sql-data-warehouse-september-2018"></a>Azure SQL veri ambarı'nda yenilikler nelerdir? Eylül 2018
 Azure SQL veri ambarı, sürekli olarak iyileştirmeler alır. Bu makalede, Eylül 2018'de sunulan değişiklikler ve yeni özellikleri açıklar.
@@ -59,7 +59,7 @@ WHERE
     RTRIM(value) <> '';
 ```
 
-###<a name="compressdecompress-functions"></a>SIKIŞTIR/DECOMPRESS işlevleri
+### <a name="compressdecompress-functions"></a>SIKIŞTIR/DECOMPRESS işlevleri
 [SIKIŞTIRMA](https://docs.microsoft.com/sql/t-sql/functions/compress-transact-sql) / [DECOMPRESS](https://docs.microsoft.com/sql/t-sql/functions/decompress-transact-sql) işlevleri sıkıştırabilir veya bir dize GZIP algoritmasıyla giriş sıkıştırmasını olanak sağlar.
 
 #### <a name="example"></a>Örnek

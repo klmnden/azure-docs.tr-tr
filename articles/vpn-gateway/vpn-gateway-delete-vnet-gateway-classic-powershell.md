@@ -15,24 +15,24 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/11/2017
 ms.author: cherylmc
-ms.openlocfilehash: 0c5d045cb949f5393bb2d9da54715b2b84229c36
-ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
+ms.openlocfilehash: 2c92db96820b9796ba2c952affcb3b3eef5b985e
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39036297"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49319855"
 ---
 # <a name="delete-a-virtual-network-gateway-using-powershell-classic"></a>PowerShell (Klasik) kullanarak bir sanal ağ geçidini silme
+
 > [!div class="op_single_selector"]
 > * [Resource Manager - Azure portalı](vpn-gateway-delete-vnet-gateway-portal.md)
 > * [Resource Manager - PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
 > * [Klasik - PowerShell](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
 >
->
 
 Bu makalede, bir VPN ağ geçidi Klasik dağıtım modelinde PowerShell kullanarak silmenize yardımcı olur. Sanal ağ geçidi silindikten sonra artık kullanmadığınız öğeleri kaldırmak için ağ yapılandırma dosyasını değiştirin.
 
-##<a name="connect"></a>1. adım: Azure'a bağlanma
+## <a name="connect"></a>1. adım: Azure'a bağlanma
 
 ### <a name="1-install-the-latest-powershell-cmdlets"></a>1. En son PowerShell cmdlet'lerini yükleyin.
 
@@ -101,7 +101,7 @@ Site başvuru bilgilerini kaldırmak için yapılandırma değişiklikleri yapma
  </Gateway>
 ```
 
-###<a name="lns"></a>Yerel ağ siteleri
+### <a name="lns"></a>Yerel ağ siteleri
 
 Artık kullanmadığınız tüm yerel siteler kaldırın. Oluşturduğunuz yapılandırmasına bağlı olarak, yoksa olası bir **LocalNetworkSite** listelenir.
 

@@ -3,19 +3,19 @@ title: 'Öğretici: bir görüntü işleme uygulaması - C# derleme'
 titleSuffix: Computer Vision - Cognitive Services - Azure
 description: Microsoft Bilişsel hizmetler görüntü işleme API'sini kullanan basit bir Windows uygulaması keşfedin. OCR gerçekleştirmek, küçük resim oluşturma ve görüntüdeki görsel özellikler ile çalışma.
 services: cognitive-services
-author: deken
+author: PatrickFarley
 manager: nolachar
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: article
 ms.date: 08/28/2018
-ms.author: v-deken
-ms.openlocfilehash: 9ea562e7fa2ec3e32da2f0f1453db36dda319303
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.author: pafarley
+ms.openlocfilehash: d1fa468874cdc51bad3421f700a69f3ffb268635
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46295861"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49342662"
 ---
 # <a name="tutorial-build-an-image-processing-app---c35"></a>Öğretici: bir görüntü işleme uygulaması - C derleme&#35;
 
@@ -32,7 +32,7 @@ Optik karakter tanıma (OCR) gerçekleştirin, akıllı kırpılmış küçük r
 Örnek uygulamayı keşfetmeyi önce aşağıdaki önkoşulların karşılamanızın emin olun:
 
 * Olmalıdır [Visual Studio 2015](https://visualstudio.microsoft.com/downloads/) veya üzeri.
-* Görüntü işleme için bir abonelik anahtarı olması gerekir. Bir abonelik anahtarı almak için bkz. [Abonelik anahtarları alma](../Vision-API-How-to-Topics/HowToSubscribe.md).
+* Görüntü İşleme için bir abonelik anahtarınız olması gerekir. Bir abonelik anahtarı almak için bkz. [Abonelik Anahtarları Alma](../Vision-API-How-to-Topics/HowToSubscribe.md).
 
 ## <a name="get-the-sample-app"></a>Örnek uygulamayı alma
 

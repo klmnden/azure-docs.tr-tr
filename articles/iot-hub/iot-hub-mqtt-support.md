@@ -1,19 +1,19 @@
 ---
 title: Azure IOT hub'ı MQTT desteği anlama | Microsoft Docs
 description: Geliştirici Kılavuzu - ve MQTT protokolünü kullanarak bir IOT Hub cihaz'e yönelik uç noktasına bağlanan cihazlar için destek. Yerleşik MQTT desteği Azure IOT cihaz SDK'ları hakkında bilgi içerir.
-author: fsautomata
+author: rezasherafat
 manager: ''
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 03/05/2018
-ms.author: elioda
-ms.openlocfilehash: 2e45422ca6a861894193600eff17f192bc20b357
-ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
+ms.date: 10/12/2018
+ms.author: rezas
+ms.openlocfilehash: 6e2ab773f865a8e52c7b04b94a188dd244540e0d
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/11/2018
-ms.locfileid: "42055375"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49344974"
 ---
 # <a name="communicate-with-your-iot-hub-using-the-mqtt-protocol"></a>Ve MQTT protokolünü kullanarak IOT hub ile iletişim
 
@@ -107,7 +107,7 @@ Device Explorer için:
 
 MQTT için bağlanın ve paketleri kesmek, IOT Hub üzerinde bir olayın sorunlarını **izleme işlemleri** kanal. Bu olay, bağlantı sorunlarını gidermenize yardımcı olabilecek ek bilgiler vardır.
 
-Cihaz uygulamasını belirtebilirsiniz bir **olacak** içinde ileti **CONNECT** paket. Cihaz uygulamasını kullanmanız gerekir `devices/{device_id}/messages/events/{property_bag}` veya `devices/{device_id}/messages/events/{property_bag}` olarak **olacak** tanımlamak için konu adı **olacak** iletileri bir telemetri iletisi olarak iletilir. Bu durumda, ağ bağlantısı kapalı ise, ancak bir **Bağlantıyı Kes** paket CİHAZDAN daha önce alınmadı, sonra IOT hub'a gönderir **olacak** ileti sağlanan **BAĞLAN** paket telemetri kanalı. Telemetri kanal ya da varsayılan olabilir **olayları** uç nokta veya yönlendirme IOT Hub tarafından tanımlanan özel bir uç nokta. İletinin **iothub-MessageType** özellik değeriyle **olacak** atanmış.
+Cihaz uygulamasını belirtebilirsiniz bir **olacak** içinde ileti **CONNECT** paket. Cihaz uygulamasını kullanmanız gerekir `devices/{device_id}/messages/events/` veya `devices/{device_id}/messages/events/{property_bag}` olarak **olacak** tanımlamak için konu adı **olacak** iletileri bir telemetri iletisi olarak iletilir. Bu durumda, ağ bağlantısı kapalı ise, ancak bir **Bağlantıyı Kes** paket CİHAZDAN daha önce alınmadı, sonra IOT hub'a gönderir **olacak** ileti sağlanan **BAĞLAN** paket telemetri kanalı. Telemetri kanal ya da varsayılan olabilir **olayları** uç nokta veya yönlendirme IOT Hub tarafından tanımlanan özel bir uç nokta. İletinin **iothub-MessageType** özellik değeriyle **olacak** atanmış.
 
 ### <a name="tlsssl-configuration"></a>TLS/SSL yapılandırması
 
@@ -228,6 +228,8 @@ Daha fazla bilgi için [cihaz ikizlerini Geliştirici Kılavuzu][lnk-devguide-tw
 
 ### <a name="update-device-twins-reported-properties"></a>Cihaz ikizinin bildirilen özellikleri güncelleştirmek
 
+Bildirilen özellikleri güncelleştirmek için cihaz isteği IOT Hub'ına yayını belirlenen bir MQTT konu üzerinde yayınlar. İstek işlendikten sonra IOT hub'ı güncelleştirme işlemi aracılığıyla başka bir konuya bir yayın başarı veya başarısızlık durumunu yanıt verir. Bu konu hakkında kendi ikiz güncelleştirmesi isteğinin sonucunu bildirmek için cihaz tarafından abone olabilir. İmplment için MQTT, istek/yanıt etkileşiminde bu tür biz kavramı yararlanarak istek kimliği (`$rid`) başlangıçta güncelleştirme isteğinde cihaz tarafından sağlanan. Bu istek kimliği, IOT Hub'ı, belirli bir önceki isteğin yanıtını ilişkilendirmek cihazın izin vermek için gelen yanıt da bulunmaktadır.
+
 Bir cihaz tarafından bildirilen özellikleri IOT hub'daki cihaz ikizinde güncelleştirmeleri nasıl aşağıdaki sırayı açıklar:
 
 1. Bir cihaz ilk abone olmalısınız `$iothub/twin/res/#` IOT Hub'ından işlemin yanıtlar almak için konu.
@@ -253,6 +255,20 @@ Olası durum kodları şunlardır:
 | 400 | Hatalı istek. Hatalı biçimlendirilmiş JSON |
 | 429 | Olarak başına (daraltılmış) çok fazla istek [IOT Hub'ın azaltma][lnk-quotas] |
 | 5** | Sunucu hataları |
+
+Python kodu aşağıdaki kod parçacığında, gösterir ikiz özellikler güncelleştirme işlemi MQTT (Paho MQTT istemci kullanarak) bildirilen:
+```python
+from paho.mqtt import client as mqtt
+
+# authenticate the client with IoT Hub (not shown here)
+
+client.subscribe("$iothub/twin/res/#")
+rid = "1"
+twin_reported_property_patch = "{\"firmware_version\": \"v1.1\"}"
+client.publish("$iothub/twin/PATCH/properties/reported/?$rid=" + rid, twin_reported_property_patch, qos=0)
+```
+
+İkizinin başarılı olduktan sonra bildirilen özellikler güncelleştirme işlemi yukarıdaki, IOT Hub'ından yayın ileti konusuna sahip olur: `$iothub/twin/res/204/?$rid=1&$version=6`burada `204` başarının, durum kodu `$rid=1` istek Kimliğine karşılık gelen kodda, cihaz tarafından sağlanan ve `$version` güncelleştirmesinden sonra cihaz ikizlerini bildirilen özellikler bölümünü sürümüne karşılık gelir.
 
 Daha fazla bilgi için [cihaz ikizlerini Geliştirici Kılavuzu][lnk-devguide-twin].
 

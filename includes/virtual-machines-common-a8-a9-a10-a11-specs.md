@@ -8,17 +8,17 @@ ms.topic: include
 ms.date: 05/29/2018
 ms.author: azcspmt;jonbeck;cynthn;danlep
 ms.custom: include file
-ms.openlocfilehash: 296e92d803bb69376f286aa60cfb4a955b08010f
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: c12fff63cdb7241d89e7511a3dac2ff9c1363ae6
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "34669363"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49346113"
 ---
 ## <a name="deployment-considerations"></a>Dağıtma konuları
 * **Azure aboneliği** – fazla sayıda bilgi işlem yoğun örnekler dağıtın, Kullandıkça Öde aboneliğine veya diğer satın alma seçeneklerini göz önünde bulundurun. [Ücretsiz Azure hesabı](https://azure.microsoft.com/free/) kullanıyorsanız, yalnızca sınırlı sayıda Azure işlem çekirdeği kullanabilirsiniz.
 
-* **Fiyatlandırma ve kullanılabilirlik** -bu VM boyutları, yalnızca standart fiyatlandırma katmanında sunulur. [Bölgelere göre kullanılabilir Ürünler] denetleyin (https://azure.microsoft.com/regions/services/) Azure bölgesi içinde kullanılabilirlik için. 
+* **Fiyatlandırma ve kullanılabilirlik** -bu VM boyutları, yalnızca standart fiyatlandırma katmanında sunulur. Denetleme [bölgelere göre kullanılabilir ürünler](https://azure.microsoft.com/global-infrastructure/services/) Azure bölgesi içinde kullanılabilirlik için. 
 * **Çekirdek kota** – varsayılan değerinden Azure aboneliğinizdeki çekirdek kotasını artırmanız gerekebilir. Aboneliğiniz ayrıca H serisi dahil olmak üzere belirli sanal makine boyutu aileleri içinde dağıtabileceğiniz çekirdek sayısını sınırlayabilir. Bir kota artırım talebinde bulunmak [bir çevrimiçi müşteri destek isteği açın](../articles/azure-supportability/how-to-create-azure-support-request.md) ücret olmadan. (Varsayılan sınır, abonelik kategorisine bağlı olarak farklılık gösterebilir.)
   
   > [!NOTE]
@@ -37,4 +37,3 @@ Bu arabirim H16r, H16mr ve RDMA özellikli N serisi sanal makineler için FDR or
 > Azure'da IP IB üzerinde desteklenmiyor. Yalnızca IB üzerinden RDMA desteklenir.
 >
 
-RDMA özellikli HPC VM'lerin aynı kullanılabilirlik kümesine veya VM ölçek kümesi (Azure Resource Manager dağıtım modeli kullandığınız zaman) ya da aynı bulut hizmeti (Klasik dağıtım modeli kullandığınız zaman) dağıtın. Bir VM ölçek kümesi kullanıyorsanız, tek bir yerleştirme grubu dağıtımı sınırladığınızdan emin olun; Örneğin, bir Resource Manager şablonunda ayarlamak *singlePlacementGroup* özelliğini *true*. Azure RDMA ağ erişmek RDMA özellikli HPC VM'ler için ek gereksinimler izleyin.

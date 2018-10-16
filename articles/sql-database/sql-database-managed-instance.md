@@ -11,13 +11,13 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 10/05/2018
-ms.openlocfilehash: 52726d9145d2065da70eea55a03b47ad1602f1f7
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.date: 10/15/2018
+ms.openlocfilehash: f1b2f9c7ee9d2fbeec51315a5e348b197fb4c06b
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48868563"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49342509"
 ---
 # <a name="azure-sql-database-managed-instance-deployment-model-with-virtual-network-and-near-100-sql-server-compatibility"></a>Azure SQL veritabanı yönetilen örneği dağıtım modeli ile sanal ağ ve neredeyse % 100 SQL Server uyumluluğu
 
@@ -105,7 +105,7 @@ Hizmet katmanlarında arasındaki fark hakkında daha fazla bilgi [yönetilen ö
 
 ### <a name="business-critical-service-tier-preview"></a>İş kritik hizmet Katmanı (Önizleme)
 
-İş kritik hizmet katmanı, yüksek GÇ gereksinimleri olan uygulamalar için tasarlanmıştır. Çeşitli yalıtılmış Always On çoğaltmaları kullanarak hatalara karşı en yüksek düzeyde dayanıklılık sunar.
+İş kritik hizmet katmanı, yüksek GÇ gereksinimleri olan uygulamalar için tasarlanmıştır. Çeşitli yalıtılmış çoğaltmaları kullanarak hatalara karşı en yüksek düzeyde dayanıklılık sunar.
 
 Aşağıdaki listede, iş açısından kritik hizmet katmanının anahtar özellikleri özetlenmektedir:
 
@@ -209,7 +209,7 @@ Aşağıdaki diyagramda, yönetilen örnek'te yüzey alanını uyumluluğu özet
 
 Yönetilen örnek avantajları engeller her zaman yukarı-başından bu yana bulutta, şirket içi SQL Server'daki bazı özellikleri ya da olabilir anlamına gelir eski, devre dışı bırakılan veya seçeneğiniz vardır. Araçları tam olarak kontrol edebilirim bir ortamda hizmeti çalışmıyor veya belirli bir özellik biraz farklı bir şekilde çalıştığını düzenlemeniz gerekirse, özel durumlar vardır:
 
-- Yüksek kullanılabilirlik yerleşik olarak ve önceden yapılandırılmış. Always On yüksek kullanılabilirlik özelliklerinden SQL Iaas uygulamalarında olduğu gibi aynı şekilde gösterilmez
+- Yüksek kullanılabilirlik yerleşiktir ve benzer şekilde teknolojisini kullanarak, önceden yapılandırılmış [Always On kullanılabilirlik grupları](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server).
 - Otomatik yedeklemeler ve noktaya geri yükleme noktası. Müşteri başlatabilir `copy-only` ile otomatik yedekleme zinciri müdahale etmez yedekler.
 - Yönetilen örnek izin vermiyor karşılık gelen tüm senaryolar farklı desteklenen zorunda tam fiziksel yolu belirtme: geri DB WITH MOVE desteklemiyor, toplu ekleme çalışır ile Azure BLOB'ları yalnızca, vb. DB oluşturma fiziksel yollar izin vermez.
 - Örnek destekleyen yönetilen [Azure AD kimlik doğrulaması](sql-database-aad-authentication.md) bulut alternatif Windows kimlik doğrulaması olarak.

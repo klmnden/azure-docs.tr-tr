@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/14/2018
 ms.author: negat
-ms.openlocfilehash: 628d407869d24f466b5a7c056d51d76217e29798
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 49414b06010cf83c10bbc9519f2bced2126661a4
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46996664"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49322082"
 ---
 # <a name="modify-a-virtual-machine-scale-set"></a>Sanal makine ölçek kümesini değiştirme
 Uygulamalarınızın yaşam döngüsü boyunca, değiştirmek veya sanal makine ölçek kümenizi güncelleştirirseniz gerekebilir. Bu güncelleştirmeler, Ölçek kümesi yapılandırmasını güncelleştirme veya uygulama yapılandırmasını değiştirmek nasıl içerebilir. Bu makale, mevcut bir ölçek REST API'leri, Azure PowerShell veya Azure CLI ile kümesini değiştirmek açıklamaktadır.
@@ -126,7 +126,7 @@ Bu özellikler, geçerli çalışma zamanı durumu ölçek kümesine uygulanan u
 
 
 ### <a name="the-scale-set-vm-model-view"></a>Ölçek kümesi VM model görünümü
-Benzer şekilde nasıl bir model görünümü bir ölçek kümesi vardır, Ölçek kümesindeki her VM kendi modeli görünüme sahiptir. Bir ölçek kümesi için model görünümü sorgulamak için kullanabilirsiniz:
+Benzer şekilde nasıl bir model görünümü bir ölçek kümesi vardır, Ölçek kümesindeki her sanal makine örneği kendi modeli görünüme sahiptir. Bir ölçek kümesindeki belirli bir sanal makine örneği için model görünümü sorgulamak için kullanabilirsiniz:
 
 - REST API ile [virtualmachinescalesetvms/işlem/get](/rest/api/compute/virtualmachinescalesetvms/get) gibi:
 
@@ -162,11 +162,11 @@ $ az vmss show --resource-group myResourceGroup --name myScaleSet
 }
 ```
 
-Bu özellikler sanal Makinenin kendisini, Ölçek kümesindeki bir bütün olarak yapılandırmasını yapılandırmasını tanımlar. Örneğin, Ölçek kümesi modeline sahip `overprovision` değilken bir ölçek kümesindeki bir sanal makine için model bir özelliği olarak. Açıdan ölçek ölçek kümesindeki tüm, bireysel bir VM olarak ayarlamak için bir özelliği olduğundan bu farktır (açıdan hakkında daha fazla bilgi için bkz. [tasarım konuları ölçek kümeleri için](virtual-machine-scale-sets-design-overview.md#overprovisioning)).
+Bu özellikler yapılandırma sanal makine örneği, bir bütün olarak ölçek yapılandırmasını tanımlar. Örneğin, Ölçek kümesi modeline sahip `overprovision` değilken bir ölçek kümesindeki sanal makine örneği için model bir özelliği olarak. Açıdan ölçek kümesindeki tüm, bireysel bir sanal makine örnekleri olarak ölçek için bir özellik olduğundan bu farktır (açıdan hakkında daha fazla bilgi için bkz. [tasarım konuları ölçek kümeleri için](virtual-machine-scale-sets-design-overview.md#overprovisioning)).
 
 
 ### <a name="the-scale-set-vm-instance-view"></a>Ölçek kümesi sanal makine örnek görünümü
-Benzer şekilde, bir ölçek kümesi örnek görünümünü nasıl sahip, Ölçek kümesindeki her VM kendi örneği görünüme sahiptir. Bir ölçek kümesi örnek görünümünü sorgulamak için kullanabilirsiniz:
+Benzer şekilde, bir ölçek kümesi örnek görünümünü nasıl sahip, Ölçek kümesindeki her sanal makine örneği kendi örneği görünüme sahiptir. Bir ölçek kümesindeki belirli bir sanal makine örneği için örnek görünümü sorgulamak için kullanabilirsiniz:
 
 - REST API ile [virtualmachinescalesetvms/işlem/getinstanceview](/rest/api/compute/virtualmachinescalesetvms/getinstanceview) gibi:
 
@@ -239,7 +239,7 @@ $ az vmss get-instance-view --resource-group myResourceGroup --name myScaleSet -
 }
 ```
 
-Bu özellikler ölçek kümesine uygulanan tüm uzantıları içeren sanal Makinenin kendisini, geçerli çalışma zamanı durumunu açıklar.
+Bu özellikler ölçek kümesine uygulanan kullanılmayan uzantıları içerir sanal makine örneği geçerli çalışma zamanı durumunu açıklar.
 
 
 ## <a name="how-to-update-global-scale-set-properties"></a>Küresel ölçek güncelleştirme özelliklerini ayarlama

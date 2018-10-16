@@ -9,12 +9,12 @@ ms.author: haining
 author: hning86
 ms.reviewer: jmartens
 ms.date: 10/01/2018
-ms.openlocfilehash: 92db115ed826b756e11b572a5a62f0f82d4535a7
-ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
+ms.openlocfilehash: a10b05e95fa719b80775191e48bd4117e3a785fd
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48269198"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49321691"
 ---
 # <a name="troubleshooting-azure-machine-learning-service-deployments"></a>Azure Machine Learning hizmet dağıtımıyla ilgili sorunları giderme
 
@@ -94,7 +94,7 @@ print(image.image_build_log_uri)
 print(ws.images()['myimg'].image_build_log_uri)
 
 # list logs for all images in the workspace
-for name, img in ws.images().items()
+for name, img in ws.images().items():
     print (img.name, img.version, img.image_build_log_uri)
 ```
 Görüntü günlük URI'si, Azure blob Depolama'nızda depolanan bir günlük dosyasına işaret eden bir SAS URL'si ' dir. Yalnızca kopyalama ve yapıştırma URI ve bir tarayıcı penceresi içinde indirin ve günlük dosyasını görüntüleyin.

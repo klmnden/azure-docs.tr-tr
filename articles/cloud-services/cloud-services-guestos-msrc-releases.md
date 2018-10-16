@@ -11,22 +11,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 10/9/2018
+ms.date: 10/12/2018
 ms.author: raiye
-ms.openlocfilehash: f0fe3d66430c17c417de7ecd808069ba76a57ef5
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: b37600fe8d0616454264b67553149223746318d8
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49069548"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49322031"
 ---
 # <a name="azure-guest-os"></a>Azure konuk işletim sistemi
 Aşağıdaki tablolarda Azure konuk işletim sistemine uygulanan güncelleştirmelerin Microsoft Güvenlik Yanıt Merkezi (MSRC) gösterilmektedir. Belirli bir güncelleştirmenin Konuk kullanmakta olduğunuz işletim sistemi için geçerli olup olmadığını belirlemek için bu makaleyi arayın. Güncelleştirmeler her zaman taşıyan İleri için belirli [ailesi] [ family-explain] sürümünde yapılan.
 
 ## <a name="september-guest-os"></a>Eylül konuk işletim sistemi
-> [!NOTE]
-> Eylül konuk işletim sistemi, şu anda, otomatik güncelleştirmeler için yapılandırılmış olan bir bulut hizmeti vm'lerine da sunulacaktır. Piyasaya çıkış tamamlandığında, bu sürümü ile Azure portal ve yapılandırma dosyalarını el ile güncelleştirmeleri kullanılabilir hale getirilir. Aşağıdaki düzeltme ekleri, Eylül konuk işletim sisteminde dahil edilir. Bu liste değiştirilebilir ' dir.
-
 | Ürün Kategorisi | Üst KB makalesi | Güvenlik Açığı açıklaması | Konuk işletim sistemi | İlk tarih |
 | --- | --- | --- | --- | --- |
 | Rel 18-09 | [4457131] | Windows 10 Güvenlik | 5.23 | 11 Eylül 2018'den |
@@ -740,6 +737,28 @@ Aşağıdaki tablolarda Azure konuk işletim sistemine uygulanan güncelleştirm
 | Yok |[3007054] |PIN korumalı yazdırma seçeneği her zaman bir belge Windows, Windows Store uygulaması içinde yazdırırken gösterir. |4.15, 3.22, 2.34 |13 Ocak 2015 |
 | Yok |[2999802] |Noktalı satırlar yerine düz çizgiler içinde Windows yazdırılır. |4.15, 3.22, 2.34 |13 Ocak 2015 |
 | Yok |[2896881] |Uzun Windows oturum açma işlemi sırasında kullanıcılar için yazıcıları eşlemek için AddPrinterConnection VBScript komutunu kullandığınızda oturum açma zamanı |4.15, 3.22, 2.34 |13 Ocak 2015 |
+
+[4457131]: http://support.microsoft.com/kb/4457131
+[4457145]: http://support.microsoft.com/kb/4457145
+[4457140]: http://support.microsoft.com/kb/4457140
+[4457143]: http://support.microsoft.com/kb/4457143
+[4457055]: http://support.microsoft.com/kb/4457055
+[4457030]: http://support.microsoft.com/kb/4457030
+[4457053]: http://support.microsoft.com/kb/4457053
+[4457029]: http://support.microsoft.com/kb/4457029
+[4457056]: http://support.microsoft.com/kb/4457056
+[4457028]: http://support.microsoft.com/kb/4457028
+[4457146]: http://support.microsoft.com/kb/4457146
+[4457426]: http://support.microsoft.com/kb/4457426
+[4343900]: http://support.microsoft.com/kb/4343900
+[4344152]: http://support.microsoft.com/kb/4344152
+[4344149]: http://support.microsoft.com/kb/4344149
+[4343901]: http://support.microsoft.com/kb/4343901
+[4344150]: http://support.microsoft.com/kb/4344150
+[4344148]: http://support.microsoft.com/kb/4344148
+[4343898]: http://support.microsoft.com/kb/4343898
+[4344153]: http://support.microsoft.com/kb/4344153
+[4344147]: http://support.microsoft.com/kb/4344147
 
 [4457131]: http://support.microsoft.com/kb/4457131
 [4457145]: http://support.microsoft.com/kb/4457145

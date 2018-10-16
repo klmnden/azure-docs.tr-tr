@@ -3,19 +3,19 @@ title: Dışarı aktarma veya verilerinizi - özel görüntü işleme hizmeti Si
 titlesuffix: Azure Cognitive Services
 description: Dışarı aktarma veya özel görüntü işleme hizmeti verilerinizi silme öğrenin.
 services: cognitive-services
-author: v-jaswel
+author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: custom-vision
 ms.topic: conceptual
 ms.date: 05/25/2018
-ms.author: v-jaswel
-ms.openlocfilehash: c98c72101d893f107d4a6c3185836a75bfe41007
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.author: pafarley
+ms.openlocfilehash: d89832b7b68c9a2c0697fa5c97ce1aa83d5d1ee8
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46367500"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49338480"
 ---
 # <a name="export-or-delete-user-data-in-custom-vision"></a>Dışarı aktarma veya özel görüntü işleme kullanıcı verilerini silme
 

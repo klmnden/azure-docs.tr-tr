@@ -1,24 +1,25 @@
 ---
-title: Abonelik anahtarları - özel konuşma hizmeti alın
-titlesuffix: Azure Cognitive Services
-description: Özel konuşma hizmeti çağrıları için Abonelik anahtarları alma konusunda bilgi edinin.
+title: Azure'da özel konuşma hizmeti için Abonelik anahtarları alma | Microsoft Docs
+description: Cognitive Services çağrılar özel konuşma hizmeti için Abonelik anahtarları alma konusunda bilgi edinin.
 services: cognitive-services
 author: PanosPeriorellis
-manager: cgronlun
+manager: onano
 ms.service: cognitive-services
 ms.component: custom-speech
-ms.topic: conceptual
+ms.topic: article
 ms.date: 02/08/2017
 ms.author: panosper
-ROBOTS: NOINDEX
-ms.openlocfilehash: e4694928baf98bdb0d6aacead8dffec6bb73d6f7
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 84ef657af2cc3dc4a7168a815b5e51d6f4f33fd7
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47224786"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49338378"
 ---
 # <a name="obtain-subscription-keys"></a>Abonelik anahtarları alma
+
+[!INCLUDE [Deprecation note](../../../../includes/cognitive-services-custom-speech-deprecation-note.md)]
+
 Azure özel konuşma hizmeti kullanmaya başlamak için ilk kullanıcı hesabınız bir Azure aboneliğine bağlamanız gerekir. Ücretsiz ve Ücretli katmanlar için abonelik yok. Katmanları hakkında daha fazla bilgi için bkz: [fiyatlandırma sayfası](https://www.microsoft.com/cognitive-services/en-us/pricing).
 
 ## <a name="get-a-subscription-key"></a>Bir abonelik anahtarı edinirler

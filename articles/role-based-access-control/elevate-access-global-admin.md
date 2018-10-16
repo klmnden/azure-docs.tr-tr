@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/24/2018
+ms.date: 10/15/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: fb0fb4e0f23413cb56b1bb5ec419c44dfc52e7b6
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: a2f66078a817f5e6ad7296df11634a1a6130a055
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46996851"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49321674"
 ---
 # <a name="elevate-access-for-a-global-administrator-in-azure-active-directory"></a>İçin Azure Active Directory'de genel yönetici erişimini yükseltme
 
@@ -31,29 +31,37 @@ Eğer bir [genel yönetici](../active-directory/users-groups-roles/directory-ass
 - Bir kuruluştaki tüm Azure abonelikleri bakın
 - Tüm Azure abonelikleri erişmek için bir Otomasyon uygulaması (örneğin, bir faturalama veya Denetim uygulama) izin ver
 
-Varsayılan olarak, Azure AD yönetici rollerini ve Azure rol tabanlı erişim (RBAC) rolleri değil aralık Azure AD ve Azure denetler. Ancak, Azure AD'de bir genel Yöneticiyseniz, Azure aboneliklerini ve Yönetim gruplarını yönetmek için erişiminizi yükseltebilirsiniz. Erişiminizi yükseltebilir, verilecek [kullanıcı erişimi Yöneticisi](built-in-roles.md#user-access-administrator) belirli bir kiracının tüm Aboneliklerde rol (RBAC rolü). Diğer kullanıcılara kök kapsamda Azure kaynaklarına erişim verme kullanıcı erişimi yöneticisi rolü sağlar (`/`).
-
-Bu yükseltme geçici ve yalnızca gerektiğinde bitti olmalıdır.
+Bu makalede, Azure AD'ye erişiminizi yükseltebilir farklı yollarını açıklar.
 
 [!INCLUDE [gdpr-dsr-and-stp-note](../../includes/gdpr-dsr-and-stp-note.md)]
+
+## <a name="overview"></a>Genel Bakış
+
+Azure AD ve Azure kaynakları güvenli bağımsız olarak birbirinden. Diğer bir deyişle, Azure AD rol atamaları Azure kaynaklarına erişimi veremez ve Azure rol atamaları Azure AD'ye erişim izni yok. Azure AD'de bir genel Yöneticiyseniz, Bununla birlikte, kendiniz erişim tüm Azure aboneliklerini ve Yönetim gruplarını dizininizde atayabilirsiniz. Sanal makinelerin veya depolama hesapları gibi Azure abonelik kaynaklarına erişiminiz yoksa ve bu kaynakları erişmek için genel yönetici ayrıcalığı kullanmak istiyorsanız bu özelliği kullanın.
+
+Erişiminizi yükseltebilir, atanacak [kullanıcı erişimi Yöneticisi](built-in-roles.md#user-access-administrator) kök kapsamda Azure rolünde (`/`). Bu, tüm kaynakları görüntülemek ve herhangi bir aboneliğe erişim veya dizin yönetim grubuna atamak sağlar. PowerShell kullanarak kullanıcı erişimi yöneticisi rol atamaları kaldırılabilir.
+
+Kök kapsamda yapmanız gereken değişiklikleri yaptıktan sonra bu yükseltilmiş erişim kaldırmanız gerekir.
+
+![Erişimini yükseltme](./media/elevate-access-global-admin/elevate-access.png)
 
 ## <a name="azure-portal"></a>Azure portal
 
 İçin genel Azure portalını kullanarak yönetici erişimini yükseltme için bu adımları izleyin.
 
-1. Oturum [Azure portalında](https://portal.azure.com) veya [Azure Active Directory Yönetim Merkezi](https://aad.portal.azure.com).
+1. Oturum [Azure portalında](https://portal.azure.com) veya [Azure Active Directory Yönetim Merkezi](https://aad.portal.azure.com) genel Yöneticisi olarak.
 
 1. Gezinti listesinde **Azure Active Directory** ve ardından **özellikleri**.
 
    ![Azure AD özellikleri - ekran görüntüsü](./media/elevate-access-global-admin/aad-properties.png)
 
-1. Altında **genel yönetici Azure aboneliklerini ve Yönetim gruplarını yönetebilir**, anahtar kümesine **Evet**.
+1. Altında **Azure kaynakları için Access management**, anahtar kümesine **Evet**.
 
-   ![Genel yönetici Azure aboneliklerini ve Yönetim gruplarını - ekran görüntüsü yönetebilir.](./media/elevate-access-global-admin/aad-properties-global-admin-setting.png)
+   ![Azure kaynakları - ekran görüntüsü için erişim yönetimi](./media/elevate-access-global-admin/aad-properties-global-admin-setting.png)
 
-   Anahtar ayarlandığında **Evet**, Azure RBAC kök kapsamda kullanıcı erişimi yöneticisi rolü genel yönetici hesabınızın (şu anda oturum açmış kullanıcı olarak) eklenir (`/`), size erişim görünümünü ve raporunu için hangi verir Tüm Azure abonelikleri Azure AD kiracınız ile ilişkili.
+   Anahtar ayarlandığında **Evet**, Azure RBAC (/) kök kapsamda kullanıcı erişimi yöneticisi rolü atanır. Bu, tüm Azure abonelikleri ve bu Azure AD dizini ile ilişkili yönetim gruplarını rol atama izni verir. Bu anahtar yalnızca, Azure AD'de genel Yönetici rolüne atanan kullanıcılar için kullanılabilir.
 
-   Anahtar ayarlandığında **Hayır**, Azure RBAC kullanıcı erişimi yöneticisi rolü genel yönetici hesabınızın (şu anda oturum açmış kullanıcı olarak) kaldırılır. Azure AD kiracısı ile ilişkili tüm Azure abonelikleri göremez ve görüntüleyebilir ve yalnızca erişim için verilmiş Azure aboneliklerini yönetme.
+   Anahtar ayarlandığında **Hayır**, kullanıcı hesabınızın Azure RBAC kullanıcı erişimi yöneticisi rolü kaldırılır. Artık tüm Azure abonelikleri ve bu Azure AD dizini ile ilişkili olan Yönetim grupları roller atayabilirsiniz. Görüntüleyebilir ve yalnızca Azure aboneliklerini ve yönetim gruplarına erişim için verilmiş yönetin.
 
 1. Tıklayın **Kaydet** ayarlarınızı kaydetmek için.
 
@@ -190,16 +198,16 @@ Tüm kök kapsamda bir kullanıcı için reddetme atamalarını listeleyebilir (
 
     Kimlik, Kaydet `name` parametresi bu durumda `18d7d88d-d35e-4fb5-a5c3-7773c20a72d9`.
 
-2. Ayrıca, Kiracı kapsamında Kiracı yöneticiye ait rol ataması listesi gerekir. İçin Kiracı kapsamında tüm atamalarını listeleme `principalId` yükseltme erişim çağrısı yapan bir kiracı yönetici. Bu Kiracı için objectID tüm atamaları listeler.
+2. Rol ataması için dizin Yöneticisi directory kapsamda listelemek gerekir. İçin dizin kapsamındaki tüm atamalarını listeleme `principalId` yükseltme erişim çağrısı yapan bir dizin yönetici. Bu objectID dizinde bulunan tüm atamaları listeler.
 
     ```http
     GET https://management.azure.com/providers/Microsoft.Authorization/roleAssignments?api-version=2015-07-01&$filter=principalId+eq+'{objectid}'
     ```
     
     >[!NOTE] 
-    >Tüm atamaları Kiracı kapsam düzeyinde yeni ve ardından sonuçları filtrelemek için önceki sorgu çok fazla atamaları da sorgulayabilirsiniz döndürürse, bir kiracı Yöneticisi birden fazla atama sahip olmamalıdır: `GET https://management.azure.com/providers/Microsoft.Authorization/roleAssignments?api-version=2015-07-01&$filter=atScope()`
+    >Dizin Yöneticisi tüm atamaları directory kapsam düzeyinde yeni ve ardından sonuçları filtrelemek için önceki sorgu çok fazla atamaları da sorgulayabilirsiniz döndürürse, birden fazla atama sahip olmamalıdır: `GET https://management.azure.com/providers/Microsoft.Authorization/roleAssignments?api-version=2015-07-01&$filter=atScope()`
         
-    2. Önceki çağrılar rol atamaları listesini döndürür. Rol ataması kapsam olduğu Bul `"/"` ve `roleDefinitionId` 1. adımda bulduğunuz rol adı kimliği ile sona erer ve `principalId` Kiracı yöneticisinin objectID eşleşir. 
+    2. Önceki çağrılar rol atamaları listesini döndürür. Rol ataması kapsam olduğu Bul `"/"` ve `roleDefinitionId` 1. adımda bulduğunuz rol adı kimliği ile sona erer ve `principalId` dizin Yöneticisi objectID eşleşir. 
     
     Örnek rol ataması:
 
@@ -235,6 +243,5 @@ Tüm kök kapsamda bir kullanıcı için reddetme atamalarını listeleyebilir (
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
+- [Farklı roller anlama](rbac-and-directory-admin-roles.md)
 - [REST ile rol tabanlı erişim denetimi](role-assignments-rest.md)
-- [Privileged Identity Management ile Azure kaynaklarına erişimi yönetme](pim-azure-resource.md)
-- [Koşullu erişim ile Azure yönetim erişimi yönetme](conditional-access-azure-management.md)

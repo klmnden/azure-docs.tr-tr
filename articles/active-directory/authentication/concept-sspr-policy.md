@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 13b21c4f8fde2b11722d012c207ed75447a7f970
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: 3e3b608d3928536d654a594c42cbcc955d620d98
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49114660"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49321742"
 ---
 # <a name="password-policies-and-restrictions-in-azure-active-directory"></a>Parola ilkeleri ve Azure Active Directory'de kısıtlamaları
 
@@ -27,7 +27,7 @@ Bu makalede, Azure Active Directory (Azure AD) kiracınız depolanan kullanıcı
 
 İki ağ geçidi İlkesi ile **Yöneticiler, güvenlik sorularını kullan olanağı yok**.
 
- İki ağ geçidi İlkesi bir e-posta adresi gibi kimlik doğrulama verilerini iki parça gerektirir *ve* bir telefon numarası. İki ağ geçidi İlkesi, aşağıdaki durumlarda geçerlidir:
+İki ağ geçidi İlkesi bir e-posta adresi gibi kimlik doğrulama verilerini iki parça gerektirir *ve* bir telefon numarası. İki ağ geçidi İlkesi, aşağıdaki durumlarda geçerlidir:
 
 * Aşağıdaki Azure yöneticisi rollerini etkilenir:
   * Yardım Masası Yöneticisi
@@ -50,29 +50,17 @@ Bu makalede, Azure Active Directory (Azure AD) kiracınız depolanan kullanıcı
   * CRM Hizmet Yöneticisi
   * Power BI Hizmet Yöneticisi
 
-* 30 günlük bir deneme aboneliği geçtiyse
-
-  or
-
-* Contoso.com gibi bir gösterim etki alanı yok
-
-  or
-
+* 30 günlük bir deneme aboneliği geçtiyse; veya
+* Gösterim etki alanı contoso.com gibi mevcut değil; veya
 * Azure AD Connect, şirket içi dizininizden kimlikler eşitleme
 
 ### <a name="exceptions"></a>Özel durumlar
 
 Tek parça bir e-posta adresi gibi kimlik doğrulama verilerinin bir ağ geçidi İlkesi gerektirir *veya* telefon numarası. Bir ağ geçidi İlkesi, aşağıdaki durumlarda geçerlidir:
 
-* Bir deneme aboneliği, ilk 30 gün içinde sona
-
-  or
-
-* Gösterim etki alanı mevcut değil (*. onmicrosoft.com)
-
-  ve
-
-  Azure AD Connect kimlik eşitleme değil
+* Bu, ilk 30 gün içinde bir deneme aboneliği olur; veya
+* Gösterim etki alanı mevcut değil (*. onmicrosoft.com); ve
+* Azure AD Connect kimlik eşitleme değil
 
 ## <a name="userprincipalname-policies-that-apply-to-all-user-accounts"></a>Tüm kullanıcı hesaplarına uygulanan UserPrincipalName ilkeleri
 
@@ -117,7 +105,7 @@ Başlamak için yapmanız [Azure AD PowerShell modülünü indirip](https://docs
 ### <a name="check-the-expiration-policy-for-a-password"></a>Onay için bir parola süre sonu ilkesi
 
 1. Windows PowerShell için şirket Yöneticisi kimlik bilgilerinizi kullanarak bağlanın.
-2. Aşağıdaki komutlardan birini yürütün:
+1. Aşağıdaki komutlardan birini yürütün:
 
    * Tek bir kullanıcının parolasını ermeyecek şekilde ayarlanmış olup olmadığını görmek için UPN kullanarak aşağıdaki cmdlet'i çalıştırın (örneğin, *aprilr@contoso.onmicrosoft.com*) ya da kontrol etmek istediğiniz kullanıcının kullanıcı kimliği: `Get-AzureADUser -ObjectId <user ID> | Select-Object @{N="PasswordNeverExpires";E={$_.PasswordPolicies -contains "DisablePasswordExpiration"}}`
    * Görmek için **parola her zaman geçerli olsun** ayar tüm kullanıcılar için aşağıdaki cmdlet'i çalıştırın: `Get-AzureADUser -All $true | Select-Object UserPrincipalName, @{N="PasswordNeverExpires";E={$_.PasswordPolicies -contains "DisablePasswordExpiration"}}`
@@ -125,7 +113,7 @@ Başlamak için yapmanız [Azure AD PowerShell modülünü indirip](https://docs
 ### <a name="set-a-password-to-expire"></a>Parola süresi dolacak şekilde ayarlayın
 
 1. Windows PowerShell için şirket Yöneticisi kimlik bilgilerinizi kullanarak bağlanın.
-2. Aşağıdaki komutlardan birini yürütün:
+1. Aşağıdaki komutlardan birini yürütün:
 
    * Parolanın süresi dolarsa, bir kullanıcının parolasını ayarlamak için UPN veya kullanıcının kullanıcı Kimliğini kullanarak aşağıdaki cmdlet'i çalıştırın: `Set-AzureADUser -ObjectId <user ID> -PasswordPolicies None`
    * Bu süre kuruluştaki tüm kullanıcıların parolalarının ayarlamak için aşağıdaki cmdlet'i kullanın: `Get-AzureADUser -All $true | Set-AzureADUser -PasswordPolicies None`
@@ -133,7 +121,7 @@ Başlamak için yapmanız [Azure AD PowerShell modülünü indirip](https://docs
 ### <a name="set-a-password-to-never-expire"></a>Parola süresi dolmayacak şekilde ayarlayın
 
 1. Windows PowerShell için şirket Yöneticisi kimlik bilgilerinizi kullanarak bağlanın.
-2. Aşağıdaki komutlardan birini yürütün:
+1. Aşağıdaki komutlardan birini yürütün:
 
    * Süresiz olarak bir kullanıcı parolasını ayarlamak için UPN veya kullanıcının kullanıcı Kimliğini kullanarak aşağıdaki cmdlet'i çalıştırın: `Set-AzureADUser -ObjectId <user ID> -PasswordPolicies DisablePasswordExpiration`
    * Parolanın süresi dolmayacak kuruluştaki tüm kullanıcılar için aşağıdaki cmdlet'i çalıştırın: `Get-AzureADUser -All $true | Set-AzureADUser -PasswordPolicies DisablePasswordExpiration`

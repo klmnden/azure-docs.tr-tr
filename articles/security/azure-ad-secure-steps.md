@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 06/18/2018
 ms.author: martincoetzer
-ms.openlocfilehash: 2a6c94d902c639a2529e501347876d63a3f56d7e
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: 94d96cab28f738984b3d05d5eee0754e8c5e75b6
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39505618"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49341591"
 ---
 # <a name="five-steps-to-securing-your-identity-infrastructure"></a>Kimlik altyapınızın güvenliğini sağlamak için beş adım
 
@@ -32,7 +32,7 @@ Bu denetim listesini açıklayarak hemen kuruluşunuzu korumak için kritik öne
 * Kendi kendine yardım ile daha tahmin edilebilir ve tüm son kullanıcı güvenlik sağlar.
 
 > [!NOTE]
-> Bu belgedeki önerilerin çoğu yalnızca uygulamaları, Azure Active Directory, kimlik sağlayıcısı olarak kullanmak üzere yapılandırılmış uygulanır. Uygulamaları için çoklu oturum açmayı yapılandırma kimlik bilgisi ilkeleri, tehdit algılama, avantajlarını sağlar, bu uygulamaları denetleme, günlüğe kaydetme ve diğer özellikleri ekleyin. [Azure Active Directory aracılığıyla çoklu oturum açmayı](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-apps-manage-sso) tüm bu önerileri dayalı - temelidir.
+> Bu belgedeki önerilerin çoğu, Azure Active Directory, kimlik sağlayıcısı olarak kullanmak üzere yapılandırılan uygulamalar için geçerlidir. Uygulamaları için çoklu oturum açmayı yapılandırma kimlik bilgisi ilkeleri, tehdit algılama, avantajlarını sağlar, bu uygulamaları denetleme, günlüğe kaydetme ve diğer özellikleri ekleyin. [Azure Active Directory aracılığıyla çoklu oturum açmayı](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-apps-manage-sso) tüm bu önerileri dayalı - temelidir.
 
 ## <a name="before-you-begin-protect-privileged-accounts-with-mfa"></a>Başlamadan önce: MFA ile ayrıcalıklı hesapları korumak
 
@@ -44,7 +44,7 @@ Tüm ayarlansın mı? Denetim listesi üzerinde başlayalım.
 
 ## <a name="step-1---strengthen-your-credentials"></a>1. adım - kimlik bilgilerinizi güçlendirin 
 
-Çoğu Kurumsal güvenlik ihlallerini birkaç parola ilaç, ihlal yeniden yürütme ya da kimlik avı gibi yöntemlerin biriyle tehlikeye bir hesapla kaynaklanır. Bu videoda bu saldırılar hakkında daha fazla bilgi edinin:
+Çoğu Kurumsal güvenlik ihlallerini birkaç parola ilaç, ihlal yeniden yürütme ya da kimlik avı gibi yöntemlerin biriyle tehlikeye bir hesapla kaynaklanır. (1 saat 15 milyon) Bu videoda bu saldırılar hakkında daha fazla bilgi edinin:
 > [!VIDEO https://channel9.msdn.com/events/Ignite/Microsoft-Ignite-Orlando-2017/BRK3016/player]
 
 Kullanıcıların kimlik sisteminizde Zayıf parolalar kullanarak ve bunları güçlendirme multi-Factor authentication ile değil, yalnızca birkaç varsa veya size – yalnızca "ne sıklıkta." aşılan değilse

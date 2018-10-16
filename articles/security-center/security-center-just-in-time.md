@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/21/2018
+ms.date: 10/10/2018
 ms.author: rkarlin
-ms.openlocfilehash: cb13da7ad9387b7170882752b1620c2756bc3675
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 98533e3c1454867ff09c53902f0f575d198452a3
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46124161"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49320348"
 ---
 # <a name="manage-virtual-machine-access-using-just-in-time"></a>Tam zamanında özelliğini kullanarak sanal makine erişimini yönetme
 
@@ -111,6 +111,33 @@ Altında **JIT VM erişimi Yapılandırması**, ayrıca ekleyebilir ve tam olara
 > [!NOTE]
 >Seçili bağlantı noktaları ile ilişkilendirilmiş ağ güvenlik grupları için tüm gelen trafik kuralları, bir VM, Azure Güvenlik Merkezi oluşturur için JIT VM erişimi etkinleştirildiğinde reddedin. Kuralları ya da ağ güvenlik Gruplarınızda üst önceliğini ya da var olduğu mevcut kurallardan daha düşük öncelikli olur. Bu, Azure Güvenlik Merkezi tarafından bir kural güvenli olup olmadığını belirleyen gerçekleştirilen analiz bağlıdır.
 >
+
+
+## <a name="set-just-in-time-within-a-vm"></a>Tam zamanında VM içinde ayarlama
+
+Sanal makineleriniz arasında tam zamanında erişim alma kolaylaştırmak için yalnızca doğrudan tam zamanında erişim VM içinde izin vermek için bir VM ayarlayabilirsiniz.
+
+1. Azure portalında **sanal makineler**.
+2. Just-ın-time erişimi sınırlandırmak istediğiniz sanal makineye tıklayın.
+3. Menüde **yapılandırma**.
+4. Altında **tam olarak zaman erişim** tıklayın **just-ın-time ilkesini etkinleştir**. 
+
+Bu, aşağıdaki ayarları kullanarak sanal makine için tam zamanında erişim sağlar:
+
+- Windows sunucuları:
+    - RDP bağlantı noktası 3389
+    - 3 saat erişim
+    - İzin verilen kaynak IP adresleri her istek için ayarlanır
+- Linux sunucuları:
+    - SSH bağlantı noktası 22
+    - 3 saat erişim
+    - İzin verilen kaynak IP adresleri her istek için ayarlanır
+     
+Bir VM yalnızca kendi yapılandırma sayfasına gittiğinizde, etkin zamanında zaten varsa, just-ın-time etkinleştirildiğini ve bağlantı ayarlarını görüntülemek ve değiştirmek için Azure Güvenlik Merkezi'nde İlkesi'ni açmak için kullanabileceğiniz olduğunu görmek mümkün olacaktır.
+
+![JIT vm yapılandırması](./media/security-center-just-in-time/jit-vm-config.png)
+
+
 ## <a name="requesting-access-to-a-vm"></a>Bir VM için erişim isteği
 
 VM'ye erişime izin istemek için:

@@ -8,12 +8,12 @@ ms.topic: howto
 ms.date: 09/24/2018
 ms.author: ancav
 ms.component: metrics
-ms.openlocfilehash: 4ed911766a14dd35ea662326a5d50df11cf81698
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: f3076054eb6e18eb5143a34ba558c1f9e43ea4a5
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46984090"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49345195"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-using-a-resource-manager-template-for-a-windows-virtual-machine"></a>Azure İzleyici ölçüm için konuk işletim sistemi ölçümleri Resource Manager şablonu kullanarak bir Windows sanal makinesi için depolama Gönder
 
@@ -64,7 +64,7 @@ Bir depolama hesabı Kimliğinize ekleme **değişkenleri** girişini sonra şab
     "accountid": "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]", 
 ```
 
-Bu yönetilen hizmet kimliği (MSI) uzantı şablon üst kısmında "Kaynaklar" bölümünü ekleyin.  Uzantı, Azure İzleyici ölçümleri yayılan kabul etmesini sağlar.  
+Bu yönetilen kimlikleri Azure kaynaklarını uzantısı için şablon üst kısmında "Kaynaklar" bölümünü ekleyin.  Uzantı, Azure İzleyici ölçümleri yayılan kabul etmesini sağlar.  
 
 ```json
 //Find this code 

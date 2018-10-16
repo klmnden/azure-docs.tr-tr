@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 07/06/2018
+ms.date: 10/12/2018
 ms.author: jonbeck
-ms.openlocfilehash: 748cb4612b2b5aed26ba8197cfad0782f2645e1e
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: 70dca655d5300fcd34b4198093e136f6a971963b
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37902138"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49344498"
 ---
 # <a name="high-performance-compute-virtual-machine-sizes"></a>Yüksek performanslı bilgi işlem, sanal makine boyutları
 
@@ -56,9 +56,21 @@ Yoğun işlem gücü kullanımlı VM görüntüleri Azure Market'te RDMA bağlan
   > CentOS tabanlı HPC görüntülerinde de çekirdek güncelleştirmeler devre dışı bırakıldı **yum** yapılandırma dosyası. Linux RDMA sürücüleri bir RPM paket olarak dağıtılır ve çekirdek güncelleştirildiyse, sürücü güncelleştirmelerini çalışmayabilir nedeni budur.
   > 
  
-### <a name="cluster-configuration"></a>Küme yapılandırması 
-    
-Ek sistem yapılandırması, kümelenmiş VM'ler üzerinde MPI işlerini çalıştırma için gereklidir. Örneğin, üzerinde bir VM kümesi, işlem düğümleri arasında bir güven gerekir. Normal ayarları için bkz: [MPI uygulamalarını çalıştırmak için bir Linux RDMA kümesi ayarlama](classic/rdma-cluster.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
+### <a name="cluster-configuration-options"></a>Küme yapılandırma seçenekleri
+
+Azure, RDMA ağ aracılığıyla iletişim kuran Linux HPC VM kümeleri oluşturmak için çeşitli seçenekler sunar dahil olmak üzere: 
+
+* **Sanal makineler** -RDMA özellikli HPC VM'lerin aynı kullanılabilirlik (Azure Resource Manager dağıtım modeli kullandığınız zaman) kümesinde dağıtın. Klasik dağıtım modelini kullanıyorsanız, aynı bulut hizmetindeki sanal makineleri dağıtın. 
+
+* **Sanal makine ölçek kümeleri** - bir VM ölçek kümesi, tek bir yerleştirme grubu dağıtımı sınırladığınızdan emin olun. Örneğin, bir Resource Manager şablonunda ayarlamak `singlePlacementGroup` özelliğini `true`. 
+
+* **Azure CycleCloud** -bir HPC kümesi oluşturma [Azure CycleCloud](/azure/cyclecloud/) Linux düğümlerinde MPI işlerini çalıştırma için.
+
+* **Azure Batch** -oluşturma bir [Azure Batch](/azure/batch/) işlem düğümleri havuzu MPI iş yüklerini Linux üzerinde çalıştırılacak. Daha fazla bilgi için [kullanım RDMA özellikli veya GPU özellikli örnekler Batch havuzlarında](../../batch/batch-pool-compute-intensive-sizes.md). Ayrıca bkz: [Batch Shipyard](https://github.com/Azure/batch-shipyard) toplu olarak kapsayıcı tabanlı iş yüklerini çalıştırmaya yönelik proje.
+
+* **Microsoft HPC Pack** - [HPC Pack](https://docs.microsoft.com/powershell/high-performance-computing/overview) yönetilen bir Windows Server baş düğüm çalıştırmak için çeşitli Linux dağıtımları, RDMA özellikli Azure Vm'lerinde dağıtılan düğüm işlem destekler. Örnek bir dağıtım için bkz: [azure'da HPC Pack Linux RDMA kümesi oluşturma](https://docs.microsoft.com/powershell/high-performance-computing/hpcpack-linux-openfoam).
+
+Tercih ettiğiniz küme yönetim aracını bağlı olarak, ek sistem yapılandırması MPI işlerini çalıştırma için gerekli olabilir. Örneğin, bir VM kümesinde SSH anahtarları oluşturma veya parolasız SSH güven oluşturma küme düğümleri arasında güven oluşturma gerekebilir.
 
 ### <a name="network-topology-considerations"></a>Ağ topolojisi hakkında önemli noktalar
 * RDMA özellikli azure'da Linux VM'ler üzerinde Eth1 RDMA ağ trafiği için ayrılmış. Eth1 ayarları veya bu ağa başvuran yapılandırma dosyasındaki bilgileri değiştirmeyin. Eth0 normal Azure ağ trafiği için ayrılmış.
@@ -66,8 +78,7 @@ Ek sistem yapılandırması, kümelenmiş VM'ler üzerinde MPI işlerini çalı�
 * Azure'da RDMA ağ adres alanı 172.16.0.0/16 ayırır. 
 
 
-## <a name="using-hpc-pack"></a>HPC Pack kullanma
-[HPC Pack](https://technet.microsoft.com/library/jj899572.aspx), Microsoft'un ücretsiz HPC küme ve iş yönetim çözümü, yoğun işlem gücü kullanımlı örnekler Linux ile kullanabilmeniz için bir seçenektir. HPC Pack desteği en son sürümleri üzerinde çalışmak üzere çeşitli Linux dağıtımları Windows Server baş düğümü tarafından yönetilen Azure vm'lerinde dağıtılan bilgi işlem düğümü. Intel MPI çalıştıran RDMA özellikli Linux işlem düğümleriyle HPC Pack zamanlayabilir ve Linux MPI RDMA ağ erişen uygulamalar çalıştırın. Bkz: [azure'da HPC Pack kümesinde Linux işlem düğümleri kullanmaya başlama](classic/hpcpack-cluster.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
+
 
 ## <a name="other-sizes"></a>Diğer boyutları
 - [Genel amaçlı](sizes-general.md)
@@ -78,8 +89,6 @@ Ek sistem yapılandırması, kümelenmiş VM'ler üzerinde MPI işlerini çalı�
 - [Önceki nesil](sizes-previous-gen.md)
 
 ## <a name="next-steps"></a>Sonraki adımlar
-
-- Dağıtma ve Linux'ta RDMA ile yoğun işlem gücü kullanımlı boyutlar başlamak için bkz: [MPI uygulamalarını çalıştırmak için bir Linux RDMA kümesi ayarlama](classic/rdma-cluster.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
 
 - Hakkında daha fazla bilgi [Azure işlem birimleri (ACU)](acu.md) Azure SKU'ları arasında işlem performansını karşılaştırmanıza yardımcı olabilir.
 

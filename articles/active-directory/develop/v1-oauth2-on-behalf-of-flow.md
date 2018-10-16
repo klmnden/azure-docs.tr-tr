@@ -17,18 +17,18 @@ ms.date: 06/06/2017
 ms.author: celested
 ms.reviewer: hirsin, nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: ce29c6a9df49721ca23f84da3f1c97bcc83ab4a7
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: cf62d961d7bd2b6ff2cb03ee577368f2ee7b8452
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39581729"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49318841"
 ---
 # <a name="service-to-service-calls-using-delegated-user-identity-in-the-on-behalf-of-flow"></a>Hizmetten hizmete çağrılar kullanarak yönetici temsilcisi kullanıcı kimliği, On-Behalf-Of akışı
 Bir uygulama hizmeti/sırayla başka çağırmak için gereken web API'si, burada çağırır kullanım örneği akış hizmet OAuth 2.0 On-Behalf-Of (OBO) hizmeti/web API'si. İstek zincirinin aracılığıyla izinleri ve yetkilendirilmiş kullanıcının kimlik yayılması olur. Orta katman hizmet kimliği doğrulanmış istekler aşağı akış hizmetinize, Azure Active Directory'den (Azure AD), bir erişim belirteci güvenliğini sağlamak kullanıcının adına olmalıdır.
 
 > [!IMPORTANT]
-> Kullanan genel istemciler [OAuth 2.0 örtülü izin](v1-oauth2-implicit-grant-flow.md) OBO akışı kullanamazsınız. Bu istemciler kendi erişim belirteci OBO akışları gerçekleştirmek için orta katman gizli bir istemci için geçmesi gerekir. Hangi istemcilerin OBO çağrıları gerçekleştirebilir daha fazla bilgi için bkz. [istemci sınırlamaları](#client-limitations).
+> Mayıs 2018'den itibaren bir `id_token` kullanılamaz On-Behalf-Of akışı için - Spa'lar geçmesi gereken bir **erişim** OBO gerçekleştirmek için gizli bir istemci bir orta katman belirtecini akar. Bkz: [sınırlamaları](#client-limitations) üzerinde istemcileri On-Behalf-Of çağrıları gerçekleştirebilir daha fazla ayrıntı için.
 
 ## <a name="on-behalf-of-flow-diagram"></a>On-Behalf-Of akışı diyagramı
 Kullanıcı bir uygulama kullanarak doğrulandıktan varsayar [OAuth 2.0 yetkilendirme kodu verme akışı](v1-protocols-oauth-code.md). Bu noktada, uygulama, kullanıcı talepleri ve orta katman web API'si (API A) erişmek için izniniz bir erişim belirteci (belirteç A) sahip. Şimdi, API bir aşağı akış web API'sine (API B) kimliği doğrulanmış bir istekte gerekir.
@@ -202,7 +202,7 @@ Host: graph.windows.net
 Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6InowMzl6ZHNGdWl6cEJmQlZLMVRuMjVRSFlPMCIsImtpZCI6InowMzl6ZHNGdWl6cEJmQlZLMVRuMjVRSFlPMCJ9.eyJhdWQiOiJodHRwczovL2dyYXBoLndpbmRvd3MubmV0IiwiaXNzIjoiaHR0cHM6Ly9zdHMud2luZG93cy5uZXQvMjYwMzljY2UtNDg5ZC00MDAyLTgyOTMtNWIwYzUxMzRlYWNiLyIsImlhdCI6MTQ5MzQyMzE2OCwibmJmIjoxNDkzNDIzMTY4LCJleHAiOjE0OTM0NjY5NTEsImFjciI6IjEiLCJhaW8iOiJBU1FBMi84REFBQUE1NnZGVmp0WlNjNWdBVWwrY1Z0VFpyM0VvV2NvZEoveWV1S2ZqcTZRdC9NPSIsImFtciI6WyJwd2QiXSwiYXBwaWQiOiI2MjUzOTFhZi1jNjc1LTQzZTUtOGU0NC1lZGQzZTMwY2ViMTUiLCJhcHBpZGFjciI6IjEiLCJlX2V4cCI6MzAyNjgzLCJmYW1pbHlfbmFtZSI6IlRlc3QiLCJnaXZlbl9uYW1lIjoiTmF2eWEiLCJpcGFkZHIiOiIxNjcuMjIwLjEuMTc3IiwibmFtZSI6Ik5hdnlhIFRlc3QiLCJvaWQiOiIxY2Q0YmNhYy1iODA4LTQyM2EtOWUyZi04MjdmYmIxYmI3MzkiLCJwbGF0ZiI6IjMiLCJwdWlkIjoiMTAwMzNGRkZBMTJFRDdGRSIsInNjcCI6IlVzZXIuUmVhZCIsInN1YiI6IjNKTUlaSWJlYTc1R2hfWHdDN2ZzX0JDc3kxa1l1ekZKLTUyVm1Zd0JuM3ciLCJ0aWQiOiIyNjAzOWNjZS00ODlkLTQwMDItODI5My01YjBjNTEzNGVhY2IiLCJ1bmlxdWVfbmFtZSI6Im5hdnlhQGRkb2JhbGlhbm91dGxvb2sub25taWNyb3NvZnQuY29tIiwidXBuIjoibmF2eWFAZGRvYmFsaWFub3V0bG9vay5vbm1pY3Jvc29mdC5jb20iLCJ1dGkiOiJ4Q3dmemhhLVAwV0pRT0x4Q0dnS0FBIiwidmVyIjoiMS4wIn0.cqmUVjfVbqWsxJLUI1Z4FRx1mNQAHP-L0F4EMN09r8FY9bIKeO-0q1eTdP11Nkj_k4BmtaZsTcK_mUygdMqEp9AfyVyA1HYvokcgGCW_Z6DMlVGqlIU4ssEkL9abgl1REHElPhpwBFFBBenOk9iHddD1GddTn6vJbKC3qAaNM5VarjSPu50bVvCrqKNvFixTb5bbdnSz-Qr6n6ACiEimiI1aNOPR2DeKUyWBPaQcU5EAK0ef5IsVJC1yaYDlAcUYIILMDLCD9ebjsy0t9pj_7lvjzUSrbMdSCCdzCqez_MSNxrk1Nu9AecugkBYp3UVUZOIyythVrj6-sVvLZKUutQ
 ```
 ## <a name="client-limitations"></a>İstemci sınırlamaları
-Joker karakter yanıt URL'leri ile ortak istemcileri bir `id_token` OBO akışlar için. Ancak, gizli bir istemci yine de ortak istemci bir joker karakter yeniden yönlendirme URI'sinin olsa bile örtük verme akışı alınan erişim belirteci kullanmak.
+Joker karakter yanıt URL'leri ile ortak istemcileri bir `id_token` OBO akışlar için. Ancak, gizli bir istemci yine de kullanmak **erişim** genel istemci bir joker karakter olsa bile örtük verme akışı edinilen belirteçleri yeniden yönlendirme URI'si kayıtlı.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 OAuth 2.0 protokolünü ve istemci kimlik bilgilerini kullanarak hizmet kimlik doğrulaması gerçekleştirmek için başka bir yöntem hakkında daha fazla bilgi edinin.

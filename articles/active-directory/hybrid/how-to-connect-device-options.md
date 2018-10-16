@@ -15,14 +15,14 @@ ms.topic: article
 ms.date: 09/13/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 6993895b6f2b836308b8ed7c375212c3fae12768
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: c21b4b8996d7dae62c2aa1937c2876a66f6f82bd
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46311979"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49320569"
 ---
-#<a name="azure-ad-connect-device-options"></a>Azure AD Connect: Cihaz seçenekleri
+# <a name="azure-ad-connect-device-options"></a>Azure AD Connect: Cihaz seçenekleri
 
 Aşağıdaki belgeler Azure AD Connect çeşitli cihaz seçenekleri hakkında bilgi sağlar. Azure AD Connect, aşağıdaki iki işlemlerini yapılandırmak için kullanabilirsiniz: 
 * **Hibrit Azure AD'ye katılma**: şirket içi ortamınız varsa, AD Ayak izi ve Azure AD'nin avantajlarını istiyorsanız, hibrit Azure AD'ye katılmış cihazlara uygulayabilirsiniz. Bu cihazları hem şirket içi Active Directory'niz ve Azure Active Directory'nize katılmış.

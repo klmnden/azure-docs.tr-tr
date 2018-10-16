@@ -1,9 +1,9 @@
 ---
-title: Azure Güvenlik Merkezi'nde desteklenen platformlar | Microsoft Docs
-description: Bu belge Azure Güvenlik Merkezi'nde desteklenen Windows ve Linux operatings sistemlerinin listesini sağlar.
+title: Özellikler ve Azure Güvenlik Merkezi tarafından desteklenen platformlar | Microsoft Docs
+description: Bu belge, özellikleri ve Azure Güvenlik Merkezi tarafından desteklenen platformlar listesini sağlar.
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: MBaldwin
 editor: ''
 ms.assetid: 70c076ef-3ad4-4000-a0c1-0ac0c9796ff1
@@ -12,16 +12,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/26/2018
-ms.author: terrylan
-ms.openlocfilehash: 54d173caa0e3eb4bbd8bda7c924e56d546a99662
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.date: 10/10/2018
+ms.author: rkarlin
+ms.openlocfilehash: 279818e6b43e53206deb9e33591f75ef381a8962
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44297511"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49319991"
 ---
-# <a name="supported-platforms-in-azure-security-center"></a>Azure Güvenlik Merkezi'nde desteklenen platformlar
+# <a name="platforms-and-features-supported-by-azure-security-center"></a>Platformlar ve Azure Güvenlik Merkezi tarafından desteklenen özellikler
+
 Güvenlik durumunu izleme ve öneriler, hem Klasik ve Resource Manager dağıtım modelleri ve Bilgisayarları'nı kullanarak oluşturulan sanal makineler için (VM'ler) kullanılabilir.
 
 > [!NOTE]
@@ -29,7 +30,11 @@ Güvenlik durumunu izleme ve öneriler, hem Klasik ve Resource Manager dağıtı
 >
 >
 
-## <a name="supported-platforms-for-windows-computers-and-vms"></a>Windows bilgisayarlar ve sanal makineleri için desteklenen platformlar
+## <a name="supported-platforms"></a>Desteklenen platformlar 
+
+Bu bölümde, Azure Güvenlik Merkezi Aracısı çalıştırabilir ve bunu veri toplayabilirsiniz platformlar listelenir.
+
+### <a name="supported-platforms-for-windows-computers-and-vms"></a>Windows bilgisayarlar ve sanal makineleri için desteklenen platformlar
 Desteklenen Windows işletim sistemleri:
 
 * Windows Server 2008
@@ -39,7 +44,7 @@ Desteklenen Windows işletim sistemleri:
 * Windows Server 2016
 
 
-## <a name="supported-platforms-for-linux-computers-and-vms"></a>Linux bilgisayarları ve sanal makineleri için desteklenen platformlar
+### <a name="supported-platforms-for-linux-computers-and-vms"></a>Linux bilgisayarları ve sanal makineleri için desteklenen platformlar
 Desteklenen Linux işletim sistemleri:
 
 * Ubuntu sürüm 12.04 LTS, 14.04 LTS, 16.04 LTS
@@ -58,6 +63,62 @@ Desteklenen Linux işletim sistemleri:
 
 ## <a name="vms-and-cloud-services"></a>VM'ler ve bulut Hizmetleri
 Bir bulut hizmetinde çalışan sanal makineler de desteklenir. Yuva izlenen üretimde çalışan web ve çalışan rolleri yalnızca bulut Hizmetleri. Bulut hizmeti hakkında daha fazla bilgi için bkz: [Cloud Services'e genel bakış](../cloud-services/cloud-services-choose-me.md).
+
+
+## <a name="supported-iaas-features"></a>Desteklenen Iaas özellikleri
+
+> [!div class="mx-tableFixed"]
+> 
+
+|Sunucu|Windows||Linux||
+|----|----|----|----|----|
+|Ortam|Azure|Azure Dışı|Azure|Azure Dışı|
+|VMBA tehdit algılama uyarıları|✔|✔|✔ (üzerinde desteklenen sürümleri)|✔|
+|Ağ tabanlı tehdit algılama uyarıları|✔|X|✔|X|
+|Windows Defender ATP tümleştirme *|✔ (üzerinde desteklenen sürümleri)|✔|X|X|
+|Yamaları eksik|✔|✔|✔|✔|
+|Güvenlik yapılandırmaları|✔|✔|✔|✔|
+|Kötü amaçlı yazılımdan koruma|✔|✔|X|X|
+|JIT VM erişimi|✔|X|✔|X|
+|Uyarlamalı uygulama denetimleri|✔ (yalnızca Azure)|X|X|X|
+|FIM|✔|✔|✔|✔|
+|Disk şifrelemesi|✔|X|✔|X|
+|Üçüncü taraf dağıtım|✔|X|✔|X|
+|NSG'ler|✔|X|✔|X|
+|Filess V1|✔|✔|X|X|
+|Ağ eşlemesi|✔|X|✔|X|
+|Uyarlamalı ağ sağlamlaştırma|✔|X|✔|X|
+
+* Bu özellikler şu anda genel önizlemede desteklenmektedir.
+
+
+## <a name="supported-paas-features"></a>Desteklenen PaaS özellikleri
+
+
+|Hizmet|Öneriler|Tehdit algılama|
+|----|----|----|
+|SQL|✔| ✔|
+|PostGreSQL *|✔| ✔|
+|MySQL *|✔| ✔|
+|BLOB Depolama hesapları *|✔| ✔|
+|Uygulama hizmetleri|✔| ✔|
+|Bulut hizmetleri|✔| X|
+|Redis önbelleği|✔| X|
+|Service fabric|✔| X|
+|Azure otomasyonu|✔| X|
+|Data Lake |✔| X|
+|Key Vault|✔| X|
+|Hizmet veri yolu|✔| X|
+|Stream analytics|✔| X|
+|Batch|✔| X|
+|Mantıksal uygulamalar|✔| X|
+|Sanal ağlar|✔| NA|
+|Alt ağlar|✔| NA|
+|NIC’ler|✔| ✔|
+|NSG'ler|✔| NA|
+|Abonelik|✔| ✔|
+
+* Bu özellikler şu anda genel önizlemede desteklenmektedir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

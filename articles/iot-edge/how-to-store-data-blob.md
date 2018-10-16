@@ -9,12 +9,12 @@ ms.date: 10/03/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 2a52735a7f573534c6d643e778a898a888dfc81f
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: 6fdfc1002528fa48145e577dfee3eac935f31fcd
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49114592"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49344855"
 ---
 # <a name="store-data-at-the-edge-with-azure-blob-storage-on-iot-edge-preview"></a>IOT Edge (Önizleme) Azure Blob Depolama ile uçta veri Store
 
@@ -81,7 +81,7 @@ Aşağıdaki JSON şablon için kullandığınız **kapsayıcı oluşturma seçe
    }
    ```   
    
-JSON oluşturma seçeneklerinde güncelleştirme `\<your storage account name\>` herhangi bir ada sahip. Güncelleştirme `\<your storage account key\>` 64 baytlık base64 anahtarına sahip. Bir anahtar gibi araçlarla oluşturabilirsiniz [GeneratePlus](https://generate.plus/en/base64) seçin, bayt uzunluğunu verir. Diğer modüllerden blob depolamaya erişmek için bu kimlik bilgilerini kullanacaksınız.
+JSON oluşturma seçeneklerinde güncelleştirme `\<your storage account name\>` herhangi bir ada sahip. Güncelleştirme `\<your storage account key\>` 64 baytlık base64 anahtarına sahip. Bir anahtar gibi araçlarla oluşturabilirsiniz [GeneratePlus](https://generate.plus/en/base64?gp_base64_base[length]=64) seçin, bayt uzunluğunu verir. Diğer modüllerden blob depolamaya erişmek için bu kimlik bilgilerini kullanacaksınız.
 
 JSON oluşturma seçeneklerinde güncelleştirme `<storage directory bind>` kapsayıcı işletim sisteminize bağlı olarak. Adını sağlayın bir [birim](https://docs.docker.com/storage/volumes/) veya istediğiniz verileri depolamak için blob modülü IOT Edge Cihazınızda dizinine mutlak yolu.  
 
@@ -150,7 +150,7 @@ VS Code, sağlanan bir IOT Edge çözümü oluşturur ve ardından yeni bir penc
    STORAGE_ACCOUNT_KEY=
    ```
 
-8. Depolama hesabı adı için herhangi bir ad sağlayın ve depolama hesabı anahtarı bir 64 baytlık base64 anahtarı sağlayın. Bir anahtar gibi araçlarla oluşturabilirsiniz [GeneratePlus](https://generate.plus/en/base64). Diğer modüllerden blob depolamaya erişmek için bu kimlik bilgilerini kullanacaksınız. 
+8. Depolama hesabı adı için herhangi bir ad sağlayın ve depolama hesabı anahtarı bir 64 baytlık base64 anahtarı sağlayın. Bir anahtar gibi araçlarla oluşturabilirsiniz [GeneratePlus](https://generate.plus/en/base64?gp_base64_base[length]=64). Diğer modüllerden blob depolamaya erişmek için bu kimlik bilgilerini kullanacaksınız. 
 
 9. Kaydet **.env**. 
 

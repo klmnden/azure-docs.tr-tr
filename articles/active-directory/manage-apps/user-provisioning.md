@@ -14,14 +14,15 @@ ms.workload: identity
 ms.date: 07/30/2018
 ms.author: barbkess
 ms.reviewer: asmalser
-ms.openlocfilehash: 8a84f2f13318dea5c2b99af0b880f2adb1343c8d
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 9170f6f90b9e9b0a310f3b078c82dcab3f179fb3
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48042794"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49321317"
 ---
 # <a name="automate-user-provisioning-and-deprovisioning-to-saas-applications-with-azure-active-directory"></a>Sağlama ve sağlamayı kaldırma Azure Active Directory ile SaaS uygulamalarına kullanıcı otomatikleştirin
+
 ## <a name="what-is-automated-user-provisioning-for-saas-apps"></a>SaaS uygulamaları için kullanıcı sağlamayı otomatik nedir?
 Azure Active Directory (Azure AD), oluşturma, Bakım ve bulutta kullanıcı kimliklerini kaldırılmasını otomatik hale getirmenizi sağlar ([SaaS](https://azure.microsoft.com/overview/what-is-saas/)) Dropbox, Salesforce, ServiceNow ve diğer uygulamalar.
 
@@ -42,6 +43,7 @@ Azure Active Directory (Azure AD), oluşturma, Bakım ve bulutta kullanıcı kim
 * İzleme ve sorun giderme Yardımı için raporlama ve etkinlik günlükleri.
 
 ## <a name="why-use-automated-provisioning"></a>Otomatik sağlama neden kullanmalısınız?
+
 Bu özelliği kullanmak için bazı ortak motivasyonlardan şunlardır:
 
 * Maliyetleri, verimsiz ve el ile sağlama işlemleriyle ilişkili İnsan hatası önleme.
@@ -69,6 +71,7 @@ Bu özelliği kullanmak için bazı ortak motivasyonlardan şunlardır:
 Azure AD özellikleri SCIM 2.0 standart belirli bölümlerini uygulayan uygulamaları için genel destek yanı sıra çeşitli popüler SaaS uygulamaları ve İnsan Kaynakları sistemleri için destek önceden tümleştirilmiş.
 
 ### <a name="pre-integrated-applications"></a>Önceden tümleştirilmiş uygulamalar
+
 Azure AD, tüm uygulamaların önceden tümleştirilmiş sağlama bağlayıcı destekleyen bir listesi için bkz [kullanıcı sağlama için uygulama öğreticilerin listesine](../saas-apps/tutorial-list.md).
 
 Azure AD kişiye üzerinden bir ileti gönderme mühendislik ekibinin ek uygulamalar için sağlama destek istemek için [Azure Active Directory geri bildirim Forumu](https://feedback.azure.com/forums/374982-azure-active-directory-application-requests/filters/new?category_id=172035).
@@ -77,6 +80,7 @@ Azure AD kişiye üzerinden bir ileti gönderme mühendislik ekibinin ek uygulam
 > Otomatik kullanıcı sağlamayı desteklemek bir uygulama için sırada, gerekli kullanıcı yönetimi için dış programlarda oluşturulmasını, Bakım ve kullanıcıların kaldırılmasını otomatik hale getirmek izin API'leri ilk sağlamalısınız. Bu nedenle, tüm SaaS uygulamaları bu özellik ile uyumlu değildir. Kullanıcı Yönetimi API'leri destekleyen uygulamalar için Azure AD mühendislik ekibi ardından uygulamalarla sağlama bağlayıcı oluşturmak mümkün olacaktır ve bu iş, geçerli ve potansiyel müşterilerin gereksinimlerine göre önceliklendirilir. 
 
 ### <a name="connecting-applications-that-support-scim-20"></a>SCIM 2.0 destekleyen uygulamalar arasında bağlantı kurma
+
 SCIM kullanan uygulamalar genel olarak bağlanma hakkında bilgi için 2.0 - tabanlı kullanıcı yönetimi API'leri bkz [kullanıcıların ve grupların Azure Active Directory'den uygulamalara otomatik olarak sağlamak için SCIM'yi kullanma](use-scim-to-provision-users-and-groups.md).
 
     
@@ -124,6 +128,7 @@ Uygulama Yönetimi ekranında, sağlama yapılandırılan **sağlama** sekmesi.
 Azure AD, kaynak sistem çalışırken, sağlama hizmeti kullanan [fark sorgusu Özelliği Azure AD Graph API](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-differential-query) kullanıcılar ve Gruplar'ı izlemek için. Sağlama hizmeti bir ilk eşitleme, kaynak ve hedef sistemi, düzenli aralıklarla artımlı eşitlemeler tarafından izlenen karşı çalışır. 
 
 ### <a name="initial-sync"></a>İlk eşitleme
+
 Sağlama hizmeti başlatıldığında, şimdiye kadar yapılan ilk eşitleme yapar:
 
 1. Tüm kullanıcılar ve Gruplar'ı kaynak sistemden içinde tanımlanan tüm öznitelikleri alınırken sorgu [öznitelik eşlemelerini](customize-application-attributes.md).
@@ -137,6 +142,7 @@ Sağlama hizmeti başlatıldığında, şimdiye kadar yapılan ilk eşitleme yap
 Yalnızca kullanıcılar sağlama, ancak grupları ve bunların üyeleri de sağlama ServiceNow, Google Apps ve kutusunu desteği gibi bazı uygulamalar. İçinde grup sağlama etkinse, bu durumlarda [eşlemeleri](customize-application-attributes.md), sağlama hizmeti kullanıcıları ve grupları eşitler ve daha sonra grubu üyeliğini eşitler. 
 
 ### <a name="incremental-syncs"></a>Artımlı eşitlemeler
+
 İlk eşitlemeden sonra sonraki tüm eşitlemeler olur:
 
 1. Tüm kullanıcılar ve son Filigran depolanmış beri güncelleştirildi gruplar için kaynak sistemi sorgulayın.
@@ -160,7 +166,8 @@ Sağlama hizmeti uçtan uca artımlı eşitlemeler, tanımlanan aralıklarla ça
 * Yeni bir ilk eşitleme kapsamı belirleme filtreleri ile öznitelik eşlemelerini de bir değişiklik nedeniyle tetiklenir. Bu ayrıca depolanan tüm Filigran temizler ve tüm kaynak nesneleri yeniden değerlendirilecek neden olur.
 * Sağlama işlemi nedeniyle yüksek hata oranı (aşağıya bakın) karantina girer ve dört hafta için karantinaya kalır. Bu durumda hizmet otomatik olarak devre dışı bırakılır.
 
-### <a name="errors-and-retries"></a>Hataları ve yeniden deneme 
+### <a name="errors-and-retries"></a>Hataları ve yeniden deneme
+
 Bireysel bir kullanıcı eklendiğinde, güncelleştirilemiyor veya hedef sistemdeki bir hata nedeniyle hedef sistemde silindi, işlem sonraki eşitleme döngüsünde denenecektir. Kullanıcı başarısız olmaya devam ederse, yeniden denemeler kademeli olarak gün başına yalnızca bir girişimi dön ölçeklendirme daha düşük bir sıklıkta gerçekleşecek şekilde başlar. Hatayı gidermek için Yöneticiler denetlemeniz gerekir [denetim günlükleri](check-status-user-account-provisioning.md) "emanet işleme" kök belirlemek için olayları neden ve uygun eylemi gerçekleştirin. Sık karşılaşılan hatalar içerebilir:
 
 * Kullanıcılar hedef sistemde gerekli kaynak sistemindeki doldurulmuş bir özniteliğe sahip değil
@@ -169,6 +176,7 @@ Bireysel bir kullanıcı eklendiğinde, güncelleştirilemiyor veya hedef sistem
 Bu hatalar, kaynak sistemde etkilenen kullanıcının öznitelik değerleri ayarlayarak ya da çakışmalara neden olmayan için öznitelik eşlemelerini ayarlayarak çözülebilir.   
 
 ### <a name="quarantine"></a>Karantina
+
 Çoğu veya tüm çağrıların hedef sistemde karşı sürekli olarak yapılan (örneğin geçersiz yönetici kimlik bilgileri olduğu gibi) bir hata nedeniyle başarısız, ardından sağlama işi bir "karantina" durumuna geçtiğinde. Bu belirtilen [özet raporu sağlama](check-status-user-account-provisioning.md), e-posta bildirimleri Azure portalında yapılandırıldıysa e-posta aracılığıyla. 
 
 Karantinadaki olduğunda, artımlı eşitlemeler sıklığını kademeli olarak günde bir kere için azaltılır. 
@@ -219,33 +227,33 @@ Tamamlamak süresini etkileyen faktörler özeti bir **ilk eşitleme**:
 * Atanan gruplar boyutunu ve sayı. Atanan gruplar eşitleniyor kullanıcıları eşitleme daha uzun sürer. Sayı ve boyutları atanan gruplar performansı etkileyebilir. Bir uygulama varsa [eşlemeleri için nesne eşitleme grubu etkin](customize-application-attributes.md#editing-group-attribute-mappings)grubu adları gibi Grup Özellikleri ve üyeliklerinin yanı sıra kullanıcılar eşitlenmiş. Bu ek eşitlemeler yalnızca kullanıcı, nesneyi eşitleme daha uzun sürer.
 
 
-##<a name="how-can-i-tell-if-users-are-being-provisioned-properly"></a>Kullanıcı düzgün hazırlanmadı olmadığını nasıl anlayabilirim?
+## <a name="how-can-i-tell-if-users-are-being-provisioned-properly"></a>Kullanıcı düzgün hazırlanmadı olmadığını nasıl anlayabilirim?
 
 Sağlama hizmeti kullanıcı tarafından gerçekleştirilen tüm işlemler Azure AD'de kayıtlı denetim günlükleri. Bu tüm içeren okuma ve yazma işlemleri kaynak ve hedef sistemlerinin yanı sıra kullanıcı verileri okuma veya her işlemi sırasında yazılan çalışıldı.
 
 Nasıl okuma Azure portalında denetim günlükleri hakkında daha fazla bilgi için bkz: [sağlama raporlama Kılavuzu](check-status-user-account-provisioning.md).
 
 
-##<a name="how-do-i-troubleshoot-issues-with-user-provisioning"></a>Kullanıcı hazırlama sorunlarını nasıl giderebilirim?
+## <a name="how-do-i-troubleshoot-issues-with-user-provisioning"></a>Kullanıcı hazırlama sorunlarını nasıl giderebilirim?
 
 Senaryo tabanlı otomatik kullanıcı hazırlama sorunlarını giderme konusunda yönergeler için bkz. [yapılandırmak ve uygulamaya kullanıcı hazırlama sorunlarını](application-provisioning-config-problem.md).
 
 
-##<a name="what-are-the-best-practices-for-rolling-out-automatic-user-provisioning"></a>Otomatik kullanıcı hazırlama kullanıma alma için en iyi uygulamalar nelerdir?
+## <a name="what-are-the-best-practices-for-rolling-out-automatic-user-provisioning"></a>Otomatik kullanıcı hazırlama kullanıma alma için en iyi uygulamalar nelerdir?
 
 > [!VIDEO https://www.youtube.com/embed/MAy8s5WSe3A]
 
 Bir uygulamaya giden kullanıcı sağlama için bir örnek adım adım dağıtım planlama için [kimlik kullanıcı sağlama için Dağıtım Kılavuzu](https://aka.ms/userprovisioningdeploymentplan).
 
-##<a name="more-frequently-asked-questions"></a>Diğer sık sorulan sorular
+## <a name="more-frequently-asked-questions"></a>Diğer sık sorulan sorular
 
-###<a name="does-automatic-user-provisioning-to-saas-apps-work-with-b2b-users-in-azure-ad"></a>Otomatik kullanıcı iş SaaS uygulamaları ile B2B kullanıcıları Azure AD'de sağlamayı mu?
+### <a name="does-automatic-user-provisioning-to-saas-apps-work-with-b2b-users-in-azure-ad"></a>Otomatik kullanıcı iş SaaS uygulamaları ile B2B kullanıcıları Azure AD'de sağlamayı mu?
 
 Evet, SaaS uygulamaları için Azure AD'de hizmet sağlama B2B (veya konuk) kullanıcıları sağlama Azure AD Kullanıcınızı kullanmanız mümkündür.
 
 Ancak, B2B kullanıcıları Azure AD kullanarak SaaS uygulamasında oturum açabilmesi SaaS uygulama belirli bir şekilde yapılandırılmış, SAML tabanlı çoklu oturum açma özelliği olması gerekir. SaaS uygulamalarını B2B kullanıcıları oturum açma işlemleri desteklemek için yapılandırma hakkında daha fazla bilgi için bkz. [yapılandırma SaaS uygulamaları için B2B işbirliği]( https://docs.microsoft.com/azure/active-directory/b2b/configure-saas-apps).
 
-###<a name="does-automatic-user-provisioning-to-saas-apps-work-with-dynamic-groups-in-azure-ad"></a>Otomatik kullanıcı SaaS uygulamaları çalışmaya dinamik grupları ile Azure AD'de sağlamayı mu?
+### <a name="does-automatic-user-provisioning-to-saas-apps-work-with-dynamic-groups-in-azure-ad"></a>Otomatik kullanıcı SaaS uygulamaları çalışmaya dinamik grupları ile Azure AD'de sağlamayı mu?
 
 Evet. Ne zaman "eşitleme yalnızca atanan kullanıcılar ve gruplar için" yapılandırılmış, sağlama hizmetini Azure AD kullanıcı sağlama kaldırabilir kullanıcılara veya bir SaaS uygulamasında üyesi olduğu olup olmadığı hakkında bir [dinamik grup](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-create-rule]). Dinamik gruplar, "tüm kullanıcılar ve grupları eşitleme" seçeneği ile de çalışır.
 
@@ -255,7 +263,7 @@ Ancak, dinamik gruplar kullanımını SaaS uygulamaları için Azure AD'den sağ
 
 * Üyelik kaybı bir sağlamayı kaldırma olay sonuçlanacağı dinamik gruplar kullanırken kuralları dikkatli bir şekilde hazırlama ve sağlamayı göz önünde bulundurun kullanıcıyla dikkate alınmalıdır.
 
-###<a name="does-automatic-user-provisioning-to-saas-apps-work-with-nested-groups-in-azure-ad"></a>Otomatik kullanıcı SaaS uygulamaları çalışmaya iç içe grupları ile Azure AD'de sağlamayı mu?
+### <a name="does-automatic-user-provisioning-to-saas-apps-work-with-nested-groups-in-azure-ad"></a>Otomatik kullanıcı SaaS uygulamaları çalışmaya iç içe grupları ile Azure AD'de sağlamayı mu?
 
 Hayır. "Eşitleme yalnızca atanan kullanıcılar ve gruplar için" yapılandırıldığında, Azure AD kullanıcı sağlama hizmeti okuyun veya iç içe geçmiş gruplardaki kullanıcıların sağlamak mümkün değil. Yalnızca okuma ve anında açıkça atanan grubun üyesi olan kullanıcılar sağlayın.
 
@@ -264,6 +272,7 @@ Bu bir sınırlamadır "Grup tabanlı atamaları uygulamalar için", aynı zaman
 Geçici bir çözüm olarak, açıkça atamasını (veya başka türlü [kapsamını](https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts)) sağlanması gereken kullanıcıları içeren gruplar.
 
 ## <a name="related-articles"></a>İlgili makaleler
+
 * [SaaS uygulamalarını tümleştirme hakkında öğreticiler listesi](../saas-apps/tutorial-list.md)
 * [Kullanıcı sağlama için öznitelik eşlemelerini özelleştirme](customize-application-attributes.md)
 * [Öznitelik eşlemeleri için ifadeler yazma](functions-for-customizing-application-data.md)

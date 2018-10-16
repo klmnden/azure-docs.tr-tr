@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 04/20/2018
 manager: jlembicz
 ms.author: nateko
-ms.openlocfilehash: 579d92f41e41cdb38d4a1eb0bb6e56ce4d4b2a45
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 9f887b065cf4fcc295873ee969030c67d17d9e2f
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47093223"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49318478"
 ---
 # <a name="synonyms-in-azure-search"></a>Azure Search'te eş anlamlıları
 
@@ -148,6 +148,8 @@ Eş Anlamlılar özelliğini OR işleci ile eş anlamlı sözcüklerle özgün s
 Eş anlamlı özellik arama sorguları için geçerlidir ve filtreleri veya özellikleri için geçerli değildir. Benzer şekilde, öneriler, yalnızca özgün terimini dayanır; Eş anlamlı eşleşme yanıtta görünmez.
 
 Eş anlamlı genişletmeleri joker arama terimi için geçerli değildir; ön ek, belirsiz ve normal ifade terimleri genişletilmiş değildir.
+
+Eş anlamlı genişletme ve joker karakter, regex veya belirsiz aramalar geçerli tek bir sorgu yapmanız gerekiyorsa veya söz dizimi kullanılarak sorgular birleştirebilirsiniz. Örneğin, eş anlamlılar joker karakterler için Basit Sorgu söz dizimi ile birleştirmek için terimi olacaktır `<query> | <query>*`.
 
 ## <a name="tips-for-building-a-synonym-map"></a>Bir eş anlamlı eşlemi oluşturmaya yönelik ipuçları
 

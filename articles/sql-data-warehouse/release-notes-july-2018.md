@@ -10,12 +10,12 @@ ms.component: manage
 ms.date: 08/06/2018
 ms.author: twounder
 ms.reviewer: twounder
-ms.openlocfilehash: 5c54505625f40d7c0bd00111e2ff260dc9afaf1c
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: c7d2211ca69fcd18588ea1b20b638b2970b8439c
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43288013"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49318852"
 ---
 # <a name="whats-new-in-azure-sql-data-warehouse-july-2018"></a>Azure SQL veri ambarı'nda yenilikler nelerdir? Temmuz 2018
 Azure SQL veri ambarı, sürekli olarak iyileştirmeler alır. Bu makalede, Temmuz 2018'de sunulan değişiklikler ve yeni özellikleri açıklar.
@@ -30,7 +30,7 @@ Azure SQL veri ambarı, sürekli olarak iyileştirmeler alır. Bu makalede, Temm
 ![Azure SQL veri ambarı, daha hızlı ve ucuz Amazon Redshift](https://azurecomcdn.azureedge.net/mediahandler/acomblog/media/Default/blog/cb76447e-621e-414b-861e-732ffee5345a.png)
 <sub>kaynak: [Gigaom araştırma analisti raporunu: veri ambarı'nda bulut Kıyaslama](https://gigaom.com/report/data-warehouse-in-the-cloud-benchmark/)</sub>
 
-###<a name="query-concurrency"></a>Sorgu eşzamanlılık
+### <a name="query-concurrency"></a>Sorgu eşzamanlılık
 SQL veri ambarı Ayrıca, veri, kuruluşlar arasında erişilebilir olmasını sağlar. Microsoft, böylece daha fazla kullanıcı aynı veritabanını sorgulama yapabilirsiniz ve diğer istekleri tarafından engellenmiş değil 128 eş zamanlı sorguları desteklemek için hizmet geliştirdi. Buna karşılık, Amazon Redshift en fazla eş zamanlı sorguları 50'ye kuruluş içindeki veri erişimi sınırlandırma kısıtlar.
 
 SQL veri ambarı, benzersiz mimarisinin ayrılmış depolama ve işlem ile bağlı bu sorgu performansı ve sorgu eşzamanlılık kazanımları herhangi bir artış fiyat ve yapı olmadan sunar.

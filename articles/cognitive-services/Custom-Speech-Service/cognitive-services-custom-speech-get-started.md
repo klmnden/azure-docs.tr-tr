@@ -1,24 +1,24 @@
 ---
-title: Özel konuşma hizmeti ile çalışmaya başlama
-titlesuffix: Azure Cognitive Services
+title: Azure'da özel konuşma hizmeti ile çalışmaya başlama | Microsoft Docs
 description: Özel konuşma hizmeti için abone ve hizmet etkinlikleri bir modeli eğitmek ve dağıtım yapmak için bir Azure aboneliğine bağlayabilirsiniz.
 services: cognitive-services
 author: PanosPeriorellis
-manager: cgronlun
+manager: onano
 ms.service: cognitive-services
 ms.component: custom-speech
-ms.topic: conceptual
+ms.topic: article
 ms.date: 02/08/2017
 ms.author: panosper
-ROBOTS: NOINDEX
-ms.openlocfilehash: ae72edd626bd91dea7cd2812a3ef821b905f59a4
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 4bbd4c57556fd4bfd176c915e26be4a4d198418a
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47225251"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49339942"
 ---
 # <a name="get-started-with-custom-speech-service"></a>Özel konuşma hizmeti ile çalışmaya başlama
+
+[!INCLUDE [Deprecation note](../../../includes/cognitive-services-custom-speech-deprecation-note.md)]
 
 Özel konuşma hizmeti ana özelliklerini ve oluşturmanızı, dağıtmanızı ve uygulama ihtiyaçlarınız için akustik ve dil modelleri kullanma hakkında bilgi edinin. Özel konuşma Hizmetleri portalda kaydolduktan sonra daha kapsamlı belgeler ve adım adım yönergeler bulunabilir.
 
@@ -34,7 +34,7 @@ Yukarıdaki yürütmeden önce örnek özel konuşma hizmeti için abone ve gere
 Bir istemci kitaplığı ve örnek aracılığıyla yükleyebilirsiniz [SDK](https://www.microsoft.com/cognitive-services/en-us/SDK-Sample?api=bing%20speech&category=sdk). İndirilen ZIP dosyasını tercih ettiğiniz bir klasöre ayıklanmasını gerekiyor, çok sayıda kullanıcı Visual Studio 2015 klasöründe seçin.
 
 ## <a name="creating-a-custom-acoustic-model"></a>Özel akustik model oluşturma
-Belirli bir etki alanı için akustik model özelleştirmek için bir konuşma veri koleksiyonu gereklidir. Bu koleksiyon, konuşma verilerinden oluşan ses dosyası kümesine ve her ses dosyasının transkripsiyonunu içeren bir metin dosyasından oluşur. Ses verisi tanıyıcı kullanmak istediğiniz senaryoyu temsilcisi olmalıdır
+Akustik modeli belirli bir etki alanına özelleştirmek üzere konuşma verilerinden oluşan bir koleksiyona ihtiyaç duyulur. Bu koleksiyon, konuşma verilerinden oluşan ses dosyası kümesine ve her ses dosyasının transkripsiyonunu içeren bir metin dosyasından oluşur. Ses verisi tanıyıcı kullanmak istediğiniz senaryoyu temsilcisi olmalıdır
 
 Örneğin: konuşma gürültülü fabrika ortamında daha iyi tanımak istiyorsanız, ses dosyalarını gürültülü factory'de Konuşmayı kişilerin oluşmalıdır.
 Tek bir Konuşmacı için performansı en iyi duruma getirme ilgileniyorsanız, örneğin tüm FDR'ın Fireside sohbetleri konuşmaların istediğiniz sonra birçok örnekleri yalnızca bu konuşmacının ses dosyalarını oluşmalıdır.
@@ -52,7 +52,7 @@ Bir özel akustik model oluşturma konusunda ayrıntılı bir açıklama bulabil
 Bir özel metin konuşma uç noktası oluşturma hakkında ayrıntılı bir açıklama bulabilirsiniz [burada](CustomSpeech-How-to-Topics/cognitive-services-custom-speech-create-endpoint.md).
 
 ## <a name="using-a-custom-speech-endpoint"></a>Özel konuşma tanıma uç noktası kullanma
-İstekleri CRI metne dönüştürme konuşma uç noktası için varsayılan Azure Bilişsel hizmetler konuşma uç noktası olarak çok benzer bir biçimde gönderilebilir. Bu uç noktaları konuşma tanıma API'si varsayılan uç noktalar için işlevsel olarak eşdeğer olduğunu unutmayın. Bu nedenle, konuşma tanıma API'si için REST API veya istemci kitaplığı aracılığıyla kullanılabilen aynı işlevler ayrıca özel uç noktanız için kullanılabilir.
+İstekleri CRI metne dönüştürme konuşma uç noktası için varsayılan Microsoft Bilişsel hizmetler konuşma uç noktası olarak çok benzer bir biçimde gönderilebilir. Bu uç noktaları konuşma tanıma API'si varsayılan uç noktalar için işlevsel olarak eşdeğer olduğunu unutmayın. Bu nedenle, konuşma tanıma API'si için REST API veya istemci kitaplığı aracılığıyla kullanılabilen aynı işlevler ayrıca özel uç noktanız için kullanılabilir.
 
 Özel Konuşmayı metne uç noktasını kullanma hakkında ayrıntılı bir açıklama bulabilirsiniz [burada](CustomSpeech-How-to-Topics/cognitive-services-custom-speech-use-endpoint.md).
 

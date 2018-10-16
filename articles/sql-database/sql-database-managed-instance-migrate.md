@@ -11,13 +11,13 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 09/26/2018
-ms.openlocfilehash: 6d03a6016d26e7885bedd4a0b56cbab9dab4873e
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.date: 10/15/2018
+ms.openlocfilehash: 6868b842f22a6d107936fcb1e49c46b0c1f58469
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48869891"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49345314"
 ---
 # <a name="sql-server-instance-migration-to-azure-sql-database-managed-instance"></a>Azure SQL veritabanı yönetilen örneği SQL Server örneği geçirme
 
@@ -38,9 +38,9 @@ Yüksek düzeyde, veritabanı geçiş işlemi aşağıdaki gibi görünür:
 
 ## <a name="assess-managed-instance-compatibility"></a>Yönetilen örnek uyumluluğunu değerlendirmek
 
-İlk olarak, yönetilen örneği, uygulamanızın veritabanı gereksinimleriyle uyumlu olup olmadığını belirler. Yönetilen örnek kolay lift and shift ile geçiş için çoğu şirket içi SQL Server kullanan mevcut uygulamaları ya da sanal makineler sağlamak için tasarlanmıştır. Ancak, bazen özellikleri gerektirebilir veya henüz desteklenmeyen bazı özellikler ve geçici bir çözüm uygulama maliyeti çok yüksek. 
+İlk olarak, yönetilen örneği, uygulamanızın veritabanı gereksinimleriyle uyumlu olup olmadığını belirler. Yönetilen örnek kolay lift and shift ile geçiş için çoğu şirket içi SQL Server kullanan mevcut uygulamaları ya da sanal makineler sağlamak için tasarlanmıştır. Ancak, bazen özellikleri gerektirebilir veya henüz desteklenmeyen bazı özellikler ve geçici bir çözüm uygulama maliyeti çok yüksek.
 
-Kullanım [Data Migration Yardımcısı (DMA)](https://docs.microsoft.com/sql/dma/dma-overview) olası algılamak için veritabanı işlevselliğini etkileyen Azure SQL veritabanı uyumluluk sorunları. DMA yönetilen örneğe geçiş hedef olarak henüz desteklemiyor, ancak değerlendirme Azure SQL veritabanınızda çalıştırın ve dikkatli bir şekilde bildirilen özellik eşliği ve uyumluluk sorunlarına karşı ürün belgelerinin listesini incelemek için önerilir. Bkz: [Azure SQL veritabanı özellikleri](sql-database-features.md) denetlemek için bazı bildirilen engelleyici sorunlar yönetilen örneğinde engelleyicilerin ortadan çoğu engelleme sorunları için bir Azure SQL veritabanına geçiş engelleme kaldırıldı, yönetilen ile vardır Örneği. Örnek veritabanları arası sorgular gibi özellikler, aynı örneği, diğer SQL kaynakları, CLR, genel geçici tablolar, bağlantılı sunucuya içinde veritabanları arası işlemler için örnek düzeyi görünümleri, hizmet aracısı ve benzeri yönetilen örnekleri'nde kullanılabilir. 
+Kullanım [Data Migration Yardımcısı (DMA)](https://docs.microsoft.com/sql/dma/dma-overview) olası algılamak için veritabanı işlevselliğini etkileyen Azure SQL veritabanı uyumluluk sorunları. DMA yönetilen örneğe geçiş hedef olarak henüz desteklemiyor, ancak değerlendirme Azure SQL veritabanınızda çalıştırın ve dikkatli bir şekilde bildirilen özellik eşliği ve uyumluluk sorunlarına karşı ürün belgelerinin listesini incelemek için önerilir. Bkz: [Azure SQL veritabanı özellikleri](sql-database-features.md) denetlemek için bazı bildirilen engelleyici sorunlar yönetilen örneğinde engelleyicilerin ortadan çoğu engelleme sorunları için bir Azure SQL veritabanına geçiş engelleme kaldırıldı, yönetilen ile vardır Örneği. Örnek veritabanları arası sorgular gibi özellikler, aynı örneği, diğer SQL kaynakları, CLR, genel geçici tablolar, bağlantılı sunucuya içinde veritabanları arası işlemler için örnek düzeyi görünümleri, hizmet aracısı ve benzeri yönetilen örnekleri'nde kullanılabilir.
 
 Varsa bazı bildirilen Azure SQL veritabanı yönetilen örneği'nde kaldırılmaz engelleme sorunları, alternatif bir seçenek gibi düşünün gerekebilir [azure'daki sanal makinelerde SQL Server](https://azure.microsoft.com/services/virtual-machines/sql-server/). İşte bazı örnekler:
 
@@ -64,12 +64,12 @@ Sanal ağ altyapısı ve yönetilen örneğe nasıl oluşturulacağını öğren
 
 ## <a name="select-migration-method-and-migrate"></a>Geçiş yöntemi seçin ve geçirme
 
-Yönetilen örnek hedefleri kullanıcı senaryoları yığın veritabanı geçişi, şirket içi veya Iaas veritabanı uygulamaları gerekir. Lift- and -shift arka uç, düzenli olarak örnek düzeyi kullanın ve / veya platformlar arası işlevleri uygulamaların gerektiğinde bunlar en iyi seçimdir. Senaryonuz varsa, tüm örneği için karşılık gelen bir Azure ortamında rearchitecture gerek kalmadan uygulamalarınızı taşıyabilirsiniz. 
+Yönetilen örnek hedefleri kullanıcı senaryoları yığın veritabanı geçişi, şirket içi veya Iaas veritabanı uygulamaları gerekir. Lift- and -shift arka uç, düzenli olarak örnek düzeyi kullanın ve / veya platformlar arası işlevleri uygulamaların gerektiğinde bunlar en iyi seçimdir. Senaryonuz buysa, karşılık gelen bir Azure ortamında, uygulamalarının mimarisini yeniden tasarlamak zorunda kalmadan tüm örneğine taşıyabilirsiniz.
 
 SQL örnekleri taşımak için dikkatli bir şekilde planlamanız gerekir:
 
--   (Çalışan aynı örneğinin üzerinde birlikte bulunan olanlar) olması gereken tüm veritabanlarının geçiş
--   Oturum açma bilgileri, kimlik bilgileri, SQL Aracısı işleri ve işleçler ve sunucu düzeyi Tetikleyiciler dahil olmak üzere, uygulamanızın bağımlı örnek düzeyi nesneleri geçirme. 
+- (Çalışan aynı örneğinin üzerinde birlikte bulunan olanlar) olması gereken tüm veritabanlarının geçiş
+- Oturum açma bilgileri, kimlik bilgileri, SQL Aracısı işleri ve işleçler ve sunucu düzeyi Tetikleyiciler dahil olmak üzere, uygulamanızın bağımlı örnek düzeyi nesneleri geçirme.
 
 Yönetilen örnek, yerleşik olarak gibi platforma normal DBA etkinliklerin bazıları temsilci olanak sağlayan tam olarak yönetilen bir hizmettir. Bu nedenle, bazı örnek düzeyi verileri, düzenli yedeklemeler veya Always On yapılandırması için bakım işleri gibi olarak geçirilmesi gerekmez [yüksek kullanılabilirlik](sql-database-high-availability.md) yerleşiktir.
 
@@ -80,7 +80,7 @@ Yönetilen örnek (şu anda bunlar yalnızca desteklenen geçiş yöntemleridir)
 
 ### <a name="azure-database-migration-service"></a>Azure Veritabanı Geçiş Hizmeti
 
-[Azure veritabanı geçiş hizmeti (DMS)](../dms/dms-overview.md) birden çok veritabanı kaynağını sorunsuz geçiş için en düşük kapalı kalma süresi ile Azure Data platformlarına sağlamak için tasarlanmış, tam olarak yönetilen bir hizmettir. Bu hizmeti mevcut üçüncü taraf ve SQL Server veritabanlarını Azure'a taşımak için gereken görevleri kolaylaştırır. Dağıtım seçenekleri genel Önizleme sırasında bir Azure sanal Makineler'de Azure SQL veritabanı yönetilen örneği ve SQL Server içerir. DMS önerilen geçiş, kurumsal iş yükleri için yöntemidir. 
+[Azure veritabanı geçiş hizmeti (DMS)](../dms/dms-overview.md) birden çok veritabanı kaynağını sorunsuz geçiş için en düşük kapalı kalma süresi ile Azure Data platformlarına sağlamak için tasarlanmış, tam olarak yönetilen bir hizmettir. Bu hizmeti mevcut üçüncü taraf ve SQL Server veritabanlarını Azure'a taşımak için gereken görevleri kolaylaştırır. Dağıtım seçenekleri genel Önizleme sırasında bir Azure sanal Makineler'de Azure SQL veritabanı yönetilen örneği ve SQL Server içerir. DMS önerilen geçiş, kurumsal iş yükleri için yöntemidir.
 
 Şirket içi SQL Server üzerinde SQL Server Integration Services (SSIS) kullandığınız DMS SSIS paketlerini depolar geçirme SSIS kataloğunu (SSISDB) henüz desteklemiyor, ancak Azure-SSIS Integration Runtime (IR) Azure Data Factory (ADF) sağlayabilirsiniz, olur Azure SQL veritabanı'nda yeni SSISDB oluşturma/yönetilen örnek ve ardından ona paketlerinizi yeniden, bkz: [ADF içinde Azure-SSIS IR oluşturma](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime).
 
@@ -88,7 +88,7 @@ DMS için bu senaryo ve yapılandırma adımları hakkında daha fazla bilgi edi
 
 ### <a name="native-restore-from-url"></a>URL yerel YEDEKTEN geri yükleyin
 
-SQL Server şirket içinden alınan yerel yedeklemeler (.bak dosyaları) geri yükleme veya [sanal makinelerde SQL Server](https://azure.microsoft.com/services/virtual-machines/sql-server/)üzerinden [Azure depolama](https://azure.microsoft.com/services/storage/), bir SQL DB yönetilen örneği önemli özellikleri, hızlı ve kolay bir şekilde çevrimdışı etkinleştirir, geçiş veritabanı. 
+SQL Server şirket içinden alınan yerel yedeklemeler (.bak dosyaları) geri yükleme veya [sanal makinelerde SQL Server](https://azure.microsoft.com/services/virtual-machines/sql-server/)üzerinden [Azure depolama](https://azure.microsoft.com/services/storage/), bir SQL DB yönetilen örneği önemli özellikleri, hızlı ve kolay bir şekilde çevrimdışı etkinleştirir, geçiş veritabanı.
 
 Aşağıdaki diyagram, işlemin üst düzey bir genel bakış sağlar:
 
@@ -121,6 +121,7 @@ Tam olarak yönetilen bir platformda olduktan sonra otomatik olarak SQL veritaba
 Ayrıca, yüksek oranda kullanılabilir ayarlama endişelenmeniz gerekmez [yüksek kullanılabilirlik](sql-database-high-availability.md) yerleşiktir.
 
 Güvenliği güçlendirmek için kullanılabilir olan özelliklerin bazılarını kullanarak göz önünde bulundurun:
+
 - Azure Active Directory kimlik doğrulaması ve veritabanı düzeyinde
 - Kullanım [Gelişmiş güvenlik özellikleri](sql-database-security-overview.md) gibi [denetim](sql-database-managed-instance-auditing.md), [tehdit algılama](sql-advanced-threat-protection.md), [satır düzeyi güvenlik](https://docs.microsoft.com/sql/relational-databases/security/row-level-security), ve [dinamik Veri maskeleme](https://docs.microsoft.com/sql/relational-databases/security/dynamic-data-masking) ) örneğinizin güvenliğini sağlamak için.
 

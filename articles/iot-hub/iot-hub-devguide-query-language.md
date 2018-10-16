@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 02/26/2018
 ms.author: elioda
-ms.openlocfilehash: 4aa4a3b1e617009d88c581966f791569322d967f
-ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
+ms.openlocfilehash: f28a41f4a80806df14e314dae05405b7b45449b1
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48018444"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49318257"
 ---
 # <a name="iot-hub-query-language-for-device-and-module-twins-jobs-and-message-routing"></a>Cihaz ve modül ikizleri, işler ve ileti yönlendirme için IOT Hub sorgu dili
 
@@ -176,7 +176,7 @@ Bu sorgu tüm modül ikizlerini tarama durumundaki, ancak yalnızca cihazları b
 ```sql
 Select * from devices.modules 
   where properties.reported.status = 'scanning' 
-  and deviceId IN ('device1', 'device2')  
+  and deviceId IN ['device1', 'device2']
 ```
 
 ### <a name="c-example"></a>C# örneği

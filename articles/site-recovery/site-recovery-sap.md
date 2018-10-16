@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: asgang
-ms.openlocfilehash: 95e5c53da2556293fc676fa5b1db9b4585038300
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: a498ac9f973bbcf87bec104f18b542cc7e8b5800
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37921433"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49318699"
 ---
 # <a name="protect-a-multi-tier-sap-netweaver-application-deployment-by-using-site-recovery"></a>Site Recovery kullanarak çok katmanlı SAP NetWeaver uygulama dağıtımını koruma
 
@@ -71,10 +71,10 @@ Olağanüstü Durum Kurtarma (DR), ikincil bir bölgeye yük devretme mümkün o
 #### <a name="vms-running-sap-web-dispatcher-pool"></a>SAP Web Dispatcher havuzu çalıştıran VM'ler 
 Web Dispatcher bileşen SAP trafiği SAP uygulama sunucuları arasında bir yük dengeleyici olarak kullanılır. Web Dispatcher bileşeni için yüksek kullanılabilirlik elde etmek için Azure Load Balancer dengeleyici havuzunda kullanılabilir Web dağıtıcıları arasında HTTP (S) trafiğinin dağıtım için hepsini bir kez deneme yapılandırmasında paralel Web dağıtıcısı Kurulum uygulamak için kullanılır. Bu Azure Site kasadır kullanarak çoğaltılır ve yük dengeleyici üzerinde olağanüstü durum kurtarma bölgesindeki yapılandırmak için Otomasyon betikleri kullanılır. 
 
-####<a name="vms-running-application-servers-pool"></a>Uygulama sunucuları havuzu çalıştıran VM'ler
+#### <a name="vms-running-application-servers-pool"></a>Uygulama sunucuları havuzu çalıştıran VM'ler
 SMLG işlem ABAP uygulama sunucuları için oturum açma grupları yönetmek için kullanılır. Yük Dengeleme ileti sunucusu merkezi Hizmetleri işlevindeki SAPGUIs ve RFC için SAP uygulama sunucuları havuzu arasındaki iş yükünü dağıtmak için kullandığı trafiği. Bu Azure Site Recovery kullanılarak çoğaltılır 
 
-####<a name="vms-running-sap-central-services-cluster"></a>SAP Central Services'in kümesi çalıştıran VM'ler
+#### <a name="vms-running-sap-central-services-cluster"></a>SAP Central Services'in kümesi çalıştıran VM'ler
 Bu başvuru mimarisi, uygulama katmanında Vm'lerde merkezi hizmetleri çalıştırır. Merkezi Hizmetleri için tek bir VM dağıtılırken hata (SPOF) bir olası tek noktası olan — yüksek kullanılabilirlik gereksinimi olmadığı durumlarda tipik dağıtım.<br>
 
 Bir yüksek kullanılabilirlik çözümü uygulamak için bir paylaşılan disk kümesi veya dosya paylaşımı kümesi kullanılabilir. Paylaşılan disk kümesi için Vm'leri yapılandırmak için Windows Server Yük devretme kümesi kullanın. Bulut Tanığını bir çekirdek tanığı olarak önerilir. 
@@ -110,7 +110,7 @@ Aşağıda bu örnekte kullanılan her bir katman olağanüstü durum kurtarma i
 **Active directory sanal makineler** |  Active directory çoğaltma 
 **SQL veritabanı sunucuları** |  SQL çoğaltma her zaman açık
 
-##<a name="replicate-virtual-machines"></a>Çoğaltma sanal makineler
+## <a name="replicate-virtual-machines"></a>Çoğaltma sanal makineler
 
 Tüm SAP uygulama sanal makineleri Azure'a olağanüstü durum kurtarma veri merkezine çoğaltma başlatmak için sunulan yönergeleri [bir sanal makine, Azure'a](azure-to-azure-walkthrough-enable-replication.md).
 

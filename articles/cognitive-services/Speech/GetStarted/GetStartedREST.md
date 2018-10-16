@@ -10,15 +10,16 @@ ms.component: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
-ROBOTS: NOINDEX
-ms.openlocfilehash: 0f98182a73cebdd4df9f7849b2306f89c620f24b
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: a9f74f4032a78ee51ea2a8f020cd1418bb3330ca
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46973958"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49345365"
 ---
 # <a name="quickstart-use-the-bing-speech-recognition-rest-api"></a>Hızlı Başlangıç: REST API Bing konuşma tanıma kullanın.
+
+[!INCLUDE [Deprecation note](../../../../includes/cognitive-services-bing-speech-api-deprecation-note.md)]
 
 Bulut tabanlı Bing konuşma hizmeti sayesinde konuşma kayıtlarını metne dönüştürmesine için REST API kullanarak uygulamalar geliştirebilirsiniz.
 
@@ -78,7 +79,7 @@ Aşağıdaki alanlar, istek üstbilgisinde ayarlamanız gerekir:
 - `Ocp-Apim-Subscription-Key`: Hizmete çağrı her zaman abonelik anahtarınızı geçmelidir `Ocp-Apim-Subscription-Key` başlığı. Konuşma hizmeti de yetkilendirmeyi destekler Abonelik anahtarları yerine belirteçler. Daha fazla bilgi için [kimlik doğrulaması](../How-to/how-to-authentication.md).
 - `Content-type``Content-type` Alan biçimini ve ses akışı codec bileşenini açıklar. Şu anda yalnızca WAV dosyası ve PCM Mono 16000 kodlama desteklenir. Bu biçim içerik türü değeri `audio/wav; codec=audio/pcm; samplerate=16000`.
 
-`Transfer-Encoding` Alandır isteğe bağlı. Bu alan ayarlamanız `chunked`, ses küçük öbeklere kesme. Daha fazla bilgi için [öbekli aktarım](../How-to/how-to-chunked-transfer.md).
+`Transfer-Encoding` alanı isteğe bağlıdır. Bu alan ayarlamanız `chunked`, ses küçük öbeklere kesme. Daha fazla bilgi için [öbekli aktarım](../How-to/how-to-chunked-transfer.md).
 
 Bir örnek istek üstbilgisi aşağıda verilmiştir:
 

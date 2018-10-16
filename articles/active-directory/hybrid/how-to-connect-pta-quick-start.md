@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/03/2018
+ms.date: 09/28/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 29517f057599c7bf108d1c4d525b6c67c1b6b46a
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 8b45acebf95d5bf24ff2045f5739c8584f374842
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46311454"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49320467"
 ---
 # <a name="azure-active-directory-pass-through-authentication-quick-start"></a>Azure Active Directory geçişli kimlik doğrulaması: Hızlı Başlangıç
 
@@ -48,7 +48,7 @@ Aşağıdaki önkoşulların yerinde olduğundan emin olun.
 2. Yükleme [Azure AD Connect'in en son sürümünü](https://www.microsoft.com/download/details.aspx?id=47594) önceki adımda tanımlanan sunucusunda. Azure AD Connect çalıştırma zaten varsa, sürüm 1.1.750.0 olduğundan emin olun veya üzeri.
 
     >[!NOTE]
-    >Azure AD Connect sürüm 1.1.557.0, 1.1.558.0 1.1.561.0 ve 1.1.614.0 parola karması eşitleme için ilgili bir sorun var. Varsa, _yoksa_ okuma geçişli kimlik doğrulaması ile birlikte parola karması eşitleme kullanmayı düşündüğünüz [Azure AD Connect sürüm notları](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-version-history#116470).
+    >Azure AD Connect sürüm 1.1.557.0, 1.1.558.0 1.1.561.0 ve 1.1.614.0 parola karması eşitleme için ilgili bir sorun var. Varsa, _yoksa_ okuma geçişli kimlik doğrulaması ile birlikte parola karması eşitleme kullanmayı düşündüğünüz [Azure AD Connect sürüm notları](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-version-history#116470).
 
 3. Bir veya daha fazla ek sunucularını belirleyin (Windows Server 2012 R2 çalıştıran veya üzeri) burada çalıştırabileceğiniz tek başına kimlik doğrulama aracılarının. Bu ek sunucular, oturum açmak için istekleri yüksek kullanılabilirliğini sağlamak için gereklidir. Sunucular aynı Active Directory ormanında parolaları doğrulamanız gereken kullanıcılar ekleyin.
 
@@ -57,13 +57,13 @@ Aşağıdaki önkoşulların yerinde olduğundan emin olun.
 
 4. Sunucular ve Azure AD arasında bir güvenlik duvarı varsa, aşağıdakileri yapılandırın:
    - Kimlik doğrulama aracılarının yaptığınızdan emin olun *giden* aşağıdaki bağlantı noktaları üzerinden Azure AD'ye istekler:
-   
+
     | Bağlantı noktası numarası | Nasıl kullanılır |
     | --- | --- |
     | **80** | SSL sertifikası doğrulanırken sertifika iptal listelerini (CRL'ler) indirmeleri |
     | **443** | Giden iletişimin hizmeti ile işleme |
     | **8080** (isteğe bağlı) | Bağlantı noktası 443 kullanılamıyorsa, kimlik doğrulama aracılarının durumlarını on dakikada bir, 8080 bağlantı noktası üzerinden bildirin. Bu durum Azure AD portalında görüntülenir. Bağlantı noktası 8080 _değil_ kullanıcı oturum açma işlemleri için kullanılır. |
-   
+
     Güvenlik duvarınızı kurallara göre kaynak kullanıcılar zorunlu kılarsa ağ hizmeti olarak çalışan Windows hizmetlerinden trafik için bu bağlantı noktalarını açın.
    - Güvenlik Duvarı veya proxy DNS beyaz listeye ekleme, beyaz liste bağlanmasını sağlar,  **\*. msappproxy.net** ve  **\*. servicebus.windows.net**. Aksi takdirde, erişim izni [Azure veri merkezi IP aralıkları](https://www.microsoft.com/download/details.aspx?id=41653), hangi haftalık güncelleştirildi.
    - Kimlik doğrulama aracılarının erişmesi **login.windows.net** ve **login.microsoftonline.com** ilk kayıt için. Bu URL'ler için Güvenlik Duvarı'nı açın.
@@ -132,13 +132,13 @@ Tek başına bir kimlik doğrulama Aracısı dağıtmak için iki yolu vardır:
 
 1. Bir kimlik doğrulama aracısı yüklemek için aşağıdaki komutu çalıştırın: `AADConnectAuthAgentSetup.exe REGISTERCONNECTOR="false" /q`.
 2. Kimlik Doğrulama Aracısı hizmetimiz ile Windows PowerShell kullanarak kaydedebilirsiniz. Bir PowerShell kimlik bilgileri nesnesi oluşturma `$cred` kiracınız için genel yönetici kullanıcı adı ve parola içeren. Aşağıdaki komutu çalıştırın değiştirerek *\<kullanıcıadı\>* ve  *\<parola\>*:
-   
+
         $User = "<username>"
         $PlainPassword = '<password>'
         $SecurePassword = $PlainPassword | ConvertTo-SecureString -AsPlainText -Force
         $cred = New-Object –TypeName System.Management.Automation.PSCredential –ArgumentList $User, $SecurePassword
 3. Git **C:\Program Files\Microsoft Azure AD Connect kimlik doğrulaması Aracısı** ve kullanarak aşağıdaki betiği çalıştırın `$cred` oluşturduğunuz nesnesi:
-   
+
         RegisterConnector.ps1 -modulePath "C:\Program Files\Microsoft Azure AD Connect Authentication Agent\Modules\" -moduleName "AppProxyPSModule" -Authenticationmode Credentials -Usercredentials $cred -Feature PassthroughAuthentication
 
 ## <a name="next-steps"></a>Sonraki adımlar
@@ -151,4 +151,3 @@ Tek başına bir kimlik doğrulama Aracısı dağıtmak için iki yolu vardır:
 - [Güvenliğe derinlemesine bakış](how-to-connect-pta-security-deep-dive.md): geçişli kimlik doğrulaması özelliği hakkında teknik bilgi alın.
 - [Azure AD sorunsuz çoklu oturum açma](how-to-connect-sso.md): tamamlayıcı bu özellik hakkında daha fazla bilgi edinin.
 - [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect): dosya yeni özellik istekleri için Azure Active Directory Forumu kullanın.
-

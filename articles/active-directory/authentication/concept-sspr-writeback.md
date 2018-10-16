@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 43d2ba496be90e9e87185e6365dd998adccfa09d
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 3d9d6aef4fafd6013c86fd5d5883222c0f32b34d
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48804540"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49319385"
 ---
 # <a name="what-is-password-writeback"></a>Parola geri yazma nedir?
 
@@ -25,7 +25,7 @@ Parola geri yazma özelliğini kullanan ortamlarda desteklenir:
 
 * [Active Directory Federasyon Hizmetleri](../hybrid/how-to-connect-fed-management.md)
 * [Parola karması eşitleme](../hybrid/how-to-connect-password-hash-synchronization.md)
-* [Geçişli kimlik doğrulaması](../hybrid/how-to-connect-pta.md)
+* [Doğrudan kimlik doğrulama](../hybrid/how-to-connect-pta.md)
 
 > [!WARNING]
 > Parola geri yazma, Azure AD Connect sürüm 1.0.8641.0 ve eski olduğunda kullanan müşteriler için çalışma durdurur [Azure erişim denetimi hizmeti (ACS) 7 Kasım 2018'de kullanımdan](../develop/active-directory-acs-migration.md). Azure AD Connect sürüm 1.0.8641.0 eski ve bunlar üzerinde ACS işlevselliği için bağımlı olduğundan parola geri yazma o anda artık izin verir.
@@ -43,6 +43,7 @@ Parola geri yazma sağlar:
 
 > [!Note]
 > Parola geri yazma ile şirket içi Active Directory'de korumalı gruplardaki mevcut kullanıcı hesapları kullanılamaz. Korunan grupları hakkında daha fazla bilgi için bkz. [korumalı hesaplar ve gruplar Active Directory'de](https://technet.microsoft.com/library/dn535499.aspx).
+>
 
 ## <a name="licensing-requirements-for-password-writeback"></a>Parola geri yazma için lisans gereksinimleri
 
@@ -69,28 +70,30 @@ Federe veya parola karma sıfırlama veya buluttaki parolalarını değiştirme 
 1. Kullanıcının parola türüne sahip görmek için bir onay yapılır. Yönetilen şirket içi parola ise:
    * Geri yazma hizmetinde çalışır duruma olup olmadığını görmek için bir onay yapılır. Bu durumda, kullanıcı geçebilirsiniz.
    * Geri yazma hizmetinin kapalı ise, kullanıcı parolalarını hemen sıfırlanamaz bilgisi verilir.
-2. Ardından, kullanıcı uygun kimlik doğrulama geçitleri geçirir ve ulaştığında **parolayı Sıfırla** sayfası.
-3. Kullanıcı yeni bir parola seçer ve bunu doğrular.
-4. Kullanıcı seçtiğinde **Gönder**, düz metin parola geri yazma Kurulum işlemi sırasında oluşturulan bir simetrik anahtarla şifrelenir.
-5. Şifreli parola, bir HTTPS kanalı üzerinden (yani sizin için geri yazma Kurulum işlemi sırasında kurulmuştur), bir kiracıya özgü service bus geçişi için gönderilen bir yükte dahildir. Bu geçiş, yalnızca şirket içi yüklemenizi bildiği rastgele oluşturulmuş bir parolayla korunuyor.
-6. Service bus iletiyi ulaştıktan sonra parola sıfırlama uç noktası otomatik olarak uyanır ve sıfırlama isteği bekliyor olduğunu görür.
-7. Hizmet bulut çapa özniteliği kullanılarak kullanıcı için ardından arar. Bu arama başarılı olması:
+1. Ardından, kullanıcı uygun kimlik doğrulama geçitleri geçirir ve ulaştığında **parolayı Sıfırla** sayfası.
+1. Kullanıcı yeni bir parola seçer ve bunu doğrular.
+1. Kullanıcı seçtiğinde **Gönder**, düz metin parola geri yazma Kurulum işlemi sırasında oluşturulan bir simetrik anahtarla şifrelenir.
+1. Şifreli parola, bir HTTPS kanalı üzerinden (yani sizin için geri yazma Kurulum işlemi sırasında kurulmuştur), bir kiracıya özgü service bus geçişi için gönderilen bir yükte dahildir. Bu geçiş, yalnızca şirket içi yüklemenizi bildiği rastgele oluşturulmuş bir parolayla korunuyor.
+1. Service bus iletiyi ulaştıktan sonra parola sıfırlama uç noktası otomatik olarak uyanır ve sıfırlama isteği bekliyor olduğunu görür.
+1. Hizmet bulut çapa özniteliği kullanılarak kullanıcı için ardından arar. Bu arama başarılı olması:
 
    * Kullanıcı nesnesi Active Directory Bağlayıcı alanında bulunmalıdır.
    * Kullanıcı nesnesi karşılık gelen meta veri deposu (MV) nesnesine bağlanmalıdır.
    * Kullanıcı nesnesi ilgili Azure Active Directory Bağlayıcısı nesneye bağlı olması gerekir.
-   * Active Directory Bağlayıcısı nesnesinden MV bağlantısını eşitleme kuralı olmalıdır `Microsoft.InfromADUserAccountEnabled.xxx` bağlantısına. <br> <br>
+   * Active Directory Bağlayıcısı nesnesinden MV bağlantısını eşitleme kuralı olmalıdır `Microsoft.InfromADUserAccountEnabled.xxx` bağlantısına.
+   
    Çağrı buluttan geldiğinde, eşitleme altyapısı kullanan **cloudAnchor** Azure Active Directory Bağlayıcı alanı nesne aramak için özniteliği. Ardından bağlantıyı MV nesnesine geri izler ve sonra bağlantı geri Active Directory nesnesi için izler. Eşitleme altyapısı aynı kullanıcı birden çok Active Directory nesnelerini (çok ormanlı) olabileceğinden kullanır `Microsoft.InfromADUserAccountEnabled.xxx` doğru olanı seçmek için bağlantı.
 
    > [!Note]
    > Sonucunda bu mantık, için parola geri yazma, Azure AD Connect çalışmak için birincil etki alanı denetleyicisi (PDC) öykünücüsü ile iletişim kurabildiğini olması gerekir. Bu el ile etkinleştirmeniz gerekirse, Azure AD Connect için PDC öykünücüsü bağlanabilirsiniz. Sağ **özellikleri** Active Directory eşitleme bağlayıcısının ardından **dizin bölümlerini Yapılandır**. Buradan arayın **etki alanı denetleyicisi bağlantı ayarları** bölümünde ve kutucuğu seçin **yalnızca tercih edilen etki alanı denetleyicileri kullanmak**. Tercih edilen etki alanı denetleyicisi PDC öykünücüsü değilse bile Azure AD Connect parola geri yazma için PDC'ye bağlanma girişiminde bulunur.
 
-8. Kullanıcı hesabı bulunduğunda, doğrudan uygun Active Directory ormanında parolayı sıfırlamak için bir deneme yapılır.
-9. Parola ayarlama işlemi başarılı olursa, kullanıcının parolasını değiştirdiğinden bildirilir.
+1. Kullanıcı hesabı bulunduğunda, doğrudan uygun Active Directory ormanında parolayı sıfırlamak için bir deneme yapılır.
+1. Parola ayarlama işlemi başarılı olursa, kullanıcının parolasını değiştirdiğinden bildirilir.
    > [!NOTE]
    > Kullanıcının parola karmasını Azure AD'ye parola karması eşitleme kullanılarak eşitlenmişse şirket içi parola ilkesini bulut parola ilkesini zayıf bir fırsat yoktur. Bu durumda, şirket içi ilke uygulanmaz. Bu ilke, çoklu oturum açma sağlamak için parola karması eşitleme veya Federasyon kullanıyorsanız şirket içi ilkenizi bulutta olursa olsun uygulanmasını sağlar.
+   >
 
-10. Parola ayarlama işleminin başarısız olması, bir hata yeniden denemek için kullanıcıya sorar. İşlemi nedeniyle başarısız olabilir:
+1. Parola ayarlama işleminin başarısız olması, bir hata yeniden denemek için kullanıcıya sorar. İşlemi nedeniyle başarısız olabilir:
    * Hizmet oldu.
    * Seçili parola kuruluşun ilkelerini karşılamadı.
    * Yerel Active Directory kullanıcı bulma yapılamıyor.
@@ -107,10 +110,10 @@ Parola geri yazma özelliğini bir yüksek oranda güvenli bir hizmettir. Bilgil
    * Service bus geçişi oluşturulduktan sonra güçlü bir simetrik anahtar, kablo üzerinden gelen parolayı şifrelemek için kullanılan oluşturulur. Bu anahtar yalnızca yoğun kilitli ve denetlenen dizindeki başka bir parola olduğu gibi bulutta şirketinizin gizli dizi deposu içinde bulunur.
 * **Sektörde standart Aktarım Katmanı Güvenliği (TLS)**
    1. Bir parola sıfırlama veya değiştirme işlemi bulutta oluşur, düz metin parolayı ortak anahtarınızı ile şifrelenir.
-   2. Şifreli parola, şifrelenmiş bir kanal üzerinden Microsoft SSL sertifikaları için service bus Geçişi'ni kullanarak gönderilen bir HTTPS iletisine yerleştirilir.
-   3. Service bus İleti ulaştıktan sonra şirket içi aracınızı uyanır ve service bus-daha önce oluşturulmuş güçlü bir parola kullanarak kimliğini doğrular.
-   4. Şirket içi aracı şifreli ileti seçer ve özel anahtarı kullanarak şifresini çözer.
-   5. Şirket içi aracı AD DS SetPassword API'sinden parola ayarlama girişiminde bulunur. Bu adım ne Active Directory şirket içi parola ilkenizde (örneğin, karmaşıklık, yaş, geçmiş ve filtreleri) uygulanması sağlar, bulutun içinde bulunuyor.
+   1. Şifreli parola, şifrelenmiş bir kanal üzerinden Microsoft SSL sertifikaları için service bus Geçişi'ni kullanarak gönderilen bir HTTPS iletisine yerleştirilir.
+   1. Service bus İleti ulaştıktan sonra şirket içi aracınızı uyanır ve service bus-daha önce oluşturulmuş güçlü bir parola kullanarak kimliğini doğrular.
+   1. Şirket içi aracı şifreli ileti seçer ve özel anahtarı kullanarak şifresini çözer.
+   1. Şirket içi aracı AD DS SetPassword API'sinden parola ayarlama girişiminde bulunur. Bu adım ne Active Directory şirket içi parola ilkenizde (örneğin, karmaşıklık, yaş, geçmiş ve filtreleri) uygulanması sağlar, bulutun içinde bulunuyor.
 * **İleti süre sonu ilkeleri**
    * Şirket içi hizmetiniz çalışmadığı için service bus ileti bulunur, zaman aşımına uğrar ve birkaç dakika sonra kaldırılır. Zaman aşımı ve iletinin kaldırılması ve güvenliği daha da artırır.
 

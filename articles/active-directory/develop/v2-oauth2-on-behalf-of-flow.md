@@ -17,12 +17,12 @@ ms.date: 06/06/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: da13b7b7b9bd39692db422a315383e0f12aae453
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 8ff46246d46a6028bc83b8fdf9c984e87f5578a5
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43344885"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49320314"
 ---
 # <a name="azure-active-directory-v20-and-oauth-20-on-behalf-of-flow"></a>Azure Active Directory v2.0 ve OAuth 2.0 On-Behalf-Of akış
 OAuth 2.0 akışı bir uygulama hizmeti/sırayla başka çağırmak için gereken web API'si, burada çağırır kullanım örneği hizmet On-Behalf-Of hizmet/web API'si. İstek zincirinin aracılığıyla izinleri ve yetkilendirilmiş kullanıcının kimlik yayılması olur. Orta katman hizmet kimliği doğrulanmış istekler aşağı akış hizmetinize, Azure Active Directory'den (Azure AD), bir erişim belirteci güvenliğini sağlamak kullanıcının adına olmalıdır.
@@ -33,7 +33,7 @@ OAuth 2.0 akışı bir uygulama hizmeti/sırayla başka çağırmak için gereke
 
 
 > [!IMPORTANT]
-> [Örtük vermeyi](v2-oauth2-implicit-grant-flow.md) kullanılamaz On-Behalf-Of akışı için - Spa'lar OBO akışları gerçekleştirmek için orta katman gizli bir istemci için kendi (örtük akış) erişim belirteci geçmelidir. Bkz: [sınırlamaları](#client-limitations) üzerinde istemcileri On-Behalf-Of çağrıları gerçekleştirebilir daha fazla ayrıntı için.  
+> Mayıs 2018'den itibaren bir `id_token` kullanılamaz On-Behalf-Of akışı için - Spa'lar geçmesi gereken bir **erişim** OBO gerçekleştirmek için gizli bir istemci bir orta katman belirtecini akar. Bkz: [sınırlamaları](#client-limitations) üzerinde istemcileri On-Behalf-Of çağrıları gerçekleştirebilir daha fazla ayrıntı için.
 
 ## <a name="protocol-diagram"></a>Protokol diyagramı
 Kullanıcı bir uygulama kullanarak doğrulandıktan varsayar [OAuth 2.0 yetkilendirme kodu verme akışı](v2-oauth2-auth-code-flow.md). Bu noktada, uygulama erişim belirteci sahip *API a* (simge, A) kullanıcı talepleri ve orta katmanda erişmek için bir onay ile API (API A) web. Şimdi, API bir aşağı akış web API'sine (API B) kimliği doğrulanmış bir istekte gerekir.

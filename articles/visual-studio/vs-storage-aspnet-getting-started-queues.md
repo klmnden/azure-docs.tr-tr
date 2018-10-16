@@ -12,14 +12,15 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 12/23/2016
 ms.author: ghogen
-ms.openlocfilehash: 26f303318320eb8b039503666841e518f75348e4
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: a114833b40fe834aa0108d1a2f3821f0b7cbddbc
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42055944"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49321861"
 ---
 # <a name="get-started-with-azure-queue-storage-and-visual-studio-connected-services-aspnet"></a>Azure kuyruk depolama ve Visual Studio bağlı Hizmetleri (ASP.NET) kullanmaya başlama
+
 [!INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-queues.md)]
 
 ## <a name="overview"></a>Genel Bakış
@@ -28,7 +29,7 @@ Azure kuyruk depolama, uygulama bileşenleri arasında bulut Mesajlaşma sağlar
 
 Bu öğretici, Azure kuyruk depolama varlıkları kullanarak bazı genel senaryolar için ASP.NET kodunun nasıl yazılacağını gösterir. Bu senaryolar, bir Azure kuyruk oluşturma ve ekleme, değiştirme, okuma ve kuyruk iletilerine kaldırma gibi ortak görevleri içerir.
 
-##<a name="prerequisites"></a>Önkoşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 * [Microsoft Visual Studio](https://www.visualstudio.com/downloads/)
 * [Azure depolama hesabı](../storage/common/storage-quickstart-create-account.md)
@@ -452,7 +453,7 @@ Bu bölümde, kuyruk uzunluğu (ileti sayısı) almak nasıl gösterir.
     queue.FetchAttributes();
     ```
 
-6. Erişim **CloudQueue.ApproximateMessageCount** kuyruğun uzunluğu alınacağı özellik.
+1. Erişim **CloudQueue.ApproximateMessageCount** kuyruğun uzunluğu alınacağı özellik.
  
     ```csharp
     int? nMessages = queue.ApproximateMessageCount;

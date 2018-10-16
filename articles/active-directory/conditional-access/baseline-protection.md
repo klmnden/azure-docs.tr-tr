@@ -1,5 +1,5 @@
 ---
-title: Bir temel koruma Azure Active Directory koşullu erişim nedir? -Önizleme | Microsoft Docs
+title: Bir temel koruma Azure Active Directory koşullu erişim nedir? - önizleme | Microsoft Docs
 description: Nasıl temel koruma, Azure Active Directory ortamında etkin güvenlik temel düzeyde en az sahip olmasını sağlar. öğrenin.
 services: active-directory
 keywords: uygulamalara koşullu erişim, Azure AD ile koşullu erişim, şirket kaynaklarına güvenli erişim, koşullu erişim ilkeleri
@@ -17,12 +17,12 @@ ms.workload: identity
 ms.date: 08/08/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: ef2b5dd393974ddf700235991b60ec66031e34c2
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 6ee89aa901c9553d22470a0481909e9cd62d60cf
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47222276"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49345139"
 ---
 # <a name="what-is-baseline-protection-preview"></a>Taban çizgisi protection (Önizleme) nedir?  
 
@@ -86,7 +86,7 @@ Temel ilkeleri önizlemede olsa da, bunlar varsayılan olarak etkin. El ile etki
 
 Temel ilkeye dahil Dizin rolleri en yüksek ayrıcalıklı bir Azure AD rolleridir. 
 
-Komut dosyalarınızda kullanılan hesapları ayrıcalıklı, değiştirmelisiniz [yönetilen hizmet kimliği (MSI)](../managed-identities-azure-resources/overview.md) veya [hizmet sorumluları sertifikalarla](../../azure-resource-manager/resource-group-authenticate-service-principal.md). Geçici bir çözüm, belirli kullanıcı hesaplarını temel ilkesinden hariç tutabilirsiniz. 
+Betiğinizde kullanılan hesapları ayrıcalıklı, değiştirmelisiniz [kimliklerini Azure kaynakları için yönetilen](../managed-identities-azure-resources/overview.md) veya [hizmet sorumluları sertifikalarla](../../azure-resource-manager/resource-group-authenticate-service-principal.md). Geçici bir çözüm, belirli kullanıcı hesaplarını temel ilkesinden hariç tutabilirsiniz. 
 
 Temel ilkeleri POP, IMAP, eski Office masaüstü istemcisi gibi eski bir kimlik doğrulama akışları için geçerlidir. 
 

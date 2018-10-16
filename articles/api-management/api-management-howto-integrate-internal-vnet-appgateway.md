@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/26/2018
 ms.author: sasolank
-ms.openlocfilehash: ce4fd27c89f529b9c12999689152c3025648d2ce
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: c85aa2f7a41511d809405f3b92c9ded2eb0693ad
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "42054746"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49319872"
 ---
 # <a name="integrate-api-management-in-an-internal-vnet-with-application-gateway"></a>API yönetimi bir iç sanal ağ'ı Application Gateway ile tümleştirme
 
-##<a name="overview"> </a> Genel bakış
+## <a name="overview"> </a> Genel bakış
 
 API Management hizmeti, bir sanal ağ sanal ağ içindeki yalnızca erişilebilir olmasını sağlayan iç modunda yapılandırılabilir. Azure Application Gateway, bir katman 7 yük dengeleyici sağlar bir PAAS hizmeti, ' dir. Ters proxy hizmeti olarak çalışır ve onun bir Web uygulaması Güvenlik Duvarı (WAF) sunarak arasında sağlar.
 
@@ -43,7 +43,7 @@ Bu makalede açıklanan adımları takip etmek için şunlara sahip olmalısın�
 
 * Sertifikalar - pfx ve API ana bilgisayar adı için cer ve pfx Geliştirici portal'ın ana bilgisayar adı için.
 
-##<a name="scenario"> </a> Senaryo
+## <a name="scenario"> </a> Senaryo
 
 Bu makalede, iç ve dış müşteriler için tek bir API Management hizmet ve hem şirket içi için tek bir ön uç işlevi görür ve bulut API'leri nasıl kullanılacağı anlatılmaktadır. Ayrıca, yalnızca bir alt kümesini (yeşil renkte vurgulanmış örnekte) API'leri dış Application Gateway'i kullanılabilir yönlendirme işlevini kullanarak tüketimi için nasıl sunacağınızı öğrenin görürsünüz.
 
@@ -349,7 +349,7 @@ Uygulama ağ geçidinin DNS adı, APIM Ara sunucu konak adını işaret eden bir
 Get-AzureRmPublicIpAddress -ResourceGroupName $resGroupName -Name "publicIP01"
 ```
 
-##<a name="summary"> </a> Özeti
+## <a name="summary"> </a> Özeti
 Azure API yönetimi bir sanal ağda yapılandırılmış tek bir ağ geçidi arabirimi için yapılandırılan tüm API'leri, barındırılan şirket içinde olmalarından veya bulutta sağlar. Application Gateway API Management ile tümleştirme, bir ön uç API Management Örneğinize olarak bir Web uygulaması güvenlik duvarı sağlayan yanı sıra belirli API'lerini kullanarak İnternet'ten erişilmesine seçmeli olarak etkinleştirme esnekliği sağlar.
 
 ##<a name="next-steps"> </a> Sonraki adımlar

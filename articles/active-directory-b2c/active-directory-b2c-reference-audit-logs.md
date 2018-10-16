@@ -10,12 +10,12 @@ ms.workload: identity
 ms.date: 08/04/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 1697830f699c9cd50548bcfcdd038348db314020
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 67e57faf37697697bee74597a40db39149699fe5
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38969668"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49320246"
 ---
 # <a name="accessing-azure-ad-b2c-audit-logs"></a>Azure AD B2C erişim denetim günlükleri
 
@@ -24,7 +24,7 @@ Azure Active Directory B2C (Azure AD B2C) verilen belirteçleri ve yönetici eri
 > [!IMPORTANT]
 > Denetim günlükleri, yalnızca yedi gün boyunca saklanır. İndirmek ve bir daha uzun bekletme süreleri gerektirip gerektirmediğini aşağıda gösterilen yöntemlerden birini kullanarak günlüklerinizi depolamak planlayın. 
 
-##<a name="overview-of-activities-available-in-the-b2c-category-of-audit-logs"></a>Denetim günlükleri B2C kategorisinde kullanılabilen etkinlikler genel bakış
+## <a name="overview-of-activities-available-in-the-b2c-category-of-audit-logs"></a>Denetim günlükleri B2C kategorisinde kullanılabilen etkinlikler genel bakış
 **B2C** kategorisi denetim günlüklerinde aşağıdaki etkinlik türlerini içerir:
 |Etkinlik türü |Açıklama  |
 |---------|---------|
@@ -38,10 +38,10 @@ Azure Active Directory B2C (Azure AD B2C) verilen belirteçleri ve yönetici eri
 > [!NOTE]
 > Kullanıcı nesnesi CRUD etkinlikleri için başvurmak **çekirdek dizin** kategorisi.
 
-##<a name="example-activity"></a>Örnek etkinlik
+## <a name="example-activity"></a>Örnek etkinlik
 Aşağıdaki örnek, bir kullanıcı bir dış kimlik sağlayıcısı oturum açtığında yakalanan verilerini gösterir: ![denetim günlükleri - örnek](./media/active-directory-b2c-reference-audit-logs/audit-logs-example.png)
 
-##<a name="accessing-audit-logs-through-the-azure-portal"></a>Azure Portal aracılığıyla denetim günlüklerine erişme
+## <a name="accessing-audit-logs-through-the-azure-portal"></a>Azure Portal aracılığıyla denetim günlüklerine erişme
 1. [Azure Portal](https://portal.azure.com) gidin. B2C dizininizde olduğundan emin olun.
 2. Tıklayarak **Azure Active Directory** soldaki Sık Kullanılanlar çubuğuna 
     
@@ -62,18 +62,18 @@ Son yedi gün günlüğe kaydedilen etkinlikler listesini görürsünüz.
 - Bir bağlamsal kutusu sağdaki listede belirli bir satıra tıklarsanız etkinliği ile ilişkili ek öznitelikler gösterir
 - Tıklayarak **indirme** etkinlikleri csv dosyası olarak karşıdan yüklemek için
 
-##<a name="accessing-audit-logs-through-the-azure-ad-reporting-api"></a>Azure AD raporlama API'sini kullanarak denetim günlüklerine erişme
+## <a name="accessing-audit-logs-through-the-azure-ad-reporting-api"></a>Azure AD raporlama API'sini kullanarak denetim günlüklerine erişme
 Denetim günlükleri yayımlanır diğer etkinlikler aynı işlem hattı için Azure Active Directory aracılığıyla erişilebilir şekilde [Azure Active Directory raporlama API'SİYLE](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-api-audit-reference). 
 
-###<a name="prerequisites"></a>Önkoşullar
+### <a name="prerequisites"></a>Önkoşullar
 Azure AD raporlama API'si ile kimlik doğrulaması yapmak için önce bir uygulamayı kaydetmeniz gerekir. Adımları izlediğinizden emin olun [Azure AD raporlama API'lerini erişmek için Önkoşullar](https://azure.microsoft.com/documentation/articles/active-directory-reporting-api-getting-started/).
 
-###<a name="accesing-the-api"></a>API belirtilmemelidir
+### <a name="accesing-the-api"></a>API belirtilmemelidir
 API aracılığıyla Azure AD B2C denetim günlükleri indirmek için günlüklere filtrelemek isteyebilirsiniz **B2C** kategorisi. Kategoriye göre filtrelemek için sorgu dizesi parametresi Azure AD raporlama API'si uç noktası, aşağıda gösterildiği gibi çağırırken kullanın:
 
 `https://graph.windows.net/your-b2c-tentant.onmicrosoft.com/activities/audit?api-version=beta&$filter=category eq 'B2C'`
 
-###<a name="powershell-script"></a>PowerShell betiği
+### <a name="powershell-script"></a>PowerShell betiği
 Aşağıdaki betiği, Azure AD raporlama API'si sorgulama ve sonuçları bir JSON dosyası olarak depolamak için PowerShell kullanarak bir örnek sağlar:
 
 ```powershell

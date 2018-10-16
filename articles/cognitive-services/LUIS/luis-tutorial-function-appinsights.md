@@ -1,5 +1,5 @@
 ---
-title: Application Insights verilerini C# kullanarak luıs'den
+title: Application Insights verilerini Node.js kullanarak luıs'den
 titleSuffix: Azure Cognitive Services
 description: LUIS uygulama ve Node.js kullanarak Application Insights ile tümleşik bir bot oluşturun.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 09/24/2018
 ms.author: diberry
-ms.openlocfilehash: 342c4f98d854d94426c3e4a1eb79bb2a6adffaad
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 6199e4a681f7f58ea0cf57b575afb2a63d160eee
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47038009"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49321963"
 ---
 # <a name="add-luis-results-to-application-insights"></a>LUIS sonuçları Application Insights'a Ekle
 Bu öğreticide LUIS istek ve yanıt bilgileri ekler [Application Insights](https://azure.microsoft.com/services/application-insights/) telemetri veri depolama. Bu verileri aldıktan sonra bunu Kusto dil veya çözümlemek, toplama, Power BI ile sorgulayabilirsiniz ve hedefleri ve gerçek zamanlı utterance varlıklarının rapor. Bu analiz, eklediğinizde veya amaç ve varlıkları LUIS uygulamanızı düzenlemek, belirlemenize yardımcı olur.

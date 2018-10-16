@@ -12,12 +12,12 @@ ms.author: xiwu
 ms.reviewer: douglasl
 manager: craigg
 ms.date: 10/05/2018
-ms.openlocfilehash: 82390ae304fc4d6873efc4a5073725a02b915eaa
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: 98d30d2987d42a2c4893e00c3ba2ea6acd471bef
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48870596"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49318818"
 ---
 # <a name="set-up-sql-data-sync-to-sync-data-between-azure-sql-database-and-sql-server-on-premises"></a>Azure SQL veritabanı ve SQL Server arasında verileri eşitlemek amacıyla şirket içi SQL Data Sync'i Ayarla
 
@@ -61,7 +61,7 @@ SQL Data Sync'in nasıl yapılandırılacağını gösteren tam PowerShell örne
    2. İçinde **eşitleme meta verileri veritabanı** bölümünde, (önerilen) yeni bir veritabanı oluşturmak mı, yoksa mevcut bir veritabanını kullanmayı seçin.
 
         > [!NOTE]
-        > Microsoft Eşitleme meta verileri veritabanı olarak kullanmak için yeni, boş bir veritabanı oluşturma önerir. Veri eşitleme, bu veritabanında tablolar oluşturur ve sık kullanılan bir iş yükü çalıştırır. Bu veritabanı, seçili bölgesinde eşitleme gruplarınızın tümü için eşitleme meta verileri veritabanı olarak otomatik olarak paylaşılır. Sürükleyip bırakarak olmadan, eşitleme meta verileri veritabanı veya adını değiştiremezsiniz.
+        > Microsoft Eşitleme meta verileri veritabanı olarak kullanmak için yeni, boş bir veritabanı oluşturma önerir. Veri eşitleme, bu veritabanında tablolar oluşturur ve sık kullanılan bir iş yükü çalıştırır. Bu veritabanı, seçili bölgesinde eşitleme gruplarınızın tümü için eşitleme meta verileri veritabanı olarak otomatik olarak paylaşılır. Eşitleme grupları ve eşitleme aracıları bölgede kaldırmadan eşitleme meta verileri veritabanı veya adını değiştiremezsiniz.
 
         Seçerseniz, **yeni veritabanı**seçin **yeni veritabanı oluştur.** **SQL veritabanı** sayfası açılır. Üzerinde **SQL veritabanı** sayfasında ad ve yeni veritabanını yapılandırın. Sonra **Tamam**’ı seçin.
 

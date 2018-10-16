@@ -10,15 +10,16 @@ ms.component: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
-ROBOTS: NOINDEX
-ms.openlocfilehash: c4fb331076f88d4f14f56201aa31a00160f395aa
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 79f2aa9c3e73037aa25848b7d11c34a73bf35f64
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46995355"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49342407"
 ---
 # <a name="get-started-with-the-speech-recognition-api-in-javascript"></a>JavaScript içinde konuşma tanıma API'si ile çalışmaya başlama
+
+[!INCLUDE [Deprecation note](../../../../includes/cognitive-services-bing-speech-api-deprecation-note.md)]
 
 Konuşma tanıma API'sini kullanarak Konuşmayı metne dönüştürme uygulamaları geliştirebilirsiniz. JavaScript istemci Kitaplığı'nı kullanan [konuşma hizmeti WebSocket Protokolü](../API-Reference-REST/websocketprotocol.md), metin ve konuşma almanızı sağlayan aynı anda transcribed. Bu makalede javascript'teki konuşma tanıma API'si ile çalışmaya başlamanıza yardımcı olur.
 

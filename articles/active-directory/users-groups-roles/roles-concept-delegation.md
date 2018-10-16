@@ -10,27 +10,26 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
-ms.date: 08/09/2018
+ms.date: 10/15/2018
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
-ms.openlocfilehash: ad772a2e0c036c30aca2918496ac01f31157fc64
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 22088f0da615525aff45191c2b1becb3693a8eac
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "40208579"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49342441"
 ---
 # <a name="delegate-administration-in-azure-active-directory"></a>Azure Active Directory'de yönetim temsilcisi
 
-Daha fazla karmaşıklık kuruluş büyümesi ile birlikte gelir ve bazı Azure Active Directory (AD) yönetici rolleri erişim yönetimiyle yükü azaltmak için bir ortak yanıt olur. Mümkün olan en küçük ayrıcalık uygulamalarını erişmek ve görevlerini gerçekleştirmek için kullanıcılara atayabilirsiniz. Her uygulama sahibi için genel Yönetici rolüne atamak istemeyebilirsiniz ancak artırabilen uygulama yönetimi Sorumluluklar varolan genel Yöneticiler üzerine zorla olabilir. Daha fazla merkezi olmayan bir yönetim doğru bir kuruluş taşıma için birçok neden vardır. Bu makalede, kuruluşunuzdaki temsilci planlamanıza yardımcı olabilir.
+Kuruluş büyümesi ile karmaşıklığı gelir. Bazı Azure Active Directory (AD) yönetici rolleri erişim yönetimiyle iş yükünü azaltmak için bir ortak yanıt olan. Mümkün olan en küçük ayrıcalık uygulamalarını erişmek ve görevlerini gerçekleştirmek için kullanıcılara atayabilirsiniz. Genel yönetici rolüne her uygulama sahibe atamayın bile var olan küresel Yöneticiler uygulama yönetimi sorumluluklarını yerleştirme. Daha fazla merkezi olmayan bir yönetim doğru bir kuruluş taşıma için birçok neden vardır. Bu makalede, kuruluşunuzdaki temsilci planlamanıza yardımcı olabilir.
 
 <!--What about reporting? Who has which role and how do I audit?-->
 
-
 ## <a name="centralized-versus-delegated-permissions"></a>Temsilci izinleri karşı Merkezi
 
-Bir kuruluş büyüdükçe, belirli yönetici rollerine hangi kullanıcıların olduğunu takip etmek zor olabilir. Bir çalışan bunlar olmamalıdır yönetici hakları varsa bir kuruluşun güvenlik ihlallerini maruz olabilir. Genel olarak, yönetici sayısını ve ayrıntı düzeyi izinlerini, boyutu ve dağıtım karmaşıklığı bağlıdır.
+Bir kuruluş büyüdükçe, belirli yönetici rollerine hangi kullanıcıların olduğunu takip etmek zor olabilir. Bir çalışan bunlar olmamalıdır yönetici hakları varsa, kuruluşunuzun güvenlik ihlallerini daha elverişli olabilir. Genellikle, kaç Yöneticiler, destek ve izinlerini nasıl daha parçalı olduğunu boyutuna ve dağıtımınızın karmaşıklığını bağlıdır.
 
 * Küçük veya kavram kanıtı dağıtımlarda, bir veya birkaç yöneticiler her şeyi yapabilirsiniz; Temsilci yoktur. Bu durumda, her yöneticinin genel yönetici rolü oluşturun.
 * Daha fazla makineleri, uygulamalar ve Masaüstü ile büyük dağıtımlarda, daha fazla temsilci gereklidir. Birçok yönetici daha belirli işlevsel sorumlulukları (roller) olabilir. Örneğin, bazı ayrıcalıklı kimlik yöneticileri olabilir ve diğer uygulama yöneticileri olabilir. Ayrıca, yöneticinin yalnızca belirli cihazlar gibi nesne gruplarını yönetin.
@@ -38,11 +37,11 @@ Bir kuruluş büyüdükçe, belirli yönetici rollerine hangi kullanıcıların 
 
 Azure AD portalında yapabilecekleriniz [herhangi rolünün tüm üyelerinin görüntülemek](directory-manage-roles-portal.md), yardımcı olabilecek hızlı dağıtım ve temsilci izinleri denetleyin.
 
-Azure kaynaklarına erişimi ve Azure AD'de değil yönetimsel erişim için temsilci seçme içinde ilgileniyorsanız bkz [rol tabanlı erişim denetimi (RBAC) rolüne atamak](../../role-based-access-control/role-assignments-portal.md).
+Azure AD'de yönetici erişimi yerine Azure kaynaklarına erişim için temsilci seçme içinde ilgileniyorsanız bkz [rol tabanlı erişim denetimi (RBAC) rolüne atamak](../../role-based-access-control/role-assignments-portal.md).
 
 ## <a name="delegation-planning"></a>Temsilci planlama
 
-Hurdle benzersiz kuruluşunuzun gereksinimlerine en uygun bir temsilci modeli geliştirmek için olsa da gerçekte çok az değişiklikle uygulanabilir çok basit modelleri yoktur. Bir temsilci modeli geliştirmek bir yinelemeli tasarım işlemdir ve aşağıdaki adımları öneririz:
+İhtiyaçlarınıza uygun bir temsilci modeli geliştirmek için kendi iş. Bir temsilci modeli geliştirmek bir yinelemeli tasarım işlemdir ve aşağıdaki adımları öneririz:
 
 * Gereksinim duyduğunuz rolleri tanımlama
 * Temsilci uygulama yönetimi
@@ -55,35 +54,48 @@ Hurdle benzersiz kuruluşunuzun gereksinimlerine en uygun bir temsilci modeli ge
 
 ## <a name="define-roles"></a>Rolleri tanımlama
 
-Hangi Active Directory görevleri yöneticileri tarafından gerçekleştirilen ve bu görevlerin rollere nasıl eşleneceğini belirler. Örneğin, güvenlik grubu üyeliğinin değiştirilmesini genellikle veri yönetimi altında düştüğünde sırasında Active Directory site oluşturma bir hizmet yönetim görevi ' dir. Yapabilecekleriniz [ayrıntılı rol açıklamalarını görüntülemek](directory-manage-roles-portal.md) Azure portalında.
+Yöneticiler ve bunların nasıl rolleriyle eşleyebileceğinizi tarafından gerçekleştirilen Active Directory görevleri belirleyin. Yapabilecekleriniz [ayrıntılı rol açıklamalarını görüntülemek](directory-manage-roles-portal.md) Azure portalında.
 
-Her görev, sıklığı, önem derecesi ve zorluk değerlendirilmelidir. İzin temsilcisi olup, yönetmek için görev tanımı önemli yönleri şunlardır. Görevlerinin tamamlanması için düzenli olarak gerçekleştirilir, sınırlı risk ve önemsiz temsilci seçme için iyi adaylar olduğu. Öte yandan, nadiren gerçekleştirilir ancak kuruluş genelinde harika bir etkiye sahip ve yüksek insanları gerektiren görevleri çok dikkatli bir şekilde temsilci olarak görevlendirme önce düşünülmelidir. Bunun yerine, [geçici olarak bir hesap için gerekli olan rol yükseltmesine](../active-directory-privileged-identity-management-configure.md) veya görev yeniden atayın.
+Her görev, sıklığı, önem derecesi ve zorluk değerlendirilmelidir. Bu ölçütler görev tanımı önemli yönlerini olduğu bir izni temsilcisi olup olmadığını, yöneten:
+
+* Düzenli olarak yapın, sınırlı risk ve önemsiz için görevleri temsilci seçme için iyi adaylar tamamlandı.
+* Nadiren yapmak ancak kuruluş genelinde harika bir etkiye sahip ve yüksek insanları gerekli görevler için temsilci seçme önce dikkatle düşünülmelidir. Bunun yerine, [geçici olarak bir hesap için gerekli olan rol yükseltmesine](../active-directory-privileged-identity-management-configure.md) veya görev yeniden atayın.
 
 ## <a name="delegate-app-administration"></a>Temsilci uygulama yönetimi
 
 Kuruluşunuzdaki uygulamaları çoğalan temsilci modelinizin zorlayabilir. Genel yönetici yükünü uygulama erişim yönetimi için yerleştirir, Zaman geçtikçe, model, yükü artırır olasıdır. Kişiler gibi Kurumsal uygulamaları için yapılandırma öğeleri için genel yönetici rolü verdiyseniz, bunların artık daha az ayrıcalıklı rollerde boşaltabilirsiniz. Bunun yapılması, güvenlik duruşunuzu artırmaya yardımcı olur ve talihsiz hataları olasılığını azaltır. Çoğu ayrıcalıklı uygulama Yönetici rolü şunlardır:
 
-* **Uygulama Yöneticisi** , dizinde kayıtları, çoklu oturum açma ayarları, kullanıcı ve Grup atamalarını ve lisanslama, uygulama proxy'si ayarları dahil olmak üzere tüm uygulamaları yönetme olanağı veren rolü ve onay. Koşullu erişim yönetme olanağı tanımaz.
-* **Bulut uygulaması Yöneticisi** (hiçbir şirket içi izni olduğundan), erişim için uygulama proxy'si ayarları tanımaz dışında tüm becerileri, uygulama Yöneticisi, veren rol. ### temsilci uygulama sahibi izinlerini uygulama başına
+* **Uygulama Yöneticisi** , dizinde kayıtları, çoklu oturum açma ayarları, kullanıcı ve Grup atamalarını ve lisanslama, uygulama proxy'si ayarları dahil olmak üzere tüm uygulamaları yönetme olanağı veren rolü ve onay. Koşullu erişimi yönetme hakkı vermez.
+* **Bulut uygulaması Yöneticisi** (hiçbir şirket içi izni olduğundan) uygulama proxy'si ayarları için erişim izni olmayan dışında veren tüm becerileri, uygulama yöneticisi rolü.
 
 ## <a name="delegate-app-registration"></a>Temsilci uygulama kaydı
 
-Varsayılan olarak, tüm kullanıcılar, uygulama kayıtları oluşturabilir. Seçerek uygulama kayıtları oluşturma yeteneği vermek istiyorsanız, ayarlamak zorunda kalırsınız **kullanıcılar uygulamaları kaydedebilir** için kullanıcı ayarlarını ve ardından Ata uygulama geliştiricisi rol yok. Bu rol, uygulama kayıtları oluşturma yeteneği verir. yalnızca **kullanıcılar uygulamaları kaydedebilir** devre dışıdır. Uygulama geliştiricileri de onay kendileri için zaman **kullanıcılar uygulamaları kendileri adına şirket verilerine erişme izni verebilir** Hayır olarak ayarlayın Bir uygulama geliştiricisi, yeni bir uygulama kaydı oluşturduğunda, bunlar ilk sahibi olarak otomatik olarak eklenir.
+Varsayılan olarak, tüm kullanıcılar, uygulama kayıtları oluşturabilir. Seçerek uygulama kayıtları oluşturma olanağı vermek için:
+
+* Ayarlama **kullanıcılar uygulamaları kaydedebilir** için Hayır ' **kullanıcı ayarları**
+* Uygulama geliştiricisi rolüne kullanıcı atayın
+
+Seçmeli olarak bir uygulama verilerine erişmek için izin vermeyi olanağı vermek için:
+
+* Ayarlama **kullanıcılar uygulamaları kendileri adına şirket verilerine erişme izni verebilir** için Hayır ' **kullanıcı ayarları**
+* Uygulama geliştiricisi rolüne kullanıcı atayın
+
+Bir uygulama geliştiricisi, yeni bir uygulama kaydı oluşturduğunda, bunlar ilk sahibi olarak otomatik olarak eklenir.
 
 ## <a name="delegate-app-ownership"></a>Uygulama sahipliğini devretme
 
 Uygulama bile dağıtımına erişim temsilci seçme için ayrı Kurumsal uygulamalara sahipliği atayabilirsiniz. Bu uygulama kayıt sahiplerini atamak için mevcut destek tamamlar. Sahiplik, kurumsal uygulamalar dikey penceresinde her Kurumsal uygulama temelinde atanır. Sahipler oldukları Kurumsal uygulamaları yönetebilir avantajdır. Örneğin, Salesforce uygulama için bir sahip atayabilir ve bu sahibi, Salesforce ve başka bir uygulama için yapılandırma ve erişimi yönetebilir. Kurumsal bir uygulamanın birçok sahipleri olabilir ve birçok kurumsal uygulamalar için sahip bir kullanıcı olabilir. İki uygulama sahibinin rol vardır:
 
-* **Kurumsal uygulama sahibi** rol yönetme olanağı veren ' çoklu oturum açma ayarları, kullanıcı ve Grup atamaları dahil ve ek sahipleri ekleme kullanıcı sahip kurumsal uygulamalar. Uygulama proxy'si ayarları veya koşullu erişim yönetme olanağı tanımaz.
+* **Kurumsal uygulama sahibi** rol yönetme olanağı veren ' çoklu oturum açma ayarları, kullanıcı ve Grup atamaları dahil ve ek sahipleri ekleme kullanıcı sahip kurumsal uygulamalar. Bu, uygulama proxy'si ayarları veya koşullu erişim yönetme olanağı vermek değil.
 * **Uygulama kayıt sahibi** rol için ek sahipleri ekleme ve uygulama bildirimi dahil olmak üzere kullanıcı sahip app uygulama kayıtları yönetme olanağı verir.
 
 ## <a name="develop-a-security-plan"></a>Güvenlik planı geliştirme
 
-Azure AD, planlama ve Azure AD yönetim rolleri üzerinde bir güvenlik planı yürütme için kapsamlı bir kılavuz sağlar [ayrıcalıklı erişimin güvenliğini sağlama ve karma bulut dağıtımları için](directory-admin-roles-secure.md). 
+Azure AD, planlama ve Azure AD yönetim rolleri üzerinde bir güvenlik planı yürütme için kapsamlı bir kılavuz sağlar [ayrıcalıklı erişimin güvenliğini sağlama ve karma bulut dağıtımları için](directory-admin-roles-secure.md).
 
 ## <a name="establish-emergency-accounts"></a>Acil Durum hesapları oluştur
 
-Sorun ortaya çıktığında, kimlik yönetimi deposuna erişimi sürdürmek istiyorsanız, Acil Durum erişim hesapları'na göre hazırlama [Acil Durum erişimi yönetici hesapları oluşturma](directory-emergency-access.md).
+Sorun duyduğunuzda, kimlik yönetimi deposuna erişimi sürdürmek istiyorsanız, Acil Durum erişim hesapları'na göre hazırlama [Acil Durum erişimi yönetici hesapları oluşturma](directory-emergency-access.md).
 
 ## <a name="secure-your-administrator-roles"></a>Güvenli, yönetici rolleri
 
@@ -97,7 +109,7 @@ Ayrıcalıklı hesapların denetim elde saldırganlar Bilim insanları için ina
 
 ## <a name="elevate-privilege-temporarily"></a>Ayrıcalık geçici olarak Yükselt
 
-Çoğu günlük etkinlikler için tüm kullanıcıların genel yönetici hakları gerekir. Ve tüm kullanıcılar kalıcı olarak genel Yönetici rolüne atanması gerekir. Genel yönetici olarak görev yapacak kullanıcıları gerektiğinde, Azure AD'de rol atama etkinleştirmelisiniz [Privileged Identity Management](../active-directory-privileged-identity-management-configure.md) kendi hesabını veya başka bir yönetici hesabı.
+Çoğu günlük etkinlikler için tüm kullanıcıların genel yönetici haklarına ihtiyacınız ve bunların hepsi kalıcı olarak genel Yönetici rolüne atanması gerekir. Kullanıcıların genel yönetici izinlerine gerek duyduğunuzda, Azure AD'de rol atama etkinleştirmelisiniz [Privileged Identity Management](../active-directory-privileged-identity-management-configure.md) kendi hesabını veya başka bir yönetici hesabı.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

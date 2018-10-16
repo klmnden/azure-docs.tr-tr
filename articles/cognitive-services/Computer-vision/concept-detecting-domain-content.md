@@ -3,19 +3,19 @@ title: Etki alanına özgü içerik - görüntü işleme algılama
 titleSuffix: Azure Cognitive Services
 description: Görüntü işleme API'sini kullanarak görüntüleri tanımlamaya ilgili kavramları.
 services: cognitive-services
-author: deken
+author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: conceptual
 ms.date: 08/29/2018
-ms.author: v-deken
-ms.openlocfilehash: b197227b6550703e4cc303fc800839dc48bf2d1c
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.author: pafarley
+ms.openlocfilehash: a9c71fa7e5d86cfeb4fe6fab44bbce241546ccb8
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45985218"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49342576"
 ---
 # <a name="detecting-domain-specific-content"></a>Etki alanına özgü içeriği algılama
 

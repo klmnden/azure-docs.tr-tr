@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 10/05/2018
-ms.openlocfilehash: 124e936b619e3078c71094156bf91a437a28492b
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 77c761ce72449f91cf91c66219ebc815d1620e94
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48862791"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49343683"
 ---
 # <a name="azure-stream-analytics-preview-features"></a>Azure Stream Analytics Önizleme özellikleri
 
@@ -67,9 +67,9 @@ Geliştiriciler, Azure Stream Analytics tarafından alınan olayları seri durum
 
 Artık, sorgunuzun herhangi bir sütuna göre Blob Depolama için Azure Stream Analytics çıkış bölümlemek mümkündür.
 
-### <a name="managed-service-identity-msi-authentication-to-azure-data-lake-storage"></a>Azure Data Lake Storage için Yönetilen hizmet kimliği (MSI) kimlik doğrulaması
+### <a name="managed-identities-for-azure-resources-authentication-to-azure-data-lake-storage"></a>Azure Data Lake Store kimlik doğrulaması Azure kaynakları için yönetilen kimlikleri
 
-Şimdi, işleri programlı olarak oluşturmanıza olanak tanıyan gerçek zamanlı işlem hatlarınızı MSI tabanlı kimlik doğrulaması için Azure Data Lake depolama Gen1 yazarken ile çalışır hale getirebilirsiniz. Daha fazla bilgi için ziyaret [kullanım yönetilen kimlikleri için Azure Stream Analytics işleri kimlik doğrulaması için Azure Data Lake depolama Gen1 çıkış](stream-analytics-managed-identities-adls.md).
+Şimdi, işleri programlı olarak oluşturmanıza olanak tanıyan gerçek zamanlı işlem hatlarınızı Azure kaynaklarına göre kimlik doğrulaması için Azure Data Lake depolama Gen1 yazarken yönetilen kimliklerle çalışır hale getirebilirsiniz. Daha fazla bilgi için ziyaret [Azure Stream Analytics işleri kimlik doğrulaması için Azure Data Lake depolama Gen1 çıkış Azure kaynaklarına yönetilen kullan biçimimi](stream-analytics-managed-identities-adls.md).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

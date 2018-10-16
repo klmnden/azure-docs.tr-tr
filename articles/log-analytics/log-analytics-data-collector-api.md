@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/03/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: 297ba626d8b80d9362476ca4578e34140df5f91a
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.openlocfilehash: f0a982e8a0cb358e29375e05c1752a33b15ec255
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48248662"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49319719"
 ---
 # <a name="send-data-to-log-analytics-with-the-http-data-collector-api-public-preview"></a>HTTP veri toplayıcı API'sini (genel Önizleme) ile Log Analytics veri Gönder
 Bu makalede REST API istemcisinden Log Analytics'e veri göndermek için HTTP veri toplayıcı API'sini kullanmayı gösterir.  Bu betik ya da uygulama tarafından toplanan verileri biçimlendirme, bir isteğe ekleyin ve bu istek Log Analytics tarafından yetkilendirilmiş olması açıklar.  PowerShell, C# ve Python için örnek verilmiştir.
@@ -101,7 +101,7 @@ Signature=Base64(HMAC-SHA256(UTF8(StringToSign)))
 ## <a name="request-body"></a>İstek gövdesi
 İletisinin gövdesini JSON biçiminde olmalıdır. Bu biçimde bir veya daha fazla özellik ad ve değer çiftlerini kayıtlarla içermesi gerekir:
 
-```
+```json
 [
     {
         "property 1": "value1",
@@ -114,7 +114,7 @@ Signature=Base64(HMAC-SHA256(UTF8(StringToSign)))
 
 Aşağıdaki biçimi kullanarak tek bir istekte birden çok kayıt toplu iş. Tüm kayıtlarda aynı kayıt türü olmalıdır.
 
-```
+```json
 [
     {
         "property 1": "value1",
@@ -218,7 +218,7 @@ Her örnek için yetkilendirme üst bilgisi için değişkenleri ayarlamak için
 Alternatif olarak, günlük türü ve JSON verilerini değişkenleri değiştirebilirsiniz.
 
 ### <a name="powershell-sample"></a>PowerShell örneği
-```
+```powershell
 # Replace with your Workspace ID
 $CustomerId = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"  
 
@@ -301,7 +301,7 @@ Post-LogAnalyticsData -customerId $customerId -sharedKey $sharedKey -body ([Syst
 ```
 
 ### <a name="c-sample"></a>C# örneği
-```
+```csharp
 using System;
 using System.Net;
 using System.Net.Http;
@@ -387,7 +387,7 @@ namespace OIAPIExample
 ```
 
 ### <a name="python-2-sample"></a>Python 2 örneği
-```
+```python
 import json
 import requests
 import datetime
