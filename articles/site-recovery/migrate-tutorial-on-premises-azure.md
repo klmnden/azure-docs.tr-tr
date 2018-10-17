@@ -5,15 +5,15 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 07/16/2018
+ms.date: 09/12/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: bc04483c35162c0b461fd03c63aaa894b1bc199a
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: bd41244192efa1333bc90bec8c00f38aaaa7f612
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39070686"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44714998"
 ---
 # <a name="migrate-on-premises-machines-to-azure"></a>Şirket içi makineleri Azure’a geçirme
 
@@ -40,10 +40,7 @@ Başlamadan önce olağanüstü durum kurtarma için [VMware](vmware-azure-archi
 
 ## <a name="prerequisites"></a>Ön koşullar
 
-- Parasanallaştırılmış sürücüler tarafından dışarı aktarılan cihazlar desteklenmez.
- 
-> [!WARNING]
-> VM'lere Fiziksel sunucular gibi davranarak bunları diğer sanallaştırma platformlarına (VMware, Hyper-V dışında), örneğin XenServer'a geçirmek mümkündür. Öte yandan bu yaklaşım Microsoft tarafından henüz test edilip doğrulanmamıştır ve çalışabilir veya çalışmayabilir. Örneğin, XenServer platformunda çalıştırılan VM'ler, geçişi başlatmadan önce VM'den XenServer araçları ve parasanallaştırılmış depolama ile ağ sürücüleri kaldırılmadığı sürece Azure'da çalışmayabilir.
+Parasanallaştırılmış sürücüler tarafından dışarı aktarılan cihazlar desteklenmez.
 
 
 ## <a name="create-a-recovery-services-vault"></a>Kurtarma Hizmetleri kasası oluşturma
@@ -124,10 +121,43 @@ Geçirmek istediğiniz makineler için yük devretmeyi çalıştırın.
 
 Bazı senaryolarda yük devretme için sekiz ila on dakikada tamamlanan ek işlem gerekebilir. Fiziksel sunucularda, VMware Linux makinelerinde, DHCP hizmeti etkinleştirilmemiş VMware VM’lerinde ve storvsc, vmbus, storflt, intelide, atapi önyükleme sürücülerine sahip olmayan VMware VM’lerinde uzun yük devretme sınama süreleriyle karşılaşabilirsiniz.
 
+## <a name="after-migration"></a>Geçişten sonra
+
+Makineler Azure’a geçirildikten sonra, tamamlamanız gereken birkaç adım vardır.
+
+Bazı adımlar, [kurtarma planlarındaki]( https://docs.microsoft.com/azure/site-recovery/site-recovery-runbook-automation) yerleşik otomasyon betikleri kullanılarak geçiş işleminin parçası olarak otomatikleştirilebilir.   
+
+
+### <a name="post-migration-steps-in-azure"></a>Azure’da geçiş sonrası adımlar
+
+- Veritabanı bağlantısı dizelerini ve web sunucusu yapılandırmalarını güncelleştirme gibi herhangi bir geçiş sonrası uygulama ayarı gerçekleştirin. 
+- Geçirilen uygulamada son uygulama ve geçiş kabul testi gerçekleştirme işlemi şimdi Azure’da çalıştırılmaktadır.
+- [Azure VM aracısı](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-windows), Azure Yapı Denetleyicisi ile sanal makine etkileşimini yönetir. Azure Backup, Site Recovery ve Azure Güvenliği gibi bazı Azure hizmetleri için gereklidir.
+    - VMware makinelerini ve fiziksel sunucuları geçiriyorsanız Mobility Hizmeti yükleyicisi, Windows makinelere kullanılabilir Azure sanal makine aracısını yükler. Linux sanal makineleri üzerinde, yük devretmeden sonra aracıyı yüklemeniz önerilir. a
+    - Azure sanal makinelerini ikincil bölgeye geçiriyorsanız Azure sanal makine aracısı, geçişten önce sanal makinede sağlanmalıdır.
+    - Hyper-V sanal makinelerini Azure’a geçiriyorsanız, geçişten sonra Azure sanal makinesine Azure sanal makine aracısını yükleyin.
+- Sanal makineden Site Recovery sağlayıcısını/aracısını kendiniz kaldırın. VMware sanal makinelerini veya fiziksel sunucularını geçiriyorsanız, Azure sanal makinesinden [Mobility Service’i kaldırın][vmware-azure-install-mobility-service.md#uninstall-mobility-service-on-a-windows-server-computer].
+- Daha fazla esneklik için:
+    - Azure Backup hizmetini kullanarak Azure sanal makinelerini yedekleyip verileri güvende tutun. [Daha fazla bilgi edinin]( https://docs.microsoft.com/azure/backup/quick-backup-vm-portal).
+    - Site Recovery ile Azure sanal makinelerini ikincil bölgeye çoğaltarak iş yüklerinin çalışmaya devam etmesini ve sürekli kullanılabilir olmasını sağlayın. [Daha fazla bilgi edinin](azure-to-azure-quickstart.md).
+- Daha fazla güvenlik için:
+    - Azure Güvenlik Merkezi [Anlık yönetim]( https://docs.microsoft.com/azure/security-center/security-center-just-in-time) özelliği ile gelen trafik erişimini kilitleme ve sınırlama
+    - [Ağ Güvenlik Grupları](https://docs.microsoft.com/azure/virtual-network/security-overview) ile ağ trafiğini yönetim uç noktaları ile kısıtlayın.
+    - [Azure Disk Şifrelemesi](https://docs.microsoft.com/azure/security/azure-security-disk-encryption-overview)’ni dağıtarak disklerin güvenliğinin sağlanmasına yardımcı olun ve verileri hırsızlık ve yetkisiz erişime karşı koruyun.
+    - [IaaS kaynaklarının güvenliğini sağlama]( https://azure.microsoft.com/services/virtual-machines/secure-well-managed-iaas/ ) hakkında daha fazla bilgi edinin ve [Azure Güvenlik Merkezi](https://azure.microsoft.com/services/security-center/ )’ni ziyaret edin.
+- İzleme ve yönetim için:
+    - [Azure Maliyet Yönetimi](https://docs.microsoft.com/azure/cost-management/overview)’ni dağıtarak kaynak kullanımını ve harcamayı izleyin.
+
+### <a name="post-migration-steps-on-premises"></a>Şirket içi geçiş sonrası adımlar
+
+- Uygulama trafiğini, geçirilen Azure sanal makinesi örneğinde çalıştırılan uygulamaya taşıyın.
+- Yerel sanal makine envanterinizden şirket içi sanal makineleri kaldırın.
+- Yerel yedeklemelerden şirket içi sanal makineleri kaldırın.
+- Azure sanal makinelerinin yeni konumunu ve IP adresini göstermek için herhangi bir iç belgeyi güncelleştirin.
+
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu öğreticide şirket içi VM’leri Azure VM’lerine taşıdınız. Artık VM'leri başarılı bir şekilde geçirdiğinize göre:
-- Geçirilen VM'ler için [olağanüstü durum kurtarmayı ayarlayın](azure-to-azure-replicate-after-migration.md).
-- Azure'da VM'lerinizi yönetirken Azure'un [Güvenli ve iyi yönetilen bulut](https://azure.microsoft.com/services/virtual-machines/secure-well-managed-iaas/) özelliklerinden yararlanın.
+Bu öğreticide şirket içi VM’leri Azure VM’lerine taşıdınız. Şimdi Azure sanal makineleri için ikincil bir Azure bölgesine [olağanüstü durum kurtarmayı ayarlayabilirsiniz](azure-to-azure-replicate-after-migration.md).
+
   

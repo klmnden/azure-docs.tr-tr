@@ -1,55 +1,56 @@
 ---
-title: Kullanım özel görüntü işleme hizmeti REST API - Azure Bilişsel hizmetler | Microsoft Docs
-description: Oluşturma, eğitme, test ve bir özel görüntü işleme modelini dışarı aktarma için REST API'sini kullanın.
+title: 'Öğretici: Özel Görüntü İşleme Hizmeti REST API’sini kullanma'
+titlesuffix: Azure Cognitive Services
+description: Özel görüntü işleme modeli oluşturmak, eğitmek, test etmek ve dışarı aktarmak için REST API kullanın.
 services: cognitive-services
 author: blackmist
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: custom-vision
-ms.topic: article
+ms.topic: tutorial
 ms.date: 08/07/2018
 ms.author: larryfr
-ms.openlocfilehash: 44fa4d45c33f3064c089724ee761a70d0a8421ab
-ms.sourcegitcommit: 76797c962fa04d8af9a7b9153eaa042cf74b2699
-ms.translationtype: MT
+ms.openlocfilehash: a38f737b5281903328a53d6552b1666ca4f58d80
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "40250274"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46364969"
 ---
-# <a name="tutorial-use-the-custom-vision-rest-api"></a>Öğretici: REST API özel görüntü işleme kullanın
+# <a name="tutorial-use-the-custom-vision-rest-api"></a>Öğretici: Özel Görüntü İşleme REST API’sini kullanma
 
-Özel işleme REST API'si oluşturma, eğitme, test ve bir modelini dışarı aktarma için kullanmayı öğrenin.
+Model oluşturmak, eğitmek, test etmek ve dışarı aktarmak için Özel Görüntü İşleme REST API’sinin nasıl kullanılacağını öğrenin.
 
-Bu belgedeki bilgiler, özel görüntü işleme hizmeti eğitim için REST API ile çalışmak için bir REST istemcisi kullanmayı gösterir. API kullanarak nasıl örnekler `curl` yardımcı programı'ndan bir bash ortamı ve `Invoke-WebRequest` Windows powershell'den.
+Bu belgedeki bilgiler, Özel Görüntü İşleme hizmetini eğitmek için REST API ile çalışmak üzere REST istemcisinin nasıl kullanılacağını göstermektedir. Örneklerde, Windows PowerShell’deki `curl`ve bir bash ortamındaki yardımcı program `Invoke-WebRequest` kullanılarak API’nin nasıl kullanılacağı gösterilmektedir.
 
 > [!div class="checklist"]
-> * Anahtarları alma
+> * Anahtar alma
 > * Proje oluşturma
-> * Etiketleri oluşturma
+> * Etiket oluşturma
 > * Görüntü ekleme
-> * Eğitme ve modeli test etme
-> * Modelini dışarı aktarma
+> * Modeli eğitme ve test etme
+> * Modeli dışarı aktarma
 
-## <a name="prerequisites"></a>Önkoşullar
+## <a name="prerequisites"></a>Ön koşullar
 
-* Temel bilgisi ile temsili durum aktarımı (REST). Bu belge HTTP fiilleri, JSON veya REST ile yaygın olarak kullanılan başka şeyler gibi şeyleri ayrıntılarına geçmez.
+* Temsili Durum Transferi (REST) konusunda temel bilgi. Bu belgede, HTTP fiilleri, JSON gibi şeylerin veya REST ile yaygın olarak kullanılan diğer şeylerin ayrıntısına inilmemektedir.
 
-* Ya da bir bash (Uluç yeniden kabuğu) ile [curl](https://curl.haxx.se) yardımcı programı veya Windows PowerShell 3.0 (veya üstü).
+* [curl](https://curl.haxx.se) yardımcı programı veya Windows PowerShell 3.0 (ya da üzeri) ile bir bash (Bourne Again Shell).
 
-* Bir özel görüntü işleme hesabı. Daha fazla bilgi için [sınıflandırıcı oluşturma](getting-started-build-a-classifier.md) belge.
+* Bir Özel Görüntü İşleme hesabı. Daha fazla bilgi için [Sınıflandırıcı derleme](getting-started-build-a-classifier.md) belgesine bakın.
 
-## <a name="get-keys"></a>Anahtarları alma
+## <a name="get-keys"></a>Anahtar alma
 
-REST API kullanırken, bir anahtar kullanarak kimlik doğrulaması gerekir. Yönetim veya eğitim işlemleri gerçekleştirirken kullandığınız __eğitim anahtar__. Model tahminde bulunmak amacıyla kullanırken, kullandığınız __tahmin anahtar__.
+REST API kullanırken, bir anahtar kullanarak kimlik doğrulaması yapmanız gerekir. Yönetim veya eğitim işlemleri gerçekleştirirken __eğitim anahtarını__ kullanırsınız. Tahminde bulunmak için model kullanırken __tahmin anahtarını__ kullanırsınız.
 
-İsteği yaparken, anahtarı bir istek üst bilgisi gönderilir.
+İstekte bulunurken anahtar bir istek üst bilgisi olarak gönderilir.
 
-Hesabınız için anahtarları almaya ziyaret [Custom Vision web sayfası](https://customvision.ai) seçip __dişli simgesini__ sağ üst köşedeki. İçinde __hesapları__ bölümünde, değerleri kopyalayın __eğitim anahtarı__ ve __tahmin anahtar__ alanları.
+Hesabınızın anahtarlarını almak için [Özel Görüntü İşleme web sayfasını](https://customvision.ai) ziyaret edin ve sağ üst kısımdaki __dişli simgesini__ seçin. __Hesaplar__ bölümünde, __Eğitim Anahtarı__ ve __Tahmin Anahtarı__ alanlarından değerleri kopyalayın.
 
-![UI anahtarları görüntüsü](./media/rest-api-tutorial/training-prediction-keys.png)
+![Anahtarlar kullanıcı arabiriminin görüntüsü](./media/rest-api-tutorial/training-prediction-keys.png)
 
 > [!IMPORTANT]
-> Her isteğin kimliğini doğrulamak için kullanılan anahtarları olduğundan, bu belgedeki örneklerde anahtar değerlerinin ortam değişkenleri içerdiği varsayılır. Bu belgede diğer kod parçacıkları kullanmadan önce ortam değişkenlerine anahtarları depolamak için aşağıdaki komutları kullanın:
+> Her isteğin kimliğini doğrulamak için anahtarlar kullanıldığından, bu belgedeki örneklerde, ortam değişkeninde anahtar değerlerinin yer aldığı varsayılır. Bu belgede diğer kod parçacıklarını kullanmadan önce ortam değişkenlerinde anahtarları depolamak için aşağıdaki komutları kullanın:
 >
 > ```bash
 > read -p "Enter the training key: " TRAININGKEY
@@ -63,7 +64,7 @@ Hesabınız için anahtarları almaya ziyaret [Custom Vision web sayfası](https
 
 ## <a name="create-a-new-project"></a>Yeni bir proje oluşturma
 
-Aşağıdaki örnekler adlı yeni bir proje oluşturur `myproject` Custom Vision service Örneğinizdeki. Bu hizmet için varsayılan olarak `General` etki alanı:
+Aşağıdaki örnekler, Özel Görüntü İşleme hizmet örneğinizde `myproject` adlı yeni bir proje oluşturur. Bu hizmet varsayılan olarak `General` etki alanının değerini alır:
 
 ```bash
 curl -X POST "https://southcentralus.api.cognitive.microsoft.com/customvision/v2.0/Training/projects?name=myproject" -H "Training-Key: $TRAININGKEY" --data-ascii ""
@@ -77,7 +78,7 @@ $resp = Invoke-WebRequest -Method 'POST' `
 $resp.Content
 ```
 
-İstek yanıtı için aşağıdaki JSON belgesini benzer:
+İstek yanıtı, aşağıdaki JSON belgesine benzer:
 
 ```json
 {
@@ -97,13 +98,13 @@ $resp.Content
 ```
 
 > [!TIP]
-> `id` Girdidir yanıt yeni projenin kimliği. Bu, diğer örneklerde bu belgenin ilerleyen bölümlerinde kullanılır.
+> Yanıttaki `id` girdisi, yeni projenin kimliğidir. Bu belgenin ilerleyen kısmındaki diğer örneklerde bu kullanılmaktadır.
 
-Bu isteği hakkında daha fazla bilgi için bkz. [CreateProject](https://southcentralus.dev.cognitive.microsoft.com/docs/services/d0e77c63c39c4259a298830c15188310/operations/5a59953940d86a0f3c7a8290).
+Bu istek hakkında daha fazla bilgi için bkz. [CreateProject](https://southcentralus.dev.cognitive.microsoft.com/docs/services/d0e77c63c39c4259a298830c15188310/operations/5a59953940d86a0f3c7a8290).
 
-### <a name="specific-domains"></a>Özel etki alanları
+### <a name="specific-domains"></a>Belirli etki alanları
 
-Belirli bir etki alanı için bir proje oluşturmak için sağlayabilirsiniz __etki alanı kimliği__ isteğe bağlı bir parametre olarak. Aşağıdaki örnekler, mevcut etki alanlarının bir listesini almak gösterilmektedir:
+Belirli bir etki alanına yönelik bir proje oluşturmak için, isteğe bağlı parametre olarak __etki alanı kimliğini__ sağlayabilirsiniz. Aşağıdaki örneklerde, kullanılabilir etki alanlarının bir listesinin nasıl alınacağı gösterilmektedir:
 
 ```bash
 curl -X GET "https://southcentralus.api.cognitive.microsoft.com/customvision/v2.0/Training/domains" -H "Training-Key: $TRAININGKEY" --data-ascii ""
@@ -117,7 +118,7 @@ $resp = Invoke-WebRequest -Method 'GET' `
 $resp.Content
 ```
 
-İstek yanıtı için aşağıdaki JSON belgesini benzer:
+İstek yanıtı, aşağıdaki JSON belgesine benzer:
 
 ```json
 [
@@ -146,9 +147,9 @@ $resp.Content
 ]
 ```
 
-Bu isteği hakkında daha fazla bilgi için bkz. [GetDomains](https://southcentralus.dev.cognitive.microsoft.com/docs/services/d0e77c63c39c4259a298830c15188310/operations/5a59953940d86a0f3c7a827d).
+Bu istek hakkında daha fazla bilgi için bkz. [GetDomains](https://southcentralus.dev.cognitive.microsoft.com/docs/services/d0e77c63c39c4259a298830c15188310/operations/5a59953940d86a0f3c7a827d).
 
-Aşağıdaki örnek, kullanan yeni bir proje oluşturmadan gösterir __yer işareti__ etki alanı:
+Aşağıdaki örnekte, __Yer İşaretleri__ etki alanını kullanan yeni bir proje oluşturulması gösterilmektedir:
 
 ```bash
 curl -X POST "https://southcentralus.api.cognitive.microsoft.com/customvision/v2.0/Training/projects?name=myproject&domainId=ca455789-012d-4b50-9fec-5bb63841c793" -H "Training-Key: $TRAININGKEY" --data-ascii ""
@@ -162,9 +163,9 @@ $resp = Invoke-WebRequest -Method 'POST' `
 $resp.Content
 ```
 
-## <a name="create-tags"></a>Etiketleri oluşturma
+## <a name="create-tags"></a>Etiket oluşturma
 
-Etiket görüntüleri için bir etiket kimliği kullanmalıdır Aşağıdaki örnekte adlı yeni bir etiket oluşturmak nasıl gösterir `cat` ve bir etiket kimliğini Al Değiştirin `{projectId}` projenizi kimliği. Kullanım `name=` parametresi etiketin adını belirtmek için:
+Görüntüleri etiketlemek için bir etiket kimliği kullanmanız gerekir. Aşağıdaki örnekte, `cat` adlı yeni bir etiketin nasıl oluşturulacağı ve bir etiket kimliğinin nasıl alınacağı gösterilmektedir. `{projectId}` değerini, projenizin kimliği ile değiştirin. Etiketin adını belirtmek için `name=` parametresini kullanın:
 
 ```bash
 curl -X POST "https://southcentralus.api.cognitive.microsoft.com/customvision/v2.0/Training/projects/{projectId}/tags?name=cat" -H "Training-Key: $TRAININGKEY" --data-ascii ""
@@ -178,19 +179,19 @@ $resp = Invoke-WebRequest -Method 'POST' `
 $resp.Content
 ```
 
-İstek yanıtı için JSON belgesini benzer: 
+İstek yanıtı, JSON belgesine benzer: 
 
 ```json
 {"id":"ed6f7ab6-5132-47ad-8649-3ec42ee62d43","name":"cat","description":null,"imageCount":0}
 ```
 
-Kaydet `id` görüntüleri etiketlenirken kullanıldıkça, değer.
+`id` değerini, görüntüleri etiketlerken kullanıldığı haliyle kaydedin.
 
-Bu isteği hakkında daha fazla bilgi için bkz. [CreateTag](https://southcentralus.dev.cognitive.microsoft.com/docs/services/d0e77c63c39c4259a298830c15188310/operations/5a59953940d86a0f3c7a829d).
+Bu istek hakkında daha fazla bilgi için bkz. [CreateTag](https://southcentralus.dev.cognitive.microsoft.com/docs/services/d0e77c63c39c4259a298830c15188310/operations/5a59953940d86a0f3c7a829d).
 
 ## <a name="add-images"></a>Görüntü ekleme
 
-Aşağıdaki örnekler, URL'den dosya eklemeyi gösterir. Değiştirin `{projectId}` projenizi kimliği. Değiştirin `{tagId}` görüntüsü için etiket kimliği:
+Aşağıdaki örneklerde, URL’den dosya ekleme işlemi gösterilmektedir. `{projectId}` değerini, projenizin kimliği ile değiştirin. `{tagId}` değerini, görüntü için etiketin kimliği ile değiştirin:
 
 ```bash
 curl -X POST "https://southcentralus.api.cognitive.microsoft.com/customvision/v2.0/Training/projects/{projectId}/images/urls" -H "Training-Key: $TRAININGKEY" -H "Content-Type: application/json" --data-ascii '{"images": [{"url": "http://myimages/cat.jpg","tagIds": ["{tagId}"],"regions": [{"tagId": "{tagId}","left": 119.0,"top": 94.0,"width": 240.0,"height": 140.0}]}], "tagIds": ["{tagId}"]}'
@@ -205,7 +206,7 @@ $resp = Invoke-WebRequest -Method 'POST' `
 $resp.Content
 ```
 
-İstek yanıtı için aşağıdaki JSON belgesini benzer:
+İstek yanıtı, aşağıdaki JSON belgesine benzer:
 
 ```json
 {
@@ -246,11 +247,11 @@ $resp.Content
 }
 ```
 
-Bu isteği hakkında daha fazla bilgi için bkz. [CreateImagesFromUrls](https://southcentralus.dev.cognitive.microsoft.com/docs/services/d0e77c63c39c4259a298830c15188310/operations/5a59953940d86a0f3c7a8287).
+Bu istek hakkında daha fazla bilgi için bkz. [CreateImagesFromUrls](https://southcentralus.dev.cognitive.microsoft.com/docs/services/d0e77c63c39c4259a298830c15188310/operations/5a59953940d86a0f3c7a8287).
 
 ## <a name="train-the-model"></a>Modeli eğitme
 
-Aşağıdaki örnekler modeli eğitmek nasıl ekleyebileceğiniz gösterilmektedir. Değiştirin `{projectId}` projenizi kimliği:
+Aşağıdaki örneklerde, modelin nasıl eğitileceği gösterilmektedir. `{projectId}` değerini, projenizin kimliği ile değiştirin:
 
 ```bash
 curl -X POST "https://southcentralus.api.cognitive.microsoft.com/customvision/v2.0/Training/projects/{projectId}/train" -H "Training-Key: $TRAININGKEY" -H "Content-Type: application/json" --data-ascii ""
@@ -264,7 +265,7 @@ $resp = Invoke-WebRequest -Method 'POST' `
 $resp.Content
 ```
 
-İstek yanıtı için aşağıdaki JSON belgesini benzer:
+İstek yanıtı, aşağıdaki JSON belgesine benzer:
 
 ```json
 {
@@ -280,13 +281,13 @@ $resp.Content
 }
 ```
 
-Kaydet `id` değerini test etmek ve modeli dışa aktarmak için kullanılır.
+Modeli test etmek ve dışarı aktarmak için kullanılan `id` değerini kaydedin.
 
-Daha fazla bilgi için [TrainProject](https://southcentralus.dev.cognitive.microsoft.com/docs/services/d0e77c63c39c4259a298830c15188310/operations/5a59953940d86a0f3c7a8294).
+Daha fazla bilgi için bkz. [TrainProject](https://southcentralus.dev.cognitive.microsoft.com/docs/services/d0e77c63c39c4259a298830c15188310/operations/5a59953940d86a0f3c7a8294).
 
-## <a name="test-the-model"></a>Modeli test
+## <a name="test-the-model"></a>Modeli test etme
 
-Aşağıdaki örnekler, modelin bir test gerçekleştirmek nasıl ekleyebileceğiniz gösterilmektedir. Değiştirin `{projectId}` projenizi kimliği. Değiştirin `{iterationId}` modeli eğitmek öğesinden döndürülen Kimliğine sahip. Değiştirin `https://linktotestimage` yoluyla test görüntüsü.
+Aşağıdaki örneklerde, modelin bir testinin nasıl gerçekleştirileceği gösterilmektedir. `{projectId}` değerini, projenizin kimliği ile değiştirin. `{iterationId}` değerini, modelin eğitiminden döndürülen kimlik ile değiştirin. `https://linktotestimage` değerini, test görüntüsünün yolu ile değiştirin.
 
 ```bash
 curl -X POST "https://southcentralus.api.cognitive.microsoft.com/customvision/v2.0/Training/projects/{projectId}/quicktest/url?iterationId={iterationId}" -H "Training-Key: $TRAININGKEY" -H "Content-Type: application/json" --data-ascii '{"url":"https://linktotestimage"}'
@@ -301,7 +302,7 @@ $resp = Invoke-WebRequest -Method 'POST' `
 $resp.Content
 ```
 
-İstek yanıtı için aşağıdaki JSON belgesini benzer:
+İstek yanıtı, aşağıdaki JSON belgesine benzer:
 
 ```json
 {
@@ -319,15 +320,15 @@ $resp.Content
 }
 ```
 
-Daha fazla bilgi için [QuickTestImageUrl](https://southcentralus.dev.cognitive.microsoft.com/docs/services/d0e77c63c39c4259a298830c15188310/operations/5a59953940d86a0f3c7a828d).
+Daha fazla bilgi için bkz. [QuickTestImageUrl](https://southcentralus.dev.cognitive.microsoft.com/docs/services/d0e77c63c39c4259a298830c15188310/operations/5a59953940d86a0f3c7a828d).
 
-## <a name="export-the-model"></a>Modelini dışarı aktarma
+## <a name="export-the-model"></a>Modeli dışarı aktarma
 
-Bir model verme iki adımlı bir işlemdir. İlk model biçimini belirtin ve ardından istek URL'si dışarı aktarılan modeli için gerekir.
+Bir modeli dışarı aktarma, iki adımlı bir işlemdir. İlk önce model biçimini belirtmeniz ve sonra dışarı aktarılan modelin URL’sini istemeniz gerekir.
 
-### <a name="request-a-model-export"></a>Modeli dışarı aktarma isteği
+### <a name="request-a-model-export"></a>Model dışarı aktarımı isteme
 
-Aşağıdaki örnekler nasıl dışarı aktarılacağını gösteren bir `coreml` modeli. Değiştirin `{projectId}` projenizi kimliği. Değiştirin `{iterationId}` modeli eğitmek öğesinden döndürülen Kimliğine sahip.
+Aşağıdaki örneklerde, bir `coreml` modelinin nasıl dışarı aktarılacağı gösterilmektedir. `{projectId}` değerini, projenizin kimliği ile değiştirin. `{iterationId}` değerini, modelin eğitiminden döndürülen kimlik ile değiştirin.
 
 ```bash
 curl -X POST "https://southcentralus.api.cognitive.microsoft.com/customvision/v2.0/Training/projects/{projectId}/iterations/{iterationId}/export?platform=coreml" -H "Training-Key: $TRAININGKEY" -H "Content-Type: application/json" --data-ascii ''
@@ -341,7 +342,7 @@ $resp = Invoke-WebRequest -Method 'POST' `
 $resp.Content
 ```
 
-İstek yanıtı için aşağıdaki JSON belgesini benzer:
+İstek yanıtı, aşağıdaki JSON belgesine benzer:
 
 ```json
 {
@@ -352,11 +353,11 @@ $resp.Content
 }
 ```
 
-Daha fazla bilgi için [ExportIteration](https://southcentralus.dev.cognitive.microsoft.com/docs/services/d0e77c63c39c4259a298830c15188310/operations/5a59953940d86a0f3c7a829b).
+Daha fazla bilgi için bkz. [ExportIteration](https://southcentralus.dev.cognitive.microsoft.com/docs/services/d0e77c63c39c4259a298830c15188310/operations/5a59953940d86a0f3c7a829b).
 
-### <a name="download-the-exported-model"></a>Dışarı aktarılan modeli indirin.
+### <a name="download-the-exported-model"></a>Dışarı aktarılan modeli indirme
 
-Aşağıdaki örnekler, dışarı aktarılan modeli URL'sini almak nasıl ekleyebileceğiniz gösterilmektedir. Değiştirin `{projectId}` projenizi kimliği. Değiştirin `{iterationId}` modeli eğitmek öğesinden döndürülen Kimliğine sahip.
+Aşağıdaki örneklerde, dışarı aktarılan modelin URL’sinin nasıl dışarı aktarılacağı gösterilmektedir. `{projectId}` değerini, projenizin kimliği ile değiştirin. `{iterationId}` değerini, modelin eğitiminden döndürülen kimlik ile değiştirin.
 
 ```bash
 curl -X GET "https://southcentralus.api.cognitive.microsoft.com/customvision/v2.0/Training/projects/{projectId}/iterations/{iterationId}/export" -H "Training-Key: $TRAININGKEY" -H "Content-Type: application/json" --data-ascii ''
@@ -370,7 +371,7 @@ $resp = Invoke-WebRequest -Method 'GET' `
 $resp.Content
 ```
 
-İstek yanıtı için aşağıdaki JSON belgesini benzer:
+İstek yanıtı, aşağıdaki JSON belgesine benzer:
 
 ```json
 [
@@ -383,4 +384,4 @@ $resp.Content
 ]
 ```
 
-Daha fazla bilgi için [GetExports](https://southcentralus.dev.cognitive.microsoft.com/docs/services/d0e77c63c39c4259a298830c15188310/operations/5a59953940d86a0f3c7a829a).
+Daha fazla bilgi için bkz. [GetExports](https://southcentralus.dev.cognitive.microsoft.com/docs/services/d0e77c63c39c4259a298830c15188310/operations/5a59953940d86a0f3c7a829a).

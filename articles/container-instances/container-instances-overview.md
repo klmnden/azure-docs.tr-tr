@@ -6,15 +6,15 @@ author: seanmck
 manager: jeconnoc
 ms.service: container-instances
 ms.topic: overview
-ms.date: 07/19/2018
+ms.date: 10/02/2018
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: 953d1dfd633f2fee52a2e6d197c6f32e7ab053f7
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 33d6d89e91ecdec00c1b17ecddf91128e9d07526
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39160459"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48802109"
 ---
 # <a name="azure-container-instances"></a>Azure Container Instances
 
@@ -24,7 +24,7 @@ Yalıtılmış kapsayıcılarda çalışabileceğiniz senaryolar (basit uygulama
 
 ## <a name="fast-startup-times"></a>Hızlı başlangıç süreleri
 
-Kapsayıcılar, sanal makinelerde önemli başlangıç süresi avantajları sunar. Azure Container Instances, sanal makineleri sağlamaya ve yönetmeye gerek kalmadan saniyeler içinde Azure’da kapsayıcıları başlatabilir.
+Kapsayıcılar, sanal makinelerde (VM) önemli başlangıç süresi avantajları sunar. Azure Container Instances, sanal makineleri sağlamaya ve yönetmeye gerek kalmadan saniyeler içinde Azure’da kapsayıcıları başlatabilir.
 
 ## <a name="public-ip-connectivity-and-dns-name"></a>Genel IP bağlantısı ve DNS adı
 
@@ -54,9 +54,19 @@ Azure Container Instances, Uzun Süreli Hizmet Kanalı (LTSC) sürümlerini kull
 
 Azure Container Instances, aynı ana makineyi, yerel ağı, depolama alanını ve yaşam döngüsünü paylaşan [birden çok kapsayıcı grubunun](container-instances-container-groups.md) zamanlanmasını destekler. Böylece ana uygulama kapsayıcınızı, günlüğe kaydetme yan bölmesi gibi diğer destekleyici kapsayıcılarla birleştirebilirsiniz.
 
+## <a name="virtual-network-deployment-preview"></a>Sanal ağ dağıtımı (önizleme)
+
+Şu anda önizleme sürümünde olan bu Azure Container Instances özelliği, [kapsayıcı örneklerinin bir Azure sanal ağına dağıtılmasını sağlar](container-instances-vnet.md). Kapsayıcı örneklerini sanal ağınızdaki bir alt ağa dağıtarak şirket içindekiler dahil olmak üzere ([VPN ağ geçidi](../vpn-gateway/vpn-gateway-about-vpngateways.md) veya [ExpressRoute](../expressroute/expressroute-introduction.md) aracılığıyla) sanal ağ içindeki diğer kaynaklarla güvenli bir şekilde iletişim kurmalarını sağlayabilirsiniz.
+
+> [!IMPORTANT]
+> Kapsayıcı gruplarının sanal ağa dağıtılması şu an için önizleme sürümündedir ve bazı [sınırlamalar mevcuttur](container-instances-vnet.md#preview-limitations). Önizlemeler, [ek kullanım koşullarını][terms-of-use] kabul etmeniz şartıyla kullanımınıza sunulur. Bu özelliğin bazı yönleri genel kullanıma açılmadan önce değişebilir.
+
 ## <a name="next-steps"></a>Sonraki adımlar
 
 Hızlı başlangıç kılavuzumuzu kullanarak bir kapsayıcıyı tek bir komutla Azure’a dağıtmayı deneyin:
 
 > [!div class="nextstepaction"]
 > [Azure Container Instances Hızlı Başlangıç](container-instances-quickstart.md)
+
+<!-- LINKS - External -->
+[terms-of-use]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/

@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 04/12/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 70bbeabe2c2b14e8e0dcccac9ffa63f2e19230a2
-ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
+ms.openlocfilehash: 27167b011e23befda5d0c3703adeafc1581f4b98
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "41920936"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48268944"
 ---
 # <a name="tutorial-add-an-https-endpoint-to-an-aspnet-core-web-api-front-end-service-using-kestrel"></a>Öğretici: Kestrel kullanarak bir ASP.NET Core Web API’si ön uç hizmetine HTTPS uç noktası ekleme
 
@@ -41,7 +41,7 @@ Bu öğretici dizisinde şunların nasıl yapıldığını öğrenirsiniz:
 > * [.NET Service Fabric uygulaması oluşturma](service-fabric-tutorial-deploy-app-to-party-cluster.md)
 > * [Uygulamayı uzak kümeye dağıtma](service-fabric-tutorial-deploy-app-to-party-cluster.md)
 > * Bir ASP.NET Core ön uç hizmetine HTTPS uç noktası ekleme
-> * [Visual Studio Team Services'i kullanarak CI/CD'yi yapılandırma](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)
+> * [Azure Pipelines ile CI/CD yapılandırma](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)
 > * [Uygulama için izleme ve tanılamayı ayarlama](service-fabric-tutorial-monitoring-aspnet.md)
 
 ## <a name="prerequisites"></a>Ön koşullar
@@ -232,6 +232,7 @@ powershell.exe -ExecutionPolicy Bypass -Command ".\SetCertAccess.ps1"
 ```
 
 *Setup.bat* dosya özelliklerini, **Çıkış Dizinine Kopyala** değerini "Daha yeniyse kopyala" olarak ayarlayacak şekilde değiştirin.
+
 ![Dosya özelliklerini ayarlama][image1]
 
 Çözüm Gezgini’nde **VotingWeb**’e sağ tıklayıp **Ekle**->**Yeni Öğe**’yi seçin ve "SetCertAccess.ps1" adlı yeni bir dosya ekleyin.  *SetCertAccess.ps1* dosyasını düzenleyin ve aşağıdaki betiği ekleyin:
@@ -265,7 +266,7 @@ if ($cert -eq $null)
     $hasPermissionsAlready = ($acl.Access | where {$_.IdentityReference.Value.Contains($userGroup.ToUpperInvariant()) -and $_.FileSystemRights -eq [System.Security.AccessControl.FileSystemRights]::FullControl}).Count -eq 1
 
     if ($hasPermissionsAlready){
-        Write-Host "Account $userGroupCertificate already has permissions to certificate '$subject'." -ForegroundColor Green
+        Write-Host "Account $userGroup already has permissions to certificate '$subject'." -ForegroundColor Green
         return $false;
     } else {
         Write-Host "Need add permissions to '$subject' certificate..." -ForegroundColor DarkYellow
@@ -281,8 +282,9 @@ if ($cert -eq $null)
     }
 }
 
-Modify the *SetCertAccess.ps1* file properties to set **Copy to Output Directory** to "Copy if newer".
 ```
+
+*SetCertAccess.ps1* dosya özelliklerini, **Çıkış Dizinine Kopyala** değerini "Daha yeniyse kopyala" olarak ayarlayacak şekilde değiştirin.
 
 ### <a name="run-the-setup-script-as-a-local-administrator"></a>Kurulum betiğini yerel yönetici olarak çalıştırma
 
@@ -442,7 +444,7 @@ Uygulama dağıtılırken bir web tarayıcısı açın ve [https://mycluster.reg
 
 Sonraki öğreticiye ilerleyin:
 > [!div class="nextstepaction"]
-> [Visual Studio Team Services'i kullanarak CI/CD'yi yapılandırma](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)
+> [Azure Pipelines ile CI/CD yapılandırma](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)
 
 [image1]: ./media/service-fabric-tutorial-dotnet-app-enable-https-endpoint/SetupBatProperties.png
 [image2]: ./media/service-fabric-tutorial-dotnet-app-enable-https-endpoint/VotingAppLocal.png

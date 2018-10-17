@@ -1,22 +1,27 @@
 ---
-title: Web Dil Modeli API'sine Genel Bakış - Azure Bilişsel Hizmetler | Microsoft Docs
+title: Web Dil Modeli API’sine genel bakış
+titleSuffix: Azure Cognitive Services
 description: Microsoft Bilişsel Hizmetler'in Web Dil Modeli API'si doğal dil işleme için en son teknoloji araçlar sağlar.
 services: cognitive-services
 author: piyushbehre
-manager: yanbo
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: web-language-model
 ms.topic: overview
 ms.date: 08/12/2016
 ms.author: pibehre
-ms.openlocfilehash: dc5dc0519e33e024014033ac5260004482b419c2
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ROBOTS: NOINDEX
+ms.openlocfilehash: f6cfaa05a6107d3e1ef689103da43960ea4df366
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47096964"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48040000"
 ---
 # <a name="what-is-the-web-language-model-api-preview"></a>Web Dili Modeli API’si nedir? (Önizleme)
+
+> [!IMPORTANT]
+> Web Dil Modeli önizleme sürümü 9 Ağustos 2018 tarihinde kullanımdan kaldırılmıştır. Metin işleme ve analiz için [Azure Machine Learning metin analizi modüllerini](https://docs.microsoft.com/en-us/azure/machine-learning/studio-module-reference/text-analytics) kullanmanızı öneririz.
 
 Microsoft Web Dil Modeli API'si, doğal dil işleme için en son teknoloji araçlar sunan REST tabanlı bir bulut hizmetidir. Uygulamanız bu API'yi kullanarak Bing tarafından tr-TR pazarında toplanan web ölçeğindeki konuşma yapılarında eğitilen dil modelleri aracılığıyla büyük verinin gücünden yararlanabilir.
 

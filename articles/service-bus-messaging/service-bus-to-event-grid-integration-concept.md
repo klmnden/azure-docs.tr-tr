@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: get-started-article
-ms.date: 02/15/2018
+ms.date: 09/15/2018
 ms.author: spelluru
-ms.openlocfilehash: 2b6f46c10603e54f0f77a635b3233073aadac0cd
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 9e7e853ad7562bf5d449479ad730a5dabd6a97b8
+ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43700132"
+ms.lasthandoff: 10/01/2018
+ms.locfileid: "47585433"
 ---
 # <a name="azure-service-bus-to-event-grid-integration-overview"></a>Azure Service Bus - Event Grid tümleştirmesine Genel Bakış
 
@@ -129,9 +129,9 @@ Yeni Event Grid aboneliği oluşturmak için aşağıdakileri yapın:
 2. Sol bölmede **Event Grid**’i seçin. 
 3. **Olay Aboneliği**’ni seçin.  
 
-   Aşağıdaki resimde, birkaç Event Grid aboneliği içeren bir ad alanı gösterilmektedir:
+   Aşağıdaki resimde, bir Event Grid aboneliği içeren bir ad alanı gösterilmektedir:
 
-   ![20][]
+   ![Event Grid abonelikleri](./media/service-bus-to-event-grid-integration-concept/sbtoeventgridportal.png)
 
    Aşağıdaki resimde, belirli bir filtreleme olmadan bir işleve veya web kancasına nasıl abone olunacağı gösterilmektedir:
 
@@ -176,7 +176,7 @@ Buradan diğer kurulum seçeneklerini keşfedebilir veya [olayların akışa al�
 ## <a name="next-steps"></a>Sonraki adımlar
 
 * Service Bus ve Event Grid [örnekleri](service-bus-to-event-grid-integration-example.md) alın.
-* [Event Grid](https://docs.microsoft.com/azure/azure-functions/) hakkında daha fazla bilgi edinin.
+* [Event Grid](https://docs.microsoft.com/azure/event-grid/) hakkında daha fazla bilgi edinin.
 * [Azure İşlevleri](https://docs.microsoft.com/azure/azure-functions/) hakkında daha fazla bilgi edinin.
 * [Logic Apps](https://docs.microsoft.com/azure/logic-apps/) hakkında daha fazla bilgi edinin.
 * [Service Bus](https://docs.microsoft.com/azure/azure-functions/) hakkında daha fazla bilgi edinin.

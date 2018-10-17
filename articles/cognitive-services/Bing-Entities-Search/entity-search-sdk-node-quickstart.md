@@ -1,38 +1,38 @@
 ---
-title: Varlık arama SDK düğümü hızlı başlangıç | Microsoft Docs
-description: Varlık Ara SDK konsol uygulaması ayarlayın.
-titleSuffix: Azure cognitive services
+title: "Hızlı başlangıç: Bing Varlık Arama SDK'sı, Node"
+titleSuffix: Azure Cognitive Services
+description: Node ile Varlık Arama SDK'sı konsol uygulaması kurulumu.
 services: cognitive-services
 author: mikedodaro
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-entity-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 02/12/2018
 ms.author: v-gedod
-ms.openlocfilehash: 2904ecfed33334458f9b6a9ca2500cd0bfef13bc
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
-ms.translationtype: MT
+ms.openlocfilehash: 1f2a5f6a1473cde40928ada6e30f6bd9b780543d
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "35355738"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48814891"
 ---
-# <a name="entity-search-sdk-node-quickstart"></a>Varlık arama SDK düğümü hızlı başlangıç
+# <a name="quickstart-bing-entity-search-sdk-with-node"></a>Hızlı Başlangıç: Node ile Bing Varlık Arama SDK'sı
 
-Bing varlık arama SDK'sı varlık sorgular ve ayrıştırma sonuçları için REST API işlevselliğini içerir. 
+Bing Varlık Arama SDK'sı, varlık sorguları ve sonuçları ayrıştırmak için REST API işlevselliğini içerir. 
 
-[Kaynak kodu C# Bing varlık arama SDK örnekleri için](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/blob/master/Samples/entitySearch.js) Git hub'da kullanılabilir.
+[C# Bing Varlık Arama SDK'sı örneklerinin kaynak kodu](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/blob/master/Samples/entitySearch.js) Git Hub'dan edinilebilir.
 ## <a name="application-dependencies"></a>Uygulama bağımlılıkları
 
-Bing varlık arama SDK'yı kullanarak bir konsol uygulaması ayarlamak için çalıştırın `npm install azure-cognitiveservices-entitysearch` geliştirme ortamınızda.
+Bing Varlık Arama SDK'sını kullanan bir konsol uygulaması kurmak için geliştirme ortamınızda `npm install azure-cognitiveservices-entitysearch` komutunu çalıştırın.
 
-## <a name="entity-search-client"></a>Varlık arama istemci
-Alma bir [Bilişsel hizmetler erişim tuşu](https://azure.microsoft.com/try/cognitive-services/) altında *arama*. Bir örneğini oluşturmak `CognitiveServicesCredentials`:
+## <a name="entity-search-client"></a>Varlık Arama istemcisi
+*Arama* altından bir [Bilişsel Hizmetler erişim anahtarı](https://azure.microsoft.com/try/cognitive-services/) alın. `CognitiveServicesCredentials` nesnesinin bir örneğini oluşturun:
 ```
 const CognitiveServicesCredentials = require('ms-rest-azure').CognitiveServicesCredentials;
 let credentials = new CognitiveServicesCredentials('YOUR-ACCESS-KEY');
 ```
-Ardından, istemci oluşturma ve arama sonuçları için:
+Ardından istemciyi başlatın ve sonuç arayın:
 ```
 const EntitySearchAPIClient = require('azure-cognitiveservices-entitysearch');
 
@@ -47,9 +47,9 @@ entitySearchApiClient.entitiesOperations.search('seahawks').then((result) => {
 });
 
 ```
-Kod yazdırır `result.value` herhangi bir metin ayrıştırma olmadan konsola öğeler.  Varsa her kategori, sonuçları içerir:
-- _ad: 'Şey'
-- _ad: 'ImageObject'
+Kod konsola `result.value` öğelerini yazdırır ve metin ayrıştırması gerçekleştirmez.  Varsa sonuçlar kategorilere ayrılmış şekilde şunları içerir:
+- _type: 'Thing'
+- _type: 'ImageObject'
 
 <!-- Removing until we can replace with a sanitized version.
 ![Entity results](media/entity-search-sdk-node-quickstart-results.png)
@@ -57,4 +57,4 @@ Kod yazdırır `result.value` herhangi bir metin ayrıştırma olmadan konsola �
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-[Bilişsel hizmetler Node.js SDK'sı örneği](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples)
+[Bilişsel hizmetler Node.js SDK'sı örnekleri](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples)

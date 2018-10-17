@@ -5,15 +5,15 @@ services: data-factory
 author: linda33wj
 ms.service: data-factory
 ms.topic: include
-ms.date: 08/20/2018
+ms.date: 10/01/2018
 ms.author: jingwang
 ms.custom: include file
-ms.openlocfilehash: ac6b53926ca6c44c8ec1e71db67321366aacb00e
-ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
+ms.openlocfilehash: 4b209953e957d0c2892bc5c6bca7a577992c5dee
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42617613"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48843583"
 ---
 ## <a name="prerequisites"></a>Ön koşullar
 
@@ -21,18 +21,26 @@ ms.locfileid: "42617613"
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/) oluşturun.
 
 ### <a name="azure-roles"></a>Azure rolleri
-Data Factory örnekleri oluşturmak için, Azure’da oturum açarken kullandığınız kullanıcı hesabı, *katkıda bulunan*, *sahip* veya *yönetici* rollerinin üyesi ya da bir Azure aboneliğinin yöneticisi olmalıdır. Abonelikte sahip olduğunuz izinleri görüntülemek için Azure portalına gidin, sağ üst köşeden kullanıcı adınızı ve sonra **İzinler**’i seçin. Birden çok aboneliğe erişiminiz varsa uygun aboneliği seçin. Bir role kullanıcı eklemeye ilişkin örnek yönergeler için [Rol ekleme](../articles/billing/billing-add-change-azure-subscription-administrator.md) makalesine bakın.
+Data Factory örnekleri oluşturmak için, Azure’da oturum açarken kullandığınız kullanıcı hesabı, *katkıda bulunan*, *sahip* veya *yönetici* rollerinin üyesi ya da bir Azure aboneliğinin yöneticisi olmalıdır. Abonelikte sahip olduğunuz izinleri görüntülemek için Azure portalına gidin, sağ üst köşeden kullanıcı adınızı ve sonra **İzinler**’i seçin. Birden çok aboneliğe erişiminiz varsa uygun aboneliği seçin. 
 
-Azure portaldaki Yazar ve İzleyici arabirimi aracılığıyla Data Factory'niz için alt kaynakları (veri kümeleri, bağlantılı hizmetler, işlem hatları, tetikleyiciler ve tümleştirme çalışma zamanları gibi) oluşturmak ve yönetmek için **Data Factory Katılımcısı** rolüne ait olmanız gerekir. Alt kaynakları PowerShell veya SDK ile oluşturmak ve yönetmek için **katkıda bulunan** rolü yeterlidir.
+Data Factory için veri kümeleri, bağlı hizmetler, işlem hatları, tetikleyiciler ve tümleştirme çalışma zamanları gibi alt kaynaklar oluşturup yönetmek için aşağıdaki gereksinimlerin karşılanması gerekir:
+- Azure portalda alt öğe oluşturup yönetebilmek için kaynak grubu düzeyinde **Data Factory Katılımcısı** rolüne veya daha üst düzey bir role sahip olmanız gerekir.
+- PowerShell veya SDK ile alt öğe oluşturup yönetebilmek için kaynak düzeyinde **katkıda bulunan** rolü veya daha üst düzey bir rol yeterli olacaktır.
+
+Kullanıcı rolü eklemeye ilişkin örnek yönergeler için [Rol ekleme](../articles/billing/billing-add-change-azure-subscription-administrator.md) makalesine bakın.
+
+Daha fazla bilgi için aşağıdaki makalelere bakın:
+- [Data Factory Katılımcısı rolü](../articles/role-based-access-control/built-in-roles.md#data-factory-contributor)
+- [Azure Data Factory için roller ve izinler](../articles/data-factory/concepts-roles-permissions.md)
 
 ### <a name="azure-storage-account"></a>Azure depolama hesabı
 Bu hızlı başlangıçta, genel amaçlı Azure depolama hesabını (özel olarak Blob depolama) hem *kaynak* hem de *hedef* veri deposu olarak kullanırsınız. Genel amaçlı bir Azure depolama hesabınız yoksa oluşturma bilgileri için bkz. [Depolama hesabı oluşturma](../articles/storage/common/storage-quickstart-create-account.md). 
 
 #### <a name="get-the-storage-account-name-and-account-key"></a>Depolama hesabı adını ve hesap anahtarını alma
-Bu hızlı başlangıçta, Azure depolama hesabınızın adını ve anahtarını kullanırsınız. Aşağıdaki yordamda, depolama hesabınızın adını ve anahtarını alma adımlarını verilmiştir: 
+Bu hızlı başlangıçta, Azure depolama hesabınızın adına ve anahtarına ihtiyacınız olacaktır. Aşağıdaki yordamda, depolama hesabınızın adını ve anahtarını alma adımlarını verilmiştir: 
 
 1. Bir web tarayıcısında [Azure portalına](https://portal.azure.com) gidin. Azure kullanıcı adınızı ve parolanızı kullanarak oturum açın. 
-2. Sol taraftaki menüde **Diğer hizmetler**’i seçin, **Depolama** anahtar sözcüğünü kullanarak filtre uygulayın ve **Depolama hesapları**'nı seçin.
+2. Sol taraftaki menüde **Tüm hizmetler**’i seçin, **Depolama** anahtar sözcüğünü kullanarak filtre uygulayın ve **Depolama hesapları**'nı seçin.
 
    ![Depolama hesabı arama](media/data-factory-quickstart-prerequisites/search-storage-account.png)
 3. Depolama hesapları listesinde, depolama hesabınız için filtre uygulayın (gerekirse) ve depolama hesabınızı seçin. 
@@ -56,7 +64,7 @@ Bu bölümde, Azure Blob depolama alanında **adftutorial** adlı bir blob kapsa
 4. Kapsayıcılar listesinde **adftutorial**’ı seçin. 
 
    ![Kapsayıcıyı seçin](media/data-factory-quickstart-prerequisites/seelct-adftutorial-container.png)
-1. **Kapsayıcı** sayfasında araç çubuğundaki **Karşıya Yükle** öğesini seçin.  
+5. **Kapsayıcı** sayfasında araç çubuğundaki **Karşıya Yükle** öğesini seçin.  
 
    ![Karşıya yükle düğmesi](media/data-factory-quickstart-prerequisites/upload-toolbar-button.png)
 6. **Blobu karşıya yükleme** sayfasında **Gelişmiş**’i seçin.

@@ -1,52 +1,52 @@
 ---
-title: Haber arama API'si hızlı başlangıç | Microsoft Docs
-description: Bing haber arama API'si ile çalışmaya başlamak gösterilmektedir.
+title: 'Hızlı başlangıç: Bing Haber Arama API’si'
+titlesuffix: Azure Cognitive Services
+description: Bing Haber Arama API'sini kullanmaya başlamayı göstermektedir.
 services: cognitive-services
 author: swhite-msft
-manager: ehansen
-ms.assetid: 9CF6EAF3-42D8-4321-983C-4AC3896E8E03
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-news-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 04/15/2017
 ms.author: scottwhi
-ms.openlocfilehash: b3f2b36034ab33b4f5eec2d138103c3e4d8e21f4
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
-ms.translationtype: MT
+ms.openlocfilehash: bc3d2e43983791cf8f666660675a7dd537f04d77
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47034340"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48802534"
 ---
-# <a name="your-first-news-search-query"></a>İlk haber arama sorgunuz
+# <a name="quickstart-your-first-news-search-query"></a>Hızlı başlangıç: İlk haber arama sorgunuz
 
-İlk çağrınızı yapmadan önce Bilişsel hizmetler abonelik anahtarı almanız gerekir. Bir anahtarı almak için bkz. [Bilişsel Hizmetler'i deneyin](https://azure.microsoft.com/try/cognitive-services/?api=bing-news-search-api).
+İlk çağrınızı yapmadan önce bir Bilişsel Hizmetler abonelik anahtarı almanız gerekir. Anahtar alma için bkz: [Bilişsel Hizmetleri Deneme](https://azure.microsoft.com/try/cognitive-services/?api=bing-news-search-api).
 
-Yalnızca haber arama sonuçları almak için aşağıdaki uç noktaya bir GET isteği gönder:
+Yalnızca haber arama sonuçlarını almak için aşağıdaki uç noktaya bir GET isteği gönderirsiniz:
 
 ```http
 https://api.cognitive.microsoft.com/bing/v7.0/news/search
 ```
 
-İstek, HTTPS protokolünü kullanmanız gerekir.
+İstek, HTTPS protokolünü kullanmalıdır.
 
-Tüm istekleri bir sunucusundan kaynaklanan öneririz. Anahtarı bir istemci uygulamanın bir parçası dağıtma, ona erişmek kötü amaçlı bir üçüncü taraf için daha fazla fırsat sağlar. Ayrıca, çağrı yapmaya bir sunucudan tek bir yükseltme noktası API'ın gelecek sürümleri için sağlar.
+Tüm isteklerin bir sunucudan gönderilmesini öneririz. Anahtarı bir istemci uygulamanın parçası olarak dağıtmak, kötü amaçlı bir üçüncü tarafa anahtara erişmek için daha fazla fırsat sunar. Ayrıca bir sunucudan çağrı yapmak API'nin gelecek sürümleri için tek bir yükseltme noktası sağlar.
 
-İstek belirtmelisiniz [q](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#query) kullanıcının arama terimini içeren sorgu parametresi. İsteğe bağlı olsa da, istek de belirtmeniz [mkt](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#mkt) gelen sonuçların istediğiniz Pazar tanımlayan sorgu parametresi. İsteğe bağlı gösteren liste için parametreleri gibi sorgu `freshness` ve `textDecorations`, bkz: [sorgu parametreleri](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#query-parameters). Tüm sorgu parametre değerlerini URL olarak kodlanmış olmalıdır.
+İstek kullanıcının arama terimini içeren [q](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#query) sorgu parametresini belirtmelidir. Tercihe bağlı olmakla birlikte, istek, sonuçların gelmesini istediğiniz pazarı tanımlayan [mkt](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#mkt) sorgu parametresini de belirtmelidir. `freshness` ve `textDecorations` gibi isteğe bağlı sorgu parametrelerinin bir listesi için bkz. [Sorgu Parametreleri](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#query-parameters). Tüm sorgu parametre değerleri URL olarak kodlanmış olmalıdır.
 
-İstek belirtmelisiniz [Ocp-Apim-Subscription-Key](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#subscriptionkey) başlığı. İsteğe bağlı olsa da, ayrıca şu üst bilgilerini belirtmek için önerilir:
+İstek [Ocp-Apim-Subscription-Key](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#subscriptionkey) üstbilgisini belirtmelidir. İsteğe bağlı olmakla birlikte şu üstbilgileri de belirtmeniz önerilir:
 
-- [Kullanıcı Aracısı](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#useragent)
-- [X MSEdge ClientID](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#clientid)
-- [X arama Clientıp](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#clientip)
-- [X arama konumu](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#location)
+- [User-Agent](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#useragent)
+- [X-MSEdge-ClientID](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#clientid)
+- [X-Search-ClientIP](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#clientip)
+- [X-Search-Location](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#location)
 
-İstemci IP'si ve konum üst bilgilerini kullanan içerik konumu döndürmek için son derece önemlidir.
+İstemci IP'si ve konum üstbilgileri konuma duyarlı içerik döndürmek için önemlidir.
 
-Tüm istek ve yanıt üstbilgileri listesi için bkz. [üstbilgileri](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#headers).
+Tüm istek ve yanıt üstbilgilerinin bir listesi için bkz. [Üstbilgiler](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#headers).
 
 ## <a name="the-request"></a>İstek
 
-Aşağıda, tüm önerilen sorgu parametrelerinin ve üst bilgileri içeren bir haber isteği gösterilmektedir. Bing API'lerinden birini ilk kez çağırıyorsanız istemci kimliği üst bilgisini eklemeyin. İstemci kimliğini yalnızca önceden bir Bing API'sini çağırdıysanız ve Bing, kullanıcı ve cihaz birleşimi için bir istemci kimliği döndürdüyse dahil edin.
+Aşağıda önerilen tüm sorgu parametrelerini ve üstbilgilerini içeren bir haber isteği gösterilmektedir. Bing API'lerinden birini ilk kez çağırıyorsanız istemci kimliği üst bilgisini eklemeyin. İstemci kimliğini yalnızca önceden bir Bing API'sini çağırdıysanız ve Bing, kullanıcı ve cihaz birleşimi için bir istemci kimliği döndürdüyse dahil edin.
 
 ```http
 GET https://api.cognitive.microsoft.com/bing/v7.0/news/search?q=sailing+dinghies&mkt=en-us HTTP/1.1
@@ -60,7 +60,7 @@ Host: api.cognitive.microsoft.com
 
 ## <a name="the-response"></a>Yanıt
 
-Aşağıda, bir önceki isteğin yanıtı gösterilmektedir. Örnek ayrıca yanıt üst bilgilerini gösterir.
+Aşağıda, bir önceki isteğin yanıtı gösterilmektedir. Örnek ayrıca yanıt üst bilgilerini de göstermektedir.
 
 ```
 BingAPIs-TraceId: 994974CC8D994C95A5C31387296A510A
@@ -282,10 +282,10 @@ X-MSEdge-Ref: Ref A: 994974CC8D994C95A5C31387296A510A Ref B: BY3EDGE0207 Ref C: 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-API'yi deneyin. Git [haber arama API'si sınama Konsolu'nu](https://dev.cognitive.microsoft.com/docs/services/56b43f72cf5ff8098cef380a/operations/56f02400dbe2d91900c68553).
+API'yi deneyin. [Haber Arama API'si Test Konsolu](https://dev.cognitive.microsoft.com/docs/services/56b43f72cf5ff8098cef380a/operations/56f02400dbe2d91900c68553)'na gidin.
 
-Yanıt nesnelerinin kullanma hakkında daha fazla ayrıntı için bkz [Bing haber arama nedir?](./search-the-web.md). Ayrıca, aşağıdaki genel eylemler hakkında daha fazla bilgi bulabilirsiniz:
+Yanıt nesnelerini kullanmanın ayrıntıları için bkz. [Bing Haber Arama nedir?](./search-the-web.md). Ayrıca aşağıdaki yaygın eylemlerle ilgili daha fazla bilgi edinebilirsiniz:
 
-- [Günümüzün en güncel alma](./search-the-web.md#getting-todays-top-news)
+- [Günün en önemli haberlerini alma](./search-the-web.md#getting-todays-top-news)
 - [Kategoriye göre haber alma](./search-the-web.md#getting-news-by-category)
-- [Popüler Haberler alma](./search-the-web.md#getting-trending-news)
+- [Popüler haberleri alma](./search-the-web.md#getting-trending-news)

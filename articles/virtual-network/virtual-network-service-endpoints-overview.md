@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 08/15/2018
 ms.author: anithaa
 ms.custom: ''
-ms.openlocfilehash: dcc0456637c17e779593b121025596149398afba
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 3bae20a7d6eea298dd09d24c0c5b53365784b3d0
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47410230"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48239192"
 ---
 # <a name="virtual-network-service-endpoints"></a>Sanal Ağ Hizmeti Uç Noktaları
 
@@ -49,7 +49,7 @@ En güncel bildirimler için [Azure Sanal Ağ güncelleştirmeleri](https://azur
 
 Hizmet uç noktaları aşağıdaki avantajları sağlar:
 
-- **Azure hizmet kaynaklarınız için geliştirilmiş güvenlik**: Hizmet uç noktaları sayesinde, Azure hizmet kaynakları sanal ağınızla sınırlandırılarak güvenli hale getirilebilir. Hizmet kaynaklarını bir sanal ağ ile sınırlandırmak, ilgili kaynaklara genel İnternet erişimini tamamen kaldırıp yalnızca sanal ağınızdan gelen trafiğe izin vererek güvenliği artırır.
+- **Azure hizmet kaynaklarınız için geliştirilmiş güvenlik**: Sanal ağ özel adres alanı çakışabilir ve bu nedenle sanal ağınızdan gelen trafiğin benzersiz olarak tanımlanması için kullanılamaz. Hizmet uç noktaları, sanal ağ kimliğini hizmete taşıyarak Azure hizmeti kaynaklarının sanal ağınıza sunulmasını sağlar. Hizmet uç noktaları sanal ağınızda etkinleştirdikten sonra, kaynaklara bir sanal ağ kuralı ekleyerek sanal ağınıza bağlı olan Azure hizmet kaynaklarının güvenliğini sağlayabilirsiniz. Bu sayede kaynaklara genel İnternet erişimini tamamen kaldırıp yalnızca sanal ağınızdan gelen trafiğe izin vererek güvenliği artırabilirsiniz.
 - **Sanal Ağınızdan gelen Azure trafiği için en uygun yönlendirme**: Günümüzde sanal ağınızda İnternet trafiğini şirket içi ve/veya sanal gereçlerden geçmeye zorlayan tüm rotalar (zorlamalı tünel oluşturma olarak bilinir) Azure hizmet trafiğini de İnternet trafiğiyle aynı rotadan geçmeye zorlar. Hizmet uç noktaları Azure trafiği için en uygun rotayı sunar. 
 
   Uç noktalar her zaman hizmet trafiğini sanal ağınızdan doğrudan Microsoft Azure omurga ağındaki hizmete yönlendirir. Trafiğin Azure omurga ağında tutulması, zorlamalı tünel aracılığıyla hizmet trafiğini etkilemeden, giden İnternet trafiğini sanal ağlarınızdan denetlemeye ve izlemeye devam etmenize olanak sağlar. [Kullanıcı tanımlı rotalar ve zorlamalı tünel oluşturma](virtual-networks-udr-overview.md) hakkında daha fazla bilgi edinin.

@@ -3,18 +3,18 @@ title: Azure Haritalar ile yol bulma | Microsoft Docs
 description: Azure Haritalar’ı kullanarak ilgi çekici noktaya yönlendirme
 author: dsk-2015
 ms.author: dkshir
-ms.date: 09/04/2018
+ms.date: 10/02/2018
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 68d7df575e3d413780b8181c11dd59a22469708b
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 3bf1aa6d1b9bd65c28ef99ddbac71fb75daf99e7
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45578946"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48816727"
 ---
 # <a name="route-to-a-point-of-interest-using-azure-maps"></a>Azure Haritalar’ı kullanarak ilgi çekici noktaya yönlendirme
 
@@ -126,14 +126,16 @@ Bu öğretici için başlangıç noktası olarak Microsoft’u ve hedef nokta ol
         padding: 50
     });
 
-    // Add pins to the map for the start and end point of the route
-    map.addPins([startPin, destinationPin], {
-        name: "route-pins",
-        textFont: "SegoeUi-Regular",
-        textOffset: [0, -20]
+    map.addEventListener("load", function () { 
+        // Add pins to the map for the start and end point of the route
+        map.addPins([startPin, destinationPin], {
+            name: "route-pins",
+            textFont: "SegoeUi-Regular",
+            textOffset: [0, -20]
+        });
     });
     ```
-    **map.setCameraBounds**, harita penceresini başlangıç ve bitiş noktalarının koordinatlarına göre ayarlar. **map.addPins** API’si, Harita denetimine görsel bileşen olarak nokta ekler.
+    **map.setCameraBounds**, harita penceresini başlangıç ve bitiş noktalarının koordinatlarına göre ayarlar. **map.addEventListener**, harita tamamen yüklendikten sonra haritaya eklenmiş olan tüm harita işlevlerinin yüklenmesini sağlar. Olay dinleyicisi içindeki **map.addPins** API’si, Harita denetimine görsel bileşen olarak nokta ekler.
 
 3. **MapRoute.html** dosyasını kaydedin ve tarayıcınızı yenileyin. Şimdi harita, Seattle üzerinde ortalanır ve başlangıç noktasının yuvarlak mavi raptiyeyle ve bitiş noktasının mavi raptiyeyle işaretlendiğini görebilirsiniz.
 
@@ -143,7 +145,7 @@ Bu öğretici için başlangıç noktası olarak Microsoft’u ve hedef nokta ol
 
 ## <a name="get-directions"></a>Yol tarifini alma
 
-Bu bölümde, belirtilen bir başlangıç noktasından bir hedefe giden yolu bulmak için Haritalar yönlendirme hizmeti API’sinin nasıl kullanılacağı gösterilmektedir. Yönlendirme hizmeti, iki konum arasındaki *en hızlı*, *en kısa*, *ekonomik* veya *heyecan verici* yolları planlamak için API’ler sağlar. Ayrıca, Azure’ın geçmişe ait kapsamlı trafik veritabanını kullanarak herhangi bir gün ve saat için yol süresini tahmin eder. Böylece kullanıcıların ileri bir tarih için yol tarifi alabilmesini sağlar. Daha fazla bilgi için bkz. [Yol tariflerini alma](https://docs.microsoft.com/rest/api/maps/route/getroutedirections).
+Bu bölümde, belirtilen bir başlangıç noktasından bir hedefe giden yolu bulmak için Haritalar yönlendirme hizmeti API’sinin nasıl kullanılacağı gösterilmektedir. Yönlendirme hizmeti, iki konum arasındaki *en hızlı*, *en kısa*, *ekonomik* veya *heyecan verici* yolları planlamak için API’ler sağlar. Ayrıca, Azure’ın geçmişe ait kapsamlı trafik veritabanını kullanarak herhangi bir gün ve saat için yol süresini tahmin eder. Böylece kullanıcıların ileri bir tarih için yol tarifi alabilmesini sağlar. Daha fazla bilgi için bkz. [Yol tariflerini alma](https://docs.microsoft.com/rest/api/maps/route/getroutedirections). Aşağıdaki işlevlerin harita tamamen yüklendikten sonra yüklendiğinden emin olmak için tümü **map load eventListener** içine eklenmelidir.
 
 1. İlk olarak, rota yolunu veya *linestring*’i görüntülemek için haritaya yeni bir katman ekleyin. *Betik* bloğuna aşağıdaki JavaScript kodunu ekleyin.
 
@@ -204,6 +206,10 @@ Bu öğreticide, şunların nasıl yapıldığını öğrendiniz:
 > * Harita denetimi API’sini kullanarak yeni bir web sayfası oluşturma
 > * Adres koordinatlarını ayarlama
 > * İlgi çekici noktaya yol tarifi almak için yönlendirme hizmetini sorgulama
+
+Bu öğreticiye ait kod örneğine şuradan erişebilirsiniz:
+
+> [Azure Haritalar ile yol bulma](https://github.com/Azure-Samples/azure-maps-samples/blob/master/src/route.html)
 
 Sonraki öğreticide, seyahat modu veya kargo türü gibi kısıtlamalarla bir yol sorgusu oluşturma ve aynı harita üzerinde birden fazla yolu görüntüleme işlemleri gösterilmektedir.
 

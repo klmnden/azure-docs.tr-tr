@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: quickstart
 ms.date: 06/20/2018
 ms.author: jingwang
-ms.openlocfilehash: d314c04a40155fccc99660bacdb9f646ce77b22f
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: a4e41408a3af2e6bb68c14f2e34bf1141bf349c1
+ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43107597"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48017816"
 ---
 # <a name="use-the-copy-data-tool-to-copy-data"></a>Veri Kopyalama aracını kullanarak veri kopyalama 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service that you are using:"]
@@ -52,13 +52,9 @@ Bu hızlı başlangıçta Azure portalını kullanarak bir veri fabrikası oluş
 1. **Sürüm** bölümünde **V2**'yi seçin.
 1. **Konum** için, veri fabrikasının konumunu seçin. 
 
-   Bu listede yalnızca desteklenen konumlar görüntülenir. Data Factory tarafından kullanılan veri depoları (Azure Depolama ve Azure SQL Veritabanı gibi) ve işlemler (Azure HDInsight gibi) başka konumlarda veya bölgelerde olabilir.
+   Listede yalnızca Data Factory tarafından desteklenen ve Azure Data Factory meta verilerinizin depolanacağı konumlar gösterilir. Data Factory tarafından kullanılan veri depolarının (Azure Depolama ve Azure SQL Veritabanı gibi) ve işlemlerin (Azure HDInsight gibi) başka konumlarda veya bölgelerde çalışabileceğini unutmayın.
 
-1. **Panoya sabitle**’yi seçin.     
 1. **Oluştur**’u seçin.
-1. Panoda, **Data Factory Dağıtılıyor** durumuna sahip aşağıdaki kutucuğu görürsünüz: 
-
-    ![“Data Factory Dağıtılıyor” kutucuğu](media/quickstart-create-data-factory-copy-data-tool/deploying-data-factory.png)
 1. Oluşturma işlemi tamamlandıktan sonra, **Data Factory** sayfasını görürsünüz. Azure Data Factory kullanıcı arabirimi (UI) uygulamasını ayrı bir sekmede başlatmak için **Yazar ve İzleyici** kutucuğunu seçin.
    
    ![Veri fabrikasının “Yazar ve İzleyici” kutucuğuna sahip ana sayfası](./media/quickstart-create-data-factory-copy-data-tool/data-factory-home-page.png)

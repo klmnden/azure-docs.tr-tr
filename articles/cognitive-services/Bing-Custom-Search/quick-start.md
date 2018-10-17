@@ -1,45 +1,46 @@
 ---
-title: İlk Bing özel arama örneği - Microsoft Bilişsel hizmetler oluşturma
-description: Bing özel arama kullanmak için görünümü veya Web dilim tanımlayan bir özel arama örneği oluşturmanız gerekir. Genel etki alanları, siteler ve Bing arama yapmak istediğiniz Web sayfalarını belirten ayarları ve herhangi bir derecelendirme ayarlama örneği içerir.
+title: 'Hızlı başlangıç: İlk Bing Özel Arama örneğinizi oluşturma'
+titlesuffix: Azure Cognitive Services
+description: Bing Özel Arama hizmetini kullanmak için görünümünüzü veya web dilimini tanımlayan özel bir arama örneği oluşturmanız gerekir. Örnekte Bing'in aramasını istediğiniz genel etki alanları, alt siteler ve web sayfalarına ek olarak derecelendirme ayarlarını belirten ayarlar bulunur.
 services: cognitive-services
 author: brapel
-manager: ehansen
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-custom-search
-ms.topic: conceptual
+ms.topic: quickstart
 ms.date: 05/07/2017
 ms.author: v-brapel
-ms.openlocfilehash: 25d622772fe47ffad001834d476e612f8c606904
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: MT
+ms.openlocfilehash: 866d32aa4de45076fcbc4e413d8c2e67d5346878
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46981684"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48816251"
 ---
-# <a name="create-your-first-bing-custom-search-instance"></a>İlk Bing özel arama örneğinizin oluşturma
-Bing özel arama kullanmak için görünümü veya Web dilim tanımlayan bir özel arama örneği oluşturmanız gerekir. Ortak etki alanı, Web siteleri ve Bing arama yapmak istediğiniz Web sayfalarını belirten ayarları ve herhangi bir derecelendirme ayarlama örneği içerir. Bing özel arama örneği oluşturmak için kullanmak [portalı](https://customsearch.ai). 
+# <a name="quickstart-create-your-first-bing-custom-search-instance"></a>Hızlı başlangıç: İlk Bing Özel Arama örneğinizi oluşturma
+Bing Özel Arama hizmetini kullanmak için görünümünüzü veya web dilimini tanımlayan özel bir arama örneği oluşturmanız gerekir. Örnekte Bing'in aramasını istediğiniz genel etki alanları, web siteleri ve web sayfalarına ek olarak derecelendirme ayarlarını belirten ayarlar bulunur. Örneği oluşturmak için Bing Özel Arama [portalını](https://customsearch.ai) kullanın. 
 
 ## <a name="create-a-custom-search-instance"></a>Özel arama örneği oluşturma
 
-Bing özel arama örneği oluşturmak için:
+Bing Özel Arama örneği oluşturmak için:
 
-1.  Özel arama API'si için bir anahtar alın. Bkz: [deneyin Bilişsel Hizmetler](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search).
-2.  Tıklayın **oturum** düğme ve bir Microsoft hesabı (MSA) kullanarak portalda oturum açın. 
-    - Bir MSA yoksa tıklayın **Microsoft hesabı oluşturmanızda**. Portal, verilerinize erişmek için gerekli izinleri ister. **Evet**'e tıklayın.
-    - Bilişsel hizmetler koşulları kabul etmiş olursunuz. Denetleme **kabul ediyorum** tıklatıp **kabul et**.  
-3.  Oturum açtıktan sonra tıklayın **yeni örneği** ve örnek adı. Arama döndürür içerik türünü açıklar ve anlamlı bir ad kullanın. Herhangi bir zamanda adını değiştirebilirsiniz. 
-4.  Üzerinde **etkin** sekmesinde altında **arama deneyimi**, bir URL girin veya daha fazla Web siteleri aramaya dahil etmek istediğiniz.
-5.  Örneğiniz sonuçlar döndürüyor onaylamak için sağ tarafta önizleme bölmesinde bir sorgu girin. Hiç sonuç yoksa yeni bir Web sitesi belirtin. Bing dizine yalnızca ortak Web siteleri için sonuçları döndürür.
-6.  Tıklayın **Yayımla** üretim için yapılandırma değişiklikleri yayımlamak için. Sorulduğunda **Yayımla** onaylamak için.
-7.  Tıklayın **üretim** > **uç noktaları** ve kopyalama **özel yapılandırma kimliği**. Özel arama API'sini çağırmak için bu kodu ihtiyacınız vardır.
+1.  Özel Arama API'niz için bir anahtar alın. Bkz. [Bilişsel Hizmetler’i deneyin](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search).
+2.  **Oturum aç** düğmesine tıklayın ve bir Microsoft hesabı (MSA) kullanarak portalda oturum açın. 
+    - Hesabınız yoksa **Microsoft hesabı oluşturun**'a tıklayın. Portal verilerinize erişmek için izin ister. **Evet**'e tıklayın.
+    - Bilişsel Hizmetler Koşulları'nı kabul edin. **Kabul ediyorum**'a ve **Kabul et**'e tıklayın.  
+3.  Oturum açtıktan sonra **Yeni Örnek** bağlantısına tıklayıp örneğe bir ad verin. Anlamlı ve arama tarafından döndürülen içerik türünü anlatan bir ad kullanın. Adı dilediğiniz zaman değiştirebilirsiniz. 
+4.  **Arama Deneyimi** bölümündeki **Etkin** sekmesine aramak istediğiniz bir veya daha fazla web sitesinin URL'sini girin.
+5.  Örneğinizin sonuç döndürdüğünü doğrulamak için sağ taraftaki önizleme bölmesine bir sorgu girin. Sonuç yoksa yeni bir web sitesi belirtin. Bing yalnızca dizine eklenmiş genel web sitelerinden sonuç döndürür.
+6.  Yapılandırma değişikliklerini üretim ortamında yayımlamak için **Yayımla**'ya tıklayın. Sorulduğunda **Yayımla**'ya tıklayarak onaylayın.
+7.  **Üretim** > **Uç noktalar**'a tıklayıp **Özel Yapılandırma Kimliği**'ni kopyalayın. Özel Arama API'sini çağırmak için bu kimliği kullanmanız gerekir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu nasıl yapılır kılavuzlarından konusundaki yönergeleri izleyerek oluşturduğunuz özel arama örneği ile çalışmaya devam eder:
+Bu nasıl yapılır kılavuzlarındaki yönergeleri izleyerek oluşturduğunuz özel arama örneğiyle çalışmaya devam edebilirsiniz:
 
-- [Özel arama deneyiminizi yapılandırın](./define-your-custom-view.md)
-- [Özel arama çağırın](./search-your-custom-view.md)
-- [Özel arama paylaşın](./share-your-custom-search.md)
-- [Barındırılan UI deneyiminizi yapılandırın](./hosted-ui.md)
-- [Metni vurgulayacak şekilde decoration işaretçileri kullanma](./hit-highlighting.md)
-- [Sayfa Web sayfaları](./page-webpages.md)
+- [Özel arama deneyiminizi yapılandırma](./define-your-custom-view.md)
+- [Özel arama örneğinizi çağırma](./search-your-custom-view.md)
+- [Özel arama örneğinizi paylaşma](./share-your-custom-search.md)
+- [Barındırılan kullanıcı arabirimi deneyiminizi yapılandırma](./hosted-ui.md)
+- [Metni vurgulamak için süsleme işaretçilerini kullanma](./hit-highlighting.md)
+- [Sayfa web sayfaları](./page-webpages.md)

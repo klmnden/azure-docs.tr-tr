@@ -6,17 +6,17 @@ services: azure-dev-spaces
 ms.service: azure-dev-spaces
 ms.component: azds-kubernetes
 ms.author: ghogen
-ms.date: 07/09/2018
+ms.date: 09/26/2018
 ms.topic: quickstart
 description: Azure’da kapsayıcılar ve mikro hizmetlerle hızlı Kubernetes geliştirme
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Hizmeti, kapsayıcılar
 manager: douge
-ms.openlocfilehash: d17a1c7700f1e0ac9533b7117b50a14431d0e5f1
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: a5bcd814cce6612c0074f2a85bb8757b50f183ca
+ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44716630"
+ms.lasthandoff: 10/01/2018
+ms.locfileid: "47585603"
 ---
 # <a name="quickstart-create-a-kubernetes-dev-space-with-azure-dev-spaces-net-core-and-vs-code"></a>Hızlı Başlangıç: Azure Dev Spaces ile bir Kubernetes geliştirme alanı oluşturma (.NET Core ve VS Code)
 
@@ -32,11 +32,14 @@ Bu kılavuzda şunların nasıl yapıldığını öğreneceksiniz:
 ## <a name="prerequisites"></a>Ön koşullar
 
 - Azure aboneliği. Hesabınız yoksa [ücretsiz bir hesap](https://azure.microsoft.com/free) oluşturabilirsiniz.
-- EastUS, CentralUS, WestUS2, WestEurope, CanadaCentral veya CanadaEast bölgesinde Kubernetes 1.9.6 veya üzerini çalıştıran, **Http Application Routing** etkinleştirilmiş bir [Kubernetes kümesi](https://ms.portal.azure.com/#create/microsoft.aks).
-
-  ![Http Uygulama Yönlendirmesi'nin etkinleştirildiğinden emin olun.](media/common/Kubernetes-Create-Cluster-3.PNG)
-
 - [Visual Studio Code](https://code.visualstudio.com/download).
+- [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) sürüm 2.0.43 veya üzeri.
+- EastUS, CentralUS, WestUS2, WestEurope, CanadaCentral veya CanadaEast bölgesinde Kubernetes 1.9.6 veya üzerini çalıştıran, **Http Application Routing** etkinleştirilmiş bir Kubernetes kümesi.
+
+    ```cmd
+    az group create --name MyResourceGroup --region <region>
+    az aks create -g MyResourceGroup -n MyAKS --location <region> --kubernetes-version 1.11.2 --enable-addons http_application_routing
+    ```
 
 ## <a name="set-up-azure-dev-spaces"></a>Azure Dev Spaces'i ayarlama
 
@@ -44,7 +47,6 @@ Azure CLI ve Azure Dev Spaces uzantısı Windows, Mac veya Linux makinelere yük
 
 Azure Dev Spaces kurulumu için aşağıdaki adımları izleyin:
 
-1. [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest)'yi (sürüm 2.0.43 veya üzeri) yükleyin.
 1. AKS kümenizde Dev Spaces'i ayarlayın: `az aks use-dev-spaces -g MyResourceGroup -n MyAKS`
 1. VS Code için [Azure Dev Spaces uzantısını](https://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds) indirin. Uzantının Market sayfasında ve yeniden VS Code’da Yükle’ye bir kez tıklayın.
 

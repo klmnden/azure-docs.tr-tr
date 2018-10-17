@@ -1,42 +1,41 @@
 ---
-title: Bing Web araması SDK örnekleri
-titleSuffix: Microsoft Cognitive Services
-description: Bing Web araması SDK'sı, Python, Node.js, C# veya Java uygulamanıza arama özellikleri eklemek için kullanın.
+title: Bing Web Araması SDK örnekleri
+titleSuffix: Azure Cognitive Services
+description: Python, Node.js, C# veya Java uygulamanıza arama özellikleri eklemek için Bing Web Araması SDK’sını kullanın.
 services: cognitive-services
 author: mikedodaro
-manager: rosh
-ms.assetid: ''
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-web-search
-ms.topic: article
+ms.topic: sample
 ms.date: 08/16/2018
 ms.author: erhopf
-ms.openlocfilehash: 0f82d40611dde69eb8ab63f49d6fd337e34cb8cc
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
-ms.translationtype: MT
+ms.openlocfilehash: b15f4000d30b7b6c6f8055d596b9ab5336d173c5
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43191286"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46126029"
 ---
-# <a name="bing-web-search-sdk-samples"></a>Bing Web araması SDK örnekleri
+# <a name="bing-web-search-sdk-samples"></a>Bing Web Araması SDK örnekleri
 
-Bing Web araması SDK'sı, Python, Node.js, C# ve Java kullanılabilir. Github'da, kod örnekleri, önkoşulları ve derleme yönergeleri sağlanır. Aşağıdaki senaryoları ele alınmaktadır:
+Bing Web Araması SDK’sı; Python, Node.js, C# ve Java dilinde kullanılabilir. GitHub’da kod örnekleri, önkoşullar ve derleme yönergeleri sağlanır. Aşağıdaki senaryolar ele alınmaktadır:
 
-* Sorgu tek bir sözcük ve adını ve URL'sini web sayfaları, görüntüler, haber makaleleri ve videolar için ilk sonucu yazdırın.
-* Bir sorgu, sonuç sayısı doğrulayın ve adını ve URL'sini ilk sonucunun yazdırın.
-* Yanıt filtreleri kümesine sahip bir arama terimi sorgu `news` ve haber sonuçları ayrıntılarını yazdır.
-* Bir arama terimi ile sorgu `answerCount` ve `promote` parametre sonuçları ayrıntılarını sonra yazdırın.
+* Tek bir sözcüğü sorgulayın ve web sayfaları, görüntüler, haber makaleleri ve videolar için ilk sonucun adını ve URL’sini yazdırın.
+* Bir ifadeyi sorgulayın, sonuç sayısını doğrulayın ve birinci sonucun adını ve URL’sini yazdırın.
+* Yanıt filtreleri `news` olarak ayarlanmış şekilde bir arama terimini sorgulayın ve haber sonuçlarının ayrıntılarını yazdırın.
+* `answerCount` ve `promote` parametreleri ile bir arama terimini sorgulayın ve sonra sonuçların ayrıntılarını yazdırın.
 
-## <a name="sdks-and-libraries"></a>SDK'ları ve kitaplıkları
+## <a name="sdks-and-libraries"></a>SDK’lar ve kitaplıklar
 
-Tercih ettiğiniz dili için SDK'sı erişmek için şu bağlantıları kullanın.
+Tercih ettiğiniz dil için SDK’ya erişmek amacıyla bu bağlantıları kullanın.
 
-* Kullanmaya başlama [Python örnekleri](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples)
-  * Ayrıca bkz: [Python kitaplıkları](https://github.com/Azure/azure-sdk-for-python/tree/master/azure-cognitiveservices-search-websearch) tanımlar ve bağımlılıkları için.
-* Kullanmaya başlama [Node.js Örnekleri](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples)
-  * Ayrıca bkz: [Node.js kitaplıkları](https://github.com/Azure/azure-sdk-for-node/tree/master/lib/services/webSearch) tanımlar ve bağımlılıkları için.
-* Kullanmaya başlama [.NET örnekleri](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7)
+* [Python örneklerini](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples) kullanmaya başlama
+  * Tanımlar ve bağımlılıklar için ayrıca bkz. [Python kitaplıkları](https://github.com/Azure/azure-sdk-for-python/tree/master/azure-cognitiveservices-search-websearch).
+* [Node.js örneklerini](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples) kullanmaya başlama
+  * Tanımlar ve bağımlılıklar için ayrıca bkz. [Node.js kitaplıkları](https://github.com/Azure/azure-sdk-for-node/tree/master/lib/services/webSearch).
+* [.NET örneklerini](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7) kullanmaya başlama
   * [NuGet paketi](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.WebSearch/1.2.0)
-  * Ayrıca bkz: [.NET kitaplıkları](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/CognitiveServices/dataPlane/Search/BingWebSearch) tanımlar ve bağımlılıkları için.
-* Kullanmaya başlama [Java örnekleri](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples)
-  * Ayrıca bkz: [Java kitaplıkları](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master/Search/BingWebSearch) tanımlar ve bağımlılıkları için.
+  * Tanımlar ve bağımlılıklar için ayrıca bkz. [.NET kitaplıkları](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/CognitiveServices/dataPlane/Search/BingWebSearch).
+* [Java örneklerini](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples) kullanmaya başlama
+  * Tanımlar ve bağımlılıklar için ayrıca bkz. [Java kitaplıkları](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master/Search/BingWebSearch).

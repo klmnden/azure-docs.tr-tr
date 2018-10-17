@@ -1,45 +1,45 @@
 ---
-title: "Hızlı Başlangıç: Metin analizi API'sini çağırmak için PHP kullanma | Microsoft Docs"
+title: "Hızlı başlangıç: Metin Analizi API'sini çağırmak için PHP kullanma"
 titleSuffix: Azure Cognitive Services
-description: Hızlı bir şekilde yardımcı olması için alma bilgileri ve kod örnekleri, Azure üzerinde Microsoft Bilişsel hizmetler metin analizi API'sini kullanarak başlayın.
+description: Azure Microsoft Bilişsel Hizmetler'deki Metin Analizi API'sini kullanmaya başlamanıza yardımcı olacak bilgileri ve kod örneklerini inceleyin.
 services: cognitive-services
-documentationcenter: ''
-author: ashmaka
+author: noellelacharite
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: text-analytics
-ms.topic: article
-ms.date: 08/30/2018
-ms.author: ashmaka
-ms.openlocfilehash: 602988747f54c3dbdfa933986d47b631b757db65
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
-ms.translationtype: MT
+ms.topic: quickstart
+ms.date: 10/01/2018
+ms.author: nolachar
+ms.openlocfilehash: 99761cf5105535105a7dd9576a32a79e0ae39768
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44298718"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48247799"
 ---
-# <a name="quickstart-using-php-to-call-the-text-analytics-cognitive-service"></a>Hızlı Başlangıç: Metin analizi Bilişsel hizmetini çağırmak için PHP kullanma
+# <a name="quickstart-using-php-to-call-the-text-analytics-cognitive-service"></a>Hızlı başlangıç: Metin Analizi Bilişsel Hizmetini çağırmak için PHP kullanma
 <a name="HOLTop"></a>
 
-Bu makalede gösterilmektedir için [dili algılayın](#Detect), [düşüncelerini çözümleme](#SentimentAnalysis), [anahtar tümcecikleri ayıklayın](#KeyPhraseExtraction), ve [bağlı varlıkları tanımlama](#Entities) kullanma [metin analizi API'lerini](//go.microsoft.com/fwlink/?LinkID=759711) PHP ile.
+Bu makalede PHP ile [Metin Analizi API'sini](//go.microsoft.com/fwlink/?LinkID=759711) kullanarak [dil algılama](#Detect), [duygu analizi gerçekleştirme](#SentimentAnalysis), [anahtar sözcükleri ayıklama](#KeyPhraseExtraction) ve [bağlantılı varlıkları tanımlama](#Entities) adımları gösterilmektedir.
 
-Başvurmak [API tanımlarını](//go.microsoft.com/fwlink/?LinkID=759346) API'leri için teknik belgeler için.
+API'lerle ilgili teknik bilgiler için [API tanımları](//go.microsoft.com/fwlink/?LinkID=759346) sayfasını inceleyin.
 
-## <a name="prerequisites"></a>Önkoşullar
+## <a name="prerequisites"></a>Ön koşullar
 
-Olmalıdır bir [Bilişsel hizmetler API hesabı](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) ile **metin analizi API'si**. Kullanabileceğiniz **5.000 işlem/ay için ücretsiz katman** Bu hızlı başlangıcı tamamlamak için.
+**Metin Analizi API'sine** sahip bir [Bilişsel Hizmetler API hesabınızın](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) olması gerekir. Bu hızlı başlangıç için **ayda 5000 işlem sunan ücretsiz katmanı** kullanabilirsiniz.
 
-Sahip olmalısınız [uç noktası ve erişim anahtarı](../How-tos/text-analytics-how-to-access-key.md) oluşturulan sizin için oturum sırasında ayarlama. 
+Ayrıca kayıt sırasında oluşturulan [uç nokta ve erişim anahtarı](../How-tos/text-analytics-how-to-access-key.md) değerlerine de sahip olmanız gerekir. 
 
 <a name="Detect"></a>
 
 ## <a name="detect-language"></a>Dili algılama
 
-Dil algılama API bir metnin dilini algılar kullanarak belge [dil algılama yöntemi](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7).
+Dil Algılama API'si, [Dili Algıla metodunu](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7) kullanarak bir metin belgesinin dilini algılar.
 
-1. Sık kullandığınız IDE'de yeni bir PHP projesi oluşturun.
-2. Aşağıda sağlanan kod ekleyin.
-3. Değiştirin `accessKey` aboneliğiniz için geçerli bir erişim anahtarı ile değeri.
-4. Konumu değiştirmek `host` (şu anda `westus`) oturumunuz için bölge.
+1. Sık kullandığınız IDE ile yeni bir PHP projesi oluşturun.
+2. Aşağıda sağlanan kodu ekleyin.
+3. `accessKey` değerini, aboneliğiniz için geçerli olan bir erişim anahtarı ile değiştirin.
+4. `host` içindeki konumu (şu anda `westus`) kaydolduğunuz bölge olacak şekilde değiştirin.
 5. Programı çalıştırın.
 
 ```php
@@ -53,7 +53,7 @@ Dil algılama API bir metnin dilini algılar kullanarak belge [dil algılama yö
 // **********************************************
 
 // Replace the accessKey string value with your valid access key.
-$accessKey = 'ENTER KEY HERE';
+$accessKey = 'enter key here';
 
 // Replace or verify the region.
 
@@ -64,7 +64,7 @@ $accessKey = 'ENTER KEY HERE';
 // NOTE: Free trial access keys are generated in the westcentralus region, so if you are using
 // a free trial access key, you should not need to change this region.
 $host = 'https://westus.api.cognitive.microsoft.com';
-$path = '/text/analytics/v2.0/';
+$path = '/text/analytics/v2.0/languages';
 
 function DetectLanguage ($host, $path, $key, $data) {
 
@@ -83,7 +83,7 @@ function DetectLanguage ($host, $path, $key, $data) {
         )
     );
     $context  = stream_context_create ($options);
-    $result = file_get_contents ($host . $path . 'languages', false, $context);
+    $result = file_get_contents ($host . $path, false, $context);
     return $result;
 }
 
@@ -95,18 +95,20 @@ $data = array (
     )
 );
 
-print "Please wait a moment for the results to appear.\n\n";
+print "Please wait a moment for the results to appear.";
 
 $result = DetectLanguage ($host, $path, $accessKey, $data);
 
-echo json_encode (json_decode ($result), JSON_PRETTY_PRINT) . "\n\n";
+echo json_encode (json_decode ($result), JSON_PRETTY_PRINT);
+?>
 ```
 
-**Dil algılama yanıt**
+**Dil algılama yanıtı**
 
 Başarılı yanıt, aşağıdaki örnekte gösterildiği gibi JSON biçiminde döndürülür: 
 
 ```json
+
 {
    "documents": [
       {
@@ -144,16 +146,45 @@ Başarılı yanıt, aşağıdaki örnekte gösterildiği gibi JSON biçiminde d�
 
    ]
 }
+
+
 ```
 <a name="SentimentAnalysis"></a>
 
 ## <a name="analyze-sentiment"></a>Yaklaşımı analiz etme
 
-Yaklaşım analizi API'sini detexts yaklaşımı kullanarak bir metin kayıt kümesinin [yaklaşım yöntemi](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9). Aşağıdaki örnek, bir giriş İngilizce ve İspanyolca başka iki belge puanlar.
+Yaklaşım Analizi API'si, [Yaklaşım metodunu](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9) kullanarak bir metin kaydı kümesinin yaklaşımını algılar. Aşağıdaki örnek, biri İngilizce diğeri İspanyolca olan iki belge puanlar.
 
-Koda aşağıdaki kodu ekleyin [önceki bölümde](#Detect).
+1. Sık kullandığınız IDE ile yeni bir PHP projesi oluşturun.
+2. Aşağıda sağlanan kodu ekleyin.
+3. `accessKey` değerini, aboneliğiniz için geçerli olan bir erişim anahtarı ile değiştirin.
+4. `host` içindeki konumu (şu anda `westus`) kaydolduğunuz bölge olacak şekilde değiştirin.
+5. Programı çalıştırın.
 
 ```php
+<?php
+
+// NOTE: Be sure to uncomment the following line in your php.ini file.
+// ;extension=php_openssl.dll
+
+// **********************************************
+// *** Update or verify the following values. ***
+// **********************************************
+
+// Replace the accessKey string value with your valid access key.
+$accessKey = 'enter key here';
+
+// Replace or verify the region.
+
+// You must use the same region in your REST API call as you used to obtain your access keys.
+// For example, if you obtained your access keys from the westus region, replace 
+// "westcentralus" in the URI below with "westus".
+
+// NOTE: Free trial access keys are generated in the westcentralus region, so if you are using
+// a free trial access key, you should not need to change this region.
+$host = 'https://westus.api.cognitive.microsoft.com';
+$path = '/text/analytics/v2.0/sentiment';
+
 function GetSentiment ($host, $path, $key, $data) {
 
     $headers = "Content-type: text/json\r\n" .
@@ -171,7 +202,7 @@ function GetSentiment ($host, $path, $key, $data) {
         )
     );
     $context  = stream_context_create ($options);
-    $result = file_get_contents ($host . $path . 'sentiment', false, $context);
+    $result = file_get_contents ($host . $path, false, $context);
     return $result;
 }
 
@@ -182,14 +213,15 @@ $data = array (
     )
 );
 
-print "Please wait a moment for the results to appear.\n\n";
+print "Please wait a moment for the results to appear.";
 
 $result = GetSentiment ($host, $path, $accessKey, $data);
 
-echo json_encode (json_decode ($result), JSON_PRETTY_PRINT) . "\n\n";
+echo json_encode (json_decode ($result), JSON_PRETTY_PRINT);
+?>
 ```
 
-**Yaklaşım analizi yanıt**
+**Yaklaşım analizi yanıtı**
 
 Başarılı yanıt, aşağıdaki örnekte gösterildiği gibi JSON biçiminde döndürülür: 
 
@@ -213,11 +245,38 @@ Başarılı yanıt, aşağıdaki örnekte gösterildiği gibi JSON biçiminde d�
 
 ## <a name="extract-key-phrases"></a>Anahtar ifadeleri ayıklama
 
-Anahtar tümcecik ayıklama API anahtar tümcecikleri metinden ayıklar kullanarak belge [anahtar tümcecikleri yöntemi](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6). Aşağıdaki örnek İngilizce ve İspanyolca belgeler için anahtar ifadeleri ayıklar.
+Anahtar İfade Ayıklama API'si [Anahtar İfadeler metodunu](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6) kullanarak bir metin belgesindeki anahtar ifadeleri ayıklar. Aşağıdaki örnekte hem İngilizce hem de İspanyolca belgelerin anahtarı ifadeleri ayıklanır.
 
-Koda aşağıdaki kodu ekleyin [önceki bölümde](#SentimentAnalysis).
+1. Sık kullandığınız IDE ile yeni bir PHP projesi oluşturun.
+2. Aşağıda sağlanan kodu ekleyin.
+3. `accessKey` değerini, aboneliğiniz için geçerli olan bir erişim anahtarı ile değiştirin.
+4. `host` içindeki konumu (şu anda `westus`) kaydolduğunuz bölge olacak şekilde değiştirin.
+5. Programı çalıştırın.
 
 ```php
+<?php
+
+// NOTE: Be sure to uncomment the following line in your php.ini file.
+// ;extension=php_openssl.dll
+
+// **********************************************
+// *** Update or verify the following values. ***
+// **********************************************
+
+// Replace the accessKey string value with your valid access key.
+$accessKey = 'enter key here';
+
+// Replace or verify the region.
+
+// You must use the same region in your REST API call as you used to obtain your access keys.
+// For example, if you obtained your access keys from the westus region, replace 
+// "westcentralus" in the URI below with "westus".
+
+// NOTE: Free trial access keys are generated in the westcentralus region, so if you are using
+// a free trial access key, you should not need to change this region.
+$host = 'https://westus.api.cognitive.microsoft.com';
+$path = '/text/analytics/v2.0/keyPhrases';
+
 function GetKeyPhrases ($host, $path, $key, $data) {
 
     $headers = "Content-type: text/json\r\n" .
@@ -235,7 +294,7 @@ function GetKeyPhrases ($host, $path, $key, $data) {
         )
     );
     $context  = stream_context_create ($options);
-    $result = file_get_contents ($host . $path . 'keyPhrases', false, $context);
+    $result = file_get_contents ($host . $path, false, $context);
     return $result;
 }
 
@@ -247,14 +306,16 @@ $data = array (
     )
 );
 
-print "Please wait a moment for the results to appear.\n\n";
+print "Please wait a moment for the results to appear.";
 
 $result = GetKeyPhrases ($host, $path, $accessKey, $data);
 
-echo json_encode (json_decode ($result), JSON_PRETTY_PRINT) . "\n\n";
+echo json_encode (json_decode ($result), JSON_PRETTY_PRINT);
+?>
+
 ```
 
-**Anahtar ifade ayıklama yanıt**
+**Anahtar ifade ayıklama yanıtı**
 
 Başarılı yanıt, aşağıdaki örnekte gösterildiği gibi JSON biçiminde döndürülür: 
 
@@ -296,13 +357,40 @@ Başarılı yanıt, aşağıdaki örnekte gösterildiği gibi JSON biçiminde d�
 
 <a name="Entities"></a>
 
-## <a name="identify-linked-entities"></a>Bağlı varlıkları tanımlama
+## <a name="identify-entities"></a>Varlıkları tanımlama
 
-Varlık bağlama API'si metin bilinen varlıklar tanımlayan kullanarak belge [varlık bağlama yöntemini](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/5ac4251d5b4ccd1554da7634). Aşağıdaki örnek İngilizce belgeler için varlıklar tanımlayan.
+Varlıklar API'si, [Varlıklar metodunu](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1-Preview/operations/5ac4251d5b4ccd1554da7634) kullanarak bir metin belgesindeki iyi bilinen varlıkları tanımlar. Aşağıdaki örnekte İngilizce belgelerin varlıkları tanımlanır.
 
-Koda aşağıdaki kodu ekleyin [önceki bölümde](#KeyPhraseExtraction).
+1. Sık kullandığınız IDE ile yeni bir PHP projesi oluşturun.
+2. Aşağıda sağlanan kodu ekleyin.
+3. `accessKey` değerini, aboneliğiniz için geçerli olan bir erişim anahtarı ile değiştirin.
+4. `host` içindeki konumu (şu anda `westus`) kaydolduğunuz bölge olacak şekilde değiştirin.
+5. Programı çalıştırın.
 
 ```php
+<?php
+
+// NOTE: Be sure to uncomment the following line in your php.ini file.
+// ;extension=php_openssl.dll
+
+// **********************************************
+// *** Update or verify the following values. ***
+// **********************************************
+
+// Replace the accessKey string value with your valid access key.
+$accessKey = 'enter key here';
+
+// Replace or verify the region.
+
+// You must use the same region in your REST API call as you used to obtain your access keys.
+// For example, if you obtained your access keys from the westus region, replace 
+// "westcentralus" in the URI below with "westus".
+
+// NOTE: Free trial access keys are generated in the westcentralus region, so if you are using
+// a free trial access key, you should not need to change this region.
+$host = 'https://westus.api.cognitive.microsoft.com';
+$path = '/text/analytics/v2.1-preview/entities';
+
 function GetEntities ($host, $path, $key, $data) {
 
     $headers = "Content-type: text/json\r\n" .
@@ -320,95 +408,192 @@ function GetEntities ($host, $path, $key, $data) {
         )
     );
     $context  = stream_context_create ($options);
-    $result = file_get_contents ($host . $path . 'entities', false, $context);
+    $result = file_get_contents ($host . $path, false, $context);
     return $result;
 }
 
 $data = array (
     'documents' => array (
-        array ( 'id' => '1', 'language' => 'en', 'text' => 'I really enjoy the new XBox One S. It has a clean look, it has 4K/HDR resolution and it is affordable.' ),
-        array ( 'id' => '2', 'language' => 'en', 'text' => 'The Seattle Seahawks won the Super Bowl in 2014.' )
+        array ( 'id' => '1', 'language' => 'en', 'text' => 'Jeff bought three dozen eggs because there was a 50% discount.' ),
+        array ( 'id' => '2', 'language' => 'en', 'text' => 'The Great Depression began in 1929. By 1933, the GDP in America fell by 25%.' )
     )
 );
 
-print "Please wait a moment for the results to appear.\n\n";
+print "Please wait a moment for the results to appear.";
 
 $result = GetEntities ($host, $path, $accessKey, $data);
 
-echo json_encode (json_decode ($result), JSON_PRETTY_PRINT) . "\n\n";
+echo json_encode (json_decode ($result), JSON_PRETTY_PRINT);
 ?>
+
 ```
 
-**Varlık bağlama yanıt**
+**Varlık ayıklama yanıtı**
 
 Başarılı yanıt, aşağıdaki örnekte gösterildiği gibi JSON biçiminde döndürülür: 
 
 ```json
 {
-    "documents": [
+    "Documents": [
         {
-            "id": "1",
-            "entities": [
+            "Id": "1",
+            "Entities": [
                 {
-                    "name": "Xbox One",
-                    "matches": [
+                    "Name": "Jeff",
+                    "Matches": [
                         {
-                            "text": "XBox One",
-                            "offset": 23,
-                            "length": 8
+                            "Text": "Jeff",
+                            "Offset": 0,
+                            "Length": 4
                         }
                     ],
-                    "wikipediaLanguage": "en",
-                    "wikipediaId": "Xbox One",
-                    "wikipediaUrl": "https://en.wikipedia.org/wiki/Xbox_One",
-                    "bingId": "446bb4df-4999-4243-84c0-74e0f6c60e75"
+                    "Type": "Person"
                 },
                 {
-                    "name": "Ultra-high-definition television",
-                    "matches": [
+                    "Name": "three dozen",
+                    "Matches": [
                         {
-                            "text": "4K",
-                            "offset": 63,
-                            "length": 2
+                            "Text": "three dozen",
+                            "Offset": 12,
+                            "Length": 11
                         }
                     ],
-                    "wikipediaLanguage": "en",
-                    "wikipediaId": "Ultra-high-definition television",
-                    "wikipediaUrl": "https://en.wikipedia.org/wiki/Ultra-high-definition_television",
-                    "bingId": "7ee02026-b6ec-878b-f4de-f0bc7b0ab8c4"
+                    "Type": "Quantity",
+                    "SubType": "Number"
+                },
+                {
+                    "Name": "50",
+                    "Matches": [
+                        {
+                            "Text": "50",
+                            "Offset": 49,
+                            "Length": 2
+                        }
+                    ],
+                    "Type": "Quantity",
+                    "SubType": "Number"
+                },
+                {
+                    "Name": "50%",
+                    "Matches": [
+                        {
+                            "Text": "50%",
+                            "Offset": 49,
+                            "Length": 3
+                        }
+                    ],
+                    "Type": "Quantity",
+                    "SubType": "Percentage"
                 }
             ]
         },
         {
-            "id": "2",
-            "entities": [
+            "Id": "2",
+            "Entities": [
                 {
-                    "name": "2013 Seattle Seahawks season",
-                    "matches": [
+                    "Name": "Great Depression",
+                    "Matches": [
                         {
-                            "text": "Seattle Seahawks",
-                            "offset": 4,
-                            "length": 16
+                            "Text": "The Great Depression",
+                            "Offset": 0,
+                            "Length": 20
                         }
                     ],
-                    "wikipediaLanguage": "en",
-                    "wikipediaId": "2013 Seattle Seahawks season",
-                    "wikipediaUrl": "https://en.wikipedia.org/wiki/2013_Seattle_Seahawks_season",
-                    "bingId": "eb637865-4722-4eca-be9e-0ac0c376d361"
+                    "WikipediaLanguage": "en",
+                    "WikipediaId": "Great Depression",
+                    "WikipediaUrl": "https://en.wikipedia.org/wiki/Great_Depression",
+                    "BingId": "d9364681-98ad-1a66-f869-a3f1c8ae8ef8"
+                },
+                {
+                    "Name": "1929",
+                    "Matches": [
+                        {
+                            "Text": "1929",
+                            "Offset": 30,
+                            "Length": 4
+                        }
+                    ],
+                    "Type": "DateTime",
+                    "SubType": "DateRange"
+                },
+                {
+                    "Name": "By 1933",
+                    "Matches": [
+                        {
+                            "Text": "By 1933",
+                            "Offset": 36,
+                            "Length": 7
+                        }
+                    ],
+                    "Type": "DateTime",
+                    "SubType": "DateRange"
+                },
+                {
+                    "Name": "Gross domestic product",
+                    "Matches": [
+                        {
+                            "Text": "GDP",
+                            "Offset": 49,
+                            "Length": 3
+                        }
+                    ],
+                    "WikipediaLanguage": "en",
+                    "WikipediaId": "Gross domestic product",
+                    "WikipediaUrl": "https://en.wikipedia.org/wiki/Gross_domestic_product",
+                    "BingId": "c859ed84-c0dd-e18f-394a-530cae5468a2"
+                },
+                {
+                    "Name": "United States",
+                    "Matches": [
+                        {
+                            "Text": "America",
+                            "Offset": 56,
+                            "Length": 7
+                        }
+                    ],
+                    "WikipediaLanguage": "en",
+                    "WikipediaId": "United States",
+                    "WikipediaUrl": "https://en.wikipedia.org/wiki/United_States",
+                    "BingId": "5232ed96-85b1-2edb-12c6-63e6c597a1de",
+                    "Type": "Location"
+                },
+                {
+                    "Name": "25",
+                    "Matches": [
+                        {
+                            "Text": "25",
+                            "Offset": 72,
+                            "Length": 2
+                        }
+                    ],
+                    "Type": "Quantity",
+                    "SubType": "Number"
+                },
+                {
+                    "Name": "25%",
+                    "Matches": [
+                        {
+                            "Text": "25%",
+                            "Offset": 72,
+                            "Length": 3
+                        }
+                    ],
+                    "Type": "Quantity",
+                    "SubType": "Percentage"
                 }
             ]
         }
     ],
-    "errors": []
+    "Errors": []
 }
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 > [!div class="nextstepaction"]
-> [Power BI ile metin analizi](../tutorials/tutorial-power-bi-key-phrases.md)
+> [Power BI ile Metin Analizi](../tutorials/tutorial-power-bi-key-phrases.md)
 
 ## <a name="see-also"></a>Ayrıca bkz. 
 
- [Metin Analizi'ne genel bakış](../overview.md)  
+ [Metin Analizine genel bakış](../overview.md)  
  [Sık sorulan sorular (SSS)](../text-analytics-resource-faq.md)

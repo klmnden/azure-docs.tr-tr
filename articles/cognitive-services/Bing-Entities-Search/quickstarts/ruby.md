@@ -1,40 +1,40 @@
 ---
-title: Bilişsel hizmetler Azure, Bing varlık arama API için Söyleniş hızlı başlangıç | Microsoft Docs
-description: Hızlı bir şekilde yardımcı olmak için bilgi ve kod örnekleri get Bing varlık arama API Azure üzerinde Microsoft Bilişsel Hizmetleri'ndeki kullanmaya başlayın.
+title: "Hızlı başlangıç: Bing Varlık Arama API'si, Ruby"
+titlesuffix: Azure Cognitive Services
+description: Bing Varlık Arama API'sini kısa sürede kullanmaya başlamanıza yardımcı olacak bilgi ve kod örnekleri alın.
 services: cognitive-services
-documentationcenter: ''
 author: v-jaswel
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-entity-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 11/28/2017
 ms.author: v-jaswel
-ms.openlocfilehash: 0b47430886e70421e51438b56decc9b86d88d0fb
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
-ms.translationtype: MT
+ms.openlocfilehash: 7e2b3fa520c17bb85fa04ca12bb762ce8f370371
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35354838"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48814466"
 ---
-# <a name="quickstart-for-microsoft-bing-entity-search-api-with-ruby"></a>Microsoft Bing varlık arama Ruby API'SİYLE için hızlı başlangıç 
-<a name="HOLTop"></a>
+# <a name="quickstart-for-bing-entity-search-api-with-ruby"></a>Hızlı başlangıç: Ruby ile Bing Varlık Arama API'si
 
-Bu makalede nasıl kullanılacağı gösterilmektedir [Bing varlık arama](https://docs.microsoft.com/azure/cognitive-services/bing-entities-search/search-the-web) API'si Ruby ile.
+Bu makalede [Bing Varlık Arama API'sinin](https://docs.microsoft.com/azure/cognitive-services/bing-entities-search/search-the-web) Ruby ile nasıl kullanılacağı göstermektedir.
 
-## <a name="prerequisites"></a>Önkoşullar
+## <a name="prerequisites"></a>Ön koşullar
 
-İhtiyacınız olacak [Ruby 2.4](https://www.ruby-lang.org/en/downloads/) ya da daha sonra bu kodu çalıştırmak için.
+Bu kodu çalıştırmak için [Ruby 2.4](https://www.ruby-lang.org/en/downloads/) veya üzeri bir sürümüne ihtiyacınız olacaktır.
 
-Sahip olmanız gerekir bir [Bilişsel Hizmetleri API hesabı](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) ile **Bing varlık arama API**. [Ücretsiz deneme sürümü](https://azure.microsoft.com/try/cognitive-services/?api=bing-entity-search-api) Bu Hızlı Başlangıç için yeterlidir. Ücretsiz deneme sürümünüzü etkinleştirmek ya da Ücretli abonelik anahtarı Azure panonuza kullanabilir sağlanan erişim anahtarı gerekir.
+**Bing Varlık Arama API'sine** sahip bir [Bilişsel Hizmetler API hesabınız](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) olması gerekir. [Ücretsiz deneme](https://azure.microsoft.com/try/cognitive-services/?api=bing-entity-search-api) bu hızlı başlangıç için yeterlidir. Ücretsiz denemenizi etkinleştirdiğinizde verilen erişim anahtarınız olması veya Azure panonuzdan ücretli bir abonelik anahtarı kullanmanız gerekir.
 
-## <a name="search-entities"></a>Arama varlıkları
+## <a name="search-entities"></a>Varlık arama
 
 Bu uygulamayı çalıştırmak için aşağıdaki adımları izleyin.
 
-1. Sık kullanılan IDE içinde yeni bir Söyleniş projesi oluşturun.
-2. Aşağıda sunulan kodu ekleyin.
-3. Değiştir `key` aboneliğiniz için geçerli bir erişim anahtarı ile değer.
-4. Programını çalıştırın.
+1. Sık kullandığınız IDE'de yeni bir Ruby projesi oluşturun.
+2. Aşağıda sağlanan kodu ekleyin.
+3. `key` değerini, aboneliğiniz için geçerli olan bir erişim anahtarı ile değiştirin.
+4. Programı çalıştırın.
 
 ```ruby
 require 'net/https'
@@ -69,7 +69,7 @@ puts JSON::pretty_generate (JSON (response.body))
 
 **Yanıt**
 
-Başarılı yanıt JSON'da, aşağıdaki örnekte gösterildiği gibi verilir: 
+Başarılı yanıt, aşağıdaki örnekte gösterildiği gibi JSON biçiminde döndürülür: 
 
 ```json
 {
@@ -137,6 +137,6 @@ Başarılı yanıt JSON'da, aşağıdaki örnekte gösterildiği gibi verilir:
 ## <a name="next-steps"></a>Sonraki adımlar
 
 > [!div class="nextstepaction"]
-> [Bing varlık arama öğretici](../tutorial-bing-entities-search-single-page-app.md)
-> [Bing varlık arama genel bakış](../search-the-web.md )
+> [Bing Varlık Arama öğreticisi](../tutorial-bing-entities-search-single-page-app.md)
+> [Bing Varlık Arama'ya genel bakış](../search-the-web.md )
 > [API Başvurusu](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference)

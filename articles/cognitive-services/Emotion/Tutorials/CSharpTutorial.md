@@ -1,87 +1,89 @@
 ---
-title: Duygu tanıma API'si C# Öğreticisi | Microsoft Docs
-description: Görüntüdeki yazıtipleri ile ifade edilen duygular tanımak için Bilişsel hizmetler duygu tanıma API'si kullanan temel bir Windows uygulaması keşfedin.
+title: "Öğretici: Bir görüntüdeki yüzün duygularını tanıma - Duygu Tanıma API'si, C#"
+titlesuffix: Azure Cognitive Services
+description: Bir görüntüdeki yüzlerde bulunan ifadeleri tanımak için basit bir Windows uygulamasını keşfedin.
 services: cognitive-services
 author: anrothMSFT
-manager: corncar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: emotion-api
-ms.topic: article
+ms.topic: tutorial
 ms.date: 01/23/2017
 ms.author: anroth
-ms.openlocfilehash: f015e5720f65d0951a77de76ce8882a6dcdc1c3b
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
-ms.translationtype: MT
+ROBOTS: NOINDEX
+ms.openlocfilehash: f3a84a68718fba29e2a4b2fae057e68976119c95
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35352462"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48237033"
 ---
-# <a name="emotion-api-in-c35-tutorial"></a>Duygu tanıma API'si c&#35; Öğreticisi
+# <a name="tutorial-recognize-emotions-on-a-face-in-an-image"></a>Öğretici: Bir görüntüdeki yüzün duygularını tanıma.
 
 > [!IMPORTANT]
-> Video API Önizleme 30 Ekim 2017 sona erer. Yeni deneyin [Video dizin oluşturucu API önizlemesi](https://azure.microsoft.com/services/cognitive-services/video-indexer/) kolayca videoların öngörüleri ayıklamak ve konuşulan sözcüklerin, yüzler, karakterler ve duygular algılayarak arama sonuçları gibi içerik bulma deneyimlerini geliştirmek üzere. [Daha fazla bilgi edinin](https://docs.microsoft.com/azure/cognitive-services/video-indexer/video-indexer-overview).
+> Duygu Tanıma API'si 15 Şubat 2019 tarihinde kullanım dışı bırakılacaktır. Duygu tanıma özelliği [Yüz Tanıma API'sinin](https://docs.microsoft.com/azure/cognitive-services/face/) bir parçası olarak genel kullanıma sunulmuştur. 
 
-Görüntüdeki yazıtipleri ile ifade edilen duygular tanımak için duygu tanıma API'si kullanan temel bir Windows uygulaması keşfedin. Bir resim URL'si veya yerel olarak depolanan dosya gönderebilmek örnek sağlar. WPF (Windows Presentation Foundation), .NET Framework'ün bir parçası ve duygu tanıma API'si kullanan Windows için kendi uygulamanızı oluşturmak için bu açık kaynak örnek şablon olarak kullanabilirsiniz.
+Bir görüntüdeki yüzlerde bulunan ifadeleri tanımak için Duygu Tanıma API'sini kullanan basit bir Windows uygulamasını keşfedin. Aşağıdaki örnek bir görüntü URL'si veya yerel ortamda depolanan dosya göndermenizi sağlar. Bu açık kaynak örneği Duygu Tanıma API'si ve .NET Framework'ün bir parçası olan WPF (Windows Presentation Foundation) hizmetini kullanarak kendi Windows uygulamanızı derlemek için bir şablon olarak kullanabilirsiniz.
 
 ## <a name="Prerequisites">Önkoşullar</a>
 #### <a name="platform-requirements"></a>Platform gereksinimleri  
-Aşağıdaki örnekte .NET Framework için geliştirilen kullanarak [Visual Studio 2015, Community Edition](https://www.visualstudio.com/products/visual-studio-community-vs).  
+Aşağıdaki örnek [Visual Studio 2015 Community Edition](https://www.visualstudio.com/products/visual-studio-community-vs) kullanılarak .NET Framework için geliştirilmiştir.  
 
-#### <a name="subscribe-to-emotion-api-and-get-a-subscription-key"></a>Duygu API'sine abone olma ve aboneliği anahtarı alma  
-Örnek oluşturmadan önce Microsoft Bilişsel hizmetler parçası olan duygu tanıma API'si abone olmalısınız. Bkz: [abonelikleri](https://azure.microsoft.com/try/cognitive-services/). Bu öğreticide, hem birincil ve ikincil anahtar kullanılabilir. API anahtar gizli tutmak için en iyi uygulamaları takip ettiğinizden emin olun ve güvenliğini sağlayın.  
+#### <a name="subscribe-to-emotion-api-and-get-a-subscription-key"></a>Duygu Tanıma API’sine abone olma ve abonelik anahtarı alma  
+Örneği oluşturmadan önce, Microsoft Bilişsel Hizmetler’in parçası olan Duygu Tanıma API'sine abone olmanız gerekir. Bkz. [Abonelikler](https://azure.microsoft.com/try/cognitive-services/). Bu öğreticide, hem birincil hem de ikincil anahtar kullanılabilir. API anahtarınızın gizliliğini ve güvenliğini korumak için en iyi yöntemleri uyguladığınızdan emin olun.  
 
-#### <a name="get-the-client-library-and-example"></a>İstemci Kitaplığı ve örnek alın  
-Duygu tanıma API'si istemci kitaplığı aracılığıyla karşıdan yüklenebilir [SDK](https://www.github.com/microsoft/cognitive-emotion-windows). Tercih ettiğiniz bir klasöre ayıklanacak indirilen ZIP dosyasının gerekir, çok sayıda kullanıcı Visual Studio 2015 klasörü seçin.
-## <a name="Step1">1. adım: örnek açın</a>
-1.  Microsoft Visual Studio 2015'ı başlatın ve tıklatın **dosya**seçin **açık**, ardından **proje/çözüm**.
-2.  İndirilen duygu tanıma API'si dosyalarını kaydettiğiniz klasöre göz atın. Tıklayın **duygu**, ardından **Windows**ve ardından **örnek WPF** klasör.
-3.  Adlı Visual Studio 2015 çözümü (.sln) dosyasını açmak için çift **EmotionAPI WPF Samples.sln**. Bu çözümü Visual Studio'da açın.
+#### <a name="get-the-client-library-and-example"></a>İstemci kitaplığını ve örneği alma  
+Duygu Tanıma API'si istemci kitaplığını [SDK](https://www.github.com/microsoft/cognitive-emotion-windows) aracılığıyla indirebilirsiniz. İndirilen zip dosyasının istediğiniz bir klasöre ayıklanması gerekir, çoğu kullanıcı, Visual Studio 2015 klasörünü seçer.
+## <a name="Step1">1. Adım: Örneği açma</a>
+1.  Microsoft Visual Studio 2015'i başlatıp **Dosya**, **Aç** ve **Proje/Çözüm** yolunu izleyin.
+2.  İndirdiğiniz Duygu Tanıma API'si dosyalarını kaydettiğiniz klasörü açın. **Emotion**, **Windows** ve ardından **Sample-WPF** klasörüne tıklayın.
+3.  **EmotionAPI-WPF-Samples.sln** adlı Visual Studio 2015 Çözümü (.sln) dosyasına çift tıklayarak açın. Çözüm Visual Studio'da açılır.
 
-## <a name="Step2">2. adım: örnek oluşturma</a>
-1. İçinde **Çözüm Gezgini**, sağ tıklatın **başvuruları** seçip **NuGet paketlerini Yönet**.
+## <a name="Step2">2. Adım: Örneği derleme</a>
+1. **Çözüm Gezgini**'nde **Başvurular**'a sağ tıklayın ve **NuGet Paketlerini Yönet**'i seçin.
 
-  ![Açık Nuget Paket Yöneticisi](../Images/EmotionNuget.png)
+  ![NuGet Paket Yöneticisi'ni açın](../Images/EmotionNuget.png)
 
-2.  **NuGet Paket Yöneticisi** penceresi açılır. İlk seçin **Gözat** sol üst köşedeki sonra arama kutusuna "Newtonsoft.Json" seçin **Newtonsoft.Json** paketini ve tıklayın **yükleme**.  
+2.  **Nuget Paket Yöneticisi** penceresi açılır. Önce sol üst köşeden **Gözat**'ı seçin, ardından arama kutusuna “Newtonsoft.Json” yazın, **Newtonsoft.Json** paketini seçin ve **Yükle**'ye tıklayın.  
 
-  ![NuGet paketine göz atın](../Images/EmotionNugetBrowse.png)  
+  ![NuGet paketine göz atma](../Images/EmotionNugetBrowse.png)  
 
-3.  Ctrl + Shift + B tuşuna basın veya tıklatın **yapı** Şerit menüsünde seçip **yapı çözümü**.
+3.  Ctrl+Shift+B tuşlarına basın veya şerit menüsünde **Derle**'ye tıklayıp **Çözümü Derle**'yi seçin.
 
-## <a name="Step3">3. adım: örnek çalıştırma</a>
-1.  Yapı tamamlandıktan sonra basın **F5** veya **Başlat** örneği çalıştırmak için Şerit menüsünde.
-2.  Duygu tanıma API'si penceresiyle bulun **metin kutusu** okuma "**başlatmak için abonelik anahtarınızı buraya yapıştırın**". Abonelik anahtarınızı ekran görüntüsü gösterildiği gibi metin kutusuna yapıştırın. Abonelik anahtarınızı PC veya dizüstü bilgisayarınız üzerinde "Anahtarı Kaydet" düğmesini tıklatarak kalıcı hale getirmek seçebilirsiniz. Abonelik anahtarı sistemden silmek istediğinizde, PC ya da dizüstü bilgisayara kaldırmak için "anahtar Sil"'ı tıklatın.
-  
-  ![Duygu tanıma işlevselliğini arabirimi](../Images/EmotionKey.png)
+## <a name="Step3">3. Adım: Örneği çalıştırma</a>
+1.  Derleme tamamlandıktan sonra örneği çalıştırmak için **F5** tuşuna basın veya şerit menüsündeki **Başlat** düğmesine tıklayın.
+2.  "**Paste your subscription key here to start**" (Başlamak için abonelik anahtarınızı buraya yapıştırın) yazan **metin kutusuna** sahip olan Duygu Tanıma API'si penceresini bulun. Abonelik anahtarınızı aşağıdaki ekran görüntüsünde gördüğünüz gibi metin kutusuna yapıştırın. "Anahtarı Kaydet" düğmesine tıklayarak abonelik anahtarınızın masaüstü veya dizüstü bilgisayarınızda kalmasını sağlayabilirsiniz. Abonelik anahtarını sisteminizden silmek istediğinizde "Anahtarı Sil"e tıklayarak masaüstü veya dizüstü bilgisayarınızdan kaldırabilirsiniz.
 
-3.  Altında "**seçin senaryo**"kullanın ya da iki senaryo tıklatıp"**bir akış kullanarak duygu algılama**"veya"**bir URL'yi kullanarak duygu algılama**", ardından yönergeleri izleyin Ekran. Microsoft, karşıya yükleme ve bunları duygu API ve ilgili hizmetler geliştirmek için kullanabilir görüntüleri alır. Bir görüntü göndererek, izlediğinizden onaylamanız bizim [kullanım kuralları Geliştirici](https://azure.microsoft.com/support/legal/developer-code-of-conduct/).
-4.  Bu örnek uygulama ile kullanılacak örnek görüntülerin vardır. Bu görüntüleri bulabilirsiniz [yüz API Github depo](https://github.com/Microsoft/Cognitive-Face-Windows/tree/master/Data) altında **veri** klasör. Lütfen bu görüntüleri kullanımını Orta kullanmak sözleşmesi Bu örnekte test ancak yeniden yayımlama için kullanılacak Tamam olduğu anlamına gelir lisanslı unutmayın.
+  ![Duygu Tanıma İşlevi Arabirimi](../Images/EmotionKey.png)
 
-## <a name="Review">Gözden geçirin ve öğrenin</a>
-Çalışan bir uygulama sahip olduğunuza göre bize nasıl Bu örnek uygulamayı Microsoft Bilişsel hizmetleriyle tümleştirilen gözden geçirin. Bu, bu uygulamanın üzerine yapı devam ya da Microsoft duygu tanıma API'si kullanılarak kendi uygulamanızı geliştirin daha kolay hale getirir. 
+3.  "**Select Scenario**" (Senaryo seçin) bölümünde “**Detect emotion using a stream**” (Akış kullanarak duygu tanıma) veya “**Detect emotion using a URL**” (URL kullanarak duygu tanıma) senaryolarından birini seçip ekrandaki talimatları izleyin. Microsoft, yüklediğiniz resimleri alır ve bunları Duygu Tanıma API'si ile ilgili hizmetleri geliştirmek için kullanabilir. Görüntü göndererek [Geliştirici Kullanım Kurallarımıza](https://azure.microsoft.com/support/legal/developer-code-of-conduct/) uyduğunuzu onaylamış olursunuz.
+4.  Bu örnek uygulamayla kullanabileceğiniz örnek görüntüler mevcuttur. Bu görüntüleri [Yüz Tanıma API'si Github deposunun](https://github.com/Microsoft/Cognitive-Face-Windows/tree/master/Data) **Data** klasöründe bulabilirsiniz. Bu görüntülerin Adil Kullanım lisansına sahip olduğunu ve bu örnekte test için kullanılabileceğini ancak yeniden yayımlanamayacağını unutmayın.
 
-Bu örnek uygulama duygu tanıma API'si istemci kitaplığı ince C# istemci için sarmalayıcı Microsoft duygu API kullanır. Yukarıda açıklandığı gibi örnek uygulama yapılandırıldığında, istemci kitaplığı NuGet paket aldı. Başlıklı klasöründeki istemci kitaplığı kaynak kodu gözden geçirebilirsiniz "[istemci Kitaplığı](https://github.com/Microsoft/Cognitive-Emotion-Windows/tree/master/ClientLibrary)" altında **duygu**, **Windows**, **istemci Kitaplığı** , hangi indirilen dosya deposu parçası yukarıda belirtilen [Önkoşullar](#Prerequisites).
- 
-Ayrıca istemci kitaplığı kodda kullanma bulabilirsiniz **Çözüm Gezgini**: altında **EmotionAPI WPF_Samples**, genişletin **DetectEmotionUsingStreamPage.xaml** için bulun **DetectEmotionUsingStreamPage.xaml.cs**, yerel olarak saklanan bir dosyaya gözatmak için kullanılan veya genişletin **DetectEmotionUsingURLPage.xaml** bulmak için  **DetectEmotionUsingURLPage.xaml.cs**, bir resim URL'si karşıya yüklenirken kullanılan. Çift tıklayın. bunları şekilde xaml.cs dosyalarını açma Visual Studio'da yeni Windows. 
+## <a name="Review">Gözden Geçirme ve Öğrenme</a>
+Artık çalışan bir uygulamanız olduğuna göre örnek uygulamanın Microsoft Bilişsel Hizmetlerle nasıl tümleştirildiğini inceleyebilirsiniz. Bu adım, Microsoft Duygu Tanıma API'sini kullanarak bu uygulamayı derlemeye devam etmenizi veya kendi uygulamanızı geliştirmenizi kolaylaştıracaktır.
 
-Duygu istemci kitaplığı bizim örnek uygulamasında nasıl kullanılan gözden geçirme, iki kod parçacıkları bakalım **DetectEmotionUsingStreamPage.xaml.cs** ve **DetectEmotionUsingURLPage.xaml.cs**. Her dosya "Anahtar örnek kodu BAŞLATIR burada" ve "Anahtar örnek kodu sona ERER burada" aşağıda parçacıkları çoğaltılamaz kod bulmanıza yardımcı olmak üzere gösteren kod açıklamaları içerir.
+Bu örnek uygulamada Duygu Tanıma API'si İstemci Kitaplığı ve Microsoft Duygu Tanıma API'si için basit bir C# istemci sarmalaması kullanılmaktadır. Örnek uygulamayı yukarıda anlatılan şekilde derlediğinizde İstemci Kitaplığını bir NuGet paketinden aldınız. **Emotion**, **Windows**, **Client Library** dizinindeki "[Client Library](https://github.com/Microsoft/Cognitive-Emotion-Windows/tree/master/ClientLibrary)" klasöründe bulunan İstemci Kitaplığı kaynak kodunu gözden geçirebilirsiniz. Bu dosya, [Ön koşullar](#Prerequisites) bölümünde bahsedilen dosya deposuyla birlikte indirilmiştir.
 
-Giriş olarak bir resim URL'si veya ikili resim verileri (biçiminde bir sekizli akış) ile çalışabilmek için duygu API'dir. İki seçenek aşağıda incelenen. Her iki durumda da ilk kullanarak bir bulduğunuz duygu istemci kitaplığı kullanmanıza olanak sağlayan yönergesi. 
+İstemci Kitaplığı kodunun nasıl kullanılacağını **Çözüm Gezgini**'nde de bulabilirsiniz: **EmotionAPI-WPF_Samples** altında **DetectEmotionUsingStreamPage.xaml** öğesini genişleterek yerel ortamda depolanan bir görüntüye göz atmak için kullanılan **DetectEmotionUsingStreamPage.xaml.cs** dosyasını bulun. Ayrıca **DetectEmotionUsingURLPage.xaml** öğesini genişlettiğinizde de görüntü URL'si yüklenirken kullanan **DetectEmotionUsingURLPage.xaml.cs** dosyasını bulabilirsiniz. .xaml.cs dosyalarına çift tıklayarak Visual Studio'da yeni pencerelerde açın.
+
+Duygu Tanıma İstemci Kitaplığının örnek uygulamada nasıl kullanıldığını incelerken **DetectEmotionUsingStreamPage.xaml.cs** ve **DetectEmotionUsingURLPage.xaml.cs** dosyalarından alınan iki kod parçacığına da bakalım. Aşağıda gösterilen kod parçacıklarını bulmanıza yardımcı olmak için dosyalara “KEY SAMPLE CODE STARTS HERE” (Anahtar kodu örneği başlangıcı) ve “KEY SAMPLE CODE ENDS HERE” (Anahtar kodu örneği sonu) şeklinde kod açıklamaları eklenmiştir.
+
+Duygu Tanıma API'si giriş olarak görüntü URL'si veya ikili görüntü verisi (sekizli akış biçiminde) kullanabilir. İki seçenek aşağıda incelenmiştir. İki durumda da ilk olarak Duygu Tanıma İstemci Kitaplığını kullanmanızı sağlayan bir using yönergesiyle karşılaşırsınız.
 ```csharp
 
-            // ----------------------------------------------------------------------- 
-            // KEY SAMPLE CODE STARTS HERE 
-            // Use the following namespace for EmotionServiceClient 
-            // ----------------------------------------------------------------------- 
-            using Microsoft.ProjectOxford.Emotion; 
-            using Microsoft.ProjectOxford.Emotion.Contract; 
-            // ----------------------------------------------------------------------- 
-            // KEY SAMPLE CODE ENDS HERE 
-            // ----------------------------------------------------------------------- 
+            // -----------------------------------------------------------------------
+            // KEY SAMPLE CODE STARTS HERE
+            // Use the following namespace for EmotionServiceClient
+            // -----------------------------------------------------------------------
+            using Microsoft.ProjectOxford.Emotion;
+            using Microsoft.ProjectOxford.Emotion.Contract;
+            // -----------------------------------------------------------------------
+            // KEY SAMPLE CODE ENDS HERE
+            // -----------------------------------------------------------------------
 ```
-#### <a name="detectemotionusingurlpagexamlcs"></a>DetectEmotionUsingURLPage.xaml.cs 
+#### <a name="detectemotionusingurlpagexamlcs"></a>DetectEmotionUsingURLPage.xaml.cs
 
-Bu kod parçacığını istemci kitaplığı abonelik anahtarınızı ve fotoğraf URL'si duygu API Hizmeti'ne göndermek için nasıl kullanılacağını gösterir. 
+Bu kod parçacığı, Duygu Tanıma API'si hizmetine abonelik anahtarınızı ve fotoğraf URL'si göndermek için İstemci Kitaplığının nasıl kullanıldığını göstermektedir.
 
 ```csharp
 
@@ -115,9 +117,9 @@ Bu kod parçacığını istemci kitaplığı abonelik anahtarınızı ve fotoğr
             // KEY SAMPLE CODE ENDS HERE
             // -----------------------------------------------------------------------
 ```
-#### <a name="detectemotionusingstreampagexamlcs"></a>DetectEmotionUsingStreamPage.xaml.cs 
+#### <a name="detectemotionusingstreampagexamlcs"></a>DetectEmotionUsingStreamPage.xaml.cs
 
-Aşağıda gösterilen abonelik anahtarınızı ve duygu tanıma API'si için yerel olarak saklanan bir görüntü gönderme olur. 
+Aşağıda Duygu Tanıma API'sine abonelik anahtarınızı ve yerel ortamda depolanan bir görüntüyü gönderme adımları gösterilmektedir.
 
 
 ```csharp

@@ -7,15 +7,15 @@ manager: jeconnoc
 ms.service: batch
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 01/16/2018
+ms.date: 09/06/2018
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: b5431feec23e2e0681967a9fe0345edc1db567aa
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: d22e5111a0413c1774d4d41290741414c82039f7
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31513835"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48814840"
 ---
 # <a name="quickstart-run-your-first-azure-batch-job-with-the-net-api"></a>Hızlı Başlangıç: .NET API ile ilk Azure Batch işinizi çalıştırma
 
@@ -27,7 +27,7 @@ Bu hızlı başlangıç, Azure Batch .NET API üzerinde derlenmiş bir C# uygula
 
 ## <a name="prerequisites"></a>Ön koşullar
 
-* [Visual Studio IDE](https://www.visualstudio.com/vs) (Visual Studio 2015 veya daha yeni bir sürüm). 
+* [Visual Studio 2017](https://www.visualstudio.com/vs) veya Linux, macOS ya da Windows için [.NET Core 2.1](https://www.microsoft.com/net/download/dotnet-core/2.1). 
 
 * Bir Batch hesabı ve bağlı bir Azure Depolama hesabı. Bu hesapları oluşturmak için [Azure portalı](quick-create-portal.md) veya [Azure CLI](quick-create-cli.md) kullanan Batch hızlı başlangıçlarına bakın. 
 
@@ -60,9 +60,11 @@ private const string StorageAccountName = "mystorageaccount";
 private const string StorageAccountKey  = "xxxxxxxxxxxxxxxxy4/xxxxxxxxxxxxxxxxfwpbIC5aAWA8wDu+AFXZB827Mt9lybZB1nUcQbQiUrkPtilK5BQ==";
 ```
 
+[!INCLUDE [batch-credentials-include](../../includes/batch-credentials-include.md)]
+
 ## <a name="build-and-run-the-app"></a>Uygulamayı derleme ve çalıştırma
 
-Batch iş akışını çalışır durumda görmek için uygulamayı derleyip çalıştırın. Uygulamayı çalıştırdıktan sonra, uygulamanın her bir parçasının ne işe yaradığını öğrenmek üzere kodu gözden geçirin. 
+Batch iş akışını uygulamalı olarak görmek için uygulamayı Visual Studio'da veya `dotnet build` ve `dotnet run` komutlarıyla komut satırında derleyip çalıştırın. Uygulamayı çalıştırdıktan sonra, uygulamanın her bir parçasının ne işe yaradığını öğrenmek üzere kodu gözden geçirin. Örneğin Visual Studio'da:
 
 * Çözüm Gezgini'nde çözüme sağ tıklayın ve **Derleme Çözümü**’ne tıklayın. 
 
@@ -122,9 +124,9 @@ Uygulama, depolama hesabında bir kapsayıcı oluşturmak ve kapsayıcıya veri 
 ```csharp
 List<string> inputFilePaths = new List<string>
 {
-    @"..\..\taskdata0.txt",
-    @"..\..\taskdata1.txt",
-    @"..\..\taskdata2.txt"
+    "taskdata0.txt",
+    "taskdata1.txt",
+    "taskdata2.txt"
 };
 
 List<ResourceFile> inputFiles = new List<ResourceFile>();
@@ -192,7 +194,7 @@ try
 
     job.Commit(); 
 }
-...       
+...
 ```
 
 ### <a name="create-tasks"></a>Görev oluşturma

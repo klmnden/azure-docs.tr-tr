@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/23/2018
+ms.date: 10/01/2018
 ms.author: pareshmu
-ms.openlocfilehash: 72cb9871b1e0f08d8c368116eae13a8402af9f60
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.openlocfilehash: 22288165876972888428450f16aa2460a211c9a6
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42815229"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48042931"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>ExpressRoute ortakları ve eşleme konumları
 
@@ -44,8 +44,8 @@ Aşağıdaki tablo, coğrafi bölge içindeki Azure bölgeler ile ExpressRoute k
 | --- | --- | --- |
 | **Kuzey Amerika** |Doğu ABD, Batı ABD, Doğu ABD 2, Batı ABD 2, Orta ABD, Orta Güney ABD, Orta Kuzey ABD, Batı Orta ABD, Orta Kanada, Doğu Kanada |Atlanta, Chicago, Dallas, Denver, Las Vegas, Los Angeles, Miami, New York, San Antonio, Seattle, Silikon Vadisi, Washington, Montreal, Quebec City, Toronto |
 | **Güney Amerika** |Güney Brezilya |Sao Paulo |
-| **Avrupa** |Fransa Orta, Fransa Güney, Kuzey Avrupa, Batı Avrupa, UK Batı, UK Güney |Amsterdam, Dublin, Londra, Newport(Galler), Paris |
-| **Asya** |Doğu Asya, Güneydoğu Asya |Hong Kong, Singapur, Singapur2 |
+| **Avrupa** |Fransa Orta, Fransa Güney, Kuzey Avrupa, Batı Avrupa, UK Batı, UK Güney |Amsterdam, Amsterdam2, Dublin, Londra, Marsilya, Newport (Galler), Paris |
+| **Asya** |Doğu Asya, Güneydoğu Asya |Hong Kong, Kuala Lumpur, Singapur, Singapur2 |
 | **Japonya** |Batı Japonya, Doğu Japonya |Osaka, Tokyo |
 | **Avustralya** |Güneydoğu Avustralya, Doğu Avustralya |Melbourne, Sidney |
 | **Australia Government** | Avustralya Orta, Avustralya Orta 2 |Kanberra, Kanberra2 | 
@@ -100,7 +100,7 @@ Aşağıdaki tabloda hizmet sağlayıcısına göre konumlar gösterilmektedir. 
 | **Internet2** |Destekleniyor |Destekleniyor |Washington DC |
 | **[Internet Initiative Japan Inc. - IIJ](http://www.iij.ad.jp/en/news/pressrelease/2015/1216-2.html)** |Destekleniyor |Destekleniyor |Osaka, Tokyo |
 | **[Internet Solutions - Cloud Connect](https://www.is.co.za/solution/cloud-connect/)** |Destekleniyor |Destekleniyor |Cape Town, Johannesburg, Londra |
-| **[Interxion](http://www.interxion.com/why-interxion/colocate-with-the-clouds/Microsoft-Azure/)** |Destekleniyor |Destekleniyor |Amsterdam, Dublin, Londra, Paris |
+| **[Interxion](http://www.interxion.com/why-interxion/colocate-with-the-clouds/Microsoft-Azure/)** |Destekleniyor |Destekleniyor |Amsterdam, Amsterdam2, Dublin, Marsilya, Londra, Paris |
 | **[IX Reach](https://www.ixreach.com/services/cloud-connectivity/microsoft-azure/)**|Destekleniyor |Destekleniyor | Silicon Valley, Toronto |
 | **Jisc** |Destekleniyor |Destekleniyor |Londra |
 | **[KINX](https://www.kinx.net/service/network/cloudhub/ms-expressroute/?lang=en)** |Destekleniyor |Destekleniyor |Seul |
@@ -119,7 +119,7 @@ Aşağıdaki tabloda hizmet sağlayıcısına göre konumlar gösterilmektedir. 
 | **[Optus](https://www.optus.com.au/enterprise/networking/network-connectivity/express-link)** |Destekleniyor |Destekleniyor |Melbourne+ , Sidney |
 | **[Orange](http://www.orange-business.com/en/products/business-vpn-galerie)** |Destekleniyor |Destekleniyor |Amsterdam, Hong Kong, Londra, Paris, Silikon Vadisi, Singapur, Sidney, Washington DC |
 | **[PacketFabric](https://www.packetfabric.com/packetcor/microsoft-azure/)** |Destekleniyor |Destekleniyor |Chicago, Silikon Vadisi, Washington DC |
-| **PCCW Global Limited** |Destekleniyor |Destekleniyor |Hong Kong |
+| **PCCW Global Limited** |Destekleniyor |Destekleniyor |Chicago, Hong Kong, Londra |
 | **[Sejong Telecom](https://www.sejongtelecom.net/en/pages/service/cloud_ms)** |Destekleniyor |Destekleniyor |Seul |
 | **[SIFY](http://telecom.sify.com/azure-expressroute.html)** |Destekleniyor |Destekleniyor |Chennai, Mumbai |
 | **[SingTel](http://info.singtel.com/about-us/news-releases/singtel-provide-secure-private-access-microsoft-azure-public-cloud)** |Destekleniyor |Destekleniyor |Singapur, Singapur2 |
@@ -134,7 +134,7 @@ Aşağıdaki tabloda hizmet sağlayıcısına göre konumlar gösterilmektedir. 
 | **[Telstra Corporation](http://www.telstra.com.au/business-enterprise/network-services/networks/cloud-direct-connect/)** |Destekleniyor |Destekleniyor |Melbourne, Sidney |
 | **[Telus](http://www.telus.com)** |Destekleniyor |Destekleniyor |Montreal, Toronto |
 | **[Teraco](https://www.teraco.co.za/services/africa-cloud-exchange/)** |Destekleniyor |Destekleniyor |Cape Town, Johannesburg |
-| **TIME** | Çok Yakında | Çok Yakında | Kuala Lumpur |
+| **TIME** | Destekleniyor | Destekleniyor | Kuala Lumpur |
 | **[UOLDIVEO](http://www.uoldiveo.com.br/solucoes/cloud.html#rmcl)** |Destekleniyor |Destekleniyor |Sao Paulo |
 | **[Verizon](http://www.verizonenterprise.com/products/networking/secure-cloud-interconnect/)** |Destekleniyor |Destekleniyor |Amsterdam, Chicago, Dallas, Hong Kong, Londra, Silikon Vadisi, Singapur, Sidney, Tokyo, Washington DC |
 | **[Vodafone](http://www.vodafone.com/business/global-enterprise/global-connectivity/vodafone-ip-vpn-cloud-connect)** |Destekleniyor |Desteklenmiyor |Londra |

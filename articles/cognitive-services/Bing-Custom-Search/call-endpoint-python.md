@@ -1,50 +1,51 @@
 ---
-title: Microsoft Bilişsel hizmetler - Bing özel arama - Python kullanarak uç noktasını çağırmak
-description: Bu hızlı başlangıçta, Bing özel arama uç noktasını çağırmak için Python'ı kullanarak özel arama örneğinizin arama sonuçları isteği gösterilmektedir.
+title: 'Hızlı başlangıç: Python kullanarak uç nokta çağırma - Bing Özel Arama'
+titlesuffix: Azure Cognitive Services
+description: Bu hızlı başlangıçta Bing Özel Arama uç noktasını çağırmak için Python kullanarak özel arama örneğinizden arama sonuçlarını isteme adımları gösterilmektedir.
 services: cognitive-services
 author: brapel
-manager: ehansen
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-custom-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 05/07/2018
 ms.author: v-brapel
-ms.openlocfilehash: 3666e92372e9bed80e5c0c7991dcac730cebb588
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: MT
+ms.openlocfilehash: d16b7354b0ef727ba3c670b97105e1bd6f99034e
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46967602"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48815469"
 ---
-# <a name="call-bing-custom-search-endpoint-python"></a>Bing özel arama uç noktası (Python) çağırın
+# <a name="quickstart-call-bing-custom-search-endpoint-python"></a>Hızlı başlangıç: Bing Özel Arama uç noktasını çağırma (Python)
 
-Bu hızlı başlangıçta, arama sonuçlarını Bing özel arama uç noktasını çağırmak için Python'ı kullanarak özel arama örneğinizin isteği gösterilmektedir. 
+Bu hızlı başlangıçta Bing Özel Arama uç noktasını çağırmak için Python kullanarak özel arama örneğinizden arama sonuçlarını isteme adımları gösterilmektedir. 
 
-## <a name="prerequisites"></a>Önkoşullar
+## <a name="prerequisites"></a>Ön koşullar
 
 Bu hızlı başlangıcı tamamlamak için şunlar gerekir:
 
-- Bir kullanıma hazır özel arama örneği. Bkz: [ilk Bing özel arama örneğinizin oluşturma](quick-start.md).
-- [Python](https://www.python.org/) yüklü.
-- Bir abonelik anahtarı. Etkinleştirme sırasında bir abonelik anahtarı edinirler, [ücretsiz deneme sürümü](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search), ya da Ücretli abonelik anahtarı, Azure panosundan kullanabilirsiniz (bkz [Bilişsel hizmetler API hesabı](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)).    
+- Kullanıma hazır özel arama örneği. Bkz. [İlk Bing Özel Arama örneğinizi oluşturma](quick-start.md).
+- [Python](https://www.python.org/) uygulamasının yüklenmiş olması.
+- Abonelik anahtarı. Abonelik anahtarını [ücretsiz denemenizi](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search) etkinleştirdikten sonra alabilir veya Azure panonuzdan ücretli abonelik anahtarı (bkz. [Bilişsel Hizmetler API hesabı](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)) kullanabilirsiniz.    
 
 
 ## <a name="run-the-code"></a>Kodu çalıştırma
 
-Bu örneği çalıştırmak için aşağıdaki adımları izleyin:
+Bu örneği çalıştırmak için aşağıdaki adımları uygulayın:
 
 1. Kodunuz için bir klasör oluşturun.  
   
-2. Bir yönetici komut istemi veya terminal, az önce oluşturduğunuz klasöre gidin.  
+2. Bir yönetici komut isteminden veya terminalden az önce oluşturduğunuz klasöre gidin.  
   
-3. Yükleme **istekleri** python Modülü:  
+3. **requests** Python modülünü yükleyin:  
   
     <pre>
     pip install pipenv
     pipenv install requests
     </pre>  
       
-4. Oluşturduğunuz klasördeki BingCustomSearch.py adlı bir dosya oluşturun ve içine aşağıdaki kodu kopyalayın. Değiştirin **YOUR-SUBSCRIPTION-KEY** ve **YOUR-özel-CONFIG-ID** yapılandırma ve subscriptioin anahtarı ile kimliği  
+4. Oluşturduğunuz klasörde BingCustomSearch.py adlı bir dosya oluşturun ve aşağıdaki kodu içine kopyalayın. **YOUR-SUBSCRIPTION-KEY** ve **YOUR-CUSTOM-CONFIG-ID** yerine abonelik anahtarınızı ve yapılandırma kimliğinizi yazın.  
   
     ``` Python
     import json
@@ -66,6 +67,6 @@ Bu örneği çalıştırmak için aşağıdaki adımları izleyin:
     ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
-- [Barındırılan UI deneyiminizi yapılandırın](./hosted-ui.md)
-- [Metni vurgulayacak şekilde decoration işaretçileri kullanma](./hit-highlighting.md)
-- [Sayfa Web sayfaları](./page-webpages.md)
+- [Barındırılan kullanıcı arabirimi deneyiminizi yapılandırma](./hosted-ui.md)
+- [Metni vurgulamak için süsleme işaretçilerini kullanma](./hit-highlighting.md)
+- [Sayfa web sayfaları](./page-webpages.md)

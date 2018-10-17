@@ -10,12 +10,12 @@ ms.component: video-indexer
 ms.topic: sample
 ms.date: 09/15/2018
 ms.author: juliako
-ms.openlocfilehash: 0d75a58ddf0607286d41867828119fdd05e07d22
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 3d9e00a97355c03da5360846d4cd9f27a8540ed6
+ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45985588"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48017440"
 ---
 # <a name="example-embed-video-indexer-widgets-into-your-applications"></a>Örnek: Uygulamalarınıza Video Indexer pencere öğeleri ekleme
 
@@ -47,15 +47,16 @@ Bu makalede, uygulamalarınıza Video Indexer pencere öğelerini nasıl ekleyeb
 ## <a name="embedding-public-content"></a>Genel içerik ekleme
 
 1. [Video Indexer](https://www.videoindexer.ai/) web sitesine gidip oturum açın.
-2. Videonun altında görünen "ekle" düğmesine tıklayın.
+2. Çalışmak istediğiniz videoya tıklayın.
+3. Videonun altında görünen "ekle" düğmesine tıklayın.
 
     ![Pencere öğesi](./media/video-indexer-embed-widgets/video-indexer-widget01.png)
 
     Düğmeye tıkladığınızda ekranda kalıcı bir ekleme öğesi görünür. Burada uygulamanıza eklemek istediğiniz pencere öğesini seçebilirsiniz.
     Bir pencere öğesi seçtiğinizde (**Yürütücü** veya **Bilişsel İçgörüler**), uygulamanıza yapıştıracağınız ekleme kodu oluşturulur.
  
-3. İstediğiniz pencere öğesi türünü seçin (**Bilişsel İçgörüler** veya **Yürütücü**).
-4. Ekleme kodunu kopyalayın ve uygulamanıza ekleyin. 
+4. İstediğiniz pencere öğesi türünü seçin (**Bilişsel İçgörüler** veya **Yürütücü**).
+5. Ekleme kodunu kopyalayın ve uygulamanıza ekleyin. 
 
     ![Pencere öğesi](./media/video-indexer-embed-widgets/video-indexer-widget02.png)
 

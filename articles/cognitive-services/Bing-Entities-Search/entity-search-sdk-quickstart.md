@@ -1,56 +1,56 @@
 ---
-title: Varlık arama API C# hızlı başlangıç | Microsoft Docs
-description: Varlık Ara SDK konsol uygulaması ayarlayın.
-titleSuffix: Azure cognitive services entity search API C# quickstart
+title: "Hızlı başlangıç: Bing Varlık Arama SDK'sı, C#"
+titleSuffix: Azure Cognitive Services
+description: C# ile Varlık Arama SDK'sı konsol uygulaması kurulumu.
 services: cognitive-services
 author: mikedodaro
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-entity-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 01/30/2018
 ms.author: v-gedod
-ms.openlocfilehash: 185e1b4fc1b7ef2aa5964e2e95314727f8e1b0a5
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
-ms.translationtype: MT
+ms.openlocfilehash: abf7e4344bea88fd86b86135ffab30672d77922e
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35355246"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48814115"
 ---
-# <a name="entity-search-sdk-c-quickstart"></a>Varlık arama SDK C# hızlı başlangıç
+# <a name="quickstart-bing-entity-search-sdk-with-c"></a>Hızlı başlangıç: C# ile Bing Varlık Arama SDK'sı
 
-Bing varlık arama API varlık arama ve sonuçları ayrıştırma için REST API işlevselliğini içerir.
+Bing Varlık Arama API'si, varlık arama ve sonuçları ayrıştırmak için REST API işlevselliğini içerir.
 
-[Kaynak kodu C# Bing varlık arama SDK örnekleri için](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7/BingEntitySearch) Git hub'da kullanılabilir.
+[C# Bing Varlık Arama SDK'sı örneklerinin kaynak kodu](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7/BingEntitySearch) Git Hub'dan edinilebilir.
 
 ## <a name="application-dependencies"></a>Uygulama bağımlılıkları
 
-Bing varlık arama SDK'yı kullanarak bir konsol uygulaması ayarlamak için Gözat `Manage NuGet Packages` Visual Studio'daki Çözüm Gezgini'nden seçeneği.  Ekleme `Microsoft.Azure.CognitiveServices.Search.EntitySearch` paket.
+Bing Varlık Arama SDK'sını kullanarak bir konsol uygulaması kurmak için Visual Studio’da Çözüm Gezgini'nde `Manage NuGet Packages` seçeneğine gidin.  `Microsoft.Azure.CognitiveServices.Search.EntitySearch` paketini ekleyin.
 
-Yükleme [NuGet varlık arama paket](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.EntitySearch/1.2.0) bağımlılıkları, aşağıdaki derlemeler dahil olmak üzere de yüklenir:
+[NuGet Varlık Arama paketini](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.EntitySearch/1.2.0) yüklediğinizde aşağıdaki derlemeleri içeren bağımlılıklar da yüklenir:
 * Microsoft.Rest.ClientRuntime
 * Microsoft.Rest.ClientRuntime.Azure
 * Newtonsoft.Json
 
-## <a name="entity-search-client"></a>Varlık arama istemci
-Örneği oluşturmak için `EntitySearchAPI` istemci, yönergeleri kullanarak ekleyin:
+## <a name="entity-search-client"></a>Varlık Arama istemcisi
+`EntitySearchAPI` istemcisinin bir örneğini oluşturmak için şu "using" yönergelerini ekleyin:
 ```
 using Microsoft.Azure.CognitiveServices.Search.EntitySearch;
 using Microsoft.Azure.CognitiveServices.Search.EntitySearch.Models;
 
 ```
-Ardından, istemci örneği:
+Ardından, istemciyi örneklendirin:
 ```
 var client = new EntitySearchAPI(new ApiKeyServiceClientCredentials("YOUR-ACCESS-KEY"));
 
 
 ```
-İstemci ile bir sorgu metni aramak için kullanın:
+Bir sorgu metniyle arama yapmak için istemciyi kullanın:
 ```
 var entityData = client.Entities.Search(query: "Satya Nadella");
 
 ```
-Önceki sorgunun sonuçlarını ayrıştırılamıyor:
+Önceki sorgunun sonuçlarını ayrıştırın:
 ```
 if (entityData?.Entities?.Value?.Count > 0)
 {
@@ -75,7 +75,7 @@ else
 ```
 
 ## <a name="complete-console-application"></a>Tam konsol uygulaması
-Aşağıdaki konsol uygulaması sorgu "Satya Nadella" üzerinde tek bir varlık arar ve kısa bir açıklama yazdırır.
+Aşağıdaki konsol uygulaması "Satya Nadella" sorgusu için tek bir varlık arar ve kısa bir açıklama yazdırır.
 ```
 using System;
 using System.Linq;
@@ -140,8 +140,8 @@ namespace EntitySrchSDK
 
 ```
 
-## <a name="ambiguous-results"></a>Belirsiz sonuçları
-Aşağıdaki kod belirsiz bir sorgu "William ağ geçitleri" için sonuçlar Kesinleştirme işler.
+## <a name="ambiguous-results"></a>Belirsiz sonuçlar
+Aşağıdaki kod belirsiz "William Gates" sorgusu nedeniyle dönen kesinleştirme sonuçlarını işler.
 ```
        public static void HandlingDisambiguation(EntitySearchAPI client)
         {
@@ -197,8 +197,8 @@ Aşağıdaki kod belirsiz bir sorgu "William ağ geçitleri" için sonuçlar Kes
 
 ```
 
-## <a name="entitydata-places"></a>EntityData yerler
-Aşağıdaki kod tek deposu "Microsoft Store" arar ve kendi telefonlarını yazdırır.
+## <a name="entitydata-places"></a>EntityData yerleri
+Aşağıdaki kod "Microsoft Store" sorgusuyla tek bir mağaza arar ve telefon numarasını yazdırır.
 ```
         public static void StoreLookup(EntitySearchAPI client)
         {
@@ -235,7 +235,7 @@ Aşağıdaki kod tek deposu "Microsoft Store" arar ve kendi telefonlarını yazd
 
 ```
 ## <a name="entityscenario-list"></a>EntityScenario listesi
-Aşağıdaki kod, "Seattle Restoran" listesini arar ve adlarını ve telefon numaraları yazdırır.
+Aşağıdaki kod "Seattle restaurants" listesini arar, adlarını ve telefon numaraları yazdırır.
 ```
        public static void MultipleRestaurantLookup(EntitySearchAPI client)
         {
@@ -285,8 +285,8 @@ Aşağıdaki kod, "Seattle Restoran" listesini arar ve adlarını ve telefon num
         }
 
 ```
-## <a name="error-results"></a>Hata sonuçları
-Aşağıdaki kod, bozuk bir isteği tetikler ve hata yanıtı okuma gösterilmektedir.
+## <a name="error-results"></a>Hatalı sonuçlar
+Aşağıdaki kod bozuk bir istek tetikler ve hata yanıtının nasıl okunacağını gösterir.
 ```
         public static void Error(EntitySearchAPI client)
         {
@@ -316,4 +316,4 @@ Aşağıdaki kod, bozuk bir isteği tetikler ve hata yanıtı okuma gösterilmek
 ```
 ## <a name="next-steps"></a>Sonraki adımlar
 
-[Bilişsel hizmetler .NET SDK'sı örneği](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7)
+[Bilişsel Hizmetler .NET SDK örnekleri](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7)

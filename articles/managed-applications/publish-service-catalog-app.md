@@ -3,21 +3,20 @@ title: Azure hizmet kataloğu yönetilen uygulaması oluşturma ve yayımlama | 
 description: Kuruluşunuzun üyelerine yönelik bir Azure yönetilen uygulaması oluşturmayı gösterir.
 services: managed-applications
 author: tfitzmac
-manager: timlt
 ms.service: managed-applications
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
-ms.date: 06/08/2018
+ms.date: 10/04/2018
 ms.author: tomfitz
-ms.openlocfilehash: 3b1da6e9068be3c96cce5973f29344fe7e4b4872
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: a2e6e78268f97136533b4f72ce28373642b6c394
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47095849"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48801276"
 ---
-# <a name="publish-a-managed-application-for-internal-consumption"></a>Yönetilen bir uygulamayı dahili tüketim için yayımlama
+# <a name="create-and-publish-a-managed-application-definition"></a>Yönetilen uygulama tanımı oluşturma ve yayımlama
 
 Kuruluşunuzun üyelerine yönelik Azure [yönetilen uygulamaları](overview.md) oluşturup yayımlayabilirsiniz. Örneğin, BT departmanı kurumsal standartlara uymak için yönetilen uygulamalar yayımlayabilir. Bu yönetilen uygulamalara Azure marketten değil, hizmet kataloğu üzerinden erişilebilir.
 
@@ -215,80 +214,7 @@ New-AzureRmManagedApplicationDefinition `
 
 Yönetilen uygulama tanımına eriştiniz ama kuruluşunuzdaki diğer kullanıcıların da erişebildiğinden emin olmak istiyorsunuz. Onlara tanım üzerinde en azından Okuyucu rolü verin. Bu erişim düzeyini abonelikten veya kaynak grubunda devralmış olabilirler. Tanıma kimlerin erişimi olduğunu denetlemek ve kullanıcıları veya grupları eklemek için bkz. [Azure abonelik kaynaklarınıza erişimi yönetmek için Rol Tabanlı Erişim Denetimi kullanma](../role-based-access-control/role-assignments-portal.md).
 
-## <a name="create-the-managed-application"></a>Yönetilen uygulamayı oluşturma
-
-Yönetilen uygulamayı portal, PowerShell veya Azure CLI üzerinden dağıtabilirsiniz.
-
-### <a name="powershell"></a>PowerShell
-
-İlk olarak, yönetilen uygulamayı dağıtmak için PowerShell kullanalım.
-
-```powershell
-# Create resource group
-New-AzureRmResourceGroup -Name applicationGroup -Location westcentralus
-
-# Get ID of managed application definition
-$appid=(Get-AzureRmManagedApplicationDefinition -ResourceGroupName appDefinitionGroup -Name ManagedStorage).ManagedApplicationDefinitionId
-
-# Create the managed application
-New-AzureRmManagedApplication `
-  -Name storageApp `
-  -Location westcentralus `
-  -Kind ServiceCatalog `
-  -ResourceGroupName applicationGroup `
-  -ManagedApplicationDefinitionId $appid `
-  -ManagedResourceGroupName "InfrastructureGroup" `
-  -Parameter "{`"storageAccountNamePrefix`": {`"value`": `"demostorage`"}, `"storageAccountType`": {`"value`": `"Standard_LRS`"}}"
-```
-
-Yönetilen uygulamanız ve yönetilen altyapı artık abonelikte mevcuttur.
-
-### <a name="portal"></a>Portal
-
-Şimdi de yönetilen uygulamayı dağıtmak için portalı kullanalım. Pakette oluşturduğunuz kullanıcı arabirimini görürsünüz.
-
-1. Azure portalına gidin. **+ Kaynak oluştur**’u seçin ve **hizmet kataloğu** araması yapın.
-
-   ![Hizmet kataloğu arama](./media/publish-service-catalog-app/create-new.png)
-
-1. **Hizmet Kataloğu Yönetilen Uygulaması**’nı seçin.
-
-   ![Hizmet kataloğu seçme](./media/publish-service-catalog-app/select-service-catalog-managed-app.png)
-
-1. **Oluştur**’u seçin.
-
-   ![Oluştur’u seçin](./media/publish-service-catalog-app/select-create.png)
-
-1. Kullanılabilir çözümler listesinden oluşturmak istediğiniz yönetilen uygulamayı bulup seçin. **Oluştur**’u seçin.
-
-   ![Yönetilen uygulamayı bulma](./media/publish-service-catalog-app/find-application.png)
-
-   Yönetilen uygulama tanımını portal üzerinden göremiyorsanız, portal ayarlarınızı değiştirmeniz gerekebilir. **Dizin ve Abonelik filtresi**'ni seçin.
-
-   ![Abonelik filtresini seçme](./media/publish-service-catalog-app/select-filter.png)
-
-   Genel abonelik filtresinin yönetilen uygulama tanımının bulunduğu aboneliği içerip içermediğini denetleyin.
-
-   ![Abonelik filtresini denetleme](./media/publish-service-catalog-app/check-global-filter.png)
-
-   Aboneliği seçtikten sonra, baştan başlayıp hizmet kataloğu yönetilen uygulamasını oluşturun. Bunu artık görüyor olmalısınız.
-
-1. Yönetilen uygulama için gerekli olan temel bilgileri sağlayın. Aboneliği ve yönetilen uygulamayı içerecek yeni kaynak grubunu belirtin. **ABD Orta Batı** konumunu seçin. İşiniz bittiğinde **Tamam**’ı seçin.
-
-   ![Yönetilen uygulama parametrelerini sağlama](./media/publish-service-catalog-app/add-basics.png)
-
-1. Yönetilen uygulamadaki kaynaklara özel değerleri sağlayın. İşiniz bittiğinde **Tamam**’ı seçin.
-
-   ![Kaynak parametreleri sağlama](./media/publish-service-catalog-app/add-storage-settings.png)
-
-1. Şablon, sağladığınız değerleri doğrular. Doğrulama başarılı olursa, dağıtımı başlatmak için **Tamam**’ı seçin.
-
-   ![Yönetilen uygulamayı doğrulama](./media/publish-service-catalog-app/view-summary.png)
-
-Dağıtım tamamlandıktan sonra yönetilen uygulama applicationGroup adlı bir kaynak grubunda mevcut olur. Depolama hesabı, applicationGroup adlı ve karma dize değerli bir kaynak grubunda mevcut olur.
-
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* Yönetilen uygulamalara giriş için [Yönetilen uygulamalara genel bakış](overview.md) konusunu inceleyin.
-* Örnek projeler için bkz. [Azure yönetilen uygulamaları için örnek projeler](sample-projects.md).
-* Yönetilen bir uygulamaya ait bir kullanıcı arabirimi tanım dosyası oluşturma hakkında bilgi için [CreateUiDefinition ile çalışmaya başlama](create-uidefinition-overview.md) konusunu inceleyin.
+* Yönetilen uygulamanızı Azure Market'te yayımlamak için bkz. [Market'teki Azure tarafından yönetilen uygulamalar](publish-marketplace-app.md).
+* Yönetilen uygulama örneğini dağıtmak için bkz. [Azure portal aracılığıyla hizmet kataloğu uygulaması dağıtma](deploy-service-catalog-quickstart.md).

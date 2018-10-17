@@ -1,60 +1,60 @@
 ---
-title: Metin analizi C# Öğreticisi | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: Bir ASP.NET Core web uygulamasından metin Analizine bağlanın.
+title: 'Öğretici: C# ile Metin Analizi'
+titleSuffix: Azure Cognitive Services
+description: Bir ASP.NET Core web uygulamasından Metin Analizine bağlanın.
 services: cognitive-services
 author: ghogen
-manager: douge
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: text-analytics
-ms.topic: conceptual
-ms.date: 06/01/2018
+ms.topic: tutorial
+ms.date: 09/12/2018
 ms.author: ghogen
-ms.openlocfilehash: eb9730f785b01a620e36a265216488c401eac63a
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
-ms.translationtype: MT
+ms.openlocfilehash: 95de174087fb2a73ad6c75a2e96caf872c351854
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39068497"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45605241"
 ---
-# <a name="connect-to-the-text-analytics-service-by-using-connected-services-in-visual-studio"></a>Visual Studio bağlı Hizmetler'i kullanarak metin analizi hizmete bağlanın
+# <a name="tutorial-connect-to-the-text-analytics-cognitive-service-by-using-connected-services-in-visual-studio"></a>Öğretici: Visual Studio’da Bağlı Hizmetleri kullanarak Metin Analizi Bilişsel Hizmeti’ne bağlanma
 
-Metin analiz hizmetini kullanarak, görsel verilerin işlenmesi ve kategorilere ayırma için zengin bilgiler ayıklayın ve görüntüleri hizmetlerinizi oluşturmanıza yardımcı olması için makine Yardımlı resim denetimi gerçekleştirin.
+Metin Analizi Hizmeti’ni kullanarak görsel verileri kategorilere ayırıp işlemenin yanı sıra hizmetlerinizi oluşturmanıza yardımcı olan makine yardımlı görüntü denetimi gerçekleştirmek için zengin bilgileri ayıklayabilirsiniz.
 
-Bu makalede ve yardımcı makaleleri için metin analiz hizmeti Visual Studio bağlı hizmeti özelliği kullanmak için ayrıntıları sağlayın. Özellik, her iki Visual Studio 2017 15.7 veya sonraki sürümlerinde, Bilişsel hizmetler uzantısı yüklü yöneliktir.
+Bu makalede ve beraberindeki makalelerde, Metin Analizi Hizmeti için Visual Studio Bağlı Hizmet özelliğinin kullanımına ilişkin ayrıntılar sağlanmaktadır. Özellik, Bilişsel Hizmetler uzantısının yüklendiği Visual Studio 2017 15.7 ve sonraki sürümlerde mevcuttur.
 
-## <a name="prerequisites"></a>Önkoşullar
+## <a name="prerequisites"></a>Ön koşullar
 
 - Azure aboneliği. Bir aboneliğiniz yoksa [ücretsiz hesap](https://azure.microsoft.com/pricing/free-trial/) için kaydolabilirsiniz.
-- Visual Studio 2017 sürüm 15.7, yüklü Web geliştirme iş yüküyle birlikte sağlanır. [Hemen indirin](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs).
+- Web Geliştirme iş yükünün yüklendiği Visual Studio 2017 sürüm 15.7. [Şimdi indir](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs).
 
 [!INCLUDE [vs-install-cognitive-services-vsix](../../../includes/vs-install-cognitive-services-vsix.md)]
 
-## <a name="add-support-to-your-project-for-the-text-analytics-service"></a>Destek için metin analizi hizmetini projenize ekleyin.
+## <a name="add-support-to-your-project-for-the-text-analytics-service"></a>Metin Analizi Hizmeti için projenize destek ekleme
 
-1. TextAnalyticsDemo adlı yeni bir ASP.NET Core web projesi oluşturun. Web uygulaması (Model-View-Controller) proje şablonu tüm varsayılan ayarlarla birlikte kullanın. Kod projesine kopyaladığınızda, ad alanı eşleşecek şekilde MyWebApplication, proje adı önemlidir.  Bu makaleler örnekte MVC kullanır, ancak herhangi bir ASP.NET proje türünü metin analizi bağlı hizmetini kullanabilirsiniz.
+1. TextAnalyticsDemo adlı yeni bir ASP.NET Core web projesi oluşturun. Tüm varsayılan ayarlarla birlikte Web Uygulaması (Model-Görünüm-Denetleyici) proje şablonunu kullanın. Projeye MyWebApplication adını vermek önemlidir; bu nedenle kodu projeye kopyaladığınızda ad alanı eşleştirilir.  Bu makalelerdeki örnekte MVC kullanılmaktadır, ancak Metin Analizi Bağlı Hizmeti’ni herhangi bir ASP.NET proje türüyle kullanabilirsiniz.
 
-1. İçinde **Çözüm Gezgini**, çift tıklayarak **bağlı hizmet** öğesi.
-   Projenize eklediğiniz Hizmetleri ile bağlı hizmet sayfasında görünür.
+1. **Çözüm Gezgini**’nde **Bağlı Hizmet** öğesine çift tıklayın.
+   Projenize ekleyebileceğiniz hizmetlerle birlikte Bağlı Hizmet sayfası görüntülenir.
 
-   ![Bağlı hizmet, Çözüm Gezgini ekran görüntüsü](../media/vs-common/Connected-Services-Solution-Explorer.PNG)
+   ![Çözüm Gezgini’nde Bağlı Hizmet’in ekran görüntüsü](../media/vs-common/Connected-Services-Solution-Explorer.PNG)
 
-1. Kullanılabilir hizmetler menüsünde **ile metin analizi yaklaşım değerlendirmek**.
+1. Kullanılabilir hizmetler menüsünde **Metin Analizi ile Yaklaşımı Değerlendirme** seçeneğini belirleyin.
 
-   ![Bağlı hizmetler ekran ekranı](./media/vs-text-connected-service/Cog-Text-Connected-Service-0.PNG)
+   ![Bağlı Hizmetler ekranının ekran görüntüsü](./media/vs-text-connected-service/Cog-Text-Connected-Service-0.PNG)
 
-   Visual Studio'da oturum açıldıktan ve hesabınızla ilişkili bir Azure aboneliğiniz varsa, aboneliklerinizin ile bir açılan listedeki bir sayfa görünür.
+   Visual Studio’da oturum açtıysanız ve hesabınızla ilişkili bir Azure aboneliğiniz varsa, aboneliklerinizi içeren bir açılır listenin yer aldığı bir sayfa görüntülenir.
 
-   ![Ekran, metin analizi bağlı hizmet ekranı](media/vs-text-connected-service/Cog-Text-Connected-Service-1.PNG)
+   ![Metin Analizi Bağlı Hizmeti ekranının ekran görüntüsü](media/vs-text-connected-service/Cog-Text-Connected-Service-1.PNG)
 
-1. Kullanın ve metin analizi hizmeti için bir ad seçin veya seçmek istediğiniz aboneliği seçin **Düzenle** bağlantı otomatik olarak oluşturulan adı değiştirmek, kaynak grubunu ve fiyatlandırma katmanı seçin.
+1. Kullanmak istediğiniz aboneliği seçin ve sonra Metin Analizi Hizmeti için bir ad seçin veya otomatik olarak oluşturulan adı değiştirmek için **Düzenle** bağlantısını seçin, kaynak grubunu ve Fiyatlandırma Katmanını seçin.
 
-   ![Kaynak grubu ve fiyatlandırma katmanı alanları ekran görüntüsü](media/vs-text-connected-service/Cog-Text-Connected-Service-2.PNG)
+   ![Kaynak grubu ve fiyatlandırma katmanı alanlarının ekran görüntüsü](media/vs-text-connected-service/Cog-Text-Connected-Service-2.PNG)
 
-   Fiyatlandırma katmanları hakkında ayrıntıları bağlantısını izleyin.
+   Fiyatlandırma katmanları ile ilgili ayrıntılar için bağlantıyı izleyin.
 
-1. Seçin **Ekle** bağlı hizmeti için destek eklemek için.
-   Visual Studio projenizin NuGet paketlerini, yapılandırma dosyası girdisi ve metin analizi hizmetine bağlantıyı desteklemek üzere diğer değişiklikler eklemek için değiştirir. **Çıkış penceresine** projenize olup bitenleri günlük gösterir. Aşağıdaki gibi görmeniz gerekir:
+1. **Ekle**’yi seçerek, Bağlı Hizmet için destek ekleyin.
+   Visual Studio; Metin Analizi Hizmeti bağlantısını desteklemek üzere NuGet paketlerini, yapılandırma dosyası girdilerini ve diğer değişiklikleri eklemek için projenizi değiştirir. **Çıkış Penceresi**’nde projenizde olup bitenlerin günlüğü gösterilir. Aşağıdakine benzer bir şey görmeniz gerekir:
 
    ```output
     [6/1/2018 3:04:02.347 PM] Adding Text Analytics to the project.
@@ -67,9 +67,9 @@ Bu makalede ve yardımcı makaleleri için metin analiz hizmeti Visual Studio ba
     [6/1/2018 3:05:01.840 PM] Successfully added Text Analytics to the project.
     ```
  
-## <a name="use-the-text-analytics-service-to-detect-the-language-for-a-text-sample"></a>Metin örneği dili algılamak için metin analizi hizmetini kullanın.
+## <a name="use-the-text-analytics-service-to-detect-the-language-for-a-text-sample"></a>Metin örneğinin dilini algılamak için Metin Analizi Hizmeti’ni kullanın.
 
-1. Aşağıdaki using deyimlerini Startup.cs içinde.
+1. Startup.cs’de deyimleri kullanarak aşağıdakileri ekleyin:
  
    ```csharp
    using System.IO;
@@ -79,7 +79,7 @@ Bu makalede ve yardımcı makaleleri için metin analiz hizmeti Visual Studio ba
    using Microsoft.Extensions.Configuration;
    ```
  
-1. Yapılandırma alanı ekleyin ve başlangıç sınıfı programınızda yapılandırmasını etkinleştirmek için yapılandırma alanı başlatan bir oluşturucu ekleyin.
+1. Bir yapılandırma alanı ekleyin ve Başlangıç sınıfında yapılandırma alanını başlatan bir oluşturucu ekleyerek programınızda Yapılandırmayı etkinleştirin.
 
    ```csharp
       private IConfiguration configuration;
@@ -90,7 +90,7 @@ Bu makalede ve yardımcı makaleleri için metin analiz hizmeti Visual Studio ba
       }
    ```
 
-1. Denetleyicileri klasörüne DemoTextAnalyzeController adlı bir sınıf dosyası ekleyin ve içeriğini aşağıdaki kodla değiştirin:
+1. Denetleyiciler klasörüne DemoTextAnalyzeController adlı bir sınıf dosyası ekleyin ve içeriklerini aşağıdaki kodla değiştirin:
 
     ```csharp
     using System;
@@ -153,9 +153,9 @@ Bu makalede ve yardımcı makaleleri için metin analiz hizmeti Visual Studio ba
     }
     ```
     
-    İstemci, metin analizi API'sini çağırmak için kullanabileceğiniz nesne ve belirli bir metni DetectLanguage çağıran bir istek işleyicisi almak için GetTextAnalyzeClient kodu içerir.
+    Kod, Metin Analizi API’sini çağırmak için kullanabileceğiniz istemci nesnesini ve belirli bir metinde DetectLanguage çağrısı yapan bir istek işleyicisini almak için GetTextAnalyzeClient öğesini içerir.
 
-1. Yukarıdaki kod tarafından kullanılan MyHandler yardımcı sınıfı ekleyin.
+1. Önceki kod tarafından kullanılan MyHandler yardımcı sınıfını ekleyin.
 
     ```csharp
         class MyHandler : DelegatingHandler
@@ -171,7 +171,7 @@ Bu makalede ve yardımcı makaleleri için metin analiz hizmeti Visual Studio ba
         }
     ```
 
-1. Modelleri klasöründe modeli için bir sınıf ekleyin.
+1. Modeller klasörüne yöntem için bir sınıf ekleyin.
 
     ```csharp
     using System;
@@ -193,7 +193,7 @@ Bu makalede ve yardımcı makaleleri için metin analiz hizmeti Visual Studio ba
     }
     ```
 
-1. Çözümlenmiş metin ve belirlenen dil analizi güvenirlik düzeyini temsil eden puanı göstermek için bir görünüm ekleyin. Bunu yapmak için sağ **görünümleri** klasörü seçin **Ekle**, ardından **görünümü**. Görüntülenen iletişim kutusunda bir ad sağlayın _TextAnalyzeResult_, adlı yeni bir dosya eklemek için varsayılan değerleri kabul _TextAnalyzeResult.cshtml_ içinde **görünümleri** klasörü ve Aşağıdaki içeriği dosyaya kopyalayın:
+1. Çözümlenmiş metni, belirlenen dili ve analizdeki güvenirlik düzeyini temsil eden puanı göstermek için bir Görünüm ekleyin. Bunu yapmak için **Görünümler** klasörüne sağ tıklayın, **Ekle**’yi ve sonra **Görüntüle**’yi seçin. Görüntülenen iletişim kutusunda _TextAnalyzeResult_ adını sağlayın, **Görünümler** klasörüne _TextAnalyzeResult.cshtml_ adlı yeni bir dosya eklemek için varsayılanları kabul edin ve buna aşağıdaki içerikleri kopyalayın:
     
     ```cshtml
     @using System
@@ -255,16 +255,16 @@ Bu makalede ve yardımcı makaleleri için metin analiz hizmeti Visual Studio ba
     
     ```
  
-1. Derleme ve örneği yerel olarak çalıştırın. Bir metin girin ve metin analizi algılar hangi dili bakın.
+1. Örneği yerel olarak derleyin ve çalıştırın. Bir metin girin ve Metin Analizi’nin hangi dili algıladığına bakın.
    
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 
-Artık gerekli olmadığında kaynak grubunu silin. Bu bilişsel hizmet ve ilişkili kaynakları siler. Kaynak grubunu portal aracılığıyla silmek için:
+Artık gerekli değilse kaynak grubunu silin. Böylece bilişsel hizmet ve ilgili kaynaklar silinir. Kaynak grubunu portal aracılığıyla silmek için:
 
-1. Portalın üst kısmındaki Arama kutusuna kaynak grubunuzun adını girin. Bu öğreticide arama sonuçlarında kullanılan kaynak grubunu gördüğünüzde bunu seçin.
+1. Portalın üst kısmındaki Arama kutusuna kaynak grubunuzun adını girin. Bu öğreticide kullanılan kaynak grubunu arama sonuçlarında gördüğünüzde seçin.
 2. **Kaynak grubunu sil**'i seçin.
 3. **KAYNAK GRUBU ADINI YAZIN:** kutusuna kaynak grubunun adını yazın ve **Sil**’i seçin.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Metin analizi hizmeti hakkında daha fazla bilgi edinmek [metin analizi hizmeti belgeleri](index.yml).
+[Metin Analizi Hizmet Belgeleri](index.yml)’ni okuyarak Metin Analizi Hizmeti hakkında daha fazla bilgi edinin.

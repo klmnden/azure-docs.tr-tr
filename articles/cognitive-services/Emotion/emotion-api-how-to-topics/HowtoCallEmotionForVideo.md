@@ -1,55 +1,57 @@
 ---
-title: Video için duygu tanıma API'si çağırma | Microsoft Docs
-description: Bilişsel hizmetler videoda duygu API çağrısı öğrenin.
+title: 'Örnek: Video için Duygu Tanıma API’sini çağırma'
+titlesuffix: Azure Cognitive Services
+description: Bilişsel Hizmetlerde Video için Duygu Tanıma API'sini çağırmayı öğrenin.
 services: cognitive-services
 author: anrothMSFT
-manager: corncar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: emotion-api
-ms.topic: article
+ms.topic: sample
 ms.date: 02/06/2017
 ms.author: anroth
-ms.openlocfilehash: 0875013b2061a84e3e23ae90c1106382672fdca6
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
-ms.translationtype: MT
+ROBOTS: NOINDEX
+ms.openlocfilehash: 2687145a89c11efb4a3bcb1494a39806e9aae551
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35352445"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48238616"
 ---
-# <a name="how-to-call-emotion-api-for-video"></a>Video için duygu API çağrısı yapma
+# <a name="example-call-emotion-api-for-video"></a>Örnek: Video için Duygu Tanıma API’sini çağırma
 
 > [!IMPORTANT]
-> Video API Önizleme 30 Ekim 2017 sona erer. Yeni deneyin [Video dizin oluşturucu API önizlemesi](https://azure.microsoft.com/services/cognitive-services/video-indexer/) kolayca videoların öngörüleri ayıklamak ve konuşulan sözcüklerin, yüzler, karakterler ve duygular algılayarak arama sonuçları gibi içerik bulma deneyimlerini geliştirmek üzere. [Daha fazla bilgi edinin](https://docs.microsoft.com/azure/cognitive-services/video-indexer/video-indexer-overview).
+> Duygu Tanıma API'si 15 Şubat 2019 tarihinde kullanım dışı bırakılacaktır. Duygu tanıma özelliği [Yüz Tanıma API'sinin](https://docs.microsoft.com/azure/cognitive-services/face/) bir parçası olarak genel kullanıma sunulmuştur. 
 
-Bu kılavuz Video için duygu tanıma API'si çağırmayı gösterir. Örnekler C# ' ta duygu tanıma API'si için Video istemci kitaplığı kullanılarak yazılmıştır.
+Bu kılavuzda Video için Duygu Tanıma API'sini çağırma adımları gösterilmektedir. Örnekler, Video için Duygu Tanıma API'si istemci kitaplığı kullanılarak C# dilinde yazılmıştır.
 
-### <a name="Prep">Hazırlama</a> 
-Video için duygu tanıma API'si kullanabilmeniz için kişiler, tercihen video kamerayı kişilerin burada karşılaştığı içeren bir video gerekir.
+### <a name="Prep">Hazırlık</a>
+Video için Duygu Tanıma API'sini kullanmak üzere insanların bulunduğu bir videoya ihtiyacınız olacaktır. İnsanların yüzlerinin kameraya dönük olduğu bir video kullanmanız önerilir.
 
-### <a name="Step1">1. adım: API çağrısı yetkilendirme</a> 
-Her duygu API çağrısı Video için bir abonelik anahtarı gerektirir. Bu anahtarı, istek başlığında belirtilen ya da bir sorgu dizesi parametresi geçirilen gerekir. Bir sorgu dizesi abonelik tuşuyla geçirmek için istek URL'si duygu tanıma API'si Video için örnek olarak bakın:
+### <a name="Step1">1. Adım: API çağrısını yetkilendirme</a>
+Video için Duygu Tanıma API'sine yapılan her çağrı için bir abonelik anahtarı gerekir. Bu anahtarın bir sorgu dizesi parametresi aracılığıyla geçirilmesi veya istek üst bilgisinde belirtilmesi gerekir. Sorgu dizesi aracılığıyla abonelik anahtarını geçirmek için aşağıdaki örnek Video için Duygu Tanıma API'si istek URL'sine bakın:
 
 ```
 https://westus.api.cognitive.microsoft.com/emotion/v1.0/recognizeInVideo&subscription-key=<Your subscription key>
 ```
 
-Alternatif olarak, abonelik anahtarı HTTP istek üstbilgisinde belirtilebilir:
+Abonelik anahtarı alternatif olarak HTTP isteği üst bilgisinde de belirtilebilir:
 
 ```
 ocp-apim-subscription-key: <Your subscription key>
 ```
 
-Bir istemci kitaplığı kullanırken, abonelik anahtarı içinde VideoServiceClient sınıf oluşturucu kullanılarak geçirilir. Örneğin:
+Bir istemci kitaplığı kullanılırken, VideoServiceClient sınıfının oluşturucusu aracılığıyla abonelik anahtarı geçirilir. Örnek:
 
 ```
 var emotionServiceClient = new emotionServiceClient("Your subscription key");
 ```
-Abonelik anahtarı edinmek için [abonelikleri] bakın (https://azure.microsoft.com/try/cognitive-services/). 
+Bir abonelik anahtarı almak için bkz. [Abonelikler] (https://azure.microsoft.com/try/cognitive-services/).
 
-### <a name="Step2">2. adım: bir video hizmetine yüklemek ve durumunu denetleyin</a>
-Video çağrıları için duygu API gerçekleştirin en temel bir video doğrudan karşıya yükleyerek yoludur. Bu, bir video dosyasından okunan veriler ile birlikte uygulama/octet-akış içerik türüyle bir "POST" isteği göndererek gerçekleştirilir. Video en büyük boyutu 100 MB'tır.
+### <a name="Step2">2. Adım: Hizmete bir video yükleme ve durumunu denetleme</a>
+Video için Duygu Tanıma API'si çağrısı yapmanın en kolay yolu doğrudan bir video yüklemektir. Video dosyasından okunan verilerle uygulama/sekizli akış içerik türü ile bir "POST" isteği gönderilerek bu yapılır. Maksimum video boyutu 100 MB’tır.
 
-İstemci kitaplığı kullanılarak, karşıya yükleme yoluyla sabitlemeyi geçirme akış nesnesindeki gerçekleştirilir. Aşağıdaki örneğe bakın:
+İstemci kitaplığı kullanılarak karşıya yükleme aracılığıyla sabitleme bir akış nesnesi geçirilerek gerçekleştirilir. Aşağıdaki örneğe bakın:
 
 ```
 Operation videoOperation;
@@ -59,10 +61,10 @@ using (var fs = new FileStream(@"C:\Videos\Sample.mp4", FileMode.Open))
 }
 ```
 
-Lütfen VideoServiceClient CreateOperationAsync yöntemini zaman uyumsuz olduğunu unutmayın. Arama yöntemi zaman uyumsuz olarak bekleme yan tümcesi kullanmak için de işaretlenmesi gerekir.
-Video Web'de zaten ve genel bir URL varsa, Video duygu tanıma API'si URL sağlayarak erişilebilir. Bu örnekte, istek gövdesini URL içeren bir JSON dizesinde olacaktır.
+VideoServiceClient CreateOperationAsync metodunun zaman uyumsuz olduğuna dikkat edin. await yan tümcesini kullanmak için çağırma yöntemi de zaman uyumsuz olarak işaretlenmelidir.
+Video web üzerindeyse ve genel URL'si varsa Video için Duygu Tanıma API'sine URL'yi de sağlayabilirsiniz. Bu örnekte istek gövdesi, URL’yi içeren bir JSON dizesi olacaktır.
 
-İstemci kitaplığı kullanılarak, bir URL yoluyla sabitlemeyi kolayca başka bir aşırı yüklemesini CreateOperationAsync yöntemi kullanılarak çalıştırılabilir.
+İstemci kitaplığını kullanarak URL aracılığıyla sabitleme başka bir CreateOperationAsync metodu aşırı yüklemesiyle kolayca yürütülebilir.
 
 
 ```
@@ -71,18 +73,18 @@ Operation videoOperation = await videoServiceClient.CreateOperationAsync(videoUr
 
 ```
 
-Bu yükleme yöntemi Video çağrıları için tüm duygu tanıma API'si için aynı olacaktır. 
+Bu yükleme metodu, tüm Video için Duygu Tanıma API'si çağrıları için aynı olacaktır.
 
-Bir video karşıya yüklediğiniz sonra gerçekleştirmek istediğiniz sonraki durumunu denetlemek için bir işlemdir. Video dosyaları genellikle daha büyük ve diğer dosyaları daha farklı olduğundan, kullanıcılar bir uzun bekleyebilirsiniz Bu adımda işleme süresi. Zaman boyutu ve dosya uzunluğu bağlıdır.
+Videoyu yükledikten sonra yapmak isteyeceğini işlem, durumunu denetlemektir. Video dosyaları diğer dosyalara kıyasla genellikle daha büyük ve karmaşık olduğundan kullanıcılar bu adımda uzun bir işlem süresiyle karşılaşabilir. İşlemin süresi dosyanın boyutuna ve uzunluğuna göre farklılık gösterecektir.
 
-İstemci kitaplığı kullanılarak, işlem durumunu ve sonuç GetOperationResultAsync yöntemini kullanarak alabilirsiniz.
+İstemci kitaplığını kullanarak GetOperationResultAsync metoduyla işlem durumunu ve sonucu alabilirsiniz.
 
 
 ```
 var operationResult = await videoServiceClient.GetOperationResultAsync(videoOperation);
 
 ```
-Genellikle, istemci tarafı düzenli aralıklarla durumu "Başarılı" veya "Başarısız" gösterilir kadar işlem durumunu alma.
+Normalde istemci tarafı “Başarılı” veya “Başarısız” durumunu alana kadar belirli aralıklarla işlem durumunu almalıdır.
 
 ```
 OperationResult operationResult;
@@ -99,48 +101,48 @@ while (true)
 
 ```
 
-VideoOperationResult durumunu "sonucu başarılı olarak" zaman gösterilen alınabilir bir VideoOperationInfoResult için VideoOperationResult atama tarafından<VideoAggregateRecognitionResult> ve ProcessingResult alan erişme.
+VideoOperationResult durumu “Başarılı” olarak gösterildiğinde sonuç VideoOperationResult değerinin VideoOperationInfoResult<VideoAggregateRecognitionResult> öğesine iletilmesi ve ProcessingResult alanına erişilmesiyle alınabilir.
 
 ```
 var emotionRecognitionJsonString = ((VideoOperationInfoResult<VideoAggregateRecognitionResult>)operationResult).ProcessingResult;
 ```
 
-### <a name="Step3">3. adım: Alma ve duygu tanıma anlama ve JSON çıktısını izleme</a>
+### <a name="Step3">3. Adım: Duygu tanıma ve izleme JSON çıktısını alma ve anlama</a>
 
-Elde edilen sonucu yüzeyleri JSON biçiminde verilen dosyasındaki meta verileri içerir.
+Çıkış sonucunda verilen dosyadaki yüzlerin meta verileri JSON biçiminde sağlanır.
 
-Durumunu "Başarılı" gösterildiğinde 2. adımda açıklandığı gibi JSON çıktısını OperationResult, ProcessingResult alanında kullanılabilir.
+2. Adımda anlatıldığı gibi JSON çıktısı, durum "Başarılı" olarak gösterildikten sonra OperationResult öğesinin ProcessingResult alanında bulunur.
 
-Yüz algılama ve JSON izleme aşağıdaki öznitelikleri içerir:
+Yüz algılama ve tanıma JSON çıktısı şu özniteliklere sahiptir:
 
 Öznitelik | Açıklama
 -------------|-------------
-Sürüm | Video JSON için duygu API sürümüne başvuruyor.
-Zaman Çizelgesi | Videonun saniyede "çizgilerine".
-Uzaklık  |Zaman damgaları zaman uzaklığı. Sürümünde videolar için duygu API 1.0, bu her zaman 0 olacaktır. Gelecekteki desteklenen senaryolarda, bu değeri değiştirebilirsiniz.
-Kare hızı | Videonun Saniyedeki çerçeve sayısı.
-Parçaları   | Meta veri parçaları olarak adlandırılan farklı daha küçük parçalara kesilir. Her parça başlangıç, süre, aralığı sayısı ve olay içerir.
-Başlatma   | Çizgilerine ilk olay, başlangıç saati.
-Süre |  Parçadaki çizgilerine uzunluğu.
-Aralık |  Her olay parçadaki çizgilerine içinde uzunluğu.
-Olaylar  | Olaylar dizisi. Dış dizi bir zaman aralığı temsil eder. İç dizi 0 veya zamandaki o noktada daha fazla olayları oluşur.
-windowFaceDistribution |    Olayı sırasında belirli bir duygu tanıma için yüzde yüz.
-windowMeanScores |  Puanları görüntüdeki yazıtipleri, her duygu tanıma için anlamına gelir.
+Sürüm | Video için Duygu Tanıma API'si JSON sürümünü belirtir.
+Timescale | Videonun her saniyesinde tıklar.
+Uzaklık  |Zaman damgası için saat farkıdır. Videolar için Duygu Tanıma API'sinin 1.0 sürümünde bu değer her zaman 0 olacaktır. İleride desteklenen senaryolarda bu değer değişebilir.
+Framerate | Videodaki saniye başına kare hızı.
+Fragments   | Meta veriler, parçalar olarak adlandırılan daha küçük parçalara ayrılır. Her parçada başlangıç, süre, aralık sayısı ve olaylar vardır.
+Başlatma   | İlk olayın başlangıç zamanı, tık cinsinde belirtilir.
+Süre |  Parçanın uzunluğu, tık cinsinde belirtilir.
+Interval |  Parça içindeki her bir olayın uzunluğu, tık cinsinde belirtilir.
+Olaylar  | Olaylardan oluşan bir dizidir. Dış dizi bir zaman aralığını temsil eder. İç dizi belirtilen noktada gerçekleşen 0 veya daha fazla olaydan oluşur.
+windowFaceDistribution |    Olay sırasında belirli bir duyguya sahip olan yüzlerin yüzdesi.
+windowMeanScores |  Görüntüdeki yüzlerin her bir duygusu için ortalama puanlar.
 
-Bu şekilde JSON biçimlendirme için burada meta verileri hızlı bir şekilde almak ve sonuçları büyük bir akışa yönetmek önemli olacak gelecekteki senaryoları için API'ları ayarlamak için nedenidir. Bu biçimlendirme teknikleri (zamana dayalı bölümleri meta bölmeniz sağlayarak, yalnızca ihtiyacınız yükleyebileceğiniz) parçalanma ve kesimleme (çok büyük alırsanız olaylarını Kes sağlayarak) kullanıyor. Bazı basit hesaplamalar, veri dönüştürme yardımcı olabilir. Örneğin, bir olay 2997 (çizgilerine/sn) bir ölçeğini 6300 (çizgilerine) başlatılan ve kare 29.97 (Çerçeve/sn), ardından hızına:
+JSON verilerinin bu şekilde biçimlendirilmesinin nedeni, API'leri gelecekteki senaryolar için hazırlamaktır. Gelecekte meta verileri hızlı bir şekilde alma ve büyük çaplı bir sonuç akışını yönetme ihtiyacı doğabilir. Bu biçimlendirmede hem parçalama (meta verilerini zamana dayalı parçalara ayırarak yalnızca ihtiyacınız olan bölümü indirme) hem de bölümleme (çok büyük olayları bölümlere ayırma) teknikleri kullanılmaktadır. Bazı basit hesaplamalar, verileri dönüştürmenize yardımcı olabilir. Örneğin bir olay 6300 (tık) noktasında başlıyorsa ve ölçeği 2997 (tık/sn), kare hızı da 29,97 (kare/sn) ise, :
 
-*   Başlat/ölçeği = 2.1 saniye
-*   Saniye (kare hızı/zaman çizelgesi) x 63 çerçeveler =
+*   Başlangıç/Ölçek = 2,1 saniye
+*   Saniye x (Kare hızı/Ölçek) = 63 kare
 
-JSON içinde ayıklanması, basit bir örnek aşağıdadır bir çerçeve biçimi yüz algılama ve izleme için başına:
+Aşağıdaki basit örnekte JSON verilerinin yüz algılama ve izleme için kare başına biçimde ayıklama adımları gösterilmiştir:
 
 ```
 var emotionRecognitionTrackingResultJsonString = operationResult.ProcessingResult;
 var emotionRecognitionTracking = JsonConvert.DeserializeObject<EmotionRecognitionResult>(emotionRecognitionTrackingResultJsonString, settings);
 ```
-Şimdiye kadar sonuçlarınız üstteki özgün video yer paylaşımı için bir görsel öğe yapı duygular zamanla düzleştirilmiş olduğundan, sağlanan zaman damgaları gelen 250 milisaniye çıkarın.
+Duygular zaman içinde değiştiğinden sonuçlarınızı özgün videonun üzerine yerleştiren bir görselleştirme oluşturmanız durumunda verilen zaman damgalarından 250 milisaniye çıkarmanız gerekir.
 
 ### <a name="Summary">Özet</a>
-Bu kılavuzda duygu API işlevleri hakkında Video için öğrendiniz: video yükleyebilirsiniz nasıl durumunu denetleyin, duygu tanıma meta verilerini almak.
+Bu kılavuzda video yükleme, durumunu denetleme ve duygu tanıma meta verilerini alma gibi Video için Duygu Tanıma API'si işlevleri hakkında bilgi edindiniz.
 
-API Başvurusu Kılavuzu API ayrıntıları hakkında daha fazla bilgi için bkz: "[Video başvurusu için duygu API](https://westus.dev.cognitive.microsoft.com/docs/services/5639d931ca73072154c1ce89/operations/56f8d40e1984551ec0a0984e)".
+API ayrıntıları hakkında daha fazla bilgi için API başvuru kılavuzunu inceleyin: “[Video için Duygu Tanıma API'si Başvurusu](https://westus.dev.cognitive.microsoft.com/docs/services/5639d931ca73072154c1ce89/operations/56f8d40e1984551ec0a0984e)”.

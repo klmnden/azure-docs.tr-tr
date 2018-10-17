@@ -1,157 +1,158 @@
 ---
-title: 'Bing özel arama: bir özel arama web sayfası oluştur | Microsoft Docs'
-description: Özel arama örneği yapılandırmak ve bir web sayfasına tümleştirme açıklar
+title: 'Öğretici: Özel arama web sayfası oluşturma - Bing Özel Arama'
+titlesuffix: Azure Cognitive Services
+description: Özel arama örneği yapılandırma ve bunu bir web sayfasıyla tümleştirme adımları açıklanmaktadır.
 services: cognitive-services
 author: brapel
-manager: ehansen
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-custom-search
-ms.topic: article
+ms.topic: tutorial
 ms.date: 10/16/2017
 ms.author: v-brapel
-ms.openlocfilehash: 8bc1520325afc256ac62cc1f1dfaf24c53da4b83
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: MT
+ms.openlocfilehash: 3e892131a0109d2fff924940542b5d8b2b701950
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46980007"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48815384"
 ---
-# <a name="build-a-custom-search-web-page"></a>Özel Arama web sayfası derleme
+# <a name="tutorial-build-a-custom-search-web-page"></a>Öğretici: Özel Arama web sayfası oluşturma
 
-Bing özel arama, önem verdiğiniz konulara özel olarak uyarlanmış arama deneyimleri oluşturmanıza olanak sağlar. Örneğin, bir arama deneyimi sağlayan Sanatları Web sitesi sahipseniz, etki alanları, siteler ve Bing arama, Web sayfaları belirtebilirsiniz. Kullanıcılarınızın, arama sonuçları ile ilgisiz içerik içerebilen genel arama sonuçlarını sayfalandırma yerine ilgilendiklerini içeriği uyarlanmış bakın. 
+Bing Özel Arama API’si, önemsediğiniz konulara özel olarak uyarlanmış arama deneyimleri oluşturmanızı sağlar. Örneğin, arama deneyimi sunan bir dövüş sanatları web sitesine sahipseniz Bing’in aradığı etki alanlarını, alt siteleri ve web sayfalarını belirtebilirsiniz. Kullanıcılarınız, arama sonucu sayfalarındaki alakasız olabilecek içeriği ayıklamak zorunda kalmadan içeriğe göre oluşturulan arama sonuçlarını görebilir. 
 
-Bu öğreticide, bir özel arama örneği yapılandırın ve yeni bir web sayfasına tümleştirmek gösterilmektedir.
+Bu öğreticide özel arama örneği yapılandırma ve bunu yeni bir sayfasıyla tümleştirme adımları gösterilmektedir.
 
-Kapsanan görevler şunlardır:
+Ele alınan görevler şunlardır:
 
 > [!div class="checklist"]
 > - Özel arama örneği oluşturma
-> - Etkin girişler ekleyin
-> - Engellenen girişler ekleyin
-> - Sabitlenmiş girişler ekleyin
-> - Bir web sayfasına özel arama tümleştirin
+> - Etkin girişleri ekleme
+> - Engellenen girişleri ekleme
+> - Sabitlenmiş girişleri ekleme
+> - Özel aramayı bir web sayfasıyla tümleştirme
 
-## <a name="prerequisites"></a>Önkoşullar
+## <a name="prerequisites"></a>Ön koşullar
 
-- Eğitimle birlikte ilerlemek için Bing özel arama API'si için bir abonelik anahtarı gerekir.  Bir anahtarı almak için bkz. [Bilişsel Hizmetler'i deneyin](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search).
+- Öğreticiyi takip edebilmek için Bing Özel Arama API'si için bir abonelik anahtarına ihtiyacınız olacaktır.  Anahtar alma için bkz: [Bilişsel Hizmetleri Deneme](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search).
 - Henüz Visual Studio 2017’yi yüklemediyseniz, **ücretsiz** [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/)’ı indirip kullanabilirsiniz.
 
 ## <a name="create-a-custom-search-instance"></a>Özel arama örneği oluşturma
 
-Bing özel arama örneği oluşturmak için:
+Bing Özel Arama örneği oluşturmak için:
 
 1. Bir internet tarayıcısı açın.  
   
-2. Özel arama gidin [portalı](https://customsearch.ai).  
+2. Özel arama [portalına](https://customsearch.ai) gidin.  
   
-3. Bir Microsoft hesabı (MSA) kullanarak portalda oturum açın. Bir MSA yoksa tıklayın **Microsoft hesabı oluşturmanızda**. Portalı kullanarak ilk kez ise, verilerinize erişmek için gerekli izinleri sorar. **Evet**'e tıklayın.  
+3. Bir Microsoft hesabı (MSA) kullanarak portalda oturum açın. Hesabınız yoksa **Microsoft hesabı oluşturun**'a tıklayın. Portalı ilk kez kullanıyorsanız verilerinize erişim izni istenir. **Evet**'e tıklayın.  
   
-4. Oturum açtıktan sonra tıklayın **yeni özel arama**. İçinde **yeni bir özel arama örneği oluşturma** penceresinde, arama döndürür içerik türünü açıklar ve anlamlı bir ad girin. Herhangi bir zamanda adını değiştirebilirsiniz.  
+4. Oturum açtıktan sonra **Yeni özel arama**'ya tıklayın. **Yeni özel arama örneği oluştur** penceresinde kolay anlaşılır ve arama tarafından döndürülen içeriğin türüne uygun bir ad girin. Adı dilediğiniz zaman değiştirebilirsiniz.  
   
-  ![Yeni özel arama örneği kutusu oluştur ekran görüntüsü](../media/newCustomSrch.png)  
+  ![Yeni özel arama örneği oluştur kutusunun ekran görüntüsü](../media/newCustomSrch.png)  
   
-5. Tamam'ı tıklatın, bir URL ve alt URL'sinin eklenip eklenmeyeceğini belirtin.  
+5. Tamam'a tıklayın, bir URL belirtin ve URL'nin alt sayfalarının dahil edilip edilmeyeceğini seçin.  
   
-  ![Tanım Sayfası URL'sini ekran görüntüsü](../media/newCustomSrch1-a.png)  
+  ![URL tanımlama sayfasının ekran görüntüsü](../media/newCustomSrch1-a.png)  
 
 
-## <a name="add-active-entries"></a>Etkin girişler ekleyin
+## <a name="add-active-entries"></a>Etkin girişleri ekleme
 
-Sonuçları belirli Web siteleri veya URL'leri dahil etmek için bunlara ekleyin **etkin** sekmesi.
+Sonuçlara dahil etmek istediğiniz web sitelerini veya URL'leri **Etkin** sekmesine girin.
 
-1.  Üzerinde **yapılandırma** sayfasında **etkin** sekmesinde ve arama dahil etmek istediğiniz bir veya daha fazla Web sitesi URL'sini girin.
+1.  **Yapılandırma** sayfasında **Etkin** sekmesine tıklayın ve aramanıza dahil etmek istediğiniz bir veya daha fazla web sitesinin URL'sini girin.
 
-    ![Tanımı Düzenleyicisi etkin sekmesinin Ekran görüntüsü](../media/customSrchEditor.png)
+    ![Tanım Düzenleyicisi etkin sekmesinin ekran görüntüsü](../media/customSrchEditor.png)
 
-2.  Örneğiniz sonuçlar döndürüyor onaylamak için sağ tarafta önizleme bölmesinde bir sorgu girin. Bing dizine genel Web siteleri için yalnızca sonuçları döndürür.
+2.  Örneğinizin sonuç döndürdüğünü doğrulamak için sağ taraftaki önizleme bölmesine bir sorgu girin. Bing yalnızca dizine eklenmiş genel web sitelerinden sonuç döndürür.
 
-## <a name="add-blocked-entries"></a>Engellenen girişler ekleyin
+## <a name="add-blocked-entries"></a>Engellenen girişleri ekleme
 
-Belirli Web siteleri veya URL'leri sonuçlarını tutmak için bunlara ekleyin **bloke** sekmesi.
+Sonuçlardan hariç tutmak istediğiniz web sitelerini veya URL'leri **Engellendi** sekmesine girin.
 
-1. Üzerinde **yapılandırma** sayfasında **bloke** sekmesini ve aramanızdan hariç tutmak istediğiniz bir veya daha fazla Web sitesi URL'sini girin.
+1. **Yapılandırma** sayfasında **Engellendi** sekmesine tıklayın ve aramanızdan hariç tutmak istediğiniz bir veya daha fazla web sitesinin URL'sini girin.
 
-    ![Tanımı Düzenleyicisi engellenen sekmesinin Ekran görüntüsü](../media/blockedCustomSrch.png)
+    ![Tanım Düzenleyicisi engellendi sekmesinin ekran görüntüsü](../media/blockedCustomSrch.png)
 
 
-2. Örneğiniz Engellenen Web sitelerinden sonuçlar döndürmüyor onaylamak için sağ tarafta önizleme bölmesinde bir sorgu girin. 
+2. Örneğinizin engellenen web sitelerinden sonuç döndürmediğini doğrulamak için sağ taraftaki önizleme bölmesine bir sorgu girin. 
 
-## <a name="add-pinned-entries"></a>Sabitlenmiş girişler ekleyin
+## <a name="add-pinned-entries"></a>Sabitlenmiş girişleri ekleme
 
-Üst arama sonuçları belirli bir Web sayfasına sabitlemek için Web sayfası ve sorgu terim ekleme **Pinned** sekmesi. **Pinned** sekmesi, belirli bir sorgu için en iyi sonucu olarak görünen Web sayfasını belirtin Web sayfası ve sorgu terimi çiftlerinin listesini içerir. Web sayfası, yalnızca kullanıcının sorgu dizesi PIN'in eşleşme koşulu temel alarak PIN'in sorgu dizesi eşleşiyorsa sabitlenir. [Daha fazla bilgi edinin](../define-your-custom-view.md#pin-to-top).
+Belirli bir web sayfasını arama sonuçlarının en üstüne sabitlemek için ilgili web sayfasını ve sorgu terimini **Sabitlendi** sekmesine ekleyin. **Sabitlendi** sekmesinde belirli bir arama sonucu için ilk sırada görünen web sayfasını belirten web sayfası ve sorgu terimi çiftlerinin listesi bulunur. Web sayfası yalnızca kullanıcının sorgu dizesinin sabitleme eşleme koşuluna göre sabitlenen sorgu dizesiyle eşleşmesi durumunda sabitlenir. [Daha fazla bilgi edinin](../define-your-custom-view.md#pin-to-top).
 
-1. Üzerinde **yapılandırma** sayfasında **Pinned** sekmesini ve en iyi sonucu olarak döndürülmesini istediğiniz Web sayfasının Web sayfası ve sorgu terimi girin.  
+1. **Yapılandırma** sayfasında **Sabitlendi** sekmesine tıklayın ve ilk sırada döndürülmesini istediğiniz web sayfasını ve sorgu terimini girin.  
   
-2. Varsayılan olarak, kullanıcının sorgu dizesi için en iyi sonucu olarak Web sayfasına geri dönmek, Bing, PIN'in sorgu dizesi tam olarak eşleşmelidir. Eşleşme koşulu değiştirmek için PIN Düzenle (Kalem simgesine tıklayın), tam olarak tıklayın **sorgu eşleşme koşulu** sütun ve uygulamanız için doğru eşleşme koşulu seçin.  
+2. Varsayılan olarak Bing'in web sayfasını ilk sırada döndürmesi için kullanıcının sorgu dizesinin sabitlediğiniz girişin sorgu dizesiyle tam olarak eşleşmesi gerekir. Eşleşme koşulunu değiştirmek için sabitlenen girişi düzenleyin (kalem simgesine tıklayın), **Sorgu eşleme koşulu** sütununa tıklayın ve uygulamanıza uygun eşleme koşulunu seçin.  
   
-    ![Sekme tanımı Düzenleyicisi'nin ekran görüntüsü sabitlenmiş](../media/pinnedCustomSrch.png)
+    ![Tanım Düzenleyicisi sabitlendi sekmesinin ekran görüntüsü](../media/pinnedCustomSrch.png)
   
-3. Örneğiniz belirtilen Web sayfasının üst sonuç olarak döndüren onaylamak için sağ tarafta önizleme bölmesinde sabitlediğiniz sorgu terimi girin.
+3. Örneğinizin belirtilen sayfanın sonuçlarını ilk sırada döndürdüğünü doğrulamak için sağ taraftaki önizleme bölmesine sabitlediğiniz sorguyu girin.
 
-## <a name="configure-hosted-ui"></a>Barındırılan kullanıcı Arabirimi yapılandırma
+## <a name="configure-hosted-ui"></a>Barındırılan kullanıcı arabirimini yapılandırma
 
-Özel arama, özel arama örneğinizin JSON yanıtı işlemek için barındırılan bir kullanıcı Arabirimi sağlar. UI deneyiminizi tanımlamak için:
+Özel Arama hizmeti, özel arama örneğinizin JSON yanıtını işlemek için kullanabileceğiniz barındırılan kullanıcı arabirimine sahiptir. Kullanıcı arabirimi deneyiminizi tanımlamak için:
 
-1. Tıklayın **barındırılan UI** sekmesi.  
+1. **Barındırılan kullanıcı arabirimi** sekmesine tıklayın.  
   
 2. Bir düzen seçin.  
   
-  ![Barındırılan kullanıcı arabiriminin ekran düzeni adımını seçin](./media/custom-search-hosted-ui-select-layout.png)  
+  ![Barındırılan kullanıcı arabirimi düzen seçme adımı ekran görüntüsü](./media/custom-search-hosted-ui-select-layout.png)  
   
-3. Bir renk temasını seçin.  
+3. Bir renk teması seçin.  
   
-  ![Barındırılan kullanıcı arabiriminin ekran renk temasını seçin](./media/custom-search-hosted-ui-select-color-theme.png)  
+  ![Barındırılan kullanıcı arabirimi renk teması seçme adımı ekran görüntüsü](./media/custom-search-hosted-ui-select-color-theme.png)  
 
-  Renk teması daha iyi web uygulamanızla tümleştirmek için ince ayar yapmak gerekiyorsa **Özelleştir tema**. Tüm renk yapılandırmaları tüm düzen temaları için geçerlidir. Bir rengini değiştirmek için ilgili metin kutusunda rengin RGB ONALTILIK değerini (örneğin, #366eb8) girin. Veya, renk düğmesini tıklatın ve sizin için uygun Gölge'ye tıklayın. Her zaman renkleri seçerken erişilebilirlik hakkında düşünün.
+  Web uygulamanıza uygun hale getirmek için renk temasında ayarlama yapmanız gerekiyorsa **Temayı özelleştir**'e tıklayın. Tüm renk yapılandırmaları her düzen temasıyla kullanılamaz. Bir rengi değiştirmek için rengin RGB HEX değerini (örneğin, #366eb8) ilgili metin kutusuna girin. Veya renk düğmesine tıklayarak istediğiniz tonu seçin. Renkleri seçerken mutlaka erişilebilirlik özelliklerini göz önünde bulundurun.
   
-  ![Renk teması barındırılan kullanıcı arabiriminin ekran özelleştirme](./media/custom-search-hosted-ui-customize-color-theme.png)  
+  ![Barındırılan kullanıcı arabirimi renk teması özelleştirme adımı ekran görüntüsü](./media/custom-search-hosted-ui-customize-color-theme.png)  
 
   
 4. Ek yapılandırma seçeneklerini belirtin.  
   
-  ![Barındırılan UI ek yapılandırmalar adımında ekran görüntüsü](./media/custom-search-hosted-ui-additional-configurations.png)  
+  ![Barındırılan kullanıcı arabirimi ek yapılandırma adımı](./media/custom-search-hosted-ui-additional-configurations.png)  
   
-  Gelişmiş yapılandırmaları için Yardım düğmesini tıklatın **Gelişmiş yapılandırmaları Show**. Bu yapılandırmalar gibi ekler *bağlantı hedefi* Web arama seçenekleri için *etkinleştirme filtreleri* görüntü ve Video seçenekleri ve *arama kutusu metni yer tutucusu* çeşitli için Seçenekler.
+  Gelişmiş yapılandırmalara erişmek için **Gelişmiş yapılandırmaları göster**'e tıklayın. Bunu yaptığınızda Web arama seçeneklerine *Bağlantı hedefi*, Görüntü ve Video seçeneklerine *Filtreleri etkinleştir*, Diğer seçeneklere ise *Arama kutusu yer tutucu metni* gibi yapılandırma ayarları eklenir.
 
-  ![Barındırılan UI gelişmiş yapılandırmalar adımında ekran görüntüsü](./media/custom-search-hosted-ui-advanced-configurations.png)  
+  ![Barındırılan kullanıcı arabirimi gelişmiş yapılandırma adımı](./media/custom-search-hosted-ui-advanced-configurations.png)  
   
-5. Abonelik anahtarlarınızın açılan listelerinden seçin. Ya da abonelik anahtarını el ile girebilirsiniz. Anahtarlarını alma hakkında daha fazla bilgi için bkz: [Bilişsel Hizmetler'i deneyin](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search-api).  
+5. Açılan listelerden abonelik anahtarlarınızı seçin. İsterseniz abonelik anahtarını el ile de girebilirsiniz. Anahtarları alma hakkında bilgi için bkz. [Bilişsel Hizmetler'i deneyin](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search-api).  
   
-  ![Barındırılan UI ek yapılandırmalar adımında ekran görüntüsü](./media/custom-search-hosted-ui-subscription-key.png)
+  ![Barındırılan kullanıcı arabirimi ek yapılandırma adımı](./media/custom-search-hosted-ui-subscription-key.png)
 
 [!INCLUDE[publish or revert](../includes/publish-revert.md)]
 
 <a name="consuminghostedui"></a>
 ## <a name="consuming-hosted-ui"></a>Barındırılan kullanıcı arabirimini kullanma
 
-Barındırılan kullanıcı arabirimini kullanmak için iki yolu vardır.  
+Barındırılan kullanıcı arabirimini kullanmanın iki yolu vardır.  
 
-- 1. seçenek: sağlanan JavaScript kod parçacığını uygulamanızla tümleştirin.
-- 2. seçenek: sağlanan HTML uç noktayı kullanın.
+- 1. Seçenek: Verilen JavaScript kod parçacığını uygulamanızla tümleştirin.
+- 2. Seçenek: Sağlanan HTML Uç Noktasını kullanın.
 
-Bu öğreticinin geri kalanında gösterir **seçeneği 1: Javascript kod parçacığını**.  
+Bu öğreticinin devamında **1. Seçenek: JavaScript kod parçacığı** gösterilmektedir.  
 
-## <a name="set-up-your-visual-studio-solution"></a>Visual Studio çözümünüzü ayarlama
+## <a name="set-up-your-visual-studio-solution"></a>Visual Studio çözümünüzü kurma
 
 1. Bilgisayarınızda **Visual Studio**'yu açın.  
   
 2. **Dosya** menüsünde **Yeni**'yi seçin ve ardından **Proje**'yi seçin.  
   
-3. İçinde **yeni proje** penceresinde **Visual C# / Web / ASP.NET Core Web uygulaması**, projenizi adlandırın ve ardından **Tamam**.  
+3. **Yeni Proje** penceresinde **Visual C#/Web/ASP.NET Core Web Uygulaması**'nı seçin, projenize bir ad verin ve **Tamam**'a tıklayın.  
   
-  ![Yeni Proje penceresinin ekran görüntüsü](./media/custom-search-new-project.png)  
+  ![Yeni proje penceresinin ekran görüntüsü](./media/custom-search-new-project.png)  
   
-4. İçinde **yeni ASP.NET Core Web uygulaması** penceresinde **Web uygulaması** tıklatıp **Tamam**.  
+4. **Yeni ASP.NET Core Web Uygulaması** penceresinde **Web Uygulaması**'nı seçip **Tamam**'a tıklayın.  
   
-  ![Yeni Proje penceresinin ekran görüntüsü](./media/custom-search-new-webapp.png)  
+  ![Yeni proje penceresinin ekran görüntüsü](./media/custom-search-new-webapp.png)  
 
-## <a name="edit-indexcshtml"></a>Index.cshtml Düzenle
+## <a name="edit-indexcshtml"></a>index.cshtml dosyasını düzenleme
 
-1. İçinde **Çözüm Gezgini**, genişletme **sayfaları** ve çift **Index.cshtml** dosyayı açmak için.  
+1. **Çözüm Gezgini**'nde **Sayfalar**'ı genişletin ve **index.cshtml** dosyasına çift tıklayarak açın.  
   
-  ![Genişletilmiş sayfalarını ve seçili Index.cshtml çözüm Gezgini'nin ekran görüntüsü](./media/custom-search-visual-studio-webapp-solution-explorer-index.png)  
+  ![Sayfalar genişletilmiş ve index.cshtml dosyası seçilmiş şekilde Çözüm Gezgini'nin ekran görüntüsü](./media/custom-search-visual-studio-webapp-solution-explorer-index.png)  
   
-2. Index.cshtml içinde başlangıç 7 satırından ve altındaki her şeyi silin.  
+2. index.cshtml dosyasında 7. satırdan başlayarak alt kısmı tamamen silin.  
   
   ```razor
   @page
@@ -161,7 +162,7 @@ Bu öğreticinin geri kalanında gösterir **seçeneği 1: Javascript kod parça
   }    
   ```  
   
-3. Bir satır kesme öğe ve bir kapsayıcısı olarak görev yapacak bir div ekleyin.  
+3. Satır sonu öğesi ve kapsayıcı olarak görev yapacak bir div ekleyin.  
   
   ```html
   @page
@@ -173,13 +174,13 @@ Bu öğreticinin geri kalanında gösterir **seçeneği 1: Javascript kod parça
   <div id="customSearch"></div>
   ```  
   
-4. İçinde **barındırılan UI** sayfasında bölümüne kaydırın **kullanıcı arabirimini kullanan**. Tıklayın *uç noktaları* JavaScript kod parçacığını erişmek için. Kod parçacığını tıklayarak da edinebilirsiniz **üretim** ardından **barındırılan UI** sekmesi.
+4. **Barındırılan kullanıcı arabirimi** sayfasında **Kullanıcı arabirimini kullanma** bölümüne inin. JavaScript kod parçacığına erişmek için *Uç noktalar*'a tıklayın. Kod parçacığını **Üretim**'e ve ardından **Barındırılan kullanıcı arabirimi** sekmesine tıklayarak da alabilirsiniz.
   
   <!-- Get new screenshot after prod gets new bits
   ![Screenshot of the Hosted UI save button](./media/custom-search-hosted-ui-consuming-ui.png)  
   -->
   
-5. Betik öğesi eklediğiniz kapsayıcıya yapıştırın.  
+5. Betik öğesini eklediğiniz kapsayıcıya yapıştırın.  
   
   ``` html
   @page
@@ -196,19 +197,19 @@ Bu öğreticinin geri kalanında gösterir **seçeneği 1: Javascript kod parça
   </div>
   ```  
   
-6. İçinde **Çözüm Gezgini**, sağ tıklayın **wwwroot** tıklatıp **tarayıcıda görüntüle**.  
+6. **Çözüm Gezgini**'nde **wwwroot** öğesine sağ tıklayıp **Tarayıcıda Görüntüle**'ye tıklayın.  
   
-  ![Çözüm Gezgini görünümü tarayıcıda wwwroot bağlam menüsünden seçme ekran görüntüsü](./media/custom-search-webapp-view-in-browser.png)  
+  ![wwwroot bağlam menüsünden Tarayıcıda Görüntüle'nin seçilmesini gösteren Çözüm Gezgini ekran görüntüsü](./media/custom-search-webapp-view-in-browser.png)  
 
-Yeni özel arama web sayfanız şuna benzer görünmelidir:
+Yeni özel arama web sayfanız aşağıdakine benzer olmalıdır:
 
-![Özel arama web sayfasının ekran görüntüsü](./media/custom-search-webapp-browse-index.png)
+![Özel arama web sayfası ekran görüntüsü](./media/custom-search-webapp-browse-index.png)
 
-Arama yapmak için sonuçlar şöyle işlenir:
+Arama yaptığınızda aşağıdaki gibi sonuçlar alırsınız:
 
-![Özel arama sonuçları ekran görüntüsü](./media/custom-search-webapp-results.png)
+![Özel arama sonuçlarının ekran görüntüsü](./media/custom-search-webapp-results.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 > [!div class="nextstepaction"]
-> [Bing özel arama uç noktası çağrısı (C#)](../call-endpoint-csharp.md)
+> [Bing Özel Arama uç noktasını çağırma (C#)](../call-endpoint-csharp.md)

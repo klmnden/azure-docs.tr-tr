@@ -1,34 +1,36 @@
 ---
-title: Duygu tanıma API'si PHP hızlı başlangıç | Microsoft Docs
-description: Hızlı bir şekilde yardımcı olmak için bilgi ve kod örnekleri get duygu tanıma API'si PHP Bilişsel hizmetler ile birlikte kullanmaya başlayın.
+title: "Hızlı başlangıç: Bir görüntüdeki yüzlerin duygularını tanıma - Duygu Tanıma API'si, PHP"
+titlesuffix: Azure Cognitive Services
+description: PHP ile Duygu Tanıma API'sini kullanmaya başlamanıza yardımcı olacak bilgiler ve kod örnekleri edinin.
 services: cognitive-services
 author: anrothMSFT
-manager: corncar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: emotion-api
-ms.topic: article
+ms.topic: quickstart
 ms.date: 05/23/2017
 ms.author: anroth
-ms.openlocfilehash: 987d5a3eedaa17f1127be34e5f90ec2456fab99b
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
-ms.translationtype: MT
+ROBOTS: NOINDEX
+ms.openlocfilehash: c3dffa3c42df4a30b634417b551dd0e8af04145b
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37019406"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48239515"
 ---
-# <a name="emotion-api-php-quick-start"></a>Duygu tanıma API'si PHP hızlı başlangıç
+# <a name="quickstart-build-an-app-to-recognize-emotions-on-faces-in-an-image"></a>Hızlı başlangıç: Bir görüntüdeki yüzlerin duygularını tanımak için bir uygulama oluşturma.
 
 > [!IMPORTANT]
-> Video API Önizleme 30 Ekim 2017 sona erer. Yeni deneyin [Video dizin oluşturucu API önizlemesi](https://azure.microsoft.com/services/cognitive-services/video-indexer/) kolayca videoların öngörüleri ayıklamak ve konuşulan sözcüklerin, yüzler, karakterler ve duygular algılayarak arama sonuçları gibi içerik bulma deneyimlerini geliştirmek üzere. [Daha fazla bilgi edinin](https://docs.microsoft.com/azure/cognitive-services/video-indexer/video-indexer-overview).
+> Duygu Tanıma API'si 15 Şubat 2019 tarihinde kullanım dışı bırakılacaktır. Duygu tanıma özelliği [Yüz Tanıma API'sinin](https://docs.microsoft.com/azure/cognitive-services/face/) bir parçası olarak genel kullanıma sunulmuştur. 
 
-Bu makalede bilgiler sağlar ve hızlı bir şekilde yardımcı olmak için kod örnekleri, PHP kullanımına başlamanıza ve [duygu tanıma API'si tanıması yöntemi](https://westus.dev.cognitive.microsoft.com/docs/services/5639d931ca73072154c1ce89/operations/563b31ea778daf121cc3a5fa) görüntünün bir veya daha fazla kişiler tarafından ifade duygular tanımak için. 
+Bu makalede bir görüntüdeki bir veya daha fazla kişinin duygularını tanımak için PHP ile [Duygu Tanıma API'si Recognize metodunu](https://westus.dev.cognitive.microsoft.com/docs/services/5639d931ca73072154c1ce89/operations/563b31ea778daf121cc3a5fa) kullanmaya başlamanıza yardımcı olacak bilgiler ve kod örnekleri bulunmaktadır.
 
 ## <a name="prerequisite"></a>Önkoşul
-* Ücretsiz abonelik anahtarınızı alın [burada](https://azure.microsoft.com/try/cognitive-services/)
+* [Buradan](https://azure.microsoft.com/try/cognitive-services/) ücretsiz Abonelik Anahtarınızı alın
 
-## <a name="recognize-emotions-php-example-request"></a>Tanı duygular PHP örnek istek
+## <a name="recognize-emotions-php-example-request"></a>Duygu Tanıma PHP Örnek İsteği
 
-Abonelik anahtarlarınızı burada aldığınız konumu kullanmak için REST URL'sini, test etmek istediğiniz görüntünün bir URL'ye gövdesi değiştirmek ve "Ocp-Apim-Subscription-Key" değeri geçerli bir abonelik anahtarınızla değiştirin.
+REST URL'sini abonelik anahtarlarınızı aldığınız konumu kullanacak şekilde değiştirin, gövdeyi test etmek istediğiniz görüntünün URL'sini yazarak güncelleştirin ve "Ocp-Apim-Subscription-Key" değerinin yerine geçerli abonelik anahtarınızı yazın.
 
 ```php
 <?php
@@ -36,7 +38,7 @@ Abonelik anahtarlarınızı burada aldığınız konumu kullanmak için REST URL
 require_once 'HTTP/Request2.php';
 
 // NOTE: You must use the same region in your REST call as you used to obtain your subscription keys.
-//   For example, if you obtained your subscription keys from westcentralus, replace "westus" in the 
+//   For example, if you obtained your subscription keys from westcentralus, replace "westus" in the
 //   URL below with "westcentralus".
 $request = new Http_Request2('https://westus.api.cognitive.microsoft.com/emotion/v1.0/recognize');
 $url = $request->getUrl();
@@ -75,13 +77,13 @@ catch (HttpException $ex)
 ?>
 ```
 
-## <a name="recognize-emotions-sample-response"></a>Tanı duygular örnek yanıt
-Başarılı bir çağrı yüz girişleri dizisi ve azalan düzende yüz dikdörtgen boyutuna göre derece ilişkili duygu puanlarını döndürür. Boş bir yanıt hiçbir yüzeyleri algıladığını belirtir. Bir duygu giriş aşağıdaki alanları içerir:
-* faceRectangle - yüz görüntüdeki dikdörtgen konumu.
-* puanları - görüntüdeki her yüz duygu puanlarını. 
+## <a name="recognize-emotions-sample-response"></a>Duygu Tanıma Örneği Yanıtı
+Başarılı bir çağrı, yüz dikdörtgenine göre büyükten küçüğe doğru sıralanmış şekilde yüz girişlerinden ve ilgili duygu puanlarından oluşan bir dizi döndürür. Yanıtın boş olması hiç yüz algılanmadığını gösterir. Duygu girişi aşağıdaki alanları içerir:
+* faceRectangle - Dikdörtgen şeklinde yüzün görüntü içindeki konumu.
+* scores - Görüntüdeki her bir yüzün duygu puanı.
 
 ```json
-application/json 
+application/json
 [
   {
     "faceRectangle": {
@@ -102,4 +104,3 @@ application/json
     }
   }
 ]
-

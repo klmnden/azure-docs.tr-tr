@@ -17,6 +17,8 @@ Bir kaynak grubunun silinmesi, içindeki veri fabrikaları dahil olmak üzere t�
 Remove-AzureRmResourceGroup -ResourceGroupName $resourcegroupname
 ```
 
+Not: Bir kaynak grubunun bırakılması biraz zaman alabilir. Lütfen işlemin tamamlanmasını bekleyin
+
 Tüm kaynak grubu yerine yalnızca veri fabrikasını silmek istiyorsanız aşağıdaki aşağıdaki komutu çalıştırın: 
 
 ```powershell

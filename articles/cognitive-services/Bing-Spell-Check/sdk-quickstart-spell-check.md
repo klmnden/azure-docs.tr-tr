@@ -1,23 +1,23 @@
 ---
-title: Yazım Denetimi SDK’sı C# Hızlı Başlangıcı - Azure Bilişsel Hizmetler | Microsoft Docs
+title: "Hızlı başlangıç: Bing Yazım Denetimi SDK'sı, C#"
+titlesuffix: Azure Cognitive Services
 description: Yazım Denetimi SDK konsol uygulaması için kurulum
-titleSuffix: Azure cognitive services setup Spell check search SDK C# console application
 services: cognitive-services
 author: mikedodaro
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-spell-check
 ms.topic: quickstart
 ms.date: 01/30/2018
 ms.author: v-gedod
-ms.openlocfilehash: b64c1be49a26e1fadb504bed3ff8eb78d791539f
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 3a6f7511407ba29b8fc6d8d3a41369bcd8cf18bc
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "43772484"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48803113"
 ---
-# <a name="spell-check-sdk-c-quickstart"></a>Yazım Denetimi SDK C# Hızlı Başlangıç
+# <a name="quickstart-bing-spell-check-sdk-with-c"></a>Hızlı başlangıç: C# ile Bing Yazım Denetimi SDK'sı
 
 Bing Yazım Denetimi SDK’sı, yazım denetimi için REST API’sinin işlevselliğini içerir.
 

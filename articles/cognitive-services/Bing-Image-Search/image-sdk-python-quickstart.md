@@ -1,47 +1,47 @@
 ---
-title: "Hızlı Başlangıç: Python ve Bing resim arama SDK'sını kullanarak görüntüleri arayın"
+title: 'Hızlı Başlangıç: Python için Bing Resim Arama SDK’sı ile görüntü arama'
 titleSuffix: Azure Cognitive Services
-description: Bu hızlı başlangıçta, arama ve Bing resim arama SDK'sını ve Python kullanarak web üzerinde görüntüleri bulmak için kullanın.
+description: Bu öğreticiyi API için bir sarmalayıcı olan ve aynı özellikleri içeren Bing Resim Arama SDK'sını kullanarak ilk görüntü aramanızı yapmak için kullanın. Bu basit Python uygulaması, bir görüntü arama sorgusu gönderir, JSON yanıtını ayrıştırır ve döndürülen ilk görüntünün URL’sini görüntüler.
 services: cognitive-services
 author: aahill
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-image-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: aahi
-ms.openlocfilehash: 4a24f1e4e051b627034f1d4664e94e0f47c43014
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
-ms.translationtype: MT
+ms.openlocfilehash: 7afe19cf0167784a5c8b3e2751ec869a2664935d
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45578302"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46296626"
 ---
-# <a name="quickstart-search-for-images-with-the-bing-image-search-sdk-and-python"></a>Hızlı Başlangıç: Python ve Bing resim arama SDK'sı ile görüntüleri arayın
+# <a name="quickstart-search-for-images-with-the-bing-image-search-sdk-and-python"></a>Hızlı Başlangıç: Bing Resim Arama SDK’sı ve Python ile görüntü arama
 
-Bing görüntü arama API'si için bir sarmalayıcı olan ve aynı özellikleri içeren SDK'yı kullanarak ilk görüntü arama yapmak için bu Hızlı Başlangıç'ı kullanın. Bu basit bir Python uygulaması bir görüntü arama sorgusu gönderir, JSON yanıtı ayrıştırır ve döndürülen ilk görüntünün URL'sini görüntüler.
+Bu öğreticiyi API için bir sarmalayıcı olan ve aynı özellikleri içeren Bing Resim Arama SDK'sını kullanarak ilk görüntü aramanızı yapmak için kullanın. Bu basit Python uygulaması, bir görüntü arama sorgusu gönderir, JSON yanıtını ayrıştırır ve döndürülen ilk görüntünün URL’sini görüntüler.
 
-Bu örnek için kaynak kodu kullanılabilir [github'da](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/blob/master/samples/search/image-search-quickstart.py) ek hata işleme ve ek açıklamalar.
+Bu örneğin kaynak kodu, ek hata işleme ve açıklama notları ile [GitHub](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/blob/master/samples/search/image-search-quickstart.py)’da bulunabilir.
 
-## <a name="prerequisites"></a>Önkoşullar 
+## <a name="prerequisites"></a>Ön koşullar
 
-* [Python 2.7 veya 3.4](https://www.python.org/) ve daha yüksek.
+* [Python 2.7 veya 3.4](https://www.python.org/) ve üzeri.
 
-* [Azure görüntü arama SDK](https://pypi.org/project/azure-cognitiveservices-search-imagesearch/) Python için
-    * Kullanarak yükleme `pip install azure-cognitiveservices-search-imagesearch`
+* Python için [Azure Görüntü Arama SDK’sı](https://pypi.org/project/azure-cognitiveservices-search-imagesearch/)
+    * `pip install azure-cognitiveservices-search-imagesearch` kullanarak yükleme
 
 [!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
 
-## <a name="create-and-initialize-the-application"></a>Oluşturma ve uygulama başlatma
+## <a name="create-and-initialize-the-application"></a>Uygulamayı oluşturma ve başlatma
 
-1. En sevdiğiniz IDE veya düzenleyici ve aşağıdaki içeri aktarmaları yeni bir Python betiği oluşturun:
+1. Sık kullandığınız IDE ortamında veya düzenleyicide yeni bir Python betiği ve aşağıdaki içeri aktarımları oluşturun:
 
     ```python
     from azure.cognitiveservices.search.imagesearch import ImageSearchAPI
     from msrest.authentication import CognitiveServicesCredentials
     ```
 
-2. Abonelik anahtarı ve arama terimi için değişkenler oluşturun.
+2. Abonelik anahtarınız ve arama teriminiz için değişkenler oluşturun.
 
     ```python
     subscription_key = "Enter your key here"
@@ -50,21 +50,21 @@ Bu örnek için kaynak kodu kullanılabilir [github'da](https://github.com/Azure
 
 ## <a name="create-the-image-search-client"></a>Görüntü arama istemcisi oluşturma
 
-3. Bir örneğini oluşturmak `CognitiveServicesCredentials`ve istemci örneği oluşturmak için kullanın:
+3. `CognitiveServicesCredentials` örneği oluşturun ve istemcinin bir örneğini başlatmak için bunu kullanın:
 
     ```python
     client = ImageSearchAPI(CognitiveServicesCredentials(subscription_key))
     ```
-4. Bing resim arama API'si için bir arama sorgusu gönderin:
+4. Bing Resim Arama API’sine arama sorgusu gönderme:
     ```python
     image_results = client.images.search(query=search_term)
     ```
-## <a name="process-and-view-the-results"></a>İşlem ve sonuçları görüntüleme
+## <a name="process-and-view-the-results"></a>Sonuçları işleme ve görüntüleme
 
-Yanıtta döndürülen resim sonuçları ayrıştırılamıyor.
+Yanıtta döndürülen resim sonuçlarını ayrıştırın.
 
 
-Yanıt arama sonuçları içeriyorsa, ilk sonucu depolar ve bir küçük resim gibi ayrıntılarını yazdırmak URL, toplam sayısını özgün URL'yi döndürülen görüntüler.  
+Yanıt arama sonuçları içeriyorsa, ilk sonucu depolayın ve döndürülen toplam görüntü sayısının yanı sıra bu ilk sonucun küçük resim URL'si, asıl URL gibi ayrıntılarını yazdırın.  
 
 ```python
 if image_results.value:
@@ -79,13 +79,13 @@ else:
 ## <a name="next-steps"></a>Sonraki adımlar
 
 > [!div class="nextstepaction"]
-> [Bing resim arama tek sayfalı uygulama Öğreticisi](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/tutorial-bing-image-search-single-page-app)
+> [Bing Resim Arama tek sayfalı uygulama öğreticisi](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/tutorial-bing-image-search-single-page-app)
 
-## <a name="see-also"></a>Ayrıca bkz. 
+## <a name="see-also"></a>Ayrıca bkz.
 
-* [Bing resim arama nedir?](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/overview)  
-* [Çevrimiçi bir etkileşimli Tanıtımı deneyin](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/)  
-* [Ücretsiz bir Bilişsel hizmetler erişim anahtarını alma](https://azure.microsoft.com/try/cognitive-services/?api=bing-image-search-api)
-* [Azure Bilişsel hizmetler SDK için Python örnekleri](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples)  
-* [Azure Bilişsel hizmetler belgeleri](https://docs.microsoft.com/azure/cognitive-services)
-* [Bing resim arama API'si başvurusu](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference)
+* [Bing Resim Arama nedir?](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/overview)  
+* [Çevrimiçi etkileşimli bir tanıtımı deneyin](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/)  
+* [Ücretsiz bir Bilişsel Hizmetler erişim anahtarı alın](https://azure.microsoft.com/try/cognitive-services/?api=bing-image-search-api)
+* [Azure Bilişsel Hizmetler SDK’sı için Python örnekleri](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples)  
+* [Azure Bilişsel Hizmetler Belgeleri](https://docs.microsoft.com/azure/cognitive-services)
+* [Bing Resim Arama API’si başvurusu](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference)

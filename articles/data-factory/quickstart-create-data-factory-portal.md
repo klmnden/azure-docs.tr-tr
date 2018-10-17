@@ -11,19 +11,19 @@ ms.workload: data-services
 ms.topic: quickstart
 ms.date: 06/20/2018
 ms.author: jingwang
-ms.openlocfilehash: 0638aaa9165bcf760dabca330f6ee396807e4597
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: fc4b1dce1b01d9294cf422c910f39d68cbd49c87
+ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43087963"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48018256"
 ---
 # <a name="create-a-data-factory-by-using-the-azure-data-factory-ui"></a>Azure Data Factory UI kullanarak veri fabrikası oluşturma
 > [!div class="op_single_selector" title1="Select the version of Data Factory service that you are using:"]
 > * [Sürüm 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Geçerli sürüm](quickstart-create-data-factory-portal.md)
 
-Bu hızlı başlangıçta, Azure Data Factory UI kullanarak veri fabrikasını oluşturma ve izleme işlemi açıklanır. Bu veri fabrikasında oluşturduğunuz işlem hattı, verileri Azure Blob depolama alanındaki bir klasörden başka bir klasöre *kopyalar*. Azure Data Factory kullanarak verileri *dönüştürme* hakkında bir öğretici için bkz. [Öğretici: Spark kullanarak verileri dönüştürme](tutorial-transform-data-spark-portal.md). 
+Bu hızlı başlangıçta, Azure Data Factory UI kullanarak veri fabrikasını oluşturma ve izleme işlemi açıklanır. Bu veri fabrikasında oluşturduğunuz işlem hattı, verileri Azure Blob depolama alanındaki bir klasörden başka bir klasöre *kopyalar*. Azure Data Factory kullanarak verileri *dönüştürme* hakkında bir öğretici için bkz. [Öğretici: Spark kullanarak verileri dönüştürme](tutorial-transform-data-spark-portal.md).
 
 > [!NOTE]
 > Azure Data Factory'yi kullanmaya yeni başlıyorsanız, bu hızlı başlangıçtaki işlemleri gerçekleştirmeden önce [Azure Data Factory'ye giriş](data-factory-introduction.md) konusuna bakın. 
@@ -38,7 +38,7 @@ Bu videoyu izlemeniz, Data Factory kullanıcı arabirimini anlamanıza yardımc�
 
 1. **Microsoft Edge** veya **Google Chrome** web tarayıcısını açın. Şu anda Data Factory kullanıcı arabirimi yalnızca Microsoft Edge ve Google Chrome web tarayıcılarında desteklenmektedir.
 1. [Azure Portal](https://portal.azure.com) gidin. 
-1. Soldaki menüden **Yeni**’yi, sonra **Veri ve Analiz**’i ve ardından **Data Factory**’i seçin. 
+1. Soldaki menüden **Kaynak oluşturun**’u, sonra **Analiz**’i ve ardından **Data Factory**’yi seçin. 
    
    ![“Yeni” bölmesinde Data Factory seçimi](./media/quickstart-create-data-factory-portal/new-azure-data-factory-menu.png)
 1. **Yeni veri fabrikası** sayfasında **Ad** için **ADFTutorialDataFactory** girin. 
@@ -58,12 +58,10 @@ Bu videoyu izlemeniz, Data Factory kullanıcı arabirimini anlamanıza yardımc�
 1. **Sürüm** bölümünde **V2**'yi seçin.
 1. **Konum** için, veri fabrikasının konumunu seçin.
 
-   Listede yalnızca Data Factory tarafından desteklenen konumlar gösterilir. Data Factory tarafından kullanılan veri depoları (Azure Depolama ve Azure SQL Veritabanı) ve işlemler (Azure HDInsight gibi) başka konumlarda olabilir.
-1. **Panoya sabitle**’yi seçin.     
-1. **Oluştur**’u seçin.
-1. Panoda, **Data Factory Dağıtılıyor** durumuna sahip aşağıdaki kutucuğu görürsünüz: 
+   Listede yalnızca Data Factory tarafından desteklenen ve Azure Data Factory meta verilerinizin depolanacağı konumlar gösterilir. Data Factory tarafından kullanılan veri depolarının (Azure Depolama ve Azure SQL Veritabanı gibi) ve işlemlerin (Azure HDInsight gibi) başka konumlarda veya bölgelerde çalışabileceğini unutmayın.
 
-   ![“Data Factory Dağıtılıyor” kutucuğu](media//quickstart-create-data-factory-portal/deploying-data-factory.png)
+1. **Oluştur**’u seçin.
+
 1. Oluşturma işlemi tamamlandıktan sonra, **Data Factory** sayfasını görürsünüz. Azure Data Factory kullanıcı arabirimi (UI) uygulamasını ayrı bir sekmede başlatmak için **Yazar ve İzleyici** kutucuğunu seçin.
    
    ![Veri fabrikasının “Yazar ve İzleyici” kutucuğuna sahip ana sayfası](./media/quickstart-create-data-factory-portal/data-factory-home-page.png)
@@ -88,7 +86,7 @@ Bu yordamda, Azure depolama hesabınızı veri fabrikasına bağlamak için bağ
 
    c. Data Factory hizmetinin depolama hesabına bağlanabildiğini onaylamak için **Bağlantıyı sına**'yı seçin. 
 
-   d. Bağlı hizmeti kaydetmek için **Kaydet**’i seçin. 
+   d. Bağlı hizmeti kaydetmek için **Son**’u seçin. 
 
    ![Azure Depolama bağlı hizmeti ayarları](./media/quickstart-create-data-factory-portal/azure-storage-linked-service.png) 
 
@@ -128,7 +126,7 @@ Bağlı hizmet ayarlarında, kaynak verileri içeren Azure depolama hesabını b
 
    c. **Genel** tablosunda ad için **OutputDataset** değerini belirtin.
 
-   d. **Bağlantı** sekmesinde bağlantılı hizmet olarak **AzureStorageLinkedService** girişini ve **adftutorial/output** klasörünü seçin. **Output** klasörü yoksa, kopyalama etkinliği çalışma zamanında bu klasörü oluşturur.
+   d. **Bağlantı** sekmesinde bağlantılı hizmet olarak **AzureStorageLinkedService** girişini seçin ve dizin alanına **adftutorial/output** klasörünü girin. **Output** klasörü yoksa, kopyalama etkinliği çalışma zamanında bu klasörü oluşturur.
 
 ## <a name="create-a-pipeline"></a>İşlem hattı oluşturma 
 Bu yordamda, giriş ve çıkış veri kümelerini kullanan kopyalama etkinliğiyle bir işlem hattı oluşturur ve doğrularsınız. Kopyalama etkinliği, giriş veri kümesi ayarlarında belirttiğiniz dosyadaki verileri çıkış veri kümesi ayarlarında belirttiğiniz dosyaya kopyalar. Giriş veri kümesi yalnızca bir klasörü belirtiyorsa (dosya adını belirtmiyorsa), kopyalama etkinliği kaynak klasördeki tüm dosyaları hedefe kopyalar. 
@@ -138,7 +136,7 @@ Bu yordamda, giriş ve çıkış veri kümelerini kullanan kopyalama etkinliğiy
    ![Yeni işlem hattı oluşturma menüsü](./media/quickstart-create-data-factory-portal/new-pipeline-menu.png)
 1. **Genel** sekmesinde **Ad** için **CopyPipeline** değerini belirtin. 
 
-1. **Etkinlikler** araç kutusunda **Veri Akışı**’nı genişletin. **Etkinlikler** araç kutusundan **Kopyalama** etkinliğini işlem hattı tasarımcısının yüzeyine sürükleyin. Ayrıca, **Etkinlikler** araç kutusunda etkinlikler için arama yapabilirsiniz. **Ad** için **CopyFromBlobToBlob** adını belirtin.
+1. **Etkinlikler** araç kutusunda **Taşı ve Dönüştür**’ü genişletin. **Etkinlikler** araç kutusundan **Kopyalama** etkinliğini işlem hattı tasarımcısının yüzeyine sürükleyin. Ayrıca, **Etkinlikler** araç kutusunda etkinlikler için arama yapabilirsiniz. **Ad** için **CopyFromBlobToBlob** adını belirtin.
 
    ![Kopyalama etkinliği genel ayarları](./media/quickstart-create-data-factory-portal/copy-activity-general-settings.png)
 1. Kopyalama etkinliği ayarlarında **Kaynak** sekmesine geçin ve **Kaynak Veri Kümesi** olarak **InputDataset** öğesini seçin.
@@ -205,7 +203,7 @@ Bu yordamda bu adım isteğe bağlıdır. İşlem hattını düzenli aralıklarl
    **Tetikleyen** sütunundaki değerlere dikkat edin. El ile tetikleyici çalıştırması daha önce uyguladığınız bir adıma (**Şimdi Tetikle**) aittir. 
 
    ![Tetiklenen çalıştırmaların listesi](./media/quickstart-create-data-factory-portal/monitor-triggered-runs.png)
-1. **İşlem Hattı Çalıştırmaları**'nın yanındaki aşağı oku seçerek **Tetikleyici Çalıştırmaları** görünümüne geçin. 
+1. **Tetikleyici Çalıştırmaları** görünümüne geçin. 
 
    ![“Tetikleyici Çalıştırmaları” görünümüne geçme](./media/quickstart-create-data-factory-portal/monitor-trigger-runs.png)    
 1. **Çıktı** klasöründe belirtilen son tarih ve saate kadar her işlem hattı çalıştırması için bir çıktı dosyası oluşturulduğunu onaylayın. 

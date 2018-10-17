@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/10/2018
 ms.author: douglasl
-ms.openlocfilehash: c6817fa20d4177efd3e38f1454f3142f6d40a07d
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: f1cc1b728a91c22f9b4b2062ed5c423314e561c8
+ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43108627"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48017593"
 ---
 # <a name="transform-data-in-the-cloud-by-using-a-spark-activity-in-azure-data-factory"></a>Azure Data Factory'de bir Spark etkinliği kullanarak verileri bulutta dönüştürme
 Bu öğreticide, Azure portalını kullanarak bir Azure Data Factory işlem hattı oluşturursunuz. Bu işlem hattı bir Spark etkinliği ve isteğe bağlı bir Azure HDInsight bağlı hizmetini kullanarak verileri dönüştürür. 
@@ -34,6 +34,10 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 
 ## <a name="prerequisites"></a>Ön koşullar
 * **Azure depolama hesabı**. Bir Python betiği ve giriş dosyası oluşturup Azure Depolama hizmetine yüklersiniz. Spark programının çıktısı bu depolama hesabında depolanır. İsteğe bağlı Spark kümesi, birincil depolama alanıyla aynı depolama hesabını kullanır.  
+
+> [!NOTE]
+> HdInsight standart katmanda yalnızca genel amaçlı depolama hesaplarını destekler. Hesabın premium veya yalnızca blob depolama hesabı olmadığından emin olun.
+
 * **Azure PowerShell**. [Azure PowerShell’i yükleme ve yapılandırma](/powershell/azure/install-azurerm-ps) bölümündeki yönergeleri izleyin.
 
 
@@ -99,11 +103,9 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 1. **Konum** için, veri fabrikasının konumunu seçin. 
 
    Data Factory'nin kullanılabileceği Azure bölgelerinin bir listesi için bir sonraki sayfada ilgilendiğiniz bölgeleri seçin ve **Analytics**'i genişleterek **Data Factory**: [Products available by region](https://azure.microsoft.com/global-infrastructure/services/) (Bölgeye göre kullanılabilir durumdaki ürünler) bölümünü bulun. Data Factory tarafından kullanılan veri depoları (Azure Depolama ve Azure SQL Veritabanı) ve işlemler (HDInsight gibi) başka bölgelerde olabilir.
-1. **Panoya sabitle**’yi seçin.     
-1. **Oluştur**’u seçin.
-1. Panoda, **Data Factory Dağıtılıyor** durumuna sahip aşağıdaki kutucuğu görürsünüz: 
 
-   ![“Data Factory Dağıtılıyor” kutucuğu](media//tutorial-transform-data-spark-portal/deploying-data-factory.png)
+1. **Oluştur**’u seçin.
+
 1. Oluşturma işlemi tamamlandıktan sonra, **Veri fabrikası** sayfasını görürsünüz. Data Factory kullanıcı arabirimi uygulamasını ayrı bir sekmede başlatmak için **Yazar ve İzleyici** kutucuğunu seçin.
 
     ![Veri fabrikasının “Yazar ve İzleyici” kutucuğuna sahip ana sayfası](./media/tutorial-transform-data-spark-portal/data-factory-home-page.png)
@@ -157,11 +159,11 @@ Bu bölümde iki bağlı hizmet oluşturacaksınız:
    
    h. **İşletim sistemi türü** seçeneğini genişletin.
    
-   i. Küme kullanıcısı için bir ad girin. 
+   i. **Küme kullanıcısı adı** için bir ad girin. 
    
-   j. Kullanıcı için parola girin. 
+   j. Kullanıcı için **Küme parolası** girin. 
    
-   k. **Kaydet**’i seçin. 
+   k. **Son**’u seçin. 
 
    ![HDInsight bağlı hizmet ayarları](./media/tutorial-transform-data-spark-portal/azure-hdinsight-linked-service-settings.png)
 

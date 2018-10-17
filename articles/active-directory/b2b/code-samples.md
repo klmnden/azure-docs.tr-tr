@@ -1,45 +1,45 @@
 ---
 title: Azure Active Directory B2B işbirliği kodu ve PowerShell örnekleri | Microsoft Docs
-description: Azure Active Directory B2B işbirliği kodu ve PowerShell örnekleri
+description: Azure Active Directory B2B işbirliği için kod ve PowerShell örnekleri
 services: active-directory
 ms.service: active-directory
 ms.component: B2B
-ms.topic: article
+ms.topic: sample
 ms.date: 04/11/2017
 ms.author: mimart
 author: msmimart
 manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: f9740aba27b7a593fdf2b465f539d305d24333de
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
-ms.translationtype: MT
+ms.openlocfilehash: d0f2669610f2086c29d52d95c9796e6a2939622e
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35651015"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45985456"
 ---
 # <a name="azure-active-directory-b2b-collaboration-code-and-powershell-samples"></a>Azure Active Directory B2B işbirliği kodu ve PowerShell örnekleri
 
 ## <a name="powershell-example"></a>PowerShell örneği
-Toplu-dış kullanıcılar için bir kuruluş içinde depolanan bir e-posta adreslerinden davet bir. CSV dosyası.
+.CSV dosyasında depoladığınız e-posta adreslerinden bir kuruluşa harici kullanıcıları toplu davet edebilirsiniz.
 
-1. Hazırlama. CSV dosyası yeni bir CSV dosyası oluşturun ve invitations.csv adlandırın. Bu örnekte, dosya içinde C:\data kaydedilir ve aşağıdaki bilgileri içerir:
+1. .CSV dosyasını hazırlayın. Yeni bir CSV dosyası oluşturun ve invitations.csv olarak adlandırın. Bu örnekte dosya, C:\data konumuna kaydedilir ve şu bilgileri içerir:
   
-  Ad                  |  InvitedUserEmailAddress
+  Adı                  |  InvitedUserEmailAddress
   --------------------- | --------------------------
-  Gmail B2B davetli     | b2binvitee@gmail.com
-  Outlook B2B davetli   | b2binvitee@outlook.com
+  Gmail B2B Davetlisi     | b2binvitee@gmail.com
+  Outlook B2B davetlisi   | b2binvitee@outlook.com
 
 
-2. Yeni cmdlet'lerle kullanmak için en son Azure AD PowerShell'i almak için indirebilirsiniz güncelleştirilmiş Azure AD PowerShell modülünü yüklemelisiniz [Powershell modülünün sürüm sayfası](https://www.powershellgallery.com/packages/AzureADPreview)
+2. En son Azure AD PowerShell’i edinin. Yeni cmdlet’leri kullanmak için, [Powershell modülünün yayın sayfasından](https://www.powershellgallery.com/packages/AzureADPreview) indirebileceğiniz güncelleştirilmiş Azure AD PowerShell modülünü yüklemeniz gerekir
 
-3. Kiracınızdaki için oturum açın
+3. Kiracınızda oturum açma
 
     ```
     $cred = Get-Credential
     Connect-AzureAD -Credential $cred
     ```
 
-4. PowerShell cmdlet'ini çalıştırın
+4. PowerShell cmdlet’ini çalıştırma
 
   ```
   $invitations = import-csv C:\data\invitations.csv
@@ -48,13 +48,13 @@ Toplu-dış kullanıcılar için bir kuruluş içinde depolanan bir e-posta adre
   foreach ($email in $invitations) {New-AzureADMSInvitation -InvitedUserEmailAddress $email.InvitedUserEmailAddress -InvitedUserDisplayName $email.Name -InviteRedirectUrl https://wingtiptoysonline-dev-ed.my.salesforce.com -InvitedUserMessageInfo $messageInfo -SendInvitationMessage $true}
   ```
 
-Bu cmdlet bir davet e-posta adreslerine invitations.csv gönderir. Bu cmdlet'in ek özellikler şunlardır:
+Bu cmdlet, invitations.csv dosyasındaki e-posta adreslerine bir davet gönderir. Bu cmdlet’in ek özellikleri arasında şunlar yer alır:
 - E-posta iletisinde özelleştirilmiş metin
-- Davet edilen kullanıcı için bir görünen ad'dahil olmak üzere
-- CCs için gönderme veya e-posta iletilerini tamamen gizleme
+- Davet edilen kullanıcı için bir görünen ad ekleme
+- CC’ye iletiler gönderme veya e-posta iletilerini topluca gizleme
 
 ## <a name="code-sample"></a>Kod örneği
-Burada B2B kullanıcısı davet kaynak kullanım URL'si almak için "yalnızca uygulama" modunda davet API'sini çağırmak nasıl gösterir. Özel bir davet e-posta göndermek için kullanılan hedeftir. Nasıl göründüğünü özelleştirmek ve Graph API'si göndermek için e-posta bir HTTP istemcisi ile birleştirilebilir.
+Burada, B2B kullanıcısını davet ettiğiniz kaynağa yönelik kullanım URL’sini almak için “yalnızca uygulama” modunda davet API’sinin nasıl çağrılacağı gösterilmektedir. Hedef, özel bir davet e-postası göndermektir. E-posta, HTTP istemcisiyle oluşturulabilir, bu nedenle Graph API ile nasıl görüneceğini özelleştirebilir ve gönderebilirsiniz.
 
 ```
 namespace SampleInviteApp

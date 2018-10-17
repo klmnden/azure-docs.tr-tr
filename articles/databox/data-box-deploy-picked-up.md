@@ -12,14 +12,14 @@ ms.devlang: NA
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/24/2018
+ms.date: 10/03/2018
 ms.author: alkohli
-ms.openlocfilehash: d649095a6b1b9f692a6795e96c9f15631d36e3e2
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 05bfba9fffa7db75ef4e1a1167b3170a775e1d34
+ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46974519"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48785469"
 ---
 # <a name="tutorial-return-azure-data-box-and-verify-data-upload-to-azure"></a>Öğretici: Azure Data Box'ı iade etme ve Azure'a verilerin yüklendiğini doğrulama
 
@@ -39,7 +39,10 @@ Başlamadan önce, [Öğretici: Verileri Azure Data Box'a kopyalama ve doğrulam
 ## <a name="ship-data-box-back"></a>Data Box'ı geri gönderme
 
 1. Cihazın kapalı olduğundan ve kabloların çıkartılmış olduğundan emin olun. Cihaz ile beraber sağlanan güç kablosunu sararak emniyetli şekilde cihazın arkasına yerleştirin.
-2. E-ink ekranda gönderi etiketinin görüntülendiğinden emin olun ve taşıyıcınızdan bir teslim alma randevusu alın. Etiket hasar görmüş, kaybolmuş veya E-ink ekranda görüntülenmiyorsa Azure portaldan yeni bir sevkiyat etiketi indirin ve cihaza yapıştırın. **Genel bakış > Sevkiyat etiketi indir** bölümüne gidin.
+2. Cihaz ABD içinde gönderiliyorsa e-ink ekranda sevkiyat etiketinin görüntülendiğinden emin olun ve taşıyıcınızdan bir teslim alma randevusu alın. Etiket hasar görmüş, kaybolmuş veya E-ink ekranda görüntülenmiyorsa Azure portaldan yeni bir sevkiyat etiketi indirin ve cihaza yapıştırın. **Genel bakış > Sevkiyat etiketi indir** bölümüne gidin. 
+
+    Cihaz Avrupa'da gönderiliyorsa E-ink ekranda sevkiyat etiketi gösterilmez. Bunun yerine iade etiketi, sevkiyat etiketinin altındaki şeffaf bölümde yer alır. Eski sevkiyat etiketini sökün ve yenisinin net bir şekilde göründüğünden emin olun.
+    
 3. Cihazı ABD'de iade ediyorsanız UPS ile bir toplama zamanı ayarlayın. Cihazı Avrupa'da DHL ile iade ediyorsanız, DHL'in web sitesini ziyaret edip bir havayolu fatura numarası belirterek toplama isteğinde bulunun. Ülkenin DHL Ekspres web sitesine gidin ve **Kurye Çağırma Rezervasyonu > eİade Sevkiyatı**'nı seçin. 
 
     Konşimento numarasını belirtin ve toplama ayarlaması yapmak için **Toplama Zamanlama**'ya tıklayın.

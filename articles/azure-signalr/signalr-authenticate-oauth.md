@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 06/13/2018
 ms.author: zhshang
-ms.openlocfilehash: 696139a3e37f7bd1e32b4e7cec836b3c66df16a6
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 8751e3485b97b67fd8dd4821480fecd7735c08cd
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46974332"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48268521"
 ---
 # <a name="tutorial-azure-signalr-service-authentication"></a>Öğretici: Azure SignalR Hizmeti kimlik doğrulaması
 
@@ -29,7 +29,7 @@ Bu öğreticide, kendi kimlik doğrulamanızı uygulamayı ve bunu Microsoft Azu
 
 İlk olarak hızlı başlangıcın sohbet odası uygulamasında kullanılan kimlik doğrulaması gerçek dünya senaryoları için fazla basittir. Uygulama her istemcinin kim olduğunu belirtmesine ve basit bir şekilde sunucunun bunu kabul etmesine izin verir. Bu yaklaşım hilekar bir kullanıcının hassas verilere erişmek için başkalarının kimliğine bürünebildiği gerçek dünya uygulamalarında pek kullanışlı değildir. 
 
-[GitHub](https://github.com/), endüstri standardında [OAuth](https://oauth.net/) adlı popüler protokolü temel alan kimlik doğrulama API'leri sağlar. Bu API'ler üçüncü taraf uygulamalarında GitHub hesaplarının kimliğini doğrulamaya olanak tanır. Bu öğreticide, istemcinin sohbet odası uygulamasında oturum açmasına izin vermeden önce Github hesabı üzerinden kimlik doğrulaması yapmak için bu API'leri kullanacaksınız. GitHub hesabının kimliğini doğruladıktan sonra, hesap bilgileri web istemcisinin kimlik doğrulamasında kullanılmak üzere tanımlama bilgisi olarak eklenecektir.
+[GitHub](https://github.com/), endüstri standardında [OAuth](https://oauth.net/) adlı popüler protokolü temel alan kimlik doğrulama API'leri sağlar. Bu API'ler üçüncü taraf uygulamalarında GitHub hesaplarının kimliğini doğrulamaya olanak tanır. Bu öğreticide, istemcinin sohbet odası uygulamasında oturum açmasına izin vermeden önce GitHub hesabı üzerinden kimlik doğrulaması yapmak için bu API'leri kullanacaksınız. GitHub hesabının kimliğini doğruladıktan sonra, hesap bilgileri web istemcisinin kimlik doğrulamasında kullanılmak üzere tanımlama bilgisi olarak eklenecektir.
 
 GitHub aracılığıyla sağlanan OAuth kimlik doğrulama API'leri hakkında daha fazla bilgi için bkz. [Kimlik Doğrulamasının Temelleri](https://developer.github.com/v3/guides/basics-of-authentication/).
 

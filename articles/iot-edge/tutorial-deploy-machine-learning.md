@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: c9350704943bebada217338488e51b97acc550ca
-ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
+ms.openlocfilehash: 188e3c0e8b9a9d421b40e142e534aca2741fee56
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47423621"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48248897"
 ---
 # <a name="tutorial-deploy-azure-machine-learning-as-an-iot-edge-module-preview"></a>Öğretici: Azure Machine Learning'i bir IoT Edge modülü olarak dağıtma (önizleme)
 
@@ -46,11 +46,8 @@ Bir Azure IoT Edge cihazı:
 Bulut kaynakları:
 
 * Azure'da ücretsiz katman bir [IoT Hub'ı](../iot-hub/iot-hub-create-through-portal.md). 
-* Bir Azure Machine Learning hesabı. [Azure Machine Learning hesapları oluşturma ve Azure Machine Learning Workbench yükleme](../machine-learning/desktop-workbench/quickstart-installation.md) yönergelerini izleyin. Bu öğretici için çalışma ekranı uygulamasını yüklemeniz gerekmez. 
+* Azure Machine Learning çalışma alanı. Yeni bir tane oluşturmak için [IoT Edge'de model dağıtmaya hazırlanma](../machine-learning/service/how-to-deploy-to-iot.md) bölümündeki yönergeleri izleyin.
 
-Geliştirme kaynakları:
-
-* Azure ML için Model Yönetimi. Ortamınızı kurmak ve bir hesap oluşturmak için, [Model yönetimi kurulumu](../machine-learning/desktop-workbench/deployment-setup-configuration.md)'ndaki yönergeleri izleyin. Dağıtım kurulumu sırasında mümkünse küme yerine yerel adımların seçilmesi önerilir.
 
 ### <a name="disable-process-identification"></a>İşlem tanımlamasını devre dışı bırakma
 
@@ -94,18 +91,7 @@ export IOTEDGE_HOST="http://172.17.0.1:15580"
 ## <a name="create-the-azure-ml-container"></a>Azure ML kapsayıcısını oluşturma
 Bu bölümde eğitilen modelin dosyalarını indirecek ve bunları Azure ML kapsayıcısına dönüştüreceksiniz.
 
-Azure ML için Model Yönetimi'ni çalıştıran makinede, GitHub'daki Azure ML IoT Toolkit'ten [iot_score.py](https://github.com/Azure/ai-toolkit-iot-edge/blob/master/IoT%20Edge%20anomaly%20detection%20tutorial/iot_score.py) ve [model.pkl](https://github.com/Azure/ai-toolkit-iot-edge/blob/master/IoT%20Edge%20anomaly%20detection%20tutorial/model.pkl) dosyalarını indirin ve kaydedin. Bu dosyalar, Iot Edge cihazınıza dağıtacağınız eğitilen makine öğrenme modelini tanımlar.
-
-Eğitilen modeli IoT Edge cihazlarına dağıtılabilecek bir kapsayıcı oluşturmak için kullanın. Şunları yapmak için aşağıdaki komutu kullanın:
-
-   * Modelinizi kaydedin.
-   * Bir bildirim oluşturun.
-   * *machinelearningmodule* adında bir Docker kapsayıcı görüntüsü oluşturun.
-   * Görüntüyü Azure Kubernetes Service (AKS) kümesine dağıtın.
-
-```cmd
-az ml service create realtime --model-file model.pkl -f iot_score.py -n machinelearningmodule -r python
-```
+Makine öğrenmesi modelinizle bir Docker kapsayıcısı oluşturmak için [IoT Edge'de model dağıtmaya hazırlanma](../machine-learning/service/how-to-deploy-to-iot.md) belgesindeki yönergeleri izleyin.  Docker görüntüsü için gerekli tüm bileşenler [Azure IoT Edge için AI Toolkit deposunda](https://github.com/Azure/ai-toolkit-iot-edge/tree/master/IoT%20Edge%20anomaly%20detection%20tutorial) mevcuttur.
 
 ### <a name="view-the-container-repository"></a>Kapsayıcı deposunu görüntüleme
 

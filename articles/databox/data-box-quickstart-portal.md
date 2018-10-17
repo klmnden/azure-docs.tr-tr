@@ -12,14 +12,14 @@ ms.devlang: NA
 ms.topic: quickstart
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/24/2018
+ms.date: 10/04/2018
 ms.author: alkohli
-ms.openlocfilehash: 514b2a026ea34f4bd82f13ebc73c09f71637ce30
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: fe15167a5e88dbc9a97383c9a074a32c91f4219a
+ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46978361"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48784646"
 ---
 # <a name="quickstart-deploy-azure-data-box-using-the-azure-portal"></a>Hızlı başlangıç: Azure portalını kullanarak Azure Data Box'ı dağıtma
 
@@ -35,6 +35,7 @@ Başlamadan önce:
     - Microsoft Kurumsal Anlaşma (EA). [EA abonelikleri](https://azure.microsoft.com/pricing/enterprise-agreement/) hakkındaki yazıları okuyun.
     - Bulut Çözümü Sağlayıcısı (CSP). [Azure CSP programı](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-overview) hakkında daha fazla bilgi edinin.
     - Tüketim - Kullandıkça öde. Azure [Kullandıkça öde abonelikleri](https://azure.microsoft.com/offers/ms-azr-0003p/) hakkında daha fazla bilgi edinin.
+    - Microsoft Azure Sponsorluğu. [Azure sponsorluğu programı](https://azure.microsoft.com/en-in/offers/ms-azr-0036p/) hakkında daha fazla bilgi edinin. 
 
 - Data Box siparişi oluşturmak için, abonelik üzerinde sahip veya katkıda bulunan erişimine sahip olduğunuzdan emin olun.
 - [Data Box'ınızın güvenlik yönergelerini](data-box-safety.md) gözden geçirin.
@@ -42,7 +43,7 @@ Başlamadan önce:
     - [Desteklenen bir işletim sistemi](data-box-system-requirements.md) çalıştırılmalıdır.
     - Yüksek hızlı ağa bağlısınız. En az bir adet 10 GbE bağlantınızın olması önemle tavsiye edilir. 10 GbE bağlantı yoksa, 1 GbE veri bağlantısı kullanılabilir ancak kopyalama hızı etkilenir. 
 - Data Box’ı yerleştirebileceğiniz düz bir yüzeye erişiminiz olmalıdır. Cihazı standart bir rafa yerleştirmek istiyorsanız, veri merkezi rafınızda bir 7U yuvası olmalıdır. Cihazı düz veya dik şekilde rafa yerleştirebilirsiniz.
-- Data Box'ınızı konak bilgisayarına bağlamak için aşağıdaki kabloları sağladınız.
+- Data Box'ınızı ana bilgisayara bağlamak için aşağıdaki kabloları temin ettiniz.
     - İki adet 10 GbE SFP+ Twinax bakır kablo (DATA 1, DATA 2 ağ arabirimleri ile kullanın)
     - Bir RJ-45 CAT 6 ağ kablosu (MGMT ağ arabirimi ile kullanın)
     - Bir RJ-45 CAT 6A VEYA bir RJ-45 CAT 6 ağ kablosu (sırasıyla 10 Gb/sn veya 1 Gb/sn olarak yapılandırılmış DATA 3 ağ arabirimi ile birlikte kullanın)

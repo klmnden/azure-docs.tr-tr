@@ -1,64 +1,64 @@
 ---
-title: Yüz tanıma API'si C# Öğreticisi | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: Bilişsel hizmetler yüz tanıma API'si bir resimdeki yüz özelliklerinin algılamak için kullanan basit bir Windows uygulaması oluşturun.
+title: 'Öğretici: Yüz Tanıma API’si C#'
+titleSuffix: Azure Cognitive Services
+description: Bir görüntüdeki yüzlerin özelliklerini algılamak için Bilişsel Hizmetler Yüz Tanıma API’sini kullanan basit bir Windows uygulaması oluşturun.
 services: cognitive-services
 author: ghogen
-manager: douge
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: face-api
-ms.topic: conceptual
+ms.topic: tutorial
 ms.date: 05/07/2018
 ms.author: ghogen
-ms.openlocfilehash: b51760f889db27aa25e54582070ee7d3adcf66f8
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
-ms.translationtype: MT
+ms.openlocfilehash: 70414674e563cf3703d2cf3ebc57f09afcdf2691
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38665244"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46129531"
 ---
-# <a name="connecting-to-cognitive-services-face-api-by-using-connected-services-in-visual-studio"></a>Bilişsel hizmetler yüz tanıma API'si, Visual Studio bağlı Hizmetler'i kullanarak bağlanma
+# <a name="connecting-to-cognitive-services-face-api-by-using-connected-services-in-visual-studio"></a>Visual Studio’da Bağlı Hizmetler’i kullanarak Bilişsel Hizmetler Yüz Tanıma API’sine bağlanma
 
-Bilişsel hizmetler yüz tanıma API'sini kullanarak algılayan, analiz, düzenlemek ve fotoğraflardaki yüzleri etiketi.
+Bilişsel Hizmetler Yüz Tanıma API’sini kullanarak, fotoğraflardaki yüzleri algılayabilir, analiz edebilir, düzenleyebilir ve etiketleyebilirsiniz.
 
-Bu makalede ve yardımcı makaleleri için Bilişsel hizmetler yüz tanıma API'si Visual Studio bağlı hizmeti özelliğini kullanarak için ayrıntıları sağlayın. Özellik, her iki Visual Studio 2017 15.7 veya sonraki sürümlerinde, Bilişsel hizmetler uzantısı yüklü yöneliktir.
+Bu makalede ve beraberindeki destek makalelerinde, Bilişsel Hizmetler Yüz Tanıma API’si için Visual Studio Bağlı Hizmet özelliğinin kullanımına ilişkin ayrıntılar sağlanmaktadır. Özellik, Bilişsel Hizmetler uzantısının yüklendiği Visual Studio 2017 15.7 ve sonraki sürümlerde mevcuttur.
 
-## <a name="prerequisites"></a>Önkoşullar
+## <a name="prerequisites"></a>Ön koşullar
 
 - **Bir Azure aboneliği**. Bir aboneliğiniz yoksa [ücretsiz hesap](https://azure.microsoft.com/pricing/free-trial/) için kaydolabilirsiniz.
-- **Visual Studio 2017 sürüm 15.7** ile **Web geliştirme** iş yükü yüklenmiş. [Hemen indirin](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs).
+- **Web Geliştirme** iş yükünün yüklendiği **Visual Studio 2017 sürüm 15.7**. [Şimdi indir](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs).
 
 [!INCLUDE [vs-install-cognitive-services-vsix](../../../includes/vs-install-cognitive-services-vsix.md)]
 
-## <a name="create-a-project-and-add-support-for-cognitive-services-face-api"></a>Proje oluşturma ve Bilişsel hizmetler yüz tanıma API'si için destek eklendi
+## <a name="create-a-project-and-add-support-for-cognitive-services-face-api"></a>Proje oluşturma ve Bilişsel hizmetler Yüz Tanıma API’si için destek ekleme
 
-1. Yeni bir ASP.NET Core web projesi oluşturun. Boş proje şablonu kullanın. 
+1. Yeni bir ASP.NET Core web projesi oluşturun. Boş proje şablonunu kullanın. 
 
-1. İçinde **Çözüm Gezgini**, seçin **Ekle** > **bağlı hizmet**.
-   Projenize eklediğiniz Hizmetleri ile bağlı hizmet sayfasında görünür.
+1. **Çözüm Gezgini**’nde **Ekle** > **Bağlı Hizmet** seçeneklerini belirleyin.
+   Projenize ekleyebileceğiniz hizmetlerle birlikte Bağlı Hizmet sayfası görüntülenir.
 
-   ![Bağlı hizmet menü öğesi ekleme](./media/vs-face-connected-service/Connected-Service-Menu.PNG)
+   ![Bağlı Hizmet Ekle menü öğesi](./media/vs-face-connected-service/Connected-Service-Menu.PNG)
 
-1. Kullanılabilir hizmetler menüsünde **Bilişsel hizmetler yüz tanıma API'si**.
+1. Kullanılabilir hizmetler menüsünde **Bilişsel Hizmetler Yüz Tanıma API**’sini seçin.
 
-   ![Bağlanmak için bir hizmet seçin](./media/vs-face-connected-service/Cog-Face-Connected-Service-0.PNG)
+   ![Bağlanılacak hizmeti seçme](./media/vs-face-connected-service/Cog-Face-Connected-Service-0.PNG)
 
-   Visual Studio'da oturum açıldıktan ve hesabınızla ilişkili bir Azure aboneliğiniz varsa, aboneliklerinizin ile bir açılan listedeki bir sayfa görünür.
+   Visual Studio’da oturum açtıysanız ve hesabınızla ilişkili bir Azure aboneliğiniz varsa, aboneliklerinizi içeren bir açılır listenin yer aldığı bir sayfa görüntülenir.
 
    ![Aboneliğinizi seçme](media/vs-face-connected-service/Cog-Face-Connected-Service-1.PNG)
 
-1. Yüz tanıma API'si için bir ad seçin ve istediğiniz aboneliği seçin veya otomatik olarak oluşturulan adı değiştirmek, kaynak grubunu ve fiyatlandırma katmanı seçin düzenleme bağlantısını seçin.
+1. Kullanmak istediğiniz aboneliği seçin ve sonra Yüz Tanıma API’si için bir ad seçin veya otomatik olarak oluşturulan adı değiştirmek için Düzenle bağlantısını seçin, kaynak grubunu ve Fiyatlandırma Katmanını seçin.
 
-   ![Bağlı hizmet ayrıntılarını Düzenle](media/vs-face-connected-service/Cog-Face-Connected-Service-2.PNG)
+   ![Bağlı hizmet ayrıntılarını düzenleme](media/vs-face-connected-service/Cog-Face-Connected-Service-2.PNG)
 
-   Fiyatlandırma katmanları hakkında ayrıntıları bağlantısını izleyin.
+   Fiyatlandırma katmanları ile ilgili ayrıntılar için bağlantıyı izleyin.
 
-1. Desteklenen için bağlı hizmet eklemek için Ekle'yi seçin.
-   Visual Studio projenizin NuGet paketlerini, yapılandırma dosyası girdisi ve bir bağlantı yüz tanıma API'sini destekleyen diğer değişiklikler eklemek için değiştirir.
+1. Ekle’yi seçerek, Bağlı Hizmet için destek ekleyin.
+   Visual Studio; Yüz Tanıma API’si bağlantısını desteklemek üzere NuGet paketlerini, yapılandırma dosyası girdilerini ve diğer değişiklikleri eklemek için projenizi değiştirir.
 
-## <a name="use-the-face-api-to-detect-attributes-of-faces-in-an-image"></a>Yüz tanıma API'si bir resimdeki yüz öznitelikleri algılamak için kullanın
+## <a name="use-the-face-api-to-detect-attributes-of-faces-in-an-image"></a>Bir görüntüdeki yüzlerin özniteliklerini algılamak için Yüz Tanıma API’sini kullanma
 
-1. Aşağıdaki using deyimlerini Startup.cs içinde.
+1. Startup.cs’de deyimleri kullanarak aşağıdakileri ekleyin:
  
    ```csharp
    using System.IO;
@@ -68,7 +68,7 @@ Bu makalede ve yardımcı makaleleri için Bilişsel hizmetler yüz tanıma API'
    using System.Net.Http.Headers;
    ```
  
-1. Yapılandırma alanı ekleyin ve başlangıç sınıfı programınızda yapılandırmasını etkinleştirmek için yapılandırma alanı başlatan bir oluşturucu ekleyin.
+1. Bir yapılandırma alanı ekleyin ve Başlangıç sınıfında yapılandırma alanını başlatan bir oluşturucu ekleyerek programınızda Yapılandırmayı etkinleştirin.
 
    ```csharp
       private IConfiguration configuration;
@@ -79,15 +79,15 @@ Bu makalede ve yardımcı makaleleri için Bilişsel hizmetler yüz tanıma API'
       }
    ```
 
-1. Wwwroot klasörü, projenizdeki bir görüntü klasörü Ekle ve, wwwroot klasörü için bir resim dosyası ekleyin. Örneğin, görüntülerden birini bu kullanabileceğiniz [yüz tanıma API'si sayfa](https://azure.microsoft.com/services/cognitive-services/face/). Sağ görüntülerden birini tıklayın, kaydetme, yerel sabit diske ve ardından Çözüm Gezgini'nde, görüntü klasörü, choosee sağ tıklayıp **Ekle** > **var olan öğe** projenize eklemek için. Çözüm Gezgini'nde projenize aşağıdakine benzer görünmelidir:
+1. Projenizdeki wwwroot klasörüne bir görüntüler klasörü ekleyin ve wwwroot klasörünüz için bir görüntü dosyası ekleyin. Örneğin, bu [Yüz Tanıma API’si sayfasındaki](https://azure.microsoft.com/services/cognitive-services/face/) görüntülerden birini kullanabilirsiniz. Görüntülerden birine sağ tıklayın, yerel sabit sürücünüze kaydedin, ardından Çözüm Gezgini’nde görüntüler klasörüne sağ tıklayıp **Ekle** > **Mevcut Öğe** seçeneklerini belirleyerek öğeyi projenize ekleyin. Projeniz Çözüm Gezgini’nde aşağıdakine benzer şekilde görünmelidir:
  
-   ![Resimler klasöründeki ile görüntü dosyası](media/vs-face-connected-service/Cog-Face-Connected-Service-6.PNG)
+   ![görüntü dosyasını içeren görüntüler klasörü](media/vs-face-connected-service/Cog-Face-Connected-Service-6.PNG)
 
-1. Görüntü dosyasını sağ tıklayın, Özellikler'i seçin ve ardından **yeniyse Kopyala**.
+1. Görüntü dosyasına sağ tıklayın, Özellikler’i seçin ve ardından **Yeniyse kopyala** seçeneğini belirleyin.
 
-   ![Yeniyse Kopyala](media/vs-face-connected-service/Cog-Face-Connected-Service-5.PNG)
+   ![Yeniyse kopyala](media/vs-face-connected-service/Cog-Face-Connected-Service-5.PNG)
  
-1. Yapılandırma yöntemi, yüz tanıma API'si erişim ve görüntü test etmek için aşağıdaki kod ile değiştirin. Doğru yolu ve dosya adı için yüz görüntünüzü ImagePath dizesini değiştirin.
+1. Yüz Tanıma API’sine erişmek ve bir görüntüyü test etmek için aşağıdaki kod ile Yapılandırma yöntemini değiştirin. imagePath dizesini, yüzünüzün görüntüsü için doğru yol ve dosya adı ile değiştirin.
 
    ```csharp
     // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -147,9 +147,9 @@ Bu makalede ve yardımcı makaleleri için Bilişsel hizmetler yüz tanıma API'
             });
         }
    ```
-    Bu adımda kod bağlı hizmet eklendiğinde, eklenen anahtar kullanılarak yüz REST API çağrısı ile bir HTTP isteği oluşturur.
+    Bu adımdaki kod, bağlı hizmeti eklerken eklediğiniz anahtarı kullanarak Yüz Tanıma REST API’sine yapılan çağrı ile bir HTTP isteği oluşturur.
 
-1. Yardımcı işlevleri GetImageAsByteArray ve JsonPrettyPrint ekleyin.
+1. GetImageAsByteArray ve JsonPrettyPrint yardımcı işlevlerini ekleyin.
 
    ```csharp
         /// <summary>
@@ -231,13 +231,13 @@ Bu makalede ve yardımcı makaleleri için Bilişsel hizmetler yüz tanıma API'
         }
    ```
 
-1. Web uygulamasını çalıştırmak ve görüntüde yüz tanıma API'si bulduğu bakın.
+1. Web uygulamasını çalıştırın ve görüntüde hangi Yüz Tanıma API’sinin bulunduğunu görün.
  
-   ![Yüz tanıma API'si görüntü ve biçimlendirilmiş sonuç](media/vs-face-connected-service/Cog-Face-Connected-Service-4.PNG)
+   ![Yüz Tanıma API’si görüntü ve biçimlendirilmiş sonuçlar](media/vs-face-connected-service/Cog-Face-Connected-Service-4.PNG)
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 
-Artık gerekli olmadığında kaynak grubunu silin. Bu bilişsel hizmet ve ilişkili kaynakları siler. Kaynak grubunu portal aracılığıyla silmek için:
+Artık gerekli değilse kaynak grubunu silin. Böylece bilişsel hizmet ve ilgili kaynaklar silinir. Kaynak grubunu portal aracılığıyla silmek için:
 
 1. Portalın üst kısmındaki Arama kutusuna kaynak grubunuzun adını girin. Bu Hızlı Başlangıçta kullanılan kaynak grubunu arama sonuçlarında gördüğünüzde seçin.
 1. **Kaynak grubunu sil**'i seçin.
@@ -245,4 +245,4 @@ Artık gerekli olmadığında kaynak grubunu silin. Bu bilişsel hizmet ve iliş
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Yüz tanıma API'si hakkında daha fazla bilgi edinmek [yüz tanıma API'si belgeleri](Overview.md).
+[Yüz Tanıma API’si Belgeleri](Overview.md)’ni okuyarak Yüz Tanıma API’si hakkında daha fazla bilgi edinin.

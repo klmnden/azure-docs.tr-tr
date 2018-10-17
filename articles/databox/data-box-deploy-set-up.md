@@ -1,6 +1,6 @@
 ---
 title: Azure Data Box’ı ayarlama| Microsoft Docs
-description: Azure Data Box'ınızın yazılım ve ağ gereksinimleri hakkında bilgi edinin
+description: Azure Data Box’ınız için kabloları bağlamayı ve bağlanmayı öğrenin
 services: databox
 documentationcenter: NA
 author: alkohli
@@ -12,14 +12,14 @@ ms.devlang: NA
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/24/2018
+ms.date: 10/03/2018
 ms.author: alkohli
-ms.openlocfilehash: 6623744a26d79ccbc8b68ba84baf3a37024e0ed7
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: f9671e3acdb71affe2187258582254561785780e
+ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46952316"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48785647"
 ---
 # <a name="tutorial-cable-and-connect-to-your-azure-data-box"></a>Öğretici: Azure Data Box’ınız için kabloları bağlama ve bağlanma
 
@@ -36,7 +36,7 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 Başlamadan önce aşağıdakilerden emin olun:
 
 1. [Öğretici: Azure Data Box sipariş etme](data-box-deploy-ordered.md) konusunu tamamladınız.
-2. Data Box’ınızı teslim aldınız ve portaldaki sipariş durumu **Teslim Edildi** oldu. 
+2. Data Box’ınızı teslim aldınız ve portaldaki sipariş durumu **Teslim Edildi** oldu. Cihazın üzerindeki etiketin altındaki şeffaf bölüme yerleştirilmiş bir sevkiyat etiketi vardır. Bu etiketi iade için kullanmak üzere saklayın.
 3. [Data Box güvenlik yönergelerini](data-box-safety.md) gözden geçirdiniz.
 4. 100 TB depolama cihazınızla birlikte kullanılacak bir topraklanmış güç kablosu aldınız.
 5. Data Box üzerinden kopyalamak istediğiniz verileri içeren bir ana bilgisayarınız var. Ana bilgisayarınız:

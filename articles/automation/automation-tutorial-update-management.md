@@ -6,15 +6,15 @@ author: zjalexander
 ms.service: automation
 ms.component: update-management
 ms.topic: tutorial
-ms.date: 08/29/2018
+ms.date: 09/18/2018
 ms.author: zachal
 ms.custom: mvc
-ms.openlocfilehash: 8458aaee9f8d328d959fb47fb3e32af176d545b1
-ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
+ms.openlocfilehash: 4d504e0488d35c5c606468faa35bece1318503b4
+ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43247377"
+ms.lasthandoff: 09/20/2018
+ms.locfileid: "46498530"
 ---
 # <a name="manage-windows-updates-by-using-azure-automation"></a>Azure Otomasyonu'nu kullanarak Windows güncelleştirmelerini yönetme
 
@@ -158,6 +158,8 @@ Yeni bir VM güncelleştirme dağıtımı zamanlamak için **Güncelleştirme y�
 
 * **İşletim sistemi**: Güncelleştirme dağıtımı için hedeflenecek işletim sistemini seçin.
 
+* **Güncelleştirilecek gruplar (önizleme)**: Dağıtımınıza dahil edilecek Azure sanal makinelerinin dinamik grubunu derlemek için bir abonelik, kaynak grupları, konumlar ve etiketler birleşimine göre bir sorgu tanımlayın. Daha fazla bilgi edinmek için bkz. [Dinamik Gruplar](automation-update-management.md#using-dynamic-groups)
+
 * **Güncelleştirilecek makineler**: Kayıtlı bir aramayı veya İçeri aktarılan grubu seçin veya açılan menüden Makine'yi seçerek belirli makineleri seçin. **Makineler**'i seçerseniz makinenin hazır olma durumu **GÜNCELLEŞTİRME ARACISI HAZIRLIĞI** sütununda gösterilir. Log Analytics'te bilgisayar grupları oluşturmaya yönelik farklı yöntemler hakkında bilgi edinmek için bkz. [Computer groups in Log Analytics (Log Analytics'te bilgisayar grupları)](../log-analytics/log-analytics-computer-groups.md)
 
 * **Güncelleştirme sınıflandırması**: Güncelleştirme dağıtımının dağıtıma dahil olan yazılım türlerini seçin. Bu öğreticide tüm türleri seçili halde bırakın.
@@ -171,10 +173,13 @@ Yeni bir VM güncelleştirme dağıtımı zamanlamak için **Güncelleştirme y�
 
    Sınıflandırma türlerinin açıklaması için bkz. [sınıflandırmaları güncelleştirme](automation-update-management.md#update-classifications).
 
+* **Dahil edilecek/dışlanacak güncelleştirmeler** - Böylece **Dahil Et / Dışla** sayfası açılır. Dahil edilecek veya dışlanacak güncelleştirmeler ayrı sekmelerdedir. Dahil etmenin nasıl işleneceği hakkında ek bilgi için bkz. [dahil etme davranışı](automation-update-management.md#inclusion-behavior)
+
 * **Zamanlama ayarları**: **Zamanlama Ayarları** bölmesi açılır. Varsayılan başlangıç zamanı, geçerli zamandan 30 dakika sonradır. Başlangıç zamanını en düşük 10 dakika olmak üzere istediğiniz değere ayarlayabilirsiniz.
 
    Ayrıca, dağıtımın bir kez gerçekleşeceğini belirtebilir veya yinelenen bir zamanlama ayarlayabilirsiniz. **Yinelenme** bölümünde **Bir Kez**'i seçin. Varsayılan 1 gün değerini bırakın ve **Tamam**'ı seçin. Yinelenen bir zamanlama oluşturulur.
 
+* **Ön betikler + Son betikler**: Dağıtımınızdan önce ve sonra çalıştırılacak betikleri seçin. Daha fazla bilgi için bkz. [Ön ve Son betikleri yönetme](pre-post-scripts.md).
 * **Bakım penceresi (dakika)**: Varsayılan değeri bırakın. Güncelleştirme dağıtımının gerçekleşmesini istediğiniz zaman aralığını belirtebilirsiniz. Bu ayar, değişikliklerin sizin tanımladığınız hizmet pencereleri içinde gerçekleştirilmesini sağlar.
 
 * **Yeniden başlatma seçenekleri**: Bu ayar, yeniden başlatma işlemlerinin nasıl gerçekleştirileceğini belirler. Kullanılabilen seçenekler:

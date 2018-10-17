@@ -1,24 +1,25 @@
 ---
-title: Bing görüntü arama tek sayfalı web uygulaması (kaynak kodu) | Microsoft Docs
-description: Bir tek sayfalı Web uygulamasında Bing görüntü arama API kullanmayı gösteren öğretici için kaynak kod.
+title: 'Öğretici: Bing Varlık Arama tek sayfalı web uygulaması (kaynak kodu)'
+titlesuffix: Azure Cognitive Services
+description: Tek sayfalı bir Web uygulamasında Bing Varlık Arama API'sini kullanmayı gösteren öğreticinin kaynak kodu.
 services: cognitive-services
 author: v-jerkin
-manager: ehansen
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-entity-search
-ms.topic: article
+ms.topic: tutorial
 ms.date: 10/04/2017
 ms.author: v-jerkin
-ms.openlocfilehash: 988d4c809fdfb528c9cef2b3cdbefa00c274d33e
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
-ms.translationtype: MT
+ms.openlocfilehash: 09cb10002be43d65ff10e3c238a880cf138aa064
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35351599"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48815061"
 ---
-# <a name="tutorial-single-page-web-app-source"></a>Öğretici: Tek sayfalı web uygulama kaynağı
+# <a name="tutorial-single-page-web-app-source"></a>Öğretici: Tek sayfalı web uygulaması kaynağı
 
-Bu konu ele tam kaynak kodu [tek sayfa uygulaması Öğreticisi](tutorial-bing-entities-search-single-page-app.md) Bing görüntü arama için. Uygulamayı çalıştırmak için Not Defteri veya başka bir metin düzenleyicisi kaynak kodunu kopyalayın ve kaydedileceği `bing.html`. Ardından Microsoft Edge veya başka bir popüler tarayıcı kaydedilmiş dosyasını açın.
+Bing Varlık Arama için [tek sayfalı uygulama öğreticisinin](tutorial-bing-entities-search-single-page-app.md) eksiksiz kaynak kodudur. Uygulamayı çalıştırmak için kaynak kodu Not Defteri'ne veya başka bir metin düzenleyiciye kopyalayın ve `bing.html` olarak kaydedin. Daha sonra kaydedilen dosyayı Microsoft Edge'de veya yaygın olarak kullanılan başka bir tarayıcıda açın.
 
 ```html
 <!DOCTYPE html>

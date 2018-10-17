@@ -1,42 +1,44 @@
 ---
-title: Duygu tanıma API'si JavaScript hızlı başlangıç | Microsoft Docs
-description: Hızlı bir şekilde yardımcı olmak için bilgi ve kod örnekleri get, Bilişsel hizmetler JavaScript'te duygu tanıma API'sini kullanmaya başlayın.
+title: "Hızlı başlangıç: Bir görüntüdeki yüzlerin duygularını tanıma - Duygu Tanıma API'si, JavaScript"
+titlesuffix: Azure Cognitive Services
+description: JavaScript ile Duygu Tanıma API'sini kullanmaya başlamanıza yardımcı olacak bilgiler ve kod örnekleri edinin.
 services: cognitive-services
 author: anrothMSFT
-manager: corncar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: emotion-api
-ms.topic: article
+ms.topic: quickstart
 ms.date: 05/23/2017
 ms.author: anroth
-ms.openlocfilehash: fb9cc2335582c4ec75ec45635e519346d65d7e08
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
-ms.translationtype: MT
+ROBOTS: NOINDEX
+ms.openlocfilehash: eeaf2ea080d8c0b604b9831532028e31b8306169
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39072101"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48239498"
 ---
-# <a name="emotion-api-javascript-quick-start"></a>Duygu tanıma API'si JavaScript hızlı başlangıç
+# <a name="quickstart-build-an-app-to-recognize-emotions-on-faces-in-an-image"></a>Hızlı başlangıç: Bir görüntüdeki yüzlerin duygularını tanımak için bir uygulama oluşturma.
 
 > [!IMPORTANT]
-> Video API'si önizlemesi 30 Ekim 2017 tarihinde sona erecek. Yeni deneyin [Video Indexer API önizlemesi](https://azure.microsoft.com/services/cognitive-services/video-indexer/) kolayca videolardan içgörüleri ayıklayın ve konuşulan sözcükleri, yüzleri, karakterleri ve duyguları algılayarak arama sonuçları gibi içerik keşif deneyimlerini geliştirin. [Daha fazla bilgi edinin](https://docs.microsoft.com/azure/cognitive-services/video-indexer/video-indexer-overview).
+> Duygu Tanıma API'si 15 Şubat 2019 tarihinde kullanım dışı bırakılacaktır. Duygu tanıma özelliği [Yüz Tanıma API'sinin](https://docs.microsoft.com/azure/cognitive-services/face/) bir parçası olarak genel kullanıma sunulmuştur. 
 
-Bu makalede bilgiler ve kod örnekleri, hızlı bir şekilde yardımcı olması için kullanmaya başlama [duygu tanıma API'si yöntemi](https://westus.dev.cognitive.microsoft.com/docs/services/5639d931ca73072154c1ce89/operations/563b31ea778daf121cc3a5fa) görüntüyü bir veya daha fazla insana ile ifade edilen duyguları tanıma için JavaScript ile.
+Bu makalede bir görüntüdeki bir veya daha fazla kişinin duygularını tanımak için JavaScript ile [Duygu Tanıma API'si Recognize metodunu](https://westus.dev.cognitive.microsoft.com/docs/services/5639d931ca73072154c1ce89/operations/563b31ea778daf121cc3a5fa) kullanmaya başlamanıza yardımcı olacak bilgiler ve kod örnekleri bulunmaktadır.
 
 ## <a name="prerequisite"></a>Önkoşul
-* Ücretsiz abonelik anahtarınızı alın [burada](https://azure.microsoft.com/try/cognitive-services/), veya bir Azure aboneliğiniz varsa bir duygu tanıma API'si kaynağı oluşturun ve abonelik anahtarını ve uç nokta var. alın.
+* [Buradan](https://azure.microsoft.com/try/cognitive-services/) ücretsiz Abonelik Anahtarınızı alın veya Azure Aboneliğiniz varsa bir Duygu Tanıma API'si kaynağı oluşturun ve oradaki Abonelik Anahtarı ile Uç Nokta değerlerini alın.
 
-![Duygu tanıma API kaynağı oluşturun](../Images/create-resource.png)
+![Duygu Tanıma API'si Kaynağı Oluşturma](../Images/create-resource.png)
 
-## <a name="recognize-emotions-javascript-example-request"></a>JavaScript örnek istek duyguları tanıma
+## <a name="recognize-emotions-javascript-example-request"></a>Duygu Tanıma JavaScript Örnek İsteği
 
-Gibi bir dosyaya kaydedin ve aşağıdakini kopyalayın `test.html`. Değişiklik isteği `url` burada elde ettiğiniz abonelik anahtarlarınızın konumunu ve "Ocp-Apim-Subscription-Key" değeri geçerli bir abonelik anahtarınız ile değiştirin. Bunlar Azure portalındaki kaynağınızın duygu tanıma API'si genel bakış ve anahtarları bölümlerindeki sırasıyla bulunabilir. 
+Aşağıdakini kopyalayın ve `test.html` gibi bir dosyaya kaydedin. `url` isteğini abonelik anahtarlarınızı aldığınız konumu kullanacak şekilde değiştirin ve "Ocp-Apim-Subscription-Key" değerinin yerine geçerli abonelik anahtarınızı yazın. Bu anahtarlara Azure portalda Duygu Tanıma API'si kaynağınızın Genel Bakış ve Anahtarlar bölümlerinden ulaşabilirsiniz.
 
-![API uç noktası](../Images/api-url.png)
+![API Uç Noktası](../Images/api-url.png)
 
-![API abonelik anahtarı](../Images/keys.png)
+![API Abonelik Anahtarı](../Images/keys.png)
 
-İstek gövdesi, kullanmak istediğiniz görüntüyü konumuyla değiştirin. Sürükle ve bırak örnek tarayıcınıza dosyayı çalıştırmak için.
+İstek gövdesini kullanmak istediğiniz görüntünün konumuyla değiştirin. Örneği çalıştırmak için dosyayı tarayıcınıza sürükleyin ve bırakın.
 
 ```html
 <!DOCTYPE html>
@@ -62,10 +64,10 @@ Gibi bir dosyaya kaydedin ve aşağıdakini kopyalayın `test.html`. Değişikli
     $(function() {
         // No query string parameters for this API call.
         var params = { };
-      
+
         $.ajax({
             // NOTE: You must use the same location in your REST call as you used to obtain your subscription keys.
-            //   For example, if you obtained your subscription keys from westcentralus, replace "westus" in the 
+            //   For example, if you obtained your subscription keys from westcentralus, replace "westus" in the
             //   URL below with "westcentralus".
             url: "https://westus.api.cognitive.microsoft.com/emotion/v1.0/recognize?" + $.param(params),
             beforeSend: function(xhrObj){
@@ -87,7 +89,7 @@ Gibi bir dosyaya kaydedin ve aşağıdakini kopyalayın `test.html`. Değişikli
             for (var prop in faceRectangle) {
                 faceRectangleList.append("<li> " + prop + ": " + faceRectangle[prop] + "</li>");
             }
-            
+
             // Get emotion confidence scores
             var scores = data[0].scores;
             var scoresList = $('#scores');
@@ -105,13 +107,13 @@ Gibi bir dosyaya kaydedin ve aşağıdakini kopyalayın `test.html`. Değişikli
 </html>
 ```
 
-## <a name="recognize-emotions-sample-response"></a>Örnek yanıt duyguları tanıma
-Başarılı bir çağrı, yüz tanıma girişleri dizisi ve yüz dikdörtgeni boyutu azalan düzende sıralanmış ilişkili duygu tanıma puanlarını döndürür. Boş bir yanıt yok yüzleri algılandığını gösterir. Duygu tanıma girdiyi aşağıdaki alanları içerir:
-* faceRectangle - resimdeki yüz dikdörtgeni konumu.
-* puanları - duygu tanıma puanları resimdeki her yüz için. 
+## <a name="recognize-emotions-sample-response"></a>Duygu Tanıma Örneği Yanıtı
+Başarılı bir çağrı, yüz dikdörtgenine göre büyükten küçüğe doğru sıralanmış şekilde yüz girişlerinden ve ilgili duygu puanlarından oluşan bir dizi döndürür. Yanıtın boş olması hiç yüz algılanmadığını gösterir. Duygu girişi aşağıdaki alanları içerir:
+* faceRectangle - Dikdörtgen şeklinde yüzün görüntü içindeki konumu.
+* scores - Görüntüdeki her bir yüzün duygu puanı.
 
 ```json
-application/json 
+application/json
 [
   {
     "faceRectangle": {

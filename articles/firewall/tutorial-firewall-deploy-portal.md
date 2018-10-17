@@ -6,15 +6,15 @@ author: vhorne
 manager: jpconnock
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 09/24/2018
+ms.date: 10/5/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: ff8df51011ef664950ecfeb9eef0b201306c8ad5
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 8fb459d197c15cf7760a924c7161fed59cc1caac
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47221677"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48801888"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-using-the-azure-portal"></a>Öğretici: Azure portalı kullanarak Azure Güvenlik Duvarı'nı dağıtma ve yapılandırma
 
@@ -186,6 +186,10 @@ Srv-Work sanal makinesinin **Ayarlar** sayfasını yapılandırmak için aşağ�
 10. **Alt ağlar**’a ve ardından **İlişkilendir**’e tıklayın.
 11. **Sanal ağlar**'a tıklayın ve ardından **Test-FW-VN** girişini seçin.
 12. **Alt ağ** bölümünde **Workload-SN** girişine tıklayın.
+
+    > [!IMPORTANT]
+    > Bu rota için yalnızca **Workload-SN** alt ağını seçtiğinizden emin olun. Aksi takdirde güvenlik duvarınız düzgün çalışmaz.
+
 13. **Tamam** düğmesine tıklayın.
 14. **Rotalar**'a ve ardından **Ekle**'ye tıklayın.
 15. **Rota adı** alanına **FW-DG** yazın.
@@ -193,8 +197,8 @@ Srv-Work sanal makinesinin **Ayarlar** sayfasını yapılandırmak için aşağ�
 17. **Sonraki atlama türü** için **Sanal gereç**'i seçin.
 
     Azure Güvenlik Duvarı, normalde yönetilen bir hizmettir ancak bu durumda sanal gereç kullanılabilir.
-1. **Sonraki atlama adresi** alanına önceden not ettiğiniz güvenlik duvarı özel IP adresini yazın.
-2. **Tamam** düğmesine tıklayın.
+18. **Sonraki atlama adresi** alanına önceden not ettiğiniz güvenlik duvarı özel IP adresini yazın.
+19. **Tamam** düğmesine tıklayın.
 
 
 ## <a name="configure-application-rules"></a>Uygulama kurallarını yapılandırma

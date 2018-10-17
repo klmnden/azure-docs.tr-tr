@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 11/28/2017
 ms.author: sngun
-ms.openlocfilehash: 905815259707116759e0b980690fac108ab81c7b
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: 8614bf7009afab8c005d2ffb8b1a78f3694d2af7
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43186839"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48247518"
 ---
 # <a name="migrate-your-data-to-azure-cosmos-db-table-api-account"></a>Verilerinizi Azure Cosmos DB Tablo API'si hesabına geçirme
 
@@ -30,7 +30,9 @@ Bu öğretici aşağıdaki görevleri kapsar:
 
 ## <a name="prerequisites"></a>Ön koşullar
 
-* Aktarım hızını artırma: Veri geçişinizin süresi, tek bir kapsayıcı veya bir kapsayıcı kümesi için ayarladığınız aktarım hızı miktarına bağlıdır. Büyük veri geçişleri için aktarım hızını artırdığınızdan emin olun. Geçişi tamamladıktan sonra maliyet tasarrufu sağlamak için aktarım hızını azaltın. Azure portalda aktarım hızını artırma hakkında daha fazla bilgi için bkz. Azure Cosmos DB’de performans düzeyleri ve fiyatlandırma katmanları.
+* **Aktarım hızını artırma:** Veri geçişinizin süresi, tek bir kapsayıcı veya bir kapsayıcı kümesi için ayarladığınız aktarım hızı miktarına bağlıdır. Büyük veri geçişleri için aktarım hızını artırdığınızdan emin olun. Geçişi tamamladıktan sonra maliyet tasarrufu sağlamak için aktarım hızını azaltın. Azure portalda aktarım hızını artırma hakkında daha fazla bilgi için bkz. Azure Cosmos DB’de performans düzeyleri ve fiyatlandırma katmanları.
+
+* **Azure Cosmos DB kaynaklarını oluşturma:** Veri geçişini başlatmadan önce Azure portaldan tüm tablolarınızı oluşturun. Veritabanı düzeyinde aktarım hızına sahip olan bir Azure Cosmos DB hesabına geçiş yapıyorsanız Azure Cosmos DB tablolarını oluştururken bölüm anahtarı girdiğinizden emin olun.
 
 ## <a name="data-migration-tool"></a>Veri Taşıma aracı
 

@@ -1,44 +1,48 @@
 ---
-title: Görüntü İşleme API'si C# hızlı başlangıç el yazısı metni | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: Bu hızlı başlangıçta, Bilişsel Hizmetler’de C# ile Görüntü İşleme kullanarak bir görüntüden el yazısı metni ayıklayacaksınız.
+title: 'Hızlı Başlangıç: El yazısı metni ayıklama - REST, C# - Görüntü İşleme'
+titleSuffix: Azure Cognitive Services
+description: Bu hızlı başlangıçta, C# ile Görüntü İşleme API’sini kullanarak bir görüntüden el yazısı metni ayıklayacaksınız.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
-ms.date: 08/28/2018
+ms.date: 09/10/2018
 ms.author: v-deken
-ms.openlocfilehash: 22836f3406f85a68322c7a8bae2a15cd897294e2
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: bf7eae1bc7d0b0db1eaa37b2ab84dc21ef9712b7
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43772643"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45628584"
 ---
-# <a name="quickstart-extract-handwritten-text---rest-c35"></a>Hızlı Başlangıç: El yazısı metin ayıklama - REST, C#
+# <a name="quickstart-extract-handwritten-text-using-the-rest-api-and-c35-in-computer-vision"></a>Hızlı Başlangıç: Görüntü İşleme’de REST API ve C# kullanarak el yazısı metni ayıklama
 
-Bu hızlı başlangıçta, Görüntü İşleme kullanarak bir görüntüden el yazısı metni ayıklayacaksınız.
+Bu hızlı başlangıçta, Görüntü İşleme’nin REST API’sini kullanarak bir görüntüden el yazısı metni ayıklayacaksınız. [Metin Tanıma](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2c6a154055056008f200) ve [Metin Tanıma İşlemi Sonucunu Alma](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2cf1154055056008f201) yöntemleri ile, bir görüntüdeki el yazısı metni algılayabilir ve tanınan karakterleri makine tarafından kullanılabilir bir karakter akışı halinde ayıklayabilirsiniz.
+
+> [!IMPORTANT]
+> [OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) yönteminden farklı olarak [Metin Tanıma](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2c6a154055056008f200) yöntemi zaman uyumsuz olarak çalıştırılır. Bu yöntem, başarılı bir yanıt gövdesinde herhangi bir bilgi döndürmez. Bunun yerine, Metin Tanıma yöntemi, `Operation-Content` yanıt üst bilgisi alanının değerindeki bir URI’yi döndürür. Daha sonra hem durumu denetlemek hem de Metin Tanıma yöntem çağrısının sonuçlarını döndürmek için [Metin Tanıma İşlemi Sonucunu Alma](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2cf1154055056008f201) yöntemini temsil eden bu URI’yi çağırırsınız.
+
+Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) oluşturun.
 
 ## <a name="prerequisites"></a>Ön koşullar
 
-Görüntü İşleme’yi kullanmak için, bir abonelik anahtarınızın olması gerekir; bkz. [Abonelik Anahtarlarını Alma](../Vision-API-How-to-Topics/HowToSubscribe.md).
+- [Visual Studio 2015](https://visualstudio.microsoft.com/downloads/) veya üzerine sahip olmanız gerekir.
+- Görüntü İşleme için bir abonelik anahtarınız olması gerekir. Bir abonelik anahtarı almak için bkz. [Abonelik Anahtarları Alma](../Vision-API-How-to-Topics/HowToSubscribe.md).
 
-## <a name="recognize-text-request"></a>Metin Tanıma isteği
+## <a name="create-and-run-the-sample-application"></a>Örnek uygulamayı oluşturma ve çalıştırma
 
-[Metin Tanıma](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2c6a154055056008f200) ve [Metin Tanıma İşlemi Sonucunu Alma yöntemleri](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2cf1154055056008f201) ile, bir görüntüdeki el yazısı metni algılayabilir ve tanınan karakterleri makine tarafından kullanılabilir bir karakter akışı halinde ayıklayabilirsiniz.
+Örneği Visual Studio’da oluşturmak için aşağıdaki adımları uygulayın:
 
-Örneği çalıştırmak için aşağıdaki adımları uygulayın:
-
-1. Visual Studio'da yeni bir Visual C# Konsol Uygulaması oluşturun.
+1. Visual C# Konsol Uygulaması şablonunu kullanarak Visual Studio’da yeni bir Visual Studio çözümü oluşturun.
 1. Newtonsoft.Json NuGet paketini yükleyin.
     1. Menüde **Araçlar**’a tıklayın, **NuGet Paket Yöneticisi**’ni ve ardından **Çözüm için NuGet Paketlerini Yönet**’i seçin.
     1. **Gözat** sekmesine tıklayın ve **Arama** kutusuna "Newtonsoft.Json" yazın.
     1. Görüntülendiğinde **Newtonsoft.Json**’ı seçin, sonra proje adınızın yanındaki onay kutusuna ve **Yükle**’ye tıklayın.
-1. `Program.cs` öğesini aşağıdaki kodla değiştirin.
-1. `<Subscription Key>` değerini geçerli abonelik anahtarınızla değiştirin.
-1. Gerekirse `uriBase` değerini abonelik anahtarlarınızı aldığınız konumla değiştirin.
+1. `Program.cs` içindeki kodu aşağıdaki kodla değiştirin, ardından kodda gereken yerlerde aşağıdaki değişiklikleri yapın:
+    1. `subscriptionKey` değerini abonelik anahtarınızla değiştirin.
+    1. Gerekirse `uriBase` değerini, abonelik anahtarlarınızı aldığınız Azure bölgesinden [Metin Tanıma](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2c6a154055056008f200) yönteminin uç nokta URL’si ile değiştirin.
 1. Programı çalıştırın.
 1. İstemde yerel görüntü yolunu girin.
 
@@ -58,12 +62,12 @@ namespace CSHttpClientSample
         // Replace <Subscription Key> with your valid subscription key.
         const string subscriptionKey = "<Subscription Key>";
 
-        // You must use the same region in your REST call as you used to
-        // get your subscription keys. For example, if you got your
-        // subscription keys from westus, replace "westcentralus" in the URL
+        // You must use the same Azure region in your REST API method as you used to
+        // get your subscription keys. For example, if you got your subscription keys
+        // from the West US region, replace "westcentralus" in the URL
         // below with "westus".
         //
-        // Free trial subscription keys are generated in the westcentralus region.
+        // Free trial subscription keys are generated in the West Central US region.
         // If you use a free trial subscription key, you shouldn't need to change
         // this region.
         const string uriBase =
@@ -79,7 +83,7 @@ namespace CSHttpClientSample
 
             if (File.Exists(imageFilePath))
             {
-                // Make the REST API call.
+                // Call the REST API method.
                 Console.WriteLine("\nWait a moment for the results to appear.\n");
                 ReadHandwrittenText(imageFilePath).Wait();
             }
@@ -107,40 +111,43 @@ namespace CSHttpClientSample
                     "Ocp-Apim-Subscription-Key", subscriptionKey);
 
                 // Request parameter.
-                // Note: The request parameter changed for APIv2.
-                // For APIv1, it is "handwriting=true".
                 string requestParameters = "mode=Handwritten";
 
-                // Assemble the URI for the REST API Call.
+                // Assemble the URI for the REST API method.
                 string uri = uriBase + "?" + requestParameters;
 
                 HttpResponseMessage response;
 
-                // Two REST API calls are required to extract handwritten text.
-                // One call to submit the image for processing, the other call
+                // Two REST API methods are required to extract handwritten text.
+                // One method to submit the image for processing, the other method
                 // to retrieve the text found in the image.
-                // operationLocation stores the REST API location to call to
-                // retrieve the text.
+
+                // operationLocation stores the URI of the second REST API method,
+                // returned by the first REST API method.
                 string operationLocation;
 
-                // Request body.
-                // Posts a locally stored JPEG image.
+                // Reads the contents of the specified local image
+                // into a byte array.
                 byte[] byteData = GetImageAsByteArray(imageFilePath);
 
+                // Adds the byte array as an octet stream to the request body.
                 using (ByteArrayContent content = new ByteArrayContent(byteData))
                 {
-                    // This example uses content type "application/octet-stream".
+                    // This example uses the "application/octet-stream" content type.
                     // The other content types you can use are "application/json"
                     // and "multipart/form-data".
                     content.Headers.ContentType =
                         new MediaTypeHeaderValue("application/octet-stream");
 
-                    // The first REST call starts the async process to analyze the
-                    // written text in the image.
+                    // The first REST API method, Recognize Text, starts
+                    // the async process to analyze the written text in the image.
                     response = await client.PostAsync(uri, content);
                 }
 
-                // The response contains the URI to retrieve the result of the process.
+                // The response header for the Recognize Text method contains the URI
+                // of the second method, Get Recognize Text Operation Result, which
+                // returns the results of the process in the response body.
+                // The Recognize Text operation does not return anything in the response body.
                 if (response.IsSuccessStatusCode)
                     operationLocation =
                         response.Headers.GetValues("Operation-Location").FirstOrDefault();
@@ -153,12 +160,13 @@ namespace CSHttpClientSample
                     return;
                 }
 
-                // The second REST call retrieves the text written in the image.
+                // If the first REST API method completes successfully, the second 
+                // REST API method retrieves the text written in the image.
                 //
                 // Note: The response may not be immediately available. Handwriting
-                // recognition is an async operation that can take a variable amount
-                // of time depending on the length of the handwritten text. You may
-                // need to wait or retry this operation.
+                // recognition is an asynchronous operation that can take a variable
+                // amount of time depending on the length of the handwritten text.
+                // You may need to wait or retry this operation.
                 //
                 // This example checks once per second for ten seconds.
                 string contentString;
@@ -195,9 +203,11 @@ namespace CSHttpClientSample
         /// <returns>The byte array of the image data.</returns>
         static byte[] GetImageAsByteArray(string imageFilePath)
         {
+            // Open a read-only file stream for the specified file.
             using (FileStream fileStream =
                 new FileStream(imageFilePath, FileMode.Open, FileAccess.Read))
             {
+                // Read the file's contents into a byte array.
                 BinaryReader binaryReader = new BinaryReader(fileStream);
                 return binaryReader.ReadBytes((int)fileStream.Length);
             }
@@ -206,207 +216,211 @@ namespace CSHttpClientSample
 }
 ```
 
-## <a name="recognize-text-response"></a>Metin Tanıma yanıtı
+## <a name="examine-the-response"></a>Yanıtı inceleme
 
-JSON’da başarılı bir yanıt döndürülür, örneğin:
+Başarılı bir yanıt JSON biçiminde döndürülür. Örnek uygulama aşağıdaki örneğe benzer şekilde başarılı bir yanıtı ayrıştırıp konsol penceresinde görüntüler:
 
 ```json
 {
-   "status": "Succeeded",
-   "recognitionResult": {
-      "lines": [
-         {
-            "boundingBox": [
-               99,
-               195,
-               1309,
-               45,
-               1340,
-               292,
-               130,
-               442
-            ],
-            "text": "when you write them down",
-            "words": [
-               {
-                  "boundingBox": [
-                     152,
-                     191,
-                     383,
-                     154,
-                     341,
-                     421,
-                     110,
-                     458
-                  ],
-                  "text": "when"
-               },
-               {
-                  "boundingBox": [
-                     436,
-                     145,
-                     607,
-                     118,
-                     565,
-                     385,
-                     394,
-                     412
-                  ],
-                  "text": "you"
-               },
-               {
-                  "boundingBox": [
-                     644,
-                     112,
-                     873,
-                     76,
-                     831,
-                     343,
-                     602,
-                     379
-                  ],
-                  "text": "write"
-               },
-               {
-                  "boundingBox": [
-                     895,
-                     72,
-                     1092,
-                     41,
-                     1050,
-                     308,
-                     853,
-                     339
-                  ],
-                  "text": "them"
-               },
-               {
-                  "boundingBox": [
-                     1140,
-                     33,
-                     1400,
-                     0,
-                     1359,
-                     258,
-                     1098,
-                     300
-                  ],
-                  "text": "down"
-               }
-            ]
-         },
-         {
-            "boundingBox": [
-               142,
-               222,
-               1252,
-               62,
-               1269,
-               180,
-               159,
-               340
-            ],
-            "text": "You remember things better",
-            "words": [
-               {
-                  "boundingBox": [
-                     140,
-                     223,
-                     267,
-                     205,
-                     288,
-                     324,
-                     162,
-                     342
-                  ],
-                  "text": "You"
-               },
-               {
-                  "boundingBox": [
-                     314,
-                     198,
-                     740,
-                     137,
-                     761,
-                     256,
-                     335,
-                     317
-                  ],
-                  "text": "remember"
-               },
-               {
-                  "boundingBox": [
-                     761,
-                     134,
-                     1026,
-                     95,
-                     1047,
-                     215,
-                     782,
-                     253
-                  ],
-                  "text": "things"
-               },
-               {
-                  "boundingBox": [
-                     1046,
-                     92,
-                     1285,
-                     58,
-                     1307,
-                     177,
-                     1068,
-                     212
-                  ],
-                  "text": "better"
-               }
-            ]
-         },
-         {
-            "boundingBox": [
-               155,
-               405,
-               537,
-               338,
-               557,
-               449,
-               175,
-               516
-            ],
-            "text": "by hand",
-            "words": [
-               {
-                  "boundingBox": [
-                     146,
-                     408,
-                     266,
-                     387,
-                     301,
-                     495,
-                     181,
-                     516
-                  ],
-                  "text": "by"
-               },
-               {
-                  "boundingBox": [
-                     290,
-                     383,
-                     569,
-                     334,
-                     604,
-                     443,
-                     325,
-                     491
-                  ],
-                  "text": "hand"
-               }
-            ]
-         }
-      ]
-   }
+    "status": "Succeeded",
+    "recognitionResult": {
+        "lines": [
+            {
+                "boundingBox": [
+                    99,
+                    195,
+                    1309,
+                    45,
+                    1340,
+                    292,
+                    130,
+                    442
+                ],
+                "text": "when you write them down",
+                "words": [
+                    {
+                        "boundingBox": [
+                            152,
+                            191,
+                            383,
+                            154,
+                            341,
+                            421,
+                            110,
+                            458
+                        ],
+                        "text": "when"
+                    },
+                    {
+                        "boundingBox": [
+                            436,
+                            145,
+                            607,
+                            118,
+                            565,
+                            385,
+                            394,
+                            412
+                        ],
+                        "text": "you"
+                    },
+                    {
+                       "boundingBox": [
+                            644,
+                            112,
+                            873,
+                            76,
+                            831,
+                            343,
+                            602,
+                            379
+                        ],
+                        "text": "write"
+                    },
+                    {
+                        "boundingBox": [
+                            895,
+                            72,
+                            1092,
+                            41,
+                            1050,
+                            308,
+                            853,
+                            339
+                        ],
+                        "text": "them"
+                    },
+                    {
+                        "boundingBox": [
+                            1140,
+                            33,
+                            1400,
+                            0,
+                            1359,
+                            258,
+                            1098,
+                            300
+                        ],
+                        "text": "down"
+                    }
+                ]
+            },
+            {
+                "boundingBox": [
+                    142,
+                    222,
+                    1252,
+                    62,
+                    1269,
+                    180,
+                    159,
+                    340
+                ],
+                "text": "You remember things better",
+                "words": [
+                    {
+                        "boundingBox": [
+                            140,
+                            223,
+                            267,
+                            205,
+                            288,
+                            324,
+                            162,
+                            342
+                        ],
+                        "text": "You"
+                    },
+                    {
+                        "boundingBox": [
+                            314,
+                            198,
+                            740,
+                            137,
+                            761,
+                            256,
+                            335,
+                            317
+                        ],
+                        "text": "remember"
+                    },
+                    {
+                        "boundingBox": [
+                            761,
+                            134,
+                            1026,
+                            95,
+                            1047,
+                            215,
+                            782,
+                            253
+                        ],
+                        "text": "things"
+                    },
+                    {
+                        "boundingBox": [
+                            1046,
+                            92,
+                            1285,
+                            58,
+                            1307,
+                            177,
+                            1068,
+                            212
+                        ],
+                        "text": "better"
+                    }
+                ]
+            },
+            {
+                "boundingBox": [
+                    155,
+                    405,
+                    537,
+                    338,
+                    557,
+                    449,
+                    175,
+                    516
+                ],
+                "text": "by hand",
+                "words": [
+                    {
+                        "boundingBox": [
+                            146,
+                            408,
+                            266,
+                            387,
+                            301,
+                            495,
+                            181,
+                            516
+                        ],
+                        "text": "by"
+                    },
+                    {
+                        "boundingBox": [
+                            290,
+                            383,
+                            569,
+                            334,
+                            604,
+                            443,
+                            325,
+                            491
+                        ],
+                        "text": "hand"
+                    }
+                ]
+            }
+        ]
+    }
 }
 ```
+
+## <a name="clean-up-resources"></a>Kaynakları temizleme
+
+Artık gerekli değilse Visual Studio çözümünü silin. Bunu yapmak için Dosya Gezgini’ni açın, Visual Studio çözümünü oluşturduğunuz klasöre gidin ve klasörü silin.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

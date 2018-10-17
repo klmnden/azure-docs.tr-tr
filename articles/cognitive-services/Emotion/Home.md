@@ -1,38 +1,40 @@
 ---
-title: Duygu tanıma API'si genel bakış | Microsoft Docs
-description: Microsoft, bulut tabanlı son teknoloji ürünü duygu tanıma algoritması, Bilişsel hizmetler, duygu tanıma API'si ile daha kişiselleştirilmiş uygulamalar oluşturmak için kullanın.
+title: Duygu Tanıma API'si nedir?
+titlesuffix: Azure Cognitive Services
+description: Bulut tabanlı duygu tanıma algoritmalarını kullanarak daha kişisel uygulamalar oluşturabilirsiniz.
 services: cognitive-services
 author: anrothMSFT
-manager: corncar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: emotion-api
-ms.topic: article
+ms.topic: overview
 ms.date: 02/06/2017
 ms.author: anroth
-ms.openlocfilehash: 210990b0f436fd75cb36e71ea28928c457a5232e
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
-ms.translationtype: MT
+ROBOTS: NOINDEX
+ms.openlocfilehash: abf94e0ab6ebb3df649b1958503c086feb4fa19e
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45573563"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48237135"
 ---
-# <a name="what-is-emotion-api"></a>Duygu Tanıma API'si nedir?
+# <a name="what-is-the-emotion-api"></a>Duygu Tanıma API'si nedir?
 
 > [!IMPORTANT]
-> Duygu tanıma API'si, 30 Ekim 2017'de kullanım dışı bırakıldı. İşlevi, şimdi parçasıdır [yüz tanıma API'si](https://docs.microsoft.com/azure/cognitive-services/face/).
+> Duygu Tanıma API'si 15 Şubat 2019 tarihinde kullanım dışı bırakılacaktır. Duygu tanıma özelliği [Yüz Tanıma API'sinin](https://docs.microsoft.com/azure/cognitive-services/face/) bir parçası olarak genel kullanıma sunulmuştur. 
 
-Microsoft'un bulut tabanlı duygu tanıma algoritması daha kişiselleştirilmiş uygulamalar oluşturmanıza olanak tanıyan Microsoft duygu tanıma API'si, Hoş Geldiniz.
+Microsoft'un bulut tabanlı duygu tanıma algoritmasıyla daha kişisel uygulamalar derlemenizi sağlayan Microsoft Duygu Tanıma API'sine hoş geldiniz.
 
-### <a name="emotion-recognition"></a>Duygu tanıma
+### <a name="emotion-recognition"></a>Duygu Tanıma
 
-Duygu tanıma API'si beta, girdi olarak bir görüntü alır ve yüz tanıma API'si ile güvenle yüz için bir sınırlayıcı kutu yanı sıra resimdeki her yüz için duyguları bir dizi döndürür. Algılanan duygular mutluluk, üzüntü, şaşkınlık, kızgınlık, Korku, küçümseme, iğrenme veya nötr ' dir. Bu duyguları aynı temel yüz ifadelerini, kültürler arası ve evrensel olarak iletildiği burada duygu tanıma API'si tarafından tanımlanır. 
+Duygu Tanıma API’sinin beta sürümü bir görüntüyü giriş olarak alır ve görüntüdeki her bir yüz için bir dizi duygu arasından seçilen güven puanlarının yanı sıra, Yüz Tanıma API’sinden yüzler için sınırlayıcı kutular döndürür. Algılanan duygular mutluluk, üzüntü, şaşkınlık, kızgınlık, korku, küçümseme, iğrenme veya nötr şeklindedir. Bu duygular aynı temel yüz ifadeleriyle farklı kültürler için evrensel olarak belirtilir ve Duygu Tanıma API'si tarafından tanımlanır.
 
-**Sonuçları yorumlayarak destek sağlama:** 
+**Sonuçları Yorumlama:**
 
-Puanları normalleştirilmiş olarak duygu tanıma API'si sonuçlarını yorumlama içinde algılanan duygu tanıma duygu en yüksek puanı olarak yorumlanıp birine toplanacak. Kullanıcılar daha yüksek bir güven eşiği gereksinimlerine bağlı olarak, uygulama içinde ayarlamak tercih edebilirsiniz. 
+Duygu Tanıma API'si sonuçlarını yorumlama sırasında algılanan duygunun en yüksek puana sahip olan duygu olarak yorumlanması gerekir. Bunun nedeni tek bir sonuç elde etmek için puanların normalleştirilmesidir. Kullanıcılar ihtiyaçlarına göre uygulamalarında daha yüksek bir güvenilirlik eşiği ayarlayabilir.
 
-API Başvurusu duygu algılama hakkında daha fazla bilgi için bkz: 
-  * Temel: bir kullanıcı yüz tanıma API'sine zaten çağırdı, bunlar yüz dikdörtgeni giriş olarak gönderebilir ve temel katmanı kullanın. [API Başvurusu](https://westus.dev.cognitive.microsoft.com/docs/services/5639d931ca73072154c1ce89/operations/56f23eb019845524ec61c4d7)
-  * Standart: bir kullanıcı yüz dikdörtgeni göndermez, standart modda kullanmalısınız.  [API Başvurusu](https://westus.dev.cognitive.microsoft.com/docs/services/5639d931ca73072154c1ce89/operations/563b31ea778daf121cc3a5fa)
+Duygu tanıma hakkında daha fazla bilgi için API Başvurusu sayfasına bakın:
+  * Temel: Bir kullanıcı Yüz Tanıma API’sine zaten çağrı yaptıysa, yüz dikdörtgenini giriş olarak gönderebilir ve temel katmanı kullanabilir. [API Başvurusu](https://westus.dev.cognitive.microsoft.com/docs/services/5639d931ca73072154c1ce89/operations/56f23eb019845524ec61c4d7)
+  * Standart: Yüz dikdörtgeni göndermeyen kullanıcılar standart modu kullanmalıdır.  [API Başvurusu](https://westus.dev.cognitive.microsoft.com/docs/services/5639d931ca73072154c1ce89/operations/563b31ea778daf121cc3a5fa)
 
-Duygu tanıma API'si ile Akış videosunu yorumlama hakkında bir örnek için bkz. [videoları gerçek zamanlı analiz etme](https://docs.microsoft.com/azure/cognitive-services/emotion/emotion-api-how-to-topics/howtoanalyzevideo_emotion).
+Duygu Tanıma API'si ile video akışı yorumlama örneği için bkz. [Videoları gerçek zamanlı olarak analiz etme](https://docs.microsoft.com/azure/cognitive-services/emotion/emotion-api-how-to-topics/howtoanalyzevideo_emotion).

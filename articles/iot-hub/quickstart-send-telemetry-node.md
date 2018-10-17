@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 06/19/2018
 ms.author: dobett
-ms.openlocfilehash: dc255a36e2347aac204f7bd32fe3e9cf25d54b19
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.openlocfilehash: 8a5a6ff2eab8a9ef5fb631ef81818a30db00078b
+ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42022628"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48784968"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-the-telemetry-from-the-hub-with-a-back-end-application-nodejs"></a>Hızlı Başlangıç: Bir cihazdan IoT hub’ına telemetri gönderme ve arka uç uygulaması ile hub’dan telemetriyi okuma (Node.js)
 
@@ -49,44 +49,59 @@ https://github.com/Azure-Samples/azure-iot-samples-node/archive/master.zip adres
 
 ## <a name="register-a-device"></a>Cihaz kaydetme
 
-Bir cihazın bağlanabilmesi için IoT hub’ınıza kaydedilmesi gerekir. Bu hızlı başlangıçta Azure CLI kullanarak bir simülasyon cihazı kaydedeceksiniz.
+Bir cihazın bağlanabilmesi için IoT hub’ınıza kaydedilmesi gerekir. Bu hızlı başlangıçta Azure Cloud Shell kullanarak bir simülasyon cihazı kaydedeceksiniz.
 
-1. IoT Hub CLI uzantısını ekleyin ve cihaz kimliğini oluşturun. `{YourIoTHubName}` değerini, IoT hub’ınız için seçtiğiniz adla değiştirin:
+1. Aşağıdaki komutları Azure Cloud Shell'de çalıştırarak IoT Hub CLI uzantısını ekleyin ve cihaz kimliğini oluşturun. 
+
+   **YourIoTHubName**: Bu yer tutucusunu IoT hub'ınız için seçtiğiniz adla değiştirin.
 
     ```azurecli-interactive
     az extension add --name azure-cli-iot-ext
-    az iot hub device-identity create --hub-name {YourIoTHubName} --device-id MyNodeDevice
+    az iot hub device-identity create --hub-name YourIoTHubName --device-id MyNodeDevice
     ```
 
     Cihazınız için farklı bir ad seçerseniz örnek uygulamaları çalıştırmadan önce bunlarda cihaz adını güncelleştirin.
 
-1. Yeni kaydettiğiniz cihazın _cihaz bağlantı dizesini_ almak için aşağıdaki komutu çalıştırın:
+1. Yeni kaydettiğiniz cihazın _cihaz bağlantı dizesini_ almak için aşağıdaki komutları Azure Cloud Shell'de çalıştırın:
+
+   **YourIoTHubName**: Bu yer tutucusunu IoT hub'ınız için seçtiğiniz adla değiştirin.
 
     ```azurecli-interactive
-    az iot hub device-identity show-connection-string --hub-name {YourIoTHubName} --device-id MyNodeDevice --output table
+    az iot hub device-identity show-connection-string --hub-name YourIoTHubName --device-id MyNodeDevice --output table
     ```
+    
+    Şu ifadeye benzer şekilde görünen cihaz bağlantı dizesini not edin:
 
-    `Hostname=...=` ifadesine benzer şekilde görünen cihaz bağlantı dizesini not edin. Bu değeri hızlı başlangıcın ilerleyen bölümlerinde kullanacaksınız.
+   `HostName={YourIoTHubName}.azure-devices.net;DeviceId=MyNodeDevice;SharedAccessKey={YourSharedAccessKey}`
 
-1. Arka uç uygulamasının IoT hub’ınıza bağlanmasına ve iletileri almasına olanak sağlamak için bir _hizmet bağlantı dizesi_ de gerekir. Aşağıdaki komut, IoT hub'ınız için hizmeti bağlantı dizesini alır:
+    Bu değeri hızlı başlangıcın ilerleyen bölümlerinde kullanacaksınız.
+
+1. Arka uç uygulamasının iletileri almak üzere IoT hub’ınıza bağlanmasını sağlamak için bir _hizmet bağlantı dizesi_ de gerekir. Aşağıdaki komut, IoT hub'ınız için hizmeti bağlantı dizesini alır:
+   
+   **YourIoTHubName**: Bu yer tutucusunu IoT hub'ınız için seçtiğiniz adla değiştirin.
 
     ```azurecli-interactive
-    az iot hub show-connection-string --name {YourIoTHubName} --output table
+    az iot hub show-connection-string --hub-name YourIoTHubName --output table
     ```
+     
+    Şu ifadeye benzer şekilde görünen hizmet bağlantı dizesini not edin:
 
-    `Hostname=...=` ifadesine benzer şekilde görünen hizmet bağlantı dizesini not edin. Bu değeri hızlı başlangıcın ilerleyen bölümlerinde kullanacaksınız. Hizmet bağlantı dizesi, cihaz bağlantı dizesinden farklıdır.
+   `HostName={YourIoTHubName}.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey={YourSharedAccessKey}`
+
+    Bu değeri hızlı başlangıcın ilerleyen bölümlerinde kullanacaksınız. Hizmet bağlantı dizesi, cihaz bağlantı dizesinden farklıdır.
+
 
 ## <a name="send-simulated-telemetry"></a>Sanal telemetri gönderme
 
 Simülasyon cihazı uygulaması, IoT hub’ınız üzerindeki cihaza özgü bir uç noktaya bağlanır ve sanal sıcaklık ve nem telemetrisi gönderir.
 
-1. Terminal penceresinde, örnek Node.js projesinin kök klasörüne gidin. Daha sonra **iot-hub\Quickstarts\simulated-device** klasörüne gidin.
+1. Yerel terminal pencerenizi açın ve örnek Node.js projesinin kök klasörüne gidin. Daha sonra **iot-hub\Quickstarts\simulated-device** klasörüne gidin.
 
 1. **SimulatedDevice.js** dosyasını, istediğiniz bir metin düzenleyicide açın.
 
     `connectionString` değişkeninin değerini, önceden not ettiğiniz cihaz bağlantı dizesiyle değiştirin. Daha sonra **SimulatedDevice.js** dosyasına değişikliklerinizi kaydedin.
 
-1. Terminal penceresinde, aşağıdaki komutları çalıştırarak gerekli kitaplıkları yükleyin ve simülasyon cihazı uygulamasını çalıştırın:
+1. Yerel terminal penceresinde, aşağıdaki komutları çalıştırarak gerekli kitaplıkları yükleyin ve simülasyon cihazı uygulamasını çalıştırın:
 
     ```cmd/sh
     npm install
@@ -101,13 +116,13 @@ Simülasyon cihazı uygulaması, IoT hub’ınız üzerindeki cihaza özgü bir 
 
 Arka uç uygulaması, IoT Hub’ınızdaki bir hizmet tarafı **Olaylar** uç noktasına bağlanır. Uygulama, simülasyon cihazınızdan gönderilen cihazdan buluta iletileri alır. IoT Hub arka uç uygulaması genellikle cihazdan buluta iletileri alıp işlemek için bulutta çalışır.
 
-1. Başka bir terminal penceresinde, örnek Node.js projesinin kök klasörüne gidin. Ardından **read-d2c-messages** klasörüne gidin.
+1. Başka bir yerel terminal penceresi açın ve örnek Node.js projesinin kök klasörüne gidin. Daha sonra **iot-hub\Quickstarts\read-d2c-messages** klasörüne gidin.
 
-1. **iot-hub\Quickstarts\ReadDeviceToCloudMessages.js** dosyasını istediğiniz bir metin düzenleyicide açın.
+1. **ReadDeviceToCloudMessages.js** dosyasını istediğiniz bir metin düzenleyicide açın.
 
     `connectionString` değişkeninin değerini, önceden not ettiğiniz hizmet bağlantı dizesiyle değiştirin. Ardından **ReadDeviceToCloudMessages.js** dosyasına değişikliklerinizi kaydedin.
 
-1. Terminal penceresinde, aşağıdaki komutları çalıştırarak gerekli kitaplıkları yükleyin ve arka uç uygulamasını çalıştırın:
+1. Yerel terminal penceresinde, aşağıdaki komutları çalıştırarak gerekli kitaplıkları yükleyin ve arka uç uygulamasını çalıştırın:
 
     ```cmd/sh
     npm install

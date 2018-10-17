@@ -1,44 +1,44 @@
 ---
-title: Haber arama SDK düğümü hızlı başlangıç | Microsoft Docs
-description: Haber arama SDK konsol uygulama ayarlama
-titleSuffix: Azure cognitive services
+title: "Hızlı başlangıç: Bing Haber Arama SDK'sı, Node"
+titleSuffix: Azure Cognitive Services
+description: Bing Haber Arama SDK'sı konsol uygulaması kurulumu
 services: cognitive-services
 author: mikedodaro
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-news-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 02/12/2018
 ms.author: v-gedod
-ms.openlocfilehash: 4ae99aa100b697a0dd75863c6f0c3c556dfa3d21
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
-ms.translationtype: MT
+ms.openlocfilehash: 2279a6475ab8c39b3ff599f7244caea59d622651
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35355283"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48803010"
 ---
-# <a name="news-search-sdk-node-quickstart"></a>Haber arama SDK düğümü hızlı başlangıç
+# <a name="quickstart-bing-news-search-sdk-with-node"></a>Hızlı başlangıç: Node ile Bing Haber Arama SDK'sı
 
-Bing Haberler arama SDK haber sorgular ve ayrıştırma sonuçları için REST API işlevselliğini içerir. 
+Bing Haber Arama SDK'sı, haber sorguları ve sonuçları ayrıştırmak için REST API işlevselliğini içerir. 
 
-[Kaynak kodu düğümü Bing Haberler arama SDK örnekleri için](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/blob/master/Samples/newsSearch.js) Git hub'da kullanılabilir.
+[Node Bing Haber Arama SDK'sı örnekleri için kaynak kodu](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/blob/master/Samples/newsSearch.js) Git Hub'dan edinilebilir.
 
 ## <a name="application-dependencies"></a>Uygulama bağımlılıkları
 
-Bing Haberler arama SDK'yı kullanarak bir konsol uygulaması ayarlamak için çalıştırın `npm install azure-cognitiveservices-newssearch` geliştirme ortamınızda.
+Bing Haber Arama SDK'sını kullanan bir konsol uygulaması kurmak için geliştirme ortamınızda `npm install azure-cognitiveservices-newssearch` komutunu çalıştırın.
 
-## <a name="news-search-client"></a>Haber Arama İstemcisi
-Alma bir [Bilişsel hizmetler erişim tuşu](https://azure.microsoft.com/try/cognitive-services/) altında *arama*. Bir örneğini oluşturmak `CognitiveServicesCredentials`:
+## <a name="news-search-client"></a>Haber Arama istemcisi
+*Arama* altından bir [Bilişsel Hizmetler erişim anahtarı](https://azure.microsoft.com/try/cognitive-services/) alın. `CognitiveServicesCredentials` nesnesinin bir örneğini oluşturun:
 ```
 const CognitiveServicesCredentials = require('ms-rest-azure').CognitiveServicesCredentials;
 let credentials = new CognitiveServicesCredentials('YOUR-ACCESS-KEY');
 ```
-Ardından, istemci örneği:
+Ardından, istemciyi örneklendirin:
 ```
 const NewsSearchAPIClient = require('azure-cognitiveservices-newssearch');
 let client = new NewsSearchAPIClient(credentials);
 ```
-İstemci, bu durumda 'Kış Olimpiyatlar' sorgu metinle aramak için kullanın:
+İstemciyle 'Winter Olympics' sorgu metnini arayın:
 ```
 client.newsOperations.search('Winter Olympics').then((result) => {
     console.log(result.value);
@@ -47,11 +47,11 @@ client.newsOperations.search('Winter Olympics').then((result) => {
 });
 
 ```
-Kod yazdırır `result.value` herhangi bir metin ayrıştırma olmadan konsola öğeler. Varsa her kategori, sonuçları içerir:
-- _ad: 'NewsArticle'
-- _ad: 'Web sayfası'
-- _ad: 'VideoObject'
-- _ad: 'ImageObject'
+Kod konsola `result.value` öğelerini yazdırır ve metin ayrıştırması gerçekleştirmez. Varsa sonuçlar kategorilere ayrılmış şekilde şunları içerir:
+- _type: 'NewsArticle'
+- _type: 'WebPage'
+- _type: 'VideoObject'
+- _type: 'ImageObject'
 
 <!-- Remove until we can replace with santized version
 ![News results](media/node-sdk-quickstart-results.png)
@@ -59,4 +59,4 @@ Kod yazdırır `result.value` herhangi bir metin ayrıştırma olmadan konsola �
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-[Bilişsel hizmetler Node.js SDK'sı örneği](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples)
+[Bilişsel hizmetler Node.js SDK'sı örnekleri](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples)

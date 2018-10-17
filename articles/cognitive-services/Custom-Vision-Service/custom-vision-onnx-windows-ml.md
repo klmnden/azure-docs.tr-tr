@@ -1,73 +1,74 @@
 ---
-title: Windows ML - Bilişsel hizmetler özel görme ONNX modeliyle | Microsoft Docs
-description: Bilişsel Hizmetleri'nden dışarı ONNX modelini kullanan bir Windows UWP uygulaması oluşturmayı öğrenin.
+title: 'Öğretici: Windows ML ile ONNX modeli kullanma - Özel Görüntü İşleme Hizmeti'
+titlesuffix: Azure Cognitive Services
+description: Azure Bilişsel Hizmetler’den dışarı aktarılan bir ONNX modelini kullanan Windows UWP uygulamasının nasıl oluşturulacağını öğrenin.
 services: cognitive-services
 author: larryfr
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: custom-vision
-ms.topic: conceptual
+ms.topic: tutorial
 ms.date: 06/19/2018
 ms.author: larryfr
-ms.openlocfilehash: 0b128ba1800e74c20c09a9c5711c8473f1dd00d0
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
-ms.translationtype: MT
+ms.openlocfilehash: 3a9e9bc92ce38c4bb8d6d83c8017fa223342e7d2
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36939489"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46365613"
 ---
-# <a name="tutorial-use-an-onnx-model-from-custom-vision-with-windows-ml-preview"></a>Öğretici: özel görme ONNX modelden Windows ML (Önizleme) kullanın.
+# <a name="tutorial-use-an-onnx-model-from-custom-vision-with-windows-ml-preview"></a>Öğretici: Windows ML (önizleme) ile Özel Görüntü İşleme hizmetinden ONNX modeli kullanma
 
-Windows ML (Önizleme) ile özel görme hizmetinden dışarı ONNX modelin nasıl kullanılacağını öğrenin.
+Windows ML (önizleme) ile Özel Görüntü İşleme hizmetinden dışarı aktarılan bir ONNX modelinin nasıl kullanılacağını öğrenin.
 
-Bu belgedeki bilgiler Windows ML özel görme hizmetiyle dışarı ONNX dosyasının nasıl kullanılacağını gösterir. Bir örnek Windows UWP uygulamasını sağlanmıştır. Köpekler ve kediler tanıyabilmesi eğitilen bir modelin örnekle dahil edilir. Adımları nasıl kendi modeli Bu örnek ile kullanabileceğiniz üzerinde de sağlanır.
+Bu belgedeki bilgiler, Windows ML ile Özel Görüntü İşleme Hizmeti’nden dışarı aktarılan bir ONNX dosyasının nasıl kullanılacağını göstermektedir. Örnek bir Windows UWP uygulaması sağlanmıştır. Örneğe, köpek ve kedileri tanıyabilen bir eğitimli model eklenmiştir. Bu örnek ile kendi modelinizi nasıl kullanabileceğinize ilişkin adımlar da sağlanmıştır.
 
 > [!div class="checklist"]
 > * Örnek uygulama hakkında
-> * Örnek kod alın
-> * Örneği çalıştırın
-> * Kendi model kullanın
+> * Örnek kodunu alma
+> * Örneği çalıştırma
+> * Kendi modelinizi kullanma
 
-## <a name="prerequisites"></a>Önkoşullar
+## <a name="prerequisites"></a>Ön koşullar
 
-* Windows 10 cihaz ile:
+* Aşağıdaki özellikleri içeren bir Windows 10 cihazı:
 
-    * Bir kamera.
+    * Kamera.
 
-    * Visual Studio 2017 sürüm 15.7 veya üstü __Evrensel Windows platformu geliştirme__ etkin iş yükü.
+    * __Evrensel Windows Platformu geliştirmesi__ iş yükü etkinleştirilmiş Visual Studio 2017 15.7 veya sonraki bir sürüm.
 
-    * Geliştirici modu etkin. Daha fazla bilgi için bkz: [cihazınız geliştirme için etkinleştirme](https://docs.microsoft.com/windows/uwp/get-started/enable-your-device-for-development) belge.
+    * Etkinleştirilmiş geliştirici modu. Daha fazla bilgi için [Geliştirme için cihazınızı etkinleştirme](https://docs.microsoft.com/windows/uwp/get-started/enable-your-device-for-development) belgesine bakın.
 
-* (İsteğe bağlı) Özel görme hizmetinden dışarı bir ONNX dosyası. Daha fazla bilgi için bkz: [modelinizi kullanmak için mobil aygıtlarla verme](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/export-your-model) belge.
+* (İsteğe bağlı) Özel Görüntü İşleme hizmetinden dışarı aktarılmış bir ONNX dosyası. Daha fazla bilgi için [Mobil cihazlarla kullanmak üzere modelinizi dışarı aktarma](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/export-your-model) belgesine bakın.
 
     > [!NOTE]
-    > Kendi model kullanılacak adımları [kendi modelini kullanmak](#use-your-own-model) bölümü.
+    > Kendi modelinizi kullanmak için, [Kendi modelinizi kullanma](#use-your-own-model) bölümündeki adımları izleyin.
 
 ## <a name="about-the-example-app"></a>Örnek uygulama hakkında
 
-Genel bir Windows UWP uygulaması uygulamasıdır. Kamera, model görüntülere sağlamak için Windows 10 cihazında kullanır. Etiketleri ve model tarafından döndürülen puanları video önizlemesi altında görüntülenir.
+Uygulama, genel bir Windows UWP uygulamasıdır. Modele görüntü sağlamak için Windows 10 cihazınızdaki kamerayı kullanır. Model tarafından döndürülen etiketler ve puanlar, video önizlemesinin altında görüntülenir.
 
-* Veri ancak kamera gelirken [MediaFrameReader](https://docs.microsoft.com/uwp/api/windows.media.capture.frames.mediaframereader) kareleri tek tek ayıklamak için kullanılır. Çerçeve modeli Puanlama için gönderilir.
+* Kameradan veriler geldikçe tek tek kareleri ayıklamak için [MediaFrameReader](https://docs.microsoft.com/uwp/api/windows.media.capture.frames.mediaframereader) kullanılır. Kareler daha sonra puanlama için modele gönderilir.
 
-* Model eğitilmiş etiketleri ve nasıl emin resmi öğenin içeren olduğu gösteren bir float değeri döndürür.
+* Model, eğitildiği etiketleri ve görüntünün söz konusu öğeyi içerdiğinden ne kadar emin olunduğunu belirten bir kayan nokta değeri döndürür.
 
 ### <a name="the-ui"></a>Kullanıcı Arabirimi
 
-Örnek uygulama için kullanıcı Arabirimi kullanılarak oluşturulan __CaptureElement__ ve __TextBlock__ kontrol eder. CaptureElement kameradan video önizlemesi ve TextBlock modelden döndürülen sonuçları görüntüler. 
+__CaptureElement__ ve __TextBlock__ denetimleri kullanılarak örnek uygulama için kullanıcı arabirimi oluşturulur. CaptureElement, kameradaki videonun bir önizlemesini görüntüler ve TextBlock ise modelden döndürülen sonuçları görüntüler. 
 
-### <a name="the-model"></a>Modeli
+### <a name="the-model"></a>Model
 
-Model (`cat-or-dog.onnx`) ile sağlanan örnek oluşturuldu ve Bilişsel Hizmetleri özel görme hizmeti kullanılarak eğitilmiş. Eğitim modeli sonra ONNX model olarak verilmedi. Bu hizmet kullanma hakkında daha fazla bilgi için bkz [nasıl oluşturulacağını sınıflandırıcı](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/getting-started-build-a-classifier) ve [mobil cihazlarla kullanım için modelinizin dışarı](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/export-your-model) belgeleri.
+Örnekle birlikte sağlanan model (`cat-or-dog.onnx`), Bilişsel Hizmetler Özel Görüntü İşleme hizmeti kullanılarak oluşturulmuş ve eğitilmiştir. Eğitilmiş model daha sonra bir ONNX modeli olarak dışa aktarılmıştır. Bu hizmeti kullanma hakkında daha fazla bilgi için [Sınıflandırıcı oluşturma](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/getting-started-build-a-classifier) ve [Mobil cihazlarla kullanmak üzere modelinizi dışarı aktarma](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/export-your-model) belgelerine bakın.
 
 > [!IMPORTANT]
-> Örnek ile sağlanan modeline köpek ve kat görüntüler, küçük bir kümesini ile eğitilmiş. Bu nedenle köpekler ve kediler algılamayı adresindeki dünyanın en iyi olmayabilir.
+> Örnekle birlikte sağlanan model, küçük bir dizi köpek ve kedi görüntüleri ile eğitilmiştir. Bu nedenle köpek ve kedileri tanıma konusunda dünyanın en iyisi olmayabilir.
 
 ### <a name="the-model-class-file"></a>Model sınıfı dosyası
 
-Bir Windows UWP uygulaması ONNX dosya eklediğinizde .cs dosyası oluşturur. Bu dosya aynı ada sahip `.onnx` dosyası (`cat-or-dog` Bu örnekte) ve C# modelden çalışmak için kullanılan sınıfları içerir. Bununla birlikte, oluşturulan sınıfın varlıklarda gibi adları olabilir `_x0033_04aa07b_x002D_6c8c_x002D_4641_x002D_93a6_x002D_f3152f8740a1_028da4e3_x002D_9c6e_x002D_480b_x002D_b53c_x002D_c1db13d24d70ModelInput`. Bu girişler güvenli bir şekilde adlandırabilirsiniz (sağ tıklatın, yeniden adlandırma) için bir kolay ad.
+Bir Windows UWP uygulamasına ONNX dosyası eklediğinizde bir .cs dosyası oluşturulur. Bu dosya, `.onnx` dosyasıyla aynı ada sahiptir (bu örnekte `cat-or-dog`) ve C#’tan modelle birlikte çalışmak için kullanılan sınıfları içerir. Ancak oluşturulan sınıftaki varlıklar `_x0033_04aa07b_x002D_6c8c_x002D_4641_x002D_93a6_x002D_f3152f8740a1_028da4e3_x002D_9c6e_x002D_480b_x002D_b53c_x002D_c1db13d24d70ModelInput` gibi adlara sahip olabilir. Bu girişleri güvenli bir şekilde kolay bir adla yeniden adlandırabilirsiniz (sağ tıkla, yeniden adlandır).
 
 > [!NOTE]
-> Kod örneği, aşağıdakiler için oluşturulan sınıf ve yöntemi adları yeniden düzenlenmiş sürümlere:
+> Örnek kod, oluşturulan sınıf ve yöntem adlarını aşağıdaki şekilde yeniden düzenlemiştir:
 >
 > * `ModelInput`
 > * `ModelOutput`
@@ -76,79 +77,79 @@ Bir Windows UWP uygulaması ONNX dosya eklediğinizde .cs dosyası oluşturur. B
 
 ### <a name="camera-access"></a>Kamera erişimi
 
-__Yetenekleri__ sekmesinde `Package.appxmanifest` dosyası Web kamera ve mikrofon erişmesine izin vermek için yapılandırılır.
+`Package.appxmanifest` dosyasındaki __Özellikler__ sekmesi, web kamerasına ve mikrofona erişim sağlanacak şekilde yapılandırılır.
 
 > [!NOTE]
-> Bu örnek ses kullanılmıyor olsa bile, ı my aygıttaki kamerayı erişebilir önce etkinleştirmek vardı.
+> Bu örnekte ses kullanılmıyor olsa da, cihazımda kameraya erişebilmem için önce mikrofonu etkinleştirmem gerekiyordu.
 
-Uygulama varsa cihazınız arkası kamerayı almaya çalışır. Kullandığı [MediaCapture](https://docs.microsoft.com/uwp/api/Windows.Media.Capture.MediaCapture) kamerasının video yakalanıyor başlatmak için sınıf. [MediaFrameReader](https://docs.microsoft.com/uwp/api/Windows.Media.Capture.Frames.MediaFrameReader) video çerçeveleri yakalamak ve bunları modele göndermek için kullanılır.
+Uygulama, varsa, cihazınızın arkasındaki kamerayı almaya çalışır. Kameradan video yakalamaya başlamak için [MediaCapture](https://docs.microsoft.com/uwp/api/Windows.Media.Capture.MediaCapture) sınıfını kullanır. [MediaFrameReader](https://docs.microsoft.com/uwp/api/Windows.Media.Capture.Frames.MediaFrameReader), video karelerini yakalamak ve bunları modele göndermek için kullanılır.
 
-## <a name="get-the-example-code"></a>Örnek kod alın
+## <a name="get-the-example-code"></a>Örnek kodunu alma
 
-Örnek uygulama kullanılabilir [ https://github.com/Azure-Samples/Custom-Vision-ONNX-UWP ](https://github.com/Azure-Samples/Custom-Vision-ONNX-UWP).
+Örnek uygulamaya [https://github.com/Azure-Samples/Custom-Vision-ONNX-UWP](https://github.com/Azure-Samples/Custom-Vision-ONNX-UWP) konumundan erişilebilir.
 
-## <a name="run-the-example"></a>Örneği çalıştırın
+## <a name="run-the-example"></a>Örneği çalıştırma
 
-1. Kullanım `F5` Visual Studio'dan uygulamayı başlatmak için anahtar. Geliştirici modunu etkinleştirmek için istenebilir. Daha fazla bilgi için bkz: [cihazınız geliştirme için etkinleştirme](https://docs.microsoft.com/windows/uwp/get-started/enable-your-device-for-development) belge.
+1. Visual Studio’dan uygulamayı başlatmak için `F5` tuşunu kullanın. Geliştirici modunu etkinleştirmeniz istenebilir. Daha fazla bilgi için [Geliştirme için cihazınızı etkinleştirme](https://docs.microsoft.com/windows/uwp/get-started/enable-your-device-for-development) belgesine bakın.
 
-2. İstendiğinde, kamera ve mikrofon aygıtınızda erişmek uygulama izin verme.
+2. İstendiğinde, uygulamanın cihazınızdaki kamera ve mikrofona erişmesine izin verin.
 
-3. Köpek veya kat kamera gelin. Görüntünün bir köpek veya kat içerip içermediğini puanı uygulama önizlemede altında görüntülenir.
+3. Kamerayı bir köpeğe veya kediye yönlendirin. Görüntünün bir köpek veya kedi içerip içermediğine yönelik puan, uygulamadaki önizlemenin altında görüntülenir.
 
     > [!TIP]
-    > Köpek veya kat kullanışlı yoksa köpek veya kat fotoğrafı kullanabilirsiniz.
+    > Elinizin altında köpek ve kedi yoksa, bir köpek ya da kedi fotoğrafı kullanabilirsiniz.
 
-## <a name="use-your-own-model"></a>Kendi model kullanın
+## <a name="use-your-own-model"></a>Kendi modelinizi kullanma
 
-Kendi model kullanmak için aşağıdaki adımları kullanın:
+Kendi modelinizi kullanmak için aşağıdaki adımları uygulayın:
 
 > [!IMPORTANT]
-> Bu bölümdeki adımları geçerli modelin (kat veya dog.cs) yeniden adlandırın ve yeni model sınıfı ve yöntemi adlarını yeniden düzenleyin. Bu örnek modeli çakışmalarla adlandırma önlemek için yapılır.
+> Bu bölümdeki adımlar, geçerli modeli (cat-or-dog.cs) yeniden adlandırır ve yeni modelin sınıf ve yöntem adlarını yeniden düzenler. Bunun amacı, örnek modelle adlandırma çakışmalarını önlemektir.
 
-1. Özel görme hizmetini kullanarak bir modeli eğitmek. Bir modeli eğitmek hakkında daha fazla bilgi için bkz: [nasıl oluşturulacağını sınıflandırıcı](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/getting-started-build-a-classifier).
+1. Özel Görüntü İşleme hizmetini kullanarak model eğitin. Modeli eğitme hakkında bilgi için bkz. [Sınıflandırıcı oluşturma](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/getting-started-build-a-classifier).
 
-2. Eğitim modeli ONNX modeli olarak dışarı aktarın. Bir model dışarı aktarma hakkında daha fazla bilgi için bkz: [modelinizi kullanmak için mobil aygıtlarla verme](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/export-your-model) belge.
+2. Eğitilen modeli, ONNX modeli olarak dışarı aktarın. Modeli dışarı aktarma hakkında bilgi için [Mobil cihazlarla kullanmak üzere modelinizi dışarı aktarma](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/export-your-model) belgesine bakın.
 
-3. Çözüm Gezgini'nde sağ __kat veya dog.cs__ ve ona yeniden adlandırın __kat veya dog.txt__. Yeniden adlandırmadan yeni model adı çakışmalarla engeller.
+3. Çözüm Gezgini’nde __cat-or-dog.cs__ dosyasına sağ tıklayın ve __cat-or-dog.txt__ olarak yeniden adlandırın. Yeniden adlandırılması, yeni modelle ad çakışmalarını engeller.
 
     > [!TIP]
-    > Yeni modelde de sınıf adları için farklı adlar kullanabilirsiniz, ancak varolan adlarını yeniden daha kolaydır.
+    > Yeni modelde sınıf adları için farklı adlar da kullanabilirsiniz, ancak mevcut adların yeniden kullanılması daha kolaydır.
 
-4. Çözüm Gezgini'nde sağ __VisionApp__ giriş ve ardından __Ekle__ > __varolan öğeyi...__ .
+4. Çözüm Gezgini’nde __VisionApp__ girişine sağ tıklayın ve __Ekle__ > __Mevcut öğe...__ seçeneklerini belirleyin.
 
-5. Model için bir sınıf oluşturmak için ONNX dosyayı içeri aktarmak ve ardından seçin __Ekle__ düğmesi. ONNX dosyasıyla aynı ada sahip yeni bir sınıf (ancak `.cs` uzantısı) Çözüm Gezgini'nde eklenir.
+5. Modele yönelik bir sınıf oluşturmak için, içeri aktarılacak ONNX dosyasını seçin ve __Ekle__ düğmesini seçin. Çözüm Gezgini’ne ONNX dosyasıyla aynı ada (ancak `.cs` uzantısına) sahip yeni bir sınıf eklenir.
 
 6. Oluşturulan .cs dosyasını açın ve aşağıdaki öğelerin adlarını bulun:
 
     > [!IMPORTANT]
-    > Örneği kullanmak `cat-or-dog.txt` dosya sınıfları ve işlevleri tanımak için bir kılavuz olarak.
+    > Sınıfları ve işlevleri tanımak için kılavuz olarak örnek `cat-or-dog.txt` dosyasını kullanın.
 
-    * Giriş modeli tanımlayan sınıf. Oluşturulan ad benzer `_x0033_04aa07b_x002D_6c8c_x002D_4641_x002D_93a6_x002D_f3152f8740a1_028da4e3_x002D_9c6e_x002D_480b_x002D_b53c_x002D_c1db13d24d70ModelInput`. Bu sınıf için yeniden adlandırma __ModelInput__.
-    * Model çıkış tanımlayan sınıf. Oluşturulan ad benzer `_x0033_04aa07b_x002D_6c8c_x002D_4641_x002D_93a6_x002D_f3152f8740a1_028da4e3_x002D_9c6e_x002D_480b_x002D_b53c_x002D_c1db13d24d70ModelOutput`. Bu sınıf için yeniden adlandırma __ModelOutput__.
-    * Modeli tanımlayan sınıf. Oluşturulan ad benzer `_x0033_04aa07b_x002D_6c8c_x002D_4641_x002D_93a6_x002D_f3152f8740a1_028da4e3_x002D_9c6e_x002D_480b_x002D_b53c_x002D_c1db13d24d70Model`. Bu sınıf için yeniden adlandırma __modeli__.
-    * Bir model oluşturur yöntemi. Oluşturulan ad benzer `Create_x0033_04aa07b_x002D_6c8c_x002D_4641_x002D_93a6_x002D_f3152f8740a1_028da4e3_x002D_9c6e_x002D_480b_x002D_b53c_x002D_c1db13d24d70Model`. Bu yönteme yeniden adlandırma __CreateModel__.
+    * Model girişini tanımlayan sınıf. Oluşturulan ad, `_x0033_04aa07b_x002D_6c8c_x002D_4641_x002D_93a6_x002D_f3152f8740a1_028da4e3_x002D_9c6e_x002D_480b_x002D_b53c_x002D_c1db13d24d70ModelInput` adına benzeyebilir. Bu sınıfı __ModelInput__ olarak yeniden adlandırın.
+    * Model çıkışını tanımlayan sınıf. Oluşturulan ad, `_x0033_04aa07b_x002D_6c8c_x002D_4641_x002D_93a6_x002D_f3152f8740a1_028da4e3_x002D_9c6e_x002D_480b_x002D_b53c_x002D_c1db13d24d70ModelOutput` adına benzeyebilir. Bu sınıfı __ModelOutput__ olarak yeniden adlandırın.
+    * Modeli tanımlayan sınıf. Oluşturulan ad, `_x0033_04aa07b_x002D_6c8c_x002D_4641_x002D_93a6_x002D_f3152f8740a1_028da4e3_x002D_9c6e_x002D_480b_x002D_b53c_x002D_c1db13d24d70Model` adına benzeyebilir. Bu sınıfı __Model__ olarak yeniden adlandırın.
+    * Modeli oluşturan yöntem. Oluşturulan ad, `Create_x0033_04aa07b_x002D_6c8c_x002D_4641_x002D_93a6_x002D_f3152f8740a1_028da4e3_x002D_9c6e_x002D_480b_x002D_b53c_x002D_c1db13d24d70Model` adına benzeyebilir. Bu yöntemi __CreateModel__ olarak yeniden adlandırın.
 
-7. Çözüm Gezgini'nde taşıma `.onnx` içine dosya __varlıklar__ klasör. 
+7. Çözüm Gezgini’nde `.onnx` dosyasını __Varlıklar__ klasörüne taşıyın. 
 
-8. Uygulama paketinde ONNX dosya eklemek için seçin `.onnx` dosya ve ayarlayın __yapı eylemi__ için __içerik__ özellikleri.
+8. Uygulama paketine ONNX dosyasını dahil etmek için `.onnx` dosyasını seçin ve özelliklerde __Derleme Eylemi__’ni __İçerik__ olarak ayarlayın.
 
-9. Açık __MainPage.xaml.cs__ dosya. Aşağıdaki satır ve dosya adını yeni bulmak `.onnx` dosyası:
+9. __MainPage.xaml.cs__ dosyasını açın. Aşağıdaki satırı bulun ve dosya adını yeni `.onnx` dosyası olarak değiştirin:
 
     ```csharp
     var file = await StorageFile.GetFileFromApplicationUriAsync(new Uri($"ms-appx:///Assets/cat-or-dog.onnx"));
     ```
 
-    Bu değişiklik yeni model çalışma zamanında yükler.
+    Bu değişiklik, çalışma zamanında yeni modeli yükler.
 
-10. Derleme ve uygulamayı çalıştırın. Görüntüleri Puanlama amacıyla artık yeni modeli kullanır.
+10. Uygulamayı derleyin ve çalıştırın. Görüntüleri puanlamak için artık yeni modeli kullanır.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Diğer yolları dışarı aktarabilir ve bir özel görme modeli bulmak için aşağıdaki belgelere bakın:
+Başka dışarı aktarma yollarını keşfetmek ve Özel Görüntü İşleme modelini kullanmak için aşağıdaki belgelere bakın:
 
-* [Modelinizi dışarı aktarma](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/export-your-model)
-* [Dışarı aktarılan Tensorflow modeli bir Android uygulamasını kullanın](https://github.com/Azure-Samples/cognitive-services-android-customvision-sample)
-* [Dışarı aktarılan CoreML modeli SWIFT iOS uygulamada kullanın](https://go.microsoft.com/fwlink/?linkid=857726)
-* [Xamarin iOS uygulamasıyla CoreML modelinde kullanım dışarı](https://github.com/xamarin/ios-samples/tree/master/ios11/CoreMLAzureModel)
+* [Verilerinizi dışarı aktarma](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/export-your-model)
+* [Android uygulamasında dışarı aktarılan Tensorflow modelini kullanma](https://github.com/Azure-Samples/cognitive-services-android-customvision-sample)
+* [Swift iOS uygulamasında dışarı aktarılan CoreML modelini kullanma](https://go.microsoft.com/fwlink/?linkid=857726)
+* [Xamarin ile iOS uygulamasında dışarı aktarılan CoreML modelini kullanma](https://github.com/xamarin/ios-samples/tree/master/ios11/CoreMLAzureModel)
 
-İle Windows ML ONNX modelleri kullanma hakkında daha fazla bilgi için bkz: [Windows ML ile uygulamanızı içine bir model tümleştirmek](https://docs.microsoft.com/windows/uwp/machine-learning/integrate-model) belge.
+Windows ML ile ONNX modellerini kullanma hakkında daha fazla bilgi için [Windows ML ile uygulamanızda bir modeli tümleştirme](https://docs.microsoft.com/windows/uwp/machine-learning/integrate-model) belgesine bakın.

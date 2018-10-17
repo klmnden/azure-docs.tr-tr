@@ -1,36 +1,38 @@
 ---
-title: Kişiselleştirme - Azure Bilişsel hizmetler makale | Microsoft Docs
-description: Bir öğretici için Azure özel karar Service, bulut tabanlı bir API bağlamsal dağıtılmasında makale kişiselleştirme.
+title: 'Öğretici: Makale kişiselleştirmesi - Özel Karar Alma Hizmeti'
+titlesuffix: Azure Cognitive Services
+description: Bağlamsal karar almaya yönelik makale kişiselleştirmesi için öğretici.
 services: cognitive-services
 author: slivkins
-manager: slivkins
+manager: cgronlun
 ms.service: cognitive-services
-ms.topic: article
+ms.component: custom-decision-service
+ms.topic: tutorial
 ms.date: 05/08/2018
-ms.author: slivkins;marcozo;alekh;marossi
-ms.openlocfilehash: 35d0567f81a23d4726461059eb6fd31e04228697
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
-ms.translationtype: MT
+ms.author: slivkins
+ms.openlocfilehash: b142fe2051c017d0c0ec3c4cac6aaedd563f6cd7
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35354587"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46366345"
 ---
-# <a name="article-personalization"></a>Makale kişiselleştirme
+# <a name="tutorial-article-personalization-for-contextual-decision-making"></a>Öğretici: Bağlamsal karar almaya yönelik makale kişiselleştirmesi
 
-Bu öğretici, bir Web sitesi ön sayfasında makalelerinin seçimini kişiselleştirme odaklanır. Özel karar Hizmeti'ni etkiler *birden çok* ön makaleleri listesi sayfası, örneğin. Belki de yalnızca siyaset ve Spor kapsayan bir haber Web sayfasıdır. Makalelerin üç dereceli listeleri göstermeniz: siyaset, spor ve son.
+Bu öğreticide, bir web sitesinin ön sayfasındaki makale seçkisini kişiselleştirmeye odaklanılmaktadır. Örneğin, Özel Karar Alma Hizmeti, ön sayfadaki *birden çok* makale listesini etkiler. Sayfa, yalnızca siyaset ve sporla ilgili bir haber web sitesi olabilir. Makalelerin üç sıralı listesini gösterir: siyasi, spor ve son dakika.
 
 ## <a name="applications-and-action-sets"></a>Uygulamalar ve eylem kümeleri
 
-Framework'e senaryonuza uyacak şekilde etkinleştirilir. Şimdi en iyileştirilmemiş her listesi için üç uygulama düşünün: uygulama siyaset, app-Spor ve uygulama son. Her uygulama için aday makaleleri belirtmek için iki eylem kümesi bulunur: siyaset, diğeri spor için için. İçin uygulama son ayarlanan eylemi otomatik olarak diğer iki kümelerinin UNION gelir.
+Aşağıda, senaryonuzu çerçeveye nasıl yerleştireceğiniz açıklanmaktadır. İyileştirilen her bir liste için birer tane olacak şekilde üç uygulama olduğunu varsayalım: uygulama-siyaset, uygulama-spor ve uygulama-son dakika. Her bir uygulamaya yönelik aday makaleleri belirtmek üzere biri siyaset için ve biri spor için olmak üzere iki eylem kümesi vardır. Uygulama-son dakika için eylem kümesi, diğer iki kümenin birleşimi olarak otomatik şekilde gelir.
 
 > [!TIP]
-> Eylem kümelerini özel karar hizmetinde uygulamalar arasında paylaşılabilir.
+> Eylem kümeleri, Özel Karar Alma Hizmeti’ndeki uygulamalar arasında paylaşılabilir.
 
-## <a name="prepare-action-set-feeds"></a>Eylem kümesini akışları hazırlama
+## <a name="prepare-action-set-feeds"></a>Eylem kümesi akışlarını hazırlama
 
-Özel karar hizmet müşteri tarafından sağlanan RSS veya Atom akışları aracılığıyla eylem kümelerini kullanır. İki akışları sağlar: biri siyaset, diğeri spor için. Gelen sunulan varsayalım `http://www.domain.com/feeds/<feed-name>`.
+Özel Karar Alma Hizmeti, RSS veya müşterinin sağladığı Atom akışları aracılığıyla eylem kümelerini kullanır. Biri siyaset için ve biri spor için olmak üzere iki akış sağlarsınız. Bunların `http://www.domain.com/feeds/<feed-name>` kaynağından sunulduğunu varsayın.
 
-Her akış makalelerin listesini sağlar. RSS, her biri tarafından belirtilen bir `<item>` şekilde öğesi:
+Her akış bir makale listesi sağlar. RSS’de her biri aşağıdaki gibi bir `<item>` öğesiyle belirtilir:
 
 ```xml
 <rss version="2.0"><channel>
@@ -42,41 +44,41 @@ Her akış makalelerin listesini sağlar. RSS, her biri tarafından belirtilen b
 </channel></rss>
 ```
 
-Makaleler önemlidir sırası. Makaleleri nasıl sıralanacağını, en iyi tahmin olan varsayılan derecelendirme belirtir. Varsayılan derecelendirme sonra performans karşılaştırma için kullanılan [Pano](#performance-dashboard).
+Makalelerin sırası önemlidir. Varsayılan sıralamayı, başka bir deyişle, makalelerin nasıl sıralanması gerektiğine dair en iyi tahmininizi belirtir. Varsayılan derecelendirme daha sonra [panoda](#performance-dashboard) performans karşılaştırması için kullanılır.
 
-Akış biçimi hakkında daha fazla bilgi için bkz: [API Başvurusu](custom-decision-service-api-reference.md#action-set-api-customer-provided).
+Akış biçimi hakkında daha fazla bilgi için bkz.[API başvurusu](custom-decision-service-api-reference.md#action-set-api-customer-provided).
 
-## <a name="register-a-new-app"></a>Yeni uygulamayı kaydedin
+## <a name="register-a-new-app"></a>Yeni uygulama kaydetme
 
-1. Oturum açmak, [Microsoft hesabı](https://account.microsoft.com/account). Şerit'te tıklatın **My Portal**.
+1. [Microsoft hesabınızla](https://account.microsoft.com/account) oturum açın. Şerit üzerinde **Portalım**’a tıklayın.
 
-2. Yeni bir uygulama kaydolmak için **yeni uygulama** düğmesi.
+2. Yeni bir uygulama kaydolmak için **Yeni Uygulama** düğmesine tıklayın.
 
     ![Özel Karar Alma Hizmeti portalı](./media/custom-decision-service-tutorial/portal.png)
 
-3. Uygulamanızda için benzersiz bir ad girin **uygulama kimliği** metin kutusu. Bu ad zaten başka bir müşteri tarafından kullanılıyorsa, sistem, farklı uygulama kimliğini almak için ister Seçin **Gelişmiş** onay kutusunu işaretleyin ve girin [bağlantı dizesi](../../storage/common/storage-configure-connection-string.md) Azure depolama hesabınız için. Normalde, tüm uygulamalar için aynı depolama hesabı kullanın.
+3. **Uygulama Kimliği** metin kutusuna uygulamanız için benzersiz bir ad girin. Bu ad zaten başka bir müşteri tarafından kullanılıyorsa sistem farklı bir uygulama kimliği seçmenizi ister. **Gelişmiş** onay kutusunu seçin ve Azure depolama hesabı için [bağlantı dizesini](../../storage/common/storage-configure-connection-string.md) girin. Normalde tüm uygulamalarınız için aynı depolama hesabını kullanırsınız.
 
     ![Yeni uygulama iletişim kutusu](./media/custom-decision-service-tutorial/new-app-dialog.png)
 
-    Yukarıdaki senaryoda üç uygulama kaydettikten sonra listelenmiştir:
+    Yukarıdaki senaryoda yer alan üç uygulamanın tamamını kaydetmenizin ardından uygulamalar listelenir:
 
     ![Uygulama listesi](./media/custom-decision-service-tutorial/apps.png)
 
-    Bu listeye tıklayarak geri gelebilir **uygulamaları** düğmesi.
+    **Uygulamalar** düğmesine tıklayarak bu listeye geri dönebilirsiniz.
 
-4. İçinde **yeni uygulama** iletişim kutusunda, bir eylem akış belirtin. Eylem akışları de belirtilebilir tıklayarak **akışları** düğmesine ve ardından tıklayarak **yeni akış** düğmesi. Girin bir **adı** yeni akış için girin **URL** aldığı sunulur ve girin **yenileme zamanı**. Özel karar hizmet akışın ne sıklıkta yenilemelisiniz yenileme süresini belirtir.
+4. **Yeni Uygulama** iletişim kutusunda bir eylem akışı belirtin. Eylem akışları, **Akışlar** düğmesine tıklanıp sonra **Yeni Akış** düğmesine tıklanarak da belirtilebilir. Haber akışı için bir **Ad** girin, sağlandığı **URL**’yi girin ve **Yenileme Süresi**’ni girin. Yenileme süresi, Özel Karar Alma Hizmeti’nin ne sıklıkla akışı yenileyeceğini belirtir.
 
     ![Yeni akış iletişim kutusu](./media/custom-decision-service-tutorial/new-feed-dialog.png)
 
-    Eylem akışları burada belirtilen bağımsız olarak tüm uygulama tarafından kullanılabilir. Bir senaryoda her iki eylem akışları belirttikten sonra bunlar listelenir:
+    Eylem akışları, nerede belirtildiğine bakılmaksızın herhangi bir uygulama tarafından kullanılabilir. Bir senaryoda her iki eylem akışını belirtmenizin ardından eylem akışları listelenir:
 
-    ![Akışları listesi](./media/custom-decision-service-tutorial/feeds.png)
+    ![Akış listesi](./media/custom-decision-service-tutorial/feeds.png)
 
-    Bu listeye tıklayarak geri gelebilir **akışları** düğmesi.
+    **Akışlar** düğmesine tıklayarak bu listeye geri dönebilirsiniz.
 
-## <a name="use-the-apis"></a>API'leri kullanın
+## <a name="use-the-apis"></a>API’leri kullanma
 
-Özel karar hizmet makaleleri sıralaması API aracılığıyla derecelendirir. Bu API kullanmak için ön sayfasında HTML head aşağıdaki kodu ekleyin:
+Özel Karar Alma Hizmeti, Derecelendirme API’si aracılığıyla makaleleri derecelendirir. Bu API’yi kullanmak için aşağıdaki kodu ön sayfanın HTML başlığına ekleyin:
 
 ```html
 <!-- Define the "callback function" to render UI -->
@@ -89,7 +91,7 @@ Akış biçimi hakkında daha fazla bilgi için bkz: [API Başvurusu](custom-dec
 <!-- NB: action feeds for 'app-recent' are listed one after another. -->
 ```
 
-HTTP yanıtı sıralaması API'sinden JSONP biçimli bir dizedir. App-siyaset, örneğin, dize şuna benzer:
+Derecelendirme API’sindeki HTTP yanıtı, JSONP tarafından biçimlendirilmiş bir dizedir. Örneğin, uygulama-siyaset için dize şöyle görünür:
 
 ```json
 callback({
@@ -99,14 +101,14 @@ callback({
    "actionSets":[{"id":"feed-politics","lastRefresh":"date"}] });
 ```
 
-Tarayıcı için bir çağrı olarak bu dize ardından yürütür `callback()` işlevi. `data` Değişkeninde `callback()` uygulama kimliği ve URL'leri sıralamasını işlenmek üzere işlevi içerir. Özellikle, `callback()` kullanması gereken `data.appId` üç uygulamalar arasında ayrım yapmak için. `eventId` Özel karar hizmeti tarafından sağlanan karşılık gelen bir tıklatmayla sıralaması varsa eşleşmesi için dahili olarak kullanılır.
+Daha sonra tarayıcı `callback()` işlevine bir çağrı olarak bu dizeyi yürütür. `callback()` işlevindeki `data` bağımsız değişkeni, işlenecek URL’lerin derecelendirmesini ve uygulama kimliğini içerir. Özellikle `callback()`, üç uygulamayı ayırt etmek için `data.appId` kullanmalıdır. `eventId`, varsa ilgili tıklama ile sağlanan derecelendirmeyle eşleştirmek için Özel Karar Alma Hizmeti tarafından dahili olarak kullanılır.
 
 > [!TIP]
-> `callback()` Her eylem için yenilik kullanarak akış kontrol `lastRefresh` alan. Belirli bir akış yeterince yeni değilse `callback()` , sağlanan derecelendirme yoksay, bu akışın doğrudan çağırabilir ve akış tarafından sunulan varsayılan derecelendirme kullanın.
+> `callback()`, `lastRefresh` alanını kullanarak her bir eylem akışının yeni olup olmadığını denetleyebilir. Belirli bir akış yeterince yeni değilse `callback()`, sağlanan derecelendirmeyi yoksayabilir, doğrudan bu akışı çağırabilir ve akış tarafından sağlanan varsayılan derecelendirmeyi kullanabilir.
 
-Belirtimleri ve sıralaması API'si tarafından sağlanan ek seçenekler hakkında daha fazla bilgi için bkz: [API Başvurusu](custom-decision-service-api-reference.md).
+Derecelendirme API’si tarafından sağlanan ek seçenekler ve belirtimler hakkında daha fazla bilgi için bkz. [API başvurusu](custom-decision-service-api-reference.md).
 
-Ödül API'sini çağırarak kullanıcı üst makale seçeneklerden döndürülür. Bir üst makale seçim alındığında, aşağıdaki kodu ön sayfasında çağrılır:
+Kullanıcının en yüksek makale tercihleri, Ödül API’si çağrılarak döndürülür. En yüksek makale tercihi alındığında ön sayfada şu kod çağrılmalıdır:
 
 ```javascript
 $.ajax({
@@ -115,7 +117,7 @@ $.ajax({
     contentType: "application/json" })
 ```
 
-Kullanarak `appId` ve `eventId` tıklatın işleme kodda bazı dikkat gerektirir. Örneğin, uygulama `callback()` gibi işlev:
+Tıklama işleme kodunda `appId` ve `eventId` kullanılırken dikkatli olunması gerekir. Örneğin, `callback()` işlevini aşağıdaki gibi uygulayabilirsiniz:
 
 ```javascript
 function callback(data) {
@@ -133,8 +135,8 @@ function callback(data) {
 }}
 ```
 
-Bu örnekte, uygulama `render()` belirli bir uygulamada belirli bir makaleye işlenecek işlevi. Bu işlev, uygulama kimliği ve makaleyi (biçiminde sıralaması API'sinden) girilir. `onClick` Parametredir öğesinden çağrılması işlevi `render()` tıklama işlemek için. Onu tıklayın üst yuvada olup olmadığını denetler. Olay Kimliği ve uygun uygulama kimliği ile ödül API çağrıları
+Bu örnekte, belirli bir uygulamaya yönelik belirli bir makaleyi işlemek için `render()` işlevini uygulayın. Bu işlev, uygulama kimliğini ve makaleyi (Derecelendirme API’sindeki biçimde) girer. `onClick` parametresi, tıklamayı işlemek için `render()` öğesinden çağrılması gereken işlevdir. Tıklamanın üst dilimde olup olmadığını denetler. Daha sonra uygun uygulama kimliği ve olay kimliği ile Ödül API’sini çağırır.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* Başvurun [API Başvurusu](custom-decision-service-api-reference.md) sağlanan işlevselliği hakkında daha fazla bilgi için.
+* Sağlanan işlevler hakkında daha fazla bilgi edinmek için [API başvurusu](custom-decision-service-api-reference.md)’na bakın.

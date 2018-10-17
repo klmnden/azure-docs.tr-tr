@@ -10,14 +10,14 @@ ms.reviewer: klam, LADocs
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/12/2018
-ms.openlocfilehash: 43f826414ae7f279c23f6e9e2e39d4d21267e158
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 70d7adc9ea8c65a7e6a21165864b7e6d661c6f8c
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43124027"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48042300"
 ---
-# <a name="check-traffic-with-a-schedule-based-logic-app"></a>Zamanlama tabanlı mantıksal uygulama ile trafiği denetleme
+# <a name="check-traffic-on-a-schedule-with-azure-logic-apps"></a>Azure Logic Apps ile zamanlamaya göre trafik denetleme
 
 Azure Logic Apps, bir zamanlamaya göre çalışan iş akışlarını otomatikleştirmenize yardımcı olur. Bu öğretici, hafta içi her sabah çalıştırılan ve trafik de dahil, iki yer arasındaki seyahat süresini denetleyen bir zamanlayıcı tetikleyicisi ile nasıl bir [mantıksal uygulama](../logic-apps/logic-apps-overview.md) oluşturabileceğinizi gösterir. Zaman belirli bir sınırı aşarsa mantıksal uygulama, hedefiniz için seyahat süresini ve gerekli ek süreyi içeren bir e-posta gönderir.
 

@@ -1,42 +1,42 @@
 ---
-title: Varlık arama SDK Python hızlı başlangıç | Microsoft Docs
-description: Varlık Ara SDK konsol uygulaması ayarlayın.
-titleSuffix: Azure Entity Search SDK Python quickstart
+title: "Hızlı Başlangıç: Bing Varlık Arama SDK'sı, Python"
+titlesuffix: Azure Cognitive Services
+description: Bing Varlık Arama SDK'sı konsol uygulaması kurulumu.
 services: cognitive-services
 author: mikedodaro
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-entity-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 02/15/2018
 ms.author: v-gedod
-ms.openlocfilehash: 95449fa3753291269e1a83d1431df3bf0cbe372f
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
-ms.translationtype: MT
+ms.openlocfilehash: 908373a216d0b14bb2dd41d3bb740b5582ac3ab1
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35355252"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48814245"
 ---
-# <a name="entity-search-sdk-python-quickstart"></a>Varlık arama SDK Python hızlı başlangıç
+# <a name="quickstart-bing-entity-search-sdk-with-python"></a>Hızlı Başlangıç: Python ile Bing Varlık Arama SDK'sı
 
-Varlık arama SDK'sı web sorguları ve ayrıştırma sonuçları için REST API işlevselliğini içerir.
+Varlık Arama SDK'sı, web sorguları ve sonuçları ayrıştırmak için REST API işlevselliğini içerir.
 
-[Kaynak kodu Python Bing varlık arama SDK örnekleri için](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/blob/master/samples/search/entity_search_samples.py) Git hub'da kullanılabilir.
+[Python Bing Varlık Arama SDK'sı örnekleri için kaynak kodu](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/blob/master/samples/search/entity_search_samples.py) Git Hub'dan edinilebilir.
 
 ## <a name="application-dependencies"></a>Uygulama bağımlılıkları
-Zaten sahip değilseniz, Python yükleyin. SDK, Python 2.7, 3.3, 3.4, 3.5 ve 3.6 uyumludur.
+Henüz yüklemediyseniz Python'ı yükleyin. SDK, Python 2.7, 3.3, 3.4, 3.5 ve 3.6 ile uyumludur.
 
-Python geliştirme için genel öneri kullanmaktır bir [sanal ortam](https://docs.python.org/3/tutorial/venv.html). Yükleme ve sanal ortamıyla başlatma [venv Modülü](https://pypi.python.org/pypi/virtualenv). Python 2.7 için virtualenv yüklemeniz gerekir.
+Python geliştirmesi için genel öneri [sanal bir ortam](https://docs.python.org/3/tutorial/venv.html) kullanmaktır. Sana ortamı [venv modülü](https://pypi.python.org/pypi/virtualenv) ile yükleyin ve başlatın. Python 2.7 için virtualenv dosyasını yüklemeniz gerekir.
 ```
 python -m venv mytestenv
 ```
-Bing varlık arama SDK bağımlılıkları yükler:
+Bing Varlık Arama SDK'sı bağımlılık dosyalarını yükleyin:
 ```
 cd mytestenv
 python -m pip install azure-cognitiveservices-search-entitysearch
 ```
-## <a name="entity-search-client"></a>Varlık arama istemci
-Alma bir [Bilişsel hizmetler erişim tuşu](https://azure.microsoft.com/try/cognitive-services/) altında *arama*. İçeri aktarmaları ekleyin:
+## <a name="entity-search-client"></a>Varlık Arama istemcisi
+*Arama* altından bir [Bilişsel Hizmetler erişim anahtarı](https://azure.microsoft.com/try/cognitive-services/) alın. İçeri aktarmaları ekleyin:
 ```
 from azure.cognitiveservices.search.entitysearch import EntitySearchAPI
 from azure.cognitiveservices.search.entitysearch.models import Place, ErrorResponseException
@@ -44,11 +44,11 @@ from msrest.authentication import CognitiveServicesCredentials
 
 subscription_key = "YOUR-SUBSCRIPTION-KEY"
 ```
-Bir örneğini oluşturmak `CognitiveServicesCredentials`. İstemci örneği:
+`CognitiveServicesCredentials` nesnesinin bir örneğini oluşturun. İstemciyi başlatın:
 ```
 client = EntitySearchAPI(CognitiveServicesCredentials(subscription_key))
 ```
-Tek bir varlık için (Gibralter) arayın ve kısa bir açıklama yazdırma:
+Tek bir varlık (Gibralter) aratın ve kısa bir açıklama yazdırın:
 ```
 entity_data = client.entities.search(query="Gibralter")
 
@@ -68,7 +68,7 @@ else:
     print("Didn't see any data..")
 
 ```
-Belirsiz bir sorgu (William ağ geçitleri) için arama ve tanıtıcı Kesinleştirme sonuçları.
+(William Gates) aratın ve belirsiz sorgu nedeniyle dönen kesinleştirme sonuçlarıyla ilgilenin.
 ```
 def handling_disambiguation(subscription_key):
 
@@ -112,7 +112,7 @@ def handling_disambiguation(subscription_key):
         print("Encountered exception. {}".format(err))
 
 ```
-Tek bir depodaki (Microsoft Store) için arama ve onun telefonlarını yazdırın.
+(Microsoft Store) sorgusuyla tek bir mağaza aratın ve telefon numarasını yazdırın.
 ```
 def store_lookup(subscription_key):
 
@@ -153,7 +153,7 @@ def store_lookup(subscription_key):
         print("Encountered exception. {}".format(err))
 
 ```
-Restoran (Seattle Restoran) bir listesi için arama ve adlarını ve telefon numaraları yazdırın.
+(Seattle restaurants) sorgusuyla restoran listesi aratın ve sonuçların adlarıyla telefon numaralarını yazdırın.
 ```
 def multiple_restaurant_lookup(subscription_key):
 
@@ -192,7 +192,7 @@ def multiple_restaurant_lookup(subscription_key):
         print("Encountered exception. {}".format(err))
 
 ```
-Bozuk bir isteği tetikler ve hata yanıtı okuyun.
+Bozuk bir istek tetikleyin ve hata yanıtını okuyun.
 ```
 def error(subscription_key):
 
@@ -216,5 +216,5 @@ def error(subscription_key):
 ```
 ## <a name="next-steps"></a>Sonraki adımlar
 
-[Bilişsel hizmetler Python SDK'sı örneği](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples)
+[Bilişsel Hizmetler Python SDK'sı örnekleri](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples)
 

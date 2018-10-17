@@ -6,13 +6,13 @@ author: mamccrea
 ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.topic: overview
-ms.date: 09/24/2018
-ms.openlocfilehash: 152a145601dcf4282ec0a3a3b6ebcf37bd11848b
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.date: 10/04/2018
+ms.openlocfilehash: ade162d0261b765336cbff9ea8a6429f9bd2d871
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46992975"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48801852"
 ---
 # <a name="hdinsight-40-overview-preview"></a>HDInsight 4.0 sürümüne genel bakış (Önizleme)
 
@@ -93,6 +93,12 @@ Tüm ana sürümlerde olduğu gibi son sürümü üretim ortamına uygulamadan �
 * HDI 4.0, MapReduce desteği sunmaz. Bunun yerine Tez kullanabilirsiniz. [Apache Tez](https://tez.apache.org/) hakkında daha fazla bilgi edinin.
 
 * Hive View, HDI 4.0 sürümünde mevcut değildir. 
+
+* Apache Zeppelin içindeki kabuk yorumlayıcı, Spark ve Etkileşimli Sorgu kümelerinde desteklenmez.
+
+* Spark-LLAP kümesinde LLAP özelliğini *devre dışı* bırakamazsınız. LLAP özelliğini yalnızca kapatabilirsiniz.
+
+* Azure Data Lake Storage Gen2, Juypter notebook'larını Spark kümesine kaydedemez.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

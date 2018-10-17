@@ -1,36 +1,37 @@
 ---
-title: Varlık yönetim bilgileri hizmeti API'si bağlama | Microsoft Docs
-description: Bilişsel hizmetler varlık bağlama görevler için varlık yönetim bilgileri hizmeti bağlama API'si kullanmayı öğrenin.
+title: Varlık Bağlama Akıllı Hizmeti API’si nedir?
+titlesuffix: Azure Cognitive Services
+description: Varlık bağlama görevleri için Varlık Bağlama Akıllı Hizmeti API’sinin nasıl kullanılacağını öğrenin.
 services: cognitive-services
 author: DavidLiCIG
-manager: wkwok
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: entity-linking-intelligence
-ms.topic: article
+ms.topic: overview
 ms.date: 03/28/2016
 ms.author: davl
-ms.openlocfilehash: 662295c42a421fe76892e6e5aac7b7e7178d6155
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
-ms.translationtype: MT
+ms.openlocfilehash: b0f839e8f33e9ff48d2ad526621167a89e3b9be8
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35351581"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46366191"
 ---
-# <a name="entity-linking-intelligence-service-api"></a>Varlık Bağlama Akıllı Hizmeti API’si
+# <a name="what-is-the-entity-linking-intelligence-service-api"></a>Varlık Bağlama Akıllı Hizmeti API’si nedir?
 
-Microsoft varlık bağlama Intelligence hizmeti, geliştiricilerin varlık bağlama için ilgili görevleri yardımcı olmak için oluşturduğunuz bir web hizmeti Hoş Geldiniz.
+Varlık bağlama ile ilgili görevler konusunda geliştiricilere yardımcı olmak için oluşturulmuş bir web hizmeti olan Varlık Bağlama Akıllı Hizmeti’ne hoş geldiniz.
 
 ## <a name="entity-linking"></a>Varlık Bağlama
 
-Bazen farklı bağlamlarda bir sözcük, adlandırılmış bir varlık, bir fiil veya belirli bir cümle içinde başka bir word form olarak kullanılabilir. Örneğin, “times” sözcüğü, adlandırılmış varlık olduğu durumlarda bile “The New York Times” veya “Times Meydanı” gibi birbirinden ayırt edilebilen iki farklı varlığı ifade ediyor olabilir. Bir belge içinde belirli bir paragraf verildiğinde, varlık bağlama yönetim bilgileri hizmeti algılar ve kendi bağlamına dayalı her ayrı bir varlık tanımlayın.  
+Bazen, bir sözcük farklı bağlamlardaki belirli bir tümce içinde adlandırılmış varlık, fiil veya başka sözcük formu olarak kullanılabilir. Örneğin, “times” sözcüğü, adlandırılmış varlık olduğu durumlarda bile “The New York Times” veya “Times Meydanı” gibi birbirinden ayırt edilebilen iki farklı varlığı ifade ediyor olabilir. Bir belge içindeki belirli bir metin paragrafı sağlandığında Varlık Bağlama Akıllı Hizmeti, bağlama göre her ayrı varlığı tanır ve tanımlar.  
 
-Aşağıdaki çizimde varlık bağlama örneği gösterilmektedir. Özellikle, Wikipedia kullanırken, varlık bağlama Intelligence hizmeti içindeki giriş metni belirtilen tüm varlıklar algılar ve ilgili başvuru noktaları sayfası kimliğine göre bağlar
+Aşağıdaki resimde bir varlık bağlama örneği gösterilmektedir. Özellikle Wikipedia kullanılırken Varlık Bağlama Akıllı Hizmeti, giriş metni içinde bahsedilen tüm varlıkları algılar ve bunları sayfa kimliğine göre ilgili başvuru noktaları ile bağlantılandırır.
 
- ![Varlık bağlama örnek Mars için](./Images/EntityLinkingSample1.png)
+ ![Mars için Varlık Bağlama Örneği](./Images/EntityLinkingSample1.png)
  
 ## <a name="get-started"></a>Başlarken
  
-Varlık bağlama temel işlevleri ve abonelik işlemi aracılığıyla hızlı gitmek için bizim başlangıç öğreticisinde bakın.
-[C# API'si bağlama varlığı ile çalışmaya başlama](GettingStarted.md)
+Varlık Bağlama temel işlevleri ve abonelik işlemi üzerinden hızlıca geçmek için başlangıç öğreticimize başvurun.
+[C#’ta Varlık Bağlama API’sini kullanmaya başlama](GettingStarted.md)
 
 

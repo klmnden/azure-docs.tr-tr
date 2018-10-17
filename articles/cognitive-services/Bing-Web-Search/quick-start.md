@@ -1,53 +1,54 @@
 ---
-title: Web ara API hızlı başlangıç | Microsoft Docs
-description: Bing Web arama API'sini kullanmaya başlamak gösterilmiştir.
+title: Web Araması API’si hızlı başlangıcı
+titleSuffix: Azure Cognitive Services
+description: Bing Web Araması API’sini kullanmaya nasıl başlanacağını gösterir.
 services: cognitive-services
 author: swhite-msft
-manager: ehansen
+manager: cgronlun
 ms.assetid: 27B4B51A-D017-44C8-8E4E-9684DC553886
 ms.service: cognitive-services
 ms.component: bing-web-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 04/15/2017
 ms.author: scottwhi
-ms.openlocfilehash: 0b8c4678a518985a4be3ee426a85b0a85dd2365d
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
-ms.translationtype: MT
+ms.openlocfilehash: af32abe1c61c44b14d0f70033aee54aa7eba7c8b
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35351748"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46126250"
 ---
-# <a name="your-first-bing-search-query"></a>İlk Bing arama sorgusu
+# <a name="your-first-bing-search-query"></a>İlk Bing arama sorgunuz
 
-İlk aramanız yapabilmeniz için önce bir Bilişsel hizmetler abonelik anahtarı almanız gerekir. Bir anahtar almak için bkz: [deneyin Bilişsel Hizmetler](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api).
+İlk çağrınızı yapmadan önce bir Bilişsel Hizmetler abonelik anahtarı almanız gerekir. Anahtar almak için bkz. [Bilişsel Hizmetleri Deneme](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api).
 
-Web arama sonuçları almak için aşağıdaki uç noktaya bir GET isteği gönder:  
-  
+Web araması sonuçlarını almak için aşağıdaki uç noktaya bir GET isteği gönderirsiniz:  
+
 ```
 https://api.cognitive.microsoft.com/bing/v7.0/search
 ```  
 
-İstek HTTPS protokolünü kullanmanız gerekir.
+İstek, HTTPS protokolünü kullanmalıdır.
 
-Tüm istekleri bir sunucusundan kaynaklanan öneririz. Bir istemci uygulaması bir parçası olarak anahtar dağıtma bir kötü amaçlı üçüncü erişmek taraf için daha fazla fırsatı sağlar. Ayrıca, bir sunucudan çağrıları yapma tek bir yükseltme noktası API gelecek sürümlerinde sağlar.  
-  
-İstek belirtmelisiniz [q](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#query) kullanıcının arama terimi içeren sorgu parametresi. İsteğe bağlı olsa da, istek de belirtmeniz gerekir [mkt](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#mkt) alınması için sonuçları istediğiniz Pazar tanımlayan sorgu parametresi. Listesini isteğe bağlı parametreleri gibi sorgu `responseFilter` ve `textDecorations`, bkz: [sorgu parametreleri](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#query-parameters). Tüm sorgu parametre değerleri URL kodlanmış olmalıdır.  
-  
-İstek belirtmelisiniz [Apim abonelik anahtar Ocp](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#subscriptionkey) üstbilgi. İsteğe bağlı olsa da, aşağıdaki üst bilgiler de belirtmeniz önerilir:  
-  
--   [Kullanıcı Aracısı](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#useragent)  
--   [X MSEdge ClientID](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#clientid)  
--   [X arama ClientIP](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#clientip)  
--   [X arama konumu](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#location)  
+Tüm isteklerin bir sunucudan gönderilmesini öneririz. Anahtarı bir istemci uygulamanın parçası olarak dağıtmak, kötü amaçlı bir üçüncü tarafa anahtara erişmek için daha fazla fırsat sunar. Ayrıca bir sunucudan çağrı yapmak API'nin gelecek sürümleri için tek bir yükseltme noktası sağlar.  
 
-İstemci IP ve konum üstbilgileri konumu kullanan içerik döndürmek için önemlidir. Örneğin, kullanıcının sorgu ise *yelken açmaya ne dersiniz + dersleri*, büyük olasılıkla konumlarına bulunan dersleri ilgi. Kullanıcının konumuna kullanılabilir dersleri içerecek şekilde sonuçları istiyorsanız, konum üstbilgisi ve isteğe bağlı olarak, istemci IP üstbilgisi eklemeniz gerekir. Sorgu Terime bir konum (örneğin, yelken açmaya ne dersiniz + dersleri İzmir ' + anahtarları) açıkça değinmektedir, daha az önemlidir. 
+İstek kullanıcının arama terimini içeren [q](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#query) sorgu parametresini belirtmelidir. Tercihe bağlı olmakla birlikte, istek, sonuçların gelmesini istediğiniz pazarı tanımlayan [mkt](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#mkt) sorgu parametresini de belirtmelidir. `responseFilter` ve `textDecorations` gibi isteğe bağlı sorgu parametrelerinin bir listesi için bkz. [Sorgu Parametreleri](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#query-parameters). Tüm sorgu parametre değerleri URL olarak kodlanmış olmalıdır.  
 
-Tüm istek ve yanıt üstbilgileri listesi için bkz: [üstbilgileri](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#headers).
+İstek [Ocp-Apim-Subscription-Key](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#subscriptionkey) üstbilgisini belirtmelidir. İsteğe bağlı olmakla birlikte şu üstbilgileri de belirtmeniz önerilir:  
+
+-   [User-Agent](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#useragent)  
+-   [X-MSEdge-ClientID](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#clientid)  
+-   [X-Search-ClientIP](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#clientip)  
+-   [X-Search-Location](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#location)  
+
+İstemci IP'si ve konum üstbilgileri konuma duyarlı içerik döndürmek için önemlidir. Örneğin, kullanıcının sorgusu *yelken+dersleri* ise, büyük ihtimalle bulunduğu yerin yakınlarındaki dersler kullanıcının ilgisini çekecektir. Sonuçların, kullanıcının konumunun yakınında bulunan dersleri içermesini istiyorsanız, konum üst bilgisini ve isteğe bağlı olarak istemci IP üst bilgisini dahil etmeniz gerekir. Sorgu terimi, açıkça bir konumu belirtiyorsa (örneğin, yelken+dersler+florida+keys) bu daha az önemlidir.
+
+Tüm istek ve yanıt üstbilgilerinin bir listesi için bkz. [Üst Bilgiler](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#headers).
 
 ## <a name="the-request"></a>İstek
 
-Tüm üstbilgiler ve önerilen sorgu parametreleri içeren bir arama isteğine gösterir. Herhangi bir Bing API'leri çağırma ilk kez ise, istemci kimliği üstbilgisi eklemeyin. Yalnızca istemci kimliği, daha önce Bing API'si çağırdıktan ve kullanıcı ve aygıt bileşimi için bir istemci kimliği Bing döndürülen içerir. 
-  
+Aşağıda önerilen tüm sorgu parametrelerini ve üst bilgilerini içeren bir arama isteği gösterilmektedir. Bing API'lerinden birini ilk kez çağırıyorsanız istemci kimliği üst bilgisini eklemeyin. İstemci kimliğini yalnızca önceden bir Bing API'sini çağırdıysanız ve Bing, kullanıcı ve cihaz birleşimi için bir istemci kimliği döndürdüyse dahil edin.
+
 ```  
 GET https://api.cognitive.microsoft.com/bing/v7.0/search?q=sailing+lessons+seattle&mkt=en-us HTTP/1.1  
 Ocp-Apim-Subscription-Key: 123456789ABCDE  
@@ -57,7 +58,7 @@ X-MSEdge-ClientID: <blobFromPriorResponseGoesHere>
 Host: api.cognitive.microsoft.com  
 ```  
 
-Önceki istek yanıtı gösterir. Bu örnek ayrıca Bing özgü yanıt üstbilgilerini gösterir.
+Aşağıda, bir önceki isteğin yanıtı gösterilmektedir. Örnek ayrıca Bing’e özgü yanıt üst bilgilerini de göstermektedir.
 
 ```
 BingAPIs-TraceId: 76DD2C2549B94F9FB55B4BD6FEB6AC
@@ -265,6 +266,6 @@ BingAPIs-Market: en-US
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Out API deneyin. Git [Web arama API sınama Konsolu](https://dev.cognitive.microsoft.com/docs/services/56b43eeccf5ff8098cef3807/operations/56b4447dcf5ff8098cef380d). 
+API’yi deneyin. [Web Arama API’si Test Konsolu](https://dev.cognitive.microsoft.com/docs/services/56b43eeccf5ff8098cef3807/operations/56b4447dcf5ff8098cef380d)’na gidin.
 
-Yanıt nesneleri kullanma hakkında daha fazla bilgi için bkz [Web arama](./search-the-web.md).
+Yanıt nesnelerini kullanma ile ilgili ayrıntılar için bkz. [Web’de arama yapma](./search-the-web.md).

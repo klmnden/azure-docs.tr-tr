@@ -1,38 +1,40 @@
 ---
-title: Duygu tanıma API'si Python Eğitmen | Microsoft Docs
-description: Bilişsel hizmetler duygu tanıma API'si Python ile kullanma hakkında bilgi edinmek için Jupyter not defteri kullanın. Sonuçlarınızı popüler kitaplıklarını kullanarak görselleştirin.
+title: "Öğretici: Bir görüntüdeki yüzün duygularını tanıma - Duygu Tanıma API'si, Python"
+titlesuffix: Azure Cognitive Services
+description: Duygu Tanıma API'sini Python ile kullanmayı öğrenmek için bir Jupyter notebook kullanın. Popüler kitaplıkları kullanarak sonuçlarınızı görselleştirin.
 services: cognitive-services
 author: anrothMSFT
-manager: corncar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: emotion-api
-ms.topic: article
+ms.topic: tutorial
 ms.date: 05/23/2017
 ms.author: anroth
-ms.openlocfilehash: 70c8ca48c651601f3d7cbb3717c32bfe112176fe
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
-ms.translationtype: MT
+ROBOTS: NOINDEX
+ms.openlocfilehash: 31e346cd9a3f43f8181ebee4474ae6c9ee2cc6fc
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35352397"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48237866"
 ---
-# <a name="emotion-api-using-python-tutorial"></a>Python Eğitmen kullanarak API duygu tanıma
+# <a name="tutorial-use-the-emotion-api-with-a-jupyter-notebook--python"></a>Öğretici: Duygu Tanıma API'sini Jupyter notebook ve Python ile kullanın.
 
 > [!IMPORTANT]
-> Video API Önizleme 30 Ekim 2017 sona erer. Yeni deneyin [Video dizin oluşturucu API önizlemesi](https://azure.microsoft.com/services/cognitive-services/video-indexer/) kolayca videoların öngörüleri ayıklamak ve konuşulan sözcüklerin, yüzler, karakterler ve duygular algılayarak arama sonuçları gibi içerik bulma deneyimlerini geliştirmek üzere. [Daha fazla bilgi edinin](https://docs.microsoft.com/azure/cognitive-services/video-indexer/video-indexer-overview).
+> Duygu Tanıma API'si 15 Şubat 2019 tarihinde kullanım dışı bırakılacaktır. Duygu tanıma özelliği [Yüz Tanıma API'sinin](https://docs.microsoft.com/azure/cognitive-services/face/) bir parçası olarak genel kullanıma sunulmuştur. 
 
-Duygu tanıma API'si ile çalışmaya başlama kolaylaştırmak için aşağıda bağlı Jupyter Not Defteri, Python API kullanma ve bazı yaygın kitaplıkları kullanarak sonuçlarınızı görselleştirmek nasıl gösterir. 
+Duygu Tanıma API'sini kullanmaya başlamanızı kolaylaştırmak için aşağıda bağlantısı verilen Jupyter notebook'ta API'yi Python'da kullanma ve bazı popüler kitaplıkları kullanarak sonuçlarınızı görselleştirme adımları gösterilmektedir.
 
-[Not Defteri github'da bağlantı](https://github.com/Microsoft/Cognitive-Emotion-Python/blob/master/Jupyter%20Notebook/Emotion%20Analysis%20Example.ipynb)
+[GitHub'daki notebook'un bağlantısı](https://github.com/Microsoft/Cognitive-Emotion-Python/blob/master/Jupyter%20Notebook/Emotion%20Analysis%20Example.ipynb)
 
-### <a name="using-the-jupyter-notebook"></a>Jupyter Not Defteri kullanarak
+### <a name="using-the-jupyter-notebook"></a>Jupyter Notebook'u kullanma
 
-Not Defteri etkileşimli olarak kullanabilmek için kopyalayın ve Jupyter'de çalıştırılması gerekir. Etkileşimli Jupyter not defterleri ile çalışmaya başlama öğrenmek için yönergeleri izleyin http://jupyter.readthedocs.org/en/latest/install.html. 
+Notebook'u etkileşimli bir şekilde kullanmak için kopyalayıp Jupyter'de çalıştırmanız gerekir. Etkileşimli Jupyter notebook’ları nasıl kullanmaya başlayacağınızı öğrenmek için http://jupyter.readthedocs.org/en/latest/install.html sayfasındaki yönergeleri izleyin.
 
-Bu not defterini kullanın duygu tanıma API'si için bir abonelik anahtarı gerekir. Ziyaret [aboneliği sayfasına](https://azure.microsoft.com/try/cognitive-services/) kaydolmak için. "Oturum açma" sayfasında, Microsoft hesabınızda oturum açmak için kullandığınız ve abone olmak ve ücretsiz anahtarlarını almak mümkün olacaktır. Kayıt işlemini tamamladıktan sonra anahtarınızı aşağıda gösterilen değişkenler bölümü yapıştırın. Birincil veya ikincil anahtarı çalışır.
+Bu not defterini kullanmak için, Duygu Tanıma API'si için bir abonelik anahtarı gerekir. Kaydolmak için [Abonelik sayfasını](https://azure.microsoft.com/try/cognitive-services/) ziyaret edin. “Oturum aç” sayfasında oturum açmak için Microsoft hesabınızı kullanın, böylece abone olup ücretsiz anahtar alabilirsiniz. Kayıt işlemini tamamladıktan sonra anahtarınızı aşağıda gösterilen bölüme yapıştırın. Birincil veya ikincil anahtar çalışır.
 
 ```
-Python Example 
+Python Example
 
 #Variables
 

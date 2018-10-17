@@ -1,41 +1,42 @@
 ---
-title: Bilişsel hizmetler Azure, Bing Haberler arama API için Söyleniş hızlı başlangıç | Microsoft Docs
-description: Hızlı bir şekilde yardımcı olmak için bilgi ve kod örnekleri get Bing Haberler arama API Azure üzerinde Microsoft Bilişsel Hizmetleri'ndeki kullanmaya başlayın.
+title: 'Hızlı başlangıç: Bing Haber Arama API’si, Ruby'
+titlesuffix: Azure Cognitive Services
+description: Bing Haber Arama API'sini kısa sürede kullanmaya başlamanıza yardımcı olacak bilgi ve kod örnekleri alın.
 services: cognitive-services
-documentationcenter: ''
 author: v-jerkin
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-news-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 9/21/2017
 ms.author: v-jerkin
-ms.openlocfilehash: 2c4074a5bf63a2b4d6301e81608c0cfafd9de8e8
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
-ms.translationtype: MT
+ms.openlocfilehash: c6c004469b86e443dc1fcc04106d0c7b8b749334
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35354839"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48803826"
 ---
-# <a name="quickstart-for-bing-news-search-api-with-ruby"></a>Bing Haberler arama Ruby API'SİYLE için hızlı başlangıç
+# <a name="quickstart-for-bing-news-search-api-with-ruby"></a>Hızlı başlangıç: Ruby ile Bing Haber Arama API’si
 
-Bu makalede, Microsoft Bilişsel hizmetler Azure üzerinde bir parçası Bing Haberler arama API kullanma gösterilmektedir. Bu makalede Ruby kullanır, ancak bir RESTful Web hizmeti, HTTP isteklerini hale getirebilir ve JSON ayrıştırma programlama dili ile uyumlu API'dir. 
+Bu makale, Azure'daki Microsoft Bilişsel Hizmetleri'nin parçası olan Bing Haber Arama API'sini kullanmayı göstermektedir. Bu makalede Ruby kullanılmakla birlikte API HTTP istekleri gönderebilecek ve JSON ayrıştırabilecek her programlama diliyle uyumlu bir RESTful Web hizmetidir. 
 
-Kod örneği, Ruby 2.4 altında çalıştırmak için yazılmıştır.
+Örnek kod, Ruby 2.4 ile çalışmak üzere yazılmıştır.
 
-Başvurmak [API Başvurusu](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference) API'leri hakkında teknik ayrıntılar için.
+API'lerle ilgili teknik ayrıntılar için [API başvurusu](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference)'na bakın.
 
-## <a name="prerequisites"></a>Önkoşullar
+## <a name="prerequisites"></a>Ön koşullar
 
-Bilmeniz gereken bir [Bilişsel Hizmetleri API hesabı](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) ile **Bing arama API'leri**. [Ücretsiz deneme sürümü](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) Bu Hızlı Başlangıç için yeterlidir. Ücretsiz deneme sürümünüzü etkinleştirmek ya da Ücretli abonelik anahtarı Azure panonuza kullanabilir sağlanan erişim anahtarı gerekir.
+**Bing Arama API'leri**'nde bir [Bilişsel Hizmetler API hesabınız](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) olması gerekir. [Ücretsiz deneme](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) bu hızlı başlangıç için yeterlidir. Ücretsiz denemenizi etkinleştirdiğinizde sağlanan erişim anahtarınız olması veya Azure panonuzdan ücretli bir abonelik anahtarı kullanmanız gerekir.
 
-## <a name="bing-news-search"></a>Bing Haberler arama
+## <a name="bing-news-search"></a>Bing Haber Arama
 
-[Bing Haberler arama API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference) haber Bing arama motoru sonuçlarını döndürür.
+[Bing Haber Arama API'si](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference) Bing arama motorundan haber sonuçları döndürür.
 
-1. Sık kullanılan IDE veya Düzenleyicisi içinde yeni bir Söyleniş projesi oluşturun.
-2. Aşağıda sunulan kodu ekleyin.
-3. Değiştir `accessKey` aboneliğiniz için geçerli bir erişim anahtarı ile değer.
-4. Programını çalıştırın.
+1. Sık kullandığınız IDE veya kod düzenleyicisinde yeni bir Ruby projesi oluşturun.
+2. Aşağıda sağlanan kodu ekleyin.
+3. `accessKey` değerini, aboneliğiniz için geçerli olan bir erişim anahtarı ile değiştirin.
+4. Programı çalıştırın.
 
 ```ruby
 require 'net/https'
@@ -84,7 +85,7 @@ puts JSON::pretty_generate(JSON(response.body))
 
 **Yanıt**
 
-Başarılı yanıt JSON'da, aşağıdaki örnekte gösterildiği gibi verilir:
+Başarılı yanıt, aşağıdaki örnekte gösterildiği gibi JSON biçiminde döndürülür:
 
 ```json
 {
@@ -181,7 +182,7 @@ Başarılı yanıt JSON'da, aşağıdaki örnekte gösterildiği gibi verilir:
 ## <a name="next-steps"></a>Sonraki adımlar
 
 > [!div class="nextstepaction"]
-> [Disk belleği haber](paging-news.md)
-> [decoration işaretçileri metni vurgulama kullanmayı](hit-highlighting.md)
-> [haber web arama](search-the-web.md)  
+> [Haberleri sayfalara bölme](paging-news.md)
+> [Metni vurgulamak için süsleme işaretçilerini kullanma](hit-highlighting.md)
+> [Web'de haber arama](search-the-web.md)  
 > [Deneyin](https://azure.microsoft.com/services/cognitive-services/bing-web-search-api/)

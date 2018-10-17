@@ -1,38 +1,38 @@
 ---
-title: "Hızlı Başlangıç: Ruby ve Bing resim arama API'si için REST API kullanarak gönderme arama sorguları"
-description: Bu hızlı başlangıçta, Ruby kullanarak ilgili görüntülerin listesini almak için Bing arama API'si arama sorguları gönderin.
+title: 'Hızlı Başlangıç: Ruby ile görüntü araması gerçekleştirme - Bing Resim Arama API’si'
+description: İlk Bing Resim Arama API’si çağrınızı yapmak ve bir JSON yanıtı almak için bu hızlı başlangıcı kullanın. Bu basit Ruby uygulaması, API’ye bir arama sorgusu gönderir ve ham sonuçları görüntüler.
 services: cognitive-services
 documentationcenter: ''
 author: aahill
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-image-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 8/20/2018
 ms.author: aahi
-ms.openlocfilehash: fdc22971a369effbca31e23305ee57739852a50b
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
-ms.translationtype: MT
+ms.openlocfilehash: 4c2c91b42af46ba42bdda84d7b8b77987c7ea818
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45578810"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46297341"
 ---
-# <a name="quickstart-send-search-queries-using-the-rest-api-and-ruby"></a>Hızlı Başlangıç: REST API ile Ruby gönderme arama sorguları
+# <a name="quickstart-send-search-queries-using-the-rest-api-and-ruby"></a>Hızlı Başlangıç: REST API ve Ruby kullanarak arama sorguları gönderme
 
-Bu hızlı başlangıçta, bir JSON yanıtı alırsınız ve Bing resim arama API'si, ilk çağrı yapmak için kullanın. Bu basit bir Ruby uygulaması, API için bir arama sorgusu gönderir ve ham sonuçları görüntüler.
+İlk Bing Resim Arama API’si çağrınızı yapmak ve bir JSON yanıtı almak için bu hızlı başlangıcı kullanın. Bu basit Ruby uygulaması, API’ye bir arama sorgusu gönderir ve ham sonuçları görüntüler.
 
-Bu uygulama, Ruby'de yazılan karşın, birçok programlama dilleri ile uyumlu bir RESTful Web hizmeti API'dir.
+Bu uygulama, Ruby ile yazılmış olmakla birlikte API, çoğu programlama diliyle uyumlu bir RESTful Web hizmetidir.
 
-Bu örnek için kaynak kodu kullanılabilir [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/ruby/Search/BingImageSearchv7.rb).
-## <a name="prerequisites"></a>Önkoşullar
+Bu örneğin kaynak kodu [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/ruby/Search/BingImageSearchv7.rb)’da mevcuttur.
+## <a name="prerequisites"></a>Ön koşullar
 
-* [Ruby en son sürümünü](https://www.ruby-lang.org/en/downloads/).
+* [Ruby’nin en son sürümü](https://www.ruby-lang.org/en/downloads/).
 
 [!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
 
-## <a name="create-and-initialize-the-application"></a>Oluşturma ve uygulama başlatma
+## <a name="create-and-initialize-the-application"></a>Uygulamayı oluşturma ve başlatma
 
-1. Aşağıdaki paketler kod dosyanıza aktarın.
+1. Aşağıdaki paketleri kod dosyanıza içeri aktarın.
 
     ```ruby
     require 'net/https'
@@ -40,7 +40,7 @@ Bu örnek için kaynak kodu kullanılabilir [GitHub](https://github.com/Azure-Sa
     require 'json'
     ```
 
-2. Değişkenleri API uç noktası için görüntü API'si arama yolu, abonelik anahtarınızı oluşturma ve arama terimi.
+2. API uç noktası, görüntü API’si arama yolu, abonelik anahtarınız ve arama teriminiz için değişkenler oluşturun.
 
     ```ruby
     uri  = "https://api.cognitive.microsoft.com"
@@ -48,9 +48,9 @@ Bu örnek için kaynak kodu kullanılabilir [GitHub](https://github.com/Azure-Sa
     term = "puppies"
     ```
 
-## <a name="format-and-make-an-api-request"></a>Biçimlendirme ve API istek
+## <a name="format-and-make-an-api-request"></a>API isteğini biçimlendirme ve API isteğinde bulunma
 
-Son adım değişkenlerinden API isteği için bir arama URL'si biçimlendirmek için kullanın. Daha sonra istek gönderin.
+API isteğine yönelik bir arama URL’sini biçimlendirmek için son adımdaki değişkenleri kullanın. Daha sonra isteği gönderin.
 
 ```ruby
 uri = URI(uri + path + "?q=" + URI.escape(term))
@@ -64,9 +64,9 @@ response = Net::HTTP.start(uri.host, uri.port, :use_ssl => uri.scheme == 'https'
 end
 ```
 
-## <a name="process-and-print-the-json"></a>İşlem ve JSON yazdırma 
+## <a name="process-and-print-the-json"></a>JSON işleme ve yazdırma
 
-Yanıt alındıktan sonra JSON Ayrıştır ve değerleri alın. Örneğin, küçük resim URL'si ilk sonuç ve toplam sayısı görüntüleri döndürdü.
+Yanıt alındıktan sonra JSON’ı ayrıştırabilir ve bundan değerleri alabilirsiniz. Örneğin, nihai sonucun küçük resim URL’si ve toplam döndürülen görüntü sayısı.
 
 ```ruby
 response.each_header do |key, value|
@@ -86,7 +86,7 @@ puts "Url to the thumbnail of the first returned search result: #{first_result}"
 
 ## <a name="sample-json-response"></a>Örnek JSON yanıtı
 
-Bing resim arama API'si alınan yanıtları JSON olarak döndürülür. Bu örnek yanıt, tek bir sonuç göstermek için kısaltıldı.
+Bing Resim Arama API'sinden yanıtlar JSON olarak döndürülür. Bu örnek yanıt, tek bir sonuç göstermek için kısaltıldı.
 
 ```json
 {
@@ -136,12 +136,12 @@ Bing resim arama API'si alınan yanıtları JSON olarak döndürülür. Bu örne
 ## <a name="next-steps"></a>Sonraki adımlar
 
 > [!div class="nextstepaction"]
-> [Bing resim arama tek sayfalı uygulama Öğreticisi](../tutorial-bing-image-search-single-page-app.md)
+> [Bing Resim Arama tek sayfalı uygulama öğreticisi](../tutorial-bing-image-search-single-page-app.md)
 
-## <a name="see-also"></a>Ayrıca bkz. 
+## <a name="see-also"></a>Ayrıca bkz.
 
-* [Bing resim arama nedir?](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/overview)  
-* [Çevrimiçi bir etkileşimli Tanıtımı deneyin](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/)  
-* [Ücretsiz bir Bilişsel hizmetler erişim anahtarını alma](https://azure.microsoft.com/try/cognitive-services/?api=bing-image-search-api)  
-* [Azure Bilişsel hizmetler belgeleri](https://docs.microsoft.com/azure/cognitive-services)
-* [Bing resim arama API'si başvurusu](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference)
+* [Bing Resim Arama nedir?](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/overview)  
+* [Çevrimiçi etkileşimli bir tanıtımı deneyin](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/)  
+* [Ücretsiz bir Bilişsel Hizmetler erişim anahtarı alın](https://azure.microsoft.com/try/cognitive-services/?api=bing-image-search-api)  
+* [Azure Bilişsel Hizmetler Belgeleri](https://docs.microsoft.com/azure/cognitive-services)
+* [Bing Resim Arama API’si başvurusu](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference)

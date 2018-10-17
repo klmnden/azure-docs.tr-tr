@@ -1,55 +1,55 @@
 ---
-title: "Hızlı Başlangıç: C# kullanarak metin analizi API'sini çağırmak için | Microsoft Docs"
+title: "Hızlı başlangıç: Metin Analizi API'sini çağırmak için C# kullanma"
 titleSuffix: Azure Cognitive Services
-description: Bilgi ve kod örnekleri, Azure üzerinde Microsoft Bilişsel hizmetler metin analizi API'sini kullanarak ile hızlıca çalışmaya başlamanıza yardımcı olmak için alın.
+description: Metin Analizi API'sini kısa sürede kullanmaya başlamanıza yardımcı olacak bilgi ve kod örnekleri alın.
 services: cognitive-services
-documentationcenter: ''
-author: luiscabrer
+author: ashmaka
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: text-analytics
-ms.topic: article
-ms.date: 08/30/2018
+ms.topic: quickstart
+ms.date: 10/01/2018
 ms.author: ashmaka
-ms.openlocfilehash: b4d945b7495897caf1f4edd1e909581614798a23
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
-ms.translationtype: MT
+ms.openlocfilehash: ce3629a140db97e922a28792c6230d9566682982
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44303030"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48269335"
 ---
-# <a name="quickstart-using-c-to-call-the-text-analytics-cognitive-service"></a>Hızlı Başlangıç: C# kullanarak metin analizi Bilişsel hizmetini çağırmak için
+# <a name="quickstart-using-c-to-call-the-text-analytics-cognitive-service"></a>Hızlı başlangıç: Metin Analizi Bilişsel Hizmetini çağırmak için C# kullanma
 <a name="HOLTop"></a>
 
-Bu makalede, dili algılayın, duyguları çözümleyin ve kullanarak, anahtar tümcecikleri ayıklayın işlemini göstermektedir [metin analizi API'lerini](//go.microsoft.com/fwlink/?LinkID=759711) C# ile. Kodu en az başvurular dış kitaplıkları, bir .NET Core uygulaması ayrıca Linux veya Macos'ta çalıştırabilirsiniz şekilde çalışmak için yazılmıştır.
+Bu makalede C# ile [Metin Analizi API'sini](//go.microsoft.com/fwlink/?LinkID=759711) kullanarak dil algılama, duygu analizi gerçekleştirme ve anahtar sözcükleri ayıklama adımları gösterilmektedir. Dış kitaplıklara minimum başvuru içeren bu kod bir .Net Core uygulamasında çalışacak şekilde yazılmış olduğundan Linux veya MacOS üzerinde de çalıştırabilirsiniz.
 
-Başvurmak [API tanımlarını](//go.microsoft.com/fwlink/?LinkID=759346) API'leri için teknik belgeler için.
+API'lerle ilgili teknik bilgiler için [API tanımları](//go.microsoft.com/fwlink/?LinkID=759346) sayfasını inceleyin.
 
-## <a name="prerequisites"></a>Önkoşullar
+## <a name="prerequisites"></a>Ön koşullar
 
-Olmalıdır bir [Bilişsel hizmetler API hesabı](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) metin analizi API'si ile. Kullanabileceğiniz *5.000 işlem/ay için ücretsiz katman* Bu hızlı başlangıcı tamamlamak için.
+**Metin Analizi API'sine** sahip bir [Bilişsel Hizmetler API hesabınızın](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) olması gerekir. Bu hızlı başlangıç için **ayda 5000 işlem sunan ücretsiz katmanı** kullanabilirsiniz.
 
-Sahip olmalısınız [uç noktası ve erişim anahtarı](../How-tos/text-analytics-how-to-access-key.md) , oluşturuldu, kayıt sırasında. 
+Ayrıca kayıt sırasında oluşturulan [uç nokta ve erişim anahtarı](../How-tos/text-analytics-how-to-access-key.md) değerlerine de sahip olmanız gerekir. 
 
 
-## <a name="install-the-nuget-sdk-package"></a>SDK'sı NuGet paketini yükle
-1. Visual Studio'da yeni bir konsol çözümü oluşturun.
-1. Çözüme sağ tıklayıp **çözüm için NuGet paketlerini Yönet**.
-1. Seçin **öncesini** onay kutusu.
-1. Seçin **Gözat** sekmesinde ve arama **Microsoft.Azure.CognitiveServices.Language**.
-1. Seçin **Microsoft.Azure.CognitiveServices.Language.TextAnalytics** NuGet paketini ve yükleyin.
+## <a name="install-the-nuget-sdk-package"></a>Nuget SDK Paketini yükleme
+1. Visual Studio'da yeni bir Konsol çözümü oluşturun.
+1. Çözüme sağ tıklayın ve ardından **Çözüm için NuGet Paketlerini Yönet**'e tıklayın.
+1. **Ön sürümü dahil et** onay kutusunu işaretleyin.
+1. **Gözat** sekmesini seçin ve **Microsoft.Azure.CognitiveServices.Language.TextAnalytics** aratın.
+1. Nuget paketini seçip yükleyin.
 
 > [!Tip]
-> Çağırabilirsiniz rağmen [HTTP uç noktalarını](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6) doğrudan C# ' tan, Microsoft.Azure.CognitiveServices.Language SDK'sı sağlar serileştirme ve JSON seri kaldırma hakkında endişelenmenize gerek kalmadan hizmet çağrısı çok daha kolay.
+>  [HTTP uç noktalarını](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6) doğrudan C# ile de çağırabilirsiniz ancak Microsoft.Azure.CognitiveServices.Language SDK'sı hizmeti çağırmayı çok daha kolay hale getirir ve JSON yanıtını seri duruma getirme ve seri durumdan çıkarma konusunda endişelenmenize gerek kalmaz.
 >
-> Faydalı bağlantılar aşağıda verilmiştir:
-> - [SDK'sı NuGet sayfası](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.TextAnalytics)
+> Birkaç faydalı bağlantı:
+> - [SDK Nuget sayfası](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.TextAnalytics)
 > - [SDK kodu](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/CognitiveServices/dataPlane/Language/TextAnalytics)
 
 
-## <a name="call-the-text-analytics-api-by-using-the-sdk"></a>SDK'sını kullanarak metin analizi API'sini çağırma
-1. Program.cs aşağıdaki kodla değiştirin. Bu program, metin analizi API'si üç bölümlük (dil ayıklama, anahtar ifade ayıklama ve yaklaşım analizi) özellikleri gösterilmektedir.
-1. Değiştirin `Ocp-Apim-Subscription-Key` aboneliğiniz için geçerli olan bir erişim anahtarı ile üst bilgi değeri.
-1. Konumu değiştirmek `Endpoint` kaydolup uç noktası. Uç nokta, Azure portal kaynağında bulabilirsiniz. Uç nokta, genellikle "https://[region].api.cognitive.microsoft.com" ile başlar Yalnızca protokolü ve ana bilgisayar adını içerir.
+## <a name="call-the-text-analytics-api-using-the-sdk"></a>SDK'yı kullanarak Metin Analizi API’sini çağırma
+1. Program.cs dosyasını aşağıda sağlanan kod ile değiştirin. Bu program Metin Analizi API'sinin özelliklerini 3 bölümde göstermektedir (dil ayıklama, anahtar sözcük ayıklama ve yaklaşım analizi).
+1. Üst bilgideki `Ocp-Apim-Subscription-Key` değerini, aboneliğiniz için geçerli olan bir erişim anahtarı ile değiştirin.
+1. `Endpoint` içindeki konumu kaydolduğunuz uç nokta olacak şekilde değiştirin. Uç noktayı Azure portal kaynağında bulabilirsiniz. Uç nokta genellikle "https://[bölge].api.cognitive.microsoft.com" şeklinde başlar. Burada lütfen yalnızca protokolü ve ana bilgisayar adını dahil edin.
 1. Programı çalıştırın.
 
 ```csharp
@@ -58,7 +58,6 @@ using Microsoft.Azure.CognitiveServices.Language.TextAnalytics;
 using Microsoft.Azure.CognitiveServices.Language.TextAnalytics.Models;
 using System.Collections.Generic;
 using Microsoft.Rest;
-using System.Linq;
 using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
@@ -74,7 +73,7 @@ namespace ConsoleApp1
         {
             public override Task ProcessHttpRequestAsync(HttpRequestMessage request, CancellationToken cancellationToken)
             {
-                request.Headers.Add("Ocp-Apim-Subscription-Key", "ENTER KEY HERE");
+                request.Headers.Add("Ocp-Apim-Subscription-Key", "4d4705adaf4a4656b1118b68d671d5b6");
                 return base.ProcessHttpRequestAsync(request, cancellationToken);
             }
         }
@@ -86,20 +85,14 @@ namespace ConsoleApp1
             ITextAnalyticsClient client = new TextAnalyticsClient(new ApiKeyServiceClientCredentials())
             {
                 Endpoint = "https://westus.api.cognitive.microsoft.com"
-            };
+            }; //Replace 'westus' with the correct region for your Text Analytics subscription
 
             Console.OutputEncoding = System.Text.Encoding.UTF8;
-```
 
-## <a name="detect-language"></a>Dili algılama
-
-Dil algılama API bir metnin dilini algılar kullanarak belge [dil algılama yöntemi](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7).
-
-```csharp
-            // Extracting language.
+            // Extracting language
             Console.WriteLine("===== LANGUAGE EXTRACTION ======");
 
-            var result =  client.DetectLanguageAsync(new BatchInput(
+            var result = client.DetectLanguageAsync(new BatchInput(
                     new List<Input>()
                         {
                           new Input("1", "This is a document written in English."),
@@ -112,14 +105,8 @@ Dil algılama API bir metnin dilini algılar kullanarak belge [dil algılama yö
             {
                 Console.WriteLine("Document ID: {0} , Language: {1}", document.Id, document.DetectedLanguages[0].Name);
             }
-```
 
-## <a name="extract-key-phrases"></a>Anahtar ifadeleri ayıklama
-
-Anahtar tümcecik ayıklama API anahtar tümcecikleri metinden ayıklar kullanarak belge [anahtar tümcecikleri yöntemi](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6).
-
-```csharp
-            // Getting key phrases.
+            // Getting key-phrases
             Console.WriteLine("\n\n===== KEY-PHRASE EXTRACTION ======");
 
             KeyPhraseBatchResult result2 = client.KeyPhrasesAsync(new MultiLanguageBatchInput(
@@ -131,7 +118,7 @@ Anahtar tümcecik ayıklama API anahtar tümcecikleri metinden ayıklar kullanar
                           new MultiLanguageInput("es", "4", "A mi me encanta el fútbol!")
                         })).Result;
 
-            // Printing key phrases.
+            // Printing keyphrases
             foreach (var document in result2.Documents)
             {
                 Console.WriteLine("Document ID: {0} ", document.Id);
@@ -143,14 +130,8 @@ Anahtar tümcecik ayıklama API anahtar tümcecikleri metinden ayıklar kullanar
                     Console.WriteLine("\t\t" + keyphrase);
                 }
             }
-```
 
-## <a name="analyze-sentiment"></a>Yaklaşımı analiz etme
-
-Yaklaşım analizi API'sini kullanarak bir metin kayıt kümesi duyarlılığını algılar [yaklaşım yöntemi](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9).
-
-```csharp
-            // Analyzing sentiment.
+            // Extracting sentiment
             Console.WriteLine("\n\n===== SENTIMENT ANALYSIS ======");
 
             SentimentBatchResult result3 = client.SentimentAsync(
@@ -164,34 +145,37 @@ Yaklaşım analizi API'sini kullanarak bir metin kayıt kümesi duyarlılığın
                         })).Result;
 
 
-            // Printing sentiment results.
+            // Printing sentiment results
             foreach (var document in result3.Documents)
             {
                 Console.WriteLine("Document ID: {0} , Sentiment Score: {1:0.00}", document.Id, document.Score);
             }
-```
 
-## <a name="identify-linked-entities"></a>Bağlı varlıkları tanımlama
 
-Varlık bağlama API'si metin bilinen varlıklar tanımlayan kullanarak belge [varlık bağlama yöntemini](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/5ac4251d5b4ccd1554da7634).
-
-```csharp
-            // Linking entities
-            Console.WriteLine("\n\n===== ENTITY LINKING ======");
+            // Identify entities
+            Console.WriteLine("\n\n===== ENTITIES ======");
 
             EntitiesBatchResult result4 = client.EntitiesAsync(
                     new MultiLanguageBatchInput(
                         new List<MultiLanguageInput>()
                         {
-                            new MultiLanguageInput("en", "0", "I really enjoy the new XBox One S. It has a clean look, it has 4K/HDR resolution and it is affordable."),
-                            new MultiLanguageInput("en", "1", "The Seattle Seahawks won the Super Bowl in 2014."),
+                          new MultiLanguageInput("en", "0", "The Great Depression began in 1929. By 1933, the GDP in America fell by 25%.")
                         })).Result;
 
-            // Printing entity results.
+            // Printing entities results
             foreach (var document in result4.Documents)
             {
-                Console.WriteLine("Document ID: {0} , Entities: {1}", document.Id, String.Join(", ", document.Entities.Select(entity => entity.Name)));
+                Console.WriteLine("Document ID: {0} ", document.Id);
+
+                Console.WriteLine("\t Entities:");
+
+                foreach (EntityRecord entity in document.Entities)
+                {
+                    Console.WriteLine("\t\t" + entity.Name);
+                }
             }
+
+            Console.ReadLine();
         }
     }
 }
@@ -204,5 +188,6 @@ Varlık bağlama API'si metin bilinen varlıklar tanımlayan kullanarak belge [v
 
 ## <a name="see-also"></a>Ayrıca bkz. 
 
- [Metin Analizi'ne genel bakış](../overview.md)  
+ [Metin Analizine genel bakış](../overview.md)  
  [Sık sorulan sorular (SSS)](../text-analytics-resource-faq.md)
+

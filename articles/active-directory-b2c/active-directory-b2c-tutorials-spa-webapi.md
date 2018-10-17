@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.component: B2C
-ms.openlocfilehash: 54ddafbf0e4fe02bfc1445aad23ac3e20b42acb0
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: efe975fa4f89a262faef82df3cc79820d393b60e
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43339395"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45605768"
 ---
 # <a name="tutorial-grant-access-to-an-aspnet-core-web-api-from-a-single-page-app-using-azure-active-directory-b2c"></a>Öğretici - Azure Active Directory B2C kullanarak tek sayfalı bir uygulamadan ASP.NET Core web API'sine erişim izni verme
 
@@ -42,13 +42,13 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
 Web API’si kaynaklarının Azure Active Directory’den bir [erişim belirteci](../active-directory/develop/developer-glossary.md#access-token) sunan [istemci uygulamalar](../active-directory/develop/developer-glossary.md#client-application) tarafından [korunan kaynak isteklerini](../active-directory/develop/developer-glossary.md#resource-server) kabul etmesi ve yanıtlaması için kiracınızda kayıtlı olmaları gerekir. Kayıt, kiracınızda [uygulama ve hizmet sorumlusu nesnesini](../active-directory/develop/developer-glossary.md#application-object) belirler. 
 
-[Azure portalında](https://portal.azure.com/) Azure AD B2C kiracınızın genel yöneticisi olarak oturum açın.
+[Azure portalda](https://portal.azure.com/) Azure AD B2C kiracınızın genel yöneticisi olarak oturum açın.
 
 [!INCLUDE [active-directory-b2c-switch-b2c-tenant](../../includes/active-directory-b2c-switch-b2c-tenant.md)]
 
-1. Azure Portalı'ndaki Hizmetler listesinden **Azure AD B2C**’yi seçin.
+1. Azure portalın sol üst köşesinde **Tüm hizmetler**’i seçin ve **Azure AD B2C**’yi arayıp seçin. Artık önceki öğreticide oluşturduğunuz kiracıyı kullanıyor olmanız gerekir.
 
-2. B2C ayarlarında **Uygulamalar**’a ve ardından  **Ekle**’ye tıklayın.
+2. **Uygulamalar**'ı ve ardından **Ekle**'yi seçin.
 
     Örnek web API’sini kiracınıza kaydetmek için aşağıdaki ayarları kullanın.
     
@@ -59,7 +59,7 @@ Web API’si kaynaklarının Azure Active Directory’den bir [erişim belirteci
     | **Ad** | Hello Core API’si | Web API’nizi geliştiricilere tanıtan bir **Ad** girin. |
     | **Web uygulamasını / web API'sini dahil etme** | Yes | Web API’si için **Evet**’i seçin. |
     | **Örtük akışa izin verme** | Yes | API [OpenID Connect oturumu](active-directory-b2c-reference-oidc.md) kullandığından **Evet**’i seçin. |
-    | **Yanıt URL'si** | `http://localhost:44332` | Yanıt URL'leri, Azure AD B2C'nin, API’niz tarafından istenen belirteçleri döndürdüğü uç noktalardır. Bu öğreticide örnek web API’si yerel olarak (localhost) çalışır ve 5000 numaralı bağlantı noktasını dinler. |
+    | **Yanıt URL'si** | `http://localhost:5000` | Yanıt URL'leri, Azure AD B2C'nin, API’niz tarafından istenen belirteçleri döndürdüğü uç noktalardır. Bu öğreticide örnek web API’si yerel olarak (localhost) çalışır ve 5000 numaralı bağlantı noktasını (bu öğreticinin ilerleyen kısmında yapılandırıldıktan sonra) dinler. |
     | **Uygulama Kimliği URI'si** | HelloCoreAPI | URI, kiracıdaki API’yi benzersiz olarak tanımlar. Bu, kiracı başına birden çok API kaydetmenize olanak sağlar. [Kapsamlar](../active-directory/develop/developer-glossary.md#scopes) korumalı API kaynağına erişimi yönetir ve Uygulama Kimliği URI’si başına tanımlanır. |
     | **Yerel istemci** | Hayır | Bu, bir web API’si olduğu için ve yerel bir istemci olmadığı için Hayır’ı seçin. |
     
@@ -111,7 +111,7 @@ Bir uygulamadan korumalı web API’sini çağırmak için, API’ye uygulama iz
 
 5. **Tamam** düğmesine tıklayın.
 
-**Örnek tek sayfalı uygulamam**, korumalı **Hello Core API**’sini çağırmak için kaydedilir. Kullanıcılar WPF masaüstü uygulamasını kullanmak için Azure AD B2C ile [kimlik doğrulaması yapar](../active-directory/develop/developer-glossary.md#authentication). Masaüstü uygulaması, korumalı web API’sine erişmek için Azure AD B2C’den bir [yetkilendirme izni](../active-directory/develop/developer-glossary.md#authorization-grant) alır.
+**Örnek tek sayfalı uygulamam**, korumalı **Hello Core API**’sini çağırmak için kaydedilir. Kullanıcılar tek sayfalık uygulamayı kullanmak için Azure AD B2C ile [kimlik doğrulaması yapar](../active-directory/develop/developer-glossary.md#authentication). Tek sayfalık uygulama, korumalı web API’sine erişmek için Azure AD B2C’den bir [yetkilendirme izni](../active-directory/develop/developer-glossary.md#authorization-grant) alır.
 
 ## <a name="update-code"></a>Kodu güncelleştirme
 
@@ -158,7 +158,7 @@ Tek sayfalı uygulamanızın ASP.NET Core web API'sini çağırmasına izin verm
         builder.WithOrigins("http://localhost:6420").AllowAnyHeader().AllowAnyMethod());
     ```
 
-3. **Özellikler**'in altında **launchSettings.json** dosyasını açın, *applicationURL* ayarını bulun ve sonraki bölümde kullanmak üzere değeri kaydedin.
+3. **Özellikler** bölümünden **launchSettings.json** dosyasını açın, **iisSettings** *applicationURL* ayarını bulun ve bağlantı noktası numarasını, API Yanıtlama URL’si `http://localhost:5000` için kayıtlı numaraya ayarlayın.
 
 ### <a name="configure-the-single-page-app"></a>Tek sayfalı uygulamayı yapılandırma
 
@@ -174,7 +174,7 @@ Uygulama ayarlarını değiştirmek için:
         clientID: '<Application ID for your SPA obtained from portal app registration>',
         authority: "https://<your-tenant-name>.b2clogin.com/tfp/<your-tenant-name>.onmicrosoft.com/B2C_1_SiUpIn",
         b2cScopes: ["https://<Your tenant name>.onmicrosoft.com/HelloCoreAPI/demo.read"],
-        webApi: 'http://localhost:64791/api/values',
+        webApi: 'http://localhost:5000/api/values',
     };
     ```
 

@@ -1,44 +1,44 @@
 ---
-title: "Hızlı Başlangıç: PHP ve Bing resim arama API'si gönderme arama sorguları"
+title: 'Hızlı Başlangıç: PHP ile görüntü araması gerçekleştirme - Bing Resim Arama API’si'
 titleSuffix: Azure Cognitive Services
-description: Bu hızlı başlangıçta, arama ve Bing Web araması API'si kullanarak web üzerinde görüntüleri bulmak için kullanın.
+description: İlk Bing Resim Arama API’si çağrınızı yapmak ve bir JSON yanıtı almak için bu hızlı başlangıcı kullanın. Bu makaledeki basit uygulama, bir arama sorgusu gönderir ve ham sonuçları görüntüler.
 services: cognitive-services
 documentationcenter: ''
 author: aahill
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-image-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 9/07/2018
 ms.author: aahi
-ms.openlocfilehash: ebf8c0269e070c9047d730e58b8e2d3824124e1a
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
-ms.translationtype: MT
+ms.openlocfilehash: ac3de25773249119535ac6f3bd063ff6b9b7831e
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45574207"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46295538"
 ---
-# <a name="quickstart-send-search-queries-using-the-bing-image-search-rest-api-and-php"></a>Hızlı Başlangıç: PHP ve Bing resim arama REST API'si kullanarak gönderme arama sorguları
+# <a name="quickstart-send-search-queries-using-the-bing-image-search-rest-api-and-php"></a>Hızlı Başlangıç: Bing Resim Arama REST API’si ve PHP kullanarak arama sorguları gönderme
 
-Bu hızlı başlangıçta, bir JSON yanıtı alırsınız ve Bing resim arama API'si, ilk çağrı yapmak için kullanın. Bu makalede basit uygulama, bir arama sorgusu gönderir ve ham sonuçlarını görüntüler.
+İlk Bing Resim Arama API’si çağrınızı yapmak ve bir JSON yanıtı almak için bu hızlı başlangıcı kullanın. Bu makaledeki basit uygulama, bir arama sorgusu gönderir ve ham sonuçları görüntüler.
 
-Bu uygulama, PHP'de yazılmış olsa da, HTTP istekleri ve JSON Ayrıştır programlama dili ile uyumlu bir RESTful Web hizmeti API'dir.
+Bu uygulama PHP ile yazılmış olmakla birlikte API HTTP istekleri gönderebilen ve JSON ayrıştırabilen her programlama diliyle uyumlu bir RESTful Web hizmetidir.
 
-Bu örnek için kaynak kodu kullanılabilir [github'da](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/Search/BingImageSearchv7.java).
+Bu örneğin kaynak kodu [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/Search/BingImageSearchv7.java)’da mevcuttur.
 
-## <a name="prerequisites"></a>Önkoşullar
+## <a name="prerequisites"></a>Ön koşullar
 
 * [PHP 5.6.x veya üzeri](http://php.net/downloads.php).
 
 [!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
 
-## <a name="create-and-initialize-the-application"></a>Oluşturma ve uygulama başlatma
+## <a name="create-and-initialize-the-application"></a>Uygulamayı oluşturma ve başlatma
 
-Bu uygulamayı çalıştırmak için aşağıdaki adımları izleyin.
+Bu uygulamayı çalıştırmak için şu adımları izleyin.
 
-1. Güvenli HTTP desteği etkinleştirildiğinden emin olun, `php.ini` dosya. Windows üzerinde bu dosya bulunan `C:\windows`.
+1. `php.ini` dosyanızda güvenli HTTP desteğinin etkinleştirildiğinden emin olun. Windows üzerinde bu dosya, `C:\windows` konumunda bulunur.
 2. Sık kullandığınız IDE veya düzenleyicide yeni bir PHP projesi oluşturun.
-3. Abonelik anahtarınızı API uç noktası tanımlama ve arama terimi.
+3. API uç noktasını, abonelik anahtarınızı ve arama terimini tanımlayın.
 
     ```php
     $endpoint = 'https://api.cognitive.microsoft.com/bing/v7.0/images/search';
@@ -46,9 +46,9 @@ Bu uygulamayı çalıştırmak için aşağıdaki adımları izleyin.
     $accessKey = 'enter key here';
     $term = 'tropical ocean';
     ```
-## <a name="construct-and-perform-a-http-request"></a>Oluşturun ve bir HTTP isteği gerçekleştirin
+## <a name="construct-and-perform-a-http-request"></a>Bir HTTP isteği oluşturma ve gerçekleştirme
 
-1. Değişkenleri ve son adımda, resim arama API'si için bir HTTP isteği hazırlamak için kullanın.
+1. Resim Arama API’sine HTTP isteği hazırlamak için son adımdaki değişkenleri kullanın.
 
     ```php
     $headers = "Ocp-Apim-Subscription-Key: $key\r\n";
@@ -56,16 +56,16 @@ Bu uygulamayı çalıştırmak için aşağıdaki adımları izleyin.
                             'header' => $headers,
                             'method' => 'GET' ));
     ```
-2. Web isteği gerçekleştirmek ve JSON yanıtını alın.
+2. Web isteğini gerçekleştirin ve JSON yanıtını alın.
 
     ```php
     $context = stream_context_create($options);
     $result = file_get_contents($url . "?q=" . urlencode($query), false, $context);
     ```
 
-## <a name="process-and-print-the-json"></a>İşlem ve JSON yazdırma
+## <a name="process-and-print-the-json"></a>JSON işleme ve yazdırma
 
-İşlem ve yazdırma döndürülen JSON yanıtı.
+Döndürülen JSON yanıtını işleyin ve yazdırın.
 
     ```php
     $headers = array();
@@ -80,7 +80,7 @@ Bu uygulamayı çalıştırmak için aşağıdaki adımları izleyin.
 
 ## <a name="sample-json-response"></a>Örnek JSON yanıtı
 
-Bing resim arama API'si alınan yanıtları JSON olarak döndürülür. Bu örnek yanıt, tek bir sonuç göstermek için kısaltıldı.
+Bing Resim Arama API'sinden yanıtlar JSON olarak döndürülür. Bu örnek yanıt, tek bir sonuç göstermek için kısaltıldı.
 
 ```json
 {
@@ -129,12 +129,12 @@ Bing resim arama API'si alınan yanıtları JSON olarak döndürülür. Bu örne
 ## <a name="next-steps"></a>Sonraki adımlar
 
 > [!div class="nextstepaction"]
-> [Bing resim arama tek sayfalı uygulama Öğreticisi](../tutorial-bing-image-search-single-page-app.md)
+> [Bing Resim Arama tek sayfalı uygulama öğreticisi](../tutorial-bing-image-search-single-page-app.md)
 
-## <a name="see-also"></a>Ayrıca bkz. 
+## <a name="see-also"></a>Ayrıca bkz.
 
-* [Bing resim arama nedir?](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/overview)  
-* [Çevrimiçi bir etkileşimli Tanıtımı deneyin](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/)  
-* [Ücretsiz bir Bilişsel hizmetler erişim anahtarını alma](https://azure.microsoft.com/try/cognitive-services/?api=bing-image-search-api)  
-* [Azure Bilişsel hizmetler belgeleri](https://docs.microsoft.com/azure/cognitive-services)
-* [Bing resim arama API'si başvurusu](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference)
+* [Bing Resim Arama nedir?](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/overview)  
+* [Çevrimiçi etkileşimli bir tanıtımı deneyin](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/)  
+* [Ücretsiz bir Bilişsel Hizmetler erişim anahtarı alın](https://azure.microsoft.com/try/cognitive-services/?api=bing-image-search-api)  
+* [Azure Bilişsel Hizmetler Belgeleri](https://docs.microsoft.com/azure/cognitive-services)
+* [Bing Resim Arama API’si başvurusu](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference)

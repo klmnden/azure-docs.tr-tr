@@ -9,12 +9,12 @@ ms.service: mariadb
 ms.topic: overview
 ms.date: 09/24/2018
 ms.custom: mvc
-ms.openlocfilehash: 1ba4a9bd597473b71ac7561c41b81783b899766a
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 3649a173d5707179ca8547a8169b7d308c4f7f1c
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46971612"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48249171"
 ---
 # <a name="what-is-azure-database-for-mariadb"></a>MariaDB için Azure Veritabanı nedir?
 MariaDB için Azure Veritabanı, [MariaDB topluluk sürümü](https://mariadb.org/download/) veritabanı altyapısını temel alan, Microsoft bulutunda bulunan ilişkisel bir veritabanı hizmetidir. Bu hizmet genel önizleme aşamasındadır. MariaDB için Azure Veritabanı şunları sağlar:
@@ -51,7 +51,7 @@ Azure veritabanı hizmetlerinin veri güvenliği geleneği, MariaDB için Azure 
 
 MariaDB için Azure Veritabanı hizmeti bekleyen verilerde depolama şifrelemesini kullanır. Yedekler de dahil olmak üzere veriler diskte şifrelenir (altyapı tarafından sorguları çalıştırırken oluşturulan geçici dosyalar hariç). Hizmet, Azure depolama şifrelemesi kapsamında yer alan AES 256-bit şifrelemesini kullanır ve anahtarlar sistem tarafından yönetilir. Depolama şifrelemesi her zaman açıktır ve devre dışı bırakılamaz.
 
-Varsayılan olarak, MariaDB için Azure Veritabanı hizmeti ağ genelinde hareket halindeki veriler için SSL bağlantı güvenliğini <!--[SSL connection security](./concepts-ssl-connection-security.md)--> zorunlu tutacak şekilde yapılandırılmıştır. Veritabanı sunucunuzla istemci uygulamalarınız arasında SSL bağlantılarının zorunlu tutulması, sunucuya uygulamanız arasındaki veri akışını şifreleyerek "bağlantıyı izinsiz izleme" saldırılarına karşı korumaya yardımcı olur. İsteğe bağlı olarak, istemci uygulamanızın SSL bağlantısını desteklememesi durumunda veritabanı hizmetinize bağlanmak için SSL zorunluluğunu devre dışı bırakabilirsiniz.
+Varsayılan olarak, MariaDB için Azure Veritabanı hizmeti ağ genelinde hareket halindeki veriler için [SSL bağlantı güvenliğini](./concepts-ssl-connection-security.md) zorunlu tutacak şekilde yapılandırılmıştır. Veritabanı sunucunuzla istemci uygulamalarınız arasında SSL bağlantılarının zorunlu tutulması, sunucuya uygulamanız arasındaki veri akışını şifreleyerek "bağlantıyı izinsiz izleme" saldırılarına karşı korumaya yardımcı olur. İsteğe bağlı olarak, istemci uygulamanızın SSL bağlantısını desteklememesi durumunda veritabanı hizmetinize bağlanmak için SSL zorunluluğunu devre dışı bırakabilirsiniz.
 
 ## <a name="contacts"></a>Kişiler
 MariaDB için Azure Veritabanı’yla çalışma hakkında sorularınız veya önerileriniz varsa, MariaDB için Azure Veritabanı Ekibine bir e-posta gönderin ([@Ask MariaDB için Azure Veritabanı](mailto:AskAzureDBforMariaDB@service.microsoft.com)). Bunun bir teknik destek diğer adı olmadığını unutmayın.

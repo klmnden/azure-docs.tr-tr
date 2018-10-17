@@ -1,5 +1,5 @@
 ---
-title: 'Öğretici: Azure Machine Learning ile görüntü sınıflandırma modelini eğitme'
+title: 'Öğretici: Azure Machine Learning hizmeti ile görüntü sınıflandırma modelini eğitme'
 description: Bu öğretici, Azure Machine Learning hizmetini kullanarak Python Jupyter not defterinde scikit-learn ile bir görüntü sınıflandırma modelinin nasıl eğitildiğini gösterir. Bu öğretici, iki bölümden oluşan bir serinin birinci bölümüdür.
 services: machine-learning
 ms.service: machine-learning
@@ -9,18 +9,18 @@ author: hning86
 ms.author: haining
 ms.reviewer: sgilley
 ms.date: 09/24/2018
-ms.openlocfilehash: 6fbca5e83d8ab4b3c34c6448c7a2303697da623b
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
+ms.openlocfilehash: 7110d8df5ee837829f97fec8ab26d929689e3436
+ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47181407"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48785147"
 ---
-# <a name="tutorial-1-train-an-image-classification-model-with-azure-machine-learning"></a>Öğretici 1: Azure Machine Learning ile görüntü sınıflandırma modelini eğitme
+# <a name="tutorial-1-train-an-image-classification-model-with-azure-machine-learning-service"></a>Öğretici 1: Azure Machine Learning hizmeti ile görüntü sınıflandırma modelini eğitme
 
 Bu öğreticide, makine öğrenmesi modelini hem yerel olarak hem de uzak işlem kaynaklarında eğitiyorsunuz. Azure Machine Learning hizmetinin (önizleme) eğitim ve dağıtım iş akışını bir Python Jupyter not defterinde kullanacaksınız.  Ardından not defterini şablon olarak kullanıp kendi verilerinizle kendi makine öğrenmesi modelinizi eğitebilirsiniz. Bu öğretici, **iki bölümden oluşan bir öğretici serisinin birinci bölümüdür**.  
 
-Bu öğretici, Azure Machine Learning ile [MNIST](http://yann.lecun.com/exdb/mnist/) veri kümesini ve [scikit-learn](http://scikit-learn.org) kitaplığını kullanarak basit bir lojistik regresyonu eğitir.  MNIST, 70.000 gri tonlamalı resimden oluşan popüler bir veri kümesidir. Her resim 28x28 piksel bir el yazısı rakamdır ve 0 ile 9 arası bir sayıyı temsil eder. Amaç, belirli bir resim temsil ettiği rakamı tanımlamak için çok sınıflı bir sınıflandırıcı oluşturmaktır. 
+Bu öğretici, Azure Machine Learning hizmeti ile [MNIST](http://yann.lecun.com/exdb/mnist/) veri kümesini ve [scikit-learn](http://scikit-learn.org) kitaplığını kullanarak basit bir lojistik regresyonu eğitir.  MNIST, 70.000 gri tonlamalı resimden oluşan popüler bir veri kümesidir. Her resim 28x28 piksel bir el yazısı rakamdır ve 0 ile 9 arası bir sayıyı temsil eder. Amaç, belirli bir resim temsil ettiği rakamı tanımlamak için çok sınıflı bir sınıflandırıcı oluşturmaktır. 
 
 Şunları nasıl yapacağınızı öğrenin:
 
@@ -37,7 +37,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 
 ## <a name="get-the-notebook"></a>Not defterini alma
 
-Kolaylık olması için, bu öğretici bir Jupyter not defteri olarak sağlanır. Aşağıdaki yöntemlerden birini kullanarak [Machine Learning Sample Notebooks GitHub deposunu](https://github.com/Azure/MachineLearningNotebooks) kopyalayın ve `tutorials/01.train-models.ipynb` not defterini çalıştırın:
+Kolaylık olması için, bu öğretici bir [Jupyter notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/01.train-models.ipynb) olarak sağlanır. `01.train-models.ipynb` notebook'unu Azure Notebooks üzerinde veya kendi Jupyter notebook sunucunuzda çalıştırın.
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-in-azure-notebook.md)]
 
@@ -454,7 +454,7 @@ compute_target.delete()
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu Azure Machine Learning öğreticisinde Python kullanarak aşağıdakileri yaptınız:
+Bu Azure Machine Learning hizmeti öğreticisinde Python kullanarak aşağıdakileri yaptınız:
 
 > [!div class="checklist"]
 > * Geliştirme ortamınızı kurma

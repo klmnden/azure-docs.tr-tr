@@ -1,36 +1,37 @@
 ---
-title: Metin analizi REST API (Azure'da Microsoft Bilişsel hizmetler) içinde nasıl yapılır anahtar tümcecik ayıklama | Microsoft Docs
-description: Bu izlenecek yol öğreticide Azure üzerinde Microsoft Bilişsel Hizmetleri'ndeki metin Analytics REST API kullanarak anahtar tümcecikleri çıkarmayı.
+title: 'Örnek: Metin Analizi’nde anahtar ifadeleri ayıklama'
+titleSuffix: Azure Cognitive Services
+description: Metin Analizi REST API’sini kullanarak anahtar ifadeleri ayıklama.
 services: cognitive-services
 author: HeidiSteen
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: text-analytics
-ms.topic: article
-ms.date: 3/07/2018
+ms.topic: sample
+ms.date: 09/12/2018
 ms.author: heidist
-ms.openlocfilehash: 78b100e737242fa9f56e50275ef2038d8895349e
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
-ms.translationtype: MT
+ms.openlocfilehash: 62c078a8a72cd0a3633b7dd5fda1545f01067dbc
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35352234"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45605496"
 ---
-# <a name="how-to-extract-key-phrases-in-text-analytics"></a>Metin analizi anahtar tümcecikleri çıkarmayı
+# <a name="example-how-to-extract-key-phrases-in-text-analytics"></a>Örnek: Metin Analizi’nde anahtar ifadeleri ayıklama
 
-[Anahtar tümcecik ayıklama API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6) yapılandırılmamış metin değerlendirir ve her JSON belgesi için anahtar tümcecikleri listesini döndürür. 
+[Anahtar İfade Ayıklama API’si](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6), yapılandırılmamış metni değerlendirir ve her bir JSON belgesi için bir anahtar ifade listesi döndürür. 
 
-Bu özellik hızlı bir şekilde bir koleksiyonda belgelerin ana noktalarını tanımlamak gerektiğinde kullanışlı olur. Örneğin, "yemek Lezzetli harika personel vardı", hizmet döndürür ve ana Konuşmayı noktalarını verilen giriş metni: "yemek" ve "harika personeli".
+Bir belge koleksiyonundaki ana noktaları hızlı şekilde belirlemeniz gerekiyorsa bu özellik kullanışlıdır. Örneğin, "The food was delicious and there were wonderful staff" (Yemek lezizdi ve müthiş personel hizmeti vardı) giriş metni olduğunda hizmet, "food" (yemek) ve "wonderful staff" (müthiş personel) ana konuşma noktalarını döndürür.
 
-Şu anda, İngilizce, Almanca, İspanyolca ve Japonca anahtar tümcecik ayıklama destekler. Diğer diller önizlemede. Daha fazla bilgi için bkz: [desteklenen diller](../text-analytics-supported-languages.md).
+Şu anda Anahtar İfade Ayıklama, İngilizce, Almanca, İspanyolca ve Japonca dillerini destekler. Diğer diller önizleme aşamasındadır. Daha fazla bilgi için bkz. [Desteklenen diller](../text-analytics-supported-languages.md).
 
-## <a name="preparation"></a>Hazırlama
+## <a name="preparation"></a>Hazırlık
 
-Daha büyük öbek üzerinde çalışmak için metin verdiğinizde anahtar tümcecik ayıklama en iyi şekilde çalışır. Bu ters düşünceleri çözümlemesinden gerçekleştirir daha iyi metin küçük bloklarını. Her iki işlemlerinden en iyi sonuçları almak için girişleri uygun şekilde yeniden yapılandırma göz önünde bulundurun.
+Anahtar ifade ayıklama, üzerinde çalışılacak büyük metin öbekleri girdiğinizde en iyi şekilde çalışır. Bu, küçük metin öbekleri üzerinde daha iyi performans gösteren yaklaşım analizinin tersidir. Her iki işlemden de en iyi sonuçları elde etmek için girişleri uygun şekilde yeniden yapılandırın.
 
-JSON belgeleri şu biçimde olmalıdır: kimliği, metin, dil
+JSON belgeleri kimlik, metin, dil biçiminde olmalıdır.
 
-Belge boyutu, belge başına 5. 000'in altında karakter uzunluğunda olmalıdır ve en çok 1.000 olabilir koleksiyon başına öğeleri (Kimlikler). Koleksiyon istek gövdesinde gönderilir. Aşağıdaki örnekte bir çizimi için anahtar tümcecik ayıklama gönderme içerik var.
+Belge boyutu, belge başına 5.000 karakterden küçük olmalıdır ve koleksiyon başına en fazla 1000 öğeniz olabilir. Koleksiyon, istek gövdesinde gönderilir. Aşağıdaki örnek, anahtar ifade ayıklaması için gönderebileceğiniz içeriğin bir gösterimidir.
 
 ```
     {
@@ -64,34 +65,34 @@ Belge boyutu, belge başına 5. 000'in altında karakter uzunluğunda olmalıdı
     }
 ```    
     
-## <a name="step-1-structure-the-request"></a>1. adım: isteği yapısı
+## <a name="step-1-structure-the-request"></a>1. Adım: İsteği yapılandırma
 
-İstek tanımının ayrıntıları bulunabilir [metin Analytics API'sini çağırmak nasıl](text-analytics-how-to-call-api.md). Kolaylık olması için aşağıdaki noktaları açıklandı:
+İstek tanımıyla ilgili ayrıntılara [Metin Analizi API’sini çağırma](text-analytics-how-to-call-api.md) bölümünden erişilebilir. Kolaylık olması için aşağıdaki noktalar yeniden belirtilmektedir:
 
-+ Oluşturma bir **POST** isteği. Bu istek için API belgelerini gözden geçirin: [anahtarı tümcecikleri API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6)
++ Bir **POST** isteği oluşturun. Bu istek için API belgelerini gözden geçirin: [Anahtar İfadeler API’si](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6)
 
-+ Anahtar tümcecik ayıklama için HTTP uç noktası olarak ayarlayın. İçermesi gerekir `/keyphrases` kaynak: `https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/keyPhrases`
++ Anahtar ifade ayıklaması için HTTP uç noktasını ayarlayın. `/keyphrases` kaynağını içermelidir: `https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/keyPhrases`
 
-+ Metin analizi işlemleri için erişim anahtarı eklemek için bir istek üstbilgisini ayarlayın. Daha fazla bilgi için bkz: [uç noktalarını bulma ve erişim anahtarları](text-analytics-how-to-access-key.md).
++ Metin Analizi işlemlerine yönelik erişim anahtarını dahil etmek için bir istek üst bilgisi ayarlayın. Daha fazla bilgi için bkz. [Uç noktaları ve erişim anahtarlarını bulma](text-analytics-how-to-access-key.md).
 
-+ İstek gövdesinde Bu çözümleme için hazırlanmış JSON belgeleri koleksiyonu sağlayın
++ İstek gövdesinde, bu analiz için hazırladığınız JSON belgeleri koleksiyonunu sağlayın
 
 > [!Tip]
-> Kullanım [Postman](text-analytics-how-to-call-api.md) veya açın **API sınama Konsolu** içinde [belgelerine](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6) bir istek yapısı ve hizmete gönderme.
+> İsteği yapılandırmak ve hizmete GÖNDERMEK için [Postman](text-analytics-how-to-call-api.md) kullanın veya [belgelerdeki](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6) **API testi konsolu**’nu açın.
 
-## <a name="step-2-post-the-request"></a>2. adım: isteği gönderme
+## <a name="step-2-post-the-request"></a>2. Adım: İsteği gönderme
 
-Çözümleme isteği alındığında gerçekleştirilir. Hizmet dakika başına en fazla 100 isteklerini kabul eder. Her istek en fazla 1 MB olabilir.
+İstek alındığında analiz gerçekleştirilir. Hizmet dakikada en fazla 100 istek kabul eder. Her istek maksimum 1 MB olabilir.
 
-Hizmet durum bilgisi olmayan bir geri çağırma. Hiçbir veri hesabınızda depolanır. Sonuçlar hemen yanıt olarak döndürülür.
+Hizmetin durum bilgisi olmadığını unutmayın. Hesabınızda bir veri depolanmaz. Sonuçlar hemen yanıtta döndürülür.
 
-## <a name="step-3-view-results"></a>3. adım: Sonuçları görüntüleme
+## <a name="step-3-view-results"></a>3. Adım: Sonuçları görüntüleme
 
-Tüm POST isteklerinden JSON yanıt kimlikleri biçimlendirilmiş ve özellikleri algılandı döndürür.
+Tüm POST istekleri, kimlikler ve algılanan özelliklerle JSON tarafından biçimlendirilmiş bir yanıt döndürür.
 
-Çıktı hemen döndürülür. JSON kabul eden bir uygulama sonuçları akış veya yerel sistemindeki bir dosyaya çıkış kaydedin ve sıralama, arama ve verileri işlemek izin veren bir uygulamayı alma.
+Hemen çıktı döndürülür. Sonuçları, JSON kabul eden bir uygulamada akışa alabilir veya çıktıyı yerel sistemde bir dosyaya kaydedebilir, sonra da verileri sıralamanıza, aramanıza ve işlemenize olanak sağlayan bir uygulamaya içeri aktarabilirsiniz.
 
-Anahtar tümcecik ayıklama çıktısı örneği sonraki gösterilir:
+Aşağıda, anahtar ifade ayıklaması için çıktı örneği gösterilmektedir:
 
 ```
     "documents": [
@@ -138,24 +139,24 @@ Anahtar tümcecik ayıklama çıktısı örneği sonraki gösterilir:
         }
 ```
 
-Belirtildiği gibi Çözümleyicisi'ni bulur ve gerekli olmayan sözcükler atar ve tek terimleri veya konu veya cümlenin bir nesne olarak görünen tümcecikleri tutar. 
+Belirtildiği gibi çözümleyici, gerekli olmayan sözcükleri bulup atar ve bir cümlenin konusu veya nesnesi olabilecek tekli terimleri veya ifadeleri tutar. 
 
 ## <a name="summary"></a>Özet
 
-Bu makalede, kavramlar ve iş akışı için metin analizi Bilişsel Hizmetleri'ni kullanarak anahtar tümcecik ayıklama öğrendiniz. Özet:
+Bu makalede, Bilişsel Hizmetler’de Metin Analizi’ni kullanarak anahtar ifade ayıklaması için kavramları ve iş akışını öğrendiniz. Özet:
 
-+ [Anahtar tümcecik ayıklama API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6) Seçilen diller için kullanılabilir.
-+ İstek gövdesinde JSON belgeleri bir kimliği, metin ve dil kodu içerir.
-+ POST isteğini olduğu için bir `/keyphrases` kişiselleştirilmiş bir kullanarak uç noktasını, [erişim anahtarı ve bir uç nokta](text-analytics-how-to-access-key.md) , aboneliğiniz için geçerli.
-+ Anahtar sözcükler ve tümcecikleri her belge kimliği oluşur, yanıt çıktısı JSON, Excel ve Power BI birkaçıdır dahil olmak üzere kabul eden herhangi bir uygulama için akışı.
++ [Anahtar ifade ayıklama API’si](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6), seçili dillerde kullanılabilir.
++ İstek gövdesindeki JSON belgeleri bir kimlik, metin ve dil kodu içerir.
++ POST isteği, aboneliğiniz için geçerli olan kişiselleştirilmiş bir [erişim anahtarı ve uç nokta](text-analytics-how-to-access-key.md) kullanılarak `/keyphrases` uç noktasına yapılır.
++ Her belge kimliği için anahtar sözcüklerden ve ifadelerden oluşan yanıt çıktısı, Excel ve Power BI da dahil olmak üzere JSON kabul eden tüm uygulamalarda akışa alınabilir.
 
 ## <a name="see-also"></a>Ayrıca bkz. 
 
- [Metin analizi genel bakış](../overview.md)  
+ [Metin Analizine genel bakış](../overview.md)  
  [Sık sorulan sorular (SSS)](../text-analytics-resource-faq.md)</br>
- [Metin analizi ürün sayfası](//go.microsoft.com/fwlink/?LinkID=759712) 
+ [Metin Analizi ürün sayfası](//go.microsoft.com/fwlink/?LinkID=759712) 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 > [!div class="nextstepaction"]
-> [Metin analizi API](//westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6)
+> [Metin Analizi API’si](//westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6)

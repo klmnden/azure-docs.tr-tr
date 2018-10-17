@@ -1,165 +1,179 @@
 ---
-title: Bing Web araması tek sayfa Web uygulaması | Microsoft Docs
-description: Bir tek sayfalı Web uygulamasında Bing Web arama API kullanmayı gösterir.
+title: 'Öğretici: Tek sayfalı web uygulaması oluşturma - Bing Web Araması API’si'
+titleSuffix: Azure Cognitive Services
+description: Bu tek sayfalı uygulama, Bing Web Araması API'si kullanılarak tek sayfalı bir uygulamada ilgili arama sonuçlarının nasıl alınabileceği, ayrıştırılabileceği ve görüntülenebileceğini gösterir.
 services: cognitive-services
-author: v-jerkin
-manager: ehansen
+author: erhopf
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-web-search
-ms.topic: article
-ms.date: 10/04/2017
-ms.author: v-jerkin
-ms.openlocfilehash: f22e38a1d6ee4042684b9822b58669bed6fe29a0
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
-ms.translationtype: MT
+ms.topic: tutorial
+ms.date: 09/12/2018
+ms.author: erhopf
+ms.openlocfilehash: 670f02cbd8e994664e7c4edd75940ff43f9616b6
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35354604"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46126488"
 ---
-# <a name="tutorial-single-page-web-app"></a>Öğretici: Tek sayfalı Web uygulaması
+# <a name="tutorial-create-a-single-page-app-using-the-bing-web-search-api"></a>Öğretici: Bing Web Araması API’sini kullanarak tek sayfalı uygulama oluşturma
 
-Bing Web arama API Web ara ve değişken türleri için bir arama sorgusu ilgili sonuçlarını elde etmenizi sağlar. Bu öğreticide, biz arama sonuçlarını görüntülemek için Bing Web arama API'sini kullanan bir tek sayfalı Web uygulaması oluşturma sayfasındaki sağ. Uygulama, HTML, CSS ve JavaScript bileşenleri içerir.
+Bu tek sayfalı uygulama Bing Web Araması API'sinden arama sonuçlarını almayı, ayrıştırmayı ve görüntülemeyi gösterir. Öğretici standart HTML ile CSS kullanır ve JavaScript koduna odaklanır. HTML, CSS ve JS dosyaları, hızlı başlangıç yönergeleriyle birlikte [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/tree/master/Tutorials/Bing-Web-Search)'da sağlanır.
 
-<!-- Remove until this can be replaced with a sanitized version.
-![[Single-page Bing Web Search app]](media/cognitive-services-bing-web-api/web-search-spa-demo.png)
--->
-
-> [!NOTE]
-> Sayfanın altındaki JSON ve HTTP başlıkları tıklatıldığında HTTP istek bilgileri ve JSON yanıt ortaya. Bu ayrıntılar hizmetini keşfetmeye yararlı olur.
-
-Eğitmen uygulama gösterilmektedir nasıl yapılır:
+Bu örnek uygulama şunları yapabilir:
 
 > [!div class="checklist"]
-> * Bir Bing Web arama API çağrısı JavaScript'te gerçekleştirin
-> * Arama Seçenekleri Bing Web arama API'sine geçirin
-> * Web, haber, görüntü ve video arama sonuçları görüntüleme
-> * Arama sonuçları sayfasını
-> * Tanıtıcı Bing istemci kimliği ve API abonelik anahtarı
-> * Oluşabilecek hataları işleme
+> * Arama seçenekleriyle Bing Web Araması API'sini çağırma
+> * Web, resim, haber ve video sonuçlarını görüntüleme
+> * Sonuçları sayfalandırma
+> * Abonelik anahtarlarını yönetme
+> * Hataları işleme
 
-Öğretici sayfası tamamen bağımsızdır; herhangi bir dış çerçeveleri, stil sayfaları veya hatta resim dosyalarını kullanmaz. Yalnızca yaygın olarak desteklenen JavaScript dil özellikleri kullanır ve tüm ana Web tarayıcıları geçerli sürümlerinde çalışır.
+Bu uygulamayı kullanmak için Bing Arama API'lerine sahip bir [Azure Bilişsel Hizmetler hesabı](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) gerekir. Bir hesabınız yoksa, abonelik anahtarı almak için [ücretsiz deneme sürümünü](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) kullanabilirsiniz.
 
-Bu öğretici kapsamında, kaynak kodunu yalnızca seçili bölümlerini tartışın. Tam kaynak kodunu kullanılabilir [ayrı bir sayfaya](tutorial-bing-web-search-single-page-app-source.md). Kopyalayın ve bu kodu bir metin düzenleyicisine yapıştırın ve kaydedileceği `bing.html`.
+## <a name="prerequisites"></a>Ön koşullar
+
+Uygulamayı çalıştırmak için ihtiyacınız olacak birkaç şey:
+
+* Node.js 8 veya üstü
+* Abonelik anahtarı
+
+## <a name="get-the-source-code-and-install-dependencies"></a>Kaynak kodu alma ve bağımlılıkları yükleme
+
+İlk adım, örnek uygulamanın kaynak koduyla depoyu kopyalamaktır.
+
+```console
+git clone https://github.com/Azure-Samples/cognitive-services-REST-api-samples.git
+```
+
+Ardından `npm install` komutunu çalıştırın. Bu öğreticide tek bağımlılık Express.js'dir.
+
+```console
+cd <path-to-repo>/cognitive-services-REST-api-samples/Tutorials/Bing-Web-Search
+npm install
+```
 
 ## <a name="app-components"></a>Uygulama bileşenleri
 
-Herhangi bir tek sayfalı Web uygulamasına gibi öğretici uygulama üç bölümleri içerir:
+Derlediğimiz örnek uygulama dört bölümden oluşur:
 
-> [!div class="checklist"]
-> * HTML - tanımlar sayfasının içeriği ve yapısı
-> * Sayfa görünümünü tanımlayan CSS-
-> * JavaScript - sayfanın davranışını tanımlar
+* `bing-web-search.js` - Express.js uygulamamız. İstek/yanıt mantığını ve yönlendirmeyi işler.
+* `public/index.html` - Uygulamamızın çatısı; verilerin kullanıcıya nasıl gösterileceğini tanımlar.
+* `public/css/styles.css` - Yazı tipi, renk, metin boyutu gibi sayfa stillerini tanımlar.
+* `public/js/scripts.js` - Bing Web Araması API'sine istek göndermek, abonelik anahtarlarını yönetmek, yanıtları işlemek, ayrıştırmak ve sonuçları görüntülemek için gereken mantığı içerir.
 
-Basit oldukları gibi Bu öğretici HTML veya CSS çoğunu ayrıntılı, kapsamaz.
+Bu öğretici `scripts.js` dosyasına ve Bing Web Araması API'sini çağırıp yanıtı işlemek için gereken mantığa odaklanır.
 
-HTML kullanıcı bir sorgu girer ve arama seçenekleri seçer arama formu içerir. Formun gerçekte göre arama gerçekleştirir JavaScript bağlı `<form>` etiketinin `onsubmit` özniteliği:
+## <a name="html-form"></a>HTML formu
 
-```html
-<form name="bing" onsubmit="return newBingWebSearch(this)">
-```
+`index.html`, kullanıcıların arama yapmasına ve arama seçeneklerini belirtmesine olanak sağlayan bir form içerir. Form gönderilip `scripts.js` dosyasında tanımlanan `bingWebSearch()` yöntemi çağrıldığında, `onsubmit` özniteliği çağrılır. Üç bağımsız değişken alır:
 
-`onsubmit` İşleyicisini döndürür `false`, hangi tutar formu bir sunucuya gönderildi. JavaScript kodu, aslında formdan gerekli bilgileri toplama ve arama gerçekleştirilirken çalışır.
-
-HTML bölümleri de içerir (HTML `<div>` etiketleri) burada arama sonuçları görüntülenir.
-
-## <a name="managing-subscription-key"></a>Abonelik anahtarı yönetme
-
-Bing arama API abonelik anahtarı kodda dahil etmek zorunda kalmamak için tarayıcının kalıcı depolama anahtarını depolamak için kullanırız. Hiçbir anahtar depolanıyorsa, biz kullanıcının anahtarının istendiği ve daha sonra kullanmak üzere saklayın. Anahtar daha sonra API tarafından reddedilirse, kullanıcı yeniden istenir böylece biz saklı anahtarı geçersiz.
-
-Tanımlarız `storeValue` ve `retrieveValue` kullanın ya da işlevleri `localStorage` (tarayıcı destekliyorsa) nesnesi veya bir tanımlama bilgisi. Bizim `getSubscriptionKey()` işlevi depolamak ve kullanıcının anahtarı almak için bu işlevleri kullanır.
-
-```javascript
-// cookie names for data we store
-API_KEY_COOKIE   = "bing-search-api-key";
-CLIENT_ID_COOKIE = "bing-search-client-id";
-
-BING_ENDPOINT = "https://api.cognitive.microsoft.com/bing/v7.0/search";
-
-// ... omitted definitions of storeValue() and retrieveValue()
-
-// get stored API subscription key, or prompt if it's not found
-function getSubscriptionKey() {
-    var key = retrieveValue(API_KEY_COOKIE);
-    while (key.length !== 32) {
-        key = prompt("Enter Bing Search API subscription key:", "").trim();
-    }
-    // always set the cookie in order to update the expiration date
-    storeValue(API_KEY_COOKIE, key);
-    return key;
-}
-```
-
-HTML `form` etiketi `onsubmit` çağrıları `bingWebSearch` arama sonuçları döndürmek için işlevi. `bingWebSearch` kullanan `getSubscriptionKey` her sorgu kimliğini doğrulamak için. Önceki tanımında gösterildiği gibi `getSubscriptionKey` anahtar girdiyseniz taşınmadığından, anahtar kullanıcıya sorar. Anahtar sonra kullanım sürdürdüğünüz için uygulama tarafından depolanır.
+* Arama sorgusu
+* Belirtilen seçenekler
+* Abonelik anahtarı
 
 ```html
-<form name="bing" onsubmit="this.offset.value = 0; return bingWebSearch(this.query.value, 
+<form name="bing" onsubmit="return bingWebSearch(this.query.value,
     bingSearchOptions(this), getSubscriptionKey())">
 ```
 
-## <a name="selecting-search-options"></a>Arama Seçenekleri
+## <a name="query-options"></a>Sorgu seçenekleri
 
-![[Bing Web araması form]](media/cognitive-services-bing-web-api/web-search-spa-form.png)
+HTML formu, [Bing Web Araması API'si v7](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#query-parameters)'deki sorgu parametrelerine eşlenen seçenekler içerir. Bu tabloda, örnek uygulamayı kullanarak kullanıcıların arama sonuçlarını nasıl filtreleyebileceğini gösteren bir döküm sağlanır:
 
-HTML formu aşağıdaki adlara sahip öğeleri içerir:
-
-| | |
-|-|-|
-| `where` | Arama için kullanılan Pazar (konumu ve dil) seçmek için açılır menü. |
-| `query` | Metin alanı, arama terimlerini girin. |
-| `what` | Belirli tür sonuç yükseltmek için onay kutularını. Görüntüleri, yükseltme, örneğin, görüntüleri sıralamasını artırır. |
-| `when` | İsteğe bağlı olarak en son gün, hafta veya ay aramayı sınırlamak için aşağı açılır menüden. |
-| `safe` | Bing'ın güvenli arama özelliği "yetişkin" sonuçları filtrelemek için kullanılıp kullanılmayacağını belirten bir onay kutusu. |
-| `count` | Gizli alan. Her istekte döndürmek için arama sonuçları sayısı. Sayfa başına daha az veya daha fazla sonuçları görüntülemek için değiştirin. |
-| `offset` | Gizli alan. İstek ilk arama sonucu uzaklığını; disk belleği için kullanılır. İçin Sıfırla `0` yeni bir istek üzerinde. |
+| Parametre | Açıklama |
+|-----------|-------------|
+| `query` | Sorgu dizesinin girileceği metin alanı. |
+| `where` | Pazarın (konum ve dil) seçileceği açılan menü. |
+| `what` | Belirli sonuç türlerini yükseltmek için onay kutuları. Örneğin görüntülerin yükseltilmesi, arama sonuçlarında görüntülerin derecelendirmesini yükseltir. |
+| `when` | Kullanıcının arama sonuçlarını bugün, bu hafta veya bu ay ile sınırlandırmasına olanak tanıyan bir açılan menü. |
+| `safe` | Yetişkinlere yönelik içeriği filtreleyip dışarıda bırakan Bing Güvenli Araması'nı etkinleştirmek için bir onay kutusu. |
+| `count` | Gizli alan. Her istekte döndürülecek arama sonuçlarının sayısı. Sayfada daha az veya daha fazla sonuç görüntülemek için bu değeri değiştirin. |
+| `offset` | Gizli alan. İstekteki ilk arama sonucunun göreli konumu; sayfalama için kullanılır. Her yeni istekle birlikte `0` değerine sıfırlanır. |
 
 > [!NOTE]
-> Bing Web araması çok daha fazla sorgu parametreleri sunar. Biz yalnızca birkaç tanesi aşağıda kullanıyorsunuz.
+> Bing Web Araması API'si arama sonuçlarını daraltmak için ek sorgu parametreleri sağlar. Bu örnekte yalnızca birkaç parametre kullanılır. Sağlanan parametrelerin tam listesi için bkz. [Bing Web Araması API'si v7 başvurusu](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#query-parameters).
 
-JavaScript işlevinin `bingSearchOptions()` bu alanlar Bing arama API'si tarafından gerekli biçime dönüştürür.
+`bingSearchOptions()` işlevi, Bing Arama API'sinin gerektirdiği biçime uyacak şekilde bu seçenekleri dönüştürür.
 
 ```javascript
-// build query options from the HTML form
+// Build query options from selections in the HTML form.
 function bingSearchOptions(form) {
 
     var options = [];
+    // Where option.
     options.push("mkt=" + form.where.value);
+    // SafeSearch option.
     options.push("SafeSearch=" + (form.safe.checked ? "strict" : "off"));
+    // Freshness option.
     if (form.when.value.length) options.push("freshness=" + form.when.value);
     var what = [];
-    for (var i = 0; i < form.what.length; i++) 
+    for (var i = 0; i < form.what.length; i++)
         if (form.what[i].checked) what.push(form.what[i].value);
+    // Promote option.
     if (what.length) {
         options.push("promote=" + what.join(","));
         options.push("answerCount=9");
     }
+    // Count option.
     options.push("count=" + form.count.value);
+    // Offset option.
     options.push("offset=" + form.offset.value);
+    // Hardcoded text decoration option.
     options.push("textDecorations=true");
+    // Hardcoded text format option.
     options.push("textFormat=HTML");
     return options.join("&");
 }
 ```
 
-Örneğin, `SafeSearch` gerçek bir API çağrısında parametre olabilir `strict`, `moderate`, veya `off`, ile `moderate` varsayılan bırakılıyor. Formumuzun, ancak yalnızca iki durumlu sahip bir onay kutusu kullanır. Bu çok ya da ayarı JavaScript kodu dönüştürür `strict` veya `off` (`moderate` kullanılmaz).
+`SafeSearch` `strict`, `moderate` veya `off` olarak ayarlanabilir; Bing Web Araması'nın varsayılan ayarı `moderate` ayarıdır. Bu formda iki durumu olan bir onay kutusu kullanılıyor. Bu kod parçacığında, SafeSearch `strict` veya `off` olarak ayarlanmıştır; `moderate` kullanılmaz.
 
-Varsa **Yükselt** onay kutularını işaretlenir, ayrıca eklediğimiz bir `answerCount` sorgu parametresi. `answerCount` kullanılırken gereklidir `promote` parametresi. Biz yalnızca ayarlayın `9` (Bing Web arama API'si tarafından desteklenen sonuç türleri sayısı) biz almak olası üst sınırını sonuç türleri emin olmak için.
-
+**Yükselt** onay kutularından herhangi bir seçildiyse, sorguya `answerCount` parametresi eklenir. `promote` parametresi kullanıldığında `answerCount` gereklidir. Bu kod parçacığında, tüm kullanılabilir sonuç türlerinin döndürülmesi için değer `9` olarak ayarlanmıştır.
 > [!NOTE]
-> Sonuç türü yükseltme yok *garanti* arama sonuçları, bu tür bir sonuç içerir. Bunun yerine, bu tür bir sonuç kendi normal derecelendirme göreli sıralamasını yükseltme artırır. Belirli tür Sonuç aramaları sınırlandırmak için kullanmak `responseFilter` sorgu parametresi veya Bing görüntü arama veya Bing Haberler arama gibi daha belirli bir uç çağırın.
+> Sonuç türünün yükseltilmesi, bunun arama sonuçlarına eklenmesini *garanti* etmez. Bunun yerine, yükseltme işlemi bu tür sonuçların derecelendirmesini kendi normal derecelerine göre yükseltir. Aramaları belirli sonuç türleriyle sınırlandırmak için, `responseFilter` sorgu parametresini kullanın ya da Bing Resim Arama veya Bing Haber Arama gibi daha belirgin bir uç noktayı çağırın.
 
-Biz de Gönder `textDecoration` ve `textFormat` sorgu parametreleri arama terimi arama sonuçlarında kalın neden olacak. Bu komut dosyasında kodlanmış değerlerdir.
+`textDecoration` ve `textFormat` sorgu parametreleri betiğe sabit kodlanmıştır ve arama teriminin arama sonuçlarında kalın gösterilmesine neden olur. Bu parametreler gerekli değildir.
 
-## <a name="performing-the-request"></a>İsteği gerçekleştirme
+## <a name="manage-subscription-keys"></a>Abonelik anahtarlarını yönetme
 
-Verilen sorgu, seçenekleri dize ve API anahtarını `BingWebSearch` işlev kullanan bir `XMLHttpRequest` Bing Web araması uç noktasına istek yapmak için nesne.
+Bing Arama API'si abonelik anahtarının basit kodlanmasını önlemek için, bu örnek uygulama tarayıcının kalıcı depolamasını kullanarak abonelik anahtarını depolar. Hiçbir abonelik anahtarı depolanmazsa, kullanıcıdan bir anahtar girmesi istenir. Abonelik anahtarı API tarafından reddedilirse, kullanıcının abonelik anahtarını yeniden girmesi istenir.
+
+`getSubscriptionKey()` işlevi, `storeValue` ve `retrieveValue` işlevlerini kullanarak kullanıcının abonelik anahtarını depolar ve alır. Bu işlevler, destekleniyorsa `localStorage` nesnesini veya tanımlama bilgilerini kullanır.
 
 ```javascript
-// perform a search given query, options string, and API key
-function bingWebSearch(query, options, key) {
+// Cookie names for stored data.
+API_KEY_COOKIE   = "bing-search-api-key";
+CLIENT_ID_COOKIE = "bing-search-client-id";
 
-    // scroll to top of window
+BING_ENDPOINT = "https://api.cognitive.microsoft.com/bing/v7.0/search";
+
+// See source code for storeValue and retrieveValue definitions.
+
+// Get stored subscription key, or prompt if it isn't found.
+function getSubscriptionKey() {
+    var key = retrieveValue(API_KEY_COOKIE);
+    while (key.length !== 32) {
+        key = prompt("Enter Bing Search API subscription key:", "").trim();
+    }
+    // Always set the cookie in order to update the expiration date.
+    storeValue(API_KEY_COOKIE, key);
+    return key;
+}
+```
+
+Daha önce gördüğümüz gibi, form gönderildiğinde `onsubmit` çağrılarak `bingWebSearch` çağrısı yapılır. Bu işlev isteği başlatır ve gönderir. Her gönderimde isteğin kimliğini doğrulamak için `getSubscriptionKey` çağrılır.
+
+## <a name="call-bing-web-search"></a>Bing Web Araması'nı çağırma
+
+Sorgu, seçenekler dizesi ve abonelik anahtarı verili durumdayken, `BingWebSearch` işlevi Bing Web Araması uç noktasını çağırmak için bir `XMLHttpRequest` nesnesi oluşturur.
+
+```javascript
+// Perform a search constructed from the query, options, and subscription key.
+function bingWebSearch(query, options, key) {
     window.scrollTo(0, 0);
-    if (!query.trim().length) return false;     // empty query, do nothing
+    if (!query.trim().length) return false;
 
     showDiv("noresults", "Working. Please wait.");
     hideDivs("pole", "mainline", "sidebar", "_json", "_http", "paging1", "paging2", "error");
@@ -167,51 +181,50 @@ function bingWebSearch(query, options, key) {
     var request = new XMLHttpRequest();
     var queryurl = BING_ENDPOINT + "?q=" + encodeURIComponent(query) + "&" + options;
 
-    // open the request
+    // Initialize the request.
     try {
         request.open("GET", queryurl);
-    } 
+    }
     catch (e) {
         renderErrorMessage("Bad request (invalid URL)\n" + queryurl);
         return false;
     }
 
-    // add request headers
+    // Add request headers.
     request.setRequestHeader("Ocp-Apim-Subscription-Key", key);
     request.setRequestHeader("Accept", "application/json");
     var clientid = retrieveValue(CLIENT_ID_COOKIE);
     if (clientid) request.setRequestHeader("X-MSEdge-ClientID", clientid);
-    
-    // event handler for successful response
+
+    // Event handler for successful response.
     request.addEventListener("load", handleBingResponse);
-    
-    // event handler for erorrs
+
+    // Event handler for errors.
     request.addEventListener("error", function() {
         renderErrorMessage("Error completing request");
     });
 
-    // event handler for aborted request
+    // Event handler for an aborted request.
     request.addEventListener("abort", function() {
         renderErrorMessage("Request aborted");
     });
 
-    // send the request
+    // Send the request.
     request.send();
     return false;
 }
 ```
 
-HTTP isteği başarıyla tamamlandıktan sonra JavaScript çağrılarını bizim `load` olay işleyicisi `handleBingResponse()` API, başarılı bir HTTP GET isteği işlemek için işlevi. 
+Başarılı bir isteğin ardından, `load` olay işleyicisi çağrılır ve `handleBingResponse` işlevini çağırır. `handleBingResponse`, sonuç nesnesini ayrıştırır, sonuçları görüntüler ve başarısız istekler için hata mantığını içerir.
 
 ```javascript
-// handle Bing search request results
 function handleBingResponse() {
     hideDivs("noresults");
 
     var json = this.responseText.trim();
     var jsobj = {};
 
-    // try to parse JSON results
+    // Try to parse results object.
     try {
         if (json.length) jsobj = JSON.parse(json);
     } catch(e) {
@@ -219,12 +232,12 @@ function handleBingResponse() {
         return;
     }
 
-    // show raw JSON and HTTP request
+    // Show raw JSON and the HTTP request.
     showDiv("json", preFormat(JSON.stringify(jsobj, null, 2)));
-    showDiv("http", preFormat("GET " + this.responseURL + "\n\nStatus: " + this.status + " " + 
+    showDiv("http", preFormat("GET " + this.responseURL + "\n\nStatus: " + this.status + " " +
         this.statusText + "\n" + this.getAllResponseHeaders()));
 
-    // if HTTP response is 200 OK, try to render search results
+    // If the HTTP response is 200 OK, try to render the results.
     if (this.status === 200) {
         var clientid = this.getResponseHeader("X-MSEdge-ClientID");
         if (clientid) retrieveValue(CLIENT_ID_COOKIE, clientid);
@@ -239,87 +252,79 @@ function handleBingResponse() {
         }
     }
 
-    // Any other HTTP response is an error
+    // Any other HTTP response is considered an error.
     else {
-        // 401 is unauthorized; force re-prompt for API key for next request
+        // 401 is unauthorized; force a re-prompt for the user's subscription
+        // key on the next request.
         if (this.status === 401) invalidateSubscriptionKey();
 
-        // some error responses don't have a top-level errors object, so gin one up
+        // Some error responses don't have a top-level errors object, if absent
+        // create one.
         var errors = jsobj.errors || [jsobj];
         var errmsg = [];
 
-        // display HTTP status code
+        // Display the HTTP status code.
         errmsg.push("HTTP Status " + this.status + " " + this.statusText + "\n");
 
-        // add all fields from all error responses
+        // Add all fields from all error responses.
         for (var i = 0; i < errors.length; i++) {
             if (i) errmsg.push("\n");
             for (var k in errors[i]) errmsg.push(k + ": " + errors[i][k]);
         }
 
-        // also display Bing Trace ID if it isn't blocked by CORS
+        // Display Bing Trace ID if it isn't blocked by CORS.
         var traceid = this.getResponseHeader("BingAPIs-TraceId");
         if (traceid) errmsg.push("\nTrace ID " + traceid);
 
-        // and display the error message
+        // Display the error message.
         renderErrorMessage(errmsg.join("\n"));
     }
 }
 ```
 
 > [!IMPORTANT]
-> Başarılı bir HTTP isteği mu *değil* arama kendisini başarılı mutlaka anlamına. Arama işlemi bir hata meydana gelirse, Bing Web arama API 200 HTTP durum kodu döndürür ve JSON yanıtında hata bilgilerini içerir. Ayrıca, API istek oranı sınırlı ise, boş bir yanıt döndürür.
+> Başarılı bir HTTP isteği, aramanın kendisinin başarılı olduğu anlamına *gelmez*. Arama işleminde hata oluşursa, Bing Web Araması API'si 200 olmayan bir HTTP durum kodu döndürür ve JSON yanıtına hata bilgilerini ekler. İstekte hız sınırlaması varsa API boş yanıt döndürür.
 
-Hata işleme kodu hem de önceki işlevlerin çoğunu ayrılır. Aşağıdaki aşamalarda hatalar oluşabilir:
+Önceki işlevlerin ikisinde de kodun büyük bölümü hata işlemeye ayrılmıştır. Şu aşamalarda hata oluşabilir:
 
-|Aşama|Olası hatalar|Tarafından işlenen|
-|-|-|-|
-|Yapı JavaScript istek nesnesi|Geçersiz URL|`try`/`catch` engelle|
-|İsteği yapan|Ağ hataları, iptal edilen bağlantıları|`error` ve `abort` olay işleyicileri|
-|Arama gerçekleştirme|Geçersiz istek, geçersiz JSON oran sınırları|içinde testleri `load` olay işleyicisi|
+| Aşama | Olası hatalar | İşleyen |
+|-------|--------------------|------------|
+| İstek nesnesini oluşturma | Geçersiz URL | `try` / `catch` bloğu |
+| İstekte bulunma | Ağ hataları, durdurulan bağlantılar | `error` ve `abort` olay işleyicileri |
+| Aramayı gerçekleştirme | Geçersiz istek, geçersiz JSON, hız sınırları | `load` olay işleyicisindeki testler |
 
-Hataları çağırarak işlenir `renderErrorMessage()` hata hakkında bilinen herhangi bir ayrıntıyı ile. Yanıt hata testlerinin tam gauntlet geçerse, diyoruz `renderSearchResults()` arama sonuçları sayfasında görüntülenecek.
+Hatalar `renderErrorMessage()` çağrısı yapılarak işlenir. Yanıt tüm hata testlerinden geçerse, arama sonuçlarını görüntülemek için `renderSearchResults()` çağrılır.
 
-## <a name="displaying-search-results"></a>Arama Sonuçları görüntüleme
+## <a name="display-search-results"></a>Arama sonuçlarını görüntüleme
 
-Bing Web arama API [belirli bir sırada sonuçları görüntülemek gerektiren](useanddisplayrequirements.md). API değişik yanıtlar döndürebilir olduğundan, bu üst düzey yinelemek yeterli değil `WebPages` JSON yanıt koleksiyonunda ve bu sonuçları görüntüler. (Yalnızca bir tür sonuçları istiyorsanız kullanın `responseFilter` sorgu parametresi veya başka bir Bing arama uç.)
-
-Bunun yerine, kullanırız `rankingResponse` görüntü için sonuçları sıralamak için arama sonuçlarında. Öğe bu nesnenin başvurduğu `WebPages` `News`, `Images`, ve/veya `Videos` koleksiyonları veya diğer üst düzey yanıt koleksiyonlar JSON yanıt.
-
-`rankingResponse` Belirtilen arama sonuçlarının en çok üç koleksiyonları içerebilir `pole`, `mainline`, ve `sidebar`. 
-
-`pole`, varsa, en uygun arama sonuç ve görüntülenmelidir. `mainline` Arama sonuçlarını toplu ifade eder. Mainline sonuçları hemen sonra görüntülenmesi gereken `pole` (veya ilk `pole` mevcut değil). 
-
-Son olarak. `sidebar` yardımcı arama sonuçlarını gösterir. Genellikle, bu sonuçlar ilgili aramalar veya görüntüleri olur. Mümkünse, bu sonuçların gerçek bir Kenar çubuğunda görüntülenmesi gerekir. Ekran sınırları kenar çubuğu pratik (örneğin, bir mobil cihazda) yaparsanız, bunlar sonra görünmelidir `mainline` sonuçları.
-
-Her öğe bir `rankingResponse` koleksiyonu iki farklı, ancak eşdeğer şekilde gerçek arama sonucu öğelerini başvuruyor.
-
-| | |
-|-|-|
-|`id`|`id` Bir URL gibi görünüyor, ancak bağlantıları için kullanılmamalıdır. `id` Derecelendirme sonuç türü ile eşleşen `id` öğesinin ya da bir arama sonucu bir yanıt koleksiyonundaki *veya* tüm yanıt koleksiyonu (gibi `Images`).
-|`answerType`, `resultIndex`|`answerType` Sonucu içeren üst düzey yanıt koleksiyona ifade eder (örneğin, `WebPages`). `resultIndex` Sonucunun dizin, koleksiyondaki başvuruyor. Varsa `resultIndex` olan atlanırsa, tüm koleksiyon derecelendirme sonuç başvuruyor.
+Bing Web Araması API'si tarafından döndürülen sonuçlarla ilişkili [kullanım ve görüntüleme gereksinimleri](useanddisplayrequirements.md) vardır. Yanıtta çeşitli yanıt türleri bulunabileceğinden, en üst düzey `WebPages` koleksiyonunu yinelemek yeterli olmaz. Bunun yerine, örnek uygulama sonuçları belirtimlere göre sıralamak için `RankingResponse` kullanır.
 
 > [!NOTE]
-> Bu arama yanıtı parçası hakkında daha fazla bilgi için bkz: [derece sonuçları](rank-results.md).
+> Tek bir sonuç türü istiyorsanız, `responseFilter` sorgu parametresini kullanın veya Bing Resim Araması gibi diğer Bing Araması uç noktalarını kullanmayı göz önünde bulundurun.
 
-Başvurulan arama sonucu öğesinin bulma, hangi yöntemi uygulamanız için en uygun kullanabilir. Eğitmen kodumuza kullanırız `answerType` ve `resultIndex` her arama sonucu bulunamadı.
+Her yanıtta bir `RankingResponse` nesnesi vardır ve bu nesne en çok üç koleksiyon içerebilir: `pole`, `mainline` ve `sidebar`. `pole` (varsa) en ilgili arama sonucudur ve belirgin bir şekilde görüntülenmelidir. `mainline` arama sonuçlarının büyük bölümünü içerir ve hemen `pole` koleksiyonundan sonra görüntülenir. `sidebar` ikincil arama sonuçlarını içerir. Mümkünse, bu sonuçların kenar çubuğunda görüntülenmesi gerekir. Ekran sınırlarından dolayı kenar çubuğunu görüntülemek pratik değilse, bu sonuçlar `mainline` sonuçlarından sonra gösterilmelidir.
 
-Bizim işlevini aramak için zamanı son olarak, `renderSearchResults()`. Bu işlev üç tekrarlanan `rankingResponse` arama sonuçlarını üç bölümlerini temsil koleksiyonları. Her bölüm için diyoruz `renderResultsItems()` Bu bölüm için sonuçları işlenecek.
+Her `RankingResponse`, sonuçların nasıl sıralanacağını belirten bir `RankingItem` dizisi içerir. Örnek uygulamamızda, sonucu tanımlamak için `answerType` ve `resultIndex` parametreleri kullanılır.
+
+> [!NOTE]
+> Sonuçları tanımlamanın ve derecelendirmenin başka yolları da vardır. Daha fazla bilgi için bkz. [Sonuçları görüntülemek için derecelendirmeyi kullanma](rank-results.md).
+
+Şimdi koda bir göz atalım:
 
 ```javascript
-// render the search results given the parsed JSON response
+// Render the search results from the JSON response.
 function renderSearchResults(results) {
 
-    // if spelling was corrected, update search field
-    if (results.queryContext.alteredQuery) 
+    // If spelling was corrected, update the search field.
+    if (results.queryContext.alteredQuery)
         document.forms.bing.query.value = results.queryContext.alteredQuery;
 
-    // add Prev / Next links with result count
+    // Add Prev / Next links with result count.
     var pagingLinks = renderPagingLinks(results);
     showDiv("paging1", pagingLinks);
     showDiv("paging2", pagingLinks);
-    
-    // for each possible section, render the resuts from that section
+
+    // Render the results for each section.
     for (section in {pole: 0, mainline: 0, sidebar: 0}) {
         if (results.rankingResponse[section])
             showDiv(section, renderResultsItems(section, results));
@@ -327,30 +332,26 @@ function renderSearchResults(results) {
 }
 ```
 
-`renderResultsItems()` her öğe üzerinde sırayla tekrarlanan `rankingResponse` bölümünde, her bir derecelendirme sonucu kullanarak bir arama sonucu eşlemeleri `answerType` ve `resultIndex` alanları ve sonucunun HTML oluşturmak için uygun işleme işlevi çağırır. 
-
-Varsa `resultIndex` verilen derecelendirme öğesi için belirtilmemiş `renderResultsItems()` bu türdeki tüm sonuçları tekrarlanan ve her öğe için işleme işlevi çağırır. 
-
-Her iki durumda da, sonuçta elde edilen HTML uygun eklenen `<div>` sayfasındaki öğe.
+`renderResultsItems()` işlevi her `RankingResponse` koleksiyonundaki öğelerde yinelenir, `answerType` ve `resultIndex` değerlerini kullanarak her derecelendirme sonucunu bir arama sonucuna eşler ve HTML'yi oluşturmak için uygun işleme işlevini çağırır. Öğe için `resultIndex` belirtilmediyse, `renderResultsItems()` bu türdeki tüm sonuçlarda yinelenir ve her öğe için işleme işlevini çağırır. Sonuçta elde edilen HTML, `index.html` dosyasındaki uygun `<div>` öğesine eklenir.
 
 ```javascript
-// render search results from rankingResponse object in specified order
+// Render search results from the RankingResponse object per rank response and
+// use and display requirements.
 function renderResultsItems(section, results) {
 
     var items = results.rankingResponse[section].items;
     var html = [];
     for (var i = 0; i < items.length; i++) {
         var item = items[i];
-        // collection name has lowercase first letter while answerType has uppercase
-        // e.g. `WebPages` rankingResult type is in the `webPages` top-level collection
+        // Collection name has lowercase first letter while answerType has uppercase
+        // e.g. `WebPages` RankingResult type is in the `webPages` top-level collection.
         var type = item.answerType[0].toLowerCase() + item.answerType.slice(1);
-        // must have results of the given type AND a renderer for it
         if (type in results && type in searchItemRenderers) {
             var render = searchItemRenderers[type];
-            // this ranking item refers to ONE result of the specified type
+            // This ranking item refers to ONE result of the specified type.
             if ("resultIndex" in item) {
                 html.push(render(results[type].value[item.resultIndex], section));
-            // this ranking item refers to ALL results of the specified type
+            // This ranking item refers to ALL results of the specified type.
             } else {
                 var len = results[type].value.length;
                 for (var j = 0; j < len; j++) {
@@ -363,13 +364,13 @@ function renderResultsItems(section, results) {
 }
 ```
 
-## <a name="rendering-result-items"></a>Sonuç öğeleri oluşturma
+## <a name="review-renderer-functions"></a>İşleyici işlevlerini gözden geçirme
 
-Bizim JavaScript kodu bir nesne `searchItemRenderers`, içeren *Oluşturucu:* her biri için tür HTML'i işlevleri arama sonucu.
+Örnek uygulamamızdaki `searchItemRenderers` nesnesinde, her tür arama sonucu için HTML oluşturan işlevler vardır.
 
 ```javascript
-// render functions for various types of search results
-searchItemRenderers = { 
+// Render functions for each result type.
+searchItemRenderers = {
     webPages: function(item) { ... },
     news: function(item) { ... },
     images: function(item, section, index, count) { ... },
@@ -378,23 +379,23 @@ searchItemRenderers = {
 }
 ```
 
-> [!NOTE]
-> Eğitmen uygulamamıza Web sayfaları, haber öğeleri, görüntüler, videolar ve ilişkili aramaları için işleyiciler sahiptir. Kendi uygulama Oluşturucu hesaplamalar, yazım önerileri, varlıklar, saat dilimleri ve tanımları içerebilir alabilir, sonuçları herhangi türde için gerekir.
+> [!IMPORTANT]
+> Örnek uygulamanın web sayfaları, haberler, görüntüler, videolar ve ilgili aramalar için işleyicileri vardır. Uygulamanızın alabileceği her tür sonuç için işleyicilere ihtiyacı olacaktır. Bunlar hesaplamaları, yazım önerilerini, varlıkları, saat dilimlerini ve tanımları içerebilir.
 
-Bazı bizim işleme işlevleri yalnızca kabul `item` parametresi: tek arama sonucu temsil eden bir JavaScript nesnesi. Başkalarının farklı bağlamlarda farklı öğeleri işlemek için kullanılan ek parametreleri kabul edin. (Bu bilgileri kullanmaz bir işleyici bu parametreler kabul etmek gerekmez.)
+İşleme işlevlerinden bazıları yalnızca `item` parametresini kabul eder. Diğerleri, bağlama göre öğeleri farklı işlemek için kullanılabilen ek parametreler de kabul eder. Bu bilgileri kullanmayan bir işleyicinin bu parametreleri kabul etmesi gerekmez.
 
 Bağlam bağımsız değişkenleri şunlardır:
 
-| | |
-|-|-|
-|`section`|Sonuçları bölümü (`pole`, `mainline`, veya `sidebar`) öğesi göründüğü içinde.
-|`index`<br>`count`|Kullanılabilir olduğunda `rankingResponse` öğesi görüntülenecek; belirli bir koleksiyondaki tüm sonuçları olduğunu belirtir `undefined` Aksi takdirde. Bu parametreler, toplama ve toplam öğe sayısını içinde öğenin dizini koleksiyonda alırsınız. İlk veya son sonucu için farklı HTML oluşturur ve benzeri için sonuçları numaralandırmak için bu bilgileri kullanabilirsiniz.|
+| Parametre  | Açıklama |
+|------------|-------------|
+| `section` | Öğelerin gösterildiği sonuç bölümü (`pole`, `mainline` veya `sidebar`). |
+| `index`<br>`count` | `RankingResponse` öğesi verili bir koleksiyondaki tüm sonuçların görüntüleneceğini belirtirse sağlanır; aksi takdirde `undefined` olur. Öğenin koleksiyonu içindeki dizin ve bu koleksiyondaki öğelerin toplam sayısı. Bu bilgileri kullanarak sonuçları numaralandırabilir, ilk veya son sonuç için farklı bir HTML oluşturabilir ve başka işlemler yapabilirsiniz. |
 
-Bizim öğretici uygulamasında hem `images` ve `relatedSearches` Oluşturucu bağlamı bağımsız değişkenleri oluşturdukları HTML özelleştirmek için kullanın. Daha yakın bir göz atalım `images` Oluşturucu:
+Örnek uygulamada, hem `images` hem de `relatedSearches` işleyicileri oluşturulan HTML'yi özelleştirmek için bağlam bağımsız değişkenlerini kullanır. `images` işleyicisine daha yakından bakalım:
 
 ```javascript
-searchItemRenderers = { 
-    // render image result using thumbnail
+searchItemRenderers = {
+    // Render image result with thumbnail.
     images: function(item, section, index, count) {
         var height = 60;
         var width = Math.round(height * item.thumbnail.width / item.thumbnail.height);
@@ -406,65 +407,64 @@ searchItemRenderers = {
         }
         html.push("<a href='" + item.hostPageUrl + "'>");
         var title = escape(item.name) + "\n" + getHost(item.hostPageDisplayUrl);
-        html.push("<img src='"+ item.thumbnailUrl + "&h=" + height + "&w=" + width + 
+        html.push("<img src='"+ item.thumbnailUrl + "&h=" + height + "&w=" + width +
             "' height=" + height + " width=" + width + " title='" + title + "' alt='" + title + "'>");
         html.push("</a>");
         return html.join("");
-    }, // other renderers omitted
+    },
+    // Other renderers are omitted from this sample...
 }
 ```
 
-Bizim Görüntü Oluşturucu işlevi:
+Görüntü işleyicisi:
 
-> [!div class="checklist"]
-> * Görüntü küçük resimlerin boyutunu hesaplar (genişlik farklılık gösterir, 60 piksel çözünürlükte sabit bir yükseklik).
-> * Görüntü sonuç bağlamı bağlı olarak önündeki HTML ekler.
-> * HTML derlemeler `<a>` görüntü içeren sayfasını bağlanan etiketi.
-> * HTML derlemeler `<img>` görüntü küçük görüntülenecek etiket. 
+* Görüntünün küçük resim boyutunu hesaplar (genişlik değişiklik gösterir, yükseklik ise 60 piksele sabitlenmiştir).
+* Bağlama göre görüntü sonucunun önüne gelen HTML'yi ekler.
+* Resmi içeren sayfaya bağlanan HTML `<a>` etiketini oluşturur.
+* Resmin küçük resmini görüntülemek için HTML `<img>` etiketini oluşturur.
 
-Görüntü Oluşturucu kullanan `section` ve `index` farklı bağlı olarak göründüğü sonuçları görüntülemek için değişkenleri. Satır sonu (`<br>` etiketi) görüntülerinin bir sütunu kenar görüntüler böylece resim kenar sonuçlarında arasında eklenir. Diğer bölümlerinde ilk resmi neden `(index === 0)` öncesinde bir `<p>` etiketi. Aksi takdirde küçük resimleri birbirleri ve kaydırma sunmayı tarayıcı penceresinde gerektiğinde alın.
+Görüntü işleyicisi, bulundukları yere bağlı olarak sonuçları farklı görüntülemek için `section` ve `index` bağımsız değişkenlerini kullanır. Kenar çubuğunda görüntü sonuçlarının arasına satır sonu (`<br>` etiketi) eklenerek, kenar çubuğunun bir görüntü sütunu göstermesi sağlanır. Diğer bölümlerde, ilk görüntü sonucunun (`(index === 0)`) önüne bir `<p>` etiketi gelir.
 
-Küçük resimlerin boyutunu hem de kullanılan `<img>` etiketi ve `h` ve `w` alanları küçük resim ait URL. [Bing küçük resim hizmet](resize-and-crop-thumbnails.md) tam olarak bu boyut, bir küçük resim sunar. `title` Ve `alt` öznitelikleri (görüntü metinsel açıklaması) görüntünün adı ve URL ana bilgisayar adı oluşturulur.
+Küçük resim boyutu hem `<img>` etiketinde hem de küçük resmin URL'sindeki `h` ve `w` alanlarında kullanılır. `title` ve `alt` öznitelikleri (görüntünün metin açıklaması), görüntü adından ve URL'deki ana bilgisayar adından oluşturulur.
 
-Görüntüleri mainline arama sonuçlarında aşağıda gösterildiği gibi görünür.
+Burada, örnek uygulamada görüntülerin nasıl gösterildiğine ilişkin bir örnek verilmiştir:
 
-![[Bing resim sonuçları]](media/cognitive-services-bing-web-api/web-search-spa-images.png)
+![[Bing görüntü sonuçları]](media/cognitive-services-bing-web-api/web-search-spa-images.png)
 
-## <a name="persisting-client-id"></a>Kalıcı istemci kimliği
+## <a name="persist-the-client-id"></a>İstemci kimliğinin kalıcı olmasını sağlama
 
-Bing arama API'leri yanıtlarının içerebilir bir `X-MSEdge-ClientID` geri API art arda gelen istekleri ile gönderilmesi gereken üstbilgi. Birden çok Bing arama API'leri kullanılıyorsa, aynı istemci kimliği, bunların tümünün ile mümkünse kullanılmalıdır.
+Bing arama API'lerinden gelen yanıtlar, birbirini izleyen her başarılı birlikte API'ye geri gönderilmesi gereken bir `X-MSEdge-ClientID` üst bilgisi içerir. Uygulamanız birden çok Bing Arama API'si kullanıyorsa, her istekle birlikte hizmetler arasında aynı istemci kimliğinin gönderildiğinden emin olun.
 
-Sağlama `X-MSEdge-ClientID` üstbilgi iki önemli faydası vardır kullanıcının aramaları ilişkilendirilecek Bing API'ler sağlar.
+Böylelikle `X-MSEdge-ClientID` üst bilgisi sayesinde Bing API'leri kullanıcının aramalarını ilişkilendirebilir. İlk olarak, Bing arama alt yapısının geçmiş bağlamı aramalara uygulayarak isteğe daha uygun sonuçlar bulabilmesini sağlar. Kullanıcı daha önce yelkencilikle ilgili terim aramaları yaptıysa, daha sonra yapılan "düğümler" araması tercihen yelkencilikte kullanılan düğümler hakkında bilgi döndürebilir. İkincisi, Bing yeni özellikleri geniş ölçekte kullanıma sunmadan önce bunları denemesi için rastgele kullanıcılar seçebilir. Her istekle birlikte aynı istemci kimliğinin sağlanması, özelliği görmesi tercih edilen kullanıcıların bunu sürekli görebilmesini sağlar. İstemci kimliği olmadan, özellik kullanıcıya arama sonuçlarında rastgele gösterilebilir ve gösterilmeyebilir.
 
-İlk olarak, kullanıcının daha iyi karşılamak sonuçları bulmak için arama için bağlam uygulamak arama motoru Bing sağlar. Örneğin, bir kullanıcı daha önce Yelkenli için ilgili koşulları için aradı, "düğümü" sonraki Ara tercihen Yelkenli içinde kullanılan düğüm hakkında bilgi döndürebilir.
-
-İkinci olarak, Bing rastgele yaygın olarak kullanılabilir hale getirilmeden önce yeni özellikleri denemek için kullanıcıların seçebilirsiniz. Her istek ile aynı istemci Kimliğini sağlayan bir özellik her zaman görmek için seçilen kullanıcılar, görmenizi sağlar. İstemci kimliği kullanıcı görünür ve, görünen rastgele, kendi arama sonuçlarında kaybolur bir özellik görebilirsiniz.
-
-Tarayıcı güvenlik ilkelerini (CORS) engelleyebilir `X-MSEdge-ClientID` üstbilgi JavaScript için kullanılabilir olmasını durduracak. Bu sınırlama arama yanıt, istenen sayfa farklı bir kaynaktan olduğunda oluşur. Bir üretim ortamında, bu ilke aynı etki alanındaki Web sayfası olarak API çağrısı yapan bir sunucu tarafı komut dosyası barındırarak giderilmelidir. Komut dosyasını Web sayfası olarak aynı kaynak olduğundan `X-MSEdge-ClientID` başlığıdır sonra JavaScript için kullanılabilir.
+Çıkış Noktaları Arası Kaynak Paylaşımı (CORS) gibi tarayıcı güvenlik ilkeleri, örnek uygulamanın `X-MSEdge-ClientID` üst bilgisine erişmesini engelleyebilir. Bu sınırlama, arama sonucunun kaynağı istekte bulunan sayfadan farklı olduğunda ortaya çıkar. Üretim ortamında, Web sayfasıyla aynı etki alanında API çağrısı yapan bir sunucu tarafı betiği barındırarak bu ilkeye uymalısınız. Betiğin kaynağı Web sayfasıyla aynı olduğundan, `X-MSEdge-ClientID` üst bilgisi JavaScript'in kullanımına sunulur.
 
 > [!NOTE]
-> Bir üretim Web uygulaması, isteği sunucu tarafı yine de gerçekleştirmeniz gerekir. Aksi halde, kaynak görünümleri herkes için kullanılabilir olduğu Web sayfasındaki Bing arama API anahtarınıza eklenmesi gerekir. API abonelik anahtarınızı altında anahtarınızı kullanıma sunmak değil önemlidir yetkisiz kişiler tarafından bile isteklerini tüm kullanım için faturalandırılır.
+> Üretim ortamındaki bir Web uygulamasında, isteği sunucu tarafından gerçekleştirmeniz gerekir. Aksi takdirde, Bing Arama API'si abonelik anahtarınız web sayfasına eklenmelidir ve bu durumda kaynağı görüntüleyen herkes tarafından görülebilir. API abonelik anahtarınız altında gerçekleştirilen tüm kullanım, yetkisiz tarafların yaptığı istekler bile size faturalandırılır; dolayısıyla anahtarınızı açıklamamanız önemlidir.
 
-Geliştirme amaçlı bir CORS Ara sunucu aracılığıyla Bing Web arama API isteği yapabilirsiniz. Bu tür bir proxy yanıttan sahip bir `Access-Control-Expose-Headers` üstbilgi bu whitelists yanıt üstbilgilerini ve JavaScript için kullanılabilir hale getirir.
+Geliştirme amacıyla, CORS ara sunucusu aracılığıyla bir istek gönderebilirsiniz. Bu tür bir ara sunucudan gelen yanıtta, yanıt üst bilgilerini beyaz listeye alan ve JavaScript'in kullanımına sunan `Access-Control-Expose-Headers` üst bilgisi bulunur.
 
-İstemci erişimi için öğretici uygulamamıza kimliği üstbilgisi izin vermek için bir CORS Ara sunucusunun yükleneceği kolaydır. Zaten yoksa, birinci [Node.js yüklemek](https://nodejs.org/en/download/). Ardından bir komut penceresinde aşağıdaki komutu yürütün:
+Örnek uygulamamızın istemci kimliği üst bilgisine erişebilmesi için CORS ara sunucusu kolayca yüklenebilir. Şu komutu çalıştırın:
 
-    npm install -g cors-proxy-server
+```console
+npm install -g cors-proxy-server
+```
 
-Ardından, HTML dosyasına Bing Web araması uç değiştirin:
+Sonra, `script.js` dosyasındaki Bing Web Araması uç noktasını şöyle değiştirin:
 
-    http://localhost:9090/https://api.cognitive.microsoft.com/bing/v7.0/search
+```javascript
+http://localhost:9090/https://api.cognitive.microsoft.com/bing/v7.0/search
+```
 
-Son olarak, aşağıdaki komutla CORS proxy başlatın:
+Şu komutla CORS ara sunucusunu başlatın:
 
-    cors-proxy-server
+```console
+cors-proxy-server
+```
 
-Eğitmen uygulama kullanırken komut penceresini açık bırakın; pencereyi proxy durdurur. Arama sonuçları altında Genişletilebilir HTTP üstbilgileri bölümünde şimdi görebilirsiniz `X-MSEdge-ClientID` üstbilgi (Diğerlerinin yanında) ve her istek için aynı olduğunu doğrulayın.
+Örnek uygulamayı kullanırken komut penceresini açık bırakın; pencere kapatılırsa ara sunucu durdurulur. Arama sonuçlarının alt kısmındaki genişletilebilir HTTP Üst Bilgileri bölümünde `X-MSEdge-ClientID` üst bilgisi görünür durumda olmalıdır. Bunun her istekte aynı olduğunu doğrulayın.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 > [!div class="nextstepaction"]
-> [Görsel arama mobil uygulama Öğreticisi](computer-vision-web-search-tutorial.md)
-
-> [!div class="nextstepaction"]
-> [Bing Web arama API Başvurusu](//docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference)
+> [Bing Web Araması API'si v7 başvurusu](//docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference)

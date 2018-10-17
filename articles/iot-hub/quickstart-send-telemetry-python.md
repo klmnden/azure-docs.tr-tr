@@ -8,14 +8,14 @@ services: iot-hub
 ms.devlang: python
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 04/30/2018
+ms.date: 09/07/2018
 ms.author: dobett
-ms.openlocfilehash: 7d5f2246eec20144a30e0abbc31038bdf04ab2b0
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 2d851bc8d5af7f824512cc9f14e6b1120026dd07
+ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43339285"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48785164"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-the-telemetry-from-the-hub-with-a-back-end-application-python"></a>Hızlı Başlangıç: Bir cihazdan IoT hub’ına telemetri gönderme ve arka uç uygulaması ile hub’dan telemetriyi okuma (Python)
 
@@ -33,7 +33,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 
 Bu hızlı başlangıçta çalıştırdığınız iki örnek uygulama, Python kullanılarak yazılır. Geliştirme makinenizde Python 2.7.x veya 3.5.x olması gerekir.
 
-[Python.org](https://www.python.org/downloads/) adresinden birden fazla platform için Python’u indirebilirsiniz.
+[Python.org](https://www.python.org/downloads/) adresinden birden fazla platform için Python’u indirebilirsiniz. Çalıştığınız sistemin mimarisine uygun Python yükleyicisini seçmeniz gerekir. Sisteminizin CPU mimarisi 32 bit ise Python.org sitesindeki varsayılan yükleyici olan x86 sürümünü indirin. Sisteminiz 64 bit mimariye sahipse x86-64 yükleyicisini indirmeniz gerekir.
 
 Aşağıdaki komutlardan birini kullanarak geliştirme makinenizde geçerli Python sürümünü doğrulayabilirsiniz:
 
@@ -46,20 +46,6 @@ python3 --version
 ```
 
 https://github.com/Azure-Samples/azure-iot-samples-python/archive/master.zip adresinden örnek Python projesini indirin ve ZIP arşivini ayıklayın.
-
-IoT hub’dan telemetriyi okuyan CLI yardımcı programını yüklemek için önce geliştirme makinenize Node.js v4.x.x veya sonraki bir sürümü yükleyin. [nodejs.org](https://nodejs.org) adresinden birden fazla platform için Node.js’yi indirebilirsiniz.
-
-Aşağıdaki komutu kullanarak geliştirme makinenizde geçerli Node.js sürümünü doğrulayabilirsiniz:
-
-```cmd/sh
-node --version
-```
-
-`iothub-explorer` CLI yardımcı programını yüklemek için aşağıdaki komutu çalıştırın:
-
-```cmd/sh
-npm install -g iothub-explorer
-```
 
 ## <a name="create-an-iot-hub"></a>IoT hub oluşturma
 
@@ -85,14 +71,6 @@ Bir cihazın bağlanabilmesi için IoT hub’ınıza kaydedilmesi gerekir. Bu h�
     ```
 
     `Hostname=...=` ifadesine benzer şekilde görünen cihaz bağlantı dizesini not edin. Bu değeri hızlı başlangıcın ilerleyen bölümlerinde kullanacaksınız.
-
-1. `iothub-explorer` CLI yardımcı programının IoT hub’ınıza bağlanmasına ve iletileri almasına olanak sağlamak için bir _hizmet bağlantı dizesi_ de gerekir. Aşağıdaki komut, IoT hub'ınız için hizmeti bağlantı dizesini alır:
-
-    ```azurecli-interactive
-    az iot hub show-connection-string --hub-name {YourIoTHubName} --output table
-    ```
-
-    `Hostname=...=` ifadesine benzer şekilde görünen hizmet bağlantı dizesini not edin. Bu değeri hızlı başlangıcın ilerleyen bölümlerinde kullanacaksınız. Hizmet bağlantı dizesi, cihaz bağlantı dizesinden farklıdır.
 
 ## <a name="send-simulated-telemetry"></a>Sanal telemetri gönderme
 
@@ -122,15 +100,15 @@ Simülasyon cihazı uygulaması, IoT hub’ınız üzerindeki cihaza özgü bir 
 
 ## <a name="read-the-telemetry-from-your-hub"></a>Hub’ınızdan telemetri okuma
 
-`iothub-explorer` CLI yardımcı programı, Iot Hub’ınız üzerinde sunucu tarafı **Olaylar** uç noktasına bağlanır. Yardımcı program, simülasyon cihazınızdan gönderilen cihazdan buluta iletileri alır. IoT Hub arka uç uygulaması genellikle cihazdan buluta iletileri alıp işlemek için bulutta çalışır.
+IoT Hub uzantısı IoT Hub’ınızdaki bir hizmet tarafı **Olaylar** uç noktasına bağlanabilir. Uzantı, simülasyon cihazınızdan gönderilen cihazdan buluta iletileri alır. IoT Hub arka uç uygulaması genellikle cihazdan buluta iletileri alıp işlemek için bulutta çalışır.
 
-Başka bir terminal penceresinde, `{your hub service connection string}` değerini önceden not ettiğiniz hizmet bağlantı dizesiyle değiştirerek aşağıdaki komutları çalıştırın:
+Aşağıdaki Azure CLI komutlarını çalıştırın, `{YourIoTHubName}` yerine IoT hub'ınızın adını yazın:
 
-```cmd/sh
-iothub-explorer monitor-events MyPythonDevice --login "{your hub service connection string}"
+```azurecli-interactive
+az iot hub monitor-events --device-id MyPythonDevice --hub-name {YourIoTHubName}
 ```
 
-Aşağıdaki ekran görüntüsünde, yardımcı program, simülasyon cihazı tarafından hub’a gönderilen telemetriyi aldığında oluşan çıktı gösterilmektedir:
+Aşağıdaki ekran görüntüsünde uzantı, simülasyon cihazı tarafından hub’a gönderilen telemetriyi aldığında oluşan çıktı gösterilmektedir:
 
 ![Arka uç uygulamasını çalıştırma](media/quickstart-send-telemetry-python/ReadDeviceToCloud.png)
 

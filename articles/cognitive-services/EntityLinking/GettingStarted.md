@@ -1,64 +1,65 @@
 ---
-title: Varlık bağlama API'si ile çalışmaya başlama | Microsoft Docs
-description: Metin ve Cognition Hizmetleri'nde varlık bağlama API kullanarak bir Bilgi Bankası'nda ilgili girişlere varlıklara adlı bağlantı analiz edin.
+title: 'Öğretici: Varlık Bağlama uygulaması derleme - C#'
+titlesuffix: Azure Cognitive Services
+description: Varlık Bağlama API’sini kullanarak bir bilgi bankasındaki ilgili girişlere yönelik metin ve bağlantı adlandırılmış varlıklarını analiz edin.
 services: cognitive-services
 author: DavidLiCIG
-manager: wkwok
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: entity-linking-intelligence
-ms.topic: article
+ms.topic: tutorial
 ms.date: 07/06/2016
 ms.author: davl
-ms.openlocfilehash: 54c4a3bbb3637c248bd7705ed291633368b542c9
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
-ms.translationtype: MT
+ms.openlocfilehash: 907b4cab483f1bf63a864094530784f9c632a1c8
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35351772"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46365647"
 ---
-# <a name="get-started-with-entity-linking-api-in-c35"></a>C API bağlama varlık kullanmaya başlama&#35;
+# <a name="tutorial-build-an-entity-linking-app-with-c"></a>Öğretici: C# ile Varlık Bağlama uygulaması derleme
 
-Microsoft'un varlık bağlama metin çözümlemek ve Bilgi Bankası'nda ilgili girişlere adlı varlıklar bağlamak için bir doğal dil işleme aracıdır. 
+Microsoft’un Varlık Bağlama aracı, bir bilgi bankasındaki ilgili girişlere yönelik metin ve bağlantı adlandırılmış varlıklarını analiz etmek için kullanılan bir doğal dil işleme aracıdır. 
 
-Bu öğretici bir NuGet paketi olarak varlık bağlama istemci kitaplığı kullanılarak bağlama varlık araştırır. 
+Bu öğretici, Varlık Bağlama İstemci Kitaplığını bir NuGet paketi olarak kullanarak varlık bağlamayı keşfeder. 
 
 ### <a name="Prerequisites">Önkoşullar</a>
 
 - Visual Studio 2015
-- API anahtarı bir Microsoft Bilişsel hizmetler
-- İstemci Kitaplığı ve örnek alın
-- Microsoft varlık bağlama NuGet paketi
+- Bir Microsoft Bilişsel Hizmetler API Anahtarı
+- İstemci kitaplığını ve örneği alma
+- Microsoft Varlık Bağlama NuGet Paketi
 
-Varlık bağlama Intelligence hizmeti API'si istemci kitaplığı aracılığıyla karşıdan yüklenebilir [SDK](https://www.github.com/microsoft/cognitive-entitylinking-windows). Tercih ettiğiniz bir klasöre ayıklanacak indirilen ZIP dosyasının gerekir, çok sayıda kullanıcı Visual Studio 2015 klasörü seçin.
+[SDK](https://www.github.com/microsoft/cognitive-entitylinking-windows) aracılığıyla Varlık Bağlama Akıllı Hizmeti API’si İstemci Kitaplığı’nı indirebilirsiniz. İndirilen zip dosyasının istediğiniz bir klasöre ayıklanması gerekir, çoğu kullanıcı, Visual Studio 2015 klasörünü seçer.
 
-### <a name="step-1-subscribe-entity-linking-intelligence-service-and-get-your-own-key">1. adım: Varlık bağlama Intelligence hizmete abone olmak ve anahtarınızı alın</a>
-Varlık yönetim bilgileri hizmeti bağlama kullanmadan önce bir API anahtarı için kaydolmanız gerekir. Bkz: [abonelikleri](https://www.microsoft.com/cognitive-services/en-us/sign-up). Bu öğreticide, hem birincil ve ikincil anahtar kullanılabilir.
+### <a name="step-1-subscribe-entity-linking-intelligence-service-and-get-your-own-key">1. Adım: Varlık Bağlama Akıllı Hizmeti’ne abone olun ve anahtarınızı alın</a>
+Varlık Bağlama Akıllı Hizmeti’ni kullanmadan önce bir API anahtarına kaydolmanız gerekir. Bkz. [Abonelikler](https://www.microsoft.com/cognitive-services/en-us/sign-up). Bu öğreticide, hem birincil hem de ikincil anahtar kullanılabilir.
 
-### <a name="step-2-create-a-new-project-in-visual-studio"> 2. adım: Visual Studio'da yeni proje oluşturma</a>
+### <a name="step-2-create-a-new-project-in-visual-studio">2. Adım: Visual Studio’da yeni bir proje oluşturun</a>
 
-Visual Studio'da yeni bir proje oluşturarak başlayalım. İlk olarak, Visual Studio 2015 Başlat menüsünden başlatın. Ardından, seçerek yeni bir proje oluşturun **→ şablonları → Visual C# → Windows Evrensel → boş uygulama yüklü** proje şablonu için:
+Visual Studio’da yeni bir proje oluşturarak başlayalım. İlk olarak, Başlat menüsünden Visual Studio 2015’i başlatın. Daha sonra proje şablonunuz için **Yüklü → Şablonlar → Visual C# → Windows Evrensel → Boş Uygulama** seçeneklerini belirleyerek yeni bir proje oluşturun:
 
- ![Açmayla Evrensel uygulama](./Images/CreateUWP.png)
+ ![Evrensel uygulama oluşturma](./Images/CreateUWP.png)
 
-### <a name="step-3-add-the-entity-linking-nuget-package-to-your-project">3. adım: Varlık bağlama NuGet paketini projenize ekleyin.</a>
+### <a name="step-3-add-the-entity-linking-nuget-package-to-your-project">3. Adım: Varlık Bağlama NuGet Paketini projenize ekleyin</a>
 
-Varlık bağlama, Bilişsel hizmetler NuGet.org paket olarak yayımlanır ve kullanabilmeniz için önce yüklü olması gerekir.
-Projenize eklemek için şu adrese gidin **Çözüm Gezgini** sekmesinde, projenize sağ tıklayın ve seçin **Nuget paketlerini Yönet**.
+Bilişsel Hizmetler Varlık Bağlaması bir NuGet.org paketi olarak yayınlanır ve kullanılmadan önce yüklenmesi gerekir.
+Bunu projenize eklemek için **Çözüm Gezgini** sekmesine gidin, projenize sağ tıklayın ve **Nuget Paketlerini Yönet**’i seçin.
 
-İlk olarak **NuGet Paket Yöneticisi** penceresinde, olarak select NuGet.org, **paket kaynağı** üst köşedeki. Seçin **Gözat** sol üst köşedeki ve arama kutusuna "ProjectOxford.EntityLinking" yazın. Seçin **Microsoft.ProjectOxford.EntityLinking** NuGet paketini ve tıklayın **yükleme**.
+İlk olarak **NuGet Paket Yöneticisi** penceresinde sağ üst köşede **Paket Kaynağı** olarak NuGet.org seçeneğini belirleyin. Sol üst köşedeki **Gözat** seçeneğini belirleyin ve arama kutusuna “ProjectOxford.EntityLinking” yazın. **Microsoft.ProjectOxford.EntityLinking** NuGet paketini seçin ve **Yükle**’ye tıklayın.
 
-Ardından, Newtonsoft.Json ve yükleme işlemini arayın. Değişiklikleri gözden geçirmek için istenirse, tıklatın **Tamam**. EntityLinking lisans şartlarını sunulan tıklatmak **kabul ediyorum**.
+Daha sonra Newtonsoft.Json araması yapıp bunu yükleyin. Değişiklikleri gözden geçirmeniz istenirse **Tamam**’a tıklayın. Size EntityLinking lisans koşulları sunulursa **Kabul Ediyorum**’u seçin.
 
-Varlık bağlama şimdi uygulamanızı bir parçası olarak yüklenir. Bu, denetleyerek doğrulayabilirsiniz ** Microsoft.ProjectOxford.EntityLinking** başvuru varsa Çözüm Gezgini'nde projenizin bir parçası olarak.
+Varlık Bağlama şimdi uygulamanızın parçası olarak yüklenir. Çözüm Gezgini’nde projenizin parçası olarak ** Microsoft.ProjectOxford.EntityLinking** başvurusunun mevcut olup olmadığını denetleyerek bunu onaylayabilirsiniz.
 
- ![Proje dahil nuget kitaplığı](./Images/NugetLibraryInProject.png)
+ ![Projeye dahil edilen nuget kitaplığı](./Images/NugetLibraryInProject.png)
  
-### <a name="step-4-add-an-input-and-output-text-block-to-your-apps-xaml">4. adım: bir giriş ekleyin ve uygulamanızın XAML metin bloğuna çıkış</a>
-Gidin ** MainPage.xaml ** içinde **Çözüm Gezgini**, sonra da yeni bir pencerede açılır dosyasına çift tıklayın. Kolaylık olması için çift tıklayarak **XAML** düğmesini **Tasarımcısı** sekmesinde, bu Gizle **görsel tasarımcı** ve tüm kod görünümü alanı ayırın.
+### <a name="step-4-add-an-input-and-output-text-block-to-your-apps-xaml">4. Adım: Uygulamanızın XAML’ine giriş ve çıkış metin bloğu ekleyin</a>
+**Çözüm Gezgini**’nde ** MainPage.xaml ** bölümüne gidin, dosyaya çift tıklayın ve dosyanın yeni bir pencerede açılmasını sağlayın. Kolaylık olması için, **Tasarımcı** sekmesinde **XAML** düğmesine çift tıklayabilirsiniz; böylece **Görsel Tasarımcı** gizlenir ve kod görünümü için tüm alan ayrılır.
 
- ![Proje dahil nuget kitaplığı](./Images/UWPMainPage.png)
+ ![Projeye dahil edilen nuget kitaplığı](./Images/UWPMainPage.png)
  
-Bir metin hizmeti olarak işlevselliği görselleştirmek için en iyi yolu bir girdi ve çıktı metin bloğu oluşturuyor. Bunu yapmak için aşağıdaki XAML'de ekleyin **kılavuz**. Bu kod, üç bileşeni, bir giriş metin kutusu, çıktı metin bloğu ve Başlat düğmesi ekler.
+Metin hizmeti olarak, işlevselliği görselleştirmenin en iyi yolu bir giriş ve çıkış metin bloğu oluşturmaktır. Bunu yapmak için **Kılavuz**’a şu XAML’yi ekleyin. Bu kod, üç bileşen ekler: bir giriş metin kutusu, bir çıkış metin bloğu ve başlat düğmesi.
  
  ```XAML
  <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
@@ -73,17 +74,17 @@ Bir metin hizmeti olarak işlevselliği görselleştirmek için en iyi yolu bir 
 </Grid>
  ```
  
-### <a name="step-5-proceed-to-add-entity-linking-intelligence-service">5. adım: Varlık yönetim bilgileri hizmeti bağlama eklemek devam</a>
+### <a name="step-5-proceed-to-add-entity-linking-intelligence-service">5. Adım: Varlık Bağlama Akıllı Hizmeti eklemek için devam edin</a>
  
-Kullanıcı arabirimi şimdi oluşturulur. Varlık bağlama hizmet kullanmadan önce biz düğme tıklama işleyici eklemeniz gerekir. Açık **MainPage.xaml** gelen **Çözüm Gezgini**. Bir button_Click işleyici düğmesinin sonunda ekleyin.
+Şimdi kullanıcı arabirimi oluşturulur. Varlık Bağlama hizmetini kullanmadan önce, button-Click işleyicisini eklemeniz gerekir. **Çözüm Gezgini**’nden **MainPage.xaml** dosyasını açın. Düğmenin sonuna bir button_Click işleyicisi ekleyin.
  
  ```XAML
  <Button x:Name="button" Grid.Row="2" Content="Get Result" Click="button_Click" />
  ```
  
-Bir düğme tıklama işleyici kodu uygulanması gerekir. Açık **MainPage.xaml.cs** gelen **Çözüm Gezgini** düğme tıklama uygulamak için. EntityLinkingServiceClient varlık bağlama yanıtları almak için bir sarmalayıcı ' dir. EntityLinkingServiceClient oluşturucu bağımsız değişkeni Bilişsel hizmetler abonelik anahtardır. İçinde aldığınız abonelik anahtarında Yapıştır **1. adım** varlık bağlama hizmetini çağırmak için. 
+Kodda bir button-Click işleyicisi uygulanması gerekir. button-Click uygulamak için **Çözüm Gezgini**’nden **MainPage.xaml.cs** dosyasını açın. EntityLinkingServiceClient, Varlık Bağlama yanıtlarını almak için kullanılan bir sarmalayıcıdır. EntityLinkingServiceClient oluşturucu bağımsız değişkeni, Bilişsel Hizmetler abonelik anahtarıdır. Varlık Bağlama hizmetini çağırmak için **1. Adım**’da aldığınız abonelik anahtarını yapıştırın. 
 
-"WikipediaId" varlık bağlama hizmetini kullanarak yanıta ekler örnek kod aşağıdadır. 
+Aşağıda, Varlık Bağlama Hizmeti kullanarak yanıta "wikipediaId" öğesini ekleyen örnek kod yer almaktadır. 
  
  ```csharp
  private async void button_Click(object sender, RoutedEventArgs e)
@@ -96,11 +97,11 @@ Bir düğme tıklama işleyici kodu uygulanması gerekir. Açık **MainPage.xaml
 }
  ```
  
-Artık ilk doğal varlık bağlama uygulama işleme dilinizi çalıştırmak hazırsınız. Tuşuna **F5 tuşuna** derlemek ve uygulamayı başlatmak için. Metin parçacıkları veya paragrafları giriş kutusuna yapıştırın. "Get sonuç" düğmesine basın ve çıktı bloğu içinde tanımlanan varlıkları inceleyin.
+Şimdi ilk doğal dil işleme Varlık Bağlama Uygulamanızı çalıştırmaya hazırsınız demektir. Uygulamayı derlemek ve başlatmak için **F5 tuşuna** basın. Metin parçacıklarını veya paragrafları giriş kutusuna yapıştırın. "Sonuç Al" düğmesine basın ve çıkış bloğunda tanımlanan varlıkları gözlemleyin.
  
- ![UWP örnek sonuç](./Images/DemoCodeResult.png)
+ ![UWP Örnek sonucu](./Images/DemoCodeResult.png)
  
 ### <a name="summary">Özet</a>
  
-Bu öğreticide yalnızca birkaç satırlık C# ve XAML kodu ile varlık bağlama Intelligence hizmeti istemci kitaplığı yararlanmak için bir uygulama oluşturmak nasıl öğrendiniz. 
+Bu öğreticide, birkaç C# ve XAML kod satırıyla Varlık Bağlama Akıllı Hizmeti İstemci Kitaplığı’ndan yararlanmak için nasıl bir uygulama oluşturulacağını öğrendiniz. 
 

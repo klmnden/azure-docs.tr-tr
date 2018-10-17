@@ -1,30 +1,30 @@
 ---
-title: Bing Haberler arama SDK Java hızlı başlangıç | Microsoft Docs
-description: Bing Haberler arama SDK konsol uygulama ayarlama öğrenin.
+title: "Hızlı başlangıç: Bing Haber Arama SDK'sı, Java"
 titleSuffix: Azure Cognitive Services
+description: Bing Haber Arama SDK'sı konsol uygulamasını kurma konusunda bilgi edinin.
 services: cognitive-services
 author: mikedodaro
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-news-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 02/16/2018
 ms.author: v-gedod
-ms.openlocfilehash: a6d4baf307fa3edcc0886d32204f2872fe310ce2
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
-ms.translationtype: MT
+ms.openlocfilehash: 7919f13e8c5aaa592a416190d3cd11edbf31af2c
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35355265"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48802486"
 ---
-# <a name="bing-news-search-sdk-java-quickstart"></a>Bing Haberler arama SDK Java hızlı başlangıç
+# <a name="quickstart-bing-news-search-sdk-with-java"></a>Hızlı başlangıç: Java ile Bing Haber Arama SDK'sı
 
-Bing Haberler arama SDK'sı haber sorgular ve ayrıştırma sonuçları için REST API işlevsellik sağlar. 
+Bing Haber Arama SDK'sı, haber sorguları ve sonuçları ayrıştırma için REST API işlevselliğini sunar. 
 
-[Kaynak kodu Java Bing Haberler arama SDK örnekleri için](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master/Search/BingNewsSearch) Git hub'da kullanılabilir.
+[Java Bing Haber Arama SDK'sı örneklerinin kaynak kodu](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master/Search/BingNewsSearch) Git Hub'dan edinilebilir.
 
 ## <a name="application-dependencies"></a>Uygulama bağımlılıkları
-Alma bir [Bilişsel hizmetler erişim tuşu](https://azure.microsoft.com/try/cognitive-services/) altında **arama**. Bing Haberler arama SDK bağımlılığı Maven, Gradle veya başka bir bağımlılık yönetimi sistemi kullanarak yükleyin. Maven POM dosya bildirimi gerektirir:
+**Arama** altından bir [Bilişsel Hizmetler erişim anahtarı](https://azure.microsoft.com/try/cognitive-services/) alın. Bing Haber Arama SDK'sı bağımlılık dosyalarını Maven, Gradle veya başka bir bağımlılık dosyası yönetim sistemini kullanarak yükleyin. Maven POM dosyası şu bildirimi gerektirir:
 ```
   <dependencies>
     <dependency>
@@ -34,8 +34,8 @@ Alma bir [Bilişsel hizmetler erişim tuşu](https://azure.microsoft.com/try/cog
     </dependency>
   </dependencies>
 ```
-## <a name="news-search-client"></a>Haber Arama İstemcisi
-İçeri aktarmalar için sınıf uygulamasını ekleyin.
+## <a name="news-search-client"></a>Haber Arama istemcisi
+Sınıf uygulamasına içeri aktarmaları ekleyin.
 ```
 import com.microsoft.azure.cognitiveservices.newssearch.*;
 import com.microsoft.azure.cognitiveservices.newssearch.implementation.NewsInner;
@@ -48,7 +48,7 @@ import okhttp3.Request;
 import okhttp3.Response;
 import java.io.IOException;
 ```
-Uygulama **NewsSearchAPIImpl** bir örneğini gerektirir istemci **ServiceClientCredentials** sınıfı.
+**ServiceClientCredentials** sınıfının bir örneğini gerektiren **NewsSearchAPIImpl** istemcisini uygulayın.
 ```
 public static NewsSearchAPIImpl getClient(final String subscriptionKey) {
     return new NewsSearchAPIImpl("https://api.cognitive.microsoft.com/bing/v7.0/",
@@ -74,7 +74,7 @@ public static NewsSearchAPIImpl getClient(final String subscriptionKey) {
 
 
 ```
-Tek bir sorgu "hisse hesaplanıyor." ile haber arayın Arama ile filtre *Pazar* ve *sayısı* parametreleri. Sonuç sayısını doğrulayın. İlk haber sonucu hakkındaki bilgileri yazdırma: ad, URL, yayın tarihi, açıklama, sağlayıcı adı ve tahmini eşleşme toplam sayısı.
+Tek bir "Quantum Computing" sorgusuyla haber araması gerçekleştirin. Aramayı *market* ve *count* parametreleriyle filtreleyin. Sonuç sayısını doğrulayın. İlk haber sonucunun şu bilgilerini yazdırın: Ad, URL, yayın tarihi, açıklama, sağlayıcı adı ve toplam tahmini eşleşme sayısı.
 ```
 public static void newsSearch(String subscriptionKey)
 {
@@ -121,7 +121,7 @@ public static void newsSearch(String subscriptionKey)
 }
 
 ```
-"Yapay zeka." hakkındaki son haberleri arayın Arama ile filtre *yenilik* ve *sortBy* parametreleri. Sonuç sayısını doğrulayın. İlk haber sonucu hakkındaki bilgileri yazdırma: ad, URL, yayın tarihi, açıklama, sağlayıcı adı ve tahmini eşleşme toplam sayısı.
+"Artificial Intelligence" ile ilgili güncel haberleri arayın. Aramayı *freshness* ve *sortBy* parametreleriyle filtreleyin. Sonuç sayısını doğrulayın. İlk haber sonucunun şu bilgilerini yazdırın: Ad, URL, yayın tarihi, açıklama, sağlayıcı adı ve toplam tahmini eşleşme sayısı.
 ```
 /**
  * Search recent news for (Artificial Intelligence) with the freshness and sortBy parameters.
@@ -172,7 +172,7 @@ public static void newsSearchWithFilters(String subscriptionKey)
 }
 
 ```
-Haber arama **kategori** için *film ve TV eğlence* konuları ve kullanım *güvenli arama* özelliği. Sonuç sayısını doğrulayın. Kategori, ad, URL, açıklama, yayın tarihi ve ilk haber sonuç için sağlayıcı adı yazdırın.
+Haber **kategorisi** olarak *film, TV ve eğlence* konularını seçin ve *güvenli arama* özelliğini kullanın. Sonuç sayısını doğrulayın. İlk haber sonucunun kategori, ad, URL, açıklama, yayın tarihi ve sağlayıcı adı değerlerini yazdırın.
 ```
 /**
  * Search the news category for (movie and TV entertainment) with safe search. Verify the number of results. 
@@ -223,7 +223,7 @@ public static void newsCategory(String subscriptionKey)
 }
 
 ```
-Haberlerin eğilimleri belirlemek için arama yapın. Sonuç sayısını doğrulayın. Ad, sorgu metni, web arama URL'si ve ilk haber sonuç haber arama URL'sini yazdırın.
+Popüler haber başlıklarını arayın. Sonuç sayısını doğrulayın. İlk haber sonucunun ad, sorgu metni, web arama URL'si ve haber arama URL'si değerlerini yazdırın.
 ```
 public static void trendingTopics(String subscriptionKey)
 {
@@ -265,7 +265,7 @@ public static void trendingTopics(String subscriptionKey)
     }
 }
 ```
-Bir sınıfa kod yürütmek için ana işleviyle bu makalede açıklanan yöntemleri ekleyin.
+Kodu yürütmek için bir main işlevi olan bir sınıfa bu makalede anlatılan metotları ekleyin.
 ```
 package javaNewsSDK;
 import com.microsoft.azure.cognitiveservices.newssearch.*;
@@ -286,6 +286,6 @@ public class NewsSearchSDK {
 ```
 ## <a name="next-steps"></a>Sonraki adımlar
 
-[Bilişsel hizmetler Java SDK'sı örneği](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples)
+[Bilişsel Hizmetler Java SDK örnekleri](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples)
 
 

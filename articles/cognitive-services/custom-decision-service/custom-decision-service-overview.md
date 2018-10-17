@@ -1,54 +1,56 @@
 ---
-title: Özel karar hizmeti nedir? -Azure Bilişsel hizmetler | Microsoft Docs
-description: Bu makale genel bakışlar Azure özel karar hizmeti, bulut tabanlı bir API deneyimiyle keskinleştirir bağlamsal karar vermek için.
+title: Özel Karar Alma Hizmeti nedir?
+titlesuffix: Azure Cognitive Services
+description: Bu makalede, Özel Karar Alma Hizmeti’ne genel bir bakış sunulmaktadır.
 services: cognitive-services
 author: alekh
-manager: slivkins
+manager: cgronlun
 ms.service: cognitive-services
-ms.topic: article
+ms.component: custom-decision-service
+ms.topic: overview
 ms.date: 05/08/2018
-ms.author: slivkins;marcozo;alekh;marossi
-ms.openlocfilehash: 774467446513dcd7ade7255d998b11f41824cafe
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
-ms.translationtype: MT
+ms.author: slivkins
+ms.openlocfilehash: 273f2965a0fcaaa729175c5232da1aba69589eec
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "35356298"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46364220"
 ---
-# <a name="what-is-custom-decision-service"></a>Özel karar hizmeti nedir?
+# <a name="what-is-custom-decision-service"></a>Özel Karar Alma Hizmeti nedir?
 
-Tipik web veya mobil uygulama, birkaç makaleler veya diğer içerik türlerine ön sayfa bağlanır. Ön sayfa yükler gibi bu ön sayfasında içerilip derece makaleleri özel karar hizmete isteyebilir. Bu nedenle, bir kullanıcı bir makale tıklayarak seçtiğinde, ikinci bir istek özel karar hangi kullanıcı kararı sonucunu oturum hizmetine gönderilebilir.
+Tipik bir web uygulamasında veya mobil uygulamada ön sayfa bağlantısı birçok makaleye veya diğer içerik türlerine bağlantı sunar. Ön sayfa yüklendikçe Özel Karar Alma Hizmeti’nin ön sayfada yer alan makaleleri derecelendirmesini isteyebilir. Bu nedenle, bir kullanıcı üzerine tıklayarak bir makaleyi seçtiğinde, Özel Karar Alma Hizmeti’ne ikinci bir istek gönderilebilir ve böylece o kullanıcı kararının çıktısı günlüğe kaydedilir.
 
-İçeriğinizi ve birkaç satırlık uygulamanıza eklenecek JavaScript için yalnızca bir RSS akışı gerektirdiği şekilde özel karar kullanmayı, hizmetidir.
+Özel Karar Alma Hizmeti yalnızca içeriğiniz için bir RSS akışı ve uygulamanıza birkaç JavaScript satırının eklenmesini gerektirdiğinden, kullanımı kolaydır.
 
-Özel karar hizmet özellikleri machine learning için içeriğinizi dönüştürür. Sistem, içeriğinizi metin, resim, video ve genel düşünceleri bakımından anlamak için bu özellikleri kullanır. Birkaç diğer kullanan [Microsoft Bilişsel Hizmetler](https://www.microsoft.com/cognitive-services)gibi [varlık bağlama](../entitylinking/home.md), [metin analizi](../text-analytics/overview.md), [duygu](../emotion/home.md)ve [Bilgisayar görme](../computer-vision/home.md).
+Özel Karar Alma Hizmeti, içeriğinizi makine öğrenmesi için özelliklere dönüştürür. Sistem; metin, görüntüler, videolar ve genel yaklaşım açısından içeriğinizi anlamak için bu özellikleri kullanır. [Varlık Bağlama](../entitylinking/home.md), [Metin Analizi](../text-analytics/overview.md), [Duygu Tanıma](../emotion/home.md) ve [Görüntü İşleme](../computer-vision/home.md) gibi diğer birçok [Microsoft Bilişsel Hizmetleri](https://www.microsoft.com/cognitive-services)’ni kullanır.
 
-Özel karar hizmeti için bazı ortak kullanım durumları şunlardır:
+Özel Karar Alma için bazı yaygın kullanım örnekleri şunlardır:
 
-* Kişiselleştirme makaleleri bir haber Web sitesinde
-* Video içeriği medya Portal kişiselleştirme
-* Ad yerleşimi veya için ad yönlendirir web sayfalarını en iyi duruma getirme
-* Derecelendirme öğeleri bir alışveriş Web sitesinde önerilir.
+* Haber web sitesindeki makaleleri kişiselleştirme
+* Medya portalındaki video içeriğini kişiselleştirme
+* Reklamın yönlendirdiği web sayfalarını veya reklam yerleşimlerini iyileştirme
+* Alışveriş web sitesindeki önerilen ürünleri derecelendirme.
 
-Özel karar hizmet halen *ücretsiz genel Önizleme*. Bir Web sitesi veya uygulama makalelerin bir listesi kişiselleştirebilirsiniz. Özellik ayıklama İngilizce dil içerik en iyi şekilde çalışır. [Sınırlı işlevsellik](../text-analytics/overview.md) İspanyolca, Fransızca, Almanca, Portekizce ve Japonca gibi diğer diller için sunulur. Yeni işlevselliği kullanılabilir olduğunda bu belgeleri düzenlendi.
+Özel Karar Alma Hizmeti şu anda *ücretsiz genel önizleme aşamasındadır*. Bir web sitesindeki veya uygulamadaki makalelerin listesini kişiselleştirebilir. Özellik ayıklama, İngilizce dilindeki içerikle en iyi şekilde çalışır. İspanyolca, Fransızca, Almanca, Portekizce ve Japonca gibi diğer diller için [sınırlı işlevsellik](../text-analytics/overview.md) sunulur. Yeni işlevsellik kullanılabilir oldukça bu belge de revize edilecektir.
 
-Özel karar hizmet içerik kişiselleştirme etki alanında olmayan uygulamalarda kullanılabilir. Bu uygulamalar özel Önizleme için iyi bir tercihtir olabilir. [Bize Ulaşın](https://azure.microsoft.com/overview/sales-number/) daha fazla bilgi için.
+Özel Karar Alma Hizmeti, içerik kişiselleştirme etki alanında bulunmayan uygulamalarda kullanılabilir. Bu uygulamalar, özel önizleme için ideal olabilir. Daha fazla bilgi için [bize ulaşın](https://azure.microsoft.com/overview/sales-number/).
 
 ## <a name="api-usage-modes"></a>API kullanımı modları
 
-Özel karar Hizmet Web sayfalarını ve mobil uygulamaları için uygulanabilir. API'ler bir tarayıcı veya bir uygulama çağrılabilir. API kullanımı hem de benzer, ancak bazı ayrıntıları farklıdır.
+Özel Karar Alma Hizmeti hem web sayfalarına hem de mobil uygulamalara uygulanabilir. API’ler bir tarayıcıdan veya uygulamadan çağrılabilir. API kullanımı her ikisine benzer, ancak bazı ayrıntılar farklıdır.
 
 ## <a name="glossary-of-terms"></a>Terimler sözlüğü
 
-Bu belgede sık birkaç koşulları oluşur:
+Bu belgede bazı terimler sık sık geçmektedir:
 
-* **Eylem kümesi**: içerik öğeleri kümesi özel karar hizmeti için derece için. Bu kümesi olarak belirtilen bir *RSS* veya *Atom* uç noktası.
-* **Derecelendirme**: bir veya daha fazla eylem kümelerini özel karar hizmetine her isteği belirtir. Sistem bu kümelerinden tüm içerik seçeneklerini seçerek yanıt verir ve dereceli sırada döndürür.
-* **Geri çağırma işlevi**: belirlerseniz, bu işlev, UI içeriği işler. İçerik derecelendirme sıralama özel karar hizmet tarafından döndürülen tarafından sıralanır.
-* **Ödül**: kullanıcı işlenmiş içeriği nasıl yanıt verdiğini ölçü. Özel karar hizmet tıklama kullanarak kullanıcı yanıtı ölçer. Tıklama uygulamanızda eklenen özel kod kullanarak sisteme raporlanır.
+* **Eylem kümesi**: Özel Karar Alma Hizmeti için derecelendirilecek içerik öğeleri kümesi. Bu küme bir *RSS* veya *Atom* uç noktası olarak belirtilebilir.
+* **Derecelendirme**: Özel Karar Alma Hizmeti’ne yapılan her istek bir veya daha fazla eylem kümesini belirtir. Sistem bu kümelerden tüm içerik seçeneklerini seçerek yanıt verir ve bunları sıralı bir düzende döndürür.
+* **Geri çağırma işlevi**: Belirttiğiniz bu işlev, kullanıcı arabiriminizde içeriği işler. İçerik, Özel Karar Alma Hizmeti tarafından döndürülen sıralı düzene göre sıralanır.
+* **Ödül**: Kullanıcının işlenen içeriğe nasıl yanıt verdiğine yönelik bir ölçü. Özel Karar Alma Hizmeti, tıklamaları kullanarak kullanıcı yanıtını ölçer. Tıklamalar, uygulamanıza eklenen özel kod kullanılarak sisteme bildirilir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* [Uygulamanızı kaydetme](custom-decision-service-get-started-register.md) özel karar hizmetiyle
-* En iyi duruma getirme başlamak [bir Web sayfası](custom-decision-service-get-started-browser.md) veya [bir akıllı telefon uygulaması](custom-decision-service-get-started-app.md).
-* Başvurun [API Başvurusu](custom-decision-service-api-reference.md) sağlanan işlevselliği hakkında daha fazla bilgi için.
+* Özel Karar Alma Hizmeti’ne [uygulamanızı kaydetme](custom-decision-service-get-started-register.md)
+* [Bir web sayfasını](custom-decision-service-get-started-browser.md) veya [akıllı telefon uygulamasını](custom-decision-service-get-started-app.md) iyileştirmeye başlayın.
+* Sağlanan işlevler hakkında daha fazla bilgi edinmek için [API başvurusu](custom-decision-service-api-reference.md)’na bakın.

@@ -1,48 +1,48 @@
 ---
-title: "Hızlı Başlangıç: Node.js kullanarak Bing resim arama API'si arama sorgularıyla Gönder"
+title: 'Hızlı Başlangıç: Node.js ile görüntü araması gerçekleştirme - Bing Resim Arama API’si'
 titleSuffix: Azure Cognitive Services
-description: Bu hızlı başlangıçta, arama ve Bing Web araması API'si kullanarak web üzerinde görüntüleri bulmak için kullanın.
+description: İlk Bing Resim Arama API’si çağrınızı yapmak ve bir JSON yanıtı almak için bu hızlı başlangıcı kullanın. Bu basit JavaScript uygulaması, API’ye bir arama sorgusu gönderir ve ham sonuçları görüntüler.
 services: cognitive-services
 documentationcenter: ''
 author: aahill
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-image-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 8/20/2018
 ms.author: aahi
-ms.openlocfilehash: 43f0cfec6aa2d4263b6a627736c2a432b2943145
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
-ms.translationtype: MT
+ms.openlocfilehash: 1584b3e0a1e1c560d42b5f8320d0e15ad6242918
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45576655"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46294603"
 ---
-# <a name="quickstart-send-search-queries-using-the-bing-image-search-rest-api-and-nodejs"></a>Hızlı Başlangıç: Node.js ve Bing resim arama REST API'si kullanarak gönderme arama sorguları
+# <a name="quickstart-send-search-queries-using-the-bing-image-search-rest-api-and-nodejs"></a>Hızlı Başlangıç: Bing Resim Arama REST API’si ve Node.js kullanarak arama sorguları gönderme
 
-Bu hızlı başlangıçta, bir JSON yanıtı alırsınız ve Bing resim arama API'si, ilk çağrı yapmak için kullanın. Bu basit bir JavaScript uygulama API için bir arama sorgusu gönderir ve ham sonuçları görüntüler.
+İlk Bing Resim Arama API’si çağrınızı yapmak ve bir JSON yanıtı almak için bu hızlı başlangıcı kullanın. Bu basit JavaScript uygulaması, API’ye bir arama sorgusu gönderir ve ham sonuçları görüntüler.
 
-Bu uygulamanın, JavaScript'te yazılmış ve Node.js API çalışır bir RESTful Web çoğu programlama dilinden uyumlu hizmet.
+Bu uygulama JavaScript ile yazılmış ve Node.js’de çalışıyor olmakla birlikte API, çoğu programlama diliyle uyumlu bir RESTful Web hizmetidir.
 
-Bu örnek için kaynak kodu kullanılabilir [github'da](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/nodejs/Search/BingImageSearchv7Quickstart.js) ek hata işleme ve kod ek açıklamaları.
+Bu örneğin kaynak kodu, ek hata işleme ve kod açıklama notları ile [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/nodejs/Search/BingImageSearchv7Quickstart.js)’da bulunabilir.
 
-## <a name="prerequisites"></a>Önkoşullar
+## <a name="prerequisites"></a>Ön koşullar
 
-* En son sürümünü [Node.js](https://nodejs.org/en/download/).
+* [Node.js](https://nodejs.org/en/download/)’in en son sürümü.
 
-* [JavaScript isteği kitaplığı](https://github.com/request/request)
+* [JavaScript İstek Kitaplığı](https://github.com/request/request)
 [!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
 
-## <a name="create-and-initialize-the-application"></a>Oluşturma ve uygulama başlatma
+## <a name="create-and-initialize-the-application"></a>Uygulamayı oluşturma ve başlatma
 
-1. Sık kullandığınız IDE veya düzenleyici yeni bir JavaScript dosyası oluşturun ve katılık ve https gereksinimlerini ayarlayın.
+1. Sık kullandığınız IDE’de veya düzenleyicide yeni bir JavaScript dosyası oluşturun ve katılık ve https gereksinimlerini ayarlayın.
 
     ```javascript
     'use strict';
     let https = require('https');
     ```
 
-2. Değişkenleri API uç noktası için görüntü API'si arama yolu, abonelik anahtarınızı oluşturma ve arama terimi.
+2. API uç noktası, görüntü API’si arama yolu, abonelik anahtarınız ve arama teriminiz için değişkenler oluşturun.
     ```javascript
     let subscriptionKey = 'enter key here';
     let host = 'api.cognitive.microsoft.com';
@@ -50,9 +50,9 @@ Bu örnek için kaynak kodu kullanılabilir [github'da](https://github.com/Azure
     let term = 'tropical ocean';
     ```
 
-## <a name="construct-the-search-request-and-query"></a>Sorgu ve arama isteği oluşturun.
+## <a name="construct-the-search-request-and-query"></a>Arama isteği ve sorgu oluşturun.
 
-1. Son adım değişkenlerinden API isteği için bir arama URL'si biçimlendirmek için kullanın. Arama teriminizi API'ye gönderilen önce URL olarak kodlanmış olması gerektiğini unutmayın.
+1. API isteğine yönelik bir arama URL’sini biçimlendirmek için son adımdaki değişkenleri kullanın. Arama teriminizin API’ye gönderilmeden önce URL olarak kodlanmış olması gerektiğini unutmayın.
 
     ```javascript
     let request_params = {
@@ -65,32 +65,32 @@ Bu örnek için kaynak kodu kullanılabilir [github'da](https://github.com/Azure
     };
     ```
 
-2. API için sorgu göndermek için isteği Kitaplığı'nı kullanın. `response_handler` sonraki bölümde tanımlanır.
+2. API’ye sorgunuzu göndermek için istek kitaplığını kullanın. `response_handler`, sonraki bölümde tanımlanır.
     ```javascript
     let req = https.request(request_params, response_handler);
     req.end();
     ```
 
-## <a name="handle-and-parse-the-response"></a>İşlemek ve yanıtı ayrıştırılamadı
+## <a name="handle-and-parse-the-response"></a>Yanıtı işleme ve ayrıştırma
 
-1. adlı bir fonksiyon tanımlayın `response_handler` HTTP çağrısı, alan `response`, parametre olarak. Bu işlevin içinde aşağıdaki adımları gerçekleştirin:
-    
-    1. JSON yanıt gövdesini içeren bir değişkeni tanımlar.  
+1. HTTP çağrısı (`response`) alan `response_handler` adlı bir işlevi parametre olarak tanımlayın. Bu işlev içinde aşağıdaki adımları gerçekleştirin:
+
+    1. JSON yanıtının gövdesini içerecek bir değişken tanımlayın.  
         ```javascript
         let response_handler = function (response) {
             let body = '';
         };
         ```
 
-    2. Yanıt gövdesinin Store olduğunda **veri** bayrağı çağrılır 
+    2. **Veri** işareti çağrıldığında yanıtın gövdesini depolama
         ```javascript
         response.on('data', function (d) {
             body += d;
         });
         ```
 
-    3. Olduğunda bir **son** bayrak işareti, JSON işlenebilir ve resmin URL'si yazdırılabilir döndürülen görüntüleri yanı sıra toplam sayısı.
-    
+    3. Bir **son** işareti verildiğinde JSON işlenebilir ve döndürülen toplam görüntü sayısı ile birlikte görüntünün URL’si yazdırılabilir.
+
         ```javascript
         response.on('end', function () {
             let firstImageResult = imageResults.value[0];
@@ -102,7 +102,7 @@ Bu örnek için kaynak kodu kullanılabilir [github'da](https://github.com/Azure
 
 ## <a name="json-response"></a>JSON yanıtı
 
-Bing resim arama API'si alınan yanıtları JSON olarak döndürülür. Bu örnek yanıt, tek bir sonuç göstermek için kısaltıldı.
+Bing Resim Arama API'sinden yanıtlar JSON olarak döndürülür. Bu örnek yanıt, tek bir sonuç göstermek için kısaltıldı.
 
 ```json
 {
@@ -151,12 +151,12 @@ Bing resim arama API'si alınan yanıtları JSON olarak döndürülür. Bu örne
 ## <a name="next-steps"></a>Sonraki adımlar
 
 > [!div class="nextstepaction"]
-> [Bing resim arama tek sayfalı uygulama Öğreticisi](../tutorial-bing-image-search-single-page-app.md)
+> [Bing Resim Arama tek sayfalı uygulama öğreticisi](../tutorial-bing-image-search-single-page-app.md)
 
-## <a name="see-also"></a>Ayrıca bkz. 
+## <a name="see-also"></a>Ayrıca bkz.
 
-* [Bing resim arama nedir?](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/overview)  
-* [Çevrimiçi bir etkileşimli Tanıtımı deneyin](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/)  
-* [Ücretsiz bir Bilişsel hizmetler erişim anahtarını alma](https://azure.microsoft.com/try/cognitive-services/?api=bing-image-search-api)  
-* [Azure Bilişsel hizmetler belgeleri](https://docs.microsoft.com/azure/cognitive-services)
-* [Bing resim arama API'si başvurusu](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference)
+* [Bing Resim Arama nedir?](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/overview)  
+* [Çevrimiçi etkileşimli bir tanıtımı deneyin](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/)  
+* [Ücretsiz bir Bilişsel Hizmetler erişim anahtarı alın](https://azure.microsoft.com/try/cognitive-services/?api=bing-image-search-api)  
+* [Azure Bilişsel Hizmetler Belgeleri](https://docs.microsoft.com/azure/cognitive-services)
+* [Bing Resim Arama API’si başvurusu](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference)

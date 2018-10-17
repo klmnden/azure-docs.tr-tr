@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 09/20/2018
+ms.date: 10/03/2018
 ms.author: markvi
-ms.reviewer: jairoc
-ms.openlocfilehash: f9664e22be5d7a17dd2a2a7c328593d8168c26f0
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.reviewer: spunukol
+ms.openlocfilehash: 1b8a6e6a6b5f482a4e3575c4da18a02a958c4081
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47434747"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48249375"
 ---
 # <a name="how-to-manage-the-stale-devices-in-azure-ad"></a>Nasıl Yapılır: Azure AD'de eski cihazları yönetme
 
@@ -111,7 +111,7 @@ Cihazınız Intune'un veya başka bir MDM çözümünün denetimi altındaysa, c
 
 ### <a name="system-managed-devices"></a>Sistem tarafından yönetilen cihazlar
 
-Sistem tarafından yönetilen cihazları silmeyin. Bunlar genellikle auto-pilot gibi cihazlardır. Bir kez silindikten sonra yeniden sağlanamazlar. new Get-MmsolDevice cmdlet'i sistem tarafından yönetilen cihazları varsayılan olarak dışlar. 
+Sistem tarafından yönetilen cihazları silmeyin. Bunlar genellikle auto-pilot gibi cihazlardır. Bir kez silindikten sonra yeniden sağlanamazlar. `get-msoldevice` cmdlet'i sistem tarafından yönetilen cihazları varsayılan olarak dışlar. 
 
 
 ### <a name="hybrid-azure-ad-joined-devices"></a>Hibrit Azure AD’ye katılmış cihazlar
@@ -137,7 +137,7 @@ Azure AD'ye kayıtlı cihazları Azure AD'de devre dışı bırakın veya silin.
 
 
 
-## <a name="cleanup-stale-devices-in-the-azure-portal"></a>Eski cihazları Azure portalda temizleme  
+## <a name="clean-up-stale-devices-in-the-azure-portal"></a>Eski cihazları Azure portalda temizleme  
 
 Eski cihazları Azure portalda temizleyebilirsiniz ama bu işlemi PowerShell betiği kullanarak gerçekleştirmek daha verimli olur. Zaman damgası filtresini kullanmak ve auto-pilot gibi sistem tarafından yönetilen cihazları filtreleyip dışarıda bırakmak için en son PowerShell V1 modülünü kullanın. Bu noktada PowerShell V2'nin kullanılması önerilmez.
 
@@ -150,7 +150,9 @@ Tipik bir yordam aşağıdaki adımlardan oluşur:
 
 3. [Disable-MsolDevice](https://docs.microsoft.com/powershell/module/msonline/disable-msoldevice?view=azureadps-1.0) cmdlet'ini kullanarak cihazı devre dışı bırakma. 
 
-4. [Remove-MsolDevice](https://docs.microsoft.com/powershell/module/msonline/remove-msoldevice?view=azureadps-1.0) cmdlet'ini kullanarak cihazı kaldırma.
+4. Cihazı silmeden önce seçtiğiniz yetkisiz kullanım süresinin tamamlanmasını bekleyin.
+
+5. [Remove-MsolDevice](https://docs.microsoft.com/powershell/module/msonline/remove-msoldevice?view=azureadps-1.0) cmdlet'ini kullanarak cihazı kaldırma.
 
 ### <a name="get-the-list-of-devices"></a>Cihaz listesini alma
 

@@ -1,51 +1,53 @@
 ---
-title: C# - özel görüntü işleme hizmeti - Azure Bilişsel Hizmetler'in bir nesne algılama projesinde yapı | Microsoft Docs
-description: Microsoft Bilişsel hizmetler özel görüntü işleme API'sini kullanan basit bir Windows uygulaması keşfedin. Bir proje oluşturun, etiketler ekleyin, görüntüleri karşıya yüklemek, projenizi eğitmek ve varsayılan uç nokta kullanarak bir tahminde bulunmak.
+title: 'Öğretici: C#’ta nesne algılama projesi derleme - Özel Görüntü İşleme Hizmeti'
+titlesuffix: Azure Cognitive Services
+description: Bir proje oluşturun, etiketler ekleyin, görüntüleri karşıya yükleyin, projenizi eğitin ve varsayılan uç noktayı kullanarak bir tahminde bulunun.
 services: cognitive-services
 author: areddish
-manager: chbuehle
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: custom-vision
-ms.topic: article
+ms.topic: tutorial
 ms.date: 05/07/2018
 ms.author: areddish
-ms.openlocfilehash: e3def864267a590c86a2dd6663561d8488081ad6
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
-ms.translationtype: MT
+ms.openlocfilehash: d04fb86abbc0f174e895c166d97fc5467831206f
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "36301089"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46366922"
 ---
-# <a name="use-custom-vision-api-to-build-an-object-detection-project-in-c35"></a>C dilinde bir nesne algılama projesi oluşturmak için özel görüntü işleme API'sini kullanın&#35; 
-Bir nesne algılama projesi oluşturmak için görüntü işleme API'sini kullanan temel bir Windows uygulaması kullanmayı öğrenin. Oluşturulduktan sonra etiketli bölge ekleme, görüntüleri karşıya yüklemek, proje eğitmek, projenin varsayılan tahmin uç nokta URL'si almak ve program aracılığıyla resim test etmek için uç noktayı kullanın. Bu açık kaynaklı örneği, özel görüntü işleme API'sini kullanarak Windows için kendi uygulamanızı oluşturmaya yönelik şablon olarak kullanın.
+# <a name="tutorial-use-custom-vision-api-to-build-an-object-detection-project-in-c"></a>Öğretici: C#’ta nesne algılama projesi derlemek için Özel Görüntü İşleme API’sini kullanma
 
-## <a name="prerequisites"></a>Önkoşullar
+Bir nesne algılama projesi oluşturmak için Görüntü İşleme API’sini kullanan temel bir Windows uygulamasının nasıl kullanılacağını öğrenin. Oluşturulduktan sonra etiketlenmiş bölgeler ekleyebilir, görüntüleri karşıya yükleyebilir, projeyi eğitebilir, projenin varsayılan tahmin uç nokta URL’sini alabilir ve bir görüntüyü programlama yoluyla test etmek için uç noktayı kullanabilirsiniz. Özel Görüntü İşleme API’sini kullanarak Windows için kendi uygulamanızı derlemek için şablon olarak bu açık kaynak örneği kullanın.
 
-### <a name="get-the-custom-vision-sdk-and-samples"></a>Custom Vision SDK'sı ve örnekleri edinin
-Bu örneği oluşturmak için özel görüntü işleme SDK'sı NuGet paketleri gerekir:
+## <a name="prerequisites"></a>Ön koşullar
+
+### <a name="get-the-custom-vision-sdk-and-samples"></a>Özel Görüntü İşleme SDK’sını ve örneklerini alma
+Bu örneği derlemek için Özel Görüntü İşleme SDK’sı NuGet Paketleri gerekir:
 
 * [Microsoft.Azure.CognitiveServices.Vision.CustomVision.Training](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.CustomVision.Training/)
 * [Microsoft.Azure.CognitiveServices.Vision.CustomVision.Prediction](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.CustomVision.Prediction/)
 
-Görüntüleri ile birlikte indirebilirsiniz [C# örnekleri](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/CustomVision).
+[C# Örnekleri](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/CustomVision) ile birlikte görüntüleri indirebilirsiniz.
 
-## <a name="get-the-training-and-prediction-keys"></a>Eğitim ve tahmin anahtarları alma
+## <a name="get-the-training-and-prediction-keys"></a>Eğitim ve tahmin anahtarlarını alma
 
-Bu örnekte kullanılan anahtarlarını almak için şurayı ziyaret edin [Custom Vision web sayfası](https://customvision.ai) seçip __dişli simgesini__ sağ üst köşedeki. İçinde __hesapları__ bölümünde, değerleri kopyalayın __eğitim anahtarı__ ve __tahmin anahtar__ alanları.
+Bu örnekte kullanılan anahtarları almak için [Özel Görüntü İşleme web sayfasını](https://customvision.ai) ziyaret edin ve sağ üst kısımdaki __dişli simgesini__ seçin. __Hesaplar__ bölümünde, __Eğitim Anahtarı__ ve __Tahmin Anahtarı__ alanlarından değerleri kopyalayın.
 
-![UI anahtarları görüntüsü](./media/csharp-tutorial/training-prediction-keys.png)
+![Anahtarlar kullanıcı arabiriminin görüntüsü](./media/csharp-tutorial/training-prediction-keys.png)
 
-## <a name="step-1-create-a-console-application"></a>1. adım: bir konsol uygulaması oluşturma
+## <a name="step-1-create-a-console-application"></a>1. Adım: Konsol uygulaması oluşturma
 
-Bu adımda, bir konsol uygulaması oluşturun ve eğitim anahtar ve örnek için gerekli görüntüleri hazırlama:
+Bu adımda, bir konsol uygulaması oluşturacak ve örnek için gerekli eğitim anahtarını ve görüntüleri hazırlayacaksınız.
 
-1. Visual Studio 2015 Community Edition'ı başlatın. 
+1. Visual Studio 2015, Community Edition’ı başlatın. 
 2. Yeni bir konsol uygulaması oluşturun.
-3. İki nuget paket başvuruları ekleyin:
+3. İki nuget paketine başvurular ekleyin:
     * Microsoft.Azure.CognitiveServices.Vision.CustomVision.Training
     * Microsoft.Azure.CognitiveServices.Vision.CustomVision.Prediction
 
-4. Öğesinin içeriğini değiştirin **Program.cs** aşağıdaki kod ile.
+4. **Program.cs** öğesinin içeriklerini, aşağıdaki kodla değiştirin.
 
 ```csharp
 using Microsoft.Azure.CognitiveServices.Vision.CustomVision.Prediction;
@@ -73,9 +75,9 @@ namespace SampleObjectDetection
 }
 ```
 
-## <a name="step-2-create-a-custom-vision-service-project"></a>2. adım: bir özel görüntü işleme hizmeti projesi oluşturma
+## <a name="step-2-create-a-custom-vision-service-project"></a>2. Adım: Özel Görüntü İşleme Hizmeti projesi oluşturma
 
-Yeni bir özel görüntü işleme hizmeti projesi oluşturmak için sonuna aşağıdaki kodu ekleyin, **Main()** yöntemi.
+Yeni bir Özel Görüntü İşleme Hizmeti projesi oluşturmak için, **Main()** yönteminizin sonuna aşağıdaki kodu ekleyin.
 
 ```csharp
     // Find the object detection domain
@@ -87,9 +89,9 @@ Yeni bir özel görüntü işleme hizmeti projesi oluşturmak için sonuna aşa�
     var project = trainingApi.CreateProject("My New Project", null, objDetectionDomain.Id);
 ```
 
-## <a name="step-3-add-tags-to-your-project"></a>3. adım: etiketler projenize ekleyin.
+## <a name="step-3-add-tags-to-your-project"></a>3. Adım: Projenize etiketler ekleme
 
-Etiket projenize eklemek için çağrısından sonra aşağıdaki kodu ekleyin **CreateProject()**:
+Projenize etiketler eklemek için, **CreateProject()** çağrısından sonra aşağıdaki kodu ekleyin:
 
 ```csharp
     // Make two tags in the new project
@@ -97,9 +99,9 @@ Etiket projenize eklemek için çağrısından sonra aşağıdaki kodu ekleyin *
     var scissorsTag = trainingApi.CreateTag(project.Id, "scissors");
 ```
 
-## <a name="step-4-upload-images-to-the-project"></a>4. adım: projeye görüntüleri karşıya yükleme
+## <a name="step-4-upload-images-to-the-project"></a>4. Adım: Projeye görüntüleri karşıya yükleme
 
-Nesne algılama projeleri için şu bölge normalleştirilmiş koordinatları ve bir etiket kullanarak nesnenin tanımlamanız gerekir. Etiketli bölgeler ve görüntüleri eklemek için aşağıdaki kodu ekleyin sonunda **Main()** yöntemi:
+Nesne algılama projeleri için, normalleştirilmiş koordinatları ve bir etiketi kullanarak nesnenin bölgesini belirlememiz gerekir. Görüntüler ve etiketlenmiş bölgeler eklemek için, **Main()** yönteminin sonuna aşağıdaki kodu ekleyin:
 
 ```csharp
     Dictionary<string, double[]> fileToRegionMap = new Dictionary<string, double[]>()
@@ -173,12 +175,12 @@ Nesne algılama projeleri için şu bölge normalleştirilmiş koordinatları ve
     trainingApi.CreateImagesFromFiles(project.Id, new ImageFileCreateBatch(imageFileEntries));
 ```
 
-## <a name="step-5-train-the-project"></a>5. adım: Proje eğitimi
+## <a name="step-5-train-the-project"></a>5. Adım: Projeyi eğitme
 
-Etiketler ve görüntü projeye ekledikten sonra eğitim yapabilirsiniz: 
+Projeye etiket ve görüntüler eklediğinize göre şimdi projeyi eğitebilirsiniz: 
 
-1. Sonuna aşağıdaki kodu ekleyin **Main()**. Bu projedeki ilk yinelemeyi oluşturur.
-2. Bu yineleme varsayılan yineleme olarak işaretleyin.
+1. **Main()** öğesinin sonuna aşağıdaki kodu ekleyin. Böylece projede ilk yineleme oluşturulur.
+2. Bu yinelemeyi varsayılan yineleme olarak işaretleyin.
 
 ```csharp
     // Now there are images with tags start training the project
@@ -200,12 +202,12 @@ Etiketler ve görüntü projeye ekledikten sonra eğitim yapabilirsiniz:
     Console.WriteLine("Done!\n");
 ```
 
-## <a name="step-6-get-and-use-the-default-prediction-endpoint"></a>6. adım: Alma ve varsayılan tahmin uç noktası kullanma
+## <a name="step-6-get-and-use-the-default-prediction-endpoint"></a>6. Adım: Varsayılan tahmin uç noktasını alma ve kullanma
 
-Tahmin için modelini kullanmak artık hazırsınız: 
+Şimdi tahmin için modeli kullanmaya hazır olursunuz: 
 
-1. Uç nokta ile varsayılan yineleme sonuna aşağıdaki kodu ekleyerek ilişkili elde **Main()**. 
-2. Bir test görüntüsü, bu uç nokta kullanarak projeye gönderin.
+1. **Main()** öğesinin sonuna aşağıdaki kodu ekleyerek varsayılan yineleme ile ilişkili uç noktayı alın. 
+2. Söz konusu uç noktayı kullanarak projeye bir test görüntüsü gönderin.
 
 ```csharp
     // Now there is a trained endpoint, it can be used to make a prediction
@@ -232,6 +234,6 @@ Tahmin için modelini kullanmak artık hazırsınız:
     }
 ```
 
-## <a name="step-7-run-the-example"></a>7. adım: örnek çalıştırma
+## <a name="step-7-run-the-example"></a>7. Adım: Örneği çalıştırma
 
-Derleme ve çözümü çalıştırın. Tahmin sonuçlarını konsolda görünür.
+Çözümü derleyin ve çalıştırın. Tahmin sonuçlarını konsolda görüntülenir.

@@ -1,41 +1,42 @@
 ---
-title: Bilişsel hizmetler Azure, Bing Haberler arama API için C# hızlı başlangıç | Microsoft Docs
-description: Hızlı bir şekilde yardımcı olmak için bilgi ve kod örnekleri get Bing Haberler arama API Azure üzerinde Microsoft Bilişsel Hizmetleri'ndeki kullanmaya başlayın.
+title: 'Hızlı başlangıç: Bing Haber Arama API’si, C#'
+titlesuffix: Azure Cognitive Services
+description: Bing Haber Arama API'sini kısa sürede kullanmaya başlamanıza yardımcı olacak bilgi ve kod örnekleri alın.
 services: cognitive-services
-documentationcenter: ''
 author: v-jerkin
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-news-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 9/21/2017
 ms.author: v-jerkin
-ms.openlocfilehash: 0364d5754539c0e83318d595fd00b3e7b7e79c08
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
-ms.translationtype: MT
+ms.openlocfilehash: 48c6bf413ab2b5a45b5daa54ad31afe2c0fdf8f1
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35354856"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48804275"
 ---
-# <a name="quickstart-for-bing-news-search-api-with-c"></a>Bing Haberler arama C# ile API için hızlı başlangıç
+# <a name="quickstart-bing-news-search-api-with-c"></a>Hızlı başlangıç: C# ile Bing Haber Arama API’si
 
-Bu makalede, Microsoft Azure'da Bilişsel hizmetler parçası Bing arama API kullanma gösterilmektedir. Bu makalede C# kullanır, ancak bir RESTful Web hizmeti, HTTP isteklerini hale getirebilir ve JSON ayrıştırma programlama dili ile uyumlu API'dir. 
+Bu makale, Azure'daki Microsoft Bilişsel Hizmetleri'nin parçası olan Bing Arama API'sini kullanmayı göstermektedir. Bu makalede C# kullanılmakla birlikte API HTTP istekleri gönderebilecek ve JSON ayrıştırabilecek her programlama diliyle uyumlu bir RESTful Web hizmetidir. 
 
-Örnek kod C# en az dış bağımlılıkları, bir .NET Core uygulaması olarak, ayrıca Linux üzerinde çalıştırabilmeniz için veya Mac OS X Mono kullanılarak yazılmıştır.
+Kod örneği, C# dilinde bir .NET Core uygulaması olarak yazıldığı ve çok az dış bağımlılığı olduğundan Mono kullanarak Linux'ta veya Mac OS X'te de çalıştırılabilir.
 
-Başvurmak [API Başvurusu](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference) API'leri hakkında teknik ayrıntılar için.
+API'lerle ilgili teknik ayrıntılar için [API başvurusu](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference)'na bakın.
 
-## <a name="prerequisites"></a>Önkoşullar
+## <a name="prerequisites"></a>Ön koşullar
 
-Bilmeniz gereken bir [Bilişsel Hizmetleri API hesabı](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) ile **Bing arama API'leri**. [Ücretsiz deneme sürümü](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) Bu Hızlı Başlangıç için yeterlidir. Ücretsiz deneme sürümünüzü etkinleştirmek ya da Ücretli abonelik anahtarı Azure panonuza kullanabilir sağlanan erişim anahtarı gerekir.
+**Bing Arama API'leri**'nde bir [Bilişsel Hizmetler API hesabınız](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) olması gerekir. [Ücretsiz deneme](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) bu hızlı başlangıç için yeterlidir. Ücretsiz denemenizi etkinleştirdiğinizde sağlanan erişim anahtarınız olması veya Azure panonuzdan ücretli bir abonelik anahtarı kullanmanız gerekir.
 
-## <a name="bing-news-search"></a>Bing Haberler arama
+## <a name="bing-news-search"></a>Bing Haber Arama
 
-[Bing Haberler arama API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference) arama motoru Bing'den haber arama sonuçlarını döndürür.
+[Bing Haber Arama API'si](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference) Bing arama motorundan haber sonuçları döndürür.
 
-1. Yeni bir konsol çözümü Visual Studio (Community Edition sorun yoktur) oluşturun.
-1. Program.cs aşağıda sağlanan kod ile değiştirin.
-1. Değiştir `accessKey` aboneliğiniz için geçerli bir erişim anahtarı ile değer.
-1. Programını çalıştırın.
+1. Visual Studio'da (Community Edition uygundur) yeni bir Konsol çözümü oluşturun.
+1. Program.cs dosyasını aşağıda sağlanan kod ile değiştirin.
+1. `accessKey` değerini, aboneliğiniz için geçerli olan bir erişim anahtarı ile değiştirin.
+1. Programı çalıştırın.
 
 ```csharp
 using System;
@@ -190,7 +191,7 @@ namespace BingNewsSearchCSharpCore
 
 **Yanıt**
 
-Başarılı yanıt JSON'da, aşağıdaki örnekte gösterildiği gibi verilir:
+Başarılı yanıt, aşağıdaki örnekte gösterildiği gibi JSON biçiminde döndürülür:
 
 ```json
 {
@@ -286,7 +287,7 @@ Başarılı yanıt JSON'da, aşağıdaki örnekte gösterildiği gibi verilir:
 ## <a name="next-steps"></a>Sonraki adımlar
 
 > [!div class="nextstepaction"]
-> [Disk belleği haber](paging-news.md)
-> [decoration işaretçileri metni vurgulama kullanmayı](hit-highlighting.md)
-> [haber web arama](search-the-web.md)  
+> [Haberleri sayfalara bölme](paging-news.md)
+> [Metni vurgulamak için süsleme işaretçilerini kullanma](hit-highlighting.md)
+> [Web'de haber arama](search-the-web.md)  
 > [Deneyin](https://azure.microsoft.com/services/cognitive-services/bing-news-search-api/)

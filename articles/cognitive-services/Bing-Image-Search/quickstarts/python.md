@@ -1,62 +1,62 @@
 ---
-title: "Hızlı Başlangıç: Python ve Bing resim arama API'si arama sorgular göndererek"
-description: Bu hızlı başlangıçta Python kullanarak görüntülerin listesini almak için Bing arama API'si arama sorguları gönderin.
+title: 'Hızlı Başlangıç: Python ile görüntü araması gerçekleştirme - Bing Resim Arama API’si'
+description: İlk Bing Resim Arama API’si çağrınızı yapmak ve bir JSON yanıtı almak için bu hızlı başlangıcı kullanın. Bu basit Python uygulaması, API’ye bir arama sorgusu gönderir ve ham sonuçları görüntüler.
 services: cognitive-services
 author: aahill
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-image-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 8/20/2018
 ms.author: aahi
-ms.openlocfilehash: 42b9af2d6c7223dc3f5d269dd2003f1c99d8c7da
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
-ms.translationtype: MT
+ms.openlocfilehash: 44cc556e68234fb9957c01fa9f04861293e96e6a
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45578336"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46298175"
 ---
-# <a name="quickstart-send-search-queries-using-the-rest-api-and-python"></a>Hızlı Başlangıç: Python ve REST API kullanarak gönderme arama sorguları
+# <a name="quickstart-send-search-queries-using-the-rest-api-and-python"></a>Hızlı Başlangıç: REST API ve Python kullanarak arama sorguları gönderme
 
-Bu hızlı başlangıçta, bir JSON yanıtı alırsınız ve Bing resim arama API'si, ilk çağrı yapmak için kullanın. Bu basit bir Python uygulaması, API için bir arama sorgusu gönderir ve ham sonuçları görüntüler.
+İlk Bing Resim Arama API’si çağrınızı yapmak ve bir JSON yanıtı almak için bu hızlı başlangıcı kullanın. Bu basit Python uygulaması, API’ye bir arama sorgusu gönderir ve ham sonuçları görüntüler.
 
-Bu uygulama Python'da yazılmıştır, ancak çoğu programlama dilleri ile uyumlu bir RESTful Web hizmeti API'dir.
+Bu uygulama Python ile yazılmış olmakla birlikte API, çoğu programlama diliyle uyumlu bir RESTful Web hizmetidir.
 
-Bu örnek bir Jupyter not defteri çalıştırma [MyBinder](https://mybinder.org) bağlayıcı başlatma sırasında tıklayarak rozet: 
+Bu örneği başlatma Bağlayıcı rozetine tıklayarak [Bağlayıcım](https://mybinder.org)’da bir Jupyter not defteri olarak çalıştırabilirsiniz:
 
 [![Bağlayıcı](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/Microsoft/cognitive-services-notebooks/master?filepath=BingImageSearchAPI.ipynb)
 
 
-Ayrıca, bu örnek için kaynak kodu kullanılabilir [github'da](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/python/Search/BingImageSearchv7.py).
+Ek olarak bu örneğin kaynak kodu [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/python/Search/BingImageSearchv7.py)’da mevcuttur.
 
-## <a name="prerequisites"></a>Önkoşullar
+## <a name="prerequisites"></a>Ön koşullar
 
 [!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
 
-## <a name="running-the-quickstart"></a>Hızlı Başlangıç'ı çalıştırma
+## <a name="running-the-quickstart"></a>Hızlı başlangıcı çalıştırma
 
-Başlamak için ayarlanmış `subscription_key` için Bing API'si hizmeti için geçerli bir abonelik anahtarı.
+Başlamak için `subscription_key` öğesini, Bing API hizmeti için geçerli bir abonelik anahtarına ayarlayın.
 
 ```python
 subscription_key = None
 assert subscription_key
 ```
 
-Ardından, doğrulayın `search_url` doğru uç noktadır. Bu yazma sırasında Bing arama API'leri için tek bir uç nokta kullanılır. Yetkilendirme hatalarla karşılaşırsanız, bu değer Azure Panonuzda Bing arama uç nokta karşı denetleyin.
+Ardından `search_url` uç noktasının doğru olduğundan emin olun. Bu yazının yazıldığı tarihte Bing arama API’leri için tek bir uç nokta kullanılıyordu. Yetkilendirme hatalarıyla karşılaşırsanız bu değeri Azure panonuzdaki Bing arama uç noktasından tekrar kontrol edin.
 
 
 ```python
 search_url = "https://api.cognitive.microsoft.com/bing/v7.0/images/search"
 ```
 
-Ayarlama `search_term` Yavru köpekler görüntülerde aramak için.
+Yavru köpek görüntüleri aramak için `search_term` öğesini ayarlayın.
 
 
 ```python
 search_term = "puppies"
 ```
 
-Aşağıdaki blokları kullandığı `requests` Bing arama API'lerine duyurmak ve sonuçları bir JSON nesnesi olarak döndürmek için Python kitaplıkta. Biz API anahtarı geçmesini gözlemleyin `headers` sözlük ve bir arama terimi aracılığıyla `params` sözlüğü. Arama sonuçlarını filtrelemek için kullanılabilir seçeneklerin tam listesini görmek için başvurmak [REST API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference) belgeleri.
+Aşağıdaki blok, Bing Arama API’lerini çağırmak ve sonuçları bir JSON nesnesi olarak döndürmek için Python’da `requests` kitaplığını kullanmaktadır. API anahtarını `headers` sözlüğü ile geçtiğimize ve terimi `params` sözlüğü ile aradığımıza dikkat edin. Arama sonuçlarını filtrelemek için kullanılabilecek seçeneklerin tam listesi için [REST API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference) belgelerine başvurun.
 
 
 ```python
@@ -69,14 +69,14 @@ response.raise_for_status()
 search_results = response.json()
 ```
 
-`search_results` Nesne zengin meta veriler gibi ilgili öğeleri yanı sıra gerçek görüntüleri içerir. Örneğin, aşağıdaki kod satırını ilk 16 sonuçları için küçük resim URL'LERİNİ ayıklayabilirsiniz.
+`search_results` nesnesi, ilgili öğeler gibi zengin meta verilerle birlikte gerçek görüntüleri içerir. Örneğin, aşağıdaki kod satırı, ilk 16 sonuç için küçük resim URL’lerini ayıklayabilir.
 
 
 ```python
 thumbnail_urls = [img["thumbnailUrl"] for img in search_results["value"][:16]]
 ```
 
-Ardından `PIL` masaüstünün indirmek için kitaplık ve `matplotlib` 4 ABD Doları \times 4$ Kılavuzu'nun işlenecek kitaplığı.
+Daha sonra küçük resim görüntülerini indirmek için `PIL` kitaplığını ve bunları $4 \times 4$ kılavuzunda işlemek için `matplotlib` kitaplığını kullanın.
 
 
 ```python
@@ -98,7 +98,7 @@ plt.show()
 
 ## <a name="sample-json-response"></a>Örnek JSON yanıtı
 
-Bing resim arama API'si alınan yanıtları JSON olarak döndürülür. Bu örnek yanıt, tek bir sonuç göstermek için kısaltıldı.
+Bing Resim Arama API'sinden yanıtlar JSON olarak döndürülür. Bu örnek yanıt, tek bir sonuç göstermek için kısaltıldı.
 
 ```json
 {
@@ -147,12 +147,12 @@ Bing resim arama API'si alınan yanıtları JSON olarak döndürülür. Bu örne
 ## <a name="next-steps"></a>Sonraki adımlar
 
 > [!div class="nextstepaction"]
-> [Bing resim arama tek sayfalı uygulama Öğreticisi](../tutorial-bing-image-search-single-page-app.md)
+> [Bing Resim Arama tek sayfalı uygulama öğreticisi](../tutorial-bing-image-search-single-page-app.md)
 
-## <a name="see-also"></a>Ayrıca bkz. 
+## <a name="see-also"></a>Ayrıca bkz.
 
-* [Bing resim arama nedir?](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/overview)  
-* [Çevrimiçi bir etkileşimli Tanıtımı deneyin](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/)  
-* [Ücretsiz bir Bilişsel hizmetler erişim anahtarını alma](https://azure.microsoft.com/try/cognitive-services/?api=bing-image-search-api)  
-* [Azure Bilişsel hizmetler belgeleri](https://docs.microsoft.com/azure/cognitive-services)
-* [Bing resim arama API'si başvurusu](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference)
+* [Bing Resim Arama nedir?](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/overview)  
+* [Çevrimiçi etkileşimli bir tanıtımı deneyin](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/)  
+* [Ücretsiz bir Bilişsel Hizmetler erişim anahtarı alın](https://azure.microsoft.com/try/cognitive-services/?api=bing-image-search-api)  
+* [Azure Bilişsel Hizmetler Belgeleri](https://docs.microsoft.com/azure/cognitive-services)
+* [Bing Resim Arama API’si başvurusu](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference)

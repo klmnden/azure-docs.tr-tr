@@ -1,41 +1,43 @@
 ---
-title: Duygu tanıma API'si C# hızlı başlangıç | Microsoft Docs
-description: Bilgi ve C# Bilişsel Services ile duygu API'sini kullanarak hızla başlamanıza yardımcı olmak için bir kod örneği alın.
+title: "Hızlı başlangıç: Bir görüntüdeki yüzlerin duygularını tanıma - Duygu Tanıma API'si, C#"
+titlesuffix: Azure Cognitive Services
+description: C# ile Duygu Tanıma API'sini kullanmaya başlamanıza yardımcı olacak bilgileri ve kod örneğini edinin.
 services: cognitive-services
 author: anrothMSFT
-manager: corncar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: emotion-api
-ms.topic: article
+ms.topic: quickstart
 ms.date: 11/02/2017
 ms.author: anroth
-ms.openlocfilehash: 89735ae54395447e3cb421f45db3d6b99001ecd6
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
-ms.translationtype: MT
+ROBOTS: NOINDEX
+ms.openlocfilehash: 530d05887e585884b184635e01031c1332fad3fb
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37016574"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48239379"
 ---
-# <a name="emotion-api-c-quick-start"></a>Duygu tanıma API'si C# hızlı başlangıç
+# <a name="quickstart-build-an-app-to-recognize-emotions-on-faces-in-an-image"></a>Hızlı başlangıç: Bir görüntüdeki yüzlerin duygularını tanımak için bir uygulama oluşturma.
 
 > [!IMPORTANT]
-> Video API’si Önizlemesi 30 Ekim 2017 tarihinde sona erdi. Kolayca videoların öngörüleri ayıklamak için yeni deneyin [Video dizin oluşturucu API önizlemesi](https://azure.microsoft.com/services/cognitive-services/video-indexer/). Konuşma sözcükler, yüzler, karakterler ve duygular algılayarak arama sonuçları gibi içerik bulma deneyimlerini geliştirmek üzere de kullanabilirsiniz. Daha fazla bilgi için bkz: [Video dizin oluşturucu önizlemesi](https://docs.microsoft.com/azure/cognitive-services/video-indexer/video-indexer-overview) genel bakış.
+> Duygu Tanıma API'si 15 Şubat 2019 tarihinde kullanım dışı bırakılacaktır. Duygu tanıma özelliği [Yüz Tanıma API'sinin](https://docs.microsoft.com/azure/cognitive-services/face/) bir parçası olarak genel kullanıma sunulmuştur.
 
-Bu makalede, bilgi ve hızlı bir şekilde yardımcı olmak için bir kod örneği Başlarken kullanarak sağlanmaktadır [duygu tanıma API'si tanıması yöntemi](https://westus.dev.cognitive.microsoft.com/docs/services/5639d931ca73072154c1ce89/operations/563b31ea778daf121cc3a5fa) C# ile. Görüntüyü bir veya daha fazla kişiler tarafından ifade duygular tanımak için kullanabilirsiniz. 
+Bu makale C# ile [Duygu Tanıma metodunu](https://westus.dev.cognitive.microsoft.com/docs/services/5639d931ca73072154c1ce89/operations/563b31ea778daf121cc3a5fa) kullanmaya başlamanıza yardımcı olacak bilgiler ve kod örneği sunar. Bunu kullanarak bir görüntüdeki kişi veya kişilerin duygularını tanımlayabilirsiniz.
 
-## <a name="prerequisites"></a>Önkoşullar
-* Bilişsel hizmetler almak [duygu tanıma API'si Windows SDK](https://www.nuget.org/packages/Microsoft.ProjectOxford.Emotion/).
-* Ücretsiz almak [abonelik anahtarı](https://azure.microsoft.com/try/cognitive-services/).
+## <a name="prerequisites"></a>Ön koşullar
+* Bilişsel Hizmetler [Duygu Tanıma API'si Windows SDK'sını](https://www.nuget.org/packages/Microsoft.ProjectOxford.Emotion/) edinin.
+* Ücretsiz [abonelik anahtarınızı](https://azure.microsoft.com/try/cognitive-services/) alın.
 
-## <a name="emotion-recognition-c-example-request"></a>Duygu tanıma C# örnek istek
+## <a name="emotion-recognition-c-example-request"></a>Duygu Tanıma C# isteği örneği
 
-Visual Studio'da yeni bir konsol çözümü oluşturun ve ardından Program.cs aşağıdaki kodla değiştirin. Değişiklik `string uri` elde burada abonelik anahtarlarınızı bölge kullanılacak. Değiştir **Apim abonelik anahtar Ocp** değeri geçerli bir abonelik anahtarınızı ile. Abonelik anahtarı bulmak için Azure portalına gidin. Sol taraftaki gezinti bölmesi altında **anahtarları** bölümünde, duygu tanıma API'si kaynağınıza göz atın. Benzer şekilde, uygun alabilirsiniz URI'de bağlanmak **genel bakış** paneli altında listelenen kaynağınız için **Endpoint**.
+Visual Studio'da yeni bir Konsol çözümü oluşturun ve Program.cs içeriğini aşağıdaki kodla değiştirin. `string uri` değerini abonelik anahtarlarınızı aldığınız bölgeyi kullanacak şekilde değiştirin. **Ocp-Apim-Subscription-Key** değerini geçerli abonelik anahtarınız ile değiştirin. Abonelik anahtarını bulmak için Azure portala gidin. Sol taraftaki gezinti bölmesinde, **Anahtarlar** kısmında Duygu Tanıma API'si kaynağınıza göz atın. Benzer şekilde **Uç nokta** bölümünde listelenen kaynağınızın **Genel bakış** panelinde uygun bağlantı URI'sini bulabilirsiniz.
 
-![API kaynak anahtarlarınızı](../../media/emotion-api/keys.png)
+![API kaynağı anahtarlarınız](../../media/emotion-api/keys.png)
 
-İsteğiniz yanıtı işlemek için bir kitaplık gibi kullanın `Newtonsoft.Json`. Bu şekilde bir JSON dizesinde yönetilebilir nesneleri Tokens olarak adlandırılan bir dizi olarak işleyebilir. Bu kitaplık, pakete eklemek için Çözüm Gezgini'nde projenize sağ tıklayın ve seçin **Nuget paketlerini Yönet**. İçin arama **Newtonsoft**. İlk sonuca olmalıdır **Newtonsoft.Json**. **Yükle**’yi seçin. Bu kitaplık, uygulamanızda artık başvurabilirsiniz.
+İsteğinizin yanıtını işlemek için `Newtonsoft.Json` gibi bir kitaplık kullanın. Bu şekilde bir JSON dizisini Belirteç olarak adlandırılan yönetilebilir nesneler dizisi şeklinde işleyebilirsiniz. Bu kitaplığı paketinize eklemek için Çözüm Gezgini'nde projenize sağ tıklayın ve **Nuget Paketlerini Yönet**'i seçin. Ardından **Newtonsoft** araması yapın. İlk sonuç **Newtonsoft.Json** olmalıdır. **Yükle**’yi seçin. Artık uygulamanızda bu kitaplığa başvurabilirsiniz.
 
-![Newtonsoft.Json yükleyin](../../media/emotion-api/newtonsoft-nuget.png)
+![Newtonsoft.Json yükleme](../../media/emotion-api/newtonsoft-nuget.png)
 
 ```csharp
 using System;
@@ -71,10 +73,10 @@ namespace CSHttpClientSample
             var client = new HttpClient();
 
             // Request headers - replace this example key with your valid key.
-            client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", "<your-subscription-key>"); // 
+            client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", "<your-subscription-key>"); //
 
             // NOTE: You must use the same region in your REST call as you used to obtain your subscription keys.
-            //   For example, if you obtained your subscription keys from westcentralus, replace "westus" in the 
+            //   For example, if you obtained your subscription keys from westcentralus, replace "westus" in the
             //   URI below with "westcentralus".
             string uri = "https://westus.api.cognitive.microsoft.com/emotion/v1.0/recognize?";
             HttpResponseMessage response;
@@ -120,14 +122,14 @@ namespace CSHttpClientSample
 }
 ```
 
-## <a name="recognize-emotions-sample-response"></a>Yanıt duygular örnek tanı
-Başarılı bir çağrı yüz girişleri dizisi ve ilişkili duygu puanlarını döndürür. Azalan düzende yüz dikdörtgen boyutuna göre sıralanır. Boş bir yanıt hiçbir yüzeyleri algıladığını belirtir. Bir duygu giriş aşağıdaki alanları içerir:
+## <a name="recognize-emotions-sample-response"></a>Duygu tanıma örneği yanıtı
+Başarılı bir çağrı, yüz girişlerinden ve ilgili duygu puanlarından oluşan bir dizi döndürür. Bunlar yüz dikdörtgenine göre büyükten küçüğe doğru sıralanmış şekildedir. Yanıtın boş olması hiç yüz algılanmadığını gösterir. Duygu girişi aşağıdaki alanları içerir:
 
-* faceRectangle: yüz görüntüdeki dikdörtgen konumu
-* Puanları: duygu puanlar görüntüdeki her yüz için 
+* faceRectangle: Dikdörtgen şeklinde yüzün görüntü içindeki konumu
+* scores: Görüntüdeki her bir yüzün duygu puanı
 
 ```json
-application/json 
+application/json
 [
   {
     "faceRectangle": {

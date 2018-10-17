@@ -1,39 +1,40 @@
 ---
-title: "Hızlı Başlangıç: Metin analizi API'sini çağırmak için Python kullanarak | Microsoft Docs"
+title: "Hızlı başlangıç: Metin Analizi API'sini çağırmak için Python kullanma"
 titleSuffix: Azure Cognitive Services
-description: Hızlı bir şekilde yardımcı olması için alma bilgileri ve kod örnekleri, Azure üzerinde Microsoft Bilişsel hizmetler metin analizi API'sini kullanarak başlayın.
+description: Azure Microsoft Bilişsel Hizmetler'deki Metin Analizi API'sini kullanmaya başlamanıza yardımcı olacak bilgileri ve kod örneklerini inceleyin.
 services: cognitive-services
 author: ashmaka
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: text-analytics
-ms.topic: article
-ms.date: 05/02/2018
+ms.topic: quickstart
+ms.date: 10/01/2018
 ms.author: ashmaka
-ms.openlocfilehash: 8e570aac2c2d89a8147d179c4b0f9155497c5188
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
-ms.translationtype: MT
+ms.openlocfilehash: 07b7327b01987d79a6447ed67de27b69c02c14ee
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44298701"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48268368"
 ---
-# <a name="quickstart-using-python-to-call-the-text-analytics-cognitive-service"></a>Hızlı Başlangıç: Python kullanarak metin analizi Bilişsel hizmet çağrısı
+# <a name="quickstart-using-python-to-call-the-text-analytics-cognitive-service"></a>Hızlı başlangıç: Metin Analizi Bilişsel Hizmetini çağırmak için Python kullanma 
 <a name="HOLTop"></a>
 
-Bu izlenecek yol size nasıl gösterir için [dili algılayın](#Detect), [düşüncelerini çözümleme](#SentimentAnalysis), ve [anahtar tümcecikleri ayıklayın](#KeyPhraseExtraction) kullanarak [metin analizi API'lerini](//go.microsoft.com/fwlink/?LinkID=759711)Python ile.
+Bu kılavuzda Python ile [Metin Analizi API'sini](//go.microsoft.com/fwlink/?LinkID=759711) kullanarak [dil algılama](#Detect), [duygu analizi gerçekleştirme](#SentimentAnalysis) ve [anahtar sözcükleri ayıklama](#KeyPhraseExtraction) adımları gösterilmektedir.
 
-Bu örnek bir Jupyter not defteri çalıştırma [MyBinder](https://mybinder.org) bağlayıcı başlatma sırasında tıklayarak rozet: 
+Bu örneği başlatma Bağlayıcı rozetine tıklayarak [Bağlayıcım](https://mybinder.org)'da bir Jupyter not defteri olarak çalıştırabilirsiniz: 
 
 [![Bağlayıcı](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/Microsoft/cognitive-services-notebooks/master?filepath=TextAnalytics.ipynb)
 
-Başvurmak [API tanımlarını](//go.microsoft.com/fwlink/?LinkID=759346) API'leri için teknik belgeler için.
+API'lerle ilgili teknik bilgiler için [API tanımları](//go.microsoft.com/fwlink/?LinkID=759346) sayfasını inceleyin.
 
-## <a name="prerequisites"></a>Önkoşullar
+## <a name="prerequisites"></a>Ön koşullar
 
-Olmalıdır bir [Bilişsel hizmetler API hesabı](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) ile **metin analizi API'si**. Kullanabileceğiniz **5.000 işlem/ay için ücretsiz katman** Bu izlenecek yolu tamamlamak için.
+**Metin Analizi API'sine** sahip bir [Bilişsel Hizmetler API hesabınızın](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) olması gerekir. Bu kılavuz için **ayda 5000 işlem sunan ücretsiz katmanı** kullanabilirsiniz.
 
-Sahip olmalısınız [uç noktası ve erişim anahtarı](../How-tos/text-analytics-how-to-access-key.md) oluşturulan, kayıt sırasında. 
+Ayrıca kayıt sırasında oluşturulan [uç nokta ve erişim anahtarı](../How-tos/text-analytics-how-to-access-key.md) değerlerine de sahip olmanız gerekir. 
 
-Bu adım adım kılavuza devam etmek yerine `subscription_key` ile daha önce edindiğiniz bir geçerli abonelik anahtarı.
+Bu kılavuza devam etmek için `subscription_key` yerine önceden aldığınız geçerli bir abonelik anahtarı girin.
 
 
 ```python
@@ -41,7 +42,7 @@ subscription_key = None
 assert subscription_key
 ```
 
-Ardından, doğrulayın bölgede `text_analytics_base_url` Servis ayarladığınızda kullanılan karşılık gelir. Ücretsiz bir deneme sürümü anahtarı kullanıyorsanız, herhangi bir ayarı değiştirmek gerekmez.
+Ardından `text_analytics_base_url` içindeki bölgenin hizmeti ayarlarken kullandığınızla aynı olduğundan emin olun. Ücretsiz deneme anahtarı kullanıyorsanız bilgileri değiştirmeniz gerekmez.
 
 
 ```python
@@ -50,9 +51,9 @@ text_analytics_base_url = "https://westcentralus.api.cognitive.microsoft.com/tex
 
 <a name="Detect"></a>
 
-## <a name="detect-languages"></a>Dilleri algılayın
+## <a name="detect-languages"></a>Dilleri algılama
 
-Dil algılama API bir metnin dilini algılar kullanarak belge [dil algılama yöntemi](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7). Dil algılama API bölgeniz için hizmet uç noktası, aşağıdaki URL kullanılabilir:
+Dil Algılama API'si, [Dili Algıla metodunu](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7) kullanarak bir metin belgesinin dilini algılar. Dil Algılama API'sinin bölgenizdeki uç noktasına şu URL ile ulaşabilirsiniz:
 
 
 ```python
@@ -63,9 +64,9 @@ print(language_api_url)
     https://westcentralus.api.cognitive.microsoft.com/text/analytics/v2.0/languages
 
 
-API yükü bir listesinden oluşur `documents`, her sırayla içeren, bir `id` ve `text` özniteliği. `text` Öznitelik depolarının Analiz edilecek metin. 
+API'ye gönderilen yük `documents` listesinden oluşur ve bu girişlerin her birinde de `id` ve `text` özniteliği bulunur. `text` özniteliği analiz edilecek metinleri depolar. 
 
-Değiştirin `documents` dil algılama için herhangi bir metin ile bir sözlük. 
+Dil algılama için `documents` sözlüğünü başka bir metinle değiştirin. 
 
 
 ```python
@@ -76,7 +77,7 @@ documents = { 'documents': [
 ]}
 ```
 
-Sonraki birkaç satır kod kullanarak dil algılama API duyurmak `requests` Kitaplığı'nda Python belgeleri dilde belirlemek için.
+Sonraki birkaç satırda belgelerdeki dillerin algılanması için Python'daki `requests` kitaplığı kullanılarak dil algılama API'si çağrısı yapılır.
 
 
 ```python
@@ -103,7 +104,7 @@ pprint(languages)
      'errors': []}
 
 
-Aşağıdaki kod satırlarını JSON verilerini HTML tablosu olarak işleyin.
+Aşağıdaki kod satırları, JSON verilerini HTML tablosuna dönüştürür.
 
 
 ```python
@@ -120,9 +121,9 @@ HTML("<table><tr><th>Text</th><th>Detected languages(scores)</th></tr>{0}</table
 
 ## <a name="analyze-sentiment"></a>Yaklaşımı analiz etme
 
-Yaklaşım analizi API'sini detexts yaklaşımı kullanarak bir metin kayıt kümesinin [yaklaşım yöntemi](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9). Aşağıdaki örnek, bir giriş İngilizce ve İspanyolca başka iki belge puanlar.
+Yaklaşım Analizi API'si, [Yaklaşım metodunu](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9) kullanarak bir metin kaydı kümesinin yaklaşımını algılar. Aşağıdaki örnek, biri İngilizce diğeri İspanyolca olan iki belge puanlar.
 
-Yaklaşım analizi için hizmet uç noktası için bölgenize aşağıdaki URL aracılığıyla kullanılabilir:
+Yaklaşım analizi hizmetinin bölgenizdeki uç noktasına şu URL ile ulaşabilirsiniz:
 
 
 ```python
@@ -133,7 +134,7 @@ print(sentiment_api_url)
     https://westcentralus.api.cognitive.microsoft.com/text/analytics/v2.0/sentiment
 
 
-Dil algılama örneğiyle hizmeti ile bir sözlük ile sağlanan bir `documents` belgelerin listesini içeren anahtar. Her bir belgedir oluşan bir demet `id`, `text` Analiz edilecek ve `language` metin. Bu alan doldurmak için önceki bölümden dil algılama API kullanın. 
+Dil algılama örneğinde olduğu gibi hizmet belge listesi içeren `documents` anahtarına sahip olan bir sözlükle sağlanır. Her belge, analiz edilecek `id` ve `text` ile metnin `language` öğesini içeren bir demettir. Bu alanı doldurmak için önceki bölümde bulunan dil algılama API'sini kullanabilirsiniz. 
 
 
 ```python
@@ -145,7 +146,7 @@ documents = {'documents' : [
 ]}
 ```
 
-Yaklaşım API'si artık sözcükle ilgili belgeler analiz etmek için kullanılabilir.
+Yaklaşım API'si artık belgeleri ve yaklaşımlarını analiz etmek için kullanılabilir.
 
 
 ```python
@@ -161,15 +162,15 @@ pprint(sentiments)
      'errors': []}
 
 
-Bir belge için yaklaşım puanını $0$ ile 1 USD$ daha pozitif yaklaşımı belirten için daha yüksek bir puan arasındadır.
+Bir belgenin yaklaşım puanı $0$ ile $1$ arasındadır ve puanın yüksek olması daha pozitif bir ifadeyi gösterir.
 
 <a name="KeyPhraseExtraction"></a>
 
 ## <a name="extract-key-phrases"></a>Anahtar ifadeleri ayıklama
 
-Anahtar tümcecik ayıklama API anahtar tümcecikleri metinden ayıklar kullanarak belge [anahtar tümcecikleri yöntemi](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6). Kılavuzun bu bölümünde, anahtar tümcecikleri İngilizce ve İspanyolca belgeler için ayıklar.
+Anahtar İfade Ayıklama API'si [Anahtar İfadeler metodunu](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6) kullanarak bir metin belgesindeki anahtar ifadeleri ayıklar. Kılavuzun bu bölümünde hem İngilizce hem de İspanyolca belgelerin anahtarı ifadeleri ayıklanır.
 
-Anahtar ifade ayıklama hizmeti için hizmet uç noktası aşağıdaki URL erişilebilir:
+Anahtar ifade ayıklama hizmetinin uç noktasına şu URL ile ulaşabilirsiniz:
 
 
 ```python
@@ -180,7 +181,7 @@ print(key_phrase_api_url)
     https://westcentralus.api.cognitive.microsoft.com/text/analytics/v2.0/keyPhrases
 
 
-Belgelerin koleksiyonu ne yaklaşım analizi için kullanılan aynıdır.
+Belge koleksiyonu, yaklaşım analizi için kullanılanla aynıdır.
 
 
 ```python
@@ -206,7 +207,7 @@ pprint(key_phrases)
     }
 
 
-JSON nesnesi, aşağıdaki satır kod kullanarak bir HTML tablosu yeniden işlenebilir:
+Burada da aşağıdaki kod satırlarıyla JSON nesnesi HTML tablosuna dönüştürülebilir:
 
 
 ```python
@@ -219,11 +220,11 @@ for document in key_phrases["documents"]:
 HTML("<table><tr><th>Text</th><th>Key phrases</th></tr>{0}</table>".format("\n".join(table)))
 ```
 
-## <a name="identify-linked-entities"></a>Bağlı varlıkları tanımlama
+## <a name="identify-entities"></a>Varlıkları tanımlama
 
-Varlık bağlama API'si metin bilinen varlıklar tanımlayan kullanarak belge [varlık bağlama yöntemini](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/5ac4251d5b4ccd1554da7634). Aşağıdaki örnek İngilizce belgeler için varlıklar tanımlayan.
+Varlıklar API'si, [Varlıklar metodunu](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1-Preview/operations/5ac4251d5b4ccd1554da7634) kullanarak bir metin belgesindeki iyi bilinen varlıkları tanımlar. Aşağıdaki örnekte İngilizce belgelerin varlıkları tanımlanır.
 
-Varlık bağlama hizmeti için hizmet uç noktası aşağıdaki URL erişilebilir:
+Varlık bağlama hizmetinin uç noktasına şu URL ile ulaşabilirsiniz:
 
 
 ```python
@@ -231,90 +232,189 @@ entity_linking_api_url = text_analytics_base_url + "entities"
 print(entity_linking_api_url)
 ```
 
-    https://westcentralus.api.cognitive.microsoft.com/text/analytics/v2.0/entities
+    https://westcentralus.api.cognitive.microsoft.com/text/analytics/v2.1-preview/entities
 
 
-Belge koleksiyonu, aşağıda verilmiştir:
+Belge koleksiyonu aşağıda verilmiştir:
 
 
 ```python
 documents = {'documents' : [
-  {'id': '1', 'text': 'I really enjoy the new XBox One S. It has a clean look, it has 4K/HDR resolution and it is affordable.'},
-  {'id': '2', 'text': 'The Seattle Seahawks won the Super Bowl in 2014.'}
+  {'id': '1', 'text': 'Jeff bought three dozen eggs because there was a 50% discount.'},
+  {'id': '2', 'text': 'The Great Depression began in 1929. By 1933, the GDP in America fell by 25%.'}
 ]}
 ```
 
-Şimdi, belge için metin analizi API'si yanıtını almak için gönderilebilir.
+Artık belgeleri Metin Analizi API'sine göndererek yanıt alabilirsiniz.
 
 ```python
 headers   = {"Ocp-Apim-Subscription-Key": subscription_key}
 response  = requests.post(entity_linking_api_url, headers=headers, json=documents)
 entities = response.json()
 ```
-    {
-        "documents": [
-            {
-                "id": "1",
-                "entities": [
-                    {
-                        "name": "Xbox One",
-                        "matches": [
-                            {
-                                "text": "XBox One",
-                                "offset": 23,
-                                "length": 8
-                            }
-                        ],
-                        "wikipediaLanguage": "en",
-                        "wikipediaId": "Xbox One",
-                        "wikipediaUrl": "https://en.wikipedia.org/wiki/Xbox_One",
-                        "bingId": "446bb4df-4999-4243-84c0-74e0f6c60e75"
-                    },
-                    {
-                        "name": "Ultra-high-definition television",
-                        "matches": [
-                            {
-                                "text": "4K",
-                                "offset": 63,
-                                "length": 2
-                            }
-                        ],
-                        "wikipediaLanguage": "en",
-                        "wikipediaId": "Ultra-high-definition television",
-                        "wikipediaUrl": "https://en.wikipedia.org/wiki/Ultra-high-definition_television",
-                        "bingId": "7ee02026-b6ec-878b-f4de-f0bc7b0ab8c4"
-                    }
-                ]
-            },
-            {
-                "id": "2",
-                "entities": [
-                    {
-                        "name": "2013 Seattle Seahawks season",
-                        "matches": [
-                            {
-                                "text": "Seattle Seahawks",
-                                "offset": 4,
-                                "length": 16
-                            }
-                        ],
-                        "wikipediaLanguage": "en",
-                        "wikipediaId": "2013 Seattle Seahawks season",
-                        "wikipediaUrl": "https://en.wikipedia.org/wiki/2013_Seattle_Seahawks_season",
-                        "bingId": "eb637865-4722-4eca-be9e-0ac0c376d361"
-                    }
-                ]
-            }
-        ],
-        "errors": []
-    }
+
+```json
+{
+    "Documents": [
+        {
+            "Id": "1",
+            "Entities": [
+                {
+                    "Name": "Jeff",
+                    "Matches": [
+                        {
+                            "Text": "Jeff",
+                            "Offset": 0,
+                            "Length": 4
+                        }
+                    ],
+                    "Type": "Person"
+                },
+                {
+                    "Name": "three dozen",
+                    "Matches": [
+                        {
+                            "Text": "three dozen",
+                            "Offset": 12,
+                            "Length": 11
+                        }
+                    ],
+                    "Type": "Quantity",
+                    "SubType": "Number"
+                },
+                {
+                    "Name": "50",
+                    "Matches": [
+                        {
+                            "Text": "50",
+                            "Offset": 49,
+                            "Length": 2
+                        }
+                    ],
+                    "Type": "Quantity",
+                    "SubType": "Number"
+                },
+                {
+                    "Name": "50%",
+                    "Matches": [
+                        {
+                            "Text": "50%",
+                            "Offset": 49,
+                            "Length": 3
+                        }
+                    ],
+                    "Type": "Quantity",
+                    "SubType": "Percentage"
+                }
+            ]
+        },
+        {
+            "Id": "2",
+            "Entities": [
+                {
+                    "Name": "Great Depression",
+                    "Matches": [
+                        {
+                            "Text": "The Great Depression",
+                            "Offset": 0,
+                            "Length": 20
+                        }
+                    ],
+                    "WikipediaLanguage": "en",
+                    "WikipediaId": "Great Depression",
+                    "WikipediaUrl": "https://en.wikipedia.org/wiki/Great_Depression",
+                    "BingId": "d9364681-98ad-1a66-f869-a3f1c8ae8ef8"
+                },
+                {
+                    "Name": "1929",
+                    "Matches": [
+                        {
+                            "Text": "1929",
+                            "Offset": 30,
+                            "Length": 4
+                        }
+                    ],
+                    "Type": "DateTime",
+                    "SubType": "DateRange"
+                },
+                {
+                    "Name": "By 1933",
+                    "Matches": [
+                        {
+                            "Text": "By 1933",
+                            "Offset": 36,
+                            "Length": 7
+                        }
+                    ],
+                    "Type": "DateTime",
+                    "SubType": "DateRange"
+                },
+                {
+                    "Name": "Gross domestic product",
+                    "Matches": [
+                        {
+                            "Text": "GDP",
+                            "Offset": 49,
+                            "Length": 3
+                        }
+                    ],
+                    "WikipediaLanguage": "en",
+                    "WikipediaId": "Gross domestic product",
+                    "WikipediaUrl": "https://en.wikipedia.org/wiki/Gross_domestic_product",
+                    "BingId": "c859ed84-c0dd-e18f-394a-530cae5468a2"
+                },
+                {
+                    "Name": "United States",
+                    "Matches": [
+                        {
+                            "Text": "America",
+                            "Offset": 56,
+                            "Length": 7
+                        }
+                    ],
+                    "WikipediaLanguage": "en",
+                    "WikipediaId": "United States",
+                    "WikipediaUrl": "https://en.wikipedia.org/wiki/United_States",
+                    "BingId": "5232ed96-85b1-2edb-12c6-63e6c597a1de",
+                    "Type": "Location"
+                },
+                {
+                    "Name": "25",
+                    "Matches": [
+                        {
+                            "Text": "25",
+                            "Offset": 72,
+                            "Length": 2
+                        }
+                    ],
+                    "Type": "Quantity",
+                    "SubType": "Number"
+                },
+                {
+                    "Name": "25%",
+                    "Matches": [
+                        {
+                            "Text": "25%",
+                            "Offset": 72,
+                            "Length": 3
+                        }
+                    ],
+                    "Type": "Quantity",
+                    "SubType": "Percentage"
+                }
+            ]
+        }
+    ],
+    "Errors": []
+}
+```
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 > [!div class="nextstepaction"]
-> [Power BI ile metin analizi](../tutorials/tutorial-power-bi-key-phrases.md)
+> [Power BI ile Metin Analizi](../tutorials/tutorial-power-bi-key-phrases.md)
 
 ## <a name="see-also"></a>Ayrıca bkz. 
 
- [Metin Analizi'ne genel bakış](../overview.md)  
+ [Metin Analizine genel bakış](../overview.md)  
  [Sık sorulan sorular (SSS)](../text-analytics-resource-faq.md)

@@ -1,35 +1,37 @@
 ---
-title: Duygu tanıma API'si cURL hızlı başlangıç | Microsoft Docs
-description: Hızlı bir şekilde yardımcı olmak için bilgi ve kod örnekleri get duygu tanıma API'si Bilişsel hizmetler cURL ile kullanmaya başlayın.
+title: "Hızlı başlangıç: Bir görüntüdeki yüzlerin duygularını tanıma - Duygu Tanıma API'si, cURL"
+titlesuffix: Azure Cognitive Services
+description: cURL ile Duygu Tanıma API'sini kullanmaya başlamanıza yardımcı olacak bilgiler ve kod örnekleri edinin.
 services: cognitive-services
 author: anrothMSFT
-manager: corncar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: emotion-api
-ms.topic: article
+ms.topic: quickstart
 ms.date: 05/23/2017
 ms.author: anroth
-ms.openlocfilehash: a7ca2cac718797462bb4dc889b3f1361b252435e
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
-ms.translationtype: MT
+ROBOTS: NOINDEX
+ms.openlocfilehash: dfdaa89c9d29e419539f385f601dc7f264bf838e
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37021107"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48237084"
 ---
-# <a name="emotion-api-curl-quick-start"></a>Duygu tanıma API'si cURL hızlı başlangıç
+# <a name="quickstart-build-an-app-to-recognize-emotions-on-faces-in-an-image"></a>Hızlı başlangıç: Bir görüntüdeki yüzlerin duygularını tanımak için bir uygulama oluşturma.
 
 > [!IMPORTANT]
-> Video API Önizleme 30 Ekim 2017 sona erer. Yeni deneyin [Video dizin oluşturucu API önizlemesi](https://azure.microsoft.com/services/cognitive-services/video-indexer/) kolayca videoların öngörüleri ayıklamak ve konuşulan sözcüklerin, yüzler, karakterler ve duygular algılayarak arama sonuçları gibi içerik bulma deneyimlerini geliştirmek üzere. [Daha fazla bilgi edinin](https://docs.microsoft.com/azure/cognitive-services/video-indexer/video-indexer-overview).
+> Duygu Tanıma API'si 15 Şubat 2019 tarihinde kullanım dışı bırakılacaktır. Duygu tanıma özelliği [Yüz Tanıma API'sinin](https://docs.microsoft.com/azure/cognitive-services/face/) bir parçası olarak genel kullanıma sunulmuştur.
 
-Bu makalede bilgiler sağlar ve hızlı bir şekilde yardımcı olmak için kod örnekleri, kullanımına başlamanıza [duygu tanıma API'si tanıması yöntemi](https://westus.dev.cognitive.microsoft.com/docs/services/5639d931ca73072154c1ce89/operations/563b31ea778daf121cc3a5fa) görüntünün bir veya daha fazla kişiler tarafından ifade duygular tanımak için cURL ile. 
+Bu makalede bir görüntüdeki bir veya daha fazla kişinin duygularını tanımak için cURL ile [Duygu Tanıma API'si Recognize metodunu](https://westus.dev.cognitive.microsoft.com/docs/services/5639d931ca73072154c1ce89/operations/563b31ea778daf121cc3a5fa) kullanmaya başlamanıza yardımcı olacak bilgiler ve kod örnekleri bulunmaktadır.
 
 ## <a name="prerequisite"></a>Önkoşul
-* Ücretsiz abonelik anahtarınızı alın [burada](https://azure.microsoft.com/try/cognitive-services/)
+* [Buradan](https://azure.microsoft.com/try/cognitive-services/) ücretsiz Abonelik Anahtarınızı alın
 
-## <a name="recognize-emotions-curl-example-request"></a>Örnek istek duygular cURL tanı
+## <a name="recognize-emotions-curl-example-request"></a>Duygu Tanıma cURL Örnek İsteği
 
 > [!NOTE]
-> Abonelik anahtarlarınızı elde etmek için kullanılan yazarken, REST çağrısı, aynı konuma kullanmanız gerekir. Abonelik anahtarlarınızı westcentralus edindiyseniz, örneğin, "westus" URL'de "westcentralus" ile değiştirin.
+> REST çağrınızda abonelik anahtarlarınızı almak için kullandığınız konumu kullanmanız gerekir. Örneğin, güvenlik anahtarlarınızı westcentralus konumundan aldıysanız, aşağıdaki URL’de "westus" değerini "westcentralus" olarak değiştirin.
 
 ```json
 @ECHO OFF
@@ -38,16 +40,16 @@ curl -v -X POST "https://westus.api.cognitive.microsoft.com/emotion/v1.0/recogni
 -H "Content-Type: application/json"
 -H "Ocp-Apim-Subscription-Key: {subscription key}"
 
---data-ascii "{body}" 
+--data-ascii "{body}"
 ```
 
-## <a name="recognize-emotions-sample-response"></a>Tanı duygular örnek yanıt
-Başarılı bir çağrı yüz girişleri dizisi ve azalan düzende yüz dikdörtgen boyutuna göre derece ilişkili duygu puanlarını döndürür. Boş bir yanıt hiçbir yüzeyleri algıladığını belirtir. Bir duygu giriş aşağıdaki alanları içerir:
-* faceRectangle - yüz görüntüdeki dikdörtgen konumu.
-* puanları - görüntüdeki her yüz duygu puanlarını. 
+## <a name="recognize-emotions-sample-response"></a>Duygu Tanıma Örneği Yanıtı
+Başarılı bir çağrı, yüz dikdörtgenine göre büyükten küçüğe doğru sıralanmış şekilde yüz girişlerinden ve ilgili duygu puanlarından oluşan bir dizi döndürür. Yanıtın boş olması hiç yüz algılanmadığını gösterir. Duygu girişi aşağıdaki alanları içerir:
+* faceRectangle - Dikdörtgen şeklinde yüzün görüntü içindeki konumu.
+* scores - Görüntüdeki her bir yüzün duygu puanı.
 
 ```json
-application/json 
+application/json
 [
   {
     "faceRectangle": {
@@ -68,4 +70,3 @@ application/json
     }
   }
 ]
-

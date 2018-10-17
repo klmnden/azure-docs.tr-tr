@@ -12,15 +12,15 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/06/2018
+ms.date: 010/01/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: da9e1ce17e21f4d87286c0be5d425419f6ed0300
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 1af4cdb361c1db378991201fc42f17dcbf67fe67
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47408519"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48238774"
 ---
 # <a name="tutorial-scale-a-service-fabric-cluster-in-azure"></a>Öğretici: Azure'daki bir Service Fabric kümesini ölçeklendirme
 
@@ -121,7 +121,7 @@ az vmss scale -g sfclustertutorialgroup -n nt1vm --new-capacity 6
 > [!NOTE]
 > Bu kısım yalnızca *Bronz* dayanıklılık katmanı için geçerlidir. Dayanıklılık hakkında daha fazla bilgi için bkz. [Service Fabric küme kapasitesi planlaması][durability].
 
-Bir sanal makine kümesinin ölçeğini daralttığınızda ölçek kümesi (çoğu durumda) en son oluşturulan sanal makine örneğini kaldırır. Bu nedenle, eşleşen, en son oluşturulan Service Fabric düğümünü bulmanız gerekir. Service Fabric düğümlerindeki en büyük `NodeInstanceId` özellik değerini denetleyerek bu son düğümü bulabilirsiniz. Aşağıdaki kod örnekleri, düğüm örneğine göre sıralanır ve en büyük kimlik değerine sahip örnek hakkındaki ayrıntıları getirir.
+Küme düğümlerini yükseltme ve hata etki alanlarına eşit olarak dağıtarak eşit bir şekilde kullanılmalarını sağlamak için önce en son oluşturulan düğümün kaldırılması gerekir. Başka bir deyişle düğümler, oluşturma sırasının tersine kaldırılmalıdır. En son oluşturulan düğüm, `virtual machine scale set InstanceId` özelliğinin değeri en yüksek olandır. Aşağıdaki kod örnekleri en son oluşturulan düğümü döndürür.
 
 ```powershell
 Get-ServiceFabricNode | Sort-Object { $_.NodeName.Substring($_.NodeName.LastIndexOf('_') + 1) } -Descending | Select-Object -First 1

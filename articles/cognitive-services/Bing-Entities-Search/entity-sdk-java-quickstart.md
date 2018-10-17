@@ -1,30 +1,30 @@
 ---
-title: Bing varlık arama SDK Java hızlı başlangıç | Microsoft Docs
-description: Bing varlık arama SDK konsol uygulama ayarlama.
-titleSuffix: Azure Cognitive Services
+title: "Hızlı Başlangıç: Bing Varlık Arama SDK'sı, Java"
+titlesuffix: Azure Cognitive Services
+description: Bing Varlık Arama SDK'sı konsol uygulaması kurulumu.
 services: cognitive-services
 author: mikedodaro
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-entity-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 02/19/2018
 ms.author: v-gedod
-ms.openlocfilehash: ebfabc00b5dc031ac4e5284450a9d639c383e78f
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
-ms.translationtype: MT
+ms.openlocfilehash: eeb8e6e0ac132ef2d927aa2de03817389230191e
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35355240"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48814500"
 ---
-# <a name="bing-entity-search-sdk-java-quickstart"></a>Bing varlık arama SDK Java hızlı başlangıç
+# <a name="quickstart-bing-entity-search-sdk-with-java"></a>Hızlı Başlangıç: Java ile Bing Varlık Arama SDK'sı
 
-Bing varlık arama SDK varlık sorgular ve ayrıştırma sonuçları için REST API işlevsellik sağlar. 
+Bing Varlık Arama SDK'sı, varlık sorgulama ve sonuçları ayrıştırma REST API'si işlevlerini sunar. 
 
-[Kaynak kodu Java Bing varlık arama SDK örnekleri için](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master/Search/BingEntitySearch) Git hub'da kullanılabilir. 
+[Java Bing Varlık Arama SDK'sı örneklerinin kaynak kodu](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master/Search/BingEntitySearch) Git Hub'dan edinilebilir. 
 
 ## <a name="application-dependencies"></a>Uygulama bağımlılıkları
-Alma bir [Bilişsel hizmetler erişim tuşu](https://azure.microsoft.com/try/cognitive-services/) altında **arama**. Bing varlık arama SDK bağımlılığı Maven, Gradle veya başka bir bağımlılık yönetimi sistemi kullanarak yükleyin. Maven POM dosya bildirimi gerektirir:
+**Arama** altından bir [Bilişsel Hizmetler erişim anahtarı](https://azure.microsoft.com/try/cognitive-services/) alın. Bing Varlık Arama SDK'sı bağımlılık dosyalarını Maven, Gradle veya başka bir bağımlılık dosyası yönetim sistemini kullanarak yükleyin. Maven POM dosyası şu bildirimi gerektirir:
 ```
   <dependencies>
     <dependency>
@@ -34,8 +34,8 @@ Alma bir [Bilişsel hizmetler erişim tuşu](https://azure.microsoft.com/try/cog
     </dependency>
   </dependencies>
 ```
-## <a name="entity-search-client"></a>Varlık arama istemci
-İçeri aktarmalar için sınıf uygulamasını ekleyin.
+## <a name="entity-search-client"></a>Varlık Arama istemcisi
+Sınıf uygulamasına içeri aktarmaları ekleyin.
 ```
 import com.microsoft.azure.cognitiveservices.entitysearch.*;
 import com.microsoft.azure.cognitiveservices.entitysearch.implementation.EntitySearchAPIImpl;
@@ -50,7 +50,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 ```
-Uygulama **EntitySearchAPIImpl** bir örneğini gerektirir istemci **ServiceClientCredentials** sınıfı.
+**ServiceClientCredentials** sınıfının bir örneğini gerektiren **EntitySearchAPIImpl** istemcisini uygulayın.
 ```
 public static EntitySearchAPIImpl getClient(final String subscriptionKey) {
     return new EntitySearchAPIImpl("https://api.cognitive.microsoft.com/bing/v7.0/",
@@ -75,7 +75,7 @@ public static EntitySearchAPIImpl getClient(final String subscriptionKey) {
 }
 
 ```
-Tek varlık "Satya Nadella" için arama ve kısa bir açıklama yazdırın.
+Tek bir varlık olarak "Satya Nadella" aratın ve kısa bir açıklama yazdırın.
 ```
 public static void dominantEntityLookup(final String subscriptionKey)
 {
@@ -115,7 +115,7 @@ public static void dominantEntityLookup(final String subscriptionKey)
 }
 
 ```
-Belirsiz sorgu için "William ağ geçitleri" ve tanıtıcı Kesinleştirme sonuçları arayın.
+"William Gates" aratın ve belirsiz sorgu nedeniyle dönen kesinleştirme sonuçlarıyla ilgilenin.
 ```
 public static void handlingDisambiguation(String subscriptionKey)
 {
@@ -182,7 +182,7 @@ public static void handlingDisambiguation(String subscriptionKey)
 }
 
 ```
-"Microsoft depolamak" sorgu tek bir deposuyla aramak ve sonucu için telefon numarası yazdırın.
+"Microsoft Store" sorgusuyla tek bir mağaza aratın ve sonuç olarak telefon numarasını yazdırın.
 ```
 public static void storeLookup(String subscriptionKey)
 {
@@ -220,7 +220,7 @@ public static void storeLookup(String subscriptionKey)
 }
 
 ```
-"Seattle Restoran." sorguyla Restoran listesini arayın Adları ve sonuçları için telefon numaraları yazdırın.
+"Seattle restaurants" sorgusuyla restoran listesi aratın. Sonuçların adlarını ve telefon numaralarını yazdırın.
 ```
 public static void multipleRestaurantLookup(String subscriptionKey)
 {
@@ -276,7 +276,7 @@ public static void multipleRestaurantLookup(String subscriptionKey)
 }
 
 ```
-Bir sınıfa kod yürütmek için ana işleviyle bu makalede açıklanan yöntemleri ekleyin.
+Kodu yürütmek için bir main işlevi olan bir sınıfa bu makalede anlatılan metotları ekleyin.
 ```
 package entitySDK;
 import com.microsoft.azure.cognitiveservices.entitysearch.*;
@@ -296,5 +296,5 @@ public class EntitySearchSDK {
 ```
 ## <a name="next-steps"></a>Sonraki adımlar
 
-[Bilişsel hizmetler Java SDK'sı örneği](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples)
+[Bilişsel Hizmetler Java SDK örnekleri](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples)
 

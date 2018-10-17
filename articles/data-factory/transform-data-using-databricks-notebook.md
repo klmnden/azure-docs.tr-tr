@@ -13,12 +13,12 @@ ms.topic: tutorial
 ms.date: 03/12/2018
 ms.author: abnarain
 ms.reviewer: douglasl
-ms.openlocfilehash: 7fb94fa9a70faa238c54e7f5e7992ef8404d8de3
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 6b0a4b7a8b2a30b9572ecfc488e2af7554b46346
+ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43087557"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48017747"
 ---
 # <a name="run-a-databricks-notebook-with-the-databricks-notebook-activity-in-azure-data-factory"></a>Azure Data Factory’de Databricks Not Defteri etkinliği ile bir Databricks not defteri çalıştırma
 
@@ -48,15 +48,15 @@ Bu özelliğe yönelik on bir dakikalık bir giriş ve tanıtım için, aşağı
 
 1.  **Microsoft Edge** veya **Google Chrome** web tarayıcısını açın. Şu anda Data Factory kullanıcı arabirimi yalnızca Microsoft Edge ve Google Chrome web tarayıcılarında desteklenmektedir.
 
-1.  Soldaki menüden **Yeni**’yi, sonra **Veri ve Analiz**’i ve ardından **Data Factory**’i seçin.
+1.  Soldaki menüden **Kaynak oluşturun**’u, sonra **Analiz**’i ve ardından **Data Factory**’yi seçin.
 
-    ![Yeni bir veri fabrikası oluşturma](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image1.png)
+    ![Yeni bir veri fabrikası oluşturma](media/transform-data-using-databricks-notebook/new-azure-data-factory-menu.png)
 
 1.  **Yeni veri fabrikası** bölmesinde **Ad** altına **ADFTutorialDataFactory** girin.
 
     Azure data factory adı *küresel olarak benzersiz* olmalıdır. Aşağıdaki hatayı görürseniz veri fabrikasının adını değiştirin. (Örneğin, **\<adınız\>ADFTutorialDataFactory** biçimini kullanın). Data Factory yapıtlarının adlandırma kuralları için [Data Factory - adlandırma kuralları](https://docs.microsoft.com/azure/data-factory/naming-rules) makalesini inceleyin.
 
-    ![Yeni veri fabrikası için bir ad belirtin](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image2.png)
+    ![Yeni veri fabrikası için bir ad belirtin](media/transform-data-using-databricks-notebook/new-azure-data-factory.png)
 
 1.  **Abonelik** için, veri fabrikasını oluşturmak istediğiniz Azure aboneliğini seçin.
 
@@ -73,14 +73,8 @@ Bu özelliğe yönelik on bir dakikalık bir giriş ve tanıtım için, aşağı
 1.  **Konum** için, veri fabrikasının konumunu seçin.
 
     Data Factory'nin kullanılabileceği Azure bölgelerinin bir listesi için bir sonraki sayfada ilgilendiğiniz bölgeleri seçin ve **Analytics**'i genişleterek **Data Factory**: [Products available by region](https://azure.microsoft.com/global-infrastructure/services/) (Bölgeye göre kullanılabilir durumdaki ürünler) bölümünü bulun. Data Factory tarafından kullanılan veri depoları (Azure Depolama ve Azure SQL Veritabanı) ve işlemler (HDInsight gibi) başka bölgelerde olabilir.
-
-1.  **Panoya sabitle**’yi seçin.
-
 1.  **Oluştur**’u seçin.
 
-1.  Panoda, **Data Factory Dağıtılıyor** durumuna sahip aşağıdaki kutucuğu görürsünüz:
-
-    ![](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image3.png)
 
 1.  Oluşturma işlemi tamamlandıktan sonra, **Veri fabrikası** sayfasını görürsünüz. Data Factory kullanıcı arabirimi uygulamasını ayrı bir sekmede başlatmak için **Yazar ve İzleyici** kutucuğunu seçin.
 
@@ -94,13 +88,13 @@ Bu bölümde bir Databricks bağlı hizmetini yazacaksınız. Bu bağlı hizmet,
 
 1.  **Başlayalım** sayfasında, sol bölmede bulunan **Düzenle** sekmesine geçin.
 
-    ![Yeni bağlı hizmeti düzenleme](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image5.png)
+    ![Yeni bağlı hizmeti düzenleme](media/transform-data-using-databricks-notebook/get-started-page.png)
 
 1.  Pencerenin alt kısmındaki **Bağlantılar**’ı ve sonra **+ Yeni**’yi seçin.
     
     ![Yeni bağlantı oluşturma](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image6.png)
 
-1.  **Yeni Bağlı Hizmet** penceresinde **Veri Deposu** \> **Azure Databricks**’i ve sonra **Devam**’ı seçin.
+1.  **Yeni Bağlı Hizmet** penceresinde **İşlem** \> **Azure Databricks**’i ve sonra **Devam**’ı seçin.
     
     ![Databricks bağlı hizmeti belirtme](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image7.png)
 
@@ -108,21 +102,23 @@ Bu bölümde bir Databricks bağlı hizmetini yazacaksınız. Bu bağlı hizmet,
     
     1.  **Ad** için ***AzureDatabricks\_LinkedService*** girin
     
-    1.  **Küme** için bir **Yeni Küme** seçin
+    1.  Notebook'unuzu çalıştırmak için uygun **Databricks çalışma alanını** seçin
+
+    1.  **Küme seçin**'i ve ardından **Yeni iş kümesi**'ni seçin
     
-    1.  **Etki Alanı / Bölge** için Azure Databricks çalışma alanınızın bulunduğu bölgeyi seçin.
-    
-    1.  **Küme düğümü türü** için bu öğreticide **Standart\_D3\_v2** seçeneğini belirleyin.
-    
+    1.  **Etki alanı/Bölge** otomatik olarak doldurulmalıdır
+
     1.  **Erişim Belirteci**’ni Azure Databricks çalışma alanından oluşturun. Adımları [burada](https://docs.databricks.com/api/latest/authentication.html#generate-token) bulabilirsiniz.
+
+    1.  **Küme sürümü** olarak **4.0** (Apache Spark 2.3.0, Scala 2.11 ile) seçin
+
+    1.  **Küme düğümü türü** için bu öğreticide **Genel Amaçlı (HDD)** bölümünde **Standart\_D3\_v2** seçin. 
     
-    1.  **Küme sürümü** için **4.0 Beta**’yı seçin (en son sürüm)
-    
-    1.  **Çalışan düğümü sayısı** için **2** girin.
+    1.  **Çalışanlar** alanına **2** yazın.
     
     1.  **Son**’u seçin
 
-        ![Bağlı hizmet oluşturmayı tamamlayın](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image8.png)
+        ![Bağlı hizmet oluşturmayı tamamlayın](media/transform-data-using-databricks-notebook/new-databricks-linkedservice.png)
 
 ## <a name="create-a-pipeline"></a>İşlem hattı oluşturma
 
@@ -138,15 +134,17 @@ Bu bölümde bir Databricks bağlı hizmetini yazacaksınız. Bu bağlı hizmet,
 
 1.  **Etkinlikler** araç kutusunda **Databricks**’i genişletin. **Etkinlikler** araç kutusundan **Not Defteri** etkinliğini işlem hattı tasarımcısının yüzeyine sürükleyin.
 
-    ![Not defteri tasarımcı yüzeyine sürükleme](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image12.png)
+    ![Not defteri tasarımcı yüzeyine sürükleme](media/transform-data-using-databricks-notebook/new-adf-pipeline.png)
 
 1.  Alt kısımdaki **Databricks** **Not Defteri** etkinlik penceresinin özellikler bölümünde aşağıdaki adımları tamamlayın:
 
-    a. **Ayarlar** sekmesine geçin.
+    a. **Azure Databricks** sekmesine geçin.
 
-    b. **myAzureDatabricks\_LinkedService** öğesini seçin (önceki yordamda oluşturdunuz).
+    b. **AzureDatabricks\_LinkedService** öğesini seçin (önceki yordamda oluşturdunuz).
 
-    c. Bir Databricks **Not Defteri yolu** seçin. Şimdi bir not defteri oluşturup burada yolunu belirtelim. Sonraki birkaç adımı izleyerek Not Defteri Yolunu alın.
+    c. **Ayarlar** sekmesine geçin
+
+    c. Göz atarak bir Databricks **Not Defteri yolu** seçin. Şimdi bir not defteri oluşturup burada yolunu belirtelim. Sonraki birkaç adımı izleyerek Not Defteri Yolunu alın.
 
        1. Azure Databricks Çalışma Alanını başlatma
 
@@ -180,7 +178,7 @@ Bu bölümde bir Databricks bağlı hizmetini yazacaksınız. Bu bağlı hizmet,
     
     a.  Not Defteri etkinliğine **Parametre Ekleyin**. Daha önce **işlem hattına** eklediğiniz parametrenin aynısını kullanın.
 
-       ![Parametre ekleme](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image17.png)
+       ![Parametre ekleme](media/transform-data-using-databricks-notebook/new-adf-parameters.png)
 
     b.  Parametreyi **input** olarak adlandırın ve değrri **@pipeline().parameters.name** ifadesi olarak sağlayın.
 
@@ -224,7 +222,7 @@ Araç çubuğunda **Tetikleyici**’yi ve sonra **Şimdi Tetikle**’yi seçin.
 
 **İş adı**’na tıklayıp gezinerek diğer ayrıntıları görebilirsiniz. Çalıştırma başarılı olduğunda, geçirilen parametreleri ve Python not defterinin çıktısını doğrulayabilirsiniz.
 
-![Çalıştırma ayrıntılarını ve çıktıyı görüntüleme](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image25.png)
+![Çalıştırma ayrıntılarını ve çıktıyı görüntüleme](media/transform-data-using-databricks-notebook/databricks-output.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

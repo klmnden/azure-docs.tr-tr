@@ -14,20 +14,20 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 07/17/2018
 ms.author: barclayn
-ms.openlocfilehash: b509bf9575c3fdeedd1673d4ffe1395d46e3d919
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: aae7836448ff27b4c80d7bb53e108034ee52db1c
+ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44051621"
+ms.lasthandoff: 10/01/2018
+ms.locfileid: "47586300"
 ---
 # <a name="what-is-azure-key-vault"></a>Azure Anahtar Kasası nedir?
 
 Azure Key Vault, aşağıdaki sorunların çözülmesine yardımcı olur
-- Belirteçleri, parolaları, sertifikaları, API anahtarlarını ve diğer gizli dizileri Güvenle depolamak ve bunlara erişimi sıkı bir şekilde denetlemek için Azure Key Vault kullanılabilir
-- Azure Key Vault, Anahtar Yönetimi çözümü olarak da kullanılabilir. Azure Key Vault, verilerinizi şifrelemek için kullanılan şifreleme anahtarlarını oluşturmayı ve denetlemeyi kolaylaştırır. 
-- Azure Key Vault aynı zamanda, Azure ve bağlı iç kaynaklarınızla kullanım için genel ve özel Güvenli Yuva Katmanı/Aktarım Katmanı Güvenliği (SSL/TLS) sertifikalarını kolayca hazırlamanıza, yönetmenize ve dağıtmanıza olanak sağlayan bir hizmettir. 
-- Gizli diziler ve anahtarlar yazılım tarafından korunabilir veya FIPS 140-2 Düzey 2, HSM'leri doğrular
+- **Gizli Dizi Yönetimi**: Belirteçleri, parolaları, sertifikaları, API anahtarlarını ve diğer gizli dizileri Güvenle depolamak ve bunlara erişimi sıkı bir şekilde denetlemek için Azure Key Vault kullanılabilir.
+- **Anahtar Yönetimi**: Azure Key Vault, Anahtar Yönetimi çözümü olarak da kullanılabilir. Azure Key Vault, verilerinizi şifrelemek için kullanılan şifreleme anahtarlarını oluşturmayı ve denetlemeyi kolaylaştırır. 
+- **Sertifika Yönetimi**: Azure Key Vault aynı zamanda, Azure ve bağlı iç kaynaklarınızla kullanım için genel ve özel Güvenli Yuva Katmanı/Aktarım Katmanı Güvenliği (SSL/TLS) sertifikalarını kolayca hazırlamanıza, yönetmenize ve dağıtmanıza olanak sağlayan bir hizmettir. 
+- **Gizli dizileri Donanım Güvenlik Modülleri desteğiyle saklayın**: Gizli diziler ve anahtarlar yazılım tarafından korunabilir veya FIPS 140-2 Düzey 2, HSM'leri doğrular
 
 ## <a name="why-use-azure-key-vault"></a>Neden Azure Key Vault kullanmalıyım?
 
@@ -65,7 +65,7 @@ Değerli verileri depolarken birkaç adım uygulamanız gerekir. Güvenlik bilgi
 
 - Şirket içi Donanım Güvenlik Modüllerine yönelik gereksinimi ortadan kaldırma
 - Kuruluşunuzun ani kullanım artışlarını karşılamak için kısa süre içinde ölçek artırma.
-- Bir bölge içindeki Anahtar Kasanızın içeriklerini ikincil bir bölgeye çoğaltma. Key Vault, yüksek kullanılabilirlik sağlar ve yük devretmeyi tetiklemek için yöneticinin herhangi bir işlem yapma gereksinimini ortadan kaldırır.
+- Bir bölge içindeki Anahtar Kasanızın içeriklerini ikincil bir bölgeye çoğaltma. Bunun yapılması yüksek kullanılabilirlik sağlar ve yük devretmeyi tetiklemek için yöneticinin herhangi bir işlem yapma gereksinimini ortadan kaldırır.
 - Portal, Azure CLI ve PowerShell aracılığıyla standart Azure yönetim seçeneklerini sağlama.
 - Genel CA’lardan satın aldığınız sertifikalarla ilgili kaydetme ve yenileme gibi belirli görevleri otomatikleştirme.
 
@@ -73,7 +73,7 @@ Ayrıca, Azure Anahtar Kasalarını kullanarak uygulama gizli dizilerini ayırab
 
 ### <a name="integrate-with-other-azure-services"></a>Diğer Azure hizmetleri ile tümleştirme
 
-Azure’da güvenli bir depo olarak Key Vault, [Azure Disk Şifrelemesi](../security/azure-security-disk-encryption.md), SQL sunucusu ve Azure SQL’deki [her zaman şifrelenmiş]( https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine) işlevselliği, [Azure web uygulamaları]( https://docs.microsoft.com/azure/app-service/web-sites-purchase-ssl-web-site) gibi senaryoları kolaylaştırmak için kullanılmıştır. Key Vault, depolama hesapları, olay hub’ları ve günlük analizi ile tümleştirilebilir.
+Azure’da güvenli bir depo olarak Key Vault, [Azure Disk Şifrelemesi](../security/azure-security-disk-encryption.md), SQL sunucusu ve Azure SQL Veritabanı'ndaki [her zaman şifrelenmiş]( https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine) işlevselliği, [Azure web uygulamaları]( https://docs.microsoft.com/azure/app-service/web-sites-purchase-ssl-web-site) gibi senaryoları kolaylaştırmak için kullanılmıştır. Key Vault, depolama hesapları, olay hub’ları ve günlük analizi ile tümleştirilebilir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

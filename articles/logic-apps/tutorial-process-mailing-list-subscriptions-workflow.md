@@ -10,14 +10,14 @@ ms.reviewer: klam, LADocs
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/12/2018
-ms.openlocfilehash: 4ac5861dabbc473099886b4f099824cde60f38b9
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 96a151b3de5d59ad74eaf7061b1a3ff91d602759
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43122878"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48044425"
 ---
-# <a name="manage-mailing-list-requests-with-a-logic-app"></a>Mantıksal uygulama ile posta listesi isteklerini yönetme
+# <a name="manage-mailing-list-requests-with-azure-logic-apps"></a>Azure Logic Apps ile posta listesi isteklerini yönetme
 
 Azure Logic Apps, Azure hizmetleri, Microsoft hizmetleri ve diğer hizmet olarak yazılım (SaaS) uygulamalarının yanı sıra şirket içi sistemler üzerindeki verileri tümleştirmenize ve iş akışlarını otomatikleştirmenize yardımcı olur. Bu öğreticide, [MailChimp](https://mailchimp.com/) hizmeti tarafından yönetilen posta listesi için abonelik isteklerini işleyen [mantıksal uygulamayı](../logic-apps/logic-apps-overview.md) nasıl oluşturabileceğiniz gösterilir.
 Bu mantıksal uygulama e-posta hesabını bu istekler için izler, bu istekleri onaya gönderir ve onaylanan üyeleri posta listesine ekler.

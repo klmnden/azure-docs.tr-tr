@@ -1,44 +1,56 @@
 ---
-title: Görüntü İşleme API'si Node.js hızlı başlangıç OCR | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: Bu hızlı başlangıçta, Bilişsel Hizmetler’de Node.js ile Görüntü İşleme kullanarak bir görüntüden yazdırılan metin ayıklayacaksınız.
+title: 'Hızlı Başlangıç: Yazdırılan metni ayıklama (OCR) - REST, Node.js - Görüntü İşleme'
+titleSuffix: Azure Cognitive Services
+description: Bu hızlı başlangıçta, Node.js ile Görüntü İşleme API’si kullanarak bir görüntüden yazdırılan metni ayıklayacaksınız.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: v-deken
-ms.openlocfilehash: 73fe11800d7141c9e6e7272a0d008d2bcdf6d6af
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: af22b17d52b654438ae52c1eb85e523dbaf638fa
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43772590"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45628922"
 ---
-# <a name="quickstart-extract-printed-text-ocr---rest-nodejs"></a>Hızlı Başlangıç: Yazdırılan metin ayıklama (OCR) - REST, Node.js
+# <a name="quickstart-extract-printed-text-ocr-using-the-rest-api-and-nodejs-in-computer-vision"></a>Hızlı Başlangıç: Görüntü İşleme’de REST API ve cURL kullanarak yazdırılan metni ayıklama (OCR)
 
-Bu hızlı başlangıçta, Görüntü İşleme kullanarak bir görüntüden yazdırılan metin ayıklayacaksınız (optik karakter tanıma (OCR) yöntemi olarak da bilinir).
+Bu hızlı başlangıçta, Görüntü İşleme’nin REST API’sini kullanarak bir görüntüden optik karakter tanıma (OCR) ile yazdırılan metni ayıklayacaksınız. [OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) yöntemiyle, bir görüntüdeki yazdırılan metni algılayabilir ve tanınan karakterleri makine tarafından kullanılabilir bir karakter akışı halinde ayıklayabilirsiniz.
+
+Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) oluşturun.
 
 ## <a name="prerequisites"></a>Ön koşullar
 
-Görüntü İşleme’yi kullanmak için, bir abonelik anahtarınızın olması gerekir; bkz. [Abonelik Anahtarlarını Alma](../Vision-API-How-to-Topics/HowToSubscribe.md).
+- [Node.js](https://nodejs.org) 4.x veya sonraki bir sürüm yüklenmiş olmalıdır.
+- [Npm](https://www.npmjs.com/) yüklenmiş olmalıdır.
+- Görüntü İşleme için bir abonelik anahtarınız olması gerekir. Bir abonelik anahtarı almak için bkz. [Abonelik Anahtarları Alma](../Vision-API-How-to-Topics/HowToSubscribe.md).
 
-## <a name="ocr-request"></a>OCR isteği
+## <a name="create-and-run-the-sample"></a>Örnek oluşturma ve çalıştırma
 
-[OCR yöntemi](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) ile, bir görüntüdeki yazdırılan metni algılayabilir ve tanınan karakterleri makine tarafından kullanılabilir bir karakter akışı halinde ayıklayabilirsiniz.
+Örneği oluşturup çalıştırmak için aşağıdaki adımları uygulayın:
 
-Örneği çalıştırmak için aşağıdaki adımları uygulayın:
+1. Npm[`request`](https://www.npmjs.com/package/request) paketini yükleyin.
+   1. Yönetici olarak bir komut istemi penceresini açın.
+   1. Şu komutu çalıştırın:
 
-1. Aşağıdaki kodu bir düzenleyicinin içine kopyalayın.
-1. `<Subscription Key>` değerini geçerli abonelik anahtarınızla değiştirin.
-1. Gerekirse `uriBase` değerini abonelik anahtarlarınızı aldığınız konumla değiştirin.
-1. İsteğe bağlı olarak, `imageUrl` öğesini analiz etmek istediğiniz görüntü olarak değiştirin.
-1. Dosyayı `.js` uzantısıyla kaydedin.
-1. Node.js komut istemini açın ve dosyayı çalıştırın, örneğin: `node myfile.js`.
+      ```console
+      npm install request
+      ```
 
-Bu örnek, npm [istek](https://www.npmjs.com/package/request) paketini kullanır.
+   1. Paket başarıyla yüklendikten sonra komut istemi penceresini kapatın.
+
+1. Aşağıdaki kodu bir metin düzenleyicisine kopyalayın.
+1. Gerektiğinde kodda aşağıdaki değişiklikleri yapın:
+    1. `subscriptionKey` değerini abonelik anahtarınızla değiştirin.
+    1. Gerekirse `uriBase` değerini, abonelik anahtarlarınızı aldığınız Azure bölgesinden [OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) yönteminin uç nokta URL’si ile değiştirin.
+    1. İsteğe bağlı olarak, `imageUrl` değerini, içinden yazdırılan metni ayıklamak istediğiniz başka bir görüntünün URL’si ile değiştirin.
+1. Kodu, `.js` uzantısıyla bir dosya olarak kaydedin. Örneğin, `get-printed-text.js`.
+1. Bir komut istemi penceresi açın.
+1. İstemde, dosyayı çalıştırmak için `node` komutunu kullanın. Örneğin, `node get-printed-text.js`.
 
 ```nodejs
 'use strict';
@@ -84,9 +96,9 @@ request.post(options, (error, response, body) => {
 });
 ```
 
-## <a name="ocr-response"></a>OCR yanıtı
+## <a name="examine-the-response"></a>Yanıtı inceleme
 
-Başarılı olunması durumunda, metinler, bölgeler için sınırlayıcı kutu, satırlar ve sözcükler gibi OCR sonuçları döndürülür. Örneğin:
+Başarılı bir yanıt JSON biçiminde döndürülür. Örnek, aşağıdaki örneğe benzer şekilde başarılı bir yanıtı ayrıştırıp komut istemi penceresinde görüntüler:
 
 ```json
 {
@@ -187,9 +199,22 @@ Başarılı olunması durumunda, metinler, bölgeler için sınırlayıcı kutu,
 }
 ```
 
+## <a name="clean-up-resources"></a>Kaynakları temizleme
+
+Artık gerekli değilse dosyayı silin ve sonra npm `request` paketini kaldırın. Paketi kaldırmak için aşağıdaki adımları uygulayın:
+
+1. Yönetici olarak bir komut istemi penceresini açın.
+2. Şu komutu çalıştırın:
+
+   ```console
+   npm uninstall request
+   ```
+
+3. Paket başarıyla kaldırıldıktan sonra komut istemi penceresini kapatın.
+
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Görüntü analiz etmek, ünlüleri ve önemli yerleri algılamak, küçük resim oluşturmak ve yazdırılan ve el yazısı metinleri ayıklamak için kullanılan Görüntü İşleme API'lerini keşfedin. Görüntü İşleme API'lerini hızlı bir şekilde denemeniz için [Open API test konsolu](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console) konusuna göz atın.
+Görüntü analiz etmek, ünlüleri ve yer işaretlerini algılamak, küçük resim oluşturmak ve yazdırılan ve el yazısı metinleri ayıklamak için kullanılan Görüntü İşleme API’sini keşfedin. Görüntü İşleme API'sini hızlı bir şekilde denemeniz için [Open API test konsolu](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console) konusuna bakın.
 
 > [!div class="nextstepaction"]
-> [Görüntü İşleme API'lerini keşfedin](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44)
+> [Görüntü İşleme API’sini keşfetme](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44)

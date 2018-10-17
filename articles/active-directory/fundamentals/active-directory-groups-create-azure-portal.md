@@ -1,59 +1,92 @@
 ---
-title: Azure AD'de kullanıcı grubu oluşturma | Microsoft Docs
-description: Azure Active Directory'de grup oluşturma ve gruba üye ekleme
+title: Azure Active Directory kullanarak temel bir grup oluşturma ve üyeler ekleme | Microsoft Docs
+description: Azure Active Directory kullanarak nasıl bir temel grup oluşturulacağını öğrenin.
 services: active-directory
-documentationcenter: ''
 author: eross-msft
 manager: mtillman
-editor: ''
 ms.service: active-directory
 ms.workload: identity
 ms.component: fundamentals
 ms.topic: quickstart
-ms.date: 08/04/2017
+ms.date: 08/22/2018
 ms.author: lizross
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: 3c71c9c49413045e3a730c10e90ea3c12648b4cb
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 36bd0ca06859c1952a75b1aa8397fba88dc22d40
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37857736"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45574921"
 ---
-# <a name="create-a-group-and-add-members-in-azure-active-directory"></a>Azure Active Directory'de grup oluşturma ve üye ekleme
-> [!div class="op_single_selector"]
-> * [Azure Portal](active-directory-groups-create-azure-portal.md)
-> * [PowerShell](../users-groups-roles/groups-settings-v2-cmdlets.md)
+# <a name="how-to-create-a-basic-group-and-add-members-using-azure-active-directory"></a>Nasıl yapılır: Azure Active Directory kullanarak temel bir grup oluşturma ve üyeler ekleme
 
-Bu makalede Azure Active Directory'de yeni bir grup oluşturma ve üye ekleme adımları açıklanmaktadır. Aynı anda birkaç kullanıcıya veya cihaza lisans ya da izin atama gibi yönetim görevlerini gerçekleştirmek için grup kullanırsınız.
+Azure Active Directory (Azure AD) portalını kullanarak temel bir grup oluşturabilirsiniz. Bu makalenin amaçları doğrultusunda, kaynak sahibi (yönetici) tarafından tek bir kaynağa temel bir grup eklenir ve bu grup, o kaynağa erişmesi gereken belirli üyeleri (çalışanlar) içerir. Dinamik üyelikler ve kural oluşturma da dahil olmak üzere daha karmaşık senaryolar için bkz. [Azure Active Directory kullanıcı yönetimi belgeleri](../users-groups-roles/index.yml).
 
-## <a name="how-do-i-create-a-group"></a>Nasıl grup oluşturulur?
-1. Dizin için genel yönetici olan bir hesapla [Azure portalda](https://portal.azure.com) oturum açın.
-2. **Tüm hizmetler**’i seçin, metin kutusuna **Kullanıcılar ve gruplar** yazın ve ardından **Enter**’a basın.
+## <a name="create-a-basic-group-and-add-members"></a>Temel bir grup oluşturma ve üye ekleme
+Temel bir grup oluşturabilir ve aynı anda üyelerinizi ekleyebilirsiniz.
 
-   ![Kullanıcı yönetimini açma](./media/active-directory-groups-create-azure-portal/search-user-management.png)
-3. **Kullanıcılar ve gruplar** dikey penceresinde **Tüm gruplar**’ı seçin.
+### <a name="to-create-a-basic-group-and-add-members"></a>Temel bir grup oluşturmak ve üye eklemek için
+1. Dizin için bir Genel yönetici hesabı kullanarak [Azure portalda](https://portal.azure.com) oturum açın.
 
-   ![Gruplar dikey penceresini açma](./media/active-directory-groups-create-azure-portal/view-groups-blade.png)
-4. **Kullanıcılar ve gruplar - Tüm gruplar** dikey penceresinde **Ekle** komutunu seçin.
+2. **Azure Active Directory**’yi, **Gruplar**’ı ve ardından **Yeni grup**’u seçin.
 
-   ![Ekle komutunu seçme](./media/active-directory-groups-create-azure-portal/add-group-command.png)
-5. **Grup** dikey penceresinde grup için bir ad ve açıklama girin.
-6. Gruba eklenecek üyeleri seçmek için **Üyelik türü** kutusunda **Atanmış**'ı ve ardından **Üyeler**'i seçin. Grup üyeliklerini dinamik olarak yönetme hakkında daha fazla bilgi için bkz. [Grup üyeliği için gelişmiş kurallar oluşturmak üzere öznitelikleri kullanma](../users-groups-roles/groups-dynamic-membership.md).
+    ![Gruplar ile birlikte gösterilen Azure AD](media/active-directory-groups-create-azure-portal/group-full-screen.png)
 
-   ![Eklenecek üyeleri seçme](./media/active-directory-groups-create-azure-portal/select-members.png)
-7. **Üyeler** dikey penceresinde gruba eklemek üzere bir veya daha fazla kullanıcı ya da cihaz seçin ve bunları gruba eklemek için dikey pencerenin en altında yer alan **Seç** düğmesini seçin. **Kullanıcı** kutusu görünen sonuçları girişinizle eşleşen kullanıcı veya cihaz adlarını gösterecek şekilde filtreler. Bu kutuda joker karakter kullanılamaz.
-8. Gruba üye eklemeyi tamamladıktan sonra **Grup** dikey penceresinde **Oluştur**'u seçin.    
+3. **Grup** sayfasında gerekli bilgileri doldurun.
 
-   ![Grup oluşturma onayı](./media/active-directory-groups-create-azure-portal/create-group-confirmation.png)
+    ![Örnek bilgileriyle doldurulmuş şekilde yeni grup sayfası](media/active-directory-groups-create-azure-portal/new-group-blade.png)
 
+    - **Grup türü (gerekli).** Önceden tanımlanmış bir grup türü seçin. Buna aşağıdakiler dahildir:
+        
+        - **Güvenlik**. Bir kullanıcı grubu için paylaşılan kaynaklara üye ve bilgisayar erişimini yönetmek için kullanılır. Örneğin, belirli bir güvenlik ilkesi için bir güvenlik grubu oluşturabilirsiniz. Böylece, her bir üyeye ayrı ayrı izin eklemek zorunda kalmadan aynı anda tüm üyelere bir dizi izin verebilirsiniz. Kaynaklara erişimi yönetme hakkında daha fazla bilgi için bkz. [Azure Active Directory grupları ile kaynaklara erişimi yönetme](active-directory-manage-groups.md).
+        
+        - **Office 365**. Üyelerin paylaşılan posta kutusuna, takvime, takvime, dosyalara, SharePoint sitesine vb.’ye erişmesini sağlayarak işbirliği fırsatları sunar. Bu seçenek, kuruluşunuzun dışındaki kişilerin de gruba erişmesini sağlar. Office 365 Grupları hakkında daha fazla bilgi için bkz. [Office 365 Grupları hakkında bilgi edinin](https://support.office.com/article/learn-about-office-365-groups-b565caa1-5c40-40ef-9915-60fdb2d97fa2).
+
+    - **Grup adı (gerekli).** Grup için unutmayacağınız ve mantıklı olan bir ad ekler.
+
+    - **Grup açıklaması.** Grubunuza isteğe bağlı bir açıklama ekler.
+
+    - **Üyelik türü (gerekli).** Önceden tanımlanmış bir üyelik türü seçin. Buna aşağıdakiler dahildir:
+
+        - **Atanan.** Bu grubun üyesi olacak ve benzersiz izinlere sahip olacak şekilde belirli kullanıcıları eklemenize olanak sağlar. Bu makalenin amaçları doğrultusunda, bu seçeneği kullanıyoruz.
+
+        - **Dinamik kullanıcı.** Otomatik olarak üyeler eklemek ve kaldırmak için dinamik grup kuralları kullanmanıza olanak sağlar. Bir üyenin öznitelikleri değişirse sistem, üyenin kural gereksinimlerini karşıladığını mı (eklendiğini) yoksa artık kural gereksinimlerini karşılamadığını mı (kaldırıldığını) görmek amacıyla dizin için dinamik grup kurallarınıza bakar.
+
+        - **Dinamik cihaz.** Otomatik olarak cihazlar eklemek ve kaldırmak için dinamik grup kuralları kullanmanıza olanak sağlar. Bir cihazın öznitelikleri değişirse sistem, cihazın kural gereksinimlerini karşıladığını mı (eklendiğini) yoksa artık kural gereksinimlerini karşılamadığını mı (kaldırıldığını) görmek amacıyla dizin için dinamik grup kurallarınıza bakar.
+
+        >[!Important]
+        >Ya cihazlar ya da kullanıcılar için bir dinamik grup oluşturabilirsiniz, her ikisi için oluşturamazsınız. Ayrıca cihaz sahiplerinin özniteliklerine göre de bir cihaz grubu oluşturamazsınız. Cihaz üyeliği kuralları yalnızca cihaz ilişkilendirmesine başvurabilir. Kullanıcılar ve cihazlar için dinamik bir grup oluşturma hakkında daha fazla bilgi için bkz. [Dinamik grup oluşturma ve durumu denetleme](../users-groups-roles/groups-create-rule.md).
+
+4. **Oluştur**’u seçin.
+
+    Grubunuz oluşturulur ve üyeler eklemeniz için hazır olur.
+
+5. **Grup** sayfasından **Üyeler** alanını seçin ve sonra **Üyeleri seç** sayfasından grubunuza eklenecek üyeleri aramaya başlayın.
+
+    ![Grup oluşturma işlemi sırasında grubunuz için üyeleri seçme](media/active-directory-groups-create-azure-portal/select-members-create-group.png)
+
+6. Üye ekleme işleminiz bittiğinde **Seç** öğesini seçin.
+
+    **Gruba Genel Bakış** sayfası, şimdi gruba eklenen üye sayısını gösterecek şekilde güncelleştirilir.
+
+    ![Üye sayısı vurgulanmış şekilde Gruba Genel Bakış sayfası](media/active-directory-groups-create-azure-portal/group-overview-blade-number-highlight.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Bu makalelerde Azure Active Directory ile ilgili ek bilgi sağlanmıştır.
+Şimdi bir grup ve en az bir kullanıcı eklediğinize göre artık aşağıdakileri yapabilirsiniz:
 
-* [Var olan grupları görme](active-directory-groups-view-azure-portal.md)
-* [Bir grubun ayarlarını yönetme](active-directory-groups-settings-azure-portal.md)
-* [Bir grubun üyelerini yönetme](active-directory-groups-members-azure-portal.md)
-* [Bir grubun üyeliklerini yönetme](active-directory-groups-membership-azure-portal.md)
-* [Bir gruptaki kullanıcılar için dinamik kuralları yönetme](../users-groups-roles/groups-dynamic-membership.md)
+- [Grupları ve üyeleri görüntüleme](active-directory-groups-view-azure-portal.md)
+
+- [Grup üyeliğini yönetme](active-directory-groups-membership-azure-portal.md)
+
+- [Bir gruptaki kullanıcılar için dinamik kuralları yönetme](../users-groups-roles/groups-create-rule.md)
+
+- [Grup ayarlarınızı düzenleme](active-directory-groups-settings-azure-portal.md)
+
+- [Grupları kullanarak kaynaklara erişimi yönetme](active-directory-manage-groups.md)
+
+- [Grupları kullanarak SaaS uygulamalarına erişimi yönetme](../users-groups-roles/groups-saasapps.md)
+
+- [PowerShell komutlarını kullanarak grupları yönetme](../users-groups-roles/groups-settings-v2-cmdlets.md)
+
+- [Azure Active Directory’ye bir Azure aboneliğini ekleme veya ilişkilendirme](active-directory-how-subscriptions-associated-directory.md)

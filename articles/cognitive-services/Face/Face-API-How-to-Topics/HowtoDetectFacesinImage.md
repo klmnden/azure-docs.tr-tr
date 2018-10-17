@@ -1,64 +1,65 @@
 ---
-title: Yazıtipleri yüz API görüntülerle algılamak | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: Yüz API Bilişsel Hizmetleri'nde yüzeyleri görüntülerinde algılamak için kullanın.
+title: 'Örnek: Görüntülerde yüzleri algılama - Yüz Tanıma API’si'
+titleSuffix: Azure Cognitive Services
+description: Görüntülerde yüzleri algılamak için Yüz Tanıma API’sini kullanın.
 services: cognitive-services
 author: SteveMSFT
-manager: corncar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: face-api
-ms.topic: article
+ms.topic: sample
 ms.date: 03/01/2018
 ms.author: sbowles
-ms.openlocfilehash: 57cd0915450428399fd680638aa4fae2cdbe17c9
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
-ms.translationtype: MT
+ms.openlocfilehash: a4c74ff70a4426abf97562bf997479a91afbf17a
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35351730"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46124057"
 ---
-# <a name="how-to-detect-faces-in-image"></a>Görüntüde nasıl algılanacağını yüzler
+# <a name="example-how-to-detect-faces-in-image"></a>Örnek: Görüntüde Yüzleri Algılama
 
-Bu kılavuz, cinsiyetiniz, yaş veya ayıklanan poz gibi yüz özniteliklere sahip bir görüntüden yüzeyleri algılamak nasıl gösterecek. Örnekler C# ' ta yüz API'si istemci kitaplığı kullanılarak yazılır. 
+Bu kılavuzda, cinsiyet, yaş veya poz gibi özniteklerin ayıklanmasıyla birlikte bir görüntüdeki yüzlerin nasıl algılanacağı gösterilmektedir. Örnekler, Yüz Tanıma API’si istemci kitaplığı kullanılarak C# dilinde yazılır. 
 
-## <a name="concepts"></a> Kavramları
+## <a name="concepts"></a>Kavramlar
 
-Bu kılavuzda aşağıdaki kavramlar hiçbirini alışık değilseniz tanımlarında Lütfen bizim [sözlüğü](../Glossary.md) herhangi bir zamanda: 
+Bu kılavuzda yer alan aşağıdaki kavramlardan herhangi biri hakkında bilgi sahibi değilseniz istediğiniz zaman [Sözlük](../Glossary.md)’te yer alan tanımlara başvurabilirsiniz: 
 
 - Yüz algılama
-- Yüz bilinen yerler
-- HEAD teşkil
+- Yüz tanıma yer işaretleri
+- Baş pozu
 - Yüz öznitelikleri
 
-## <a name="preparation"></a> Hazırlama
+## <a name="preparation"></a>Hazırlık
 
-Bu örnekte, biz aşağıdaki özellikleri gösterilmektedir: 
+Bu örnekte, aşağıdaki özellikleri göstereceğiz: 
 
-- Bir görüntüden yüz algılama ve işaretlemeden dikdörtgen çerçeveleme kullanma
-- Göz bebeklerinin, burun veya ağzınıza konumlarını çözümleme ve bunları görüntüde işaretleme
-- Head poz, cinsiyetiniz ve yüz yaşını analiz etme
+- Bir görüntüden yüzleri algılama ve dikdörtgen çerçeve kullanarak işaretleme
+- Göz bebeklerinin konumlarını, burnu veya ağzı analiz etme ve sonra bunları görüntüde işaretleme
+- Baş pozunu, yüzün cinsiyetini ve yaşını analiz etme
 
-Bu özellikler yürütmek için en az bir Temizle yüz görüntüyle hazırlamak gerekir. 
+Bu özellikleri yürütmek için en az bir yüzün net olduğu bir görüntü hazırlamanız gerekir. 
 
-## <a name="step1"></a> 1. adım: API çağrısı yetkilendirme
+## <a name="step-1-authorize-the-api-call"></a>1. Adım: API çağrısını yetkilendirme
 
-Her yüz API çağrısı bir abonelik anahtarı gerektirir. Bu anahtar, istek başlığında belirtilen veya bir sorgu dizesi parametresi geçirilen gerekiyor. Sorgu dizesi abonelik tuşuyla geçirmek için istek URL'si için lütfen [yüz - algılamak](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) bir örnek olarak:
+Yüz Tanıma API’sine yapılan her çağrı için bir abonelik anahtarı gerekir. Bu anahtarın bir sorgu dizesi parametresi aracılığıyla geçirilmesi veya istek üst bilgisinde belirtilmesi gerekir. Sorgu dizesi aracılığıyla abonelik anahtarını geçirmek için örneğin, [Yüz - Algılama](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) istek URL’sine bakın:
 
 ```
 https://westus.api.cognitive.microsoft.com/face/v1.0/detect[?returnFaceId][&returnFaceLandmarks][&returnFaceAttributes]
 &subscription-key=<Subscription Key>
 ```
 
-Alternatif olarak, abonelik anahtarı da HTTP istek üstbilgisinde belirtilebilir: **apim abonelik anahtar ocp: &lt;abonelik anahtarı&gt;**  bir istemci kitaplığı kullanırken, abonelik anahtarı geçirilen FaceServiceClient sınıf oluşturucu kullanılarak. Örneğin:
+Alternatif olarak abonelik anahtarı, HTTP isteği üst bilgisinde de belirtilebilir: **ocp-apim-subscription-key: &lt;Abonelik Anahtarı&gt;** Bir istemci kitaplığı kullanılırken abonelik anahtarı, FaceServiceClient sınıfının oluşturucusu aracılığıyla geçirilir. Örnek:
 ```CSharp
 faceServiceClient = new FaceServiceClient("<Subscription Key>");
 ```
 
-## <a name="step2"></a> 2. adım: bir görüntü hizmetine yüklemek ve yüz algılama yürütme
+## <a name="step-2-upload-an-image-to-the-service-and-execute-face-detection"></a>2. Adım: Hizmete bir görüntü yükleme ve yüz algılamayı yürütme
 
-Yüz algılama gerçekleştirmek için en temel görüntü doğrudan karşıya yükleyerek yoludur. Bu, bir JPEG görüntüsünden okunan veriler ile uygulama/octet-akış içerik türüyle bir "POST" isteği göndererek gerçekleştirilir. Resmin en büyük boyutu 4 MB'tır.
+Yüz algılama en temel şekilde doğrudan bir görüntü karşıya yüklenerek gerçekleştirilir. JPEG görüntüsünden okunan verilerle uygulama/sekizli akış içerik türü ile bir "POST" isteği gönderilerek bu yapılır. Maksimum görüntü boyutu 4 MB’tır.
 
-İstemci kitaplığı kullanılarak, karşıya yükleme yoluyla yüz algılama geçirme akış nesnesindeki gerçekleştirilir. Aşağıdaki örneğe bakın:
+İstemci kitaplığı kullanılarak karşıya yükleme aracılığıyla yüz algılama bir Akış nesnesi geçirilerek gerçekleştirilir. Aşağıdaki örneğe bakın:
+
 ```CSharp
 using (Stream s = File.OpenRead(@"D:\MyPictures\image1.jpg"))
 {
@@ -72,9 +73,10 @@ using (Stream s = File.OpenRead(@"D:\MyPictures\image1.jpg"))
 }
 ```
 
-FaceServiceClient DetectAsync yöntemini zaman uyumsuz olduğunu unutmayın. Bekleme yan tümcesi kullanmak için arama yöntemi de, zaman uyumsuz olarak işaretlenmesi gerekir.
-Görüntü zaten Web'de ve bir URL'ye sahip ayrıca URL sağlayarak yüz algılama çalıştırılabilir. Bu örnekte, istek gövdesini URL'si içeren bir JSON dizesinde olacaktır.
-İstemci kitaplığı kullanılarak, bir URL yoluyla yüz algılama kolayca başka bir aşırı yüklemesini DetectAsync yöntemi kullanılarak çalıştırılabilir.
+FaceServiceClient sınıfının DetectAsync yönteminin zaman uyumsuz olduğunu unutmayın. await yan tümcesini kullanmak için çağırma yöntemi de zaman uyumsuz olarak işaretlenmelidir.
+Görüntü zaten web üzerindeyse ve bir URL içeriyorsa, URL sağlanarak da yüz algılama yürütülebilir. Bu örnekte istek gövdesi, URL’yi içeren bir JSON dizesi olacaktır.
+İstemci kitaplığı kullanılarak, DetectAsync yönteminin başka bir aşırı yüklemesi kolayca kullanılarak bir URL aracılığıyla yüz algılama yürütülebilir.
+
 ```CSharp
 string imageUrl = "http://news.microsoft.com/ceo/assets/photos/06_web.jpg";
 var faces = await faceServiceClient.DetectAsync(imageUrl, true, true);
@@ -86,17 +88,18 @@ foreach (var face in faces)
 }
 ``` 
 
-Algılanan yazıtipleri ile döndürülen FaceRectangle temelde piksel cinsinden yüz konumlarının özelliğidir. Genellikle, bu dikdörtgen göz, eyebrows, burun ve ağzınıza içerir – en head, kulağına ve şirketinden chin dahil değildir. Bir tam head veya Orta görüntüsü dikey (fotoğraf kimliği türü görüntü) kırparsanız yüzey alanını bazı uygulamalar için çok küçük olabilir çünkü dikdörtgen yüz çerçeve bölümünü genişletin isteyebilirsiniz. Yüz işaretleri kullanarak bir yazıtipi daha hassas bir şekilde bulmak için (yüz özellikleri bulmak veya yüz yön mekanizmalarını) açıklanan kullanışlı olması için sonraki bölümde kanıtlamak.
+Algılanan yüzlerle döndürülen FaceRectangle özelliği, piksel cinsinden yüzdeki temel konumlardır. Genellikle bu dikdörtgen, göz, kaş, burun ve ağız içerir; başın üst kısmı, kulaklar ve çene dahil edilmez. Başın tamamını veya vesikalık çekimi (fotoğraflı kimlik türü görüntüsü) kırparsanız, yüz alanı bazı uygulamalar için çok küçük olabileceğinden dikdörtgen yüz çerçevesinin alanını genişletmek isteyebilirsiniz. Bir yüzü daha net şekilde konumlandırmak için, sonraki bölümde açıklanan yüz tanıma yer işaretlerinin kullanılması (yüz özelliklerini konumlandırma veya yüz tanıma yönü mekanizmaları) faydalı olacaktır.
 
-## <a name="step3"></a> 3. adım: Anlama ve yüz yer işaretlerini kullanma
+## <a name="step-3-understanding-and-using-face-landmarks"></a>3. Adım: Yüz tanıma yer işaretlerini anlama ve kullanma
 
-Yüz işaretleri bir dizi bir yazıtipi ayrıntılı noktalarında; yine de uygun istiyor musunuz? genellikle yüz bileşenlerinin noktaları göz bebeklerinin, canthus veya burun gibi. Yüz işaretleri yüz algılama sırasında çözümlenebilir isteğe bağlı öznitelikleridir. İki geçiş 'true' olarak returnFaceLandmarks sorgu parametresi için bir Boole değeri çağrılırken yapabilecekleriniz [yüz - algılamak](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236), veya FaceServiceClient sınıf sırayla DetectAsync yöntemi için returnFaceLandmarks isteğe bağlı parametresini kullanın Algılama sonuçları yüz işaretleri eklemek için.
+Yüz tanıma yer işaretleri, bir yüzdeki ayrıntılı noktalardır; genellikle bu, göz bebekleri, gözün iç ve dış köşeleri veya burun gibi yüz bileşenlerinin noktalarıdır. Yüz tanıma yer işaretleri, yüz algılama sırasında analiz edilebilecek isteğe bağlı özniteliklerdir. Algılama sonuçlarında yüz yer işaretlerini dahil etmek için FaceServiceClient sınıfı DetectAsync yöntemi için returnFaceLandmarks isteğe bağlı parametresini kullanabilir veya [Yüz - Algılama](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) çağırırken returnFaceLandmarks sorgu parametresine Boole değeri olarak ‘true’ değerini geçirebilirsiniz.
 
-Varsayılan olarak, 27 önceden tanımlanmış önemli nokta vardır. Aşağıdaki şekil gösterir tüm 27 noktaları tanımlanan nasıl:
+Varsayılan olarak önceden tanımlanmış 27 yer işareti noktası vardır. Aşağıdaki şekilde, 27 noktanın tamamının nasıl tanımlandığı gösterilmektedir:
 
 ![HowToDetectFace](../Images/landmarks.1.jpg)
 
-Döndürülen yüz Dikdörtgen Çerçeve gibi piksel birimlerindeki noktalarıdır. Görüntüde ilgilendiğiniz belirli noktaları işaretlemek kolaylaştırır. Aşağıdaki kod, burun ve göz bebeklerinin konumlarını alma gösterir:
+Döndürülen noktalar, yüz dikdörtgen çerçevesi gibi piksel cinsindendir. Bu nedenle görüntüdeki belirli ilgi çekici noktaları işaretlemek kolaylaşır. Aşağıdaki kod, burun ve göz bebeklerinin konumlarının alınmasını gösterir:
+
 ```CSharp
 var faces = await faceServiceClient.DetectAsync(imageUrl, returnFaceLandmarks:true);
  
@@ -116,7 +119,7 @@ foreach (var face in faces)
 }
 ``` 
 
-Görüntüdeki yüz özellikleri işaretleme yanı sıra yüz yer işaretlerini de doğru şekilde yüz yönünü hesaplamak için kullanılabilir. Örneğin, biz yüz yönünü ağzınıza Merkezi'nden vektör gözler merkezi olarak tanımlayabilir. Aşağıdaki kod bu ayrıntılı olarak açıklanmaktadır:
+Resimdeki yüz özelliklerini işaretlemenin yanı sıra, yüz tanıma yer işaretleri yüzün yönünü doğru şekilde hesaplamak için de kullanılabilir. Örneğin, yüzün yönünü, ağzın merkezinden gözlerin merkezine doğru bir vektör olarak tanımlayabiliriz. Aşağıdaki kod bunu ayrıntılı şekilde açıklamaktadır:
 
 ```CSharp
 var landmarks = face.FaceLandmarks;
@@ -140,21 +143,22 @@ Vector faceDirection = new Vector(
     centerOfTwoEyes.Y - centerOfMouth.Y);
 ``` 
 
-Yüz bulunduğu yönü öğrenerek ile yüz hizalamak için dikdörtgen yüz çerçeve döndürebilirsiniz. Yüz yer işaretlerini kullanma'nün daha fazla ayrıntı ve yardımcı programı sağlayabilir işaretlenmemiştir.
+Yüzün bulunduğu yönü bilerek dikdörtgen yüz çerçevesini yüzle hizalanacak şekilde döndürebilirsiniz. Yüz tanıma yer işaretleri kullanıldığında daha fazla ayrıntı sağlanabileceği açıktır.
 
-## <a name="step4"></a> 4. adım: diğer yüz öznitelikleri kullanma
+## <a name="step-4-using-other-face-attributes"></a>4. Adım: Diğer yüz özniteliklerini kullanma
 
-Yüz bilinen yerler yanı sıra, yüz – algılamak API de birkaç bir yazıtipi özniteliklerinde analiz edebilirsiniz. Bu öznitelikler içerir:
+Yüz Tanıma - Algılama API’si, yüz tanıma yer işaretlerinin yanı sıra bir yüzdeki diğer birçok özniteliği de analiz edebilir. Bu öznitelikler arasında şunlar yer alır:
 
 - Yaş
 - Cinsiyet
-- Gülümseme gönderme yoğunluğu
-- Yüz artı
-- Bir 3B baş poz
+- Gülümseme yoğunluğu
+- Yüz kılı
+- 3B baş pozu
 
-Bu öznitelikler istatistiksel algoritmaları kullanarak tahmin ve her zaman % 100 kesin olmayabilir. Bu özniteliklerle yüzeyleri sınıflandırmak istediğiniz zaman ancak, bunlar hala faydalıdır. Her bir öznitelikleri hakkında daha fazla bilgi için lütfen başvurmak [sözlüğü](../Glossary.md).
+Bu öznitelikler, istatistiksel algoritmalar kullanılarak tahmin edilir ve her zaman %100 kesin olmayabilir. Ancak yüzleri bu özniteliklere göre sınıflandırmak istediğinizde yararlı olur. Özniteliklerin her biri hakkında daha fazla bilgi için lütfen bkz. [Sözlük](../Glossary.md).
 
-Yüz algılama sırasında yüz öznitelikleri ayıklanması, basit bir örnek aşağıda verilmiştir:
+Aşağıda, yüz algılama sırasında yüz özniteliklerini ayıklamaya ilişkin basit bir örnek yer almaktadır:
+
 ```CSharp
 var requiredFaceAttributes = new FaceAttributeType[] {
                 FaceAttributeType.Age,
@@ -180,12 +184,13 @@ foreach (var face in faces)
     var glasses = attributes.Glasses;
 }
 ``` 
-## <a name="summary"></a> Özet
 
-Bu kılavuzda işlevlerini öğrendiniz [yüz - algılamak](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) API'si, yerel resim veya görüntü URL'leri Web'de karşıya için nasıl yüzeyleri algılayabildiği; nasıl yüzeyleri dikdörtgen yüz çerçeveleri; döndürerek algılayabildiği ve nasıl de analiz yüz işaretleri, 3B baş üzerinden ve diğer yüz özellikleri de.
+## <a name="summary"></a>Özet
 
-İçin API Başvurusu Kılavuzu API ayrıntıları hakkında daha fazla bilgi için lütfen bakın [yüz - algılamak](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).
+Bu kılavuzda, [Yüz - Algılama](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) API’sinin işlevlerini, yerel karşıya yüklenen görüntüler ve web üzerindeki görüntü URL’leri için yüzleri nasıl algılayabileceğini, dikdörtgen yüz çerçeveleri döndürerek yüzleri nasıl algılayabileceğini ve yüz yer işaretlerini, 3B baş pozlarını ve diğer yüz özniteliklerini nasıl analiz edebileceğini öğrendiniz.
 
-## <a name="related"></a> İlgili Konular
+API ayrıntıları hakkında daha fazla bilgi için lütfen [Yüz - Algılama](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) için API başvuru kılavuzuna başvurun.
 
-[Görüntüde yüzeyleri belirleme](HowtoIdentifyFacesinImage.md)
+## <a name="related-topics"></a>İlgili Konular
+
+[Görüntüdeki Yüzleri Belirleme](HowtoIdentifyFacesinImage.md)

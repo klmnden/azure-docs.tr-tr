@@ -1,25 +1,26 @@
 ---
-title: Bing Haberler arama tek sayfa Web uygulaması (kaynak kodu) | Microsoft Docs
-description: Bir tek sayfalı Web uygulamasında Bing Haberler arama API kullanmayı gösteren öğretici için kaynak kod.
+title: 'Öğretici: Bing Haber Arama tek sayfalı web uygulaması (kaynak kodu)'
+titlesuffix: Azure Cognitive Services
+description: Tek sayfalı bir Web uygulamasında Bing Haber Arama API'sini kullanmayı gösteren öğreticinin kaynak kodu.
 services: cognitive-services
 author: mikedodaro
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-news-search
-ms.topic: article
+ms.topic: tutorial
 ms.date: 11/15/2017
 ms.author: rosh
 ms.reviewer: v-gedod
-ms.openlocfilehash: c16c7b6018ad7ef3e2f7786e7ef9fa477c666914
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
-ms.translationtype: MT
+ms.openlocfilehash: b8c3e022c93acd0a6e5a6dc96cc0375114093b87
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35352709"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48804302"
 ---
-# <a name="tutorial-single-page-news-search-app"></a>Öğretici: Tek sayfalı haber arama uygulama
+# <a name="tutorial-single-page-news-search-app"></a>Öğretici: Tek sayfalı Haber Arama uygulaması
 
-Bu konu ele tam kaynak kodu [tek sayfa uygulaması Öğreticisi](tutorial-bing-news-search-single-page-app.md) Bing Haberler arama için. Uygulamayı çalıştırmak için Not Defteri veya başka bir metin düzenleyicisi kaynak kodunu kopyalayın ve kaydedileceği `bing.html`. Ardından Microsoft Edge veya başka bir popüler tarayıcı kaydedilmiş dosyasını açın.
+Bing Haber Arama için [tek sayfalı uygulama öğreticisinin](tutorial-bing-news-search-single-page-app.md) eksiksiz kaynak kodudur. Uygulamayı çalıştırmak için kaynak kodu Not Defteri'ne veya başka bir metin düzenleyiciye kopyalayın ve `bing.html` olarak kaydedin. Daha sonra kaydedilen dosyayı Microsoft Edge'de veya yaygın olarak kullanılan başka bir tarayıcıda açın.
 
 ```html
 <!DOCTYPE html>

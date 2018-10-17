@@ -1,5 +1,5 @@
 ---
-title: Windows Sanal Makinelere Genel Bakış | Microsoft Belgeleri
+title: Windows Sanal Makinelerine Genel Bakış - Azure | Microsoft Docs
 description: Azure’da Windows sanal makineler oluşturma ve yönetme hakkında bilgi edinin.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -13,15 +13,15 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/17/2017
+ms.date: 10/04/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: e12b8153494eaefb1f7e2d27fc667ef0070c68d0
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 6ec151222bda3d87386cc3be4c54821775880795
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "41918549"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48816846"
 ---
 # <a name="overview-of-windows-virtual-machines-in-azure"></a>Azure’da Windows sanal makinelere genel bakış
 
@@ -83,9 +83,9 @@ Bu tabloda bir görüntünün bilgilerine nasıl erişebileceğiniz gösterilmi�
 | Yöntem | Açıklama |
 | --- | --- |
 | Azure portal |Bir görüntüyü kullanmak istediğinizde değerler otomatik olarak belirtilir. |
-| Azure PowerShell |[Get-AzureRMVMImagePublisher](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmimagepublisher) -Location "konum"<BR>[Get-AzureRMVMImageOffer](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmimageoffer) -Location "konum" -Publisher "yayımcıAdı"<BR>[Get-AzureRMVMImageSku](/powershell/module/azurerm.compute/get-azurermvmimagesku) -Location "konum" -Publisher "yayımcıAdı" -Offer "teklifAdı" |
+| Azure PowerShell |[Get-AzureRMVMImagePublisher](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmimagepublisher) -Location *konum*<BR>[Get-AzureRMVMImageOffer](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmimageoffer) -Location *konum* -Publisher *yayımcıAdı*<BR>[Get-AzureRMVMImageSku](/powershell/module/azurerm.compute/get-azurermvmimagesku) -Location *konum* -Publisher *yayımcıAdı* -Offer *teklifAdı* |
 | REST API'leri |[Görüntü yayımcılarını listeleme](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publishers)<BR>[Görüntü tekliflerini listeleme](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publisher-offers)<BR>[Görüntü sku’larını listeleme](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publisher-offer-skus) |
-| Azure CLI |[az vm image list-publishers](https://docs.microsoft.com/cli/azure/vm/image?view=azure-cli-latest#az_vm_image_list_publishers) --konum "location"<BR>[az vm image list-offers](https://docs.microsoft.com/cli/azure/vm/image?view=azure-cli-latest#az_vm_image_list_offers) --konum "location" --yayımcı "publisherName"<BR>[az vm image list-skus](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest#az_vm_list_skus) --konum "location" --yayımcı "publisherName" --teklif "offerName"|
+| Azure CLI |[az vm image list-publishers](https://docs.microsoft.com/cli/azure/vm/image?view=azure-cli-latest#az_vm_image_list_publishers) --location *konum*<BR>[az vm image list-offers](https://docs.microsoft.com/cli/azure/vm/image?view=azure-cli-latest#az_vm_image_list_offers) --location *konum* --publisher *yayımcıAdı*<BR>[az vm image list-skus](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest#az_vm_list_skus) --location *konum* --publisher *yayımcıAdı* --offer *teklifAdı*|
 
 [Kendi görüntünüzü yükleyip kullanmanız halinde](upload-generalized-managed.md#upload-the-vhd-to-your-storage-account) yayımcı adı, teklif ve sku kullanılmaz.
 
@@ -124,7 +124,7 @@ Bu tabloda VM’nizi oluşturmak için ihtiyaç duyacağınız giriş bilgileri 
 | REST API'leri |[VM oluşturma veya güncelleştirme](https://docs.microsoft.com/rest/api/compute/virtualmachines/virtualmachines-create-or-update) |
 | Azure CLI |[Azure CLI ile VM oluşturma](https://docs.microsoft.com/azure/virtual-machines/scripts/virtual-machines-windows-cli-sample-create-vm) |
 
-Hiç istemeyiz ama bazen ters giden bir şeyler olabilir. Bu gibi durumlarda [Azure’da Windows sanal makine oluşturmayla ilgili Resource Manager dağıtım sorunlarını giderme](troubleshoot-deployment-new-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) sayfasına bakın.
+Hiç istemeyiz ama bazen ters giden bir şeyler olabilir. Bu gibi durumlarda [Azure’da Windows sanal makine oluşturmayla ilgili Resource Manager dağıtım sorunlarını giderme](../troubleshooting/troubleshoot-deployment-new-vm-windows.md) sayfasına bakın.
 
 ## <a name="how-do-i-manage-the-vm-that-i-created"></a>Oluşturduğum VM’yi nasıl yönetebilirim?
 VM’ler tarayıcı tabanlı bir portal, betik oluşturma desteğine sahip komut satırı araçları kullanılarak veya doğrudan API’ler aracılığıyla yönetilebilir. Gerçekleştirmek isteyebileceğiniz genel yönetim görevlerinden bazıları VM hakkında bilgi alma, VM’de oturum açma, kullanılabilirlik durumunu yönetme ve yedekleme yapmadır.
@@ -141,10 +141,10 @@ Bu tabloda VM hakkında bilgi almak için kullanabileceğiniz yöntemlerden baz�
 | Azure CLI |VM’leri yönetmek için Azure CLI kullanmayla ilgili daha fazla bilgi için bkz. [Azure CLI Başvurusu](https://docs.microsoft.com/cli/azure/vm). |
 
 ### <a name="log-on-to-the-vm"></a>VM’de oturum açma
-Azure portalındaki Bağlan düğmesini kullanarak [Uzak Masaüstü (RDP) oturumu başlatabilirsiniz](connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Uzak bağlantı özelliğini kullanmaya çalışırken hatalarla karşılaşabilirsiniz. Bu durumda [Windows çalıştıran bir Azure sanal makinesine yapılan Uzak Masaüstü bağlantılarında sorun giderme](troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) sayfasındaki yardım bilgilerini inceleyin.
+Azure portalındaki Bağlan düğmesini kullanarak [Uzak Masaüstü (RDP) oturumu başlatabilirsiniz](connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Uzak bağlantı özelliğini kullanmaya çalışırken hatalarla karşılaşabilirsiniz. Bu durumda [Windows çalıştıran bir Azure sanal makinesine yapılan Uzak Masaüstü bağlantılarında sorun giderme](../troubleshooting/troubleshoot-rdp-connection.md) sayfasındaki yardım bilgilerini inceleyin.
 
 ### <a name="manage-availability"></a>Kullanılabilirliği yönetme
-Uygulamanız için [yüksek kullanılabilirlik düzeyini](manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) nasıl sağlayacağınızı kavramanız önemlidir. Bu yapılandırma, en az birinin çalıştığından emin olmak için birden fazla VM oluşturmayı kapsamaktadır.
+Uygulamanız için [yüksek kullanılabilirlik düzeyini](manage-availability.md) nasıl sağlayacağınızı kavramanız önemlidir. Bu yapılandırma, en az birinin çalıştığından emin olmak için birden fazla VM oluşturmayı kapsamaktadır.
 
 Dağıtımınızın 99,95 VM Hizmet Düzeyi Sözleşmesi kapsamına girebilmesi için iş yükünüzü çalıştıran iki veya daha fazla VM’yi bir [kullanılabilirlik kümesi](tutorial-availability-sets.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) içinde dağıtmanız gerekir. Bu yapılandırma, VM’lerinizin birden fazla hata etki alanına dağıtılmasını ve dağıtımlarının farklı bakım aralıklarına sahip ana bilgisayarlara yapılmasını sağlar. [Azure SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/) şartları, Azure’un tamamının kullanılabilirlik garantisini açıklamaktadır.
 
@@ -152,5 +152,5 @@ Dağıtımınızın 99,95 VM Hizmet Düzeyi Sözleşmesi kapsamına girebilmesi 
 Verileri ve varlıkları hem Azure Backup hem de Azure Site Recovery hizmetlerinde korumak için [Kurtarma Hizmetleri kasası](../../backup/backup-introduction-to-azure-backup.md) kullanılır. Kurtarma Hizmetleri kasası sayesinde [PowerShell kullanılarak Resource Manager ile dağıtılmış VM’ler için yedekleme dağıtımı ve yönetimi gerçekleştirebilirsiniz](../../backup/backup-azure-vms-automation.md). 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Linux VM’leri ile çalışmayı düşünüyorsanız bkz. [Azure ve Linux](../linux/overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-* Altyapınızı kurma hakkında daha fazla bilgi almak için [Örnek Azure altyapısı gözden geçirme](infrastructure-example.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) sayfasını inceleyin.
+* Linux VM’leri ile çalışmayı düşünüyorsanız bkz. [Azure ve Linux](../linux/overview.md).
+* Altyapınızı kurma hakkında daha fazla bilgi almak için [Örnek Azure altyapısı gözden geçirme](infrastructure-example.md) sayfasını inceleyin.

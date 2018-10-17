@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: overview
-ms.date: 08/27/2018
+ms.date: 10/03/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: ae2d312feb0fcefab85bcbbd2db7ac46c328213f
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: a23e9dc8fad52bac85de834c53d2c710423211c7
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43104991"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48269250"
 ---
 # <a name="what-is-azure-analysis-services"></a>Azure Analysis Services nedir?
 
@@ -39,7 +39,7 @@ Azure Analysis Services; **Geliştirici**, **Temel** ve **Standart** katmanları
 
 ### <a name="developer-tier"></a>Geliştirici katmanı
 
-Bu katman değerlendirme, geliştirme ve test senaryoları için önerilir. Tek bir plan, standart katman ile sunulan aynı işlevleri içerir ancak işlemci gücü, QPU ve bellek boyutu bakımından sınırlıdır. Bu katmanda sorgu çoğaltma ölçeği artırılamaz. Bu katman bir SLA sunmaz.
+Bu katman değerlendirme, geliştirme ve test senaryoları için önerilir. Tek bir plan, standart katman ile sunulan aynı işlevleri içerir ancak işlemci gücü, QPU ve bellek boyutu bakımından sınırlıdır. Bu katmanda sorgu çoğaltma ölçeği *artırılamaz*. Bu katman bir SLA sunmaz.
 
 |Planlama  |QPU’lar  |Bellek (GB)  |
 |---------|---------|---------|
@@ -102,6 +102,7 @@ Azure Analysis Services, dünyanın dört bir yanındaki bölgelerde desteklenir
 |Bölge  | Desteklenen planlar | Sorgu çoğaltmaları (yalnızca Standart planlar) |
 |---------|---------|:---------:|
 |Avustralya Güneydoğu     | B1, B2, S0, S1, S2, S4, D1       |    1     |
+|Avustralya Doğu     |    B1, B2, S0, S1, S2, S4    <br>S8, S9    |    3<br>1     |
 |Japonya Doğu  |   B1, B2, S0, S1, S2, S4, D1       |    1     |
 |Güneydoğu Asya     |     B1, B2, S0, S1, S2, S4, S8, S9, D1     |   1      |
 |Batı Hindistan     |    B1, B2, S0, S1, S2, S4, D1     |    1     |

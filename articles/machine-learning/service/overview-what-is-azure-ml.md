@@ -9,12 +9,12 @@ ms.reviewer: jmartens
 author: garyericson
 ms.author: garye
 ms.date: 09/24/2018
-ms.openlocfilehash: 6e0294f99d1c2291e84bf2ac5d5b1f771222b551
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 660e5515b765e133d5bc9309be5439209b957353
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47433421"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48238535"
 ---
 # <a name="what-is-azure-machine-learning-service-preview"></a>Azure Machine Learning hizmeti (önizleme) nedir?
 
@@ -48,7 +48,7 @@ Dağıtılan modelleri yönetebilir ve en uygun çözümü bulmak için denemele
 Azure Machine Learning hizmeti sizin için bir modeli otomatik olarak oluşturup otomatik olarak ayarlayabilir.
 Bir örneği için bkz. [Öğretici: Azure Automated Machine Learning ile bir sınıflandırma modelini otomatik olarak eğitme](tutorial-auto-train-models.md).
 
-Veya Python için Azure Machine Learning <a href="http://aka.ms/aml-sdk" target="_blank">SDK</a>’sını açık kaynaklı Python paketleri ile birlikte kullanarak, bir Azure Machine Learning çalışma alanında yüksek oranda doğru makine öğrenimi ve derin öğrenme modellerini kendi kendinize derleyip eğitebilirsiniz.
+Veya Python için Azure Machine Learning <a href="http://aka.ms/aml-sdk" target="_blank">SDK</a>’sını açık kaynaklı Python paketleri ile birlikte kullanarak, bir Azure Machine Learning hizmeti çalışma alanında yüksek oranda doğru makine öğrenimi ve derin öğrenme modellerini kendi kendinize derleyip eğitebilirsiniz.
 Açık kaynaklı Python paketlerinde mevcut olan aşağıdaki gibi çok sayıda makine öğrenimi bileşeni arasından seçim yapabilirsiniz:
 
 - <a href="http://scikit-learn.org/stable/" target="_blank">Scikit-learn</a>
@@ -80,7 +80,7 @@ Abone değilseniz, [ücretsiz olarak bir Azure hesabı açabilirsiniz](https://a
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- [Azure Portalı kullanarak başlama](quickstart-get-started.md) makalesinden yararlanarak bir makine öğrenimi çalışma alanı oluşturma
+- [Azure portalı kullanarak başlama](quickstart-get-started.md) makalesinden yararlanarak bir makine öğrenimi hizmeti çalışma alanı oluşturma
  
 - Azure Machine Learning hizmeti ile modelleri eğitme ve dağıtma hakkında bilgi almak için [Azure Machine Learning ile bir görüntü sınıflandırma modelini eğitme](tutorial-train-models-with-aml.md) adlı tam öğreticiyi izleyin
 

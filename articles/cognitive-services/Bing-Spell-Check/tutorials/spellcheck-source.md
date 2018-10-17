@@ -1,24 +1,25 @@
 ---
-title: Bing yazım denetleme API (Azure'da Microsoft Bilişsel hizmetler) kullanarak yazım denetleme sonuçlarını alma | Microsoft Docs
-description: Bir tek sayfalı Web uygulamasında Bing yazım denetleme API kullanmayı gösteren öğretici için kaynak kod.
+title: "Öğretici: Bing Yazım Denetimi API'si ile Yazım Denetimi Sonuçlarını Alma"
+titlesuffix: Azure Cognitive Services
+description: Tek sayfalı bir Web uygulamasında Bing Yazım Denetimi API'sini kullanmayı gösteren öğreticinin kaynak kodu.
 services: cognitive-services
 author: v-jaswel
-manager: kamrani
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-spell-check
-ms.topic: article
+ms.topic: tutorial
 ms.date: 10/04/2017
 ms.author: v-jaswel
-ms.openlocfilehash: 1f2f75a51324bb05e1b95dc3a3c4e438f3aa593c
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
-ms.translationtype: MT
+ms.openlocfilehash: baa618929b1f7b401c619681dce4e085b16543e7
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35351376"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48800970"
 ---
 # <a name="tutorial-single-page-web-app"></a>Öğretici: Tek sayfalı Web uygulaması
 
-Bu konu ele tam kaynak kodu [tek sayfa uygulaması Öğreticisi](spellcheck.md) Bing yazım denetleme API'si. Uygulamayı çalıştırmak için kaynak kodunu bir metin düzenleyicisine kopyalayın ve dosyayı farklı Kaydet `spellcheck.html`. Daha sonra kaydedilmiş dosyayı Web tarayıcınızda açın.
+Bing Yazım Denetimi API'si için [tek sayfalı uygulama öğreticisinin](spellcheck.md) eksiksiz kaynak kodudur. Uygulamayı çalıştırmak için kaynak kodu bir metin düzenleyiciye kopyalayın ve dosyayı `spellcheck.html` olarak kaydedin. Ardından kaydettiğiniz dosyayı Web tarayıcınızda açın.
 
 ```html
 <!DOCTYPE html>

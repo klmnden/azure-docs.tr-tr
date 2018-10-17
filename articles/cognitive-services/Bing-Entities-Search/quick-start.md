@@ -1,60 +1,59 @@
 ---
-title: Varlıkları arama API'si hızlı başlangıç | Microsoft Docs
-description: Bing varlıkları arama API'si ile çalışmaya başlamak gösterilmiştir.
+title: "Hızlı başlangıç: Bing Varlık Arama API'si"
+description: Bing Varlık Arama API'sini kullanmaya başlamayı göstermektedir.
 services: cognitive-services
 author: swhite-msft
-manager: ehansen
-ms.assetid: B206A254-B7E9-49FF-AFD5-87B1E4D6D30B
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-entity-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 07/06/2017
 ms.author: scottwhi
-ms.openlocfilehash: 12031d2447920c7e2d6180f35cf4fb29aa1b6150
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
-ms.translationtype: MT
+ms.openlocfilehash: ffc9ebb21c6646b1a39af4659053adf4157d204b
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35351526"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48813966"
 ---
-# <a name="making-your-first-entities-request"></a>İlk varlıklarınızı isteği yapma
+# <a name="quickstart-making-your-first-bing-entity-search-request"></a>Hızlı başlangıç: İlk Bing Varlık Arama isteğiniz oluşturma
 
-Varlık arama API için Bing arama sorgusu gönderir ve varlıkları ve basamak içeren sonuçları alır. Yerleştir sonuçları Restoran, otel veya diğer yerel işletmeler içerir. Bir yerde için (örneğin, Restoran bana yakın) listesi isteyebilir veya sorgu yerel iş adını belirtebilirsiniz. Varlık sonuçları, kişiler, yerler veya öğeleri içerir. Bu bağlamda yerdir turistik yerleri, durumları, ülkelerde vb. 
+Bing Varlık Arama API'si, Bing'e bir arama sorgusu gönderip varlıkları ve yerleri içeren sonuçlar alır. Yer sonuçları restoranlar, oteller veya diğer yerel işletmeleri kapsar. Yerler için sorguda yerel işletmenin adı belirtilebilir veya liste isteği (yakınımdaki restoranlar gibi) gönderilebilir. Varlık sonuçları kişileri, yerleri veya nesneleri kapsar. Bu bağlamda yer turistik noktalar, şehirler, ülkeler gibi konumlar olabilir. 
 
 ## <a name="first-steps"></a>İlk adımlar
 
-İlk aramanız yapabilmeniz için önce bir Bilişsel hizmetler abonelik anahtarı almanız gerekir. Bir anahtar almak için bkz: [deneyin Bilişsel Hizmetler](https://azure.microsoft.com/try/cognitive-services/?api=bing-entities-search-api). (Varlıkları arama API üstünde görünür durumda değilse tıklatın **arama** sekmesinde ve onu görene kadar aşağı kaydırın.)
+İlk çağrınızı yapmadan önce bir Bilişsel Hizmetler abonelik anahtarı almanız gerekir. Anahtar alma için bkz: [Bilişsel Hizmetleri Deneme](https://azure.microsoft.com/try/cognitive-services/?api=bing-entities-search-api). (Varlık Arama API'si en üstte görünmüyorsa **Ara** sekmesine gidin ve bulana kadar sayfayı kaydırın.)
 
 ## <a name="the-endpoint"></a>Uç nokta
 
-Varlık alma ve arama sonuçlarını yerleştirmek için aşağıdaki uç noktaya bir GET isteği gönder:  
+Varlık ve yer arama sonuçlarını almak için aşağıdaki uç noktaya bir GET isteği gönderin:  
   
 ```
 https://api.cognitive.microsoft.com/bing/v7.0/entities
 ```
 
-İstek HTTPS protokolünü kullanmanız gerekir.
+İstek, HTTPS protokolünü kullanmalıdır.
 
-Tüm istekleri bir sunucusundan kaynaklanan öneririz. Bir istemci uygulaması bir parçası olarak anahtar dağıtma erişmek kötü amaçlı bir üçüncü taraf için daha fazla fırsatı sağlar. Ayrıca, bir sunucudan çağrıları yapma tek bir yükseltme noktası API gelecek sürümlerinde sağlar.
+Tüm isteklerin bir sunucudan gönderilmesini öneririz. Anahtarı bir istemci uygulamanın parçası olarak dağıtmak, kötü amaçlı bir üçüncü tarafa anahtara erişmek için daha fazla fırsat sunar. Ayrıca bir sunucudan çağrı yapmak API'nin gelecek sürümleri için tek bir yükseltme noktası sağlar.
 
-## <a name="specifying-query-parameters-and-headers"></a>Sorgu parametrelerinin ve üst bilgileri belirtme
+## <a name="specifying-query-parameters-and-headers"></a>Sorgu parametrelerini ve üst bilgileri belirtme
 
-İstek belirtmelisiniz [q](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#query) kullanıcının arama terimi içeren sorgu parametresi. İstek de belirtmeniz gerekir [mkt](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#mkt) alınması için sonuçları istediğiniz Pazar tanımlayan sorgu parametresi. İsteğe bağlı sorgu parametrelerin listesi için bkz: [sorgu parametreleri](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#query-parameters). URL tüm sorgu parametreleri kodlayın.  
+İstek kullanıcının arama terimini içeren [q](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#query) sorgu parametresini belirtmelidir. İstek, sonuçların gelmesini istediğiniz pazarı tanımlayan [mkt](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#mkt) sorgu parametresini de belirtmelidir. İsteğe bağlı sorgu parametrelerinin bir listesi için bkz. [Sorgu Parametreleri](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#query-parameters). Tüm sorgu parametrelerini URL'de kodlayın.  
   
-İstek belirtmelisiniz [Apim abonelik anahtar Ocp](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#subscriptionkey) üstbilgi. İsteğe bağlı olsa da, aşağıdaki üst bilgiler de belirtmeniz önerilir:  
+İstek [Ocp-Apim-Subscription-Key](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#subscriptionkey) üstbilgisini belirtmelidir. İsteğe bağlı olmakla birlikte şu üstbilgileri de belirtmeniz önerilir:  
   
--   [Kullanıcı Aracısı](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#useragent)  
--   [X MSEdge ClientID](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#clientid)  
--   [X MSEdge ClientIP](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#clientip)  
--   [X arama konumu](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#location)  
+-   [User-Agent](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#useragent)  
+-   [X-MSEdge-ClientID](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#clientid)  
+-   [X-MSEdge-ClientIP](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#clientip)  
+-   [X-Search-Location](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#location)  
 
-İstemci IP ve konum üstbilgileri konumu kullanan içerik döndürmek için önemlidir.  
+İstemci IP'si ve konum üstbilgileri konuma duyarlı içerik döndürmek için önemlidir.  
 
-Tüm istek ve yanıt üstbilgileri listesi için bkz: [üstbilgileri](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#headers).
+Tüm istek ve yanıt üstbilgilerinin bir listesi için bkz. [Üstbilgiler](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#headers).
 
 ## <a name="the-request"></a>İstek
 
-Tüm üstbilgiler ve önerilen sorgu parametreleri içeren bir varlık isteği gösterir. 
+Aşağıda önerilen tüm sorgu parametrelerini ve üstbilgilerini içeren bir varlık isteği gösterilmektedir. 
 
 ```  
 GET https://api.cognitive.microsoft.com/bing/v7.0/entities?q=mount+rainier&mkt=en-us HTTP/1.1  
@@ -66,11 +65,11 @@ X-MSEdge-ClientID: <blobFromPriorResponseGoesHere>
 Host: api.cognitive.microsoft.com  
 ```  
 
-Herhangi bir Bing API'leri çağırma ilk kez ise, istemci kimliği üstbilgisi eklemeyin. Yalnızca istemci kimliği, daha önce Bing API'si çağırdıktan ve kullanıcı ve aygıt bileşimi için bir istemci kimliği Bing döndürülen içerir.
+Bing API'lerinden birini ilk kez çağırıyorsanız istemci kimliği üst bilgisini eklemeyin. İstemci kimliğini yalnızca önceden bir Bing API'sini çağırdıysanız ve Bing, kullanıcı ve cihaz birleşimi için bir istemci kimliği döndürdüyse dahil edin.
 
 ## <a name="the-response"></a>Yanıt
 
-Önceki istek yanıtı gösterir. Bu örnek ayrıca Bing özgü yanıt üstbilgilerini gösterir. Yanıt nesnesini hakkında daha fazla bilgi için bkz: [SearchResponse](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#searchresponse).
+Aşağıda, bir önceki isteğin yanıtı gösterilmektedir. Örnek ayrıca Bing'e özgü yanıt üstbilgilerini de göstermektedir. Yanıt nesnesi hakkında bilgi için bkz. [SearchResponse](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#searchresponse).
 
 ```
 BingAPIs-TraceId: 76DD2C2549B94F9FB55B4BD6FEB6AC
@@ -137,8 +136,8 @@ BingAPIs-Market: en-US
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Out API deneyin. Git [varlıkları arama konsol test API](https://dev.cognitive.microsoft.com/docs/services/7a3fb374be374859a823b79fd938cc65/). 
+API'yi deneyin. [Varlık Arama API'si Test Konsolu](https://dev.cognitive.microsoft.com/docs/services/7a3fb374be374859a823b79fd938cc65/)'na gidin. 
 
-Yanıt nesneleri kullanma hakkında daha fazla bilgi için bkz [Web varlıkları ve yerler için arama](./search-the-web.md).
+Yanıt nesnelerini kullanmanın ayrıntıları için bkz. [Web'de varlık ve yer arama](./search-the-web.md).
 
-Okuduğunuzdan emin olun [Bing kullanın ve görüntü gereksinimleri](./use-display-requirements.md) arama sonuçlarını kullanma hakkında kurallardan herhangi birinin kesmeyin şekilde.
+Arama sonuçlarını kullanma kurallarına uygun hareket ettiğinizden emin olmak için [Bing Kullanım ve Görüntüleme Gereksinimleri](./use-display-requirements.md)'ni okumayı unutmayın.

@@ -1,40 +1,41 @@
 ---
-title: Microsoft Bilişsel hizmetler - Bing özel arama - Java kullanarak uç noktasını çağırmak
-description: Bu hızlı başlangıçta, Bing özel arama uç noktasını çağırmak için Java kullanarak arama sonuçlarını özel arama örneğinizin isteği gösterilmektedir.
+title: 'Hızlı başlangıç: Java kullanarak uç nokta çağırma - Bing Özel Arama'
+titlesuffix: Azure Cognitive Services
+description: Bu hızlı başlangıçta Bing Özel Arama uç noktasını çağırmak için Java kullanarak özel arama örneğinizden arama sonuçlarını isteme adımları gösterilmektedir.
 services: cognitive-services
 author: brapel
-manager: ehansen
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-custom-search
-ms.topic: conceptual
+ms.topic: quickstart
 ms.date: 05/07/2018
 ms.author: v-brapel
-ms.openlocfilehash: 7ef4de749d5b9152bbe043a26d3c60fe7f09f869
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: MT
+ms.openlocfilehash: ba1eb9799bc95dede081c6f1a6d972896c126da6
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46951823"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48814126"
 ---
-# <a name="call-bing-custom-search-endpoint-java"></a>Çağrı Bing özel arama uç noktası (Java)
+# <a name="quickstart-call-bing-custom-search-endpoint-java"></a>Hızlı başlangıç: Bing Özel Arama uç noktasını çağırma (Java)
 
-Bu hızlı başlangıçta, arama sonuçlarını Bing özel arama uç noktasını çağırmak için Java kullanarak özel arama örneğinizin isteği gösterilmektedir. 
+Bu hızlı başlangıçta Bing Özel Arama uç noktasını çağırmak için Java kullanarak özel arama örneğinizden arama sonuçlarını isteme adımları gösterilmektedir. 
 
-## <a name="prerequisites"></a>Önkoşullar
+## <a name="prerequisites"></a>Ön koşullar
 
 Bu hızlı başlangıcı tamamlamak için şunlar gerekir:
 
-- Bir kullanıma hazır özel arama örneği. Bkz: [ilk Bing özel arama örneğinizin oluşturma](quick-start.md).
-- [Java](https://www.java.com) yüklü.
-- Bir abonelik anahtarı. Etkinleştirme sırasında bir abonelik anahtarı edinirler, [ücretsiz deneme sürümü](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search), ya da Ücretli abonelik anahtarı, Azure panosundan kullanabilirsiniz (bkz [Bilişsel hizmetler API hesabı](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)).    
+- Kullanıma hazır özel arama örneği. Bkz. [İlk Bing Özel Arama örneğinizi oluşturma](quick-start.md).
+- [Java](https://www.java.com) uygulamasının yüklenmiş olması.
+- Abonelik anahtarı. Abonelik anahtarını [ücretsiz denemenizi](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search) etkinleştirdikten sonra alabilir veya Azure panonuzdan ücretli abonelik anahtarı (bkz. [Bilişsel Hizmetler API hesabı](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)) kullanabilirsiniz.    
 
 ## <a name="run-the-code"></a>Kodu çalıştırma
 
-Bu örneği çalıştırmak için aşağıdaki adımları izleyin:
+Bu örneği çalıştırmak için aşağıdaki adımları uygulayın:
 
-1. Tercih ettiğiniz Java IDE'nizi kullanarak, bir paket oluşturun.  
+1. Tercih ettiğiniz Java IDE ortamını kullanarak bir paket oluşturun.  
   
-2. Pakette CustomSrchJava.java adlı bir dosya oluşturun ve içine aşağıdaki kodu kopyalayın. Değiştirin **YOUR-SUBSCRIPTION-KEY** ve **YOUR-özel-CONFIG-ID** abonelik anahtarınızı ve yapılandırma kimliği  
+2. Pakette CustomSrchJava.java adlı bir dosya oluşturun ve aşağıdaki kodu içine kopyalayın. **YOUR-SUBSCRIPTION-KEY** ve **YOUR-CUSTOM-CONFIG-ID** yerine abonelik anahtarınızı ve yapılandırma kimliğinizi yazın.  
   
     ```java
     import java.io.InputStream;
@@ -135,6 +136,6 @@ Bu örneği çalıştırmak için aşağıdaki adımları izleyin:
 4. Programı çalıştırın.
     
 ## <a name="next-steps"></a>Sonraki adımlar
-- [Barındırılan UI deneyiminizi yapılandırın](./hosted-ui.md)
-- [Metni vurgulayacak şekilde decoration işaretçileri kullanma](./hit-highlighting.md)
-- [Sayfa Web sayfaları](./page-webpages.md)
+- [Barındırılan kullanıcı arabirimi deneyiminizi yapılandırma](./hosted-ui.md)
+- [Metni vurgulamak için süsleme işaretçilerini kullanma](./hit-highlighting.md)
+- [Sayfa web sayfaları](./page-webpages.md)

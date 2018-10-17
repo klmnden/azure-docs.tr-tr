@@ -1,5 +1,5 @@
 ---
-title: .NET kullanarak Azure Tablo depolamayı ve Azure Cosmos DB Tablo API’sini kullanmaya başlama | Microsoft Docs
+title: .NET kullanarak Azure Tablo depolamayı ve Azure Cosmos DB Tablo API’sini kullanmaya başlama
 description: Azure Tablo Depolama veya Azure Cosmos DB Tablo API’sini kullanarak yapılandırılmış verileri bulutta depolayın.
 services: cosmos-db
 author: SnehaGunda
@@ -10,12 +10,12 @@ ms.devlang: dotnet
 ms.topic: sample
 ms.date: 08/17/2018
 ms.author: sngun
-ms.openlocfilehash: c084a08ffef868af751d065c5857a9b67a12485f
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: 00bc950493e7b4eaad4a2165779f5c8151070aee
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "41918421"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48042589"
 ---
 # <a name="get-started-with-azure-table-storage-and-the-azure-cosmos-db-table-api-using-net"></a>.NET kullanarak Azure Tablo depolamayı ve Azure Cosmos DB Tablo API’sini kullanmaya başlama
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
@@ -105,7 +105,7 @@ Bu kılavuzdaki örnekleri çalıştırmak için üç ortam seçeneğiniz vardı
 * Kodunuzu buluttaki bir Azure Cosmos DB hesabına karşı çalıştırabilirsiniz.
 * Kodunuzu Azure Storage öykünücüsüne karşı çalıştırabilirsiniz. Depolama öykünücüsü, buluttaki Azure Storage hesabına öykünen bir yerel ortamdır. Öykünücü, uygulamanız geliştirildiği sırada kodunuzu test etmek ve hatalarını ayıklamak için bağımsız bir seçenektir. Öykünücü iyi bilinen hesabı ve anahtarı kullanır. Daha fazla bilgi için bkz. [Geliştirme ve test için Azure depolama öykünücüsünü kullanma](../storage/common/storage-use-emulator.md).
 
-Buluttaki bir depolama hesabını hedefliyorsanız, depolama hesabınız için birincil erişim anahtarını Azure portalından kopyalayın. Daha fazla bilgi için bkz. [Depolama erişim anahtarlarını görüntüleme ve kopyalama](../storage/common/storage-create-storage-account.md#view-and-copy-storage-access-keys).
+Buluttaki bir depolama hesabını hedefliyorsanız, depolama hesabınız için birincil erişim anahtarını Azure portalından kopyalayın. Daha fazla bilgi için bkz. [Depolama hesabı erişim anahtarları](../storage/common/storage-account-manage.md#access-keys).
 
 > [!NOTE]
 > Azure Storage ile ilişkili maliyetlerin oluşmasını önlemek için depolama öykünücüsünü hedefleyebilirsiniz. Ancak, buluttaki bir Azure Storage hesabını hedeflemeyi seçerseniz, bu örneği gerçekleştirme maliyetleri göz ardı edilecektir.
@@ -121,7 +121,6 @@ Bağlantı dizeleri hakkında daha fazla bilgi için bkz. [Azure Depolama’da b
 
 > [!NOTE]
 > Hesap anahtarınız depolama hesabınızın kök parolasına benzer. Depolama hesabı anahtarınızı korumak için her zaman özen gösterin. Diğer kullanıcılara dağıtmaktan, sabit kodlamaktan ve başkalarının erişebileceği düz metin dosyasına kaydetmekten kaçının. Anahtarınızın tehlikede olduğunu düşünüyorsanız, Azure portalını kullanarak hesap anahtarınızı yeniden oluşturun.
-> 
 > 
 
 Bağlantı dizenizi yapılandırmak için, `app.config` dosyasını Visual Studio’daki Çözüm Gezgini'nden açın. `<appSettings>` öğesinin içeriğini aşağıda gösterildiği gibi ekleyin. `account-name` değerini hesabınızın adıyla ve `account-key` değerini hesabınızın erişim anahtarıyla değiştirin:

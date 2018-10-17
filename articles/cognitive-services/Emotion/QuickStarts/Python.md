@@ -1,36 +1,37 @@
 ---
-title: Duygu tanıma API'si Python hızlı başlangıç | Microsoft Docs
-description: Hızlı bir şekilde yardımcı olmak için bilgi ve kod örnekleri get duygu tanıma API'si Bilişsel hizmetler Python ile kullanmaya başlayın.
+title: "Hızlı başlangıç: Bir görüntüdeki yüzlerin duygularını tanıma - Duygu Tanıma API'si, Python"
+description: Python ile Duygu Tanıma API'sini kullanmaya başlamanıza yardımcı olacak bilgiler ve kod örnekleri edinin.
 services: cognitive-services
 author: anrothMSFT
-manager: corncar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: emotion-api
-ms.topic: article
+ms.topic: quickstart
 ms.date: 02/05/2018
 ms.author: anroth
-ms.openlocfilehash: ff1f6b2ddc872d0ee63d9885b04b1f007bc86e33
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
-ms.translationtype: MT
+ROBOTS: NOINDEX
+ms.openlocfilehash: c7611628918cf40800d173dc9404b0948b9a68a4
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35351629"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48236576"
 ---
-# <a name="emotion-api-python-quickstart"></a>Duygu tanıma API'si Python hızlı başlangıç
+# <a name="quickstart-build-an-app-to-recognize-emotions-on-faces-in-an-image"></a>Hızlı başlangıç: Bir görüntüdeki yüzlerin duygularını tanımak için bir uygulama oluşturma.
 
 > [!IMPORTANT]
-> Video API Önizleme 30 Ekim 2017 sona erdi. Yeni deneyin [Video dizin oluşturucu API önizlemesi](https://azure.microsoft.com/services/cognitive-services/video-indexer/) kolayca videoların öngörüleri ayıklamak ve konuşulan sözcüklerin, yüzler, karakterler ve duygular algılayarak arama sonuçları gibi içerik bulma deneyimlerini geliştirmek üzere. [Daha fazla bilgi edinin](https://docs.microsoft.com/azure/cognitive-services/video-indexer/video-indexer-overview).
+> Duygu Tanıma API'si 15 Şubat 2019 tarihinde kullanım dışı bırakılacaktır. Duygu tanıma özelliği [Yüz Tanıma API'sinin](https://docs.microsoft.com/azure/cognitive-services/face/) bir parçası olarak genel kullanıma sunulmuştur. 
 
-Bu kılavuz bilgiler sağlar ve hızlı bir şekilde yardımcı olmak için kod örnekleri, kullanımına başlamanıza [duygu tanıma API'si tanıması yöntemi](https://westus.dev.cognitive.microsoft.com/docs/services/5639d931ca73072154c1ce89/operations/563b31ea778daf121cc3a5fa) görüntünün bir veya daha fazla kişiler tarafından ifade duygular tanımak için Python ile. 
+Bu kılavuz bir görüntüdeki bir veya daha fazla kişinin duygularını tanımak için Python ile [Duygu Tanıma API'si Recognize metodunu](https://westus.dev.cognitive.microsoft.com/docs/services/5639d931ca73072154c1ce89/operations/563b31ea778daf121cc3a5fa) kullanmaya başlamanıza yardımcı olacak bilgiler ve kod örnekleri bulunmaktadır.
 
-Bu örneği Jupyter not defteri çalıştırmak [MyBinder](https://mybinder.org) başlatılırken bağlayıcı tıklayarak göstergeye: [ ![bağlayıcı](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/Microsoft/cognitive-services-notebooks/master?filepath=EmotionAPI.ipynb)
+Bu örneği başlatma Bağlayıcı rozetine tıklayarak [Bağlayıcım](https://mybinder.org)'da bir Jupyter not defteri olarak çalıştırabilirsiniz: [![Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/Microsoft/cognitive-services-notebooks/master?filepath=EmotionAPI.ipynb)
 
 
 ## <a name="prerequisite"></a>Önkoşul
-Ücretsiz abonelik anahtarınızı alın [burada](https://azure.microsoft.com/try/cognitive-services/)
+[Buradan](https://azure.microsoft.com/try/cognitive-services/) ücretsiz Abonelik Anahtarınızı alın
 
-## <a name="running-the-walkthrough"></a>İzlenecek yol çalıştırma
-Bu kılavuzda ile devam etmek için değiştirmek `subscription_key` daha önce aldığınız API anahtarı ile.
+## <a name="running-the-walkthrough"></a>Adımları çalıştırma
+Bu kılavuza devam etmek için `subscription_key` yerine önceden aldığınız API anahtarını girin.
 
 
 ```python
@@ -38,29 +39,29 @@ subscription_key = None
 assert subscription_key
 ```
 
-Ardından, hizmet URL'si API anahtarını kullanılan bölge karşılık geldiğinden emin olun. Bir deneme anahtarı kullanıyorsanız, herhangi bir değişiklik yapmanız gerekmez.
+Ardından hizmet URL'si bölgesinin API anahtarını ayarlarken kullandığınızla aynı olduğundan emin olun. Deneme anahtarı kullanıyorsanız değişiklik yapmanıza gerek yoktur.
 
 
 ```python
 emotion_recognition_url = "https://westus.api.cognitive.microsoft.com/emotion/v1.0/recognize"
 ```
 
-Bu kılavuzda diskte depolanan görüntüleri kullanır. Genel olarak erişilebilir bir URL kullanılabilir olan görüntüleri de kullanabilirsiniz. Daha fazla bilgi için bkz: [REST API belgeleri](https://westus.dev.cognitive.microsoft.com/docs/services/5639d931ca73072154c1ce89/operations/563b31ea778daf121cc3a5fa).
+Bu kılavuzda diskte bulunan görüntüler kullanılmaktadır. URL ile erişilebilen genel görüntüleri de kullanabilirsiniz. Daha fazla bilgi için bkz: [REST API belgeleri](https://westus.dev.cognitive.microsoft.com/docs/services/5639d931ca73072154c1ce89/operations/563b31ea778daf121cc3a5fa).
 
-Görüntü verilerini istek gövdesi bir parçası olarak geçirilir beri ayarlamak gerektiğini unutmayın `Content-Type` başlığına `application/octet-stream`. Bir görüntü URL aracılığıyla geçirilirse, üstbilgi kümesine unutmayın:
+Görüntü verileri istek gövdesinde geçirildiği için `Content-Type` üst bilgisinin `application/octet-stream` olarak ayarlanması gerektiğine dikkat edin. Görüntüyü URL ile geçiriyorsanız üst bilgisini şu şekilde ayarlamanız gerekir:
 ```python
 header = {'Ocp-Apim-Subscription-Key': subscription_key }
 ```
-URL'sini içeren bir sözlük oluşturun:
+URL'yi içeren bir sözlük oluşturun:
 ```python
 data = {'url': image_url}
 ```
-ve için geçirin `requests` kitaplığını kullanarak:
+ve bunu şu şekilde `requests` kitaplığına geçirin:
 ```python
 requests.post(emotion_recognition_url, headers=headers, json=image_data)
 ```
 
-İlk birkaç örnek görüntülerden indirin [duygu tanıma API'si](https://azure.microsoft.com/services/cognitive-services/emotion/) site.
+İlk olarak [Duygu Tanıma API'si](https://azure.microsoft.com/services/cognitive-services/emotion/) sitesinden birkaç örnek görüntü indirin.
 
 
 ```bash
@@ -101,9 +102,9 @@ analysis
 
 
 
-Döndürülen JSON nesnesi ile birlikte algılanan duygular tanındı yazıtipleri sınırlayıcı kutularını içerir. Her duygu daha yüksek bir puan daha düşük bir puan bir duygu daha göstergesi olduğu 0 ile 1 arasında bir puan ilişkilendirilir. 
+Döndürülen JSON nesnesinde tanınan yüzlerin sınırlayıcı kutularıyla birlikte algılanan duygular yer alır. Her duyguya 0 ile 1 arasında bir puan verilir ve yüksek puanlar, düşük puanlara göre daha yoğun bir duyguyu belirtir.
 
-Aşağıdaki satırları kod görüntü kullanarak yüzeyleri üzerinde algılanan duygular `matplotlib` kitaplığı. Görünmesine için yalnızca ilk üç duygular gösterilmektedir.
+Aşağıdaki kod satırları `matplotlib` kitaplığını kullanarak görüntüdeki yüzlerin duygularını alır. Karmaşıklığı azaltmak için yalnızca ilk üç duygu gösterilmektedir.
 
 
 ```python
@@ -129,7 +130,7 @@ for face in analysis:
 _ = plt.axis("off")
 ```
 
-`annotate_image` Sonraki gösterilen işlevi, belirtilen kendi yol dosya sisteminde bir görüntü dosyası üstünde duygular kaplamak için kullanılabilir. Daha önce gösterilen duygu API'de arama kodunu dayanır.
+Bir sonraki adımda gösterilen `annotate_image` işlevi, duyguları dosya sistemindeki yolu verilen bir görüntü dosyasının üzerine yerleştirebilir. Daha önce gösterilen Duygu Tanıma API'si çağırma kodunu temel alır.
 
 
 ```python
@@ -156,7 +157,7 @@ def annotate_image(image_path):
     _ = plt.axis("off")
 ```
 
-Son olarak, `annotate_image` işlevi aşağıdaki satırda gösterildiği gibi bir görüntü dosyasının çağrılamaz:
+Son olarak `annotate_image` işlevi aşağıdaki satırda gösterilen şekilde görüntü dosyasına çağrılabilir:
 
 
 ```python

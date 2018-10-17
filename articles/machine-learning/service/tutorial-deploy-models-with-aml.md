@@ -9,12 +9,12 @@ author: hning86
 ms.author: haining
 ms.reviewer: sgilley
 ms.date: 09/24/2018
-ms.openlocfilehash: eda4a1dabd20eee73cfbfa4dc0dd2b0eaa56788e
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: b1ae3fb5de3e28f44ef39731f49a33e2086255a1
+ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47031246"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48785350"
 ---
 # <a name="tutorial-2--deploy-an-image-classification-model-in-azure-container-instance-aci"></a>Öğretici 2: Azure Container Instance’da (ACI) bir görüntü sınıflandırma modelini dağıtma
 
@@ -35,14 +35,14 @@ ACI üretim dağıtımları için ideal olmasa da, iş akışını test etmek ve
 
 ## <a name="get-the-notebook"></a>Not defterini alma
 
-Kolaylık olması için, bu öğretici bir Jupyter notebook olarak sağlanır. `tutorials/02.deploy-models.ipynb` notebook’unu çalıştırmak için bu yöntemlerden istediğinizi kullanın:
+Kolaylık olması için, bu öğretici bir [Jupyter notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/02.deploy-models.ipynb) olarak sağlanır. `02.deploy-models.ipynb` notebook'unu Azure Notebooks üzerinde veya kendi Jupyter notebook sunucunuzda çalıştırın.
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-in-azure-notebook.md)]
 
 
 ## <a name="prerequisites"></a>Ön koşullar
 
-[Öğretici 1: Azure Machine Learning ile görüntü sınıflandırma modelini eğitme](tutorial-train-models-with-aml.md) notebook’unda model eğitimini tamamlayın.  
+[Öğretici 1: Azure Machine Learning hizmeti ile görüntü sınıflandırma modelini eğitme](tutorial-train-models-with-aml.md) notebook’unda model eğitimini tamamlayın.  
 
 
 ## <a name="set-up-the-environment"></a>Ortamı ayarlama
@@ -374,7 +374,7 @@ service.delete()
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu Azure Machine Learning öğreticisinde Python kullanarak aşağıdakileri yaptınız:
+Bu Azure Machine Learning hizmeti öğreticisinde Python kullanarak aşağıdakileri yaptınız:
 
 > [!div class="checklist"]
 > * Test ortamınızı ayarlama
@@ -383,4 +383,4 @@ Bu Azure Machine Learning öğreticisinde Python kullanarak aşağıdakileri yap
 > * Modeli ACI’ya dağıtma
 > * Dağıtılan modeli test etme
  
-Azure Machine Learning'in modelinize en iyi algoritmayı nasıl otomatik olarak seçip ayarlayabildiğini ve size o modeli oluşturduğunu görmek için [Otomatik algoritma seçimi]() öğreticisini de deneyebilirsiniz.
+Azure Machine Learning hizmetinin modelinize en iyi algoritmayı nasıl otomatik olarak seçip ayarlayabildiğini ve size o modeli oluşturduğunu görmek için [Otomatik algoritma seçimi]() öğreticisini de deneyebilirsiniz.

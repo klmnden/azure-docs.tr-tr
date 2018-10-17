@@ -1,35 +1,36 @@
 ---
-title: Python - özel görme Service - Azure Bilişsel Hizmetleri'nde TensorFlow modeli Çalıştır | Microsoft Docs
-description: Python içinde TensorFlow modeli Çalıştır
+title: 'Öğretici: Python’da TensorFlow modelini çalıştırma - Özel Görüntü İşleme Hizmeti'
+titlesuffix: Azure Cognitive Services
+description: Python’da TensorFlow modeli çalıştırın.
 services: cognitive-services
 author: areddish
-manager: chbuehle
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: custom-vision
-ms.topic: article
+ms.topic: tutorial
 ms.date: 05/17/2018
 ms.author: areddish
-ms.openlocfilehash: d31036404604104ca28328b6c8bc5d3ca74d83ea
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
-ms.translationtype: MT
+ms.openlocfilehash: 26427406b045b96f2f3f612e4444b7dc2afcefc6
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35355438"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48247321"
 ---
-# <a name="run-tensorflow-model-in-python"></a>Python içinde TensorFlow modeli Çalıştır
+# <a name="tutorial-run-tensorflow-model-in-python"></a>Öğretici: Python’da TensorFlow modelini çalıştırma
 
-Sonra [TensorFlow modelinizi dışarı](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/export-your-model) özel görme hizmetinden Bu hızlı başlangıç bu modeli yerel olarak görüntüleri sınıflandırmak için nasıl kullanılacağını gösterir.
+Özel Görüntü İşleme Hizmeti'ndeki [TensorFlow modelinizi dışarı aktardıktan](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/export-your-model) sonra bu hızlı başlangıcı izleyerek bu modeli görüntü sınıflandırma amacıyla yerel ortamda kullanabilirsiniz.
 
 ## <a name="install-required-components"></a>Gerekli bileşenleri yükleme
 
-### <a name="prerequisites"></a>Önkoşullar
+### <a name="prerequisites"></a>Ön koşullar
 
-Öğretici kullanmak için aşağıdakileri yapmanız gerekir:
+Öğreticiyi kullanmak için aşağıdakileri yapmanız gerekir:
 
-- Python 2.7 + veya Python 3.5 + yükleyin.
-- PIP yükleyin.
+- Python 2.7+ veya Python 3.5+ yükleyin.
+- Pip yükleyin.
 
-Ayrıca aşağıdaki paketleri yüklemeniz gerekir:
+Aşağıdaki paketleri de yüklemeniz gerekir:
 
 ```
 pip install tensorflow
@@ -38,9 +39,9 @@ pip install numpy
 pip install opencv-python
 ```
 
-## <a name="load-your-model-and-tags"></a>Etiketleri ve modelini yükleme
+## <a name="load-your-model-and-tags"></a>Modelinizi ve etiketleri yükleme
 
-İndirilen ZIP dosyasının bir model.pb ve bir labels.txt içerir. Bu dosyalar, eğitilen model ve sınıflandırma etiketlerini temsil eder. Modeli projenize yüklemek için ilk adımdır bakın.
+İndirdiğiniz zip dosyasında model.pb ve labels.txt dosyaları bulunur. Bu dosyalar eğitilen modeli ve sınıflandırma etiketlerini temsil eder. İlk adım, modeli projenize yüklemektir.
 
 ```Python
 import tensorflow as tf
@@ -60,11 +61,11 @@ with open(labels_filename, 'rt') as lf:
         labels.append(l.strip())
 ```
 
-## <a name="prepare-an-image-for-prediction"></a>Tahmin için bir görüntüsünü hazırlama
+## <a name="prepare-an-image-for-prediction"></a>Görüntüyü tahmin için hazırlama
 
-Tahmin için doğru şekli olmasını sağlamak için görüntüyü hazırlama birkaç adım vardır. Bu adımları eğitim sırasında gerçekleştirilen görüntü işleme taklit:
+Görüntüyü tahmin için uygun hale getirmek üzere gerçekleştirmeniz gereken birkaç adım vardır. Bu adımlar eğitim sırasında gerçekleştirilen görüntü işleme adımlarına benzer:
 
-### <a name="open-the-file-and-create-an-image-in-the-bgr-color-space"></a>Dosyasını açın ve BGR renk alanı bir görüntü oluşturma
+### <a name="open-the-file-and-create-an-image-in-the-bgr-color-space"></a>Dosyayı açma ve BGR renk alanında bir görüntü oluşturma
 
 ```Python
 from PIL import Image
@@ -82,7 +83,7 @@ image = update_orientation(image)
 image = convert_to_opencv(image)
 ```
 
-### <a name="deal-with-images-with-a-dimension-1600"></a>Bir boyut ile görüntüleri içeren > 1600
+### <a name="deal-with-images-with-a-dimension-1600"></a>Kenarlarından biri 1600'den küçük olan görüntülerle ilgilenme
 
 ```Python
 # If the image has either w or h greater than 1600 we resize it down respecting
@@ -90,7 +91,7 @@ image = convert_to_opencv(image)
 image = resize_down_to_1600_max_dim(image)
 ```
 
-### <a name="crop-the-largest-center-square"></a>En büyük merkezi kare kırpma
+### <a name="crop-the-largest-center-square"></a>En büyük orta kareyi kırpma
 
 ```Python
 # We next get the largest center square
@@ -99,7 +100,7 @@ min_dim = min(w,h)
 max_square_image = crop_center(image, min_dim, min_dim)
 ```
 
-### <a name="resize-down-to-256x256"></a>256 x 256 aşağıya doğru yeniden boyutlandırma
+### <a name="resize-down-to-256x256"></a>256x256 olarak yeniden boyutlandırma
 
 ```Python
 # Resize that square down to 256x256
@@ -107,7 +108,7 @@ augmented_image = resize_to_256_square(max_square_image)
 ```
 
 
-### <a name="crop-the-center-for-the-specific-input-size-for-the-model"></a>Kırpma merkezi modeli için belirli giriş boyutu
+### <a name="crop-the-center-for-the-specific-input-size-for-the-model"></a>Modele özgü giriş boyutu için ortayı kırpma
 
 ```Python
 # The compact models have a network size of 227x227, the model requires this size.
@@ -118,7 +119,7 @@ augmented_image = crop_center(augmented_image, network_input_size, network_input
 
 ```
 
-Yukarıdaki adımları aşağıdaki yardımcı işlevleri kullanın:
+Yukarıdaki adımlar aşağıdaki yardımcı işlevleri kullanır:
 
 ```Python
 def convert_to_opencv(image):
@@ -162,9 +163,9 @@ def update_orientation(image):
     return image
 ```
 
-## <a name="predict-an-image"></a>Bir görüntü tahmin etme
+## <a name="predict-an-image"></a>Görüntü tahmininde bulunma
 
-Görüntü tensor hazırlandığında sonra bunu bir tahmin modeli aracılığıyla gönderebiliriz:
+Görüntü Tensor olarak hazırlandıktan sonra tahmin için model üzerinden gönderilebilir:
 
 ```Python
 
@@ -179,7 +180,7 @@ with tf.Session() as sess:
 
 ## <a name="view-the-results"></a>Sonuçları görüntüleme
 
-Görüntü tensor modeli aracılığıyla çalıştırma sonuçları etiketlerine eşlenmesi gerekir.
+Tensor görüntü model aracılığıyla çalıştırıldığında etiketlerle eşlenmelidir.
 
 ```Python
     # Print the highest probability label
@@ -189,15 +190,15 @@ Görüntü tensor modeli aracılığıyla çalıştırma sonuçları etiketlerin
 
     # Or you can print out all of the results mapping labels to probabilities.
     label_index = 0
-    for p in predictions:
-        truncated_probablity = np.float64(round(p,8))
+    for p in predictions[0]:
+        truncated_probablity = np.float64(np.round(p,8))
         print (labels[label_index], truncated_probablity)
         label_index += 1
 ```
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Ayrıca, bir mobil uygulamasına model kayabilir:
-* [Dışarı aktarılan Tensorflow modelinizi bir Android uygulamasını kullanma](https://github.com/Azure-Samples/cognitive-services-android-customvision-sample)
-* [Dışarı aktarılan CoreML modelinizi SWIFT iOS uygulamada kullanın](https://go.microsoft.com/fwlink/?linkid=857726)
-* [Xamarin iOS uygulamasıyla dışarı aktarılan CoreML modelinizi kullanın](https://github.com/xamarin/ios-samples/tree/master/ios11/CoreMLAzureModel)
+Modeli bir mobil uygulama içine de sarmalayabilirsiniz:
+* [Dışarı aktarılan Tensorflow modelinizi bir Android uygulamasında kullanma](https://github.com/Azure-Samples/cognitive-services-android-customvision-sample)
+* [Dışarı aktarılan CoreML modelinizi bir Swift iOS uygulamasında kullanma](https://go.microsoft.com/fwlink/?linkid=857726)
+* [Dışarı aktarılan CoreML modelinizi Xamarin ile bir iOS uygulamasında kullanma](https://github.com/xamarin/ios-samples/tree/master/ios11/CoreMLAzureModel)
 

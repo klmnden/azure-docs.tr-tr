@@ -5,19 +5,23 @@ services: event-grid
 keywords: ''
 author: tfitzmac
 ms.author: tomfitz
-ms.date: 07/05/2018
+ms.date: 10/02/2018
 ms.topic: quickstart
 ms.service: event-grid
-ms.openlocfilehash: ec85a866279412232aa23fad8f975d1642525772
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.openlocfilehash: 630130bde0440a8a5f51589386f42214f27af59a
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42022639"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48040635"
 ---
 # <a name="create-and-route-custom-events-with-the-azure-portal-and-event-grid"></a>Azure portalı ve Event Grid ile özel olaylar oluşturma ve yönlendirme
 
-Azure Event Grid, bulut için bir olay oluşturma hizmetidir. Bu makalede, Azure portalını kullanarak özel bir konu oluşturur, konuya abone olur ve sonucu görüntülemek için olayı tetiklersiniz. Olay verilerini günlüğe kaydeden bir Azure İşlevine olayı gönderirsiniz. İşiniz bittiğinde, olay verilerinin bir uç noktaya gönderildiğini ve günlüğe kaydedildiğini görürsünüz.
+Azure Event Grid, bulut için bir olay oluşturma hizmetidir. Bu makalede, Azure portalını kullanarak özel bir konu oluşturur, bu özel konuya abone olur ve sonucu görüntülemek için olayı tetiklersiniz. Normalde olayları, olay verilerini işleyen ve eylemler gerçekleştiren bir uç noktaya gönderirsiniz. Bununla birlikte, bu makaleyi basitleştirmek için olayları iletilerin toplandığı ve görüntülendiği bir web uygulamasına gönderirsiniz.
+
+İşiniz bittiğinde, olay verilerinin web uygulamasına gönderildiğini görürsünüz.
+
+![Sonuçları görüntüleme](./media/custom-event-quickstart-portal/view-result.png)
 
 [!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
 
@@ -27,7 +31,7 @@ Azure Event Grid, bulut için bir olay oluşturma hizmetidir. Bu makalede, Azure
 
 Event grid konusu, olaylarınızı göndereceğiniz kullanıcı tanımlı bir uç nokta sağlar. 
 
-1. [Azure portalı](https://portal.azure.com/)’nda oturum açın.
+1. [Azure portalda](https://portal.azure.com/) oturum açın.
 
 1. Özel bir konu oluşturmak için **Kaynak oluşturun** seçeneğini belirleyin. 
 
@@ -41,7 +45,7 @@ Event grid konusu, olaylarınızı göndereceğiniz kullanıcı tanımlı bir u�
 
    ![Başlangıç adımları](./media/custom-event-quickstart-portal/select-create.png)
 
-1. Özel konu için benzersiz bir ad belirtin. Konu adı bir DNS girdisi ile temsil edildiğinden benzersiz olmalıdır. Görüntüde gösterilen adı kullanmayın. Bunun yerine, kendi adınızı oluşturun. Kaynak grubu için bir ad belirtin. **Oluştur**’u seçin.
+1. Özel konu için benzersiz bir ad belirtin. Konu adı bir DNS girdisi ile temsil edildiğinden konu adı benzersiz olmalıdır. Görüntüde gösterilen adı kullanmayın. Bunun yerine, kendi adınızı oluşturun. Kaynak grubu için bir ad belirtin. **Oluştur**’u seçin.
 
    ![Olay kılavuzu konu değerlerini sağlama](./media/custom-event-quickstart-portal/create-custom-topic.png)
 
@@ -61,77 +65,61 @@ Event grid konusu, olaylarınızı göndereceğiniz kullanıcı tanımlı bir u�
 
    ![Ad çakışması](./media/custom-event-quickstart-portal/name-conflict.png)
 
-## <a name="create-an-azure-function"></a>Azure İşlevi oluşturma
+## <a name="create-a-message-endpoint"></a>İleti uç noktası oluşturma
 
-Konuya abone olmadan önce olay iletisi için uç noktayı oluşturalım. Bu makalede, Azure İşlevleri’ni kullanarak uç nokta için bir işlev uygulaması oluşturacaksınız.
+Özel konuya abone olmadan önce, olay iletisi için uç noktayı oluşturalım. Normalde, olay verileri temelinde uç nokta eylemleri gerçekleştirir. Bu hızlı başlangıcı basitleştirmek için, olay iletilerini görüntüleyin bir [önceden oluşturulmuş web uygulaması](https://github.com/Azure-Samples/azure-event-grid-viewer) dağıtırsınız. Dağıtılan çözüm bir App Service planı, App Service web uygulaması ve GitHub'dan kaynak kod içerir.
 
-1. Bir işlev oluşturmak için **Kaynak oluşturun** seçeneğini belirleyin.
+1. Çözümü aboneliğinize dağıtmak için **Azure'a Dağıt**'ı seçin. Azure portalında parametre değerlerini girin.
 
-   ![Kaynak oluşturma](./media/custom-event-quickstart-portal/create-resource-small.png)
+   <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fazure-event-grid-viewer%2Fmaster%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a>
 
-1. **İşlem** ve **İşlev Uygulaması** seçeneğini belirleyin.
+1. Dağıtımın tamamlanması birkaç dakika sürebilir. Dağıtım başarıyla gerçekleştirildikten sonra, web uygulamanızı görüntüleyip çalıştığından emin olun. Web tarayıcısında şu adrese gidin: `https://<your-site-name>.azurewebsites.net`
 
-   ![İşlev oluşturma](./media/custom-event-quickstart-portal/create-function.png)
+1. Siteyi görürsünüz ancak henüz yayımlanmış olay yoktur.
 
-1. Azure İşlevi için benzersiz bir ad belirtin. Görüntüde gösterilen adı kullanmayın. Bu makalede oluşturduğunuz kaynak grubunu seçin. Barındırma planı için **Tüketim Planı**’nı kullanın. Önerilen yeni depolama hesabını kullanın. Application Insights’ı devre dışı bırakabilirsiniz. Değerleri girdikten sonra **Oluştur**’u seçin.
+   ![Yeni siteyi görüntüleme](./media/custom-event-quickstart-portal/view-site.png)
 
-   ![İşlev değerleri sağlama](./media/custom-event-quickstart-portal/provide-function-values.png)
+## <a name="subscribe-to-custom-topic"></a>Özel konuya abone olma
 
-1. Dağıtım tamamlandığında **Kaynağa git** seçeneğini belirleyin.
+Event Grid’e hangi olayları izlemek istediğinizi ve olayların nereye gönderileceğini bildirmek için bir Event Grid konusuna abone olursunuz.
 
-   ![Kaynağa git](./media/custom-event-quickstart-portal/go-to-resource.png)
+1. Portalda özel konunuzu seçin.
 
-1. **İşlevler**’in yanında **+** seçeneğini belirleyin.
+   ![Özel konu seçme](./media/custom-event-quickstart-portal/select-custom-topic.png)
 
-   ![İşlev ekleme](./media/custom-event-quickstart-portal/add-function.png)
+1. **+ Olay Aboneliği**'ni seçin.
 
-1. Kullanılabilir seçenekler arasından **Özel işlev**’i seçin.
+   ![Olay aboneliği ekleyin](./media/custom-event-quickstart-portal/new-event-subscription.png)
 
-   ![Özel işlev](./media/custom-event-quickstart-portal/select-custom-function.png)
+1. Uç noktası türü olarak **Web Kancası**'nı seçin. Olay aboneliği için bir ad belirtin.
 
-1. Sayfayı aşağı kaydırıp **Olay Kılavuzu tetikleyicisi**’ni bulun. **C#** seçeneğini belirleyin.
+   ![Olay abonelik değerlerini sağlama](./media/custom-event-quickstart-portal/provide-subscription-values.png)
 
-   ![Olay kılavuzu tetikleyicisini seçme](./media/custom-event-quickstart-portal/select-event-grid-trigger.png)
+1. **Bir uç nokta seçin**'i belirleyin. 
 
-1. Varsayılan değerleri kabul edin ve **Oluştur**’u seçin.
+1. Web kancası uç noktası için web uygulamanızın URL'sini girin ve ana sayfa URL'sine `api/updates` ekleyin. **Seçimi Onayla**'yı seçin.
 
-   ![Yeni işlev](./media/custom-event-quickstart-portal/new-function.png)
+   ![Uç nokta URL'si sağlama](./media/custom-event-quickstart-portal/provide-endpoint.png)
 
-İşleviniz artık olayları almaya hazırdır.
+1. Olay aboneliği değerlerini girmeyi tamamladıktan sonra **Oluştur**'u seçin.
 
-## <a name="subscribe-to-a-topic"></a>Bir konuya abone olma
+Web uygulamanızı yeniden görüntüleyin ve buna bir abonelik doğrulama olayının gönderildiğine dikkat edin. Göz simgesini seçerek olay verilerini genişletin. Uç noktanın olay verilerini almak istediğini doğrulayabilmesi için Event Grid doğrulama olayını gönderir. Web uygulaması aboneliği doğrulamak için kod içerir.
 
-Event Grid’e hangi olayları izlemek istediğinizi ve olayların nereye gönderileceğini bildirmek için bir konuya abone olursunuz.
-
-1. Azure işlevinizde **Event Grid Aboneliği Ekle**’yi seçin.
-
-   ![Olay kılavuzu aboneliği ekleme](./media/custom-event-quickstart-portal/add-event-grid-subscription.png)
-
-1. Abonelik için değerler belirtin. Konu türü için **Olay Kılavuzu Konuları**'nı seçin. Abonelik ve kaynak grubu için, özel konuyu oluşturduğunuz aboneliği ve kaynak grubunu seçin. Örneğin, özel konunuzun adını seçin. Abone uç noktası, işlevin URL’si ile önceden doldurulur.
-
-   ![Abonelik değerlerini belirtme](./media/custom-event-quickstart-portal/provide-subscription-values.png)
-
-1. Olayı tetiklemeden önce, olay verilerinin ne zaman gönderildiğini görebilmeniz için işlevin günlüklerini açın. Azure işlevinizin alt kısmında **Günlükler**’i seçin.
-
-   ![Günlükleri seçme](./media/custom-event-quickstart-portal/select-logs.png)
-
-Şimdi, Event Grid’in iletiyi uç noktanıza nasıl dağıttığını görmek için bir olay tetikleyelim. Bu makaleyi basitleştirmek için Cloud Shell kullanarak özel konuya örnek olay verilerini gönderin. Normalde olay verilerini bir uygulama veya Azure hizmeti gönderir.
-
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+![Abonelik olayını görüntüleme](./media/custom-event-quickstart-portal/view-subscription-event.png)
 
 ## <a name="send-an-event-to-your-topic"></a>Konunuza olay gönderme
 
-Özel konunuza bir test olayı göndermek için Azure CLI veya PowerShell kullanın.
+Şimdi, Event Grid’in iletiyi uç noktanıza nasıl dağıttığını görmek için bir olay tetikleyelim. Özel konunuza bir test olayı göndermek için Azure CLI veya PowerShell kullanın. Normalde olay verilerini bir uygulama veya Azure hizmeti gönderir.
 
-Birinci örnekte, Azure CLI kullanılmaktadır. Konunun URL’si ve anahtarı ile örnek olay verilerini alır. `<topic_name>` için kendi konu adınızı kullanın. Tüm olayı görmek için `echo "$body"` kullanın. JSON’un `data` öğesi, olayınızın yüküdür. Bu alana doğru oluşturulmuş herhangi bir JSON gelebilir. Ayrıca, gelişmiş yönlendirme ve filtreleme için konu alanını da kullanabilirsiniz. CURL, HTTP istekleri gönderen bir yardımcı programdır.
+Birinci örnekte, Azure CLI kullanılmaktadır. Özel konunun URL’si ve anahtarı ile örnek olay verilerini alır. `<topic_name>` yerine özel konunuzun adını yazın. Örnek olay verileri oluşturulur. JSON’un `data` öğesi, olayınızın yüküdür. Bu alana doğru oluşturulmuş herhangi bir JSON gelebilir. Ayrıca, gelişmiş yönlendirme ve filtreleme için konu alanını da kullanabilirsiniz. CURL, HTTP istekleri gönderen bir yardımcı programdır.
 
 ```azurecli-interactive
 endpoint=$(az eventgrid topic show --name <topic_name> -g myResourceGroup --query "endpoint" --output tsv)
 key=$(az eventgrid topic key list --name <topic_name> -g myResourceGroup --query "key1" --output tsv)
 
-body=$(eval echo "'$(curl https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/event-grid/customevent.json)'")
+event='[ {"id": "'"$RANDOM"'", "eventType": "recordInserted", "subject": "myapp/vehicles/motorcycles", "eventTime": "'`date +%Y-%m-%dT%H:%M:%S%z`'", "data":{ "make": "Ducati", "model": "Monster"},"dataVersion": "1.0"} ]'
 
-curl -X POST -H "aeg-sas-key: $key" -d "$body" $endpoint
+curl -X POST -H "aeg-sas-key: $key" -d "$event" $endpoint
 ```
 
 İkinci örnek, benzer adımları gerçekleştirmek için PowerShell’i kullanır.
@@ -165,9 +153,25 @@ $body = "["+(ConvertTo-Json $htbody)+"]"
 Invoke-WebRequest -Uri $endpoint -Method POST -Body $body -Headers @{"aeg-sas-key" = $keys.Key1}
 ```
 
-Olayı tetiklediniz ve Event Grid, iletiyi abone olurken yapılandırdığınız uç noktaya gönderdi. Olay verilerini görmek için günlüklere bakın.
+Olayı tetiklediniz ve Event Grid, iletiyi abone olurken yapılandırdığınız uç noktaya gönderdi. Az önce gönderdiğiniz olayı görmek için web uygulamanızı görüntüleyin.
 
-![Günlükleri görüntüleme](./media/custom-event-quickstart-portal/view-log-entry.png)
+```json
+[{
+  "id": "1807",
+  "eventType": "recordInserted",
+  "subject": "myapp/vehicles/motorcycles",
+  "eventTime": "2017-08-10T21:03:07+00:00",
+  "data": {
+    "make": "Ducati",
+    "model": "Monster"
+  },
+  "dataVersion": "1.0",
+  "metadataVersion": "1",
+  "topic": "/subscriptions/{subscription-id}/resourceGroups/{resource-group}/providers/Microsoft.EventGrid/topics/{topic}"
+}]
+```
+
+
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 

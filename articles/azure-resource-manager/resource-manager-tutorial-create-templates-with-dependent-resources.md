@@ -13,18 +13,18 @@ ms.devlang: na
 ms.date: 09/07/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: e5ced038d5f1ab57939221a0392ab436560c348d
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: fe6313c059a1dd1050240ead5f7ca8e3e1512aa6
+ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44160519"
+ms.lasthandoff: 10/01/2018
+ms.locfileid: "47584522"
 ---
 # <a name="tutorial-create-azure-resource-manager-templates-with-dependent-resources"></a>Öğretici: Bağımlı kaynaklarla Azure Resource Manager şablonları oluşturma
 
 Birden fazla kaynağı dağıtmak için kullanabileceğiniz bir Azure Resource Manager şablonu oluşturmayı öğrenin.  Şablonu oluşturduktan sonra Azure portaldan Cloud Shell kullanarak dağıtacaksınız.
 
-Kaynakların bazıları başka bir kaynak var olana kadar dağıtılamaz. Örneğin depolama hesabı ve ağ arabirimi oluşturulmadan sanal makineyi oluşturamazsınız. Bu ilişkiyi, kaynakların birini diğer kaynaklara bağımlı hale getirerek tanımlarsınız. Resource Manager, kaynaklar arasındaki bağımlılıkları değerlendirir ve bunları bağımlılık sırasına göre dağıtır. Resource Manager, birbirine bağımlı olmayan kaynakları paralel olarak dağıtır. Daha fazla bilgi için bkz. [Azure Resource Manager şablonlarındaki kaynakları dağıtma sırasını belirleme](./resource-group-define-dependencies.md).
+Bu öğreticide bir depolama hesabı, bir sanal makine, bir sanal ağ ve ek birkaç bağımlı kaynak oluşturacaksınız. Kaynakların bazıları başka bir kaynak var olana kadar dağıtılamaz. Örneğin depolama hesabı ve ağ arabirimi oluşturulmadan sanal makineyi oluşturamazsınız. Bu ilişkiyi, kaynakların birini diğer kaynaklara bağımlı hale getirerek tanımlarsınız. Resource Manager, kaynaklar arasındaki bağımlılıkları değerlendirir ve bunları bağımlılık sırasına göre dağıtır. Resource Manager, birbirine bağımlı olmayan kaynakları paralel olarak dağıtır. Daha fazla bilgi için bkz. [Azure Resource Manager şablonlarındaki kaynakları dağıtma sırasını belirleme](./resource-group-define-dependencies.md).
 
 Bu öğretici aşağıdaki görevleri kapsar:
 
@@ -33,7 +33,7 @@ Bu öğretici aşağıdaki görevleri kapsar:
 > * Şablonu keşfetme
 > * Şablonu dağıtma
 
-Bu öğreticideki yönergeler bir sanal makine, bir sanal ağ ve ek birkaç bağımlı kaynak oluşturmaktadır. 
+Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap oluşturun](https://azure.microsoft.com/free/).
 
 ## <a name="prerequisites"></a>Ön koşullar
 
@@ -176,4 +176,9 @@ Artık Azure kaynakları gerekli değilse, kaynak grubunu silerek dağıttığı
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu öğreticide sanal makine, sanal ağ ve bağımlı kaynaklar oluşturmak için bir şablon geliştirdiniz ve dağıttınız. Şablonlar hakkında daha fazla bilgi edinmek için bkz. [Azure Resource Manager şablonlarının yapısını ve söz dizimini anlama](./resource-group-authoring-templates.md).
+Bu öğreticide sanal makine, sanal ağ ve bağımlı kaynaklar oluşturmak için bir şablon geliştirdiniz ve dağıttınız. Azure kaynaklarını koşullara bağlı olarak dağıtmayı öğrenin:
+
+
+> [!div class="nextstepaction"]
+> [Koşulları kullanma](./resource-manager-tutorial-use-conditions.md)
+

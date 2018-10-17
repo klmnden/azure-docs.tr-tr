@@ -8,30 +8,30 @@ ms.service: managed-applications
 ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
-ms.date: 07/11/2018
+ms.date: 10/04/2018
 ms.author: tomfitz
-ms.openlocfilehash: 628a936d85eb94a1ee332205047527b0f9795d50
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: 67797f3bc5eadc126bad1051e793a8d3bc4590e5
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38990523"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48800953"
 ---
 # <a name="azure-managed-applications-overview"></a>Azure yönetilen uygulamalarına genel bakış
 
 Azure yönetilen uygulamaları, tüketicilerin kolayca dağıtıp çalıştırabileceği bulut çözümleri sunmanızı sağlar. Altyapıyı uygular ve sürekli destek sağlarsınız. Yönetilen bir uygulamayı tüm müşterilerin kullanımına sunmak için Azure markette yayımlayın. Uygulamayı yalnızca kuruluşunuzdaki kullanıcıların kullanımına sunmak için bir iç katalogda yayımlayın. 
 
-Yönetilen bir uygulama, tek bir önemli farkla, Market’teki bir çözüm şablonuna benzer. Yönetilen bir uygulamada kaynaklar, uygulamanın yayımcısı tarafından yönetilen bir kaynak grubuna sağlanır. Kaynak grubu, tüketicinin aboneliğinde mevcuttur ancak yayımcının kiracısındaki bir kimlik, kaynak grubuna erişime sahiptir. Yayımcı olarak, çözümün sürekli desteği için maliyeti belirtirsiniz.
+Yönetilen bir uygulama, tek bir önemli farkla, Market’teki bir çözüm şablonuna benzer. Yönetilen bir uygulamada kaynaklar, uygulamanın yayımcısı tarafından yönetilen bir kaynak grubuna dağıtılır. Kaynak grubu, tüketicinin aboneliğinde mevcuttur ancak yayımcının kiracısındaki bir kimlik, kaynak grubuna erişime sahiptir. Yayımcı olarak, çözümün sürekli desteği için maliyeti belirtirsiniz.
 
 ## <a name="advantages-of-managed-applications"></a>Yönetilen uygulamaların avantajları
 
-Yönetilen uygulamalar, çözümlerinizi kullanan tüketicilerin önündeki engelleri azaltır. Çözümünüzü kullanmak için bulut altyapısında uzmanlığa gerek yoktur. Tüketiciler, kritik kaynaklara sınırlı erişime sahiptir. Yönetirken hata yapmaktan endişelenmeleri gerekmez. 
+Yönetilen uygulamalar, çözümlerinizi kullanan tüketicilerin önündeki engelleri azaltır. Çözümünüzü kullanmak için bulut altyapısında uzmanlığa gerek yoktur. Tüketiciler, kritik kaynaklara sınırlı erişime sahiptir ve yönetim sırasında hata yapma konusunda endişelenmeleri gerekmez. 
 
 Yönetilen uygulamalar, tüketicilerinizle sürekli bir ilişki kurmanızı sağlar. Uygulamayı yönetme koşullarını siz tanımlarsınız ve tüm ücretler Azure faturalama üzerinden işleme alınır.
 
 Müşteriler bu yönetilen uygulamaları aboneliklerinde dağıtsa da, uygulamaların bakım, güncelleştirme ve servisinden sorumlu olmazlar. Tüm müşterilerin onaylanan sürümleri kullandığından emin olabilirsiniz. Müşteriler, bu uygulamaları yönetmek için uygulamaya özgü bir etki alanı geliştirmek zorunda değildir. Müşteriler, uygulamalarla ilgili sorun giderme ve sorunları tanılama konusunda endişelenmeye gerek olmadan uygulama güncelleştirmelerini otomatik olarak alır. 
 
-BT ekipleri için yönetilen uygulamalar, kuruluştaki kullanıcılara önceden onaylanmış çözümler sunmanızı sağlar. Bu çözümlerin kuruluş standartlarıyla uyumlu olduğundan emin olun.
+BT ekipleri için yönetilen uygulamalar, kuruluştaki kullanıcılara önceden onaylanmış çözümler sunmanızı sağlar. Bu çözümlerin kuruluş standartlarıyla uyumlu olduğunu bilirsiniz.
 
 ## <a name="types-of-managed-applications"></a>Yönetilen uygulamaların türleri
 
@@ -41,7 +41,7 @@ Yönetilen uygulamanızı harici veya dahili olarak yayımlayabilirsiniz.
 
 ### <a name="service-catalog"></a>Hizmet kataloğu
 
-Hizmet kataloğu, bir kuruluştaki kullanıcılar için onaylı çözümleri içeren bir dahili katalogdur. Bazı kuruluş standartlarına uyum gösterildiğinden emin olmak için, kuruluşlar için çözümler sağlayan kataloğu kullanabilirsiniz. Çalışanlar, kataloğu kullanarak BT bölümleri tarafından önerilen ve onaylanan uygulamaları kolayca keşfedebilir. Kuruluşlarındaki diğer kişilerin kendileriyle paylaştıkları yönetilen uygulamaları görebilirler.
+Hizmet kataloğu, bir kuruluştaki kullanıcılar için onaylı çözümleri içeren bir dahili katalogdur. Bazı kuruluş standartlarının karşılanması için, kuruluşlar için çözümler sunan kataloğu kullanabilirsiniz. Çalışanlar, kataloğu kullanarak BT bölümleri tarafından önerilen ve onaylanan uygulamaları kolayca bulabilir. Kuruluşlarındaki diğer kişilerin kendileriyle paylaştıkları yönetilen uygulamaları görebilirler.
 
 Bir Hizmet Kataloğu yönetilen uygulaması yayımlama hakkında bilgi için bkz. [Hizmet kataloğu uygulaması oluşturma](publish-service-catalog-app.md).
 
@@ -73,10 +73,11 @@ Tüketici yönetilen uygulamayı sildiğinde, yönetilen kaynak grubu da silinir
 
 ## <a name="azure-policy"></a>Azure İlkesi
 
-Yönetilen uygulamanıza [Azure İlkesi](../azure-policy/azure-policy-introduction.md) uygulayabilirsiniz. Yönetilen uygulamanızın dağıtılan örneklerinin veri ve güvenlik gereksinimlerine uyduğundan emin olmak için ilkeleri uygularsınız. Uygulamanız hassas verilerle etkileşime geçiyorsa, bu etkileşimin nasıl koruma altına alınacağını değerlendirdiğinizden emin olun. Örneğin uygulamanız Office 365’teki verilerle etkileşimli çalışıyorsa veri şifrelemenin etkin olduğunu doğrulayan bir ilke uygulayın.
+Yönetilen uygulamanıza [Azure İlkesi](../azure-policy/azure-policy-introduction.md) uygulayabilirsiniz. Yönetilen uygulamanızın dağıtılan örneklerinin veri ve güvenlik gereksinimlerini yerine getirdiğinden emin olmak için ilkeleri uygularsınız. Uygulamanız hassas verilerle etkileşime geçiyorsa, bu etkileşimin nasıl koruma altına alınacağını değerlendirdiğinizden emin olun. Örneğin uygulamanız Office 365’teki verilerle etkileşimli çalışıyorsa veri şifrelemenin etkin olduğunu doğrulayan bir ilke uygulayın.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* Yönetilen uygulama tanımlama ve dağıtmaya giriş için bkz. [Azure CLI ile Azure yönetilen uygulaması oluşturma ve dağıtma](managed-apps-quickstart-cli.md)
-* Bir dahili uygulama yayımlama hakkında bilgi için bkz. [Hizmet kataloğu uygulaması oluşturma](publish-service-catalog-app.md).
-* Markette yönetilen uygulamaları yayımlama hakkında daha fazla bilgi için [Market uygulaması oluşturma](publish-marketplace-app.md) konusunu inceleyin.
+Bu makalede yönetilen uygulamaları kullanmanın avantajları hakkında bilgi edindiniz. Yönetilen uygulama tanımı oluşturmak için bir sonraki makaleye gidin.
+
+> [!div class="nextstepaction"]
+> [Hızlı başlangıç: Azure yönetilen uygulaması tanımı yayımlama](publish-managed-app-definition-quickstart.md)

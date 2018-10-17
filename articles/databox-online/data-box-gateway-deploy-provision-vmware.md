@@ -12,15 +12,15 @@ ms.devlang: NA
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/26/2018
+ms.date: 10/01/2018
 ms.author: alkohli
 ms.custom: ''
-ms.openlocfilehash: 5a173340be424c74c76da659816b1b95b74c465f
-ms.sourcegitcommit: 3150596c9d4a53d3650cc9254c107871ae0aab88
+ms.openlocfilehash: a96aa2ee8b474bcc4e3e9362d6b1ba755e3fdbc3
+ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47419551"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48017457"
 ---
 # <a name="tutorial-provision-azure-data-box-gateway-in-vmware-preview"></a>Öğretici: Azure Data Box Gateway'i VMware'de sağlama (Önizleme)
 
@@ -96,7 +96,7 @@ Hiper yöneticinizde sanal cihaz sağlamak için aşağıdaki adımları gerçek
 
 1. Sanal cihaz görüntüsünü sisteminize kopyalayın. Bu sanal görüntüyü (iki dosya) Azure portaldan indirmiştiniz. Bu görüntüyü yordamın ilerleyen bölümlerinde kullanacağınız için kopyaladığınız konumu not edin.
 
-2. vSphere istemcisini kullanarak ESXi sunucusunda oturum açın. Sanal makine oluşturmak için yönetici ayrıcalıklarınızın olması gerekir.
+2. vSphere web istemcisini kullanarak ESXi sunucusunda oturum açın. Sanal makine oluşturmak için yönetici ayrıcalıklarınızın olması gerekir.
 
    ![](./media/data-box-gateway-deploy-provision-vmware/image1.png)
   
@@ -104,7 +104,10 @@ Hiper yöneticinizde sanal cihaz sağlamak için aşağıdaki adımları gerçek
 
    ![](./media/data-box-gateway-deploy-provision-vmware/image2.png)
 
-4. Sağ taraftaki bölmede **Datastores** (Veri depoları) öğesini seçerek VMDK dosyasını yüklemek istediğiniz yeri belirleyin. Veri deposu türü VMFS 5 olmalıdır. Ayrıca veri deposunda işletim sistemi ve veri diskleri için yeterli boş alan bulunmalıdır.
+4. Sağ taraftaki bölmede **Datastores** (Veri depoları) öğesini seçerek VMDK dosyasını yüklemek istediğiniz yeri belirleyin. 
+
+    - Veri deposu türü VMFS5 olmalıdır. 
+    - Ayrıca veri deposunda işletim sistemi ve veri diskleri için yeterli boş alan bulunmalıdır.
    
 5. Sağ tıklayıp **Browse Datastore** (Veri Deposuna Göz At) öğesini seçin.
 
@@ -145,11 +148,11 @@ Hiper yöneticinizde sanal cihaz sağlamak için aşağıdaki adımları gerçek
 15. **Select storage** (Depolama alanı seçin) sayfasında VM'nizi sağlamak için kullanmak istediğiniz veri deposunu seçin. **İleri**’ye tıklayın.
 
     ![](./media/data-box-gateway-deploy-provision-vmware/image12.png)
-16. **Customize settings** (Ayarları özelleştirin) sayfasında **CPU** ayarını 4, **Memory** (Bellek) ayarını 8192 MB (veya üzeri), **Hard disk 1** (Sabit disk 1) ayarını 2 TB (veya üzeri) olarak belirtin. Eklenecek **SCSI hard disk** (SCSI sabit disk) türünü seçin. Bu örnekte LSI Logic SAS seçilmiştir. **Statik IDE diskler desteklenmez.** **Hard disk 1** (Sabit disk 1), sanal veri diskidir. Sağlanan diskin boyutunu küçültemeyeceğinizi unutmayın.
+16. **Customize settings** (Ayarları özelleştirin) sayfasında **CPU** ayarını 4, **Memory** (Bellek) ayarını 8192 MB (veya üzeri), **Hard disk 1** (Sabit disk 1) ayarını 2 TB (veya üzeri) olarak belirtin. Eklemek için **SCSI hard disk** (SCSI sabit disk) girişini seçin. Bu örnekte LSI Logic SAS seçilmiştir. **Statik IDE diskler desteklenmez.** **Hard disk 1** (Sabit disk 1), sanal veri diskidir. Sağlanan diskin boyutunu küçültemeyeceğinizi unutmayın.
 
     ![](./media/data-box-gateway-deploy-provision-vmware/image13.png)
 
-    Aynı sayfada **Add hard disk** (Sabit disk ekle) öğesine tıklayıp **Existing hard disk** (Var olan sabit disk) seçeneğini belirtin. İşletim sistemi diski eklenir. 
+    Aynı sayfada **Add hard disk** (Sabit disk ekle) öğesine tıklayıp **Existing hard disk** (Var olan sabit disk) seçeneğini belirtin. Veri deposundaki VMDK dosyasını seçin. Bunu yaptığınızda işletim sistemi diski eklenir. 
 
      ![](./media/data-box-gateway-deploy-provision-vmware/image14.png)
 

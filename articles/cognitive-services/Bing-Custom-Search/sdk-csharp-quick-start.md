@@ -1,39 +1,39 @@
 ---
-title: Özel arama SDK C# hızlı başlangıç | Microsoft Docs
-titleSuffix: Cognitive Services
-description: Özel arama SDK C# konsol uygulaması ayarlayın.
+title: 'Hızlı başlangıç: Özel Arama SDK’sı, C#'
+titleSuffix: Azure Cognitive Services
+description: Özel Arama SDK'sı C# konsol uygulamasını kurma.
 services: cognitive-services
 author: swhite-msft
-manager: ehansen
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-custom-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 09/06/2018
 ms.author: scottwhi
-ms.openlocfilehash: 6c9917e3a63515f36b386e444edcc53de07799fc
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: MT
+ms.openlocfilehash: 5abf1027059bed9c685e0eb44f17ab41dfabf655
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46949936"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48816778"
 ---
-# <a name="c-sdk-quickstart"></a>C# SDK'sını hızlı başlangıç
+# <a name="quickstart-using-the-bing-custom-search-sdk-with-c"></a>Hızlı Başlangıç: C# ile Bing Özel Arama SDK'sını kullanma
 
-Bing özel arama SDK'sı, Bing özel arama REST API'si daha bir daha kolay bir programlama modeli sağlar. Bu bölüm C# SDK'sını kullanarak ilk özel arama çağrılarınızı yapmadan aracılığıyla size yol gösterir.
+Bing Özel Arama SDK'sı, Bing Özel Arama REST API'sine kıyasla daha kolay bir programlama modeli sunar. Bu bölümde C# SDK'sını kullanarak ilk Özel Arama çağrılarınızı oluşturma adımları gösterilmektedir.
 
-## <a name="prerequisites"></a>Önkoşullar
+## <a name="prerequisites"></a>Ön koşullar
 
 Bu hızlı başlangıcı tamamlamak için şunlar gerekir:
 
-- Bir kullanıma hazır özel arama örneği. Bkz: [ilk Bing özel arama örneğinizin oluşturma](quick-start.md).  
+- Kullanıma hazır özel arama örneği. Bkz. [İlk Bing Özel Arama örneğinizi oluşturma](quick-start.md).  
   
-- Bir abonelik anahtarı. Etkinleştirme sırasında bir abonelik anahtarı edinirler, [ücretsiz deneme sürümü](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search), ya da Ücretli abonelik anahtarı, Azure panosundan kullanabilirsiniz (bkz [Bilişsel hizmetler API hesabı](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)).  
+- Abonelik anahtarı. Abonelik anahtarını [ücretsiz denemenizi](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search) etkinleştirdikten sonra alabilir veya Azure panonuzdan ücretli abonelik anahtarı (bkz. [Bilişsel Hizmetler API hesabı](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)) kullanabilirsiniz.  
   
-- Visual Studio 2017 yüklü. Zaten sahip değilseniz, indirebileceğiniz **ücretsiz** [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/).  
+- Visual Studio 2017 uygulamasının yüklenmiş olması. Yüklü değilse **ücretsiz** [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/)’ı indirebilirsiniz.  
   
-- [NuGet özel arama](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.CustomSearch/1.2.0) yüklü paket. Visual Studio'da Çözüm Gezgini'nden, projeyi sağ tıklatın `Manage NuGet Packages` menüsünde. `Microsoft.Azure.CognitiveServices.Search.CustomSearch` paketini yükleyin.
+- [NuGet Özel Arama](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.CustomSearch/1.2.0) paketinin yüklenmiş olması. Visual Studio'daki Çözüm Gezgini'nde projenize sağ tıklayıp menüden `Manage NuGet Packages` öğesini seçin. `Microsoft.Azure.CognitiveServices.Search.CustomSearch` paketini yükleyin.
 
-Özel arama NuGet paketi yüklerken aşağıdaki derlemelerini yükler:
+NuGet Özel Arama paketini yüklediğinizde aşağıdaki derlemeler de yüklenir:
 
 * Microsoft.Rest.ClientRuntime
 * Microsoft.Rest.ClientRuntime.Azure
@@ -43,19 +43,19 @@ Bu hızlı başlangıcı tamamlamak için şunlar gerekir:
 
 ## <a name="run-the-code"></a>Kodu çalıştırma
 
-Bu örneği çalıştırmak için aşağıdaki adımları izleyin:
+Bu örneği çalıştırmak için aşağıdaki adımları uygulayın:
 
 1. Visual Studio 2017'yi açın.
   
-2. Tıklayın **dosya** menüsünde tıklatın **yeni**, **proje**ve ardından **Visual C# konsol uygulaması** şablonu.
+2. **Dosya** menüsünden **Yeni**, **Proje**'ye ve ardından **Visual C# Konsol Uygulaması** şablonuna tıklayın.
   
-3. Çözümünüzü CustomSearchSolution adlandırın ve talimatı klasöre göz atın.
+3. Çözümünüze CustomSearchSolution adını verin ve eklemek istediğiniz klasörü bulun.
   
-4. Çözümü oluşturmak için Tamam'a tıklayın.  
+4. Tamam'a tıklayarak çözümü oluşturun.  
   
-4. Çözüm Gezgini'nden projenize (Çözüm aynı ada sahiptir) sağ tıklayıp `Manage NuGet Packages`. Tıklayın **Gözat** NuGet Paket Yöneticisi'nde. Microsoft.Azure.CognitiveServices.Search.CustomSearch arama kutusuna girin ve enter tuşuna basın. Paketi seçin ve ardından Yükle'ye tıklayın.  
+4. Çözüm Gezgini'nde projenize sağ tıklayın (çözümle aynı ada sahiptir) ve `Manage NuGet Packages` öğesini seçin. NuGet Paket Yöneticisi'nde **Gözat**'a tıklayın. Arama kutusuna Microsoft.Azure.CognitiveServices.Search.CustomSearch yazıp Enter tuşuna basın. Paketi seçin ve Yükle'ye tıklayın.  
   
-4. Aşağıdaki kodu, Program.cs dosyasına kopyalayın. Değiştirin **YOUR-SUBSCRIPTION-KEY** ve **YOUR-özel-CONFIG-ID** abonelik anahtarınızı ve yapılandırma kimliği  
+4. Aşağıdaki kodu Program.cs dosyasına kopyalayın. **YOUR-SUBSCRIPTION-KEY** ve **YOUR-CUSTOM-CONFIG-ID** yerine abonelik anahtarınızı ve yapılandırma kimliğinizi yazın.  
   
     ```csharp
     using System;
@@ -112,32 +112,32 @@ Bu örneği çalıştırmak için aşağıdaki adımları izleyin:
     }
     ```  
   
-5. Derleme ve çalıştırma (hata ayıklama) çözümü. 
+5. Çözümü derleyin ve çalıştırın (hata ayıklayın). 
 
 
 
 
-## <a name="breaking-it-down"></a>Bozucu
+## <a name="breaking-it-down"></a>Bileşenlerine ayırma
 
-Kullanarak bir eklemenize gerek özel arama NuGet paketini yükledikten sonra bunu yönergesi.
+NuGet Özel Arama paketini yükledikten sonra bir using yönergesi eklemeniz gerekir.
 
 ```csharp
 using Microsoft.Azure.CognitiveServices.Search.CustomSearch;
 ```
 
-Ardından, arama istekleri yapma özel arama istemci örneği oluşturun. Değiştirdiğinizden emin olun `YOUR-SUBSCRIPTION-KEY` anahtarınızı.
+Ardından arama isteği oluşturmak için kullandığınız özel arama istemcisini başlatabilirsiniz. `YOUR-SUBSCRIPTION-KEY` yerine anahtarınızı yazdığınızdan emin olun.
 
 ```csharp
 var client = new CustomSearchAPI(new ApiKeyServiceClientCredentials("YOUR-CUSTOM-SEARCH-KEY"));
 ```
 
-Artık bir arama talebi göndermek için istemciyi kullanabilirsiniz. Değiştirdiğinizden emin olun, `YOUR-CUSTOM-CONFIG-ID` örneğinizin yapılandırma kimliği ile (kimliği bulabilirsiniz [özel arama portalı](https://www.customsearch.ai/)). Bu örnek için Xbox arar. Gerektiği şekilde güncelleştirme.
+Artık istemciyi kullanarak bir arama isteği gönderebilirsiniz. `YOUR-CUSTOM-CONFIG-ID` yerine örneğinizin yapılandırma kimliğini ([Özel Arama portalından](https://www.customsearch.ai/) alabilirsiniz) yazmayı unutmayın. Bu örnek Xbox araması yapmaktadır. İstediğiniz şekilde güncelleştirebilirsiniz.
 
 ```csharp
 var webData = client.CustomInstance.SearchAsync(query: "Xbox", customConfig: Int32.Parse("YOUR-CUSTOM-CONFIG-ID")).Result;
 ```
 
-`SearchAsync` Yöntemi döndürür bir `WebData` nesne. Kullanım `WebData` herhangi yinelemek için `WebPages` , bulundu. Bu kod ilk Web sayfası sonucu bulur ve Web sayfasının yazdırır `Name` ve `URL`.
+`SearchAsync` metodu bir `WebData` nesnesi döndürür. `WebData` kullanarak bulunan `WebPages` ile yineleyebilirsiniz. Bu kod ilk web sayfası sonucunu bulur ve web sayfasının `Name` ile `URL` değerlerini yazdırır.
 
 ```csharp
 //WebPages
@@ -167,15 +167,15 @@ else
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-SDK'sı örneklerini gözden denetleyin. Her örnek, Önkoşullar ve yükleme/çalışan örnekleri ayrıntılarını içeren bir benioku dosyası içerir.
+SDK örneklerini inceleyin. Her örnekte ön gereksinimler ve örnekleri yükleme/çalıştırma hakkında ayrıntılı bilgi içeren bir ReadMe dosyası bulunur.
 
-* Kullanmaya başlama [.NET örnekleri](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7) 
+* [.NET örneklerini](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7) kullanmaya başlama 
     * [NuGet paketi](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.CustomSearch/1.2.0)
-    * Ayrıca bkz: [.NET kitaplıkları](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/CognitiveServices/dataPlane/Search/BingCustomSearch) tanımlar ve bağımlılıkları için.
-* Kullanmaya başlama [NodeJS örnekleri](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples) 
-    * Ayrıca bkz: [NodeJS kitaplıkları](https://github.com/Azure/azure-sdk-for-node/tree/master/lib/services/customSearch) tanımlar ve bağımlılıkları için.
-* Kullanmaya başlama [Java örnekleri](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples) 
-    * Ayrıca bkz: [Java kitaplıkları](https://github.com/Azure/azure-sdk-for-java/tree/master/cognitiveservices/azure-customsearch) tanımlar ve bağımlılıkları için.
-* Kullanmaya başlama [Python örnekleri](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples) 
-    * Ayrıca bkz: [Python kitaplıkları](https://github.com/Azure/azure-sdk-for-python/tree/master/azure-cognitiveservices-search-customsearch) tanımlar ve bağımlılıkları için.
+    * Tanımlar ve bağımlılıklar için ayrıca bkz. [.NET kitaplıkları](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/CognitiveServices/dataPlane/Search/BingCustomSearch).
+* [Node.js örneklerini](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples) kullanmaya başlama 
+    * Tanımlar ve bağımlılıklar için ayrıca bkz. [Node.js kitaplıkları](https://github.com/Azure/azure-sdk-for-node/tree/master/lib/services/customSearch).
+* [Java örneklerini](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples) kullanmaya başlama 
+    * Tanımlar ve bağımlılıklar için ayrıca bkz. [Java kitaplıkları](https://github.com/Azure/azure-sdk-for-java/tree/master/cognitiveservices/azure-customsearch).
+* [Python örneklerini](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples) kullanmaya başlama 
+    * Tanımlar ve bağımlılıklar için ayrıca bkz. [Python kitaplıkları](https://github.com/Azure/azure-sdk-for-python/tree/master/azure-cognitiveservices-search-customsearch).
 

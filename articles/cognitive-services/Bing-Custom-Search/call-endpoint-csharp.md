@@ -1,137 +1,86 @@
 ---
-title: C# - Bing özel arama - Microsoft Bilişsel hizmetler kullanarak uç noktasını çağırmak
-description: Bu hızlı başlangıçta, Bing özel arama uç noktasını çağırmak için C# kullanarak arama sonuçlarını özel arama örneğinizin isteği gösterilmektedir.
+title: 'Hızlı başlangıç: Node.js kullanarak uç nokta çağırma - Bing Özel Arama'
+titlesuffix: Azure Cognitive Services
+description: Bu hızlı başlangıçta Bing Özel Arama uç noktasını çağırmak için Node.js kullanarak özel arama örneğinizden arama sonuçlarını isteme adımları gösterilmektedir.
 services: cognitive-services
 author: brapel
-manager: ehansen
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-custom-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 05/07/2018
 ms.author: v-brapel
-ms.openlocfilehash: ed00b75fa956d0197d3672d84b097f99ec3c35ec
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: MT
+ms.openlocfilehash: af77b4c06b61cda4fd18d19ac3578129004c4914
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46956399"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48816710"
 ---
-# <a name="call-bing-custom-search-endpoint-c"></a>Bing özel arama uç noktası çağrısı (C#)
+# <a name="quickstart-call-bing-custom-search-endpoint-nodejs"></a>Hızlı başlangıç: Bing Özel Arama uç noktasını çağırma (Node.js)
 
-Bu hızlı başlangıçta, arama sonuçlarını Bing özel arama uç noktasını çağırmak için C# kullanarak özel arama örneğinizin isteği gösterilmektedir. 
+Bu hızlı başlangıçta Bing Özel Arama uç noktasını çağırmak için Node.js kullanarak özel arama örneğinizden arama sonuçlarını isteme adımları gösterilmektedir. 
 
-## <a name="prerequisites"></a>Önkoşullar
+## <a name="prerequisites"></a>Ön koşullar
 
 Bu hızlı başlangıcı tamamlamak için şunlar gerekir:
 
-- Bir kullanıma hazır özel arama örneği. Bkz: [ilk Bing özel arama örneğinizin oluşturma](quick-start.md).
-- [.Net Core](https://www.microsoft.com/net/download/core) yüklü.
-- Bir abonelik anahtarı. Etkinleştirme sırasında bir abonelik anahtarı edinirler, [ücretsiz deneme sürümü](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search), ya da Ücretli abonelik anahtarı, Azure panosundan kullanabilirsiniz (bkz [Bilişsel hizmetler API hesabı](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)).    
-
+- Kullanıma hazır özel arama örneği. Bkz. [İlk Bing Özel Arama örneğinizi oluşturma](quick-start.md).
+- [Node.js](https://www.nodejs.org/) uygulamasının yüklenmiş olması.
+- Abonelik anahtarı. Abonelik anahtarını [ücretsiz denemenizi](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search) etkinleştirdikten sonra alabilir veya Azure panonuzdan ücretli abonelik anahtarı (bkz. [Bilişsel Hizmetler API hesabı](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)) kullanabilirsiniz.    
 
 ## <a name="run-the-code"></a>Kodu çalıştırma
 
-Bu örneği çalıştırmak için aşağıdaki adımları izleyin:
+Bu örneği çalıştırmak için aşağıdaki adımları uygulayın:
 
 1. Kodunuz için bir klasör oluşturun.  
   
-2. Bir komut istemi veya terminal, az önce oluşturduğunuz klasöre gidin.  
+2. Bir komut isteminden veya terminalden az önce oluşturduğunuz klasöre gidin.  
   
-3. Aşağıdaki komutları çalıştırın:
-    ```
-    dotnet new console -o BingCustomSearch
-    cd BingCustomSearch
-    dotnet add package Newtonsoft.Json
-    dotnet restore
-    ```
+3. **request** Node modülünü yükleyin:
+    <pre>
+    npm install request
+    </pre>  
+    
+4. Oluşturduğunuz klasörde BingCustomSearch.js adlı bir dosya oluşturun ve aşağıdaki kodu içine kopyalayın. **YOUR-SUBSCRIPTION-KEY** ve **YOUR-CUSTOM-CONFIG-ID** yerine abonelik anahtarınızı ve yapılandırma kimliğinizi yazın.  
   
-4. Program.cs'ye aşağıdaki kodu kopyalayın. Değiştirin **YOUR-SUBSCRIPTION-KEY** ve **YOUR-özel-CONFIG-ID** abonelik anahtarınızı ve yapılandırma kimliği
-
-    ```csharp
-    using System;
-    using System.Net.Http;
-    using System.Web;
-    using Newtonsoft.Json;
+    ``` javascript
+    var request = require("request");
     
-    namespace bing_custom_search_example_dotnet
-    {
-        class Program
-        {
-            static void Main(string[] args)
-            {
-                var subscriptionKey = "YOUR-SUBSCRIPTION-KEY";
-                var customConfigId = "YOUR-CUSTOM-CONFIG-ID";
-                var searchTerm = args.Length > 0 ? args[0]: "microsoft";            
+    var subscriptionKey = 'YOUR-SUBSCRIPTION-KEY';
+    var customConfigId = 'YOUR-CUSTOM-CONFIG-ID';
+    var searchTerm = 'microsoft';
     
-                var url = "https://api.cognitive.microsoft.com/bingcustomsearch/v7.0/search?" +
-                    "q=" + searchTerm +
-                    "&customconfig=" + customConfigId;
-    
-                var client = new HttpClient();
-                client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", subscriptionKey);
-                var httpResponseMessage = client.GetAsync(url).Result;
-                var responseContent = httpResponseMessage.Content.ReadAsStringAsync().Result;
-                BingCustomSearchResponse response = JsonConvert.DeserializeObject<BingCustomSearchResponse>(responseContent);
-                
-                for(int i = 0; i < response.webPages.value.Length; i++)
-                {                
-                    var webPage = response.webPages.value[i];
-                    
-                    Console.WriteLine("name: " + webPage.name);
-                    Console.WriteLine("url: " + webPage.url);                
-                    Console.WriteLine("displayUrl: " + webPage.displayUrl);
-                    Console.WriteLine("snippet: " + webPage.snippet);
-                    Console.WriteLine("dateLastCrawled: " + webPage.dateLastCrawled);
-                    Console.WriteLine();
-                }            
-            }
-        }
-    
-        public class BingCustomSearchResponse
-        {        
-            public string _type{ get; set; }            
-            public WebPages webPages { get; set; }
-        }
-    
-        public class WebPages
-        {
-            public string webSearchUrl { get; set; }
-            public int totalEstimatedMatches { get; set; }
-            public WebPage[] value { get; set; }        
-        }
-    
-        public class WebPage
-        {
-            public string name { get; set; }
-            public string url { get; set; }
-            public string displayUrl { get; set; }
-            public string snippet { get; set; }
-            public DateTime dateLastCrawled { get; set; }
-            public string cachedPageUrl { get; set; }
-            public OpenGraphImage openGraphImage { get; set; }        
-        }
-        
-        public class OpenGraphImage
-        {
-            public string contentUrl { get; set; }
-            public int width { get; set; }
-            public int height { get; set; }
+    var options = {
+        url: 'https://api.cognitive.microsoft.com/bingcustomsearch/v7.0/search?' + 
+          'q=' + searchTerm + 
+          '&customconfig=' + customConfigId,
+        headers: {
+            'Ocp-Apim-Subscription-Key' : subscriptionKey
         }
     }
-    ```
-6. Aşağıdaki komutu kullanarak uygulama oluşturun. Komut çıktısı tarafından başvurulan DLL yolu unutmayın.
-
-    <pre>
-    dotnet build 
-    </pre>
     
-7. Değiştirerek aşağıdaki komutu kullanarak uygulamayı çalıştırın **yolu için çıkış** 6. adımda başvurulan DLL yolu ile.
-
-    <pre>    
-    dotnet **PATH TO OUTPUT**
-    </pre>
+    request(options, function(error, response, body){
+        var searchResponse = JSON.parse(body);
+        for(var i = 0; i < searchResponse.webPages.value.length; ++i){
+            var webPage = searchResponse.webPages.value[i];
+            console.log('name: ' + webPage.name);
+            console.log('url: ' + webPage.url);
+            console.log('displayUrl: ' + webPage.displayUrl);
+            console.log('snippet: ' + webPage.snippet);
+            console.log('dateLastCrawled: ' + webPage.dateLastCrawled);
+            console.log();
+        }
+    })
+    ```  
+  
+6. Şu komutu kullanarak kodu çalıştırın:  
+  
+    ```    
+    node BingCustomSearch.js
+    ``` 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-- [Barındırılan UI deneyiminizi yapılandırın](./hosted-ui.md)
-- [Metni vurgulayacak şekilde decoration işaretçileri kullanma](./hit-highlighting.md)
-- [Sayfa Web sayfaları](./page-webpages.md)
+- [Barındırılan kullanıcı arabirimi deneyiminizi yapılandırma](./hosted-ui.md)
+- [Metni vurgulamak için süsleme işaretçilerini kullanma](./hit-highlighting.md)
+- [Sayfa web sayfaları](./page-webpages.md)

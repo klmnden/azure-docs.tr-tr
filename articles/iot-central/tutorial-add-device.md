@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: dd68b65825c9c22453e0191d42a0fcce3b65ca64
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: 2e01f61ff915a8fe4327aa78c8867d666dc36fda
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35236095"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45983238"
 ---
 # <a name="tutorial-add-a-real-device-to-your-azure-iot-central-application"></a>Öğretici: Azure IoT Central uygulamanıza gerçek bir cihaz ekleme
 
@@ -56,7 +56,7 @@ Uygulamanıza gerçek bir cihaz eklemek için, [Yeni bir cihaz türü belirleme]
 
    ![Yeni, gerçek bir klima cihazı eklemeye başlama](media/tutorial-add-device/newreal.png)
 
-3. İsteğe bağlı olarak, cihaz adını seçip değeri düzenleyerek yeni cihazınızı yeniden adlandırabilirsiniz:
+3. Cihaz Kimliğini (**küçük harfli olmalıdır**) girin veya önerilen Cihaz Kimliğini kullanın. Ayrıca yeni cihazınız için ad da girebilirsiniz.  
 
    ![Cihazı yeniden adlandırma](media/tutorial-add-device/rename.png)
 
@@ -68,23 +68,36 @@ Gerçek cihaz **Bağlı Klima** cihaz şablonundan oluşturulur. Oluşturucu ola
 
     ![Ayarları gösterme eşitleniyor](media/tutorial-add-device/settingssyncing.png)
 
-2. Yeni, gerçek bağlı klima cihazınızın **Özellikler** sayfasında, **Seri Numarası**’nı **rcac0010**, ve **Bellenim sürümü**’nü 9.75 olarak ayarlayın. Ardından **Kaydet**'i seçin:
+2. Yeni, gerçek bağlı klima cihazınızın **Özellikler** sayfasında, **Seri Numarası**’nı **10001**, ve **Bellenim sürümü**’nü 9.75 olarak ayarlayın. Ardından **Kaydet**'i seçin:
 
     ![Gerçek cihaz özelliklerini ayarlayın](media/tutorial-add-device/setproperties.png)
 
 3. Oluşturucu olarak, gerçek cihazınız için **Ölçüler**, **Kurallar** ve **Pano** sayfalarını görüntüleyebilirsiniz.
 
-## <a name="get-connection-string-for-real-device-from-application"></a>Gerçek cihaz için uygulamadan bağlantı dizesi alma
+## <a name="get-connection-details-for-real-device-from-application"></a>Gerçek cihaz için uygulamadan bağlantı ayrıntılarını alma
 
-Bir cihaz geliştiricisinin gerçek cihazınız için *bağlantı dizesini* cihazda çalışan kodda eklemesi gerekir. Bağlantı dizesi cihazın Azure IoT Central uygulamanıza güvenli bir şekilde bağlanmasını sağlar. Her cihaz örneğinin benzersiz bir bağlantı dizesi vardır. Aşağıdaki adımlar uygulamanızdaki bir cihaz örneği için bağlantı dizesini bulmayı gösterir:
+Bir cihaz geliştiricisinin gerçek cihazınız için *bağlantı dizesi ayrıntılarını* cihazda çalışan koda eklemesi gerekir. Bağlantı dizesi cihazın Azure IoT Central uygulamanıza güvenli bir şekilde bağlanmasını sağlar. Aşağıdaki adımlar uygulamanızdaki bir cihaz örneği için bağlantı dizesini bulmayı gösterir:
 
 1. Gerçek bağlı klima cihazınızın **Cihaz** ekranında, **Bu cihazı bağla**’yı seçin:
 
     ![Bağlantı bilgilerini görüntüleme bağlantısını gösteren cihaz sayfası](media/tutorial-add-device/connectionlink.png)
 
-2. **Bağlan** sayfasında, **Birincil bağlantı dizesini** kopyalayın ve kaydedin. Bu değeri bu öğreticinin ikinci yarısında kullanırsınız. Bir cihaz geliştirici bu değeri cihazda çalışan istemci uygulamasında kullanır:
+2. **Bağlan** sayfasında **Kapsam Kimliği, Cihaz Kimliği ve Birincil anahtar**’ı kopyalayıp kaydedin.
 
-    ![Bağlantı dizesi değerleri](media/tutorial-add-device/connectionstring.png)
+   ![Bağlantı ayrıntıları](media/tutorial-add-device/device-connect.PNG)
+
+   Cihaz bağlantısı dizesini almak için aşağıdaki komut satırı aracını kullanma  
+
+    ```cmd/sh
+    npm i -g dps-keygen
+    ```
+    **Kullanım**
+    
+    Bir bağlantı dizesi oluşturmak için bin/ klasöründen ikili dosyanızı bulma
+    ```cmd/sh
+    dps_cstr <scope_id> <device_id> <Primary Key(for device)>
+    ```
+    [Buradan komut satırı aracı hakkında](https://www.npmjs.com/package/dps-keygen) daha fazla bilgi edinebilirsiniz.
 
 ## <a name="prepare-the-client-code"></a>İstemci kodu hazırlama
 
@@ -130,14 +143,17 @@ Aşağıdaki adımlar [Node.js](https://nodejs.org/) örneğinin nasıl hazırla
 
 8. Aşağıdaki değişken bildirimlerini dosyaya ekleyin:
 
+ 
+
    ```javascript
    var connectionString = '{your device connection string}';
    var targetTemperature = 0;
    var client = clientFromConnectionString(connectionString);
    ```
+   
 
    > [!NOTE]
-   > Yer tutucu `{your device connection string}` öğesini sonraki bir adımda güncelleştirirsiniz.
+   > Yer tutucu `{your device connection string}` öğesini sonraki bir adımda güncelleştirirsiniz. 
 
 9. Şu ana kadar yaptığınız değişiklikleri kaydedin ancak dosyayı açık tutun.
 
@@ -248,8 +264,7 @@ Aşağıdaki adımlar [Node.js](https://nodejs.org/) örneğinin nasıl hazırla
 
 ## <a name="configure-client-code-for-the-real-device"></a>Gerçek cihaz için istemci kodu yapılandırma
 
-<!-- Add the connection string to the sample code, build, and run -->
-İstemci kodunuzu Azure IoT Central uygulamanıza bağlanmak için yapılandırmak üzere, gerçek cihazınız için bu öğreticinin başında not ettiğiniz bağlantı dizesini eklemeniz gerekir.
+<!-- Add the connection string to the sample code, build, and run --> İstemci kodunuzu Azure IoT Central uygulamanıza bağlanmak için yapılandırmak üzere, gerçek cihazınız için bu öğreticinin başında not ettiğiniz bağlantı dizesini eklemeniz gerekir.
 
 1. **ConnectedAirConditioner.js** dosyasında, aşağıdaki kod satırını bulun:
 

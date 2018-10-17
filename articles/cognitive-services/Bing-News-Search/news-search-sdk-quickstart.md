@@ -1,56 +1,56 @@
 ---
-title: Haber arama SDK C# hızlı başlangıç | Microsoft Docs
-description: Haber Ara SDK konsol uygulaması ayarlayın.
-titleSuffix: Azure cognitive services News search SDK C# quickstart
+title: "Hızlı başlangıç: Bing Haber Arama SDK'sı, C#"
+titleSuffix: Azure Cognitive Services
+description: Bing Haber Arama SDK'sı konsol uygulaması kurulumu.
 services: cognitive-services
 author: mikedodaro
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-news-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 01/30/2018
 ms.author: v-gedod
-ms.openlocfilehash: e803fd579c6b71b8b1754546446715795a12087a
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
-ms.translationtype: MT
+ms.openlocfilehash: 416557b11ebef953411fb6fabcddb72d08dcb5af
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35355276"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48802993"
 ---
-# <a name="news-search-sdk-c-quickstart"></a>Haber arama SDK C# hızlı başlangıç
+# <a name="quickstart-bing-news-search-sdk-with-c"></a>Hızlı başlangıç: C# ile Bing Haber Arama SDK'sı
 
-Bing Haberler arama SDK haber sorgular ve ayrıştırma sonuçları için REST API işlevselliğini içerir. 
+Bing Haber Arama SDK'sı, haber sorguları ve sonuçları ayrıştırmak için REST API işlevselliğini içerir. 
 
-[Kaynak kodu C# Bing Haberler arama SDK örnekleri için](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7/BingNewsSearch) Git hub'da kullanılabilir.
+[C# Bing Haber Arama SDK'sı örneklerinin kaynak kodu](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7/BingNewsSearch) Git Hub'dan edinilebilir.
 
 ## <a name="application-dependencies"></a>Uygulama bağımlılıkları
 
-Bing Haberler arama SDK'yı kullanarak bir konsol uygulaması ayarlamak için Gözat `Manage NuGet Packages` Visual Studio'daki Çözüm Gezgini'nden seçeneği.  Ekleme `Microsoft.Azure.CognitiveServices.Search.NewsSearch` paket.
+Bing Haber Araması SDK'sını kullanarak bir konsol uygulaması kurmak için Visual Studio’da Çözüm Gezgini'nde `Manage NuGet Packages` seçeneğine gidin.  `Microsoft.Azure.CognitiveServices.Search.NewsSearch` paketini ekleyin.
 
-Yükleme [NuGet haber arama SDK paketi](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.NewsSearch/1.2.0) de dahil olmak üzere bağımlılıkları yükler:
+[NuGet Haber Araması SDK’sı paketini](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.NewsSearch/1.2.0) yüklemek aşağıdakilerin dahil olduğu bağımlılıkları da yükler:
 * Microsoft.Rest.ClientRuntime
 * Microsoft.Rest.ClientRuntime.Azure
 * Newtonsoft.Json
 
-## <a name="news-search-client"></a>Haber Arama İstemcisi
-Örneği oluşturmak için `NewsSearchAPI` istemci, yönergesi kullanarak ekleyin:
+## <a name="news-search-client"></a>Haber Arama istemcisi
+`NewsSearchAPI` istemcisinin bir örneğini oluşturmak için, şu yönergeleri kullanarak ekleyin:
 ```
 using Microsoft.Azure.CognitiveServices.Search.NewsSearch;
 
 ```
-Ardından, istemci örneği:
+Ardından, istemciyi örneklendirin:
 ```
 var client = new NewsSearchAPI(new ApiKeyServiceClientCredentials("YOUR-ACCESS-KEY"));
 
 
 ```
-İstemci ile bir sorgu metni aramak için kullanın:
+Bir sorgu metniyle arama yapmak için istemciyi kullanın:
 ```
 var newsResults = client.News.SearchAsync(query: "Quantum  Computing", market: "en-us", count: 10).Result;
 Console.WriteLine("Search news for query \"Quantum  Computing\" with market and count");
 
 ```
-Önceki sorgu sonuçlarında döndürülen haber ayrıştırılamıyor:
+Önceki sorgunun sonuçlarında döndürülen haberleri ayrıştırın:
 ```
 if (newsResults.Value.Count > 0)
 {
@@ -73,7 +73,7 @@ else
 ```
 ## <a name="complete-console-application"></a>Tam konsol uygulaması
 
-Aşağıdaki konsol uygulaması önceden tanımlanmış sorgu yürütür ve "Zamanlayıcının hesaplanmasında" haber arar. İstek içerir `market` ve `count` parametreleri. Kod sonuç sayısı doğrular ve yazdırır `totalEstimatedMatches`, `name`, `url`, `description`, `published time` ve `name` , `provider` ilk haber sonucu.
+Aşağıdaki konsol uygulaması, önceden tanımlanmış sorguyu yürütür ve sonuçları "Quantum Computing" haberlerini arar. İstek `market` ve `count` parametrelerini içerir. Kod sonuç sayısını doğrular ve ilk haber sonucunun `totalEstimatedMatches`, `name`, `url`, `description`, `published time` ve `name` `provider` bilgilerini yazdırır.
 
 ```
 using System;
@@ -136,8 +136,8 @@ namespace NewsSrchSDK
 }
 
 ```
-## <a name="recent-news-freshness-and-sortby-parameters"></a>En son haberler, yenilik ve sortBy parametreleri
-Aşağıdaki kod en son haberleri "İçin yapay zeka" ile yapılan aramalar `freshness` ve `sortBy` parametreleri. Sonuç sayısı doğrular ve yazdırır `totalEstimatedMatches`, `name`, `url`, `description`, `published time`, ve `name` ilk haber sonucunun sağlayıcısı.
+## <a name="recent-news-freshness-and-sortby-parameters"></a>Güncel haberler, freshness ve sortBy parametreleri
+Aşağıdaki kod `freshness` ve `sortBy` parametreleriyle "Artificial Intelligence" hakkındaki en güncel haberleri arar. Sonuç sayısını doğrular ve ilk haber sonucunun `totalEstimatedMatches`, `name`, `url`, `description`, `published time` ve `name` bilgilerini yazdırır.
 ```
         public static void NewsSearchWithFilters(NewsSearchAPI client)
         {
@@ -179,8 +179,8 @@ Aşağıdaki kod en son haberleri "İçin yapay zeka" ile yapılan aramalar `fre
 
 ```
 
-## <a name="category-news-safe-search"></a>Kategori Haberler, güvenli arama
-Aşağıdaki kod ile güvenli arama film ve TV eğlence için kategori haber arar.  Sonuç sayısı doğrular ve yazdırır `category`, `name`, `url`, `description`, `published time`, ve `name` ilk haber sonucunun sağlayıcısı.
+## <a name="category-news-safe-search"></a>Kategori haberleri, güvenli arama
+Aşağıdaki kod güvenli aramayı etkinleştirerek film, TV ve eğlence kategorilerinde arama yapar.  Sonuç sayısını doğrular ve ilk haber sonucunun `category`, `name`, `url`, `description`, `published time` ve `name` bilgilerini yazdırır.
 ```
         public static void NewsCategory(NewsSearchAPI client)
         {
@@ -221,8 +221,8 @@ Aşağıdaki kod ile güvenli arama film ve TV eğlence için kategori haber ara
         }
 
 ```
-## <a name="trending-topics"></a>Oluşturan eğilim konuları
-Aşağıdaki kod Bing Haberler oluşturan eğilim konuları arar. Sonuç sayısı doğrular ve yazdırır `name`, `text of query`, `webSearchUrl`, `newsSearchUrl`, ve `image.Url` ilk haber sonuç.
+## <a name="trending-topics"></a>Popüler konular
+Aşağıdaki kod Bing'deki popüler haber başlıklarında arama yapar. Sonuç sayısını doğrular ve ilk haber sonucunun `name`, `text of query`, `webSearchUrl`, `newsSearchUrl` ve `image.Url` bilgilerini yazdırır.
 ```
         public static void TrendingTopics(NewsSearchAPI client)
         {
@@ -265,4 +265,4 @@ Aşağıdaki kod Bing Haberler oluşturan eğilim konuları arar. Sonuç sayıs�
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-[Bilişsel hizmetler .NET SDK'sı örneği](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7)
+[Bilişsel Hizmetler .NET SDK örnekleri](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7)
