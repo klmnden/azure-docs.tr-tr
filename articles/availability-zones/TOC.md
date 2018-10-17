@@ -38,7 +38,7 @@
 ### [Genel IP adresi](../virtual-network/virtual-network-public-ip-address.md#create-a-public-ip-address)
 
 ### SQL Veritabanı
-#### [SQL Veritabanı ile kullanılabilirlik alanları](../sql-database/sql-database-high-availability.md#availability-zones)
+#### [SQL Veritabanı ile kullanılabilirlik alanları](../sql-database/sql-database-high-availability.md#zone-redundant-configuration)
 
 ### Depolama
 #### [Bölgesel olarak yedekli depolama](../storage/common/storage-redundancy-zrs.md)
