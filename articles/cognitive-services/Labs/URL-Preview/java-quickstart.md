@@ -1,31 +1,33 @@
 ---
-title: Proje URL'si Önizleme - Microsoft Bilişsel hizmetler için Java hızlı başlangıç | Microsoft Docs
-description: Proje URL'si Önizleme Azure üzerinde Microsoft Bilişsel Hizmetleri'ndeki kullanmaya başlamak için komut dosyası örneği.
+title: 'Hızlı başlangıç: URL Önizleme Projesi, Java'
+titlesuffix: Azure Cognitive Services
+description: Java ile URL Önizleme Projesini kullanmaya başlamak için örnek betik.
 services: cognitive-services
 author: mikedodaro
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: project-url-preview
-ms.topic: article
+ms.component: project-url-preview
+ms.topic: quickstart
 ms.date: 04/24/2018
 ms.author: rosh, v-gedod
-ms.openlocfilehash: 2de74f48882605bfcf05f65723ba5d8993587f51
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
-ms.translationtype: MT
+ms.openlocfilehash: 95e33ceddc2fbbab51d3c4f0164b410847430244
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35354029"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48867128"
 ---
-# <a name="url-preview-java-quickstart"></a>URL önizleme Java hızlı başlangıç
+# <a name="quickstart-url-preview-with-java"></a>Hızlı başlangıç: Java ile URL Önizleme
 
-Aşağıdaki Java örneğinde SwiftKey Web sitesi için Url Önizleme oluşturur: https://swiftkey.com/en.
+Aşağıdaki Java örneği SwiftKey Web sitesi için bir URL Önizlemesi oluşturur: https://swiftkey.com/en.
 
-## <a name="prerequisites"></a>Önkoşullar
+## <a name="prerequisites"></a>Ön koşullar
 
-Ücretsiz deneme sürümü için bir erişim anahtarı alma [Bilişsel hizmetler Laboratuvarları](https://aka.ms/answersearchsubscription)
+[Bilişsel Hizmetler Laboratuvarları](https://aka.ms/answersearchsubscription) ücretsiz denemesi için erişim anahtarı alın
 
 ## <a name="request"></a>İstek 
 
-Aşağıdaki kod oluşturur bir `WebRequest`erişim anahtar üstbilgisini ayarlar ve bir sorgu dizesi için "https://swiftkey.com/en".  İsteği gönderir ve yanıt JSON metnini içeren bir dize olarak atar.
+Aşağıdaki kod bir `WebRequest` oluşturur, erişim anahtarı üst bilgisini ayarlar ve "https://swiftkey.com/en" için bir sorgu dizesi ekler.  Ardından isteği gönderir ve yanıtı JSON metnini içeren bir dizeye atar.
 
 ````
     // construct URL of search request (endpoint + query string)
@@ -49,12 +51,12 @@ Aşağıdaki kod oluşturur bir `WebRequest`erişim anahtar üstbilgisini ayarla
 
 ## <a name="complete-code"></a>Tam kod
 
-Bing yanıt arama API Bing arama altyapısı sonuçlar döndürür.
-1. İndirme veya gson Kitaplığı yükleyin.
-2. Sık kullanılan IDE veya Düzenleyicisi yeni bir Java projesi oluşturun.
-3. Aşağıda sunulan kodu ekleyin.
-4. Aboneliğiniz için geçerli bir erişim anahtarı ile subscriptionKey değeri değiştirin.
-5. Programını çalıştırın.
+Bing Yanıt Arama API'si Bing arama motorundan sonuçları döndürür.
+1. gson kitaplığını indirip yükleyin.
+2. Sık kullandığınız IDE veya düzenleyicide yeni bir Java projesi oluşturun.
+3. Aşağıda sağlanan kodu ekleyin.
+4. subscriptionKey değerini, aboneliğiniz için geçerli olan bir erişim anahtarı ile değiştirin.
+5. Programı çalıştırın.
 
 ````
 package UrlPreviewpkg;
@@ -166,7 +168,7 @@ class SearchResults{
 ````
 
 ## <a name="next-steps"></a>Sonraki adımlar
-- [C# hızlı başlangıç](csharp.md)
-- [JavaScript hızlı başlangıç](javascript.md)
-- [Düğüm hızlı başlangıç](node-quickstart.md)
-- [PYthon hızlı başlangıç](python-quickstart.md)
+- [C# hızlı başlangıcı](csharp.md)
+- [JavaScript hızlı başlangıcı](javascript.md)
+- [Node hızlı başlangıcı](node-quickstart.md)
+- [Python hızlı başlangıcı](python-quickstart.md)

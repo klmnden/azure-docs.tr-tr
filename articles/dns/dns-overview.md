@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: overview
 ms.date: 9/24/2018
 ms.author: victorh
-ms.openlocfilehash: e3e04bf7e35b22a56465810f476323ed217e047a
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: f68281f71ed525798410fb80b0d0175d38050c40
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46967634"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48829928"
 ---
 # <a name="what-is-azure-dns"></a>Azure DNS nedir?
 
@@ -24,11 +24,11 @@ Azure DNS aşağıdaki özellikleri içerir:
 
 ## <a name="reliability-and-performance"></a>Güvenilirlik ve performans
 
-Azure DNS içindeki DNS etki alanları Azure'un global DNS ad sunucusu ağında barındırılır. Azure DNS ağı her noktaya yayın özelliğine sahip olduğundan DNS sorguları en yakın DNS sunucusu tarafından yanıtlanır. Bu sayede etki alanınız hem yüksek performans hem de yüksek kullanılabilirlik özelliklerine sahip olur.
+Azure DNS içindeki DNS etki alanları Azure'un global DNS ad sunucusu ağında barındırılır. Azure DNS ağı her noktaya yayın özelliğine sahip olduğundan DNS sorguları en yakın DNS sunucusu tarafından yanıtlanır ve bu sayede etki alanınız için yüksek performans ve kullanılabilirlik sağlar.
 
 ## <a name="security"></a>Güvenlik
 
-Azure DNS, Azure Resource Manager hizmetini temel alır. Bu sayede aşağıdakiler gibi Resource Manager özelliklerinden faydalanabilirsiniz:
+Azure DNS, Azure Resource Manager hizmetini temel alır ve aşağıdaki gibi hizmetler sunar:
 
 * [Rol tabanlı erişim denetimi](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#access-control): Resource Manager, belirli eylemlere kuruluşunuzda kimlerin erişebildiğini denetlemenize olanak tanır.
 
@@ -43,7 +43,7 @@ Daha fazla bilgi için bkz. [DNS bölgelerini ve kayıtlarını koruma](dns-prot
 
 Azure DNS hizmeti, Azure hizmetlerinizin DNS kayıtlarını yönetebilir ve Azure dışı kaynaklar için de DNS hizmeti sunabilir. Azure DNS, Azure portala tümleştirilmiştir ve diğer Azure hizmetlerinizle aynı kimlik bilgilerini, destek ekibini ve faturalandırma özelliklerini kullanır. 
 
-DNS faturalarında, Azure’da barındırılan DNS bölgelerinin sayısı ve DNS sorgularının sayısı temel alınır. Fiyatlandırma hakkında daha fazla bilgi için bkz. [Azure DNS Fiyatlandırması](https://azure.microsoft.com/pricing/details/dns/).
+DNS faturalarında, Azure’da barındırılan DNS bölgelerinin sayısı ve alınan DNS sorgularının sayısı temel alınır. Fiyatlandırma hakkında daha fazla bilgi için bkz. [Azure DNS Fiyatlandırması](https://azure.microsoft.com/pricing/details/dns/).
 
 Etki alanlarınızı ve kayıtlarınızı yönetmek için Azure portalı, Azure PowerShell cmdlet'lerini ve farklı platformlarda Azure CLI özelliklerini kullanabilirsiniz. Otomatik DNS yönetimi gerektiren uygulamalar REST API ve SDK'lar ile hizmetle tümleştirilebilir.
 

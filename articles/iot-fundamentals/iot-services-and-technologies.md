@@ -1,27 +1,28 @@
 ---
 title: Azure Nesnelerin İnterneti (IoT) teknolojileri ve çözümleri
 description: Bir Azure IoT çözümü oluşturmak için kullanılabilen PaaS/SaaS teknoloji ve çözümleri koleksiyonunu sunar.
-author: BryanLa
-manager: timlt
+author: robinsh
 ms.service: iot-fundamentals
 services: iot-fundamentals
 ms.topic: overview
-ms.date: 05/18/2018
-ms.author: bryanla
-ms.openlocfilehash: e875ec599323b3d037ba704d4cc54a48ff9b1b57
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.date: 10/09/2018
+ms.author: robinsh
+ms.openlocfilehash: 6a44c36b5dd87c28db3de34a6858e29fb5730117
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34631420"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49067343"
 ---
 # <a name="azure-iot-technologies-and-solutions-paas-and-saas"></a>Azure IoT teknolojileri ve çözümleri: PaaS ve SaaS
 
 Microsoft, tüm müşterilerin ihtiyaçlarını karşılayacak bir portföy oluşturarak herkese dijital dönüşüm avantajlarından faydalanma olanağı tanıyor. Azure IoT ürün portföyü, kullanılabilir PaaS/SaaS teknolojileri ve çözümlerine genel bir bakıştır. Kendi çözümünüzü oluşturmak için kullanılabilen iki yol sunar:
+
 - Hizmet Olarak Platform (PaaS): Özel IoT çözümlerinin geliştirilmesini hızlandırmanızı sağlayan önceden yapılandırılmış kurumsal sınıf çözümlerden oluşan bir koleksiyon olan [Azure IoT çözüm hızlandırıcılarını](https://www.azureiotsolutions.com/) kullanarak uygulamanızı oluşturun.
+
 - Hizmet Olarak Yazılım (SaaS): IoT çözümünün karmaşıklığından etkilenmeden IoT uygulamaları geliştirmeye yönelik yeni SaaS çözümü olan [Azure IoT Central](https://azure.microsoft.com/services/iot-central/)’ı hemen kullanmaya başlayın. Kuruluşunuz kendi IoT çözümünüzü oluşturacak kaynaklara sahip değilse, Azure IoT Central, dakikalar içinde cihaz modelleri, panolar ve kurallar oluşturabilecek kodsuz bir IoT çözümüdür.
 
-![Azure IoT teknolojileri ve çözümleri][img-paas-saas-technologies-solutions]
+![Azure IoT teknolojileri ve çözümleri](./media/iot-comparison/paas-saas-technologies-solutions.png)
 
 ## <a name="solutions"></a>Çözümler
 
@@ -77,9 +78,9 @@ Azure IoT ürününüzün seçilmesi, IoT çözümünüzü planlamanın önemli 
 
 IoT çözümünüzü oluşturmak için kullanılacak ürün son olarak şununla belirlenir:
 
-* İş gereksinimleriniz.
+* İş gereksinimleriniz
 * Oluşturmak istediğiniz çözüm türü
-* Kuruluşunuzun çözüm oluşturma ve uzun vadede sürdürme becerileri.
+* Kuruluşunuzun çözüm oluşturma ve uzun vadede sürdürme becerileri
 
 ## <a name="technologies-paas"></a>Teknolojiler (PaaS)
 
@@ -96,20 +97,12 @@ Açık kaynak [cihaz SDK’larını](/azure/iot-hub/iot-hub-devguide-sdks) kulla
 ### <a name="edge"></a>Edge
 [Azure IoT Edge](https://azure.microsoft.com/services/iot-edge/), bir Nesnelerin İnterneti (IoT) hizmetidir. Bu hizmet, verileri bulut yerine cihazlarda, diğer bir deyişle "uçta." İş yükünüzün bir kısmını uca taşıyarak, düşük gecikme süresi yaşamış ve çevrimdışı senaryolar seçeneğine sahip olmuş olursunuz.
 
-
 ### <a name="data-and-analytics"></a>Veri ve analiz
 Azure Machine Learning ile bulut zekasını uca getirmeden, Azure Data Lake ile IoT cihazı verilerini ekonomik olarak depolamaya ve [Azure Time Series Insights](https://azure.microsoft.com/services/time-series-insights/) ile IoT cihazlarında bulunan büyük miktardaki verileri görselleştirmeye kadar kapsamlı olanaklar sunan bir dizi Azure veri ve analiz PaaS tekliflerinden faydalanın.
 
 ### <a name="visualization-and-integration"></a>Görselleştirme ve tümleştirme
 Microsoft Azure sürekli olarak büyüyen tümleşik bulut hizmetlerini, verilerinizin korunması ve gizliliğine dayalı endüstri lideri bağlılığını birleştiren eksiksiz bir bulut çözümü sunar. [Microsoft Azure](https://azure.microsoft.com/) hakkında daha fazla bilgi edinin.
 
-
-
-
-
 ## <a name="next-steps"></a>Sonraki adımlar
 
-IoT özelliklerini hızlı ve kolay bir şekilde deneyimlemek için [Kullanmaya başlama](/azure/iot-hub/iot-hub-get-started) bölümüne göz atın. Ya da daha ayrıntılı bir uygulamalı deneyim için [Öğreticilerden](/azure/iot-edge/tutorial-simulate-device-windows) birini deneyin.
-
-[img-paas-saas-technologies-solutions]: media/iot-comparison/paas-saas-technologies-solutions.png
-
+IoT özelliklerini hızlı ve kolay bir şekilde deneyimlemek için [IoT Hub belgelerinin kullanmaya başlama bölümüne](/azure/iot-hub/iot-hub-get-started) göz atın. Ya da daha ayrıntılı bir uygulamalı deneyim için [IoT Edge öğreticilerinden](/azure/iot-edge/tutorial-simulate-device-windows) birini deneyin.

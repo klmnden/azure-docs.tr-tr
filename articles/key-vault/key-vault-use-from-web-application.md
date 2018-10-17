@@ -9,14 +9,14 @@ ms.assetid: 9b7d065e-1979-4397-8298-eeba3aec4792
 ms.service: key-vault
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 07/20/2018
+ms.date: 10/09/2018
 ms.author: barclayn
-ms.openlocfilehash: ff59e39e54433aa673b093e2ee1fbe8c74010e54
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: b66c9912ba0b6508c2beb786d2327efa779c6645
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39171332"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49079472"
 ---
 # <a name="tutorial-use-azure-key-vault-from-a-web-application"></a>Öğretici: Web uygulamasından Azure Key Vault’u kullanma
 
@@ -42,8 +42,7 @@ Bu öğreticiyi tamamlamak için aşağıdaki öğelere sahip olmanız gerekir:
 
 Gizli dizi URI'sini, İstemci Kimliğini, Gizli Anahtarı almak ve uygulamayı kaydetmek için [Azure Key Vault'u kullanmaya başlama](key-vault-get-started.md) sayfasındaki adımları uygulayın. Web uygulaması kasaya erişecektir ve Azure Active Directory'de kayıtlı olması gerekir. Ayrıca anahtar kasasına erişim haklarına da sahip olmalıdır. Uygulama bu şartları karşılamıyorsa Kullanmaya Başlama öğreticisindeki Uygulama Kaydetme bölümüne dönün ve oradaki adımları uygulayın. Azure Web Apps uygulaması oluşturma hakkında daha fazla bilgi için bkz. [Web Apps'e genel bakış](../app-service/app-service-web-overview.md).
 
-Bu örnek, Azure Active Directory kimliklerinin el ile sağlanmasına dayanmaktadır. Ancak bunun yerine [Yönetilen Hizmet Kimliği (MSI)](https://docs.microsoft.com/azure/active-directory/msi-overview) kullanmanız gerekir. MSI, Azure AD Kimliklerini otomatik olarak sağlayabilir. Daha fazla bilgi için [GitHub](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet/) üzerindeki örneğe ve ilgili [MSI ile App Service ve İşlevler öğreticisine](https://docs.microsoft.com/azure/app-service/app-service-managed-service-identity) bakın. Key Vault'a özgü [MSI öğreticisine](tutorial-web-application-keyvault.md) de bakabilirsiniz
-
+Bu örnek, Azure Active Directory kimliklerinin el ile sağlanmasına dayanmaktadır. Bunun yerine Azure AD kimliklerini otomatik olarak sağlayan [Azure kaynakları için yönetilen kimlikleri](../active-directory/managed-identities-azure-resources/overview.md) kullanmanız gerekir. Daha fazla bilgi için [GitHub](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet/) üzerindeki örneğe ve ilgili [App Service ve İşlevler öğreticisine](https://docs.microsoft.com/azure/app-service/app-service-managed-service-identity) bakın. Anahtar kasasına özgü [Anahtar Kasasından gizli dizi okumak için bir Azure web uygulaması yapılandırma öğreticisine](tutorial-web-application-keyvault.md) de bakabilirsiniz.
 
 ## <a id="packages"></a>NuGet paketlerini ekleme
 
@@ -124,7 +123,7 @@ var sec = await kv.GetSecretAsync(WebConfigurationManager.AppSettings["SecretUri
 Utils.EncryptSecret = sec.Value;
 ```
 
-## <a id="portalsettings"></a>Azure Portal'da uygulama ayarlarını ekleme
+## <a id="portalsettings"></a>Azure portalda uygulama ayarlarını ekleme
 
 Artık Azure Web App'te Azure portal'dan gerçek AppSettings değerlerini ekleyebilirsiniz. Bu adımı gerçekleştirdiğinizde gerçek değerler web.config dosyasında olmaz ancak ayrı erişim denetimi özelliklerine sahip olduğunuz Portal aracılığıyla koruma altına alınır. Bu değerler web.config dosyasına girdiğiniz değerlerle değiştirilir. Adların aynı olduğundan emin olun.
 
@@ -145,14 +144,19 @@ Bir Azure AD uygulamasının kimliğini İstemci Kimliği ve Gizli Anahtar kulla
 
 ```powershell
 #Create self-signed certificate and export pfx and cer files 
-$PfxFilePath = "c:\data\KVWebApp.pfx" 
-$CerFilePath = "c:\data\KVWebApp.cer" 
-$DNSName = "MyComputer.Contoso.com" 
-$Password ="MyPassword" 
+$PfxFilePath = 'KVWebApp.pfx'
+$CerFilePath = 'KVWebApp.cer'
+$DNSName = 'MyComputer.Contoso.com'
+$Password = 'MyPassword"'
+
+$StoreLocation = 'CurrentUser' #be aware that LocalMachine requires elevated privileges
+$CertBeginDate = Get-Date
+$CertExpiryDate = $CertBeginDate.AddYears(1)
+
 $SecStringPw = ConvertTo-SecureString -String $Password -Force -AsPlainText 
-$Cert = New-SelfSignedCertificate -DnsName $DNSName -CertStoreLocation "cert:\LocalMachine\My" -NotBefore 05/15/2018 -NotAfter 05/15/2019 
-Export-PfxCertificate -cert $cert -FilePath $PFXFilePath -Password $SecStringPw 
-Export-Certificate -cert $cert -FilePath $CerFilePath 
+$Cert = New-SelfSignedCertificate -DnsName $DNSName -CertStoreLocation "cert:\$StoreLocation\My" -NotBefore $CertBeginDate -NotAfter $CertExpiryDate -KeySpec Signature
+Export-PfxCertificate -cert $Cert -FilePath $PFXFilePath -Password $SecStringPw 
+Export-Certificate -cert $Cert -FilePath $CerFilePath 
 ```
 
 Bitiş tarihini ve .pfx dosyasının parolasını not edin (bu örnekte: 15 Mayıs 2019 ve MyPassword). Aşağıdaki betik için bu değerlere ihtiyacınız olacak. 
@@ -172,7 +176,7 @@ $adapp = New-AzureRmADApplication -DisplayName "KVWebApp" -HomePage "http://kvwe
 $sp = New-AzureRmADServicePrincipal -ApplicationId $adapp.ApplicationId
 
 
-Set-AzureRmKeyVaultAccessPolicy -VaultName 'contosokv' -ServicePrincipalName "http://kvwebapp" -PermissionsToSecrets all -ResourceGroupName 'contosorg'
+Set-AzureRmKeyVaultAccessPolicy -VaultName 'contosokv' -ServicePrincipalName "http://kvwebapp" -PermissionsToSecrets get,list,set,delete,backup,restore,recover,purge -ResourceGroupName 'contosorg'
 
 # get the thumbprint to use in your app settings
 $x509.Thumbprint
@@ -246,7 +250,7 @@ Utils.GetCert();
 var kv = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(Utils.GetAccessToken));
 ```
 
-### <a name="add-a-certificate-to-your-web-app-through-the-azure-portal"></a>Azure Portal aracılığıyla web uygulamanıza sertifika ekleme
+### <a name="add-a-certificate-to-your-web-app-through-the-azure-portal"></a>Azure portal aracılığıyla web uygulamanıza sertifika ekleme
 
 Web Uygulamanıza Sertifika ekleme, iki adımlı basit bir süreçtir. İlk olarak Azure portala gidip Web Uygulamanızı bulun. Web Uygulamanızın Ayarlar sayfasında **SSL ayarları** girişine tıklayın. Sayfa açıldığında önceki örnekte oluşturduğunuz KVWebApp.pfx Sertifikasını yükleyin. pfx dosyasının parolasını hatırladığınızdan emin olun.
 

@@ -9,12 +9,12 @@ ms.service: cosmos-db
 ms.component: cosmosdb-cassandra
 ms.topic: overview
 ms.date: 09/24/2018
-ms.openlocfilehash: 636b0d9ef42ad1e87d891329be7b7c11c4efcb4a
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 06f2f81f5be496e2e55874c07a31fdf1c0a5d0f2
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47220151"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48868704"
 ---
 # <a name="apache-cassandra-features-supported-by-azure-cosmos-db-cassandra-api"></a>Azure Cosmos DB Cassandra API'si tarafından desteklenen Apache Cassandra özellikleri 
 
@@ -106,11 +106,13 @@ Azure Cosmos DB Cassandra API'si bir yönetilen hizmet platformudur. Kümeyi yö
 
 CQLSH komut satırı yardımcı programı, Apache Cassandra 3.1.1 ile birlikte gelir ve aşağıdaki ortam değişkenleri etkin olarak çalışır:
 
+Aşağıdaki komutları çalıştırmadan önce [cacerts deposuna bir Baltimore kök sertifikası ekleyin](https://docs.microsoft.com/java/azure/java-sdk-add-certificate-ca-store?view=azure-java-stable#to-add-a-root-certificate-to-the-cacerts-store). 
+
 **Windows:** 
 
 ```bash
 set SSL_VERSION=TLSv1_2 
-SSL_CERTIFICATE=<path to balitmore root ca cert>
+SSL_CERTIFICATE=<path to Baltimore root ca cert>
 set CQLSH_PORT=10350 
 cqlsh <YOUR_ACCOUNT_NAME>.cassandra.cosmosdb.azure.com 10350 -u <YOUR_ACCOUNT_NAME> -p <YOUR_ACCOUNT_PASSWORD> –ssl 
 ```
@@ -118,7 +120,7 @@ cqlsh <YOUR_ACCOUNT_NAME>.cassandra.cosmosdb.azure.com 10350 -u <YOUR_ACCOUNT_NA
 
 ```bash
 export SSL_VERSION=TLSv1_2 
-SSL_CERTIFICATE=<path to balitmore root ca cert>
+SSL_CERTIFICATE=<path to Baltimore root ca cert>
 cqlsh <YOUR_ACCOUNT_NAME>.cassandra.cosmosdb.azure.com 10350 -u <YOUR_ACCOUNT_NAME> -p <YOUR_ACCOUNT_PASSWORD> –ssl 
 ```
 
@@ -127,24 +129,17 @@ cqlsh <YOUR_ACCOUNT_NAME>.cassandra.cosmosdb.azure.com 10350 -u <YOUR_ACCOUNT_NA
 Azure Cosmos DB, Cassandra API'si hesaplarında aşağıdaki veritabanı komutlarını destekler.
 
 * CREATE KEYSPACE 
-
 * CREATE TABLE 
-
 * ALTER TABLE 
-
 * USE 
-
 * INSERT 
-
 * SELECT 
-
 * UPDATE 
-
 * BATCH- Yalnızca günlüğe kaydedilmemiş komutlar desteklenir 
-
 * DELETE
 
 CQLV4 uyumlu SDK aracılığıyla yürütülen tüm crud işlemleri; hata, kullanılan istek birimleri ve etkinlik kimliği ile ek bilgileri döndürür. Sağlanan kaynakların fazla kullanımından kaçınmak amacıyla silme ve güncelleştirme komutlarının kaynak idaresiyle işlenmesi gerekir. 
+* Not: gc_grace_seconds değeri belirtilmişse sıfır olmalıdır.
 
 ```csharp
 var tableInsertStatement = table.Insert(sampleEntity); 
@@ -165,6 +160,14 @@ Azure Cosmos DB Cassandra API'si okuma işlemleri için tutarlılık sunar. Tüm
 ## <a name="permission-and-role-management"></a>İzin ve rol yönetimi
 
 Azure Cosmos DB, rol tabanlı erişim denetimini (RBAC) ve [Azure portal] aracılığıyla edinilebilecek okuma-yazma ve salt-okuma parolalarını/anahtarlarını destekler (https://portal.azure.com. Azure Cosmos DB henüz veri düzlemi etkinlikleri için kullanıcıları ve rolleri desteklememektedir. 
+
+## <a name="planned-support"></a>Planlı destek 
+* Zaman damgasını ve TTL değerini birlikte kullanma  
+* Anahtar alanı oluşturma komutundaki bölge adı şu an için yoksayılmaktadır. Veri dağıtımı temel alınan Cosmos DB platformunda gerçekleştirilmekte ve portal ya da PowerShell ile hesapta kullanıma sunulmaktadır. 
+
+
+
+
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

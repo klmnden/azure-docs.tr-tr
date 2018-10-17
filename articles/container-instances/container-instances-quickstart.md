@@ -1,40 +1,37 @@
 ---
-title: Hızlı Başlangıç - İlk Azure Container Instances kapsayıcınızı oluşturma
-description: Bu hızlı başlangıçta, Azure Container Instances’da bir kapsayıcı dağıtmak için Azure CLI’yı kullanacaksınız
+title: Hızlı başlangıç - Azure Container Instances hizmetinde uygulama çalıştırma
+description: Bu hızlı başlangıçta Azure CLI'yi kullanarak Docker kapsayıcısında çalışan bir uygulamayı Azure Container Instances hizmetine dağıtacaksınız
 services: container-instances
-author: mmacy
-manager: jeconnoc
+author: dlepow
 ms.service: container-instances
 ms.topic: quickstart
-ms.date: 05/11/2018
-ms.author: marsma
+ms.date: 10/02/2018
+ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 07632e85719e2d0d446b8f718dbc64d2e9d77617
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 7db3d9a076fe9ff5b8bbf970705b82a3f0d5ce54
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39441383"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48855672"
 ---
-# <a name="quickstart-create-your-first-container-in-azure-container-instances"></a>Hızlı başlangıç: Azure Container Instances’da ilk kapsayıcınızı oluşturma
+# <a name="quickstart-run-an-application-in-azure-container-instances"></a>Hızlı başlangıç: Azure Container Instances hizmetinde uygulama çalıştırma
 
-Azure Container Instances, sanal makine sağlamak veya daha yüksek düzey bir hizmet benimsemek zorunda kalmadan Azure’da Docker kapsayıcıları oluşturmayı ve yönetmeyi kolaylaştırır. Bu hızlı başlangıç içeriğinde, bir kapsayıcı oluşturacak ve bu kapsayıcıyı tam etki alanı adı (FQDN) ile İnternet üzerinden kullanıma sunacaksınız. Bu işlem tek bir komutla tamamlanır. Yalnızca birkaç saniye içinde tarayıcınızda şunu görürsünüz:
+Docker kapsayıcılarınızı kolay ve hızlı bir şekilde Azure'da çalıştırmak için Azure Container Instances hizmetini kullanın. Sanal makine dağıtmanız veya Kubernetes gibi tam kapsamlı bir düzenleme platformu kullanmanız gerekmez. Bu hızlı başlangıçta, Azure portalı kullanarak Azure’da bir kapsayıcı oluşturacak ve bu uygulamayı tam etki alanı adı (FQDN) ile kullanıma sunacaksınız. Tek bir dağıtım komutu yürüttükten birkaç saniye sonra çalışan uygulamaya göz atabilirsiniz:
 
-![Azure Container Instances kullanılarak dağıtılmış uygulama tarayıcıda görüntüleniyor][aci-app-browser]
+![Azure Container Instances hizmetine dağıtılmış uygulamanın tarayıcıdaki görüntüsü][aci-app-browser]
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap][azure-account] oluşturun.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Bu hızlı başlangıcı tamamlamak için Azure Cloud Shell veya yerel bir Azure CLI yüklemesi kullanabilirsiniz. CLI'yi yerel olarak yükleyip kullanmayı seçerseniz bu hızlı başlangıç için Azure CLI 2.0.27 veya sonraki bir sürümünü kullanmanız gerekir. Sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI yükleme][azure-cli-install].
+Bu hızlı başlangıcı tamamlamak için Azure Cloud Shell veya yerel bir Azure CLI yüklemesi kullanabilirsiniz. Yerel ortamda kullanmak istiyorsanız 2.0.27 veya üzeri sürümüne ihtiyacınız olacaktır. Sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI yükleme][azure-cli-install].
 
 ## <a name="create-a-resource-group"></a>Kaynak grubu oluşturma
 
-Tüm Azure kaynakları gibi Azure kapsayıcı örnekleri de Azure kaynaklarının dağıtıldığı ve yönetildiği mantıksal bir koleksiyon olan Azure kaynak grubuna yerleştirilmelidir.
+Tüm Azure kaynakları gibi Azure kapsayıcı örneklerinin de bir kaynak grubuna dağıtılması gerekir. Kaynak grupları, ilgili Azure kaynaklarını düzenlemenizi ve yönetmenizi sağlar.
 
-[az group create][az-group-create] komutuyla bir kaynak grubu oluşturun.
-
-Aşağıdaki örnek *eastus* konumunda *myResourceGroup* adlı bir kaynak grubu oluşturur.
+İlk olarak aşağıdaki [az group create][az-group-create] komutunu kullanarak *eastus* bölgesinde *myResourceGroup* adlı bir kaynak grubu oluşturun:
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
@@ -42,21 +39,21 @@ az group create --name myResourceGroup --location eastus
 
 ## <a name="create-a-container"></a>Bir kapsayıcı oluşturma
 
-[az container create][az-container-create] komutuna bir ad, Docker görüntüsü ve bir Azure kaynak grubu sağlayarak kapsayıcı oluşturabilirsiniz. İsteğe bağlı olarak, bir DNS ad etiketi belirterek kapsayıcıyı internet üzerinden kullanıma sunabilirsiniz. Bu hızlı başlangıçta, [Node.js][node-js] içinde yazılan küçük bir web uygulamasını barındıran bir kapsayıcı dağıtırsınız.
+Artık bir kaynak grubuna sahip olduğunuza göre Azure'da kapsayıcı çalıştırabilirsiniz. Azure CLI ile kapsayıcı örneği oluşturmak için [az container create][az-container-create] komutunda bir kaynak grubu adı, kapsayıcı örneği adı ve Docker kapsayıcı görüntüsü belirtin. Açılacak bir veya daha fazla bağlantı noktası, DNS ad etiketi ya da ikisini birden belirterek kapsayıcılarınızı internete açabilirsiniz. Bu hızlı başlangıçta, Node.js ile yazılan küçük bir web uygulamasını barındıran ve DNS ad etiketine sahip olan bir kapsayıcıyı dağıtacaksınız.
 
-Bir kapsayıcı örneği başlatmak için aşağıdaki komutu yürütün. `--dns-name-label` değeri, örneği oluşturduğunuz Azure bölgesi içinde benzersiz olmalıdır, bu yüzden benzersizliği sağlamak için bu değeri değiştirmeniz gerekebilir.
+Bir kapsayıcı örneği başlatmak için aşağıdaki komutu yürütün. `--dns-name-label` değeri, örneği oluşturduğunuz Azure bölgesi içinde benzersiz olmalıdır. "DNS ad etiketi kullanılamıyor" hata iletisiyle karşılaşırsanız farklı bir DNS ad etiketi deneyin.
 
 ```azurecli-interactive
 az container create --resource-group myResourceGroup --name mycontainer --image microsoft/aci-helloworld --dns-name-label aci-demo --ports 80
 ```
 
-Birkaç saniye içinde isteğinize yanıt almanız gerekir. Kapsayıcı başlangıçta **Oluşturuluyor** durumunda olacaktır ancak birkaç saniye içinde başlar. Durumu [az container show][az-container-show] komutunu kullanarak denetleyebilirsiniz:
+Birkaç saniye içinde Azure CLI'den dağıtımın tamamlandığını belirten bir yanıt almanız gerekir. Durumunu [az container show][az-container-show] komutuyla denetleyebilirsiniz:
 
 ```azurecli-interactive
 az container show --resource-group myResourceGroup --name mycontainer --query "{FQDN:ipAddress.fqdn,ProvisioningState:provisioningState}" --out table
 ```
 
-Komutu çalıştırdığınızda, kapsayıcının tam etki alanı adı (FQDN) ve sağlama durumu görüntülenir:
+Komutu çalıştırdığınızda, kapsayıcının tam etki alanı adı (FQDN) ve sağlama durumu görüntülenir.
 
 ```console
 $ az container show --resource-group myResourceGroup --name mycontainer --query "{FQDN:ipAddress.fqdn,ProvisioningState:provisioningState}" --out table
@@ -65,15 +62,17 @@ FQDN                               ProvisioningState
 aci-demo.eastus.azurecontainer.io  Succeeded
 ```
 
-Kapsayıcı **Başarılı** durumuna geçtiğinde, tarayıcınızda FQDN’sine gidin:
+Kapsayıcının `ProvisioningState` bilgisi **Başarılı** olduğunda tarayıcınızdan FQDN adresine gidin. Aşağıdakine benzer bir web sayfası görüyorsanız kendinizi tebrik edebilirsiniz! Docker kapsayıcısında çalışan bir uygulamayı başarıyla Azure'a dağıttınız.
 
 ![Bir Azure kapsayıcı örneğinde çalışan uygulamayı gösteren tarayıcı ekran görüntüsü][aci-app-browser]
 
+İlk seferde uygulama görüntülenmezse DNS kayıtlarının yayılması için birkaç saniye bekleyip tarayıcınızı yenilemeyi deneyebilirsiniz.
+
 ## <a name="pull-the-container-logs"></a>Kapsayıcı günlüklerini çekme
 
-Kapsayıcı örneğinin günlüklerini görüntülemek, kapsayıcınızın veya çalıştırdığı uygulamanın sorunlarını gidermede yardımcı olur.
+Kapsayıcıdaki veya üzerinde çalışan uygulamalardaki sorunları gidermek (veya yalnızca çıkışını görmek) istediğinizde kapsayıcı örneğinin günlüklerinden başlayın.
 
-[az container logs][az-container-logs] komutu ile kapsayıcının günlüklerini çekin:
+[az container logs][az-container-logs] komutu ile kapsayıcı örneğinin günlüklerini çekin:
 
 ```azurecli-interactive
 az container logs --resource-group myResourceGroup --name mycontainer
@@ -82,15 +81,16 @@ az container logs --resource-group myResourceGroup --name mycontainer
 Çıkış, kapsayıcının günlüklerini görüntüler ve uygulamayı tarayıcınızda görüntülediğinizde oluşturulan HTTP GET isteklerini göstermelidir.
 
 ```console
-$ az container logs --resource-group myResourceGroup -n mycontainer
+$ az container logs --resource-group myResourceGroup --name mycontainer
 listening on port 80
-::ffff:10.240.255.105 - - [15/Mar/2018:21:18:26 +0000] "GET / HTTP/1.1" 200 1663 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.146 Safari/537.36"
-::ffff:10.240.255.105 - - [15/Mar/2018:21:18:26 +0000] "GET /favicon.ico HTTP/1.1" 404 150 "http://aci-demo.eastus.azurecontainer.io/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.146 Safari/537.36"
+::ffff:10.240.255.105 - - [01/Oct/2018:18:25:51 +0000] "GET / HTTP/1.0" 200 1663 "-" "-"
+::ffff:10.240.255.106 - - [01/Oct/2018:18:31:04 +0000] "GET / HTTP/1.1" 200 1663 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36"
+::ffff:10.240.255.106 - - [01/Oct/2018:18:31:04 +0000] "GET /favicon.ico HTTP/1.1" 404 150 "http://aci-demo.eastus.azurecontainer.io/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36"
 ```
 
 ## <a name="attach-output-streams"></a>Çıkış akışları ekleme
 
-Günlükleri kuyruğa almaya ek olarak, yerel standart çıkış ve standart hata akışlarınızı kapsayıcınınkine ekleyebilirsiniz.
+Günlükleri görüntülemeye ek olarak, yerel standart çıkış ve standart hata akışlarınızı kapsayıcınınkine ekleyebilirsiniz.
 
 İlk olarak [az container attach][az-container-attach] komutunu yürüterek yerel konsolunuzu kapsayıcının çıkış akışlarına ekleyin:
 
@@ -98,7 +98,7 @@ Günlükleri kuyruğa almaya ek olarak, yerel standart çıkış ve standart hat
 az container attach --resource-group myResourceGroup -n mycontainer
 ```
 
-Bağlandıktan sonra, ek çıkışlar oluşturmak için tarayıcınızı birkaç defa yenileyin. Son olarak, `Control+C` ile konsolunuzu ayırın. Aşağıdakine benzer bir çıktı görmeniz gerekir:
+Bağlandıktan sonra, ek çıkışlar oluşturmak için tarayıcınızı birkaç defa yenileyin. İşlemi tamamladığınızda `Control+C` ile konsolunuzu ayırın. Aşağıdakine benzer bir çıktı görmeniz gerekir:
 
 ```console
 $ az container attach --resource-group myResourceGroup -n mycontainer
@@ -132,9 +132,15 @@ az container list --resource-group myResourceGroup --output table
 
 **mycontainer** kapsayıcısı komut çıkışında görünmemelidir. Kaynak grubunda başka kapsayıcınız yoksa, çıkış görüntülenmez.
 
+*myResourceGroup* kaynak grubuyla ve içindeki kaynaklarla işiniz bittiyse [az group delete][az-group-delete] komutuyla silin:
+
+```azurecli-interactive
+az group delete --name myResourceGroup
+```
+
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu hızlı başlangıçta, genel bir Docker Hub deposundaki bir görüntüden bir Azure kapsayıcı örneği oluşturdunuz. Kapsayıcı görüntüsünü kendiniz oluşturup özel bir Azure kapsayıcı kayıt defterinden Azure Container Instances’a dağıtmak istiyorsanız Azure Container Instances öğreticisine geçin.
+Bu hızlı başlangıçta, genel bir Docker Hub kayıt defterindeki bir görüntüyü kullanarak Azure kapsayıcı örneği oluşturdunuz. Kapsayıcı görüntüsünü oluşturup özel bir Azure kapsayıcı kayıt defterinden dağıtmak istiyorsanız Azure Container Instances öğreticisine geçin.
 
 > [!div class="nextstepaction"]
 > [Azure Container Instances öğreticisi](./container-instances-tutorial-prepare-app.md)
@@ -157,6 +163,7 @@ Kapsayıcıları Azure’da bir düzenleme sistemi içinde çalıştırma seçen
 [az-container-logs]: /cli/azure/container#az-container-logs
 [az-container-show]: /cli/azure/container#az-container-show
 [az-group-create]: /cli/azure/group#az-group-create
+[az-group-delete]: /cli/azure/group#az-group-delete
 [azure-cli-install]: /cli/azure/install-azure-cli
 [container-service]: ../aks/kubernetes-walkthrough.md
 [service-fabric]: ../service-fabric/service-fabric-quickstart-containers.md

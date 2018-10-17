@@ -1,34 +1,36 @@
 ---
-title: JavaScript Hızlı Başlangıç için proje URL önizlemesi - Microsoft Bilişsel hizmetler | Microsoft Docs
-description: Hızlı bir şekilde Azure üzerinde Microsoft Bilişsel hizmetler Bing URL önizleme API'sı ile çalışmaya başlamak için betik örnek.
+title: 'Hızlı başlangıç: URL Önizleme Projesi, JavaScript'
+titlesuffix: Azure Cognitive Services
+description: JavaScript ile Bing URL Önizleme API'sini kullanmaya hızlıca başlamak için örnek betik.
 services: cognitive-services
 author: mikedodaro
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: project-url-preview
-ms.topic: article
+ms.component: project-url-preview
+ms.topic: quickstart
 ms.date: 03/16/2018
-ms.author: rosh, v-gedod
-ms.openlocfilehash: dda6f7c105dfbadc3c22f0c008aa8759fe12fa03
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
-ms.translationtype: MT
+ms.author: rosh
+ms.openlocfilehash: b10e33a0947057c35bb6227cc43f92c4f0a56ceb
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43301361"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48869474"
 ---
-# <a name="url-preview-in-javascript"></a>JavaScript içinde URL önizlemesi 
+# <a name="quickstart-url-preview-in-javascript"></a>Hızlı başlangıç: JavaScript ile URL Önizleme 
 
-Aşağıdaki tek sayfalı uygulama SwiftKey site için bir URL önizlemesi oluşturmak için JavaScript kullanır: https://swiftkey.com/en. 
+Aşağıdaki tek sayfalı uygulamada JavaScript kullanılarak SwiftKey sitesinin URL Önizlemesi oluşturulmaktadır: https://swiftkey.com/en. 
 
-## <a name="prerequisites"></a>Önkoşullar
+## <a name="prerequisites"></a>Ön koşullar
 
-Ücretsiz deneme sürümü için bir erişim anahtarı alma [Bilişsel hizmetler Laboratuvarları](https://labs.cognitive.microsoft.com/en-us/project-url-preview)
+[Bilişsel Hizmetler Laboratuvarları](https://labs.cognitive.microsoft.com/en-us/project-url-preview) ücretsiz denemesi için erişim anahtarı alın
 
 ## <a name="code-scenario"></a>Kod senaryosu
-Aşağıdaki örnek javascript burada Önizleme URL'si kullanıcının girdiği metin giriş nesnesi içerir.  Kullanıcı tıkladığında **Önizleme** düğmesini onclick yöntemi yolları `getPreview` nerede kod oluşturur bir Web isteğine **UrlPreview** uç noktası.
+Aşağıdaki JavaScript örneğinde kullanıcının önizleme yapmak istediği URL'yi girdiği bir metin kutusu giriş nesnesi bulunmaktadır.  Kullanıcı **Preview** (Önizleme) düğmesine tıkladığında onclick metodu `getPreview` yönlendirmesiyle kodun **UrlPreview** uç noktasına bir Web isteği göndermesini sağlar.
 
-Kod oluşturur bir *XMLHttpRequest*, ekler *Ocp-Apim-Subscription-Key* üstbilgi ve anahtar ve isteği gönderir.  Yanıta işlemek için zaman uyumsuz olay işleyicisi ekler.
+Kod bir *XMLHttpRequest* oluşturur, *Ocp-Apim-Subscription-Key* üst bilgisini ve anahtarı ekler ve isteği gönderir.  Yanıtı işlemek için bir zaman uyumsuz olay ekler.
 
-Yanıtı başarıyla dönerse, işleyici yanıtı JSON metnini atar `demo` paragraf sayfasında. Diğer yanıt öğeleri görüntülemek için aşağıdaki paragraflara ayarlanır.
+Yanıt başarıyla döndürülürse işleyici yanıtın JSON metnini sayfanın `demo` paragrafına atar. Diğer yanıt öğeleri görüntülenmek üzere aşağıdaki paragraflara ayarlanır.
 
 **Ham JSON yanıtı**
 
@@ -46,19 +48,19 @@ Yanıtı başarıyla dönerse, işleyici yanıtı JSON metnini atar `demo` parag
 
 ````
 
-**Çalışan Tanıtımı**
+**Çalışan tanıtım**
 
-![Örnek JavaScript Url önizlemesi](./media/java-script-demo.png)
+![JavaScript URL Önizlemesi örneği](./media/java-script-demo.png)
 
 ## <a name="running-the-application"></a>Uygulamayı çalıştırma
 
 Uygulamayı çalıştırmak için:
 
-1. Değiştirin `YOUR-SUBSCRIPTION-KEY` aboneliğiniz için geçerli erişim anahtar ile değeri.
-2. Komut dosyası ve HTML .html uzantılı bir dosyaya kaydedin.
-3. Web sayfasının bir tarayıcıda çalıştırın.
-4. Var olan bir URL kullanın veya başka bir metin kutusuna girin.
-5. Tıklayın **Önizleme** düğmesi.
+1. `YOUR-SUBSCRIPTION-KEY` değerini, aboneliğiniz için geçerli olan bir erişim anahtarı ile değiştirin.
+2. HTML kodunu ve betiği .html uzantısıyla bir dosyaya kaydedin.
+3. Web sayfasını bir tarayıcıda çalıştırın.
+4. Var olan URL'yi kullanın veya metin kutusuna farklı bir URL girin.
+5. **Preview** (Önizleme) düğmesine tıklayın.
 
 **Kaynak kodu:**
 
@@ -127,7 +129,7 @@ Uygulamayı çalıştırmak için:
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
-- [C# hızlı başlangıç](csharp.md)
-- [Java hızlı başlangıç](java-quickstart.md)
-- [Düğüm hızlı başlangıç](node-quickstart.md)
-- [Python hızlı başlangıç](python-quickstart.md)
+- [C# hızlı başlangıcı](csharp.md)
+- [Java hızlı başlangıcı](java-quickstart.md)
+- [Node hızlı başlangıcı](node-quickstart.md)
+- [Python hızlı başlangıcı](python-quickstart.md)

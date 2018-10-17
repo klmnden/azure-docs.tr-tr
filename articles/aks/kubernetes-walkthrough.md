@@ -6,15 +6,15 @@ author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: quickstart
-ms.date: 07/31/2018
+ms.date: 09/24/2018
 ms.author: iainfou
 ms.custom: H1Hack27Feb2017, mvc, devcenter
-ms.openlocfilehash: f52551e9d57ccfc44502992b59412878c4092c0d
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: caf3607dbd33d75916ff65b0ab498fa228e2a823
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39436914"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49068928"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster"></a>Hızlı Başlangıç: Azure Kubernetes Hizmeti (AKS) kümesini dağıtma
 
@@ -26,7 +26,7 @@ Bu hızlı başlangıçta temel Kubernetes kavramlarını bildiğiniz varsayılm
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-CLI'yi yerel olarak yükleyip kullanmayı seçerseniz bu hızlı başlangıç için Azure CLI 2.0.43 veya sonraki bir sürümünü kullanmanız gerekir. Sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI yükleme][azure-cli-install].
+CLI'yi yerel olarak yükleyip kullanmayı seçerseniz bu hızlı başlangıç için Azure CLI 2.0.46 veya sonraki bir sürümünü kullanmanız gerekir. Sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI yükleme][azure-cli-install].
 
 ## <a name="create-a-resource-group"></a>Kaynak grubu oluşturma
 
@@ -55,7 +55,7 @@ az group create --name myAKSCluster --location eastus
 
 ## <a name="create-aks-cluster"></a>AKS kümesi oluşturma
 
-AKS kümesi oluşturmak için [az aks create][az-aks-create] komutunu kullanın. Aşağıdaki örnekte, bir düğüm ile *myAKSCluster* adlı bir küme oluşturulmuştur. *--enable-addons monitoring* parametresiyle kapsayıcı durumu izleme özelliği de etkinleştirilmiştir. Kapsayıcı durumu izleme çözümünü etkinleştirme hakkında daha fazla bilgi için bkz. [Azure Kubernetes Hizmeti durumunu izleme][aks-monitor].
+AKS kümesi oluşturmak için [az aks create][az-aks-create] komutunu kullanın. Aşağıdaki örnekte, bir düğüm ile *myAKSCluster* adlı bir küme oluşturulmuştur. *--enable-addons monitoring* parametresiyle Kapsayıcılar için Azure İzleyici de etkinleştirilmiştir. Kapsayıcı durumu izleme çözümünü etkinleştirme hakkında daha fazla bilgi için bkz. [Azure Kubernetes Hizmeti durumunu izleme][aks-monitor].
 
 ```azurecli-interactive
 az aks create --resource-group myAKSCluster --name myAKSCluster --node-count 1 --enable-addons monitoring --generate-ssh-keys
@@ -114,6 +114,13 @@ spec:
       containers:
       - name: azure-vote-back
         image: redis
+        resources:
+          requests:
+            cpu: 100m
+            memory: 128Mi
+          limits:
+            cpu: 250m
+            memory: 256Mi
         ports:
         - containerPort: 6379
           name: redis
@@ -142,6 +149,13 @@ spec:
       containers:
       - name: azure-vote-front
         image: microsoft/azure-vote-front:v1
+        resources:
+          requests:
+            cpu: 100m
+            memory: 128Mi
+          limits:
+            cpu: 250m
+            memory: 256Mi
         ports:
         - containerPort: 80
         env:
@@ -209,16 +223,19 @@ AKS kümesi oluşturulduğunda hem küme düğümleri hem de pod'lar için siste
 Azure Vote pod'larınızın geçerli durum, çalışma süresi ve kaynak kullanımı bilgilerini görmek için aşağıdaki adımları uygulayın:
 
 1. Web tarayıcısından Azure portalı [https://portal.azure.com][azure-portal] açın.
-1. *myResourceGroup* gibi bir kaynak grubunu ve *myAKSCluster* gibi bir AKS kümesini seçin. 
-1. **Kapsayıcı durumunu izle**'yi, **varsayılan** ad alanını ve ardından **Kapsayıcılar**'ı seçin.
+1. *myResourceGroup* gibi bir kaynak grubunu ve *myAKSCluster* gibi bir AKS kümesini seçin.
+1. Sol taraftaki **İzleme** bölümünde **İçgörüler (önizleme)** öğesini seçin
+1. Üst taraftan **+ Filtre Ekle**'yi seçin
+1. *Ad alanı* özelliğini ve ardından *\<kube-system hariç tümünü\> seçin*
+1. **Kapsayıcılar** bölümünü görüntüleyin.
 
-Aşağıda gösterildiği gibi Azure portalında bu verilerin doldurulması birkaç dakika sürebilir:
+Aşağıdaki örnekte olduğu gibi *azure-vote-back* ve *azure-vote-front* kapsayıcıları görüntülenir:
 
-![Birinci AKS kümesini oluşturma](media/kubernetes-walkthrough/view-container-health.png)
+![AKS'de çalışan kapsayıcıların durumunu görüntüleme](media/kubernetes-walkthrough-portal/monitor-containers.png)
 
-`azure-vote-front` pod'unun günlüklerini görmek için kapsayıcı listesinin sağ tarafındaki **Günlükleri Görüntüle** bağlantısını seçin. Bu günlükler, kapsayıcıdaki *stdout* ve *stderr* akışlarını içerir.
+`azure-vote-front` pod'unun günlüklerini görmek için kapsayıcı listesinin sağ tarafındaki **Kapsayıcı günlüklerini görüntüle** bağlantısını seçin. Bu günlükler, kapsayıcıdaki *stdout* ve *stderr* akışlarını içerir.
 
-![Birinci AKS kümesini oluşturma](media/kubernetes-walkthrough/view-container-logs.png)
+![AKS'deki kapsayıcı günlüklerini görüntüleme](media/kubernetes-walkthrough-portal/monitor-container-logs.png)
 
 ## <a name="delete-cluster"></a>Kümeyi silme
 

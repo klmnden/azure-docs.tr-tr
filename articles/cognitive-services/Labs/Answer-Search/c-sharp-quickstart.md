@@ -1,43 +1,45 @@
 ---
-title: Microsoft Bilişsel hizmetler, Project yanıt arama için C# hızlı başlangıç | Microsoft Docs
-description: Proje yanıt arama, Azure üzerinde Microsoft Bilişsel hizmetler ile çalışmaya başlamak için kod örneği.
+title: 'Hızlı başlangıç: Yanıt Arama Projesi, C#'
+titlesuffix: Azure Cognitive Services
+description: C# ile Yanıt Arama Projesini kullanmaya başlamak için kullanabileceğiniz kod örneği.
 services: cognitive-services
 author: mikedodaro
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: project-answer-search
-ms.topic: article
+ms.component: project-answer-search
+ms.topic: quickstart
 ms.date: 04/13/2018
-ms.author: rosh, v-gedod
-ms.openlocfilehash: c8e2a6a7fc3609932a7a1139d7b34553e5f9c291
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
-ms.translationtype: MT
+ms.author: rosh
+ms.openlocfilehash: bea98ac4c4f7da42d0b41a279508253b987ad9a6
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42888332"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48867230"
 ---
-# <a name="project-answer-search-query-in-c"></a>C# proje yanıt arama sorgusu
+# <a name="quickstart-project-answer-search-query-in-c"></a>Hızlı başlangıç: C# Yanıt Arama Projesi sorgusu
 
-Aşağıdaki C# örneği oluşturur ve bir sorgu hesaplama üçüncü yasaları hakkında bilgi gönderir.
+Aşağıdaki C# örneği kalkülüsün üçüncü yasası hakkında bilgi almak için bir sorgu oluşturup gönderir.
 
-## <a name="prerequisites"></a>Önkoşullar
+## <a name="prerequisites"></a>Ön koşullar
 
-İhtiyacınız olacak [Visual Studio 2017](https://www.visualstudio.com/downloads/) Windows üzerinde bu kodu çalıştırmak için. (Ücretsiz Community Edition’ı kullanabilirsiniz.)
+Bu kodu Windows’da çalıştırmak için [Visual Studio 2017](https://www.visualstudio.com/downloads/) gerekir. (Ücretsiz Community Edition’ı kullanabilirsiniz.)
 
-Ücretsiz deneme sürümü için bir erişim anahtarı alma [Bilişsel hizmetler Laboratuvarları](https://aka.ms/answersearchsubscription)
+[Bilişsel Hizmetler Laboratuvarları](https://aka.ms/answersearchsubscription) ücretsiz denemesi için erişim anahtarı alın
 
 ## <a name="code-scenario"></a>Kod senaryosu
 
-Aşağıdaki C# kodunu oluşturur ve sorguyu gönderir. 
+Aşağıdaki C# kodu sorguyu oluşturur ve gönderir. 
 
-Bunu aşağıdaki adımlarda uygulanır:
-1. Uç nokta ve önizleme için bir sorgu URL belirtmek için değişkenleri bildirin.  
-2. İsteği oluşturun.
-3. Ekleme *Ocp-Apim-Subscription-Key* başlığı. 
-4. Web isteğini zaman uyumsuz olarak çalışır. 
-5. Yanıtı okuyun.
-6. Üst bilgiler ve JSON sonuçlarını konsola yazdırır.
+Aşağıdaki adımları izler:
+1. Önizlemesi yapılacak uç noktayı ve sorgu URL'sini belirtmek için değişkenleri bildirme.  
+2. İsteği oluşturma.
+3. *Ocp-Apim-Subscription-Key* üst bilgisini ekleme. 
+4. Web isteğini zaman uyumsuz olarak çalıştırma. 
+5. Yanıtı okuma.
+6. Üst bilgileri ve JSON sonuçlarını konsolda yazdırma.
 
-**Kaynak kodu**
+**Kaynak kod**
 
 ```
 using System;
@@ -187,10 +189,10 @@ namespace Answers_csharp
 
 Uygulamayı çalıştırmak için:
 
-1. Visual Studio'da yeni bir konsol çözümü oluşturun.
-2. Değiştirin `Program.cs` sağlanan kod ile.
-3. Değiştirin `YOUR-ACCESS-KEY` aboneliğiniz için geçerli erişim anahtar ile değeri.
+1. Visual Studio'da yeni bir Konsol çözümü oluşturun.
+2. `Program.cs` dosyasını verilen kodla değiştirin.
+3. `YOUR-ACCESS-KEY` değerini, aboneliğiniz için geçerli olan bir erişim anahtarı ile değiştirin.
 4. Programı çalıştırın.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-[Java hızlı başlangıç](java-quickstart.md)
+[Java hızlı başlangıcı](java-quickstart.md)

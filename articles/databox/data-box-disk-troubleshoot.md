@@ -13,14 +13,14 @@ ms.topic: overview
 ms.custom: mvc
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 08/03/2018
+ms.date: 10/09/2018
 ms.author: alkohli
-ms.openlocfilehash: e1a5cb33bb473daf5b9e45e7c64bcb297eca7733
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 9b2c03c13cf687af7cdebc9c4d2624a6a7c5907f
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39595554"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49069208"
 ---
 # <a name="troubleshoot-issues-in-azure-data-box-disk-preview"></a>Azure Data Box Disk (Önizleme) sorunlarını giderme
 
@@ -85,6 +85,20 @@ Etkinlik günlükleri 90 gün boyunca saklanır. Başlangıç tarihi 90 günden 
 | Aşağıdaki birimlerin kilidi açıldı ve bu birimler doğrulandı. <br>Birim sürücü harfleri: E:<br>Şu destek anahtarlarıyla birimlerin kilidi açılamadı: werwerqomnf, qwerwerqwdfda <br><br>Araç bazı sürücülerin kilidini açar, başarılı ve başarısız olan sürücü harflerini listeler.| Kısmen başarıldı. Kullanılan destek anahtarıyla bazı sürücülerin kilidi açılamadı. Sonraki adımlar için Microsoft Desteği'ne başvurun. |
 | Kilitli birimler bulunamadı. Microsoft'tan alınan diskin düzgün bağlandığından ve kilitli durumda olduğundan emin olun.          | Araç kilitli sürücüleri bulamıyor. Sürücülerden birinin kilidi açılmış veya sürücü bulunamıyor. Sürücülerin bağlı ve kilitli olduğundan emin olun.                                                           |
 | Önemli hata: Parametre geçersiz<br>Parametre adı: invalid_arg<br>KULLANIM:<br>DataBoxDiskUnlock /PassKeys:<noktalı_virgülle_ayrılmış_destek_anahtarı_listesi><br><br>Örnek: DataBoxDiskUnlock /PassKeys:passkey1;passkey2;passkey3<br>Örnek: DataBoxDiskUnlock /SystemCheck<br>Örnek: DataBoxDiskUnlock /Help<br><br>/PassKeys:       Bu destek anahtarını Azure DataBox Disk siparişinden alın. Bu destek anahtarı disklerinizin kilidini açar.<br>/Help:           Bu seçenek, cmdlet kullanımı konusunda yardım bilgileri ve örnekler sunar.<br>/SystemCheck:    Bu seçenek, sisteminizin aracı çalıştırmak için istenen gereksinimlere uygun olup olmadığını denetler.<br><br>Çıkmak için bir tuşa basın. | Geçersiz parametre girildi. İzin verilen parametreler: /SystemCheck, /PassKey ve /Help.                                                                            |
+
+## <a name="data-box-disk-split-copy-tool-errors"></a>Data Box Disk Split Copy aracı hataları
+
+|Hata iletisi/Uyarılar  |Öneriler |
+|---------|---------|
+|[Bilgi] m: birimi için BitLocker parolası alınıyor <br>[Hata] m: birimi için BitLocker anahtarı alınırken özel durum oluştu<br> Sıra hiçbir öğe içermiyor.|Bu hata hedef Data Box Disk çevrimdışı olduğunda gösterilir. <br> Diskleri çevrimiçi duruma getirmek için `diskmgmt.msc` aracını kullanın.|
+|[Hata] Özel durum oluştu: WMI işlemi başarısız oldu:<br> Method=UnlockWithNumericalPassword, ReturnValue=2150694965, <br>Win32Message=Girilen kurtarma parolası biçimi geçersiz. <br>BitLocker kurtarma parolaları 48 hanelidir. <br>Kurtarma parolasının doğru biçimde olduğunu doğrulayıp yeniden deneyin.|Data Box Disk kilit açma aracını kullanarak disklerin kilidini açın ve komutu yeniden deneyin. Daha fazla bilgi için bkz. <li> [Windows istemcileri için Data Box Disk kilidini açma](data-box-disk-deploy-set-up.md#unlock-disks-on-windows-client). </li><li> [Linux istemcileri için Data Box Disk kilidini açma](data-box-disk-deploy-set-up.md#unlock-disks-on-linux-client). </li>|
+|[Hata] Özel durum oluştu: Hedef sürücüde DriveManifest.xml dosyası var. <br> Bu durum hedef sürücünün farklı bir günlük dosyasıyla hazırlanmış olabileceğini gösterir. <br>Aynı sürücüye daha fazla veri eklemek için önceki günlük dosyasını kullanın. Var olan verileri silmek ve hedef sürücüyü yeni bir içeri aktarma işi için kullanmak istiyorsanız sürücüdeki DriveManifest.xml dosyasını silin. Bu komutu yeni bir günlük dosyasıyla yeniden çalıştırın.| Bu hata aynı sürücü kümesini birden fazla içeri aktarma oturumunda kullanmaya çalıştığınızda ortaya çıkar. <br> Bir sürücü kümesini yalnızca bir bölme ve kopyalama oturumu için kullanın.|
+|[Hata] Özel durum oluştu: CopySessionId importdata-sept-test-1 eski bir kopyalama oturumunu gösteriyor ve yeni bir kopyalama oturumu için yeniden kullanılamaz.|Bu hata yeni bir işe önceden başarıyla tamamlanan bir işin adının verilmeye çalışılması durumunda bildirilir.<br> Yeni işiniz için benzersiz bir ad atayın.|
+|[Bilgi] Hedef dosya veya dizin adı NTFS uzunluk sınırını aşıyor. |Bu ileti hedef dosya uzun dosya yolu nedeniyle yeniden adlandırıldığında bildirilir.<br> Bu davranışı denetlemek için `config.json` dosyasındaki değerlendirme seçeneğini değiştirin.|
+|[Hata] Özel durum oluştu: Bozuk JSON kaçış dizisi. |Bu ileti config.json dosyasında geçersiz biçim olduğunda bildirilir. <br> Dosyayı kaydetmeden önce [JSONlint](https://jsonlint.com/) kullanarak `config.json` için doğrulama gerçekleştirin.|
+
+
+
 ## <a name="next-steps"></a>Sonraki adımlar
 
 - [Azure portal aracılığıyla Data Box Disk'i yönetme](data-box-portal-ui-admin.md) hakkında bilgi edinin.

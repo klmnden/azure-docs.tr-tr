@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 09/21/2018s
+ms.date: 10/10/2018
 ms.topic: quickstart
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: 9092629c7bef46cdb7c464fca5e22d4aea0da9fc
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 12b7a605350b07565660e9e4d1334b286aa5ac00
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47041549"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49079115"
 ---
 # <a name="quickstart-explore-and-analyze-costs-with-cost-analysis"></a>Hızlı Başlangıç: Maliyet analiziyle maliyetleri keşfetme ve analiz etme
 
@@ -34,13 +34,21 @@ Bu hızlı başlangıçta şunları yapmayı öğrenirsiniz:
 
 Maliyet analizi tüm [Kurumsal Sözleşme (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/) müşterileri tarafından kullanılabilir. Maliyet verilerini görüntülemek için aşağıdaki kapsamlardan birine veya daha fazlasına en azından yazma erişiminiz olmalıdır.
 
-- Fatura hesabı
-- Bölüm
-- Kayıt hesabı
-- Yönetim grubu
-- Abonelik
-- Kaynak grubu
+- *Fatura hesabı* kapsamı https://ea.azure.com adresinde tanımlanır ve Kuruluş Yöneticisi erişimi gerekir. Önkoşul EA ayarı gerekli değildir. Maliyet analizindeki fatura bilgileri, kurumsal anlaşma kapsamındaki tüm aboneliklere aittir. Fatura hesabı genellikle *Kurumsal Anlaşma* veya *Kayıt* olarak nitelenir.
 
+- *Bölüm* kapsamı https://ea.azure.com adresinde tanımlanır ve Bölüm Yöneticisi erişimi gerekir. EA portalında **DA ücretleri görüntüleme** ayarı etkinleştirilmiş olmalıdır. Maliyet analizindeki fatura bilgileri, bölümle bağlantılı kayıt hesabındaki tüm aboneliklere aittir.
+
+- *Kayıt hesabı* kapsamı https://ea.azure.com adresinde tanımlanır ve Hesap Sahibi erişimi gerekir. EA portalında **AO ücretleri görüntüleme** ayarı etkinleştirilmiş olmalıdır. Maliyet analizindeki fatura bilgileri, kayıt hesabındaki tüm aboneliklere aittir. Kayıt hesabı genellikle *hesap sahibi* olarak nitelenir.
+
+- *Yönetim grubu* kapsamı https://portal.azure.com adresinde tanımlanır ve Maliyet Yönetimi Okuyucu (veya Okuyucu) erişimi gerekir. EA portalında **AO ücretleri görüntüleme** ayarı etkinleştirilmiş olmalıdır. Maliyet analizindeki fatura bilgileri, yönetim grubu altındaki tüm aboneliklere aittir.
+
+- *Abonelik* kapsamı https://portal.azure.com adresinde tanımlanır ve Maliyet Yönetimi Okuyucu (veya Okuyucu) erişimi gerekir. EA portalında **AO ücretleri görüntüleme** ayarı etkinleştirilmiş olmalıdır. Maliyet analizindeki fatura bilgileri, abonelikteki tüm kaynaklara ve kaynak gruplarına aittir.
+
+- *Kaynak grubu* kapsamı https://portal.azure.com adresinde tanımlanır ve Maliyet Yönetimi Okuyucu (veya Okuyucu) erişimi gerekir. EA portalında **AO ücretleri görüntüleme** ayarı etkinleştirilmiş olmalıdır. Maliyet analizindeki fatura bilgileri, kaynak grubundaki tüm kaynaklara aittir.
+
+
+
+**DA ücretleri görüntüleme** ve **AO ücretleri görüntüleme** ayarları hakkında daha fazla bilgi için bkz. [Maliyet erişimini etkinleştirme](../billing/billing-enterprise-mgmt-grp-troubleshoot-cost-view.md#enabling-access-to-costs).
 
 ## <a name="sign-in-to-azure"></a>Azure'da oturum açma
 
@@ -94,6 +102,11 @@ En yukarıdaki Toplam görünümü altında yer alan özet grafikler farklı gru
 ![Geçerli görünüm için tüm veriler](./media/quick-acm-cost-analysis/full-data-set.png)
 
 Önceki resimde kaynak grubunun adları gösterilir. Maliyet analizi görünümlerinin, filtrelerin veya gruplandırmaların hiçbirinde kaynaklara ilişkin etiketlerin görünümü sağlanmaz.
+
+Maliyetler belirli bir özniteliğe göre gruplanırken maliyet açısından ilk on katkıda bulunan en yüksekten en düşüğe doğru gösterilir. Toplamda ondan fazla grup varsa maliyet açısından ilk dokuz katkıda bulunana ek olarak kalan tüm grupları içeren bir **Diğer** grubu gösterilir.
+
+*Klasik* (Azure Service Management veya ASM) sanal makineleri, ağ ve depolama kaynakları ayrıntılı fatura bilgisi paylaşmaz. Bunlar maliyet gruplarında **Klasik hizmetler** olarak gösterilir.
+
 
 ## <a name="download-cost-analysis-data"></a>Maliyet analizi verilerini indirme
 

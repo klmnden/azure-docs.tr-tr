@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 09/27/2018
 ms.author: cephalin;msangapu
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 05dd53fdfda5446cf848a7b8503a09bc5e5c2d20
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 347fc291fc7357481bfdc88c9019c3d688925c2f
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47433472"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49067526"
 ---
 # <a name="create-a-nodejs-web-app-in-azure"></a>Azure App Service'te Node.js web uygulaması oluşturma
 
@@ -46,10 +46,15 @@ Bu hızlı başlangıcı tamamlamak için:
 
 [https://github.com/Azure-Samples/nodejs-docs-hello-world/archive/master.zip](https://github.com/Azure-Samples/nodejs-docs-hello-world/archive/master.zip) adresinden örnek Node.js projesini indirin ve ZIP arşivini ayıklayın.
 
-Terminal penceresinde, örnek Node.js projesinin kök dizinine gidin (_index.js_ dosyasını içeren dizin).
+_index.js_ dosyasını açın ve aşağıdaki satırı bulun:
 
-> [!NOTE]
-> Örnek uygulamamızı kullanmanız gerekmez; isterseniz kendi Node kodunuzu kullanabilirsiniz. Ancak uygulamanızın PORT değerinin Azure tarafından çalışma zamanında ayarlandığını ve bu değerin `process.env.PORT` olarak kullanılabileceğini unutmayın. Express kullanıyorsanız, başlangıçta `process.env.PORT || 3000` için bir denetim (`app.listen`) yaptığınızdan emin olun. Bunu yapmazsanız ve bağlantı noktanız Azure tarafından çalışma zamanında ayarlanan ile eşleşmezse, bir `Service Unavailable` iletisi görürsünüz. 
+```javascript
+var port = process.env.PORT || 1337;
+```
+
+App Service, process.env.PORT dosyasını uygulamanıza ekleyerek kodun bu değişkenle dinlemesi gereken bağlantı noktasını öğrenmesini sağlar. 
+
+Terminal penceresinde, örnek Node.js projesinin kök dizinine gidin (_index.js_ dosyasını içeren dizin).
 
 ## <a name="run-the-app-locally"></a>Uygulamayı yerel olarak çalıştırma
 
@@ -68,7 +73,7 @@ Sayfada gösterilen örnek uygulamada **Hello World** iletisini görebilirsiniz.
 Terminal pencerenizde **Ctrl+C** tuşlarına basarak web sunucusundan çıkın.
 
 > [!NOTE]
-> Azure App Service'te uygulama [iisnode](https://github.com/tjanczuk/iisnode) kullanılarak IIS'de çalıştırılır. Uygulamanın iisnode ile çalıştırılmasını sağlamak için kök uygulama dizininde bir web.config dosyası bulunur. Bu dosya IIS tarafından okunabilir ve iisnode ile ilgili ayarlar [iisnode GitHub deposunda](https://github.com/tjanczuk/iisnode/blob/master/src/samples/configuration/web.config) belgelenmiştir.
+> Azure App Service'te uygulama [iisnode](https://github.com/Azure/iisnode) kullanılarak IIS'de çalıştırılır. Uygulamanın iisnode ile çalıştırılmasını sağlamak için kök uygulama dizininde bir web.config dosyası bulunur. Bu dosya IIS tarafından okunabilir ve iisnode ile ilgili ayarlar [iisnode GitHub deposunda](https://github.com/Azure/iisnode/blob/master/src/samples/configuration/web.config) belgelenmiştir.
 
 [!INCLUDE [Create ZIP file](../../includes/app-service-web-create-zip.md)]
 

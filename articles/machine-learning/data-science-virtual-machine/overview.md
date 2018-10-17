@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 10/27/2017
 ms.author: gokuma
-ms.openlocfilehash: 62c8ff225b9c649afa7532ad5edfdd627e573d81
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: a6f085b0fa11f117b181714a3b92cdc3a7c9e9a9
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47032249"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48870681"
 ---
 # <a name="introduction-to-azure-data-science-virtual-machine-for-linux-and-windows"></a>Linux ve Windows için Azure Veri Bilimi Sanal Makinesi’ne Giriş
 
@@ -30,9 +30,9 @@ Bu konuda, Veri Bilimi Sanal Makinesi ile yapabilecekleriniz ele alınmakta, san
 
 
 ## <a name="what-can-i-do-with-the-data-science-virtual-machine"></a>Veri Bilimi Sanal Makinesi ile ne yapabilirim?
-Veri Bilimi Sanal Makinesi’nin (DSVM) amacı, tüm beceri düzeylerindeki ve tüm rollerdeki veri uzmanlarına sorunsuz, önceden yapılandırılmış ve tam tümleşik bir veri bilimi ortamı sağlamaktır. Kendi başınıza benzer bir çalışma alanını kullanıma sunmak yerine bir DSVM sağlayabilir, böylece yükleme, yapılandırma ve paket yönetimi süreçlerinde günler ve hatta _haftalar_ kazanabilirsiniz. DSVM ayrıldıktan sonra veri bilimi projenizin üzerinde çalışmaya hemen başlayabilirsiniz.
+Veri Bilimi Sanal Makinesi’nin (DSVM) amacı, tüm beceri düzeylerindeki ve farklı sektörlerdeki veri uzmanlarına sorunsuz, önceden yapılandırılmış ve tam tümleşik bir veri bilimi ortamı sağlamaktır. Kendi başınıza benzer bir çalışma alanını kullanıma sunmak yerine bir DSVM sağlayabilir, böylece yükleme, yapılandırma ve paket yönetimi süreçlerinde günler ve hatta _haftalar_ kazanabilirsiniz. DSVM ayrıldıktan sonra veri bilimi projenizin üzerinde çalışmaya hemen başlayabilirsiniz.
 
-Veri Bilimi Sanal Makinesi çok çeşitli kullanım senaryoları ile birlikte çalışacak şekilde tasarlanmış ve yapılandırılmıştır. Proje gereksinimleriniz değiştikçe ortamınızın ölçeğini artırabilir veya azaltabilirsiniz. Ayrıca, veri bilimi görevlerini programlamak için tercih ettiğiniz dili kullanabilirsiniz. Başka araçlar yükleyebilir ve sistemi tam gereksinimlerinize göre özelleştirebilirsiniz.
+Veri Bilimi Sanal Makinesi çok çeşitli kullanım senaryoları ile birlikte çalışacak şekilde tasarlanmış ve yapılandırılmıştır. İhtiyaçlarınız değiştikçe ortamınızın ölçeğini artırıp azaltabilir, veri bilimi görevlerini programlamak için istediğiniz dili kullanabilir ve sisteminizi ihtiyaçlarınıza uygun hale getirmek için farklı araçlar yükleyebilirsiniz.
 
 ## <a name="key-scenarios"></a>Önemli Senaryolar
 Bu bölümde, Veri Bilimi Sanal Makinesinin dağıtılabileceği bazı önemli senaryolar önerilir.
@@ -47,13 +47,13 @@ Veri bilimi dersleri veren kurumsal eğitmenler genellikle öğrencilerinin tuta
 Veri bilimi yazılım yarışmaları/müsabakaları veya büyük ölçekli veri modelleme ve araştırmaları, genellikle kısa süreler için ölçeği genişletilmiş donanım kapasitesi gerektirir. Veri Bilimi Sanal Makinesi, yüksek güçlü bilgi işlem kaynakları gerektiren denemelerin yapılmasına izin veren ölçeği genişletilmiş sunucular üzerinde talep üzerine hızlıca veri bilimi ortamını çoğaltmaya yardımcı olabilir.
 
 ### <a name="short-term-experimentation-and-evaluation"></a>Kısa süreli deneme ve değerlendirme
-Veri Bilimi Sanal Makinesi; Microsoft ML Server, SQL Server, Visual Studio araçları, Jupyter, derin öğrenme / ML araç setleri gibi araçları ve toplulukta popüler olan yeni araçları çok az kurulum çabasıyla değerlendirmek veya öğrenmek için kullanılabilir. Veri Bilimi Sanal Makinesi hızlıca kurulabildiğinden, yayımlanmış denemeleri çoğaltma, tanıtımları uygulama, çevrimiçi oturumlarda veya konferans öğreticilerinde kılavuzları takip etme gibi diğer kısa süreli kullanım senaryolarında uygulanabilir.
+Veri Bilimi Sanal Makinesi; Microsoft ML Server, SQL Server, Visual Studio araçları, Jupyter, derin öğrenme / ML araç setleri gibi araçları ve toplulukta popüler olan yeni araçları çok az kurulum çabasıyla değerlendirmek veya öğrenmek için kullanılabilir. Veri Bilimi Sanal Makinesi hızlıca kurulabildiğinden, yayımlanmış denemeleri çoğaltma, tanıtımları uygulama, çevrimiçi oturumlarda ve konferans öğreticilerinde kılavuzları takip etme gibi diğer kısa süreli kullanım senaryolarında uygulanabilir.
 
 ### <a name="deep-learning"></a>Derin öğrenme
-Veri bilimi sanal makinesi, GPU (Grafik işleme birimleri) tabanlı donanımlar üzerinde derin öğrenme algoritmalarını kullanan eğitim modeli için kullanılabilir. Azure bulutunun VM ölçeklendirme özelliklerinden yararlanan DSVM, gereksinime göre bulutta GPU tabanlı donanımlar kullanmanıza yardımcı olur. Büyük modellerin eğitimi veya aynı işletim sistemi diskini tutarken yüksek hızlı hesaplamalara ihtiyaç duyulması halinde GPU tabanlı bir sanal makineye geçiş yapılabilir.  DSVM’nin Windows Server 2016 sürümünde GPU sürücüleri, çerçeveleri ve derin öğrenme çerçevelerinin GPU sürümleri önceden yüklenmiş olarak gelir. Linux'ta, GPU üzerinde derin öğrenme hem CentOS hem de Ubuntu DSVM’leri üzerinde etkindir. Veri Bilimi Sanal Makinesinin Ubuntu, CentOS veya Windows 2016 sürümünü GPU tabanlı olmayan bir Azure sanal makinesine dağıtabilirsiniz; bu durumda tüm derin öğrenme çerçeveleri CPU moduna geri döner. 
+Veri bilimi sanal makinesi, GPU (Grafik işleme birimleri) tabanlı donanımlar üzerinde derin öğrenme algoritmalarını kullanan eğitim modelleri için kullanılabilir. Azure bulutunun VM ölçeklendirme özelliklerinden yararlanan DSVM, gereksinime göre bulutta GPU tabanlı donanımlar kullanmanıza yardımcı olur. Büyük modellerin eğitimi veya aynı işletim sistemi diskini tutarken yüksek hızlı hesaplamalara ihtiyaç duyulması halinde GPU tabanlı bir sanal makineye geçiş yapılabilir.  DSVM’nin Windows Server 2016 sürümünde GPU sürücüleri, çerçeveleri ve derin öğrenme çerçevelerinin GPU sürümleri önceden yüklenmiş olarak gelir. Linux sürümünde, GPU üzerinde derin öğrenme hem CentOS hem de Ubuntu DSVM’leri üzerinde etkindir. Veri Bilimi Sanal Makinesinin Ubuntu, CentOS veya Windows 2016 sürümünü GPU tabanlı olmayan bir Azure sanal makinesine dağıtabilirsiniz; bu durumda tüm derin öğrenme çerçeveleri CPU moduna geri döner. 
 
 ## <a name="whats-included-in-the-data-science-vm"></a>Veri Bilimi Sanal Makinesi’ne neler dahildir?
-Veri Bilimi Sanal Makinesi halihazırda yüklenmiş ve yapılandırılmış olan çok sayıda popüler veri bilimi ve derin öğrenme aracı içerir. Ayrıca, çeşitli Azure ve analiz ürünleriyle çalışmayı kolaylaştıran araçlara sahiptir. Microsoft ML Server (R, Python) veya SQL Server 2017 kullanarak büyük ölçekli veri kümelerinde tahmine dayalı modelleri keşfedebilir ve derleyebilirsiniz. Açık kaynak topluluğundan ve Microsoft’tan bir dizi başka aracın yanı sıra örnek kod ve not defterleri de sunulmaktadır. Aşağıdaki tabloda Veri Bilimi Sanal Makinesi’nin Windows ve Linux sürümlerine dahil olan ana bileşenler maddeler halinde verilmiş ve karşılaştırılmıştır.
+Veri Bilimi Sanal Makinesi halihazırda yüklenmiş ve yapılandırılmış olan çok sayıda popüler veri bilimi ve derin öğrenme aracı içerir. Ayrıca tahmine dayalı model derlemek için Microsoft ML Server (R, Python) veya büyük ölçekli veri kümeleriyle araştırma yapmak için SQL Server 2017 gibi çeşitli Azure veri ve analiz ürünleriyle çalışmayı kolaylaştıran araçlar da içerir. Açık kaynak topluluğundan ve Microsoft’tan bir dizi başka aracın yanı sıra örnek kod ve not defterleri de sunulmaktadır. Aşağıdaki tabloda Veri Bilimi Sanal Makinesi’nin Windows ve Linux sürümlerine dahil olan ana bileşenler maddeler halinde verilmiş ve karşılaştırılmıştır.
 
 
 | **Araç**                                                           | **Windows Sürümü** | **Linux Sürümü** |

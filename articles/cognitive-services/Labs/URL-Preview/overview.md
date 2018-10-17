@@ -1,30 +1,31 @@
 ---
-title: Proje URL'si Önizleme nedir? -Microsoft Bilişsel hizmetler | Microsoft Docs
-description: Proje URL'si Önizleme giriş.
+title: Proje URL Önizlemesi nedir?
+titlesuffix: Azure Cognitive Services
+description: Project URL Önizlemesi'ne giriş.
 services: cognitive-services
 author: mikedodaro
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: project-url-preview
-ms.topic: article
+ms.component: project-url-preview
+ms.topic: overview
 ms.date: 03/16/2018
-ms.author: rosh, v-gedod
-ms.openlocfilehash: 6b486e0ab4092bef4fe829a5f166311a572a2900
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
-ms.translationtype: MT
+ms.author: rosh
+ms.openlocfilehash: 5d0b8260bf1c58af915c1be18c32cec678f4f09c
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35353987"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48869446"
 ---
-# <a name="what-is-project-url-preview"></a>Proje URL'si Önizleme nedir?
-URL önizleme uç noktasını URL sorgu parametresini alır ve bir Önizleme'de görüntülenecek bir görüntü için hedef kaynak, kısa bir açıklama ve bir bağlantı adı ile bir JSON yanıtı döndürür. Yanıt ayrıca içeriyor [isFamilyFriendly](url-preview-reference.md#query-parameters) URL yetişkin, korsan veya diğer geçersiz içerik içerip içermediğini gösteren bayrak. 
+# <a name="what-is-project-url-preview"></a>Proje URL Önizlemesi nedir?
+URL Önizlemesi uç noktası bir URL sorgu parametresini alır ve önizlemede görüntülenmek üzere hedef kaynak, kısa açıklama ve bağlantı içeren bir JSON yanıtı döndürür. Yanıt aynı zamanda URL'de yetişkinlere yönelik, korsan veya farklı yasa dışı içerik olup olmadığını belirten [isFamilyFriendly](url-preview-reference.md#query-parameters) bayrağını da içerir. 
 
-URL önizleme sonuçları almak için bir GET isteği gönderin ve dahil *Apim abonelik anahtar Ocp* geçerli bir belirteci üstbilgiyle:  
+URL önizleme sonuçlarını almak için bir GET isteği gönderin ve geçerli belirtece sahip *Ocp-Apim-Subscription-Key* üst bilgisini dahil edin:  
 ```
 https://api.labs.cognitive.microsoft.com/urlpreview/v7.0/search?q=https://swiftkey.com
 
 ```
-Yanıtı: 
+Yanıt: 
 ````
 HTTP Headers:
 BingAPIs-TraceId: 3CC74C94769440C0851D9DF0869FCE7F
@@ -46,22 +47,22 @@ X-MSEdge-Ref: Ref A: 3CC74C94769440C0851D9DF0869FCE7F Ref B: CO1EDGE0315 Ref C: 
 ````
 ## <a name="scenarios"></a>Senaryolar 
 
-URL önizleme API Web kaynakların kısa açıklamaları destekler. Geliştiriciler, Zengin Önizleme deneyimleri oluşturmak için kullanın.  Kullanıcılar, paylaşımı veya Web sayfaları, haber, bloglar, forumlar, vb. yer işareti. Bu API, içerik yönetimi için de kullanılabilir.    
+URL Önizlemesi API'si, Web kaynakları için kısa açıklamaları destekler. Geliştiriciler bunu kullanarak zengin bir önizleme deneyimi sunabilir.  Kullanıcılar web sayfaları, haberler, bloglar ve forumlar gibi sayfaları paylaşabilir veya yer işareti ekleyebilir. Bu API içerik moderasyonu için de kullanılabilir.    
 
-Uygulamaları, Web istekleri uç noktasına URL'ye Önizleme atanmış bir sorgu ile göndermek için URL önizlemeyi kullanın.  JSON yanıt önizleme bilgileri içerir: ad, açıklama kaynak *familyFriendly* bayrağı ve temsili bir görüntü ve çevrimiçi tam kaynağa erişim sağlamak bağlantılar. 
+Uygulamalar URL Önizlemesini kullanarak önizlemesi yapılacak URL'ye atanmış olan bir sorgu ile uç noktasına Web isteği gönderebilir.  JSON yanıtı şu önizleme bilgilerini içerir: kaynağın adı, açıklaması, *familyFriendly* bayrağı ve temsili görüntüyle tam çevrimiçi kaynağa erişim sağlayan bağlantılar. 
 
 ## <a name="terms-of-use"></a>Kullanım koşulları
-Yalnızca proje URL önizleme verilerden Önizleme parçacıkları ve resimlerin köprülü sosyal medya üzerinde sohbet bot veya benzer teklifleri paylaşımı son kullanıcı tarafından başlatılan URL'de kaynak sitelerini görüntülemek için kullanın. D değil kopyalama, saklamak veya proje URL'si Önizlemesi'nden aldığınız herhangi bir veriyi önbelleğe. Web sitesi veya içerik sahipleri alabilirsiniz önizlemeleri devre dışı bırakmak için tüm istekleri kabul.
+URL Önizlemesi Projesinden gelen verileri yalnızca sosyal medya, sohbet botu veya benzer durumlarda kullanıcı tarafından başlatılan URL paylaşma işlemlerinde kod parçacığı önizlemesi ve kaynak sitesine bağlantılı küçük resimler görüntülemek için kullanın. URL Önizlemesi Projesinden gelen verileri kopyalamayın, depolamayın veya önbelleğe almayın. Web sitesinden veya içerik sahiplerinden gelen önizlemeleri devre dışı bırakma isteklerini yerine getirin.
 
-Siz veya bir üçüncü taraf sizin adınıza kullanın, korumak, depolamaz, önbellek, paylaşım, veya test, geliştirme, eğitim, dağıtma veya herhangi bir Microsoft dışı hizmeti kullanılabilir hale getirme URL önizleme API'sinden herhangi bir veri dağıtmak veya özellik. 
+URL Önizleme API'sinden alınan veriler sizin tarafınızdan veya sizin adınıza hareket eden üçüncü şahıslar tarafından Microsoft harici bir hizmeti veya özelliği test etmek, geliştirmek, eğitmek, dağıtmak veya kullanıma sunmak üzere kullanılamaz, saklanamaz, depolanamaz, önbelleğe alınamaz, paylaşılamaz veya dağıtılamaz. 
 
 ## <a name="throttling-requests"></a>İstekleri azaltma
 
 [!INCLUDE [cognitive-services-bing-throttling-requests](../../../../includes/cognitive-services-bing-throttling-requests.md)]
 
 ## <a name="next-steps"></a>Sonraki adımlar
-- [C# hızlı başlangıç](csharp.md)
-- [Java hızlı başlangıç](java-quickstart.md)
-- [JavaScript hızlı başlangıç](javascript.md)
-- [Düğüm hızlı başlangıç](node-quickstart.md)
-- [Python hızlı başlangıç](python-quickstart.md)
+- [C# hızlı başlangıcı](csharp.md)
+- [Java hızlı başlangıcı](java-quickstart.md)
+- [JavaScript hızlı başlangıcı](javascript.md)
+- [Node hızlı başlangıcı](node-quickstart.md)
+- [Python hızlı başlangıcı](python-quickstart.md)

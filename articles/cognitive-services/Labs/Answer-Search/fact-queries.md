@@ -1,28 +1,29 @@
 ---
-title: Proje yanıt arama olgu sorgusu - Microsoft Bilişsel hizmetler | Microsoft Docs
-description: Proje yanıt arama'yı kullanarak olgular sorguları
+title: 'Hızlı başlangıç: Yanıt Arama Projesi olgu sorgusu'
+titlesuffix: Azure Cognitive Services
+description: Yanıt Arama Projesindeki olgu sorguları
 services: cognitive-services
 author: mikedodaro
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: project-answer-search
-ms.topic: article
+ms.component: project-answer-search
+ms.topic: quickstart
 ms.date: 04/16/2018
-ms.author: rosh, v-gedod
-ms.openlocfilehash: 0a9d1925d5ae26f40824676fbebdcb0ffc450c53
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
-ms.translationtype: MT
+ms.author: rosh
+ms.openlocfilehash: ae8a42b95df70cff9cb845d4d553fbbb33cbdec9
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35353957"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48868365"
 ---
-# <a name="query-for-facts"></a>Sorgu olgular
+# <a name="quickstart-query-for-facts"></a>Hızlı başlangıç: Olgu sorguları
 
-Sorgu için bir tarih veya olarak tanımlanabilir bilgi gibi bir olgu ise, yanıt içerebilir `facts` yanıtlar. Olgu yanıtlar web belgeleri paragrafta ayıklanan ilgili sonuçlar içerir.  Web sayfaları, her zaman bu sorguları döndürür ve [bulguları](fact-queries.md) ve/veya [varlıklar](entity-queries.md) sorgu bağımlıdır.
+Tarih veya tanımlanabilir bilgi gibi bir olgu sorgusunda yanıt `facts` öğelerini içerebilir. Olgu yanıtları, web belgelerindeki paragraflardan alınan ilgili sorguları içerir.  Bu sorgular her zaman web sayfası döndürür ve [olgular](fact-queries.md) ve/veya [varlıklar](entity-queries.md) sorguya bağlı olarak değişir.
 
-Valentines + 2016, gibi sorguları zaman + + Ramazan tarihi ile ilgili sorgular olarak kabul edilir. Bing sorgu tarihi ile ilgili olduğunu belirlerse, yanıtı içeren bir `facts` yanıt. 
+Sevgililer+2016 veya ramazan+başlangıcı gibi sorgular, tarihle ilgili sorgular olarak kabul edilir. Bing, sorgunun tarihle ilgili olduğunu belirlediğinde yanıtta bir `facts` öğesi bulunur. 
 
-Aşağıdaki örnek tarihi ile ilgili olan `facts` yanıt. 
+Aşağıdaki örnekte tarihle ilgili bir `facts` yanıtı gösterilmiştir. 
 
 **Sorgu:**
 ````
@@ -30,7 +31,7 @@ https://labsportalppe.azure-api.net/answerSearch/v7.0/search?q=valentines+2016
 
 ````
 
-**Yanıt:** `subjectName` alan olgu görüntülerken bir etiket olarak kullanabileceğiniz kullanıcının sorgu görüntü sürümünü içerir. Sorgu dizesi valentines + 2016 değilse, Bing Sevgililer Günü 2016 değişebilir. Açıklama alanı olgusu içeriyor.
+**Yanıt:** `subjectName` alanında olguyu görüntülerken etiket olarak kullanabileceğiniz kullanıcı sorgusu görüntüleme sürümü bulunur. Sorgu dizesi Sevgililer+2016 şeklindeyse Bing bunu Sevgililer Günü 2016 şeklinde değiştirebilir. Açıklama alanı olguyu içerir.
 
 ````
 {   
@@ -58,7 +59,7 @@ https://labsportalppe.azure-api.net/answerSearch/v7.0/search?q=valentines+2016
 
 ````
 
-Sorgu "Neden sky mavi?" bir örnek bilgi ile ilgili bir yanıt döndürür.
+"Gökyüzü neden mavi?" sorgusu bilgiyle ilgili bir yanıt döndürür.
 
 **Sorgu:**
 
@@ -67,7 +68,7 @@ https://api.labs.cognitive.microsoft.com/answerSearch/v7.0/search?q=why+is+the+s
 
 ````
 
-**Yanıt:** `value/description` alan bilgisi veya sorgu tarafından istenen bilgileri içerir.
+**Yanıt:** `value/description` alanı sorgu ile istenen bilgiyi veya ayrıntıyı döndürür.
 
 ````
   "facts": {
@@ -113,14 +114,14 @@ https://api.labs.cognitive.microsoft.com/answerSearch/v7.0/search?q=why+is+the+s
 
 ````
 
-## <a name="tabular-data"></a>Tablo verisi
-Bazı durumlarda, bulguları döndürülebilir `_type: StructuredValue/TabularData`. Aşağıdaki sorgu kahve ve Çay karşıt bilgilerle tablo veri alır.
+## <a name="tabular-data"></a>Tablo verileri
+Bazı durumlarda olgular `_type: StructuredValue/TabularData` olarak döndürülebilir. Aşağıdaki sorgu çay ve kahve hakkındaki karşılaştırma bilgilerini içeren tablo verilerini alır.
 
 ````
 https://labsportalppe.azure-api.net/answerSearch/v7.0/search?q=coffee+vs+tea&mkt=en-us 
 
 ````
-`facts` Aşağıdaki satır ve hücre sonuçları dahil edin:
+`facts` sonuçlarında aşağıdaki satırlar ve hücreler bulunur:
 ````
     "value": [
       {
@@ -198,7 +199,7 @@ https://labsportalppe.azure-api.net/answerSearch/v7.0/search?q=coffee+vs+tea&mkt
 ````
 
 ## <a name="next-steps"></a>Sonraki adımlar
-- [C# hızlı başlangıç](c-sharp-quickstart.md)
-- [Java hızlı başlangıç](java-quickstart.md)
-- [Düğüm hızlı başlangıç](node-quickstart.md)
-- [Python hızlı başlangıç](python-quickstart.md)
+- [C# hızlı başlangıcı](c-sharp-quickstart.md)
+- [Java hızlı başlangıcı](java-quickstart.md)
+- [Node hızlı başlangıcı](node-quickstart.md)
+- [Python hızlı başlangıcı](python-quickstart.md)

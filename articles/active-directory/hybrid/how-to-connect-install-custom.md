@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/28/2018
+ms.date: 10/04/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: e984dc985100bcdabbee4fb86bd1819a329301a5
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: 95a0ffc6deecb7fd3bd6fce740f578352fdf2d66
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47452641"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48888173"
 ---
 # <a name="custom-installation-of-azure-ad-connect"></a>Azure AD Connect özel yüklemesi
 Yükleme için daha fazla seçenek istediğinizde Azure AD Connect **Özel ayarları** kullanılır. Birden fazla ormanınız varsa veya hızlı yükleme kapsamında yer almayan isteğe bağlı özellikleri yapılandırmak istiyorsanız kullanılır. [**Hızlı yükleme**](how-to-connect-install-express.md) seçeneğinin dağıtımınız veya topolojiniz için uygun olmadığı tüm durumlarda kullanılır.
@@ -156,12 +156,19 @@ Tam gelişmiş üretim dağıtımında, tüm nesneleri eşitlenecek olan tek bir
 ### <a name="optional-features"></a>İsteğe Bağlı Özellikler
 Bu ekran, belirli senaryolarınız için isteğe bağlı özellikler seçmenizi sağlar.
 
+>[!WARNING]
+>Azure AD Connect sürüm **1.0.8641.0** ve öncesi, parola geri yazma özelliği için Azure Access Control Service kullanır.  Bu hizmet, **7 Kasım 2018** tarihinde kullanımdan kaldırılacaktır.  Bu Azure AD Connect sürümlerinden birini kullanıyorsanız ve parola geri yazma özelliğini etkinleştirdiyseniz, hizmet kullanımdan kaldırıldıktan sonra kullanıcılar parolalarını değiştirme veya sıfırlama olanağını kaybedebilir. Bu Azure AD Connect sürümleriyle parola geri yazma özelliği desteklenmeyecektir.
+>
+>Azure Access Control Service hakkında daha fazla bilgi için bkz. [Nasıl yapılır: Azure Access Control Service'ten geçiş](../develop/active-directory-acs-migration.md)
+>
+>Azure AD Connect'in en son sürümünü indirmek için [buraya](https://www.microsoft.com/en-us/download/details.aspx?id=47594) tıklayın.
+
 ![İsteğe bağlı özellikler](./media/how-to-connect-install-custom/optional2.png)
 
 > [!WARNING]
 > Şu anda DirSync veya Azure AD Eşitleme etkinse Azure AD Connect'te geri yazma özelliklerinden herhangi birini etkinleştirmeyin.
->
->
+
+
 
 | İsteğe Bağlı Özellikler | Açıklama |
 | --- | --- |
@@ -190,6 +197,9 @@ Bu sayfa, önceki adımda seçtiğiniz hizmetlere bağlı olarak eşitlenen tüm
 
 ### <a name="directory-extension-attribute-sync"></a>Dizin Genişletme öznitelik eşitlemesi
 Kuruluşunuz tarafından eklenen özel öznitelikler veya Active Directory'deki diğer özniteliklerle Azure AD'deki şemayı genişletebilirsiniz. Bu özelliği kullanmak için **İsteğe Bağlı Özellikler** sayfasındaki **Dizin Genişletme öznitelik eşitlemesi** öğesini seçin. Bu sayfada eşitlemek için daha fazla öznitelik seçebilirsiniz.
+
+>[!NOTE]
+>Kullanılabilir öznitelikler kutusu büyük/küçük harfe duyarlıdır.
 
 ![Dizin genişletmeleri](./media/how-to-connect-install-custom/extension2.png)
 

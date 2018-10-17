@@ -5,16 +5,16 @@ description: Java’da (Windows veya Linux) konuşma tanıma işlemini öğrenin
 services: cognitive-services
 author: fmegen
 ms.service: cognitive-services
-ms.technology: Speech
+ms.component: Speech
 ms.topic: quickstart
 ms.date: 09/24/2018
 ms.author: fmegen
-ms.openlocfilehash: 00603c467ec96e52fc2b7745263153a68d20f584
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: c0963fa8453dd51dfb05af20a5468e1eed1fc7cf
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47053971"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48885230"
 ---
 # <a name="quickstart-recognize-speech-in-java-on-windows-or-linux-by-using-the-speech-sdk"></a>Hızlı Başlangıç: Konuşma SDK’sını kullanarak Windows veya Linux sisteminde Java’da konuşma tanıma
 
@@ -27,7 +27,7 @@ Bu makalede, [Konuşma SDK'sı](speech-sdk.md) kullanarak bir Java konsol uygula
 
 ## <a name="prerequisites"></a>Ön koşullar
 
-Bu Hızlı Başlangıcı tamamlamak için bir Konuşma hizmeti abonelik anahtarınız olması gerekir. Anahtarı ücretsiz edinebilirsiniz. Ayrıntılar için bkz. [Konuşma hizmetini ücretsiz olarak deneme](get-started.md).
+Bu Hızlı Başlangıcı tamamlamak için bir Konuşma hizmeti abonelik anahtarınız olması gerekir. Anahtarı ücretsiz alabilirsiniz. Ayrıntılar için bkz. [Konuşma hizmetini ücretsiz olarak deneme](get-started.md).
 
 
 ## <a name="create-and-configure-project"></a>Proje oluşturma ve yapılandırma
@@ -69,11 +69,11 @@ Ubuntu 16.04 kullanıyorsanız, Eclipse’i başlatmadan önce gerekli paketleri
 
 1. **pom.xml** dosyasını açıp düzenleyin.
 
-   * Dosyanın sonunda, `</project>` kapanış etiketinden önce burada gösterildiği gibi Konuşma SDK’sı için Maven deposuna başvuru içeren bir depolar bölümü oluşturun:
+   * Dosyanın sonunda, `</project>` kapanış etiketinden önce burada gösterildiği gibi Konuşma SDK’sı için Maven deposuna başvuru içeren bir `repositories` öğesi oluşturun:
 
      [!code-xml[POM Repositories](~/samples-cognitive-services-speech-sdk/quickstart/java-jre/pom.xml#repositories)]
 
-  * Ayrıca daha sonra bağımlılık olarak Konuşma SDK’sı sürümü 1.0.0 ile bir bağımlılıklar bölümü ekleyin:
+  * Ayrıca Konuşma SDK'sı sürüm 1.0.0 bağımlılığına sahip bir `dependencies` öğesi de oluşturun:
 
      [!code-xml[POM Dependencies](~/samples-cognitive-services-speech-sdk/quickstart/java-jre/pom.xml#dependencies)]
 

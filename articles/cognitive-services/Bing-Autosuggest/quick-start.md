@@ -1,27 +1,27 @@
 ---
-title: API quickstart otomatik öneri | Microsoft Docs
-description: Bing otomatik öneri API'si ile çalışmaya başlamak gösterilmiştir.
+title: "Hızlı başlangıç: Bing Otomatik Öneri API'si"
+titlesuffix: Azure Cognitive Services
+description: Bing Otomatik Öneri API'sini kullanmaya başlamayı göstermektedir.
 services: cognitive-services
 author: swhite-msft
-manager: ehansen
-ms.assetid: 1482E781-7352-4A3F-B1D5-B896381348C4
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-autosuggest
-ms.topic: article
+ms.topic: quickstart
 ms.date: 04/15/2017
 ms.author: scottwhi
-ms.openlocfilehash: a7b54a1fb0b7c76eb72097357a6b51aa02e6e2fd
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
-ms.translationtype: MT
+ms.openlocfilehash: 446d271854a4e45bcea8c261a0dc078e549f8229
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35354580"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48830762"
 ---
-# <a name="making-your-first-autosuggest-query"></a>İlk Autosuggest sorgunuzu yapma
+# <a name="quickstart-making-your-first-autosuggest-query"></a>Hızlı başlangıç: İlk Otomatik Öneri sorgunuzu oluşturma
 
-İlk aramanız yapabilmeniz için önce bir Bilişsel hizmetler abonelik anahtarı almanız gerekir. Bir anahtar almak için bkz: [deneyin Bilişsel Hizmetler](https://azure.microsoft.com/try/cognitive-services/?api=autosuggest-api).
+İlk çağrınızı yapmadan önce bir Bilişsel Hizmetler abonelik anahtarı almanız gerekir. Anahtar alma için bkz: [Bilişsel Hizmetleri Deneme](https://azure.microsoft.com/try/cognitive-services/?api=autosuggest-api).
 
-Web arama sonuçları almak için aşağıdaki uç noktaya bir GET isteği gönder:
+Web araması sonuçlarını almak için aşağıdaki uç noktaya bir GET isteği gönderirsiniz:
 
 ```http
 https://api.cognitive.microsoft.com/bing/v5.0/Suggestions
@@ -34,28 +34,28 @@ https://api.cognitive.microsoft.com/bing/v5.0/Suggestions
 > https://api.cognitive.microsoft.com/bing/v7.0/Suggestions
 > ```
 
-İstek HTTPS protokolünü kullanmanız gerekir.
+İstek, HTTPS protokolünü kullanmalıdır.
 
-Tüm istekleri bir sunucusundan kaynaklanan öneririz. Bir istemci uygulaması bir parçası olarak anahtar dağıtma bir kötü amaçlı üçüncü erişmek taraf için daha fazla fırsatı sağlar. Ayrıca, bir sunucudan çağrıları yapma tek bir yükseltme noktası API gelecek sürümlerinde sağlar.
+Tüm isteklerin bir sunucudan gönderilmesini öneririz. Anahtarı bir istemci uygulamanın parçası olarak dağıtmak, kötü amaçlı bir üçüncü tarafa anahtara erişmek için daha fazla fırsat sunar. Ayrıca bir sunucudan çağrı yapmak API'nin gelecek sürümleri için tek bir yükseltme noktası sağlar.
 
-İstek belirtmelisiniz [q](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v5-reference#query) kullanıcının kısmi arama terimi içeren sorgu parametresi. İsteğe bağlı olsa da, istek de belirtmeniz gerekir [mkt](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v5-reference#mkt) alınması için sonuçları istediğiniz Pazar tanımlayan sorgu parametresi. İsteğe bağlı sorgu parametrelerin listesi için bkz: [sorgu parametreleri](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v5-reference#query-parameters). Tüm sorgu parametre değerleri URL kodlanmış olmalıdır.
+İstek kullanıcının kısmi arama terimini içeren [q](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v5-reference#query) sorgu parametresini belirtmelidir. Tercihe bağlı olmakla birlikte, istek, sonuçların gelmesini istediğiniz pazarı tanımlayan [mkt](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v5-reference#mkt) sorgu parametresini de belirtmelidir. İsteğe bağlı sorgu parametrelerinin bir listesi için bkz. [Sorgu Parametreleri](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v5-reference#query-parameters). Tüm sorgu parametre değerleri URL olarak kodlanmış olmalıdır.
 
-İstek belirtmelisiniz [Apim abonelik anahtar Ocp](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v5-reference#subscriptionkey) üstbilgi. İsteğe bağlı olsa da, aşağıdaki üst bilgiler de belirtmeniz önerilir:
+İstek [Ocp-Apim-Subscription-Key](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v5-reference#subscriptionkey) üstbilgisini belirtmelidir. İsteğe bağlı olmakla birlikte şu üstbilgileri de belirtmeniz önerilir:
 
-- [Kullanıcı Aracısı](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v5-reference#useragent)
-- [X MSEdge ClientID](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v5-reference#clientid)
-- [X arama ClientIP](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v5-reference#clientip)
-- [X arama konumu](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v5-reference#location)
+- [User-Agent](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v5-reference#useragent)
+- [X-MSEdge-ClientID](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v5-reference#clientid)
+- [X-Search-ClientIP](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v5-reference#clientip)
+- [X-Search-Location](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v5-reference#location)
 
-İstemci IP ve konum üstbilgileri konumu kullanan içerik döndürmek için önemlidir.
+İstemci IP'si ve konum üstbilgileri konuma duyarlı içerik döndürmek için önemlidir.
 
-Tüm istek ve yanıt üstbilgileri listesi için bkz: [üstbilgileri](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v5-reference#headers).
+Tüm istek ve yanıt üstbilgilerinin bir listesi için bkz. [Üstbilgiler](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v5-reference#headers).
 
 ## <a name="the-request"></a>İstek
 
-İstek tüm üstbilgiler ve önerilen sorgu parametrelerini içermelidir. Kullanıcı Ara kutusuna yeni bir karakter türleri her zaman bu API'yi çağırırsınız. API koşulları önerilen sorgu alaka sorgu dizesi etkileri tamlığını döndürür. Daha fazla bilgi listesi sorgu koşulları önerilen sorgu dizesi, daha ilgili tamamlayın. Örneğin, API için döndürebilir önerileri *s* döndürür için sorguları daha az ilgili etkilenebilir *Yelkenli dinghies*. 
+İstek, önerilen sorgu parametrelerinin ve üst bilgilerin tamamını içermelidir. Kullanıcı arama kutusuna her yeni karakter yazdığında bu API’yi çağırırsınız. Sorgu dizesinin eksiksiz olması, API’nin döndürdüğü önerilen sorgu terimlerinin alakasını etkiler. Sorgu dizesi ne kadar eksiksizse, önerilen sorgu terimlerinin listesi de o kadar alakalıdır. Örneğin, API’nin *s* için döndürebileceği öneriler, *sailing dinghies* için döndürdüğü sorgulardan daha az alakalıdır. 
 
-Aşağıdaki örnek, önerilen sorgu dizeleri için döndüren bir istek gösterir *sail*.
+Aşağıdaki örnekte, *sail* için önerilen sorgu dizelerini döndüren bir istek gösterilmektedir.
 
 ```http
 GET https://api.cognitive.microsoft.com/bing/v5.0/suggestions?q=sail&mkt=en-us HTTP/1.1  
@@ -78,13 +78,13 @@ Host: api.cognitive.microsoft.com
 > Host: api.cognitive.microsoft.com
 > ```
 
-Herhangi bir Bing API'leri çağırma ilk kez ise, istemci kimliği üstbilgisi eklemeyin. Yalnızca istemci kimliği üstbilgisi daha önce Bing API'si çağırdıktan ve kullanıcı ve aygıt bileşimi için bir istemci kimliği Bing döndürülen içerir.
+Bing API'lerinden birini ilk kez çağırıyorsanız istemci kimliği üst bilgisini eklemeyin. İstemci kimliği üst bilgisini yalnızca önceden bir Bing API'sini çağırdıysanız ve Bing, kullanıcı ve cihaz birleşimi için bir istemci kimliği döndürdüyse dahil edin.
 
-Önceki isteğinin yanıtı gösterir. Yanıt arama Sorgu önerileri listesini içeren bir web öneri grubu içeriyor. Her bir öneri içeren bir `displayText`, `query`, ve `url` alan.
+Aşağıdaki kod önceki isteğin yanıtını göstermektedir. Yanıtta arama sorgusu önerilerinin listesini içeren bir web önerisi grubu bulunmaktadır. Her öneri `displayText`, `query` ve `url` alanlarını içerir.
 
-`displayText` Alan arama kutunun açılan listeyi doldurmak için kullanacağınız önerilen sorgu içerir. Yanıtı içeren tüm öneriler görüntülemeniz gerekir ve belirtilen sırayla.  
+`displayText` alanı, arama kutunuzun açılır listesini doldurmak için kullandığınız önerilen sorguyu içerir. Yanıtın içerdiği tüm önerileri, verilen sırada görüntülemeniz gerekir.  
 
-Kullanıcı aşağı açılan listeden bir sorgu seçerse, sorgu dizesinde kullanabilir `query` çağırmak için alan [Bing arama API](../bing-web-search/search-the-web.md) ve kendiniz sonuçları görüntüleyin. Veya URL'de kullanabilir `url` Bing arama kullanıcıya gönderilecek alan sonuçları sayfası.
+Kullanıcı, açılır listeden bir sorgu seçerse, `query` alanındaki sorgu dizesini kullanarak [Bing Arama API’sini](../bing-web-search/search-the-web.md) çağırır ve sonuçları kendiniz görüntülersiniz. Veya kullanıcıyı Bing arama sonuçları sayfasına göndermek için `url` alanındaki URL’yi kullanabilirsiniz.
 
 ```  
 BingAPIs-TraceId: 76DD2C2549B94F9FB55B4BD6FEB6AC
@@ -152,6 +152,6 @@ BingAPIs-Market: en-US
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Out API deneyin. Git [konsol test API otomatik öneri](https://dev.cognitive.microsoft.com/docs/services/56c7694ecf5ff801a090fbd1/operations/56c769a2cf5ff801a090fbd2).
+API'yi deneyin. [Otomatik Öneri API'si Test Konsolu](https://dev.cognitive.microsoft.com/docs/services/56c7694ecf5ff801a090fbd1/operations/56c769a2cf5ff801a090fbd2)'na gidin.
 
-Yanıt nesneleri kullanma hakkında daha fazla bilgi için bkz [önerilen arama terimleri alma](./get-suggested-search-terms.md).
+Yanıt nesnelerini kullanmanın ayrıntıları için bkz. [Önerilen Arama Terimlerini Alma](./get-suggested-search-terms.md).

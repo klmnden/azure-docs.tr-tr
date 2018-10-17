@@ -3,20 +3,20 @@ title: MySQL'den MySQL için Azure Veritabanı'na Çevrimiçi Geçiş Gerçekle�
 description: Azure Veritabanı Geçiş Hizmeti'ni kullanarak şirket içi MySQL'den MySQL için Azure Veritabanı'na çevrimiçi geçiş gerçekleştirmeyi öğrenin.
 services: dms
 author: HJToland3
-ms.author: jtoland
+ms.author: scphang
 manager: craigg
 ms.reviewer: ''
 ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 08/31/2018
-ms.openlocfilehash: c36a771266f595f6d8dc8575d100fa5bb9496584
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.date: 10/06/2018
+ms.openlocfilehash: 4825985253f5525314a496f2adbc40657231f5d5
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44714951"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48829860"
 ---
 # <a name="migrate-mysql-to-azure-database-for-mysql-online-using-dms"></a>DMS hizmetini kullanarak MySQL'i MySQL için Azure Veritabanı'na çevrimiçi geçirme
 Şirket içi bir MySQL örneğindeki veritabanlarını minimum çalışmama süresi ile [MySQL için Azure Veritabanı](https://docs.microsoft.com/azure/mysql/)'na geçirmek için Azure Veritabanı Geçiş Hizmeti'ni kullanabilirsiniz. Diğer bir deyişle, geçiş işlemi, uygulamada minimum çalışmama süresi ile gerçekleştirilebilir. Bu öğreticide, Azure Veritabanı Geçiş Hizmeti'nde çevrimiçi bir geçiş etkinliğini kullanarak şirket içi bir MySQL 5.7 örneğindeki **Employees** örnek veritabanını MySQL için Azure Veritabanı'na geçireceksiniz.
@@ -50,13 +50,23 @@ Bu öğreticiyi tamamlamak için aşağıdakileri yapmanız gerekir:
 - MySQL için Azure Veritabanı yalnızca InnoDB tablolarını destekler. MyISAM tablolarını InnoDB'ye dönüştürmek için [Converting Tables from MyISAM to InnoDB (Tabloları MyISAM'dan InnoDB'ye Dönüştürme)](https://dev.mysql.com/doc/refman/5.7/en/converting-tables-to-innodb.html) başlıklı makaleye bakın 
 
 - Şu yapılandırmayı kullanarak kaynak veritabanındaki my.ini (Windows) veya my.cnf (Unix) dosyasında ikili günlük dosyası kaydetmeyi etkinleştirin:
+
+    - **server_id** = 1 veya üzeri (yalnızca MySQL 5.6 için geçerlidir)
+    - **log-bin** =<path> (yalnızca MySQL 5.6 için geçerlidir)
+
+        Örneğin: log-bin = E:\MySQL_logs\BinLog
+    - **binlog_format** = row
+    - **Expire_logs_days** = 5 (sıfır kullanılmaması önerilir; yalnızca MySQL 5.6 için geçerlidir)
+    - **Binlog_row_image** = full (yalnızca MySQL 5.6 için geçerlidir)
+    - **log_slave_updates** = 1
+ 
 - Kullanıcının, şu ayrıcalıkları içeren ReplicationAdmin rolüne sahip olması gerekir:
     - **ÇOĞALTMA İSTEMCİSİ** - Yalnızca değişiklik işleme görevleri için gereklidir. Başka bir deyişle, bu ayrıcalık yalnızca Tam Yük görevleri için gerekli değildir.
     - **ÇOĞALTMA ÇOĞALTMASI** - Yalnızca değişiklik işleme görevleri için gereklidir. Başka bir deyişle, bu ayrıcalık yalnızca Tam Yük görevleri için gerekli değildir.
     - **SÜPER** - yalnızca MySQL 5.6.6'dan önceki sürümlerde gereklidir.
 
 ## <a name="migrate-the-sample-schema"></a>Örnek şemayı geçirme
-Tablo şemaları, dizinler ve saklı yordamlar gibi tüm veritabanı nesnelerini tamamlamak için kaynak veritabanındaki şemayı ayıklamamız ve veritabanına uygulamamız gerekir. Şemayı ayıklamak için no-data parametresiyle mysqldump yardımcı programını kullanabilirsiniz.
+Tablo şemaları, dizinler ve saklı yordamlar gibi tüm veritabanı nesnelerini tamamlamak için kaynak veritabanındaki şemayı ayıklamamız ve veritabanına uygulamamız gerekir. Şemayı ayıklamak için `--no-data` parametresiyle mysqldump yardımcı programını kullanabilirsiniz.
  
 Şirket içi sistemde MySQL çalışanları örnek veritabanınızın bulunduğunu varsayarsak, mysqldump kullanarak şema geçişi gerçekleştirmeye yönelik komut aşağıdaki gibidir:
 ```

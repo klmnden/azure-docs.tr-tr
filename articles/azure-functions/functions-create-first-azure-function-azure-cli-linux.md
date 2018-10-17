@@ -11,16 +11,16 @@ ms.service: azure-functions
 ms.custom: mvc
 ms.devlang: azure-cli
 manager: jeconnoc
-ms.openlocfilehash: 608d15afaaff15ad960a0fe8b7a56854f41662b6
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 1cf20a4a93ef1b5bfb9c7818f35be5e75e45a3d2
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46993417"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48901099"
 ---
 # <a name="create-your-first-function-running-on-linux-using-the-azure-cli-preview"></a>Azure CLI kullanarak Linux’ta çalışan ilk işlevinizi oluşturma (önizleme)
 
-Azure İşlevleri, işlevlerinizi Linux’ta varsayılan bir Azure App Service kapsayıcısında barındırmanıza olanak sağlar. Ayrıca [kendi özel kapsayıcınızı getirebilirsiniz](functions-create-function-linux-custom-image.md). Bu işlevsellik şu anda önizleme aşamasındadır ve yine önizleme aşamasında olan [İşlevler 2.0 çalışma zamanını](functions-versions.md) gerektirir.
+Azure İşlevleri, işlevlerinizi Linux’ta varsayılan bir Azure App Service kapsayıcısında barındırmanıza olanak sağlar. Ayrıca [kendi özel kapsayıcınızı getirebilirsiniz](functions-create-function-linux-custom-image.md). Bu işlevsellik şu anda önizleme aşamasındadır ve [İşlevler 2.0 çalışma zamanını](functions-versions.md) gerektirir.
 
 Bu hızlı başlangıç konusunda, Linux’ta varsayılan App Service kapsayıcısında barındırılan ilk işlev uygulamanızı oluşturmak için Azure CLI ile Azure İşlevleri’ni nasıl kullanacağınız gösterilmektedir. İşlev kodu bir GitHub örnek deposundan görüntüye dağıtılır.    
 
@@ -83,6 +83,18 @@ az functionapp create --name <app_name> --storage-account  <storage_name>  --res
 
 >[!NOTE]  
 >Örnek depo şu anda iki betik oluşturma dosyası içerir, [deploy.sh](https://github.com/Azure-Samples/functions-quickstart-linux/blob/master/deploy.sh) ve [.deployment](https://github.com/Azure-Samples/functions-quickstart-linux/blob/master/.deployment). .deployment dosyası, dağıtım işlemine [özel dağıtım betiği](https://github.com/projectkudu/kudu/wiki/Custom-Deployment-Script) olarak deploy.sh dosyasının kullanılacağını bildirir. Geçerli önizleme sürümünde, işlev uygulamasını bir Linux görüntüsüne dağıtmak için betikler gerekir.  
+
+## <a name="configure-the-function-app"></a>İşlev uygulamasını yapılandırma
+
+GitHub deposundaki proje için İşlevler çalışma zamanının 1.x sürümü gerekir. `FUNCTIONS_WORKER_RUNTIME` uygulama ayarını `~1` olarak ayarladığınızda, işlev uygulaması en son 1.x sürümüne sabitlenir. [az functionapp config appsettings set](https://docs.microsoft.com/cli/azure/functionapp/config/appsettings#set) komutuyla uygulama ayarlarını belirleyin.
+
+Aşağıdaki Azure CLI komutunda <app_name>, işlev uygulamanızın adıdır.
+
+```azurecli-interactive
+az functionapp config appsettings set --name <app_name> \
+--resource-group myResourceGroup \
+--settings FUNCTIONS_WORKER_RUNTIME=~1
+```
 
 [!INCLUDE [functions-test-function-code](../../includes/functions-test-function-code.md)]
 

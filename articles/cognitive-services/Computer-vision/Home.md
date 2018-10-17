@@ -10,12 +10,12 @@ ms.component: computer-vision
 ms.topic: overview
 ms.date: 08/22/2018
 ms.author: v-deken
-ms.openlocfilehash: 030a8351a8f41c7404fa4ca8d243fff1ad818c2f
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 9a0acae20a6361f5a9b69e427d46dd1b9c7db05e
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47433608"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48869355"
 ---
 # <a name="what-is-computer-vision"></a>Görüntü İşleme nedir?
 
@@ -61,7 +61,7 @@ Görüntü İşleme, şu gereksinimleri karşılayan görüntüleri analiz edebi
 - Sunulan görüntünün JPEG, PNG, GIF veya BMP biçiminde olması gerekir
 - Görüntünün dosya boyutunun 4 megabayt (MB) değerini aşmaması gerekir
 - Görüntünün boyutlarının 50 x 50 pikselden büyük olması gerekir  
-  OCR için görüntünün boyutlarının 50 x 50 ve 4200 x 4200 piksel arasında olması ve görüntünün 10 megapikselden büyük olmaması gerekir.
+  OCR için görüntü boyutlarının 50 x 50 ile 4200 x 4200 piksel arasında olması gerekir
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

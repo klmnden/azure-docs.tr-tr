@@ -5,20 +5,23 @@ services: service-fabric-mesh
 keywords: ''
 author: rwike77
 ms.author: ryanwi
-ms.date: 06/27/2018
+ms.date: 10/1/2018
 ms.topic: overview
 ms.service: service-fabric-mesh
 manager: timlt
-ms.openlocfilehash: 65a9b1afcc0e1e6d4fcbb60a38ab0764e6fe2f18
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 361e742b3d9b7a5d2d12aafd15233077c967b825
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39226453"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48888206"
 ---
 # <a name="what-is-service-fabric-mesh"></a>Service Fabric Mesh nedir?
 
-Azure Service Fabric Mesh, geliştiricilerin sanal makineleri, depolama alanını veya ağ bileşenlerini yönetmeden mikro hizmet uygulamaları dağıtmasını sağlayan tam olarak yönetilen bir hizmettir. Service Fabric Mesh üzerinde barındırılan uygulamalar, altyapı konusunda endişelenmenize gerek kalmadan çalışır ve ölçeklendirilir.  Service Fabric Mesh, binlerce makineden oluşan kümelere sahiptir.  Tüm küme işlemleri geliştiriciden gizli olarak gerçekleştirilir. Tek yapmanız gereken kodunuzu yükleyip ihtiyacınız olan kaynakları, kullanılabilirlik gereksinimlerini ve kaynak sınırlarını belirtmektir.  Service Fabric Mesh, uygulama dağıtımınızın ihtiyaç duyduğu altyapıyı otomatik olarak dağıtır ve altyapı hatalarını da yöneterek uygulamalarınızın yüksek oranda kullanılabilir durumda olmasını sağlar. Altyapı konusunda değil yalnızca uygulamanızın durumuna ve yanıt süresine dikkat etmeniz gerekir.  
+Bu video Service Fabric Mesh için bir genel bakış sağlamaktadır.
+> [!VIDEO https://www.youtube.com/embed/7qWeVGzAid0]
+
+Azure Service Fabric Mesh, geliştiricilerin sanal makineleri, depolama alanını veya ağ bileşenlerini yönetmeden mikro hizmet uygulamaları dağıtmasını sağlayan tam olarak yönetilen bir hizmettir. Service Fabric Mesh üzerinde barındırılan uygulamalar, altyapı konusunda endişelenmenize gerek kalmadan çalışır ve ölçeklendirilir.  Service Fabric Mesh, binlerce makineden oluşan kümelere sahiptir.  Tüm küme işlemleri geliştiriciden gizli olarak gerçekleştirilir. Tek yapmanız gereken kodunuzu yükleyip ihtiyacınız olan kaynakları, kullanılabilirlik gereksinimlerini ve kaynak sınırlarını belirtmektir.  Service Fabric Mesh, altyapıyı otomatik olarak dağıtır ve altyapı hatalarını da yöneterek uygulamalarınızın yüksek oranda kullanılabilir durumda olmasını sağlar. Altyapı konusunda değil yalnızca uygulamanızın durumuna ve yanıt süresine dikkat etmeniz gerekir.  
 
 [!INCLUDE [preview note](./includes/include-preview-note.md)]
 
@@ -30,7 +33,7 @@ Service Fabric Mesh, kapsayıcı içinde çalıştırılabilen tüm programlama 
 
 Service Fabric Mesh ile şunları yapabilirsiniz:
 
-- Var olan uygulamaları kapsayıcılara taşıyarak uygun ölçekte modernleştirebilir ve çalıştırabilirsiniz. 
+- Var olan uygulamaları kapsayıcılara taşıyarak uygun ölçekte modernleştirebilir ve çalıştırabilirsiniz.
 - Azure'da yeni mikro hizmet uygulamalarını uygun ölçekte derleyebilir ve dağıtabilirsiniz.  Diğer Azure hizmetleri veya kapsayıcılarda çalışan mevcut uygulamalarla tümleştirebilirsiniz. Her mikro hizmet CPU çekirdeği, bellek, disk alanı ve daha fazlası için kaynak yönetim ilkelerinin tanımlanmış olduğu güvenli ve ağdan ayrılmış bir uygulamanın parçasıdır.
 - Var olan uygulamalarda değişiklik yapmadan tümleştirme ve uzatma işlemleri gerçekleştirebilirsiniz. Var olan uygulamayı yeni uygulamaya bağlamak için kendi sanal ağınızı kullanabilirsiniz.  
 - Service Fabric Mesh'e geçiş yaparak var olan Cloud Services uygulamalarınızı modernleştirebilirsiniz.  
@@ -43,13 +46,10 @@ Service Fabric Mesh ile şunları yapabilirsiniz:
 
 - Altyapı sağlamak veya yönetmek zorunda kalmadan uygulamaları dağıtma ve yönetme.  Service Fabric Mesh altyapıyı sizin için sağlar, yükseltir, düzeltme eki uygular ve bakımını yapar.
 - Uygulamaları kolayca paketlemek ve dağıtmak için tümleşik araçları kullanarak sürekli tümleştirmeye geçiş yapabilirsiniz.
-- Azure'da SF Mesh hizmetine dağıttığınız tüm kaynaklar (Uygulamalar, Hizmetler, Gizli Diziler gibi) Azure Resource Manager kaynağı olduğundan Azure Resource Manager kaynaklarının (denetim kaydı ve [rol tabanlı erişim denetimi (RBAC)](/azure/role-based-access-control/overview) gibi) tüm özelliklerinden faydalanabilirsiniz. 
+- Azure'da Service Fabric Mesh hizmetine dağıttığını tüm kaynaklar (uygulamalar, hizmetler, gizli diziler gibi) Azure Resource Manager kaynağı olduğundan Azure Resource Manager kaynaklarının (denetim kaydı ve [rol tabanlı erişim denetimi](/azure/role-based-access-control/overview) gibi) tüm özelliklerinden faydalanabilirsiniz.
 - Kaynakları [Azure portal](https://portal.azure.com), Resource Manager şablonları veya Azure CLI/PowerShell kitaplıklarını kullanarak dağıtabilir ve yönetebilirsiniz.
-- [Application Insights](/azure/application-insights/)'ı (veya istediğiniz bir aracı) kullanarak işlem izleme ve uyarı ayarlarını yapabilir, platformdan işlem ve tanılama izlemelerini alabilirsiniz. 
+- [Application Insights](/azure/application-insights/)'ı (veya istediğiniz bir aracı) kullanarak işlem izleme ve uyarı ayarlarını yapabilir, platformdan işlem ve tanılama izlemelerini alabilirsiniz.
 - [Application Insights](/azure/application-insights/)'ı veya istediğiniz bir aracı kullanarak uygulama modelinden gelen uygulama tanılama bilgilerine erişebilirsiniz.
-- Uygulama tanımındaki hizmetler için otomatik ölçeklendirme kuralları belirterek kaynak kullanımını iyileştirebilirsiniz.  (çok yakında)
-- Uygulamalar için ağ yalıtımı ve güvenlik sınırları oluşturabilir, Hyper-V kapsayıcıları ile birlikte kullanarak daha etkili bir özellik elde edebilirsiniz. Hizmet başına birden fazla IP ve uygulamaya özgü yalıtılmış sanal ağlar kullanarak hizmete giden ve hizmetten gelen ağ trafiğini yalıtabilirsiniz.  (çok yakında) 
-
 
 ## <a name="mission-critical-platform-capabilities"></a>Görev açısından kritik platform özellikleri
 

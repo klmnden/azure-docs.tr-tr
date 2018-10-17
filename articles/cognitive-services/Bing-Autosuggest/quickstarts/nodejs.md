@@ -1,38 +1,38 @@
 ---
-title: Hızlı Başlangıç için Bing otomatik öneri API Node.js ile | Microsoft Docs
-description: Hızlı bir şekilde yardımcı olmak için bilgi ve kod örnekleri get Bing otomatik öneri API Azure Bilişsel Hizmetleri'nde kullanmaya başlayın.
+title: "Hızlı başlangıç: Bing Otomatik Öneri API'si, Node.js"
+titlesuffix: Azure Cognitive Services
+description: Bing Otomatik Öneri API'sini kısa sürede kullanmaya başlamanıza yardımcı olacak bilgi ve kod örnekleri alın.
 services: cognitive-services
-documentationcenter: ''
 author: v-jaswel
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-autosuggest
-ms.topic: article
+ms.topic: quickstart
 ms.date: 09/14/2017
 ms.author: v-jaswel
-ms.openlocfilehash: d327f3da493259793c2a4adfd6e87d756610f920
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
-ms.translationtype: MT
+ms.openlocfilehash: 498953625907aad85d8ea5999905cad21bf245da
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35354754"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48829996"
 ---
-# <a name="quickstart-for-bing-autosuggest-api-with-nodejs"></a>Hızlı Başlangıç için Bing otomatik öneri API Node.js ile
-<a name="HOLTop"></a>
+# <a name="quickstart-for-bing-autosuggest-api-with-nodejs"></a>Hızlı başlangıç: Node.js ile Bing Otomatik Öneri API'si
 
-Bu makalede nasıl kullanılacağı gösterilmektedir [Bing otomatik öneri API](https://azure.microsoft.com/services/cognitive-services/autosuggest/) Node.js ile. Bing otomatik öneri API arama kutusuna kullanıcının girdiği önerilen sorgular kısmi sorgu dizesine dayalı bir listesini döndürür. Genellikle, kullanıcı arama kutusuna yeni bir karakter türleri her zaman bu API çağrısı ve arama kutunun açılır listesinde önerilerini görüntülemek. Bu makalede, önerilen sorgu dizeleri için döndüren bir istek göndermesini gösterilmiştir *sail*.
+Bu makalede [Bing Otomatik Öneri API'sinin](https://azure.microsoft.com/services/cognitive-services/autosuggest/) Node.js ile nasıl kullanılacağı göstermektedir. Bing Otomatik Öneri API’si, kullanıcının arama kutusuna girdiği kısmi sorgu dizesine göre önerilen sorguların bir listesini döndürür. Genellikle bu API'yi kullanıcı arama kutusuna yeni bir karakter yazdığında çağırır ve önerileri arama kutusunun açılan listesinde görüntülersiniz. Bu makalede *sail* için önerilen sorgu dizelerini döndüren bir isteğin nasıl gönderileceği gösterilmektedir.
 
-## <a name="prerequisites"></a>Önkoşullar
+## <a name="prerequisites"></a>Ön koşullar
 
-Gereksinim duyduğunuz [Node.js 6](https://nodejs.org/en/download/) bu kodu çalıştırmak için.
+Bu kodu çalıştırmak için [Node.js 6](https://nodejs.org/en/download/) gerekir.
 
-Sahip olmanız gerekir bir [Bilişsel Hizmetleri API hesabı](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) ile **Bing otomatik öneri API v7**. [Ücretsiz deneme sürümü](https://azure.microsoft.com/try/cognitive-services/#search) Bu Hızlı Başlangıç için yeterlidir. Ücretsiz deneme sürümünüzü etkinleştirmek ya da Ücretli abonelik anahtarı Azure panonuza kullanabilir sağlanan erişim anahtarı gerekir.
+**Bing Otomatik Öneri API'si v7** sürümüne sahip bir [Bilişsel Hizmetler API hesabınız](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) olması gerekir. [Ücretsiz deneme](https://azure.microsoft.com/try/cognitive-services/#search) bu hızlı başlangıç için yeterlidir. Ücretsiz denemenizi etkinleştirdiğinizde verilen erişim anahtarınız olması veya Azure panonuzdan ücretli bir abonelik anahtarı kullanmanız gerekir.
 
-## <a name="get-autosuggest-results"></a>Autosuggest sonuçları Al
+## <a name="get-autosuggest-results"></a>Otomatik öneri sonuçlarını alma
 
-1. Sık kullanılan IDE içinde yeni bir Node.js projesi oluşturun.
-2. Aşağıda sunulan kodu ekleyin.
-3. Değiştir `subscriptionKey` aboneliğiniz için geçerli bir erişim anahtarı ile değer.
-4. Programını çalıştırın.
+1. Sık kullandığınız IDE’de yeni bir Node.js projesi oluşturun.
+2. Aşağıda sağlanan kodu ekleyin.
+3. `subscriptionKey` değerini, aboneliğiniz için geçerli olan bir erişim anahtarı ile değiştirin.
+4. Programı çalıştırın.
 
 ```javascript
 'use strict';
@@ -88,7 +88,7 @@ get_suggestions ();
 
 ### <a name="response"></a>Yanıt
 
-Başarılı yanıt JSON'da, aşağıdaki örnekte gösterildiği gibi verilir: 
+Başarılı yanıt, aşağıdaki örnekte gösterildiği gibi JSON biçiminde döndürülür: 
 
 ```json
 {
@@ -157,9 +157,9 @@ Başarılı yanıt JSON'da, aşağıdaki örnekte gösterildiği gibi verilir:
 ## <a name="next-steps"></a>Sonraki adımlar
 
 > [!div class="nextstepaction"]
-> [Bing otomatik öneri Öğreticisi](../tutorials/autosuggest.md)
+> [Bing Otomatik Öneri öğreticisi](../tutorials/autosuggest.md)
 
 ## <a name="see-also"></a>Ayrıca bkz.
 
-- [Bing otomatik öneri nedir?](../get-suggested-search-terms.md)
-- [Bing otomatik öneri API v7 başvurusu](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v7-reference)
+- [Bing Otomatik Öneri nedir?](../get-suggested-search-terms.md)
+- [Bing Otomatik Öneri API’si v7 başvurusu](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v7-reference)

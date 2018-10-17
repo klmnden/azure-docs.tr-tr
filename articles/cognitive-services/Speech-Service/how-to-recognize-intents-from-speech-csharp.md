@@ -6,16 +6,16 @@ description: >
 services: cognitive-services
 author: wolfma61
 ms.service: cognitive-services
-ms.technology: Speech
+ms.component: Speech
 ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: wolfma
-ms.openlocfilehash: 16424c44003be14e3ba04f6b5cce0ce518a0d7e8
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 9210aaf2ddfa917ff480f4126c02137f46788dc3
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47063039"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48884359"
 ---
 # <a name="tutorial-recognize-intents-from-speech-using-the-speech-sdk-for-c"></a>Öğretici: C# için Konuşma SDK'sını kullanarak konuşmadaki amaçları tanıma
 
@@ -123,7 +123,7 @@ Aşağıdaki bölümlerde kod açıklaması yer alır.
 Konuşmadaki amaçların tanınmasında ilk adım LUIS uç nokta anahtarınızdan ve bölgenizden bir konuşma yapılandırması oluşturmaktır. Konuşma yapılandırmaları, Konuşma SDK’sının çeşitli özelliklerine yönelik tanıyıcılar oluşturmak için kullanılabilir. Konuşma yapılandırmasında kullanmak istediğiniz aboneliği belirtmek için birden çok yol sağlanır; burada, abonelik anahtarını ve bölgesini alan `FromSubscription` yolunu kullanıyoruz.
 
 > [!NOTE]
-> Konuşma aboneliğinizin değil, LUIS aboneliğinizin anahtarını ve bölgesini kullanın.
+> Konuşma Hizmeti aboneliğinin değil, LUIS aboneliğinizin anahtarını ve bölgesini kullanın.
 
 Daha sonra, `new IntentRecognizer(config)` kullanarak bir amaç tanıyıcı oluşturun. Yapılandırma hangi aboneliğin kullanılacağını zaten bildiğinden, tanıyıcıyı oluştururken abonelik anahtarını ve uç noktasını bir kez daha belirtmek gerekmez.
 
@@ -166,7 +166,7 @@ result.Properties.GetProperty(PropertyId.LanguageUnderstandingServiceResponse_Js
 
 ## <a name="specify-recognition-language"></a>Tanıma dilini belirtme
 
-LUIS varsayılan olarak ABD İngilizcesindeki (`en-us`) amaçları tanır. Konuşma yapılandırmasının `SpeechRecognitionLanguage` özelliğine yerel ayar kodu atayarak başka dillerde de amaçları tanıyabilirsiniz. Örneğin, amaçları Almanca tanımak için tanıyıcıyı oluşturmadan önce öğretici uygulamamıza `config.SpeechRecognitionLanguage = "de-de";` ekleyin. Bkz. [Desteklenen Diller](supported-languages.md#speech-to-text).
+LUIS varsayılan olarak ABD İngilizcesindeki (`en-us`) amaçları tanır. Konuşma yapılandırmasının `SpeechRecognitionLanguage` özelliğine yerel ayar kodu atayarak başka dillerde de amaçları tanıyabilirsiniz. Örneğin, amaçları Almanca tanımak için tanıyıcıyı oluşturmadan önce öğretici uygulamamıza `config.SpeechRecognitionLanguage = "de-de";` ekleyin. Bkz. [Desteklenen Diller](language-support.md#speech-to-text).
 
 ## <a name="continuous-recognition-from-a-file"></a>Dosyadan sürekli tanıma
 

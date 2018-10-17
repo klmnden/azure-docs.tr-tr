@@ -13,15 +13,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 02/16/2017
+ms.date: 10/09/2018
 ms.author: wesmc
 ms.custom: mvc
-ms.openlocfilehash: 5ab5452aec5b0371caaf437b6e364ed7b922db3a
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: 9efa6dc8427c58c82702fd5b3449fcd4805bf9e3
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44162266"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48902102"
 ---
 # <a name="introduction-to-azure-app-service-on-linux"></a>Linux’ta Azure App Service’e Giriş
 
@@ -33,12 +33,12 @@ Linux’ta App Service, geliştirici üretkenliğini artırmaya yönelik çeşit
 
 | Dil | Desteklenen Sürümler |
 |---|---|
-| Node.js | 4.4, 4.5, 4.8, 6.2, 6.6, 6.9, 6.10, 6.11, 8.0, 8.1, 8.2, 8.8, 8.9, 9.4 |
+| Node.js | 4.4, 4.5, 4.8, 6.2, 6.6, 6.9, 6.10, 6.11, 8.0, 8.1, 8.2, 8.8, 8.9, 8.11, 9.4, 10.1 |
 | Java * | 8.0 |
 | PHP | 5.6, 7.0, 7.2 |
+| Python (Önizleme) | 3.7 |
 | .NET Core | 1.0, 1.1, 2.0 |
 | Ruby | 2.3 |
-| Başlayın | 1.0 |
 | Apache Tomcat | 8.5, 9.0 |
 
 Daha fazla ayrıntı için bkz. [Linux’ta App Service’te Java web uygulaması oluşturma](https://docs.microsoft.com/azure/app-service/containers/quickstart-java).
@@ -91,15 +91,25 @@ SCM sitesine **Geliştirme Araçları** menüsündeki **Gelişmiş Araçlar**’
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Linux’ta App Service kullanmaya başlamak için aşağıdaki bağlantılara bakın. Sorularınızı ve çekincelerinizi [forumumuzda](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazurewebsitespreview) paylaşabilirsiniz.
+Aşağıdaki makaleler farklı dillerde yazılmış web uygulamalarıyla Linux'ta App Service hizmetini kullanmaya başlamanızı sağlar:
 
-* [Kapsayıcılar için Web App’e yönelik özel Docker görüntüsü kullanma](quickstart-docker-go.md)
-* [Linux üzerinde Azure App Service’te .NET Core Kullanma](quickstart-dotnetcore.md)
-* [Linux üzerinde Azure App Service’te Ruby Kullanma](quickstart-ruby.md)
-* [Kapsayıcılar için Azure App Service Web App SSS](app-service-linux-faq.md)
-* [Linux üzerinde Azure App Service için SSH desteği](app-service-linux-ssh-support.md)
-* [Azure App Service’te hazırlık ortamları ayarlama](../../app-service/web-sites-staged-publishing.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
-* [Kapsayıcılar için Web App ile Docker Hub Sürekli Dağıtımı](./app-service-linux-ci-cd.md)
+* [.NET Core](quickstart-dotnetcore.md)
+* [PHP](quickstart-dotnetcore.md)
+* [Node.js](quickstart-nodejs.md)
+* [Java](quickstart-java.md)
+* [Python](quickstart-python.md)
+* [Ruby](quickstart-ruby.md)
+* [Go](quickstart-docker-go.md)
+* [Birden çok kapsayıcılı uygulamalar](quickstart-multi-container.md)
+
+Linux'ta App Service hakkında daha ayrıntılı bilgi için aşağıdaki makalelere de bakın:
+
+* [Linux’ta App Service hakkında SSS](app-service-linux-faq.md)
+* [Linux'ta App Service için SSH desteği](app-service-linux-ssh-support.md)
+* [App Service’te hazırlık ortamları ayarlama](../../app-service/web-sites-staged-publishing.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
+* [Docker Hub sürekli dağıtımı](app-service-linux-ci-cd.md)
+
+Sorularınızı ve çekincelerinizi [forumumuzda](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazurewebsitespreview) paylaşabilirsiniz.
 
 <!--Image references-->
 [1]: ./media/app-service-linux-intro/kudu-docker-logs.png

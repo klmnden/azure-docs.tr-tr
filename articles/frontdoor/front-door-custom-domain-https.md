@@ -10,14 +10,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 09/20/2018
+ms.date: 10/05/2018
 ms.author: sharadag
-ms.openlocfilehash: 8e3bdd402cbd16469fb333cc470471629f85538c
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 3df96451838fe90b7d45d1aedd272fc10d798e57
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47045463"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48883984"
 ---
 # <a name="tutorial-configure-https-on-a-front-door-custom-domain"></a>Öğretici: Front Door özel etki alanı üzerinde HTTPS'yi yapılandırma
 
@@ -45,15 +45,14 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
 Bu öğreticideki adımları tamamlayabilmeniz için öncelikle bir Front Door oluşturmalı ve en az bir özel etki alanı eklemelisiniz. Daha fazla bilgi için bkz. [Öğretici: Front Door’unuza özel etki alanı ekleme](front-door-custom-domain.md).
 
----
-
 ## <a name="ssl-certificates"></a>SSL sertifikaları
+
 Front Door özel etki alanında içeriği güvenli bir şekilde teslim etmek üzere HTTPS protokolünü etkinleştirmek için SSL sertifikası kullanmanız gerekir. Azure Front Door Service tarafından yönetilen bir sertifika kullanmayı seçebilir ya da kendi sertifikanızı kullanabilirsiniz.
 
 
-# <a name="option-1-default-enable-https-with-an-afd-managed-certificatetaboption-1-default-enable-https-with-an-afd-managed-certificate"></a>[1. Seçenek (varsayılan): AFD ile yönetilen sertifikayla HTTPS’yi etkinleştirme](#tab/option-1-default-enable-https-with-an-afd-managed-certificate)
+### <a name="option-1-default-use-a-certificate-managed-by-front-door"></a>Seçenek 1 (varsayılan): Front Door tarafından yönetilen bir sertifika kullanın
 
-AFD ile yönetilen bir sertifika kullandığınızda HTTPS özelliği sadece birkaç tıklama ile etkinleştirilebilir. Azure Front Door Service, tedarik ve yenileme gibi sertifika yönetimi görevlerini tamamen gerçekleştirir. Özelliği etkinleştirmenizin ardından işlem hemen başlar. Özel etki alanı önceden Front Door’un varsayılan ön uç konağına (`{hostname}.azurefd.net`) eşlendiyse başka bir eylem gerekmez. Front Door, adımları işler ve isteğinizi otomatik olarak tamamlar. Ancak özel etki alanınız başka bir yerde eşlendiyse, etki alanı sahipliğinizi doğrulamak için e-posta kullanmanız gerekir.
+Azure Front Door Service tarafından yönetilen bir sertifika kullandığınızda HTTPS özelliği sadece birkaç tıklama ile etkinleştirilebilir. Azure Front Door Service, tedarik ve yenileme gibi sertifika yönetimi görevlerini tamamen gerçekleştirir. Özelliği etkinleştirmenizin ardından işlem hemen başlar. Özel etki alanı önceden Front Door’un varsayılan ön uç konağına (`{hostname}.azurefd.net`) eşlendiyse başka bir eylem gerekmez. Front Door, adımları işler ve isteğinizi otomatik olarak tamamlar. Ancak özel etki alanınız başka bir yerde eşlendiyse, etki alanı sahipliğinizi doğrulamak için e-posta kullanmanız gerekir.
 
 Özel bir etki alanı üzerinde HTTPS'yi etkinleştirmek için aşağıdaki adımları uygulayın:
 
@@ -68,11 +67,11 @@ AFD ile yönetilen bir sertifika kullandığınızda HTTPS özelliği sadece bir
 5. [Etki alanını doğrulama](#validate-the-domain) adımına ilerleyin.
 
 
-# <a name="option-2-enable-https-with-your-own-certificatetaboption-2-enable-https-with-your-own-certificate"></a>[2. Seçenek: Kendi sertifikanızla HTTPS’yi etkinleştirme](#tab/option-2-enable-https-with-your-own-certificate)
+### <a name="option-2-use-your-own-certificate"></a>Seçenek 2: Kendi sertifikanızı kullanın
 
 HTTPS özelliğini etkinleştirmek için kendi sertifikanızı kullanabilirsiniz. Bu işlem, sertifikalarınızı güvenli bir şekilde depolamanıza olanak tanıyan Azure Key Vault ile tümleştirme yoluyla gerçekleştirilir. Azure Front Door Service, sertifikanızı almak için bu güvenli mekanizmayı kullanır ve birkaç ek adım gerektirir. SSL sertifikanızı oluştururken, bunu izin verilen bir sertifika yetkilisiyle (CA) oluşturmanız gerekir. Buna karşılık, izin verilmeyen bir CA kullanırsanız isteğiniz reddedilir. İzin verilen CA'ların listesi için bkz. [Azure Front Door Service'te özel HTTPS'leri etkinleştirmek için izin verilen sertifika yetkilileri](front-door-troubleshoot-allowed-ca.md).
 
-### <a name="prepare-your-azure-key-vault-account-and-certificate"></a>Azure Key Vault hesabınızı ve sertifikanızı hazırlama
+#### <a name="prepare-your-azure-key-vault-account-and-certificate"></a>Azure Key Vault hesabınızı ve sertifikanızı hazırlama
  
 1. Azure Key Vault: Özel HTTPS’yi etkinleştirmek istediğiniz Front Door’unuzla aynı abonelik altında çalışan bir Azure Key Vault hesabınız olması gerekir. Azure Key Vault hesabınız yoksa oluşturun.
  
@@ -83,7 +82,7 @@ HTTPS özelliğini etkinleştirmek için kendi sertifikanızı kullanabilirsiniz
 > </br> - Azure Front Door Service şu anda yalnızca Gizli Diziler bölümü altında depolanan Key Vault sertifikalarını destekler. Sertifikayı Gizli Diziler bölümü yerine Sertifikalar bölümünde depolarsanız sertifikanızı içeri aktaramazsınız.
 > </br> - Azure Front Door Service şu anda parola **olmadan** yalnızca PFX ile karşıya yüklenen sertifikaları destekler.
 
-### <a name="register-azure-front-door-service"></a>Azure Front Door Service’i kaydetme
+#### <a name="register-azure-front-door-service"></a>Azure Front Door Service’i kaydetme
 
 Azure Front Door Service hizmet sorumlusunu PowerShell aracılığıyla Azure Active Directory’nize uygulama olarak kaydedin.
 
@@ -93,7 +92,7 @@ Azure Front Door Service hizmet sorumlusunu PowerShell aracılığıyla Azure Ac
 
      `New-AzureRmADServicePrincipal -ApplicationId "ad0e1c7e-6d38-4ba4-9efd-0bc77ba9f037"`              
 
-### <a name="grant-azure-front-door-service-access-to-your-key-vault"></a>Anahtar kasanıza Azure Front Door Service erişimi verme
+#### <a name="grant-azure-front-door-service-access-to-your-key-vault"></a>Anahtar kasanıza Azure Front Door Service erişimi verme
  
 Azure Front Door Service’e, Azure Key Vault hesabınızdaki Gizli Diziler altındaki sertifikalara erişim izni verin.
 
@@ -108,7 +107,7 @@ Azure Front Door Service’e, Azure Key Vault hesabınızdaki Gizli Diziler alt�
 
     Azure Front Door Service artık bu anahtar kasasına ve bu anahtar kasasında depolanan sertifikalara (gizli diziler) erişebilir.
  
-### <a name="select-the-certificate-for-azure-front-door-service-to-deploy"></a>Dağıtım için Azure Front Door Service sertifikası seçme
+#### <a name="select-the-certificate-for-azure-front-door-service-to-deploy"></a>Dağıtım için Azure Front Door Service sertifikası seçme
  
 1. Portalda Front Door’unuza dönün. 
 
@@ -126,8 +125,6 @@ Azure Front Door Service’e, Azure Key Vault hesabınızdaki Gizli Diziler alt�
     - Kullanılabilir sertifika sürümleri. 
  
 5. Kendi sertifikanızı kullanıyorsanız etki alanı doğrulaması gerekmez. [Yayılma için bekleme](#wait-for-propagation) adımına geçin.
-
----
 
 ## <a name="validate-the-domain"></a>Etki alanını doğrulama
 

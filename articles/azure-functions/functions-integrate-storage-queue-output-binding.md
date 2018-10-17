@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.date: 09/19/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 84783472adda9a4a74670f0579790aac69feb23d
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: e48eac4cdc1e98e21a122850b1dc7d3e8f4efe07
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44095003"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48854533"
 ---
 # <a name="add-messages-to-an-azure-storage-queue-using-functions"></a>İşlevleri kullanarak bir Azure Depolama kuyruğuna ileti ekleme
 
@@ -25,7 +25,7 @@ Azure İşlevleri’nde giriş ve çıkış bağlamaları, kodunuzda kullanılab
 
 ![Depolama Gezgini'nde gösterilen kuyruk iletisi](./media/functions-integrate-storage-queue-output-binding/function-queue-storage-output-view-queue.png)
 
-## <a name="prerequisites"></a>Ön koşullar 
+## <a name="prerequisites"></a>Ön koşullar
 
 Bu hızlı başlangıcı tamamlamak için:
 
@@ -39,15 +39,19 @@ Bu bölümde, daha önce oluşturduğunuz işleve bir kuyruk depolama çıkış 
 
 1. Azure portalında, [Azure portalından ilk işlevinizi oluşturma](functions-create-first-azure-function.md) bölümünde oluşturduğunuz işlev uygulamasına ait işlev uygulaması sayfasını açın. Bunu yapmak için **Tüm hizmetler > İşlev Uygulamaları**’nı ve ardından işlev uygulamanızı seçin.
 
-2. Bu hızlı başlangıcın önceki kısımlarında oluşturduğunuz işlevi seçin.
+1. Bu hızlı başlangıcın önceki kısımlarında oluşturduğunuz işlevi seçin.
 
 1. **Tümleştir > Yeni çıkış > Azure Kuyruk depolama**’yı seçin.
 
 1. **Seç**'e tıklayın.
-    
+
     ![Azure portalındaki bir işleve Kuyruk depolama çıkış bağlaması ekleyin.](./media/functions-integrate-storage-queue-output-binding/function-add-queue-storage-output-binding.png)
 
-3. **Azure Kuyruk Depolama çıkışı** altında, bu ekran görüntüsünden sonraki tabloda belirtilen ayarları kullanın: 
+1. **Uzantılar yüklü değil** iletisiyle karşılaşırsanız **Yükle**'yi seçerek Depolama bağlamaları uzantısını işlev uygulamasına yükleyin. Bu işlem bir veya iki dakika sürebilir.
+
+    ![Depolama bağlama uzantısını yükleme](./media/functions-integrate-storage-queue-output-binding/functions-integrate-install-binding-extension.png)
+
+1. **Azure Kuyruk Depolama çıkışı** altında, bu ekran görüntüsünden sonraki tabloda belirtilen ayarları kullanın: 
 
     ![Azure portalındaki bir işleve Kuyruk depolama çıkış bağlaması ekleyin.](./media/functions-integrate-storage-queue-output-binding/function-add-queue-storage-output-binding-2.png)
 
@@ -57,52 +61,58 @@ Bu bölümde, daha önce oluşturduğunuz işleve bir kuyruk depolama çıkış 
     | **Depolama hesabı bağlantısı** | AzureWebJobsStorage | İşlev uygulamanız tarafından kullanılmakta olan depolama hesabı bağlantısını kullanabilir veya yeni bir bağlantı oluşturabilirsiniz.  |
     | **Kuyruk adı**   | outqueue    | Depolama hesabınızdaki bağlantı kurulacak kuyruğun adı. |
 
-4. Bağlamayı kaydetmek için **Kaydet**’e tıklayın.
- 
+1. Bağlamayı kaydetmek için **Kaydet**’e tıklayın.
+
 Bir çıkış bağlaması tanımladığınıza göre, bir kuyruğa ileti eklemek üzere bağlamayı kullanmak için kodu güncelleştirmeniz gerekir.  
 
 ## <a name="add-code-that-uses-the-output-binding"></a>Çıkış bağlaması kullanan kod ekleme
 
 Bu bölümde, çıkış kuyruğuna bir ileti yazan kodu ekleyeceksiniz. İleti, sorgu dizesinde HTTP tetikleyicisine geçirilen değeri içerir. Örneğin, sorgu dizesi `name=Azure` değerini içeriyorsa, kuyruk iletisi *İşleve geçirilen ad: Azure* şeklinde olur.
 
-1. İşlev kodunu düzenleyicide görüntülemek için işlevinizi seçin. 
+1. İşlev kodunu düzenleyicide görüntülemek için işlevinizi seçin.
 
-2. Bir C# işlevinde, bağlama için bir yöntem parametresi ekleyin ve kullanmak için kod yazın:
+1. İşlev dilinize uygun işlev kodunu kullanın:
 
-   Yöntem imzasına aşağıdaki örnekte gösterildiği gibi bir **outputQueueItem** parametresi ekleyin. Parametre adı, bağlamayı oluşturduğunuzda **İleti parametre adı** için girdiğiniz adla aynıdır.
+    # <a name="ctabcsharp"></a>[C\#](#tab/csharp)
 
-   ```cs   
-   public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, 
-       ICollector<string> outputQueueItem, TraceWriter log)
-   {
-       ...
-   }
-   ```
+    Yöntem imzasına aşağıdaki örnekte gösterildiği gibi bir **outputQueueItem** parametresi ekleyin.
 
-   C# işlevinin gövdesine `return` deyiminden hemen önce, kuyruk iletisi oluşturmak için parametreyi kullanan kodu ekleyin.
+    ```cs
+    public static async Task<IActionResult> Run(HttpRequest req,
+        ICollector<string> outputQueueItem, ILogger log)
+    {
+        ...
+    }
+    ```
 
-   ```cs
-   outputQueueItem.Add("Name passed to the function: " + name);     
-   ```
+    İşlevin gövdesine `return` deyiminden hemen önce, kuyruk iletisi oluşturmak için parametreyi kullanan kodu ekleyin.
 
-3. Bir JavaScript işlevi için, kuyruk iletisi oluşturmak üzere `context.bindings` nesnesinde çıkış bağlaması kullanan kodu ekleyin. Bu kodu `context.done` deyiminden önce ekleyin.
+    ```cs
+    outputQueueItem.Add("Name passed to the function: " + name);
+    ```
 
-   ```javascript
-   context.bindings.outputQueueItem = "Name passed to the function: " + 
-               (req.query.name || req.body.name);
-   ```
+    # <a name="javascripttabnodejs"></a>[JavaScript](#tab/nodejs)
 
-4. Değişiklikleri kaydetmek için **Kaydet**'i seçin.
- 
-## <a name="test-the-function"></a>İşlevi test etme 
+    Kuyruk iletisi oluşturmak üzere `context.bindings` nesnesinde çıkış bağlaması kullanan kodu ekleyin. Bu kodu `context.done` deyiminden önce ekleyin.
+
+    ```javascript
+    context.bindings.outputQueueItem = "Name passed to the function: " + 
+                (req.query.name || req.body.name);
+    ```
+
+    ---
+
+1. Değişiklikleri kaydetmek için **Kaydet**'i seçin.
+
+## <a name="test-the-function"></a>İşlevi test etme
 
 1. Kod değişiklikleri kaydedildikten sonra **Çalıştır**'ı seçin. 
 
     ![Azure portalındaki bir işleve Kuyruk depolama çıkış bağlaması ekleyin.](./media/functions-integrate-storage-queue-output-binding/functions-test-run-function.png)
 
-   **İstek gövdesinin** `name` değeri *Azure*’u içerdiğine dikkat edin. Bu değer, işlev çağrıldığında oluşturulan kuyruk iletisinde görüntülenir.
-
-   Burada **Çalıştır**’ı seçmeye alternatif olarak, bir tarayıcıya URL girerek ve sorgu dizesinde `name` değerini belirterek işlevi çağırabilirsiniz. Tarayıcı yöntemi [önceki hızlı başlangıç](functions-create-first-azure-function.md#test-the-function) içinde gösterilmiştir.
+    **İstek gövdesinin** `name` değeri *Azure*’u içerdiğine dikkat edin. Bu değer, işlev çağrıldığında oluşturulan kuyruk iletisinde görüntülenir.
+    
+    Burada **Çalıştır**’ı seçmeye alternatif olarak, bir tarayıcıya URL girerek ve sorgu dizesinde `name` değerini belirterek işlevi çağırabilirsiniz. Tarayıcı yöntemi [önceki hızlı başlangıç](functions-create-first-azure-function.md#test-the-function) içinde gösterilmiştir.
 
 2. İşlevin başarılı olduğundan emin olmak için günlükleri denetleyin. 
 

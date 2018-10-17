@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: 92b6327cbb97ed871cd4b10977bcd73a81494e20
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: a469bc600715b2e276d6654596da50d75659aadb
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47042134"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48831033"
 ---
 # <a name="tutorial-5-extract-contextually-related-data"></a>Öğretici 5: Bağlamsal olarak ilişkili verileri ayıklama
 Bu öğreticide bağlama göre ilgili veri parçalarını bulacaksınız. Örneğin, bir bina ya da ofisten başka bir bina ya da ofise fiziksel olarak taşınmada çıkış ve varış konumları. Bir çalışma sırası oluşturmak için her iki veri parçasının da mevcut ve birbirleriyle ilişkili olması gerekir.  
@@ -39,20 +39,20 @@ Bu uygulama bir çalışanın hangi kaynak konumdan (bina ve ofis) hangi hedef k
 > * Çıkış ve varış alt öğelerine sahip konum hiyerarşik varlığını ekleme
 > * Eğitim
 > * Yayımlama
-> * Uç noktasındaki amaçları ve varlıkları alma
+> * Uç noktadan amaçları ve varlıkları alma
 
 [!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
 ## <a name="use-existing-app"></a>Mevcut uygulamayı kullanma
 Son öğreticide oluşturulan **HumanResources** adlı uygulamayla devam edin. 
 
-Önceki öğreticinin HumanResources uygulaması elinizde yoksa, aşağıdaki adımları izleyin:
+Önceki öğreticinin HumanResources uygulaması elinizde yoksa aşağıdaki adımları izleyin:
 
-1.  [Uygulama JSON dosyasını](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/custom-domain-list-HumanResources.json) indirin ve kaydedin.
+1.  [Uygulama JSON dosyasını](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/custom-domain-list-HumanResources.json) indirip kaydedin.
 
 2. JSON'ı yeni bir uygulamaya içeri aktarın.
 
-3. **Yönet** bölümünde, **Sürümler** sekmesinde, sürümü kopyalayın ve `hier` olarak adlandırın. Kopyalama, özgün sürümünüzü etkilemeden farklı LUIS özelliklerini deneyebileceğiniz ideal bir yol sunar. Sürüm adı URL rotasının bir parçası olarak kullanıldığından ad bir URL'de geçerli olmayan hiçbir karakter içeremez. 
+3. **Yönet** bölümünde **Sürümler** sekmesinde sürümü kopyalayın ve `hier` olarak adlandırın. Kopyalama, özgün sürümünüzü etkilemeden farklı LUIS özelliklerini deneyebileceğiniz ideal bir yol sunar. Sürüm adı, URL rotasının bir parçası olarak kullanıldığından ad bir URL'de geçerli olmayan herhangi bir karakter içeremez. 
 
 ## <a name="remove-prebuilt-number-entity-from-app"></a>Uygulamadaki önceden oluşturulmuş sayı varlığını kaldırma
 Konuşmanın tamamını görmek ve hiyerarşik alt öğeleri işaretlemek için önceden oluşturulmuş sayı varlığını geçici olarak kaldırın.
@@ -61,7 +61,7 @@ Konuşmanın tamamını görmek ve hiyerarşik alt öğeleri işaretlemek için 
 
 2. Sol menüden **Entities** (Varlıklar) öğesini seçin.
 
-3. Listedeki sayı varlığının sağında bulunan üç nokta (***...***) düğmesini seçin. **Sil**’i seçin. 
+3. Listedeki sayı varlığının sol tarafındaki onay kutusunu seçin. **Sil**’i seçin. 
 
 ## <a name="add-utterances-to-moveemployee-intent"></a>MoveEmployee amacına konuşmalar ekleme
 

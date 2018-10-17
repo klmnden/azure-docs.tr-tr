@@ -1,33 +1,34 @@
 ---
-title: Proje yanıt arama Java hızlı başlangıç - Microsoft Bilişsel hizmetler | Microsoft Docs
-description: Proje yanıt arama Java kullanmaya başlayın.
+title: 'Hızlı başlangıç: Yanıt Arama Projesi, Java'
+titlesuffix: Azure Cognitive Services
+description: Java'da Yanıt Arama Projesi'ni kullanmaya başlayın.
 services: cognitive-services
 author: mikedodaro
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: project-answer-search
-ms.topic: article
+ms.component: project-answer-search
+ms.topic: quickstart
 ms.date: 04/13/2018
-ms.author: rosh, v-gedod
-ms.openlocfilehash: 4e1f606e1564981589e638e0e51a8b42633ca7b0
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
-ms.translationtype: MT
+ms.author: rosh
+ms.openlocfilehash: 1e10ecf685aaf5b60b94a5e9e0d8e118f45e5168
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35353939"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48867050"
 ---
-# <a name="project-answer-search-query-in-java"></a>Java projesi yanıt arama sorgusu
-Bu makalede, Microsoft Bilişsel hizmetler Azure üzerinde bir parçası Bing yanıt arama API göstermek için Java kullanır. API, HTTP isteklerini hale getirebilir ve JSON ayrıştırma programlama dili ile uyumlu bir REST Web hizmetidir.
+# <a name="quickstart-project-answer-search-query-in-java"></a>Hızlı başlangıç: Java'da Yanıt Arama Projesi sorgusu
+Bu makalede, Azure'da Microsoft Bilişsel Hizmetleri'nin parçası olan Bing Yanıt Arama API'sini göstermek için Java kullanılmaktadır. API HTTP istekleri gönderebilecek ve JSON ayrıştırabilecek her programlama diliyle uyumlu bir REST Web hizmetidir.
  
-Kod örneği, en az bir dış bağımlılıkları olan Java kullanır.  Ayrıca Linux veya Mac OS X Mono kullanarak çalıştırabilirsiniz.
+Örnek kodda Java için minimum harici bağımlılık kullanılmıştır.  Kodu Mono kullanarak Linux veya Mac OS X üzerinde de çalıştırabilirsiniz.
 
-## <a name="prerequisites"></a>Önkoşullar
+## <a name="prerequisites"></a>Ön koşullar
 
-Ücretsiz deneme sürümü için bir erişim anahtarı alma [Bilişsel hizmetler Laboratuvarları](https://aka.ms/answersearchsubscription)
+[Bilişsel Hizmetler Laboratuvarları](https://aka.ms/answersearchsubscription) ücretsiz denemesi için erişim anahtarı alın
 
 ## <a name="request"></a>İstek 
 
-Aşağıdaki kod oluşturur bir `WebRequest`erişim anahtar üstbilgisini ayarlar ve "Cebelitarık" için bir sorgu dizesi ekler.  İsteği gönderir ve yanıt JSON metnini içeren bir dize olarak atar.
+Aşağıdaki kod bir `WebRequest` oluşturur, erişim anahtarı üst bilgisini ayarlar ve "Gibraltar" için bir sorgu dizesi ekler.  Ardından isteği gönderir ve yanıtı JSON metnini içeren bir dizeye atar.
 
 ````
     static String host = "https://api.labs.cognitive.microsoft.com";
@@ -49,12 +50,12 @@ Aşağıdaki kod oluşturur bir `WebRequest`erişim anahtar üstbilgisini ayarla
 
 ## <a name="complete-code"></a>Tam kod
 
-Bing yanıt arama API Bing arama altyapısı sonuçlar döndürür.
-1. İndirme veya gson Kitaplığı yükleyin.
-2. Sık kullanılan IDE veya Düzenleyicisi yeni bir Java projesi oluşturun.
-3. Aşağıda sunulan kodu ekleyin.
-4. Aboneliğiniz için geçerli bir erişim anahtarı ile subscriptionKey değeri değiştirin.
-5. Programını çalıştırın.
+Bing Yanıt Arama API'si Bing arama motorundan sonuçları döndürür.
+1. gson kitaplığını indirip yükleyin.
+2. Sık kullandığınız IDE veya düzenleyicide yeni bir Java projesi oluşturun.
+3. Aşağıda sağlanan kodu ekleyin.
+4. subscriptionKey değerini, aboneliğiniz için geçerli olan bir erişim anahtarı ile değiştirin.
+5. Programı çalıştırın.
 
 ````
 package knowledgeAPI;
@@ -150,6 +151,6 @@ public class KnowledgeSrch {
 ````
 
 ## <a name="next-steps"></a>Sonraki adımlar
-- [C# hızlı başlangıç](c-sharp-quickstart.md)
-- [Java hızlı başlangıç](java-quickstart.md)
-- [Düğüm hızlı başlangıç](node-quickstart.md)
+- [C# hızlı başlangıcı](c-sharp-quickstart.md)
+- [Java hızlı başlangıcı](java-quickstart.md)
+- [Node hızlı başlangıcı](node-quickstart.md)

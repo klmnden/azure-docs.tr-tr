@@ -1,135 +1,97 @@
 ---
-title: 'Hızlı Başlangıç: Node.js Bilgi Bankası yayımlama - Soru-Cevap Oluşturucu'
+title: 'Hızlı başlangıç: Bilgi Bankası Yayımlama - REST, Node.js - Soru-Cevap Oluşturma'
 titleSuffix: Azure Cognitive Services
-description: Soru-Cevap Oluşturma için Node.js’de nasıl bilgi bankası yayımlanılır?
+description: Bu hızlı başlangıçta bilgi bankanızı (KB) program aracılığıyla yayımlama adımları gösterilmektedir. Yayımlama, bilgi bankanızın son sürümünü adanmış bir Azure Search dizinine gönderir ve uygulamanızda ya da sohbet botunuzda çağrılabilecek bir uç nokta oluşturur.
 services: cognitive-services
 author: diberry
 manager: cgronlun
 ms.service: cognitive-services
-ms.technology: qna-maker
+ms.component: qna-maker
 ms.topic: quickstart
-ms.date: 09/12/2018
+ms.date: 10/02/2018
 ms.author: diberry
-ms.openlocfilehash: 00642661995e16bda9ad995e69545b28468779c5
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: c70b90a6e465c72193f63afd7ab9106579e2c634
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47040947"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48886619"
 ---
-# <a name="publish-a-knowledge-base-in-nodejs"></a>Node.js’de bilgi bankası yayımlama
+# <a name="quickstart-publish-a-qna-maker-knowledge-base-in-nodejs"></a>Hızlı başlangıç: Node.js ile Soru-Cevap Oluşturma bilgi bankası yayımlama
 
-Aşağıdaki kod, [Yayımla](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fe) yöntemini kullanarak mevcut bir bilgi bankasını yayımlar.
+Bu hızlı başlangıçta bilgi bankanızı (KB) program aracılığıyla yayımlama adımları gösterilmektedir. Yayımlama, bilgi bankanızın son sürümünü adanmış bir Azure Search dizinine gönderir ve uygulamanızda ya da sohbet botunuzda çağrılabilecek bir uç nokta oluşturur.
 
-[!INCLUDE [Code is available in Azure-Samples Github repo](../../../../includes/cognitive-services-qnamaker-nodejs-repo-note.md)]
+Bu hızlı başlangıç şu Soru-Cevap Oluşturma API'lerini çağırır:
+* [Publish](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fe): Bu API için istek gövdesinde herhangi bir bilgi iletilmesi gerekmez.
+
+## <a name="prerequisites"></a>Ön koşullar
+
+* [Node.js 6+](https://nodejs.org/en/download/)
+* [Soru-Cevap Oluşturma hizmetine](../How-To/set-up-qnamaker-service-azure.md) sahip olmanız gerekir. Anahtarınızı almak için, panonuzda **Kaynak Yönetimi** altında **Anahtarlar** öğesini seçin. 
+* Soru-Cevap Oluşturma bilgi bankası (KB) kimliği aşağıda gösterildiği gibi URL'nin kbid sorgu dizesi bölümünde bulunur.
+
+    ![Soru-Cevap Oluşturma bilgi bankası kimliği](../media/qnamaker-quickstart-kb/qna-maker-id.png)
 
 Henüz bir bilgi bankanız yoksa, bu hızlı başlangıçta kullanmak için bir örneğini oluşturabilirsiniz: [Yeni bilgi bankası oluşturma](create-new-kb-nodejs.md).
 
-1. Sık kullandığınız IDE'de yeni bir Node projesi oluşturun.
-1. Aşağıda sağlanan kodu ekleyin.
-1. `subscriptionKey` değerini geçerli bir abonelik anahtarı ile değiştirin.
-1. `kb` değerini geçerli bir bilgi bankası kimliği ile değiştirin. [Soru-Cevap Oluşturma bilgi bankalarınızdan](https://www.qnamaker.ai/Home/MyServices) birine giderek bu değeri bulun. Yayımlamak istediğiniz bilgi bankasını seçin. Söz konusu sayfaya geldiğinizde, aşağıda gösterildiği gibi URL’de 'kdid=' öğesini bulun. Kod örneğiniz için değerini kullanın.
+[!INCLUDE [Code is available in Azure-Samples Github repo](../../../../includes/cognitive-services-qnamaker-nodejs-repo-note.md)]
 
-    ![Soru-Cevap Oluşturma bilgi bankası kimliği](../media/qnamaker-quickstart-kb/qna-maker-id.png)
-1. Programı çalıştırın.
+## <a name="create-a-knowledge-base-nodejs-file"></a>Bilgi bankası Node.js dosyası oluşturma
 
-``` Node.js
-'use strict';
+`publish-knowledge-base.js` adlı bir dosya oluşturun.
 
-let fs = require ('fs');
-let https = require ('https');
+## <a name="add-required-dependencies"></a>Gerekli bağımlılıkları ekleme
 
-// **********************************************
-// *** Update or verify the following values. ***
-// **********************************************
+Aşağıdaki satırları `publish-knowledge-base.js` adlı dosyanın en üstüne ekleyerek projeye gerekli bağımlılıkları dahil edin:
 
-// Replace this with a valid subscription key.
-let subscriptionKey = 'ENTER KEY HERE';
+[!code-nodejs[Add the dependencies](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/publish-knowledge-base/publish-knowledge-base.js?range=1-4 "Add the dependencies")]
 
-// NOTE: Replace this with a valid knowledge base ID.
-let kb = 'ENTER ID HERE';
+## <a name="add-required-constants"></a>Gerekli sabitleri ekleme
 
-let host = 'westus.api.cognitive.microsoft.com';
-let service = '/qnamaker/v4.0';
-let method = '/knowledgebases/';
+Yukarıdaki gerekli bağımlılıklardan sonra Soru-Cevap Oluşturma hizmetine erişmek için gerekli sabitleri ekleyin. `subscriptionKey` değişkeninin değerini kendi Soru-Cevap Oluşturma anahtarınızla değiştirin. 
 
-let pretty_print = function (s) {
-    return JSON.stringify(JSON.parse(s), null, 4);
-}
+[!code-nodejs[Add required constants](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/publish-knowledge-base/publish-knowledge-base.js?range=10-17 "Add required constants")]
 
-// callback is the function to call when we have the entire response.
-let response_handler = function (callback, response) {
-    let body = '';
-    response.on ('data', function (d) {
-        body += d;
-    });
-    response.on ('end', function () {
-// Call the callback function with the status code, headers, and body of the response.
-        callback ({ status : response.statusCode, headers : response.headers, body : body });
-    });
-    response.on ('error', function (e) {
-        console.log ('Error: ' + e.message);
-    });
-};
+## <a name="add-knowledge-base-id"></a>Bilgi bankası kimliği ekleme
 
-// Get an HTTP response handler that calls the specified callback function when we have the entire response.
-let get_response_handler = function (callback) {
-// Return a function that takes an HTTP response, and is closed over the specified callback.
-// This function signature is required by https.request, hence the need for the closure.
-    return function (response) {
-        response_handler (callback, response);
-    }
-}
+Yukarıdaki sabitlerden sonra bilgi bankası kimliğini ekleyin ve yola dahil edin:
 
-// callback is the function to call when we have the entire response from the POST request.
-let post = function (path, content, callback) {
-    let request_params = {
-        method : 'POST',
-        hostname : host,
-        path : path,
-        headers : {
-            'Content-Type' : 'application/json',
-            'Content-Length' : content.length,
-            'Ocp-Apim-Subscription-Key' : subscriptionKey,
-        }
-    };
+[!code-nodejs[Add knowledge base ID](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/publish-knowledge-base/publish-knowledge-base.js?range=19-23 "Add knowledge base ID")]
 
-// Pass the callback function to the response handler.
-    let req = https.request (request_params, get_response_handler (callback));
-    req.write (content);
-    req.end ();
-}
+## <a name="add-supporting-functions"></a>Destekleyici işlevleri ekleme
 
-// callback is the function to call when we have the response from the /knowledgebases POST method.
-let publish_kb = function (path, req, callback) {
-    console.log ('Calling ' + host + path + '.');
-// Send the POST request.
-    post (path, req, function (response) {
-// Extract the data we want from the POST response and pass it to the callback function.
-        if (response.status == '204') {
-            let result = {'result':'Success'};
-            callback (JSON.stringify(result));
-        }
-        else {
-            callback (response.body);
-        }
-    });
-}
+Bir sonraki adımda aşağıdaki destekleyici işlevleri ekleyin.
 
-var path = service + method + kb;
-publish_kb (path, '', function (result) {
-    console.log (pretty_print(result));
-});
-```
+1. JSON sonucunu okunabilir biçimde yazdırmak için aşağıdaki işlevi ekleyin:
 
-## <a name="understand-what-qna-maker-returns"></a>Soru-Cevap Oluşturma’nın ne döndürdüğünü anlama
+   [!code-nodejs[Add supporting functions, step 1](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/publish-knowledge-base/publish-knowledge-base.js?range=25-28 "Add supporting functions, step 1")]
 
-Başarılı yanıt, aşağıdaki örnekte gösterildiği gibi JSON biçiminde döndürülür:
+2. Oluşturma işleminin durumunu alma amacıyla HTTP yanıtını yönetmek için aşağıdaki işlevleri ekleyin:
 
-```json
-{
-  "result": "Success."
-}
+   [!code-nodejs[Add supporting functions, step 2](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/publish-knowledge-base/publish-knowledge-base.js?range=30-52 "Add supporting functions, step 2")]
+
+## <a name="add-the-publishkb-function-and-main-function"></a>publish_kb işlevini ve main işlevini ekleme
+
+Aşağıdaki kod KB yayımlamak için Soru-Cevap Oluşturma API'sine bir HTTPS isteği gönderir ve yanıtı alır:
+
+[!code-nodejs[Add POST request to publish KB](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/publish-knowledge-base/publish-knowledge-base.js?range=54-71 "Add POST request to publish KB")]
+
+[!code-nodejs[Add the publish_kb function](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/publish-knowledge-base/publish-knowledge-base.js?range=73-91 "Add the publish_kb function and main function")]
+
+## <a name="add-the-main-function"></a>Main işlevini ekleme
+
+İsteği ve yanıtı yönetmek için aşağıdaki işlevi ekleyin:
+
+[!code-nodejs[Add the main function](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/publish-knowledge-base/publish-knowledge-base.js?range=94-97 "Add the main function")]
+
+## <a name="run-the-program"></a>Programı çalıştırma
+
+Programı derleyin ve çalıştırın. Otomatik olarak Soru-Cevap Oluşturma API'sine KB yayımlama isteği gönderilir ve yanıt konsol penceresine yazdırılır.
+
+Bilgi bankanız yayımlandıktan sonra istemci uygulaması veya sohbet botu ile uç noktadan sorgulayabilirsiniz. 
+
+```bash
+node publish-knowledge-base.js
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar

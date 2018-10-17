@@ -2,18 +2,17 @@
 title: Azure Container Instances kotaları ve bölge kullanılabilirliği
 description: Azure Container Instances hizmetinin varsayılan kotaları ve bölge kullanılabilirliği.
 services: container-instances
-author: mmacy
-manager: jeconnoc
+author: dlepow
 ms.service: container-instances
 ms.topic: overview
 ms.date: 02/27/2018
-ms.author: marsma
-ms.openlocfilehash: 1bc890abc8b406ae75f292f37775e4cb62cf0473
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.author: danlep
+ms.openlocfilehash: 427dd8bd4abb72e2750752d828e189921401e9e0
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39115284"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48902368"
 ---
 # <a name="quotas-and-region-availability-for-azure-container-instances"></a>Azure Container Instances için kotalar ve bölge kullanılabilirliği
 
@@ -29,11 +28,11 @@ Azure Container Instances aşağıdaki bölgelerde belirtilen CPU ve bellek sın
 
 | Konum | İşletim Sistemi | CPU | Bellek (GB) |
 | -------- | -- | :---: | :-----------: |
-| Batı ABD, Doğu ABD, Batı Avrupa, Kuzey Avrupa | Linux | 4 | 14 |
-| Batı ABD 2, Güneydoğu Asya | Linux | 2 | 7 |
-| Avustralya Doğu, Doğu ABD 2, Orta ABD | Linux | 1 | 1,5 |
-| Batı ABD, Doğu ABD, Batı Avrupa, Kuzey Avrupa | Windows | 4 | 14 |
-| Batı ABD 2, Güneydoğu Asya | Windows | 2 | 3,5 |
+| Doğu ABD, Kuzey Avrupa, Batı Avrupa, Batı ABD, Batı ABD 2 | Linux | 4 | 14 |
+| Avustralya Doğu, Doğu ABD 2, Güneydoğu Asya | Linux | 2 | 7 |
+| Orta Hindistan, Orta Güney ABD | Linux | 2 | 3,5 |
+| Doğu ABD, Batı Avrupa, Batı ABD | Windows | 4 | 14 |
+| Avustralya Doğu, Orta Hindistan, Doğu ABD 2, Kuzey Avrupa, Orta Güney ABD, Güneydoğu Asya, Batı ABD 2 | Windows | 2 | 3,5 |
 
 Bu kaynak sınırları dahilinde oluşturulan kapsayıcı örnekleri, dağıtım bölgesinde kullanılabilirliğe tabidir. Bir bölge ağı yük altında olduğunda, örnek dağıtırken hatayla karşılaşabilirsiniz. Bu tür dağıtım hatalarını azaltmak için, daha düşük CPU ve bellek ayarları ile örnekleri dağıtmayı deneyin veya dağıtımınızı daha sonra gerçekleştirmeyi deneyin.
 

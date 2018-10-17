@@ -1,239 +1,121 @@
 ---
-title: 'Hızlı Başlangıç: API Node.js - Bilgi bankası oluşturma - QnA Maker'
-description: Bu hızlı başlangıç, Bilişsel Hizmetler API hesabınızda görünen örnek bir Soru-Cevap Oluşturma bilgi bankasını program aracılığıyla oluşturma konusunda size yol gösterir.
+title: 'Hızlı başlangıç: Bilgi bankası oluşturma - REST, Node.js - Soru-Cevap Oluşturma'
+description: Bu hızlı başlangıç, Bilişsel Hizmetler API hesabınızda görünen örnek bir Soru-Cevap Oluşturma bilgi bankasını programatik olarak oluşturma konusunda size yol gösterir.
 services: cognitive-services
 author: diberry
 manager: cgronlun
 ms.service: cognitive-services
-ms.technology: qna-maker
+ms.component: qna-maker
 ms.topic: quickstart
-ms.date: 09/12/2018
+ms.date: 10/02/2018
 ms.author: diberry
-ms.openlocfilehash: 435c937e64d0befc5a3bf30f9d58ccd303247b9e
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: f0375affa547f657ae36de71901298047359cae2
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47037312"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48884925"
 ---
-# <a name="create-a-new-knowledge-base-in-nodejs"></a>Node.js’de yeni bilgi bankası oluşturma
+# <a name="quickstart-create-a-qna-maker-knowledge-base-in-nodejs"></a>Hızlı başlangıç: Node.js ile Soru-Cevap Oluşturma bilgi bankası oluşturma
 
-Bu hızlı başlangıç, Bilişsel Hizmetler API hesabınızda görünen örnek bir Soru-Cevap Oluşturma bilgi bankasını programatik olarak oluşturma konusunda size yol gösterir.
+Bu hızlı başlangıçta program aracılığıyla örnek bir Soru-Cevap Oluşturma bilgi bankası (KB) oluşturma adımları gösterilmektedir. Soru-Cevap Oluşturma, [veri kaynaklarından](../Concepts/data-sources-supported.md) ve SSS gibi yarı yapılandırılmış içerikten soru ve cevapları otomatik olarak ayıklar. JSON ile tanımlanan bilgi bankası modeli API isteğinin gövdesinde gönderilir. 
 
-[!INCLUDE [Code is available in Azure-Samples Github repo](../../../../includes/cognitive-services-qnamaker-nodejs-repo-note.md)]
-
-Aşağıda içerik sağlayan iki örnek SSS URL’si (**req={}** öğesinde 'urls' içinde) verilmiştir. Soru-Cevap Oluşturma, bu [veri kaynakları](../Concepts/data-sources-supported.md) belgesinde açıklandığı şekilde yarı yapılandırılmış içerikten soru ve cevapları otomatik olarak ayıklar. Bu hızlı başlangıçta kendi SSS URL’lerinizi de kullanabilirsiniz.
+Bu hızlı başlangıç şu Soru-Cevap Oluşturma API'lerini çağırır:
+* [KB Oluşturma](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff)
+* [İşlem Ayrıntılarını Alma](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/operations_getoperationdetails)
 
 ## <a name="prerequisites"></a>Ön koşullar
 
-Bu kodu çalıştırmak için [Node.js 6+](https://nodejs.org/en/download/) gerekir.
+* [Node.js 6+](https://nodejs.org/en/download/)
+* [Soru-Cevap Oluşturma hizmetine](../How-To/set-up-qnamaker-service-azure.md) sahip olmanız gerekir. Anahtarınızı almak için, panonuzda **Kaynak Yönetimi** altında **Anahtarlar** öğesini seçin. 
 
-**Microsoft Soru-Cevap Oluşturma API'sine** sahip bir [Bilişsel Hizmetler API hesabınızın](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) olması gerekir. [Azure panonuzdan](https://portal.azure.com/#create/Microsoft.CognitiveServices) ücretli bir abonelik anahtarına ihtiyacınız olacak. Bu hızlı başlangıç için her iki anahtar da çalışır.
+[!INCLUDE [Code is available in Azure-Samples Github repo](../../../../includes/cognitive-services-qnamaker-nodejs-repo-note.md)]
 
-![Azure panosu hizmet anahtarı](../media/sub-key.png)
+## <a name="create-a-knowledge-base-nodejs-file"></a>Bilgi bankası Node.js dosyası oluşturma
 
-Visual Studio ve Node.js ile ilgili daha fazla yardım için: [Hızlı Başlangıç: İlk Node.js uygulamanızı oluşturmak için Visual Studio kullanma](https://docs.microsoft.com/en-us/visualstudio/ide/quickstart-nodejs).
+`create-new-knowledge-base.js` adlı bir dosya oluşturun.
 
-## <a name="create-knowledge-base"></a>Bilgi bankası oluşturma
+## <a name="add-the-required-dependencies"></a>Gerekli bağımlılıkları ekleme
 
-Aşağıdaki kod, [Oluşturma](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff) yöntemini kullanarak yeni bir bilgi bankası oluşturur.
+Aşağıdaki satırları `create-new-knowledge-base.js` adlı dosyanın en üstüne ekleyerek projeye gerekli bağımlılıkları dahil edin:
 
-1. Sık kullandığınız IDE’de yeni bir Node.js projesi oluşturun.
-2. Aşağıda sağlanan kodu ekleyin.
-3. `subscriptionKey` değerini geçerli bir abonelik anahtarı ile değiştirin.
-4. Programı çalıştırın.
+[!code-nodejs[Add the dependencies](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/create-knowledge-base/create-new-knowledge-base.js?range=1-4 "Add the dependencies")]
 
-```nodejs
-'use strict';
+## <a name="add-the-required-constants"></a>Gerekli sabitleri ekleme
+Yukarıdaki gerekli bağımlılıklardan sonra Soru-Cevap Oluşturma hizmetine erişmek için gerekli sabitleri ekleyin. `subscriptionKey` değişkeninin değerini kendi Soru-Cevap Oluşturma anahtarınızla değiştirin.
 
-let fs = require('fs');
-let https = require('https');
+[!code-nodejs[Add the required constants](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/create-knowledge-base/create-new-knowledge-base.js?range=10-19 "Add the required constants")]
 
-// **********************************************
-// *** Update or verify the following values. ***
-// **********************************************
+## <a name="add-the-kb-model-definition"></a>KB modeli tanımını ekleme
 
-// Replace this with a valid subscription key.
-let subscriptionKey = 'YOUR SUBSCRIPTION KEY HERE';
+Sabitlerden sonra aşağıdaki KB modeli tanımını ekleyin. Model tanımdan sonra bir dizeye dönüştürülür.
 
-// Components used to create HTTP request URIs for QnA Maker operations.
-let host = 'westus.api.cognitive.microsoft.com';
-let service = '/qnamaker/v4.0';
-let method = '/knowledgebases/create';
+[!code-nodejs[Add the KB model definition](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/create-knowledge-base/create-new-knowledge-base.js?range=21-51 "Add the KB model definition")]
 
-// Formats and indents JSON for display.
-let pretty_print = function (s) {
-    return JSON.stringify(JSON.parse(s), null, 4);
-};
+## <a name="add-supporting-functions"></a>Destekleyici işlevleri ekleme
 
-// The 'callback' is called from the entire response.
-let response_handler = function (callback, response) {
-    let body = '';
-    response.on('data', function (d) {
-        body += d;
-    });
-    response.on('end', function () {
-        // Call the 'callback' with the status code, headers, and body of the response.
-        callback({ status: response.statusCode, headers: response.headers, body: body });
-    });
-    response.on('error', function (e) {
-        console.log('Error: ' + e.message);
-    });
-};
+Bir sonraki adımda aşağıdaki destekleyici işlevleri ekleyin.
 
-// Get an HTTP response handler that calls 'callback' from the entire response.
-let get_response_handler = function (callback) {
-    // Return a function that takes an HTTP response and is closed over the specified callback.
-    // This function signature is required by https.request, hence the need for the closure.
-    return function (response) {
-        response_handler(callback, response);
-    };
-};
+1. JSON sonucunu okunabilir biçimde yazdırmak için aşağıdaki işlevi ekleyin:
 
-// Call 'callback' when we have the entire response from the POST request.
-let post = function (path, content, callback) {
-    let request_params = {
-        method: 'POST',
-        hostname: host,
-        path: path,
-        headers: {
-            'Content-Type': 'application/json',
-            'Content-Length': content.length,
-            'Ocp-Apim-Subscription-Key': subscriptionKey
-        }
-    };
+   [!code-nodejs[Add supporting functions, step 1](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/create-knowledge-base/create-new-knowledge-base.js?range=53-56 "Add supporting functions, step 1")]
 
-    // Pass the 'callback' function to the response handler.
-    let req = https.request(request_params, get_response_handler(callback));
-    req.write(content);
-    req.end();
-};
+2. HTTP yanıtını yönetmek için aşağıdaki işlevi ekleyin:
 
-// Call 'callback' when we have the entire response from the GET request.
-let get = function (path, callback) {
-    let request_params = {
-        method: 'GET',
-        hostname: host,
-        path: path,
-        headers: {
-            'Ocp-Apim-Subscription-Key': subscriptionKey
-        }
-    };
+   [!code-nodejs[Add supporting functions, step 2](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/create-knowledge-base/create-new-knowledge-base.js?range=58-80 "Add supporting functions, step 2")]
 
-    // Pass the callback function to the response handler.
-    let req = https.request(request_params, get_response_handler(callback));
-    req.end();
-};
+## <a name="add-functions-to-create-kb"></a>KB oluşturma işlevlerini ekleme
 
-// Call 'callback' when we have the response from the /knowledgebases/create POST method.
-let create_kb = function (path, req, callback) {
-    console.log('Calling ' + host + path + '.');
-    // Send the POST request.
-    post(path, req, function (response) {
-        // Extract the data we want from the POST response and pass it to the callback function.
-        callback({ operation: response.headers.location, response: response.body });
-    });
-};
+Bilgi bankasını oluşturma amacıyla bir HTTP POST isteğinde bulunmak için aşağıdaki işlevleri ekleyin. `Ocp-Apim-Subscription-Key`, Soru-Cevap Oluşturma hizmeti anahtarıdır ve kimlik doğrulaması için kullanılır. 
 
-// Call 'callback' when we have the response from the GET request to check the status.
-let check_status = function (path, callback) {
-    console.log('Calling ' + host + path + '.');
-    // Send the GET request.
-    get(path, function (response) {
-        // Extract the data we want from the GET response and pass it to the callback function.
-        callback({ wait: response.headers['retry-after'], response: response.body });
-    });
-};
+[!code-nodejs[POST Request to API](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/create-knowledge-base/create-new-knowledge-base.js?range=82-109 "POST Request to API")]
 
-// Dictionary that holds the knowledge base.
-// The data source includes a QnA pair with metadata, the URL for the
-// QnA Maker FAQ article, and the URL for the Azure Bot Service FAQ article.
-let req = {
-    "name": "QnA Maker FAQ",
-    "qnaList": [
-        {
-            "id": 0,
-            "answer": "You can use our REST APIs to manage your Knowledge Base. See here for details: https://westus.dev.cognitive.microsoft.com/docs/services/58994a073d9e04097c7ba6fe/operations/58994a073d9e041ad42d9baa",
-            "source": "Custom Editorial",
-            "questions": [
-                "How do I programmatically update my Knowledge Base?"
-            ],
-            "metadata": [
-                {
-                    "name": "category",
-                    "value": "api"
-                }
-            ]
-        }
-    ],
-    "urls": [
-        "https://docs.microsoft.com/en-in/azure/cognitive-services/qnamaker/faqs",
-        "https://docs.microsoft.com/en-us/bot-framework/resources-bot-framework-faq"
-    ],
-    "files": []
-};
+Bu API çağrısı, işlem kimliğini içeren bir JSON yanıtı döndürür. İşlem kimliğini KB'nin başarıyla oluşturulup oluşturulmadığını belirlemek için kullanın. 
 
-// Build your path URL.
-var path = service + method;
-// Convert the request to a string.
-let content = JSON.stringify(req);
-create_kb(path, content, function (result) {
-    // Formats and indents the JSON response from the /knowledgebases/create method for display.
-    console.log(pretty_print(result.response));
-    // Loop until the operation is complete.
-    let loop = function () {
-        path = service + result.operation;
-        // Check the status of the operation.
-        check_status(path, function (status) {
-            // Formats and indents the JSON for display.
-            console.log(pretty_print(status.response));
-            // Convert the status into an object and get the value of the 'operationState'.
-            var state = (JSON.parse(status.response)).operationState;
-            // If the operation isn't complete, wait and query again.
-            if (state === 'Running' || state === 'NotStarted') {
-                console.log('Waiting ' + status.wait + ' seconds...');
-                setTimeout(loop, status.wait * 1000);
-            }
-        });
-    };
-    // Begin the loop.
-    loop();
-});
-```
-
-## <a name="understand-what-qna-maker-returns"></a>Soru-Cevap Oluşturma’nın ne döndürdüğünü anlama
-
-Başarılı yanıt, aşağıdaki örnekte gösterildiği gibi JSON biçiminde döndürülür. Sonuçlarınız biraz farklılık gösterebilir. Son çağrı "Başarılı" durumunu döndürürse, bilgi bankanız başarıyla oluşturulmuştur. Sorun gidermek için Soru-Cevap Oluşturma API'sinin [İşlem Ayrıntılarını Alma](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/operations_getoperationdetails) bölümüne başvurun.
-
-```json
-Calling https://westus.api.cognitive.microsoft.com/qnamaker/v4.0/knowledgebases/create.
+```JSON
 {
   "operationState": "NotStarted",
-  "createdTimestamp": "2018-04-13T01:52:30Z",
-  "lastActionTimestamp": "2018-04-13T01:52:30Z",
-  "userId": "2280ef5917tt4ebfa1aae41fb1cebb4a",
-  "operationId": "e88b5b23-e9ab-47fe-87dd-3affc2fb10f3"
+  "createdTimestamp": "2018-09-26T05:19:01Z",
+  "lastActionTimestamp": "2018-09-26T05:19:01Z",
+  "userId": "XXX9549466094e1cb4fd063b646e1ad6",
+  "operationId": "8dfb6a82-ae58-4bcb-95b7-d1239ae25681"
 }
-Calling https://westus.api.cognitive.microsoft.com/qnamaker/v4.0/operations/d9d40918-01bd-49f4-88b4-129fbc434c94.
-{
-  "operationState": "Running",
-  "createdTimestamp": "2018-04-13T01:52:30Z",
-  "lastActionTimestamp": "2018-04-13T01:52:30Z",
-  "userId": "2280ef5917tt4ebfa1aae41fb1cebb4a",
-  "operationId": "e88b5b23-e9ab-47fe-87dd-3affc2fb10f3"
-}
-Waiting 30 seconds...
-Calling https://westus.api.cognitive.microsoft.com/qnamaker/v4.0/operations/d9d40918-01bd-49f4-88b4-129fbc434c94.
+```
+
+## <a name="add-functions-to-determine-creation-status"></a>Oluşturma durumunu belirleme işlevlerini ekleme
+
+İşlem durumunu denetleme amacıyla bir HTTP GET isteğinde bulunmak için aşağıdaki işlevi ekleyin. `Ocp-Apim-Subscription-Key`, Soru-Cevap Oluşturma hizmeti anahtarıdır ve kimlik doğrulaması için kullanılır. 
+
+[!code-nodejs[GET Request to API](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/create-knowledge-base/create-new-knowledge-base.js?range=111-135 "GET Request to API")]
+
+Başarılı veya başarısız bir sonuç alana kadar çağrıyı tekrarlayın: 
+
+```JSON
 {
   "operationState": "Succeeded",
-  "createdTimestamp": "2018-04-13T01:52:30Z",
-  "lastActionTimestamp": "2018-04-13T01:52:46Z",
-  "resourceLocation": "/knowledgebases/b0288f33-27b9-4258-a304-8b9f63427dad",
-  "userId": "2280ef5917tt4ebfa1aae41fb1cebb4a",
-  "operationId": "e88b5b23-e9ab-47fe-87dd-3affc2fb10f3"
+  "createdTimestamp": "2018-09-26T05:22:53Z",
+  "lastActionTimestamp": "2018-09-26T05:23:08Z",
+  "resourceLocation": "/knowledgebases/XXX7892b-10cf-47e2-a3ae-e40683adb714",
+  "userId": "XXX9549466094e1cb4fd063b646e1ad6",
+  "operationId": "177e12ff-5d04-4b73-b594-8575f9787963"
 }
-Press any key to continue.
 ```
+
+## <a name="add-create-kb-function"></a>create-kb işlevi ekleme
+
+Aşağıdaki işlev ana işlevdir ve KB'yi oluşturup durum denetimini tekrarlar. KB oluşturma işlemi zaman alabileceğinden başarılı veya başarısız bir sonuç alana kadar durum denetimi çağrılarını tekrarlamanız gerekir.
+
+[!code-nodejs[Add create-kb function](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/create-knowledge-base/create-new-knowledge-base.js?range=137-167 "Add create-kb function")]
+
+## <a name="run-the-program"></a>Programı çalıştırma
+
+Programı çalıştırmak için aşağıdaki komutu bir komut satırına yazın. Soru-Cevap Oluşturma API'sine KB oluşturma isteği gönderir ve 30 saniyede bir sonucu yoklar. Her yanıt konsol penceresine yazdırılır.
+
+```bash
+node create-new-knowledge-base.js
+```
+
+Bilgi bankanız oluşturulduktan sonra Soru-Cevap Oluşturma Portalı’nızdaki [Bilgi bankalarım](https://www.qnamaker.ai/Home/MyServices) sayfasından görüntüleyebilirsiniz. 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

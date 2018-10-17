@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 08/25/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: ff2a161cbc39cdb4cf35cad2b8bd403ef2d3260c
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: b3a3baaf22fa9c382bb45a5b2a2065ef7678faf5
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47222176"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48855967"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-managed-domains"></a>Öğretici: Yönetilen etki alanları için hibrit Azure Active Directory'ye katılımı yapılandırma
 
@@ -68,7 +68,7 @@ Hibrit Azure AD'ye katılım cihazların kuruluşunuzun ağındaki şu Microsoft
 - https://device.login.microsoftonline.com
 - https://autologon.microsoftazuread-sso.com (Sorunsuz SSO kullanıyorsanız veya kullanmayı planlıyorsanız)
 
-Kuruluşunuz Windows 10 1709 ile başlayan bir giden bağlantı proxy'si aracılığıyla İnternete erişimi gerektiriyorsa bir grup ilkesi nesnesi (GPO) kullanarak proxy ayarlarını bilgisayarınızda yapılandırabilirsiniz. Bilgisayarınız Windows 10 1709'dan önceki bir sürümü çalıştırıyorsa Windows 10 bilgisayarın Azure AD ile cihaz kaydını gerçekleştirebilmesi için Web Proxy Otomatik Bulmayı (WPAD) uygulamanız gerekir. 
+Kuruluşunuz Windows 10 1709 ile başlayan bir giden bağlantı proxy'si aracılığıyla İnternete erişimi gerektiriyorsa [bir grup ilkesi nesnesi (GPO) kullanarak proxy ayarlarını bilgisayarınızda yapılandırabilirsiniz](https://blogs.technet.microsoft.com/netgeeks/2018/06/19/winhttp-proxy-settings-deployed-by-gpo/). Bilgisayarınız Windows 10 1709'dan önceki bir sürümü çalıştırıyorsa Windows 10 bilgisayarın Azure AD ile cihaz kaydını gerçekleştirebilmesi için Web Proxy Otomatik Bulmayı (WPAD) uygulamanız gerekir. 
 
 Kuruluşunuz, kimliği doğrulanmış bir giden bağlantı proxy'si aracılığıyla İnternete erişimi gerektiriyorsa Windows 10 bilgisayarlarınızın giden bağlantı proxy'sine başarıyla kimlik doğrulayabildiğinden emin olmanız gerekir. Windows 10 bilgisayarlar makine bağlamını kullanarak cihaz kaydını çalıştırdığından makine bağlamı ile giden bağlantı proxy'sinin yapılandırılması gerekir. Yapılandırma gereksinimleri için giden bağlantı proxy'si sağlayıcınızı izleyin. 
 

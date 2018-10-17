@@ -1,31 +1,31 @@
 ---
 title: Proje Yanıt Arama nedir?
 titlesuffix: Azure Cognitive Services
-description: Proje cevap arama giriş.
+description: Proje Yanıt Arama'ya giriş.
 services: cognitive-services
 author: mikedodaro
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: project-answer-search
-ms.topic: article
+ms.topic: overview
 ms.date: 04/13/2018
 ms.author: rosh
-ms.openlocfilehash: 87fe7b008e3e7c6cd8d1a9a870c0fb8ce2f6a7cd
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
-ms.translationtype: MT
+ms.openlocfilehash: 5658054b3cc77db20edd64f6c560ee5d4a58eb46
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48868267"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48883729"
 ---
 # <a name="what-is-project-answer-search"></a>Proje Yanıt Arama nedir?
-Proje yanıt arama API'si Bing v7 uç nokta interrogative sorgularını yanıtlar almak için kullanır. "Dünya çevresi nedir?" A gibi soru bilgilerin ile bir yanıt döndürür.  Bir kişi, yer veya şey için bir sorgu, sorgu tarafından tanımlanan varlığı hakkındaki bilgileri döndürür. Bu senaryolar damıtarak konuşma bağlamında kullanılabilen botlar, Mesajlaşma uygulamaları, okuyucular, vb. gibi uygulamalarda yararlı olabilir.  
+Proje Yanıt Arama API'si soru sorgularına yanıt bulmak için Bing v7 uç noktasını kullanır. "What is the circumference of the earth?" (Dünyanın çevresinin uzunluğu nedir?) gibi bir soruya olgu içeren bir yanıt döndürülür.  Kişi, yer veya nesne sorguları, sorguda tanımlanan varlıkla ilgili bilgileri döndürür. Bu senaryolar sohbet botları, mesajlaşma uygulamaları, okuyucular gibi uygulamalarda yararlı olabilir.  
 
-Sorguları bir sorgu senaryoya bağlıdır yanıtlarını döndürür: Web sayfalarının her zaman iade while [gerçekleri](fact-queries.md) ve/veya [varlıkları](entity-queries.md) uygunsa döndürülür.
+Sorgular, sorgu senaryosuna göre yanıt döndürür: Web sayfaları her zaman döndürülür, [olgular](fact-queries.md) ve/veya [varlıklar](entity-queries.md) ise gerekli olmaları durumunda döndürülür.
 
 ## <a name="endpoint"></a>Uç Nokta
-Soruların soru veya bir kişi, yer veya şey hakkında bilgi almak için yanıt arama API'si uç noktaya bir istek gönderin. Başlık ve URL parametrelerini çeşitli özelliklerini kullanın.  Dahil *Ocp-Apim-Subscription-Key* üstbilgisi geçerli bir belirteç ile.  Pazar parametresi gerekiyor. Yalnızca `en-us` market şu anda desteklenmiyor.
+Bir soruya yanıt veya bir kişi, yer ya da nesne hakkında bilgi almak için Yanıt Arama API'si uç noktasına istek gönderebilirsiniz. Farklı belirtimler için üst bilgileri ve URL parametrelerini kullanın.  Geçerli bir belirteçle birlikte *Ocp-Apim-Subscription-Key* üst bilgisini ekleyin.  market parametresi gereklidir. Şu an için yalnızca `en-us` pazarı desteklenmektedir.
 
-Aşağıdaki sorguda sorusunun yanıtlarını alır: "Dünya çevresi nedir?"
+Aşağıdaki sorgu şu sorunun yanıtlarını alır: "What is the circumference of the earth?"
 
 AL:
 ````
@@ -33,11 +33,11 @@ https://api.labs.cognitive.microsoft.com/answerSearch/v7.0/search?q=what+is+circ
 
 ````
 
-URL parametresi `q=` arama'nın belirtmek için gereklidir.
+Aranacak nesneyi belirtmek için `q=` URL parametresinin kullanılması gerekir.
 
 ## <a name="response-object"></a>Yanıt nesnesi
 
-Yanıt, HTTP üst bilgileri, Web sayfaları, olgular ve/veya varlıklar içeriyor.
+Yanıt HTTP üst bilgilerini, web sayfalarını, olguları ve/veya varlıkları içerir.
 
 ````
 BingAPIs-TraceId: AB2E75C998614ADB8EBF5110DF648298
@@ -239,22 +239,22 @@ JSON Response:
 ````
 
 ## <a name="terms-of-use"></a>Kullanım koşulları
-Yanıt arama proje ve proje Video eğilimleri olan konusu [Bing arama kullanım ve görüntü gereksinimleri](use-display-requirements.md).
+Projee Yanıt Arama ve Proje Video Eğilimleri, [Bing Arama Kullanım ve Görüntüleme Gereksinimlerine](use-display-requirements.md) tabidir.
 
-Veya sizin adınıza bir üçüncü taraf değil kullanın, korumak, depolamak, önbelleğe, paylaşın, test, geliştirme, eğitim, dağıtma veya Microsoft olmayan bir hizmette kullanılabilir hale getirme amacıyla URL önizleme API'sinden herhangi bir veri dağıtmak veya özellik. 
+URL Önizleme API'sinden alınan veriler sizin tarafınızdan veya sizin adınıza hareket eden üçüncü şahıslar tarafından Microsoft harici bir hizmeti veya özelliği test etme, geliştirme, eğitme, dağıtma veya kullanıma sunma amacıyla kullanılamaz, saklanamaz, depolanamaz, önbelleğe alınamaz, paylaşılamaz veya dağıtılamaz. 
 
 ## <a name="throttling-requests"></a>İstekleri azaltma
 
 [!INCLUDE [cognitive-services-bing-throttling-requests](../../../../includes/cognitive-services-bing-throttling-requests.md)]
 
 
-## <a name="data-attribution"></a>Veri attribution  
+## <a name="data-attribution"></a>Veri atfı  
 
-Proje yanıt araması yanıtlarında, üçüncü taraflarca ait bilgileri içerir. Örneğin kullanıcı deneyiminizi ihtiyaç duyabilir herhangi creative commons lisansı ile uymak tarafından kullanımınız, uygun olduğundan emin olmak için sorumlu olursunuz.  
+Proje Yanıt Arama yanıtları, üçüncü taraflara ait bilgiler içerir. Kullanıcı deneyiminizde kullanılan Creative Commons lisansına uygun hareket etme gibi kullanımınızın gerektirdiği durumlardan sorumlu olursunuz.  
   
-Bir yanıt veya sonuç içeriyorsa `contractualRules`, `attributions`, veya `provider` alanlar, veri özniteliği gerekir. Yanıtını bu alanlar içermiyorsa, hiçbir attribution gereklidir. Yanıt içeriyorsa `contractualRules` alan ve `attributions` ve/veya `provider` alanlar, veri özniteliği için sözleşmeye dayalı kurallar kullanmalısınız.  
+Yanıt ya da sonuç `contractualRules`, `attributions` veya `provider` alanlarını içeriyorsa veriler için atıfta bulunmanız gerekir. Yanıtta bu alanlardan biri yoksa atıfta bulunmanıza gerek yoktur. Yanıtta `contractualRules` alanı ile `attributions` ve/veya `provider` alanı varsa verilere atıfta bulunmak için sözleşme kurallarını kullanmanız gerekir.  
   
-Aşağıdaki örnek, bir MediaAttribution sözleşmeye dayalı kural ve içeren bir görüntü içeren bir varlık gösterir. bir `provider` alan. Görüntünün yoksay böylece MediaAttribution kural resmi, kuralın hedefi olarak tanımlar. `provider` alan ve MediaAttribution kural attribution sağlamak için kullanın.  
+Aşağıdaki örnek MediaAttribution sözleşme kuralına ve `provider` alanına sahip olan bir Image nesnesine sahip olan varlığı göstermektedir. MediaAttribution kuralı görüntüyü kuralın hedefi olarak tanımlamaktadır. Bu nedenle görüntünün `provider` alanını yoksayabilir ve atıfta bulunmak için MediaAttribution kuralını kullanabilirsiniz.  
   
 ```  
         "value" : [{
@@ -283,10 +283,10 @@ Aşağıdaki örnek, bir MediaAttribution sözleşmeye dayalı kural ve içeren 
         }]
 ```  
   
-Sözleşmeye dayalı bir kural içeriyorsa `targetPropertyName` alan kuralı, yalnızca hedeflenen alana uygular. Aksi takdirde, kuralı içeren üst nesneye uygular `contractualRules` alan.  
+Sözleşme kuralında `targetPropertyName` alanı varsa kural yalnızca hedeflenen alan için geçerli olur. Aksi takdirde, kural `contractualRules` alanını içeren üst nesneye uygulanır.  
   
   
-Aşağıdaki örnekte, `LinkAttribution` kuralını içeren `targetPropertyName` alanında kuralın uygulanacağı şekilde `description` alan. Belirli alanlara uygulanan kuralları için sağlayıcının Web sitesinde bir köprü içeren hedeflenen verileri hemen izleyen bir çizgi içermesi gerekir. Bu durumda veri sağlayıcısı'nın Web sitesinde bir köprü içeren açıklama metnini aşağıdaki oluşturma hemen en.wikipedia.org bağlantısını örneğin Açıklama özniteliği için bir satır ekleyin.  
+Aşağıdaki örnekte `LinkAttribution` kuralı `targetPropertyName` alanını içerdiğinden kural `description` alanına uygulanır. Belirli alanlara uygulanan kurallar için hedeflenen verilerin hemen altına, sağlayıcının web sitesine bağlantı içeren bir satır eklemeniz gerekir. Örneğin açıklamaya atıfta bulunmak için açıklama metninin hemen altına, sağlayıcının web sitesindeki verilere bağlantı içeren bir satır ekleyin. Burada en.wikipedia.org sitesine bağlantı oluşturmanız gerekir.  
   
 ```  
 "entities" : {  
@@ -305,36 +305,36 @@ Aşağıdaki örnekte, `LinkAttribution` kuralını içeren `targetPropertyName`
   
 ```  
 
-### <a name="license-attribution"></a>Lisans Attribution  
+### <a name="license-attribution"></a>Lisans Atfı  
 
-Sözleşmeye dayalı kurallar listesinin içeriyorsa bir [LicenseAttribution](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#licenseattribution) kural lisans uygulandığı içeriği takip satırında bildirim görüntülemelidir. `LicenseAttribution` Kural kullandığı `targetPropertyName` lisans uygulandığı özelliği tanımlamak için alan.  
+Sözleşme kuralları listesinde [LicenseAttribution](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#licenseattribution) kuralı varsa bildirimi lisansın geçerli olduğu içeriğin hemen altındaki satırda görüntülemeniz gerekir. `LicenseAttribution` kuralı lisansın geçerli olduğu özelliği tanımlamak için `targetPropertyName` alanını kullanır.  
   
-Aşağıdakileri içeren bir örnek gösterir bir `LicenseAttribution` kuralı.  
+Aşağıda `LicenseAttribution` kuralını içeren bir örnek gösterilmektedir.  
   
-![Lisans attribution](./media/licenseattribution.png)  
+![Lisans atfı](./media/licenseattribution.png)  
   
-Görüntü lisans dikkat edin, köprü Lisansı hakkında bilgileri içeren bir Web sitesine eklemeniz gerekir. Genellikle, lisans adı bir köprü oluşturun. Örneğin dikkat edin, **SA tarafından CC lisansı altındaki metin** ve SA tarafından CC lisans adıdır, CC tarafından SA yapacağınız köprü.  
+Görüntülediğiniz lisans bildirimi, lisans hakkında bilgi içeren web sitesine bağlantı içermelidir. Genellikle lisansın adı bir köprü haline getirilir. Örneğin bildirim **Metin CC-BY-SA lisansı kapsamındadır** şeklindeyse ve CC-BY-SA lisansın adıysa CC-BY-SA bölümünü köprü haline getirmeniz gerekir.  
   
-### <a name="link-and-text-attribution"></a>Bağlantı ve metin Attribution  
+### <a name="link-and-text-attribution"></a>Bağlantı ve Metin Atfı  
 
-[LinkAttribution](reference.md#linkattribution) ve [TextAttribution](reference.md#textattribution) kuralları genellikle veri sağlayıcısı tanımlamak için kullanılır. `targetPropertyName` Kuralın uygulanacağı alanın alan tanımlar.  
+[LinkAttribution](reference.md#linkattribution) ve [TextAttribution](reference.md#textattribution) kuralları genellikle veri sağlayıcısını tanımlamak için kullanılır. `targetPropertyName` alanı kuralın uygulanacağı alanı tanımlar.  
   
-Sağlayıcılar özniteliği atıfları geçerli içerik (örneğin, hedeflenen alana) takip bir satır ekleyin. Satır sağlayıcıları veri kaynağı olduğunu belirtmek için açıkça etiketlenmesi gereken. Örneğin, "veri: en.wikipedia.org". İçin `LinkAttribution` kuralları için sağlayıcının Web sitesinde bir köprü oluşturması gerekir.  
+Sağlayıcılara atıfta bulunmak için atıfların geçerli olduğu içeriğin (hedeflenen alan gibi) hemen altına bir satır ekleyin. Satırın, verilerin kaynağının sağlayıcılar olduğunu gösterecek şekilde düzenlenmesi gerekir. Örneğin "Veri sağlayıcısı: en.wikipedia.org". `LinkAttribution` kuralları için sağlayıcının web sitesine köprü oluşturmanız gerekir.  
   
-Aşağıdakileri içeren bir örnek gösterilmektedir `LinkAttribution` ve `TextAttribution` kuralları.  
+Aşağıda `LinkAttribution` ve `TextAttribution` kurallarını içeren bir örnek gösterilmektedir.  
   
-![Bağlantı metni attribution](./media/linktextattribution.png)  
+![Bağlantı metni atfı](./media/linktextattribution.png)  
 
-### <a name="media-attribution"></a>Medya Attribution  
+### <a name="media-attribution"></a>Medya Atfı  
 
-Görüntü varlık içerir ve bunu görüntüleyebilir, sağlayıcının Web sitesi tıklama bağlantısını sağlamanız gerekir. Varlık içeriyorsa bir [MediaAttribution](reference.md#mediaattribution) kural, kuralın URL'si tıklama ile bağlantı oluşturmak için kullanın. Aksi takdirde, görüntü içinde bulunan URL'sini kullanarak `provider` tıklama ile bağlantı oluşturmak için alan.  
+Varlıkta görüntü varsa ve bunu görüntülerseniz, sağlayıcının web sitesine tıklanabilir bağlantı sağlamanız gerekir. Varlık bir [MediaAttribution](reference.md#mediaattribution) kuralı içeriyorsa tıklama bağlantısını oluşturmak için kural URL'sini kullanın. Aksi takdirde tıklama bağlantısını oluşturmak için görüntünün `provider` alanındaki URL'yi kullanın.  
   
-Aşağıdaki bir görüntü içeren bir örnek gösterilmektedir `provider` alan ve sözleşmeye dayalı kurallar. Örnek sözleşmeye dayalı kural içerdiğinden, görüntünün yoksayacak `provider` alan ve geçerli `MediaAttribution` kuralı.  
+Aşağıdaki örnekte bir görüntünün `provider` alanı ve sözleşme kuralları gösterilmektedir. Örnekte sözleşme kuralı olduğu için görüntünün `provider` alanını yoksayıp `MediaAttribution` kuralını uygulamanız gerekir.  
   
-![Medya attribution](./media/mediaattribution.png)  
+![Medya atfı](./media/mediaattribution.png)  
 
 ## <a name="next-steps"></a>Sonraki adımlar
-- [C# hızlı başlangıç](c-sharp-quickstart.md)
-- [Java hızlı başlangıç](java-quickstart.md)
-- [Düğüm hızlı başlangıç](node-quickstart.md)
-- [Python hızlı başlangıç](python-quickstart.md)
+- [C# hızlı başlangıcı](c-sharp-quickstart.md)
+- [Java hızlı başlangıcı](java-quickstart.md)
+- [Node hızlı başlangıcı](node-quickstart.md)
+- [Python hızlı başlangıcı](python-quickstart.md)

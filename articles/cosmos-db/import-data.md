@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 03/30/2018
 ms.author: dech
 ms.custom: mvc
-ms.openlocfilehash: 771c4a33603ddf262df3b35992d318d34de6c2dc
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: af6faa6abcc54ef11e066d3a348dac28b23c7af4
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43698120"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49079098"
 ---
 # <a name="use-data-migration-tool-to-migrate-your-data-to-azure-cosmos-db"></a>Verilerinizi Azure Cosmos DB'ye geçirmek için Veri geçişi aracını kullanma 
 
@@ -42,7 +42,9 @@ Bu makaledeki yönergeleri izlemeden önce aşağıdakilerin yüklenmiş olduğu
 
 * [Microsoft .NET Framework 4.51](https://www.microsoft.com/download/developer-tools.aspx) veya üzeri.
 
-* Aktarım hızını artırma: Veri geçişinizin süresi, tek bir koleksiyon veya bir koleksiyon kümesi için ayarladığınız aktarım hızı miktarına bağlıdır. Büyük veri geçişleri için aktarım hızını artırdığınızdan emin olun. Geçişi tamamladıktan sonra maliyet tasarrufu sağlamak için aktarım hızını azaltın. Azure portalında aktarım hızını artırma hakkında daha fazla bilgi için bkz. Azure Cosmos DB’de performans düzeyleri ve fiyatlandırma katmanları.
+* **Aktarım hızını artırma:** Veri geçişinizin süresi, tek bir koleksiyon veya bir koleksiyon kümesi için ayarladığınız aktarım hızı miktarına bağlıdır. Büyük veri geçişleri için aktarım hızını artırdığınızdan emin olun. Geçişi tamamladıktan sonra maliyet tasarrufu sağlamak için aktarım hızını azaltın. Azure portalda aktarım hızını artırma hakkında daha fazla bilgi için bkz. Azure Cosmos DB’de performans düzeyleri ve fiyatlandırma katmanları.
+
+* **Azure Cosmos DB kaynaklarını oluşturma:** Veri geçişini başlatmadan önce Azure portaldan tüm koleksiyonlarınızı oluşturun. Veritabanı düzeyinde aktarım hızına sahip olan bir Azure Cosmos DB hesabına geçiş yapıyorsanız Azure Cosmos DB koleksiyonlarını oluştururken bölüm anahtarı girdiğinizden emin olun.
 
 ## <a id="Overviewl"></a>Genel Bakış
 Veri Geçişi aracı, aşağıda örnekleri verilen çeşitli kaynaklardan Azure Cosmos DB’ye veri içeri aktaran bir açık kaynak çözümüdür:
@@ -171,7 +173,7 @@ Aşağıdaki (kısmi) sonuçları döndürür:
 
 ![SQL sorgusu sonuçlarının ekran görüntüsü](./media/import-data/sqlqueryresults.png)
 
-Address.AddressType ve Address.Location.StateProvinceName gibi diğer adlara dikkat edin. İç içe geçirme ayırıcısı olarak ‘.’ öğesi belirtildiğinde içeri aktarma aracı içeri aktarma sırasında Address ve Address.Location alt belgelerini oluşturur. Aşağıda, Azure Cosmos DB’de elde edilen bir belge örneği verilmiştir:
+Address.AddressType ve Address.Location.StateProvinceName gibi diğer adlara dikkat edin. İç içe geçirme ayırıcısı olarak '.' öğesi belirtildiğinde içeri aktarma aracı içeri aktarma sırasında Address ve Address.Location alt belgelerini oluşturur. Aşağıda, Azure Cosmos DB’de elde edilen bir belge örneği verilmiştir:
 
 *{ "id": "956", "Name": "Finer Sales and Service", "Address": { "AddressType": "Main Office", "AddressLine1": "#500-75 O'Connor Street", "Location": { "City": "Ottawa", "StateProvinceName": "Ontario" }, "PostalCode": "K4B 1S2", "CountryRegionName": "Canada" } }*
 
@@ -192,7 +194,7 @@ SQL kaynağına benzer şekilde, içeri aktarma sırasında hiyerarşik ilişkil
 
 ![CSV örnek kayıtlarının ekran görüntüsü: CSV’den JSON’a](./media/import-data/csvsample.png)
 
-DomainInfo.Domain_Name ve RedirectInfo.Redirecting gibi diğer adlara dikkat edin. İç içe geçirme ayırıcısı olarak ‘.’ öğesi belirtildiğinde içeri aktarma aracı içeri aktarma sırasında DomainInfo ve RedirectInfo alt belgelerini oluşturur. Aşağıda, Azure Cosmos DB’de elde edilen bir belge örneği verilmiştir:
+DomainInfo.Domain_Name ve RedirectInfo.Redirecting gibi diğer adlara dikkat edin. İç içe geçirme ayırıcısı olarak '.' öğesi belirtildiğinde içeri aktarma aracı içeri aktarma sırasında DomainInfo ve RedirectInfo alt belgelerini oluşturur. Aşağıda, Azure Cosmos DB’de elde edilen bir belge örneği verilmiştir:
 
 *{ "DomainInfo": { "Domain_Name": "ACUS.GOV", "Domain_Name_Address": "http://www.ACUS.GOV" }, "Federal Agency": "Administrative Conference of the United States", "RedirectInfo": { "Redirecting": "0", "Redirect_Destination": "" }, "id": "9cc565c5-ebcd-1c03-ebd3-cc3e2ecd814d" }*
 
@@ -201,7 +203,7 @@ DomainInfo.Domain_Name ve RedirectInfo.Redirecting gibi diğer adlara dikkat edi
 CSV içeri aktarımı ile ilgili dikkat edilecek iki şey daha vardır:
 
 1. Varsayılan olarak, tırnak içine alınmayan değerler her zaman sekmeler ve boşluklar için kırpılırken, tırnak içine alınan değerler olduğu gibi korunur. Tırnak içine alınan değerleri kırp onay kutusu veya /s.TrimQuoted komut satırı seçeneği ile bu davranış geçersiz kılınabilir.
-2. Varsayılan olarak, tırnak içine alınmayan null değer, null değer olarak değerlendirilir. Tırnak içine alınmayan NULL değeri dize olarak değerlendir onay kutusu veya /s.NoUnquotedNulls komut satırı seçeneği ile bu davranış geçersiz kılınabilir (başka bir deyişle, tırnak içine alınmayan null değer, “null” dize olarak değerlendirilir).
+2. Varsayılan olarak, tırnak içine alınmayan null değer, null değer olarak değerlendirilir. Tırnak içine alınmayan NULL değeri dize olarak değerlendir onay kutusu veya /s.NoUnquotedNulls komut satırı seçeneği ile bu davranış geçersiz kılınabilir (başka bir deyişle, tırnak içine alınmayan null değer, "null" dize olarak değerlendirilir).
 
 Aşağıda, CSV içeri aktarımı için bir komut satırı örneği verilmiştir:
 
@@ -522,6 +524,14 @@ Azure Cosmos DB JSON dışarı aktarıcısı, bir dizi JSON belgesi içeren bir 
       }
     ]
     }]
+
+Aşağıda, Azure Blob depolama alanından JSON dosyasını dışarı aktarmak için komut satırı örneği verilmiştir:
+
+```
+dt.exe /ErrorDetails:All /s:DocumentDB /s.ConnectionString:"AccountEndpoint=<CosmosDB Endpoint>;AccountKey=<CosmosDB Key>;Database=<CosmosDB database_name>" /s.Collection:<CosmosDB collection_name>
+/t:JsonFile /t.File:"blobs://<Storage account key>@<Storage account name>.blob.core.windows.net:443/<Container_name>/<Blob_name>"
+/t.Overwrite
+```
 
 ## <a name="advanced-configuration"></a>Gelişmiş yapılandırma
 Gelişmiş yapılandırma ekranında, hataların yazılmasını istediğiniz günlük dosyasının konumunu belirtin. Bu sayfa için aşağıdaki kurallar geçerlidir:

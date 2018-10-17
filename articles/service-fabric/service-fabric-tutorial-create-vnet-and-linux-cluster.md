@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 09/27/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 27600cd4656f70b4cd01745667c0e0fd2a2f4997
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 33b95c1b0e3d654ce8bb6eda3e96b7b3e9c9bc13
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47405828"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48831492"
 ---
 # <a name="tutorial-deploy-a-linux-service-fabric-cluster-into-an-azure-virtual-network"></a>Öğretici: Azure sanal ağına Linux Service Fabric kümesi dağıtma
 
@@ -85,7 +85,7 @@ Bu şablon sanal bir ağa beş sanal makineden ve tek bir düğüm türünden ol
 
 ### <a name="service-fabric-cluster"></a>Service Fabric kümesi
 
-Aşağıdaki özelliklere sahip bir Linux kümesi dağıtılır:
+**Microsoft.ServiceFabric/clusters** kaynağında şu özelliklere sahip bir Linux kümesi dağıtılır:
 
 * tek bir düğüm türü
 * birincil düğüm türünde beş düğüm (şablon parametrelerinden yapılandırılabilir)
@@ -99,7 +99,7 @@ Aşağıdaki özelliklere sahip bir Linux kümesi dağıtılır:
 
 ### <a name="azure-load-balancer"></a>Azure yük dengeleyici
 
-Bir yük dengeleyici dağıtılır ve aşağıdaki bağlantı noktalarını araştırıp bunların ayarlanmasını yönetir:
+**Microsoft.Network/loadBalancers** kaynağında bir yük dengeleyici yapılandırılır ve şu bağlantı noktaları için yoklamalar ve kurallar ayarlanır:
 
 * istemci bağlantı uç noktası: 19000
 * HTTP ağ geçidi uç noktası: 19080
@@ -108,7 +108,7 @@ Bir yük dengeleyici dağıtılır ve aşağıdaki bağlantı noktalarını ara�
 
 ### <a name="virtual-network-and-subnet"></a>Sanal ağ ve alt ağ
 
-Sanal ağın ve alt ağın adları şablon parametrelerinde bildirilmiştir.  Sanal ağ ve alt ağın adres alanları da şablon parametrelerinde bildirilir:
+Sanal ağın ve alt ağın adları şablon parametrelerinde bildirilmiştir.  Sanal ağın ve alt ağın adres alanları da şablon parametrelerinde bildirilir ve **Microsoft.Network/virtualNetworks** kaynağında yapılandırılır:
 
 * sanal ağ adres alanı: 10.0.0.0/16
 * Service Fabric alt ağ adres alanı: 10.0.2.0/24

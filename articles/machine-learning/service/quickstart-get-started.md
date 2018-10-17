@@ -1,6 +1,6 @@
 ---
-title: 'Hızlı başlangıç: Machine Learning çalışma alanı oluşturma - Azure'
-description: Azure Machine Learning çalışma alanı oluşturmak için Azure portalını kullanın. Bu çalışma alanı Azure Machine Learning hizmetiyle makine öğrenmesi modellerini denemek, eğitmek ve dağıtmak için bulutta temel bir yapıdır.
+title: 'Hızlı başlangıç: Azure portalda Machine Learning hizmeti çalışma alanı oluşturma - Azure Machine Learning'
+description: Azure Machine Learning hizmeti çalışma alanı oluşturmak için Azure portalı kullanın. Bu çalışma alanı Azure Machine Learning hizmetiyle makine öğrenmesi modellerini denemek, eğitmek ve dağıtmak için bulutta temel bir yapıdır.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -9,16 +9,16 @@ ms.reviewer: sgilley
 author: rastala
 ms.author: roastala
 ms.date: 09/24/2018
-ms.openlocfilehash: c1610291e06255e2c724268f63d740f7e4debea4
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: b6f0201a36a676e7647b9f5e60bc2df3415b9594
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46959997"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48831339"
 ---
-# <a name="quickstart-get-started-with-azure-machine-learning-service"></a>Hızlı Başlangıç: Azure Machine Learning hizmetini kullanmaya başlama
+# <a name="quickstart-use-the-azure-portal-to-get-started-with-azure-machine-learning-service"></a>Hızlı başlangıç: Azure portalı kullanarak Azure Machine Learning hizmetini kullanmaya başlama
 
-Bu hızlı başlangıçta Azure Machine Learning çalışma alanı oluşturmak için Azure portalını kullanacaksınız. Bu çalışma alanı Azure Machine Learning hizmetiyle makine öğrenmesi modellerini denemek, eğitmek ve dağıtmak için bulutta temel bir yapıdır. 
+Bu hızlı başlangıçta Azure Machine Learning hizmeti çalışma alanı oluşturmak için Azure portalını kullanacaksınız. Bu çalışma alanı Azure Machine Learning hizmetiyle makine öğrenmesi modellerini denemek, eğitmek ve dağıtmak için bulutta temel bir yapıdır. 
 
 Bu öğreticide şunları yapacaksınız:
 
@@ -28,7 +28,7 @@ Bu öğreticide şunları yapacaksınız:
 
 Size kolaylık sağlamak için, şu Azure kaynakları bölgesel olarak sağlandığında otomatik olarak çalışma alanınıza eklenir: [kapsayıcı kayıt defteri](https://azure.microsoft.com/services/container-registry/), [depolama](https://azure.microsoft.com/services/storage/), [uygulama içgörüleri](https://azure.microsoft.com/services/application-insights/), ve [anahtar kasası](https://azure.microsoft.com/services/key-vault/).
 
-Oluşturduğunuz kaynaklar, diğer Azure Machine Learning öğreticileri ve nasıl yapılır makalelerinde önkoşul olarak kullanılabilir. Diğer Azure hizmetlerinde de olduğu gibi, Azure Machine Learning hizmetiyle ilişkilendirilmiş bazı kaynakların sınırları vardır (BatchAI küme boyutu gibi). Varsayılan sınırları ve daha fazla kota isteğinde bulunmayı öğrenmek için lütfen [bu](how-to-manage-quotas.md) makaleyi okuyun.
+Oluşturduğunuz kaynaklar, diğer Azure Machine Learning hizmeti öğreticileri ve nasıl yapılır makalelerinde önkoşul olarak kullanılabilir. Diğer Azure hizmetlerinde de olduğu gibi, Azure Machine Learning hizmetiyle ilişkilendirilmiş bazı kaynakların sınırları vardır (BatchAI küme boyutu gibi). Varsayılan sınırları ve daha fazla kota isteğinde bulunmayı öğrenmek için lütfen [bu](how-to-manage-quotas.md) makaleyi okuyun.
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 
@@ -37,7 +37,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 
 [!INCLUDE [aml-create-portal](../../../includes/aml-create-in-portal.md)]
 
-Çalışma alanı sayfasında `Explore your Azure Machine Learning Workspace` öğesine tıklayın
+Çalışma alanı sayfasında `Explore your Azure Machine Learning service workspace` öğesine tıklayın
 
  ![çalışma alanını keşfetme](./media/quickstart-get-started/explore_aml.png)
 
@@ -69,9 +69,9 @@ Siz oturum açtıktan sonra, yeni bir sekme açılır ve `Clone Library` istemi 
 
 `01.run-experiment.ipynb` öğesine tıklayarak not defterini açın.
 
-`Shift`+`Enter` tuşlarını kullanarak hücreleri teker teker çalıştırabilirsiniz.  Öte yandan `Cells` > `Run All` menüsünü kullanarak not defterinin tamamını da çalıştırabilirsiniz.
+`Shift`+`Enter` tuşlarını kullanarak hücreleri teker teker çalıştırabilirsiniz.  Öte yandan `Cells` > `Run All` menüsünü kullanarak not defterinin tamamını da çalıştırabilirsiniz.  Hücrenin yanında [*] simgesinin görünmesi çalıştığını gösterir.  Bu hücrenin kodu tamamlandığında bir sayı görüntülenir.
 
-Oturum açmanız istenebilir.  İletideki kodu kopyalayın, sonra bağlantıya tıklayın ve kodu yeni pencereye yapıştırın.  Kodun başında veya sonunda boşluk kopyalamamaya dikkat edin.
+Oturum açmanız istenebilir.  İletideki kodu kopyalayın, sonra bağlantıya tıklayın ve kodu yeni pencereye yapıştırın.  Kodun başında veya sonunda boşluk kopyalamamaya dikkat edin.  Azure portalda kullandığınız hesapla oturum açın.
 
  ![oturum açma](./media/quickstart-get-started/login.png)
 

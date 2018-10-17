@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 9/25/2018
+ms.date: 10/2/2018
 ms.author: victorh
-ms.openlocfilehash: 919051a945d423a104b286e9c5703c5b749cf026
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 27221ac4b23f52dd6976a959e6e5529eb0cc89fa
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46946468"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48856080"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-in-a-hybrid-network-using-azure-powershell"></a>Öğretici: Azure PowerShell kullanarak hibrit bir ağda Azure Güvenlik Duvarı'nı dağıtma ve yapılandırma
 
@@ -134,6 +134,28 @@ $VNetSpoke = New-AzureRmVirtualNetwork -Name $VnetNameSpoke -ResourceGroupName $
 -Location $Location1 -AddressPrefix $VNetSpokePrefix -Subnet $Spokesub,$GWsubSpoke
 ```
 
+## <a name="create-and-configure-the-onprem-vnet"></a>OnPrem sanal ağını oluşturma ve yapılandırma
+
+Sanal ağa eklenecek alt ağları tanımlayın:
+
+```azurepowershell
+$Onpremsub = New-AzureRmVirtualNetworkSubnetConfig -Name $SNNameOnprem -AddressPrefix $SNOnpremPrefix
+$GWOnpremsub = New-AzureRmVirtualNetworkSubnetConfig -Name $SNnameGW -AddressPrefix $SNGWOnpremPrefix
+```
+
+Şimdi OnPrem sanal ağını oluşturun:
+
+```azurepowershell
+$VNetOnprem = New-AzureRmVirtualNetwork -Name $VNetnameOnprem -ResourceGroupName $RG1 `
+-Location $Location1 -AddressPrefix $VNetOnpremPrefix -Subnet $Onpremsub,$GWOnpremsub
+```
+Sanal ağ için oluşturacağınız ağ geçidine ayrılacak genel IP adresi isteyin. *AllocationMethod* değerinin **Dynamic** olduğuna dikkat edin. Kullanmak istediğiniz IP adresini belirtemezsiniz. IP adresi, ağ geçidinize dinamik olarak ayrılır. 
+
+  ```azurepowershell
+  $gwOnprempip = New-AzureRmPublicIpAddress -Name $GWOnprempipName -ResourceGroupName $RG1 `
+  -Location $Location1 -AllocationMethod Dynamic
+```
+
 ## <a name="configure-and-deploy-the-firewall"></a>Güvenlik duvarını yapılandırma ve dağıtma
 
 Şimdi güvenlik duvarını hab sanal ağına dağıtın.
@@ -154,11 +176,13 @@ $AzfwPrivateIP
 
 ### <a name="configure-network-rules"></a>Ağ kurallarını yapılandırma
 
+<!--- $Rule2 = New-AzureRmFirewallNetworkRule -Name "AllowPing" -Protocol ICMP -SourceAddress $SNOnpremPrefix `
+   -DestinationAddress $VNetSpokePrefix -DestinationPort *--->
+
 ```azurepowershell
 $Rule1 = New-AzureRmFirewallNetworkRule -Name "AllowWeb" -Protocol TCP -SourceAddress $SNOnpremPrefix `
    -DestinationAddress $VNetSpokePrefix -DestinationPort 80
-$Rule2 = New-AzureRmFirewallNetworkRule -Name "AllowPing" -Protocol ICMP -SourceAddress $SNOnpremPrefix `
-   -DestinationAddress $VNetSpokePrefix -DestinationPort *
+
 $Rule3 = New-AzureRmFirewallNetworkRule -Name "AllowRDP" -Protocol TCP -SourceAddress $SNOnpremPrefix `
    -DestinationAddress $VNetSpokePrefix -DestinationPort 3389
 
@@ -262,27 +286,7 @@ Cmdlet tamamlandıktan sonra değerleri görüntüleyin. Aşağıdaki örnekte, 
 "egressBytesTransferred": 4142431
 ```
 
-## <a name="create-and-configure-the-onprem-vnet"></a>OnPrem sanal ağını oluşturma ve yapılandırma
 
-Sanal ağa eklenecek alt ağları tanımlayın:
-
-```azurepowershell
-$Onpremsub = New-AzureRmVirtualNetworkSubnetConfig -Name $SNNameOnprem -AddressPrefix $SNOnpremPrefix
-$GWOnpremsub = New-AzureRmVirtualNetworkSubnetConfig -Name $SNnameGW -AddressPrefix $SNGWOnpremPrefix
-```
-
-Şimdi OnPrem sanal ağını oluşturun:
-
-```azurepowershell
-$VNetOnprem = New-AzureRmVirtualNetwork -Name $VNetnameOnprem -ResourceGroupName $RG1 `
--Location $Location1 -AddressPrefix $VNetOnpremPrefix -Subnet $Onpremsub,$GWOnpremsub
-```
-Sanal ağ için oluşturacağınız ağ geçidine ayrılacak genel IP adresi isteyin. *AllocationMethod* değerinin **Dynamic** olduğuna dikkat edin. Kullanmak istediğiniz IP adresini belirtemezsiniz. IP adresi, ağ geçidinize dinamik olarak ayrılır. 
-
-  ```azurepowershell
-  $gwOnprempip = New-AzureRmPublicIpAddress -Name $GWOnprempipName -ResourceGroupName $RG1 `
-  -Location $Location1 -AllocationMethod Dynamic
-```
 
 ## <a name="peer-the-hub-and-spoke-vnets"></a>Hub ve uç sanal ağlarını eşleme
 
@@ -300,6 +304,9 @@ Add-AzureRmVirtualNetworkPeering -Name SpoketoHub -VirtualNetwork $VNetSpoke -Re
 Şimdi birkaç yol oluşturun: 
 - Güvenlik duvarı IP adresi üzerinden hub ağ geçidi alt ağından uç alt ağına giden bir yol
 - Güvenlik duvarı IP adresi üzerinden uç alt ağından gelen varsayılan yol
+
+> [!NOTE]
+> Azure Güvenlik Duvarı, BGP kullanarak şirket içi ağlarınızı öğrenir. Buna İnternet trafiğini şirket içi ağınızdan yönlendirecek varsayılan rota dahil olabilir. Bunun yerine İnternet trafiğinin güvenlik duvarından doğrudan İnternete gönderilmesini isterseniz AzureFirewallSubnet üzerine **İnternet** atlama türüne sahip kullanıcı tanımlı varsayılan rota (0.0.0.0/0) ekleyin. Hedefi şirket içi ortam olan trafik BGP ile öğrenilen yollar kullanılarak zorla VPN/ExpressRoute ağ geçidinden geçirilir.
 
 ```azurepowershell
 #Create a route table
@@ -397,8 +404,9 @@ Set-AzureRmVMExtension `
     -TypeHandlerVersion 1.4 `
     -SettingString '{"commandToExecute":"powershell Add-WindowsFeature Web-Server"}' `
     -Location $Location1
+```
 
-#Create a host firewall rule to allow ping in
+<!---#Create a host firewall rule to allow ping in
 Set-AzureRmVMExtension `
     -ResourceGroupName $RG1 `
     -ExtensionName IIS `
@@ -407,8 +415,8 @@ Set-AzureRmVMExtension `
     -ExtensionType CustomScriptExtension `
     -TypeHandlerVersion 1.4 `
     -SettingString '{"commandToExecute":"powershell New-NetFirewallRule –DisplayName “Allow ICMPv4-In” –Protocol ICMPv4"}' `
-    -Location $Location1
-```
+    -Location $Location1--->
+
 
 ### <a name="create-the-onprem-virtual-machine"></a>OnPrem sanal makinesi oluşturma
 Bu, Uzak Masaüstü kullanarak genel IP adresine bağlanmak için kullanılabilecek basit bir sanal makinedir. Buradan, güvenlik duvarı aracılığıyla OnPrem sunucusuna bağlanabilirsiniz. İstendiğinde, sanal makine için bir kullanıcı adı ve parola yazın.
@@ -431,10 +439,10 @@ $NIC.IpConfigurations.privateipaddress
 ```
 
 1. Azure portalından, **VM-Onprem** sanal makinesine bağlanın.
-2. **VM-Onprem** sanal makinesinde Windows PowerShell komut istemini açın ve **VM-spoke-01** için özel IP'ye ping yapın.
+<!---2. Open a Windows PowerShell command prompt on **VM-Onprem**, and ping the private IP for **VM-spoke-01**.
 
-   Bir yanıt almanız gerekir.
-1. **VM-Onprem** sanal makinesinde web tarayıcısını açın ve http://\<VM-spoke-01 private IP\> adresine göz atın
+   You should get a reply.--->
+2. **VM-Onprem** sanal makinesinde web tarayıcısını açın ve http://\<VM-spoke-01 private IP\> adresine göz atın
 
    Internet Information Services varsayılan sayfasını görmelisiniz.
 
@@ -444,7 +452,7 @@ $NIC.IpConfigurations.privateipaddress
 
 Güvenlik duvarı kurallarının çalıştığını doğruladığınıza göre:
 
-- Uç sanal ağda sunucuya ping atabilirsiniz.
+<!---- You can ping the server on the spoke VNet.--->
 - Uç sanal ağda web sunucusuna göz atabilirsiniz.
 - RDP kullanarak uç sanal ağda sunucuya bağlanabilirsiniz.
 

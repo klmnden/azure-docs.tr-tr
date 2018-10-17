@@ -8,14 +8,14 @@ ms.service: application-gateway
 ms.topic: overview
 ms.custom: mvc
 ms.workload: infrastructure-services
-ms.date: 5/15/2018
+ms.date: 10/11/2018
 ms.author: victorh
-ms.openlocfilehash: 045443637c06745472458dd9e33670875a33352b
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 8352a95fa0701f6d2a0261d8d2fe2431971eccef
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34193076"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49068104"
 ---
 # <a name="what-is-azure-application-gateway"></a>Azure Application Gateway nedir?
 
@@ -27,7 +27,38 @@ Geleneksel yük dengeleyiciler aktarım katmanında (OSI katman 4 - TCP ve UDP) 
 
 Bu yönlendirme türü, uygulama katmanı (OSI katman 7) yük dengelemesi olarak bilinir. Azure Application Gateway, URL tabanlı yönlendirmeyi ve daha fazlasını yapabilir. 
 
-Azure Application Gateway aşağıdaki özellikleri içerir: 
+Azure Application Gateway aşağıdaki özellikleri içerir:
+
+## <a name="autoscaling-public-preview"></a>Otomatik ölçeklendirme genel önizleme sürümü
+
+Application Gateway, bu makalede anlatılan özelliklere ek olarak otomatik ölçeklendirme ve diğer kritik performans geliştirmeleri sunan yeni bir SKU [Standard_V2] genel önizleme sürümü de sunmaktadır.
+
+- **Otomatik ölçeklendirme** - Otomatik ölçeklendirme SKU'su kapsamındaki Application Gateway veya WAF dağıtımlarının ölçeği değişen trafik yükü desenlerine göre artırılabilir veya azaltılabilir. Otomatik ölçeklendirme ayrıca sağlama sırasında dağıtım boyutu veya örnek sayısı seçme gereksinimini de ortadan kaldırır. 
+
+- **Alan yedekliliği** - Bir Application Gateway veya WAF dağıtımı birden fazla Kullanılabilirlik Bölgesine dağıtılarak Traffic Manager içindeki her bölgede ayrı bir Application Gateway örneği sağlama ve çalıştırma ihtiyacını ortadan kaldırır.
+
+- **Statik VIP** - Application Gateway VIP özelliği artık VIP türünü de desteklemektedir. Bu da Application Gateway ile ilişkilendirilmiş VIP değerinin yeniden başlatma sonrasında dahi aynı kalmasını sağlar.
+
+- Genel kullanıma açık SKU ile karşılaştırıldığında **daha hızlı dağıtım ve güncelleştirme**. 
+
+- Genel kullanıma açık SKU ile karşılaştırıldığında **5 kat daha iyi SSL yük boşaltma performansı**.
+
+Application Gateway genel önizleme özellikleri hakkında daha fazla bilgi için bkz. [Otomatik Ölçeklendirme Yapan ve Bölgesel Olarak Yedekli Application Gateway (Genel Önizleme)](application-gateway-autoscaling-zone-redundant.md).
+
+## <a name="azure-kubernetes-service-aks-ingress-controller-preview"></a>Azure Kubernetes Service (AKS) giriş denetleyicisi önizlemesi 
+
+Application Gateway giriş denetleyicisi, AKS kümesi içinde bir pod olarak çalışır ve Application Gateway'in AKS kümesi için giriş görevi yapmasını sağlar. 
+
+Daha fazla bilgi için bkz. [Azure Application Gateway Giriş Denetleyicisi](https://azure.github.io/application-gateway-kubernetes-ingress/).
+
+## <a name="connection-draining"></a>Bağlantı boşaltma
+
+Bağlantı boşaltma, planlı hizmet güncelleştirmeleri sırasında arka uç havuzu üyelerinin normal bir şekilde kapatılmasına yardımcı olur. Bu ayar bir arka uç http ayarıyla etkinleştirilir ve kural oluşturma sırasında bir arka uç havuzunun tüm üyelerine uygulanabilir. Application Gateway etkinleştirildikten sonra bir arka uç havuzunun tüm kayıt kaldırma örneklerinin yeni istek almamasını ve var olan isteklerin yapılandırılan süre sınırı içinde tamamlanmasını sağlar. Bu durum hem bir API çağrısı ile açıkça arka uç havuzundan kaldırılan arka uç örnekleri hem de durum yoklamaları ile iyi durumda olmadığı bildirilen arka uç örnekleri için geçerlidir.
+
+## <a name="custom-error-pages"></a>Özel hata sayfaları
+Application Gateway, varsayılan hata sayfalarını göstermek yerine özel hata sayfaları oluşturmanızı sağlar. Özel hata sayfası sayesinde kendi logonuzu ve sayfa düzeninizi kullanabilirsiniz.
+
+Daha fazla bilgi için bkz. [Application Gateway özel hata sayfası oluşturma](custom-error.md).
 
 ## <a name="secure-sockets-layer-ssl-termination"></a>Güvenli Yuva Katmanı (SSL) sonlandırma
 

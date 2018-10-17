@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 06/28/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 4aac44d46b6c5d202431aa34a1dc7b962466c799
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 1af74cc44391c95fba781cbce14e9118ca36c14b
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37346197"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49078503"
 ---
 # <a name="tutorial-create-and-deploy-an-application-with-an-aspnet-core-web-api-front-end-service-and-a-stateful-back-end-service"></a>Öğretici: ASP.NET Core Web API'si ön uç hizmeti ve durum bilgisi olan bir arka uç hizmetiyle uygulama oluşturma ve dağıtma
 
@@ -40,7 +40,7 @@ Bu öğretici dizisinde şunların nasıl yapıldığını öğrenirsiniz:
 > * .NET Service Fabric uygulaması oluşturma
 > * [Uygulamayı uzak kümeye dağıtma](service-fabric-tutorial-deploy-app-to-party-cluster.md)
 > * [Bir ASP.NET Core ön uç hizmetine HTTPS uç noktası ekleme](service-fabric-tutorial-dotnet-app-enable-https-endpoint.md)
-> * [Visual Studio Team Services'i kullanarak CI/CD'yi yapılandırma](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)
+> * [Azure Pipelines ile CI/CD yapılandırma](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)
 > * [Uygulama için izleme ve tanılamayı ayarlama](service-fabric-tutorial-monitoring-aspnet.md)
 
 ## <a name="prerequisites"></a>Ön koşullar
@@ -455,6 +455,9 @@ Bu sonraki adımda, iki hizmeti bağlayın ve ön uç Web uygulamasının arka u
 Service Fabric, güvenilir hizmetlerle iletişiminize eksiksiz bir esneklik getirir. Tek bir uygulamanın içinde, TCP üzerinden erişilebilen hizmetleriniz olabilir. Diğer hizmetlere HTTP REST API üzerinden erişilebilir ve yine web yuvaları üzerinden erişilebilen başka hizmetler olabilir. Sağlanan seçeneklerin arka planı ve mevcut alışverişler için, bkz. [Hizmetlerle iletişim kurma](service-fabric-connect-and-communicate-with-services.md).
 
 Bu öğreticide, VotingWeb ön uç web hizmetinin arka uç VotingData hizmetiyle iletişim kurabilmesi için [ASP.NET Core Web API](service-fabric-reliable-services-communication-aspnetcore.md) ve [Service Fabric ters proxy’sini](service-fabric-reverseproxy.md) kullanın. Ters proxy varsayılan olarak 19081 numaralı bağlantı noktasını kullanacak şekilde yapılandırılmıştır ve bu öğreticide düzgün çalışacaktır. Bağlantı noktası, kümeyi ayarlamak için kullanılan ARM şablonunda ayarlanır. Kullanılan bağlantı noktasını bulmak için **Microsoft.ServiceFabric/clusters** kaynağındaki küme şablonuna veya küme Bildirimi içindeki HttpApplicationGatewayEndpoint öğesine bakın.
+
+> [!NOTE]
+> Ters proxy yalnızca Windows 8 ve üzeri veya Windows Server 2012 ve üzeri çalıştıran kümelerde desteklenir.
 
 <u>Microsoft.ServiceFabric/clusters reverseProxyEndpointPort kaynağı</u>
 

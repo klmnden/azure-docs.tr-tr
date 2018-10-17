@@ -1,26 +1,25 @@
 ---
-title: Hızlı Başlangıç - Azure portalı ile ilk Azure Container Instances kapsayıcınızı oluşturma
-description: Bu hızlı başlangıçta, Azure Container Instances’da bir kapsayıcı dağıtmak için Azure portalını kullanacaksınız
+title: Hızlı başlangıç - Azure Container Instances hizmetinde uygulama çalıştırma
+description: Bu hızlı başlangıçta, Azure portalı kullanarak Docker kapsayıcısında çalışan bir uygulamayı Azure Container Instances hizmetine dağıtacaksınız
 services: container-instances
-author: mmacy
-manager: jeconnoc
+author: dlepow
 ms.service: container-instances
 ms.topic: quickstart
-ms.date: 05/11/2018
-ms.author: marsma
+ms.date: 10/02/2018
+ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 6aa6fb27b2aa7c8b9614e5812fadc629b1e185f8
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: 6ab7680559400c0a270142563ecf7e251c2cd1b8
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/12/2018
-ms.locfileid: "34076247"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48857729"
 ---
-# <a name="quickstart-create-your-first-container-in-azure-container-instances"></a>Hızlı başlangıç: Azure Container Instances’da ilk kapsayıcınızı oluşturma
+# <a name="quickstart-run-an-application-in-azure-container-instances"></a>Hızlı başlangıç: Azure Container Instances hizmetinde uygulama çalıştırma
 
-Azure Container Instances, sanal makine sağlamak veya daha yüksek düzey bir hizmet benimsemek zorunda kalmadan Azure’da Docker kapsayıcıları oluşturmayı ve yönetmeyi kolaylaştırır. Bu hızlı başlangıçta, Azure portalı kullanarak Azure’da bir kapsayıcı oluşturacak ve bu kapsayıcıyı tam etki alanı adı (FQDN) ile internet üzerinden kullanıma sunacaksınız. Birkaç ayarı yapılandırdıktan sonra tarayıcınızda şunu görürsünüz:
+Docker kapsayıcılarınızı kolay ve hızlı bir şekilde Azure'da çalıştırmak için Azure Container Instances hizmetini kullanın. Sanal makine dağıtmanız veya Kubernetes gibi tam kapsamlı bir düzenleme platformu kullanmanız gerekmez. Bu hızlı başlangıçta, Azure portalı kullanarak Azure’da bir kapsayıcı oluşturacak ve bu uygulamasını tam etki alanı adı (FQDN) ile kullanıma sunacaksınız. Birkaç ayarı yapılandırdıktan ve kapsayıcıyı dağıttıktan sonra çalışan uygulamaya göz atabilirsiniz:
 
-![Azure Container Instances kullanılarak dağıtılmış uygulama tarayıcıda görüntüleniyor][aci-portal-07]
+![Azure Container Instances hizmetine dağıtılmış uygulamanın tarayıcıdaki görüntüsü][aci-portal-07]
 
 ## <a name="sign-in-to-azure"></a>Azure'da oturum açma
 
@@ -38,7 +37,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap][azure-free-acc
 
 * Kapsayıcı adı: `mycontainer`
 * Kapsayıcı görüntüsü: `microsoft/aci-helloworld`
-* Kaynak grubu: `myResourceGroup`
+* Kaynak grubu: **Yeni oluştur** > `myResourceGroup`
 
 ![Azure portalında yeni bir kapsayıcı örneği için temel ayarları yapılandırma][aci-portal-03]
 
@@ -54,11 +53,11 @@ Doğrulama tamamlandığında, kapsayıcı ayarlarının bir özeti gösterilir.
 
 ![Azure portalında yeni bir kapsayıcı örneği için ayarların özeti][aci-portal-05]
 
-Dağıtım başlatıldığında, dağıtımın devam ettiğini gösteren bir kutucuk portal panonuzda görüntülenir. Dağıtım tamamlandıktan sonra kutucuk yeni kapsayıcı örneğinizi görüntüler.
+Dağıtım başladığında devam ettiğini gösteren bir bildirim görüntülenir. Kapsayıcı grubu dağıtıldığında yeni bir bildirim daha görüntülenir.
 
 ![Azure portalında yeni bir kapsayıcı örneği için oluşturma ilerlemesi][aci-portal-08]
 
-Özelliklerini görüntülemek için **mycontainer** kapsayıcı örneğini seçin. Kapsayıcı örneğinin **Durum**’u ile birlikte **FQDN**’sini (tam etki alanı adı) not edin.
+**Kaynak Grupları** > **myResourceGroup** > **mycontainer** yolunu izleyerek kapsayıcı grubunun genel bakış sayfasını açın. Kapsayıcı örneğinin **Durum**’u ile birlikte **FQDN**’sini (tam etki alanı adı) not edin.
 
 ![Azure portalında kapsayıcı grubuna genel bakış][aci-portal-06]
 
@@ -72,7 +71,7 @@ Tebrikler! Yalnızca birkaç ayarı yapılandırarak, Azure Container Instances�
 
 Kapsayıcı örneğinin günlüklerini görüntülemek, kapsayıcınızın veya çalıştırdığı uygulamanın sorunlarını gidermede yardımcı olur.
 
-Kapsayıcının günlüklerini görüntülemek için **AYARLAR** altında **Kapsayıcılar**’ı ve ardından **Günlükler**’i seçin. Uygulamayı tarayıcınızda görüntülediğinizde HTTP GET isteğinin oluşturulduğunu görmeniz gerekir.
+Kapsayıcının günlüklerini görüntülemek için **Ayarlar** altında **Kapsayıcılar**’ı ve ardından **Günlükler**’i seçin. Uygulamayı tarayıcınızda görüntülediğinizde HTTP GET isteğinin oluşturulduğunu görmeniz gerekir.
 
 ![Azure portalında kapsayıcı günlükleri][aci-portal-11]
 
@@ -88,7 +87,7 @@ Onay iletişim kutusu görüntülendiğinde **Evet**’i seçin.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu hızlı başlangıçta, genel bir Docker Hub deposundaki bir görüntüden bir Azure kapsayıcı örneği oluşturdunuz. Kapsayıcı görüntüsünü kendiniz oluşturup özel bir Azure kapsayıcı kayıt defterinden Azure Container Instances’a dağıtmak istiyorsanız Azure Container Instances öğreticisine geçin.
+Bu hızlı başlangıçta, genel bir Docker Hub deposundaki bir görüntüden bir Azure kapsayıcı örneği oluşturdunuz. Kapsayıcı görüntüsünü oluşturup özel bir Azure kapsayıcı kayıt defterinden dağıtmak istiyorsanız Azure Container Instances öğreticisine geçin.
 
 > [!div class="nextstepaction"]
 > [Azure Container Instances öğreticisi](./container-instances-tutorial-prepare-app.md)

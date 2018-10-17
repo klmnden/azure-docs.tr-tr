@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/25/2018
 ms.author: diberry
-ms.openlocfilehash: f8350d46fecff726dd9f591fe3df0272f556b3e7
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: ce5b704a7ac251621698352608ea3eefa4629aea
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47168222"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48886595"
 ---
 # <a name="tutorial-luis-bot-in-c"></a>Öğretici: C# dilinde LUIS robotu
 C# kullanarak, dil anlama (LUIS) ile tümleşik bir sohbet robotu geliştirebilirsiniz. Bu robot, bir robot çözümünü gerçekleştirmek için HomeAutomation uygulamasını kullanır. Robot, [Bot Framework sürümü](https://github.com/Microsoft/botbuilder-js) v4 ile Azure [Web uygulaması robotu](https://docs.microsoft.com/azure/bot-service/) kullanılarak geliştirilmiştir.
@@ -23,11 +23,11 @@ C# kullanarak, dil anlama (LUIS) ile tümleşik bir sohbet robotu geliştirebili
 **Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:**
 
 > [!div class="checklist"]
-> * Bir Web uygulaması oluşturun. Bu işlem, sizin için yeni bir LUIS uygulaması oluşturur.
+> * Web uygulaması robotu oluşturma. Bu işlem sizin için yeni bir LUIS uygulaması oluşturur.
 > * Yeni LUIS modeline önceden oluşturulmuş bir etki alanı ekleme
 > * Web robot hizmeti tarafından oluşturulan projeyi indirme
 > * Robotu ve öykünücüyü bilgisayarınızda yerel olarak başlatma
-> * Robot kodunu yeni LUIS amaçları için değiştirme
+> * Yeni LUIS amaçları için robot kodunu değiştirme
 > * Robotta konuşma sonuçlarını görüntüleme
 
 ## <a name="prerequisites"></a>Ön koşullar
@@ -40,22 +40,22 @@ C# kullanarak, dil anlama (LUIS) ile tümleşik bir sohbet robotu geliştirebili
 
 1. [Azure portalda](https://portal.azure.com) **Yeni kaynak oluştur**'u seçin.
 
-2. Arama kutusunda **Web Uygulaması Robotu**'nu arayıp seçin. **Oluştur**’u seçin.
+2. Arama kutusunda **Web Uygulaması Robotu**'nu arayın ve bunu seçin. **Oluştur**’u seçin.
 
 3. **Robot Hizmeti**'nde gerekli bilgileri sağlayın:
 
     |Ayar|Amaç|Önerilen ayar|
     |--|--|--|
-    |Robot adı|Kaynak adı|`luis-csharp-bot-` + `<your-name>`; örneğin `luis-csharp-bot-johnsmith`|
+    |Robot adı|Kaynak adı|`luis-csharp-bot-` + `<your-name>`, örneğin `luis-csharp-bot-johnsmith`|
     |Abonelik|Robotun oluşturulacağı abonelik.|Birincil aboneliğiniz.
-    |Kaynak grubu|Azure kaynaklarının mantıksal grubu|Bu robot ile kullanılan tüm kaynakları depolamak için yeni bir grup oluşturun ve grubu `luis-csharp-bot-resource-group` olarak adlandırın.|
+    |Kaynak grubu|Azure kaynaklarının mantıksal grubu|Bu robotla kullanılan tüm kaynakları depolamak için yeni bir grup oluşturun ve grubu `luis-csharp-bot-resource-group` olarak adlandırın.|
     |Konum|Azure bölgesi - LUIS yazma veya yayımlama bölgesi ile aynı olması gerekmez.|`westus`|
     |Fiyatlandırma katmanı|Hizmet isteği sınırları ve faturalandırma için kullanılır.|`F0` ücretsiz katmanı gösterir.
-    |Uygulama adı|Ad, robotunuz buluta dağıtıldığında alt etki alanı olarak kullanılır (örneğin humanresourcesbot.azurewebsites.net).|`luis-csharp-bot-` + `<your-name>`; örneğin `luis-csharp-bot-johnsmith`|
+    |Uygulama adı|Ad, robotunuz buluta dağıtıldığında alt etki alanı olarak kullanılır (örneğin humanresourcesbot.azurewebsites.net).|`luis-csharp-bot-` + `<your-name>`, örneğin `luis-csharp-bot-johnsmith`|
     |Robot şablonu|Bot Framework ayarları - sonraki tabloya bakın|
     |LUIS Uygulaması konumu|LUIS kaynak bölgesi ile aynı olmalıdır|`westus`|
 
-4. **Robot şablon ayarları**'nda aşağıdakileri, ardından bu ayarların altındaki **Seç** düğmesini seçin:
+4. **Robot şablon ayarları**'nda aşağıdakileri seçin ve sonra da bu ayarların altındaki **Seç** düğmesini seçin:
 
     |Ayar|Amaç|Seçim|
     |--|--|--|
@@ -67,7 +67,7 @@ C# kullanarak, dil anlama (LUIS) ile tümleşik bir sohbet robotu geliştirebili
 
     [ ![Web uygulaması robotu oluşturma](./media/bfv4-csharp/create-web-app-service.png) ](./media/bfv4-csharp/create-web-app-service.png#lightbox)
 
-6. Bu tarayıcı sekmesini açık bırakın. LUIS portalındaki bir adım için yeni bir tarayıcı sekmesi açın. Yeni robot hizmet dağıtıldığında sonraki bölüme devam edin.
+6. Bu tarayıcı sekmesini açık bırakın. LUIS portalındaki her adım için yeni bir tarayıcı sekmesi açın. Yeni robot hizmet dağıtıldığında sonraki bölüme devam edin.
 
 ## <a name="add-prebuilt-domain-to-model"></a>Modele önceden oluşturulmuş etki alanı ekleme
 Robot hizmetinin dağıtımı sırasında amaçlar ve örnek konuşmalar içeren yeni bir LUIS uygulaması oluşturulur. Robot, yeni LUIS uygulamasına şu amaçlar için amaç eşlemesi sağlar: 
@@ -83,11 +83,11 @@ Robot hizmetinin dağıtımı sırasında amaçlar ve örnek konuşmalar içeren
 
 1. [LUIS](https://www.luis.ai) portalına gidin ve oturum açın.
 2. **Uygulamalarım** sayfasında, uygulamaları oluşturma tarihine göre sıralamak için **Oluşturma tarihi** sütununu seçin. Azure Robot hizmeti önceki bölümde yeni bir uygulama oluşturmuştu. Adı `luis-csharp-bot-` + `<your-name>` + 4 rasgele karakterdir.
-3. Uygulamayı açın ve üst gezinti bölmesinde **Derle** bölümünü seçin.
-4. Sol gezinti bölmesinde **Önceden Oluşturulmuş Etki Alanları**'nı seçin.
-5. **HomeAutomation** etki alanını kartının üzerindeki **Etki alanı ekle**'yi seçerek seçin.
-6. Sağ üst menüde **Eğit**'i seçin.
-7. Sağ üst menüde **Yayımla**'yı seçin. 
+3. Uygulamayı açın ve üst gezintide **Derle** bölümünü seçin.
+4. Sol gezintide **Önceden Oluşturulmuş Etki Alanları**'nı seçin.
+5. **HomeAutomation** etki alanını seçmek için, kartının üzerindeki **Etki alanı ekle**'yi seçin.
+6. Sağ üstteki menüde **Eğit**'i seçin.
+7. Sağ üstteki menüde **Yayımla**'yı seçin. 
 
     Azure Robot hizmeti tarafından oluşturulan uygulamada artık yeni amaçlar bulunur:
 
@@ -107,9 +107,9 @@ Web uygulaması robot kodunu geliştirmek için, yerel bilgisayarınızda kodu i
 
     [ ![Temel robot için Web uygulaması robot kaynak kodunu indirme](../../../includes/media/cognitive-services-luis/bfv4/download-code.png) ](../../../includes/media/cognitive-services-luis/bfv4/download-code.png#lightbox)
 
-4. Kaynak kodu ZIP olarak sıkıştırılmışsa, bir ileti kodu indirmek için bir bağlantı sağlar. Bağlantıyı seçin. 
+4. Kaynak kodu .zip dosyasına sıkıştırılmışsa, bir iletide kodu indirme bağlantısı sağlanır. Bağlantıyı seçin. 
 
-5. ZIP dosyasını yerel bilgisayarınıza kaydedin ve dosyaları çıkarın. Projeyi açın. 
+5. Bu .zip dosyasını yerel bilgisayarınıza kaydedin ve dosyaları ayıklayın. Projeyi açın. 
 
 6. Bot.cs dosyasını açın ve `_services.LuisServices` ifadesini arayın. Robota girilen kullanıcı konuşmasının LUIS'e gönderildiği yer budur.
 
@@ -176,7 +176,7 @@ Web uygulaması robot kodunu geliştirmek için, yerel bilgisayarınızda kodu i
     }
     ```
 
-    Robot kullanıcının konuşmasını LUIS'e gönderir ve sonuçları alır. Söyleşinin akışını ilk amaç belirler. 
+    Robot kullanıcının konuşmasını LUIS'e gönderir ve sonuçları alır. Konuşmanın akışını ilk amaç belirler. 
 
 
 ## <a name="start-the-bot"></a>Robotu başlatma
@@ -286,20 +286,20 @@ Herhangi bir kodu veya ayarı değiştirmeden önce robotun çalıştığından 
 
     ```JSON
     TurnOn intent found, JSON response: {"$instance":{“HomeAutomation_Device”:[{“startIndex”:23,“endIndex”:29,“score”:0.9776345,“text”:“lights”,“type”:“HomeAutomation.Device”}],“HomeAutomation_Room”:[{“startIndex”:12,“endIndex”:22,“score”:0.9079433,“text”:“livingroom”,“type”:“HomeAutomation.Room”}]},“HomeAutomation_Device”:[“lights”],“HomeAutomation_Room”:[“livingroom”]}
-    ```    ```
+    ```    
 
-## Learn more about Bot Framework
-Azure Bot service uses the Bot Framework SDK. Learn more about the SDK and bot framework:
+## <a name="learn-more-about-bot-framework"></a>Bot Framework hakkında daha fazla bilgi edinin
+Azure Bot hizmeti, Bot Framework SDK'sını kullanır. SDK ve bot çerçevesi hakkında daha fazla bilgi edinin:
 
-* [Azure Bot Service](https://docs.microsoft.com/en-us/azure/bot-service/bot-service-overview-introduction?view=azure-bot-service-4.0) v4 documentation
-* [Bot Builder Samples](https://github.com/Microsoft/botbuilder-samples)
-* [Bot Builder SDK](https://docs.microsoft.com/en-us/javascript/api/botbuilder-core/?view=botbuilder-ts-latest)
-* [Bot Builder tools](https://github.com/Microsoft/botbuilder-tools):
+* [Azure Bot Hizmeti](https://docs.microsoft.com/en-us/azure/bot-service/bot-service-overview-introduction?view=azure-bot-service-4.0) v4 belgeleri
+* [Bot Builder Örnekleri](https://github.com/Microsoft/botbuilder-samples)
+* [Bot Builder SDK'sı](https://docs.microsoft.com/en-us/javascript/api/botbuilder-core/?view=botbuilder-ts-latest)
+* [Bot Builder araçları](https://github.com/Microsoft/botbuilder-tools):
 
-## Next steps
+## <a name="next-steps"></a>Sonraki adımlar
 
-You created an Azure bot service, copied the bot secret and `.bot` file path, downloaded the zip file of the code. You added the prebuilt HomeAutomation domain to the LUIS app created as part of the new Azure bot service, then trained and published the app again. You extracted the code project, created an environment file (`.env`), and set the bot secret and the `.bot` file path. In the bot.js file, you added code to handle the two new intents. Then you tested the bot in the bot emulator to see the LUIS response for an utterance of one of the new intents. 
+Azure bot hizmeti oluşturdunuz, robot gizli dizisini ve `.bot` dosyasının yolunu kopyaladınız, kodun zip dosyasını indirdiniz. Önceden oluşturulmuş HomeAutomation etki alanını yeni Azure robot hizmeti kapsamında oluşturulan LUIS uygulamasına eklediniz, sonra da uygulamayı yeniden eğittiniz ve yayımladınız. Kod projesini ayıkladınız, ortam dosyası (`.env`) oluşturdunuz ve bot gizli dizisiyle `.bot` dosyasının yolunu ayarladınız. Bot.js dosyasında, iki yeni amacı işleyecek kodu eklediniz. Ardından yeni amaçlardan birinin konuşmasına LUIS yanıtını görmek için robot öykünücüsünde robotu test ettiniz. 
 
 
 > [!div class="nextstepaction"]
-> [Build a custom domain in LUIS](luis-quickstart-intents-only.md)
+> [LUIS'de özel etki alanı oluşturma](luis-quickstart-intents-only.md)

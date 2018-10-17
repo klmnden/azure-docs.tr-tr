@@ -8,12 +8,12 @@ ms.service: dns
 ms.topic: quickstart
 ms.date: 6/13/2018
 ms.author: victorh
-ms.openlocfilehash: 3ec2c44c168b47fd66d1ffa9a0c8d0069600ecb0
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 0acb5bf18c078d8b7eb6a5c14a61fcef622f9f2d
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46958110"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48831136"
 ---
 # <a name="quickstart-configure-azure-dns-for-name-resolution-using-the-azure-portal"></a>Hızlı başlangıç: Azure portalı kullanarak Azure DNS'yi ad çözümlemesi için yapılandırma
 
@@ -43,7 +43,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 
    | **Ayar** | **Değer** | **Ayrıntılar** |
    |---|---|---|
-   |**Ad**|contoso.xyz|Bu örnekte kullanılan DNS bölgesinin adıdır. Bu hızlı başlangıçta Azure DNS sunucularında önceden yapılandırılmamış olması şartıyla istediğiniz değeri kullanabilirsiniz. Gerçek dünyada etki alanı adı kayıt kuruluşunuzdan satın aldığınız etki alanını kullanmanız gerekir.|
+   |**Ad**|contoso.xyz|Bu örnekte DNS bölgesinin adı için önceden Azure DNS sunucularında yapılandırılmamış olan herhangi bir değeri kullanabilirsiniz. Gerçek dünyada etki alanı adı kayıt kuruluşunuzdan satın aldığınız etki alanını kullanmanız gerekir.|
    |**Abonelik**|[Aboneliğiniz]|DNS bölgesini oluşturmak için bir abonelik seçin.|
    |**Kaynak grubu**|**Yeni oluştur:** dns-test|Bir kaynak grubu oluşturun. Kaynak grubu adı, seçili abonelik içinde benzersiz olmalıdır. |
    |**Konum**|Doğu ABD||
@@ -52,7 +52,7 @@ Bölgenin oluşturulması birkaç dakika sürebilir.
 
 ## <a name="create-a-dns-record"></a>DNS kaydı oluşturma
 
-Şimdi yeni bir adres kaydı ('A' kaydı) oluşturun. 'A' kayıtları, bir ana bilgisayar adını bir IP v4 adresine çözümlemek için kullanılır.
+Şimdi yeni bir adres kaydı ('A' kaydı) oluşturun. 'A' kayıtları bir ana bilgisayar adını bir IPv4 adresine çözümlemek için kullanılır.
 
 1. Azure Portal **Sık Kullanılanlar** bölmesinde, **Tüm kaynaklar**’a tıklayın. Tüm kaynaklar sayfasında **contoso.xyz** DNS bölgesine tıklayın. Seçili abonelikte zaten çeşitli kaynaklar varsa, uygulama ağ geçidine kolaylıkla erişmek için **Ada göre filtrele...** kutusuna **contoso.xyz** girebilirsiniz.
 
@@ -74,7 +74,7 @@ Bu hızlı başlangıçta gerçek bir etki alanı adı satın almadığınız i�
 
 ## <a name="test-the-name-resolution"></a>Ad çözümlemesini test etme
 
-Test amaçlı 'A' kaydını içeren test bölgesini oluşturduğunuza göre nslookup adlı bir araçla ad çözümlemesini test edebilirsiniz. 
+Test amaçlı 'A' kaydını içeren test bölgesini oluşturduğunuza göre *nslookup* adlı bir araçla ad çözümlemesini test edebilirsiniz. 
 
 1. İlk olarak nslookup ile kullanılacak Azure DNS ad sunucularını not etmeniz gerekir. 
 
@@ -96,7 +96,7 @@ Aşağıdaki ekran görüntüsüne benzer bir sonuç görmeniz gerekir:
 
 ![nslookup](media/dns-getstarted-portal/nslookup.PNG)
 
-Bu sonuç ad çözümlemesinin düzgün çalıştığını doğrular. www.contoso.xyz etki alanı adı 10.10.10.10 adresine çözümleniyor, tam da sizin yaptığınız gibi!
+Bu sonuç ad çözümlemesinin düzgün çalıştığını doğrular. www.contoso.xyz, 10.10.10.10 adresine çözümleniyor, tam da yapılandırdığınız gibi!
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 

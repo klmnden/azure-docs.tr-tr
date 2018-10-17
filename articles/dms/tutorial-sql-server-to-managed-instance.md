@@ -2,27 +2,24 @@
 title: Azure SQL Veritabanı Yönetilen Örneği’ne geçirmek için DMS kullanma | Microsoft Docs
 description: Azure Veritabanı Geçiş Hizmeti'ni kullanarak şirket içi SQL Server'ı çevrimdışı Azure SQL Veritabanı Yönetilen Örneği'ne geçirmeyi öğrenin.
 services: dms
-author: edmacauley
-ms.author: jtoland
+author: pochiraju
+ms.author: rajpo
 manager: craigg
 ms.reviewer: ''
 ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 08/24/2018
-ms.openlocfilehash: dbf71b1fcc15743f4670c4072921f1a167a90e97
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.date: 10/10/2018
+ms.openlocfilehash: 2e8e9706a9572b85030a636dd75d4809447eabbc
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42887311"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49067900"
 ---
 # <a name="migrate-sql-server-to-azure-sql-database-managed-instance-offline-using-dms"></a>DMS kullanarak çevrimdışı biçimde SQL Server'ı Azure SQL Veritabanı Yönetilen Örneği'ne geçirme
 Azure Veritabanı Geçiş Hizmeti'ni kullanarak şirket içi SQL Server örneğindeki veritabanlarını [Azure SQL Veritabanı Yönetilen Örneği](../sql-database/sql-database-managed-instance.md)'ne geçirebilirsiniz. El ile gerçekleştirilmesi gereken adımlar içeren ek yöntemler için bkz. [Azure SQL Veritabanı Yönetilen Örneği'ne SQL Server örneği geçişi](../sql-database/sql-database-managed-instance-migrate.md).
-
-> [!IMPORTANT]
-> Projelerin SQL Server'dan Azure SQL Veritabanı Yönetilen Örneği'ne geçirilmesi önizleme sürümündedir ve [Microsoft Azure Önizlemeleri için Ek Kullanım Koşulları](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)'na tabidir.
 
 Bu öğreticide şirket içi SQL Server örneğindeki **Adventureworks2012** veritabanını Azure Veritabanı Geçiş Hizmeti'ni kullanarak bir Azure SQL Veritabanı Yönetilen Örneği'ne geçireceksiniz.
 
@@ -52,7 +49,7 @@ Bu öğreticiyi tamamlamak için aşağıdakileri yapmanız gerekir:
 
 ## <a name="register-the-microsoftdatamigration-resource-provider"></a>Microsoft.DataMigration kaynak sağlayıcısını kaydetme
 
-1. Azure portal'da oturum açın, **Tüm hizmetler**'i ve ardından **Abonelikler**'i seçin.
+1. Azure portal'da oturum açın, **Tüm hizmetler** seçeneğini belirleyin ve ardından **Abonelikler**'i seçin.
 
     ![Portal aboneliklerini gösterme](media\tutorial-sql-server-to-managed-instance\portal-select-subscriptions.png)        
 
@@ -173,7 +170,7 @@ Hizmetin bir örneği oluşturulduktan sonra Azure portaldan bulun, açın ve ye
     |**Kullanıcı adı** | Windows kullanıcısının yukarıda belirttiğiniz ağ paylaşımında tam denetim ayrıcalığına sahip olduğundan emin olun. Azure Veritabanı Geçiş Hizmeti, geri yükleme işlemi için yedekleme dosyalarını Azure depolama kapsayıcısına yüklemek için kullanıcının kimlik bilgilerini kullanır. Geçiş için TDE özelliğinin etkin olduğu veritabanlarının seçilmesi durumunda yukarıdaki Windows kullanıcısının yerleşik yönetici hesabı olması ve Azure Veritabanı Geçiş Hizmeti'nin sertifika dosyalarını yükleyip silmesi için [Kullanıcı Hesabı Denetimi](https://docs.microsoft.com/windows/security/identity-protection/user-account-control/user-account-control-overview) özelliğinin devre dışı bırakılmış olması gerekir. |
     |**Parola** | Kullanıcının parolası. |
     |**Depolama hesabı ayarları** | Azure Veritabanı Geçiş Hizmeti'ne veritabanlarını Azure SQL Veritabanı Yönetilen Örneği'ne geçirmek için kullanılan yedekleme dosyalarının yüklendiği depolama hesabı kapsayıcınıza erişim sağlayan SAS URI değeri. [Blob kapsayıcısı için SAS URI değerini almayı öğrenin](https://docs.microsoft.com/azure/vs-azure-tools-storage-explorer-blobs#get-the-sas-for-a-blob-container).|
-    |**TDE Ayarları** | Geçirdiğiniz kaynak veritabanlarında Saydam Veri Şifrelemesi (TDE) özelliği etkinse hedef Azure SQL Veritabanı Yönetilen Örneği'nde yazma ayrıcalıklarına sahip olmanız gerekir.  Açılan menüden Azure SQL Veritabanı Yönetilen Örneği'nin sağlandığı aboneliği seçin.  Açılan menüden Azure SQL Veritabanı Yönetilen Örneği hedefini seçin. |
+    |**TDE Ayarları** | Geçirdiğiniz kaynak veritabanlarında Saydam Veri Şifrelemesi (TDE) özelliği etkinse hedef Azure SQL Veritabanı Yönetilen Örneği'nde yazma ayrıcalıklarına sahip olmanız gerekir.  Açılan menüden Azure SQL Veritabanı Yönetilen Örneği'nin sağlandığı aboneliği seçin.  Açılan menüden **Azure SQL Veritabanı Yönetilen Örneği** hedefini seçin. |
     
     ![Geçiş Ayarlarını Yapılandırma](media\tutorial-sql-server-to-managed-instance\dms-configure-migration-settings3.png)
 

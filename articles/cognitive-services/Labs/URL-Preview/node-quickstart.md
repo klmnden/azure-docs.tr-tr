@@ -1,39 +1,41 @@
 ---
-title: Proje URL'si Önizleme - Microsoft Bilişsel hizmetler için node.js hızlı başlangıç | Microsoft Docs
-description: URL önizleme Azure üzerinde Microsoft Bilişsel Hizmetleri'ndeki kullanmaya başlayın.
+title: 'Hızlı başlangıç: URL Önizleme Projesi, Node.js'
+titlesuffix: Azure Cognitive Services
+description: Azure'da Microsoft Bilişsel Hizmetler kapsamındaki URL Önizleme özelliğini kullanmaya başlayın.
 services: cognitive-services
 author: mikedodaro
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: project-url-preview
-ms.topic: article
+ms.component: project-url-preview
+ms.topic: quickstart
 ms.date: 03/16/2018
-ms.author: rosh, v-gedod
-ms.openlocfilehash: 195033d2740b11873baae095cec028dc8d19ce49
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
-ms.translationtype: MT
+ms.author: rosh
+ms.openlocfilehash: b8410127ed9a0444ab400eb3242868a85bd5b2c9
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35354011"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48883576"
 ---
-# <a name="url-preview-node-quickstart"></a>URL önizleme düğümü hızlı başlangıç
+# <a name="quickstart-url-preview-with-nodejs"></a>Hızlı başlangıç: Node.js içe URL Önizleme 
 
-Aşağıdaki düğümü örnek SwiftKey Web sitesi için Url Önizleme oluşturur: https://swiftkey.com/en.
+Aşağıdaki Node örneği SwiftKey Web sitesi için bir URL Önizlemesi oluşturur: https://swiftkey.com/en.
 
-## <a name="prerequisites"></a>Önkoşullar
+## <a name="prerequisites"></a>Ön koşullar
 
-Ücretsiz deneme sürümü için bir erişim anahtarı alma [Bilişsel hizmetler Laboratuvarları](https://aka.ms/answersearchsubscription)
+[Bilişsel Hizmetler Laboratuvarları](https://aka.ms/answersearchsubscription) ücretsiz denemesi için erişim anahtarı alın
 
 ## <a name="code-scenario"></a>Kod senaryosu 
 
-Aşağıdaki kod URL önizleme verilerini alır.
-Aşağıdaki adımlarda uygulanır:
-1. Bitiş noktası tarafından konak ve yol belirtmek için değişkenleri bildirin.
-2. Önizleme için sorgu URL'sini belirtin ve sorgu parametresi ekleyin.  
-3. Yanıt için bir işleyici işlevi oluşturun.
-4. İsteği oluşturur ve ekleyen arama işlevini tanımlayan *Apim abonelik anahtar Ocp* üstbilgi.
-5. Arama işlevini çalıştırın. 
+Aşağıdaki kod URL Önizleme verilerini alır.
+Aşağıdaki adımları izler:
+1. Ana bilgisayar ve yol ile uç noktayı belirtmek için değişkenleri bildirme.
+2. Önizleme için sorgu URL'sini belirtme ve sorgu parametresini ekleme.  
+3. Yanıt için bir işleyici işlevi oluşturma.
+4. İsteği oluşturan ve *Ocp-Apim-Subscription-Key* üst bilgisini ekleyen Search işlevini tanımlama.
+5. Search işlevini çalıştırma. 
 
-Bu Tanıtım için tam kod aşağıdaki gibidir:
+Bu tanıtımda kullanılan kodun tamamı aşağıda verilmiştir:
 
 ````
 'use strict';
@@ -84,7 +86,7 @@ Search();
 ````
 
 ## <a name="next-steps"></a>Sonraki adımlar
-- [C# kod örneği](csharp.md)
-- [Java hızlı başlangıç](java-quickstart.md)
-- [JavaScript hızlı başlangıç](javascript.md)
-- [Python hızlı başlangıç](python-quickstart.md)
+- [C# örnek kodu](csharp.md)
+- [Java hızlı başlangıcı](java-quickstart.md)
+- [JavaScript hızlı başlangıcı](javascript.md)
+- [Python hızlı başlangıcı](python-quickstart.md)

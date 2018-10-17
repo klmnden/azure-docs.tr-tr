@@ -6,15 +6,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 08/24/2018
+ms.date: 10/10/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 48714d71edcf54726eb362c7f56950a1350fd52b
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.openlocfilehash: 04e7506562d29e37abb65b7a760fbc9bd707e2c6
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42885334"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49078945"
 ---
 # <a name="migrate-amazon-web-services-aws-vms-to-azure"></a>Amazon Web Services (AWS) sanal makinelerini Azure’a geçirme
 
@@ -239,10 +239,9 @@ Bazı senaryolarda, yük devretme için ek işlemler gerekir. İşlemin tamamlan
 EC2 örneklerinin Azure sanal makinelerine geçişi için gerçek bir yük devretme çalıştırın:
 
 1. **Korumalı öğeler** > **Çoğaltılan öğeler** bölümünde AWS örneklerini ve **Yük devretme**’yi seçin.
-2. **Yük devretme** bölümünde yük devretmenin yapılacağı bir **Kurtarma Noktası** seçin. En son kurtarma noktasını seçin.
-3. Site Recovery’nin yük devretmeyi tetiklemeden önce kaynak sanal makineleri kapatmayı denemesini istiyorsanız **Yük devretmeye başlamadan önce makineyi kapat** seçeneğini belirleyin. Kapatma işlemi başarısız olsa bile yük devretme devam eder. Yük devretme işleminin ilerleme durumunu **İşler** sayfasında takip edebilirsiniz.
-4. Sanal makinenin, **Çoğaltılan öğeler** bölümünde görüntülendiğinden emin olun.
-5. Her bir sanal makineye sağ tıklayın ve **Geçişi Tamamla**’yı seçin. Böylece geçiş işlemi tamamlanır, AWS VM için çoğaltma durdurulur ve sanal makine için Site Recovery faturalaması durdurulur.
+2. **Yük devretme** bölümünde yük devretmenin yapılacağı bir **Kurtarma Noktası** seçin. En son kurtarma noktasını seçin ve yük devretmeyi başlatın. Yük devretme işleminin ilerleme durumunu **İşler** sayfasında takip edebilirsiniz.
+1. Sanal makinenin, **Çoğaltılan öğeler** bölümünde görüntülendiğinden emin olun.
+2. Her bir sanal makineye sağ tıklayın ve **Geçişi Tamamla**’yı seçin. Böylece geçiş işlemi tamamlanır, AWS VM için çoğaltma durdurulur ve sanal makine için Site Recovery faturalaması durdurulur.
 
     ![Geçişi tamamlama](./media/migrate-tutorial-aws-azure/complete-migration.png)
 

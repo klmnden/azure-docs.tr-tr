@@ -5,16 +5,16 @@ description: Bilişsel Hizmetler Konuşma SDK'sını kullanarak Android üzerind
 services: cognitive-services
 author: fmegen
 ms.service: cognitive-services
-ms.technology: Speech
+ms.component: Speech
 ms.topic: quickstart
 ms.date: 09/24/2018
 ms.author: fmegen
-ms.openlocfilehash: 0a52889ef879aeb8a5a1ed59b74619dc3337e1e9
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 6428dbaabfe176e8d741818ee338bbc2a6bc70bb
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47432819"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48883882"
 ---
 # <a name="quickstart-recognize-speech-in-java-on-android-by-using-the-speech-sdk"></a>Hızlı Başlangıç: Konuşma SDK’sını kullanarak Android üzerinde Java dilinde konuşma tanıma
 
@@ -112,7 +112,7 @@ Kullanıcı arabiriminizin metin ve grafik gösterimi artık şöyle görünmeli
 
 ## <a name="add-sample-code"></a>Örnek kod ekleme
 
-1. `MainActivity.java` kaynak dosyasını açın. `package` deyiminden sonraki tüm kodu aşağıdakiyle değiştirin.
+1. `MainActivity.java` kaynak dosyasını açın. Bu dosyanın içindeki kodun tamamını aşağıdakiyle değiştirin.
 
    [!code-java[](~/samples-cognitive-services-speech-sdk/quickstart/java-android/app/src/main/java/com/microsoft/cognitiveservices/speech/samples/quickstart/MainActivity.java#code)]
 

@@ -1,43 +1,45 @@
 ---
-title: Python hızlı başlangıç projesi URL önizleme - Microsoft Bilişsel hizmetler için | Microsoft Docs
-description: Hızlı bir şekilde proje URL önizleme Azure üzerinde Microsoft Bilişsel Hizmetleri'ndeki kullanmaya başlamak için komut dosyası örneği.
+title: 'Hızlı başlangıç: URL Önizleme Projesi, Python'
+titlesuffix: Azure Cognitive Services
+description: Python ile URL Önizleme Projesini kullanmaya hızlıca başlamak için örnek betik.
 services: cognitive-services
 author: mikedodaro
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: project-url-preview
-ms.topic: article
+ms.component: project-url-preview
+ms.topic: quickstart
 ms.date: 03/29/2018
-ms.author: rosh, v-gedod
-ms.openlocfilehash: 78b2d83b02aa9ea32509029c7456e04e420b8572
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
-ms.translationtype: MT
+ms.author: rosh
+ms.openlocfilehash: c4af701188c6453bd3c067b838519c32862af13d
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35354016"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48867281"
 ---
-# <a name="url-preview-python-quickstart"></a>URL önizleme Python hızlı başlangıç
+# <a name="quickstart-url-preview-with-python"></a>Hızlı başlangıç: Python ile URL Önizleme
 
-Aşağıdaki Python örnek SwiftKey Web sitesi için Url Önizleme oluşturur: https://swiftkey.com/en.
+Aşağıdaki Python örneği SwiftKey Web sitesi için bir URL Önizlemesi oluşturur: https://swiftkey.com/en.
 
-## <a name="prerequisites"></a>Önkoşullar
+## <a name="prerequisites"></a>Ön koşullar
 
-Ücretsiz deneme sürümü için bir erişim anahtarı alma [Bilişsel hizmetler Laboratuvarları](https://aka.ms/answersearchsubscription)
+[Bilişsel Hizmetler Laboratuvarları](https://aka.ms/answersearchsubscription) ücretsiz denemesi için erişim anahtarı alın
 
-Bu örnek, Python 3.6 kullanır.
+Bu örnekte Python 3.6 kullanılmıştır.
 
 ## <a name="code-scenario"></a>Kod senaryosu 
 
-Aşağıdaki kod, bir URL önizleme oluşturur.
-Aşağıdaki adımlarda uygulanır:
-1. Bitiş noktası tarafından konak ve yol belirtmek için değişkenleri bildirin.
-2. Önizleme için sorgu URL'sini belirtin ve sorgu parametresi ekleyin.  
-3. Sorgu parametresini ayarlayın.
-4. İsteği oluşturur ve ekleyen arama işlevini tanımlayan *Apim abonelik anahtar Ocp* üstbilgi.
-5. Ayarlama *Apim abonelik anahtar Ocp* üstbilgi. 
-6. Bağlantıyı kurmak ve isteği gönderin.
-7. JSON sonuçlarını yazdırın.
+Aşağıdaki kod URL Önizlemesi oluşturur.
+Aşağıdaki adımları izler:
+1. Ana bilgisayar ve yol ile uç noktayı belirtmek için değişkenleri bildirme.
+2. Önizleme için sorgu URL'sini belirtme ve sorgu parametresini ekleme.  
+3. Sorgu parametresini ayarlama.
+4. İsteği oluşturan ve *Ocp-Apim-Subscription-Key* üst bilgisini ekleyen Search işlevini tanımlama.
+5. *Ocp-Apim-Subscription-Key* üst bilgisini ayarlama. 
+6. Bağlantı kurma ve isteği gönderme.
+7. JSON sonuçlarını yazdırma.
 
-Bu Tanıtım için tam kod aşağıdaki gibidir:
+Bu tanıtımda kullanılan kodun tamamı aşağıda verilmiştir:
 
 ````
 import http.client, urllib.parse
@@ -64,7 +66,7 @@ result = get_preview ()
 print (json.dumps(json.loads(result), indent=4))
 ````
 ## <a name="next-steps"></a>Sonraki adımlar
-- [C# hızlı başlangıç](csharp.md)
-- [Java hızlı başlangıç](java-quickstart.md)
-- [JavaScript hızlı başlangıç](javascript.md)
-- [Düğüm URL Hızlı Başlangıç](node-quickstart.md)
+- [C# hızlı başlangıcı](csharp.md)
+- [Java hızlı başlangıcı](java-quickstart.md)
+- [JavaScript hızlı başlangıcı](javascript.md)
+- [Node URL hızlı başlangıcı](node-quickstart.md)

@@ -1,19 +1,18 @@
 ---
-title: Azure Nesnelerin İnterneti (IoT) Tanıtımı
-description: Azure IoT ve ilgili hizmet ve teknolojilere genel bakış.
-author: BryanLa
-manager: timlt
+title: Azure ve Nesnelerin İnterneti (IoT) Tanıtımı
+description: Azure IoT'ye ve içindeki hizmetlere genel bakış
+author: robinsh
 ms.service: iot-fundamentals
 services: iot-fundamentals
 ms.topic: overview
-ms.date: 05/18/2018
-ms.author: bryanla
-ms.openlocfilehash: ed96181606e2db4102aa609973ade9ecbfde6c90
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.date: 10/09/2018
+ms.author: robinsh
+ms.openlocfilehash: d7e5949be9ea09f94ff6ee86c9f996f2e203eac7
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39187283"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49069446"
 ---
 # <a name="introduction-to-azure-and-the-internet-of-things"></a>Azure ve Nesnelerin İnterneti Tanıtımı
 
@@ -28,10 +27,10 @@ Aşağıdaki diyagram tipik bir IoT çözüm mimarisinin temel öğelerini göst
 * Diğer iş kolu uygulamaları.
 * Pano veya başka bir sunu cihazı üzerinden insan kullanıcılar.
 
-![IOT çözüm mimarisi][img-solution-architecture]
+![IOT çözüm mimarisi](./media/iot-introduction/iot-reference-architecture.png)
 
 > [!NOTE]
-> IoT mimarisinin ayrıntılı incelemesi için bkz. [Microsoft Azure IoT Başvuru Mimarisi][lnk-refarch].
+> IoT mimarisinin ayrıntılı incelemesi için bkz. [Microsoft Azure IoT Başvuru Mimarisi](https://aka.ms/iotrefarchitecture).
 
 ### <a name="device-connectivity"></a>Cihaz bağlantısı
 
@@ -82,8 +81,10 @@ Sunu ve iş bağlantı katmanı son kullanıcıların IoT çözümü ve cihazlar
 
 Azure IoT, IoT projelerinin karmaşıklığını kolaylaştırır ve güvenlik, altyapı uyumsuzluğu ve IoT çözümünüzü ölçeklendirme gibi zorluklara yanıt verir. Nasıl olacağı aşağıda verilmiştir:
 
-**Çevik** <br>
-IoT yolculuğunuza hız kazandırın
+### <a name="agile"></a>Çevik
+
+IoT yolculuğunuza hız kazandırın.
+
 * Ölçek: Küçük bir ölçekle başlayın, dünyanın birçok bölgesinde her zaman her yerde milyonlarca cihaz ve terabaytlarca veriyle istediğiniz boyuta yükseltin.
 
 * Açık: Sahip olduklarınızı kullanın veya istediğiniz cihaza, yazılıma ya da hizmete bağlanarak, gelecek için modernleşme gerçekleştirin.
@@ -92,8 +93,9 @@ IoT yolculuğunuza hız kazandırın
 
 * Hız: Çözüm hızlandırıcıları ve IoT alanındaki yenilik hızı lideri sayesinde daha hızlı dağıtım gerçekleştirin, pazara giriş süresini hızlandırın ve rekabette öne çıkın.
 
-**Kapsamlı** <br>
-İşletmeniz için etki yaratın
+### <a name="comprehensive"></a>Kapsamlı
+
+İşletmeniz için etki yaratın.
 
 * Tam: Microsoft, cihazdan buluta ve büyük verilerden, gelişmiş analize ve yönetilen hizmetlere kadar yayılan eksiksiz bir platform sunan tek IoT çözüm sağlayıcısıdır.
 
@@ -103,8 +105,9 @@ IoT yolculuğunuza hız kazandırın
 
 * Cihaz odaklı: Microsoft IoT, eski ekipmandan çok geniş bir sertifikalı donanım ekosistemine kadar her şeyin bağlantısını oluşturmanıza olanak sağlar ve edge, mobil ve tümleşik sistemlerde kendi cihazlarınızı derleme yeteneği sunar.
 
-**Güvenlik** <br>
-IoT’un en zorlu kısmını oluşturan güvenlik konusunu çözün
+### <a name="secure"></a>Güvenlik
+
+IoT’un en zorlu kısmını oluşturan güvenlik konusunu çözün.
 
 * Güç kazandırma: Microsoft IoT sayesinde, teknoloji, en iyi uygulamalar ve IoT’un en zorlu kısmını oluşturan güvenlik konusunu çözme yetenekleriyle vizyonunuzu bir araya getirebilirsiniz.
 
@@ -116,69 +119,21 @@ IoT’un en zorlu kısmını oluşturan güvenlik konusunu çözün
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Aşağıdaki teknoloji alanlarını ve çözümleri keşfedin veya Azure IoT hizmetlerinin listesi için soldaki İçindekiler Tablosu’na bakın.
+Aşağıdaki teknoloji ve çözüm alanlarını keşfedin.
 
-<ul class="panelContent cardsF">  
-    <li>
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Çözümler</h3>
-                        <a href="/azure/iot-suite">IoT çözüm hızlandırıcıları</a><br/>
-                        <a href="/azure/iot-central">IoT Central</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </li>
-    <li>
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Platform hizmetleri</h3>
-                        <a href="/azure/iot-hub">IoT Hub’ı</a><br/>
-                        <a href="/azure/iot-dps">IoT Hub Cihazı Sağlama Hizmeti</a><br/>
-                        <a href="/azure/azure-maps">Eşlemeler</a><br/>
-                        <a href="/azure/time-series-insights">Time Series Insights</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </li>  
-    <li>
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Edge</h3>
-                        <a href="/azure/iot-edge">IoT Edge</a><br/>
-                        <a href="/azure/iot-edge/how-iot-edge-works">IoT Edge nedir?</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </li>      
-</ul>
+**Çözümler**
 
-[img-paas-saas-technologies-solutions]: media/index/paas-saas-technologies-solutions.png
-[img-solution-architecture]: ./media/iot-introduction/iot-reference-architecture.png
-[img-dashboard]: ./media/iot-introduction/iot-suite.png
+* [IoT çözüm hızlandırıcıları](/azure/iot-suite)
+* [IoT Central](/azure/iot-central)
 
-[lnk-device-sdks]: https://github.com/Azure/azure-iot-sdks
-[lnk-iot-central-land]: https://docs.microsoft.com/microsoft-iot-central/
-[lnk-iot-dps-land]: /azure/iot-dps/index.yml
-[lnk-iot-edge-land]: /azure/iot-edge/index.yml
-[lnk-iot-hub-land]: /azure/iot-hub/index.md
-[lnk-iot-maps-land]: /azure/maps/index.yml
-[lnk-iot-sa-land]: ../iot-accelerators/index.yml
-[lnk-iot-tsi-land]: /azure/time-series-insights/index.yml
+**Platform hizmetleri**
 
-[lnk-iot-hub]: ../iot-hub/about-iot-hub.md
-[lnk-iot-sa]: ../iot-accelerators/about-iot-accelerators.md
-[lnk-machinelearning]: http://azure.microsoft.com/documentation/services/machine-learning/
-[lnk-protocol-gateway]:  ../iot-hub/iot-hub-protocol-gateway.md
-[lnk-refarch]: https://aka.ms/iotrefarchitecture
+* [IoT Hub’ı](/azure/iot-hub)
+* [IoT Hub Cihazı Sağlama Hizmeti](/azure/iot-dps)
+* [Azure Haritalar](/azure/azure-maps/)
+* [Time Series Insights](/azure/time-series-insights)
 
+**Edge**
 
+* [IoT Edge'e Genel Bakış](/azure/iot-edge)
+* [IoT Edge Nedir?](/azure/how-iot-edge-works)

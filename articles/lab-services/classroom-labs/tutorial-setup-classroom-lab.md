@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 07/23/2018
+ms.date: 10/05/2018
 ms.author: spelluru
-ms.openlocfilehash: fe41728b6f08ba767dbcb40d0595b9f7cdc79615
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 6696d6e7e53e98dfab2a65c7c66825936020f33c
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39420208"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48856651"
 ---
 # <a name="tutorial-set-up-a-classroom-lab"></a>Öğretici: Bir sınıf laboratuvarı ayarlama 
 Bu öğreticide, sınıftaki öğrenciler tarafından kullanılan sanal makinelerle bir sınıf laboratuvarı ayarlayacaksınız.  
@@ -40,76 +40,66 @@ Bir laboratuvar hesabında sınıf laboratuvarı ayarlamak için ilgili laboratu
 1. [Azure Lab Services web sitesine](https://labs.azure.com) gidin. 
 2. **Oturum aç**’ı seçip kimlik bilgilerinizi girin. Azure Lab Services, kuruluş hesaplarını ve Microsoft hesaplarını destekler. 
 3. **Yeni Laboratuvar** penceresinde aşağıdaki eylemleri gerçekleştirin: 
-    1. Sınıf laboratuvarı için bir **ad** belirtin. 
-    2. Sınıfta kullanmayı planladığınız sanal makinenin **boyutunu** seçin.
-    3. Sanal makineyi oluşturmak için kullanılacak **görüntüyü** seçin.
-    4. Laboratuvardaki sanal makinelerde oturum açmak için **varsayılan kimlik bilgilerini** belirtin. 
-    7. **Kaydet**’i seçin.
+    1. Laboratuvarınız için bir **ad** belirtin. 
+    2. Laboratuvara katılmasına izin verilen maksimum **kullanıcı sayısını** belirtin. 
+    6. **Kaydet**’i seçin.
 
         ![Sınıf laboratuvarı oluşturma](../media/tutorial-setup-classroom-lab/new-lab-window.png)
-1. Laboratuvar oluşturulduktan sonra **Laboratuvarıma git**'i seçin. 
+4. **Sanal makine özelliklerini seçin** sayfasında aşağıdaki adımları gerçekleştirin:
+    1. Laboratuvarda oluşturulan sanal makineler (VM) için bir **boyut** seçin. 
+    2. VM'lerin oluşturulmasını istediğiniz **bölgeyi** seçin. 
+    3. Laboratuvardaki VM'leri oluşturmak için kullanılacak **VM görüntüsünü** seçin. 
+    4. **İleri**’yi seçin.
 
-    ![Laboratuvarıma git](../media/tutorial-setup-classroom-lab/go-to-my-lab.png)
+        ![VM özellikleri belirtme](../media/tutorial-setup-classroom-lab/select-vm-specifications.png)    
+5. **Kimlik bilgilerini ayarla** sayfasında laboratuvardaki tüm VM'ler için varsayılan kimlik bilgilerini belirtin. 
+    1. Laboratuvardaki tüm VM'ler için **kullanıcı adını** belirtin.
+    2. Kullanıcının **parolasını** belirtin. 
+
+        > [!IMPORTANT]
+        > Kullanıcı adını ve parolayı not edin. Bunlar tekrar gösterilmeyecektir.
+    3. **Oluştur**’u seçin. 
+
+        ![Kimlik bilgilerini ayarlama](../media/tutorial-setup-classroom-lab/set-credentials.png)
+6. **Şablonu yapılandır** sayfasında laboratuvar oluşturma işleminin durumunu görebilirsiniz. Laboratuvar şablonunun oluşturulması 20 dakika sürebilir. 
+
+    ![Şablonu yapılandır](../media/tutorial-setup-classroom-lab/configure-template.png)
+7. Şablon yapılandırma işlemleri tamamlandıktan sonra şu sayfayı görürsünüz: 
+
+    ![Tamamlanmış şablon yapılandırma sayfası](../media/tutorial-setup-classroom-lab/configure-template-after-complete.png)
+8. Bu öğreticide aşağıdaki adımlar isteğe bağlıdır: 
+    1. **Başlat**'ı seçerek şablon VM'sini başlatın.
+    2. **Bağlan**'ı seçerek şablon VM'sine bağlanın. 
+    3. Şablon VM'sinde yazılım yükleme ve yapılandırma işlemlerini gerçekleştirin. 
+    4. VM'yi **durdurun**.  
+    5. Şablon için bir **açıklama** girin
+
+        ![Şablon yapılandırma sayfasında İleri](../media/tutorial-setup-classroom-lab/configure-template-next.png)
+9. Şablon sayfasında **İleri**'yi seçin. 
+10. **Şablonu yayımla** sayfasında aşağıdaki işlemleri gerçekleştirin. 
+    1. Şablonu hemen yayımlamak için *Şablonu yayımladıktan sonra değiştiremeyeceğimi anlıyorum. Bu işlem yalnızca bir kez gerçekleştirilebilir ve bir saat sürebilir* onay kutusunu işaretleyip **Yayımla**'yı seçin.  
+
+        > [!WARNING]
+        > Yayımlama işlemini geri alamazsınız. 
+    2. Daha sonra yayımlamak istiyorsanız **Sonrası için kaydet**'i seçin. Şablon VM'sini sihirbaz tamamlandıktan sonra yayımlayabilirsiniz. Sihirbaz tamamlandıktan sonra yapılandırma ve yayımlama adımları için [Sınıf laboratuvarlarını yönetme](how-to-manage-classroom-labs.md) makalesindeki [Şablonu yayımlama](how-to-manage-classroom-labs.md#publish-the-template) bölümüne bakın.
+
+        ![Şablonu yayımlama](../media/tutorial-setup-classroom-lab/publish-template.png)
+11. Şablonun **yayımlama ilerleme durumunu** görürsünüz. Bu işlemin tamamlanması bir saat sürebilir. 
+
+    ![Şablonu yayımlama - ilerleme](../media/tutorial-setup-classroom-lab/publish-template-progress.png)
+12. Şablon başarıyla yayımlandığında aşağıdaki sayfayı görürsünüz. **Done** (Bitti) öğesini seçin.
+
+    ![Şablonu yayımlama - başarılı](../media/tutorial-setup-classroom-lab/publish-success.png)
 1. Laboratuvar **panosunu** görürsünüz. 
     
     ![Sınıf laboratuvarı panosu](../media/tutorial-setup-classroom-lab/classroom-lab-home-page.png)
-
-## <a name="configure-usage-policy"></a>Kullanım ilkesini yapılandırma
-
-1. **Kullanım ilkesi**’ni seçin. 
-2. **Kullanım ilkesi**, ayarlar bölümüne, laboratuvarı kullanmasına izin verilen **kullanıcı sayısını** girin.
-3. **Kaydet**’i seçin. 
-
-    ![Kullanım ilkesi](../media/tutorial-setup-classroom-lab/usage-policy-settings.png)
-
-
-## <a name="set-up-the-template"></a>Şablonu ayarlama 
-Laboratuvardaki şablon, tüm kullanıcıların sanal makinelerinin oluşturulduğu bir temel sanal makine görüntüsüdür. Şablon sanal makinesini, tam olarak laboratuvar kullanıcılarına sağlamak istediklerinizle yapılandırılacak şekilde ayarlayın. Laboratuvar kullanıcılarının görebileceği bir ad ve açıklama belirtebilirsiniz. Şablon sanal makinesinin laboratuvar kullanıcılarınız tarafından kullanılabilmesi için şablonu yayımlayın. 
-
-### <a name="set-title-and-description"></a>Başlık ve açıklama ayarlama
-1. **Şablon** bölümünde, şablon için **Düzenle**’yi (kalem simgesi) seçin. 
-2. **Kullanıcı görünümü** penceresinde, şablon için bir **başlık** girin.
-3. Şablon için **açıklama** girin.
-4. **Kaydet**’i seçin.
-
-    ![Sınıf laboratuvarı açıklaması](../media/tutorial-setup-classroom-lab/lab-description.png)
-
-### <a name="set-up-the-template-vm"></a>Şablon VM'yi ayarlama
- Şablon VM'yi öğrencilerinizin kullanımına sunmadan önce bağlanıp gerekli yazılımları yüklemeniz gerekir. 
-
-1. Şablon sanal makine hazır olana kadar bekleyin. Hazır olduktan sonra **Başlat** düğmesinin etkinleştirilmesi gerekir. VM'yi başlatmak için **Başlat**'ı seçin.
-
-    ![Şablon VM'yi başlatma](../media/tutorial-setup-classroom-lab/start-template-vm.png)
-1. VM'ye bağlanmak için **Bağlan**'ı seçip yönergeleri izleyin. 
-
-    ![Şablon VM'ye bağlanma](../media/tutorial-setup-classroom-lab/connect-template-vm.png)
-1. Öğrencilerinizin laboratuvarda ihtiyaç duyacağı uygulamaları (Visual Studio, Azure Depolama Gezgini gibi) yükleyin. 
-2. Şablon VM bağlantısını kesin (uzak masaüstü oturumunuzu kapatın). 
-3. **Durdur**'u seçerek şablon VM'yi **durdurun**. 
-
-    ![Şablon VM'yi durdurma](../media/tutorial-setup-classroom-lab/stop-template-vm.png)
-
-### <a name="publish-the-template"></a>Şablonu yayımlama 
-Bir şablonu yayımladığınızda Azure Lab Services, şablonu kullanarak laboratuvarda sanal makineler oluşturur. Bu işlemde oluşturulan sanal makine sayısı, laboratuvarda izin verilen maksimum kullanıcı sayısıyla aynıdır. Laboratuvarın kullanım ilkesinde bu maksimum değeri ayarlayabilirsiniz. Tüm sanal makineler, şablonla aynı yapılandırmaya sahiptir. 
-
-1. **Şablon** bölümünden **Yayımla**'yı seçin. 
-
-    ![Şablon VM'yi yayımlama](../media/tutorial-setup-classroom-lab/public-access.png)
-1. **Yayımla** penceresinde **Yayımlanmış** seçeneğini belirleyin. 
-2. Şimdi **Yayımla** düğmesini seçin. Bu işlemin süresi oluşturulan VM sayısına (laboratuvara katılan kullanıcı sayısıyla aynıdır) bağlı olarak değişebilir.
-    
-    > [!IMPORTANT]
-    > Şablon yayımlama işlemi geri alınamaz. 
-4. **Sanal makineler** sayfasına geçin ve **Atanmamış** durumundaki sanal makineleri gördüğünüzü doğrulayın. Bu VM’ler henüz bir öğrenciye atanmamıştır. 
-
-    ![Sanal makineler](../media/tutorial-setup-classroom-lab/virtual-machines.png)
-5. VM'ler oluşturulana kadar bekleyin. Bu makinelerin durumu **Durduruldu** olmalıdır. Bu sayfadan bir öğrenci VM'sini başlatabilir, VM'ye bağlanabilir, VM'yi durdurabilir ve VM'yi silebilirsiniz. VM'leri bu sayfadan başlatabilir veya öğrencilerinizin başlatmasını sağlayabilirsiniz. 
+4. **Sanal makineler** sayfasına geçin ve **Atanmamış** durumundaki sanal makineleri gördüğünüzü doğrulayın. Bu VM’ler henüz bir öğrenciye atanmamıştır. Bu makinelerin durumu **Durduruldu** olmalıdır. Bu sayfadan bir öğrenci VM'sini başlatabilir, VM'ye bağlanabilir, VM'yi durdurabilir ve VM'yi silebilirsiniz. VM'leri bu sayfadan başlatabilir veya öğrencilerinizin başlatmasını sağlayabilirsiniz. 
 
     ![Durdurulmuş durumdaki sanal makineler](../media/tutorial-setup-classroom-lab/virtual-machines-stopped.png)
 
 ## <a name="send-registration-link-to-students"></a>Öğrencilere kayıt bağlantısı gönderme
 
-1. **Pano** görünümüne geçin. 
+1. Soldaki menüden **Pano**'yu seçerek **Pano** görünümüne geçin. 
 2. **Kullanıcı kaydı** kutucuğunu seçin.
 
     ![Öğrenci kaydı bağlantısı](../media/tutorial-setup-classroom-lab/dashboard-user-registration-link.png)
@@ -117,6 +107,7 @@ Bir şablonu yayımladığınızda Azure Lab Services, şablonu kullanarak labor
 
     ![Öğrenci kaydı bağlantısı](../media/tutorial-setup-classroom-lab/registration-link.png)
 2. **Kullanıcı kaydı** iletişim kutusunda **Kapat**'ı seçin. 
+3. Kayıt bağlantısını sınıfa kaydolmasını istediğiniz öğrencilerle paylaşın. 
 
 
 ## <a name="next-steps"></a>Sonraki adımlar

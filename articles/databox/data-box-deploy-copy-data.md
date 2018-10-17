@@ -12,14 +12,14 @@ ms.devlang: NA
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/25/2018
+ms.date: 10/10/2018
 ms.author: alkohli
-ms.openlocfilehash: 9bc84a9b08c4cfbdf7f24416c923e0dbd7076556
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: d606b7b536147b7e1d96bfb6cebf2522e5b4f85f
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47161939"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49078874"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box"></a>Öğretici: Azure Data Box'a veri kopyalama 
 
@@ -88,11 +88,11 @@ Windows Server ana bilgisayarı kullanıyorsanız Data Box'a bağlanmak için a�
     The command completed successfully.
     ```
 
-4. Windows + R tuşlarına basın. **Çalıştır** penceresinde `\\<device IP address>` değerini belirtin. **Tamam** düğmesine tıklayın. Dosya Gezgini açılır.
+4. Windows + R tuşlarına basın. **Çalıştır** penceresinde `\\<device IP address>` değerini belirtin. **Tamam** düğmesine tıklayın. Dosya Gezgini açılır. Artık paylaşımları klasörler olarak görebiliyor olmalısınız.
     
     ![Paylaşıma Dosya Gezgini ile bağlanma 2](media/data-box-deploy-copy-data/connect-shares-file-explorer1.png)
 
-5. Artık paylaşımları klasörler olarak görebiliyor olmalısınız. Kopyalamak istediğiniz dosyalar için bir klasör oluşturun (bu örnekte şablonlar). Bazen klasörlerde gri renkli çarpı işareti görünebilir. Bu çarpı işareti hata anlamına gelmez. Klasörler uygulama tarafından durum takibi amacıyla işaretlenir.
+5.  **Her zaman kopyalamayı düşündüğünüz dosyalar için paylaşımda bir klasör oluşturun ve ardından dosyaları bu klasöre kopyalayın**. Bazen klasörlerde gri renkli çarpı işareti görünebilir. Bu çarpı işareti hata anlamına gelmez. Klasörler uygulama tarafından durum takibi amacıyla işaretlenir.
     
     ![Paylaşıma Dosya Gezgini ile bağlanma 2](media/data-box-deploy-copy-data/connect-shares-file-explorer2.png) ![Paylaşıma Dosya Gezgini ile bağlanma 2](media/data-box-deploy-copy-data/connect-shares-file-explorer2.png) 
 
@@ -239,11 +239,14 @@ Linux ana bilgisayar kullanıyorsanız Robocopy ile benzer bir kopyalama yardım
 
  - Linux istemcinizde kullanılan dosya sistemine bağlı olarak **CIFS Utils** veya **NFS Utils** paketini yükleyebilirsiniz.
 
-    `sudo apt-get install cifs-utils` `sudo apt-get install nfs-utils`
+    `sudo apt-get install cifs-utils`
+
+    `sudo apt-get install nfs-utils`
 
  -  **Rsync** ve **Parallel** uygulamalarını yükleyin (Linux dağıtımınıza göre değişir).
 
     `sudo apt-get install rsync`
+   
     `sudo apt-get install parallel` 
 
  - Bağlama noktası oluşturun.

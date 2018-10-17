@@ -10,12 +10,12 @@ ms.component: video-indexer
 ms.topic: sample
 ms.date: 09/15/2018
 ms.author: juliako
-ms.openlocfilehash: e84411535b82b3e4861b529f490bdde0eb25fd42
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: f3889d1cddce92cbdd3049d4421bfdffc69da41e
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45983893"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48884314"
 ---
 # <a name="example-upload-and-index-your-videos"></a>Örnek: Videolarınızı karşıya yükleme ve dizinleme  
 
@@ -36,6 +36,11 @@ Makalede ayrıca API’ye ait süreci ve çıktıyı değiştirmek için API’d
 - Videonuzu URL’ye dayalı olarak karşıya yüklerken (tercih edilir) uç noktanın güvenliği TLS 1.2 (veya üzeri) ile sağlanmalıdır
 - Bayt dizisi seçeneği 2 GB ile sınırlıdır ve 30 dakikanın ardından zaman aşımına uğrar
 - `videoURL` parametresinde sağlanan URL kodlanmış olmalıdır
+
+> [!Tip]
+> .NET Framework 4.6.2 veya üzeri bir sürümünü kullanmanız önerilir. Eski .NET Framework sürümlerinde varsayılan olarak TLS 1.2 ayarı kullanılmaz.
+>
+> Eski .NET Framework sürümlerini kullanmanız gerekirse kodunuzda REST API çağrısı öncesine bir satır ekleyin:  <br/> System.Net.ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls12;
 
 ## <a name="configurations-and-params"></a>Yapılandırmalar ve parametreler
 
@@ -243,8 +248,14 @@ public class AccountContractSlim
     public string AccessToken { get; set; }
 }
 ```
+## <a name="common-errors"></a>Sık karşılaşılan hatalar
 
+Upload işlemi aşağıdaki tabloda listelenen durum kodlarını döndürebilir.
 
+|Durum kodu|ErrorType (yanıt gövdesinde)|Açıklama|
+|---|---|---|
+|400|VIDEO_ALREADY_IN_PROGRESS|Bu video zaten aynı hesapta işleniyor.|
+|400|VIDEO_ALREADY_FAILED|Bu videonun işlenmesi 2 saatten daha kısa bir süre önce aynı hesapta başarısız oldu. API istemcilerin videoyu yeniden yüklemek için en az 2 saat beklemesi gerekir.|
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

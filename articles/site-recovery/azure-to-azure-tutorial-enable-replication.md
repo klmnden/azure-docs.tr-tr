@@ -6,15 +6,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 07/06/2018
+ms.date: 10/10/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 4638b697dcaa0d4c11bae1878a94f76f6237d4a4
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: 0404774f1cb347ceead8b78d1a9a6506712dea5c
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42154790"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49069106"
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms-to-a-secondary-azure-region"></a>Azure VM’leri için ikincil Azure bölgesine olağanüstü durum kurtarma ayarlama
 
@@ -169,6 +169,19 @@ Varsayılan çoğaltma ilkesi ayarlarını geçersiz kılmak için **Çoğalta i
 
 > [!IMPORTANT]
   Çoklu VM tutarlılığını etkinleştirirseniz çoğaltma grubundaki makineler birbiriyle 20004 numaralı bağlantı noktası üzerinden iletişim kurar. VM’ler arasında 20004 numaralı bağlantı noktası üzerinden gerçekleştirilen iç iletişimi engelleyen bir güvenlik duvarı gereci olmadığından emin olun. Linux VM’lerinin çoğaltma grubunun bir parçası olmasını istiyorsanız, 20004 numaralı bağlantı noktası üzerinden giden trafiğin, belirli Linux sürümünün kılavuzuna göre el ile açıldığından emin olun.
+
+### <a name="configure-encryption-settings"></a>Şifreleme ayarlarını yapılandırma
+
+Kaynak sanal makinede Azure disk şifrelemesi (ADE) etkinse aşağıdaki şifreleme ayarları görünür.
+
+- **Disk şifrelemesi anahtar kasaları**: Azure Site Recovery varsayılan olarak hedef bölgede kaynak VM disk şifrelemesi anahtarlarını temel alan "asr" son ekine sahip yeni bir anahtar kasası oluşturur. Azure Site Recovery tarafından oluşturulmuş bir anahtar kasası varsa yeniden kullanılır.
+- **Anahtar şifreleme anahtar kasaları**: Azure Site Recovery varsayılan olarak hedef bölgede kaynak VM anahtar şifreleme anahtarlarını temel alan "asr" son ekine sahip yeni bir anahtar kasası oluşturur. Azure Site Recovery tarafından oluşturulmuş bir anahtar kasası varsa yeniden kullanılır.
+
+Varsayılan ayarları geçersiz kılmak ve özel anahtar kasası seçmek için şifreleme anahtarlarının yanındaki 'Özelleştir'e tıklayın.
+
+>[!NOTE]
+>Azure Site Recovery şu an için yalnızca Windows işletim sistemini kullanan ve [Azure AD uygulamasıyla şifreleme için etkinleştirilmiş olan](https://aka.ms/ade-aad-app) Azure VM'lerini desteklemektedir.
+>
 
 ### <a name="track-replication-status"></a>Çoğaltma durumunu izleme
 

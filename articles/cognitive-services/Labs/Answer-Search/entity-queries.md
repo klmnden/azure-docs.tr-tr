@@ -1,38 +1,38 @@
 ---
-title: 'Hızlı Başlangıç: Proje yanıt arama varlık sorgusu'
+title: 'Hızlı başlangıç: Yanıt Arama Projesi Varlık sorgusu'
 titlesuffix: Azure Cognitive Services
-description: Sorguları kullanarak proje yanıt arama varlıkları için
+description: Yanıt Arama Projesindeki Varlık sorguları
 services: cognitive-services
 author: mikedodaro
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: project-answer-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 04/16/2018
 ms.author: rosh
-ms.openlocfilehash: efb46fc7064bcad69b5ea84f9bdfe923d95ccbe6
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
-ms.translationtype: MT
+ms.openlocfilehash: 0845f491772b905599bb60e8ec555d14b6d6b15f
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48867587"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48883610"
 ---
-# <a name="quickstart-query-for-entities"></a>Hızlı Başlangıç: Varlıklar sorgu
+# <a name="quickstart-query-for-entities"></a>Hızlı başlangıç: Varlık sorguları
 
-Sorgu bir kişi, yer veya şey hakkında bilgi isterse, yanıt içerebilir bir `entities` yanıt.  Sorguları, Web sayfaları, her zaman döndürür [gerçekleri](fact-queries.md) ve/veya [varlıkları](entity-queries.md) sorgu bağımlıdır.
+Sorguda bir kişi, yer veya nesne bilgisi istenmesi durumunda yanıtta `entities` bulunabilir.  Sorgular her zaman web sayfası döndürür ve [olgular](fact-queries.md) ve/veya [varlıklar](entity-queries.md) sorguya bağlı olarak değişir.
 
-Varlıkları üç sorgu senaryoları destekler: 
--   DominantEntity — kullanıcının sorgu ve amacını eşleşen tek bir varlık yok. Örneğin, sorgu alanı iğne DominantEntity senaryodur. 
--   Kesinleştirme — kullanıcının sorgu ve amacını eşleşen birden fazla varlık ve doğru varlık seçmek için en fazla kullanıcı olduğu. Örneğin, sorgu, oyun Thrones televizyon programını ve kitap serisi döndüren Kesinleştirme senaryodur. 
--   Liste — kullanıcının sorgu ve amacını eşleşen birden çok varlık vardır. Örneğin, "Endangered türler listesi" sorgu görüntülenmek üzere satırların ve hücrelerin biçimlendirilmiş tablosal değerleri döndürür bir liste senaryodur. 
+Varlıklar üç sorgu senaryosunu destekler: 
+-   DominantEntity: Kullanıcının sorgusu ve amacıyla eşleşen tek bir varlık vardır. Örneğin Space Needle sorgusu bir DominantEntity senaryosudur. 
+-   Disambiguation: Kullanıcının sorgusu ve amacıyla eşleşen birden fazla varlık vardır ve doğru varlığı kullanıcının seçmesi gerekir. Örneğin Game of Thrones sorgusu bir Disambiguation senaryosudur ve hem dizi hem de kitap döndürülür. 
+-   List: Kullanıcının sorgusu ve amacıyla eşleşen birçok varlık vardır. Örneğin "List of endangered species" sorgusu bir List senaryosudur, satırlar ve hücreler halinde görüntülenmesi için biçimlendirilmiş tablosal değerler döndürür. 
  
-Sorgu senaryo belirlemek için `queryScenario` alanını `entities` nesne. Varlık içeren verileri varlığın türüne bağlıdır. Varlıkları aynı temel bilgileri içerse de, bazı varlıklar turistik yerleri veya books gibi ek özellikleri içerir. Ek özellikler içeren varlıklar dahil `_type` seri hale getirici tarafından kullanılan bir ipucu içeren alan. Aşağıdaki varlıkların ek özellikler şunlardır: 
--   Rehberi 
+Sorgu senaryosunu belirlemek için `entities` nesnesinin `queryScenario` alanını kullanın. Varlığın içerdiği veriler varlık türüne göre değişir. Varlıklar aynı temel bilgileri içeriyor olsa da turistik yerler veya kitaplar gibi bazı varlıklarda ek özellikler bulunabilir. Ek özellik içeren varlıklarda seri hale getirici tarafından kullanılan bir ipucu içeren `_type` alanı bulunur. Aşağıdaki varlıklar ek özelliklere sahiptir: 
+-   Book 
 -   MusicRecording 
 -   Kişi 
--   Çekim 
+-   Attraction 
  
-Yanıtı içeren varlık türünü belirlemek için `entityTypeHints` sorguda Bill Gates'le için gösterildiği gibi alan.
+Yanıtın içeriği varlık türünü belirlemek için Bill Gates sorgusunda gösterildiği gibi `entityTypeHints` alanını kullanın.
 ````
         },
         "description": "Bill Gates is an American business man and philanthropist, co-founder of Microsoft",
@@ -45,11 +45,11 @@ Yanıtı içeren varlık türünü belirlemek için `entityTypeHints` sorguda Bi
         "bingId": "6d7d66a7-2cb8-0ae9-637c-f81fd749dc9a"
       }
 ````
-İğne alanı için bir sorgu verilmiştir:
+Aşağıda Space Needle sorgusu gösterilmiştir:
 ````
 https://api.labs.cognitive.microsoft.com/answerSearch/v7.0/search?q=space+needle&mkt=en-us
 ````
-Yanıt içeriyor `entities` yanıt. Not `entityScenario` ve `entityTypeHints` alanları. 
+Yanıt `entities` bilgisini içerir. `entityScenario` ve `entityTypeHints` alanlarına dikkat edin. 
 ````
   "entities": {
     "value": [
@@ -110,16 +110,16 @@ Yanıt içeriyor `entities` yanıt. Not `entityScenario` ve `entityTypeHints` al
   },
 ````
 
-İlgili ise bir sorgu listesini döndürebilir.
+Sorgu ilgiliyse bir liste döndürebilir.
 
-**Sorgu:** aşağıdaki sorgu endangered türler listesini bulur:
+**Sorgu:** Aşağıdaki sorgu nesli tükenmekte olan türlerin listesini bulur:
 
 ````
 https://api.labs.cognitive.microsoft.com/answerSearch/v7.0/search?q=list+of+endangered+species
 
 ````
 
-**Yanıt:** yanıt görüntülenmek üzere tablo değerleri olarak biçimlendirilmiş bir listesini içerir:
+**Yanıt:** Yanıtta görüntülenmek üzere biçimlendirilmiş tablosal veriler bulunur:
 ````
   "facts": {
     "id": "https://www.bingapis.com/api/v7/#Facts",
@@ -221,7 +221,7 @@ https://api.labs.cognitive.microsoft.com/answerSearch/v7.0/search?q=list+of+enda
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-- [C# hızlı başlangıç](c-sharp-quickstart.md)
-- [Java hızlı başlangıç](java-quickstart.md)
-- [Düğüm hızlı başlangıç](node-quickstart.md)
-- [Python hızlı başlangıç](python-quickstart.md)
+- [C# hızlı başlangıcı](c-sharp-quickstart.md)
+- [Java hızlı başlangıcı](java-quickstart.md)
+- [Node hızlı başlangıcı](node-quickstart.md)
+- [Python hızlı başlangıcı](python-quickstart.md)

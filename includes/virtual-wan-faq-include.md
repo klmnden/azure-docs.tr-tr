@@ -5,15 +5,15 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: include
-ms.date: 09/10/2018
+ms.date: 10/05/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: de744a4a23b246223ed0f42f3d079b1ac2e5521a
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 761b68ca99df8ae5b4d379b95e7d2a300f7e6238
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47008846"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48874121"
 ---
 ### <a name="what-is-the-difference-between-an-azure-virtual-network-gateway-vpn-gateway-and-an-azure-virtual-wan-vpngateway"></a>Azure sanal ağ geçidi (VPN Gateway) ile Azure Sanal WAN vpngateway arasında ne fark vardır?
 
@@ -21,7 +21,11 @@ Sanal WAN geniş ölçekli Siteden Siteye bağlantı sağlar; aktarım hızı, �
 
 ### <a name="which-device-providers-virtual-wan-partners-are-supported-at-launch-time"></a>Başlangıçta hangi cihaz sağlayıcıları (Sanal WAN iş ortakları) desteklenir? 
 
-Şu anda, Citrix ve Riverbed tümüyle otomatik Sanal WAN deneyimini desteklemektedir. Daha fazla bilgi için bkz. [Sanal WAN iş ortakları](https://go.microsoft.com/fwlink/p/?linkid=2019615).
+Şu anda birçok iş ortağı tümüyle otomatik Sanal WAN deneyimini desteklemektedir. Daha fazla bilgi için bkz. [Sanal WAN iş ortakları](https://go.microsoft.com/fwlink/p/?linkid=2019615). 
+
+### <a name="what-are-the-virtual-wan-partner-automation-steps"></a>Sanal WAN iş ortağı otomasyonu adımları nedir?
+
+İş ortağı otomasyonu adımları için bkz. [Sanal WAN iş ortağı otomasyonu](../articles/virtual-wan/virtual-wan-configure-automation-providers.md).
 
 ### <a name="am-i-required-to-use-a-preferred-partner-device"></a>Tercih edilen bir iş ortağı cihazını kullanmam gerekiyor mu?
 
@@ -41,7 +45,7 @@ Evet, Sanal WAN yeni Resource Manager kaynakları getirir. Daha fazla bilgi içi
 
 ### <a name="how-many-vpn-devices-can-connect-to-a-single-hub"></a>Tek bir Hub’a kaç adet VPN cihazı bağlanabilir?
 
-Sanal hub başına en çok 100 bağlantı desteklenir. Her bağlantı, etkin-etkin yapılandırmasına sahip iki tünelden oluşur. Tüneller bir Azure Sanal Hub vpngateway'de sonlandırılır.
+Sanal hub başına en çok 1000 bağlantı desteklenir. Her bağlantı, etkin-etkin yapılandırmasına sahip iki tünelden oluşur. Tüneller bir Azure Sanal Hub vpngateway'de sonlandırılır.
 
 ### <a name="can-the-on-premises-vpn-device-connect-to-multiple-hubs"></a>Şirket içi VPN cihazı birden çok Hub’a bağlanabilir mi?
 
@@ -66,7 +70,6 @@ Hayır. NVA sanal ağı sanal hub'a bağlıysa, bunun sanal ağ geçidi olamaz.
 ### <a name="is-there-support-for-bgp"></a>BGP için destek var mı?
 
 Evet, BGP desteklenir. NVA sanal ağından gelen yolların düzgün tanıtıldığından emin olmak için, NVA sanal ağına ve dolayısıyla da bir sanal hub'a bağlı olan uçların BGP'yi devre dışı bırakması gerekir. Ek olarak uç VNet yollarının şirket içi sistemlere yayıldığından emin olmak için uç VNetlerini sanal hub’a bağlayın.
-Sanal hub'da UDR kullanarak trafiği yönlendirebilir miyim?
 
 ### <a name="can-i-direct-traffic-using-udr-in-the-virtual-hub"></a>Sanal hub'da UDR kullanarak trafiği yönlendirebilir miyim?
 
@@ -94,7 +97,7 @@ Evet.
 
 ### <a name="how-is-virtual-wan-different-from-the-existing-azure-virtual-network-gateway"></a>Sanal WAN, mevcut Azure Sanal Ağ’dan nasıl farklıdır?
 
-Sanal Ağ Geçidi VPN’i 30 tünelle sınırlıdır. Bağlantılar için, büyük ölçekli VPN’lere yönelik Sanal WAN kullanmanız gerekir. Hub’da 2 Gbps ile en fazla 100 dal bağlantısı bağlayabilirsiniz. Bağlantı şirket içi VPN cihazından sanal hub’a giden bir etkin-etkin tüneldir. Bölge başına bir hub’ınız olabilir. Yani hub’lar arasında 100’den fazla dal bağlayabilirsiniz.
+Sanal Ağ Geçidi VPN’i 30 tünelle sınırlıdır. Bağlantılar için, büyük ölçekli VPN’lere yönelik Sanal WAN kullanmanız gerekir. Orta Batı ABD bölgesi dışındaki tüm bölgelerde hub'da 2 Gb/sn hıza sahip 1000 dal bağlantısı kurabilirsiniz. Orta Batı ABD bölgesinde 20 Gb/sn hızdan faydalanabilirsiniz. 20 Gb/sn desteğini ileride başka bölgelerde de kullanıma sunacağız. Bağlantı şirket içi VPN cihazından sanal hub’a giden bir etkin-etkin tüneldir. Bölge başına bir hub’ınız olabilir. Yani hub’lar arasında 1000’den fazla dal bağlayabilirsiniz.
 
 ### <a name="does-this-virtual-wan-require-expressroute-from-each-site"></a>Bu Sanal WAN her siteden ExpressRoute alınmasını gerektirir mi?
 
@@ -102,7 +105,7 @@ Hayır, Sanal WAN her siteden ExpressRoute alınmasını gerektirmez. Cihazdan A
 
 ### <a name="is-there-a-network-throughput-limit-when-using-azure-virtual-wan"></a>Azure Sanal WAN kullanırken bir ağ aktarım hızı sınırı var mı?
 
-Dal sayısı merkez/bölge başına 100 bağlantı ve merkezde toplam 2 G ile sınırlıdır.
+Dal sayısı merkez/bölge başına 1000 bağlantı ve merkezde toplam 2 G ile sınırlıdır. Yalnızca Orta Batı ABD bölgesi toplam 20 GB/sn hız sunmaktadır. 20 Gb/sn hızı ileride daha fazla bölgede sunuyor olacağız.
 
 ### <a name="does-virtual-wan-allow-the-on-premises-device-to-utilize-multiple-isps-in-parallel-or-is-it-always-a-single-vpn-tunnel"></a>Sanal WAN, şirket içi cihazın paralel olarak birden fazla ISS’den yararlanmasına izin verir mi, yoksa her zaman tek bir VPN tüneli mi var?
 
@@ -110,7 +113,7 @@ Evet, dal cihazına bağlı olarak tek bir daldan etkin-etkin tünelleriniz (2 t
 
 ### <a name="how-is-traffic-routed-on-the-azure-backbone"></a>Azure temelinde trafik nasıl yönlendirilir?
 
-Trafik şu düzeni izler: dal cihazı ->ISS->Microsoft Edge->Microsoft DC->Microsoft Edge->ISS->dal cihazı.
+Trafik şu düzeni izler: dal cihazı ->ISS->Microsoft Edge->Microsoft DC->Microsoft Edge->ISS->dal cihazı
 
 ### <a name="in-this-model-what-do-you-need-at-each-site-just-an-internet-connection"></a>Bu modelde her sitede neye ihtiyacınız var? Yalnızca interneti bağlantısına mı?
 

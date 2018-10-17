@@ -1,20 +1,19 @@
 ---
-title: Hızlı Başlangıç - Azure Kubernetes küme portalı hızlı başlangıcı
-description: Azure portalı ile AKS'de Linux kapsayıcıları için Kubernetes kümesi oluşturmayı hızlı bir şekilde öğrenin.
+title: Hızlı başlangıç - Portalda Azure Kubernetes Service kümesi oluşturma
+description: Azure portalı kullanarak hızlıca bir Azure Kubernetes Service (AKS) kümesi oluşturup ardından bir uygulama dağıtmayı ve izlemeyi öğrenin.
 services: container-service
 author: iainfoulds
-manager: jeconnoc
 ms.service: container-service
 ms.topic: quickstart
-ms.date: 07/27/2018
+ms.date: 09/24/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: aceddc2594065c9c36f8dbf63fce2ad03577a383
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 5d70f00294b1f08d2cc4cede6575efd3149599dd
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39443376"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49067473"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster"></a>Hızlı Başlangıç: Azure Kubernetes Hizmeti (AKS) kümesini dağıtma
 
@@ -40,15 +39,13 @@ AKS kümesi oluşturmak için aşağıdaki adımları tamamlayın:
     - *ÖLÇEK*: AKS düğümleri için bir sanal makine boyutu seçin. AKS kümesi dağıtıldıktan sonra, sanal makine boyutu **değiştirilemez**.
         - Kümeye dağıtılacak düğüm sayısını seçin. Bu hızlı başlangıç **Düğüm sayısı** değerini *1* olarak belirleyin. Küme dağıtıldıktan sonra düğüm sayısı **ayarlanabilir**.
     
-    ![AKS kümesi oluşturma - temel bilgileri sağlama](media/kubernetes-walkthrough-portal/create-cluster-1.png)
+    ![AKS kümesi oluşturma - temel bilgileri sağlama](media/kubernetes-walkthrough-portal/create-cluster-basics.png)
 
     Tamamladığınızda **İleri: Kimlik doğrulaması**'nı seçin.
 
 1. **Kimlik Doğrulaması**: Aşağıdaki seçenekleri yapılandırın:
     - Yeni bir hizmet sorumlusu oluşturun veya *Yapılandır* seçeneğiyle mevcut bir hizmet sorumlusunu kullanın. Mevcut bir SPN kullanırken, SPN istemci kimliğini ve gizli dizisini sağlamanız gerekir.
     - Kubernetes rol tabanlı erişim denetimleri (RBAC) seçeneğini etkinleştirin. Bu denetimler AKS kümenize dağıtılmış olan Kubernetes kaynakları üzerinde daha ayrıntılı denetim sunar.
-
-    ![AKS kümesi oluşturma - kimlik doğrulamasını yapılandırma](media/kubernetes-walkthrough-portal/create-cluster-2.png)
 
     Tamamlandığında, **Sonraki: Ağ** seçeneğini belirleyin.
 
@@ -59,7 +56,7 @@ AKS kümesi oluşturmak için aşağıdaki adımları tamamlayın:
     
     Tamamlandığında, **Sonraki: Ağ** seçeneğini belirleyin.
 
-1. AKS kümesi dağıtılırken Azure Container Insights, AKS kümesinin ve kümede çalıştırılan pod’ların durumunu izlemek için yapılandırılabilir. Küme durumu izleme hakkında daha fazla bilgi için bkz. [Azure Kubernetes Hizmeti durumunu izleme][aks-monitor].
+1. AKS kümesi dağıtılırken kapsayıcılar için Azure İzleyici, AKS kümesinin ve kümede çalıştırılan pod’ların durumunu izlemek için yapılandırılabilir. Küme durumu izleme hakkında daha fazla bilgi için bkz. [Azure Kubernetes Hizmeti durumunu izleme][aks-monitor].
 
     **Evet**’i seçerek kapsayıcı izlemeyi etkinleştirin ve mevcut bir Log Analytics çalışma alanı seçin veya yenisini oluşturun.
     
@@ -93,7 +90,7 @@ Aşağıdaki örnekte önceki adımlarda oluşturulan tek düğüm gösterilmiş
 
 ```
 NAME                       STATUS    ROLES     AGE       VERSION
-aks-agentpool-14693408-0   Ready     agent     10m       v1.10.5
+aks-agentpool-14693408-0   Ready     agent     10m       v1.11.2
 ```
 
 ## <a name="run-the-application"></a>Uygulamayı çalıştırma
@@ -117,6 +114,13 @@ spec:
       containers:
       - name: azure-vote-back
         image: redis
+        resources:
+          requests:
+            cpu: 100m
+            memory: 128Mi
+          limits:
+            cpu: 250m
+            memory: 256Mi
         ports:
         - containerPort: 6379
           name: redis
@@ -145,6 +149,13 @@ spec:
       containers:
       - name: azure-vote-front
         image: microsoft/azure-vote-front:v1
+        resources:
+          requests:
+            cpu: 100m
+            memory: 128Mi
+          limits:
+            cpu: 250m
+            memory: 256Mi
         ports:
         - containerPort: 80
         env:
@@ -209,13 +220,20 @@ Azure Vote uygulamanızı görmek için aşağıdaki örnekte gösterildiği gib
 
 Kapsayıcı içgörüleri izleme özelliği kümeyi oluşturduğunuzda etkinleştirilmiştir. Bu izleme özelliği hem AKS kümesi hem de kümede çalışan pod'lar için sistem durumu ölçümleri sağlar. Küme durumu izleme hakkında daha fazla bilgi için bkz. [Azure Kubernetes Hizmeti durumunu izleme][aks-monitor].
 
-Azure portalında bu verilerin doldurulması birkaç dakika sürebilir. Azure Vote pod'larının geçerli durumunu, çalışma süresini ve kaynak kullanımını görmek için Azure portalda *myAKSCluster* gibi bir AKS kaynağına geri gidin. **Kapsayıcı Durumunu İzle**'yi, **varsayılan** ad alanını ve ardından **Kapsayıcılar**'ı seçin.  *azure-vote-back* ve *azure-vote-front* kapsayıcıları gösterilmektedir:
+Azure portalında bu verilerin doldurulması birkaç dakika sürebilir. Azure Vote pod'larının geçerli durumunu, çalışma süresini ve kaynak kullanımını görmek için Azure portalda *myAKSCluster* gibi bir AKS kaynağına geri gidin. Sistem durumuna aşağıdaki şekilde erişebilirsiniz:
+
+1. Sol taraftaki **İzleme** bölümünde **İçgörüler (önizleme)** öğesini seçin
+1. Üst taraftan **+ Filtre Ekle**'yi seçin
+1. *Ad alanı* özelliğini ve ardından *\<kube-system hariç tümünü\> seçin*
+1. **Kapsayıcılar** bölümünü görüntüleyin.
+
+Aşağıdaki örnekte olduğu gibi *azure-vote-back* ve *azure-vote-front* kapsayıcıları görüntülenir:
 
 ![AKS'de çalışan kapsayıcıların durumunu görüntüleme](media/kubernetes-walkthrough-portal/monitor-containers.png)
 
-`azure-vote-front` pod'unun günlüklerini görmek için kapsayıcı listesinin sağ tarafındaki **Günlükleri Görüntüle** bağlantısını seçin. Bu günlükler, kapsayıcıdaki *stdout* ve *stderr* akışlarını içerir.
+`azure-vote-front` pod'unun günlüklerini görmek için kapsayıcı listesinin sağ tarafındaki **Kapsayıcı günlüklerini görüntüle** bağlantısını seçin. Bu günlükler, kapsayıcıdaki *stdout* ve *stderr* akışlarını içerir.
 
-![AKS'deki kapsayıcı günlüklerini görüntüleme](media/kubernetes-walkthrough-portal/monitor-containers-logs.png)
+![AKS'deki kapsayıcı günlüklerini görüntüleme](media/kubernetes-walkthrough-portal/monitor-container-logs.png)
 
 ## <a name="delete-cluster"></a>Kümeyi silme
 
@@ -224,6 +242,9 @@ Küme artık gerekli olmadığında, tüm ilişkili kaynaklarla birlikte küme k
 ```azurecli-interactive
 az aks delete --resource-group myResourceGroup --name myAKSCluster --no-wait
 ```
+
+> [!NOTE]
+> Kümeyi sildiğinizde, AKS kümesi tarafından kullanılan Azure Active Directory hizmet sorumlusu kaldırılmaz. Hizmet sorumlusunu kaldırma adımları için bkz. [AKS hizmet sorumlusuyla ilgili önemli noktalar ve silme][sp-delete].
 
 ## <a name="get-the-code"></a>Kodu alma
 
@@ -258,3 +279,4 @@ AKS hakkında daha fazla bilgi ve dağıtım örneği için tam kod açıklamas�
 [aks-network]: ./networking-overview.md
 [aks-tutorial]: ./tutorial-kubernetes-prepare-app.md
 [http-routing]: ./http-application-routing.md
+[sp-delete]: kubernetes-service-principal.md#additional-considerations

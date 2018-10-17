@@ -1,56 +1,57 @@
 ---
-title: Anomali algılama Java uygulaması - Microsoft Bilişsel hizmetler | Microsoft Docs
-description: Microsoft Bilişsel hizmetler Anomali algılama API'sini kullanan bir Java uygulaması keşfedin. Özgün veri noktaları API'ye gönderin ve beklenen değerini ve anomali noktalarını alın.
+title: 'Öğretici: Anomali Algılama, Java'
+titlesuffix: Azure Cognitive Services
+description: Anomali Algılama API'sini kullanan bir Java uygulamasını keşfedin. Özgün veri noktalarını API'ye gönderin ve beklenen değerle anomali noktalarını alın.
 services: cognitive-services
 author: wenya
 manager: bix
 ms.service: cognitive-services
-ms.technology: anomaly-detection
-ms.topic: article
+ms.component: anomaly-detection
+ms.topic: tutorial
 ms.date: 05/01/2018
 ms.author: wenya
-ms.openlocfilehash: ac26e29f4a839f69b123489600c2c83fe395c48a
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
-ms.translationtype: MT
+ms.openlocfilehash: 4b544e2e59a40cebf75042c4040b84bceebcecf7
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48247914"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48887709"
 ---
-# <a name="anomaly-detection-java-application"></a>Anomali algılama Java uygulaması
+# <a name="tutorial-anomaly-detection-with-java-application"></a>Öğretici: Java uygulaması ile Anomali Algılama
 
 [!INCLUDE [PrivatePreviewNote](../../../../../includes/cognitive-services-anomaly-finder-private-preview-note.md)]
 
-Bu makalede, Anomali algılama API'sini çağırmak için basit bir Java uygulaması kullanmayı gösterir.  
-Örnek abonelik anahtarınız ile zaman serisi verilerini Anomali algılama API'sine gönderir, ardından tüm anomali noktaları ve beklenen değer, her veri noktası için API'den alır.
+Bu makalede Anomali Algılama API'sini çağırmak için örnek Java uygulamasının kullanılması gösterilmektedir.  
+Örnek, abonelik anahtarınızı kullanarak Anomali Algılama API'sine zaman serisi verileri gönderir ve API'den her bir veri noktasıyla ilgili anomali noktalarını ve beklenen değerleri alır.
 
-## <a name="prerequisites"></a>Önkoşullar
+## <a name="prerequisites"></a>Ön koşullar
 
 ### <a name="platform-requirements"></a>Platform gereksinimleri
 
-Bu öğretici ile geliştirilmiş [Intellij Idea](https://www.jetbrains.com/idea). Ve de yüklememiz gerekir [Java Development Kit (JDK)](http://www.oracle.com/technetwork/java/javase/downloads/index.html) sürüm 1.8 + ve güncel bir [Apache'nın Maven](http://maven.apache.org/) oluşturma aracı.
+Bu öğretici, [IntelliJ IDEA](https://www.jetbrains.com/idea) kullanılarak geliştirilmiştir. Ayrıca [Java Development Kit (JDK)](http://www.oracle.com/technetwork/java/javase/downloads/index.html) sürüm 1.8+ ve güncel [Apache's Maven](http://maven.apache.org/) derleme aracını da yüklemeniz gerekir.
 
-### <a name="subscribe-to-anomaly-detection-and-get-a-subscription-key"></a>Anomali algılama için abone ve bir abonelik anahtarı edinirler 
+### <a name="subscribe-to-anomaly-detection-and-get-a-subscription-key"></a>Anomali Algılama için abone olun ve abonelik anahtarını alın 
 
 [!INCLUDE [GetSubscriptionKey](../includes/get-subscription-key.md)]
  
 
-## <a name="download-the-tutorial-project"></a>Öğretici projesinin indirin
+## <a name="download-the-tutorial-project"></a>Öğretici projesini indirme
 
-1. Git MicrosoftAnomalyDetection [Java depo](https://github.com/MicrosoftAnomalyDetection/java-sample).
-2. Kopya tıklayın veya indir düğmesi.
-3. Öğretici projesinin bir .zip dosyasını indirmek için ZIP'i indir'e tıklayın.
+1. MicrosoftAnomalyDetection [Java deposuna](https://github.com/MicrosoftAnomalyDetection/java-sample) gidin.
+2. Kopyala veya indir düğmesine tıklayın.
+3. Öğretici projesini .zip dosyası olarak indirmek için ZIP İndir'e tıklayın.
 
 <a name="Step1"></a>
-### <a name="open-the-tutorial-project"></a>Öğretici projesinin açın
+### <a name="open-the-tutorial-project"></a>Öğretici projesini açma
 
-1. Öğretici projesinin .zip dosyasını çıkartın.
-2. Intellij Idea ' tıklatın **Dosya > Aç**, açık dosya ya da proje iletişim kutusu görüntülenir.
-3. Ayıklanan projesinin kök yolunu seçin ve ardından Tamam'a tıklayın.
-4. Projeleri panelinde genişletin **src > ana > java**.
-5. Dosya Düzenleyicisi'ne yüklemek için com.microsoft.cognitiveservice.anomalydetection.Main.java çift tıklayın.
+1. Öğretici projesinin .zip dosyasını ayıklayın.
+2. IntelliJ IDEA'da **File > Open** (Dosya > Aç) yolunu izleyin. Open File or Project (Dosya veya Proje Aç) iletişim kutusu açılır.
+3. Ayıklanan projenin kök yolunu seçip Tamam'a tıklayın.
+4. Projeler panelinde **src > main > java** yolunu genişletin.
+5. com.microsoft.cognitiveservice.anomalydetection.Main.java dosyasına çift tıklayarak düzenleyicide yükleyin.
 
 <a name="Step2"></a>
-### <a name="replace-subscriptionkey-and-uri-region"></a>SubscriptionKey ve URI bölge değiştirin
+### <a name="replace-subscriptionkey-and-uri-region"></a>subscriptionKey ve URI bölgesini değiştirme
 
 ```
 // **********************************************
@@ -65,11 +66,11 @@ public static final String uriBase = "https://api.labs.cognitive.microsoft.com/a
 ```
 
 <a name="Step3"></a>
-### <a name="build-and-run-the-tutorial-project"></a>Derleme ve öğretici projesinin çalıştırma
+### <a name="build-and-run-the-tutorial-project"></a>Öğretici projesini derleme ve çalıştırma
 
-1. Menüyü com.microsoft.cognitiveservice.anomalydetection.Main.java kaynak kod sekmesinde herhangi bir yere sağ tıklayarak getirin. 
-2. Çalıştır 'Main.main() ''ı seçin
-3. Örnek isteğinin sonucunu döndürdü ve terminal içinde gösterilir.
+1. com.microsoft.cognitiveservice.anomalydetection.Main.java kaynak kodu sekmesinin herhangi bir yerinde sağ tıklayarak menüyü açın. 
+2. Run (Çalıştır) 'Main.main()' öğesini seçin.
+3. Örnek isteğin sonucu döndürülür ve terminalde gösterilir.
 
 ### <a name="result-of-the-tutorial-project"></a>Öğretici projesinin sonucu
 

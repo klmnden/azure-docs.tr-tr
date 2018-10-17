@@ -7,14 +7,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: overview
-ms.date: 08/15/2018
+ms.date: 10/06/2018
 ms.author: diberry
-ms.openlocfilehash: a8e9deb7c677d04634b223045adc2d31fa74ba6e
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 0520c00ab20ca7210b3bb13567f9998e7231be43
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47033048"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48867689"
 ---
 # <a name="what-is-language-understanding-luis"></a>Language Understanding (LUIS) nedir?
 
@@ -151,7 +151,7 @@ JSON uç nokta yanıtı minimumda sorgu konuşmasını ve en yüksek puanlı ama
 
 ## <a name="improve-model-prediction"></a>Model tahminini geliştirme
 
-Bir LUIS modeli yayımlandıktan ve gerçek kullanıcı konuşmalarını aldıktan sonra LUIS tarafından tahmin doğruluğunu artırmak için birden çok yöntem sunulur: uç nokta konuşmaları için [etkin öğrenme](#active-learning), etki alanı kelimelerini dahil etmek için [tümcecik listeleri](#phrase-lists) ve gerekli konuşma sayısını azaltmak için [desenler](#patterns).
+Bir LUIS modeli yayımlandıktan ve gerçek kullanıcı konuşmalarını aldıktan sonra LUIS tarafından tahmin doğruluğunu artırmak için birden çok yöntem sunulur: uç nokta konuşmaları için [etkin öğrenme](luis-concept-review-endpoint-utterances.md), etki alanı kelimelerini dahil etmek için [tümcecik listeleri](luis-concept-feature.md) ve gerekli konuşma sayısını azaltmak için [desenler](luis-concept-patterns.md).
 <!--
 ### Active learning
 
@@ -171,25 +171,37 @@ Patterns allow you to simplify an intent's utterance collection into common [tem
 Author LUIS from the [authoring](https://aka.ms/luis-authoring-apis) APIs or from the LUIS portal. Query the published prediction endpoint of the model from the [endpoint](https://aka.ms/luis-endpoint-apis) APIs.
 -->
 
-## <a name="integrating-with-luis"></a>LUIS ile tümleştirme
+## <a name="development-lifecycle"></a>Geliştirme Yaşam Döngüsü
+LUIS, istemci uygulaması ve dil modeli düzeyinde tam geliştirme yaşam döngüsüyle tümleştirmek için kullanılabilecek araçlar, sürüm oluşturma özellikleri ve diğer LUIS yazarlarıyla işbirliği özellikleri sunmaktadır. 
+
+## <a name="implementing-luis"></a>LUIS uygulama
 LUIS, HTTP isteği gönderen tüm ürün, hizmet veya çerçevelerle REST API olarak kullanılabilir. Aşağıdaki liste, LUIS ile birlikte en çok kullanılan Microsoft ürünlerini ve hizmetlerini göstermektedir.
 
-LUIS için Microsoft istemci uygulamaları şunlardır:
+En çok kullanılan LUIS istemci uygulamaları şunlardır:
 * [Web uygulaması botu](https://docs.microsoft.com/azure/bot-service/?view=azure-bot-service-3.0), kullanıcıyla metin girişi aracılığıyla konuşmak için hızlıca LUIS destekli bir sohbet botu oluşturur. Eksiksiz bot deneyimi için [Bot Framework][bot-framework] sürüm [3.x](https://github.com/Microsoft/BotBuilder) veya [4.x](https://github.com/Microsoft/botbuilder-dotnet) kullanır.
-* [Windows Karma Gerçeklik](https://docs.microsoft.com/windows/mixed-reality/): LUIS [karma gerçeklik kursu](https://docs.microsoft.com/windows/mixed-reality/mr-azure-303) ile daha fazla bilgi edinin. 
 
-LUIS ile bot kullanmak için Microsoft araçları:
+LUIS'i hızlı ve kolay bir şekilde botla birlikte kullanmanızı sağlayacak uygulamalar:
+* [LUIS CLI](https://github.com/Microsoft/botbuilder-tools/tree/master/packages/LUIS) NPM paketi tek başına komut satırı saracı olarak veya içeri aktarma aracılığıyla içerik oluşturma ve tahmin özellikleri sunar. 
+* [LUISGen](https://github.com/Microsoft/botbuilder-tools/tree/master/packages/LUISGen) LUISGen, dışarı aktarılan bir LUIS modelinden ayrıntılı C# ve typescript kaynak kodu yazmak için kullanılan bir araçtır.
 * [Gönderme](https://aka.ms/dispatch-tool), çeşitli LUIS ve Soru-Cevap Oluşturma uygulamalarının gönderme modelini kullanan bir üst uygulamadan kullanılmasını sağlar.
-* [Konuşma öğrenici](https://docs.microsoft.com/azure/cognitive-services/labs/conversation-learner/overview), LUIS ile daha hızlı bir şekilde sohbet botları oluşturmanızı sağlar.
-* [Kişilik sohbeti projesi](https://docs.microsoft.com/azure/cognitive-services/project-personality-chat/overview), bot ile kısa sohbetler yapmanızı sağlar.
+* [LUDown](https://github.com/Microsoft/botbuilder-tools/tree/master/packages/Ludown) LUDown, botunuz için dil modellerini yönetmenize yardımcı olan bir komut satırı aracıdır.
 
 LUIS ile kullanılan diğer Bilişsel Hizmetler:
 * [Soru-Cevap Oluşturma][qnamaker], farklı metin türlerinin birleştirilerek soru ve yanıt bilgi bankası oluşturulmasını sağlar.
 * [Bing Yazım Denetimi API'si](../bing-spell-check/proof-text.md), tahmin işlemi öncesinde metinlerin düzeltilmesini sağlar. 
 * [Konuşma hizmeti](../Speech-Service/overview.md), sözlü dil isteklerini metne dönüştürür. 
+* [Konuşma öğrenici](https://docs.microsoft.com/azure/cognitive-services/labs/conversation-learner/overview), LUIS ile daha hızlı bir şekilde sohbet botları oluşturmanızı sağlar.
+* [Kişilik sohbeti projesi](https://docs.microsoft.com/azure/cognitive-services/project-personality-chat/overview), bot ile kısa sohbetler yapmanızı sağlar.
+<!--
+## Other ways of implementing LUIS
+
+A client application for LUIS is:
+* [Windows Mixed Reality](https://docs.microsoft.com/windows/mixed-reality/) - learn more with this [Mixed reality course](https://docs.microsoft.com/windows/mixed-reality/mr-azure-303) with LUIS. 
 
 
+Labs: 
 
+-->
 ## <a name="next-steps"></a>Sonraki adımlar
 
 [Önceden oluşturulmuş](luis-get-started-create-app.md) veya [özel](luis-quickstart-intents-only.md) etki alanıyla yeni bir LUIS uygulaması yazma. Genel IoT uygulamasının [tahmin uç noktasını sorgulama](luis-get-started-cs-get-intent.md).

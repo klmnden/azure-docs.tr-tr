@@ -1,41 +1,42 @@
 ---
-title: Microsoft Bilişsel hizmetler, proje yanıt arama için düğüm hızlı başlangıç | Microsoft Docs
-description: Proje yanıt arama, Microsoft Azure'da Bilişsel hizmetler kullanmaya başlayın.
+title: 'Hızlı başlangıç: Yanıt Arama Projesi, Node'
+description: Node ile Yanıt Arama Projesini kullanmaya başlayın.
 services: cognitive-services
 author: mikedodaro
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: project-answer-search
-ms.topic: article
+ms.component: project-answer-search
+ms.topic: quickstart
 ms.date: 04/13/2018
-ms.author: rosh, v-gedod
-ms.openlocfilehash: 36b2709d39230aae7929164ba4c9306f57043b43
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
-ms.translationtype: MT
+ms.author: rosh
+ms.openlocfilehash: 99dba482c9dec4448110301201c7c9e79a7a6380
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35353974"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48867434"
 ---
-# <a name="project-answer-search-node-quickstart"></a>Proje yanıt arama düğümü hızlı başlangıç
+# <a name="quickstart-project-answer-search-with-node"></a>Hızlı başlangıç: Node ile Yanıt Arama Projesi
 
-Aşağıdaki düğümü örnek Yosemite National Park hakkında bilgi için bir sorgu oluşturur.
+Aşağıdaki Node örneği Yosemite Ulusal Parkı hakkındaki bilgileri almak için bir sorgu oluşturur.
 
-## <a name="prerequisites"></a>Önkoşullar
+## <a name="prerequisites"></a>Ön koşullar
 
-Ücretsiz deneme sürümü için bir erişim anahtarı alma [Bilişsel hizmetler Laboratuvarları](https://aka.ms/answersearchsubscription)
+[Bilişsel Hizmetler Laboratuvarları](https://aka.ms/answersearchsubscription) ücretsiz denemesi için erişim anahtarı alın
 
-Bu örnek, düğüm v8.9.4 kullanır.
+Bu örnekte Node v8.9.4 kullanılmıştır
 
 ## <a name="code-scenario"></a>Kod senaryosu 
 
-Aşağıdaki kod yanıtları alır.
-Aşağıdaki adımlarda uygulanır:
-1. Bitiş noktası tarafından konak ve yol belirtmek için değişkenleri bildirin.
-2. Önizleme için sorgu URL'sini belirtin ve sorgu parametresi ekleyin.  
-3. Yanıt için bir işleyici işlevi oluşturun.
-4. İsteği oluşturur ve ekleyen arama işlevini tanımlayan *Apim abonelik anahtar Ocp* üstbilgi.
-5. Arama işlevini çalıştırın. 
+Aşağıdaki kod, yanıtları alır.
+Aşağıdaki adımları izler:
+1. Ana bilgisayar ve yol ile uç noktayı belirtmek için değişkenleri bildirme.
+2. Önizleme için sorgu URL'sini belirtme ve sorgu parametresini ekleme.  
+3. Yanıt için bir işleyici işlevi oluşturma.
+4. İsteği oluşturan ve *Ocp-Apim-Subscription-Key* üst bilgisini ekleyen Search işlevini tanımlama.
+5. Search işlevini çalıştırma. 
 
-Bu Tanıtım için tam kod aşağıdaki gibidir:
+Bu tanıtımda kullanılan kodun tamamı aşağıda verilmiştir:
 
 ````
 'use strict';
@@ -87,6 +88,6 @@ Search();
 ````
 
 ## <a name="next-steps"></a>Sonraki adımlar
-- [C# kod örneği](c-sharp-quickstart.md)
-- [Java hızlı başlangıç](java-quickstart.md)
-- [Python hızlı başlangıç](python-quickstart.md)
+- [C# örnek kodu](c-sharp-quickstart.md)
+- [Java hızlı başlangıcı](java-quickstart.md)
+- [Python hızlı başlangıcı](python-quickstart.md)

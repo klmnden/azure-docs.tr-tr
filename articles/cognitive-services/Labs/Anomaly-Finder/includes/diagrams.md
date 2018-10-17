@@ -5,24 +5,24 @@ services: cognitive-services
 author: chliang
 manager: bix
 ms.service: cognitive-services
-ms.technology: anomaly-finder
+ms.component: anomaly-finder
 ms.topic: include
 ms.date: 04/13/2018
 ms.author: chliang
 ms.custom: include file
-ms.openlocfilehash: df7326cb8e671d0f71924e813a1354dfef1e20c7
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
-ms.translationtype: MT
+ms.openlocfilehash: a1cda1cea2089363331ae437cb7ad802429779f4
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35353302"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48888705"
 ---
-Beklenen değer ve varsayılan üst ve alt kenar boşlukları ile döndürülen veriler. Uygulamada, [duyarlılık] parametresi tanımlayabilir ve ardından (ExpectedValue + duyarlılık * UpperMargin) üst sınırı olarak ve (ExpectedValue - duyarlılık * LowerMargin) anomali ayarlamak için alt sınır yourselves tarafından gelin. [Duyarlılık] değeri 1'den büyük olmalıdır. Ayarlama bazı diyagramları aşağıda verilmiştir.
+Döndürülen veri beklenen değere sahip olmasının yanı sıra varsayılan üst ve alt marjların içindeydi. Uygulamada bir [duyarlılık] parametresi belirleyip üst sınır olarak (Beklenen Değer + duyarlılık * Üst Marj) ve alt sınır olarak (Beklenen Değer - duyarlılık * Alt Marj) kullanıp anomali noktasını kendiniz belirleyebilirsiniz. [Duyarlılık] değeri 1'den büyük olmalıdır. Aşağıda ayarlayabileceğiniz bazı diyagramlar verilmiştir.
 
 > [!NOTE]
-> Diyagramlar örnek uygulama tarafından oluşturulmaz. Örnek uygulama ile ayrı bir araç tarafından oluşturulur.
+> Bu diyagramlar örnek uygulama ile oluşturulamamıştır. Örnek uygulama ile birlikte kullanılan ayrı bir araçla oluşturulmuştur.
 
 ![Ayar: duyarlılık = 1.0](../media/sensitivity_1.png)
-![ayar: duyarlılık 1.5 =](../media/sensitivity_1.5.png)
-![ayar: duyarlılık = 2](../media/sensitivity_2.png)
-![ayar: duyarlılık 3.5 =](../media/sensitivity_3.5.png)
+![Ayar: duyarlılık = 1.5](../media/sensitivity_1.5.png)
+![Ayar: duyarlılık = 2](../media/sensitivity_2.png)
+![Ayar: duyarlılık = 3.5](../media/sensitivity_3.5.png)

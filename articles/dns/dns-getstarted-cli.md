@@ -7,18 +7,18 @@ ms.service: dns
 ms.topic: quickstart
 ms.date: 7/16/2018
 ms.author: victorh
-ms.openlocfilehash: 3fb39558ff99c35786dedc133a9d1d1a450b5928
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: f80488f555cfa3b7be6f35b9f23ea0a501a27fd9
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39090131"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48831606"
 ---
 # <a name="quickstart-create-an-azure-dns-zone-and-record-using-azure-cli"></a>Hızlı başlangıç: Azure CLI kullanarak Azure DNS bölgesi ve kaydı oluşturma
 
 Bu makale Windows, Mac ve Linux platformlarında kullanılabilen Azure CLI'yi kullanarak ilk DNS bölgenizi ve kaydınızı oluşturma adımlarında size rehberlik yapacaktır. Ayrıca, [Azure portal](dns-getstarted-portal.md) veya [Azure PowerShell](dns-getstarted-powershell.md) kullanarak aşağıdaki adımları gerçekleştirebilirsiniz.
 
-DNS bölgesi belirli bir etki alanıyla ilgili DNS kayıtlarını barındırmak için kullanılır. Etki alanınızı Azure DNS'de barındırmaya başlamak için bir DNS bölgesi oluşturmanız gerekir. Ardından bu DNS bölgesinde etki alanınız için tüm DNS kayıtları oluşturulur. Son olarak, DNS bölgenizi İnternet'te yayımlamak için etki alanının ad sunucularını yapılandırmanız gerekir. Bu adımların her biri aşağıda açıklanmıştır.
+DNS bölgesi belirli bir etki alanıyla ilgili DNS kayıtlarını barındırmak için kullanılır. Etki alanınızı Azure DNS'de barındırmaya başlamak için bir DNS bölgesi oluşturmanız gerekir. Ardından bu DNS bölgesinde etki alanınız için tüm DNS kayıtları oluşturulur. Son olarak, DNS bölgenizi Internet'te yayımlamak için etki alanının ad sunucularını yapılandırmanız gerekir. Bu adımların her biri aşağıda açıklanmıştır.
 
 Azure DNS artık özel DNS bölgelerini de destekler (şu anda genel önizlemede). Özel DNS bölgeleri hakkında daha fazla bilgi için bkz. [Özel etki alanları için Azure DNS'i kullanma](private-dns-overview.md). Özel bir DNS bölgesi oluşturma örneği için bkz. [CLI kullanarak Azure DNS özel bölgeleriyle çalışmaya başlama](./private-dns-getstarted-cli.md).
 
@@ -28,7 +28,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 
 ## <a name="create-the-resource-group"></a>Kaynak grubunu oluşturma
 
-DNS bölgesini oluşturmadan önce, DNS bölgesini içerecek kaynak grubunu oluşturun:
+DNS bölgesini oluşturmadan önce, DNS bölgesini içerecek kaynak grubunu oluşturun.
 
 ```azurecli
 az group create --name MyResourceGroup --location "East US"
@@ -46,7 +46,7 @@ az network dns zone create -g MyResourceGroup -n contoso.com
 
 ## <a name="create-a-dns-record"></a>DNS kaydı oluşturma
 
-DNS kaydı oluşturmak için `az network dns record-set [record type] add-record` komutunu kullanın. Örneğin, A kayıtlarına ilişkin yardım için bkz. `azure network dns record-set A add-record -h`.
+DNS kaydı oluşturmak için `az network dns record-set [record type] add-record` komutunu kullanın. A kayıtları hakkında yardım için bkz. `azure network dns record-set A add-record -h`.
 
 Aşağıdaki örnekte, "MyResourceGroup" kaynak grubu içindeki "contoso.com" DNS Bölgesinde göreli adı "www" olan bir kaynak oluşturulmaktadır. "www.contoso.com", kayıt kümesinin tam adıdır. Kayıt türü "A", IP adresi "1.2.3.4" ve varsayılan TTL değeri 3600 saniyedir (1 saat).
 
@@ -56,7 +56,7 @@ az network dns record-set a add-record -g MyResourceGroup -z contoso.com -n www 
 
 ## <a name="view-records"></a>Kayıtları görüntüleme
 
-Bölgenizdeki DNS kayıtlarını listelemek için şu seçenekleri kullanın:
+Bölgenizdeki DNS kayıtlarını listelemek için şu komutu çalıştırın:
 
 ```azurecli
 az network dns record-set list -g MyResourceGroup -z contoso.com
@@ -64,7 +64,7 @@ az network dns record-set list -g MyResourceGroup -z contoso.com
 
 ## <a name="update-name-servers"></a>Ad sunucularını güncelleştirme
 
-DNS bölgenizin ve kayıtlarınızın doğru şekilde ayarlandığına karar verdikten sonra, Azure DNS ad sunucularını kullanmak için etki alanınızın adını yapılandırmanız gerekir. Bunun yapılması, İnternet üzerindeki diğer kullanıcıların DNS kayıtlarınızı bulmasını sağlar.
+DNS bölgenizin ve kayıtlarınızın doğru şekilde ayarlandığına karar verdikten sonra, Azure DNS ad sunucularını kullanmak için etki alanınızın adını yapılandırmanız ve bu sayede İnternet üzerindeki kullanıcıların DNS kayıtlarınızı bulmasını sağlamanız gerekir.
 
 Bölgenizin ad sunucuları `az network dns zone show` komutu tarafından belirtilir. Ad sunucusu adlarını görmek için aşağıdaki örnekte gösterildiği gibi JSON çıktısını kullanın.
 

@@ -1,23 +1,23 @@
 ---
-title: 'Hızlı Başlangıç: Python Bilgi Bankası - QnA Maker Yayımlama'
+title: 'Hızlı Başlangıç: Python Bilgi Bankası - Soru-Cevap Oluşturma'
 titleSuffix: Azure Cognitive Services
 description: Soru-Cevap Oluşturma için Python’da nasıl bilgi bankası yayımlanılır?
 services: cognitive-services
 author: diberry
 manager: cgronlun
 ms.service: cognitive-services
-ms.technology: qna-maker
+ms.component: qna-maker
 ms.topic: quickstart
 ms.date: 09/12/2018
 ms.author: diberry
-ms.openlocfilehash: bb5606d1192a7985b0b25ec5eb928ca8a722c58d
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 92a0f54c8fca6a53cf869ce21c8007ad2a1eba5b
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47037550"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48887726"
 ---
-# <a name="publish-a-knowledge-base-in-python"></a>Python’da bilgi bankası yayımlama
+# <a name="quickstart-publish-a-knowledge-base-in-python"></a>Hızlı başlangıç: Python’da bilgi bankası yayımlama
 
 Aşağıdaki kod, [Yayımla](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fe) yöntemini kullanarak mevcut bir bilgi bankasını yayımlar.
 

@@ -2,16 +2,17 @@
 title: Azure Site Recovery ile şirket içi makineler için olağanüstü durum kurtarma tatbikatı gerçekleştirme | Microsoft Docs
 description: Azure Site Recovery ile şirket içinden Azure’a olağanüstü durum kurtarma tatbikatı gerçekleştirme hakkında bilgi alın
 author: rayne-wiselman
+manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 08/13/2018
+ms.date: 10/10/2018
 ms.author: raynew
-ms.openlocfilehash: 33cbe29771573bd234548f549ed6027fb5801945
-ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
+ms.openlocfilehash: 3be3631d8d917fe9ff85e8471a35ac2ddece80b7
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "41918551"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49078163"
 ---
 # <a name="run-a-disaster-recovery-drill-to-azure"></a>Azure’da olağanüstü durum kurtarma tatbikatı çalıştırma
 
@@ -19,7 +20,7 @@ Bu makalede, Azure’da bir yük devretme testi kullanarak şirket içi makine i
 
 Bu, şirket içi VMware veya Hyper-V sanal makineleri için Azure’da olağanüstü durum kurtarmanın nasıl ayarlanacağını gösteren serideki dördüncü öğreticidir.
 
-Bu öğreticide, ilk üç öğreticiyi tamamladığınız varsayılır: 
+Bu öğreticide, ilk üç öğreticiyi tamamladığınız varsayılır:
     - [Birinci öğreticide](tutorial-prepare-azure.md), VMware olağanüstü durum kurtarma için gerekli Azure bileşenlerini ayarladık.
     - [İkinci öğreticide](vmware-azure-tutorial-prepare-on-premises.md), olağanüstü durum kurtarma için şirket içi bileşenleri hazırladık ve önkoşulları gözden geçirdik.
     - [Üçüncü öğreticide](vmware-azure-tutorial.md), şirket içi VMware sanal makinemiz için çoğaltmayı ayarlayıp etkinleştirdik.
@@ -44,6 +45,14 @@ Bir yük devretme testi çalıştırmadan önce VM özelliklerini doğrulayın v
 4. Ağ ayalarını, yük devretmeden sonra Azure VM’nin yerleştirileceği ağ/alt ağ ve VM’ye atanacak IP adresi dahil olmak üzere görüntüleyebilir ve değiştirebilirsiniz.
 5. **Diskler** bölümünde VM’deki işletim sistemi ve veri diskleriyle ilgili bilgileri görüntüleyebilirsiniz.
 
+## <a name="create-a-network-for-test-failover"></a>Yük devretme testi için ağ oluşturma
+
+Yük devretme testi için her VM'nin **İşlem ve Ağ** ayarlarından üretim kurtarma sitesi ağınızdan yalıtılmış bir ağ seçmenizi öneririz. Varsayılan olarak yeni oluşturduğunuz Azure sanal ağları diğer ağlardan yalıtılmış olur. Test ağı üretim ağınıza benzer olmalıdır:
+
+- Test ağında üretim ağınızdaki sayıda alt ağ olmalıdır. Alt ağların adı aynı olmalıdır.
+- Test ağında aynı IP adresi aralığı kullanılmalıdır.
+- Test ağının DNS sunucusunu **İşlem ve Ağ** ayarlarında DNS VM için belirtilen IP adresiyle güncelleştirin. Daha fazla ayrıntı için [Active Directory için yük devretme testi ile ilgili dikkat edilmesi gerekenler](site-recovery-active-directory.md#test-failover-considerations) sayfasını okuyun.
+
 ## <a name="run-a-test-failover-for-a-single-vm"></a>Tek bir VM için yük devretme testi çalıştırma
 
 Yük devretme testi çalıştırdığınızda şunlar olur:
@@ -64,6 +73,12 @@ Yük devretme testini aşağıdaki gibi çalıştırın:
 7. Yük devretme testi sırasında oluşturulan Azure sanal makinelerini silmek için, VM’de **Yük devretme testini temizle**’ye tıklayın. Yük devretme testiyle ilişkili gözlemlerinizi **Notlar**’da kaydedin veya saklayın.
 
 Bazı senaryolarda yük devretme için sekiz ila on dakikada tamamlanan ek işlem gerekir. VMware Linux makinelerinde, DHCP hizmeti etkinleştirilmemiş VMware VM’lerinde ve storvsc, vmbus, storflt, intelide, atapi önyükleme sürücülerine sahip olmayan VMware VM’lerinde uzun yük devretme testi süreleriyle karşılaşabilirsiniz.
+
+## <a name="prepare-to-connect-to-azure-vms-after-failover"></a>Yük devretmeden sonra Azure VM'lerine bağlanmak için hazırlık yapma
+
+Yük devretme sonrasında RDP/SSH kullanarak Azure VM'lerine bağlanmak istiyorsanız [buradaki](site-recovery-test-failover-to-azure.md#prepare-to-connect-to-azure-vms-after-failover) tabloda özetlenen gereksinimleri izleyin.
+
+Yük devretme sonrasında karşılaştığınız bağlantı sorunlarını gidermek için [burada](site-recovery-failover-to-azure-troubleshoot.md) anlatılan adımları izleyin.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

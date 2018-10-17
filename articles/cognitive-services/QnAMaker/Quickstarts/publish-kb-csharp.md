@@ -1,114 +1,128 @@
 ---
-title: 'Hızlı Başlangıç: C# Bilgi Bankası yayımlama - Soru-Cevap Oluşturucu'
+title: 'Hızlı başlangıç: Bilgi Bankası Yayımlama - REST, C# - Soru-Cevap Oluşturma'
 titleSuffix: Azure Cognitive Services
-description: Soru-Cevap Oluşturma için C# dilinde nasıl bilgi bankası yayımlanılır?
+description: Bu hızlı başlangıçta test edilen bilgi bankasının son sürümünü yayımlanmış bilgi bankasını temsil eden adanmış Azure Search dizinine gönderen KB yayımlama adımları gösterilmektedir. Ayrıca uygulamanızda veya sohbet botunuzda çağrılabilecek bir uç nokta da oluşturulur.
 services: cognitive-services
 author: diberry
 manager: cgronlun
 ms.service: cognitive-services
-ms.technology: qna-maker
+ms.component: qna-maker
 ms.topic: quickstart
-ms.date: 09/12/2018
+ms.date: 10/01/2018
 ms.author: diberry
-ms.openlocfilehash: 232b8a31ccfd8fad580af1f71b6816f93342faea
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: f2aa73dacdffaebcddbf91b2f5c7c3db4a331431
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47033065"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48883593"
 ---
-# <a name="publish-a-knowledge-base-in-c"></a>C# dilinde bilgi bankası yayımlama
+# <a name="quickstart-publish-a-qna-maker-knowledge-base-in-c"></a>Hızlı başlangıç: C# ile Soru-Cevap Oluşturma bilgi bankası yayımlama
 
-Aşağıdaki kod, [Yayımla](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fe) yöntemini kullanarak mevcut bir bilgi bankasını yayımlar.
+Bu hızlı başlangıçta bilgi bankanızı (KB) program aracılığıyla yayımlama adımları gösterilmektedir. Yayımlama, bilgi bankanızın son sürümünü adanmış bir Azure Search dizinine gönderir ve uygulamanızda ya da sohbet botunuzda çağrılabilecek bir uç nokta oluşturur.
+
+Bu hızlı başlangıç şu Soru-Cevap Oluşturma API'lerini çağırır:
+* [Publish](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fe): Bu API için istek gövdesinde herhangi bir bilgi iletilmesi gerekmez.
+
+## <a name="prerequisites"></a>Ön koşullar
+
+* En son [**Visual Studio Community sürümü**](https://www.visualstudio.com/downloads/).
+* [Soru-Cevap Oluşturma hizmetine](../How-To/set-up-qnamaker-service-azure.md) sahip olmanız gerekir. Anahtarınızı almak için, panonuzda **Kaynak Yönetimi** altında **Anahtarlar** öğesini seçin. 
+* Soru-Cevap Oluşturma bilgi bankası (KB) kimliği aşağıda gösterildiği gibi URL'nin kbid sorgu dizesi bölümünde bulunur.
+
+    ![Soru-Cevap Oluşturma bilgi bankası kimliği](../media/qnamaker-quickstart-kb/qna-maker-id.png)
+
+Henüz bir bilgi bankanız yoksa, bu hızlı başlangıçta kullanmak için bir örneğini oluşturabilirsiniz: [Yeni bilgi bankası oluşturma](create-new-kb-csharp.md).
 
 [!INCLUDE [Code is available in Azure-Samples Github repo](../../../../includes/cognitive-services-qnamaker-csharp-repo-note.md)]
 
-1. Sık kullandığınız IDE'de yeni bir C# projesi oluşturun.
-2. Aşağıda sağlanan kodu ekleyin.
-3. `key` değerini, aboneliğiniz için geçerli olan bir erişim anahtarı ile değiştirin.
-4. Programı çalıştırın.
+## <a name="create-knowledge-base-project"></a>Bilgi bankası projesi oluşturma
+
+[!INCLUDE [Create Visual Studio Project](../../../../includes/cognitive-services-qnamaker-quickstart-csharp-create-project.md)] 
+
+## <a name="add-required-dependencies"></a>Gerekli bağımlılıkları ekleme
+
+[!INCLUDE [Add required dependencies to code file](../../../../includes/cognitive-services-qnamaker-quickstart-csharp-required-dependencies.md)] 
+
+## <a name="add-required-constants"></a>Gerekli sabitleri ekleme
+
+[!INCLUDE [Add required constants to code file](../../../../includes/cognitive-services-qnamaker-quickstart-csharp-required-constants.md)]  
+
+## <a name="add-knowledge-base-id"></a>Bilgi bankası kimliği ekleme
+
+[!INCLUDE [Add knowledge base ID as constant](../../../../includes/cognitive-services-qnamaker-quickstart-csharp-kb-id.md)] 
+
+## <a name="add-supporting-functions-and-structures"></a>Destekleyici işlevleri ve yapıları ekleme
+
+Aşağıdaki kod bloğunu Program sınıfına ekleyin:
 
 ```csharp
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net.Http;
-using System.Net.Http.Headers;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-
-// NOTE: Install the Newtonsoft.Json NuGet package.
-using Newtonsoft.Json;
-
-namespace QnAMaker
+static string PrettyPrint(string s)
 {
-    class Program
+    return JsonConvert.SerializeObject(JsonConvert.DeserializeObject(s), Formatting.Indented);
+}
+```
+
+## <a name="add-post-request-to-publish-kb"></a>KB yayımlamak için POST isteğini ekleme
+
+Aşağıdaki kod KB yayımlamak için Soru-Cevap Oluşturma API'sine bir HTTPS isteği gönderir ve yanıtı alır:
+
+```csharp
+async static void PublishKB()
+{
+    string responseText;
+
+    var uri = host + service + method + kb;
+    Console.WriteLine("Calling " + uri + ".");
+    using (var client = new HttpClient())
+    using (var request = new HttpRequestMessage())
     {
-        static string host = "https://westus.api.cognitive.microsoft.com";
-        static string service = "/qnamaker/v4.0";
-        static string method = "/knowledgebases/";
+        request.Method = HttpMethod.Post;
+        request.RequestUri = new Uri(uri);
+        request.Headers.Add("Ocp-Apim-Subscription-Key", key);
 
-        // NOTE: Replace this with a valid subscription key.
-        static string key = "ENTER KEY HERE";
+        var response = await client.SendAsync(request);
 
-        // NOTE: Replace this with a valid knowledge base ID.
-        static string kb = "ENTER ID HERE";
-
-        static string PrettyPrint(string s)
+        // successful status doesn't return an JSON so create one
+        if (response.IsSuccessStatusCode)
         {
-            return JsonConvert.SerializeObject(JsonConvert.DeserializeObject(s), Formatting.Indented);
+            responseText = "{'result' : 'Success.'}";
         }
-
-        async static Task<string> Post(string uri)
+        else
         {
-            using (var client = new HttpClient())
-            using (var request = new HttpRequestMessage())
-            {
-                request.Method = HttpMethod.Post;
-                request.RequestUri = new Uri(uri);
-                request.Headers.Add("Ocp-Apim-Subscription-Key", key);
-
-                var response = await client.SendAsync(request);
-                if (response.IsSuccessStatusCode)
-                {
-                    return "{'result' : 'Success.'}";
-                }
-                else
-                {
-                    return await response.Content.ReadAsStringAsync();
-                }
-            }
-        }
-
-        async static void PublishKB()
-        {
-            var uri = host + service + method + kb;
-            Console.WriteLine("Calling " + uri + ".");
-            var response = await Post(uri);
-            Console.WriteLine(PrettyPrint(response));
-            Console.WriteLine("Press any key to continue.");
-        }
-
-        static void Main(string[] args)
-        {
-            PublishKB();
-            Console.ReadLine();
+            responseText =  await response.Content.ReadAsStringAsync();
         }
     }
+    Console.WriteLine(PrettyPrint(responseText));
+    Console.WriteLine("Press any key to continue.");
 }
-
 ```
 
-## <a name="the-publish-a-knowledge-base-response"></a>Bilgi bankası yayımlama yanıtı
+Yayımlama başarılı olursa API çağrısı boş yanıt gövdesiyle 204 durumunu döndürür. Kod 204 yanıtları için içerik ekler.
 
-Başarılı yanıt, aşağıdaki örnekte gösterildiği gibi JSON biçiminde döndürülür: 
+Diğer yanıtlarda döndürülen yanıt değiştirilmez.
+ 
+## <a name="add-the-publishkb-method-to-main"></a>PublishKB metodunu Main metoduna ekleme
 
-```json
+Main metodunu CreateKB metodunu çağıracak şekilde değiştirin:
+
+```csharp
+static void Main(string[] args)
 {
-  "result": "Success."
+
+    // Call the PublishKB() method to publish a knowledge base.
+    PublishKB();
+
+    // The console waits for a key to be pressed before closing.
+    Console.ReadLine();
 }
 ```
+
+## <a name="build-and-run-the-program"></a>Programı derleme ve çalıştırma
+
+Programı derleyin ve çalıştırın. Otomatik olarak Soru-Cevap Oluşturma API'sine KB yayımlama isteği gönderilir ve yanıt konsol penceresine yazdırılır.
+
+Bilgi bankanız yayımlandıktan sonra istemci uygulaması veya sohbet botu ile uç noktadan sorgulayabilirsiniz. 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

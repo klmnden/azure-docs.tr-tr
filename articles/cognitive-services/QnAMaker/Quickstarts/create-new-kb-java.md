@@ -6,16 +6,16 @@ services: cognitive-services
 author: diberry
 manager: cgronlun
 ms.service: cognitive-services
-ms.technology: qna-maker
+ms.component: qna-maker
 ms.topic: quickstart
 ms.date: 09/12/2018
 ms.author: diberry
-ms.openlocfilehash: 5dfea3a8b4b5a79585b910fd2fad4ffbda4729fd
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: e8a876d1e5416547d0eead0882b69bdf68818c5d
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47037618"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48886220"
 ---
 # <a name="create-a-new-knowledge-base-in-java"></a>Java’da yeni bilgi bankası oluşturma
 
@@ -27,7 +27,7 @@ Aşağıda içerik sağlayan iki örnek SSS URL’si (**getKB()** öğesinde 'kb
 
 ## <a name="prerequisites"></a>Ön koşullar
 
-Bu kodu derleyip çalıştırmak için [JDK 7 veya 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)’e ihtiyacınız olacak. Eğer varsa sık kullandığınız bir Java IDE’yi veya bir metin düzenleyicisini kullanabilirsiniz.
+Bu kodu derleyip çalıştırmak için [JDK 7 veya 8](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)’e ihtiyacınız olacak. Eğer varsa sık kullandığınız bir Java IDE’yi veya bir metin düzenleyicisini kullanabilirsiniz.
 
 Kaynak olarak **Soru-Cevap Oluşturma** seçilmiş bir [Bilişsel Hizmetler API hesabınızın](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) olması gerekir. [Azure panonuzda](https://portal.azure.com/#create/Microsoft.CognitiveServices) yeni API hesabınızdan ücretli bir abonelik anahtarına ihtiyacınız olacak. Bu hızlı başlangıç için her iki anahtar da çalışır.
 

@@ -1,63 +1,56 @@
 ---
-title: Görüntü İşleme Python hızlı başlangıç uzak görüntü analiz etme | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: Bu hızlı başlangıçta, Bilişsel Hizmetler’de Python ile Görüntü İşleme kullanarak bir uzak görüntü analiz edeceksiniz.
+title: 'Hızlı Başlangıç: Uzak görüntüyü analiz etme - REST, Python - Görüntü İşleme'
+titleSuffix: Azure Cognitive Services
+description: Bu hızlı başlangıçta, Python ile Görüntü İşleme API’si kullanarak bir uzak görüntüyü analiz edeceksiniz.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: v-deken
-ms.openlocfilehash: 65f9b0d4fb007a6a9b8ef489ca59f384e047a0dd
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 1fc7c58ec4e5c200ae62c70698db7ec813d82703
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43772638"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48883950"
 ---
-# <a name="quickstart-analyze-a-remote-image---rest-python"></a>Hızlı Başlangıç: Uzak görüntü analiz etme - REST, Python
+# <a name="quickstart-analyze-a-remote-image-using-the-rest-api-and-python-in-computer-vision"></a>Hızlı Başlangıç: Görüntü İşleme’de REST API ve Python kullanarak uzak görüntüyü analiz etme
 
-Bu hızlı başlangıçta, Görüntü İşleme kullanarak bir uzak görüntü analiz edeceksiniz. Yerel bir görüntüyü analiz etmek için bkz. [Python ile yerel bir görüntüyü analiz etme](python-disk.md).
+Bu hızlı başlangıçta, Görüntü İşleme’nin REST API’sini kullanarak görsel özellikleri ayıklamak için uzakta depolanan bir görüntüyü analiz edeceksiniz. [Görüntü Analizi](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) yöntemi ile, görüntü içeriğini temel alarak görsel özellikleri ayıklayabilirsiniz.
 
-[MyBinder](https://mybinder.org)’da Jupyter not defterini kullanarak bu hızlı başlangıcı adım adım çalıştırabilirsiniz. Bağlayıcıyı başlatmak için, aşağıdaki düğmeyi seçin:
+[MyBinder](https://mybinder.org) üzerinde bir Jupyter not defteri kullanarak bu hızlı başlangıcı adım adım görüntülenecek şekilde çalıştırabilirsiniz. Bağlayıcıyı başlatmak için aşağıdaki düğmeyi seçin:
 
 [![Bağlayıcı](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/Microsoft/cognitive-services-notebooks/master?filepath=VisionAPI.ipynb)
 
+Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) oluşturun.
+
 ## <a name="prerequisites"></a>Ön koşullar
 
-Görüntü İşleme’yi kullanmak için, bir abonelik anahtarınızın olması gerekir; bkz. [Abonelik Anahtarlarını Alma](../Vision-API-How-to-Topics/HowToSubscribe.md).
+- Örneği yerel olarak çalıştırmak istiyorsanız [Python](https://www.python.org/downloads/) yüklenmiş olmalıdır.
+- Görüntü İşleme için bir abonelik anahtarınız olması gerekir. Bir abonelik anahtarı almak için bkz. [Abonelik Anahtarları Alma](../Vision-API-How-to-Topics/HowToSubscribe.md).
 
-## <a name="analyze-a-remote-image"></a>Uzak resmi çözümleme
+## <a name="create-and-run-the-sample"></a>Örnek oluşturma ve çalıştırma
 
-[Görüntü Analizi yöntemi](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) ile, görüntü içeriğini temel alarak görsel özellikleri ayıklayabilirsiniz. Bir görüntüyü karşıya yükleyebilir veya bir görüntü URL’si belirleyebilir ve aşağıdaki özelliklerden hangilerinin döndürüleceğini seçebilirsiniz:
+Örneği oluşturup çalıştırmak için aşağıdaki adımları uygulayın:
 
-* Görüntü içeriğiyle ilgili etiketlerin ayrıntılı listesi.
-* Görüntü içeriğinin tam bir cümlelik açıklaması.
-* Görüntünün içerdiği yüzlerin koordinatları, cinsiyeti ve yaşı.
-* ImageType (küçük resim veya çizgi çizim).
-* Baskın renk, vurgu rengi veya bir görüntünün siyah beyaz olup olmadığı.
-* Bu [sınıflandırmada](../Category-Taxonomy.md) tanımlanan kategori.
-* Görüntü, yetişkinlere yönelik veya müstehcen cinsel içerik içeriyor mu?
-
-Örneği çalıştırmak için aşağıdaki adımları uygulayın:
-
-1. Aşağıdaki kodu yeni bir Python betik dosyasına kopyalayın.
-1. `<Subscription Key>` değerini geçerli abonelik anahtarınızla değiştirin.
-1. Gerekirse `vision_base_url` değerini abonelik anahtarlarınızı aldığınız konumla değiştirin.
-1. İsterseniz `image_url` değerini başka bir görüntüyle değiştirin.
-1. Betiği çalıştırın.
-
-Aşağıdaki kod, Görüntü İşleme Görüntü Analizi API’sine çağrı yapmak için Python `requests` kitaplığını kullanır. Sonuçları JSON nesnesi olarak döndürür. API anahtarı `headers` sözlüğü aracılığıyla geçirilir. Tanınacak özelliklerin türleri `params` sözlüğü aracılığıyla geçirilir.
-
-## <a name="analyze-image-request"></a>Görüntü Analizi isteği
+1. Aşağıdaki kodu bir metin düzenleyicisine kopyalayın.
+1. Gerektiğinde kodda aşağıdaki değişiklikleri yapın:
+    1. `subscription_key` değerini abonelik anahtarınızla değiştirin.
+    1. Gerekirse `vision_base_url` değerini, abonelik anahtarlarınızı aldığınız Azure bölgesindeki Görüntü İşleme kaynağının uç nokta URL’si ile değiştirin.
+    1. İsteğe bağlı olarak `image_url` değerini, analiz etmek istediğiniz başka bir görüntünün URL’si ile değiştirin.
+1. Kodu, `.py` uzantısıyla bir dosya olarak kaydedin. Örneğin, `analyze-image.py`.
+1. Bir komut istemi penceresi açın.
+1. İstemde, örneği çalıştırmak için `python` komutunu kullanın. Örneğin, `python analyze-image.py`.
 
 ```python
 import requests
 # If you are using a Jupyter notebook, uncomment the following line.
 #%matplotlib inline
 import matplotlib.pyplot as plt
+import json
 from PIL import Image
 from io import BytesIO
 
@@ -89,7 +82,7 @@ response.raise_for_status()
 # The 'analysis' object contains various fields that describe the image. The most
 # relevant caption for the image is obtained from the 'description' property.
 analysis = response.json()
-print(analysis)
+print(json.dumps(response.json()))
 image_caption = analysis["description"]["captions"][0]["text"].capitalize()
 
 # Display the image and overlay it with the caption.
@@ -97,11 +90,12 @@ image = Image.open(BytesIO(requests.get(image_url).content))
 plt.imshow(image)
 plt.axis("off")
 _ = plt.title(image_caption, size="x-large", y=-0.1)
+plt.show()
 ```
 
-## <a name="analyze-image-response"></a>Görüntü Analizi yanıtı
+## <a name="examine-the-response"></a>Yanıtı inceleme
 
-JSON’da başarılı bir yanıt döndürülür, örneğin:
+Başarılı bir yanıt JSON biçiminde döndürülür. Örnek web sayfası, aşağıdaki örneğe benzer şekilde başarılı bir yanıtı ayrıştırıp komut istemi penceresinde görüntüler:
 
 ```json
 {
@@ -175,9 +169,13 @@ JSON’da başarılı bir yanıt döndürülür, örneğin:
 }
 ```
 
+## <a name="clean-up-resources"></a>Kaynakları temizleme
+
+Artık gerekli değilse dosyayı silin.
+
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Optik karakter tanıma (OCR) gerçekleştirmek için Görüntü İşleme kullanan bir Python uygulaması keşfedin. Akıllı kırpılmış küçük resimler oluşturun. Buna ek olarak, bir görüntüdeki yüzler gibi görsel özellikleri algılayın, kategorilere ayırın, etiketleyin ve açıklayın. Görüntü İşleme API'lerini hızlı bir şekilde denemeniz için [Open API test konsolu](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console) konusuna göz atın.
+Optik karakter tanıma (OCR) gerçekleştirmek için Görüntü İşleme kullanan bir Python uygulaması keşfedin. Akıllı kırpılmış küçük resimler oluşturun. Buna ek olarak, bir görüntüdeki yüzler gibi görsel özellikleri algılayın, kategorilere ayırın, etiketleyin ve açıklayın. Görüntü İşleme API'sini hızlı bir şekilde denemeniz için [Open API test konsolu](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console) konusuna bakın.
 
 > [!div class="nextstepaction"]
 > [Görüntü İşleme API'si Python Öğreticisi](../Tutorials/PythonTutorial.md)

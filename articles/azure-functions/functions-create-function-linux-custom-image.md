@@ -11,16 +11,16 @@ ms.service: azure-functions
 ms.custom: mvc
 ms.devlang: azure-cli
 manager: jeconnoc
-ms.openlocfilehash: eb03d2dae42d656e62b8f02eeccf1f7312f07732
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: a77018d5ee1738f24518742c2386e6e261a7c6a8
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46962452"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48901457"
 ---
 # <a name="create-a-function-on-linux-using-a-custom-image-preview"></a>Linux üzerinde özel görüntü kullanarak bir işlev oluşturma (önizleme)
 
-Azure İşlevleri, işlevlerinizi Linux’ta kendi özel kapsayıcınızda barındırmanıza olanak sağlar. Ayrıca, [varsayılan bir Azure App Service kapsayıcısı üzerinde barındırabilirsiniz](functions-create-first-azure-function-azure-cli-linux.md). Bu işlevsellik şu anda önizleme aşamasındadır ve yine önizleme aşamasında olan [İşlevler 2.0 çalışma zamanını](functions-versions.md) gerektirir.
+Azure İşlevleri, işlevlerinizi Linux’ta kendi özel kapsayıcınızda barındırmanıza olanak sağlar. Ayrıca, [varsayılan bir Azure App Service kapsayıcısı üzerinde barındırabilirsiniz](functions-create-first-azure-function-azure-cli-linux.md). Bu işlevsellik şu anda önizleme aşamasındadır ve [İşlevler 2.0 çalışma zamanını](functions-versions.md) gerektirir.
 
 Bu öğreticide, bir işlev uygulamasını özel bir Docker görüntüsü olarak dağıtmayı öğreneceksiniz. Yerleşik App Service kapsayıcı görüntüsünü özelleştirmeniz gerektiğinde bu desen yararlıdır. İşlevleriniz belirli bir dil sürümüne gereksinim duyduğunda veya yerleşik görüntüde sağlanmayan belirli bir bağımlılık ya da yapılandırma gerektirdiğinde özel görüntü kullanmak isteyebilirsiniz.
 

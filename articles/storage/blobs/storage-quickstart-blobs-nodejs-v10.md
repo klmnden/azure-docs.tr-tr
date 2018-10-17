@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 09/19/2018
 ms.author: cshoe
-ms.openlocfilehash: a325029ded60a1cd8274743a88f7a4d410466dea
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 6e23e888a1c90e1c6c7eecf25491f048e9077f11
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46987586"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48857899"
 ---
 # <a name="quickstart-upload-download-list-and-delete-blobs-using-azure-storage-v10-sdk-for-javascript-preview"></a>Hızlı başlangıç: JavaScript için Azure Depolama v10 SDK'sını kullanarak blob yükleme, indirme, listeleme ve silme (önizleme)
 
@@ -128,7 +128,7 @@ Sonraki sabit değer kümesi, yükleme işlemleri sırasında dosya boyutu hesap
 const ONE_MEGABYTE = 1024 * 1024;
 const FOUR_MEGABYTES = 4 * ONE_MEGABYTE;
 ```
-API tarafından yapılan istekler belirli bir sürenin sonunda zaman aşımına uğrayacak şekilde ayarlanabilir. *Aborter* sınıfı isteklerin zaman aşımının yönetilmesinden sorumludur ve arkasından gelen sabit, bu örnekte kullanılan zaman aşımlarını tanımlamak için kullanılır.
+API tarafından yapılan istekler belirli bir sürenin sonunda zaman aşımına uğrayacak şekilde ayarlanabilir. [Aborter](/javascript/api/%40azure/storage-blob/aborter?view=azure-node-preview) sınıfı isteklerin zaman aşımının yönetilmesinden sorumludur ve arkasından gelen sabit, bu örnekte kullanılan zaman aşımlarını tanımlamak için kullanılır.
 ```javascript
 const ONE_MINUTE = 60 * 1000;
 ```
@@ -163,13 +163,13 @@ const serviceURL = new ServiceURL(`https://${STORAGE_ACCOUNT_NAME}.blob.core.win
 ```
 Bu kod bloğunda aşağıdaki sınıflar kullanılmıştır:
 
-- *SharedKeyCredential* sınıfı istek işlem hattına göndermek üzere depolama hesabı kimlik bilgilerinin sarmalanmasından sorumludur.
+- [SharedKeyCredential](/javascript/api/%40azure/storage-blob/sharedkeycredential?view=azure-node-preview) sınıfı istek işlem hattına göndermek üzere depolama hesabı kimlik bilgilerinin sarmalanmasından sorumludur.
 
-- *StorageURL* sınıfı yeni bir işlem hattı oluşturulmasından sorumludur.
+- [StorageURL](/javascript/api/%40azure/storage-blob/storageurl?view=azure-node-preview) sınıfı yeni bir işlem hattı oluşturulmasından sorumludur.
 
-- *ServiceURL*, REST API'sinde kullanılan bir URL modeller. Bu sınıfın örnekleri kapsayıcıları listeleme gibi eylemler gerçekleştirmenizi ve kapsayıcı URL'lerini oluşturmak için bağlam bilgisi sunmanızı sağlar.
+- [ServiceURL](/javascript/api/%40azure/storage-blob/serviceurl?view=azure-node-preview), REST API'sinde kullanılan bir URL modeller. Bu sınıfın örnekleri kapsayıcıları listeleme gibi eylemler gerçekleştirmenizi ve kapsayıcı URL'lerini oluşturmak için bağlam bilgisi sunmanızı sağlar.
 
-*ServiceURL* örneği, depolama hesabınızdaki kapsayıcıları ve blobları yönetmek için *ContainerURL* ve *BlockBlobURL* örnekleriyle birlikte kullanılır.
+*ServiceURL* örneği, depolama hesabınızdaki kapsayıcıları ve blobları yönetmek için [ContainerURL](/javascript/api/%40azure/storage-blob/containerurl?view=azure-node-preview) ve [BlockBlobURL](/javascript/api/%40azure/storage-blob/blockbloburl?view=azure-node-preview) örnekleriyle birlikte kullanılır.
 
 ```javascript
 const containerURL = ContainerURL.fromServiceURL(serviceURL, containerName);
@@ -202,7 +202,7 @@ Aborters, şu işlevleri sunarak istekler üzerinde denetim sahibi olmanızı sa
 - belirli bir istek grubu için verilen süreyi belirleme
 - grup içindeki tek bir isteğin ne kadar yürütülmesi gerektiğini belirleme
 - istekleri iptal etme
-- isteklerinizin tamamının zaman aşımına uğramasını önlemek için *Aborter.None* statik üyesini kullanma
+- isteklerinizin tamamının zaman aşımına uğramasını önlemek için *Aborter.none* statik üyesini kullanma
 
 ### <a name="show-container-names"></a>Kapsayıcı adlarını gösterme
 Hesaplarda çok sayıda kapsayıcı depolanabilir. Aşağıdaki kod kapsayıcıları bölümlenmiş bir şekilde listeleyerek çok sayıda kapsayıcı arasında geçiş yapmayı göstermektedir. *showContainerNames* işlevine *ServiceURL* ve *Aborter* örnekleri geçirilmiştir.

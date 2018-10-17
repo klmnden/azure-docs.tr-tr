@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 09/27/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 1ee3000ab26dbb0eea33de828812959fe709aaa2
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 2f503a534f79440e6e6c572b7fb29ce3048ee7bc
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47410026"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48831578"
 ---
 # <a name="tutorial-deploy-a-service-fabric-windows-cluster-into-an-azure-virtual-network"></a>Öğretici: Azure sanal ağına Service Fabric Windows kümesi dağıtma
 
@@ -88,7 +88,7 @@ Bu şablon sanal bir ağa ve bir ağ güvenlik grubuna beş sanal makineden ve t
 
 ### <a name="service-fabric-cluster"></a>Service Fabric kümesi
 
-Aşağıdaki özelliklere sahip bir Windows kümesi dağıtılır:
+**Microsoft.ServiceFabric/clusters** kaynağında şu özelliklere sahip bir Windows kümesi yapılandırılır:
 
 * tek bir düğüm türü
 * birincil düğüm türünde beş düğüm (şablon parametrelerinden yapılandırılabilir)
@@ -103,7 +103,7 @@ Aşağıdaki özelliklere sahip bir Windows kümesi dağıtılır:
 
 ### <a name="azure-load-balancer"></a>Azure yük dengeleyici
 
-Bir yük dengeleyici dağıtılır ve aşağıdaki bağlantı noktaları için araştırmalarla kurallar ayarlanır:
+**Microsoft.Network/loadBalancers** kaynağında bir yük dengeleyici yapılandırılır ve şu bağlantı noktaları için yoklamalar ve kurallar ayarlanır:
 
 * istemci bağlantı uç noktası: 19000
 * HTTP ağ geçidi uç noktası: 19080
@@ -111,16 +111,16 @@ Bir yük dengeleyici dağıtılır ve aşağıdaki bağlantı noktaları için a
 * uygulama bağlantı noktası: 443
 * Service Fabric ters proxy’si: 19081
 
-Başka bir uygulama bağlantı noktası gerekiyorsa Microsoft.Network/loadBalancers kaynağı ile Microsoft.Network/networkSecurityGroups kaynağını trafiğin geçmesine izin verecek şekilde ayarlamanız gerekir.
+Başka bir uygulama bağlantı noktası gerekiyorsa **Microsoft.Network/loadBalancers** kaynağı ile **Microsoft.Network/networkSecurityGroups** kaynağını trafiğin geçmesine izin verecek şekilde ayarlamanız gerekir.
 
 ### <a name="virtual-network-subnet-and-network-security-group"></a>Sanal ağ, alt ağ ve ağ güvenlik grubu
 
-Sanal ağ, alt ağ ve ağ güvenlik grubunun adları şablon parametrelerinde bildirilir.  Sanal ağ ve alt ağın adres alanları da şablon parametrelerinde bildirilir:
+Sanal ağ, alt ağ ve ağ güvenlik grubunun adları şablon parametrelerinde bildirilir.  Sanal ağın ve alt ağın adres alanları da şablon parametrelerinde bildirilir ve **Microsoft.Network/virtualNetworks** kaynağında yapılandırılır:
 
 * sanal ağ adres alanı: 172.16.0.0/20
 * Service Fabric alt ağ adres alanı: 172.16.2.0/23
 
-Ağ güvenlik grubunda aşağıdaki gelen trafik kuralları etkindir. Şablon değişkenlerini değiştirerek bağlantı noktası değerlerini değiştirebilirsiniz.
+**Microsoft.Network/networkSecurityGroups** kaynağında aşağıdaki gelen trafik kuralları etkinleştirilir. Şablon değişkenlerini değiştirerek bağlantı noktası değerlerini değiştirebilirsiniz.
 
 * ClientConnectionEndpoint (TCP): 19000
 * HttpGatewayEndpoint (HTTP/TCP): 19080
@@ -131,7 +131,7 @@ Ağ güvenlik grubunda aşağıdaki gelen trafik kuralları etkindir. Şablon de
 * Uygulama bağlantı noktası aralığı – 49152-65534 (hizmetler arası iletişim için kullanılır ve diğerlerinden farklı olarak Yük dengeleyicide açılmaz)
 * Diğer tüm bağlantı noktalarını engelleyin
 
-Başka bir uygulama bağlantı noktası gerekiyorsa Microsoft.Network/loadBalancers kaynağı ile Microsoft.Network/networkSecurityGroups kaynağını trafiğin geçmesine izin verecek şekilde ayarlamanız gerekir.
+Başka bir uygulama bağlantı noktası gerekiyorsa **Microsoft.Network/loadBalancers** kaynağı ile **Microsoft.Network/networkSecurityGroups** kaynağını trafiğin geçmesine izin verecek şekilde ayarlamanız gerekir.
 
 ## <a name="set-template-parameters"></a>Şablon parametrelerini ayarlama
 
@@ -246,7 +246,7 @@ Get-ServiceFabricClusterHealth
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 
-Bu öğretici serisindeki diğer makalelerde, az önce oluşturduğunuz küme kullanılır. Hemen bir sonraki makaleye geçmeyecekseniz ücretlendirmeden kaçınmak için [kümeyi silmeniz](service-fabric-cluster-delete.md) iyi olur.
+Bu öğretici serisindeki diğer makalelerde, az önce oluşturduğunuz küme kullanılır. Hemen bir sonraki makaleye geçmeyecekseniz ücret alınmaması için [kümeyi silmeniz](service-fabric-cluster-delete.md) iyi olur.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

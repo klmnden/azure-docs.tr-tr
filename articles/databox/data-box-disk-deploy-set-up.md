@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 09/24/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: e4a913aaeb6eeb3c58b70dbcd714f1360875594f
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: b1e647c6aee251bebd257db5e4e631deba0be3fa
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47161545"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49068817"
 ---
 # <a name="tutorial-unpack-connect-and-unlock-azure-data-box-disk"></a>Öğretici: Azure Data Box Disk'i paketinden çıkarma, bağlama ve kilidini açma
 
@@ -76,12 +76,14 @@ Bir Windows veya Linux istemciye bağlı olup olmadığınıza bağlı olarak, d
 Disklerinizi bağlamak ve kilitlerini açmak için aşağıdaki adımları gerçekleştirin.
      
 1. Azure portalda **Genel > Cihaz ayrıntıları**'na gidin. 
-2. Windows istemciye karşılık gelen Data Box Disk araç takımını indirin. 
+2. Windows istemciye karşılık gelen Data Box Disk araç takımını indirin. Bu araç takımında 3 araç bulunur: Data Box Disk kilit açma aracı, Data Box Disk doğrulama aracı ve Data Box Disk bölerek kopyalama aracı. 
+
+    Bu yordamda yalnızca Data Box Disk kilit açma aracını kullanacaksınız. Diğer iki araç sonraki bölümlerde kullanılacaktır.
 
     > [!div class="nextstepaction"]
     > [Windows için Data Box Disk araç takımını indirin](http://aka.ms/databoxdisktoolswin)         
 
-3. Aracı, verileri kopyalamak için kullanacağınız bilgisayarda ayıklayın.
+3. Aracı takımını, verileri kopyalamak için kullanacağınız bilgisayarda ayıklayın. 
 4. Aynı bilgisayarda bir Komut İstemi penceresi açın veya yönetici olarak Windows PowerShell'i çalıştırın.
 5. (İsteğe bağlı) Diskin kilidini açarken kullandığınız bilgisayarın işletim sistemi gereksinimlerini karşıladığını doğrulamak için, system check komutunu çalıştırın. Örnek çıktı aşağıda gösterilmiştir. 
 

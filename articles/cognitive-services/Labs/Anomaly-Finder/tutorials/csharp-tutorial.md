@@ -1,71 +1,72 @@
 ---
-title: Anomali algılama C# uygulaması - Microsoft Bilişsel hizmetler | Microsoft Docs
-description: Microsoft Bilişsel hizmetler Anomali algılama API'sini kullanan bir C# uygulaması keşfedin. Özgün veri noktaları API'ye gönderin ve beklenen değerini ve anomali noktalarını alın.
+title: 'Öğretici: Anomali Algılama, C#'
+titlesuffix: Azure Cognitive Services
+description: Anomali Algılama API'sini kullanan bir C# uygulamasını keşfedin. Özgün veri noktalarını API'ye gönderin ve beklenen değerle anomali noktalarını alın.
 services: cognitive-services
 author: chliang
 manager: bix
 ms.service: cognitive-services
-ms.technology: anomaly-detection
-ms.topic: article
+ms.component: anomaly-detection
+ms.topic: tutorial
 ms.date: 05/01/2018
 ms.author: chliang
-ms.openlocfilehash: fb434bd668b065fbdbaac39f2926676bcc90e794
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
-ms.translationtype: MT
+ms.openlocfilehash: f99ce765c1d9417fd5ca88b49214eca8a3b0bf49
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48247833"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48887658"
 ---
-# <a name="anomaly-detection-c-application"></a>Anomali algılama C# uygulaması
+# <a name="tutorial-anomaly-detection-with-c-application"></a>Öğretici: C# uygulaması ile Anomali Algılama
 
 [!INCLUDE [PrivatePreviewNote](../../../../../includes/cognitive-services-anomaly-finder-private-preview-note.md)]
 
-Girdisinden anormallikleri için Anomali algılama API'sini kullanan temel bir Windows uygulaması keşfedin. Örnek abonelik anahtarınız ile zaman serisi verilerini Anomali algılama API'sine gönderir, ardından tüm anomali noktaları ve beklenen değer, her veri noktası için API'den alır.
+Girişteki anomalileri algılamak için Anomali Algılama API'sini kullanan basit bir Windows uygulamasını keşfedin. Örnek, abonelik anahtarınızı kullanarak Anomali Algılama API'sine zaman serisi verileri gönderir ve API'den her bir veri noktasıyla ilgili anomali noktalarını ve beklenen değerleri alır.
 
-## <a name="prerequisites"></a>Önkoşullar
+## <a name="prerequisites"></a>Ön koşullar
 
 ### <a name="platform-requirements"></a>Platform gereksinimleri
 
-Örneğin, .NET Framework için geliştirilmiştir kullanarak [Visual Studio 2017, Community Edition](https://www.visualstudio.com/products/visual-studio-community-vs). 
+Örnek [Visual Studio 2017 Community Edition](https://www.visualstudio.com/products/visual-studio-community-vs) kullanılarak .NET Framework için geliştirilmiştir. 
 
-### <a name="subscribe-to-anomaly-detection-and-get-a-subscription-key"></a>Anomali algılama için abone ve bir abonelik anahtarı edinirler 
+### <a name="subscribe-to-anomaly-detection-and-get-a-subscription-key"></a>Anomali Algılama için abone olun ve abonelik anahtarını alın 
 
 [!INCLUDE [GetSubscriptionKey](../includes/get-subscription-key.md)]
 
-## <a name="get-and-use-the-example"></a>Örneği kullanın ve alma
+## <a name="get-and-use-the-example"></a>Örneği alma ve kullanma
 
-Anomali algılama örnek uygulama bilgisayarınıza kopyalayabilirsiniz [Github](https://github.com/MicrosoftAnomalyDetection/csharp-sample.git). 
+Anomali Algılama örnek uygulamasını [Github](https://github.com/MicrosoftAnomalyDetection/csharp-sample.git)'dan bilgisayarınıza kopyalayabilirsiniz. 
 <a name="Step1"></a>
-### <a name="install-the-example"></a>Bir örnek yükleyin
+### <a name="install-the-example"></a>Örneği yükleme
 
-GitHub masaüstünüzü Sample\AnomalyDetectionSample.sln açın.
+GitHub Desktop uygulamasında Sample\AnomalyDetectionSample.sln dizinini açın.
 
 <a name="Step2"></a>
-### <a name="build-the-example"></a>Örnek oluşturma
+### <a name="build-the-example"></a>Örneği derleme
 
-Ctrl + Shift + B tuşlarına basın veya derleme Şerit menüsünde'nı tıklatın, ardından yapı çözümü seçin.
+Ctrl+Shift+B tuşlarına basın veya şerit menüsünde Derle'ye tıklayıp Çözümü Derle'yi seçin.
 
 <a name="Step3"></a>
-### <a name="run-the-example"></a>Örneği çalıştırın
+### <a name="run-the-example"></a>Örneği çalıştırma
 
-1. Derleme tamamlandıktan sonra basın **F5** veya **Başlat** örneği çalıştırmak için Şerit menüsünde.
-2. Anomali algılama kullanıcı arabirimi penceresi, metin düzenleme kutusu "{your_subscription_key}" okunuyor bulun.
-3. Kendi verilerinizle örnek veriler içeren request.json dosyasını değiştirin ve ardından "Gönder" düğmesine tıklayın. Microsoft, karşıya yükleme ve bunları daha sonra arasında herhangi bir anomali noktası algılamak için kullanmak verileri alır. Yüklediğiniz veri Microsoft'un Server'da kalıcı olmaz. Anomali noktası algılamak için yeniden verileri yeniden yüklemeniz.
-4. Veri iyi ise, anomali algılama sonucu "Yanıt" alanında bulabilirsiniz. Herhangi bir hata oluşursa hata bilgilerini de yanıt alanında gösterilir.
+1. Derleme tamamlandıktan sonra örneği çalıştırmak için **F5** tuşuna basın veya şerit menüsündeki **Başlat** düğmesine tıklayın.
+2. Anomali Algılama kullanıcı arabirimi penceresinde "{your_subscription_key}" yazan metin düzenleme kutusunu bulun.
+3. Örnek veriler içeren request.json dosyasını kendi verilerinizle değiştirip "Submit" (Gönder) düğmesine tıklayın. Microsoft, yüklediğiniz verileri alır ve anomali noktası algılamak için kullanır. Yüklediğiniz veriler Microsoft sunucularında kalıcı olmaz. Anomali noktasını yeniden algılamak için verileri tekrar yüklemeniz gerekir.
+4. Veriler iyi durumdaysa anomali algılama sonucu "Response" (Yanıt) alanında görüntülenir. Hata oluşursa Response (Yanıt) alanında hata bilgileri de gösterilir.
 
 <a name="Review"></a>
-### <a name="read-the-result"></a>Sonuç okuyun
+### <a name="read-the-result"></a>Sonucu okuyun
 
 [!INCLUDE [diagrams](../includes/diagrams.md)]
 
 <a name="Review"></a>
-### <a name="review-and-learn"></a>Gözden geçirin ve bilgi edinin
+### <a name="review-and-learn"></a>Gözden geçirme ve öğrenme
 
-Çalışan bir uygulamanız olduğuna göre örnek uygulamayı Bilişsel hizmetler teknolojisi ile nasıl tümleştirildiğini gözden geçirelim. Bu adım bu uygulamanın üzerine derlemeye devam edebilirsiniz ya da Microsoft Anomali algılama kullanarak kendi uygulamanızı geliştirmeyi kolaylaştırır.
+Artık çalışan bir uygulamanız olduğuna göre örnek uygulamanın Bilişsel Hizmetler teknolojiyle nasıl tümleştirildiğini inceleyebilirsiniz. Bu adım, Microsoft Anomali Algılama özelliğini kullanarak bu uygulamayı derlemeye devam etmenizi veya kendi uygulamanızı geliştirmenizi kolaylaştıracaktır.
 
-Bu örnek uygulama Anomali algılama Restful API'si yararlanır uç noktası.
+Bu örnekte Anomali Algılama Restful API'si uç noktası kullanılmıştır.
 
-Restful API'yi nasıl örnek uygulamada kullanılan gözden geçirme, bir kod parçacığı göz atalım **AnomalyDetectionClient.cs**. Dosya "Anahtar örnek kod başlar burada" ve "Anahtar örnek kod sona ERER burada" kodu aşağıdaki kod parçacıkları çoğaltılamaz bulmanıza yardımcı olmak için gösteren kod açıklamaları içerir.
+Örnek uygulamadaki Restful API'si kullanımını inceledikten sonra **AnomalyDetectionClient.cs** dosyasındaki bir kod parçacığına bakalım. Aşağıda gösterilen kod parçacıklarını bulmanıza yardımcı olmak için dosyaya “KEY SAMPLE CODE STARTS HERE” (Anahtar kodu örneği başlangıcı) ve “KEY SAMPLE CODE ENDS HERE” (Anahtar kodu örneği sonu) şeklinde kod açıklamaları eklenmiştir.
 
 ```csharp
             // ----------------------------------------------------------------------
@@ -80,7 +81,7 @@ Restful API'yi nasıl örnek uygulamada kullanılan gözden geçirme, bir kod pa
 
 ```
 ### <a name="request"></a>**İstek**
-Aşağıdaki kod parçacığında HttpClient abonelik anahtarını ve veri noktalarınızı uç noktasına Anomali algılama API'si göndermek için nasıl kullanılacağını gösterir.
+Aşağıdaki kod parçacığı, abonelik anahtarınızı ve veri noktalarınızı Anomali Algılama API'si uç noktasına göndermek için HttpClient kullanma adımlarını göstermektedir.
 
 ```csharp
     public async Task<string> Request(string baseAddress, string endpoint, string subscriptionKey, string requestData)

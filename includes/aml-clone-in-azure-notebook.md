@@ -9,20 +9,25 @@ manager: cgronlund
 ms.custom: include file
 ms.topic: include
 ms.date: 09/24/2018
-ms.openlocfilehash: dfde11c509ef25b0c0bae314c937fc43fa78aef4
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: MT
+ms.openlocfilehash: 0ece66c176241b53e333071ccfb1882e7018df4c
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47020787"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48874038"
 ---
-* **Azure not defterleri** -ücretsiz Jupyter not defterleri Azure bulutunda temel
-    1. [![Azure not defterleri](https://notebooks.azure.com/launch.png)](https://aka.ms/aml-clone-azure-notebooks)
-    [örnek not defterleri Azure not defterlerine alma](https://aka.ms/aml-clone-azure-notebooks).
-    1.  Bir çalışma alanı ve yapılandırma dosyası oluşturun (**config.json**) makalesindeki yönergeleri kullanarak [Azure Machine Learning hizmeti için bir geliştirme ortamı yapılandırma](https://aka.ms/aml-how-to-configure-environment).
-    1. Seçin `+New` eklemek için Azure not defteri araç çubuğunda, **config.json** not defteri ile aynı klasöre dosya.
-    1. Not defterini açın.
+### <a name="azure-notebooks---free-jupyter-based-notebooks-in-the-azure-cloud"></a>**Azure Notebooks** - Azure bulutunda ücretsiz Jupyter tabanlı notebook'lar
+Azure Notebooks hizmetinde SDK sizin için yüklenip yapılandırılmıştır.
+  
+1. Çalışma alanı oluşturmak ve Azure Notebooks hizmetini başlatmak için [kullanmaya başlama hızlı başlangıcını](../articles/machine-learning/service/quickstart-get-started.md) tamamlayın.
+1. [Azure Notebooks](https://notebooks.azure.com/)'a gidin
+1. Hızlı başlangıç sırasında oluşturduğunuz `Getting Started` kitaplığındaki `tutorials` klasörüne gidin
+1. Notebook'u açın.
 
-* **Kendi Jupyter notebook sunucusu**
-
-    Kopya [GitHub deposunu](https://aka.ms/aml-notebooks) izleyin **Benioku** sunucunuz için yazılım yükleme yönergeleri.
+### <a name="your-own-jupyter-notebook-server"></a>**Kendi Jupyter notebook sunucunuz**
+1. SDK'yı yüklemek ve çalışma alanı oluşturmak için [Python SDK ile çalışmaya başlama hızlı başlangıcını](../articles/machine-learning/service/quickstart-create-workspace-with-python.md) tamamlayın.
+1. [GitHub deposunu](https://aka.ms/aml-notebooks) kopyalayın.
+1. Hızlı başlangıç sırasında oluşturduğunuz `aml_config` dizinini kopyaladığınız dizine kopyalayın.
+1. Kopyaladığınız dizinden notebook sunucusunu başlatın.
+1. `tutorials` klasörüne gidin.
+1. Notebook'u açın.

@@ -1,24 +1,25 @@
 ---
-title: Bing otomatik öneri API (Azure Bilişsel hizmetler) kullanarak sonuçları otomatik öneri alma | Microsoft Docs
-description: Bir tek sayfalı Web uygulamasında Bing otomatik öneri API kullanmayı gösteren öğretici için kaynak kod.
+title: "Öğretici: Bing Otomatik Öneri API'sini kullanarak otomatik öneri sonuçları alma"
+titlesuffix: Azure Cognitive Services
+description: Tek sayfalı bir Web uygulamasında Bing Otomatik Öneri API'sini kullanmayı gösteren öğreticinin kaynak kodu.
 services: cognitive-services
 author: v-jaswel
-manager: kamrani
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-autosuggest
-ms.topic: article
+ms.topic: tutorial
 ms.date: 10/04/2017
 ms.author: v-jaswel
-ms.openlocfilehash: 687183acb209ba6faae37865aa6a05fded5c26dc
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
-ms.translationtype: MT
+ms.openlocfilehash: 6124b831c11f0d72c8072c903d4d05f665448208
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35354497"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48831424"
 ---
 # <a name="tutorial-single-page-web-app"></a>Öğretici: Tek sayfalı Web uygulaması
 
-Bu konu ele tam kaynak kodu [tek sayfa uygulaması Öğreticisi](autosuggest.md) Bing otomatik öneri API'si. Uygulamayı çalıştırmak için kaynak kodunu bir metin düzenleyicisine kopyalayın ve dosyayı farklı Kaydet `autosuggest.html`. Daha sonra kaydedilmiş dosyayı Web tarayıcınızda açın.
+Bing Otomatik Öneri API'si için [tek sayfalı uygulama öğreticisinin](autosuggest.md) eksiksiz kaynak kodudur. Uygulamayı çalıştırmak için kaynak kodu bir metin düzenleyiciye kopyalayın ve dosyayı `autosuggest.html` olarak kaydedin. Ardından kaydettiğiniz dosyayı Web tarayıcınızda açın.
 
 ```html
 <!DOCTYPE html>

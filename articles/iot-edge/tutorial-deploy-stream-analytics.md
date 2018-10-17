@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 6997d40603bd6ebf39f8797a3e354e92c04da58d
-ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
+ms.openlocfilehash: de856aed32b596209f7af2861b76ed6648d0caca
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47422754"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49067831"
 ---
 # <a name="tutorial-deploy-azure-stream-analytics-as-an-iot-edge-module-preview"></a>Öğretici: Azure Stream Analytics’i bir IoT Edge modülüne dağıtma (önizleme)
 
@@ -139,7 +139,9 @@ Bu bölümde giriş, çıkış ve sorgu öğelerini kullanarak IoT Edge cihazın
 
 IoT Edge cihazınıza dağıtılacak Stream Analytics işinizi hazırlamak için işi depolama hesabındaki bir kapsayıcıyla ilişkilendirmeniz gerekir. İşinizi dağıttığınızda iş tanımı depolama kapsayıcısına aktarılır. 
 
-1. **Yapılandır**'ın altında **IoT Edge ayarları**'nı seçin.
+1. **Yapılandır** bölümünde **Depolama hesabı ayarları**'nı seçin.
+
+1. **Depolama hesabı ekle**'yi seçin. 
 
 1. Açılan menüden **Depolama hesabınızı** seçin.
 
