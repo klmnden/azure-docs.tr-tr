@@ -1,5 +1,5 @@
 ---
-title: Azure Batch AI hizmetine genel bakış | Microsoft Docs
+title: Azure Batch AI hizmeti - Yapay zeka eğitimi | Microsoft Docs
 description: GPU ve CPU kümelerinde yapay zeka (AI) ve diğer makine öğrenmesi modellerini eğitmek için yönetilen Azure Batch AI hizmetini kullanma hakkında bilgi edinin.
 services: batch-ai
 documentationcenter: ''
@@ -12,86 +12,63 @@ ms.workload: ''
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 10/13/2017
-ms.author: asutton
-ms.custom: ''
-ms.openlocfilehash: 504504f278907536e89055cd5c912d2d1f280931
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.date: 08/01/2018
+ms.author: danlep
+ms.openlocfilehash: 98497812e75d07fc153e0e351331c05484164fdd
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39627211"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44052708"
 ---
-# <a name="what-is-batch-ai-in-azure"></a>Azure’da Batch AI nedir?
-Batch AI, veri bilimcilerinin ve yapay zeka araştırmacılarının, GPU desteğine sahip sanal makineler dahil, Azure sanal makine kümelerindeki yapay zeka ve diğer makine öğrenmesi modellerini eğitmesini sağlayan bir yönetilen hizmettir. Siz işinizin gereksinimlerini, girdilerin nerede bulunacağını ve çıktıların nerede depolanacağını açıklarsınız, gerisini Batch AI yapar.  
- 
-## <a name="why-batch-ai"></a>Neden Batch AI? 
-Güçlü yapay zeka algoritmalarının geliştirilmesi, bilgi işlem açısından yoğun ve yinelemeli bir işlemdir. Veri bilimcileri ve yapay zeka araştırmacıları, her geçen gün daha büyük veri kümeleriyle çalışmaktadır. Daha fazla katman içeren modeller geliştirmekte ve bunu hyper parametresi ayarlama işleminde ağ tasarımı üzerinde daha fazla deney yoluyla gerçekleştirmektedir. Bunun verimli şekilde yapılması için model başına birden fazla CPU veya GPU, deneylerin paralel şekilde çalıştırılması ve eğitim verileri, günlükler ve model çıktıları için paylaşılan depolama alanı olması gerekir.   
- 
-![Batch AI işlemi](media/overview/batchai-context.png)
+# <a name="what-is-azure-batch-ai"></a>Azure Batch AI nedir?
 
-Veri bilimcileri ve yapay zeka araştırmacıları kendi alanlarında uzmandır, öte yandan belirli bir ölçekte altyapı da yönetir. Belirli bir ölçekte yapay zeka geliştirmek için birçok altyapı görevi gerekir: sanal makine kümelerinin sağlanması, yazılım ve kapsayıcıların yüklenmesi, işin kuyruğa alınması, işlerin önceliklendirilmesi ve zamanlanması, hataların işlenmesi, verilerin dağıtılması, sonuçların paylaşılması, maliyetleri yönetmek için kaynakların ölçeklendirilmesi ve araçlar ve iş akışları ile tümleştirme gerçekleştirilmesi. Batch AI bu görevleri işler. 
- 
-## <a name="what-is-batch-ai"></a>Batch AI nedir? 
+Azure Batch AI, veri bilimcilerinin ve yapay zeka araştırmacılarının karmaşık bir altyapıyı yönetmek zorunda kalmadan Azure’da makine öğrenimi ve yapay zeka modellerini uygun ölçekte eğitmelerine ve test etmelerine yardımcı olmak için tasarlanmış bir yönetilen hizmettir. İşlem kaynaklarını, çalıştırmak istediğiniz işleri ve model girişleri ile çıkışların depolanmasını istediğiniz konumu tanımladığınızda, Batch AI geri kalan her şeyi sizin için yapar.
 
-Batch AI, yapay zeka eğitim ve testi için özelleştirilmiş kaynak yönetimi ve iş zamanlaması sağlar. Temel işlevler şunlardır: 
+Batch AI’ı tek başına veya daha büyük bir geliştirme iş akışının parçası olarak model eğitimi gerçekleştirmek üzere kullanabilirsiniz:
 
-* Uzun süren toplu işler çalıştırma, yinelemeli deney ve etkileşimli eğitim 
-* GPU veya CPU kullanılarak sanal makine kümelerinin otomatik ya da el ile ölçeklendirmesi 
-* Sanal makineler arasında ve uzaktan erişim için SSH iletişimini yapılandırma 
-* [Microsoft Cognitive Toolkit](https://github.com/Microsoft/CNTK) (CNTK), [TensorFlow](https://www.tensorflow.org/) ve [Chainer](https://chainer.org/) gibi popüler araç setleri için iyileştirilmiş yapılandırma işleviyle tüm Ayrıntılı Öğrenme veya makine öğrenmesi çerçeveleri desteği 
-* Kümeleri paylaşmak ve düşük öncelikli sanal makinelerden ve Azure ayrılmış örneklerinden yararlanmak için öncelik tabanlı iş kuyruğu  
-* Azure Dosyaları ve yönetilen NFS sunucusu da dahil esnek depolama seçenekleri 
-* Uzak dosya paylaşımlarını sanal makineye ve isteğe bağlı kapsayıcıya bağlama 
-* İş durumu sağlama ve sanal makine hataları olması durumunda yeniden başlatma 
-* Azure Depolama’dan gelen akışlar da dahil, çıktı günlüklerine, stdout, stderr ve modellere erişim 
-* Azure [komut satırı arabirimi](/cli/azure) (CLI), [Python](https://github.com/Azure/azure-sdk-for-python), [C#](https://www.nuget.org/packages/Microsoft.Azure.Management.BatchAI/1.0.0-preview) ve Java için SDK’lar, Azure Portal’da izleme ve Microsoft AI araçlarıyla tümleştirme 
+* [GPU](../virtual-machines/linux/sizes-gpu.md) veya CPU kümelerinde makine öğrenimi ve yapay zeka modellerini eğitmek, test etmek ve toplu olarak puanlamak için Batch AI’ı tek başına kullanın. 
 
-Batch AI SDK, eğitim işlem hatlarını yönetmek ve araçlarla tümleştirme gerçekleştirmek için betiklerin veya uygulamaların yazılmasını destekler. SDK şu anda Python, C#, Java ve REST API’lerini sağlar.  
- 
+* [Azure Machine Learning](../machine-learning/service/overview-what-is-azure-ml.md) veya diğer [Azure AI Platform araçları](https://azure.microsoft.com/overview/ai-platform/) ile bir iş akışındaki bir Batch AI kümesini hedefleyin. Azure ML veri hazırlama, deneme ve iş geçmişi için zengin bir deneyim sağlar. Azure ML ayrıca eğitilmiş bir modeli bir kapsayıcı içinde paketleyebilir ve bir modeli çıkarım için veya IoT cihazlarına dağıtabilir.  
 
-Batch AI, denetim düzlemi işlemleri (oluşturma, listeleme, alma, silme) için Azure Resource Manager’ı kullanır. Azure Active Directory, kimlik doğrulaması ve rol tabanlı erişim denetimi için kullanılır.  
- 
-## <a name="how-to-use-batch-ai"></a>Batch AI kullanma 
+## <a name="train-machine-learning-and-ai-models"></a>Makine öğrenimi ve yapay zeka modellerini eğitme
 
-Batch AI kullanmak için *kümeleri* ve *işleri* tanımlar ve yönetirsiniz. 
+Makine öğrenimi modellerinin yanı sıra derin sinir ağları (derin öğrenme) ve diğer yapay zeka yaklaşımlarını eğitmek için Batch AI kullanın. Batch AI [TensorFlow](https://github.com/tensorflow/tensorflow), [PyTorch](https://github.com/pytorch/pytorch), [Chainer](https://github.com/chainer/chainer) ve [Microsoft Cognitive Toolkit (CNTK)](https://github.com/Microsoft/CNTK) dahil popüler açık kaynak yapay zeka kitaplıkları ve çerçeveleri için yerleşik destek sunar.
 
- 
-**Kümeler**, bilgi işlem gereksinimlerinizi açıklar: 
-* Çalışmak istediğiniz Azure bölgesi 
-* Kullanılacak sanal makine ailesi ve boyutu; örneğin, 4 NVIDIA K80 GPU’yu içeren bir NC24 VM 
-* Sanal makine sayısı veya otomatik ölçeklendirme için minimum ve maksimum sayı 
-* Sanal makine görüntüsü; örneğin, Ubuntu 16.04 LTS veya [Microsoft Ayrıntılı Öğrenme Sanal Makinesi](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.dsvm-deep-learning)
-* Örneğin, Batch AI tarafından yönetilen NFS sunucusundan veya Azure Dosyaları’ndan bağlanacak uzak dosya paylaşımı birimleri 
-* Hata ayıklama için etkileşimli oturum açmayı etkinleştirmek amacıyla sanal makinelerde yapılandırılacak kullanıcı adı ve SSH anahtarı ya da parolası  
- 
+Sorunun görüldüğü alanı belirleyip verilerinizi hazırladıktan sonra, model fikirlerini test etmek için Batch AI ile etkileşimli olarak çalışın. Ölçekte deneme yapmak için hazır olduğunuzda, MPI veya diğer iletişim kitaplıkları ile birden çok GPU üzerinde işleri başlatın ve paralel olarak daha fazla deneme çalıştırın.
 
-**İşler** şunları açıklar: 
-* Kullanılacak küme ve bölge 
-* İş için kullanılacak sanal makine sayısı 
-* Başlatma sırasında işe geçirilecek girdi ve çıktı dizinleri. Bu genellikle küme kurulumu sırasında bağlanan paylaşılan dosya sistemini kullanır 
-* Yazılım veya yükleme betiğinizi çalıştırmak için isteğe bağlı bir kapsayıcı 
-* İşi başlatmak için komut satırı ve parametreler veya AI çerçevesine özgü yapılandırma 
- 
+Batch AI çeşitli yollarla uygun ölçekte modeller eğitmenize yardımcı olur. Örnek: 
 
-Kümeler ve işler için yapılandırma dosyaları ve [Azure CLI](/cli/azure) ile Batch AI uygulamasını kullanmaya başlayın. Gerektiğinde hızlı şekilde kümenizi oluşturmak ve ağ tasarımıyla veya hyper-parametreleriyle deneme yapmak amacıyla işleri çalıştırmak için bu yaklaşımı kullanın.  
- 
+|  |  |
+|---------|---------|
+| **Eğitimi dağıtma**<br/>![Dağıtılmış eğitim](./media/overview/distributed-training.png)  | Daha yüksek miktarlarda veri içeren daha geniş ağları eğitmek için birden çok ağa bağlı GPU arasında tek bir iş için eğitimin ölçeğini büyütün.|
+| **Deneme**<br/>![Deneme](./media/overview/experimentation.png) | Birden fazla iş ile eğitimin ölçeğini artırın. Yeni fikirleri test etmek veya doğruluk ve performansı iyileştirmek için hiperparametreleri ayarlamak üzere parametre süpürmeleri çalıştırın. |
+| **Paralel olarak yürüt**![Paralel yürütme](./media/overview/parallel-execution.png) | İşlerinizi daha hızlı yapmak için bir sunucu grubunda paralel olarak çalıştırarak aynı anda birçok modeli eğitin veya puanlayın.|
 
-Batch AI, birden fazla GPU ile paralel çalışmayı kolaylaştırır. İşlerin birden fazla GPU arasında ölçeklendirmesi gerektiğinde Batch AI, sanal makineler arasında güvenli ağ bağlantısı kurar. InfiniBand kullanıldığında Batch AI, sürücüleri yapılandırır ve bir işteki düğümler arasında MPI başlatır.  
+Bir modeli eğittiğinizde, eğitim betiğinizin bir parçası olarak yapmadıysanız modeli test etmek veya toplu puanlama gerçekleştirmek için Batch AI kullanın.
 
-## <a name="data-management"></a>Veri yönetimi
-Batch AI, eğitim betikleriniz, verileriniz ve çıktılarınız için esnek seçenekler sağlar:
-  
-* Başlangıç deneyleri ve daha küçük veri kümeleri için **yerel disk** kullanın. Bu senaryo için, betikleri düzenlemek ve günlükleri okumak için SSH üzerinden sanal makineye bağlanmak isteyebilirsiniz. 
+## <a name="how-it-works"></a>Nasıl çalışır?
 
-* Eğitim verilerini birden fazla iş arasında paylaşmak ve çıktı günlüklerini ve modellerini tek bir konumda depolamak için **Azure Dosyaları**’nı kullanın 
+AI eğitimi ve testi için işlem kaynaklarını yönetmek ve işleri zamanlamak için Batch AI SDK’ları, komut satırı betikleri veya Azure portalı kullanın: 
 
-* Eğitim için daha geniş bir veri ve sanal makine ölçeğini desteklemek amacıyla bir **NFS sunucusunu** ayarlayın. Batch AI, disklerin Azure Depolama’da yedeklendiği özel bir küme türü olarak sizin için bir NFS sunucusu ayarlayabilir. 
- 
-* **Paralel dosya sistemi**, paralel eğitim ve veriler için daha fazla ölçeklendirilebilirlik sağlar. Batch AI, paralel dosya sistemlerini yönetmese de, Lustre, Gluster ve BeeGFS için örnek dağıtım şablonları mevcuttur.  
+* **VM kümelerini sağlama ve ölçeklendirme** - Düğüm (VM) sayısını seçin ve bir GPU özellikli VM’yi veya eğitim ihtiyaçlarınızı karşılayan başka bir VM’yi seçin. Kaynakları yalnızca onlara ihtiyacınız olduğunda kullanmak için, düğüm sayısını otomatik olarak veya el ile artırın veya azaltın. 
+
+* **Bağımlılıkları ve kapsayıcıları yönetme** - Varsayılan olarak, Batch AI kümeleri GPU veya CPU’lar üzerinde kapsayıcı tabanlı eğitim çerçevelerini çalıştırmak için önceden yüklenmiş bağımlılıklara sahip olan run Linux VM görüntülerini çalıştırır. Ek yapılandırma için, özel görüntüler kullanabilir veya başlangıç betikleri çalıştırabilirsiniz.
+
+* **Verileri dağıtma** - Giriş verileri ve betikleri ile iş çıkışını yönetmek için şu depolama seçeneklerinden birini belirleyin: Azure Files, Azure Blob depolama veya yönetilen bir NFS sunucusu. Batch AI yüksek performanslı paralel dosya sistemleri dahil özel depolama çözümlerini de destekler. Basit yapılandırma dosyalarını kullanarak depolama dosya sistemlerini küme düğümleri ve iş kapsayıcılarına bağlayın.
+
+* **İşleri zamanlama** - Küme kaynaklarını paylaşmak ve düşük öncelikli sanal makinelerden ve ayrılmış örneklerden yararlanmak için işleri öncelik tabanlı bir iş kuyruğuna gönderin.
+
+* **Hataları işleme** - İş durumunu izleyin ve potansiyel olarak uzun süre çalışan işlerde VM hataları oluşması durumunda işleri yeniden başlatın.
+
+* **Sonuçları toplama** - Çıkış günlükleri, Stdout, Stderr ve eğitilen modellere kolayca erişin. Batch AI işlerinizi doğrudan bağlı depolama alanına çıkış göndermek için yapılandırın.
+
+Bir Azure hizmeti olarak, Batch AI güvenlik için rol tabanlı erişim denetimi (RBAC) ve Azure sanal ağları gibi genel araçları destekler.  
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* [Azure CLI](quickstart-cli.md) veya [Python](quickstart-python.md) kullanarak ilk Batch AI eğitim işinizi oluşturmaya başlayın.
-* Farklı çerçeveler için örnek [eğitim tariflerine](https://github.com/Azure/BatchAI) göz atın.
+* Bir makine öğrenimi veya yapay zeka modelini eğitmek için [Batch AI kaynakları](resource-concepts.md) hakkında daha fazla bilgi edinin.
 
+* Batch AI ile [örnek bir derin öğrenme modeli eğitmeye](quickstart-tensorflow-training-cli.md) başlayın.
+
+* Popüler AI çerçeveleri için örnek [eğitim tariflerine](https://github.com/Azure/BatchAI/blob/master/recipes) göz atın.

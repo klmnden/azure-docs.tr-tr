@@ -1,30 +1,31 @@
 ---
-title: Bilgi Bankası araştırması hizmeti ile çalışmaya başlama | Microsoft Docs
-description: Microsoft Bilişsel hizmetler akademik yayınlarda arasında altyapının etkileşimli arama deneyimi oluşturmak için bilgi araştırması hizmet (KES) kullanın.
+title: "Örnek: Başlarken - Bilgi Keşfetme Hizmeti API'si"
+titlesuffix: Azure Cognitive Services
+description: Akademik yayınlar arasında etkileşimli bir arama deneyimi altyapısı oluşturmak için Bilgi Keşfetme Hizmeti'ni (KES) kullanın.
 services: cognitive-services
 author: bojunehsu
-manager: stesp
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: knowledge-exploration
-ms.topic: article
+ms.topic: sample
 ms.date: 03/26/2016
 ms.author: paulhsu
-ms.openlocfilehash: 02dc9368eef02d6fa507335ef3171e923412acca
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
-ms.translationtype: MT
+ms.openlocfilehash: 6cee339793269af0e8060cce56f94fa81db6a6c5
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35352511"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46124026"
 ---
-<a name="getting-started"></a>
-# <a name="get-started-with-the-knowledge-exploration-service"></a>Bilgi Bankası araştırması hizmeti ile çalışmaya başlama
-Bu kılavuzda, etkileşimli arama deneyimi akademik yayınlar için altyapısı oluşturmak için bilgi araştırması hizmet (KES) kullanın. Komut satırı aracı'nı yüklemeden [ `kes.exe` ](CommandLine.md)ve tüm örnek dosyaları [bilgi araştırması hizmeti SDK'sı](https://www.microsoft.com/en-us/download/details.aspx?id=51488).
+# <a name="get-started-with-the-knowledge-exploration-service"></a>Bilgi Keşfetme Hizmeti'ni kullanmaya başlama
 
-Akademik yayınlar örnek 1000 akademik raporlar Microsoft araştırmacılarının tarafından yayımlanan bir örneğini içerir.  Her kağıt bir başlık, yayın yıl, yazarlar ve anahtar sözcükler ile ilişkilidir. Her geliştirici bir kimliği, ad ve yayın zaman ilişkisi temsil edilir. Her anahtar sözcüğü (örneğin, "svm" eş anlamlısı ile ilişkili anahtar sözcüğü "Destek vektör makinesi" olabilir) anlamlıları kümesiyle ilişkili olabilir.
+Bu yol gösteren kılavuzda, Bilgi Keşfetme Hizmeti'ni (KES) kullanarak akademik yayınlar arasında etkileşimli bir arama deneyimi altyapısı oluşturuyorsunuz. [`kes.exe`](CommandLine.md) komut satırı aracını ve tüm örnek dosyaları [Bilgi Keşfetme Hizmeti SDK'sından](https://www.microsoft.com/en-us/download/details.aspx?id=51488) yükleyebilirsiniz.
 
-<a name="defining-schema"></a>
-## <a name="define-the-schema"></a>Şeması Tanımlama
-Şema etki alanındaki nesnelerin öznitelik yapısını tanımlar. Her öznitelik için adı ve veri türü bir JSON dosyası biçiminde belirtir. Aşağıdaki örnek dosyayı içeriktir *Academic.schema*.
+Akademik yayınlar örneğinde, Microsoft'taki araştırmacıların yayımladığı 1000 tane örnek akademik çalışma vardır.  Her çalışma bir başlık, yayın tarihi, yazarlar ve anahtar sözcüklerle ilişkilendirilmiştir. Her yazar bir kimlik, ad ve yayın tarihindeki ilişki durumuyla gösterilir. Her anahtar sözcük bir dizi eş anlamlı sözcükleri ilişkilendirilebilir (örneğin, "destek vektör makinesi" anahtar sözcüğü "svm" eş anlamlısıyla ilişkilendirilebilir).
+
+## <a name="define-the-schema"></a>Şemayı tanımlama
+
+Şema, etki alanındaki nesnelerin öznitelik yapısını açıklar. JSON dosya biçimindeki her özniteliğin adını ve veri türünü belirtir. Aşağıdaki örnek, *Academic.schema* dosyasının içeriğidir.
 
 ```json
 {
@@ -40,11 +41,11 @@ Akademik yayınlar örnek 1000 akademik raporlar Microsoft araştırmacıların�
 }
 ```
 
-Burada, tanımladığınız *başlık*, *yıl*, ve *anahtar sözcüğü* olarak bir dize, tamsayı ve dize özniteliği, sırasıyla. Yazarları kimliği, adı ve bağlantı tarafından temsil edilen çünkü tanımladığınız *Yazar* üç alt özniteliklerle bileşik özniteliği olarak: *Author.Id*, *yazar.adi*, ve *Author.Affiliation*.
+Burada, *Title*, *Year* ve *Keyword* özniteliklerini sırasıyla dize, tamsayı ve dize özniteliği olarak tanımlarız. Yazarlar kimlik, ad ve ilişki ile gösterildiğinden, *Author* özniteliğini üç alt özniteliği olan bileşik bir öznitelik olarak tanımlarsınız: *Author.Id*, *Author.Name* ve *Author.Affiliation*.
 
-Varsayılan olarak, öznitelikleri kullanılabilir tüm işlemleri kendi veri türü için destek dahil olmak üzere *eşittir*, *starts_with*, ve *is_between*. Yazar Kimliği yalnızca bir tanımlayıcı olarak dahili olarak kullanılır çünkü Varsayılanı geçersiz kılabilir ve belirtin *eşittir* yalnızca dizin oluşturulmuş işlemi.
+Varsayılan olarak, öznitelikler *equals*, *starts_with* ve *is_between* de dahil olmak üzere kendi veri türünde kullanılabilen tüm işlemleri destekler. Yazar kimliği yalnızca dahili olarak bir tanımlayıcı olarak kullanıldığından, varsayılan değeri geçersiz kılın ve dizini oluşturulan tek işlem olarak *equals* işlemini belirtin.
 
-İçin *anahtar sözcüğü* özniteliği, eş anlamlı dosya belirterek kurallı anahtar değerleriyle eşleşecek şekilde anlamlıları izin *Keyword.syn* öznitelik tanımında. Bu dosya, kurallı listesi ve eş değer çiftleri içerir:
+*Keyword* özniteliği için, öznitelik tanımında *Keyword.syn* eş anlamlılar dosyasını belirterek eş anlamlıların kurallı anahtar sözcük değerleriyle eşleştirilmesine izin verin. Bu dosya kurallı ve eş anlamlı değer çiftlerinin listesini içerir:
 
 ```json
 ...
@@ -59,11 +60,11 @@ Varsayılan olarak, öznitelikleri kullanılabilir tüm işlemleri kendi veri t�
 ...
 ```
 
-Şema tanımı hakkında ek bilgi için bkz: [şema biçimi](SchemaFormat.md).
+Şema tanımı hakkında daha fazla bilgi için bkz. [Şema Biçimi](SchemaFormat.md).
 
-<a name="generating-data"></a>
-## <a name="generate-data"></a>Veri oluştur
-Veri dosyası yazıda, öznitelik değerleri belirtme her bir satır ile dizin oluşturmak için yayınlar listesini açıklayan [JSON biçimine](http://json.org/).  Aşağıdaki örnek veri dosyasından tek bir satırdır *Academic.data*okunabilirlik için biçimlendirilmiş:
+## <a name="generate-data"></a>Verileri oluşturma
+
+Veri dosyası, dizini oluşturulacak yayınlar listesini açıklar. Her satırda çalışmanın öznitelik değerleri [JSON biçiminde](http://json.org/) belirtilir.  Aşağıdaki örnek, *Academic.data* veri dosyasından okunabilir olması için biçimlendirilmiş tek bir satırdır:
 
 ```
 ...
@@ -87,23 +88,23 @@ Veri dosyası yazıda, öznitelik değerleri belirtme her bir satır ile dizin o
 ...
 ```
 
-Bu parçacığında, belirttiğiniz *başlık* ve *yıl* özniteliği JSON dizesi ve sayı olarak kağıt sırasıyla. Birden çok değerleri JSON dizileri kullanılarak gösterilir. Çünkü *Yazar* bileşik bir öznitelik alt özniteliklerini içeren bir JSON nesnesi kullanarak her bir değeri temsil edilir. Eksik değerleri ile gibi öznitelikleri *anahtar sözcüğü* bu durumda, JSON gösteriminden dışlandı.
+Bu kod parçacığında, çalışmanın *Title* ve *Year* özniteliklerini sırasıyla JSON dizesi ve sayı olarak belirtirsiniz. JSON dizileri kullanılarak birden çok değer gösterilir. *Author* bir bileşik öznitelik olduğundan, her değer bu bileşik özniteliğin alt özniteliklerinden oluşturulmuş bir JSON nesnesi kullanılarak gösterilir. Bu örnekteki *Keyword* gibi değerleri eksik olan öznitelikler, JSON gösteriminin dışında tutulabilir.
 
-Farklı yazıları olasılığını ayırt etmek için yerleşik kullanarak göreli günlük olasılık belirtin *logprob* özniteliği. Bir olasılık verilen *p* 0 ile 1 arasında günlük olarak günlük olasılık işlem (*p*), log() doğal günlük işlevini olduğu.
+Farklı çalışmaların benzerliğini ayırt etmek için, yerleşik *logprob* özniteliğini kullanarak göreli logaritmik olasılığı belirtin. 0 ile 1 arasında bir *p* olasılık değeri verildiğinde, logaritmik olasılığı log(*p*) olarak hesaplarsınız; burada log(), doğal logaritma işlevidir.
 
-Daha fazla bilgi için bkz: [veri biçimi](DataFormat.md).
+Daha fazla bilgi için bkz. [Veri Biçimi](DataFormat.md).
 
-<a name="building-index"></a>
-## <a name="build-a-compressed-binary-index"></a>Sıkıştırılmış bir ikili dizini oluşturun
-Bir şema dosyası ve veri dosyasını çalıştırdıktan sonra kullanarak veri nesneleri sıkıştırılmış ikili dizin oluşturabilirsiniz [ `kes.exe build_index` ](CommandLine.md#build_index-command). Bu örnekte, dizin dosyası derleme *Academic.index* giriş şemasını dosyasından *Academic.schema* ve veri dosyası *Academic.data*. Aşağıdaki komutu kullanın:
+## <a name="build-a-compressed-binary-index"></a>Sıkıştırılmış ikili dizin oluşturma
+
+Bir şema dosyanız ve veri dosyanız olduktan sonra, [`kes.exe build_index`](CommandLine.md#build_index-command) kullanarak veri nesnelerinin sıkıştırılmış ikili dizinini oluşturabilirsiniz. Bu örnekte, *Academic.schema* giriş şema dosyasından ve *Academic.data* veri dosyasından *Academic.index* dizin dosyasını oluşturuyorsunuz. Aşağıdaki komutu kullanın:
 
 `kes.exe build_index Academic.schema Academic.data Academic.index`
 
-Azure dışında hızlı prototipi oluşturulurken için [ `kes.exe build_index` ](CommandLine.md#build_index-command) yerel olarak küçük dizinlerini 10.000 nesneler içeren veri dosyalarından oluşturabilirsiniz. Büyük veri dosyaları için ya da komut içinden çalıştırabilirsiniz bir [Azure Windows VM](../../../articles/virtual-machines/windows/quick-create-portal.md), veya uzak bir yapı Azure'da gerçekleştirin. Ayrıntılar için bkz [ölçeklendirmeyi](#scaling-up).
+Azure dışında hızla bir prototip oluşturmak için, [`kes.exe build_index`](CommandLine.md#build_index-command) en çok 10.000 nesne içeren veri dosyalarından yerel olarak küçük dizinler oluşturabilir. Daha büyük veri dosyaları için, komutu [Azure'da Windows VM'sinin](../../../articles/virtual-machines/windows/quick-create-portal.md) içinden çalıştırabilir veya Azure'da uzaktan derleme yapabilirsiniz. Ayrıntılar için bkz. [Ölçeklendirme](#scaling-up).
 
-<a name="authoring-grammar"></a>
-## <a name="use-an-xml-grammar-specification"></a>Bir XML dilbilgisi belirtimi kullanın
-Dilbilgisi hizmet bu doğal dil sorguları anlam sorgusu ifadelere nasıl dönüştürüleceğini yanı sıra yorumlaması için doğal dil sorguları kümesini belirtir. Bu örnekte, kullandığınız belirtilen Dilbilgisi *academic.xml*:
+## <a name="use-an-xml-grammar-specification"></a>XML dil bilgisi belirtimi kullanma
+
+Dil bilgisi, hem hizmetin yorumlayabildiği bir dizi doğal dil sorgusu hem de bu doğal dil sorgularının anlam sorgusu ifadelerine nasıl çevrildiğini belirtir. Bu örnekte, *academic.xml* dosyasında belirtilen dil bilgisini kullanırsınız:
 
 ```xml
 <grammar root="GetPapers">
@@ -196,73 +197,73 @@ Dilbilgisi hizmet bu doğal dil sorguları anlam sorgusu ifadelere nasıl dönü
 </grammar>
 ```
 
-Dilbilgisi belirtimi sözdizimi hakkında daha fazla bilgi için bkz: [dilbilgisi biçimini](GrammarFormat.md).
+Dil bilgisi belirtimi söz dizimi hakkında daha fazla bilgi için, bkz. [Dil Bilgisi Biçimi](GrammarFormat.md).
 
-<a name="compiling-grammar"></a>
-## <a name="compile-the-grammar"></a>Dilbilgisi derleme
-Bir XML dilbilgisi belirtimi aldıktan sonra onu ikili dilbilgisi kullanarak derleyebilir [ `kes.exe build_grammar` ](CommandLine.md#build_grammar-command). Dilbilgisi bir şema alıyorsa, şema dosyası XML dilbilgisi aynı yol bulunması gerektiğini unutmayın. Bu örnekte, ikili dilbilgisi dosyanın derleme *Academic.grammar* giriş XML dilbilgisi dosyasından *Academic.xml*. Aşağıdaki komutu kullanın:
+## <a name="compile-the-grammar"></a>Dil bilgisini derleme
+
+Bir XML söz dizimi belirtiminiz olduktan sonra, [`kes.exe build_grammar`](CommandLine.md#build_grammar-command) kullanarak bunu bir ikili dil bilgisine derleyebilirsiniz. Dil bilgisinin bir şemayı içeri aktarması durumunda, şema dosyasının dil bilgisi XML dosyasıyla aynı yolda bulunması gerektiğini unutmayın. Bu örnekte, *Academic.xml* giriş XML dil bilgisi dosyasından *Academic.grammar* ikili dil bilgisi dosyasını derliyorsunuz. Aşağıdaki komutu kullanın:
 
 `kes.exe build_grammar Academic.xml Academic.grammar`
 
-<a name="hosting-index"></a>
-## <a name="host-the-grammar-and-index-in-a-web-service"></a>Dilbilgisi ve bir web hizmeti dizinde ana bilgisayar
-Hızlı prototipi oluşturulurken için bir web hizmeti yerel makinedeki dizinde ve dilbilgisi kullanarak barındırabilirsiniz [ `kes.exe host_service` ](CommandLine.md#host_service-command). Daha sonra hizmeti ile erişebilirsiniz [API'leri web](WebAPI.md) veri doğruluk ve dilbilgisi tasarımı doğrulanacak. Bu örnekte, dilbilgisi dosyası ana bilgisayarı *Academic.grammar* ve dizin dosyası *Academic.index* adresindeki http://localhost:8000/. Aşağıdaki komutu kullanın:
+## <a name="host-the-grammar-and-index-in-a-web-service"></a>Dil bilgisini ve dizini web hizmetinde barındırma
+
+Hızlı bir prototip için, [`kes.exe host_service`](CommandLine.md#host_service-command) kullanarak dil bilgisini ve dizini yerel makinedeki bir web hizmetinde barındırabilirsiniz. Ardından veri doğruluğunu ve dil bilgisi tasarımını doğrulamak için [web API'leri](WebAPI.md) yoluyla hizmete erişebilirsiniz. Bu örnekte, *Academic.grammar* dil bilgisi dosyasını ve *Academic.index* dizin dosyasını http://localhost:8000/ konumunda barındırıyorsunuz. Aşağıdaki komutu kullanın:
 
 `kes.exe host_service Academic.grammar Academic.index --port 8000`
 
-Bu web hizmetini yerel bir örneğini başlatır. Hizmet etkileşimli olarak ziyaret ederek test edebilirsiniz `http::localhost:<port>` bir tarayıcıdan. Daha fazla bilgi için bkz: [hizmetini sınama](#testing-service).
+Bu, web hizmetinin yerel bir örneğini başlatır. Tarayıcıdan `http::localhost:<port>` adresini ziyaret ederek hizmeti etkileşimli olarak test edebilirsiniz. Daha fazla bilgi için bkz. [Test hizmeti](#testing-service).
 
-Ayrıca doğrudan çeşitli çağırabilirsiniz [API'leri web](WebAPI.md) doğal dil yorumlama, sorgu tamamlama, yapılandırılmış sorgu değerlendirme ve histogram hesaplama test etmek için. Hizmeti durdurmak için "Çık" girerek `kes.exe host_service` komut istemi veya Ctrl + C tuşlarına basın. İşte bazı örnekler:
+Doğal dil yorumunu, sorgu tamamlamayı, yapılandırılmış sorgu gelişimini ve histogram hesaplamasını test etmek için çeşitli [web API'lerini](WebAPI.md) doğrudan çağırmanız da mümkündür. Hizmeti durdurmak için, `kes.exe host_service` komut istemine "quit" girin veya Ctrl+C tuşlarına basın. İşte bazı örnekler:
 
-* [http://localhost:8000/interpret?query=papers Çiğdem t dumais tarafından](http://localhost:8000/interpret?query=papers%20by%20susan%20t%20dumais)
-* [http://localhost:8000/interpret?query=papers d & tam Çiğdem t = 1](http://localhost:8000/interpret?query=papers%20by%20susan%20t%20d&complete=1)
-* [http://localhost:8000/evaluate?expr=Composite(Author.Name=='Çiğdem t dumais') & attributes=Title,Year,Author.Name,Author.Id & sayısı = 2](http://localhost:8000/evaluate?expr=Composite%28Author.Name==%27susan%20t%20dumais%27%29&attributes=Title,Year,Author.Name,Author.Id&count=2)
-* [http://localhost:8000/calchistogram?expr=And(Composite(Author.Name=='Çiğdem t dumais'), Yıl > 2013 =) & öznitelikleri = yıl, anahtar sözcüğü & sayısı = 4](http://localhost:8000/calchistogram?expr=And%28Composite%28Author.Name=='susan%20t%20dumais'%29,Year>=2013%29&attributes=Year,Keyword&count=4)
+* [http://localhost:8000/interpret?query=papers by susan t dumais](http://localhost:8000/interpret?query=papers%20by%20susan%20t%20dumais)
+* [http://localhost:8000/interpret?query=papers by susan t d&complete=1](http://localhost:8000/interpret?query=papers%20by%20susan%20t%20d&complete=1)
+* [http://localhost:8000/evaluate?expr=Composite(Author.Name=='susan t dumais')&attributes=Title,Year,Author.Name,Author.Id&count=2](http://localhost:8000/evaluate?expr=Composite%28Author.Name==%27susan%20t%20dumais%27%29&attributes=Title,Year,Author.Name,Author.Id&count=2)
+* [http://localhost:8000/calchistogram?expr=And(Composite(Author.Name=='susan t dumais'),Year>=2013)&attributes=Year,Keyword&count=4](http://localhost:8000/calchistogram?expr=And%28Composite%28Author.Name=='susan%20t%20dumais'%29,Year>=2013%29&attributes=Year,Keyword&count=4)
 
-Azure dışında [ `kes.exe host_service` ](CommandLine.md#host_service-command) 10.000 nesnelerin dizinlerini sınırlıdır. İşlem otomatik olarak sonlandırılmadan önce diğer sınırları saniyede 10 istekler API oranını ve 1000 isteklerinin toplam içerir. Bu kısıtlamalar atlamak için komutu içinden çalıştırın bir [Azure Windows VM](../../../articles/virtual-machines/windows/quick-create-portal.md), veya bir Azure bulut hizmeti dağıtmanızı [ `kes.exe deploy_service` ](CommandLine.md#deploy_service-command) komutu. Ayrıntılar için bkz [hizmeti dağıtma](#deploying-service).
+Azure dışında, [`kes.exe host_service`](CommandLine.md#host_service-command) en çok 10.000 nesnenin dizinleriyle sınırlıdır. Diğer sınırlar saniyede 10 istek olan API hızı ve işlem otomatik olarak sonlandırılmadan önce toplam 1000 istek sınırıdır. Bu kısıtlamaları aşmak için, komutu [Azure'da Windows VM'si](../../../articles/virtual-machines/windows/quick-create-portal.md) içinden çalıştırın veya [`kes.exe deploy_service`](CommandLine.md#deploy_service-command) komutunu kullanarak Azure bulut hizmetine dağıtın. Ayrıntılar için bkz. [Hizmeti dağıtma](#deploying-service).
 
-<a name="scaling-up"></a>
-## <a name="scale-up-to-host-larger-indices"></a>Ana bilgisayar büyük dizinler ölçeği
-Ne zaman çalıştırdığınız `kes.exe` Azure dışında dizini 10.000 nesnelere sınırlıdır. Derleme ve Azure kullanarak büyük dizinler barındırır. Kaydolun bir [ücretsiz deneme sürümü](https://azure.microsoft.com/pricing/free-trial/). Visual Studio veya MSDN abone olursanız, dilerseniz [abone Avantajlarınızı etkinleştirebilir](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/). Bu, her ay bazı Azure kredisi sunar.
+## <a name="scale-up-to-host-larger-indices"></a>Daha büyük dizinleri barındırmak için ölçeklendirme
 
-İzin vermek için `kes.exe` bir Azure hesabı için erişim [Azure yayımlama ayarları dosyasını indirme](https://portal.azure.com/#blade/Microsoft_Azure_ClassicResources/PublishingProfileBlade) Azure portalından. İstenirse, istediğiniz Azure hesaba oturum açın. Dosyayı Farklı Kaydet *AzurePublishSettings.xml* nerede çalışma dizininde `kes.exe` çalıştırır.
+`kes.exe` dosyasını Azure'un dışında çalıştırdığınızda, dizin 10.000 nesneyle sınırlıdır. Azure kullanarak daha büyük dizinler oluşturabilir ve barındırabilirsiniz. [Ücretsiz deneme](https://azure.microsoft.com/pricing/free-trial/) için kaydolun. Alternatif olarak, Visual Studio veya MSDN'ye abone olursanız [abone avantajlarını etkinleştirebilirsiniz](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/). Bunlar her ay bir miktar Azure kredisi sunar.
 
-Derleme ve büyük dizinler barındırmak için iki yolu vardır. İlk Azure Windows VM şeması ve verisi dosyalarında hazırlamak vardır. Ardından çalıştırın [ `kes.exe build_index` ](#building-index) dizin yerel olarak boyut kısıtlamaları olmadan VM oluşturmak için. Sonuçta ortaya çıkan dizin yerel olarak VM kullanarak barındırılabilir [ `kes.exe host_service` ](#hosting-service) herhangi bir kısıtlama olmadan yeniden hızlı prototipi oluşturulurken için. Ayrıntılı adımlar için bkz: [Azure VM Öğreticisi](../../../articles/virtual-machines/windows/quick-create-portal.md).
+Azure hesabına `kes.exe` erişimi izni vermek için, Azure portalından [Azure Yayımlama Ayarları dosyasını indirin](https://portal.azure.com/#blade/Microsoft_Azure_ClassicResources/PublishingProfileBlade). İstenirse, dilediğiniz Azure hesabıyla oturum açın. Dosyayı *AzurePublishSettings.xml* adıyla `kes.exe` dosyasının çalıştırıldığı çalışma dizinine kaydedin.
 
-Uzak bir Azure yapı kullanarak gerçekleştirmek için ikinci yöntemdir [ `kes.exe build_index` ](CommandLine.md#build_index-command) ile `--remote` parametresi. Bu, bir Azure VM boyutu belirtir. Zaman `--remote` parametresi belirtilirse, bu boyut, geçici bir Azure VM komut oluşturur. Daha sonra VM dizin oluşturur, dizini hedef blob depolama alanına yükler ve VM tamamlanmasından sonra siler. Dizin oluşturulmuş sırada, Azure aboneliğinizin VM maliyeti için ücretlendirilir.
+Büyük dizinleri oluşturmanın ve barındırmanın iki yolu vardır. İlk yol, şema ve veri dosyalarını Azure'da Windows VM'sinde hazırlayın. Ardından, dizini hiçbir boyut kısıtlaması olmadan yerel olarak VM'de oluşturmak için [`kes.exe build_index`](#building-index) komutunu çalıştırın. Sonuçta elde edilen dizin, hızlı prototip için [`kes.exe host_service`](#hosting-service) kullanarak yine hiçbir kısıtlama olmadan VM'de yerel olarak barındırılabilir. Ayrıntılı adımlar için bkz. [Azure VM öğreticisi](../../../articles/virtual-machines/windows/quick-create-portal.md).
 
-Bu uzak Azure yapı yeteneği verir [ `kes.exe build_index` ](CommandLine.md#build_index-command) herhangi bir ortamda çalıştırılmak üzere. Uzak bir yapı gerçekleştirirken, giriş şeması ve verisi bağımsız değişkenler yerel dosya yolları olabilir veya [Azure blob depolama](../../storage/blobs/storage-dotnet-how-to-use-blobs.md) URL'leri. Çıktı dizini bağımsız bir blob depolama URL olması gerekir. Bir Azure depolama hesabı oluşturmak için bkz: [Azure storage hesapları hakkında](../../storage/common/storage-create-storage-account.md). Dosyaları çok verimli bir şekilde kopyalayın ve blob depolama alanından kullanmak için [AzCopy](../../storage/common/storage-use-azcopy.md) yardımcı programı.
+İkinci yöntem, [`kes.exe build_index`](CommandLine.md#build_index-command) komutunu `--remote` parametresiyle kullanarak uzaktan Azure derlemesi yapmaktır. Bu, Azure VM boyutunu belirtir. `--remote` parametresi belirtildiğinde, komut bu boyutta geçici bir Azure VM oluşturur. Ardından VM'de dizini oluşturur, dizini hedef blob depolamaya yükler ve işlem tamamlandıktan sonra VM'yi siler. Dizin oluşturulurken Azure aboneliğiniz VM'nin maliyeti tutarında ücretlendirilir.
 
-Bu örnekte, aşağıdaki blob depolama kapsayıcısı zaten oluşturuldu varsayabilirsiniz: http://&lt;*hesap*&gt;.blob.core.windows.net/&lt;*kapsayıcı* &gt;/. Bir şema içeriyor *Academic.schema*, başvurulan eş anlamlı dosya *Keywords.syn*ve tam ölçekli veri dosyası *Academic.full.data*. Aşağıdaki komutu kullanarak tam dizin uzaktan oluşturabilirsiniz:
+Bu uzaktan derleme özelliği [`kes.exe build_index`](CommandLine.md#build_index-command) komutunun herhangi bir ortamda çalıştırılmasına olanak tanır. Uzaktan derleme yaparken, giriş şema ve veri bağımsız değişkenleri yerel dosya yolları veya [Azure blob depolama](../../storage/blobs/storage-dotnet-how-to-use-blobs.md) URL'leri olabilir. Çıkış dizini bağımsız değişkeni blob depolama URL'si olmalıdır. Azure depolama hesabı oluşturmak için bkz. [Azure depolama hesapları hakkında](../../storage/common/storage-create-storage-account.md). Dosyaları blob depolamasına ve blob depolamasından verimli bir yolla kopyalamak için, [AzCopy](../../storage/common/storage-use-azcopy.md) yardımcı programını kullanın.
+
+Bu örnekte, şu blob depolama kapsayıcısının oluşturulduğunu varsayabilirsiniz: http://&lt;*hesap*&gt;.blob.core.windows.net/&lt;*kapsayıcı*&gt;/. Bu kapsayıcı *Academic.schema* şemasını, başvurulan *Keywords.syn* eş anlamlılar dosyasını ve tam ölçekli *Academic.full.data* veri dosyasını barındırır. Aşağıdaki komutu kullanarak tam dizini uzaktan oluşturabilirsiniz:
 
 `kes.exe build_index http://<account>.blob.core.windows.net/<container>/Academic.schema http://<account>.blob.core.windows.net/<container>/Academic.full.data http://<account>.blob.core.windows.net/<container>/Academic.full.index --remote <vm_size>`
 
-Temporay dizini oluşturmak için VM sağlamak için 5-10 dakika sürebileceğini unutmayın. Hızlı prototipi oluşturulurken için şunları yapabilirsiniz:
-- Yerel olarak herhangi bir makinede daha küçük bir veri kümesiyle geliştirin.
-- El ile [bir Azure VM oluşturma](../../../articles/virtual-machines/windows/quick-create-portal.md), [bağlanmak](../../../articles/virtual-machines/windows/quick-create-portal.md#connect-to-virtual-machine) Uzak Masaüstü yükleme [bilgi araştırması hizmeti SDK'sı](https://www.microsoft.com/en-us/download/details.aspx?id=51488), çalıştırıp [ `kes.exe` ](CommandLine.md) gelen VM dahilinde.
+Dizin oluşturmak için geçici bir VM sağlama işleminin 5-10 dakika kadar sürebileceğini unutmayın. Hızlı bir prototip oluşturmak için şunları yapabilirsiniz:
+- Herhangi bir makinede yerel olarak daha küçük bir veri kümesiyle geliştirme.
+- El ile [bir Azure VM oluşturma](../../../articles/virtual-machines/windows/quick-create-portal.md), Uzak Masaüstü yoluyla [bu VM'ye bağlanma](../../../articles/virtual-machines/windows/quick-create-portal.md#connect-to-virtual-machine), [Bilgi Keşfetme Hizmeti SDK'sını](https://www.microsoft.com/en-us/download/details.aspx?id=51488) yükleme ve VM'nin içinden [`kes.exe`](CommandLine.md) komutunu çalıştırma.
 
-Disk belleği derleme işlemini yavaşlatır. Disk belleği önlemek için bir VM ile RAM miktarını üç kez dizin oluşturma için giriş veri dosyası boyutu kullanın. Barındırma için dizin boyuttan daha fazla RAM 1 GB olan bir VM kullanın. Kullanılabilir VM boyutları listesi için bkz: [sanal makineler için Boyutlar](../../../articles/virtual-machines/virtual-machines-windows-sizes.md).
+Derleme işlemi sırasında sayfalama yavaşlar. Sayfalamayı önlemek için, dizin oluşturmanın giriş veri dosyası olarak RAM miktarının üç katı kadar bir VM kullanın. Barındırma için dizin boyutundan 1 GB daha fazla RAM içeren bir VM kullanın. Kullanılabilir VM boyutları listesi için bkz. [Sanal makinelerin boyutları](../../../articles/virtual-machines/virtual-machines-windows-sizes.md).
 
-<a name="deploying-service"></a>
-## <a name="deploy-the-service"></a>Hizmeti Dağıt
-Dilbilgisi ve dizini oluşturduktan sonra hizmeti bir Azure bulut hizmeti dağıtmak hazır olursunuz. Yeni bir Azure bulut hizmeti oluşturmak için bkz: [nasıl oluşturulacağı ve bir bulut hizmetinin dağıtılacağı](../../../articles/cloud-services/cloud-services-how-to-create-deploy-portal.md). Bir dağıtım paketi bu noktada belirtmeyin.  
+## <a name="deploy-the-service"></a>Hizmeti dağıtma
 
-Bulut hizmeti oluştururken kullanabileceğiniz [ `kes.exe deploy_service` ](CommandLine.md#deploy_service-command) hizmeti dağıtmak için. Bir Azure bulut hizmeti iki dağıtım yuvası yok: üretim ve hazırlama. Dinamik kullanıcı trafiği alır bir hizmet için başlangıçta hazırlama yuvasını dağıtmanız gerekir. Hizmetin başlatılması ve kendisini başlatma için bekleyin. Ardından, dağıtımı doğrulamak ve temel testlerini geçtiğini doğrulamak için birkaç istekleri gönderebilirsiniz.
+Dil bilginiz ve dizininiz olduktan sonra, artık hizmeti bir Azure bulut hizmetine dağıtmaya hazırsınız demektir. Yeni bir Azure bulut hizmeti oluşturmak için bkz. [Bulut hizmetini oluşturma ve dağıtma](../../../articles/cloud-services/cloud-services-how-to-create-deploy-portal.md). Bu noktada bir dağıtım paketi belirtmeyin.  
 
-[Takas](../../../articles/cloud-services/cloud-services-nodejs-stage-application.md) hazırlama içeriğini yuva üretim yuvasıyla böylece dinamik trafik şimdi yeni dağıtılan hizmete yönlendirilir. Yeni veri hizmetiyle güncelleştirilmiş bir sürümünü dağıtırken bu işlemi yineleyebilirsiniz. Diğer tüm Azure bulut Hizmetleri ile isteğe bağlı olarak Azure Portalı'nı yapılandırmak için kullanabileceğiniz gibi [otomatik ölçeklendirme](../../../articles/cloud-services/cloud-services-how-to-scale-portal.md).
+Bulut hizmetini oluşturduğunuzda, hizmeti dağıtmak için [`kes.exe deploy_service`](CommandLine.md#deploy_service-command) kullanabilirsiniz. Azure bulut hizmetinin iki dağıtım yuvası vardır: üretim ve hazırlama. Canlı kullanıcı trafiği alan bir hizmet için, başlangıçta bir hazırlama yuvasına dağıtım yapmanız gerekir. Hizmetin kendini başlatmasını bekleyin. Ardından, dağıtımı doğrulamak için birkaç istek gönderebilir ve temel testleri geçtiğini doğrulayabilirsiniz.
 
-Bu örnekte, dağıttığınız *akademik* var olan bir bulut hizmetiyle hazırlama yuvası dizinine *< vm_size >* VM'ler. Aşağıdaki komutu kullanın:
+Hazırlama yuvasını içeriğini üretim yuvasıyla [değiştirin](../../../articles/cloud-services/cloud-services-nodejs-stage-application.md); böylelikle, canlı trafik artık yeni dağıtılan hizmete yönlendirilir. Hizmetin yeni verilerle güncelleştirilmiş sürümünü dağıtırken de bu işlemi yineleyebilirsiniz. Aynı diğer Azure bulut hizmetlerinde olduğu gibi, isterseniz Azure portalını kullanarak [otomatik ölçeklendirmeyi](../../../articles/cloud-services/cloud-services-how-to-scale-portal.md) yapılandırabilirsiniz.
+
+Bu örnekte, *<vm_size>* VM'lerle var olan bir bulut hizmetinin hazırlama yuvasına *Academic* dizinini dağıtıyorsunuz. Aşağıdaki komutu kullanın:
 
 `kes.exe deploy_service http://<account>.blob.core.windows.net/<container>/Academic.grammar http://<account>.blob.core.windows.net/<container>/Academic.index <serviceName> <vm_size> --slot Staging`
 
-Kullanılabilir VM boyutları listesi için bkz: [sanal makineler için Boyutlar](../../../articles/virtual-machines/virtual-machines-windows-sizes.md).
+Kullanılabilir VM boyutları listesi için bkz. [Sanal makinelerin boyutları](../../../articles/virtual-machines/virtual-machines-windows-sizes.md).
 
-Hizmet dağıttıktan sonra çeşitli çağırabilirsiniz [API'leri web](WebAPI.md) doğal dil yorumlama, sorgu tamamlama, yapılandırılmış sorgu değerlendirme ve histogram hesaplama test etmek için.  
+Hizmeti dağıttıktan sonra, doğal dil yorumunu, sorgu tamamlamayı, yapılandırılmış sorgu gelişimini ve histogram hesaplamasını test etmek için çeşitli [web API'lerini](WebAPI.md) çağırabilirsiniz.  
 
-<a name="testing-service"></a>
-## <a name="test-the-service"></a>Hizmeti test
-Canlı bir hizmette hata ayıklamak için bir web tarayıcısından konak makineye göz atın. Yerel bir hizmet aracılığıyla dağıtılan için [host_service](#hosting-service), ziyaret `http://localhost:<port>/`.  Azure bulut hizmeti aracılığıyla dağıtılan [deploy_service](#deploying-service), ziyaret `http://<serviceName>.cloudapp.net/`.
+## <a name="test-the-service"></a>Hizmeti test etme
 
-Bu sayfa temel API çağrısı istatistikleri yanı sıra dilbilgisi ve bu hizmetin barındırılan dizin bilgilerine bir bağlantı içerir. Bu sayfa Ayrıca web API'leri kullanımını gösteren bir etkileşimli arama arabirimi içerir. Sorgu sonuçlarını görmek için arama kutusuna girin [yorumlama](interpretMethod.md), [değerlendirmek](evaluateMethod.md), ve [calchistogram](calchistogramMethod.md) API çağrıları. Temel alınan bu sayfasının HTML kaynağını, ayrıca web API'leri zengin ve etkileşimli arama deneyimi oluşturmak için uygulamaya tümleştirmek nasıl bir örnek olarak görev yapar.
+Canlı hizmetin hatalarını ayıklamak için, web tarayıcısından konak makinesine göz atın. [host_service](#hosting-service) yoluyla dağıtılan bir yerel hizmet için `http://localhost:<port>/` adresini ziyaret edin.  [deploy_service](#deploying-service) yoluyla dağıtılan bir Azure bulut hizmeti için `http://<serviceName>.cloudapp.net/` adresini ziyaret edin.
+
+Bu sayfada hem temel API çağrısı istatistikleri hakkındaki bilgilerin bağlantısı hem de bu hizmette barındırılan dil bilgisi ve dizin yer alır. Bu sayfa ayrıca web API'lerinin kullanımını gösteren etkileşimli bir arama arabirimi de içerir. Arama kutusuna sorguları girin ve [interpret](interpretMethod.md), [evaluate](evaluateMethod.md) ve [calchistogram](calchistogramMethod.md) API çağrılarının sonuçlarına bakın. Bu sayfanın temel HTML kaynağı, zengin, etkileşimli bir arama deneyimi oluşturmak için web API'lerini bir uygulamaya tümleştirme örneği işlevi de görür.
 
 
