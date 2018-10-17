@@ -1,24 +1,22 @@
 ---
-title: 'Hızlı Başlangıç: FASTQ dosya girişlerini kullanarak iş akışı gönderme | Microsoft Docs'
+title: 'Hızlı Başlangıç: FASTQ dosyası girişlerini kullanarak iş akışı gönderme - Microsoft Genomiks'
 titleSuffix: Azure
 description: Bu hızlı başlangıçta msgen istemcisini yüklediğiniz ve hizmette örnek verileri başarıyla çalıştırdığınız kabul edilmektedir.
-services: microsoft-genomics
+services: genomics
 author: grhuynh
-manager: jhubbard
-editor: jasonwhowell
+manager: cgronlun
 ms.author: grhuynh
-ms.service: microsoft-genomics
-ms.workload: genomics
+ms.service: genomics
 ms.topic: quickstart
 ms.date: 12/07/2017
-ms.openlocfilehash: f093397803f21c023a2c32e42709ecfcd0e3aec7
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: acbcceb32ec54ab85db05ef743e9c10cd8cf025c
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2017
-ms.locfileid: "26684492"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45735858"
 ---
-# <a name="submit-a-workflow-using-fastq-file-inputs"></a>FASTQ dosya girişlerini kullanarak iş akışı gönderme
+# <a name="submit-a-workflow-using-fastq-file-inputs-in-microsoft-genomics"></a>Microsoft Genomiks’te FASTQ dosyası girişlerini kullanarak iş akışı gönderme
 
 Bu hızlı başlangıçta giriş dosyanız FASTQ dosyalarından oluşan tek bir çift olduğunda Microsoft Genomiks hizmetine iş akışı gönderme adımları gösterilmektedir. Bu konu başlığında `msgen` istemcisini yükleyip çalıştırdığınız ve Azure Depolama konusunda bilgi sahibi olduğunuz kabul edilmektedir. Sağlanan örnek verileri kullanarak başarıyla bir iş akışı gönderdiyseniz bu hızlı başlangıca devam etmeye hazırsınız demektir. 
 

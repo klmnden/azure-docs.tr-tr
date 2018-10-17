@@ -6,15 +6,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 07/06/2018
+ms.date: 09/11/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 1f7856edef3bb93300fce0ff00d9434400e239f8
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: e9ed0ba8d24f30f67dbb315848dc4c260cae4f50
+ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37917061"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44391377"
 ---
 # <a name="fail-over-and-fail-back-vmware-vms-and-physical-servers-replicated-to-azure"></a>VMware VM’lerde ve çoğaltılmış fiziksel sunucularda Azure Site Recovery’ye yük devretme ve yeniden çalışma
 
@@ -67,7 +67,7 @@ VM özelliklerini doğrulayın ve VM’nin [Azure gereksinimleriyle](vmware-phys
 1. **Ayarlar** > **Çoğaltılan öğeler** bölümünde VM > **Yük devretme**’ye tıklayın.
 
 2. **Yük devretme** kısmında, yük devredeceğiniz bir **Kurtarma Noktası** seçin. Şu seçeneklerden birini kullanabilirsiniz:
-   - **En son** (varsayılan): Bu seçenekte öncelikle Site Recovery’ye gönderilen tüm veriler işlenir. Yük devretmeden sonra oluşturulan Azure VM, yük devretme tetiklendiğinde Site Recovery’ye çoğaltılan tüm verilere sahip olduğundan en düşük RPO (Kurtarma Noktası Hedefi) sağlanır.
+   - **Varsayılan**: Bu seçenekte öncelikle Site Recovery’ye gönderilen tüm veriler işlenir. Yük devretmeden sonra oluşturulan Azure VM, yük devretme tetiklendiğinde Site Recovery’ye çoğaltılan tüm verilere sahip olduğundan en düşük RPO (Kurtarma Noktası Hedefi) sağlanır.
    - **En son işlenen**: Bu seçenekte VM yükü, Site Recovery tarafından işlenen en son kurtarma noktasına devredilir. İşlenmemiş verileri işlemek için zaman harcanmadığından bu seçenekte düşük bir RTO (Kurtarma Süresi Hedefi) sağlanır.
    - **En son uygulamayla tutarlı**: Bu seçenekte VM yükü, Site Recovery tarafından işlenen, uygulamayla tutarlı en son kurtarma noktasına devredilir.
    - **Özel**: Bir kurtarma noktası belirtin.
@@ -82,11 +82,14 @@ Bazı senaryolarda yük devretme için sekiz ila on dakikada tamamlanan ek işle
 
 ## <a name="connect-to-failed-over-virtual-machine-in-azure"></a>Azure’da yük devretme sanal makinesine bağlanma
 
-1. Yük devretme işleminden sonra sanal makineye gidin ve [bağlanarak](../virtual-machines/windows/connect-logon.md) doğrulayın.
-2. Doğrulama sonrasında, yük devretme işleminin ardından sanal makinenin kurtarma noktasını kesinleştirmek için **İşle**’ye tıklayın. İşleme sonrasında diğer tüm kullanılabilir erişim noktaları silinir. Bu, yük devretme etkinliğini tamamlar.
+1. Yük devretme sonrasında RDP/SSH kullanarak Azure VM'lerine bağlanmak istiyorsanız [buradaki](site-recovery-test-failover-to-azure.md#prepare-to-connect-to-azure-vms-after-failover) tabloda özetlenen gereksinimleri izleyin.
+2. Yük devretme işleminden sonra sanal makineye gidin ve [bağlanarak](../virtual-machines/windows/connect-logon.md) doğrulayın.
+3. Doğrulama sonrasında, yük devretme işleminin ardından sanal makinenin kurtarma noktasını kesinleştirmek için **İşle**’ye tıklayın. İşleme sonrasında diğer tüm kullanılabilir erişim noktaları silinir. Bu, yük devretme etkinliğini tamamlar.
 
 >[!TIP]
 > **Kurtarma noktasını değiştirme**, yük devretme işleminden sonra yükün devredildiği sanal makinedeki kurtarma noktasından memnun değilseniz değiştirmenize yardımcı olur. **İşleme** sonrasında bu seçenek artık kullanılamaz.
+
+Yük devretme sonrasında karşılaştığınız bağlantı sorunlarını gidermek için [burada](site-recovery-failover-to-azure-troubleshoot.md) anlatılan adımları izleyin.
 
 ## <a name="preparing-for-reprotection-of-azure-vm"></a>Azure VM’yi yeniden korumaya hazırlanma
 

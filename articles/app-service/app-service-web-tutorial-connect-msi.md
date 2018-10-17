@@ -1,6 +1,6 @@
 ---
-title: Yönetilen hizmet kimliği kullanarak App Service’ten Azure SQL Veritabanı bağlantısını güvenli hale getirme | Microsoft Docs
-description: Yönetilen hizmet kimliği kullanarak veritabanı bağlantısını daha güvenli hale getirme ve ayrıca bunu diğer Azure hizmetlerine uygulama hakkında bilgi edinin.
+title: Yönetilen kimlik kullanarak App Service’tan Azure SQL Veritabanı bağlantısını güvenli hale getirme | Microsoft Docs
+description: Yönetilen kimlik kullanarak veritabanı bağlantısını daha güvenli hale getirme ve ayrıca bunu diğer Azure hizmetlerine uygulama hakkında bilgi edinin.
 services: app-service\web
 documentationcenter: dotnet
 author: cephalin
@@ -14,24 +14,24 @@ ms.topic: tutorial
 ms.date: 04/17/2018
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 173588c0200666c52f3ac0a5d2e70d667cfe3294
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 3125db03dc13f70524fd094736f50b563ef712a4
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39445570"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44379936"
 ---
-# <a name="tutorial-secure-sql-database-connection-with-managed-service-identity"></a>Öğretici: Yönetilen hizmet kimliği ile SQL Veritabanı bağlantısını güvenli hale getirme
+# <a name="tutorial-secure-azure-sql-database-connection-from-app-service-using-a-managed-identity"></a>Öğretici: Yönetilen kimlik kullanarak App Service’tan Azure SQL Veritabanı bağlantısını güvenli hale getirme
 
-[App Service](app-service-web-overview.md), Azure’da yüksek oranda ölçeklenebilen, kendi kendine düzeltme eki uygulayan bir web barındırma hizmeti sunar. Ayrıca, uygulamanız için [Azure SQL Veritabanı](/azure/sql-database/)’na ve diğer Azure hizmetlerine erişimi güvenli hale getirmeye yönelik anahtar teslim bir çözüm olan [yönetilen hizmet kimliği](app-service-managed-service-identity.md) sağlar. App Service içindeki yönetilen hizmet kimlikleri, bağlantı dizelerindeki kimlik bilgileri gibi uygulamanızdaki gizli dizileri ortadan kaldırarak uygulamanızı daha güvenli hale getirir. Bu öğreticide, [Öğretici: Azure’da SQL Veritabanı ile ASP.NET uygulaması derleme](app-service-web-tutorial-dotnet-sqldatabase.md) bölümünde derlediğiniz örnek ASP.NET web uygulamasına yönetilen hizmet kimliği ekleyeceksiniz. İşiniz bittiğinde, örnek uygulamanız kullanıcı adı ve parolaya gerek kalmadan SQL Veritabanıa güvenli bir şekilde bağlanacaktır.
+[App Service](app-service-web-overview.md), Azure’da yüksek oranda ölçeklenebilen, kendi kendine düzeltme eki uygulayan bir web barındırma hizmeti sunar. Ayrıca, uygulamanız için [Azure SQL Veritabanı](/azure/sql-database/)’na ve diğer Azure hizmetlerine erişimi güvenli hale getirmeye yönelik anahtar teslim bir çözüm olan [yönetilen kimliği](app-service-managed-service-identity.md) sağlar. App Service içindeki yönetilen kimlikler, bağlantı dizelerindeki kimlik bilgileri gibi uygulamanızdaki gizli dizileri ortadan kaldırarak uygulamanızı daha güvenli hale getirir. Bu öğreticide, [Öğretici: Azure’da SQL Veritabanı ile ASP.NET uygulaması derleme](app-service-web-tutorial-dotnet-sqldatabase.md) bölümünde derlediğiniz örnek ASP.NET web uygulamasına yönetilen kimlik ekleyeceksiniz. İşiniz bittiğinde, örnek uygulamanız kullanıcı adı ve parolaya gerek kalmadan SQL Veritabanıa güvenli bir şekilde bağlanacaktır.
 
 Aşağıdakileri nasıl yapacağınızı öğreneceksiniz:
 
 > [!div class="checklist"]
-> * Yönetilen hizmet kimliğini etkinleştirme
-> * Hizmet kimliğine SQL Veritabanı erişimi verme
+> * Yönetilen kimlikleri etkinleştirme
+> * Yönetilen kimliğe SQL Veritabanı erişimi verme
 > * Uygulama kodunu Azure Active Directory kimlik doğrulaması kullanarak SQL Veritabanı ile kimlik doğrulaması yapacak şekilde yapılandırma
-> * SQL Veritabanında hizmet kimliğine en düşük ayrıcalıkları verme
+> * SQL Veritabanında yönetilen kimliğe en düşük ayrıcalıkları verme
 
 > [!NOTE]
 > Azure Active Directory kimlik doğrulaması, şirket içi Active Directory’deki (AD DS) [Tümleşik Windows kimlik doğrulamasından](/previous-versions/windows/it-pro/windows-server-2003/cc758557(v=ws.10)) _farklıdır_. AD DS ve Azure Active Directory tamamen farklı kimlik doğrulama protokolleri kullanır. Daha fazla bilgi için bkz. [Windows Server AD DS ile Azure AD arasındaki fark](../active-directory/fundamentals/understand-azure-identity-solutions.md#the-difference-between-windows-server-ad-ds-and-azure-ad).
@@ -46,9 +46,9 @@ Bu makale, [Öğretici: Azure’da SQL Veritabanı ile ASP.NET uygulaması derle
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## <a name="enable-managed-service-identity"></a>Yönetilen hizmet kimliğini etkinleştirme
+## <a name="enable-managed-identities"></a>Yönetilen kimlikleri etkinleştirme
 
-Azure uygulamanızda bir hizmet kimliği etkinleştirmek için Cloud Shell’de [az webapp identity assign](/cli/azure/webapp/identity?view=azure-cli-latest#az-webapp-identity-assign) komutunu kullanın. Aşağıdaki komutta *\<app name>* değerini değiştirin.
+Azure uygulamanızda bir yönetilen kimlik etkinleştirmek için Cloud Shell’de [az webapp identity assign](/cli/azure/webapp/identity?view=azure-cli-latest#az-webapp-identity-assign) komutunu kullanın. Aşağıdaki komutta *\<app name>* değerini değiştirin.
 
 ```azurecli-interactive
 az webapp identity assign --resource-group myResourceGroup --name <app name>
@@ -73,13 +73,13 @@ az ad sp show --id <principalid>
 
 ## <a name="grant-database-access-to-identity"></a>Kimliğe veritabanı erişimi verme
 
-Ardından, Cloud Shell’de [`az sql server ad-admin create`](/cli/azure/sql/server/ad-admin?view=azure-cli-latest#az-sql-server-ad-admin_create) komutunu kullanarak uygulamanızın hizmet kimliğine veritabanı erişimi verin. Aşağıdaki komutta *\<server_name>* ve <principalid_from_last_step> değerlerini değiştirin. *\<admin_user>* için bir yönetici adı yazın.
+Ardından, Cloud Shell’de [`az sql server ad-admin create`](/cli/azure/sql/server/ad-admin?view=azure-cli-latest#az-sql-server-ad-admin_create) komutunu kullanarak uygulamanızın yönetilen kimliğe veritabanı erişimi verin. Aşağıdaki komutta *\<server_name>* ve <principalid_from_last_step> değerlerini değiştirin. *\<admin_user>* için bir yönetici adı yazın.
 
 ```azurecli-interactive
 az sql server ad-admin create --resource-group myResourceGroup --server-name <server_name> --display-name <admin_user> --object-id <principalid_from_last_step>
 ```
 
-Yönetilen hizmet kimliği artık Azure SQL Veritabanı sunucunuza erişebilir.
+Yönetilen kimlik artık Azure SQL Veritabanı sunucunuza erişebilir.
 
 ## <a name="modify-connection-string"></a>Bağlantı dizesini değiştirme
 
@@ -119,7 +119,7 @@ public MyDatabaseContext(SqlConnection conn) : base(conn, true)
 }
 ```
 
-Bu oluşturucu, App Service’ten Azure SQL Veritabanı için bir erişim belirteci kullanmak üzere özel bir SqlConnection nesnesi yapılandırır. App Service uygulamanız erişim belirtecini kullanarak yönetilen hizmet kimliği ile Azure SQL Veritabanında kimlik doğrulaması yapar. Daha fazla bilgi için bkz. [Azure kaynakları için belirteç edinme](app-service-managed-service-identity.md#obtaining-tokens-for-azure-resources). `if` deyimi, uygulamanızı LocalDB ile yerel olarak test etmeye devam etmenizi sağlar.
+Bu oluşturucu, App Service’ten Azure SQL Veritabanı için bir erişim belirteci kullanmak üzere özel bir SqlConnection nesnesi yapılandırır. App Service uygulamanız erişim belirtecini kullanarak yönetilen kimlik ile Azure SQL Veritabanında kimlik doğrulaması yapar. Daha fazla bilgi için bkz. [Azure kaynakları için belirteç edinme](app-service-managed-service-identity.md#obtaining-tokens-for-azure-resources). `if` deyimi, uygulamanızı LocalDB ile yerel olarak test etmeye devam etmenizi sağlar.
 
 > [!NOTE]
 > `SqlConnection.AccessToken` şu anda yalnızca .NET Framework 4.6 ve üzerinde desteklenir ve [.NET Core](https://www.microsoft.com/net/learn/get-started/windows)’da desteklenmez.
@@ -141,7 +141,7 @@ Bundan sonra tek yapmanız gereken, değişikliklerinizi Azure'da yayımlamaktı
 
 ![Çözüm Gezgini'nden yayımlama](./media/app-service-web-tutorial-dotnet-sqldatabase/solution-explorer-publish.png)
 
-Yayımlama sayfasında **Yayımla**'ya tıklayın. Yeni web sayfası yapılacaklar listenizi gösterdiğinde uygulamanızın yönetilen hizmet kimliğini kullanarak veritabanına bağlanmakta olduğu anlamına gelir.
+Yayımlama sayfasında **Yayımla**'ya tıklayın. Yeni web sayfası yapılacaklar listenizi gösterdiğinde uygulamanızın yönetilen kimliğini kullanarak veritabanına bağlanmakta olduğu anlamına gelir.
 
 ![Code First Migration’dan sonra Azure web uygulaması](./media/app-service-web-tutorial-dotnet-sqldatabase/this-one-is-done.png)
 
@@ -151,11 +151,11 @@ Bundan sonra yapılacaklar listesini daha önce olduğu gibi düzenleyebilirsini
 
 ## <a name="grant-minimal-privileges-to-identity"></a>Kimliğe en düşük ayrıcalıkları verme
 
-Önceki adımlarda büyük olasılıkla yönetilen hizmet kimliğinin SQL Server’a Azure AD yöneticisi olarak bağlandığını fark etmişsinizdir. Yönetilen hizmet kimliğinize en düşük ayrıcalıkları vermek için, Azure SQL Veritabanı sunucusunda Azure AD yöneticisi olarak oturum açmanız ve sonra hizmet kimliğini içeren bir Azure Active Directory grubu eklemeniz gerekir. 
+Önceki adımlarda büyük olasılıkla yönetilen kimliğin SQL Server’a Azure AD yöneticisi olarak bağlandığını fark etmişsinizdir. Yönetilen kimliğinize en düşük ayrıcalıkları vermek için, Azure SQL Veritabanı sunucusunda Azure AD yöneticisi olarak oturum açmanız ve sonra yönetilen kimliği içeren bir Azure Active Directory grubu eklemeniz gerekir. 
 
-### <a name="add-managed-service-identity-to-an-azure-active-directory-group"></a>Yönetilen hizmet kimliğini bir Azure Active Directory grubuna ekleme
+### <a name="add-managed-identity-to-an-azure-active-directory-group"></a>Yönetilen kimliği bir Azure Active Directory grubuna ekleme
 
-Cloud Shell’de uygulamanızın yönetilen hizmet kimliğini aşağıdaki dizede gösterildiği gibi _myAzureSQLDBAccessGroup_ adlı yeni bir Azure Active Directory grubuna ekleyin:
+Cloud Shell’de uygulamanızın yönetilen kimliğini aşağıdaki dizede gösterildiği gibi _myAzureSQLDBAccessGroup_ adlı yeni bir Azure Active Directory grubuna ekleyin:
 
 ```azurecli-interactive
 groupid=$(az ad group create --display-name myAzureSQLDBAccessGroup --mail-nickname myAzureSQLDBAccessGroup --query objectId --output tsv)
@@ -168,7 +168,7 @@ Her komut için tam JSON çıktısını görmek istiyorsanız, `--query objectId
 
 ### <a name="reconfigure-azure-ad-administrator"></a>Azure AD yöneticisini yeniden yapılandırma
 
-Daha önce, yönetilen hizmet kimliğini SQL Veritabanınızın Azure AD yöneticisi olarak atamıştınız. Bu kimliği etkileşimli oturum açma için (veritabanı kullanıcıları eklemek amacıyla) kullanamayacağınızdan gerçek Azure AD kullanıcınızı kullanmanız gerekir. Azure AD kullanıcınızı eklemek için [Azure SQL Veritabanı Sunucunuz için bir Azure Active Directory yöneticisi sağlama](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server) bölümündeki adımları izleyin. 
+Daha önce, yönetilen kimliği SQL Veritabanınızın Azure AD yöneticisi olarak atamıştınız. Bu kimliği etkileşimli oturum açma için (veritabanı kullanıcıları eklemek amacıyla) kullanamayacağınızdan gerçek Azure AD kullanıcınızı kullanmanız gerekir. Azure AD kullanıcınızı eklemek için [Azure SQL Veritabanı Sunucunuz için bir Azure Active Directory yöneticisi sağlama](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server) bölümündeki adımları izleyin. 
 
 ### <a name="grant-permissions-to-azure-active-directory-group"></a>Azure Active Directory grubuna izinler verme
 
@@ -204,10 +204,10 @@ GO
 Öğrendikleriniz:
 
 > [!div class="checklist"]
-> * Yönetilen hizmet kimliğini etkinleştirme
-> * Hizmet kimliğine SQL Veritabanı erişimi verme
+> * Yönetilen kimlikleri etkinleştirme
+> * Yönetilen kimliğe SQL Veritabanı erişimi verme
 > * Uygulama kodunu Azure Active Directory kimlik doğrulaması kullanarak SQL Veritabanı ile kimlik doğrulaması yapacak şekilde yapılandırma
-> * SQL Veritabanında hizmet kimliğine en düşük ayrıcalıkları verme
+> * SQL Veritabanında yönetilen kimliğe en düşük ayrıcalıkları verme
 
 Web uygulamanıza özel bir DNS adı eşlemeyle ilgili bilgi edinmek için sonraki öğreticiye geçin.
 

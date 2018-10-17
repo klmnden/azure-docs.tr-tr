@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: tutorial
 ms.date: 6/27/2018
 ms.author: dineshm
-ms.openlocfilehash: 7d951a959da28187a5971ee218f2bd921d331727
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: fd9dfaa2042cae0923c919f4e76d7b59a170918e
+ms.sourcegitcommit: 06724c499837ba342c81f4d349ec0ce4f2dfd6d6
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43301807"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46466039"
 ---
 # <a name="tutorial-access-azure-data-lake-storage-gen2-preview-data-with-azure-databricks-using-spark"></a>Öğretici: Spark kullanarak Azure Databricks ile Azure Data Lake Storage 2. Nesil Önizleme verilerine erişme
 
@@ -22,7 +22,6 @@ Bu öğreticide Azure Data Lake Storage 2. Nesil Önizleme ile uyumlu bir hesapt
 > [!div class="checklist"]
 > * Databricks kümesi oluşturma
 > * Yapılandırılmamış verileri bir depolama hesabına alma
-> * Verileri işlemek için bir Azure İşlevini tetikleme
 > * Blob depolama alanındaki verilerinizde analiz çalıştırma
 
 ## <a name="prerequisites"></a>Ön koşullar
@@ -36,11 +35,8 @@ Bu öğreticide [Amerika Birleşik Devletleri Ulaştırma Bakanlığı](https://
 
 Başlamak için yeni bir [Azure Data Lake Storage Gen2 hesabı](quickstart-create-account.md) oluşturun ve benzersiz bir ad verin. Ardından yapılandırma ayarlarını almak için depolama hesabına gidin.
 
-> [!IMPORTANT]
-> Önizleme sürümünde Azure İşlevleri yalnızca düz ad alanıyla oluşturulan Azure Data Lake Storage Gen2 hesaplarıyla çalışır.
-
 1. **Settings** (Ayarlar) altında **Access keys** (Erişim anahtarları) öğesine tıklayın.
-3. Anahtar değerini kopyalamak için **key1**'in yanındaki **Copy** (Kopyala) düğmesine tıklayın.
+2. Anahtar değerini kopyalamak için **key1**'in yanındaki **Copy** (Kopyala) düğmesine tıklayın.
 
 Bu öğreticinin sonraki adımlarında kullanmanız gerekeceğinden hesap adını ve anahtarı not alın. Bir metin düzenleyici açıp hesap adını ve anahtarı daha sonra kullanmak üzere kaydedin.
 
@@ -74,7 +70,7 @@ Bir sonraki adım, veri çalışma alanı oluşturmak için bir [Databricks küm
 
 ### <a name="copy-source-data-into-the-storage-account"></a>Kaynak verilerini depolama hesabına kopyalama
 
-Bir sonraki görev, *.csv* dosyasındaki verileri Azure depolama alanına kopyalamak için AzCopy komutunu kullanmaktır. Bir komut istemi penceresi açın ve aşağıdaki komutları girin. `<DOWNLOAD_FILE_PATH>`, `<ACCOUNT_NAME>` ve `<ACCOUNT_KEY>` yer tutucularının yerine bir önceki adımda kaydettiğiniz değerleri girmeyi unutmayın.
+Bir sonraki görev, *.csv* dosyasındaki verileri Azure depolama alanına kopyalamak için AzCopy komutunu kullanmaktır. Bir komut istemi penceresi açın ve aşağıdaki komutları girin. `<DOWNLOAD_FILE_PATH>` ve `<ACCOUNT_KEY>` yer tutucularının yerine bir önceki adımda kaydettiğiniz değerleri girmeyi unutmayın.
 
 ```bash
 set ACCOUNT_NAME=<ACCOUNT_NAME>
@@ -84,7 +80,7 @@ azcopy cp "<DOWNLOAD_FILE_PATH>" https://<ACCOUNT_NAME>.dfs.core.windows.net/dbr
 
 ### <a name="use-databricks-notebook-to-convert-csv-to-parquet"></a>Databricks Not Defteri'ni kullanarak CSV'yi Parquet biçimine dönüştürme
 
-Databricks'i tarayıcınızda tekrar açın ve aşağıdaki adımları uygulayın:
+Databricks’i tarayıcınızda yeniden açın ve aşağıdaki adımları uygulayın:
 
 1. Gezinti çubuğunun sol üst kısmından **Azure Databricks**'i seçin.
 2. Sayfanın alt yarısındaki **New** (Yeni) bölümünden **Notebook** (Not Defteri) öğesini seçin.
@@ -141,7 +137,7 @@ dbutils.fs.help()
 dbutils.fs.put(source + "/temp/1.txt", "Hello, World!", True)
 dbutils.fs.ls(source + "/temp/parquet/flights")
 ```
-Bu kod örnekleriyle Azure Data Lake Storage Gen2 uyumlu bir hesapta depolanan verileri kullanarak HDFS'nin hiyerarşik özelliklerini keşfettiniz.
+Bu kod örnekleriyle Azure Data Lake Storage 2. Nesil uyumlu bir hesapta depolanan verileri kullanarak HDFS’nin hiyerarşik özelliklerini keşfettiniz.
 
 ## <a name="query-the-data"></a>Verileri sorgulama
 
@@ -159,7 +155,7 @@ Veri kaynaklarınız için veri çerçevesi oluşturma amacıyla aşağıdaki be
 acDF = spark.read.format('csv').options(header='true', inferschema='true').load(accountsource + "/<YOUR_CSV_FILE_NAME>.csv")
 acDF.write.parquet(accountsource + '/parquet/airlinecodes')
 
-#read the existing parquet file for the flights database that was created via the Azure Function
+#read the existing parquet file for the flights database that was created earlier
 flightDF = spark.read.format('parquet').options(header='true', inferschema='true').load(accountsource + "/parquet/flights")
 
 #print the schema of the dataframes

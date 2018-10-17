@@ -1,5 +1,5 @@
 ---
-title: Azure DevOps Projesi ile mevcut kodunuz için CI/CD işlem hattı oluşturma | VSTS Öğreticisi
+title: Azure DevOps Projesi ile mevcut kodunuz için CI/CD işlem hattı oluşturma | Azure DevOps Services Öğreticisi
 description: DevOps Projesi, Azure’u kullanmaya başlamayı kolaylaştırır. Birkaç hızlı adımda, tercih ettiğiniz bir Azure hizmetinde uygulama başlatmak için kendi kodunuzu ve GitHub deposunu kullanmanıza yardımcı olur.
 services: vsts
 documentationcenter: vs-devops-build
@@ -17,12 +17,12 @@ ms.date: 07/09/2018
 author: mlearned
 ms.custom: mvc
 monikerRange: vsts
-ms.openlocfilehash: 192992917432a64c2f9f81761e22bf7d9205703a
-ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
+ms.openlocfilehash: 4e0e28ff9ea14e42e1df7ce35bb90e8720a0d0b6
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39205570"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47407306"
 ---
 # <a name="create-a-cicd-pipeline-for-your-existing-code-with-the-azure-devops-project"></a>Azure DevOps Projesi ile mevcut kodunuz için CI/CD işlem hattı oluşturma
 
@@ -31,11 +31,11 @@ Azure DevOps Projesi, mevcut kodunuzu ve Git deponuzu getirebildiğiniz ya da Az
 Yapacaklarınız:
 
 > [!div class="checklist"]
-> * Azure DevOps projesi oluşturma
+> * Azure DevOps Projesi oluşturma
 > * GitHub deponuza erişimi yapılandırma ve çerçeve seçme
-> * GitHub'ı ve Azure aboneliğini yapılandırma 
+> * Azure DevOps Services ve bir Azure aboneliği yapılandırma 
 > * GitHub'daki değişiklikleri işleme ve Azure'a otomatik olarak dağıtma
-> * VSTS CI/CD işlem hattını inceleme
+> * Azure DevOps Services CI/CD işlem hattını inceleme
 > * Application Insights izlemeyi yapılandırma
 
 ## <a name="prerequisites"></a>Ön koşullar
@@ -45,11 +45,11 @@ Yapacaklarınız:
 
 ## <a name="sign-in-to-the-azure-portal"></a>Azure portalında oturum açın
 
-Azure DevOps Projesi VSTS'de bir CI/CD işlem hattı oluşturur.  **Yeni VSTS** hesabı oluşturabilir veya **mevcut bir hesabı** kullanabilirsiniz.  Azure DevOps Projesi ayrıca tercih ettiğiniz **Azure aboneliğinde** **Azure kaynakları** oluşturur.
+Azure DevOps Projesi, Azure DevOps Services’te bir CI/CD işlem hattı oluşturur.  Yeni bir **Azure DevOps Services** kuruluşu oluşturabilir veya **var olan bir kuruluşu** kullanabilirsiniz.  Azure DevOps Projesi ayrıca tercih ettiğiniz **Azure aboneliğinde** **Azure kaynakları** oluşturur.
 
 1. [Microsoft Azure portalında](https://portal.azure.com) oturum açın.
 
-1. Sol gezinti çubuğunda **+ Yeni** simgesini seçin ve ardından **DevOps projesini** arayın.  **Oluştur**’u seçin.
+1. Sol gezinti çubuğunda **+ Yeni** simgesini seçin ve ardından **DevOps Projesini** arayın.  **Oluştur**’u seçin.
 
     ![Sürekli Teslim Başlatılıyor](_img/azure-devops-project-github/fullbrowser.png)
 
@@ -65,55 +65,53 @@ Azure DevOps Projesi VSTS'de bir CI/CD işlem hattı oluşturur.  **Yeni VSTS** 
 
 1. Önceki adımlarda seçtiğiniz uygulama çerçevesi, burada bulabileceğiniz Azure hizmeti dağıtımı hedefi türünü belirler.  Dilediğiniz **hedef hizmeti** seçin.  İşiniz bittiğinde **İleri**’yi seçin.
 
-## <a name="configure-vsts-and-an-azure-subscription"></a>GitHub'ı ve Azure aboneliğini yapılandırma 
+## <a name="configure-azure-devops-services-and-an-azure-subscription"></a>Azure DevOps Services ve bir Azure aboneliği yapılandırma 
 
-1. **Yeni** bir VSTS hesabı oluşturun veya **mevcut** bir hesabı kullanın.  VSTS projeniz için bir **ad** seçin.  **Azure aboneliğinizi**, **konumunuzu** ve uygulamanız için bir **ad** seçin.  İşiniz bittiğinde **Bitti**’yi seçin.
+1. **Yeni** bir Azure DevOps Services kuruluşu oluşturun veya **var olan** bir kuruluşu seçin.  Azure DevOps Projeniz için bir **ad** seçin.  **Azure aboneliğinizi**, **konumunuzu** ve uygulamanız için bir **ad** seçin.  İşiniz bittiğinde **Bitti**’yi seçin.
 
-    ![VSTS bilgilerini girme](_img/azure-devops-project-github/vstsazureinfo.png)
-
-1. Birkaç dakika içinde **proje panosu** Azure portalda yüklenir.  VSTS hesabınızdaki bir depoda örnek uygulama ayarlanır, bir derleme yürütülür ve uygulamanız Azure’a dağıtılır.  Bu pano GitHub **kod deponuza**, **VSTS CI/CD işlem hattına** ve **Azure’daki uygulamanıza** görünürlük sağlar.  Panonun sağ tarafında çalışan uygulamanızı görüntülemek için **Gözat**’ı seçin.
+1. **Azure DevOps Projesi panosu** birkaç dakika içinde Azure portala yüklenir.  Azure DevOps Services kuruluşunuzdaki bir depoda örnek uygulama ayarlanır, bir derleme yürütülür ve uygulamanız Azure’a dağıtılır.  Bu pano GitHub **kod deponuza**, **Azure DevOps Services CI/CD işlem hattına** ve **Azure’daki uygulamanıza** görünürlük sağlar.  Panonun sağ tarafında çalışan uygulamanızı görüntülemek için **Gözat**’ı seçin.
 
     ![Pano görünümü](_img/azure-devops-project-github/dashboardnopreview.png) 
     
-Azure DevOps projesi otomatik olarak bir CI derlemesi ve yayın tetikleyicisi yapılandırır.  Kodunuz, GitHub deponuzda veya diğer harici depoda kalır.  
+Azure DevOps Projesi, otomatik olarak bir CI derleme ve yayın tetiklemesi yapılandırır.  Kodunuz, GitHub deponuzda veya diğer harici depoda kalır.  
 
 ## <a name="commit-changes-to-github-and-automatically-deploy-to-azure"></a>GitHub'daki değişiklikleri işleme ve Azure'a otomatik olarak dağıtma 
 
-Artık en son çalışmanızı otomatik olarak web sitenize dağıtan bir CI/CD işlemiyle uygulamanız üzerinde bir ekiple birlikte çalışmaya hazırsınız.  GitHub deposunda yapılan her değişiklik VSTS'de bir derleme başlatır ve bir VSTS Release Management tanımı Azure'da bir dağıtım yürütür.
+Artık en son çalışmanızı otomatik olarak web sitenize dağıtan bir CI/CD işlemiyle uygulamanız üzerinde bir ekiple birlikte çalışmaya hazırsınız.  GitHub deposunda yapılan her değişiklik Azure DevOps’ta bir derleme oluşturmaya başlar ve bir Azure DevOps CD işlem hattı, Azure’de bir dağıtım yürütür.
 
 1.  Uygulamanızda bir değişiklik yapın ve değişikliği GitHub deponuza **işleyin**.
-2.  Birkaç dakika içinde VSTS'de bir derleme başlatılır.  DevOps proje panosuyla veya VSTS hesabınızı kullanarak tarayıcıda derleme durumunu izleyebilirsiniz.
+2.  Birkaç dakika içinde Azure DevOps Services’te bir derleme başlatılır.  Azure DevOps proje panosuyla veya Azure DevOps Services kuruluşunuzla tarayıcıda derleme durumunu izleyebilirsiniz.
 3.  Derleme tamamlandığında, değişikliklerinizi gördüğünüzü doğrulamak için tarayıcıda **uygulamanızı yenileyin**.
 
-## <a name="examine-the-vsts-cicd-pipeline"></a>VSTS CI/CD işlem hattını inceleme
+## <a name="examine-the-azure-devops-services-cicd-pipeline"></a>Azure DevOps Services CI/CD işlem hattını inceleme
 
-Azure DevOps projesi, VSTS hesabınızda otomatik olarak tam bir VSTS CI/CD işlem hattı yapılandırdı.  İşlem hattını gerektiği şekilde keşfedin ve özelleştirin.  VSTS derlemesi ve yayın tanımları ile kendinizi alıştırmak için aşağıdaki adımları izleyin.
+Azure DevOps Projesi, Azure DevOps Services kuruluşunuzda otomatik olarak bir Azure DevOps Services CI/CD işlem hattı yapılandırdı.  İşlem hattını gerektiği şekilde keşfedin ve özelleştirin.  Azure DevOps Services derleme ve yayın işlem hattı hakkında bilgi edinmek aşağıdaki adımları izleyin.
 
-1. Azure DevOps projesi panosunun **üst** kısmından **Derleme İşlem Hatları**’nı seçin.  Bu bağlantı, bir tarayıcı sekmesi açar ve yeni projeniz için VSTS derleme tanımını açar.
+1. Azure DevOps Project panosunun**üst** kısmında **Derleme İşlem Hattı**’nı seçin.  Bu bağlantı bir tarayıcı sekmesi açar ve yeni projeniz için Azure DevOps Services derleme işlem hattını açar.
 
-1. Fare imlecini **Durum** alanının yanındaki derleme tanımının sağına taşıyın. Görüntülenen **üç noktayı** seçin.  Bu eylem, yeni bir derlemeyi sıraya alma, derleme duraklatma ve derleme tanımını düzenleme gibi birkaç etkinliği başlatabileceğiniz bir menüyü açar.
+1. Fare imlecini, **Durum** alanının yanındaki derleme işlem hattının sağına götürün. Görüntülenen **üç noktayı** seçin.  Bu eylem, yeni bir derlemeyi sıraya alma, derleme duraklatma ve derleme işlem hattını düzenleme gibi birkaç etkinliği başlatabileceğiniz bir menüyü açar.
 
 1. **Düzenle**’yi seçin.
 
-1. Bu görünümden derleme tanımınızın **çeşitli görevlerini inceleyin**.  Derleme, Git deposundan kaynak getirme, bağımlılıkları geri yükleme ve dağıtım için kullanılan çıkışları yayımlama gibi çeşitli görevleri gerçekleştirir.
+1. Bu görünümden derleme işlem hattınızın **çeşitli görevlerini inceleyin**.  Derleme, Git deposundan kaynak getirme, bağımlılıkları geri yükleme ve dağıtım için kullanılan çıkışları yayımlama gibi çeşitli görevleri gerçekleştirir.
 
-1. Derleme tanımının üst kısmında **derleme tanımı adını** seçin.
+1. Derleme işlem hattının üst kısmında **derleme işlem hattı adı**’nı seçin.
 
-1. Derleme tanımınızın **adını** daha açıklayıcı bir şeyle değiştirin.  **Kaydet ve sıraya al**’ı ve ardından **Kaydet**’i seçin.
+1. Derleme işlem hattınızın **adını** daha açıklayıcı bir şeyle değiştirin.  **Kaydet ve sıraya al**’ı ve ardından **Kaydet**’i seçin.
 
-1. Derleme tanımı adınızın altında **Geçmiş**’i seçin.  Derleme için yaptığınız son değişikliklere ait denetim kaydını görürsünüz.  VSTS, derleme tanımında yapılan değişiklikleri izler ve yayınları karşılaştırmanızı sağlar.
+1. Derleme işlem hattı adınızın altında **Geçmiş**’i seçin.  Derleme için yaptığınız son değişikliklere ait denetim kaydını görürsünüz.  Azure DevOps Services, derleme işlem hattında yapılan değişiklikleri izler ve sürümleri karşılaştırmanızı sağlar.
 
-1. **Tetikleyiciler**’i seçin.  Azure DevOps projesi otomatik olarak bir CI tetikleyicisi oluşturdu. Depoya yönelik her işleme yeni bir derleme başlatır.  İsteğe bağlı olarak dalları CI işlemine dahil etmeyi veya işlemden hariç tutmayı seçebilirsiniz.
+1. **Tetikleyiciler**’i seçin.  Azure DevOps Projesi otomatik olarak bir CI tetikleyicisi oluşturdu. Depoya yönelik her işleme yeni bir derleme başlatır.  İsteğe bağlı olarak dalları CI işlemine dahil etmeyi veya işlemden hariç tutmayı seçebilirsiniz.
 
 1. **Saklama**’yı seçin.  Senaryonuza bağlı olarak, belirli sayıdaki derlemeleri saklayacak veya kaldıracak ilkeleri belirtebilirsiniz.
 
-1. **Derleme ve Yayın**’ı ve ardından **Yayınlar**’ı seçin.  Azure DevOps projesi Azure'a yönelik dağıtımları yönetmek için bir VSTS yayın tanımı oluşturdu.
+1. **Derleme ve Yayın**’ı ve ardından **Yayınlar**’ı seçin.  Azure DevOps projesi Azure'a yönelik dağıtımları yönetmek için bir Azure DevOps Services yayın işlem hattı oluşturdu.
 
-1. Tarayıcının sol tarafında, yayın tanımınızın yanındaki **üç noktayı** ve ardından **Düzenle**’yi seçin.
+1. Tarayıcının sol tarafında, yayın işlem hattınızın yanındaki **üç noktayı** ve ardından **Düzenle**’yi seçin.
 
-1. Yayın tanımı, yayın işlemini tanımlayan bir **işlem hattı** içerir.  **Yapıtlar**’ın altında **Bırak**’ı seçin.  Önceki adımlarda incelediğiniz derleme tanımı, yapıt için kullanılan çıkışı üretir. 
+1. Yayın işlem hattı, yayın işlemini tanımlayan bir **işlem hattı** içerir.  **Yapıtlar**’ın altında **Bırak**’ı seçin.  Önceki adımlarda incelediğiniz derleme işlem hattı, yapıt için kullanılan çıkışı üretir. 
 
-1. **Bırak** simgesinin sağ tarafında **Sürekli dağıtım tetikleyicisi**’ni seçin.  Bu yayın tanımı, yeni bir derleme yapıtı kullanılabilir olduğunda bir dağıtım yürüten CD tetikleyicisini etkinleştirdi.  İsteğe bağlı olarak, dağıtımlarınızın el ile yürütme gerektirmesi için tetikleyiciyi devre dışı bırakabilirsiniz. 
+1. **Bırak** simgesinin sağ tarafında **Sürekli dağıtım tetikleyicisi**’ni seçin.  Bu yayın işlem hattı, yeni bir derleme yapıtı kullanılabilir olduğunda bir dağıtım yürüten CD tetikleyicisini etkinleştirdi.  İsteğe bağlı olarak, dağıtımlarınızın el ile yürütme gerektirmesi için tetikleyiciyi devre dışı bırakabilirsiniz. 
 
 1. Tarayıcının sol tarafında **Görevler**’i seçin.  Görevler, dağıtım işleminizin gerçekleştirdiği etkinliklerdir.  Bu örnekte, **Azure App Service**’e dağıtmak üzere bir görev oluşturuldu.
 
@@ -127,7 +125,7 @@ Azure DevOps projesi, VSTS hesabınızda otomatik olarak tam bir VSTS CI/CD işl
 
 ## <a name="configure-azure-application-insights-monitoring"></a>Application Insights izlemeyi yapılandırma
 
-Azure Application Insights ile, uygulamanızın performansını ve kullanımını kolayca izleyebilirsiniz.  Azure DevOps projesi uygulamanız için otomatik olarak bir Application Insights kaynağı yapılandırır.  Gerekirse başka uyarılar ve izleme özellikleri de yapılandırabilirsiniz.
+Azure Application Insights ile, uygulamanızın performansını ve kullanımını kolayca izleyebilirsiniz.  Azure DevOps Projesi uygulamanız için otomatik olarak bir Application Insights kaynağı yapılandırır.  Gerekirse başka uyarılar ve izleme özellikleri de yapılandırabilirsiniz.
 
 1. Azure portalında **Azure DevOps Projesi** panosuna gidin.  Panonun sağ alt kısmında uygulamanız için **Application Insights** bağlantısını seçin.
 
@@ -159,17 +157,17 @@ Artık gerekli olmadığında, Azure DevOps projesi panosundaki **Sil** işlevin
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu öğreticide CI/CD işleminizi yapılandırdığınızda, bir derleme ve yayın tanımı VSTS projenizde otomatik olarak oluşturulur. Ekibinizin gereksinimlerine uygun olarak bu derleme ve yayın tanımlarını istediğiniz gibi değiştirebilirsiniz. Şunları öğrendiniz:
+Bu öğreticide CI/CD işleminizi yapılandırdığınızda, Azure DevOps Projenizde bir derleme ve yayın işlem hattı otomatik olarak oluşturulur. Ekibinizin ihtiyaçlarını karşılamak için bu derleme ve yayın işlem hatlarını değiştirebilirsiniz. Şunları öğrendiniz:
 
 > [!div class="checklist"]
-> * Azure DevOps projesi oluşturma
+> * Azure DevOps Projesi oluşturma
 > * GitHub deponuza erişimi yapılandırma ve çerçeve seçme
-> * GitHub'ı ve Azure aboneliğini yapılandırma 
+> * Azure DevOps Services ve bir Azure aboneliği yapılandırma 
 > * GitHub'daki değişiklikleri işleme ve Azure'a otomatik olarak dağıtma
-> * VSTS CI/CD işlem hattını inceleme
+> * Azure DevOps Services CI/CD işlem hattını inceleme
 > * Application Insights izlemeyi yapılandırma
 
-VSTS işlem hattı hakkında daha fazla bilgi için şu öğreticiye bakın:
+Azure DevOps Services CI/CD işlem hattı hakkında daha fazla bilgi edinmek için şu eğiticiye bakın:
 
 > [!div class="nextstepaction"]
-> [CD işlemini özelleştirme](https://docs.microsoft.com/vsts/pipelines/release/define-multistage-release-process?view=vsts)
+> [CD işlemini özelleştirme](https://docs.microsoft.com/azure/devops/pipelines/release/define-multistage-release-process?view=vsts)

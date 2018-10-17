@@ -10,12 +10,12 @@ ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: overview
 ms.date: 01/26/2018
-ms.openlocfilehash: fa66ded9a35109f874bda00a4bde3af78b436cd5
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: f865086a7e57898adb7d43ec0c02c7d38ef0da9c
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39630730"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46365585"
 ---
 # <a name="what-is-azure-time-series-insights"></a>Azure Time Series Insights nedir?
 
@@ -33,6 +33,12 @@ Time Series Insights dört temel işe sahiptir:
 Şirket içi kullanım veya dışarıdaki müşterilerin kullanımı için bir uygulama derliyorsanız Time Series Insights zaman serisi verilerini dizinlemek, depolamak ve toplamak için arka uç olarak kullanılabilir. Bunu temel alan özel bir görselleştirme ve kullanıcı deneyimi oluşturabilirsiniz.  Time Series Insights bu senaryoyu etkinleştirmek için Sorgu API'lerini sunar.  
 
 Verilerinizin zaman serisi olup olmadığından emin değilseniz dikkate almanız gereken noktalar burada verilmiştir.  Zaman serisi verileri bir varlığın veya işlemin zaman içindeki değişimini gösterir.  Zaman damgasına sahip olması ve en anlamlı eksenin zaman olmasıyla diğer verilerden ayrılır.  Zaman serisi verileri genellikle zaman sıralamasında gelir ve genelde veritabanınıza güncelleştirme yerine ekleme olarak işlenir.  Time Series Insights her yeni olayı bir satır olarak yakalayıp depoladığından zaman içindeki değişiklik ölçülür ve bu sayede geriye doğru bakarak gelecekteki değişiklikleri tahmin etmenizi sağlar.  Büyük hacimlerdeki verilerin depolanması, dizinlenmesi, sorgulanması, analiz edilmesi ve görselleştirilmesi zor olabilir.  
+
+## <a name="video"></a>Video: 
+
+### <a name="in-this-video-we-provide-an-overview-of-time-series-insights-a-cloud-based-iot-analytics-platformbr"></a>Bu videoda, bulut tabanlı IoT analizi platformu olan Time Series Insights’ın bir genel bakışı sağlanmaktadır.</br>
+
+> [!VIDEO https://www.youtube.com/embed/qNc9gQTLROs]
 
 ## <a name="primary-scenarios"></a>Birincil senaryolar
 

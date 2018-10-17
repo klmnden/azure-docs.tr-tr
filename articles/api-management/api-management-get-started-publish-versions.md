@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.custom: mvc
 ms.topic: tutorial
-ms.date: 11/19/2017
+ms.date: 06/15/2018
 ms.author: apimpm
-ms.openlocfilehash: 1cbe63184578f7d1e72992577a11c58b9b83a002
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: a7e5051248a579b0943fa69620215b060bd1e235
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33937326"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47092702"
 ---
 # <a name="publish-multiple-versions-of-your-api"></a>API'nizin birden fazla sürümünü yayımlama 
 
@@ -44,7 +44,7 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
 ![API Bağlam menüsü - sürüm ekleme](media/api-management-getstarted-publish-versions/AddVersionMenu.png)
 
-1. API listesinden **Konferans API’sini** seçin.
+1. API listesinden **Tanıtım Konferans API’sini** seçin.
 2. Bunun yanındaki bağlam menüsünü (**...**) seçin.
 3. **+ Sürüm Ekle** seçeneğini belirleyin.
 
@@ -58,37 +58,39 @@ Azure API Management, çağıranlara istedikleri API sürümünü belirtme olana
 ![Sürüm ekle ekranı](media/api-management-getstarted-publish-versions/AddVersion.PNG)
 
 1. **Sürüm oluşturma düzeniniz** olarak **yol** seçeneğini belirlenmiş halde bırakın.
-2. **Sürüm tanımlayıcınız** olarak **v1** ekleyin.
+2. **v1**’i **Ad** ve **Sürüm tanımlayıcısı** olarak ekleyin.
 
     > [!TIP]
     > Sürüm oluşturma şeması olarak **üst bilgi** veya **sorgu dizesi** seçeneğini belirlerseniz üst bilgi veya sorgu dizesi parametresinin adı gibi bir ek değer belirtmeniz gerekir.
 
-3. Dilerseniz açıklama girebilirsiniz.
-4. Yeni sürümünüzü ayarlamak için **Oluştur**’u seçin.
-5. API listesindeki **Büyük Konferans API’sinin** altında artık iki ayrı API görürsünüz: **Özgün** ve **v1**.
+3. Yeni sürümünüzü ayarlamak için **Oluştur**’u seçin.
+4. API listesindeki **Demo Konferans API’sinin** altında artık iki ayrı API görürsünüz: **Özgün** ve **v1**.
 
     ![Azure portalında bir API altında listelenen sürümler](media/api-management-getstarted-publish-versions/VersionList.PNG)
 
     > [!Note]
     > Sürüm bilgisi olmayan bir API’ye sürüm eklerseniz, varsayılan URL’de yanıt veren bir **Özgün** sürüm otomatik olarak oluşturulur. Bu, mevcut çağıranların sürüm ekleme işleminden olumsuz yönde etkilenmemesini sağlar. Başlangıçta etkinleştirilen sürümlerle yeni bir API oluşturursanız Özgün sürüm oluşturulmaz.
 
-6. Artık **Özgün** sürümden ayrı bir API olarak **v1** sürümünü düzenleyip yapılandırabilirsiniz. Bir sürümde yapılan değişiklikler diğer bir sürümü etkilemez.
+5. Artık **Özgün** sürümden ayrı bir API olarak **v1** sürümünü düzenleyip yapılandırabilirsiniz. Bir sürümde yapılan değişiklikler diğer bir sürümü etkilemez.
 
 ## <a name="add-the-version-to-a-product"></a>Sürümü bir ürüne ekleme
 
 Çağıranların yeni sürümü görmesi için sürümün **ürüne** eklenmesi gerekir.
 
 1. Klasik dağıtım modeli sayfasından **Ürünler** seçeneğini belirleyin.
+
+    ![API Management Ürünleri](media/api-management-getstarted-publish-versions/Products.png)
+
 2. **Sınırsız**’ı seçin.
 3. **API’ler** seçeneğini belirleyin.
 4. **Add (Ekle)** seçeneğini belirleyin.
-5. **Konferans API’si, Sürüm v1** seçeneğini belirleyin.
+5. **Demo Konferans API’si, Sürüm v1** seçeneğini belirleyin.
 6. Hizmet yönetimi sayfasına gidin ve **API'ler** seçeneğini belirleyin.
 
 ## <a name="browse-the-developer-portal-to-see-the-version"></a>Sürümü görüntülemek için geliştirici portalına göz atma
 
 1. Üstteki menüden **Geliştirici Portalı**’nı seçin.
-2. **API'ler** seçeneğini belirleyin. **Konferans API’sinin** **Özgün** ve **v1** sürümlerini gösterdiğine dikkat edin.
+2. **API'ler** seçeneğini belirleyin. **Demo Konferans API’sinin** **Özgün** ve **v1** sürümlerini gösterdiğine dikkat edin.
 3. **v1**’i seçin.
 4. Listedeki ilk işlemin **İstek URL'sine** dikkat edin. Bu, API URL’si yolunun **v1** içerdiğini gösterir.
 
@@ -107,4 +109,4 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 Sonraki öğreticiye ilerleyin:
 
 > [!div class="nextstepaction"]
-> [Yükseltme ve ölçeklendirme](upgrade-and-scale.md)
+> [Geliştirici portalı sayfalarının stilini özelleştirme](api-management-customize-styles.md)

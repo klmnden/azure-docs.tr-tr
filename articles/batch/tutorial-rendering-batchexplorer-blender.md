@@ -6,12 +6,12 @@ author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: tutorial
-ms.openlocfilehash: 8df9054e069540398c137290e682bb4160b4a799
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 46c65cd7ac5734134fa7c4ad6fd85f39d1188e28
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "40036636"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47392566"
 ---
 # <a name="tutorial-render-a-blender-scene-using-batch-explorer"></a>Öğretici: Batch Explorer'ı kullanarak Blender sahnesi işleme
 
@@ -24,11 +24,11 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 > * Birden çok çerçeve işleme
 > * İşlenen kare dosyalarını görüntüleme ve indirme
 
-Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap oluşturun](https://azure.microsoft.com/free/).
-
 ## <a name="prerequisites"></a>Ön koşullar
 
-İlişkilendirilmiş depolama hesabına sahip bir Azure Batch hesabı.  Batch hesabı oluşturmak için [CLI makalesi](https://docs.microsoft.com/azure/batch/quick-create-cli) gibi Batch Hızlı Başlangıç makalelerinden birine bakın.
+Batch’teki işleme uygulamalarını kullandığın kadar öde esasıyla kullanmak için bir kullandıkça öde aboneliğine veya diğer Azure satın alma seçeneğine ihtiyacınız vardır. Para kredi sağlayan ücretsiz bir Azure teklifi kullanıyorsanız, kullandığın kadar öde lisansı desteklenmez.
+
+İlişkilendirilmiş depolama hesabına sahip bir Azure Batch hesabına ihtiyacınız vardır.  Batch hesabı oluşturmak için [CLI makalesi](https://docs.microsoft.com/azure/batch/quick-create-cli) gibi Batch Hızlı Başlangıç makalelerinden birine bakın.
 
 Bu öğreticide belirtilen VM boyutu ve VM sayısı için en az 50 çekirdekten oluşan düşük öncelikli bir çekirdek kotası yeterli olacaktır. Varsayılan kota kullanılabilir ancak bu durumda daha küçük bir VM boyutu kullanılması gerekir ve görüntüleri işleme süreci daha uzun sürer. Artırılmış çekirdek kotası isteme işlemi [bu makalede](https://docs.microsoft.com/azure/batch/batch-quota-limit) anlatılmıştır.
 

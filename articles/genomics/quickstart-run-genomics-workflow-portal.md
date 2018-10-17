@@ -1,25 +1,25 @@
 ---
-title: 'Hızlı Başlangıç: Microsoft Genomiks hizmeti üzerinden iş akışı çalıştırma | Microsoft Docs'
+title: 'Hızlı Başlangıç: Microsoft Genomiks aracılığıyla iş akışı çalıştırma'
 description: Bu hızlı başlangıçta giriş verilerini Azure Blob Depolama'ya yükleme ve Microsoft Genomiks hizmeti üzerinden iş akışı çalıştırma adımları gösterilir.
-services: microsoft-genomics
+services: genomics
 author: grhuynh
-manager: jhubbard
-editor: jasonwhowell
+manager: cgronlun
 ms.author: grhuynh
-ms.service: microsoft-genomics
-ms.workload: genomics
+ms.service: genomics
 ms.topic: quickstart
 ms.date: 12/07/2017
-ms.openlocfilehash: 4387e1c935ada99e1f9c335fb7e1b67905c01188
-ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
+ms.openlocfilehash: e1d10b578d33ba8d96f43666b82e94ef5503fe77
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "42023543"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45731096"
 ---
 # <a name="quickstart-run-a-workflow-through-the-microsoft-genomics-service"></a>Hızlı Başlangıç: Microsoft Genomiks hizmeti üzerinden iş akışı çalıştırma
 
-Microsoft Genomiks, ham okumalardan başlayarak hizalanmış okumalar ve varyant ilanları üreten, bir genomu hızlı bir şekilde işleyebilen ikincil analize yönelik ölçeklenebilir ve güvenli bir hizmettir. Birkaç adımda kullanmaya başlayabilirsiniz: 
+Bu hızlı başlangıçta, giriş verilerini Azure Blob Depolama'ya yükleme ve Microsoft Genomiks hizmeti üzerinden iş akışı çalıştırma adımları gösterilir. Microsoft Genomiks, ham okumalardan başlayarak hizalanmış okumalar ve varyant ilanları üreten, bir genomu hızlı bir şekilde işleyebilen ikincil analize yönelik ölçeklenebilir ve güvenli bir hizmettir. 
+
+Birkaç adımda kullanmaya başlayabilirsiniz: 
 1.  Kurulum: Azure portalından bir Microsoft Genomiks hesabı oluşturup Microsoft Genomiks Genomics Python istemcisini yerel ortamınıza yükleyin. 
 2.  Giriş verilerini yükleme: Azure portalından bir Microsoft Azure depolama hesabı yükleyip giriş dosyalarını yükleyin. Giriş dosyalarının uç okumalarında eşleştirilmesi gerekir (fastq veya bam dosyaları).
 3.  Çalıştırma: Microsoft Genomiks komut satırı arabirimini kullanarak Microsoft Genomiks hizmeti üzerinden iş akışlarını çalıştırabilirsiniz. 

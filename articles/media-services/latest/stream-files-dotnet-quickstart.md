@@ -4,28 +4,29 @@ description: Yeni bir Azure Media Services hesabı oluşturmak, bir dosyayı kod
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 keywords: azure media services, akış
 ms.service: media-services
 ms.workload: media
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 04/08/2018
+ms.date: 09/25/2018
 ms.author: juliako
-ms.openlocfilehash: 48f85311f38d7e4ab1414dfc22c111b92163740e
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.openlocfilehash: 8bef52bb7cb56646b0f09e2cb7910bab3f55e0c0
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42023636"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47223551"
 ---
 # <a name="quickstart-stream-video-files---net"></a>Hızlı Başlangıç: Video dosyalarını akışa alma - .NET
 
 > [!NOTE]
 > En son Azure Media Services sürümü Önizleme aşamasındadır ve v3 olarak adlandırılabilir. v3 API’lerini kullanmaya başlamak için, bu hızlı başlangıçta açıklandığı gibi yeni bir Media Services hesabı oluşturmanız gerekir. 
 
-Bu hızlı başlangıçta, Azure Media Services kullanarak çok çeşitli tarayıcı ve cihazda videoları akışa almaya başlamanın ne kadar kolay olduğu size gösterilmektedir. Bu konu başlığındaki örnek, bir HTTPS URL’si aracılığıyla erişilebilir hale getirdiğiniz içerikleri kodlar. 
+Bu hızlı başlangıçta, Azure Media Services kullanarak çok çeşitli tarayıcı ve cihazda videoları kodlamanın akışa almaya başlamanın ne kadar kolay olduğu size gösterilmektedir. Azure Blob depolamada bulunan dosyaların yolları, SAS URL’leri veya HTTPS URL’leri kullanılarak girdi içeriği belirtilebilir.
+Bu konu başlığındaki örnek, bir HTTPS URL’si aracılığıyla erişilebilir hale getirdiğiniz içerikleri kodlar. AMS v3’ün şu anda HTTPS URL'leri üzerinden yığın halinde aktarım kodlamasını desteklemediğini unutmayın.
 
 Hızlı başlangıcın sonunda bir videoyu akışa alabileceksiniz.  
 

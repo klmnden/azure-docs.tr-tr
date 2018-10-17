@@ -1,21 +1,21 @@
 ---
-title: Translator Metin Çevirisi Ruby ile metin çevirme | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: Bu hızlı başlangıçta, Bilişsel Hizmetler’de Ruby ile Translator Metin Çevirisi API'sini kullanarak metni bir dilden diğerine çevireceksiniz.
+title: 'Hızlı Başlangıç: Metin çevirme - Translator Metin Çevirisi, Ruby'
+titleSuffix: Azure Cognitive Services
+description: Bu hızlı başlangıçta, Ruby ile Translator Metin Çevirisi API’sini kullanarak metni bir dilden diğerine çevireceksiniz.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/22/2018
 ms.author: nolachar
-ms.openlocfilehash: b4d2e04d67fea140148e626ee94b46fdfcd6bac7
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 38b4ee3a2122e0151490ef1a29ee02d498a06b7d
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "43772476"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46126556"
 ---
 # <a name="quickstart-translate-text-with-ruby"></a>Hızlı Başlangıç: Ruby ile metin çevirme
 

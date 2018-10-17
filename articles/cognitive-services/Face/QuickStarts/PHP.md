@@ -1,21 +1,21 @@
 ---
-title: Yüz Tanıma API'si PHP hızlı başlangıç | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: Bu hızlı başlangıçta, Bilişsel Hizmetler’de PHP ile Yüz Tanıma API'sini kullanarak bir görüntüdeki yüzleri algılayacaksınız.
+title: 'Hızlı Başlangıç: Bir görüntüdeki yüzleri algılama - Yüz Tanıma API’si, PHP'
+titleSuffix: Azure Cognitive Services
+description: Bu hızlı başlangıçta, PHP ile Yüz Tanıma API’sini kullanarak bir görüntüdeki yüzleri algılayacaksınız.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: face-api
 ms.topic: quickstart
 ms.date: 05/30/2018
 ms.author: nolachar
-ms.openlocfilehash: 972def677a8ac0abd86bc436fc1b1373b5496df9
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 976cd87ca5637f4ee9b517093b6fbb6b498c5471
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "43770562"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46126964"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-php"></a>Hızlı Başlangıç: PHP kullanarak bir görüntüdeki yüzleri algılama
 
@@ -40,7 +40,7 @@ Bu hızlı başlangıçta, Yüz Tanıma API'sini kullanarak bir görüntüdeki i
 1. `<Subscription Key>` değerini geçerli abonelik anahtarınızla değiştirin.
 1. Gerekirse `uriBase` değerini abonelik anahtarlarınızı aldığınız konumu kullanacak şekilde değiştirin.
 1. İsteğe bağlı olarak, `imageUrl` öğesini analiz etmek istediğiniz görüntü olarak ayarlayın.
-1. Dosyası `.php` uzantısıyla kaydedin.
+1. Dosyayı `.php` uzantısıyla kaydedin.
 1. Dosyayı PHP desteğiyle bir tarayıcı penceresinde açın.
 
 ```php
@@ -108,7 +108,7 @@ catch (HttpException $ex)
 
 ## <a name="face---detect-response"></a>Yüz - Algılama yanıtı
 
-JSON’da başarılı bir yanıt döndürülür, örneğin:
+Başarılı bir yanıt JSON biçiminde döndürülür, örneğin:
 
 ```json
 [

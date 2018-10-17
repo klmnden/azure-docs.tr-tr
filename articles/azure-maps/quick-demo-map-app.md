@@ -3,25 +3,24 @@ title: Azure Haritalar ile etkileşimli Harita Arama | Microsoft Docs
 description: Azure Hızlı Başlangıç - Azure Haritalar’ı kullanarak bir demo etkileşimli harita araması başlatma
 author: dsk-2015
 ms.author: dkshir
-ms.date: 05/07/2018
+ms.date: 09/10/2018
 ms.topic: quickstart
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 002d9820cb4414d8f33cdd362e28f31e7e8b6273
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: cf39ad460d163a996bd2e0aa522d634cf485d83a
+ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38989563"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45541560"
 ---
 # <a name="launch-an-interactive-search-map-using-azure-maps"></a>Azure Haritalar’ı kullanarak bir etkileşimli arama haritası başlatma
 
-Bu makalede, Azure Haritalar’ın kullanıcılara etkileşimli arama deneyimi sunan bir harita oluşturmaya yönelik özellikler gösterilmektedir. Kendi Haritalar hesabınızı oluşturmaya ve demo web uygulamasında kullanmak üzere hesap anahtarınızı almaya yönelik temel adımlar gösterilmektedir. 
+Bu makalede, Azure Haritalar’ın kullanıcılara etkileşimli arama deneyimi sunan bir harita oluşturmaya yönelik özellikler gösterilmektedir. Kendi Haritalar hesabınızı oluşturmaya ve demo web uygulamasında kullanmak üzere hesap anahtarınızı almaya yönelik temel adımlar gösterilmektedir.
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
-
 
 ## <a name="log-in-to-the-azure-portal"></a>Azure portalında oturum açma
 
@@ -31,36 +30,34 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 
 1. [Azure portalının](https://portal.azure.com) sol üst köşesinde bulunan **Kaynak oluştur** öğesine tıklayın.
 2. *Market’te Ara* kutusuna **Haritalar** yazın.
-3. *Sonuçlar* içinden **Haritalar**’ı seçin. Haritanın altında görüntülenen **Oluştur** düğmesine tıklayın. 
+3. *Sonuçlar* içinden **Haritalar**’ı seçin. Haritanın altında görüntülenen **Oluştur** düğmesine tıklayın.
 4. **Haritalar Hesabı Oluştur** sayfasında aşağıdaki değerleri girin:
-    - Yeni hesabınıza verilen *Ad*. 
+    - Yeni hesabınıza verilen *Ad*.
     - Bu hesap için kullanmak istediğiniz *Abonelik*.
     - Bu hesap için *Kaynak grubu*. Kaynak grubu için *Yeni oluştur* veya *Mevcut olanı kullan* seçeneğini belirleyebilirsiniz.
     - *Kaynak grubu konumu*nu seçin.
-    - *Lisans*’ı ve *Gizlilik Bildirimi*’ni okuyun ve onay kutusunu işaretleyerek koşulları kabul edin. 
+    - *Lisans*’ı ve *Gizlilik Bildirimi*’ni okuyun ve onay kutusunu işaretleyerek koşulları kabul edin.
     - Son olarak **Oluştur** düğmesine tıklayın.
 
     ![Portalda Haritalar hesabı oluşturma](./media/quick-demo-map-app/create-account.png)
 
-5. Hesabınız başarıyla oluşturulduktan sonra hesabı açıp hesap menüsünün ayarlar bölümünü bulun. Azure Haritalar hesabınızın birincil ve ikincil anahtarlarını görüntülemek için **Anahtarlar**’a tıklayın. **Birincil Anahtar** değerini sonraki bölümde kullanmak üzere yerel panonuza kopyalayın. 
+5. Hesabınız başarıyla oluşturulduktan sonra hesabı açıp hesap menüsünün ayarlar bölümünü bulun. Azure Haritalar hesabınızın birincil ve ikincil anahtarlarını görüntülemek için **Anahtarlar**’a tıklayın. **Birincil Anahtar** değerini sonraki bölümde kullanmak üzere yerel panonuza kopyalayın.
 
 ## <a name="download-the-application"></a>Uygulamayı indirme
 
 1. [interactiveSearch.html](https://github.com/Azure-Samples/azure-maps-samples/blob/master/src/interactiveSearch.html) dosyasının içeriklerini indirin veya kopyalayın.
 2. Bu dosyanın içeriklerini **AzureMapDemo.html** olarak yerel olarak kaydedin ve bir metin düzenleyicide açın.
-3. `<insert-key>` dizesini arayın ve önceki bölümde aldığınız **Birincil Anahtar** değeriyle değiştirin. 
-
+3. `<insert-key>` dizesini arayın ve önceki bölümde aldığınız **Birincil Anahtar** değeriyle değiştirin.
 
 ## <a name="launch-the-application"></a>Uygulamayı başlatma
 
 1. **AzureMapDemo.html** dosyasını istediğiniz bir tarayıcıda açın.
 2. Gösterilen Los Angeles haritasına bakın. Yakınlaştırma düzeyine bağlı olarak haritanın daha fazla veya daha az bilgiyle nasıl işlendiğini görmek için yakınlaştırma ve uzaklaştırma yapın. 
-3. Haritanın varsayılan merkezini değiştirin. **AzureMapDemo.html** dosyasında, **center** adlı değişkeni arayın. Bu değişkenin boylam ve enlem çiftini, yeni **[-74.0060, 40.7128]** değerleriyle değiştirin. Dosyayı kaydedin ve tarayıcınızı yenileyin. 
-3. Etkileşimli arama deneyimini deneyin. Demo web uygulamasının sol üst köşesindeki arama kutusunda **restoranlar** ifadesini arayın. 
-4. Farenizi arama kutusunun altında görünen adrs/konum listesinin üzerine getirdiğinizde haritalarda ilgili raptiye açılarak bu konum hakkında bilgileri görüntüler. Özel işletmelerin gizliliğini korumak için kurgusal ad ve adresler gösterilir. 
+3. Haritanın varsayılan merkezini değiştirin. **AzureMapDemo.html** dosyasında, **center** adlı değişkeni arayın. Bu değişkenin boylam ve enlem çiftini, yeni **[-74.0060, 40.7128]** değerleriyle değiştirin. Dosyayı kaydedin ve tarayıcınızı yenileyin.
+4. Etkileşimli arama deneyimini deneyin. Demo web uygulamasının sol üst köşesindeki arama kutusunda **restoranlar** ifadesini arayın.
+5. Farenizi arama kutusunun altında görünen adrs/konum listesinin üzerine getirdiğinizde haritalarda ilgili raptiye açılarak bu konum hakkında bilgileri görüntüler. Özel işletmelerin gizliliğini korumak için kurgusal ad ve adresler gösterilir.
 
     ![Etkileşimli Arama web uygulaması](./media/quick-demo-map-app/interactive-search.png)
-
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 

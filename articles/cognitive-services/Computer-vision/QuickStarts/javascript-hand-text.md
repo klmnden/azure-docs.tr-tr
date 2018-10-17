@@ -1,43 +1,48 @@
 ---
-title: Görüntü İşleme API'si JavaScript hızlı başlangıcı | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: Bu hızlı başlangıçta, Bilişsel Hizmetler’de JavaScript ile Görüntü İşleme kullanarak bir görüntüden el yazısı metni ayıklayacaksınız.
+title: 'Hızlı Başlangıç: El yazısı metni ayıklama - REST, JavaScript - Görüntü İşleme'
+titleSuffix: Azure Cognitive Services
+description: Bu hızlı başlangıçta, JavaScript ile Görüntü İşleme API’sini kullanarak bir görüntüden el yazısı metni ayıklayacaksınız.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: v-deken
-ms.openlocfilehash: c6b52bfdf1c42499772da1e5f72897baa65a4786
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 82c51c95bf8a538ce50dd190cce737b0295abc6e
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43772579"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45634685"
 ---
-# <a name="quickstart-extract-handwritten-text---rest-javascript"></a>Hızlı Başlangıç: El yazısı metin ayıklama - REST, JavaScript
+# <a name="quickstart-extract-handwritten-text-using-the-rest-api-and-javascript-in-computer-vision"></a>Hızlı Başlangıç: Görüntü İşleme’de REST API ve JavaScript kullanarak el yazısı metni ayıklama
 
-Bu hızlı başlangıçta, Görüntü İşleme kullanarak bir görüntüden el yazısı metni ayıklayacaksınız.
+Bu hızlı başlangıçta, Görüntü İşleme’nin REST API’sini kullanarak bir görüntüden el yazısı metni ayıklayacaksınız. [Metin Tanıma](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2c6a154055056008f200) ve [Metin Tanıma İşlemi Sonucunu Alma](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2cf1154055056008f201) yöntemleri ile, bir görüntüdeki el yazısı metni algılayabilir ve tanınan karakterleri makine tarafından kullanılabilir bir karakter akışı halinde ayıklayabilirsiniz.
+
+> [!IMPORTANT]
+> [OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) yönteminden farklı olarak [Metin Tanıma](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2c6a154055056008f200) yöntemi zaman uyumsuz olarak çalıştırılır. Bu yöntem, başarılı bir yanıt gövdesinde herhangi bir bilgi döndürmez. Bunun yerine, Metin Tanıma yöntemi, `Operation-Content` yanıt üst bilgisi alanının değerindeki bir URI’yi döndürür. Daha sonra hem durumu denetlemek hem de Metin Tanıma yöntem çağrısının sonuçlarını döndürmek için [Metin Tanıma İşlemi Sonucunu Alma](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2cf1154055056008f201) yöntemini temsil eden bu URI’yi çağırırsınız.
+
+Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) oluşturun.
 
 ## <a name="prerequisites"></a>Ön koşullar
 
-Görüntü İşleme’yi kullanmak için, bir abonelik anahtarınızın olması gerekir; bkz. [Abonelik Anahtarlarını Alma](../Vision-API-How-to-Topics/HowToSubscribe.md).
+Görüntü İşleme için bir abonelik anahtarınız olması gerekir. Bir abonelik anahtarı almak için bkz. [Abonelik Anahtarları Alma](../Vision-API-How-to-Topics/HowToSubscribe.md).
 
-## <a name="recognize-text-request"></a>Metin Tanıma isteği
+## <a name="create-and-run-the-sample"></a>Örnek oluşturma ve çalıştırma
 
-[Metin Tanıma](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2c6a154055056008f200) ve [Metin Tanıma İşlemi Sonucunu Alma yöntemleri](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2cf1154055056008f201) ile, bir görüntüdeki el yazısı metni algılayabilir ve tanınan karakterleri makine tarafından kullanılabilir bir karakter akışı halinde ayıklayabilirsiniz.
+Örneği oluşturup çalıştırmak için aşağıdaki adımları uygulayın:
 
-Örneği çalıştırmak için aşağıdaki adımları uygulayın:
-
-1. Aşağıdakini kopyalayın ve `handwriting.html` gibi bir dosyaya kaydedin.
-1. `<Subscription Key>` değerini geçerli abonelik anahtarınızla değiştirin.
-1. Gerekirse `uriBase` değerini abonelik anahtarlarınızı aldığınız konumla değiştirin.
-1. Dosyayı tarayıcınıza sürükleyin ve bırakın.
-1. `Read image` düğmesine tıklayın.
-
-Bu örnek, jQuery 1.9.0 kullanır. jQuery olmadan JavaScript kullanan bir örnek için bkz. [Akıllıca küçük resim oluşturma](javascript-thumb.md).
+1. Aşağıdaki kodu bir metin düzenleyicisine kopyalayın.
+1. Gerektiğinde kodda aşağıdaki değişiklikleri yapın:
+    1. `subscriptionKey` değerini abonelik anahtarınızla değiştirin.
+    1. Gerekirse `uriBase` değerini, abonelik anahtarlarınızı aldığınız Azure bölgesinden [Metin Tanıma](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2c6a154055056008f200) yönteminin uç nokta URL’si ile değiştirin.
+    1. İsteğe bağlı olarak, `inputImage` denetimi için `value` özniteliğinin değerini, içinden el yazısı metni ayıklamak istediğiniz başka bir görüntünün URL’si ile değiştirin.
+1. Kodu, `.html` uzantısıyla bir dosya olarak kaydedin. Örneğin, `get-handwriting.html`.
+1. Tarayıcı penceresini açın.
+1. Tarayıcıda dosyayı tarayıcı penceresine sürükleyip bırakın.
+1. Tarayıcıda web sayfası görüntülendiğinde, **Görüntü oku** düğmesini seçin.
 
 ```html
 <!DOCTYPE html>
@@ -57,19 +62,18 @@ Bu örnek, jQuery 1.9.0 kullanır. jQuery olmadan JavaScript kullanan bir örnek
         // Replace <Subscription Key> with your valid subscription key.
         var subscriptionKey = "<Subscription Key>";
 
-        // You must use the same region in your REST call as you used to get your
-        // subscription keys. For example, if you got your subscription keys from
-        // westus, replace "westcentralus" in the URI below with "westus".
+        // You must use the same Azure region in your REST API method as you used to
+        // get your subscription keys. For example, if you got your subscription keys
+        // from the West US region, replace "westcentralus" in the URL
+        // below with "westus".
         //
-        // Free trial subscription keys are generated in the westcentralus region.
+        // Free trial subscription keys are generated in the West Central US region.
         // If you use a free trial subscription key, you shouldn't need to change
         // this region.
         var uriBase =
             "https://westcentralus.api.cognitive.microsoft.com/vision/v2.0/recognizeText";
 
         // Request parameter.
-        // Note: The request parameter changed for APIv2.
-        // For APIv1, it is "handwriting": "true".
         var params = {
             "mode": "Handwritten",
         };
@@ -186,11 +190,9 @@ Image to read:
 </html>
 ```
 
-## <a name="recognize-text-response"></a>Metin Tanıma yanıtı
+## <a name="examine-the-response"></a>Yanıtı inceleme
 
-JSON’da başarılı bir yanıt döndürülür. Metinler, bölgeler için sınırlayıcı kutu, satırlar ve sözcükler gibi el yazısı sonuçları döndürülür.
-
-Program aşağıdaki JSON’a benzer bir çıkış oluşturur:
+Başarılı bir yanıt JSON biçiminde döndürülür. Örnek web sayfası aşağıdaki örneğe benzer şekilde başarılı bir yanıtı ayrıştırıp tarayıcı penceresinde görüntüler:
 
 ```json
 {
@@ -468,9 +470,13 @@ Program aşağıdaki JSON’a benzer bir çıkış oluşturur:
 }
 ```
 
+## <a name="clean-up-resources"></a>Kaynakları temizleme
+
+Artık gerekli değilse dosyayı silin.
+
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Optik karakter tanıma (OCR) gerçekleştirmek için Görüntü İşleme kullanan bir JavaScript uygulaması keşfedin. Akıllı kırpılmış küçük resimler oluşturun. Buna ek olarak, bir görüntüdeki yüzler gibi görsel özellikleri algılayın, kategorilere ayırın, etiketleyin ve açıklayın. Görüntü İşleme API'lerini hızlı bir şekilde denemeniz için [Open API test konsolu](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console) konusuna göz atın.
+Optik karakter tanıma (OCR) gerçekleştirmek için Görüntü İşleme kullanan bir JavaScript uygulaması keşfedin. Akıllı kırpılmış küçük resimler oluşturun. Buna ek olarak, bir görüntüdeki yüzler gibi görsel özellikleri algılayın, kategorilere ayırın, etiketleyin ve açıklayın. Görüntü İşleme API'sini hızlı bir şekilde denemeniz için [Open API test konsolu](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console) konusuna bakın.
 
 > [!div class="nextstepaction"]
 > [Görüntü İşleme API'si JavaScript Öğreticisi](../Tutorials/javascript-tutorial.md)

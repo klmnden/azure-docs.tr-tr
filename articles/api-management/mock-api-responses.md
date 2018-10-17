@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.custom: mvc
 ms.topic: tutorial
-ms.date: 11/27/2017
+ms.date: 06/15/2018
 ms.author: apimpm
-ms.openlocfilehash: 4383ce3788f6fade5299d69ef99b80221c58d9e7
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 916d0cf37ab3588091d4ca2d45f43a5669afe4f1
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33936992"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47094904"
 ---
 # <a name="mock-api-responses"></a>Sahne API yanıtları
 
@@ -46,7 +46,7 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
 Bu bölümdeki adımlar arka uç olmadan boş bir API oluşturmayı gösterir. Ayrıca, API’ye bir işlem eklemeyi gösterir. Bu bölümdeki adımları tamamladıktan sonra işlem çağrılırsa bir hata oluşur. "Sahte yanıt vermeyi etkinleştirme" bölümündeki adımları tamamladıktan sonra herhangi bir hata almazsınız.
 
-1. **API YÖNETİMİ** bölümünden **API’ler** öğesini seçin.
+1. **API Management** hizmetinden **API’ler**’i seçin.
 2. Soldaki menüden **+ API Ekle**'yi seçin.
 3. Listeden **Boş API**’yi seçin.
 4. **Görünen ad** için "*Test API*" yazın.
@@ -57,14 +57,13 @@ Bu bölümdeki adımlar arka uç olmadan boş bir API oluşturmayı gösterir. A
 
 1. Önceki adımda oluşturduğunuz API’yi seçin.
 2. **+ İşlem Ekle**’ye tıklayın.
-
-    ![Sahte işlem yanıtı](./media/mock-api-responses/mock-api-responses02.png)
+    ![Sahte işlem yanıtı](./media/mock-api-responses/mock-api-responses-add-operation.png)
 
     |Ayar|Değer|Açıklama|
     |---|---|---|
+    |**Görünen ad**|*Test çağrısı*|**Geliştirici portalında** görüntülenen ad.|
     |**URL** (HTTP fiili)|GET|Önceden tanımlanmış HTTP fiillerinden birini seçebilirsiniz.|
     |**URL** |*/test*|API için bir URL yolu. |
-    |**Görünen ad**|*Test çağrısı*|**Geliştirici portalında** görüntülenen ad.|
     |**Açıklama**||**Geliştirici portalında** bu API’yi kullanan geliştiricilere belge sağlamak için kullanılan işlemin bir açıklamasını girin.|
     |**Sorgu** sekmesi||Sorgu parametreleri ekleyebilirsiniz. Bir ad ve açıklama sağlamaya ek olarak bu parametreye atanabilecek değerleri belirtebilirsiniz. Varsayılan olarak işaretlenebilecek değerlerde biri (isteğe bağlı).|
     |**İstek** sekmesi||İstek içerik türleri, örnekler ve şemalar tanımlayabilirsiniz. |
@@ -75,18 +74,19 @@ Bu bölümdeki adımlar arka uç olmadan boş bir API oluşturmayı gösterir. A
 5. Listeden **200 Tamam**’ı seçin.
 6. Sağ taraftaki **Gösterimler** başlığının altında **+ Gösterim ekle**’yi seçin.
 7. Arama kutusuna "*application/json*" yazın ve **application/json** içerik türünü seçin.
-8. **Örnek** metin kutusuna "*{ 'sampleField' : 'test' }*" girin.
-9. **Kaydet**’i seçin.
+8. **Örnek** metin kutusuna `{ 'sampleField' : 'test' }` girin.
+9. **Oluştur**’u seçin.
 
 ## <a name="enable-response-mocking"></a>Sahte yanıt vermeyi etkinleştirme
 
 1. "Test API’si oluşturma" adımında oluşturduğunuz API’yi seçin.
 2. Eklediğiniz test işlemini seçin.
-2. Sağdaki pencerede **Tasarım** sekmesine tıklayın.
-3. **Gelen işlem** penceresinde kalem simgesine tıklayın.
-4. **Sahte** sekmesinde **Sahte işlem davranışı** için **Statik yanıtlar**’ı seçin.
-5. **API Management şu yanıtı döndürür:** metin kutusuna **200 Tamam, application/json** yazın. Bu seçim, API’nizin önceki bölümde tanımladığınız yanıt örneğini döndürmesi gerektiğini gösterir.
-6. **Kaydet**’i seçin.
+3. Sağdaki pencerede **Tasarım** sekmesine tıklayın.
+4. **Gelen işlem** penceresinde kalem simgesine tıklayın.
+5. **Sahte** sekmesinde **Sahte işlem davranışı** için **Statik yanıtlar**’ı seçin.
+6. **API Management şu yanıtı döndürür:** metin kutusuna **200 Tamam, application/json** yazın. Bu seçim, API’nizin önceki bölümde tanımladığınız yanıt örneğini döndürmesi gerektiğini gösterir.
+    ![Sahte yanıt vermeyi etkinleştirme](./media/mock-api-responses/mock-api-responses-set-mocking.png)
+7. **Kaydet**’e tıklayın.
 
 ## <a name="test-the-mocked-api"></a>Sahte API’yi test etme
 
@@ -97,8 +97,9 @@ Bu bölümdeki adımlar arka uç olmadan boş bir API oluşturmayı gösterir. A
     > [!TIP]
     > **Sahte işlem etkin** metnini içeren sarı çubuk, API Management’tan döndürülen yanıtların bir sahte işlem ilkesi gönderdiğini ve gerçek bir arka uç yanıtı göndermediğini gösterir.
 
-3. Bir test çağrısı yapmak için **Gönder**’i seçin.
-4. **HTTP yanıtı**, öğreticinin ilk bölümde örnek olarak sağlanan JSON’u görüntüler.
+4. Bir test çağrısı yapmak için **Gönder**’i seçin.
+5. **HTTP yanıtı**, öğreticinin ilk bölümde örnek olarak sağlanan JSON’u görüntüler.
+    ![Sahte yanıt vermeyi etkinleştirme](./media/mock-api-responses/mock-api-responses-test-response.png)
 
 ## <a name="video"></a>Video
 

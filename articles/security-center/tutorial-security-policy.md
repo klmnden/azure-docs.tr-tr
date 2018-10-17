@@ -3,7 +3,7 @@ title: Azure Güvenlik Merkezi Öğreticisi - Güvenlik ilkelerini tanımlama ve
 description: Azure Güvenlik Merkezi Öğreticisi - Güvenlik ilkelerini tanımlama ve değerlendirme
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: mbaldwin
 editor: ''
 ms.assetid: 2d248817-ae97-4c10-8f5d-5c207a8019ea
@@ -13,14 +13,14 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/30/2018
-ms.author: terrylan
-ms.openlocfilehash: 15c69bce87ede96eb3a7bc0bada4e4f6a6669abb
-ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
+ms.date: 08/30/2018
+ms.author: rkarlin
+ms.openlocfilehash: fcd3c2a95cea0a838fc16149a0a74fad95ea3300
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39358617"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44027070"
 ---
 # <a name="tutorial-define-and-assess-security-policies"></a>Öğretici: Güvenlik ilkelerini tanımlama ve değerlendirme
 Güvenlik Merkezi, iş yüklerinizin istenen yapılandırmasını tanımlamak için güvenlik ilkeleri kullanarak şirketin veya yasal düzenlemelerin gerektirdiği güvenlik gereksinimlerine uyum sağlanmasına yardımcı olur. Azure abonelikleriniz için ilkeler tanımlayıp bunları iş yükü türüne veya verilerinizin duyarlılığına göre uyarladığınızda, Güvenlik Merkezi işlem, uygulama, ağ, veri ve depolama ile kimlik ve erişim kaynaklarınız için güvenlik önerileri sağlayabilir. Bu öğreticide şunların nasıl yapıldığını öğrenirsiniz:
@@ -42,8 +42,7 @@ Güvenlik Merkezi, Azure aboneliklerinizin her biri için otomatik olarak varsay
 
   ![Güvenlik İlkesi](./media/tutorial-security-policy/tutorial-security-policy-fig1.png)  
 
-3. **İLKE BİLEŞENLERİ** altında **Güvenlik ilkesi**’ni seçin.
-4. İzlemek istediğiniz her güvenlik yapılandırması için **Açık**’ı seçin. Güvenlik Merkezi ortamınızın yapılandırmasını sürekli olarak değerlendirir ve bir güvenlik açığıyla karşılaştığında bir güvenlik önerisi oluşturur. Güvenlik yapılandırması önerilmiyorsa veya gerekli değilse **Kapalı**’yı seçin. Örneğin, bir geliştirme ve test ortamında üretim ortamlarındakiyle aynı güvenlik düzeyine sahip olmanız gerekmeyebilir. Ortamınız için geçerli olan ilkeleri seçtikten sonra **Kaydet**’e tıklayın.
+3. **İşlem ve uygulamalar**, **Ağ** ve **Veri** altında, izlemek istediğiniz her güvenlik yapılandırmasını **Açık** olarak ayarlayın. Güvenlik Merkezi ortamınızın yapılandırmasını sürekli olarak değerlendirir ve bir güvenlik açığıyla karşılaştığında bir güvenlik önerisi oluşturur. Güvenlik yapılandırması önerilmiyorsa veya gerekli değilse **Kapalı**’yı seçin. Örneğin, bir geliştirme ve test ortamında üretim ortamlarındakiyle aynı güvenlik düzeyine sahip olmanız gerekmeyebilir. Ortamınız için geçerli olan ilkeleri seçtikten sonra **Kaydet**’e tıklayın.
 
   ![Güvenlik yapılandırması](./media/tutorial-security-policy/tutorial-security-policy-fig6.png)  
 

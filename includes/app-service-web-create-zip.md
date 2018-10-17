@@ -1,6 +1,6 @@
 ## <a name="create-a-project-zip-file"></a>Proje ZIP dosyası oluşturma
 
-Projenizdeki tüm öğeleri içeren bir ZIP arşivi oluşturun. Aşağıdaki komut terminalinizdeki varsayılan aracı kullanmaktadır:
+Hâlâ örnek projenin kök dizininde bulunduğunuzdan emin olun. Projenizdeki tüm öğeleri içeren bir ZIP arşivi oluşturun. Aşağıdaki komut terminalinizdeki varsayılan aracı kullanmaktadır:
 
 ```
 # Bash

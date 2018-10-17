@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 03/22/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 49fa4cf9b24c432b0956f930a1429e1cdf827f1b
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 7451d6ade7f8b042a68f456e604e2919cacab0a5
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34304887"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44378440"
 ---
 # <a name="quickstart-create-a-public-basic-load-balancer-by-using-the-azure-portal"></a>Hızlı Başlangıç: Azure portalını kullanarak genel bir Temel yük dengeleyici oluşturma
 
@@ -36,7 +36,7 @@ Bu hızlı başlangıçtaki tüm görevler için [Azure portalında](http://port
 
 ## <a name="create-a-basic-load-balancer"></a>Temel yük dengeleyici oluşturma
 
-Bu bölümde, portalı kullanarak genel bir Temel yük dengeleyici oluşturacaksınız. Genel IP adresi, portalı kullanarak genel IP’yi ve yük dengeleyici kaynağını oluştururken yük dengeleyicinin ön ucu olarak otomatik şekilde yapılandırılır. Ön uç adı **LoadBalancerFrontend** şeklindedir.
+Bu bölümde, portalı kullanarak genel bir Temel yük dengeleyici oluşturacaksınız. Genel IP adresi, portalı kullanarak genel IP’yi ve yük dengeleyici kaynağını oluştururken yük dengeleyicinin ön ucu olarak otomatik şekilde yapılandırılır. Ön uç adı **MyLoadBalancer** şeklindedir.
 
 1. Portalın sol üst kısmında **Kaynak oluştur** > **Ağ** > **Yük Dengeleyici** seçeneğini belirleyin.
 2. **Yük dengeleyici oluştur** bölmesine şu değerleri girin:

@@ -1,21 +1,21 @@
 ---
-title: Yüz Tanıma API'si Go hızlı başlangıç | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: Bu hızlı başlangıçta, Bilişsel Hizmetler’de Go ile Yüz Tanıma API'sini kullanarak bir görüntüdeki yüzleri algılayacaksınız.
+title: 'Hızlı Başlangıç: Bir görüntüdeki yüzleri algılama - Yüz Tanıma API’si, Go'
+titleSuffix: Azure Cognitive Services
+description: Bu hızlı başlangıçta, Go ile Yüz Tanıma API’sini kullanarak bir görüntüdeki yüzleri algılayacaksınız.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: face-api
 ms.topic: quickstart
 ms.date: 06/25/2018
 ms.author: nolachar
-ms.openlocfilehash: e4d7f3f605b110f51488d9a7f483fc2832a149b9
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: 0c8a70153ac9a54f3e46e5fb1a2ee3404a960dd3
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "43772481"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46125434"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-go"></a>Hızlı Başlangıç: Go kullanarak bir görüntüdeki yüzleri algılama
 
@@ -117,7 +117,7 @@ func main() {
 
 ## <a name="face---detect-response"></a>Yüz - Algılama yanıtı
 
-JSON’da başarılı bir yanıt döndürülür, örneğin:
+Başarılı bir yanıt JSON biçiminde döndürülür, örneğin:
 
 ```json
 [

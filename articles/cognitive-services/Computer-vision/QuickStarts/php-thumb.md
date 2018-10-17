@@ -1,44 +1,56 @@
 ---
 title: 'Hızlı Başlangıç: Küçük resim oluşturma - REST, PHP - Görüntü İşleme'
 titleSuffix: Azure Cognitive Services
-description: Bu hızlı başlangıçta, Bilişsel Hizmetler’de PHP ile Görüntü İşleme kullanarak bir görüntüden küçük resim oluşturacaksınız.
+description: Bu hızlı başlangıçta, PHP ile Görüntü İşleme API’sini kullanarak bir görüntüden küçük resim oluşturacaksınız.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: v-deken
-ms.openlocfilehash: dc2d5c4e5a1a9a098ad8b70b6b7a280c4dd02299
-ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
+ms.openlocfilehash: 5cc432a2f6a471ec1d5dfd4acae8733df7065e4f
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43841905"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45631673"
 ---
-# <a name="quickstart-generate-a-thumbnail---rest-php---computer-vision"></a>Hızlı Başlangıç: Küçük resim oluşturma - REST, PHP - Görüntü İşleme
+# <a name="quickstart-generate-a-thumbnail-using-the-rest-api-and-php-in-computer-vision"></a>Hızlı Başlangıç: REST API ve PHP ile Görüntü İşleme kullanarak küçük resim oluşturma
 
-Bu hızlı başlangıçta, Görüntü İşleme kullanarak bir görüntüden küçük resim oluşturacaksınız.
+Bu hızlı başlangıçta, Görüntü İşleme REST API’sini kullanarak bir görüntüden küçük resim oluşturacaksınız. [Küçük Resim Alma](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fb) yöntemi ile bir görüntünün küçük resmini alabilirsiniz. Giriş görüntüsünün en boy oranından farklı olabilen bir yükseklik ve genişlik belirtirsiniz. Görüntü İşleme, ilgi bölgesini akıllı bir şekilde belirlemek için akıllı kırpma özelliğini kullanır ve ilgili bölgeyi temel alan kırpma koordinatları oluşturur.
+
+Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) oluşturun.
 
 ## <a name="prerequisites"></a>Ön koşullar
 
-Görüntü İşleme’yi kullanmak için, bir abonelik anahtarınızın olması gerekir; bkz. [Abonelik Anahtarlarını Alma](../Vision-API-How-to-Topics/HowToSubscribe.md).
+- [PHP](https://secure.php.net/downloads.php) yüklenmiş olmalıdır.
+- [Pear](https://pear.php.net) yüklenmiş olmalıdır.
+- Görüntü İşleme için bir abonelik anahtarınız olması gerekir. Bir abonelik anahtarı almak için bkz. [Abonelik Anahtarları Alma](../Vision-API-How-to-Topics/HowToSubscribe.md).
 
-## <a name="get-thumbnail-request"></a>Küçük Resim Alma isteği
+## <a name="create-and-run-the-sample"></a>Örnek oluşturma ve çalıştırma
 
-[Küçük Resim Alma yöntemi](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fb) ile, bir görüntünün küçük resmini alabilirsiniz. Giriş görüntüsünün en boy oranından farklı olabilen bir yükseklik ve genişlik belirtirsiniz. Görüntü İşleme, ilgi bölgesini akıllı bir şekilde belirlemek için akıllı kırpma özelliğini kullanır ve ilgili bölgeyi temel alan kırpma koordinatları oluşturur.
+Örneği oluşturup çalıştırmak için aşağıdaki adımları uygulayın:
 
-Örneği çalıştırmak için aşağıdaki adımları uygulayın:
+1. PHP5 [`HTTP_Request2`](http://pear.php.net/package/HTTP_Request2) paketini yükleyin.
+   1. Yönetici olarak bir komut istemi penceresini açın.
+   1. Şu komutu çalıştırın:
 
-1. Aşağıdaki kodu bir düzenleyicinin içine kopyalayın.
-1. `<Subscription Key>` değerini geçerli abonelik anahtarınızla değiştirin.
-1. Gerekirse `uriBase` değerini abonelik anahtarlarınızı aldığınız konumu kullanacak şekilde değiştirin.
-1. İsteğe bağlı olarak, `imageUrl` öğesini analiz etmek istediğiniz görüntü olarak ayarlayın.
-1. Dosyayı `.php` uzantısıyla kaydedin.
-1. Dosyayı PHP desteğiyle bir tarayıcı penceresinde açın.
+      ```console
+      pear install HTTP_Request2
+      ```
 
-Bu örnek, PHP5 [HTTP_Request2](http://pear.php.net/package/HTTP_Request2) paketini kullanır.
+   1. Paket başarıyla yüklendikten sonra komut istemi penceresini kapatın.
+
+1. Aşağıdaki kodu bir metin düzenleyicisine kopyalayın.
+1. Gerektiğinde kodda aşağıdaki değişiklikleri yapın:
+    1. `subscriptionKey` değerini abonelik anahtarınızla değiştirin.
+    1. Gerekirse `uriBase` değerini, abonelik anahtarlarınızı aldığınız Azure bölgesinden [Küçük Resim Al](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fb) yönteminin uç nokta URL’si ile değiştirin.
+    1. `imageUrl` değerini isterseniz küçük resmini oluşturmak istediğiniz başka bir görüntünün URL’si ile de değiştirebilirsiniz.
+1. Kodu, `.php` uzantısıyla bir dosya olarak kaydedin. Örneğin, `get-thumbnail.php`.
+1. PHP desteğiyle bir tarayıcı penceresini açın.
+1. Dosyayı tarayıcı penceresine sürükleyip bırakın.
 
 ```php
 <html>
@@ -101,13 +113,26 @@ catch (HttpException $ex)
 </html>
 ```
 
-## <a name="get-thumbnail-response"></a>Küçük Resim Alma yanıtı
+## <a name="examine-the-response"></a>Yanıtı inceleme
 
-Başarılı bir yanıt, küçük resim görüntü ikili dosyasını içerir. İstek başarısız olursa yanıt, bir hata kodu ve nelerin yanlış gittiğini belirlemeye yardımcı olması için bir ileti içerir.
+Küçük resmin görüntü verilerini temsil eden ikili veri halinde başarılı bir yanıt döndürülür. İstek başarısız olursa yanıt, tarayıcı penceresinde görüntülenir. Başarısız isteğin yanıtı, neyin yanlış gittiğini belirlemeye yardımcı olması için bir hata kodu ve bir ileti içerir.
+
+## <a name="clean-up-resources"></a>Kaynakları temizleme
+
+Artık gerekli değilse dosyayı silin ve sonra PHP5 `HTTP_Request2` paketini kaldırın. Paketi kaldırmak için aşağıdaki adımları uygulayın:
+
+1. Yönetici olarak bir komut istemi penceresini açın.
+2. Şu komutu çalıştırın:
+
+   ```console
+   pear uninstall HTTP_Request2
+   ```
+
+3. Paket başarıyla kaldırıldıktan sonra komut istemi penceresini kapatın.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Görüntü analiz etmek, ünlüleri ve önemli yerleri algılamak, küçük resim oluşturmak ve yazdırılan ve el yazısı metinleri ayıklamak için kullanılan Görüntü İşleme API'lerini keşfedin. Görüntü İşleme API'lerini hızlı bir şekilde denemeniz için [Open API test konsolu](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console) konusuna göz atın.
+Görüntü analiz etmek, ünlüleri ve yer işaretlerini algılamak, küçük resim oluşturmak ve yazdırılan ve el yazısı metinleri ayıklamak için kullanılan Görüntü İşleme API’sini keşfedin. Görüntü İşleme API'sini hızlı bir şekilde denemeniz için [Open API test konsolu](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console) konusuna bakın.
 
 > [!div class="nextstepaction"]
-> [Görüntü İşleme API'lerini keşfedin](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44)
+> [Görüntü İşleme API’sini keşfetme](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44)

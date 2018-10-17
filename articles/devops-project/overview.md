@@ -14,34 +14,34 @@ ms.tgt_pltfrm: na
 ms.workload: ''
 ms.date: 05/03/2018
 ms.author: mlearned
-ms.openlocfilehash: eef71aabaab71f908f950a4467da918dca1787fa
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: 39dffad597b8382dea4df6fa1b0726d9582d67d1
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39492558"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44293635"
 ---
 # <a name="overview-of-azure-devops-project"></a>Azure DevOps Projesine Genel Bakış
 
-Azure DevOps Projesi, Azure’u kullanmaya başlamayı kolaylaştırır. DevOps projesi kaynağı, Azure portalından birkaç hızlı adımla seçtiğiniz Azure hizmetinde sık kullandığınız uygulama türünü başlatmanıza yardımcı olur. DevOps Projesi, uygulamanızı geliştirmek, dağıtmak ve izlemek için ihtiyaç duyduğunuz her şeyi ayarlar.
+Azure DevOps Projesi, Azure’u kullanmaya başlamayı kolaylaştırır. DevOps Projesi kaynağı, Azure portaldan birkaç hızlı adımla seçtiğiniz Azure hizmetinde sık kullandığınız uygulama türünü başlatmanıza yardımcı olur. DevOps Projesi, uygulamanızı geliştirmek, dağıtmak ve izlemek için ihtiyaç duyduğunuz her şeyi ayarlar.
 DevOps Projesi panosu, Azure portalında tek bir görünümden kod kaydetmelerini, derlemelerini ve dağıtımlarını izlemenize olanak sağlar.
 
 ## <a name="why-should-i-use-the-azure-devops-project"></a>Azure DevOps Projesini neden kullanmalıyım?
 
 Azure DevOps Projesi, Azure’a Sürekli Tümleştirme (CI) ve Sürekli Teslim (CD) işlem hattının kurulumunu otomatikleştirir.  Mevcut kodunuzla başlayabilir veya sağlanan örnek uygulamalardan birini kullanabilir ve sonra bu uygulamayı Sanal Makineler, App Service, Azure Container Service, Azure SQL Veritabanı ve Azure Service Fabric gibi çeşitli Azure hizmetlerine dağıtabilirsiniz.  
 
-Azure DevOps projesi, ilk Git deposunun ayarlanmasından, CI/CD işlem hattının yapılandırılmasına, izleme için bir Application Insights kaynağının oluşturulmasından Azure portalındaki bir Azure DevOps Projesi oluşturulmasıyla birlikte tüm çözümün tek bir görünümünün sağlanmasına kadar bir DevOps işlem hattının ilk yapılandırmasına ilişkin tüm işleri yapar.
+Azure DevOps Projesi, ilk Git deposunun ayarlanmasından, CI/CD işlem hattının yapılandırılmasına, izleme için bir Application Insights kaynağının oluşturulmasından Azure portaldaki bir Azure DevOps Projesi oluşturulmasıyla birlikte tüm çözümün tek bir görünümünün sağlanmasına kadar bir DevOps işlem hattının ilk yapılandırmasına ilişkin tüm işleri yapar.
 
 Aşağıdakileri yapmak için Azure DevOps Projesini kullanabilirsiniz:
 
 * Uygulamanızı Azure’a hızlı şekilde dağıtma
-* Bir VSTS CI/CD işlem hattının kurulumunu otomatikleştirme
-* VSTS ile Azure’a CI/CD’nin nasıl düzgün şekilde ayarlanacağını görüntülemek ve anlamak için şablon olarak DevOps projesini kullanma
+* Bir Azure CI/CD işlem hattının kurulumunu otomatikleştirme
+* Azure DevOps ile Azure’a CI/CD’nin nasıl düzgün şekilde ayarlanacağını görüntülemek ve anlamak için şablon olarak DevOps Projesini kullanma
 * Azure’a CI/CD işlem hattını kullanmaya başlama ve özel senaryolarınıza göre yayın işlem hattını daha fazla özelleştirme
 
 ## <a name="how-do-i-use-the-azure-devops-project"></a>Azure DevOps Projesini nasıl kullanırım?
 
-Azure DevOps Projesi, Azure portalından kullanılabilir.  Portaldan diğer Azure kaynakları gibi bir Azure DevOps projesi kaynağı oluşturursunuz.  DevOps projesi, çeşitli yapılandırma seçeneklerine yönelik adım adım sihirbaza benzer bir deneyim sağlar.  
+Azure DevOps Projesi, Azure portalından kullanılabilir.  Portaldan diğer Azure kaynakları gibi bir Azure DevOps Projesi kaynağı oluşturursunuz.  DevOps Projesi, çeşitli yapılandırma seçeneklerine yönelik adım adım sihirbaza benzer bir deneyim sağlar.  
 
 İlk kurulumun parçası olarak birçok yapılandırma seçeneği arasından seçim yaparsınız.  Bu seçenekler şunlardır:
 
@@ -49,16 +49,16 @@ Azure DevOps Projesi, Azure portalından kullanılabilir.  Portaldan diğer Azur
 * Uygulama dili seçme
 * Dile dayalı bir Uygulama altyapısı seçme
 * Bir Azure hizmeti seçme (dağıtım hedefi)
-* VSTS hesabı (yeni veya mevcut)
+* Azure DevOps kuruluşu (yeni veya var olan)
 * Azure aboneliğinizi seçme
 * Azure hizmetlerinin konumunu seçme
 * Azure hizmetleri için çeşitli fiyatlandırma katmanları arasından seçim yapma
 
 Azure DevOps Projesini kullandıktan sonra, Azure portalındaki Azure DevOps Projesi panosunda tek bir yerden tüm kaynakları da silebilirsiniz.
 
-## <a name="azure-devops-project-and-vsts-integration"></a>Azure DevOps Projesi ve VSTS tümleştirmesi
+## <a name="azure-devops-project-and-azure-devops-integration"></a>Azure DevOps Projesi ve Azure DevOps tümleştirmesi
 
-DevOps Projeleri, VSTS tarafından desteklenir.  DevOps projesi, Azure’a CI/CD’yi ayarlamak için VSTS’de gereken tüm işleri otomatikleştirir.  Yeni veya mevcut VSTS hesabında bir Git deposu oluşturulur.  DevOps projesi, örnek bir uygulamayı veya mevcut kodunuzu yeni bir Git deposuna kaydeder.  Otomasyon, her yeni kod kaydının bir derleme başlatması için derlemeye yönelik bir CI tetikleyicisi de oluşturur.  DevOps projesi ayrıca bir CD tetikleyicisi oluşturur ve her yeni başarılı derlemeyi seçtiğiniz Azure hizmetine dağıtır.  Derleme ve yayın tanımları, ek senaryolar için özelleştirilebilir.  Derleme ve yayın tanımlarını diğer projelerde kullanmak üzere kopyalayabilirsiniz de.
+DevOps Projeleri, Azure DevOps tarafından desteklenir.  DevOps Projesi, Azure’a CI/CD’yi ayarlamak için Azure DevOps’da gereken tüm işleri otomatikleştirir.  Yeni veya var olan Azure DevOps kuruluşunda bir Git deposu oluşturulur.  DevOps Projesi, örnek bir uygulamayı veya mevcut kodunuzu yeni bir Git deposuna kaydeder.  Otomasyon, her yeni kod kaydının bir derleme başlatması için derlemeye yönelik bir CI tetikleyicisi de oluşturur.  DevOps Projesi ayrıca bir CD tetikleyicisi oluşturur ve her yeni başarılı derlemeyi seçtiğiniz Azure hizmetine dağıtır.  Derleme ve yayın işlem hatları, ek senaryolar için özelleştirilebilir.  Derleme ve yayın işlem hatlarını diğer projelerde kullanmak üzere kopyalayabilirsiniz de.
 
 DevOps Projenizi oluşturduktan sonra aşağıdakileri yapabilirsiniz:
 

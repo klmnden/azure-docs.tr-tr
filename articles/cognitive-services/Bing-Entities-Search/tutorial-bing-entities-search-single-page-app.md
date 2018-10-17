@@ -1,91 +1,92 @@
 ---
-title: Bing varlık arama tek sayfalı web uygulaması | Microsoft Docs
-description: Bir tek sayfalı Web uygulamasında Bing varlık arama API kullanmayı gösterir.
+title: 'Öğretici: Bing Varlık Arama tek sayfalı web uygulaması'
+titlesuffix: Azure Cognitive Services
+description: Bing Varlık Arama API'sinin tek sayfalı bir Web uygulamasında kullanılmasını gösterir.
 services: cognitive-services
 author: v-jerkin
-manager: ehansen
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-entity-search
-ms.topic: article
+ms.topic: tutorial
 ms.date: 12/08/2017
 ms.author: v-jerkin
-ms.openlocfilehash: 91c60913cd806baf100e5511cbf59299bf9a84f0
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
-ms.translationtype: MT
+ms.openlocfilehash: 9aabecbec144797b9fbafdff7179213b68921447
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35354922"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48815554"
 ---
-# <a name="tutorial-single-page-web-app"></a>Öğretici: Tek sayfa web uygulaması
+# <a name="tutorial-single-page-web-app"></a>Öğretici: Tek sayfalı web uygulaması
 
-Bing varlık arama API hakkında bilgi için Web arama sağlar *varlıklar* ve *yerleştirir.* Sonuç türü ya da her ikisi de belirli bir sorgu içinde isteyebilir. Yerler ve varlıkları tanımlarını aşağıda verilmiştir.
+Bing Varlık Arama API’si, *varlıklar* ve *yerler* hakkındaki bilgiler için Web araması yapmanızı sağlar. Belirli bir sorguda bir sonuç türünü veya her ikisini de isteyebilirsiniz. Yerlerin ve varlıkların tanımları aşağıda sağlanmıştır.
 
 |||
 |-|-|
-|Varlıklar|İyi bilinen kişiler, yerler ve ada göre bulma noktalar|
-|Yerler|Restoran, Oteller ve ada göre bulma diğer yerel işletmeler *veya* türüne (İtalyanca Restoran) göre|
+|Varlıklar|Ada göre bulduğunuz tanınmış kişiler, yerler ve nesneler|
+|Yerler|Ada *veya* türe (İtalyan restoranları) bulduğunuz restoranlar, oteller ve diğer yerel işletmeler|
 
-Bu öğreticide, biz arama sonuçlarını görüntülemek için Bing varlık arama API'sini kullanan bir tek sayfalı Web uygulaması oluşturma sayfasındaki sağ. Uygulama, HTML, CSS ve JavaScript bileşenleri içerir.
+Bu öğreticide, Bing Varlık Arama API'sini kullanarak sayfada arama sonuçlarını görüntüleyen tek sayfalı bir Web uygulaması oluşturuyoruz. Uygulama HTML, CSS ve JavaScript bileşenlerini içeriyor.
 
-API, sonuçları konuma göre öncelik sağlar. Mobil uygulamada, cihaz, kendi konumunu için sorabilirsiniz. Bir Web uygulamasında kullandığınız `getPosition()` işlevi. Ancak bu çağrı yalnızca güvenli bağlamlarda çalışır ve kesin bir konum sağlamayabilir. Ayrıca, kullanıcının kendi dışındaki bir konum yakın varlıklar için arama yapmak isteyebilirsiniz.
+API, sonuçları konuma göre önceliklendirmenize izin verir. Bir mobil uygulamada cihazdan kendi konumunu isteyebilirsiniz. Bir web uygulamasında `getPosition()` işlevini kullanabilirsiniz. Ancak bu çağrı yalnızca güvenli bağlamlarda çalışır ve kesin bir konum sağlamayabilir. Ayrıca, kullanıcı kendi konumlarının dışındaki konumun yakınında varlık araması yapabilir.
 
-Bizim uygulama, bu nedenle enlem ve boylam kullanıcı tarafından girilen bir konumdan elde için Bing Haritalar hizmetini bağlı çağırır. Kullanıcı daha sonra yer işareti ("alanı iğnenin") veya tam veya kısmi bir adres ("New York şehrinde") adını girin ve Bing Haritalar API'si koordinatları sağlar.
+Uygulamamız, kullanıcı tarafından girilen bir konumdan enlem ve boylamı almak için Bing Haritalar hizmetine çağrı yapar. Kullanıcı simgesel bir yapının adını (“Space Needle”) veya tam ya da kısmi bir adres (“New York City”) girdiğinde Bing Haritalar API’si koordinatları sağlar.
 
 <!-- Remove until we can replace with a sanitized version.
 ![[Single-page Bing Entity Search app]](media/entity-search-spa-demo.png)
 -->
 
 > [!NOTE]
-> Sayfanın altındaki JSON ve HTTP başlıkları tıklatıldığında HTTP istek bilgileri ve JSON yanıt ortaya. Bu ayrıntılar hizmetini keşfetmeye yararlı olur.
+> Sayfanın en altındaki JSON ve HTTP başlıklarına tıklandığında, JSON yanıt ve HTTP istek bilgileri gösterilir. Bu ayrıntılar hizmeti keşfederken yararlıdır.
 
-Eğitmen uygulama gösterilmektedir nasıl yapılır:
+Öğretici uygulamasında aşağıdakilerin nasıl yapılacağı gösterilmektedir:
 
 > [!div class="checklist"]
-> * Bir Bing varlık arama API çağrısı JavaScript'te gerçekleştirin
-> * Bing Haritalar gerçekleştirmek `locationQuery` JavaScript API çağrısı
-> * API çağrıları için arama seçeneklerini geçirin
-> * Görüntü arama sonuçları
-> * Bing istemci kimliği ve API Abonelik anahtarları işleme
-> * Oluşabilecek hataları ile Dağıt
+> * JavaScript'te Bing Varlık Arama API'sine çağrı yapma
+> * JavaScript'te Bing Haritalar `locationQuery` API'sine çağrı yapma
+> * Arama seçeneklerini API çağrılarına iletme
+> * Arama sonuçlarını görüntüleme
+> * Bing istemci kimliğini ve API abonelik anahtarlarını işleme
+> * Oluşabilecek hataları işleme
 
-Öğretici sayfası tamamen bağımsızdır; herhangi bir dış çerçeveleri, stil sayfaları veya hatta resim dosyalarını kullanmaz. Yalnızca yaygın olarak desteklenen JavaScript dil özellikleri kullanır ve tüm ana Web tarayıcıları geçerli sürümlerinde çalışır.
+Öğretici sayfası tamamen bağımsızdır; dışarıdan hiçbir kare, stil sayfası veya hatta resim dosyası kullanmaz. Yalnızca yaygın olarak desteklenen JavaScript dilinin özelliklerini kullanır ve tüm önemli Web tarayıcılarının geçerli sürümlerinde çalışır.
 
-Bu öğretici kapsamında, kaynak kodunu yalnızca seçili bölümlerini tartışın. Tam kaynak kodunu kullanılabilir [ayrı bir sayfaya](tutorial-bing-entities-search-single-page-app-source.md). Kopyalayın ve bu kodu bir metin düzenleyicisine yapıştırın ve kaydedileceği `bing.html`.
+Bu öğreticide, kaynak kodun yalnızca seçilen bölümlerini açıklıyoruz. Tam kaynak kodu [ayrı bir sayfada](tutorial-bing-entities-search-single-page-app-source.md) yer almaktadır. Bu kodu bir metin düzenleyicisine yapıştırın ve `bing.html` olarak kaydedin.
 
 > [!NOTE]
-> Bu öğretici önemli ölçüde benzer [tek sayfalı Bing Web arama uygulaması Öğreticisi](../Bing-Web-Search/tutorial-bing-web-search-single-page-app.md), ancak yalnızca varlık arama sonuçları ile ilgilidir.
+> Bu öğretici, [tek sayfalı Bing Web Araması uygulaması öğreticisine](../Bing-Web-Search/tutorial-bing-web-search-single-page-app.md) büyük ölçüde benzer, ancak yalnızca varlık araması sonuçlarını ele alır.
 
 ## <a name="app-components"></a>Uygulama bileşenleri
 
-Herhangi bir tek sayfalı Web uygulamasına gibi öğretici uygulama üç bölümleri içerir:
+Tüm tek sayfalı Web uygulamaları gibi öğreticinin uygulaması da üç bölümden oluşur:
 
 > [!div class="checklist"]
-> * HTML - tanımlar sayfasının içeriği ve yapısı
-> * Sayfa görünümünü tanımlayan CSS-
-> * JavaScript - sayfanın davranışını tanımlar
+> * HTML - Sayfanın yapısını ve içeriğini tanımlar
+> * CSS - Sayfanın görünümünü tanımlar
+> * JavaScript - Sayfanın davranışını tanımlar
 
-Basit oldukları gibi Bu öğretici HTML veya CSS çoğunu ayrıntılı, kapsamaz.
+HTML veya CSS çok oldukça anlaşılır olduğundan bu çoğu kısımları bu öğreticide ele alınmamıştır.
 
-HTML kullanıcı bir sorgu girer ve arama seçenekleri seçer arama formu içerir. Formun gerçekte göre arama gerçekleştirir JavaScript bağlı `<form>` etiketinin `onsubmit` özniteliği:
+HTML, kullanıcının sorgu girdiği ve arama seçeneklerini belirttiği bir arama formu içerir. Form, `<form>` etiketinin `onsubmit` özniteliğini kullanarak aramayı gerçekleştiren JavaScript'e bağlanır:
 
 ```html
 <form name="bing" onsubmit="return newBingEntitySearch(this)">
 ```
 
-`onsubmit` İşleyicisini döndürür `false`, hangi tutar formu bir sunucuya gönderildi. JavaScript kodu, aslında formdan gerekli bilgileri toplama ve arama gerçekleştirilirken çalışır.
+`onsubmit` işleyicisi, formun sunucuya gönderilmesini engelleyen `false` değerini döndürür. JavaScript kodu, formdan gerekli bilgileri toplama ve aramayı gerçekleştirme çalışmalarını yapar.
 
-Arama iki aşamada yapılır. İlk olarak, bir konum kısıtlaması kullanıcının girdiği, koordinatları dönüştürmek için Bing Haritalar sorgu yapılır. Bu sorgu için geri çağırma daha sonra devre dışı Bing varlık arama sorgusu başlatır.
+Arama iki aşamada gerçekleştirilir. İlk olarak, kullanıcı bir konum kısıtlaması girerse, bunu koordinatlara dönüştürmek için bir Bings Haritalar sorgusu yapılır. Bu sorguya yönelik geri arama, Bing Varlık Araması sorgusunu başlatır.
 
-HTML bölümleri de içerir (HTML `<div>` etiketleri) burada arama sonuçları görüntülenir.
+HTML, arama sonuçlarının gösterildiği bölümleri de (HTML `<div>` etiketleri) içerir.
 
 ## <a name="managing-subscription-keys"></a>Abonelik anahtarlarını yönetme
 
 > [!NOTE]
-> Bu uygulama, Bing arama API ve Bing Haritalar API'si için Abonelik anahtarları gerekiyor. Kullanabileceğiniz bir [deneme Bing arama anahtarı](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) ve [temel Bing Haritalar anahtarı](https://www.microsoft.com/maps/create-a-bing-maps-key).
+> Bu uygulama, hem Bing Arama API’si hem de Bing Haritalar API’si için abonelik anahtarlarını gerektirir. [deneme Bing Arama anahtarı](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) ve [temel Bing Haritalar anahtarı](https://www.microsoft.com/maps/create-a-bing-maps-key) kullanabilirsiniz.
 
-Bing arama ve Bing Haritalar API'si Abonelik anahtarları kodda dahil etmek zorunda kalmamak için tarayıcının kalıcı depolama bunları depolamak için kullanırız. İki anahtarı depolanmaz, biz de sor ve daha sonra kullanmak üzere saklayın. Anahtar daha sonra API tarafından reddedilirse, kullanıcı için sonraki aramalarına istenir böylece biz saklı anahtarı geçersiz.
+Bing Arama ve Bing Haritalar API'si abonelik anahtarlarını koda eklemek zorunda kalmamak için, bunları tarayıcının kalıcı depolamasını kullanarak depolarız. Anahtarların biri depolanmazsa bunu isteriz ve daha sonra kullanmak üzere depolarız. Anahtar daha sonra API tarafından reddedilirse, depolanan anahtarı geçersiz kılarız ve böylelikle kullanıcıdan sonraki aramasında anahtar istenir.
 
-Tanımlarız `storeValue` ve `retrieveValue` kullanın ya da işlevleri `localStorage` (tarayıcı destekliyorsa) nesnesi veya bir tanımlama bilgisi. Bizim `getSubscriptionKey()` işlevi depolamak ve kullanıcının anahtarı almak için bu işlevleri kullanır.
+`localStorage` nesnesini (tarayıcı destekliyorsa) veya bir tanımlama bilgisi kullanan `storeValue` ve `retrieveValue` işlevlerini tanımlarız. `getSubscriptionKey()` işlevimiz, bu işlevleri kullanarak kullanıcının anahtarını depolar ve alır.
 
 ```javascript
 // cookie names for data we store
@@ -119,30 +120,30 @@ function getSearchSubscriptionKey() {
 }
 ```
 
-HTML `<body>` etiketi de içeren bir `onload` çağırır özniteliği `getSearchSubscriptionKey()` ve `getMapsSubscriptionKey()` sayfa bittiği yükleniyor. Bunlar henüz bunları girmediyseniz hemen kendi anahtarları kullanıcıdan istemek için bu çağrılardan hizmet.
+HTML `<body>` etiketi, sayfanın yüklenmesi tamamlandığında `getSearchSubscriptionKey()` ve `getMapsSubscriptionKey()` çağıran bir `onload` özniteliği içerir. Bu çağrılar, henüz girmediyse kullanıcıdan hemen anahtarlarını istemek için kullanılır.
 
 ```html
 <body onload="document.forms.bing.query.focus(); getSearchSubscriptionKey(); getMapsSubscriptionKey();">
 ```
 
-## <a name="selecting-search-options"></a>Arama Seçenekleri
+## <a name="selecting-search-options"></a>Arama seçeneklerini belirtme
 
-![[Bing varlık arama formu]](media/entity-search-spa-form.png)
+![[Bing Varlık Arama formu]](media/entity-search-spa-form.png)
 
 HTML formu aşağıdaki denetimleri içerir:
 
 | | |
 |-|-|
-|`where`|Arama için kullanılan Pazar (konumu ve dil) seçmek için açılır menü.|
-|`query`|Metin alanı, arama terimlerini girin.|
-|`safe`|Güvenli arama açık olup olmadığını belirten bir onay kutusu ("yetişkin" sonuçları kısıtlayan)|
-|`what`|Varlıklar, yerler veya her ikisini de aramak seçmeye yönelik bir menü.|
-|`mapquery`|Hangi kullanıcı girebilirsiniz tam veya kısmi bir adresi, bir yer işareti vb. Bing varlık arama dönüş daha ilgili sonuçları yardımcı olmak için metin alanı.|
+|`where`|Aramada kullanılan pazarı (konum ve dil) seçmek için açılan menü.|
+|`query`|Arama terimlerinin girildiği metin alanı.|
+|`safe`|SafeSearch özelliğinin açık olup olmadığını gösteren bir onay kutusu ("yetişkin" sonuçlarını kısıtlar)|
+|`what`|Varlıkları, yerleri veya her ikisini de arama tercihinin yapıldığı bir menü.|
+|`mapquery`|Bing Varlık Aramanın daha ilgili sonuçlar döndürmesine yardımcı olmak için kullanıcının tam veya kısmi adres, simgesel yapı vb. girebileceği metin alanı.|
 
 > [!NOTE]
-> Yerler sonuçları yalnızca Amerika Birleşik Devletleri'nde şu anda kullanılabilir. `where` Ve `what` Menülerine sahip bu kısıtlamayı zorlamak için kod. Yerler seçildiğinde, ancak bir ABD Pazar seçerseniz `what` menüsünde `what` için herhangi bir şey değiştirir. ABD dışındaki Pazar seçildiğinde yerler seçerseniz `where` menüsünde `where` ABD değiştirir.
+> Yer sonuçları şu anda yalnızca Birleşik Devletler’de kullanılabilir. `where` ve `what` menülerinde bu kısıtlamayı uygulayan kod vardır. `what` menüsünde Yerler seçili durumdayken ABD dışı bir pazar seçerseniz, `what` Herhangi Bir Şey olarak değişir. `where` menüsünde ABD dışı bir pazar seçiliyken Yerler’i seçerseniz, `where` ABD olarak değişir.
 
-Bizim JavaScript işlevi `bingSearchOptions()` bu alanlar için Bing arama API kısmi sorgu dizeye dönüştürür.
+`bingSearchOptions()` JavaScript işlevimiz bu alanları Bing Arama API’si için kısmi bir sorgu dizesine dönüştürür.
 
 ```javascript
 // build query options from the HTML form
@@ -156,17 +157,17 @@ function bingSearchOptions(form) {
 }
 ```
 
-Örneğin, güvenli arama özellik yüklenebilir `strict`, `moderate`, veya `off`, ile `moderate` varsayılan bırakılıyor. Ancak yalnızca iki durumlu sahip bir onay kutusu formumuzun kullanır. Bu çok ya da ayarı JavaScript kodu dönüştürür `strict` veya `off` (biz kullanmayan `moderate`).
+Örneğin, SafeSearch özelliği `strict`, `moderate` veya `off` olabilir (`moderate` varsayılan değerdir). Ancak, formumuzda yalnızca iki durumu olan bir onay kutusu kullanılıyor. JavaScript kodu bu ayarı `strict` veya `off` ayarına dönüştürür (`moderate` kullanılmaz).
 
-`mapquery` Alan değil ele `bingSearchOptions()` değil Bing varlık arama için Bing Haritalar konum sorgu için kullanıldığından.
+`mapquery` alanı Bing Haritalar konum sorgusunda kullanılıp Bing Varlık Arama için kullanılmadığından `bingSearchOptions()` içerisinde işlenmez.
 
-## <a name="obtaining-a-location"></a>Bir konum alma
+## <a name="obtaining-a-location"></a>Konum alma
 
-Bing Haritalar API'si sunan bir [ `locationQuery` yöntemi](//msdn.microsoft.com/library/ff701711.aspx), hangi enlem bulmak için kullanırız ve kullanıcı konumunun boylam girer. Bu koordinatları sonra kullanıcının isteği ile Bing varlık arama API geçirilir. Arama sonuçlarını varlıkları ve belirtilen konum yakın olan yerlerde öncelik.
+Bing Haritalar API’si, kullanıcının girdiği konumun enlemini ve boylamını almak için kullandığımız [`locationQuery` yöntemini](//msdn.microsoft.com/library/ff701711.aspx) sunar. Bu koordinatlar daha sonra kullanıcının isteğiyle Bing Varlık Arama API’sine iletilir. Arama sonuçları, belirtilen konuma yakın olan varlıkları ve yerleri önceliklendirir.
 
-Sıradan kullanarak Bing Haritalar API'si erişemiyoruz `XMLHttpRequest` hizmet çıkış noktaları arası sorguları desteklemediği için bir Web uygulamasında sorgu. Neyse ki, JSONP ("P" "doldurulan için"'dır) destekler. Bir JSONP yanıt bir işlev çağrısında Sarmalanan sıradan bir JSON yanıtı ' dir. İstek kullanarak ekleyerek yapılan bir `<script>` belgeye etiketi. (Komut dosyaları yükleme tarayıcı güvenlik ilkelerini tabi değildir.)
+Hizmet çıkış noktaları arası sorguları desteklemediğinden Web uygulamasında sıradan bir `XMLHttpRequest` kullanarak Bing Haritalar API’sine erişemeyiz. Neyse ki JSONP ("P" harfi "doldurulmuş" anlamı taşır) desteği sağlıyor. JSONP yanıtı, bir işlev çağrısına sarmalanmış sıradan bir JSON yanıtıdır. İstek, belgeye bir `<script>` etiketi eklenerek yapılır. (Betiklerin yüklenmesi tarayıcı güvenlik ilkelerine tabi değildir.)
 
-`bingMapsLocate()` İşlev oluşturur ve ekler `<script>` sorgu için etiketi. `jsonp=bingMapsCallback` Sorgu dizesi kesimini Yanıtla çağrılacak işlevin adını belirtir.
+`bingMapsLocate()` işlevi sorgu için `<script>` etiketini oluşturur ve ekler. Sorgu dizesinin `jsonp=bingMapsCallback` segmenti, yanıtla birlikte çağrılacak işlevin adını belirtir.
 
 ```javascript
 function bingMapsLocate(where) {
@@ -197,9 +198,9 @@ function bingMapsLocate(where) {
 ```
 
 > [!NOTE]
-> Bing Haritalar API'si yanıt vermezse `bingMapsCallBack()` işlevi hiçbir zaman çağrılır. Normalde, diğer bir deyişle, `bingEntitySearch()` olarak adlandırılmaz ve varlık arama sonuçlarında görünmez. Bu senaryonun olmaması için `bingMapsLocate()` ayrıca çağırmak için bir zamanlayıcı ayarlar `bingEntitySearch()` beş saniye sonra. Varlık iki kez aramadan önlemek için geri çağırma işlevi mantığı vardır.
+> Bing Haritalar API’si yanıt vermezse `bingMapsCallBack()` işlevi asla çağrılmaz. Normalde, `bingEntitySearch()` öğesinin çağrılmadığı anlamına gelir ve varlık arama sonuçları görünmez. Bu senaryodan kaçınmak için `bingMapsLocate()`, beş saniye sonra `bingEntitySearch()` öğesine çağrı yapmak için bir zamanlayıcı da ayarlar. Geri arama işlevinde varlık aramayı iki kez gerçekleştirmeyi engelleme mantığı vardır.
 
-Sorgu tamamladığında, `bingMapsCallback()` işlevi çağrıldığında, istendiği gibi.
+Sorgular tamamlandığında `bingMapsCallback()` işlevi istenen şekilde çağrılır.
 
 ```javascript
 function bingMapsCallback(response) {
@@ -246,15 +247,15 @@ function bingMapsCallback(response) {
 }
 ```
 
-Enlem ve boylam birlikte Bing varlık arama sorgusu gerektiren bir *RADIUS* konum bilgileri kesinliğini gösterir. RADIUS kullanan hesaplamak *sınırlayıcı kutu* Bing Haritalar yanıt verdi. Sınırlama kutusu konumu tümüyle çevreleyen dikdörtgen şeklinde. Örneğin, kullanıcının girdiği `NYC`, sonuç New York Şehir ve Semt kapsayan bir sınırlayıcı kutu kabaca merkezi koordinatlarını içerir. 
+Bing Varlık Arama sorgusu enlem ve boylamın yanı sıra konum bilgilerinin kesinliğini belirten bir *yarıçap* gerektirir. Yarı çapı, Bing Haritalar yanıtında sağlanan *sınırlayıcı kutuyu* kullanarak hesaplarız. Sınırlayıcı kutu konumun tamamını çevreleyen bir dikdörtgendir. Örneğin, kullanıcı `NYC` girerse, sonuç New York City’nin yaklaşık olarak merkezi koordinatlarını ve şehri çevreleyen bir sınırlayıcı kutu içerir. 
 
-Biz öncelikle birincil koordinatları uzaklıkta her işlevini kullanarak sınırlama kutusu dört köşelerinde hesaplar `haversineDistance()` (gösterilmez). Bu dört uzaklıklar en büyük RADIUS kullanırız. Minimum RADIUS kilometre ' dir. Sınırlama kutusu yanıtı sağlanırsa bu değer varsayılan olarak da kullanılır.
+Önce `haversineDistance()` işlevini kullanarak (gösterilmiyor) koordinatlardan sınırlayıcı kutunun dört köşesinin her birine olan uzaklıkları hesaplarız. Bu dört uzaklığın en büyüğünü yarıçap olarak kullanırız. En düşük yarıçap bir kilometredir. Bu değer, yanıtta sınırlayıcı kutu sağlanmaması durumunda varsayılan olarak da kullanılır.
 
-Koordinatları ve RADIUS elde, ardından diyoruz `bingEntitySearch()` gerçek arama yapmak üzere.
+Koordinatları ve yarıçapı elde ettikten sonra aramayı yapmak için `bingEntitySearch()` öğesine çağrı yaparız.
 
-## <a name="performing-the-search"></a>Arama gerçekleştirme
+## <a name="performing-the-search"></a>Aramayı gerçekleştirme
 
-Verilen sorgu, bir konum, seçenekleri dizisi ve API anahtarını `BingEntitySearch()` işlevi Bing varlık arama isteği yapar.
+Sorguyu, konumu, seçenekler dizesini ve API anahtarını dikkate alarak `BingEntitySearch()` işlevi Bing Varlık Arama isteğinde bulunur.
 
 ```javascript
 // perform a search given query, location, options string, and API keys
@@ -307,7 +308,7 @@ function bingEntitySearch(query, latlong, options, key) {
 }
 ```
 
-HTTP isteği başarıyla tamamlandıktan sonra JavaScript çağrılarını bizim `load` olay işleyicisi `handleBingResponse()` API, başarılı bir HTTP GET isteği işlemek için işlevi. 
+HTTP isteği başarıyla tamamlanınca, API'ye yönelik başarılı HTTP GET isteğini işlemek için JavaScript `load` olay işleyicimiz olan `handleBingResponse()` işlevini çağırır. 
 
 ```javascript
 // handle Bing search request results
@@ -375,43 +376,43 @@ function handleBingResponse() {
 ```
 
 > [!IMPORTANT]
-> Başarılı bir HTTP isteği mu *değil* arama kendisini başarılı mutlaka anlamına. Arama işlemi bir hata oluşursa, Bing varlık arama API 200 HTTP durum kodu döndürür ve JSON yanıtında hata bilgilerini içerir. Ayrıca, API istek oranı sınırlı ise, boş bir yanıt döndürür.
+> Başarılı bir HTTP isteği, aramanın kendisinin başarılı olduğu anlamına *gelmeyebilir*. Arama işleminde hata oluşursa, Bing Varlık Arama API'si 200 olmayan bir HTTP durum kodu döndürür ve JSON yanıtına hata bilgilerini ekler. Buna ek olarak, istekte hız sınırlaması varsa API boş yanıt döndürür.
 
-Hata işleme kodu hem de önceki işlevlerin çoğunu ayrılır. Aşağıdaki aşamalarda hatalar oluşabilir:
+Önceki işlevlerin ikisinde de kodun büyük bölümü hata işlemeye ayrılmıştır. Şu aşamalarda hata oluşabilir:
 
-|Aşama|Olası hatalar|Tarafından işlenen|
+|Aşama|Olası hatalar|İşleyen|
 |-|-|-|
-|Yapı JavaScript istek nesnesi|Geçersiz URL|`try`/`catch` engelle|
-|İsteği yapan|Ağ hataları, iptal edilen bağlantıları|`error` ve `abort` olay işleyicileri|
-|Arama gerçekleştirme|Geçersiz istek, geçersiz JSON oran sınırları|içinde testleri `load` olay işleyicisi|
+|JavaScript istek nesnesi oluşturma|Geçersiz URL|`try`/`catch` bloğu|
+|İstekte bulunma|Ağ hataları, durdurulan bağlantılar|`error` ve `abort` olay işleyicileri|
+|Aramayı gerçekleştirme|Geçersiz istek, geçersiz JSON, hız sınırları|`load` olay işleyicisindeki testler|
 
-Hataları çağırarak işlenir `renderErrorMessage()` hata hakkında bilinen herhangi bir ayrıntıyı ile. Yanıt hata testlerinin tam gauntlet geçerse, diyoruz `renderSearchResults()` arama sonuçları sayfasında görüntülenecek.
+Hatalar, hata hakkındaki bilinen tüm ayrıntılarla birlikte `renderErrorMessage()` çağrılarak işlenir. Yanıt tüm hata testlerinden geçerse, arama sonuçlarını sayfada görüntülemek için `renderSearchResults()` işlevini çağırırız.
 
-## <a name="displaying-search-results"></a>Arama Sonuçları görüntüleme
+## <a name="displaying-search-results"></a>Arama sonuçlarını görüntüleme
 
-Bing varlık arama API [belirli bir sırada sonuçları görüntülemek gerektiren](use-display-requirements.md). API iki farklı türde yanıtlar döndürebilir olduğundan, bu üst düzey yinelemek yeterli değil `Entities` veya `Places` JSON yanıt koleksiyonunda ve bu sonuçları görüntüler. (Yalnızca bir sonuç türü istiyorsanız kullanın `responseFilter` sorgu parametresi.)
+Bing Varlık Arama API’si, [sonuçları belirli bir sırada görüntülemenizi gerektirir](use-display-requirements.md). API iki farklı yanıt türü döndürebileceğinden, JSON yanıtında üst düzey `Entities` veya `Places` koleksiyonu üzerinden yineleme yapmak ve bu sonuçları görüntülemek yeterli değildir. (Yalnızca bir sonuç türü istiyorsanız `responseFilter` sorgu parametresini kullanın.)
 
-Bunun yerine, kullanırız `rankingResponse` görüntü için sonuçları sıralamak için arama sonuçlarında koleksiyonu. Öğe bu nesnenin başvurduğu `Entitiess` ve/veya `Places` koleksiyonları.
+Bunun yerine, görüntülenecek sonuçları sıralamak için arama sonuçlarında `rankingResponse` koleksiyonunu kullanırız. Bu nesne `Entitiess` ve/veya `Places` koleksiyonlarındaki öğeleri ifade eder.
 
-`rankingResponse` Belirtilen arama sonuçlarının en çok üç koleksiyonları içerebilir `pole`, `mainline`, ve `sidebar`. 
+`rankingResponse` arama sonuçlarında `pole`, `mainline` ve `sidebar` olarak belirlenmiş üç koleksiyon içerebilir. 
 
-`pole`, varsa, en uygun arama sonuç ve görüntülenmelidir. `mainline` Arama sonuçlarını toplu ifade eder. Mainline sonuçları hemen sonra görüntülenmesi gereken `pole` (veya ilk `pole` mevcut değil). 
+`pole` mevcutsa en ilgili arama sonucudur ve belirgin şekilde görüntülenmelidir. `mainline` arama sonuçlarını toplu olarak ifade eder. Ana hat sonuçları `pole` öğesinin hemen ardından görüntülenmelidir (veya `pole` mevcut değilse ilk olarak). 
 
-Son olarak. `sidebar` yardımcı arama sonuçlarını gösterir. Bunlar, gerçek bir kenar veya yalnızca mainline sonuçları sonra görüntülenebilir. Biz ikinci öğretici uygulamamıza seçtiniz.
+Son olarak. `sidebar` ikincil arama sonuçlarını ifade eder. Kenar çubuğunda veya ana hat sonuçlarından sonra görüntülenebilirler. Öğretici uygulamamız için ikinci seçeneği belirledik.
 
-Her öğe bir `rankingResponse` koleksiyonu iki farklı, ancak eşdeğer şekilde gerçek arama sonucu öğelerini başvuruyor.
+`rankingResponse` koleksiyonundaki her öğe, gerçek arama sonucu öğelerini iki farklı (ancak eşdeğer) şekilde ifade eder.
 
 | | |
 |-|-|
-|`id`|`id` Bir URL gibi görünüyor, ancak bağlantıları için kullanılmamalıdır. `id` Derecelendirme sonuç türü ile eşleşen `id` öğesinin ya da bir arama sonucu bir yanıt koleksiyonundaki *veya* tüm yanıt koleksiyonu (gibi `Entities`).
-|`answerType`<br>`resultIndex`|`answerType` Sonucu içeren üst düzey yanıt koleksiyona ifade eder (örneğin, `Entities`). `resultIndex` Sonucunun dizin, koleksiyondaki başvuruyor. Varsa `resultIndex` olan atlanırsa, tüm koleksiyon derecelendirme sonuç başvuruyor.
+|`id`|`id` bir URL gibi görünür, ancak bağlantılar için kullanılmamalıdır. `id` türündeki bir sıralama sonucu, bir yanıt koleksiyonundaki bir arama sonucu öğesinin `id` ölçütünü *veya* bir yanıt koleksiyonunun tamamını (`Entities` gibi) eşleştirir.
+|`answerType`<br>`resultIndex`|`answerType`, sonucu içeren üst düzey yanıt koleksiyonunu ifade eder (örneğin, `Entities`). `resultIndex`, o koleksiyondaki sonucun dizinini ifade eder. `resultIndex` atlanırsa, sıralama sonucu koleksiyonun tamamını ifade eder.
 
 > [!NOTE]
-> Bu arama yanıtı parçası hakkında daha fazla bilgi için bkz: [derece sonuçları](rank-results.md).
+> Arama yanıtının bu bölümüyle ilgili daha fazla bilgi için bkz. [Sıralama Sonuçları](rank-results.md).
 
-Başvurulan arama sonucu öğesinin bulma, hangi yöntemi uygulamanız için en uygun kullanabilir. Eğitmen kodumuza kullanırız `answerType` ve `resultIndex` her arama sonucu bulunamadı.
+Uygulamanız için en uygun olan başvurulan arama sonucu öğesini bulma yöntemini kullanabilirsiniz. Öğretici kodumuzda, her bir arama sonucunu bulmak için `answerType` ve `resultIndex` kullanırız.
 
-Bizim işlevini aramak için zamanı son olarak, `renderSearchResults()`. Bu işlev üç tekrarlanan `rankingResponse` arama sonuçlarını üç bölümlerini temsil koleksiyonları. Her bölüm için diyoruz `renderResultsItems()` Bu bölüm için sonuçları işlenecek.
+Son olarak, `renderSearchResults()` işlevimize bakma zamanı geldi. Bu fonksiyon, arama sonuçlarının üç bölümünü temsil eden üç `rankingResponse` koleksiyonu üzerinden yinelenir. Her bölüm için, o bölümün sonuçlarını göstermek üzere `renderResultsItems()` öğesine çağrı yaparız.
 
 ```javascript
 // render the search results given the parsed JSON response
@@ -429,9 +430,9 @@ function renderSearchResults(results) {
 }
 ```
 
-## <a name="rendering-result-items"></a>Sonuç öğeleri oluşturma
+## <a name="rendering-result-items"></a>Sonuç öğelerini işleme
 
-Bizim JavaScript kodu bir nesne `searchItemRenderers`, içeren *Oluşturucu:* her biri için tür HTML'i işlevleri arama sonucu.
+JavaScript kodumuzda `searchItemRenderers` nesnesi, her tür arama sonucu için HTML oluşturan *renderers:* işlevlerini içerir.
 
 ```javascript
 searchItemRenderers = { 
@@ -440,17 +441,17 @@ searchItemRenderers = {
 }
 ```
 
-Oluşturucu işlevi aşağıdaki parametreleri kabul edebilir:
+İşleyici işlevi aşağıdaki parametreleri kabul eder:
 
 | | |
 |-|-|
-|`item`|Öğenin özelliklerini içeren JavaScript nesne URL'sini ve açıklamasını gibi.|
-|`index`|Kendi koleksiyonundaki sonuç öğenin dizini.|
-|`count`|Arama sonucu öğesi'nin koleksiyondaki öğe sayısı.|
+|`item`|Öğenin özelliklerini, örneğin URL'sini ve açıklamasını içeren JavaScript nesnesi.|
+|`index`|Kendi koleksiyonu içindeki arama öğesinin dizini.|
+|`count`|Arama sonucu öğesinin koleksiyonundaki öğelerin sayısı.|
 
-`index` Ve `count` parametreleri sayı sonuçları başına veya sonuna bir koleksiyon için özel HTML öğeleri, belirli bir sayıda sonra satır sonları eklemek için oluşturmak için kullanılır ve benzeri. Bu işlev bir işleyici gerekmez, bu iki parametre kabul etmek gerekmez. Aslında, biz bunları işleyicilerde öğretici uygulamamıza için kullanmayın.
+Sonuçları saymak, koleksiyonun başlangıcı veya sonuna özel HTML oluşturmak ve belirli sayıdaki öğeden sonra satır sonu eklemek gibi işlemler için `index` ve `count` parametreleri kullanılabilir. İşleyicinin bu işleve ihtiyacı yoksa, bu iki parametreyi kabul etmesi gerekmez. Aslında öğretici uygulamamızda bunları işleyicilerde kullanmıyoruz.
 
-Daha yakın bir göz atalım `entities` Oluşturucu:
+`entities` işleyicisine daha yakından bakalım:
 
 ```javascript
     entities: function(item) {
@@ -501,51 +502,51 @@ Daha yakın bir göz atalım `entities` Oluşturucu:
     }, // places renderer omitted
 ```
 
-Bizim varlık oluşturucu işlevi:
+Varlık işleyici işlevimiz:
 
 > [!div class="checklist"]
-> * HTML derlemeler `<img>` varsa ve görüntü küçük görüntülenecek etiket. 
-> * HTML derlemeler `<a>` görüntüsünü içeren sayfa bağlanan etiketi.
-> * Görüntü ve üzerinde site hakkındaki bilgileri görüntüler açıklama oluşturur.
-> * Görüntü ipuçlarını kullanarak varlığın sınıflandırma varsa içerir.
-> * Bing arama varlığı hakkında daha fazla bilgi almak için bir bağlantı içerir.
-> * Veri kaynakları tarafından gerekli lisans ya da attribution bilgileri görüntüler.
+> * Varsa resmin küçük resmini görüntülemek için HTML `<img>` etiketini oluşturur. 
+> * Resmi içeren sayfaya bağlanan HTML `<a>` etiketini oluşturur.
+> * Resim ve bu resmin bulunduğu site hakkındaki bilgileri görüntüleyen bir açıklama oluşturur.
+> * Varsa görüntüleme ipuçlarını kullanarak varlığın sınıflandırmasını dahil eder.
+> * Varlık hakkında daha fazla bilgi almak için kullanılan Bing arama bağlantısını dahil eder.
+> * Veri kaynaklarının gerektirdiği lisans veya alıntı bilgilerini görüntüler.
 
 ## <a name="persisting-client-id"></a>Kalıcı istemci kimliği
 
-Bing arama API'leri yanıtlarının içerebilir bir `X-MSEdge-ClientID` geri API art arda gelen istekleri ile gönderilmesi gereken üstbilgi. Birden çok Bing arama API'leri kullanılıyorsa, aynı istemci kimliği, bunların tümünün ile mümkünse kullanılmalıdır.
+Bing arama API'lerinden gelen yanıtlar, başarılı isteklerle birlikte API'ye geri gönderilmesi gereken bir `X-MSEdge-ClientID` üst bilgisi içerir. Birden çok Bing Arama API'si kullanılıyorsa, mümkün olduğunca bu API'lerin tümünde aynı istemci kimliği kullanılmalıdır.
 
-Sağlama `X-MSEdge-ClientID` üstbilgi iki önemli faydası vardır kullanıcının aramaları ilişkilendirilecek Bing API'ler sağlar.
+Böylelikle `X-MSEdge-ClientID` üst bilgisi sayesinde Bing API'leri kullanıcının tüm aramalarını ilişkilendirebilir. Bunun iki önemli avantajı vardır.
 
-İlk olarak, kullanıcının daha iyi karşılamak sonuçları bulmak için arama için bağlam uygulamak arama motoru Bing sağlar. Örneğin, bir kullanıcı daha önce Yelkenli için ilgili koşulları için aradı, "noktalarını" sonraki Ara tercihen bir BalıkçıTeknesi sabitlemek için yerler hakkında bilgi döndürebilir.
+İlk olarak, Bing arama alt yapısının geçmiş bağlamı aramalara uygulayarak kullanıcıya daha uygun sonuçlar bulabilmesini sağlar. Örneğin kullanıcı daha önce yelkencilikle ilgili terim aramaları yaptıysa, daha sonra yapılan "rıhtımlar" araması tercihen yelkenlinin yanaştırılabileceği yerler hakkında bilgi döndürebilir.
 
-İkinci olarak, Bing rastgele yaygın olarak kullanılabilir hale getirilmeden önce yeni özellikleri denemek için kullanıcıların seçebilirsiniz. Her istek ile aynı istemci Kimliğini sağlayan bir özellik her zaman görmek için seçilen kullanıcılar, görmenizi sağlar. İstemci kimliği kullanıcı görünür ve, görünen rastgele, kendi arama sonuçlarında kaybolur bir özellik görebilirsiniz.
+İkincisi, Bing yeni özellikleri geniş ölçekte kullanıma sunmadan önce bunları denemesi için rastgele kullanıcılar seçebilir. Her istekle birlikte aynı istemci kimliğinin sağlanması, özelliği görmesi tercih edilen kullanıcıların bunu sürekli görebilmesini sağlar. İstemci kimliği olmadan, özellik kullanıcıya arama sonuçlarında rastgele gösterilebilir ve gösterilmeyebilir.
 
-Tarayıcı güvenlik ilkelerini (CORS) engelleyebilir `X-MSEdge-ClientID` üstbilgi JavaScript için kullanılabilir olmasını durduracak. Bu sınırlama arama yanıt, istenen sayfa farklı bir kaynaktan olduğunda oluşur. Bir üretim ortamında, bu ilke aynı etki alanındaki Web sayfası olarak API çağrısı yapan bir sunucu tarafı komut dosyası barındırarak giderilmelidir. Komut dosyasını Web sayfası olarak aynı kaynak olduğundan `X-MSEdge-ClientID` başlığıdır sonra JavaScript için kullanılabilir.
+Tarayıcı güvenlik ilkeleri (CORS) `X-MSEdge-ClientID` üst bilgisinin JavaScript'in kullanımına sunulmasını engelleyebilir. Bu sınırlama, arama sonucunun kaynağı istekte bulunan sayfadan farklı olduğunda ortaya çıkar. Üretim ortamında, Web sayfasıyla aynı etki alanında API çağrısı yapan bir sunucu tarafı betiği barındırarak bu ilkeye uymalısınız. Betiğin kaynağı Web sayfasıyla aynı olduğundan, `X-MSEdge-ClientID` üst bilgisi JavaScript'in kullanımına sunulur.
 
 > [!NOTE]
-> Bir üretim Web uygulaması, isteği sunucu tarafı yine de gerçekleştirmeniz gerekir. Aksi halde, kaynak görünümleri herkes için kullanılabilir olduğu Web sayfasındaki Bing arama API anahtarınıza eklenmesi gerekir. API abonelik anahtarınızı altında anahtarınızı kullanıma sunmak değil önemlidir yetkisiz kişiler tarafından bile isteklerini tüm kullanım için faturalandırılır.
+> Üretim ortamındaki bir Web uygulamasında, isteği sunucu tarafından gerçekleştirmeniz gerekir. Aksi takdirde, Bing Arama API'si anahtarınızın Web sayfasına eklenmesi gerekir ve bu durumda kaynağı görüntüleyen herkes tarafından görülebilir. API abonelik anahtarınız altında gerçekleştirilen tüm kullanım, yetkisiz tarafların yaptığı istekler bile size faturalandırılır; dolayısıyla anahtarınızı açıklamamanız önemlidir.
 
-Geliştirme amaçlı bir CORS Ara sunucu aracılığıyla Bing Web arama API isteği yapabilirsiniz. Bu tür bir proxy yanıttan sahip bir `Access-Control-Expose-Headers` üstbilgi bu whitelists yanıt üstbilgilerini ve JavaScript için kullanılabilir hale getirir.
+Geliştirme amacıyla, Bing Web Araması API'si isteğini CORS ara sunucusu aracılığıyla yapabilirsiniz. Böyle bir ara sunucudan gelen yanıtta, yanıt üst bilgilerini beyaz listeye alan ve JavaScript'in kullanımına sunan `Access-Control-Expose-Headers` üst bilgisi bulunur.
 
-İstemci erişimi için öğretici uygulamamıza kimliği üstbilgisi izin vermek için bir CORS Ara sunucusunun yükleneceği kolaydır. Zaten yoksa, birinci [Node.js yüklemek](https://nodejs.org/en/download/). Ardından bir komut penceresinde aşağıdaki komutu yürütün:
+Öğretici uygulamamızın istemci kimliği üst bilgisine erişebilmesi için CORS ara sunucusu kolayca yüklenebilir. İlk olarak, henüz yüklemediyseniz [Node.js'yi yükleyin](https://nodejs.org/en/download/). Ardından komut penceresinde aşağıdaki komutu yürütün:
 
     npm install -g cors-proxy-server
 
-Ardından, HTML dosyasına Bing Web araması uç değiştirin:
+Sonra, HTML dosyasındaki Bing Web Araması uç noktasını şöyle değiştirin:
 
     http://localhost:9090/https://api.cognitive.microsoft.com/bing/v7.0/search
 
-Son olarak, aşağıdaki komutla CORS proxy başlatın:
+Son olarak, aşağıdaki komutla CORS ara sunucusunu başlatın:
 
     cors-proxy-server
 
-Eğitmen uygulama kullanırken komut penceresini açık bırakın; pencereyi proxy durdurur. Arama sonuçları altında Genişletilebilir HTTP üstbilgileri bölümünde şimdi görebilirsiniz `X-MSEdge-ClientID` üstbilgi (Diğerlerinin yanında) ve her istek için aynı olduğunu doğrulayın.
+Öğretici uygulamasını kullanırken komut penceresini açık bırakın; pencere kapatılırsa ara sunucu durdurulur. Arama sonuçlarının altındaki genişletilebilir HTTP Üst Bilgileri bölümünde artık `X-MSEdge-ClientID` üst bilgisini (diğerleriyle birlikte) görebilir ve bunun her istekte aynı olduğunu doğrulayabilirsiniz.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 > [!div class="nextstepaction"]
-> [Bing varlık arama API Başvurusu](//docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference)
+> [Bing Varlık Arama API’si başvurusu](//docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference)
 
 > [!div class="nextstepaction"]
-> [Bing Haritalar API'si belgeleri](//msdn.microsoft.com/library/dd877180.aspx)
+> [Bing Haritalar API’si belgeleri](//msdn.microsoft.com/library/dd877180.aspx)

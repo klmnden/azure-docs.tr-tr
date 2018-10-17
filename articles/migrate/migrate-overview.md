@@ -4,15 +4,15 @@ description: Azure Geçişi hizmetine genel bir bakış sağlar.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: overview
-ms.date: 08/08/2018
+ms.date: 09/25/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 8371a160d129586f63b2f14946ed34a8d0637f6c
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ms.openlocfilehash: d2a8885ffb9148d408eff0e8a7d2ef09121e5359
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39714249"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47162055"
 ---
 # <a name="about-azure-migrate"></a>Azure Geçişi Hakkında
 
@@ -33,9 +33,12 @@ Azure Geçişi şunları yapmanıza yardımcı olur:
 - Hyper-V sanal makinelerini ve fiziksel sunucuları değerlendirmek istiyorsanız Hyper-V için [Azure Site Recovery Dağıtım Planlayıcısı](http://aka.ms/asr-dp-hyperv-doc)'nı, fiziksel makineler için de [iş ortaklarımız tarafından sunulan araçları](https://azure.microsoft.com/migration/partners/) kullanabilirsiniz.
 - Tek keşifte en fazla 1500 sanal makine ve tek projede en fazla 1500 sanal makine bulabilirsiniz. Ayrıca tek değerlendirmede en fazla 1500 sanal makineyi değerlendirebilirsiniz.
 - Daha büyük bir ortam keşfetmek istiyorsanız keşfi bölüp birden fazla proje oluşturabilirsiniz. [Daha fazla bilgi edinin](how-to-scale-assessment.md). Azure Geçişi, abonelik başına 20’ye kadar projeyi destekler.
-- Azure Geçişi projesini yalnızca Batı Orta ABD veya Doğu ABD bölgesinde oluşturabilirsiniz. Bu durum, herhangi bir Azure hedef konumu için yapacağınız geçiş planını etkilemez. Geçiş projesinin konumu yalnızca şirket içi ortamda bulunan meta verileri depolamak için kullanılır.
 - Azure Geçişi yalnızca yönetilen disklerin geçiş değerlendirmesini destekler.
+- Azure Geçişi projesini yalnızca Birleşik Devletler coğrafyasında oluşturabilirsiniz. Bu durum, herhangi bir Azure hedef konumu için yapacağınız geçiş planını etkilemez. Geçiş projesinin coğrafyası yalnızca şirket içi ortamda bulunan meta verileri depolamak için kullanılır. Azure Geçişi tarafından toplanan meta veriler hakkında [daha fazla bilgi edinin](https://docs.microsoft.com/azure/migrate/resources-faq#discovery-and-assessment). Toplanan meta veriler, seçilen [ Azure coğrafyasındaki](https://azure.microsoft.com/global-infrastructure/geographies/) bölgelerden birinde depolanır:
 
+**Coğrafya** | **Bölgeler**
+--- | ---
+Amerika Birleşik Devletleri | Batı Orta ABD, Doğu ABD
 
 ## <a name="what-do-i-need-to-pay-for"></a>Ne için ödeme yapmam gerekiyor?
 
@@ -49,14 +52,14 @@ Değerlendirme ayarları ihtiyaçlarınıza göre özelleştirilebilir. Değerle
 **Özellik** | **Ayrıntılar**
 --- | ---
 **Hedef konum** | Geçişi yapmak istediğiniz Azure konumu.<br/><br/>Azure Geçişi şu anda 30 bölgeyi desteklemektedir. [Hangi bölgeler olduğuna bakın](https://azure.microsoft.com/global-infrastructure/services/). Varsayılan hedef bölge, Batı ABD 2 olarak ayarlanır.
-**Depolama türü** | Azure'da ayırmak istediğiniz disklerin türüdür. Bu özellik, boyutlandırma ölçütü **şirket içi olarak** olduğunda geçerlidir. Hedef disk türünü premium (varsayılan) veya standart yönetilen diskler olarak belirtebilirsiniz. Performans tabanlı boyutlandırma için, disk boyutlandırma önerisi VM'lerin performans verilerine göre otomatik olarak yapılır. 
-**Boyutlandırma ölçütü** | Boyutlandırmayı şirket içi sanal makinelerin **performans geçmişini** temel alarak yapabilir veya performans geçmişini dikkate almadan **şirket içi olarak** (varsayılan) yapabilirsiniz. 
+**Depolama türü** | Azure'da ayırmak istediğiniz disklerin türüdür. Bu özellik, boyutlandırma ölçütü **şirket içi olarak** olduğunda geçerlidir. Hedef disk türünü premium (varsayılan) veya standart yönetilen diskler olarak belirtebilirsiniz. Performans tabanlı boyutlandırma için, disk boyutlandırma önerisi VM'lerin performans verilerine göre otomatik olarak yapılır.
+**Boyutlandırma ölçütü** | Boyutlandırmayı şirket içi sanal makinelerin **performans geçmişini** temel alarak yapabilir veya performans geçmişini dikkate almadan **şirket içi olarak** (varsayılan) yapabilirsiniz.
 **Azure teklifi** | Kaydolduğunuz [Azure teklifi](https://azure.microsoft.com/support/legal/offer-details/). Azure Geçişi, buna göre bir maliyet tahmini oluşturur.
 **Azure Hibrit Avantajı** | İndirimli fiyatlardan yararlanmak için yazılım güvencesine sahip olup olmadığınız ve [Azure Hibrit Avantajı](https://azure.microsoft.com/pricing/hybrid-use-benefit/) için uygun olup olmadığınız bilgisi.
 **Ayrılmış Örnekler** |  Azure'da [ayrılmış örneklere](https://azure.microsoft.com/pricing/reserved-vm-instances/) sahip olup olmama durumunuz. Azure Geçişi, buna göre bir maliyet tahmini oluşturur.
 **VM çalışma süresi** | VM'lerin Azure'da çalıştırılacağı süre. Maliyet tahminleri bu bilgiye göre gerçekleştirilir.
 **Fiyatlandırma katmanı** | Hedef Azure VM'leri için [fiyatlandırma katmanı (temel/standart)](../virtual-machines/windows/sizes-general.md). Örneğin, bir üretim ortamına geçiş yapmayı planlıyorsanız, daha düşük gecikme süresi ile sanal makineler sağlayan, ancak daha fazla maliyetli olabilecek standart katmanını göz önünde bulundurmak istersiniz. Diğer taraftan bir test ortamında yüksek gecikme süresine ve daha düşük maliyete sahip temel katmanı kullanabilirsiniz. Varsayılan olarak [standart](../virtual-machines/windows/sizes-general.md) katmanı kullanılır.
-**Performans geçmişi** | Varsayılan olarak Azure Geçişi, %95 yüzdebirlik değer ile son günün performans geçmişini kullanarak şirket içi makinelerin performansını değerlendirir. 
+**Performans geçmişi** | Varsayılan olarak Azure Geçişi, %95 yüzdebirlik değer ile son günün performans geçmişini kullanarak şirket içi makinelerin performansını değerlendirir.
 **VM serisi** | VM serisi, boyut tahmini için kullanılır. Örneğin, Azure’da A serisi VM’lere geçirmeyi planlamadığınız bir üretim ortamınız varsa, A serisini liste veya serilerin dışında bırakabilirsiniz. Boyutlandırma yalnızca seçili serilerde yapılır.   
 **Konfor katsayısı** | Azure Geçişi, değerlendirme sırasında bir tamponu (konfor katsayısı) göz önünde bulundurur. Bu tampon, VM’lerin makine kullanım verilerinin (CPU, bellek, disk ve ağ) üzerine uygulanır. Konfor katsayısı; sezona özgü kullanım, kısa performans geçmişi ve gelecek kullanımlarda oluşabilecek artışlar gibi konuları hesaba katar.<br/><br/> Örneğin, %20 kullanıma sahip 10 çekirdekli bir VM normalde 2 çekirdekli VM ile sonuçlanır. Ancak, 2.0x konfor katsayısı ile sonuç 4 çekirdekli VM olur. Varsayılan konfor ayarı 1,3x’tir.
 
@@ -80,10 +83,10 @@ Değerlendirme ayarları ihtiyaçlarınıza göre özelleştirilebilir. Değerle
 Tabloda Azure Geçişi iletişimleri için gereken bağlantı noktaları özetlenmektedir.
 
 Bileşen | İletişim kurar |  Ayrıntılar
---- | --- |--- 
+--- | --- |---
 Toplayıcı  | Azure Geçişi hizmeti | Toplayıcı SSL bağlantı noktası 443 üzerinden hizmete bağlanır.
-Toplayıcı | vCenter Server | Varsayılan olarak toplayıcı, 443 numaralı bağlantı noktası üzerinden vCenter Server’a bağlanır. Sunucu farklı bir bağlantı noktasında dinliyorsa, VM üzerinde giden bağlantı noktası olarak yapılandırın. 
-Şirket içi VM | Log Analytics Çalışma Alanı | [TCP 443] | [Microsoft Monitoring Agent (MMA)](../log-analytics/log-analytics-windows-agent.md), Log Analytics'e bağlanmak için 443 numaralı TCP bağlantı noktasını kullanır. Bu bağlantı noktası yalnızca MMA aracısına ihtiyaç duyan bağımlılık görselleştirmesi özelliğini kullanıyorsanız gereklidir. 
+Toplayıcı | vCenter Server | Varsayılan olarak toplayıcı, 443 numaralı bağlantı noktası üzerinden vCenter Server’a bağlanır. Sunucu farklı bir bağlantı noktasında dinliyorsa, VM üzerinde giden bağlantı noktası olarak yapılandırın.
+Şirket içi VM | Log Analytics Çalışma Alanı | [TCP 443] | [Microsoft Monitoring Agent (MMA)](../log-analytics/log-analytics-windows-agent.md), Log Analytics'e bağlanmak için 443 numaralı TCP bağlantı noktasını kullanır. Bu bağlantı noktası yalnızca MMA aracısına ihtiyaç duyan bağımlılık görselleştirmesi özelliğini kullanıyorsanız gereklidir.
 
 
 ## <a name="what-happens-after-assessment"></a>Değerlendirmeden sonra ne olur?
@@ -91,7 +94,7 @@ Toplayıcı | vCenter Server | Varsayılan olarak toplayıcı, 443 numaralı ba�
 Şirket içi makineleri değerlendirdikten sonra, geçiş işlemini gerçekleştirmek üzere birkaç araç kullanabilirsiniz:
 
 - **Azure Site Recovery**: Azure’a geçiş için Azure Site Recovery’yi kullanabilirsiniz. Bunu yapmak için depolama hesabı ve sanal ağ olmak üzere ihtiyacınız olan [Azure bileşenlerini hazırlarsınız](../site-recovery/tutorial-prepare-azure.md). Şirket içinde [VMware ortamınızı hazırlarsınız](../site-recovery/vmware-azure-tutorial-prepare-on-premises.md). Her şey hazır olduğunda Azure'a çoğaltmayı kurup etkinleştirir ve VM'leri geçirirsiniz. [Daha fazla bilgi edinin](../site-recovery/vmware-azure-tutorial.md).
-- **Azure Veritabanı Geçişi**: Şirket içi makineler SQL Server, MySQL veya Oracle gibi bir veritabanı çalıştırıyorsa, bunları Azure’a geçirmek için [Azure Veritabanı Geçiş Hizmeti](../dms/dms-overview.md)'ni kullanabilirsiniz. 
+- **Azure Veritabanı Geçişi**: Şirket içi makineler SQL Server, MySQL veya Oracle gibi bir veritabanı çalıştırıyorsa, bunları Azure’a geçirmek için [Azure Veritabanı Geçiş Hizmeti](../dms/dms-overview.md)'ni kullanabilirsiniz.
 
 
 ## <a name="next-steps"></a>Sonraki adımlar

@@ -1,132 +1,134 @@
 ---
-title: Bilişsel hizmetler Azure Machine Learning - | Microsoft Docs
-description: Machine learning hizmetindeki Azure özel kararı, bağlamsal karar vermek için bir bulut tabanlı API için Öğreticisi.
+title: 'Öğretici: Özellik kazandırma ve özellik belirtimi - Özel Karar Alma Hizmeti'
+titlesuffix: Azure Cognitive Services
+description: Özel Karar Alma Hizmeti’nde makine öğrenimi özellik kazandırma ve özellik belirtimine yönelik bir öğretici.
 services: cognitive-services
 author: slivkins
-manager: slivkins
+manager: cgronlun
 ms.service: cognitive-services
-ms.topic: article
+ms.component: custom-decision-service
+ms.topic: tutorial
 ms.date: 05/08/2018
-ms.author: slivkins;marcozo;alekh
-ms.openlocfilehash: 50814d67ee39c6657954610358462d877843416e
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
-ms.translationtype: MT
+ms.author: slivkins
+ms.openlocfilehash: 1e5d012706d1de5a201eecb8ad805b4d6faaf411
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35354598"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48869607"
 ---
-# <a name="machine-learning"></a>Makine öğrenimi
+# <a name="tutorial-featurization-and-feature-specification"></a>Öğretici: Özellik kazandırma ve özellik belirtimi
 
-Bu öğretici, Gelişmiş makine öğrenimi özel karar hizmetinin işlevleri giderir. Öğretici iki bölümden oluşur: [featurization](#featurization-concepts-and-implementation) ve [özellik belirtimi](#feature-specification-format-and-apis). Featurization verilerinizi "Özellikler" olarak temsil eden için machine learning için başvuruyor. Özellik belirtimi JSON biçimi ve Özellikler belirtmek için bulunabilecek API'leri kapsar.
+Bu öğreticide, Özel Karar Alma Hizmeti’ndeki gelişmiş makine öğrenimi özelliği ele alınmaktadır. Öğretici iki bölümden oluşur: [özellik kazandırma](#featurization-concepts-and-implementation) ve [özellik belirtimi](#feature-specification-format-and-apis). Özellik kazandırma, verilerinizin makine öğrenimi için “özellikler” olarak temsil edilmesi anlamına gelir. Özellik belirtimi, özellikleri belirtmek için JSON biçimini ve yardımcı API’leri kapsar.
 
-Varsayılan olarak, machine learning özel karar hizmetinde müşteriye saydamdır. Özellikler içeriğinizi otomatik olarak ayıklanır ve standart öğrenmeyi öğrenme algoritmasını kullanılır. Özellik ayıklama birkaç diğer Azure Bilişsel hizmetler yararlanır: [varlık bağlama](../entitylinking/home.md), [metin analizi](../text-analytics/overview.md), [duygu](../emotion/home.md), ve [bilgisayar görme](../computer-vision/home.md). Bu öğretici, varsayılan işlevsellik kullanılan yalnızca atlanabilir.
+Özel Karar Alma Hizmeti’nde makine öğrenimi varsayılan olarak müşterilere açıktır. Özellikler içeriğinizden otomatik olarak ayıklanır ve pekiştirmeye dayalı standart öğrenme kullanılır. Özellik ayıklama birkaç başka Azure Bilişsel Hizmetinden yararlanır: [Varlık Bağlama](../entitylinking/home.md), [Metin Analizi](../text-analytics/overview.md), [Duygu Tanıma](../emotion/home.md) ve [Görüntü İşleme](../computer-vision/home.md). Bu öğretici yalnızca varsayılan özellik kullanılıyorsa atlanabilir.
 
-## <a name="featurization-concepts-and-implementation"></a>Featurization: kavramlar ve uygulama
+## <a name="featurization-concepts-and-implementation"></a>Özellik kazandırma: kavramlar ve uygulama
 
-Özel karar hizmet tek tek kararlarını verir. Her bir kararı birkaç alternatifleri arasında paketini, Eylemler seçme içerir. Uygulamaya bağlı olarak, tek bir eylem veya Eylemler (kısa) sıralı bir listesini kararı tercih edebilirsiniz.
+Özel Karar Alma Hizmeti kararları tek tek alır. Her kararda çeşitli alternatifler (eylemler) arasından seçim yapılır. Uygulamaya bağlı olarak, karar tek bir eylemi veya eylemlerin sıralı bir listesini (kısa) seçebilir.
 
-Örneğin, bir Web sitesi ön sayfasında makalelerinin seçimini kişiselleştirme. Burada, karşılık gelen eylemleri aşağıdaki makalelere ve belirli bir kullanıcıya göstermek için hangi makaleleri her bir karardır.
+Örneğin, bir web sitesinin ön sayfasındaki makale seçkisini kişiselleştirmek gibi. Burada, eylemler makalelerle ilgilidir ve her karar hangi makalelerin belirli bir kullanıcıya gösterileceğini belirtir.
 
-Her eylem henceforth adlı özelliklerinin vektörü ile temsil edilen *özellikleri*. Otomatik olarak ayıklanan özelliklerin yanı sıra yeni özellikleri belirtebilirsiniz. Ayrıca, bazı özellikler oturum ancak machine learning için yoksaymak için özel karar hizmet söyleyebilirsiniz.
+Her eylem bir özellikler vektörüyle temsil edilir ve bundan sonra onlara *özellikler* denecektir. Otomatik olarak ayıkladığınız özelliklere ek olarak yeni özellikler belirtebilirsiniz. Ayrıca, Özel Karar Alma Hizmeti’nin bazı özellikleri günlüğe kaydetmesini, ancak makine öğrenimi için bunları yok saymasını sağlayabilirsiniz.
 
-### <a name="native-vs-internal-features"></a>Yerel iç özellikleri karşılaştırması
+### <a name="native-vs-internal-features"></a>Yerel ve iç özellikler
 
-Özellikler, uygulamanız için bir en iyi biçiminde belirtin, bir sayı, bir dize veya dizi olması. Bu özellikler "yerel özellik." olarak adlandırılır Özel karar hizmet her yerel özelliği "İç özellikleri." adlı bir veya daha fazla sayısal özellikleri çevirir.
+Özellikleri uygulamanız için en doğal olan biçimde (sayı, dize veya dizi) belirtebilirsiniz. Bu özelliklere “yerel özellikler” denir. Özel Karar Alma Hizmeti, her yerel özelliği “iç özellikler” denen bir veya daha fazla sayısal özelliğe dönüştürür.
 
-İç özelliklerine çevirisi aşağıdaki gibidir:
+İç özelliklere dönüştürme aşağıdaki gibidir:
 
 - sayısal özellikleri aynı kalır.
-- Dizideki her öğe için bir tane çeşitli sayısal özellikler için sayısal bir dizi çevirir.
-- bir dize değerli özellik `"Name":"Value"` ada sahip bir özellik erişimcisine varsayılan olarak açıktır `"NameValue"` ve 1 değeri.
-- İsteğe bağlı olarak bir dize olarak temsil edilebilir [sözcükler paketi](https://en.wikipedia.org/wiki/Bag-of-words_model). Ardından bir iç özelliği değeri bu word oluşumları sayısıdır. Bu dize her sözcüğün için oluşturulur.
-- Sıfır değerli iç özelliklerini göz ardı edilir.
+- bir sayısal dizi, dizinin her öğesi için bir adet olmak üzere birkaç sayısal özelliğe dönüşür.
+- dize değerli bir özellik `"Name":"Value"` varsayılan olarak `"NameValue"` ve değer 1 adlı bir özelliğe dönüştürülür.
+- İsteğe bağlı olarak, bir dize [sözcük çantası](https://en.wikipedia.org/wiki/Bag-of-words_model) olarak temsil edilebilir. Daha sonra dizedeki her sözcük için değeri bu sözcükteki tekrar sayısı olan bir iç özellik oluşturulur.
+- Sıfır değerli iç özellikler atlanır.
 
-### <a name="shared-vs-action-dependent-features"></a>Paylaşılan eylem bağımlı Özellikler
+### <a name="shared-vs-action-dependent-features"></a>Paylaşılan ve eylem bağımlı özellikler
 
-Bazı özellikler tüm karar bakın ve tüm eylemler için aynıdır. Bunları diyoruz *Paylaşılan Özellikler*. Bazı diğer özellikler için belirli bir eylem özgüdür. Bunları diyoruz *eylem bağımlı Özellikler* (ADFs).
+Bazı özellikler kararın tamamına başvurur ve tüm eylemler için aynıdır. Bunlara *paylaşılan özellikler* denir. Bazı diğer özellikler belirli bir eyleme özeldir. Bunlara *eylem bağımlı özellikler* (ADF’ler) denir.
 
-Çalışan örnekte, kullanıcı ve/veya world durumunu paylaşılan özellikler açıklanmıştır. Coğrafi konuma, geçerlilik süresi ve kullanıcının cinsiyeti ve şu anda hangi ana olayların gerçekleştiği gibi özellikler. Eylem bağımlı özellikler tarafından bu makalede ele alınan konulardan gibi belirli bir makaleye özelliklerini açıklayan.
+Örnekte, paylaşılan özellikler kullanıcıyı ve/veya dünyanın durumunu açıklayabilir. Coğrafi konum, kullanıcının yaşı, cinsiyeti ve şu anda gerçekleşen önemli olaylar gibi özellikler. Eylem bağımlı özellikler belirli bir makalenin özelliklerini açıklayabilir (bu makalenin kapsamındaki konu başlıkları gibi).
 
-### <a name="interacting-features"></a>Etkileşen özellikleri
+### <a name="interacting-features"></a>Etkileşim kuran özellikler
 
-Özellikleri genellikle "etkileşim": biri etkisini bazılarında bağlıdır. Örneğin, X kullanıcı Spor içinde olup olmadığını ilgilendiği özelliğidir. Y belirli bir makaleye hakkında Spor olup özelliğidir. Daha sonra özelliğin etkisi, Y özelliği X yüksek oranda bağlıdır.
+Özellikler çoğu zaman “etkileşim kurar”: birinin etkisi diğerlerine bağlıdır. Örneğin, X özelliği kullanıcının sporla ilgili olup olmadığını belirtsin. Y özelliği belirli bir makalenin sporlar hakkında olduğunu belirtsin. Bu durumda Y özelliğinin etkisi X özelliğine yüksek derecede bağımlıdır.
 
-X ve Y özellikleri arasındaki etkileşim için hesap için oluşturma bir *ikinci derece* özellik değeri olan X\*Y. (Ayrıca, "çapraz" dediğimiz X ve Y.) Hangi özellikleri çiftlerini çapraz seçebilirsiniz.
+X ve Y özellikleri arasındaki etkileşimi açıklamak için değeri X\*Y olan bir *ikinci derece* oluşturun. (X ve Y “kesiştirme” de deriz.) Hangi özellik çiftlerinin kesiştiğini seçebilirsiniz.
 
 > [!TIP]
-> Paylaşılan bir özelliği, kendi derece etkilemek için eylem bağımlı özelliklerle çapraz. Bir eylem bağımlı özelliği, kişiselleştirme için katkıda için paylaşılan özelliklerle çapraz.
+> Paylaşılan bir özellik, sıralarını etkilemek için eylem bağımlı özelliklerle kesişmelidir. Eylem bağımlı bir özellik, kişiselleştirmeye katkıda bulunmak için paylaşılan özelliklerle kesişmelidir.
 
-Diğer bir deyişle, tüm ADFs ile çapraz olmayan paylaşılan bir özellik aynı şekilde her eylem etkiler. ADF ile herhangi bir paylaşılan özellik çapraz değil, her bir kararı çok etkiler. Bu tür özelliklerin ödül tahminleri varyansını azaltabilir.
+Diğer bir deyişle, hiçbir ADF ile kesişmeyen paylaşılan bir özellik her eylemi aynı şekilde etkiler. Hiçbir paylaşılan özellikle kesişmeyen bir ADF de her kararı etkiler. Bu özellik tipleri ödül tahminlerinin farkını azaltabilir.
 
 ### <a name="implementation-via-namespaces"></a>Ad alanları aracılığıyla uygulama
 
-Portalda "VW komut satırı" çapraz özellikleri (yanı sıra diğer featurization kavramlar) uygulayabilirsiniz. Sözdizimi dayanır [Vowpal Wabbit](http://hunch.net/~vw/) komut satırı.
+Kesişen özellikleri (ve diğer özellik kazandırma kavramlarını) Portaldaki “VW komut satırı” aracılığıyla uygulayabilirsiniz. Sözdizimi [Vowpal Wabbit](http://hunch.net/~vw/) komut satırını temel alır.
 
-Kavramı kullanımla Merkezi *ad alanı*: adlandırılmış özelliklerinin bir alt kümesi. Her bir özellik tam olarak bir ad alanına ait. Ad alanı, açıkça özel karar hizmetine sağlanan özellik değeri belirtilebilir. Bir özellik VW komut satırında başvurmak için tek yoludur.
+Uygulamanın merkezinde *ad alanı* kavramı vardır: özelliklerin adlandırılmış bir alt kümesi. Her özellik tam olarak bir ad alanına aittir. Ad alanı, özellik değeri Özel Karar Alma Hizmeti’ne açıkça sağlanırken belirtilebilir. VW komutunda bir özelliğe başvurmanın tek yolu budur.
 
-"Paylaşılan" veya "bağımlı eylem" bir ad alanı: yalnızca paylaşılan özelliklerini oluşur ya da yalnızca aynı eylemin eylem bağımlı özellikler oluşur.
+Bir ad alanı “paylaşılır” veya “eylem bağımlıdır”: yalnızca paylaşılan özelliklerden oluşur veya aynı eylemin eylem bağımlı özelliklerinden oluşur.
 
 > [!TIP]
-> Açıkça belirtilen ad alanlarında özellikleri sarmalamak için iyi bir uygulamadır. Aynı ad alanında ilgili özellikleri grup.
+> Özelliklerin belirtilen ad alanlarında açıkça sarmalanması iyi bir uygulamadır. İlgili özellikleri aynı ad alanında gruplayın.
 
-Ad alanı sağlanmazsa, bu özellik varsayılan ad alanına otomatik olarak atanır.
-
-> [!IMPORTANT]
-> Özellikler ve ad alanları eylemler arasında tutarlı olması gerekmez. Özellikle, bir ad alanı farklı eylemler için farklı özellikler olabilir. Ayrıca, belirli bir ad diğerlerinin değildir ve bazı eylemler için tanımlanabilir.
-
-Aynı dize değerli yerel özelliğinden gelen birden çok iç özellikleri aynı ad alanına gruplandırılır. Aynı özellik adına sahip olsa bile farklı ad alanlarında bulunan iki yerel özellikler ayrı olarak kabul edilir.
+Ad alanı sağlanmazsa, özellik otomatik olarak varsayılan ad alanına atanır.
 
 > [!IMPORTANT]
-> Uzun ve açıklayıcı bir ad alanı kimlikleri ortak olsa da, VW komut satırı kimliğine aynı harfle başlayan ad alanları arasında ayrım yapmaz. Hangi aşağıdaki, ad alanı tek harfler gibi ID'lerini `x` ve `y`.
+> Özelliklerin ve ad alanlarının eylemler genelinde tutarlı olması gerekmez. Özellikle, bir ad alanının farklı eylemler için farklı özellikleri olabilir. Ayrıca, belirli bir ad alanı bazı eylemler için tanımlanabilir ve bazıları için tanımlanamayabilir.
 
-Uygulama Ayrıntıları aşağıdaki gibidir:
+Aynı dize değerli yerel özellikten gelen birden çok iç özellik, aynı ad alanında gruplandırılır. Farklı ad alanlarında yer alan iki yerel özellik, aynı özellik adına sahip olsalar bile ayrı olarak ele alınır.
 
-- Ad alanları geçilecek `x` ve `y`, yazma `-q xy` veya `--quadratic xy`. Her özellik sonra `x` her özelliğiyle çapraz `y`. Kullanım `-q x:` geçilecek `x` her ad alanı ve `-q ::` tüm ad alanlarını çiftlerini geçilecek.
+> [!IMPORTANT]
+> Uzun ve açıklayıcı ad alanı kimlikleri yaygın olsa da, VW komut satırı kimlikleri aynı harfle başlayan ad alanları arasında ayrım yapmaz. Ad alanı kimlikleri tek harftir, örneğin `x` ve `y`.
 
-- Ad alanındaki tüm özellikleri yoksaymak için `x`, yazma `--ignore x`.
+Uygulama detayları aşağıdaki gibidir:
 
-Ad alanları tanımlanan her bu komutları ayrı ayrı her eylem uygulanır.
+- `x` ve `y` ad alanlarını kesiştirmek için `-q xy` veya `--quadratic xy` yazın. Sonra `x` içindeki her özellik `y` içindeki her özellikle kesiştirilir. `x` öğesini her bir ad alanıyla kesiştirmek için `-q x:` ve tüm ad alanı çiftlerini kesiştirmek için `-q ::` kullanın.
 
-### <a name="estimated-average-as-a-feature"></a>Tahmini ortalama bir özellik olarak
+- `x` ad alanındaki tüm özellikleri yok saymak için `--ignore x` yazın.
 
-Tüm kararları için tercih bir düşünce deney ne belirli bir eylem, ortalama ödül mu? Bu tür ortalama ödül kalitesi "Genel" Bu eylem bir ölçü olarak kullanılabilir. Tam olarak bilinmiyor zaman diğer eylemler seçtiniz yerine bazı kararlarında. Ancak, bu teknikler öğrenme öğrenmeyi tahmin edilebilir. Bu tahmin kalitesini genellikle zamanla artırır.
+Bu komutlar, ad alanları her tanımlandığında her eyleme ayrı olarak uygulanır.
 
-Bu "ortalama ödül tahmini" belirli bir eylemi için bir özellik olarak dahil etmeyi seçebilirsiniz. Yeni veri ulaştığında özel karar hizmet bu tahmin otomatik olarak güncelleştirecektir. Bu özellik adında *Marjinal özelliği* Bu eylem. Marjinal özellikleri, machine learning için ve denetim için kullanılabilir.
+### <a name="estimated-average-as-a-feature"></a>Özellik olarak tahmini ortalama
 
-Marjinal özellikleri eklemek için yazma `--marginal <namespace>` VW komut satırında. Tanımlamak `<namespace>` şekilde JSON içinde:
+Düşünce deneyi olarak, belirli bir eylem tüm kararlar için seçilseydi bunun için ortalama ödül ne olurdu? Bu ortalama ödül, bu eylemin “genel kalitesi” için bir ölçü olarak kullanılabilirdi. Bazı kararlarda eylemlerin diğerleri yerine ne zaman tercih edildiği tam olarak bilinmez. Ancak, pekiştirmeye dayalı teknikler kullanılarak tahmin edilebilir. Bu tahminin kalitesi genellikle zaman içinde artar.
+
+Bu “tahmini ortalama ödülü” belirli bir eylem için bir özellik olarak eklemeyi seçebilirsiniz. Özel Karar Alma Hizmeti yeni veriler geldiğinde bu tahmini otomatik olarak günceller. Bu özellik, eylemin *marjinal özelliği* olarak bilinir. Marjinal özellikler makine öğrenimi ve denetim için kullanılabilir.
+
+Marjinal özellikleri eklemek için VW komut satırına `--marginal <namespace>` yazın. `<namespace>` öğesini JSON dilinde aşağıdaki gibi tanımlayın:
 
 ```json
 {<namespace>: {"mf_name":1 "action_id":1}
 ```
 
-Belirli bir eylemi diğer eylem bağımlı özelliklerinin yanı sıra bu ad alanı ekleyin. Aynı kullanarak her bir kararı için bu bir tanımını sağlamak `mf_name` ve `action_id` tüm kararları için.
+Bu ad alanını belirli bir eyleme yönelik eylem bağımlı özelliklerle birlikte ekleyin. Tüm kararlarda aynı `mf_name` ve `action_id` öğesini kullanarak her karar için bu tanımı sağlayın.
 
-Marjinal özelliği her bir eylemde için eklenen `<namespace>`. `action_id` Eylemi benzersiz olarak tanımlayan herhangi bir özellik adı olabilir. Özellik adı ayarlamak `mf_name`. Özellikle, margınal farklı özellikleri `mf_name` farklı özellikler davranılır — her biri için farklı bir ağırlık öğrenilen `mf_name`.
+Marjinal özellik her eylem için `<namespace>` ile eklenir. `action_id`, eylemi benzersiz olarak tanımlayan herhangi bir özellik adı olabilir. Özellik adı `mf_name` olarak ayarlanır. Özellikle, farklı `mf_name` öğesine sahip marjinal özellikler farklı özellikler olarak ele alınır (her `mf_name` için farklı bir ağırlık öğrenilir).
 
-Olan varsayılan kullanım `mf_name` tüm eylemler için aynıdır. Ardından bir ağırlık Marjinal tüm özellikler için öğrenilen.
+Varsayılan kullanımda `mf_name` tüm eylemler için aynıdır. Daha sonra tüm marjinal özellikler için bir ağırlık öğrenilir.
 
-Birden çok Marjinal özellikleri aynı eylemi için aynı değerlere ancak farklı özellik adları ile de belirtebilirsiniz.
+Aynı eylem için aynı değerlere ancak farklı özellik adlarına sahip birden çok marjinal özellik de belirtebilirsiniz.
 
 ```json
 {<namespace>: {"mf_name1":1 "action_id":1 "mf_name2":1 "action_id":1}}
 ```
 
-### <a name="1-hot-encoding"></a>1 hot kodlama
+### <a name="1-hot-encoding"></a>1-hot kodlama
 
-Burada her bit olası değerler aralığına karşılık gelen bit vektörüne olarak bazı özellikleri göstermek seçebilirsiniz. Bu özellik bu aralıkta arasındadır ve yalnızca, bu biti 1 olarak ayarlandı. Bu nedenle, 1 olarak ayarlanmış bir "etkin" bit yoktur ve diğerleri 0 olarak ayarlayın. Bu gösterim yaygın olarak bilinen *1 hot kodlama*.
+Bazı özellikleri, her bitin olası değerler aralığına karşılık geldiği bit vektörleri olarak göstermeyi seçebilirsiniz. Bu bit yalnızca özelliğin bu aralıkta olması durumunda 1 olarak ayarlanır. Bu nedenle, 1 olarak ayarlanan bir “hot” bit vardır ve diğerleri 0 olarak ayarlanır. Bu gösterim yaygın olarak *1 hot kodlama* olarak bilinir.
 
-1 hot kodlama kendiliğinden anlamlı bir sayısal gösterim olmayan kategorik özellikleri için "coğrafi bölge" gibi genel bir durumdur. Ödül olan etkileyebileceği büyük olasılıkla doğrusal olmayan sayısal özellikler için tavsiye edilir. Örneğin, belirli bir makaleye ilgili belirli bir yaş gruba ve ilgisiz herkes daha eski veya küçük olabilir.
+1 hot kodlama, “coğrafi bölge” gibi doğası gereği anlamlı sayısal gösterimi olmayan kategorik özellikler için normaldir. Ayrıca, ödüldeki etkisi muhtemelen doğrusal olmayan sayısal özellikler için de önerilir. Örneğin, belirli bir makale belirli bir yaş grubuyla ilgili ve daha yaşlı veya daha genç kişilerle alakasız olabilir.
 
-Herhangi bir dize değerli özellik varsayılan olarak 1 hot kodlanır: ayrı bir iç özelliği için olası her değer oluşturulur. Otomatik 1 hot sayısal özellikleri ve/veya özelleştirilmiş aralıklarıyla kodlama şu anda sağlanmadı.
+Tüm dize değerli özellikler varsayılan olarak 1-hot kodludur: her olası değer için ayrı bir iç özellik oluşturulur. Sayısal özellikler için ve/veya özelleştirilmiş aralıklarla otomatik 1-hot kodlama şu anda sağlanmamaktadır.
 
 > [!TIP]
-> Machine learning algoritmaları belirli bir iç özelliği, tüm olası değerler tek bir yolla kabul: aracılığıyla ortak bir "ağırlığı." 1 hot kodlama her değer aralığı için ayrı "ağırlık" sağlar. Yeterli verileri toplanır, ancak daha iyi ödül yakınsaması için gereken veri miktarı artırabilir sonra aralıkları küçülterek daha iyi ödül yol açar.
+> Makine öğrenimi algoritmaları, belirli bir iç özelliğin tüm olası değerlerini tek bir yolla ele alır: ortak bir “ağırlıkla”. 1-hot kodlama, her değer aralığı için ayrı bir “ağırlığa” izin verir. Aralıkların küçültülmesi, yeterli veri toplandıktan sonra daha iyi ödüllere neden olur, ancak daha iyi ödüller için gerekli veri tutarını artırabilir.
 
-## <a name="feature-specification-format-and-apis"></a>Özellik belirtimi: biçimi ve API'leri
+## <a name="feature-specification-format-and-apis"></a>Özellik belirtimi: biçim ve API’ler
 
-Bulunabilecek API'leri aracılığıyla özellikleri belirtebilirsiniz. Tüm API'leri ortak bir JSON biçimini kullanın. API'ler ve kavramsal bir düzeyde biçimi aşağıda verilmiştir. Belirtimi Swagger şeması tarafından tamamlanır.
+Özellikleri birkaç yardımcı API aracılığıyla belirtebilirsiniz. Tüm API’ler ortak bir JSON biçimi kullanır. Aşağıda, API’ler ve biçim kavramsal bir düzeyde sağlanmıştır. Belirtim bir Swagger şeması ile desteklenir.
 
-Özellik belirtimi için temel JSON şablonunu aşağıdaki gibidir:
+Özellik belirtimi için temel JSON şablonu aşağıdaki gibidir:
 
 ```json
 {
@@ -137,14 +139,14 @@ Bulunabilecek API'leri aracılığıyla özellikleri belirtebilirsiniz. Tüm API
 }
 ```
 
-Burada `<name>` ve `<value>` özellik adı ve özellik değeri için sırasıyla bekleyin. `<value>` bir dize, tamsayı, float, bir Boole değeri veya dizi olabilir. Bir ad alanına Sarmalanan olmayan bir özellik, varsayılan ad alanına otomatik olarak atanır.
+Burada `<name>` ve `<value>` sırasıyla özellik adı ve özellik değeri içindir. `<value>` bir dize, tamsayı, kayan değer, boole veya dizi olabilir. Ad alanında paketlenmeyen bir özellik otomatik olarak varsayılan ad alanına atanır.
 
-Dize paketi-in-sözcükler olarak göstermek için özel bir sözdizimi kullanın `"_text":"string"` yerine `"<name>":<value>`. Etkili bir şekilde ayrı bir iç özellik dizesindeki her sözcüğün için oluşturulur. Değeri bu word oluşumları sayısıdır.
+Bir dizeyi sözcük çantası olarak göstermek için `"<name>":<value>` yerine `"_text":"string"` özel sözdizimini kullanın. Sonuç olarak, dizedeki her değer için ayrı bir iç özellik oluşturulur. Özelliğin değeri bu sözcüğün oluşum sayısıdır.
 
-Varsa `<name>` "_" ile başlar (ve `"_text"`), bu özellik yoksayılır.
+`<name>` "_" ile başlarsa (ve `"_text"` değilse) özellik yok sayılır.
 
 > [!TIP]
-> Bazen birden fazla JSON kaynaktan özellikleri birleştirin. Kolaylık sağlamak için bunları aşağıdaki gibi gösterebilir:
+> Bazen birden çok JSON kaynağındaki özellikleri birleştirirsiniz. Kolaylık olması için bunları aşağıdaki şekilde gösterebilirsiniz:
 >
 > ```json
 > {
@@ -154,22 +156,22 @@ Varsa `<name>` "_" ile başlar (ve `"_text"`), bu özellik yoksayılır.
 > }
 > ```
 
-Burada `<features>` önceden tanımlı temel özellik belirtimi başvuruyor. Daha derin "iç içe geçme" düzeyde çok kullanılabilir. Özel karar hizmeti otomatik olarak yorumlanan "derin" JSON nesnelerini bulur `<features>`.
+Burada `<features>`, daha önce tanımlanan temel özellik belirtimini ifade eder. “İç içe yerleştirmenin” daha derin düzeylerine de izin verilir. Özel Karar Alma Hizmeti `<features>` olarak yorumlanabilecek “en derin” JSON nesnelerini otomatik olarak bulur.
 
-#### <a name="feature-set-api"></a>Özellik kümesi API
+#### <a name="feature-set-api"></a>Özellik Kümesi API’si
 
-Özellik API kümesini daha önce açıklanan JSON biçiminde özelliklerin listesini döndürür. Birkaç özellik kümesi API uç noktaları kullanabilirsiniz. Her uç nokta özellik kümesi kimliği ve bir URL tarafından tanımlanır. Özellik arasında eşleme kimlikleri ve URL'leri portalda ayarlayın.
+Özellik Kümesi API’si, daha önce açıklanan JSON formatında bir özellik listesi döndürür. Birden çok Özellik Kümesi API’si uç noktası kullanabilirsiniz. Her uç nokta, özellik kümesi kimliği ve bir URL ile tanımlanır. Özellik kümesi kimlikleri ve URL’ler arasındaki eşleme Portalda ayarlanır.
 
-Özellik API kümesini JSON uygun yerinde karşılık gelen özellik kümesi kimliği ekleyerek çağırın. Eylem bağımlı özellikler için çağrı otomatik olarak eylem kimliğine göre parametreli. Birkaç belirtebilirsiniz özelliği için aynı eylemi kimlikleri ayarlayın.
+JSON’da uygun konuma ilgili özellik kümesi kimliğini ekleyerek Özellik Kümesi API’sini çağırın. Eylem bağımlı özellikler için çağrı, eylem kimliği tarafından otomatik olarak parametre haline getirilir. Aynı eylem için birden çok özellik kümesi kimliği belirtebilirsiniz.
 
-#### <a name="action-set-api-json-version"></a>Eylem API kümesini (JSON sürüm)
+#### <a name="action-set-api-json-version"></a>Eylem Kümesi API’si (JSON sürümü)
 
-Eylem API kümesini eylemleri ve özelliklerini JSON'de belirtilir bir sürüme sahip. Özellikler, açıkça ve/veya özellik kümesi API'leri aracılığıyla belirtilebilir. Paylaşılan Özellikler tüm eylemler için bir kez belirtilebilir.
+Eylem Kümesi API’si, eylemlerin ve özelliklerin JSON dilinde belirtildiği bir sürüme sahiptir. Özellikler açıkça ve/veya Özellik Kümesi API’leri kullanılarak belirtilebilir. Paylaşılan özellikler tüm eylemler için bir kez belirtilebilir.
 
-#### <a name="ranking-api-http-post-call"></a>API (HTTP POST çağrısı) sıralaması
+#### <a name="ranking-api-http-post-call"></a>Sıralama API’si (HTTPS POST çağrısı)
 
-API sıralaması HTTP POST çağrısına kullanan bir sürüme sahip. Bu çağrı gövdesi, Eylemler ve esnek bir JSON söz dizimi aracılığıyla özellikleri belirtir.
+Sıralama API’si, HTTP POST çağrısı kullanan bir sürüme sahiptir. Bu çağrının gövdesi, eylemleri ve özellikleri esnek bir JSON sözdizimi kullanarak belirtir.
 
-Eylemler açıkça belirtilen ve/veya eylem kimliklerini ayarlayın. Bir eylem kümesi kimliği karşılaşıldığında, karşılık gelen eylemi ayarlamak API uç noktası çağrı yürütülür.
+Eylemler açıkça ve/veya eylem kümesi kimlikleri kullanılarak belirtilebilir. Bir eylem kümesi kimliğiyle her karşılaşıldığında, ilgili Eylem Kümesi API’si uç noktasına bir çağrı yapılır.
 
-Eylem ayarlama API için olduğu gibi açıkça ve/veya özellik kümesi API'leri aracılığıyla özellikler belirtilebilir. Paylaşılan Özellikler tüm eylemler için bir kez belirtilebilir.
+Eylem Kümesi API’si için özellikler açıkça veya Özellik Kümesi API’leri kullanılarak belirtilebilir. Paylaşılan özellikler tüm eylemler için bir kez belirtilebilir.

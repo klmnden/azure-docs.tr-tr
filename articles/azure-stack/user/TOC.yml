@@ -28,10 +28,6 @@ items:
       href: azure-stack-subscribe-services.md
     - name: Bir şablondan VM oluşturma
       href: azure-stack-create-vm-template.md
-    - name: Yüksek oranda kullanılabilir SQL veritabanı oluşturma
-      href: azure-stack-tutorial-sql.md
-    - name: Yüksek oranda kullanılabilir olan MySQL veritabanları oluşturma
-      href: azure-stack-tutorial-mysql.md
   - name: Hibrit bulut desenleri
     items:
     - name: Azure ve Azure Stack’e uygulama dağıtma
@@ -218,9 +214,9 @@ items:
     href: http://stackoverflow.com/questions/tagged/azure-stack
   - name: Eğitim ve sertifika
     href: https://docs.microsoft.com/azure/azure-stack/azure-stack-train-and-cert
-ms.openlocfilehash: 5c4fec260e2b58aa7d34b9f3b7fcaa0d4755abf4
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 2b65408f4d2171d57031a442725df935f1616764
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49321657"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49364804"

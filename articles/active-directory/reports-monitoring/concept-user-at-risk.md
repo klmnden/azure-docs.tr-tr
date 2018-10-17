@@ -14,12 +14,12 @@ ms.component: report-monitor
 ms.date: 11/14/2017
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 030774716e1af4a7d6817d64ae66ded2bcaf4081
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.openlocfilehash: fde063cb593ca1f610dc35cd044fe41e34ab9202
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "41921068"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45578387"
 ---
 # <a name="users-flagged-for-risk-security-report-in-the-azure-active-directory-portal"></a>Azure Active Directory portalında risk güvenliği için işaretlenmiş kullanıcılar
 
@@ -29,9 +29,9 @@ Azure Active Directory, kullanıcı hesaplarınızla ilgili kuşkulu eylemleri a
 
 Algılanan risk olayları aşağıdakileri hesaplamak için kullanılır:
 
-- **Riskli oturum açma işlemleri** - Riskli oturum açma işlemi bir kullanıcı hesabının meşru sahibi olmayan bir kişi tarafından gerçekleştirilmiş olabilecek oturum açma girişiminin göstergesidir. Daha fazla bilgi için bkz. [Riskli oturum açma işlemleri](../identity-protection/overview.md#risky-sign-ins). 
+- **Riskli oturum açma işlemleri** - Riskli oturum açma işlemi bir kullanıcı hesabının meşru sahibi olmayan bir kişi tarafından gerçekleştirilmiş olabilecek oturum açma girişiminin göstergesidir. Daha fazla bilgi için bkz. [Oturum açma risk ilkesini yapılandırma](../identity-protection/howto-sign-in-risk-policy.md). 
 
-- **Riskli oldukları belirlenen kullanıcılar** - Riskli kullanıcı, güvenliği tehlikeye girmiş olabilecek bir kullanıcı hesabının göstergesidir. Daha fazla bilgi için bkz. [Risk için işaretlenen kullanıcılar](../identity-protection/overview.md#users-flagged-for-risk).  
+- **Riskli oldukları belirlenen kullanıcılar** - Riskli kullanıcı, güvenliği tehlikeye girmiş olabilecek bir kullanıcı hesabının göstergesidir. Daha fazla bilgi için bkz. [Kullanıcı risk ilkesini yapılandırma](../identity-protection/howto-user-risk-policy.md).  
 
 Güvenlik raporlarını, Azure portalında **Azure Active Directory** dikey penceresindeki **Güvenlik** bölümünde bulabilirsiniz.  
 
@@ -78,13 +78,13 @@ Bu iletişim kutusu size şu seçeneği sunar:
 
 Azure Active Directory premium sürümlerinde risk için işaretlenmiş kullanıcılar raporu aşağıdakileri içerir:
 
-- Tehlikeye girmiş olabilecek [kullanıcı hesaplarının listesi](../identity-protection/overview.md#users-flagged-for-risk) 
+- Tehlikeye girmiş olabilecek kullanıcı hesaplarının listesi 
 
 - Algılanan [risk olayı türleri](concept-risk-events.md) hakkında toplu bilgiler
 
 - Raporu indirme seçeneği
 
-- [Kullanıcı riskini azaltma ilkesi](../identity-protection/overview.md#user-risk-security-policy) yapılandırma seçeneği  
+- [Kullanıcı riskini azaltma ilkesi](../identity-protection/howto-user-risk-policy.md) yapılandırma seçeneği  
 
 
 ![Riskli Oturum Açma İşlemleri](./media/concept-user-at-risk/71.png)
@@ -103,7 +103,7 @@ Bir kullanıcıyı seçtiğinizde bu kullanıcıya ilişkin, aşağıdakileri ge
 ![Riskli Oturum Açma İşlemleri](./media/concept-user-at-risk/324.png)
 
 
-Bir risk olayını araştırmak için listeden bir olay seçerek bu olayın **Ayrıntılar** dikey penceresini açın. **Ayrıntılar** dikey penceresinde, [risk olayını elle kapatma](../identity-protection/overview.md#closing-risk-events-manually) ve elle kapatılmış risk olayını yeniden etkinleştirme seçenekleri sunulur. 
+Bir risk olayını araştırmak için listeden bir olay seçerek bu olayın **Ayrıntılar** dikey penceresini açın. **Ayrıntılar** dikey penceresinde, risk olayını elle kapatma ve elle kapatılmış risk olayını yeniden etkinleştirme seçenekleri sunulur. 
 
 
 ![Riskli Oturum Açma İşlemleri](./media/concept-user-at-risk/325.png)

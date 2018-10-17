@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/27/2018
 ms.author: juliako
-ms.openlocfilehash: 9168a66c3afcd8dd0b05de15f5833c516ddb2250
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: abed9fd8d466b582b534b365f4be4257f4986435
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38767111"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45736011"
 ---
 # <a name="quickstart-create-an-azure-media-services-account"></a>Hızlı Başlangıç: Azure Media Services hesabı oluşturma
 
@@ -58,7 +58,7 @@ az group create -n <myresourcegroup> -l westus2
 
 Media Services hesabı oluştururken, bir Azure Depolama hesabı kaynağının kimliğini sağlamanız gerekir. Belirtilen depolama hesabı, Media Services hesabınıza eklenir. 
 
-Tek bir **Birincil** depolama hesabınız olması gerekir, ancak Media Services hesabınızla ilişkili istediğiniz sayıda **İkincil** depolama hesabınız olabilir. Media Services, **General-purpose v2** (GPv2) veya **General-purpose v1** (GPv1) hesaplarını destekler. Yalnızca blob hesaplarının **Birincil** olmasına izin verilmez. Depolama hesapları hakkında daha fazla bilgi edinmek istiyorsanız bkz. [Azure Depolama hesap seçenekleri](../../storage/common/storage-account-options.md). 
+Tek bir **Birincil** depolama hesabınız olması gerekir, ancak Media Services hesabınızla ilişkili istediğiniz sayıda **İkincil** depolama hesabınız olabilir. Media Services, **general-purpose v2** veya **general-purpose v1** hesaplarını destekler. Blob depolama hesaplarının **Birincil** olmasına izin verilmez. Depolama hesapları hakkında daha fazla bilgi için bkz. [Azure depolama hesabına genel bakış](../../storage/common/storage-account-overview.md). 
 
 Aşağıdaki komut, Media Services Hesabı (birincil) ile ilişkilendirilecek Depolama hesabını oluşturur. Aşağıdaki betikte, *storageaccountforams* yer tutucusunu değiştirin. 'account_name', en fazla 24 karakter uzunluğunda olmalıdır.
 

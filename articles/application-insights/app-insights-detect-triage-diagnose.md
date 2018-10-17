@@ -12,14 +12,14 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.custom: mvc
 ms.topic: overview
-ms.date: 06/26/2017
+ms.date: 09/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: b83d08b9dac4fccc033ad4537afd343a6fbe02c2
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 799593758bf24924d91d38bd6a626b945247183b
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/01/2017
-ms.locfileid: "23947322"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44050247"
 ---
 # <a name="overview-of-application-insights-for-devops"></a>DevOps için Application Insights’a genel bakış
 
@@ -50,7 +50,7 @@ Ekip, Application Insights’ı kullanarak canlı Web uygulamasını şunun içi
 ## <a name="detect-poor-availability"></a>Zayıf kullanılabilirliği algılama
 Marcela Markova OBS ekibinde kıdemli bir geliştiricidir ve çevrimiçi performansı izlemeden sorumludur. Birkaç [kullanılabilirlik testi](app-insights-monitor-web-app-availability.md) kurar:
 
-* Uygulamanın ana giriş sayfası http://fabrikambank.com/onlinebanking/ için tek URL’li bir test. HTTP kodu 200 ölçütlerini ve 'Hoş Geldiniz!' metnini ayarlar. Bu test başarısız olursa ağda veya sunucularda ciddi bir yanlışlık veya belki de bir dağıtım sorunu vardır. (Ya da birisi ona bilgi vermeden sayfadaki Hoş Geldiniz! mesajını değiştirmiştir.)
+* Uygulamanın ana giriş sayfası için tek URL’li bir test, http://fabrikambank.com/onlinebanking/. HTTP kodu 200 ölçütlerini ve 'Hoş Geldiniz!' metnini ayarlar. Bu test başarısız olursa ağda veya sunucularda ciddi bir yanlışlık veya belki de bir dağıtım sorunu vardır. (Ya da birisi ona bilgi vermeden sayfadaki Hoş Geldiniz! mesajını değiştirmiştir.)
 * Oturum açıp geçerli hesap listesini alan, her sayfada birkaç önemli ayrıntıyı denetleyen daha derin ve çok adımlı bir test. Bu test, hesapların olduğu veritabanı bağlantısının çalıştığını doğrular. Kurgusal bir müşteri kimliğini kullanır: test amacıyla böyle birkaç kimlik bulundurulmaktadır.
 
 Bu testler ayarlandığında Marcela ekibin tüm kesintileri hızlı bir şekilde öğreneceğinden emindir.  
@@ -64,7 +64,7 @@ Ancak daha da önemlisi, herhangi bir hata hakkındaki uyarı geliştirme ekibin
 ## <a name="monitor-performance"></a>Performansı izleme
 Application Insights’ta genel bakış sayfasında çeşitli [ana ölçümleri](app-insights-web-monitor-performance.md) gösteren bir grafik vardır.
 
-![Çeşitli ölçümler](./media/app-insights-detect-triage-diagnose/05-perfMetrics.png)
+![Performans KPI grafiklerine genel bakış ekran görüntüsü](./media/app-insights-detect-triage-diagnose/overview-graphs.png)
 
 Tarayıcı sayfa yüklenme süresi doğrudan Web sayfalarından gönderilen telemetriden türetilir. Sunucu yanıt süresi, sunucu istek sayısı ve başarısız istek sayılarının tümü Web sunucusunda ölçülür ve oradan Application Insights'a gönderilir.
 
@@ -72,7 +72,7 @@ Marcela, sunucu yanıt grafiğinden biraz endişelenmiştir. Bu grafik, sunucunu
 
 Marcela Sunucu grafiklerini açıyor:
 
-![Çeşitli ölçümler](./media/app-insights-detect-triage-diagnose/06.png)
+![Çeşitli ölçümler](./media/app-insights-detect-triage-diagnose/002-servers.png)
 
 Burada kaynak sınırlaması ile ilgili hiçbir belirti yok göründüğünden sunucu yanıt grafiklerindeki tepeler belki de yalnızca bir rastlantıdır.
 
@@ -154,7 +154,7 @@ Yığının bir kopyasını gönderdiğinden özel durumları bildirmek için Tr
 ## <a name="monitor-proactively"></a>Proaktif izleme
 Marcela, öyle oturup uyarıları beklemez. Her dağıtımdan hemen sonra [yanıt sürelerini](app-insights-web-monitor-performance.md) inceler; özel durum sayılarının yanı sıra hem genel rakamlara hem de en yavaş istekler tablosuna bakar.  
 
-![Yanıt süresi grafiği ve sunucu yanıt süreleri kılavuzu.](./media/app-insights-detect-triage-diagnose/09-dependencies.png)
+![Yanıt süresi grafiği ve sunucu yanıt süreleri kılavuzu.](./media/app-insights-detect-triage-diagnose/response-time.png)
 
 Genellikle her haftayı bir önceki ile karşılaştırarak her dağıtımın performans üzerindeki etkisini değerlendirebilir. Ani bir kötüleşme olduğunda durumu ilgili geliştiricilere iletir.
 
@@ -168,8 +168,6 @@ Aksine, özel durum sayıları ve yanıt sürelerinin grafiğindeki çarpıcı v
 Yararlı bir önceliklendirme taktiği Önce Kendinizin Denemesidir. Aynı sorunla karşılaştıysanız gerçek olduğunu bilirsiniz.
 
 Kullanıcıların kaçta kaçı etkilendi? Kaba bir yanıt almak için hata oranını oturum sayısına bölün.
-
-![Başarısız istekler ve oturumlar grafiği](./media/app-insights-detect-triage-diagnose/10-failureRate.png)
 
 Yavaş yanıtlar olduğunda, en yavaş yanıtlanan istekler tablosunu her sayfanın kullanım sıklığı ile karşılaştırın.
 
@@ -203,7 +201,6 @@ Fabrikam Bank'ın geliştirme ekibi, performans ölçümü için Application Ins
 * Performans hedeflerini Application Insights genel bakış sayfasındaki belirli ölçümlere göre ayarlarlar.
 * 'Huniler' aracılığıyla kullanıcının ilerlemesini ölçen ölçümler gibi performans ölçümlerini, uygulamaya ilk başından tasarımdan yerleştirirler.  
 
-
 ## <a name="monitor-user-activity"></a>Kullanıcı etkinliğini izleme
 Yanıt süresi tutarlı bir şekilde iyiyken birkaç özel durum olduğunda geliştirme ekibi kullanılabilirlik aşamasına geçebilir. Kullanıcıların deneyimini nasıl iyileştirecekleri ve istenilen hedeflere ulaşmak için daha fazla kullanıcıyı nasıl teşvik edecekleri hakkında düşünebilirler.
 
@@ -211,7 +208,7 @@ Application Insights, kullanıcıların bir uygulama ile neler yaptıklarını �
 
 Örneğin, Web sitesinde tipik bir kullanıcı gezintisinde belirgin bir "huni" vardır. Birçok müşteri, farklı türlerdeki kredi oranlarına bakar. Daha küçük bir grup da devam ederek teklif formunu doldurur. Teklif alanlardan birkaçı devam eder ve krediyi alır.
 
-![Sayfa görüntüleme sayıları](./media/app-insights-detect-triage-diagnose/12-funnel.png)
+![Sayfa görüntüleme sayıları](./media/app-insights-detect-triage-diagnose/funnel.png)
 
 En çok müşterinin nerede çıktığını değerlendiren işletme, daha fazla kullanıcıyı huninin altına kadar nasıl çekeceği üzerine çalışabilir. Bazı durumlarda, bir kullanıcı deneyimi (UX) hatası olabilir; örneğin, 'İleri' düğmesini bulmak zordur veya yönergeler açık değildir. Büyük olasılıkla, çıkma nedenleri belirgin bir şekilde işle ilgili nedenlerdir: belki de kredi oranları çok yüksektir.
 

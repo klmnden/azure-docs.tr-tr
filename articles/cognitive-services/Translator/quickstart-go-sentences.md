@@ -1,21 +1,21 @@
 ---
-title: Translator Metin Çevirisi Go ile cümle uzunluklarını alma | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: Bu hızlı başlangıçta, Bilişsel Hizmetler’de Go ile Translator Metin Çevirisi API'sini kullanarak metindeki cümlelerin uzunluklarını bulacaksınız.
+title: 'Hızlı Başlangıç: Cümle uzunluklarını alma - Translator Metin Çevirisi, Go'
+titleSuffix: Azure Cognitive Services
+description: Bu hızlı başlangıçta, Go ile Translator Metin Çevirisi API’sini kullanarak metindeki cümlelerin uzunluklarını bulacaksınız.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/29/2018
 ms.author: nolachar
-ms.openlocfilehash: 441f7c9ced91899896b63f4925f1ec204a9f52fb
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.openlocfilehash: 34b30179d674a42f6c9c2c358c0feb6e083089f6
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "43772491"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46129463"
 ---
 # <a name="quickstart-get-sentence-lengths-with-go"></a>Hızlı Başlangıç: Go ile cümle uzunluklarını alma
 

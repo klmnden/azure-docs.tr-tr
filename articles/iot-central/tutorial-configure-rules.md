@@ -9,16 +9,16 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: af2aa8d7b01d973da400808fd3e97d0739693cd2
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: fb13bcee411b4fa27bf3ce5cd62fa3a483ea23e6
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35236340"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45731909"
 ---
 # <a name="tutorial-configure-rules-and-actions-for-your-device-in-azure-iot-central"></a>Öğretici: Azure IoT Central’da cihazınız için kurallar ve eylemler yapılandırma
 
-Bu öğreticide, bir oluşturucu olarak Microsoft Azure IoT Central uygulamanızda telemetri tabanlı kural ve eylemleri nasıl yapılandıracağınız gösterilir.
+*Bu makale, işleçler, oluşturucular ve yöneticiler için geçerlidir.*
 
 Bu öğreticide, bağlı bir klima cihazı 90&deg; F sıcaklığı aştığında e-posta gönderen bir kural oluşturacaksınız.
 
@@ -36,44 +36,48 @@ Başlamadan önce, [Uygulamanızda yeni bir cihaz türü tanımlama](tutorial-de
 
 1. Uygulamanıza yeni bir telemetri tabanlı kural eklemek için, sol gezinti menüsünde **Device Explorer**’ı seçin:
 
-    ![Device Explorer sayfası](media/tutorial-configure-rules/explorerpage.png)
+    ![Device Explorer sayfası](media/tutorial-configure-rules/explorerpage1.png)
 
     **Bağlı Klima (1.0.0)** cihaz şablonunu ve önceki öğreticide oluşturduğunuz **Bağlı Klima-1** cihazını görürsünüz.
 
 2. Bağlı klima cihazınızı özelleştirmeye başlamak için, önceki öğreticide oluşturduğunuz cihazı seçin:
 
-    ![Bağlı klima sayfası](media/tutorial-configure-rules/builderdevicelist.png)
+    ![Bağlı klima sayfası](media/tutorial-configure-rules/builderdevicelist1.png)
 
-3. **Kurallar** görünümünde bir kural eklemeye başlamak için **Kurallar**’ı seçin:
+3. **Kurallar** görünümünde bir kural eklemeye başlamak için **Kurallar**’ı seçin ve **Şablonu Düzenle**’ye tıklayın:
 
-    ![Kurallar görünümü](media/tutorial-configure-rules/builderrulesview.png)
+    ![Kurallar görünümü](media/tutorial-configure-rules/builderedittemplate.png)
 
-4. Eşik tabanlı telemetri kuralı oluşturmaya başlamak için **Yeni Kural** ve ardından **Telemetri**’yi seçin.
+4. Eşik tabanlı telemetri kuralı oluşturmak için **Yeni Kural**’a ve sonra **Telemetri**‘ye tıklayın.
+
+    ![Şablon düzenleme](media/tutorial-configure-rules/buildernewrule.png)
 
 5. Kuralınızı tanımlamak için aşağıdaki tabloda yer alan bilgileri kullanın:
 
-    | Ayar     | Değer                          |
-    | ----------- | ------------------------------ |
-    | Adı        | Klima sıcaklığı    |
-    | Etkinleştirme kuralı | Açık                             |
-    | Koşul   | Sıcaklık 90’dan fazla |
+    | Ayar                                      | Değer                             |
+    | -------------------------------------------- | ------------------------------    |
+    | Adı                                         | Klima sıcaklığı uyarısı |
+    | Bu şablonun tüm cihazları için kuralı etkinleştir | Açık                                |
+    | Bu cihazda kuralı etkinleştir                   | Açık                                |
+    | Koşul                                    | Sıcaklık 90’dan fazla    |
+    | Toplama                                  | None                              |
 
-    ![Sıcaklık kural koşulu](media/tutorial-configure-rules/buildertemperaturerule.png)
+    ![Sıcaklık kural koşulu](media/tutorial-configure-rules/buildertemperaturerule1.png)
 
 ## <a name="add-an-action"></a>Eylem ekleme
 
 Bir kural tanımladığınızda, kural koşulları yerine getirildiği zaman çalıştırılacak bir eylem de tanımlarsınız. Bu öğreticide, kuralın tetiklediği bir bildirim olarak e-posta gönderme eylemi eklersiniz.
 
-1. Bir **Eylem** eklemek için **Telemetri Kuralı Yapılandırma** panelini kaydırın ve **Eylemler**’in yanındaki **+** öğesini, ardından **E-posta**’yı seçin:
+1. Bir **Eylem** eklemek için **Kaydet**’e tıklayarak kuralı kaydedin ve sonra **Telemetri Kuralı Yapılandırma** panelini kaydırarak **Eylemler**’in yanındaki **+** seçeneğini belirleyip **E-posta**‘yı seçin:
 
-    ![Sıcaklık kuralı eylemi](media/tutorial-configure-rules/builderaddaction.png)
+    ![Sıcaklık kuralı eylemi](media/tutorial-configure-rules/builderaddaction1.png)
 
 2. Eyleminizi tanımlamak için aşağıdaki tabloda yer alan bilgileri kullanın:
 
     | Ayar   | Değer                          |
     | --------- | ------------------------------ |
     | Alıcı        | E-posta adresiniz             |
-    | Notlar     | Klimada sıcaklığın eşiği aşması. |
+    | Notlar     | Klima sıcaklığı eşiği aştı. |
 
     > [!NOTE]
     > Bir e-posta bildirimi almak için e-posta adresinin [uygulamadaki bir kullanıcı kimliği](howto-administer.md) olması ve bu kullanıcının uygulamada en az bir kez oturum açmış olması gerekir.
@@ -82,7 +86,10 @@ Bir kural tanımladığınızda, kural koşulları yerine getirildiği zaman ça
 
 3. **Kaydet**'i seçin. Kuralınız **Kurallar** sayfasında listelenir:
 
-    ![Uygulama Oluşturucu kuralları](media/tutorial-configure-rules/builderrules.png)
+    ![Uygulama Oluşturucu kuralları](media/tutorial-configure-rules/builderrules1.png)
+
+4. **Bitti**’yi seçerek **Şablonu Düzenle** modundan çıkın.
+ 
 
 ## <a name="test-the-rule"></a>Kuralı test etme
 

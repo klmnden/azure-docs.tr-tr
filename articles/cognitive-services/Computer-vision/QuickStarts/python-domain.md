@@ -1,51 +1,49 @@
 ---
-title: Görüntü İşleme Python hızlı başlangıcı alan modeli | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: Bu hızlı başlangıçta, Bilişsel Hizmetler’de Python ile Görüntü İşleme’yi kullanarak bir görüntüdeki önemli yerleri ve tanınmış kişileri tanımlamak için alan modeli kullanacaksınız.
+title: 'Hızlı Başlangıç: Etki alanı modelini kullanma - REST, Python - Görüntü İşleme'
+titleSuffix: Azure Cognitive Services
+description: Bu hızlı başlangıçta, Python ile Görüntü İşleme API'sini kullanarak bir görüntüdeki yer işaretlerini ve ünlü kişileri tanımlamak için alan modeli kullanacaksınız.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: v-deken
-ms.openlocfilehash: 357cab72c0a6c9a2254350c84cda91c366ac685a
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 93027e2f9cd3a9b0e9c6ef261b8af876022632a4
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43772580"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45632458"
 ---
-# <a name="quickstart-use-a-domain-model---rest-python"></a>Hızlı Başlangıç: Alan modeli kullanma - REST, Python
+# <a name="quickstart-use-a-domain-model-using-the-rest-api-and-python-in-computer-vision"></a>Hızlı Başlangıç: Görüntü İşleme’de REST API’sini ve Python’ı kullanarak etki alanı modelini kullanma
 
-Bu hızlı başlangıçta, Görüntü İşleme’yi kullanarak bir görüntüdeki önemli yerleri ve ünlü kişileri tanımlamak için alan modeli kullanacaksınız.
+Bu hızlı başlangıçta, Görüntü İşleme’nin REST API’sini kullanarak uzakta depolanan bir görüntüdeki yer işaretlerini veya isteğe bağlı olarak ünlüleri tanımlamak için alan modeli kullanacaksınız. [Etki Alanına Özgü İçeriği Tanıma](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e200) yöntemiyle, bir görüntüdeki içeriği tanımak için etki alanına özgü bir model uygulayabilirsiniz.
 
 [MyBinder](https://mybinder.org) üzerinde bir Jupyter not defteri kullanarak bu hızlı başlangıcı adım adım görüntülenecek şekilde çalıştırabilirsiniz. Bağlayıcıyı başlatmak için aşağıdaki düğmeyi seçin:
 
 [![Bağlayıcı](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/Microsoft/cognitive-services-notebooks/master?filepath=VisionAPI.ipynb)
 
+Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) oluşturun.
+
 ## <a name="prerequisites"></a>Ön koşullar
 
-Görüntü İşleme’yi kullanmak için, bir abonelik anahtarınızın olması gerekir; bkz. [Abonelik Anahtarlarını Alma](../Vision-API-How-to-Topics/HowToSubscribe.md).
+- Örneği yerel olarak çalıştırmak istiyorsanız [Python](https://www.python.org/downloads/) yüklenmiş olmalıdır.
+- Görüntü İşleme için bir abonelik anahtarınız olması gerekir. Bir abonelik anahtarı almak için bkz. [Abonelik Anahtarları Alma](../Vision-API-How-to-Topics/HowToSubscribe.md).
 
-## <a name="identify-celebrities-and-landmarks"></a>Ünlüleri ve önemli yerleri tanımlama
+## <a name="create-and-run-the-landmarks-sample"></a>Yer işareti örneği oluşturma ve çalıştırma
 
-[Alana Özgü İçerik Tanıma yöntemi](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e200) ile, bir görüntüdeki belirli bir nesne kümesini tanımlayabilirsiniz. Şu anda kullanılabilir olan alana özgü iki model, _ünlüler_ ve _önemli yerler_’dir.
+Yer işareti örneğini oluşturup çalıştırmak için aşağıdaki adımları uygulayın:
 
-Örneği çalıştırmak için aşağıdaki adımları uygulayın:
-
-1. Aşağıdaki kodu yeni bir Python betik dosyasına kopyalayın.
-1. `<Subscription Key>` değerini geçerli abonelik anahtarınızla değiştirin.
-1. Gerekirse `vision_base_url` değerini abonelik anahtarlarınızı aldığınız konumla değiştirin.
-1. İsterseniz `image_url` değerini başka bir görüntüyle değiştirin.
-1. Betiği çalıştırın.
-
-Aşağıdaki kod, Görüntü İşleme Görüntü Analizi API’sine çağrı yapmak için Python `requests` kitaplığını kullanır. Sonuçları JSON nesnesi olarak döndürür. API anahtarı `headers` sözlüğü aracılığıyla geçirilir. Kullanılacak model `params` sözlüğü aracılığıyla geçirilir.
-
-## <a name="landmark-identification"></a>Önemli yer tanımlama
-
-### <a name="recognize-landmark-request"></a>Önemli Yer Tanıma isteği
+1. Aşağıdaki kodu bir metin düzenleyicisine kopyalayın.
+1. Gerektiğinde kodda aşağıdaki değişiklikleri yapın:
+    1. `subscription_key` değerini abonelik anahtarınızla değiştirin.
+    1. Gerekirse `vision_base_url` değerini, abonelik anahtarlarınızı aldığınız Azure bölgesindeki Görüntü İşleme kaynağının uç nokta URL’si ile değiştirin.
+    1. İsteğe bağlı olarak `image_url` değerini, yer işaretlerini algılamak istediğiniz başka bir görüntünün URL’si ile değiştirin.
+1. Kodu, `.py` uzantısıyla bir dosya olarak kaydedin. Örneğin, `get-landmarks.py`.
+1. Bir komut istemi penceresi açın.
+1. İstemde, örneği çalıştırmak için `python` komutunu kullanın. Örneğin, `python get-landmarks.py`.
 
 ```python
 import requests
@@ -95,9 +93,9 @@ plt.axis("off")
 _ = plt.title(landmark_name, size="x-large", y=-0.1)
 ```
 
-### <a name="recognize-landmark-response"></a>Önemli Yer Tanıma yanıtı
+## <a name="examine-the-response-for-the-landmarks-sample"></a>Yer işaretleri örneğinin yanıtını inceleyin
 
-Başarılı bir yanıt JSON biçiminde döndürülür, örneğin:
+Başarılı bir yanıt JSON biçiminde döndürülür. Örnek web sayfası, aşağıdaki örneğe benzer şekilde başarılı bir yanıtı ayrıştırıp komut istemi penceresinde görüntüler:
 
 ```json
 {
@@ -118,9 +116,18 @@ Başarılı bir yanıt JSON biçiminde döndürülür, örneğin:
 }
 ```
 
-## <a name="celebrity-identification"></a>Ünlü belirleme
+## <a name="create-and-run-the-celebrities-sample"></a>Ünlüler örneği oluşturma ve çalıştırma
 
-### <a name="recognize-celebrity-request"></a>Ünlü Tanıma isteği
+Yer işareti örneğini oluşturup çalıştırmak için aşağıdaki adımları uygulayın:
+
+1. Aşağıdaki kodu bir metin düzenleyicisine kopyalayın.
+1. Gerektiğinde kodda aşağıdaki değişiklikleri yapın:
+    1. `subscription_key` değerini abonelik anahtarınızla değiştirin.
+    1. Gerekirse `vision_base_url` değerini, abonelik anahtarlarınızı aldığınız Azure bölgesindeki Görüntü İşleme kaynağının uç nokta URL’si ile değiştirin.
+    1. İsteğe bağlı olarak `image_url` değerini, ünlüleri algılamak istediğiniz başka bir görüntünün URL’si ile değiştirin.
+1. Kodu, `.py` uzantısıyla bir dosya olarak kaydedin. Örneğin, `get-celebrities.py`.
+1. Bir komut istemi penceresi açın.
+1. İstemde, örneği çalıştırmak için `python` komutunu kullanın. Örneğin, `python get-celebrities.py`.
 
 ```python
 import requests
@@ -163,9 +170,10 @@ plt.axis("off")
 _ = plt.title(celebrity_name, size="x-large", y=-0.1)
 ```
 
-### <a name="recognize-celebrity-response"></a>Ünlü Tanıma yanıtı
+## <a name="examine-the-response-for-the-celebrities-sample"></a>Ünlüler örneğinin yanıtını inceleyin
 
-Başarılı bir yanıt JSON biçiminde döndürülür, örneğin:
+Başarılı bir yanıt JSON biçiminde döndürülür. Örnek web sayfası, aşağıdaki örneğe benzer şekilde başarılı bir yanıtı ayrıştırıp komut istemi penceresinde görüntüler:
+
 
 ```json
 {
@@ -192,9 +200,13 @@ Başarılı bir yanıt JSON biçiminde döndürülür, örneğin:
 }
 ```
 
+## <a name="clean-up-resources"></a>Kaynakları temizleme
+
+Artık gerekli değilse her iki örnek için dosyayı silin.
+
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Optik karakter tanıma (OCR) gerçekleştirmek için Görüntü İşleme kullanan bir Python uygulaması keşfedin. Akıllı kırpılmış küçük resimler oluşturun. Buna ek olarak, bir görüntüdeki yüzler gibi görsel özellikleri algılayın, kategorilere ayırın, etiketleyin ve açıklayın. Görüntü İşleme API'lerini hızlı bir şekilde denemeniz için [Open API test konsolu](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console) konusuna göz atın.
+Optik karakter tanıma (OCR) gerçekleştirmek için Görüntü İşleme kullanan bir Python uygulaması keşfedin. Akıllı kırpılmış küçük resimler oluşturun. Buna ek olarak, bir görüntüdeki yüzler gibi görsel özellikleri algılayın, kategorilere ayırın, etiketleyin ve açıklayın. Görüntü İşleme API'sini hızlı bir şekilde denemeniz için [Open API test konsolu](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console) konusuna bakın.
 
 > [!div class="nextstepaction"]
 > [Görüntü İşleme API'si Python Öğreticisi](../Tutorials/PythonTutorial.md)

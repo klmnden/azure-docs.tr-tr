@@ -1,21 +1,21 @@
 ---
-title: Android için Yüz Tanıma API'si Java öğreticisi | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: Bu öğreticide, resimdeki yüzleri algılamak ve çerçeve içine almak için Bilişsel Hizmetler Yüz Tanıma hizmetini kullanan basit bir Android uygulaması oluşturursunuz.
+title: 'Öğretici: Bir görüntüdeki yüzleri algılama ve çerçeveleme - Yüz Tanıma API’si, Android için Java'
+titleSuffix: Azure Cognitive Services
+description: Bu öğreticide, bir görüntüdeki yüzleri algılamak ve çerçevelemek için Yüz Tanıma API’sini kullanan basit bir Android uygulaması oluşturacaksınız.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: face-api
 ms.topic: tutorial
 ms.date: 07/12/2018
 ms.author: nolachar
-ms.openlocfilehash: ad7b85b378db9e9687b5f8081bc9832e91e9ee5e
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: 50185588b77f01bced9462d5fd1ad67bb5de6e08
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39125645"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46129735"
 ---
 # <a name="tutorial-create-an-android-app-to-detect-and-frame-faces-in-an-image"></a>Öğretici: Resimdeki yüzleri algılamak ve çerçeve içine almak için Android uygulaması oluşturma
 

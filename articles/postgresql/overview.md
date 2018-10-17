@@ -2,20 +2,20 @@
 title: PostgreSQL için Azure Veritabanı ilişkisel veritabanı hizmetine genel bakış
 description: PostgreSQL için Azure Veritabanı ilişkisel veritabanı hizmetine genel bir bakış sağlar.
 services: postgresql
-author: kamathsun
-ms.author: sukamat
+author: rachel-msft
+ms.author: raagyema
 manager: kfile
 editor: jasonwhowell
 ms.custom: mvc
 ms.service: postgresql
 ms.topic: overview
-ms.date: 06/02/2018
-ms.openlocfilehash: fab3aa7d0b1fe0f4fafd4b2fdca24ad0e8a3d03c
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+ms.date: 06/15/2018
+ms.openlocfilehash: 86a8b824479173024b1a14bb8612073ffbfac468
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34737240"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47092166"
 ---
 # <a name="what-is-azure-database-for-postgresql"></a>PostgreSQL için Azure Veritabanı nedir?
 
@@ -56,7 +56,7 @@ PostgreSQL için Azure Veritabanı hizmeti bekleyen verilerde depolama şifrelem
 Varsayılan olarak, PostgreSQL için Azure Veritabanı hizmeti ağ genelinde hareket halindeki veriler için [SSL bağlantı güvenliğini](./concepts-ssl-connection-security.md) zorunlu tutacak şekilde yapılandırılmıştır. Veritabanı sunucunuzla istemci uygulamalarınız arasında SSL bağlantılarının zorunlu tutulması, sunucuya uygulamanız arasındaki veri akışını şifreleyerek "bağlantıyı izinsiz izleme" saldırılarına karşı korumaya yardımcı olur. İsteğe bağlı olarak, istemci uygulamanızın SSL bağlantısını desteklememesi durumunda veritabanı hizmetinize bağlanmak için SSL zorunluluğunu devre dışı bırakabilirsiniz.
 
 ## <a name="contacts"></a>Kişiler
-MySQL için Azure Veritabanı’yla çalışma hakkında sorularınız veya önerileriniz varsa, MySQL için Azure Veritabanı Ekibi’ne bir e-posta gönderin ([@Ask PostgreSQL için Azure DB](mailto:AskAzureDBforPostgreSQL@service.microsoft.com)). Bunun bir teknik destek diğer adı olmadığını unutmayın.
+PostgreSQL için Azure Veritabanı’yla çalışma hakkında sorularınız veya önerileriniz varsa, PostgreSQL için Azure Veritabanı Ekibi’ne bir e-posta gönderin ([@Ask PostgreSQL için Azure DB](mailto:AskAzureDBforPostgreSQL@service.microsoft.com)). Bunun bir teknik destek diğer adı olmadığını unutmayın.
 
 Buna ek olarak, aşağıdaki iletişim noktalarını uygun şekilde göz önünde bulundurun:
 - Azure Desteği ile iletişim kurmak için [Azure portaldan bir bilet oluşturun](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).

@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 06/04/2018
 ms.author: anshan
 manager: cshankar
-ms.openlocfilehash: 7faec1608845d218a738c70f147f79248a549dde
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 46fecf6f1b2826f0e23b7b6c4f4511ce9a662d1c
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39626781"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46365698"
 ---
 # <a name="tutorial-create-an-azure-time-series-insights-environment"></a>Öğretici: Azure Time Series Insights ortamı oluşturma
 
@@ -26,11 +26,17 @@ Bu öğreticide, sanal cihazlardan verilerle doldurulmuş bir Time Series Insigh
 > * TSI ortamına veri akışı yapmak için cihaz benzetimi çalıştırma
 > * Sanal telemetri verilerini doğrulama
 
+## <a name="video"></a>Video: 
+
+### <a name="in-this-video-we-show-you-how-to-use-an-azure-iot-solution-accelerator-to-generate-data-that-can-be-used-to-get-started-with-time-series-insightsbr"></a>Bu videoda, Time Series Insights’ı kullanmaya başlamak için kullanılabilecek veriler oluşturmak için Azure IoT Çözüm Hızlandırıcısı’nın nasıl kullanılacağı gösterilmektedir.</br>
+
+> [!VIDEO https://www.youtube.com/embed/6ehNf6AJkFo]
+
 ## <a name="prerequisites"></a>Ön koşullar
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/) oluşturun. 
 
-Azure oturum açma hesabının aynı zamanda aboneliğin "Sahip" rolüne üye olması gerekir. Ayrıntılar için bkz. [Azure aboneliği yöneticileri ekleme veya değiştirme](/azure/billing/billing-add-change-azure-subscription-administrator)
+Azure oturum açma hesabının aynı zamanda aboneliğin Sahip rolüne üye olması gerekir. Ayrıntılar için [RBAC ve Azure portalı kullanarak erişimi yönetme](/azure/role-based-access-control/role-assignments-portal)
 
 ## <a name="overview"></a>Genel Bakış
 

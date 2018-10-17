@@ -13,20 +13,22 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 05/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 7e86ba2b7fc729bd4663503282a936a5eaddf3ca
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 8cf779f203850ca03942ba2395baf07412712610
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34637882"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47092978"
 ---
 # <a name="compare-managed-labs-in-azure-lab-services-and-devtest-labs"></a>Azure Lab Services ve DevTest Labs’te yönetilen laboratuvarları karşılaştırma
 İki tür laboratuvar oluşturabilirsiniz: Azure Lab Services ile **yönetilen laboratuvarlar** ve Azure DevTest Labs ile **özel laboratuvarlar** . Yalnızca bir laboratuvardaki gereksinimlerinizi eklemek ve laboratuvar için gerekli altyapıyı ayarlayıp yönetmeyi hizmete bırakmak istiyorsanız, **yönetilen laboratuvarlardan** birini seçin. Şu anda **sınıf laboratuvarı**, Azure Lab Services ile oluşturabileceğiniz tek yönetilen laboratuvar türüdür. Kendi altyapınızı yönetmek istiyorsanız, Azure DevTest Labs kullanarak bir laboratuvar oluşturun.
 
 Aşağıdaki bölümlerde bu laboratuvarlar hakkında daha ayrıntılı bilgi verilmektedir. 
 
-## <a name="managed-labs"></a>Yönetilen laboratuvarlar
-Yönetilen laboratuvarlar, özel gereksiniminize uygun olan farklı türde laboratuvarlar sunar. Şu anda Azure Lab Services yönetilen laboratuvar olarak yalnızca **sınıf laboratuvarını** destekler. Yönetilen laboratuvarlar çok az kurulumla hemen çalışmaya başlamanızı sağlar. Hizmet, VM’leri tasarlamaktan hataları işlemeye ve altyapıyı ölçeklendirmeye varan tüm laboratuvar altyapısı yönetimi konularını ele alır. Yönetilen bir laboratuvar oluşturmak için ilk olarak kuruluşunuza ait bir laboratuvar hesabı oluşturmanız gerekir. Laboratuvar hesabı, kuruluştaki tüm laboratuvarların yönetildiği merkezi hesap olarak görev yapar. 
+## <a name="managed-lab-types"></a>Yönetilen laboratuvar türleri
+Azure Lab Services, altyapısı Azure tarafından yönetilen laboratuvarlar oluşturmanızı sağlar. Bu makalede bunlardan yönetilen laboratuvarlar olarak bahsedilmektedir. Yönetilen laboratuvarlar, özel gereksiniminize uygun olan farklı türde laboratuvarlar sunar. Şu anda, desteklenen tek yönetilen laboratuvar türü **sınıf laboratuvarıdır**. 
+
+Yönetilen laboratuvarlar çok az kurulumla hemen çalışmaya başlamanızı sağlar. Hizmet, VM’leri tasarlamaktan hataları işlemeye ve altyapıyı ölçeklendirmeye varan tüm laboratuvar altyapısı yönetimi konularını ele alır. Sınıf laboratuvarı gibi yönetilen bir laboratuvar oluşturmak için ilk olarak kuruluşunuza ait bir laboratuvar hesabı oluşturmanız gerekir. Laboratuvar hesabı, kuruluştaki tüm laboratuvarların yönetildiği merkezi hesap olarak görev yapar. 
 
 Bu yönetilen laboratuvarlarda Azure kaynakları oluşturup kullandığınızda hizmet, dahili Microsoft aboneliklerinde kaynaklar oluşturup yönetir. Bunlar sizin Azure aboneliğinizde oluşturulmaz. Hizmet bu kaynakların dahili Microsoft aboneliklerindeki kullanımını takip eder. Bu kullanım, laboratuvar hesabını içeren Azure aboneliğinize faturalanır.   
 
@@ -51,11 +53,11 @@ Tüm altyapıyı ve yapılandırmayı kendi başınıza, kendi aboneliğiniz iç
 - Ürününüzün en son sürümü ile yapılandırılmış bir laboratuvar kullanarak müşterilerinize eğitim oturumları sunun. Her müşteriye laboratuvarda kullanmak üzere sınırlı sayıda saat verin. 
 
 
-## <a name="managed-labs-vs-devtest-labs"></a>Yönetilen laboratuvarlar ve DevTest Labs
+## <a name="managed-lab-types-vs-devtest-labs"></a>Yönetilen laboratuvar türleri ve DevTest Labs
 Aşağıdaki tabloda Azure Lab Services tarafından desteklenen iki laboratuvar türü karşılaştırılmaktadır: 
 
 | Özellikler | Yönetilen laboratuvarlar | DevTest Labs |
-| -------- | ----------------  | ---------- |
+| -------- | ----------------- | ---------- |
 | Laboratuvarda Azure altyapısı yönetimi. |  Hizmet tarafından otomatik olarak yönetilir | Kendi başınıza yönetirsiniz  |
 | Altyapı sorunlarında yerleşik esneklik | Hizmet tarafından otomatik olarak gerçekleştirilir | Kendi başınıza yönetirsiniz  |
 | Abonelik yönetimi | Hizmet, hizmeti destekleyen Microsoft abonelikleri içinde kaynak ayırmayı gerçekleştirir. Ölçeklendirme hizmet tarafından otomatik olarak gerçekleştirilir. | Kendi Azure aboneliğinizde kendi başınıza yönetirsiniz. Abonelikler otomatik ölçeklendirilmez. |

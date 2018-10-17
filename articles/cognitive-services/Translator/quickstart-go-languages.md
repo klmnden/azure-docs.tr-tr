@@ -1,21 +1,21 @@
 ---
-title: Translator Metin Çevirisi Go ile desteklenen dilleri alma | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: Bu hızlı başlangıçta, Bilişsel Hizmetler’de Go ile Translator Metin Çevirisi API’sini kullanarak çeviri, başka alfabeye çevirme ve sözlük arama için desteklenen dillerin ve örneklerin bir listesini alacaksınız.
+title: 'Hızlı Başlangıç: Desteklenen dilleri alma - Translator Metin Çevirisi, Go'
+titleSuffix: Azure Cognitive Services
+description: Bu hızlı başlangıçta, Go ile Translator Metin Çevirisi API’sini kullanarak çeviri, başka alfabeye çevirme ve sözlük arama için desteklenen dillerin ve örneklerin bir listesini alacaksınız.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/29/2018
 ms.author: nolachar
-ms.openlocfilehash: 91ba39f072d97a87250a2d6284df8571905c1b0f
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.openlocfilehash: 6f8725c834e4417321722f7d49e09765e19a3b6d
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "43772493"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46127780"
 ---
 # <a name="quickstart-get-supported-languages-with-go"></a>Hızlı Başlangıç: Go ile desteklenen dilleri alma
 
@@ -23,7 +23,7 @@ Bu hızlı başlangıçta, Translator Metin Çevirisi API’sini kullanarak çev
 
 ## <a name="prerequisites"></a>Ön koşullar
 
-Bu kodu çalıştırmak için [Go dağıtımı](https://golang.org/doc/install)’nı yüklemeniz gerekir. Örnek kod yalnızca **çekirdek** kitaplıklarını kullandığından, dış bağımlılıkları yoktur.
+Bu kodu çalıştırmak için [Go dağıtımını](https://golang.org/doc/install) yüklemeniz gerekir. Örnek kod yalnızca **çekirdek** kitaplıklarını kullandığından, dış bağımlılıkları yoktur.
 
 Translator Metin Çevirisi API'sini kullanmak için, ayrıca abonelik anahtarınızın olması gerekir; bkz. [Translator Metin Çevirisi API'sine kaydolma](translator-text-how-to-signup.md).
 
@@ -34,7 +34,7 @@ Aşağıdaki kod, [Diller](./reference/v3-0-languages.md) yöntemini kullanarak 
 1. Sık kullandığınız kod düzenleyicisinde yeni bir Go projesi oluşturun.
 2. Aşağıda sağlanan kodu ekleyin.
 3. `subscriptionKey` değerini, aboneliğiniz için geçerli olan bir erişim anahtarı ile değiştirin.
-4. Dosyası '.go' uzantısıyla kaydedin.
+4. Dosyayı '.go' uzantısıyla kaydedin.
 5. Go yüklü bir bilgisayarda bir komut istemi açın.
 6. Dosyayı oluşturun, örneğin: 'go build quickstart-languages.go'.
 7. Dosyayı çalıştırın, örneğin: 'quickstart-languages'.
@@ -190,4 +190,4 @@ Başarılı bir yanıt, aşağıdaki örnekte gösterildiği gibi JSON biçimind
 Bilişsel Hizmetler API'leri için GitHub’da [Go için Azure SDK](https://github.com/Azure/azure-sdk-for-go)’dan Go paketlerini keşfedin.
 
 > [!div class="nextstepaction"]
-> [GitHub’da Git paketlerini keşfedin](https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices)
+> [GitHub’da Go paketlerini keşfedin](https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices)

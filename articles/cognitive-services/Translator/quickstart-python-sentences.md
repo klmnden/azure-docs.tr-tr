@@ -1,21 +1,21 @@
 ---
-title: Translator Metin Çevirisi Python ile cümle uzunluklarını alma | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: Bu hızlı başlangıçta, Bilişsel Hizmetler’de Python ile Translator Metin Çevirisi API'sini kullanarak metindeki cümlelerin uzunluklarını bulacaksınız.
+title: 'Hızlı Başlangıç: Cümle uzunluklarını alma - Translator Metin Çevirisi, Python'
+titleSuffix: Azure Cognitive Services
+description: Bu hızlı başlangıçta, Python ile Translator Metin Çevirisi API’sini kullanarak metindeki cümlelerin uzunluklarını bulacaksınız.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/21/2018
 ms.author: nolachar
-ms.openlocfilehash: 7b822dfa2db1b9d106d6d569fb26d9f6e8109c83
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.openlocfilehash: 2b014f5b52249cf316889e5637e76ee7b7d23e91
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "43770992"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46125706"
 ---
 # <a name="quickstart-get-sentence-lengths-with-python"></a>Hızlı Başlangıç: Python ile cümle uzunluklarını alma
 
@@ -23,7 +23,7 @@ Bu hızlı başlangıçta, Translator Metin Çevirisi API'sini kullanarak metind
 
 ## <a name="prerequisites"></a>Ön koşullar
 
-Bu kodu çalıştırmak için [Python 3.x](https://www.python.org/downloads/)’e ihtiyacınız olacak.
+Bu kodu çalıştırmak için [Python 3.x](https://www.python.org/downloads/) sürümüne ihtiyacınız olacak.
 
 Translator Metin Çevirisi API'sini kullanmak için, ayrıca abonelik anahtarınızın olması gerekir; bkz. [Translator Metin Çevirisi API'sine kaydolma](translator-text-how-to-signup.md).
 

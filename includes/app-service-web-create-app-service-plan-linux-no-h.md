@@ -2,10 +2,10 @@ Cloud Shell’de, kaynak grubunda [`az appservice plan create`](/cli/azure/appse
 
 <!-- [!INCLUDE [app-service-plan](app-service-plan-linux.md)] -->
 
-Aşağıdaki örnek, **Standart** fiyatlandırma katmanı (`--sku S1`) ve bir Linux kapsayıcısı (`--is-linux`) içinde `myAppServicePlan` adlı bir App Service planı oluşturur.
+Aşağıdaki örnek, **Temel** fiyatlandırma katmanı (`--sku B1`) ve bir Linux kapsayıcısı (`--is-linux`) içinde `myAppServicePlan` adlı bir App Service planı oluşturur.
 
 ```azurecli-interactive
-az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --sku S1 --is-linux
+az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --sku B1 --is-linux
 ```
 
 App Service planı oluşturulduğunda Azure CLI, aşağıdaki örneğe benzer bilgiler gösterir:

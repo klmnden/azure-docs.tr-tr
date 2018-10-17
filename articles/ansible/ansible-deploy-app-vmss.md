@@ -7,13 +7,13 @@ author: tomarcher
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
-ms.date: 08/24/2018
-ms.openlocfilehash: 762c14b5b6e30f6410a8d572d69651c803f079c2
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
+ms.date: 09/11/2018
+ms.openlocfilehash: 3512cb7eda9f9e5a6e18dc83f6523029b17a9de2
+ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42918095"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44391479"
 ---
 # <a name="deploy-applications-to-virtual-machine-scale-sets-in-azure-using-ansible"></a>Ansible kullanarak Azure’da sanal makine ölçek kümelerine uygulama dağıtma
 Ansible, ortamınızdaki kaynakların dağıtımını ve yapılandırılmasını otomatikleştirmenizi sağlar. Uygulamalarınızı Azure'a dağıtmak için Ansible kullanabilirsiniz. Bu makalede bir Azure sanal makine ölçek kümesine (VMSS) bir Java uygulamasının nasıl dağıtılacağı gösterilmektedir.  
@@ -31,7 +31,7 @@ Ansible, ortamınızdaki kaynakların dağıtımını ve yapılandırılmasını
 
 ## <a name="get-host-information"></a>Ana bilgisayar bilgilerini alma
 
-Bu bölümde, bir Azure sanal makine grubu için ana bilgisayar bilgilerini almak üzere Ansible'ın nasıl kullanılacağı gösterilmektedir. Aşağıda bir Ansible playbook örneği verilmiştir. Kod, belirtilen kaynak grubu içinden genel IP adreslerini ve yük dengeleyiciyi alır ve sayımda **saclesethosts** adlı bir ana bilgisayar grubu oluşturur. 
+Bu bölümde, bir Azure sanal makine grubu için ana bilgisayar bilgilerini almak üzere Ansible'ın nasıl kullanılacağı gösterilmektedir. Aşağıda bir Ansible playbook örneği verilmiştir. Kod, genel IP adreslerini ve yük dengeleyiciyi belirtilen kaynak grubuna alır ve envanterde **scalesethosts** adlı bir konak grubu oluşturur. 
 
 Aşağıdaki örnek playbook'u `get-hosts-tasks.yml` olarak kaydedin: 
 

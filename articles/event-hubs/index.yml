@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 5ed6a94eb0a8737cc8a6a7d5b26d3aa7e84ef1e1
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: a0ee180475c0264d8fce5856b6354830a42ff963
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46952537"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49352529"
 documentType: LandingData
 title: Azure Event Hubs Belgeleri
 metadata:
@@ -12,28 +12,28 @@ metadata:
   title: Azure Event Hubs Belgeleri - Öğreticiler, hızlı başlangıçlar, API Başvurusu
   meta.description: Learn how to use Event Hubs to ingest millions of events per second from connected IoT devices and applications on a broad set of platforms.
   services: event-hubs
-  author: sethmanheim
+  author: spelluru
   manager: timlt
   ms.service: event-hubs
   ms.topic: landing-page
-  ms.date: 05/14/2018
-  ms.author: sethm
+  ms.date: 10/15/2018
+  ms.author: spelluru
 abstract:
-  description: Azure Event Hubs saniyede milyonlarca olay alıp işleme kapasitesine sahip olan bir Büyük Veri akış platformu ve olay alma hizmetidir. Event Hubs dağıtılan yazılımlar ve cihazlar tarafından oluşturulan olayları, verileri ve telemetrileri işleyebilir ve depolayabilir. Bir olay hub’ına gönderilen veriler, herhangi bir gerçek zamanlı analiz sağlayıcısı ve işlem grubu oluşturma/depolama bağdaştırıcıları kullanılarak dönüştürülüp depolanabilir. <p>Hizmet, olay hub'ında olay yayımlamak için HTTPS, AMQP 1.0, ve Apache Kafka 1.0 protokollerini destekler. Apache Kafka ekosistemlerindeki Apache Kafka MirrorMaker, Apache Flink ve Akka Streams hizmetlerini destekler.</p>
+  description: Azure Event Hubs saniyede milyonlarca olay alıp işleme kapasitesine sahip olan bir Büyük Veri akış platformu ve olay alma hizmetidir. Event Hubs dağıtılan yazılımlar ve cihazlar tarafından oluşturulan olayları, verileri ve telemetrileri işleyebilir ve depolayabilir. Bir olay hub’ına gönderilen veriler, herhangi bir gerçek zamanlı analiz sağlayıcısı ve işlem grubu oluşturma/depolama bağdaştırıcıları kullanılarak dönüştürülüp depolanabilir. Apache Kafka için Event Hubs, Event Hubs ile yalnızca yapılandırma değişiklikleriyle sorunsuz bir şekilde çalışmak için Mirror Maker, Apache Flink ve Akka Streams gibi yerel Kafka istemcilerini, araçlarını ve uygulamalarını etkinleştirir.
   aside:
     image:
       alt: 
       height: 110
-      src: /azure/event-hubs/media/index/azure-messaging-and-event-based-architecture.png
+      src: /azure/event-hubs/media/index/stream-big-data-kafka-event-hubs.png
       width: 250
-    title: Azure Mesajlaşma ve olay tabanlı mimari (1:24:32)
-    href: https://azure.microsoft.com/resources/videos/build-2018-azure-messaging-and-event-based-architecture-in-the-real-world-lessons-learned-rebuilding-microsoft-s-supply-chain-on-azure-serverless/
+    title: Kafka ve Event Hubs ile Azure’da Büyük Veri Akışı Yapma (1:20:13)
+    href: https://azure.microsoft.com/resources/videos/streaming-big-data-in-azure-with-kafka-and-event-hubs/
     width: 250
 sections:
 - title: 5 Dakikalık Hızlı Başlangıçlar
   items:
   - type: paragraph
-    text: 'Event Hubs ile verileri akışla aktarmayı öğrenin:'
+    text: 'Olay hub’ı <b>oluşturma</b> hakkında bilgi edinin:'
   - type: list
     style: icon48
     items:
@@ -49,6 +49,68 @@ sections:
         src: /azure/event-hubs/media/index/logo_powershell.svg
       text: Azure PowerShell
       href: /azure/event-hubs/event-hubs-quickstart-powershell
+  - type: paragraph
+    text: 'Olay hub’ına <b>olay gönderme</b> hakkında bilgi edinin:'
+  - type: list
+    style: icon48
+    items:
+    - image:
+        src: /azure/event-hubs/media/index/logo_net.svg
+      text: .NET Framework
+      href: /azure/event-hubs/event-hubs-dotnet-framework-getstarted-send
+    - image:
+        src: /azure/event-hubs/media/index/logo_netcore.svg
+      text: .NET Standard
+      href: /azure/event-hubs/event-hubs-dotnet-standard-getstarted-send
+    - image:
+        src: /azure/event-hubs/media/index/logo_java.svg
+      text: Java
+      href: /azure/event-hubs/event-hubs-java-get-started-send
+    - image:
+        src: /azure/event-hubs/media/index/logo_python.svg
+      text: Python
+      href: /azure/event-hubs/event-hubs-python-get-started-send
+    - image:
+        src: /azure/event-hubs/media/index/logo_nodejs.svg
+      text: Node.js
+      href: /azure/event-hubs/event-hubs-node-get-started-send
+    - image:
+        src: /azure/event-hubs/media/index/logo_go.svg
+      text: Başlayın
+      href: /azure/event-hubs/event-hubs-go-get-started-send
+    - image:
+        src: /azure/event-hubs/media/index/logo_c.svg
+      text: C
+      href: /azure/event-hubs/event-hubs-c-getstarted-send
+  - type: paragraph
+    text: 'Olay hub’ından <b>olay alma</b> hakkında bilgi edinin:'
+  - type: list
+    style: icon48
+    items:
+    - image:
+        src: /azure/event-hubs/media/index/logo_net.svg
+      text: .NET Framework
+      href: /azure/event-hubs/event-hubs-dotnet-framework-getstarted-receive-eph
+    - image:
+        src: /azure/event-hubs/media/index/logo_netcore.svg
+      text: .NET Standard
+      href: /azure/event-hubs/event-hubs-dotnet-standard-getstarted-receive-eph
+    - image:
+        src: /azure/event-hubs/media/index/logo_java.svg
+      text: Java
+      href: /azure/event-hubs/event-hubs-java-get-started-receive-eph
+    - image:
+        src: /azure/event-hubs/media/index/logo_python.svg
+      text: Python
+      href: /azure/event-hubs/event-hubs-python-get-started-receive
+    - image:
+        src: /azure/event-hubs/media/index/logo_nodejs.svg
+      text: Node.js
+      href: /azure/event-hubs/event-hubs-node-get-started-receive
+    - image:
+        src: /azure/event-hubs/media/index/logo_go.svg
+      text: Başlayın
+      href: /azure/event-hubs/event-hubs-go-get-started-receive-eph
 - title: Adım Adım Öğreticiler
   items:
   - type: paragraph

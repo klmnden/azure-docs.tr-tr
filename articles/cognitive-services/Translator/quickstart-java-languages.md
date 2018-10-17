@@ -1,21 +1,21 @@
 ---
-title: Translator Metin Çevirisi Java ile desteklenen dilleri alma | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: Bu hızlı başlangıçta, Bilişsel Hizmetler’de Java ile Translator Metin Çevirisi API’sini kullanarak çeviri, başka alfabeye çevirme ve sözlük arama için desteklenen dillerin ve örneklerin bir listesini alacaksınız.
+title: 'Hızlı Başlangıç: Desteklenen dilleri alma - Translator Metin Çevirisi, Java'
+titleSuffix: Azure Cognitive Services
+description: Bu hızlı başlangıçta, Java ile Translator Metin Çevirisi API’sini kullanarak çeviri, başka alfabeye çevirme ve sözlük arama için desteklenen dillerin ve örneklerin bir listesini alacaksınız.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/21/2018
 ms.author: nolachar
-ms.openlocfilehash: af8b50d6600354601c8516c20a079028cefe2b16
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: 64954c06d90ff8110b77874846fe57072faf2f76
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "43770704"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46126981"
 ---
 # <a name="quickstart-get-supported-languages-with-java"></a>Hızlı Başlangıç: Java ile desteklenen dilleri alma
 

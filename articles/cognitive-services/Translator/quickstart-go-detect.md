@@ -1,21 +1,21 @@
 ---
-title: Translator Metin Çevirisi Go ile metinden dil tanımlama | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: Bu hızlı başlangıçta, Bilişsel Hizmetler’de Go ile Translator Metin Çevirisi API'sini kullanarak kaynak metnin dilini tanımlayacaksınız.
+title: 'Hızlı Başlangıç: Metinden dili tanımlama - Translator Metin Çevirisi, Go'
+titleSuffix: Azure Cognitive Services
+description: Bu hızlı başlangıçta, Go ile Translator Metin Çevirisi API’sini kullanarak kaynak metnin dilini tanımlayacaksınız.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/29/2018
 ms.author: nolachar
-ms.openlocfilehash: 29fac1a079455a65cc3d430c3030fed99f5cfce1
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.openlocfilehash: 25834fae2ce60d93ebeb3a25298b97294748bf9b
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "43772488"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46129718"
 ---
 # <a name="quickstart-identify-language-from-text-with-go"></a>Hızlı Başlangıç: Go ile metinden dil tanımlama
 
@@ -23,7 +23,7 @@ Bu hızlı başlangıçta, Translator Metin Çevirisi API'sini kullanarak kaynak
 
 ## <a name="prerequisites"></a>Ön koşullar
 
-Bu kodu çalıştırmak için [Go dağıtımı](https://golang.org/doc/install)’nı yüklemeniz gerekir. Örnek kod yalnızca **çekirdek** kitaplıklarını kullandığından, dış bağımlılıkları yoktur.
+Bu kodu çalıştırmak için [Go dağıtımını](https://golang.org/doc/install) yüklemeniz gerekir. Örnek kod yalnızca **çekirdek** kitaplıklarını kullandığından, dış bağımlılıkları yoktur.
 
 Translator Metin Çevirisi API'sini kullanmak için, ayrıca abonelik anahtarınızın olması gerekir; bkz. [Translator Metin Çevirisi API'sine kaydolma](translator-text-how-to-signup.md).
 
@@ -34,7 +34,7 @@ Aşağıdaki kod, [Algılama](./reference/v3-0-detect.md) yöntemini kullanarak 
 1. Sık kullandığınız kod düzenleyicisinde yeni bir Go projesi oluşturun.
 2. Aşağıda sağlanan kodu ekleyin.
 3. `subscriptionKey` değerini, aboneliğiniz için geçerli olan bir erişim anahtarı ile değiştirin.
-4. Dosyası '.go' uzantısıyla kaydedin.
+4. Dosyayı '.go' uzantısıyla kaydedin.
 5. Go yüklü bir bilgisayarda bir komut istemi açın.
 6. Dosyayı oluşturun, örneğin: 'go build quickstart-detect.go'.
 7. Dosyayı çalıştırın, örneğin: 'quickstart-detect'.
@@ -138,4 +138,4 @@ Başarılı bir yanıt, aşağıdaki örnekte gösterildiği gibi JSON biçimind
 Bilişsel Hizmetler API'leri için GitHub’da [Go için Azure SDK](https://github.com/Azure/azure-sdk-for-go)’dan Go paketlerini keşfedin.
 
 > [!div class="nextstepaction"]
-> [GitHub’da Git paketlerini keşfedin](https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices)
+> [GitHub’da Go paketlerini keşfedin](https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices)

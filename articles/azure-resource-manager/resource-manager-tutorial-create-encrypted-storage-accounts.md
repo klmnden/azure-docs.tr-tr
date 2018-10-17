@@ -10,15 +10,15 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 08/27/2018
+ms.date: 09/07/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 57d5f7039831c9fd617926f20f3ff001b22ef314
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: d48374d7919be3d141ea199e8238a220dbfe0332
+ms.sourcegitcommit: 3150596c9d4a53d3650cc9254c107871ae0aab88
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43097894"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47419534"
 ---
 # <a name="tutorial-create-an-azure-resource-manager-template-for-deploying-an-encrypted-storage-account"></a>Öğretici: Şifrelenmiş depolama hesabı dağıtmak için bir Azure Resource Manager şablonu oluşturma
 
@@ -112,9 +112,14 @@ Bu şablonda bir değişken tanımlanır: *storageAccountName*. Tanımda iki şa
 Bu öğreticinin hedefi, şifrelenmiş bir depolama hesabı oluşturmak üzere şablon tanımlamaktır.  Örnek şablon, yalnızca temel şifrelenmemiş depolama hesabı oluşturur. Şifreleme ile ilgili yapılandırmayı bulmak için, Azure Depolama hesabının şablon başvurusunu kullanabilirsiniz.
 
 1. [Azure Şablonları](https://docs.microsoft.com/azure/templates/)'na gidin.
-2. Sol taraftaki içindekiler bölümünden **Başvuru**->**Depolama**->**Depolama Hesapları**'nı seçin. Ayrıca **Başlığa göre filtrele** alanına **depolama** değerini de girebilirsiniz.  Bu sayfa, Depolama Hesabı bilgilerini tanımlamaya ilişkin bir şema içerir.
-3. Şifrelemeyle ilgili bilgileri inceleyin.  
-4. Depolama hesabı kaynak tanımının properties öğesine aşağıdaki JSON kodunu ekleyin:
+2. **Başlığa göre filtrele**’ye, **depolama hesapları** girin.
+3. Aşağıdaki ekran görüntüsünde gösterildiği gibi, **Başvuru/Şablon başvurusu/Depolama/Depolama Hesapları**’nı seçin:
+
+    ![Resource Manager şablon başvurusu depolama hesabı](./media/resource-manager-tutorial-create-encrypted-storage-accounts/resource-manager-template-resources-reference-storage-accounts.png)
+
+    resource-manager-template-resources-reference-storage-accounts
+1. Şifrelemeyle ilgili bilgileri inceleyin.  
+1. Depolama hesabı kaynak tanımının properties öğesine aşağıdaki JSON kodunu ekleyin:
 
     ```json
     "encryption": {
@@ -151,7 +156,7 @@ Artık Azure kaynakları gerekli değilse, kaynak grubunu silerek dağıttığı
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu öğreticide şablon başvurusunu kullanarak var olan bir şablonu özelleştirmeyi öğrendiniz. Bu öğreticide kullanılan şablonda tek bir Azure kaynağı vardır.  Sonraki öğreticide, şablonu birden fazla kaynakla geliştireceksiniz. Bazı kaynakların bağımlı kaynakları vardır.
+Bu öğreticide şablon başvurusunu kullanarak var olan bir şablonu özelleştirmeyi öğrendiniz. Birden çok depolama hesabı örneği oluşturmayı öğrenmek için, bkz:
 
 > [!div class="nextstepaction"]
-> [Birden çok kaynak oluşturma](./resource-manager-tutorial-create-templates-with-dependent-resources.md)
+> [Birden çok örnek oluşturma](./resource-manager-tutorial-create-multiple-instances.md)

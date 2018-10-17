@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 09/26/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: c195f2ee24b61a57c098d5214a37f65e80845074
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 28ff8dbf073596e5f9565c56ae903af6af68f3e2
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47410213"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49353725"
 ---
 # <a name="tutorial-create-an-edge-machine-learning-solution-with-azure-and-azure-stack"></a>Öğretici: Azure ve Azure Stack ile çözüm öğrenme bir makine oluşturma
 
@@ -210,7 +210,7 @@ Yeni oluşturulan depolama hesabı aynı kaynak grubunda yeni DSVM yerleştirin.
 
     d.  İçin **tanılama depolama hesabı**, daha önce oluşturduğunuz depolama hesabını seçin.
 
-    e.  Not: Yönetilen hizmet kimliği de etkin ve Azure aboneliği için yapılandırılmış AAD ile etkinleştirilebilir.
+    e.  Not: Azure kaynakları için yönetilen kimlikleri de Azure aboneliği için yapılandırılmış ve etkin AAD ile etkinleştirilebilir.
 
 2.  **Tamam**’ı seçin.
 

@@ -8,12 +8,12 @@ ms.author: tomfitz
 ms.date: 08/13/2018
 ms.topic: quickstart
 ms.service: event-grid
-ms.openlocfilehash: a47beb3e4299c62ec4b7959b4834d0440fee06f7
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.openlocfilehash: 17fba267e85c7b1421e632930c8bea2bfaf6ff5f
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42744594"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45736504"
 ---
 # <a name="create-and-route-blob-storage-events-with-the-azure-portal-and-event-grid"></a>Azure portalı ve Event Grid ile Blob depolama olayları oluşturma ve yönlendirme
 
@@ -37,7 +37,7 @@ Azure Event Grid, bulut için bir olay oluşturma hizmetidir. Bu makalede Azure 
 
    ![Depolama’yı seçme](./media/blob-event-quickstart-portal/create-storage.png)
 
-1. Olaylar için [Blob depolama hesabına](../storage/common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-storage-accounts) veya [Genel Amaçlı v2 depolama hesabına](../storage/common/storage-account-options.md#general-purpose-v2-accounts) sahip olmanız gerekir. Yalnızca blok veya engelleme blobunun gerektiği uygulamalar için Blob Storage hesaplarının kullanılmasını öneririz. Blob veya StorageV2 hesabı için değerleri sağlayın. Hesaba benzersiz bir ad verin. Değerleri girmeyi tamamladığınızda **Oluştur**'u seçin.
+1. Olaylara abone olmak için, genel amaçlı v2 depolama hesabı veya bir Blob depolama hesabı oluşturun. Daha fazla bilgi için bkz. [Depolama hesabı oluşturma](../storage/common/storage-quickstart-create-account.md).
 
    ![Başlangıç adımları](./media/blob-event-quickstart-portal/provide-blob-values.png)
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 08/16/2018
 ms.author: spelluru
-ms.openlocfilehash: 4f7aa0b0c5142237f3b6fc66bb8593302c95f5af
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.openlocfilehash: e66a1651a46cfaeb7fb8b232eeb7cf6a2fb8044d
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41920644"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47451231"
 ---
 # <a name="get-started-with-relay-hybrid-connections-http-requests-in-net"></a>.NET’te Relay Karma Bağlantılar HTTP istekleri ile çalışmaya başlama
 [!INCLUDE [relay-selector-hybrid-connections](../../includes/relay-selector-hybrid-connections.md)]
@@ -64,9 +64,14 @@ Geçiş hizmetine ileti göndermek Visual Studio kullanarak bir C# konsol uygula
 [!INCLUDE [relay-hybrid-connections-http-requests-dotnet-get-started-client](../../includes/relay-hybrid-connections-http-requests-dotnet-get-started-client.md)]
 
 ## <a name="5-run-the-applications"></a>5. Uygulamaları çalıştırma
-1. Sunucu uygulamasını çalıştırın.
-2. İstemci uygulamasını çalıştırın ve metin girin.
-3. Sunucu uygulama konsolunun istemci uygulamasına girilen metni görüntülediğinden emin olun.
+1. Sunucu uygulamasını çalıştırın. Konsol penceresinde aşağıdaki metni görürsünüz:
+
+    ```
+    Online
+    Server listening
+    ```
+1. İstemci uygulamasını çalıştırın. İstemci penceresinde `hello!` görürsünüz. İstemci, sunucuya bir HTTP isteği gönderir ve sunucu bir `hello!` ile yanıt verir. 
+3. Şimdi, konsol pencerelerini kapatmak için her iki pencerede **ENTER**’a basın. 
 
 Tebrikler, uçtan uca bir Karma Bağlantılar uygulaması oluşturdunuz!
 

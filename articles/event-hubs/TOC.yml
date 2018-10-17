@@ -11,20 +11,20 @@ items:
     href: event-hubs-capture-overview.md
 - name: Hızlı Başlangıçlar
   items:
-  - name: Olay hub’ı oluşturma - Portal
-    href: event-hubs-quickstart-portal.md
-  - name: Olay hub’ı oluşturma - Azure CLI
-    href: event-hubs-quickstart-cli.md
-  - name: Olay hub’ı oluşturma - Azure PowerShell
-    href: event-hubs-quickstart-powershell.md
-  - name: Apache Kafka için Event Hubs’da akış yapma
-    href: event-hubs-quickstart-kafka-enabled-event-hubs.md
+  - name: Olay hub’ı oluşturma
+    items:
+    - name: Azure portal
+      href: event-hubs-quickstart-portal.md
+    - name: Azure CLI
+      href: event-hubs-quickstart-cli.md
+    - name: Azure PowerShell
+      href: event-hubs-quickstart-powershell.md
   - name: Olay hub’ına olay gönderme
     items:
-    - name: .NET Framework
-      href: event-hubs-dotnet-framework-getstarted-send.md
     - name: .NET Standard
       href: event-hubs-dotnet-standard-getstarted-send.md
+    - name: .NET Framework
+      href: event-hubs-dotnet-framework-getstarted-send.md
     - name: Java
       href: event-hubs-java-get-started-send.md
     - name: C
@@ -37,10 +37,10 @@ items:
       href: event-hubs-node-get-started-send.md
   - name: Olay hub’ından olay alma
     items:
-    - name: .NET Framework
-      href: event-hubs-dotnet-framework-getstarted-receive-eph.md
     - name: .NET Standard
       href: event-hubs-dotnet-standard-getstarted-receive-eph.md
+    - name: .NET Framework
+      href: event-hubs-dotnet-framework-getstarted-receive-eph.md
     - name: Java
       href: event-hubs-java-get-started-receive-eph.md
     - name: Başlayın
@@ -51,6 +51,8 @@ items:
       href: event-hubs-node-get-started-receive.md
     - name: Apache Storm
       href: event-hubs-storm-getstarted-receive.md
+  - name: Apache Kafka için Event Hubs’da akış yapma
+    href: event-hubs-quickstart-kafka-enabled-event-hubs.md
   expanded: true
 - name: Öğreticiler
   items:
@@ -77,15 +79,8 @@ items:
     href: event-hubs-features.md
   - name: Olay İşlemcisi Konağına genel bakış
     href: event-hubs-event-processor-host.md
-  - name: IP bağlantısı filtreleri
-    href: event-hubs-ip-filtering.md
-  - name: Sanal Ağ hizmeti uç noktaları
-    href: event-hubs-service-endpoints.md
   - name: Programlama kılavuzu
     href: event-hubs-programming-guide.md
-  - name: Event Grid ile tümleştirme
-    href: ../event-grid/event-grid-event-hubs-integration.md
-    maintainContext: true
   - name: Azure kaynakları için yönetilen kimlik
     href: event-hubs-managed-service-identity.md
   - name: Rol Tabanlı Erişim Denetimi (önizleme)
@@ -98,8 +93,6 @@ items:
     href: event-hubs-authentication-and-security-model-overview.md
   - name: Kullanılabilirlik ve tutarlılık
     href: event-hubs-availability-and-consistency.md
-  - name: İşleme birimlerini otomatik ölçeklendirme
-    href: event-hubs-auto-inflate.md
   - name: Tanılama günlükleri
     href: event-hubs-diagnostic-logs.md
   - name: AMQP 1.0 protokol kılavuzu
@@ -109,6 +102,12 @@ items:
   items:
   - name: Olay hub’ı oluşturma
     href: event-hubs-create.md
+  - name: IP bağlantısı filtrelerini kullanma
+    href: event-hubs-ip-filtering.md
+  - name: Sanal ağ hizmeti uç noktalarını kullanma
+    href: event-hubs-service-endpoints.md
+  - name: İşleme birimlerini otomatik ölçeklendirme
+    href: event-hubs-auto-inflate.md
   - name: Apache Kafka için Event Hubs
     items:
     - name: Apache Kafka özellikli Event Hubs oluşturma
@@ -186,9 +185,9 @@ items:
     href: http://stackoverflow.com/questions/tagged/azure-eventhub
   - name: Videolar
     href: https://azure.microsoft.com/documentation/videos/index/?services=event-hubs
-ms.openlocfilehash: 31cee762ff6496d9cb22158315423509e728d87b
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 87a0088b54385a0a1af225db6f285dbf892253e7
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49341285"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49362798"

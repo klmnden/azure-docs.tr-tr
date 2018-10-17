@@ -8,12 +8,12 @@ ms.topic: get-started-article
 ms.date: 07/11/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: 59e6f4126e8a39ab695015fae2a2013529383418
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: 693ba07e46900ba6f3e025d97cb34aad9e244ace
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41920792"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44027053"
 ---
 # <a name="introduction-to-azure-storage"></a>Azure Depolama’ya Giriş
 
@@ -93,7 +93,7 @@ Bu tabloda, çeşitli depolama hesapları ve hangi nesnelerin bunlarda kullanıl
 
 |**Depolama hesabı türü**|**Genel amaçlı Standart**|**Genel amaçlı Premium**|**Blob depolama, sık erişimli ve seyrek erişimli erişim katmanları**|
 |-----|-----|-----|-----|
-|**Desteklenen hizmetler**| Blob, Dosya, Kuyruk Hizmetleri | Blob Hizmeti | Blob Hizmeti|
+|**Desteklenen hizmetler**| Blob, Dosya, Kuyruk ve Tablo Hizmetleri | Blob Hizmeti | Blob Hizmeti|
 |**Desteklenen blob türleri**|Blok blobları, sayfa blobları ve ek bloblar | Sayfa blobları | Blok blobları ve ek blobları|
 
 ### <a name="general-purpose-storage-accounts"></a>Genel amaçlı depolama hesapları

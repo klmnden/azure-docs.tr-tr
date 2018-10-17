@@ -1,58 +1,53 @@
 ---
-title: Görüntü İşleme API'si cURL hızlı başlangıç yerel görüntü analizi | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: Bu hızlı başlangıçta, Bilişsel Hizmetler’de cURL ile Görüntü İşleme kullanarak bir yerel görüntü analiz edeceksiniz.
+title: 'Hızlı Başlangıç: Yerel görüntüyü analiz etme - REST, cURL - Görüntü İşleme'
+titleSuffix: Azure Cognitive Services
+description: Bu hızlı başlangıçta, cURL ile Görüntü İşleme API’si kullanarak bir yerel görüntüyü analiz edeceksiniz.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
-ms.date: 08/28/2018
+ms.date: 09/10/2018
 ms.author: v-deken
-ms.openlocfilehash: 93ca3ea6eee3743dfd0c25c9514375ae63a531ee
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 1952d0045550362a242ce1c105c58bd65c815ea6
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43772648"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45631251"
 ---
-# <a name="quickstart-analyze-a-local-image---rest-curl"></a>Hızlı Başlangıç: Yerel görüntü analiz etme - REST, cURL
+# <a name="quickstart-analyze-a-local-image-using-the-rest-api-and-curl-in-computer-vision"></a>Hızlı Başlangıç: Görüntü İşleme’de REST API ve cURL kullanarak bir yerel görüntüyü analiz etme
 
-Bu hızlı başlangıçta, Görüntü İşleme kullanarak görsel özellikleri ayıklamak için yerel bir görüntüyü analiz edeceksiniz. Uzak bir görüntüyü analiz etmek için, bkz. [cURL ile uzak bir görüntüyü analiz etme](curl-analyze.md).
+Bu hızlı başlangıçta, Görüntü İşleme’nin REST API’sini kullanarak görsel özellikleri ayıklamak için yerel olarak depolanan bir görüntüyü analiz edeceksiniz. [Görüntü Analizi](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) yöntemiyle, görüntü içeriğini temel alarak görsel özellikleri ayıklayabilirsiniz.
+
+Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) oluşturun.
 
 ## <a name="prerequisites"></a>Ön koşullar
 
-Görüntü İşleme’yi kullanmak için, bir abonelik anahtarınızın olması gerekir; bkz. [Abonelik Anahtarlarını Alma](../Vision-API-How-to-Topics/HowToSubscribe.md).
+- [cURL](https://curl.haxx.se/windows)’niz olmalıdır.
+- Görüntü İşleme için bir abonelik anahtarınız olması gerekir. Bir abonelik anahtarı almak için bkz. [Abonelik Anahtarları Alma](../Vision-API-How-to-Topics/HowToSubscribe.md).
 
-## <a name="analyze-a-local-image"></a>Yerel resmi çözümleme
+## <a name="create-and-run-the-sample-command"></a>Örnek komutu oluşturma ve çalıştırma
 
-Bu örnek [cURL ile uzak görüntüyü analiz etmeye](curl-analyze.md) benzer ancak analiz edilecek görüntü diskten yerel olarak okunur. Üç değişiklik gereklidir:
+Örneği oluşturup çalıştırmak için aşağıdaki adımları uygulayın:
 
-- Content-Type’ı `"Content-Type: application/octet-stream"` olarak değiştirin.
-- `-d` anahtarını `--data-binary` olarak değiştirin.
-- Şu söz dizimini kullanarak analiz edilecek görüntüyü belirtin: `@C:/Pictures/ImageToAnalyze.jpg`.
+1. Aşağıdaki komutu bir metin düzenleyicisine kopyalayın.
+1. Gerektiğinde komutta aşağıdaki değişiklikleri yapın:
+    1. `<subscriptionKey>` değerini abonelik anahtarınızla değiştirin.
+    1. Gerekirse istek URL’sini (`https://westcentralus.api.cognitive.microsoft.com/vision/v2.0/analyze`), abonelik anahtarlarınızı aldığınız Azure bölgesindeki [Görüntü Analizi](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) yönteminin uç nokta URL’si ile değiştirin.
+    1. `<localImage>` değerini, analiz edilecek görüntünün tam yolu ve dosya adı ile değiştirin. Örneğin, `@C:/Pictures/ImageToAnalyze.jpg`.
+    1. İsteğe bağlı olarak farklı bir desteklenen dil kullanmak için istek URL’sinin dil parametresini (`language=en`) değiştirin.
+1. Bir komut istemi penceresi açın.
+1. Metin düzenleyicisindeki komutu komut istemi penceresine yapıştırın ve komutu çalıştırın.
 
-Örneği çalıştırmak için aşağıdaki adımları uygulayın:
-
-1. Aşağıdaki kodu bir düzenleyicinin içine kopyalayın.
-1. `<Subscription Key>` değerini geçerli abonelik anahtarınızla değiştirin.
-1. Gerekirse İstek URL’sini (`https://westcentralus.api.cognitive.microsoft.com/vision/v2.0`) abonelik anahtarlarınızı aldığınız konumu kullanacak şekilde değiştirin.
-1. `<Image To Analyze>` öğesini analiz etmek istediğiniz yerel görüntü ile değiştirin.
-1. İsteğe bağlı olarak, yanıt dilini değiştirin (`language=en`).
-1. cURL yüklü bir bilgisayarda bir komut penceresi açın.
-1. Kodu pencereye yapıştırıp komutu çalıştırın.
-
->[!NOTE]
->REST çağrınızda abonelik anahtarlarınızı almak için kullandığınız konumu kullanmanız gerekir. Örneğin, güvenlik anahtarlarınızı westus konumundan aldıysanız, aşağıdaki URL’de "westcentralus" değerini "westus" olarak değiştirin.
-
-```json
-curl -H "Ocp-Apim-Subscription-Key: <Subscription Key>" -H "Content-Type: application/octet-stream" "https://westcentralus.api.cognitive.microsoft.com/vision/v2.0/analyze?visualFeatures=Categories,Description&details=Landmarks&language=en" --data-binary <Image To Analyze>
+```console
+curl -H "Ocp-Apim-Subscription-Key: <Subscription Key>" -H "Content-Type: application/octet-stream" "https://westcentralus.api.cognitive.microsoft.com/vision/v2.0/analyze?visualFeatures=Categories,Description&details=Landmarks&language=en" --data-binary "<localImage>"
 ```
 
-## <a name="analyze-image-response"></a>Görüntü Analizi yanıtı
+## <a name="examine-the-response"></a>Yanıtı inceleme
 
-Başarılı bir yanıt JSON biçiminde döndürülür, örneğin:
+Başarılı bir yanıt JSON biçiminde döndürülür. Örnek uygulama, aşağıdaki örneğe benzer şekilde başarılı bir yanıtı ayrıştırıp komut istemi penceresinde görüntüler:
 
 ```json
 {
@@ -110,9 +105,13 @@ Başarılı bir yanıt JSON biçiminde döndürülür, örneğin:
 }
 ```
 
+## <a name="clean-up-resources"></a>Kaynakları temizleme
+
+Artık gerekli değilse komut istemi penceresini ve metin düzenleyicisini kapatın.
+
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Görüntü analiz etmek, ünlüleri ve önemli yerleri algılamak, küçük resim oluşturmak ve yazdırılan ve el yazısı metinleri ayıklamak için kullanılan Görüntü İşleme API'lerini keşfedin. Görüntü İşleme API'lerini hızlı bir şekilde denemeniz için [Open API test konsolu](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console) konusuna göz atın.
+Görüntü analiz etmek, ünlüleri ve yer işaretlerini algılamak, küçük resim oluşturmak ve yazdırılan ve el yazısı metinleri ayıklamak için kullanılan Görüntü İşleme API’sini keşfedin. Görüntü İşleme API'sini hızlı bir şekilde denemeniz için [Open API test konsolu](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console) konusuna bakın.
 
 > [!div class="nextstepaction"]
-> [Görüntü İşleme API'lerini keşfedin](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44)
+> [Görüntü İşleme API’sini keşfetme](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44)

@@ -1,51 +1,46 @@
 ---
-title: Görüntü İşleme API'si Ruby hızlı başlangıç görüntü analizi | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: Bu hızlı başlangıçta, Bilişsel Hizmetler’de Ruby ile Görüntü İşleme kullanarak bir görüntü analiz edeceksiniz.
+title: 'Hızlı Başlangıç: Uzak görüntüyü analiz etme - REST, Ruby - Görüntü İşleme'
+titleSuffix: Azure Cognitive Services
+description: Bu hızlı başlangıçta, Ruby ile Görüntü İşleme API’si kullanarak bir görüntüyü analiz edeceksiniz.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: v-deken
-ms.openlocfilehash: 3ce89bf29cc7f1f436e54d398e458f559b79a425
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: bf17e8213ad2bbdc793f979471d9861578cac8e2
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43772588"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45628871"
 ---
-# <a name="quickstart-analyze-a-remote-image---rest-ruby"></a>Hızlı Başlangıç: Uzak görüntü analiz etme - REST, Ruby
+# <a name="quickstart-analyze-a-remote-image-using-the-rest-api-and-ruby-in-computer-vision"></a>Hızlı Başlangıç: Görüntü İşleme’de REST API ve Ruby kullanarak uzak görüntüyü analiz etme
 
-Bu hızlı başlangıçta, Görüntü İşleme kullanarak görsel özellikleri ayıklamak için bir görüntü analiz edeceksiniz.
+Bu hızlı başlangıçta, Görüntü İşleme’nin REST API’sini kullanarak görsel özellikleri ayıklamak için uzakta depolanan bir görüntüyü analiz edeceksiniz. [Görüntü Analizi](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) yöntemiyle, görüntü içeriğini temel alarak görsel özellikleri ayıklayabilirsiniz.
+
+Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) oluşturun.
 
 ## <a name="prerequisites"></a>Ön koşullar
 
-Görüntü İşleme’yi kullanmak için, bir abonelik anahtarınızın olması gerekir; bkz. [Abonelik Anahtarlarını Alma](../Vision-API-How-to-Topics/HowToSubscribe.md).
+- [Ruby](https://www.ruby-lang.org/en/downloads/) 2.4.x veya sonraki bir sürüm yüklenmiş olmalıdır.
+- Görüntü İşleme için bir abonelik anahtarınız olması gerekir. Bir abonelik anahtarı almak için bkz. [Abonelik Anahtarları Alma](../Vision-API-How-to-Topics/HowToSubscribe.md).
 
-## <a name="analyze-image-request"></a>Görüntü Analizi isteği
+## <a name="create-and-run-the-sample"></a>Örnek oluşturma ve çalıştırma
 
-[Görüntü Analizi yöntemi](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) ile, görüntü içeriğini temel alarak görsel özellikleri ayıklayabilirsiniz. Bir görüntüyü karşıya yükleyebilir veya bir görüntü URL’si belirleyebilir ve aşağıdaki özelliklerden hangilerinin döndürüleceğini seçebilirsiniz:
+Örneği oluşturup çalıştırmak için aşağıdaki adımları uygulayın:
 
-* Görüntü içeriğiyle ilgili etiketlerin ayrıntılı listesi.
-* Görüntü içeriğinin tam bir cümlelik açıklaması.
-* Görüntünün içerdiği yüzlerin koordinatları, cinsiyeti ve yaşı.
-* ImageType (küçük resim veya çizgi çizim).
-* Baskın renk, vurgu rengi veya bir görüntünün siyah beyaz olup olmadığı.
-* Bu [sınıflandırmada](../Category-Taxonomy.md) tanımlanan kategori.
-* Görüntü, yetişkinlere yönelik veya müstehcen cinsel içerik içeriyor mu?
-
-Örneği çalıştırmak için aşağıdaki adımları uygulayın:
-
-1. Aşağıdaki kodu bir düzenleyicinin içine kopyalayın.
-1. `<Subscription Key>` değerini geçerli abonelik anahtarınızla değiştirin.
-1. Gerekirse `uri` değerini abonelik anahtarlarınızı aldığınız konumla değiştirin.
-1. İsteğe bağlı olarak, yanıt dilini değiştirin (`'language' => 'en'`).
-1. İsteğe bağlı olarak, analiz etmek için görüntüyü (`{\"url\":\"...`) değiştirin.
-1. Dosyayı `.rb` uzantısıyla kaydedin.
-1. Ruby Komut İstemi’ni açın ve dosyayı çalıştırın, örneğin: `ruby myfile.rb`.
+1. Aşağıdaki kodu bir metin düzenleyicisine kopyalayın.
+1. Gerektiğinde kodda aşağıdaki değişiklikleri yapın:
+    1. `<Subscription Key>` değerini abonelik anahtarınızla değiştirin.
+    1. Gerekirse `https://westcentralus.api.cognitive.microsoft.com/vision/v2.0/analyze` değerini, abonelik anahtarlarınızı aldığınız Azure bölgesindeki [Görüntü Analizi](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) yönteminin uç nokta URL’si ile değiştirin.
+    1. İsteğe bağlı olarak `language` istek parametresinin değerini farklı bir dil ile değiştirin. 
+    1. İsteğe bağlı olarak `http://upload.wikimedia.org/wikipedia/commons/3/3c/Shaki_waterfall.jpg\` değerini, analiz etmek istediğiniz başka bir görüntünün URL’si ile değiştirin.
+1. Kodu, `.rb` uzantısıyla bir dosya olarak kaydedin. Örneğin, `analyze-image.rb`.
+1. Bir komut istemi penceresi açın.
+1. İstemde, örneği çalıştırmak için `ruby` komutunu kullanın. Örneğin, `ruby analyze-image.rb`.
 
 ```ruby
 require 'net/http'
@@ -78,9 +73,9 @@ end
 puts response.body
 ```
 
-## <a name="analyze-image-response"></a>Görüntü Analizi yanıtı
+## <a name="examine-the-response"></a>Yanıtı inceleme
 
-JSON’da başarılı bir yanıt döndürülür, örneğin:
+Başarılı bir yanıt JSON biçiminde döndürülür. Örnek, aşağıdaki örneğe benzer şekilde başarılı bir yanıtı ayrıştırıp komut istemi penceresinde görüntüler:
 
 ```json
 {
@@ -183,9 +178,13 @@ JSON’da başarılı bir yanıt döndürülür, örneğin:
 
 ```
 
+## <a name="clean-up-resources"></a>Kaynakları temizleme
+
+Artık gerekli değilse dosyayı silin.
+
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Görüntü analiz etmek, ünlüleri ve önemli yerleri algılamak, küçük resim oluşturmak ve yazdırılan ve el yazısı metinleri ayıklamak için kullanılan Görüntü İşleme API'lerini keşfedin. Görüntü İşleme API'lerini hızlı bir şekilde denemeniz için [Open API test konsolu](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console) konusuna göz atın.
+Görüntü analiz etmek, ünlüleri ve yer işaretlerini algılamak, küçük resim oluşturmak ve yazdırılan ve el yazısı metinleri ayıklamak için kullanılan Görüntü İşleme API’sini keşfedin. Görüntü İşleme API'sini hızlı bir şekilde denemeniz için [Open API test konsolu](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console) konusuna bakın.
 
 > [!div class="nextstepaction"]
-> [Görüntü İşleme API'lerini keşfedin](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44)
+> [Görüntü İşleme API’sini keşfetme](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44)

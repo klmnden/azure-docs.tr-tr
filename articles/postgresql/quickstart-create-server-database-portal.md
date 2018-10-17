@@ -10,12 +10,12 @@ ms.service: postgresql
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 03/20/2018
-ms.openlocfilehash: 002ec2f99e488af76654c2391416e4b90e16e4c0
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: d32fb6e1a85865d89a2f8ee1483eb8fd599b4bb6
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43050236"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47408921"
 ---
 # <a name="quickstart-create-an-azure-database-for-postgresql-server-in-the-azure-portal"></a>Hızlı Başlangıç: Azure portalında PostgreSQL için Azure Veritabanı sunucusu oluşturma
 
@@ -50,7 +50,7 @@ PostgreSQL için Azure Veritabanı sunucusu oluşturmak için şu adımları uyg
     Sunucu yöneticisi oturum açma |*myadmin*| Sunucuya bağlanırken kullanılacak kendi oturum açma hesabınız. Yönetici oturum açma adı **azure_superuser**, **azure_pg_admin**, **admin**, **administrator**, **root**, **guest** veya **public** olamaz. Bu ad **pg_** ile başlayamaz.
     Parola |Parolanız| Sunucu yönetici hesabı için yeni bir parola. 8 ile 128 arasında karakter içermelidir. Parolanız şu kategorilerden üçünde yer alan karakterlerden oluşmalıdır: İngilizce büyük harfler, İngilizce küçük harfler, sayılar (0 - 9) ve alfasayısal olmayan karakterler (!, $, #, %, vb.).
     Konum|Kullanıcılarınıza en yakın bölge| Kullanıcılarınız için en yakın olan konum.
-    Sürüm|En son sürüm| Belirli gereksinimleriniz olmadığı sürece, en son PostgreSQL sürümü.
+    Sürüm|En son ana sürüm| Belirli gereksinimleriniz olmadığı sürece, en son PostgreSQL ana sürümü.
     Fiyatlandırma katmanı | **Genel Amaçlı**, **Gen 4**, **2 sanal çekirdek**, **5 GB**, **7 gün**, **Coğrafi Olarak Yedeklemeli** | Yeni sunucunuz için işlem, depolama ve yedekleme yapılandırmaları. **Fiyatlandırma katmanı**'nı seçin. Ardından, **Genel Amaçlı** sekmesini seçin. *Gen 4*, *2 sanal çekirdek*, *5 GB* ve *7 gün*; **İşlem Nesli**, **Sanal Çekirdek**, **Depolama** ve **Yedekleme Bekletme Dönemi** için varsayılan değerlerdir. Bu kaydırıcıları olduğu gibi bırakabilirsiniz. Coğrafi olarak yedekli depolamada sunucu yedeklerinizi etkinleştirmek için, **Fazladan Yedek Seçenekleri**’nde **Coğrafi Olarak Yedeklemeli**’yi seçin. Bu fiyatlandırma katmanı seçimini kaydetmek için **Tamam**’ı seçin. Sonraki ekran görüntüsü bu seçimleri yakalar.
 
     > [!IMPORTANT]
@@ -78,17 +78,10 @@ PostgreSQL için Azure Veritabanı, sunucu düzeyinde bir güvenlik duvarı olu�
 
 3. **Güvenlik duvarı kuralları** altında, **Kural Adı** sütunundaki boş metin kutusunu seçerek güvenlik duvarı kuralı oluşturmaya başlayın. 
 
-    Bu Hızlı Başlangıç için, sunucuda tüm IP adreslerine izin verin. Her sütundaki metin kutusunu aşağıdaki değerlerle doldurun:
+   Metin kutularını bir adla ve sunucunuza erişecek olan istemcilerin başlangıç ve bitiş IP aralığıyla doldurun. Tek bir IP ise, başlangıç IP’si ve bitiş IP’si için aynı değeri kullanın.
 
-    Kural adı | Başlangıç IP’si | Bitiş IP’si 
-    ---|---|---
-    AllowAllIps | 0.0.0.0 | 255.255.255.255
-
-     ![Güvenlik Duvarı Kurallarını Ayarlama](./media/quickstart-create-database-portal/5-firewall-2.png)
+   ![Güvenlik Duvarı Kurallarını Ayarlama](./media/quickstart-create-database-portal/5-firewall-2.png)
      
-      > [!NOTE]
-      > Üretim örnekleri için güvenlik duvarı kurallarınızı, yalnızca bilinen IP adreslerinden gelen istekler kabul edilecek şekilde ayarlamanız gerekir.  Bu ayarlar yalnızca örnek amaçlıdır.
-      >
 
 4. **Bağlantı güvenliği** sayfasının üst araç çubuğunda **Kaydet**’i seçin. Devam etmeden önce bağlantı güvenliği güncelleştirmesinin başarıyla tamamlandığını belirten bildirim görünene kadar bekleyin.
 

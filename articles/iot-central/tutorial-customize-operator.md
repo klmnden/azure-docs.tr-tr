@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-ms.openlocfilehash: c0b42c3efd5e015eaf1fbd750f835d8de8818de9
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: d99b76faf618439e51735d5f1096fd4f1cfd2364
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43185860"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47038298"
 ---
 # <a name="tutorial-customize-the-azure-iot-central-operators-view"></a>Öğretici: Azure IoT Central operatör görünümünü özelleştirme
 
@@ -50,9 +50,9 @@ Oluşturucu olarak, bir cihaz panosunda hangi bilgilerin gösterileceğini tanı
 
     ![Bağlı klima cihazını seçme](media/tutorial-customize-operator/selectdevice.png)
 
-    **Bağlı Klima-1** gibi bir cihazda değişiklik yaptığınızda, temel alınan şablonda değişiklik yapmış olursunuz. Daha fazla bilgi için bkz. [Yeni bir cihaz şablonu sürümü oluşturma](howto-version-devicetemplate.md).
+    **Bağlı Klima-1** gibi bir cihazın içindeyken, temel alınan şablonda değişiklik yapmak için **Şablonu Düzenle**’yi seçebilirsiniz. Daha fazla bilgi için bkz. [Yeni bir cihaz şablonu sürümü oluşturma](howto-version-devicetemplate.md).
 
-3. Panoyu düzenlemek için **Pano**’yu seçin:
+3. Panoyu düzenlemek için **Pano**’yu seçin ve **Şablonu Düzenle**’yi belirtin:
 
     ![Cihaz şablonu pano sayfası](media/tutorial-customize-operator/dashboard.png)
 
@@ -77,11 +77,13 @@ Oluşturucu olarak, bir cihaz panosunda hangi bilgilerin gösterileceğini tanı
 
     ![Pano düzenini düzenleme](media/tutorial-customize-operator/dashboardlayout.png)
 
+7. Değişiklik yapmayı tamamladığınızda **Bitti**’yi tıklatın.
+
 ## <a name="configure-your-settings-layout"></a>Ayar düzeninizi değiştirme
 
 Oluşturucu olarak, cihaz ayarlarının operatör görünümünü de yapılandırabilirsiniz. Operatör bir cihazı yapılandırmak için cihaz ayarları sayfasını kullanır. Örneğin, operatör buzdolabının hedef sıcaklığını ayarlamak için ayarlar sayfasını kullanır.
 
-1. Bağlı klimanızın ayar düzenini değiştirmek için **Ayarlar**’ı seçin:
+1. Bağlı klimanızın ayar düzenini değiştirmek için **Ayarlar**’ı seçin ve **Şablonu Düzenle**’yi belirtin:
 
     ![Ayarlar sayfası](media/tutorial-customize-operator/settings.png)
 
@@ -89,14 +91,16 @@ Oluşturucu olarak, cihaz ayarlarının operatör görünümünü de yapılandı
 
     ![Ayarlar düzenini değiştirme](media/tutorial-customize-operator/settingslayout.png)
 
+3. Değişiklik yapmayı tamamladığınızda **Bitti**’yi tıklatın.
+
 > [!NOTE]
-> **Tasarım Modu**’nda ayarların değerlerini düzenleyemezsiniz.
+> **Şablonu Düzenle**’de ayarların değerlerini düzenleyemezsiniz.
 
 ## <a name="configure-your-properties-layout"></a>Özellikler düzeninizi yapılandırma
 
 Pano ve ayarlara ek olarak cihaz özelliklerinin operatör görünümünü de yapılandırabilirsiniz. Operatör, cihaz meta verilerini yönetmek için cihaz özellikleri sayfasını kullanır. Örneğin, operatör bir cihaz seri numarasını görüntülemek veya üreticinin iletişim bilgilerini güncelleştirmek için özellikler sayfasını kullanır.
 
-1. Bağlı klimanızın özellikler düzenini değiştirmek için **Özellikler**’i seçin:
+1. Bağlı klimanızın ayar düzenini değiştirmek için **Ayarlar**’ı seçin ve **Şablonu Düzenle**’yi belirtin:
 
     ![Özellikler sayfası](media/tutorial-customize-operator/properties.png)
 
@@ -104,16 +108,18 @@ Pano ve ayarlara ek olarak cihaz özelliklerinin operatör görünümünü de ya
 
     ![Özellikler düzenini değiştirme](media/tutorial-customize-operator/propertieslayout.png)
 
+3. Değişiklik yapmayı tamamladığınızda **Bitti**’yi tıklatın.
+
 > [!NOTE]
-> **Tasarım Modu**’nda özelliklerin değerlerini düzenleyemezsiniz.
+> **Şablonu Düzenle** modunda özelliklerin değerlerini düzenleyemezsiniz.
 
 ## <a name="preview-the-connected-air-conditioner-device-as-an-operator"></a>Operatör olarak bağlı klima cihazının önizlemesini görme
 
-**Tasarım Modu**’nda bir operatörün pano, ayarlar ve özellikler sayfalarını özelleştirebilirsiniz. **Tasarım Modu**’nu kapatırsanız, uygulamayı operatör olarak görüntüleyebilirsiniz.
+**Şablonu Düzenle** modunda bir işlecin pano, ayarlar ve özellikler sayfalarını özelleştirebilirsiniz. **Şablonu Düzenle** modunda değilseniz, uygulamayı bir işleç olarak görüntüleyebilirsiniz.
 
-1. Operatör olarak bağlı klima cihazınızı görüntülemek için **Tasarım Modu**’nu kapatmanız gerekir. **Tasarım Modu**’nu kapatmak için sayfanın sağ üst köşesinden **Tasarım Modu**’nu kapatın.
+1. Bağlı klima cihazınızı işleç olarak görüntülemek isterseniz, şablonu düzenlemeyi durdurmak için **Bitti**’yi tıklamanız gerekir. Bu cihaz size cihazın operatör görünümünü döndürür.
 
-2. Bu cihazın seri numarasını güncelleştirmek için seri numarası kutucuğundaki değeri düzenleyin ve **Kaydet**’i seçin:
+2. Bu cihazın konumunu güncelleştirmek için konum kutucuğundaki değeri düzenleyin ve **Kaydet**’i seçin:
 
     ![Özellik değerini düzenleme](media/tutorial-customize-operator/editproperty.png)
 
@@ -131,7 +137,7 @@ Pano ve ayarlara ek olarak cihaz özelliklerinin operatör görünümünü de ya
 
 Oluşturucu veya operatör bir Azure IoT Central uygulamasında oturum açtığında bir giriş sayfası görür. Oluşturucu olarak, bu giriş sayfasının içeriğini operatör için en yararlı ve ilgili içeriği dahil edecek şekilde yapılandırabilirsiniz.
 
-1. Varsayılan giriş sayfasını özelleştirmek için **Giriş** sayfasına gidin ve sayfanın sağ üst kısmından **Tasarım Modu**’nu açın. **Tasarım Modu**’nu açtığınızda, Giriş Sayfanıza ekleyebileceğiniz nesnelerin bir listesiyle birlikte sağ taraftan bir panel açılır.
+1. Varsayılan giriş sayfasını özelleştirmek için **Giriş** sayfasına gidin ve sayfanın sağ üst kısmından **Düzenle**’yi seçin. **Düzenle**’nin seçilmesiyle, Giriş Sayfanıza ekleyebileceğiniz nesnelerin bir listesiyle birlikte sağ taraftan bir panel açılır.
 
     ![Uygulama Oluşturucu sayfası](media/tutorial-customize-operator/builderhome.png)
 
@@ -150,7 +156,7 @@ Oluşturucu veya operatör bir Azure IoT Central uygulamasında oturum açtığ�
 
 ## <a name="preview-the-default-home-page-as-an-operator"></a>Bir operatör olarak varsayılan giriş sayfasının önizlemesini görme
 
-Bir operatör olarak giriş sayfasının önizlemesini görmek için, sayfanın sağ üst kısmından **Tasarım Modu**'nu kapatın:
+Ana sayfanın önizlemesini işleç olarak görüntülemek ve daha fazla düzenlememek için, sayfanın sağ üst kısmındaki **Bitti**’yi seçin
 
 ![Tasarım Modunu Açma/Kapatma](media/tutorial-customize-operator/operatorviewhome.png)
 

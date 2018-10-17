@@ -1,44 +1,56 @@
 ---
-title: Görüntü İşleme API'si PHP hızlı başlangıç OCR | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: Bu hızlı başlangıçta, Bilişsel Hizmetler’de PHP ile Görüntü İşleme kullanarak bir görüntüden yazdırılan metin ayıklayacaksınız.
+title: 'Hızlı Başlangıç: Yazdırılan metni ayıklama (OCR) - REST, PHP - Görüntü İşleme'
+titleSuffix: Azure Cognitive Services
+description: Bu hızlı başlangıçta, PHP ile Görüntü İşleme API’si kullanarak bir görüntüden yazdırılan metin ayıklayacaksınız.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: v-deken
-ms.openlocfilehash: 85df021357c76330be21ceff77d79491edcc23b0
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 14c03f2079e695fcd3cac8535b2888d71f41c913
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43772587"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45633240"
 ---
-# <a name="quickstart-extract-printed-text-ocr---rest-php"></a>Hızlı Başlangıç: Yazdırılan metni ayıklama (OCR) - REST, PHP
+# <a name="quickstart-extract-printed-text-ocr-using-the-rest-api-and-php-in-computer-vision"></a>Hızlı Başlangıç: Görüntü İşleme’de REST API ve PHP kullanarak yazdırılan metni ayıklama (OCR)
 
-Bu hızlı başlangıçta, Görüntü İşleme kullanarak bir görüntüden yazdırılan metin ayıklayacaksınız (optik karakter tanıma (OCR) yöntemi olarak da bilinir).
+Bu hızlı başlangıçta, Görüntü İşleme’nin REST API’sini kullanarak bir görüntüden optik karakter tanıma (OCR) ile yazdırılan metni ayıklayacaksınız. [OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) yöntemiyle, bir görüntüdeki yazdırılan metni algılayabilir ve tanınan karakterleri makine tarafından kullanılabilir bir karakter akışı halinde ayıklayabilirsiniz.
+
+Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) oluşturun.
 
 ## <a name="prerequisites"></a>Ön koşullar
 
-Görüntü İşleme’yi kullanmak için, bir abonelik anahtarınızın olması gerekir; bkz. [Abonelik Anahtarlarını Alma](../Vision-API-How-to-Topics/HowToSubscribe.md).
+- [PHP](https://secure.php.net/downloads.php) yüklenmiş olmalıdır.
+- [Pear](https://pear.php.net) yüklenmiş olmalıdır.
+- Görüntü İşleme için bir abonelik anahtarınız olması gerekir. Bir abonelik anahtarı almak için bkz. [Abonelik Anahtarları Alma](../Vision-API-How-to-Topics/HowToSubscribe.md).
 
-## <a name="ocr-request"></a>OCR isteği
+## <a name="create-and-run-the-sample"></a>Örnek oluşturma ve çalıştırma
 
-[OCR yöntemi](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) ile, bir görüntüdeki yazdırılan metni algılayabilir ve tanınan karakterleri makine tarafından kullanılabilir bir karakter akışı halinde ayıklayabilirsiniz.
+Örneği oluşturup çalıştırmak için aşağıdaki adımları uygulayın:
 
-Örneği çalıştırmak için aşağıdaki adımları uygulayın:
+1. PHP5 [`HTTP_Request2`](http://pear.php.net/package/HTTP_Request2) paketini yükleyin.
+   1. Yönetici olarak bir komut istemi penceresini açın.
+   1. Şu komutu çalıştırın:
 
-1. Aşağıdaki kodu bir düzenleyicinin içine kopyalayın.
-1. `<Subscription Key>` değerini geçerli abonelik anahtarınızla değiştirin.
-1. Gerekirse `uriBase` değerini abonelik anahtarlarınızı aldığınız konumu kullanacak şekilde değiştirin.
-1. İsteğe bağlı olarak, `imageUrl` öğesini analiz etmek istediğiniz görüntü olarak ayarlayın.
-1. Dosyayı `.php` uzantısıyla kaydedin.
-1. Dosyayı PHP desteğiyle bir tarayıcı penceresinde açın.
+      ```console
+      pear install HTTP_Request2
+      ```
 
-Bu örnek, PHP5 [HTTP_Request2](http://pear.php.net/package/HTTP_Request2) paketini kullanır.
+   1. Paket başarıyla yüklendikten sonra komut istemi penceresini kapatın.
+
+1. Aşağıdaki kodu bir metin düzenleyicisine kopyalayın.
+1. Gerektiğinde kodda aşağıdaki değişiklikleri yapın:
+    1. `subscriptionKey` değerini abonelik anahtarınızla değiştirin.
+    1. Gerekirse `uriBase` değerini, abonelik anahtarlarınızı aldığınız Azure bölgesinden [OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) yönteminin uç nokta URL’si ile değiştirin.
+    1. İsteğe bağlı olarak, `imageUrl` değerini, içinden yazdırılan metni ayıklamak istediğiniz başka bir görüntünün URL’si ile değiştirin.
+1. Kodu, `.php` uzantısıyla bir dosya olarak kaydedin. Örneğin, `get-printed-text.php`.
+1. PHP desteğiyle bir tarayıcı penceresini açın.
+1. Dosyayı tarayıcı penceresine sürükleyip bırakın.
 
 ```php
 <?php
@@ -101,9 +113,9 @@ catch (HttpException $ex)
 </html>
 ```
 
-## <a name="ocr-response"></a>OCR yanıtı
+## <a name="examine-the-response"></a>Yanıtı inceleme
 
-Başarılı olunması durumunda, metinler, bölgeler için sınırlayıcı kutu, satırlar ve sözcükler gibi OCR sonuçları döndürülür. Örneğin:
+Başarılı bir yanıt JSON biçiminde döndürülür. Örnek web sitesi aşağıdaki örneğe benzer şekilde başarılı bir yanıtı ayrıştırıp tarayıcı penceresinde görüntüler:
 
 ```json
 {
@@ -204,9 +216,22 @@ Başarılı olunması durumunda, metinler, bölgeler için sınırlayıcı kutu,
 }
 ```
 
+## <a name="clean-up-resources"></a>Kaynakları temizleme
+
+Artık gerekli değilse dosyayı silin ve sonra PHP5 `HTTP_Request2` paketini kaldırın. Paketi kaldırmak için aşağıdaki adımları uygulayın:
+
+1. Yönetici olarak bir komut istemi penceresini açın.
+2. Şu komutu çalıştırın:
+
+   ```console
+   pear uninstall HTTP_Request2
+   ```
+
+3. Paket başarıyla kaldırıldıktan sonra komut istemi penceresini kapatın.
+
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Görüntü analiz etmek, ünlüleri ve önemli yerleri algılamak, küçük resim oluşturmak ve yazdırılan ve el yazısı metinleri ayıklamak için kullanılan Görüntü İşleme API'lerini keşfedin. Görüntü İşleme API'lerini hızlı bir şekilde denemeniz için [Open API test konsolu](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console) konusuna göz atın.
+Görüntü analiz etmek, ünlüleri ve yer işaretlerini algılamak, küçük resim oluşturmak ve yazdırılan ve el yazısı metinleri ayıklamak için kullanılan Görüntü İşleme API’sini keşfedin. Görüntü İşleme API'sini hızlı bir şekilde denemeniz için [Open API test konsolu](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console) konusuna bakın.
 
 > [!div class="nextstepaction"]
-> [Görüntü İşleme API'lerini keşfedin](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44)
+> [Görüntü İşleme API’sini keşfetme](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44)

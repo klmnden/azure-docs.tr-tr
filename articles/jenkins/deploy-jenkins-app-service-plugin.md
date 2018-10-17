@@ -8,22 +8,22 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 07/31/2018
-ms.openlocfilehash: b364dfb033c3af640892bb305d7df3c916dd3fef
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: a6ad40f90e12bbf4dd85c3cbd22839d39a734ca1
+ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43095776"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44391174"
 ---
 # <a name="deploy-to-azure-app-service-by-using-the-jenkins-plugin"></a>Jenkins eklentisini kullanarak Azure App Service'e dağıtım yapma 
 
 Bir Java web uygulamasını Azure'a dağıtmak için [Jenkins İşlem Hattı](/azure/jenkins/execute-cli-jenkins-pipeline)'ndaki Azure CLI'yi veya [Azure App Service Jenkins eklentisini](https://plugins.jenkins.io/azure-app-service) kullanabilirsiniz. Jenkins eklentisi 1.0 sürümü, Azure App Service'in Web Apps özelliğini kullanarak aşağıdakiler üzerinden sürekli dağıtımı destekler:
-* Git veya FTP.
+* Dosya yükleme.
 * Linux üzerinde Web App için Docker.
 
 Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 > [!div class="checklist"]
-> * Git veya FTP üzerinden Web Apps dağıtımı için Jenkins'i yapılandırma.
+> * Dosya yükleme yoluyla Web Apps dağıtımı için Jenkins'i yapılandırma.
 > * Kapsayıcılar için Web App dağıtmak üzere Jenkins'i yapılandırma.
 
 ## <a name="create-and-configure-a-jenkins-instance"></a>Jenkins örneği oluşturma ve yapılandırma
@@ -37,7 +37,7 @@ Bir Jenkins Ana Sunucunuz yoksa, Java Development Kit (JDK) 8 sürümünü ve a�
 
 C#, PHP, Java ve Node.js gibi Web Apps tarafından desteklenen tüm dillerde web uygulaması dağıtmak için Jenkins eklentisini kullanabilirsiniz. Biz bu öğreticide [Azure için basit bir Java web uygulaması](https://github.com/azure-devops/javawebappsample) kullanacağız. Kendi GitHub hesabınızda deponun çatalını oluşturmak için GitHub arabiriminin sağ üst köşesinde bulunan **Çatal** düğmesini seçin.  
 > [!NOTE]
-> Java projesi oluşturmak için Java JDK ve Maven gereklidir. Jenkins Ana Sunucusunda veya sürekli tümleştirme için aracıyı kullanıyorsanız VM aracısında bu bileşenleri yükleyin. 
+> Java projesi oluşturmak için Java JDK ve Maven gereklidir. Jenkins Ana Sunucusunda veya sürekli tümleştirme için aracıyı kullanıyorsanız VM aracısında bu bileşenleri yükleyin. Bir Java SE uygulaması dağıtıyorsanız, derleme sunucusunda ZIP’e de ihtiyaç vardır.
 
 Bu bileşenleri yüklemek için SSH ile Jenkins örneğinde oturum açın ve aşağıdaki komutları çalıştırın:
 
@@ -60,7 +60,11 @@ Azure'a dağıtım yapmak için bir Azure hizmet sorumlusuna ihtiyacınız vard�
 
 ## <a name="configure-jenkins-to-deploy-web-apps-by-uploading-files"></a>Karşıya dosya yükleme yoluyla Web Apps dağıtımı için Jenkins'i yapılandırma
 
-Projenizi Web Apps'e dağıtmak için Git veya FTP'yi kullanarak derleme yapıtlarınızı (örneğin, Java'daki bir WAR dosyası) karşıya yükleyebilirsiniz.
+Projenizi Web Apps’e dağıtmak için, derleme yapıtlarınızı dosya yüklemeyle yükleyebilirsiniz. Azure App Service, birden çok dağıtım seçeneğini destekler. Azure App Service Jenkins eklentisini bunu sizin için basitleştirir ve türeyen dosya türüne göre dağıtım seçeneğini türetir. 
+
+* Java EE uygulamaları için [WAR dağıtımı](/azure/app-service/app-service-deploy-zip#deploy-war-file) kullanılır.
+* Java SE uygulamaları için [ZIP dağıtımı](/azure/app-service/app-service-deploy-zip#deploy-zip-file) kullanılır.
+* Diğer diller için [Git dağıtımını](/azure/app-service/app-service-deploy-local-git) kullanılır.
 
 İşi Jenkins'de ayarlayabilmek için bir Azure App Service planına ve Java uygulamasını çalıştıracak bir web uygulamasına ihtiyacınız vardır.
 
@@ -127,7 +131,7 @@ Azure App Service Jenkins eklentisi işlem hattında kullanıma hazırdır. Aşa
 
 Linux üzerinde Web App, Docker ile dağıtımı destekler. Web uygulamanızı Docker'ı kullanarak dağıtmak için, web uygulamanızı bir hizmet çalışma zamanı ile Docker görüntüsü olarak paket haline getiren bir Dockerfile sağlamanız gerekir. Ardından, Jenkins eklentisi görüntüyü derleyip Docker kayıt defterine gönderir ve görüntüyü web uygulamanıza dağıtır.
 
-Linux üzerinde Web App, yalnızca yerleşik diller (.NET Core, Node.js, PHP ve Ruby) için geçerli olmak üzere Git ve FTP gibi geleneksel dağıtım yöntemlerini de destekler. Diğer diller için, uygulama kodunuzla hizmet çalışma zamanını birlikte bir Docker görüntüsü olarak paket haline getirmeniz ve dağıtım için Docker'ı kullanmanız gerekir.
+Linux üzerinde Web App, yalnızca yerleşik diller (.NET Core, Node.js, PHP ve Ruby) için geçerli olmak üzere Git ve dosya yükleme gibi geleneksel dağıtım yöntemlerini de destekler. Diğer diller için, uygulama kodunuzla hizmet çalışma zamanını birlikte bir Docker görüntüsü olarak paket haline getirmeniz ve dağıtım için Docker'ı kullanmanız gerekir.
 
 İşi Jenkins'de ayarlayabilmeniz için Linux üzerinde bir web uygulamasına ihtiyacınız vardır. Ayrıca özel Docker kapsayıcı görüntülerini depolamak ve yönetmek için bir kapsayıcı kayıt defteri de gereklidir. Kapsayıcı kayıt defterini oluşturmak için DockerHub'ı kullanabilirsiniz. Bu örnekte biz Azure Container Registry'yi kullanacağız.
 
@@ -232,5 +236,5 @@ Bu öğreticide, Azure'a dağıtım yapmak için Azure App Service Jenkins eklen
 Şunları öğrendiniz:
 
 > [!div class="checklist"]
-> * Jenkins'i FTP üzerinden Azure App Service'e dağıtım yapacak şekilde yapılandırma 
+> * Jenkins'i dosya yükleme üzerinden Azure App Service'a dağıtım yapacak şekilde yapılandırma 
 > * Jenkins'i Kapsayıcılar için Web App'e dağıtım yapacak şekilde yapılandırma 

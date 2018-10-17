@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 04/20/2018
 ms.author: kgremban
-ms.openlocfilehash: dbc1cc4a72d0346c92d506358c39a66a4d780b32
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: aecb9a1819060e0da6338e8e16bf681fad42dd22
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38309754"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44161926"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-ios"></a>Hızlı Başlangıç: Bir cihazdan IoT hub’a telemetri gönderme (iOS)
 
@@ -33,16 +33,10 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 - [Azure örneklerinden](https://github.com/Azure-Samples/azure-iot-samples-ios/archive/master.zip) kod örneğini indirin 
 - En son iOS SDK sürümünü çalıştıran en yeni [XCode](https://developer.apple.com/xcode/) sürümü. Bu hızlı başlangıç XCode 9.3 ve iOS 11.3 ile test edilmiştir.
 - [CocoaPods](https://guides.cocoapods.org/using/getting-started.html)'un en son sürümü.
-- IoT Hub’dan telemetri okuyan iothub-explorer CLI yardımcı programı. Yüklemek için öncelikle [Node.js](https://nodejs.org) v4.x.x veya üzerini yükleyin, ardından aşağıdaki komutu çalıştırın: 
-
-   ```sh
-   sudo npm install -g iothub-explorer
-   ```
 
 ## <a name="create-an-iot-hub"></a>IoT hub oluşturma
 
 [!INCLUDE [iot-hub-quickstarts-create-hub](../../includes/iot-hub-quickstarts-create-hub.md)]
-
 
 ## <a name="register-a-device"></a>Cihaz kaydetme
 
@@ -64,14 +58,6 @@ Bir cihazın bağlanabilmesi için IoT hub’ınıza kaydedilmesi gerekir. Bu h�
    ```
 
    `Hostname=...=` ifadesine benzer şekilde görünen cihaz bağlantı dizesini not edin. Bu değeri makalenin sonraki bölümlerinde kullanacaksınız.
-
-1. IoT hub’ınıza bağlanacak arka uç uygulamalarını etkinleştirmek ve cihazdan buluta iletileri almak için bir _hizmet bağlantı dizesi_ de gereklidir. Aşağıdaki komut, IoT hub'ınız için hizmeti bağlantı dizesini alır:
-
-   ```azurecli-interactive
-   az iot hub show-connection-string --hub-name {YourIoTHubName} --output table
-   ```
-
-   `Hostname=...=` ifadesine benzer şekilde görünen hizmet bağlantı dizesini not edin. Bu değeri makalenin sonraki bölümlerinde kullanacaksınız.
 
 ## <a name="send-simulated-telemetry"></a>Sanal telemetri gönderme
 
@@ -119,19 +105,19 @@ Aşağıdaki ekran görüntüsünde, uygulama IoT hub’ınıza sanal telemetri 
 
 ## <a name="read-the-telemetry-from-your-hub"></a>Hub’ınızdan telemetri okuma
 
-XCode öykünücüsü üzerinde çalıştığınız örnek uygulama, cihazdan gönderilen iletilere ilişkin verileri gösterir. Alınan verileri IoT hub’ınız aracılığıyla da görüntüleyebilirsiniz. `iothub-explorer` CLI yardımcı programı, Iot Hub’ınız üzerinde sunucu tarafı **Olaylar** uç noktasına bağlanır. 
+XCode öykünücüsü üzerinde çalıştığınız örnek uygulama, cihazdan gönderilen iletilere ilişkin verileri gösterir. Alınan verileri IoT hub’ınız aracılığıyla da görüntüleyebilirsiniz. IoT Hub uzantısı IoT Hub’ınızdaki bir hizmet tarafı **Olaylar** uç noktasına bağlanabilir. Uzantı, simülasyon cihazınızdan gönderilen cihazdan buluta iletileri alır. IoT Hub arka uç uygulaması genellikle cihazdan buluta iletileri alıp işlemek için bulutta çalışır.
 
-Yeni bir terminal penceresi açın. {hub hizmet bağlantı dizeniz} ifadesini bu makalenin başında aldığınız hizmet bağlantı dizesiyle değiştirerek aşağıdaki komutu çalıştırın:
+Aşağıdaki Azure CLI komutlarını çalıştırın, `{YourIoTHubName}` yerine IoT hub'ınızın adını yazın:
 
-```sh
-iothub-explorer monitor-events myiOSdevice --login "{your hub service connection string}"
+```azurecli-interactive
+az iot hub monitor-events --device-id myiOSdevice --hub-name {YourIoTHubName}
 ```
+
+Aşağıdaki ekran görüntüsünde uzantı, simülasyon cihazı tarafından hub’a gönderilen telemetriyi aldığında oluşan çıktı gösterilmektedir:
 
 Aşağıdaki ekran görüntüsünde, terminal pencerenizde gördüğünüz telemetri türü gösterilmiştir:
 
 ![Telemetri görüntüleme](media/quickstart-send-telemetry-ios/view-telemetry.png)
-
-iothub-explorer komutunu çalıştırdığınızda bir hata alıyorsanız, IoT cihazınızın *cihaz bağlantı dizesi* yerine IoT hub’ınıza ait *hizmet bağlantı dizesini* kullanıp kullanmadığınızı bir kez daha kontrol edin. Her iki bağlantı dizesi de **Hostname={iothubname}** ile başlar ancak hizmet bağlantı dizesi **SharedAccessKeyName** özelliğini, cihaz bağlantı dizesi ise **DeviceID** özelliğini içerir. 
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 

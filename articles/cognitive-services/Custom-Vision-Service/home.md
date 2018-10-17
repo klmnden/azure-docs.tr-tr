@@ -1,24 +1,25 @@
 ---
-title: Özel Görüntü İşleme Hizmeti makine öğrenmesine genel bakış - Azure Bilişsel Hizmetler | Microsoft Docs
-description: Özel Görüntü İşleme Hizmeti, Azure platformunda özel görüntü sınıflandırıcılar oluşturmanızı sağlayan bir Microsoft Bilişsel Hizmet bileşenidir.
+title: Özel Görüntü İşleme Hizmeti nedir?
+titlesuffix: Azure Cognitive Services
+description: Özel Görüntü İşleme Hizmeti, Azure bulutunda özel görüntü sınıflandırıcıları derlemenize olanak sağlar.
 services: cognitive-services
 author: anrothMSFT
-manager: corncar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: custom-vision
 ms.topic: overview
 ms.date: 05/02/2018
 ms.author: anroth
-ms.openlocfilehash: d2daf7c211f9474f5636b6af69c5b700d597aa14
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: 1d3d1a82cf59b06625487fb241a63f51352e18e5
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43285253"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46365868"
 ---
 # <a name="what-is-the-custom-vision-service"></a>Özel Görüntü İşleme Hizmeti nedir?
 
-Özel Görüntü İşleme Hizmeti, özel görüntü sınıflandırıcılar oluşturmanızı sağlayan bir Microsoft Bilişsel Hizmet bileşenidir. Görüntü sınıflandırıcı oluşturma, dağıtma ve geliştirme işlemlerini oldukça kolay ve hızlı hale getirir. Özel Görüntü İşleme Hizmeti, görüntülerinizi yüklemek ve sınıflandırıcıyı eğitmek için kullanabileceğiniz bir REST API'si ve web arabirimi sunar.
+Özel Görüntü İşleme Hizmeti, özel görüntü sınıflandırıcılar derlemenize olanak sağlayan bir Azure Bilişsel Hizmet bileşenidir. Görüntü sınıflandırıcı oluşturma, dağıtma ve geliştirme işlemlerini oldukça kolay ve hızlı hale getirir. Özel Görüntü İşleme Hizmeti, görüntülerinizi yüklemek ve sınıflandırıcıyı eğitmek için kullanabileceğiniz bir REST API'si ve web arabirimi sunar.
 
 ## <a name="what-does-custom-vision-service-do-well"></a>Özel Görüntü İşleme Hizmeti hangi konularda iyidir?
 
