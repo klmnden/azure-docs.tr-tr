@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 033e5e5e054b0a29961ad60e72b1466b51d1df0c
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 5fda0ac590e5faeaa8b6ec44a7d649d2c0122eeb
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47035207"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49352994"
 ---
 # <a name="entity-roles-in-patterns-are-contextual-subtypes"></a>Varlık desenleri bağlamsal subtypes rolleridir
 Adlandırılmış ve bağlamsal subtypes yalnızca kullanılan bir varlığın rolleridir [desenleri](luis-concept-patterns.md).
@@ -28,6 +28,8 @@ Rolleri, bu fark için bir ad verin:
 |--|--|--|
 |Konum|kaynak|Burada gelen düzlemi bırakır.|
 |Konum|Hedef|Uçağın nerede gölünüzdeki|
+|Önceden oluşturulmuş datetimeV2|-|Bitiş tarihi|
+|Önceden oluşturulmuş datetimeV2|başlangıç|Başlangıç tarihi|
 
 ## <a name="how-are-roles-used-in-patterns"></a>Rolleri, modelleri nasıl kullanılır?
 Bir desenin şablon utterance içinde rolleri içinde utterance kullanılır: 
@@ -47,6 +49,14 @@ Hiyerarşik varlıkları aynı bağlamsal bilgi roller olarak ancak yalnızca i�
 |--|--|
 |hiyerarşik varlıklar|Hedefleri|
 |roles|Desenleri|
+
+## <a name="roles-with-prebuilt-entities"></a>Önceden oluşturulmuş varlıklarla rolleri
+
+Roller, farklı bir utterance içinde önceden oluşturulmuş varlık örneklerini anlam katmak için önceden oluşturulmuş varlıklarla kullanın. 
+
+### <a name="roles-with-datetimev2"></a>DatetimeV2 rolleriyle
+
+Önceden oluşturulmuş varlığı datetimeV2, çok çeşitli çeşitli tarihler ve saatler konuşma anlama, harika bir iş yapar. Tarihleri ve tarih aralıklarını önceden oluşturulmuş varlığın varsayılan anlama'dan farklı şekilde belirtmek isteyebilirsiniz. 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

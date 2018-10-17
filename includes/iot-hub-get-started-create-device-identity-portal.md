@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/17/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: 935e2b9e861a889bef48c1d7ba119ab694cddfb3
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 4809881276da752ac6eb08773fb8be145dc5f4c7
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43094024"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49367103"
 ---
 ## <a name="create-a-device-identity"></a>Cihaz kimliği oluşturma
 
@@ -31,11 +31,11 @@ Bu bölümde, kullandığınız [Azure portalında](https://portal.azure.com) IO
 
    [!INCLUDE [iot-hub-pii-note-naming-device](iot-hub-pii-note-naming-device.md)]
 
-   ![Yeni bir cihaz ekleyin](./media/iot-hub-get-started-create-device-identity-portal/add-device.png)
+   ![Yeni bir cihaz ekleyin](./media/iot-hub-get-started-create-device-identity-portal/create-a-device.png)
 
 1. Cihaz listesinde yeni oluşturulan bir cihaz ve kopyalama tıklayın **bağlantı dizesi---birincil anahtar** daha sonra kullanmak üzere.
 
-    ![Cihaz bağlantı dizesi](./media/iot-hub-get-started-create-device-identity-portal/device-connection-string.png)
+    ![Cihaz bağlantı dizesi](./media/iot-hub-get-started-create-device-identity-portal/device-details.png)
 
 > [!NOTE]
 > IoT Hub kimlik kayıt defteri, yalnızca IoT hub'ına güvenli erişim sağlamak amacıyla cihaz kimliklerini depolar. Güvenlik kimlik bilgileri olarak kullanılmak üzere cihaz kimliklerini ve anahtarlarını ve tek bir cihaza erişimi devre dışı bırakmak için kullanabileceğiniz etkin/devre dışı bayrağını depolar. Uygulamanızın cihaza özgü diğer meta verileri depolaması gerekiyorsa uygulamaya özgü bir depo kullanması gerekir. Daha fazla bilgi için [IOT Hub Geliştirici kılavuzunun](../articles/iot-hub/iot-hub-devguide-identity-registry.md).

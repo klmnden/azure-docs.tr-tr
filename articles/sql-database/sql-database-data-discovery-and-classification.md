@@ -11,39 +11,56 @@ author: ronitr
 ms.author: ronitr
 ms.reviewer: vanto
 manager: craigg
-ms.date: 10/04/2018
-ms.openlocfilehash: e40f2f3f0a6551fd9fc38ad138d92f694a09879f
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.date: 10/15/2018
+ms.openlocfilehash: 36269392db785e7d2d203f032a84cccc8a6c62e0
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48803248"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49352977"
 ---
 # <a name="azure-sql-database-data-discovery-and-classification"></a>Azure SQL veritabanı veri bulma ve sınıflandırma
+
 Veri bulma & sınıflandırma (şu anda önizlemede), Azure SQL veritabanı için gelişmiş özellikler sunar **keşfetme**, **sınıflandırma**, **etiketleme**  &  **koruma** veritabanlarınızı hassas verileri.
 Bulma ve sınıflandırma en hassas verileriniz (iş, Finans, sağlık hizmeti, kişisel verileri (PII) ve benzeri) rol içinde kuruluş bilgilerini koruma stature oynatabilirsiniz. Altyapı olarak hizmet eder:
-* Veri gizliliği standartlarını ve yasal uyumluluk gereksinimlerini karşılamak yardımcı olur.
-* (Denetim) izleme gibi çeşitli güvenlik senaryoları ve anormal hassas verilere erişimi üzerinde uyarı.
-* Erişimi denetleme ve son derece hassas veri içeren veritabanlarını güvenliğini artırma.
+
+- Veri gizliliği standartlarını ve yasal uyumluluk gereksinimlerini karşılamak yardımcı olur.
+- (Denetim) izleme gibi çeşitli güvenlik senaryoları ve anormal hassas verilere erişimi üzerinde uyarı.
+- Erişimi denetleme ve son derece hassas veri içeren veritabanlarını güvenliğini artırma.
 
 Veri bulma & sınıflandırma parçası olan [SQL Gelişmiş tehdit koruması](sql-advanced-threat-protection.md) Gelişmiş SQL güvenlik özellikleri için birleştirilmiş bir pakettir (ATP) teklifi. Veri bulma & sınıflandırma erişilen ve merkezi SQL ATP portalı üzerinden yönetilebilir.
 
 > [!NOTE]
 > Bu belge, Azure SQL veritabanı'na yalnızca ilişkilendirir. SQL Server (şirket içi) için bkz: [SQL veri bulma ve sınıflandırma](https://go.microsoft.com/fwlink/?linkid=866999).
 
-## <a id="subheading-1"></a>Veri bulma ve sınıflandırma nedir?
+## <a id="subheading-1"></a>Veri bulma ve sınıflandırma nedir
+
 Veri bulma & sınıflandırma yalnızca veritabanı verileri korumaya yönelik yeni bir SQL bilgi koruması paradigma oluşturan bir dizi Gelişmiş Hizmetleri ve yeni SQL işlevleri sunar:
-* **Bulma ve öneriler** – sınıflandırma altyapısının veritabanınızı tarar ve potansiyel olarak hassas veriler içeren sütunlarını tanımlar. Bunun ardından, gözden geçirin ve uygun sınıflandırma öneriler Azure portal aracılığıyla uygulamak için kolay bir yol sağlar.
-* **Etiketleme** – duyarlılık sınıflandırma etiketleri kalıcı olarak etiketlenmiş SQL motoruna sunulan yeni sınıflandırma meta veri öznitelikleri kullanarak sütunlarda. Bu meta veriler, ardından Gelişmiş duyarlılık tabanlı denetim ve koruma senaryoları için kullanılabilir.
-* **Sorgu sonuç kümesi duyarlılık** – denetim amacıyla gerçek zamanlı sorgu sonuç kümesinde duyarlılığına hesaplanır.
-* **Görünürlük** -veritabanı sınıflandırma durumu ayrıntılı bir panoya portalında görüntülenebilir. Ayrıca, uyumluluk ve denetim amacıyla, yanı sıra diğer gereksinimlerini kullanılacak bir raporu (Excel biçiminde) indirebilirsiniz.
+
+- **Bulma ve öneriler**
+
+  Sınıflandırma altyapısının veritabanınızı tarar ve potansiyel olarak hassas veriler içeren sütunlarını tanımlar. Bunun ardından, gözden geçirin ve uygun sınıflandırma öneriler Azure portal aracılığıyla uygulamak için kolay bir yol sağlar.
+
+- **Etiketleme**
+
+  Duyarlılık sınıflandırma etiketleri, SQL motoruna sunulan yeni sınıflandırma meta veri öznitelikleri kullanarak sütunlarda kalıcı olarak etiketlenebilir. Bu meta veriler, ardından Gelişmiş duyarlılık tabanlı denetim ve koruma senaryoları için kullanılabilir.
+
+- **Sorgu sonucu kümesi duyarlılık**
+
+  Sorgu sonucu kümesini duyarlılığına denetim amacıyla gerçek zamanlı olarak hesaplanır.
+
+- **Görünürlük**
+
+  Veritabanı sınıflandırma durumu ayrıntılı bir panoya portalında görüntülenebilir. Ayrıca, uyumluluk ve denetim amacıyla, yanı sıra diğer gereksinimlerini kullanılacak bir raporu (Excel biçiminde) indirebilirsiniz.
 
 ## <a id="subheading-2"></a>Bulma, Sınıflandırma ve etiket hassas sütunları
+
 Aşağıdaki bölümde, bulma, Sınıflandırma ve etiketleme veritabanı hem de veritabanı geçerli sınıflandırma durumunu görüntüleme ve raporları dışarı aktarma hassas veriler içeren sütunların adımlarını açıklar.
 
 Sınıflandırma iki meta veri öznitelikleri içerir:
-* Sütunda depolanan verilerin duyarlılık düzeyi tanımlamak için kullanılan etiketler – ana sınıflandırma öznitelikleri.  
-* Bilgi türlerini sütunda depolanan verilerin türünü içine ek ayrıntı düzeyi sağlar.
+
+- Sütunda depolanan verilerin duyarlılık düzeyi tanımlamak için kullanılan etiketler – ana sınıflandırma öznitelikleri.  
+- Bilgi türlerini sütunda depolanan verilerin türünü içine ek ayrıntı düzeyi sağlar.
 
 ## <a name="define-and-customize-your-classification-taxonomy"></a>Tanımlama ve sınıflandırma taksonominizi özelleştirme
 
@@ -72,31 +89,31 @@ Kiracı genelinde bir ilke oluşturulduktan sonra özelleştirilmiş ilkenizi ku
 
    ![Excel'e Aktar](./media/sql-data-discovery-and-classification/3_data_classification_export_report.png)
 
-5.  <a id="step-5"></a>Verilerinizi sınıflandırmak başlatmak için tıklayın **sınıflandırma sekmesini** pencerenin üst kısmındaki.
+5. <a id="step-5"></a>Verilerinizi sınıflandırmak başlatmak için tıklayın **sınıflandırma sekmesini** pencerenin üst kısmındaki.
 
     ![Veri sınıflandırma](./media/sql-data-discovery-and-classification/4_data_classification_classification_tab_click.png)
 
 6. Sınıflandırma altyapısının olası hassas verileri içeren sütunlar için veritabanınızı tarar ve bir listesini sağlar **sütun sınıflandırmaları önerilen**. Sınıflandırma önerileri uygulayın ve görüntülemek için:
 
-    * Pencerenin alt kısmındaki önerileri panelde önerilen sütun sınıflandırmaları listesini görüntülemek için tıklayın:
+   - Pencerenin alt kısmındaki önerileri panelde önerilen sütun sınıflandırmaları listesini görüntülemek için tıklayın:
 
       ![Veri sınıflandırma](./media/sql-data-discovery-and-classification/5_data_classification_recommendations_panel.png)
 
-    * Belirli bir sütun için bir öneri kabul edin, ilgili satır sol sütunda onay için öneriler – listesini gözden geçirin. Ayrıca işaretleyebilirsiniz *tüm önerileri* önerileri tablo üstbilgisinde onay kutusunu işaretleyerek kabul edildi olarak.
+   - Belirli bir sütun için bir öneri kabul edin, ilgili satır sol sütunda onay için öneriler – listesini gözden geçirin. Ayrıca işaretleyebilirsiniz *tüm önerileri* önerileri tablo üstbilgisinde onay kutusunu işaretleyerek kabul edildi olarak.
 
        ![Gözden geçirme öneri listesi](./media/sql-data-discovery-and-classification/6_data_classification_recommendations_list.png)
 
-    * Seçili önerileri uygulamak için üzerinde mavi tıklayın **seçili önerileri kabul** düğmesi.
+   - Seçili önerileri uygulamak için üzerinde mavi tıklayın **seçili önerileri kabul** düğmesi.
 
       ![Önerileri uygulama](./media/sql-data-discovery-and-classification/7_data_classification_accept_selected_recommendations.png)
 
 7. Ayrıca **el ile sınıflandırma** sütunları alternatif olarak veya ek olarak, öneri tabanlı sınıflandırma için:
 
-    * Tıklayarak **sınıflandırma Ekle** penceresinin üst menüdeki.
+   - Tıklayarak **sınıflandırma Ekle** penceresinin üst menüdeki.
 
       ![El ile sınıflandırma Ekle](./media/sql-data-discovery-and-classification/8_data_classification_add_classification_button.png)
 
-    * Açılan bağlam penceresinde şemasını seçin > Tablo > sınıflandırmak istediğiniz sütunu ve bilgi türü ve duyarlılık etiketi. Mavi üzerinde ardından **sınıflandırma Ekle** bağlam pencerenin alt kısmındaki düğmesi.
+   - Açılan bağlam penceresinde şemasını seçin > Tablo > sınıflandırmak istediğiniz sütunu ve bilgi türü ve duyarlılık etiketi. Mavi üzerinde ardından **sınıflandırma Ekle** bağlam pencerenin alt kısmındaki düğmesi.
 
       ![Sınıflandırmak için sütun seçin](./media/sql-data-discovery-and-classification/9_data_classification_manual_classification.png)
 
@@ -117,16 +134,16 @@ Sütun sınıflandırmaları Ekle/Kaldır ek olarak, veritabanının tamamı iç
 > [!NOTE]
 > Etiketleri yönetmek için T-SQL kullanarak, eklenen bir sütuna kuruluş bilgilerini koruma İlkesi (portal önerileri görünen etiket kümesi) mevcut olan doğrulama yoktur. Therefor bunu doğrulamak için size bağlıdır.
 
-* Bir veya daha fazla sütun sınıflandırmasını ekleme/güncelleştirme: [DUYARLIK SINIFLANDIRMASI ekleyin](https://docs.microsoft.com/sql/t-sql/statements/add-sensitivity-classification-transact-sql)
-* Bir veya daha fazla sütunlarından Sınıflandırmayı kaldırmak: [bırak DUYARLIK SINIFLANDIRMASI](https://docs.microsoft.com/sql/t-sql/statements/drop-sensitivity-classification-transact-sql)
-* Tüm sınıflandırmalar veritabanında görüntüleyin: [sys.sensitivity_classifications](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-sensitivity-classifications-transact-sql)
+- Bir veya daha fazla sütun sınıflandırmasını ekleme/güncelleştirme: [DUYARLIK SINIFLANDIRMASI ekleyin](https://docs.microsoft.com/sql/t-sql/statements/add-sensitivity-classification-transact-sql)
+- Bir veya daha fazla sütunlarından Sınıflandırmayı kaldırmak: [bırak DUYARLIK SINIFLANDIRMASI](https://docs.microsoft.com/sql/t-sql/statements/drop-sensitivity-classification-transact-sql)
+- Tüm sınıflandırmalar veritabanında görüntüleyin: [sys.sensitivity_classifications](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-sensitivity-classifications-transact-sql)
 
 Sınıflandırmaları programlı olarak yönetmek için REST API de kullanabilirsiniz. Yayımlanan REST API'leri, aşağıdaki işlemleri destekler:
-* [Oluşturma veya güncelleştirme](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/createorupdate) - oluşturur veya belirli bir sütunun duyarlılık etiketi güncelleştirir
-* [Silme](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/delete) -belirli bir sütunun duyarlılık etiketi siler
-* [Alma](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/get) -belirli bir sütunun duyarlılık etiketi alır
-* [Liste tarafından veritabanı](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/listbydatabase) -belirli bir veritabanı duyarlılık etiketlerini alır
 
+- [Oluşturma veya güncelleştirme](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/sensitivitylabels_createorupdate) - oluşturur veya belirli bir sütunun duyarlılık etiketi güncelleştirir
+- [Silme](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/sensitivitylabels_delete) -belirli bir sütunun duyarlılık etiketi siler
+- [Alma](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/sensitivitylabels_get) -belirli bir sütunun duyarlılık etiketi alır
+- [Liste tarafından veritabanı](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/sensitivitylabels_listbydatabase) -belirli bir veritabanı duyarlılık etiketlerini alır
 
 ## <a id="subheading-5"></a>Sonraki adımlar
 

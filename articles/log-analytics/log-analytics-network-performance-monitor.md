@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: abshamsft
 ms.component: ''
-ms.openlocfilehash: 953a004f48bfd9bd68b9500d312240c45cbf3292
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 634958265193a1dedb7c860c34f712160e4120d2
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49321912"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49353300"
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Ağ Performansı İzleyicisi çözüm azure'da
 
@@ -257,7 +257,7 @@ Ağ Performansı İzleyicisi Panosu aracılığıyla kullanıma sunulan grafik v
 
 Ağ Performansı İzleyicisi uyarı yeteneklerini kullanır [Azure İzleyici](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts).
 
-Tüm uyarı kullanılarak yönetilir, yani [Eylem grupları](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups#overview).  
+Tüm bildirimler kullanılarak yönetilir yani [Eylem grupları](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups#overview).  
 
 OMS aracılığıyla bir uyarı oluşturan bir NPM kullanıcı varsa: 
 1. Azure Portalı'na yönlendireceği bir bağlantı görürsünüz. Portala erişmek için tıklayın.
@@ -270,6 +270,10 @@ Azure Portalı aracılığıyla bir uyarı oluşturan bir NPM kullanıcı varsa:
 2. Doğrudan e-postanızı girin seçerseniz, bir eylem grubu adı ile **Npm e-posta** oluşturulur ve e-posta kimliği bu eylem grubuna eklenir.
 3. Eylem grupları kullanmayı seçerseniz, daha önce oluşturulan eylem grubu seçmeniz gerekecektir. Bir eylem grubu oluşturmak nasıl öğrenebilirsiniz [burada.](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups#create-an-action-group-by-using-the-azure-portal) 
 4. Uyarı başarıyla oluşturulduktan sonra Uyarıları Yönet bağlantısına Uyarıları yönetmek için kullanabilirsiniz. 
+
+Her zaman bir uyarı oluşturmak, Azure İzleyicisi'nde NPM sorgu tabanlı günlük uyarı kuralı oluşturur. Bu sorguyu 5 dakikada bir varsayılan triggerred olduğu. Azure İzleyici değil ücret ilk 250 günlük uyarısı kuralları oluşturulan ve 250 günlük uyarı kuralları sınırlamak uyarı kuralları yukarıdaki olarak başına faturalandırılır [uyarılar Azure fiyatlandırma sayfasını İzleyicisi'nde fiyatlandırma](https://azure.microsoft.com/en-us/pricing/details/monitor/).
+Bildirimleri ücretlendirilir olarak başına [Azure İzleyici pricig sayfasında fiyatlandırma bildirimleri](https://azure.microsoft.com/en-us/pricing/details/monitor/).
+
 
 ## <a name="pricing"></a>Fiyatlandırma
 

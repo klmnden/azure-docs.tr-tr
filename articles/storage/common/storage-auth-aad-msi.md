@@ -8,14 +8,14 @@ ms.topic: article
 ms.date: 09/05/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: 67e0731c1f10bb635baa4e0d1a26dce0a336b555
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: c06dc83f8b460e6215448fbc9e4ac42c749b5922
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44090364"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49354011"
 ---
-# <a name="authenticate-access-to-blobs-and-queues-with-azure-managed-identities-for-azure-resources-preview"></a>BLOB'lar ve Kuyruklar Azure ile kimlik doğrulaması yapmak (Önizleme) Azure kaynakları için yönetilen kimlikleri
+# <a name="authenticate-access-to-blobs-and-queues-with-managed-identities-for-azure-resources-preview"></a>BLOB'lar ve Kuyruklar yönetilen kimliklerle erişim (Önizleme) Azure kaynakları için kimlik doğrulaması
 
 Azure Blob ve kuyruk depolama ile Azure Active Directory (Azure AD) kimlik doğrulaması desteği [kimliklerini Azure kaynakları için yönetilen](../../active-directory/managed-identities-azure-resources/overview.md). Azure kaynakları için yönetilen kimlikleri, Azure sanal makineleri (VM'ler), işlev uygulamaları, sanal makine ölçek kümeleri ve diğerleri çalışan uygulamalardan erişim BLOB'lar ve Kuyruklar için kimlik doğrulaması için kullanabilirsiniz. Yönetilen kimlik kullanarak Azure kaynakları ve Azure AD kimlik doğrulaması gücünden yararlanan, bulutta çalışan uygulamalarınızın ile kimlik bilgilerini depolama önleyebilirsiniz.  
 

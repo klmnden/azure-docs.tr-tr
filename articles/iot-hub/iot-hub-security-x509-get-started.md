@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/10/2017
 ms.author: dobett
-ms.openlocfilehash: 19f6f5d360981c743d819da81eb2f68db1853c8b
-ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ms.openlocfilehash: f10f1da93df6a313525e102e4906cfe67a5f6ae3
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43783126"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49351891"
 ---
 # <a name="set-up-x509-security-in-your-azure-iot-hub"></a>Azure IOT hub'ınızdaki X.509 güvenliği
 
@@ -72,9 +72,9 @@ Bu adımlar Portalı aracılığıyla IOT hub'ınıza yeni bir sertifika yetkili
 
 ## <a name="create-an-x509-device-for-your-iot-hub"></a>IOT hub'ınız için bir X.509 cihazı oluşturma
 
-1. Azure portalında, IOT hub'ın gidin **Device Explorer**.
+1. Azure portalında, IOT hub'ın gidin **gezginler > IOT cihazları** sayfası.
 
-2. Tıklayın **Ekle** yeni bir cihaz eklemek için. 
+2. Tıklayın **+ Ekle** yeni bir cihaz eklemek için.
 
 3. Kolay görünen adı verin **cihaz kimliği**seçip **_X.509 CA imzalı_** olarak **kimlik doğrulama türü**. **Kaydet**’e tıklayın.
 

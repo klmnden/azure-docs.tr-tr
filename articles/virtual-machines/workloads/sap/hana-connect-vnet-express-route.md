@@ -14,25 +14,25 @@ ms.workload: infrastructure
 ms.date: 09/10/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5efdda485e4e1f5013948c6636b267f0d388f4d5
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: a64a60603cd9898386a975313afc676e3b253326
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44164765"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49353606"
 ---
-# <a name="connecting-a-vnet-to-hana-large-instance-expressroute"></a>HANA büyük örnek ExpressRoute için sanal ağ bağlama
+# <a name="connect-a-virtual-network-to-hana-large-instances"></a>HANA büyük örnekleri için bir sanal ağı bağlama
 
-Tüm IP adresi aralıklarını tanımlanan ve artık veri Microsoft'tan alındı, HANA büyük örnekler için daha önce oluşturduğunuz sanal ağa bağlanma başlatabilirsiniz. Azure sanal ağı oluşturulduktan sonra sanal ağ üzerinde büyük örneği damgasında müşteri kiracısında bağlandığı ExpressRoute bağlantı hattına bağlamak için VNet üzerinde bir ExpressRoute ağ geçidi oluşturulmalıdır.
+Bir Azure sanal ağı oluşturduktan sonra o ağ üzerinde Azure büyük örneklerde SAP HANA için bağlanabilirsiniz. Bir Azure ExpressRoute ağ geçidi sanal ağ oluşturun. Bu ağ geçidi müşteri kiracısında büyük örneği damgasında bağlandığı ExpressRoute bağlantı hattına sanal ağa bağlamanıza olanak sağlar.
 
 > [!NOTE] 
-> Bu adım, yeni ağ geçidine atanan bir Azure aboneliği oluşturulur ve ardından belirtilen Azure Vnet'e bağlı olarak tamamlanması 30 dakika sürebilir.
+> Bu adımın tamamlanması 30 dakika sürebilir. Yeni ağ geçidine atanan bir Azure aboneliği oluşturulur ve ardından belirtilen Azure sanal ağa bağlı.
 
-Bir ağ geçidi zaten varsa, bir ExpressRoute ağ geçidi olup olmadığını denetleyin. Aksi halde ağ geçidi silinmesi ve yeniden oluşturulması bir ExpressRoute ağ geçidi olarak. Azure sanal ağı ExpressRoute bağlantı hattı şirket içi bağlantı için zaten bağlı olduğundan bir ExpressRoute ağ geçidiyle zaten varsa, sanal ağları bağlama bölümüne geçin.
+Bir ağ geçidi zaten varsa, bir ExpressRoute ağ geçidi olup olmadığını denetleyin. Aksi durumda, ağ geçidini silin ve bir ExpressRoute ağ geçidi olarak yeniden oluşturun. Bir ExpressRoute ağ geçidiyle zaten varsa, bu makalenin "Bağlantısı sanal ağlar." aşağıdaki bölüme bakın 
 
-- Kullanın ya da (yeni) [Azure portalında](https://portal.azure.com/), veya bir ExpressRoute VPN ağ geçidi oluşturmak için PowerShell, sanal ağınıza bağlı.
-  - Azure portalını kullanıyorsanız, yeni bir ekleme **sanal ağ geçidi** seçip **ExpressRoute** ağ geçidi türü.
-  - Bunun yerine PowerShell seçerseniz, indirmeniz ve en günceli kullan [Azure PowerShell SDK'sı](https://azure.microsoft.com/downloads/) bir en iyi deneyimi sağlamak için. Aşağıdaki komutlar bir ExpressRoute ağ geçidi oluşturur. Metinleri öncesinde bir _$_ özel bilgileri ile güncelleştirilmesi gereken kullanıcı tanımlı değişkenler.
+- Hangisini [Azure portalında](https://portal.azure.com/) veya bir ExpressRoute VPN ağ geçidi oluşturmak için PowerShell, sanal ağınıza bağlı.
+  - Azure portalını kullanıyorsanız, yeni bir ekleme **sanal ağ geçidi**ve ardından **ExpressRoute** ağ geçidi türü.
+  - PowerShell kullanıyorsanız, indirmeniz ve en günceli kullan [Azure PowerShell SDK'sı](https://azure.microsoft.com/downloads/). Aşağıdaki komutlar bir ExpressRoute ağ geçidi oluşturur. Metinleri öncesinde bir _$_ özel bilgileri ile güncelleştirilmesi kullanıcı tanımlı değişkenler.
 
 ```PowerShell
 # These Values should already exist, update to match your environment
@@ -44,7 +44,7 @@ $myVNetName = "VNet01"
 $myGWName = "VNet01GW"
 $myGWConfig = "VNet01GWConfig"
 $myGWPIPName = "VNet01GWPIP"
-$myGWSku = "HighPerformance" # Supported values for HANA Large Instances are: HighPerformance or UltraPerformance
+$myGWSku = "HighPerformance" # Supported values for HANA large instances are: HighPerformance or UltraPerformance
 
 # These Commands create the Public IP and ExpressRoute Gateway
 $vnet = Get-AzureRmVirtualNetwork -Name $myVNetName -ResourceGroupName $myGroupName
@@ -60,23 +60,23 @@ New-AzureRmVirtualNetworkGateway -Name $myGWName -ResourceGroupName $myGroupName
 -GatewaySku $myGWSku -VpnType PolicyBased -EnableBgp $true
 ```
 
-Bu örnekte, yüksek performanslı ağ geçidi SKU'sunu kullanıldı. Seçenekleriniz olarak yalnızca ağ geçidi SKU'ları (büyük örnekler) Azure üzerinde SAP HANA için desteklenen yüksek performanslı veya UltraPerformance şunlardır.
+Bu örnekte, yüksek performanslı ağ geçidi SKU'sunu kullanıldı. Seçenekleriniz (büyük örnekler) Azure üzerinde SAP HANA için desteklenen tek ağ geçidi SKU'ları olarak HighPerformance veya UltraPerformance şunlardır.
 
 > [!IMPORTANT]
-> HANA büyük örnekleri için SKU türü II classs, UltraPerformance ağ geçidi SKU'ların kullanımı zorunludur.
+> HANA büyük örnekler Type II sınıfının SKU, UltraPerformance ağ geçidi SKU'su kullanmanız gerekir.
 
-**Sanal ağları bağlama**
+## <a name="link-virtual-networks"></a>Bağlantıyı sanal ağlar
 
-Azure sanal ağı bir ExpressRoute ağ geçidi var, bu bağlantı için oluşturulan Azure (büyük örnekler) ExpressRoute bağlantı hattı üzerinde SAP HANA ExpressRoute ağ geçidine bağlanmak için Microsoft tarafından sağlanan yetkilendirme bilgileri kullanın. Bu adım, Azure portal veya PowerShell kullanarak gerçekleştirilebilir. Portal önerilir ancak PowerShell yönergeleri aşağıda belirtilmiştir. 
+Azure sanal ağı bir ExpressRoute ağ geçidi artık sahiptir. SAP HANA (büyük örnekler) Azure ExpressRoute bağlantı hattı ExpressRoute ağ geçidine bağlanmak için Microsoft tarafından sağlanan yetkilendirme bilgileri kullanın. Azure portal veya PowerShell kullanarak bağlantı kurabilir. Portal önerilir, ancak PowerShell kullanmak istiyorsanız, yönergeler aşağıda belirtilmiştir. 
 
-- Her bağlantı için farklı bir AuthGUID kullanarak her VNet ağ geçidi için aşağıdaki komutları yürütün. Betik aşağıdaki ilk iki girdileri Microsoft tarafından sağlanan bilgileri gelir. Ayrıca, her sanal ağ ve ağ geçidini AuthGUID özeldir. Anlamına gelir, başka bir Azure sanal ağı eklemek istiyorsanız, HANA büyük örnekleri Azure'a bağlanan ExpressRoute bağlantı hattı için başka bir AuthID edinmeniz gerekir. 
+Her bağlantı için farklı bir AuthGUID kullanarak her sanal ağ geçidi için aşağıdaki komutları çalıştırın. Aşağıdaki kodda gösterilen ilk iki girişe Microsoft tarafından sağlanan bilgileri gelir. Ayrıca, her sanal ağ ve ağ geçidini AuthGUID özeldir. Başka bir Azure sanal ağı eklemek istiyorsanız, HANA büyük örnekleri azure'a bağlayan ExpressRoute bağlantı hattı için başka bir AuthID almanız gerekir. 
 
 ```PowerShell
 # Populate with information provided by Microsoft Onboarding team
 $PeerID = "/subscriptions/9cb43037-9195-4420-a798-f87681a0e380/resourceGroups/Customer-USE-Circuits/providers/Microsoft.Network/expressRouteCircuits/Customer-USE01"
 $AuthGUID = "76d40466-c458-4d14-adcf-3d1b56d1cd61"
 
-# Your ExpressRoute Gateway Information
+# Your ExpressRoute Gateway information
 $myGroupName = "SAP-East-Coast"
 $myGWName = "VNet01GW"
 $myGWLocation = "East US"
@@ -92,8 +92,8 @@ New-AzureRmVirtualNetworkGatewayConnection -Name $myConnectionName `
 -PeerId $PeerID -ConnectionType ExpressRoute -AuthorizationKey $AuthGUID
 ```
 
-Aboneliğinizle ilişkili olan birden çok ExpressRoute bağlantı hatları ağ geçidine bağlanmak istiyorsanız, bu adımı birden çok kez çalıştırmak gerekebilir. Örneğin, sanal ağın şirket içi ağınıza bağlanır ExpressRoute bağlantı hattı aynı VNet ağ geçidine bağlanmak için büyük olasılıkla seçeceksiniz.
+Aboneliğinizle ilişkili birden fazla ExpressRoute bağlantı hattı ağ geçidine bağlanmak için bu adımı birden çok kez çalıştırmanız gerekebilir. Örneğin, aynı sanal ağ geçidi sanal ağı şirket içi ağınıza bağlanır ExpressRoute bağlantı hattına bağlamak için büyük olasılıkla dağıtacağız.
 
-**Sonraki adımlar**
+## <a name="next-steps"></a>Sonraki adımlar
 
-- Başvuru [HLI için ek donanım gereksinimleri](hana-additional-network-requirements.md).
+- [HLI için ek donanım gereksinimleri](hana-additional-network-requirements.md)

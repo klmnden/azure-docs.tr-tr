@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 12/12/2017
 ms.author: dobett
-ms.openlocfilehash: 737a76ba313dddaa58c302f1df501f16a5c4e9e8
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: e9e88fc9aa3aad902c140ac176e31571b9e55ee3
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46966574"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49353750"
 ---
 # <a name="frequently-asked-questions-for-connected-factory-solution-accelerator"></a>Bağlı Fabrika çözüm Hızlandırıcı için sık sorulan sorular
 
@@ -140,33 +140,21 @@ IOT Hub'ına gönderilen veri görürseniz, benzetim ile ilgili bir sorun yoktur
 
 ### <a name="how-do-i-enable-an-interactive-map-in-my-connected-factory-solution"></a>Etkileşimli bir harita bağlı Fabrika çözümünün nasıl etkinleştirebilirim?
 
-Bağlı Fabrika çözümünüzü etkileşimli bir harita etkinleştirmek için Kurumsal plan için mevcut bir Bing Haritalar API'si olması gerekir.
+Bağlı Fabrika çözümünüzü etkileşimli bir harita etkinleştirmek için bir Azure haritalar hesabı olmalıdır.
 
-Gelen dağıtırken [www.azureiotsolutions.com](http://www.azureiotsolutions.com), dağıtım işlemi doğrular, aboneliğinizin Kurumsal plan için etkin bir Bing Haritalar API'si sahip, etkileşimli bir harita bağlı Fabrika otomatik olarak dağıtır. Durum bu değilse, yine de etkileşimli bir harita dağıtımınızı şu şekilde etkinleştirebilirsiniz:
+Gelen dağıtırken [www.azureiotsolutions.com](http://www.azureiotsolutions.com), dağıtım işlemi bir Azure haritalar hesabı çözüm Hızlandırıcı hizmetleri içeren kaynak grubunu ekler.
 
-Kullanarak dağıtırken `build.ps1` betik bağlı Fabrika github deposu ve kurumsal plan için Bing haritaları API'si sahip, ortam değişkenini ayarlamak `$env:MapApiQueryKey` planınızın sorgu anahtarı derleme penceresinde. Etkileşimli harita otomatik olarak etkinleştirilir.
+Kullanarak dağıtırken `build.ps1` ortam değişkeni bağlı Fabrika GitHub deposu kümesinde betik `$env:MapApiQueryKey` derleme penceresinde [Azure haritalar hesabınızda anahtarı](../azure-maps/how-to-manage-account-keys.md). Etkileşimli harita otomatik olarak etkinleştirilir.
 
-Kurumsal plan için Bing haritaları API'si yoksa, bağlı Fabrika çözümü dağıtma [www.azureiotsolutions.com](http://www.azureiotsolutions.com) veya bu adı kullanıyor `build.ps1` betiği. Ardından Bing Haritalar API'si Kurumsal plan için açıklandığı gibi aboneliğinize eklemek [kuruluş hesabı için Bing haritaları API'si nasıl oluşturabilirim?](#how-do-i-create-a-bing-maps-api-for-enterprise-account). Bu hesabın sorgu anahtarını açıklandığı gibi Ara [Kurumsal QueryKey için Bing haritaları API'NİZİN edinme](#how-to-obtain-your-bing-maps-api-for-enterprise-querykey) ve bu anahtarı kaydedin. Azure portalına gidin ve bağlı Fabrika dağıtımınızdaki App Service kaynak erişebilirsiniz. Gidin **uygulama ayarları**, bölüm nerede **uygulama ayarları**. Ayarlama **MapApiQueryKey** edindiğiniz sorgu anahtarı. Ayarları kaydedin ve ardından gidin **genel bakış** ve App Service'ı yeniden başlatın.
+Ayrıca, çözüm hızlandırıcınız dağıtımdan sonra bir Azure haritalar hesabı anahtarı ekleyebilirsiniz. Azure portalına gidin ve bağlı Fabrika dağıtımınızdaki App Service kaynak erişebilirsiniz. Gidin **uygulama ayarları**, bölüm nerede **uygulama ayarları**. Ayarlama **MapApiQueryKey** için [Azure haritalar hesabınızda anahtarı](../azure-maps/how-to-manage-account-keys.md). Ayarları kaydedin ve ardından gidin **genel bakış** ve App Service'ı yeniden başlatın.
 
-### <a name="how-do-i-create-a-bing-maps-api-for-enterprise-account"></a>Bing Haritalar API'si için Enterprise hesabı nasıl oluşturulur
+### <a name="how-do-i-create-a-azure-maps-account"></a>Azure haritalar hesabı nasıl oluşturulur?
 
-Ücretsiz alabilirsiniz *iç işlemler düzey 1 Bing Haritalar Kurumsal* planı. Ancak, yalnızca iki bu planları bir Azure aboneliğine ekleyebilirsiniz. Kuruluş hesabı için Bing haritaları API'si yoksa, Azure Portalı'nda tıklayarak oluşturun **+ kaynak Oluştur**. Ardından aramak **Kurumsal için Bing Haritalar API'si** ve bunu oluşturmak için istemleri izleyin.
+Bkz, [Azure haritalar hesabı ve anahtarları yönetme](../azure-maps/how-to-manage-account-keys.md).
 
-![Bing anahtarı](./media/iot-accelerators-faq-cf/bing.png)
+### <a name="how-to-obtain-your-azure-maps-account-key"></a>Azure haritalar hesabı anahtarınızı edinme
 
-### <a name="how-to-obtain-your-bing-maps-api-for-enterprise-querykey"></a>Kurumsal QueryKey için Bing haritaları API'NİZİN edinme
-
-Kurumsal plan için Bing haritaları API'nizi oluşturulduktan sonra bir Bing Haritalar kurumsal kaynak için bağlı Fabrika çözümünüzü Azure portalında kaynak grubu ekleyin.
-
-1. Azure portalında Kurumsal plan için Bing haritaları API'nizi içeren kaynak grubuna gidin.
-
-1. Tıklayın **tüm ayarlar**, ardından **anahtar yönetimi**.
-
-1. İki anahtar vardır: **MasterKey** ve **QueryKey**. Kopyalama **QueryKey** değeri.
-
-1. Tarafından toplanma anahtarının `build.ps1` komut dosyası, ortam değişkenini ayarlamak `$env:MapApiQueryKey` PowerShell ortamınızda **QueryKey** planınızın. Derleme betiği sonra otomatik olarak değer için App Service ayarlarını ekler.
-
-1. Yerel çalıştırma veya dağıtım kullanarak bulut `build.ps1` betiği.
+Bkz, [Azure haritalar hesabı ve anahtarları yönetme](../azure-maps/how-to-manage-account-keys.md).
 
 ### <a name="how-do-enable-the-interactive-map-while-debugging-locally"></a>Etkileşimli harita yerel olarak hata ayıklama sırasında nasıl etkinleştirebilirim?
 

@@ -13,12 +13,12 @@ ms.author: vanto
 ms.reviewer: ''
 manager: craigg
 ms.date: 10/05/2018
-ms.openlocfilehash: 79613ab7a0e96405abbb3b380800f5ba951c3bdc
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 44fc04d4788c4381a4922f1335c393e03045900e
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49092704"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49352403"
 ---
 # <a name="always-encrypted-protect-sensitive-data-and-store-encryption-keys-in-azure-key-vault"></a>Her zaman şifreli: hassas verilerin korunmasına ve şifreleme anahtarları Azure Key Vault'ta depolama
 
@@ -605,7 +605,7 @@ Herhangi bir düz metin veri içermemesi şifrelenmiş sütunları görebilirsin
 
    ![Yeni konsol uygulaması](./media/sql-database-always-encrypted-azure-key-vault/ssms-encrypted.png)
 
-SSMS düz metin verilerine erişmek için kullanmak için önce kullanıcı Azure anahtar kasası için uygun izinlere sahip olduğundan emin olmak gerekir: *alma*, *unwrapKey*, ve *doğrulayın*. Ayrıntılı bilgi için bkz. [oluştur ve Store sütun ana anahtarları (her zaman şifreli)](https://docs.microsoft.com/en-us/sql/relational-databases/security/encryption/create-and-store-column-master-keys-always-encrypted?view=sql-server-2017).
+SSMS düz metin verilerine erişmek için kullanmak için önce kullanıcı Azure anahtar kasası için uygun izinlere sahip olduğundan emin olmak gerekir: *alma*, *unwrapKey*, ve *doğrulayın*. Ayrıntılı bilgi için bkz. [oluştur ve Store sütun ana anahtarları (her zaman şifreli)](https://docs.microsoft.com/sql/relational-databases/security/encryption/create-and-store-column-master-keys-always-encrypted?view=sql-server-2017).
 
 Ardından Ekle *sütun şifreleme ayarı = etkin* bağlantınızı sırasında parametre.
 

@@ -5,16 +5,16 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 8/1/2018
+ms.date: 10/16/2018
 ms.author: victorh
-ms.openlocfilehash: e4b69e6fa587a5d375a1684c982715f8a7ea8166
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: b0bde770e33a08832e7d3a93a745bbba44b04f87
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39579638"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49353348"
 ---
-# <a name="configure-app-service-web-apps-with-application-gateway"></a>Application Gateway ile App Service Web Apps’i yapılandırma 
+# <a name="configure-app-service-web-apps-with-application-gateway"></a>Application Gateway ile App Service Web Apps’i yapılandırma
 
 Application gateway, bir Azure Web Uygulaması veya diğer çok kiracılı hizmeti arka uç havuzu üyesi olarak kullanmanıza olanak tanır. Bu makalede bir Azure web uygulamasını Application Gateway ile yapılandırma hakkında bilgi alacaksınız. İlk örnekte, arka uç havuzu üyesi olarak web uygulamasını kullanmak için mevcut bir application gateway’i nasıl yapılandıracağınız gösterilmektedir. İkinci örnekte, arka uç havuzu üyesi olarak web uygulaması ile yeni bir application gateway’i nasıl oluşturacağınız gösterilmektedir.
 
@@ -41,7 +41,7 @@ Add-AzureRmApplicationGatewayProbeConfig -name webappprobe2 -ApplicationGateway 
 # Retrieve the newly added probe
 $probe = Get-AzureRmApplicationGatewayProbeConfig -name webappprobe2 -ApplicationGateway $gw
 
-# Configure an existing backend http settings 
+# Configure an existing backend http settings
 Set-AzureRmApplicationGatewayBackendHttpSettings -Name appGatewayBackendHttpSettings -ApplicationGateway $gw -PickHostNameFromBackendAddress -Port 80 -Protocol http -CookieBasedAffinity Disabled -RequestTimeout 30 -Probe $probe
 
 # Add the web app to the backend pool
@@ -116,7 +116,7 @@ $fipconfig = New-AzureRmApplicationGatewayFrontendIPConfig -Name fipconfig01 -Pu
 $listener = New-AzureRmApplicationGatewayHttpListener -Name listener01 -Protocol Http -FrontendIPConfiguration $fipconfig -FrontendPort $fp
 
 # Create a new rule
-$rule = New-AzureRmApplicationGatewayRequestRoutingRule -Name rule01 -RuleType Basic -BackendHttpSettings $poolSetting -HttpListener $listener -BackendAddressPool $pool 
+$rule = New-AzureRmApplicationGatewayRequestRoutingRule -Name rule01 -RuleType Basic -BackendHttpSettings $poolSetting -HttpListener $listener -BackendAddressPool $pool
 
 # Define the application gateway SKU to use
 $sku = New-AzureRmApplicationGatewaySku -Name Standard_Small -Tier Standard -Capacity 2
@@ -141,7 +141,7 @@ Id                       : /subscriptions/<subscription_id>/resourceGroups/Conto
 Etag                     : W/"00000d5b-54ed-4907-bae8-99bd5766d0e5"
 ResourceGuid             : 00000000-0000-0000-0000-000000000000
 ProvisioningState        : Succeeded
-Tags                     : 
+Tags                     :
 PublicIpAllocationMethod : Dynamic
 IpAddress                : xx.xx.xxx.xx
 PublicIpAddressVersion   : IPv4
@@ -154,6 +154,12 @@ DnsSettings              : {
                                 "Fqdn": "00000000-0000-xxxx-xxxx-xxxxxxxxxxxx.cloudapp.net"
                             }
 ```
+
+## <a name="restrict-access"></a>Erişimi kısıtlama
+
+Bu örneklerde dağıtılan web uygulamaları doğrudan Internet'ten erişilebilen genel IP adresleri kullanın. Bu, yeni bir özellik hakkında öğrenirken sorun giderme ve yeni şeyler çalışırken yardımcı olur. Ancak, bir özellik üretim ortamında dağıtmak istiyorsanız, daha fazla kısıtlama eklemek isteyeceksiniz.
+
+Web uygulamalarınız için erişimi kısıtlayabilir tek bir yolu [Azure App Service statik IP kısıtlamaları](../app-service/app-service-ip-restrictions.md). Örneğin, yalnızca uygulama ağ geçidinden trafiği alır, böylece web uygulaması kısıtlayabilirsiniz. Uygulama ağ geçidi VIP erişimi olan tek adres olarak listelemek için app service IP kısıtlama özelliğini kullanın.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 8/2/2018
 ms.author: markgal
-ms.openlocfilehash: 561b5d3d9769b509e21a3005d771529f342e2171
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: 2151733a5d91fb17c69fa1f4f6aac64a70928824
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49067507"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49364311"
 ---
 # <a name="questions-about-the-azure-backup-service"></a>Azure Backup hizmetiyle ilgili sorular
 Bu makalede, Azure Backup bileşenleri hakkında sık sorulan sorular yanıtlanmaktadır. Bazı yanıtlarda, kapsamlı bilgiler içeren makalelerin bağlantıları vardır. **Yorumlar**’a (sağda) tıklayarak Azure Backup hakkında soru sorabilirsiniz. Yorumlar bu makalenin altında görünür. Ayrıca Azure Backup hizmeti ile ilgili sorularınızı [tartışma forumunda](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup) paylaşabilirsiniz.
@@ -31,7 +31,7 @@ Evet. Azure Backup, abonelik başına desteklenen bölge başına 500 adede kada
 Kasa başına en fazla 1000 Azure sanal makineleri kaydedebilirsiniz. MAB Aracısı kullanıyorsanız, kasa başına en fazla 50 MAB aracıları kaydedebilirsiniz. Ve 50 MAB sunucuları/DPM sunucularını bir kasaya kaydedebilir.
 
 ### <a name="can-i-use-a-rest-api-to-query-the-size-of-protected-items-in-a-vault-br"></a>Bir kasadaki korumalı öğelerin boyutunu sorgulamak için bir REST API'si kullanabilir miyim? <br/>
-Evet, makale [kullanımları - Listele kasaları tarafından](https://t.co/2lgIrIaF0J), Kurtarma Hizmetleri kasasından alınabilir bilgilerini listeler.
+Evet, makale [kullanımları - Listele kasaları tarafından](https://docs.microsoft.com/rest/api/recoveryservices/usages/usages_listbyvaults), Kurtarma Hizmetleri kasasından alınabilir bilgilerini listeler.
 
 ### <a name="if-my-organization-has-one-vault-how-can-i-isolate-one-servers-data-from-another-server-when-restoring-databr"></a>Kuruluşumun bir kasası varsa veri geri yükleme sırasında bir sunucunun verilerini başka bir sunucudan nasıl ayırabilirim?<br/>
 Aynı kasaya kayıtlı tüm sunucular, *aynı parolayı kullanan* diğer sunucular tarafından yedeklenen verileri kurtarabilir. Yedekleme verilerini kuruluşunuzdaki diğer sunucularından ayırmak istediğiniz sunucularınız varsa bu sunucular için belirlenmiş bir parola kullanın. Örneğin, insan kaynakları sunucuları bir şifreleme parolası kullanırken, muhasebe sunucuları ve depolama sunucuları farklı birer şifreleme parolası kullanabilir.

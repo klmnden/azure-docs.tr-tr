@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 879dd4e9b20a57257dd7b93fddb54168d6bceb33
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: ac2b928e73031adb77616161f844f3f7fabdf146
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47095074"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49339857"
 documentType: LandingData
 title: Translator Konuşma Çevirisi API'si Belgeleri
 metadata:
@@ -21,8 +21,12 @@ metadata:
   ms.date: 3/5/2018
   ms.author: v-jansko
 abstract:
-  description: Microsoft Bilişsel Hizmetler API’si koleksiyonunun parçası olan Microsoft Translator Konuşma Çevirisi API’si, konuşma tanımayı veya konuşmayı metne dönüştürmeyi sağlayan bulut tabanlı bir makine çevirisi hizmetidir. Sektör standardı REST teknolojisi temel alınarak geliştirilen API, hedef işletim sistemi veya geliştirme dilinden bağımsız olarak, birden çok dilde konuşma çevirisine ihtiyaç duyan uygulamalara, araçlara veya çözümlere uçtan uca ve gerçek zamanlı konuşma çevirileri eklemek için kullanılabilir. Desteklenen dillerin listesi için lütfen <a href="languages.md">Desteklenen diller</a> sayfasına başvurun.
+  description: Microsoft Bilişsel Hizmetler API’si koleksiyonunun parçası olan Microsoft Translator Konuşma Çevirisi API’si, konuşma tanımayı veya konuşmayı metne dönüştürmeyi sağlayan bulut tabanlı bir makine çevirisi hizmetidir. Sektör standardı REST teknolojisi temel alınarak geliştirilen API, hedef işletim sistemi veya geliştirme dilinden bağımsız olarak, birden çok dilde konuşma çevirisine ihtiyaç duyan uygulamalara, araçlara veya çözümlere uçtan uca ve gerçek zamanlı konuşma çevirileri eklemek için kullanılabilir. Desteklenen dillerin listesi için <a href="languages.md">Desteklenen diller</a> makalesine bakın.
 sections:
+- title: 
+  items:
+  - type: paragraph
+    text: "<b>NOT: Yeni Konuşma Tanıma Hizmeti ve SDK’sı, 15 Ekim 2019’da kullanımdan kaldırılacak olan Translator Konuşma Çevirisi API'sinin yerini alacaktır. Konuşma Tanıma Hizmeti’ne geçiş hakkında bilgi edinmek için bkz. <a href=\"https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-migrate-from-translator-speech-api\"> Translator Konuşma Çevirisi API'sinden Konuşma Tanıma Hizmetine Geçiş </a></b>"
 - title: 5 Dakikalık Hızlı Başlangıçlar
   items:
   - type: paragraph

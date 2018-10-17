@@ -9,12 +9,12 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: erhopf
-ms.openlocfilehash: 3d03cd6a5cceb805ed8ee34548bd1a3973e9d78b
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 5a19366f6aeec2422ec8671ba3c32f642b5e01ac
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49167095"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49361445"
 ---
 # <a name="about-the-speech-to-text-api"></a>Konuşmayı metne dönüştürme API'si
 
@@ -38,7 +38,7 @@ ms.locfileid: "49167095"
 
 ## <a name="api-capabilities"></a>API özellikleri
 
-Bazı özelliklerini **Konuşmayı metne dönüştürme** - özellikle çevresinde özelleştirmesi - API REST kullanılabilir. Aşağıdaki tabloda, her API erişimi yöntemi yeteneklerini özetler. 
+Bazı özelliklerini **Konuşmayı metne dönüştürme** API, özellikle özelleştirmesi, REST kullanılabilir. Aşağıdaki tabloda, her API erişimi yöntemi yeteneklerini özetler. Özellikler ve API ayrıntıları tam listesi için bkz: [Swagger başvuru](https://westus.cris.ai/swagger/ui/index).
 
 | Kullanım örneği | REST | SDK’lar |
 |-----|-----|-----|----|
@@ -55,7 +55,7 @@ Bazı özelliklerini **Konuşmayı metne dönüştürme** - özellikle çevresin
 | Model dağıtımları yönetmek & Oluştur | Evet | Hayır |
 
 > [!NOTE]
-> REST API, API isteklerinin 5 saniye başına 25 sınırlayan azaltma uygular. İleti hearders sınırlarını size bildirir
+> REST API, API isteklerinin 5 saniye başına 25 sınırlayan azaltma uygular. İleti üst sınırları size bildirir
 
 \* *LUIS amaç ve varlıkları kullanarak ayrı bir LUIS aboneliği türetilebilir. Bu abonelikle SDK LUIS çağırmanızı ve konuşma döküm yanı sıra, varlık ve amacını sonuçlar sağlar. REST API ile LUIS çağırabilirsiniz kendiniz amaç ve varlıkları LUIS aboneliğinizle türetmek için.*
 

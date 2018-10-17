@@ -8,12 +8,12 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 10/10/2018
 ms.author: adgera
-ms.openlocfilehash: 412e0d42744c9defa3fef6b3ae9643166e6c3b5c
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 28eb8b5dc0f75b5e031070803d35c8a1ceb1f000
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49324339"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49364355"
 ---
 # <a name="security-best-practices"></a>En iyi güvenlik uygulamaları
 
@@ -54,7 +54,7 @@ IOT kaynakları aykırı değerleri, tehditleri veya normal işlem aralığı d�
 Azure dijital İkizlerini, kullanıcıların kimliklerini doğrulamak ve uygulamaları korumak için Azure Active Directory kullanır. Azure Active Directory kimlik doğrulaması için OAuth 2.0 veya Openıd Connect gibi endüstri standardı protokoller temel alınarak bunlar tüm modern mimarileri çeşitli destekler. IOT alanınız için Azure Active Directory güvenliğini sağlamak için birkaç önemli yöntemler şunlardır:
 
 > [!div class="checklist"]
-> * Azure Active Directory Uygulama gizli dizileri ve anahtarları güvenli bir konuma gibi Store [Key Vault](https://azure.microsoft.com/en-us/services/key-vault/).
+> * Azure Active Directory Uygulama gizli dizileri ve anahtarları güvenli bir konuma gibi Store [Key Vault](https://azure.microsoft.com/services/key-vault/).
 > * Güvenilen bir tarafından yayınlanan bir sertifika kullanmak [sertifika yetkililerini](https://docs.microsoft.com/azure/active-directory/authentication/active-directory-certificate-based-authentication-get-started) kimliğini doğrulamak için uygulama gizli anahtarlarının yerine.
 > * OAuth 2.0 belirteç için erişim kapsamını sınırlandırın.
 > * Bir belirtecin geçerli olduğu süreyi doğrulayın ve bir belirteç olup geçerli kalır.

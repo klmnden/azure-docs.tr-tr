@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: roiyz
-ms.openlocfilehash: b8a946588d09eb05e1609344318c91f76c7ee106
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: bab579b540dbeed8ecbff8925547509edb1d78c9
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47452131"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49352385"
 ---
 # <a name="log-analytics-virtual-machine-extension-for-linux"></a>Linux için sanal makine uzantısı Analytics oturum
 
@@ -80,9 +80,9 @@ Log Analytics aracısını Uzantı Şeması aşağıdaki JSON'u göstermektedir.
 
 ```json
 {
-  "type": "extensions",
+  "type": "Microsoft.Compute/virtualMachines/extensions",
   "name": "OMSExtension",
-  "apiVersion": "2015-06-15",
+  "apiVersion": "2018-06-01",
   "location": "<location>",
   "dependsOn": [
     "[concat('Microsoft.Compute/virtualMachines/', <vm-name>)]"
@@ -101,11 +101,15 @@ Log Analytics aracısını Uzantı Şeması aşağıdaki JSON'u göstermektedir.
 }
 ```
 
+>[!NOTE]
+>Yukarıdaki şemayı şablonunun kök düzeyinde yerleştirilir varsayar. Şablonunda, sanal makine kaynağı içine koyarsanız `type` ve `name` özellikleri değiştirilmesi, açıklandığı [birazcık daha indiğimde](#template-deployment).
+>
+
 ### <a name="property-values"></a>Özellik değerleri
 
 | Ad | Değer / örnek |
 | ---- | ---- |
-| apiVersion | 2015-06-15 |
+| apiVersion | 2018-06-01 |
 | Yayımcı | Microsoft.EnterpriseCloud.Monitoring |
 | type | OmsAgentForLinux |
 | typeHandlerVersion | 1.7 |
@@ -125,7 +129,7 @@ Aşağıdaki örnekte, VM uzantısını sanal makine kaynağı içinde iç içe 
 {
   "type": "extensions",
   "name": "OMSExtension",
-  "apiVersion": "2015-06-15",
+  "apiVersion": "2018-06-01",
   "location": "<location>",
   "dependsOn": [
     "[concat('Microsoft.Compute/virtualMachines/', <vm-name>)]"
@@ -150,7 +154,7 @@ Uzantı JSON şablonu kökünde yerleştirilirken, kaynak adı üst sanal makine
 {
   "type": "Microsoft.Compute/virtualMachines/extensions",
   "name": "<parentVmResource>/OMSExtension",
-  "apiVersion": "2015-06-15",
+  "apiVersion": "2018-06-01",
   "location": "<location>",
   "dependsOn": [
     "[concat('Microsoft.Compute/virtualMachines/', <vm-name>)]"

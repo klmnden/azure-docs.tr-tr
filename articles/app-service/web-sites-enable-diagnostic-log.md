@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2016
 ms.author: cephalin
-ms.openlocfilehash: 37b11eea5c37103c0bc296a5f466658fbc77ed24
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: 5cd56abd02c55dbf72c92ed070f9988fae2b6762
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "42057133"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49365263"
 ---
 # <a name="enable-diagnostics-logging-for-web-apps-in-azure-app-service"></a>Azure App Service'te web apps için tanılama günlüğünü etkinleştirme
 ## <a name="overview"></a>Genel Bakış
@@ -82,7 +82,7 @@ Dosya sistemi, tablo depolama veya blob depolama, herhangi bir birleşimini ayn�
 Aynı temel bilgileri günlüğe kaydedilen olayları, tüm üç depolama konumları sunarken **tablo depolama** ve **blob depolama** daha örnek kimliği ve iş parçacığı kimliği gibi ek bilgilerini günlüğe kaydetme günlüğe kaydetme için daha ayrıntılı timestamp (değer biçimi) **dosya sistemi**.
 
 > [!NOTE]
-> Depolanan bilgi **tablo depolama** veya **blob depolama** yalnızca depolama istemcisi veya bu depolama sistemleri ile doğrudan çalışabilmeniz için uygulamanın kullanılarak erişilebilir. Örneğin, Visual Studio 2013 tablo veya blob depolama keşfetmek için kullanılan bir Depolama Gezgini içerir ve HDInsight, blob depolamada depolanan verilere erişebilir. Ayrıca, aşağıdakilerden birini kullanarak Azure depolama alanına erişen bir uygulama yazabilirsiniz [Azure SDK'ları](https://azure.microsoft.com/en-us/downloads/).
+> Depolanan bilgi **tablo depolama** veya **blob depolama** yalnızca depolama istemcisi veya bu depolama sistemleri ile doğrudan çalışabilmeniz için uygulamanın kullanılarak erişilebilir. Örneğin, Visual Studio 2013 tablo veya blob depolama keşfetmek için kullanılan bir Depolama Gezgini içerir ve HDInsight, blob depolamada depolanan verilere erişebilir. Ayrıca, aşağıdakilerden birini kullanarak Azure depolama alanına erişen bir uygulama yazabilirsiniz [Azure SDK'ları](https://azure.microsoft.com/downloads/).
 >
 > [!NOTE]
 > Tanılama Azure Powershell'den da etkinleştirilebilir kullanarak **Set-AzureWebsite** cmdlet'i. Azure PowerShell yüklü değil veya Azure Aboneliğinizdeki kullanacak şekilde yapılandırmadıysanız, bkz. [yüklemek ve Azure PowerShell yapılandırma](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-5.6.0).

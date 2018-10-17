@@ -9,20 +9,16 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/21/2018
-ms.openlocfilehash: 9b076709ee24c61b2699672d28bd61204c88a744
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 8e32939f3e253bfdd6f8d989f616f30e1b9f27eb
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43048050"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49364872"
 ---
 # <a name="use-zeppelin-notebooks-with-apache-spark-cluster-on-azure-hdinsight"></a>Azure HDInsight üzerinde Apache Spark kümesi ile Zeppelin not defterlerini kullanma
 
 HDInsight Spark kümeleri, Spark işlerini çalıştırmak için kullanabileceğiniz Zeppelin not defterlerini içerir. Bu makalede, bir HDInsight kümesinde Zeppelin not defteri kullanmayı öğrenin.
-
-> [!NOTE]
-> Zeppelin not defterlerini yalnızca HDInsight 3.5 üzerinde Spark 1.6.3 ve HDInsight 3.6 üzerinde Spark 2.1.0 için kullanılabilir.
->
 
 **Ön koşullar:**
 
@@ -50,7 +46,7 @@ HDInsight Spark kümeleri, Spark işlerini çalıştırmak için kullanabileceğ
    
     Yeni not defterinde varsayılan olarak oluşturulan boş paragraf içinde aşağıdaki kod parçacığını yapıştırın.
    
-        %livy.spark
+        %livy2.spark
         //The above magic instructs Zeppelin to use the Livy Scala interpreter
    
         // Create an RDD using the default Spark context, sc
@@ -77,6 +73,11 @@ HDInsight Spark kümeleri, Spark işlerini çalıştırmak için kullanabileceğ
     ![Ham verilerden geçici bir tablo oluşturma](./media/apache-spark-zeppelin-notebook/hdinsight-zeppelin-load-data.png "ham verilerden geçici bir tablo oluşturma")
    
     Ayrıca, her bir paragrafına başlık sağlayabilir. Sağ taraftaki köşesdeki **ayarları** simgesine ve ardından **başlığı göster**.
+
+> [!NOTE]
+> % spark2 yorumlayıcı desteklenmiyor Zeppelin not defterlerinde tüm HDInsight sürümleri ve % arasında sh yorumlayıcı desteklenmeyecek HDInsight 4.0 ve üzeri.
+>
+
 1. Artık Spark SQL deyimleri çalıştırabilirsiniz **hvac** tablo. Yeni bir paragrafa aşağıdaki sorguyu yapıştırın. Sorgu, yapı kimliği ve her biri belirli bir tarihte oluşturmak için gerçek Sıcaklıkların ve hedef arasındaki farkı alır. Tuşuna **SHIFT + ENTER**.
    
         %sql

@@ -11,23 +11,24 @@ author: oslake
 ms.author: moslake
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 09/20/2018
-ms.openlocfilehash: 6418694097c472afd6a2c706e55a9026ab03dcff
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.date: 10/15/2018
+ms.openlocfilehash: 6c43e5bf311d94ff2e5b5c31217c5071ea26746c
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47162730"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49351871"
 ---
 # <a name="create-and-manage-elastic-pools-in-azure-sql-database"></a>Azure SQL veritabanı elastik havuzları oluşturma ve yönetme
 
-Bir elastik havuz ile elastik havuz, veritabanı iş yükünü işlemek için gerektirdiği kaynakların miktarını ve havuza alınmış her veritabanı için kaynakların miktarını belirler. 
+Bir elastik havuz ile elastik havuz, veritabanı iş yükünü işlemek için gerektirdiği kaynakların miktarını ve havuza alınmış her veritabanı için kaynakların miktarını belirler.
 
 ## <a name="azure-portal-manage-elastic-pools-and-pooled-databases"></a>Azure portalı: elastik havuzlara ve havuza alınmış veritabanlarını yönetme
 
 Tüm havuzu ayarları tek bir yerde bulunabilir: **havuzu Yapılandır** dikey penceresi. Buraya ulaşmak için elastik havuz portalı ve tıklatın bulma **havuzu Yapılandır** dikey penceresinin üst veya sol taraftaki kaynak menüsünde.
 
 Buradan tüm bir toplu işlemde herhangi bir birleşimini kaydetmek ve aşağıdaki değişiklikleri yapabilir:
+
 1. Değişiklik havuzun hizmet katmanına
 2. Depolama ve performans (DTU veya sanal çekirdekler) ölçeği artırın veya azaltın
 3. Veritabanları için/havuzundan ekleyip
@@ -36,7 +37,7 @@ Buradan tüm bir toplu işlemde herhangi bir birleşimini kaydetmek ve aşağıd
 
 ![Elastik havuz yapılandırma dikey penceresi](./media/sql-database-elastic-pool-manage-portal/configure-pool.png)
 
-## <a name="powershell-manage-elastic-pools-and-pooled-databases"></a>PowerShell: elastik havuzlara ve havuza alınmış veritabanlarını yönetme 
+## <a name="powershell-manage-elastic-pools-and-pooled-databases"></a>PowerShell: elastik havuzlara ve havuza alınmış veritabanlarını yönetme
 
 SQL veritabanı elastik havuzları ve Azure PowerShell ile havuza alınan veritabanları oluşturmak ve yönetmek için aşağıdaki PowerShell cmdlet'lerini kullanın. Gerekirse yükleyin veya PowerShell yükseltmek için bkz [Azure PowerShell modülü yükleme](/powershell/azure/install-azurerm-ps). Oluşturma ve elastik havuzlar için mantıksal sunucuları yönetmek için bkz: [oluştur ve yönetilen mantıksal sunucuları](sql-database-logical-servers.md). Oluşturma ve güvenlik duvarı kurallarını yönetmek için bkz: [oluşturma ve PowerShell kullanarak güvenlik duvarı kurallarını yönetme](sql-database-firewall-configure.md#manage-firewall-rules-using-azure-powershell).
 
@@ -56,10 +57,8 @@ SQL veritabanı elastik havuzları ve Azure PowerShell ile havuza alınan verita
 |[Set-AzureRmSqlDatabase](/powershell/module/azurerm.sql/set-azurermsqldatabase)|Bir veritabanı özelliklerini ayarlar veya mevcut bir veritabanı içine, dışı ya da elastik havuzlar arasında taşır.|
 |[Remove-AzureRmSqlDatabase](/powershell/module/azurerm.sql/remove-azurermsqldatabase)|Bir veritabanı kaldırır.|
 
-
 > [!TIP]
 > Çok sayıda veritabanını bir elastik havuzdaki oluşturulmasını, portal veya aynı anda yalnızca tek bir veritabanı oluşturma PowerShell cmdlet'leri kullanılarak bittiğinde zaman alabilir. Bir elastik havuzun içine oluşturmayı otomatikleştirmek için bkz: [CreateOrUpdateElasticPoolAndPopulate](https://gist.github.com/billgib/d80c7687b17355d3c2ec8042323819ae).
->
 
 ## <a name="azure-cli-manage-elastic-pools-and-pooled-databases"></a>Azure CLI: elastik havuzlara ve havuza alınmış veritabanlarını yönetme
 
@@ -100,18 +99,18 @@ SQL veritabanı elastik havuzları ve havuza alınan veritabanları oluşturmak 
 
 | Komut | Açıklama |
 | --- | --- |
-|[Elastik havuzlar - oluştur veya güncelleştir](/rest/api/sql/elasticpools/createorupdate)|Yeni bir elastik havuz oluşturur veya mevcut bir elastik havuz güncelleştirir.|
-|[Elastik havuzlar - Sil](/rest/api/sql/elasticpools/delete)|Esnek havuz siler.|
-|[Elastik havuzlar - Get](/rest/api/sql/elasticpools/get)|Elastik havuz alır.|
-|[Elastik havuzlar - sunucusu listesi](/rest/api/sql/elasticpools/listbyserver)|Bir sunucu elastik havuzları listesini döndürür.|
-|[Elastik havuzlar - güncelleştirme](/rest/api/sql/elasticpools/update)|Var olan bir esnek havuzun güncelleştirir.|
-|[Elastik havuz etkinlikleri](/rest/api/sql/elasticpoolactivities)|Elastik havuz etkinlikleri döndürür.|
-|[Elastik havuz veritabanı etkinlikleri](/rest/api/sql/elasticpooldatabaseactivities)|İçinde bir elastik havuzdaki veritabanları üzerinde etkinlik döndürür.|
-|[Veritabanları - oluştur veya güncelleştir](/rest/api/sql/databases/createorupdate)|Yeni bir veritabanı oluşturur veya mevcut bir veritabanını güncelleştirir.|
-|[Veritabanları - Get](/rest/api/sql/databases/get)|Bir veritabanını alır.|
-|[Veritabanı - elastik havuz göre listesi](/rest/api/sql/databases/listbyelasticpool)|Elastik havuzdaki veritabanlarının listesini döndürür.|
-|[Veritabanı - sunucu listesi](/rest/api/sql/databases/listbyserver)|Bir sunucu veritabanlarının listesini döndürür.|
-|[Veritabanları - güncelleştirme](/rest/api/sql/databases/update)|Varolan bir veritabanını güncelleştirir.|
+|[Elastik havuzlar - oluştur veya güncelleştir](https://docs.microsoft.com/rest/api/sql/elasticpools/elasticpools_createorupdate)|Yeni bir elastik havuz oluşturur veya mevcut bir elastik havuz güncelleştirir.|
+|[Elastik havuzlar - Sil](https://docs.microsoft.com/rest/api/sql/elasticpools/elasticpools_delete)|Esnek havuz siler.|
+|[Elastik havuzlar - Get](https://docs.microsoft.com/rest/api/sql/elasticpools/elasticpools_get)|Elastik havuz alır.|
+|[Elastik havuzlar - sunucusu listesi](https://docs.microsoft.com/rest/api/sql/elasticpools/elasticpools_listbyserver)|Bir sunucu elastik havuzları listesini döndürür.|
+|[Elastik havuzlar - güncelleştirme](https://docs.microsoft.com/rest/api/sql/elasticpools/elasticpools_listbyserver)|Var olan bir esnek havuzun güncelleştirir.|
+|[Elastik havuz etkinlikleri](https://docs.microsoft.com/rest/api/sql/elasticpoolactivities)|Elastik havuz etkinlikleri döndürür.|
+|[Elastik havuz veritabanı etkinlikleri](https://docs.microsoft.com/rest/api/sql/elasticpooldatabaseactivities)|İçinde bir elastik havuzdaki veritabanları üzerinde etkinlik döndürür.|
+|[Veritabanları - oluştur veya güncelleştir](https://docs.microsoft.com/rest/api/sql/databases/databases_createorupdate)|Yeni bir veritabanı oluşturur veya mevcut bir veritabanını güncelleştirir.|
+|[Veritabanları - Get](https://docs.microsoft.com/rest/api/sql/databases/databases_get)|Bir veritabanını alır.|
+|[Veritabanı - elastik havuz göre listesi](https://docs.microsoft.com/rest/api/sql/databases/databases_listbyelasticpool)|Elastik havuzdaki veritabanlarının listesini döndürür.|
+|[Veritabanı - sunucu listesi](https://docs.microsoft.com/rest/api/sql/databases/databases_listbyserver)|Bir sunucu veritabanlarının listesini döndürür.|
+|[Veritabanları - güncelleştirme](https://docs.microsoft.com/rest/api/sql/databases/databases_update)|Varolan bir veritabanını güncelleştirir.|
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

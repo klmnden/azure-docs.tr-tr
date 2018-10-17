@@ -12,14 +12,14 @@ ms.author: bonova
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 10/15/2018
-ms.openlocfilehash: f1b2f9c7ee9d2fbeec51315a5e348b197fb4c06b
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: aaffdb2f0d21dbb7a5baf029a90e452658c5bd31
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/16/2018
-ms.locfileid: "49342509"
+ms.locfileid: "49353645"
 ---
-# <a name="azure-sql-database-managed-instance-deployment-model-with-virtual-network-and-near-100-sql-server-compatibility"></a>Azure SQL veritabanı yönetilen örneği dağıtım modeli ile sanal ağ ve neredeyse % 100 SQL Server uyumluluğu
+# <a name="use-sql-database-managed-instance-with-virtual-networks-and-near-100-compatibility"></a>SQL veritabanı yönetilen örneği, sanal ağlarla ve neredeyse % 100 uyumluluk kullanın
 
 Azure SQL veritabanı yönetilen örneği, Azure SQL veritabanı neredeyse % 100 uyumluluk en son SQL Server ile şirket içi (Enterprise Edition) veritabanı altyapısı sağlayarak, yerel sağlama, yeni bir dağıtım modeli olduğundan [sanal ağ (VNet)](../virtual-network/virtual-networks-overview.md) ortak güvenlik endişelerini ortadan uygulama ve [iş modeli](https://azure.microsoft.com/pricing/details/sql-database/) şirket içi SQL Server müşterileri için yeterli. Yönetilen örnek lift- and -shift kendi şirket içi uygulamaları bulutta çok az değişiklikle uygulama ve veritabanı mevcut SQL Server müşterileri sağlar. Aynı anda yönetilen örneği, tüm PaaS özellikleri korur (otomatik düzeltme eki uygulama ve sürüm güncelleştirmeleri [otomatik yedeklemeler](sql-database-automated-backups.md), [yüksek kullanılabilirlik](sql-database-high-availability.md) ), yönetim yükünü önemli ölçüde azaltan ve toplam sahip olma maliyeti.
 

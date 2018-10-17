@@ -9,17 +9,17 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/09/2018
-ms.openlocfilehash: 045d7623c3f00ee984dad406247e3197a4ecc45a
-ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
+ms.openlocfilehash: 2f35f54c7ec5ad169673aebe08602294270f470a
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47586180"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49364464"
 ---
 # <a name="anomaly-detection-in-azure-stream-analytics"></a>Azure Stream analytics'te anomali algılama
 
 > [!IMPORTANT]
-> Bu işlev kullanım dışı aşamasında olan, ancak yeni işlevleri ile değiştirilecek. Daha fazla bilgi için ziyaret [Azure Stream analytics'te sekiz yeni özellikler](https://azure.microsoft.com/en-us/blog/eight-new-features-in-azure-stream-analytics/) blog gönderisi.
+> Bu işlev kullanım dışı aşamasında olan, ancak yeni işlevleri ile değiştirilecek. Daha fazla bilgi için ziyaret [Azure Stream analytics'te sekiz yeni özellikler](https://azure.microsoft.com/blog/eight-new-features-in-azure-stream-analytics/) blog gönderisi.
 
 **Anomalydetectıon** işleci, olay akışları farklı türlerde anomalileri algılamak için kullanılır. Örneğin, yavaş bir düşüş boş bellek uzun bir zaman içinde bir bellek sızıntısının olabilir veya bir aralıktaki kararlı web hizmeti isteklerinin sayısını önemli ölçüde artırmak veya azaltmak.  
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: wesmc
-ms.openlocfilehash: 980a183261c394bd83292170ab133fe17229013d
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: 11b399bdbbbe92d1e1544f4cbae0824140ce52c1
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42055414"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49364515"
 ---
 # <a name="manage-azure-redis-cache-with-azure-powershell"></a>Azure PowerShell ile Azure Redis cache'i yönetme
 > [!div class="op_single_selector"]
@@ -783,7 +783,7 @@ Azure ile Windows PowerShell kullanma hakkında daha fazla bilgi edinmek için a
 * [MSDN'de Azure Redis Cache cmdlet belgeleri](https://docs.microsoft.com/powershell/module/azurerm.rediscache/?view=azurermps-6.6.0)
 * [Azure Resource Manager cmdlet'leri](http://go.microsoft.com/fwlink/?LinkID=394765): Azure Resource Manager modüldeki cmdlet'ler kullanmayı öğrenin.
 * [Azure kaynaklarınızı yönetmek için kaynak gruplarını kullanma](../azure-resource-manager/resource-group-template-deploy-portal.md): Azure portalında kaynak gruplarını oluşturma ve yönetme hakkında bilgi edinin.
-* [Azure blogu](https://azure.microsoft.com/en-us/blog/): azure'daki yeni özellikleri hakkında bilgi edinin.
+* [Azure blogu](https://azure.microsoft.com/blog/): azure'daki yeni özellikleri hakkında bilgi edinin.
 * [Windows PowerShell Web günlüğü](http://blogs.msdn.com/powershell): Windows PowerShell'de yeni özellikler hakkında bilgi edinin.
 * ["Hey, betik yazarı!" Blog](http://blogs.technet.com/b/heyscriptingguy/): Windows PowerShell Topluluğu'ndan gerçek ipuçları ve püf noktaları alın.
 

@@ -12,12 +12,12 @@ ms.author: v-daljep
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 09/20/2018
-ms.openlocfilehash: 5bfc11fdf6cbde9c9eed131bbcc7f7ab1dfbc442
-ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
+ms.openlocfilehash: 1cbb46f5238c2019225ab724abaf49e878d19598
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2018
-ms.locfileid: "48830702"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49353875"
 ---
 # <a name="troubleshoot-azure-sql-database-performance-issues-with-intelligent-insights"></a>Akıllı Öngörüler sayesinde Azure SQL veritabanı performans sorunlarını giderme
 
@@ -61,7 +61,7 @@ Aşağıdaki bölümde algılanabilir performans modellerini daha ayrıntılı a
 
 Bu algılanabilir performans desen, kullanılabilir kaynak sınırları, çalışan sınırları ve oturum sınırlarını ulaşma için ilgili performans sorunlarını birleştirir. Bu performans sorununu algılandıktan sonra bir açıklama alanı tanılama günlüğü, performans sorunu kaynak, çalışan veya oturum sınırları ilgili olup olmadığını gösterir.
 
-SQL veritabanı'nda kaynaklar için genellikle adlandırılır [DTU](https://docs.microsoft.com/azure/sql-database/sql-database-what-is-a-dtu) veya [sanal çekirdek](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-service-tiers-vcore) kaynakları. Kaynak sınırlarını ulaşma desenini algılanan değerlendirilmiştir sorgu performansında nedeni ölçülen kaynak sınırlarını ulaşma.
+SQL veritabanı'nda kaynaklar için genellikle adlandırılır [DTU](https://docs.microsoft.com/azure/sql-database/sql-database-what-is-a-dtu) veya [sanal çekirdek](https://docs.microsoft.com/azure/sql-database/sql-database-service-tiers-vcore) kaynakları. Kaynak sınırlarını ulaşma desenini algılanan değerlendirilmiştir sorgu performansında nedeni ölçülen kaynak sınırlarını ulaşma.
 
 Oturumu sınırları kaynak SQL veritabanı kullanılabilir eşzamanlı oturum açma sayısını gösterir. Bu performans desen, SQL veritabanlarına bağlanan uygulamalar veritabanına kullanılabilir eşzamanlı oturum açma sayısı üst sınırına ulaştınız, tanınır. Uygulamaları bir veritabanı üzerinde bulunandan daha fazla oturumları kullanmayı denerseniz, sorgu performansı etkilenir.
 

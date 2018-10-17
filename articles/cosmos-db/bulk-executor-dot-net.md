@@ -1,25 +1,26 @@
 ---
-title: Azure Cosmos DB'de toplu işlemleri gerçekleştirmek için toplu Yürütücü .NET kitaplığını kullanarak | Microsoft Docs
-description: Azure Cosmos DB'nin toplu Yürütücü .NET kitaplığı, toplu içeri aktarma ve belgeleri için Azure Cosmos DB kapsayıcıları güncelleştirmek için kullanın.
-keywords: .NET toplu Yürütücü
+title: Toplu Yürütücü .NET kitaplığı kullanarak toplu içeri aktarma gerçekleştirin ve güncelleştirme işlemlerinin Azure Cosmos DB'de | Microsoft Docs
+description: Toplu içeri aktarma ve Azure Cosmos DB belgeleri toplu Yürütücü .NET kitaplığını kullanarak güncelleştirin.
 services: cosmos-db
 author: tknandu
 manager: kfile
 ms.service: cosmos-db
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 05/07/2018
+ms.date: 10/16/2018
 ms.author: ramkris
-ms.openlocfilehash: cc0faa44501ea130309a02bb48d02f9c5b33febd
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: 04894fdd0ffff38ad129097ce839259f2993332c
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44053389"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49363407"
 ---
 # <a name="use-bulk-executor-net-library-to-perform-bulk-operations-in-azure-cosmos-db"></a>Azure Cosmos DB'de toplu işlemleri gerçekleştirmek için toplu Yürütücü .NET kitaplığı kullanma
 
-Bu öğreticide Azure Cosmos DB'nin toplu Yürütücü kullanmaya ilişkin yönergeler almak ve Azure Cosmos DB kapsayıcısı için belgeleri güncelleştirmek için .NET kitaplığı sunulmaktadır. Toplu Yürütücü kitaplığı ve yüksek düzeyde işleme ve depolama yararlanmanıza nasıl yardımcı olduğunu öğrenmek için bkz. [toplu Yürütücü kitaplığına genel bakış](bulk-executor-overview.md) makalesi. Bu öğreticide, bir Azure Cosmos DB kapsayıcısının içine rastgele oluşturulmuş içeri aktarmalar belgeleri toplu örnek bir .NET uygulaması aracılığıyla size yol gösterir. İçeri aktardıktan sonra bu belirli belge alanları üzerinde gerçekleştirilecek işlemleri düzeltme ekleri belirterek, nasıl toplu içeri aktarılan verileri güncelleştirmek gösterir.
+Bu öğreticide Azure Cosmos DB'nin toplu Yürütücü kullanmaya ilişkin yönergeler almak ve Azure Cosmos DB kapsayıcısı için belgeleri güncelleştirmek için .NET kitaplığı sunulmaktadır. Toplu Yürütücü kitaplığı ve yüksek düzeyde işleme ve depolama yararlanmanıza nasıl yardımcı olduğunu öğrenmek için bkz. [toplu Yürütücü kitaplığına genel bakış](bulk-executor-overview.md) makalesi. Bu öğreticide, içeri aktarmalar rastgele toplu örnek bir .NET uygulama belgeleri bir Azure Cosmos DB kapsayıcısının içine oluşturulan görürsünüz. İçeri aktardıktan sonra bu belirli belge alanları üzerinde gerçekleştirilecek işlemleri düzeltme ekleri belirterek, nasıl toplu içeri aktarılan verileri güncelleştirmek gösterir. 
+
+Şu anda toplu Yürütücü kitaplığı, Gremlin API hesapları yalnızca Azure Cosmos DB SQL API ile desteklenir. Bu makalede, SQL API hesaplarıyla toplu Yürütücü .NET kitaplığını kullanmayı açıklar. Toplu Yürütücü .NET kitaplığı ile Gremlin API kullanımı hakkında bilgi edinmek için [Azure Cosmos DB Gremlin API'SİNDE toplu işlemler gerçekleştirme](bulk-executor-graph-dotnet.md). 
 
 ## <a name="prerequisites"></a>Önkoşullar
 

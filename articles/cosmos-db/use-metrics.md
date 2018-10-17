@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/25/2017
 ms.author: govindk
-ms.openlocfilehash: 792e0b3f8fdfe4ab1b79fec5f45d0587033eca0d
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: 5c9dded95fe3ae36a716544368e3dc44c9b86afe
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44055208"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49365501"
 ---
 # <a name="monitoring-and-debugging-with-metrics-in-azure-cosmos-db"></a>İzleme ve Azure Cosmos DB'de ölçümlerle hata ayıklama
 
@@ -54,7 +54,8 @@ Hangi bölüm anahtarı tanımlayan eğriltme dağıtımlarında neden olan sonr
 
 ## <a name="comparing-data-size-against-index-size"></a>Dizin boyutu karşı karşılaştırma veri boyutu
 
-Azure Cosmos DB'de toplam tüketilen depolama alanı veri boyutu ve dizin boyutu birleşimidir. Genellikle, dizin boyutu bir veri boyutu bölümüdür. Ölçümler dikey penceresinde [Azure portalında](https://portal.azure.com), depolama sekmesi veri ve dizin göre depolama alanı tüketiminin dökümünü gösterir. Görüntü (belki de) alternatif olarak, SDK'sından okuma koleksiyonu aracılığıyla geçerli depolama kullanımı bulabilirsiniz.
+Azure Cosmos DB'de toplam tüketilen depolama alanı veri boyutu ve dizin boyutu birleşimidir. Genellikle, dizin boyutu bir veri boyutu bölümüdür. Ölçümler dikey penceresinde [Azure portalında](https://portal.azure.com), depolama sekmesi veri ve dizin göre depolama alanı tüketiminin dökümünü gösterir. 
+
 ```csharp
 // Measure the document size usage (which includes the index size)  
 ResourceResponse<DocumentCollection> collectionInfo = await client.ReadDocumentCollectionAsync(UriFactory.CreateDocumentCollectionUri("db", "coll")); 

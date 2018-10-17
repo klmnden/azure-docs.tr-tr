@@ -4,22 +4,21 @@ description: Media Services sürüm notları
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
-ms.assetid: 3ca2d7af-1cf0-45fa-9585-3b73f3ee057d
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: media
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 07/24/2018
+ms.date: 10/15/2018
 ms.author: juliako
-ms.openlocfilehash: cdfd19f2dfd599eacaa0759b63c94767e760a874
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 860d28aa37f37ed24346e2fba635b9436684114c
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42056180"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49353791"
 ---
 # <a name="azure-media-services-release-notes"></a>Azure Media Services sürüm notları
 Bu sürüm notlarını Azure Media Services önceki sürümleri ve bilinen sorunlar değişiklikleri özetlemek için.
@@ -533,9 +532,6 @@ Aşağıdaki işlevler Kasım SDK sürümünde yeni:
 * Zaman uyumsuz yöntem desteği
   
     * Tüm yöntemleri için zaman uyumsuz desteği eklendi.
-
-## <a name="media-services-learning-paths"></a>Media Services’i öğrenme yolları
-[!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>Geri bildirimde bulunma
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]

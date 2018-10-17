@@ -11,13 +11,13 @@ author: ronitr
 ms.author: ronitr
 ms.reviewer: vanto
 manager: craigg
-ms.date: 10/02/2018
-ms.openlocfilehash: 7362fc634f27227d037b08cd93f0f406fd250e22
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.date: 10/15/2018
+ms.openlocfilehash: bd40faf8a77a8940dc78375ec516c39742540231
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49115616"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49352848"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>SQL veritabanı denetimini kullanmaya başlayın
 
@@ -31,9 +31,8 @@ Azure SQL veritabanı denetimi veritabanı olaylarını ve Azure depolama hesab�
 
 SQL veritabanı denetimi kullanabilirsiniz:
 
-
 - **Korumak** seçili olayların bir denetim kaydı. Denetlenecek veritabanı eylemlerin kategoriler tanımlayabilirsiniz.
-- **Rapor** veritabanı etkinlikleri. Önceden yapılandırılmış raporları ve Panosu, etkinlik ve olay Raporlama ile hızla gerçekleştirmek için kullanabilirsiniz.
+- **Rapor** veritabanı etkinlikleri. Etkinlik ve olay Raporlama ile hızla gerçekleştirmek için önceden yapılandırılmış raporları ve panoyu kullanabilirsiniz.
 - **Analiz** raporlar. Şüpheli olayları, olağan dışı etkinliği ve eğilimleri bulabilirsiniz.
 
 Farklı türde olay kategorisi için Denetim açıklandığı gibi yapılandırabileceğiniz [veritabanınız için denetimi ayarlamanız](#subheading-2) bölümü.
@@ -98,7 +97,7 @@ Aşağıdaki bölümde, Denetim Azure portalını kullanarak yapılandırmayı a
 
 9. **Kaydet**’e tıklayın.
 10. Denetlenen olayları özelleştirmek isterseniz, bunu aracılığıyla yapabilirsiniz [PowerShell cmdlet'leri](#subheading-7) veya [REST API](#subheading-9).
-11. Denetim ayarlarınızı yapılandırdıktan sonra yeni tehdit algılama özelliğini açmak ve güvenlik uyarıları alacak e-postalar yapılandırın. Tehdit algılama kullandığınızda, olası güvenlik tehditlerini gösteren anormal veritabanı etkinliklerini etkin uyarılar alırsınız. Daha fazla bilgi için [tehdit algılamayı kullanmaya başlama](sql-database-threat-detection-get-started.md). 
+11. Denetim ayarlarınızı yapılandırdıktan sonra yeni tehdit algılama özelliğini açmak ve güvenlik uyarıları alacak e-postalar yapılandırın. Tehdit algılama kullandığınızda, olası güvenlik tehditlerini gösteren anormal veritabanı etkinliklerini etkin uyarılar alırsınız. Daha fazla bilgi için [tehdit algılamayı kullanmaya başlama](sql-database-threat-detection-get-started.md).
 
 ## <a id="subheading-3"></a>Denetim günlüklerini ve raporları analiz edin
 
@@ -223,16 +222,17 @@ Bir komut dosyası örneği için bkz [PowerShell kullanarak denetim ve tehdit a
 
 **REST API - Blob denetimi**:
 
-- [Denetim İlkesi veritabanı Blob güncelle](https://docs.microsoft.com/rest/api/sql/database%20auditing%20settings/createorupdate)
-- [Sunucu Blob denetimi İlkesi güncelle](https://docs.microsoft.com/rest/api/sql/server%20auditing%20settings/createorupdate)
-- [Denetim İlkesi veritabanı Blob alma](https://docs.microsoft.com/rest/api/sql/database%20auditing%20settings/get)
-- [Sunucu Blob denetimi ilkesi alma](https://docs.microsoft.com/rest/api/sql/server%20auditing%20settings/get)
+- [Denetim İlkesi veritabanı Blob güncelle](https://docs.microsoft.com/rest/api/sql/database%20auditing%20settings/databaseblobauditingpolicies_createorupdate)
+- [Sunucu Blob denetimi İlkesi güncelle](https://docs.microsoft.com/rest/api/sql/server%20auditing%20settings/serverblobauditingpolicies_createorupdate)
+- [Denetim İlkesi veritabanı Blob alma](https://docs.microsoft.com/rest/api/sql/database%20auditing%20settings/databaseblobauditingpolicies_get)
+- [Sunucu Blob denetimi ilkesi alma](https://docs.microsoft.com/rest/api/sql/server%20auditing%20settings/serverblobauditingpolicies_get)
 
 Burada yan tümcesi destek ek filtreleme ile genişletilmiş İlkesi:
-- [Oluşturma veya güncelleştirme veritabanı *Genişletilmiş* Denetim İlkesi Blob](https://docs.microsoft.com/rest/api/sql/database%20extended%20auditing%20settings/createorupdate)
-- [Oluşturma veya güncelleştirme sunucusu *Genişletilmiş* Denetim İlkesi Blob](https://docs.microsoft.com/rest/api/sql/server%20extended%20auditing%20settings/createorupdate)
-- [Veritabanı Al *Genişletilmiş* Denetim İlkesi Blob](https://docs.microsoft.com/rest/api/sql/database%20extended%20auditing%20settings/get)
-- [Sunucu Al *Genişletilmiş* Denetim İlkesi Blob](https://docs.microsoft.com/rest/api/sql/server%20extended%20auditing%20settings/get)
+
+- [Oluşturma veya güncelleştirme veritabanı *Genişletilmiş* Denetim İlkesi Blob](https://docs.microsoft.com/rest/api/sql/database%20extended%20auditing%20settings/extendeddatabaseblobauditingpolicies_createorupdate)
+- [Oluşturma veya güncelleştirme sunucusu *Genişletilmiş* Denetim İlkesi Blob](https://docs.microsoft.com/rest/api/sql/server%20auditing%20settings/serverblobauditingpolicies_createorupdate)
+- [Veritabanı Al *Genişletilmiş* Denetim İlkesi Blob](https://docs.microsoft.com/rest/api/sql/database%20extended%20auditing%20settings/extendeddatabaseblobauditingpolicies_get)
+- [Sunucu Al *Genişletilmiş* Denetim İlkesi Blob](https://docs.microsoft.com/rest/api/sql/server%20auditing%20settings/serverblobauditingpolicies_get)
 
 <!--Anchors-->
 [Azure SQL Database Auditing overview]: #subheading-1

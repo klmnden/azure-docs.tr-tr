@@ -5,15 +5,15 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: article
-ms.date: 07/17/2018
+ms.date: 10/15/2018
 ms.author: alkohli
 ms.component: common
-ms.openlocfilehash: 8b91ae9a4f258e52b032dca1484be70469094c2e
-ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
+ms.openlocfilehash: 3a647d9f821007dc0f2b48864b937aee84924d8f
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47585739"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49353180"
 ---
 # <a name="use-the-azure-importexport-service-to-import-data-to-azure-blob-storage"></a>Azure Blob depolama alanına veri aktarmak için Azure içeri/dışarı aktarma hizmeti kullanma
 
@@ -96,7 +96,7 @@ Azure portalında içeri aktarma işi oluşturmak için aşağıdaki adımları 
 
     - Seçin **azure'a aktar**.
     - İçeri aktarma işi için açıklayıcı bir ad girin. İşlerinizi ilerlemesini izlemek için bir ad kullanın.
-        - Ad yalnızca küçük harf, sayı, kısa çizgi ve alt çizgi içerebilir.
+        - Ad yalnızca küçük harf, sayı ve kısa çizgi içerebilir.
         - Ad bir harf ile başlamalı ve boşluk içeremez.
     - Bir abonelik seçin.
     - Bir kaynak grubu seçin veya girin.  

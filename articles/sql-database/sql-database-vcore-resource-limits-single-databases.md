@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 09/14/2018
-ms.openlocfilehash: 9ad43ecf2aa5649e582f1aa4159352edf9c8fa5b
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.date: 10/15/2018
+ms.openlocfilehash: 12074ad28e27a249a6dc378986f014ede1cd2ab3
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48042606"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49353589"
 ---
 # <a name="azure-sql-database-vcore-based-purchasing-model-limits-for-a-single-database"></a>Azure SQL veritabanı sanal çekirdek tabanlı model sınırları tek bir veritabanı için satın alma
 
@@ -28,14 +28,12 @@ DTU tabanlı satın alma modeli sınırları için bir mantıksal sunucuda tek v
 > [!IMPORTANT]
 > Bazı durumlarda, kullanılmayan alanı geri kazanmak için bir veritabanı daraltma gerekebilir. Daha fazla bilgi için [Azure SQL veritabanı'nda dosya alanı yönetmek](sql-database-file-space-management.md).
 
+Hizmet katmanı, işlem boyutu ve depolama alanı miktarı kullanarak tek veritabanı için ayarlayabileceğiniz [Azure portalında](sql-database-single-databases-manage.md#azure-portal-manage-logical-servers-and-databases), [Transact-SQL](sql-database-single-databases-manage.md#transact-sql-manage-logical-servers-and-databases), [PowerShell](sql-database-single-databases-manage.md#powershell-manage-logical-servers-and-databases), [ Azure CLI](sql-database-single-databases-manage.md#azure-cli-manage-logical-servers-and-databases), veya [REST API](sql-database-single-databases-manage.md#rest-api-manage-logical-servers-and-databases).
 
-## <a name="single-database-storage-sizes-and-compute-sizes"></a>Tek veritabanı: depolama boyutlarına ve işlem boyutları
+## <a name="general-purpose-service-tier-storage-sizes-and-compute-sizes"></a>Genel amaçlı hizmet katmanı: depolama boyutlarına ve işlem boyutları
 
-Tek veritabanları için aşağıdaki tablolarda her hizmet katmanında tek bir veritabanı için kullanılabilir kaynakları göster ve işlem boyutu. Hizmet katmanı, işlem boyutu ve depolama alanı miktarı kullanarak tek veritabanı için ayarlayabileceğiniz [Azure portalında](sql-database-single-databases-manage.md#azure-portal-manage-logical-servers-and-databases), [Transact-SQL](sql-database-single-databases-manage.md#transact-sql-manage-logical-servers-and-databases), [PowerShell](sql-database-single-databases-manage.md#powershell-manage-logical-servers-and-databases), [ Azure CLI](sql-database-single-databases-manage.md#azure-cli-manage-logical-servers-and-databases), veya [REST API](sql-database-single-databases-manage.md#rest-api-manage-logical-servers-and-databases).
+### <a name="generation-4-compute-platform"></a>4. nesil işlem platformu
 
-### <a name="general-purpose-service-tier"></a>Genel amaçlı hizmet katmanı
-
-#### <a name="generation-4-compute-platform"></a>4. nesil işlem platformu
 |İşlem boyutu|GP_Gen4_1|GP_Gen4_2|GP_Gen4_4|GP_Gen4_8|GP_Gen4_16|GP_Gen4_24
 |:--- | --: |--: |--: |--: |--: |--: |
 |S/W oluşturma|4|4|4|4|4|4|
@@ -57,7 +55,8 @@ Tek veritabanları için aşağıdaki tablolarda her hizmet katmanında tek bir 
 |Yedekleme depolama alanı dahil|1 X veritabanı boyutu|1 X veritabanı boyutu|1 X veritabanı boyutu|1 X veritabanı boyutu|1 X veritabanı boyutu|1 X veritabanı boyutu|
 |||
 
-#### <a name="generation-5-compute-platform"></a>5. nesil işlem platformu
+### <a name="generation-5-compute-platform"></a>5. nesil işlem platformu
+
 |İşlem boyutu|GP_Gen5_2|GP_Gen5_4|GP_Gen5_8|GP_Gen5_16|GP_Gen5_24|GP_Gen5_32|GP_Gen5_40| GP_Gen5_80|
 |:--- | --: |--: |--: |--: |---: | --: |--: |--: |--: |
 |S/W oluşturma|5|5|5|5|5|5|5|
@@ -79,9 +78,10 @@ Tek veritabanları için aşağıdaki tablolarda her hizmet katmanında tek bir 
 |Yedekleme depolama alanı dahil|1 X veritabanı boyutu|1 X veritabanı boyutu|1 X veritabanı boyutu|1 X veritabanı boyutu|1 X veritabanı boyutu|1 X veritabanı boyutu|1 X veritabanı boyutu|1 X veritabanı boyutu|
 |||
 
-### <a name="business-critical-service-tier"></a>İş kritik hizmet katmanı
+## <a name="business-critical-service-tier-storage-sizes-and-compute-sizes"></a>İş kritik hizmet katmanı: depolama boyutlarına ve işlem boyutları
 
-#### <a name="generation-4-compute-platform"></a>4. nesil işlem platformu
+### <a name="generation-4-compute-platform"></a>4. nesil işlem platformu
+
 |İşlem boyutu|BC_Gen4_1|BC_Gen4_2|BC_Gen4_4|BC_Gen4_8|BC_Gen4_16|BC_Gen4_24|
 |:--- | --: |--: |--: |--: |--: |--: |
 |S/W oluşturma|4|4|4|4|4|4|
@@ -103,7 +103,8 @@ Tek veritabanları için aşağıdaki tablolarda her hizmet katmanında tek bir 
 |Yedekleme depolama alanı dahil|1 X veritabanı boyutu|1 X veritabanı boyutu|1 X veritabanı boyutu|1 X veritabanı boyutu|1 X veritabanı boyutu|1 X veritabanı boyutu|
 |||
 
-#### <a name="generation-5-compute-platform"></a>5. nesil işlem platformu
+### <a name="generation-5-compute-platform"></a>5. nesil işlem platformu
+
 |İşlem boyutu|BC_Gen5_2|BC_Gen5_4|BC_Gen5_8|BC_Gen5_16|BC_Gen5_24|BC_Gen5_32|BC_Gen5_40|BC_Gen5_80|
 |:--- | --: |--: |--: |--: |---: | --: |--: |--: |--: |--: |--: |--: |--: |
 |S/W oluşturma|5|5|5|5|5|5|5|5|
@@ -125,9 +126,10 @@ Tek veritabanları için aşağıdaki tablolarda her hizmet katmanında tek bir 
 |Yedekleme depolama alanı dahil|1 X veritabanı boyutu|1 X veritabanı boyutu|1 X veritabanı boyutu|1 X veritabanı boyutu|1 X veritabanı boyutu|1 X veritabanı boyutu|1 X veritabanı boyutu|1 X veritabanı boyutu|
 |||
 
-### <a name="hyperscale-service-tier-preview"></a>Hiper ölçekli hizmet Katmanı (Önizleme)
+## <a name="hyperscale-service-tier-preview"></a>Hiper ölçekli hizmet Katmanı (Önizleme)
 
-#### <a name="generation-4-compute-platform"></a>4. nesil işlem platformu
+### <a name="generation-4-compute-platform-storage-sizes-and-compute-sizes"></a>4. nesil işlem platformu: depolama boyutlarına ve işlem boyutları
+
 |Performans düzeyi|HS_Gen4_1|HS_Gen4_2|HS_Gen4_4|HS_Gen4_8|HS_Gen4_16|HS_Gen4_24|
 |:--- | --: |--: |--: |--: |--: |--: |--: |
 |S/W oluşturma|4|4|4|4|4|4|
@@ -148,7 +150,9 @@ Tek veritabanları için aşağıdaki tablolarda her hizmet katmanında tek bir 
 |Ölçek genişletme okuyun|Evet|Evet|Evet|Evet|Evet|Evet|
 |Yedekleme depolama alanı dahil|7|7|7|7|7|7|
 |||
+
 ### <a name="generation-5-compute-platform"></a>5. nesil işlem platformu
+
 |Performans düzeyi|HS_Gen5_2|HS_Gen5_4|HS_Gen5_8|HS_Gen5_16|HS_Gen5_24|HS_Gen5_32|HS_Gen5_40|HS_Gen5_80|
 |:--- | --: |--: |--: |--: |---: | --: |--: |--: |--: |--: |--: |--: |--: |
 |S/W oluşturma|5|5|5|5|5|5|5|5|

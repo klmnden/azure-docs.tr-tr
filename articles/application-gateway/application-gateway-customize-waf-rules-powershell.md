@@ -14,12 +14,12 @@ ms.custom: ''
 ms.workload: infrastructure-services
 ms.date: 07/26/2017
 ms.author: victorh
-ms.openlocfilehash: 7dce3657656effd3765f77ae957c1cfc4d3f4316
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: b341bdbe6611187b158f353d00077d33f317f374
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46964419"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49365433"
 ---
 # <a name="customize-web-application-firewall-rules-through-powershell"></a>PowerShell aracılığıyla Web uygulaması güvenlik duvarı kurallarını özelleştirme
 
@@ -87,6 +87,7 @@ Aşağıdaki örnek, kuralları devre dışı bırakır `910018` ve `910017` bir
 ```powershell
 $disabledrules=New-AzureRmApplicationGatewayFirewallDisabledRuleGroupConfig -RuleGroupName REQUEST-910-IP-REPUTATION -Rules 910018,910017
 Set-AzureRmApplicationGatewayWebApplicationFirewallConfiguration -ApplicationGateway $gw -Enabled $true -FirewallMode Detection -RuleSetVersion 3.0 -RuleSetType OWASP -DisabledRuleGroups $disabledrules
+Set-AzureRmApplicationGateway -ApplicationGateway $gw
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar

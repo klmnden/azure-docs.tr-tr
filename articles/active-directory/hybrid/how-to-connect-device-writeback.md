@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 05/08/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: b98b9e0a10f142cb0177e7e5ea831b61f79a4b7a
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 389c519d5f63b311b2e9c2b1d48d6e09e02c7d81
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46311097"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49361079"
 ---
 # <a name="azure-ad-connect-enabling-device-writeback"></a>Azure AD Connect: cihaz geri yazmayı etkinleştirme
 > [!NOTE]
@@ -32,7 +32,7 @@ Aşağıdaki belgeler Azure AD CONNECT'te cihaz geri yazma özelliğini etkinle�
 
 * ADFS cihazlara dayalı koşullu erişimi etkinleştir (2012 R2 veya üzeri) korumalı uygulamaları (bağlı olan taraf güvenleri).
 
-Bu, ek güvenlik ve yalnızca güvenilen cihazlara verilen uygulamalara erişimi güvence sağlar. Koşullu erişim hakkında daha fazla bilgi için bkz. [koşullu erişim ile Risk yönetme](../active-directory-conditional-access-azure-portal.md) ve [şirket içi koşullu Azure Active Directory cihaz kaydı hizmetini kullanarak erişimi ayarlarken](../active-directory-conditional-access-automatic-device-registration-setup.md).
+Bu, ek güvenlik ve yalnızca güvenilen cihazlara verilen uygulamalara erişimi güvence sağlar. Koşullu erişim hakkında daha fazla bilgi için bkz. [koşullu erişim ile Risk yönetme](../active-directory-conditional-access-azure-portal.md) ve [şirket içi koşullu Azure Active Directory cihaz kaydı hizmetini kullanarak erişimi ayarlarken](../../active-directory/active-directory-device-registration-on-premises-setup.md).
 
 > [!IMPORTANT]
 > <li>Cihazlar, kullanıcılar aynı ormandaki bulunması gerekir. Cihazları tek bir ormana geri yazılması gerekir olduğundan, bu özellik birden çok kullanıcı ormanı olan bir dağıtım şu anda desteklemiyor.</li>
@@ -81,7 +81,7 @@ Cihaz geri yazma düzgün şekilde çalışıyor. Cihaz nesneleri, yazılan sonr
    ![Active Directory Yönetim Merkezi kayıtlı cihazlar listesi](./media/how-to-connect-device-writeback/devicewriteback6.png)
 
 ## <a name="enable-conditional-access"></a>Koşullu erişimi etkinleştirme
-İçinde bu senaryoyu etkinleştirmek için ayrıntılı yönergeler mevcuttur [şirket içi koşullu Azure Active Directory cihaz kaydı hizmetini kullanarak erişimi ayarlarken](../active-directory-conditional-access-automatic-device-registration-setup.md).
+İçinde bu senaryoyu etkinleştirmek için ayrıntılı yönergeler mevcuttur [şirket içi koşullu Azure Active Directory cihaz kaydı hizmetini kullanarak erişimi ayarlarken](../../active-directory/active-directory-device-registration-on-premises-setup.md).
 
 ## <a name="troubleshooting"></a>Sorun giderme
 ### <a name="the-writeback-checkbox-is-still-disabled"></a>Geri yazma onay yine de devre dışı bırakıldı
@@ -125,7 +125,7 @@ Active Directory yapılandırmasını doğrulayın:
 
 ## <a name="additional-information"></a>Ek Bilgiler
 * [Koşullu erişim ile risk yönetme](../active-directory-conditional-access-azure-portal.md)
-* [Azure Active Directory cihaz kaydı hizmetini kullanarak şirket içi koşullu erişim ayarlama](../active-directory-device-registration-on-premises-setup.md)
+* [Azure Active Directory cihaz kaydı hizmetini kullanarak şirket içi koşullu erişim ayarlama](../../active-directory/active-directory-device-registration-on-premises-setup.md)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 [Şirket içi kimliklerinizi Azure Active Directory ile tümleştirme](whatis-hybrid-identity.md) hakkında daha fazla bilgi edinin.

@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/06/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 19351d31331431e3b5137676061aadc681c496a7
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 4c5f99ed9d20076e3e25ebca261253e576572786
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49166636"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49354266"
 ---
 # <a name="http-apis-in-durable-functions-azure-functions"></a>Dayanıklı işlevler (Azure işlevleri) HTTP API'leri
 
@@ -92,6 +92,9 @@ Tüm HTTP API'lerini aşağıdaki parametreleri uzantısı sınav zamanı taraf�
 | systemKey  | Sorgu dizesi    | API'yi çağırmak için gereken yetkilendirme anahtar. |
 | showHistory| Sorgu dizesi    | İsteğe bağlı parametre. Varsa kümesine `true`, orchestration yürütme geçmişini yanıt yükünde dahil edilir.| 
 | showHistoryOutput| Sorgu dizesi    | İsteğe bağlı parametre. Varsa kümesine `true`, etkinlik çıkışı dahil edilecek düzenleme yürütme geçmişi.| 
+| createdTimeFrom  | Sorgu dizesi    | İsteğe bağlı parametre. Belirtildiğinde, sırasında veya belirtilen ISO8601 zaman damgasından sonra oluşturulan döndürülen örneklerinin listesini filtreler.|
+| createdTimeTo    | Sorgu dizesi    | İsteğe bağlı parametre. Bu seçenek belirtildiğinde, sırasında veya belirtilen ISO8601 zaman damgasından önce oluşturulan döndürülen örneklerinin listesini filtreler.|
+| runtimeStatus    | Sorgu dizesi    | İsteğe bağlı parametre. Bu seçenek belirtildiğinde, filtreleri döndürülen örneklerinin listesini çalışma zamanı durumlarına göre. Olası çalışma zamanı durum değerlerinin listesini görmek için bkz: [örnekleri sorgulama](durable-functions-instance-management.md) konu. |
 
 `systemKey` Azure işlevleri ana bilgisayar tarafından otomatik olarak oluşturulmuş bir yetkilendirme anahtardır. Özellikle dayanıklı görev uzantısı API'ler için erişim verir ve aynı şekilde yönetilebilir [diğer yetkilendirme anahtarları](https://github.com/Azure/azure-webjobs-sdk-script/wiki/Key-management-API). Bulunacak en basit yolu `systemKey` değerdir kullanarak `CreateCheckStatusResponse` API daha önce bahsedilen.
 
@@ -194,6 +197,7 @@ Orchestration yürütme geçmişini ve etkinlik çıktıları (okunabilmesi içi
 
 **HTTP 202** yanıt da içeren bir **konumu** aynı URL'ye başvuran yanıt üst bilgisi `statusQueryGetUri` alan daha önce bahsedilen.
 
+
 ### <a name="get-all-instances-status"></a>Tüm örnekleri durumunu Al
 
 Ayrıca, tüm örnekleri durumu sorgulayabilirsiniz. Kaldırma `instanceId` 'örneği durumunu Al' istek. Parametreleri 'Get örneği durumu.' ile aynıdır 
@@ -213,6 +217,22 @@ GET /admin/extensions/DurableTaskExtension/instances/?taskHub={taskHub}&connecti
 
 ```http
 GET /runtime/webhooks/durabletask/instances/?taskHub={taskHub}&connection={connection}&code={systemKey}
+```
+
+#### <a name="request-with-filters"></a>İstek filtreleri ile
+
+İstek filtreleyebilirsiniz.
+
+İşlevleri 1.0 için istek biçimi aşağıdaki gibidir:
+
+```http
+GET /admin/extensions/DurableTaskExtension/instances/?taskHub={taskHub}&connection={connection}&code={systemKey}&createdTimeFrom={createdTimeFrom}&createdTimeTo={createdTimeTo}&runtimeStatus={runtimeStatus,runtimeStatus,...}
+```
+
+İşlevler 2.0 aynı parametreleri ancak biraz farklı bir URL ön eki biçimdedir: 
+
+```http
+GET /runtime/webhooks/durableTask/instances/?taskHub={taskHub}&connection={connection}&code={systemKey}&createdTimeFrom={createdTimeFrom}&createdTimeTo={createdTimeTo}&runtimeStatus={runtimeStatus,runtimeStatus,...}
 ```
 
 #### <a name="response"></a>Yanıt
@@ -271,6 +291,7 @@ Yanıt yükü düzenleme durumu (okunabilmesi için biçimlendirilmiştir) dahil
 > [!NOTE]
 > Çok sayıda örnek tablosundaki satırları varsa bu işlem Azure depolama g/ç açısından çok pahalı olabilir. Örnek tablo hakkında daha fazla ayrıntı bulunabilir [performansı ve ölçeği dayanıklı işlevler (Azure işlevleri) içinde](https://docs.microsoft.com/azure/azure-functions/durable-functions-perf-and-scale#instances-table) belgeleri.
 > 
+
 
 ### <a name="raise-event"></a>Olayı
 

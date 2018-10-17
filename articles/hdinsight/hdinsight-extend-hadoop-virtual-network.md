@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/08/2018
-ms.openlocfilehash: 724d3d7fe8ff037b82bbce797e391c21060aa53d
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: 6455322a1a1cf392c16aba708ce8445f8c80c3df
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48870970"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49363852"
 ---
 # <a name="extend-azure-hdinsight-using-an-azure-virtual-network"></a>Azure HDInsight'ın bir Azure sanal ağı kullanarak genişletme
 
@@ -173,7 +173,7 @@ Daha fazla bilgi için [VM'ler ve rol örnekleri için ad çözümlemesi](../vir
 
 ## <a name="directly-connect-to-hadoop-services"></a>Hadoop Hizmetleri doğrudan bağlanın
 
-HDInsight üzerinde çoğu belgeleri, internet üzerinden kümeye erişim sahibi olduğunuzu varsayar. Örneğin, https://CLUSTERNAME.azurehdinsight.net konumundaki kümeye bağlanabildiğiniz kabul edilir. Bu adres, internet'ten erişimi kısıtlamak için Nsg veya Udr'ler kullandıysanız, kullanılabilir olmayan ortak ağ geçidi kullanır.
+Konumundaki kümeye bağlanabilirsiniz https://CLUSTERNAME.azurehdinsight.net. Bu adres, internet'ten gelen trafiği kısıtlamak için Nsg veya Udr'ler kullandıysanız, erişilebilir olmayabilir genel bir IP kullanır. Bir sanal ağda küme dağıttığınızda ek olarak, özel uç nokta kullanarak erişebileceğiniz https://CLUSTERNAME-internal.azurehdinsight.net. Bu uç nokta kümesi erişim için sanal ağ içinde bir özel IP çözümler.
 
 Ambari ve sanal ağ üzerinden diğer web sayfalarına bağlanmak için aşağıdaki adımları kullanın:
 
@@ -289,7 +289,7 @@ Ağ güvenlik grupları veya kullanıcı tanımlı yollar kullanıyorsanız, HDI
     | &nbsp; | Güney Hindistan | 104.211.223.67<br/>104.211.216.210 | 443 | Gelen |
     | Japonya | Japonya Doğu | 13.78.125.90</br>13.78.89.60 | 443 | Gelen |
     | &nbsp; | Japonya Batı | 40.74.125.69</br>138.91.29.150 | 443 | Gelen |
-    | Kore | Kore Orta | 52.231.39.142</br>52.231.36.209 | 433 | Gelen |
+    | Güney Kore | Kore Orta | 52.231.39.142</br>52.231.36.209 | 433 | Gelen |
     | &nbsp; | Kore Güney | 52.231.203.16</br>52.231.205.214 | 443 | Gelen
     | Birleşik Krallık | Birleşik Krallık Batı | 51.141.13.110</br>51.141.7.20 | 443 | Gelen |
     | &nbsp; | Birleşik Krallık Güney | 51.140.47.39</br>51.140.52.16 | 443 | Gelen |

@@ -1,25 +1,26 @@
 ---
-title: Azure Cosmos DB'de toplu işlemleri gerçekleştirmek için toplu Yürütücü Java kitaplığını kullanma | Microsoft Docs
-description: Azure Cosmos DB'nin toplu Yürütücü Java kitaplık, toplu içeri aktarma ve belgeleri için Azure Cosmos DB kapsayıcıları güncelleştirmek için kullanın.
-keywords: Java toplu Yürütücü
+title: Toplu Yürütücü Java kitaplığı kullanarak toplu içeri aktarma gerçekleştirin ve güncelleştirme işlemlerinin Azure Cosmos DB'de | Microsoft Docs
+description: Toplu içeri aktarma ve Azure Cosmos DB belgeleri toplu Yürütücü Java kitaplığını kullanarak güncelleştirin.
 services: cosmos-db
 author: tknandu
 manager: kfile
 ms.service: cosmos-db
 ms.devlang: java
 ms.topic: conceptual
-ms.date: 05/07/2018
+ms.date: 10/16/2018
 ms.author: ramkris
-ms.openlocfilehash: 9285b0ea50b7207aa40cea2dcab50f79863ffda9
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: a22cd65ef5d4ef22038a8506359d1036e829db4d
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44050196"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49362118"
 ---
 # <a name="use-bulk-executor-java-library-to-perform-bulk-operations-on-azure-cosmos-db-data"></a>Azure Cosmos DB veriler üzerinde toplu işlemler gerçekleştirmek için toplu Yürütücü Java kitaplığı kullanma
 
 Bu öğretici, Azure Cosmos DB'nin toplu Yürütücü Java kitaplığı kullanarak içeri aktarma ve Azure Cosmos DB belgeleri güncelleştirmek için yönergeler sağlar. Toplu Yürütücü kitaplığı ve yüksek düzeyde işleme ve depolama yararlanmanıza nasıl yardımcı olduğunu öğrenmek için bkz. [Yürütücü kitaplığına genel bakış toplu](bulk-executor-overview.md) makalesi. Bu öğreticide, rastgele belgeleri oluşturan bir Java uygulaması oluşturma ve bir Azure Cosmos DB kapsayıcısının içine alınan toplu oldukları. İçeri aktardıktan sonra toplu bir belge bazı özelliklerini güncelleştirir. 
+
+Şu anda toplu Yürütücü kitaplığı, Gremlin API hesapları yalnızca Azure Cosmos DB SQL API ile desteklenir. Bu makalede, SQL API hesaplarıyla toplu Yürütücü .net kitaplığını kullanmayı açıklar. Toplu Yürütücü .NET kitaplığı ile Gremlin API kullanımı hakkında bilgi edinmek için [Azure Cosmos DB Gremlin API'SİNDE toplu işlemler gerçekleştirme](bulk-executor-graph-dotnet.md).
 
 ## <a name="prerequisites"></a>Önkoşullar
 

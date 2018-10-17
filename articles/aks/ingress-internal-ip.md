@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/30/2018
 ms.author: iainfou
-ms.openlocfilehash: 76ad9d21f7b328e7f201d227cdd9ace51c62a3fd
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: ffa6aa3b9e65577761343e2e09a44ce16a05631f
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44357711"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49365603"
 ---
 # <a name="create-an-ingress-controller-to-an-internal-virtual-network-in-azure-kubernetes-service-aks"></a>Azure Kubernetes Service (AKS) bir giriş denetleyicisine bir iç sanal ağ oluşturma
 
@@ -47,13 +47,16 @@ controller:
       service.beta.kubernetes.io/azure-load-balancer-internal: "true"
 ```
 
-Şimdi Dağıt *ngınx giriş* Helm grafiği. Önceki adımda oluşturduğunuz bildirim dosyası kullanmak için ekleme `-f internal-ingress.yaml` parametresi:
+Şimdi Dağıt *ngınx giriş* Helm grafiği. Önceki adımda oluşturduğunuz bildirim dosyası kullanmak için ekleme `-f internal-ingress.yaml` parametresi. Eklenen yedeklilik için NGINX giriş denetleyicilerinin iki çoğaltma ile dağıtılan `--set controller.replicaCount` parametresi. Giriş denetleyicisine çoğaltmalarını çalışmasını tam olarak yararlanmak için AKS kümenizde birden fazla düğüm olduğundan emin olun.
 
 > [!TIP]
 > Aşağıdaki örnek, giriş denetleyicisine yükler `kube-system` ad alanı. İsterseniz, farklı bir ad alanı için ortamınızda belirtebilirsiniz. AKS kümenizi RBAC etkin değilse, ekleme `--set rbac.create=false` komutlar.
 
 ```console
-helm install stable/nginx-ingress --namespace kube-system -f internal-ingress.yaml
+helm install stable/nginx-ingress \
+    --namespace kube-system \
+    -f internal-ingress.yaml \
+    --set controller.replicaCount=2
 ```
 
 NGINX giriş denetleyici için Kubernetes Yük Dengeleyici Hizmeti oluşturulduğunda, iç IP adresiniz, aşağıdaki örnek çıktıda gösterildiği gibi atanır:
@@ -173,6 +176,41 @@ $ curl -L -k http://10.240.0.42/hello-world-two
     <link rel="stylesheet" type="text/css" href="/static/default.css">
     <title>AKS Ingress Demo</title>
 [...]
+```
+
+## <a name="clean-up-resources"></a>Kaynakları temizleme
+
+Bu makalede, örnek uygulamaları ve giriş bileşenleri yüklemek için Helm kullanılır. Kubernetes kaynak sayısı, bir Helm grafiği dağıttığınızda oluşturulur. Bu kaynaklar, pod'ları, dağıtımlar ve hizmetleri içerir. Bu kaynakları temizlemek için Helm sürümlerle liste ilk `helm list` komutu. Adlı grafiklerde Ara *ngınx giriş* ve *aks-helloworld*aşağıdaki örnek çıktıda gösterildiği gibi:
+
+```
+$ helm list
+
+NAME                REVISION    UPDATED                     STATUS      CHART                   APP VERSION NAMESPACE
+kissing-ferret      1           Tue Oct 16 17:13:39 2018    DEPLOYED    nginx-ingress-0.22.1    0.15.0      kube-system
+intended-lemur      1           Tue Oct 16 17:20:59 2018    DEPLOYED    aks-helloworld-0.1.0                default
+pioneering-wombat   1           Tue Oct 16 17:21:05 2018    DEPLOYED    aks-helloworld-0.1.0                default
+```
+
+Sürümlerle Sil `helm delete` komutu. Aşağıdaki örnek, NGINX giriş dağıtım ve iki örnek AKS hello world uygulaması siler.
+
+```
+$ helm delete kissing-ferret intended-lemur pioneering-wombat
+
+release "kissing-ferret" deleted
+release "intended-lemur" deleted
+release "pioneering-wombat" deleted
+```
+
+Ardından, AKS Merhaba Dünya uygulaması için Helm deposu kaldırın:
+
+```console
+helm repo remove azure-samples
+```
+
+Son olarak, örnek uygulamalara yönelik trafiği yönlendiren giriş rota kaldırın:
+
+```console
+kubectl delete -f hello-world-ingress.yaml
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar

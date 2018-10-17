@@ -3,24 +3,24 @@ title: Azure Site Recovery ile Azure Traffic Manager | Microsoft Docs
 description: Olağanüstü durum kurtarma ve geçiş için Azure Site Recovery ile Azure Traffic Manager kullanmayı açıklar
 services: site-recovery
 documentationcenter: ''
-author: mayanknayar
+author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
-ms.topic: article
-ms.date: 07/06/2018
-ms.author: manayar
-ms.openlocfilehash: 0be013a1b8d2c619d58034157240eafb241c4e59
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.topic: conceptual
+ms.date: 10/16/2018
+ms.author: mayg
+ms.openlocfilehash: 8f303ec3349b0003ef764e437c6f06cf498dcc57
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37919045"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49353263"
 ---
 # <a name="azure-traffic-manager-with-azure-site-recovery"></a>Azure Site Recovery ile Azure Traffic Manager
 
-Azure Traffic Manager, uygulama uç noktalar genelinde trafiğinin dağıtımını denetlemenizi sağlar. Bir uç nokta, Azure içindeki veya dışındaki barındırılan tüm Internet'e yönelik hizmetidir.
+Azure Traffic Manager, uygulama uç noktalar genelinde trafiğinin dağıtımını denetlemenizi sağlar. Uç nokta, Azure içinde veya dışında barındırılan İnternet'e yönelik bir hizmettir.
 
-Traffic Manager trafik yönlendirme yöntemi ve sistem durumu uç nokta göre en uygun uç noktaya, istemci istekleri yönlendirmek için etki alanı adı sistemi (DNS) kullanır. Traffic Manager sağlayan bir dizi [trafik yönlendirme yöntemlerini](../traffic-manager/traffic-manager-routing-methods.md) ve [uç nokta izleme seçenekleri](../traffic-manager/traffic-manager-monitoring.md) farklı uygulama gereksinimlerini ve otomatik yük devretme modelleri uyacak şekilde. İstemciler, seçili uç noktaya doğrudan bağlanır. Traffic Manager, bir ara sunucu veya bir ağ geçidi değildir ve istemci ile hizmet arasında geçen trafiği görmez.
+Traffic Manager trafik yönlendirme yöntemi ve sistem durumu uç nokta göre en uygun uç noktaya, istemci istekleri yönlendirmek için etki alanı adı sistemi (DNS) kullanır. Traffic Manager, farklı uygulama ihtiyaçlarına ve otomatik yük devretme modellerine uyan farklı [trafik yönlendirme yöntemleri](../traffic-manager/traffic-manager-routing-methods.md) ve [uç nokta izleme seçenekleri](../traffic-manager/traffic-manager-monitoring.md) sunar. İstemciler, seçili uç noktaya doğrudan bağlanır. Traffic Manager, bir ara sunucu veya bir ağ geçidi değildir ve istemci ile hizmet arasında geçen trafiği görmez.
 
 Bu makalede, Azure Site Recovery'nin güçlü bir olağanüstü durum kurtarma ve geçiş özellikleri sayesinde Azure Traffic izleyicinin akıllı yönlendirme nasıl birleştirebilirsiniz açıklanır.
 

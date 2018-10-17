@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/18/2018
+ms.date: 10/12/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 96d8977a63d26576d4d783dd0661409fdcee90f8
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 03f096bf160c44f7a35f54a73cff6ea701b87d22
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46314037"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49352932"
 ---
 # <a name="azure-ad-connect-accounts-and-permissions"></a>Azure AD Connect: Hesaplar ve izinler
 
@@ -113,6 +113,12 @@ Express installlation sihirbaz sayfalarında toplandı, kimlik bilgilerini bir �
 | "Bir etki alanı kullanıcı hesabı seçeneğini kullan" AD FS hizmet hesabı sayfası |AD kullanıcı hesabı kimlik bilgileri |Etki alanı kullanıcısı |Kimlik bilgileri sağlanan AD kullanıcı hesabı, AD FS hizmeti oturum açma hesabı olarak kullanılır. |
 
 ### <a name="create-the-ad-ds-connector-account"></a>AD DS bağlayıcı hesabı oluşturma
+
+>[!IMPORTANT]
+>Yeni bir PowerShell modülü adlandırılmış ADSyncConfig.psm1 yapıyla tanıtılmıştır **1.1.880.0** bir koleksiyon içerir (Ağustos 2018'de yayımlanan) Azure AD DS doğru Active Directory izinlerini yapılandırmanıza yardımcı olması için cmdlet Bağlayıcı hesabı.
+>
+>Daha fazla bilgi için [Azure AD Connect: AD DS bağlayıcı Hesap izni yapılandırın](how-to-connect-configure-ad-ds-connector-account.md)
+
 Belirttiğiniz hesabın **dizinlerinizi bağlama** sayfasına yüklemeden önce Active Directory'de mevcut olmalıdır.  Azure AD Connect sürüm 1.1.524.0 ve daha sonra Azure AD Connect Sihirbazı'nı oluşturma izin verme seçeneğini **AD DS bağlayıcı hesabı** Active Directory'ye bağlanmak için kullanılır.  
 
 Ayrıca, gerekli izinler de olmalıdır. Yükleme Sihirbazı, izinleri ve herhangi bir sorun yalnızca eşitleme sırasında bulunan doğrulamaz.

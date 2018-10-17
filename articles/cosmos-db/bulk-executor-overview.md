@@ -1,21 +1,20 @@
 ---
-title: Azure Cosmos DB toplu Yürütücü kitaplığına genel bakış | Microsoft Docs
-description: Kitaplık ve mimarisinin kullanmanın avantajları Azure Cosmos DB toplu Yürütücü Kitaplığı hakkında bilgi edinin.
-keywords: Java toplu Yürütücü
+title: Toplu içeri aktarma ve güncelleştirme verileri toplu Yürütücü kitaplığı kullanarak Azure Cosmos DB | Microsoft Docs
+description: Toplu işlemler Azure Cosmos DB'de toplu olarak içeri aktarma ve toplu güncelleştirme API'leri toplu Yürütücü kitaplığı tarafından sunulan.
 services: cosmos-db
 author: tknandu
 manager: kfile
 ms.service: cosmos-db
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/07/2018
+ms.date: 10/16/2018
 ms.author: ramkris
-ms.openlocfilehash: 823cb536a1cd0b8f5da7442906b14447c15ae044
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: a760de998c78ce2afdd24a15d9dd6e5d0cf44dc1
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49091362"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49363557"
 ---
 # <a name="azure-cosmos-db-bulk-executor-library-overview"></a>Azure Cosmos DB toplu Yürütücü kitaplığına genel bakış
  
@@ -27,7 +26,7 @@ Azure Cosmos DB, esnek ölçek artırma desteklemek için tasarlanmış bir hız
 Toplu Yürütücü kitaplık bu devasa işlem hacmi ve depolama yararlanmanıza yardımcı olur. Toplu Yürütücü kitaplığı toplu gerçekleştirmenize olanak tanıyan Azure Cosmos DB'de işlemleri toplu olarak içeri aktarma ve toplu güncelleştirme API'leri. Daha fazla toplu Yürütücü kitaplığı aşağıdaki bölümlerde özellikleri hakkında. 
 
 > [!NOTE] 
-> Şu anda toplu Yürütücü kitaplığı içeri aktarma destekler ve güncelleştirme işlemleri ve bu kitaplık yalnızca Azure Cosmos DB SQL API hesabı tarafından desteklenir. Bkz: [.NET](sql-api-sdk-bulk-executor-dot-net.md) ve [Java](sql-api-sdk-bulk-executor-java.md) kitaplığına herhangi bir güncelleştirme için sürüm notları.
+> Şu anda toplu Yürütücü kitaplığı içeri aktarma destekler ve güncelleştirme işlemleri ve bu kitaplık yalnızca Azure Cosmos DB SQL API ve Gremlin API hesapları tarafından desteklenir.
  
 ## <a name="key-features-of-the-bulk-executor-library"></a>Toplu Yürütücü Kitaplığı'nın temel özellikleri  
  

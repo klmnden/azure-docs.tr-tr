@@ -12,14 +12,14 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: article
-ms.date: 10/05/2018
+ms.date: 10/15/2018
 ms.author: yijenj
-ms.openlocfilehash: 99df133b9f626f970189df578c6d107086b9dab9
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: a0b3c220a1cd857bc8bea0eb5ab41625845fcc5d
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48855009"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49365637"
 ---
 # <a name="azure-partner-customer-usage-attribution"></a>Azure iş ortağı müşteri kullanım attribution
 
@@ -44,7 +44,7 @@ Microsoft iş ortağı olarak, Azure kullanımı, bir müşterinin adıma sağla
 
 Bir genel benzersiz tanıtıcısı (GUID) eklemek için ana şablon dosyası için tek bir değişiklik yapın:
 
-1. Bir GUID oluşturun (örneğin, eb7927c8-dd66-43e1-b0cf-c346a422063).
+1. [Bir GUID Oluştur](#create-guids) (örneğin, eb7927c8-dd66-43e1-b0cf-c346a422063) ve [, GUID kayda](#register-guids-and-offers).
 
 1. Resource Manager şablonunu açın.
 
@@ -55,6 +55,8 @@ Bir genel benzersiz tanıtıcısı (GUID) eklemek için ana şablon dosyası iç
 1. Hatalar için şablonu denetleyin.
 
 1. Şablon uygun depoları yeniden yayımlayın.
+
+1. [Şablon dağıtımı'nda GUID başarısını doğrulama](#verify-the-guid-deployment).
 
 ### <a name="sample-template-code"></a>Örnek şablon kodu
 
@@ -99,6 +101,24 @@ Azure CLI, GUID eklenecek kullandığınızda, **AZURE_HTTP_USER_AGENT** ortam d
 ```
 export AZURE_HTTP_USER_AGENT='pid-eb7927c8-dd66-43e1-b0cf-c346a422063'
 ```
+
+## <a name="create-guids"></a>GUID oluştur
+
+Bir GUID 32 onaltılık basamak olan bir başvuru benzersiz sayıdır. İzleme için GUID'leri oluşturmak için bir GUID Oluşturucu kullanmanız gerekir. Yararlanın, önerilen [Azure Depolama'nın GUID generator form](https://aka.ms/StoragePartners). Azure Depolama'nın GUID Oluşturucu kullanmayı tercih ederseniz vardır ancak birden çok [çevrimiçi GUID oluşturucuları](https://www.bing.com/search?q=guid%20generator) kullanabileceğiniz.
+
+> [!Note]
+> Yüksek oranda kullanmanızı öneririz. olduğu [Azure Depolama'nın GUID generator form](https://aka.ms/StoragePartners) , GUID oluşturmak için. Daha fazla bilgi için müşterilerimize [SSS](#faq).
+
+Her bir teklif ve dağıtım kanalı için benzersiz bir GUID oluşturun. Bir şablon kullanarak iki çözümleri dağıtmak ve Azure Marketi'nde ve GitHub üzerinde her biri kullanılabilir ise, dört GUID'leri oluşturmanız gerekir:
+
+*   Bir Azure Marketi'nde teklif 
+*   Github'da bir teklif
+*   Azure Marketi'nde teklif B 
+*   Github'da teklif B
+
+Raporlama, iş ortağı değeri (Microsoft iş ortağı kimliği) ve GUID tarafından gerçekleştirilir. 
+
+Ayrıca, GUID'leri SKU'ları bir teklifini türevlerini nerede SKU gibi daha ayrıntılı bir düzeyde izleyebilirsiniz.
 
 ## <a name="register-guids-and-offers"></a>YAZMAÇ GUID'leri ve teklifler
 
@@ -183,21 +203,6 @@ foreach ($deployment in $deployments){
 }
 ```
 
-## <a name="create-guids"></a>GUID oluştur
-
-Bir GUID 32 onaltılık basamak olan bir başvuru benzersiz sayıdır. İzleme için GUID'leri oluşturmak için bir GUID Oluşturucu kullanmanız gerekir. Vardır birden çok [çevrimiçi GUID oluşturucuları](https://www.bing.com/search?q=guid%20generator&qs=n&form=QBRE&sp=-1&ghc=2&pq=guid%20g&sc=8-6&sk=&cvid=0BAFAFCD70B34E4296BB97FBFA3E1B4E) kullanabileceğiniz.
-
-Her bir teklif ve dağıtım kanalı için benzersiz bir GUID oluşturun. Bir şablon kullanarak iki çözümleri dağıtmak ve Azure Marketi'nde ve GitHub üzerinde her biri kullanılabilir ise, dört GUID'leri oluşturmanız gerekir:
-
-*   Bir Azure Marketi'nde teklif 
-*   Github'da bir teklif
-*   Azure Marketi'nde teklif B 
-*   Github'da teklif B
-
-Raporlama, iş ortağı değeri (Microsoft iş ortağı kimliği) ve GUID tarafından gerçekleştirilir. 
-
-Ayrıca, GUID'leri SKU'ları bir teklifini türevlerini nerede SKU gibi daha ayrıntılı bir düzeyde izleyebilirsiniz.
-
 ## <a name="notify-your-customers"></a>Müşterilerinizin bildir
 
 İş ortakları, müşterilerine Resource Manager izleme GUID kullanan dağıtımlar hakkında bilgilendirmek. Microsoft iş ortağı için bu dağıtımları ile ilişkili Azure kullanım bildiriyor. Aşağıdaki örnekler, müşterileriniz bu dağıtımlar hakkında bilgilendirmek üzere kullanabileceğiniz içerik ekleyin. Örneklerde değiştirin \<iş ortağı > şirket adınızı ile. İş ortakları, bildirim izlemede hariç tutulacak müşteriler için seçenekleri dahil olmak üzere, gizlilik ve koleksiyon ilkeleri, tüm verilerini sahip hizalar emin olmanız gerekir. 
@@ -275,3 +280,7 @@ Müşteriler kullanımlarını kaynakların veya müşteri tarafından tanımlan
 **Bu izleme Metodoloji dijital iş ortağı, kaydı (DPOR için) benzer?**
 
 Bu yeni kullanım ve dağıtım için bir iş ortağı çözümünün bağlanma yöntemini Azure kullanımı için bir iş ortağı çözümü bağlamak için bir mekanizma sağlar. Aboneliğe DPOR danışmanlık (sistem tümleştiricisi) ya da Yönetim (yönetilen hizmet sağlayıcısı) ortak bir müşterinin Azure aboneliğiyle ilişkilendirmek için tasarlanmıştır.   
+
+**Azure Depolama'nın GUID Oluşturucu form kullanmanın avantajı nedir?**
+
+Azure Depolama'nın GUID Oluşturucu formunu gerekli biçiminde bir GUID oluşturun garanti edilir. Ayrıca, herhangi bir Azure Depolama'nın veri düzlemi izleme yöntemlerini kullanıyorsanız, Market denetim düzlemi izleme için aynı GUID yararlanabilirsiniz. Bu, iş ortağı attribution için tek bir birleştirilmiş GUID ayrı GUID'ler korumak zorunda kalmadan yararlanmanıza olanak sağlar.

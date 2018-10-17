@@ -8,18 +8,21 @@ ms.service: container-service
 ms.topic: article
 ms.date: 04/25/2018
 ms.author: laevenso
-ms.openlocfilehash: 181a37504569088e44dbe39da9113257bfb35c4e
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: 9a096588c5a8fda64343e001fdbd895d02153f58
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49068954"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49362713"
 ---
 # <a name="http-application-routing"></a>HTTP uygulaması yönlendirme
 
 HTTP uygulama yönlendirme çözümü, Azure Kubernetes Service (AKS) kümenize dağıtılan uygulamalara erişmek kolaylaştırır. Çözümün etkin olduğunda, bir giriş denetleyicisine AKS kümenizin yapılandırır. Çözüm, ayrıca dağıtılan uygulamalar gibi uygulama uç noktaları için ortak olarak erişilebilen DNS adları oluşturur.
 
 Eklenti etkinleştirildiğinde, aboneliğinizde bir DNS bölgesi oluşturur. DNS maliyet hakkında daha fazla bilgi için bkz: [DNS fiyatlandırma][dns-pricing].
+
+> [!CAUTION]
+> HTTP uygulama yönlendirme eklenti giriş denetleyicisine hızla oluşturun ve uygulamalarınızın erişim sağlamak için tasarlanmıştır. Bu eklenti, üretim kullanımı için önerilmez. Birden çok çoğaltmalar ve TLS içeren üretime hazır giriş dağıtımlarını desteklemek için bkz: [bir HTTPS giriş denetleyicisine oluşturma](https://docs.microsoft.com/en-us/azure/aks/ingress-tls).
 
 ## <a name="http-routing-solution-overview"></a>HTTP yönlendirme çözümüne genel bakış
 

@@ -12,12 +12,12 @@ ms.author: xiwu
 ms.reviewer: douglasl
 manager: craigg
 ms.date: 08/09/2018
-ms.openlocfilehash: 602bbdcd21e56bb64515a19623e08ae617c99a59
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: dfa5929daffb27617d3d1047f044a5af037e42ff
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48870923"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49362246"
 ---
 # <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync"></a>SQL Data Sync ile birden fazla Bulut ve şirket içi veritabanı arasında veri eşitleme
 
@@ -152,7 +152,7 @@ Veri eşitleme, salt okunur veya sistem tarafından oluşturulan sütunları eş
 | **Boyutları**                                                      | **Sınırı**              | **Geçici çözüm**              |
 |-----------------------------------------------------------------|------------------------|-----------------------------|
 | Eşitleme grubu sayısı için herhangi bir veritabanına ait olabilir.       | 5                      |                             |
-| Bir tek eşitleme grubundaki uç noktaları sayısı              | 30                     | Birden çok eşitleme grubu oluşturma |
+| Bir tek eşitleme grubundaki uç noktaları sayısı              | 30                     |                             |
 | Şirket içi Uç noktalara tek bir eşitleme grubunda en fazla sayısı. | 5                      | Birden çok eşitleme grubu oluşturma |
 | Veritabanı, tablo, şema ve sütun adları                       | ad başına 50 karakter |                             |
 | Bir eşitleme grubunda tabloları                                          | 500                    | Birden çok eşitleme grubu oluşturma |
@@ -160,6 +160,8 @@ Veri eşitleme, salt okunur veya sistem tarafından oluşturulan sütunları eş
 | Bir tablodaki verileri satır boyutu                                        | 24 mb                  |                             |
 | En düşük eşitleme aralığı                                           | 5 Dakika              |                             |
 |||
+> [!NOTE]
+> Olabilir en fazla 30 uç noktaları bir tek eşitleme grubunda yoksa yalnızca bir eşitleme grubu. Birden fazla eşitleme grubu varsa, uç noktalar genelinde tüm eşitleme gruplarını toplam sayısı 30 aşamaz. Bir veritabanının birden çok eşitleme gruplarına ait birden fazla uç noktası, bir geçersiz sayılır.
 
 ## <a name="faq-about-sql-data-sync"></a>SQL Data Sync hakkında SSS
 

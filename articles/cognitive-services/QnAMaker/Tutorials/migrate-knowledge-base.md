@@ -10,17 +10,17 @@ ms.component: qna-maker
 ms.topic: article
 ms.date: 09/12/2018
 ms.author: tulasim
-ms.openlocfilehash: a06a04ba992c8d7e9691e4838d38faaafd48de7a
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 6eaa4859ea6346390514325980835750d8e4b6d5
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48853921"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49365569"
 ---
 # <a name="migrate-a-knowledge-base-using-export-import"></a>İçeri dışarı aktarma kullanarak Bilgi Bankası geçirme
 Soru-cevap Oluşturucu 7 Mayıs 2018'den genel kullanılabilirliğini duyurduk \\\build\ konferans. Soru-cevap Oluşturucu GA, Azure'u temel alan yeni bir mimariye sahiptir. Soru-cevap Oluşturucu ücretsiz önizleme ile oluşturulan bilgi bankaları için soru-cevap Oluşturucu büyüyecek geçirilmesi gerekir Soru-cevap Oluşturucu Önizleme Kasım 2018'de kullanımdan kaldırılacaktır. Soru-cevap Oluşturucu GA değişiklikler hakkında daha fazla bilgi için bkz: soru-cevap Oluşturucu GA duyurusundan [blog gönderisi](https://aka.ms/qnamakerga-blog).
 
-Soru-cevap Oluşturucu artık sahip bir [fiyatlandırma modeli](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/qna-maker/).
+Soru-cevap Oluşturucu artık sahip bir [fiyatlandırma modeli](https://azure.microsoft.com/pricing/details/cognitive-services/qna-maker/).
 
 Önkoşullar
 > [!div class="checklist"]

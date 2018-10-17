@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.date: 10/04/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: 64d135ba336ca31fe6db5193f9f19c8c2340b454
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 93bd04ce654b8403ab3cd69ecd6837b97063e5e8
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48854861"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49363955"
 ---
 # <a name="unified-alerting--monitoring-in-azure-monitor-replaces-classic-alerting--monitoring"></a>Birleştirilmiş uyarılar ve Azure İzleyici'de izleme Klasik uyarı ve izleme değiştirir.
 
-Azure İzleyici, am birleşik tam yığın izleme kaynakları genelinde 'Bir ölçüm' ve 'Bir Uyarılar' şimdi destekleyen hizmeti artık olur; Daha fazla bilgi için müşterilerimize [yeni Azure İzleyici Web günlüğü gönderisini](https://azure.microsoft.com/en-us/blog/new-full-stack-monitoring-capabilities-in-azure-monitor/). Yeni Azure izleme ve uyarı platformları daha hızlı, daha verimli olmasını yerleşik ve giderek büyüyen expanse bulut bilgi işlem ve satır içi Microsoft Akıllı bulut felsefesi ile Genişletilebilir – tutma hızını. 
+Azure İzleyici, am birleşik tam yığın izleme kaynakları genelinde 'Bir ölçüm' ve 'Bir Uyarılar' şimdi destekleyen hizmeti artık olur; Daha fazla bilgi için müşterilerimize [yeni Azure İzleyici Web günlüğü gönderisini](https://azure.microsoft.com/blog/new-full-stack-monitoring-capabilities-in-azure-monitor/). Yeni Azure izleme ve uyarı platformları daha hızlı, daha verimli olmasını yerleşik ve giderek büyüyen expanse bulut bilgi işlem ve satır içi Microsoft Akıllı bulut felsefesi ile Genişletilebilir – tutma hızını. 
 
 Yeni Azure izleme ve uyarı yerinde platformu ile biz "izleme ve uyarı içinde barındırılan platformu - Klasik" kullanımdan kaldırılacak *Klasik uyarıları görüntüleme* bölümü tarafından Haziran 2019 Azure uyarıları, kullanım dışı bırakılacaktır.
 
@@ -57,9 +57,9 @@ Tüm Klasik izleme ve sistemlerle ilgili uyarı [API](https://msdn.microsoft.com
 
 Klasik izleme ve uyarı Haziran 2019 ötesinde platform içinde kalan herhangi bir uyarıyı otomatik olarak geçirilecektir Microsoft tarafından yeni bir Azure İzleyici platformda eşdeğerine Temmuz 2019 içinde. İşlem, kapalı kalma süresi sorunsuz ve kapsamı izleme kaybı olmadan müşterilerin sahip olduğunuzdan emin olun.
 
-Araçlar, uyarılardan gönüllü geçirmenizi yakında sağlayacağız [uyarılar (Klasik) bölümünde](monitoring-overview-alerts-classic.md) yeni Azure uyarıları için Azure portal'ın. Uyarılar (Klasik), yeni Azure İzleyicisi geçişi yapılandırılan tüm kurallar ücretsiz kalır ve ücret alınmaz. Geçirilen Klasik uyarı kuralları için e-posta, Web kancası veya mantıksal uygulama bildirimleri gönderme herhangi bir ücrete da size aittir değil. Ancak, daha yeni bir bildirim ya da eylem türleri (örneğin, SMS, sesli arama, ITSM tümleştirmesi, vb.) kullanımı için geçirilen veya yeni bir uyarı eklenip ücrete tabi olacaktır. Daha fazla bilgi için [Azure İzleyici fiyatlandırma](https://azure.microsoft.com/en-us/pricing/details/monitor/).
+Araçlar, uyarılardan gönüllü geçirmenizi yakında sağlayacağız [uyarılar (Klasik) bölümünde](monitoring-overview-alerts-classic.md) yeni Azure uyarıları için Azure portal'ın. Uyarılar (Klasik), yeni Azure İzleyicisi geçişi yapılandırılan tüm kurallar ücretsiz kalır ve ücret alınmaz. Geçirilen Klasik uyarı kuralları için e-posta, Web kancası veya mantıksal uygulama bildirimleri gönderme herhangi bir ücrete da size aittir değil. Ancak, daha yeni bir bildirim ya da eylem türleri (örneğin, SMS, sesli arama, ITSM tümleştirmesi, vb.) kullanımı için geçirilen veya yeni bir uyarı eklenip ücrete tabi olacaktır. Daha fazla bilgi için [Azure İzleyici fiyatlandırma](https://azure.microsoft.com/pricing/details/monitor/).
 
-Ayrıca, aşağıdaki ambit altında ücrete tabi olacaktır [Azure İzleyici fiyatlandırma](https://azure.microsoft.com/en-us/pricing/details/monitor/):
+Ayrıca, aşağıdaki ambit altında ücrete tabi olacaktır [Azure İzleyici fiyatlandırma](https://azure.microsoft.com/pricing/details/monitor/):
 
 - Yeni Azure İzleyici platformunda ücretsiz birimleri aşan oluşturulan tüm yeni (geçirilmeyen) uyarı kuralı
 - Azure İzleyici tarafından dahil edilen ücretsiz birimler dışında tutulur ve alınan tüm veriler

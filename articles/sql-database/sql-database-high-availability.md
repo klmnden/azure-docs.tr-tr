@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: carlrab, sashan
 manager: craigg
 ms.date: 10/15/2018
-ms.openlocfilehash: 004a097a50129c444ad3facf8133295c5de49585
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 0b2fa1541eafa3acf28690005a6d40fac76deba6
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/16/2018
-ms.locfileid: "49345008"
+ms.locfileid: "49353484"
 ---
 # <a name="high-availability-and-azure-sql-database"></a>Yüksek kullanılabilirlik ve Azure SQL veritabanı
 
@@ -42,7 +42,7 @@ Aşağıdaki şekilde, standart mimari modelinde ayrılmış işlem ve depolama 
 
 Standart kullanılabilirlik modelinde iki katman vardır:
 
-- Sqlserver.exe işlem çalışıyor ve yalnızca geçici ve önbelleğe alınan verileri (örneğin-planı önbellek, arabellek havuzu, sütun depolama havuzu) içeren bir durum bilgisi olmayan bilgi işlem katmanı. Azure Service Fabric tarafından işlem başlatır, düğümün sistem durumu denetimleri ve gerekirse, başka bir yere yük devretme gerçekleştirir, bu durum bilgisi olmayan SQL Server düğümünde çalıştırılır.
+- Çalışmakta olan bir durum bilgisi olmayan bilgi işlem katmanı `sqlserver.exe` işlemek ve yalnızca geçici ve önbelleğe alınan verileri (örneğin-planı önbellek, arabellek havuzu, sütun depolama havuzu) içerir. Azure Service Fabric tarafından işlem başlatır, düğümün sistem durumu denetimleri ve gerekirse, başka bir yere yük devretme gerçekleştirir, bu durum bilgisi olmayan SQL Server düğümünde çalıştırılır.
 - Azure Premium Depolama'da depolanan veritabanı dosyaları (.mdf/.ldf) ile bir durum bilgisi olan veri katmanı. Azure depolama, veri kaybı olmadan bir veritabanı dosyasına yerleştirilir herhangi bir kayıt olacaktır garanti eder. Azure depolama, SQL Server işlem çökse bile her kayıt günlük dosyasında veya sayfa veri dosyasında korunur sağlar yerleşik veri kullanılabilirlik/yedeklilik sahiptir.
 
 Veritabanı altyapısı veya işletim sistemi yükseltme olduğunda, bazı altyapının parçası başarısız olursa veya Sql Server işleminde bazı önemli sorun algılanırsa, başka bir durum bilgisi olmayan bir işlem düğümüne yüklenecek Azure Service Fabric durum bilgisi olmayan SQL Server işlemi taşınır. Yük devretme süresini en aza indirmek için yük devretme durumunda yeni işlem hizmetini çalıştırmak için bekleyen bir dizi düğümü yedek yok. Verileri Azure depolama katmanında etkilenmez ve yeni oluşturulmuş SQL Server işlemi için veri/günlük dosyalar eklenir. Bu işlem, % 99,99 oranında kullanılabilirlik garanti eder, ancak bu geçiş süresi nedeniyle çalıştıran ağır iş yükü üzerindeki bazı performans etkileri olabilir ve yeni SQL Server düğümü olgu soğuk önbellek ile başlar.
@@ -72,6 +72,10 @@ Bölge yedekli sürümü, yüksek kullanılabilirlik mimarisi ile Aşağıdaki d
 
 ![yüksek kullanılabilirlik mimarisi bölgesel olarak yedekli](./media/sql-database-high-availability/high-availability-architecture-zone-redundant.png)
 
+## <a name="accelerated-database-recovery-adr"></a>Hızlandırılmış veritabanı kurtarma (ADR)
+
+[Veritabanı kurtarma (ADR) hızlandırılmış](sql-database-accelerated-database-recovery.md) özellikle uzun olduğu durumda, veritabanı kullanılabilirlik büyük ölçüde geliştiren yeni bir SQL veritabanı altyapısı özelliği çalıştıran işlem, SQL veritabanı altyapısı kurtarma işlemini yeniden tasarlanmasını tarafından. ADR, tek veritabanları, elastik havuzlar ve Azure SQL veri ambarı şu anda kullanılabilir.
+
 ## <a name="conclusion"></a>Sonuç
 
 Azure SQL veritabanı Azure platformu ile derin şekilde tümleşiktir ve Service Fabric üzerinde yüksek oranda hata algılama ve kurtarma, veri koruma için Azure depolama BLOB'ları ve kullanılabilirlik için daha yüksek hata toleransı için bağlıdır. Azure SQL veritabanı, aynı zamanda, çoğaltma ve yük devretme için SQL Server ürün Always On kullanılabilirlik grubu teknolojisini tam olarak yararlanır. Bu teknolojiler birleşimi uygulamaların tam olarak bir karma depolama modelinin avantajlarından ve En zorlu SLA desteği sağlar.
@@ -81,3 +85,4 @@ Azure SQL veritabanı Azure platformu ile derin şekilde tümleşiktir ve Servic
 - Hakkında bilgi edinin [Azure kullanılabilirlik alanları](../availability-zones/az-overview.md)
 - Hakkında bilgi edinin [Service Fabric](../service-fabric/service-fabric-overview.md)
 - Hakkında bilgi edinin [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md)
+- Yüksek kullanılabilirlik ve olağanüstü durum kurtarma için daha fazla seçenek için bkz [iş sürekliliği](sql-database-business-continuity.md)

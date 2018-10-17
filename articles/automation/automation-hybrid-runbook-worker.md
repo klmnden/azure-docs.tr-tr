@@ -6,19 +6,19 @@ ms.service: automation
 ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 04/25/2018
+ms.date: 10/11/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: c4e237af7e85223839b3f26bcc33007f8abb9d0a
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 694327cf7f7331a35a7e18cb68c566932c6231fc
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47034238"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49363512"
 ---
 # <a name="automate-resources-in-your-datacenter-or-cloud-by-using-hybrid-runbook-worker"></a>Veri merkezinde veya bulutta kaynaklarında karma Runbook çalışanı kullanarak otomatik hale getirin.
 
-Azure Otomasyonu runbook'ları Azure bulut platformunda çalıştırdığı için şirket içi ortamınızda veya diğer bulutlarda kaynaklara erişemez olmayabilir. Runbook'ları doğrudan rolünü barındıran bilgisayarda ve ortamınızda bu yerel kaynakları yönetmek için kaynakların karşı çalıştırmak için Azure Otomasyon karma Runbook çalışanı özelliğini kullanabilirsiniz. Runbook'ları tutulur ve yönetilen Azure Otomasyonu'nda ve sonra bir veya daha fazla atanmış bilgisayarlara teslim.
+Bunlar Azure bulut platformunda çalıştığından Azure Otomasyonu runbook'ları, şirket içi ortamınızda veya diğer bulutlarda kaynaklarına erişimi olmayabilir. Runbook'ları doğrudan rolünü barındıran bilgisayarda ve ortamınızda bu yerel kaynakları yönetmek için kaynakların karşı çalıştırmak için Azure Otomasyon karma Runbook çalışanı özelliğini kullanabilirsiniz. Runbook'ları tutulur ve yönetilen Azure Otomasyonu'nda ve sonra bir veya daha fazla atanmış bilgisayarlara teslim.
 
 Aşağıdaki görüntüde bu işlevselliği gösterilmektedir:
 
@@ -26,7 +26,7 @@ Aşağıdaki görüntüde bu işlevselliği gösterilmektedir:
 
 Her karma Runbook çalışanı, aracı yükleme sırasında belirttiğiniz bir karma Runbook çalışanı grubunun bir üyesidir. Bir grubu tek bir aracı ekleyebilirsiniz, ancak yüksek kullanılabilirlik için bir grupta birden çok aracı yükleyebilirsiniz.
 
-Bir karma Runbook çalışanı üzerinde bir runbook'u başlattığınızda, üzerinde çalıştığı grubu belirtin. Gruptaki her çalışan tüm işleri olup olmadığını görmek için Azure Otomasyonu yoklar. Bir iş varsa, bu işi almak için ilk worker götürür. Belirli bir alt belirtemezsiniz. İş [sınırları](../azure-subscription-service-limits.md#automation-limits) hem Azure sanal hem de karma Runbook çalışanları için geçerlidir.
+Bir karma Runbook çalışanı üzerinde bir runbook'u başlattığınızda, üzerinde çalıştığı grubu belirtin. Gruptaki her çalışan tüm işleri olup olmadığını görmek için Azure Otomasyonu yoklar. Bir iş varsa, bu işi almak için ilk worker götürür. Belirli bir alt belirtemezsiniz. Karma Runbook çalışanları, birçok Azure sanal sahip sınırları paylaşmayın. Bunlar aynı sınırlarını disk alanı, bellek veya ağ yuvaları üzerinde yok. Karma Runbook çalışanları, yalnızca karma Runbook çalışanında kendisini kaynaklar tarafından sınırlandırılmıştır. Ayrıca, karma Runbook çalışanları 180 dakika paylaşmayın [adil paylaşımı](automation-runbook-execution.md#fair-share) süre sınırı, Azure sanal yapın. Azure sanal ve karma Runbook çalışanları için hizmet sınırları hakkında daha fazla bilgi için iş bkz [sınırları](../azure-subscription-service-limits.md#automation-limits) sayfası.
 
 ## <a name="install-a-hybrid-runbook-worker"></a>Karma Runbook çalışanı'nı yükleme
 
@@ -48,7 +48,7 @@ Gözden geçirme [ağınızı planlama bilgileri](#network-planning) bir karma R
 
 ## <a name="remove-a-hybrid-runbook-worker"></a>Karma Runbook çalışanı Kaldır
 
-Bir veya daha fazla karma Runbook çalışanları gruptan kaldırdığınızda veya grup gereksinimlerinize bağlı olarak kaldırabilirsiniz. Karma Runbook çalışanı şirket içi bir bilgisayardan kaldırmak için aşağıdaki adımları gerçekleştirin:
+Bir veya daha fazla karma Runbook çalışanları gruptan kaldırdığınızda veya grup gereksinimlerinize bağlı olarak kaldırabilirsiniz. Karma Runbook çalışanı şirket içi bir bilgisayardan kaldırmak için aşağıdaki adımları kullanın:
 
 1. Azure portalında, Otomasyon hesabınıza gidin.
 2. Altında **ayarları**seçin **anahtarları** ve değerlerini Not **URL** ve **birincil erişim anahtarı**. Bu bilgiler sonraki adımda ihtiyacınız var.
@@ -78,7 +78,7 @@ sudo python onboarding.py --deregister --endpoint="<URL>" --key="<PrimaryAccessK
 
 ## <a name="remove-a-hybrid-worker-group"></a>Karma çalışanı grubu Kaldır
 
-Bir grubu kaldırmak için önce daha önce gösterilen bir yordamı kullanarak grubunun bir üyesi olan her bir bilgisayardan karma Runbook çalışanı kaldırmanız gerekir. Ardından, grubunu kaldırmak için aşağıdaki adımları gerçekleştirin:
+Bir grubu kaldırmak için önce daha önce gösterilen bir yordamı kullanarak grubunun bir üyesi olan her bir bilgisayardan karma Runbook çalışanı kaldırmanız gerekir. Ardından grubunu kaldırmak için aşağıdaki adımları kullanın:
 
 1. Azure portalında Otomasyon hesabını açın.
 1. Altında **süreç otomasyonu**seçin **karma çalışan grupları**. Silmek istediğiniz grubu seçin. Bu grup için Özellikler sayfasında görünür.
@@ -95,7 +95,7 @@ Bir grubu kaldırmak için önce daha önce gösterilen bir yordamı kullanarak 
 
 ### <a name="hybrid-worker-role"></a>Karma çalışan rolü
 
-Karma Runbook bağlanın ve Log Analytics ile kaydetmek çalışanı için bu bağlantı noktası numarası ve bu bölümünde açıklanan URL'lere erişimi olmalıdır. Ek olarak bu erişimi olan [bağlantı noktaları ve URL'ler Microsoft izleme aracısının gerektirdiği](../log-analytics/log-analytics-agent-windows.md) Log Analytics'e bağlanmak için. 
+Karma Runbook bağlanın ve Log Analytics ile kaydetmek çalışanı için bu bağlantı noktası numarası ve bu bölümünde açıklanan URL'lere erişimi olmalıdır. En üste bu erişime açıktır [bağlantı noktaları ve URL'ler Microsoft izleme aracısının gerektirdiği](../log-analytics/log-analytics-agent-windows.md) Log Analytics'e bağlanmak için.
 
 Log Analytics hizmeti ile aracı arasındaki iletişim için bir ara sunucu kullanıyorsanız uygun kaynakların erişilebilir olduğundan emin olun. İnternet'e erişimi kısıtlamak için Güvenlik Duvarı'nı kullanıyorsanız erişime izin vermek için güvenlik duvarını yapılandırmanız gerekir. OMS ağ geçidi bir ara sunucu kullanırsanız, karma çalışanları için yapılandırıldığından emin olun. Bunun nasıl yapılacağı hakkında yönergeler için bkz [Otomasyon karma çalışanı için OMS ağ geçidi yapılandırma](https://docs.microsoft.com/azure/log-analytics/log-analytics-oms-gateway#configure-for-automation-hybrid-workers).
 
@@ -106,7 +106,7 @@ Aşağıdaki bağlantı noktası ve URL'leri Otomasyonu ile iletişim kurmak kar
 * ABD Devleti Virginia genel URL: *.azure-automation.us
 * Aracı hizmeti: https://\<Workspaceıd\>.agentsvc.azure-automation.net
 
-Özel durumlar tanımlarken listelenen adreslerini kullanmak için önerilir. IP adreslerinin indirebilirsiniz [Microsoft Azure veri merkezi IP aralıkları](https://www.microsoft.com/download/details.aspx?id=41653). Bu dosya haftalık olarak güncelleştirilir ve şu anda dağıtılmış aralıkları ve IP adreslerinde gelecekte yapılacak değişiklikleri yansıtır.
+Özel durumlar tanımlarken listelenen adreslerini kullanmak için önerilir. IP adreslerinin indirebilirsiniz [Microsoft Azure veri merkezi IP aralıkları](https://www.microsoft.com/download/details.aspx?id=41653). Bu dosya haftalık olarak güncelleştirilir ve şu anda dağıtılmış aralıkları ve IP adreslerinde gelecekte yapılacak değişiklikleri vardır.
 
 Belirli bir bölge için tanımlanmış bir Otomasyon hesabınız varsa bu Bölgesel veri merkezi iletişimin kısıtlayabilirsiniz. Aşağıdaki tabloda, her bölge için DNS kaydı verilmiştir:
 
@@ -136,7 +136,7 @@ Bölge bölge adları yerine IP adresleri listesi için indirme [Azure veri merk
 
 ### <a name="update-management"></a>Güncelleştirme Yönetimi
 
-Standart adresleri ve karma Runbook çalışanı gereken bağlantı noktaları ek olarak, şu adresleri özellikle güncelleştirme yönetimi için gereklidir. Bu adresler için iletişim bağlantı noktası 443 üzerinden gerçekleştirilir.
+Standart adresleri ve karma Runbook çalışanı gereken bağlantı noktaları üzerinde aşağıdaki adresleri özellikle güncelleştirme yönetimi için gereklidir. Bu adresler için iletişim bağlantı noktası 443 üzerinden gerçekleştirilir.
 
 |Azure kamu  |Azure Kamu  |
 |---------|---------|

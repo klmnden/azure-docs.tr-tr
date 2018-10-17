@@ -56,11 +56,35 @@ items:
       href: troubleshoot-database-table.md
 - name: Başvuru
   items:
-  - name: Dil başvurusu
-    href: https://aka.ms/kustolangref
-ms.openlocfilehash: 9a14c56c049bae31f2a741e7ddab1d01df1209fb
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+  - name: Sorgu dili
+    href: /azure/kusto/query/
+  - name: Yönetim komutları
+    href: /azure/kusto/management/
+  - name: API'ler
+    href: /azure/kusto/api/
+- name: Kaynaklar
+  items:
+  - name: Forumlar
+    items:
+    - name: Stack Overflow
+      href: https://stackoverflow.com/questions/tagged/azure-data-explorer
+    - name: Microsoft Teknoloji Topluluğu
+      href: https://techcommunity.microsoft.com/t5/Azure-Data-Explorer/bd-p/Kusto
+    - name: MSDN forumu
+      href: https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureKusto
+  - name: Ürün geri bildirimi
+    href: https://feedback.azure.com/forums/335175-kusto
+  - name: Fiyatlandırma
+    href: https://azure.microsoft.com/pricing/details/data-explorer/
+  - name: Fiyatlandırma hesaplayıcı
+    href: https://azure.microsoft.com/pricing/calculator/
+  - name: Azure yol haritası
+    href: https://azure.microsoft.com/updates/
+  - name: Hizmet güncelleştirmeleri
+    href: https://azure.microsoft.com/updates/?product=data-explorer
+ms.openlocfilehash: 0252701d48b289f7041e34b6ac17fe230028912a
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47031195"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49340979"

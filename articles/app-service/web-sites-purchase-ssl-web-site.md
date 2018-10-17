@@ -12,116 +12,138 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/01/2017
+ms.date: 10/16/2018
 ms.author: apurvajo;cephalin
-ms.openlocfilehash: 38f7f82d293409a49c41381cedaa1f7600068cd3
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: c775798591a3063fdfe6d399c8337aac2e2f207e
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49319413"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49351363"
 ---
-# <a name="buy-and-configure-an-ssl-certificate-for-your-azure-app-service"></a>Azure App Service için SSL Sertifikası Satın Alma ve Yapılandırma
+# <a name="buy-and-configure-an-ssl-certificate-for-azure-app-service"></a>Satın alma ve Azure App Service için SSL sertifikası yapılandırma
 
-Bu öğretici, web uygulamanız için SSL sertifikası satın alarak güvenliğinin nasıl sağlanacağını gösterir,  **[Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714)**, güvenli bir şekilde de depolamak [Azure anahtar kasası](https://docs.microsoft.com/azure/key-vault/key-vault-whatis), ve Bu, özel bir etki alanıyla ilişkilendirmeyi.
+Bu öğreticide (satın) oluşturarak web uygulamanızı güvenli hale gösterilmektedir bir App Service sertifikası [Azure anahtar kasası](https://docs.microsoft.com/azure/key-vault/key-vault-whatis) ve bir App Service uygulamasına bağlar.
 
-## <a name="step-1---sign-in-to-azure"></a>Adım 1 - oturum azure'a
+> [!TIP]
+> App Service sertifikaları, herhangi bir Azure veya Azure Hizmetleri için kullanılabilir ve uygulama hizmetleri için sınırlı değildir. Bunu yapmak için onu istediğiniz yere kullanabileceğiniz bir App Service sertifikasının yerel PFX kopyasını oluşturmak gerekir. Daha fazla bilgi için [bir App Service sertifikasının yerel PFX kopyasını oluşturma](https://blogs.msdn.microsoft.com/appserviceteam/2017/02/24/creating-a-local-pfx-copy-of-app-service-certificate/).
+>
 
-Adresinden Azure portalında oturum açın http://portal.azure.com
+## <a name="prerequisites"></a>Önkoşullar
 
-## <a name="step-2---place-an-ssl-certificate-order"></a>2. adım - bir SSL sertifikası sipariş verin
+Bu nasıl yapılır kılavuzunda izlemek için:
 
-Yeni bir SSL sertifikası sipariş yerleştirebilirsiniz [App Service sertifikası](https://portal.azure.com/#create/Microsoft.SSL) içinde **Azure portalında**.
+- [App Service uygulaması oluşturma](/azure/app-service/)
+- [Bir etki alanı adını web uygulamanıza eşleme](app-service-web-tutorial-custom-domain.md) veya [satın alma ve Azure'da yapılandırma](custom-dns-web-site-buydomains-web-app.md)
+
+[!INCLUDE [Prepare your web app](../../includes/app-service-ssl-prepare-app.md)]
+
+## <a name="start-certificate-order"></a>Sertifika siparişi Başlat
+
+App Service sertifikası sipariş başlangıç <a href="https://portal.azure.com/#create/Microsoft.SSL" target="_blank">App Service sertifikası oluşturma sayfası</a>.
 
 ![Sertifika oluşturma](./media/app-service-web-purchase-ssl-web-site/createssl.png)
 
-Kullanımı kolay bir girin **adı** için SSL sertifikası ve girin **etki alanı adı**
+Sertifika yapılandırmanıza yardımcı olması için aşağıdaki tabloyu kullanın. Tamamladığınızda **Oluştur**’a tıklayın.
 
-> [!NOTE]
-> Bu adım satın alma işleminin en kritik parçalarından biridir. Bu sertifika ile korumak istediğiniz doğru konak adı (özel etki alanı) girdiğinizden emin olun. **DO NOT** WWW ana bilgisayar adıyla önüne ekleyin. 
->
+| Ayar | Açıklama |
+|-|-|
+| Ad | App Service sertifikanız için bir kolay ad. |
+| Çıplak Etki Alanı Ana Bilgisayar Adı | Bu adım satın alma işleminin en kritik parçalarından biridir. Uygulamanıza eşlediğiniz kök etki alanı adını kullanın. Yapmak _değil_ önüne ekleyin etki alanı adıyla `www`. |
+| Abonelik | Web uygulamasının barındırıldığı veri merkezi. |
+| Kaynak grubu | Sertifikayı içeren kaynak grubu. App Service uygulamanızı, örneğin aynı kaynak grubunu seçin ya da yeni bir kaynak grubunu kullanın. |
+| Sertifika SKU'su | Standart bir sertifika mı yoksa mı oluşturmak için sertifika türünü belirler [joker sertifikası](https://wikipedia.org/wiki/Wildcard_certificate). |
+| Yasal Koşullar | Yasal koşulları kabul onaylamak için tıklayın. |
 
-Seçin, **abonelik**, **kaynak grubu**, ve **sertifika SKU'su**
+## <a name="store-in-azure-key-vault"></a>Azure Key vault'ta Store
 
-> [!TIP]
-> App Service sertifikaları, herhangi bir Azure veya Azure Hizmetleri için kullanılabilir ve uygulama hizmetleri için sınırlı değildir. Bunu yapmak için onu istediğiniz yere kullanabileceğiniz bir App Service sertifikasının yerel PFX kopyasını oluşturmak gerekir. Daha fazla bilgi için okuma [bir App Service sertifikasının yerel PFX kopyasını oluşturma](https://blogs.msdn.microsoft.com/appserviceteam/2017/02/24/creating-a-local-pfx-copy-of-app-service-certificate/).
->
+Sertifika satın alma işlemi tamamlandıktan sonra bu sertifikayı kullanarak başlamadan önce tamamlamanız gereken birkaç adım vardır. 
 
-## <a name="step-3---store-the-certificate-in-azure-key-vault"></a>3. adım: Azure anahtar Kasası'nda sertifika Store
-
-> [!NOTE]
-> [Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-whatis) şifreleme anahtarlarını ve gizli bulut uygulamaları ve Hizmetleri tarafından kullanılan korunmasına yardımcı olan bir Azure hizmetidir.
->
-
-SSL sertifikası satın alma işlemini tamamladıktan sonra açmak gereken [App Service sertifikaları](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.CertificateRegistration%2FcertificateOrders) sayfası.
+Sertifikayı seçin [App Service sertifikaları](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.CertificateRegistration%2FcertificateOrders) sayfasında'a tıklayın **sertifika Yapılandırması** > **1. adım: Store**.
 
 ![içinde KV depolamak hazır görüntüsü Ekle](./media/app-service-web-purchase-ssl-web-site/ReadyKV.png)
 
-Sertifika durumu **"Verme bekleniyor"** olarak bu sertifikayı kullanarak başlamadan önce tamamlamanız gereken birkaç adım vardır.
+[Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-whatis) şifreleme anahtarlarını ve gizli bulut uygulamaları ve Hizmetleri tarafından kullanılan korunmasına yardımcı olan bir Azure hizmetidir. App Service sertifikaları için tercih ettiğiniz depolamadır.
 
-Tıklayın **sertifika Yapılandırması** sertifika özellikleri sayfasında ve tıklayarak **1. adım: Store** bu sertifikanın Azure Key Vault'ta depolamak için.
+İçinde **Key Vault durumu** sayfasında **Key Vault deposu** yeni bir kasa oluşturun veya mevcut bir kasayı seçin. Yeni bir kasa oluşturmak isterseniz, Oluştur'a tıklayın ve kasa yapılandırma yardımcı olması için aşağıdaki tabloyu kullanın. Yeni Key Vault içinde aynı abonelik ve kaynak grubu oluşturmak için bkz.
 
-Gelen **Key Vault durumu** sayfasında **Key Vault deposu** bu sertifikanın depolanacağı mevcut bir Key Vault seçmek için **veya yeni Key Vault Oluştur** yeni anahtar kasası oluşturmak için aynı abonelik ve kaynak grubu içinde.
+| Ayar | Açıklama |
+|-|-|
+| Ad | Alfasayısal karakterler ve kısa çizgiler için oluşan benzersiz bir ad. |
+| Kaynak grubu | Bir öneri App Service sertifikanızı olarak aynı kaynak grubunu seçin. |
+| Konum | App Service uygulamanızı aynı konumu seçin. |
+| Fiyatlandırma katmanı | Bilgi için [Azure anahtar kasası fiyatlandırma ayrıntıları](https://azure.microsoft.com/pricing/details/key-vault/). |
+| Erişim ilkeleri| Uygulamalar ve izin verilen erişimi kasa kaynaklara tanımlar. Daha sonra bu adımları uygulayarak yapılandırma [çeşitli uygulamalar bir anahtar kasası erişim](../key-vault/key-vault-group-permissions-for-apps.md). |
+| Sanal Ağ Erişimi | Belirli bir Azure sanal ağları kasa erişimi kısıtlayın. Daha sonra bu adımları uygulayarak yapılandırma [Azure anahtar kasası yapılandırma güvenlik duvarları ve sanal ağlar](../key-vault/key-vault-network-security.md) |
 
-> [!NOTE]
-> Azure Key Vault bu sertifikayı depolamak için en düşük ücreti vardır.
-> Daha fazla bilgi için  **[Azure anahtar kasası fiyatlandırma ayrıntıları](https://azure.microsoft.com/pricing/details/key-vault/)**.
->
+Kasayı seçtikten sonra kapatmak **Key Vault deposu** sayfası. **Store** seçeneği başarı için yeşil bir onay işareti göstermelidir. Sayfa bir sonraki adımda açık tutun.
 
-Bu sertifikada depolamak için Key Vault deposu seçtikten sonra **Store** seçeneği başarı göstermelidir.
+## <a name="verify-domain-ownership"></a>Etki alanı sahipliğini doğrulama
 
-![Görüntü deposu başarı KV Ekle](./media/app-service-web-purchase-ssl-web-site/KVStoreSuccess.png)
+Aynı **sertifika Yapılandırması** sayfasında son adımda kullanılan **2. adım: doğrulama**.
 
-## <a name="step-4---verify-the-domain-ownership"></a>4. adım - etki alanı sahipliğini doğrulayın
+![](./media/app-service-web-purchase-ssl-web-site/verify-domain.png)
 
-Aynı **sertifika Yapılandırması** adım 3'te kullanılan sayfasında **2. adım: doğrulama**.
-
-Tercih edilen etki alanı doğrulama yöntemi seçin. 
-
-Etki alanı doğrulaması App Service sertifikaları tarafından desteklenen üç tür vardır: App Service, etki alanı ve el ile doğrulama. Bu doğrulama türleri daha ayrıntılı olarak açıklanmıştır [bölümü Gelişmiş](#advanced).
-
-> [!NOTE]
-> **App Service doğrulaması** doğrulamak istediğiniz etki alanını aynı Abonelikteki bir App Service uygulaması zaten eşlenmiş en uygun seçenektir. App Service uygulaması zaten etki alanı sahipliğini doğruladı olgu avantajlarından yararlanır.
->
-
-Tıklayarak **doğrulama** bu adımı tamamlamak için düğme.
-
-![etki alanı doğrulaması görüntüsü Ekle](./media/app-service-web-purchase-ssl-web-site/DomainVerificationRequired.png)
-
-Tıkladıktan sonra **doğrulama**, kullanın **Yenile** kadar düğmesini **doğrulama** seçeneği başarı göstermelidir.
-
-![ekleme görüntüsü KV başarılı olun](./media/app-service-web-purchase-ssl-web-site/KVVerifySuccess.png)
-
-## <a name="step-5---assign-certificate-to-app-service-app"></a>Adım 5 - App Service uygulamasına atamak sertifika
+Seçin **App Service doğrulaması**. Web uygulamanız için etki alanı zaten eşlenmiş bu yana (bkz [önkoşulları](#prerequisites)), zaten doğrulandı. Tıklamanız yeterli **doğrulama** bu adımı tamamlamak için. Tıklayın **Yenile** ileti kadar düğmesi **sertifikadır etki alanını doğruladıysanız** görünür.
 
 > [!NOTE]
-> Bu bölümdeki adımları gerçekleştirmeden önce bir özel etki alanı adı uygulamanızla ilişkili gerekir. Daha fazla bilgi için  **[bir web uygulaması için özel etki alanı adı yapılandırma.](app-service-web-tutorial-custom-domain.md)**
->
+> Etki alanı doğrulama yöntemlerinin dört türleri desteklenir: 
+> 
+> - **App Service** -etki alanı aynı Abonelikteki bir App Service uygulamasına zaten eşlendiğinde en kullanışlı seçenektir. App Service uygulaması zaten etki alanı sahipliğini doğruladı olgu avantajlarından yararlanır.
+> - **Etki alanı** -doğrulayın bir [satın aldığınız Azure App Service etki alanı](custom-dns-web-site-buydomains-web-app.md). Azure, otomatik olarak sizin için doğrulama TXT kaydı ekler ve işlemini tamamlar.
+> - **Posta** -etki alanı için etki alanı yöneticisinin e-posta göndererek doğrulayın. Seçeneğini belirlediğinizde yönergeleri sağlanır.
+> - **El ile** -HTML sayfasını kullanarak etki alanını doğrulayın (**standart** yalnızca sertifika) veya bir DNS TXT kaydı. Seçeneğini belirlediğinizde yönergeleri sağlanır.
 
-İçinde  **[Azure portalında](https://portal.azure.com/)**, tıklayın **App Service** sayfasının sol taraftaki seçeneği.
+## <a name="bind-certificate-to-app"></a>Sertifika uygulamasına bağlama
 
-Bu sertifikayı atamak istediğiniz uygulamanın adına tıklayın.
+İçinde  **[Azure portalında](https://portal.azure.com/)**, soldaki menüden **uygulama hizmetleri** > **\<your_ uygulama >**.
 
-İçinde **ayarları**, tıklayın **SSL ayarları**.
-
-Tıklayın **alma App Service sertifikası** ve yeni satın aldığınız sertifikayı seçin.
+Uygulamanızın sol gezinti bölmesinden seçin **SSL ayarları** > **özel sertifikaları (.pfx)** > **alma App Service sertifikası**.
 
 ![Sertifika İçeri Aktar görüntüsü Ekle](./media/app-service-web-purchase-ssl-web-site/ImportCertificate.png)
 
-İçinde **ssl bağlamaları** tıklatın bölümünde **bağlamalar**, açılır menüleri kullanarak SSL ve sertifika ile kullanmak üzere güvenli hale getirmek için etki alanı adını kullanarak. Ayrıca kullanılıp kullanılmayacağını seçebilirsiniz **[sunucu adı belirtme (SNI)](http://en.wikipedia.org/wiki/Server_Name_Indication)** veya IP tabanlı SSL.
+Yeni satın aldığınız sertifikayı seçin.
 
-![SSL bağlamaları görüntüsü Ekle](./media/app-service-web-purchase-ssl-web-site/SSLBindings.png)
+Sertifikayı içeri aktarıldığına göre bir eşleşen etki alanı adı uygulamanıza bağlamak gerekir. Seçin **bağlamaları** > **SSL bağlaması Ekle**. 
 
-Tıklayın **bağlaması Ekle** değişiklikleri kaydedin ve SSL'i etkinleştirin.
+![Sertifika İçeri Aktar görüntüsü Ekle](./media/app-service-web-purchase-ssl-web-site/AddBinding.png)
+
+Bağlamasında yapılandırmanıza yardımcı olması için aşağıdaki tabloyu kullanın **SSL bağlamaları** iletişim kutusunda, ardından **bağlaması Ekle**.
+
+| Ayar | Açıklama |
+|-|-|
+| Ana Bilgisayar Adı | SSL bağlaması için eklemek için etki alanı adı. |
+| Özel Sertifika Parmak İzi | Bağlama sertifikası. |
+| SSL Türü | <ul><li>**SNI SSL** -birden fazla SNI tabanlı SSL bağlaması eklenebilir. Bu seçenek, aynı IP adresi üzerinde birden fazla SSL sertifikası ile birden fazla etki alanının güvenliğini sağlamaya olanak tanır. Çoğu modern tarayıcı (Internet Explorer, Chrome, Firefox ve Opera dahil) SNI’yi destekler (daha kapsamlı tarayıcı desteği bilgilerini [Sunucu Adı Belirtimi](http://wikipedia.org/wiki/Server_Name_Indication) bölümünde bulabilirsiniz).</li><li>**IP tabanlı SSL** - Yalnızca bir adet IP tabanlı SSL bağlaması eklenebilir. Bu seçenek yalnızca bir SSL sertifikası ile ayrılmış bir genel IP adresinin güvenliğini sağlamaya olanak tanır. Sonra yapılandırmak, adımları [kayıt yeniden eşlemek için IP SSL](app-service-web-tutorial-custom-ssl.md#remap-a-record-for-ip-ssl). </li></ul> |
+
+## <a name="verify-https-access"></a>HTTPS erişimi doğrulama
+
+Kullanıp uygulamanızın ziyaret `HTTPS://<domain_name>` yerine `HTTP://<domain_name>` sertifika doğru şekilde yapılandırıldığını doğrulayın.
+
+## <a name="rekey-and-sync-certificate"></a>Yeniden anahtarlama ve eşitleme sertifika
+
+Sertifika, sertifikayı yeniden anahtarla gerekiyorsa, seçin [App Service sertifikaları](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.CertificateRegistration%2FcertificateOrders) sayfasında ve ardından **yeniden anahtarlama ve eşitleme** sol gezinti bölmesinden.
+
+Tıklayın **yeniden anahtarlama** işlemini başlatmak için düğme. Bu işlemin tamamlanması 1-10 dakika sürebilir.
+
+![yeniden anahtarlama SSL görüntüsü Ekle](./media/app-service-web-purchase-ssl-web-site/Rekey.png)
+
+Sertifikanız yeniden anahtarlama için izine sahip sertifika yetkilisinden verilen yeni bir sertifika yapar.
+
+## <a name="renew-certificate"></a>Sertifikayı yenile
+
+Sertifikayı, sertifikanın otomatik yenilenmesini üzerinde istediğiniz zaman açmak için seçin [App Service sertifikaları](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.CertificateRegistration%2FcertificateOrders) sayfasında'a tıklayın **otomatik yenileme ayarları** sol gezinti bölmesinde. 
+
+Seçin **üzerinde** tıklatıp **Kaydet**. Sertifika süresi dolmadan önce 60 gün açık olarak otomatik yenileme varsa otomatik olarak yenileme başlayabilirsiniz.
+
+![](./media/app-service-web-purchase-ssl-web-site/auto-renew.png)
+
+Sertifikayı bunun yerine el ile yenilemek için tıklayın **el ile yenileme**. Sertifikanızın süresi dolmadan önce 60 gün el ile yenilemek için istekte bulunabilir.
 
 > [!NOTE]
-> Seçtiyseniz **IP tabanlı SSL** ve bir A kaydı kullanarak özel etki alanınızı yapılandırılmış, aşağıdaki ek adımları gerçekleştirmeniz gerekir. Bunlar daha ayrıntılı olarak açıklanmıştır [bölümü Gelişmiş](#Advanced).
+> Yenilenen sertifikanın otomatik olarak uygulamanıza el ile yenilenmesi ya da otomatik olarak yenilendiğinde bağlı değil. Uygulamanıza bağlamak için bkz: [sertifikaları yenileme](./app-service-web-tutorial-custom-ssl.md#renew-certificates). 
 
-Bu noktada, kullanıp uygulamanızın ziyaret etmek erişebileceğinizi `HTTPS://` yerine `HTTP://` sertifika doğru şekilde yapılandırıldığını doğrulayın.
-
-<!--![insert image of https](./media/app-service-web-purchase-ssl-web-site/Https.png)-->
-
-## <a name="step-6---management-tasks"></a>Adım 6 - yönetim görevleri
+## <a name="automate-with-scripts"></a>Betiklerle otomatikleştirme
 
 ### <a name="azure-cli"></a>Azure CLI
 
@@ -130,74 +152,6 @@ Bu noktada, kullanıp uygulamanızın ziyaret etmek erişebileceğinizi `HTTPS:/
 ### <a name="powershell"></a>PowerShell
 
 [!code-powershell[main](../../powershell_scripts/app-service/configure-ssl-certificate/configure-ssl-certificate.ps1?highlight=1-3 "Bind a custom SSL certificate to a web app")]
-
-## <a name="advanced"></a>Gelişmiş
-
-### <a name="verifying-domain-ownership"></a>Etki alanı sahipliğini doğrulama
-
-App service sertifikaları tarafından desteklenen etki alanı doğrulaması diğer iki tür vardır: etki alanı doğrulaması ve el ile doğrulama.
-
-#### <a name="domain-verification"></a>Etki Alanı Doğrulama
-
-Bu seçeneği yalnızca [satın aldığınız Azure App Service etki alanı.](custom-dns-web-site-buydomains-web-app.md). Azure, otomatik olarak sizin için doğrulama TXT kaydı ekler ve işlemini tamamlar.
-
-#### <a name="manual-verification"></a>El ile Doğrulama
-
-> [!IMPORTANT]
-> HTML Web sayfası Doğrulama (yalnızca standart sertifika SKU ile çalışır)
->
-
-1. Adlı bir HTML dosyası oluşturun **"starfield.html"**
-
-1. Bu dosya adı tam etki alanı doğrulama belirteci olarak içerik olmalıdır. (Etki alanı doğrulama durumu sayfasından belirteç kopyalayabilirsiniz)
-
-1. Etki alanınızı barındıran web sunucusunun köküne bu dosyayı karşıya yükleyin `/.well-known/pki-validation/starfield.html`
-
-1. Tıklayın **Yenile** doğrulama tamamlandıktan sonra sertifika durumunu güncelleştirmek için. Bu doğrulamanın tamamlanması birkaç dakika sürebilir.
-
-> [!TIP]
-> Bir terminal kullanarak doğrulama `curl -G http://<domain>/.well-known/pki-validation/starfield.html` yanıt içermelidir `<verification-token>`.
-
-#### <a name="dns-txt-record-verification"></a>DNS TXT kaydını doğrulama
-
-1. DNS Yöneticisi'ni kullanarak bir TXT kaydı üzerinde oluşturmanız `@` alt etki alanı doğrulama belirteci için eşit.
-1. Tıklayın **"Yenile"** doğrulama tamamlandıktan sonra sertifika durumunu güncelleştirmek için.
-
-> [!TIP]
-> Bir TXT kaydını oluşturmak ihtiyacınız `@.<domain>` değerle `<verification-token>`.
-
-### <a name="assign-certificate-to-app-service-app"></a>Sertifika App Service uygulamasına atama
-
-Seçtiyseniz **IP tabanlı SSL** ve bir A kaydı kullanarak özel etki alanınızı yapılandırılmış, aşağıdaki ek adımları gerçekleştirmeniz gerekir:
-
-Yapılandırmasını tamamladıktan sonra IP temelli SSL bağlaması, uygulamanıza bir ayrılmış IP adresi atanır. Bu IP adresini bulabilirsiniz **özel etki alanı** üzerinde doğru altında Uygulama Ayarları sayfasında **ana bilgisayar adları** bölümü. Olarak listelenen **dış IP adresi**
-
-![IP SSL görüntüsü Ekle](./media/app-service-web-purchase-ssl-web-site/virtual-ip-address.png)
-
-Bu IP adresi, etki alanınız için A kaydı yapılandırmak için daha önce kullanılan sanal IP adresi farklıdır. Kullanılacak şekilde yapılandırılmışsa SNI tabanlı SSL ve SSL kullanacak şekilde yapılandırılmamış, bu giriş için adres listelenir.
-
-Etki alanı adı kayıt tarafından sağlanan araçları kullanarak, önceki adımdaki IP adresine işaret edecek şekilde özel etki alanı adınız için A kaydı değiştirin.
-
-## <a name="rekey-and-sync-the-certificate"></a>Yeniden anahtarla ve Eşitle sertifika
-
-Sertifikanızın yeniden oluşturmak gerekiyorsa seçin **yeniden anahtarlama ve eşitleme** seçeneğini **sertifika özellikleri** sayfası.
-
-Tıklayın **yeniden anahtarlama** işlemini başlatmak için düğme. Bu işlemin tamamlanması 1-10 dakika sürebilir.
-
-![yeniden anahtarlama SSL görüntüsü Ekle](./media/app-service-web-purchase-ssl-web-site/Rekey.png)
-
-Sertifikanız yeniden anahtarlama için izine sahip sertifika yetkilisinden verilen yeni bir sertifika yapar.
-
-## <a name="renew-the-certificate"></a>Sertifikayı Yenile
-
-Dilediğiniz zaman, sertifikanın otomatik yenilenmesini üzerinde etkinleştirmek için tıklayın **otomatik yenileme ayarları** Sertifika Yönetim sayfasında. Seçin **üzerinde** tıklatıp **Kaydet**. Sertifika otomatik yenileme açık varsa 90 gün süresi dolmadan önce otomatik olarak yenileme başlayabilirsiniz.
-
-![](./media/app-service-web-purchase-ssl-web-site/auto-renew.png)
-
-Sertifikayı bunun yerine el ile yenilemek için tıklayın **el ile yenileme** yerine. Sertifikanızın süresi dolmadan önce 60 gün el ile yenilemek için istekte bulunabilir.
-
-> [!NOTE]
-> Yenilenen sertifikanın otomatik olarak uygulamanıza el ile yenilenmesi ya da otomatik olarak yenilendiğinde bağlı değil. Uygulamanıza bağlamak için bkz: [sertifikaları yenileme](./app-service-web-tutorial-custom-ssl.md#renew-certificates). 
 
 ## <a name="more-resources"></a>Diğer kaynaklar
 

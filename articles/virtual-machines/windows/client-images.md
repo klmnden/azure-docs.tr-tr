@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 12/15/2017
 ms.author: cynthn
-ms.openlocfilehash: a2b9a06e8e3b1bda91050e1607c7265d6fe66bb1
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: eb227b4b4cbdc40a4e708726bbe0f5d0c7eacb74
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37931798"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49364685"
 ---
 # <a name="use-windows-client-in-azure-for-devtest-scenarios"></a>Windows istemci Azure'da geliştirme/test senaryoları için kullanın.
 Azure'da geliştirme/test senaryoları için Windows 10 Enterprise (x64), uygun bir Visual Studio (eski adıyla MSDN) aboneliğiniz sağlanan ya da Windows 7, Windows 8, kullanabilirsiniz. Bu makalede, Windows 7, Windows 8.1, Windows 10 Enterprise, Azure ve Azure Galerisi şu görüntüleri kullanımını çalıştırmak için uygunluk gereksinimleri özetlenmektedir.
@@ -48,7 +48,7 @@ Aşağıdaki tabloda, Azure Galerisi aracılığıyla Windows 10 dağıtmak uygu
 | [Visual Studio Premium with MSDN (avantaj)](https://azure.microsoft.com/offers/ms-azr-0061p/) |0061P |Windows 10 |
 | [Visual Studio Enterprise aboneleri](https://azure.microsoft.com/offers/ms-azr-0063p/) |0063P |Windows 10 |
 | [Visual Studio Enterprise (BizSpark) aboneleri](https://azure.microsoft.com/offers/ms-azr-0064p/) |0064P |Windows 10 |
-| [Kurumsal geliştirme ve Test](https://azure.microsoft.com/en-us/offers/ms-azr-0148p/) |0148P |Windows 10 |
+| [Kurumsal geliştirme ve Test](https://azure.microsoft.com/offers/ms-azr-0148p/) |0148P |Windows 10 |
 
 ## <a name="check-your-azure-subscription"></a>Azure aboneliğinizi denetleyin
 Teklif Kimliğinizi bilmiyorsanız, şu iki yoldan biriyle Azure portalından alabilirsiniz:  

@@ -1,71 +1,70 @@
 ---
-title: Azure Media Services sık sorulan sorular | Microsoft Docs
+title: Azure Media Services hakkında sık sorulan sorular | Microsoft Docs
 description: Sık sorulan sorular (SSS)
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
-ms.assetid: 5374f7f4-c189-43ef-8b7f-f2f4141e2748
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/29/2017
+ms.date: 10/15/2018
 ms.author: juliako
-ms.openlocfilehash: a47163d06e24814ca5724d1fabea84058f8764cf
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: d4b7d8ec5cb162e5fc844f107fbd5eb08fb00639
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33788539"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49353551"
 ---
 # <a name="frequently-asked-questions"></a>Sık sorulan sorular
 
-Bu makalede Azure Media Services (AMS) kullanıcı topluluğu tarafından gerçekleştirilen sık sorulan sorular giderir.
+Bu makalede Azure Media Services (AMS) kullanıcı topluluğu tarafından harekete geçirilen sık sorulan soruları ele alır.
 
 ## <a name="general-ams-faqs"></a>Genel AMS SSS
 
-S: Apple iOS cihazlarına nasıl akış
+S: nasıl Apple iOS cihazlarına akışla
 
-A: eklemek "(format = m3u8-aapl)" (Ayrıntılar için bkz: (içerik teslim) [yerel cihazlar Apple iOS geri HLS içerik tüketimi için döndürülecek akış kaynak sunucu bildirmek için URL "/ bildirimi" bölümünü yoluna Media-services-teslim-içerik-overview.md]),
+Y: ekleyin "(format = m3u8-aapl)" "/ MANIFEST" bölümüne (Ayrıntılar için bkz: (içerik teslim etme) [yerel cihazlar Apple iOS arka HLS içerik tüketimi için döndürülecek akış kaynağı sunucusu bildirmek için URL'nin yol Media-services-teslim-içerik-overview.md]),
 
-S: nasıl dizin ölçeklendirme?
+S: nasıl dizinleme ölçeklendirme?
 
-Y: ayrılan birimler kodlama ve dizin oluşturma görevleri için aynıdır. Yönergeleri izleyerek [ölçek kodlamaya ayrılan birimler nasıl](media-services-scale-media-processing-overview.md). **Not** dizin oluşturucu performans ayrılmış birim türü tarafından etkilenmez.
+Y: ayrılmış birimleri Encoding ve dizin görevleri için aynıdır. Yönergeleri takip edin [ölçek Encoding'e ayrılan birim nasıl](media-services-scale-media-processing-overview.md). **Not** dizin oluşturucu performans ayrılmış birim türüyle etkilenmez.
 
-S: karşıya kodlanmış ve video yayımlandı. Bu akış çalıştığınızda ne video neden olacağını yürütülmüyor?
+S: karşıya, kodlanmış ve video yayımladınız. Bu akış çalıştığınızda video nedeni ne olacağını yürütülmüyor?
 
-En yaygın nedenleri şunlardan biri olan içinden çalıştığınız kayıttan yürütme akış uç noktasına sahip olmadığınız **çalıştıran** durumu.  
+En yaygın nedenleri şunlardan biri olan akış uç noktasını, çalıştığınız kayıttan yürütme sahip olmadığınız **çalıştıran** durumu.  
 
-S: bir canlı akış üzerinde birleştirme yapabilirim?
+Canlı akış üzerinde birleştirme yapmam miyim?
 
-A: bilgisayarınızda önceden oluşturmak gerekebilir birleştirme Canlı akışlar üzerinde Azure Media Services ile şu anda önerilmez.
+Y: bilgisayarınızda önceden oluşturmak gerekebilir birleştirme Canlı akışlar üzerinde şu anda Azure Media Services'da sunulmaz.
 
-S: Azure CDN canlı akış ile kullanabilir miyim?
+Azure CDN canlı akış ile kullanabilir miyim?
 
-Y: Media Services, Azure CDN ile tümleştirmeyi destekler (daha fazla bilgi için bkz: [akış uç noktalarını yönetme Media Services hesabı nasıl](media-services-portal-manage-streaming-endpoints.md)).  Canlı akış CDN ile kullanabilirsiniz. Azure Media Services, kesintisiz akış, HLS ve MPEG-DASH çıkışları sağlar. Bu biçimler verileri aktarmak için HTTP kullanmasına ve HTTP önbelleğe alma avantajlarını elde edersiniz. Canlı video/ses veri parçada ayrılmıştır ve bu tek tek parçaları CDN'de önbelleğe gerçek akış içinde. Yalnızca veri ihtiyaçları yenilenmesi bildirim veri olacaktır. CDN bildirim verileri düzenli aralıklarla yeniler.
+Y: Media Services, Azure CDN ile tümleştirmeyi destekler (daha fazla bilgi için [akış uç noktalarını yönetme Media Services hesabı nasıl](media-services-portal-manage-streaming-endpoints.md)).  Canlı akış CDN ile kullanabilirsiniz. Azure Media Services, kesintisiz akış, HLS ve MPEG-DASH çıkışları sağlar. Tüm bu biçimleri veri aktarmak için HTTP kullanmasına ve HTTP önbelleğe alma avantajlarından yararlanın. Canlı video/ses veriler parçalara bölünür ve bu tek tek parçaları CDN'de önbelleğe gerçek akış. Yalnızca veri ihtiyaçları yenilenmesi için bildirim veri olacaktır. CDN, bildirim verileri düzenli aralıklarla yeniler.
 
-S: mu Azure Media services depolanmasını görüntüleri destekliyor?
+S: mu Azure Media services, depolama görüntüleri destekler?
 
-A:, yalnızca JPEG veya PNG görüntüleri depolamak için arıyorsanız, Azure Blob Storage de tutmanız gerekir. Video veya ses varlıklar ile ilişkili kalmasını istemiyorsanız Media Services hesabınızı koyma hiçbir faydası yoktur. Ya da bir video Kodlayıcısı içindeki yer paylaşımları olarak görüntüleri kullanmak için bir gereksiniminiz varsa. Medya Kodlayıcısı standart destekler videolar en üstünde yer paylaşımı görüntüler ve hangi JPEG ve desteklenen gibi PNG listeler olan giriş biçimleri. Daha fazla bilgi için bkz: [oluşturma yer paylaşımları](media-services-advanced-encoding-with-mes.md#overlay).
+Y:, yalnızca JPEG veya PNG görüntülerini depolamak için arıyorsanız, bu Azure Blob Depolama alanında saklamanız gerekir. Bunları Video veya ses varlıklar ile ilişkili tutmak istemediğiniz sürece, bunları Media Services hesabınızı yerleştirme için hiçbir avantajı yoktur. Veya video Kodlayıcısı içinde yer paylaşımları olarak görüntüleri kullanmak için bir gereksinimi varsa. Media Encoder Standard videoları en üstünde yer paylaşımı görüntüleri destekler ve hangi JPEG ve desteklenen PNG listeler giriş biçimleri. Daha fazla bilgi için [yer paylaşımları oluşturma](media-services-advanced-encoding-with-mes.md#overlay).
 
-S: nasıl ı varlıklar bir Media Services hesaptan diğerine kopyalayabilirsiniz.
+S: nasıl miyim varlıklar bir Media Services hesabından diğerine kopyalayabilirsiniz.
 
-A: varlıklar bir Media Services hesaptan diğerine kopyalamak için .NET, kullanarak [IAsset.Copy](https://github.com/Azure/azure-sdk-for-media-services-extensions/blob/dev/MediaServices.Client.Extensions/IAssetExtensions.cs#L354) genişletme yöntemi bulunan [Azure Media Services .NET SDK uzantıları](https://github.com/Azure/azure-sdk-for-media-services-extensions/) deposu. Daha fazla bilgi için bkz: [bu](https://social.msdn.microsoft.com/Forums/azure/28912d5d-6733-41c1-b27d-5d5dff2695ca/migrate-media-services-across-subscription?forum=MediaServices) Forumu iş parçacığı.
+Y: varlıklar bir Media Services hesabından diğerine kopyalamak için .NET kullanarak kullanın [IAsset.Copy](https://github.com/Azure/azure-sdk-for-media-services-extensions/blob/dev/MediaServices.Client.Extensions/IAssetExtensions.cs#L354) genişletme yöntemi içinde kullanılabilir [Azure Media Services .NET SDK uzantıları](https://github.com/Azure/azure-sdk-for-media-services-extensions/) depo. Daha fazla bilgi için [bu](https://social.msdn.microsoft.com/Forums/azure/28912d5d-6733-41c1-b27d-5d5dff2695ca/migrate-media-services-across-subscription?forum=MediaServices) forum dizisinin.
 
-S: AMS ile çalışırken, dosya adlandırma desteklenen karakter nelerdir?
+S: AMS ile çalışırken, dosya adlandırma desteklenen karakterler nelerdir?
 
-Y: Media Services IAssetFile.Name özelliğinin değeri, URL'ler akış içeriğini (örneğin, http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters.) oluştururken kullanır. Bu nedenle, yüzde kodlama izin verilmiyor. Değeri **adı** özelliği aşağıdakilerden herhangi birini içeremez [yüzde kodlama-ayrılmış karakterleri](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters):! *' ();: @& = + $, /? % # [] ". Ayrıca, yalnızca bir olabilir '.' Dosya adı uzantısı.
+Y: Media Services IAssetFile.Name özelliğinin değeri, URL'leri akış içeriği için (örneğin, http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters.) oluştururken kullanır. Bu nedenle, yüzde kodlama izin verilmez. Değerini **adı** özelliği aşağıdakilerden herhangi birini içeremez [yüzde kodlama-ayrılmış karakterleri](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters):! *' ();: @& = + $, /? % # [] ". Ayrıca, yalnızca bir olabilir '.' Dosya adı uzantısı.
 
-S: REST kullanarak bağlanmasına nasıl?
+S: REST kullanarak nasıl bağlanılır?
 
-Y: AMS API'sine bağlanma hakkında bilgi için [Azure AD kimlik doğrulaması ile Azure Media Services API erişim](media-services-use-aad-auth-to-access-ams-api.md). 
+Y: AMS API'ye bağlanma hakkında bilgi için [Azure AD kimlik doğrulamasıyla Azure Media Services API'sine erişim](media-services-use-aad-auth-to-access-ams-api.md). 
 
-S: nasıl ı kodlama işlemi sırasında bir video döndürebilirsiniz.
+S: ben bir video kodlama işlemi sırasında döndürebilirsiniz.
 
-Y: [Medya Kodlayıcısı standart](media-services-dotnet-encode-with-media-encoder-standard.md) 180/90/270 açıları tarafından dönüşünü destekler. "Otomatik" nerede gelen MP4/MOV dosyasında döndürme meta verileri algılamak ve bunun için dengelemek için çalışır, varsayılan davranıştır. Aşağıdakiler dahil **kaynakları** tanımlı json hazır ayarlarından birini öğesine [burada](media-services-mes-presets-overview.md):
+Y: [Media Encoder Standard](media-services-dotnet-encode-with-media-encoder-standard.md) döndürme açısı tarafından 90/180/270 destekler. Varsayılan "Auto" nerede gelen MP4/MOV dosyasında döndürme meta verileri algılamak ve için dengelemek için çalışır, davranıştır. Şunlar **kaynakları** öğesi tanımlı json hazır birine [burada](media-services-mes-presets-overview.md):
 
     "Version": 1.0,
     "Sources": [

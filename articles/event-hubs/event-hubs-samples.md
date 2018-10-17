@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/17/2018
 ms.author: shvija
-ms.openlocfilehash: fbde6e5a5ed053d6c151b3af25535c397a496ef4
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: ed337689360428d66657e5391ee52bb0ae39dc14
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40005343"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49365654"
 ---
 # <a name="event-hubs-samples"></a>Event Hubs örnekleri 
 Event Hubs örnekleri bulabilirsiniz [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples). Bu örnekler, anahtar özelliklerini gösteren [Azure Event Hubs](/azure/event-hubs/). Bu makale, kategorilere ayırır ve her biri için bağlantılarla birlikte kullanılabilir örnekler açıklar.
@@ -44,6 +44,23 @@ Event Hubs örnekleri bulabilirsiniz [GitHub](https://github.com/Azure/azure-eve
 | [EventProcessorSample](https://github.com/Azure/azure-event-hubs/blob/master/samples/Java/Basic/EventProcessorSample) |Bu örnek, aynı anda birden çok alıcı arasında otomatik bölüm seçimi ve yük devretme sağlayan olay işlemcisi konağı kullanarak event hub'ındaki olayları alma gösterilmektedir. | 
 | [AutoScaleOnIngress](https://github.com/Azure/azure-event-hubs/blob/master/samples/Java/Benchmarks/AutoScaleOnIngress) | Bu örnek nasıl bir olay hub'ı otomatik olarak yüksek yük ölçeğini artırabilir gösterilmektedir. Örnek yalnızca yapılandırılmış oranını olay hub'ı ölçeği artırma işleminin neden bir olay hub'ı aşan bir hızda olayları gönderir. | 
 | [IngressBenchmark](https://github.com/Azure/azure-event-hubs/blob/master/samples/Java/Benchmarks/IngressBenchmark) | Bu örnek, giriş oranı ölçüm sağlar. | 
+
+## <a name="python-samples"></a>Python örnekleri
+Azure olay hub'ları için Python örnekleri bulabilirsiniz [azure-event-hubs-python](https://github.com/Azure/azure-event-hubs-python/tree/master/examples) GitHub deposu.
+
+## <a name="nodejs-samples"></a>Node.js örnekleri
+Azure olay hub'ları için Node.js Örnekleri bulabilirsiniz [azure olay hub'ları düğümünü](https://github.com/Azure/azure-event-hubs-node) GitHub deposu.
+
+## <a name="go-samples"></a>Go örnekleri
+Azure olay hub'ları için Go örnekleri bulabilirsiniz [azure-event-hubs-Git](https://github.com/Azure/azure-event-hubs-go/tree/master/_examples) GitHub deposu.
+
+## <a name="azure-cli-samples"></a>Azure CLI örnekleri
+Azure Event hubs Azure CLI örnekleri bulabilirsiniz [azure-event-hubs](https://github.com/Azure/azure-event-hubs/tree/master/samples/Management/CLI) GitHub deposu.
+
+## <a name="azure-powershell-samples"></a>Azure PowerShell örnekleri
+Azure Event hubs Azure PowerShell örnekleri bulabilirsiniz [azure-event-hubs](https://github.com/Azure/azure-event-hubs/tree/master/samples/Management/PowerShell) GitHub deposu.
+ 
+
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Aşağıdaki makaleler de Event Hubs hakkında daha fazla bilgi edinebilirsiniz:

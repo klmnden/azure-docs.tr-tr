@@ -11,17 +11,20 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 05/22/2017
 ms.author: glenga
-ms.openlocfilehash: a257948c97437d6045f705acb02054928d22ff89
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 024958d8a548313b53fc24ade5805de036a89afb
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44092878"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49351924"
 ---
 # <a name="use-azure-functions-to-connect-to-an-azure-sql-database"></a>Bir Azure SQL veritabanı'na bağlanmak için Azure işlevleri'ni kullanın
 Bu konu Azure SQL veritabanı tablosundaki satırları temizler, zamanlanmış bir iş oluşturmak için Azure işlevleri kullanmayı gösterir. Yeni C# betik işlevi Azure portalında bir önceden tanımlanmış bir zamanlayıcı tetikleyici şablonunu temel alınarak oluşturulur. Bu senaryoyu desteklemek için ayrıca bir veritabanı bağlantı dizesi bir işlev uygulaması uygulama ayarı olarak ayarlamanız gerekir. Bu senaryo, veritabanında bir toplu işlemi kullanır. 
 
 İşlev işlemi bireysel için oluşturma, okuma, güncelleştirme ve silme (CRUD) işlemleri bir Mobile Apps tablodaki, bunun yerine kullanmanız gerektiğini [Mobile Apps bağlamaları](functions-bindings-mobile-apps.md).
+
+> [!IMPORTANT]
+> Bu belgedeki örnekler 1.x çalışma zamanı için geçerlidir. 1.x işlev uygulaması oluşturma hakkında bilgi [burada bulunabilir](./functions-versions.md#creating-1x-apps).
 
 ## <a name="prerequisites"></a>Önkoşullar
 

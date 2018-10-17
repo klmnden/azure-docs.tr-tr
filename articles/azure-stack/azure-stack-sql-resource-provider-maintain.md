@@ -11,19 +11,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/20/2018
+ms.date: 10/16/2018
 ms.author: jeffgilb
-ms.reviewer: jeffgo
-ms.openlocfilehash: ad899739dab1dc51d64368d2136ab87f73f6f3a0
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.reviewer: quying
+ms.openlocfilehash: 360661402289ab9b06eb01be447dc98942c93302
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "36300919"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49364107"
 ---
 # <a name="sql-resource-provider-maintenance-operations"></a>SQL kaynak sağlayıcısı bakım işlemleri
 
-SQL kaynak sağlayıcısı kilitli bir sanal makinede çalıştırır. Bakım işlemlerini etkinleştirmek için sanal makinenin güvenlik güncelleştirmesi gerekir. En düşük öncelik ilkesini kullanarak bunu yapmak için kullanabileceğiniz [PowerShell yeterli yönetim (JEA)](https://docs.microsoft.com/en-us/powershell/jea/overview) uç nokta *DBAdapterMaintenance*. Kaynak Sağlayıcı yükleme paketi, bu işlem için bir betik içerir.
+SQL kaynak sağlayıcısı kilitli bir sanal makinede çalıştırır. Bakım işlemlerini etkinleştirmek için sanal makinenin güvenlik güncelleştirmesi gerekir. En düşük öncelik ilkesini kullanarak bunu yapmak için kullanabileceğiniz [PowerShell yeterli yönetim (JEA)](https://docs.microsoft.com/powershell/jea/overview) uç nokta *DBAdapterMaintenance*. Kaynak Sağlayıcı yükleme paketi, bu işlem için bir betik içerir.
 
 ## <a name="patching-and-updating"></a>Düzeltme eki uygulama ve güncelleştirme
 
@@ -53,9 +53,9 @@ Ayarları değiştirmek için seçin **Gözat** &gt; **yönetim kaynakları** &g
 
 ## <a name="secrets-rotation"></a>Gizli anahtarları döndürme
 
-*Bu yönergeler yalnızca Azure Stack tümleşik sistemleri sürüm 1804 ve sonrası için geçerlidir. Gizli dizileri öncesi 1804 Azure Stack sürümlerinde döndürme çalışmayın.*
+*Bu yönergeler yalnızca Azure Stack tümleşik sistemleri için geçerlidir.*
 
-SQL ve MySQL kaynak sağlayıcılarını kullanarak Azure Stack ile tümleştirilmiş sistemlerle, aşağıdaki altyapı (dağıtım) gizli dizileri döndürebilirsiniz:
+SQL ve MySQL kaynak sağlayıcılarını kullanarak Azure Stack ile tümleştirilmiş sistemlerle, bunlar süresinin sona ermediğinden emin olmak için aşağıdaki kaynak sağlayıcısı altyapı gizli dizileri döndürme için Azure Stack operatörü sorumludur:
 
 - Dış SSL sertifikası [dağıtım sırasında sağlanan](azure-stack-pki-certs.md).
 - Dağıtım sırasında sağlanan kaynak sağlayıcısı VM yerel yönetici hesabının parolası.

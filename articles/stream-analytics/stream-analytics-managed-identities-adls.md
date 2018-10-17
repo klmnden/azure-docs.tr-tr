@@ -7,18 +7,18 @@ ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 09/27/2018
-ms.openlocfilehash: 72bf467cc0f2ba195aa4f25228bc9e08605cd4ee
-ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
+ms.openlocfilehash: 41b3dcc03f7cfbfee11798738a3b2daaf5e96741
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48018610"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49365297"
 ---
 # <a name="use-managed-identities-to-authenticate-azure-stream-analytics-jobs-to-azure-data-lake-storage-gen1-output-preview"></a>Azure Stream Analytics işleri için Azure Data Lake depolama Gen1 çıkış (Önizleme) kimliğini doğrulamak için yönetilen kimlikleri kullanmak
 
 Azure Stream Analytics, Azure Data Lake Storage (ADLS) Gen1 çıktıyla yönetilen kimlik doğrulama destekler. Kimlik Azure Active Directory içinde belirli bir Stream Analytics işi temsil eden kayıtlı bir yönetilen uygulama ve hedeflenen kaynak kimliğini doğrulamak için kullanılabilir. Yönetilen kimlik parola değişikliklerini veya 90 günde gerçekleşen kullanıcı belirteci süre sonu nedeniyle yeniden kimlik doğrulamaya zorlayabilir gerek gibi kullanıcı tabanlı kimlik doğrulama yöntemlerini sınırlamaları ortadan kaldırır. Ayrıca, yönetilen kimlikleri, Azure Data Lake depolama Gen1 output Stream Analytics işi dağıtımlarının Otomasyonu ile yardımcı olur.
 
-Ziyaret [Azure Stream analytics'te sekiz yeni özellikler](https://azure.microsoft.com/en-us/blog/eight-new-features-in-azure-stream-analytics/) blog gönderisi için yeni özellikler hakkında daha fazla Bu önizleme sürümü ve okuma için kaydolun.
+Ziyaret [Azure Stream analytics'te sekiz yeni özellikler](https://azure.microsoft.com/blog/eight-new-features-in-azure-stream-analytics/) blog gönderisi için yeni özellikler hakkında daha fazla Bu önizleme sürümü ve okuma için kaydolun.
 
 Bu makalede, bir Azure Data Lake depolama Gen1 veren Azure Stream Analytics işi için yönetilen kimlik etkinleştirmek için iki yolunu gösterir: Azure portalı ve Azure Resource Manager şablon dağıtımı aracılığıyla.
 

@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 06/13/2018
 ms.author: nobun
 ms.custom: mvc
-ms.openlocfilehash: cb143998ac46f7f86b2dbf47b69cee7843418f5d
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: d26e849cf775e0c645ae97e4b67b5918bbbabd55
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43191671"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49361387"
 ---
 # <a name="migrating-from-azure-container-service-acs-to-azure-kubernetes-service-aks"></a>Azure Kubernetes Service'i (AKS) Azure kapsayıcı hizmeti (ACS) ' geçiş
 
@@ -29,7 +29,7 @@ ACS ve AKS geçiş etkileyen bazı önemli alanda farklılık gösterir. Gözden
     * Özel `StorageClass` Azure diskleri gelen değiştirilmesi gerekecek nesneleri `unmanaged` için `managed`
     * Tüm `PersistentVolumes` kullanmanız gerekir `kind: Managed`
 * AKS, şu anda yalnızca bir aracı havuzu destekler
-* Windows Server tabanlı düğümler şu anda [özel Önizleme](https://azure.microsoft.com/en-us/blog/kubernetes-on-azure/)
+* Windows Server tabanlı düğümler şu anda [özel Önizleme](https://azure.microsoft.com/blog/kubernetes-on-azure/)
 * AKS listesini kontrol edin [desteklenen bölgeler](https://docs.microsoft.com/azure/aks/container-service-quotas)
 * AKS, barındırılan bir Kubernetes denetim düzlemi ile yönetilen bir hizmettir. ACS şablonunuz yapılandırmasını daha önce değiştirdiyseniz, uygulamalarınızı değiştirmeniz gerekebilir
 

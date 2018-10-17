@@ -1,6 +1,6 @@
 ---
 title: Azure Cosmos DB istekleri ve depolama izleme | Microsoft Docs
-description: Azure Cosmos DB hesabınız için istekleri ve sunucu hataları gibi performans ölçümleri ve depolama alanı tüketimi gibi kullanım ölçümleri izleme öğrenin.
+description: Azure Cosmos DB hesabınız için istekleri ve sunucu hataları gibi performans ölçümlerini ve depolama alanı tüketimi gibi kullanım ölçümleri izlemeyi öğrenin.
 services: cosmos-db
 author: SnehaGunda
 manager: kfile
@@ -9,76 +9,76 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/19/2017
 ms.author: sngun
-ms.openlocfilehash: 1e5dba722f240bd6535ba64494912a153e9224c0
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 1f4bf4ba660e83be9879c56d04b27c932d563e17
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34612648"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49354079"
 ---
-# <a name="monitor-azure-cosmos-db"></a>Azure Cosmos DB izleme
-Azure Cosmos DB hesaplarınızı izleyebilirsiniz [Azure portal](https://portal.azure.com/). Her Azure Cosmos DB hesabı için tam ölçümleri verimlilik, depolama, kullanılabilirlik, gecikme ve tutarlılık izlemek kullanılabilir paketidir.
+# <a name="monitor-azure-cosmos-db"></a>Azure Cosmos DB izleyin
+Azure Cosmos DB hesaplarınızda izleyebilirsiniz [Azure portalında](https://portal.azure.com/). Her Azure Cosmos DB hesabı için aktarım hızı, depolama, kullanılabilirlik, gecikme süresi ve tutarlılık izlemek eksiksiz ölçümleri kullanılabilir.
 
-Ölçümleri hesap sayfasında, yeni ölçümleri sayfa veya Azure İzleyicisi'nde incelenebilir.
+Hesap sayfasında, yeni ölçümler sayfası veya Azure İzleyici ölçümleri gözden geçirilebilir.
 
-## <a name="view-performance-metrics-on-the-metrics-page"></a>Ölçümleri sayfasında görünümü performans ölçümleri
-1. İçinde [Azure portal](https://portal.azure.com/), tıklatın **tüm hizmetleri**, kaydırın **veritabanları**, tıklatın **Azure Cosmos DB**ve ardından Azure adını tıklatın Performans ölçümlerini görüntülemek istediğiniz cosmos DB hesabı.
-2. Yeni Sayfa yüklediğinde, kaynak menüsünün altında **izleme**, tıklatın **ölçümleri**.
-3. Ölçümleri sayfası açıldığında, gelen gözden geçirmek için koleksiyon seçin **Collection(s)** açılır.
+## <a name="view-performance-metrics-on-the-metrics-page"></a>Ölçümleri sayfasında performans ölçümlerini görüntüleme
+1. İçinde [Azure portalında](https://portal.azure.com/), tıklayın **tüm hizmetleri**, kaydırma **veritabanları**, tıklayın **Azure Cosmos DB**ve ardından Azure adına tıklayın Cosmos DB hesabı için performans ölçümlerini görüntülemek istiyorsunuz.
+2. Yeni Sayfa yüklediğinde, kaynak menüsünün altında **izleme**, tıklayın **ölçümleri**.
+3. Ölçümler sayfası açıldığında, gelen gözden geçirmek istediğiniz koleksiyonu seçmek **koleksiyonlar** açılır.
 
-   Azure portal koleksiyonu ölçümleri kullanılabilir suite görüntüler. Verimlilik, depolama, kullanılabilirlik, gecikme ve tutarlılık ölçümleri ayrı sekmelerde verildiğini unutmayın. Ek ayrıntılar, Metrikler üst çift oka tıklayarak her ölçümleri bölmesinde sağ elde etmek için.
+   Azure portalında mevcut olan koleksiyon ölçümler paketini görüntüler. Aktarım hızı, depolama, kullanılabilirlik, gecikme süresi ve tutarlılık ölçümler üzerinde ayrı sekmeler verildiğini unutmayın. Sağlanan üst köşesindeki çift oku tıklatın ölçümlere ilişkin ek ayrıntılar her ölçümleri bölmesinde sağ almak için.
 
-   ![Ölçümleri suite gösterir izleme Mercek ekran görüntüsü](./media/monitor-accounts/metrics-suite.png)
+   ![Ölçüm paketi gösteren izleme lens ekran görüntüsü](./media/monitor-accounts/metrics-suite.png)
 
-## <a name="view-performance-metrics-by-using-azure-monitoring"></a>Azure Monitoring kullanarak görünüm performans ölçümleri
-1. İçinde [Azure portal](https://portal.azure.com/), tıklatın **İzleyici** sol çubuğunda.
-2. Kaynak menüye tıklayın **ölçümleri**.
-3. İçinde **İzleyicisi - ölçümleri** penceresi, **kaynak grubu** kaynak grubu izlemek istediğiniz Azure Cosmos DB hesabıyla ilişkili açılan menüsünde seçin. 
-4. İçinde **kaynak** veritabanı hesabı izlemek için aşağı açılan menüsünde seçin.
-5. Listesinde **kullanılabilir ölçümler**, ölçümleri görüntülemek için seçin. Çoklu seçim için CTRL tuşunu kullanın. 
+## <a name="view-performance-metrics-by-using-azure-monitoring"></a>Azure izleme kullanarak performans ölçümlerini görüntüleme
+1. İçinde [Azure portalında](https://portal.azure.com/), tıklayın **İzleyici** sol taraftaki çubukta.
+2. Kaynak menüden **ölçümleri**.
+3. İçinde **İzleyici - ölçümler** penceresi, **kaynak grubu** kaynak grubunu, izlemek istediğiniz Azure Cosmos DB hesabı ile ilişkili açılan menüsünde seçin. 
+4. İçinde **kaynak** veritabanı hesabı izlemek için açılan menüsünde seçin.
+5. Listesinde **kullanılabilir ölçümler**, görüntülenecek bir ölçüm seçin. Çoklu seçme için CTRL tuşunu kullanın. 
 
-## <a name="view-performance-metrics-on-the-account-page"></a>Hesap sayfasında görünümü performans ölçümleri
-1. İçinde [Azure portal](https://portal.azure.com/), tıklatın **tüm hizmetleri**, kaydırın **veritabanları**, tıklatın **Azure Cosmos DB**ve ardından Azure adını tıklatın Performans ölçümlerini görüntülemek istediğiniz cosmos DB hesabı.
-2. **İzleme** Mercek varsayılan olarak aşağıdaki kutucuklara görüntüler:
+## <a name="view-performance-metrics-on-the-account-page"></a>Hesap sayfasındaki performans ölçümlerini görüntüleme
+1. İçinde [Azure portalında](https://portal.azure.com/), tıklayın **tüm hizmetleri**, kaydırma **veritabanları**, tıklayın **Azure Cosmos DB**ve ardından Azure adına tıklayın Cosmos DB hesabı için performans ölçümlerini görüntülemek istiyorsunuz.
+2. **İzleme** lens varsayılan olarak aşağıdaki kutucuklara görüntüler:
    
    * Geçerli gün için toplam istek sayısı.
    * Kullanılan depolama alanı.
    
-   ![İsteklerin ve depolama kullanımını göstermektedir izleme Mercek ekran görüntüsü](./media/monitor-accounts/documentdb-total-requests-and-usage.png)
-3. Sağ üst köşesinde çift oka tıklayarak **istekleri** döşeme açılır bir ayrıntılı **ölçüm** sayfası.
-4. **Ölçüm** sayfa toplam istek ayrıntılarını gösterir. 
+   ![İstekler ve depolama kullanımını gösteren izleme lens ekran görüntüsü](./media/monitor-accounts/documentdb-total-requests-and-usage.png)
+3. Sağ üst tarafındaki çift-oka tıklayarak **istekleri** kutucuk ayrıntılı bir açılır **ölçüm** sayfası.
+4. **Ölçüm** sayfası toplam istek ayrıntılarını gösterir. 
 
-## <a name="set-up-alerts-in-the-portal"></a>Portal'da uyarılarını ayarlama
-1. İçinde [Azure portal](https://portal.azure.com/), tıklatın **tüm hizmetleri**, tıklatın **Azure Cosmos DB**ve kendisi için istediğinizi performansını ayarlamak Azure Cosmos DB hesap adına tıklayın Ölçüm uyarılar.
-2. Kaynak menüye tıklayın **uyarı kuralları** uyarı kuralları sayfasını açın.  
+## <a name="set-up-alerts-in-the-portal"></a>Portalında uyarıları ayarlama
+1. İçinde [Azure portalında](https://portal.azure.com/), tıklayın **tüm hizmetleri**, tıklayın **Azure Cosmos DB**ve ardından, istediğiniz performansını ayarlamak Azure Cosmos DB hesabının adına tıklayın Ölçüm uyarıları.
+2. Kaynak menüden **uyarı kuralları** uyarı kuralları sayfasını açmak için.  
    ![Uyarı ekran görüntüsü bölümü seçili kuralları](./media/monitor-accounts/madocdb10.5.png)
-3. İçinde **uyarı kuralları** sayfasında, **uyarı Ekle**.  
-   ![Uyarı Ekle düğmesi vurgulanan uyarı kuralları sayfasının ekran görüntüsü](./media/monitor-accounts/madocdb11.png)
-4. İçinde **uyarı kuralı eklemek** sayfasında, belirtin:
+3. İçinde **uyarı kuralları** sayfasında **uyarısı Ekle**.  
+   ![Uyarı Ekle düğmesi vurgulanmış uyarı kuralları sayfasının ekran görüntüsü](./media/monitor-accounts/madocdb11.png)
+4. İçinde **bir uyarı kuralı Ekle** sayfasında, belirtin:
    
    * Ayarladığınız uyarı kuralı adı.
    * Yeni uyarı kuralı açıklaması.
-   * Uyarı kuralı ölçümü.
-   * Ne zaman uyarı etkinleştirir belirlemek koşul, eşik ve süresi. Örneğin, bir sunucu hatası sayısı 5'ten büyük son 15 dakikadan fazla.
-   * Uyarı oluşturulduğunda olup coadministrators ve Hizmet Yöneticisi e-posta gönderilir.
+   * Ölçüm için uyarı kuralı.
+   * Ne zaman uyarı etkinleştirir belirlemek koşulu, eşiği ve dönem. Örneğin, bir sunucu hatası sayısı 5'ten büyük son 15 dakika boyunca.
+   * Uyarı tetiklendiğinde olup diğer yöneticiler ve Hizmet Yöneticisi e-posta gönderilir.
    * Uyarı bildirimleri için ek e-posta adresleri.  
      ![Bir uyarı kuralı sayfasının ekran görüntüsü Ekle](./media/monitor-accounts/madocdb12.png)
 
-## <a name="monitor-azure-cosmos-db-programmatically"></a>Azure Cosmos DB programlı olarak izleyin
-Hesap depolama kullanım ve toplam istekleri gibi portalında kullanılabilir hesap düzeyindeki ölçümlerini SQL API kullanılabilir değil. Ancak, SQL API'lerini kullanarak koleksiyon düzeyinde kullanım verileri alabilir. Koleksiyon düzeyinde veri almak için aşağıdakileri yapın:
+## <a name="monitor-azure-cosmos-db-programmatically"></a>Azure Cosmos DB program aracılığıyla izleyin
+Hesap düzeyindeki ölçümleri hesap depolama kullanım ve toplam istekleri gibi Portalı'nda SQL API'leri üzerinden kullanılabilir değil. Ancak, SQL API'leri kullanarak koleksiyon düzeyinde kullanım verileri alabilir. Koleksiyon düzeyi verileri almak için aşağıdakileri yapın:
 
-* REST API kullanmak için [koleksiyonda bir GET gerçekleştirmek](https://msdn.microsoft.com/library/mt489073.aspx). Koleksiyon için kota ve kullanım bilgilerini x-ms-resource-quota ve x-ms-kaynak kullanım üstbilgilerini yanıta döndürülür.
-* .NET SDK'yı kullanmak için [DocumentClient.ReadDocumentCollectionAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.readdocumentcollectionasync.aspx) döndürür yöntemi bir [ResourceResponse](https://msdn.microsoft.com/library/dn799209.aspx) gibi bir dizi kullanım özellikleri içeren **CollectionSizeUsage**, **DatabaseUsage**, **DocumentUsage**ve daha fazlası.
+* REST API'sini kullanmayı [koleksiyonunda bir GET gerçekleştirmek](https://msdn.microsoft.com/library/mt489073.aspx). Koleksiyon kotası ve kullanım bilgileri yanıtındaki x-ms-resource-quota ve x-ms-resource-kullanım üstbilgileri döndürülür.
+* .NET SDK'yı kullanmak için [DocumentClient.ReadDocumentCollectionAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.readdocumentcollectionasync.aspx) döndüren yöntemi bir [ResourceResponse](https://msdn.microsoft.com/library/dn799209.aspx) gibi çeşitli kullanım özellikleri içeren  **CollectionSizeUsage**, **DatabaseUsage**, **DocumentUsage**ve daha fazlası.
 
-Ek ölçümler erişmek için [Azure İzleyici SDK](https://www.nuget.org/packages/Microsoft.Azure.Insights). Kullanılabilir ölçüm tanımlarını çağırarak alınabilir:
+Ek ölçümlere erişmek için kullanmanız [Azure İzleyici SDK'sı](https://www.nuget.org/packages/Microsoft.Azure.Insights). Kullanılabilir ölçüm tanımlarını çağrılarak alınabilir:
 
     https://management.azure.com/subscriptions/{SubscriptionId}/resourceGroups/{ResourceGroup}/providers/Microsoft.DocumentDb/databaseAccounts/{DocumentDBAccountName}/metricDefinitions?api-version=2015-04-08
 
 Tek tek ölçümleri almak için sorgu aşağıdaki biçimi kullanın:
 
-    https://management.azure.com/subscriptions/{SubecriptionId}/resourceGroups/{ResourceGroup}/providers/Microsoft.DocumentDb/databaseAccounts/{DocumentDBAccountName}/metrics?api-version=2015-04-08&$filter=%28name.value%20eq%20%27Total%20Requests%27%29%20and%20timeGrain%20eq%20duration%27PT5M%27%20and%20startTime%20eq%202016-06-03T03%3A26%3A00.0000000Z%20and%20endTime%20eq%202016-06-10T03%3A26%3A00.0000000Z
+    https://management.azure.com/subscriptions/{SubscriptionId}/resourceGroups/{ResourceGroup}/providers/Microsoft.DocumentDb/databaseAccounts/{DocumentDBAccountName}/metrics?api-version=2015-04-08&$filter=%28name.value%20eq%20%27Total%20Requests%27%29%20and%20timeGrain%20eq%20duration%27PT5M%27%20and%20startTime%20eq%202016-06-03T03%3A26%3A00.0000000Z%20and%20endTime%20eq%202016-06-10T03%3A26%3A00.0000000Z
 
-Daha fazla bilgi için bkz: [alma kaynak ölçümleri Azure İzleyici REST API'si aracılığıyla](https://blogs.msdn.microsoft.com/cloud_solution_architect/2016/02/23/retrieving-resource-metrics-via-the-azure-insights-api/). "Azure Öngörüler" adlandırıldı Not "Azure İzleyicisi".  Bu blog girdisi eski adına başvuruyor.
+Daha fazla bilgi için [Azure İzleyici REST API aracılığıyla kaynak ölçümleri alınırken](https://blogs.msdn.microsoft.com/cloud_solution_architect/2016/02/23/retrieving-resource-metrics-via-the-azure-insights-api/). "Azure Insights" adlandırıldı Not "Azure İzleyici".  Bu blog girişi eski adıdır.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Azure Cosmos DB kapasite planlaması hakkında daha fazla bilgi için bkz: [Azure Cosmos DB kapasite Planlayıcısı hesaplayıcı](https://www.documentdb.com/capacityplanner).

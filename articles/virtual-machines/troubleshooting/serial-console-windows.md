@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/07/2018
 ms.author: harijay
-ms.openlocfilehash: ee42c279abaf9282b6f37e2b00050d33ebd093d2
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 29b045266836ace35aab12c51746b7e339cbb88f
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49318274"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49354351"
 ---
 # <a name="virtual-machine-serial-console"></a>Sanal makine seri Konsolu
 
@@ -196,7 +196,7 @@ Seri konsol ile ilgili bazı sorunlar farkında duyuyoruz. Bu sorunlar ve risk a
 
 Sorun                             |   Risk azaltma 
 :---------------------------------|:--------------------------------------------|
-Ulaşmaktan bağlantı başlık satırında bir günlük göstermez sonra girin | Lütfen şu sayfaya bakın: [Hitting girin hiçbir şey yapmaz](https://github.com/Microsoft/azserialconsole/blob/master/Known_Issues/Hitting_enter_does_nothing.md). Özel bir VM, sağlamlaştırılmış gereç veya önyükleme yapılandırma düzgün bir şekilde seri bağlantı noktasına bağlanmak başarısız olmasına, causers Windows çalıştırıyorsanız, bu durum oluşabilir.
+Ulaşmaktan bağlantı başlık satırında bir günlük göstermez sonra girin | Lütfen şu sayfaya bakın: [Hitting girin hiçbir şey yapmaz](https://github.com/Microsoft/azserialconsole/blob/master/Known_Issues/Hitting_enter_does_nothing.md). Özel bir VM, sağlamlaştırılmış gereç veya önyükleme yapılandırma düzgün bir şekilde seri bağlantı noktasına bağlanmak başarısız olmasına, causers Windows çalıştırıyorsanız, bu durum oluşabilir. Windows 10 istemci VM çalıştırıyorsanız yalnızca Windows Server Vm'lerinin EMS etkin olacak şekilde yapılandırılmış olarak bu de gerçekleşir.
 Çekirdek hata ayıklamasını etkin olduğunda SAC komut istemi türü oluşturulamıyor | VM ve çalıştırmak için RDP `bcdedit /debug {current} off` yükseltilmiş bir komut isteminden. RDP gerçekleştiremezsiniz, bunun yerine başka bir Azure VM için işletim sistemi diski ve kullanarak bir veri diski olarak bağlı durumdayken değiştirmek `bcdedit /store <drive letter of data disk>:\boot\bcd /debug <identifier> off`, ardından diski geri değiştirme.
 Özgün içerik yinelenen bir karakter varsa PowerShell içinde SAC sonuçları üçüncü bir karakter yapıştırma | Geçmiş geçerli oturumun PSReadLine modülünü kaldırmak için bir çözüm olabilir. Çalıştırma `Remove-Module PSReadLine` - geçerli oturumu PSReadLine modülünden kaldırmak için bu silmez veya modül kaldırın.
 Bazı klavye girişleri garip SAC çıkış üretmesi (örneğin `[A`, `[3~`) | [VT100](https://aka.ms/vtsequences) kaçış dizileri SAC istemi tarafından desteklenmiyor.

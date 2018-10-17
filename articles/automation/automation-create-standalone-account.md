@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 03/15/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 021ab6cd29634c2e2f17234e188edce2a14449cf
-ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
+ms.openlocfilehash: 02ca9065107b999fa0182c89ae2b9d8ca0c8607a
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42057137"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49362883"
 ---
 # <a name="create-a-standalone-azure-automation-account"></a>Tek başına Azure Otomasyonu hesabı oluşturma
 
@@ -61,14 +61,15 @@ Azure portalında bir Azure Otomasyonu hesabını oluşturmak için aşağıdaki
    ![Arayın ve Azure Market'te Automation and Control seçin](media/automation-create-standalone-account/automation-marketplace-select-create-automationacct.png)
 
 1. Sonraki ekranda seçin **Oluştur**.
+
   ![Otomasyon hesabı Ekle](media/automation-create-standalone-account/automation-create-automationacct-properties.png)
 
   > [!NOTE]
   > İçinde aşağıdaki iletiyi görürseniz **Otomasyon hesabı Ekle** bölmesinde, hesabınızın abonelik Yöneticileri rolünün üyesi ve bir Abonelikteki değil.
   >
   > ![Automation hesabı uyarısı ekleme](media/automation-create-standalone-account/create-account-without-perms.png)
-  >
-1. İçinde **Otomasyon hesabı Ekle** bölmesinde, **adı** kutusuna, yeni Automation hesabınız için bir ad girin. Bu ad, seçildikten sonra değiştirilemez.
+
+1. İçinde **Otomasyon hesabı Ekle** bölmesinde, **adı** kutusuna, yeni Automation hesabınız için bir ad girin. Bu ad, seçildikten sonra değiştirilemez. *Bölge ve kaynak grubu başına Otomasyon hesabı adları benzersizdir.*
 1. İçinde birden fazla aboneliğiniz varsa **abonelik** kutusunda, yeni hesap için kullanmak istediğiniz aboneliği belirtin.
 1. İçin **kaynak grubu**yeni veya mevcut bir kaynak grubu seçin veya girin.
 1. İçin **konumu**, bir Azure veri merkezi bölgesi seçin.

@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2018
+ms.date: 10/16/2018
 ms.author: jeffgilb
 ms.reviewer: quying
-ms.openlocfilehash: 72824e5afb9f8d77c2f7d3bd01e6ff2035e95a95
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: 833d8e7960bfb7ee3c135df57e6d4dfec97af037
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48237273"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49364682"
 ---
 # <a name="add-hosting-servers-for-the-mysql-resource-provider"></a>MySQL kaynak sağlayıcı barındırma sunucuları ekleme
 
@@ -75,6 +75,24 @@ Aşağıdaki bilgiler, RP ve MySQL barındırma sunucuları için geçerlidir:
 ## <a name="increase-backend-database-capacity"></a>Arka uç veritabanınızın kapasitesini artırmanız
 
 Daha fazla MySQL sunucusu Azure Stack portalında dağıtarak arka uç veritabanınızın kapasitesini artırabilir. Bu sunucular için yeni veya mevcut bir SKU ekleyin. Mevcut bir SKU için bir sunucu eklerseniz, sunucu özelliklerini SKU diğer sunucular ile aynı olduğundan emin olun.
+
+## <a name="sku-notes"></a>SKU notları
+Kapasite ve performans gibi SKU sunucuların özelliklerini tanımlayan bir SKU adı kullanın. Ad ve uygun SKU için kendi veritabanları dağıtma kullanıcılara yardımcı olmak için yardımcı işlevi görür. Örneğin, hizmet teklifleri aşağıdaki özelliklerle ayırt etmek için SKU adları kullanabilirsiniz:
+  
+* yüksek kapasite
+* yüksek performans
+* yüksek kullanılabilirlik
+
+En iyi uygulama, bir SKU tüm barındırma sunucuları aynı kaynak ve performansın özelliklere sahip olmalıdır.
+
+SKU'ları, belirli kullanıcılara veya gruplara atanamaz.
+
+SKU'ları portalda görünür olması için bir saat sürebilir. SKU tamamen oluşturulana kadar kullanıcılar bir veritabanı oluşturulamıyor.
+
+Bir SKU düzenlemek için şuraya gidin: **tüm hizmetleri** > **MySQL bağdaştırıcısı** > **SKU'ları**. SKU'ları değiştirmek, gerekli değişiklikleri yapın ve tıklayın seçin **Kaydet** değişiklikleri kaydedin. Artık gerekli olmadığında bir SKU silmek için Git **tüm hizmetleri** > **MySQL bağdaştırıcısı** > **SKU'ları**. SKU adı sağ tıklayıp **Sil** silmek için.
+
+> [!TIP]
+> Düzenleyebilir veya MySQL kaynak sağlayıcısı kotaları aynı konumda silin.
 
 ## <a name="make-mysql-database-servers-available-to-your-users"></a>MySQL veritabanı sunucularını, kullanıcılar için kullanılabilir yap
 

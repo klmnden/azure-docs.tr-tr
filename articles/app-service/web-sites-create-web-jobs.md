@@ -4,7 +4,7 @@ description: Azure App Service web apps, API uygulamaları veya mobile apps arka
 services: app-service
 documentationcenter: ''
 author: ggailey777
-manager: erikre
+manager: jeconnoc
 editor: jimbe
 ms.assetid: af01771e-54eb-4aea-af5f-f883ff39572b
 ms.service: app-service
@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/09/2017
-ms.author: glenga;david.ebbo;suwatch;pbatum;naren.soni
-ms.openlocfilehash: c3a41733dd193d10349a0126bfa9c25ce4ba56e7
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.date: 10/16/2018
+ms.author: glenga;msangapu;david.ebbo;suwatch;pbatum;naren.soni;
+ms.openlocfilehash: 901cf32557e0a437e938ceb50ecd500c69c8c3be
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39577686"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49364039"
 ---
 # <a name="run-background-tasks-with-webjobs-in-azure-app-service"></a>Azure uygulama Hizmeti'nde WebJobs ile arka plan görevleri çalıştırma
 
@@ -44,7 +44,7 @@ Aşağıdaki tablo arasındaki farkları açıklar *sürekli* ve *tetiklenen* We
 | Uzaktan hata ayıklamayı destekler. | Uzaktan hata ayıklamayı desteklemiyor.|
 
 > [!NOTE]
-> Bir web uygulaması 20 dakika işlem yapılmadığında zaman aşımı olabilir. Yalnızca istekleri (dağıtım) scm sitesine veya web uygulamasının sayfalarına portalında Zamanlayıcıyı sıfırlayın. Gerçek site isteklerine süreölçer sıfırlama. Zamanlanan Webjob'lar etkinleştirmek ya da uygulamanızı sürekli olarak çalışan **Always On** WebJobs güvenilir bir şekilde çalıştığından emin olmak için. Bu özellik yalnızca temel, standart ve Premium kullanılabilir [fiyatlandırma katmanları](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+> Bir web uygulaması 20 dakika işlem yapılmadığında zaman aşımı olabilir. Yalnızca gerçek bir web uygulama isteklerini Zamanlayıcı sıfırlayın. Uygulamanın yapılandırma Azure portalında görüntüleme ya da Gelişmiş araçlar siteye isteği gerçekleştiren (https:// < app_name >. scm.azurewebsites.net) süreölçer sıfırlama. Zamanlanan Webjob'lar etkinleştirmek ya da uygulamanızı sürekli olarak çalışan **Always On** WebJobs güvenilir bir şekilde çalıştığından emin olmak için. Bu özellik yalnızca temel, standart ve Premium kullanılabilir [fiyatlandırma katmanları](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
 ## <a name="acceptablefiles"></a>Betikleri veya programları için desteklenen dosya türleri
 

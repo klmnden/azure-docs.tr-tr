@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 05/11/2018
 ms.author: jeffpatt
 ms.component: files
-ms.openlocfilehash: 935d4a3ba3fc3199177be5bd4e70f82239c3c971
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: a0a330d3ea7362ffabb20a5d390cee87cbf7d8ff
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39531844"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49365414"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows"></a>Windows Azure dosyaları sorunlarını giderme
 
@@ -32,16 +32,17 @@ Bu makalede Windows istemcilerinden bağlandığınızda, Microsoft Azure dosyal
 
 ### <a name="cause-1-unencrypted-communication-channel"></a>1. neden: Şifrelenmemiş iletişim kanalı
 
-Güvenlik nedenleriyle, Azure dosya paylaşımlarını bağlantı iletişim kanalını şifreli değildir ve Azure dosya paylaşımlarını bulunduğu aynı veri merkezlerinden bağlantı girişimi yapılmadan değil engellenir. Kullanıcının istemci işletim sistemi SMB şifrelemesi destekliyorsa iletişim kanalı şifreleme sağlanır.
+Güvenlik nedenleriyle, Azure dosya paylaşımlarını bağlantı iletişim kanalını şifreli değildir ve Azure dosya paylaşımlarını bulunduğu aynı veri merkezlerinden bağlantı girişimi yapılmadan değil engellenir. Aynı veri merkezindeki şifrelenmemiş bağlantıları da ise engellenir [güvenli aktarım gerekli](https://docs.microsoft.com/en-us/azure/storage/common/storage-require-secure-transfer) depolama hesabı seçeneği etkinleştirilmiştir. Kullanıcının istemci işletim sistemi SMB şifrelemesi destekliyorsa iletişim kanalı şifreleme sağlanır.
 
 Windows 8, Windows Server 2012 ve sonraki sürümleri her sistem şifrelemeyi destekleyen SMB 3.0 içeren istekleri anlaşır.
 
 ### <a name="solution-for-cause-1"></a>Çözüm nedeni 1 için
 
-Aşağıdakilerden birini gerçekleştiren bir istemciden bağlanma:
+1. Doğrulama [güvenli aktarım gerekli](https://docs.microsoft.com/en-us/azure/storage/common/storage-require-secure-transfer) ayarı depolama hesabı devre dışı.
+2. Aşağıdakilerden birini gerçekleştiren bir istemciden bağlanma:
 
-- Windows 8 ve Windows Server 2012 veya sonraki sürümler gereksinimlerini karşılar
-- Azure dosya paylaşımı için kullanılan Azure depolama hesabıyla aynı veri merkezinde bir sanal makineden bağlanır
+    - Windows 8 ve Windows Server 2012 veya sonraki sürümler gereksinimlerini karşılar
+    - Azure dosya paylaşımı için kullanılan Azure depolama hesabıyla aynı veri merkezinde bir sanal makineden bağlanır
 
 ### <a name="cause-2-port-445-is-blocked"></a>2. neden: Bağlantı noktası 445 engellendi
 

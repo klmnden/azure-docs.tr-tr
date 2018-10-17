@@ -11,13 +11,13 @@ author: oslake
 ms.author: moslake
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 09/14/2018
-ms.openlocfilehash: 7459ae5153434887ade74f841a2239c76a7caef9
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.date: 10/15/2018
+ms.openlocfilehash: 6673fa9d377400d7e80fc95dc7d0ce12f4b2e60e
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48043722"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49354181"
 ---
 # <a name="azure-sql-database-vcore-based-purchasing-model-limits-for-elastic-pools"></a>Azure SQL veritabanı sanal çekirdek tabanlı model sınırları elastik havuzlar için satın alma
 
@@ -28,16 +28,15 @@ DTU tabanlı satın alma modeli limitleri için bkz. [SQL veritabanı DTU tabanl
 > [!IMPORTANT]
 > Bazı durumlarda, kullanılmayan alanı geri kazanmak için bir veritabanı daraltma gerekebilir. Daha fazla bilgi için [Azure SQL veritabanı'nda dosya alanı yönetmek](sql-database-file-space-management.md).
 
-## <a name="elastic-pool-storage-sizes-and-compute-sizes"></a>Elastik havuz: depolama boyutlarına ve işlem boyutları
-
-SQL veritabanı elastik havuzları için aşağıdaki tablolarda her hizmet katmanında kullanılabilir kaynakları göster ve işlem boyutu. Bir hizmet katmanı, işlem boyutu ve depolama miktarını kullanarak ayarlayabilirsiniz [Azure portalında](sql-database-elastic-pool-manage.md#azure-portal-manage-elastic-pools-and-pooled-databases), [PowerShell](sql-database-elastic-pool-manage.md#powershell-manage-elastic-pools-and-pooled-databases), [Azure CLI](sql-database-elastic-pool-manage.md#azure-cli-manage-elastic-pools-and-pooled-databases), veya [REST API](sql-database-elastic-pool-manage.md#rest-api-manage-elastic-pools-and-pooled-databases).
+Bir hizmet katmanı, işlem boyutu ve depolama miktarını kullanarak ayarlayabilirsiniz [Azure portalında](sql-database-elastic-pool-manage.md#azure-portal-manage-elastic-pools-and-pooled-databases), [PowerShell](sql-database-elastic-pool-manage.md#powershell-manage-elastic-pools-and-pooled-databases), [Azure CLI](sql-database-elastic-pool-manage.md#azure-cli-manage-elastic-pools-and-pooled-databases), veya [REST API](sql-database-elastic-pool-manage.md#rest-api-manage-elastic-pools-and-pooled-databases).
 
 > [!NOTE]
 > Kaynak elastik havuzlardaki veritabanlarını tek tek genellikle tek veritabanları aynı havuzları dışında aynı boyutu işlem limitlerdir. Örneğin, maks. eş zamanlı çalışan GP_Gen4_1 veritabanı için 200 çalışanları olur. Bu nedenle, GP_Gen4_1 havuzdaki bir veritabanı için en fazla eş zamanlı çalışan var. Ayrıca 200 çalışanları 210 olduğuna dikkat edin. eş zamanlı çalışan GP_Gen4_1 havuzundaki toplam sayısı.
 
-### <a name="general-purpose-service-tier"></a>Genel amaçlı hizmet katmanı
+## <a name="general-purpose-service-tier-storage-sizes-and-compute-sizes"></a>Genel amaçlı hizmet katmanı: depolama boyutlarına ve işlem boyutları
 
-#### <a name="generation-4-compute-platform"></a>4. nesil işlem platformu
+### <a name="generation-4-compute-platform"></a>4. nesil işlem platformu
+
 |İşlem boyutu|GP_Gen4_1|GP_Gen4_2|GP_Gen4_4|GP_Gen4_8|GP_Gen4_16|GP_Gen4_24|
 |:--- | --: |--: |--: |--: |--: |--: |
 |S/W oluşturma|4|4|4|4|4|4|
@@ -61,7 +60,8 @@ SQL veritabanı elastik havuzları için aşağıdaki tablolarda her hizmet katm
 |Yedekleme depolama alanı dahil|1 X veritabanı boyutu|1 X veritabanı boyutu|1 X veritabanı boyutu|1 X veritabanı boyutu|1 X veritabanı boyutu|1 X veritabanı boyutu|
 |||
 
-#### <a name="generation-5-compute-platform"></a>5. nesil işlem platformu
+### <a name="generation-5-compute-platform"></a>5. nesil işlem platformu
+
 |İşlem boyutu|GP_Gen5_2|GP_Gen5_4|GP_Gen5_8|GP_Gen5_16|GP_Gen5_24|GP_Gen5_32|GP_Gen5_40|GP_Gen5_80|
 |:--- | --: |--: |--: |--: |--: |--: |--: |--: |
 |S/W oluşturma|5|5|5|5|5|5|5|5|
@@ -85,9 +85,10 @@ SQL veritabanı elastik havuzları için aşağıdaki tablolarda her hizmet katm
 |Yedekleme depolama alanı dahil|1 X veritabanı boyutu|1 X veritabanı boyutu|1 X veritabanı boyutu|1 X veritabanı boyutu|1 X veritabanı boyutu|1 X veritabanı boyutu|1 X veritabanı boyutu|1 X veritabanı boyutu|
 |||
 
-### <a name="business-critical-service-tier"></a>İş kritik hizmet katmanı
+## <a name="business-critical-service-tier-storage-sizes-and-compute-sizes"></a>İş kritik hizmet katmanı: depolama boyutlarına ve işlem boyutları
 
-#### <a name="generation-4-compute-platform"></a>4. nesil işlem platformu
+### <a name="generation-4-compute-platform"></a>4. nesil işlem platformu
+
 |İşlem boyutu|BC_Gen4_1|BC_Gen4_2|BC_Gen4_4|BC_Gen4_8|BC_Gen4_16|BC_Gen4_24|
 |:--- | --: |--: |--: |--: |--: |--: |
 |S/W oluşturma|4|4|4|4|4|4|
@@ -112,6 +113,7 @@ SQL veritabanı elastik havuzları için aşağıdaki tablolarda her hizmet katm
 |||
 
 #### <a name="generation-5-compute-platform"></a>5. nesil işlem platformu
+
 |İşlem boyutu|BC_Gen5_2|BC_Gen5_4|BC_Gen5_8|BC_Gen5_16|BC_Gen5_24|BC_Gen5_32|BC_Gen5_40|BC_Gen5_80|
 |:--- | --: |--: |--: |--: |--: |--: |--: |--: |
 |S/W oluşturma|5|5|5|5|5|5|5|5|
@@ -137,17 +139,17 @@ SQL veritabanı elastik havuzları için aşağıdaki tablolarda her hizmet katm
 
 Tüm sanal çekirdek, bir elastik havuzun meşgul ise, havuzdaki her bir veritabanı eşit miktarda sorguları işlemek için işlem kaynaklarını alır. SQL Veritabanı hizmeti, eşit dilimlerde işlem süresi sunarak veritabanları arasında kaynak paylaşım eşitliğini sağlar. Elastik havuz kaynak paylaşımı eşitliği, herhangi bir kaynak yoksa veritabanı başına en düşük vCore değeri, sıfır olmayan bir değere ayarlandığında her veritabanı için garanti edilen miktarda'ek niteliğindedir.
 
-### <a name="database-properties-for-pooled-databases"></a>Havuza alınmış veritabanları için veritabanı özellikleri
+## <a name="database-properties-for-pooled-databases"></a>Havuza alınmış veritabanları için veritabanı özellikleri
 
 Aşağıdaki tabloda, havuza alınmış veritabanları için özellikleri tanımlar.
 
 | Özellik | Açıklama |
 |:--- |:--- |
-| Veritabanı başına en yüksek sanal çekirdekler |Havuzdaki diğer veritabanlarının tarafından kullanılabilir kullanım oranlarına dayalı, herhangi bir veritabanı havuzu kullanabiliriz sanal çekirdek sayısı. Veritabanı başına en yüksek Vcore bir veritabanı için kaynak garantisi değil. Bu ayar havuzdaki tüm veritabanları için geçerli olan genel bir ayardır. Veritabanı kullanımı yükündeki yüksek veritabanı başına en yüksek Vcore ayarlayın. Havuz genellikle tüm veritabanlarının eşzamanlı olarak en üst kullanım seviyesine çıkmadığı sıcak ve soğuk kullanım modellerini varsaydığından, bir miktar aşırı ayırma beklenir.|
+| Veritabanı başına en yüksek sanal çekirdekler |Havuzdaki diğer veritabanlarının tarafından kullanılabilir kullanım oranlarına dayalı, herhangi bir veritabanı havuzu kullanabiliriz sanal çekirdek sayısı. Veritabanı başına en yüksek Vcore bir veritabanı için kaynak garantisi değil. Bu ayar havuzdaki tüm veritabanları için geçerli olan genel bir ayardır. Veritabanı kullanımı yükündeki yüksek veritabanı başına en yüksek Vcore ayarlayın. Havuz genellikle sıcak ve soğuk kullanım modellerini varsaydığından aşırı işleme, belirli bir ölçüde burada tüm veritabanlarını değil aynı anda en üst seviyeye çıkan bekleniyor.|
 | Veritabanı başına en düşük Vcore |Herhangi bir havuzda veritabanı sanal çekirdek sayısı alt sınırını garanti edilir. Bu ayar havuzdaki tüm veritabanları için geçerli olan genel bir ayardır. Veritabanı başına minimum sanal çekirdekler 0 olarak ayarlayın ve aynı zamanda varsayılan değerdir. Bu özellik 0 ile veritabanı başına ortalama çekirdek kullanımı arasında herhangi bir yere ayarlanır. Havuz başına sanal çekirdekler ürün veritabanları havuz ve veritabanı başına en az çekirdek sayısını aşamaz.|
 | Veritabanı başına maks. depolama |Bir havuzda bir veritabanı için kullanıcı tarafından ayarlanmış maksimum veritabanı boyutu. Havuza alınmış veritabanları, bir veritabanı ulaşabilirsiniz boyutu sınırlıdır bu nedenle ayrılmış havuz depolama alanını paylaşır küçük kalan havuz depolama ve veritabanı boyutu. Maks. veritabanı boyutu, veri dosyaları için en büyük boyutunu ifade eder ve günlük dosyalarının kullandığı alanı içermez. |
 |||
- 
+
 ## <a name="next-steps"></a>Sonraki adımlar
 
 - Bkz: [SQL veritabanı SSS](sql-database-faq.md) sık sorulan soruların yanıtları için.

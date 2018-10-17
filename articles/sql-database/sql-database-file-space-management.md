@@ -12,25 +12,35 @@ ms.author: moslake
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 09/14/2018
-ms.openlocfilehash: a46192c79d32ddf5f178541c3be128893e8f6109
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: ee3b8c274b769cd570d70c5e0dfae939e030ecf5
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47159950"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49352438"
 ---
 # <a name="manage-file-space-in-azure-sql-database"></a>Azure SQL veritabanı'nda dosya alanı yönetme
 Bu makalede, Azure SQL veritabanı ve açıkça yönetilecek gereksinimlerini elastik havuzlar ve veritabanları için ayrılan dosya alanı gerçekleştirilen adımlar, depolama alanının farklı türleri açıklanmaktadır.
 
 ## <a name="overview"></a>Genel Bakış
 
-Azure SQL veritabanı'nda, Azure portalı ve aşağıdaki API'leri gösterilen Çoğu depolama alanı ölçümleri, veritabanları ve elastik havuzlar için kullanılan veri sayfaların sayısını ölçmek:
+Azure SQL veritabanı'nda vardır iş yükü düzenleri ayırma veritabanları için temel alınan veri dosyaları burada kullanılan veri sayfaları tutardan daha büyük olabilir. Kullanılan alan artar ve veri sonradan silindiğinde bu durum oluşabilir. Veri silindiğinde ayrılmış dosya alanı otomatik olarak alınmaz olmasıdır.
+
+Aşağıdaki senaryolarda dosya alanı kullanımı izleme ve veri dosyalarını daraltma gerekebilir:
+- Veritabanları için ayrılan dosya alanı havuz en büyük boyutuna ulaştığında bir elastik havuzdaki veri artışı sağlar.
+- Tek veritabanı veya elastik Havuzu'nu maksimum boyutunu azaltarak izin verir.
+- Tek veritabanı veya elastik Havuzu'nu farklı hizmet katmanını veya performans katmanı daha düşük bir maksimum boyut ile değiştirerek izin verin.
+
+### <a name="monitoring-file-space-usage"></a>Dosya alanı kullanımı izleme
+Azure portalı ve aşağıdaki API'leri gösterilen Çoğu depolama alanı ölçümleri yalnızca kullanılan veri sayfaların ölçün:
 - Azure Resource Manager tabanlı ölçümleri API'leri PowerShell dahil olmak üzere [get-metrics](https://docs.microsoft.com/powershell/module/azurerm.insights/get-azurermmetric)
 - T-SQL: [sys.dm_db_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database)
+
+Ancak, aşağıdaki API'leri veritabanları ve elastik için ayrılan alan miktarını da ölçmek havuzları:
 - T-SQL: [sys.resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database)
 - T-SQL: [sys.elastic_pool_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database)
 
-Ayırma veritabanları için temel alınan veri dosyaları burada kullanılan veri sayfaları tutardan daha büyük olabilir iş yükü düzenleri vardır.  Kullanılan alan artar ve veri sonradan silindiğinde bu durum oluşabilir.  Veri silindiğinde ayrılmış dosya alanı otomatik olarak alınmaz olmasıdır.  Böyle senaryolarda, bir veritabanı veya havuzu için ayrılan alanı desteklenen limitlerin veri büyümesini engellemek veya hizmet katmanı önlemek ve boyut değişikliklerine işlem ve azaltmak için veri dosyalarını küçülterek gerektirir.
+### <a name="shrinking-data-files"></a>Veri dosyalarını daraltma
 
 SQL DB hizmetini otomatik olarak kullanılmayan bir ayrılmış alanı veritabanı performans için potansiyel etkisi nedeniyle geri kazanmak için veri dosyalarını küçülmez.  Müşterilerin kendi seçme içinde açıklanan adımları izleyerek bir zaman Self Servis aracılığıyla veri dosyalarını ancak küçültülebilir [geri kullanılmayan ayrılmış alanı](#reclaim-unused-allocated-space). 
 

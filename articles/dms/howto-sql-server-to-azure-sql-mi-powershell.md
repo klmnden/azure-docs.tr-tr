@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 10/09/2018
-ms.openlocfilehash: 6760d2832b6c39759f9287797363fcd5a116ccfb
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: 9a0c427b8beec3984a9fdd5d41ba3705fd21fd4c
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48883678"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49365013"
 ---
 # <a name="migrate-sql-server-on-premises-to-azure-sql-db-using-azure-powershell"></a>Şirket içi SQL Server, Azure PowerShell kullanarak Azure SQL DB'ye geçirme
 Bu makalede, geçiş **Adventureworks2012** şirket içi örneği SQL Server 2005 veya üzeri için Microsoft Azure PowerShell kullanarak bir Azure SQL veritabanı'na geri yüklenen veritabanı. Kullanarak Azure SQL veritabanı'na bir şirket içi SQL Server örneğinden veritabanları geçirebilirsiniz `AzureRM.DataMigration` Microsoft Azure PowerShell modülü.
@@ -195,7 +195,7 @@ $selectedAgentJobs = @("agentJob1", "agentJob2")
 ### <a name="create-and-start-a-migration-task"></a>Bir geçiş görevi oluşturup başlatmak
 
 Kullanım `New-AzureRmDataMigrationTask` geçiş görevi oluşturup başlatmak için cmdlet. Bu cmdlet şu parametreleri bekliyor:
-- *TaskType*. SQL Server için Azure SQL veritabanı Managaged örneği geçiş türüne oluşturmak için geçiş görevinin türü *MigrateSqlServerSqlDbMi* beklenir. 
+- *TaskType*. SQL Server için Azure SQL veritabanı yönetilen örneğine geçiş türüne oluşturmak için geçiş görevinin türü *MigrateSqlServerSqlDbMi* beklenir. 
 - *Kaynak grubu adı*. Görev oluşturulacağı Azure kaynak grubunun adı.
 - *ServiceName*. Hangi görev oluşturmak Azure veritabanı geçiş hizmeti örneği.
 - *ProjectName*. Görev oluşturmak Azure veritabanı geçiş hizmeti projesi adı. 

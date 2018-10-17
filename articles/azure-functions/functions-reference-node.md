@@ -12,12 +12,12 @@ ms.devlang: nodejs
 ms.topic: reference
 ms.date: 03/04/2018
 ms.author: glenga
-ms.openlocfilehash: c4206b3178cd02082b8e0815081fedf59a6836b1
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: eb9387cec98621e27aff7dcb40b8897e326c6706
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49068320"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49353501"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Azure işlevleri JavaScript Geliştirici Kılavuzu
 Bu kılavuz, Azure işlevleri ile JavaScript Yazma ayrıntılı olarak incelenmektedir hakkında bilgi içerir.
@@ -375,7 +375,10 @@ module.exports = function(context) {
         .where(context.bindings.myInput.names, {first: 'Carla'});
 ```
 
-Tanımlamanız gerekir Not bir `package.json` işlev uygulamanızın kök dosya. Dosya tanımlama uygulamasında tüm işlevleri aynı önbelleğe eklenen paketleri en iyi performansı veren paylaşmak olanak tanır. Sürüm çakışması ortaya çıkarsa, ekleyerek giderebileceğiniz bir `package.json` belirli bir işlev bir klasörde dosya.  
+> [!NOTE]
+> Tanımladığınız bir `package.json` işlev uygulamanızın kök dosya. Dosya tanımlama uygulamasında tüm işlevleri aynı önbelleğe eklenen paketleri en iyi performansı veren paylaşmak olanak tanır. Sürüm çakışması ortaya çıkarsa, ekleyerek giderebileceğiniz bir `package.json` belirli bir işlev bir klasörde dosya.  
+
+İşlev uygulamaları kaynak denetiminden tüm dağıtırken `package.json` deponuzda mevcut dosya, tetikleyecek bir `npm install` dağıtımı sırasında bir klasördeki. Ancak Portal veya CLI dağıtılırken paketleri el ile yüklemeniz gerekir.
 
 İşlev uygulamanızı paketleri yüklemek için iki yolu vardır: 
 

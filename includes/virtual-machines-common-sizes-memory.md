@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/06/2018
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: c3b9422ebdb0a5d93f92644d9fea5d9c5ba9fa29
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
+ms.openlocfilehash: c40229eaa589d696c557d5ac126515576593443c
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47185005"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49367145"
 ---
 Bellek, ilişkisel veritabanı sunucuları, Orta veya büyük boyutlu önbellekler ve bellek içi analiz için harika olan yüksek bellek CPU oranı VM boyutları teklifi en iyi duruma getirilmiş. Bu makalede, Vcpu, veri diskleri ve NIC yanı sıra depolama aktarım hızı ve ağ bant genişliği için bu gruplandırma her boyutundaki sayısı hakkında bilgi sağlar. 
 
@@ -26,7 +26,7 @@ Bellek, ilişkisel veritabanı sunucuları, Orta veya büyük boyutlu önbellekl
 
 * Ev3 serisi özellikleri E5-2673 v4 (Broadwell) 2,3 GHz işlemci en genel amaçlı iş yükleri için daha iyi bir değer önerisi sağlama yanı sıra diğer birçok bulut ile genel amaçlı sanal hizalama Ev3 getirmek hiper iş parçacıklı bir yapılandırmada.  Disk ve ağ sınırlarını hiper iş parçacıklı Git ile hizalamak için çekirdek başına temelinde ayarlanmış durumdayken (Başlangıç 7 GiB/vCPU 8 GiB/vCPU) bellek genişletildi.  Ev3, yüksek bellek VM boyutları D/Dv2 ailelerinin kadar izleme olur.
 
-* Azure Compute, belirli bir donanım türüyle sınırlanmış ve tek bir müşteriye ayrılmış olan sanal makine boyutları sunar.  Bu sanal makine boyutları, uyumluluk ve düzenleme gereksinimleri gibi öğeler içeren iş yükleri nedeniyle diğer müşterilerden yüksek ölçüde yalıtıma ihtiyaç duyan iş yükleri için idealdir.  Müşteriler daha fazla yalıtılmış bu sanal makinelerin kaynakları kullanarak alt bölümlere ayırmak de seçebilir [iç içe sanal makineleri için Azure desteği](https://azure.microsoft.com/en-us/blog/nested-virtualization-in-azure/).  Lütfen yalıtılmış VM seçeneklerinizi için sanal makine aileleri tablolara bakın.
+* Azure Compute, belirli bir donanım türüyle sınırlanmış ve tek bir müşteriye ayrılmış olan sanal makine boyutları sunar.  Bu sanal makine boyutları, uyumluluk ve düzenleme gereksinimleri gibi öğeler içeren iş yükleri nedeniyle diğer müşterilerden yüksek ölçüde yalıtıma ihtiyaç duyan iş yükleri için idealdir.  Müşteriler daha fazla yalıtılmış bu sanal makinelerin kaynakları kullanarak alt bölümlere ayırmak de seçebilir [iç içe sanal makineleri için Azure desteği](https://azure.microsoft.com/blog/nested-virtualization-in-azure/).  Lütfen yalıtılmış VM seçeneklerinizi için sanal makine aileleri tablolara bakın.
 
 ## <a name="esv3-series"></a>Esv3 serisi 
 

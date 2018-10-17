@@ -11,13 +11,13 @@ author: danimir
 ms.author: v-daljep
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 10/15/2018
-ms.openlocfilehash: fc97aa18328fafc299ad941e6bf12dd21e9029d0
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.date: 10/16/2018
+ms.openlocfilehash: dca23940053fa6bf1f716ffa1a6fa0bcd7b41c91
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49345297"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49362628"
 ---
 # <a name="monitoring-and-performance-tuning"></a>İzleme ve performans ayarlama
 
@@ -29,7 +29,7 @@ Azure SQL veritabanı performansını artırmak için her etkin sorgu isteği uy
 
 ![İş yükü durumları](./media/sql-database-monitor-tune-overview/workload-states.png)
 
-Performans sorunları olan bir iş yükü için performans sorunu my CPU Çekişme nedeniyle olabilir (bir **çalıştırma ile ilgili** koşul) veya tek tek sorgular üzerinde bir bekleyen (bir **bekleme ilgili** koşul) .
+Performans sorunları olan bir iş yükü için performans sorunu nedeniyle CPU Çekişme olabilir (bir **çalıştırma ile ilgili** koşul) veya tek tek sorgular üzerinde bir bekleyen (bir **bekleme ilgili** koşulu ).
 
 - **Aşırı CPU kullanımı, Azure SQL veritabanı'nda**:
 
@@ -62,7 +62,7 @@ Performans sorunları olan bir iş yükü için performans sorunu my CPU Çekiş
 
 İlk olarak, bu yüksek CPU, çalıştırma ile ilgili performans sorunu olmadığını emin olun. Yüklü değilse, sonraki adımda, uygulama iş yükünüz ile ilişkili üst bekler belirlemektir.  Üst göstermek için ortak yöntemleri türü kategorilerini bekleyin:
 
-- [Query Store](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store) bekleme istatistikleri sorgu başına zamanla sağlar. Query Store bekleme türleri bekleme kategoriler halinde birleştirilir. Eşleme türleri beklemek bekleme kategorilerin kullanılabilir [sys.query_store_wait_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-query-store-wait-stats-transact-sql.md#wait-categories-mapping-table).
+- [Query Store](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store) bekleme istatistikleri sorgu başına zamanla sağlar. Query Store bekleme türleri bekleme kategoriler halinde birleştirilir. Eşleme türleri beklemek bekleme kategorilerin kullanılabilir [sys.query_store_wait_stats](https://docs.microsoft.com/en-us/sql/relational-databases/system-catalog-views/sys-query-store-wait-stats-transact-sql?view=sql-server-2017#wait-categories-mapping-table).
 - [sys.dm_db_wait_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-wait-stats-azure-sql-database) işlemi sırasında yürütülen iş parçacığı tarafından karşılaşılan bekler hakkında bilgi verir. Azure SQL veritabanı ve ayrıca özel sorgular ve toplu işler ile performans sorunlarını tanılamak için bu birleşik bir görünüm kullanabilirsiniz.
 - [sys.dm_os_waiting_tasks](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-os-waiting-tasks-transact-sql) bazı kaynak üzerinde bekleyen görevlerin bekleme kuyruk hakkındaki bilgileri döndürür.
 
@@ -91,20 +91,20 @@ Let Azure SQL veritabanı'na ayrıca [otomatik olarak, sorguların performansın
 
 ## <a name="monitor-databases-using-the-azure-portal"></a>Azure portalını kullanarak veritabanlarını izleme
 
-[Azure portalında](https://portal.azure.com/), tek veritabanlarının kullanımını veritabanınızı seçip **İzleme** grafiğine tıklayarak izleyebilirsiniz. Bu işlem sonrasında bir **Ölçüm** penceresi görüntülenir. **Grafiği düzenle** düğmesine tıklayarak değişiklik yapabilirsiniz. Şu ölçümleri ekleyin:
+İçinde [Azure portalında](https://portal.azure.com/), tek veritabanı s kullanımını veritabanınızı seçip tıklayarak izleyebilirsiniz **izleme** grafiği. Bu işlem sonrasında bir **Ölçüm** penceresi görüntülenir. **Grafiği düzenle** düğmesine tıklayarak değişiklik yapabilirsiniz. Şu ölçümleri ekleyin:
 
 - CPU yüzdesi
 - DTU yüzdesi
 - Veri G/Ç yüzdesi
 - Veri boyutu yüzdesi
 
-Bu ölçümleri ekledikten sonra görüntülemeye devam edebilirsiniz **izleme** grafik hakkında daha fazla bilgi **ölçüm** penceresi. Dört ölçümün tümü de veritabanınızın ortalama **DTU** kullanım yüzdesini gösterir. Bkz: [DTU tabanlı satın alma modeli](sql-database-service-tiers-dtu.md) ve [sanal çekirdek tabanlı satın alma modeli](sql-database-service-tiers-vcore.md) makaleler hizmet katmanları hakkında daha fazla bilgi için.  
+Önceden bu ölçümleri ekledikten sonra görüntülemeye devam edebilirsiniz **izleme** grafik hakkında daha fazla bilgi **ölçüm** penceresi. Dört ölçümün tümü de veritabanınızın ortalama **DTU** kullanım yüzdesini gösterir. Bkz: [DTU tabanlı satın alma modeli](sql-database-service-tiers-dtu.md) ve [sanal çekirdek tabanlı satın alma modeli](sql-database-service-tiers-vcore.md) makaleler hizmet katmanları hakkında daha fazla bilgi için.  
 
 ![Hizmet katmanına göre veritabanı performansını izleme.](./media/sql-database-single-database-monitoring/sqldb_service_tier_monitoring.png)
 
 Performans ölçümlerine ilişkin uyarıları da yapılandırabilirsiniz. **Ölçüm** penceresindeki **Uyarı ekle** düğmesine tıklayın. Uyarınızı yapılandırmak için sihirbazı takip edin. Ölçümlerin belirli bir eşiği aşması veya belirli bir eşiğin altına düşmesi halinde uyarı alabilirsiniz.
 
-Örneğin, veritabanınızdaki bir iş yükünün artmasını bekliyorsanız bir e-posta uyarısı yapılandırarak veritabanınızın herhangi bir performans ölçümünde %80 sınırına ulaşması halinde uyarı alabilirsiniz. Zaman sonraki daha yüksek işlem boyutu geçmeniz gerektiğini anlamak üzere erken bir uyarı olarak kullanabilirsiniz.
+Örneğin, veritabanınızdaki bir iş yükünün artmasını bekliyorsanız bir e-posta uyarısı yapılandırarak veritabanınızın herhangi bir performans ölçümünde %80 sınırına ulaşması halinde uyarı alabilirsiniz. Zaman sonraki en yüksek işlem boyutu geçmeniz gerektiğini anlamak üzere erken bir uyarı olarak kullanabilirsiniz.
 
 Performans ölçümleri, daha düşük bir işlem boyutu için geçemeyeceğinizi belirlemenize de yardımcı olabilir. Standart S2 veritabanını kullandığınızı ve tüm performans ölçümlerinin, veritabanının belirli bir zaman için ortalama %10'dan daha fazla kullanımda bulunmadığını gösterdiğini varsayın. Bu, veritabanının Standart S1'de de düzgün şekilde çalışabileceğini gösterir. Ancak, ani değişiklik veya dalgalanma gösteren bir alt işlem boyutu geçmeye karar vermeden önce iş yüklerini farkında olun.
 

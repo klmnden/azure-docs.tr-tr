@@ -11,17 +11,17 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: sashan, moslake
 manager: craigg
-ms.date: 10/04/2018
-ms.openlocfilehash: 053bcd46f5b0f7e06997bb0bcd57f448617b9911
-ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
+ms.date: 10/15/2018
+ms.openlocfilehash: 15fd86a88c3025f81741d614b03d5c4c7c60262c
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2018
-ms.locfileid: "48832327"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49351751"
 ---
 # <a name="general-purpose-and-business-critical-service-tiers"></a>Genel amaçlı ve iş açısından kritik hizmet katmanları
 
-Bu makalede, sanal çekirdek tabanlı satın alma modeli, genel amaçlı ve iş açısından kritik hizmet katmanlarına yönelik depolama ve yedekleme konuları anlatılmaktadır. 
+Bu makalede, sanal çekirdek tabanlı satın alma modeli, genel amaçlı ve iş açısından kritik hizmet katmanlarına yönelik depolama ve yedekleme konuları anlatılmaktadır.
 
 > [!NOTE]
 > Hiper ölçekli bir hizmet katmanındaki sanal çekirdek tabanlı satın alma modeli hakkında daha fazla bilgi için bkz: [hiper ölçekli hizmet katmanı](sql-database-service-tier-hyperscale.md). Sanal çekirdek tabanlı satın alma modeli DTU tabanlı satın alma modeli ile bir karşılaştırması için bkz: [Azure SQL veritabanı'nın modelleri ve kaynakları satın alma](sql-database-service-tiers.md).
@@ -57,5 +57,5 @@ Veritabanı Yedeklemeleri için depolama noktası zaman geri yükleme (PITR içi
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- Özel hakkında ayrıntılı bilgi işlem boyutları ve tek veritabanı genel amaçlı ve iş kritik hizmet katmanları için kullanılabilir depolama boyutu seçenekleri için bkz: [tek veritabanları için SQL veritabanı sanal çekirdek tabanlı kaynak sınırları](sql-database-vcore-resource-limits-single-databases.md#single-database-storage-sizes-and-compute-sizes)
-- Özel hakkında ayrıntılı bilgi işlem boyutları ve elastik havuzlar için genel amaçlı ve iş kritik hizmet katmanlarında kullanılabilir depolama boyutu seçenekleri için bkz: [elastik havuzlar için SQL veritabanı sanal çekirdek tabanlı kaynak sınırları](sql-database-vcore-resource-limits-elastic-pools.md#elastic-pool-storage-sizes-and-compute-sizes).
+- Özel hakkında ayrıntılı bilgi işlem boyutları ve tek veritabanı genel amaçlı ve iş kritik hizmet katmanları için kullanılabilir depolama boyutu seçenekleri için bkz: [tek veritabanları için SQL veritabanı sanal çekirdek tabanlı kaynak sınırları](sql-database-vcore-resource-limits-single-databases.md#general-purpose-service-tier-storage-sizes-and-compute-sizes)
+- Özel hakkında ayrıntılı bilgi işlem boyutları ve elastik havuzlar için genel amaçlı ve iş kritik hizmet katmanlarında kullanılabilir depolama boyutu seçenekleri için bkz: [elastik havuzlar için SQL veritabanı sanal çekirdek tabanlı kaynak sınırları](sql-database-vcore-resource-limits-elastic-pools.md#general-purpose-service-tier-storage-sizes-and-compute-sizes).

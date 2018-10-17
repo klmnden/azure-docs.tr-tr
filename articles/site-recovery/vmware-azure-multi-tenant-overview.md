@@ -2,19 +2,19 @@
 title: Birden çok kiracıyı destekleyen VMware VM çoğaltma için Azure (Azure Site Recovery kullanarak CSP) genel bakış | Microsoft Docs
 description: Azure Site Recovery desteğine genel bakış için Kiracı aboneliklerinde CSP programı aracılığıyla çok kiracılı bir ortam sağlar.
 services: site-recovery
-author: mayanknayar
+author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.devlang: na
-ms.topic: article
-ms.date: 07/06/2018
-ms.author: manayar
-ms.openlocfilehash: 2f1a158b6ff4ec603c77f834212cb92fa862b424
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.topic: conceptual
+ms.date: 10/16/2018
+ms.author: mayg
+ms.openlocfilehash: 4cd0c3baf385a864e2173de9bbce897bb5066dae
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37919946"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49352880"
 ---
 # <a name="overview-of-multi-tenant-support-for-vmware-replication-to-azure-with-csp"></a>CSP ile azure'a VMware çoğaltması için çok kiracılı desteğe genel bakış
 

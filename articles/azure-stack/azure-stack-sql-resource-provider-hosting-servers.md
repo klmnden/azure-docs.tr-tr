@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2018
+ms.date: 10/16/2018
 ms.author: jeffgilb
 ms.reviewer: quying
-ms.openlocfilehash: 57033de3224b5966b2dfa80dd1cb45fafd83b26b
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: a0a482e44617732c9dc6cd6609672e8204001dbc
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48238752"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49362067"
 ---
 # <a name="add-hosting-servers-for-the-sql-resource-provider"></a>SQL kaynak sağlayıcısı için barındırma sunucuları ekleme
 
@@ -173,23 +173,24 @@ Her örnek için bağımsız veritabanı kimlik doğrulama sunucusu seçeneğini
    > Tek başına sunucular, aynı SKU durumlarda Always On ile karıştırılamaz. İlk barındırma sunucusu sonuçları hata ekledikten sonra türlerini karıştırmak çalışılıyor.
 
 ## <a name="sku-notes"></a>SKU notları
-
-Hizmet teklifleri ayırt etmek için SKU'ları kullanabilir. Örneğin, aşağıdaki özelliklere sahip bir SQL Enterprise örneğine sahip olabilir:
+Kapasite ve performans gibi SKU sunucuların özelliklerini tanımlayan bir SKU adı kullanın. Ad ve uygun SKU için kendi veritabanları dağıtma kullanıcılara yardımcı olmak için yardımcı işlevi görür. Örneğin, hizmet teklifleri aşağıdaki özelliklerle ayırt etmek için SKU adları kullanabilirsiniz:
   
 * yüksek kapasite
 * yüksek performans
 * yüksek kullanılabilirlik
 
-SKU'ları belirli kullanıcılar veya gruplar bu sürümde atanamaz.
-
- SKU'ları portalda görünür olması için bir saat sürebilir. SKU tamamen oluşturulana kadar kullanıcılar bir veritabanı oluşturulamıyor.
-
->[!TIP]
->Yansıtılan bir SKU adı SKU, kapasite ve performans gibi sunucular yeteneklerini açıklar. Ad ve uygun SKU için kendi veritabanları dağıtma kullanıcılara yardımcı olmak için yardımcı işlevi görür.
-
 En iyi uygulama, bir SKU tüm barındırma sunucuları aynı kaynak ve performansın özelliklere sahip olmalıdır.
 
-## <a name="make-the-sql-databases-available-to-users"></a>SQL veritabanlarını kullanıcılar için kullanılabilir yap
+SKU'ları, belirli kullanıcılara veya gruplara atanamaz.
+
+SKU'ları portalda görünür olması için bir saat sürebilir. SKU tamamen oluşturulana kadar kullanıcılar bir veritabanı oluşturulamıyor.
+
+Bir SKU düzenlemek için şuraya gidin: **tüm hizmetleri** > **SQL bağdaştırıcısı** > **SKU'ları**. SKU'ları değiştirmek, gerekli değişiklikleri yapın ve tıklayın seçin **Kaydet** değişiklikleri kaydedin. Artık gerekli olmadığında bir SKU silmek için Git **tüm hizmetleri** > **SQL bağdaştırıcısı** > **SKU'ları**. SKU adı sağ tıklayıp **Sil** silmek için.
+
+> [!TIP]
+> Düzenleyebilir veya aynı konumdaki SQL kaynak sağlayıcısı kotaları Sil.
+
+## <a name="make-sql-databases-available-to-users"></a>SQL veritabanları kullanıcılar için kullanılabilir yap
 
 Planlar ve teklifler SQL veritabanları kullanıcılar için kullanılabilir hale getirmek için oluşturun. Ekleme **Microsoft.SqlAdapter** hizmet planına ve bir yeni kota oluştur.
 

@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 10/05/2018
 ms.author: yijenj
-ms.openlocfilehash: 47333a7b5ad7d76ee8bbac19884ba8246eadc05e
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 9d2745f1211aa6f818f89d9597867e1b3b2de03f
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48855791"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49362662"
 ---
 # <a name="lead-management-for-cloud-marketplace"></a>Bulut Marketi Yönetimi sağlama
 
@@ -214,7 +214,7 @@ Bu, son kullanıcının e-posta etki .edu olduğunu mümkündür. Gizlilik neden
 
  **Benim müşteri adayı hedef olarak Azure tablo/Azure BLOB yapılandırdınız, müşteri adaylarını nasıl görüntüleyebilirim?** 
 
-Azure Portalı'ndan blob veya tablo erişebilir veya indirip yükleyebilirsiniz [Azure Depolama Gezgini](https://azure.microsoft.com/en-us/features/storage-explorer/) ücretsiz, Azure depolama hesabınızın tablolar/BLOB'ları görüntülemek için. 
+Azure Portalı'ndan blob veya tablo erişebilir veya indirip yükleyebilirsiniz [Azure Depolama Gezgini](https://azure.microsoft.com/features/storage-explorer/) ücretsiz, Azure depolama hesabınızın tablolar/BLOB'ları görüntülemek için. 
 
 
 **Benim müşteri adayı hedef olarak Azure tablo yapılandırdınız, her yeni müşteri adayı, Market tarafından gönderilen bildirim alabilirim?** 

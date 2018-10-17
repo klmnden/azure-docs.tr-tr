@@ -9,12 +9,12 @@ ms.devlang: NA
 ms.topic: conceptual
 ms.date: 06/29/2018
 ms.author: luisca
-ms.openlocfilehash: b428e6e7738c8a9052c3fcfe2ad5284bfd5293d6
-ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
+ms.openlocfilehash: 4dfc4d250cae80e7837db5cfbcc3af15390b2bb4
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39308002"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49352345"
 ---
 # <a name="example-create-a-custom-skill-using-the-text-translate-api"></a>Örnek: metin çevirme API'sini kullanarak özel bir yetenek oluşturma
 
@@ -37,6 +37,8 @@ Bu örnek bir web API barındırmak için bir Azure işlevi kullansa da, gerekli
 1. Visual Studio'da **yeni** > **proje** Dosya menüsünden.
 
 1. Yeni Proje iletişim kutusunda, seçmek **yüklü**, genişletme **Visual C#** > **bulut**seçin **Azure işlevleri**, yazın Projeniz için ad ve seçin **Tamam**. İşlev uygulamasının adı, bir C# ad alanı olarak geçerli olmalıdır; bu nedenle alt çizgi, kısa çizgi veya alfasayısal olmayan herhangi bir karakter kullanmayın.
+
+1. Seçin **Azure işlevler v2 (.Net Core)**. Ayrıca, sürüm 1 ile yapabilirsiniz, ancak aşağıda yazılan kodların v2 şablonu temel alan.
 
 1. Olmasını seçin **HTTP tetikleyicisi**
 

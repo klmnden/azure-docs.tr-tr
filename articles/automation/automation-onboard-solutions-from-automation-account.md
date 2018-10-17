@@ -5,16 +5,16 @@ services: automation
 ms.service: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 06/06/2018
+ms.date: 10/16/2018
 ms.topic: conceptual
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: 5b906b4a90dbceb62c6f2381d0ffa8bc1bee7ef1
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 1ed76b0505747831363ea829f1cb91b3e056282a
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47033830"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49352455"
 ---
 # <a name="onboard-update-management-change-tracking-and-inventory-solutions"></a>Yerleşik güncelleştirme yönetimi, değişiklik izleme ve stok çözümleri
 
@@ -93,11 +93,11 @@ Seçin **yönetme makineler**. Bu açılır **makinelerini yönetme** sayfası. 
 
 ### <a name="all-available-machines"></a>Tüm kullanılabilir makineler
 
-Tüm kullanılabilir makineleri çözümü etkinleştirmek için işaretleyin **kullanılabilir tüm makinelerde etkinleştir**. Bu, tek tek makineler eklemek için denetimi devre dışı bırakır. Arama sorgusu kayıtlı bilgisayar grubu için çalışma alanına bildirimde bulunan makineler tüm adları bu görev ekler.
+Tüm kullanılabilir makineleri çözümü etkinleştirmek için işaretleyin **kullanılabilir tüm makinelerde etkinleştir**. Bu, tek tek makineler eklemek için denetimi devre dışı bırakır. Arama sorgusu kayıtlı bilgisayar grubu için çalışma alanına bildirimde bulunan makineler tüm adları bu görev ekler. Bu onay kutusu seçildiğinde, bu devre dışı bırakır **makinelerini yönetme** düğmesi.
 
 ### <a name="all-available-and-future-machines"></a>Tüm mevcut ve gelecekteki makinelerin
 
-Tüm kullanılabilir makinelerde ve gelecekteki tüm makineler için çözümü etkinleştirmek için işaretleyin **tüm mevcut ve gelecekteki makinelerde etkinleştir**. Bu seçenek kayıtlı aramalar ve kapsam yapılandırmaları çalışma alanından siler. Bu, tüm Azure ve Azure olmayan makineler, çalışma alanına raporlama çözümü açar.
+Tüm kullanılabilir makinelerde ve gelecekteki tüm makineler için çözümü etkinleştirmek için işaretleyin **tüm mevcut ve gelecekteki makinelerde etkinleştir**. Bu seçenek kayıtlı aramalar ve kapsam yapılandırmaları çalışma alanından siler. Bu, tüm Azure ve Azure olmayan makineler, çalışma alanına raporlama çözümü açar. Bu onay kutusu seçildiğinde, bu devre dışı bırakır **makinelerini yönetme** düğmesi.
 
 ### <a name="selected-machines"></a>Seçilen makineler
 
@@ -120,13 +120,13 @@ Bu çözümleri kaldırdıktan sonra Otomasyon hesabının bağlantısını kald
 
 1. Azure portalından Otomasyon hesabınızı açın ve sayfa seçin üzerinde Otomasyon hesabı **bağlantılı çalışma** bölümünde **ilgili kaynakları** soldaki.
 
-1. Bağlantıyı kaldır çalışma sayfasında tıklayın **çalışma alanının bağlantısını Kaldır**.
+2. Bağlantıyı kaldır çalışma sayfasında tıklayın **çalışma alanının bağlantısını Kaldır**.
 
    ![Çalışma sayfası bağlantısını Kaldır](media/automation-onboard-solutions-from-automation-account/automation-unlink-workspace-blade.png).
 
    Devam etmek istediğinizi doğrulayan bir ileti alacaksınız.
 
-1. Azure Otomasyonu hesabı Log Analytics çalışma alanınızın bağlantısını dener, ancak altında ilerleme durumunu izleyebilirsiniz **bildirimleri** menüsünde.
+3. Azure Otomasyonu hesabı Log Analytics çalışma alanınızın bağlantısını dener, ancak altında ilerleme durumunu izleyebilirsiniz **bildirimleri** menüsünde.
 
 İsteğe bağlı olarak, güncelleştirme yönetimi çözümünü kullandıysanız, çözümü kaldırdıktan sonra artık gerekli olmayan aşağıdaki öğeleri kaldırmak isteyebilirsiniz.
 

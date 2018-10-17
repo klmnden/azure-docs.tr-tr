@@ -13,12 +13,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 10/15/2018
-ms.openlocfilehash: 330655c0c42129a1ef218fa6cf1664a3608918a5
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: ff6b535b67608d9331e134ff3b3d943601e73a48
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49340486"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49364498"
 ---
 # <a name="choose-a-cloud-sql-server-option-azure-sql-paas-database-or-sql-server-on-azure-vms-iaas"></a>Bir bulut SQL Server seçeneği seçin: Azure SQL (PaaS) Veritabanı ya da Azure VM'lerde SQL Server (IaaS)
 
@@ -87,7 +87,7 @@ Aşağıdaki tabloda, SQL Database ve Azure VM'lerinde SQL Server'ın temel öze
 |  | Altta yatan işletim sistemi ve yapılandırma ayarlarını yönetmek istemeyen ekipler. | SQL veritabanı ile aynıdır. | Tam yönetici haklarına sahip özelleştirilmiş bir ortama ihtiyacınız vardır. | |
 |  | En fazla 100 TB veritabanları. | SQL veritabanı ile aynıdır. | 64 TB’ye varan depolama alanına sahip SQL Server örnekleri. Örnek gereken sayıda veritabanını destekleyebilir. |
 | **Uyumluluk** | Çoğu şirket içi veritabanı düzeyinde özelliklerini destekler. | Neredeyse tüm destekleyen şirket içi örnek düzeyinde ve veritabanı düzeyinde özellikleri. | Tüm şirket içi özelliklerini destekler. |
-| **Kaynaklar:** | Temel alınan altyapının yapılandırma ve yönetimi için BT kaynakları kullanmak istemiyorsunuz, ancak uygulama katmanına odaklanmak istiyorsunuz. | SQL veritabanı ile aynıdır. | Yapılandırma ve yönetim için bazı BT kaynaklarına sahipsiniz. Sağlanan bazı otomatik özellikler bunu önemli ölçüde basitleştirir. |
+| **Kaynaklar:** | Yapılandırma ve altyapı yönetimi için BT kaynaklarını kullanmak istemiyorsunuz istemediğiniz ancak uygulama katmanına odaklanmak istiyorsunuz. | SQL veritabanı ile aynıdır. | Yapılandırma ve yönetim için bazı BT kaynaklarına sahipsiniz. Sağlanan bazı otomatik özellikler bunu önemli ölçüde basitleştirir. |
 | **Toplam sahip olma maliyeti:** | Donanım maliyetlerini ortadan kaldırır ve yönetim maliyetlerini azaltır. | SQL veritabanı ile aynıdır. | Donanım maliyetlerini ortadan kaldırır. |
 | **İş sürekliliği:** |Ek olarak [yerleşik hata toleransı altyapı özelliklerine](sql-database-high-availability.md), Azure SQL veritabanı özellikleri gibi sağlar [otomatik yedeklemeler](sql-database-automated-backups.md), [-belirli bir noktaya geri yükleme](sql-database-recovery-using-backups.md#point-in-time-restore), [coğrafi geri yükleme](sql-database-recovery-using-backups.md#geo-restore), ve [yük devretme grupları ve etkin coğrafi çoğaltma](sql-database-geo-replication-overview.md) iş sürekliliğini artırmak üzere. Daha fazla bilgi için bkz. [SQL Database iş sürekliliğine genel bakış](sql-database-business-continuity.md). | Aynı kullanıcı tarafından başlatılan, yalnızca kopya yedekleri yanı sıra SQL veritabanı olarak kullanılabilir. | Azure VM’lerde SQL Server, veritabanınızın belirli gereksinimleri için bir yüksek kullanılabilirlik ve olağanüstü durum kurtarma çözümü ayarlamanıza olanak sağlar. Böylece, uygulamanız için en iyi hale getirilmiş bir sisteme sahip olabilirsiniz. Yük devretme işlemlerini ihtiyaç duyulduğunda kendi kendinize test edebilir ve çalıştırabilirsiniz. Daha fazla bilgi için bkz. [Azure Virtual Machines'de SQL Server için Yüksek Kullanılabilirlik ve Olağanüstü Durum Kurtarma](../virtual-machines/windows/sql/virtual-machines-windows-sql-high-availability-dr.md). |
 | **Karma bulut:** |Şirket içi uygulamanız, Azure SQL Database'deki verilere erişebilir. | [Yerel sanal ağ uygulaması](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-vnet-configuration) ve Azure Express Route veya VPN ağ geçidi kullanarak şirket içi ortamınıza bir bağlantı. | Azure VM'lerinde SQL Server ile kısmen bulutta ve kısmen şirket içinde çalıştırılan uygulamalara sahip olabilirsiniz. Örneğin, şirket içi ağınızı ve Active Directory Etki Alanı'nı [Azure Virtual Network](../virtual-network/virtual-networks-overview.md) üzerinden buluta genişletebilirsiniz. Ek olarak, [Azure'da SQL Server Veri Dosyaları](http://msdn.microsoft.com/library/dn385720.aspx)'nı kullanarak şirket içi veri dosyalarını Azure Storage'da depolayabilirsiniz. Daha fazla bilgi için bkz. [SQL Server 2014 Karma Bulutu'na giriş](http://msdn.microsoft.com/library/dn606154.aspx). |
@@ -152,9 +152,9 @@ Birçok BT departmanı için, bir Hizmet Düzeyi Sözleşmesi'nin çalışma sü
 
 **SQL veritabanı mantıksal sunucuları, elastik havuzlar ve tek veritabanları** Geliştirici üretkenliği ve hızlı zaman pazara açılma yeni çözümleri için kritik önem taşıdığında bulut Tasarımlı uygulamalarınız için doğru çözüm olduğunu. Programlama DBA benzeri işlevsellik ile, altta yatan işletim sistemini ve veritabanını yönetmeye yönelik ihtiyacı azalttığından, bulut mimarları ve geliştiricileri için idealdir.
 
-**SQL veritabanı yönetilen örneği** geçirilen veritabanı Azure'da hızla pazara uygulamalarınızı getirin olanak sağlayan, Azure SQL veritabanı mevcut uygulamaların geçişi büyük ölçüde basitleştirir.
+**SQL veritabanı yönetilen örneği** geçirilen veritabanı uygulamalarının Azure'da hızla pazara Getir olanak sağlayan, Azure SQL veritabanı mevcut uygulamaların geçişi büyük ölçüde basitleştirir.
 
-**Azure Vm'lerinde çalışan SQL Server** mevcut veya yeni uygulamalarınızın büyük veritabanları gerektirir veya SQL Server veya Windows/Linux, tüm özelliklerine erişmek ve süresini önlemek istiyorsanız ve harcama yeni alınırken, şirket içi donanım mükemmel bir seçimdir. Aynı zamanda uygun olduğunda var olan geçirmek istediğiniz şirket içi uygulamaları ve veritabanları olarak azure'a olan-- Azure SQL veritabanı yönetilen örneği olmadığı yerde uygun durumlarda değildir. Sunu, uygulama ve veri katmanlarını değiştirmeniz gerekmediğinden, zaman ve bütçe var olan çözümünüzü yeniden tasarlama hakkında kaydedin. Bunun yerine, tüm çözümlerinizin Azure'a geçişini sağlamaya ve Azure platformu tarafından gerekli kılınabilen bazı performans iyileştirmelerini gerçekleştirmeye odaklanabilirsiniz. Daha fazla bilgi için bkz. [Azure Virtual Machines'de SQL Server için En İyi Performans Uygulamaları](../virtual-machines/windows/sql/virtual-machines-windows-sql-performance.md).
+**Azure Vm'lerinde çalışan SQL Server** mevcut veya yeni uygulamalarınızın büyük veritabanları gerektirir veya SQL Server veya Windows/Linux, tüm özelliklerine erişmek ve zaman kaçınmak istiyorsanız ve harcama yeni alınırken, şirket içi donanım mükemmel bir seçimdir. Aynı zamanda uygun olduğunda var olan geçirmek istediğiniz şirket içi uygulamaları ve veritabanları olarak azure'a olan-- Azure SQL veritabanı yönetilen örneği olmadığı yerde uygun durumlarda değildir. Sunu, uygulama ve veri katmanlarını değiştirmeniz gerekmediğinden, zaman ve bütçe var olan çözümünüzü yeniden tasarlama hakkında kaydedin. Bunun yerine, tüm çözümlerinizin Azure'a geçişini sağlamaya ve Azure platformu tarafından gerekli kılınabilen bazı performans iyileştirmelerini gerçekleştirmeye odaklanabilirsiniz. Daha fazla bilgi için bkz. [Azure Virtual Machines'de SQL Server için En İyi Performans Uygulamaları](../virtual-machines/windows/sql/virtual-machines-windows-sql-performance.md).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

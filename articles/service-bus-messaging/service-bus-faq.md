@@ -8,16 +8,16 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 09/05/2018
 ms.author: spelluru
-ms.openlocfilehash: 87a6ccf61e10a6a8c7feeccad3690cdcb9b63641
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: c851c8a9384acf909dc88d3565d49021e1ee67e9
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48857865"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49362033"
 ---
 # <a name="service-bus-faq"></a>Hizmet Veri Yolu SSS
 
-Bu makalede, Microsoft Azure Service Bus hakkında sık sorulan bazı sorular açıklanmaktadır. Da ziyaret edebilirsiniz [Azure desteği SSS](https://azure.microsoft.com/en-us/support/faq/) genel Azure fiyatlandırma ve destek bilgileri.
+Bu makalede, Microsoft Azure Service Bus hakkında sık sorulan bazı sorular açıklanmaktadır. Da ziyaret edebilirsiniz [Azure desteği SSS](https://azure.microsoft.com/support/faq/) genel Azure fiyatlandırma ve destek bilgileri.
 
 ## <a name="general-questions-about-azure-service-bus"></a>Azure Service Bus hakkında genel sorular
 ### <a name="what-is-azure-service-bus"></a>Azure Service Bus nedir?
@@ -56,7 +56,7 @@ Bu bölümde, Service Bus fiyatlandırma yapısı hakkında sık sorulan bazı s
 
 [Fiyatlandırma ve faturalama Service Bus](service-bus-pricing-billing.md) makalede, Service Bus, faturalandırma ölçümlerinde açıklanmaktadır. Service Bus fiyatlandırma seçenekleri hakkında ayrıntılı bilgi için bkz: [Service Bus fiyatlandırma ayrıntıları](https://azure.microsoft.com/pricing/details/service-bus/).
 
-Da ziyaret edebilirsiniz [Azure desteği SSS](https://azure.microsoft.com/en-us/support/faq/) genel Azure fiyatlandırma bilgileri için. 
+Da ziyaret edebilirsiniz [Azure desteği SSS](https://azure.microsoft.com/support/faq/) genel Azure fiyatlandırma bilgileri için. 
 
 ### <a name="how-do-you-charge-for-service-bus"></a>Nasıl hizmet veri yolu için ücretlendirme yapılır?
 Service Bus fiyatlandırması hakkında tam bilgi için bkz. [Service Bus fiyatlandırma ayrıntıları][Pricing overview]. Bahsi geçen ücretler ek olarak, ilişkili veri aktarımları, uygulamanızın sağlandığı veri merkezi dışında çıkışı için ücretlendirilirsiniz.

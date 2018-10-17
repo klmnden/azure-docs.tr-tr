@@ -13,12 +13,12 @@ ms.workload: identity
 ms.date: 09/27/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: ee2a72a65902347a2e58f79d0f621c9d08178104
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: d9cf46a1fd28985d9ca98d173bbef17380b7de21
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47410315"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49354402"
 ---
 # <a name="azure-resource-manager-resource-provider-operations"></a>Azure Resource Manager kaynak sağlayıcısı işlemleri
 
@@ -3346,8 +3346,6 @@ Kaynak sağlayıcısı işlemleri her zaman artmaktadır. En son işlem almak i�
 > | Eylem | Microsoft.Network/loadBalancers/backendAddressPools/join/action | Bir yük dengeleyici arka uç adres havuzu birleştirir |
 > | Eylem | Microsoft.Network/loadBalancers/backendAddressPools/read | Bir yük dengeleyici arka uç adres havuzu tanımı alır |
 > | Eylem | Microsoft.Network/loadBalancers/delete | Bir yük dengeleyici siler |
-> | Eylem | Microsoft.Network/loadBalancers/frontendIPConfigurations/join/action | Bir yük dengeleyici ön uç IP yapılandırması birleştirir. |
-> | Eylem | Microsoft.Network/loadBalancers/frontendIPConfigurations/read | Bir yük dengeleyici ön uç IP yapılandırması tanımı alır |
 > | Eylem | Microsoft.Network/loadBalancers/inboundNatPools/join/action | Birleştiren bir yük dengeleyici gelen nat havuzu |
 > | Eylem | Microsoft.Network/loadBalancers/inboundNatPools/read | Alır bir yük dengeleyici gelen nat havuzu tanımı |
 > | Eylem | Microsoft.Network/loadBalancers/inboundNatRules/delete | Bir yük dengeleyici gelen nat kuralı siler |
@@ -3477,10 +3475,6 @@ Kaynak sağlayıcısı işlemleri her zaman artmaktadır. En son işlem almak i�
 > | Eylem | Microsoft.Network/publicIPAddresses/dnsAliases/read | Bir genel IP adresi Dns diğer adı kaynak alır |
 > | Eylem | Microsoft.Network/publicIPAddresses/dnsAliases/write | Bir genel IP adresi Dns diğer adı kaynak oluşturur |
 > | Eylem | Microsoft.Network/publicIPAddresses/join/action | Bir genel IP adresi birleştirir |
-> | Eylem | Microsoft.Network/publicIPAddresses/loadBalancerPools/delete | Bir genel IP adresini yük dengeleyici arka uç havuzu siler |
-> | Eylem | Microsoft.Network/publicIPAddresses/loadBalancerPools/join/action | Bir genel IP adresini yük dengeleyici arka uç havuzu birleştirir |
-> | Eylem | Microsoft.Network/publicIPAddresses/loadBalancerPools/read | Bir genel IP adresini yük dengeleyici arka uç havuzu tanımı alır |
-> | Eylem | Microsoft.Network/publicIPAddresses/loadBalancerPools/write | Bir genel IP adresini yük dengeleyici arka uç havuzu oluşturur veya bir mevcut genel IP adresini yük dengeleyici arka uç havuzu güncelleştirir |
 > | Eylem | Microsoft.Network/publicIPAddresses/providers/Microsoft.Insights/diagnosticSettings/read | Genel IP adresinin tanılama ayarlarını al |
 > | Eylem | Microsoft.Network/publicIPAddresses/providers/Microsoft.Insights/diagnosticSettings/write | Genel IP adresinin tanılama ayarlarını güncelle |
 > | Eylem | Microsoft.Network/publicIPAddresses/providers/Microsoft.Insights/logDefinitions/read | Genel IP adresinin günlüğü tanımlarını Al |
@@ -4140,7 +4134,7 @@ Kaynak sağlayıcısı işlemleri her zaman artmaktadır. En son işlem almak i�
 > | Eylem | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationvCenters/read | Tüm vCenters okuyun |
 > | Eylem | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationvCenters/write | Tüm vCenters güncelle |
 > | Eylem | Microsoft.RecoveryServices/vaults/replicationFabrics/write | Tüm yapıları güncelle |
-> | Eylem | Microsoft.RecoveryServices/vaults/replicationJobs/cancel/action | İşi İptal Et |
+> | Eylem | Microsoft.RecoveryServices/vaults/replicationJobs/cancel/action | İşi iptal et |
 > | Eylem | Microsoft.RecoveryServices/vaults/replicationJobs/read | Herhangi bir işi okuma |
 > | Eylem | Microsoft.RecoveryServices/vaults/replicationJobs/restart/action | İşi yeniden başlatın |
 > | Eylem | Microsoft.RecoveryServices/vaults/replicationJobs/resume/action | İşi sürdürme |

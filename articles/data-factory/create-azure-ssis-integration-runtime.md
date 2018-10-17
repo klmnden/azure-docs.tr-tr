@@ -13,12 +13,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: ace95d39cf7c2d183249b0b6c4094835132b3198
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.openlocfilehash: 90f6841ddc2fe1c017dbfc7e9046fae4a0ceb097
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48249392"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49363818"
 ---
 # <a name="create-the-azure-ssis-integration-runtime-in-azure-data-factory"></a>Azure Data Factory'de Azure-SSIS tümleştirme çalışma zamanı oluşturma
 Bu makalede, Azure Data factory'de bir Azure-SSIS tümleştirme çalışma zamanı sağlama adımlarını sunar. Daha sonra, SQL Server Veri Araçları (SSDT) veya SQL Server Management Studio'yu (SSMS) kullanarak Azure'da bu çalışma zamanında SQL Server Integration Services (SSIS) paketleri dağıtabilir ve çalıştırabilirsiniz. 
@@ -43,7 +43,7 @@ Bir Azure-SSIS IR örneğini sağladığınızda, SSIS için Azure Feature Pack 
 ## <a name="prerequisites"></a>Önkoşullar 
 - **Azure aboneliği**. Bir aboneliğiniz yoksa, bir [ücretsiz deneme](http://azure.microsoft.com/pricing/free-trial/) hesabı oluşturabilirsiniz. 
 
-- **Azure SQL veritabanı mantıksal sunucusu veya yönetilen örneği**. Henüz bir veritabanı sunucunuz yoksa, başlamadan önce Azure portalında bir tane oluşturun. Bu sunucu, SSIS Katalog veritabanını (SSISDB) barındırır. Veritabanı sunucusunu tümleştirme çalışma zamanı ile aynı Azure bölgesinde oluşturmanız önerilir. Bu yapılandırma, tümleştirme çalışma zamanının Azure bölgelerinden geçmeden SSISDB’ye yürütme günlüklerini yazmasına olanak tanır. Seçili veritabanı sunucusunda bağlı olarak, SSISDB sizin adınıza tek veritabanı olarak, bir elastik havuz veya yönetilen bir örneğinde ve erişilebilir, genel ağında veya bir sanal ağa bağlanmaya tarafından oluşturulabilir. Azure SQL veritabanı için desteklenen fiyatlandırma katmanlarının bir listesi için bkz. [SQL veritabanı kaynak limitleri](../sql-database/sql-database-resource-limits.md). 
+- **Azure SQL veritabanı mantıksal sunucusu veya yönetilen örneği**. Henüz bir veritabanı sunucunuz yoksa, başlamadan önce Azure portalında bir tane oluşturun. Bu sunucu, SSIS Katalog veritabanını (SSISDB) barındırır. Veritabanı sunucusunu tümleştirme çalışma zamanı ile aynı Azure bölgesinde oluşturmanız önerilir. Bu yapılandırma, tümleştirme çalışma zamanının Azure bölgelerinden geçmeden SSISDB’ye yürütme günlüklerini yazmasına olanak tanır. Seçilen veritabanı sunucusuna göre SSISDB sizin adınıza tek veritabanı, elastik havuzun bir parçası veya Yönetilen Örnek biçiminde oluşturulabilir ve genel ağ üzerinden veya sanal ağa eklenerek erişilebilir. Azure SQL veritabanı için desteklenen fiyatlandırma katmanlarının bir listesi için bkz. [SQL veritabanı kaynak limitleri](../sql-database/sql-database-resource-limits.md). 
 
     Azure SQL veritabanı mantıksal sunucusu veya yönetilen örneği zaten SSIS kataloğuna (SSIDB veritabanı) sahip değil, emin olun. Azure-SSIS IR’nin sağlanması, mevcut bir SSIS Kataloğunun kullanılmasını desteklemez. 
 
@@ -68,7 +68,7 @@ SSIR Azure IR teklifiyle gibi belirli özelliklerini SQL veritabanı mantıksal 
 | **Kimlik doğrulaması** | Herhangi bir Azure Active Directory kullanıcı temsil eden bir kapsanan veritabanı kullanıcı hesabı ile bir veritabanı oluşturabilirsiniz **dbmanager** rol.<br/><br/>Bkz: [etkinleştirin, Azure SQL veritabanı'nda Azure AD](enable-aad-authentication-azure-ssis-ir.md#enable-azure-ad-on-azure-sql-database). | Azure AD yönetici dışında herhangi bir Azure Active Directory kullanıcı temsil eden bir kapsanan veritabanı kullanıcı hesabı ile bir veritabanı oluşturulamıyor <br/><br/>Bkz: [etkinleştirin, Azure SQL veritabanı yönetilen örneği Azure AD](enable-aad-authentication-azure-ssis-ir.md#enable-azure-ad-on-azure-sql-database-managed-instance). |
 | **Hizmet katmanı** | SQL veritabanı'nda Azure-SSIS IR oluşturduğunuzda, hizmet katmanı için SSISDB seçebilirsiniz. Birden çok hizmet katmanlarını vardır. | Azure-SSIS IR yönetilen örneği'nde oluşturduğunuzda, hizmet katmanı için SSISDB seçemezsiniz. Tüm veritabanları aynı yönetilen örneği, örneğe ayrılan aynı kaynak paylaşır. |
 | **Sanal ağ** | Hem Azure Resource Manager ve klasik sanal ağlar'ı destekler. | Yalnızca Azure Resource Manager sanal ağı destekler. Sanal ağ gereklidir.<br/><br/>Yönetilen örneği aynı sanal ağ için Azure-SSIS IR katılırsanız, Azure-SSIS IR yönetilen örneği'den farklı bir alt ağda olduğundan emin olun. Azure-SSIS IR, yönetilen örneğe farklı bir sanal ağa katılırsanız, (Bu aynı bölgeye sınırlıdır) sanal ağ eşlemesi veya sanal ağ için sanal ağ bağlantısı öneririz. Bkz: [uygulamanızı Azure SQL veritabanı yönetilen örneği bağlamak](../sql-database/sql-database-managed-instance-connect-app.md). |
-| **Dağıtılmış işlemler** | Microsoft Dağıtılmış İşlem Düzenleyicisi (MSDTC) işlemler desteklenmez. Paketlerinizi dağıtılmış işlemleri düzenlemesine olanak MSDTC kullanıyorsanız, SQL veritabanı için esnek işlemleri'ni kullanarak geçici bir çözüm uygulamak mümkün olabilir. Şu anda SSIS elastik işlemler için yerleşik destek yok. Elastik işlemler SSIS paketinizdeki kullanmak için bir betik görevde özel ADO.NET kod yazmak zorunda. Bu betik görevi başlangıcını ve bitişini işlemi ve işlemin gerçekleşmesi gereken tüm eylemleri içermelidir.<br/><br/>Elastik işlemler kodlama hakkında daha fazla bilgi için bkz. [ile Azure SQL veritabanı elastik işlemler](https://azure.microsoft.com/en-us/blog/elastic-database-transactions-with-azure-sql-database/). Genel olarak, elastik işlemler hakkında daha fazla bilgi için bkz [bulut veritabanlarında dağıtılmış işlemler](../sql-database/sql-database-elastic-transactions-overview.md). | Desteklenmiyor. |
+| **Dağıtılmış işlemler** | Microsoft Dağıtılmış İşlem Düzenleyicisi (MSDTC) işlemler desteklenmez. Paketlerinizi dağıtılmış işlemleri düzenlemesine olanak MSDTC kullanıyorsanız, SQL veritabanı için esnek işlemleri'ni kullanarak geçici bir çözüm uygulamak mümkün olabilir. Şu anda SSIS elastik işlemler için yerleşik destek yok. Elastik işlemler SSIS paketinizdeki kullanmak için bir betik görevde özel ADO.NET kod yazmak zorunda. Bu betik görevi başlangıcını ve bitişini işlemi ve işlemin gerçekleşmesi gereken tüm eylemleri içermelidir.<br/><br/>Elastik işlemler kodlama hakkında daha fazla bilgi için bkz. [ile Azure SQL veritabanı elastik işlemler](https://azure.microsoft.com/blog/elastic-database-transactions-with-azure-sql-database/). Genel olarak, elastik işlemler hakkında daha fazla bilgi için bkz [bulut veritabanlarında dağıtılmış işlemler](../sql-database/sql-database-elastic-transactions-overview.md). | Desteklenmiyor. |
 | | | |
 
 ## <a name="azure-portal"></a>Azure portal
@@ -144,7 +144,7 @@ Bu bölümde, bir Azure-SSIS IR oluşturmak için Azure Portal'daki Data Factory
 
     b. **Location** (Konum) alanında SSISDB'yi barındıran veritabanı sunucunuzun konumunu seçin. Tümleştirme çalışma zamanınızla aynı konumu seçmenizi öneririz. 
 
-    c. **Catalog Database Server Endpoint** (Katalog Veritabanı Sunucusu Uç Noktası) alanında SSISDB'yi barındıracak veritabanı sunucunuzun uç noktasını seçin. Seçili veritabanı sunucusunda bağlı olarak, SSISDB sizin adınıza tek veritabanı olarak, bir elastik havuz veya yönetilen bir örneğinde ve erişilebilir, genel ağında veya bir sanal ağa bağlanmaya tarafından oluşturulabilir. 
+    c. **Catalog Database Server Endpoint** (Katalog Veritabanı Sunucusu Uç Noktası) alanında SSISDB'yi barındıracak veritabanı sunucunuzun uç noktasını seçin. Seçilen veritabanı sunucusuna göre SSISDB sizin adınıza tek veritabanı, elastik havuzun bir parçası veya Yönetilen Örnek biçiminde oluşturulabilir ve genel ağ üzerinden veya sanal ağa eklenerek erişilebilir. 
 
     d. Üzerinde **kullanım AAD kimlik doğrulaması...**  onay kutusunu SSISDB'yi barındırmak için veritabanı sunucusu için kimlik doğrulama yöntemini seçin: SQL veya Azure Active Directory (AAD), Azure Data Factory ile yönetilen Azure kaynakları için kimliği. Kaydetmeden gerekirse, Data Factory MSI veritabanı sunucusuna erişim izni olan bir AAD gruba eklemek için bkz: [etkinleştirme AAD kimlik doğrulaması için Azure-SSIS IR](https://docs.microsoft.com/en-us/azure/data-factory/enable-aad-authentication-azure-ssis-ir). 
 
@@ -152,7 +152,7 @@ Bu bölümde, bir Azure-SSIS IR oluşturmak için Azure Portal'daki Data Factory
 
     f. **Admin Password** (Yönetici Parolası) alanına SSISDB'yi barındıracak veritabanı sunucunuzun SQL kimlik doğrulaması parolasını girin. 
 
-    g. İçin **Katalog veritabanı hizmet katmanı**, veritabanı sunucunuza SSISDB'yi barındırmak için Hizmet katmanını seçin: temel/standart/Premium katmanı veya elastik havuz adı. 
+    g. **Catalog Database Service Tier** (Katalog Veritabanı Hizmet Katmanı) alanında SSISDB'yi barındıracak veritabanı sunucunuzun hizmet katmanını seçin: Temel/Standart/Premium katman veya elastik havuz adı. 
 
     h. **Test Connection** (Bağlantıyı Sına) öğesine tıklayın ve başarılı olursa **Next** (İleri) öğesine tıklayın. 
 

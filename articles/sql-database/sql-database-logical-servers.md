@@ -11,23 +11,23 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 09/20/2018
-ms.openlocfilehash: effaa9b0b3fec36974a2bc850eeb1f36181ca0c7
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.date: 10/15/2018
+ms.openlocfilehash: 83db2bcfe21edc9f8f2649ef8c2b3a23e412e39d
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47166444"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49353994"
 ---
 # <a name="azure-sql-database-logical-servers-and-their-management"></a>Azure SQL veritabanı mantıksal sunucuları ve bunların yönetimi
 
-## <a name="what-is-an-azure-sql-logical-server"></a>Bir Azure SQL mantıksal sunucusu nedir?
+## <a name="what-is-an-azure-sql-logical-server"></a>Bir Azure SQL mantıksal sunucusu nedir
 
 Merkezi bir yönetim noktası için birden çok tek bir mantıksal sunucu görür veya [havuza alınmış](sql-database-elastic-pool.md) veritabanları [oturumları](sql-database-manage-logins.md), [güvenlik duvarı kuralları](sql-database-firewall-configure.md), [kurallarıdenetleme](sql-database-auditing.md), [tehdit algılama ilkeleri](sql-database-threat-detection.md), ve [yük devretme grupları](sql-database-geo-replication-overview.md). Bir mantıksal sunucu, kaynak grubu farklı bir bölgede olabilir. Azure SQL veritabanı oluşturmadan önce mantıksal sunucunun mevcut olması gerekir. Bir sunucudaki tüm veritabanları, mantıksal sunucusuyla aynı bölgede oluşturulur.
 
 Bir mantıksal sunucu şirket içi dünyada alışkın olabileceğiniz bir SQL Server örneğinden farklı olan mantıksal bir yapıdır. SQL Veritabanı hizmeti, veritabanlarının mantıksal sunuculara göre konumuyla ilgili özel bir garanti vermez ve örnek düzeyinde erişim ya da özellik sunmaz. Buna karşılık, bir SQL veritabanı yönetilen örneği'nde bir sunucuya şirket içi dünyada alışkın olabileceğiniz bir SQL Server örneğine benzer.
 
-Bir mantıksal sunucu oluşturduğunuzda, oturum açma hesabı ve parola ana veritabanında bu sunucudaki ve o sunucuda oluşturulan tüm veritabanları için yönetici haklarına sahip bir sunucu sağlayın. Bir SQL oturum açma hesabı bu ilk hesaptır. Azure SQL veritabanı, SQL kimlik doğrulaması ve Azure Active Directory kimlik doğrulaması için kimlik doğrulamasını destekler. Oturum açma bilgileri ve kimlik doğrulaması hakkında daha fazla bilgi için bkz. [yönetme veritabanları ve Azure SQL veritabanı'nda oturum açma bilgileri](sql-database-manage-logins.md). Windows Kimlik Doğrulaması desteklenmez. 
+Bir mantıksal sunucu oluşturduğunuzda, oturum açma hesabı ve parola ana veritabanında bu sunucudaki ve o sunucuda oluşturulan tüm veritabanları için yönetici haklarına sahip bir sunucu sağlayın. Bir SQL oturum açma hesabı bu ilk hesaptır. Azure SQL veritabanı, SQL kimlik doğrulaması ve Azure Active Directory kimlik doğrulaması için kimlik doğrulamasını destekler. Oturum açma bilgileri ve kimlik doğrulaması hakkında daha fazla bilgi için bkz. [yönetme veritabanları ve Azure SQL veritabanı'nda oturum açma bilgileri](sql-database-manage-logins.md). Windows Kimlik Doğrulaması desteklenmez.
 
 Azure SQL Veritabanı mantıksal sunucusu:
 
@@ -38,19 +38,19 @@ Azure SQL Veritabanı mantıksal sunucusu:
 - Katılan [Azure rol tabanlı erişim denetimi (RBAC)](/azure/role-based-access-control/overview) -bir sunucu içindeki veri ambarları veritabanları ve elastik havuzlar sunucudan erişim haklarını devralır
 - Veritabanları, elastik havuzlar ve veri ambarları için Azure kaynak kimliğini yüksek düzeyli bir öğedir (veritabanları ve havuzlar için URL şemasına bakın), yönetim amaçları mi
 - Bir bölgedeki kaynakları birlikte bulundurur
-- Veritabanı erişimi için bağlantı uç noktası sağlar (<serverName>.database.windows.net)
-- Bir ana veritabanına bağlanarak DMV’ler aracılığıyla içerdiği kaynaklarla ilgili meta verilere erişim sağlar 
-- Uygulama veritabanları - oturum açma bilgileri için güvenlik duvarı, Denetim, tehdit algılama, vb. Yönetimi ilkelerinin kapsamını sağlar. 
+- Veritabanı erişimi için bağlantı uç noktası sağlar (`<serverName>`.database.windows.net)
+- Bir ana veritabanına bağlanarak DMV’ler aracılığıyla içerdiği kaynaklarla ilgili meta verilere erişim sağlar
+- Veritabanları için - oturum açma bilgileri, güvenlik duvarı, Denetim, tehdit algılama ve gibi geçerli Yönetim ilkelerinin kapsamını sağlar
 - Üst abonelik içinde bir kota ile sınırlandırılır (varsayılan - olarak abonelik başına altı sunucu [bkz. abonelik limitleri](../azure-subscription-service-limits.md))
 - (45000 DTU gibi) içeren kaynaklar için yönelik veritabanı kotası ile DTU veya sanal çekirdek kotası kapsamını sağlar
-- İçerdiği kaynaklarda etkinleştirilmiş özelliklerin sürüm kapsamıdır 
+- İçerdiği kaynaklarda etkinleştirilmiş özelliklerin sürüm kapsamıdır
 - Sunucu düzeyinde asıl kullanıcı bilgileri bir sunucudaki tüm veritabanlarını yönetebilir
 - Şirketinizde sunucu üzerindeki bir veya daha fazla veritabanına erişim verilmiş SQL Server örneklerinde bulunanlara benzer kullanıcı bilgileri içerebilir ve sınırlı yönetici hakları alabilir. Daha fazla bilgi için bkz. [Kullanıcı Bilgileri](sql-database-manage-logins.md).
 - Bir mantıksal sunucuda oluşturulan tüm kullanıcı veritabanları için varsayılan harmanlaması `SQL_LATIN1_GENERAL_CP1_CI_AS`burada `LATIN1_GENERAL` İngilizce (Amerika Birleşik Devletleri) `CP1` kod sayfası 1252, `CI` duyarsızdır, ve `AS` is Aksan duyarlıdır.
 
 ## <a name="manage-azure-sql-servers-databases-and-firewalls-using-the-azure-portal"></a>Azure SQL sunucuları, veritabanları ve güvenlik duvarları Azure portalını kullanarak yönetme
 
-Azure SQL veritabanı'nın kaynak grubu önceden veya sunucunun kendisini oluştururken oluşturabilirsiniz. Yeni SQL server forma yeni bir SQL server oluşturma veya yeni bir veritabanı oluşturma işleminin parçası olarak almak için birden fazla yöntem vardır. 
+Azure SQL veritabanı'nın kaynak grubu önceden veya sunucunun kendisini oluştururken oluşturabilirsiniz. Yeni SQL server forma yeni bir SQL server oluşturma veya yeni bir veritabanı oluşturma işleminin parçası olarak almak için birden fazla yöntem vardır.
 
 ### <a name="create-a-blank-sql-server-logical-server"></a>Boş bir SQL server (mantıksal sunucu) oluşturma
 
@@ -58,7 +58,7 @@ Sunucu (olmadan, bir veritabanı) kullanarak bir Azure SQL veritabanı oluşturm
 
 ### <a name="create-a-blank-or-sample-sql-database"></a>Boş veya örnek SQL veritabanı oluşturma
 
-Kullanarak bir Azure SQL veritabanı oluşturmak için [Azure portalında](https://portal.azure.com)için boş bir SQL veritabanı formunu gidin ve istenen bilgileri sağlayın. Azure SQL veritabanı'nın kaynak grubu ve mantıksal sunucuya önceden veya veritabanı oluşturulurken oluşturabilirsiniz. Boş bir veritabanı oluşturun veya Adventure Works LT. üzerinde bağlı örnek bir veritabanı oluşturun 
+Kullanarak bir Azure SQL veritabanı oluşturmak için [Azure portalında](https://portal.azure.com)için boş bir SQL veritabanı formunu gidin ve istenen bilgileri sağlayın. Azure SQL veritabanı'nın kaynak grubu ve mantıksal sunucuya önceden veya veritabanı oluşturulurken oluşturabilirsiniz. Boş bir veritabanı oluşturun veya Adventure Works LT. üzerinde bağlı örnek bir veritabanı oluşturun
 
   ![create database-1](./media/sql-database-get-started-portal/create-database-1.png)
 
@@ -69,19 +69,16 @@ Bir yönetilen örnek oluşturmak için bkz [bir yönetilen örnek oluşturma](s
 
 ### <a name="manage-an-existing-sql-server"></a>Mevcut bir SQL server'ı yönetme
 
-Mevcut bir sunucuyu yönetmek için bir dizi yöntem - gibi belirli SQL veritabanı sayfasında, uğradıysa kullanarak sunucuya gidin **SQL sunucuları** sayfasında veya **tüm kaynakları** sayfası. 
+Mevcut bir sunucuyu yönetmek için bir dizi yöntem - gibi belirli SQL veritabanı sayfasında, uğradıysa kullanarak sunucuya gidin **SQL sunucuları** sayfasında veya **tüm kaynakları** sayfası.
 
-Varolan bir veritabanını yönetmek için gidin **SQL veritabanları** sayfasında ve yönetmek istediğiniz veritabanına tıklayın. Aşağıdaki ekran görüntüsünde, bir veritabanından için sunucu düzeyinde güvenlik duvarı ayarını başlamak gösterilmektedir **genel bakış** bir veritabanı için sayfa. 
+Varolan bir veritabanını yönetmek için gidin **SQL veritabanları** sayfasında ve yönetmek istediğiniz veritabanına tıklayın. Aşağıdaki ekran görüntüsünde, bir veritabanından için sunucu düzeyinde güvenlik duvarı ayarını başlamak gösterilmektedir **genel bakış** bir veritabanı için sayfa.
 
-   ![sunucu güvenlik duvarı kuralı](./media/sql-database-get-started-portal/server-firewall-rule.png) 
+   ![sunucu güvenlik duvarı kuralı](./media/sql-database-get-started-portal/server-firewall-rule.png)
 
 > [!IMPORTANT]
 > Bir veritabanı için performans özelliklerini yapılandırmak için bkz: [DTU tabanlı satın alma modeli](sql-database-service-tiers-dtu.md) ve [sanal çekirdek tabanlı satın alma modeli](sql-database-service-tiers-vcore.md).
->
-
 > [!TIP]
 > Bir Azure portalı Hızlı Başlangıç için bkz: [Azure portalında bir Azure SQL veritabanı oluşturma](sql-database-get-started-portal.md).
->
 
 ## <a name="manage-azure-sql-servers-databases-and-firewalls-using-powershell"></a>Azure SQL sunucularını, veritabanlarını ve güvenlik duvarları PowerShell kullanarak yönetme
 
@@ -164,7 +161,6 @@ Azure SQL server, veritabanları ve Transact-SQL ile güvenlik duvarları oluşt
 |[sys.database_firewall_rules (Azure SQL veritabanı)](/sql/relational-databases/system-catalog-views/sys-database-firewall-rules-azure-sql-database)|Microsoft Azure SQL veritabanı ile ilişkili veritabanı düzeyinde güvenlik duvarı ayarları hakkında bilgi döndürür. |
 |[sp_delete_database_firewall_rule (Azure SQL veritabanı)](/sql/relational-databases/system-stored-procedures/sp-delete-database-firewall-rule-azure-sql-database)|Veritabanı düzeyinde güvenlik duvarı ayarı, Azure SQL veritabanı veya SQL veri ambarı kaldırır. |
 
-
 > [!TIP]
 > Microsoft Windows üzerinde SQL Server Management Studio'yu kullanarak bir hızlı başlangıç için bkz: [Azure SQL veritabanı: bağlanmak ve veri sorgulamak için kullanım SQL Server Management Studio](sql-database-connect-query-ssms.md). MacOS, Linux veya Windows üzerinde Visual Studio Code'u kullanarak bir hızlı başlangıç için bkz: [Azure SQL veritabanı: kullanım Visual Studio Code bağlanmak ve veri sorgulamak için](sql-database-connect-query-vscode.md).
 
@@ -174,21 +170,22 @@ Azure SQL server, veritabanlarını ve güvenlik duvarları oluşturmak ve yöne
 
 | Komut | Açıklama |
 | --- | --- |
-|[Sunucuları - oluştur veya güncelleştir](/rest/api/sql/servers/createorupdate)|Oluşturur veya yeni bir sunucu güncelleştirir.|
-|[Sunucuları - Sil](/rest/api/sql/servers/delete)|Bir SQL server siler.|
-|[Sunucuları - Get](/rest/api/sql/servers/get)|Bir sunucu alır.|
-|[Sunucuları - liste](/rest/api/sql/servers/list)|Sunucularının bir listesini döndürür.|
-|[Sunucuları - kaynak grubuna göre listesi](/rest/api/sql/servers/listbyresourcegroup)|Bir kaynak grubunda sunucularının bir listesini döndürür.|
-|[Sunucuları - güncelleştirme](/rest/api/sql/servers/update)|Mevcut bir sunucu güncelleştirir.|
-|[Veritabanları - oluştur veya güncelleştir](/rest/api/sql/databases/createorupdate)|Yeni bir veritabanı oluşturur veya mevcut bir veritabanını güncelleştirir.|
-|[Veritabanları - Get](/rest/api/sql/databases/get)|Bir veritabanını alır.|
-|[Veritabanı - elastik havuz göre listesi](/rest/api/sql/databases/listbyelasticpool)|Elastik havuzdaki veritabanlarının listesini döndürür.|
-|[Veritabanı - sunucu listesi](/rest/api/sql/databases/listbyserver)|Bir sunucu veritabanlarının listesini döndürür.|
-|[Veritabanları - güncelleştirme](/rest/api/sql/databases/update)|Varolan bir veritabanını güncelleştirir.|
-|[Güvenlik duvarı kuralları - oluştur veya güncelleştir](/rest/api/sql/firewallrules/createorupdate)|Oluşturur veya bir güvenlik duvarı kuralını güncelleştirir.|
-|[Güvenlik duvarı kuralları - Sil](/rest/api/sql/firewallrules/delete)|Bir güvenlik duvarı kuralını siler.|
-|[Güvenlik duvarı kuralları - Get](/rest/api/sql/firewallrules/get)|Bir güvenlik duvarı kuralını alır.|
-|[Güvenlik duvarı kuralları - sunucu listesi](/rest/api/sql/firewallrules/listbyserver)|Güvenlik duvarı kurallarının bir listesini döndürür.|
+|[Sunucuları - oluştur veya güncelleştir](https://docs.microsoft.com/rest/api/sql/servers/servers_createorupdate/rest/api)|Oluşturur veya yeni bir sunucu güncelleştirir.|
+|[Sunucuları - Sil](https://docs.microsoft.com/rest/api/sql/servers/servers_delete)|Bir SQL server siler.|
+|[Sunucuları - Get](https://docs.microsoft.com/rest/api/sql/servers/servers_get)|Bir sunucu alır.|
+|[Sunucuları - liste](https://docs.microsoft.com/rest/api/sql/servers/servers_list)|Sunucularının bir listesini döndürür.|
+|[Sunucuları - kaynak grubuna göre listesi](https://docs.microsoft.com/rest/api/sql/servers/servers_listbyresourcegroup)|Bir kaynak grubunda sunucularının bir listesini döndürür.|
+|[Sunucuları - güncelleştirme](https://docs.microsoft.com/rest/api/sql/servers/servers_update)|Mevcut bir sunucu güncelleştirir.|
+|[Veritabanları - oluştur veya güncelleştir](https://docs.microsoft.com/rest/api/sql/databases/databases_createorupdate)|Yeni bir veritabanı oluşturur veya mevcut bir veritabanını güncelleştirir.|
+|[Veritabanları - Sil](https://docs.microsoft.com/rest/api/sql/databases/databases_delete)|Bir veritabanını siler.|
+|[Veritabanları - Get](https://docs.microsoft.com/rest/api/sql/databases/databases_get)|Bir veritabanını alır.|
+|[Veritabanı - elastik havuz göre listesi](https://docs.microsoft.com/rest/api/sql/databases/databases_listbyelasticpool)|Elastik havuzdaki veritabanlarının listesini döndürür.|
+|[Veritabanı - sunucu listesi](https://docs.microsoft.com/rest/api/sql/databases/databases_listbyserver)|Bir sunucu veritabanlarının listesini döndürür.|
+|[Veritabanları - güncelleştirme](https://docs.microsoft.com/rest/api/sql/databases/databases_update)|Varolan bir veritabanını güncelleştirir.|
+|[Güvenlik duvarı kuralları - oluştur veya güncelleştir](https://docs.microsoft.com/rest/api/sql/firewallrules/firewallrules_createorupdate)|Oluşturur veya bir güvenlik duvarı kuralını güncelleştirir.|
+|[Güvenlik duvarı kuralları - Sil](https://docs.microsoft.com/rest/api/sql/firewallrules/firewallrules_delete)|Bir güvenlik duvarı kuralını siler.|
+|[Güvenlik duvarı kuralları - Get](https://docs.microsoft.com/rest/api/sql/firewallrules/firewallrules_get)|Bir güvenlik duvarı kuralını alır.|
+|[Güvenlik duvarı kuralları - sunucu listesi](https://docs.microsoft.com/rest/api/sql/firewallrules/firewallrules_listbyserver)|Güvenlik duvarı kurallarının bir listesini döndürür.|
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

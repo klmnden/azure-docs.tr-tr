@@ -8,37 +8,45 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 10/02/2018
 ms.author: lyrana
-ms.openlocfilehash: 1d5b1869428cec6bf80b8518485f685e38ad5997
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: ef7838c41bb479da273123c2eb3def8e12802390
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49324314"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49351311"
 ---
 # <a name="connect-and-authenticate-to-apis"></a>Bağlanıp API'lerine kimlikleri
 
-Azure dijital İkizlerini, kullanıcıların kimliklerini doğrulamak ve uygulamaları korumak için Azure Active Directory (Azure AD) kullanır.
+Azure dijital İkizlerini, kullanıcıların kimliklerini doğrulamak ve uygulamaları korumak için Azure Active Directory (Azure AD) kullanır. Azure AD kimlik doğrulaması için modern mimarileri çeşitli destekler, bunların tümünün OAuth 2.0 veya Openıd Connect endüstri standardı protokoller üzerinde tabanlı. Ayrıca, Azure AD, hem tek kiracılı, satır iş kolu (LOB) uygulamaları, aynı zamanda çok kiracılı uygulamalar geliştirmek isteyen geliştiricilerin oluşturmasını sağlar.
 
-Azure AD ile bilmiyorsanız, daha fazla bilgi kullanılabilir [Geliştirici Kılavuzu](https://docs.microsoft.com/azure/active-directory/develop/azure-ad-developers-guide). Windows Azure kimlik doğrulama kitaplığı, Active Directory belirteçlerini almak için birçok yol sunar. Derinlemesine için kitaplığa, göz [burada](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki).
+Azure AD ziyaret genel bir bakış için [temelleri sayfa](https://docs.microsoft.com/azure/active-directory/fundamentals/index) adım adım kılavuzlar, kavramlar ve hızlı başlangıçlar için.
 
-Bu makalede iki senaryo genel bakışını verir: Orta katman API ve Hızlı Başlangıç'ı ve test etmek için Postman istemci uygulamasında kimlik doğrulaması ile bir üretim senaryosu.
+Bir uygulama veya hizmeti Azure AD ile tümleştirmek için geliştiricilerin önce uygulamayı Azure AD'ye kaydetmesi gerekir. Ayrıntılı yönergeler ve ekran görüntüleri yönergeleri görüntülemek için [burada](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v1-add-azure-ad-app)
 
-## <a name="authentication-in-production"></a>Üretimde kimlik doğrulaması
+Bunlar [beş birincil uygulama senaryoları](https://docs.microsoft.com/azure/active-directory/develop/v2-app-types) Azure AD tarafından desteklenen:
 
-Çözümleri geliştiriciler için dijital İkizlerini bağlanmak için iki yolu vardır.  Çözümleri geliştiriciler Azure dijital çiftleri için aşağıdaki yollarla bağlanabilirsiniz:
+* Tek sayfalı uygulama (SPA): bir kullanıcının Azure AD tarafından güvenliği sağlanan bir tek sayfalı uygulama için oturum açmanız gerekir.
+* Web uygulamasına Web tarayıcısı: bir kullanıcı Azure AD tarafından güvenliği sağlanan bir web uygulamasına oturum açması gerekiyor.
+* Web API'si yerel uygulamaya: telefon, tablet veya PC çalıştıran yerel bir uygulama bir Web API'si Azure AD tarafından güvenli hale getirilen kaynakları almak için bir kullanıcının kimliğini doğrulaması gerektiğinde.
+* Web uygulaması web API'si için: bir Web API'si Azure AD tarafından güvenliği sağlanan kaynakları almak bir web uygulaması gerekir.
+* Web API arka plan programı ya da sunucu uygulamasında: bir Web API'si Azure AD tarafından güvenliği sağlanan kaynakları almak bir arka plan programı uygulaması veya web kullanıcı arabirimi ile bir sunucu uygulaması gerekir.
 
-* İstemci uygulamanız ya da bir orta katman API oluşturabilirler. Kullanıcıların kimliğini doğrulamak ve ardından istemci uygulamalarını gerektiren [OAuth 2.0 On-Behalf-Of](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-on-behalf-of-flow) güvenlik akış aşağı akış API'sini çağırmak için.
-* Oluşturun veya mevcut bir Azure AD uygulamasının yararlanması. Belgeleri görüntüleyin [burada](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad).
-    1. Belirtin **oturum açma ve yeniden yönlendirme URI'leri** (gerekirse).
-    1. Uygulamada bildirim kümesi `oauth2AllowImplicitFlow` true.
-    1. İçinde **gerekli izinler**, "Azure dijital İkizlerini" arayarak dijital İkizlerini Ekle Seçin **temsilci izinleri okuma/yazma erişimi** tıklatıp **izinler** düğmesi.
+Windows Azure kimlik doğrulama kitaplığı, Active Directory belirteçlerini almak için birçok yol sunar. Örnekler için derinlemesine kitaplığı yanı sıra kod uygulamasına göz atın [burada](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki).
 
-On-behalf-of akışı düzenlemek nasıl hakkında ayrıntılı yönergeler ziyaret [bu sayfayı](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-on-behalf-of-flow). Kod örnekleri de görüntüleyebilirsiniz [burada](https://azure.microsoft.com/resources/samples/active-directory-dotnet-webapi-onbehalfof/).
+## <a name="calling-digital-twins-from-a-middle-tier-web-api"></a>Dijital İkizlerini bir orta katman web API'si çağırma
+
+Dijital İkizlerini çözümleri geliştiriciler genellikle üreten bir orta katman uygulama veya dijital İkizlerini API'ı aşağı yönde çağıran API oluşturmak seçin. Kullanıcılar için Orta katmanda uygulama ilk kez kimlik doğrulamasının ve aşağı akış çağrılırken bir üzerinde-behalf-of belirteç akışı ardından kullanılacaktır. On-behalf-of akışı düzenlemek nasıl hakkında ayrıntılı yönergeler ziyaret [bu sayfayı](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-on-behalf-of-flow). Kod örnekleri de görüntüleyebilirsiniz [burada](https://azure.microsoft.com/resources/samples/active-directory-dotnet-webapi-onbehalfof/).
+
 
 ## <a name="test-with-the-postman-client"></a>Postman istemciyle test etme
 
-1. Bir Azure Active Directory uygulaması oluşturma (veya değiştirmek için) Yukarıdaki ilk adımları izleyin. Ardından, `oauth2AllowImplicitFlow` uygulama bildiriminde true ve "Azure dijital çiftleri için." izinleri vermek için
-1. Yanıt URL'si kümesine [ https://www.getpostman.com/oauth2/callback ](https://www.getpostman.com/oauth2/callback).
+Dijital İkizlerini API'lerini kullanmaya başlamak için Postman gibi bir istemci bir API ortam kullanabilirsiniz. Postman, karmaşık HTTP isteklerine hızlı bir şekilde oluşturmanıza yardımcı olur. Aşağıdaki yönergeler, dijital İkizlerini Postman UI içinde çağırmak için gereken bir Azure AD belirteç edinme hakkında odaklanır.
+
+
+1. Gidin https://www.getpostman.com/ uygulamayı indirmek için
+1. Adımları [burada](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad) bir Azure Active Directory uygulaması oluşturmak için (veya mevcut bir kayıt yeniden kullanmayı da seçebilirsiniz). 
+1. "Azure dijital İkizlerini" altında gerekli izinleri Ekle ve temsilci izinleri seçin. İzinler sonlandırmak için tıklamayı unutmayın.
+1. Bir yanıt URL'si için yapılandırma [ https://www.getpostman.com/oauth2/callback ](https://www.getpostman.com/oauth2/callback).
 1. Seçin **yetkilendirme sekmesini**, tıklayarak **OAuth 2.0**seçip **yeni erişim belirteci Al**.
 
     |**Alan**  |**Değer** |
@@ -53,11 +61,10 @@ On-behalf-of akışı düzenlemek nasıl hakkında ayrıntılı yönergeler ziya
 
 1. Tıklayın **belirteç iste**.
 
-    >[!TIP]
-    >"2 OAuth tamamlanamadı" hata iletisi alırsanız, aşağıdakilerden birini deneyin:
+    >[!NOTE]
+    >"2 OAuth tamamlanamadı" hata iletisi alırsanız, aşağıdakileri deneyin:
     > * Postman'ı kapatın ve yeniden açın ve yeniden deneyin.
-    > * Uygulamanızda gizli anahtar silin, yeni bir tane ve yeniden girin yukarıdaki form değeri yeniden oluşturun.
-
+   
 1. Aşağı kaydırıp tıklayın **kullanım belirteci**.
 
 ## <a name="next-steps"></a>Sonraki adımlar

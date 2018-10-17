@@ -1,42 +1,51 @@
+items:
 - name: Azure IoT Temel Konuları
   href: index.yml
 - name: Genel Bakış
   items:
-    - name: Giriş
-      href: iot-introduction.md
-    - name: Azure IoT hizmetleri ve teknolojileri
-      href: iot-services-and-technologies.md
+  - name: Giriş
+    href: iot-introduction.md
+  - name: Azure IoT hizmetleri ve teknolojileri
+    href: iot-services-and-technologies.md
 - name: Çözümler
   items:
-    - name: IoT çözüm hızlandırıcıları
-      href: /azure/iot-suite
-    - name: IoT Central
-      href: 'https://docs.microsoft.com/microsoft-iot-central/'
+  - name: IoT çözüm hızlandırıcıları
+    href: /azure/iot-suite
+  - name: IoT Central
+    href: https://docs.microsoft.com/microsoft-iot-central/
 - name: Platform hizmetleri
   items:
-    - name: IoT Hub
-      href: /azure/iot-hub
-    - name: IoT Hub Cihazı Sağlama Hizmeti
-      href: /azure/iot-dps
-    - name: Azure Haritalar
-      href: /azure/azure-maps
-    - name: Hizmet SDK'ları
-      href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks'
-    - name: Time Series Insights
-      href: /azure/time-series-insights
+  - name: IoT Hub
+    href: /azure/iot-hub
+  - name: IoT Hub Cihazı Sağlama Hizmeti
+    href: /azure/iot-dps
+  - name: Azure Digital Twins
+    href: /azure/digital-twins
+  - name: Azure Haritalar
+    href: /azure/azure-maps
+  - name: Time Series Insights
+    href: /azure/time-series-insights
+  - name: Hizmet SDK'ları
+    href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks
 - name: Edge
   items:
-    - name: IoT Edge
-      href: /azure/iot-edge
-    - name: IoT Cihaz SDK'ları
-      href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks'
+  - name: IoT Edge
+    href: /azure/iot-edge
+  - name: IoT Cihaz SDK'ları
+    href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks
 - name: Güvenlik
   items:
-    - name: Güvenlik mimarisi
-      href: iot-security-architecture.md
-    - name: En iyi güvenlik uygulamaları
-      href: iot-security-best-practices.md
-    - name: Güvenli dağıtım
-      href: iot-security-deployment.md
-    - name: Baştan sona güvenlik
-      href: iot-security-ground-up.md
+  - name: Güvenlik mimarisi
+    href: iot-security-architecture.md
+  - name: En iyi güvenlik uygulamaları
+    href: iot-security-best-practices.md
+  - name: Güvenli dağıtım
+    href: iot-security-deployment.md
+  - name: Baştan sona güvenlik
+    href: iot-security-ground-up.md
+ms.openlocfilehash: df43416b0d1e72e152a2917846ba0407c861421b
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.translationtype: HT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49321385"

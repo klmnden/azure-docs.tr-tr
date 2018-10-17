@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/01/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: 1490e60f3c6537a661fc1e76907b502a586547c9
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.openlocfilehash: bcede1f985937058196b75a93f539cb34da73992
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48248899"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49365071"
 ---
 # <a name="log-alerts-in-azure-monitor"></a>Azure İzleyici'de günlük uyarıları
 Bu makalede, günlük uyarı ayrıntıları, bir içinde desteklenen uyarı türleri sağlanır [Azure uyarıları](monitoring-overview-unified-alerts.md) ve kullanıcıların uyarmak için temel olarak Azure'nın analiz platformu kullanmasına izin verir.
@@ -110,7 +110,7 @@ Ancak, yukarıda listelenen durumda da, 13: 15'te - Azure uyarıları 1: 10'da g
 
 
 ## <a name="pricing-and-billing-of-log-alerts"></a>Fiyatlandırma ve faturalama günlük uyarıları
-Günlük uyarıları fiyatlandırması geçerli belirtildikten adresindeki [Azure İzleyici fiyatlandırma](https://azure.microsoft.com/en-us/pricing/details/monitor/) sayfası. Azure faturaları günlük uyarıları tür olarak temsil edilir `microsoft.insights/scheduledqueryrules` ile:
+Günlük uyarıları fiyatlandırması geçerli belirtildikten adresindeki [Azure İzleyici fiyatlandırma](https://azure.microsoft.com/pricing/details/monitor/) sayfası. Azure faturaları günlük uyarıları tür olarak temsil edilir `microsoft.insights/scheduledqueryrules` ile:
 - Kaynak grubu ve uyarı özellikleri ile birlikte tam uyarı adı ile gösterilen Application ınsights günlük uyarıları
 - Günlük uyarıları Log Analytics ile uyarı adı gösterilen üzerinde `<WorkspaceName>|<savedSearchId>|<scheduleId>|<ActionId>` yanı sıra kaynak grubu ve uyarı özellikleri
 

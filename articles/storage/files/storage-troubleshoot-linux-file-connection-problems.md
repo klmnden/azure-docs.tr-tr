@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 05/11/2018
 ms.author: jeffpatt
 ms.component: files
-ms.openlocfilehash: 0f99913ab252b94d475f920bd734e68ff5f3b3d3
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 31a0ffc2937f6d93a630bf6ce474d7dcf20c923f
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39525129"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49364396"
 ---
 # <a name="troubleshoot-azure-files-problems-in-linux"></a>Linux'ta Azure dosyaları sorunlarını giderme
 
@@ -82,7 +82,7 @@ Bazı Linux dağıtımlarında henüz şifreleme özellikleri de SMB 3.0 desteğ
 
 ### <a name="solution"></a>Çözüm
 
-Linux için SMB 3.0 şifreleme özelliği 4.11 Çekirdeği'nde kullanıma sunulmuştur. Bu özellik, şirket içinde veya farklı bir Azure bölgesinde Azure dosya paylaşımını bağlama olanağı sağlar. Yayımlama zaman bu işlev, Ubuntu 17.04 ve Ubuntu 16.10 backported olmuştur. Linux SMB istemci şifreleme desteklemiyorsa, bağlama Azure dosya depolama hesabı ile aynı veri merkezinde bulunan bir Azure Linux VM gelen SMB 2.1 kullanarak dosyaları.
+Linux için SMB 3.0 şifreleme özelliği 4.11 Çekirdeği'nde kullanıma sunulmuştur. Bu özellik, şirket içinde veya farklı bir Azure bölgesinde Azure dosya paylaşımını bağlama olanağı sağlar. Yayımlama zaman bu işlev, Ubuntu 17.04 ve Ubuntu 16.10 backported olmuştur. Linux SMB istemci şifreleme desteklemiyorsa, bağlama Azure VM'den bir Azure Linux dosyası olarak aynı veri merkezinde olan SMB 2.1 kullanarak dosyaları paylaşma ve doğrulayın [güvenli aktarım gerekli]( https://docs.microsoft.com/en-us/azure/storage/common/storage-require-secure-transfer) depolama alanında ayar devre dışı hesabı. 
 
 <a id="slowperformance"></a>
 ## <a name="slow-performance-on-an-azure-file-share-mounted-on-a-linux-vm"></a>Azure dosya paylaşımını yavaş performans Linux sanal makinesine bağlı
@@ -149,7 +149,8 @@ Bu sorunun sık karşılaşılan nedenleri şunlardır:
 - En az SMB/CIFS sürüm 2.1 istemcide yüklü değil.
 - SMB 3.0 şifreleme istemcide desteklenmiyor. SMB 3.0 şifreleme Ubuntu 16,4 ve sonraki bir sürümünü, SUSE 12.3 ve sonraki bir sürümü kullanılabilir. Diğer dağıtımları, çekirdek 4.11 ve sonraki bir sürümü gerektirir.
 - Desteklenmeyen TCP bağlantı noktası 445 üzerinden bir depolama hesabına bağlanmak çalışıyorsunuz.
-- Azure dosya paylaşımı için bir Azure VM'den bağlanmaya çalışıyorsanız ve VM depolama hesabı ile aynı bölgede bulunmuyor.
+- Bir Azure VM'den Azure dosya paylaşımına bağlanmak çalışıyorsanız ve VM depolama hesabı ile aynı bölgede bulunmuyor.
+- Varsa [güvenli aktarım gerekli]( https://docs.microsoft.com/en-us/azure/storage/common/storage-require-secure-transfer) ayarı, depolama hesabında etkinleştirildiğinde, Azure dosyaları yalnızca SMB 3.0 şifreleme kullanarak bağlantılarına izin.
 
 ### <a name="solution"></a>Çözüm
 

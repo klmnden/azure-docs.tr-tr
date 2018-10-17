@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/30/2018
 ms.author: iainfou
-ms.openlocfilehash: 87ea88ad84114c4059e9a461beedb656c1d66bf5
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 4679b800126f75596dcb78b46c65c6ac2b616729
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44357458"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49364634"
 ---
 # <a name="create-an-https-ingress-controller-on-azure-kubernetes-service-aks"></a>Azure Kubernetes Service (AKS) bir HTTPS giriş denetleyicisini oluşturma
 
@@ -35,13 +35,13 @@ Bu makalede, ayrıca Azure CLI Sürüm 2.0.41 çalıştırdığınız gerektirir
 
 ## <a name="create-an-ingress-controller"></a>Bir giriş denetleyicisini oluşturma
 
-Giriş denetleyicisine oluşturmak için kullanın `Helm` yüklemek için *ngınx giriş*.
+Giriş denetleyicisine oluşturmak için kullanın `Helm` yüklemek için *ngınx giriş*. Eklenen yedeklilik için NGINX giriş denetleyicilerinin iki çoğaltma ile dağıtılan `--set controller.replicaCount` parametresi. Giriş denetleyicisine çoğaltmalarını çalışmasını tam olarak yararlanmak için AKS kümenizde birden fazla düğüm olduğundan emin olun.
 
 > [!TIP]
 > Aşağıdaki örnek, giriş denetleyicisine yükler `kube-system` ad alanı. İsterseniz, farklı bir ad alanı için ortamınızda belirtebilirsiniz. AKS kümenizi RBAC etkin değilse, ekleme `--set rbac.create=false` komutlar.
 
 ```console
-helm install stable/nginx-ingress --namespace kube-system
+helm install stable/nginx-ingress --namespace kube-system --set controller.replicaCount=2
 ```
 
 Yükleme sırasında bir Azure genel IP adresi için giriş denetleyicisini oluşturulur. Bu genel IP adresi-ömrü için giriş denetleyicisini statiktir. Giriş denetleyicisine silerseniz, genel IP adresi ataması kaybolur. Ardından bir ek giriş denetleyicisine oluşturursanız, yeni bir ortak IP adresi atanır. Genel IP adresi kullanımını korumak istiyorsanız, bunun yerine yapabilecekleriniz [giriş denetleyicisine statik bir genel IP adresiyle oluşturma][aks-ingress-static-tls].
@@ -90,17 +90,21 @@ NGINX giriş denetleyicisine TLS sonlandırma destekler. Almak ve HTTPS için se
 Sertifika Yöneticisi denetleyicisi RBAC özellikli bir kümede yüklemek için aşağıdakileri kullanın `helm install` komutu:
 
 ```console
-helm install stable/cert-manager --set ingressShim.defaultIssuerName=letsencrypt-staging --set ingressShim.defaultIssuerKind=ClusterIssuer
+helm install stable/cert-manager \
+    --namespace kube-system \
+    --set ingressShim.defaultIssuerName=letsencrypt-staging \
+    --set ingressShim.defaultIssuerKind=ClusterIssuer
 ```
 
 Bunun yerine, kümenizin RBAC etkin değilse, aşağıdaki komutu kullanın:
 
 ```console
 helm install stable/cert-manager \
-  --set ingressShim.defaultIssuerName=letsencrypt-staging \
-  --set ingressShim.defaultIssuerKind=ClusterIssuer \
-  --set rbac.create=false \
-  --set serviceAccount.create=false
+    --namespace kube-system \
+    --set ingressShim.defaultIssuerName=letsencrypt-staging \
+    --set ingressShim.defaultIssuerKind=ClusterIssuer \
+    --set rbac.create=false \
+    --set serviceAccount.create=false
 ```
 
 Sertifika Yöneticisi yapılandırma hakkında daha fazla bilgi için bkz. [Sertifika Yöneticisi proje][cert-manager].
@@ -252,6 +256,50 @@ Demo uygulamayı web tarayıcısında gösterilmektedir:
 Şimdi ekleyin */hello-world-two* FQDN yolu gibi *https://demo-aks-ingress.eastus.cloudapp.azure.com/hello-world-two*. Özel başlıklı ikinci tanıtım uygulaması gösterilmiştir:
 
 ![İki uygulama örneği](media/ingress/app-two.png)
+
+## <a name="clean-up-resources"></a>Kaynakları temizleme
+
+Bu makalede, giriş bileşenleri, sertifikalar ve örnek uygulamaları yüklemek için Helm kullanılır. Kubernetes kaynak sayısı, bir Helm grafiği dağıttığınızda oluşturulur. Bu kaynaklar, pod'ları, dağıtımlar ve hizmetleri içerir. Temizlemek için önce sertifika kaynakları kaldırın:
+
+```console
+kubectl delete -f certificates.yaml
+kubectl delete -f cluster-issuer.yaml
+```
+
+Şimdi Helm sürümlerle listesinde `helm list` komutu. Adlı grafiklerde Ara *ngınx giriş*, *Sertifika Yöneticisi*, ve *aks-helloworld*aşağıdaki örnek çıktıda gösterildiği gibi:
+
+```
+$ helm list
+
+NAME                    REVISION    UPDATED                     STATUS      CHART                   APP VERSION NAMESPACE
+billowing-kitten        1           Tue Oct 16 17:24:05 2018    DEPLOYED    nginx-ingress-0.22.1    0.15.0      kube-system
+loitering-waterbuffalo  1           Tue Oct 16 17:26:16 2018    DEPLOYED    cert-manager-v0.3.4     v0.3.2      kube-system
+flabby-deer             1           Tue Oct 16 17:27:06 2018    DEPLOYED    aks-helloworld-0.1.0                default
+linting-echidna         1           Tue Oct 16 17:27:02 2018    DEPLOYED    aks-helloworld-0.1.0                default
+```
+
+Sürümlerle Sil `helm delete` komutu. Aşağıdaki örnek, NGINX giriş dağıtım ve Sertifika Yöneticisi iki örnek AKS hello world uygulaması siler.
+
+```
+$ helm delete billowing-kitten loitering-waterbuffalo flabby-deer linting-echidna
+
+release "billowing-kitten" deleted
+release "loitering-waterbuffalo" deleted
+release "flabby-deer" deleted
+release "linting-echidna" deleted
+```
+
+Ardından, AKS Merhaba Dünya uygulaması için Helm deposu kaldırın:
+
+```console
+helm repo remove azure-samples
+```
+
+Son olarak, örnek uygulamalara yönelik trafiği yönlendiren giriş rota kaldırın:
+
+```console
+kubectl delete -f hello-world-ingress.yaml
+```
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/17/2018
 ms.author: miradic
-ms.openlocfilehash: db4f83d0d407ad3d9e895759ea2a687662f5620a
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: fbaf6b92a2605d284a749365d542c223e09f730d
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44053304"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49362611"
 ---
 # <a name="introduction-to-auto-scaling"></a>Otomatik ölçeklendirme giriş
 Otomatik ölçeklendirme Hizmetleri raporladığınız ya da kendi kaynak kullanımını temel alarak yük hizmetlerinizi dinamik olarak ölçeklendirmeniz mi ek bir Service fabric özelliktir. Otomatik ölçeklendirme, büyük esneklik sağlar ve ek örnekler ya da isteğe bağlı hizmetinizin bölümler sağlama sağlar. Tüm otomatik ölçeklendirme işlemi, otomatik ve şeffaf ve bir hizmette ilkelerinizi ayarladıktan sonra hizmet düzeyinde el ile ölçeklendirme işlemleri için gerek yoktur. Otomatik ölçeklendirme üzerinde hizmet oluşturma zamanında veya herhangi bir zamanda hizmet güncelleştirerek kapatılabilir.
@@ -120,7 +120,7 @@ Update-ServiceFabricService -Stateless -ServiceName "fabric:/AppName/ServiceName
 * _Üst yükleme eşiği_ hizmeti ne zaman olacağını belirleyen bir değer **ölçeği**. Ortalama yük hizmetinin tüm bölümlerin bu değerden daha yüksek ise, hizmetin kullanıma ayarlanacaktır.
 * _Ölçeklendirme aralığı_ tetikleyici ne sıklıkla kontrol edileceği belirler. Ölçeklendirme gerekliyse tetikleyici iade edildikten sonra mekanizması uygulanır. Ölçeklendirme gerekmiyorsa, hiçbir işlem yapılmadı. Yeniden ölçeklendirme aralığı sona ermeden önce her iki durumda da, tetikleyici yeniden denetlenmez.
 
-Bu tetikleyiciyi olabilir hem de durum bilgisi olan ve olmayan Hizmetleri ile kullanılır. Bu tetikleyici ile kullanılabilecek tek AddRemoveIncrementalNamedParitionScalingMechanism mekanizmadır. Yeni bir bölüm eklendikten sonra hizmeti kullanıma ölçeklenir ve hizmet var olan bölümleri birinde ölçeklendirildiğinde kaldırılır. Hizmet oluşturulduğunda veya güncelleştirildiğinde ve hizmet oluşturma/güncelleştirme başarısız olur, bu koşullar karşılanmazsa denetlenecek kısıtlamaları vardır:
+Bu tetikleyiciyi olabilir hem de durum bilgisi olan ve olmayan Hizmetleri ile kullanılır. Bu tetikleyici ile kullanılabilecek tek AddRemoveIncrementalNamedPartitionScalingMechanism mekanizmadır. Yeni bir bölüm eklendikten sonra hizmeti kullanıma ölçeklenir ve hizmet var olan bölümleri birinde ölçeklendirildiğinde kaldırılır. Hizmet oluşturulduğunda veya güncelleştirildiğinde ve hizmet oluşturma/güncelleştirme başarısız olur, bu koşullar karşılanmazsa denetlenecek kısıtlamaları vardır:
 * Adlandırılmış bölüm düzeni, hizmet için kullanılmalıdır.
 * Bölüm adları olmalıdır ardışık tamsayı numaraları gibi "0", "1"...
 * İlk bölüm adı "0" olmalıdır.
@@ -137,7 +137,7 @@ Kullanan örnekleri ekleyerek veya kaldırarak tarafından ölçeklendirme mekan
 * _En az örnek sayısı_ ölçeklendirme için alt sınırı tanımlar. Hizmet bölüm sayısı bu sınırı ulaşırsa, ardından hizmeti, bağımsız olarak yük ölçeklenmez.
 
 > [!WARNING] 
-> Durum bilgisi olan hizmetlerle AddRemoveIncrementalNamedParitionScalingMechanism kullanıldığında, Service Fabric ekleme veya kaldırma bölümlerini **bildirim veya uyarısı olmadan**. Ölçeklendirme mekanizması tetiklendiğinde verilerin yeniden bölümlenmesi gerçekleştirilmeyecek. Durumda ölçeği artırma işlemi, yeni bölümler boş olur ve ölçeği azaltma işlemi durumunda **bölüm içerdiği tüm verilerle birlikte silinecek**.
+> Durum bilgisi olan hizmetlerle AddRemoveIncrementalNamedPartitionScalingMechanism kullanıldığında, Service Fabric ekleme veya kaldırma bölümlerini **bildirim veya uyarısı olmadan**. Ölçeklendirme mekanizması tetiklendiğinde verilerin yeniden bölümlenmesi gerçekleştirilmeyecek. Durumda ölçeği artırma işlemi, yeni bölümler boş olur ve ölçeği azaltma işlemi durumunda **bölüm içerdiği tüm verilerle birlikte silinecek**.
 
 ## <a name="setting-auto-scaling-policy"></a>Otomatik ölçeklendirme İlkesi ayarlama
 
@@ -146,7 +146,7 @@ Kullanan örnekleri ekleyerek veya kaldırarak tarafından ölçeklendirme mekan
 <ServiceScalingPolicies>
     <ScalingPolicy>
         <AverageServiceLoadScalingTrigger MetricName="servicefabric:/_MemoryInMB" LowerLoadThreshold="300" UpperLoadThreshold="500" ScaleIntervalInSeconds="600"/>
-        <AddRemoveIncrementalNamedParitionScalingMechanism MinPartitionCount="1" MaxPartitionCount="3" ScaleIncrement="1"/>
+        <AddRemoveIncrementalNamedPartitionScalingMechanism MinPartitionCount="1" MaxPartitionCount="3" ScaleIncrement="1"/>
     </ScalingPolicy>
 </ServiceScalingPolicies>
 ```
@@ -155,7 +155,7 @@ Kullanan örnekleri ekleyerek veya kaldırarak tarafından ölçeklendirme mekan
 FabricClient fabricClient = new FabricClient();
 StatefulServiceUpdateDescription serviceUpdate = new StatefulServiceUpdateDescription();
 AveragePartitionLoadScalingTrigger trigger = new AverageServiceLoadScalingTrigger();
-PartitionInstanceCountScaleMechanism mechanism = new AddRemoveIncrementalNamedParitionScalingMechanism();
+PartitionInstanceCountScaleMechanism mechanism = new AddRemoveIncrementalNamedPartitionScalingMechanism();
 mechanism.MaxPartitionCount = 4;
 mechanism.MinPartitionCount = 1;
 mechanism.ScaleIncrement = 1;
@@ -171,7 +171,7 @@ await fabricClient.ServiceManager.UpdateServiceAsync(new Uri("fabric:/AppName/Se
 ```
 ### <a name="using-powershell"></a>PowerShell'i kullanma
 ```posh
-$mechanism = New-Object -TypeName System.Fabric.Description.AddRemoveIncrementalNamedParitionScalingMechanism
+$mechanism = New-Object -TypeName System.Fabric.Description.AddRemoveIncrementalNamedPartitionScalingMechanism
 $mechanism.MinPartitionCount = 1
 $mechanism.MaxPartitionCount = 3
 $mechanism.ScaleIncrement = 2

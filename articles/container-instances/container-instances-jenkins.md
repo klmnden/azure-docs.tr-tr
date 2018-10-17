@@ -7,12 +7,12 @@ ms.service: container-instances
 ms.topic: article
 ms.date: 08/31/2018
 ms.author: danlep
-ms.openlocfilehash: dde40b8f53aa40f1c15fe0efd810889b8c4510fb
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 41c9302d280d6027e12f2516bca26a98d224f301
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48854873"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49354198"
 ---
 # <a name="use-azure-container-instances-as-a-jenkins-build-agent"></a>Kullanım Azure Container Instances olarak bir Jenkins derleme aracısı
 
@@ -47,7 +47,7 @@ Azure Container Instances hakkında daha fazla bilgi için bkz. [Azure Container
 
    ![Jenkins portal dağıtım için ek ayarlar](./media/container-instances-jenkins/jenkins-portal-02.png)
 
-4. Hizmet sorumlusu tümleştirmesi seçin **Auto(MSI)** [Azure yönetilen hizmet kimliği] için [yönetilen-kimlik-azure-kaynaklar] otomatik olarak Jenkins örneği için bir kimlik doğrulama kimliğini oluşturun. Seçin **el ile** kendi hizmet sorumlusu kimlik bilgileri sağlamak için.
+4. Hizmet sorumlusu tümleştirmesi seçin **Auto(MSI)** [kimliklerini Azure kaynakları için yönetilen için] [yönetilen-kimlik-azure-kaynaklar] otomatik olarak Jenkins örneği için bir kimlik doğrulama kimliğini oluşturun. Seçin **el ile** kendi hizmet sorumlusu kimlik bilgileri sağlamak için.
 
 5. Jenkins derleme işleri için bulut tabanlı bir platform bulut aracılarını yapılandırın. Bu makalede amacıyla seçin **ACI**. ACI bulut Aracısı ile her bir Jenkins derleme işi container Instance üzerinde çalıştırılır.
 

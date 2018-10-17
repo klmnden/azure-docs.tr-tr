@@ -9,12 +9,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 03/20/2018
 ms.author: jasonh
-ms.openlocfilehash: 1dd0e33b3ec6cc5521d5087d48e9e5467911c2b6
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: f3be4b5e74c0c5cac9acd281b86e55c96b011763
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43109772"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49363801"
 ---
 # <a name="archived-release-notes-for-azure-hdinsight"></a>Azure HDInsight için arşivlenmiş yayın notları
 
@@ -24,7 +24,7 @@ ms.locfileid: "43109772"
 > Linux, HDInsight sürüm 3.4 ve üzerinde kullanılan tek işletim sistemidir. Daha fazla bilgi için [HDInsight sürüm makale](hdinsight-component-versioning.md).
 
 ## <a name="notes-for-06272018---release-of-new-open-source-versions-adls-gen2-etc-on-hdinsight-36"></a>Yeni açık kaynak sürümlerinin çıkmasıyla, HDInsight 3.6 üzerinde ADLS Gen2 vb. 06/27/2018 için-Notlar
-HDInsight'ın Haziran 2018 sürümünden yeni güncelleştirmeleri ve müşterilerimiz için özellikleri gibi çok önemli bir sürümdür. Lütfen bunu okuyun [sonrası](https://azure.microsoft.com/en-us/blog/enterprises-get-deeper-insights-with-hadoop-and-spark-updates-on-azure-hdinsight/) daha fazla ayrıntı için.
+HDInsight'ın Haziran 2018 sürümünden yeni güncelleştirmeleri ve müşterilerimiz için özellikleri gibi çok önemli bir sürümdür. Lütfen bunu okuyun [sonrası](https://azure.microsoft.com/blog/enterprises-get-deeper-insights-with-hadoop-and-spark-updates-on-azure-hdinsight/) daha fazla ayrıntı için.
 
 Öne çıkan özellikleri aşağıda verilmiştir. Ayrıntılı sürüm notları için bilinen sorunlar, vs. düzeltilen okuyun [için Azure HDInsight sürüm notları](hdinsight-release-notes.md).
 
