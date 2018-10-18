@@ -1,60 +1,60 @@
 ---
-title: Bing haber arama C# Öğreticisi | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: Bilişsel hizmetler Bing haber arama, bir ASP.NET Core web uygulamasından bağlanın.
+title: 'Öğretici: Bing Haber Arama, C#'
+titleSuffix: Azure Cognitive Services
+description: Bir ASP.NET Core web uygulamasından Bing Haber Arama hizmetine bağlanın.
 services: cognitive-services
 author: ghogen
-manager: douge
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-news-search
-ms.topic: conceptual
+ms.topic: tutorial
 ms.date: 03/01/2018
 ms.author: ghogen
-ms.openlocfilehash: 5cfa82067d28b05f32bd87e0e83d55a03da8d508
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
-ms.translationtype: MT
+ms.openlocfilehash: f1f5c590216975ce6b0813da6d9d98279d591454
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47095438"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48804353"
 ---
-# <a name="connect-to-bing-news-search-api-by-using-connected-services-in-visual-studio"></a>Bing haber arama API'si için Visual Studio bağlı Hizmetler'i kullanarak bağlanma
+# <a name="tutorial-connect-to-bing-news-search-api-by-using-connected-services-in-visual-studio"></a>Öğretici: Visual Studio'daki Bağlı Hizmetleri kullanarak Bing Haber Arama API'sine bağlanma
 
-Bing haber arama kullanarak, uygulamalarınız ve web için kapsamlı bir Reklamsız bir arama motoru gücünden etkinleştirebilirsiniz. Bing haber arama, Bilişsel hizmetler ile arama hizmetleri biridir.
+Bing Haber Arama hizmetini kullanarak uygulamaların ve hizmetlerin web ölçeğindeki reklamsız bir arama motorunun gücünden faydalanmasını sağlayabilirsiniz. Bing Haber Arama, Bilişsel Hizmetler kapsamında sunulan arama hizmetlerinden biridir.
 
-Bu makalede, Visual Studio bağlı hizmeti özelliği için Bing haber arama kullanmak için Ayrıntılar sağlar. Özelliği, Visual Studio 2017 15.7 veya sonraki sürümlerde, Bilişsel hizmetler uzantısı yüklü ile kullanılabilir.
+Bu makalede Bing Haber Arama hizmeti için Visual Studio Bağlı Hizmet özelliğini kullanma hakkında ayrıntılı bilgiler verilmektedir. Özellik, Bilişsel Hizmetler uzantısının yüklendiği Visual Studio 2017 15.7 ve sonraki sürümlerde mevcuttur.
 
-## <a name="prerequisites"></a>Önkoşullar
+## <a name="prerequisites"></a>Ön koşullar
 
 - Azure aboneliği. Bir aboneliğiniz yoksa [ücretsiz hesap](https://azure.microsoft.com/pricing/free-trial/) için kaydolabilirsiniz.
-- Visual Studio 2017 sürüm 15.7, yüklü Web geliştirme iş yüküyle birlikte sağlanır. [Hemen indirin](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs).
+- Web Geliştirme iş yükünün yüklendiği Visual Studio 2017 sürüm 15.7. [Şimdi indir](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs).
 
 [!INCLUDE [vs-install-cognitive-services-vsix](../../../includes/vs-install-cognitive-services-vsix.md)]
 
-## <a name="add-support-to-your-project-for-bing-news-search-api"></a>Bing haber arama API'si için projenize desteği eklendi
+## <a name="add-support-to-your-project-for-bing-news-search-api"></a>Projenize Bing Haber Arama API'si desteği ekleme
 
-1. MyWebApplication adlı yeni bir ASP.NET Core web projesi oluşturun. Kullanım **Web uygulaması (Model-View-Controller)** tüm varsayılan ayarlarla proje şablonu. Kod projesine kopyaladığınızda, ad alanı eşleşecek şekilde MyWebApplication, proje adı önemlidir. 
+1. MyWebApplication adlı yeni bir ASP.NET Core web projesi oluşturun. Tüm varsayılan ayarlarla birlikte **Web Uygulaması (Model-Görünüm-Denetleyici)** proje şablonunu kullanın. Projeye MyWebApplication adını vermek önemlidir; bu nedenle kodu projeye kopyaladığınızda ad alanı eşleştirilir. 
 
-1. İçinde **Çözüm Gezgini**, seçin **Ekle** > **bağlı hizmet**.
-   Projenize eklediğiniz Hizmetleri ile bağlı hizmet sayfasında görünür.
+1. **Çözüm Gezgini**’nde **Ekle** > **Bağlı Hizmet** seçeneklerini belirleyin.
+   Projenize ekleyebileceğiniz hizmetlerle birlikte Bağlı Hizmet sayfası görüntülenir.
 
-   ![Ekran görüntüsü, bağlı hizmet Ekle menü öğesi](../media/vs-common/Connected-Service-Menu.PNG)
+   ![Bağlı Hizmet Ekle menü öğesinin ekran görüntüsü](../media/vs-common/Connected-Service-Menu.PNG)
 
-1. Kullanılabilir hizmetler menüsünde **bilgisayarınızı uygulamaları için akıllı arama Getir**.
+1. Kullanılabilir hizmetler menüsünde **Uygulamalarınıza Akıllı Arama Özelliği Ekleyin**'i seçin.
 
    ![Bağlı hizmetler listesinin ekran görüntüsü](./media/vs-bing-news-search-connected-service/Cog-Search-Connected-Service-0.PNG)
 
-   Visual Studio'da oturum açıldıktan ve hesabınızla ilişkili bir Azure aboneliğiniz varsa, aboneliklerinizin ile bir açılan listedeki bir sayfa görünür. Kullanmak istediğiniz aboneliği seçin ve ardından Bing haber arama API'si için bir ad seçin. Ayrıca seçebilirsiniz **Düzenle** otomatik olarak oluşturulan adı değiştirmek için.
+   Visual Studio’da oturum açtıysanız ve hesabınızla ilişkili bir Azure aboneliğiniz varsa, aboneliklerinizi içeren bir açılır listenin yer aldığı bir sayfa görüntülenir. Kullanmak istediğiniz aboneliği seçin ve Bing Haber Arama API'si için bir ad belirleyin. İsterseniz **Düzenle**'yi seçerek otomatik olarak oluşturulan adı değiştirebilirsiniz.
 
-   ![Abonelik ve ad alanlarını ekran görüntüsü](media/vs-bing-news-search-connected-service/Cog-Search-Connected-Service-1.PNG)
+   ![Abonelik ve ad alanlarının ekran görüntüsü](media/vs-bing-news-search-connected-service/Cog-Search-Connected-Service-1.PNG)
 
 1. Kaynak grubunu ve fiyatlandırma katmanını seçin.
 
-   ![Kaynak grubu ve fiyatlandırma katmanı alanları ekran görüntüsü](media/vs-bing-news-search-connected-service/Cog-Search-Connected-Service-2.PNG)
+   ![Kaynak grubu ve fiyatlandırma katmanı alanlarının ekran görüntüsü](media/vs-bing-news-search-connected-service/Cog-Search-Connected-Service-2.PNG)
 
-   Fiyatlandırma katmanları hakkında daha fazla bilgi istiyorsanız belirleyin **gözden geçirme fiyatlandırma**.
+   Fiyatlandırma katmanları hakkında daha fazla bilgiye ihtiyacınız varsa **Fiyatlandırmayı gözden geçir**'i seçin.
 
-1. Seçin **Ekle** bağlı hizmeti için destek eklemek için.
-   Visual Studio projenizin NuGet paketlerini, yapılandırma dosyası girdisi ve Bing haber arama API'si bağlantısı desteklemek için başka değişiklikler eklemek için değiştirir. Çıkış projenize olup bitenleri günlük gösterir. Aşağıdaki gibi görmeniz gerekir:
+1. **Ekle**’yi seçerek, Bağlı Hizmet için destek ekleyin.
+   Visual Studio; Bing Haber Arama API'si bağlantısını desteklemek üzere NuGet paketlerini, yapılandırma dosyası girdilerini ve diğer değişiklikleri eklemek için projenizi değiştirir. Çıkış, projenizde olup bitenlerin kaydını gösterir. Aşağıdakine benzer bir şey görmeniz gerekir:
 
    ```output
    [5/4/2018 12:41:21.084 PM] Adding Intelligent Search to the project.
@@ -71,7 +71,7 @@ Bu makalede, Visual Studio bağlı hizmeti özelliği için Bing haber arama kul
    [5/4/2018 12:42:10.217 PM] Successfully added Intelligent Search to the project.
    ```
 
-   Appsettings.json dosyasını artık aşağıdaki yeni ayarları içerir:
+   appsettings.json dosyası artık aşağıdaki yeni ayarlara sahiptir:
 
    ```json
    "CognitiveServices": {
@@ -83,11 +83,11 @@ Bu makalede, Visual Studio bağlı hizmeti özelliği için Bing haber arama kul
    }
    ```
  
-## <a name="use-the-bing-news-search-api-to-add-search-functionality-to-a-web-page"></a>Bing haber arama API'si arama işlevselliği bir web sayfasına eklemek için kullanın
+## <a name="use-the-bing-news-search-api-to-add-search-functionality-to-a-web-page"></a>Bing Haber Arama API'sini kullanarak web sayfasına arama işlevi ekleme
 
-Bing haber arama API'si için destek projenize ekledikten sonra API'SİNİN akıllı arama bir web sayfasına eklemek için nasıl kullanılacağı aşağıda verilmiştir.
+Projenize Bing Haber Arama API'si desteğini eklediniz. API'yi kullanarak web sayfasına akıllı arama özelliği eklemek için aşağıdaki adımları izleyin.
 
-1.  İçinde *Startup.cs*, `ConfigureServices` yöntemine bir çağrı ekleyin `IServiceCollection.AddSingleton`. Bu kod projenizde kullanılabilen anahtar ayarlarını içeren bir yapılandırma nesnesi getirir.
+1.  *Startup.cs* dosyasının `ConfigureServices` metoduna `IServiceCollection.AddSingleton` çağrısı ekleyin. Bu işlem temel ayarları içeren yapılandırma nesnesini projenizdeki kodun kullanımına sunar.
  
    ```csharp
         public void ConfigureServices(IServiceCollection services)
@@ -98,7 +98,7 @@ Bing haber arama API'si için destek projenize ekledikten sonra API'SİNİN akı
    ```
 
 
-1. Altında yeni bir sınıf dosyası ekleyin **modelleri** adlı klasörü *BingNewsModel.cs*. Projeniz farklı adlandırılan MyWebApplication yerine kendi projenin ad alanını kullanın. İçeriğini aşağıdaki kodla değiştirin:
+1. **Models** klasörünün adına *BingNewsModel.cs* adlı yeni bir sınıf dosyası ekleyin. Projenize farklı bir ad verdiyseniz MyWebApplication yerine o adı yazın. İçeriğini aşağıdaki kodla değiştirin:
  
     ```csharp
     using Microsoft.Azure.CognitiveServices.Search.NewsSearch.Models;
@@ -117,9 +117,9 @@ Bing haber arama API'si için destek projenize ekledikten sonra API'SİNİN akı
     }
     ```
 
-   Bu model, Bing haber arama hizmeti çağrısı sonuçlarını depolamak için kullanılır.
+   Bu model, Bing Haber Arama hizmeti çağrısının sonuçlarını depolamak için kullanılır.
  
-1. İçinde **denetleyicileri** klasör adında yeni bir sınıf dosyası ekleyin *IntelligentSearchController.cs*. İçeriğini aşağıdaki kodla değiştirin:
+1. **Denetleyiciler** klasörüne *IntelligentSearchController.cs* adlı yeni bir sınıf dosyası ekleyin. İçeriğini aşağıdaki kodla değiştirin:
 
    ```csharp
     using System.Net.Http;
@@ -177,9 +177,9 @@ Bing haber arama API'si için destek projenize ekledikten sonra API'SİNİN akı
     }
    ```
 
-   Bu kodda Oluşturucu anahtarlarınızı içeren yapılandırma nesne ayarlar. Yöntemi için `Search` yoldur yalnızca bir yeniden yönlendirme `BingSearchResult` işlevi. Bu çağrı `GetNewsSearchClient` almak için yöntemi `NewsSearchAPI` istemci nesnesi.  `NewsSearchAPI` İstemci nesnesini içeren `SearchAsync` gerçekten hizmetini çağıran ve sonuçları yöntemi `SearchResult` yeni oluşturduğunuz modeli. 
+   Bu kodda oluşturucu, anahtarlarınızı içeren yapılandırma nesnesini ayarlar. `Search` yolunun metodu yalnızca `BingSearchResult` işlevinin yeniden yönlendirmesidir. Bu öğe `GetNewsSearchClient` metodunu çağırarak `NewsSearchAPI` istemci nesnesini alır.  `NewsSearchAPI` istemci nesnesinde `SearchAsync` metodu bulunur ve hizmeti çağırarak sonuçları az önce oluşturduğunuz `SearchResult` modeline döndürür. 
 
-1. Bir sınıf ekleyin `MyHandler`, önceki kodda başvuruldu. Bu zaman uyumsuz çağrı temel sınıfı olan arama hizmetinizin Temsilciler `DelegatingHandler`.
+1. Yukarıdaki kodda başvurulan `MyHandler` sınıfını ekleyin. Bu işlem arama hizmetine yapılan zaman uyumsuz çağrıyı `DelegatingHandler` temel sınıfına devreder.
 
    ```csharp
     using System.Net.Http;
@@ -199,7 +199,7 @@ Bing haber arama API'si için destek projenize ekledikten sonra API'SİNİN akı
     }
    ```
 
-1. Arama göndermek ve sonuçları görüntüleme için destek eklemek üzere **görünümleri** klasöründe adlı yeni bir klasör oluşturun **IntelligentSearch**. Bu yeni klasör görünümü ekleme *BingSearchResult.cshtml*. Aşağıdaki kodu kopyalayın:
+1. Arama gönderme ve sonuçları görüntüleme desteği eklemek için **Görünümler** klasöründe **IntelligentSearch** adlı yeni bir klasör oluşturun. Bu yeni klasöre *BingSearchResult.cshtml* adlı görünümü ekleyin. Aşağıdaki kodu kopyalayın:
 
     ```cshtml
     @using System
@@ -254,18 +254,18 @@ Bing haber arama API'si için destek projenize ekledikten sonra API'SİNİN akı
     </div>
     ```
 
-1. Web uygulamasını yerel olarak başlatın, yalnızca oluşturulan (/ IntelligentSearch/BingSearchResult) ve arama isteği arama düğmesini kullanarak gönderin sayfanın URL'sini girin.
+1. Web uygulamasını yerel ortamda başlatın, oluşturduğunuz sayfanın URL'sini (/IntelligentSearch/BingSearchResult) girin ve Search (Ara) düğmesini kullanarak bir arama isteği gönderin.
 
-   ![Ekran Bing haber arama sonuçları](media/vs-bing-news-search-connected-service/Cog-News-Search-Results.PNG)
+   ![Bing Haber Arama sonuçlarının ekran görüntüsü](media/vs-bing-news-search-connected-service/Cog-News-Search-Results.PNG)
            
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 
-Kaynak grubu artık gerekli olmadığında silebilirsiniz. Bu bilişsel hizmet ve ilişkili kaynakları siler. Kaynak grubunu portal aracılığıyla silmek için:
+Kaynak grubuna ihtiyacınız kalmadığında silebilirsiniz. Böylece bilişsel hizmet ve ilgili kaynaklar silinir. Kaynak grubunu portal aracılığıyla silmek için:
 
 1. Portalın üst kısmındaki arama kutusuna kaynak grubunuzun adını girin. Silmek istediğiniz kaynak grubunu seçin.
 2. **Kaynak grubunu sil**'i seçin.
-3. İçinde **kaynak grubu adını yazın** kutusuna kaynak grubunun adını girin ve seçin **Sil**.
+3. **Kaynak Grubunun Adını Yazın** kutusuna kaynak grubunun adını yazın ve **Sil**’i seçin.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bing haber arama API'si hakkında daha fazla bilgi için bkz: [Bing haber arama nedir?](index.yml).
+Bing Haber Arama API'si hakkında daha fazla bilgi edinmek için bkz. [Bing Haber Arama nedir?](index.yml).
