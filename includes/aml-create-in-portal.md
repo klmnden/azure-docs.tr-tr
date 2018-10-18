@@ -9,46 +9,46 @@ manager: cgronlund
 ms.custom: include file
 ms.topic: include
 ms.date: 09/24/2018
-ms.openlocfilehash: 4b4f926009f94162b43dcbb8934e44c1924e91df
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: 99c31293168fd5ff3e6b95a70dc481e01e4ac8b4
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48239552"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49400290"
 ---
-Azure aboneliği için kullandığınız hesap bilgilerini kullanarak [Azure portalında](https://portal.azure.com/) oturum açın. Azure aboneliğiniz yoksa şimdi [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
+Oturum [Azure portalında](https://portal.azure.com/) kullandığınız Azure aboneliği için kimlik bilgilerini kullanarak. Azure aboneliğiniz yoksa şimdi [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 
 Portal'ın çalışma Pano yalnızca Edge, Chrome ve Firefox tarayıcılarda desteklenir.
 
    ![Azure portal](./media/aml-create-in-portal/portal-dashboard.png)
 
-Portalın sol üst köşesinde bulunan **Kaynak oluştur** düğmesini (+) seçin.
+Portalın sol üst köşedeki seçin **kaynak Oluştur**.
 
    ![Azure portalında kaynak oluşturma](./media/aml-create-in-portal/portal-create-a-resource.png)
 
-Arama çubuğuna **Machine Learning** yazın. Adlı arama sonucunu seçin **Machine Learning hizmeti çalışma alanında**.
+Arama çubuğunda, **Machine Learning**. Seçin **Machine Learning hizmeti çalışma alanında** arama sonucu.
 
    ![Çalışma alanı için arama](./media/aml-create-in-portal/allservices-search.PNG)
 
 İçinde **Machine Learning hizmeti çalışma alanında** bölmesinde seçin ve altındaki kaydırma **Oluştur** başlamak için.
 
-   ![oluşturmaya](./media/aml-create-in-portal/portal-create-button.png)
+   ![Oluştur](./media/aml-create-in-portal/portal-create-button.png)
 
-İçinde **ML hizmet çalışma** bölmesinde, çalışma alanınızı yapılandırın.
+İçinde **ML hizmeti çalışma alanında** bölmesinde, çalışma alanınızı yapılandırın.
 
    Alan|Açıklama
    ---|---
-   Çalışma alanı adı |Çalışma alanınızı tanımlayan benzersiz bir ad girin.  Docs ws burayı kullanacağız. Arasında kaynak grubu adları benzersiz olmalıdır. Geri çağırma ve başkaları tarafından oluşturulan çalışma alanlarından ayırt etmek kolay bir ad kullanın.  
-   Abonelik |Kullanmak istediğiniz Azure aboneliğini seçin. Birden fazla aboneliğiniz varsa kaynağın faturalanacağı uygun aboneliği seçin.
-   Kaynak grubu | Aboneliğinizde mevcut bir kaynak grubunu kullanın veya yeni bir kaynak grubu oluşturmak için bir ad girin. Kaynak grubu, bir Azure çözümü için ilgili kaynakları bir arada tutan kapsayıcıdır.  Docs aml burayı kullanacağız. 
-   Konum | Kullanıcılarınıza ve veri kaynaklarınıza en yakın konumu seçin. Çalışma alanı oluşturulduğu budur.
+   Çalışma alanı adı |Çalışma alanınızı tanımlayan benzersiz bir ad girin. Burada docs ws kullanın. Arasında kaynak grubu adları benzersiz olmalıdır. Geri çağırma ve başkaları tarafından oluşturulan çalışma alanlarından ayırt etmek kolay bir ad kullanın.  
+   Abonelik |Kullanmak istediğiniz Azure aboneliğini seçin. Birden fazla aboneliğiniz varsa faturalandırma için kullanılan aboneliği seçin.
+   Kaynak grubu | Aboneliğinizde mevcut bir kaynak grubunu kullanın veya yeni bir kaynak grubu oluşturmak için bir ad girin. Kaynak grubu, bir Azure çözümü için ilgili kaynakları bir arada tutan kapsayıcıdır. Burada docs aml kullanın. 
+   Konum | Kullanıcılarınızı ve veri kaynakları için en yakın konumu seçin. Çalışma alanı oluşturulduğu bu konumdur.
 
    ![Çalışma alanı oluşturma](./media/aml-create-in-portal/workspace-create.png)
 
-Oluşturma işlemini başlatmak için **Oluştur**'u seçin.  Uygulamanın, çalışma alanı oluşturmak için birkaç dakika sürebilir.
+Oluşturma işlemini başlatmak için **Oluştur**. Uygulamanın, çalışma alanı oluşturmak için birkaç dakika sürebilir.
 
-   Dağıtım durumunu denetlemek için araç çubuğundaki bildirim simgesine (zil) seçin.
+Dağıtım durumunu denetlemek için araç çubuğundaki bildirim simgesine (zil) seçin.
 
-   ![Çalışma alanı oluşturma](./media/aml-create-in-portal/notifications.png)
+   ![Çalışma alanı oluşturma durumu](./media/aml-create-in-portal/notifications.png)
 
-   İşiniz bittiğinde dağıtım başarılı iletisi görüntülenir.  Ayrıca, bildirimleri bölümünde de mevcuttur.   Tıklayarak **kaynağa Git** yeni çalışma alanını görüntülemek için düğme.
+İşlem tamamlandığında, bir dağıtım başarı iletisi görünür. Ayrıca, bildirimleri bölümünde de mevcuttur. Yeni çalışma alanı görüntülemek için seçin **kaynağa Git**.

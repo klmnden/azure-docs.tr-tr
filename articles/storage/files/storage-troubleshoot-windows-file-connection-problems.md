@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 05/11/2018
 ms.author: jeffpatt
 ms.component: files
-ms.openlocfilehash: a0a330d3ea7362ffabb20a5d390cee87cbf7d8ff
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: 59eb0ddad72f5e54a23a97a260477f84019eb62c
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/17/2018
-ms.locfileid: "49365414"
+ms.locfileid: "49386350"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows"></a>Windows Azure dosyaları sorunlarını giderme
 
@@ -32,13 +32,13 @@ Bu makalede Windows istemcilerinden bağlandığınızda, Microsoft Azure dosyal
 
 ### <a name="cause-1-unencrypted-communication-channel"></a>1. neden: Şifrelenmemiş iletişim kanalı
 
-Güvenlik nedenleriyle, Azure dosya paylaşımlarını bağlantı iletişim kanalını şifreli değildir ve Azure dosya paylaşımlarını bulunduğu aynı veri merkezlerinden bağlantı girişimi yapılmadan değil engellenir. Aynı veri merkezindeki şifrelenmemiş bağlantıları da ise engellenir [güvenli aktarım gerekli](https://docs.microsoft.com/en-us/azure/storage/common/storage-require-secure-transfer) depolama hesabı seçeneği etkinleştirilmiştir. Kullanıcının istemci işletim sistemi SMB şifrelemesi destekliyorsa iletişim kanalı şifreleme sağlanır.
+Güvenlik nedenleriyle, Azure dosya paylaşımlarını bağlantı iletişim kanalını şifreli değildir ve Azure dosya paylaşımlarını bulunduğu aynı veri merkezlerinden bağlantı girişimi yapılmadan değil engellenir. Aynı veri merkezindeki şifrelenmemiş bağlantıları da ise engellenir [güvenli aktarım gerekli](https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) depolama hesabı seçeneği etkinleştirilmiştir. Kullanıcının istemci işletim sistemi SMB şifrelemesi destekliyorsa iletişim kanalı şifreleme sağlanır.
 
 Windows 8, Windows Server 2012 ve sonraki sürümleri her sistem şifrelemeyi destekleyen SMB 3.0 içeren istekleri anlaşır.
 
 ### <a name="solution-for-cause-1"></a>Çözüm nedeni 1 için
 
-1. Doğrulama [güvenli aktarım gerekli](https://docs.microsoft.com/en-us/azure/storage/common/storage-require-secure-transfer) ayarı depolama hesabı devre dışı.
+1. Doğrulama [güvenli aktarım gerekli](https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) ayarı depolama hesabı devre dışı.
 2. Aşağıdakilerden birini gerçekleştiren bir istemciden bağlanma:
 
     - Windows 8 ve Windows Server 2012 veya sonraki sürümler gereksinimlerini karşılar

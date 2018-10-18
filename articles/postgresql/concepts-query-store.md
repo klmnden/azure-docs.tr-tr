@@ -7,19 +7,19 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/26/2018
-ms.openlocfilehash: 03f22a7975e8f331efa9dcc30fd088f32bee1649
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 5b760c9148e26421c0df1ffe936365aae4971543
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47393508"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49379170"
 ---
 # <a name="monitor-performance-with-the-query-store"></a>Query Store ile performans izleme
 
 **İçin geçerlidir:** 9.6 ve 10 PostgreSQL için Azure veritabanı
 
 > [!IMPORTANT]
-> Query Store genel önizlemeye sınırlı sayıdaki bölgede özelliğidir.
+> Query Store özelliği genel Önizleme aşamasındadır.
 
 
 PostgreSQL için Azure veritabanı için Query Store özelliği zaman içinde sorgu performansını izlemek için bir yol sağlar. Query Store performans sorunlarını giderme hızlı bir şekilde yardımcı olarak basitleştirir, uzun süre çalışan ve en yoğun kaynak sorgularını bulun. Query Store geçmişini sorgular ve çalışma zamanı İstatistikleri otomatik olarak yakalar ve bunları gözden geçirmeniz için saklar. Veritabanı kullanım modellerini görebilmeniz için veri zaman pencereleri tarafından ayırır. Adlı bir veritabanında depolanan tüm kullanıcılar, veritabanları ve sorgular için veri **azure_sys** örneği PostgreSQL için Azure veritabanı'nda.

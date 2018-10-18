@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2018
 ms.author: jeedes
-ms.openlocfilehash: 02e7d9d26b389e82365f3447cceb5566244236f1
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 618437d0007668800e0a14e8233db1676be2a364
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39440917"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49379272"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-linkedin-learning"></a>Öğretici: Azure Active Directory LinkedIn Learning ile tümleştirme
 
@@ -37,7 +37,7 @@ Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek ist
 
 Azure AD Tümleştirmesi ile LinkedIn Learning yapılandırmak için aşağıdaki öğeler gerekir:
 
-- Azure AD aboneliğiniz
+- Azure AD aboneliği
 - Bir LinkedIn Learning çoklu oturum açma etkin aboneliği
 
 > [!NOTE]
@@ -59,7 +59,7 @@ Azure AD'de LinkedIn Learning tümleştirmesini yapılandırmak için LinkedIn L
 
 **LinkedIn Learning Galeriden eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde  **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
+1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
 
     ![Active Directory][1]
 
@@ -110,7 +110,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve L
 
     ![Çoklu oturum açmayı yapılandırın](./media/linkedinlearning-tutorial/tutorial_linkedin_admin_01.png)
 
-1. Tıklayın **veya yüklemek ve tek tek alanları formdan kopyalamak için burayı tıklatın** kopyalayıp **varlık kimliği** ve **onaylama tüketici erişim (ACS) URL'si**
+1. Tıklayın **veya yüklemek ve tek tek alanları formdan kopyalamak için burayı tıklatın** kopyalayıp **varlık kimliği** ve **onaylama tüketici hizmeti (ACS) URL'si**
 
     ![Çoklu oturum açmayı yapılandırın](./media/linkedinlearning-tutorial/tutorial_linkedin_admin_03.png)
 
@@ -120,9 +120,9 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve L
 
     a. İçinde **tanımlayıcı** metin girin **varlık kimliği** LinkedIn portaldan kopyaladığınız 
 
-    b. İçinde **yanıt URL'si** metin girin **onaylama tüketici erişim (ACS) URL'si** LinkedIn portaldan kopyaladığınız
+    b. İçinde **yanıt URL'si** metin girin **onaylama tüketici hizmeti (ACS) URL'si** LinkedIn portaldan kopyaladığınız
 
-1. Çoklu oturum AÇMAYA yapılandırmak istiyorsanız **SP tarafından başlatılan**, ardından yapılandırma bölümü Göster Gelişmiş URL ayarını seçeneğe tıklayın ve aşağıdaki desen ile oturum açma URL'sini yapılandırın:
+1. Çoklu oturum AÇMAYA yapılandırmak istiyorsanız **SP tarafından başlatılan**, Gelişmiş URL Göster ayarı seçeneğiniz belirttiğiniz oturum açma URL'sini yapılandırma bölümündeki'ye tıklayın.  Oturum açma URL'si kopyanızı oluşturmak için **onaylama tüketici hizmeti (ACS) URL'si** /saml//oturum açma/ile değiştirin.   Yaptıktan sonra oturum açma URL'si şu desende olmalıdır:
 
     `https://www.linkedin.com/checkpoint/enterprise/login/<AccountId>?application=learning&applicationInstanceId=<InstanceId>`
 

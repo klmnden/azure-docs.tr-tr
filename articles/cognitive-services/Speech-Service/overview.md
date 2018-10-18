@@ -3,18 +3,18 @@ title: Konuşma tanıma hizmeti nedir?
 description: "Microsoft'un sunduğu Bilişsel Hizmetler'in bir parçası olan Konuşma tanıma hizmeti, daha önce ayrı olarak sunulan şu birkaç Azure konuşma hizmetini bir araya getirmektedir: Bing Konuşma (konuşma tanıma ve metin okuma), Özel Konuşma Tanıma ve Konuşma Çevirisi."
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
-author: v-jerkin
+author: erhopf
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: overview
 ms.date: 09/24/2018
-ms.author: v-jerkin
-ms.openlocfilehash: b014144dd819aa354596175068bfb2c5905a4377
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.author: erhopf
+ms.openlocfilehash: 7a61d85d96b993d49a536c38c2907a3d6ef55e65
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48858001"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49365467"
 ---
 # <a name="what-is-the-speech-service"></a>Konuşma tanıma hizmeti nedir?
 
@@ -29,11 +29,10 @@ Konuşma tanıma hizmetinin birincil işlevleri şunlardır: Konuşmayı Metne D
 
 |İşlev|Özellikler|
 |-|-|
-|[Konuşmayı Metne Dönüştürme](speech-to-text.md)| <ul><li>Sürekli, gerçek zamanlı konuşmaları metne dönüştürür.<li>Ses kayıtlarından toplu konuşma dökümü alabilir. <li>Ara sonuçların yanı sıra konuşma sonu algılama, otomatik metin biçimlendirme ve küfür maskeleme özelliklerini destekler. <li>Dökümü alınmış bir konuşmadan kullanıcının amacını anlamak üzere [Language Understanding](https://docs.microsoft.com/azure/cognitive-services/luis/)'de (LUIS) çağrı yapabilir.\*|
-|[Metin Okuma](text-to-speech.md)| <ul><li>Metni, doğal sesli konuşmaya dönüştürür. <li>Desteklenen birçok dil için birden fazla cinsiyet ve/veya diyalekt sunar. <li>Düz metin girişini veya Konuşma Birleştirme İşaretleme Dilini (SSML) destekler. |
-|[Konuşma Çevirisi](speech-translation.md)| <ul><li>Ses akışını neredeyse gerçek zamanlı olarak çevirir.<li> Kaydedilen konuşmaları da işleyebilir.<li>Sonuçları metin veya birleştirilmiş konuşma olarak sunar. |
+|[Konuşmayı Metne Dönüştürme](speech-to-text.md)| <li>Sürekli, gerçek zamanlı konuşmaları metne dönüştürür.<li>Ses kayıtlarından toplu konuşma dökümü alabilir. <li>Ara sonuçların yanı sıra konuşma sonu algılama, otomatik metin biçimlendirme ve küfür maskeleme özelliklerini destekler. <li>Dökümü alınmış bir konuşmadan kullanıcının amacını anlamak üzere [Language Understanding](https://docs.microsoft.com/azure/cognitive-services/luis/)'de (LUIS) çağrı yapabilir.\*|
+|[Metin Okuma](text-to-speech.md)| <li>Metni, doğal sesli konuşmaya dönüştürür. <li>Desteklenen birçok dil için birden fazla cinsiyet ve/veya diyalekt sunar. <li>Düz metin girişini veya Konuşma Birleştirme İşaretleme Dilini (SSML) destekler. |
+|[Konuşma Çevirisi](speech-translation.md)| <li>Ses akışını neredeyse gerçek zamanlı olarak çevirir.<li> Kaydedilen konuşmaları da işleyebilir.<li>Sonuçları metin veya birleştirilmiş konuşma olarak sunar. |
 
-\* *Amaç tanıma için LUIS aboneliği gereklidir.*
 
 ## <a name="customize-speech-features"></a>Konuşma tanıma özelliklerini özelleştirme
 
@@ -69,41 +68,6 @@ Zaten WebSockets aracılığıyla Bing Konuşma'yı veya Translator Konuşma Çe
 
 [Konuşma Cihazları SDK'sı](speech-devices-sdk.md), konuşma özellikli cihazlar üzerinde çalışan geliştiriciler için tümleşik bir donanım ve yazılım platformudur. Donanım iş ortağımız, başvuru tasarımları ve geliştirme birimleri sağlar. Microsoft, donanım özelliklerinden tam olarak yararlanan, cihaz için iyileştirilmiş bir SDK sunar.
 
-## <a name="why-move-to-the-speech-service"></a>Neden yeni Konuşma tanıma hizmetine geçmelisiniz?
-
-Konuşma tanıma hizmeti, Bing Konuşma API'si ve diğer üç Azure konuşma tanıma hizmetinin işlevinin yanı sıra ek özellikler sunar: Özel Konuşma Tanıma, Özel Ses ve Translator Konuşma Çevirisi. Bu hizmetleri kullananların Konuşma tanıma hizmetine geçiş yapmalarını öneriyoruz.
-
-Konuşma tanıma hizmeti diğer hizmetlere kıyasla aşağıdakiler gibi birçok ek özelliğe sahiptir:
-
-* Yüksek konuşma tanıma doğruluğu. Hizmette kullanılan modelleri düzenli olarak geliştiriyoruz.
-
-* Daha geniş ölçeklendirme seçenekleri. Hizmet aynı anda gönderilen istekleri daha iyi bir şekilde işleyerek gecikme süresini azaltır.
-
-* Konuşma Tanıma Hizmeti için süre tabanlı fiyatlandırma modeli kullanılmaktadır. Ayrıntılar için [Konuşma Tanıma Hizmeti fiyatlandırmasını](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/) inceleyin.
-
-* Konuşma Tanıma Hizmeti, dünyanın farklı yerlerindeki müşterilerin ihtiyaçlarını karşılamak için [birden fazla bölgede](regions.md) kullanıma sunulmuştur. Uygulamanızın kullandığı her bölge için bir [Azure aboneliğine](https://docs.microsoft.com/azure/cognitive-services/welcome) ihtiyacınız vardır.
-
-* Tek bir Konuşma Tanıma Hizmeti abonelik anahtarıyla aşağıdaki özelliklerin tümüne erişebilirsiniz. Hepsinin kullanımı bağımsız bir şekilde ölçüldüğünden yalnızca kullandığınız hizmetler için ödeme yapmış olursunuz.
-
-    * [Konuşmayı metne dönüştürme](speech-to-text.md)
-    * [Özel konuşmayı metne dönüştürme](https://cris.ai/CustomSpeech)
-    * [Metin okuma](text-to-speech.md)
-    * [Özel metin okuma sesleri](https://cris.ai/CustomVoice)
-    * [Konuşma çevirisi ](speech-translation.md) ([Metin çevirisi](https://docs.microsoft.com/azure/cognitive-services/translator/translator-info-overview) özelliğini kapsamaz)
-
-* Konuşma Tanıma Hizmeti tarafından sunulan konuşmayı metne dönüştürme işlevi, konuşma amacı tanıma için [Language Understanding Service](https://docs.microsoft.com/azure/cognitive-services/luis/) (LUIS) ile tümleştirilebilir. Konuşma Tanıma Hizmeti ile bir LUIS uç nokta anahtarı da kullanılabilir. Ayrıntılar için [amaç tanıma öğreticisine](how-to-recognize-intents-from-speech-csharp.md) bakın.
-
-* Konuşmayı metne dönüştürme işlevinde artık tanıma modu belirtmenize gerek yoktur.
-
-* Konuşma Tanıma Hizmeti metin okuma için 24 KHz ses desteğiyle ses kalitesini artırır. Bu makalenin yazıldığı an itibarıyla bu özellikte iki ses vardır (yalnızca İngilizce-ABD): `Jessa24kRUS` ve `Guy24kRUS`.
-
-* Konuşma Tanıma Hizmeti'nin [toplu transkripsiyon](batch-transcription.md) işlemi, çağrı merkezi kayıtları gibi yüksek hacimli konuşma kayıtlarının verimli bir şekilde yazıya dökülerek analiz ve arama işlemlerinin kolayca gerçekleştirilmesini sağlar.
-
-* Konuşma SDK'sını kullanırken konuşmayı metne dönüştürme transkripsiyonu için geçerli süre sınırı yoktur.
-
-* [Konuşma SDK'sı](speech-sdk.md) birden fazla dil ve yürütme ortamı (Windows 10, UWP ve .NET Core dahil) için tutarlı bir Konuşma Tanıma Hizmeti API'si desteği sunarak özellikle birden fazla platform üzerinde geliştirmeyi kolaylaştırır.
-
-* Konuşma Tanıma Hizmeti diğer Azure konuşma hizmetleri tarafından kullanılan REST API'leri ve WebSocket protokolleri ile uyumlu olduğundan var olan uygulamaları Konuşma Tanıma Hizmeti'ne taşımak oldukça kolaydır.
 
 ## <a name="speech-scenarios"></a>Konuşma tanıma senaryoları
 
@@ -123,8 +87,6 @@ Uygulamanız genel kullanıma yönelikse, varsayılan konuşma tanıma modelleri
 Uygulamanız belirli bir etki alanında (tıp veya BT gibi) kullanılıyorsa, [dil modeli](how-to-customize-language-model.md) oluşturabilirsiniz. Bu modeli kullanarak Konuşma tanıma hizmetini uygulamanız tarafından kullanılan özel terminoloji hakkında eğitebilirsiniz.
 
 Uygulamanız gürültülü bir ortamda örneğin fabrikada kullanılıyorsa, özel bir [akustik modeli](how-to-customize-acoustic-models.md) oluşturabilirsiniz. Bu model Konuşma tanıma hizmetinin konuşmayı gürültüden ayırt etmesine yardımcı olur.
-
-Kullanmaya kolayca başlayın. [Konuşma SDK'sını](speech-sdk.md) indirmeniz ve ilgili [Hızlı Başlangıç](quickstart-csharp-dotnet-windows.md) makalesini izlemeniz yeterli olur.
 
 ### <a name="call-center-transcription"></a>Çağrı merkezi transkripsiyonu
 

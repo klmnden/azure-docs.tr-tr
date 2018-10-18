@@ -4,28 +4,28 @@ description: Bu konuda genel bir bakış Canlı Azure Media Services v3 kullanar
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 06/06/2018
+ms.date: 10/16/2018
 ms.author: juliako
-ms.openlocfilehash: e9ecf1ba3022ca057fa09bad2413aa19d902ae23
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 533aa505c38d3cbfb46d70acecd43cc66614b13d
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38972188"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49378145"
 ---
 # <a name="live-streaming-with-azure-media-services-v3"></a>Canlı akış ile Azure Media Services v3
 
 Azure Media Services ile etkinliklerin canlı akış sunarken aşağıdaki bileşenler yaygın olarak kullanılır:
 
 * Etkinliği yayınlamak için kullanılan bir kamera.
-* Media Services'e gönderilen akışlara kamera (veya başka bir cihaz, dizüstü bilgisayar gibi) sinyalleri dönüştürür canlı bir video Kodlayıcısı canlı akış hizmeti. Sinyaller SCTE-35 ve Ad ipuçları reklam de içerebilir. 
+* Sinyaller kamera (veya başka bir cihaz, dizüstü bilgisayar gibi) Lve akış hizmetine gönderilen akışlara dönüştürür canlı bir video Kodlayıcısı. Sinyaller SCTE-35 ve Ad ipuçları reklam de içerebilir. 
 * Media Services canlı akış hizmeti, alma, Önizleme, paketleme, kaydetme, şifrelemek ve müşterilerinize veya başkalarına dağıtım için bir CDN içeriği yayını sağlar.
 
 Bu makalede ayrıntılı bir genel bakış sağlar ve Media Services ile canlı akış ilgili ana bileşenleri diyagramları içerir.
@@ -40,6 +40,17 @@ Media Services dinamik olarak şifrelenmiş içerik teslim etmenizi sağlar (**d
 
 İsterseniz, ayrıca uygulayabilirsiniz **dinamik filtreleme**, parçalar, biçimleri, oyuncular gönderilen bit hızlarına dönüştürme sayısını kontrol etmek için kullanılabilir. Media Services, reklam yerleştirme de destekler.
 
+### <a name="new-live-encoding-improvements"></a>Yeni canlı kodlama geliştirmeleri
+
+Aşağıdaki yeni geliştirmeler yeni sürümde yapıldığını.
+
+- Yeni düşük gecikme süresi modu için Canlı (10 saniye için uçtan uca).
+- Geliştirilmiş RTMP desteği (daha fazla kararlılık ve daha fazla kaynak Kodlayıcı desteği).
+- Güvenli RTMPS alın.
+
+    Artık size bir Livestream oluşturduğunuzda 4 URL'lerini alabilirsiniz. 4 alma URL'leri neredeyse aynıdır, yalnızca bir bağlantı noktası numarası bölümü farklı aynı akış belirteci (AppID) sahip. URL'lerin ikisinin, birincil ve yedek RTMPS için.   
+- 24 saatlik biçim dönüştürme desteği. 
+- RTMP SCTE35 aracılığıyla ad sinyal desteği geliştirildi.
 
 ## <a name="liveevent-types"></a>Livestream türleri
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2018
 ms.author: magoedte
-ms.openlocfilehash: 308a447ff99cd11ad6a28df0bdb515764b0f546b
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 282620342d2348868ceab5257de7415a9cb2147c
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47063464"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49388372"
 ---
 # <a name="azure-monitor-for-vms-frequently-asked-questions"></a>Azure İzleyici VM'ler için sık sorulan sorular
 Bu Microsoft FAQ, Microsoft azure'da sanal makineler için Azure İzleyici hakkında sık sorulan soruların listesini içerir. Çözümü hakkında ek sorularınız varsa, Git [tartışma forumuna](https://feedback.azure.com/forums/34192--general-feedback) ve sorularınızı gönderin. Sık sorulan bir soru, böylece hızla ve kolayca bulunabilir, bu makaleye ekleriz.
@@ -76,7 +76,7 @@ Vm'leri Haritası özelliği için Azure İzleyici, hizmet eşlemesinde bağlıd
 Bazı nedenlerden dolayı ortaya çıkabilir.  Durumlarda veri toplama boşluk olduğu şu satırları noktalı olarak kullanılırlar.  Veri örnekleme sıklığı etkin performans sayaçları için değiştirdiyseniz (varsayılan ayar 60 saniyede verileri toplamak için değer) örnekleme sıklığı, grafik bir dar zaman aralığını seçin ve noktalı grafik satırlarında görebilirsiniz küçüktür Grafikte kullanılan demet boyutuna (örneğin, örnekleme sıklığı 10 dakikada bir ve grafikteki her bir demete 5 dakikadır).  Görüntülemek için daha geniş bir zaman aralığı seçerek nokta yerine düz çizgiler olarak bu durumda görüntülenecek grafik satırları neden olmaz.
 
 ## <a name="are-groups-supported-with-azure-monitor-for-vms"></a>Grupları, sanal makineleri için Azure İzleyici ile desteklenir?
-Belirli bir Azure sanal makine ölçek kümesi ve bulut hizmetine göre gruplandırmayı yanı sıra, belirli bir çalışma alanı içindeki vurgulanan kaynaklara göre gruplara performans özelliği destekler.
+Evet, abonelik, kaynak grubu, alan gruplar görüntülenecek vm'lerden bilgileri toplarız bağımlılık aracısını yükledikten sonra sanal makine ölçek kümeleri ve bulut Hizmetleri.  Hizmet eşlemesi kullanarak ve makine gruplarını oluşturdunuz, bunlar da gösterilir.  Görüntülemekte olduğunuz için çalışma alanı oluşturduysanız bilgisayar grupları da grupları filtre görünür. 
 
 ## <a name="how-do-i-see-the-details-for-what-is-driving-the-95th-percentile-line-in-the-aggregate-performance-charts"></a>Nasıl ayrıntılarını görebilirim 95. yüzdebirlik yönlendirmek için performans grafikleri ve toplam satır?
 Varsayılan olarak, listenin 95. yüzdebirlik seçilen ölçüm için en yüksek değeri en düşük değerini 5. yüzdebirlik makinelerle gösteren kullanılabilir bellek grafiğin dışında olan Vm'leri gösterecek şekilde sıralanır.  Grafikte tıklayarak açılır **en iyi N listesi** uygun ölçüm seçili görünüm.

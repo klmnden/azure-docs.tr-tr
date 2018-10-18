@@ -4,19 +4,19 @@ description: Bu konuda Azure Media Services'ı kullanarak kodlama işlemi açık
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 04/21/2018
+ms.date: 10/15/2018
 ms.author: juliako
-ms.openlocfilehash: 69c5516ee503d774b143bb2d83f09ea863a00b31
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 452502d5d6a0a35f642de7e14b2a7ee7fc573bfa
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47091558"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49378678"
 ---
 # <a name="encoding-with-azure-media-services"></a>Azure Media Services ile kodlama
 
@@ -26,9 +26,7 @@ Media Services v3 ile kodlanacak, Dönüşüm ve bir iş oluşturmanız gerekir.
 
 Azure Media Services ile kodlarken Kodlayıcı giriş medya dosyalarını nasıl işlenmesi gerektiğini söylemek için hazır kullanın. Örneğin, kodlanmış içeriği görüntü çözünürlüğünü ve/veya istediğiniz ses kanal sayısını belirtebilirsiniz. 
 
-Sektördeki en iyi uygulamalarına göre önerilen yerleşik hazır biri ile hızlıca başlayabilirsiniz veya senaryonuz ya da cihaz belirli gereksinimlerinizi hedeflemek için önceden belirlenmiş bir özel bir yapı seçebilirsiniz. 
-
-Encoder'da hakkındaki ayrıntıları bulabilirsiniz [Openapı belirtimi](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media/preview/2018-03-30-preview). 
+Sektördeki en iyi uygulamalarına göre önerilen yerleşik hazır biri ile hızlıca başlayabilirsiniz veya senaryonuz ya da cihaz belirli gereksinimlerinizi hedeflemek için önceden belirlenmiş bir özel bir yapı seçebilirsiniz. Daha fazla bilgi için [Azure Media Services ile kodlama](encoding-concept.md). 
 
 ## <a name="built-in-presets"></a>Yerleşik hazır
 

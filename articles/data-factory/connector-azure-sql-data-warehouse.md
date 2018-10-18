@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/28/2018
 ms.author: jingwang
-ms.openlocfilehash: 03f02d9d36ffc6a14334cdcccf2d1455db34e2bc
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: d7a7b87f0d7915692b5a4a8c2233f543bb4c9e1d
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48815815"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49389335"
 ---
 #  <a name="copy-data-to-or-from-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Azure Data Factory kullanarak veya Azure SQL veri ambarı veri kopyalayın 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you're using:"]
@@ -210,7 +210,7 @@ MSI tabanlı Azure AD uygulama belirteci kimlik doğrulamasını kullanmak için
 
 ## <a name="dataset-properties"></a>Veri kümesi özellikleri
 
-Bölümleri ve veri kümeleri tanımlamak için mevcut özelliklerin tam listesi için bkz: [veri kümeleri](https://docs.microsoft.com/en-us/azure/data-factory/concepts-datasets-linked-services) makalesi. Bu bölümde, Azure SQL veri ambarı veri kümesi tarafından desteklenen özelliklerin bir listesini sağlar.
+Bölümleri ve veri kümeleri tanımlamak için mevcut özelliklerin tam listesi için bkz: [veri kümeleri](https://docs.microsoft.com/azure/data-factory/concepts-datasets-linked-services) makalesi. Bu bölümde, Azure SQL veri ambarı veri kümesi tarafından desteklenen özelliklerin bir listesini sağlar.
 
 Gelen veya Azure SQL veri ambarı veri kopyalamak için ayarlanmış **türü** veri kümesine özelliği **AzureSqlDWTable**. Aşağıdaki özellikler desteklenir:
 
@@ -383,7 +383,7 @@ SQL veri ambarı'nda bir sonraki bölüm verimli bir şekilde yüklemek için Po
 
 ## <a name="use-polybase-to-load-data-into-azure-sql-data-warehouse"></a>Azure SQL veri ambarı'na veri yüklemek için PolyBase kullanma
 
-Kullanarak [PolyBase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide) büyük miktarda veri, yüksek aktarım hızı ile Azure SQL Data Warehouse'a yüklemek için etkili bir yoludur. Yerine varsayılan BULKINSERT mekanizmasını PolyBase kullanarak büyük bir kazanç aktarım hızının görürsünüz. Bkz: [Performans başvurusu](copy-activity-performance.md#performance-reference) ayrıntılı bir karşılaştırması için. Kullanım örneği ile bir kılavuz için bkz. [1 TB'ı Azure SQL Data Warehouse'a veri yükleme](https://docs.microsoft.com/en-us/azure/data-factory/v1/data-factory-load-sql-data-warehouse).
+Kullanarak [PolyBase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide) büyük miktarda veri, yüksek aktarım hızı ile Azure SQL Data Warehouse'a yüklemek için etkili bir yoludur. Yerine varsayılan BULKINSERT mekanizmasını PolyBase kullanarak büyük bir kazanç aktarım hızının görürsünüz. Bkz: [Performans başvurusu](copy-activity-performance.md#performance-reference) ayrıntılı bir karşılaştırması için. Kullanım örneği ile bir kılavuz için bkz. [1 TB'ı Azure SQL Data Warehouse'a veri yükleme](https://docs.microsoft.com/azure/data-factory/v1/data-factory-load-sql-data-warehouse).
 
 * Kaynak verilerinizi Azure Blob Depolama veya Azure Data Lake Store ve biçimi ise kopyalama doğrudan PolyBase kullanarak Azure SQL veri ambarı PolyBase ile uyumludur. Ayrıntılar için bkz  **[kopyalama PolyBase kullanarak doğrudan](#direct-copy-by-using-polybase)**.
 * Kaynak veri deposu ve biçim başlangıçta desteklenmez, PolyBase tarafından kullanın **[kopyalama PolyBase kullanarak hazırlanmış](#staged-copy-by-using-polybase)** bunun yerine özellik. Hazırlanmış kopya özelliğini de daha iyi aktarım hızı sağlar. Otomatik olarak verileri PolyBase ile uyumlu biçimine dönüştürür. Ve verileri Azure Blob Depolama alanında depolar. Ardından verileri SQL veri ambarı'na yükler.
@@ -556,13 +556,13 @@ Veya Azure SQL veri ambarı veri kopyalayın, aşağıdaki eşlemeler Azure SQL 
 | İkili | Bayt] |
 | Bit | Boole |
 | Char | Dize, Char] |
-| tarih | DateTime |
+| date | DateTime |
 | Tarih saat | DateTime |
 | datetime2 | DateTime |
 | Datetimeoffset | DateTimeOffset |
 | Ondalık | Ondalık |
 | FILESTREAM özniteliğini (varbinary(max)) | Bayt] |
-| Kayan | çift |
+| kayan nokta | çift |
 | image | Bayt] |
 | int | Int32 |
 | para | Ondalık |
@@ -573,13 +573,13 @@ Veya Azure SQL veri ambarı veri kopyalayın, aşağıdaki eşlemeler Azure SQL 
 | Gerçek | Tek |
 | rowVersion | Bayt] |
 | smalldatetime | DateTime |
-| tamsayı | Int16 |
+| smallint | Int16 |
 | küçük para | Ondalık |
 | sql_variant | Nesne * |
 | metin | Dize, Char] |
 | time | Zaman aralığı |
 | timestamp | Bayt] |
-| Mini tamsayı | Bayt |
+| tinyint | Bayt |
 | benzersiz tanımlayıcı | Guid |
 | varbinary | Bayt] |
 | varchar | Dize, Char] |

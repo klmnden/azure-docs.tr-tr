@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 08/27/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: c7ccfd53b52416c8216b90f93f8d08f382c859d8
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 6e3026ea3aca897ab63f4ad7d72eac438fdb7199
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48042113"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49389120"
 ---
 # <a name="oms-portal-moving-to-azure"></a>OMS portalında Azure'a taşıma
 
@@ -98,7 +98,7 @@ Desteğiyle [kaynaklar arası sorgular](log-analytics-cross-workspace-search.md)
 
 
 ## <a name="azure-network-security-group-analytics"></a>Azure Ağ Güvenlik Grubu Analizi
-[Azure ağ güvenlik grubu analizi çözümü](log-analytics-azure-networking-analytics.md#azure-network-security-group-analytics-solution-in-log-analytics) değiştirilecek kısa süre önce kullanıma ile [trafik analizi](https://azure.microsoft.com/en-in/blog/traffic-analytics-in-preview/) üzerinde bulut ağlarındaki kullanıcı ve uygulama etkinliğiniz görünürlük sağlar. Trafik analizi, kuruluşunuzun ağ etkinliği, güvenli uygulamaları ve verileri denetleme, iş yükü performansı iyileştirmek ve uyumluluğu sürdürün yardımcı olur. 
+[Azure ağ güvenlik grubu analizi çözümü](log-analytics-azure-networking-analytics.md#azure-network-security-group-analytics-solution-in-log-analytics) değiştirilecek kısa süre önce kullanıma ile [trafik analizi](https://azure.microsoft.com/blog/traffic-analytics-in-preview/) üzerinde bulut ağlarındaki kullanıcı ve uygulama etkinliğiniz görünürlük sağlar. Trafik analizi, kuruluşunuzun ağ etkinliği, güvenli uygulamaları ve verileri denetleme, iş yükü performansı iyileştirmek ve uyumluluğu sürdürün yardımcı olur. 
 
 Bu çözüm, NSG akış günlüklerini analiz ederek ve aşağıdaki Öngörüler sağlar.
 

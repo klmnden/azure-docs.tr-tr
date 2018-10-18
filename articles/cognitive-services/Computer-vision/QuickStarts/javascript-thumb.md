@@ -3,19 +3,19 @@ title: 'Hızlı Başlangıç: Küçük resim oluşturma - REST, JavaScript - Gö
 titleSuffix: Azure Cognitive Services
 description: Bu hızlı başlangıçta, JavaScript ile Görüntü İşleme API’sini kullanarak bir görüntüden küçük resim oluşturacaksınız.
 services: cognitive-services
-author: noellelacharite
+author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
-ms.author: v-deken
-ms.openlocfilehash: ef0cdad796623b4453f71e8b593ba4304a41ee0f
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.author: pafarley
+ms.openlocfilehash: e221e2f65182092123ba3a61cf8d8844d9b6ee96
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45629466"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49343087"
 ---
 # <a name="quickstart-generate-a-thumbnail-using-the-rest-api-and-javascript-in-computer-vision"></a>Hızlı Başlangıç: Görüntü İşleme’de REST API ve JavaScript kullanarak küçük resim oluşturma
 

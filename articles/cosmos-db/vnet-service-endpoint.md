@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: govindk
-ms.openlocfilehash: a4758e5597876112fa7a85850786491e22af8c83
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 868f465cc651043d3ef4b1735b4b528252572dbb
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47037151"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49378094"
 ---
 # <a name="secure-access-to-an-azure-cosmos-db-account-by-using-azure-virtual-network-service-endpoint"></a>Azure sanal ağ hizmet uç noktası'nı kullanarak bir Azure Cosmos DB hesabı güvenli erişim
 
@@ -226,7 +226,7 @@ Evet, farklı bölgelerde oluşturulmuş sanal ağlar ile yeni özellik erişebi
 
 Evet, sanal ağ hizmet uç noktası ve bir güvenlik duvarı birlikte bulunabilir. Genel olarak, portalına erişim her zaman bir sanal ağ hizmet uç noktası yapılandırmadan önce kapsayıcı ile ilişkili ölçümleri görüntülemek sağlamak için etkinleştirildiğinden emin olmanız gerekir.
 
-### <a name="can-i-allow-access-to-other-azure-services-from-a-given-azure-region-when-service-endpoint-access-is-enabled-for-azure-cosmos-db"></a>Ben "erişim diğer Azure Hizmetleri için belirli bir Azure bölgesinden izin verebilirsiniz" Azure Cosmos DB için hizmet uç noktası erişimi etkinleştirildiğinde?  
+### <a name="can-i-accept-connections-from-within-public-azure-datacenters-when-service-endpoint-access-is-enabled-for-azure-cosmos-db"></a>Olabilir miyim "Kabul et bağlantılarından genel Azure veri merkezlerinin içinde" Azure Cosmos DB için hizmet uç noktası erişimi etkinleştirildiğinde?  
 
 Azure Data factory, Azure Search veya tüm hizmet gibi diğer Azure birinci taraf tarafından erişilecek, Azure Cosmos DB hesabı istediğinizde Hizmetleri yalnızca bu gereklidir belirli bir Azure bölgesine dağıtılır.
 

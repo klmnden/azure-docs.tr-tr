@@ -10,12 +10,12 @@ ms.component: bing-spell-check
 ms.topic: overview
 ms.date: 05/03/2018
 ms.author: nolachar
-ms.openlocfilehash: 81c80ab6c8d10d263de96566f5554709a2404a24
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 4caa05ffa96dbc15922fed85edfdefdb68ead68b
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48802602"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49361720"
 ---
 # <a name="what-is-bing-spell-check-api"></a>Bing Yazım Denetimi API'si nedir?
 
@@ -36,7 +36,7 @@ Bu yazım denetleyicisi tüm sözcük işleme senaryolarının üstesinden geleb
 
 ## <a name="spell-check-modes"></a>Yazım denetimi modları
 
-API, `Proof` ve `Spell` olmak üzere iki denetleme modunu destekler.  Örnekleri [burada](https://azure.microsoft.com/en-us/services/cognitive-services/spell-check/) deneyebilirsiniz.
+API, `Proof` ve `Spell` olmak üzere iki denetleme modunu destekler.  Örnekleri [burada](https://azure.microsoft.com/services/cognitive-services/spell-check/) deneyebilirsiniz.
 ### <a name="proof---for-documents-scenario"></a>Denetleme (belge senaryosu için)
 `Proof`, varsayılan moddur. `Proof` yazım denetimi modu, belge oluşturmaya yardımcı olmak için büyük/küçük harf kullanımını düzeltme ve temel noktalama işaretleri ekleme gibi çeşitli özellikler sunarak en kapsamlı denetimleri sağlar. Ancak bu mod yalnızca en-US (İngilizce-Amerika Birleşik Devletleri), es-ES (İspanyolca) ve pt-BR (Portekizce) pazarlarında kullanılabilir. (Not: İspanyolca ve Portekizce için yalnızca beta sürümünde sunulur). Diğer tüm pazarlar için mode sorgu parametresini Spell olarak ayarlayın. 
 <br /><br/>**NOT:**   Uzunluğu 4096 karakteri aşan sorgular, 4096 karakter olacak şekilde kesildikten sonra işlenir. 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/30/2017
 ms.author: msfussell
-ms.openlocfilehash: 9072a25b55bf461ad7dcc8393b98a66d87866d48
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: ae7eba9997c4f567eb7b07e23ab42c9ac7740698
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42057053"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49388118"
 ---
 # <a name="partition-service-fabric-reliable-services"></a>Partition Service Fabric güvenilir Hizmetleri
 Bu makalede, Azure Service Fabric güvenilir Hizmetleri bölümleme temel kavramlar tanıtılmaktadır. Makalesinde kullanılan kaynak kodu de kullanılabilir [GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/classic/Services/AlphabetPartitions).
@@ -365,7 +365,7 @@ Tam anlamıyla harfi her bir bölüm olmasını istiyoruz gibi kendi anahtarın�
 Tüm kaynak kodu örnek [GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/classic/Services/AlphabetPartitions).
 
 ## <a name="reliable-services-and-actor-forking-subprocesses"></a>Reliable Services ve alt işlemden çatal aktör
-Service Fabric güvenilir Hizmetleri ve daha sonra reliable actors alt işlemden çatal desteklemiyor. Neden olmadığını desteklenen bir örnektir [CodePackageActivationContext](https://docs.microsoft.com/en-us/dotnet/api/system.fabric.codepackageactivationcontext?view=azure-dotnet) desteklenmeyen bir alt kaydetmek için kullanılamaz ve iptal belirteçlerini yalnızca registred işlemleri; gönderilen sorunların, her tür gibi kaynaklanan üst işleme iptal belirteci aldıktan sonra alt işlemden kapatmayın, hatalar'ı yükseltin. 
+Service Fabric güvenilir Hizmetleri ve daha sonra reliable actors alt işlemden çatal desteklemiyor. Neden olmadığını desteklenen bir örnektir [CodePackageActivationContext](https://docs.microsoft.com/dotnet/api/system.fabric.codepackageactivationcontext?view=azure-dotnet) desteklenmeyen bir alt kaydetmek için kullanılamaz ve iptal belirteçlerini yalnızca registred işlemleri; gönderilen sorunların, her tür gibi kaynaklanan üst işleme iptal belirteci aldıktan sonra alt işlemden kapatmayın, hatalar'ı yükseltin. 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Service Fabric kavramlarla ilgili daha fazla bilgi için aşağıdakilere bakın:

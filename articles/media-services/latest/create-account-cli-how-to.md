@@ -4,36 +4,36 @@ description: Azure Media Services hesabı oluşturmak için bu hızlı başlang�
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cflower
+manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
 ms.custom: ''
-ms.date: 03/27/2018
+ms.date: 10/15/2018
 ms.author: juliako
-ms.openlocfilehash: ca01f32709ce7c9fc49629415cd8697a9d9ba43a
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 988b56569c2537f9f0c74b1bcc2bf5e2a9400a80
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47091958"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49378814"
 ---
 # <a name="create-an-azure-media-services-account"></a>Azure Media Services hesabı oluşturma
 
-Şifreleme, kodlama, çözümleme, yönetme ve azure'da medya içeriği akışı başlatmak için bir Media Services hesabı oluşturmanız gerekir. Bir Media Services hesabı oluşturduğunuzda Media Services hesabı ile aynı coğrafi bölgede ilişkili bir depolama hesabı da oluşturursunuz (ya da var olanı kullanırsınız).
+Şifreleme, kodlama, çözümleme, yönetme ve azure'da medya içeriği akışı başlatmak için bir Media Services hesabı oluşturmanız gerekir. Zaman bir Media Services hesabı oluşturma, oluşturabilir, ilişkili bir depolama hesabı (veya var olanı kullanın) Media Services hesabıyla aynı coğrafi bölgede.
 
-Bu konuda, Azure CLI kullanarak yeni bir Azure Media Services hesabı oluşturma adımları açıklanmaktadır.  
+Bu makalede, Azure CLI kullanarak yeni bir Azure Media Services hesabı oluşturmaya yönelik adımlar açıklanmaktadır.  
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="log-in-to-azure"></a>Azure'da oturum açma
+## <a name="sign-in-to-azure"></a>Azure'da oturum açma
 
-[Azure portalında](http://portal.azure.com) oturum açın ve **CloudShell** başlatarak sonraki adımlarda gösterildiği gibi CLI komutlarını yürütün.
+Oturum [Azure portalında](http://portal.azure.com) ve başlatma **CloudShell** CLI komutları, sonraki adımlarda gösterildiği gibi yürütülecek.
 
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
-CLI'yi yerel olarak yükleyip kullanmayı tercih ederseniz bu konu başlığı için Azure CLI 2.0 veya sonraki bir sürümünü kullanmanız gerekir. Kullandığınız sürümü bulmak için `az --version` komutunu çalıştırın. Yükleme veya yükseltme yapmanız gerekirse bkz. [Azure CLI’yı yükleme](/cli/azure/install-azure-cli). 
+CLI'yi yerel olarak yükleyip kullanmayı tercih ederseniz bu makale için Azure CLI sürüm 2.0 veya sonraki bir sürümünü kullanmanız gerekir. Kullandığınız sürümü bulmak için `az --version` komutunu çalıştırın. Yükleme veya yükseltme yapmanız gerekirse bkz. [Azure CLI’yı yükleme](/cli/azure/install-azure-cli). 
 
 ## <a name="set-the-azure-subscription"></a>Azure aboneliğini ayarlama
 

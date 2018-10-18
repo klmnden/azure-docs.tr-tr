@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 9/20/2018
 ms.author: anandh
-ms.openlocfilehash: f79be44d33a327f3ead8d950885cb5d47ce3a015
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 67778a269aa962b3184bf55c692154570e8357ba
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47414635"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49387404"
 ---
 # <a name="performance-diagnostics-for-azure-virtual-machines"></a>Azure sanal makineleri için performans tanılamaları
 
@@ -103,7 +103,7 @@ Karşıya yükledikten sonra Azure portalında yeni bir tanılama raporu listele
 Kullanım **ayarları** burada çıkış ve tanılama öngörüleri depolanabilir depolama hesabını değiştirmek için araç çubuğu düğmesi. Performans Tanılama kullanan birden çok VM için aynı depolama hesabını kullanabilirsiniz. Depolama hesabını değiştirdiğinizde, eski rapor ve öngörü silinmez. Ancak, bunlar artık tanılama raporları listesinde görüntülenir. 
 
 ## <a name="review-insights-and-performance-diagnostics-report"></a>Öngörü ve performans tanılama raporu gözden geçirin
-Çalıştıran her tanılama öngörüleri ve öneriler, etkilenen kaynaklar, günlük dosyaları ve toplanan diğer zengin tanılama bilgileri listesini yanı sıra, çevrimdışı izleme için bir rapor içerir. Tüm toplanan Tanılama verileri tam bir listesi için bkz. [Perfınsights tarafından hangi tür bilgiler toplanır?](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/how-to-use-perfinsights#what-kind-of-information-is-collected-by-perfinsights) 
+Çalıştıran her tanılama öngörüleri ve öneriler, etkilenen kaynaklar, günlük dosyaları ve toplanan diğer zengin tanılama bilgileri listesini yanı sıra, çevrimdışı izleme için bir rapor içerir. Tüm toplanan Tanılama verileri tam bir listesi için bkz. [Perfınsights tarafından hangi tür bilgiler toplanır?](https://docs.microsoft.com/azure/virtual-machines/windows/how-to-use-perfinsights#what-kind-of-information-is-collected-by-perfinsights) 
 
 ### <a name="select-a-performance-diagnostics-report"></a>Performans Tanılama raporunu seçin
 Tanılama rapor listesi çalıştırılmış olan tüm tanılama raporları bulmak için kullanabilirsiniz. Liste kullanılan çözümlemesi hakkında daha fazla ayrıntı, bulunan Öngörüler ve kendi etki düzeyleri içerir. Daha fazla ayrıntı görüntülemek için bir satır seçin.
@@ -123,7 +123,7 @@ Etkilenen kaynaklar, önerilen risk azaltma işlemleri ve referans bağlantılar
 ![Performans Tanılama Insight ayrıntı ekran görüntüsü](media/performance-diagnostics/insight-detail.png)
 
 ### <a name="download-and-review-the-full-performance-diagnostics-report"></a>İndirin ve tam performans tanılama raporu gözden geçirin
-Kullanabileceğiniz **raporu indir** depolama ve ağ yapılandırması, performans sayaçları gibi ek zengin tanılama bilgileri içeren bir HTML raporu indirmek için düğmeye, süreçlerin listesini izler ve günlüğe kaydeder. Seçili çözümleme içeriği bağlıdır. Gelişmiş sorun giderme için rapor yüksek CPU kullanımı, yüksek disk kullanımı ve aşırı şekilde bellek kullanan işlemleri için ilgili etkileşimli grafikler ve ek bilgiler içerebilir. Performans tanılama raporu hakkında daha fazla bilgi için bkz: [gözden tanılama raporu](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/how-to-use-perfinsights#review-the-diagnostics-report).
+Kullanabileceğiniz **raporu indir** depolama ve ağ yapılandırması, performans sayaçları gibi ek zengin tanılama bilgileri içeren bir HTML raporu indirmek için düğmeye, süreçlerin listesini izler ve günlüğe kaydeder. Seçili çözümleme içeriği bağlıdır. Gelişmiş sorun giderme için rapor yüksek CPU kullanımı, yüksek disk kullanımı ve aşırı şekilde bellek kullanan işlemleri için ilgili etkileşimli grafikler ve ek bilgiler içerebilir. Performans tanılama raporu hakkında daha fazla bilgi için bkz: [gözden tanılama raporu](https://docs.microsoft.com/azure/virtual-machines/windows/how-to-use-perfinsights#review-the-diagnostics-report).
 
 ## <a name="manage-performance-diagnostics-reports"></a>Performans Tanılama raporlarını yönetme
 Bir veya daha fazla performans tanılama raporları kullanarak silebilirsiniz **silme rapor** düğmesi.

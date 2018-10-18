@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 11/08/2017
 ms.author: markvi
 ms.reviewer: raluthra
-ms.openlocfilehash: a54403b7794d26d87c810f5cd20050db35c078f1
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: 3ba8c93d158a6ff80c3db788924503e9d4e87242
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47054352"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49378128"
 ---
 # <a name="how-to-configure-the-user-risk-policy"></a>Nasıl yapılır: kullanıcı riski ilkesi yapılandırma
 
@@ -41,7 +41,7 @@ Bir kullanıcı için tespit ettik ve çözülmesi yaramadı tüm risk olayları
 Kullanıcı riski İlkesi belirli bir kullanıcı risk düzeyi için yapılandırdığınız otomatik yanıt ' dir. Kullanıcı riski İlkesi ile kaynaklarınıza erişimi engellemek ya da bir kullanıcı hesabı temiz bir duruma geri dönmek için bir parola değişikliği iste.
 
 
-## <a name="how-do-i-access-the-sign-in-risk-policy"></a>Oturum açma riski İlkesi nasıl erişim sağlanır?
+## <a name="how-do-i-access-the-user-risk-policy"></a>Kullanıcı riski İlkesi nasıl erişim sağlanır?
    
 Oturum açma riski İlkesi bulunduğu **yapılandırma** bölümünde [Azure AD kimlik koruması sayfa](https://portal.azure.com/#blade/Microsoft_AAD_ProtectionCenter/IdentitySecurityDashboardMenuBlade/SignInPolicy).
    

@@ -12,12 +12,12 @@ ms.author: v-daljep
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 10/16/2018
-ms.openlocfilehash: dca23940053fa6bf1f716ffa1a6fa0bcd7b41c91
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: 5ef15b7a757b87c14bf0bd764bdd6ca6e6da64e0
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/17/2018
-ms.locfileid: "49362628"
+ms.locfileid: "49379066"
 ---
 # <a name="monitoring-and-performance-tuning"></a>İzleme ve performans ayarlama
 
@@ -37,7 +37,7 @@ Performans sorunları olan bir iş yükü için performans sorunu nedeniyle CPU 
 
   - Çok fazla sayıda çalışan sorguları
   - Çok fazla derleme sorguları
-  - Bir veya daha çok yürütülen sorguları optimum sorgu planı kullanma
+  - Bir veya daha çok yürütülen sorguları optimum sorgu planı kullanıyorsanız
 
   İş yükünüz için Durum buysa, amacınız tanımlamak ve ilişkili sorgularınızı ayarlamak veya işlem boyutu yükseltin veya hizmet katmanını CPU gereksinimleri etkisini azaltmak amacıyla Azure SQL veritabanınızın kapasitesini artırmak için sağlamaktır. Tek veritabanları için kaynakların ölçeklendirilmesi, daha fazla bilgi için [Azure SQL veritabanı'nda tek bir veritabanı kaynakları ölçeklendirme](sql-database-single-database-scale.md) ve elastik havuzlar için kaynakların ölçeklendirilmesi için bkz [Azure SQL elastik havuzu kaynakları ölçeklendirme Veritabanı](sql-database-elastic-pool-scale.md).
 
@@ -62,7 +62,7 @@ Performans sorunları olan bir iş yükü için performans sorunu nedeniyle CPU 
 
 İlk olarak, bu yüksek CPU, çalıştırma ile ilgili performans sorunu olmadığını emin olun. Yüklü değilse, sonraki adımda, uygulama iş yükünüz ile ilişkili üst bekler belirlemektir.  Üst göstermek için ortak yöntemleri türü kategorilerini bekleyin:
 
-- [Query Store](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store) bekleme istatistikleri sorgu başına zamanla sağlar. Query Store bekleme türleri bekleme kategoriler halinde birleştirilir. Eşleme türleri beklemek bekleme kategorilerin kullanılabilir [sys.query_store_wait_stats](https://docs.microsoft.com/en-us/sql/relational-databases/system-catalog-views/sys-query-store-wait-stats-transact-sql?view=sql-server-2017#wait-categories-mapping-table).
+- [Query Store](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store) bekleme istatistikleri sorgu başına zamanla sağlar. Query Store bekleme türleri bekleme kategoriler halinde birleştirilir. Eşleme türleri beklemek bekleme kategorilerin kullanılabilir [sys.query_store_wait_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-query-store-wait-stats-transact-sql?view=sql-server-2017#wait-categories-mapping-table).
 - [sys.dm_db_wait_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-wait-stats-azure-sql-database) işlemi sırasında yürütülen iş parçacığı tarafından karşılaşılan bekler hakkında bilgi verir. Azure SQL veritabanı ve ayrıca özel sorgular ve toplu işler ile performans sorunlarını tanılamak için bu birleşik bir görünüm kullanabilirsiniz.
 - [sys.dm_os_waiting_tasks](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-os-waiting-tasks-transact-sql) bazı kaynak üzerinde bekleyen görevlerin bekleme kuyruk hakkındaki bilgileri döndürür.
 

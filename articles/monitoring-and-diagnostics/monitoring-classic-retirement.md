@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/04/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: 93bd04ce654b8403ab3cd69ecd6837b97063e5e8
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: ebbb231e7d9eefa8eb681b0e14c711e2c4f1fad7
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/17/2018
-ms.locfileid: "49363955"
+ms.locfileid: "49386528"
 ---
 # <a name="unified-alerting--monitoring-in-azure-monitor-replaces-classic-alerting--monitoring"></a>Birleştirilmiş uyarılar ve Azure İzleyici'de izleme Klasik uyarı ve izleme değiştirir.
 
@@ -49,8 +49,8 @@ Azure kaynakları için yeni ölçümler olarak kullanılabilir:
 İzleme ve uyarı platform şu anda kullanılabilir gelen Klasik daha önce belirtildiği gibi [uyarılar (Klasik) bölümünde](monitoring-overview-alerts-classic.md) Azure portalı kullanımdan kaldırılacak ay verilen geliyor, bunlar yeni sistem tarafından değiştirilmiştir.
 İzleme ve uyarı eski Klasik üzerinde 30 Haziran 2019 kullanımdan kaldırılacaktır; Kapanış ilgili API'leri, Azure portal arabirimi ve Hizmetleri içinde dahil. Özellikle, bu özellikler kullanım dışı kalacaktır:
 
-- Eski (Klasik) ölçümleri ve uyarıları olarak şu anda Azure kaynakları için aracılığıyla kullanılabilen [uyarılar (Klasik) bölümünde](monitoring-overview-alerts-classic.md) Azure portalı; olarak erişilebilir [microsoft.insights/alertrules](https://docs.microsoft.com/en-us/rest/api/monitor/alertrules) kaynak
-- Eski (Klasik) platformu ve özel ölçümler için Application Insights yanı sıra olarak bunlar üzerinde şu anda aracılığıyla kullanılabilen uyarı [uyarılar (Klasik) bölümünde](monitoring-overview-alerts-classic.md) Azure portal ve olarak erişilebilir [microsoft.insights/ alertrules](https://docs.microsoft.com/en-us/rest/api/monitor/alertrules) kaynak
+- Eski (Klasik) ölçümleri ve uyarıları olarak şu anda Azure kaynakları için aracılığıyla kullanılabilen [uyarılar (Klasik) bölümünde](monitoring-overview-alerts-classic.md) Azure portalı; olarak erişilebilir [microsoft.insights/alertrules](https://docs.microsoft.com/rest/api/monitor/alertrules) kaynak
+- Eski (Klasik) platformu ve özel ölçümler için Application Insights yanı sıra olarak bunlar üzerinde şu anda aracılığıyla kullanılabilen uyarı [uyarılar (Klasik) bölümünde](monitoring-overview-alerts-classic.md) Azure portal ve olarak erişilebilir [microsoft.insights/ alertrules](https://docs.microsoft.com/rest/api/monitor/alertrules) kaynak
 - Eski (Klasik) hata Anomalileri uyarı şu anda kullanılabilir olarak [Application Insights içinde akıllı algılama](../application-insights/app-insights-proactive-diagnostics.md) yapılandırılan uyarı; Azure portalında gösterilen [uyarılar (Klasik) bölümünde](monitoring-overview-alerts-classic.md) Azure Portal
 
 Tüm Klasik izleme ve sistemlerle ilgili uyarı [API](https://msdn.microsoft.com/library/azure/dn931945.aspx), [PowerShell](insights-alerts-powershell.md), [CLI](insights-alerts-command-line-interface.md), [Azure portalı sayfasının ve [kaynakşablonu](monitoring-enable-alerts-using-template.md) Haziran 2019 kadar kullanılabilir kalır. Bu tarihten sonra Klasik izleme ve Uyarıları hizmetinin kullanımdan kaldırılmış ve artık kullanılabilir olur; Haziran 2019 ötesinde uyarılar (Klasik) var olmaya devam herhangi bir uyarı kuralları sırada yürütülürler ancak değişiklik kullanılamaz devam eder.

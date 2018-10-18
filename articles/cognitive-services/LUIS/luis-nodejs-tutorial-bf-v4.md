@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: diberry
-ms.openlocfilehash: acd9d9ff0b97bf0eaaca2f8ae9a6909e18e320d6
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: ad21754b3f55a0d14bb43a2898d5bd4b8b8150ae
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47168216"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49385915"
 ---
 # <a name="tutorial-luis-bot-in-nodejs"></a>Öğretici: Node.js'de LUIS robotu
 Node.js'yi kullanarak, dil anlama (LUIS) ile tümleşik bir sohbet robotu oluşturabilirsiniz. Bu robot, bir robot çözümü gerçekleştirmek için HomeAutomation uygulamasını kullanır. Robot, [Bot Framework sürümü](https://github.com/Microsoft/botbuilder-js) v4 ile Azure [Web uygulaması robotu](https://docs.microsoft.com/azure/bot-service/) kullanılarak geliştirilmiştir.
@@ -244,7 +244,7 @@ Herhangi bir kodu veya ayarı değiştirmeden önce robotun çalıştığından 
 
 ## <a name="modify-bot-code"></a>Robot kodunu değiştirme 
 
-`bot.js` dosyasına yeni amaçları işleyecek kodu ekleyin. 
+`bot.js` dosyasına yeni amaçları işleyecek kod ekleyin. 
 
 1. Dosyanın en üstünde, **Desteklenen LUIS Amaçları** bölümünü bulun ve HomeAutomation amaçları için sabitler ekleyin:
 
@@ -350,9 +350,9 @@ Herhangi bir kodu veya ayarı değiştirmeden önce robotun çalıştığından 
 ## <a name="learn-more-about-bot-framework"></a>Bot Framework hakkında daha fazla bilgi edinin
 Azure Bot hizmeti, Bot Framework SDK'sını kullanır. SDK ve bot çerçevesi hakkında daha fazla bilgi edinin:
 
-* [Azure Bot Hizmeti](https://docs.microsoft.com/en-us/azure/bot-service/bot-service-overview-introduction?view=azure-bot-service-4.0) v4 belgeleri
+* [Azure Bot Hizmeti](https://docs.microsoft.com/azure/bot-service/bot-service-overview-introduction?view=azure-bot-service-4.0) v4 belgeleri
 * [Bot Builder Örnekleri](https://github.com/Microsoft/botbuilder-samples)
-* [Bot Builder SDK'sı](https://docs.microsoft.com/en-us/javascript/api/botbuilder-core/?view=botbuilder-ts-latest)
+* [Bot Builder SDK'sı](https://docs.microsoft.com/javascript/api/botbuilder-core/?view=botbuilder-ts-latest)
 * [Bot Builder araçları](https://github.com/Microsoft/botbuilder-tools):
 
 ## <a name="next-steps"></a>Sonraki adımlar

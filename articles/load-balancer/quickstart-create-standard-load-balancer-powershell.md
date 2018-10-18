@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 08/22/2018
 ms.author: kumud
 ms:custom: mvc
-ms.openlocfilehash: 67d514fe6315604016dc10b7dfc8154c3919f914
-ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
+ms.openlocfilehash: e197d5306d0df93c243b765ba9154dd8661c6908
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42616552"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49319538"
 ---
 # <a name="get-started"></a>Hızlı Başlangıç: Azure PowerShell kullanarak Standart Load Balancer oluşturma
 Bu hızlı başlangıçta, Azure PowerShell kullanarak bir Standart Load Balancer’ın nasıl oluşturulacağı gösterilmektedir. Yük dengeleyiciyi test etmek için, Windows sunucusu çalıştıran iki sanal makine (VM) dağıtın ve sanal makineler arasında bir web uygulamasının yük dengelemesini yapın. Standart Load Balancer hakkında daha fazla bilgi için bkz. [Standart Load Balancer nedir](load-balancer-standard-overview.md).
@@ -209,7 +209,7 @@ $nsg = New-AzureRmNetworkSecurityGroup`
 -SecurityRules $rule1,$rule2
 ```
 
-###<a name="create-nics"></a>NIC’leri oluşturma
+### <a name="create-nics"></a>NIC’leri oluşturma
 [New-AzureRmNetworkInterface](/powershell/module/azurerm.network/new-azurermnetworkinterface) ile sanal NIC’ler oluşturun. Aşağıdaki örnek iki sanal NIC oluşturur. (Sonraki adımlarda uygulamanız için oluşturduğunuz her bir VM için bir sanal NIC). İstediğiniz zaman ek sanal NIC’ler ve VM’ler oluşturabilir ve bunları yük dengeleyiciye ekleyebilirsiniz:
 
 ```azurepowershell-interactive

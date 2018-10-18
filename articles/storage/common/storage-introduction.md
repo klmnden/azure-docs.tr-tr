@@ -8,12 +8,12 @@ ms.topic: get-started-article
 ms.date: 07/11/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: 693ba07e46900ba6f3e025d97cb34aad9e244ace
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: f03872a125e4e4d2f1e0b458a31d67a07802f2c8
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44027053"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49387456"
 ---
 # <a name="introduction-to-azure-storage"></a>Azure Depolama’ya Giriş
 
@@ -85,7 +85,7 @@ Tablo depolama hakkında daha fazla bilgi için bkz. [Azure Tablo depolamaya gen
 
 ## <a name="disk-storage"></a>Disk depolama
 
-Azure Depolama ayrıca sanal makineler tarafından kullanılan, yönetilen ve yönetilmeyen disk özelliklerine sahiptir. Bu özellikler hakkında daha fazla bilgi için bkz. [İşlem Hizmetleri belgeleri](https://docs.microsoft.com/en-gb/azure/#pivot=products&panel=Compute).
+Azure Depolama ayrıca sanal makineler tarafından kullanılan, yönetilen ve yönetilmeyen disk özelliklerine sahiptir. Bu özellikler hakkında daha fazla bilgi için bkz. [İşlem Hizmetleri belgeleri](https://docs.microsoft.com/azure/#pivot=products&panel=Compute).
 
 ## <a name="types-of-storage-accounts"></a>Depolama hesabı türleri
 

@@ -8,12 +8,12 @@ ms.subservice: disk
 ms.topic: article
 ms.date: 09/04/2018
 ms.author: alkohli
-ms.openlocfilehash: bbaf1f10284fb520cc3a52a6c04c4150de3b6546
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 1a4fe30881f06d8af851a67f389a6faafbe3dfef
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49092023"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49389471"
 ---
 # <a name="azure-data-box-disk-limits-preview"></a>Azure Data Box Disk sınırları (Önizleme)
 
@@ -57,7 +57,7 @@ Azure depolama hizmet sınırları ve adlandırma paylaşımları, kapsayıcıla
 
 ## <a name="azure-storage-account-size-limits"></a>Azure depolama hesabı boyut sınırları
 
-Depolama hesabına kopyalanır veri boyutu sınırları şunlardır. Karşıya yüklediğiniz veriler için limitler uyduğundan emin olun. Bu sınırlar en güncel bilgiler için Git [Azure blob depolama ölçek hedefleri](https://docs.microsoft.com/en-us/azure/storage/common/storage-scalability-targets#azure-blob-storage-scale-targets) ve [Azure dosyaları ölçeklendirme hedeflerini](https://docs.microsoft.com/en-us/azure/storage/common/storage-scalability-targets#azure-files-scale-targets).
+Depolama hesabına kopyalanır veri boyutu sınırları şunlardır. Karşıya yüklediğiniz veriler için limitler uyduğundan emin olun. Bu sınırlar en güncel bilgiler için Git [Azure blob depolama ölçek hedefleri](https://docs.microsoft.com/azure/storage/common/storage-scalability-targets#azure-blob-storage-scale-targets) ve [Azure dosyaları ölçeklendirme hedeflerini](https://docs.microsoft.com/azure/storage/common/storage-scalability-targets#azure-files-scale-targets).
 
 | Azure depolama hesabına kopyalanan verileri boyutu                      | Varsayılan limit          |
 |---------------------------------------------------------------------|------------------------|

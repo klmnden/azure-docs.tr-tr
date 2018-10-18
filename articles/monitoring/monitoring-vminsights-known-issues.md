@@ -12,19 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/03/2018
+ms.date: 10/15/2018
 ms.author: magoedte
-ms.openlocfilehash: 43000993c6a26ef8d44e941f5235ebad7aeee66f
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.openlocfilehash: 6d1f1d1ae07ec32262f655fd6ed7205a70e252f4
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48248076"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49385100"
 ---
 # <a name="known-issues-with-azure-monitor-for-vms"></a>VM'ler için Azure İzleyici ile ilgili bilinen sorunlar
 
 Aşağıda Azure İzleyici sistem durumu özelliği olan VM'ler için bilinen sorunlar verilmiştir:
 
+- Sistem durumu ekleme başlatılan ve diğer tek bir VM'den tamamlandı bile onbaorded tüm VM'ler için Log Analytics çalışma alanınıza bağlı bir özelliktir.
 - Kaldırıldı veya silindiği için bir Azure VM artık mevcut değilse, üç ila yedi gün boyunca VM liste görünümünde gösterilir. Ayrıca, kaldırıldı veya silinen sanal makinenin durumunu tıklanması **sistem tanılama** için daha sonra bir yükleme döngüye giriyor görünümü. Silinen bir sanal Makinenin adını seçerek bir dikey pencere, VM silinip silinmediğini belirten bir iletiyle başlatır.
 - Bu sürümle birlikte, zaman aralığı ve sıklığı durumu ölçütlerini değiştirilemez. 
 - Sistem durumu ölçütlerini devre dışı bırakılamaz. 

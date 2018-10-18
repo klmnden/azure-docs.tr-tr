@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 07/30/2018
 ms.author: barbkess
 ms.reviewer: asmalser
-ms.openlocfilehash: 9170f6f90b9e9b0a310f3b078c82dcab3f179fb3
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 935fef5ea988908787ae04688985606acec41bfd
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49321317"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49387286"
 ---
 # <a name="automate-user-provisioning-and-deprovisioning-to-saas-applications-with-azure-active-directory"></a>Sağlama ve sağlamayı kaldırma Azure Active Directory ile SaaS uygulamalarına kullanıcı otomatikleştirin
 
@@ -267,9 +267,9 @@ Ancak, dinamik gruplar kullanımını SaaS uygulamaları için Azure AD'den sağ
 
 Hayır. "Eşitleme yalnızca atanan kullanıcılar ve gruplar için" yapılandırıldığında, Azure AD kullanıcı sağlama hizmeti okuyun veya iç içe geçmiş gruplardaki kullanıcıların sağlamak mümkün değil. Yalnızca okuma ve anında açıkça atanan grubun üyesi olan kullanıcılar sağlayın.
 
-Bu bir sınırlamadır "Grup tabanlı atamaları uygulamalar için", aynı zamanda çoklu oturum açma etkiler ve açıklanan [SaaS uygulamalarına erişimi yönetmek için bir grup kullanmanızı](https://docs.microsoft.com/en-us/azure/active-directory/users-groups-roles/groups-saasapps ).
+Bu bir sınırlamadır "Grup tabanlı atamaları uygulamalar için", aynı zamanda çoklu oturum açma etkiler ve açıklanan [SaaS uygulamalarına erişimi yönetmek için bir grup kullanmanızı](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-saasapps ).
 
-Geçici bir çözüm olarak, açıkça atamasını (veya başka türlü [kapsamını](https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts)) sağlanması gereken kullanıcıları içeren gruplar.
+Geçici bir çözüm olarak, açıkça atamasını (veya başka türlü [kapsamını](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts)) sağlanması gereken kullanıcıları içeren gruplar.
 
 ## <a name="related-articles"></a>İlgili makaleler
 

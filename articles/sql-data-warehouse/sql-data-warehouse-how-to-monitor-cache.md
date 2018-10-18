@@ -10,12 +10,12 @@ ms.component: monitor and tune
 ms.date: 09/06/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 1cf2fcb2ce99d4c6c670e5afdb1c4208158ea4de
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 1d366850bc886dc48afc59ffaf0958b39314ebb1
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44096345"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49385541"
 ---
 # <a name="how-to-monitor-the-gen2-cache"></a>Gen2 önbelleğini izleme
 Gen2 depolama mimarisi, en sık Sorgulanmış columnstore segmentleri NVMe SSD tabanlı Gen2 veri ambarları için tasarlanmış bulunan bir önbellekte otomatik olarak katmanlandırır. Sorgularınızın önbelleğinde bulunan segmentleri aldığınızda daha yüksek performans alırlar. Bu makalede, izleme ve iş yükünüz Gen2 önbellek en iyi şekilde yararlanma olup olmadığını belirleyerek yavaş sorgu performansı sorunlarını giderme açıklar.  
@@ -43,7 +43,7 @@ Aşağıdaki matris önbellek ölçümlerini değerlerine göre senaryosu açık
 
 **Senaryo 2:** geçerli çalışma Veri kümenizi düşük neden önbelleğe sığamıyorsa önbellek isabet yüzdesi fiziksel okuma nedeniyle. Performans düzeyinizi ölçeklendirmeyi düşünün ve önbelleğini doldurmak için iş yükünüzü yeniden çalıştırın.
 
-**Senaryo 3:** sorgunuzu önbelleğe ilgisi olmayan nedenlerden dolayı yavaş çalıştığından emin olma olasılığı yüksektir. [Sorun giderme](https://docs.microsoft.com/en-us/azure/sql-data-warehouse/sql-data-warehouse-manage-monitor) sorgularınızı yavaşlatmasını diğer alanları. Ayrıca düşünebilirsiniz [örneğinizin ölçeklendirme](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-manage-monitor) maliyet tasarrufu için önbellek boyutunu azaltmak için. 
+**Senaryo 3:** sorgunuzu önbelleğe ilgisi olmayan nedenlerden dolayı yavaş çalıştığından emin olma olasılığı yüksektir. [Sorun giderme](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-manage-monitor) sorgularınızı yavaşlatmasını diğer alanları. Ayrıca düşünebilirsiniz [örneğinizin ölçeklendirme](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-manage-monitor) maliyet tasarrufu için önbellek boyutunu azaltmak için. 
 
 **Senaryo 4:** neden sorgunuzu yavaş neden olabilecek bir soğuk önbellek vardı. Çalışma kümenizin artık, önbelleğe alınması gerektiği gibi sorgunuzu yeniden deneyin. 
 

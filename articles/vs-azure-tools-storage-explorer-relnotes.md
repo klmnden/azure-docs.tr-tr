@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/12/2018
 ms.author: cawa
-ms.openlocfilehash: 7e73f676f47de8256928224aae55ea30eb414ddf
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 708b80787337d549ebc5e66bca21e734620616ac
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49344770"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49388315"
 ---
 # <a name="microsoft-azure-storage-explorer-release-notes"></a>Microsoft Azure Depolama Gezgini sürüm notları
 
@@ -72,7 +72,7 @@ Bu makale, Azure Depolama Gezgini 1.4.3 yayın yönelik sürüm notlarına yanı
 ./StorageExplorer.exe --disable-gpu
 ```
 
-* Linux kullanıcıları için yüklemeniz gerekecek [.NET Core 2.0](https://docs.microsoft.com/en-us/dotnet/core/linux-prerequisites?tabs=netcore2x).
+* Linux kullanıcıları için yüklemeniz gerekecek [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x).
 * Ubuntu 14.04 kullanıcıları için GCC güncel - bu aşağıdaki komutları çalıştırıp makinenizi yeniden başlatarak yapılabilir emin olmak gerekir:
 
     ```
@@ -160,7 +160,7 @@ Bu makale, Azure Depolama Gezgini 1.4.3 yayın yönelik sürüm notlarına yanı
 ./StorageExplorer.exe --disable-gpu
 ```
 
-* Linux kullanıcıları için yüklemeniz gerekecek [.NET Core 2.0](https://docs.microsoft.com/en-us/dotnet/core/linux-prerequisites?tabs=netcore2x).
+* Linux kullanıcıları için yüklemeniz gerekecek [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x).
 * Ubuntu 14.04 kullanıcıları için GCC güncel - bu aşağıdaki komutları çalıştırıp makinenizi yeniden başlatarak yapılabilir emin olmak gerekir:
 
     ```
@@ -215,7 +215,7 @@ Bu makale, Azure Depolama Gezgini 1.4.3 yayın yönelik sürüm notlarına yanı
 ./StorageExplorer.exe --disable-gpu
 ```
 
-* Linux kullanıcıları için yüklemeniz gerekecek [.NET Core 2.0](https://docs.microsoft.com/en-us/dotnet/core/linux-prerequisites?tabs=netcore2x).
+* Linux kullanıcıları için yüklemeniz gerekecek [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x).
 * Ubuntu 14.04 kullanıcıları için GCC güncel - bu aşağıdaki komutları çalıştırıp makinenizi yeniden başlatarak yapılabilir emin olmak gerekir:
 
     ```
@@ -275,7 +275,7 @@ Bu makale, Azure Depolama Gezgini 1.4.3 yayın yönelik sürüm notlarına yanı
 ./StorageExplorer.exe --disable-gpu
 ```
 
-* Linux kullanıcıları için yüklemeniz gerekecek [.NET Core 2.0](https://docs.microsoft.com/en-us/dotnet/core/linux-prerequisites?tabs=netcore2x).
+* Linux kullanıcıları için yüklemeniz gerekecek [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x).
 * Ubuntu 14.04 kullanıcıları için GCC güncel - bu aşağıdaki komutları çalıştırıp makinenizi yeniden başlatarak yapılabilir emin olmak gerekir:
 
     ```
@@ -332,7 +332,7 @@ Bu makale, Azure Depolama Gezgini 1.4.3 yayın yönelik sürüm notlarına yanı
 ./StorageExplorer.exe --disable-gpu
 ```
 
-* Linux kullanıcıları için yüklemeniz gerekecek [.NET Core 2.0](https://docs.microsoft.com/en-us/dotnet/core/linux-prerequisites?tabs=netcore2x).
+* Linux kullanıcıları için yüklemeniz gerekecek [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x).
 * Ubuntu 14.04 kullanıcıları için GCC güncel - bu aşağıdaki komutları çalıştırıp makinenizi yeniden başlatarak yapılabilir emin olmak gerekir:
 
     ```
@@ -389,7 +389,7 @@ Bu makale, Azure Depolama Gezgini 1.4.3 yayın yönelik sürüm notlarına yanı
 ./StorageExplorer.exe --disable-gpu
 ```
 
-* Linux kullanıcıları için yüklemeniz gerekecek [.NET Core 2.0](https://docs.microsoft.com/en-us/dotnet/core/linux-prerequisites?tabs=netcore2x).
+* Linux kullanıcıları için yüklemeniz gerekecek [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x).
 * Ubuntu 14.04 kullanıcıları için GCC güncel - bu aşağıdaki komutları çalıştırıp makinenizi yeniden başlatarak yapılabilir emin olmak gerekir:
 
     ```
@@ -410,7 +410,7 @@ Bu makale, Azure Depolama Gezgini 1.4.3 yayın yönelik sürüm notlarına yanı
 
 ### <a name="new"></a>Yeni
 * Depolama Gezgini, artık Azurite kullanımını destekler. Not: varsayılan geliştirme uç noktalarına ' belirtebilseydik Azurite için bağlantıdır.
-* Depolama Gezgini, artık yalnızca Blob ve GPV2 depolama hesapları için erişim katmanları destekler. Erişim katmanları hakkında daha fazla bilgi [burada](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blob-storage-tiers).
+* Depolama Gezgini, artık yalnızca Blob ve GPV2 depolama hesapları için erişim katmanları destekler. Erişim katmanları hakkında daha fazla bilgi [burada](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers).
 * Başlangıç zamanı, artık bir SAS oluşturulurken gereklidir.
 
 ### <a name="fixes"></a>Düzeltmeleri
@@ -443,7 +443,7 @@ Bu makale, Azure Depolama Gezgini 1.4.3 yayın yönelik sürüm notlarına yanı
 ./StorageExplorer.exe --disable-gpu
 ```
 
-* Linux kullanıcıları için yüklemeniz gerekecek [.NET Core 2.0](https://docs.microsoft.com/en-us/dotnet/core/linux-prerequisites?tabs=netcore2x).
+* Linux kullanıcıları için yüklemeniz gerekecek [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x).
 * Ubuntu 14.04 kullanıcıları için GCC güncel - bu aşağıdaki komutları çalıştırıp makinenizi yeniden başlatarak yapılabilir emin olmak gerekir:
 
     ```
@@ -470,7 +470,7 @@ Bu makale, Azure Depolama Gezgini 1.4.3 yayın yönelik sürüm notlarına yanı
 * Depolama Gezgini geri bildirim, artık Github'da bulunur. Sola veya giderek için alt geri bildirim düğmesini tıklatarak sorunları sayfamızı size ulaşabildiğimizden [ https://github.com/Microsoft/AzureStorageExplorer/issues ](https://github.com/Microsoft/AzureStorageExplorer/issues). Önerilerde bulunmak, ilgili sorunları bildirmek, soru veya diğer türde bir geri bildirim bırakmak çekinmeyin.
 * SSL sertifikası bir sorunla karşılaşırsanız çalıştırıyorsanız ve soruna neden olan bir sertifika bulamadı, artık Depolama Gezgini ile komut satırından başlatabilirsiniz `--ignore-certificate-errors` bayrağı. Depolama Gezgini ile bu bayrağı başlatıldığında SSL sertifika hataları göz ardı eder.
 * Artık bir blob ve dosya öğeleri için bağlam menüsünden 'İndir' seçeneği yoktur.
-* Geliştirilmiş erişilebilirlik ve ekran okuyucu desteği. Erişilebilirlik özelliklerini kullanan olup bizim [erişilebilirlik belgeleri](https://docs.microsoft.com/en-us/azure/vs-azure-tools-storage-explorer-accessibility) daha fazla bilgi için.
+* Geliştirilmiş erişilebilirlik ve ekran okuyucu desteği. Erişilebilirlik özelliklerini kullanan olup bizim [erişilebilirlik belgeleri](https://docs.microsoft.com/azure/vs-azure-tools-storage-explorer-accessibility) daha fazla bilgi için.
 * Depolama Gezgini'ni Elektron 1.8.3 artık kullanır.
 
 ### <a name="breaking-changes"></a>Hataya Neden Olan Değişiklikler
@@ -509,7 +509,7 @@ Bu makale, Azure Depolama Gezgini 1.4.3 yayın yönelik sürüm notlarına yanı
 ./StorageExplorer.exe --disable-gpu
 ```
 
-* Linux kullanıcıları için yüklemeniz gerekecek [.NET Core 2.0](https://docs.microsoft.com/en-us/dotnet/core/linux-prerequisites?tabs=netcore2x).
+* Linux kullanıcıları için yüklemeniz gerekecek [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x).
 * Ubuntu 14.04 kullanıcıları için GCC güncel - bu aşağıdaki komutları çalıştırıp makinenizi yeniden başlatarak yapılabilir emin olmak gerekir:
 
     ```

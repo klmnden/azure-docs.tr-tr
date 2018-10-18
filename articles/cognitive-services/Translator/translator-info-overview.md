@@ -10,12 +10,12 @@ ms.component: translator-text
 ms.topic: overview
 ms.date: 05/10/2018
 ms.author: nolachar
-ms.openlocfilehash: 47ac3c81b85424a5cacab00863cd88fab9463fb9
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: c0004960b7a234d374ec0ae1bdc2f6576b197705
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46124669"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49385035"
 ---
 # <a name="what-is-translator-text-api"></a>Translator Metin Çevirisi API’si nedir?
 
@@ -27,7 +27,7 @@ Translator Metin Çevirisi API’si, buluttaki Azure [Bilişsel Hizmetler API’
 
 Microsoft Translator, bulut tabanlı bir makine çevirisi hizmetidir. Bu hizmetin temelinde, çeşitli Microsoft ürünlerini ve hizmetlerini desteklemenin yanı sıra dünya çapında binlerce işletmenin uygulamalarında ve iş akışlarında kullanılıp bu işletmelerin içeriklerini tüm dünyadaki hedef kitleye ulaştırmasını sağlayan Translator Metin Çevirisi API'si ve [Translator Konuşma Çevirisi API'si](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-translation) yer alır.
 
-Mevcut Translator Konuşma Çevirisi API'sini, Bing Konuşma API'sini ve Özel Konuşma Tanıma Hizmeti'ni (önizleme) birleştirilmiş ve tamamen özelleştirilebilir bir hizmet haline getiren [Bilişsel Hizmetler Konuşma önizlemesi](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/) aracılığıyla Konuşma çevirisi de sunulur.  
+Mevcut Translator Konuşma Çevirisi API'sini, Bing Konuşma API'sini ve Özel Konuşma Tanıma Hizmeti'ni (önizleme) birleştirilmiş ve tamamen özelleştirilebilir bir hizmet haline getiren [Bilişsel Hizmetler Konuşma önizlemesi](https://docs.microsoft.com/azure/cognitive-services/speech-service/) aracılığıyla Konuşma çevirisi de sunulur.  
 
 [Microsoft Translator hizmeti](https://www.microsoft.com/en-us/translator/home.aspx) hakkında daha fazla bilgi edinin
 

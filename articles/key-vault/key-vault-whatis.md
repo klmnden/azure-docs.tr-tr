@@ -14,20 +14,20 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/05/2018
 ms.author: barclayn
-ms.openlocfilehash: 7e98853b5b2ccc779dca970337fc44217977c8c9
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 56a1ebcfbb6dda9bc96aa241bd2b8d753022181a
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49342578"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49385875"
 ---
 # <a name="what-is-azure-key-vault"></a>Azure Anahtar Kasası nedir?
 
 Azure Key Vault, aşağıdaki sorunların çözülmesine yardımcı olur
-- **Gizli dizileri Yönetim** -Azure Key Vault, güvenli bir şekilde saklayın ve sıkı bir şekilde belirteçleri, parolaları, sertifikaları, API anahtarlarını ve diğer gizli dizileri erişimi denetlemek için kullanılabilir
-- **Anahtar Yönetimi** -Azure anahtar kasası anahtar yönetimi çözümü olarak da kullanılabilir. Azure Key Vault, verilerinizi şifrelemek için kullanılan şifreleme anahtarlarını oluşturmayı ve denetlemeyi kolaylaştırır. 
-- **Sertifika yönetimi** - Azure Key Vault, da kolayca sağlama sağlayan bir hizmettir, yönetmek ve ortak ve özel Azure ve kendi dahili bağlı ile kullanım için Güvenli Yuva Katmanı/Aktarım Katmanı Güvenliği (SSL/TLS) sertifikalarını dağıtma kaynaklar. 
-- **Gizli dizileri donanım güvenlik modülleri tarafından desteklenen Store** -gizli dizileri ve anahtarları korunan yazılım veya FIPS 140-2 Düzey 2 HSM'ler doğrular.
+- **Gizli Dizi Yönetimi**: Belirteçleri, parolaları, sertifikaları, API anahtarlarını ve diğer gizli dizileri Güvenle depolamak ve bunlara erişimi sıkı bir şekilde denetlemek için Azure Key Vault kullanılabilir.
+- **Anahtar Yönetimi**: Azure Key Vault, Anahtar Yönetimi çözümü olarak da kullanılabilir. Azure Key Vault, verilerinizi şifrelemek için kullanılan şifreleme anahtarlarını oluşturmayı ve denetlemeyi kolaylaştırır. 
+- **Sertifika Yönetimi**: Azure Key Vault aynı zamanda, Azure ve bağlı iç kaynaklarınızla kullanım için genel ve özel Güvenli Yuva Katmanı/Aktarım Katmanı Güvenliği (SSL/TLS) sertifikalarını kolayca hazırlamanıza, yönetmenize ve dağıtmanıza olanak sağlayan bir hizmettir. 
+- **Gizli dizileri Donanım Güvenlik Modülleri desteğiyle saklayın**: Gizli diziler ve anahtarlar yazılım tarafından korunabilir veya FIPS 140-2 Düzey 2, HSM'leri doğrular
 
 ## <a name="basic-concepts"></a>Temel kavramlar
 
@@ -35,7 +35,7 @@ Azure Key Vault, gizli dizilerin güvenli bir şekilde depolanması ve bunlara e
 
 Temelde anahtar Kasası'na kimlik doğrulaması için izleyebileceğiniz 3 yol vardır
 
-1. **Kullanarak [kimliklerini Azure kaynakları için yönetilen](https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/overview)**  (**önerilen ve en iyi**): azure'da bir sanal makinede bir uygulamayı dağıttığınızda, sanal makinenize bir kimlik atayabilir. Bu anahtar kasası erişimi vardır. Listelenen diğer azure kaynakları için kimlikleri de atayabilirsiniz [burada](https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/overview). Bu yaklaşımın avantajı, uygulama / hizmet ilk gizli döndürmesini yönetmeye değil. Azure, otomatik olarak kimliğini döndürür. 
+1. **Kullanarak [kimliklerini Azure kaynakları için yönetilen](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)**  (**önerilen ve en iyi**): azure'da bir sanal makinede bir uygulamayı dağıttığınızda, sanal makinenize bir kimlik atayabilir. Bu anahtar kasası erişimi vardır. Listelenen diğer azure kaynakları için kimlikleri de atayabilirsiniz [burada](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview). Bu yaklaşımın avantajı, uygulama / hizmet ilk gizli döndürmesini yönetmeye değil. Azure, otomatik olarak kimliğini döndürür. 
 2. **Hizmet sorumlusu ve sertifika kullanılarak:** 2 seçenek bir hizmet sorumlusu ve anahtar kasası erişimi olan ilişkili bir sertifika kullanmaktır. Uygulama sahibi veya Geliştirici sertifika döndürme kullanýldýðýnýanýmsama olduğunu ve bu nedenle bu önerilmez
 3. **Hizmet sorumlusu gizli anahtarı ile:** 3 (değil tercih edilen seçenek) anahtar Kasası'na kimlik doğrulaması için bir hizmet sorumlusu ve bir gizli dizi kullanmak için bir seçenektir
 

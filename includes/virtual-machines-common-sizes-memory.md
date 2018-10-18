@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/06/2018
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: c40229eaa589d696c557d5ac126515576593443c
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: 6308710a12e983ba35d9bd20d9926cba4ae27c5c
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/17/2018
-ms.locfileid: "49367145"
+ms.locfileid: "49400367"
 ---
 Bellek, ilişkisel veritabanı sunucuları, Orta veya büyük boyutlu önbellekler ve bellek içi analiz için harika olan yüksek bellek CPU oranı VM boyutları teklifi en iyi duruma getirilmiş. Bu makalede, Vcpu, veri diskleri ve NIC yanı sıra depolama aktarım hızı ve ağ bant genişliği için bu gruplandırma her boyutundaki sayısı hakkında bilgi sağlar. 
 
@@ -97,7 +97,7 @@ Premium Depolama: desteklenir
 
 Premium depolama önbelleğe alma: desteklenir
 
-Yazma hızlandırıcı: [desteklenir](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/how-to-enable-write-accelerator)
+Yazma hızlandırıcı: [desteklenir](https://docs.microsoft.com/azure/virtual-machines/windows/how-to-enable-write-accelerator)
 
 | Boyut            | Sanal işlemci | Bellek: GiB | Geçici depolama (SSD) GiB | Maksimum veri diskleri | Maksimum önbelleğe alınmış ve geçici depolama aktarım hızı: IOPS-MB/sn (önbellek boyutu GiB biriminde) | Maksimum önbelleğe alınmamış disk aktarım hızı: IOPS-MB/sn | Maks NIC / beklenen ağ bant genişliği (MB/sn) |
 |-----------------|------|-------------|----------------|----------------|-----------------------------------------------------------------------|-------------------------------------------|------------------------------|

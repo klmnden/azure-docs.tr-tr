@@ -1,26 +1,19 @@
 ---
 title: Azure Data Box Gateway kullanıcılarını yönetme | Microsoft Docs
 description: Azure portalı kullanarak Azure Data Box Gateway kullanıcılarını yönetme adımları.
-services: databox-edge-gateway
-documentationcenter: NA
+services: databox
 author: alkohli
-manager: twooley
-editor: ''
-ms.assetid: ''
 ms.service: databox
-ms.devlang: NA
+ms.subservice: gateway
 ms.topic: overview
-ms.custom: ''
-ms.tgt_pltfrm: NA
-ms.workload: TBD
 ms.date: 10/09/2018
 ms.author: alkohli
-ms.openlocfilehash: 3bd368cf19edf1370aaeef54d3ba0e4fd26ac239
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: 8adec2986a286e55ee71f0fddca695d1800b5317
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49070808"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49167197"
 ---
 # <a name="use-the-azure-portal-to-manage-users-on-your-azure-data-box-gateway"></a>Azure portalı kullanarak Azure Data Box Gateway kullanıcılarını yönetme 
 

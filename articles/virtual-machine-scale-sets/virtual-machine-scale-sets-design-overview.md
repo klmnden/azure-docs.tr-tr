@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/01/2017
 ms.author: negat
-ms.openlocfilehash: 1716ebf1d3490511d7102c8c756c78c0f0c55291
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: e03016b80b0a7043a72e55b6c8b68b67b55283b1
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43669886"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49388135"
 ---
 # <a name="design-considerations-for-scale-sets"></a>Ölçek kümeleri için tasarım konuları
 Bu makalede, sanal makine ölçek kümeleri için tasarım konuları açıklanmaktadır. Sanal makine ölçek kümeleri nelerdir hakkında daha fazla bilgi için bkz [sanal makine ölçek kümelerine genel bakış](virtual-machine-scale-sets-overview.md).
@@ -33,8 +33,8 @@ Genel olarak, Ölçek kümeleri bir makine kümesi benzer yapılandırmasına sa
 
 - Ölçek kümesi yapılandırması belirttiğinizde, güncelleştirebilirsiniz *kapasite* paralel daha fazla sanal makine dağıtmak için özellik. Bu işlem, paralel birçok tek tek sanal makineleri dağıtma düzenlemek için bir komut dosyası yazma daha iyidir.
 - Yapabilecekleriniz [bir ölçek kümesini otomatik olarak ölçeklendirmek için Azure otomatik ölçeklendirme kullanın](./virtual-machine-scale-sets-autoscale-overview.md) ancak değil tek VM'ler.
-- Yapabilecekleriniz [reimage ölçek kümesinin Vm'leri](https://docs.microsoft.com/en-us/rest/api/compute/virtualmachinescalesets/reimage) ancak [değil tek VM'ler](https://docs.microsoft.com/rest/api/compute/virtualmachines).
-- Yapabilecekleriniz [overprovision](https://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-design-overview#overprovisioning) ölçek kümesinin Vm'leri daha fazla güvenilirlik ve daha hızlı dağıtım süreleri için. Bu eylemi gerçekleştirmek için özel bir kod yazmadığınız sürece tek VM'ler için fazladan olamaz.
+- Yapabilecekleriniz [reimage ölçek kümesinin Vm'leri](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/reimage) ancak [değil tek VM'ler](https://docs.microsoft.com/rest/api/compute/virtualmachines).
+- Yapabilecekleriniz [overprovision](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-design-overview#overprovisioning) ölçek kümesinin Vm'leri daha fazla güvenilirlik ve daha hızlı dağıtım süreleri için. Bu eylemi gerçekleştirmek için özel bir kod yazmadığınız sürece tek VM'ler için fazladan olamaz.
 - Belirtebileceğiniz bir [yükseltme ilkesini](./virtual-machine-scale-sets-upgrade-scale-set.md) ölçek kümenizdeki sanal makinelerde yükseltme konusunu alınacağı kolaylaştırır. Tek tek Vm'lerle, güncelleştirmeleri kendiniz düzenleyin gerekir.
 
 ### <a name="vm-specific-features"></a>Sanal Makineye özgü özellikler

@@ -12,12 +12,12 @@ ms.topic: overview
 ms.date: 04/09/2018
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 789b572a1d3b049bcfd9a739182c49c4da27fc96
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: e449703dd8d012037af9540397ecd3b7bc0c7e7f
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48817016"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49114656"
 ---
 # <a name="compare-flow-logic-apps-functions-and-webjobs"></a>Flow, Logic Apps, İşlevler ve Web İşleri karşılaştırması
 
@@ -84,7 +84,7 @@ Azure İşlevleri, WebJobs SDK’da derlendiğinden diğer Azure hizmetlerine y�
 
 |  | İşlevler | WebJobs SDK ile WebJobs |
 | --- | --- | --- |
-|[Otomatik ölçeklendirme](functions-scale.md#how-the-consumption-plan-works) ile [sunucusuz uygulama modeli](https://azure.microsoft.com/overview/serverless-computing/)|✔||
+|[Otomatik ölçeklendirme](functions-scale.md#how-the-consumption-plan-works) ile [sunucusuz uygulama modeli](https://azure.microsoft.com/solutions/serverless/)|✔||
 |[Tarayıcıda geliştirme ve test etme](functions-create-first-azure-function.md) |✔||
 |[Kullanım başına ödeme fiyatlandırması](functions-scale.md#consumption-plan)|✔||
 |[Logic Apps ile tümleştirme](functions-twitter-email.md)|✔||

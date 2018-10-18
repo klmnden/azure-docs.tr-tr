@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry, michmcla
-ms.openlocfilehash: a8bcbc37ffba2caace0934c5414e1ccfd6fbb558
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: 67f99e68bc4091d076e27aee06c2851bc77e6fc7
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48902000"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49378933"
 ---
 # <a name="what-are-authentication-methods"></a>Kimlik doğrulama yöntemleri nelerdir?
 
@@ -148,11 +148,13 @@ Microsoft Authenticator uygulamasını veya diğer üçüncü taraf uygulamalar�
 > Ne zaman sıfırlama doğrulama kodu kullanıcıları için kullanılabilecek tek seçenek için bir yöntem gereklidir yalnızca Self Servis parola sıfırlama için **yüksek düzeyde güvenlik sağlamak için**.
 >
 
-## <a name="oath-hardware-tokens"></a>OATH donanım belirteçleri
+## <a name="oath-hardware-tokens-public-preview"></a>OATH donanım belirteçleri (genel Önizleme)
 
 OATH nasıl tek kullanımlık parola (OTP) kodları belirten açık bir standart üretilir. Azure AD 30 saniyelik veya 60 saniye çeşitli OATH-TOTP SHA-1 belirteçleri kullanımını destekler. Müşteriler bu belirteçleri, kendi seçtikleri satıcıdan tedarik. Gizli anahtarları birlikte tüm belirteçlerin uyumlu olmayabilir 128 karakterle sınırlı olduğuna dikkat edin.
 
 ![Azure portalı MFA Server OATH belirteçleri dikey penceresine OATH belirteçlerini karşıya yükleme](media/concept-authentication-methods/oath-tokens-azure-ad.png)
+
+Genel Önizleme kapsamında OATH donanım belirteçleri desteklenmektedir. Önizlemeler hakkında daha fazla bilgi için bkz: [ek kullanım koşulları Microsoft Azure önizlemeleri için](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
 
 Belirteçleri elde edilen sonra aşağıda gösterildiği örnek olarak UPN, seri numarası, gizli anahtar, zaman aralığı, üretici ve model dahil olmak üzere bir virgülle ayrılmış değerler (CSV) dosya biçiminde yüklenmelidir.
 

@@ -4,29 +4,23 @@ description: Muazzam miktarlarda verinin Azure’a aktarılmasını sağlayan bi
 services: databox
 documentationcenter: NA
 author: alkohli
-manager: twooley
-editor: ''
-ms.assetid: ''
 ms.service: databox
-ms.devlang: NA
+ms.subservice: pod
 ms.topic: overview
-ms.custom: ''
-ms.tgt_pltfrm: NA
-ms.workload: TBD
 ms.date: 09/24/2018
 ms.author: alkohli
-ms.openlocfilehash: 9c27efa133ab093c6aaae85d976d08cf16147233
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 1beecd4c37ef333464e96b93294c25d182ffdf91
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46967515"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49090815"
 ---
 # <a name="what-is-azure-data-box"></a>Azure Data Box nedir?
 
 Microsoft Azure Data Box bulut çözümü, terabaytlarca veriyi Azure'a hızlı, uygun maliyetli ve güvenilir bir şekilde göndermenizi sağlar. Site özel bir Data Box depolama cihazı gönderilerek güvenli veri aktarımı hızlandırılır. Her depolama cihazının maksimum kullanılabilir depolama kapasite 80 TB'tır ve bölgesel bir kargo firmasıyla veri merkezinize ulaştırılır. Ulaşım sırasında verileri korumalı ve güvenli tutmak için cihaz sağlamlaştırılmıştır.
 
-Data Box cihazını Azure portalı üzerinden sipariş edebilirsiniz. Cihaz size ulaştıktan sonra, yerel web kullanıcı arabirimini kullanarak cihazı hızla ayarlayabilirsiniz. Sunucularınızdaki verileri cihaza kopyalayın ve cihazı Azure'a geri gönderin. Azure veri merkezinde, verileriniz cihazdan Azure'a otomatik olarak yüklenir. Sürecin tamamı Azure portalındaki Data Box hizmeti tarafından uçtan uca izlenir.
+Data Box cihazını Azure portalı üzerinden sipariş edebilirsiniz. Cihaz size ulaştıktan sonra, yerel web kullanıcı arabirimini kullanarak cihazı hızla ayarlayabilirsiniz. Sunucularınızdaki verileri cihaza kopyalayın ve cihazı Azure'a geri gönderin. Azure veri merkezinde, verileriniz cihazdan Azure'a otomatik olarak yüklenir. Sürecin tamamı Azure portaldaki Data Box hizmeti tarafından uçtan uca izlenir.
 
 
 ## <a name="use-cases"></a>Uygulama alanları
@@ -129,7 +123,7 @@ Data Box, hizmetin dağıtıldığı bölge, cihazın gönderildiği ülke ve ve
 
 - [Data Box sistem gereksinimlerini](data-box-system-requirements.md) gözden geçirin.
 - [Data Box sınırlarını](data-box-limits.md) anlayın.
-- Azure portalında [Azure Data Box](data-box-quickstart-portal.md)’u hızla dağıtın.
+- Azure portalda [Azure Data Box](data-box-quickstart-portal.md)’u hızla dağıtın.
 
 
 

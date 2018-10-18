@@ -4,21 +4,21 @@ description: Bu konu başlığı altında, Microsoft Azure Media Services senary
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 07/10/2017
-ms.author: juliako;anilmur
-ms.openlocfilehash: 8381cdfffd34ffa25d1b87be3a3aca3de69c2802
-ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.date: 10/15/2018
+ms.author: juliako
+ms.openlocfilehash: 0e9537f09049d5fe056819e6f8b9718cfc52f489
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34809292"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49352823"
 ---
 # <a name="scenarios-and-availability-of-media-services-features-across-datacenters"></a>Senaryolar ve Media Services özelliklerinin veri merkezleri arasında kullanılabilirliği
 
@@ -158,7 +158,7 @@ AMS müşterileri akış uç noktalarını, medya işleme ve depolamayı kendi A
     Daha fazla bilgi için bkz. [Medya işlemeyi ölçeklendirme](media-services-portal-scale-media-processing.md).
 * Media Services hesabınızı, depolama hesapları ekleyerek de ölçeklendirebilirsiniz. Her depolama hesabı 500 TB ile sınırlıdır. Depolama alanınızı varsayılan sınırlamaların ötesine genişletmek için, tek bir Media Services hesabına birden çok depolama hesabı eklemeyi seçebilirsiniz. Daha fazla bilgi için bkz. [Depolama hesaplarını yönetme](meda-services-managing-multiple-storage-accounts.md).
 
-##<a id="availability"></a> Media Services özelliklerinin veri merkezleri arasında kullanılabilirliği
+## <a id="availability"></a> Media Services özelliklerinin veri merkezleri arasında kullanılabilirliği
 
 Bu bölümde, Media Services özelliklerinin veri merkezleri arasında kullanılabilirliği hakkındaki ayrıntılar sağlanır.
 

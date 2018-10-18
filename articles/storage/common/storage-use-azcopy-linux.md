@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/26/2018
 ms.author: seguler
 ms.component: common
-ms.openlocfilehash: 3863c2eeb73997361a6a903f0b382a8c50ad6d4f
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: 1aff2ecdec83886d40d12b76e64a14a81451e89e
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48870766"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49386697"
 ---
 # <a name="transfer-data-with-azcopy-on-linux"></a>Linux üzerinde AzCopy ile veri aktarma
 
@@ -713,7 +713,7 @@ Azure Depolama ve AzCopy hakkında daha fazla bilgi için aşağıdaki kaynaklar
 * [Python'da Blob Depolama'yı kullanma](../blobs/storage-python-how-to-use-blob-storage.md)
 
 ### <a name="azure-storage-blog-posts"></a>Azure depolama blog gönderilerini:
-* [AzCopy üzerinde Linux Önizleme Duyurusu](https://azure.microsoft.com/en-in/blog/announcing-azcopy-on-linux-preview/)
+* [AzCopy üzerinde Linux Önizleme Duyurusu](https://azure.microsoft.com/blog/announcing-azcopy-on-linux-preview/)
 * [Azure depolama veri taşıma kitaplığı Önizleme Tanıtımı](https://azure.microsoft.com/blog/introducing-azure-storage-data-movement-library-preview-2/)
 * [AzCopy: zaman uyumlu kopya ve özelleştirilmiş içerik türü ile tanışın](http://blogs.msdn.com/b/windowsazurestorage/archive/2015/01/13/azcopy-introducing-synchronous-copy-and-customized-content-type.aspx)
 * [AzCopy: Genel kullanılabilirlik, AzCopy 3.0 yanı sıra tablo ve dosya desteği Önizleme sürümü AzCopy 4.0, Duyurusu](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/10/29/azcopy-announcing-general-availability-of-azcopy-3-0-plus-preview-release-of-azcopy-4-0-with-table-and-file-support.aspx)

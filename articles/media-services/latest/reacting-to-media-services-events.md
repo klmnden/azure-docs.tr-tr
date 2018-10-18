@@ -9,16 +9,16 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 09/19/2018
+ms.date: 10/16/2018
 ms.author: juliako
-ms.openlocfilehash: 143fec2ddb168b0fff0e419fa5767e9718637241
-ms.sourcegitcommit: 06724c499837ba342c81f4d349ec0ce4f2dfd6d6
+ms.openlocfilehash: 3541a5b33aa0bb98d9381b51caefc63b6aa677ad
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46465546"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49377558"
 ---
-# <a name="reacting-to-media-services-events"></a>Media Services olaylara tepki verme
+# <a name="handling-event-grid-events"></a>Event Grid olaylarını işleme
 
 Media Services olaylarını uygulamaları modern sunucusuz mimarileri kullanarak farklı olaylara (örneğin, iş durum değişiklik olayı) yanıt verin. Bunu karmaşık kod veya pahalı ve verimsiz yoklama Hizmetleri gerek kalmadan yapar. Bunun yerine, olayların gönderilmesini [Azure Event Grid](https://azure.microsoft.com/services/event-grid/) gibi olay işleyicilerine [Azure işlevleri](https://azure.microsoft.com/services/functions/), [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/), ve hatta kendi Web kancası ve ne için yalnızca ödeme kullanın. Fiyatlandırma hakkında daha fazla bilgi için bkz. [Event Grid fiyatlandırma](https://azure.microsoft.com/pricing/details/event-grid/).
 

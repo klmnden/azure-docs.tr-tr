@@ -7,13 +7,13 @@ author: tomarcher
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
-ms.date: 07/23/2018
-ms.openlocfilehash: d3d3ed8aaac16bc0a8cf817f4972ed3b771ed8d0
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.date: 10/11/2018
+ms.openlocfilehash: 6cd3938844d7f6977c7b0912acffbfb1679dc42e
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43093563"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49387402"
 ---
 # <a name="deploy-to-azure-kubernetes-service-aks-by-using-jenkins-and-the-bluegreen-deployment-pattern"></a>Jenkins ve mavi/yeşil dağıtım düzenini kullanarak Azure Kubernetes Service'e (AKS) dağıtım yapma
 
@@ -32,7 +32,7 @@ Bu öğreticide, aşağıdaki görevleri nasıl gerçekleştireceğinizi öğren
 
 ## <a name="prerequisites"></a>Ön koşullar
 - [GitHub hesabı](https://github.com) : Örnek deposunu kopyalamak için bir GitHub hesabınız olması gerekir.
-- [Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest) : Kubernetes kümesi oluşturmak için Azure CLI 2.0 kullanılır.
+- [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) : Kubernetes kümesi oluşturmak için Azure CLI 2.0 kullanılır.
 - [Chocolatey](https://chocolatey.org): kubectl yüklemek için kullanılan bir paket yöneticisi.
 - [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/): Kubernetes kümelerine karşı komut çalıştırmak için kullanılan bir komut satırı arabirimi.
 - [jq](https://stedolan.github.io/jq/download/): Basit ve komut satırı için kullanılan bir JSON işlemcisi.
@@ -82,9 +82,6 @@ Bu bölümde, aşağıdaki adımları gerçekleştireceksiniz:
 - Yönetilen bir Kubernetes kümesi oluşturmak için Azure CLI 2.0 kullanma.
 - Kümenin kurulum betiği kullanarak veya el ile nasıl ayarlanacağını öğrenme.
 - Azure Container Registry hizmetinin bir örneğini oluşturma.
-
-> [!NOTE]   
-> AKS şu an önizlemededir. Azure aboneliğinizin önizlemesini etkinleştirme hakkında bilgi için bkz. [Quickstart: Deploy an Azure Kubernetes Service (AKS) cluster (Hızlı Başlangıç: Azure Kubernetes Hizmeti (AKS) kümesi dağıtma)](/azure/aks/kubernetes-walkthrough#enabling-aks-preview-for-your-azure-subscription).
 
 ### <a name="use-the-azure-cli-20-to-create-a-managed-kubernetes-cluster"></a>Yönetilen bir Kubernetes kümesi oluşturmak için Azure CLI 2.0 kullanma
 [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) kullanarak yönetilen bir Kubernetes kümesi oluşturmak için Azure CLI 2.0.25 veya sonraki bir sürümü kullandığınızdan emin olun.

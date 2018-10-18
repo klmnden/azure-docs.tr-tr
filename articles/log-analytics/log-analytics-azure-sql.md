@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 05/03/2018
 ms.author: v-daljep
 ms.component: ''
-ms.openlocfilehash: bc82e030742bb5ea9621e972fcce2435cdda61ea
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: d16f9add2cd31eb5a8db650798c241c3dcf2610f
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49353467"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49379313"
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview"></a>Azure SQL Analytics (Önizleme) kullanarak Azure SQL veritabanı izleme
 
@@ -35,8 +35,6 @@ Azure SQL Analytics çözümünü kullanma uygulamalı bir genel bakış ve tipi
 
 > [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Get-Intelligent-Insights-for-Improving-Azure-SQL-Database-Performance/player]
 >
-
-Çözümü ücretsiz olsa da, veri alımı ayrılan her ay ücretsiz birimlerinin yukarıda tanılama telemetrisi tüketiminin uygular, bkz: [Log Analytics fiyatlandırma](https://azure.microsoft.com/en-us/pricing/details/monitor). Sağlanan veri alımı ücretsiz birimlerinin ücretsiz çeşitli veritabanları her ay izlemeyi etkinleştirin. Ağır iş yükleri daha etkin veritabanlarıyla boştaki veritabanlarının karşı daha fazla veri içe alma, lütfen unutmayın. Veri alımı tüketiminiz çözümünde, OMS çalışma alanı Azure SQL Analytics Gezinti menüsünde ve ardından kullanım ve Tahmini maliyetler seçerek kolayca izleyebilirsiniz.
 
 ## <a name="connected-sources"></a>Bağlı kaynaklar
 
@@ -160,6 +158,10 @@ SQL veritabanlarının ve elastik havuzlar kaynak için belirtilen süre içinde
 Sorgu süresi ve sorgu bekler Perspektifler sorgu raporu aracılığıyla herhangi bir sorgu performansını ilişkilendirebilirsiniz. Bu rapor, farklı veritabanları arasında sorgu performansını karşılaştırır ve de yavaş olan olanları karşı seçili sorguyu gerçekleştirmek veritabanları saptamak kolaylaştırır.
 
 ![Azure SQL Analytics sorguları](./media/log-analytics-azure-sql/azure-sql-sol-queries.png)
+
+### <a name="pricing"></a>Fiyatlandırma
+
+Çözümü ücretsiz olsa da, veri alımı ayrılan her ay ücretsiz birimlerinin yukarıda tanılama telemetrisi tüketiminin uygular, bkz: [Log Analytics fiyatlandırma](https://azure.microsoft.com/en-us/pricing/details/monitor). Sağlanan veri alımı ücretsiz birimlerinin ücretsiz çeşitli veritabanları her ay izlemeyi etkinleştirin. Ağır iş yükleri daha etkin veritabanlarıyla boştaki veritabanlarının karşı daha fazla veri içe alma, lütfen unutmayın. Veri alımı tüketiminiz çözümünde, OMS çalışma alanı Azure SQL Analytics Gezinti menüsünde ve ardından kullanım ve Tahmini maliyetler seçerek kolayca izleyebilirsiniz.
 
 ### <a name="analyze-data-and-create-alerts"></a>Verileri analiz etmek ve uyarılar oluşturun
 

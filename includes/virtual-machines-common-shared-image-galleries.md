@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/20/2018
 ms.author: akjosh; cynthn
 ms.custom: include file
-ms.openlocfilehash: 6a64d85cc476c7494a1730959b96e9480115cd90
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 56f48f6676b3c878effe788316024e642c17ff5a
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47048381"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49400231"
 ---
 Paylaşılan görüntü Galerisi yapısı ve özel VM görüntülerinizi etrafında kuruluş oluşturmanıza yardımcı olan bir hizmettir. Paylaşılan görüntü Galerisi üç temel değer önermeleri sağlar.
 - Basit yönetim
@@ -75,9 +75,9 @@ Paylaşılan görüntü Galerisi için başka Azure bölgelerindeki görüntüle
 ## <a name="access"></a>Access
 Paylaşılan görüntü Galerisi olarak paylaşılan görüntü ve paylaşılan görüntü sürümü tüm kaynaklar, yerleşik yerel Azure RBAC denetimleri kullanarak paylaşılabilir. RBAC kullanarak, kuruluşunuzdaki diğer kullanıcılar, hizmet sorumluları ve gruplar için bu kaynakları paylaşabilirsiniz. Bu kaynakları paylaşma kapsamını içinde aynı AD kiracısıdır. Paylaşılan görüntü sürümü bir kullanıcının erişebileceği sonra bir sanal makine veya sanal makine ölçek kümesi içinde aynı AD paylaşılan görüntü sürümü Kiracı için erişime sahip oldukları aboneliklerin hiçbirinde dağıtabilirsiniz.  Hangi kullanıcı erişimi alır anlamanıza yardımcı olur. paylaşım matris şu şekildedir:
 
-| Kullanıcıyla paylaşılan     | Paylaşılan görüntü Galerisi | Paylaşılan görüntü | Paylaşılan görüntü sürümü |
+| Kullanıcıyla paylaşılan     | Paylaşılan Görüntü Galerisi | Paylaşılan görüntü | Paylaşılan görüntü sürümü |
 |----------------------|----------------------|--------------|----------------------|
-| Paylaşılan görüntü Galerisi | Evet                  | Evet          | Evet                  |
+| Paylaşılan Görüntü Galerisi | Evet                  | Evet          | Evet                  |
 | Paylaşılan görüntü         | Hayır                   | Evet          | Evet                  |
 | Paylaşılan görüntü sürümü | Hayır                   | Hayır           | Evet                  |
 
@@ -146,7 +146,7 @@ Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Compute
 
 **S.** Özelleştirilmiş diskten bir görüntü sürümü oluşturabilir miyim?
 
- A. Hayır, şu anda özel disk görüntüleri desteklemiyoruz. Özelleştirilmiş disk varsa, yapmanız [VHD'den VM oluşturma](https://docs.microsoft.com/azure/virtual-machines/windows/create-vm-specialized-portal#create-a-vm-from-a-disk) specializeddisk yeni bir sanal makineye ekleyerek. Çalışan bir VM oluşturduktan sonra [Windows VM'den] yönetilen bir görüntü oluşturmak için yönergeleri takip etmeniz (https://docs.microsoft.com/en-us/azure/virtual-machines/windows/tutorial-custom-images) veya [Linux VM](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/tutorial-custom-images). Genelleştirilmiş bir yönetilen bir görüntü oluşturduktan sonra paylaşılan görüntü açıklaması ve görüntü sürümü oluşturma işlemini başlatabilirsiniz.
+ A. Hayır, şu anda özel disk görüntüleri desteklemiyoruz. Özelleştirilmiş disk varsa, yapmanız [VHD'den VM oluşturma](https://docs.microsoft.com/azure/virtual-machines/windows/create-vm-specialized-portal#create-a-vm-from-a-disk) specializeddisk yeni bir sanal makineye ekleyerek. Çalışan bir VM oluşturduktan sonra [Windows VM'den] yönetilen bir görüntü oluşturmak için yönergeleri takip etmeniz (https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-custom-images) veya [Linux VM](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-custom-images). Genelleştirilmiş bir yönetilen bir görüntü oluşturduktan sonra paylaşılan görüntü açıklaması ve görüntü sürümü oluşturma işlemini başlatabilirsiniz.
 
 
 **S.** Paylaşılan görüntü Galerisi, görüntü tanımı ve Azure portalı üzerinden görüntü sürümü oluşturabilir miyim?

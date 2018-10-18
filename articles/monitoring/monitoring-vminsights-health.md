@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/24/2018
+ms.date: 10/15/2018
 ms.author: magoedte
-ms.openlocfilehash: 5c9211486fa40e49afd91eba7c432990b0ee860b
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 84314f64d8a96e65f63cb5c6051f7f5e902cd682
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47160630"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49387830"
 ---
 # <a name="understand-the-health-of-your-azure-virtual-machines-with-azure-monitor-for-vms"></a>VM'ler için Azure İzleyici ile Azure sanal makinelerinizin durumunu anlama
 Azure İzleme alanı ayrı ayrı bir spesifik rol ya da görev gerçekleştiren birden çok hizmet içerir, ancak bir Azure sanal makinelerinde barındırılan işletim sistemi ayrıntılı sistem durumu açısından sağlama kullanılabilir değildi.  Log Analytics veya Azure İzleyicisi'ni kullanarak için farklı koşullar izleyebilir olsa da bunlar model ve sistem durumunu temel bileşenler veya genel sanal makine durumunu temsil eden üzere tasarlanmamıştır.  VM sistem durumu özelliği için Azure İzleyici ile proaktif olarak Windows veya Linux konuk işletim sistemi ile anahtar bileşenleri ve bu durumunu ölçmek nasıl belirten ölçütleri ilişkilerini temsil eden bir model performansını ve kullanılabilirliğini izler bileşenleri ve iyi durumda olmayan bir koşul algılandığında sizi uyarır.  
@@ -31,7 +31,7 @@ Bu makalede hızlı bir şekilde değerlendirmek, araştırmanıza ve algılanan
 VM'ler için Azure İzleyici yapılandırma hakkında daha fazla bilgi için bkz: [VM'ler için Azure İzleyici'ı etkinleştirme](monitoring-vminsights-onboard.md).
 
 ## <a name="monitoring-configuration-details"></a>İzleme Yapılandırma Ayrıntıları
-Bu bölümde, Azure Windows ve Linux sanal makinelerini izlemek için tanımlanan varsayılan sistem durumu ölçütlerini özetlenmektedir.
+Bu bölümde, Azure Windows ve Linux sanal makinelerini izlemek için tanımlanan varsayılan sistem durumu ölçütlerini özetlenmektedir. Tüm sistem durumu ölçütlerini, sağlıksız koşul karşılandığında uyarı önceden yapılandırılmış. 
 
 ### <a name="windows-vms"></a>Windows VM'leri
 
@@ -110,7 +110,7 @@ Portalı Gezinti listeden bir kaynak grubundaki tüm sanal makinelerinizin için
 
 ![Azure İzleyici görünümünden izleme VM öngörüleri](./media/monitoring-vminsights-health/vminsights-aggregate-health.png)
 
-Gelen **abonelik** ve **kaynak grubu** açılan listeler, bunların sistem durumu görüntülemek için hedef Vm'leri eklenen içeren uygun olanı seçin. 
+Gelen **abonelik** ve **kaynak grubu** açılan listeler, sanal makineleri içeren uygun kaynak grubu seçin ilgili gruba bildirilen sistem durumlarını görüntülemek için.  Seçiminiz yalnızca sistem durumu özellik için geçerlidir ve performans ya da harita taşımaz.
 
 Üzerinde **sistem durumu** sekmesinde tarafından aşağıdaki öğrenin:
 
@@ -253,21 +253,29 @@ VM sistem durumu Uyarıları önem derecesine göre kategorilere toplam sayısı
 
 ![Tüm önem düzeyi 1 uyarı örneği](./media/monitoring-vminsights-health/vminsights-sev1-alerts-01.png)
 
+Üzerinde **uyarılar** sayfası, yalnızca sizin seçiminiz eşleşen uyarıları göstermek için kapsamında değil, ancak göre filtrelenir **kaynak türü** yalnızca sanal makine kaynak tarafından gerçekleştirilen sistem durumu uyarılarını göstermek için.  Bu sütunu altında bir uyarı listesinden yansıtılan **hedef kaynak**, burada Azure uyarı tetiklendi için özel durumu ölçütlerini 's sağlıksız koşul sağlandığında VM gösterir.  
+
+Bu görünümde dahil edilecek diğer kaynak türlerini veya hizmetler uyarılardan amaçlanmayan, günlük uyarıları bağlı Log Analytics temelinde sorguları veya ölçüm uyarıları gibi Azure İzleyici varsayılan olarak normal şekilde görüntülediğiniz [tüm uyarıları](../monitoring-and-diagnostics/monitoring-overview-alerts.md#all-alerts-page) sayfası. 
+
 Bu görünümde, sayfanın üst kısmındaki açılan menüler, değerleri seçerek filtreleyebilirsiniz.
 
 |Sütun |Açıklama | 
 |-------|------------| 
 |Abonelik |Bir Azure aboneliği seçin. Yalnızca seçili Abonelikteki uyarılar görünümünde dahil edilir. | 
 |Kaynak Grubu |Tek bir kaynak grubu seçin. Yalnızca seçilen kaynak grubunun hedefleri olan uyarılar görünümünde dahil edilir. | 
-|Kaynak türü |Bir veya daha fazla kaynak türlerini seçin. Yalnızca seçilen türdeki hedefleri olan uyarılar görünümünde dahil edilir. Bu sütun, yalnızca bir kaynak grubu belirttikten sonra kullanılabilir. | 
+|Kaynak türü |Bir veya daha fazla kaynak türlerini seçin. Varsayılan olarak, yalnızca hedef uyarıları **sanal makineler** seçilir ve bu görünüme dahil. Bu sütun, yalnızca bir kaynak grubu belirttikten sonra kullanılabilir. | 
 |Kaynak |Bir kaynak seçin. Yalnızca bu kaynak bir hedef olarak uyarılarla Görünümü'nde dahil edilir. Bu sütun, yalnızca bir kaynak türünü belirttikten sonra kullanılabilir. | 
 |Severity |Uyarı önem seçmeniz ya da seçin *tüm* her türlü önem derecesi, uyarı eklenecek. | 
 |İzleme Koşulu |Uyarıları filtrelemek için bir izleme koşulu verilmiş olması durumunda seçin *Fired* sistem tarafından veya *çözümlenmiş* koşul artık etkin olduğunda sistem tarafından. Veya *tüm* tüm koşulların uyarıları eklemek için. | 
 |Uyarı durumu |Bir uyarı durumu seçin *yeni*, *kabul*, *kapalı*, ya da seçin *tüm* tüm durumların uyarıları eklemek için. | 
-|İzleme hizmet |Bir hizmet veya seçin, *tüm* tüm hizmetleri dahil etmek için. Altyapı öngörüleri uyarılardan yalnızca bu özellik için desteklenir. | 
+|İzleme hizmet |Bir hizmet veya seçin, *tüm* tüm hizmetleri dahil etmek için. Yalnızca gelen uyarılar *VM Insights* bu özellik için desteklenir.| 
 |Zaman aralığı| Yalnızca seçili zaman penceresi içinde tetiklenen uyarılar görünümünde dahil edilir. Desteklenen değerler şunlardır: son bir saat, son 24 saat, son 7 günde ve son 30 gün. | 
 
-**Uyarı ayrıntısı** sayfası, bir uyarı durumuna değiştirmenize olanak tanır ve uyarının ayrıntılarını sağlayan seçtiğinizde görüntülenir. Uyarı kuralları ile çalışma ve Uyarıları yönetme hakkında daha fazla bilgi için bkz: [oluşturun, görüntüleyin ve Azure İzleyicisi'ni kullanarak Uyarıları yönetme](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md).
+**Uyarı ayrıntısı** sayfası, bir uyarı durumuna değiştirmenize olanak tanır ve uyarının ayrıntılarını sağlayan seçtiğinizde görüntülenir. Uyarıları yönetme hakkında daha fazla bilgi için bkz: [oluşturun, görüntüleyin ve Azure İzleyicisi'ni kullanarak Uyarıları yönetme](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md).  
+
+>[!NOTE]
+>Şu anda bu sistem durumu ölçütleri temel alarak yeni uyarılar oluşturun veya var olan sistem durumu uyarı kuralları Azure İzleyici'de portaldan değiştirmek için desteklenmiyor.  
+>
 
 ![Seçilen bir uyarının uyarı ayrıntıları bölmesine](./media/monitoring-vminsights-health/alert-details-pane-01.png)
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 7/20/2018
 ms.author: msfussell
-ms.openlocfilehash: a420033d96a1366a79f5f2032693c38d7eca4ac3
-ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
+ms.openlocfilehash: 70ea33f2c3e3a79d1754b72d12e8fc27689e38ea
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2018
-ms.locfileid: "48830982"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49387947"
 ---
 # <a name="dns-service-in-azure-service-fabric"></a>Azure Service fabric'te DNS hizmeti
 DNS hizmeti kümenizde DNS protokolünü kullanarak diğer hizmetleri bulmak için etkinleştirebileceğiniz bir isteğe bağlı sistem hizmetidir. 
@@ -132,7 +132,7 @@ Uygulama dağıtıldıktan sonra Service Fabric Explorer hizmet örneği aşağ�
 
 ![Hizmet uç noktaları](./media/service-fabric-dnsservice/service-fabric-explorer-dns.png)
 
-Aşağıdaki örnek, bir durum bilgisi olan hizmet için DNS adını ayarlar `statefulsvc.app`. Hizmet, adlandırılmış bir bölümleme düzeni kullanır. Bölüm adları küçük harf olduğuna dikkat edin. Bu, DNS sorguları hedeflenen bölümleri için bir gereksinimdir; Daha fazla bilgi için [yapmak DNS sorgularına bir durum bilgisi olan hizmet bölüm](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-dnsservice#preview-making-dns-queries-on-a-stateful-service-partition).
+Aşağıdaki örnek, bir durum bilgisi olan hizmet için DNS adını ayarlar `statefulsvc.app`. Hizmet, adlandırılmış bir bölümleme düzeni kullanır. Bölüm adları küçük harf olduğuna dikkat edin. Bu, DNS sorguları hedeflenen bölümleri için bir gereksinimdir; Daha fazla bilgi için [yapmak DNS sorgularına bir durum bilgisi olan hizmet bölüm](https://docs.microsoft.com/azure/service-fabric/service-fabric-dnsservice#preview-making-dns-queries-on-a-stateful-service-partition).
 
 ```xml
     <Service Name="Stateful1" ServiceDnsName="statefulsvc.app" />

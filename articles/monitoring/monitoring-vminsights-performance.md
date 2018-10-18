@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/17/2018
+ms.date: 10/16/2018
 ms.author: magoedte
-ms.openlocfilehash: 06073197254245727cfa41020f060d904a4e50f9
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 63549768f616e60e92c853047525c18cefdaddb4
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46957582"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49386289"
 ---
 # <a name="how-to-chart-performance-with-azure-monitor-for-vms"></a>VM'ler için Azure İzleyici ile grafik performansı nasıl
 VM'ler için Azure İzleyici, birkaç ana performans göstergelerini (KPI'lar) bir sanal makineye ne kadar iyi belirlemenize yardımcı olmak için şu gerçekleştiriyor hedefleyen bir dizi performans grafiklerini içerir. Performans sorunlarını, anormallikleri belirlemek ya da seçili ölçüme göre kaynak kullanımını görüntülemek için her bir makine listeleyen bir perspektif geçiş grafikleri bir süre boyunca kaynak kullanımını gösterir. Performans ile işlem yapılırken dikkate alınması gereken çok sayıda öğe olsa da, işletim sisteminde işlemci, bellek, ağ bağdaştırıcıları ve diskleri bildirilen olarak sanal makineler için Azure İzleyici odaklanmıştır. Performans sistem durumu izleme özelliğini tamamlar ve bir olası sistem bileşeni hatası, destek ayarlama ve iyileştirme verimlilik elde etmek için gösteren sorunları ortaya veya kapasite planlamasını desteklemek yardımcı olur.  
@@ -33,7 +33,9 @@ Azure İzleyici'den performans özelliği, ortamınızda ya da aboneliklerinizde
 
 ![VM performansı en iyi N listesi görünümü](./media/monitoring-vminsights-performance/vminsights-performance-aggview-01.png)
 
-Üzerinde **üst N grafikleri** sekmesinde çözümden tümleşiktir belirleyin, birden fazla Log Analytics çalışma alanınız varsa, **çalışma** sayfanın üstündeki Seçici.  Ardından listeden **grubu** Seçici, abonelik, kaynak grubu veya belirtilen bir süre boyunca belirli bir makine.  Varsayılan olarak, son 24 saat grafikleri göster.  Kullanarak **TimeRange** Seçici, sorgulayabilir nasıl performans geçmişte baktığı göstermek için 30 günlük geçmiş zaman aralıkları için.   
+Üzerinde **üst N grafikleri** sekmesinde çözümden ile etkin çalışma alanını seçin, birden fazla Log Analytics çalışma alanınız varsa, **çalışma** sayfanın üstündeki Seçici. **Grubu** Seçici, abonelikler, kaynak grupları döndürecektir [bilgisayar grupları](../log-analytics/log-analytics-computer-groups.md)ve VM ölçek kümeleri ile ilgili daha fazla sunulan sonuçları filtrelemek için kullanabileceğiniz seçili çalışma alanına bir bilgisayar grafiklerde bu sayfadaki ve diğer sayfalara. Seçiminiz yalnızca performans özelliğini uygular ve durumu ya da harita taşımaz.  
+
+Varsayılan olarak, son 24 saat grafikleri göster. Kullanarak **TimeRange** Seçici, sorgulayabilir nasıl performans geçmişte baktığı göstermek için 30 günlük geçmiş zaman aralıkları için.   
 
 Sayfada gösterilen beş kapasite kullanımı grafikleri şunlardır:
 
@@ -100,6 +102,9 @@ Aşağıdaki kapasite kullanımı grafikleri sağlanır:
 * Bayt alma oranı - alınan ortalama bayt gösteren Varsayılanları
 
 ![VM'den VM ınsights performans doğrudan görüntüleyin](./media/monitoring-vminsights-performance/vminsights-performance-directvm-01.png)
+
+## <a name="alerting-and-alert-management"></a>Uyarı ve uyarı Yönetimi 
+Önceden yapılandırılmış uyarı kuralları performans ölçümleri özellikli VM'ler için Azure İzleyici bir parçası olarak dahil değildir. Azure sanal makinenizde tespit performans sorunlarını karşılık gelen sistem durumu uyarılarını olsa da, kullanılabilir bellek düşük yüksek CPU kullanımı gibi düşük disk alanı vb., bu sistem durumu uyarıları yalnızca aynı Log Analytics çalışma alanınıza bağlı tüm vm'lere uygulanır VM'ler için Azure İzleyici ile tümleşiktir. Kendi ölçütleri veya mantık belirtme esnekliğini gerekiyorsa, özel uyarı kuralları izleyerek oluşturabilirsiniz [oluşturun, görüntüleyin ve Azure İzleyicisi'ni kullanarak Uyarıları yönetme](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md). 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Sistem durumu özelliği kullanmayı öğrenmek için bkz [görünümü VM sistem durumu için Azure İzleyici](monitoring-vminsights-health.md), veya bulunan Uygulama bağımlılıklarını görüntülemek için bkz. [Vm'leri harita görünümü Azure İzleyici](monitoring-vminsights-maps.md). 

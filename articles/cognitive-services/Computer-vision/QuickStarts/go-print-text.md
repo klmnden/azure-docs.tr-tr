@@ -3,19 +3,19 @@ title: 'Hızlı Başlangıç: Yazdırılan metni ayıklama (OCR) - REST, Go - G�
 titleSuffix: Azure Cognitive Services
 description: Bu hızlı başlangıçta, Go ile Görüntü İşleme API’si kullanarak bir görüntüden yazdırılan metni ayıklayacaksınız.
 services: cognitive-services
-author: noellelacharite
+author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
-ms.author: v-deken
-ms.openlocfilehash: 459b53dbde08e2729951249e984f075449943e31
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.author: pafarley
+ms.openlocfilehash: 55ea5adc9ca6378367cf26ac679d8fa63c2ab5f6
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45629585"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49340384"
 ---
 # <a name="quickstart-extract-printed-text-ocr-using-the-rest-api-and-go-in-computer-vision"></a>Hızlı Başlangıç: Görüntü İşleme’de REST API ve Go kullanarak yazdırılan metni ayıklama (OCR)
 

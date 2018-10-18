@@ -17,7 +17,7 @@
 ##  Kavramlar
 ### [Sanal ağlar](../virtual-network/virtual-networks-overview.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [Ağ yük dengeleme](../load-balancer/load-balancer-overview.md?toc=%2fazure%2fnetworking%2ftoc.json)
-### [Uygulama yük dengeleme](../application-gateway/application-gateway-introduction.md?toc=%2fazure%2fnetworking%2ftoc.json)
+### [Uygulama yük dengeleme](../application-gateway/overview.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [DNS](../dns/dns-overview.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [DNS tabanlı trafik dağılımı](../traffic-manager/traffic-manager-overview.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [Şirket içi bağlanma - VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fnetworking%2ftoc.json)

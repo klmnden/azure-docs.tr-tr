@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/08/2017
 ms.author: alkohli
-ms.openlocfilehash: 77154d596eb9202c4f9d1063ba7f4e1ec4855181
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: 33be58ae3ac5fcc8d0b35b240f9f378ccce134cc
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43665014"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49387694"
 ---
 # <a name="deploy-and-manage-a-storsimple-cloud-appliance-in-azure-update-3-and-later"></a>Azure’da StorSimple Cloud Appliance dağıtma ve yönetme (StorSimple Güncelleştirme 3 ve üstü)
 
@@ -265,7 +265,7 @@ Tüm ücretleri durdurmak için bulut gerecini silmeniz gerekir. Bulut gereci ta
 ## <a name="troubleshoot-internet-connectivity-errors"></a>İnternet bağlantısı sorunlarını giderme
 Bulut gereci oluşturulduğu sırada İnternet bağlantısı yoksa oluşturma adımı başarısız olur. İnternet bağlantısı hatalarında sorun gidermek için Azure portalında aşağıdaki adımları izleyin:
 
-1. [Azure portalda Windows sanal makinesi oluşturun](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/quick-create-portal). Bu sanal makine, bulut gerecinizle aynı depolama hesabı, sanal ağ ve alt ağı kullanmalıdır. Azure’da aynı depolama hesabını, sanal ağı ve alt ağı kullanan mevcut bir Windows Server ana bilgisayarı varsa, İnternet bağlantısı sorunlarını gidermek için onu da kullanabilirsiniz.
+1. [Azure portalda Windows sanal makinesi oluşturun](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal). Bu sanal makine, bulut gerecinizle aynı depolama hesabı, sanal ağ ve alt ağı kullanmalıdır. Azure’da aynı depolama hesabını, sanal ağı ve alt ağı kullanan mevcut bir Windows Server ana bilgisayarı varsa, İnternet bağlantısı sorunlarını gidermek için onu da kullanabilirsiniz.
 2. Önceki adımda oluşturduğunuz sanal makinede uzaktan oturum açın.
 3. Sanal makinenin içinde bir komut penceresi açın (Win + R ve ardından `cmd` yazın).
 4. Komut isteminde aşağıdaki cmd’yi çalıştırın.

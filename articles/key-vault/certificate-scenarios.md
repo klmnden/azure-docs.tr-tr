@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/09/2018
 ms.author: bryanla
-ms.openlocfilehash: d5cc634451c5412f9a3339c8d2d26654c4d5c1b8
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 60920aaa62d8472eaca8f929c62ce1c0af08f9a4
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44298922"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49385643"
 ---
 # <a name="get-started-with-key-vault-certificates"></a>Key Vault sertifikalar ile çalışmaya başlama
 Aşağıdaki senaryolardan birkaç Key Vault'un sertifika yönetim hizmeti, ilk sertifikayı anahtar kasanızı oluşturmak için gereken ek adımları dahil olmak üzere birincil kullanımlarını özetler.
@@ -83,7 +83,7 @@ Not - Bu süreçte adım 3.1, tek seferlik bir işlemdir.
       -   Yenileme bilgilerinizi - > örn. 90 gün kaldığında  
 
   - Bir sertifika oluşturma işlemi, genellikle zaman uyumsuz bir işlemdir ve anahtar kasanız oluşturma sertifika işlemi durumu için yoklama içerir.  
-[Sertifika işlemi Al](https://docs.microsoft.com/en-us/rest/api/keyvault/getcertificateoperation)  
+[Sertifika işlemi Al](https://docs.microsoft.com/rest/api/keyvault/getcertificateoperation)  
       -   Durum: hata bilgileri ile başarısız oldu veya iptal edildi tamamlandı  
       -   Oluşturmak için gecikme nedeniyle iptal etme işlemi başlatılabilir. İptal edebilir veya etkili olmayabilir.  
 

@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 06/13/2018
 ms.author: nobun
 ms.custom: mvc
-ms.openlocfilehash: d26e849cf775e0c645ae97e4b67b5918bbbabd55
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: e42b0e7bd1bce40b7c58d75cb07f5a3f8afa5836
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/17/2018
-ms.locfileid: "49361387"
+ms.locfileid: "49385050"
 ---
 # <a name="migrating-from-azure-container-service-acs-to-azure-kubernetes-service-aks"></a>Azure Kubernetes Service'i (AKS) Azure kapsayıcı hizmeti (ACS) ' geçiş
 
@@ -53,7 +53,7 @@ Kubernetes denetim düzlemi AKS yönetir olsa da, yeni kümeye dahil etmek isted
 | agentpool0 | 3 | Standard_D8_v2 | Linux |
 | agentpool1 | 1 | Standard_D2_v2 | Windows |
 
-Ek sanal makineler, geçiş sırasında aboneliğinizi içine dağıtılacak olduğundan, kotalar ve sınırlar bu kaynaklar için yeterli olduğunu doğrulamanız gerekir. İnceleyerek daha fazla bilgi [Azure aboneliği ve hizmet sınırlamaları](https://docs.microsoft.com/en-us/azure/azure-subscription-service-limits). Geçerli kotanızı denetlemek için Git [abonelikler dikey penceresinden](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) Azure portalında aboneliğinizi seçin ve ardından `Usage + quotas`.
+Ek sanal makineler, geçiş sırasında aboneliğinizi içine dağıtılacak olduğundan, kotalar ve sınırlar bu kaynaklar için yeterli olduğunu doğrulamanız gerekir. İnceleyerek daha fazla bilgi [Azure aboneliği ve hizmet sınırlamaları](https://docs.microsoft.com/azure/azure-subscription-service-limits). Geçerli kotanızı denetlemek için Git [abonelikler dikey penceresinden](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) Azure portalında aboneliğinizi seçin ve ardından `Usage + quotas`.
 
 ### <a name="networking"></a>Ağ
 
@@ -86,7 +86,7 @@ AKS için var olan kalıcı birimler geçiş yapıyorsanız, dikkate alınması 
 2. Anlık görüntü diskleri
 3. Yeni yönetilen diskler, anlık görüntüler oluşturun
 4. AKS kalıcı birimler oluşturun
-5. Pod belirtimlerine güncelleştirme [var olan birimler kullanmak](https://docs.microsoft.com/en-us/azure/aks/azure-disk-volume) PersistentVolumeClaims (statik sağlama) yerine
+5. Pod belirtimlerine güncelleştirme [var olan birimler kullanmak](https://docs.microsoft.com/azure/aks/azure-disk-volume) PersistentVolumeClaims (statik sağlama) yerine
 6. AKS için uygulama dağıtma
 7. Doğrulama
 8. AKS kümesi noktası trafiği
@@ -112,7 +112,7 @@ Aksi durumda, bir olası geçiş yaklaşımı aşağıdaki adımları içerir:
 4. Doğrulama
 5. AKS kümesi noktası trafiği
 
-Burada boş bir paylaşımı ile başlayın, ardından kaynak verilerin bir kopyasını aktarmak istediğiniz durumlarda kullanabilirsiniz [ `az storage file copy` ](https://docs.microsoft.com/en-us/cli/azure/storage/file/copy?view=azure-cli-latest) komutlarını verilerinizi geçirin.
+Burada boş bir paylaşımı ile başlayın, ardından kaynak verilerin bir kopyasını aktarmak istediğiniz durumlarda kullanabilirsiniz [ `az storage file copy` ](https://docs.microsoft.com/cli/azure/storage/file/copy?view=azure-cli-latest) komutlarını verilerinizi geçirin.
 
 ### <a name="deployment-strategy"></a>Dağıtım stratejisi
 
@@ -134,7 +134,7 @@ Ayrıca, gereksinimlerinize bağlı olarak yardımcı olabilecek birçok açık 
 
 ### <a name="1-create-an-aks-cluster"></a>1. AKS kümesi oluşturma
 
-Docs için izleyebileceğiniz [AKS kümesi oluşturma](https://docs.microsoft.com/en-us/azure/aks/create-cluster) Azure portalı, Azure CLI veya Resource Manager şablonu aracılığıyla.
+Docs için izleyebileceğiniz [AKS kümesi oluşturma](https://docs.microsoft.com/azure/aks/create-cluster) Azure portalı, Azure CLI veya Resource Manager şablonu aracılığıyla.
 
 > AKS Azure Resource Manager şablonları kullanarak bulabilirsiniz [Azure/AKS](https://github.com/Azure/AKS/tree/master/examples/vnet) GitHub deposunu
 

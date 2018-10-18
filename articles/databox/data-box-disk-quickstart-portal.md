@@ -2,25 +2,19 @@
 title: 'Hızlı başlangıç: Microsoft Azure Data Box Disk | Microsoft Docs'
 description: Azure Data Box Disk'inizi Azure portalda hızlıca dağıtmak için bu hızlı başlangıçtan faydalanın
 services: databox
-documentationcenter: NA
 author: alkohli
-manager: twooley
-editor: ''
-ms.assetid: ''
 ms.service: databox
-ms.devlang: NA
+ms.subservice: disk
 ms.topic: quickstart
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 09/07/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to quickly deploy Data Box Disk so as to import data into Azure.
-ms.openlocfilehash: b4ec329fc5b1f3df9e6641bee3e1378c3a4d09c6
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: ca0fb177c8b6a16cf624fd4533c9c9040e6d9dee
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44378355"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49365243"
 ---
 # <a name="quickstart-deploy-azure-data-box-disk-using-the-azure-portal-preview"></a>Hızlı başlangıç: Azure portalı kullanarak Azure Data Box Disk'i dağıtma (Önizleme)
 
@@ -28,7 +22,7 @@ Bu hızlı başlangıçta Azure portalı kullanarak Azure Data Box Disk'i dağı
 
 Ayrıntılı dağıtım ve takip talimatları için bkz. [Öğretici: Azure Data Box Disk'i sipariş etme](data-box-disk-deploy-ordered.md). 
 
-Azure aboneliğiniz yoksa [ücretsiz bir hesap](https://azure.microsoft.com/en-us/free/?WT.mc_id=A261C142F) oluşturun.
+Azure aboneliğiniz yoksa [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 
 > [!IMPORTANT]
 > Data Box Disk önizleme aşamasındadır. Bu çözümü dağıtmadan önce [Önizleme için Azure hizmet şartlarını](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) gözden geçirin.

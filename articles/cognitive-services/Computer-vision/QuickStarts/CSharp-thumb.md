@@ -3,19 +3,19 @@ title: 'Hızlı Başlangıç: Küçük resim oluşturma - REST, C# - Görüntü 
 titleSuffix: Azure Cognitive Services
 description: Bu hızlı başlangıçta, C# ile Görüntü İşleme API’sini kullanarak bir görüntüden küçük resim oluşturacaksınız.
 services: cognitive-services
-author: noellelacharite
+author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
-ms.author: v-deken
-ms.openlocfilehash: f6353f0f99d34121e29de46c62e6f840a69806ed
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.author: pafarley
+ms.openlocfilehash: b3822fee5d729064375e5088cb207aebfa74f8ac
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45630758"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49342058"
 ---
 # <a name="quickstart-generate-a-thumbnail-using-the-rest-api-and-c35-in-computer-vision"></a>Hızlı Başlangıç: Görüntü İşleme’de REST API ve C# kullanarak küçük resim oluşturma
 

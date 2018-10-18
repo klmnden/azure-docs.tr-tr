@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/20/2018
 ms.author: anwestg
-ms.openlocfilehash: e5fc6b5d396a45d15548cfdd8f445158147ad12f
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: 08fcaa44fc807f986324b8304010792af99fd838
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42056272"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49388016"
 ---
 # <a name="before-you-get-started-with-app-service-on-azure-stack"></a>Azure Stack üzerinde App Service ile çalışmaya başlamadan önce
 
@@ -310,7 +310,7 @@ Yöneticiler, SSO için yapılandırmanız gerekir:
 3. [Azure Stack için PowerShell yükleme](azure-stack-powershell-install.md).
 4. Çalıştırma **Oluştur AADIdentityApp.ps1** betiği. İstendiğinde, Azure Stack dağıtımınız için kullandığınız Azure AD Kiracı Kimliğinizi girin. Örneğin, **myazurestack.onmicrosoft.com**.
 5. İçinde **kimlik bilgisi** penceresinde, Azure AD Hizmet Yöneticisi hesabını ve parolayı girin. **Tamam**’ı seçin.
-6. Sertifika dosyası yolu ve sertifika parolasını girin [daha önce oluşturduğunuz sertifika](https://docs.microsoft.com/en-gb/azure/azure-stack/azure-stack-app-service-before-you-get-started#certificates-required-for-azure-app-service-on-azure-stack). Varsayılan olarak bu adım için oluşturulan sertifika **sso.appservice.local.azurestack.external.pfx**.
+6. Sertifika dosyası yolu ve sertifika parolasını girin [daha önce oluşturduğunuz sertifika](https://docs.microsoft.com/azure/azure-stack/azure-stack-app-service-before-you-get-started#certificates-required-for-azure-app-service-on-azure-stack). Varsayılan olarak bu adım için oluşturulan sertifika **sso.appservice.local.azurestack.external.pfx**.
 7. Betik Kiracı Azure AD örneğinde yeni bir uygulama oluşturur. PowerShell çıkışında döndürülen uygulama Kimliğini not edin. Bu bilgiler yükleme sırasında ihtiyacınız var.
 8. Yeni bir tarayıcı penceresi açın ve oturum [Azure portalında](https://portal.azure.com) Azure Active Directory Hizmet Yöneticisi olarak
 9. Azure AD kaynak Sağlayıcısı'nı açın.
@@ -350,11 +350,11 @@ Yöneticiler, SSO için yapılandırmanız gerekir:
 Şu adımları uygulayın:
 
 1. Bir PowerShell örneği azurestack\AzureStackAdmin açın.
-2. Yüklediğiniz ve açtığınız içinde betikleri konumunu Git [önkoşul adım](https://docs.microsoft.com/en-gb/azure/azure-stack/azure-stack-app-service-before-you-get-started#download-the-azure-app-service-on-azure-stack-installer-and-helper-scripts).
+2. Yüklediğiniz ve açtığınız içinde betikleri konumunu Git [önkoşul adım](https://docs.microsoft.com/azure/azure-stack/azure-stack-app-service-before-you-get-started#download-the-azure-app-service-on-azure-stack-installer-and-helper-scripts).
 3. [Azure Stack için PowerShell yükleme](azure-stack-powershell-install.md).
 4. Çalıştırma **Oluştur ADFSIdentityApp.ps1** betiği.
 5. İçinde **kimlik bilgisi** penceresinde, AD FS bulut yönetici hesabı ve parola girin. **Tamam**’ı seçin.
-6. Sertifika dosyası yolu ve sertifika parolasını sağlayın [daha önce oluşturduğunuz sertifika](https://docs.microsoft.com/en-gb/azure/azure-stack/azure-stack-app-service-before-you-get-started#certificates-required-for-azure-app-service-on-azure-stack). Varsayılan olarak bu adım için oluşturulan sertifika **sso.appservice.local.azurestack.external.pfx**.
+6. Sertifika dosyası yolu ve sertifika parolasını sağlayın [daha önce oluşturduğunuz sertifika](https://docs.microsoft.com/azure/azure-stack/azure-stack-app-service-before-you-get-started#certificates-required-for-azure-app-service-on-azure-stack). Varsayılan olarak bu adım için oluşturulan sertifika **sso.appservice.local.azurestack.external.pfx**.
 
 ```PowerShell
     Create-ADFSIdentityApp.ps1

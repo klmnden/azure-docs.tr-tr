@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 10/04/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 8ae3a2d8dc42944bdea2b3e6ebac0a40029c0540
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: 642fc66bff763105e9d5463886474703a9a50781
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48817186"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49376712"
 ---
 # <a name="startstop-vms-during-off-hours-solution-in-azure-automation"></a>Sırasında Azure Otomasyonu çözümde yoğun olmayan saatlerde Vm'leri başlatma/durdurma
 
@@ -297,6 +297,9 @@ Buradan, halka kutucuğa tıklayarak daha fazla iş kayıtlarıyla analiz gerçe
 ## <a name="configure-email-notifications"></a>E-posta bildirimlerini yapılandırma
 
 Çözüm dağıtıldıktan sonra e-posta bildirimlerini değiştirmek için dağıtım sırasında oluşturulan eylem grubunu değiştirin.  
+
+> [!NOTE]
+> Azure kamu bulutunda abonelikler, e-posta işlevselliği bu çözümün desteklemez.
 
 Azure portalında izleyicisine gidin -> Eylem grupları. Adlı eylem grubu seçin **StartStop_VM_Notication**.
 

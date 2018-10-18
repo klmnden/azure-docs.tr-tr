@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 293b6af1d591c0c9763c2914713fe892392ae7ea
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: d25142cecd62fc34a08939d5f1915ba9b2cee749
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45578149"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49387438"
 ---
 # <a name="find-an-address-using-the-azure-maps-search-service"></a>Azure haritalar arama hizmetini kullanarak bir adres bulma
 
@@ -59,7 +59,7 @@ Varsayılan olarak çoğu arama sorguları `maxFuzzyLevel=1` performans elde edi
 
 4. Tıklayın **Gönder** ve yanıt gövdesinin gözden geçirin.
 
-    10 "pizza" belirsiz sorgu dizesi döndürdü [ilgi sonucunun noktası](https://docs.microsoft.com/en-us/rest/api/maps/search/getsearchpoi#searchpoiresponse) (POI) sonuçları kategorileri "pizza" ve "Restoran" dönülüyor. Her sonuç döndüren bir adresin enlem / boylam değerleri, bağlantı noktasını ve giriş noktası konumu için görünümü.
+    10 "pizza" belirsiz sorgu dizesi döndürdü [ilgi sonucunun noktası](https://docs.microsoft.com/rest/api/maps/search/getsearchpoi#searchpoiresponse) (POI) sonuçları kategorileri "pizza" ve "Restoran" dönülüyor. Her sonuç döndüren bir adresin enlem / boylam değerleri, bağlantı noktasını ve giriş noktası konumu için görünümü.
   
     Sonuçları herhangi bir belirli başvuru konuma bağlı değildir, bu sorgu için farklılık gösterir. Kullanabileceğiniz **countrySet** potansiyel olarak gereksiz sonuçları döndüren dünyaya aramak için varsayılan davranış olduğu gibi yalnızca uygulamanızın gereken kapsama, ülkelerin belirtmek için parametre.
 

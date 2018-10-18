@@ -2,7 +2,7 @@
 title: Azure Media Services aracılığıyla widevine lisans şablonuna genel bakış | Microsoft Docs
 description: Bu konu, Widevine lisansları yapılandırmak için kullanılan bir Widevine lisans şablonu genel bir bakış sağlar.
 author: juliako
-manager: cfowler
+manager: femila
 editor: ''
 services: media-services
 documentationcenter: ''
@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/27/2018
+ms.date: 10/16/2018
 ms.author: juliako
-ms.openlocfilehash: e54aff6e42d19755d274393d4221578cf5595cc5
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: bd09205d4bdc60891044728cf0dcafa092ae9846
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39112799"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49377455"
 ---
 # <a name="widevine-license-template-overview"></a>Widevine lisans şablonuna genel bakış 
 

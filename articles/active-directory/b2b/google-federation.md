@@ -10,12 +10,12 @@ ms.author: mimart
 author: msmimart
 manager: mtillman
 ms.reviewer: mal
-ms.openlocfilehash: 4ffe6cf3f1da4c149d1cb39856d02fc40acd20cf
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 396fb947a95ebc634ab0dea24d20f35126bc006e
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45984801"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49389454"
 ---
 # <a name="add-google-as-an-identity-provider-for-b2b-guest-users"></a>Google B2B Konuk kullanıcılar için kimlik sağlayıcısı Ekle
 
@@ -68,7 +68,7 @@ Konuk kullanıcı bir "çok uzun üstbilgi" hatası görürse, kendi tanımlama 
 Artık Azure AD portalında girerek veya PowerShell kullanarak Kimliğini ve istemci gizli anahtarı, Google istemci ayarlarsınız. Kendiniz bir Gmail adresi kullanarak ve çalışırken davetini davet edilen Google hesabınızla davet ederek Google Federasyon yapılandırmanızı test etmeyi unutmayın. 
 
 #### <a name="to-configure-google-federation-in-the-azure-ad-portal"></a>Azure AD portalında Google Federasyon yapılandırmak için 
-1. [Azure Portal](https://portal.azure.com) gidin. Sol bölmede seçin **Azure Active Directory**. 
+1. [Azure Portal](https://portal.azure.com) gidin. Sol bölmede **Azure Active Directory**’yi seçin. 
 2. Seçin **kuruluş ilişkileri**.
 3. Seçin **kimlik sağlayıcıları**ve ardından **Google** düğmesi.
 4. Bir ad girin. Ardından, istemci Kimliğini ve istemci gizli anahtarı daha önce edindiğiniz girin. **Kaydet**’i seçin. 
@@ -84,13 +84,13 @@ Artık Azure AD portalında girerek veya PowerShell kullanarak Kimliğini ve ist
    `New-AzureADMSIdentityProvider -Type Google -Name Google -ClientId [Client ID] -ClientSecret [Client secret]`
  
    > [!NOTE]
-   > İstemci kimliğini ve istemci gizli dizi içinde oluşturduğunuz bir uygulamadan kullanın "1. adım: bir Google developer proje yapılandırma." Daha fazla bilgi için [yeni AzureADMSIdentityProvider](https://docs.microsoft.com/en-us/powershell/module/azuread/new-azureadmsidentityprovider?view=azureadps-2.0-preview) makalesi. 
+   > İstemci kimliğini ve istemci gizli dizi içinde oluşturduğunuz bir uygulamadan kullanın "1. adım: bir Google developer proje yapılandırma." Daha fazla bilgi için [yeni AzureADMSIdentityProvider](https://docs.microsoft.com/powershell/module/azuread/new-azureadmsidentityprovider?view=azureadps-2.0-preview) makalesi. 
  
 ## <a name="how-do-i-remove-google-federation"></a>Google Federasyon nasıl kaldırabilirim?
 Google Federasyon kurulumunuzu silebilirsiniz. Bunu yaparsanız, davetini zaten yararlandınız Google Konuk kullanıcılar oturum açmanız mümkün olmayacaktır, ancak bunları erişim yeniden kaynaklarınızı dizinden silerek ve bunları yeniden davet tanıyabilirsiniz. 
  
 ### <a name="to-delete-google-federation-in-the-azure-ad-portal"></a>Azure AD portalında Google Federasyon silmek için: 
-1. [Azure Portal](https://portal.azure.com) gidin. Sol bölmede seçin **Azure Active Directory**. 
+1. [Azure Portal](https://portal.azure.com) gidin. Sol bölmede **Azure Active Directory**’yi seçin. 
 2. Seçin **kuruluş ilişkileri**.
 3. Seçin **kimlik sağlayıcıları**ve ardından **Google** düğmesi.
 4. Seçin **Google**ve ardından **Sil**. 
@@ -108,4 +108,4 @@ Google Federasyon kurulumunuzu silebilirsiniz. Bunu yaparsanız, davetini zaten 
     `Remove-AzureADMSIdentityProvider -Id Google-OAUTH`
 
    > [!NOTE]
-   > Daha fazla bilgi için [Remove-AzureADMSIdentityProvider](https://docs.microsoft.com/en-us/powershell/module/azuread/Remove-AzureADMSIdentityProvider?view=azureadps-2.0-preview). 
+   > Daha fazla bilgi için [Remove-AzureADMSIdentityProvider](https://docs.microsoft.com/powershell/module/azuread/Remove-AzureADMSIdentityProvider?view=azureadps-2.0-preview). 

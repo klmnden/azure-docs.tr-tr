@@ -10,12 +10,12 @@ ms.component: bing-visual-search
 ms.topic: tutorial
 ms.date: 06/21/2018
 ms.author: rosh
-ms.openlocfilehash: bda4bdeea019d8cf3ae677d5eaf81e631ca38d16
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 06d6bc8e53276b5542210c2843d7221d6fd79c09
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47222582"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49386443"
 ---
 # <a name="tutorial-bing-visual-search-sdk-imageinsightstoken-and-results"></a>Öğretici: Bing Görsel Arama SDK’sı ImageInsightsToken ve sonuçlar
 Görsel Arama SDK’sı, `ImageInsightsToken` döndüren önceki bir aramadan çevrimiçi görüntüleri bulma seçeneğini içerir.  Bu örnek, bir `ImageInsightsToken` alır ve sonraki bir aramada belirteci kullanır.  Kod, Bing’e `ImageInsightsToken` gönderir ve Bing Arama URL’lerini ve çevrimiçi bulunan benzer görüntülerin URL’lerini içeren sonuçları döndürür.
@@ -25,7 +25,7 @@ Visual Studio 2017. Gerekirse ücretsiz topluluk sürümünü şuradan indirebil
 SDK çağrılarının kimliğini doğrulamak için bir bilişsel hizmetler API anahtarı gerekir. Ücretsiz deneme anahtarına kaydolun. Deneme anahtarı yedi gün boyunca saniyede bir çağrı için kullanılabilir. Üretim senaryoları için bir erişim anahtarı satın alın. Ayrıca fiyatlandırma bilgilerine de bakın.
 .NET Core SDK'sını, .NET Core 1.1 uygulamalarını çalıştırma olanağı. CORE, Framework ve Çalışma Zamanı sürümlerini şuradan alabilirsiniz: https://www.microsoft.com/net/download/.
 
-##<a name="application-dependencies"></a>Uygulama bağımlılıkları
+## <a name="application-dependencies"></a>Uygulama bağımlılıkları
 Bing Web Araması SDK’sını kullanarak bir konsol uygulaması kurmak için Visual Studio’da Çözüm Gezgini’nde NuGet Paketlerini Yönet seçeneğine gidin. Ekle:
 * Microsoft.Azure.CognitiveServices.Search.VisualSearch
 * Microsoft.Azure.CognitiveServices.Search.ImageSearchpackage paketleri.
@@ -37,7 +37,8 @@ NuGet Web Araması SDK’sı paketini yüklemek aşağıdakilerin dahil olduğu 
 * Newtonsoft.Json
 
 ## <a name="get-the-imageinsightstoken-from-image-search"></a>Görüntü Arama’dan ImageInsightsToken Al
-Bu örnekte, aşağıdaki yöntem tarafından alınan bir `ImageInsightsToken` kullanılır.  Bu çağrı hakkında daha fazla bilgi için bkz. [Görüntü Arama SDK’sı C# hızlı başlangıcı](https://docs.microsoft.com/en-us/azure/cognitive-services/bing-image-search/image-search-sdk-quickstart).
+
+Bu örnekte, aşağıdaki yöntem tarafından alınan bir `ImageInsightsToken` kullanılır.  Bu çağrı hakkında daha fazla bilgi için bkz. [Görüntü Arama SDK’sı C# hızlı başlangıcı](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/image-search-sdk-quickstart).
 
 Kod, bir 'Kanada Rocky Dağları' sorgusunda sonuçları arar ve bir ImageInsightsToken alır. İlk görüntünün içgörü belirtecini, küçük resim URL’sini ve görüntü içeriği URL’sini yazdırır.  Yöntem, sonraki bir Görsel Arama isteğinde kullanmak üzere `ImageInsightsToken` döndürür.
 
@@ -86,12 +87,15 @@ Kod, bir 'Kanada Rocky Dağları' sorgusunda sonuçları arar ve bir ImageInsigh
 ```
 
 ## <a name="specify-the-imageinsightstoken-for-visual-search-request"></a>Görsel Arama isteği için ImageInsightsToken belirtin
+
 Bu örnek, önceki yöntem tarafından döndürülen içgörü belirtecini kullanır. Aşağıdaki kod, `ImageInsightsToken` öğesinden bir `ImageInfo` nesnesi oluşturur ve ImageInfo nesnesini bir `VisualSearchRequest` öğesine yükler. `VisualSearchRequest` için `ImageInfo` içinde `ImageInsightsToken` belirtin
 
 ```
 ImageInfo ImageInfo = new ImageInfo(imageInsightsToken: insightsTok);
 ```
+
 ## <a name="use-visual-search-to-find-images-from-an-imageinsightstoken"></a>ImageInsightsToken öğesinden görüntüleri bulmak için Görsel Arama’yı kullanma
+
 `VisualSearchRequest`, `ImageInfo` nesnesinde aranacak görüntü ile ilgili bilgileri içerir.  `VisualSearchMethodAsync` yöntemi sonuçları alır.
 ```
 // An image binary is not necessary here, as the image is specified by insights token.
@@ -135,7 +139,8 @@ Gerçek görüntü URL’lerini almak için, bir `ActionType` türünü `ImageMo
         }
     }
 ```
-Bu veri türleri hakkında daha fazla bilgi için bkz. [Görüntüler - Görsel Arama](https://docs.microsoft.com/en-us/rest/api/cognitiveservices/bingvisualsearch/images/visualsearch).
+Bu veri türleri hakkında daha fazla bilgi için bkz. [Görüntüler - Görsel Arama](https://docs.microsoft.com/rest/api/cognitiveservices/bingvisualsearch/images/visualsearch).
+
 ## <a name="complete-code"></a>Tam kod
 
 Aşağıdaki kod, önceki örnekleri çalıştırır. Bir post isteğinde `ImageInsightsToken` gönderir. Daha sonra her ActionType için Bing arama URL’lerini yazdırır. ActionType `PagesIncluding` olursa kod, `Data` içinde `ImageObject` öğelerini alır.  `Data`, Web sayfalarındaki görüntülerin URL’leri olan değerlerin bir listesini içerir.  Sonuçları göstermek için elde edilen Görsel Arama URL’lerini kopyalayıp tarayıcıya yapıştırın. Görüntüleri göstermek için ContentUrl öğelerini kopyalayıp tarayıcıya yapıştırın.
@@ -283,5 +288,6 @@ namespace VisualSearchFeatures
 }
 
 ```
+
 ## <a name="next-steps"></a>Sonraki adımlar
 [Görsel Arama yanıtı](https://docs.microsoft.com/azure/cognitive-services/bing-visual-search/overview#the-response)

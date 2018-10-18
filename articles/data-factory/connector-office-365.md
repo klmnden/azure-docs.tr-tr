@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/15/2018
 ms.author: jingwang
-ms.openlocfilehash: 8a36053fe3189a72c33ea14445a6b064260eec01
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: c9252380581e77049e9464316ca77cc135f784b6
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49318325"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49377610"
 ---
 # <a name="copy-data-from-office-365-into-azure-using-azure-data-factory-preview"></a>Azure Data Factory (Önizleme) kullanarak Azure'da Office 365'ten veri kopyalama 
 
@@ -125,7 +125,7 @@ Office 365'ten veri kopyalamak için aşağıdaki özellikler desteklenir:
 |:--- |:--- |:--- |
 | type | Dataset öğesinin type özelliği ayarlanmalıdır: **Office365Table** | Evet |
 | tableName | Office 365'ten ayıklamak için veri kümesinin adı. Başvuru [burada](https://github.com/OfficeDev/MS-Graph-Data-Connect/wiki/Capabilities#datasets) Office 365 veri kümeleri için ayıklama kullanılabilir listesi. | Evet |
-| Karşılaştırma | Office 365'ten ayıklamak için belirli satırları filtrelemek için kullanılan bir koşul ifadesi.  Hangi sütunların her bir tabloyu ve filtre ifade biçimi için koşul filtreleme için kullanılan çıkış bulmak için buraya bakın. | Hayır<br>(Hiçbir koşul sağlanırsa, son 30 güne ait verileri ayıklamak için varsayılandır) |
+| Karşılaştırma | Office 365'ten ayıklamak için belirli satırları filtrelemek için kullanılan bir koşul ifadesi.  Başvuru [burada](https://github.com/OfficeDev/MS-Graph-Data-Connect/wiki/Capabilities#filters) hangi sütunların her bir tabloyu ve filtre ifade biçimi için koşul filtreleme için kullanılan çıkış bulunacak. | Hayır<br>(Hiçbir koşul sağlanırsa, son 30 güne ait verileri ayıklamak için varsayılandır) |
 
 **Örnek**
 

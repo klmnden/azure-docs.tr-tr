@@ -3,8 +3,8 @@ title: Hızlı Başlangıç - Azure depolama hesabını Azure CDN ile tümleşti
 description: Azure İçerik Teslim Ağı'nı (CDN) Azure Depolama'dan önbelleğe blob alarak yüksek bant genişlikli içerik sunmak için kullanmayı öğrenin.
 services: cdn
 documentationcenter: ''
-author: dksimpson
-manager: cfowler
+author: mdgattuso
+manager: danielgi
 editor: ''
 ms.assetid: cbc2ff98-916d-4339-8959-622823c5b772
 ms.service: cdn
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
 ms.date: 05/24/2018
-ms.author: v-deasim
+ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: 1f720c8921a9a49e76465cce1c8226232fdb12ea
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 025f2ecef070170fef216d7533150359cf11c50f
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47096250"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49092599"
 ---
 # <a name="quickstart-integrate-an-azure-storage-account-with-azure-cdn"></a>Hızlı Başlangıç: Azure depolama hesabını Azure CDN ile tümleştirme
 Bu hızlı başlangıçta [Azure İçerik Teslim Ağı'nı (CDN)](cdn-overview.md) Azure depolamadan önbelleğe içerik almak için etkinleştireceksiniz. Azure CDN, geliştiricilere yüksek bant genişlikli içerik sunmak için genel bir çözüm sunmaktadır. İşlem örneklerinin bloblarını ve statik içeriğini Birleşik Devletler, Avrupa, Asya, Avustralya ve Güney Amerika'daki fiziksel düğümlerde önbelleğe alabilir.

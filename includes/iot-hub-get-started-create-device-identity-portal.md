@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/17/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: 4809881276da752ac6eb08773fb8be145dc5f4c7
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: ffd5da239f8e271a8c9b2aaf3f6d5fd9f885c79c
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/17/2018
-ms.locfileid: "49367103"
+ms.locfileid: "49400144"
 ---
 ## <a name="create-a-device-identity"></a>Cihaz kimliği oluşturma
 
@@ -21,19 +21,19 @@ Bu bölümde, kullandığınız [Azure portalında](https://portal.azure.com) IO
 
 1. [Azure portalda](https://portal.azure.com) oturum açma
 
-1. Seçin **tüm kaynakları** ve IOT hub'ı kaynağınızı bulun.
+2. Seçin **tüm kaynakları** ve IOT hub'ı kaynağınızı bulun.
 
-1. IOT hub'ı kaynağınız açıldığında tıklayın **IOT cihazları** aracı ve ardından **Ekle** en üstünde. 
+3. IOT hub'ı kaynağınız açıldığında tıklayın **IOT cihazları** aracı ve ardından **Ekle** en üstünde. 
 
     ![Portalı'nda cihaz kimliği oluşturma](./media/iot-hub-get-started-create-device-identity-portal/create-identity-portal.png)
 
-1. Gibi yeni cihaz için bir ad verin **myDeviceId**, tıklatıp **Kaydet**. Bu eylem, IOT hub'ınız için yeni bir cihaz kimliği oluşturur.
+4. Gibi yeni cihaz için bir ad verin **myDeviceId**, tıklatıp **Kaydet**. Bu eylem, IOT hub'ınız için yeni bir cihaz kimliği oluşturur.
 
    [!INCLUDE [iot-hub-pii-note-naming-device](iot-hub-pii-note-naming-device.md)]
 
    ![Yeni bir cihaz ekleyin](./media/iot-hub-get-started-create-device-identity-portal/create-a-device.png)
 
-1. Cihaz listesinde yeni oluşturulan bir cihaz ve kopyalama tıklayın **bağlantı dizesi---birincil anahtar** daha sonra kullanmak üzere.
+5. Cihaz listesinde yeni oluşturulan bir cihaz ve kopyalama tıklayın **bağlantı dizesi---birincil anahtar** daha sonra kullanmak üzere.
 
     ![Cihaz bağlantı dizesi](./media/iot-hub-get-started-create-device-identity-portal/device-details.png)
 

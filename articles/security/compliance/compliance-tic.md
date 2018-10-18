@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: dlap
-ms.openlocfilehash: 637f837ec2421f0bef5131a33c709087b891aa0f
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: d52785dd7569560f4b6986080b14723762537ec8
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39505120"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49388332"
 ---
 # <a name="trusted-internet-connections-guidance"></a>Güvenilir bir Internet bağlantıları Kılavuzu
 
@@ -223,7 +223,7 @@ Aşağıdaki örnek ilkeleri TIC uyumluluk senaryolar için kullanılabilir:
 
 ### <a name="network-watcher-traffic-analytics"></a>Ağ İzleyicisi trafik analizi
 
-Ağ İzleyicisi [trafik analizi](https://azure.microsoft.com/en-in/blog/traffic-analytics-in-preview/) akış günlüğü verileri ve diğer günlükler ağ trafiğini üst düzey bir genel bakış sağlar. Veri TIC uyumluluk denetimi ve sorunlu noktaları tanımlamak için yararlıdır. TIC yönlendirme için odaklanmış bir listesini almak ve internet ile iletişim kuran sanal makinelerin hızlı bir şekilde ekran için üst düzey panoyu kullanabilirsiniz.
+Ağ İzleyicisi [trafik analizi](https://azure.microsoft.com/blog/traffic-analytics-in-preview/) akış günlüğü verileri ve diğer günlükler ağ trafiğini üst düzey bir genel bakış sağlar. Veri TIC uyumluluk denetimi ve sorunlu noktaları tanımlamak için yararlıdır. TIC yönlendirme için odaklanmış bir listesini almak ve internet ile iletişim kuran sanal makinelerin hızlı bir şekilde ekran için üst düzey panoyu kullanabilirsiniz.
 
 ![Trafik analizi](media/tic-traffic-analytics-1.png)
 

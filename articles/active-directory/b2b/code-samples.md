@@ -10,12 +10,12 @@ ms.author: mimart
 author: msmimart
 manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: d0f2669610f2086c29d52d95c9796e6a2939622e
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 9d2fa8ec96f629ff85d785897398bc9af52ab3bc
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45985456"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49165768"
 ---
 # <a name="azure-active-directory-b2b-collaboration-code-and-powershell-samples"></a>Azure Active Directory B2B işbirliği kodu ve PowerShell örnekleri
 
@@ -34,14 +34,14 @@ ms.locfileid: "45985456"
 
 3. Kiracınızda oturum açma
 
-    ```
+    ```powershell
     $cred = Get-Credential
     Connect-AzureAD -Credential $cred
     ```
 
 4. PowerShell cmdlet’ini çalıştırma
 
-  ```
+  ```powershell
   $invitations = import-csv C:\data\invitations.csv
   $messageInfo = New-Object Microsoft.Open.MSGraph.Model.InvitedUserMessageInfo
   $messageInfo.customizedMessageBody = "Hey there! Check this out. I created an invitation through PowerShell"
@@ -56,7 +56,7 @@ Bu cmdlet, invitations.csv dosyasındaki e-posta adreslerine bir davet gönderir
 ## <a name="code-sample"></a>Kod örneği
 Burada, B2B kullanıcısını davet ettiğiniz kaynağa yönelik kullanım URL’sini almak için “yalnızca uygulama” modunda davet API’sinin nasıl çağrılacağı gösterilmektedir. Hedef, özel bir davet e-postası göndermektir. E-posta, HTTP istemcisiyle oluşturulabilir, bu nedenle Graph API ile nasıl görüneceğini özelleştirebilir ve gönderebilirsiniz.
 
-```
+```csharp
 namespace SampleInviteApp
 {
     using System;

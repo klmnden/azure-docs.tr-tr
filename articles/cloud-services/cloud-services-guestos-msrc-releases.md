@@ -11,19 +11,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 10/12/2018
+ms.date: 10/16/2018
 ms.author: raiye
-ms.openlocfilehash: b37600fe8d0616454264b67553149223746318d8
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 7540f12f888108ed7091cece575b6d25131ef47b
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49322031"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49377523"
 ---
 # <a name="azure-guest-os"></a>Azure konuk işletim sistemi
 Aşağıdaki tablolarda Azure konuk işletim sistemine uygulanan güncelleştirmelerin Microsoft Güvenlik Yanıt Merkezi (MSRC) gösterilmektedir. Belirli bir güncelleştirmenin Konuk kullanmakta olduğunuz işletim sistemi için geçerli olup olmadığını belirlemek için bu makaleyi arayın. Güncelleştirmeler her zaman taşıyan İleri için belirli [ailesi] [ family-explain] sürümünde yapılan.
 
-## <a name="september-guest-os"></a>Eylül konuk işletim sistemi
+## <a name="september-2018-guest-os"></a>Eylül 2018'den konuk işletim sistemi
 | Ürün Kategorisi | Üst KB makalesi | Güvenlik Açığı açıklaması | Konuk işletim sistemi | İlk tarih |
 | --- | --- | --- | --- | --- |
 | Rel 18-09 | [4457131] | Windows 10 Güvenlik | 5.23 | 11 Eylül 2018'den |
@@ -45,7 +45,7 @@ Aşağıdaki tablolarda Azure konuk işletim sistemine uygulanan güncelleştirm
 | Yok | [4344153] | Ağustos güvenlikle .NET 3.5 dökümü | 4.58 | 14 Ağustos 2018 |
 | Yok | [4344147] | Ağustos güvenlikle .NET 4 x rollup | 4.58 | 14 Ağustos 2018 |
 
-## <a name="august-guest-os"></a>Ağustos konuk işletim sistemi
+## <a name="august-2018-guest-os"></a>Ağustos 2018 konuk işletim sistemi
 | Ürün Kategorisi | Üst KB makalesi | Güvenlik Açığı açıklaması | Konuk işletim sistemi | İlk tarih |
 | --- | --- | --- | --- | --- |
 | Rel 18-08 | [4343887] | Windows 10 Güvenlik | 5.22 | 14 Ağustos 2018 |
@@ -68,7 +68,7 @@ Aşağıdaki tablolarda Azure konuk işletim sistemine uygulanan güncelleştirm
 | Yok | [4338424] |Temmuz güvenlikle .NET 3.5 dökümü |3.64 | 10 Temmuz 2018 |
 | Yok | [4338415] |Temmuz güvenlikle .NET 4 x rollup |3.64 | 10 Temmuz 2018 |
 
-## <a name="july-guest-os"></a>Temmuz konuk işletim sistemi
+## <a name="july-2018-guest-os"></a>Temmuz 2018 konuk işletim sistemi
 | Ürün Kategorisi | Üst KB makalesi | Güvenlik Açığı açıklaması | Konuk işletim sistemi | İlk tarih |
 | --- | --- | --- | --- | --- |
 | Rel 18-07 | [4338814] |Windows 10 Güvenlik |5.21 |10 Temmuz 2018 |
@@ -88,7 +88,7 @@ Aşağıdaki tablolarda Azure konuk işletim sistemine uygulanan güncelleştirm
 | Yok | [4284855] |Haziran olmayan güvenlik dökümü |3.63 |12 Haziran 2018 |
 | Yok | [4284815] |Haziran olmayan güvenlik dökümü |4.56 |12 Haziran 2018 |
 
-## <a name="june-guest-os"></a>Haziran konuk işletim sistemi
+## <a name="june-2018-guest-os"></a>Haziran 2018'den konuk işletim sistemi
 | Ürün Kategorisi | Üst KB makalesi | Güvenlik Açığı açıklaması | Konuk işletim sistemi | İlk tarih |
 | --- | --- | --- | --- | --- |
 | Rel 18-06 | [4284880] |Windows 10 Güvenlik |5.20 |12 Haziran 2018 |
@@ -113,7 +113,7 @@ Aşağıdaki tablolarda Azure konuk işletim sistemine uygulanan güncelleştirm
 | Yok | [4096417] |.NET 4.5 x güvenlikle yayımlayabilir |4.55 |8 Mayıs 2018 |
 | Yok | [4132216] |SSU olabilir |5.20 |8 Mayıs 2018 |
 
-## <a name="may-guest-os"></a>İşletim sistemi Konuk
+## <a name="may-2018-guest-os"></a>Mayıs 2018 konuk işletim sistemi
 | Ürün Kategorisi | Üst KB makalesi | Güvenlik Açığı açıklaması | Konuk işletim sistemi | İlk tarih |
 | --- | --- | --- | --- | --- |
 | Rel 18-05 | [4103721], [4103727], [4103723] |Windows 10 Güvenlik |5.19 |8 Mayıs 2018 |
@@ -133,7 +133,7 @@ Aşağıdaki tablolarda Azure konuk işletim sistemine uygulanan güncelleştirm
 | Yok | [4093753] |Saat dilimi güncelleştirme |2.74, 3.61 4.74 |10 Nisan 2018 |
 
 
-## <a name="april-guest-os"></a>Nisan konuk işletim sistemi
+## <a name="april-2018-guest-os"></a>Nisan 2018 konuk işletim sistemi
 | Ürün Kategorisi | Üst KB makalesi | Güvenlik Açığı açıklaması | Konuk işletim sistemi | İlk tarih |
 | --- | --- | --- | --- | --- |
 | Rel 18-04 | [4093119] |Windows 10 Güvenlik |5.18 |10 Nisan 2018 |
@@ -147,7 +147,7 @@ Aşağıdaki tablolarda Azure konuk işletim sistemine uygulanan güncelleştirm
 | Yok | [4088877] |Mart güvenlikle ilgili olmayan toplaması |3.60 |13 Mart 2018 |
 | Yok | [4088876] |Mart güvenlikle ilgili olmayan toplaması |4.53 |13 Mart 2018 |
 
-## <a name="march-guest-os"></a>Konuk işletim sistemi Mart
+## <a name="march-2018-guest-os"></a>Mart 2018'den konuk işletim sistemi
 | Ürün Kategorisi | Üst KB makalesi | Güvenlik Açığı açıklaması | Konuk işletim sistemi | İlk tarih |
 | --- | --- | --- | --- | --- |
 | Rel 18-03 | [4088787], [4088776] |Windows 10 Güvenlik |5.17 |13 Mart 2018 |
@@ -160,7 +160,7 @@ Aşağıdaki tablolarda Azure konuk işletim sistemine uygulanan güncelleştirm
 | Yok | [4074837] |Saat dilimi güncelleştirme |2.72, 3.59 4.52 |13 Şubat 2018 |
 
 
-## <a name="february-guest-os"></a>Şubat konuk işletim sistemi
+## <a name="february-2018-guest-os"></a>Şubat 2018'den konuk işletim sistemi
 | Ürün Kategorisi | Üst KB makalesi | Güvenlik Açığı açıklaması | Konuk işletim sistemi | İlk tarih |
 | --- | --- | --- | --- | --- |
 | Rel 18-02 | [4074590], [4074588] |Windows 10 Güvenlik |5.16 |13 Şubat 2018 |
@@ -174,7 +174,7 @@ Aşağıdaki tablolarda Azure konuk işletim sistemine uygulanan güncelleştirm
 | Yok | [4054175], [4054171] |Ocak .NET dökümü |3.58 |4 Ocak 2018 |
 | Yok | [4054177], [4054170] |Ocak .NET dökümü |4.51 |4 Ocak 2018 |
 
-## <a name="january-guest-os"></a>Ocak konuk işletim sistemi
+## <a name="january-2018-guest-os"></a>Ocak 2018'den konuk işletim sistemi
 | Ürün Kategorisi | Üst KB makalesi | Güvenlik Açığı açıklaması | Konuk işletim sistemi | İlk tarih |
 | --- | --- | --- | --- | --- |
 | Rel 18-01 | [4056898], [4056897], [4056899] |Yalnızca Windows Güvenlik |2.70, 3.57 4.50 |3 Ocak 2018 |
@@ -186,7 +186,7 @@ Aşağıdaki tablolarda Azure konuk işletim sistemine uygulanan güncelleştirm
 
 
 
-## <a name="december-guest-os"></a>Aralık konuk işletim sistemi
+## <a name="december-2017-guest-os"></a>Aralık 2017 konuk işletim sistemi
 | Ürün Kategorisi | Üst KB makalesi | Güvenlik Açığı açıklaması | Konuk işletim sistemi | İlk tarih |
 | --- | --- | --- | --- | --- |
 | Rel 17-12 | [4053579], [4054517] |Windows 10 güvenlik güncelleştirmeleri |4.49, 5.14 |12 Aralık 2017 |
@@ -198,7 +198,7 @@ Aşağıdaki tablolarda Azure konuk işletim sistemine uygulanan güncelleştirm
 | Yok | [4048958] |Kasım olmayan güvenlik dökümü |4.49 |14 Kasım 2017 |
 | Yok | [4049068] |Aralık saat dilimi güncelleştirme |2.69, 3.56, 4.49 |12 Aralık 2017 |
 
-## <a name="november-guest-os"></a>Kasım konuk işletim sistemi
+## <a name="november-2017-guest-os"></a>Kasım 2017 konuk işletim sistemi
 | Ürün Kategorisi | Üst KB makalesi | Güvenlik Açığı açıklaması | Konuk işletim sistemi | İlk tarih |
 | --- | --- | --- | --- | --- |
 | Rel 17-11 | [4048953] |Windows 10 güncelleştirmeleri |5.13 |14 Kasım 2017 |
@@ -212,7 +212,7 @@ Aşağıdaki tablolarda Azure konuk işletim sistemine uygulanan güncelleştirm
 | Yok | [3191565] |Windows Management Framework'ün 5.1 güncelleştirmesi  |3.55 |14 Kasım 2017 |
 | Yok | [3191564] |Windows Management Framework'ün 5.1 güncelleştirmesi  |4.48 |14 Kasım 2017 |
 
-## <a name="october-guest-os"></a>Ekim konuk işletim sistemi
+## <a name="october-2017-guest-os"></a>Ekim 2017 konuk işletim sistemi
 | Ürün Kategorisi | Üst KB makalesi | Güvenlik Açığı açıklaması | Konuk işletim sistemi | İlk tarih |
 | --- | --- | --- | --- | --- |
 | Rel 17-10 | [4041691] |Windows 10 güncelleştirmeleri |5.12 |10 Ekim 2017 |
@@ -226,7 +226,7 @@ Aşağıdaki tablolarda Azure konuk işletim sistemine uygulanan güncelleştirm
 | Yok | [4040979] |Eylül .NET olmayan güvenlik dökümü |3.54 |12 Eylül 2017 |
 | Yok | [4040981] |Eylül .NET olmayan güvenlik dökümü |4.47 |12 Eylül 2017 |
 
-## <a name="september-guest-os"></a>Eylül konuk işletim sistemi
+## <a name="september-2017-guest-os"></a>Eylül 2017 konuk işletim sistemi
 | Ürün Kategorisi | Üst KB makalesi | Güvenlik Açığı açıklaması | Konuk işletim sistemi | İlk tarih |
 | --- | --- | --- | --- | --- |
 | Rel 17-09 | [4038782] |Windows 10 güncelleştirmeleri |5.11 |12 Eylül 2017 |
@@ -238,7 +238,7 @@ Aşağıdaki tablolarda Azure konuk işletim sistemine uygulanan güncelleştirm
 | Yok | [4034665] |Ağustos olmayan güvenlik dökümü |5.11 |8 Ağustos 2017 |
 | Yok | [4034681] |Ağustos olmayan güvenlik dökümü |4.46 |8 Ağustos 2017 |
 
-## <a name="august-guest-os"></a>Ağustos konuk işletim sistemi
+## <a name="august-2017-guest-os"></a>Ağustos 2017 konuk işletim sistemi
 | Ürün Kategorisi | Üst KB makalesi | Güvenlik Açığı açıklaması | Konuk işletim sistemi | İlk tarih |
 | --- | --- | --- | --- | --- |
 | Rel 17-07 | [4034658] |Windows 10 güncelleştirmeleri |5.10 |8 Ağustos 2017 |
@@ -252,7 +252,7 @@ Aşağıdaki tablolarda Azure konuk işletim sistemine uygulanan güncelleştirm
 | Rel 17-07 | [4025331] |Temmuz olmayan güvenlik dökümü |3.52 |11 Temmuz 2017 |
 | Rel 17-07 | [4025336] |Temmuz olmayan güvenlik dökümü |4.45 |11 Temmuz 2017 |
 
-## <a name="july-guest-os"></a>Temmuz konuk işletim sistemi
+## <a name="july-2017-guest-os"></a>Temmuz 2017 konuk işletim sistemi
 | Ürün Kategorisi | Üst KB makalesi | Güvenlik Açığı açıklaması | Konuk işletim sistemi | İlk tarih |
 | --- | --- | --- | --- | --- |
 | Rel 17-07 | [4025339] |Windows 10 güncelleştirmeleri |5.9 |11 Temmuz 2017 |
@@ -266,7 +266,7 @@ Aşağıdaki tablolarda Azure konuk işletim sistemine uygulanan güncelleştirm
 | Yok | [4022724] |Haziran olmayan güvenlik dökümü |3.51 |13 Haziran 2017 |
 | Yok | [4022726] |Haziran olmayan güvenlik dökümü |4.44 |13 Haziran 2017 |
 
-## <a name="june-guest-os"></a>Haziran konuk işletim sistemi
+## <a name="june-2017-guest-os"></a>Haziran 2017 konuk işletim sistemi
 | Ürün Kategorisi | Üst KB makalesi | Güvenlik Açığı açıklaması | Konuk işletim sistemi | İlk tarih |
 | --- | --- | --- | --- | --- |
 | Rel 17-06 | [4019472] |WS 2016 işletim sistemi kalitesi geliştirmeleri |5.8 |9 Mayıs 2017 |
@@ -294,7 +294,7 @@ Aşağıdaki tablolarda Azure konuk işletim sistemine uygulanan güncelleştirm
 | Yok | [4014510] |.NET olmayan ve güvenlikle ilgili toplama olabilir |4.43 |9 Mayıs 2017 |
 | Yok | [4014512] |.NET olmayan ve güvenlikle ilgili toplama olabilir |4.43 |9 Mayıs 2017 |
 
-## <a name="may-guest-os"></a>İşletim sistemi Konuk
+## <a name="may-2017-guest-os"></a>Mayıs 2017 konuk işletim sistemi
 | Ürün Kategorisi | Üst KB makalesi | Güvenlik Açığı açıklaması | Konuk işletim sistemi | İlk tarih |
 | --- | --- | --- | --- | --- |
 | Rel 17-05 | [4019472] |WS 2016 işletim sistemi kalitesi geliştirmeleri |5.7 | 9 Mayıs 2017 |
@@ -322,7 +322,7 @@ Aşağıdaki tablolarda Azure konuk işletim sistemine uygulanan güncelleştirm
 | Yok | [4015550] |Nisan olmayan güvenlik dökümü |4.42 | 11 Nisan 2017 |
 | Yok | [4013418] |Hizmet yığını güncelleştirmesi |5.7 | 14 Mart 2017 |
 
-## <a name="april-guest-os"></a>Nisan konuk işletim sistemi
+## <a name="april-2017-guest-os"></a>Nisan 2017 konuk işletim sistemi
 | Ürün Kategorisi | Üst KB makalesi | Güvenlik Açığı açıklaması | Konuk işletim sistemi | İlk tarih |
 | --- | --- | --- | --- | --- |
 | Rel 17-04 |  [4015217]  |WS 2016 işletim sistemi kalitesi geliştirmeleri | 5.6 | 11 Nisan 2017 |
@@ -342,7 +342,7 @@ Aşağıdaki tablolarda Azure konuk işletim sistemine uygulanan güncelleştirm
 | Rel 17-04 |  [4012217]  |Mart 2017 güvenlik Windows Server 2012 için aylık kalite dökümü |3.48 | 11 Nisan 2017 |
 | Rel 17-04 |  [4012216]  |Mart 2017 güvenlik aylık kalite toplaması için Windows 8.1 ve Windows Server 2012 R2 |4.41 | 11 Nisan 2017 |
 
-## <a name="march-guest-os"></a>Konuk işletim sistemi Mart
+## <a name="march-2017-guest-os"></a>Mart 2017 konuk işletim sistemi
 | Ürün Kategorisi | Üst KB makalesi | Güvenlik Açığı açıklaması | Konuk işletim sistemi | İlk tarih |
 | --- | --- | --- | --- | --- |
 | Rel 17-03 |  [4013429] |İyileştirmeler ve düzeltmeler | 5.5 | 14 Mart 2017 |
@@ -356,12 +356,12 @@ Aşağıdaki tablolarda Azure konuk işletim sistemine uygulanan güncelleştirm
 | Yok |  [3205401] |Aralık 2016 güvenlik aylık kalite toplaması için Windows 8.1 ve Windows Server 2012 R2 |4.40 |14 Mart 2017 |
 | Yok |  [3211320] |Windows 10 sürüm 1607'ye ve Windows Server 2016 güncelleştirmesi yığın bakımı: 24 Ocak 2017 |5.5 |14 Mart 2017 |
 
-## <a name="january-guest-os"></a>Ocak konuk işletim sistemi
+## <a name="january-2017-guest-os"></a>Ocak 2017 konuk işletim sistemi
 | Bülten No | Üst KB makalesi | Güvenlik Açığı açıklaması | Konuk işletim sistemi | İlk tarih |
 | --- | --- | --- | --- | --- |
 | MS17-004 | [3216771] |Yerel Güvenlik Yetkilisi alt sistem hizmeti için güvenlik güncelleştirmesi |2.59 |10 Ocak 2017 |
 
-## <a name="december-guest-os"></a>Aralık konuk işletim sistemi
+## <a name="december-2016-guest-os"></a>Aralık 2016 konuk işletim sistemi
 | Bülten No | Üst KB makalesi | Güvenlik Açığı açıklaması | Konuk işletim sistemi | İlk tarih |
 | --- | --- | --- | --- | --- |
 | MS16-144 |[3204059] |Internet Explorer için toplu güvenlik güncelleştirmesi |2.58, 3.46, 4.39 |13 Aralık 2016 |
@@ -378,7 +378,7 @@ Aşağıdaki tablolarda Azure konuk işletim sistemine uygulanan güncelleştirm
 | Yok |[3197877] |Kasım 2016 güvenlik Windows Server 2012 için aylık kalite dökümü |3.46 |13 Aralık 2016 |
 | Yok |[3197874] |Kasım 2016 güvenlik aylık kalite toplaması için Windows 8.1 ve Windows Server 2012 R2 |4.39 |13 Aralık 2016 |
 
-## <a name="november-guest-os"></a>Kasım konuk işletim sistemi
+## <a name="november-2016-guest-os"></a>Kasım 2016 konuk işletim sistemi
 | Bülten No | Üst KB makalesi | Güvenlik Açığı açıklaması | Konuk işletim sistemi | İlk tarih |
 | --- | --- | --- | --- | --- |
 | MS16-129 |[3199057] |Microsoft Edge için toplu güvenlik güncelleştirmesi |5.3 |8 Kasım 2016 |
@@ -403,7 +403,7 @@ Aşağıdaki tablolarda Azure konuk işletim sistemine uygulanan güncelleştirm
 | Yok |[3199986] |Bakım güncelleştirmesi, Windows 10 sürüm 1607'ye yığın: 27 Ekim 2016 |5.3 |8 Kasım 2016 |
 | Yok |[3197954] |Windows 10 sürüm 1607'ye ve Windows Server 2016 için toplu güncelleştirme: 27 Ekim 2016 |5.3 |8 Kasım 2016 |
 
-## <a name="october-guest-os"></a>Ekim konuk işletim sistemi
+## <a name="october-2016-guest-os"></a>Ekim 2016 konuk işletim sistemi
 | Bülten No | Üst KB makalesi | Güvenlik Açığı açıklaması | Konuk işletim sistemi | İlk tarih |
 | --- | --- | --- | --- | --- |
 | MS16-118 |[3192887] |Internet Explorer için toplu güvenlik güncelleştirmesi |4.37, 3.44, 2.56 |11 Ekim 2016 |
@@ -418,7 +418,7 @@ Aşağıdaki tablolarda Azure konuk işletim sistemine uygulanan güncelleştirm
 | Yok |[3185279] |Windows 8.1 ve Windows Server 2012 R2 için güncelleştirme paketi Eylül 2016 |4.37 |11 Ekim 2016 |
 | Yok |[3194798] |Windows 10 sürüm 1607'ye ve Windows Server 2016 için toplu güncelleştirme |5.2 |11 Ekim 2016 |
 
-## <a name="september-guest-os"></a>Eylül konuk işletim sistemi
+## <a name="september-2016-guest-os"></a>Eylül 2016 konuk işletim sistemi
 | Bülten No | Üst KB makalesi | Güvenlik Açığı açıklaması | Konuk işletim sistemi | İlk tarih |
 | --- | --- | --- | --- | --- |
 | MS16-104 |[3183038] |Internet Explorer için toplu güvenlik güncelleştirmesi |4.36, 3.43, 2.55 |13 Eylül 2016 |
@@ -435,7 +435,7 @@ Aşağıdaki tablolarda Azure konuk işletim sistemine uygulanan güncelleştirm
 | Yok |[3179575] |Ağustos 2016 için Windows Server 2012 güncelleştirme paketi |3.43 |13 Eylül 2016 |
 | Yok |[3179574] |Windows RT 8.1, Windows 8.1 ve Windows Server 2012 R2 için güncelleştirme paketi Ağustos 2016 |4.36 |13 Eylül 2016 |
 
-## <a name="august-guest-os"></a>Ağustos konuk işletim sistemi
+## <a name="august-2016-guest-os"></a>Ağustos 2016 konuk işletim sistemi
 | Bülten No | Üst KB makalesi | Güvenlik Açığı açıklaması | Konuk işletim sistemi | İlk tarih |
 | --- | --- | --- | --- | --- |
 | MS16-095 |[3177356] |Internet Explorer için toplu güvenlik güncelleştirmesi |4.35, 3.42, 2.54 |9 Ağu 2016 |
@@ -449,7 +449,7 @@ Aşağıdaki tablolarda Azure konuk işletim sistemine uygulanan güncelleştirm
 | Yok |[3172615] |Windows Server 2012 için Temmuz 2016 güncelleştirme paketi |3.42 |9 Ağu 2016 |
 | Yok |[3172614] |Windows RT 8.1, Windows 8.1 ve Windows Server 2012 R2 için Temmuz 2016 güncelleştirme paketi |4.35 |9 Ağu 2016 |
 
-## <a name="july-guest-os"></a>Temmuz konuk işletim sistemi
+## <a name="july-2016-guest-os"></a>Temmuz 2016 konuk işletim sistemi
 | Bülten No | Üst KB makalesi | Güvenlik Açığı açıklaması | Konuk işletim sistemi | İlk tarih |
 | --- | --- | --- | --- | --- |
 | MS16-084 |[3169991] |Internet Explorer için toplu güvenlik güncelleştirmesi |4.34, 3.41, 2.53 |12 Temmuz 2016 |
@@ -465,7 +465,7 @@ Aşağıdaki tablolarda Azure konuk işletim sistemine uygulanan güncelleştirm
 | Yok |[3161606] |Windows RT 8.1, Windows 8.1 ve Windows Server 2012 R2 için güncelleştirme paketi Haziran 2016 |4.34 |12 Temmuz 2016 |
 | Yok |[3139923] |Bir HTTP MSI paketi yüklendiğinde, Windows Installer (MSI) onarım işe yaramazsa Windows içinde paylaşın |4.34 |12 Temmuz 2016 |
 
-## <a name="june-guest-os"></a>Haziran konuk işletim sistemi
+## <a name="june-2016-guest-os"></a>Haziran 2016 konuk işletim sistemi
 | Bülten No | Üst KB makalesi | Güvenlik Açığı açıklaması | Konuk işletim sistemi | İlk tarih |
 | --- | --- | --- | --- | --- |
 | MS16-035 |[3141780] |Güvenlik özelliği atlama adresi .NET Framework güvenlik güncelleştirmesi |4.33, 3.40, 2.52 |14 Haziran 2016 |
@@ -492,7 +492,7 @@ Aşağıdaki tablolarda Azure konuk işletim sistemine uygulanan güncelleştirm
 | Yok |[3156418] |Windows RT 8.1, Windows 8.1 ve Windows Server 2012 R2 için Mayıs 2016 güncelleştirme paketi |4.33 |14 Haziran 2016 |
 | Yok |[3153731] |Azerbaycan, Şili, Haiti ve Windows, Fas DST Mayıs 2016 güncelleştirmesi |4.33, 3.40, 2.52 |14 Haziran 2016 |
 
-## <a name="may-guest-os"></a>İşletim sistemi Konuk
+## <a name="may-2016-guest-os"></a>Mayıs 2016 konuk işletim sistemi
 | Bülten No | Üst KB makalesi | Güvenlik Açığı açıklaması | Konuk işletim sistemi | İlk tarih |
 | --- | --- | --- | --- | --- |
 | MS16-051 |[3155533] |Internet Explorer için toplu güvenlik güncelleştirmesi |4.32, 3.39, 2.51 |10 Mayıs 2016 |
@@ -510,7 +510,7 @@ Aşağıdaki tablolarda Azure konuk işletim sistemine uygulanan güncelleştirm
 | Yok |[3123245] |Güncelleştirme, Windows Server 2012 R2'de bağlantı noktası tükenmesi kimliği geliştirir.  |4.32 |10 Mayıs 2016 |
 | Yok |[RC4'ü devre dışı bırak] | Microsoft Güvenlik Danışma Belgesi: güncelleştirme RC4'ü devre dışı bırakmak için  |4.32, 3.39, 2.51 |10 Mayıs 2016 |
 
-## <a name="april-guest-os"></a>Nisan konuk işletim sistemi
+## <a name="april-2016-guest-os"></a>Nisan 2016 konuk işletim sistemi
 | Bülten No | Üst KB makalesi | Güvenlik Açığı açıklaması | Konuk işletim sistemi | İlk tarih |
 | --- | --- | --- | --- | --- |
 | MS16-037 |[3148531] |Internet Explorer için toplu güvenlik güncelleştirmesi |4.31, 3.38, 2.50 |12 Nisan 2016 |
@@ -521,7 +521,7 @@ Aşağıdaki tablolarda Azure konuk işletim sistemine uygulanan güncelleştirm
 | MS16-047 |[3148527] |Güvenlik hesabı Yöneticisi uzak protokolü için güvenlik güncelleştirmesi |4.31, 3.38, 2.50 |12 Nisan 2016 |
 | MS16-048 |[3148528] |CSRSS Güvenlik güncelleştirmesi |4.31, 3.38 |12 Nisan 2016 |
 
-## <a name="march-guest-os"></a>Konuk işletim sistemi Mart
+## <a name="march-2016-guest-os"></a>Mart 2016 konuk işletim sistemi
 | Bülten No | Üst KB makalesi | Güvenlik Açığı açıklaması | Konuk işletim sistemi | İlk tarih |
 | --- | --- | --- | --- | --- |
 | MS16-023 |[3142015] |Internet Explorer için toplu güvenlik güncelleştirmesi |4.30, 3.37, 2.49 |8 Mart 2016 |
@@ -534,7 +534,7 @@ Aşağıdaki tablolarda Azure konuk işletim sistemine uygulanan güncelleştirm
 | MS16-033 |[3143142] |USB yığın depolama sınıfı sürücüsü, ayrıcalıkların yükseltilmesine yönelik güvenlik güncelleştirmesi |4.30, 3.37, 2.49 |8 Mart 2016 |
 | MS16-034 |[3143145] |Çekirdek modu sürücüsü adresine ayrıcalığın için güvenlik güncelleştirmeleri |4.30, 3.37, 2.49 |8 Mart 2016 |
 
-## <a name="february-guest-os"></a>Şubat konuk işletim sistemi
+## <a name="february-2016-guest-os"></a>Şubat 2016 konuk işletim sistemi
 | Bülten No | Üst KB makalesi | Güvenlik Açığı açıklaması | Konuk işletim sistemi | İlk tarih |
 | --- | --- | --- | --- | --- |
 | MS16-009 |[3134220] |Internet Explorer için toplu güvenlik güncelleştirmesi |4.29, 3.36, 2.48 |9 Şubat 2016 |
@@ -549,7 +549,7 @@ Aşağıdaki tablolarda Azure konuk işletim sistemine uygulanan güncelleştirm
 | -MS15-118 yeniden yayımlama |[3104507] |Ayrıcalık yükseltme ele almak .NET Framework için güvenlik güncelleştirmeleri |4.29, 3.36, 2.48 |9 Şubat 2016 |
 | -MS15-128 yeniden yayımlama |[3104503] |Uzaktan kod yürütülmesine yönelik olarak Microsoft grafik bileşeni için güvenlik güncelleştirmeleri |4.29, 3.36, 2.48 |9 Şubat 2016 |
 
-## <a name="january-guest-os"></a>Ocak konuk işletim sistemi
+## <a name="january-2016-guest-os"></a>Ocak 2016 konuk işletim sistemi
 | Bülten No | Üst KB makalesi | Güvenlik Açığı açıklaması | Konuk işletim sistemi | İlk tarih |
 | --- | --- | --- | --- | --- |
 | MS16-001 |[3124903] |Internet Explorer için toplu güvenlik güncelleştirmesi |4.28, 3.35, 2.47 |12 Ocak 2016 |
@@ -562,7 +562,7 @@ Aşağıdaki tablolarda Azure konuk işletim sistemine uygulanan güncelleştirm
 | Microsoft Güvenlik danışma belgesi |[3123479] |Microsoft kök sertifika programı için SHA-1 karma algoritması kullanımdan kaldırma |4.28, 3.35, 2.47 |12 Ocak 2016 |
 | Microsoft Güvenlik danışma belgesi |[2736233] |ActiveX, KILL bitleri için güncelleştirmeleri |4.28, 3.35, 2.47 |12 Ocak 2016 |
 
-## <a name="december-guest-os"></a>Aralık konuk işletim sistemi
+## <a name="december-2015-guest-os"></a>Aralık 2015 konuk işletim sistemi
 | Bülten No | Üst KB makalesi | Güvenlik Açığı açıklaması | Konuk işletim sistemi | İlk tarih |
 | --- | --- | --- | --- | --- |
 | MS15-124 |[3116180] |Internet Explorer için toplu güvenlik güncelleştirmesi |4.27, 3.34, 2.46 |8 aralık 2015 |
@@ -574,7 +574,7 @@ Aşağıdaki tablolarda Azure konuk işletim sistemine uygulanan güncelleştirm
 | MS15-134 |[3108669] |Uzaktan kod yürütülmesine yönelik olarak Windows Media Center güvenlik güncelleştirmesi |4.27, 3.34, 2.46 |8 aralık 2015 |
 | MS15-135 |[3119075] |Windows çekirdek modu sürücüler, ayrıcalıkların yükseltilmesine yönelik güvenlik güncelleştirmesi |4.27, 3.34, 2.46 |8 aralık 2015 |
 
-## <a name="november-guest-os"></a>Kasım konuk işletim sistemi
+## <a name="november-2015-guest-os"></a>Kasım 2015 konuk işletim sistemi
 | Bülten No | Üst KB makalesi | Güvenlik Açığı açıklaması | Konuk işletim sistemi | İlk tarih |
 | --- | --- | --- | --- | --- |
 | MS15-112 |[3104517] |Internet Explorer için toplu güvenlik güncelleştirmesi |4.26, 3.33, 2.45 |10 Kasım 2015 |
@@ -588,7 +588,7 @@ Aşağıdaki tablolarda Azure konuk işletim sistemine uygulanan güncelleştirm
 | MS15-122 |[3105256] |Güvenlik özelliği atlama adresi Kerberos güvenlik güncelleştirmesi |4.26, 3.33, 2.45 |10 Kasım 2015 |
 | Microsoft Güvenlik danışma belgesi |[3097966] |Dijital sertifikalar izin verebilir yanlışlıkla duyurulan kimlik sahtekarlığı |4.26, 3.33, 2.45 |10 Kasım 2015 |
 
-## <a name="october-guest-os"></a>Ekim konuk işletim sistemi
+## <a name="october-2015-guest-os"></a>Ekim 2015 konuk işletim sistemi
 | Bülten No | Üst KB makalesi | Güvenlik Açığı açıklaması | Konuk işletim sistemi | İlk tarih |
 | --- | --- | --- | --- | --- |
 | MS15-106 |[3096441] |Internet Explorer için toplu güvenlik güncelleştirmesi |4.25, 3.32, 2.44 |13 Ekim 2015 |
@@ -597,7 +597,7 @@ Aşağıdaki tablolarda Azure konuk işletim sistemine uygulanan güncelleştirm
 | MS15-111 |[3096447] |Windows çekirdek ayrıcalıkların yükseltilmesine yönelik güvenlik güncelleştirmesi |4.25, 3.32, 2.44 |13 Ekim 2015 |
 | Microsoft Güvenlik danışma belgesi |[3092627] |Windows düzeltmek için Eylül 2015 güncelleştirmesi veya güvenlik güncelleştirmesi 3076895 yüklendikten sonra uygulama donuyor |4.25, 3.32, 2.44 |13 Ekim 2015 |
 
-## <a name="september-guest-os"></a>Eylül konuk işletim sistemi
+## <a name="september-2015-guest-os"></a>Eylül 2015 konuk işletim sistemi
 | Bülten No | Üst KB makalesi | Güvenlik Açığı açıklaması | Konuk işletim sistemi | İlk tarih |
 | --- | --- | --- | --- | --- |
 | MS15-093 |[3088903] |Internet Explorer için güvenlik güncelleştirmesi |4.24, 3.31, 2.43 |8 Eylül 2015 |
@@ -609,7 +609,7 @@ Aşağıdaki tablolarda Azure konuk işletim sistemine uygulanan güncelleştirm
 | MS15-102 |[3089657] |Windows görev Management güvenlik açıkları, ayrıcalıkların yükseltilmesine izin verebilir |4.24, 3.31, 2.43 |8 Eylül 2015 |
 | MS15-105 |[3091287] |Windows Hyper-V güvenlik açığı güvenlik özelliği atlama izin verebilir |4.24 |8 Eylül 2015 |
 
-## <a name="august-guest-os"></a>Ağustos konuk işletim sistemi
+## <a name="august-2015-guest-os"></a>Ağustos 2015 konuk işletim sistemi
 | Bülten No | Üst KB makalesi | Güvenlik Açığı açıklaması | Konuk işletim sistemi | İlk tarih |
 | --- | --- | --- | --- | --- |
 | MS15-079 |[3082442] |Internet Explorer için toplu güvenlik güncelleştirmesi |4.23, 3.30, 2.42 |11 Ağustos 2015 |
@@ -621,7 +621,7 @@ Aşağıdaki tablolarda Azure konuk işletim sistemine uygulanan güncelleştirm
 | MS15-089 |[3060716] |Microsoft Windows güvenlik açıkları, ayrıcalıkların yükseltilmesine izin verebilir |4.23, 3.30, 2.42 |11 Ağustos 2015 |
 | MS15-090 |[3076949] |WebDAV açığı bilgileri açığa çıkmasına neden olabilir |4.23, 3.30, 2.42 |11 Ağustos 2015 |
 
-## <a name="july-guest-os"></a>Temmuz konuk işletim sistemi
+## <a name="july-2015-guest-os"></a>Temmuz 2015 konuk işletim sistemi
 | Bülten No | Üst KB makalesi | Güvenlik Açığı açıklaması | Konuk işletim sistemi | İlk tarih |
 | --- | --- | --- | --- | --- |
 | MS15-065 |[3076321] |Internet Explorer için toplu güvenlik güncelleştirmesi |4.22, 3.29, 2.41 |14 Temmuz 2015 |
@@ -638,7 +638,7 @@ Aşağıdaki tablolarda Azure konuk işletim sistemine uygulanan güncelleştirm
 | MS15-077 |[3077657] |Ayrıcalık yükseltme güvenlik açığı ATM yazı tipi sürücüsündeki izin ver |4.22, 3.29, 2.41 |14 Temmuz 2015 |
 | NA |[3057154] |DES şifrelemesi kullanımını kısıtlamak için güncelleştirme |4.22, 3.29, 2.41 |14 Temmuz 2015 |
 
-## <a name="june-guest-os"></a>Haziran konuk işletim sistemi
+## <a name="june-2015-guest-os"></a>Haziran 2015 konuk işletim sistemi
 | Bülten No | Üst KB makalesi | Güvenlik Açığı açıklaması | Konuk işletim sistemi | İlk tarih |
 | --- | --- | --- | --- | --- |
 | MS15-056 |[3058515] |Internet Explorer için toplu güvenlik güncelleştirmesi |4.21, 3.28, 2.40 |9 Haziran 2015 |
@@ -648,7 +648,7 @@ Aşağıdaki tablolarda Azure konuk işletim sistemine uygulanan güncelleştirm
 | MS15-062 |[3062577] |Active Directory Federasyon Hizmetleri Güvenlik Açığı ayrıcalıkların yükseltilmesine izin verebilir |4.21, 3.28, 2.40 |9 Haziran 2015 |
 | MS15-063 |[3063858] |Windows çekirdek güvenlik açığı ayrıcalıkların yükseltilmesine izin verebilir |4.21, 3.28, 2.40 |9 Haziran 2015 |
 
-## <a name="may-guest-os"></a>İşletim sistemi Konuk
+## <a name="may-2015-guest-os"></a>Mayıs 2015 konuk işletim sistemi
 | Bülten No | Üst KB makalesi | Güvenlik Açığı açıklaması | Konuk işletim sistemi | İlk tarih |
 | --- | --- | --- | --- | --- |
 | MS15-043 |[3049563] |Internet Explorer için toplu güvenlik güncelleştirmesi |4.20, 3.27, 2.39 |12 Mayıs 2015 |
@@ -671,12 +671,12 @@ Aşağıdaki tablolarda Azure konuk işletim sistemine uygulanan güncelleştirm
 | MS15-042 |[3047234] |Hizmet reddi güvenlik açığı Windows Hyper-v izin ver |4.20, 3.27, 2.39 |17 Apr 2015 |
 | NA |[3045755] |PKU2U kimlik doğrulama geliştirmek için güncelleştirme |4.20, 3.27, 2.39 |17 Apr 2015 |
 
-## <a name="april-guest-os"></a>Nisan konuk işletim sistemi
+## <a name="april-2015-guest-os"></a>Nisan 2015 konuk işletim sistemi
 | Bülten No | Üst KB makalesi | Güvenlik Açığı açıklaması | Konuk işletim sistemi | İlk tarih |
 | --- | --- | --- | --- | --- |
 | [MS15-034] |[3042553] |HTTP.sys güvenlik açığı uzaktan kod yürütülmesine izin verebilir |4.19, 3.26, 2.38 |17 Apr 2015 |
 
-## <a name="march-guest-os"></a>Konuk işletim sistemi Mart
+## <a name="march-2015-guest-os"></a>Mart 2015 konuk işletim sistemi
 | Bülten No | Üst KB makalesi | Güvenlik Açığı açıklaması | Konuk işletim sistemi | İlk tarih |
 | --- | --- | --- | --- | --- |
 | MS15-018 |[3032359] |Internet Explorer için toplu güvenlik güncelleştirmesi |4.18, 3.25, 2.37 |Yok |
@@ -696,7 +696,7 @@ Aşağıdaki tablolarda Azure konuk işletim sistemine uygulanan güncelleştirm
 >
 >
 
-## <a name="february-guest-os"></a>Şubat konuk işletim sistemi
+## <a name="february-2015-guest-os"></a>Şubat 2015'te konuk işletim sistemi
 | Bülten No | Üst KB makalesi | Güvenlik Açığı açıklaması | Konuk işletim sistemi | İlk tarih |
 | --- | --- | --- | --- | --- |
 | MS15-009 |[3034682] |Internet Explorer için güvenlik güncelleştirmesi |4.17, 3.24, 2.36 |Yok |
@@ -707,7 +707,7 @@ Aşağıdaki tablolarda Azure konuk işletim sistemine uygulanan güncelleştirm
 | MS15-016 |[3029944] |Microsoft grafik bileşeni açığı bilgileri açığa çıkmasına neden olabilir |4.17, 3.24, 2.36 |Yok |
 | Yok |[3004375] |Güncelleştirmeyi Windows geliştirmek için komut satırı denetimi<p/>**Not**: Bu yüklenir ancak bunu etkinleştirmek için kayıt defteri anahtarı kapalı |4.17, 3.24, 2.36 |Yok |
 
-## <a name="january-guest-os"></a>Ocak konuk işletim sistemi
+## <a name="january-2015-guest-os"></a>Ocak 2015 konuk işletim sistemi
 | Bülten No | Üst KB makalesi | Güvenlik Açığı açıklaması | Konuk işletim sistemi | İlk tarih |
 | --- | --- | --- | --- | --- |
 | MS15-001 |[3023266] |Windows AppCompatCache güvenlik açığı ayrıcalıkların yükseltilmesine izin verebilir |4.16, 3.23, 2.35 |19 Ocak 2015 |
@@ -723,7 +723,7 @@ Aşağıdaki tablolarda Azure konuk işletim sistemine uygulanan güncelleştirm
 | MS15-002 |[3020393] |Windows Telnet hizmetindeki güvenlik açığı uzaktan kod yürütülmesine neden olabilir |4.16, 3.23, 2.35 |19 Ocak 2015 |
 
 
-## <a name="december-guest-os"></a>Aralık konuk işletim sistemi
+## <a name="december-2014-guest-os"></a>Aralık 2014'ten konuk işletim sistemi
 | Bülten No | Üst KB makalesi | Güvenlik Açığı açıklaması | Konuk işletim sistemi | İlk tarih |
 | --- | --- | --- | --- | --- |
 | Yok |[3013776] |Bir uygulamayı başlatmak için bir etki alanı hesabı kullandığınızda, sistem donuyor |4.15, 3.22, 2.34 |13 Ocak 2015 |

@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 09/21/2018
 ms.author: saudas
-ms.openlocfilehash: 6b55825107ae8872b146b3ad4fde0ef4b917b71d
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: d8da717b83b43395309c695a4f9edaeda8144a8b
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47048337"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49379204"
 ---
 # <a name="supported-kubernetes-versions-in-azure-kubernetes-service-aks"></a>Desteklenen Kubernetes sürümlerini Azure Kubernetes Service (AKS)
 
@@ -32,6 +32,29 @@ AKS, dört alt Kubernetes sürümlerini destekler:
 Yeni bir ikincil sürüm eklendiğinde, desteklenen en eski ikincil sürüm ve yama sürümleri kullanımdan kaldırıldı. Yeni alt sürümü ve gelecek sürümünü emeklilik yayınlanmadan önce 15 gün duyuru Azure güncelleştirme kanalları yapılır. Where yukarıdaki örnekte *1.11.x* olan yayımlanan devre dışı bırakılan sürümleridir *1.7.g* + *1.7.h*.
 
 Portalında veya Azure CLI ile bir AKS kümesi dağıtırken, küme her zaman en son düzeltme eki ve n-1 podverze ayarlayın. Örneğin, AKS destekliyorsa *1.11.x*, *1.10.a* + *1.10.b*, *1.9.c* + *1.9 d* , *1.8.e* + *1.8F*, yeni küme için varsayılan sürüm *1.10.b*.
+
+## <a name="list-currently-supported-versions"></a>Şu anda desteklenen sürümler listesi
+
+Hangi sürümlerine bölge ve abonelik için şu anda kullanılabilir olduğunu bulmak için kullanın [az aks get-versions] [ az-aks-get-versions] komutu. Aşağıdaki örnek için kullanılabilen Kubernetes sürümlerini listeler *EastUS* bölgesi:
+
+```azurecli-interactive
+az aks get-versions --location eastus --output table
+```
+
+Kubernetes sürümü gösteren aşağıdaki örneğe benzer bir çıkış *1.11.3* en son sürümü kullanılabilir:
+
+```
+KubernetesVersion    Upgrades
+-------------------  ----------------------
+1.11.3               None available
+1.11.2               1.11.3
+1.10.8               1.11.2, 1.11.3
+1.10.7               1.10.8, 1.11.2, 1.11.3
+1.9.10               1.10.7, 1.10.8
+1.9.9                1.9.10, 1.10.7, 1.10.8
+1.8.15               1.9.9, 1.9.10
+1.8.14               1.8.15, 1.9.9, 1.9.10
+```
 
 ## <a name="faq"></a>SSS
 
@@ -65,3 +88,4 @@ Kümenizi yükseltme hakkında daha fazla bilgi için bkz: [Azure Kubernetes Ser
 
 <!-- LINKS - Internal -->
 [aks-upgrade]: upgrade-cluster.md
+[az-aks-get-versions]: /cli/azure/aks#az-aks-get-versions

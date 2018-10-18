@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 09/10/2018
 ms.author: raynew
-ms.openlocfilehash: 25db7d1f0a546cb5c6071ec4d625a7a52867053a
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: f6f1ceb4f9afaaeb0a436879802144bdebc06280
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47433932"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49378661"
 ---
 # <a name="support-matrix-for-vmware-and-physical-server-replication-to-azure"></a>VMware ve fiziksel sunucu çoğaltması azure'a destek matrisi
 
@@ -64,7 +64,7 @@ Site Recovery, desteklenen bir makinede çalışan tüm iş yüklerini çoğalt�
 --- | ---
 Makine ayarları | Azure'a çoğaltılan makineler karşılamalıdır [Azure gereksinimleri](#azure-vm-requirements).
 Windows işletim sistemi | 64 bit Windows Server 2016 (Sunucu Çekirdeği, masaüstü deneyimi ile sunucu), Windows Server 2012 R2, Windows Server 2012, Itanium tabanlı sistemler için Windows Server 2008 R2 ile en az SP1. </br></br>  [Windows Server 2008 ile en az SP2 - 32 bit ve 64 bit](migrate-tutorial-windows-server-2008.md) (yalnızca geçiş). </br></br> Windows 2016 Nano sunucu desteklenmiyor.
-Linux işletim sistemi | Red Hat Enterprise Linux: 5.2 5.11<b>\*\*</b>, 6.1 için 6.10<b>\*\*</b>, 7.0 için 7.5 <br/><br/>CentOS: 5.2 5.11<b>\*\*</b>, 6.1 için 6.10<b>\*\*</b>, 7.0 için 7.5 <br/><br/>Ubuntu 14.04 LTS server[ (çekirdek sürümleri desteklenir)](#ubuntu-kernel-versions)<br/><br/>Ubuntu 16.04 LTS server[ (çekirdek sürümleri desteklenir)](#ubuntu-kernel-versions)<br/><br/>Debian 7/Debian 8[ (çekirdek sürümleri desteklenir)](#debian-kernel-versions)<br/><br/>SUSE Linux Enterprise Server 12 SP1, SP2 SP3 [ (çekirdek sürümleri desteklenir)](#suse-linux-enterprise-server-12-supported-kernel-versions)<br/><br/>SUSE Linux Enterprise Server 11 SP3<b>\*\*</b>, SUSE Linux Enterprise Server 11 SP4 * </br></br>Oracle Enterprise Linux 6.4, 6.5, 6.6, Red Hat uyumlu çekirdek veya kesilemeyen Enterprise çekirdeği sürüm 3 (UEK3) çalıştıran 6.7 <br/><br/></br>* *Çoğaltılan makineler SP4 için SUSE Linux Enterprise Server 11 SP3 ' yükseltme desteklenmez. Yükseltmek için çoğaltmayı devre dışı bırakın ve yükseltmeden sonra yeniden etkinleştirin.*</br></br><b>\*\*</b> *Başvurmak [desteklemek için azure'da Linux sanal makineleri](https://support.microsoft.com/help/2941892/support-for-linux-and-open-source-technology-in-azure) Linux ve açık kaynak teknolojisi azure'da desteği anlamak için. Azure Site Recovery, yük devretme sağlar ve Linux sunucuları Azure'da çalıştırmak, ancak Linux satıcılar yalnızca, dağıtım yaşam sonuna ulaştığınız olmayan sürümleri için destek sınırlayabilir.*
+Linux işletim sistemi | Red Hat Enterprise Linux: 5.2 5.11<b>\*\*</b>, 6.1 için 6.10<b>\*\*</b>, 7.0 için 7.5 <br/><br/>CentOS: 5.2 5.11<b>\*\*</b>, 6.1 için 6.10<b>\*\*</b>, 7.0 için 7.5 <br/><br/>Ubuntu 14.04 LTS server[ (çekirdek sürümleri desteklenir)](#ubuntu-kernel-versions)<br/><br/>Ubuntu 16.04 LTS server[ (çekirdek sürümleri desteklenir)](#ubuntu-kernel-versions)<br/><br/>Debian 7/Debian 8[ (çekirdek sürümleri desteklenir)](#debian-kernel-versions)<br/><br/>SUSE Linux Enterprise Server 12 SP1, SP2 SP3 [ (çekirdek sürümleri desteklenir)](#suse-linux-enterprise-server-12-supported-kernel-versions)<br/><br/>SUSE Linux Enterprise Server 11 SP3<b>\*\*</b>, SUSE Linux Enterprise Server 11 SP4 * </br></br>Oracle Linux 6.4, 6.5, 6.6, Red Hat uyumlu çekirdek veya kesilemeyen Enterprise çekirdeği sürüm 3 (UEK3) çalıştıran 6.7 <br/><br/></br>* *Çoğaltılan makineler SP4 için SUSE Linux Enterprise Server 11 SP3 ' yükseltme desteklenmez. Yükseltmek için çoğaltmayı devre dışı bırakın ve yükseltmeden sonra yeniden etkinleştirin.*</br></br><b>\*\*</b> *Başvurmak [desteklemek için azure'da Linux sanal makineleri](https://support.microsoft.com/help/2941892/support-for-linux-and-open-source-technology-in-azure) Linux ve açık kaynak teknolojisi azure'da desteği anlamak için. Azure Site Recovery, yük devretme sağlar ve Linux sunucuları Azure'da çalıştırmak, ancak Linux satıcılar yalnızca, dağıtım yaşam sonuna ulaştığınız olmayan sürümleri için destek sınırlayabilir.*
 
 
 >[!NOTE]

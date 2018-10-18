@@ -1,43 +1,43 @@
 ---
-title: Standart Kodlayıcı Azure Media Services bit hızı otomatik olarak oluşturulan Merdiveni kullanarak videolarınızı kodlamak için kullanın. | Microsoft Docs
-description: Bu konu giriş çözünürlük ve bit hızı dayalı bir otomatik olarak oluşturulan bit hızı Merdiveni ile video standart Kodlayıcı Media Services ile bir giriş kodlamak için nasıl kullanılacağını gösterir. Giriş çözünürlük ve bit hızı hiçbir zaman aşacak. Örneğin, giriş olması durumunda 3 MB/sn, çıktı adresindeki 720p 720 p en iyi kalır ve 3 MB/sn düşük hızlarında başlar.
+title: Standart Kodlayıcı Azure Media Services kullanarak bir otomatik olarak oluşturulan bit hızı Merdiveni video kodlamak için kullanın. | Microsoft Docs
+description: Bu konuda, video giriş çözünürlük ve bit hızı dayalı bir otomatik olarak oluşturulan hızı Merdivenini otomatik ile standart Kodlayıcı giriş kodlama için Media Services kullanma gösterilmektedir. Giriş çözünürlük ve bit hızı hiçbir zaman aşacak. Örneğin, giriş ise 3 MB/sn, çıkış, 720p 720 p en iyi şekilde kalır ve 3 MB/sn düşük fiyatları başlar.
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/19/2018
+ms.date: 10/15/2018
 ms.author: juliako
-ms.openlocfilehash: 6e447c04f4a94f2fb534ecb0605595a90816431e
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: ec1b4b88e5b9639c3ee9debbd8ac7d48544344dc
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34638305"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49378967"
 ---
 #  <a name="encode-with-an-auto-generated-bitrate-ladder"></a>Bir otomatik olarak oluşturulan bit hızı Merdiveni ile kodlayın
 
 ## <a name="overview"></a>Genel Bakış
 
-Bu makalede standart Kodlayıcı Media Services giriş çözünürlük ve bit hızı dayalı bir otomatik olarak oluşturulan bit hızı Merdiveni (bit hızı çözümleme çiftleri) bir giriş video kodlayın için nasıl kullanılacağı açıklanmaktadır. Bu ayarı yerleşik Kodlayıcı veya hazır, hiçbir giriş çözünürlük ve bit hızı aşacak. Örneğin, giriş 3 MB/sn hızında 720 p ise, çıktı 720 p en iyi kalır ve 3 MB/sn düşük hızlarında başlar.
+Bu makalede standart Kodlayıcı Media Services giriş çözünürlük ve bit hızı dayalı bir otomatik olarak oluşturulan bit hızı Merdiveni (bit hızı çözümleme çiftleri) bir giriş video kodlayın için nasıl kullanılacağını açıklar. Bu ayarı, yerleşik Kodlayıcı veya hazır, hiçbir zaman giriş çözünürlük ve bit hızı aşacak. Örneğin, giriş 3 MB/sn hızında 720 p, çıkış 720 p en iyi şekilde kalır ve 3 MB/sn düşük fiyatları başlar.
 
 ### <a name="encoding-for-streaming"></a>Akış için kodlama
 
-Kullandığınızda **AdaptiveStreaming** içinde hazır **dönüştürme**, akış HLS ve tire gibi protokolleri aracılığıyla teslim için uygun bir çıktı alın. Bu hazır kullanırken, hizmetin akıllıca oluşturmak için kaç tane video katmanları belirler ve hangi bit hızı ve çözümleme. Çıkış içerik nerede AAC kodlanmış ses ve video H.264 kodlu değil, araya eklemeli MP4 dosyalarını içerir.
+Kullanırken **AdaptiveStreaming** içinde hazır **dönüştürme**, HLS ve DASH gibi akış ile teslim için uygun olan bir çıkış alırsınız. Bu hazır kullanırken, hizmet akıllı bir şekilde oluşturmak için kaç video katmanları belirler ve hangi bit hızı ve çözümleme. Çıkış içeriği burada AAC kodlu ses ve video H.264 kodlamalı değil aralıklı MP4 dosyalarını içerir.
 
-Bu hazır nasıl kullanıldığı bir örnek görmek için bkz: [bir dosya akışı](stream-files-dotnet-quickstart.md).
+Bu hazır nasıl kullanıldığına dair bir örnek için bkz: [dosya Stream](stream-files-dotnet-quickstart.md).
 
 ## <a name="output"></a>Çıktı
 
-Bu bölüm ile kodlama sonucunda Media Services Kodlayıcı tarafından üretilen çıkış video katmanları üç örnekleri gösterir **AdaptiveStreaming** hazır. Tüm durumlarda çıktı stereo sesli 128 Kb/sn ile kodlanmış bir salt ses MP4 dosyası içerir.
+Bu bölümde kodlama ile sonucunda medya Hizmetleri Kodlayıcı tarafından üretilen çıkış video katmanları, üç örnek gösterir **AdaptiveStreaming** hazır. Her durumda, çıkış stereo sesli 128 Kb/sn ile kodlanmış bir yalnızca ses MP4 dosyası içerir.
 
 ### <a name="example-1"></a>Örnek 1
-Yükseklik "1080" ve "29.970" kare hızı kaynağıyla 6 video katmanları üretir:
+Yükseklik "1080" ve "29.970" kare hızını kaynağıyla 6 video katmanları üretir:
 
 |Katman|Yükseklik|Genişlik|Bit hızı (kbps)|
 |---|---|---|---|
@@ -49,7 +49,7 @@ Yükseklik "1080" ve "29.970" kare hızı kaynağıyla 6 video katmanları üret
 |6|180|320|380|
 
 ### <a name="example-2"></a>Örnek 2
-Yükseklik "720" ve "23.970" kare hızı kaynağıyla 5 video katmanları üretir:
+Yükseklik "720" ve "23.970" kare hızını kaynağıyla 5 video katmanları üretir:
 
 |Katman|Yükseklik|Genişlik|Bit hızı (kbps)|
 |---|---|---|---|
@@ -60,7 +60,7 @@ Yükseklik "720" ve "23.970" kare hızı kaynağıyla 5 video katmanları üreti
 |5|180|320|320|
 
 ### <a name="example-3"></a>Örnek 3
-Yükseklik "360" ve "29.970" kare hızı kaynağıyla 3 video katmanları üretir:
+Yükseklik "360" ve "29.970" kare hızını kaynağıyla 3 video katmanları üretir:
 
 |Katman|Yükseklik|Genişlik|Bit hızı (kbps)|
 |---|---|---|---|

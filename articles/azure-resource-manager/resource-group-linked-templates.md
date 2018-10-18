@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/03/2018
+ms.date: 10/17/2018
 ms.author: tomfitz
-ms.openlocfilehash: b4dc1517c909439c499749eaf18dca11983eecee
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: ea926a64e3df853d6845266ff20255b76d9ff387
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49069157"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49386731"
 ---
 # <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>Bağlı, şablonları Azure kaynakları dağıtılırken iç içe kullanma
 
@@ -167,7 +167,7 @@ Ayrıca [deployment()](resource-group-template-functions-deployment.md#deploymen
 }
 ```
 
-## <a name="get-values-from-linked-template"></a>Bağlantılı şablondan değerlerini alma
+## <a name="get-values-from-linked-template"></a>Bağlı şablondan değerleri alma
 
 Bağlantılı bir şablondan bir çıkış değeri almak için özellik değeri gibi bir söz dizimi ile Al: `"[reference('<name-of-deployment>').outputs.<property-name>.value]"`.
 
@@ -401,7 +401,7 @@ Dağıtımdan sonra çıkış değerleri almak için bu ayrı girişleri geçmi�
 
 Dağıtımdan sonra aşağıdaki PowerShell betiğini çıkış değerleri alabilir:
 
-```powershell
+```azurepowershell-interactive
 $loopCount = 3
 for ($i = 0; $i -lt $loopCount; $i++)
 {
@@ -411,9 +411,11 @@ for ($i = 0; $i -lt $loopCount; $i++)
 }
 ```
 
-Veya Azure CLI betiği:
+Veya, bir Bash Kabuğu'nda Azure CLI betiği:
 
-```azurecli
+```azurecli-interactive
+#!/bin/bash
+
 for i in 0 1 2;
 do
     name="linkedTemplate$i";
@@ -459,16 +461,18 @@ Aşağıdaki örnek, bir şablona bağlanırken bir SAS belirteci geçirilecek g
 
 PowerShell'de, bir belirteç almak için kapsayıcı ve aşağıdaki komutları kullanarak şablonları dağıtabilirsiniz. Dikkat **containerSasToken** parametre şablonunda tanımlanır. Bir parametre değil **New-AzureRmResourceGroupDeployment** komutu.
 
-```powershell
+```azurepowershell-interactive
 Set-AzureRmCurrentStorageAccount -ResourceGroupName ManageGroup -Name storagecontosotemplates
 $token = New-AzureStorageContainerSASToken -Name templates -Permission r -ExpiryTime (Get-Date).AddMinutes(30.0)
 $url = (Get-AzureStorageBlob -Container templates -Blob parent.json).ICloudBlob.uri.AbsoluteUri
 New-AzureRmResourceGroupDeployment -ResourceGroupName ExampleGroup -TemplateUri ($url + $token) -containerSasToken $token
 ```
 
-Azure CLI için kapsayıcı bir belirteç almak ve şablonları aşağıdaki kodla dağıtın:
+Azure CLI bir Bash kabuğunda için bir belirteç almak için kapsayıcı ve şablonları aşağıdaki kodla dağıtın:
 
-```azurecli
+```azurecli-interactive
+#!/bin/bash
+
 expiretime=$(date -u -d '30 minutes' +%Y-%m-%dT%H:%MZ)
 connection=$(az storage account show-connection-string \
     --resource-group ManageGroup \

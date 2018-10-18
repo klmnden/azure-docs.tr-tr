@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/02/2018
 ms.author: apimpm
-ms.openlocfilehash: 8c4ae9c7b8be8cf390ad4ad6d99cd1ec41cd3d08
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: ce4ff33a8af9cf864ad4902599a0ab18b2b27182
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "42056441"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49387234"
 ---
 # <a name="how-to-save-and-configure-your-api-management-service-configuration-using-git"></a>Kaydet ve Git kullanarak API Management hizmet yapılandırmanızı yapılandırma
 
@@ -161,7 +161,7 @@ Her klasör, bir veya daha fazla dosya içerebilir ve bazı durumlarda bir veya 
 
 | Dosya türü | Amaç |
 | --- | --- |
-| json |İlgili varlık hakkında yapılandırma bilgileri |
+| JSON |İlgili varlık hakkında yapılandırma bilgileri |
 | HTML |Genellikle Geliştirici portalında gösterilen bir varlık ile ilgili açıklamalar |
 | xml |İlke deyimleri |
 | CSS |Geliştirici Portalı özelleştirme için stil sayfaları |
@@ -219,14 +219,14 @@ Son ayar `$ref-policy`, hizmet örneği için genel ilke deyimlerini dosyanın e
 ### <a name="apis-folder"></a>API'leri klasörü
 `apis` Klasörü her API'SİNDE aşağıdaki öğeleri içeren hizmet örneği için bir klasör içerir.
 
-* `apis\<api name>\configuration.json` -Bu API için yapılandırması ve arka uç hizmeti URL'sini ve işlemleri hakkındaki bilgileri içerir. Çağrılacak olsaydı döndürülecek olan aynı olan bilgileri budur [belirli bir API'yi alın](https://docs.microsoft.com/en-us/rest/api/apimanagement/api/get) ile `export=true` içinde `application/json` biçimi.
-* `apis\<api name>\api.description.html` -Bu API açıklaması ve karşılık gelen `description` özelliği [API varlığı](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.storage.table._entity_property).
-* `apis\<api name>\operations\` -Bu klasörde `<operation name>.description.html` API'sindeki işlemlerle eşlenir dosyaları. Her dosya tek bir işlemle eşlenir API açıklamasını içerir `description` özelliği [işlemi varlık](https://docs.microsoft.com/en-us/rest/api/visualstudio/operations/list#operationproperties) REST API'de.
+* `apis\<api name>\configuration.json` -Bu API için yapılandırması ve arka uç hizmeti URL'sini ve işlemleri hakkındaki bilgileri içerir. Çağrılacak olsaydı döndürülecek olan aynı olan bilgileri budur [belirli bir API'yi alın](https://docs.microsoft.com/rest/api/apimanagement/api/get) ile `export=true` içinde `application/json` biçimi.
+* `apis\<api name>\api.description.html` -Bu API açıklaması ve karşılık gelen `description` özelliği [API varlığı](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.table._entity_property).
+* `apis\<api name>\operations\` -Bu klasörde `<operation name>.description.html` API'sindeki işlemlerle eşlenir dosyaları. Her dosya tek bir işlemle eşlenir API açıklamasını içerir `description` özelliği [işlemi varlık](https://docs.microsoft.com/rest/api/visualstudio/operations/list#operationproperties) REST API'de.
 
 ### <a name="groups-folder"></a>grupları klasörü
 `groups` Klasörü hizmet örneğinde tanımlanan her grup için bir klasör içerir.
 
-* `groups\<group name>\configuration.json` -Bu grup için bir yapılandırmadır. Çağrılacak olsaydı döndürülecek olan aynı olan bilgileri budur [belirli bir grup alma](https://docs.microsoft.com/en-us/rest/api/apimanagement/group/get) işlemi.
+* `groups\<group name>\configuration.json` -Bu grup için bir yapılandırmadır. Çağrılacak olsaydı döndürülecek olan aynı olan bilgileri budur [belirli bir grup alma](https://docs.microsoft.com/rest/api/apimanagement/group/get) işlemi.
 * `groups\<group name>\description.html` -Bu grubun açıklamasını ve karşılık gelen `description` özelliği [Grup varlık](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-group-entity).
 
 ### <a name="policies-folder"></a>ilkeleri klasörü
@@ -246,7 +246,7 @@ Son ayar `$ref-policy`, hizmet örneği için genel ilke deyimlerini dosyanın e
 ### <a name="products-folder"></a>ürünleri klasörü
 `products` Klasörü hizmet örneğinde tanımlanan her ürün için bir klasör içerir.
 
-* `products\<product name>\configuration.json` -Bu ürün için yapılandırmadır. Çağrılacak olsaydı döndürülecek olan aynı olan bilgileri budur [belirli bir ürün almak](https://docs.microsoft.com/en-us/rest/api/apimanagement/product/get) işlemi.
+* `products\<product name>\configuration.json` -Bu ürün için yapılandırmadır. Çağrılacak olsaydı döndürülecek olan aynı olan bilgileri budur [belirli bir ürün almak](https://docs.microsoft.com/rest/api/apimanagement/product/get) işlemi.
 * `products\<product name>\product.description.html` -Bu ürün açıklamasını ve karşılık gelen `description` özelliği [ürün varlığı](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-product-entity) REST API'de.
 
 ### <a name="templates"></a>templates

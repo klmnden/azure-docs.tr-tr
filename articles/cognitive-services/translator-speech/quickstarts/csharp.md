@@ -10,16 +10,17 @@ ms.component: translator-speech
 ms.topic: quickstart
 ms.date: 3/5/2018
 ms.author: v-jaswel
-ROBOTS: NOINDEX
-ms.openlocfilehash: 7d1f5968fe6ddffce3194f070b6a17aca4d3d9ab
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 224a0ab83720bb9605f2dad9c2612630e90fea2a
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46995049"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49341744"
 ---
 # <a name="quickstart-translator-speech-api-with-c"></a>Hızlı Başlangıç: C# dilinde Translator Konuşma Çevirisi API'si 
 <a name="HOLTop"></a>
+
+[!INCLUDE [Deprecation note](../../../../includes/cognitive-services-translator-speech-deprecation-note.md)]
 
 Bu makalede Translator Konuşma Çevirisi API'si’ni kullanarak bir .wav dosyasında konuşulan sözcüklerin nasıl çevrileceği gösterilir.
 
@@ -29,7 +30,7 @@ Bu kodu Windows’da çalıştırmak için [Visual Studio 2017](https://www.visu
 
 Aşağıdaki koddan derlediğiniz yürütülebilir dosya ile aynı klasörün içinde "speak.wav" adlı bir .wav dosyanız olmalıdır. Bu .wav dosyası standart PCM, 16 bit, 16 kHz, mono biçiminde olmalıdır.
 
-**Microsoft Konuşma Çevirisi API'sine** sahip bir [Bilişsel Hizmetler API hesabınızın](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) olması gerekir. [Azure panonuzdan](https://portal.azure.com/#create/Microsoft.CognitiveServices) ücretli bir abonelik anahtarına ihtiyacınız olacak.
+**Microsoft Translator Konuşma Çevirisi API'sine** sahip bir [Bilişsel Hizmetler API hesabınızın](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) olması gerekir. [Azure panonuzdan](https://portal.azure.com/#create/Microsoft.CognitiveServices) ücretli bir abonelik anahtarına ihtiyacınız olacak.
 
 ## <a name="translate-speech"></a>Konuşmayı çevirme
 
@@ -67,11 +68,12 @@ namespace TranslateSpeechQuickStart
 
             /* Make sure the audio file is followed by silence.
              * This lets the service know that the audio input is finished. */
-            var silence = new byte[3200000];
+            var silence = new byte[32000];
             var silence_buffer = new ArraySegment<byte>(silence);
             await client.SendAsync(silence_buffer, WebSocketMessageType.Binary, true, CancellationToken.None);
 
             Console.WriteLine("Done sending.");
+            System.Threading.Thread.Sleep(3000);
             await client.CloseAsync(WebSocketCloseStatus.NormalClosure, "", CancellationToken.None);
         }
 

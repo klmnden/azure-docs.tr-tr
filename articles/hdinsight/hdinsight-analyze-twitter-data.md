@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: jasonh
 ROBOTS: NOINDEX
-ms.openlocfilehash: abf9cd311af141a646c56f452ded77a914bc1d2f
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 294353cfcfba617ab19e703f11f35402bcf7ea82
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43093307"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49387590"
 ---
 # <a name="analyze-twitter-data-using-hive-in-hdinsight"></a>HDInsight Hive kullanarak Twitter verilerini çözümleme
 Sosyal Web siteleri, büyük veri benimsenmesine yönelik önemli itici zorlar biridir. Twitter gibi siteler tarafından sağlanan genel API'leri, veri çözümlemek ve popüler eğilimleri anlamak için yararlı bir kaynaktır.
@@ -72,7 +72,7 @@ OAuth kullanmanın ilk adımı, Twitter Geliştirici sitesinde yeni bir uygulama
 
 **Bir Twitter uygulaması oluşturma**
 
-1. Oturum [ https://apps.twitter.com/ ](https://apps.twitter.com/). Tıklayın **şimdi kaydolun** Twitter hesabıyla yoksa bağlayın.
+1. [https://apps.twitter.com/](https://apps.twitter.com/) adresinde oturum açın. Tıklayın **şimdi kaydolun** Twitter hesabıyla yoksa bağlayın.
 2. Tıklayın **yeni uygulama oluştur**.
 3. Girin **adı**, **açıklama**, **Web sitesi**. Bir URL'kurmak yapabileceğiniz **Web sitesi** alan. Aşağıdaki tabloda bazı örnek değerleri gösterir:
 
@@ -95,7 +95,7 @@ Bu öğreticide, web hizmeti çağrısı yapmak için Windows PowerShell kullan�
 
 **Tweetleri almak için**
 
-1. Windows PowerShell Tümleşik komut dosyası ortamı (ISE) açın. (Windows 8 Başlat ekranında şunu yazın **PowerShell_ISE** ve ardından **Windows PowerShell ISE**. Bkz: [Windows 8'de Windows PowerShell ve Windows Başlat](https://docs.microsoft.com/en-us/powershell/scripting/setup/starting-windows-powershell?view=powershell-6)
+1. Windows PowerShell Tümleşik komut dosyası ortamı (ISE) açın. (Windows 8 Başlat ekranında şunu yazın **PowerShell_ISE** ve ardından **Windows PowerShell ISE**. Bkz: [Windows 8'de Windows PowerShell ve Windows Başlat](https://docs.microsoft.com/powershell/scripting/setup/starting-windows-powershell?view=powershell-6)
 2. Betik bölmesine aşağıdaki betiği kopyalayın:
 
     ```powershell

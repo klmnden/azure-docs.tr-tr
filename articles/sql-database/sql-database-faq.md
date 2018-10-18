@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 10/15/2018
-ms.openlocfilehash: 46df47bf145e5fc4a1846c33fdf0426840befdcd
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.date: 10/17/2018
+ms.openlocfilehash: 61950a1afda1fefdfab95f6d63420387dc2e2ac7
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49340738"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49378644"
 ---
 # <a name="sql-database-frequently-asked-questions-faq"></a>SQL veritabanı sık sorulan sorular (SSS)
 
@@ -35,7 +35,7 @@ Hayır. Düzeltme eki uygulama etkisini genellikle gözümüzün değil ise, [ye
 
 ## <a name="what-is-the-new-vcore-based-purchasing-model-for-azure-sql-database"></a>Azure SQL veritabanı için yeni sanal çekirdek tabanlı satın alma modeli nedir
 
-Yeni satın alma modeli, mevcut DTU temelli model üzerinde yapılan bir eklemedir. Sanal çekirdek tabanlı model, müşterilere esneklik, denetimi, saydamlık sağlamak üzere tasarlanmıştır ve basit bir yol çevirmek için şirket iş yükü gereksinimlerini buluta. Ayrıca, iş yükü ihtiyaçlarını alarak kendi işlem ve depolama kaynakları yönetebileceğiniz ölçeklendirme müşterilerin olanak tanır. Tek veritabanı ve elastik havuz seçenekleri vCore modeli kullanarak da ile yüzde 30 tasarruf için uygun yedekleme [SQL Server için Azure hibrit kullanım teklifi](../virtual-machines/windows/hybrid-use-benefit-licensing.md). Bkz: [DTU tabanlı satın alma modeli](sql-database-service-tiers-dtu.md) ve [sanal çekirdek tabanlı satın alma modeli](sql-database-service-tiers-vcore.md) daha fazla bilgi için.
+Yeni satın alma modeli, mevcut DTU temelli model üzerinde yapılan bir eklemedir. Sanal çekirdek tabanlı model, müşterilere esneklik, denetimi, saydamlık sağlamak üzere tasarlanmıştır ve basit bir yol çevirmek için şirket iş yükü gereksinimlerini buluta. Ayrıca, iş yükü ihtiyaçlarını alarak kendi işlem ve depolama kaynakları yönetebileceğiniz ölçeklendirme müşterilerin olanak tanır. Tek veritabanı ve elastik havuz seçenekleri vCore modeli kullanarak da ile yüzde 30 tasarruf için uygun yedekleme [SQL Server için Azure hibrit avantajı](../virtual-machines/windows/hybrid-use-benefit-licensing.md). Bkz: [DTU tabanlı satın alma modeli](sql-database-service-tiers-dtu.md) ve [sanal çekirdek tabanlı satın alma modeli](sql-database-service-tiers-vcore.md) daha fazla bilgi için.
 
 ## <a name="what-is-a-vcore"></a>VCore nedir
 
@@ -51,11 +51,11 @@ DTU ve sanal çekirdek tabanlı modeller birlikte sunulmaya devam edecektir. Siz
 
 ## <a name="how-should-i-choose-between-the-dtu-based-purchasing-model-vs-the-vcore-based-purchasing-model"></a>DTU tabanlı satın alma modeli vs arasında sanal çekirdek tabanlı satın alma modeli nasıl seçmeliyim
 
-Veritabanı İşlem Birimi (DTU); CPU, bellek, okuma ve yazma eylemlerinin karma bir ölçümüne dayalıdır. DTU tabanlı bilgi işlem boyutlarına sürücü farklı düzeyde uygulama performansı için önceden yapılandırılmış paketleri kaynakları temsil eder. Müşterilerin, temel alınan kaynaklarla ilgili endişe ve her ay sabit bir tutar ödeme sırasında önceden yapılandırılmış bir paketin basitliğini tercih etmek istiyor musunuz DTU tabanlı model ihtiyaçları için daha uygun fark edebilirsiniz. Ancak, temel alınan kaynaklara ilişkin daha fazla içgörüye ihtiyacınız veya bunları birbirinden bağımsız olarak en iyi performans elde etmek için ölçeklendirmek gereken müşteriler için sanal çekirdek tabanlı model en iyi seçenek olacaktır.  Ayrıca, bir müşterinin SQL Server için bir etkin Yazılım Güvencesi (SA) varsa, bunlar var olan yatırımları yararlanın ve % 30 ile tasarruf [SQL Server için Azure hibrit kullanım teklifi](../virtual-machines/windows/hybrid-use-benefit-licensing.md).  Seçenekler her satın alma modeli, otomatik yedeklemeler, yazılım güncelleştirmeleri ve düzeltme ekleri gibi tam olarak yönetilen bir hizmet avantajlarını sağlar.
+Veritabanı İşlem Birimi (DTU); CPU, bellek, okuma ve yazma eylemlerinin karma bir ölçümüne dayalıdır. DTU tabanlı bilgi işlem boyutlarına sürücü farklı düzeyde uygulama performansı için önceden yapılandırılmış paketleri kaynakları temsil eder. Müşterilerin, temel alınan kaynaklarla ilgili endişe ve her ay sabit bir tutar ödeme sırasında önceden yapılandırılmış bir paketin basitliğini tercih etmek istiyor musunuz DTU tabanlı model ihtiyaçları için daha uygun fark edebilirsiniz. Ancak, temel alınan kaynaklara ilişkin daha fazla içgörüye ihtiyacınız veya bunları birbirinden bağımsız olarak en iyi performans elde etmek için ölçeklendirmek gereken müşteriler için sanal çekirdek tabanlı model en iyi seçenek olacaktır.  Ayrıca, bir müşterinin SQL Server için bir etkin Yazılım Güvencesi (SA) varsa, bunlar var olan yatırımları yararlanın ve % 30 ile tasarruf [SQL Server için Azure hibrit avantajı](../virtual-machines/windows/hybrid-use-benefit-licensing.md).  Seçenekler her satın alma modeli, otomatik yedeklemeler, yazılım güncelleştirmeleri ve düzeltme ekleri gibi tam olarak yönetilen bir hizmet avantajlarını sağlar.
 
 ## <a name="what-is-the-azure-hybrid-benefit-for-sql-server"></a>SQL Server için Azure hibrit avantajı nedir
 
-[SQL Server için Azure hibrit kullanım teklifi](../virtual-machines/windows/hybrid-use-benefit-licensing.md) , mevcut lisans yatırımlarınızdan değerini en üst düzeye çıkarmak ve bunların geçiş bulut yolculuğunuzu hızlandırın yardımcı olur. SQL Server için Azure hibrit avantajı, Yazılım Güvencesi içeren SQL Server lisanslarınızı kullanarak SQL veritabanı'nda indirimli ücret ("taban fiyat") ödemenize olanak sağlayan bir Azure tabanlı avantajdır. SQL Server için Azure hibrit avantajı, SQL veritabanı tek veritabanları ve elastik havuzlar için sanal çekirdek tabanlı satın alma modeli, genel Önizleme sırasında kullanılabilir. SKU etkin olduğunda bile bu avantajı uygulayabilirsiniz ancak temel ücreti Azure Portalı'nda seçtiğiniz andan itibaren uygulanan Not. Geriye dönük olarak herhangi bir kredi düzenlenmez.
+[SQL Server için Azure hibrit avantajı](../virtual-machines/windows/hybrid-use-benefit-licensing.md) , mevcut lisans yatırımlarınızdan değerini en üst düzeye çıkarmak ve bunların geçiş bulut yolculuğunuzu hızlandırın yardımcı olur. SQL Server için Azure hibrit avantajı, Yazılım Güvencesi içeren SQL Server lisanslarınızı kullanarak SQL veritabanı'nda indirimli ücret ("taban fiyat") ödemenize olanak sağlayan bir Azure tabanlı avantajdır. SQL Server için Azure hibrit avantajı, SQL veritabanı tek veritabanları ve elastik havuzlar için sanal çekirdek tabanlı satın alma modeli, genel Önizleme sırasında kullanılabilir. SKU etkin olduğunda bile bu avantajı uygulayabilirsiniz ancak temel ücreti Azure Portalı'nda seçtiğiniz andan itibaren uygulanan Not. Geriye dönük olarak herhangi bir kredi düzenlenmez.
 
 ## <a name="are-there-dual-use-rights-with-azure-hybrid-benefit-for-sql-server"></a>SQL Server için Azure hibrit avantajı ile çift kullanımlı hakları vardır
 
@@ -127,13 +127,13 @@ Evet, Azure portalı, PowerShell, Azure CLI, T-SQL veya REST API'yi kullanarak t
 
 ## <a name="can-i-upgrade-or-downgrade-between-the-general-purpose-and-business-critical-service-tiers"></a>Ben yükseltebilir veya genel amaçlı ve iş açısından kritik hizmet katmanları arasında düşürebilirsiniz
 
-Evet, bazı kısıtlamalar ile. Hedef SKU'su, en fazla veritabanı veya elastik havuz boyutu mevcut dağıtımınız için yapılandırılmış karşılaması gerekir. Kullanıyorsanız [SQL Server için Azure hibrit kullanım teklifi](../virtual-machines/windows/hybrid-use-benefit-licensing.md), iş açısından kritik SKU'SUNDA yalnızca Enterprise Edition lisansları olan müşteriler için kullanılabilir. İçin Azure hibrit avantajı için SQL Server Enterprise Edition lisansları ile kullanarak genel amaçlı şirket içinden geçirilmiş olan müşteriler, iş kritik yükseltebilirsiniz. Ayrıntılar için bkz. [SQL Server için Azure hibrit kullanım teklifi, belirli haklar nelerdir](../virtual-machines/windows/hybrid-use-benefit-licensing.md)?
+Evet, bazı kısıtlamalar ile. Hedef SKU'su, en fazla veritabanı veya elastik havuz boyutu mevcut dağıtımınız için yapılandırılmış karşılaması gerekir. Kullanıyorsanız [SQL Server için Azure hibrit avantajı](../virtual-machines/windows/hybrid-use-benefit-licensing.md), iş açısından kritik SKU'SUNDA yalnızca Enterprise Edition lisansları olan müşteriler için kullanılabilir. İçin Azure hibrit avantajı için SQL Server Enterprise Edition lisansları ile kullanarak genel amaçlı şirket içinden geçirilmiş olan müşteriler, iş kritik yükseltebilirsiniz. Ayrıntılar için bkz. [SQL Server için Azure hibrit Avantajı'ndan belirli haklar nelerdir](../virtual-machines/windows/hybrid-use-benefit-licensing.md)?
 
 Bu dönüştürme, kapalı kalma süresi sonuçlanmaz ve Azure portalı, PowerShell, Azure CLI, T-SQL veya REST API kullanılarak başlatılabilir. Bkz: [tek veritabanlarını yönetmek](sql-database-single-database-scale.md) ve [elastik havuzları yönetme](sql-database-elastic-pool.md).
 
 ## <a name="i-am-using-a-premium-rs-database-that-will-not-be-generally-available---can-i-upgrade-it-to-a-new-tier-and-achieve-a-similar-priceperformance-benefit"></a>Genel olarak kullanılabilir olmayacak bir Premium RS veritabanı kullanıyorum - yeni bir katmana yükseltmeniz ve miyim benzer bir fiyat/performans avantajı elde edin
 
-VCore modeli sağlanan işlem ve depolama miktarını bağımsız denetime izin verdiğinden, Premium RS veritabanları için çekici bir hedef yapmadan elde edilen maliyetleri, daha etkili bir şekilde yönetebilirsiniz. Ayrıca, [SQL Server için Azure hibrit kullanım teklifi](../virtual-machines/windows/hybrid-use-benefit-licensing.md) sanal çekirdek tabanlı model kullanılırken önemli bir indirim sağlar.
+VCore modeli sağlanan işlem ve depolama miktarını bağımsız denetime izin verdiğinden, Premium RS veritabanları için çekici bir hedef yapmadan elde edilen maliyetleri, daha etkili bir şekilde yönetebilirsiniz. Ayrıca, [SQL Server için Azure hibrit avantajı](../virtual-machines/windows/hybrid-use-benefit-licensing.md) sanal çekirdek tabanlı model kullanılırken önemli bir indirim sağlar.
 
 ## <a name="how-often-can-i-adjust-the-resources-per-pool"></a>Havuz başına kaynakları ne sıklıkta değiştirebilir miyim
 

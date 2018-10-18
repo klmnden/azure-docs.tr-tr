@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/16/2018
 ms.author: jdial
-ms.openlocfilehash: 1ec60300d179edf69e32dc07653b6c69c7cc8e52
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: cf540caebd5f993cdba0d85f4109a6e78e201658
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "42056550"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49378763"
 ---
 # <a name="plan-virtual-networks"></a>Sanal ağları planlama
 
@@ -93,7 +93,7 @@ Bir Azure VPN ağ geçidi kullanarak sanal ağ eşlemesini kullanmanın diğer s
 
 ### <a name="peering"></a>Eşleme
 
-Kullanırken [sanal ağ eşlemesi](virtual-network-peering-overview.md), sanal ağların aynı veya farklı, Azure bölgeleri desteklenir. Her iki abonelikler aynı Azure Active Directory kiracısı ile atanan sürece sanal ağlar aynı veya farklı Azure Abonelikleri, olabilir. Bir eşleme oluşturmadan önce tüm eşlemesi planladığınızdan önerilir [gereksinimler ve kısıtlamalar](virtual-network-manage-peering.md#requirements-and-constraints). Sanal ağlardaki kaynaklar arasında bant genişliği aynı sanal ağdaki kaynaklar gibi aynı olduğundan aynı bölgedeki eşlenmiş.
+Kullanırken [sanal ağ eşlemesi](virtual-network-peering-overview.md), sanal ağların aynı veya farklı, Azure bölgeleri desteklenir. Sanal ağlar aynı veya farklı Azure abonelikleri (hatta abonelikleri farklı Azure Active Directory kiracılara ait) olabilir. Bir eşleme oluşturmadan önce tüm eşlemesi planladığınızdan önerilir [gereksinimler ve kısıtlamalar](virtual-network-manage-peering.md#requirements-and-constraints). Sanal ağlardaki kaynaklar arasında bant genişliği aynı sanal ağdaki kaynaklar gibi aynı olduğundan aynı bölgedeki eşlenmiş.
 
 ### <a name="vpn-gateway"></a>VPN ağ geçidi
 

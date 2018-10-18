@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/25/2018
 ms.author: barclayn
-ms.openlocfilehash: 0addad1db4d9f897736a7793c5489897bca2cd38
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 32174af9edcd6da7b87b6b38c0824fa7f07aa8f9
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47093435"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49384896"
 ---
 # <a name="security-services-and-technologies-available-on-azure"></a>Güvenlik Hizmetleri ve teknolojileri Azure üzerinde kullanılabilir
 
@@ -48,7 +48,7 @@ Zamanla, bu liste değiştirin ve Azure gibi büyütün. Bu sayfada, güvenlikle
 | [Azure depolama paylaşılan erişim imzaları](../storage/common/storage-dotnet-shared-access-signature-part-1.md)|Paylaşılan erişim imzası, depolama hesabınızdaki kaynaklara temsilci erişimi sağlar.  |
 |[Azure depolama hesabı anahtarları](../storage/common/storage-create-storage-account.md)| Depolama hesabına erişim sağlandığında kimlik doğrulaması için kullanılan Azure depolama için bir erişim denetimi yöntemi. |
 |[SMB 3.0 şifrelemesi ile Azure dosya paylaşımları](../storage/files/storage-files-introduction.md)|Otomatik sağlayan bir ağ güvenlik teknolojisi ağ şifrelemesi için sunucu ileti bloğu (SMB) dosya paylaşım protokolüdür. |
-|[Azure depolama analizi](https://docs.microsoft.com/en-us/rest/api/storageservices/Storage-Analytics)| Depolama hesabınızdaki veriler, bir günlük kaydı ve ölçümler oluşturma teknolojisi. |
+|[Azure depolama analizi](https://docs.microsoft.com/rest/api/storageservices/Storage-Analytics)| Depolama hesabınızdaki veriler, bir günlük kaydı ve ölçümler oluşturma teknolojisi. |
 
 <!------>
 
@@ -58,8 +58,8 @@ Zamanla, bu liste değiştirin ve Azure gibi büyütün. Bu sayfada, güvenlikle
 | [Azure&nbsp;SQL&nbsp;güvenlik duvarı](../sql-database/sql-database-firewall-configure.md)|Veritabanına çalışan ağ tabanlı saldırılara karşı koruyan bir ağ erişim denetimi özelliği. |
 |[Azure&nbsp;SQL&nbsp;hücre&nbsp;şifreleme düzeyi](https://blogs.msdn.microsoft.com/sqlsecurity/2015/05/12/recommendations-for-using-cell-level-encryption-in-azure-sql-database/)| Ayrıntılı bir düzeyde şifreleme sağlar bir veritabanı güvenlik teknolojisidir.  |
 | [Azure&nbsp;SQL&nbsp;bağlantı şifrelemesi](../sql-database/sql-database-control-access.md)|SQL Veritabanı güvenliği sağlamak için erişimi IP adresine göre bağlantıyı sınırlayan güvenlik duvarı kuralları, kullanıcıların kimliğini kanıtlamasını gerektiren kimlik doğrulama sistemleri ve kullanıcıları belirli eylemler ve verilerle sınırlayan yetkilendirme sistemleriyle denetler. |
-| [Azure SQL her zaman şifreleme](https://docs.microsoft.com/en-us/sql/relational-databases/security/encryption/always-encrypted-database-engine?view=sql-server-2017)|Kredi kartı numaraları veya Ulusal Kimlik numaraları (örneğin, ABD sosyal güvenlik numaraları) gibi Azure SQL veritabanı veya SQL Server veritabanlarında depolanan hassas verileri korur.  |
-| [Azure&nbsp;SQL&nbsp;saydam veri şifrelemesi](https://docs.microsoft.com/en-us/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql?view=azuresqldb-current)| Tüm veritabanı depolama şifreler veritabanı güvenlik özelliği. |
+| [Azure SQL her zaman şifreleme](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine?view=sql-server-2017)|Kredi kartı numaraları veya Ulusal Kimlik numaraları (örneğin, ABD sosyal güvenlik numaraları) gibi Azure SQL veritabanı veya SQL Server veritabanlarında depolanan hassas verileri korur.  |
+| [Azure&nbsp;SQL&nbsp;saydam veri şifrelemesi](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql?view=azuresqldb-current)| Tüm veritabanı depolama şifreler veritabanı güvenlik özelliği. |
 | [Azure SQL veritabanı denetimi](../sql-database/sql-database-auditing.md)|Bir veritabanı özelliği, veritabanı olaylarını izler ve Azure depolama hesabınızdaki bir denetim günlüğüne yazar denetim.  |
 
 

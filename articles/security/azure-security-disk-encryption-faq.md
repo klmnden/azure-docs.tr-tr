@@ -6,13 +6,13 @@ ms.service: security
 ms.subservice: Azure Disk Encryption
 ms.topic: article
 ms.author: mstewart
-ms.date: 09/10/2018
-ms.openlocfilehash: 9d1414959ef8eae2277e530e6eca57ec06aaec37
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.date: 10/16/2018
+ms.openlocfilehash: 8da966154f1da8cb1be090f70d80e4484e9bce0d
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44345516"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49377300"
 ---
 # <a name="azure-disk-encryption-faq"></a>Azure Disk şifrelemesi hakkında SSS
 
@@ -132,6 +132,11 @@ Bu iş akışını mümkün değilse, bağlı [depolama hizmeti şifrelemesi](..
 "Bek" Windows veya "/ mnt/azure_bek_disk" Linux için güvenli bir şekilde şifrelenmiş Azure Iaas Vm'leri için şifreleme anahtarlarını depolayan bir yerel veri hacmi birimdir.
 > [!NOTE]
 > Silmeyin ve bu diskteki tüm içeriği düzenleyebilir. Iaas VM üzerindeki tüm şifreleme işlemleri için şifreleme anahtar bulunması gerekli olmadığından, diski çıkarın değil.
+
+
+## <a name="what-encryption-method-does-azure-disk-encryption-use"></a>Azure Disk şifrelemesi hangi şifreleme yöntemini kullanıyor?
+
+Windows üzerinde ADE Bitlocker AES256 şifreleme yöntemini kullanır. (Windows Server 2012'den önceki sürümlerinde AES256WithDiffuser). Linux üzerinde ADE aes xts plain64 dmcrypt varsayılan 256 bit birim ana anahtarıyla kullanır.
 
 ## <a name="if-i-use-encryptformatall-and-specify-all-volume-types-will-it-erase-the-data-on-the-data-drives-that-we-already-encrypted"></a>EncryptFormatAll kullanın ve tüm birim türlerini belirtmek, bu verileri zaten şifrelenmiş veri sürücülerinde silecek?
 Hayır, veri zaten Azure Disk şifrelemesi kullanılarak şifrelenmiş veri sürücülerden silinmesi gerekmez. Benzer şekilde nasıl EncryptFormatAll işletim sistemi sürücüsünü yeniden şifrele siz, bunu zaten şifrelenmiş veri sürücüsü yeniden şifrele olmaz. Daha fazla bilgi için [EncryptFormatAll ölçütleri](azure-security-disk-encryption-linux.md#bkmk_EFACriteria).        

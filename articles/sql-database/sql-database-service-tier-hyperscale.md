@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 10/15/2018
-ms.openlocfilehash: 372f1a0b7e2ad07612caaac478aea14693e002fa
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.date: 10/17/2018
+ms.openlocfilehash: 526b6ac9c510b13461181d76c0032602d8f3f435
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49352311"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49377991"
 ---
 # <a name="hyperscale-service-tier-preview-for-up-to-100-tb"></a>En fazla 100 TB için hiper ölçekli hizmet Katmanı (Önizleme)
 
@@ -148,8 +148,8 @@ Hiper ölçekli hizmet katmanı şu anda genel Önizleme aşamasındadır ve aş
 
 | Sorun | Açıklama |
 | :---- | :--------- |
-| Bir mantıksal sunucu, Hiper ölçekli veritabanları, SQL Server'dan filtrelenir göstermez için ManageBackups bölmesinde ->  | Hiper ölçekli yedeklemeler yönetmek için ayrı bir yöntem vardır ve bu nedenle zaman yedek saklama ayarları noktasında ve uzun süreli saklama uygulanmaz / geçersiz kılınır. Buna göre hiper ölçekli veritabanlarını yedeklemeyi yönetme Bölmesi'nde görünmez. |
-| Belirli bir noktaya geri yükleme | Bir veritabanı hiper ölçekli hizmet katmanına geçirildikten sonra bir-belirli bir noktaya geri yükleme desteklenmiyor.|
+| Yedekleri Yönet bölmesinde bir mantıksal sunucu, Hiper ölçekli veritabanları, SQL Server'dan filtrelenir göstermez için ->  | Hiper ölçekli yedeklemeler yönetmek için ayrı bir yöntem vardır ve bu nedenle zaman yedek saklama ayarları noktasında ve uzun süreli saklama uygulanmaz / geçersiz kılınır. Buna göre hiper ölçekli veritabanlarını yedeklemeyi yönetme Bölmesi'nde görünmez. |
+| Belirli bir noktaya geri yükleme | Bir veritabanı hiper ölçekli hizmet katmanına geçirildikten sonra bir-belirli bir noktaya geçişten önce geri yükleme desteklenmiyor.|
 | Bir veritabanı dosyası etkin bir iş yükü nedeniyle geçiş sırasında artar ve dosya sınır başına 1 TB'ı aştığında, geçiş başarısız olur. | Risk azaltma işlemleri: <br> -Eğer Mümkünse, çalışan hiçbir güncelleştirme iş yükü olduğunda veritabanını geçirin.<br> -Geçiş işlemini yeniden deneyin, geçiş sırasında 1 TB sınır aşıldığında değil sürece başarılı olur.|
 | Yönetilen örnek şu anda desteklenmiyor | Şu anda desteklenmiyor |
 | Geçiş için hiper ölçekli şu anda bir tek yönlü işlem değil | Bir veritabanı için hiper ölçekli geçirildikten sonra doğrudan bir hiper ölçekli olmayan hizmet katmanına geçirilemez. Şu anda Hiperölçekli için olmayan hiper ölçekli bir veritabanını geçirme yalnızca kullanarak BACPAC dosyasına dışarı/içeri aktarma için yoludur.|

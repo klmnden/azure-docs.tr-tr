@@ -4,22 +4,21 @@ description: Bu konu Azure Media Services’e genel bir bakış sağlar.
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
-ms.assetid: 7a5e9723-c379-446b-b4d6-d0e41bd7d31f
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 09/24/2018
-ms.author: juliako;anilmur
-ms.openlocfilehash: 65f38ca477cf1a861c1285e6195598be705005d7
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.date: 10/15/2018
+ms.author: juliako
+ms.openlocfilehash: cc6cb768e9403a09ea09309e0ffd85ce9012cb41
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47163758"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49352095"
 ---
 # <a name="azure-media-services-overview"></a>Azure Media Services’a genel bakış 
 
@@ -53,7 +52,7 @@ Media Services çözümleri oluşturmak için şunları kullanabilirsiniz:
     * [Azure PHP SDK](https://github.com/Azure/azure-sdk-for-php),
     * [Node.js için Azure Media Services](https://github.com/michelle-becker/node-ams-sdk/blob/master/lib/request.js) (Bu, Microsoft dışı bir Node.js SDK sürümüdür. Bir topluluğun gözetimi altındadır ve şu anda AMS API'lerinin %100’ünü kapsamamaktadır).
 * Mevcut araçlar:
-    * [Azure portalındaki](https://portal.azure.com/)
+    * [Azure Portal](https://portal.azure.com/)
     * [Azure-Media-Services-Gezgini](https://github.com/Azure/Azure-Media-Services-Explorer) (Azure Media Services Gezgini (AMSE), Windows için bir Winforms/C# uygulamasıdır)
 
 > [!NOTE]

@@ -12,12 +12,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 04/01/2017
 ms.author: glenga
-ms.openlocfilehash: 51b2bd7956f775dbc7f737be33bd0fd6f9246524
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: baf08f18fae7f82fff57616e2d86d3426e32a237
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45604544"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49387744"
 ---
 # <a name="azure-service-bus-bindings-for-azure-functions"></a>Azure işlevleri için Azure Service Bus bağlamaları
 
@@ -293,7 +293,7 @@ C# ve C# betiği aşağıdaki parametre türleri için kuyruk veya konuda ileti 
 * `string` İleti metni ise.
 * `byte[]` -İkili veriler için kullanışlıdır.
 * İleti, JSON içeriyorsa bir özel tür - Azure işlevleri JSON verileri seri durumdan çalışır.
-* `BrokeredMessage` -Seri durumdan çıkarılmış mesajıyla size [BrokeredMessage.GetBody<T>()](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.getbody?view=azure-dotnet#Microsoft_ServiceBus_Messaging_BrokeredMessage_GetBody__1) yöntemi.
+* `BrokeredMessage` -Seri durumdan çıkarılmış mesajıyla size [BrokeredMessage.GetBody<T>()](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.getbody?view=azure-dotnet#Microsoft_ServiceBus_Messaging_BrokeredMessage_GetBody__1) yöntemi.
 
 Bu parametreleri için Azure işlevleri sürüm olan 1.x; 2.x için kullanıyorsanız [ `Message` ](https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.message) yerine `BrokeredMessage`.
 

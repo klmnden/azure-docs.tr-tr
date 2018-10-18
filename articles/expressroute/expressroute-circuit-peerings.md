@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 10/01/2018
 ms.author: cherylmc
-ms.openlocfilehash: c1fbc99702e077e600f01959224f3321e7543e59
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 8ef231982cfdc9a2c4387ee47e651fdf1af0baaf
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48044408"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49388434"
 ---
 # <a name="expressroute-circuits-and-routing-domains"></a>ExpressRoute devreleri ve Yönlendirme etki alanları
  Sipariş gereken bir *ExpressRoute bağlantı hattı* şirket içi altyapınızı, bağlantı sağlayıcı Microsoft'a bağlanmak için. Aşağıdaki şekilde WAN ile Microsoft arasında bağlantı mantıksal bir gösterimi gösterilmektedir.
@@ -82,7 +82,7 @@ Tüm üç eşliği oturumlarını seçerseniz, üç çift BGP oturumu (her eşle
 ## <a name="expressroute-health"></a>ExpressRoute durumu
 ExpressRoute bağlantı hatları izlenen kullanılabilirlik, sanal ağlar ve bant genişliği kullanımı kullanarak bağlantısını için [Ağ Performansı İzleyicisi](https://docs.microsoft.com/azure/networking/network-monitoring-overview) (NPM).
 
-NPM Azure özel eşleme ve Microsoft eşlemesi izler.  Kullanıma sunduğumuz [sonrası](https://azure.microsoft.com/en-in/blog/monitoring-of-azure-expressroute-in-preview/) daha fazla bilgi için.
+NPM Azure özel eşleme ve Microsoft eşlemesi izler.  Kullanıma sunduğumuz [sonrası](https://azure.microsoft.com/blog/monitoring-of-azure-expressroute-in-preview/) daha fazla bilgi için.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * Bir hizmet sağlayıcı bulun. Bkz: [ExpressRoute hizmet sağlayıcıları ve konumları](expressroute-locations.md).

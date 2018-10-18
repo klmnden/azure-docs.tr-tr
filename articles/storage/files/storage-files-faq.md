@@ -7,12 +7,12 @@ ms.service: storage
 ms.date: 10/04/2018
 ms.author: renash
 ms.component: files
-ms.openlocfilehash: 20a87148e3c0df29e5f4dffd74a8f5389e3658b9
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: 29f09034988acde3643eebe368445caab035fabd
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/17/2018
-ms.locfileid: "49364567"
+ms.locfileid: "49387512"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Azure dosyaları hakkında sık sorulan sorular (SSS)
 [Azure dosyaları](storage-files-introduction.md) tam olarak yönetilen dosya paylaşımları endüstri standardı erişilebilen bulutta sunar [sunucu ileti bloğu (SMB) Protokolü](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx). Azure dosya paylaşımları Windows, Linux ve macOS Bulut veya şirket içi dağıtımlarda eşzamanlı olarak bağlayabilir. Ayrıca verilerin kullanıldığı yakın, hızlı erişim için Azure dosya eşitleme'ı kullanarak Azure dosya paylaşımları Windows Server makinelerinde önbelleğe alabilir.
@@ -242,7 +242,7 @@ Bu makalede, Azure dosyaları özellikleri ve işlevleri, Azure dosya eşitleme 
 * <a id="data-compliance-policies"></a>
 **Hangi veri uyumluluk ilkeleri, Azure dosyaları destekliyor mu?**  
 
-   Azure dosyaları Azure depolama alanındaki diğer depolama hizmetlerindeki kullanılan aynı depolama mimarisi üzerinde çalışır. Azure dosyaları, diğer Azure depolama hizmetleri içinde kullanılan aynı veri uyumluluk ilkelerini uygular. Azure depolama veri uyumluluğu hakkında daha fazla bilgi için başvurabilirsiniz [Azure depolama uyumluluk teklifi](https://docs.microsoft.com/en-us/azure/storage/common/storage-compliance-offerings)ve Git [Microsoft Trust Center](https://microsoft.com/en-us/trustcenter/default.aspx).
+   Azure dosyaları Azure depolama alanındaki diğer depolama hizmetlerindeki kullanılan aynı depolama mimarisi üzerinde çalışır. Azure dosyaları, diğer Azure depolama hizmetleri içinde kullanılan aynı veri uyumluluk ilkelerini uygular. Azure depolama veri uyumluluğu hakkında daha fazla bilgi için başvurabilirsiniz [Azure depolama uyumluluk teklifi](https://docs.microsoft.com/azure/storage/common/storage-compliance-offerings)ve Git [Microsoft Trust Center](https://microsoft.com/en-us/trustcenter/default.aspx).
 
 ## <a name="on-premises-access"></a>Şirket içi erişim
 * <a id="expressroute-not-required"></a>
@@ -258,7 +258,7 @@ Bu makalede, Azure dosyaları özellikleri ve işlevleri, Azure dosya eşitleme 
 ## <a name="backup"></a>Backup
 * <a id="backup-share"></a>
 **Nasıl Azure dosyamı yedekleme paylaşırım?**  
-    Kullanabileceğiniz düzenli [paylaşım anlık görüntüleri](storage-snapshots-files.md) yanlışlıkla silinmekten karşı koruma için. AzCopy, Robocopy ve bir bağlı dosya paylaşımını yedekleyebilmeniz bir üçüncü taraf yedekleme aracını kullanabilirsiniz. Azure Backup, Azure dosyaları yedeklemesi sunar. Daha fazla bilgi edinin [Azure yedekleme dosya paylaşımlarını Azure Backup tarafından](https://docs.microsoft.com/en-us/azure/backup/backup-azure-files).
+    Kullanabileceğiniz düzenli [paylaşım anlık görüntüleri](storage-snapshots-files.md) yanlışlıkla silinmekten karşı koruma için. AzCopy, Robocopy ve bir bağlı dosya paylaşımını yedekleyebilmeniz bir üçüncü taraf yedekleme aracını kullanabilirsiniz. Azure Backup, Azure dosyaları yedeklemesi sunar. Daha fazla bilgi edinin [Azure yedekleme dosya paylaşımlarını Azure Backup tarafından](https://docs.microsoft.com/azure/backup/backup-azure-files).
 
 ## <a name="share-snapshots"></a>Paylaşım anlık görüntüleri
 

@@ -2,25 +2,18 @@
 title: Microsoft Azure Data Box güvenliğine genel bakış | Verilerde Microsoft Docs
 description: Data Box’ta yer alan cihaz, hizmet ve verilerin Azure Data Box güvenlik özelliklerini tanımlar
 services: databox
-documentationcenter: NA
 author: alkohli
-manager: twooley
-editor: ''
-ms.assetid: ''
 ms.service: databox
-ms.devlang: NA
+ms.subservice: pod
 ms.topic: overview
-ms.custom: mvc
-ms.tgt_pltfrm: NA
-ms.workload: TBD
 ms.date: 09/24/2018
 ms.author: alkohli
-ms.openlocfilehash: 26f9cd589a754914a5c7b7ee700f9cefb1421d51
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 0b4e7165f30364ba61b583cf5d2f55e8826b9cf3
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46995013"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49092134"
 ---
 # <a name="azure-data-box-security-and-data-protection"></a>Azure Data Box güvenliği ve veri koruması
 
@@ -116,4 +109,4 @@ Data Box’da aşağıdaki güvenlik yönergeleri uygulanmıştır:
 
 - [Data Box gereksinimlerini](data-box-system-requirements.md) gözden geçirin.
 - [Data Box sınırlarını](data-box-limits.md) anlayın.
-- Azure portalda [Azure Data Box](data-box-quickstart-portal.md)’u hızlıca dağıtın.
+- Azure portalda [Azure Data Box](data-box-quickstart-portal.md)’u hızla dağıtın.

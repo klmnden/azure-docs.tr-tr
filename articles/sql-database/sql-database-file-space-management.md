@@ -12,19 +12,19 @@ ms.author: moslake
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 09/14/2018
-ms.openlocfilehash: ee3b8c274b769cd570d70c5e0dfae939e030ecf5
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: 803bab4f0b91e2612abceedfa09baedaaea2a55e
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49352438"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49377954"
 ---
 # <a name="manage-file-space-in-azure-sql-database"></a>Azure SQL veritabanı'nda dosya alanı yönetme
 Bu makalede, Azure SQL veritabanı ve açıkça yönetilecek gereksinimlerini elastik havuzlar ve veritabanları için ayrılan dosya alanı gerçekleştirilen adımlar, depolama alanının farklı türleri açıklanmaktadır.
 
 ## <a name="overview"></a>Genel Bakış
 
-Azure SQL veritabanı'nda vardır iş yükü düzenleri ayırma veritabanları için temel alınan veri dosyaları burada kullanılan veri sayfaları tutardan daha büyük olabilir. Kullanılan alan artar ve veri sonradan silindiğinde bu durum oluşabilir. Veri silindiğinde ayrılmış dosya alanı otomatik olarak alınmaz olmasıdır.
+Azure SQL veritabanı'nda vardır iş yükü düzenleri ayırma veritabanları için temel alınan veri dosyaları burada kullanılan veri sayfaları tutardan daha büyük olabilir. Kullanılan alan artar ve veri sonradan silindiğinde, bu durum ortaya çıkabilir. Bunun nedeni, veri silindiğinde ayrılmış dosya alanı otomatik olarak alınmaz olmasıdır.
 
 Aşağıdaki senaryolarda dosya alanı kullanımı izleme ve veri dosyalarını daraltma gerekebilir:
 - Veritabanları için ayrılan dosya alanı havuz en büyük boyutuna ulaştığında bir elastik havuzdaki veri artışı sağlar.
@@ -32,11 +32,11 @@ Aşağıdaki senaryolarda dosya alanı kullanımı izleme ve veri dosyalarını 
 - Tek veritabanı veya elastik Havuzu'nu farklı hizmet katmanını veya performans katmanı daha düşük bir maksimum boyut ile değiştirerek izin verin.
 
 ### <a name="monitoring-file-space-usage"></a>Dosya alanı kullanımı izleme
-Azure portalı ve aşağıdaki API'leri gösterilen Çoğu depolama alanı ölçümleri yalnızca kullanılan veri sayfaların ölçün:
+Azure portalı ve aşağıdaki API'leri gösterilen Çoğu depolama alanı ölçümleri yalnızca kullanılan veri sayfaların boyutu ölçü:
 - Azure Resource Manager tabanlı ölçümleri API'leri PowerShell dahil olmak üzere [get-metrics](https://docs.microsoft.com/powershell/module/azurerm.insights/get-azurermmetric)
 - T-SQL: [sys.dm_db_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database)
 
-Ancak, aşağıdaki API'leri veritabanları ve elastik için ayrılan alan miktarını da ölçmek havuzları:
+Ancak aşağıdaki API'leri veritabanları ve elastik için ayrılan alanı boyutu da ölçüm havuzları:
 - T-SQL: [sys.resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database)
 - T-SQL: [sys.elastic_pool_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database)
 
@@ -110,7 +110,7 @@ Aşağıdaki depolama alanı miktarları anlama dosya alanı, bir elastik havuzu
 |**Kullanılan veri alanı**|Esnek havuzdaki tüm veritabanları tarafından kullanılan veri alanı toplamı.||
 |**Ayrılmış veri alanı**|Esnek havuzdaki tüm veritabanları tarafından ayrılan veri alanı toplamı.||
 |**Ancak kullanılmamış ayrılmış veri alanı**|Ayrılan veri miktarını ve esnek havuzdaki tüm veritabanları tarafından kullanılan veri alanı arasındaki fark.|Bu miktar, en fazla veritabanı veri dosyalarını küçülterek kazanılabilir esnek havuzu için ayrılan alan miktarını temsil eder.|
-|**Veri en büyük boyutu**|Tüm veritabanları için elastik havuz tarafından kullanılabilecek veri alanı maksimum miktarı.|Elastik havuz boyutu elastik havuz için ayrılan alanı aşmamalıdır.  Bu meydana gelirse, kullanılmayan bir ayrılmış alanı veritabanı veri dosyalarını küçülterek kazanılabilir.|
+|**Veri en büyük boyutu**|Tüm veritabanları için elastik havuz tarafından kullanılabilecek veri alanı maksimum miktarı.|Elastik havuz boyutu elastik havuz için ayrılan alanı aşmamalıdır.  Bu durum ortaya çıkarsa, kullanılmayan bir ayrılmış alanı veritabanı veri dosyalarını küçülterek kazanılabilir.|
 ||||
 
 ## <a name="query-an-elastic-pool-for-storage-space-information"></a>Elastik havuz depolama alanı bilgisi için sorgulama
@@ -131,7 +131,7 @@ ORDER BY end_time DESC
 
 ### <a name="elastic-pool-data-space-allocated-and-unused-allocated-space"></a>Elastik havuz veri alanı ayrılan ve kullanılmayan bir ayrılmış alanı
 
-Ayrılan alanı listeleyen bir tablo döndürmek için aşağıdaki PowerShell betiğini ve elastik bir havuzdaki her veritabanı için kullanılmayan bir ayrılmış alanı değiştirin. Tablo kullanılmayan en az miktarda alanına ayrılmış alanı ayrılan miktarı en yüksek kullanılmayan olanlar veritabanlarından sıralar.  MB cinsinden sorgu sonucu birimleridir.  
+Ayrılan alanı listeleyen bir tablo döndürmek için aşağıdaki PowerShell betiğini ve elastik bir havuzdaki her veritabanı için kullanılmayan bir ayrılmış alanı değiştirin. Tablo, ayrılmış alanı kullanılmayan en az miktarda için ayrılan alan bu miktarı en yüksek kullanılmayan veritabanlarıyla veritabanlarından sıralar.  MB cinsinden sorgu sonucu birimleridir.  
 
 Havuzdaki her veritabanı için ayrılan alanı birlikte elastik havuz için ayrılan toplam alan belirlemek eklenebilir belirlemek için sorgu sonuçları. Elastik havuz en büyük boyutu ayrılan esnek havuz alanı aşmamalıdır.  
 
@@ -201,17 +201,35 @@ ORDER BY end_time DESC
 
 ## <a name="reclaim-unused-allocated-space"></a>Kullanılmayan ayrılmış alanı geri kazanmalıdır
 
-Veritabanları yeniden kazanmaktan kullanılmayan ayrılmış alanı belirledikten sonra her veritabanı için veri dosyalarının daraltmak için aşağıdaki komutu değiştirin.
+### <a name="dbcc-shrink"></a>DBCC küçültme
+
+Veritabanları yeniden kazanmaktan kullanılmayan ayrılmış alanı belirledikten sonra her veritabanı için veri dosyalarının daraltmak için aşağıdaki komutta veritabanı adını değiştirin.
 
 ```sql
 -- Shrink database data space allocated.
 DBCC SHRINKDATABASE (N'db1')
 ```
 
+Bu komut, çalışıyor ve mümkünse düşük kullanım dönemleri sırasında çalıştırılmalıdır veritabanı performansı etkileyebilir.  
+
 Bu komut hakkında daha fazla bilgi için bkz. [SHRINKDATABASE](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-shrinkdatabase-transact-sql). 
 
-> [!IMPORTANT] 
-> Veritabanı veri dosyaları sonra yeniden oluşturma veritabanı dizinleri küçültülebilir, dizinleri parçalanmış ve performans iyileştirme verimliliğine kaybetmek göz önünde bulundurun. Bu meydana gelirse, dizinleri yeniden. Parçalanma ve dizinlerini yeniden oluşturma hakkında daha fazla bilgi için bkz. [Reorganıze ve dizinleri](https://docs.microsoft.com/sql/relational-databases/indexes/reorganize-and-rebuild-indexes).
+### <a name="auto-shrink"></a>Otomatik Daralt
+
+Alternatif olarak, otomatik küçültme bir veritabanı için etkin hale getirilebilir.  Otomatik küçültme dosya yönetim karmaşıklığı azaltır ve SHRINKDATABASE veya SHRINKFILE daha veritabanı performans için daha az etkili.  Otomatik küçültme birçok veritabanları ile elastik havuzları yönetme için özellikle yararlı olabilir.  Ancak, otomatik küçültme dosya alanı SHRINKDATABASE ve SHRINKFILE'den tekrar kullanılabilir hale getirme daha az etkili olur.
+Otomatik küçültme etkinleştirmek için aşağıdaki komutta veritabanı adını değiştirin.
+
+
+```sql
+-- Enable auto-shrink for the database.
+ALTER DATABASE [db1] SET AUTO_SHRINK ON
+```
+
+Bu komut hakkında daha fazla bilgi için bkz. [veritabanı](https://docs.microsoft.com/en-us/sql/t-sql/statements/alter-database-transact-sql-set-options?view=sql-server-2017) seçenekleri. 
+
+### <a name="rebuild-indexes"></a>Dizinleri yeniden oluştur
+
+Veritabanı veri dosyaları küçültülebilir sonra dizinleri parçalanmış ve performans iyileştirme verimliliğine kaybedersiniz. Performans düşüşü ortaya çıkarsa, veritabanı dizinlerini yeniden oluşturma düşünün. Parçalanma ve dizinlerini yeniden oluşturma hakkında daha fazla bilgi için bkz. [Reorganıze ve dizinleri](https://docs.microsoft.com/sql/relational-databases/indexes/reorganize-and-rebuild-indexes).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

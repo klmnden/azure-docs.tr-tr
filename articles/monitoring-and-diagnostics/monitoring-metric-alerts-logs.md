@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/17/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: abfe7f0b39463a842b1eb167661af7da90bc9eca
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: bed0c15504323aba4ebf680273870720a8ff833a
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46980857"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49388329"
 ---
 # <a name="create-metric-alerts-for-logs-in-azure-monitor"></a>Azure İzleyici günlükler için ölçüm uyarıları oluşturma  
 
@@ -58,11 +58,11 @@ Adım adım ayrıntıları ve örnekleri - bakın [oluşturma ve ölçüm Uyarı
 - Seçilen ölçüm uyarısı için seçilen sinyal *Log Analytics çalışma alanı* türünde **ölçüm**
 - Belirli koşullar veya boyut filtreleri kullanarak kaynak filtresi; çok boyutlu ölçümler için günlükleri
 - Yapılandırma sırasında *sinyal mantığını*, yayılmasını boyut (bilgisayar gibi) birden çok değeri tek bir uyarı oluşturulabilir.
-- Varsa **değil** seçilen için ölçüm uyarısı oluşturmak için Azure portalını kullanarak *Log Analytics çalışma alanı*; ardından el ile kullanıcı gerekir ilk kullanarakbirölçümgünlükverileridönüştürmekiçinaçıkbirkuraloluşturun[Azure İzleyici - zamanlanmış sorgu kuralları](https://docs.microsoft.com/en-us/rest/api/monitor/scheduledqueryrules
+- Varsa **değil** seçilen için ölçüm uyarısı oluşturmak için Azure portalını kullanarak *Log Analytics çalışma alanı*; ardından el ile kullanıcı gerekir ilk kullanarakbirölçümgünlükverileridönüştürmekiçinaçıkbirkuraloluşturun[Azure İzleyici - zamanlanmış sorgu kuralları](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules
 ).
 
 > [!NOTE]
-> Azure portalı - Log Analytics çalışma alanı için ölçüm uyarısı oluşturma sırasında ölçüm günlük verileri dönüştürme kuralı karşılık gelen [Azure İzleyici - zamanlanmış sorgu kuralları](https://docs.microsoft.com/en-us/rest/api/monitor/scheduledqueryrules) arka planda otomatik olarak oluşturulan  *herhangi bir eylem veya kullanıcı müdahalesi gerektirmeden*. Azure portal dışındaki yollardan günlükleri oluşturma için ölçüm uyarısı için bkz: [günlükleri için ölçüm uyarıları için kaynak şablonu](#resource-template-for-metric-alerts-for-logs) bölümünde ölçüm uyarısı önce ölçüm dönüştürme kuralı için bir temel ScheduledQueryRule günlük oluşturma örnek anlamına gelir oluşturulan günlüklerde ölçüm uyarısı için hiçbir veri olacaktır oluşturma - else.
+> Azure portalı - Log Analytics çalışma alanı için ölçüm uyarısı oluşturma sırasında ölçüm günlük verileri dönüştürme kuralı karşılık gelen [Azure İzleyici - zamanlanmış sorgu kuralları](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) arka planda otomatik olarak oluşturulan  *herhangi bir eylem veya kullanıcı müdahalesi gerektirmeden*. Azure portal dışındaki yollardan günlükleri oluşturma için ölçüm uyarısı için bkz: [günlükleri için ölçüm uyarıları için kaynak şablonu](#resource-template-for-metric-alerts-for-logs) bölümünde ölçüm uyarısı önce ölçüm dönüştürme kuralı için bir temel ScheduledQueryRule günlük oluşturma örnek anlamına gelir oluşturulan günlüklerde ölçüm uyarısı için hiçbir veri olacaktır oluşturma - else.
 
 ## <a name="resource-template-for-metric-alerts-for-logs"></a>Kaynak şablonu için günlükleri için ölçüm uyarıları
 Daha önce belirtildiği gibi ölçüm uyarıları günlüklerinden oluşturulması için iki yönlü bir işlemdir:

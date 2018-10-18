@@ -10,18 +10,18 @@ ms.reviewer: divswa, LADocs
 ms.topic: article
 ms.date: 09/14/2018
 tags: connectors
-ms.openlocfilehash: 13268ec865ec72fce23df550619b199389096360
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: dd86fd1aa8b1dab9f329f12924ff37db1256d1eb
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47056517"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49377919"
 ---
 # <a name="connect-to-sap-systems-from-azure-logic-apps"></a>Azure Logic Apps'ten SAP sistemlerini bağlanma
 
 Bu makalede, SAP ERP merkezi bileşeni (ECC) Bağlayıcısı'nı kullanarak şirket içi SAP kaynaklarınızdan bir mantıksal uygulama içinde nasıl erişeceği gösterilmektedir. SAP ECC bağlayıcı SAP Netweaver tabanlı sistemlerde Ara belge (IDoc) veya iş uygulaması programlama arabirimi (BAPI) veya uzak işlev çağrısı (RFC) aracılığıyla gelen ve giden ileti veya veri tümleştirmeyi destekler.
 
-SAP ECC bağlayıcıyı kullanan <a href="https://help.sap.com/saphelp_nwpi71/helpdata/en/e9/23c80d66d08c4c8c044a3ea11ca90f/frameset.htm">SAP .net Bağlayıcısı (NCo) kitaplığı</a> ve bu işlemleri veya eylemleri sağlar:
+SAP ECC bağlayıcıyı kullanan <a href="https://support.sap.com/en/product/connectors/msnet.html">SAP .net Bağlayıcısı (NCo) kitaplığı</a> ve bu işlemleri veya eylemleri sağlar:
 
 - **SAP için gönderme**: SAP sistemlerinde tRFC üzerinden göndermek IDoc veya çağrı BAPI işlevleri.
 - **SAP'den alma**: IDoc almak veya BAPI işlev çağrılarında SAP sistemlerden tRFC üzerinden.
@@ -44,7 +44,7 @@ Bu makaleyi izlemek için bu öğeler gerekir:
 
 * En son yükleyip [şirket içi veri ağ geçidi](https://www.microsoft.com/download/details.aspx?id=53127) herhangi bir şirket içi bilgisayarda. Devam etmeden önce Azure portalında, ağ geçidi ayarlama emin olun. Ağ geçidi, güvenli bir şekilde erişim veri yardımcı olur ve şirket içi kaynaklardır. Daha fazla bilgi için [yükleme şirket içi veri ağ geçidi için Azure Logic Apps](../logic-apps/logic-apps-gateway-install.md).
 
-* Şu anda en son SAP istemci kitaplığı yükleyip <a href="https://softwaredownloads.sap.com/file/0020000000086282018" target="_blank">Microsoft .NET Framework 4.0 ve Windows 64 bit (x64) SAP Bağlayıcısı (NCo) 3.0.20.0</a>, şirket içi veri ağ geçidi ile aynı bilgisayarda. Bu sürümü yükleyin veya sonraki bir sürümü bu nedenlerle:
+* Şu anda en son SAP istemci kitaplığı yükleyip <a href="https://softwaredownloads.sap.com/file/0020000001865512018" target="_blank">Microsoft .NET Framework 4.0 ve Windows 64 bit (x64) SAP Bağlayıcısı (NCo) 3.0.21.0</a>, şirket içi veri ağ geçidi ile aynı bilgisayarda. Bu sürümü yükleyin veya sonraki bir sürümü bu nedenlerle:
 
   * SAP NCo sürümlerde aynı anda birden fazla IDoc ileti gönderildiğinde kilitli. 
   Bu durum iletileri zaman aşımına neden SAP hedefe gönderilen tüm sonraki iletiler engeller.

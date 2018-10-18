@@ -14,21 +14,21 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/22/2017
 ms.author: aljo
-ms.openlocfilehash: d9ac3334d790c1844993c7d95bc24ce6690bed19
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.openlocfilehash: 0d809f9a1b3abbb284c3f7e0c27eb9c236692a3f
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48248509"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49386474"
 ---
 # <a name="read-before-you-scale"></a>Ölçeği önce okuyun
-Uygulama iş yükünüz kasıtlı planlama gerektirir, neredeyse her zaman bir üretim ortamında tamamlamak için bir saatten daha uzun sürer ve iş yükü ve iş bağlamını anlamak ihtiyacınız kaynağına işlem kaynaklarını ölçeklendirme; Bu etkinlik önce hiçbir zaman yaptıysanız, aslında, okuma ve anlama başlattığınız önerilir [Service Fabric kümesi kapasite planlaması konuları](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-cluster-capacity), bu belgenin geri kalanında devam etmeden önce. Bu istenmeyen LiveSite sorunlarını önlemek için önerilir ve ayrıca bir üretim dışı ortamda karşı gerçekleştirmeye karar işlemleri başarıyla test önerilir. Herhangi bir zamanda yapabilecekleriniz [üretim sorunlarını bildirmek veya Azure için Ücretli destek isteği](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-support#report-production-issues-or-request-paid-support-for-azure). Mühendislerin yeterli bağlama sahip bu işlemleri gerçekleştirmek için ayrılan, bu makalede ölçeklendirme işlemleri açıklanmaktadır, ancak karar verin ve işlemleri, kullanım örneği için uygun olduğunu anlamak; hangi kaynakları ölçeklendirme (CPU, depolama, bellek) gibi hangi yönü (yatay veya dikey olarak) ölçeklendirmek için ve hangi işlemleri (kaynak şablonu dağıtımı, Portal, PowerShell/CLI) gerçekleştirin.
+Uygulama iş yükünüz kasıtlı planlama gerektirir, neredeyse her zaman bir üretim ortamında tamamlamak için bir saatten daha uzun sürer ve iş yükü ve iş bağlamını anlamak ihtiyacınız kaynağına işlem kaynaklarını ölçeklendirme; Bu etkinlik önce hiçbir zaman yaptıysanız, aslında, okuma ve anlama başlattığınız önerilir [Service Fabric kümesi kapasite planlaması konuları](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity), bu belgenin geri kalanında devam etmeden önce. Bu istenmeyen LiveSite sorunlarını önlemek için önerilir ve ayrıca bir üretim dışı ortamda karşı gerçekleştirmeye karar işlemleri başarıyla test önerilir. Herhangi bir zamanda yapabilecekleriniz [üretim sorunlarını bildirmek veya Azure için Ücretli destek isteği](https://docs.microsoft.com/azure/service-fabric/service-fabric-support#report-production-issues-or-request-paid-support-for-azure). Mühendislerin yeterli bağlama sahip bu işlemleri gerçekleştirmek için ayrılan, bu makalede ölçeklendirme işlemleri açıklanmaktadır, ancak karar verin ve işlemleri, kullanım örneği için uygun olduğunu anlamak; hangi kaynakları ölçeklendirme (CPU, depolama, bellek) gibi hangi yönü (yatay veya dikey olarak) ölçeklendirmek için ve hangi işlemleri (kaynak şablonu dağıtımı, Portal, PowerShell/CLI) gerçekleştirin.
 
 # <a name="scale-a-service-fabric-cluster-in-or-out-using-auto-scale-rules-or-manually"></a>Bir Service Fabric kümesini otomatik ölçeklendirme kurallarını kullanarak içe veya dışa ölçeklendirme veya el ile
 Sanal makine ölçek kümeleri, dağıtmak ve sanal makine koleksiyonunu bir küme olarak yönetmek için kullanabileceğiniz bir Azure işlem kaynağıdır. Bir Service Fabric kümesinde tanımlanan her düğüm türü ayrı bir sanal makine ölçek kümesi ayarlanır. Her düğüm türü, ölçeklendirilebilir veya out bağımsız olarak, farklı bağlantı noktası kümeleri açık olan ve farklı kapasite ölçümleri yapılabilir. İçinde hakkında daha fazla bilgiyi [Service Fabric NodeType](service-fabric-cluster-nodetypes.md) belge. Kümenizde Service Fabric düğüm türleri arka uçtaki sanal makine ölçek kümelerinin yapılan olduğundan, her düğüm türü/sanal makine ölçek kümesi için otomatik ölçeklendirme kurallarını ayarlamanız gerekir.
 
 > [!NOTE]
-> Bu kümeyi oluşturan yeni Vm'leri eklemek için yeterli çekirdek aboneliğinizin olması gerekir. Model doğrulama yoktur şu anda, herhangi bir kota sınırları ulaşırsanız dağıtım zamanı hatası alabilmeniz. Ayrıca tek bir düğüm türü VMSS başına 100 düğüm yalnızca aşamaz. VMSS kullanıcının hedeflenen ölçeğe ulaşmak için ve otomatik ölçeklendirme başlatamaz eklemeniz gerekebilir automagically VMSS'ın ekleyin. Yerinde VMSS'ın dinamik bir kümeye ekleme, zorlu bir görevdir ve yaygın olarak kullanıcıların yeni küme oluşturma sırasında sağlanan uygun düğümü türleri ile sağlama sonuçlanır; [küme kapasitesini planlama](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-cluster-capacity) uygun şekilde. 
+> Bu kümeyi oluşturan yeni Vm'leri eklemek için yeterli çekirdek aboneliğinizin olması gerekir. Model doğrulama yoktur şu anda, herhangi bir kota sınırları ulaşırsanız dağıtım zamanı hatası alabilmeniz. Ayrıca tek bir düğüm türü VMSS başına 100 düğüm yalnızca aşamaz. VMSS kullanıcının hedeflenen ölçeğe ulaşmak için ve otomatik ölçeklendirme başlatamaz eklemeniz gerekebilir automagically VMSS'ın ekleyin. Yerinde VMSS'ın dinamik bir kümeye ekleme, zorlu bir görevdir ve yaygın olarak kullanıcıların yeni küme oluşturma sırasında sağlanan uygun düğümü türleri ile sağlama sonuçlanır; [küme kapasitesini planlama](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity) uygun şekilde. 
 > 
 > 
 

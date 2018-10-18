@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/09/2018
 ms.author: douglasl
-ms.openlocfilehash: 5da9d4b33951e14df251fe4939c54cff822843aa
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: 89ea3d576f20f6e62730b40e0e4f4f8d5f798142
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48901966"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49387009"
 ---
 # <a name="continuous-integration-and-delivery-cicd-in-azure-data-factory"></a>Sürekli tümleştirme ve teslim (CI/CD) Azure Data factory'de
 
@@ -728,7 +728,7 @@ Azure işlem hatlarında aktarabileceğiniz bir örnek dağıtım şablonu aşa�
 
 ## <a name="sample-script-to-stop-and-restart-triggers-and-clean-up"></a>Durdur ve Tetikleyicileri yeniden başlatın ve temizlemek için betik örnek
 
-Dağıtımdan önce Tetikleyicileri durdurmak ve Tetikleyicileri daha sonra yeniden başlatmak için bir örnek betiği aşağıda verilmiştir. Betik ayrıca kaldırılmış olan kaynakları silmek için kod içerir. Azure PowerShell'in en son sürümünü yüklemek için bkz [PowerShellGet ile Windows üzerindeki Azure PowerShell yükleme](https://docs.microsoft.com/en-us/powershell/azure/install-azurerm-ps?view=azurermps-6.9.0).
+Dağıtımdan önce Tetikleyicileri durdurmak ve Tetikleyicileri daha sonra yeniden başlatmak için bir örnek betiği aşağıda verilmiştir. Betik ayrıca kaldırılmış olan kaynakları silmek için kod içerir. Azure PowerShell'in en son sürümünü yüklemek için bkz [PowerShellGet ile Windows üzerindeki Azure PowerShell yükleme](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-6.9.0).
 
 ```powershell
 param

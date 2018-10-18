@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 02/01/2018
 ms.author: garye
-ms.openlocfilehash: 9c4aea2493ffed12b90f82113baf81c6c77a0ea2
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 37f53303a3b0c224c1286fb488a796fd5cdee0e5
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48801412"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49386425"
 ---
 # <a name="quickstart-create-a-cognitive-services-account-in-the-azure-portal"></a>Hızlı Başlangıç: Azure portalında bir Bilişsel Hizmetler hesabı oluşturma
 
@@ -49,7 +49,7 @@ Bu hızlı başlangıçta, Azure Bilişsel hizmetler'ı kullanmaya başlamak iç
 ## <a name="access-your-resource"></a>Kaynak erişimi 
 
 > [!NOTE]
-> Abonelik sahipleri, Bilişsel hizmetler hesapları için kaynak gruplarında ve Aboneliklerde oluşturulmasını uygulayarak kapatabilir [Azure İlkesi](https://docs.microsoft.com/en-us/azure/governance/policy/overview#policy-definition)"izin verilmeyen kaynak türleri" için bir ilke tanımı atadıktan ve belirtme**Microsoft.CognitiveServices/accounts** hedef kaynak türü.
+> Abonelik sahipleri, Bilişsel hizmetler hesapları için kaynak gruplarında ve Aboneliklerde oluşturulmasını uygulayarak kapatabilir [Azure İlkesi](https://docs.microsoft.com/azure/governance/policy/overview#policy-definition)"izin verilmeyen kaynak türleri" için bir ilke tanımı atadıktan ve belirtme**Microsoft.CognitiveServices/accounts** hedef kaynak türü.
 
 Bu sabitlenmiş kaynağınızı oluşturduktan sonra bunu Azure panosundan erişebilirsiniz. Aksi takdirde, bulabilirsiniz **kaynak grupları**.
 

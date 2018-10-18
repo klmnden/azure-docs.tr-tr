@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: nisoneji
-ms.openlocfilehash: dba323b8cd57dd33c1477027f853cba3c95c8a07
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 40a8e2e6d994608d4aa26f6d9b3723c0ee27d3db
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49092516"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49387251"
 ---
 # <a name="cost-estimation-report-by-azure-site-recovery-deployment-planner"></a>Azure Site Recovery Dağıtım Planlayıcısı maliyet tahmini raporu 
 
@@ -143,7 +143,7 @@ Sanal makineleri el ile eklemek için:
 
 **Yıllık DR Tatbikatları sayısı**: Bir yılda gerçekleştirdiğiniz DR tatbikatlarının sayısı. Varsayılan olarak, yılda dört kez gerçekleştirilir. Süreyi belirli VM’ler için değiştirebilir veya yeni değeri tüm VM’lere uygulayabilirsiniz. Üst satıra yeni değeri girip **Tümüne uygula** öğesini seçin. Yıllık DR tatbikatları sayısı ve her DR tatbikatının süresi temelinde, toplam DR tatbikatı maliyeti hesaplanır. 
 
-**Her DR Tatbikatının süresi (Gün)**: Her DR tatbikatının süresi. Varsayılan olarak, [Disaster Recovery Yazılım Güvencesi avantajına](https://azure.microsoft.com/en-in/pricing/details/site-recovery) göre her 90 günde bir 7 gündür. Süreyi belirli VM’ler için değiştirebilir veya yeni değeri tüm VM’lere uygulayabilirsiniz. Üst satıra yeni bir değer girip **Tümüne uygula** öğesini seçin. Toplam DR tatbikatı maliyeti, yıllık DR tatbikatlarının sayısıyla her DR tatbikatının süresi temel alınarak hesaplanır.
+**Her DR Tatbikatının süresi (Gün)**: Her DR tatbikatının süresi. Varsayılan olarak, [Disaster Recovery Yazılım Güvencesi avantajına](https://azure.microsoft.com/pricing/details/site-recovery) göre her 90 günde bir 7 gündür. Süreyi belirli VM’ler için değiştirebilir veya yeni değeri tüm VM’lere uygulayabilirsiniz. Üst satıra yeni bir değer girip **Tümüne uygula** öğesini seçin. Toplam DR tatbikatı maliyeti, yıllık DR tatbikatlarının sayısıyla her DR tatbikatının süresi temel alınarak hesaplanır.
  
 **İşletim Sistemi Türü**: VM’nin işletim sistemi (OS) türü. Windows veya Linux'tır. İşletim sistemi türü Windows olduğunda, o sanal makineye Azure Hibrit Kullanım Teklifi uygulanabilir. 
 

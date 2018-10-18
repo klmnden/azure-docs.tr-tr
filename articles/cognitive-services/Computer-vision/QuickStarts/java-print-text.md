@@ -3,19 +3,19 @@ title: 'Hızlı Başlangıç: Yazdırılan metni ayıklama (OCR) - REST, Java - 
 titleSuffix: Azure Cognitive Services
 description: Bu hızlı başlangıçta, Java ile Görüntü İşleme API’si kullanarak bir görüntüden yazdırılan metni ayıklayacaksınız.
 services: cognitive-services
-author: noellelacharite
+author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
-ms.author: v-deken
-ms.openlocfilehash: a0b5967e8796f494e14dde3728c785191c2882d5
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.author: pafarley
+ms.openlocfilehash: 83675a146d6d43ce5bc25b24809924d7be1331dd
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45632509"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49339976"
 ---
 # <a name="quickstart-extract-printed-text-ocr-using-the-rest-api-and-java-in-computer-vision"></a>Hızlı Başlangıç: Görüntü İşleme’de REST API ve Java kullanarak yazdırılan metni ayıklama
 
@@ -219,7 +219,7 @@ REST Response:
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 
-Artık gerek kalmadığında Java projesini, derlenen sınıf ve içeri aktarılan kitaplıklarla birlikte silin.
+Artık gerekli değilse Java projesini, derlenen sınıf ve içeri aktarılan kitaplıklarla birlikte silin.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

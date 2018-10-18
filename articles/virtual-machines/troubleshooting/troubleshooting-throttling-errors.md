@@ -13,12 +13,12 @@ ms.topic: troubleshooting
 ms.workload: infrastructure-services
 ms.date: 09/18/2018
 ms.author: vashan, rajraj, changov
-ms.openlocfilehash: d9d9e9cdb791504c864cae20d1248ba78a180a4c
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: b951d0b8d91729340cf382e70f72511fb009053e
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49320280"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49386561"
 ---
 # <a name="troubleshooting-api-throttling-errors"></a>API azaltma hatalarının sorunlarını giderme 
 
@@ -26,7 +26,7 @@ Azure işlem istekleri, abonelik ve hizmetin genel performansını ile yardımc�
 
 ## <a name="throttling-by-azure-resource-manager-vs-resource-providers"></a>Azure Resource Manager vs kaynak sağlayıcıları tarafından azaltma  
 
-Ön kapısı Azure, Azure Resource Manager kimlik doğrulama ve ilk sırada doğrulama ve tüm gelen API isteklerinin azaltma yapar. Azure Resource Manager çağrı hız sınırları ve ilgili tanılama yanıt HTTP üstbilgileri açıklanmıştır [burada](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-request-limits).
+Ön kapısı Azure, Azure Resource Manager kimlik doğrulama ve ilk sırada doğrulama ve tüm gelen API isteklerinin azaltma yapar. Azure Resource Manager çağrı hız sınırları ve ilgili tanılama yanıt HTTP üstbilgileri açıklanmıştır [burada](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-request-limits).
  
 Bir Azure API istemcisini bir kısıtlama hatası girdiğinde, HTTP 429 çok fazla istek durumudur. İstek azaltma Azure Resource Manager veya CRP gibi temel bir kaynak sağlayıcısı tarafından yapıldığını anlamak için incelemek `x-ms-ratelimit-remaining-subscription-reads` GET istekleri için ve `x-ms-ratelimit-remaining-subscription-writes` olmayan GET istekleri için yanıt üstbilgileri. Kalan çağrısı sayısı 0 yaklaşıyorsa, Azure Resource Manager tarafından tanımlanan aboneliğin genel çağrı sınırına ulaşıldı. Etkinlikler tüm abonelik istemcileri tarafından birlikte sayılır. Aksi takdirde, azaltma hedef kaynak sağlayıcısından gelen (bir ele `/providers/<RP>` segment istek URL'si). 
 
@@ -88,4 +88,4 @@ Yukarıda gösterildiği gibi her kısıtlama hatası içerir `Retry-After` sani
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Diğer Azure Hizmetleri için yeniden deneme Kılavuzu hakkında daha fazla bilgi için bkz: [belirli hizmetlere yönelik yeniden deneme Kılavuzu](https://docs.microsoft.com/en-us/azure/architecture/best-practices/retry-service-specific)
+Diğer Azure Hizmetleri için yeniden deneme Kılavuzu hakkında daha fazla bilgi için bkz: [belirli hizmetlere yönelik yeniden deneme Kılavuzu](https://docs.microsoft.com/azure/architecture/best-practices/retry-service-specific)

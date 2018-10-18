@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/06/2018
 ms.author: jeffpatt
 ms.component: files
-ms.openlocfilehash: b53be5a5683ca8fcc8760a2d4cb7e766904a44a3
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: d240bafa543633999a74ef66efcfd7130a4a7b7a
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49167673"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49389285"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Azure Dosya Eşitleme ile ilgili sorunları giderme
 Kuruluşunuzun dosya paylaşımlarını Azure dosyaları'nda esneklik, performans ve bir şirket içi dosya sunucusunun uyumluluğu korurken merkezileştirmek için Azure dosya eşitleme'yi kullanın. Azure dosya eşitleme Windows Server, Azure dosya paylaşımınızın hızlı bir önbelleğine dönüştürür. SMB, NFS ve FTPS gibi verilerinizi yerel olarak erişmek için Windows Server üzerinde kullanılabilir olan herhangi bir protokolünü kullanabilirsiniz. Dünya genelinde gereken sayıda önbellek olabilir.
@@ -133,8 +133,8 @@ Bu sorunu çözmek için aşağıdaki adımları gerçekleştirin:
 
 1. Sunucuda Görev Yöneticisi'ni açın ve depolama eşitleme İzleyicisi (AzureStorageSyncMonitor.exe) işleminin çalıştığını doğrulayın. İşlem çalışmıyorsa önce sunucuyu yeniden başlatmayı deneyin. Sunucunun yeniden başlatılması sorunu çözmezse, Azure dosya eşitleme Aracısı sürüm yükseltme [3.3.0.0]( https://support.microsoft.com/help/4457484/update-rollup-for-azure-file-sync-agent-september-2018) henüz yüklü değilse.
 2. Güvenlik Duvarı ve Proxy ayarlarının doğru yapılandırıldığından doğrulayın:
-    - Sunucu bir güvenlik duvarının arkasındaysa, 443 giden bağlantı noktası izin verilen doğrulayın. Güvenlik Duvarı trafiği belirli etki alanlarına erişimi kısıtlıyorsa, Güvenlik Duvarı'nda listelenen etki alanları onaylayın [belgeleri](https://docs.microsoft.com/en-us/azure/storage/files/storage-sync-files-firewall-and-proxy#firewall) erişilebilir.
-    - Sunucu bir proxy'nin arkasındaysa, Proxy adımları izleyerek makineye veya uygulamaya özel proxy ayarlarını yapılandırın [belgeleri](https://docs.microsoft.com/en-us/azure/storage/files/storage-sync-files-firewall-and-proxy#proxy).
+    - Sunucu bir güvenlik duvarının arkasındaysa, 443 giden bağlantı noktası izin verilen doğrulayın. Güvenlik Duvarı trafiği belirli etki alanlarına erişimi kısıtlıyorsa, Güvenlik Duvarı'nda listelenen etki alanları onaylayın [belgeleri](https://docs.microsoft.com/azure/storage/files/storage-sync-files-firewall-and-proxy#firewall) erişilebilir.
+    - Sunucu bir proxy'nin arkasındaysa, Proxy adımları izleyerek makineye veya uygulamaya özel proxy ayarlarını yapılandırın [belgeleri](https://docs.microsoft.com/azure/storage/files/storage-sync-files-firewall-and-proxy#proxy).
 
 <a id="endpoint-noactivity-sync"></a>**Sunucu uç noktası "No etkinlik" sistem durumunu ve kayıtlı sunucuları dikey penceresinde sunucu durumu "Çevrimiçi"**  
 
@@ -343,7 +343,7 @@ Azure dosya eşitleme tarafından kullanılan iç veritabanı ile ilgili bir sor
 | **Hata dizesi** | ECS_E_AGENT_VERSION_BLOCKED |
 | **Düzeltme gerekli** | Evet |
 
-Sunucuda yüklü Azure dosya eşitleme aracısının sürümü desteklenmiyor, bu hata meydana gelir. Bu sorunu çözmek için [yükseltme]( https://docs.microsoft.com/en-us/azure/storage/files/storage-files-release-notes#upgrade-paths) için bir [aracı sürümü desteklenen]( https://docs.microsoft.com/en-us/azure/storage/files/storage-files-release-notes#supported-versions).
+Sunucuda yüklü Azure dosya eşitleme aracısının sürümü desteklenmiyor, bu hata meydana gelir. Bu sorunu çözmek için [yükseltme]( https://docs.microsoft.com/azure/storage/files/storage-files-release-notes#upgrade-paths) için bir [aracı sürümü desteklenen]( https://docs.microsoft.com/azure/storage/files/storage-files-release-notes#supported-versions).
 
 <a id="-2134351810"></a>**Azure dosya paylaşımı depolama sınırına.**  
 | | |

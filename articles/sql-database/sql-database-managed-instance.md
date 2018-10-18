@@ -11,13 +11,13 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 10/15/2018
-ms.openlocfilehash: aaffdb2f0d21dbb7a5baf029a90e452658c5bd31
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.date: 10/17/2018
+ms.openlocfilehash: e0a4e069995c1e905834ff541b3562140b6ab01c
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49353645"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49379018"
 ---
 # <a name="use-sql-database-managed-instance-with-virtual-networks-and-near-100-compatibility"></a>SQL veritabanı yönetilen örneği, sanal ağlarla ve neredeyse % 100 uyumluluk kullanın
 
@@ -30,7 +30,7 @@ Aşağıdaki diyagramda, yönetilen örnek temel özellikleri özetlenmektedir:
 
 ![anahtar özellikleri](./media/sql-database-managed-instance/key-features.png)
 
-ISV tam olarak yönetilen PaaS bulut ortamında, ortama mümkün olduğunca az geçiş çaba olarak sağlanan ya da Azure SQL veritabanı yönetilen örneği, şirket içi veya şirket içinde oluşturulmuş, Iaas, çok sayıda uygulamaları geçirmek isteyen müşteriler için tasarlanmıştır. Tam otomatik kullanarak [veri geçiş hizmeti (DMS)](../dms/tutorial-sql-server-to-managed-instance.md#create-an-azure-database-migration-service-instance) Azure'da müşteriler kaldırma ve kendi şirket içi SQL Server şirket içi SQL Server ve tam bir yalıtım olanağı ile uyumluluk sağlayan yönetilen örneğe kaydırma yerel sanal ağ ile müşteri örneği destekler.  Yazılım Güvencesi içeren mevcut lisanslarını kullanarak bir SQL veritabanı yönetilen örneği üzerinde indirimli fiyatlar için exchange [SQL Server için Azure hibrit kullanım teklifi](../virtual-machines/windows/hybrid-use-benefit-licensing.md).  SQL veritabanı yönetilen örneği, yüksek güvenlik ve zengin programlama yüzeyini gerektiren SQL Server örnekleri için bulutta en iyi geçiş hedef ' dir.
+ISV tam olarak yönetilen PaaS bulut ortamında, ortama mümkün olduğunca az geçiş çaba olarak sağlanan ya da Azure SQL veritabanı yönetilen örneği, şirket içi veya şirket içinde oluşturulmuş, Iaas, çok sayıda uygulamaları geçirmek isteyen müşteriler için tasarlanmıştır. Tam otomatik kullanarak [veri geçiş hizmeti (DMS)](../dms/tutorial-sql-server-to-managed-instance.md#create-an-azure-database-migration-service-instance) Azure'da müşteriler kaldırma ve kendi şirket içi SQL Server şirket içi SQL Server ve tam bir yalıtım olanağı ile uyumluluk sağlayan yönetilen örneğe kaydırma yerel sanal ağ ile müşteri örneği destekler.  Yazılım Güvencesi içeren mevcut lisanslarını kullanarak bir SQL veritabanı yönetilen örneği üzerinde indirimli fiyatlar için exchange [SQL Server için Azure hibrit avantajı](../virtual-machines/windows/hybrid-use-benefit-licensing.md).  SQL veritabanı yönetilen örneği, yüksek güvenlik ve zengin programlama yüzeyini gerektiren SQL Server örnekleri için bulutta en iyi geçiş hedef ' dir.
 
 Genel kullanılabilirlik tarafından hazırlanmış yayın planı aracılığıyla en son şirket içi SQL Server sürümü ile % 100 yüzey alanını uyumluluk yakın sunmak için yönetilen örneği amaçlar.
 
@@ -70,7 +70,7 @@ Yönetilen örnek temel özelliklerini, aşağıdaki tabloda gösterilmiştir:
 
 ## <a name="vcore-based-purchasing-model"></a>Sanal çekirdek tabanlı satın alma modeli
 
-[Sanal çekirdek tabanlı satın alma modeli](sql-database-service-tiers-vcore.md) yönetilen örneği'nde size esneklik, Denetim, saydamlık ve şirket içi iş yükü gereksinimlerini buluta çevirmek için basit bir yol sağlar. Bu model, işlem, bellek ve depolama iş yükü gereksinimlerinize göre değiştirmenizi sağlar. VCore modeli de ile yüzde 30 tasarruf için uygun yedekleme [SQL Server için Azure hibrit kullanım teklifi](../virtual-machines/windows/hybrid-use-benefit-licensing.md).
+[Sanal çekirdek tabanlı satın alma modeli](sql-database-service-tiers-vcore.md) yönetilen örneği'nde size esneklik, Denetim, saydamlık ve şirket içi iş yükü gereksinimlerini buluta çevirmek için basit bir yol sağlar. Bu model, işlem, bellek ve depolama iş yükü gereksinimlerinize göre değiştirmenizi sağlar. VCore modeli de ile yüzde 30 tasarruf için uygun yedekleme [SQL Server için Azure hibrit avantajı](../virtual-machines/windows/hybrid-use-benefit-licensing.md).
 
 Sanal çekirdek modeli içinde donanım Nesilleri arasında seçim yapabilirsiniz.
 

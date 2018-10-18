@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: roiyz
-ms.openlocfilehash: b4e2971b5bb4ed5add2e68c1aabbc82443a61160
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: 255fe84f0d155902b2a3ac477a1e677efef42bb4
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/17/2018
-ms.locfileid: "49363395"
+ms.locfileid: "49386669"
 ---
 # <a name="virtual-machine-extensions-and-features-for-linux"></a>Sanal makine uzantıları ve Linux için özellikleri
 
@@ -65,7 +65,7 @@ Uzantı paketleri Azure depolama uzantısı deposundan yüklenir ve uzantı duru
 > [!IMPORTANT]
 > Erişim engellenirse *168.63.129.1* Konuk Güvenlik Duvarı'nı kullanarak, daha sonra uzantıları yukarıdaki bağımsız olarak başarısız.
 
-Aracıları yalnızca uzantı paketleri ve raporlama durumu indirmek için kullanılabilir. Örneğin, bir uzantı yükleme (özel betik) Github'dan bir betik indirmeniz gerekiyor veya Azure depolama (Azure Backup) sonra erişim ek gerekirse Güvenlik Duvarı/güvenlik ağ Grup bağlantı noktaları açılması gerekir. Uygulamaları kendi sağ olduğundan farklı uzantılarına farklı gereksinimlere sahiptir. Azure depolama erişimi gerektiren uzantılar için Azure NSG hizmet etiketleri kullanarak erişim izni verebilirsiniz [depolama](https://docs.microsoft.com/en-us/azure/virtual-network/security-overview#service-tags).
+Aracıları yalnızca uzantı paketleri ve raporlama durumu indirmek için kullanılabilir. Örneğin, bir uzantı yükleme (özel betik) Github'dan bir betik indirmeniz gerekiyor veya Azure depolama (Azure Backup) sonra erişim ek gerekirse Güvenlik Duvarı/güvenlik ağ Grup bağlantı noktaları açılması gerekir. Uygulamaları kendi sağ olduğundan farklı uzantılarına farklı gereksinimlere sahiptir. Azure depolama erişimi gerektiren uzantılar için Azure NSG hizmet etiketleri kullanarak erişim izni verebilirsiniz [depolama](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags).
 
 Aracı trafiğini isteklerini yeniden yönlendirmek için Linux Aracısı, proxy sunucu desteği vardır. Ancak, bu proxy sunucu desteği uzantıları geçerli değildir. Ara sunucu ile çalışmak için tek tek her uzantı yapılandırmanız gerekir.
 
@@ -259,7 +259,7 @@ Yukarıdaki örnek çıktıda üst veya 'Paket sürümü dağıtılan' olduğu *
 
 'Hedef aracı durumu' otomatik güncelleştirme sürümüdür.
 
-Her zaman aracısı için otomatik güncelleştirme sahip önerilen [AutoUpdate.Enabled=y](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/update-agent). Değil aracıyı el ile güncelleştirme tutmanız gerekir yani etkinleştirilmiş olması ve hata ve güvenlik düzeltmeleri almak değil.
+Her zaman aracısı için otomatik güncelleştirme sahip önerilen [AutoUpdate.Enabled=y](https://docs.microsoft.com/azure/virtual-machines/linux/update-agent). Değil aracıyı el ile güncelleştirme tutmanız gerekir yani etkinleştirilmiş olması ve hata ve güvenlik düzeltmeleri almak değil.
 
 #### <a name="extension-updates"></a>Uzantı güncelleştirmeleri
 

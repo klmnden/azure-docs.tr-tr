@@ -11,22 +11,22 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: sashan, moslake
 manager: craigg
-ms.date: 10/15/2018
-ms.openlocfilehash: 52f49e0b590219c34750501ae85ccc0def572f44
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.date: 10/17/2018
+ms.openlocfilehash: ddb9e36775a815c07d40cecd61360c3e5b9c2611
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49352863"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49378780"
 ---
-# <a name="vcore-service-tiers-azure-hybrid-use-benefit-and-migration"></a>Sanal çekirdek hizmet katmanları, Azure hibrit kullanım teklifi ve geçiş
+# <a name="vcore-service-tiers-azure-hybrid-benefit-and-migration"></a>Sanal çekirdek hizmet katmanları, Azure hibrit avantajı ve geçiş
 
 Sanal çekirdek tabanlı satın alma modeli, bağımsız olarak işlem ve depolama kaynaklarının ölçeğini, aynı şirket içi performans ve fiyat iyileştirme sağlar. Ayrıca, donanımın seçmenize olanak sağlar:
 
 - Gen 4 - 24 mantıksal CPU en fazla alan Intel E5-2673 v3 (Haswell) 2,4 GHz işlemcileri, sanal çekirdek = 1 PP (fiziksel çekirdek), çekirdek başına 7 GB SSD bağlı
 - 80 mantıksal CPU en fazla 5 - Gen tabanlı Intel E5-2673 v4 (Broadwell) 2,3 GHz işlemcileri, sanal çekirdek = 1 LP (hiper iş parçacığı), 5.5. Çekirdek, hızlı eNVM SSD başına GB
 
-vCore modeli de kullanmanıza olanak verir [SQL Server için Azure hibrit kullanım teklifi](https://azure.microsoft.com/pricing/hybrid-benefit/) maliyet tasarrufu elde etmek için.
+vCore modeli de kullanmanıza olanak verir [SQL Server için Azure hibrit avantajı](https://azure.microsoft.com/pricing/hybrid-benefit/) maliyet tasarrufu elde etmek için.
 
 > [!NOTE]
 > DTU tabanlı hizmet katmanları hakkında daha fazla bilgi için bkz: [DTU tabanlı hizmet katmanları](sql-database-service-tiers-dtu.md). DTU tabanlı hizmet katmanları ve sanal çekirdek tabanlı hizmet katmanları ayrım yapma hakkında daha fazla bilgi için bkz: [Azure SQL veritabanı'nın satın alma modeli](sql-database-service-tiers.md).
@@ -58,9 +58,9 @@ Aşağıdaki tabloda, bu iki katmanı arasındaki farklar anlamanıza yardımcı
 
 Bkz: [SQL veritabanı SSS](sql-database-faq.md) sık sorulan soruların yanıtları için.
 
-## <a name="azure-hybrid-use-benefit"></a>Azure Hibrit Kullanım Teklifi
+## <a name="azure-hybrid-benefit"></a>Azure Hibrit Avantajı
 
-Sanal çekirdek tabanlı satın alma modeli, mevcut lisanslarınızı kullanarak SQL veritabanı üzerinde indirimli fiyatlar için exchange [SQL Server için Azure hibrit kullanım teklifi](../virtual-machines/windows/hybrid-use-benefit-licensing.md). Bu Azure avantajını Yazılım Güvencesi içeren şirket içi SQL Server lisanslarınızı kullanarak Azure SQL veritabanı'nda % 30 kaydetmek için şirket içi SQL Server lisanslarınızı kullanmanıza olanak tanır.
+Sanal çekirdek tabanlı satın alma modeli, mevcut lisanslarınızı kullanarak SQL veritabanı üzerinde indirimli fiyatlar için exchange [SQL Server için Azure hibrit avantajı](../virtual-machines/windows/hybrid-use-benefit-licensing.md). Bu Azure avantajını Yazılım Güvencesi içeren şirket içi SQL Server lisanslarınızı kullanarak Azure SQL veritabanı'nda % 30 kaydetmek için şirket içi SQL Server lisanslarınızı kullanmanıza olanak tanır.
 
 ![fiyatlandırma](./media/sql-database-service-tiers/pricing.png)
 
