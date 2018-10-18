@@ -8,12 +8,12 @@ ms.component: speech-service
 ms.topic: tutorial
 ms.date: 06/25/2018
 ms.author: panosper
-ms.openlocfilehash: 01a386d37841c78e4aae96111e4671ec33b87e00
-ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
+ms.openlocfilehash: d74a5ded7d86969b3ca2cc20a59ddc20af7dc932
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48017560"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49364124"
 ---
 # <a name="tutorial-create-a-custom-language-model"></a>Öğretici: Özel dil modeli oluşturma
 
@@ -98,8 +98,6 @@ Eylem gerçekleştirilmeden önce uygun dil ayarının seçilmesi gerekir. Geçe
 Create Language Model (Dil Modeli Oluştur) sayfasında kullanılan veri kümesi gibi bu modelle ilgili bilgileri izlemenize yardımcı olacak **Name** (Ad) ve **Description** (Açıklama) bilgilerini girin. Ardından açılan menüden **Base Language Model** (Temel Dil Modeli) öğesini seçin. Bu model, özelleştirme işlemlerinizin başlangıç noktasıdır. 
 
 İki temel dil modelinden birini seçebilirsiniz. Search and Dictation modeli; komutlar, arama sorguları veya dikte gibi bir uygulamaya yönlendirilen konuşmalar için uygundur. Conversational modeli, günlük konuşma tarzındaki konuşmaları tanımak için uygundur. Bu konuşma türü genelde başka bir kişiye hitaben yapılır ve çağrı merkezlerinde veya toplantılarda kullanılır. 
-
-"Create Language Model" (Dil Modeli Oluştur) sayfasında kullanılan veri kümesi gibi bu modelle ilgili bilgileri izlemenize yardımcı olacak **Name** (Ad) ve **Description** (Açıklama) bilgilerini girin. Ardından açılan menüden **Base Language Model** (Temel Dil Modeli) öğesini seçin. Bu model, özelleştirme işlemlerinizin başlangıç noktasıdır. İki temel dil modelinden birini seçebilirsiniz. 
 
 Search and Dictation modeli; komutlar, arama sorguları veya dikte gibi bir uygulamaya yönlendirilen konuşmalar için uygundur. Conversational modeli, günlük konuşma tarzındaki konuşmaları tanımak için uygundur. Bu konuşma türü genelde başka bir kişiye hitaben yapılır ve çağrı merkezlerinde veya toplantılarda kullanılır. "Universal" adlı yeni bir model de genel kullanıma sunulmuştur. Universal, tüm senaryoları kapsamayı hedeflemektedir ve ileride Search and Dictation ile Conversational modellerinin yerini alacaktır.
 

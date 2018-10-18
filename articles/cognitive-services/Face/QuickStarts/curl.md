@@ -3,19 +3,19 @@ title: 'Hızlı Başlangıç: Bir görüntüdeki yüzleri algılama - Yüz Tanı
 titleSuffix: Azure Cognitive Services
 description: Bu hızlı başlangıçta, cURL ile Yüz Tanıma API’sini kullanarak bir görüntüdeki yüzleri algılayacaksınız.
 services: cognitive-services
-author: noellelacharite
+author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: face-api
 ms.topic: quickstart
 ms.date: 05/10/2018
-ms.author: nolachar
-ms.openlocfilehash: 9ae8135481eb44e3b4b876fd4916e78a41c65042
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.author: pafarley
+ms.openlocfilehash: da18b7b3666863742f987b2ee0da297c0838d266
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46121934"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49343070"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-curl"></a>Hızlı Başlangıç: cURL kullanarak bir görüntüdeki yüzleri algılama
 

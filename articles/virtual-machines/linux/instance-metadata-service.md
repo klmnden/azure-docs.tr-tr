@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 10/10/2017
 ms.author: harijayms
-ms.openlocfilehash: 1f2c8233e0385c58df66703f3611c51072f7118a
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 9cd388bf231bce547f4d9aca474e93bf6753d134
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49341801"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49386714"
 ---
 # <a name="azure-instance-metadata-service"></a>Azure örnek meta veri hizmeti
 
@@ -76,8 +76,8 @@ Aşağıdaki tablo, diğer veri biçimlerini API'leri destekleyebilir bir başvu
 
 API | Varsayılan veri biçimi | Diğer biçimler
 --------|---------------------|--------------
-/instance | json | metin
-/scheduledevents | json | yok
+/instance | JSON | metin
+/scheduledevents | JSON | yok
 
 Varsayılan olmayan yanıt biçimi erişmek için istenen biçimi istek sorgu dizesi parametresi olarak belirtin. Örneğin:
 
@@ -299,8 +299,8 @@ subscriptionId | Sanal makine için Azure aboneliği | 2017-08-01
 etiketler | [Etiketleri](../../azure-resource-manager/resource-group-using-tags.md) sanal makineniz için  | 2017-08-01
 resourceGroupName | [Kaynak grubu](../../azure-resource-manager/resource-group-overview.md) sanal makineniz için | 2017-08-01
 placementGroupId | [Yerleştirme grubu](../../virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups.md) , sanal makine ölçek kümesi | 2017-08-01
-plan | [Planı] (https://docs.microsoft.com/en-us/rest/api/compute/virtualmachines/createorupdate#plan) Azure Market görüntüsü içindeki bir VM için adı, ürün ve yayımcı içerir. | 2017-04-02
-publicKeys | Ortak anahtarlar koleksiyonunu [https://docs.microsoft.com/en-us/rest/api/compute/virtualmachines/createorupdate#sshpublickey] VM ve yolları atanan | 2017-04-02
+plan | [Planı] (https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#plan) Azure Market görüntüsü içindeki bir VM için adı, ürün ve yayımcı içerir. | 2017-04-02
+publicKeys | Ortak anahtarlar koleksiyonunu [https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#sshpublickey] VM ve yolları atanan | 2017-04-02
 vmScaleSetName | [Sanal makine ölçek kümesi adı] (.. /.. / virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md), sanal makine ölçek kümesi | 2017-12-01
 bölge | [Kullanılabilirlik alanı](../../availability-zones/az-overview.md) sanal makinenizin | 2017-12-01 
 IPv4/Privateıpaddress | Sanal makinenin yerel IPv4 adresi | 2017-04-02

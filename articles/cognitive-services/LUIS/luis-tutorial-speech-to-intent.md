@@ -1,102 +1,102 @@
 ---
 title: LUIS ile Konuşma C# SDK'sını kullanma
 titleSuffix: Azure Cognitive Services
-description: Konuşma hizmeti ses almak ve JSON nesneleri LUIS tahmin dönmek için tek bir istek kullanmanıza olanak tanır. Bu makalede, indirin ve bir mikrofona bir utterance konuşmak ve LUIS tahmin bilgi almak için Visual Studio'da C# projesi kullanın. Proje zaten bir başvuru olarak dahil konuşma NuGet paketini kullanır.
+description: Konuşma hizmeti tek bir istek kullanarak ses almanızı ve JSON nesneleriyle LUIS tahmini döndürmenizi sağlar. Bu makalede bir C# projesi indirip Visual Studio'da kullanarak mikrofona konuşacak ve LUIS tahmin bilgilerini alacaksınız. Bu projede Konuşma NuGet paketi kullanılmaktadır ve bu paket başvuru olarak projeye eklenmiştir.
 services: cognitive-services
 author: diberry
 manager: cgronlun
 ms.service: cognitive-services
-ms.technology: language-understanding
-ms.topic: article
+ms.component: language-understanding
+ms.topic: tutorial
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: fb17e2d8c0ef1df5a6d4965730d3ddd3764d58f5
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
-ms.translationtype: MT
+ms.openlocfilehash: f98d640f032fed5f91df8e9d4fb55d3f20550339
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48868760"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48883933"
 ---
-# <a name="integrate-speech-service"></a>Konuşma hizmeti tümleştirin
-[Konuşma hizmeti](https://docs.microsoft.com/azure/cognitive-services/Speech-Service/) ses almak ve JSON nesneleri LUIS tahmin dönmek için tek bir istek kullanmanıza olanak tanır. Bu makalede, indirin ve bir mikrofona bir utterance konuşmak ve LUIS tahmin bilgi almak için Visual Studio'da C# projesi kullanın. Konuşma kullandığından [NuGet](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech/) paket, bir başvuru olarak zaten eklendi. 
+# <a name="integrate-speech-service"></a>Konuşma hizmetini tümleştirme
+[Konuşma hizmeti](https://docs.microsoft.com/azure/cognitive-services/Speech-Service/) tek bir istek kullanarak ses almanızı ve JSON nesneleriyle LUIS tahmini döndürmenizi sağlar. Bu makalede bir C# projesi indirip Visual Studio'da kullanarak mikrofona konuşacak ve LUIS tahmin bilgilerini alacaksınız. Bu projede Konuşma [NuGet](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech/) paketi kullanılmaktadır ve bu paket başvuru olarak projeye eklenmiştir. 
 
-Bu makale için ücretsiz bir gereksinim [LUIS] [ LUIS] uygulamayı içeri aktarmak için Web sitesi hesabı.
+Bu makalede uygulamayı içeri aktarmak için ücretsiz bir [LUIS][LUIS] web sitesi hesabına ihtiyacınız olacak.
 
 ## <a name="create-luis-endpoint-key"></a>LUIS uç nokta anahtarı oluşturma
-Azure portalında [oluşturma](luis-how-to-azure-subscription.md#create-luis-endpoint-key) bir **Language Understanding** (LUIS) anahtarı. 
+Azure portalda bir **Language Understanding** (LUIS) anahtarı [oluşturun](luis-how-to-azure-subscription.md#create-luis-endpoint-key). 
 
-## <a name="import-human-resources-luis-app"></a>İnsan Kaynakları LUIS alma uygulaması
-İnsan Kaynakları LUIS uygulaması kullanılabilir amacı ve bu makalede konuşma arasındadır [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples) Github deposu. İndirme [HumanResources.json](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/HumanResources.json) ile kaydetmek bir dosya `.json` uzantısı ve [alma](luis-how-to-start-new-app.md#import-new-app) LUIS içine. 
+## <a name="import-human-resources-luis-app"></a>İnsan Kaynakları LUIS uygulamasını içeri aktarma
+Bu makaledeki amaçlar ve konuşmalar, İnsan Kaynakları LUIS uygulamasından alınmıştır. Uygulamaya [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples) Github deposundan ulaşabilirsiniz. [HumanResources.json](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/HumanResources.json) dosyasını indirin, `.json` uzantısıyla kaydedin ve LUIS'e [aktarın](luis-how-to-start-new-app.md#import-new-app). 
 
-Bu uygulamanın amacı, varlıkları ve İnsan Kaynakları etki ilgili konuşma yok. Örnek konuşma şunlardır:
+Bu uygulamada İnsan Kaynakları alanıyla ilgili amaçlar, varlıklar ve konuşmalar bulunur. Örnek konuşmalar şunlardır:
 
 |Örnek konuşmalar|
 |--|
-|John Smith'in manager kimdir?|
-|John Smith yöneten?|
-|Form 123456 nerede?|
-|Ücretli dilediğiniz zaman zorundayım?|
+|Who is John Smith's manager? (John Smith'in yöneticisi kim?)|
+|Who does John Smith manage? (John Smith kimleri yönetiyor?)|
+|Where is Form 123456? (Form 123456 nerede?)|
+|Do I have any paid time off? (Ücretli iznim var mı?)|
 
 
-## <a name="add-keyphrase-prebuilt-entity"></a>Anahtar cümlesi ekleyin önceden oluşturulmuş varlık
-Uygulamayı aldıktan sonra Seç **varlıkları**, ardından **önceden oluşturulmuş varlıklarla yönetme**. Ekleme **anahtar cümlesi** varlık. Anahtar cümlesi varlık anahtar konuya utterance ayıklar.
+## <a name="add-keyphrase-prebuilt-entity"></a>Önceden oluşturulan KeyPhrase varlığını ekleme
+Uygulamayı içeri aktardıktan sonra **Entities** (Varlıklar) ve ardından **Manage prebuilt entities** (Önceden oluşturulan varlıkları yönet) öğesini seçin. **KeyPhrase** varlığını ekleyin. KeyPhrase varlığı konuşmadaki önemli konuları ayıklar.
 
 ## <a name="train-and-publish-the-app"></a>Uygulamayı eğitme ve yayımlama
-1. Üst, sağ gezinti çubuğunda **eğitme** LUIS uygulaması geliştirmek için düğme.
+1. Yukarıda, sağ taraftaki gezinti çubuğunda bulunan **Train** (Eğit) düğmesini seçerek LUIS uygulamasını eğitin.
 
-2. Seçin **Yönet** çubuğunun sağ üst bölümde seçip **anahtarları ve uç noktaları** sol gezinti bölmesinde. 
+2. Sağ üst çubuktan **Manage** (Yönet) ve ardından sol taraftan **Keys and endpoints** (Anahtarlar ve uç noktalar) öğesini seçin. 
 
-3. Üzerinde **anahtarları ve uç noktaları** sayfasında, oluşturduğunuz LUIS tuşu atama [oluşturma LUIS uç noktası anahtarı](#create-luis-endpoint-key) bölümü.
+3. **Keys and endpoints** (Anahtarlar ve uç noktalar) sayfasında [LUIS uç nokta anahtarı oluşturma](#create-luis-endpoint-key) bölümünde oluşturulan LUIS anahtarını atayın.
 
-  Uygulama Kimliği bu sayfada toplamak, yayımlama bölge ve abonelik kimliği LUIS anahtarın oluşturulduğu [oluşturma LUIS uç noktası anahtarı](#create-luis-endpoint-key) bölümü. Bu makalenin sonraki bölümlerinde bu değerleri kullanmak için kodu değiştirmeniz gerekir. 
+  Bu sayfada [LUIS uç nokta anahtarı oluşturma](#create-luis-endpoint-key) bölümünde oluşturulan LUIS anahtarının uygulama kimliği, yayımlama bölgesi ve abonelik kimliğini alın. Makalenin ilerleyen bölümlerinde kodu değiştirerek bu değerleri kullanacaksınız. 
   
-  Yapmak **değil** bu alıştırma için ücretsiz başlangıç anahtarı kullanın. Yalnızca bir **Language Understanding** Azure portalında oluşturulan anahtarı bu alıştırma için çalışır. 
+  Bu alıştırma için ücretsiz başlangıç anahtarını **kullanmayın**. Bu alıştırmada yalnızca Azure portalda oluşturulan bir **Language Understanding** anahtarı kullanılabilir. 
 
-  https://**bölge**.api.cognitive.microsoft.com/luis/v2.0/apps/**APPID**? abonelik anahtarı =**LUISKEY**& q =
+  https://**BÖLGE**.api.cognitive.microsoft.com/luis/v2.0/apps/**UYGULAMAKİMLİĞİ**?subscription-key=**LUISANAHTARI**&q=
 
 
-4. Seçerek LUIS uygulaması yayımlama **Yayımla** çubuğunun sağ üst köşesindeki düğme. 
+4. Sağ üst bölümde bulunan **Publish** (Yayımla) düğmesini seçerek LUIS uygulamasını yayımlayın. 
 
 ## <a name="audio-device"></a>Ses cihazı
-Bu makalede, bilgisayarınızda ses cihazı kullanılmıştır. Kulaklık mikrofon veya yerleşik bir ses cihazı olabilir. Ses giriş düzeylerini ses cihazı tarafından algılanan konuşma için normalde çok daha yüksek sesle konuşurken, görmek için kontrol edin. 
+Bu makalede bilgisayarınızdaki ses cihazı kullanılmaktadır. Bu mikrofonlu kulaklık veya yerleşik ses cihazı olabilir. Ses giriş düzeylerini inceleyin ve konuşmanızın ses cihazı tarafından algılanması için gerekirse normalden yüksek sesle konuşun. 
 
-## <a name="download-the-luis-sample-project"></a>LUIS örnek projeyi indirin
- Kopyala veya indir [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples) depo. Açık [konuşma niyetini projesine](https://github.com/Microsoft/LUIS-Samples/tree/master/documentation-samples/tutorial-speech-intent-recognition) Visual Studio ile ve NuGet paketlerini geri yükleyin. VS çözüm.\LUIS-Samples-master\documentation-samples\tutorial-speech-intent-recognition\csharp\csharp_samples.sln dosyasıdır.
+## <a name="download-the-luis-sample-project"></a>LUIS Örnek projesini indirme
+ [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples) deposunu kopyalayın veya indirin. [Speech to intent project](https://github.com/Microsoft/LUIS-Samples/tree/master/documentation-samples/tutorial-speech-intent-recognition) projesini Visual Studio ile açın ve NuGet paketlerini geri yükleyin. VS çözüm dosyasının yolu: .\LUIS-Samples-master\documentation-samples\tutorial-speech-intent-recognition\csharp\csharp_samples.sln.
 
-Speech SDK'sı zaten bir başvuru olarak dahil edilir. 
+Konuşma SDK'sı başvuru olarak eklenmiştir. 
 
-[![](./media/luis-tutorial-speech-to-intent/nuget-package.png "Visual Studio 2017 ekran görüntüleme Microsoft.CognitiveServices.Speech NuGet paketi")](./media/luis-tutorial-speech-to-intent/nuget-package.png#lightbox)
+[![](./media/luis-tutorial-speech-to-intent/nuget-package.png "Microsoft.CognitiveServices.Speech NuGet paketini gösteren Visual Studio 2017 ekran görüntüsü")](./media/luis-tutorial-speech-to-intent/nuget-package.png#lightbox)
 
-## <a name="modify-the-c-code"></a>C# kodu değiştirin
-Açık `Program.cs` dosyasını açıp aşağıdaki değişkenleri değiştirin:
+## <a name="modify-the-c-code"></a>C# kodunu değiştirme
+`Program.cs` dosyasını açın ve aşağıdaki değişkenleri değiştirin:
 
 |Değişken adı|Amaç|
 |--|--|
-|LUIS_assigned_endpoint_key|Uç nokta URL'SİNİN Yayımla sayfasından aboneliği-anahtar değer atanmış karşılık gelir|
-|LUIS_endpoint_key_region|Uç nokta URL'SİNİN ilk alt etki alanı için örneğin karşılık gelir `westus`|
-|LUIS_app_ID|Uç nokta URL'SİNİN yol aşağıdaki karşılık gelen **uygulamalar /**|
+|LUIS_assigned_endpoint_key|Publish (Yayımla) sayfasındaki uç nokta URL'sine atanan abonelik anahtarı değerini gösterir|
+|LUIS_endpoint_key_region|URL'nin ilk alt etki alanını gösterir, örneğin: `westus`|
+|LUIS_app_ID|Uç nokta URL'si yolunun **apps/** sonrasını gösterir|
 
-`Program.cs` Dosyası zaten eşlenmiş İnsan Kaynakları hedefleri sahiptir.
+`Program.cs` dosyasına İnsan Kaynakları amaçları eşlenmiştir.
 
-Derleme ve uygulamayı çalıştırın. 
+Uygulamayı derleyin ve çalıştırın. 
 
-## <a name="test-code-with-utterance"></a>Utterance koduyla test
-Mikrofona "Redmond'da onaylanan diş hekimi kim?".
+## <a name="test-code-with-utterance"></a>Kodu konuşmayla test etme
+Mikrofona "Who are the approved dentists in Redmond?" (Redmond'daki onaylı diş hekimleri hangileri?) deyin.
 
 [!code-console[Command line response from spoken utterance](~/samples-luis/documentation-samples/tutorial-speech-intent-recognition/console-output.txt "Command line response from spoken utterance")]
 
-Doğru amaç **GetEmployeeBenefits**, % 85'lik güvenle bulundu. Anahtar cümlesi varlık döndürdü. 
+Doğru amaç olan **GetEmployeeBenefits**, %85 güvenilirlik puanıyla bulundu. keyPhrase varlığı döndürüldü. 
 
-Speech SDK'sı LUIS yanıtın tamamını döndürür. 
+Konuşma SDK'sı, LUIS yanıtının tamamını döndürür. 
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
-LUIS İnsanKaynakları uygulamayı artık gerekli değilse silin. Bunu yapmak için uygulamayı seçin ve ardından listesinin üst bağlamsal araç çubuğunda, **Sil**. Açılan **Delete app?** (Uygulama silinsin mi?) iletişim kutusunda **Ok** (Tamam) öğesini seçin.
+İhtiyacınız kalmadıysa LUIS HumanResources uygulamasını silebilirsiniz. Bunu yapmak için uygulamayı seçin ve listenin üzerindeki bağlam araç çubuğunda **Delete** (Sil) öğesini seçin. Açılan **Delete app?** (Uygulama silinsin mi?) iletişim kutusunda **Ok** (Tamam) öğesini seçin.
 
-İşiniz bittiğinde LUIS örnekler dizini silmeyi unutmayın örnek kodu kullanarak.
+Örnek kodla işiniz bittiğinde LUIS-Samples dizinini silmeyi unutmayın.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 > [!div class="nextstepaction"]
-> [LUIS bir BOT ile tümleştirme](luis-csharp-tutorial-build-bot-framework-sample.md)
+> [LUIS’i bir BOT ile tümleştirme](luis-csharp-tutorial-build-bot-framework-sample.md)
 
 [LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#luis-website

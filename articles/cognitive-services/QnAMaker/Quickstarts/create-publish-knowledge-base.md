@@ -1,75 +1,75 @@
 ---
-title: 'Hızlı Başlangıç: bir KB - soru-cevap Oluşturucu Oluşturma'
+title: 'Hızlı başlangıç: KB Oluşturma - Soru-Cevap Oluşturma'
 titleSuffix: Azure Cognitive Services
-description: Kendi içeriğinden SSS veya ürün kılavuzlarını gibi bir soru-cevap Oluşturucu Bilgi Bankası (KB) oluşturabilirsiniz. Bu örnekte soru-cevap Oluşturucu KB BitLocker anahtar kurtarma ilgili soruları yanıtlamak için basit bir SSS Web oluşturulur.
+description: SSS sayfaları veya ürün kılavuzları gibi sahip olduğunuz içerikleri kullanarak bir Soru-Cevap Oluşturma bilgi bankası (KB) oluşturabilirsiniz. Bu örnekteki Soru-Cevap Oluşturma KB BitLocker anahtarı kurtarma sorularının yer aldığı basit bir SSS web sayfasından oluşturulmuştur.
 author: diberry
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
-ms.topic: article
+ms.topic: quickstart
 ms.date: 09/12/2018
 ms.author: diberry
-ms.openlocfilehash: f7af86687a8a61fb7aed028d2868752faaa8045a
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
-ms.translationtype: MT
+ms.openlocfilehash: 85b4630492d5f5b3fb71d563b0947d8a72ae4e1d
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47030263"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48886591"
 ---
-# <a name="create-train-and-publish-your-knowledge-base"></a>Oluşturmak, eğitmek ve, Bilgi Bankası yayımlama
+# <a name="quickstart-create-train-and-publish-your-knowledge-base"></a>Hızlı başlangıç: Bilgi bankanızı oluşturma, eğitme ve yayımlama
 
-Kendi içeriğinden SSS veya ürün kılavuzlarını gibi bir soru-cevap Oluşturucu Bilgi Bankası (KB) oluşturabilirsiniz. Bu örnekte soru-cevap Oluşturucu KB BitLocker anahtar kurtarma ilgili soruları yanıtlamak için basit bir SSS Web oluşturulur.
+SSS sayfaları veya ürün kılavuzları gibi sahip olduğunuz içerikleri kullanarak bir Soru-Cevap Oluşturma bilgi bankası (KB) oluşturabilirsiniz. Bu örnekteki Soru-Cevap Oluşturma KB BitLocker anahtarı kurtarma sorularının yer aldığı basit bir SSS web sayfasından oluşturulmuştur.
 
 ## <a name="prerequisite"></a>Önkoşul
 
 > [!div class="checklist"]
 > * Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 
-## <a name="create-a-qna-maker-knowledge-base"></a>Soru-cevap Oluşturucu Bilgi Bankası oluşturma
+## <a name="create-a-qna-maker-knowledge-base"></a>Soru-Cevap Oluşturma bilgi bankası oluşturma
 
-1. QnAMaker.ai için Azure kimlik bilgilerinizle oturum açın.
+1. Azure kimlik bilgilerinizi kullanarak QnAMaker.ai adresinde oturum açın.
 
-2. Soru-cevap Oluşturucu Web sitesinde seçin **Bilgi Bankası oluşturma**.
+2. Soru-Cevap Oluşturma web sitesinde **Create a knowledge base** (Bilgi bankası oluştur) öğesini seçin.
 
    ![Yeni KB oluşturma](../media/qna-maker-create-kb.png)
 
-3. Üzerinde **Oluştur** sayfasındaki adım 1, select **soru-cevap hizmeti oluşturma**. Yönlendirilirsiniz [Azure portalında](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesQnAMaker) bir soru-cevap Oluşturucu hizmeti aboneliğinizi ayarlamak için. Azure portalı zaman aşımına uğrarsa seçin **deneyin** sitesinde. Bağlandıktan sonra Azure panonuza görünür.
+3. **Create** (Oluştur) sayfasındaki 1. adımda **Create a QnA service** (Soru-Cevap hizmeti oluştur) öğesini seçin. Aboneliğinizde bir Soru-Cevap Oluşturma hizmeti ayarlamak için [Azure portala](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesQnAMaker) yönlendirilirsiniz. Azure portal zaman aşımına uğrarsa sitede **Try again** (Yeniden deneyin) öğesini seçin. Bağlantı kurulduktan sonra Azure panonuz görünür.
 
-4. Azure'da yeni bir soru-cevap Oluşturucu hizmeti başarıyla oluşturduktan sonra qnamaker.ai/create için döndürür. 2. adımda aşağı açılan listelerden soru-cevap hizmetinizi seçin. Yeni bir soru-cevap hizmet oluşturduysanız, sayfayı yenileyin emin olun.
+4. Azure'da yeni bir Soru-Cevap Oluşturma hizmetini başarıyla oluşturduktan sonra qnamaker.ai/create sayfasına geri dönün. 2. adımdaki açılan listelerden Soru-Cevap hizmetinizi seçin. Yeni bir Soru-Cevap hizmeti oluşturduysanız sayfayı yenilemeyi unutmayın.
 
-   ![Soru-cevap hizmeti KB seçin](../media/qnamaker-quickstart-kb/qnaservice-selection.png)
+   ![Soru-Cevap hizmeti KB seçme](../media/qnamaker-quickstart-kb/qnaservice-selection.png)
 
-5. 3. adımda, KB ad **My örnek soru-cevap KB**.
+5. 3. adımda KB'nize **My Sample QnA KB** adını verin.
 
-6. İçerik, KB olarak eklemek için üç türde veri kaynaklarını seçin. 4, altında adımda **, KB doldurmak**, ekleme [BitLocker kurtarma SSS](https://docs.microsoft.com/en-us/windows/security/information-protection/bitlocker/bitlocker-overview-and-requirements-faq) URL'de **URL** kutusu.
+6. KB'nize içerik eklemek için üç veri kaynağı türü seçin. 4. adımdaki **Populate your KB** (KB'nizi doldurun) bölümünde **URL** kutusuna [BitLocker Kurtarma Hakkında SSS](https://docs.microsoft.com/en-us/windows/security/information-protection/bitlocker/bitlocker-overview-and-requirements-faq) sayfasının URL'sini girin.
 
-   ![Soru-cevap hizmeti KB seçin](../media/qnamaker-quickstart-kb/add-datasources.png)
+   ![Soru-Cevap hizmeti KB seçme](../media/qnamaker-quickstart-kb/add-datasources.png)
 
-7. 5. adımda seçin **, KB oluşturma**.
+7. 5. adımda **Create your KB** (KB'nizi oluşturun) öğesini seçin.
 
-8. KB oluşturulurken, bir açılır pencere görüntülenir. Ayıklama işlemi HTML sayfasını okuyun ve sorular ve cevaplar tanımlamak için birkaç dakika sürer.
+8. KB oluşturulurken bir açılır pencere görüntülenir. Ayıklama işleminin HTML sayfasını okuyup soruları ve yanıtları tanımlaması birkaç dakika sürer.
 
-9. KB başarıyla oluşturulduktan sonra **Bilgi Bankası** sayfası açılır. Bu sayfadaki KB içeriğini düzenleyebilirsiniz.
+9. KB başarıyla oluşturulduktan sonra **Knowledge base** (Bilgi bankası) sayfası açılır. Bu sayfada KB içeriğini düzenleyebilirsiniz.
 
-10. Sağ üst köşede seçin **ekleme soru-cevap çifti** yeni bir satır eklemek için **editoryal** KB'lık bölümü. Altında **soru**, girin **Merhaba.** Altında **yanıt**, girin **Merhaba. Bitlocker Soru Sor.**
+10. Sağ üst köşeden **Add QnA pair** (Soru-Cevap çifti ekle) öğesine tıklayarak KB'nin **Editorial** (Düzenleme) bölümüne yeni bir satır ekleyin. **Question** (Soru) bölümüne **Hi** (Merhaba) yazın. **Answer** (Cevap) bölümüne **Hello. Ask me bitlocker questions.** (Merhaba. Bana BitLocker ile ilgili sorular sor.) yazın.
 
-   ![Soru-cevap çifti Ekle](../media/qnamaker-quickstart-kb/add-qna-pair.png)
+   ![Soru-Cevap çifti ekleme](../media/qnamaker-quickstart-kb/add-qna-pair.png)
 
-11. Sağ üst köşede seçin **kaydedin ve eğitme** yaptığınız düzenlemeleri kaydetmek ve soru-cevap Oluşturucu modeli eğitmek için. Kayıtlı sürece düzenlemeleri tutulan değildir.
+11. Sağ üst köşeden **Save and train** (Kaydet ve eğit) öğesine tıklayarak yaptığınız düzenlemeleri kaydedin ve Soru-Cevap Oluşturma modelinizi eğitin. Kaydedilmeyen düzenlemeler silinir.
 
-   ![Kaydet ve eğitme](../media/qnamaker-quickstart-kb/add-qna-pair2.png)
+   ![Kaydet ve eğit](../media/qnamaker-quickstart-kb/add-qna-pair2.png)
 
-12. Sağ üst köşede seçin **Test** yaptığınız değişiklikleri etkili geçen test etmek için. ENTER **Merhaba var.** kutusunda ve Enter'ı seçin. Oluşturduğunuz yanıt bir yanıt görmeniz gerekir.
+12. Sağ üst köşeden **Test**'i seçerek yaptığınız değişikliklerin geçerli olup olmadığını test edin. Kutuya **hi there** (merhaba) yazıp Enter tuşuna basın. Yanıt olarak oluşturduğunuz cevabı almanız gerekir.
 
-13. Seçin **inceleyin** yanıt daha ayrıntılı incelemek için. Test penceresi, bunlar yayımlamadan önce değişikliklerinizi KB test etmek için kullanılır.
+13. Yanıtı daha ayrıntılı bir şekilde incelemek için **Inspect** (Denetle) öğesini seçin. Test penceresini kullanarak KB'yi yayımlamadan önce yaptığınız değişiklikleri test edebilirsiniz.
 
-   ![Test paneli](../media/qnamaker-quickstart-kb/inspect-panel.png)
+   ![Test Paneli](../media/qnamaker-quickstart-kb/inspect-panel.png)
 
-14. Seçin **Test** kapatmak için tekrar **Test** açılır.
+14. **Test**'i tekrar seçerek **Test** penceresini kapatın.
 
-15. Yanındaki menüde **Düzenle**seçin **Yayımla**. Onaylamak için ardından **Yayımla** sayfasında.
+15. **Edit** (Düzenle) öğesinin yanındaki menüde **Publish** (Yayımla) öğesini seçin. Ardından onaylamak için sayfadaki **Publish** (Yayımla) öğesini seçin.
 
-16. Soru-cevap Oluşturucu hizmetini şimdi başarıyla yayımlandı. Uç nokta uygulama ya da bot kodu kullanabilirsiniz.
+16. Soru-Cevap Oluşturma hizmeti başarıyla yayımlandı. Uç noktayı uygulamanızda veya bot kodunuzda kullanabilirsiniz.
 
    ![Yayımlama](../media/qnamaker-quickstart-kb/publish-sucess.png)
 

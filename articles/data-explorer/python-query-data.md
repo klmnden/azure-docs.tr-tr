@@ -2,18 +2,18 @@
 title: 'Hızlı başlangıç: Azure Veri Gezgini Python kitaplığını kullanarak verileri sorgulama'
 description: Bu hızlı başlangıçta, Python kullanarak Azure Veri Gezgini'ndeki verileri sorgulamayı öğreneceksiniz.
 services: data-explorer
-author: mgblythe
-ms.author: mblythe
+author: orspod
+ms.author: v-orspod
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 09/24/2018
-ms.openlocfilehash: fee982812456548ed6d1e15d86151df88532389f
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 17504cec6ddf98aca8ddfc6c91d21d34055902f6
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46956107"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49394865"
 ---
 # <a name="quickstart-query-data-using-the-azure-data-explorer-python-library"></a>Hızlı başlangıç: Azure Veri Gezgini Python kitaplığını kullanarak verileri sorgulama
 
@@ -32,7 +32,7 @@ Bu hızlı başlangıç bir [Azure Not Defteri](https://notebooks.azure.com/Mano
 *azure-kusto-data*'yı yükleyin.
 
 ```python
-pip install azure-kusto-data
+pip install azure-kusto-data==0.0.13
 ```
 
 ## <a name="add-import-statements-and-constants"></a>İçeri aktarma deyimlerini ve sabitlerini ekleme
@@ -42,6 +42,7 @@ Kitaplıktan sınıfları ve ayrıca bir veri analizi kitaplığı olan *pandas*
 ```python
 from azure.kusto.data.request import KustoClient, KustoConnectionStringBuilder
 from azure.kusto.data.exceptions import KustoServiceError
+from azure.kusto.data.helpers import dataframe_from_result_table
 import pandas as pd
 ```
 
@@ -51,10 +52,10 @@ Azure Veri Gezgini uygulamanın kimliğini doğrulamak için AAD kiracı kimliğ
 https://login.windows.net/<YourDomain>/.well-known/openid-configuration/
 ```
 
-Örneğin, etki alanınız *contoso.com* olduğunda URL şöyle olur: [https://login.windows.net/contoso.com/.well-known/openid-configuration/](https://login.windows.net/contoso.com/.well-known/openid-configuration/). Sonuçları görmek için bu URL'ye tıklayın; ilk satır aşağıdaki gibidir. 
+Örneğin, etki alanınız *contoso.com* olduğunda URL şöyle olur: [https://login.windows.net/contoso.com/.well-known/openid-configuration/](https://login.windows.net/contoso.com/.well-known/openid-configuration/). Sonuçları görmek için bu URL'ye tıklayın; ilk satır aşağıdaki gibidir.
 
 ```
-`"authorization_endpoint":"https://login.windows.net/6babcaad-604b-40ac-a9d7-9fd97c0b779f/oauth2/authorize"`
+"authorization_endpoint":"https://login.windows.net/6babcaad-604b-40ac-a9d7-9fd97c0b779f/oauth2/authorize"
 ```
 
 Bu örnekte kiracı kimliği `6babcaad-604b-40ac-a9d7-9fd97c0b779f` değeridir. Bu kodu çalıştırmadan önce AAD_TENANT_ID değerini ayarlayın.
@@ -80,7 +81,7 @@ Kümede bir sorgu yürütün ve çıkışı bir veri çerçevesinde depolayın. 
 KUSTO_CLIENT  = KustoClient(KCSB)
 KUSTO_QUERY  = "StormEvents | sort by StartTime desc | take 10"
 
-df = KUSTO_CLIENT.execute_query(KUSTO_DATABASE, KUSTO_QUERY).primary_results[0].to_dataframe()
+RESPONSE = KUSTO_CLIENT.execute(KUSTO_DATABASE, KUSTO_QUERY)
 ```
 
 ## <a name="explore-data-in-dataframe"></a>DataFrame'de verileri inceleme
@@ -88,6 +89,7 @@ df = KUSTO_CLIENT.execute_query(KUSTO_DATABASE, KUSTO_QUERY).primary_results[0].
 Siz oturum açma bilgilerini girdikten sonra sorgu sonuçları döndürür ve bunlar veri çerçevesinde depolanır. Diğer herhangi bir veri çerçevesinde yaptığınız gibi sonuçlarla çalışabilirsiniz.
 
 ```python
+df = dataframe_from_result_table(RESPONSE.primary_results[0])
 df
 ```
 

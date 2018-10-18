@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 08/10/2018
+ms.date: 10/16/2018
 ms.author: spelluru
-ms.openlocfilehash: f13e46b310f4f9048b38ab50ce0241d1b2b3161b
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 00ae254a9e9d40ec88802f2f46666aff72cb242a
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47395704"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49377659"
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions-with-nodejs"></a>Nasıl yapılır kullanım Service Bus konuları ve abonelikleri ile Node.js
 
@@ -73,7 +73,7 @@ var azure = require('azure');
 ### <a name="set-up-a-service-bus-connection"></a>Service Bus bağlantı kurma
 Azure modülünü ortam değişkenini okur `AZURE_SERVICEBUS_CONNECTION_STRING` önceki adımda elde ettiğiniz bağlantı dizesi için "kimlik bilgilerini edinin." Bu ortam değişkeni ayarlanmazsa çağırırken hesap bilgilerini belirtmelisiniz `createServiceBusService`.
 
-Azure bulut hizmeti için ortam değişkenlerini ayarlama örneği için bkz: [Node.js bulut depolama hizmetiyle][Node.js Cloud Service with Storage].
+Azure bulut hizmeti için ortam değişkenlerini ayarlama örneği için bkz: [ortam değişkenlerini ayarlama](../container-instances/container-instances-environment-variables.md#azure-cli-example).
 
 
 
@@ -127,7 +127,7 @@ function (returnObject, finalCallback, next)
 
 İşleme sonra bu geri çağırma `returnObject` (istek sunucuya yanıt), geri çağırma gerekir ya da diğer filtrelerle işleme devam etmek için (varsa)'ın yanındaki çağırma veya çağırma `finalCallback` hizmet çağırma sonlandırmak için.
 
-Yeniden deneme mantığı uygulayan iki filtre (**ExponentialRetryPolicyFilter** ve **LinearRetryPolicyFilter**), Node.js için Azure SDK’sına dahil edilir. Aşağıdaki oluşturur bir **ServiceBusService** kullanan nesne **ExponentialRetryPolicyFilter**:
+Yeniden deneme mantığı uygulayan iki filtre (**ExponentialRetryPolicyFilter** ve **LinearRetryPolicyFilter**), Node.js için Azure SDK’sına dahil edilir. Aşağıdaki kod oluşturur bir **ServiceBusService** kullanan nesne **ExponentialRetryPolicyFilter**:
 
 ```javascript
 var retryOperations = new azure.ExponentialRetryPolicyFilter();
@@ -242,7 +242,7 @@ Bir Service Bus konusuna bir ileti göndermek için uygulamanızı kullanmalıs�
 Service Bus konu başlıklarına gönderilen iletiler **BrokeredMessage** nesneleri.
 **BrokeredMessage** nesneleri olan bir standart özellikler kümesi (gibi `Label` ve `TimeToLive`), bir uygulamaya özgü özel özellikleri tutmak için kullanılan sözlüğü ve dize verileri gövdesi içerir. Bir uygulama iletisinin gövdesini dize değeri geçirerek ayarlayabilirsiniz `sendTopicMessage` ve gerekli standart özellikleri varsayılan değerlerle doldurulur.
 
-Aşağıdaki örnek nasıl beş test iletisi göndereceğinizi gösterir `MyTopic`. `messagenumber` Her ileti özelliği değerinin değişen döngü yinelemeyi (Bu alacak abonelikleri belirler):
+Aşağıdaki örnek nasıl beş test iletisi göndereceğinizi gösterir `MyTopic`. `messagenumber` Her ileti özelliği değerinin değişen döngü yinelemeyi (Bu özellik, alacak abonelikleri belirler):
 
 ```javascript
 var message = {
@@ -268,7 +268,7 @@ Service Bus konu başlıkları, [Standart katmanda](service-bus-premium-messagin
 ## <a name="receive-messages-from-a-subscription"></a>Abonelikten ileti alma
 Kullanarak bir abonelik iletilerin alındığı `receiveSubscriptionMessage` metodunda **ServiceBusService** nesne. Varsayılan olarak, bunlar okurken iletileri abonelikten silinir. Ancak, isteğe bağlı parametre ayarlayabilirsiniz `isPeekLock` için **true** (Özet) okuyun ve iletiyi abonelikten silmeden kilitlemek için.
 
-Okuma ve ileti alma işleminin bir parçası olarak silmeye varsayılan davranışı en basit modeldir ve uygulamanın bir arıza olması durumunda bir iletiyi işlememeye izin dayanabilir senaryolar için en iyi şekilde çalışır. Bu davranışı anlamak için hangi tüketici alma isteği bildirdiğini ve ardından işlenmeden önce kilitleniyor bir senaryo düşünün. Service Bus iletiyi kullanılıyor olarak işaretlediğinden, uygulama yeniden başlatılıp iletileri tekrar kullanmaya başladığında ardından onu çökmenin öncesinde kullanılan iletiyi eksik.
+Okuma ve ileti alma işleminin bir parçası olarak silmeye varsayılan davranışı en basit modeldir ve bir uygulama başarısız olduğunda bir iletiyi işlememeye izin dayanabilir senaryolar için en iyi şekilde çalışır. Bu davranışı anlamak için hangi tüketici alma isteği bildirdiğini ve ardından işlenmeden önce kilitleniyor bir senaryo düşünün. Service Bus iletiyi kullanılıyor olarak işaretlediğinden, uygulama yeniden başlatılıp iletileri tekrar kullanmaya başladığında ardından onu çökmenin öncesinde kullanılan iletiyi eksik.
 
 Varsa `isPeekLock` parametrenin ayarlanmış **true**, alma, kaçırılan iletilere veremeyen uygulamaları desteklemenin mümkün kılar bir iki aşamalı işlemi haline gelir. Service Bus bir istek aldığında kullanmak için sonraki iletiyi bulur, diğer tüketicilerin iletiyi almasını engellemek için kilitler ve uygulamaya döndürür.
 Uygulama iletiyi işler (veya güvenilir bir şekilde işlemek üzere depolar sonra) çağırarak alma işleminin ikinci aşamasını tamamlar **deleteMessage** yöntemi ve bir parametre olarak silmek için ileti geçirir. **DeleteMessage** yöntemi iletiyi kullanılmış olarak işaretler ve abonelikten kaldırır.

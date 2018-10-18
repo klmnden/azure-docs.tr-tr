@@ -10,15 +10,16 @@ ms.component: translator-speech
 ms.topic: tutorial
 ms.date: 3/5/2018
 ms.author: v-jerkin
-ROBOTS: NOINDEX
-ms.openlocfilehash: 2de56366c3204e77eb2e6775ddd88b6fc4f0c219
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 6a53eaf2154162ab9ec85a5a75c2cd52962b53a9
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46993876"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49340435"
 ---
 # <a name="tutorial-translator-speech-application-in-c"></a>Öğretici: C# ile yazılmış Translator Konuşma Çevirisi uygulaması
+
+[!INCLUDE [Deprecation note](../../../includes/cognitive-services-translator-speech-deprecation-note.md)]
 
 Bu öğreticide, Azure Bilişsel Hizmetleri'nin bir parçası olan Translator Konuşma Çevirisi API'sini kullanan etkileşimli konuşma çevirisi aracı geliştirme adımları gösterilmektedir. Şunları öğrenirsiniz:
 

@@ -4,25 +4,22 @@ description: Azure Media Services hesabı oluşturmak için bu hızlı başlang�
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cflower
+manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 03/27/2018
+ms.date: 10/15/2018
 ms.author: juliako
-ms.openlocfilehash: abed9fd8d466b582b534b365f4be4257f4986435
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: de54571308b737b9160a39ee4ba5d4b2d9f15775
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45736011"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49376542"
 ---
 # <a name="quickstart-create-an-azure-media-services-account"></a>Hızlı Başlangıç: Azure Media Services hesabı oluşturma
-
-> [!NOTE]
-> En son Azure Media Services (2018-03-30) sürümü önizleme aşamasındadır. Bu sürüm, v3 olarak da adlandırılır. 
 
 İster geliştirici, isterse medya içeriği oluşturucusu olun, Azure’da medya içeriğini depolamak, şifrelemek, kodlamak, yönetmek ve akışa almak için bir Media Services hesabı oluşturmanız gerekir. Media Services hesabı oluştururken, bir Azure Depolama hesabı kaynağının kimliğini sağlamanız gerekir. Belirtilen depolama hesabı, Media Services hesabınıza eklenir. Bu depolama hesabı kaynağının, Media Services hesabıyla aynı coğrafi bölgede bulunması gerekir.  
 

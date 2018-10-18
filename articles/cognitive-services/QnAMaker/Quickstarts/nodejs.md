@@ -1,47 +1,47 @@
 ---
-title: "Hızlı Başlangıç: Soru-cevap Oluşturucu API'si (V4) Node.js"
+title: "Hızlı başlangıç: Soru-Cevap Oluşturma API'si (V4) için Node.js"
 titleSuffix: Azure Cognitive Services
-description: Microsoft Translator metin çevirisi API'si, Azure üzerinde Microsoft Bilişsel hizmetler kullanarak hızlı bir şekilde yardımcı olmak için bilgi ve kod örnekleri get başlayın.
+description: Azure Microsoft Bilişsel Hizmetler'deki Microsoft Translator Metin Çevirisi API'sini kullanmaya başlamanıza yardımcı olacak bilgileri ve kod örneklerini inceleyin.
 services: cognitive-services
 author: diberry
 manager: cgronlun
 ms.service: cognitive-services
-ms.technology: qna-maker
-ms.topic: article
+ms.component: qna-maker
+ms.topic: quickstart
 ms.date: 09/12/2018
 ms.author: diberry
-ms.openlocfilehash: 05a15ddf8d7668896052c38afc549bc7b3cb056a
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
-ms.translationtype: MT
+ms.openlocfilehash: 1bdaa2cd67e6ee772085fd8c3b60c55a74a8df16
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47434339"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48884908"
 ---
-# <a name="quickstart-for-microsoft-qna-maker-api-with-nodejs"></a>Hızlı Başlangıç için Microsoft soru-cevap Oluşturucu API'si ile Node.js 
+# <a name="quickstart-for-microsoft-qna-maker-api-with-nodejs"></a>Hızlı başlangıç: Node.js ile Microsoft Soru-Cevap Oluşturma API'si 
 <a name="HOLTop"></a>
 
-Bu makalede nasıl kullanılacağını gösterir [Microsoft soru-cevap Oluşturucu API'si](../Overview/overview.md) aşağıdakileri yapmak için Node.js ile.
+Bu makalede Node.js ve [Microsoft Soru-Cevap Oluşturma API'si](../Overview/overview.md) ile aşağıdaki işlemlerin nasıl gerçekleştirileceği gösterilmektedir.
 
-- [Yeni Bilgi Bankası oluşturun.](#Create)
-- [Var olan bir Bilgi Bankası güncelleştirin.](#Update)
-- [Oluşturulacak veya güncelleştirilecek bir Bilgi Bankası isteğinin durumunu alın.](#Status)
-- [Var olan bir Bilgi Bankası yayımlama.](#Publish)
-- [Var olan bir Bilgi Bankası içerikleri değiştirin.](#Replace)
-- [Bilgi Bankası içerikleri indirin.](#GetQnA)
-- [Bilgi Bankası'nı kullanarak bir soru yanıtlarını alın.](#GetAnswers)
-- [Bilgi Bankası hakkında bilgi alın.](#GetKB)
-- [Belirtilen kullanıcıya ait tüm bilgi bankalarından hakkında bilgi alın.](#GetKBsByUser)
-- [Bilgi Bankası silin.](#Delete)
-- [Geçerli uç nokta anahtarlarını alın.](#GetKeys)
-- [Geçerli uç nokta anahtarları yeniden oluştur.](#PutKeys)
-- [Word değişiklikleri geçerli kümesini alın.](#GetAlterations)
-- [Word değişiklikleri geçerli kümesini değiştirin.](#PutAlterations)
+- [Yeni bilgi bankası oluşturma.](#Create)
+- [Var olan bilgi bankasını güncelleştirme.](#Update)
+- [Bilgi bankası oluşturma veya güncelleştirme isteğinin durumunu alma.](#Status)
+- [Var olan bilgi bankasını yayımlama.](#Publish)
+- [Var olan bilgi bankasının içeriğini değiştirme.](#Replace)
+- [Bilgi bankasının içeriğini indirme.](#GetQnA)
+- [Bilgi bankasını kullanarak bir soruya yanıt bulma.](#GetAnswers)
+- [Bir bilgi bankası hakkında bilgi alma.](#GetKB)
+- [Belirli bir kullanıcıya ait olan tüm bilgi bankaları hakkında bilgi alma.](#GetKBsByUser)
+- [Bilgi bankasını silme.](#Delete)
+- [Geçerli uç nokta anahtarlarını alma.](#GetKeys)
+- [Geçerli uç nokta anahtarlarını yeniden oluşturma.](#PutKeys)
+- [Geçerli sözcük değişiklikleri kümesini alma.](#GetAlterations)
+- [Geçerli sözcük değişiklikleri kümesini değiştirme.](#PutAlterations)
 
 [!INCLUDE [Code is available in Azure-Samples Github repo](../../../../includes/cognitive-services-qnamaker-nodejs-repo-note.md)]
 
-## <a name="prerequisites"></a>Önkoşullar
+## <a name="prerequisites"></a>Ön koşullar
 
-İhtiyacınız olacak [Node.js 6](https://nodejs.org/en/download/) bu kodu çalıştırmak için.
+Bu kodu çalıştırmak için [Node.js 6](https://nodejs.org/en/download/) gerekir.
 
 **Microsoft Soru-Cevap Oluşturma API'sine** sahip bir [Bilişsel Hizmetler API hesabınızın](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) olması gerekir. [Azure panonuzdan](https://portal.azure.com/#create/Microsoft.CognitiveServices) ücretli bir abonelik anahtarına ihtiyacınız olacak.
 
@@ -208,7 +208,7 @@ create_kb (path, content, function (result) {
 });
 ```
 
-**Bilgi Bankası yanıt oluşturma**
+**Bilgi bankası yanıtı oluşturma**
 
 Başarılı yanıt, aşağıdaki örnekte gösterildiği gibi JSON biçiminde döndürülür: 
 
@@ -243,7 +243,7 @@ Başarılı yanıt, aşağıdaki örnekte gösterildiği gibi JSON biçiminde d�
 
 <a name="Update"></a>
 
-## <a name="update-knowledge-base"></a>Bilgi Bankası güncelleştirme
+## <a name="update-knowledge-base"></a>Bilgi bankası güncelleştirme
 
 Aşağıdaki kod, [Güncelleştirme](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da7600) yöntemini kullanarak mevcut bir bilgi bankasını güncelleştirir.
 
@@ -408,7 +408,7 @@ update_kb (path, content, function (result) {
 });
 ```
 
-**Bilgi Bankası yanıtı güncelleştirme**
+**Bilgi bankası güncelleştirme yanıtı**
 
 Başarılı yanıt, aşağıdaki örnekte gösterildiği gibi JSON biçiminde döndürülür: 
 
@@ -444,7 +444,7 @@ Bilgi bankası oluşturma veya güncelleştirme isteğinin durumunu denetlemek i
 
 <a name="Publish"></a>
 
-## <a name="publish-knowledge-base"></a>Bilgi Bankası yayımlama
+## <a name="publish-knowledge-base"></a>Bilgi bankası yayımlama
 
 Aşağıdaki kod, [Yayımla](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fe) yöntemini kullanarak mevcut bir bilgi bankasını yayımlar.
 
@@ -542,7 +542,7 @@ publish_kb (path, '', function (result) {
 });
 ```
 
-**Bilgi Bankası yanıtı yayımlama**
+**Bilgi bankası yanıtını yayımlama**
 
 Başarılı yanıt, aşağıdaki örnekte gösterildiği gibi JSON biçiminde döndürülür: 
 
@@ -556,9 +556,9 @@ Başarılı yanıt, aşağıdaki örnekte gösterildiği gibi JSON biçiminde d�
 
 <a name="Replace"></a>
 
-## <a name="replace-knowledge-base"></a>Bilgi Bankası değiştirin
+## <a name="replace-knowledge-base"></a>Bilgi bankasını değiştirme
 
-Aşağıdaki kodu kullanarak, temel belirtilen bilgi içeriğini değiştirir [değiştirin](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/knowledgebases_publish) yöntemi.
+Aşağıdaki kod [Replace](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/knowledgebases_publish) metodunu kullanarak belirtilen bilgi bankasının içeriğini değiştirir.
 
 1. Sık kullandığınız IDE’de yeni bir Node.js projesi oluşturun.
 2. Aşağıda sağlanan kodu ekleyin.
@@ -675,7 +675,7 @@ replace_kb (path, content, function (result) {
 });
 ```
 
-**Bilgi Bankası yanıt değiştirin**
+**Bilgi bankası yanıtını değiştirme**
 
 Başarılı yanıt, aşağıdaki örnekte gösterildiği gibi JSON biçiminde döndürülür: 
 
@@ -689,9 +689,9 @@ Başarılı yanıt, aşağıdaki örnekte gösterildiği gibi JSON biçiminde d�
 
 <a name="GetQnA"></a>
 
-## <a name="download-the-contents-of-a-knowledge-base"></a>Bilgi Bankası içeriğini indir
+## <a name="download-the-contents-of-a-knowledge-base"></a>Bilgi bankasının içeriğini indirme
 
-Aşağıdaki kod temel kullanarak belirtilen bilgi içeriğini indirir [indirme Bilgi Bankası](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/knowledgebases_download) yöntemi.
+Aşağıdaki kod [Download knowledge base](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/knowledgebases_download) metodunu kullanarak belirtilen bilgi bankasının içeriğini indirir.
 
 1. Sık kullandığınız IDE’de yeni bir Node.js projesi oluşturun.
 2. Aşağıda sağlanan kodu ekleyin.
@@ -781,7 +781,7 @@ get_qna (path, function (result) {
 });
 ```
 
-**Bilgi Bankası yanıt indirin**
+**Bilgi bankası yanıtını indirme**
 
 Başarılı yanıt, aşağıdaki örnekte gösterildiği gibi JSON biçiminde döndürülür: 
 
@@ -820,15 +820,15 @@ Başarılı yanıt, aşağıdaki örnekte gösterildiği gibi JSON biçiminde d�
 
 <a name="GetAnswers"></a>
 
-## <a name="get-answers-to-a-question-using-a-knowledge-base"></a>Bilgi Bankası'nı kullanarak bir sorusu için yanıtlar alın
+## <a name="get-answers-to-a-question-using-a-knowledge-base"></a>Bilgi bankasını kullanarak bir soruya yanıt bulma
 
-Aşağıdaki kodu kullanarak, belirtilen Bilgi Bankası'nı kullanarak bir sorusunun yanıtlarını alır **yanıtları oluşturmak** yöntemi.
+Aşağıdaki kod **Generate answers** metodunu kullanarak belirli bir bilgi bankasından bir soruya yanıt bulur.
 
 1. Sık kullandığınız IDE’de yeni bir Node.js projesi oluşturun.
 1. Aşağıda sağlanan kodu ekleyin.
-1. Değiştirin `host` soru-cevap Oluşturucu aboneliğiniz için Web sitesi adı değeri. Daha fazla bilgi için [soru-cevap Oluşturucu hizmeti oluşturma](../How-To/set-up-qnamaker-service-azure.md).
-1. Değiştirin `endpoint_key` aboneliğiniz için geçerli uç nokta anahtar ile değeri. Bu abonelik anahtarınız ile aynı olmadığını unutmayın. Uç nokta anahtarlarınızı kullanarak alabileceğiniz [uç nokta anahtarları alma](#GetKeys) yöntemi.
-1. Değiştirin `kb` yanıtları sorgulamak istediğiniz Bilgi Bankası kimliği değeri. Bu Bilgi Bankası gerekir zaten yayınlandı kullanarak Not [Yayımla](#Publish) yöntemi.
+1. `host` değerinin yerine Soru-Cevap Oluşturma aboneliğinizin web sitesi adını yazın. Daha fazla bilgi için bkz. [Soru-Cevap Oluşturma hizmeti oluşturma](../How-To/set-up-qnamaker-service-azure.md).
+1. `endpoint_key` değerini, aboneliğiniz için geçerli olan bir uç nokta anahtarı ile değiştirin. Bu anahtarın abonelik anahtarınızdan farklı olduğunu unutmayın. Uç nokta anahtarlarınızı [Get endpoint keys](#GetKeys) metoduyla alabilirsiniz.
+1. `kb` değerini yanıt için sorgulamak istediğiniz bilgi bankasının kimliğiyle değiştirin. Bu bilgi bankasının [Publish](#Publish) metodu kullanılarak önceden yayımlanmış olması gerektiğini unutmayın.
 1. Programı çalıştırın.
 
 ```nodejs
@@ -925,7 +925,7 @@ get_answers (method, content, function (result) {
 });
 ```
 
-**Yanıtlar yanıt alın**
+**Yanıt alma**
 
 Başarılı yanıt, aşağıdaki örnekte gösterildiği gibi JSON biçiminde döndürülür: 
 
@@ -951,9 +951,9 @@ Başarılı yanıt, aşağıdaki örnekte gösterildiği gibi JSON biçiminde d�
 
 <a name="GetKB"></a>
 
-## <a name="get-information-about-a-knowledge-base"></a>Bilgi Bankası hakkında bilgi edinin
+## <a name="get-information-about-a-knowledge-base"></a>Bir bilgi bankası hakkında bilgi alma
 
-Aşağıdaki kodu belirtilen bilgi hakkındaki bilgileri kullanarak, temel alır [Bilgi Bankası ayrıntıları alma](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/knowledgebases_getknowledgebasedetails) yöntemi.
+Aşağıdaki kod [Get knowledge base details](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/knowledgebases_getknowledgebasedetails) metodunu kullanarak belirtilen bilgi bankasıyla ilgili bilgileri alır.
 
 1. Sık kullandığınız IDE’de yeni bir Node.js projesi oluşturun.
 2. Aşağıda sağlanan kodu ekleyin.
@@ -1040,7 +1040,7 @@ get_kb (path, function (result) {
 });
 ```
 
-**Bilgi Bankası ayrıntıları yanıt alın**
+**Bilgi bankası ayrıntılarını alma yanıtı**
 
 Başarılı yanıt, aşağıdaki örnekte gösterildiği gibi JSON biçiminde döndürülür: 
 
@@ -1066,9 +1066,9 @@ Başarılı yanıt, aşağıdaki örnekte gösterildiği gibi JSON biçiminde d�
 
 <a name="GetKBsByUser"></a>
 
-## <a name="get-all-knowledge-bases-for-a-user"></a>Bir kullanıcının tüm bilgi bankalarından alır
+## <a name="get-all-knowledge-bases-for-a-user"></a>Bir kullanıcının tüm bilgi bankalarını alma
 
-Aşağıdaki kod, belirtilen bir kullanıcı için tüm bilgi bankalarından hakkında bilgi alır kullanarak [alma bilgi bankaları için kullanıcı](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/knowledgebases_getknowledgebasesforuser) yöntemi.
+Aşağıdaki kod [Get knowledge bases for user](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/knowledgebases_getknowledgebasesforuser) metodunu kullanarak belirtilen bir kullanıcının tüm bilgi bankalarıyla ilgili bilgileri alır.
 
 1. Sık kullandığınız IDE’de yeni bir Node.js projesi oluşturun.
 2. Aşağıda sağlanan kodu ekleyin.
@@ -1152,7 +1152,7 @@ get_kbs (path, function (result) {
 });
 ```
 
-**Bilgi bankaları için kullanıcı yanıtı alın**
+**Kullanıcının bilgi bankalarını alma yanıtı**
 
 Başarılı yanıt, aşağıdaki örnekte gösterildiği gibi JSON biçiminde döndürülür: 
 
@@ -1194,9 +1194,9 @@ Press any key to continue.
 
 <a name="Delete"></a>
 
-## <a name="delete-a-knowledge-base"></a>Bilgi Bankası Sil
+## <a name="delete-a-knowledge-base"></a>Bilgi bankasını silme
 
-Aşağıdaki kodu kullanarak, temel belirtilen bilgi siler [Sil Bilgi Bankası](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/knowledgebases_delete) yöntemi.
+Aşağıdaki kod [Delete knowledge base](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/knowledgebases_delete) metodunu kullanarak belirtilen bilgi bankasını siler.
 
 1. Sık kullandığınız IDE’de yeni bir Node.js projesi oluşturun.
 2. Aşağıda sağlanan kodu ekleyin.
@@ -1292,7 +1292,7 @@ delete_kb (path, '', function (result) {
 });
 ```
 
-**Bilgi Bankası yanıtı Sil**
+**Bilgi bankasını silme yanıtı**
 
 Başarılı yanıt, aşağıdaki örnekte gösterildiği gibi JSON biçiminde döndürülür: 
 
@@ -1306,9 +1306,9 @@ Başarılı yanıt, aşağıdaki örnekte gösterildiği gibi JSON biçiminde d�
 
 <a name="GetKeys"></a>
 
-## <a name="get-endpoint-keys"></a>Uç nokta anahtarları alma
+## <a name="get-endpoint-keys"></a>Uç nokta anahtarlarını alma
 
-Aşağıdaki kodu kullanarak geçerli uç nokta anahtarlarını alır [uç nokta anahtarları alma](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/endpointkeys_getendpointkeys) yöntemi.
+Aşağıdaki kod [Get endpoint keys](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/endpointkeys_getendpointkeys) metodunu kullanarak geçerli uç nokta anahtarlarını alır.
 
 1. Sık kullandığınız IDE’de yeni bir Node.js projesi oluşturun.
 2. Aşağıda sağlanan kodu ekleyin.
@@ -1392,7 +1392,7 @@ get_keys (path, function (result) {
 });
 ```
 
-**Uç nokta anahtarları yanıt alın**
+**Uç nokta anahtarlarını alma yanıtı**
 
 Başarılı yanıt, aşağıdaki örnekte gösterildiği gibi JSON biçiminde döndürülür: 
 
@@ -1409,7 +1409,7 @@ Başarılı yanıt, aşağıdaki örnekte gösterildiği gibi JSON biçiminde d�
 
 ## <a name="refresh-endpoint-keys"></a>Uç nokta anahtarlarını yenileme
 
-Aşağıdaki kodu kullanarak geçerli uç nokta anahtarlarını yeniden oluşturur [uç nokta anahtarlarını yenileme](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/endpointkeys_refreshendpointkeys) yöntemi.
+Aşağıdaki kod [Refresh endpoint keys](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/endpointkeys_refreshendpointkeys) metodunu kullanarak geçerli uç nokta anahtarlarını yeniden üretir.
 
 1. Sık kullandığınız IDE’de yeni bir Node.js projesi oluşturun.
 2. Aşağıda sağlanan kodu ekleyin.
@@ -1518,7 +1518,7 @@ refresh_keys (path, content, function (result) {
 });
 ```
 
-**Uç nokta anahtarları yanıt Yenile**
+**Uç nokta anahtarlarını yenileme yanıtı**
 
 Başarılı yanıt, aşağıdaki örnekte gösterildiği gibi JSON biçiminde döndürülür: 
 
@@ -1533,9 +1533,9 @@ Başarılı yanıt, aşağıdaki örnekte gösterildiği gibi JSON biçiminde d�
 
 <a name="GetAlterations"></a>
 
-## <a name="get-word-alterations"></a>Word değişiklikleri Al
+## <a name="get-word-alterations"></a>Sözcük değişikliklerini alma
 
-Aşağıdaki kodu kullanarak geçerli sözcüğü değişiklikleri alır [indirme değişiklikleri](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fc) yöntemi.
+Aşağıdaki kod [Download alterations](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fc) metodunu kullanarak geçerli sözcük değişikliklerini alır.
 
 1. Sık kullandığınız IDE’de yeni bir Node.js projesi oluşturun.
 2. Aşağıda sağlanan kodu ekleyin.
@@ -1619,7 +1619,7 @@ get_alterations (path, function (result) {
 });
 ```
 
-**Word değişiklikleri yanıt alın**
+**Sözcük değişikliklerini alma yanıtı**
 
 Başarılı yanıt, aşağıdaki örnekte gösterildiği gibi JSON biçiminde döndürülür: 
 
@@ -1640,9 +1640,9 @@ Başarılı yanıt, aşağıdaki örnekte gösterildiği gibi JSON biçiminde d�
 
 <a name="PutAlterations"></a>
 
-## <a name="replace-word-alterations"></a>Word değişiklikleri değiştirin
+## <a name="replace-word-alterations"></a>Sözcük değişikliklerini değiştirme
 
-Aşağıdaki kodu kullanarak geçerli sözcüğü değişiklikleri değiştirir [değiştirin değişiklikleri](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fd) yöntemi.
+Aşağıdaki kod [Replace alterations](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fd) metodunu kullanarak geçerli sözcük değişikliklerini değiştirir.
 
 1. Sık kullandığınız IDE’de yeni bir Node.js projesi oluşturun.
 2. Aşağıda sağlanan kodu ekleyin.
@@ -1748,7 +1748,7 @@ put_alterations (path, content, function (result) {
 });
 ```
 
-**Word değişiklikleri yanıt değiştirin**
+**Sözcük değişikliklerini değiştirme yanıtı**
 
 Başarılı yanıt, aşağıdaki örnekte gösterildiği gibi JSON biçiminde döndürülür: 
 

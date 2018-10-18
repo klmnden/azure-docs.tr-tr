@@ -3,19 +3,19 @@ title: 'Hızlı Başlangıç: Bir görüntüdeki yüzleri algılama - Yüz Tanı
 titleSuffix: Azure Cognitive Services
 description: Bu hızlı başlangıçta, Python ile Yüz Tanıma API’sini kullanarak bir görüntüdeki yüzleri algılayacaksınız.
 services: cognitive-services
-author: noellelacharite
+author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: face-api
 ms.topic: quickstart
 ms.date: 05/24/2018
-ms.author: nolachar
-ms.openlocfilehash: 7e1185fed1892dbd2c60434cfceec555bf7b0bc5
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.author: pafarley
+ms.openlocfilehash: 581c2a7d4508833647d4dbb9861000fddd75cde8
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46129225"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49339590"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-python"></a>Hızlı Başlangıç: Python ile bir görüntüdeki yüzleri algılama
 

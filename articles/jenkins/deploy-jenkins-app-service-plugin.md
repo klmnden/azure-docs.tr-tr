@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 07/31/2018
-ms.openlocfilehash: a6ad40f90e12bbf4dd85c3cbd22839d39a734ca1
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.openlocfilehash: 5f76d18662105df6d278e09e047baa13773ab4ac
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44391174"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49319362"
 ---
 # <a name="deploy-to-azure-app-service-by-using-the-jenkins-plugin"></a>Jenkins eklentisini kullanarak Azure App Service'e dağıtım yapma 
 
@@ -36,8 +36,10 @@ Bir Jenkins Ana Sunucunuz yoksa, Java Development Kit (JDK) 8 sürümünü ve a�
 * [Azure App Service](https://plugins.jenkins.io/azure-app-service) 0.1 sürümü
 
 C#, PHP, Java ve Node.js gibi Web Apps tarafından desteklenen tüm dillerde web uygulaması dağıtmak için Jenkins eklentisini kullanabilirsiniz. Biz bu öğreticide [Azure için basit bir Java web uygulaması](https://github.com/azure-devops/javawebappsample) kullanacağız. Kendi GitHub hesabınızda deponun çatalını oluşturmak için GitHub arabiriminin sağ üst köşesinde bulunan **Çatal** düğmesini seçin.  
+
 > [!NOTE]
 > Java projesi oluşturmak için Java JDK ve Maven gereklidir. Jenkins Ana Sunucusunda veya sürekli tümleştirme için aracıyı kullanıyorsanız VM aracısında bu bileşenleri yükleyin. Bir Java SE uygulaması dağıtıyorsanız, derleme sunucusunda ZIP’e de ihtiyaç vardır.
+>
 
 Bu bileşenleri yüklemek için SSH ile Jenkins örneğinde oturum açın ve aşağıdaki komutları çalıştırın:
 
@@ -48,7 +50,7 @@ sudo apt-get install -y maven
 
 Kapsayıcılar için Web App'e dağıtım yapmak istiyorsanız Jenkins Ana Sunucusuna veya derleme için kullanılan VM aracısına Docker'ı yükleyin. Yönergeler için bkz. [Ubuntu üzerinde Docker'ı yükleme](https://docs.docker.com/engine/installation/linux/ubuntu/).
 
-##<a name="service-principal"></a> Jenkins kimlik bilgilerine bir Azure hizmet sorumlusu ekleme
+## <a name="service-principal"></a> Jenkins kimlik bilgilerine bir Azure hizmet sorumlusu ekleme
 
 Azure'a dağıtım yapmak için bir Azure hizmet sorumlusuna ihtiyacınız vardır. 
 

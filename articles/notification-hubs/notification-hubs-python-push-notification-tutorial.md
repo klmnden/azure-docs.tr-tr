@@ -14,12 +14,12 @@ ms.devlang: php
 ms.topic: article
 ms.date: 04/14/2018
 ms.author: dimazaid
-ms.openlocfilehash: 339029f14c4fd9a0158f2b7a4fb80bf03bd83cf3
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: b0aa61c86b08a4fe2eddb5eb1fb5b33c4cb901a0
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "42055594"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49386596"
 ---
 # <a name="how-to-use-notification-hubs-from-python"></a>Python'dan Notification hubs'ı kullanma
 [!INCLUDE [notification-hubs-backend-how-to-selector](../../includes/notification-hubs-backend-how-to-selector.md)]
@@ -261,7 +261,7 @@ Bu sınıf ile gönderme içinde bildirim yöntemleri artık yazma **Notificatio
 Bu yöntemler, bildirim hub'ınıza, bildirim göndermek üzere üst bilgileri ve doğru gövdesi /messages uç noktasına bir HTTP POST isteği gönderin.
 
 ### <a name="using-debug-property-to-enable-detailed-logging"></a>Ayrıntılı günlük kaydını etkinleştirmek için hata ayıklama özelliğini kullanarak
-HTTP isteğiyle ilgili ayrıntılı günlük kaydı bilgileri bildirim hub'ı başlatılırken hata ayıklama özelliği etkinleştirme yazar ve sonucu yanıt döküm yanı sıra ayrıntılı bir bildirim iletisi gönderin. [Bildirim hub'ları TestSend özelliği](https://docs.microsoft.com/en-us/previous-versions/azure/reference/dn495827(v=azure.100)) bildirim gönderme sonucunu hakkında ayrıntılı bilgi verir. Bunu kullanın - aşağıdaki kodu kullanarak başlatmak için:
+HTTP isteğiyle ilgili ayrıntılı günlük kaydı bilgileri bildirim hub'ı başlatılırken hata ayıklama özelliği etkinleştirme yazar ve sonucu yanıt döküm yanı sıra ayrıntılı bir bildirim iletisi gönderin. [Bildirim hub'ları TestSend özelliği](https://docs.microsoft.com/previous-versions/azure/reference/dn495827(v=azure.100)) bildirim gönderme sonucunu hakkında ayrıntılı bilgi verir. Bunu kullanın - aşağıdaki kodu kullanarak başlatmak için:
 
     hub = NotificationHub("myConnectionString", "myNotificationHubName", isDebug)
 

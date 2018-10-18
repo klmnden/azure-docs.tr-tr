@@ -9,12 +9,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: tutorial
 ms.date: 09/24/2018
-ms.openlocfilehash: cad5ec059c88290b94919c58ff6bd1071a2b8fdf
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: d593930705c7455d03e20af2affd2de3c418d4a5
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46972137"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49389077"
 ---
 # <a name="tutorial-write-a-c-user-defined-function-for-an-azure-stream-analytics-edge-job-in-visual-studio-preview"></a>Öğretici: Visual Studio'da Azure Stream Analytics Edge işi için C# ile kullanıcı tanımlı işlev yazma (Önizleme)
 
@@ -37,7 +37,7 @@ Başlamadan önce aşağıdaki önkoşulları tamamladığınızdan emin olun:
 
 ## <a name="create-a-container-in-your-azure-storage-account"></a>Azure Depolama Hesabınızda kapsayıcı oluşturma
 
-Oluşturduğunuz kapsayıcı derlenen C# paketini depolamak ve paketi IoT Edge cihazınıza dağıtmak için kullanılacaktır. Her Stream Analytics işi için ayrı bir kapsayıcı kullanın. Bir kapsayıcının birden fazla Stream Analytics Edge işi için kullanılması desteklenmez. Kapsayıcı bulunan bir depolama hesabınız varsa onu kullanabilirsiniz. Yoksa [yeni bir kapsayıcı oluşturmanız](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-quickstart-blobs-portal) gerekir. 
+Oluşturduğunuz kapsayıcı derlenen C# paketini depolamak ve paketi IoT Edge cihazınıza dağıtmak için kullanılacaktır. Her Stream Analytics işi için ayrı bir kapsayıcı kullanın. Bir kapsayıcının birden fazla Stream Analytics Edge işi için kullanılması desteklenmez. Kapsayıcı bulunan bir depolama hesabınız varsa onu kullanabilirsiniz. Yoksa [yeni bir kapsayıcı oluşturmanız](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal) gerekir. 
 
 ## <a name="create-a-stream-analytics-edge-project-in-visual-studio"></a>Visual Studio’da Stream Analytics Edge projesi oluşturma
 
@@ -146,7 +146,7 @@ Sorgunuzu yerel ortamda test ettikten sonra işi Azure'da yayımlamak için beti
 ![Stream Analytics Edge işinizi Visual Studio'dan Azure'a gönderme](./media/stream-analytics-edge-csharp-udf/stream-analytics-udf-submit-job.png)
 
 ## <a name="deploy-to-iot-edge-devices"></a>IoT Edge'e cihazlarına dağıtma
-Stream Analytics işiniz IoT Edge modülü olarak dağıtmaya hazır. [IoT Edge hızlı başlangıcını](https://docs.microsoft.com/en-us/azure/iot-edge/quickstart) izleyerek bir IoT Hub oluşturun, ona bir IoT Edge cihazını kaydedin ve cihazınızda IoT Edge çalışma zamanını çalıştırın. Ardından [işi dağıtma](https://docs.microsoft.com/en-us/azure/iot-edge/tutorial-deploy-stream-analytics#deploy-the-job) öğreticisini izleyerek Stream Analytics işinizi IoT Edge modülü olarak dağıtın. 
+Stream Analytics işiniz IoT Edge modülü olarak dağıtmaya hazır. [IoT Edge hızlı başlangıcını](https://docs.microsoft.com/azure/iot-edge/quickstart) izleyerek bir IoT Hub oluşturun, ona bir IoT Edge cihazını kaydedin ve cihazınızda IoT Edge çalışma zamanını çalıştırın. Ardından [işi dağıtma](https://docs.microsoft.com/azure/iot-edge/tutorial-deploy-stream-analytics#deploy-the-job) öğreticisini izleyerek Stream Analytics işinizi IoT Edge modülü olarak dağıtın. 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

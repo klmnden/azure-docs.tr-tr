@@ -1,53 +1,54 @@
 ---
-title: İzlenecek yol - Bilişsel hizmetler proje akustik örneği
-description: Bu izlenecek yolda, masaüstü ve VR dağıtımına dahil olmak üzere proje akustik için Unity örnek Sahne açıklanmaktadır.
+title: 'Örnek: Project Acoustics'
+titlesuffix: Azure Cognitive Services
+description: Bu kılavuzda, masaüstü ve VR dağıtımı dahil olmak üzere Project Acoustics için Unity örnek sahnesi açıklanmaktadır.
 services: cognitive-services
 author: kegodin
-manager: noelc
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: acoustics
-ms.topic: article
+ms.topic: sample
 ms.date: 08/17/2018
 ms.author: kegodin
-ms.openlocfilehash: eaf7ff9f7f791fd6d04e6b76d256b4987c50cd13
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
-ms.translationtype: MT
+ms.openlocfilehash: f5ea565e68579dfad601d1037daeb4113e3daa43
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47434101"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48901167"
 ---
-# <a name="unity-sample-walkthrough"></a>Unity için izlenecek örnek yol
-Proje akustik örnek bir kılavuz budur. Hangi proje akustik hakkında daha fazla bilgi için kullanıma [proje akustik giriş](what-is-acoustics.md). Önceden varolan bir Unity proje için proje akustik paket ekleme daha fazla yardım almak için kullanın [Başlarken kılavuzunda](getting-started.md).
+# <a name="unity-sample-walkthrough"></a>Unity örnek kılavuzu
+Bu kılavuzda Project Acoustics örneği gösterilmektedir. Project Acoustics hakkında daha fazla bilgi için bkz. [Project Acoustics'e giriş](what-is-acoustics.md). Project Acoustics paketini var olan bir Unity projesine ekleme konusunda yardım için bkz. [Başlangıç kılavuzu](getting-started.md).
 
 ## <a name="requirements-for-running-the-sample-project"></a>Örnek projeyi çalıştırmak için gereksinimler
-* Unity 2018.2 .NET 4.x komut dosyası çalışma zamanı sürümü kullanılarak +,
+* .NET 4.x betik oluşturma çalışma zamanı sürümünü kullanan Unity 2018.2+
 * Windows 64 bit Unity Düzenleyicisi
-* Windows Masaüstü, UWP ve baş monte görüntüler (HMDs) dahil olmak üzere Android hedefleri örneği destekler.
-* Azure Batch aboneliği Hazırlama işlemi için gereklidir
+* Bu örnek, kafaya takılan ekranlar (HMD) dahil olmak üzere Windows masaüstü, UWP ve Android hedeflerini destekler
+* Hazırlama işlemi için Azure Batch aboneliği gerekir
 
-## <a name="sample-project-setup"></a>Örnek Proje ayarları
-İndirme ve içeri aktarma **MicrosoftAcoustics.Sample.unitypackage**. İçeri aktarma işlemi sırasında proje ayarları dahil olmak üzere **Spatializer** ve **Scripting çalışma zamanı sürümü** eklenti kişinin gereksinimlerini karşılamak için güncelleştirildi. Bu tamamlandığında Unity konsolundan bir hata göreceğiniz **AcousticsGeometry.cs** Scripting çalışma zamanı sürümüne değiştirme hakkında **.NET 4.x eşdeğer**. Bu ayarları değiştirme paketini içeri aktarma işleminin bir parçası olarak gerçekleştirilir, ancak etkili olması için Unity yeniden başlatılması gerekiyor. Unity şimdi yeniden başlatın.
+## <a name="sample-project-setup"></a>Örnek proje kurulumu
+**MicrosoftAcoustics.Sample.unitypackage** dosyasını indirip içeri aktarın. İçeri aktarma sonrasında **Spatializer** ve **Scripting Runtime Version** (Betik Oluşturma Çalışma Zamanı Sürümü) gibi proje ayarları, eklenti gereksinimlerini karşılamak üzere güncelleştirilir. Bu işlem tamamlandığında Unity konsolunda **AcousticsGeometry.cs** dosyasından Scripting Runtime Version ayarını **.NET 4.x Equivalent** olarak değiştirmenizi isteyen bir hata iletisi görüntülenir. Bu ayar değişikliği paketin içeri aktarılması sırasında yapılmıştır ancak geçerli olması için Unity'nin yeniden başlatılması gerekir. Unity'yi şimdi yeniden başlatın.
 
 ## <a name="running-the-sample"></a>Örneği çalıştırma
-Örnek Tanıtım sahnesi içerir **Assets/AcousticsDemo/ProjectAcousticsDemo.unity**. Bu görünüm, üç ses kaynağı yok. Varsayılan olarak yalnızca bir ses kaynak yürütülüyor ve diğer iki duraklatılabilir. Bunlar altında bulunan **ses kaynakları** içinde **hiyerarşi**. Genel gezinti betik yardımcı olmak için CameraHolder nesne alt ana kamera öğesidir. 
+Örnekte **Assets/AcousticsDemo/ProjectAcousticsDemo.unity** adlı tanıtım amaçlı bir sahne bulunur. Bu sahnede üç ses kaynağı vardır. Varsayılan olarak yalnızca bir ses kaynağı yürütülür, diğer ikisi duraklatılmıştır. Bunlar **Hierarchy** (Hiyerarşi) altındaki **Sound Sources** (Ses Kaynakları) bölümünde bulunur. Genel bir gezinti betiği oluşturulmasına yardımcı olmak için Main Camera (Ana Kamera), CameraHolder nesnesinin alt öğesi olarak belirlenmiştir. 
 
-![Hiyerarşi görünümü](media/SampleHierarchyView.png)
+![Hiyerarşi Görünümü](media/SampleHierarchyView.png)
 
-Sahneye önceden desteklenmiş ve bir ACE dosyası ile ilişkili **MicrosoftAcoustics** içinde prefab **hiyerarşi**. 
+Sahne önceden oluşturulmuştur ancak **Hierarchy** içinde **MicrosoftAcoustics** prefab ile ilişkilendirilmiş bir ACE dosyası vardır. 
 
-Unity editor denetimindeki yürütme düğmesine tıklayarak Sahne nasıl ses için dinleyin. Masaüstünde kullanın W, A, S, D ve fareyi hareket etmek için. Sahne ve akustik olmadan nasıl sesleri karşılaştırmak için basın **R** katmana metin kırmızıya döner ve diyor kadar düğmesini "Akustik: devre dışı bırakıldı." Daha fazla denetimlerin klavye kısayollarını görmek için basın **F1**. Tüm denetimleri de gerçekleştirmek için bir eylem seçmek için sağ tıklayarak sonra eylemi gerçekleştirmek için sol tıklayarak kendisini adamıştır.
+Unity düzenleyicisindeki yürütme düğmesine tıklayarak sahnenin sesini dinleyin. Masaüstünde W, A, S, D tuşlarını ve fareyi kullanarak sahnede gezinin. Seslerin akustik özellikleri ile ve bu özellikler olmadan nasıl duyulduğunu karşılaştırmak için "Acoustics: Disabled" (Akustik: Devre dışı) metni görünene kadar **R** tuşuna basın. Diğer denetimlerin klavye kısayollarını görmek için **F1** tuşuna basın. Ayrıca sağ tıklayıp bir eylem seçtikten sonra sol tıklama ile o eylemi gerçekleştirerek de tüm denetimleri kullanabilirsiniz.
 
 ## <a name="targeting-other-platforms"></a>Diğer platformları hedefleme
-Örnek, Windows Masaüstü, UWP, Windows karma gerçeklik, Android ve Oculus Git üzerinde çalıştırmak için ayarları içerir. Varsayılan olarak, projeyi Windows Masaüstü için yapılandırılır. VR platformunu hedeflemek için player ayarlarına gidin (**Düzenle > Proje Ayarları > Player**), bulma **XR ayarları**ve denetleyin **sanal gerçeklik desteklenen** onay kutusu.
+Örnekte Windows Masaüstü, UWP, Windows Karma Gerçeklik, Android ve Oculus Go üzerinde çalışma ayarları bulunur. Proje varsayılan olarak Windows Masaüstü için yapılandırılmıştır. Bir VR platformunu hedeflemek için oynatıcı ayarlarına gidin (**Edit > Project Settings > Player** (Düzenle > Proje Ayarları > Oynatıcı)), **XR Settings** (XR Ayarları) bölümün bulun ve **Virtual Reality Supported** (Sanal Gerçeklik Desteği) onay kutusunu işaretleyin.
 
-![VR etkinleştir](media/VRSupport.png)  
+![VR'yi etkinleştirme](media/VRSupport.png)  
 
-VR kulaklık bilgisayarınıza bağlayın. Git **Dosya > Yapı ayarları**, tıklatıp **derleme ve çalıştırma** VR kendi kulaklık örnek dağıtmak için. İçin kendi kulaklık hareket denetleyicileri kullanarak Sahne gezinmek ya da kullanmayı deneyin W, A, S, klavyedeki D.    
-Android ve Oculus Git hedeflemek için Android seçin **Build Settings** menüsü. Tıklayın **geçiş hedef**, ardından **derleme ve çalıştırma**. Bu örnek Sahne bağlı Android cihazınıza dağıtır. Android için Unity geliştirme hakkında daha fazla bilgi için bkz: [Unity belgeleri](https://docs.unity3d.com/Manual/android-GettingStarted.html).
+Bilgisayarınıza VR ekipmanı bağlayın. **File > Build Settings** (Dosya > Derleme Ayarları) sayfasına gidip **Build and Run** (Derle ve Çalıştır) öğesine tıklayarak örneği VR ekipmanınıza dağıtın. Sahnede gezinmek için ekipmanınızın hareket denetleyicilerini kullanın veya klavyedeki W, A, S, D tuşlarını kullanmayı deneyin.    
+Android ve Oculus Go platformlarını hedeflemek için **Build Settings** (Derleme Ayarları) menüsünden Android'i seçin. **Switch Target** (Hedef Değiştir) ve ardından **Build and Run** (Derle ve Çalıştır) öğesine tıklayın. Bunu yaptığınızda örnek sahne, bağlı Android cihazınıza dağıtılır. Android için Unity ile uygulama geliştirme hakkında daha fazla bilgi için bkz. [Unity belgeleri](https://docs.unity3d.com/Manual/android-GettingStarted.html).
 
-![Hedef Android](media/TargetAndroid.png)  
+![Hedef: Android](media/TargetAndroid.png)  
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* [Bir Azure hesabı oluşturun](create-azure-account.md) kendi bakes için
-* Keşfedin [tasarım işlemi](design-process.md)
+* Kendiniz içerik hazırlamak için [bir Azure hesabı oluşturun](create-azure-account.md)
+* [Tasarım sürecini](design-process.md) keşfedin
 

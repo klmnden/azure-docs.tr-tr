@@ -1,10 +1,9 @@
 ---
-title: Azure Geçiş nedir ve neden kullanılır? - Genel bakış | Microsoft Docs
-description: Azure Geçiş’e Genel Bakış
+title: Azure Geçiş nedir? | Microsoft Docs
+description: Bu makale, bir güvenlik duvarı bağlantısı açmak ya da kurumsal ağ altyapısına müdahale eden değişiklikler yapmak zorunda kalmadan kurumsal ağınızda çalışan şirket içi hizmetleri kullanan bulut uygulamaları geliştirmenizi sağlayan Azure Relay hizmetine genel bakış sağlamaktadır.
 services: service-bus-relay
-documentationcenter: .net
 author: spelluru
-manager: timlt
+manager: ''
 editor: ''
 ms.assetid: 1e3e971d-2a24-4f96-a88a-ce3ea2b1a1cd
 ms.service: service-bus-relay
@@ -12,71 +11,85 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: get-started-article
-ms.date: 05/02/2018
+ms.date: 10/08/2018
 ms.author: spelluru
-ms.openlocfilehash: dc616f18033014a5dcc9e5d15434497978484bc1
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 46a9045cdf422ed4f14e5588b3342e8bfde2e4c8
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43695974"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48888161"
 ---
 # <a name="what-is-azure-relay"></a>Azure Geçiş nedir?
+Azure Relay hizmeti, kurumsal ağınızda çalışan hizmetleri güvenli bir şekilde genel buluta açmanızı sağlar. Bunun için bir güvenlik duvarı bağlantısı açmanıza ya da kurumsal ağ altyapısına müdahale eden değişiklikler yapmanıza gerek yoktur. 
 
-Azure Geçiş hizmeti, güvenlik duvarı bağlantısını açmanıza veya kurumsal ağ altyapısına müdahale eden değişiklikler yapmanıza gerek kalmadan kurumsal işletme ağında bulunan hizmetleri genel bulutta kullanıma sunmanıza olanak sağlayarak karma uygulamaları kolaylaştırır. Geçiş, birçok çeşitli aktarım protokolünü ve web hizmeti standartlarını destekler.
+Geçiş hizmeti, şirket içi hizmetler ile bulutta veya başka bir şirket içi ortamda çalışan uygulamalar arasında aşağıdaki senaryoları destekler. 
 
-Geçiş hizmeti, geleneksel tek yönlü trafiği, istek/yanıt trafiğini ve eşler arası trafiği destekler. Ayrıca, artırılmış uçtan uca verimliliğe yönelik çift yönlü yuva iletişimi ile yayımla ve abone ol senaryolarına olanak sağlamak için internet kapsamında olay dağıtımını destekler.
+- Geleneksel tek yönlü, istek/yanıt ve eşler arası iletişim 
+- Yayımlama/abone olma senaryolarını desteklemek için internet kapsamında olay dağıtımı 
+- Ağ sınırlarının ötesinde çift yönlü ve arabelleksiz yuva iletişimi.
 
-Geçişli veri aktarımı deseninde bir şirket içi hizmet, giden bağlantı noktası aracılığıyla geçiş hizmetine bağlanır ve belirli bir randevu adresine bağlanan iletişim için çift yönlü yuva oluşturur. Ardından istemci, randevu adresini hedef alan geçiş hizmetine trafik göndererek şirket içi hizmet ile iletişim kurabilir. Geçiş hizmeti daha sonra her bir istemciye ayrılmış çift yönlü bir yuva aracılığıyla verileri şirket içi hizmete "geçirir". İstemcinin, şirket içi hizmete doğrudan bağlantısının olmasına veya hizmetin nerede bulunduğunu bilmesine gerek yoktur. Ayrıca, şirket içi hizmet için güvenlik duvarında gelen bağlantı noktalarının açık olması gerekmez.
+Azure Relay hizmeti, VPN gibi ağ düzeyindeki tümleştirme teknolojilerinden farklıdır. Bir Azure geçişinin kapsamı, tek bir makinedeki tek bir uygulama uç noktası olarak belirlenebilir. VPN teknolojisinde çok daha fazla müdahale vardır ve ağ ortamının değiştirilmesine dayanır. 
 
-Geçiş tarafından sağlanan önemli özellik öğeleri, TCP gibi azaltma, uç nokta bulma, bağlantı durumu ve kaplanmış uç nokta güvenliği ile ağ sınırları arasında çift yönlü, ara belleksiz iletişimdir.
+## <a name="basic-flow"></a>Temel akış
+Geçişli veri aktarımı desenindeki temel adımlar şunlardır:
 
-Geçiş özellikleri, VPN gibi ağ düzeyinde tümleştirme teknolojilerinden farklıdır; geçiş tek bir makinedeki tek bir uygulama uç noktasını kapsayabilirken, VPN teknolojisi ağ ortamını değiştirmeye bağlı olduğundan çok daha kapsayıcıdır.
+1. Şirket içi hizmet, giden bağlantı noktası aracılığıyla geçiş hizmetine bağlanır. 
+2. Belirli bir adrese bağlı çift yönlü iletişim yuvası oluşturulur. 
+3. Ardından istemci, bu adresi hedef alan geçiş hizmetine trafik göndererek şirket içi hizmet ile iletişim kurabilir. 
+4. Geçiş hizmeti daha sonra istemciye ayrılmış çift yönlü yuva aracılığıyla verileri şirket içi hizmete *geçirir*. İstemcinin şirket içi hizmetle doğrudan bağlantı kurmasına gerek yoktur. Hizmetin konumunu bilmesine gerek yoktur. Ayrıca şirket içi hizmetin güvenlik duvarında herhangi bir gelen bağlantı noktasının açılmasına ihtiyacı yoktur.
 
+
+## <a name="features"></a>Özellikler 
 Azure Geçiş iki özelliğe sahiptir:
 
-1. [Karma Bağlantılar](#hybrid-connections) - Çok platformlu senaryoları etkinleştiren açık standart web yuvalarını kullanır.
-2. [WCF Geçişleri](#wcf-relays) - Windows Communication Foundation’ı (WCF) kullanarak uzak yordam çağrılarını etkinleştirir. WCF Geçişi, birçok müşterinin WCF programlama modelleriyle kullanmakta olduğu eski geçiş teklifidir.
+- [Karma Bağlantılar](#hybrid-connections) - Çok platformlu senaryoları etkinleştiren açık standart web yuvalarını kullanır.
+- [WCF Geçişleri](#wcf-relays) - Windows Communication Foundation’ı (WCF) kullanarak uzak yordam çağrılarını etkinleştirir. WCF Geçişi, birçok müşterinin WCF programlama modelleriyle kullanmakta olduğu eski geçiş teklifidir.
 
-Hem Karma Bağlantılar hem de WCF Geçişleri bir kurumsal kuruluş ağı içinde bulunan varlıklara güvenli bağlantı olanağı sağlar. Hangisinin diğerine tercih edileceği, aşağıdaki tabloda açıklandığı gibi özel gereksinimlerinize bağlıdır:
+## <a name="hybrid-connections"></a>Karma Bağlantılar
+
+Azure Relay hizmetindeki Karma Bağlantılar özelliği, daha önceden sunulan geçiş özelliklerinin güvenli ve açık protokol kullanan sürümüdür. İstediğiniz platformda ve istediğiniz programlama diliyle kullanabilirsiniz. Azure Relay hizmetindeki Karma Bağlantılar özelliği, HTTP ve WebSockets protokollerini kullanır. Web yuvaları veya HTTP(S) üzerinden istek gönderip yanıt almanızı sağlar. Bu özellik yaygın web tarayıcılarındaki WebSocket API’si ile uyumludur. 
+
+Karma Bağlantılar protokolü hakkında ayrıntılı bilgi için bkz.[Karma Bağlantılar protokolü kılavuzu](relay-hybrid-connections-protocol.md). Karma Bağlantıları herhangi bir web yuvası kitaplığıyla ve herhangi bir çalışma zamanı/programlama dili ile kullanabilirsiniz.
+
+> [!NOTE]
+> Azure Relay hizmetinin Karma Bağlantılar özelliği, eski BizTalk Services Karma Bağlantılar özelliğinin yerini almıştır. BizTalk Services Karma Bağlantılar özelliği, Azure Service Bus WCF Geçişi üzerine geliştirilmişti. Azure Relay hizmetindeki Karma Bağlantılar özelliği önceki WCF Geçişi özelliğini tamamlamaktadır. Bu iki hizmet özelliği (WCF Geçişi ve Karma Bağlantılar), Azure Relay hizmetinde birlikte kullanılabilir. Ortak bir ağ geçidine sahip bu iki özellik, diğer açılardan farklı olan uygulamalardır.
+
+## <a name="wcf-relay"></a>WCF Geçişi
+WCF Geçişi tam .NET Framework ve WCF ile birlikte çalışır. Geçiş hizmeti ile şirket içi hizmetiniz arasındaki bağlantıyı bir WCF "geçiş" bağlamaları paketi kullanarak başlatırsınız. Arka planda ise geçiş bağlamaları, bulutta Service Bus ile tümleşen WCF kanalı bileşenlerini oluşturmak üzere tasarlanan yeni aktarım bağlama öğeleriyle eşleşir. Daha fazla bilgi için bkz. [WCF Geçişi ile çalışmaya başlama](relay-wcf-dotnet-get-started.md).
+
+## <a name="hybrid-connections-vs-wcf-relay"></a>Karma Bağlantılar ve WCF Geçişi
+Hem Karma Bağlantılar hem de WCF Geçişi bir kuruluş ağı içinde bulunan varlıklara güvenli bağlantı olanağı sağlar. Hangisinin diğerine tercih edileceği, aşağıdaki tabloda açıklandığı gibi özel gereksinimlerinize bağlıdır:
 
 |  | WCF Geçişi | Karma Bağlantılar |
 | --- |:---:|:---:|
 | **WCF** |x | |
 | **.NET Core** | |x |
 | **.NET Framework** |x |x |
-| **JavaScript/NodeJS** | |x |
-| **Standart Tabanlı Açık Protokol** | |x |
-| **Birden Çok RPC Programlama Modeli** | |x |
-
-## <a name="hybrid-connections"></a>Karma Bağlantılar
-
-Azure Relay Karma Bağlantılar özelliği, tüm platform ve dillerde uygulanabilen mevcut Geçiş özelliklerinin güvenli, açık yordam kullanılarak evrim geçirmiş bir halidir. Karma Bağlantılar WebSockets’in yanı sıra HTTP(S) istekleri ve yanıtlarını da geçirebilir. Bu özellikler ortak web tarayıcılarında WebSocket API’si ile uyumludur. Karma Bağlantılar HTTP ve WebSocket’ları temel alır.
-
-Protokol [Karma Bağlantılar protokol kılavuzunda](relay-hybrid-connections-protocol.md) tam olarak belgelenir ve Karma Bağlantılar Relay’in herhangi bir çalışma zamanı ve dil için neredeyse tüm Web yuvalarıyla kullanılmasına olanak sağlar.
-
-### <a name="service-history"></a>Hizmet geçmişi
-
-Karma Bağlantılar, Azure Service Bus WCF Geçişi üzerinde oluşturulan eski ve benzer ada sahip "BizTalk Services" özelliğini tamamlar. Yeni Karma Bağlantılar özelliği mevcut WCF Geçişi özelliğini tamamlar ve bu iki hizmet özelliği Azure Geçişi hizmetinde birlikte yer alır. Ortak bir ağ geçidine sahip bu iki özellik, diğer açılardan farklı olan uygulamalardır.
-
-## <a name="wcf-relay"></a>WCF Geçişi
-
-WCF Geçişi tam .NET Framework (NETFX) ve WCF için çalışır. Geçiş hizmeti ile şirket içi hizmetiniz arasındaki bağlantıyı bir WCF "geçiş" bağlamaları paketi kullanarak başlatırsınız. Arka planda ise geçiş bağlamaları, bulutta Service Bus ile tümleşen WCF kanalı bileşenlerini oluşturmak üzere tasarlanan yeni aktarım bağlama öğeleriyle eşleşir. Daha fazla bilgi için bkz. [WCF Geçişi ile çalışmaya başlama](relay-wcf-dotnet-get-started.md).
+| **Java script/Node.JS** | |x |
+| **Standart Tabanlı açık protokol** | |x |
+| **Birden çok RPC programlama modeli** | |x |
 
 ## <a name="architecture-processing-of-incoming-relay-requests"></a>Mimari: Gelen geçiş isteklerinin işlenmesi
-
-Bir istemci [Azure Geçişi](/azure/service-bus-relay/) hizmetine istek gönderdiğinde Azure yük dengeleyici bu isteği ağ geçidi düğümlerinden herhangi birine yönlendirir. İstek, bir dinleme isteğiyse ağ geçidi düğümü yeni bir geçiş oluşturur. İstek, belirli bir geçiş için bağlantı isteğiyse ağ geçidi düğümü, geçişe sahip olan ağ geçidi düğümüne bağlantı isteğini iletir. Geçişe sahip ağ geçidi dinleyen istemciye bir randevu isteği göndererek dinleyiciden bağlantı isteğini alan ağ geçidi düğümüne geçici bir kanal kurmasını ister.
-
-Geçiş bağlantısı kurulduğunda istemciler, randevu için kullanılan ağ geçidi düğümü aracılığıyla iletileri değiştirebilir.
+Aşağıdaki diyagramda gelen geçiş isteklerinin Azure Relay tarafından nasıl işlendiği gösterilmektedir:
 
 ![Gelen WCF Geçiş İsteklerinin işlenmesi](./media/relay-what-is-it/ic690645.png)
 
-## <a name="next-steps"></a>Sonraki adımlar
+1. Dinleyen istemci Azure Relay hizmetine bir dinleme isteği gönderir. Azure Load Balancer isteği ağ geçidi düğümlerinden birine yönlendirir. 
+2. Azure Relay hizmeti, ağ geçidi deposunda bir geçiş oluşturur. 
+3. Gönderen istemci dinleyen istemciye bağlanma isteği gönderir. 
+4. İsteği alan ağ geçidi, ağ geçidi deposunda geçişi arar. 
+5. Ağ geçidi bağlantı isteğini ağ geçidi deposundaki doğru ağ geçidine yönlendirir. 
+6. Ağ geçidi, dinleyen istemciye bir istek göndererek gönderen istemciye en yakın ağ geçidi düğümünde geçici bir kanal oluşturmasını sağlar. 
+7. Burada dinleyen istemci geçici bir kanal oluşturur ve gönderen istemciye en yakın olan ağ geçidine bir yanıt iletisi gönderir.
+8. Ağ geçidi yanıt iletisini gönderen istemciye iletir. 
 
-* [Geçiş hakkında SSS](relay-faq.md)
-* [Ad alanı oluşturma](relay-create-namespace-portal.md)
+Geçiş bağlantısı kurulduğunda istemciler, randevu için kullanılan ağ geçidi düğümü aracılığıyla iletileri değiştirebilir.
+
+## <a name="next-steps"></a>Sonraki adımlar
 * [.NET Web Yuvaları kullanmaya başlayın](relay-hybrid-connections-dotnet-get-started.md)
 * [.NET HTTP İstekleri kullanmaya başlayın](relay-hybrid-connections-http-requests-dotnet-get-started.md)
 * [Node Web Yuvaları kullanmaya başlayın](relay-hybrid-connections-node-get-started.md)
 * [Node HTTP İstekleri kullanmaya başlayın](relay-hybrid-connections-http-requests-node-get-started.md)
+* [Geçiş hakkında SSS](relay-faq.md)
 

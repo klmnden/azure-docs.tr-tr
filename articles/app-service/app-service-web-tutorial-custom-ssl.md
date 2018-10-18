@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 08/24/2018
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 700465279a43a8490c5863e7181c4c4d009ee97b
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: abd751cf867fea2e634161c4cf0b1e84acbe18c6
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48857933"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49354118"
 ---
 # <a name="tutorial-bind-an-existing-custom-ssl-certificate-to-azure-web-apps"></a>Öğretici: Azure Web Apps’e var olan bir özel SSL sertifikası bağlama
 
@@ -64,45 +64,7 @@ Bir sertifikayı App Service’te kullanabilmek için sertifikanın aşağıdaki
 > [!NOTE]
 > **Eliptik Eğri Şifrelemesi (ECC) sertifikaları**, App Service ile birlikte çalışabilir ancak bu makalenin konusu değildir. ECC sertifikaları oluşturmaya ilişkin tam adımlar için sertifika yetkilinizle birlikte çalışın.
 
-## <a name="prepare-your-web-app"></a>Web uygulamanızı hazırlama
-
-Özel bir SSL sertifikasını web uygulamanıza bağlamak için [App Service planınız](https://azure.microsoft.com/pricing/details/app-service/) **Temel**, **Standart**, **Premium** veya **Yalıtılmış** katmanında olmalıdır. Bu adımda, web uygulamanızın desteklenen bir fiyatlandırma katmanında olduğundan emin olacaksınız.
-
-### <a name="log-in-to-azure"></a>Azure'da oturum açma
-
-[Azure portalı](https://portal.azure.com) açın.
-
-### <a name="navigate-to-your-web-app"></a>Web uygulamanıza gidin
-
-Sol menüden **Uygulama Hizmetleri**'ne ve ardından web uygulamanızın adına tıklayın.
-
-![Web uygulaması seçme](./media/app-service-web-tutorial-custom-ssl/select-app.png)
-
-Web uygulamanızın yönetim sayfasına geldiniz.  
-
-### <a name="check-the-pricing-tier"></a>Fiyatlandırma katmanını denetleme
-
-Web uygulaması sayfasının sol gezinti bölmesinde **Ayarlar** bölümüne kaydırın ve **Ölçeği artır (App Service planı)** öğesini seçin.
-
-![Ölçeği artır menüsü](./media/app-service-web-tutorial-custom-ssl/scale-up-menu.png)
-
-Web uygulamanızın **F1** veya **D1** katmanında olmadığından emin olun. Web uygulamanızın geçerli katmanı koyu mavi bir kutuyla vurgulanır.
-
-![Fiyatlandırma katmanını denetleyin](./media/app-service-web-tutorial-custom-ssl/check-pricing-tier.png)
-
-**F1** veya **D1** katmanında özel SSL desteklenmez. Ölçeği artırmanız gerekirse sonraki bölümde verilen adımları izleyin. Aksi takdirde, **Ölçeği artırın** sayfasını kapatıp [SSL sertifikanızı karşıya yükleme ve bağlama](#upload) bölümüne atlayın.
-
-### <a name="scale-up-your-app-service-plan"></a>App Service planınızın ölçeğini artırma
-
-Ücretsiz olmayan katmanlardan birini seçin (**B1**, **B2**, **B3**, veya **Üretim** kategorisindeki herhangi bir katmanı). Ek seçenekler için **Ek seçeneklere bakın**’a tıklayın.
-
-**Uygula**'ya tıklayın.
-
-![Fiyatlandırma katmanı seçme](./media/app-service-web-tutorial-custom-ssl/choose-pricing-tier.png)
-
-Aşağıdaki bildirimi gördüğünüzde, ölçeklendirme işlemi tamamlanmıştır.
-
-![Ölçek artırma bildirimi](./media/app-service-web-tutorial-custom-ssl/scale-notification.png)
+[!INCLUDE [Prepare your web app](../../includes/app-service-ssl-prepare-app.md)]
 
 <a name="upload"></a>
 

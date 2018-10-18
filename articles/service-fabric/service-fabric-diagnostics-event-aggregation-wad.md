@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/03/2018
 ms.author: srrengar
-ms.openlocfilehash: fe8cf752337bdb3fcd61ce6aa9f3e5cb834fb0aa
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.openlocfilehash: a870c99718ecafe8af33e13be9aa46631888c8cb
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49310972"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49389692"
 ---
 # <a name="event-aggregation-and-collection-using-windows-azure-diagnostics"></a>Olay toplama ve Windows Azure Tanılama'yı kullanarak koleksiyon
 > [!div class="op_single_selector"]
@@ -65,7 +65,7 @@ Azure depolama, olayları toplayarak göre [Log Analytics'i ayarlama](service-fa
 ## <a name="deploy-the-diagnostics-extension-through-azure-resource-manager"></a>Tanılama uzantısını Azure Resource Manager aracılığıyla dağıtma
 
 ### <a name="create-a-cluster-with-the-diagnostics-extension"></a>Tanılama uzantısı ile küme oluşturma
-Kaynak Yöneticisi'ni kullanarak bir küme oluşturmak için küme oluşturmadan önce tam bir Resource Manager şablonu için tanılama yapılandırması JSON eklemeniz gerekir. Resource Manager şablonu örneklerimizi parçası olarak eklenen tanılama yapılandırması ile örnek beş sanal makine küme kaynak yöneticisi şablonu sunuyoruz. Azure Örnekler Galerisi bu konumda görebilirsiniz: [tanılama Kaynak Yöneticisi şablonu örnek ile beş düğümlü küme](https://azure.microsoft.com/en-in/resources/templates/service-fabric-secure-cluster-5-node-1-nodetype/).
+Kaynak Yöneticisi'ni kullanarak bir küme oluşturmak için küme oluşturmadan önce tam bir Resource Manager şablonu için tanılama yapılandırması JSON eklemeniz gerekir. Resource Manager şablonu örneklerimizi parçası olarak eklenen tanılama yapılandırması ile örnek beş sanal makine küme kaynak yöneticisi şablonu sunuyoruz. Azure Örnekler Galerisi bu konumda görebilirsiniz: [tanılama Kaynak Yöneticisi şablonu örnek ile beş düğümlü küme](https://azure.microsoft.com/resources/templates/service-fabric-secure-cluster-5-node-1-nodetype/).
 
 Resource Manager şablonu tanılama ayarı görmek için azuredeploy.json dosyasını açın ve arama **IaaSDiagnostics**. Bu şablonu kullanarak bir küme oluşturmak için Seç **azure'a Dağıt** düğmesini önceki bağlantıda kullanılabilir.
 

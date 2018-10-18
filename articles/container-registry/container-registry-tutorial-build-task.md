@@ -1,251 +1,254 @@
 ---
-title: Öğretici - Azure Container Registry Derlemesi ile kapsayıcı görüntüsü derlemelerini otomatik hale getirme
-description: Bu öğreticide, bir Git deposuna kaynak kodu işlediğinizde bulutta kapsayıcı görüntü derlemelerini otomatik olarak tetiklemek üzere bir derleme görevi yapılandırmayı öğreneceksiniz.
+title: 'Öğretici: Azure Container Registry Görevleri ile kapsayıcı görüntüsü derlemelerini otomatik hale getirme'
+description: Bu öğreticide, bir Git deposuna kaynak kodu işlediğinizde bulutta kapsayıcı görüntü derlemelerini otomatik olarak tetiklemek üzere bir görev yapılandırmayı öğreneceksiniz.
 services: container-registry
-author: mmacy
-manager: jeconnoc
+author: dlepow
 ms.service: container-registry
 ms.topic: tutorial
-ms.date: 05/11/2018
-ms.author: marsma
+ms.date: 09/24/2018
+ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 71ea0f489df6969f0916ac14d187e10a90a520cd
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 27dbee3b292a9139ce53ef7b09a4cceba56082e4
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38722720"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48857236"
 ---
-# <a name="tutorial-automate-container-image-builds-with-azure-container-registry-build"></a>Öğretici: Azure Container Registry Derlemesi ile kapsayıcı görüntüsü derlemelerini otomatik hale getirme
+# <a name="tutorial-automate-container-image-builds-with-azure-container-registry-tasks"></a>Öğretici: Azure Container Registry Görevleri ile kapsayıcı görüntüsü derlemelerini otomatik hale getirme
 
-ACR Derlemesi, [Hızlı Derleme](container-registry-tutorial-quick-build.md)’ye ek olarak *derleme görevi* ile otomatik Docker kapsayıcı görüntüsü derlemesini destekler. Bu öğreticide, bir Git deposuna kaynak kodu işlediğinizde bulutta görüntü derlemelerini otomatik olarak tetikleyen bir derleme görevi oluşturmak için Azure CLI kullanacaksınız.
+ACR Görevleri, [hızlı göreve](container-registry-tutorial-quick-task.md) ek olarak *derleme görevi* ile otomatik Docker kapsayıcı görüntüsü derlemesini destekler. Bu öğreticide, bir Git deposuna kaynak kodu işlediğinizde bulutta görüntü derlemelerini otomatik olarak tetikleyen bir görev oluşturmak için Azure CLI kullanacaksınız.
 
 Bu öğreticide, serinin ikinci kısmı:
 
 > [!div class="checklist"]
-> * Derleme görevi oluşturma
-> * Derleme görevini test etme
-> * Derleme durumunu görüntüleme
-> * Kod işlemesi ile derleme görevini tetikleme
+> * Görev oluşturma
+> * Görevi test etme
+> * Görev durumunu görüntüleme
+> * Kod işlemesi ile görevi tetikleme
 
-Bu öğreticide, [önceki öğreticide](container-registry-tutorial-quick-build.md) yer alan adımları zaten tamamladığınız varsayılır. Henüz yapmadıysanız, devam etmeden önce önceki öğreticinin [Önkoşullar](container-registry-tutorial-quick-build.md#prerequisites) bölümündeki adımları tamamlayın.
-
-[!INCLUDE [container-registry-build-preview-note](../../includes/container-registry-build-preview-note.md)]
+Bu öğreticide, [önceki öğreticide](container-registry-tutorial-quick-task.md) yer alan adımları zaten tamamladığınız varsayılır. Henüz yapmadıysanız, devam etmeden önce önceki öğreticinin [Önkoşullar](container-registry-tutorial-quick-task.md#prerequisites) bölümündeki adımları tamamlayın.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Azure CLI’yı yerel olarak kullanmak istiyorsanız Azure CLI **2.0.32** veya sonraki bir sürüm yüklü olmalıdır. Sürümü bulmak için `az --version` komutunu çalıştırın. CLI’yı yüklemeniz veya yükseltmeniz gerekiyorsa bkz. [Azure CLI’yı yükleme][azure-cli].
+Azure CLI’yı yerel olarak kullanmak istiyorsanız [az login][az-login] ile Azure CLI **2.0.46** veya sonraki bir sürüm yüklü olmalıdır. Sürümü bulmak için `az --version` komutunu çalıştırın. CLI’yı yüklemeniz veya yükseltmeniz gerekiyorsa bkz. [Azure CLI’yı yükleme][azure-cli].
 
 ## <a name="prerequisites"></a>Ön koşullar
 
 ### <a name="get-sample-code"></a>Örnek kodu alma
 
-Bu öğreticide, [önceki öğreticide](container-registry-tutorial-quick-build.md) yer alan adımları zaten tamamladığınız ve örnek deponun çatalını ve kopyasını oluşturduğunuz varsayılır. Henüz yapmadıysanız, devam etmeden önce önceki öğreticinin [Önkoşullar](container-registry-tutorial-quick-build.md#prerequisites) bölümündeki adımları tamamlayın.
+Bu öğreticide, [önceki öğreticide](container-registry-tutorial-quick-task.md) yer alan adımları zaten tamamladığınız ve örnek deponun çatalını ve kopyasını oluşturduğunuz varsayılır. Henüz yapmadıysanız, devam etmeden önce önceki öğreticinin [Önkoşullar](container-registry-tutorial-quick-task.md#prerequisites) bölümündeki adımları tamamlayın.
 
 ### <a name="container-registry"></a>Kapsayıcı kayıt defteri
 
-Bu öğreticiyi tamamlamak için Azure aboneliğinizde bir Azure kapsayıcı kayıt defteri olması gerekir. Bir kayıt defterine ihtiyacınız varsa, [önceki öğreticiye](container-registry-tutorial-quick-build.md) veya [Hızlı Başlangıç: Azure CLI kullanarak kapsayıcı kayıt defteri oluşturma](container-registry-get-started-azure-cli.md) bölümüne bakın.
+Bu öğreticiyi tamamlamak için Azure aboneliğinizde bir Azure kapsayıcı kayıt defteri olması gerekir. Bir kayıt defterine ihtiyacınız varsa, [önceki öğreticiye](container-registry-tutorial-quick-task.md) veya [Hızlı Başlangıç: Azure CLI kullanarak kapsayıcı kayıt defteri oluşturma](container-registry-get-started-azure-cli.md) bölümüne bakın.
 
-## <a name="build-task"></a>Derleme görevi
+## <a name="overview-of-acr-tasks"></a>ACR Görevlerine genel bakış
 
-Derleme görevi, kapsayıcı görüntüsü kaynak kodunun konumu ve derlemeyi tetikleyen olay gibi otomatik bir derlemenin özelliklerini tanımlar. Git deposuna işleme gibi derleme görevinde tanımlanan bir olay gerçekleştiğinde, ACR Derlemesi bulutta bir kapsayıcı görüntüsü derlemesi başlatır. Varsayılan olarak, başarıyla derlenmiş bir görüntüyü daha sonra görevde belirtilen Azure kapsayıcı kayıt defterine gönderir.
+Görev, kapsayıcı görüntüsü kaynak kodunun konumu ve derlemeyi tetikleyen olay gibi otomatik bir derlemenin özelliklerini tanımlar. Git deposuna işleme gibi görevde tanımlanan bir olay gerçekleştiğinde, ACR Görevleri bulutta bir kapsayıcı görüntüsü derlemesi başlatır. Varsayılan olarak, başarıyla derlenmiş bir görüntüyü daha sonra görevde belirtilen Azure kapsayıcı kayıt defterine gönderir.
 
-ACR Derlemesi şu anda aşağıdaki derleme görevi tetikleyicilerini destekler:
+ACR Görevleri şu an için aşağıdaki tetikleyicileri desteklemektedir:
 
 * Git deposuna işleme
 * Temel görüntü güncelleştirme
 
 ## <a name="create-a-build-task"></a>Derleme görevi oluşturma
 
-Bu bölümde ilk olarak ACR Derlemesi ile birlikte kullanılacak bir GitHub kişisel erişim belirteci (PAT) oluşturacaksınız. Daha sonra, deponuzun çatalına kod işlendiğinde derlemeyi tetikleyen bir derleme görevi oluşturacaksınız.
+Bu bölümde ilk olarak ACR Görevleri ile birlikte kullanılacak bir GitHub kişisel erişim belirteci (PAT) oluşturacaksınız. Daha sonra, deponuzun çatalına kod işlendiğinde derlemeyi tetikleyen bir görev oluşturacaksınız.
 
 ### <a name="create-a-github-personal-access-token"></a>GitHub kişisel erişim belirteci oluşturma
 
-Git deposuna işleme sonrasında bir derleme tetiklemek için, ACR Derlemesinin depoya erişmek üzere bir kişisel erişim belirtecine (PAT) sahip olması gerekir. Github'da bir PAT oluşturmak için aşağıdaki adımları izleyin:
+Git deposuna işleme sonrasında bir derleme tetiklemek için, ACR Görevlerinin depoya erişmek üzere bir kişisel erişim belirtecine (PAT) sahip olması gerekir. Github'da bir PAT oluşturmak için aşağıdaki adımları izleyin:
 
 1. GitHub üzerinde https://github.com/settings/tokens/new adresindeki PAT oluşturma sayfasında gidin
-1. Belirteç için kısa bir **açıklama** girin; örneğin, "ACR Derleme Görevi Tanıtımı"
+1. Belirteç için kısa bir **açıklama** girin; örneğin, "ACR Görevleri Tanıtımı"
 1. **Depo** altında **depo:durum** seçeneğini ve **genel_depo** seçeneklerini etkinleştirin
 
    ![GitHub'da Kişisel Erişim Belirteci oluşturma sayfasının ekran görüntüsü][build-task-01-new-token]
 
 1. **Belirteç Oluştur** düğmesini seçin (parolanızı onaylamanız istenebilir)
-1. Oluşturulan belirteci kopyalayın ve **güvenli bir konuma** kaydedin (bu belirteci sonraki bölümde bir derleme görevi tanımlarken kullanacaksınız)
+1. Oluşturulan belirteci kopyalayın ve **güvenli bir konuma** kaydedin (bu belirteci sonraki bölümde bir görev tanımlarken kullanacaksınız)
 
    ![GitHub'da oluşturulan Kişisel Erişim Belirtecinin ekran görüntüsü][build-task-02-generated-token]
 
 ### <a name="create-the-build-task"></a>Derleme görevi oluşturma
 
-ACR Derlemesinin işleme durumunu okumasını etkinleştirmek ve bir depoda web kancaları oluşturmak için gereken adımları tamamladıktan sonra, depoya işleme yapılması üzerine kapsayıcı görüntüsü derlemesini tetikleyen bir derleme görevi oluşturabilirsiniz.
+ACR Görevlerinin işleme durumunu okumasını etkinleştirmek ve bir depoda web kancaları oluşturmak için gereken adımları tamamladıktan sonra, depoya işleme yapılması üzerine kapsayıcı görüntüsü derlemesini tetikleyen bir görev oluşturabilirsiniz.
 
-İlk olarak, bu kabuk ortam değişkenlerini ortamınıza uygun değerlerle doldurun. Bunun yapılması kesinlikle zorunlu değildir ancak bu öğreticideki çok satırlı Azure CLI komutlarını yürütmeyi biraz daha kolaylaştırır. Bu alanları doldurmazsanız her değeri, örnek komutlarda her göründükleri durumda el ile değiştirmeniz gerekir.
+İlk olarak, bu kabuk ortam değişkenlerini ortamınıza uygun değerlerle doldurun. Bu adımın yapılması kesinlikle zorunlu değildir ancak bu öğreticideki çok satırlı Azure CLI komutlarını yürütmeyi biraz daha kolaylaştırır. Bu ortam değişkenlerini doldurmazsanız her değeri, örnek komutlarda her göründükleri durumda el ile değiştirmeniz gerekir.
 
 ```azurecli-interactive
-ACR_NAME=mycontainerregistry # The name of your Azure container registry
-GIT_USER=gituser             # Your GitHub user account name
-GIT_PAT=personalaccesstoken  # The PAT you generated in the previous section
+ACR_NAME=<registry-name>        # The name of your Azure container registry
+GIT_USER=<github-username>      # Your GitHub user account name
+GIT_PAT=<personal-access-token> # The PAT you generated in the previous section
 ```
 
-Şimdi aşağıdaki [az acr build-task create][az-acr-build-task-create] komutunu yürüterek derleme görevini oluşturun:
+Şimdi aşağıdaki [az acr task create][az-acr-task-create] komutunu yürüterek görevi oluşturun:
 
 ```azurecli-interactive
-az acr build-task create \
+az acr task create \
     --registry $ACR_NAME \
-    --name buildhelloworld \
-    --image helloworld:{{.Build.ID}} \
-    --context https://github.com/$GIT_USER/acr-build-helloworld-node \
+    --name taskhelloworld \
+    --image helloworld:{{.Run.ID}} \
+    --context https://github.com/$GIT_USER/acr-build-helloworld-node.git \
     --branch master \
+    --file Dockerfile \
     --git-access-token $GIT_PAT
 ```
 
-Bu derleme görevi, `--context` ile belirtilen depodaki *ana* dala kod işlenen her durumda ACR Derlemesinin söz konusu daldaki koddan kapsayıcı görüntüsü derleyeceğini belirtir. `--image` bağımsız değişkeni, görüntü etiketinin sürüm kısmı için parametreli `{{.Build.ID}}` değeri belirtir ve derlenen görüntünün belirli bir derleme ile ilişkili olmasını ve benzersiz şekilde etiketlenmesini sağlar.
+> [!IMPORTANT]
+> Önizlemede daha önce `az acr build-task` komutuyla görev oluşturduysanız [az acr task][az-acr-task] komutuyla bu görevleri yeniden oluşturmanız gerekebilir.
 
-Başarılı bir [az acr build-task create][az-acr-build-task-create] komutundaki çıktı aşağıdakilere benzer:
+Bu görev, `--context` ile belirtilen depodaki *ana* dala kod işlenen her durumda ACR Görevlerinin söz konusu daldaki koddan kapsayıcı görüntüsü derleyeceğini belirtir. `--file` ile belirtilen depo kök dizinindeki Dockerfile kullanılır. `--image` bağımsız değişkeni, görüntü etiketinin sürüm kısmı için parametreli `{{.Run.ID}}` değeri belirtir ve derlenen görüntünün belirli bir derleme ile ilişkili olmasını ve benzersiz şekilde etiketlenmesini sağlar.
+
+Başarılı bir [az acr task create][az-acr-task-create] komutundaki çıktı aşağıdakilere benzer:
 
 ```console
-$ az acr build-task create \
+$ az acr task create \
 >     --registry $ACR_NAME \
->     --name buildhelloworld \
->     --image helloworld:{{.Build.ID}} \
->     --context https://github.com/$GIT_USER/acr-build-helloworld-node \
+>     --name taskhelloworld \
+>     --image helloworld:{{.Run.ID}} \
+>     --context https://github.com/$GIT_USER/acr-build-helloworld-node.git \
 >     --branch master \
+>     --file Dockerfile \
 >     --git-access-token $GIT_PAT
 {
-  "additionalProperties": {},
-  "alias": "buildhelloworld",
-  "creationDate": "2018-05-10T19:34:48.086776+00:00",
-  "id": "/subscriptions/<Subscription ID>/resourceGroups/mycontainerregistry/providers/Microsoft.ContainerRegistry/registries/mycontainerregistry/buildTasks/buildhelloworld",
-  "location": "eastus",
-  "name": "buildhelloworld",
-  "platform": {
-    "additionalProperties": {},
-    "cpu": 1,
-    "osType": "Linux"
+  "agentConfiguration": {
+    "cpu": 2
   },
-  "properties": {
-    "additionalProperties": {
-      "imageName": null
-    },
+  "creationDate": "2018-09-14T22:42:32.972298+00:00",
+  "id": "/subscriptions/<Subscription ID>/resourceGroups/myregistry/providers/Microsoft.ContainerRegistry/registries/myregistry/tasks/taskhelloworld",
+  "location": "westcentralus",
+  "name": "taskhelloworld",
+  "platform": {
+    "architecture": "amd64",
+    "os": "Linux",
+    "variant": null
+  },
+  "provisioningState": "Succeeded",
+  "resourceGroup": "myregistry",
+  "status": "Enabled",
+  "step": {
+    "arguments": [],
     "baseImageDependencies": null,
-    "baseImageTrigger": "Runtime",
-    "branch": "master",
-    "buildArguments": [],
-    "contextPath": null,
+    "contextPath": "https://github.com/gituser/acr-build-helloworld-node",
     "dockerFilePath": "Dockerfile",
     "imageNames": [
-      "helloworld:{{.Build.ID}}"
+      "helloworld:{{.Run.ID}}"
     ],
     "isPushEnabled": true,
     "noCache": false,
-    "provisioningState": "Succeeded",
     "type": "Docker"
   },
-  "provisioningState": "Succeeded",
-  "resourceGroup": "mycontainerregistry",
-  "sourceRepository": {
-    "additionalProperties": {},
-    "isCommitTriggerEnabled": true,
-    "repositoryUrl": "https://github.com/gituser/acr-build-helloworld-node",
-    "sourceControlAuthProperties": null,
-    "sourceControlType": "GitHub"
-  },
-  "status": "Enabled",
   "tags": null,
   "timeout": 3600,
-  "type": "Microsoft.ContainerRegistry/registries/buildTasks"
+  "trigger": {
+    "baseImageTrigger": {
+      "baseImageTriggerType": "Runtime",
+      "name": "defaultBaseimageTriggerName",
+      "status": "Enabled"
+    },
+    "sourceTriggers": [
+      {
+        "name": "defaultSourceTriggerName",
+        "sourceRepository": {
+          "branch": "master",
+          "repositoryUrl": "https://github.com/gituser/acr-build-helloworld-node",
+          "sourceControlAuthProperties": null,
+          "sourceControlType": "Github"
+        },
+        "sourceTriggerEvents": [
+          "commit"
+        ],
+        "status": "Enabled"
+      }
+    ]
+  },
+  "type": "Microsoft.ContainerRegistry/registries/tasks"
 }
 ```
 
 ## <a name="test-the-build-task"></a>Derleme görevini test etme
 
-Artık derlemenizi tanımlayan bir derleme göreviniz var. Derleme tanımını test etmek için, [az acr build-task run][az-acr-build-task-run] komutunu yürüterek el ile bir derleme tetikleyin:
+Artık derlemenizi tanımlayan bir göreviniz var. Derleme işlem hattını test etmek için, [az acr task run][az-acr-task-run] komutunu yürüterek el ile bir derleme tetikleyin:
 
 ```azurecli-interactive
-az acr build-task run --registry $ACR_NAME --name buildhelloworld
+az acr task run --registry $ACR_NAME --name taskhelloworld
 ```
 
-Varsayılan olarak, `az acr build-task run` komutunu yürüttüğünüzde komut, günlük çıktısını konsolunuza akışla aktarır. Burada çıktı, **aa2** derlemesinin kuyruğa alınıp derlendiğini gösterir.
+Varsayılan olarak, `az acr task run` komutunu yürüttüğünüzde komut, günlük çıktısını konsolunuza akışla aktarır.
 
 ```console
-$ az acr build-task run --registry $ACR_NAME --name buildhelloworld
-Queued a build with build ID: aa2
-Waiting for a build agent...
-time="2018-05-10T19:37:17Z" level=info msg="Running command git clone https://x-access-token:*************@github.com/gituser/acr-build-helloworld-node /root/acr-builder/src"
-Cloning into '/root/acr-builder/src'...
-time="2018-05-10T19:37:17Z" level=info msg="Running command git checkout master"
-Already on 'master'
-Your branch is up to date with 'origin/master'.
-920f16cfafa36d0bc3f397c3dd48185a03499404
-time="2018-05-10T19:37:17Z" level=info msg="Running command git rev-parse --verify HEAD"
-time="2018-05-10T19:37:17Z" level=info msg="Running command docker build --pull -f Dockerfile -t mycontainerregistry.azurecr.io/helloworld:aa2 ."
-Sending build context to Docker daemon  209.9kB
+$ az acr task run --registry $ACR_NAME --name taskhelloworld
+
+2018/09/17 22:51:00 Using acb_vol_9ee1f28c-4fd4-43c8-a651-f0ed027bbf0e as the home volume
+2018/09/17 22:51:00 Setting up Docker configuration...
+2018/09/17 22:51:02 Successfully set up Docker configuration
+2018/09/17 22:51:02 Logging in to registry: myregistry.azurecr.io
+2018/09/17 22:51:03 Successfully logged in
+2018/09/17 22:51:03 Executing step: build
+2018/09/17 22:51:03 Obtaining source code and scanning for dependencies...
+2018/09/17 22:51:05 Successfully obtained source code and scanned for dependencies
+Sending build context to Docker daemon  23.04kB
 Step 1/5 : FROM node:9-alpine
 9-alpine: Pulling from library/node
-Digest: sha256:5149aec8f508d48998e6230cdc8e6832cba192088b442c8ef7e23df3c6892cd3
+Digest: sha256:8dafc0968fb4d62834d9b826d85a8feecc69bd72cd51723c62c7db67c6dec6fa
 Status: Image is up to date for node:9-alpine
- ---> 7af437a39ec2
+ ---> a56170f59699
 Step 2/5 : COPY . /src
- ---> 48a7735fa94e
+ ---> 5f574fcf5816
+Step 3/5 : RUN cd /src && npm install
+ ---> Running in b1bca3b5f4fc
+npm notice created a lockfile as package-lock.json. You should commit this file.
+npm WARN helloworld@1.0.0 No repository field.
 
+up to date in 0.078s
+Removing intermediate container b1bca3b5f4fc
+ ---> 44457db20dac
+Step 4/5 : EXPOSE 80
+ ---> Running in 9e6f63ec612f
+Removing intermediate container 9e6f63ec612f
+ ---> 74c3e8ea0d98
+Step 5/5 : CMD ["node", "/src/server.js"]
+ ---> Running in 7382eea2a56a
+Removing intermediate container 7382eea2a56a
+ ---> e33cd684027b
+Successfully built e33cd684027b
+Successfully tagged myregistry.azurecr.io/helloworld:da2
+2018/09/17 22:51:11 Executing step: push
+2018/09/17 22:51:11 Pushing image: myregistry.azurecr.io/helloworld:da2, attempt 1
+The push refers to repository [myregistry.azurecr.io/helloworld]
+4a853682c993: Preparing
 [...]
-
-26b0c207c4a9: Pushed
-917e7cdebc8b: Pushed
-aa2: digest: sha256:6975f01e2e202c084581e676acbe6047788fbe616836328b0b31ce8c58e9fc89 size: 1367
-time="2018-05-10T19:37:57Z" level=info msg="Running command docker inspect --format \"{{json .RepoDigests}}\" mycontainerregistrtyy.azurecr.io/helloworld:aa2"
-"["mycontainerregistrtyy.azurecr.io/helloworld@sha256:6975f01e2e202c084581e676acbe6047788fbe616836328b0b31ce8c58e9fc89"]"
-time="2018-05-10T19:37:57Z" level=info msg="Running command docker inspect --format \"{{json .RepoDigests}}\" node:9-alpine"
-"["node@sha256:5149aec8f508d48998e6230cdc8e6832cba192088b442c8ef7e23df3c6892cd3"]"
-ACR Builder discovered the following dependencies:
+4a853682c993: Pushed
+[...]
+da2: digest: sha256:c24e62fd848544a5a87f06ea60109dbef9624d03b1124bfe03e1d2c11fd62419 size: 1366
+2018/09/17 22:51:21 Successfully pushed image: myregistry.azurecr.io/helloworld:da2
+2018/09/17 22:51:21 Step id: build marked as successful (elapsed time in seconds: 7.198937)
+2018/09/17 22:51:21 Populating digests for step id: build...
+2018/09/17 22:51:22 Successfully populated digests for step id: build
+2018/09/17 22:51:22 Step id: push marked as successful (elapsed time in seconds: 10.180456)
+The following dependencies were found:
 - image:
-    registry: mycontainerregistrtyy.azurecr.io
+    registry: myregistry.azurecr.io
     repository: helloworld
-    tag: aa2
-    digest: sha256:6975f01e2e202c084581e676acbe6047788fbe616836328b0b31ce8c58e9fc89
+    tag: da2
+    digest: sha256:c24e62fd848544a5a87f06ea60109dbef9624d03b1124bfe03e1d2c11fd62419
   runtime-dependency:
     registry: registry.hub.docker.com
     repository: library/node
     tag: 9-alpine
-    digest: sha256:5149aec8f508d48998e6230cdc8e6832cba192088b442c8ef7e23df3c6892cd3
+    digest: sha256:8dafc0968fb4d62834d9b826d85a8feecc69bd72cd51723c62c7db67c6dec6fa
   git:
-    git-head-revision: 920f16cfafa36d0bc3f397c3dd48185a03499404
+    git-head-revision: 68cdf2a37cdae0873b8e2f1c4d80ca60541029bf
 
-Build complete
-Build ID: aa2 was successful after 46.491407373s
-```
 
-## <a name="view-build-status"></a>Derleme durumunu görüntüleme
-
-El ile tetiklemediğiniz devam eden bir derlemenin durumunu görüntülemeyi bazı durumlarda faydalı bulabilirsiniz. Örneğin, kaynak kodu işlemeleri ile tetiklenen derlemelerin sorunlarını giderirken. Bu bölümde, el ile bir derlemeyi tetikleyecek, diğer yandan konsolunuza derleme günlüğünü akışla aktarmaya yönelik varsayılan davranışı engelleyeceksiniz. Ardından, `az acr build-task logs` komutunu kullanarak devam eden derlemeyi izleyeceksiniz.
-
-İlk olarak, daha önce yaptığınız gibi bir derlemeyi el ile tetikleyin ancak konsolunuzda günlüğe kaydedilmesini engellemek için `--no-logs` bağımsız değişkenini belirtin:
-
-```azurecli-interactive
-az acr build-task run --registry $ACR_NAME --name buildhelloworld --no-logs
-```
-
-Ardından, `az build-task logs` komutunu kullanarak o anda devam eden derlemenin günlüğünü görüntüleyin:
-
-```azurecli-interactive
-az acr build-task logs --registry $ACR_NAME
-```
-
-O anda devam eden derlemenin günlüğü konsolunuza akışla aktarılır ve aşağıdaki çıktıya benzer şekilde görünmelidir (burada kesilmiş olarak gösterilir):
-
-```console
-$ az acr build-task logs --registry $ACR_NAME
-Showing logs for the last updated build
-Build ID: aa3
-
-[...]
-
-Build complete
-Build ID: aa3 was successful after 1m14.26397548s
+Run ID: da2 was successful after 27s
 ```
 
 ## <a name="trigger-a-build-with-a-commit"></a>İşleme ile derleme tetikleme
 
-Derleme görevini el ile çalıştırarak test ettikten sonra, bir kaynak kodu değişikliği ile otomatik olarak tetikleyin.
+Görevi el ile çalıştırarak test ettikten sonra, bir kaynak kodu değişikliği ile otomatik olarak tetikleyin.
 
 İlk olarak, [depo][sample-repo] yerel kopyanızı içeren dizinde olduğunuzdan emin olun:
 
@@ -258,7 +261,7 @@ Ardından, yeni bir dosya oluşturmak, işlemek ve GitHub üzerindeki depo çata
 ```azurecli-interactive
 echo "Hello World!" > hello.txt
 git add hello.txt
-git commit -m "Testing ACR Build"
+git commit -m "Testing ACR Tasks"
 git push origin master
 ```
 
@@ -270,48 +273,48 @@ Username for 'https://github.com': <github-username>
 Password for 'https://githubuser@github.com': <personal-access-token>
 ```
 
-Bir işlemeyi deponuza gönderdikten sonra, ACR Derlemesi tarafından oluşturulan web kancası başlatılır ve Azure Container Registry’de bir derleme başlatır. Derlemenin ilerleme durumunu doğrulamak ve izlemek için o anda devam eden derlemenin derleme günlüklerini görüntüleyin:
+Bir işlemeyi deponuza gönderdikten sonra, ACR Görevleri tarafından oluşturulan web kancası başlatılır ve Azure Container Registry’de bir derleme başlatır. Derlemenin ilerleme durumunu doğrulamak ve izlemek için o anda devam eden görevin günlüklerini görüntüleyin:
 
 ```azurecli-interactive
-az acr build-task logs --registry $ACR_NAME
+az acr task logs --registry $ACR_NAME
 ```
 
-Çıktı aşağıdakine benzer ve o anda yürütülen (veya son yürütülen) derlemeyi gösterir:
+Çıktı aşağıdakine benzer ve o anda yürütülen (veya son yürütülen) görevi gösterir:
 
 ```console
-$ az acr build-task logs --registry $ACR_NAME
-Showing logs for the last updated build
-Build ID: aa4
+$ az acr task logs --registry $ACR_NAME
+Showing logs of the last created run.
+Run ID: da4
 
 [...]
 
-Build complete
-Build ID: aa4 was successful after 39.164385024s
+Run ID: da4 was successful after 38s
 ```
 
 ## <a name="list-builds"></a>Derlemeleri listeleme
 
-ACR Derlemesinin kayıt defteriniz için tamamladığı derlemelerin bir listesini görmek üzere [az acr build-task list-builds][az-acr-build-task-list-builds] komutunu çalıştırın:
+[az acr task list-runs][az-acr-task-list-runs] komutunu çalıştırarak ACR Görevlerinin kayıt defteriniz için tamamladığı çalıştırmaları listeleyebilirsiniz:
 
 ```azurecli-interactive
-az acr build-task list-builds --registry $ACR_NAME --output table
+az acr task list-runs --registry $ACR_NAME --output table
 ```
 
-Komut çıktısı aşağıdakine benzer şekilde görünmelidir. ACR Derlemesinin yürüttüğü derlemeler gösterilir ve en son derleme için TRIGGER sütununda "Git İşleme" ifadesi görünür:
+Komut çıktısı aşağıdakine benzer şekilde görünmelidir. ACR Görevlerinin yürüttüğü çalıştırmalar gösterilir ve en son görev için TRIGGER sütununda "Git İşleme" ifadesi görünür:
 
 ```console
-$ az acr build-task list-builds --registry $ACR_NAME --output table
-BUILD ID    TASK             PLATFORM    STATUS     TRIGGER     STARTED               DURATION
-----------  ---------------  ----------  ---------  ----------  --------------------  ----------
-aa4         buildhelloworld  Linux       Succeeded  Git Commit  2018-05-10T19:49:40Z  00:00:45
-aa3         buildhelloworld  Linux       Succeeded  Manual      2018-05-10T19:41:50Z  00:01:20
-aa2         buildhelloworld  Linux       Succeeded  Manual      2018-05-10T19:37:11Z  00:00:50
-aa1                          Linux       Succeeded  Manual      2018-05-10T19:10:14Z  00:00:55
+$ az acr task list-runs --registry $ACR_NAME --output table
+
+RUN ID    TASK             PLATFORM    STATUS     TRIGGER     STARTED               DURATION
+--------  --------------  ----------  ---------  ----------  --------------------  ----------
+da4       taskhelloworld  Linux       Succeeded  Git Commit  2018-09-17T23:03:45Z  00:00:44
+da3       taskhelloworld  Linux       Succeeded  Manual      2018-09-17T22:55:35Z  00:00:35
+da2       taskhelloworld  Linux       Succeeded  Manual      2018-09-17T22:50:59Z  00:00:32
+da1                       Linux       Succeeded  Manual      2018-09-17T22:29:59Z  00:00:57
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu öğreticide, bir Git deposuna kaynak kodu işlediğinizde Azure’da kapsayıcı görüntü derlemelerini otomatik olarak tetiklemek üzere bir derleme görevi kullanmayı öğrendiniz. Bir kapsayıcı görüntüsünün temel görüntüsü güncelleştirildiğinde derlemeleri tetikleyen derleme görevleri oluşturmak için sonraki öğreticiye geçin.
+Bu öğreticide, bir Git deposuna kaynak kodu işlediğinizde Azure’da kapsayıcı görüntü derlemelerini otomatik olarak tetiklemek üzere bir görev kullanmayı öğrendiniz. Bir kapsayıcı görüntüsünün temel görüntüsü güncelleştirildiğinde derlemeleri tetikleyen görevler oluşturmak için sonraki öğreticiye geçin.
 
 > [!div class="nextstepaction"]
 > [Temel görüntü güncelleştirmesi ile derlemeleri otomatikleştirme](container-registry-tutorial-base-image-update.md)
@@ -321,10 +324,11 @@ Bu öğreticide, bir Git deposuna kaynak kodu işlediğinizde Azure’da kapsay�
 
 <!-- LINKS - Internal -->
 [azure-cli]: /cli/azure/install-azure-cli
-[az-acr-build-task]: /cli/azure/acr#az-acr-build-task
-[az-acr-build-task-create]: /cli/azure/acr#az-acr-build-task-create
-[az-acr-build-task-run]: /cli/azure/acr#az-acr-build-task-run
-[az-acr-build-task-list-builds]: /cli/azure/acr#az-acr-build-task-list-build
+[az-acr-task]: /cli/azure/acr#az-acr-task
+[az-acr-task-create]: /cli/azure/acr#az-acr-task-create
+[az-acr-task-run]: /cli/azure/acr#az-acr-task-run
+[az-acr-task-list-runs]: /cli/azure/acr#az-acr-task-list-runs
+[az-login]: /cli/azure/reference-index#az-login
 
 <!-- IMAGES -->
 [build-task-01-new-token]: ./media/container-registry-tutorial-build-tasks/build-task-01-new-token.png

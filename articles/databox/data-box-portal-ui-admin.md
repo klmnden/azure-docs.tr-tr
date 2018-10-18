@@ -2,25 +2,18 @@
 title: Azure Data Box Disk portalı yönetici kılavuzu | Microsoft Docs
 description: Azure portalı kullanarak Azure Data Box'ınızı nasıl yönetebileceğiniz açıklanmaktadır.
 services: databox
-documentationcenter: NA
 author: alkohli
-manager: twooley
-editor: ''
-ms.assetid: ''
 ms.service: databox
-ms.devlang: NA
+ms.subservice: disk
 ms.topic: overview
-ms.custom: mvc
-ms.tgt_pltfrm: NA
-ms.workload: TBD
 ms.date: 08/28/2018
 ms.author: alkohli
-ms.openlocfilehash: 7bf88a4e9d7af1033f014939d95783f9430dd84a
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: b98653ea0896e617a666147d243f24cb55483a28
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43124972"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49091701"
 ---
 # <a name="use-azure-portal-to-administer-your-data-box-disk-preview"></a>Data Box Disk'inizi (Önizleme) yönetmek için Azure portal'ı kullanma
 
