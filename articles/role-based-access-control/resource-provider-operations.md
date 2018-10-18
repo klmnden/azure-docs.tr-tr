@@ -4134,7 +4134,7 @@ Kaynak sağlayıcısı işlemleri her zaman artmaktadır. En son işlem almak i�
 > | Eylem | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationvCenters/read | Tüm vCenters okuyun |
 > | Eylem | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationvCenters/write | Tüm vCenters güncelle |
 > | Eylem | Microsoft.RecoveryServices/vaults/replicationFabrics/write | Tüm yapıları güncelle |
-> | Eylem | Microsoft.RecoveryServices/vaults/replicationJobs/cancel/action | İşi iptal et |
+> | Eylem | Microsoft.RecoveryServices/vaults/replicationJobs/cancel/action | İşi İptal Et |
 > | Eylem | Microsoft.RecoveryServices/vaults/replicationJobs/read | Herhangi bir işi okuma |
 > | Eylem | Microsoft.RecoveryServices/vaults/replicationJobs/restart/action | İşi yeniden başlatın |
 > | Eylem | Microsoft.RecoveryServices/vaults/replicationJobs/resume/action | İşi sürdürme |

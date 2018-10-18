@@ -28,7 +28,7 @@ Bu makalede sık sorulan sorular (SSS) azure'da Ağ Performansı İzleyicisi'ni 
 
 [Ağ Performansı İzleyicisi](/azure/networking/network-monitoring-overview) bulut tabanlı [hibrit ağ izleme](log-analytics-network-performance-monitor-performance-monitor.md) yardımcı olan bir çözümü, ağ altyapınızın çeşitli noktalarında arasında ağ performansını izleme. Ayrıca, ağ bağlantısı izlemenize yardımcı olur [hizmet ve uygulama uç noktaları](log-analytics-network-performance-monitor-service-endpoint.md) ve [Azure ExpressRoute performansını izleme](log-analytics-network-performance-monitor-expressroute.md). 
 
-Ağ Performansı İzleyicisi trafiği blackholing, yönlendirme hataları ve sorunları geleneksel ağ izleme yöntemleri algılayabilir gibi ağ sorunları algılar. Çözüm, uyarılar oluşturur ve bir ağ bağlantısı için bir eşiği ihlal olduğunda size bildirir. Ayrıca, ağ performansı sorunlarını zamanında algılanması sağlar ve belirli ağ kesimine veya cihaza sorunun kaynağını yerelletirilmesi. 
+Ağ Performansı İzleyicisi trafiği blackholing, yönlendirme hataları ve sorunları geleneksel ağ izleme yöntemleri algılayabilir gibi ağ sorunları algılar. Bir ağ bağlantısı için bir eşik ihlal edildiğinde, çözüm uyarılar oluşturur ve size bildirir. Ayrıca ağ performans sorunlarının zamanında tespit edilmesini sağlar ve sorunun kaynağını belirli bir ağ kesimine veya cihazına yerelleştirir. 
 
 Tarafından desteklenen çeşitli özellikler hakkında daha fazla bilgi [Ağ Performansı İzleyicisi](https://docs.microsoft.com/azure/networking/network-monitoring-overview) çevrimiçi kullanılabilir.
 

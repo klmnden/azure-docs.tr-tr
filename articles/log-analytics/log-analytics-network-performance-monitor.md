@@ -27,9 +27,9 @@ ms.locfileid: "49353300"
 ![Ağ Performansı İzleyicisi simgesi](./media/log-analytics-network-performance-monitor/npm-symbol.png)
 
 
-Ağ Performansı İzleyicisi, izleme, ağ altyapınızın çeşitli noktalarında arası ağ performansını izlemenize yardımcı olan bir çözümü karma bulut tabanlı bir ağdır. Ayrıca, hizmet ve uygulama uç noktaları ve izleme ağ bağlantısının izlemenize yardımcı olur performansı Azure ExpressRoute. 
+Ağ Performansı İzleyicisi, izleme, ağ altyapınızın çeşitli noktalarında arası ağ performansını izlemenize yardımcı olan bir çözümü karma bulut tabanlı bir ağdır. Ayrıca hizmet ve uygulama uç noktalarına yapılan ağ bağlantısını izlemenize ve Azure ExpressRoute’un performansını izlemenize yardımcı olur. 
 
-Ağ Performansı İzleyicisi trafiği blackholing, yönlendirme hataları ve sorunları geleneksel ağ izleme yöntemleri algılayabilir gibi ağ sorunları algılar. Çözüm, uyarılar oluşturur ve bir ağ bağlantısı için bir eşiği ihlal olduğunda size bildirir. Ayrıca, ağ performansı sorunlarını zamanında algılanması sağlar ve belirli ağ kesimine veya cihaza sorunun kaynağını yerelletirilmesi. 
+Ağ Performansı İzleyicisi trafiği blackholing, yönlendirme hataları ve sorunları geleneksel ağ izleme yöntemleri algılayabilir gibi ağ sorunları algılar. Bir ağ bağlantısı için bir eşik ihlal edildiğinde, çözüm uyarılar oluşturur ve size bildirir. Ayrıca ağ performans sorunlarının zamanında tespit edilmesini sağlar ve sorunun kaynağını belirli bir ağ kesimine veya cihazına yerelleştirir. 
 
 Ağ Performansı İzleyicisi üç geniş özellikleri sunar: 
 

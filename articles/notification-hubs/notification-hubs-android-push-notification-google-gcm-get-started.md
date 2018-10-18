@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 04/05/2018
 ms.author: dimazaid
-ms.openlocfilehash: efad7353a477577e5b5ac862b418ce78b1c4c304
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 1e9ed9d3500b112f98492e6a85d02a1f1843c7c3
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38697261"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49365586"
 ---
 # <a name="tutorial-push-notifications-to-android-devices-by-using-azure-notification-hubs-and-google-cloud-messaging"></a>Öğretici: Azure Notification Hubs ve Google Cloud Messaging kullanarak Android cihazlara anında iletme bildirimleri gönderme
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
@@ -148,8 +148,8 @@ Bildirim hub'ınız şimdi GCM ile birlikte çalışmak üzere yapılandırıld�
     Aşağıdaki kodda `NotificationSettings` sınıfı için üç yer tutucuyu güncelleştirin:
    
    * **SenderId**: Daha önce [Google Cloud Console](http://cloud.google.com/console)'da elde ettiğiniz proje numarası.
-   * **HubListenConnectionString**: Hub'ınız için **DefaultListenAccessSignature** bağlantı dizesi. [Azure portalında] hub’ınızın **Ayarlar** sayfasında bulunan **Erişim İlkeleri**’ne tıklayarak bağlantı dizesini kopyalayabilirsiniz.
-   * **HubName**: [Azure portalında] hub sayfasında görüntülenen bildirim hub’ınızın adını kullanın.
+   * **HubListenConnectionString**: Hub'ınız için **DefaultListenAccessSignature** bağlantı dizesi. [Azure Portal] hub’ınızın **Ayarlar** sayfasında bulunan **Erişim İlkeleri**’ne tıklayarak bağlantı dizesini kopyalayabilirsiniz.
+   * **HubName**: [Azure Portal] hub sayfasında görüntülenen bildirim hub’ınızın adını kullanın.
      
      `NotificationSettings` kodu:
      
@@ -232,7 +232,7 @@ Bildirim hub'ınız şimdi GCM ile birlikte çalışmak üzere yapılandırıld�
                     regID = hub.register(token).getRegistrationId();
 
                     // If you want to use tags...
-                    // Refer to : https://azure.microsoft.com/en-us/documentation/articles/notification-hubs-routing-tag-expressions/
+                    // Refer to : https://azure.microsoft.com/documentation/articles/notification-hubs-routing-tag-expressions/
                     // regID = hub.register(token, "tag1", "tag2").getRegistrationId();
 
                     resultString = "Registered Successfully - RegId : " + regID;
@@ -447,7 +447,7 @@ Bildirim hub'ınız şimdi GCM ile birlikte çalışmak üzere yapılandırıld�
       ![Android'de test etme - bildirimler][21]
 
 ### <a name="test-send-push-notifications-from-the-azure-portal"></a>Azure portalından anında iletme bildirimleri göndermeyi test etme
-[Azure portalında] anında iletme bildirimleri göndererek uygulamanızda anında iletme bildirimi alma testi gerçekleştirebilirsiniz. 
+[Azure Portal] anında iletme bildirimleri göndererek uygulamanızda anında iletme bildirimi alma testi gerçekleştirebilirsiniz. 
 
 1. **Sorun Giderme** bölümünde **Test Gönderimi**’ni seçin. 
 2. **Platformlar** için **Android**’i seçin.
@@ -496,7 +496,7 @@ Normalde bildirimleri bir arka uç sunucusu kullanarak gönderirsiniz. Bazı dur
     ```
 3. `NotificationSetting.java` dosyanızda `NotificationSettings` sınıfına aşağıdaki ayarı ekleyin.
    
-    `HubFullAccess` öğesini, **DefaultFullSharedAccessSignature** bağlantı dizesiyle hub'ınız için güncelleştirin. Bu bağlantı dizesi, bildirim hub’ınızın **Ayarlar** sayfasında **Erişim İlkeleri**’ne tıklanarak [Azure portalında] kopyalanabilir.
+    `HubFullAccess` öğesini, **DefaultFullSharedAccessSignature** bağlantı dizesiyle hub'ınız için güncelleştirin. Bu bağlantı dizesi, bildirim hub’ınızın **Ayarlar** sayfasında **Erişim İlkeleri**’ne tıklanarak [Azure Portal] kopyalanabilir.
    
     ```java
     public static String HubFullAccess = "<Enter Your DefaultFullSharedAccess Connection string>";
@@ -653,7 +653,7 @@ Normalde bildirimleri bir arka uç sunucusu kullanarak gönderirsiniz. Bazı dur
 
                         // Include any tags
                         // Example below targets 3 specific tags
-                        // Refer to : https://azure.microsoft.com/en-us/documentation/articles/notification-hubs-routing-tag-expressions/
+                        // Refer to : https://azure.microsoft.com/documentation/articles/notification-hubs-routing-tag-expressions/
                         // urlConnection.setRequestProperty("ServiceBusNotification-Tags", 
                         //        "tag1 || tag2 || tag3");
 
@@ -731,4 +731,4 @@ Bu öğreticide, arka uca kayıtlı olan tüm Android cihazlarınıza yayın bil
 [Notification Hubs Guidance]: http://msdn.microsoft.com/library/jj927170.aspx
 [Use Notification Hubs to push notifications to users]: notification-hubs-aspnet-backend-gcm-android-push-to-user-google-notification.md
 [Use Notification Hubs to send breaking news]: notification-hubs-aspnet-backend-android-xplat-segmented-gcm-push-notification.md
-[Azure portalında]: https://portal.azure.com
+[Azure Portal]: https://portal.azure.com

@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/15/2018
 ms.author: juliako
-ms.openlocfilehash: 531cdf9a69e0ecfa2d2d8ae02f8f88fd5f400479
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
-ms.translationtype: MT
+ms.openlocfilehash: 860d28aa37f37ed24346e2fba635b9436684114c
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49378950"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49353791"
 ---
 # <a name="azure-media-services-release-notes"></a>Azure Media Services sürüm notları
 Bu sürüm notlarını Azure Media Services önceki sürümleri ve bilinen sorunlar değişiklikleri özetlemek için.
@@ -44,16 +44,6 @@ Bu sürüm notlarını Azure Media Services önceki sürümleri ve bilinen sorun
 
 ## <a name="a-idrestversionhistoryrest-api-version-history"></a><a id="rest_version_history"/>REST API Sürüm Geçmişi
 Media Services REST API sürüm geçmişi hakkında daha fazla bilgi için bkz. [Azure Media Services REST API'si başvurusu].
-
-## <a name="october-2018"></a>Ekim 2018
-
-### <a name="cmaf-support"></a>CMAF desteği
-
-(İOS 11 +) Apple HLS ve MPEG-DASH için CMAF ve 'cbcs' şifreleme desteği CMAF destekleyen oynatıcılar.
-
-### <a name="web-vtt-thumbnail-sprites"></a>Web VTT küçük resim zıplamasını sağlayın
-
-Media Services şimdi v2 Apı'lerimizi kullanarak Web VTT küçük resim hareketli grafikler oluşturmak için de kullanabilirsiniz. Daha fazla bilgi için [bir küçük resim sprite oluşturmak](generate-thumbnail-sprite.md).
 
 ## <a name="july-2018"></a>Temmuz 2018
 

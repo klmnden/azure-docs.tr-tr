@@ -9,12 +9,12 @@ ms.component: qna-maker
 ms.topic: quickstart
 ms.date: 09/12/2018
 ms.author: diberry
-ms.openlocfilehash: 85b4630492d5f5b3fb71d563b0947d8a72ae4e1d
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: 99f9259c9fa73a9ba4842b2684cde8a44f73145a
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48886591"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49389675"
 ---
 # <a name="quickstart-create-train-and-publish-your-knowledge-base"></a>Hızlı başlangıç: Bilgi bankanızı oluşturma, eğitme ve yayımlama
 
@@ -41,7 +41,7 @@ SSS sayfaları veya ürün kılavuzları gibi sahip olduğunuz içerikleri kulla
 
 5. 3. adımda KB'nize **My Sample QnA KB** adını verin.
 
-6. KB'nize içerik eklemek için üç veri kaynağı türü seçin. 4. adımdaki **Populate your KB** (KB'nizi doldurun) bölümünde **URL** kutusuna [BitLocker Kurtarma Hakkında SSS](https://docs.microsoft.com/en-us/windows/security/information-protection/bitlocker/bitlocker-overview-and-requirements-faq) sayfasının URL'sini girin.
+6. KB'nize içerik eklemek için üç veri kaynağı türü seçin. 4. adımdaki **Populate your KB** (KB'nizi doldurun) bölümünde **URL** kutusuna [BitLocker Kurtarma Hakkında SSS](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-overview-and-requirements-faq) sayfasının URL'sini girin.
 
    ![Soru-Cevap hizmeti KB seçme](../media/qnamaker-quickstart-kb/add-datasources.png)
 

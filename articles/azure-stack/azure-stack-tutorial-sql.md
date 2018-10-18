@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 10/16/2018
 ms.author: jeffgilb
 ms.reviewer: quying
-ms.openlocfilehash: cb659a79f374b7a48cd3cc29f9f46bc6598c04dc
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: 17f06a08388720c4483ef1c187edf20ec8359121
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/17/2018
-ms.locfileid: "49366820"
+ms.locfileid: "49386392"
 ---
 # <a name="tutorial-offer-highly-available-sql-databases"></a>Öğretici: yüksek oranda kullanılabilir SQL veritabanı teklifi
 
@@ -123,7 +123,7 @@ Birincil SQL örneğinde (Değiştir <InstanceName> birincil örnek SQL Server a
 >  ![İkincil SQL örnek betiği](./media/azure-stack-tutorial-sqlrp/sql2.png)
 
 ### <a name="configure-contained-database-authentication"></a>Bağımsız veritabanı kimlik doğrulamasını yapılandırma
-Bir kapsanan veritabanı bir kullanılabilirlik grubuna eklemeden önce bağımsız veritabanı kimlik doğrulaması sunucu seçeneği 1 kullanılabilirlik grubu için bir kullanılabilirlik çoğaltması barındıran her sunucu örneği olarak ayarlandığından emin olun. Daha fazla bilgi için [bağımsız veritabanı kimlik doğrulaması](https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/contained-database-authentication-server-configuration-option?view=sql-server-2017).
+Bir kapsanan veritabanı bir kullanılabilirlik grubuna eklemeden önce bağımsız veritabanı kimlik doğrulaması sunucu seçeneği 1 kullanılabilirlik grubu için bir kullanılabilirlik çoğaltması barındıran her sunucu örneği olarak ayarlandığından emin olun. Daha fazla bilgi için [bağımsız veritabanı kimlik doğrulaması](https://docs.microsoft.com/sql/database-engine/configure-windows/contained-database-authentication-server-configuration-option?view=sql-server-2017).
 
 Kullanılabilirlik grubundaki her bir SQL Server örneği için bağımsız veritabanı kimlik doğrulaması sunucu seçeneği ayarlamak için aşağıdaki komutları kullanın:
 

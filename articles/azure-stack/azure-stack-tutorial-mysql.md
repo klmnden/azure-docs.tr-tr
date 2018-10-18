@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 10/16/2018
 ms.author: jeffgilb
 ms.reviewer: quying
-ms.openlocfilehash: 2197d197e68528866c892cc51323bc61a208bcc0
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: ea3e6c2e616f2618200c1e3904786abd72bbd75d
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/17/2018
-ms.locfileid: "49366827"
+ms.locfileid: "49376814"
 ---
 # <a name="tutorial-offer-highly-available-mysql-databases"></a>Öğretici: yüksek oranda kullanılabilir olan MySQL veritabanları sunar.
 
@@ -198,4 +198,4 @@ Bu öğreticide, şunların nasıl yapıldığını öğrendiniz:
 
 Bilgi edinmek için sonraki öğreticiye ilerleyin nasıl yapılır:
 > [!div class="nextstepaction"]
-> [Web apps teklifi](/azure-stack-tutorial-app-service.md)
+> [Web apps teklifi](azure-stack-tutorial-app-service.md)
