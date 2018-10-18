@@ -4,16 +4,16 @@ description: Azure Otomasyonu runbook'ları ile ilgili sorunları giderme hakkı
 services: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 07/13/2018
+ms.date: 10/17/2018
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: b02f1b04756f1e3f01426e58c5f8c625cb746f05
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: b8c6b82af1a71f5e2df7dd555c7ceb91b8ccd292
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47163911"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49394559"
 ---
 # <a name="troubleshoot-errors-with-runbooks"></a>Runbook'ları ile hatalarını giderme
 
@@ -32,14 +32,14 @@ Unknown_user_type: Unknown User Type
 
 #### <a name="cause"></a>Nedeni
 
-Kimlik bilgisi varlığı adı geçerli değil veya kullanıcı adı ve Otomasyonu kimlik bilgisi varlığı ' için kullandığınız parola geçerli değilse bu hata oluşur.
+Kimlik bilgisi varlığı adı geçerli değil veya kullanıcı adı ve Otomasyonu kimlik bilgisi varlığı ' için kullandığınız parola geçerli değil. Bu hata oluşur.
 
 #### <a name="resolution"></a>Çözüm
 
 Neyin yanlış olduğunu belirlemek için aşağıdaki adımları uygulayın:  
 
 1. Dahil olmak üzere herhangi bir özel karakter içermediğinden emin olun **@** Azure'a bağlanmak için kullandığınız Otomasyon kimlik bilgisi varlığı ad karakteri.  
-2. Azure Otomasyonu kimlik bilgisi, yerel PowerShell ISE Düzenleyici içinde depolanan parola ve kullanıcı adı kullanıp kullanmadığını denetleyin. PowerShell ISE'de aşağıdaki cmdlet'leri çalıştırarak bunu yapabilirsiniz:  
+2. Azure Otomasyonu kimlik bilgisi, yerel PowerShell ISE Düzenleyici içinde depolanan parola ve kullanıcı adı kullanıp kullanmadığını denetleyin. Bunu yapabilirsiniz kullanıcı adı ve parola doğru PowerShell ISE'de aşağıdaki cmdlet'leri çalıştırarak denetleyin:  
 
    ```powershell
    $Cred = Get-Credential  
@@ -49,9 +49,9 @@ Neyin yanlış olduğunu belirlemek için aşağıdaki adımları uygulayın:
    Connect-AzureRmAccount –Credential $Cred
    ```
 
-3. Yerel olarak, kimlik doğrulama başarısız olursa, bu, Azure Active Directory bilgilerinizi düzgün bir şekilde kurmadığınızı fark anlamına gelir. Başvurmak [Azure Active Directory'yi kullanarak Azure için kimlik doğrulama](https://azure.microsoft.com/blog/azure-automation-authenticating-to-azure-using-azure-active-directory/) blog gönderisi doğru şekilde ayarlanan Azure Active Directory hesabı.  
+3. Yerel olarak, kimlik doğrulama başarısız olursa, Azure Active Directory kimlik bilgilerini düzgün kurmadığınızı fark anlamına gelir. Başvurmak [Azure Active Directory'yi kullanarak Azure için kimlik doğrulama](https://azure.microsoft.com/blog/azure-automation-authenticating-to-azure-using-azure-active-directory/) blog gönderisi doğru şekilde ayarlanan Azure Active Directory hesabı.  
 
-4. Geçici bir hata görüntüleniyorsa, daha sağlam hale kimlik doğrulaması için kimlik doğrulama yordamına yeniden deneme mantığı eklemeyi deneyin.
+4. Geçici bir hata gibi görünüyorsa, daha sağlam hale kimlik doğrulaması için kimlik doğrulama yordamına yeniden deneme mantığı eklemeyi deneyin.
 
    ```powershell
    # Get the connection "AzureRunAsConnection"
@@ -79,7 +79,7 @@ Neyin yanlış olduğunu belirlemek için aşağıdaki adımları uygulayın:
 
 #### <a name="issue"></a>Sorun
 
-İle çalışırken aşağıdaki hata iletisini `Select-AzureSubscription` veya `Select-AzureRmSubscription` cmdlet'leri.:
+İle çalışırken aşağıdaki hata iletisini `Select-AzureSubscription` veya `Select-AzureRmSubscription` cmdlet'leri:
 
 ```
 The subscription named <subscription name> cannot be found.
@@ -87,11 +87,11 @@ The subscription named <subscription name> cannot be found.
 
 #### <a name="error"></a>Hata
 
-Abonelik adı geçerli değil veya abonelik ayrıntıları get yapılmaya çalışılırken Azure Active Directory kullanıcı Abonelik Yöneticisi olarak yapılandırılmamış olması durumunda bu hata oluşur.
+Abonelik adı geçerli değil veya abonelik ayrıntıları get yapılmaya çalışılırken Azure Active Directory kullanıcı Abonelik Yöneticisi olarak yapılandırılmamış. Bu hata oluşur.
 
 #### <a name="resolution"></a>Çözüm
 
-Düzgün bir şekilde Azure'a kimliği doğrulanmış ve seçmek için çalıştığınız abonelik erişimi belirlemek için aşağıdaki adımları uygulayın:  
+Azure'a düzgün bir şekilde kimlik doğrulaması yaptınız ve seçmek için çalıştığınız abonelik erişimi belirlemek için aşağıdaki adımları uygulayın:  
 
 1. Siz çalıştırdığınızdan emin olun **Add-AzureAccount** cmdlet'ini çalıştırmadan önce **Select-AzureSubscription** cmdlet'i.  
 2. Ekleyerek bu hatayı görmeye devam ediyorsanız, kodunuzu değiştirin **- AzureRmContext** parametre **Add-AzureAccount** cmdlet'ini ve ardından kod yürütün.
@@ -196,8 +196,8 @@ The term 'Connect-AzureRmAccount' is not recognized as the name of a cmdlet, fun
 
 Bu hata, aşağıdaki nedenlerden kaynaklanabilir:
 
-1. Cmdlet içeren modülü Otomasyon hesabına içe aktarılmaz
-2. Cmdlet modülü containg alınır, ancak güncel değil
+1. Cmdlet içeren modülü Otomasyon hesabına aktarılmamış
+2. Cmdlet içeren modül alınır, ancak güncel değil
 
 #### <a name="resolution"></a>Çözüm
 
@@ -205,7 +205,7 @@ Bu hata, aşağıdaki görevlerden birini tamamlayarak çözülebilir:
 
 Bir Azure modülü modülü ise bkz [Azure automation'da Azure PowerShell modüllerini güncelleştirme](../automation-update-azure-modules.md) modüllerinizi Otomasyon hesabınızdaki güncelleştirme hakkında bilgi edinmek için.
 
-Ayrı bir modül ise, Otomasyon hesabınızda içeri aktarılan modüldeki emin olun.
+Modülde Otomasyon hesabınızda içeri ayrı bir modül ise, emin olun.
 
 ### <a name="job-attempted-3-times"></a>Senaryo: Runbook işi başlangıç üç kez denendi ancak her zaman başlatılamadı
 
@@ -221,11 +221,11 @@ The job was tried three times but it failed
 
 Bu hata, aşağıdaki nedenlerden kaynaklanabilir:
 
-1. Bellek sınırı. Bir korumalı alan için ayrılan bellek miktarını üzerinde belgelenmiş sınırlamanın vardır [Otomasyon hizmet sınırları](../../azure-subscription-service-limits.md#automation-limits) şekilde 400 MB'tan fazla bellek kullanıyorsa, bir işi başarısız olabilir.
+1. Bellek sınırı. Bir korumalı alan için ne kadar bellek tahsis belgelenmiş sınırlamanın olan [Otomasyon hizmet sınırları](../../azure-subscription-service-limits.md#automation-limits) şekilde 400 MB'tan fazla bellek kullanıyorsa, bir işi başarısız olabilir.
 
 1. Ağ yuvaları. Anlatıldığı gibi Azure sanal 1000 eşzamanlı ağ yuvaları ile sınırlı [Otomasyon hizmet sınırları](../../azure-subscription-service-limits.md#automation-limits).
 
-1. Modül uyumsuz. Modül bağımlılıklarının doğru değildir ve değilse, runbook'unuzda genellikle "komut bulunamadı" döndürürse oluşabilir veya "parametresi bağlanılamıyor" iletisi.
+1. Modül uyumsuz. Modül bağımlılıklarının doğru değilse ve bunlar değilseniz, bu hata oluşabilir, runbook'unuzu genellikle "komut bulunamadı" döndürür veya "parametresi bağlanılamıyor" iletisi.
 
 #### <a name="resolution"></a>Çözüm
 
@@ -251,7 +251,7 @@ Cannot convert the <ParameterType> value of type Deserialized <ParameterType> to
 
 #### <a name="cause"></a>Nedeni
 
-Runbook'unuzdaki bir PowerShell iş akışı, iş akışını askıya alınırsa, runbook durumu kalıcı hale getirmek için seri durumdan çıkarılmış biçimde karmaşık nesneler depolar.
+PowerShell iş akışı runbook'unuzu ise karmaşık nesneler iş akışını askıya alınırsa, runbook durumu kalıcı hale getirmek için seri durumdan çıkarılmış biçimde depolar.
 
 #### <a name="resolution"></a>Çözüm
 
@@ -302,38 +302,40 @@ PowerShell altyapısı runbook'unuzu kullandığınız cmdlet bulamadığında b
 
 Aşağıdaki çözümlerden birini sorunu düzeltin:  
 
-* Cmdlet adı doğru yazdığınızdan emin olun.  
-* Cmdlet, Otomasyon hesabınızda var olduğundan ve hiçbir çakışma yok emin olun. Cmdlet'in mevcut olup olmadığını doğrulamak için düzenleme modu ve arama çalıştırın veya kitaplığı içinde bulmak istediğiniz cmdlet'in bir runbook'u açın `Get-Command <CommandName>`. Hesabına cmdlet kullanılabilir doğrulandıktan ve diğer cmdlet'leri veya runbook'ları adı çakışması yok sonra tuvaline ekleyin ve runbook'unuzu ayarlayın, geçerli bir parametre kullandığından emin olun.  
+* Cmdlet adı doğru girdiğinizden denetleyin.  
+* Cmdlet, Otomasyon hesabınızda var olduğundan ve hiçbir çakışma yok emin olun. Cmdlet'in mevcut olup olmadığını doğrulamak için düzenleme modu ve arama çalıştırın veya kitaplığı içinde bulmak istediğiniz cmdlet'in bir runbook'u açın `Get-Command <CommandName>`. Hesaba cmdlet kullanılabilir doğruladıktan ve diğer cmdlet'leri veya runbook'ları adı çakışması yok sonra tuvaline ekleyin ve runbook'unuzu ayarlayın, geçerli bir parametre kullandığınızdan emin olun.  
 * Bir ad çakışması varsa ve iki farklı modülde cmdlet kullanılabilir, bu cmdlet'i için tam olarak nitelenmiş adını kullanarak çözebilirsiniz. Örneğin, kullanabileceğiniz **ModuleName\CmdletName**.  
 * Karma çalışanı grubu içinde şirket runbook yürütme, modül/cmdlet karma çalışanı barındıran makinede yüklü olduğundan emin olun.
-
-### <a name="evicted-from-checkpoint"></a>Senaryo: Uzun süre çalışan bir runbook tutarlı bir şekilde özel durumuyla başarısız oluyor: "işi tekrar tekrar aynı denetim noktasından çıkarıldığından çalıştırmaya devam edemiyor"
-
-#### <a name="issue"></a>Sorun
-
-Bu davranış, üç saatten uzun çalıştırırsa, otomatik olarak bir runbook'u askıya Azure automation'da işlemlerinin "Adil Share" izleme nedeniyle tasarım gereğidir. Ancak, döndürülen hata iletisi "sonraki adım" sağlamaz seçenekleri.
-
-#### <a name="cause"></a>Nedeni
-
-Bir runbook için pek çok askıya alınabilir. Sorun çoğunlukla hatalar nedeniyle askıya alır. Örneğin, yakalanmayan bir özel durum bir runbook, bir ağ hatası veya runbook'un çalıştığı Runbook çalışanı üzerinde bir kilitlenme ve runbook'un askıya alınması ve sürdürüldü olduğunda, son denetim noktasından Başlat tüm neden.
-
-#### <a name="resolution"></a>Çözüm
-
-Bu sorunu önlemek için belgelenmiş çözümü, bir iş akışında denetim noktası kullanmaktır. Daha fazla bilgi edinmek için bkz [Learning PowerShell iş akışları](../automation-powershell-workflow.md#checkpoints). Daha kapsamlı bir açıklama "Adil paylaşımı" ve kontrol noktası bu blog makalesinde bulunabilir [kontrol noktalarının kullanılması sayesinde runbook'larda](https://azure.microsoft.com/blog/azure-automation-reliable-fault-tolerant-runbook-execution-using-checkpoints/).
 
 ### <a name="long-running-runbook"></a>Senaryo:, Tamamlanması uzun süre çalışan bir runbook başarısız.
 
 #### <a name="issue"></a>Sorun
 
-Bu davranış, üç saatten uzun çalıştırırsa, otomatik olarak bir runbook'u askıya Azure automation'da işlemlerinin "Adil Share" izleme nedeniyle Azure korumalı alanlarda bulunan tasarım gereğidir.
+Runbook'unuzda gösterir bir **durduruldu** 3 saat çalıştıktan sonra durum. Ayrıca hata iletisini alabilirsiniz:
+
+```
+The job was evicted and subsequently reached a Stopped state. The job cannot continue running
+```
+
+Bu tasarım gereği, Azure sanal "Adil Share" işlemleri üç saatten uzun çalıştırırsa, otomatik olarak bir runbook'u durdurur Azure automation'da izlenmesini nedeniyle, davranıştır. Serginin paylaşımı süre giden bir runbook'un durumunu runbook türüne göre farklılık gösterir. PowerShell ve Python runbook'ları ayarlanmış bir **durduruldu** durumu. PowerShell iş akışı runbook'ları ayarlandığında **başarısız**.
 
 #### <a name="cause"></a>Nedeni
 
-Runbook bir Azure sanal adil paylaşımı tarafından izin verilen 3 saatlik sınırın üstünde çalıştı
+Runbook bir Azure sanal adil paylaşımı tarafından izin verilen 3 saatlik sınırın üstünde çalıştı.
 
 #### <a name="resolution"></a>Çözüm
 
-Runbook'u çalıştırmak için önerilen çözümdür bir [karma Runbook çalışanı](../automation-hrw-run-runbooks.md). Karma çalışanları tarafından sınırı yoktur [adil paylaşımı](../automation-runbook-execution.md#fair-share) Azure sanal olan 3 saat runbook sınırı.
+Bir önerilen çözümdür runbook'u çalıştırmak için bir [karma Runbook çalışanı](../automation-hrw-run-runbooks.md).
+
+Karma çalışanları tarafından sınırlı olmayan [adil paylaşımı](../automation-runbook-execution.md#fair-share) Azure sanal olan 3 saat runbook sınırı. Karma Runbook çalışanları 3 saat adil paylaşım sınırı sınırlı değildir, ancak runbook'ları çalıştıran karma Runbook çalışanları hala geliştirilen beklenmeyen yerel altyapı sorunları durumunda yeniden davranışları desteklemek için.
+
+Runbook oluşturarak iyileştirmek için başka bir seçenektir [alt runbook'ları](../automation-child-runbooks.md). Runbook'unuz bir dizi gibi birden fazla veritabanı bir veritabanı işlem kaynakları üzerinde aynı işlevi aracılığıyla döngü bir alt runbook için bu işlevi taşıyabilirsiniz. Bu alt runbook'ların her biri ayrı işlemler halinde yürütülerek üst runbook'un tamamlanması için gereken toplam süreyi kısaltır.
+
+Alt runbook senaryoyu PowerShell cmdlet'leri şunlardır:
+
+[Start-AzureRMAutomationRunbook](/powershell/module/AzureRM.Automation/Start-AzureRmAutomationRunbook) -Bu cmdlet, bir runbook başlatın ve runbook için parametreler sağlar
+
+[Get-AzureRmAutomationJob](/powershell/module/azurerm.automation/get-azurermautomationjob) -alt runbook'un tamamlandıktan sonra yapılması gereken işlemler varsa her alt için iş durumunu denetlemek Bu cmdlet'i sağlar.
 
 ## <a name="common-errors-when-importing-modules"></a>Modüller içeri aktarılırken yaygın hataları
 
@@ -348,9 +350,9 @@ Bir modülü içeri aktarmak başarısız olursa veya başarıyla alır, ancak h
 Bir modül başarıyla Azure Otomasyonu'na ekleme alabilir olmayan bazı yaygın nedenleri şunlardır:
 
 * Yapı Otomasyonu olması gereken yapısı eşleşmiyor.
-* Modül, Otomasyon hesabınıza dağıtılan başka bir modül bağımlıdır.
+* Modül, Otomasyon hesabınıza dağıtmamış başka bir modül bağımlıdır.
 * Modülün bağımlılıklarını klasöründe eksik.
-* `New-AzureRmAutomationModule` Cmdlet'i, modül karşıya yüklemek için kullanılıyor ve tam depolama yolu verilmedi veya genel olarak erişilebilir bir URL kullanarak modülü yüklenmedi.
+* `New-AzureRmAutomationModule` Cmdlet modülü ve tam depolama yolu verildiğinde have't karşıya yüklemek için kullanılan veya modülü genel olarak erişilebilir bir URL kullanarak yüklenen henüz.
 
 #### <a name="resolution"></a>Çözüm
 
@@ -362,7 +364,7 @@ Aşağıdaki çözümlerden birini sorunu düzeltin:
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Sorununuzu görülmez veya sorununuzu çözmenize yüklenemiyor, daha fazla destek için aşağıdaki kanalları birini ziyaret edin:
+Sorununuzu görmediniz veya sorununuzu çözmenize yüklenemiyor, daha fazla destek için aşağıdaki kanalları birini ziyaret edin:
 
 * [Azure Forumları](https://azure.microsoft.com/support/forums/) aracılığıyla Azure uzmanlarından yanıtlar alın
 * [@AzureSupport](https://twitter.com/azuresupport) hesabı ile bağlantı kurun. Bu resmi Microsoft Azure hesabı, müşteri deneyimini geliştirmek için Azure topluluğunu doğru kaynaklara ulaştırır: yanıtlar, destek ve uzmanlar.

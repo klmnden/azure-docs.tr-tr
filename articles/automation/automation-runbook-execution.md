@@ -6,15 +6,15 @@ ms.service: automation
 ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 10/08/2018
+ms.date: 10/17/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 66f3558a4314b1639d54d4e8ea6814eea9064073
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: 2b1a6e2921fdaf9ede1184cfc02c3f61f63c60ac
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49113895"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49393773"
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Azure automation'da Runbook yürütme
 
@@ -135,19 +135,11 @@ Get-AzureRmLog -ResourceId $JobResourceID -MaxRecord 1 | Select Caller
 
 ## <a name="fair-share"></a>Orta paylaşımı
 
-Üç saat çalıştırıldıktan sonra buluttaki tüm runbook'lar arasında kaynaklarını paylaşmak için Azure Otomasyonu geçici olarak herhangi bir işi boşaltacak. Bu süre boyunca işler [PowerShell tabanlı runbook'ları](automation-runbook-types.md#powershell-runbooks) durdurulur ve değil olması yeniden başlatılır. İş durumu gösterir **durduruldu**. Kontrol noktaları desteği olmadığından bu tür bir runbook her zaman en baştan başlatılır.
+Buluttaki tüm runbook'lar arasında kaynaklarını paylaşmak için Azure Otomasyonu geçici olarak kaldırma veya üç saatten uzun süre çalışan herhangi bir işi durdurma. İşler [PowerShell tabanlı runbook'ları](automation-runbook-types.md#powershell-runbooks) ve [Python runbook'ları](automation-runbook-types.md#python-runbooks) durdurulur ve yeniden değil ve durdurulmuş iş durumunu gösterir.
 
-[PowerShell iş akışı tabanlı runbook'ları](automation-runbook-types.md#powershell-workflow-runbooks) kendi son sürdürüldüğünden [denetim noktası](https://docs.microsoft.com/system-center/sma/overview-powershell-workflows#bk_Checkpoints). Üç saat çalıştırdıktan sonra runbook işi hizmet ve durumunu tarafından askıya alındı gösterir **çalıştırma, kaynaklar bekleniyor**. Bir korumalı alan kullanılabilir duruma geldiğinde, runbook Otomasyon hizmeti ve son denetim noktasından modundan tarafından otomatik olarak yeniden başlatılır. Bu davranış normal PowerShell iş akışı askıya Al/yeniden davranışıdır. Runbook, yeniden çalışma zamanı üç saat aşarsa, işlem, en fazla üç kez yineler. Runbook hala üç saat içinde tamamlanmadı sonra runbook işi başarısız oldu ve iş durumu gösterir, üçüncü yeniden başlatma işleminden sonra **kaynaklar bekleniyor başarısız oldu,**. Bu durumda, şu özel durumla hata alırsınız.
+Uzun süreli çalışan görevler için [Karma Runbook Çalışanı](automation-hrw-run-runbooks.md#job-behavior) kullanmanız önerilir. Karma Runbook çalışanları tarafından adil paylaşımı sınırlı değildir ve bir sınırlama yoktur üzerinde ne kadar bir runbook çalıştırabilirsiniz. Başka bir iş [sınırları](../azure-subscription-service-limits.md#automation-limits) hem Azure sanal hem de karma Runbook çalışanları için geçerlidir. Karma Runbook çalışanları 3 saat adil paylaşım sınırı sınırlı değildir, ancak runbook'ları üzerinde çalışan yine beklenmeyen yerel altyapı sorunlardan yeniden davranışları desteklemek için geliştirilmiş olmalı.
 
-*İş, tekrar tekrar aynı denetim noktasından çıkarıldığından çalıştırmaya devam edemiyor. Runbook'unuzda uzun işlemlerin durumunu kalıcı hale getirilmesine gerçekleştirmez emin olun.*
-
-Bu yeniden bulgudaki olmadan sonraki kontrol noktasına yapmak mümkün değildir hizmet tamamlamadan, süresiz olarak çalışan runbook'ları korumak için davranıştır.
-
-Ardından runbook hiç kontrol noktası varsa veya iş ilk kontrol noktası kaldırılıyor önce tamamladı değil baştan başlatılır.
-
-Uzun süreli çalışan görevler için [Karma Runbook Çalışanı](automation-hrw-run-runbooks.md#job-behavior) kullanmanız önerilir. Karma Runbook çalışanları tarafından adil paylaşımı sınırlı değildir ve bir sınırlama yoktur üzerinde ne kadar bir runbook çalıştırabilirsiniz. Başka bir iş [sınırları](../azure-subscription-service-limits.md#automation-limits) hem Azure sanal hem de karma Runbook çalışanları için geçerlidir.
-
-Azure üzerinde PowerShell iş akışı runbook kullanıyorsanız, bir runbook oluştururken iki denetim noktaları arasından herhangi bir etkinlik çalışma süresi üç saat aşmadığından emin olmanız gerekir. Runbook'unuzda bu üç saatlik sınırına ulaşmadığınız veya desteklemez uzun süre sonu emin olmak için kontrol noktaları eklemek gerekebilir süreli işlemler. Örneğin, runbook'unuz bir reindex büyük bir SQL veritabanı'nda çalışabilir. Bu tek işlem adil paylaşım sınırı içinde tamamlanmazsa, ardından iş kaldırıldı ve baştan yeniden. Bu durumda, bir kerede bir tablo ölçeklemek gibi birden çok adımlarını reindex işlemi bölmeniz ve tamamlamak için son işlemi iş devam etmek için her işlemden sonra bir denetim noktası ekleyin.
+Runbook alt runbook'ları kullanarak en iyi duruma başka bir seçenektir. Runbook'unuz bir dizi gibi birden fazla veritabanı bir veritabanı işlem kaynakları üzerinde aynı işlevi aracılığıyla döngü varsa, bu işleve taşıyabilirsiniz bir [alt runbook](automation-child-runbooks.md) ve beraber [ Start-AzureRMAutomationRunbook](/powershell/module/azurerm.automation/start-azurermautomationrunbook) cmdlet'i. Bu alt runbook'ların her biri ayrı işlemler halinde yürütülerek üst runbook'un tamamlanması için gereken toplam süreyi kısaltır. Kullanabileceğiniz [Get-AzureRmAutomationJob](/powershell/module/azurerm.automation/Get-AzureRmAutomationJob) cmdlet'i runbook'unuzda alt runbook'un tamamlandıktan sonra yapılması gereken işlemler varsa her alt için iş durumunu denetleyin.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

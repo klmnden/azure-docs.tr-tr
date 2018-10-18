@@ -8,12 +8,12 @@ ms.date: 08/13/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 9c9c04a8310a46605cf5733131db1418b7cb7f7a
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 97a2180aaf236d3541cff30d2151f26ce70b14af
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47218793"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49393483"
 ---
 # <a name="understand-the-azure-iot-edge-runtime-and-its-architecture"></a>Azure IOT Edge çalışma zamanı ve mimarisini anlama
 
@@ -23,13 +23,13 @@ IOT Edge çalışma zamanı, IOT Edge cihazlarında aşağıdaki işlevleri ger�
 
 * Cihazda iş yüklerini yükler ve güncelleştirir.
 * Cihazda Azure IoT Edge güvenlik standartlarını korur.
-* Sağlar, [IOT Edge modülleri] [lnk-modülleri] her zaman çalışıyor.
+* Sağlar [IOT Edge modülleri](iot-edge-modules.md) her zaman çalışıyor.
 * Uzaktan izleme için modül durumunu buluta bildirir.
 * Aşağı Akış yaprak cihazlarıyla IOT Edge cihazları arasındaki iletişimi kolaylaştırır.
 * IoT Edge cihazında bulunan modüller arasındaki iletişimi kolaylaştırır.
 * IoT Edge cihazıyla bulut arasındaki iletişimi kolaylaştırır.
 
-![IOT Edge çalışma zamanı öngörüleri ve IOT hub'ına modül durumunu iletişim kurar.][1]
+![IOT Edge çalışma zamanı öngörüleri ve IOT hub'ına modül durumunu iletişim kurar.](./media/iot-edge-runtime/Pipeline.png)
 
 IOT Edge çalışma zamanı sorumluluklarını iki kategoriye ayrılır: iletişim ve modül yönetimi. Bu iki rolden IOT Edge çalışma zamanını oluşturan iki bileşen tarafından gerçekleştirilir. IOT Edge hub'ı, IOT Edge Aracısı'nı dağıtma ve izleme modüllerini yönetirken siz iletişimi için sorumludur. 
 
@@ -49,7 +49,7 @@ Edge hub'ı yerel olarak çalışan IOT Hub'ın tam bir sürüm değil. Edge hub
 
 Edge hub'ı buluta kaç gerçek bağlantı yapılan iyileştirir, IOT Edge çözümünüzün bant genişliğini azaltmak üzere kullanır. Edge hub'ı, modülleri veya yaprak cihazlar gibi istemcilerden mantıksal bağlantıları alır ve bunları buluta tek bir fiziksel bağlantısı için birleştirir. Bu işlemin ayrıntılarını çözümün geri kalanı için saydamdır. İstemciler, bunların tümü aynı bağlantı üzerinden gönderilen olsa da kendi bağlantı buluta sahip oldukları düşünün. 
 
-![Edge hub'ı birden fazla fiziksel cihazlar ve bulut arasında bir ağ geçidi olarak davranır][2]
+![Edge hub'ı birden fazla fiziksel cihazlar ve bulut arasında bir ağ geçidi olarak davranır](./media/iot-edge-runtime/Gateway.png)
 
 Edge hub'ı, IOT Hub'ına bağlı olup olmadığını belirleyebilirsiniz. Bağlantı kaybedilirse Edge hub'a iletileri veya ikizi güncelleştirmeleri yerel olarak kaydeder. Bağlantı yeniden sonra tüm verileri eşitler. Bu geçici önbelleği için kullanılan konum, Edge hub'ın modül ikizi bir özelliği tarafından belirlenir. Önbelleğin boyutunu değil tavan ve cihaz depolama kapasitesine sahip sürece büyüyecektir. 
 
@@ -57,7 +57,7 @@ Edge hub'ı, IOT Hub'ına bağlı olup olmadığını belirleyebilirsiniz. Bağl
 
 Edge hub'ı modül için modülü iletişimi kolaylaştırır. Edge hub'ı kullanarak bir ileti aracısı olarak modülleri birbirinden bağımsız tutar. Modüller yalnızca üzerinde iletileri ve bunlar iletileri yazma çıkışları kabul girişleri belirtmeniz gerekir. Bir çözüm geliştirici bu girişlerin bitiştirir ve böylece modüller sırayla bu çözüme özel veri işleme birlikte çıkarır. 
 
-![Edge hub'ı modülü modülü iletişimi kolaylaştırır.][3]
+![Edge hub'ı modülü modülü iletişimi kolaylaştırır.](./media/iot-edge-runtime/ModuleEndpoints.png)
 
 Edge hub'ına veri göndermek için bir modül SendEventAsync yöntemi çağırır. İletiyi göndermek için hangi çıkış ilk bağımsız değişken belirtir. Aşağıdaki sözde kod output1 üzerinde bir ileti gönderir:
 
@@ -77,7 +77,7 @@ Bir ileti almak için belirli bir girdi gelen iletileri işleyen bir geri çağ�
 
 <!--- For more info on how to declare routes between modules, see []. --->   
 
-![Modüller arasında][4]
+![Modüller arasında](./media/iot-edge-runtime/ModuleEndpointsWithRoutes.png)
 
 ## <a name="iot-edge-agent"></a>IOT Edge Aracısı
 
@@ -117,13 +117,4 @@ Azure IOT Edge güvenlik çerçevesi hakkında daha fazla bilgi için okuyun [IO
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-[Azure IOT Edge sertifikaları anlama][lnk-certs]
-
-<!-- Images -->
-[1]: ./media/iot-edge-runtime/Pipeline.png
-[2]: ./media/iot-edge-runtime/Gateway.png
-[3]: ./media/iot-edge-runtime/ModuleEndpoints.png
-[4]: ./media/iot-edge-runtime/ModuleEndpointsWithRoutes.png
-
-<!-- Links -->
-[lnk-certs]: iot-edge-certs.md
+[Azure IOT Edge sertifikaları anlama](iot-edge-certs.md)

@@ -9,12 +9,12 @@ ms.component: speech
 ms.topic: article
 ms.date: 05/18/2018
 ms.author: erhopf
-ms.openlocfilehash: 53e159c7fc357d0c3776102294f4871863cbf4a5
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 300e2d593dfe00b2d7348c7eaf15b0f26ec7e0dd
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49167384"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49389896"
 ---
 # <a name="get-started-with-the-speech-devices-sdk"></a>Konuşma cihaz SDK'sı ile çalışmaya başlama
 
@@ -39,9 +39,9 @@ Konuşma cihaz SDK'sı ile geliştirmeye başlamadan önce ihtiyacınız olan ya
 
 * Alma bir [konuşma hizmeti abonelik anahtarı](get-started.md). Bir anahtarı, Azure panosundan alma ya da 30 günlük ücretsiz deneme sürümü edinin.
 
-* Amaç tanıma konuşma hizmetin kullanmak istiyorsanız, abone [Language Understanding hizmeti](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/) (LUIS) ve [bir abonelik anahtarı edinirler](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/azureibizasubscription). 
+* Amaç tanıma konuşma hizmetin kullanmak istiyorsanız, abone [Language Understanding hizmeti](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/) (LUIS) ve [bir abonelik anahtarı edinirler](https://docs.microsoft.com/azure/cognitive-services/luis/azureibizasubscription). 
 
-    Yapabilecekleriniz [basit LUIS modeline oluşturma](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/) veya LUIS modeline LUIS example.json örneği kullanın. LUIS modeline kullanılabilir örnek [konuşma cihazları SDK indirme sitesi](https://shares.datatransfer.microsoft.com/). Modelinizin JSON dosyasını karşıya yüklemek için [LUIS portalı](https://www.luis.ai/home)seçin **alma yeni uygulama**ve ardından JSON dosyasını seçin.
+    Yapabilecekleriniz [basit LUIS modeline oluşturma](https://docs.microsoft.com/azure/cognitive-services/luis/) veya LUIS modeline LUIS example.json örneği kullanın. LUIS modeline kullanılabilir örnek [konuşma cihazları SDK indirme sitesi](https://shares.datatransfer.microsoft.com/). Modelinizin JSON dosyasını karşıya yüklemek için [LUIS portalı](https://www.luis.ai/home)seçin **alma yeni uygulama**ve ardından JSON dosyasını seçin.
 
 ## <a name="set-up-the-development-kit"></a>Geliştirme Seti ' ayarlayın
 

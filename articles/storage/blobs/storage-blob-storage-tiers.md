@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/11/2018
 ms.author: kuhussai
 ms.component: blobs
-ms.openlocfilehash: 6acea70ca929310fe37f36fe98698e6adb76101b
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 922e7ed5d55f50b2069dad71ead73d9ef4475ed0
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46997837"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49389913"
 ---
 # <a name="azure-blob-storage-premium-preview-hot-cool-and-archive-storage-tiers"></a>Azure Blob Depolama: Premium (Önizleme), sık erişimli, seyrek erişimli ve Arşiv depolama katmanları
 
@@ -113,7 +113,7 @@ Aynı hesapta üç farklı depolama katmanına sahip bloblar birlikte bulunabili
 Premium erişim katmanında depolanan veriler kullanılamaz katmanlı sık erişimli, seyrek erişimli veya arşiv kullanarak [Blob katmanını ayarlama](/rest/api/storageservices/set-blob-tier) veya Azure Blob Depolama Yaşam Döngüsü Yönetimi'ni kullanma. Verileri taşımak için zaman uyumlu olarak blobları Premium erişimden sık erişimli kullanarak kopyalamanız gerekir [API URL'si gelen blok yerleştirme](/rest/api/storageservices/put-block-from-url) veya AzCopy destekleyen bu API sürümü. *URL'den blok yerleştirme* kopyalar zaman uyumlu olarak, sunucu üzerindeki verileri API çağrısını tamamlar yalnızca bir kez tüm verilerin, özgün sunucu konumundan hedef konuma taşınır anlamına gelir.
 
 ### <a name="blob-lifecycle-management"></a>BLOB yaşam döngüsü yönetimi
-BLOB Depolama yaşam döngüsü yönetimi (Önizleme), verilerinizi en iyi erişim katmanına geçiş yapmak ve veri yaşam döngüsü sonunda süresi dolacak şekilde kullanabileceğiniz zengin, kural tabanlı bir ilke sunar. Bkz: [Azure Blob Depolama yaşam döngüsünü yönetme](https://docs.microsoft.com/en-us/azure/storage/common/storage-lifecycle-managment-concepts) daha fazla bilgi için.  
+BLOB Depolama yaşam döngüsü yönetimi (Önizleme), verilerinizi en iyi erişim katmanına geçiş yapmak ve veri yaşam döngüsü sonunda süresi dolacak şekilde kullanabileceğiniz zengin, kural tabanlı bir ilke sunar. Bkz: [Azure Blob Depolama yaşam döngüsünü yönetme](https://docs.microsoft.com/azure/storage/common/storage-lifecycle-managment-concepts) daha fazla bilgi için.  
 
 ### <a name="blob-level-tiering-billing"></a>Blob düzeyinde katman ayarlama faturalandırması
 

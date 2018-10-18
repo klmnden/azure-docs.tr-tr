@@ -9,22 +9,22 @@ ms.date: 07/25/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: c94a58a19558350c3c20377ce750f6758f688c0d
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: a3d073e9fd7c535ea84d6e4dbbf8003a6c55725b
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46998517"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49394621"
 ---
 # <a name="deploy-and-monitor-iot-edge-modules-at-scale-using-the-azure-cli"></a>Dağıtma ve izleme uygun ölçekte Azure CLI kullanarak IOT Edge modülleri
 
 [!INCLUDE [iot-edge-how-to-deploy-monitor-selector](../../includes/iot-edge-how-to-deploy-monitor-selector.md)]
 
-Azure IOT Edge bulut arabirimi sağlar, böylece yönetebilir ve her bir fiziksel olarak erişmek zorunda kalmadan IOT Edge cihazlarınıza izleme ve analiz uç cihazlara taşıyın olanak sağlar. Cihazları uzaktan yönetme olanağı, nesnelerin interneti çözümleri, daha büyük ve daha karmaşık büyüyor gibi giderek önemlidir. Azure IOT Edge, eklediğiniz kaç cihaz ne olursa olsun, iş hedeflerinizi desteklemek için tasarlanmıştır.
+Azure IOT Edge, uç cihazlara analytics taşımanızı sağlar ve bulut arabirimi sağlar, böylece yönetebilir ve IOT Edge cihazları Uzaktan izleme. Cihazları uzaktan yönetme olanağı, nesnelerin interneti çözümleri, daha büyük ve daha karmaşık büyüyor gibi giderek önemlidir. Azure IOT Edge, eklediğiniz kaç cihaz ne olursa olsun, iş hedeflerinizi desteklemek için tasarlanmıştır.
 
 Tek tek cihazları yönetmek ve modülleri dağıtabilmek teker teker. Ancak, cihazların büyük ölçekli değişiklikler yapmak istiyorsanız, oluşturabileceğiniz bir **IOT Edge otomatik dağıtım**, IOT Hub otomatik cihaz yönetiminin bir parçası değildir. Birden çok modülle aynı anda birden çok cihazlara dağıtın, sistem modüllerinin izlemek ve gerektiğinde değişiklik olanak sağlayan dinamik işlemler dağıtımlarıdır. 
 
-Bu makalede, Azure CLI ve IOT uzantısını ayarlama. Ardından bir dizi cihaza IOT Edge modüllerini dağıtmak ve CLI komutları kullanarak ilerleme durumunu izlemek hakkında bilgi edinin.
+Bu makalede, Azure CLI ve IOT uzantısını ayarlama. Ardından, bir dizi cihaza IOT Edge modüllerini dağıtmak ve CLI komutları kullanarak ilerleme durumunu izlemek hakkında bilgi edinin.
 
 ## <a name="cli-prerequisites"></a>CLI önkoşulları
 
@@ -128,7 +128,7 @@ Bir dağıtımı oluşturmadan önce değiştirmek istediğiniz hangi cihazları
 }
 ```
 
-Cihaz ikizleri ve etiketleri hakkında daha fazla bilgi için bkz: [IOT hub'daki cihaz ikizlerini kavrama ve kullanma][lnk-device-twin].
+Cihaz ikizleri ve etiketleri hakkında daha fazla bilgi için bkz: [IOT hub'daki cihaz ikizlerini kavrama ve kullanma](../iot-hub/iot-hub-devguide-device-twins.md).
 
 ## <a name="create-a-deployment"></a>Bir dağıtım oluşturun
 
@@ -209,16 +209,4 @@ az iot edge deployment delete --deployment-id [deployment id] --hub-name [hub na
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Daha fazla bilgi edinin [modülleri uç cihazlarına dağıtma][lnk-deployments].
-
-<!-- Images -->
-[1]: ./media/how-to-deploy-monitor/iot-edge-deployments.png
-
-<!-- Links -->
-[lnk-device-twin]: ../iot-hub/iot-hub-devguide-device-twins.md
-[lnk-portal]: https://portal.azure.com
-[lnk-docker-create]: https://docs.docker.com/engine/reference/commandline/create/
-[lnk-deployments]: module-deployment-monitoring.md
-
-<!-- Anchor links -->
-[anchor-monitor]: #monitor-a-deployment
+Daha fazla bilgi edinin [modülleri uç cihazlarına dağıtma](module-deployment-monitoring.md).

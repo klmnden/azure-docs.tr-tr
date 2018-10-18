@@ -9,15 +9,15 @@ ms.devlang: ''
 ms.topic: conceptual
 author: bonova
 ms.author: bonova
-ms.reviewer: carlrab, jovanpop
+ms.reviewer: carlrab, jovanpop, sachinp
 manager: craigg
-ms.date: 10/04/2018
-ms.openlocfilehash: 3f571a8d8a138656fc8bae5d6f45d183a8819bc3
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.date: 10/17/2018
+ms.openlocfilehash: 97c141b6e0c071a8cea27f9a873f28a6c5113a18
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48803214"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49394876"
 ---
 # <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>Azure SQL veritabanı yönetilen örneği'nın kaynak sınırları genel bakış
 
@@ -140,6 +140,7 @@ Daha fazla yönetilen örnek, geçerli bölgede ihtiyacınız varsa, Azure Porta
      > - Bölge hangi aboneliği sınırı artırılacak gerekiyor
      > - (Hiçbir alt ağda mevcut gerekiyorsa genişletilecek örnekleri, mevcut alt ağlar kota sonra hizmet katmanında başına gerekli sayısını artırın
      > - (Yeni alt ağlara yönetilen örnekleri dağıtmanız gerekiyorsa), yeni alt ağ sayısını ve yeni alt ağlara hizmet katmanında başına örnek sayısı gereklidir.
+     
 5. **İleri**’ye tıklayın.
 6. Yeni destek isteği için irtibat bilgileri sekmesinde, tercih edilen iletişim yöntemine (e-posta veya telefon) ve kişi ayrıntılarını girin.
 7. **Oluştur**’a tıklayın.

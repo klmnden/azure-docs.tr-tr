@@ -1,10 +1,10 @@
 ---
-title: Azure Machine Learning otomatik veri ardışık düzen kopya sayfası | Microsoft Docs
-description: Verilerinizi azure'da veya bir üçüncü taraf bulut hizmetindeki akış şirket olup Azure Machine Learning web hizmetiniz için bir otomatik veri ardışık nasıl ayarlanacağını gösterir yazdırılabilir hızlı başvuru sayfası.
+title: Azure Machine Learning otomatik veri işlem hattı kopya kağıdı | Microsoft Docs
+description: Verilerinizi azure'da veya bir üçüncü taraf bulut hizmetinde akış şirket içinde olup olmadığını bir otomatik veri işlem hattı, Azure Machine Learning web hizmeti için nasıl ayarlanacağı gösteren bir yazdırılabilir kağıdı.
 services: machine-learning
 documentationcenter: ''
 author: garyericson
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 ms.assetid: 22674d6b-4491-4805-a3ac-d423611177bb
 ms.service: machine-learning
@@ -15,23 +15,23 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: garye
-ms.openlocfilehash: 54a3aca4c3519948a9e18d035565f746964b38bc
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: cd08f6a31f431900a2cb7ed9ed222409f9583b55
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34836169"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49393380"
 ---
 # <a name="cheat-sheet-for-an-automated-data-pipeline-for-azure-machine-learning-predictions"></a>Azure Machine Learning öngörüleri için otomatik veri işlem hattı kopya sayfası
-**Microsoft Azure Machine Learning otomatik veri ardışık düzen kopya sayfası** yardımcı gidin, Machine Learning, verileri almak için kullanabileceğiniz teknolojisi aracılığıyla web hizmeti burada bunu skoru Tahmine dayalı analiz modelinizi tarafından.
+**Microsoft Azure Machine Learning otomatik veri işlem hattı kopya kağıdı** gidin, Machine Learning, verileri almak için kullanabileceğiniz teknolojisi aracılığıyla yardımcı web burada bunu puanlanmış tarafından Tahmine dayalı analiz hizmeti Model.
 
-Bağlı olarak verilerinizi şirket içinde ve bulutta olup ya da gerçek zamanlı akış, farklı mekanizmaları Puanlama, web hizmeti uç noktası için verileri taşımak kullanılabilir.
-Bu kopya sayfası vermeniz gereken kararlarını size yardımcı olur ve çözümünüzü geliştirmenize yardımcı olabilir makalelerinin bağlantıları sunar.
+Yapılandırmanıza bağlı olarak verilerinizi şirket içinde bulutta olup veya gerçek zamanlı akış, verileri için Puanlama web hizmeti uç noktanızı taşımak kullanılabilen farklı mekanizma vardır.
+Bu kural sayfası yapmanız gereken kararların size ve çözümünüzü geliştirmenize yardımcı olabilecek makalelerin bağlantıları sunar.
 
-## <a name="download-the-machine-learning-automated-data-pipeline-cheat-sheet"></a>Machine Learning otomatik veri ardışık düzen kopya sayfası karşıdan yükle
-Kopya sayfası yükledikten sonra tabloid boyutunda (11 x 17 inç) yazdırabilirsiniz.
+## <a name="download-the-machine-learning-automated-data-pipeline-cheat-sheet"></a>Machine Learning otomatik veri işlem hattı ipuçlarını indirin
+İpuçlarını indirin, sonra tabloid boyutunda (11 x 17 inç) yazdırabilirsiniz.
 
-Kopya sayfası buradan indirin:  **[Microsoft Azure Machine Learning otomatik veri ardışık düzen kopya sayfası](http://download.microsoft.com/download/C/C/7/CC726F8B-2E6F-4C20-9B6F-AFBEE8253023/microsoft-machine-learning-operationalization-cheat-sheet_v1.pdf)**
+Buradaki ipuçlarını indirin:  **[Microsoft Azure Machine Learning otomatik veri işlem hattı kopya kağıdı](http://download.microsoft.com/download/C/C/7/CC726F8B-2E6F-4C20-9B6F-AFBEE8253023/microsoft-machine-learning-operationalization-cheat-sheet_v1.pdf)**
 
 ![Microsoft Azure Machine Learning Studio İşlevlerine Genel Bakış][op-cheat-sheet]
 
@@ -39,9 +39,9 @@ Kopya sayfası buradan indirin:  **[Microsoft Azure Machine Learning otomatik ve
 
 
 ## <a name="more-help-with-machine-learning-studio"></a>Machine Learning Studio hakkında daha fazla yardım
-* Microsoft Azure Machine Learning'de, genel bakış için bkz [Microsoft azure'da makine öğrenimine giriş](../studio/what-is-machine-learning.md).
-* Puanlama web hizmetinin nasıl dağıtılacağı hakkında açıklama için bkz: [bir Azure Machine Learning web hizmetini dağıtma](../studio/publish-a-machine-learning-web-service.md).
-* Puanlama bir web hizmeti kullanmak nasıl bir tartışma için bkz: [bir Azure Machine Learning Web hizmeti kullanmak nasıl](../studio/consume-web-services.md).
+* Microsoft Azure Machine Learning, genel bakış için bkz. [Microsoft azure'da machine learning'e giriş](../studio/what-is-machine-learning.md).
+* Puanlama web hizmeti dağıtmak nasıl bir açıklaması için bkz: [bir Azure Machine Learning web hizmetini dağıtma](../studio/publish-a-machine-learning-web-service.md).
+* Bir Puanlama web hizmetinin nasıl kullanılacağı hakkında bir tartışma için bkz [bir Azure Machine Learning Web hizmetini kullanma](../studio/consume-web-services.md).
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/03/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: ea9eecbc1d59b80e5454a2677e897588d258c96a
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: c0045af02b307bff686d47dd8fc4aabb290711a4
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48874006"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49400288"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Azure Iaas VM diskleri ve yönetilen ve yönetilmeyen premium diskleri hakkında sık sorulan sorular
 
@@ -171,7 +171,7 @@ Aşağıdaki örnekte gösterildiği *properties.storageProfile.osDisk* bölüm 
 Standart SSD disk ile bir şablon oluşturma tam şablon örneği için bkz [standart SSD veri diskleri ile bir Windows görüntüsünden VM oluşturma](https://github.com/azure/azure-quickstart-templates/tree/master/101-vm-with-standardssd-disk/).
 
 **Standart SSD için mevcut disklerim dönüştürebilir miyim?**
-Evet, uygulayabilirsiniz. Başvurmak [dönüştürme Azure yönetilen diskler depolama standart, premium ve tersi](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/convert-disk-storage) yönetilen diskleri dönüştürme için genel yönergeler için. Ve için standart SSD disk türünü güncelleştirmek için aşağıdaki değeri kullanın.
+Evet, uygulayabilirsiniz. Başvurmak [dönüştürme Azure yönetilen diskler depolama standart, premium ve tersi](https://docs.microsoft.com/azure/virtual-machines/windows/convert-disk-storage) yönetilen diskleri dönüştürme için genel yönergeler için. Ve için standart SSD disk türünü güncelleştirmek için aşağıdaki değeri kullanın.
 -AccountType StandardSSD_LRS
 
 **Standart SSD diskleri HDD yerine kullanmanın avantajı nedir?**

@@ -10,12 +10,12 @@ ms.component: qna-maker
 ms.topic: article
 ms.date: 09/12/2018
 ms.author: tulasim
-ms.openlocfilehash: 01548cf2de8db8f4dc9984598a5e5544bf97fd49
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 582ace641cadbc7ad3a622def07f70ed51ccac53
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47432662"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49389811"
 ---
 # <a name="choosing-capacity-for-your-qna-maker-deployment"></a>Soru-cevap Oluşturucu dağıtımınız için kapasite seçme
 
@@ -27,9 +27,9 @@ Soru-cevap Oluşturucu hizmetini üç Azure kaynaklarında bir bağımlılık al
 Soru-cevap Oluşturucu hizmetinizi oluşturmadan önce yukarıdaki hizmetler hangi katmanı size uygun olduğuna karar vermelisiniz. 
 
 Genellikle dikkate almanız gereken üç parametresi vardır:
-1. **Aktarım hızı ihtiyacınız hizmetten**: uygun seçin [uygulama planı](https://azure.microsoft.com/en-in/pricing/details/app-service/plans/) uygulama hizmetiniz için gereksinimlerinize göre. Yapabilecekleriniz [ölçeği](https://docs.microsoft.com/azure/app-service/web-sites-scale) veya uygulama azaltın. Bkz: daha fazla ayrıntı bu Azure arama SKU seçiminiz ayrıca etkilemelidir [burada](https://docs.microsoft.com/azure/search/search-sku-tier).
+1. **Aktarım hızı ihtiyacınız hizmetten**: uygun seçin [uygulama planı](https://azure.microsoft.com/pricing/details/app-service/plans/) uygulama hizmetiniz için gereksinimlerinize göre. Yapabilecekleriniz [ölçeği](https://docs.microsoft.com/azure/app-service/web-sites-scale) veya uygulama azaltın. Bkz: daha fazla ayrıntı bu Azure arama SKU seçiminiz ayrıca etkilemelidir [burada](https://docs.microsoft.com/azure/search/search-sku-tier).
 
-2. **Boyutuna ve sayısına bilgi bankalarından**: uygun seçin [Azure arama SKU](https://azure.microsoft.com/en-in/pricing/details/search/) senaryonuz için. N katmanında izin verilen en fazla dizin, belirli bir katman içinde N-1 bilgi bankalarından yayımlayabilirsiniz. Ayrıca, en büyük boyutu ve katman izin verilen belge sayısını denetleyin.
+2. **Boyutuna ve sayısına bilgi bankalarından**: uygun seçin [Azure arama SKU](https://azure.microsoft.com/pricing/details/search/) senaryonuz için. N katmanında izin verilen en fazla dizin, belirli bir katman içinde N-1 bilgi bankalarından yayımlayabilirsiniz. Ayrıca, en büyük boyutu ve katman izin verilen belge sayısını denetleyin.
 
 3. **Kaynağı olarak belge sayısı**: soru-cevap Oluşturucu management hizmetinin ücretsiz SKU portalı ve API'leri (1 MB boyut her), 3 aracılığıyla yönetebileceğiniz belge sayısını sınırlar. Standart SKU yönetebileceğiniz belge sayısı için hiçbir sınır vardır. Daha fazla ayrıntı görmek [burada](https://aka.ms/qnamaker-pricing).
 

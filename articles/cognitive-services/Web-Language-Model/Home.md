@@ -11,17 +11,17 @@ ms.topic: overview
 ms.date: 08/12/2016
 ms.author: pibehre
 ROBOTS: NOINDEX
-ms.openlocfilehash: f6cfaa05a6107d3e1ef689103da43960ea4df366
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 79b126fc33175b7cd6df96ab07cd7b726d6065a7
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48040000"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49389947"
 ---
 # <a name="what-is-the-web-language-model-api-preview"></a>Web Dili Modeli API’si nedir? (Önizleme)
 
 > [!IMPORTANT]
-> Web Dil Modeli önizleme sürümü 9 Ağustos 2018 tarihinde kullanımdan kaldırılmıştır. Metin işleme ve analiz için [Azure Machine Learning metin analizi modüllerini](https://docs.microsoft.com/en-us/azure/machine-learning/studio-module-reference/text-analytics) kullanmanızı öneririz.
+> Web Dil Modeli önizleme sürümü 9 Ağustos 2018 tarihinde kullanımdan kaldırılmıştır. Metin işleme ve analiz için [Azure Machine Learning metin analizi modüllerini](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/text-analytics) kullanmanızı öneririz.
 
 Microsoft Web Dil Modeli API'si, doğal dil işleme için en son teknoloji araçlar sunan REST tabanlı bir bulut hizmetidir. Uygulamanız bu API'yi kullanarak Bing tarafından tr-TR pazarında toplanan web ölçeğindeki konuşma yapılarında eğitilen dil modelleri aracılığıyla büyük verinin gücünden yararlanabilir.
 

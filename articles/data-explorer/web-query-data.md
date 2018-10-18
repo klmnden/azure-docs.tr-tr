@@ -2,18 +2,18 @@
 title: "Hızlı başlangıç: Azure Veri Gezgini'ndeki verileri sorgulama"
 description: Bu hızlı başlangıçta Azure Veri Gezgini'ndeki verileri sorgulamayı ve paylaşmayı öğreneceksiniz.
 services: data-explorer
-author: mgblythe
-ms.author: mblythe
+author: orspod
+ms.author: v-orspod
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 09/24/2018
-ms.openlocfilehash: ab29152dde4d567e8552295b3dff4f4088bdf5b8
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 7b9bc52e07bccf931593cd2dbddd68e973d1b26c
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46977664"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49394366"
 ---
 # <a name="quickstart-query-data-in-azure-data-explorer"></a>Hızlı başlangıç: Azure Veri Gezgini'ndeki verileri sorgulama
 

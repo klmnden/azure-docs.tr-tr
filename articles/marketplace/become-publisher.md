@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: 745b26661d34357e44b6a7c2ed6e40f3195781f1
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: 35feb1b2aa593d403b3b54781ddbba41964d15e5
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48238002"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49394842"
 ---
 # <a name="become-a-cloud-marketplace-publisher"></a>Bulut Market yayımcısı olur
 
@@ -97,7 +97,7 @@ A [Geliştirme Merkezi](https://developer.microsoft.com/store/register) hesabı 
 Tamamladıktan sonra [Geliştirme Merkezi](https://developer.microsoft.com/store/register) kayıt, bulut iş ortağı profilinizle birlikte bağlantı, [Geliştirme Merkezi](https://developer.microsoft.com/store/register) hesap (burada ayrıntılı adımlara bakın). Transact teklifinizi yayımlamadan önce bu adımın tamamlanması gerekir. 
 
 >[!Note]
->99 Geliştirici Merkezi kayıt ücret ayları için Market kayıt formunu tamamladıktan ve promosyon kodunuzu içeren bir e-posta alırsınız. 
+>99 Geliştirici Merkezi kayıt ücret ayları için tamamlayın [Market kayıt formunda](https://azuremarketplace.microsoft.com/en-us/sell/signup) promosyon kodunuzu içeren bir e-posta alırsınız. 
 
 >[!Important]
 >Microsoft Dev Center hesabı oluşturmadan önce kuruluşunuzun zaten yinelenen önlemek için bir Geliştirme Merkezi hesabı yok doğrulayın. Daha fazla bilgi için ziyaret [geliştirme Merkezi'ne kaydolun](https://docs.microsoft.com/azure/marketplace/register-dev-center) bölümü.

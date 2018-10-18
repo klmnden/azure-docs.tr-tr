@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: article
 ms.author: ramamill
 ms.date: 09/19/2018
-ms.openlocfilehash: 22c01f2bd9c763eeb681bf2d60e0ccffe1154d85
-ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
+ms.openlocfilehash: 4c57d048f4c3222ac180355a6a700562415f601c
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/20/2018
-ms.locfileid: "46497629"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49390202"
 ---
 # <a name="troubleshoot-mobility-service-push-installation-issues"></a>Mobility hizmeti anında yükleme sorunlarını giderme
 
@@ -73,7 +73,7 @@ Bağlantı denetimi sonra dosya ve Yazıcı Paylaşımı hizmet etkin değilse, 
 * Dosya Paylaşımı ile Grup İlkesi'ni etkinleştirmek için
   * Başlat'a gidin, arama ve gpmc.msc yazın.
   * Gezinti bölmesinde, aşağıdaki klasörleri açın: yerel bilgisayar ilkesi, kullanıcı yapılandırma, Yönetim Şablonları, Windows bileşenleri ve ağ paylaşımı.
-  * Ayrıntılar bölmesinde **kullanıcı profilleri içinde dosyaları paylaşmasını engelleyebilir**. Grup İlkesi ayarını devre dışı bırakın ve dosyaları paylaşmak kullanıcının özelliğini etkinleştirmek için devre dışı bırak Değişikliklerinizi kaydetmek için Tamam'a tıklayın. Daha fazla bilgi edinmek için tıklayın [burada](https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc754359(v=ws.10)).
+  * Ayrıntılar bölmesinde **kullanıcı profilleri içinde dosyaları paylaşmasını engelleyebilir**. Grup İlkesi ayarını devre dışı bırakın ve dosyaları paylaşmak kullanıcının özelliğini etkinleştirmek için devre dışı bırak Değişikliklerinizi kaydetmek için Tamam'a tıklayın. Daha fazla bilgi edinmek için tıklayın [burada](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc754359(v=ws.10)).
 
 İçin **sonraki sürümlerinde**, sağlanan yönergeleri izleyin [burada](vmware-azure-install-mobility-service.md#install-mobility-service-by-push-installation-from-azure-site-recovery) dosya ve Yazıcı Paylaşımı'nı etkinleştirmek için
 

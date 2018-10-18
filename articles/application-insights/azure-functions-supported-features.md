@@ -13,39 +13,45 @@ ms.topic: reference
 ms.date: 10/05/2018
 ms.reviewer: mbullwin
 ms.author: tilee
-ms.openlocfilehash: 05958f35f80a53da27e020d367799519ef5a9bd7
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: 0f4eaaefb7d2080218e19574621a4962e61057c3
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48901592"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49394319"
 ---
 # <a name="application-insights-for-azure-functions-supported-features"></a>Application ınsights'ı Azure işlevleri için desteklenen özellikler
 
-Şu anda desteklenen özellikleri listesi aşağıdadır [Application Insights ile Azure işlevleri tümleştirmesi](https://docs.microsoft.com/azure/azure-functions/functions-monitoring). Azure işlevleri Kılavuzu gözden [Başlarken](https://github.com/Azure/Azure-Functions/wiki/App-Insights).
+Azure işlevleri tekliflerini [yerleşik tümleştirme](https://docs.microsoft.com/azure/azure-functions/functions-monitoring) Application Insights ile olan ILogger arabirimi aracılığıyla kullanılabilir. Şu anda desteklenen özelliklerin listesi aşağıda verilmiştir. Azure işlevleri Kılavuzu gözden [Başlarken](https://github.com/Azure/Azure-Functions/wiki/App-Insights).
 
+## <a name="supported-features"></a>Desteklenen özellikler
 
 | Azure İşlevleri                       | V1                | V2 (Ignite 2018)  | 
 |-----------------------------------    |---------------    |------------------ |
-| **Application ınsights'ı .NET SDK'sı**         | **2.5.0**             | **2.7.2**                 |
+| **Application ınsights'ı .NET SDK'sı**   | **2.5.0**       | **2.7.2**         |
 | | | | 
-| **Otomatik olarak toplama**              |                   |                   |               
-| &bull; İstekleri                           | Evet               | Evet               | 
-| &bull; Özel durumlar                         | Evet               | Evet               | 
-| &bull; Bağımlılıkları               |                   |                   |               
-| &mdash; HTTP                              |                   | Evet               | 
-| &mdash; serviceBus                        |                   | Evet               | 
-| &mdash; eventHub                          |                   | Evet               | 
-| &mdash; SQL                               |                   | Evet               | 
+| **Otomatik olarak toplama**        |                 |                   |               
+| &bull; İstekleri                     | Evet             | Evet               | 
+| &bull; Özel durumlar                   | Evet             | Evet               | 
+| &bull; Bağımlılıkları                   |                   |                   |               
+| &nbsp;&nbsp;&nbsp;&mdash; HTTP      |                 | Evet               | 
+| &nbsp;&nbsp;&nbsp;&mdash; serviceBus|                 | Evet               | 
+| &nbsp;&nbsp;&nbsp;&mdash; eventHub  |                 | Evet               | 
+| &nbsp;&nbsp;&nbsp;&mdash; SQL       |                 | Evet               | 
 | | | | 
-| **Desteklenen özellikler**                    |                   |                   |               
-| &bull; QuickPulse/LiveMetrics                         | Evet               | Evet               | 
-| &bull; Örnekleme                           | Evet               | Evet               | 
-| &bull; Sinyal                         |       | Evet               | 
+| **Desteklenen özellikler**                |                   |                   |               
+| &bull; QuickPulse/LiveMetrics       | Evet             | Evet               | 
+| &bull; Örnekleme                     | Evet             | Evet               | 
+| &bull; Sinyal                   |                 | Evet               | 
 | | | | 
-| **Bağıntı**                           |                   |                   |               
-| &bull; serviceBus                         |                   | Evet               | 
-| &bull; eventHub                           |                   | Evet               | 
+| **Bağıntı**                       |                   |                   |               
+| &bull; serviceBus                     |                   | Evet               | 
+| &bull; eventHub                       |                   | Evet               | 
 | | | | 
-| **Yapılandırılabilir**                  |                   |                   |           
+| **Yapılandırılabilir**                      |                   |                   |           
 | &bull;Tam olarak yapılandırılabilir.<br/>Bkz: [Azure işlevleri](https://github.com/Microsoft/ApplicationInsights-aspnetcore/issues/759#issuecomment-426687852) yönergeler için.<br/>Bkz: [Asp.NET Core](https://github.com/Microsoft/ApplicationInsights-aspnetcore/wiki/Custom-Configuration) tüm seçenekler için.               |                   | Evet                   | 
+
+
+## <a name="sampling"></a>Örnekleme
+
+Azure işlevleri, varsayılan olarak, yapılandırmada örnekleme sağlar. Daha fazla bilgi için [örnekleme yapılandırma](https://docs.microsoft.com/azure/azure-functions/functions-monitoring#configure-sampling).

@@ -10,12 +10,12 @@ ms.component: qna-maker
 ms.topic: article
 ms.date: 09/12/2018
 ms.author: tulasim
-ms.openlocfilehash: c4175a22cc503113f3b3ef64f03f0ae0913bd20e
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: 103da0c65bcf9b9bd24130082f844b9bd12a9a02
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/17/2018
-ms.locfileid: "49364906"
+ms.locfileid: "49389726"
 ---
 # <a name="create-a-qna-maker-service"></a>Soru-cevap Oluşturucu hizmeti oluşturma
 
@@ -44,7 +44,7 @@ Bu kurulum, birkaç Azure kaynaklarını dağıtır. Birlikte, bu kaynaklar, Bil
     * Seçin **arama fiyatlandırma katmanı** Azure Search hizmeti. Gri ücretsiz katmanı seçeneğini görürseniz, aboneliğinizde bir ücretsiz Azure arama katmanı zaten sahip olduğunuz anlamına gelir. Bu durumda Azure arama temel katman ile başlatmanız gerekir. Azure arama fiyatlandırma ayrıntılarına [burada](https://azure.microsoft.com/pricing/details/search/).
     * Seçin **arama konumu** dağıtılacak Azure Search veri istediğiniz. Müşteri verilerinin nerede depolanacağını gerekir, kısıtlamaları, Azure arama için seçtiğiniz konumu bilgilendirecektir.
     * App service içinde bir ad verin **uygulama adı**.
-    * Varsayılan olarak App service için standart (S1) katman varsayılan olarak. Plan oluşturulduktan sonra değiştirebilirsiniz. App service fiyatlandırması hakkında daha fazla ayrıntı görmek [burada](https://azure.microsoft.com/en-in/pricing/details/app-service/).
+    * Varsayılan olarak App service için standart (S1) katman varsayılan olarak. Plan oluşturulduktan sonra değiştirebilirsiniz. App service fiyatlandırması hakkında daha fazla ayrıntı görmek [burada](https://azure.microsoft.com/pricing/details/app-service/).
     * Seçin **Web sitesi konumu** App Service dağıtılacağı.
 
         > [!NOTE]

@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.openlocfilehash: 5bd5919efa84f2dd22929075b806747b413ac346
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 4c3b36891030ae97f382d5e1d0623fa7c698dbf6
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43051802"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49395103"
 ---
 # <a name="azure-storage-solutions-for-ml-services-on-azure-hdinsight"></a>Azure HDInsight üzerinde ML Hizmetleri için Azure depolama çözümleri
 
@@ -159,7 +159,7 @@ Aşağıdaki komutları RevoShare dizini ile Data Lake Store hesabı yapılandı
 
 ## <a name="use-azure-file-storage-with-ml-services-on-hdinsight"></a>HDInsight üzerinde ML Hizmetleri ile Azure File storage'ı kullanma
 
-[Azure dosyaları] adlı uç düğümde uygun veri depolama seçeneğini kullanmak için de mevcuttur ((https://azure.microsoft.com/services/storage/files/). Bir Azure depolama alanı dosya paylaşımını Linux dosya sistemine olanak tanır. Bu seçenek, veri dosyalarını, R betikleri ve kenar düğümüne HDFS yerine yerel dosya sistemi kullanmak üzere mantıklı özellikle zaman gerekebilecek daha sonra sonuç nesneleri depolamak için kullanışlı olabilir. 
+Adlı kenar düğümündeki uygun veri depolama seçeneğini kullanmak için de mevcuttur [Azure dosyaları](https://azure.microsoft.com/services/storage/files/). Bir Azure depolama alanı dosya paylaşımını Linux dosya sistemine olanak tanır. Bu seçenek, veri dosyalarını, R betikleri ve kenar düğümüne HDFS yerine yerel dosya sistemi kullanmak üzere mantıklı özellikle zaman gerekebilecek daha sonra sonuç nesneleri depolamak için kullanışlı olabilir. 
 
 Azure dosyaları'nın önemli bir avantajı dosya paylaşımları bağlı Windows veya Linux gibi desteklenen bir işletim sistemine sahip tüm sistemler tarafından kullanılan olmasıdır. Örneğin, siz veya takımınızdaki birinin sahip başka bir HDInsight kümesi, bir Azure VM veya bile bir şirket içi sistem tarafından kullanılabilir. Daha fazla bilgi için bkz.
 

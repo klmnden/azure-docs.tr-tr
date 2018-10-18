@@ -1,12 +1,25 @@
-<a name="-headarticlesvirtual-machinestroubleshootingtroubleshoot-recovery-disks-linuxmd"></a><<<<<<< HEAD:articles/virtual-machines/troubleshooting/troubleshoot-recovery-disks-linux.md
 ---
-
-Başlık: Azure CLI ile VM sorunlarını gidermek için bir Linux kullanma | Microsoft Docs açıklaması: işletim sistemi diskini bir kurtarma Hizmetleri Azure CLI kullanarak sanal Makinesine bağlanarak Linux VM sorunlarını giderme hakkında bilgi edinin: sanal-makineler-linux documentationCenter: '' yazarlar: genlin manager: jeconnoc Düzenleyicisi: ''
-
-MS.Service: sanal-makineler-linux ms.devlang: azureclı ms.topic: ms.tgt_pltfrm sorunlarını giderme: linux vm ms.workload: altyapı ms.date: 02/16/2017 ms.author: genli
-
+title: Azure CLI ile VM sorunlarını gidermek için bir Linux kullanma | Microsoft Docs
+description: İşletim sistemi diskini bir kurtarma için Azure CLI kullanarak VM bağlanarak Linux VM sorunlarını giderme hakkında bilgi edinin
+services: virtual-machines-linux
+documentationCenter: ''
+authors: genlin
+manager: jeconnoc
+editor: ''
+ms.service: virtual-machines-linux
+ms.devlang: azurecli
+ms.topic: troubleshooting
+ms.tgt_pltfrm: vm-linux
+ms.workload: infrastructure
+ms.date: 02/16/2017
+ms.author: genli
+ms.openlocfilehash: 2f10a231c4edc3e01d3f8c5f7f4db1854f83044d
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49392411"
 ---
-
 # <a name="troubleshoot-a-linux-vm-by-attaching-the-os-disk-to-a-recovery-vm-with-the-azure-cli"></a>İşletim sistemi diskini bir kurtarma VM'si Azure CLI ile ekleyerek bir Linux VM sorunlarını giderme
 Linux sanal makinenize (VM), önyükleme veya disk bir hatasıyla karşılaşırsa, sanal sabit diskin kendisinde sorun giderme adımları gerçekleştirmeniz gerekebilir. Geçersiz bir giriş, yaygın olarak karşılaşılan örneklerden olacaktır `/etc/fstab` engelleyen sanal makine başarıyla önyükleme airdrop. Bu makalede, sanal sabit diskinizi başka bir Linux tüm hataları düzeltin ve ardından orijinal VM'yi yeniden oluşturmak için sanal Makineye bağlanmak için Azure CLI kullanma işlemi açıklanmaktadır. 
 

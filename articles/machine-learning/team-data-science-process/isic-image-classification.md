@@ -5,6 +5,7 @@ services: machine-learning, team-data-science-process
 documentationcenter: ''
 author: deguhath
 ms.author: deguhath
+manager: cgronlun
 editor: cgronlun
 ms.assetid: b8fbef77-3e80-4911-8e84-23dbf42c9bee
 ms.service: machine-learning
@@ -14,16 +15,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/18/2018
-ms.openlocfilehash: 427ea1f3f22855b2c54beacbfb89a8f7fd37cce0
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: ee2e797f3838b8b6b36174d14c73e97fe9790315
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42056187"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49392821"
 ---
 # <a name="skin-cancer-image-classification-with-the-azure-machine-learning-package-for-computer-vision-and-team-data-science-process"></a>Dış Görünüm kanser görüntü işleme ve Team Data Science Process için Azure Machine Learning paketi ile görüntü sınıflandırma
 
-Bu makalede nasıl kullanılacağını gösterir [görüntü işleme için Azure Machine Learning paketi](https://docs.microsoft.com/en-us/python/api/overview/azure-machine-learning/computer-vision?view=azure-ml-py-latest) eğitmek için test etme ve dağıtma bir *görüntü sınıflandırma* modeli. Örnek şablonları ve Team Data Science işlem (TDSP) yapısını kullanır [Azure Machine Learning Workbench](https://docs.microsoft.com/en-us/azure/machine-learning/service/quickstart-installation). Bu izlenecek yol, tam bir örnek sağlar. Kullandığı [Microsoft Bilişsel Araç Seti](https://www.microsoft.com/en-us/cognitive-toolkit/) framework öğrenme ve eğitim derin gerçekleştirilir gibi bir [veri bilimi sanal makinesi](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft-ads.dsvm-deep-learning?tab=Overview) GPU makine. Azure Machine Learning operasyonel hale getirme CLI dağıtımı kullanır.
+Bu makalede nasıl kullanılacağını gösterir [görüntü işleme için Azure Machine Learning paketi](https://docs.microsoft.com/python/api/overview/azure-machine-learning/computer-vision?view=azure-ml-py-latest) eğitmek için test etme ve dağıtma bir *görüntü sınıflandırma* modeli. Örnek şablonları ve Team Data Science işlem (TDSP) yapısını kullanır [Azure Machine Learning Workbench](https://docs.microsoft.com/azure/machine-learning/service/quickstart-installation). Bu izlenecek yol, tam bir örnek sağlar. Kullandığı [Microsoft Bilişsel Araç Seti](https://www.microsoft.com/en-us/cognitive-toolkit/) framework öğrenme ve eğitim derin gerçekleştirilir gibi bir [veri bilimi sanal makinesi](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft-ads.dsvm-deep-learning?tab=Overview) GPU makine. Azure Machine Learning operasyonel hale getirme CLI dağıtımı kullanır.
 
 Bilgisayar işleme etki alanındaki birçok uygulama, görüntü sınıflandırma sorunları Çerçeveli. Bunlar gibi basit sorular yanıt "görüntüde mevcut bir nesne olduğunu?" modeller oluşturma Burada nesne köpek, araba ve sevk olabilir. Ayrıca daha karmaşık soruların yanıtlarını gibi içerir "göz Hastalık önem derecesi hangi sınıfı bu hastanın retinal taramasıyla evinced?" Görüntü işleme için Azure Machine Learning paketi görüntü sınıflandırma veri işleme ve modelleme işlem hattını basitleştirir. 
 
@@ -32,7 +33,7 @@ Bu makalede, örnek hakkında özet bir belgedir. Daha kapsamlı belgeler bulabi
 
 ## <a name="team-data-science-process-walkthrough"></a>Team Data Science Process Kılavuzu
 
-Bu izlenecek yolda [Team Data Science Process](https://docs.microsoft.com/en-us/azure/machine-learning/team-data-science-process/overview) yaşam döngüsü. İzlenecek yol aşağıdaki yaşam döngüsü adımları kapsar.
+Bu izlenecek yolda [Team Data Science Process](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/overview) yaşam döngüsü. İzlenecek yol aşağıdaki yaşam döngüsü adımları kapsar.
 
 ### <a name="1-data-acquisitionhttpsgithubcomazuremachinelearningsamples-amlvisionpackage-isicimageclassificationblobmastercode01dataacquisitionandunderstanding"></a>[1. Veri alma](https://github.com/Azure/MachineLearningSamples-AMLVisionPackage-ISICImageClassification/blob/master/code/01_data_acquisition_and_understanding)
 Uluslararası kaplama Imaging işbirliği (ISIC) veri kümesi, görüntü sınıflandırma görev için kullanılır. ISIC eğitimle incelemek ve melanoma mortality azaltmaya yardımcı olmak için görüntüleme dijital dış uygulamayı kolaylaştırmak için sektör arasındaki iş ortaklığı var. [ISIC arşiv](https://isic-archive.com/#images) olarak zararsız ya da malignant etiketli 13. 000'den fazla kaplama lesion görüntüleri içerir. Bir örnek görüntü ISIC arşivden indirin.
@@ -71,13 +72,13 @@ Alt adımların karşılık gelen Jupyter not defterine ayrıntılı açıklanm�
 Bu adım modelleme adımda oluşturulan model operationalizes. Bu Önkoşullar ve Kurulum sunar. Web hizmeti kullanımını da açıklanmıştır. Bu öğreticide, görüntü işleme için Azure Machine Learning paketi ile ayrıntılı öğrenme modelleri oluşturup azure'da modeli hazır hale getirmek öğrenin.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-- Ek belgeleri okuyun [görüntü işleme için Azure Machine Learning paketi](https://docs.microsoft.com/en-us/python/api/overview/azure-machine-learning/computer-vision?view=azure-ml-py-latest).
+- Ek belgeleri okuyun [görüntü işleme için Azure Machine Learning paketi](https://docs.microsoft.com/python/api/overview/azure-machine-learning/computer-vision?view=azure-ml-py-latest).
 - Okuma [Team Data Science Process](https://aka.ms/tdsp) kullanmaya başlamak için belgeler.
 
 
 ## <a name="references"></a>Başvurular
 
-* [Görüntü işleme için Azure Machine Learning paketi](https://docs.microsoft.com/en-us/python/api/overview/azure-machine-learning/computer-vision?view=azure-ml-py-latest)
-* [Azure Machine Learning Workbench](https://docs.microsoft.com/en-us/azure/machine-learning/service/quickstart-installation)
+* [Görüntü işleme için Azure Machine Learning paketi](https://docs.microsoft.com/python/api/overview/azure-machine-learning/computer-vision?view=azure-ml-py-latest)
+* [Azure Machine Learning Workbench](https://docs.microsoft.com/azure/machine-learning/service/quickstart-installation)
 * [Veri bilimi sanal makinesi](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft-ads.dsvm-deep-learning?tab=Overview)
 

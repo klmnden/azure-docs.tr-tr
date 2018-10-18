@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/12/2018
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: 2e40f0520c0f5e605974f883b3327699ff26313e
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 3843898ba2d7cdd3697236a9f4cc19070c6f07c3
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49321827"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49395182"
 ---
 # <a name="azure-stack-1808-update"></a>Azure Stack 1808 güncelleştirme
 
@@ -261,6 +261,10 @@ Bu derleme sürümü için yükleme sonrası bilinen sorunlar verilmiştir.
    2. Bir konuk dizin ile ilişkili bir abonelik içindeki Vm'leri dağıtma, çok kiracılı bir ortam yapılandırdıysanız, bir iç hata iletisi ile başarısız olabilir. Hatayı gidermek için aşağıdaki adımları izleyin:
       1. Uygulama [1808 Azure Stack düzeltme](https://support.microsoft.com/help/4467062/).
       2. Bağlantısındaki [bu makalede](azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory) her Konuk dizinlerinizi yeniden yapılandırmak için.
+      
+<!-- 3179561 - IS --> 
+- Yönetilen diskler kullanımı açıklandığı saat içinde bildirilen [Azure Stack kullanım SSS](azure-stack-usage-related-faq.md#managed-disks). Ancak, yanlış veya öncesinde Eylül 27 yönetilen diskler kullanımı için ücretlendirilirsiniz, böylece bunun yerine Azure Stack faturalandırma aylık fiyat kullanır. Size geçici olarak ücretleri yönetilen diskler için Eylül faturalama sorunu çözümlenene kadar 27 sonra askıya. Yanlış yönetilen diskler kullanımı için herhangi bir ücret, Microsoft faturalama desteği'ne başvurun.
+Azure Stack kullanım API'leri üretilen kullanım raporları, doğru miktarları gösterir ve kullanılabilir.
 
 <!-- 2869209 – IS, ASDK --> 
 - Kullanırken [ **Ekle AzsPlatformImage** cmdlet'i](https://docs.microsoft.com/powershell/module/azs.compute.admin/add-azsplatformimage?view=azurestackps-1.4.0), kullanmalısınız **- OsUri** parametre olarak depolama hesabı URI'si disk nereye yüklenir. Yerel yol diskin kullanırsanız, cmdlet şu hatayla başarısız olur: *işlemi uzun süre çalışan 'Başarısız' durumuyla başarısız oldu*. 

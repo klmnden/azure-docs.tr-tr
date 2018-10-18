@@ -8,16 +8,16 @@ ms.date: 6/20/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: df1ca1358d1b111d8412d730575eb7bf66c8ebdf
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 079a22ebaa7abfec7e8db142bc8f277ff12ab77e
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46950021"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49394978"
 ---
 # <a name="create-a-linux-iot-edge-device-that-acts-as-a-transparent-gateway"></a>Saydam bir ağ geçidi olarak davranır bir Linux IOT Edge cihazı oluşturma
 
-Bu makalede, saydam bir ağ geçidi olarak IOT Edge cihazı kullanmaya yönelik ayrıntılı yönergeler sağlar. Bu makalenin geri kalanında terimi *IOT Edge ağ geçidi* saydam bir ağ geçidi olarak kullanılan bir IOT Edge cihazı gösterir. Daha ayrıntılı bilgi için bkz. [nasıl bir IOT Edge cihazı ağ geçidi olarak kullanılabilir][lnk-edge-as-gateway], kavramsal bir genel bakış sağlar.
+Bu makalede, saydam bir ağ geçidi olarak IOT Edge cihazı kullanmaya yönelik ayrıntılı yönergeler sağlar. Bu makalenin geri kalanında terimi *IOT Edge ağ geçidi* saydam bir ağ geçidi olarak kullanılan bir IOT Edge cihazı gösterir. Daha ayrıntılı bilgi için bkz. [nasıl bir IOT Edge cihazı ağ geçidi olarak kullanılabilir](./iot-edge-as-gateway.md), kavramsal bir genel bakış sağlar.
 
 >[!NOTE]
 >Şu anda:
@@ -27,9 +27,9 @@ Bu makalede, saydam bir ağ geçidi olarak IOT Edge cihazı kullanmaya yönelik 
 
 Saydam bir ağ geçidi oluşturma hakkında daha fazla sabit bölümü güvenli bir aşağı akış cihazları ağ geçidine bağlanıyor. Azure IOT Edge bu cihazları arasında güvenli TLS bağlantıları kurmak için PKI altyapısını kullanmanıza olanak tanır. Bu durumda, biz saydam bir ağ geçidi olarak görev yapan bir IOT Edge cihazına bağlamak için bir aşağı akış cihazı vermiş olursunuz.  Makul güvenliğini sağlamak için aşağı akış cihaz, ağ geçitleri ve değil kötü amaçlı olabilecek bir ağ geçidi'ne bağlama cihazlarınızı yalnızca istediğinden sınır cihazı kimliğini onaylamalıdır.
 
-Ağ geçidi cihazı topolojiniz için gerekli güven sağlayan herhangi bir sertifika altyapısı oluşturabilirsiniz. Bu makalede, etkinleştirmek için kullanacağınız aynı sertifika Kurulumu varsayıyoruz [X.509 CA güvenlik] [ lnk-iothub-x509] IOT Hub'ında, belirli IOT hub'a (IOT hub'ı sahibi CA ilişkili bir X.509 CA sertifikası kapsamaktadır ) ve bu CA ve bir CA için sınır cihazı imzalanmış sertifikalar, bir dizi.
+Ağ geçidi cihazı topolojiniz için gerekli güven sağlayan herhangi bir sertifika altyapısı oluşturabilirsiniz. Bu makalede, etkinleştirmek için kullanacağınız aynı sertifika Kurulumu varsayıyoruz [X.509 CA güvenlik](../iot-hub/iot-hub-x509ca-overview.md) belirli bir IOT hub (IOT hub'ı sahibi CA) ve sertifikaları bir dizi için ilişkili bir X.509 CA sertifikası içerir, IOT Hub'ındaki Sınır cihazı için bu CA ve bir CA ile imzalanmış.
 
-![Ağ geçidi][1]
+![Ağ geçidi](./media/how-to-create-transparent-gateway/gateway-setup.png)
 
 Ağ geçidi bağlantı başlatma sırasında aşağı akış cihaza Edge cihaz CA sertifikasını sunar. Edge cihaz CA sertifika sahibi CA sertifikası tarafından imzalanmış emin olmak için aşağı akış cihaz denetler. Bu işlem, ağ geçidi güvenilir bir kaynaktan gelen onaylamak aşağı akış cihaz sağlar.
 
@@ -37,8 +37,8 @@ Aşağıdaki adımlarda sertifikaları oluşturma ve bunları doğru yerlerde y�
 
 ## <a name="prerequisites"></a>Önkoşullar
 1.  Saydam bir ağ geçidi olarak kullanmak istediğiniz bir Linux cihazda Azure IOT Edge çalışma zamanını yükleyin.
-   * [Linux x64][lnk-install-linux-x64]
-   * [Linux ARM32][lnk-install-linux-arm]
+   * [Linux x64](./how-to-install-iot-edge-linux.md)
+   * [Linux ARM32](./how-to-install-iot-edge-linux-arm.md)
 
 2.  Aşağıdaki komutla gerekli üretim dışı sertifikalarını oluşturmak için komut dosyalarını alın. Bu betikler, saydam bir ağ geçidini ayarlamak için gerekli sertifikaları oluşturmanıza yardımcı olur. 
 
@@ -61,7 +61,7 @@ Aşağıdaki adımlarda sertifikaları oluşturma ve bunları doğru yerlerde y�
       ```
 
 ## <a name="certificate-creation"></a>Sertifika oluşturma
-1.  Sahibi CA sertifikası ve bir ara sertifika oluşturun. Bu tüm yerleştirilir `$WRKDIR`.
+1.  Sahibi CA sertifikası ve bir ara sertifika oluşturun. Bu sertifikalar yerleştirilir `$WRKDIR`.
 
    ```cmd
    ./certGen.sh create_root_and_intermediate
@@ -134,7 +134,7 @@ Azure IoT Edge'in önemli özelliklerinden biri buluttan IoT Edge cihazlarınız
 6. Gözden geçirme şablon adımda seçin **Gönder**.
 
 ## <a name="installation-on-the-downstream-device"></a>Aşağı Akış cihaza yükleme
-Bir aşağı akış cihaz herhangi bir uygulama olabilir kullanarak [Azure IOT cihaz SDK'sını][lnk-devicesdk]basit bir açıklandığı gibi [.NET kullanarak IOT hub'ınıza Cihazınızı bağlama] [ lnk-iothub-getstarted]. Güven bir aşağı akış cihaz uygulaması olan **sahibi CA** ağ geçidi cihazları TLS bağlantılarını doğrulamak için sertifika. Bu adım genellikle iki şekilde gerçekleştirilebilir: işletim sistemi düzeyinde ya da (için belirli bir dil) uygulama düzeyinde.
+Bir aşağı akış cihaz herhangi bir uygulama olabilir kullanarak [Azure IOT cihaz SDK'sını](../iot-hub/iot-hub-devguide-sdks.md)basit bir açıklandığı gibi [.NET kullanarak IOT hub'ınıza Cihazınızı bağlama](../iot-hub/quickstart-send-telemetry-dotnet.md). Güven bir aşağı akış cihaz uygulaması olan **sahibi CA** ağ geçidi cihazları TLS bağlantılarını doğrulamak için sertifika. Bu adım genellikle iki şekilde gerçekleştirilebilir: işletim sistemi düzeyinde ya da (için belirli bir dil) uygulama düzeyinde.
 
 ### <a name="os-level"></a>İşletim sistemi düzeyi
 Bu sertifika işletim sistemi sertifika deposunda yükleme sahibi kullanmak için tüm uygulamaları CA sertifikası güvenilen bir sertifika izin verir.
@@ -148,11 +148,11 @@ Bu sertifika işletim sistemi sertifika deposunda yükleme sahibi kullanmak içi
  
     "Güncelleştirme sertifikaları /etc/ssl/certs... belirten bir ileti görürsünüz. 1, 0 kaldırıldı eklendi; bitti."
 
-* Windows - bir Windows konağında bir CA sertifikası yüklemek nasıl bir örnek aşağıda verilmiştir.
-  * Başlat menüsünde "Bilgisayar sertifikalarını Yönet" türüne. Bu adlı bir yardımcı program getirmelisiniz `certlm`.
-  * Gidin sertifikaların yerel bilgisayar güvenilen kök sertifikalar-->--> sertifika--> sağ tıklatın, tüm görevler-->--> Sertifika Alma Sihirbazı'nı başlatmak için içeri aktarma.
-  * Yönergelerine uygun olarak aşağıdaki adımları uygulayın ve sertifika dosyası $CERTDIR/certs/azure-iot-test-only.root.ca.cert.pem içeri aktarın.
-  * İşlem tamamlandığında bir "Başarıyla içeri aktarıldı" iletisini görmeniz gerekir.
+* Windows - Windows konağında bir CA sertifikası yüklemek nasıl bir örnek aşağıda verilmiştir.
+  1. Başlat menüsünde "Bilgisayar sertifikalarını Yönet" türüne. Bu adlı bir yardımcı program getirmelisiniz `certlm`.
+  2. Gidin **sertifikaların yerel bilgisayar** > **güvenilen kök sertifikalar** > **sertifikaları** > sağ tıklayın > **Tüm görevler** > **alma** Sertifika Alma Sihirbazı'nı başlatmak için.
+  3. Yönergelerine uygun olarak aşağıdaki adımları uygulayın ve sertifika dosyası $CERTDIR/certs/azure-iot-test-only.root.ca.cert.pem içeri aktarın.
+  4. İşlem tamamlandığında bir "Başarıyla içeri aktarıldı" iletisini görmeniz gerekir.
 
 ### <a name="application-level"></a>Uygulama düzeyi
 .NET uygulamaları için aşağıdaki kod parçacığını PEM biçiminde bir sertifika güven ekleyebilirsiniz. Değişkeni başlatmak `certPath` ile `$CERTDIR/certs/azure-iot-test-only.root.ca.cert.pem`.
@@ -169,7 +169,7 @@ Bu sertifika işletim sistemi sertifika deposunda yükleme sahibi kullanmak içi
    ```
 
 ## <a name="connect-the-downstream-device-to-the-gateway"></a>Aşağı Akış cihaz ağ geçidine bağlanma
-Ağ geçidi cihazı ana bilgisayar adına başvuran bir bağlantı dizesi ile IOT Hub cihaz SDK'sı başlatmanız gerekir. Bu ekleyerek yapılır `GatewayHostName` özelliği, cihaz bağlantı dizesi. Örneğin, eklenen biz, bir cihaz için bir örnek cihaz bağlantı dizesi işte `GatewayHostName` özelliği:
+IOT Hub cihazı SDK'sı, ağ geçidi cihazı ana bilgisayar adına başvuran bir bağlantı dizesiyle başlatır. Bu ekleyerek yapılır `GatewayHostName` özelliği, cihaz bağlantı dizesi. Örneğin, eklenen biz, bir cihaz için bir örnek cihaz bağlantı dizesi işte `GatewayHostName` özelliği:
 
    ```
    HostName=yourHub.azure-devices.net;DeviceId=yourDevice;SharedAccessKey=XXXYYYZZZ=;GatewayHostName=mygateway.contoso.com
@@ -187,31 +187,9 @@ IOT Edge çalışma zamanı yalnızca modülleri tarafından gönderilen iletile
    { "routes":{ "sensorToAIInsightsInput1":"FROM /messages/* WHERE NOT IS_DEFINED($connectionModuleId) INTO BrokeredEndpoint(\"/modules/ai_insights/inputs/input1\")", "AIInsightsToIoTHub":"FROM /messages/modules/ai_insights/outputs/output1 INTO $upstream" } }
    ```
 
-Başvurmak [modülü oluşturma makale] [ lnk-module-composition] ileti yönlendirme hakkında daha fazla bilgi.
+Başvurmak [modülü oluşturma makale](./module-composition.md) ileti yönlendirme hakkında daha fazla bilgi.
 
-[!INCLUDE [](../../includes/iot-edge-extended-offline-preview.md)]
+[!INCLUDE [iot-edge-offline-preview](../../includes/iot-edge-extended-offline-preview.md)]
 
 ## <a name="next-steps"></a>Sonraki adımlar
-[IOT Edge modülleri geliştirmek için Araçlar ve gereksinimleri anlamak][lnk-module-dev].
-
-<!-- Images -->
-[1]: ./media/how-to-create-transparent-gateway/gateway-setup.png
-
-<!-- Links -->
-[lnk-install-linux-x64]: ./how-to-install-iot-edge-linux.md
-[lnk-install-linux-arm]: ./how-to-install-iot-edge-linux-arm.md
-[lnk-module-composition]: ./module-composition.md
-[lnk-devicesdk]: ../iot-hub/iot-hub-devguide-sdks.md
-[lnk-tutorial1-win]: tutorial-simulate-device-windows.md
-[lnk-tutorial1-lin]: tutorial-simulate-device-linux.md
-[lnk-edge-as-gateway]: ./iot-edge-as-gateway.md
-[lnk-module-dev]: module-development.md
-[lnk-iothub-getstarted]: ../iot-hub/quickstart-send-telemetry-dotnet.md
-[lnk-iothub-x509]: ../iot-hub/iot-hub-x509ca-overview.md
-[lnk-iothub-secure-deployment]: ../iot-hub/iot-hub-security-deployment.md
-[lnk-iothub-tokens]: ../iot-hub/iot-hub-devguide-security.md#security-tokens
-[lnk-iothub-throttles-quotas]: ../iot-hub/iot-hub-devguide-quotas-throttling.md
-[lnk-iothub-devicetwins]: ../iot-hub/iot-hub-devguide-device-twins.md
-[lnk-iothub-c2d]: ../iot-hub/iot-hub-devguide-messages-c2d.md
-[lnk-ca-scripts]: https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md
-[lnk-modbus-module]: https://github.com/Azure/iot-edge-modbus
+[IOT Edge modülleri geliştirmek için Araçlar ve gereksinimleri anlamak](module-development.md).

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/21/2018
 ms.author: jeedes
-ms.openlocfilehash: e2037ff2f1b95a5ce5de69d76d66ec81cc9badb4
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 100ea0147bf56242ba15bee39e4bda1b65af27da
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47064212"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49390100"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sharepoint-on-premises"></a>Öğretici: SharePoint şirket içi ile Azure Active Directory Tümleştirme
 
@@ -144,7 +144,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve S
     SharePoint Server 2016 sunucuya oturum açın ve SharePoint 2016 Yönetim Kabuğu'nu açın. $Wsfedurl (çoklu oturum açma hizmeti URL'si) ve $filepath $realm (tanımlayıcı değeri) bölümünden SharePoint şirket içi etki alanı ve URL'ler Azure portalında, değerleri doldurun (sertifika dosyası karşıdan dosya yolu) Azure portal ve çalıştırma Yeni bir güvenilen kimlik sağlayıcı yapılandırmak için aşağıdaki komutları.
 
     > [!TIP]
-    > PowerShell kullanarak yeni ya da PowerShell işleyişi hakkında daha fazla bilgi istiyorsanız bkz [SharePoint PowerShell](https://docs.microsoft.com/en-us/powershell/sharepoint/overview?view=sharepoint-ps). 
+    > PowerShell kullanarak yeni ya da PowerShell işleyişi hakkında daha fazla bilgi istiyorsanız bkz [SharePoint PowerShell](https://docs.microsoft.com/powershell/sharepoint/overview?view=sharepoint-ps). 
 
     ```
     $realm = "<Identifier value from the SharePoint on-premises Domain and URLs section in the Azure portal>"
@@ -310,7 +310,7 @@ Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](
 
 * [SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi](tutorial-list.md)
 * [Azure Active Directory ile uygulama erişimi ve çoklu oturum açma özellikleri nelerdir?](../manage-apps/what-is-single-sign-on.md)
-* [SharePoint sunucu kimlik doğrulaması için Azure AD kullanma](https://docs.microsoft.com/en-us/office365/enterprise/using-azure-ad-for-sharepoint-server-authentication)
+* [SharePoint sunucu kimlik doğrulaması için Azure AD kullanma](https://docs.microsoft.com/office365/enterprise/using-azure-ad-for-sharepoint-server-authentication)
 
 <!--Image references-->
 

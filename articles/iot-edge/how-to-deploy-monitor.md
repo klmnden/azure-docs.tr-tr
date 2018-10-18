@@ -9,12 +9,12 @@ ms.date: 07/25/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 28aa2904f63a9802305d24fec1650f84e38601ab
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.openlocfilehash: c6700dc4bc0cc458e34e129b2468daad88ecc8be
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39258442"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49393466"
 ---
 # <a name="deploy-and-monitor-iot-edge-modules-at-scale-using-the-azure-portal"></a>Dağıtma ve Azure portalını kullanarak ölçekte IOT Edge modülleri izleme
 
@@ -39,11 +39,11 @@ Bir dağıtımı oluşturmadan önce değiştirmek istediğiniz hangi cihazları
 }
 ```
 
-Cihaz ikizleri ve etiketleri hakkında daha fazla bilgi için bkz: [IOT hub'daki cihaz ikizlerini kavrama ve kullanma][lnk-device-twin].
+Cihaz ikizleri ve etiketleri hakkında daha fazla bilgi için bkz: [IOT hub'daki cihaz ikizlerini kavrama ve kullanma](../iot-hub/iot-hub-devguide-device-twins.md).
 
 ## <a name="create-a-deployment"></a>Bir dağıtım oluşturun
 
-1. İçinde [Azure portalında][lnk-portal], IOT hub'ınıza gidin. 
+1. İçinde [Azure portalında](https://portal.azure.com), IOT hub'ınıza gidin. 
 1. Seçin **IOT Edge**.
 1. Seçin **IOT Edge dağıtımı Ekle**.
 
@@ -77,7 +77,7 @@ Bir modül olarak özel kod ekleyin veya bir Azure hizmeti modülü el ile eklem
 1. Seçin **IOT Edge Modülü**.
 1. Modülünüzün vermek bir **adı**.
 1. İçin **görüntü URI'si** modülünüzde için kapsayıcı görüntüsü girin. 
-1. Belirtmek **kapsayıcı oluşturma seçenekleri** geçirilecek kapsayıcıya. Daha fazla bilgi için [docker oluşturma][lnk-docker-create].
+1. Belirtmek **kapsayıcı oluşturma seçenekleri** geçirilecek kapsayıcıya. Daha fazla bilgi için [docker oluşturma](https://docs.docker.com/engine/reference/commandline/create/).
 1. Seçmek için açılan menüyü kullanın. bir **yeniden ilke**. Aşağıdaki seçeneklerden birini seçin: 
    * **Her zaman** -herhangi bir nedenle kapanması durumunda modülü her zaman yeniden başlatılır.
    * **Hiçbir zaman** -herhangi bir nedenle kapanması durumunda modülün başlatmaz.
@@ -117,11 +117,11 @@ Dağıtım bilgilerinizi gözden geçirin ve ardından **Gönder**.
 
 Bir dağıtımın ayrıntılarını görüntülemek ve onu çalıştıran cihazları izlemek için aşağıdaki adımları kullanın:
 
-1. Oturum [Azure portalında] [ lnk-portal] ve IOT hub'ınıza gidin. 
+1. Oturum [Azure portalında](https://portal.azure.com) ve IOT hub'ınıza gidin. 
 1. Seçin **IOT Edge**.
 1. Seçin **IOT Edge dağıtımları**. 
 
-   ![IOT Edge dağıtımları görüntüle][1]
+   ![IOT Edge dağıtımları görüntüle](./media/how-to-deploy-monitor/iot-edge-deployments.png)
 
 1. Dağıtım listesini inceleyin. Her bir dağıtım için aşağıdaki ayrıntıları görüntüleyebilirsiniz:
    * **Kimliği** -dağıtım adı.
@@ -144,11 +144,11 @@ Hedef koşul güncelleştirme aşağıdaki güncelleştirmeleri oluşur:
 
 Bir dağıtım değiştirmek için aşağıdaki adımları kullanın: 
 
-1. Oturum [Azure portalında] [ lnk-portal] ve IOT hub'ınıza gidin. 
+1. Oturum [Azure portalında](https://portal.azure.com) ve IOT hub'ınıza gidin. 
 1. Seçin **IOT Edge**.
 1. Seçin **IOT Edge dağıtımları**. 
 
-   ![IOT Edge dağıtımları görüntüle][1]
+   ![IOT Edge dağıtımları görüntüle](./media/how-to-deploy-monitor/iot-edge-deployments.png)
 
 1. Değiştirmek istediğiniz dağıtımı seçin. 
 1. Aşağıdaki alanları güncelleştirmeleri yapın: 
@@ -156,17 +156,17 @@ Bir dağıtım değiştirmek için aşağıdaki adımları kullanın:
    * Etiketler 
    * Öncelik 
 1. **Kaydet**’i seçin.
-1. Bağlantısındaki [bir dağıtımını izleme] [ anchor-monitor] dağıtmadan değişiklikleri izlemek için. 
+1. Bağlantısındaki [bir dağıtımını izleme](#monitor-a-deployment) dağıtmadan değişiklikleri izlemek için. 
 
 ## <a name="delete-a-deployment"></a>Dağıtımı Sil
 
 Bir dağıtım sildiğinizde, sonraki en yüksek öncelikli dağıtım üzerinde herhangi bir cihaza yararlanın. Daha sonra başka bir dağıtım hedef koşulu cihazlarınızı karşılamıyorsa, dağıtım silindiğinde modülleri kaldırılmaz. 
 
-1. Oturum [Azure portalında] [ lnk-portal] ve IOT hub'ınıza gidin. 
+1. Oturum [Azure portalında](https://portal.azure.com) ve IOT hub'ınıza gidin. 
 1. Seçin **IOT Edge**.
 1. Seçin **IOT Edge dağıtımları**. 
 
-   ![IOT Edge dağıtımları görüntüle][1]
+   ![IOT Edge dağıtımları görüntüle](./media/how-to-deploy-monitor/iot-edge-deployments.png)
 
 1. Silmek istediğiniz dağıtım seçmek için onay kutusunu kullanın. 
 1. **Sil**’i seçin.
@@ -174,16 +174,4 @@ Bir dağıtım sildiğinizde, sonraki en yüksek öncelikli dağıtım üzerinde
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Daha fazla bilgi edinin [modülleri uç cihazlarına dağıtma][lnk-deployments].
-
-<!-- Images -->
-[1]: ./media/how-to-deploy-monitor/iot-edge-deployments.png
-
-<!-- Links -->
-[lnk-device-twin]: ../iot-hub/iot-hub-devguide-device-twins.md
-[lnk-portal]: https://portal.azure.com
-[lnk-docker-create]: https://docs.docker.com/engine/reference/commandline/create/
-[lnk-deployments]: module-deployment-monitoring.md
-
-<!-- Anchor links -->
-[anchor-monitor]: #monitor-a-deployment
+Daha fazla bilgi edinin [modülleri uç cihazlarına dağıtma](module-deployment-monitoring.md).

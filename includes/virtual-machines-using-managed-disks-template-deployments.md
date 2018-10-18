@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/05/2018
 ms.author: jaboes
 ms.custom: include file
-ms.openlocfilehash: c7db8eaf57bf29e17b4543e99a44655030aa6172
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 0c21ba3df6805c053f3d318d1ca3734a89c2ab60
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45979096"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49400368"
 ---
 # <a name="using-managed-disks-in-azure-resource-manager-templates"></a>Yönetilen diskler, Azure Resource Manager şablonlarını kullanma
 
@@ -256,4 +256,4 @@ REST API belirtimlerini hakkında tam bilgi için lütfen inceleyin [REST API be
 * Ziyaret [Azure yönetilen disklere genel bakış](../articles/virtual-machines/windows/managed-disks-overview.md) yönetilen diskler hakkında daha fazla bilgi için belge.
 * Sanal Makine kaynakları için şablon başvuru belgeleri ziyaret ederek gözden [Microsoft.Compute/virtualMachines şablon başvurusu](/azure/templates/microsoft.compute/virtualmachines) belge.
 * Şablon başvuru belgeleri için disk kaynaklarını ziyaret ederek gözden [Microsoft.Compute/disks şablon başvurusu](/azure/templates/microsoft.compute/disks) belge.
-* Azure sanal makine ölçek kümeleri, yönetilen diskleri kullanma hakkında daha fazla bilgi için ziyaret [veri disklerini ölçek kümeleri ile kullanma](https://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attached-disks) belge.
+* Azure sanal makine ölçek kümeleri, yönetilen diskleri kullanma hakkında daha fazla bilgi için ziyaret [veri disklerini ölçek kümeleri ile kullanma](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attached-disks) belge.

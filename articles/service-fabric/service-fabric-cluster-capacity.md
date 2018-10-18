@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/27/2018
 ms.author: chackdan
-ms.openlocfilehash: 86099c5385c14ce7cf10bbc84ebe1b5e70b2b3e6
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: d8f2dbe4885f1cb85ab5eb78ae4f06b2ad702d53
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49094216"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49389590"
 ---
 # <a name="service-fabric-cluster-capacity-planning-considerations"></a>Service Fabric kümesi kapasite planlaması konuları
 Herhangi bir üretim dağıtımı için kapasite planlaması önemli bir adımdır. Bu işlemin bir parçası olarak dikkate almanız gereken öğelerden bazıları aşağıda verilmiştir.
@@ -83,7 +83,7 @@ Dayanıklılık katmanı, sanal makinelerinizin temel Azure altyapısıyla sahip
 > [!WARNING]
 > Çalışan Bronz dayanıklılığa sahip düğüm türleri elde _ayrıcalıkların olmadığı_. Bu durum bilgisiz iş yüklerinizi etkileyen altyapı işler değil durduruldu veya kaldırılacak geciktirilmiş, hangi iş yüklerinizi etkileyebilecek anlamına gelir. Yalnızca Bronz yalnızca durum bilgisiz iş yükleri çalıştıran düğümü türleri için kullanın. Üretim iş yükleri çalıştıran Silver veya yukarıda önerilir. 
 
-> Herhangi bir dayanıklılık düzeyi ne olursa olsun [ayırmayı kaldırma](https://docs.microsoft.com/en-us/rest/api/compute/virtualmachinescalesets/deallocate) VM ölçek kümesi üzerinde işlem kümesi yok eder
+> Herhangi bir dayanıklılık düzeyi ne olursa olsun [ayırmayı kaldırma](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/deallocate) VM ölçek kümesi üzerinde işlem kümesi yok eder
 
 **Silver veya Gold dayanıklılık düzeyleri kullanmanın avantajları**
  

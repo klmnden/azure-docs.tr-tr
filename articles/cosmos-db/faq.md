@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/05/2018
 ms.author: sngun
-ms.openlocfilehash: 85d8eb555d96b1c50da0ed00ae1f06c3eec1a5ba
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: de67d71a209ea0889b4dc5c87fed254700cb9916
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44722223"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49395148"
 ---
 # <a name="azure-cosmos-db-faq"></a>Azure Cosmos DB ile ilgili SSS
 ## <a name="azure-cosmos-db-fundamentals"></a>Azure Cosmos DB ile ilgili temel bilgiler
@@ -100,7 +100,7 @@ Azure Cosmos DB'yi deneyin abonelikler için aşağıdaki koşullar geçerlidir:
 Azure Cosmos DB, Azure portalında kullanılabilir. İlk olarak, bir Azure aboneliği için kaydolun. Açtıktan sonra Azure aboneliğinizde bir SQL API, Gremlin API, tablo API'si, MongoDB API'si veya Cassandra API hesabı ekleyebilirsiniz.
 
 ### <a name="what-is-a-master-key"></a>Ana anahtar nedir?
-Ana anahtar, bir hesaptaki tüm kaynaklara erişmeyi sağlayan bir güvenlik belirtecidir. Anahtara sahip kişiler, okuma ve yazma, veritabanı hesabındaki tüm kaynaklara erişimi. Ana anahtarları dağıtırken dikkatli olun. Birincil ana anahtar ve ikincil ana anahtar mevcuttur **anahtarları** dikey [Azure portalında][azure-portal]. Anahtarları hakkında daha fazla bilgi için bkz. [görüntüleme, kopyalama ve yeniden oluşturma erişim anahtarlarını](manage-account.md#keys).
+Ana anahtar, bir hesaptaki tüm kaynaklara erişmeyi sağlayan bir güvenlik belirtecidir. Anahtara sahip kişiler, okuma ve yazma, veritabanı hesabındaki tüm kaynaklara erişimi. Ana anahtarları dağıtırken dikkatli olun. Birincil ana anahtar ve ikincil ana anahtar mevcuttur **anahtarları** dikey [Azure portalında][azure-portal]. Anahtarlar hakkında daha fazla bilgi için bkz. [Erişim tuşlarını görüntüleme, kopyalama ve yeniden oluşturma](manage-account.md#keys).
 
 ### <a name="what-are-the-regions-that-preferredlocations-can-be-set-to"></a>PreferredLocations ayarlanabilir bölgeleri nelerdir? 
 PreferredLocations değeri Cosmos DB kullanılabildiği Azure bölgelerini birine ayarlanabilir. Kullanılabilir bölgelerin listesi için bkz. [Azure bölgeleri](https://azure.microsoft.com/regions/).
@@ -127,7 +127,7 @@ Azure CosmosDB zaman serisi analiz Evet destekler, burada bir örnek için [zama
 ### <a name="how-do-i-start-developing-against-the-sql-api"></a>SQL API'si ile programlama geliştirmeye nasıl başlarım?
 Öncelikle, bir Azure aboneliği için kaydolmalısınız. Bir Azure aboneliğine kaydolduktan sonra Azure aboneliğinizde bir SQL API'si kapsayıcı ekleyebilirsiniz. Bir Azure Cosmos DB hesabını ekleme ile ilgili yönergeler için bkz: [bir Azure Cosmos DB veritabanı hesabı oluşturma](create-sql-api-dotnet.md#create-account). 
 
-[SDK'ları](sql-api-sdk-dotnet.md) .NET, Python, Node.js, JavaScript ve Java için kullanılabilir. Geliştiriciler ayrıca kullanabileceğiniz [RESTful HTTP API'lerini](/rest/api/cosmos-db/) çeşitli platformlar ve diller Azure Cosmos DB kaynaklarıyla etkileşim kurmak için.
+.NET, Python, Node.js, JavaScript ve Java için [SDK'lar](sql-api-sdk-dotnet.md) kullanılabilir. Geliştiriciler ayrıca kullanabileceğiniz [RESTful HTTP API'lerini](/rest/api/cosmos-db/) çeşitli platformlar ve diller Azure Cosmos DB kaynaklarıyla etkileşim kurmak için.
 
 ### <a name="can-i-access-some-ready-made-samples-to-get-a-head-start"></a>Avantajlı bir başlangıç için bazı kullanıma hazır örnekler erişebilirim?
 SQL API'si için örnekleri [.NET](sql-api-dotnet-samples.md), [Java](https://github.com/Azure/azure-documentdb-java), [Node.js](sql-api-nodejs-samples.md), ve [Python](sql-api-python-samples.md) SDK'ları Github'da bulunmaktadır.
@@ -466,7 +466,7 @@ Azure Cosmos DB kullanır [yatay bölümleme](partition-data.md) otomatik olarak
 
 ### <a name="how-can-i-protect-against-injection-attacks-using-gremlin-drivers"></a>Gremlin sürücüleri kullanarak ekleme saldırılarına karşı nasıl koruyabilirim? 
 
-En yerel Tinkerpop Gremlin sürücüleri, sorgu yürütme için parametre sözlüğü sağlama seçeneği sağlar. Bu, bunun nasıl yapılacağı örneğidir [Gremlin.Net]((http://tinkerpop.apache.org/docs/3.2.7/reference/#gremlin-DotNet)) ve [Gremlin Javascript](https://github.com/Azure-Samples/azure-cosmos-db-graph-nodejs-getting-started/blob/master/app.js).
+En yerel Tinkerpop Gremlin sürücüleri, sorgu yürütme için parametre sözlüğü sağlama seçeneği sağlar. Bu, bunun nasıl yapılacağı örneğidir [Gremlin.Net](http://tinkerpop.apache.org/docs/3.2.7/reference/#gremlin-DotNet) ve [Gremlin Javascript](https://github.com/Azure-Samples/azure-cosmos-db-graph-nodejs-getting-started/blob/master/app.js).
 
 ### <a name="why-am-i-getting-the-gremlin-query-compilation-error-unable-to-find-any-method-error"></a>Neden iletisi alıyorum "Gremlin sorgu derleme hatası: herhangi bir yöntem bulunamadı" hatası?
 

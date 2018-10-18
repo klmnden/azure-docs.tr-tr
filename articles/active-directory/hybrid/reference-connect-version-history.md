@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 09/06/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: f3b80af1dfaca921efbe656356e85aeb353a576b
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 93bd141b591cda5ec6ff1d9d042222070d3146e6
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46315311"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49390321"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: Sürüm yayımlama geçmişi
 Azure Active Directory (Azure AD) ekibi, düzenli olarak yeni özellikler ve işlevler ile Azure AD Connect güncelleştirir. Tüm eklemeleri için tüm kitlelere yönelik uygulanabilir.
@@ -112,7 +112,7 @@ Yeni özellikler ve geliştirmeler
 
 ### <a name="fixed-issues"></a>Düzeltilen sorunlar 
 
-- Bu sürüm, SQL Server Express yüklemesi diğerleriyle birlikte, çeşitli güvenlik açıklarını düzeltme sağlayan, SQL Server 2012 SP4 güncelleştirir.  Lütfen [burada](https://support.microsoft.com/en-ca/help/4018073/sql-server-2012-service-pack-4-release-information) SQL Server 2012 SP4 hakkında daha fazla bilgi.
+- Bu sürüm, SQL Server Express yüklemesi diğerleriyle birlikte, çeşitli güvenlik açıklarını düzeltme sağlayan, SQL Server 2012 SP4 güncelleştirir.  Lütfen [burada](https://support.microsoft.com/help/4018073/sql-server-2012-service-pack-4-release-information) SQL Server 2012 SP4 hakkında daha fazla bilgi.
 - Eşitleme kuralının işlenmesi: üst eşitleme kuralı artık geçerli değilse katılmak herhangi bir koşul ile giden birleştirme eşitleme kuralları da uygulanması gerekir
 - Eşitleme Hizmeti Yöneticisi UI ve eşitleme kuralları Düzenleyicisi için birçok erişilebilirlik düzeltmeleri uygulandı
 - Azure AD Connect Sihirbazı'nı: AD Bağlayıcısı hesabı oluşturulurken hata oluştu, Azure AD Connect bir çalışma grubunda bulunuyor

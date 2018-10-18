@@ -9,12 +9,12 @@ ms.date: 10/05/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 88ea4b2eab57684bc5455c0d8eb23a5d62f9dd77
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: b04f909d58e1555cad9f34b682f9062bbd96cd0e
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48817523"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49394740"
 ---
 # <a name="update-the-iot-edge-runtime"></a>IOT Edge çalışma zamanını güncelleştirme
 
@@ -24,10 +24,11 @@ IOT Edge cihazı iki bileşenden yeni bir sürüme taşımak istiyorsanız günc
 
 Azure IOT Edge en son sürümünü bulmak için bkz: [Azure IOT Edge serbest](https://github.com/Azure/azure-iotedge/releases).
 
-
 ## <a name="update-the-security-daemon"></a>Güvenlik daemon'ı güncelleştirme
 
 IOT Edge güvenlik arka plan programı, IOT Edge cihazında paket Yöneticisini kullanarak güncelleştirilmesi gereken yerel bir bileşenidir. 
+
+Komutunu kullanarak, Cihazınızda çalışan arka plan programı güvenlik sürümünü denetleme `iotedge version`. 
 
 ### <a name="linux-devices"></a>Linux cihazları
 
@@ -59,6 +60,10 @@ Install-SecurityDaemon -Manual -ContainerOS <Windows or Linux>
 ## <a name="update-the-runtime-containers"></a>Çalışma zamanı kapsayıcılarındaki güncelleştir
 
 Edge aracısı ve Edge hub'ı kapsayıcıları güncelleştirme yolu, dağıtımınızdaki (1.0 gibi) sıralı etiketleri veya (1.0.2 gibi) belirli etiketlere kullanıp bağlıdır. 
+
+IOT Edge aracısı ve Edge hub'ı modülleri şu anda komutlarını kullanarak Cihazınızda sürümünü denetleme `iotedge logs edgeAgent` veya `iotedge logs edgeHub`. 
+
+  ![Kapsayıcı sürümü görüntüle](./media/how-to-update-iot-edge/container-version.png)
 
 ### <a name="understand-iot-edge-tags"></a>IOT Edge etiketleri anlama
 
@@ -117,5 +122,4 @@ Bir JSON dağıtım bildirimi içinde modül görüntüleri güncelleştirme **s
 
 En son görüntülemek [Azure IOT Edge serbest](https://github.com/Azure/azure-iotedge/releases).
 
-En son güncelleştirmeleri ve Duyuruda ile güncel kalın [nesnelerin interneti blogu](https://azure.microsoft.com/blog/topics/internet-of-things/
-) 
+En son güncelleştirmeleri ve Duyuruda ile güncel kalın [nesnelerin interneti blogu](https://azure.microsoft.com/blog/topics/internet-of-things/) 

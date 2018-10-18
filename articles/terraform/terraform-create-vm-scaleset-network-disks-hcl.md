@@ -9,12 +9,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 06/04/2018
-ms.openlocfilehash: 9b6a7187827622443c3cb29566dfb5eef840d595
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: 7ae97274b03dda4dcf5150c8faacc7d406dad9fd
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43666204"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49389624"
 ---
 # <a name="use-terraform-to-create-an-azure-virtual-machine-scale-set"></a>Terraform kullanarak bir Azure sanal makine ölçek kümesi oluşturma
 
@@ -38,7 +38,7 @@ Bu öğreticide, [Azure Cloud Shell](/azure/cloud-shell/overview)'i kullanarak a
 
 - **Terraform'u yükleme**: [Terraform'u yükleme ve Azure erişimini yapılandırma](/azure/virtual-machines/linux/terraform-install-configure) makalesindeki yönergeleri izleyin
 
-- **SSH anahtar çifti oluşturma**: SSH anahtar çiftiniz yoksa [Azure’da Linux VM’ler için SSH ortak ve özel anahtar çifti oluşturma](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/mac-create-ssh-keys) makalesindeki yönergeleri izleyin.
+- **SSH anahtar çifti oluşturma**: SSH anahtar çiftiniz yoksa [Azure’da Linux VM’ler için SSH ortak ve özel anahtar çifti oluşturma](https://docs.microsoft.com/azure/virtual-machines/linux/mac-create-ssh-keys) makalesindeki yönergeleri izleyin.
 
 ## <a name="create-the-directory-structure"></a>Dizin yapısını oluşturma
 

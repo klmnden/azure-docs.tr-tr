@@ -4,7 +4,7 @@ description: Verileri düz dosyalara veya bir şirket içi SQL Server'dan Azure 
 services: machine-learning
 documentationcenter: ''
 author: deguhath
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 ms.assetid: 2c9ef1d3-4f5c-4b1f-bf06-223646c8af06
 ms.service: machine-learning
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/04/2017
 ms.author: deguhath
-ms.openlocfilehash: d6567b18984a6369a4a9e653270d0b788272aba4
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: a87d02732196af7471636346fa802f9a58869c95
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45729918"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49393582"
 ---
 # <a name="move-data-to-sql-server-on-an-azure-virtual-machine"></a>Bir Azure sanal makinesinde SQL Server’a veri taşıma
 Bu konuda verileri düz dosyaları (CSV ya da TSV biçimi) veya bir şirket içi SQL Server'dan SQL Server için Azure sanal makinesinde taşımak için seçenekleri açıklanmaktadır. Verileri buluta taşımak için bu görevleri Team Data Science Process bir parçasıdır.

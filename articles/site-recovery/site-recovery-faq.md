@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/10/2018
 ms.author: raynew
-ms.openlocfilehash: cd0af3bc9489452dfc98efaa3ded768a8ca775ab
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 71d96d7e88404c1f8b617370ef5cc841aad882f8
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49079489"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49390049"
 ---
 # <a name="azure-site-recovery-frequently-asked-questions-faq"></a>Azure Site Recovery: sık sorulan sorular (SSS)
 Bu makale, Azure Site Recovery hakkında sık sorulan sorular içerir. Bu makaleyi okuduktan sonra sorularınız varsa gönderin [Azure kurtarma Hizmetleri Forumu](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr).
@@ -70,7 +70,7 @@ VMware VM'leri korumak için bir vSphere hiper yöneticisine ve VMware araçlar�
 Evet. Şube ofislerinizde çoğaltma ve yük devretme düzenlemek için Site Recovery kullandığınızda, merkezi bir konumda bir birleşik düzenleme ve tüm dal office iş yüklerinizi görünümünü elde edersiniz. Şubelerinizi ziyaret etmenize gerek kalmadan kolaylıkla tüm şubelerinizin olağanüstü durum kurtarma işlemlerini yönetebilir ve yük devretmeler çalıştırabilirsiniz.
 
 ## <a name="pricing"></a>Fiyatlandırma
-Fiyatlandırma ile ilgili sorular SSS için lütfen bakın [Azure Site Recovery fiyatlandırma](https://azure.microsoft.com/en-in/pricing/details/site-recovery/).
+Fiyatlandırma ile ilgili sorular SSS için lütfen bakın [Azure Site Recovery fiyatlandırma](https://azure.microsoft.com/pricing/details/site-recovery/).
 
 ## <a name="security"></a>Güvenlik
 ### <a name="is-replication-data-sent-to-the-site-recovery-service"></a>Çoğaltılan veriler Site Recovery hizmetine gönderilir mi?

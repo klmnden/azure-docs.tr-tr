@@ -9,12 +9,12 @@ ms.author: xshi
 ms.date: 09/24/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 9cc8e1db577859ad7637902a5ccd5a044efcd033
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 768ff899ca2c71cb32fe29bdd5d58654d8f7d431
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46978531"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49394757"
 ---
 # <a name="use-visual-studio-2017-to-develop-and-debug-c-modules-for-azure-iot-edge-preview"></a>Geliştirmek ve Azure IOT Edge (Önizleme) için C# modülleri hata ayıklamak için Visual Studio 2017 kullanın
 
@@ -90,6 +90,21 @@ Artık elinizde bir **AzureIoTEdgeApp1** projesi ve bir **IoTEdgeModule1** Çöz
 Çözümünüzle birlikte gelen varsayılan C# modülü kodu şu konumdadır **IoTEdgeModule1** > **Program.cs**. Çözümü derleyin, kapsayıcı kayıt defterinize itme ve herhangi bir kod dokunmadan testi başlatmak için bir aygıta dağıtmak modülü ve deployment.template.json dosya ayarlanır. Modül, yalnızca bir kaynak (Bu durumda, veri benzetimi gerçekleştiren tempSensor Modülü) gelenlerin ve IOT Hub'ına kanal için oluşturulmuştur. 
 
 Kendi kodunuzu ile C# şablonunu özelleştirmek hazır olduğunuzda kullanın [Azure IOT Hub SDK'ları](../iot-hub/iot-hub-devguide-sdks.md) anahtar gereken güvenlik, cihaz yönetimi ve güvenilirlik gibi IOT çözümleri için bu adrese modüller oluşturmak için. 
+
+## <a name="initialize-iotegehubdev-with-iot-edge-device-connection-string"></a>Başlatma **iotegehubdev** IOT Edge cihaz bağlantı dizesiyle
+
+1. Tüm IOT Edge cihaz bağlantı dizesini almak gereken, Cloud Explorer takip Visual Studio 2017'den "Primary CONNECTION Strıng'i" değerini Kopyala. Lütfen kenar-olmayan cihaz bağlantı dizesini kopyalamayın, IOT Edge cihazı simgesini kenar-olmayan cihaz birinden farklıdır.
+
+   ![Edge cihaz bağlantı dizesini kopyalayın](./media/how-to-visual-studio-develop-csharp-module/copy-edge-conn-string.png)
+
+2. Sağ tıklayın gerek **AzureIoTEdgeApp1** bağlam menüsünü açın ve ardından Proje **Edge cihaz bağlantı dizesini ayarlamak**, Azure IOT Edge Kurulum penceresi görüntülenir.
+
+   ![Küme kenar bağlantı dizesi penceresini açın](./media/how-to-visual-studio-develop-csharp-module/set-edge-conn-string.png)
+
+3. Kurulumu penceresinde Lütfen ilk adımda aldığınız bağlantı dizesini girebilirsiniz öğesini tıklatıp **Tamam** düğmesi.
+
+>[!NOTE]
+>Bu tek seferlik iş, yalnızca bu adımı bir kez bir makine, tüm sonraki Azure IOT çözümleri için ücretsiz alırsa Edge üzerinde çalıştırmanız gerekir. Elbette, bu adım bağlantı dizesi geçersiz veya başka bir bağlantı dizesini değiştirmek gerekirse yeniden çalıştırabilirsiniz.
 
 ## <a name="build-and-debug-single-c-module"></a>Derleme ve tek C# modülünde hata ayıklama
 
@@ -190,7 +205,10 @@ IoT Edge cihazınızı ayarlamak için kullandığınız hızlı başlangıç ma
 
 2. İçinde **Cloud Explorer**, aboneliğinizi ve Azure IOT Hub'ınıza ve dağıtmak istediğiniz Azure IOT Edge cihazı bulun.
 
-3. IOT Edge cihazı için dağıtımı oluşturmak için sağ tıklayın, dağıtım bildirimi dosyası altında seçmeniz gerekebilir `$AzureIoTEdgeApp1\config\Debug|Release\deployment.json`.
+3. IOT Edge cihazı için dağıtımı oluşturmak için sağ tıklayın, dağıtım bildirimi dosyası altında seçmeniz gerekebilir `$AzureIoTEdgeAppSolutionDir\config\deployment.(amd64|amd64.debug|windows-amd64).json`.
+
+>>[!NOTE]
+>>Seçmelisiniz değil `$AzureIoTEdgeAppSolutionDir\config\deployment_for_local_debug.json`
 
 4. Yenile düğmesine tıklayın. İle birlikte çalışan yeni modüller görmelisiniz **TempSensor** modülü ve **$edgeAgent** ve **$edgeHub**.
 

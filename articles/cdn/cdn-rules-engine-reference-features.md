@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/09/2018
 ms.author: magattus
-ms.openlocfilehash: c5f486498e357927880ae51c1fec13a00296b457
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: d5be292c66a07f43b40d12e10e4939d9d91559e1
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49093368"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49395250"
 ---
 # <a name="azure-cdn-rules-engine-features"></a>Azure CDN kural altyapısı özellikleri
 Bu makalede Azure Content Delivery Network (CDN) için ayrıntılı açıklamaları ve kullanılabilir özellikleri listeler [kurallar altyapısı](cdn-rules-engine.md).
@@ -1256,7 +1256,7 @@ Bu URL yeniden yönlendirmesi aşağıdaki yapılandırma elde edilebilir: ![URL
         - İstek URL'si (yeniden yönlendirme sonra): http:\//cdn.mydomain.com/resources/widgets.pdf  
     - Örnek Senaryo #2: 
         - Örnek istek (Edge CNAME URL): http:\//marketing.mydomain.com/brochures/widgets.pdf 
-        - İstek URL'si (yeniden yönlendirme sonra): http:\//cdn.mydomain.com/resources/widgets.pdf örnek senaryosu
+        - İstek URL'si (yeniden yönlendirme sonra): http:\//cdn.mydomain.com/resources/widgets.pdf
     - Örnek Senaryo #3: 
         - Örnek istek (Edge CNAME URL): http:\//brochures.mydomain.com/campaignA/final/productC.ppt 
         - İstek URL'si (yeniden yönlendirme sonra): http:\//cdn.mydomain.com/resources/campaignA/final/productC.ppt  

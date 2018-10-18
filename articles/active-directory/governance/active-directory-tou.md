@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.component: compliance
 ms.date: 09/04/2018
 ms.author: rolyon
-ms.openlocfilehash: 9fa966999e220ea4357d5b5c37f0038c75fe2339
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: b6cc81a49875739a61aa397a65eb70c6b4f082ef
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45607930"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49393992"
 ---
 # <a name="azure-active-directory-terms-of-use-feature"></a>Azure Active Directory Kullanım Koşulları özelliği
 Azure AD Kullanım Koşulları, kuruluşların son kullanıcılara bilgi sağlamak için kullanabileceği basit bir yöntem sunar. Bu sunum, kullanıcıların yasal gereksinimler veya uyumluluk gereksinimleriyle ilgili bildirimleri görmesi sağlar. Bu makalede Azure AD Kullanım Koşullarını kullanmaya nasıl başlayacağınız açıklanmaktadır.
@@ -128,7 +128,7 @@ Kullanıcılar yalnızca kullanım koşulları bir kez kabul etmesi gerekir ve o
 ### <a name="how-users-can-review-their-terms-of-use"></a>Kullanıcılar kendi Kullanım Koşullarını nasıl gözden geçirebilir?
 Kullanıcılar, kabul ettikleri kullanım koşullarını gözden geçirip incelemek için aşağıdaki yordamı kullanabilir.
 
-1. Oturum [ https://myapps.microsoft.com ](https://myapps.microsoft.com).
+1. [https://myapps.microsoft.com](https://myapps.microsoft.com) adresinde oturum açın.
 
 1. Sağ üst köşede adınıza tıklayın ve açılır menüden **Profil**'i seçin.
 
@@ -242,4 +242,4 @@ Y: yapabilecekleriniz [gözden geçirme, daha önce kullanım koşullarını kab
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- [Azure Active Directory’de koşullu erişim en iyi uygulamaları](../../cognitive-services/qnamaker/concepts/best-practices.md)
+- [Azure Active Directory’de koşullu erişim en iyi uygulamaları](../../active-directory/conditional-access/best-practices.md)

@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/11/2017
+ms.date: 10/17/2018
 ms.author: barbkess
-ms.openlocfilehash: 732a305da377670b45f8b2f95bed741d82b4dae0
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 6acc9a8b9cd7b6ef1218b1e8cae2e6a9af92f9d8
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44357461"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49393703"
 ---
 # <a name="how-to-remove-a-users-access-to-an-application"></a>Bir uygulama için kullanıcı erişimi kaldırma
 
@@ -29,7 +29,7 @@ Bu makalede, bir kullanıcının uygulamaya erişimini kaldırmak nasıl anlaman
 
 Bir kullanıcı veya uygulamaya Grup atamasını kaldırmak için listelenen adımları izleyin. [kurumsal bir uygulamayı Azure Active Directory'de bir kullanıcı veya grup atamasını kaldırmak](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-remove-assignment-azure-portal) makalesi.
 
-. ## Her kullanıcı için tüm uygulama erişimi devre dışı bırakmak istiyorum
+## <a name="i-want-to-disable-all-access-to-an-application-for-every-user"></a>Her kullanıcı için tüm uygulama erişimi devre dışı bırakmak istiyorum
 
 Bir uygulama için tüm kullanıcı oturum açma işlemleri devre dışı bırakmak için listelenen adımları izleyin. [kullanıcı oturum açma işlemleri için kurumsal bir uygulamayı Azure Active Directory'de devre dışı bırak](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-disable-app-azure-portal) makalesi.
 
@@ -55,21 +55,19 @@ Bir uygulama için tüm kullanıcı oturum açma işlemleri devre dışı bırak
 
 ## <a name="i-want-to-disable-all-future-user-consent-operations-to-any-application"></a>Herhangi bir uygulama için tüm gelecek kullanıcı onayı işlemleri devre dışı bırakmak istiyorum
 
-Tüm dizininizin engellemek için son kullanıcıların herhangi bir uygulama konusunda çekince kullanıcı onayı devre dışı bırakılıyor. Yöneticiler, yine de kullanıcının behalves üzerinde onay verebilir. Uygulama onay hakkında daha fazla bilgi edinin ve neden olabilir ya da bunu yapmak istiyor okumak için [anlama kullanıcı ve yönetici onayı](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview#understanding-user-and-admin-consent).
+Tüm dizininizin engellemek için son kullanıcıların herhangi bir uygulama konusunda çekince kullanıcı onayı devre dışı bırakılıyor. Yöneticiler, yine de kullanıcının behalves üzerinde onay verebilir. Uygulama hakkında daha fazla bilgi için onay ve olabilir ya da bunu yapmak istiyor neden okuma [anlama kullanıcı ve yönetici onayı](../develop/howto-convert-app-to-be-multi-tenant.md#understand-user-and-admin-consent). Ayrıca bkz [izinler ve onay](../develop/v2-permissions-and-consent.md).
 
 İçin **tüm dizininizdeki tüm gelecek kullanıcı onayı işlemleri devre dışı**, bu yönergeleri izleyin:
 
 1.  Açık [ **Azure portalında** ](https://portal.azure.com/) ve oturum açma bir **genel yönetici.**
 
-2.  Açık **Azure Active Directory uzantısını** tıklayarak **tüm hizmetleri** ana sol gezinti menüsünün üstünde.
+2.  Açık **Azure Active Directory uzantısını** 
 
-3.  Yazın **"Azure Active Directory**" filtre arama kutusunu seçip **Azure Active Directory** öğesi.
-
-4.  tıklayın **kullanıcılar ve gruplar** Gezinti menüsünde.
+3.  tıklayın **kurumsal uygulamalar** Gezinti menüsünde.
 
 5.  Tıklayın **kullanıcı ayarları**.
 
-6.  Ayarlayarak tüm gelecek kullanıcı onayı işlemleri devre dışı **kullanıcılar uygulamaların verilerine erişmesine izin verebilir** geç **Hayır** tıklatıp **Kaydet** düğmesi.
+6.  Ayarlama **kullanıcılar, uygulamalara kendileri adına şirket verilerine erişmesine izin verebilir** geç **Hayır** ve Kaydet düğmesine tıklayın.
 
 
 # <a name="next-steps"></a>Sonraki adımlar

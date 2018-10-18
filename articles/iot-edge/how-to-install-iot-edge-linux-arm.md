@@ -9,12 +9,12 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 08/27/2018
 ms.author: kgremban
-ms.openlocfilehash: 9007ee95dc25854a55006284ce6fc574fd8e7968
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 874e72a0c76a5935f4a3451ba5ffbd6e9e3eecd6
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46948528"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49393856"
 ---
 # <a name="install-azure-iot-edge-runtime-on-linux-arm32v7armhf"></a>Azure IOT Edge çalışma zamanı (ARM32v7/armhf) Linux'ta yükleme
 
@@ -29,7 +29,7 @@ Bu makalede, Azure IOT Edge çalışma zamanı Linux ARM32v7/armhf Edge cihazın
 
 ## <a name="install-the-container-runtime"></a>Kapsayıcı çalışma zamanı yükleme
 
-Azure IOT Edge dayanır bir [OCI uyumlu] [ lnk-oci] kapsayıcı çalışma zamanı. Üretim senaryoları için kullanmanız önerilir [Moby tabanlı] [ lnk-moby] aşağıda sağlanan altyapısı. Bu, Azure IOT Edge ile resmi olarak desteklenen tek kapsayıcı altyapısıdır. Docker CE/EE kapsayıcı görüntülerini Moby tabanlı çalışma zamanı ile uyumludur.
+Azure IOT Edge dayanır bir [OCI uyumlu](https://www.opencontainers.org/) kapsayıcı çalışma zamanı. Üretim senaryoları için kullanmanız önerilir [Moby tabanlı](https://mobyproject.org/) aşağıda sağlanan altyapısı. Bu, Azure IOT Edge ile resmi olarak desteklenen tek kapsayıcı altyapısıdır. Docker CE/EE kapsayıcı görüntülerini Moby tabanlı çalışma zamanı ile uyumludur.
 
 Aşağıdaki komutları Moby tabanlı altyapısı ve komut satırı arabirimi (CLI) yükleyin. CLI, geliştirme için kullanışlıdır ancak üretim dağıtımları için isteğe bağlı değildir.
 
@@ -78,7 +78,7 @@ Tek bir IOT Edge cihazı IOT Hub tarafından sağlanan cihaz bağlantı dizesini
 
 ### <a name="option-1-manual-provisioning"></a>1. seçenek: El ile sağlama
 
-El ile cihaz sağlama için ile sağlamak gereken bir [cihaz bağlantı dizesini] [ lnk-dcs] IOT hub'ına yeni bir cihazı kaydederek oluşturabilirsiniz.
+El ile cihaz sağlama için ile sağlamak gereken bir [cihaz bağlantı dizesini](how-to-register-device-portal.md) IOT hub'ına yeni bir cihazı kaydederek oluşturabilirsiniz.
 
 
 Yapılandırma dosyasını açın. 
@@ -113,7 +113,7 @@ sudo systemctl restart iotedge
 
 ### <a name="option-2-automatic-provisioning"></a>2. seçenek: Otomatik sağlama
 
-Otomatik olarak bir cihazı sağlamak için [cihaz sağlama hizmetini ayarlama ve cihaz kayıt Kimliğinizi almak][lnk-dps]. Otomatik sağlama, yalnızca Güvenilir Platform Modülü (TPM) yongasına sahip cihazlarla çalışır. Örneğin, Raspberry Pi cihazlar TPM ile varsayılan olarak gelmeyen. 
+Otomatik olarak bir cihazı sağlamak için [cihaz sağlama hizmetini ayarlama ve cihaz kayıt Kimliğinizi almak](how-to-auto-provision-simulated-device-linux.md). Otomatik sağlama, yalnızca Güvenilir Platform Modülü (TPM) yongasına sahip cihazlarla çalışır. Örneğin, Raspberry Pi cihazlar TPM ile varsayılan olarak gelmeyen. 
 
 Yapılandırma dosyasını açın. 
 
@@ -171,17 +171,10 @@ sudo iotedge list
 
 `iotedge` komutlarını çalıştırmak için yükseltilmiş ayrıcalıklara ihtiyacınız olacaktır. Çalışma zamanını yükledikten sonra makinenizin dışında oturum ve izinlerinizi otomatik olarak güncelleştirmek için yeniden oturum açın. O zamana kadar kullanın **sudo** herhangi önünde `iotedge` komutları.
 
-Kısıtlanmış bir kaynak cihazlarda ayarlamanız önerilir *OptimizeForPerformance* ortam değişkenine *false* yönergeleri uyarınca [sorun giderme kılavuzu ][lnk-trouble].
+Kısıtlanmış bir kaynak cihazlarda ayarlamanız önerilir *OptimizeForPerformance* ortam değişkenine *false* yönergeleri uyarınca [sorun giderme kılavuzu ](troubleshoot.md#stability-issues-on-resource-constrained-devices).
 
 Bir proxy sunucusu varsa, ağ adımları izlerseniz [bir proxy sunucu üzerinden iletişim kurmak için IOT Edge Cihazınızı yapılandırma](how-to-configure-proxy-support.md).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Düzgün bir şekilde yükleme Edge çalışma zamanı ile ilgili sorunlar yaşıyorsanız başvurmak [sorun giderme] [ lnk-trouble] sayfası.
-
-<!-- Links -->
-[lnk-dcs]: how-to-register-device-portal.md
-[lnk-dps]: how-to-auto-provision-simulated-device-linux.md
-[lnk-trouble]: https://docs.microsoft.com/azure/iot-edge/troubleshoot#stability-issues-on-resource-constrained-devices
-[lnk-oci]: https://www.opencontainers.org/
-[lnk-moby]: https://mobyproject.org/
+Düzgün bir şekilde yükleme Edge çalışma zamanı ile ilgili sorunlar yaşıyorsanız başvurmak [sorun giderme](troubleshoot.md#stability-issues-on-resource-constrained-devices) sayfası.

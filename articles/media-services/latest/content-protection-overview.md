@@ -4,21 +4,21 @@ description: Bu makaleler, Media Services ile içerik koruma genel bir bakış s
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/30/2018
+ms.date: 10/15/2018
 ms.author: juliako
-ms.openlocfilehash: 2a3e94d37a926bd36b780b45eb3d6cb29fb73597
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: f8ef92a335dd6faee076356dbffc873b08afbdc0
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39521763"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49394295"
 ---
 # <a name="content-protection-overview"></a>Content protection genel bakış
 
@@ -149,9 +149,7 @@ Uçtan uca senaryo için bkz [aşağıdaki kod örneğine](https://github.com/Az
 
 2. Akış şifrelenmiş bir varlık için yapılandırılmış bir StreamingLocator oluşturun. 
 
-  Bu örnekte, ayarlarız **StreamingPolicyName** için **PredefinedStreamingPolicy.SecureStreaming** Zarf ve cenc şifrelemeyi destekleyen ve iki içerik anahtarını ayarlar StreamingLocator. 
-
-  HLS ile FairPlay şifrelemek istiyorsanız, **StreamingPolicyName** için **PredefinedStreamingPolicy.SecureStreamingWithFairPlay**.
+  Örneğin, "Predefined_MultiDrmCencStreaming" ilkeye StreamingLocator.StreamingPolicyName ayarlayabilirsiniz. Bu ilke, bulucuda iki içerik anahtarı (zarf ve CENC) oluşturulmasını ve ayarlanmasını istediğinizi belirtir. Bu nedenle zarf, PlayReady ve Widevine şifrelemeleri uygulanır (anahtar, yapılandırılan DRM lisanslarına göre kayıttan yürütme istemcisine teslim edilir). Akışınız CBCS (FairPlay) ile şifrelemek istiyorsanız, "Predefined_MultiDrmStreaming" kullanın.
 
 3. Bir test belirteci oluşturun.
 

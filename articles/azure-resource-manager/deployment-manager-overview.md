@@ -11,20 +11,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/01/2018
 ms.author: tomfitz
-ms.openlocfilehash: f19708d232080b53446bedd9316fcf9d7772890d
-ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
+ms.openlocfilehash: a5a2300bd0b768b4a29b01e75f9558c4923ac11c
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47585807"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49395142"
 ---
-# <a name="enable-safe-deployment-practices-with-azure-deployment-manager-public-preview"></a>Azure Deployment Manager (genel Önizleme) ile güvenli dağıtım uygulamalarını etkinleştirme
+# <a name="enable-safe-deployment-practices-with-azure-deployment-manager-private-preview"></a>Azure Deployment Manager (özel Önizleme) ile güvenli dağıtım uygulamalarını etkinleştirme
 
 Birçok bölgede hizmetinizi dağıtmadan ve her bölgede beklendiği gibi çalıştığından emin olmak için Azure Deployment Manager hizmetinin aşamalı bir sunum koordine etmek için kullanabilirsiniz. Tüm Azure dağıtımı için yaptığınız gibi kaynakları hizmetinizde tanımladığınız [Resource Manager şablonları](resource-group-authoring-templates.md). Şablonları oluşturduktan sonra Dağıtım Yöneticisi hizmetiniz için topoloji ve nasıl, alınması açıklamak için kullanın.
 
-Dağıtım Yöneticisi Kaynak Yöneticisi'nin bir özelliktir. Bu, dağıtım sırasında yeteneklerinizi genişletir. Karmaşık bir servis olduğunda Dağıtım Yöneticisi'ni kullanın, çeşitli bölgelere dağıtılması gerekiyor. Hizmeti dağıtımı hazırlama tarafından tüm bölgelere dağıtılan önce olası sorunları bulabilirsiniz. Aşamalı dağıtım, ek güvenlik önlemleri gerekmiyorsa, standart kullanma [dağıtım seçenekleri](resource-group-template-deploy-portal.md) için Resource Manager. Dağıtım Yöneticisi, sürekli tümleştirme ve sürekli teslim (CI/CD) teklifleri gibi Resource Manager dağıtımlarını destekleyen tüm mevcut üçüncü taraf araçları sorunsuzca tümleştirilir. 
+Dağıtım Yöneticisi Kaynak Yöneticisi'nin bir özelliktir. Bu, dağıtım sırasında yeteneklerinizi genişletir. Karmaşık bir servis olduğunda Dağıtım Yöneticisi'ni kullanın, çeşitli bölgelere dağıtılması gerekiyor. Hizmetinizi aşamalı kullanıma sunarak, tüm bölgelere dağıtılmadan önce olası sorunları bulabilirsiniz. Aşamalı dağıtım, ek güvenlik önlemleri gerekmiyorsa, standart kullanma [dağıtım seçenekleri](resource-group-template-deploy-portal.md) için Resource Manager. Dağıtım Yöneticisi, sürekli tümleştirme ve sürekli teslim (CI/CD) teklifleri gibi Resource Manager dağıtımlarını destekleyen tüm mevcut üçüncü taraf araçları sorunsuzca tümleştirilir. 
 
-Azure Deployment Manager genel Önizleme aşamasındadır. Azure Deployment Manager'ı için tamamlayın [kayıt formunu](https://aka.ms/admsignup). Yardım sağlayarak özelliği geliştirmek [geri bildirim](https://aka.ms/admfeedback).
+Azure Deployment Manager özel Önizleme aşamasındadır. Azure Deployment Manager'ı için tamamlayın [kayıt formunu](https://aka.ms/admsignup). Yardım sağlayarak özelliği geliştirmek [geri bildirim](https://aka.ms/admfeedback).
 
 Deployment Manager'ı kullanmak için dört dosyaları oluşturmak gerekir:
 
@@ -37,7 +37,7 @@ Topoloji şablon, dağıtım şablonu dağıtmadan önce dağıtın.
 
 ## <a name="supported-locations"></a>Desteklenen konumlar
 
-Orta ABD ve Doğu ABD 2, genel Önizleme için Deployment Manager kaynakları desteklenir. Hizmet Birimi, yapıt kaynakları ve bu makalede açıklanan piyasaya çıkarma gibi topoloji ve sunum şablonlarındaki kaynakları tanımlarken konumu için bu bölgelerinden birini belirtmeniz gerekir. Ancak, sanal makineler, depolama hesapları ve web uygulamaları gibi bir hizmet oluşturmak için dağıttığınız kaynakların tümünde desteklenmektedir kendi [standart olmayan konumlara](https://azure.microsoft.com/global-infrastructure/services/?products=all).  
+Orta ABD ve Doğu ABD 2, Önizleme için Deployment Manager kaynakları desteklenir. Hizmet Birimi, yapıt kaynakları ve bu makalede açıklanan piyasaya çıkarma gibi topoloji ve sunum şablonlarındaki kaynakları tanımlarken konumu için bu bölgelerinden birini belirtmeniz gerekir. Ancak, sanal makineler, depolama hesapları ve web uygulamaları gibi bir hizmet oluşturmak için dağıttığınız kaynakların tümünde desteklenmektedir kendi [standart olmayan konumlara](https://azure.microsoft.com/global-infrastructure/services/?products=all).  
 
 ## <a name="identity-and-access"></a>Kimlik ve erişim
 

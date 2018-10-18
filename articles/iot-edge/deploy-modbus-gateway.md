@@ -8,12 +8,12 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: kgremban
-ms.openlocfilehash: b5316479011a432f3822448f03b8ad6ecddd4fe1
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 031524f4ef00b57f598c1114d594fb70eeedd15b
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39590604"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49394009"
 ---
 # <a name="connect-modbus-tcp-devices-through-an-iot-edge-device-gateway"></a>Bir IOT Edge ağ geçidi cihazı aracılığıyla Modbus TCP cihazlarını bağlama
 
@@ -23,7 +23,7 @@ Modbus TCP veya RTU protokollerini kullanan IoT cihazlarını bir Azure IoT hub�
 
 Bu makalede, bir Modbus modülü için kendi kapsayıcı görüntünüzü oluşturma (dilerseniz önceden oluşturulmuş bir örneği de kullanabilirsiniz) ve bu görüntüyü ağ geçidi olarak kullanacağınız IoT Edge cihazına dağıtma işlemleri açıklanmaktadır. 
 
-Bu makalede Modbus TCP protokolünü kullandığınız varsayılır. Modülün Modbus RTU’yu destekleyecek şekilde yapılandırılması hakkında daha fazla bilgi edinmek için Github’daki [Azure IoT Edge Modbus modülü](https://github.com/Azure/iot-edge-modbus) projesine başvurun. 
+Bu makalede Modbus TCP protokolünü kullandığınız varsayılır. Modülün Modbus RTU'yu destekleyecek şekilde yapılandırma hakkında daha fazla bilgi için bkz. [Azure IOT Edge Modbus Modülü](https://github.com/Azure/iot-edge-modbus) github'daki proje. 
 
 ## <a name="prerequisites"></a>Önkoşullar
 * Bir Azure IoT Edge cihazı. Edge cihazı ayarlama konusunda adım adım bir kılavuz için bkz. [Linux](quickstart-linux.md) veya [Windows’da bir sanal cihaza Azure IoT Edge dağıtma](quickstart.md). 
@@ -38,7 +38,7 @@ Modbus ağ geçidinin işlevselliğini test etmek istiyorsanız Microsoft taraf�
 mcr.microsoft.com/azureiotedge/modbus:1.0
 ```
 
-Kendi modülünüzü oluşturmak ve ortamınız için özelleştirmek istiyorsanız, Github’daki açık kaynak [Azure IOT Edge Modbus modülü](https://github.com/Azure/iot-edge-modbus) projesine göz atın. Kendi kapsayıcı görüntünüzü oluşturmak için bu projedeki yönergeleri izleyin. Kendi kapsayıcı görüntünüzü oluşturursanız, kapsayıcı görüntülerini bir kayıt defterinde yayımlama ve cihazınıza özel modül dağıtma işlemleriyle ilgili yönergeler için bkz. [C# IoT Edge modülü geliştirme ve dağıtma](tutorial-csharp-module.md). 
+Kendi modülünüzü oluşturmak ve ortamınız için özelleştirmek istiyorsanız, açık kaynaklı yoktur [Azure IOT Edge Modbus Modülü](https://github.com/Azure/iot-edge-modbus) github'daki proje. Kendi kapsayıcı görüntünüzü oluşturmak için bu projedeki yönergeleri izleyin. Kendi kapsayıcı görüntünüzü oluşturursanız, kapsayıcı görüntülerini bir kayıt defterinde yayımlama ve cihazınıza özel modül dağıtma işlemleriyle ilgili yönergeler için bkz. [C# IoT Edge modülü geliştirme ve dağıtma](tutorial-csharp-module.md). 
 
 
 ## <a name="run-the-solution"></a>Çözümü çalıştırın
@@ -54,13 +54,12 @@ Kendi modülünüzü oluşturmak ve ortamınız için özelleştirmek istiyorsan
 
       ```JSON
       {  
-        "properties.desired":{  
+        "properties.desired":{
           "PublishInterval":"2000",
-          "SlaveConfigs":{  
-            "Slave01":{  
-              "SlaveConnection":"<IPV4 address>",
-              "HwId":"PowerMeter-0a:01:01:01:01:01",
-              "Operations":{  
+          "SlaveConfigs":{
+            "Slave01":{
+              "SlaveConnection":"<IPV4 address>","HwId":"PowerMeter-0a:01:01:01:01:01",
+              "Operations":{
                 "Op01":{  
                   "PollingInterval": "1000",
                   "UnitId":"1",
@@ -96,12 +95,9 @@ Modbus modülü üzerinden gelen verileri görüntüleyin:
 docker logs -f modbus
 ```
 
-Ayrıca cihaz kullanarak gönderdiği telemetriyi görüntüleyebilirsiniz [Visual Studio Code için Azure IOT Toolkit uzantısını](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit). 
+[Visual Studio Code için Azure IoT Toolkit uzantısını](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) kullanarak cihazın gönderdiği telemetri verilerini de görüntüleyebilirsiniz. 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- IOT Edge cihazları nasıl ağ geçidi olarak görev yapabilir hakkında daha fazla bilgi için bkz: [saydam bir ağ geçidi olarak davranır bir IOT Edge cihazı oluşturma][lnk-transparent-gateway-linux]
+- IoT Edge cihazlarının nasıl ağ geçidi olarak kullanılabildiği hakkında daha fazla bilgi edinmek için bkz. [Saydam bir ağ geçidi olarak kullanılabilen bir IoT Edge cihazı oluşturma](./how-to-create-transparent-gateway-linux.md)
 - IoT Edge modüllerinin nasıl çalıştığı hakkında daha fazla bilgi edinmek için bkz. [Azure IoT Edge modüllerini anlama](iot-edge-modules.md)
-
-<!-- Links -->
-[lnk-transparent-gateway-linux]: ./how-to-create-transparent-gateway-linux.md

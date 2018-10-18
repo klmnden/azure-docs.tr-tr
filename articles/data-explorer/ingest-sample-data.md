@@ -2,18 +2,18 @@
 title: Azure veri Gezgini'ne örnek verileri alma
 description: Azure veri Gezgini'ne (yükle) hava durumu ile ilgili örnek verileri alma hakkında bilgi edinin.
 services: data-explorer
-author: mgblythe
-ms.author: mblythe
+author: orspod
+ms.author: v-orspod
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 7eb0e48a5b66775ac97ed0cab751db0ef367f667
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 7fdd32f9263b4d1694a0516a98b681ba8744ab6b
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46964624"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49394587"
 ---
 # <a name="ingest-sample-data-into-azure-data-explorer"></a>Azure veri Gezgini'ne örnek verileri alma
 
@@ -24,15 +24,15 @@ Bu makalede, bir Azure Veri Gezgini veritabanına (yükle) örnek verileri alma 
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-[Bir test kümesi ve veritabanı](create-cluster-database-portal.md)
+[Test kümesi ve veritabanı](create-cluster-database-portal.md)
 
 ## <a name="ingest-data"></a>Veriyi çekme
 
-**StormEvents** örnek veri kümesini hava durumu ile ilgili verileri içeren [ortam bilgilerini Ulusal merkezine](https://www.ncdc.noaa.gov/stormevents/).
+**StormEvents** örnek veri kümesi, [Ulusal Çevre Bilgileri Merkezleri](https://www.ncdc.noaa.gov/stormevents/)'nden gelen hava durumu verilerini içerir.
 
-1. Oturum [ https://dataexplorer.azure.com ](https://dataexplorer.azure.com).
+1. [https://dataexplorer.azure.com](https://dataexplorer.azure.com) adresinde oturum açın.
 
-1. Sol üst köşesinde uygulamanın, seçin **Ekle küme**.
+1. Uygulamanın sol üst köşesinden **Küme ekle**'yi seçin.
 
 1. İçinde **Ekle küme** iletişim kutusunda, küme URL'nizi girin `https://<ClusterName>.<Region>.kusto.windows.net/`, ardından **Ekle**.
 
@@ -57,6 +57,6 @@ Bu makalede, bir Azure Veri Gezgini veritabanına (yükle) örnek verileri alma 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-[Sorguları yazma](write-queries.md)
+[Sorgu yazma](write-queries.md)
 
 [Azure Veri Gezgini veri alımı](ingest-data-overview.md)

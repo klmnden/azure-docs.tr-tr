@@ -1,10 +1,10 @@
 ---
-title: Azure üzerinde Hive kullanarak Hdınsight Hadoop veri bilimi talimatları | Microsoft Docs
-description: Tahmine dayalı analiz gerçekleştirmede Azure Hdınsight Hadoop Hive kullanımı ile yol örnekleri takım veri bilimi işleminin.
+title: HDInsight Hadoop Hive'ı kullanarak Azure üzerinde veri bilimi kılavuzları | Microsoft Docs
+description: Team Data Science Process, Tahmine dayalı analiz yapmak için Azure HDInsight Hadoop Hive kullanarak yol örnekleri.
 services: machine-learning
 documentationcenter: ''
 author: deguhath
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 ms.assetid: ''
 ms.service: machine-learning
@@ -15,37 +15,37 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: deguhath
-ms.openlocfilehash: 8b7eead12b6546ad86f6ff0aa48f4754c00a4734
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 2aa64d6dc144e85e1a0f03b8548fa47dba91a2eb
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34838764"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49393168"
 ---
-# <a name="hdinsight-hadoop-data-science-walkthroughs-using-hive-on-azure"></a>Hdınsight Hadoop veri bilimi Azure üzerinde Hive kullanarak izlenecek yollar 
+# <a name="hdinsight-hadoop-data-science-walkthroughs-using-hive-on-azure"></a>HDInsight Hadoop Hive'ı kullanarak Azure üzerinde veri bilimi kılavuzları 
 
-Bu izlenecek yollar Tahmine dayalı analiz yapmak için bir Hdınsight Hadoop kümesi ile Hive kullanma. Bunlar takım veri bilimi işleminde açıklanan adımları izleyin. Takım veri bilimi işlemine genel bakış için bkz: [veri bilimi işlemi](overview.md). Azure Hdınsight giriş için bkz: [Azure Hdınsight giriş, Hadoop teknoloji yığınının ve Hadoop kümeleri](../../hdinsight/hadoop/apache-hadoop-introduction.md).
+Bu izlenecek yollar, Tahmine dayalı analiz gerçekleştirmede bir HDInsight Hadoop kümesi ile Hive kullanma. Bunlar, Team Data Science Process içinde verilen adımları izleyin. Team Data Science Process genel bakış için bkz: [Data Science Process](overview.md). Azure HDInsight için bir giriş için bkz [giriş Azure HDInsight, Hadoop teknoloji yığını ve Hadoop kümeleri](../../hdinsight/hadoop/apache-hadoop-introduction.md).
 
-Takım veri bilimi işlemi yürütmek ek veri bilimi talimatlara göre gruplandırılır **platform** kullandıkları. Bkz: [takım veri bilimi işlemi yürütülürken izlenecek yollar](walkthroughs.md) bir döküm Bu örnekler için.
+Team Data Science Process yürütme ek veri bilimi kılavuzları tarafından gruplanır **platform** kullandıkları. Bkz: [Team Data Science Process yürütme izlenecek yollar](walkthroughs.md) Bu örneklerde bir döküm için.
 
 
-## <a name="predict-taxi-tips-using-hive-with-hdinsight-hadoop"></a>Hdınsight Hadoop ile Hive kullanma ücreti ipuçları tahmin etme
+## <a name="predict-taxi-tips-using-hive-with-hdinsight-hadoop"></a>HDInsight Hadoop ile Hive'ı kullanarak taksi bahşişlerini tahmin etme
 
-[Kullanım Hdınsight Hadoop kümeleri](hive-walkthrough.md) izlenecek tahmin etmek için New York taksiler verilerden kullanır: 
+[Kullanım HDInsight Hadoop kümeleri](hive-walkthrough.md) Kılavuzu tahmin etmek için New York taksiler verileri kullanır: 
 
-- Bir ipucu olup Ücretli 
-- İpucu tutarlar dağıtım
+- İpucu olup ödenir 
+- İpucu miktarları dağılımı
 
-Senaryo ile Hive kullanılarak uygulanan bir [Azure Hdınsight Hadoop kümesi](https://azure.microsoft.com/services/hdinsight/). Depolamak keşfetmek öğrenin ve genel kullanıma açık NYC özelliği mühendislik verileri seyahat ve ücreti dataset ücreti. Azure Machine Learning oluşturmak ve modelleri dağıtmak için de kullanır.
+Senaryo ile Hive kullanılarak uygulanan bir [Azure HDInsight Hadoop kümesi](https://azure.microsoft.com/services/hdinsight/). Seyahat ve taksi veri kümesi özelliği genel kullanıma açık NYC mühendisi verileri taksi ve depolamak keşfetmek öğrenin. Azure Machine Learning modellerini Derleme ve dağıtma için de kullanın.
 
-## <a name="predict-advertisement-clicks-using-hive-with-hdinsight-hadoop"></a>Hdınsight Hadoop ile Hive kullanma reklam tıklatma tahmin etme
+## <a name="predict-advertisement-clicks-using-hive-with-hdinsight-hadoop"></a>HDInsight Hadoop ile Hive'ı kullanarak reklam tıklama tahmin edin
 
-[Kullanım Azure Hdınsight Hadoop kümeleri 1 TB veri kümesi üzerinde](hive-criteo-walkthrough.md) izlenecek kullanan bir genel kullanıma açık [Criteo](http://labs.criteo.com/downloads/download-terabyte-click-logs/) olup bir ipucu Ücretli ve beklenen tutarlar aralığını tahmin etmek için veri kümesi'ı tıklatın. Senaryo ile Hive kullanılarak uygulanan bir [Azure Hdınsight Hadoop kümesi](https://azure.microsoft.com/services/hdinsight/) depolamak için keşfetmek, özellik mühendislik ve aşağı örnek verileri. Azure Machine Learning oluşturmak, eğitmek ve bir tanıtım bir kullanıcı olup olmadığını tahmin etmeye ikili sınıflandırma modeli Puanlama amacıyla kullanır. İzlenecek yol sonucuna Bu modeller birini bir Web hizmeti olarak yayımlamak üzere nasıl gösteren.
+[Kullanımı Azure HDInsight Hadoop kümelerini 1 TB veri kümesi](hive-criteo-walkthrough.md) kılavuzda genel kullanıma kullanılır [Criteo](http://labs.criteo.com/downloads/download-terabyte-click-logs/) veri kümesi bir ipucu olup ödenir ve beklenen tutarları aralığını tahmin etmek için tıklayın. Senaryo ile Hive kullanılarak uygulanan bir [Azure HDInsight Hadoop kümesi](https://azure.microsoft.com/services/hdinsight/) depolamak için keşfetmek, özellik mühendisi ve aşağı örnek veriler. Azure Machine Learning, oluşturmak, eğitmek ve bir kullanıcı bir Tanıtım amaçlı tıkladığında olup olmadığını tahmin etmeye yönelik bir ikili sınıflandırma modeli Puanlama için kullanır. İzlenecek yol sonucuna biri bu modeller, Web hizmeti olarak yayımlama gösteriliyor.
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Takım veri bilimi işlemi oluşturan anahtar bileşenleri bir tartışma için bkz: [takım veri bilimi işlemine genel bakış](overview.md).
+Team Data Science Process oluşturan anahtar bileşenleri bir tartışma için bkz [Team Data Science Process genel bakış](overview.md).
 
-Bir veri bilimi projelerinizi yapısı için kullanabileceğiniz takım veri bilimi işlemi yaşam döngüsü tartışma için bkz: [takım veri bilimi işlemi yaşam döngüsü](lifecycle.md). Yaşam döngüsü başlangıçtan bitişe kadar bunlar çalıştırıldığında projeleri genellikle izlemeniz gereken adımları özetler. 
+Veri bilimi projelerinizi yapısı için kullanabileceğiniz Team Data Science Process yaşam döngüsü için bkz [Team Data Science Process yaşam döngüsü](lifecycle.md). Yaşam döngüsü, başlangıçtan bitişe kadar bunlar yürütüldüğünde projeleri genellikle izlemeniz adımlarını özetler. 
 

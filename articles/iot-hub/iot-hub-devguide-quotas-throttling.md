@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 09/05/2018
 ms.author: dobett
-ms.openlocfilehash: 377f28f4798a1ffb6423c1f4d9f4e34b4fc60234
-ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
+ms.openlocfilehash: b7ef5d2853cdf4a7b09aa52c510c268cb42a245f
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48018851"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49395165"
 ---
 # <a name="reference---iot-hub-quotas-and-throttling"></a>Başvuru - IOT Hub kotaları ve azaltma
 
@@ -75,9 +75,9 @@ IOT hub'ı diğer kullanım sınırlamaları uygular:
 | CİHAZDAN buluta ileti gönderme | En büyük ileti boyutu 256 KB |
 | Bulut-cihaz Mesajlaşma<sup>1</sup> | En büyük ileti boyutu 64 KB. Bekleyen iletileri teslim için en fazla 50'dir. |
 | Doğrudan yöntem<sup>1</sup> | En fazla bir doğrudan yöntem yükünün boyutu 128 KB ' dir. |
-| Yapılandırmalar | hub başına 20 yapılandırmalar. |
-| Edge dağıtımları | hub başına 20 dağıtımları. Dağıtım başına 20 modüller. |
-| Çiftleri | 8 KB'lık ikizi bölümü (etiketler, istenen özellikler, bildirilen özellikleri) başına en büyük boyut: |
+| Otomatik cihaz yapılandırmaları<sup>1</sup> | Ücretli SKU hub başına 100 yapılandırmalar. Ücretsiz SKU hub başına 20 yapılandırmalar. |
+| Otomatik Edge dağıtımlarını<sup>1</sup> | Dağıtım başına 20 modüller. Ücretli SKU hub başına 100 dağıtımları. Ücretsiz SKU hub başına 20 dağıtımları. |
+| İkizlerini<sup>1</sup> | 8 KB'lık ikizi bölümü (etiketler, istenen özellikler, bildirilen özellikleri) başına en büyük boyut: |
 
 <sup>1</sup>bu özellik, IOT Hub'ın temel katmanda kullanılabilir değil. Daha fazla bilgi için [doğru IOT hub'a seçme](iot-hub-scaling.md).
 

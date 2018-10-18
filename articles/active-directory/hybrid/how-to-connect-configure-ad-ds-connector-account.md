@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 10/12/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: a14462ec5311a9b82293ba7f6e9ae76dc1972b36
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: a12549a52171afc1c95588f9a2b259829e170fcc
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49355557"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49389964"
 ---
 # <a name="azure-ad-connectconfigure-ad-ds-connector-account-permissions"></a>Azure AD Connect: AD DS bağlayıcı hesap izinlerini yapılandırma 
 
@@ -28,7 +28,7 @@ Aşağıdaki PowerShell cmdlet'lerini, Azure AD'yi etkinleştirmeye yönelik anl
 
 İzinleri engellemedikçe bu ADSyncConfig modülü kullanın gerekmez. Bu nedenle Azure AD Connect Express yüklemesi için otomatik olarak oluşturulan bir hesap (MSOL_nnnnnnnnnn) Active Directory'de tüm gerekli izinlerle oluşturulur Azure AD ile eşitlemek istediğiniz belirli Active Directory nesneleri veya kuruluş birimleri üzerinde devralma. 
  
-### <a name="permissions-summary"></a>İzinleri özeti 
+### <a name="permissions-summary"></a>İzin özeti 
 Aşağıdaki tabloda, AD nesneler üzerinde gerekli izinleri bir özetini sunar: 
 
 | Özellik | İzinler |
@@ -42,7 +42,7 @@ Aşağıdaki tabloda, AD nesneler üzerinde gerekli izinleri bir özetini sunar:
 | Grup geri yazma |Okuma, oluşturma, güncelleştirme ve silme grubu eşitlenmesi için nesneleri **Office 365 grupları**.  Daha fazla bilgi için [grup geri yazma](how-to-connect-preview.md#group-writeback).|
 
 ## <a name="using-the-adsyncconfig-powershell-module"></a>ADSyncConfig PowerShell modülünü kullanma 
-ADSyncConfig modülü gerektirir [Uzak Sunucu Yönetim Araçları (RSAT) AD DS için](https://docs.microsoft.com/en-us/windows-server/remote/remote-server-administration-tools) beri AD DS PowerShell modülü ve araçları bağlıdır. RSAT için AD DS'yi yüklemek için 'Yönetici olarak çalıştır' ile bir Windows PowerShell penceresi açın ve yürütün: 
+ADSyncConfig modülü gerektirir [Uzak Sunucu Yönetim Araçları (RSAT) AD DS için](https://docs.microsoft.com/windows-server/remote/remote-server-administration-tools) beri AD DS PowerShell modülü ve araçları bağlıdır. RSAT için AD DS'yi yüklemek için 'Yönetici olarak çalıştır' ile bir Windows PowerShell penceresi açın ve yürütün: 
 
 ``` powershell
 Install-WindowsFeature RSAT-AD-Tools 

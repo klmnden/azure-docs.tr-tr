@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/19/2018
 ms.author: pbutlerm
-ms.openlocfilehash: c11995a3db1987de7969ee476a1c69a1025be5fd
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: c37ed908b61ca54957affed3f81526353bc3f53b
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48811292"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49389573"
 ---
 # <a name="the-iot-edge-module-certification-process"></a>IOT Edge modülü sertifika işlemi
 
@@ -118,7 +118,7 @@ Sertifikalı ve Azure Market'te yayımlanmış bir IOT Edge modülü için karş
     - [C\#](https://hub.docker.com/_/mysql/)
     - [C](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/Iothub_sdk_options.md)
     - [Python](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/Iothub_sdk_options.md)
-    - [Java](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.sdk.iot.device._product_info?view=azure-java-stable)
+    - [Java](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.device._product_info?view=azure-java-stable)
 
 -   Modülü IOT SDK'sını kullanma modüller için daha az kesin öngörüleri bulut iş ortağı Portalı aracılığıyla kullanılabilir. Örneğin, indirilme sayısı.
 

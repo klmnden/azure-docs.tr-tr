@@ -16,12 +16,12 @@ ms.component: report-monitor
 ms.date: 07/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 6d22758d84d7b5acb3c5f7f1b3f26a9d8ef78b12
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 3df0087a21547585883f791d4d385025f92580c7
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45732185"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49395046"
 ---
 # <a name="interpret-the-azure-ad-audit-logs-schema-in-azure-monitor-preview"></a>Azure İzleyici (Önizleme) Azure AD denetim günlükleri şemada yorumlama
 
@@ -136,4 +136,4 @@ Bu makalede, Azure İzleyici'de Azure Active Directory (Azure AD) denetim günl�
 
 * [Azure İzleyici oturum açma günlükleri şemasını yorumlama](reference-azure-monitor-sign-ins-log-schema.md)
 * [Azure tanılama günlükleri hakkında daha fazla bilgi](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)
-* [Sık sorulan sorular ve bilinen sorunlar](concept-activity-logs-in-azure-monitor.md#frequently-asked-questions)
+* [Sık sorulan sorular ve bilinen sorunlar](concept-activity-logs-azure-monitor.md#frequently-asked-questions)

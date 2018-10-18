@@ -10,14 +10,14 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/25/2018
+ms.date: 10/17/2018
 ms.author: tomfitz
-ms.openlocfilehash: 33d5560f2bfef04678cf7a2236fd920385d68aac
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: c32c4f97a963485e87e36afc44e9cea2ebcebd90
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47452165"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49394423"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Kaynakları yeni kaynak grubuna veya aboneliğe taşıma
 
@@ -110,7 +110,7 @@ Bu makalede gösterilen Self-Servis işlemler çoğu kaynaklarında taşıyabili
 
 ## <a name="validate-move"></a>Taşıma doğrula
 
-[Taşıma işlemi doğrulama](/rest/api/resources/resources/validatemoveresources) kaynakları taşımadan taşıma senaryonuza sınamanızı sağlar. Bu işlem, taşıma başarılı olur belirlemek için kullanın. Bu işlemin çalıştırılması için ihtiyacınız vardır:
+[Taşıma işlemi doğrulama](/rest/api/resources/resources/resources_validatemoveresources) kaynakları taşımadan taşıma senaryonuza sınamanızı sağlar. Bu işlem, taşıma başarılı olur belirlemek için kullanın. Bu işlemin çalıştırılması için ihtiyacınız vardır:
 
 * Kaynak kaynak grubu adı
 * Hedef kaynak grubunun kaynak kimliği
