@@ -1,26 +1,21 @@
 ---
-title: Talep tahmini enerji için Cortana Intelligence çözüm şablonu Playbook'u | Microsoft Docs
+title: Talep tahmini enerji için Cortana Intelligence çözüm şablonu kitabı
 description: İsteğe bağlı bir enerji yardımcı şirket için tahmini yardımcı olan bir Microsoft Cortana Intelligence çözüm şablonuyla.
 services: machine-learning
-documentationcenter: ''
 author: ilanr9
 manager: cgronlun
-editor: yijichen
-ms.assetid: 8855dbb9-8543-45b9-b4c6-aa743a04d547
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/24/2016
-ms.author: yijichen
-ms.openlocfilehash: 6a879faa88cc6cdf586f2c12283bcb6f0263bf57
-ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
+ms.author: garye
+ms.openlocfilehash: 43a75c31c0f094bdcb7008a39140226815bda163
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43842614"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49390304"
 ---
 # <a name="cortana-intelligence-solution-template-playbook-for-demand-forecasting-of-energy"></a>Talep tahmini enerji için Cortana Intelligence çözüm şablonu kitabı
 ## <a name="executive-summary"></a>Yönetim Özeti
@@ -235,7 +230,7 @@ Biz sorun formülasyonu aşağıdakilerden herhangi bir Tahmine dayalı analiz �
 Bu soruları formulating doğru veri alma ve tam olarak eldeki problemini ile hizalanan bir çözüm uygulama olanak sağlıyor. Ayrıca, biz model performansını değerlendirme olanak bazı ana ölçümleri daha sonra ayarlayabilirsiniz. Örneğin, tahmin ne kadar doğru olmalıdır ve iş için kabul edilebilir olmaya hata aralığı nedir?
 
 ### <a name="data-sources"></a>Veri Kaynakları
-Modern bir akıllı şebeke çeşitli bölümleri ve kılavuz bileşenlerinin verileri toplar. Bu veriler, çeşitli yönlerini işlemi ve güç kılavuz kullanımını temsil eder. Enerji talebi hakkında tahmin kapsamında, biz gerçek tüketim yansıtan veri kaynaklarında tartışma sınırlıyoruz. Akıllı ölçüm cihazlarından enerji tüketimi önemli bir kaynağı var. Dünya çapındaki yardımcı programlar, hızlı bir şekilde kendi Tüketiciler için akıllı ölçüm cihazlarından dağıtıyorsanız. Akıllı ölçüm cihazlarından gerçek güç tüketimi kaydetmek ve bu verileri geri yardımcı şirket için sürekli geçiş. Veriler toplanır ve 5 dakikada 1 saate kadar geri sabit bir aralık, gönderilir. Daha gelişmiş akıllı ölçüm cihazlarından uzaktan denetim ve içinde bir evin gerçek kullanım dengelemek için de programlanabilir. Akıllı ölçüm verileri görece güvenilir ve zaman damgası içerir. Bu, Talep tahmini için önemli bir tarifi kolaylaştırır. Ölçer veri toplanabilir (yukarı toplanan) grid topolojisi içindeki çeşitli düzeylerde: transformer, alt istasyon, bölge, *vb.*. Ardından, biz bunun için bir tahmin modelli oluşturmak için gerekli bir toplama düzeyinde seçebilirsiniz. Örneğin, yardımcı şirket her birinin kendi kılavuz şalt gelecekteki yükü tahmin istiyorsanız, ardından tüm ölçümleri veriler için tek tek her alt istasyon toplanır ve için tahmin modeli giriş olarak kullanılır. Bir iç veri kaynağı olarak için akıllı ölçüm cihazlarından diyoruz.
+Modern bir akıllı şebeke çeşitli bölümleri ve kılavuz bileşenlerinin verileri toplar. Bu veriler, çeşitli yönlerini işlemi ve güç kılavuz kullanımını temsil eder. Enerji talebi hakkında tahmin kapsamında, biz gerçek tüketim yansıtan veri kaynaklarında tartışma sınırlıyoruz. Akıllı ölçüm cihazlarından enerji tüketimi önemli bir kaynağı var. Dünya çapındaki yardımcı programlar, hızlı bir şekilde kendi Tüketiciler için akıllı ölçüm cihazlarından dağıtıyorsanız. Akıllı ölçüm cihazlarından gerçek güç tüketimi kaydetmek ve bu verileri geri yardımcı şirket için sürekli geçiş. Veriler toplanır ve 5 dakikada 1 saate kadar geri sabit bir aralık, gönderilir. Daha gelişmiş akıllı ölçüm cihazlarından uzaktan denetim ve içinde bir evin gerçek kullanım dengelemek için de programlanabilir. Akıllı ölçüm verileri görece güvenilir ve zaman damgası içerir. Bu, Talep tahmini için önemli bir tarifi kolaylaştırır. Ölçer veri toplanabilir (yukarı toplanan) grid topolojisi içindeki çeşitli düzeylerde: transformer, alt istasyon, bölge, *vb*. Ardından, biz bunun için bir tahmin modelli oluşturmak için gerekli bir toplama düzeyinde seçebilirsiniz. Örneğin, yardımcı şirket her birinin kendi kılavuz şalt gelecekteki yükü tahmin istiyorsanız, ardından tüm ölçümleri veriler için tek tek her alt istasyon toplanır ve için tahmin modeli giriş olarak kullanılır. Bir iç veri kaynağı olarak için akıllı ölçüm cihazlarından diyoruz.
 
 Bir güvenilir enerji talebi tahmin, ayrıca diğer dış veri kaynaklarına bağlıdır. Güç tüketimini etkileyen tek önemli faktör, hava durumu ve daha kesin sıcaklık ' dir. Geçmiş verileri dış sıcaklığı ve güç tüketimini arasında güçlü bir bağıntısı gösterir. Sık erişimli Yaz gün boyunca, tüketicilerin olun, hava bağıntıyı ve sistemleri ısıtma üzerinde Kış power sırasında kullanın. Güvenilir bir kaynak geçmiş Sıcaklıkların kılavuz konumda bu nedenle anahtardır. Ayrıca, biz de sıcaklık, doğru bir tahmin üzerinde bir güç tüketimini tahmin unsuru kullanır.
 
@@ -269,7 +264,7 @@ Aşağıdaki tablolarda, iyi bir tüketim ve sıcaklık veri biçimi örneklerin
 Yukarıda görüldüğü gibi bu örnek 3 güç aşaması olan ilişkili tüketim için 3 farklı değerler içerir. Ayrıca, tarih ve saat alanları ayrılmış olduğunu, ancak bunlar de tek bir sütunda birleştirilebilir unutmayın. Bu örnekte konum sütunu 5 basamaklı posta kodu biçimi ve sıcaklığı Santigrat derece biçimde temsil edilir.
 
 ### <a name="data-format"></a>Veri biçimi
-Cortana Intelligence Suite, CSV, TSV, JSON, en yaygın veri biçimlerini destekleyebilir *vb.*. Veri biçimi için tüm yaşam döngüsünü projenin tutarlı kalmasını önemlidir.
+Cortana Intelligence Suite, CSV, TSV, JSON, en yaygın veri biçimlerini destekleyebilir *vb*. Veri biçimi için tüm yaşam döngüsünü projenin tutarlı kalmasını önemlidir.
 
 ### <a name="data-ingestion"></a>Veri Alımı
 Enerji talebi tahmin sürekli ve sık bir şekilde tahmin olduğundan, biz ham veriler sağlam ve güvenilir veri alma işlemi yoluyla geçiyor emin olmanız gerekir. Alma işlemi, ham verileri gereken zaman tahmin işlemi için kullanılabilir olacağını garanti gerekir. Bu, veri alımı sıklığı tahmin sıklığından büyük olması gerektiğini anlamına gelir.
@@ -304,7 +299,7 @@ Bu bölümde, biz enerjinin dahil edilen genel verileri özelliklerinden bazıla
 
 **Bağımsız ölçüm özellikleri:** adaylarının modelimizi de olarak kullanılacak istiyoruz tüm veri öğeleri bağımsız özellikler içerir. Burada, tahmin etmek için ihtiyacımız bağımlı özellik tutarız.
 
-* Lag özellik – bunlar zaman kaydırılacağı uzaklık değerleri gerçek isteğe bağlı. Örneğin, lag 1 özellikleri, isteğe bağlı değerin göreli geçerli zaman damgasını (saatlik veri varsayılarak) önceki saat içinde tutar. Benzer şekilde, biz 2 gecikme eklemek için 3, öteleme *vb.*. Kullanılan lag özellikleri gerçek birleşimi, modelleme aşaması sırasında model sonuçlarını değerlendirmesi tarafından belirlenir.
+* Lag özellik – bunlar zaman kaydırılacağı uzaklık değerleri gerçek isteğe bağlı. Örneğin, lag 1 özellikleri, isteğe bağlı değerin göreli geçerli zaman damgasını (saatlik veri varsayılarak) önceki saat içinde tutar. Benzer şekilde, biz 2 gecikme eklemek için 3, öteleme *vb*. Kullanılan lag özellikleri gerçek birleşimi, modelleme aşaması sırasında model sonuçlarını değerlendirmesi tarafından belirlenir.
 * Uzun süreli popüler: Bu özellik isteğe bağlı yılları arasında doğrusal artışı temsil eder.
 
 **Bağımlı özellik:** modelimizi tahmin etmek istiyoruz. veri sütunu bağımlı özelliğidir. İle [denetimli makine öğrenimi](https://en.wikipedia.org/wiki/Supervised_learning), önce (Bu aynı zamanda etiket olarak adlandırılır), bağımlı özellikleri kullanarak modeli eğitmek için oluşturmamız gerekir. Bu bağımlı özellikle ilişkilendirilen veri desenlerinde öğrenmek model sağlar. Tahmini enerji talebini genellikle gerçek talep tahmin etmek istiyoruz ve bu nedenle biz bağımlı bir özellik olarak kullanılır.
