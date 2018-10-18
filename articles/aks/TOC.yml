@@ -30,6 +30,18 @@ items:
     href: tutorial-kubernetes-upgrade-cluster.md
 - name: Kavramlar
   items:
+  - name: Kümeler ve iş yükleri
+    href: concepts-clusters-workloads.md
+  - name: Erişim ve kimlik
+    href: concepts-identity.md
+  - name: Güvenlik
+    href: concepts-security.md
+  - name: Ağ
+    href: concepts-network.md
+  - name: Depolama
+    href: concepts-storage.md
+  - name: Ölçek
+    href: concepts-scale.md
   - name: Kotalar ve bölgesel sınırlar
     href: container-service-quotas.md
   - name: ACS’den AKS’ye geçiş
@@ -71,12 +83,12 @@ items:
       href: azure-files-volume.md
   - name: Ağ yapılandırması
     items:
-    - name: Ağlara genel bakış
-      href: networking-overview.md
-    - name: Statik IP adresi
-      href: static-ip.md
-    - name: İç yük dengeleyici
+    - name: Sanal ağ oluşturma veya mevcut bir sanal ağı kullanma
+      href: configure-advanced-networking.md
+    - name: İç yük dengeleyici oluşturma
       href: internal-lb.md
+    - name: Statik IP adreslerini kullanma
+      href: static-ip.md
     - name: Giriş
       items:
       - name: Temel denetleyici oluşturma
@@ -182,9 +194,9 @@ items:
     href: https://azure.microsoft.com/resources/videos/index/?services=container-service&sort=newest
   - name: SSS
     href: faq.md
-ms.openlocfilehash: a050be092d1216a00a7d73e383086709dc6d15fc
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 5bce64990b8fbf9ad6bd5af01631544189f35a93
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47405371"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49376303"

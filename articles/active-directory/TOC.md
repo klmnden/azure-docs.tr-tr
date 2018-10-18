@@ -105,6 +105,7 @@
 #### [Etkinlik günlüklerini Azure depolama hesabında arşivleme](reports-monitoring/quickstart-azure-monitor-route-logs-to-storage-account.md)
 #### [Azure İzleyici kullanarak etkinlik günlüklerini Splunk ile tümleştirme](reports-monitoring/tutorial-integrate-activity-logs-with-splunk.md)
 #### [Azure İzleyici kullanarak etkinlik günlüklerini SumoLogic ile tümleştirme](reports-monitoring/howto-integrate-activity-logs-with-sumologic.md)
+#### [Azure İzleyici kullanarak etkinlik günlüklerini Log Analytics ile tümleştirme](reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
 ### Başvuru
 #### [Bekletme](reports-monitoring/reference-reports-data-retention.md)
