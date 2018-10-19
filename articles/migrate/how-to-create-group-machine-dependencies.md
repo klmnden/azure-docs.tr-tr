@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 09/21/2018
 ms.author: raynew
-ms.openlocfilehash: ac1cf5a30dee29f2737a05133aed774e86f78932
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: de093976a318b2658ff4009f4c5e314851f66b81
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47163435"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49403818"
 ---
 # <a name="group-machines-using-machine-dependency-mapping"></a>Makine bağımlılık eşlemesi kullanan Grup makineleri
 
@@ -35,7 +35,7 @@ Bağımlılık görselleştirmesi yararlanmak için yeni veya var olan, Log Anal
 > Bir geçiş projesine ilişkili çalışma alanı değiştiremezsiniz.
 
 ### <a name="download-and-install-the-vm-agents"></a>Sanal makine aracılarını indirip yükleme
-Bir çalışma alanı yapılandırdıktan sonra aracılar değerlendirmek istediğiniz her bir şirket içi makinede yükleyip gerekir. İnternet bağlantısı olmayan makineleriniz varsa, ayrıca, indirmek ve yüklemek ihtiyacınız [OMS ağ geçidi](../log-analytics/log-analytics-oms-gateway.md) bunlar üzerinde.
+Bir çalışma alanı yapılandırdıktan sonra aracılar değerlendirmek istediğiniz her bir şirket içi makinede yükleyip gerekir. İnternet bağlantısı olmayan makineleriniz varsa, ayrıca, indirmek ve yüklemek ihtiyacınız [Log Analytics gateway](../log-analytics/log-analytics-oms-gateway.md) bunlar üzerinde.
 
 1. İçinde **genel bakış**, tıklayın **Yönet** > **makineler**, gerekli makineyi seçin.
 2. İçinde **bağımlılıkları** sütun tıklayın **aracıları yüklemek**.

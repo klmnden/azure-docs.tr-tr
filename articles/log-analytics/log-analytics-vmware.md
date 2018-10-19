@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 05/04/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 6bd195b8be558cfcfda10a750fbfe91079c6b094
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 38537f3e2884160a99d333f1414d3f45755cd4f9
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48043660"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49404622"
 ---
 # <a name="vmware-monitoring-preview-solution-in-log-analytics"></a>Log analytics'te VMware izleme (Önizleme) çözümü
 
@@ -31,7 +31,7 @@ ms.locfileid: "48043660"
 
 Log analytics'te VMware izleme çözümü, Merkezi günlük kaydı ve büyük VMware günlükleri için izleme yaklaşımı oluşturmanıza yardımcı olan bir çözümdür. Bu makalede nasıl sorun giderme, yakalama ve ESXi konaklarının çözümünü kullanarak tek bir konumda açıklanır. Çözümü ile tek bir konumda tüm ESXi konakları için ayrıntılı verileri görebilirsiniz. En yüksek olay sayıları, durumu ve eğilimleri, VM ve ESXi konaklarının ESXi konağı günlükleri sağlanan görebilirsiniz. Görüntüleme ve Arama Merkezi ESXi konak günlüklerini giderebilirsiniz. Ve günlük arama sorgularına dayalı uyarılar oluşturabilirsiniz.
 
-Çözüm, veri göndermek için bir hedef, OMS Aracısı VM ESXi ana bilgisayarının yerel syslog işlevselliğini kullanır. Ancak, çözümü hedef sanal makine içinde syslog içine dosyaları yazma değil. OMS Aracısı 1514 bağlantı noktasını açar ve bunun için dinler. Verileri aldıktan sonra OMS Aracısı'nı Log Analytics'e veri gönderir.
+Çözüm, veri göndermek için bir hedef, Log Analytics Aracısı VM ESXi ana bilgisayarının yerel syslog işlevselliğini kullanır. Ancak, çözümü hedef sanal makine içinde syslog içine dosyaları yazma değil. Log Analytics aracısını 1514 bağlantı noktasını açar ve bunun için dinler. Veri aldığında, Log Analytics aracısını Log Analytics'e veri gönderir.
 
 ## <a name="install-and-configure-the-solution"></a>Yükleme ve çözüm yapılandırma
 Çözümü yüklemek ve yapılandırmak için aşağıdaki bilgileri kullanın.
@@ -42,7 +42,9 @@ Log analytics'te VMware izleme çözümü, Merkezi günlük kaydı ve büyük VM
 vSphere ESXi konağına 5.5, 6.0 ve 6.5
 
 #### <a name="prepare-a-linux-server"></a>Bir Linux sunucusu hazırlama
-Bir Linux işletim sistemi ESXi konağından tüm syslog verileri almak için bir VM oluşturun. [OMS Linux Aracısı](log-analytics-linux-agents.md) tüm ESXi konağı syslog veriler için koleksiyon noktasıdır. Birden çok ESXi konakları, günlükleri aşağıdaki örnekteki gibi tek bir Linux sunucusuna iletmek için kullanabilirsiniz.  
+Bir Linux işletim sistemi ESXi konağından tüm syslog verileri almak için bir VM oluşturun. [Log Analytics Linux Aracısı](log-analytics-linux-agents.md) tüm ESXi konağı syslog veriler için koleksiyon noktasıdır. Birden çok ESXi konakları, günlükleri aşağıdaki örnekteki gibi tek bir Linux sunucusuna iletmek için kullanabilirsiniz.
+
+[!INCLUDE [log-analytics-agent-note](../../includes/log-analytics-agent-note.md)]  
 
    ![Syslog akış](./media/log-analytics-vmware/diagram.png)
 
@@ -56,14 +58,14 @@ Bir Linux işletim sistemi ESXi konağından tüm syslog verileri almak için bi
 
     ![vspherefwproperties](./media/log-analytics-vmware/vsphere3.png)  
 1. Bu syslog doğru şekilde ayarlandığını doğrulamak için konsol vSphere denetleyin. Bu bağlantı noktasını ESXI ana bilgisayarındaki onaylayın **1514** yapılandırılır.
-1. İndirin ve Linux sunucusu üzerinde Linux için OMS Aracısı'nı yükleme. Daha fazla bilgi için [Linux için OMS Aracısı belgelere](https://github.com/Microsoft/OMS-Agent-for-Linux).
-1. Linux için OMS Aracısı yüklendikten sonra /etc/opt/microsoft/omsagent/sysconf/omsagent.d dizinine gidin ve vmware_esxi.conf dosya /etc/opt/microsoft/omsagent/conf/omsagent.d dizini ve değiştirme izinleri ve sahibi/Grup Kopyala dosyası. Örneğin:
+1. İndirin ve Linux sunucusu üzerinde Linux için Log Analytics aracısını yükleyin. Daha fazla bilgi için [Linux için Log Analytics aracısını belgelerine](https://github.com/Microsoft/OMS-Agent-for-Linux).
+1. Log Analytics aracısını Linux yüklenebileceği konusunda olduktan sonra /etc/opt/microsoft/omsagent/sysconf/omsagent.d dizin ve kopyalama vmware_esxi.conf /etc/opt/microsoft/omsagent/conf/omsagent.d dizin ve dosya değişikliği için sahibi/grup ve dosya izinleri. Örneğin:
 
     ```
     sudo cp /etc/opt/microsoft/omsagent/sysconf/omsagent.d/vmware_esxi.conf /etc/opt/microsoft/omsagent/conf/omsagent.d
    sudo chown omsagent:omiusers /etc/opt/microsoft/omsagent/conf/omsagent.d/vmware_esxi.conf
     ```
-1. Çalıştırarak Linux için OMS Aracısı'nı yeniden `sudo /opt/microsoft/omsagent/bin/service_control restart`.
+1. Linux için Log Analytics aracısını çalıştırarak yeniden `sudo /opt/microsoft/omsagent/bin/service_control restart`.
 1. Linux sunucunun ESXi ana bilgisayar arasındaki bağlantıyı kullanarak test `nc` ESXi ana bilgisayarındaki komutu. Örneğin:
 
     ```
@@ -78,11 +80,11 @@ Bir Linux işletim sistemi ESXi konağından tüm syslog verileri almak için bi
     Yukarıdaki resimde günlük arama sonuçlarını görüntüle benzerse VMware izleme Panosu kullanmak işinizi tamamlandı.  
 
 ## <a name="vmware-data-collection-details"></a>VMware veri koleksiyonu ayrıntıları
-VMware izleme çözümü ESXi konakları etkinleştirdiğiniz Linux için OMS aracılarını kullanarak çeşitli performans ölçümleri ve günlük verilerini toplar.
+VMware izleme çözümü ESXi konakları etkinleştirdiğiniz Linux için Log Analytics aracılarını kullanarak çeşitli performans ölçümleri ve günlük verilerini toplar.
 
 Veri toplama metotlarını ve verileri nasıl toplanır hakkında diğer ayrıntıları aşağıdaki tabloda gösterilmektedir.
 
-| Platform | Linux için OMS Aracısı | SCOM Aracısı | Azure Storage | SCOM gerekli? | Yönetim grubu gönderilen SCOM Aracısı verileri | Toplama sıklığı |
+| Platform | Linux için log Analytics aracısını | SCOM Aracısı | Azure Storage | SCOM gerekli? | Yönetim grubu gönderilen SCOM Aracısı verileri | Toplama sıklığı |
 | --- | --- | --- | --- | --- | --- | --- |
 | Linux |&#8226; |  |  |  |  |3 dakikada bir |
 
@@ -190,12 +192,12 @@ Birden çok nedeni olabilir:
 
       Bu başarılı olmazsa, Gelişmiş yapılandırma ayarlarında vSphere olasılıkları doğru değil. Bkz: [syslog koleksiyonu yapılandırmak](#configure-syslog-collection) ESXi konağı için syslog iletmeyi ayarlama hakkında bilgi için.
   1. Syslog bağlantı başarılı olur, ancak yine de herhangi bir veri görmüyorsanız, syslog ESXi ana bilgisayarındaki ssh aşağıdaki komutu çalıştırarak kullanarak yeniden: ` esxcli system syslog reload`
-* Sanal makine OMS Aracısı ile doğru şekilde ayarlanmadı. Bunu test etmek için aşağıdaki adımları gerçekleştirin:
+* Log Analytics aracısını VM doğru şekilde ayarlanmadı. Bunu test etmek için aşağıdaki adımları gerçekleştirin:
 
   1. Log Analytics'e 1514 bağlantı noktasını dinler. Açık olduğunu doğrulamak için aşağıdaki komutu çalıştırın: `netstat -a | grep 1514`
   1. Bağlantı noktası görmelisiniz `1514/tcp` açın. Bunu yapmazsanız, omsagent doğru yüklendiğini doğrulayın. Bağlantı noktası bilgileri görmüyorsanız, syslog bağlantı noktasını VM açık değil.
 
-    a. OMS Aracısı'nı kullanarak çalıştığını doğrulamak `ps -ef | grep oms`. Komutunu çalıştırarak işlemi çalışmıyorsa, başlatmak ` sudo /opt/microsoft/omsagent/bin/service_control start`
+    a. Log Analytics aracısını kullanarak çalıştığını doğrulamak `ps -ef | grep oms`. Komutunu çalıştırarak işlemi çalışmıyorsa, başlatmak ` sudo /opt/microsoft/omsagent/bin/service_control start`
 
     b. `/etc/opt/microsoft/omsagent/conf/omsagent.d/vmware_esxi.conf` dosyasını açın.
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 05/11/2018
 ms.author: ningk
-ms.openlocfilehash: 689730edcc98a23c82373ae8d36c3b831b33c076
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: a9f5f22cbd6e7cb39e1abb2ef712ffcfc27f55a4
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39627449"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49406152"
 ---
 # <a name="integrate-cloud-foundry-with-azure"></a>Cloud Foundry ile Azure’ı tümleştirme
 
@@ -70,9 +70,9 @@ Azure hizmet Aracısı, Azure hizmetlerine uygulama erişimini yönetmek için t
 
 ## <a name="6-metrics-and-logging"></a>6. Ölçümler ve günlüğe kaydetme
 Azure Log Analytics Nozzle ölçümleri ileten bir Cloud Foundry bileşenidir [Cloud Foundry loggregator firehose](https://docs.cloudfoundry.org/loggregator/architecture.html) için [Azure Log Analytics](https://azure.microsoft.com/services/log-analytics/). Nozzle ile toplama, görüntüleyebilir ve birden çok dağıtımlarınızda CF sistem durumu ve performans ölçümlerini analiz edin.
-Tıklayın [burada](https://docs.microsoft.com/azure/cloudfoundry/cloudfoundry-oms-nozzle) açık kaynak ve Pivotal Cloud Foundry ortamı hem Azure Log Analytics Nozzle dağıtma ve Azure Log Analytics OMS konsolunda ardından verilere hakkında bilgi edinmek için. 
+Tıklayın [burada](https://docs.microsoft.com/azure/cloudfoundry/cloudfoundry-oms-nozzle) açık kaynak ve Pivotal Cloud Foundry ortamı hem Azure Log Analytics Nozzle dağıtma ve Azure Log Analytics konsoldan ardından verilere hakkında bilgi edinmek için. 
 > [!NOTE]
-> PCF 2.0 BOSH VM'ler için sistem durumu ölçümleri Loggregator Firehose için varsayılan olarak iletilir ve Azure Log Analytics OMS konsolunda tümleştirilmiştir.
+> PCF 2.0 BOSH VM'ler için sistem durumu ölçümleri Loggregator Firehose için varsayılan olarak iletilir ve Azure Log Analytics konsoluna tümleştirilmiştir.
 
 ## <a name="7-cost-saving"></a>7. Maliyet tasarrufu
 ### <a name="cost-saving-for-devtest-environments"></a>Maliyet tasarrufu için geliştirme ve Test ortamları

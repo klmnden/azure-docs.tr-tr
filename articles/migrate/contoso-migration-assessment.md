@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: raynew
-ms.openlocfilehash: 34409197a080b4d755b76f140111b7694925b5df
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: b9ef650b772a160f7ddf8932f646f8081cb9e551
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49094063"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49407138"
 ---
 # <a name="contoso-migration-assess-on-premises-workloads-for-migration-to-azure"></a>Contoso geçiş: şirket içi iş yüklerini, Azure'a geçiş için değerlendirme
 
@@ -411,8 +411,8 @@ Contoso yükleme her sanal makinede çalıştırır.
 3. Contoso MMA'yı yükler:
     - Contoso çalışma alanı kimliği ve anahtarı komutu girer.
     - 64-bit komutlardır.
-    - Çalışma alanı kimliği ve birincil anahtar Microsoft Operations Management Suite (OMS) Portalı'nda yer alır. Seçin **ayarları**ve ardından **bağlı kaynaklar** sekmesi.
-    - OMS Aracısı'nı indirme, sağlama toplamını doğrulama ve yüklemek için aşağıdaki komutları çalıştırın ve ekleme aracısı:
+    - Çalışma alanı kimliği ve birincil anahtar, Azure portalında Log Analytics çalışma alanında bulunur. Seçin **ayarları**ve ardından **bağlı kaynaklar** sekmesi.
+    - Log Analytics Aracısı'nı indirme, sağlama toplamını doğrulama ve yüklemek için aşağıdaki komutları çalıştırın ve ekleme aracısı:
 
     ```
     wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -w 6b7fcaff-7efb-4356-ae06-516cacf5e25d -s k7gAMAw5Bk8pFVUTZKmk2lG4eUciswzWfYLDTxGcD8pcyc4oT8c6ZRgsMy3MmsQSHuSOcmBUsCjoRiG2x9A8Mg==

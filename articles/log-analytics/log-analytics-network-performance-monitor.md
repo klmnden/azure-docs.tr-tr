@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: abshamsft
 ms.component: ''
-ms.openlocfilehash: 634958265193a1dedb7c860c34f712160e4120d2
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: bf10226b1d3b2153e0e17d4126c35402d096a857
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49353300"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49409246"
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Ağ Performansı İzleyicisi çözüm azure'da
 
@@ -65,17 +65,17 @@ Temel işlemler, aracıları yüklemek için kullanmak [Azure Log analytics'e ba
 
 ### <a name="where-to-install-the-agents"></a>Aracılarının nasıl yükleneceği 
 
-* **Performans İzleyicisi**: en az bir düğümde yüklemek Operations Management Suite Aracısı bağlı diğer alt ağlara ağ bağlantısı izlemek istediğiniz her alt ağ.
+* **Performans İzleyicisi**: en az bir düğümde yükleme Log Analytics aracılarını bağlı diğer alt ağlara ağ bağlantısı izlemek istediğiniz her alt ağ.
 
     Bir ağ bağlantısı izlemek için bu bağlantının her iki bitiş noktasında aracılarını yükleyin. Ağınızın topolojisi hakkında emin değilseniz aracıları sunucuları arasındaki ağ performansını izlemek istediğiniz kritik iş yükleri ile yükleyin. Örneğin, bir web sunucusu ve SQL çalıştıran bir sunucu arasındaki ağ bağlantısını izlemek istiyorsanız, her iki sunucuda bir aracı yükleyin. Konak, konak kendileri arasında ağ bağlantısı (Bağlantılar) aracıları izleyin. 
 
-* **Hizmet Bağlantı İzleyicisi**: ağ hizmet uç noktası bağlantısını izlemek istediğiniz her bir düğümde bir Operations Management Suite aracısını yükleyin. O1, O2 ve O3 office sitelerden Office 365'e ağ bağlantılarını izlemek istiyorsanız bir örnektir. En az bir düğüm her O1, O2 ve O3 Operations Management Suite aracısını yükleyin. 
+* **Hizmet Bağlantı İzleyicisi**: ağ hizmet uç noktası bağlantısını izlemek istediğiniz her bir düğümde bir Log Analytics aracısını yükleyin. O1, O2 ve O3 office sitelerden Office 365'e ağ bağlantılarını izlemek istiyorsanız bir örnektir. En az bir düğüm her O1, O2 ve O3 Log Analytics aracısını yükleyin. 
 
-* **ExpressRoute İzleyicisi**: Azure sanal ağınızda en az bir Operations Management Suite aracısını yükleyin. Ayrıca ExpressRoute özel eşlemesi aracılığıyla bağlanan, şirket içi alt ağ içinde en az bir aracıyı yükleyin.  
+* **ExpressRoute İzleyicisi**: Azure sanal ağınızda en az bir Log Analytics aracısını yükleyin. Ayrıca ExpressRoute özel eşlemesi aracılığıyla bağlanan, şirket içi alt ağ içinde en az bir aracıyı yükleyin.  
 
-### <a name="configure-operations-management-suite-agents-for-monitoring"></a>Operations Management Suite Aracısı izleme için yapılandırma 
+### <a name="configure-log-analytics-agents-for-monitoring"></a>İzleme için log Analytics aracılarını yapılandırma 
 
-Ağ Performansı İzleyicisi yapay işlemler, kaynak ve hedef aracılar arası ağ performansını izlemek için kullanır. Performans İzleyicisi ve hizmet bağlantı İzleyicisi özelliklerinde izleme için protokol olarak TCP ve ICMP arasında seçim yapabilirsiniz. Yalnızca TCP ExpressRoute İzleyicisi için İzleyici protokolü olarak kullanılabilir. Güvenlik Duvarı'nın seçtiğiniz protokole ilişkin izlemek için kullanılan Operations Management Suite Aracısı arasındaki iletişim izin verdiğinden emin olun. 
+Ağ Performansı İzleyicisi yapay işlemler, kaynak ve hedef aracılar arası ağ performansını izlemek için kullanır. Performans İzleyicisi ve hizmet bağlantı İzleyicisi özelliklerinde izleme için protokol olarak TCP ve ICMP arasında seçim yapabilirsiniz. Yalnızca TCP ExpressRoute İzleyicisi için İzleyici protokolü olarak kullanılabilir. Güvenlik duvarının seçtiğiniz protokole ilişkin izlemek için kullanılan Log Analytics aracılarını iletişimine izin verdiğinden emin olun. 
 
 * **TCP Protokolü**: izleme için protokol olarak TCP seçerseniz, aracıların birbirleriyle bağlanabildiğinden emin olmak için Ağ Performansı İzleyicisi'ni ve ExpressRoute izleme için kullanılan aracıları güvenlik duvarı bağlantı noktasını açın. Bağlantı noktası açmak için çalıştırın [EnableRules.ps1](https://aka.ms/npmpowershellscript) PowerShell betiğini yönetici ayrıcalıklarıyla bir PowerShell penceresinde herhangi bir parametre olmadan.
 
@@ -109,7 +109,7 @@ Ağ Performansı İzleyicisi yapay işlemler, kaynak ve hedef aracılar arası a
 
    ![Ağ Performansı İzleyicisi kutucuğu](media/log-analytics-network-performance-monitor/npm-config.png)
 
-4. Üzerinde **Kurulum** sayfasında Operations Management Suite aracıları yüklemek ve izleme için aracıları yapılandırmak için bu seçeneği görürsünüz **ortak ayarları** görünümü. Operations Management Suite Aracısı yükleyip, daha önce anlatıldığı olarak, seçin **Kurulum** özelliğini yapılandırmak için kullanmak istediğiniz görünümü. 
+4. Üzerinde **Kurulum** sayfasında Log Analytics aracılarını yükleyin ve izleme için aracıları yapılandırmak için bu seçeneği görürsünüz **ortak ayarları** görünümü. Log Analytics aracılarını yükleyip, daha önce anlatıldığı olarak, seçin **Kurulum** özelliğini yapılandırmak için kullanmak istediğiniz görünümü. 
 
    **Performans İzleyicisi**: Sentetik işlemler için kullanılacak protokolü seçin **varsayılan** Performans İzleyicisi Kuralı ' nı seçip **Kaydet ve devam et**. Bu protokol seçimi yalnızca sistem tarafından oluşturulan varsayılan kural bulunur. Performans İzleyicisi kuralı açıkça oluşturulan her durumda Protokolü seçmeniz gerekebilir. Her zaman taşıyabilirsiniz **varsayılan** kural ayarları **Performans İzleyicisi** sekme (göründüğü 0 gün yapılandırmanızı tamamladıktan sonra) ve daha sonra değişiklik protokolü. İzleyici özelliği rPerfomance istemiyorsanız varsayılan kuralından devre dışı bırakabilirsiniz **varsayılan** kural ayarları **Performans İzleyicisi** sekmesi.
 
@@ -135,7 +135,7 @@ Ağ Performansı İzleyicisi yapay işlemler, kaynak ve hedef aracılar arası a
     
 Bu eşlemeler için izleme, başlangıçta devre dışı durumda olan. İzlemek istediğiniz her eşleme seçin ve sağ taraftaki Ayrıntıları görünümünde izlemesini bunlar için yapılandırın. Seçin **Kaydet** yapılandırmayı kaydetmek için. Daha fazla bilgi için "Yapılandırma ExpressRoute izleme" makalesine bakın. 
 
-Kurulum tamamlandıktan sonra veriler doldurmak için bir saat 30 dakika sürer. Çözüm, ağ üzerinden verileri toplar, ancak iletiyi görmek *çözüm ek yapılandırma gerektirir* Ağ Performansı İzleyicisi **genel bakış** kutucuk. Sonra veriler toplanır ve dizinli **genel bakış** kutucuk değişir ve bir Özet olarak, ağ durumunu size bildirir. Ardından, hangi Operations Management Suite aracısı yüklü olan düğümlerin yanı sıra ortamınızdaki keşfedilen alt ağlar izlenmesini düzenleyebilirsiniz.
+Kurulum tamamlandıktan sonra veriler doldurmak için bir saat 30 dakika sürer. Çözüm, ağ üzerinden verileri toplar, ancak iletiyi görmek *çözüm ek yapılandırma gerektirir* Ağ Performansı İzleyicisi **genel bakış** kutucuk. Sonra veriler toplanır ve dizinli **genel bakış** kutucuk değişir ve bir Özet olarak, ağ durumunu size bildirir. Ardından, hangi Log Analytics temelinde aracılarının yüklü olduğu düğümlerin yanı sıra ortamınızdaki keşfedilen alt ağlar izlenmesini düzenleyebilirsiniz.
 
 #### <a name="edit-monitoring-settings-for-subnets-and-nodes"></a>Alt ağları ve düğümler için izleme ayarlarını Düzenle 
 
@@ -176,7 +176,7 @@ Veri toplama yöntemleri ve Ağ Performansı İzleyicisi için verileri nasıl t
  
 
  
-Çözüm yapay işlemler, ağ durumunu değerlendirmek için kullanır. Operations Management Suite aracıları, ağ exchange TCP veya ICMP Yankı çeşitli noktalarında birbiriyle yüklü. Aracıları TCP veya ICMP Yankı kullanıp izlemek için seçtiğiniz protokolde bağlıdır. İşlem sırasında aracılar varsa gidiş dönüş süresi ve paket kaybı öğrenin. Düzenli olarak, her bir aracı ayrıca diğer aracılara test edilmelidir ağdaki tüm çeşitli yollarını bulmak için bir izleme yolu yapar. Bu verileri kullanarak, aracıları ağ gecikme süresi ve paket kaybı rakamları çıkarabilir. Testler, her beş saniyede bir yinelenir. Log Analytics hizmetine ıntune'ye yüklenmeden önce veriler yaklaşık üç dakika Aracılar tarafından toplanır.
+Çözüm yapay işlemler, ağ durumunu değerlendirmek için kullanır. Log Analytics aracılarını ağ exchange TCP veya ICMP Yankı çeşitli noktalarında birbiriyle yüklü. Aracıları TCP veya ICMP Yankı kullanıp izlemek için seçtiğiniz protokolde bağlıdır. İşlem sırasında aracılar varsa gidiş dönüş süresi ve paket kaybı öğrenin. Düzenli olarak, her bir aracı ayrıca diğer aracılara test edilmelidir ağdaki tüm çeşitli yollarını bulmak için bir izleme yolu yapar. Bu verileri kullanarak, aracıları ağ gecikme süresi ve paket kaybı rakamları çıkarabilir. Testler, her beş saniyede bir yinelenir. Log Analytics hizmetine ıntune'ye yüklenmeden önce veriler yaklaşık üç dakika Aracılar tarafından toplanır.
 
 
 
@@ -259,7 +259,7 @@ Ağ Performansı İzleyicisi uyarı yeteneklerini kullanır [Azure İzleyici](ht
 
 Tüm bildirimler kullanılarak yönetilir yani [Eylem grupları](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups#overview).  
 
-OMS aracılığıyla bir uyarı oluşturan bir NPM kullanıcı varsa: 
+Log Analytics aracılığıyla bir uyarı oluşturan bir NPM kullanıcı varsa: 
 1. Azure Portalı'na yönlendireceği bir bağlantı görürsünüz. Portala erişmek için tıklayın.
 2. Ağ Performansı İzleyicisi çözüm kutucuğa tıklayın. 
 3. Gezinme yapılandırmak için.  

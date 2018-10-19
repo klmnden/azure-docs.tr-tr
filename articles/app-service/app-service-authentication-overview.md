@@ -14,12 +14,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 08/24/2018
 ms.author: mahender,cephalin
-ms.openlocfilehash: 46f8602583329a0516edb9af59e53754ca349555
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 6aa7f8c3b9d21d9c55aee3ce49f2bc140769a855
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43336813"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49408073"
 ---
 # <a name="authentication-and-authorization-in-azure-app-service"></a>Azure Uygulama Hizmeti’nde kimlik doğrulaması ve yetkilendirme
 
@@ -63,9 +63,9 @@ App Service web uygulamaları, API'leri, yerel mobil uygulamalar veya kullanıc�
 - Kimliği doğrulanmış kullanıcının Facebook zaman tünelinde Yayınla
 - Azure Active Directory Graph API'sini ya da Microsoft Graph bile kullanıcının şirket verilerini okuyun
 
-Kimliği doğrulanan oturum için kimliği belirteçleri, erişim belirteci ve yenileme belirteçleri önbelleğe ve bunlar yalnızca ilişkili kullanıcı tarafından erişilebilir.  
-
 Genellikle toplamak, depolamak ve bu belirteçler, uygulamanızda yenileme için kod yazmanız gerekir. Belirteç Deposu ile yeni [belirteçlerini almak](app-service-authentication-how-to.md#retrieve-tokens-in-app-code) gerektiğinde bunları ve [yenilemek için App Service söyleyin](app-service-authentication-how-to.md#refresh-access-tokens) zaman haline gelmeden geçersiz. 
+
+Kimliği doğrulanan oturum için kimliği belirteçleri, erişim belirteci ve yenileme belirteçleri önbelleğe ve bunlar yalnızca ilişkili kullanıcı tarafından erişilebilir.  
 
 Uygulamanızda belirteçlerle çalışma gerekmiyorsa, belirteç deposu devre dışı bırakabilirsiniz.
 
@@ -80,7 +80,7 @@ App Service kullanan [Federasyon kimliği](https://en.wikipedia.org/wiki/Federat
 | Sağlayıcı | Oturum açma uç noktası |
 | - | - |
 | [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) | `/.auth/login/aad` |
-| [Microsoft Hesabı](../active-directory/develop/active-directory-appmodel-v2-overview.md) | `/.auth/login/microsoftaccount` |
+| [Microsoft Hesabı](../active-directory/develop/v2-overview.md) | `/.auth/login/microsoftaccount` |
 | [Facebook](https://developers.facebook.com/docs/facebook-login) | `/.auth/login/facebook` |
 | [Google](https://developers.google.com/+/web/api/rest/oauth) | `/.auth/login/google` |
 | [Twitter](https://developer.twitter.com/en/docs/basics/authentication) | `/.auth/login/twitter` |
@@ -89,7 +89,7 @@ Kimlik doğrulaması ve yetkilendirme ile bu sağlayıcılardan birini etkinleş
 
 ## <a name="authentication-flow"></a>Kimlik doğrulama akışı
 
-Kimlik doğrulama akışı, tüm sağlayıcılar için aynıdır, ancak sağlayıcının SDK'sı ile oturum açmak istediğinize bağlı olarak farklılık gösterir:
+Kimlik doğrulama akışı, tüm sağlayıcılar için aynıdır, ancak oturum sağlayıcısının SDK imzalamak istediğinize bağlı olarak farklılık gösterir:
 
 - Sağlayıcı SDK olmadan: Federasyon oturum açma için App Service uygulama atar. Sağlayıcının oturum açma sayfasının kullanıcıya sunabilir tarayıcı uygulamaları, durum genellikle budur. Ayrıca çağrıldığı için sunucu kodunu oturum açma işlemi yönetir _sunucu yönlendirilmiş akış_ veya _sunucu akışı_. Bu durumda, web uygulamaları için geçerlidir. SDK'sı App Service kimlik doğrulaması kullanıcıların oturum açmak için bir web görünümü açar çünkü Mobile Apps istemci SDK'sı kullanarak kullanıcıların oturum yerel uygulamalar için de geçerlidir. 
 - SDK'sı sağlayıcısıyla: uygulamanın kullanıcı el ile açar ve ardından App Service doğrulaması için kimlik doğrulama belirteci gönderir. Sağlayıcının oturum açma sayfasının, kullanıcıya sunmak olamaz, tarayıcı olmayan uygulamaları ile durum genellikle budur. Ayrıca çağrıldığı için uygulama kodu oturum açma işlemini yönetir _istemci yönlendirilmiş akış_ veya _istemci akışı_. Bu durumda REST API'leri için geçerli [Azure işlevleri](../azure-functions/functions-overview.md)ve JavaScript tarayıcı istemcilerinin, hem de oturum açma işleminde daha fazla esnekliğe ihtiyacınız web uygulamaları. Sağlayıcının SDK'sını kullanarak kullanıcıların oturum yerel mobil uygulamalar için de geçerlidir.
@@ -121,7 +121,7 @@ Aşağıdaki başlıklar seçenekleri açıklanmaktadır.
 
 ### <a name="allow-all-requests-default"></a>(Varsayılan) tüm isteklere izin ver
 
-Kimlik doğrulama ve yetkilendirme yönetilmiyor olarak App Service'nın (Kapalı). 
+Kimlik doğrulama ve yetkilendirme (Kapalı) App Service tarafından yönetilmez. 
 
 Kimlik doğrulama ve yetkilendirme ihtiyacınız yoksa veya kendi kimlik doğrulama ve yetkilendirme kodu yazmak istiyorsanız bu seçeneği belirleyin.
 

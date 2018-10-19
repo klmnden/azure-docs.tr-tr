@@ -10,12 +10,12 @@ ms.component: core
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 1297881373943143578695490531d147d7f5523d
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: 798960f30ae13f42c0198cf4bf63412192edc63e
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49115331"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49429839"
 ---
 # <a name="train-models-with-automated-machine-learning-in-the-cloud"></a>Bulutta otomatik machine learning ile modellerini eğitin
 
@@ -110,7 +110,7 @@ def get_data():
 
 ## <a name="configure-experiment"></a>Deneme yapılandırma
 
-Ayarlarını belirtin `AutoMLConfig`.  (Bkz: bir [parametrelerin tam listesi]() ve olası değerleri.)
+Ayarlarını belirtin `AutoMLConfig`.  (Bkz: bir [parametrelerin tam listesi](how-to-configure-auto-train.md#configure-experiment) ve olası değerleri.)
 
 Ayarlarında `run_configuration` ayarlanır `run_config` DSVM yapılandırması ve ayarları içeren bir nesne.  
 
@@ -141,7 +141,7 @@ automl_config = AutoMLConfig(task='classification',
 
 ## <a name="submit-training-experiment"></a>Eğitim denemesini gönderin
 
-Algoritma, Hiper parametre otomatik olarak seçmek için yapılandırma şimdi gönderin ve modeli eğitme. (Bilgi [ayarları hakkında daha fazla bilgi]() için `submit` yöntemi.)
+Algoritma, Hiper parametre otomatik olarak seçmek için yapılandırma şimdi gönderin ve modeli eğitme.
 
 ```python
 from azureml.core.experiment import Experiment

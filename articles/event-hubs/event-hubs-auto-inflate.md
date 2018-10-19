@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/02/2018
+ms.date: 10/18/2018
 ms.author: shvija
-ms.openlocfilehash: 32f99b43a37277e70d209f1f315dcb398c2b5931
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: 12d8f3764dc52d8e76c3fb4599f6913fc8791f73
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40004801"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49426150"
 ---
 # <a name="automatically-scale-up-azure-event-hubs-throughput-units"></a>Azure Event Hubs işleme birimleri otomatik olarak ölçeklendirme
 
@@ -27,6 +27,8 @@ Azure Event Hubs akış platformu yüksek düzeyde ölçeklenebilir bir veridir.
 
 * Veri giriş hızlarını kümesi işleme birimleri en fazla.
 * Veri çıkışı istek hızları kümesi işleme birimleri en fazla.
+
+Tüm istekleri ServerBusy hatalarla başarısız olmadan en düşük eşikten yüksek yük artırdığı durumlarda Event Hubs hizmeti verimliliğini artırır.
 
 ## <a name="how-auto-inflate-works"></a>Otomatik şişme nasıl çalışır
 
@@ -54,6 +56,10 @@ Bu seçenek etkinleştirildiğinde, işleme birimleri ile küçükten başlayabi
 Otomatik şişme kullanarak etkinleştirebilirsiniz **ölçek** portalında ayarlar bölmesini seçeneği:
  
 ![](./media/event-hubs-auto-inflate/event-hubs-auto-inflate2.png)
+
+
+> [!NOTE]
+> Uyguladığınızda otomatik şişme üretilen iş birimleri artırmak için yapılandırma, neden ve ne zaman aktarım hızını artırdık hakkında bilgiler vermemiz tanılama günlüklerinin Event Hubs hizmeti yayar. 
 
 ### <a name="enable-auto-inflate-using-an-azure-resource-manager-template"></a>Otomatik Şişme bir Azure Resource Manager şablonu kullanarak etkinleştirin
 
@@ -101,6 +107,7 @@ Bir Azure Resource Manager şablon dağıtımı sırasında otomatik şişme etk
 ```
 
 Tam şablon için bkz: [oluşturma Event Hubs ad alanı ve Şişir etkinleştir](https://github.com/Azure/azure-quickstart-templates/tree/master/201-eventhubs-create-namespace-and-enable-inflate) github'da şablonu.
+
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

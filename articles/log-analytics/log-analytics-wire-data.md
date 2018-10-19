@@ -1,6 +1,6 @@
 ---
 title: Log Analytics'te Wire Data çözümü | Microsoft Docs
-description: Sinyal verileri, Operations Manager ve Windows bağlantılı aracılar da dahil olmak üzere OMS aracılarıyla bilgisayarlardan ağ ve performans verilerini bir araya getirir. Verilerin bağıntısını sağlamanıza yardımcı olmak için ağ verileri günlük verilerinizle birleştirilir.
+description: Kablo, birleştirilmiş ağ ve performans verilerini Log Analytics aracılarını ile bilgisayarlardan verilerdir. Verilerin bağıntısını sağlamanıza yardımcı olmak için ağ verileri günlük verilerinizle birleştirilir.
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -15,20 +15,20 @@ ms.topic: conceptual
 ms.date: 10/03/2018
 ms.author: magoedte
 ms.component: na
-ms.openlocfilehash: 9ee388e8d33d293240e70ccf79ec8d3c445dffd1
-ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
+ms.openlocfilehash: 61ceea60962acc2e1ec032df49683e8a28381dd7
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48269166"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49405370"
 ---
 # <a name="wire-data-20-preview-solution-in-log-analytics"></a>Log Analytics'te Wire Data 2.0 (Önizleme) çözümü
 
 ![Wire Data sembolü](./media/log-analytics-wire-data/wire-data2-symbol.png)
 
-Sinyal verileri OMS aracısı tarafından, ortamınızda Operations Manager tarafından izlenenler de dahil olmak üzere Windows bağlantılı ve Linux bağlantılı bilgisayarlardan toplanan ağ ve performans verilerini bir araya getirir. Verilerin bağıntısını sağlamanıza yardımcı olmak için ağ verileri diğer günlük verilerinizle birleştirilir.
+Kablo, birleştirilmiş ağ ve performans verileri, ortamınızda Operations Manager tarafından izlenecek dahil olmak üzere Log Analytics aracısını ile bağlı Windows ve Linux bağlı bilgisayarlardan toplanan verilerdir. Verilerin bağıntısını sağlamanıza yardımcı olmak için ağ verileri diğer günlük verilerinizle birleştirilir.
 
-Wire Data çözümü, OMS aracısına ek olarak BT altyapınızdaki bilgisayarlara yüklediğiniz Microsoft Uyumluluk Aracılarını da kullanır. Bağımlılık Aracıları [OSI modelinde](https://en.wikipedia.org/wiki/OSI_model) 2-3 ağ düzeyleri için bilgisayarlarınıza ve bilgisayarlarınızdan gönderilen ağ verilerini, ayrıca kullanılan çeşitli protokollerle bağlantı noktalarını izler. Ardından aracılar kullanılarak veriler Log Analytics'e gönderilir.  
+Log Analytics aracısını ek olarak kablo verileri çözüm BT altyapınıza bilgisayarlara yüklemek Microsoft bağımlılık Aracısı kullanır. Bağımlılık Aracıları [OSI modelinde](https://en.wikipedia.org/wiki/OSI_model) 2-3 ağ düzeyleri için bilgisayarlarınıza ve bilgisayarlarınızdan gönderilen ağ verilerini, ayrıca kullanılan çeşitli protokollerle bağlantı noktalarını izler. Ardından aracılar kullanılarak veriler Log Analytics'e gönderilir.  
 
 >[!NOTE]
 >Hizmet eşlemesi zaten dağıtmış olan veya hizmet eşlemesi dikkate veya [VM'ler için Azure İzleyici](../monitoring/monitoring-vminsights-overview.md), yeni bir bağlantı ölçümleri veri toplamak ve iletilen verilerle karşılaştırılabilir bilgi sağlayan bir Log Analytics deposunda kümesi yok.
@@ -65,20 +65,20 @@ Wire Data verilerini Microsoft Bağımlılık Aracısı'ndan alır. Log Analytic
 | System Center Operations Manager yönetim grubu | Evet | Wire Data, bağlantılı bir [System Center Operations Manager yönetim grubunda](log-analytics-om-agents.md) Windows ve Linux aracılarından gelen verileri analiz eder ve toplar. <br><br> System Center Operations Manager aracısının doğrudan Log Analytics’e bağlanması gerekir. |
 | Azure depolama hesabı | Hayır | Wire Data verileri aracı bilgisayarlardan topladığından, Azure Depolama'dan toplayacağı veri yoktur. |
 
-Windows'da, hem System Center Operations Manager hem de Log Analytics verileri toplamak ve göndermek için Microsoft Monitoring Agent (MMA) kullanır. Bağlama bağlı olarak aracıyı System Center Operations Manager Aracısı, OMS Aracısı, Log Analytics aracısını, MMA veya doğrudan aracı olarak adlandırılır. System Center Operations Manager ve Log Analytics, MMA'nın biraz farklı sürümlerini sağlar. Bu sürümlerin her biri System Center Operations Manager'a, Log Analytics'e veya her ikisine birden raporlayabilir.
+Windows'da, hem System Center Operations Manager hem de Log Analytics verileri toplamak ve göndermek için Microsoft Monitoring Agent (MMA) kullanır. Bağlama bağlı olarak aracıyı System Center Operations Manager Aracısı, Log Analytics aracısını, MMA veya doğrudan aracı olarak adlandırılır. System Center Operations Manager ve Log Analytics, MMA'nın biraz farklı sürümlerini sağlar. Bu sürümlerin her biri System Center Operations Manager'a, Log Analytics'e veya her ikisine birden raporlayabilir.
 
 Linux üzerinde Linux için Log Analytics aracısını toplar ve Log Analytics'e veri gönderir. Kablo verileri, aracıların doğrudan Log Analytics'e bağlı olan sunucuları veya Log Analytics'e System Center Operations Manager Yönetim grupları bağlanan sunucular kullanabilirsiniz.
 
-Bağımlılık Aracısı'nın kendisi hiçbir veri iletmez ve güvenlik duvarları veya bağlantı noktalarında hiçbir değişiklik yapılmasını gerektirmez. İletilen verilerle verileri her zaman Log Analytics aracısını Log analytics'e tarafından doğrudan ya da OMS ağ geçidi üzerinden aktarılır.
+Bağımlılık Aracısı'nın kendisi hiçbir veri iletmez ve güvenlik duvarları veya bağlantı noktalarında hiçbir değişiklik yapılmasını gerektirmez. İletilen verilerle verileri her zaman Log Analytics aracısını Log analytics'e tarafından doğrudan veya Log Analytics ağ geçidi üzerinden aktarılır.
 
 ![aracı diyagramı](./media/log-analytics-wire-data/agents.png)
 
 Log Analytics'e bağlı bir yönetim grubuyla System Center Operations Manager kullanıcısıysanız:
 
 - System Center Operations Manager aracıları Log Analytics'e bağlanmak üzere İnternet'e erişirken ek yapılandırma gerekmez.
-- System Center Operations Manager aracılarınız İnternet üzerinden Log Analytics'e erişemediğinde OMS Ağ Geçidi'ni System Center Operations Manager ile çalışacak şekilde yapılandırmanız gerekir.
+- Log Analytics ağ geçidi, System Center Operations Manager aracıları, Internet üzerinden Log Analytics erişemediğinde System Center Operations Manager ile çalışacak şekilde yapılandırmanız gerekir.
 
-Windows veya Linux bilgisayarlarınızın doğrudan hizmetine bağlanamıyor, OMS ağ geçidi kullanarak Log Analytics'e bağlanmak için Log Analytics aracısını yapılandırmanız gerekir. OMS Ağ Geçidi'ni [Microsoft İndirme Merkezi](https://www.microsoft.com/download/details.aspx?id=52666)'nden indirebilirsiniz.
+Windows veya Linux bilgisayarlarınızın doğrudan hizmetine bağlanamıyor, Log Analytics aracısını Log Analytics ağ geçidini kullanarak Log Analytics'e bağlanmak için yapılandırmanız gerekir. Log Analytics ağ geçidi'nden indirebileceğiniz [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=52666).
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -211,7 +211,7 @@ Bağımlılık Aracısı, Windows çalıştıran bilgisayarlara InstallDependenc
 
 Windows çalıştıran her bilgisayara Bağımlılık Aracısı'nı yüklemek için aşağıdaki adımları kullanın:
 
-1. [Ortamınızda barındırılan Windows bilgisayarlarından veri toplama](log-analytics-windows-agent.md) başlığı altında verilen adımları izleyerek OMS Aracısı'nı yükleyin.
+1. Yükleme adımlarını izleyerek Log Analytics aracısını [ortamınızda barındırılan Windows bilgisayarlardan verileri toplama](log-analytics-windows-agent.md).
 2. Önceki bölümde verilen bağlantıyı kullanarak Windows Bağımlılık Aracısı'nı indirin ve ardından şu komutu kullanarak aracıyı çalıştırın: `InstallDependencyAgent-Windows.exe`
 3. Sihirbazı izleyerek aracıyı yükleyin.
 4. Bağımlılık Aracısı başlatılamazsa, ayrıntılı hata bilgileri için günlükleri denetleyin. Windows aracıları için günlük dizini: %Programfiles%\Microsoft Dependency Agent\logs.
@@ -237,7 +237,7 @@ Bağımlılık Aracısı Linux bilgisayarlarına kendi kendine ayıklama ikili d
 
 Her Linux bilgisayarına Bağımlılık Aracısı'nı yüklemek için aşağıdaki adımları kullanın:
 
-1. [Ortamınızda barındırılan Linux bilgisayarlarından veri toplama](log-analytics-quick-collect-linux-computer.md#obtain-workspace-id-and-key) başlığı altında verilen adımları izleyerek OMS Aracısı'nı yükleyin.
+1. Yükleme adımlarını izleyerek Log Analytics aracısını [ortamınızda barındırılan Linux bilgisayarlardan verileri toplama](log-analytics-quick-collect-linux-computer.md#obtain-workspace-id-and-key).
 2. Önceki bölümde verilen bağlantıyı kullanarak Linux Bağımlılık Aracısı'nı indirin ve ardından bunu kök olarak yüklemek için şu komutu kullanın: sh InstallDependencyAgent-Linux64.bin
 3. Bağımlılık Aracısı başlatılamazsa, ayrıntılı hata bilgileri için günlükleri denetleyin. Linux aracıları için günlük dizini: /var/opt/microsoft/dependency-agent/log.
 

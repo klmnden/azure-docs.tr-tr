@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/07/2018
 ms.author: sngun
-ms.openlocfilehash: 68eb567235897641d5d4027160f62c5aa6e7e4f9
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 26500f3e557a27046edc5c833b8c8d88ae266e68
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46963398"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49409008"
 ---
 # <a name="azure-cosmos-db-diagnostic-logging"></a>Azure Cosmos DB tanılama günlüğüne kaydetme
 
@@ -356,11 +356,14 @@ Azure Cosmos DB işlemi yapıldığını andan itibaren iki saat için tanılama
 
 Seçtiyseniz **Log Analytics'e gönderme** seçeneği tanı, tanılama günlüğü etkinleştirildiğinde iki saat içinde kapsayıcınızı verileri Log Analytics'e iletilir. Günlüğe kaydetmeyi hemen sonra Log Analytics'in merkezinde baktığınızda, herhangi bir veri görmezsiniz. Yalnızca iki saat bekleyin ve yeniden deneyin. 
 
-Günlüklerinizi görüntülemek için önce denetleyin ve Log Analytics çalışma alanınızı yeni Log Analytics sorgu dili kullanmak için yükseltilmiş varsa bkz. Denetlemek için açın [Azure portalında](https://portal.azure.com)seçin **Log Analytics** üzerinde en solda, ardından çalışma alanı adı sonraki resimde gösterildiği gibi seçin. **OMS çalışma alanı** sayfası görüntülenir:
+Günlüklerinizi görüntülemek için önce denetleyin ve Log Analytics çalışma alanınızı yeni Log Analytics sorgu dili kullanmak için yükseltilmiş varsa bkz. Denetlemek için açın [Azure portalında](https://portal.azure.com)seçin **Log Analytics** üzerinde en solda, ardından çalışma alanı adı sonraki resimde gösterildiği gibi seçin. **Log Analytics çalışma alanı** sayfası görüntülenir:
 
 ![Azure portalında log Analytics](./media/logging/azure-portal.png)
 
-Aşağıdaki iletiyi görürseniz **OMS çalışma alanı** sayfasında, çalışma alanınız Henüz yükseltme yeni dil kullanmak üzere. Yeni sorgu diline yükseltme hakkında daha fazla bilgi için bkz. [yeni günlük araması için Azure Log Analytics çalışma alanınızı yükseltme](../log-analytics/log-analytics-log-search-upgrade.md). 
+>[!NOTE]
+>OMS çalışma alanları, artık Log Analytics çalışma alanları da adlandırılır.  
+
+Aşağıdaki iletiyi görürseniz **Log Analytics çalışma alanı** sayfasında, çalışma alanınız Henüz yükseltme yeni dil kullanmak üzere. Yeni sorgu diline yükseltme hakkında daha fazla bilgi için bkz. [yeni günlük araması için Azure Log Analytics çalışma alanınızı yükseltme](../log-analytics/log-analytics-log-search-upgrade.md). 
 
 ![Log Analytics'e message yükseltme](./media/logging/upgrade-notification.png)
 

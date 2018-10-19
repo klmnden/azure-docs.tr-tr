@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: ''
+ms.date: 05/09/2018
 ms.author: haroldw
-ms.openlocfilehash: d400512c2e96e0e24bbf965b2e201adf92ccbb0f
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 39febceff58127fb9777ace6e3063fbe41605b79
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47434900"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49426456"
 ---
 # <a name="post-deployment-tasks"></a>Dağıtım sonrası görevler
 
@@ -82,7 +82,7 @@ Azure portalında:
 
   ![Uygulama kaydı](media/openshift-post-deployment/app-registration.png)
 
-6.  1. Adım'a tıklayın: API seçin ve ardından **Windows Azure Active Directory (Microsoft.Azure.ActiveDirectory)**. Tıklayın **seçin** altındaki.
+6.  1. Adım'a tıklayın: API seçin ve ardından **Azure Active Directory (Microsoft.Azure.ActiveDirectory)**. Tıklayın **seçin** altındaki.
 
   ![Uygulama kaydı API seçimi](media/openshift-post-deployment/app-registration-select-api.png)
 
@@ -174,7 +174,7 @@ OpenShift konsolunda, artık kimlik doğrulaması için iki seçenek görürsün
 
 ## <a name="monitor-openshift-with-log-analytics"></a>Log Analytics ile izleme OpenShift
 
-Log Analytics ile OpenShift izlemek için iki seçenekten birini kullanabilirsiniz: VM konağı veya OMS kapsayıcısı OMS Aracısı yükleme. Bu makalede, OMS kapsayıcısı dağıtmak için yönergeler sağlar.
+Log Analytics ile OpenShift izlemek için iki seçenekten birini kullanabilirsiniz: Log Analytics VM konağında veya Log Analytics kapsayıcı Aracısı yükleme. Bu makale, Log Analytics kapsayıcıyı dağıtmak için yönergeler sağlar.
 
 ## <a name="create-an-openshift-project-for-log-analytics-and-set-user-access"></a>Log Analytics için OpenShift proje oluşturma ve kullanıcı erişimini ayarlama
 
@@ -276,7 +276,7 @@ Gizli dizi dosyasını dağıtın:
 oc create -f ocp-secret.yml
 ```
 
-OMS Aracısı arka plan programı kümesi dağıtın:
+Log Analytics aracısını arka plan programı kümesi dağıtın:
 
 ```bash
 oc create -f ocp-omsagent.yml

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 09/18/2018
 ms.author: anithaa
-ms.openlocfilehash: 8c750937cd45e104e754335f7da51d813b8dc7ba
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 3c28181e1d1a4fd1cdac530ed8f393c7e0c7ea92
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46999656"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49426319"
 ---
 # <a name="create-change-or-delete-service-endpoint-policy-using-the-azure-portal"></a>Oluşturma, değiştirme veya Azure portalını kullanarak hizmet uç noktası İlkesi Sil
 
@@ -64,7 +64,7 @@ http://portal.azure.com adresinden Azure portalında oturum açın.
    
    ![Hizmet uç noktası ilke tanımları oluşturma](./media/virtual-network-service-endpoint-policies-portal/virtual-network-endpoint-policies-create-policydefinitionspane.PNG)
    
-5. İsteğe bağlı: Girin veya seçin, aşağıdaki bilgileri **sekmeleri**
+5. İsteğe bağlı: Girin veya seçin, aşağıdaki bilgileri **etiketleri**
    
    - Anahtar: anahtarınız için ilkeyi seçin. Örn: bölüm     
    - Değer: değer çifti için anahtarı girin. Örn: Finans

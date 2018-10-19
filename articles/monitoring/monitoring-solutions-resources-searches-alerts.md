@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 06/18/2018
 ms.author: bwren, vinagara
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8f5dba7ba1c21e33f23cf8917c93e478eadf5f88
-ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
+ms.openlocfilehash: 06c01a7c87c43931a27c03b2014995be6c2678eb
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48269539"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49409076"
 ---
 # <a name="adding-log-analytics-saved-searches-and-alerts-to-management-solution-preview"></a>Log Analytics ekleme aramaları ve Uyarıları kaydedilen yönetim çözümü (Önizleme)
 
@@ -54,7 +54,7 @@ Aşağıdaki tabloda, bu örnekte kullanılan kaynak için API sürümü listele
 
 
 ## <a name="saved-searches"></a>Kayıtlı Aramalar
-Dahil [kayıtlı aramalar](../log-analytics/log-analytics-log-searches.md) çözümünüz tarafından toplanan verileri sorgulamak için kullanıcıların bir çözümde.  Kayıtlı aramalar altında görünen **Sık Kullanılanlar** OMS portalında ve **kayıtlı aramalar** Azure portalında.  Kayıtlı bir aramayı, her uyarı için de gereklidir.   
+Dahil [kayıtlı aramalar](../log-analytics/log-analytics-log-searches.md) çözümünüz tarafından toplanan verileri sorgulamak için kullanıcıların bir çözümde.  Kayıtlı aramalar altında görünen **kayıtlı aramalar** Azure portalında.  Kayıtlı bir aramayı, her uyarı için de gereklidir.   
 
 [Log Analytics kayıtlı araması](../log-analytics/log-analytics-log-searches.md) kaynaklara sahip bir tür `Microsoft.OperationalInsights/workspaces/savedSearches` ve aşağıdaki yapıya sahiptir.  Kopyalayabilir ve bu kod parçacığı, çözüm dosyasına yapıştırın ve parametre adlarını değiştirmek için bu genel değişkenler ve parametreler içerir. 
 
@@ -90,7 +90,7 @@ Kayıtlı bir aramayı her bir özellik aşağıdaki tabloda açıklanmıştır.
 [Azure günlük uyarılarını](../monitoring-and-diagnostics/monitor-alerts-unified-log.md) düzenli aralıklarla belirtilen günlük sorguları çalıştıran Azure uyarı kuralları tarafından oluşturulur.  Sorgu sonuçlarını belirtilen ölçütlerle eşleşen, bir uyarı kaydı oluşturulur ve bir veya daha fazla eylem kullanarak çalıştırılır [Eylem grupları](../monitoring-and-diagnostics/monitoring-action-groups.md).  
 
 > [!NOTE]
-> 14 Mayıs 2018 tarihinden itibaren Azure genel bulutunda örneğini Log Analytics çalışma alanı içindeki tüm uyarılar Azure'a genişletmek otomatik olarak başlar. Bir kullanıcı, gönüllü olarak azure'a genişletme uyarılar 14 Mayıs 2018'den önce başlatabilirsiniz. Daha fazla bilgi için [genişletmek uyarıları oms'den azure'a](../monitoring-and-diagnostics/monitoring-alerts-extend.md). Uyarıları Azure'a genişletme kullanıcılar için Eylemler artık Azure Eylem grupları içinde denetlenir. Bir çalışma alanı ve onun uyarılar Azure'a genişletilir, alma veya eylemleri kullanarak eklemek [eylem grubu - Azure Resource Manager şablonu](../monitoring-and-diagnostics/monitoring-create-action-group-with-resource-manager-template.md).
+> 14 Mayıs 2018 tarihinden itibaren Azure'a genişletmek tüm Azure genel bulutunda örneğini Log Analytics çalışma alanı Uyarılardaki başladı. Daha fazla bilgi için [genişletmek uyarılar azure'a](../monitoring-and-diagnostics/monitoring-alerts-extend.md). Uyarıları Azure'a genişletme kullanıcılar için Eylemler artık Azure Eylem grupları içinde denetlenir. Bir çalışma alanı ve onun uyarılar Azure'a genişletilir, alma veya eylemleri kullanarak eklemek [eylem grubu - Azure Resource Manager şablonu](../monitoring-and-diagnostics/monitoring-create-action-group-with-resource-manager-template.md).
 
 Bir yönetim çözümüne uyarı kuralları aşağıdaki üç farklı kaynaklardan oluşur.
 
@@ -146,7 +146,7 @@ Bir zamanlama birden fazla eylem olabilir. Posta gönderme veya bir runbook baş
 Eylemler [eylem grubu] kaynak veya kaynak eylemi kullanılarak tanımlanabilir.
 
 > [!NOTE]
-> 14 Mayıs 2018 tarihinden itibaren Azure genel bulutunda örneğini Log Analytics çalışma alanı içindeki tüm uyarılar Azure'a genişletmek otomatik olarak başlar. Bir kullanıcı, gönüllü olarak azure'a genişletme uyarılar 14 Mayıs 2018'den önce başlatabilirsiniz. Daha fazla bilgi için [genişletmek uyarıları oms'den azure'a](../monitoring-and-diagnostics/monitoring-alerts-extend.md). Uyarıları Azure'a genişletme kullanıcılar için Eylemler artık Azure Eylem grupları içinde denetlenir. Bir çalışma alanı ve onun uyarılar Azure'a genişletilir, alma veya eylemleri kullanarak eklemek [eylem grubu - Azure Resource Manager şablonu](../monitoring-and-diagnostics/monitoring-create-action-group-with-resource-manager-template.md).
+> 14 Mayıs 2018 tarihinden itibaren otomatik olarak Azure'a genişletmek tüm Azure genel bulutunda örneğini Log Analytics çalışma alanı Uyarılardaki başladı. Daha fazla bilgi için [genişletmek uyarılar azure'a](../monitoring-and-diagnostics/monitoring-alerts-extend.md). Uyarıları Azure'a genişletme kullanıcılar için Eylemler artık Azure Eylem grupları içinde denetlenir. Bir çalışma alanı ve onun uyarılar Azure'a genişletilir, alma veya eylemleri kullanarak eklemek [eylem grubu - Azure Resource Manager şablonu](../monitoring-and-diagnostics/monitoring-create-action-group-with-resource-manager-template.md).
 
 
 Eylem kaynağı tarafından belirtilen iki tür vardır **türü** özelliği.  Bir zamanlama gerektiren **uyarı** uyarı kuralı ve bir uyarı oluşturulduğunda ne Eylemler gerçekleştirildikçe ayrıntılarını tanımlayan eylem. Eylem kaynaklara sahip bir tür `Microsoft.OperationalInsights/workspaces/savedSearches/schedules/actions`.  
@@ -242,7 +242,7 @@ Kimin uyarılarını - Azure'a genişletilmiş kullanıcının için bir zamanla
 Her zamanlama varsa **uyarı** eylem.  Bu, uyarı ve isteğe bağlı olarak bildirim ve düzeltme eylemlerinin ayrıntılarını tanımlar.  Bir bildirim, bir veya daha fazla adreslere bir e-posta gönderir.  Bir düzeltme algılanan sorunu düzeltme girişiminde Azure Automation'da bir runbook başlatır.
 
 > [!NOTE]
-> 14 Mayıs 2018 tarihinden itibaren Azure genel bulutunda örneğini Log Analytics çalışma alanı içindeki tüm uyarılar Azure'a genişletmek otomatik olarak başlar. Bir kullanıcı, gönüllü olarak azure'a genişletme uyarılar 14 Mayıs 2018'den önce başlatabilirsiniz. Daha fazla bilgi için [genişletmek uyarıları oms'den azure'a](../monitoring-and-diagnostics/monitoring-alerts-extend.md). Uyarıları Azure'a genişletme kullanıcılar için Eylemler artık Azure Eylem grupları içinde denetlenir. Bir çalışma alanı ve onun uyarılar Azure'a genişletilir, alma veya eylemleri kullanarak eklemek [eylem grubu - Azure Resource Manager şablonu](../monitoring-and-diagnostics/monitoring-create-action-group-with-resource-manager-template.md).
+> 14 Mayıs 2018 tarihinden itibaren otomatik olarak Azure'a genişletmek tüm Azure genel bulutunda örneğini Log Analytics çalışma alanı Uyarılardaki başladı. Daha fazla bilgi için [genişletmek uyarılar azure'a](../monitoring-and-diagnostics/monitoring-alerts-extend.md). Uyarıları Azure'a genişletme kullanıcılar için Eylemler artık Azure Eylem grupları içinde denetlenir. Bir çalışma alanı ve onun uyarılar Azure'a genişletilir, alma veya eylemleri kullanarak eklemek [eylem grubu - Azure Resource Manager şablonu](../monitoring-and-diagnostics/monitoring-create-action-group-with-resource-manager-template.md).
 
 ##### <a name="emailnotification"></a>EmailNotification
  Bu bölümde, isteğe bağlı bir veya daha fazla alıcıya e-posta göndermek için uyarı istiyorsanız bunu ekleyin.

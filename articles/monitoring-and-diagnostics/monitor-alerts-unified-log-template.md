@@ -8,21 +8,21 @@ ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: 6096833381db7ef0d2f011d517aaad4ae63ce4d6
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 6ec07d02e61d50aa588d75ba7337eb9237e11207
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45576876"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49402906"
 ---
 # <a name="create-a-log-alert-with-a-resource-manager-template"></a>Resource Manager şablonu ile günlük uyarısı oluşturma
 Bu makalede nasıl yönetebileceğinizi gösterir [günlük uyarıları](monitor-alerts-unified-log.md) ölçekte Azure kullanarak program aracılığıyla [Azure Resource Manager şablonu](..//azure-resource-manager/resource-group-authoring-templates.md) aracılığıyla [Azure Powershell](../azure-resource-manager/resource-group-template-deploy.md) ve [Azure CLI](../azure-resource-manager/resource-group-template-deploy-cli.md). Şu anda Azure uyarıları destekleyen sorgularından uyarılarda oturum [Azure Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md) ve [Azure Application Insights](../application-insights/app-insights-analytics-tour.md).
 
 ## <a name="managing-log-alert-on-log-analytics"></a>Log Analytics günlük uyarı yönetme
-Günlük Uyarı [Azure Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md) içine tümleştirilmiştir [deneyimi yeni Azure uyarıları](monitoring-overview-unified-alerts.md); yine de Log Analytics API'leri çalıştırır ve yönetmekiçindahaöncekullanılanşemaileuyumlulukkalır[uyarılar OMS portalında](..//log-analytics/log-analytics-alerts-creating.md).
+Günlük Uyarı [Azure Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md) içine tümleştirilmiştir [deneyimi yeni Azure uyarıları](monitoring-overview-unified-alerts.md); yine de Log Analytics API'leri çalışır ve daha önce kullanılan şema ile uyumlu kalır.
 
 > [!NOTE]
-> 14 Mayıs 2018 tarihinden itibaren bir çalışma alanındaki tüm uyarıları Azure'a genişletmek otomatik olarak başlar. Bir kullanıcı, gönüllü olarak azure'a genişletme uyarılar 14 Mayıs 2018'den önce başlatabilirsiniz. Daha fazla bilgi için [genişletmek uyarıları oms'den azure'a](monitoring-alerts-extend.md). 
+> 14 Mayıs 2018 tarihinden itibaren otomatik olarak Azure'a genişletmek tüm çalışma alanı Uyarılardaki başladı. Daha fazla bilgi için [genişletmek uyarılar azure'a](monitoring-alerts-extend.md). 
 
 ### <a name="using-azure-resource-manager-template"></a>Azure Resource Manager şablonu kullanma
 Günlük uyarıları için Log Analytics kayıtlı bir aramayı düzenli aralıklarla çalıştıran uyarı kuralları tarafından oluşturulur. Sorgu eşleşmenin sonuçlarını ölçütleri belirtilirse, bir uyarı kaydı oluşturulur ve bir veya daha fazla Eylemler çalıştırılır. 

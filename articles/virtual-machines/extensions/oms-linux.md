@@ -15,18 +15,21 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: roiyz
-ms.openlocfilehash: bab579b540dbeed8ecbff8925547509edb1d78c9
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: dc0d7857dbbbdc862878201ba9d47632d2b5affd
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49352385"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49404860"
 ---
 # <a name="log-analytics-virtual-machine-extension-for-linux"></a>Linux için sanal makine uzantısı Analytics oturum
 
 ## <a name="overview"></a>Genel Bakış
 
 Log Analytics bulut izleme, uyarı ve uyarı düzeltme özellikleri sağlar ve şirket içinde varlıklar. Linux için Log Analytics aracısını sanal makine uzantısı yayımlandı ve Microsoft tarafından desteklenmiyor. Uzantı, Azure sanal makinelerinde Log Analytics aracısını yükler ve sanal makinelerin mevcut bir Log Analytics çalışma alanına kaydeder. Bu belge, desteklenen platformlar, yapılandırmaları ve Linux için Log Analytics VM uzantısı için dağıtım seçenekleri açıklanmaktadır.
+
+>[!NOTE]
+>Azure İzleyici devam eden Microsoft Operations Management Suite (OMS) gelen geçiş işleminin bir parçası olarak için OMS aracısını Windows veya Linux için Windows ve Log Analytics aracısını Linux için Log Analytics aracısını olarak adlandırılır.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -210,13 +213,13 @@ Uzantı yürütme çıkış aşağıdaki dosyasına kaydedilir:
 | 9 | Etkinleştirme beklenenden önce çağırılır | [Azure Linux aracısını güncelleştirme](https://docs.microsoft.com/azure/virtual-machines/linux/update-agent) kullanılabilir en son sürüme için. |
 | 10 | VM, Log Analytics çalışma alanınıza zaten bağlı | VM uzantısı şemasında belirtilen çalışma alanına bağlanmak için stopOnMultipleConnections genel ayarları false olarak ayarlayın veya bu özelliği kaldırın. Bu VM için bağlı her bir çalışma alanı için bir kez faturalandırılır. |
 | 11 | Uzantı için sağlanan geçersiz yapılandırma | Dağıtım için gerekli tüm özellik değerlerini ayarlamak için Yukarıdaki örneklerde izleyin. |
-| 17 | OMS paket yükleme hatası | 
+| 17 | Günlük analizi paket yükleme hatası | 
 | 19 | OMI paket yükleme hatası | 
 | 20 | SCX paket yükleme hatası |
 | 51 | Bu uzantı sanal makinenin işletim sistemi üzerinde desteklenmiyor | |
-| 55 | Bağlantı kurulamıyor OMS hizmetine veya gerekli paketleri eksik ya da dpkg Paket Yöneticisi kilitli| Sistem ya da Internet erişimi veya geçerli bir HTTP proxy'sinin sağlanan sahip olmadığını denetleyin. Ayrıca, çalışma alanı kimliği doğruluğunu denetleyin ve curl ve tar yardımcı programları yüklü olmadığını doğrulayın. |
+| 55 | Bağlantı kurulamıyor Log Analytics hizmetine veya gerekli paketleri eksik veya dpkg Paket Yöneticisi kilitli| Sistem ya da Internet erişimi veya geçerli bir HTTP proxy'sinin sağlanan sahip olmadığını denetleyin. Ayrıca, çalışma alanı kimliği doğruluğunu denetleyin ve curl ve tar yardımcı programları yüklü olmadığını doğrulayın. |
 
-Ek bilgiler bulunabilir [Linux için OMS Aracısı sorun giderme kılavuzu](../../log-analytics/log-analytics-azure-vmext-troubleshoot.md).
+Ek bilgiler bulunabilir [Log Analytics aracısı için Linux sorun giderme kılavuzu](../../log-analytics/log-analytics-azure-vmext-troubleshoot.md).
 
 ### <a name="support"></a>Destek
 

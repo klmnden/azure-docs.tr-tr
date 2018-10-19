@@ -1,6 +1,6 @@
 ---
-title: Ağ Performansı İzleyicisi Azure ExpressRoute bağlantı hatları için yapılandırma | Microsoft Docs
-description: Bulut tabanlı ağ (NPM) Azure ExpressRoute bağlantı hatları için izleme yapılandırın. Bu, ExpressRoute özel eşleme ve Microsoft eşlemesi üzerinde izleme kapsar.
+title: Azure ExpressRoute bağlantı hatları için Ağ Performansı İzleyicisi'ni yapılandırma | Microsoft Docs
+description: Bulut tabanlı ağ (NPM) Azure ExpressRoute bağlantı hatları için izlemeyi yapılandırın. Bu, ExpressRoute özel eşlemesini ve Microsoft eşlemesi izleme kapsar.
 documentationcenter: na
 services: expressroute
 author: cherylmc
@@ -14,260 +14,260 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/28/2018
 ms.author: cherylmc
-ms.openlocfilehash: 47f219b7319e4d2bbadf03954f7bd7f6f39da3b4
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: d334fdba48f248bb7989c2b549517413b1ef793c
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37128988"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49404350"
 ---
 # <a name="configure-network-performance-monitor-for-expressroute"></a>ExpressRoute için Ağ Performansı İzleyicisi’ni Yapılandırma
 
-Ağ Performans İzleyicisi'ni (NPM) izleme Azure bulut dağıtımları ve şirket içi konumlara (şube ofisleri, vb.) arasında bağlantı izler çözümü bir bulut tabanlı bir ağdır. NPM günlük analizi bir parçasıdır. NPM, özel eşliği ya da Microsoft eşlemesi kullanmak üzere yapılandırılmış ExpressRoute bağlantı hatları ağ performansını izlemenize izin verir ExpressRoute için uzantı sunar. ExpressRoute için NPM yapılandırma ağ sorunları belirlemek ve gidermek için algılayabilir. Bu hizmet ayrıca Azure bulutu için kullanılabilir.
+Ağ Performansı İzleyicisi'ni (NPM) izleme çözümü, Azure bulut dağıtımları ve (şube ofisleri, vb.) ile şirket içi konumlar arasında bağlantı izleyen bir bulut tabanlı bir ağdır. NPM Log analytics'in bir parçasıdır. NPM özel eşleme veya Microsoft eşlemesi kullanmak üzere yapılandırılmış ExpressRoute devrelerine ağ performansını izlemenize olanak tanıyan ExpressRoute için bir uzantı sunar. ExpressRoute için NPM yapılandırma belirlemek ve gidermek için ağ sorunlarını algılayabilir. Bu hizmet, Azure kamu bulutu için de kullanılabilir.
 
 Şunları yapabilirsiniz:
 
-* Çeşitli Vnet'lerde kaybı ve gecikme izlemek ve uyarıları ayarlama
+* Çeşitli sanal ağlarda kayıp ve gecikme süresi izleme ve uyarılar ayarlayın
 
-* Ağdaki tüm yolları (yedekli yollar dahil) izleme
+* Ağdaki tüm yolları (yedekli yolları dahil) izleme
 
-* Çoğaltma zor olan geçici ve zaman içinde nokta ağ sorunlarını giderme
+* Çoğaltması zor olan geçici ve zaman içinde nokta ağ sorunlarını giderme
 
-* İçin performans sorumlu olduğu ağ üzerindeki belirli bir segmentle belirlemenize yardımcı olması
+* Yardımcı bir ağdaki performansın düşmesine neden olan segmenti belirleme
 
-* Sanal ağ başına (her bir Vnet'teki yüklü aracılar varsa) Al
+* (Her bir sanal ağda yüklü aracılar varsa) sanal ağ başına aktarım hızı alma
 
 * Zaman içinde önceki bir noktaya ExpressRoute sistem durumundan bakın
 
 ## <a name="workflow"></a>İş akışı
 
-İzleme aracıları birden fazla sunucuda, yüklü olduğu her iki şirket içi ve Azure. Aracıları birbirleri ile iletişim kurmak, ancak veri gönderme, TCP el sıkışma paketleri gönderir. Ağ topolojisi ve trafik alabilir yolu eşlemek Azure aracılar arasındaki iletişimi sağlar.
+İzleme aracılarının yüklü birden fazla sunucuda, hem şirket içinde ve azure'da. Aracıların birbirleriyle iletişim, ancak veri gönderme, bunlar TCP el sıkışması paketleri gönder. Azure ağ topolojisi ve trafik alabilir yolu eşlemek aracılar arasındaki iletişimi sağlar.
 
-1. Bir NPM çalışma alanı oluşturun. Bu OMS çalışma aynıdır.
+1. Bir NPM çalışma alanı oluşturun. Bir Log Analytics çalışma alanı ile aynı olmasıdır.
 2. Yükleme ve yazılım aracıları yapılandırma: 
-    * Şirket içi sunucularda ve Azure sanal makinelerini (özel eşleme için) izleme aracısını yükleyin.
-    * İzleme aracılarıyla iletişim kurmak için izin vermek için izleme Aracısı sunucularında ayarlarını yapılandırın. (Güvenlik Duvarı bağlantı noktaları, vb. açın.)
-3. İzleme Aracısı ile şirket içi iletişim kurmak için Azure vm'lerinde yüklü izin vermek için ağ güvenlik grubu (NSG) kurallarını yapılandırma izleme aracıları.
-4. İzleme işlevini ayarlama: Otomatik bulma ve hangi ağların NPM içinde görünür yönetin.
+    * Şirket içi sunucular ve Azure Vm'leri (özel eşdüzey hizmet sağlama için) izleme aracılarını yükleyin.
+    * İzleme aracılarını iletişim kurmasına izin vermek için izleme Aracısı sunucularında ayarlarını yapılandırın. (Açık güvenlik duvarı bağlantı noktaları, vb.)
+3. İzleme Aracısı ile şirket içi iletişim kurmak için Azure sanal makinelerinde yüklü izin vermek için ağ güvenlik grubu (NSG) kurallarını yapılandırın izleme aracılarını.
+4. İzlemeyi ayarlama: otomatik olarak bulmak ve hangi ağları'nde NPM görülebilir yönetin.
 
-Diğer nesneler veya hizmetlerini izlemek için Ağ Performansı İzleyicisi zaten kullanıyorsanız ve çalışma alanı desteklenen bölgelerinden birinde zaten varsa, adım 1 ve 2. adımı atlayın ve yapılandırmanızı 3. adım ile başlayın.
+Diğer nesneler veya hizmetlerini izlemek için Ağ Performansı İzleyicisi zaten kullanıyorsanız ve çalışma alanı desteklenen bölgelerden birinde zaten varsa, adım 1 ve 2. adımı atlayın ve yapılandırmanızı 3. adım ile başlar.
 
 ## <a name="configure"></a>1. adım: bir çalışma alanı oluşturma
 
-ExpressRoute circuit(s) sanal ağlara bağlantı sahip Abonelikteki bir çalışma alanı oluşturun.
+Bir ExpressRoute devreden sanal ağ bağlantısı olan aboneliği bir çalışma alanı oluşturun.
 
-1. İçinde [Azure portal](https://portal.azure.com), sanal ağlar sahip aboneliği seçin, expressroute bağlantı hattı eşlenen. Ardından, hizmet listesini arama **Market** 'Ağ Performans İzleyicisi'. Return açmak için tıklatın **Ağ Performansı İzleyicisi** sayfası.
+1. İçinde [Azure portalında](https://portal.azure.com), sanal ağlar'ı içeren aboneliği seçin ExpressRoute devreniz eşlenmiş. Ardından, hizmet listesinde arama **Market** 'Ağ Performans İzleyicisi'. İade içinde açmak için tıklayın **Ağ Performansı İzleyicisi** sayfası.
 
    >[!NOTE]
-   >Yeni bir çalışma alanı oluşturun veya varolan bir çalışma alanını kullanın. Varolan bir çalışma alanı kullanmak isterseniz, yeni sorgu dili çalışma geçirildiğinden emin emin olmanız gerekir. [Daha fazla bilgi...](https://docs.microsoft.com/azure/log-analytics/log-analytics-log-search-upgrade)
+   >Yeni bir çalışma alanı oluşturun veya mevcut bir çalışma alanını kullanın. Mevcut bir çalışma alanı kullanmak istiyorsanız, yeni sorgu diline çalışma geçirildiğinden emin emin olmanız gerekir. [Daha fazla bilgi...](https://docs.microsoft.com/azure/log-analytics/log-analytics-log-search-upgrade)
    >
 
    ![portal](.\media\how-to-npm\3.png)<br><br>
-2. Ana sonundaki **Ağ Performansı İzleyicisi** sayfasında, **oluşturma** açmak için **Ağ Performansı İzleyicisi - oluştur yeni çözüm** sayfası. Tıklatın **OMS çalışma alanı - çalışma alanı seçin** çalışma sayfasını açın. Tıklatın **+ oluştur yeni çalışma** çalışma sayfasını açın.
-3. Üzerinde **OMS çalışma** sayfasında, **Yeni Oluştur**, aşağıdaki ayarları yapılandırın:
+2. Ana sayfanın alt kısmında **Ağ Performansı İzleyicisi** sayfasında **Oluştur** açmak için **Ağ Performansı İzleyicisi - yeni çözüm Oluştur** sayfası. Tıklayın **Log Analytics çalışma alanı - çalışma alanı seçin** çalışma sayfasını açın. Tıklayın **+ oluştur yeni çalışma alanı** çalışma sayfasını açın.
+3. Üzerinde **Log Analytics çalışma alanı** sayfasında **Yeni Oluştur**, aşağıdaki ayarları yapılandırın:
 
-  * OMS çalışma alanı - çalışma alanınız için bir ad yazın.
-  * Abonelik - yeni çalışma alanı ile ilişkilendirmek istediğiniz seçin, birden çok aboneliğiniz varsa.
-  * Kaynak grubu - bir kaynak grubu oluşturabilir veya mevcut bir kullanabilirsiniz.
-  * Konumu - bu konum, aracı bağlantı günlükleri için kullanılan depolama hesabı konumunu belirtmek için kullanılır.
-  * Fiyatlandırma katmanı - fiyatlandırma katmanı seçin.
+  * Log Analytics çalışma alanı - çalışma alanınız için bir ad yazın.
+  * Abonelik - yeni çalışma alanı ile ilişkilendirmek istediğiniz seçin, birden fazla aboneliğiniz varsa.
+  * Kaynak grubu - kaynak grubu oluşturun veya var olanı kullanın.
+  * Konumu - bu konum, aracı bağlantı günlükleri için kullanılan depolama hesabı konumu belirtmek için kullanılır.
+  * Fiyatlandırma katmanı - fiyatlandırma katmanını seçin.
   
     >[!NOTE]
-    >Expressroute bağlantı hattı dünyada herhangi bir yere olabilir. Çalışma alanı ile aynı bölgede olması gerekmez.
+    >ExpressRoute bağlantı hattı, dünyanın herhangi bir yerde olabilir. Çalışma alanı ile aynı bölgede olması gerekmez.
     >
   
     ![çalışma alanı](.\media\how-to-npm\4.png)<br><br>
-4. Tıklatın **Tamam** kaydetmek ve ayarları şablonu dağıtmak için. Şablon doğrular sonra tıklayın **oluşturma** çalışma dağıtmak için.
-5. Çalışma alanı dağıtıldıktan sonra gidin **NetworkMonitoring(name)** oluşturduğunuz kaynak. Ayarları doğrulayın ve ardından **çözüm ek yapılandırma gerektirir**.
+4. Tıklayın **Tamam** kaydedip ayarları şablonu dağıtmak için. Şablon doğrulama bitince **Oluştur** çalışma dağıtılacak.
+5. Çalışma alanı dağıtıldıktan sonra gidin **NetworkMonitoring(name)** oluşturduğunuz kaynak. Ayarları doğrulayın ve ardından tıklayın **çözüm ek yapılandırma gerektirir**.
 
-   ![ek yapılandırma](.\media\how-to-npm\5.png)
+   ![Ek yapılandırma](.\media\how-to-npm\5.png)
 
-## <a name="agents"></a>2. adım: Yükleme ve aracıları yapılandırma
+## <a name="agents"></a>2. adım: Yükleme ve aracılarını yapılandırma
 
-### <a name="download"></a>2.1: Aracısı kurulum dosyasını karşıdan yükleyin
+### <a name="download"></a>2.1: aracı kurulum dosyasını indirin
 
-1. Git **ortak ayarları** sekmesinde **ağ Performans İzleyicisi'ni yapılandırma** kaynağınız için sayfa. Sunucunuzun işlemcisine karşılık gelen Aracısı'nı **OMS aracıları Yükle** bölümünde ve kurulum dosyasını karşıdan yükleyin.
-2. Ardından, kopyalama **çalışma alanı kimliği** ve **birincil anahtar** Defteri'ne.
-3. Gelen **TCP protokolü kullanılarak izleme için OMS aracıları yapılandırma** bölümünde, Powershell komut dosyasını karşıdan yükleyin. PowerShell Betiği TCP işlemler için ilgili güvenlik duvarı bağlantı noktasını açın yardımcı olur.
+1. Git **ortak ayarları** sekmesinde **Ağ Performansı İzleyicisi Yapılandırması** kaynağınızın sayfası. Sunucunuzun işlemci karşılık gelen Aracısı **Log Analytics aracılarını yükleme** bölümünde ve kurulum dosyasını indirirsiniz.
+2. Ardından, kopyalama **çalışma alanı kimliği** ve **birincil anahtar** not defteri için.
+3. Gelen **yapılandırma Log Analytics aracılarını TCP protokolünü kullanılarak izleme için** bölümünde, Powershell betiği indirin. PowerShell betiğini TCP işlemler için ilgili güvenlik duvarı bağlantı noktası açmanıza yardımcı olur.
 
   ![PowerShell betiği](.\media\how-to-npm\7.png)
 
-### <a name="installagent"></a>2.2: İzleme Aracısı her izleme sunucusuna (izlemek istediğiniz her bir VNET'teki) yükleyin
+### <a name="installagent"></a>2.2: İzleme Aracısı her izleme sunucusuna (izlemek istediğiniz her VNET) yükleyin
 
-ExpressRoute bağlantı artıklık (örneğin, şirket içi, Azure sanal ağlar) için her iki tarafında en az iki aracı yüklemenizi öneririz. Aracı bir Windows sunucusuna yüklenmesi gerekir (2008 SP1 veya üstü). Windows masaüstü işletim sistemi ve Linux işletim sistemi kullanarak ExpressRoute bağlantı hatları izleme desteklenmiyor. Aracıları yüklemek için aşağıdaki adımları kullanın:
+ExpressRoute bağlantı yedeklilik (örneğin, şirket içi, Azure sanal ağları) için her iki tarafında en az iki aracı yüklemenizi öneririz. Aracı bir Windows sunucusuna yüklenmesi gerekir (2008 SP1 veya üzeri). Windows masaüstü işletim sistemi ve Linux işletim sistemi kullanarak ExpressRoute bağlantı hatları izleme desteklenmiyor. Aracıları yüklemek için aşağıdaki adımları kullanın:
    
   >[!NOTE]
-  >Aracıları SCOM tarafından gönderilen (içeren [MMA](https://technet.microsoft.com/library/dn465154(v=sc.12).aspx)) Azure üzerinde barındırılan konumlarına tutarlı bir şekilde belirlemek mümkün olmayabilir. Bu aracıları Azure Vnet'lerde ExpressRoute izlemek için kullanmamanızı öneririz.
+  >Aracıları SCOM tarafından gönderilen (içerir [MMA](https://technet.microsoft.com/library/dn465154(v=sc.12).aspx)) Azure'da barındırılıyorsa konumlarına tutarlı bir şekilde algılamak mümkün olmayabilir. Bu aracıları Azure sanal ağları ExpressRoute izlemek için kullanmamanızı öneririz.
   >
 
-1. Çalıştırma **Kurulum** ExpressRoute izleme için kullanmak istediğiniz her sunucuda aracıyı yüklemek için. İzleme için kullanacağınız sunucu bir VM ya da şirket içi ya da olabilir ve Internet erişimi olması gerekir. Azure'da izlemek istediğiniz her ağ kesimindeki en az bir aracı şirket içi ve bir aracı yüklemeniz gerekir.
+1. Çalıştırma **Kurulum** ExpressRoute izleme için kullanmak istediğiniz her sunucuda aracıyı yüklemek için. İzleme için kullandığınız sunucunun bir VM veya şirket içinde ya da olabilir ve Internet erişimi olmalıdır. Azure'da izlemek istediğiniz her bir ağ kesimindeki en az bir aracı şirket içi ve bir aracı yüklemeniz gerekir.
 2. **Hoş Geldiniz** sayfasında **İleri**'ye tıklayın.
-3. Üzerinde **Lisans Koşulları'nı** sayfasında, lisans okuyun ve ardından **ediyorum**.
-4. Üzerinde **hedef klasörü** sayfasında, değiştirmek veya varsayılan yükleme klasörünü ve ardından **sonraki**.
-5. Üzerinde **aracı Kur Seçenekleri** sayfasında, Azure günlük analizi veya Operations Manager Aracısı bağlanmak seçebilirsiniz. Veya aracıyı daha sonra yapılandırmak istiyorsanız seçimleri boş bırakabilirsiniz. Selection(s) yaptıktan sonra tıklatın **sonraki**.
+3. Üzerinde **lisans koşulları** sayfasında, lisansı okuyun ve ardından **ediyorum**.
+4. Üzerinde **hedef klasör** sayfasında, değiştirin veya varsayılan yükleme klasörünü tutun ve ardından **sonraki**.
+5. Üzerinde **Aracı Kurulum Seçenekleri** sayfasında seçebilirsiniz aracıyı Azure Log Analytics veya Operations Manager bağlanmak. Veya aracıyı daha sonra yapılandırmak istiyorsanız seçimleri boş bırakabilirsiniz. Seçiminizi yaptıktan sonra tıklayın **sonraki**.
 
-  * Bağlanmak seçerseniz **Azure günlük analizi**, yapıştırma **çalışma alanı kimliği** ve **çalışma alanı anahtarı** (birincil anahtar, önceki bölümde Defteri'ne kopyaladığınız). Ardından **İleri**'ye tıklayın.
+  * Bağlanmak seçerseniz, **Azure Log Analytics**, Yapıştır **çalışma alanı kimliği** ve **çalışma alanı anahtarı** (birincil anahtar, önceki bölümde Defteri'ne kopyaladığınız). Ardından **İleri**'ye tıklayın.
 
     ![Kimliği ve anahtarı](.\media\how-to-npm\8.png)
-  * Bağlanmak seçerseniz **Operations Manager**, **yönetim grubu Yapılandırması** sayfasında, **yönetim grubu adı**, **yönetim sunucusu** ve **yönetim sunucusu bağlantı noktası**. Ardından **İleri**'ye tıklayın.
+  * Bağlanmak seçerseniz, **Operations Manager**, **yönetim grubu Yapılandırması** sayfasında **yönetim grubu adı**, **yönetim sunucusu** ve **yönetim sunucusu bağlantı noktası**. Ardından **İleri**'ye tıklayın.
 
     ![Operations Manager](.\media\how-to-npm\9.png)
-  * Üzerinde **aracı eylem hesabı** sayfasında, ya da **yerel sistem** hesabı veya **etki alanı veya yerel bilgisayar hesabı**. Ardından **İleri**'ye tıklayın.
+  * Üzerinde **aracı eylem hesabı** sayfasında **yerel sistem** hesabı veya **etki alanı veya yerel bilgisayar hesabı**. Ardından **İleri**'ye tıklayın.
 
     ![Hesap](.\media\how-to-npm\10.png)
 6. Üzerinde **yüklemeye hazır** sayfasında, seçimlerinizi gözden geçirin ve ardından **yükleme**.
 7. **Yapılandırma başarıyla tamamlandı** sayfasında **Son**'a tıklayın.
-8. Tamamlandığında, Microsoft Monitoring Agent Denetim Masası'nda görünür. Vardır, yapılandırmanızı gözden geçirin ve aracıyı Azure günlük analizi (OMS) bağlı olduğunu doğrulayın. Bağlandığınızda, aracı belirten bir ileti görüntüler: **Microsoft Monitoring Agent Microsoft Operations Management Suite hizmetine başarıyla bağlandı**.
+8. Tamamlandığında, Microsoft Monitoring Agent Denetim Masası'nda görünür. Burada yapılandırmanızı gözden geçirin ve aracıyı Azure Log Analytics'e bağlandığını doğrulayabilirsiniz. Her ne zaman bağlandığını belirten bir ileti Aracısı gösterir: **Microsoft Monitoring Agent Microsoft Operations Management Suite hizmetine başarıyla bağlandı**.
 
 9. İzlenmesi gereken her sanal ağ için bu yordamı yineleyin.
 
-### <a name="proxy"></a>2.3: (isteğe bağlı) proxy ayarlarını yapılandır
+### <a name="proxy"></a>2.3: (isteğe bağlı) proxy ayarlarını yapılandırma
 
-Internet'e erişmek için bir web proxy kullanıyorsanız, Microsoft İzleme Aracısı için proxy ayarlarını yapılandırmak için aşağıdaki adımları kullanın. Her sunucu için aşağıdaki adımları gerçekleştirin. Yapılandırmanız gereken birden çok sunucu olması durumunda, bu işlemi otomatikleştirmek için bir betik kullanmak sizin için daha kolay olabilir. Aksi takdirde bkz [Microsoft İzleme Aracısı bir betik kullanarak proxy ayarlarını yapılandırmak için](../log-analytics/log-analytics-windows-agent.md).
+İnternet'e erişmek için bir web proxy kullanıyorsanız, Microsoft İzleme Aracısı için Ara sunucu ayarlarını yapılandırmak için aşağıdaki adımları kullanın. Her sunucu için aşağıdaki adımları gerçekleştirin. Yapılandırmanız gereken birden çok sunucu olması durumunda, bu işlemi otomatikleştirmek için bir betik kullanmak sizin için daha kolay olabilir. Öyleyse bkz [bir betik kullanarak Microsoft İzleme Aracısı için Ara sunucu ayarlarını yapılandırmak için](../log-analytics/log-analytics-windows-agent.md).
 
-Microsoft Monitoring Agent Denetim Masası'nı kullanarak proxy ayarlarını yapılandırmak için:
+Denetim Masası'nı kullanarak Microsoft İzleme Aracısı için Ara sunucu ayarlarını yapılandırmak için:
 
 1. Açık **Denetim Masası**.
 2. **Microsoft İzleme Aracısı**'nı açın.
 3. **Ara Sunucu Ayarları** sekmesine tıklayın.
-4. Seçin **bir proxy sunucu kullanacak** URL'sini yazın ve bağlantı noktası numarası, gerektiğinde. Ara sunucunuz kimlik doğrulaması gerektiriyorsa ara sunucuya erişmek için kullanıcı adını ve parolayı yazın.
+4. Seçin **proxy sunucusu kullan** URL'sini yazın ve bağlantı noktası numarası, gerektiğinde. Ara sunucunuz kimlik doğrulaması gerektiriyorsa ara sunucuya erişmek için kullanıcı adını ve parolayı yazın.
 
   ![Proxy](.\media\how-to-npm\11.png)
 
-### <a name="verifyagent"></a>2.4: Aracısı bağlanabildiğini doğrulayın
+### <a name="verifyagent"></a>2.4: aracı bağlantısını doğrulama
 
-Kolayca aracılarınızı iletişim kuran olup olmadığını doğrulayın.
+Kolayca aracılarınızı iletişim kurduğunu doğrulayabilirsiniz.
 
 1. İzleme Aracısı ile bir sunucu üzerinde açın **Denetim Masası**.
-2. Açık **Microsoft Monitoring Agent**.
-3. Tıklatın **Azure günlük analizi** sekmesi.
-4. İçinde **durum** sütun, aracı için günlük analizi başarıyla bağlandı görmelisiniz.
+2. Açık **Microsoft İzleme Aracısı**.
+3. Tıklayın **Azure Log Analytics** sekmesi.
+4. İçinde **durumu** sütun, aracı başarıyla Log Analytics'e bağlı görmelisiniz.
 
   ![durum](.\media\how-to-npm\12.png)
 
-### <a name="firewall"></a>2.5: İzleme Aracısı sunucular üzerinde güvenlik duvarı bağlantı noktalarını açın
+### <a name="firewall"></a>2.5: İzleme Aracısı sunucu güvenlik duvarı bağlantı noktalarını açmanız
 
-TCP protokolünü kullanmak için izleme aracıları iletişim kurabildiğinden emin olmak için güvenlik duvarı bağlantı noktalarını açmanız gerekir.
+TCP protokolünü kullanmak için izleme aracılarını iletişim kurabildiğinden emin olmak için güvenlik duvarı bağlantı noktalarını açmanız gerekir.
 
-Ağ Performansı İzleyicisi tarafından gerekli kayıt defteri anahtarları oluşturmak için bir PowerShell betiğini çalıştırabilirsiniz. Bu komut izleme birbirleri ile TCP bağlantıları oluşturmak için aracıları izin vermek için Windows Güvenlik duvarı kurallarını da oluşturur. Komut dosyası tarafından oluşturulan kayıt defteri anahtarlarını oturum hata ayıklama günlükleri ve günlükleri dosyasının yolunu belirtin. Ayrıca, iletişim için kullanılan Aracısı TCP bağlantı noktasını tanımlar. Bu anahtarlar için değerleri otomatik olarak komut dosyası tarafından ayarlanır. Bu anahtarları el ile değiştirmemelisiniz.
+Ağ Performansı İzleyicisi tarafından gerekli kayıt defteri anahtarları oluşturmak için bir PowerShell betiğini çalıştırabilirsiniz. Bu betik, aynı zamanda izleme aracılarını TCP bağlantıları birbirleri ile oluşturmak için izin vermek için Windows Güvenlik duvarı kuralları oluşturur. Betiği tarafından oluşturulan kayıt defteri anahtarlarını oturum hata ayıklama günlükleri ve günlük dosyasının yolunu belirtin. Ayrıca, iletişim için kullanılan Aracısı TCP bağlantı noktasını tanımlar. Bu anahtarları için değerleri otomatik olarak komut dosyası tarafından ayarlanır. Bu anahtarları el ile değiştirmemelisiniz.
 
-Bağlantı noktası 8084 varsayılan olarak açılır. Komut dosyası için ' BağlantıNoktasıNumarası' parametresi sağlayarak, özel bir bağlantı noktası kullanabilirsiniz. Ancak, bunu yaparsanız, komut dosyasını çalıştırmak tüm sunucuların aynı bağlantı noktasını belirtmeniz gerekir.
+Bağlantı noktası 8084'ü varsayılan olarak açılır. Komut dosyasının ' portNumber' parametresi sağlayarak, özel bir bağlantı noktası kullanabilirsiniz. Ancak bunu yaparsanız, komut dosyasını çalıştırmak tüm sunucuların aynı bağlantı noktasını belirtmeniz gerekir.
 
 >[!NOTE]
->'EnableRules' PowerShell komut dosyası komut çalıştırıldığı sunucuda Windows Güvenlik duvarı kuralları yapılandırır. Ağ güvenlik duvarı varsa, Ağ Performansı İzleyicisi tarafından kullanılan TCP bağlantı noktası için giden trafiğe izin verdiğinden emin olun.
+>'EnableRules' PowerShell Betiği, betiğin çalıştırıldığı sunucuda Windows Güvenlik duvarı kuralları yapılandırır. Bir ağ güvenlik duvarınız varsa, Ağ Performansı İzleyicisi tarafından kullanılan TCP bağlantı noktasının giden trafiğe izin verdiğinden emin olun.
 >
 >
 
-Aracı sunucularda yönetici ayrıcalıklarıyla bir PowerShell penceresi açın. Çalıştırma [EnableRules](https://aka.ms/npmpowershellscript) (daha önce indirdiğiniz) PowerShell komut dosyası. Herhangi bir parametre kullanmayın.
+Aracı sunucularda yönetici ayrıcalıklarıyla bir PowerShell penceresi açın. Çalıştırma [EnableRules](https://aka.ms/npmpowershellscript) (Bu, daha önce indirdiğiniz) PowerShell Betiği. Herhangi bir parametre kullanmayın.
 
 ![PowerShell_Script](.\media\how-to-npm\script.png)
 
 ## <a name="opennsg"></a>3. adım: ağ güvenlik grubu kurallarını yapılandırma
 
-Azure'da Aracısı sunucuları izlemek için ağ güvenlik grubu (NSG) kuralları tarafından NPM yapay işlemler için kullanılan bağlantı noktası TCP trafiğine izin verecek şekilde yapılandırmanız gerekir. Varsayılan bağlantı noktası 8084 ' dir. Bir şirket içi ile iletişim kurmak için bir Azure VM yüklü bir izleme aracı böylece İzleme Aracısı.
+Azure'da Aracısı sunucuları izlemek için ağ güvenlik grubu (NSG) kuralları yapay işlemler için NPM tarafından kullanılan bağlantı noktası TCP trafiğine izin verecek şekilde yapılandırmanız gerekir. Varsayılan bağlantı noktası 8084 ' dir. Böylece, bir şirket içi ile iletişim kurmak için bir Azure sanal makinesinde yüklü İzleme Aracısı İzleme Aracısı.
 
 NSG hakkında daha fazla bilgi için bkz: [ağ güvenlik grupları](../virtual-network/virtual-networks-create-nsg-arm-portal.md).
 
 >[!NOTE]
->(Hem şirket içi sunucu Aracısı hem de Azure sunucu Aracısı) aracıları yüklü ve PowerShell Betiği devam etmeden önce bu adımda çalıştırdığınızdan emin olun.
+>(Hem şirket içi sunucu Aracısı hem de Azure server Aracısı) aracılarını yüklediğinizden ve bu adım ile devam etmeden önce PowerShell betiğini çalıştırdığınız emin olun.
 >
 
-## <a name="setupmonitor"></a>4. adım: eşleme bağlantıları Bul
+## <a name="setupmonitor"></a>4. adım: eşleme bağlantıları bulma
 
-1. Ağ Performansı İzleyicisi'ne genel bakış döşemeye giderek gidin **tüm kaynakları** sayfasında ve Güvenilenler listesine NPM çalışma'i tıklatın.
+1. Ağ Performansı İzleyicisi'ne genel bakış kutucuğu gidebilirsiniz **tüm kaynakları** sayfasında ve beyaz listeye NPM çalışma'ı tıklatın.
 
   ![npm çalışma](.\media\how-to-npm\npm.png)
-2. Tıklatın **Ağ Performansı İzleyicisi** Pano getirmek için genel bakış kutucuğu. Pano ExpressRoute 'yapılandırılmamış duruma' içinde olduğunu gösteren bir ExpressRoute sayfası içerir. Tıklatın **özelliği kurulum** ağ Performans İzleyicisi'ni yapılandırma sayfasını açın.
+2. Tıklayın **Ağ Performansı İzleyicisi** Pano görüntülemek için genel bakış kutucuğu. ExpressRoute 'yapılandırılmamış bir durumda' olduğunu gösterir ve ExpressRoute sayfasında, Pano içerir. Tıklayın **özellik kurulumu** Ağ Performansı İzleyicisi'ni yapılandırma sayfasını açın.
 
   ![özellik kurulumu](.\media\how-to-npm\npm2.png)
-3. Yapılandırma sayfasında, sol tarafındaki Panoda bulunan 'ExpressRoute eşlemeler' sekmesine gidin. Bundan sonra öğesini **Şimdi Bul**.
+3. Yapılandırma sayfasında, sol tarafta panelde bulunan 'ExpressRoute eşlemeleri' sekmesine gidin. Ardından, **Şimdi Bul**.
 
   ![bul](.\media\how-to-npm\13.png)
 4. Bulma tamamlandıktan sonra aşağıdaki öğeleri içeren bir liste görürsünüz:
-  * Tüm bu abonelikle ilişkili ExpressRoute circuit(s) Microsoft eşleme bağlantıları.
-  * Bu abonelikle ilişkili tüm sanal ağlara bağlanan özel eşleme bağlantıları.
+  * Tüm bu abonelikle ilişkili bir ExpressRoute devreden Microsoft eşleme bağlantıları.
+  * Tüm sanal ağlara bağlanan özel eşleme bağlantıları, bu abonelikle ilişkili.
             
-## <a name="configmonitor"></a>Adım 5: izleyiciler yapılandırma
+## <a name="configmonitor"></a>5. adım: İzleyici yapılandırma
 
-Bu bölümde, izleyicileri yapılandırın. Eşleme türü için izlemek istediğiniz adımları izleyin: **özel eşleme**, veya **Microsoft eşlemesi**.
+Bu bölümde, izleyicilerin yapılandırın. Eşleme türü için izlemek istediğiniz adımları izleyin: **özel eşdüzey hizmet sağlama**, veya **Microsoft eşlemesi**.
 
 ### <a name="private-peering"></a>Özel eşleme
 
-Özel eşleme için bulma tamamlandığında gördüğünüz kurallarını olacak benzersiz **hattı adı** ve **VNet adı**. Başlangıçta, bu kuralları devre dışı bırakılır.
+Özel eşleme için bulma işlemi tamamlandığında, gördüğünüz kurallarını olacak benzersiz **devre adına** ve **VNet adı**. Başlangıçta, bu kuralları devre dışı bırakıldı.
 
 ![rules](.\media\how-to-npm\14.png)
 
-1. Denetleme **Bu eşleme izlemek** onay kutusu.
-2. Onay kutusunu işaretleyin **etkinleştir Bu eşleme için sistem durumu izleme**.
-3. İzleme koşulları seçin. Eşik değerleri yazarak sistem durumu olayları oluşturmak üzere özel eşikler ayarlayabilirsiniz. Seçilen ağ/alt ağ çifti için seçilen eşiğin üstünde koşul değerini gider olduğunda, bir sistem durumu olayı oluşturulur.
-4. Şirket içi aracıları tıklatın **eklemek aracıları** özel eşleme bağlantısında izlemek istediğiniz şirket içi sunucuları eklemek için düğmeyi. 2. adım için bölümünde belirtilen Microsoft hizmet uç noktası bağlantınız aracıları yalnızca seçtiğinizden emin olun. Şirket içi aracıları ExpressRoute bağlantısı kullanarak uç noktaya ulaşabilmelidir olması gerekir.
+1. Denetleme **bu eşlemeyi İzle** onay kutusu.
+2. Onay kutusunu işaretleyin **etkinleştirme Bu eşleme için sistem durumu izleme**.
+3. İzleme koşulları seçin. Eşik değerleri yazarak sistem durumu olayları oluşturmak üzere özel eşikler ayarlayabilirsiniz. Seçili ağ/alt ağ çifti için seçilen eşiğin üzerinde koşul değeri gider her sistem durumu olayı oluşturulur.
+4. ON-PREM aracıları tıklayın **aracı Ekle** düğmesini özel eşleme bağlantısını izlemek istediğiniz şirket içi sunucular ekleyin. Yalnızca bağlantı bölümünde 2. adımda belirttiğiniz Microsoft hizmet uç noktası olan aracılarının seçtiğinizden emin olun. Şirket içi aracıları ExpressRoute bağlantısı kullanarak uç noktaya ulaşabilmelidir olması gerekir.
 5. Ayarları kaydedin.
-6. Kuralları etkinleştirme ve değerleri seçip izlemek istediğiniz aracıları sonra yaklaşık olarak 30-60 dakika doldurma başlamak değerleri için bekleme yoktur ve **ExpressRoute izleme** döşeme kullanılabilir hale gelir.
+6. Kuralları etkinleştirme ve değerleri ve izlemek istediğiniz aracılar seçmenin sonra yaklaşık 30-60 dakika doldurma başlamak değerler için bir bekleme yoktur ve **ExpressRoute izleme** kullanılabilir hale gelmesi için kutucuklar.
 
 ### <a name="microsoft-peering"></a>Microsoft eşlemesi
 
-Microsoft eşliği, izlemek istediğiniz Microsoft eşleme bağlantıları tıklatın ve ayarları yapılandırın.
+Microsoft eşlemesi için izlemek istediğiniz Microsoft eşleme bağlantıları tıklayın ve ayarlarını yapılandırın.
 
-1. Denetleme **Bu eşleme izlemek** onay kutusu. 
-2. (İsteğe bağlı) Hedef Microsoft Hizmeti uç noktası değiştirebilirsiniz. Varsayılan olarak, NPM hedefi olarak bir Microsoft Hizmeti uç noktası seçer. NPM, bu hedef uç nokta ExpressRoute aracılığıyla şirket içi sunucularınızı bağlantısını izler. 
-    * Bu hedef uç nokta değiştirmek için tıklatın. **(Düzenle)** altında bağlantı **hedef:**, başka bir Microsoft hizmeti hedef uç URL'leri listeden seçin.
+1. Denetleme **bu eşlemeyi İzle** onay kutusu. 
+2. (İsteğe bağlı) Hedef Microsoft hizmet uç noktası değiştirebilirsiniz. Varsayılan olarak, NPM, hedef olarak bir Microsoft Hizmeti uç noktası seçer. NPM, bu hedef uç noktasına ExpressRoute aracılığıyla şirket içi sunucularınıza bağlantısını izler. 
+    * Bu hedef uç nokta değiştirmek için tıklayın **(Düzenle)** altında bağlantı **hedef:**, başka bir Microsoft hizmeti hedef uç nokta URL'leri listesinden seçin.
       ![Hedef Düzenle](.\media\how-to-npm\edit_target.png)<br>
 
-    * Özel bir URL veya IP adresi kullanabilirsiniz. Bu seçenek özellikle Microsoft Azure Storage, SQL veritabanları ve ortak IP adreslerini sunulan Web siteleri gibi Azure PaaS Hizmetleri bağlantı kurmak için eşlemesini kullanıyorsanız geçerlidir. Bunu yapmak için bağlantıyı tıklatın **(Bunun yerine özel bir URL veya IP adresi kullanın)** genel bir uç nokta ExpressRoute Microsoft eşleme aracılığıyla bağlı Azure PaaS hizmetinizin URL listenin en altında enter.
+    * Özel URL veya IP adresi kullanabilirsiniz. Bu seçenek, Microsoft Azure PaaS hizmetlerine, Azure depolama, SQL veritabanları ve genel IP adreslerinde sunulan Web siteleri gibi bir bağlantı kurmak için eşleme kullanıyorsanız özellikle geçerlidir. Bunu yapmak için bağlantıya tıklayın **(Bunun yerine özel URL veya IP adresi kullanın)** URL listesi sonunda, ExpressRoute Microsoft eşlemesi üzerinden bağlı, Azure PaaS hizmeti genel uç noktasını girin.
     ![Özel URL](.\media\how-to-npm\custom_url.png)<br>
 
-    * Bu isteğe bağlı ayarlar kullanıyorsanız, yalnızca Microsoft Hizmeti uç noktası burada seçili olduğundan emin olun. Uç nokta şirket içi aracıları tarafından ExpressRoute bağlı ve erişilebilir olmalıdır.
-3. Onay kutusunu işaretleyin **etkinleştir Bu eşleme için sistem durumu izleme**.
-4. İzleme koşulları seçin. Eşik değerleri yazarak sistem durumu olayları oluşturmak üzere özel eşikler ayarlayabilirsiniz. Seçilen ağ/alt ağ çifti için seçilen eşiğin üstünde koşul değerini gider olduğunda, bir sistem durumu olayı oluşturulur.
-5. Şirket içi aracıları tıklatın **eklemek aracıları** Microsoft eşleme bağlantısı izlemek istediğiniz şirket içi sunucuları eklemek için düğmeyi. 2. adım için bölümünde belirtilen Microsoft hizmet uç noktalarına bağlantınız aracıları yalnızca seçtiğinizden emin olun. Şirket içi aracıları ExpressRoute bağlantısı kullanarak uç noktaya ulaşabilmelidir olması gerekir.
+    * Bu isteğe bağlı ayarlar kullanıyorsanız, yalnızca Microsoft hizmet uç noktası burada seçili olduğundan emin olun. Uç nokta, şirket içi aracıları tarafından expressroute'a bağlı ve erişilebilir olmalıdır.
+3. Onay kutusunu işaretleyin **etkinleştirme Bu eşleme için sistem durumu izleme**.
+4. İzleme koşulları seçin. Eşik değerleri yazarak sistem durumu olayları oluşturmak üzere özel eşikler ayarlayabilirsiniz. Seçili ağ/alt ağ çifti için seçilen eşiğin üzerinde koşul değeri gider her sistem durumu olayı oluşturulur.
+5. ON-PREM aracıları tıklayın **aracı Ekle** düğmesini Microsoft eşleme bağlantısını izlemek istediğiniz şirket içi sunucular ekleyin. Yalnızca bağlantı bölümünde 2. adımda belirttiğiniz Microsoft hizmet uç noktalarına sahip aracılara seçtiğinizden emin olun. Şirket içi aracıları ExpressRoute bağlantısı kullanarak uç noktaya ulaşabilmelidir olması gerekir.
 6. Ayarları kaydedin.
-7. Kuralları etkinleştirme ve değerleri seçip izlemek istediğiniz aracıları sonra yaklaşık olarak 30-60 dakika doldurma başlamak değerleri için bekleme yoktur ve **ExpressRoute izleme** döşeme kullanılabilir hale gelir.
+7. Kuralları etkinleştirme ve değerleri ve izlemek istediğiniz aracılar seçmenin sonra yaklaşık 30-60 dakika doldurma başlamak değerler için bir bekleme yoktur ve **ExpressRoute izleme** kullanılabilir hale gelmesi için kutucuklar.
 
-## <a name="explore"></a>6. adım: döşeme izleme görünümü
+## <a name="explore"></a>6. adım: kutucuk izleme görünümü
 
-İzleme döşeme gördüğünüzde, ExpressRoute bağlantı hatları ve bağlantı kaynaklarını NPM tarafından izlenen. Aşağı Microsoft Peering bağlantıları durumunu incelemek için Microsoft Peering kutucuğa tıklayabilirsiniz.
+ExpressRoute bağlantı hatları ve bağlantı kaynaklarını izleme kutucukları gördükten sonra NPM tarafından izlenmekte olan. Microsoft Peering bağlantılarının durumunu detaya gitmek için Microsoft Peering kutucuğuna tıklayabilirsiniz.
 
-![Döşeme izleme](.\media\how-to-npm\15.png)
+![kutucukları izleme](.\media\how-to-npm\15.png)
 
-### <a name="dashboard"></a>Ağ Performans İzleyicisi sayfası
+### <a name="dashboard"></a>Ağ Performansı İzleyicisi sayfası
 
-NPM sayfa ExpressRoute bağlantı hatları ve eşlemeler sistem durumu özetini gösterir ExpressRoute için bir sayfa içerir.
+NPM sayfa ExpressRoute için ExpressRoute bağlantı hatları ve eşleme durumunu genel bakışını gösteren bir sayfa içerir.
 
 ![Pano](.\media\how-to-npm\dashboard.png)
 
 ### <a name="circuits"></a>Bağlantı hatları listesi
 
-' I tıklatın, tüm listesini görüntülemek için ExpressRoute bağlantı hatları izlenen **ExpressRoute bağlantı hatları** döşeme. Bir bağlantı hattı seçin ve sistem durumu, paket kaybı, bant genişliği kullanımı ve gecikme eğilim grafikleri görüntüleyin. Grafikler etkileşimlidir. Grafikler çizdirmek için bir özel zaman penceresi seçebilirsiniz. Yakınlaştırma ve hassas veri noktaları görmek için grafikte bir alanın üzerinde fare sürükleyebilirsiniz.
+ExpressRoute bağlantı hatları izlenen tüm listesini görüntülemek için tıklayın **ExpressRoute bağlantı hatları** kutucuk. Bağlantı hattı seçin ve görüntüleme, sistem durumu, paket kaybı, bant genişliği kullanımı ve gecikme süresi eğilim grafikleri. Grafik etkileşimlidir. Bir özel zaman penceresi, grafik çizim için seçebilirsiniz. Fare yakınlaştırmak ve ayrıntılı veri noktaları görmek için grafikteki bir alanı üzerine sürükleyebilirsiniz.
 
 ![circuit_list](.\media\how-to-npm\circuits.png)
 
-#### <a name="trend"></a>Kaybı, gecikme ve verimlilik eğilimi
+#### <a name="trend"></a>Eğilim kaybı, gecikme süresi ve aktarım hızı
 
-Bant genişliği, gecikme ve kaybı grafikleri etkileşimlidir. Fare denetimlerini kullanarak bu grafikler herhangi bir bölüme yakınlaştırabilirsiniz. Tıklayarak diğer aralıkları için bant genişliği, gecikme ve kaybı verileri görebiliyor **tarih**, sol üst Eylemler düğmeyi aşağıda bulunan.
+Bant genişliği ve gecikme süresi kaybı grafik etkileşimlidir. Fare denetimlerini kullanarak bu grafiklerin herhangi bir bölüme yakınlaştırma yapabilirsiniz. Tıklayarak diğer aralıkları için bant genişliği, gecikme süresi ve kayıp veri görebilirsiniz **tarih/saat**sol üst eylem çubuğunda aşağıda bulunan.
 
 ![Eğilim](.\media\how-to-npm\16.png)
 
 ### <a name="peerings"></a>Eşlemeleri listesi
 
-Özel eşleme üzerinden sanal ağlara tüm bağlantılar, Görünüm listesine tıklayın **özel eşlemeler** döşeme Panoda. Burada, bir sanal seçebilirsiniz ağ bağlantısı ve sistem durumu, paket kaybı, bant genişliği kullanımı ve gecikme eğilim grafikleri görüntüleyin.
+Tüm özel eşdüzey hizmet sağlama üzerinden sanal ağlara bağlantılar görünümü listesine tıklayın **özel eşlemeler** Panoda kutucuk. Burada, bir sanal seçebilirsiniz, sistem durumu, paket kaybı, bant genişliği kullanımı ve gecikme süresi eğilim grafikleri görüntülemek ve ağ bağlantısı.
 
 ![bağlantı hattı listesi](.\media\how-to-npm\peerings.png)
 
-### <a name="nodes"></a>Düğümlerini görüntüleme
+### <a name="nodes"></a>Düğümleri görüntüleyin
 
-Şirket içi düğümleri seçilen ExpressRoute eşleme bağlantısı için Azure VM'ler/Microsoft hizmet uç noktaları arasındaki tüm bağlantıların Görünüm listesine tıklayın **görüntülemek düğüm bağlantıları**. Kaybına ve bunlarla ilişkilendirilmiş Gecikme Eğilimi yanı sıra her bir bağlantının sistem durumunu görüntüleyebilirsiniz.
+VM'ler/Microsoft Azure hizmet uç noktaları seçilen ExpressRoute eşleme bağlantısını için şirket içi düğümleri arasındaki tüm bağlantıların görünümünü listesine tıklayın **düğüm bağlantılarını görüntüle**. Kayıp ve gecikme süresi ilişkili eğilimini yanı sıra her bağlantı sistem durumunu görüntüleyebilirsiniz.
 
-![düğümlerini görüntüleme](.\media\how-to-npm\nodes.png)
+![düğümleri görüntüleyin](.\media\how-to-npm\nodes.png)
 
 ### <a name="topology"></a>Bağlantı hattı topolojisi
 
-Bağlantı hattı topolojisini görüntülemek için tıklatın **topoloji** döşeme. Bu seçili topoloji görünümü sürer hattı veya eşliği. Topoloji diyagramı ağdaki her segment için gecikme süresini sağlar. Her katman 3 atlama diyagramın bir düğümle temsil edilir. Atlama tıklatarak atlama hakkında daha fazla ayrıntı ortaya çıkarır.
+Bağlantı hattı topolojiyi görüntülemek için tıklayın **topolojisi** Döşe. Bu seçili topoloji görünümü için gereken bağlantı hattı veya eşleme. Topoloji diyagramı ağdaki her bir kesim gecikme sürelerini sağlar. Her katman 3 atlama diyagramın bir düğümle temsil edilir. Tıklayarak bir atlama atlama hakkında daha fazla ayrıntı ortaya çıkarır.
 
-Şirket içi atlama çubuğu aşağıdaki taşıyarak dahil etmek için görünürlük düzeyini artırabilirsiniz **filtreleri**. Kaydırıcı çubuğun sola veya sağa hareket, artar/topoloji grafikte durak sayısını azaltır. Her segment arasında gecikme yüksek gecikme kesimleri ağınızdaki daha hızlı yalıtım sağlayan, görülebilir.
+Şirket içi atlama aşağıdaki kaydırıcı çubuğunu hareket ettirerek içerecek şekilde görünürlük düzeyini artırabilir **filtreleri**. Sola veya sağa kaydırıcı çubuğunu taşımak, artar/topolojisi graftaki durak sayısını azaltır. Her bir kesim arasında gecikme süresi yüksek gecikme parçaların ağınızdaki daha hızlı yalıtım sağlayan görünür durumda.
 
 ![filtreler](.\media\how-to-npm\topology.png)
 
 #### <a name="detailed-topology-view-of-a-circuit"></a>Bir bağlantı hattının ayrıntılı topoloji görünümü
 
-Bu görünüm, VNet bağlantıları gösterir.
+Bu görünüm, sanal ağ bağlantılarını gösterir.
 ![ayrıntılı topolojisi](.\media\how-to-npm\17.png)

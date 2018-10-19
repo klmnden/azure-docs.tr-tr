@@ -12,12 +12,12 @@ ms.author: xiwu
 ms.reviewer: douglasl
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: a5792998654ed1d334e514591da3bef9805a5e79
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 712c729a214cdab66961fb399c9d797a758fcf7b
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47163367"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49409688"
 ---
 # <a name="monitor-sql-data-sync-with-log-analytics"></a>SQL Data Sync'i Log Analytics ile izleme 
 
@@ -97,7 +97,7 @@ Bir runbook oluşturma hakkında daha fazla bilgi için bkz. [ilk PowerShell run
 
     2.  Eşitleme grubu bilgileri.
 
-    3.  OMS bilgileri. OMS portalından bu bilgi | Ayarları | Bağlı kaynaklar. Verileri Log Analytics'e gönderme hakkında daha fazla bilgi için bkz. [HTTP veri toplayıcı API'sini (Önizleme) ile Log Analytics veri Gönder](../log-analytics/log-analytics-data-collector-api.md).
+    3.  Analytics bilgileri günlüğe kaydet. Azure Portalı'nda bu bilgi | Ayarları | Bağlı kaynaklar. Verileri Log Analytics'e gönderme hakkında daha fazla bilgi için bkz. [HTTP veri toplayıcı API'sini (Önizleme) ile Log Analytics veri Gönder](../log-analytics/log-analytics-data-collector-api.md).
 
 11. Runbook'u Test Bölmesi'nde çalıştırın. Başarılı olup olmadığını denetleyin.
 
@@ -117,7 +117,7 @@ Runbook zamanlama için:
 
 4.  Seçin **yeni bir zamanlama oluşturun.**
 
-5.  Ayarlama **yinelenme** yinelenen ve küme için istediğiniz zaman aralığını. Burada, aynı aralık, betik ve oms'de kullanın.
+5.  Ayarlama **yinelenme** yinelenen ve küme için istediğiniz zaman aralığını. Burada, aynı aralık, betik ve Log Analytics kullanın.
 
 6.  **Oluştur**’u seçin.
 
@@ -129,7 +129,7 @@ Otomasyon altında beklendiği gibi çalışıp çalışmadığını izlemek iç
 
 Log Analytics kullanan bir uyarı oluşturmak için aşağıdaki işlemleri yapabilirsiniz. Bir önkoşul olarak Log Analytics, Log Analytics çalışma alanı ile bağlantılı olması gerekir.
 
-1.  OMS portalında **günlük araması**.
+1.  Azure portalında **günlük araması**.
 
 2.  Hataları ve Uyarıları eşitleme grubu tarafından seçmiş aralıkta seçmek için bir sorgu oluşturun. Örneğin:
 
@@ -147,9 +147,9 @@ Log Analytics kullanan bir uyarı oluşturmak için aşağıdaki işlemleri yapa
 
 6.  **Kaydet**’e tıklayın. Hatalar oluştuğunda belirtilen alıcılara e-posta bildirimleri artık alırsınız.
 
-## <a name="create-an-oms-view-for-monitoring"></a>İzleme için bir OMS görünüm oluşturma
+## <a name="create-a-log-analytics-view-for-monitoring"></a>İzleme için bir Log Analytics görünümü oluşturma
 
-Bu adım, tüm belirtilen eşitleme gruplarını görsel olarak izlemek için bir OMS görünümü oluşturur. Görünüm çeşitli bileşenleri içerir:
+Bu adım, tüm belirtilen eşitleme gruplarını görsel olarak izlemek için Log Analytics görünümünü oluşturur. Görünüm çeşitli bileşenleri içerir:
 
 -   Tüm eşitleme gruplarını kaç hatalar, başarılar ve uyarılar sahip gösteren bir genel bakış kutucuğu.
 
@@ -157,9 +157,9 @@ Bu adım, tüm belirtilen eşitleme gruplarını görsel olarak izlemek için bi
 
 -   Her grup için grubu Eşitleme hataları, başarı ve uyarıları ve en son hata iletileri sayısını gösteren bir kutucuk.
 
-OMS görünüm yapılandırmak için şunları yapın:
+Log Analytics görünümü yapılandırmak için şunları yapın:
 
-1.  OMS giriş sayfasında, artı açmak için sol taraftaki seçin **Görünüm Tasarımcısı**.
+1.  Log Analytics'e giriş sayfasında, artı açmak için sol taraftaki seçin **Görünüm Tasarımcısı**.
 
 2.  Seçin **alma** Görünüm Tasarımcısı'nın üst çubukta. Ardından "DataSyncLogOMSView" örnek dosyasını seçin.
 

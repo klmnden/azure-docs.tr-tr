@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/25/2018
 ms.author: maheshu
-ms.openlocfilehash: 22c97da35416ba1ff593dfa5e41f557ea2ab1cc0
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
+ms.openlocfilehash: 42c27df658ae810ac31813ffb94f397a0070933f
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47182255"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49429142"
 ---
 # <a name="configure-secure-ldap-ldaps-for-an-azure-ad-domain-services-managed-domain"></a>Güvenli LDAP (LDAPS) bir Azure AD Domain Services yönetilen etki alanı için yapılandırma
 Bu makalede, Azure AD Domain Services yönetilen etki alanınıza Güvenli Basit Dizin Erişim Protokolü (LDAPS) nasıl olanak sağlayabileceğiniz açıklanmaktadır. Güvenli LDAP olan olarak da bilinen ' Basit Dizin Erişim Protokolü (LDAP) Güvenli Yuva Katmanı (SSL) üzerinden / Aktarım Katmanı Güvenliği (TLS)'.
@@ -86,7 +86,7 @@ New-SelfSignedCertificate -Subject contoso100.com `
   -Type SSLServerAuthentication -DnsName *.contoso100.com
 ```
 
-Yukarıdaki örnekte, Değiştir '*. contoso100.com' yönetilen etki alanınızın DNS etki alanı adına sahip. 'Contoso100.onmicrosoft.com' adında yönetilen bir etki alanı oluşturduysanız, for example, Değiştir '*. contoso100.com' ile önceki komut, ' *. contoso100.onmicrosoft.com').
+Yukarıdaki örnekte, 'contoso100.com' yönetilen etki alanınızın DNS etki alanı adıyla değiştirin. Örneğin, 'contoso100.onmicrosoft.com' adında yönetilen bir etki alanı oluşturduysanız, konu özniteliğinde ' contoso100.com' 'contoso100.onmicrosoft.com' ile değiştirin ve '*. contoso100.com' ile DnsName özniteliğindeki '*. contoso100.onmicrosoft.com').
 
 ![Azure AD Dizini Seçme](./media/active-directory-domain-services-admin-guide/secure-ldap-powershell-create-self-signed-cert.png)
 

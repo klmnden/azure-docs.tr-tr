@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/05/2017
 ms.author: fryu
 ms.component: common
-ms.openlocfilehash: 8fe4fdfa88a5aea4b8df49d9c00fa7f6b1768209
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: fea6ece6e40d869aea7e52718fbf07bede34e1a5
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49363444"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49406713"
 ---
 # <a name="azure-storage-metrics-in-azure-monitor"></a>Azure İzleyici’de Azure Depolama ölçümleri
 
@@ -23,7 +23,7 @@ Azure İzleyici, farklı Azure Hizmetleri genelinde izleme için birleştirilmi�
 
 ## <a name="access-metrics"></a>Erişim ölçümleri
 
-Azure İzleyici ölçümlerine erişim birden çok yol sağlar. Bunları erişebileceğiniz [Azure portalında](https://portal.azure.com), Azure İzleyici API'leri (REST ve .net) ve Operations Management Suite ve Event Hubs gibi analiz çözümleri. Daha fazla bilgi için [Azure İzleyici ölçümleri](../../monitoring-and-diagnostics/monitoring-overview-metrics.md).
+Azure İzleyici ölçümlerine erişim birden çok yol sağlar. Bunları erişebileceğiniz [Azure portalında](https://portal.azure.com), Event Hubs gibi analiz çözümleri ve Azure İzleyici API'leri (REST ve .net). Daha fazla bilgi için [Azure İzleyici ölçümleri](../../monitoring-and-diagnostics/monitoring-overview-metrics.md).
 
 Ölçümler, varsayılan olarak etkindir ve son 93 günün verilerini erişebilir. Uzun bir süre saklamak istiyorsanız ölçüm verileri bir Azure depolama hesabına arşivleyebilir. Bu yapılandırılan [tanılama ayarları](../../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) Azure İzleyici'de.
 

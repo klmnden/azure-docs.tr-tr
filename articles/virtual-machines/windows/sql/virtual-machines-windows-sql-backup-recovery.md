@@ -15,16 +15,16 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/04/2018
 ms.author: mikeray
-ms.openlocfilehash: d46c55f809d24529ea5deeb4d84de44dae876a4b
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: e0a47da168ae9371979290b3febc9d767e8755d7
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38968995"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49428020"
 ---
 # <a name="backup-and-restore-for-sql-server-in-azure-virtual-machines"></a>Azure Sanal Makineler’de SQL Server için Yedekleme ve Geri Yükleme
 
-Bu makalede Windows Azure sanal Makineler'de çalışan yedekleme ve geri yükleme seçenekleri için SQL Server hakkında yönergeler sağlanır. Azure depolama, veri kaybı veya fiziksel veri bozulmasına karşı koruma sağlamak için her Azure VM disk üç kopyasını tutar. Bu nedenle, şirket içi, donanım hatalarını üzerinde odaklanın gerekmez. Ancak, yine de yanlışlıkla veri eklemeler ve silmeleri gibi uygulama veya kullanıcıya hatalara karşı korumak için SQL Server veritabanlarını yedeklemeniz gerekir. Bu durumda, belirli bir noktaya geri yükleme önemlidir.
+Bu makalede azure'da bir Windows sanal makinesinde çalışan yedekleme ve geri yükleme seçenekleri için SQL Server hakkında yönergeler sağlanır. Azure depolama, veri kaybı veya fiziksel veri bozulmasına karşı koruma sağlamak için her Azure VM disk üç kopyasını tutar. Bu nedenle, şirket içi, donanım hatalarını üzerinde odaklanın gerekmez. Ancak, yine de yanlışlıkla veri eklemeler ve silmeleri gibi uygulama veya kullanıcıya hatalara karşı korumak için SQL Server veritabanlarını yedeklemeniz gerekir. Bu durumda, belirli bir noktaya geri yükleme önemlidir.
 
 Bu makalenin ilk bölümünü kullanılabilir yedekleme ve geri yükleme seçenekleri hakkında genel bir bakış sağlar. Bu, her stratejisi hakkında daha fazla bilgi sağlayan bir bölüm tarafından izlenir.
 
@@ -42,7 +42,7 @@ Aşağıdaki bölümlerde her seçeneği daha ayrıntılı açıklanmaktadır. B
 
 ## <a id="autoamted"></a> Otomatik yedekleme
 
-Otomatik yedekleme, otomatik bir yedekleme hizmeti için bir Windows Azure VM'de çalışan SQL Server Standard ve Enterprise sürümleri sağlar. Bu hizmet tarafından sağlanan [SQL Server Iaas Aracısı uzantısı](virtual-machines-windows-sql-server-agent-extension.md), otomatik olarak yüklendiği SQL Server Windows sanal makine görüntüleri Azure portalında üzerinde.
+Otomatik yedekleme, azure'daki bir Windows VM'de çalışan SQL Server Standard ve Enterprise sürümleri için otomatik bir yedekleme hizmeti sağlar. Bu hizmet tarafından sağlanan [SQL Server Iaas Aracısı uzantısı](virtual-machines-windows-sql-server-agent-extension.md), otomatik olarak yüklendiği SQL Server Windows sanal makine görüntüleri Azure portalında üzerinde.
 
 Tüm veritabanları, yapılandırdığınız Azure depolama hesabı için desteklenir. Yedeklemeleri şifrelenir ve 30 gün boyunca tutulur.
 
@@ -144,7 +144,7 @@ Aşağıdaki tabloda, her Azure sanal makineler'de SQL Server için yedekleme ve
 | VM üzerinde kullanıma açılan diskler için yedekleme |   |   | ![Evet](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |
 | Merkezi özelleştirilebilir yedekleme raporları |   | ![Evet](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   |
 | Hatalar için birleştirilmiş e-posta uyarıları |   | ![Evet](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   |
-| Üzerinde OMS izlemeyi özelleştirme |   | ![Evet](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   |
+| Log Analytics temelinde izlemeyi özelleştirme |   | ![Evet](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   |
 | SSMS veya Transact-SQL betikleri ile yedekleme işleri İzle | ![Evet](./media/virtual-machines-windows-sql-backup-recovery/yes.png) | ![Evet](./media/virtual-machines-windows-sql-backup-recovery/yes.png) | ![Evet](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |
 | SSMS veya Transact-SQL betikleri ile veritabanlarını geri yükleme | ![Evet](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   | ![Evet](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |
 

@@ -10,12 +10,12 @@ ms.author: jehunte
 ms.date: 03/30/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 30569c3a89de320769d433b5b3a4af9cf4e08e66
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 761bb1a6974afd5e7b851efb0c60101ab7d8958b
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47091415"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49403619"
 ---
 # <a name="manage-an-azure-virtual-machine-with-inventory-collection"></a>Bir Azure sanal makinesini stok toplama ile yönetme
 
@@ -114,6 +114,10 @@ Sanal makinenizi stok yönetiminden kaldırmak için:
 1. Azure portalının sol tarafındaki bölmeden **Log Analytics**'i ve sanal makineyi eklerken kullandığınız çalışma alanını seçin.
 2. **Log Analytics** penceresinin **Kaynak** menüsünün **Çalışma Alanı Veri Kaynakları** kategorisinden **Sanal makineler**'i seçin.
 3. Listeden bağlantısını kesmek istediğiniz sanal makineyi seçin. Sanal makinenin yanında, **OMS Bağlantısı** sütunda **Bu çalışma alanı** ifadesini içeren bir yeşil onay işareti bulunur.
+
+   >[!NOTE]
+   >OMS, artık Log Analytics da adlandırılır.
+   
 4. Sonraki sayfanın en üstünde **Bağlantıyı kes**'i seçin.
 5. Onay penceresinde **Evet**'i seçin.
     Bu eylem makinenin yönetim paneli bağlantısını keser.

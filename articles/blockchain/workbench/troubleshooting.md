@@ -10,12 +10,12 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-ms.openlocfilehash: ba6bfe8240c758806c4ff3e46ab08fdacad83db9
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: e205fce8b718e68200face33447e37cd3317298f
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48243246"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49405493"
 ---
 # <a name="azure-blockchain-workbench-troubleshooting"></a>Azure Blockchain Workbench ile ilgili sorunları giderme
 
@@ -24,7 +24,7 @@ Bir PowerShell Betiği ile hata ayıklama Geliştirici Yardımcısı veya destek
 * Ethereum gibi blok zinciri ağ
 * Blockchain Workbench'i mikro hizmetler
 * Application Insights
-* Azure (OMS) izleme
+* Azure (Log Analytics'e) izleme
 
 Sonraki adımları belirlemek ve sorunların kök nedenini belirlemek için bilgileri kullanabilirsiniz. 
 
@@ -52,9 +52,9 @@ Betiği aşağıdaki parametreleri kabul eder:
 | ResourceGroupName | Blockchain Workbench'i dağıtıldığı Azure kaynak grubunun adı. | Evet |
 | OutputDirectory | Çıkış oluşturma yolu. ZIP dosyası. Belirtilmezse, geçerli dizin için varsayılan olarak. | Hayır |
 | LookbackHours | Telemetri çekme sırasında kullanılacak saat sayısı. Varsayılan değer 24 saattir. Maksimum değer 90 saattir | Hayır |
-| OmsSubscriptionId | OMS dağıtıldığı abonelik kimliği. Blockchain Workbench'i'nın kaynak grubu dışında blok zinciri ağ için OMS dağıttıysanız Bu parametre yalnızca geçirin.| Hayır |
-| OmsResourceGroup |OMS dağıtıldığı kaynak grubu. Blockchain Workbench'i'nın kaynak grubu dışında blok zinciri ağ için OMS dağıttıysanız Bu parametre yalnızca geçirin.| Hayır |
-| OmsWorkspaceName | OMS çalışma alanı adı. Blockchain Workbench'i'nın kaynak grubu dışında blok zinciri ağ için OMS dağıttıysanız Bu parametre yalnızca başarılı | Hayır |
+| OmsSubscriptionId | Log Analytics dağıtıldığı abonelik kimliği. Blockchain Workbench'i'nın kaynak grubu dışında blok zinciri ağ için Log Analytics dağıttıysanız Bu parametre yalnızca geçirin.| Hayır |
+| OmsResourceGroup |Log Analytics dağıtıldığı kaynak grubu. Blockchain Workbench'i'nın kaynak grubu dışında blok zinciri ağ için Log Analytics dağıttıysanız Bu parametre yalnızca geçirin.| Hayır |
+| OmsWorkspaceName | Log Analytics çalışma alanı adı. Blockchain Workbench'i'nın kaynak grubu dışında blok zinciri ağ için Log Analytics dağıttıysanız Bu parametre yalnızca başarılı | Hayır |
 
 ## <a name="what-is-collected"></a>Ne toplanır?
 

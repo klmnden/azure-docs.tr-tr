@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: abshamsft
 ms.component: ''
-ms.openlocfilehash: 04e348d2b144bdb8fd626c52f990a560d76c08a2
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: fb84b20630eb63cb53ccb1d13a383ed6287b802b
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48044680"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49406628"
 ---
 # <a name="service-connectivity-monitor"></a>Hizmet Bağlantısı İzleyicisi
 
@@ -44,7 +44,7 @@ Yapılandırma için Ağ Performansı İzleyicisi'ni açmak için açık [Ağ Pe
 ![Ağ Performansı İzleyicisi'ni yapılandırma](media/log-analytics-network-performance-monitor/npm-configure-button.png)
 
 
-### <a name="configure-operations-management-suite-agents-for-monitoring"></a>Operations Management Suite Aracısı izleme için yapılandırma
+### <a name="configure-log-analytics-agents-for-monitoring"></a>İzleme için log Analytics aracılarını yapılandırma
 Çözüm düğümlerinizi topolojisinden hizmet uç noktası keşfedebilmesi için izlemek için kullanılan düğümlerde aşağıdaki güvenlik duvarı kuralları etkinleştirin: 
 
 ```

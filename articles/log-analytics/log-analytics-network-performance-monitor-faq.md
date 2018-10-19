@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/12/2018
 ms.author: vinynigam
-ms.openlocfilehash: 008eac235cd6b75c4c1d95b64e91923dad5a5106
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: 2821f3fa07d8d9ada02da212084639c93e469d0b
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49355578"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49408889"
 ---
 # <a name="network-performance-monitor-solution-faq"></a>Ağ Performansı İzleyicisi çözümü ile ilgili SSS
 
@@ -61,7 +61,7 @@ Her Protokolü göreli avantajları hakkında daha fazla ayrıntıya ulaşabilir
 ### <a name="how-can-i-configure-a-node-to-support-monitoring-using-tcp-protocol"></a>Bir düğüm TCP protokolünü kullanılarak izleme destekleyecek şekilde nasıl yapılandırabilirim?
 Düğüm TCP protokolünü kullanılarak izleme desteklemek: 
 * Düğüm platformu, Windows Server olduğundan emin olun (2008 SP1 veya üzeri).
-* Çalıştırma [EnableRules.ps1](https://aka.ms/npmpowershellscript) düğümde Powershell betiği. Bkz: [yönergeleri](log-analytics-network-performance-monitor.md#configure-operations-management-suite-agents-for-monitoring) daha fazla ayrıntı için.
+* Çalıştırma [EnableRules.ps1](https://aka.ms/npmpowershellscript) düğümde Powershell betiği. Bkz: [yönergeleri](log-analytics-network-performance-monitor.md#configure-log-analytics-agents-for-monitoring) daha fazla ayrıntı için.
 
 
 ### <a name="how-can-i-change-the-tcp-port-being-used-by-npm-for-monitoring"></a>İzleme için NPM tarafından kullanılan TCP bağlantı noktasını nasıl değiştirebilirim?

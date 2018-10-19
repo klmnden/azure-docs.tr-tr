@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/17/2018
 ms.author: jingwang
-ms.openlocfilehash: 4da56b275c2b224d56b8296dd480e638a27a03a1
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: bc98fc2465c280c41a77823de239a5572c5d27e4
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49379103"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49409586"
 ---
 # <a name="copy-data-from-and-to-salesforce-by-using-azure-data-factory"></a>Azure Data Factory kullanarak veri öğesinden ve salesforce'a kopyalama
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -186,7 +186,7 @@ Salesforce veri kopyalamak için kopyalama etkinliği için kaynak türünü aya
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
 | type | Kopyalama etkinliği kaynağı öğesinin type özelliği ayarlanmalıdır **SalesforceSource**. | Evet |
-| sorgu |Verileri okumak için özel sorgu kullanın. Kullanabileceğiniz [Salesforce nesne sorgu dili (SOQL)](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm) sorgusu veya 92 SQL sorgusu. Daha fazla ipuçlarını bkz [sorgu ipuçları](#query-tips) bölümü. | Yok (veri kümesinde "TableName" değeri belirtilmişse) |
+| sorgu |Verileri okumak için özel sorgu kullanın. Kullanabileceğiniz [Salesforce nesne sorgu dili (SOQL)](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm) sorgusu veya 92 SQL sorgusu. Daha fazla ipuçlarını bkz [sorgu ipuçları](#query-tips) bölümü. Sorgu belirtilmezse, veri kümesi "objectApiName" belirtilen Salesforce nesnesi tüm veriler alınır. | Yok (veri kümesinde "objectApiName" belirtilmişse) |
 | readBehavior | Var olan kayıtların sorgu veya sorgu tüm kayıtları silinen olanlar da dahil olmak üzere görüntülenip görüntülenmeyeceğini gösterir. Belirtilmezse, varsayılan davranışı eski olur. <br>İzin verilen değerler: **sorgu** (varsayılan), **queryAll**.  | Hayır |
 
 > [!IMPORTANT]

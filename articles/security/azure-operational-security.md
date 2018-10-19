@@ -1,6 +1,6 @@
 ---
 title: Azure operasyonel güvenlik | Microsoft Docs
-description: Microsoft Operations Management Suite (OMS), hizmetlerinin ve nasıl çalıştığı hakkında bilgi edinin.
+description: Microsoft Azure Log Analytics, hizmetlerinin ve nasıl çalıştığı hakkında bilgi edinin.
 services: security
 documentationcenter: na
 author: UnifyCloud
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 60260d7bcff07a9ce2d680c84119d11271579e7d
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.openlocfilehash: 2ae2ea14bc712563867f32b83eddbd9d4129ac1d
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37342278"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49409501"
 ---
 # <a name="azure-operational-security"></a>Azure çalışma güvenliği
 ## <a name="introduction"></a>Giriş
@@ -40,7 +40,7 @@ Azure altyapısı tesisten uygulamalara milyonlarca müşteriye aynı anda barı
 Azure operasyonel güvenlik hizmetleri, denetimleri ve kullanıcılara sunulan özellikleri verilerini, uygulamalarını ve diğer varlıklardan Microsoft azure'da korumak için ifade eder. Azure çalışma Güvenliği aracılığıyla edinilen Microsoft Security Development Lifecycle (SDL), Microsoft Security Response Center programı da dahil olmak üzere Microsoft'a özgü çeşitli özellikleri bilgi içeren bir çerçevesi üzerine inşa edilmiştir, ve siber güvenlik tehditleri hakkındaki ayrıntılı tanıma.
 
 Bu teknik incelemeyi Microsoft'un Azure işletimsel güvenlik için Microsoft Azure bulut platformu içerisindeki yaklaşımlar ve Hizmetleri kapsar:
-1.  [Azure Operations Management Suite](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview)
+1.  [Azure İzleyici](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview)
 
 2.  [Azure Güvenlik Merkezi](https://docs.microsoft.com/azure/security-center/security-center-intro)
 
@@ -53,17 +53,17 @@ Bu teknik incelemeyi Microsoft'un Azure işletimsel güvenlik için Microsoft Az
 6.  [Azure Active directory](https://docs.microsoft.com/azure/active-directory/active-directory-whatis)
 
 
-## <a name="microsoft-operations-management-suite"></a>Microsoft Operations Management Suite
+## <a name="microsoft-azure-log-analytics"></a>Microsoft Azure günlük analizi
 
-Microsoft Operations Management Suite (OMS) karma bulut BT yönetimi çözümüdür. Tek başına kullanılan veya mevcut System Center dağıtımınızı genişletmek için OMS size maksimum esneklik ve denetim için bulut tabanlı yönetim altyapınızın sağlar.
+Microsoft Azure Log Analytics için hibrit bulut BT yönetimi çözümüdür. Tek başına kullanılan veya mevcut System Center dağıtımınızı genişletmek için Log Analytics size maksimum esneklik ve denetim için bulut tabanlı yönetim altyapınızın sağlar.
 
-![Microsoft Operations Management Suite](./media/azure-operational-security/azure-operational-security-fig1.png)
+![Log Analytics](./media/azure-operational-security/azure-operational-security-fig1.png)
 
-OMS ile rekabet çözümlerine göre daha düşük bir maliyetle, şirket içi, Azure, AWS, Windows Server, Linux, VMware ve OpenStack, dahil, herhangi bir buluttaki herhangi bir örneğine yönetebilirsiniz. OMS, bulut öncelikli dünyada için oluşturulmuş, yeni iş sorunlarını karşılamak ve uygulamaları ve bulut ortamları yeni iş yüklerine uyum sağlamak için diğer bir deyişle en hızlı ve en ekonomik yolu Kurumsal yönetmek için yeni bir yaklaşım sunar.
+Log Analytics ile rekabet çözümlerine göre daha düşük bir maliyetle, şirket içi, Azure, AWS, Windows Server, Linux, VMware ve OpenStack, dahil, herhangi bir buluttaki herhangi bir örneğine yönetebilirsiniz. Log Analytics, bulut öncelikli dünyada için oluşturulmuş, yeni iş sorunlarını karşılamak ve uygulamaları ve bulut ortamları yeni iş yüklerine uyum sağlamak için en hızlı ve en ekonomik yolu olan Kurumsal yönetmek için yeni bir yaklaşım sunar.
 
-### <a name="oms-services"></a>OMS hizmetleri
+### <a name="log-analytics-services"></a>Log Analytics Hizmetleri
 
-OMS’nin temel işlevleri Azure’da çalışan bir dizi hizmet tarafından sağlanır. Her hizmet belirli bir yönetim işlevi sağlar ve farklı hizmetleri birleştirerek farklı yönetim senaryoları elde edebilirsiniz.
+Log analytics'in temel işlevleri Azure'da çalışan hizmetleri kümesi tarafından sağlanır. Her hizmet belirli bir yönetim işlevi sağlar ve farklı hizmetleri birleştirerek farklı yönetim senaryoları elde edebilirsiniz.
 
 | Hizmet  | Açıklama|
 | :------------- | :-------------|
@@ -74,7 +74,7 @@ OMS’nin temel işlevleri Azure’da çalışan bir dizi hizmet tarafından sa�
 
 ### <a name="log-analytics"></a>Log Analytics
 
-[Log Analytics](http://azure.microsoft.com/documentation/services/log-analytics), yönetilen kaynaklardan toplanan verileri merkezi bir depoda birleştirerek OMS için izleme hizmetleri sağlar. Bu verilere olaylar, performans verileri ya da API aracılığıyla sağlanan özel veriler dahil olabilir. Toplanan veriler uyarı, analiz ve dışarı aktarma için kullanılabilir hale gelir.
+[Log Analytics](http://azure.microsoft.com/documentation/services/log-analytics) yönetilen kaynaklardan toplanan verileri merkezi bir depoya toplayarak izleme hizmetleri sağlar. Bu verilere olaylar, performans verileri ya da API aracılığıyla sağlanan özel veriler dahil olabilir. Toplanan veriler uyarı, analiz ve dışarı aktarma için kullanılabilir hale gelir.
 
 
 Bu yöntem, çeşitli kaynaklardan gelen verileri birleştirmenize olanak tanır, birleştirebildiğiniz şekilde Azure hizmetlerinizi mevcut olan verileri şirket içi ortamınızdaki. Ayrıca, veri toplama işlemini veriler üzerinde gerçekleştirilen eylemden ayırarak tüm eylemlerin her tür veri üzerinde kullanılabilmesini mümkün kılar.
@@ -92,17 +92,17 @@ Log Analytics hizmetine aşağıdaki yöntemleri kullanarak buluttaki verilerini
 
 ### <a name="azure-backup"></a>Azure Backup
 
-[Azure yedekleme](http://azure.microsoft.com/documentation/services/backup) veri yedekleme ve Hizmetleri geri yükleme ve OMS Suite'i ürünlerinin ve hizmetlerinin bir parçası olan sağlar.
+[Azure yedekleme](http://azure.microsoft.com/documentation/services/backup) veri yedekleme ve Hizmetleri geri yükleme ve ürün ve hizmetlerinin Log Analytics Suite'in bir parçası olan sağlar.
 Uygulama verilerinizi korur ve herhangi bir sermaye yatırımı olmadan en düşük işletim giderleriyle yıllar boyunca saklar. Bu SQL Server ve SharePoint gibi uygulama iş yüklerinin yanı sıra fiziksel ve sanal Windows sunucularındaki verileri yedekleyebilirsiniz. Tarafından da kullanılabilir [System Center Data Protection Manager (DPM)](https://en.wikipedia.org/wiki/System_Center_Data_Protection_Manager) yedeklilik ve uzun vadeli depolama için korumalı verilerin Azure'a çoğaltmak için.
 
 
 Azure Backup'ta korunan veriler belirli bir coğrafi bölgede yer alan bir yedekleme kasasında depolanır. Veriler aynı bölge içinde çoğaltılır ve kasa türüne bağlı olarak, daha fazla dayanıklılık için başka bir bölgede de çoğaltılabilir.
 
 ### <a name="management-solutions"></a>Yönetim Çözümleri
-[Microsoft Operations Management Suite (OMS)](https://docs.microsoft.com/azure/operations-management-suite/oms-security-getting-started) yönetmek ve şirket içi korumak ve bulut altyapısı yardımcı olan Microsoft'un bulut tabanlı BT yönetim çözümüdür.
+[Log Analytics](https://docs.microsoft.com/azure/operations-management-suite/oms-security-getting-started) yönetmek ve şirket içi korumak ve bulut altyapısı yardımcı olan Microsoft'un bulut tabanlı BT yönetim çözümüdür.
 
 
-[Yönetim çözümleri](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-solutions) logics bir veya daha fazla OMS Hizmetleri kullanarak belirli bir yönetim senaryosunu uygulayan önceden paketlenmiş kümeleridir. Microsoft ve iş ortakları tarafından sağlanan ve OMS yatırımınızın değerini artırmak için Azure aboneliğinize kolayca ekleyebileceğiniz farklı çözümler vardır. Bir iş ortağı olarak, uygulamalarınızı ve hizmetlerinizi desteklemek ve bunları Azure Market veya hızlı başlangıç şablonları aracılığıyla kullanıcılara sağlamak için kendi çözümlerinizi oluşturabilir.
+[Yönetim çözümleri](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-solutions) logics bir veya daha fazla Log Analytics hizmeti kullanarak belirli bir yönetim senaryosunu uygulayan önceden paketlenmiş kümeleridir. Microsoft ve iş ortakları, kolayca Log analytics'te yatırımınızın değerini artırmak için Azure aboneliğinize ekleyebileceğinizi farklı çözümler vardır. Bir iş ortağı olarak, uygulamalarınızı ve hizmetlerinizi desteklemek ve bunları Azure Market veya hızlı başlangıç şablonları aracılığıyla kullanıcılara sağlamak için kendi çözümlerinizi oluşturabilir.
 
 
 ![Yönetim Çözümleri](./media/azure-operational-security/azure-operational-security-fig4.png)
@@ -164,7 +164,7 @@ Azure Güvenlik Merkezi, kilitlenme döküm dosyalarının kısa ömürlü kopya
 
 ## <a name="azure-monitor"></a>Azure İzleyici
 
-[OMS güvenlik](https://docs.microsoft.com/azure/operations-management-suite/oms-security-monitoring-resources) ve denetim çözümü, BT'nin güvenlik olayların etkisini en aza yardımcı olabilecek tüm kaynaklar, etkin bir şekilde izlemek için olanak tanır. OMS güvenlik ve denetim kaynakları izlemek için kullanılan güvenlik etki alanları vardır. Güvenlik etki alanı seçenekleri hızlı erişim sağlar, güvenlik izleme için aşağıdaki etki alanları ayrıntılı ele alınmıştır:
+[Log Analytics güvenliği](https://docs.microsoft.com/azure/operations-management-suite/oms-security-monitoring-resources) ve denetim çözümü, BT'nin güvenlik olayların etkisini en aza yardımcı olabilecek tüm kaynaklar, etkin bir şekilde izlemek için olanak tanır. Log Analytics güvenlik ve denetim kaynakları izlemek için kullanılan güvenlik etki alanları vardır. Güvenlik etki alanı seçenekleri hızlı erişim sağlar, güvenlik izleme için aşağıdaki etki alanları ayrıntılı ele alınmıştır:
 
 -   Kötü amaçlı yazılım değerlendirmesi
 -   Güncelleştirme değerlendirmesi
@@ -312,7 +312,7 @@ Bu makalede özetleri gizliliğinizi ve yazılım ve yardımcı hizmetler sunark
 
 Bu makalede açıklanır
 
--   Nasıl veri toplanan, işlenen ve Operations Management Suite (OMS) güvenli.
+-   Nasıl veri toplanan, işlenen ve Log Analytics paketindeki güvenli.
 
 -   Birden çok veri kaynağında olayları hızla çözümleyin. Güvenlik ihlalinden doğabilecek zararları azaltmak için güvenlik risklerini tanımlayın, tehdit ve saldırıların kapsamını ve etkisini anlayın.
 
@@ -335,7 +335,7 @@ Bu makalede açıklanır
 
 Microsoft, Microsoft'un bulut altyapısının dayanıklı ve saldırılara karşı korunuyor olduğundan emin olun yardımcı olmak için güvenlikten ödün yazılım ve Hizmetleri tasarlar.
 
-- [Operations Management Suite | Güvenlik ve uyumluluk](https://www.microsoft.com/cloud-platform/security-and-compliance)
+- [Log Analytics | Güvenlik ve uyumluluk](https://www.microsoft.com/cloud-platform/security-and-compliance)
 
 Microsoft güvenlik veri ve analiz daha akıllı ve etkili tehdit algılama gerçekleştirmek için kullanın.
 

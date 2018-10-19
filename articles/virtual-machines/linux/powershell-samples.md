@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 03/01/2017
 ms.author: cynthn
-ms.openlocfilehash: 2e8be5b1183c04b5144eb38ee3c2a7d7dd2946e6
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: 10c72f84a13eb1edb653d23722cb03ee97298c6b
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37932774"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49407631"
 ---
 # <a name="azure-virtual-machine-powershell-samples"></a>Azure sanal makine PowerShell örnekleri
 
@@ -34,5 +34,5 @@ Aşağıdaki tabloda, Linux sanal makineler oluşturabilir ve yönetebilirsiniz,
 | [VM oluşturma ve yapılandırma betiğini çalıştırın](./../scripts/virtual-machines-linux-powershell-sample-create-vm-nginx.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Bir sanal makine oluşturur ve NGINX yüklemek için Azure özel betik uzantısı'nı kullanır. |
 | [Yüklü WordPress ile VM oluşturma](./../scripts/virtual-machines-linux-powershell-sample-create-vm-wordpress.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Bir sanal makine oluşturur ve Azure özel betik uzantısı WordPress yükler. |
 |**Sanal makineleri izleme**||
-| [Operations Management Suite ile bir VM izleme](./../scripts/virtual-machines-linux-powershell-sample-create-vm-oms.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Bir sanal makine oluşturur Operations Management Suite aracısını yükler ve VM'yi bir OMS çalışma alanına kaydeder.  |
+| [Bir VM Azure Log Analytics ile izleme](./../scripts/virtual-machines-linux-powershell-sample-create-vm-oms.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Bir sanal makine oluşturur, Log Analytics aracısını yükler ve Log Analytics çalışma alanındaki VM kaydeder.  |
 | | |

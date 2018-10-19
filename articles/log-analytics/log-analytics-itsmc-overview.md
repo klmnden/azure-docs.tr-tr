@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: v-jysur
 ms.component: ''
-ms.openlocfilehash: 5f5b03090f374f936e03d487596ca0462feea348
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: b99c14e6022fa34d41caaa02bfc9feecb3c840ce
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48042437"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49407512"
 ---
 # <a name="connect-azure-to-itsm-tools-using-it-service-management-connector"></a>Azure BT Hizmet Yönetimi Bağlayıcısı'nı kullanarak ITSM araçlara bağlayın
 
@@ -63,9 +63,13 @@ Bir bağlantı oluşturmadan önce ITSM Bağlayıcısı çözümü eklemeniz ger
     ![ITSMC çözümü ekleme](./media/log-analytics-itsmc/add-itsmc-solution.png)
 
 3.  İçinde **OMS çalışma alanı** bölümünde, istediğiniz çözümü yüklemek için Azure Log Analytics çalışma alanını seçin.
+   >[!NOTE]
+   >Azure İzleyici sürekli geçiş Microsoft Operations Management Suite (OMS) gelen bir parçası olarak, OMS çalışma alanları artık için Log Analytics çalışma alanları bilinir.
 4.  İçinde **OMS çalışma alanı ayarlarını** bölümünde, istediğiniz çözüm kaynağının oluşturulacağı kaynak grubu seçin.
 
     ![ITSMC çalışma](./media/log-analytics-itsmc/itsmc-solution-workspace.png)
+    >[!NOTE]
+    >Azure İzleyici sürekli geçiş Microsoft Operations Management Suite (OMS) gelen bir parçası olarak, OMS çalışma alanları artık için Log Analytics çalışma alanları bilinir.
 
 5.  **Oluştur**’a tıklayın.
 
@@ -250,7 +254,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 | Category_s | Kategori |
 | Title_s|  Kısa açıklama |
 | Description_s|  Notlar |
-| CreatedDate_t|  Açıldı |
+| CreatedDate_t|  Açılan |
 | ClosedDate_t| Kapalı|
 | ResolvedDate_t|Çözümlendi|
 | Bilgisayar  | Yapılandırma öğesi |
@@ -290,7 +294,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
     - Web uygulaması başarıyla dağıtılır ve karma bağlantı oluşturuldu emin olun. Service Manager şirket içi makine ile bağlantı kurulur başarıyla doğrulamak için Web uygulaması URL'si için yapma belgelerinde açıklandığı ziyaret [karma bağlantı](log-analytics-itsmc-connections.md#configure-the-hybrid-connection).  
 
 2.  ServiceNow verileri Log Analytics'e eşitlenmediğinden, ServiceNow örneği değil uyku emin olun. Servicenow'ı geliştirme örnekleri, bazen boştayken uzun bir süre için uyku moduna geçer. Aksi takdirde, sorunu bildirin.
-3.  OMS uyarıları yangın ancak iş öğeleri ITSM ürününde oluşturulmamış veya yapılandırma öğeleri oluşturulan/herhangi diğer genel bilgi için aşağıdaki konumlarda bakın veya iş öğelerine bağlı değildir:
+3.  Log Analytics uyarılarını yangın ancak iş öğeleri ITSM ürününde oluşturulmamış veya yapılandırma öğeleri oluşturulan/herhangi diğer genel bilgi için aşağıdaki konumlarda bakın veya iş öğelerine bağlı değildir:
  -  ITSMC: Çözüm öğeleri bağlantıları/iş/vb. bilgisayarların özetini gösterir. Kutucuk gösteren tıklayın **Bağlayıcısı durumu**, size aldığı **günlük araması** ile ilgili sorgu. Günlük kayıtları LogType_S ile daha fazla bilgi için hata olarak arayın.
  - **Günlük arama** sayfası: doğrudan sorgu kullanarak hataları ve ilgili bilgileri görüntüleyin `*`ServiceDeskLog_CL`*`.
 

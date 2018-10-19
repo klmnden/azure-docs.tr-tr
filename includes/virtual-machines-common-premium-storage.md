@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/24/2018
 ms.author: ramankum
 ms.custom: include file
-ms.openlocfilehash: a05d0c623c1abdb5713c1d49b0b577298c1d6c7d
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 97e4e670d5db646cea28cb30e9ca95633cea2a8a
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49347052"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49437147"
 ---
 # <a name="high-performance-premium-storage-and-managed-disks-for-vms"></a>Yüksek performanslı Premium depolama ve VM'ler için yönetilen diskler
 
@@ -151,7 +151,11 @@ Yönetilmeyen diskler için premium depolama hesapları kullandığınız ve uyg
 ### <a name="premium-storage-disk-limits"></a>Premium depolama disk limitleri
 Premium depolama disk sağlarken, diskin maksimum IOPS ve aktarım hızı (bant) belirler. Azure premium depolama disklerini sekiz GA türlerini sunar: P4 (yönetilen diskler yalnızca), P6 (yönetilen diskler yalnızca), P10, P15 (yönetilen diskler yalnızca), P20, P30, P40 ve P50. Yanı sıra üç disk boyutunda önizleme: P60 P70 ve P80. Her premium depolama disk türüne, IOPS ve aktarım hızı için belirli sınırları vardır. Disk türleri için sınırlar aşağıdaki tabloda açıklanmıştır:
 
-| Premium diskler türü | P4 | P6 | P10 | P15 | P20 | P30 | P40 | P50 | P60 | P70 | P80 | |---|---|---|---|---|---|---|---|---|| -------|| -------|| -------| | Disk boyutu | 32 Gib'a | 64 giB | 128 Gib'a | 256 giB | 512 Gib'a | 1024 (1 TiB) giB | 2048 giB (2 TiB) | 4095 giB (4 TiB) | 8192 giB (8 tib'a kadar) | 16,384 giB (16 tib'a kadar) | 32.767 giB (32 tib'a kadar) || Disk başına IOPS | 120 | 240 | 500 | 1100 | 2300 | 5000 | 7500 | 7500 | 12.500 | 15.000 | 20.000 || Disk başına aktarım hızı | Saniye başına 25 MB | Saniye başına 50 MB | Saniye başına 100 MB | Saniye başına 125 MB | 150 MB / saniye | Saniye başına 200 MB | Saniye başına 250 MB | Saniye başına 250 MB | Saniye başına 480 MB | Saniye başına 750 MB | Saniye başına 750 MB |
+| Premium disk türü  | P4    | P6    | P10    | P15    | P20    | P30              | P40             | P50             | P60             | P70                | P80                |
+|---------------------|-------|-------|--------|--------|--------|------------------|-----------------|-----------------|-----------------|--------------------|--------------------|
+| Disk boyutu           | 32 giB| 64 giB| 128 GiB| 256 giB| 512 GiB| 1024 (1 TiB) giB | 2048 giB (2 tib'a kadar)| 4095 giB (4 tib'a kadar)| 8192 giB (8 tib'a kadar)| 16,384 giB (16 tib'a kadar)| 32.767 giB (32 tib'a kadar)|
+| Disk başına IOPS       | 120   | 240   | 500    | 1100   | 2300   | 5000             | 7500            | 7500            | 12.500          | 15.000             | 20,000             |
+| Disk başına aktarım hızı | Saniye başına 25 MB | Saniye başına 50 MB | Saniye başına 100 MB | Saniye başına 125 MB | 150 MB / saniye | Saniye başına 200 MB | Saniye başına 250 MB | Saniye başına 250 MB | 480 MB / saniye | Saniye başına 750 MB | Saniye başına 750 MB |
 
 > [!NOTE]
 > Açıklanan şekilde yeterli bant genişliği sürücü diski trafiği, sanal makinenizde kullanılabilir olduğundan emin olun [Vm'leri Premium Depolama tarafından desteklenen](#premium-storage-supported-vms). Aksi takdirde, disk aktarım hızı ve IOPS je omezeno değerleri daha düşük. En fazla aktarım hızı ve IOPS sınırları VM, yukarıdaki tabloda açıklanan disk limitleri değil temel alır.  

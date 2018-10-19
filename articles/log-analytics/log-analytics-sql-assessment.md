@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 43faf1b29f602d2930a2b5764dd83ea4ce1fc9ac
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 4f9882ce94827e490b676fdf421095eae40420d5
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48043663"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49407733"
 ---
 # <a name="optimize-your-sql-environment-with-the-sql-server-health-check-solution-in-log-analytics"></a>Log analytics'te SQL Server sistem durumu denetimi çözümü SQL ortamınızla en iyi duruma getirme
 
@@ -86,7 +86,7 @@ SQL sistem durumu denetlemek için Operations Manager farklı çalıştır hesab
 >
 
 1. Operations Manager'da işletim konsolunu açın ve ardından **Yönetim**.
-2. Altında **farklı çalıştır Yapılandırması**, tıklayın **profilleri**açın **OMS SQL değerlendirmesi farklı çalıştır profili**.
+2. Altında **farklı çalıştır Yapılandırması**, tıklayın **profilleri**açın **SQL değerlendirmesi farklı çalıştır profili**.
 3. Üzerinde **farklı çalıştır hesapları** sayfasında **Ekle**.
 4. SQL Server için gerekli kimlik bilgilerini içeren bir Windows farklı çalıştır hesabı seçin veya **yeni** oluşturmak için.
 
@@ -123,7 +123,7 @@ Bir PowerShell penceresi açın ve kendi bilgilerinizle güncelleştirdikten son
     import-module OperationsManager
     New-SCOMManagementGroupConnection "<your management group name>"
 
-    $profile = Get-SCOMRunAsProfile -DisplayName "OMS SQL Assessment Run As Profile"
+    $profile = Get-SCOMRunAsProfile -DisplayName "SQL Assessment Run As Profile"
     $account = Get-SCOMrunAsAccount | Where-Object {$_.Name -eq "<your run as account name>"}
     Set-SCOMRunAsProfile -Action "Add" -Profile $Profile -Account $Account
 ```

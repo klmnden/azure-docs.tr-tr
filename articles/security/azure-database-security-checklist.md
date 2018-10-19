@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: tomsh
-ms.openlocfilehash: 7682a733c5630c16d9684ec3cb9e7757b03a8b1b
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: f6e8ed1725b7ba2a0cba8523ae03c0306337aba0
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48855944"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49402516"
 ---
 # <a name="azure-database-security-checklist"></a>Azure veritabanı güvenlik denetim listesi
 
@@ -46,7 +46,7 @@ Okumanızı öneririz [Azure veritabanı en iyi güvenlik uygulamaları](https:/
 |Denetim kategorisi| Açıklama|
 | ------------ | -------- |
 |**Verileri koruma**||
-| <br> Hareket/aktarım sırasında şifreleme| <ul><li>[Aktarım Katmanı Güvenliği](https://docs.microsoft.com/windows-server/security/tls/transport-layer-security-protocol), veri ağlara taşırken veri şifreleme için.</li><li>Veritabanı göre istemcilerden güvenli iletişim gerektiren [TDS (Tablosal veri Stream)](https://msdn.microsoft.com/en-in/library/dd357628.aspx) protokolü üzerinden TLS (Aktarım Katmanı Güvenliği).</li></ul> |
+| <br> Hareket/aktarım sırasında şifreleme| <ul><li>[Aktarım Katmanı Güvenliği](https://docs.microsoft.com/windows-server/security/tls/transport-layer-security-protocol), veri ağlara taşırken veri şifreleme için.</li><li>Veritabanı göre istemcilerden güvenli iletişim gerektiren [TDS (Tablosal veri Stream)](https://msdn.microsoft.com/library/dd357628.aspx) protokolü üzerinden TLS (Aktarım Katmanı Güvenliği).</li></ul> |
 |<br>Bekleme sırasında şifreleme| <ul><li>[Saydam veri şifrelemesi](http://go.microsoft.com/fwlink/?LinkId=526242), etkin olmayan verileri fiziksel olarak dijital biçimde depolanır.</li></ul>|
 |**Erişimi denetleme**||  
 |<br> Veritabanı Erişimi | <ul><li>[Kimlik doğrulaması](https://docs.microsoft.com/azure/sql-database/sql-database-control-access) (Azure Active Directory kimlik doğrulaması) AD kimlik doğrulaması, Azure Active Directory tarafından yönetilen kimlikleri kullanır.</li><li>[Yetkilendirme](https://docs.microsoft.com/azure/sql-database/sql-database-control-access) kullanıcılar gerekli olan en düşük ayrıcalıkları verin.</li></ul> |

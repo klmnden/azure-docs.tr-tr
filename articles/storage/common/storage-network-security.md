@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/25/2017
 ms.author: cbrooks
 ms.component: common
-ms.openlocfilehash: bcb772185f0a16183b8a6c9674419781ef41be3e
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: 98972b0c52470e6a404090d993c21a47b11cd660
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49068545"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49427154"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Azure depolama güvenlik duvarlarını ve sanal ağları yapılandırma
 Azure depolama, belirli bir ağa izin kümesi, depolama hesaplarınıza güvenli olanak tanıyan bir katmanlı güvenlik modeli sağlar.  Ağ kuralları yapılandırıldığında, yalnızca izin verilen ağları uygulamalardan bir depolama hesabına erişebilir.  İzin verilen bir ağdan çağırırken uygulamalar (geçerli bir erişim anahtarı veya SAS belirteci) depolama hesabına erişmek için uygun yetkilendirme gerektirecek şekilde devam edin.
@@ -188,7 +188,9 @@ Internet adresi aralıkları kullanarak sağlanabilir izin [CIDR gösteriminde](
 > Küçük adres aralıkları kullanarak "/ 31" veya "/ 32" öneki boyutları desteklenmez.  Bu aralıklar, tek tek IP adresi kurallarını kullanarak yapılandırılmalıdır.
 >
 
-IP ağ kuralları için yalnızca verilir **genel internet** IP adresleri.  IP adresi aralıkları için özel ağlar (RFC 1918 ' tanımlandığı şekilde) ayrılmış IP kurallarında izin verilmez.  Özel ağlar ile başlayan bir adres dahil *10.\** , *172.16.\** , ve *192.168.\** .
+IP ağ kuralları için yalnızca verilir **genel internet** IP adresleri.  IP adres aralıkları özel ağlar için ayrılmış (sınıfında tanımlandığı gibi [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)) IP kurallarında izin verilmez.  Özel ağlar ile başlayan bir adres dahil *10.\** , *172.16.\**   -  *172.31.\**, ve *192.168.\** .
+
+IP ağ kuralları için aynı Azure bölgesindeki depolama hesabı kaynaklanan taleplere üzerinde hiçbir etkisi olacağını unutmayın.  Sanal ağ kuralları, aynı bölgede isteklere izin vermek için kullanın.
 
 Şu anda yalnızca IPv4 adresleri desteklenir.
 

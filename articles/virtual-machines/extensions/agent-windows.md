@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: roiyz
-ms.openlocfilehash: ae2458b6fc650961c63da2f7644dbd54d27fc2a8
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: d93fc81241053418ea2ff0576d50cbaefa0df9fb
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47452114"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49428564"
 ---
 # <a name="azure-virtual-machine-agent-overview"></a>Azure sanal makine Aracısı genel bakış
 Microsoft Azure sanal makine Aracısı (VM Aracısı) sanal makine (VM) etkileşim Azure yapı denetleyicisi tarafından yönetilen güvenli, hafif bir işlemdir. VM Aracısı, etkinleştirme ve Azure sanal makine uzantıları yürütme süreçlerinde birincil role sahiptir. Dağıtım sonrası yapılandırma, yükleme ve yazılım yapılandırma gibi sanal makine, VM uzantılarını etkinleştirin. VM uzantıları, bir sanal makinenin yönetici parola sıfırlama gibi kurtarma özellikleri de olanak sağlar. VM uzantıları Azure VM Aracısı, çalıştırılamaz.
@@ -100,7 +100,8 @@ foreach ($vm in $vms) {
 ```
 
 ### <a name="manual-detection"></a>El ile algılama
-Bir Windows Azure VM'de oturum açtıktan sonra Görev Yöneticisi'ni çalışan işlemleri incelemek için kullanılabilir. Azure VM Aracısı, denetlemek için Görev Yöneticisi'ni açın, *ayrıntıları* sekmesini tıklatın ve bir işlem adı arayın **WindowsAzureGuestAgent.exe**. Bu işlemin varlığı, VM aracısı yüklü olduğunu gösterir.
+
+Bir Windows VM'de oturum açtıktan sonra Görev Yöneticisi'ni çalışan işlemleri incelemek için kullanılabilir. Azure VM Aracısı, denetlemek için Görev Yöneticisi'ni açın, *ayrıntıları* sekmesini tıklatın ve bir işlem adı arayın **WindowsAzureGuestAgent.exe**. Bu işlemin varlığı, VM aracısı yüklü olduğunu gösterir.
 
 
 ## <a name="upgrade-the-vm-agent"></a>VM Aracısı'nı yükseltme

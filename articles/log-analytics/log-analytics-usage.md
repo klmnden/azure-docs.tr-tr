@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 08/11/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 8039a660a0f9fc94471e4b3e28b1b00bfb0d6b9e
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: d3714f7226de2a457f37e6ea4afa2b066ee460d1
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48042454"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49409144"
 ---
 # <a name="analyze-data-usage-in-log-analytics"></a>Log Analytics'te veri kullanımını çözümleme
 
@@ -166,7 +166,7 @@ Toplanan günlük hacmini azaltmak için aşağıdaki adımları kullanın:
 | Çözüm ihtiyacı olmayan bilgisayarlardan toplanan çözüm verileri | Yalnızca gerekli bilgisayar gruplarından veri toplamak için [çözüm hedefleme](../operations-management-suite/operations-management-suite-solution-targeting.md) özelliğini kullanın. |
 
 ### <a name="check-if-there-are-more-nodes-than-expected"></a>Beklenenden çok düğüm olup olmadığını denetleme
-*Düğüm başına (OMS)* fiyatlandırma katmanındaysanız kullandığınız düğüm ve çözüm sayısına göre ücretlendirilirsiniz. Kullanım panosunun *teklifler* bölümünde her tekliften kaç düğümün kullanıldığını görebilirsiniz.<br><br> ![kullanım panosu](./media/log-analytics-usage/log-analytics-usage-offerings.png)<br><br>
+Kullanıyorsanız *(Log Analytics) düğüm başına* düğüm ve çözüm sayısına göre temel fiyatlandırma katmanındaysanız ödersiniz. Kullanım panosunun *teklifler* bölümünde her tekliften kaç düğümün kullanıldığını görebilirsiniz.<br><br> ![kullanım panosu](./media/log-analytics-usage/log-analytics-usage-offerings.png)<br><br>
 
 Belirli bir teklifle ilgili veri gönderen bilgisayarların tam listesini görüntülemek için **Tümünü göster...** öğesine tıklayın.
 

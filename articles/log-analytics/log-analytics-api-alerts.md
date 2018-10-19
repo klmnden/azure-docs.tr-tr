@@ -1,6 +1,6 @@
 ---
-title: OMS Log Analytics uyarı REST API kullanma
-description: Log Analytics uyarı REST API oluşturma ve Operations Management Suite (OMS) parçası olan Log Analytics'teki uyarılar, yönetmenizi sağlar.  Bu makalede, farklı işlemler gerçekleştirmek için API ve birkaç örnek ayrıntılarını sağlar.
+title: Log Analytics uyarı REST API kullanma
+description: Log Analytics uyarı REST API oluşturma ve Log Analytics parçası olan Log Analytics'teki uyarılar, yönetmenizi sağlar.  Bu makalede, farklı işlemler gerçekleştirmek için API ve birkaç örnek ayrıntılarını sağlar.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -15,17 +15,17 @@ ms.workload: infrastructure-services
 ms.date: 04/10/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: b178744911d03547509de58e35be5cd99e046391
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 85cf55b4117208266e247316b1050e3988a2ce23
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49079064"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49409161"
 ---
 # <a name="create-and-manage-alert-rules-in-log-analytics-with-rest-api"></a>Oluşturma ve REST API ile Log analytics'teki uyarı kurallarını yönet
-Log Analytics uyarı REST API oluşturma ve Uyarıları Operations Management Suite (OMS) yönetmenize olanak sağlar.  Bu makalede, farklı işlemler gerçekleştirmek için API ve birkaç örnek ayrıntılarını sağlar.
+Log Analytics uyarı REST API oluşturma ve Log analytics'teki uyarılar yönetmenize olanak sağlar.  Bu makalede, farklı işlemler gerçekleştirmek için API ve birkaç örnek ayrıntılarını sağlar.
 
-Log Analytics arama REST API, RESTful olduğu ve Azure Resource Manager REST API aracılığıyla erişilebilir. Bu belgede, API'yi kullanarak bir PowerShell komut satırı burada erişilen örnekler bulabilirsiniz [ARMClient](https://github.com/projectkudu/ARMClient), Azure Resource Manager API'si çağırma basitleştiren bir açık kaynak komut satırı aracı. PowerShell ile ARMClient ve Log Analytics arama API'sine erişmek için birçok seçenekten birini kullanılır. Bu araçlarla, OMS çalışma alanları çağrı yapmak ve bunların içindeki arama komutları gerçekleştirmek için RESTful Azure Resource Manager API'si kullanabilir. API, birçok farklı şekilde, program aracılığıyla arama sonuçlarını kullanmanıza olanak sağlayan, arama sonuçları JSON biçiminde çıkarır.
+Log Analytics arama REST API, RESTful olduğu ve Azure Resource Manager REST API aracılığıyla erişilebilir. Bu belgede, API'yi kullanarak bir PowerShell komut satırı burada erişilen örnekler bulabilirsiniz [ARMClient](https://github.com/projectkudu/ARMClient), Azure Resource Manager API'si çağırma basitleştiren bir açık kaynak komut satırı aracı. PowerShell ile ARMClient ve Log Analytics arama API'sine erişmek için birçok seçenekten birini kullanılır. Bu araçlarla, Log Analytics çalışma alanları çağrı yapmak ve bunların içindeki arama komutları gerçekleştirmek için RESTful Azure Resource Manager API'si kullanabilir. API, birçok farklı şekilde, program aracılığıyla arama sonuçlarını kullanmanıza olanak sağlayan, arama sonuçları JSON biçiminde çıkarır.
 
 ## <a name="prerequisites"></a>Önkoşullar
 Şu anda ile kayıtlı bir aramayı Log analytics'te uyarıları yalnızca oluşturulabilir.  Başvurabilirsiniz [Log Search REST API'sine](log-analytics-log-search-api.md) daha fazla bilgi için.
@@ -36,7 +36,7 @@ Zamanlamaları aşağıdaki tabloda özelliklere sahiptir.
 
 | Özellik | Açıklama |
 |:--- |:--- |
-| Aralık |Arama ne kadar sıklıkla çalışır. Birkaç dakika içinde ölçülür. |
+| Interval |Arama ne kadar sıklıkla çalışır. Birkaç dakika içinde ölçülür. |
 | QueryTimeSpan |Zaman aralığı üzerinde ölçüt değerlendirme. Aralık değerinden büyük veya eşit olmalıdır. Birkaç dakika içinde ölçülür. |
 | Sürüm |API sürümü kullanılıyor.  Şu anda, bu her zaman 1 olarak ayarlanması gerekir. |
 
@@ -67,7 +67,7 @@ Bir zamanlama için bir örnek yanıt aşağıdadır.
 ```
 
 ### <a name="creating-a-schedule"></a>Bir zamanlama oluşturma
-Put yöntemi yeni bir zamanlama oluşturmak için bir benzersiz zamanlama kimliği ile kullanın.  Kayıtlı aramalar farklı ile ilişkili olsalar bile iki zamanlamaları aynı Kimliğe sahip olduğunu unutmayın.  OMS konsolunda bir zamanlama oluşturmak, zamanlama kimliği için bir GUID oluşturulur
+Put yöntemi yeni bir zamanlama oluşturmak için bir benzersiz zamanlama kimliği ile kullanın.  Kayıtlı aramalar farklı ile ilişkili olsalar bile iki zamanlamaları aynı Kimliğe sahip olduğunu unutmayın.  Log Analytics konsolda bir zamanlama oluşturmak, zamanlama kimliği için bir GUID oluşturulur
 
 > [!NOTE]
 > Tüm kayıtlı aramalar, çizelgeler ve günlük analizi API'si ile oluşturulan eylem adını, küçük olmalıdır.
@@ -102,7 +102,7 @@ Tüm eylemler aşağıdaki tabloda özelliklere sahiptir.  Farklı uyarı türle
 ### <a name="retrieving-actions"></a>Eylemleri alınıyor
 
 > [!NOTE]
-> 14 Mayıs 2018 tarihinden itibaren bir Log Analytics çalışma alanının Azure genel bulutunda örnekteki tüm uyarıları otomatik olarak Azure'a genişletilir. Bir kullanıcı, gönüllü olarak azure'a genişletme uyarılar 14 Mayıs 2018'den önce başlatabilirsiniz. Daha fazla bilgi için [genişletmek uyarıları oms'den azure'a](../monitoring-and-diagnostics/monitoring-alerts-extend.md). Uyarıları Azure'a genişletme kullanıcılar için Eylemler artık Azure Eylem grupları içinde denetlenir. Bir çalışma alanı ve onun uyarılar Azure'a genişletilir, alma veya eylemleri kullanarak eklemek [eylem grubu API](https://docs.microsoft.com/rest/api/monitor/actiongroups).
+> 14 Mayıs 2018 tarihinden itibaren bir Log Analytics çalışma alanının Azure genel bulutunda örnekteki tüm uyarıları otomatik olarak Azure'a genişletilir. Bir kullanıcı, gönüllü olarak azure'a genişletme uyarılar 14 Mayıs 2018'den önce başlatabilirsiniz. Daha fazla bilgi için [Log analytics'ten azure'a genişletme uyarılar](../monitoring-and-diagnostics/monitoring-alerts-extend.md). Uyarıları Azure'a genişletme kullanıcılar için Eylemler artık Azure Eylem grupları içinde denetlenir. Bir çalışma alanı ve onun uyarılar Azure'a genişletilir, alma veya eylemleri kullanarak eklemek [eylem grubu API](https://docs.microsoft.com/rest/api/monitor/actiongroups).
 
 Bir zamanlama için tüm eylemleri almak için Get yöntemini kullanın.
 
@@ -113,7 +113,7 @@ Get yöntemi, bir zamanlama için belirli bir eylemi almak için eylem kimliği 
     armclient get /subscriptions/{Subscription ID}/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Subscription ID}/schedules/{Schedule ID}/actions/{Action ID}?api-version=2015-03-20
 
 ### <a name="creating-or-editing-actions"></a>Oluşturma veya düzenleme eylemleri
-Yeni bir eylem oluşturmak için zamanlama için benzersiz olan bir eylem kimliği ile Put yöntemini kullanın.  OMS konsolunda bir eylem oluşturduğunuzda eylem kimliği için bir GUID değeridir.
+Yeni bir eylem oluşturmak için zamanlama için benzersiz olan bir eylem kimliği ile Put yöntemini kullanın.  Log Analytics konsolunda bir eylem oluşturduğunuzda, eylem kimliği için bir GUID değeridir.
 
 > [!NOTE]
 > Tüm kayıtlı aramalar, çizelgeler ve günlük analizi API'si ile oluşturulan eylem adını, küçük olmalıdır.
@@ -125,7 +125,7 @@ Aşağıdaki bölümlerde bu örnekler sağlanır, yeni bir eylem oluşturmak i�
 ### <a name="deleting-actions"></a>Eylemler siliniyor
 
 > [!NOTE]
-> 14 Mayıs 2018 tarihinden itibaren bir Log Analytics çalışma alanının Azure genel bulutunda örnekteki tüm uyarıları otomatik olarak Azure'a genişletilir. Bir kullanıcı, gönüllü olarak azure'a genişletme uyarılar 14 Mayıs 2018'den önce başlatabilirsiniz. Daha fazla bilgi için [genişletmek uyarıları oms'den azure'a](../monitoring-and-diagnostics/monitoring-alerts-extend.md). Uyarıları Azure'a genişletme kullanıcılar için Eylemler artık Azure Eylem grupları içinde denetlenir. Bir çalışma alanı ve onun uyarılar Azure'a genişletilir, alma veya eylemleri kullanarak eklemek [eylem grubu API](https://docs.microsoft.com/rest/api/monitor/actiongroups).
+> 14 Mayıs 2018 tarihinden itibaren bir Log Analytics çalışma alanının Azure genel bulutunda örnekteki tüm uyarıları otomatik olarak Azure'a genişletilir. Bir kullanıcı, gönüllü olarak azure'a genişletme uyarılar 14 Mayıs 2018'den önce başlatabilirsiniz. Daha fazla bilgi için [Log analytics'ten azure'a genişletme uyarılar](../monitoring-and-diagnostics/monitoring-alerts-extend.md). Uyarıları Azure'a genişletme kullanıcılar için Eylemler artık Azure Eylem grupları içinde denetlenir. Bir çalışma alanı ve onun uyarılar Azure'a genişletilir, alma veya eylemleri kullanarak eklemek [eylem grubu API](https://docs.microsoft.com/rest/api/monitor/actiongroups).
 
 Delete yöntemi eylem kimliği ile bir eylemi silmek için kullanın.
 
@@ -146,7 +146,7 @@ Bir ve yalnızca bir uyarı eylemi bir zamanlamaya sahip olmalıdır.  Uyarı ey
 | Web kancası eylemleri | JSON olarak istenen hizmetine gelen uyarılar, veri gönderme |Uyarılar Azure'a uzatıldıysa, gerekli değildir|
 
 > [!NOTE]
-> 14 Mayıs 2018 tarihinden itibaren bir Log Analytics çalışma alanının Azure genel bulutunda örnekteki tüm uyarıları otomatik olarak Azure'a genişletilir. Bir kullanıcı, gönüllü olarak azure'a genişletme uyarılar 14 Mayıs 2018'den önce başlatabilirsiniz. Daha fazla bilgi için [genişletmek uyarıları oms'den azure'a](../monitoring-and-diagnostics/monitoring-alerts-extend.md).
+> 14 Mayıs 2018 tarihinden itibaren bir Log Analytics çalışma alanının Azure genel bulutunda örnekteki tüm uyarıları otomatik olarak Azure'a genişletilir. Bir kullanıcı, gönüllü olarak azure'a genişletme uyarılar 14 Mayıs 2018'den önce başlatabilirsiniz. Daha fazla bilgi için [Log analytics'ten azure'a genişletme uyarılar](../monitoring-and-diagnostics/monitoring-alerts-extend.md).
 
 #### <a name="thresholds"></a>Eşikler
 Bir uyarı eylemi, yalnızca tek bir eşik değeri olması gerekir.  Kayıtlı arama sonuçlarını bu arama ile ilişkili bir eylem Eşikte eşleştiğinde, ardından bu eylemi diğer tüm işlemler çalıştırılır.  Böylece eşikleri içermeyen diğer tür Eylemler ile kullanılabilmesi için bir eylem yalnızca bir eşiği de içerebilir.
@@ -355,7 +355,7 @@ Put yöntemi ile var olan bir eylem kimliği için bir zamanlama ilişkili bir e
 E-posta bildirimleri, bir veya daha fazla alıcıya e-posta gönderin.  Bunlar aşağıdaki tabloda özelliklerini içerir.
 
 > [!NOTE]
-> 14 Mayıs 2018 tarihinden itibaren bir Log Analytics çalışma alanının Azure genel bulutunda örnekteki tüm uyarıları otomatik olarak Azure'a genişletilir. Bir kullanıcı, gönüllü olarak azure'a genişletme uyarılar 14 Mayıs 2018'den önce başlatabilirsiniz. Daha fazla bilgi için [genişletmek uyarıları oms'den azure'a](../monitoring-and-diagnostics/monitoring-alerts-extend.md). Uyarıları Azure'a genişletme kullanıcılar için e-posta bildirimi gibi eylemler artık Azure Eylem grupları içinde denetlenir. Bir çalışma alanı ve onun uyarılar Azure'a genişletilir, alma veya eylemleri kullanarak eklemek [eylem grubu API](https://docs.microsoft.com/rest/api/monitor/actiongroups).
+> 14 Mayıs 2018 tarihinden itibaren bir Log Analytics çalışma alanının Azure genel bulutunda örnekteki tüm uyarıları otomatik olarak Azure'a genişletilir. Bir kullanıcı, gönüllü olarak azure'a genişletme uyarılar 14 Mayıs 2018'den önce başlatabilirsiniz. Daha fazla bilgi için [Log analytics'ten azure'a genişletme uyarılar](../monitoring-and-diagnostics/monitoring-alerts-extend.md). Uyarıları Azure'a genişletme kullanıcılar için e-posta bildirimi gibi eylemler artık Azure Eylem grupları içinde denetlenir. Bir çalışma alanı ve onun uyarılar Azure'a genişletilir, alma veya eylemleri kullanarak eklemek [eylem grubu API](https://docs.microsoft.com/rest/api/monitor/actiongroups).
    
 
 | Özellik | Açıklama |
@@ -396,16 +396,16 @@ Put yöntemi, bir zamanlama için bir e-posta eylem değiştirmek için var olan
     armclient put /subscriptions/{Subscription ID}/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/myemailaction?api-version=2015-03-20 $emailJson
 
 #### <a name="remediation-actions"></a>Düzeltme eylemleri
-Düzeltmeler, uyarı tarafından tanımlanan sorunu düzeltme girişiminde Azure Otomasyonu'ndaki bir runbook'u başlatın.  Bir düzeltme eylemi kullanılan runbook için bir Web kancası oluşturmanız ve ardından URI WebhookUri özelliğinde belirtmeniz gerekir.  Bu eylem OMS konsolunu kullanarak oluşturduğunuzda, yeni bir Web kancası runbook için otomatik olarak oluşturulur.
+Düzeltmeler, uyarı tarafından tanımlanan sorunu düzeltme girişiminde Azure Otomasyonu'ndaki bir runbook'u başlatın.  Bir düzeltme eylemi kullanılan runbook için bir Web kancası oluşturmanız ve ardından URI WebhookUri özelliğinde belirtmeniz gerekir.  Azure portalını kullanarak bu eylem oluşturduğunuzda, yeni bir Web kancası runbook için otomatik olarak oluşturulur.
 
 > [!NOTE]
-> 14 Mayıs 2018 tarihinden itibaren bir Log Analytics çalışma alanının Azure genel bulutunda örnekteki tüm uyarıları otomatik olarak Azure'a genişletilir. Bir kullanıcı, gönüllü olarak azure'a genişletme uyarılar 14 Mayıs 2018'den önce başlatabilirsiniz. Daha fazla bilgi için [genişletmek uyarıları oms'den azure'a](../monitoring-and-diagnostics/monitoring-alerts-extend.md). Uyarıları Azure'a genişletme kullanıcıları için runbook kullanarak düzeltme gibi eylemler artık Azure Eylem grupları içinde denetlenir. Bir çalışma alanı ve onun uyarılar Azure'a genişletilir, alma veya eylemleri kullanarak eklemek [eylem grubu API](https://docs.microsoft.com/rest/api/monitor/actiongroups).
+> 14 Mayıs 2018 tarihinden itibaren bir Log Analytics çalışma alanının Azure genel bulutunda örnekteki tüm uyarıları otomatik olarak Azure'a genişletilir. Bir kullanıcı, gönüllü olarak azure'a genişletme uyarılar 14 Mayıs 2018'den önce başlatabilirsiniz. Daha fazla bilgi için [Log analytics'ten azure'a genişletme uyarılar](../monitoring-and-diagnostics/monitoring-alerts-extend.md). Uyarıları Azure'a genişletme kullanıcıları için runbook kullanarak düzeltme gibi eylemler artık Azure Eylem grupları içinde denetlenir. Bir çalışma alanı ve onun uyarılar Azure'a genişletilir, alma veya eylemleri kullanarak eklemek [eylem grubu API](https://docs.microsoft.com/rest/api/monitor/actiongroups).
 
 Düzeltmeleri özellikler aşağıdaki tabloda içerir.
 
 | Özellik | Açıklama |
 |:--- |:--- |
-| RunbookName |Runbook'un adı. Bu Otomasyon çözümünü OMS çalışma alanınızdaki yapılandırılmış Otomasyon hesabını yayımlanan bir runbook'ta eşleşmelidir. |
+| RunbookName |Runbook'un adı. Bu Otomasyon çözümü Log Analytics çalışma alanınızda yapılandırılmış Otomasyon hesabını yayımlanan bir runbook'ta eşleşmelidir. |
 | WebhookUri |Web kancası URI'si. |
 | Süre Sonu |Web kancasının süresi ve sona erme tarihi.  Ardından bu Web kancasını bir sona erme yoksa, geçerli tarihe olabilir. |
 
@@ -458,7 +458,7 @@ Yeni bir e-posta Uyarı oluşturmak için tam bir örnek aşağıda verilmiştir
 Web kancası eylemleri, bir URL çağırma ve isteğe bağlı olarak gönderilmesi için bir yük sağlayarak bir işlem başlar.  Azure Otomasyonu runbook'ları dışındaki işlemler çağırabilir Web kancaları için yöneliktir dışında düzeltme eylemlerinde benzerdir.  İçin uzak işlem teslim edilecek bir yükü sağlama ek seçeneği de sağlanır.
 
 > [!NOTE]
-> 14 Mayıs 2018 tarihinden itibaren bir Log Analytics çalışma alanının Azure genel bulutunda örnekteki tüm uyarıları otomatik olarak Azure'a genişletilir. Bir kullanıcı, gönüllü olarak azure'a genişletme uyarılar 14 Mayıs 2018'den önce başlatabilirsiniz. Daha fazla bilgi için [genişletmek uyarıları oms'den azure'a](../monitoring-and-diagnostics/monitoring-alerts-extend.md). Uyarıları Azure'a genişletme kullanıcıları için Web kancası gibi eylemler artık Azure Eylem grupları içinde denetlenir. Bir çalışma alanı ve onun uyarılar Azure'a genişletilir, alma veya eylemleri kullanarak eklemek [eylem grubu API](https://docs.microsoft.com/rest/api/monitor/actiongroups).
+> 14 Mayıs 2018 tarihinden itibaren bir Log Analytics çalışma alanının Azure genel bulutunda örnekteki tüm uyarıları otomatik olarak Azure'a genişletilir. Bir kullanıcı, gönüllü olarak azure'a genişletme uyarılar 14 Mayıs 2018'den önce başlatabilirsiniz. Daha fazla bilgi için [Log analytics'ten azure'a genişletme uyarılar](../monitoring-and-diagnostics/monitoring-alerts-extend.md). Uyarıları Azure'a genişletme kullanıcıları için Web kancası gibi eylemler artık Azure Eylem grupları içinde denetlenir. Bir çalışma alanı ve onun uyarılar Azure'a genişletilir, alma veya eylemleri kullanarak eklemek [eylem grubu API](https://docs.microsoft.com/rest/api/monitor/actiongroups).
 
 
 Web kancası eylemleri bir eşiği yoktur, ancak bunun yerine bir eşik ile bir uyarı eylemi olan bir zamanlamanın eklenmelidir.  

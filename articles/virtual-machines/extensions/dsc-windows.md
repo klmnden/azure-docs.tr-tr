@@ -14,12 +14,12 @@ ms.tgt_pltfrm: windows
 ms.workload: ''
 ms.date: 03/26/2018
 ms.author: robreed
-ms.openlocfilehash: b9e96473a6f66dcbc675da1553deaed4ad61b249
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: 1d65238115ca57a3fcc8047a27c8161aaa144ce4
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45630949"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49407716"
 ---
 # <a name="powershell-dsc-extension"></a>PowerShell DSC uzantısı
 
@@ -100,7 +100,7 @@ Aşağıdaki JSON şema DSC uzantı ayarları bölümü için bir Azure Resource
 
 | Ad | Değer / örnek | Veri Türü |
 | ---- | ---- | ---- |
-| apiVersion | 2015-06-15 | tarih |
+| apiVersion | 2015-06-15 | date |
 | Yayımcı | Microsoft.Powershell.DSC | dize |
 | type | DSC | dize |
 | typeHandlerVersion | 2,73 | int |
@@ -130,7 +130,7 @@ Aşağıdaki JSON şema DSC uzantı ayarları bölümü için bir Azure Resource
 
 ## <a name="template-deployment"></a>Şablon dağıtımı
 
-Azure VM uzantıları Azure Resource Manager şablonları ile dağıtılabilir. Şablonları, bir veya daha fazla dağıtım sonrası yapılandırma gerektiren sanal makineler dağıtırken idealdir. OMS Aracısı VM uzantısını içeren örnek bir Resource Manager şablonu bulunabilir [Azure hızlı başlangıç Galerisine](https://github.com/Azure/azure-quickstart-templates/tree/052db5feeba11f85d57f170d8202123511f72044/dsc-extension-iis-server-windows-vm). 
+Azure VM uzantıları Azure Resource Manager şablonları ile dağıtılabilir. Şablonları, bir veya daha fazla dağıtım sonrası yapılandırma gerektiren sanal makineler dağıtırken idealdir. Log Analytics aracısını VM uzantısı içeren örnek bir Resource Manager şablonu bulunabilir [Azure hızlı başlangıç Galerisine](https://github.com/Azure/azure-quickstart-templates/tree/052db5feeba11f85d57f170d8202123511f72044/dsc-extension-iis-server-windows-vm). 
 
 Sanal makine uzantısı için JSON yapılandırma içinde sanal makine kaynağı iç içe geçmiş veya kök veya bir Resource Manager JSON şablonunu üst düzey yerleştirilir. Kaynak adı ve türü değeri JSON yapılandırma yerleşimini etkiler. 
 
@@ -139,7 +139,7 @@ Sanal makine uzantısı için JSON yapılandırma içinde sanal makine kaynağı
 
 ## <a name="azure-cli-deployment"></a>Azure CLI dağıtım
 
-Azure CLI, mevcut bir sanal makine için OMS Aracısı VM uzantısını dağıtmak için kullanılabilir. OMS anahtarı ve OMS kimliği bu OMS çalışma alanı ile değiştirin. 
+Azure CLI, Log Analytics aracısını VM uzantısı için mevcut bir sanal makine dağıtmak için kullanılabilir. Log Analytics Kimliğiniz ve Log Analytics anahtar Log Analytics çalışma alanınızın değerlerle değiştirin. 
 
 ```azurecli
 az vm extension set \

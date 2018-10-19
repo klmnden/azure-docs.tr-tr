@@ -12,15 +12,15 @@ ms.component: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
-ms.date: 02/28/2018
+ms.topic: article
+ms.date: 10/17/2018
 ms.author: ergreenl
-ms.openlocfilehash: 6be67a92c95ccf1161ffeeb636ee4f998c65fa05
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: 0eb028e419f05843da308c824d79a8f4e1883fb2
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39503698"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49429754"
 ---
 # <a name="azure-ad-domain-services---troubleshoot-alerts"></a>Azure AD etki alanı Hizmetleri - sorun giderme uyarıları
 Bu makalede, yönetilen etki alanınızda karşılaşabileceğiniz herhangi bir uyarı için sorun giderme kılavuzları sağlar.
@@ -39,7 +39,7 @@ Karşılık gelen sorun giderme adımlarını kimliği veya ileti uyarıyı seç
 | AADDS105 | *Uygulama kimliği ile "d87dcbc6-a371-462e-88e3-28ad15ec4e64" hizmet sorumlusu silindi ve yeniden oluşturulur. Yeniden oluşturarak tutarsız izinleri yönetilen etki alanınıza hizmet için gereken Azure AD etki alanı Hizmetleri kaynaklarında bırakır. Yönetilen etki alanınızda parola eşitlemeyi etkilenebilir.* | [Parola eşitlemesi uygulama güncel değil](active-directory-ds-troubleshoot-service-principals.md#alert-aadds105-password-synchronization-application-is-out-of-date) |
 | AADDS500 | *Yönetilen etki alanı [date] üzerinde Azure AD ile son eşitlendiği zaman. Kullanıcılar yönetilen etki alanında oturum açamıyor veya grup üyeliklerini Azure AD ile eşitlenmiş olmayabilir.* | [Eşitleme, bir süredir oldu henüz](#aadds500-synchronization-has-not-completed-in-a-while) |
 | AADDS501 | *Yönetilen etki alanı son [date] yedeklendi.* | [Bir yedek bir süredir kalmadığını](#aadds501-a-backup-has-not-been-taken-in-a-while) |
-| AADDS502 | *Yönetilen etki alanı için güvenli LDAP sertifikasını [date] dolacak].* | [Güvenli LDAP sertifikasını süresi doluyor](active-directory-ds-troubleshoot-ldaps.md#aadds502-secure-ldap-certificate-expiring) |
+| AADDS502 | *Yönetilen etki alanı için güvenli LDAP sertifikasını [date] sona erecek.* | [Güvenli LDAP sertifikasını süresi doluyor](active-directory-ds-troubleshoot-ldaps.md#aadds502-secure-ldap-certificate-expiring) |
 | AADDS503 | *Etki alanı ile ilişkili Azure aboneliği etkin olmadığından, yönetilen etki alanı askıya alınır.* | [Devre dışı bırakılmış abonelik nedeniyle askıya alma](#aadds503-suspension-due-to-disabled-subscription) |
 | AADDS504 | *Yönetilen etki alanı geçersiz bir yapılandırma nedeniyle askıya alınır. Hizmet, düzeltme eki, yönetme veya yönetilen etki alanınızın etki alanı denetleyicilerinin uzun bir süredir güncelleştirme olmuştur.* | [Geçersiz yapılandırma nedeniyle askıya alma](#aadds504-suspension-due-to-an-invalid-configuration) |
 

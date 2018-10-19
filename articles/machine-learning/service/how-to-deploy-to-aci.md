@@ -9,12 +9,12 @@ ms.author: raymondl
 author: raymondlaghaeian
 ms.reviewer: sgilley
 ms.date: 09/24/2018
-ms.openlocfilehash: e796feaf8ef25eaa91b7db810a11a67da13e9df1
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: 8a736516a598eee051b416834d2b737211e66b96
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48237186"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49429476"
 ---
 # <a name="deploy-web-services-to-azure-container-instances"></a>Azure Container Instances'a Web hizmetlerini dağıtma 
 
@@ -82,10 +82,10 @@ aciconfig = AciWebservice.deploy_configuration(cpu_cores = 1,
 
 > Eğer bu önkoşulu atlayabilirsiniz [model dosyasındaki dağıtma](#deploy-from-model-file) (`Webservice.deploy()`).
 
-Bir model kullanmak için kaydetme [ `Webservice.deploy_from_model` ](#deploy-from-registered-model) veya [ `Webservice.deploy_from_image` ](#deploy-from-image). Veya kayıtlı bir model zaten varsa, şimdi al.
+Bir model kullanmak için kaydetme [Webservice.deploy_from_model](#deploy-from-registered-model) veya [Webservice.deploy_from_image](#deploy-from-image). Veya kayıtlı bir model zaten varsa, şimdi al.
 
 ### <a name="retrieve-a-registered-model"></a>Kayıtlı bir model alma
-Azure Machine Learning, modeli eğitmek için kullanırsanız, model çalışma alanınızda zaten kaydedilmiş olabilir.  Örneğin, son adımı, [bir model eğitip](tutorial-train-models-with-aml.md) öğretici] model kayıtlı.  Ardından, dağıtmak için kayıtlı modeli de alın.
+Azure Machine Learning, modeli eğitmek için kullanırsanız, model çalışma alanınızda zaten kaydedilmiş olabilir.  Örneğin, son adımı, [model Öğreticisi eğitme](tutorial-train-models-with-aml.md) modeli kayıtlı.  Ardından, dağıtmak için kayıtlı modeli de alın.
 
 ```python
 from azureml.core.model import Model
@@ -109,7 +109,7 @@ model = Model.register(model_path = "sklearn_mnist_model.pkl",
                         workspace = ws)
 ```
 
-
+<a name='deploy-from-model-file'/>
 ## <a name="option-1-deploy-from-model-file"></a>1. seçenek: model dosyasındaki dağıtma
 
 Bir model dosyasındaki dağıtmanın seçeneği en az miktarda kod yazmak için de sunar bileşenlerden adlandırma denetim en az miktarda gerektirir. Bu seçenek, bir model dosyası ile başlar ve sizin için çalışma alanına kaydeder.  Ancak, model adını veya etiketleri veya açıklama ilişkilendirmek için.  
@@ -148,6 +148,7 @@ Bu seçenek, SDK yöntemiyle, Webservice.deploy() kullanır.
 
 1. Artık [web hizmetini test](#test-web-service).
 
+<a name='deploy-from-registered-model'/>
 ## <a name="option-2-deploy-from-registered-model"></a>2. seçenek: kayıtlı modelden dağıtma
 
 Kayıtlı model dosyası dağıtma seçeneği, daha fazla birkaç satır kod alır ve çıkışları adlandırma üzerinde bazı denetim sağlar. Bu seçenek zaten kayıtlı bir modeli dağıtmak için kullanışlı bir yoldur.  Ancak, Docker görüntüsünü yeniden adlandırılamıyor.  
@@ -173,6 +174,7 @@ Bu seçenek, SDK yöntemiyle, Webservice.deploy_from_model() kullanır.
 
 1. Artık [web hizmetini test](#test-web-service).
 
+<a name='deploy-from-image'/>
 ## <a name="option-3-deploy-from-image"></a>Seçenek 3: görüntüsünü dağıtma
 
 Kayıtlı model dağıtma (`model`) kullanarak `Webservice.deploy_from_image()`. Bu yöntem, Docker görüntüsünü ayrı ayrı oluşturmanız ve ardından bu görüntüden dağıtmanızı sağlar.
@@ -215,6 +217,7 @@ Bu yöntem, oluşturma ve dağıtım bileşenlerde adlandırma üzerinde en fazl
 
 Şimdi web hizmetini test edebilirsiniz.
 
+<a name='test-web-service'/>
 ## <a name="test-the-web-service"></a>Web hizmetini test edin
 
 Web hizmeti yöntem ne olursa olsun, kullanılan aynıdır.  Öngörüler elde etmek için kullanmak `run` hizmetinin yöntemi.  

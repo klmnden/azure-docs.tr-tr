@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 09/24/2018
+ms.date: 10/18/2018
 ms.author: diberry
-ms.openlocfilehash: f27716cc416b162a5b2df5542d709058f3b3e903
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
+ms.openlocfilehash: 362c5e2e7216d584a9858ace5fb607dc0ee126d5
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47182051"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49426116"
 ---
 # <a name="train-your-luis-app-version"></a>LUIS uygulaması sürümünüz eğitin
 
@@ -26,8 +26,11 @@ When you train a LUIS app by example, LUIS generalizes from the examples you hav
 
 Eğitim ve [test](luis-concept-test.md) uygulama yinelemeli bir işlemdir. LUIS uygulamanızı eğitme sonra varlıkları ve hedefleri doğru olarak tanınır olmadığını görmek için örnek Konuşma ile test edin. Değilseniz, güncelleştirmeleri LUIS uygulaması, eğitin ve test için yeniden yapın. 
 
-## <a name="how-to-train"></a>Eğitme
-Yinelemeli işlemini başlatmak için önce en az bir kez LUIS uygulamanızı geliştirmek gerekir. Eğitim önce en az bir utterance her hedefi olduğundan emin olun.
+Eğitim LUIS Portalı'nda etkin sürüme uygulanır. 
+
+## <a name="how-to-train-interactively"></a>Etkileşimli olarak eğitme
+
+İçinde bir süreçtir başlatmak için [LUIS portalı](https://www.luis.ai), ilk LUIS uygulamanızı en az bir kez eğitmek gerekir. Eğitim önce en az bir utterance her hedefi olduğundan emin olun.
 
 1. Adını seçerek uygulamanıza erişmek **uygulamalarım** sayfası. 
 
@@ -41,7 +44,18 @@ Yinelemeli işlemini başlatmak için önce en az bir kez LUIS uygulamanızı ge
 >Örnek konuşma içermeyen bir veya daha fazla ıntents uygulamanızda varsa, uygulamanızı eğitme olamaz. Tüm amaçlar için konuşma ekleyin. Daha fazla bilgi için [örnek Konuşma ekleme](luis-how-to-add-example-utterances.md).
 
 ## <a name="train-with-all-data"></a>Tüm verilerle eğitim
-Eğitim negatif örnekleme küçük bir yüzdesine kullanır. Tüm veriler yerine negatif yapabileceğini kullanmak istiyorsanız, kullanın [sürüm ayarları API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/versions-update-application-version-settings) ile `UseAllTrainingData` bu özelliği devre dışı bırakmak için true olarak ayarlanmış. 
+
+Eğitim negatif örnekleme küçük bir yüzdesine kullanır. Tüm verileri küçük negatif örnekleme yerine kullanmak istediğiniz kullanırsanız [sürüm ayarları API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/versions-update-application-version-settings) ile `UseAllTrainingData` kapat Bu özellik True olarak ayarlayın. 
+
+## <a name="unnecessary-training"></a>Gereksiz eğitim
+
+Tek her değişiklikten sonra eğitme gerekmez. Eğitim, sonra bir grup değişiklikleri modele uygulanır ve test etmek veya yayımlamak için yapmanız gereken sonraki adım olan yapılmalıdır. Eğitim, test veya yayımlamak ihtiyacınız yoksa, gerekli değildir. 
+
+## <a name="training-with-the-rest-apis"></a>REST API'leri ile eğitim
+
+LUIS portalında eğitim tuşlarına basarak, tek bir adım olduğunu **eğitme** düğmesi. REST API'leri ile eğitim iki adımlı bir işlemdir. Birincisi [istek eğitim](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c45) HTTP POST ile. Daha sonra istek [eğitim durumu](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c46) HTTP Get ile. 
+
+Eğitim tamamlandığında öğrenmek için tüm modelleri başarıyla eğitilir kadar durum yoklaması gerekir. 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

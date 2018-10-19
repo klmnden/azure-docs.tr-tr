@@ -1,5 +1,5 @@
 ---
-title: Packer ile Windows Azure VM görüntüleri oluşturma | Microsoft Docs
+title: Azure'da Packer ile Windows VM görüntüleri oluşturma | Microsoft Docs
 description: Packer ile Azure Windows sanal makine görüntüleri oluşturmak için kullanmayı öğrenin
 services: virtual-machines-windows
 documentationcenter: virtual-machines
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 03/29/2018
 ms.author: cynthn
-ms.openlocfilehash: 2cef9673469020d56e549709d6084f37d3a64b87
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: f848c6b654f3378df04d1320d957e76ac5384465
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49341099"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49427833"
 ---
 # <a name="how-to-use-packer-to-create-windows-virtual-machine-images-in-azure"></a>Azure'da Windows sanal makine görüntüleri oluşturmak için Packer kullanma
 Azure'daki her sanal makine (VM) Windows Dağıtım ve işletim sistemi sürümünü tanımlayan bir görüntüden oluşturulur. Görüntüleri, önceden yüklenmiş uygulamalar ve yapılandırmalar içerebilir. Azure marketi, en yaygın işletim sistemi için birinci ve üçüncü taraf çok sayıda görüntü sağlar ve uygulama ortamları veya uygulamanızın ihtiyaçlarına yönelik kendi özel görüntülerinizi oluşturabilir. Bu makalede, açık kaynaklı aracının nasıl kullanılacağı ayrıntılı [Packer](https://www.packer.io/) tanımlama ve azure'da özel görüntü oluşturma.

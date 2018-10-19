@@ -10,12 +10,12 @@ ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.assetid: bb7d9432-b697-44db-aa88-bd16ddfad23f
 ms.date: 06/19/2018
-ms.openlocfilehash: 5bf5385824eb9b711a2fee547c29d24d7ef5a01d
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 666c998a781f13ea2a26ccfc0b94aeead0308f5b
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43125777"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49405693"
 ---
 # <a name="track-b2b-communication-with-azure-log-analytics"></a>B2B iletişim Azure Log Analytics ile izleme
 
@@ -40,9 +40,9 @@ ms.locfileid: "43125777"
 >  
 > Bir Log Analytics çalışma alanınız yoksa, bilgi [bir Log Analytics çalışma alanı oluşturma](../log-analytics/log-analytics-quick-create-workspace.md).
 
-## <a name="add-the-logic-apps-b2b-solution-to-log-analytics"></a>Logic Apps B2B çözümü Log Analytics'e eklemek
+## <a name="add-the-logic-apps-b2b-solution-to-azure"></a>Azure Logic Apps B2B çözümü ekleme
 
-Mantıksal uygulamanız için B2B iletilerini izleme log Analytics için eklemelisiniz **Logic Apps B2B** OMS portalındaki çözüm. Daha fazla bilgi edinin [Log Analytics çözümleri ekleme](../log-analytics/log-analytics-quick-create-workspace.md).
+Mantıksal uygulamanız için B2B iletilerini izleme log Analytics için eklemelisiniz **Logic Apps B2B** Log analytics'e çözüm. Daha fazla bilgi edinin [Log Analytics çözümleri ekleme](../log-analytics/log-analytics-quick-create-workspace.md).
 
 1. İçinde [Azure portalında](https://portal.azure.com), seçin **tüm hizmetleri**. "Log analytics için" için arama yapın ve ardından **Log Analytics** burada gösterildiği gibi:
 
@@ -52,7 +52,7 @@ Mantıksal uygulamanız için B2B iletilerini izleme log Analytics için eklemel
 
    ![Log Analytics çalışma alanınızı seçin](media/logic-apps-track-b2b-messages-omsportal/selectla.png)
 
-3. Altında **Yönetim**, seçin **genel bakış**.
+3. Altında **Yönetim**, seçin **çalışma özeti**.
 
    ![Log Analytics Portalı'nı seçin](media/logic-apps-track-b2b-messages-omsportal/omsportalpage.png)
 

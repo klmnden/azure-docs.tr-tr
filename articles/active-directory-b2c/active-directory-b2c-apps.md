@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 07/13/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: e42bc63b0c2b6edf4dc0de204bbac5fe90071a67
-ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
+ms.openlocfilehash: 7410dadabf9fda2eb36531991d1d7ff3c3747e2c
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39480521"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49406526"
 ---
 # <a name="applications-types-that-can-be-used-in-active-directory-b2c"></a>Active Directory B2C'de kullanılabilir uygulama türleri
 
@@ -88,11 +88,6 @@ Accept: application/json
 
 Web API'si daha sonra, API çağıranının kimliğini doğrulamak ve belirteçte kodlanmış taleplerden çağıran hakkında bilgi ayıklamak için belirteci kullanabilir. [Azure AD B2C belirteç başvurusunda](active-directory-b2c-reference-tokens.md) bir uygulama için kullanılabilir talepler ve belirteç türleri hakkında bilgi edinin.
 
-> [!NOTE]
-> Azure AD B2C şu anda yalnızca kendi iyi bilinen istemcileri aracılığıyla erişilen web API'lerini desteklemektedir. Örneğin, tam uygulamanız bir iOS uygulaması, bir Android uygulaması ve arka uç web API'si içerebilir. Bu mimari tam olarak desteklenir. Bir iş ortağı istemcisine aynı web API'si şu anda desteklenmeyen erişmek için başka bir iOS uygulaması gibi izin verme. Tam uygulamanızın tüm bileşenleri tek bir uygulama kimliği paylaşmalıdır.
->
->
-
 Web API'si, istemcilerin, web uygulamaları, masaüstü ve mobil uygulamalar, tek sayfalık uygulamalar, sunucu tarafı Daemon'ları ve diğer web API'leri dahil olmak üzere birçok türlerinden belirteçleri alabilir. Bir web API'si çağıran bir web uygulamasına yönelik tam akış örneği aşağıda verilmiştir:
 
 1. Web uygulaması bir ilke yürütür ve kullanıcı deneyimi kullanıcının tamamlar.
@@ -114,11 +109,6 @@ Azure AD B2C'yi kullanarak bir web API'sini nasıl güvence altına alacağını
 Mobil ve Masaüstü uygulamaları gibi cihazlara yüklenen uygulamaların çoğunlukla arka uç hizmetlerine veya web API'lerine kullanıcılar adına erişim gerekir. Yerel uygulamalarınıza özelleştirilmiş kimlik yönetimi deneyimleri ekleyebilir ve güvenli bir şekilde Azure AD B2C'yi kullanarak arka uç hizmetlerini çağırma ve [OAuth 2.0 yetkilendirme kod akışı](active-directory-b2c-reference-oauth-code.md).  
 
 Bu akışta uygulama yürütür [ilkeleri](active-directory-b2c-reference-policies.md) ve alan bir `authorization_code` kullanıcı ilkeyi tamamladıktan sonra Azure AD'den. `authorization_code` Uygulamanın şu anda oturum açan kullanıcı adına arka uç hizmetlerini çağırma izni temsil eder. Uygulama ardından exchange `authorization_code` arka planda bir `id_token` ve `refresh_token`.  Uygulamanın kullanabileceği `id_token` HTTP isteklerinde arka uç web API'si için kimlik doğrulaması. Ayrıca eskisinin süresi dolduğunda yeni bir `id_token` almak için `refresh_token` öğesini kullanabilir.
-
-> [!NOTE]
-> Azure AD B2C şu anda yalnızca bir uygulamanın kendi arka uç web hizmetine erişmek için kullanılan belirteçleri destekler. Örneğin, tam uygulamanız bir iOS uygulaması, bir Android uygulaması ve arka uç web API'si içerebilir. Bu mimari tam olarak desteklenir. İOS uygulamanız OAuth 2.0 erişim belirteçleri kullanarak bir iş ortağı web API'sine erişmek izin verme şu anda desteklenmiyor. Tam uygulamanızın tüm bileşenleri tek bir uygulama kimliği paylaşmalıdır.
->
->
 
 ## <a name="current-limitations"></a>Geçerli sınırlamalar
 

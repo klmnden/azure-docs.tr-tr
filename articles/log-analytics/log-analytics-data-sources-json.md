@@ -1,6 +1,6 @@
 ---
-title: Özel JSON verilerini OMS Log Analytics'e toplama | Microsoft Docs
-description: Özel JSON veri kaynakları, Linux için OMS Aracısı'nı kullanarak Log Analytics'e halinde toplanabilir.  Bu özel veri kaynaklarının curl veya FluentD'ın 300'ü aşkın eklentileri gibi JSON döndüren basit betik dosyalarını olabilir. Bu makalede, bu veri toplama için gerekli yapılandırmayı açıklar.
+title: Özel JSON verileri Log Analytics'e toplama | Microsoft Docs
+description: Özel JSON veri kaynakları, Linux için Log Analytics aracısını kullanarak Log Analytics'e halinde toplanabilir.  Bu özel veri kaynaklarının curl veya FluentD'ın 300'ü aşkın eklentileri gibi JSON döndüren basit betik dosyalarını olabilir. Bu makalede, bu veri toplama için gerekli yapılandırmayı açıklar.
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -15,18 +15,19 @@ ms.workload: infrastructure-services
 ms.date: 05/04/2017
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 9725a3df04ef28fc3a076c3c6ca6663e36b186a8
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 69338e438ced8871de1e994ee8b816f9dc40b13a
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48040277"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49402361"
 ---
-# <a name="collecting-custom-json-data-sources-with-the-oms-agent-for-linux-in-log-analytics"></a>Log analytics'te Linux için OMS Aracısı özel JSON veri kaynaklarıyla toplama
-Özel JSON veri kaynakları, Linux için OMS Aracısı'nı kullanarak Log Analytics'e halinde toplanabilir.  Bu özel veri kaynakları gibi JSON döndüren basit betik dosyalarını olabilir [curl](https://curl.haxx.se/) veya biri [FluentD'ın 300'ü aşkın eklentileri](http://www.fluentd.org/plugins/all). Bu makalede, bu veri toplama için gerekli yapılandırmayı açıklar.
+# <a name="collecting-custom-json-data-sources-with-the-log-analytics-agent-for-linux-in-log-analytics"></a>Log Analytics aracısını Log analytics'te Linux için özel JSON veri kaynaklarıyla toplama
+[!INCLUDE [log-analytics-agent-note](../../includes/log-analytics-agent-note.md)]
+Özel JSON veri kaynakları, Linux için Log Analytics aracısını kullanarak Log Analytics'e halinde toplanabilir.  Bu özel veri kaynakları gibi JSON döndüren basit betik dosyalarını olabilir [curl](https://curl.haxx.se/) veya biri [FluentD'ın 300'ü aşkın eklentileri](http://www.fluentd.org/plugins/all). Bu makalede, bu veri toplama için gerekli yapılandırmayı açıklar.
 
 > [!NOTE]
-> V1.1.0 Linux için OMS Aracısı-217 + özel JSON verileri için gerekli
+> Linux v1.1.0 için log Analytics aracısını-217 + özel JSON verileri için gerekli
 
 ## <a name="configuration"></a>Yapılandırma
 
@@ -80,8 +81,8 @@ Ana yapılandırma aşağıdaki çıktı eklentisi yapılandırma eklemek `/etc/
 </match>
 ```
 
-### <a name="restart-oms-agent-for-linux"></a>Linux için OMS aracısını yeniden başlatın
-Aşağıdaki komutla hizmeti Linux için OMS aracısını yeniden başlatın.
+### <a name="restart-log-analytics-agent-for-linux"></a>Linux için log Analytics aracısını yeniden başlatın
+Aşağıdaki komutla Linux hizmet için Log Analytics aracısını yeniden başlatın.
 
     sudo /opt/microsoft/omsagent/bin/service_control restart 
 

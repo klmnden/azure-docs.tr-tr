@@ -14,46 +14,43 @@ ms.workload: infrastructure
 ms.date: 09/10/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c61dffc6fd9d0c65f5e925daebdf2a02cfb5d6ba
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: 1d8bbe2fc218004116177c4c9d95777d9ec57503
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44161365"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49426094"
 ---
 # <a name="sap-hana-large-instances-deployment"></a>SAP HANA (büyük örnekler) dağıtım 
 
-SAP HANA (büyük örnekler) azure'da satın siz ve Microsoft Kurumsal hesap ekibinin arasında sonlandırıldıktan sonra HANA büyük örneği birimleri dağıtmak için Microsoft tarafından aşağıdaki bilgiler gereklidir:
+Bu makale SAP hana (büyük örnekler) azure'da satın alma işleminiz tamamladıktan Microsoft'tan varsayar. Genel arka plan için bu makaleyi okumadan önce bkz [HANA büyük örnekler, yaygın terimlerin](hana-know-terms.md) ve [HANA büyük örnekler SKU'ları](hana-available-skus.md).
 
-- Müşteri adı
-- İş iletişim bilgileri (e-posta adresi ve telefon numarası dahil)
-- Teknik iletişim bilgileri (e-posta adresi ve telefon numarası dahil)
-- Teknik ağ iletişim bilgileri (e-posta adresi ve telefon numarası dahil)
-- Azure Dağıtım bölgesi (Batı ABD, Doğu ABD, Avustralya Doğu, Avustralya Güneydoğu, Batı Avrupa ve Kuzey Avrupa Temmuz 2017'den itibaren)
-- SAP HANA (büyük örnekler) SKU (yapılandırma) Azure üzerinde onaylayın
-- Zaten genel bakış ve mimari belgede dağıtılıyor her Azure bölgesi için HANA büyük örnekler için ayrıntılı:
-    - Bir/29 ER P2P bağlantıları, HANA büyük örnekler için Azure Vnet'leri bağlamak için IP adresi aralığı
-    - Bir/24 CIDR bloğu HANA büyük örnekleri sunucu IP havuzu için kullanılan
-- Her Azure HANA büyük örnekleri bağlayan vnet'in VNet adres alanı özniteliğinde kullanılan IP adres aralığı değeri
+
+Microsoft, HANA büyük örnek birimleri dağıtmak için aşağıdaki bilgileri gerektirir:
+
+- Müşteri adı.
+- İş iletişim bilgileri (dahil olmak üzere e-posta adresi ve telefon numarası).
+- Teknik iletişim bilgilerini (dahil olmak üzere e-posta adresi ve telefon numarası).
+- Teknik ağ iletişim bilgileri (e-posta adresi ve telefon numarası dahil).
+- Azure Dağıtım bölgesi (örneğin, Batı ABD, Avustralya Doğu veya Kuzey Avrupa).
+- SAP HANA (büyük örnekler) azure'da SKU (yapılandırma).
+- Her Azure Dağıtım bölgesi için:
+    - Bir/29 HANA büyük örnekler için Azure sanal ağları bağlama ER P2P bağlantıları için IP adresi aralığı.
+    - Bir/24 CIDR bloğu HANA büyük örnekler sunucu IP havuzu için kullanılır.
+- Sanal ağ adres alanı özniteliğinde HANA büyük örnekleri bağlanan her Azure sanal ağının IP adresi aralığı değerleri.
 - Verileri her HANA büyük örnekleri sistemi için:
-  - İstenen ana bilgisayar - ideal olarak tam etki alanı adına sahip.
-  - Sunucu IP havuzu adres aralığı dışında-HANA büyük örneği birim için istenen IP adresini kullanmaya devam aklınızda sunucu IP havuzu adres aralığı ilk 30 IP adresleriyle HANA büyük örnekleri içinde iç kullanım için ayrılmıştır
-  - SAP HANA SID (SAP HANA ile ilgili gerekli disk birimler oluşturmak için gerekli) SAP HANA örneği adı. HANA SID, HANA büyük örneği birimine bağlı NFS birimlerde sidadm izinlerini oluşturmak için gereklidir. Ayrıca, bağlı disk birimlerinin adı bileşenlerinden biri kullanılır. Biriminde birden çok HANA örneği çalıştırmak istiyorsanız, birden çok HANA SID listesi gerekir. Her birine atanan birimleri ayrı kümesini alır.
-  - Linux işletim sisteminde sidadm kullanıcının GroupID, SAP HANA ile ilgili gerekli disk birimleri oluşturmak için gereklidir. SAP HANA yüklemesi, genellikle 1001 ile bir grup kimliği sapsys grubu oluşturur. Sidadm kullanıcı o grubun bir parçasıdır
-  - Linux işletim sisteminde sidadm kullanıcının kullanıcı kimliği, SAP HANA ile ilgili gerekli disk birimleri oluşturmak için gereklidir. Birden çok HANA örnekleri birim üzerinde çalıştırıyorsanız, tüm listelemek gereken <sid>adm kullanıcılar 
-- Azure abonelik kimliği için hangi Azure HANA üzerinde SAP HANA büyük örnekleri doğrudan bağlı olacak bir Azure aboneliği. Bu abonelik kimliği ile HANA büyük örneği birimi ücreti gidip Azure aboneliği başvuruyor.
+  - İdeal olarak bir tam etki alanı adı ile istenen konak adı.
+  - Sunucu IP havuzu adres aralığı dışında HANA büyük örnek birim için istenen IP adresi. (Sunucu IP havuzu adres aralığı ilk 30 IP adresleriyle HANA büyük örnekleri içinde iç kullanım için ayrılmıştır.)
+  - SAP HANA SID (SAP HANA ile ilgili gerekli disk birimler oluşturmak için gerekli) SAP HANA örneği adı. Microsoft, HANA SID sidadm izinlerini bağlı NFS birimleri oluşturmak için gerekir. Bu birimleri HANA büyük örnek birimine bağlayın. HANA SID de takılı disk birimlerinin adı bileşenlerinden biri kullanılır. Biriminde birden çok HANA örneği çalıştırmak istiyorsanız, birden çok HANA SID listelemelisiniz. Her birine atanan birimleri ayrı kümesini alır.
+  - Linux işletim sisteminde sidadm kullanıcı grubu kimliğini sahiptir. Bu kimliği, SAP HANA ile ilgili gerekli disk birimler oluşturmak için gereklidir. SAP HANA yüklemesi, genellikle 1001 ile bir grup kimliği sapsys grubu oluşturur. Bu grubun parçası sidadm kullanıcıdır.
+  - Linux işletim sisteminde sidadm kullanıcı bir kullanıcı kimliği vardır. Bu kimliği, SAP HANA ile ilgili gerekli disk birimler oluşturmak için gereklidir. Birden çok HANA örnekleri birim üzerinde çalıştırıyorsanız, tüm sidadm kullanıcıları listeler. 
+- Azure abonelik kimliği için hangi Azure HANA üzerinde SAP HANA büyük örnekleri doğrudan bağlı olacak bir Azure aboneliği. Bu abonelik kimliği HANA büyük örnek birim veya birim ile ücretlendirilmeye devam Azure aboneliğini başvuruyor.
 
-Bilgileri verdikten sonra Microsoft SAP HANA (büyük örnekler) azure'da sağlar ve HANA büyük örnekleri, Azure sanal ağları bağlamak ve HANA büyük örneği birimleri erişmek için gerekli bilgileri döndürür.
+Yukarıdaki bilgiler verdikten sonra Microsoft Azure (büyük örnekler) üzerinde SAP HANA sağlar. Microsoft Azure sanal ağlarınıza HANA büyük örneklerine bağlanmak için bilgi gönderir. Ayrıca, HANA büyük örnek birimleri de erişebilirsiniz.
 
-Bu makalede okumadan önce hakkında bilgi edinin [HANA büyük örnekleri genel koşulları](hana-know-terms.md) ve [HANA büyük örnekleri SKU'ları](hana-available-skus.md).
+Microsoft, dağıtıldıktan sonra HANA büyük örneklerine bağlanmak için aşağıdaki sırayı kullanın:
 
-Microsoft tarafından dağıtıldıktan sonra HANA büyük örneklerine bağlanmak için aşağıdaki sırayı kullanabilirsiniz:
-
-1. [Azure sanal makineleri HANA büyük örneklerine bağlanma](hana-connect-azure-vm-large-instances.md)
-2. [HANA büyük örnekler ExpressRoute için sanal ağ bağlama](hana-connect-vnet-express-route.md)
+1. [Azure Vm'lerini bağlamak HANA büyük örnekleri](hana-connect-azure-vm-large-instances.md)
+2. [HANA büyük örnekleri ExpressRoute sanal ağ bağlama](hana-connect-vnet-express-route.md)
 3. [(İsteğe bağlı) ek donanım gereksinimleri](hana-additional-network-requirements.md)
 
-**Sonraki adımlar**
-
-- Başvuru [HANA büyük örnekler için Azure Vm'lerini bağlamak](hana-connect-azure-vm-large-instances.md).
-- Başvuru [HANA büyük örnek ExpressRoute için bir VNet bağlama](hana-connect-vnet-express-route.md).

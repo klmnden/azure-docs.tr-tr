@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 01/16/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: b38ce59a80d3fa78449892c8a76ed70b4dc698d3
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: f7fe7cee39468558ce503c050d5574e4be15ebf5
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48041498"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49407178"
 ---
 # <a name="monitor-surface-hubs-with-log-analytics-to-track-their-health"></a>Surface hub'lar durumlarını izlemek için Log Analytics ile izleme
 
@@ -51,7 +51,7 @@ Intune, bir veya daha fazla cihazlarınızı uygulanan Log Analytics yapılandı
 1. Intune'da oturum açın.
 2. Gidin **ayarları** > **bağlı kaynakları**.
 3. Oluşturabilir ve Surface Hub şablonu temel alan bir ilkeyi düzenleyebilirsiniz.
-4. İlke OMS (Azure operasyonel İçgörüler) bölümüne gidin ve Log Analytics ekleme *çalışma alanı kimliği* ve *çalışma alanı anahtarı* ilkesi.
+4. İlkeyi Azure operasyonel İçgörüler bölümüne gidin ve Log Analytics ekleme *çalışma alanı kimliği* ve *çalışma alanı anahtarı* ilkesi.
 5. İlkeyi kaydedin.
 6. İlkeyi cihazların uygun grubu ile ilişkilendirin.
 
@@ -66,9 +66,9 @@ Ortamınızı yönetmek için Intune kullanmıyorsanız, cihazları el ile kayde
 
 1. Surface hub'ınızdan, açık **ayarları**.
 2. İstendiğinde cihaz Yöneticisi kimlik bilgilerini girin.
-3. Tıklayın **bu cihaz**ve altında **izleme**, tıklayın **OMS ayarlarını yapılandır**.
+3. Tıklayın **bu cihaz**ve altında **izleme**, tıklayın **günlük analizi ayarları yapılandırma**.
 4. Seçin **izlemeyi etkinleştir**.
-5. Log Analytics OMS Ayarları iletişim kutusuna **çalışma alanı kimliği** yazın **çalışma alanı anahtarı**.  
+5. Log Analytics günlük analizi Ayarları iletişim kutusuna **çalışma alanı kimliği** yazın **çalışma alanı anahtarı**.  
    ![Ayarlar](./media/log-analytics-surface-hubs/settings.png)
 6. Tıklayın **Tamam** yapılandırmasını tamamlamak için.
 

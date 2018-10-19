@@ -9,12 +9,12 @@ ms.component: speech
 ms.topic: article
 ms.date: 04/28/2018
 ms.author: erhopf
-ms.openlocfilehash: ab2bc9a83feadd9ece8876559e730e7bc955908a
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 93fbf33ee35c49e7afc36bf5afbae1da0fe1c56f
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49165479"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49430213"
 ---
 # <a name="create-a-custom-wake-word-by-using-the-speech-service"></a>Konuşma hizmeti kullanarak bir özel Uyandırma sözcük oluşturma
 
@@ -52,10 +52,6 @@ Cihazınızda bir özel Uyandırma sözcük kullanabilmeniz için önce Microsof
 1. Azure Active Directory Davetiyesi aldığınız e-posta adresi ile yeni bir hesap oluşturun. 
 
     ![Yeni hesap oluşturun](media/speech-devices-sdk/wake-word-1.png)
- 
-1.  Oturum açtıktan sonra formu doldurun ve ardından **my yolculuğunuza başlayın**.
-
-    ![başarıyla oturum açıldı](media/speech-devices-sdk/wake-word-3.png)
  
 1. **Özel Uyandırma Word** kullanılamaz, ortak var. alan doğrudan bağlantı olduğundan. Özel konuşma tanıma özelliği bir Azure aboneliği gerektirir, ancak özel Uyandırma Word özelliği değil. Aldığınız varsa **Hayır abonelik bulunamadı.** hata sayfası, yalnızca Değiştir **"abonelikleri? errorMessage = yok % 20Subscriptions % 20found"** ile "**customkws**" URL'si ve isabet girin. URL, bunlardan biri olmalıdır: https://westus.cris.ai/customkws, https://eastasia.cris.ai/customkws veya https://northeurope.cris.ai/customkwsbölgenizde nerede bağlı olarak.
 

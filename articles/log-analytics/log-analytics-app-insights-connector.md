@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 06/29/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 4157b812fbb17b524a21814f41e0e4ec43e39e70
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 7c6d91da0634e7f847af01d1c057607ab095cdf6
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48042096"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49408217"
 ---
 # <a name="application-insights-connector-management-solution-preview"></a>Application Insights Bağlayıcısı yönetim çözümü (Önizleme)
 
@@ -58,8 +58,8 @@ Uygulama öngörüleri Bağlayıcısı çözümü performans sorunlarını tanı
 ## <a name="configuration"></a>Yapılandırma
 
 1. Azure Web Apps Analytics çözümü etkinleştirme [Azure Market](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ApplicationInsights?tab=Overview) veya açıklanan işlemi kullanarak [Log Analytics çözümleri ekleme çözüm Galerisi'ndeki](log-analytics-add-solutions.md).
-2. OMS portalında **ayarları** &gt; **veri** &gt; **Application Insights**.
-3. Altında **bir abonelik seçin**, Application Insights kaynaklarını içeren bir aboneliği seçin ve ardından altındaki **uygulama adı**, bir veya daha fazla uygulama seçin.
+2. [Azure portala](https://portal.azure.com) gidin. Seçin **tüm hizmetleri** Application Insights'ı açın. Ardından Application ınsights'ı arayın. 
+3. Altında **abonelikleri**, Application Insights kaynaklarını içeren bir aboneliği seçin ve ardından altındaki **adı**, bir veya daha fazla uygulama seçin.
 4. **Kaydet**’e tıklayın.
 
 Yaklaşık 30 dakika içinde veriler kullanılabilir duruma gelir ve Application Insights kutucuğunu aşağıdaki görüntü gibi verilerle güncelleştirilir:
@@ -133,7 +133,7 @@ Perspektif bileşenleri arama sorgusu bağlı olarak güncelleştirilir. Başka 
 
 ### <a name="pivot-to-an-app-in-the-azure-portal"></a>Azure Portalı'nda bir uygulama için Özet
 
-Application Insights Bağlayıcısı dikey pencereleri seçili Application Insights uygulamayı Özet sağlamak için tasarlanmıştır *OMS portalı kullandığınızda*. Çözüm, sorunu giderme yardımcı olan üst düzey bir izleme platformu olarak kullanabilirsiniz. Olası bir soruna bağlı uygulamalarınızı hiçbirinde gördüğünüzde, ya da ayrıntıya, Log Analytics arama yapabilir veya doğrudan Application Insights uygulama Özet.
+Application Insights Bağlayıcısı dikey pencereleri seçili Application Insights uygulamayı Özet sağlamak için tasarlanmıştır *Azure portalı kullandığınızda*. Çözüm, sorunu giderme yardımcı olan üst düzey bir izleme platformu olarak kullanabilirsiniz. Olası bir soruna bağlı uygulamalarınızı hiçbirinde gördüğünüzde, ya da ayrıntıya, Log Analytics arama yapabilir veya doğrudan Application Insights uygulama Özet.
 
 Özet için üç noktaya tıklayın (**...** ), her satırın sonunda görünür ve seçin **Application ınsights'ta Aç**.
 

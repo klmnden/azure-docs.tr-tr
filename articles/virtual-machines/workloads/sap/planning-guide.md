@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 09/06/2018
 ms.author: sedusch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 51711e3cb0a2e26e8e10590e98414d4d72cc4d59
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: f8b7d2620b5b972c9476332f2b662a891a0b3765
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49320586"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49430349"
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>Azure sanal makineleri planlama ve uygulama için SAP NetWeaver
 
@@ -541,7 +541,7 @@ Microsoft Azure sanal makineleri farklı depolama türlerini kullanın. Azure sa
 * Kalıcı olmayan, geçici depolama alanı.
 * Kalıcı depolama alanı.
 
-VM dağıtıldıktan sonra azure sanal makineleri kalıcı olmayan diskler sunar. VM'yi yeniden başlatma durumunda, bu sürücülerde tüm içeriği temizlenir. Bu nedenle, olan bir biçimde hiçbir koşulda veri dosyaları ve veritabanı günlük/Yinele dosyaları bu kalıcı olmayan sürücüler bulunmalıdır. Burada bu kalıcı olmayan sürücüler tempdb ve geçici açabilmek için uygun olabilir veritabanlarından bazıları için özel durumlar olabilir. Ancak, bu kalıcı olmayan sürücüler aktarım hızının, VM ailesi ile sınırlı olduğundan, A serisi VM'ler için bu sürücüleri kullanmaktan kaçının. Daha fazla ayrıntı için makaleyi okuyun [Windows Azure sanal makineler üzerinde geçici sürücüyü anlama](https://blogs.msdn.microsoft.com/mast/2013/12/06/understanding-the-temporary-drive-on-windows-azure-virtual-machines/)
+VM dağıtıldıktan sonra azure sanal makineleri kalıcı olmayan diskler sunar. VM'yi yeniden başlatma durumunda, bu sürücülerde tüm içeriği temizlenir. Bu nedenle, olan bir biçimde hiçbir koşulda veri dosyaları ve veritabanı günlük/Yinele dosyaları bu kalıcı olmayan sürücüler bulunmalıdır. Burada bu kalıcı olmayan sürücüler tempdb ve geçici açabilmek için uygun olabilir veritabanlarından bazıları için özel durumlar olabilir. Ancak, bu kalıcı olmayan sürücüler aktarım hızının, VM ailesi ile sınırlı olduğundan, A serisi VM'ler için bu sürücüleri kullanmaktan kaçının. Daha fazla ayrıntı için makaleyi okuyun [azure'da Windows VM'ler geçici sürücüyü anlama](https://blogs.msdn.microsoft.com/mast/2013/12/06/understanding-the-temporary-drive-on-windows-azure-virtual-machines/)
 
 - - -
 > ![Windows][Logo_Windows] Windows

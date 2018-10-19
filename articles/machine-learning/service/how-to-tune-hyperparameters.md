@@ -9,12 +9,12 @@ ms.service: machine-learning
 ms.component: core
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 950d985ca87cce484edeb7930ca1bda34d812f33
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 13820dd511d31217b79385e893edbb55a3a57693
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49344141"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49430032"
 ---
 # <a name="tune-hyperparameters-for-your-model"></a>İçin model ayarlama hiperparametreleri
 
@@ -141,8 +141,9 @@ param_sampling = BayesianParameterSampling( {
 ```
 
 > [!NOTE]
-> Herhangi bir erken sonlandırma ilke Bayes örnekleme desteklemez (bkz [bir erken sonlandırma ilkesini belirtin](#specify-an-early-termination-policy)). Bayes parametre örnekleme kullanırken ayarlayın `early_termination_policy = None`, ya da devre dışı bırakın `early_termination_policy` parametresi.
-`
+> Herhangi bir erken sonlandırma ilke Bayes örnekleme desteklemez (bkz [bir erken sonlandırma ilkesini belirtin](#specify-early-termination-policy)). Bayes parametre örnekleme kullanırken ayarlayın `early_termination_policy = None`, ya da devre dışı bırakın `early_termination_policy` parametresi.
+
+<a name='specify-primary-metric-to-optimize'/>
 
 ## <a name="specify-primary-metric"></a>Birincil Metrik belirtin
 
@@ -158,9 +159,11 @@ primary_metric_goal=PrimaryMetricGoal.MAXIMIZE
 
 "Doğruluğu" en üst düzeye çıkarmak için çalışmalardan iyileştirin.  Bu değer eğitim betiğinizde oturum emin olun.
 
+<a name='log-metrics-for-hyperparameter-tuning'/>
+
 ### <a name="log-metrics-for-hyperparameter-tuning"></a>Hiper parametre ayarı için ölçümleri günlüğe kaydedin
 
-Eğitim betiği modeliniz için ilgili ölçümleri modeli eğitimi sırasında oturum açmanız gerekir. Hiper parametre ayarı yapılandırdığınızda, çalışma performans değerlendirmesi için kullanılacak birincil Metrik belirtin. (Bkz [iyileştirmek için birincil bir ölçüm belirtin](#specify-a-primary-metric-to-optimize).)  Eğitim betiğinizde, Hiper parametre ayarlama işlemi için kullanılabilir olacak şekilde bu ölçüm oturum açmalısınız.
+Eğitim betiği modeliniz için ilgili ölçümleri modeli eğitimi sırasında oturum açmanız gerekir. Hiper parametre ayarı yapılandırdığınızda, çalışma performans değerlendirmesi için kullanılacak birincil Metrik belirtin. (Bkz [iyileştirmek için birincil bir ölçüm belirtin](#specify-primary-metric-to-optimize).)  Eğitim betiğinizde, Hiper parametre ayarlama işlemi için kullanılabilir olacak şekilde bu ölçüm oturum açmalısınız.
 
 Bu ölçüm, aşağıdaki örnek kod parçacığı ile eğitim betiğinizde günlük:
 
@@ -171,6 +174,8 @@ run_logger.log("accuracy", float(val_accuracy))
 ```
 
 Eğitim betiğini hesaplar `val_accuracy` ve birincil ölçüm kullanılan "doğruluğu" olarak günlüğe kaydeder. Ölçüm her oturum, Hiper parametre ayarı hizmet tarafından alınır. Bu, genellikle bu ölçüm bildirme belirlemek için model geliştiricisi kadar kadar.
+
+<a name='specify-early-termination-policy'/>
 
 ## <a name="specify-early-termination-policy"></a>Erken sonlandırma ilkesini belirtin
 
@@ -297,7 +302,7 @@ experiment = Experiment(workspace, experiment_name)
 hyperdrive_run = experiment.submit(hyperdrive_run_config)
 ```
 
-`experiment_name` deney, ayarlama, Hiper parametre atadığınız adı ve `workspace` istediğiniz bir deneme oluşturmak çalışma alanı (denemeler hakkında daha fazla bilgi için bkz. [nasıl Azure Machine Learning hizmeti çalışır?](/concept-azure-machine-learning-architecture.md))
+`experiment_name` deney, ayarlama, Hiper parametre atadığınız adı ve `workspace` istediğiniz bir deneme oluşturmak çalışma alanı (denemeler hakkında daha fazla bilgi için bkz. [nasıl Azure Machine Learning hizmeti çalışır?](concept-azure-machine-learning-architecture.md))
 
 ## <a name="visualize-experiment"></a>Deneme görselleştirin
 
@@ -320,7 +325,7 @@ Ayrıca, performans ve bir paralel koordinatları çizim kullanarak tek tek hipe
 
 ![Hiper parametre paralel koordinatları ayarlama](media/how-to-tune-hyperparameters/HyperparameterTuningParallelCoordinates.png)
 
-Çalıştırmaları de Azure web portalında ayarlama tüm, Hiper parametre görselleştirebilirsiniz. Bir deney web portalında görüntüleme hakkında daha fazla bilgi için bkz. [nasıl izleneceğini expirements](/how-to-track-experiments.md/#view-the-experiment-in-the-web-portal).
+Çalıştırmaları de Azure web portalında ayarlama tüm, Hiper parametre görselleştirebilirsiniz. Bir deney web portalında görüntüleme hakkında daha fazla bilgi için bkz. [nasıl izleneceğini denemeleri](how-to-track-experiments.md#view-the-experiment-in-the-web-portal).
 
 ![Hiper parametre ayarlama portalı](media/how-to-tune-hyperparameters/HyperparameterTuningPortal.png)
 

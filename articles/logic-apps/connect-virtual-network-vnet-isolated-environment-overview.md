@@ -1,6 +1,6 @@
 ---
-title: Azure sanal ağları Azure Logic Apps'ten erişim
-description: Bu genel bakışta nasıl yalıtılmış logic apps özel ve ayrılmış kaynakları kullanan tümleştirme service ortamları (ISEs) Azure sanal ağlara bağlayabilirsiniz gösterir
+title: Erişimden Azure sanal ağlarına Azure Logic Apps ile tümleştirme service ortamları (ISEs)
+description: Bu genel bakış, nasıl tümleştirme service ortamları (ISEs) mantıksal uygulamaları Azure sanal ağlarına erişmesine yardımcı açıklar.
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -9,19 +9,19 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 09/24/2018
-ms.openlocfilehash: 9546b8ca33ef7da2d570b547446858e2a4099234
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: f21af23cf0b7b121441b1433f382db60ef7f13fe
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47393167"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49408668"
 ---
-# <a name="access-to-azure-virtual-network-resources-from-isolated-azure-logic-apps"></a>Yalıtılmış Azure Logic Apps için Azure sanal ağ kaynaklarına erişim
+# <a name="access-to-azure-virtual-network-resources-from-azure-logic-apps-by-using-integration-service-environments-ises"></a>Tümleştirme service ortamları (ISEs) kullanarak Azure sanal ağ kaynakları için Azure Logic Apps gelen erişimi
 
 > [!NOTE]
 > Bu özellik bulunduğu *özel Önizleme*. Erişim talep etmek [burada katılma isteğiniz oluşturma](https://aka.ms/iseprivatepreview).
 
-Bazı durumlarda, logic apps ve tümleştirme hesapları sanal makineler (VM) gibi güvenli kaynaklara ve diğer sistemler veya Hizmetleri içinde erişmesi gereken bir [Azure sanal ağı](../virtual-network/virtual-networks-overview.md). Bu erişim sağlamak için [oluşturmak bir *tümleştirme hizmeti ortamı* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment.md) olarak logic apps ve tümleştirme hesapları oluşturmak için konum. 
+Bazı durumlarda, logic apps ve tümleştirme hesapları sanal makineler (VM) gibi güvenli kaynaklara ve diğer sistemler veya Hizmetleri içinde erişmesi gereken bir [Azure sanal ağı](../virtual-network/virtual-networks-overview.md). Bu erişimi ayarlamak için [oluşturmak bir *tümleştirme hizmeti ortamı* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment.md) konumu olarak logic apps ve tümleştirme hesabı için kullandığınız. 
 
 ![Tümleştirme hizmeti ortamı seçin](./media/connect-virtual-network-vnet-isolated-environment-overview/select-logic-app-integration-service-environment.png)
 

@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 07/26/2018
 ms.author: iainfou
-ms.openlocfilehash: 011654dcbad21c3e8cea51d6ab98eeca461e4685
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: 7caa98b65b35d1eb1a000f1e9099fbf8eb3f8861
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49068834"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49406050"
 ---
 # <a name="enable-and-review-kubernetes-master-node-logs-in-azure-kubernetes-service-aks"></a>Kubernetes Azure Kubernetes Service (AKS) ana düğüm günlüklerini gözden geçirin ve etkinleştirin
 
@@ -37,9 +37,12 @@ Log Analytics etkin ve Azure portalında yönetilir. Kubernetes AKS kümenizde a
 1. Kullanılabilir günlükleri listesinde gibi etkinleştirmek istediğiniz günlükleri seçin *kube-apiserver*, *kube Denetleyici Yöneticisi*, ve *kube-Zamanlayıcı*. Dönün ve Log Analytics etkinleştirildikten sonra toplanan günlükleri değiştirin.
 1. Hazır olduğunuzda seçin **Kaydet** seçili günlüklerin toplanmasını etkinleştirmek için.
 
-Aşağıdaki örnekte portalı ekran görüntüsü gösterildiği *tanılama ayarları* penceresi ve OMS çalışma alanı oluşturma seçeneği:
+Aşağıdaki örnekte portalı ekran görüntüsü gösterildiği *tanılama ayarları* penceresi ve sonra bir Log Analytics çalışma alanı oluşturma seçeneği:
 
-![OMS çalışma alanı, Log Analytics AKS kümesi için etkinleştirme](media/view-master-logs/enable-oms-log-analytics.png)
+![Log Analytics çalışma alanı, Log Analytics AKS kümesi için etkinleştirme](media/view-master-logs/enable-oms-log-analytics.png)
+
+>[!NOTE]
+>OMS çalışma alanları, artık Log Analytics çalışma alanları da adlandırılır. 
 
 ## <a name="schedule-a-test-pod-on-the-aks-cluster"></a>Bir AKS kümesi test pod zamanlama
 
@@ -75,7 +78,7 @@ pod/nginx created
 
 ## <a name="view-collected-logs"></a>Toplanan günlükleri görüntüleyin
 
-Bu OMS çalışma alanınızda görünür ve etkin tanılama günlükleri için birkaç dakika sürebilir. Azure portalında Log Analytics çalışma alanınız için kaynak grubu gibi seçin *myResourceGroup*, Log Analytics kaynağınızı gibi ardından *myAKSLogs*.
+Bu, Log Analytics çalışma alanında görünür ve etkin tanılama günlükleri için birkaç dakika sürebilir. Azure portalında Log Analytics çalışma alanınız için kaynak grubu gibi seçin *myResourceGroup*, Log Analytics kaynağınızı gibi ardından *myAKSLogs*.
 
 ![AKS kümenizin Log Analytics çalışma alanını seçin](media/view-master-logs/select-log-analytics-workspace.png)
 

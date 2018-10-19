@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 10/10/2018
+ms.date: 10/15/2018
 ms.author: raynew
-ms.openlocfilehash: 35cce4e9e0b722e8ee1b2ea42a79f18a987033f0
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: bb756a89babef96b16419104737e87405b3527ab
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49078656"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49407410"
 ---
 # <a name="manage-the-configuration-server-for-vmware-vms"></a>VMware Vm'leri için yapılandırma sunucusunu yönetme
 
@@ -138,6 +138,9 @@ Yapılandırma sunucusunu güncelleştirmek için güncelleştirme paketleri ça
 - 9.6 veya önceki bir sürümünü çalıştırın ve 9.11 için yükseltmek istiyorsanız 9.7 sürümüne yükseltmeniz gerekir. 9.11 önce.
 
 Güncelleştirme paketleri yapılandırma sunucusundaki tüm sürümlerine yükseltme için bağlantılar kullanılabilir [wiki güncelleştirmeleri sayfası](https://social.technet.microsoft.com/wiki/contents/articles/38544.azure-site-recovery-service-updates.aspx).
+
+> [!IMPORTANT]
+> Her yeni sürümü ile yayınlanan, bir Azure Site Recovery componenet 'N-4 altındaki tüm sürümleri 'N'' destek kapsamı dışında olarak kabul edilir. Her zaman kullanılabilir en son sürümlerine yükseltmek için önerilir.
 
 Sunucuyu aşağıdaki gibi yükseltin:
 

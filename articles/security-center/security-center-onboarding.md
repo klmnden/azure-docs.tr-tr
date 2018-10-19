@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/02/2018
 ms.author: rkarlin
-ms.openlocfilehash: 50055befaa0a5f0bb03bda18e01edfb751e49369
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: d5a4cfa3a91b82aa0f5b1725f86c732fecf632d4
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44380004"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49405455"
 ---
 # <a name="onboarding-to-azure-security-center-standard-for-enhanced-security"></a>Gelişmiş güvenlikten yararlanmaya başlamak için Azure Güvenlik Merkezi standart ekleme
 Gelişmiş güvenlik yönetimi ve tehdit koruması için hibrit bulut iş yüklerinizi yararlanmak için Güvenlik Merkezi standart yükseltin.  Standart 60 gün boyunca ücretsiz deneyebilirsiniz. Güvenlik Merkezi'ni [fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/security-center/) daha fazla bilgi için.
@@ -42,13 +42,13 @@ Tüm Azure aboneliğinin abonelik içindeki tüm kaynaklar tarafından devralın
 
 ## <a name="upgrade-an-azure-subscription-or-workspace"></a>Bir Azure aboneliğini veya çalışma alanını yükseltme
 Standart abonelik veya çalışma alanını yükseltmek için:
-1. Güvenlik Merkezi ana menüsünde seçin **Başlarken**.
+1. Güvenlik Merkezi ana menüsü altında, **Başlarken**’i seçin.
   ![Başlarken](./media/security-center-onboarding/get-started.png)
-2. Altında **yükseltme**, Güvenlik Merkezi, abonelikleri ve çalışma alanı ekleme işlemi için uygun listeler. 
-   - Genişletilebilir üzerinde tıklayabilirsiniz **denemenizi uygulamak** tüm abonelikler ve deneme uygunluk durumları ile birlikte çalışma alanlarının bir listesini görmek için.
-   -    Abonelikler ve deneme sürümü için uygun olmayan çalışma alanları yükseltebilirsiniz.
-   -    Uygun çalışma alanları ve deneme sürümünüzü başlatmak için abonelikleri seçebilirsiniz.
-3.  Tıklayın **deneme sürümünü Başlat** seçili Aboneliklerde deneme sürümünüzü başlatmak için.
+2. **Yükselt** altında, Güvenlik Merkezi, ekleme işlemi için uygun abonelikleri ve çalışma alanlarını listeler. 
+   - Tüm abonelikleri ve çalışma alanlarını deneme sürümü uygunluk durumlarıyla birlikte listelemek için, genişletilebilir **Deneme sürümünüzü uygulayın**’a tıklayabilirsiniz.
+   -    Deneme sürümü için uygun olmayan abonelikler ve çalışma alanlarını yükseltebilirsiniz.
+   -    Deneme sürümünüzü başlatmak için uygun çalışma alanlarını ve abonelikleri seçebilirsiniz.
+3.  Seçili aboneliklerde deneme sürümünüzü başlatmak için **Deneme sürümünü başlat**’a tıklayın.
   ![Abonelik seçin](./media/security-center-onboarding/select-subscription.png)
 
 
@@ -63,11 +63,11 @@ Güvenlik Merkezi, Azure dışı bilgisayarların güvenlik durumunu izleyebilir
 ### <a name="add-new-non-azure-computers-from-getting-started"></a>Yeni Azure olmayan bilgisayarlardan ekleme **kullanmaya başlama**
 
 1. Geri dönüp **Başlarken**.   
-2. Seçin **başlama** sekmesi.
+2. **Başlangıç** sekmesini seçin.
 
   ![Azure Dışı](./media/security-center-onboarding/non-azure.png)
 
-3. Tıklayın **yapılandırma** altında **yeni Azure olmayan bilgisayar ekleme**. Log Analytics çalışma alanlarınızın listesi gösterilir. Listede, varsa, otomatik sağlama etkinleştirildiğinde Güvenlik Merkezi tarafından sizin için oluşturulan varsayılan çalışma alanı bulunur. Bu çalışma alanını veya kullanmak istediğiniz başka bir çalışma alanı seçin.
+3. **Yeni Azure dışı bilgisayarlar ekle** altında, **Yapılandır**’a tıklayın. Log Analytics çalışma alanlarınızın bir listesi gösterilir. Listede, varsa, otomatik sağlama etkinleştirildiğinde Güvenlik Merkezi tarafından sizin için oluşturulan varsayılan çalışma alanı bulunur. Bu çalışma alanını veya kullanmak istediğiniz başka bir çalışma alanını seçin.
 
   ![Azure olmayan bilgisayar ekleme][7]
 
@@ -82,6 +82,8 @@ Mevcut çalışma alanınız varsa bunlar altında listelenen **yeni Azure olmay
    ![Yeni bir çalışma alanı Ekle][4]
 
 2. Altında **güvenlik ve Denetim**seçin **OMS çalışma alanı** yeni bir çalışma alanı oluşturmak için.
+> [!NOTE]
+> OMS çalışma alanları, artık Log Analytics çalışma alanları da adlandırılır.
 3. Altında **OMS çalışma alanı**, çalışma alanınız için bilgi girin.
 4. Altında **OMS çalışma alanı**seçin **Tamam**.  Tamam'ı seçin, sonra bir Windows veya Linux aracısını ve anahtarlarını yüklemek için bir bağlantı alırsınız aracının yapılandırılmasında kullanılacak çalışma alanı Kimliğiniz için.
 5. Altında **güvenlik ve Denetim**seçin **Tamam**.

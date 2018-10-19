@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 04/11/2018
 ms.author: markvi
 ms.reviewer: spunukol
-ms.openlocfilehash: e44b68a2ed2786b449e2680ca4a8ca531058b85c
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 445611338b0b2895d83626e8cf450dc8d1cb27a6
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47432826"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49406408"
 ---
 # <a name="azure-active-directory-conditional-access-settings-reference"></a>Azure Active Directory koşullu erişim ayarları başvurusu
 
@@ -182,8 +182,8 @@ Bu ayar, aşağıdaki mobil uygulamalar ve masaüstü istemciler yapılan erişi
 |Takvim/posta/kişiler uygulaması, Outlook 2016'ın (modern kimlik doğrulaması ile) Outlook 2013|Office 365 Exchange Online|Windows 10|
 |Uygulamalar için MFA ve konum ilkesi. Cihaz tabanlı ilkeler desteklenmez. |Herhangi bir uygulamalarım uygulama hizmeti|Android ve iOS|
 |Microsoft Teams Hizmetleri - bu, Microsoft Teams ve tüm istemci uygulamaları - Windows Masaüstü, iOS, Android, WP ve web istemcisi destekleyen tüm hizmetleri denetler|Microsoft Teams|Windows 10, Windows 8.1, Windows 7, iOS, Android ve macOS |
-|Office 2016 uygulamaları, Office 2013 (modern kimlik doğrulaması ile) OneDrive eşitleme istemcisini (bkz [notları](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e))|Office 365 SharePoint Online|Windows 8.1, Windows 7|
-|Office 2016 uygulamaları, Evrensel Office uygulamaları, Office 2013 (modern kimlik doğrulaması ile), OneDrive eşitleme istemcisini (bkz [notları](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e)), Office grupları destek gelecek için planlanan, SharePoint uygulama destek gelecek için planlanan|Office 365 SharePoint Online|Windows 10|
+|Office 2016 uygulamaları, Office 2013 (modern kimlik doğrulaması ile) OneDrive eşitleme istemcisini (bkz [notları](https://support.office.com/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e))|Office 365 SharePoint Online|Windows 8.1, Windows 7|
+|Office 2016 uygulamaları, Evrensel Office uygulamaları, Office 2013 (modern kimlik doğrulaması ile), OneDrive eşitleme istemcisini (bkz [notları](https://support.office.com/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e)), Office grupları destek gelecek için planlanan, SharePoint uygulama destek gelecek için planlanan|Office 365 SharePoint Online|Windows 10|
 |MacOS (Word, Excel, PowerPoint ve OneNote yalnızca) için Office 2016. OneDrive for Business desteği gelecek için planlanan|Office 365 SharePoint Online|Mac OS X|
 |Office mobil uygulamaları|Office 365 SharePoint Online|Android, iOS|
 |Office Yammer uygulaması|Office 365 Yammer|Windows 10, iOS, Android|

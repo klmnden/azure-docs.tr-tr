@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: govindk
-ms.openlocfilehash: 868f465cc651043d3ef4b1735b4b528252572dbb
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: cc64bc1af6eee505ccf3d38e214c49ffb7e3304c
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49378094"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49404469"
 ---
 # <a name="secure-access-to-an-azure-cosmos-db-account-by-using-azure-virtual-network-service-endpoint"></a>Azure sanal ağ hizmet uç noktası'nı kullanarak bir Azure Cosmos DB hesabı güvenli erişim
 
@@ -56,8 +56,8 @@ Artık Azure Cosmos DB hesabınız yalnızca bu seçilen alt ağa gelen trafiğe
 
 1. Gelen **tüm kaynakları** Bul Azure Cosmos DB hesabı dikey penceresinde istediğiniz güvenliğini sağlamak.  
 
-> [!NOTE]
-> Azure Cosmos DB hesabınız için yapılandırılan mevcut bir IP güvenlik duvarı varsa, lütfen güvenlik duvarı yapılandırması unutmayın, IP Güvenlik Duvarı'nı kaldırın ve ardından hizmet uç noktasını girin. Hizmet uç noktası olmadığında disbling güvenlik duvarını etkinleştirirseniz, bu IP aralığı gelen trafik sanal IP kimlik kaybedeceksiniz ve bir IP Filtresi hata iletisiyle bırakılır. Bu hatayı önlemek için her zaman güvenlik duvarı kurallarını devre dışı bırakmanız gerekir, böylece bunları kopyalayabilir, alt ağ ve son olarak ACL Cosmos DB'den bir alt ağ hizmet uç noktasını girin. Hizmet uç noktası yapılandırın ve ACL ekleyin, IP Güvenlik Duvarı'nı yeniden gerekirse yeniden etkinleştirebilirsiniz.
+   > [!NOTE]
+   > Azure Cosmos DB hesabınız için yapılandırılan mevcut bir IP güvenlik duvarı varsa, lütfen güvenlik duvarı yapılandırması unutmayın, IP Güvenlik Duvarı'nı kaldırın ve ardından hizmet uç noktasını girin. Hizmet uç noktası olmadığında disbling güvenlik duvarını etkinleştirirseniz, bu IP aralığı gelen trafik sanal IP kimlik kaybedeceksiniz ve bir IP Filtresi hata iletisiyle bırakılır. Bu hatayı önlemek için her zaman güvenlik duvarı kurallarını devre dışı bırakmanız gerekir, böylece bunları kopyalayabilir, alt ağ ve son olarak ACL Cosmos DB'den bir alt ağ hizmet uç noktasını girin. Hizmet uç noktası yapılandırın ve ACL ekleyin, IP Güvenlik Duvarı'nı yeniden gerekirse yeniden etkinleştirebilirsiniz.
 
 2. Sanal ağ hizmet uç noktası etkinleştirmeden önce Azure Cosmos DB hesabınız gelecekteki kullanımlarınız için ile ilişkili IP Güvenlik Duvarı bilgileri kopyalayın. IP Güvenlik Duvarı Hizmeti uç noktası yapılandırıldıktan sonra yeniden etkinleştirebilirsiniz.  
 
@@ -97,9 +97,8 @@ Azure PowerShell kullanarak Azure Cosmos DB hesabı için hizmet uç noktasını
 
 1. Son yükleme [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) ve [oturum açma](https://docs.microsoft.com/powershell/azure/authenticate-azureps).  IP Güvenlik Duvarı ayarlarını not edin ve hesap için hizmet uç noktasını etkinleştirmeden önce IP Güvenlik Duvarı tamamen silmek emin olun.
 
-
-> [!NOTE]
-> Azure Cosmos DB hesabınız için yapılandırılan mevcut bir IP güvenlik duvarı varsa, lütfen güvenlik duvarı yapılandırması unutmayın, IP Güvenlik Duvarı'nı kaldırın ve ardından hizmet uç noktasını girin. Hizmet uç noktası olmadığında disbling güvenlik duvarını etkinleştirirseniz, bu IP aralığı gelen trafik sanal IP kimlik kaybedeceksiniz ve bir IP Filtresi hata iletisiyle bırakılır. Bu hatayı önlemek için her zaman güvenlik duvarı kurallarını devre dışı bırakmanız gerekir, böylece bunları kopyalayabilir, alt ağ ve son olarak ACL Cosmos DB'den bir alt ağ hizmet uç noktasını girin. Hizmet uç noktası yapılandırın ve ACL ekleyin, IP Güvenlik Duvarı'nı yeniden gerekirse yeniden etkinleştirebilirsiniz.
+  > [!NOTE]
+  > Azure Cosmos DB hesabınız için yapılandırılan mevcut bir IP güvenlik duvarı varsa, lütfen güvenlik duvarı yapılandırması unutmayın, IP Güvenlik Duvarı'nı kaldırın ve ardından hizmet uç noktasını girin. Hizmet uç noktası olmadığında disbling güvenlik duvarını etkinleştirirseniz, bu IP aralığı gelen trafik sanal IP kimlik kaybedeceksiniz ve bir IP Filtresi hata iletisiyle bırakılır. Bu hatayı önlemek için her zaman güvenlik duvarı kurallarını devre dışı bırakmanız gerekir, böylece bunları kopyalayabilir, alt ağ ve son olarak ACL Cosmos DB'den bir alt ağ hizmet uç noktasını girin. Hizmet uç noktası yapılandırın ve ACL ekleyin, IP Güvenlik Duvarı'nı yeniden gerekirse yeniden etkinleştirebilirsiniz.
 
 2. Sanal ağ hizmet uç noktası etkinleştirmeden önce Azure Cosmos DB hesabınız gelecekteki kullanımlarınız için ile ilişkili IP Güvenlik Duvarı bilgileri kopyalayın. Hizmet uç noktası yapılandırıldıktan sonra IP Güvenlik Duvarı'nı yeniden etkinleştirmeniz.  
 
@@ -270,7 +269,7 @@ Sanal ağ hizmet uç noktaları etkin olduğunda, sanal ağınızın alt ağdaki
 
 Azure Cosmos DB, genel bir IP adresi ile çok kiracılı bir hizmettir. Hizmet uç noktası özelliğini kullanarak bir Azure sanal ağ alt ağı için erişimi kısıtlamak, Azure Cosmos DB hesabınıza verilen Azure sanal ağ ve onun alt aracılığıyla erişimi sınırlıdır.  Azure Cosmos DB hesabı, Azure sanal ağında bulunmuyor. 
 
-### <a name="what-if-anything-will-be-logged-in-log-analyticsoms-if-it-is-enabled"></a>Ne herhangi bir şey etkinleştirilirse, Log Analytics/OMS kaydedilir?  
+### <a name="what-if-anything-will-be-logged-in-log-analytics-if-it-is-enabled"></a>Peki herhangi bir şey etkinleştirilirse, Log Analytics'te kaydedilir?  
 
 Azure Cosmos DB, ACL tarafından engellendi durumu 403 isteği için IP adresi (olmadan son sekizli) günlükleriyle gönderir.  
 

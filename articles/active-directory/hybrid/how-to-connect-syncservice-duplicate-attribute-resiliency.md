@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: f8fe86712b59a896d1f431ef677f592ced382db8
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: e20ae31ae64483d4d11b793f1c8656107413c05d
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46312077"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49406203"
 ---
 # <a name="identity-synchronization-and-duplicate-attribute-resiliency"></a>Kimlik eşitleme ve yinelenen öznitelik dayanıklılığı
 Yinelenen öznitelik dayanıklılığı kaynaklanan uyuşmazlıkları ortadan kaldıracak Azure Active Directory özelliğidir **UserPrincipalName** ve **ProxyAddress** Microsoft'un birini çalıştırırken çakışıyor Eşitleme araçları.
@@ -122,7 +122,7 @@ Office 365 Yönetim merkezinde dizin eşitleme hataları görüntüleyebilirsini
 
 ![Etkin kullanıcılar](./media/how-to-connect-syncservice-duplicate-attribute-resiliency/1234.png "etkin kullanıcılar")
 
-Office 365 Yönetim merkezinde dizin eşitleme hataları görüntülemek yönergeler için bkz: [Office 365'te dizin eşitleme hataları belirlemenize](https://support.office.com/en-us/article/Identify-directory-synchronization-errors-in-Office-365-b4fc07a5-97ea-4ca6-9692-108acab74067).
+Office 365 Yönetim merkezinde dizin eşitleme hataları görüntülemek yönergeler için bkz: [Office 365'te dizin eşitleme hataları belirlemenize](https://support.office.com/article/Identify-directory-synchronization-errors-in-Office-365-b4fc07a5-97ea-4ca6-9692-108acab74067).
 
 ### <a name="identity-synchronization-error-report"></a>Kimlik eşitleme hata raporu
 Yinelenen öznitelik çakışma sahip bir nesne zaman işlenir davranışlarla teknik bildirim gönderilir standart kimlik eşitleme hata raporu e-postadaki bildirim dahil bu Kiracı için iletişime geçin. Ancak, bu davranışı önemli bir değişiklik yoktur. Çakışma çözümlendi kadar her sonraki hata raporu geçmişte, yinelenen öznitelik çakışma hakkında bilgi dahil edilir. Bu yeni davranış ile belirli bir çakışma hata bildirimine yalnızca bir kez - çakışan bir öznitelik karantinaya zaman gibi görünüyor.
@@ -173,5 +173,5 @@ Bağlantı için *bu sorunu gidermek adımları* yanlış:
 ## <a name="see-also"></a>Ayrıca bkz.
 * [Azure AD Connect eşitleme](how-to-connect-sync-whatis.md)
 * [Şirket içi kimliklerinizi Azure Active Directory ile tümleştirme](whatis-hybrid-identity.md)
-* [Office 365'te dizin eşitleme hataları belirleyin](https://support.office.com/en-us/article/Identify-directory-synchronization-errors-in-Office-365-b4fc07a5-97ea-4ca6-9692-108acab74067)
+* [Office 365'te dizin eşitleme hataları belirleyin](https://support.office.com/article/Identify-directory-synchronization-errors-in-Office-365-b4fc07a5-97ea-4ca6-9692-108acab74067)
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/11/2018
 ms.author: genli
-ms.openlocfilehash: dd9a2c6a5b2183d4909b6bcfd24dc1fae401c785
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: fa316ee47e6fdabacf22e1e419bfd501620dd83d
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47414696"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49429159"
 ---
 # <a name="understand-a-system-reboot-for-azure-vm"></a>Azure VM için sistemin yeniden başlatılma nedenini anlama
 
@@ -73,7 +73,7 @@ Genellikle VM yeniden başlatılmasına neden diğer senaryolar birden fazla yap
 ### <a name="azure-security-center-and-windows-update"></a>Azure Güvenlik Merkezi ve Windows Update
 Azure Güvenlik Merkezi, işletim sistemi güncelleştirmeleri eksik günlük Windows ve Linux sanal makineleri izler. Güvenlik Merkezi bir Windows sanal makine üzerinde yapılandırılmış hizmet bağlı olarak Windows Update veya Windows Server Update Services (WSUS) kullanılabilir güvenlik güncelleştirmeleri ve kritik güncelleştirmeler listesini alır. Güvenlik Merkezi, ayrıca Linux sistemleri için en son güncelleştirmeleri denetler. Sanal makinenizin sistem güncelleştirmesi eksikse, Güvenlik Merkezi sistem güncelleştirmelerini uygulayın önerir. Bu sistem güncelleştirmelerini uygulama, Azure Portal'da Güvenlik Merkezi aracılığıyla denetlenir. Bazı güncelleştirmeler uygulandıktan sonra VM yeniden başlatma gerekli olabilir. Daha fazla bilgi için [Azure Güvenlik Merkezi'nde sistem güncelleştirmelerini uygulayın](../../security-center/security-center-apply-system-updates.md).
 
-Bu makineler kullanıcılarının yönetilmesine yönelik olduğundan şirket içi sunucular gibi Azure güncelleştirmeleri Windows Update'ten Windows Azure sanal makinelerine göndermez. Ancak, teşvik otomatik Windows güncelleştirme ayarı etkin bırakın. Windows Update'ten güncelleştirmeleri otomatik olarak yüklenmesini güncelleştirmeleri uygulandıktan sonra gerçekleşmesi yeniden başlatma da neden olabilir. Daha fazla bilgi için [Windows Update SSS](https://support.microsoft.com/help/12373/windows-update-faq).
+Bu makineler kullanıcılarının yönetilmesine yönelik olduğundan şirket içi sunucular gibi Azure güncelleştirmeleri Windows Update'ten Windows Vm'leri için göndermez. Ancak, teşvik otomatik Windows güncelleştirme ayarı etkin bırakın. Windows Update'ten güncelleştirmeleri otomatik olarak yüklenmesini güncelleştirmeleri uygulandıktan sonra gerçekleşmesi yeniden başlatma da neden olabilir. Daha fazla bilgi için [Windows Update SSS](https://support.microsoft.com/help/12373/windows-update-faq).
 
 ### <a name="other-situations-affecting-the-availability-of-your-vm"></a>Sanal makinenizin kullanılabilirliğini etkileyen diğer durumlar
 Hangi Azure etkin bir şekilde bir sanal makinenin askıya diğer durumlar vardır. Bu eylem önce temel alınan sorunları çözmek için bir fırsat gerekir böylece e-posta bildirimleri alırsınız. VM kullanılabilirliği etkileyen sorunları örnekleri, güvenlik ihlalleri ve sona erme tarihini ödeme yöntemlerini içerir.

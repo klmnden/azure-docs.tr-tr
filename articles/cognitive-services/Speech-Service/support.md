@@ -8,12 +8,12 @@ ms.component: custom-speech
 ms.topic: article
 ms.date: 07/26/2018
 ms.author: wolfma
-ms.openlocfilehash: c08cc34631afdec4a4b08b4c599b79e1a161558c
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: b5d981f06219bd2b5d7325476725ff7a4eccf3b6
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49364166"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49430111"
 ---
 # <a name="support-and-help-options"></a>Destek ve Yardım seçenekleri
 
@@ -74,8 +74,41 @@ Bir arama ile sorununuzun yanıtını bulamazsanız, yeni Stack Overflow soru g�
 
 Örnekler, genellikle açık kaynak gönderilir. Sorular ve sorunlar için oluşturma bir *sorunu* ilgili GitHub deposundaki. Bir çekme isteği çok gönderebilirsiniz. Aşağıdaki listede, örnek depoları bağlantılar içeriyor:
 
-* [Konuşma SDK'sı](https://aka.ms/csspeech/samples)
-* [Cihaz SDK'sı](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK)
+* [Konuşma SDK'sı](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues)
+* [Cihaz SDK'sı](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK/issues)
+
+Özellik isteği, bir hata raporu oluşturabilir veya genel bir soru sorun ve en iyi yöntemlerinizi paylaşın. Hata raporları için lütfen sağlanan şablon izleyin:
+
+**Hatayı açıklayan**
+
+Hata nedir, kısa ve öz açıklaması.
+
+**Yeniden oluşturma**
+
+Davranışı yeniden oluşturma adımları:
+1. ...
+2. ...
+
+**Beklenen davranış**
+
+Olmasını beklediğinizi ve anlaşılır açıklaması.
+
+**Bilişsel hizmetler konuşma SDK sürümü**
+
+SDK'sının hangi sürümünü kullandığınızı.
+
+**Platform, işletim sistemi ve programlama dili**
+
+ - İşletim sistemi: [örneğin Windows, Linux, Android, iOS,...] - Lütfen ayrıntılı belirtin
+ - Donanım - x64, x86, ARM...
+ - Tarayıcı [Örneğin, Chrome, Safari] (varsa)-Lütfen ayrıntılı belirtin
+
+**Ek bağlam**
+
+ - Hata iletileri, günlük bilgileri yığın izlemesini...
+ - Bir hizmete etkileşimi için bir hata raporu, rapor edilen olay süresi (saat dilimi dahil) ve SessionID bildirin. SessionID tüm çağrı-telefonla geri/aldığınız olaylar bildirilir.
+ - Herhangi bir ek bilgi
+
 
 ## <a name="uservoice-forum"></a>UserVoice forumumuzu
 

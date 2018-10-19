@@ -14,16 +14,16 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/26/2018
 ms.author: srrengar
-ms.openlocfilehash: f99206fe673f69c78bf130026207ed58344ccea5
-ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
+ms.openlocfilehash: 68e0192756db539767dd808d0f0d408e77c2ae1b
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39324434"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49405659"
 ---
 # <a name="performance-monitoring-with-the-windows-azure-diagnostics-extension"></a>Windows Azure tanılama uzantısı ile performans izleme
 
-Bu belge Windows kümeleri için Windows Azure tanılama (WAD) uzantısı aracılığıyla performans sayaçlarını toplamayı ayarlamak için gerekli adımları kapsar. Linux kümeleri için ayarlanan [OMS Aracısı](service-fabric-diagnostics-oms-agent.md) performans sayaçları düğümlerinize için toplanacak. 
+Bu belge Windows kümeleri için Windows Azure tanılama (WAD) uzantısı aracılığıyla performans sayaçlarını toplamayı ayarlamak için gerekli adımları kapsar. Linux kümeleri için ayarlanan [Log Analytics aracısını](service-fabric-diagnostics-oms-agent.md) performans sayaçları düğümlerinize için toplanacak. 
 
  > [!NOTE]
 > WAD uzantısı, sizin için işe için bu adımları için kümenizde dağıtılmalıdır. Ayarlandığına değil, attıktan [olay toplama ve Windows Azure Tanılama'yı kullanarak koleksiyon](service-fabric-diagnostics-event-aggregation-wad.md).  

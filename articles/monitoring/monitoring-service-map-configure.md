@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: daseidma;bwren
-ms.openlocfilehash: a68c35ba2f740720e3d7940d6fafa2dcfe183589
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 70cf6fe1e2256ba2ed58d020111669e59d9db56b
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47064384"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49405523"
 ---
 # <a name="configure-service-map-in-azure"></a>Azure'da hizmet eşlemesi yapılandırma
 Hizmet Eşlemesi, Windows ve Linux sistemleri üzerindeki uygulama bileşenlerini otomatik olarak bulur ve hizmetler arasındaki iletişimi eşler. Bunları--kritik Hizmetleri sunmak birbirine sistemleri düşündüğünüz sunucularınızın görüntülemek için kullanabilirsiniz. Hizmet eşlemesi, tüm TCP bağlantılı mimarisi, gerekli bir aracı yüklemesini dışında hiçbir yapılandırma boyunca sunucuları, işlemler ve bağlantı noktaları arasındaki bağlantıları gösterir.
@@ -138,22 +138,22 @@ Hizmet eşlemesi kendi verilerini Microsoft Dependency Aracıdan alır. Log Anal
 | System Center Operations Manager yönetim grubu | Evet | Hizmet eşlemesi analiz eder ve Windows ve Linux aracılarını bir bağlı olarak veri toplar [System Center Operations Manager yönetim grubu](../log-analytics/log-analytics-om-agents.md). <br><br>System Center Operations Manager aracısının doğrudan Log Analytics’e bağlanması gerekir. |
 | Azure depolama hesabı | Hayır | Azure Depolama'dan toplamak için hiçbir veri bu nedenle hizmet eşlemesi Aracısı bilgisayarlardan verileri toplar. |
 
-Windows üzerinde Microsoft Monitoring Agent (MMA) hem System Center Operations Manager hem de Log Analytics tarafından toplayın ve göndermek için kullanılan izleme verileri. (Bu aracı System Center Operations Manager Aracısı, OMS Aracısı, Log Analytics aracısını, MMA veya doğrudan aracı bağlama bağlı olarak adlandırılır.) System Center Operations Manager ve Log Analytics MMA'yı farklı çıkış-hazır sürümleri sağlar. Bu sürümlerin her biri System Center Operations Manager'a, Log Analytics'e veya her ikisine birden raporlayabilir.  
+Windows üzerinde Microsoft Monitoring Agent (MMA) hem System Center Operations Manager hem de Log Analytics tarafından toplayın ve göndermek için kullanılan izleme verileri. (Bu aracı System Center Operations Manager Aracısı, Log Analytics aracısını, MMA veya doğrudan aracı bağlama bağlı olarak adlandırılır.) System Center Operations Manager ve Log Analytics MMA'yı farklı çıkış-hazır sürümleri sağlar. Bu sürümlerin her biri System Center Operations Manager'a, Log Analytics'e veya her ikisine birden raporlayabilir.  
 
 Linux üzerinde Log Analytics aracısını Linux toplar ve izleme verilerini Log analytics'e gönderir. Hizmet eşlemesi ile Log Analytics aracılarını hizmete doğrudan bağlı sunucularda kullanabilirsiniz veya Log Analytics ile tümleşik bir Operations Manager yönetim grubuna raporlama.  
 
 Bu makalede, Linux veya Windows olarak System Center Operations Manager yönetim grubu veya doğrudan Log Analytics'e bağlı olup olmadığını biz tüm aracıları için başvuracağınız *Log Analytics aracısını*. 
 
-Hizmet eşlemesi aracısının tüm veriler aktarmaz ve güvenlik duvarları ya da bağlantı noktalarını herhangi bir değişiklik gerektirmez. Hizmet eşlemesi verileri her zaman Log Analytics aracısını Log Analytics hizmetine tarafından doğrudan ya da OMS ağ geçidi üzerinden aktarılır.
+Hizmet eşlemesi aracısının tüm veriler aktarmaz ve güvenlik duvarları ya da bağlantı noktalarını herhangi bir değişiklik gerektirmez. Hizmet eşlemesi verileri her zaman Log Analytics aracısını Log Analytics hizmetine tarafından doğrudan veya Log Analytics ağ geçidi üzerinden iletilir.
 
 ![Hizmet eşlemesi Aracısı](media/monitoring-service-map/agents.png)
 
 Log Analytics'e bağlı bir yönetim grubuna sahip bir System Center Operations Manager müşterisi iseniz:
 
 - System Center Operations Manager aracıları Log Analytics'e bağlanmak için Internet'e erişebiliyorsa ek yapılandırma gerekmiyor.  
-- System Center Operations Manager aracılarının Log Analytics Internet üzerinden erişemiyorsanız, System Center Operations Manager ile çalışmak için OMS ağ geçidi'ni yapılandırmanız gerekir.
+- System Center Operations Manager aracılarının Log Analytics Internet üzerinden erişemiyorsanız, System Center Operations Manager ile çalışmak için Log Analytics ağ geçidi'ni yapılandırmanız gerekir.
   
-Windows veya Linux bilgisayarlarınızın doğrudan hizmetine bağlanamıyor, OMS ağ geçidi kullanarak Log Analytics'e bağlanmak için Log Analytics aracısını yapılandırmanız gerekir. OMS ağ geçidi yapılandırmak ve dağıtmak hakkında daha fazla bilgi için bkz. [OMS ağ geçidi kullanarak Internet erişimi bilgisayarları bağlama](../log-analytics/log-analytics-oms-gateway.md).  
+Windows veya Linux bilgisayarlarınızın doğrudan hizmetine bağlanamazsa, ağ geçidini kullanarak Log Analytics çalışma alanına bağlamak için Log Analytics aracısını yapılandırmanız gerekir. Log Analytics ağ geçidi yapılandırmak ve dağıtmak hakkında daha fazla bilgi için bkz. [Log Analytics ağ geçidini kullanarak Internet erişimi bilgisayarları bağlama](../log-analytics/log-analytics-oms-gateway.md).  
 
 ### <a name="management-packs"></a>Yönetim paketleri
 Log Analytics çalışma alanında hizmet eşlemesi etkinleştirildiğinde, 300 KB Yönetim Paketi bu çalışma alanındaki tüm Windows sunucuları iletilir. System Center Operations Manager aracıları kullanıyorsanız bir [bağlı yönetim grubu](../log-analytics/log-analytics-om-agents.md), hizmet eşlemesi Yönetim Paketi, System Center Operations Manager üzerinden dağıtılır. 

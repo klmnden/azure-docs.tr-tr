@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 04/05/2018
 ms.author: danlep
 ms.custom: ''
-ms.openlocfilehash: 98bd088d4995bd1444b059531dc5b19d0283f551
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 0c045d82e47d2554c2767e6f52491c780618abc2
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46965543"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49409535"
 ---
 # <a name="batch-metrics-alerts-and-logs-for-diagnostic-evaluation-and-monitoring"></a>Toplu ölçümleri, uyarılar ve değerlendirme tanılama ve izleme günlükleri
 
@@ -85,7 +85,7 @@ Tanılama günlükleri için isteğe bağlı diğer hedefleri:
 
 * Batch tanılama günlüğü olaylarını Stream bir [Azure olay hub'ı](../event-hubs/event-hubs-what-is-event-hubs.md). Event hubs'ı, sonra dönüştürebilir ve herhangi bir gerçek zamanlı analiz sağlayıcısı kullanarak depolama, saniye başına milyonlarca olayı içe alabilir. 
 
-* Tanılama günlükleri gönderin [Azure Log Analytics](../log-analytics/log-analytics-overview.md), buradan Operations Management Suite (OMS) portalında çözümlemek, veya Power BI'ı veya Excel'i analizi için bunları dışarı aktarın.
+* Tanılama günlükleri gönderin [Azure Log Analytics](../log-analytics/log-analytics-overview.md), burada onları çözümleyebilir veya Power BI'ı veya Excel'i analizi için bunları dışarı aktarmak.
 
 > [!NOTE]
 > Depolama veya Azure hizmetleriyle tanılama günlük verilerini işlemek için ek ücrete neden. 

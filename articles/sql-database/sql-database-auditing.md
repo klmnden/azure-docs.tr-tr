@@ -12,12 +12,12 @@ ms.author: ronitr
 ms.reviewer: vanto
 manager: craigg
 ms.date: 10/15/2018
-ms.openlocfilehash: bd40faf8a77a8940dc78375ec516c39742540231
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: b18f7efa09b33def2851967b5fc78bb1ddbc61e6
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49352848"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49404928"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>SQL veritabanı denetimini kullanmaya başlayın
 
@@ -79,7 +79,7 @@ Aşağıdaki bölümde, Denetim Azure portalını kullanarak yapılandırmayı a
 
     ![Gezinti bölmesi][3]
 
-5. **Yeni** -denetim günlükleri yazılacağı şimdi yapılandırmak için birçok seçeneğiniz vardır. Bir Azure depolama hesabına, Log Analytics tarafından kullanılmaya bir OMS çalışma alanına veya olay hub'ına olay hub'ı kullanarak tüketimi için günlükleri yazabilirsiniz. Her denetim günlüklerine yazılır ve bu seçenekleri herhangi bir birleşimini yapılandırabilirsiniz.
+5. **Yeni** -denetim günlükleri yazılacağı şimdi yapılandırmak için birçok seçeneğiniz vardır. Bir Azure depolama hesabına, Log Analytics tarafından kullanımı için bir Log Analytics çalışma alanına veya olay hub'ına olay hub'ı kullanarak tüketimi için günlükleri yazabilirsiniz. Her denetim günlüklerine yazılır ve bu seçenekleri herhangi bir birleşimini yapılandırabilirsiniz.
 
     ![Depolama Seçenekleri](./media/sql-database-auditing-get-started/auditing-select-destination.png)
 
@@ -87,9 +87,9 @@ Aşağıdaki bölümde, Denetim Azure portalını kullanarak yapılandırmayı a
 
     ![depolama hesabı](./media/sql-database-auditing-get-started/auditing_select_storage.png)
 
-7. Yazma denetim yapılandırmak için bir OMS çalışma alanına select günlükleri **Log Analytics (Önizleme)** açın **Log Analytics ayrıntıları**. Burada günlüklerine yazılır ve ardından OMS çalışma alanı oluşturun veya seçin **Tamam**.
+7. Yazma denetim yapılandırmak için bir Log Analytics çalışma alanına select günlükleri **Log Analytics (Önizleme)** açın **Log Analytics ayrıntıları**. Seçin veya burada günlüklerine yazılır ve ardından Log Analytics çalışma alanı **Tamam**.
 
-    ![OMS](./media/sql-database-auditing-get-started/auditing_select_oms.png)
+    ![Log Analytics](./media/sql-database-auditing-get-started/auditing_select_oms.png)
 
 8. Yazma denetim yapılandırmak için bir olay hub'ına select günlükleri **olay hub'ı (Önizleme)** açın **olay hub'ı ayrıntılarını**. Burada günlüklerine yazılır ve ardından olay hub'ı seçin **Tamam**. Olay hub'ı veritabanı ve sunucu aynı bölgede olduğundan emin olun.
 
@@ -109,10 +109,10 @@ Denetim günlüklerini Log Analytics'e yazmak isterseniz:
 
 - Ardından tıklayarak **OMS'de açın** en üstündeki **Denetim kayıtlarını** sayfa burada özelleştirebilirsiniz zaman aralığını ve arama sorgusu Log Analytics'te günlükleri görünümü açılır.
 
-    ![OMS ile Aç](./media/sql-database-auditing-get-started/auditing_open_in_oms.png)
+    ![Log Analytics'i Aç](./media/sql-database-auditing-get-started/auditing_open_in_oms.png)
 
 - Alternatif olarak, denetim günlüklerini Log Analytics dikey penceresinden de erişebilirsiniz. Log Analytics çalışma alanınızın açın ve altında **genel** bölümünde **günlükleri**. Gibi basit bir sorgu başlatın: *"SQLSecurityAuditEvents" arama* denetim görüntülemek üzere günlüğe kaydeder.
-    Buradan ayrıca kullanabileceğiniz [Operations Management Suite (OMS) Log Analytics](../log-analytics/log-analytics-log-search.md) Gelişmiş aramaları, Denetim günlüğü verileri temelinde çalıştırılacak. Log Analytics, tüm iş yüklerinizde ve sunucularınızda milyonlarca kaydı kolayca analiz etmek için tümleşik arama ve özel panoları kullanarak gerçek zamanlı operasyonel içgörüler sunar. OMS Log Analytics arama dili ve komutlar hakkında başka yararlı bilgiler için bkz. [Log Analytics Arama başvurusu](../log-analytics/log-analytics-log-search.md).
+    Buradan ayrıca kullanabileceğiniz [Log Analytics](../log-analytics/log-analytics-log-search.md) Gelişmiş aramaları, Denetim günlüğü verileri temelinde çalıştırılacak. Log Analytics, tüm iş yüklerinizde ve sunucularınızda milyonlarca kaydı kolayca analiz etmek için tümleşik arama ve özel panoları kullanarak gerçek zamanlı operasyonel içgörüler sunar. Log Analytics arama dili ve komutlar hakkında başka yararlı bilgiler için bkz. [Log Analytics Arama başvurusu](../log-analytics/log-analytics-log-search.md).
 
 Denetim günlükleri Olay Hub'ına yazma seçerseniz:
 

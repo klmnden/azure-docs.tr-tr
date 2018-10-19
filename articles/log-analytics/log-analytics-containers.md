@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 04/26/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: f9876f3e21a7cfccae2fb7f70913269d4ca1fdf4
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: d8f2701ca62eee261beaa49fe2a0719be7423a5b
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49115378"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49408498"
 ---
 # <a name="container-monitoring-solution-in-log-analytics"></a>Log analytics'te kapsayıcı izleme çözümü
 
@@ -67,6 +67,7 @@ Aşağıdaki tabloda, işletim sistemi desteği kapsayıcı envanteri, performan
 
 ### <a name="x64-linux-distributions-supported-as-container-hosts"></a>x64 kapsayıcı konakları olarak desteklenen Linux dağıtımları
 
+
 - Ubuntu 14.04 LTS ve 16.04 LTS
 - CoreOS(stable)
 - Amazon Linux 2016.09.0
@@ -78,8 +79,10 @@ Aşağıdaki tabloda, işletim sistemi desteği kapsayıcı envanteri, performan
 - Red Hat OpenShift kapsayıcı Platformu (OCP) 3.4 ve 3.5
 - ACS Mesosphere DC/OS için 1.7.3 1.8.8
 - ACS Kubernetes için 1.4.5 1.6
-    - Kubernetes olayları, Kubernetes Envanter ve kapsayıcı işlemleri yalnızca daha sonra OMS Aracısı'nın sürümü 1.4.1-45 ile Linux için desteklenir
+    - Kubernetes olayları, Kubernetes Envanter ve kapsayıcı işlemleri daha sonra Linux için Log Analytics Aracısı'nın sürümü 1.4.1-45 ile yalnızca desteklenen
 - ACS Docker Swarm
+
+[!INCLUDE [log-analytics-agent-note.md](../../includes/log-analytics-agent-note.md)] 
 
 ### <a name="supported-windows-operating-system"></a>Desteklenen Windows işletim sistemi
 
@@ -96,25 +99,25 @@ Aşağıdaki tabloda, işletim sistemi desteği kapsayıcı envanteri, performan
 
 1. Log Analytics çalışma alanınızdan kapsayıcı izleme çözümünü ekleyin [Azure Market](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ContainersOMS?tab=Overview) veya açıklanan işlemi kullanarak [Log Analytics çözümleri ekleme çözüm Galerisi'ndeki](log-analytics-add-solutions.md).
 
-2. Yükleyin ve bir OMS Aracısı ile Docker'ı kullanın. İşletim sistemi ve Docker orchestrator bağlı olarak, aracınızı yapılandırmak için aşağıdaki yöntemleri kullanabilirsiniz.
+2. Yükleyin ve Docker ile bir Log Analytics aracısını kullanın. İşletim sistemi ve Docker orchestrator bağlı olarak, aracınızı yapılandırmak için aşağıdaki yöntemleri kullanabilirsiniz.
   - Tek başına konakları için:
-    - Desteklenen Linux işletim sistemlerinde yüklemek ve Docker'ı çalıştırın ve ardından yükleme ve yapılandırma [Linux için OMS Aracısı](log-analytics-agent-linux.md).  
-    - CoreOS üzerinde Linux için OMS Aracısı çalıştıramazsınız. Bunun yerine, Linux için OMS Aracısı kapsayıcılı bir sürümünü çalıştırın. Gözden geçirme [CoreOS dahil olmak üzere Linux kapsayıcı konağında](#for-all-linux-container-hosts-including-coreos) veya [CoreOS dahil olmak üzere Azure kamu Linux kapsayıcı konağında](#for-all-azure-government-linux-container-hosts-including-coreos) Azure kamu bulutunda kapsayıcılar ile çalışıyorsanız.
+    - Desteklenen Linux işletim sistemlerinde yüklemek ve Docker'ı çalıştırın ve ardından yükleme ve yapılandırma [Linux için Log Analytics aracısını](log-analytics-agent-linux.md).  
+    - CoreOS üzerinde Linux için Log Analytics aracısını çalıştıramazsınız. Bunun yerine, Linux için Log Analytics aracısını kapsayıcı bir sürümünü çalıştırın. Gözden geçirme [CoreOS dahil olmak üzere Linux kapsayıcı konağında](#for-all-linux-container-hosts-including-coreos) veya [CoreOS dahil olmak üzere Azure kamu Linux kapsayıcı konağında](#for-all-azure-government-linux-container-hosts-including-coreos) Azure kamu bulutunda kapsayıcılar ile çalışıyorsanız.
     - Windows Server 2016 ve Windows 10, Docker altyapısı ve istemci yükleme ardından bilgi toplamak ve Log Analytics'e göndermek için bir aracı bağlayın. Gözden geçirme [yüklemek ve Windows kapsayıcı konakları yapılandırma](#install-and-configure-windows-container-hosts) bir Windows ortamınız varsa.
   - Docker birden çok konak düzenleme için:
-    - Bir Red Hat OpenShift ortamınız varsa, gözden [Red Hat OpenShift için OMS Aracısı Yapılandırma](#configure-an-oms-agent-for-red-hat-openshift).
+    - Bir Red Hat OpenShift ortamınız varsa, gözden [Red Hat OpenShift için bir Log Analytics Aracısını Yapılandırma](#configure-an-oms-agent-for-red-hat-openshift).
     - Azure Container Service kullanan bir Kubernetes kümesi varsa:
-       - Gözden geçirme [Kubernetes için bir OMS Linux Aracısı'nı yapılandırma](#configure-an-oms-linux-agent-for-kubernetes).
-       - Gözden geçirme [Kubernetes için bir OMS Windows aracı yapılandırma](#configure-an-oms-windows-agent-for-kubernetes).
-       - Gözden geçirme [kullanım OMS Aracısı'nı Linux Kubernetes dağıtmak için Helm](#use-helm-to-deploy-oms-agent-on-linux-kubernetes).
-    - Bir Azure Container Service DC/OS kümeniz varsa, daha fazla bilgi [Operations Management Suite ile bir Azure Container Service DC/OS kümesini izleme](../container-service/dcos-swarm/container-service-monitoring-oms.md).
-    - Bir Docker Swarm modu ortamı varsa, daha fazla bilgi [Docker Swarm için OMS Aracısı Yapılandırma](#configure-an-oms-agent-for-docker-swarm).
-    - Bir Service Fabric kümeniz varsa, daha fazla bilgi [OMS Log Analytics ile kapsayıcıları izlemek](../service-fabric/service-fabric-diagnostics-oms-containers.md).
+       - Gözden geçirme [Kubernetes için bir Log Analytics Linux Aracısı'nı yapılandırma](#configure-an-oms-linux-agent-for-kubernetes).
+       - Gözden geçirme [Kubernetes için bir günlük analizi Windows aracı yapılandırma](#configure-an-oms-windows-agent-for-kubernetes).
+       - Gözden geçirme [kullanmak Linux Kubernetes Log Analytics aracısını dağıtmak için Helm](#use-helm-to-deploy-oms-agent-on-linux-kubernetes).
+    - Bir Azure Container Service DC/OS kümeniz varsa, daha fazla bilgi [Log Analytics ile bir Azure Container Service DC/OS kümesini izleme](../container-service/dcos-swarm/container-service-monitoring-oms.md).
+    - Bir Docker Swarm modu ortamı varsa, daha fazla bilgi [Docker Swarm için bir Log Analytics Aracısını Yapılandırma](#configure-an-oms-agent-for-docker-swarm).
+    - Bir Service Fabric kümeniz varsa, daha fazla bilgi [Log Analytics, Log Analytics ile kapsayıcıları izlemek](../service-fabric/service-fabric-diagnostics-oms-containers.md).
 
 Gözden geçirme [Windows üzerinden Docker altyapısının](https://docs.microsoft.com/virtualization/windowscontainers/manage-docker/configure-docker-daemon) makale yüklemek ve Windows çalıştıran bilgisayarlarda, Docker altyapısı yapılandırma hakkında ek bilgi için.
 
 > [!IMPORTANT]
-> Docker çalıştırmalıdır **önce** yüklediğiniz [Linux için OMS Aracısı](log-analytics-agent-linux.md) kapsayıcı konaklarınız üzerinde. Docker'ı yüklemeden önce aracıyı zaten yüklediyseniz, Linux için OMS Aracısı'nı yeniden yüklemeniz gerekir. Docker hakkında daha fazla bilgi için bkz: [Docker Web sitesi](https://www.docker.com).
+> Docker çalıştırmalıdır **önce** yüklediğiniz [Linux için Log Analytics aracısını](log-analytics-agent-linux.md) kapsayıcı konaklarınız üzerinde. Docker'ı yüklemeden önce aracıyı zaten yüklediyseniz, Linux için Log Analytics aracısını yeniden yüklemeniz gerekir. Docker hakkında daha fazla bilgi için bkz: [Docker Web sitesi](https://www.docker.com).
 
 
 ### <a name="install-and-configure-linux-container-hosts"></a>Yükleme ve yapılandırma Linux kapsayıcı konakları
@@ -123,7 +126,7 @@ Docker'ı yükledikten sonra aracıyı kullanmak için Docker ile yapılandırma
 
 **Tüm Linux kapsayıcı konaklar için CoreOS hariç:**
 
-- Daha fazla bilgi ve Linux için OMS Aracısı'nı yükleme adımları için bkz. [azure'da Linux bilgisayarlarını Log Analytics'e bağlama](log-analytics-concept-hybrid.md).
+- Daha fazla bilgi ve Linux için Log Analytics aracısını yüklemek adımları için bkz. [azure'da Linux bilgisayarlarını Log Analytics'e bağlama](log-analytics-concept-hybrid.md).
 
 **CoreOS dahil olmak üzere tüm Linux kapsayıcı konakları için:**
 
@@ -143,11 +146,11 @@ sudo docker run --privileged -d -v /var/run/docker.sock:/var/run/docker.sock -v 
 
 **Geçiş için bir kapsayıcı yüklü bir Linux Aracısı'nı kullanma**
 
-Daha önce yüklenmiş doğrudan Aracısı kullanılan ve bunun yerine bir kapsayıcıda çalışan bir aracının kullanmak istiyorsanız, Linux için OMS Aracısı'nı kaldırmanız gerekir. Bkz: [Linux için OMS Aracısı'nı kaldırma](log-analytics-agent-linux.md) başarıyla aracıyı kaldırmak nasıl yapılacağını görmek için.  
+Daha önce yüklenmiş doğrudan Aracısı kullanılan ve bunun yerine bir kapsayıcıda çalışan bir aracının kullanmak istiyorsanız, önce Linux için Log Analytics aracısını kaldırmanız gerekir. Bkz: [Linux için Log Analytics aracısını kaldırma](log-analytics-agent-linux.md) başarıyla aracıyı kaldırmak nasıl yapılacağını görmek için.  
 
-#### <a name="configure-an-oms-agent-for-docker-swarm"></a>Docker Swarm için OMS Aracısı'nı yapılandırma
+#### <a name="configure-a-log-analytics-agent-for-docker-swarm"></a>Docker Swarm için bir Log Analytics aracısını yapılandırma
 
-Docker Swarm hakkında genel bir hizmet olarak OMS Aracısı'nı çalıştırabilirsiniz. Bir OMS Aracısı hizmeti oluşturmak için aşağıdaki bilgileri kullanın. Log Analytics çalışma alanı kimliği ve birincil anahtarı sağlamanız gerekir.
+Log Analytics aracısını, Docker Swarm hakkında genel bir hizmet olarak çalıştırabilirsiniz. Log Analytics Aracısı hizmeti oluşturmak için aşağıdaki bilgileri kullanın. Log Analytics çalışma alanı kimliği ve birincil anahtarı sağlamanız gerekir.
 
 - Aşağıdaki ana düğüm üzerinde çalıştırın.
 
@@ -178,20 +181,20 @@ Docker Swarm hakkında genel bir hizmet olarak OMS Aracısı'nı çalıştırabi
     l9rh3n987g9c45zffuxdxetd9   KEY                 38 minutes ago      38 minutes ago
     ```
 
-3. Kapsayıcıda barındırılan OMS aracısı için gizli dizileri bağlamak için aşağıdaki komutu çalıştırın.
+3. Log Analytics aracısını kapsayıcı için gizli dizileri bağlamak için aşağıdaki komutu çalıştırın.
 
     ```
     sudo docker service create  --name omsagent --mode global  --mount type=bind,source=/var/run/docker.sock,destination=/var/run/docker.sock --mount type=bind,source=/var/lib/docker/containers,destination=/var/lib/docker/containers --secret source=WSID,target=WSID --secret source=KEY,target=KEY  -p 25225:25225 -p 25224:25224/udp --restart-condition=on-failure microsoft/oms
     ```
 
-#### <a name="configure-an-oms-agent-for-red-hat-openshift"></a>Red Hat OpenShift için OMS Aracısı'nı yapılandırma
-Kapsayıcı izleme verilerini toplamaya başlamak için Red Hat OpenShift için OMS Aracısı eklemenin üç yolu vardır.
+#### <a name="configure-a-log-analytics-agent-for-red-hat-openshift"></a>Red Hat OpenShift için bir Log Analytics aracısını yapılandırma
+Log Analytics aracısını kapsayıcı izleme verilerini toplamaya başlamak için Red Hat OpenShift için eklemenin üç yolu vardır.
 
-* [Linux için OMS Aracısı'nı yükleme](log-analytics-agent-linux.md) doğrudan her bir düğümde OpenShift  
+* [Linux için Log Analytics aracısını yükleme](log-analytics-agent-linux.md) doğrudan her bir düğümde OpenShift  
 * [Log Analytics VM uzantısını etkinleştirme](log-analytics-azure-vm-extension.md) Azure'da bulunan her OpenShift düğümde  
-* OMS aracısını bir OpenShift arka plan programı kümesi olarak yükleme  
+* Log Analytics aracısını bir OpenShift arka plan programı kümesi olarak yükleme  
 
-Bu bölümde bir OpenShift arka plan programı kümesi olarak OMS Aracısı'nı yüklemek için gerekli adımları ele.  
+Bu bölümde bir OpenShift arka plan programı kümesi olarak Log Analytics aracısını yüklemek için gerekli adımları ele.  
 
 1. OpenShift ana düğüm için oturum açın, yaml dosyası kopyalama [ocp-omsagent.yaml](https://github.com/Microsoft/OMS-docker/blob/master/OpenShift/ocp-omsagent.yaml) github, ana düğümü ve Log Analytics çalışma alanı Kimliğinizi ve birincil anahtarınızı değerini değiştirin.
 2. Log Analytics için bir proje oluşturun ve kullanıcı hesabını ayarlamak için aşağıdaki komutları çalıştırın.
@@ -230,7 +233,7 @@ Bu bölümde bir OpenShift arka plan programı kümesi olarak OMS Aracısı'nı 
     No events.  
     ```
 
-OMS Aracısı arka plan programı kümesi yaml dosyası kullanırken, Log Analytics çalışma alanı kimliği ve birincil anahtarınızı korumak için gizli dizileri kullanmak istiyorsanız, aşağıdaki adımları gerçekleştirin.
+Log Analytics aracısını arka plan programı kümesi yaml dosyası kullanırken, Log Analytics çalışma alanı kimliği ve birincil anahtarınızı korumak için gizli dizileri kullanmak istiyorsanız, aşağıdaki adımları gerçekleştirin.
 
 1. OpenShift ana düğüm için oturum açın, yaml dosyası kopyalama [ocp-ds-omsagent.yaml](https://github.com/Microsoft/OMS-docker/blob/master/OpenShift/ocp-ds-omsagent.yaml) ve betik oluşturma gizli [ocp-secretgen.sh](https://github.com/Microsoft/OMS-docker/blob/master/OpenShift/ocp-secretgen.sh) github'dan.  Bu betik güvenli hale getirmek Log Analytics çalışma alanı kimliği ve birincil anahtar için gizli dizi yaml dosyası oluşturacak, bilgi secrete.  
 2. Log Analytics için bir proje oluşturun ve kullanıcı hesabını ayarlamak için aşağıdaki komutları çalıştırın. Log Analytics çalışma alanı Kimliğiniz için betik oluşturma gizli ister <WSID> ve birincil anahtar <KEY> ve isteğe bağlı olarak tamamlandıktan sonra ocp-secret.yaml dosyası oluşturur.  
@@ -269,7 +272,7 @@ OMS Aracısı arka plan programı kümesi yaml dosyası kullanırken, Log Analyt
     No events.  
     ```
 
-6. OMS Aracısı arka plan programı kümesi yaml dosyası, aşağıdaki komutu çalıştırarak dağıtın:
+6. Log Analytics aracısını arka plan programı kümesi yaml dosyası, aşağıdaki komutu çalıştırarak dağıtın:
 
     `oc create -f ocp-ds-omsagent.yaml`  
 
@@ -294,18 +297,18 @@ OMS Aracısı arka plan programı kümesi yaml dosyası kullanırken, Log Analyt
      WSID:   37 bytes  
     ```
 
-#### <a name="configure-an-oms-linux-agent-for-kubernetes"></a>Kubernetes için bir OMS Linux Aracısı'nı yapılandırma
+#### <a name="configure-a-log-analytics-linux-agent-for-kubernetes"></a>Kubernetes için bir Log Analytics Linux Aracısı'nı yapılandırma
 
-Kubernetes için Linux için OMS Aracısı'nı yüklemek çalışma alanı kimliği ve birincil anahtar için gizli dizileri yaml dosyası oluşturmak için bir betik kullanın. Konumunda [OMS Docker Kubernetes GitHub](https://github.com/Microsoft/OMS-docker/tree/master/Kubernetes) sayfasında, olan veya olmayan gizli bilgilerinizi kullandığınız dosyalar da mevcuttur.
+Kubernetes için Linux için Log Analytics aracısını yüklemek çalışma alanı kimliği ve birincil anahtar için gizli dizileri yaml dosyası oluşturmak için bir betik kullanın. Konumunda [Log Analytics Docker Kubernetes GitHub](https://github.com/Microsoft/OMS-docker/tree/master/Kubernetes) sayfasında, olan veya olmayan gizli bilgilerinizi kullandığınız dosyalar da mevcuttur.
 
-- Gizli bilgileri (omsagent.yaml) Linux DaemonSet için varsayılan OMS aracısı yok
-- Linux DaemonSet yaml dosyası için OMS Aracısı, gizli anahtarları (omsagentsecret.yaml) yaml dosyası oluşturmak için gizli dizi oluşturma betikleri ile gizli bilgilere (omsagent-ds-secrets.yaml) kullanır.
+- Linux DaemonSet için varsayılan Log Analytics aracısını gizli bilgileri (omsagent.yaml) yok
+- Linux DaemonSet yaml dosyası için Log Analytics aracısını gizli anahtarları (omsagentsecret.yaml) yaml dosyası oluşturmak için gizli dizi oluşturma betikleri ile gizli bilgilere (omsagent-ds-secrets.yaml) kullanır.
 
 İle veya olmadan gizli dizileri omsagent DaemonSets oluşturmayı seçebilirsiniz.
 
 **Gizli dizileri içermeyen varsayılan OMSagent DaemonSet yaml dosyası**
 
-- İçin varsayılan OMS Aracısı DaemonSet yaml dosyası yerine `<WSID>` ve `<KEY>` WSID ve anahtarı. Dosyayı, ana düğüme kopyalayın ve aşağıdaki komutu çalıştırın:
+- İçin varsayılan Log Analytics aracısını DaemonSet yaml dosyası, değiştirin `<WSID>` ve `<KEY>` WSID ve anahtarı. Dosyayı, ana düğüme kopyalayın ve aşağıdaki komutu çalıştırın:
 
     ```
     sudo kubectl create -f omsagent.yaml
@@ -313,7 +316,7 @@ Kubernetes için Linux için OMS Aracısı'nı yüklemek çalışma alanı kimli
 
 **Gizli varsayılan OMSagent DaemonSet yaml dosyası**
 
-1. OMS Aracısı gizli bilgileri kullanarak DaemonSet kullanmak için gizli dizileri oluşturun.
+1. Log Analytics'i kullanmak için aracı gizli bilgileri ile DaemonSet oluşturun gizli dizileri önce.
     1. Betik ve gizli şablon dosyasını kopyalayın ve aynı dizinde olduklarından emin olun.
         - Gizli dizi betiği - gizli gen.sh oluşturuluyor
         - Gizli şablon - gizli template.yaml
@@ -364,7 +367,7 @@ Kubernetes için Linux için OMS Aracısı'nı yüklemek çalışma alanı kimli
 
     5. Arka plan programı kümesi çalıştırarak, omsagent oluşturma ``` sudo kubectl create -f omsagent-ds-secrets.yaml ```
 
-2. OMS Aracısı DaemonSet, aşağıdaki gibi çalıştığını doğrulayın:
+2. Log Analytics aracısını DaemonSet, aşağıdaki gibi çalıştığını doğrulayın:
 
     ```
     keiko@ubuntu16-13db:~# sudo kubectl get ds omsagent
@@ -376,7 +379,7 @@ Kubernetes için Linux için OMS Aracısı'nı yüklemek çalışma alanı kimli
     ```
 
 
-Kubernetes için bir betik gizli dizi yaml dosyası için çalışma alanı kimliği ve birincil anahtar için OMS Aracısı Linux için oluşturmak için kullanın. Aşağıdaki örnek bilgileri ile [omsagent yaml dosyası](https://github.com/Microsoft/OMS-docker/blob/master/Kubernetes/omsagent.yaml) gizli bilgilerinizi güvenliğini sağlamak için.
+Kubernetes için gizli dizileri yaml dosyası için Linux için Log Analytics aracısını çalışma alanı kimliği ve birincil anahtar oluşturmak için bir betik kullanın. Aşağıdaki örnek bilgileri ile [omsagent yaml dosyası](https://github.com/Microsoft/OMS-docker/blob/master/Kubernetes/omsagent.yaml) gizli bilgilerinizi güvenliğini sağlamak için.
 
 ```
 keiko@ubuntu16-13db:~# sudo kubectl describe secrets omsagent-secret
@@ -393,15 +396,15 @@ WSID:   36 bytes
 KEY:    88 bytes
 ```
 
-#### <a name="configure-an-oms-windows-agent-for-kubernetes"></a>Kubernetes için bir OMS Windows Aracısı'nı yapılandırma
-Windows Kubernetes için OMS Aracısı'nı yüklemek çalışma alanı kimliği ve birincil anahtar için gizli dizileri yaml dosyası oluşturmak için bir betik kullanın. Konumunda [OMS Docker Kubernetes GitHub](https://github.com/Microsoft/OMS-docker/tree/master/Kubernetes/windows) sayfasında, gizli bilgilerinizi ile kullanabileceğiniz dosyalar da mevcuttur.  OMS Aracısı ana ve aracı düğümleri için ayrı olarak yüklemeniz gerekir.  
+#### <a name="configure-a-log-analytics-windows-agent-for-kubernetes"></a>Kubernetes için bir Log Analytics Windows Aracısı yapılandırın
+Windows Kubernetes için Log Analytics aracısını yüklemek çalışma alanı kimliği ve birincil anahtar için gizli dizileri yaml dosyası oluşturmak için bir betik kullanın. Konumunda [Log Analytics Docker Kubernetes GitHub](https://github.com/Microsoft/OMS-docker/tree/master/Kubernetes/windows) sayfasında, gizli bilgilerinizi ile kullanabileceğiniz dosyalar da mevcuttur.  Ana ve aracı düğümleri için ayrı ayrı Log Analytics aracısını yüklemeniz gerekir.  
 
-1. OMS Aracısı asıl gizli bilgileri kullanarak DaemonSet kullanmak için düğüm, oturum açın ve gizli dizileri ilk oluşturun.
+1. Log Analytics aracısını DaemonSet kullanmak için asıl gizli bilgileri kullanarak düğümünü açın ve gizli dizileri ilk oluşturun.
     1. Betik ve gizli şablon dosyasını kopyalayın ve aynı dizinde olduklarından emin olun.
         - Gizli dizi betiği - gizli gen.sh oluşturuluyor
         - Gizli şablon - gizli template.yaml
 
-    2. Aşağıdaki örnekte olduğu gibi betiği çalıştırın. OMS çalışma alanı kimliği ve birincil anahtar için betik sorar ve bunları girdikten sonra yapmanız çalıştırabilirsiniz betik gizli yaml dosyası oluşturur.   
+    2. Aşağıdaki örnekte olduğu gibi betiği çalıştırın. Log Analytics çalışma alanı kimliği ve birincil anahtar için betik sorar ve bunları girdikten sonra yapmanız çalıştırabilirsiniz betik gizli yaml dosyası oluşturur.   
 
         ```
         #> sudo bash ./secret-gen.sh
@@ -435,7 +438,7 @@ Windows Kubernetes için OMS Aracısı'nı yüklemek çalışma alanı kimliği 
 
     5. Arka plan programı kümesi çalıştırarak, omsagent oluşturma ```kubectl create -f ws-omsagent-de-secrets.yaml```
 
-2. OMS Aracısı DaemonSet, aşağıdaki gibi çalıştığını doğrulayın:
+2. Log Analytics aracısını DaemonSet, aşağıdaki gibi çalıştığını doğrulayın:
 
     ```
     root@ubuntu16-13db:~# kubectl get deployment omsagent
@@ -445,8 +448,8 @@ Windows Kubernetes için OMS Aracısı'nı yüklemek çalışma alanı kimliği 
 
 3. Windows çalıştıran, çalışan düğümü üzerinde aracıyı yüklemek için bu bölümdeki adımları [yükleme ve Windows kapsayıcı konakları yapılandırma](#install-and-configure-windows-container-hosts).
 
-#### <a name="use-helm-to-deploy-oms-agent-on-linux-kubernetes"></a>Helm, OMS Aracısı'nı Linux Kubernetes dağıtım yapma
-Helm Linux Kubernetes ortamınızı OMS aracısını dağıtmak üzere kullanmak için aşağıdaki adımları gerçekleştirin.
+#### <a name="use-helm-to-deploy-log-analytics-agent-on-linux-kubernetes"></a>Helm Linux Kubernetes Log Analytics aracısını dağıtmak için kullanın
+Linux Kubernetes ortamınızı Log Analytics aracısını dağıtmak için Helm kullanmak için aşağıdaki adımları gerçekleştirin.
 
 1. Arka plan programı kümesi çalıştırarak, omsagent oluşturma ```helm install --name omsagent --set omsagent.secret.wsid=<WSID>,omsagent.secret.key=<KEY> stable/msoms```
 2. Sonuçlar aşağıdakine benzer görünecektir:
@@ -530,7 +533,7 @@ Kapsayıcı izleme çözümü için Windows düzgün şekilde ayarlandığını 
 
 ## <a name="solution-components"></a>Çözüm bileşenleri
 
-OMS Portalı'ndan gidin *çözüm Galerisi* ve ekleme **kapsayıcı izleme çözümü**. Windows aracıları kullanıyorsanız, bu çözümü eklediğinizde, ardından aşağıdaki Yönetim Paketi her bilgisayarda bir aracı yüklenir. Yapılandırma veya bakım için Yönetim Paketi gereklidir.
+Azure portalından gidin *çözüm Galerisi* ve ekleme **kapsayıcı izleme çözümü**. Windows aracıları kullanıyorsanız, bu çözümü eklediğinizde, ardından aşağıdaki Yönetim Paketi her bilgisayarda bir aracı yüklenir. Yapılandırma veya bakım için Yönetim Paketi gereklidir.
 
 - *ContainerManagement.xxx* C:\Program Files\Microsoft Monitoring Agent\Agent\Health hizmet State\Management paketlerinin yüklü
 
@@ -539,7 +542,7 @@ Kapsayıcı izleme çözümü, kapsayıcı konağında ve kapsayıcıları etkin
 
 Verileri üç dakikada bir şu aracı türleri tarafından toplanır.
 
-- [Linux için OMS Aracısı](log-analytics-linux-agents.md)
+- [Linux için log Analytics aracısını](log-analytics-linux-agents.md)
 - [Windows Aracısı](log-analytics-windows-agent.md)
 - [Log Analytics VM uzantısı](log-analytics-azure-vm-extension.md)
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: ''
 ms.author: haroldw
-ms.openlocfilehash: 75a02e61adf3e5477b9945afc778e867d5d9c88c
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: e525bf0a5aa9bda7fdbbcefc4cb5b683c7fabc3b
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46958144"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49426235"
 ---
 # <a name="deploy-okd-in-azure"></a>OKD azure'da dağıtma
 
@@ -99,7 +99,7 @@ Aşağıdaki örnek, tüm gerekli girişleri ile azuredeploy.parameters.json adl
 
 
 > [!NOTE] 
-> Aşağıdaki komutu Azure CLI.8 gerektirir veya üzeri. CLI sürümü ile doğrulayabilirsiniz `az --version` komutu. CLI sürümünü güncelleştirmek için bkz: [Azure CLI yükleme](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+> Aşağıdaki komut, Azure CLI'yı 2.0.8 gerektirir veya üzeri. CLI sürümü ile doğrulayabilirsiniz `az --version` komutu. CLI sürümünü güncelleştirmek için bkz: [Azure CLI yükleme](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 Aşağıdaki örnek, OKD kümeyi ve tüm ilgili kaynakları myOpenShiftCluster ile bir dağıtım adı myResourceGroup, adlı bir kaynak grubuna dağıtır. Şablon, doğrudan GitHub deposundan azuredeploy.parameters.json adlı bir yerel parametreleri dosyası kullanılarak başvurulur.
 

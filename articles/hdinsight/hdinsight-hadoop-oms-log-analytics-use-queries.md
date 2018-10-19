@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: jasonh
-ms.openlocfilehash: 9550468e8bc9b93216fd4c1ecf144415badfc7dc
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 18ee51e54c1e44ba3affd6ca49bed5360211fa9c
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43103666"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49408189"
 ---
 # <a name="query-azure-log-analytics-to-monitor-hdinsight-clusters"></a>Azure Log Analytics, HDInsight kümelerinizi izlemek için sorgu
 
@@ -32,7 +32,7 @@ Bazı temel senaryolar Azure Log Analytics, Azure HDInsight kümelerinizi izleme
 
 HDInsight kümenizin belirli ölçümleri arayın öğrenin.
 
-1. Azure portalından, HDInsight kümenize ilişkilendirilen OMS çalışma alanını açın.
+1. Azure portalından, HDInsight kümenize ilişkili Log Analytics çalışma alanını açın.
 2. Seçin **günlük araması** Döşe.
 3. Azure Log Analytics kullanın ve ardından seçmek için yapılandırılan tüm HDInsight kümeleri için kullanılabilen tüm ölçümler için tüm ölçümleri aramak için arama kutusuna aşağıdaki sorguyu yazın **ÇALIŞTIRMA**.
 
@@ -65,7 +65,7 @@ HDInsight kümenizin belirli ölçümleri arayın öğrenin.
 
 Belirli bir zaman penceresi sırasında hata iletilerini arayın öğrenin. Burada bir örnek üzerinde nasıl, hata iletisi, ulaşmak ilgilendiğiniz adımlardır. Bulmayı denediğiniz hataları aramak kullanılabilir olan herhangi bir özelliği kullanabilirsiniz.
 
-1. Azure portalından, HDInsight kümenize ilişkilendirilen OMS çalışma alanını açın.
+1. Azure portalından, HDInsight kümenize ilişkili Log Analytics çalışma alanını açın.
 2. Seçin **günlük araması** Döşe.
 3. Aşağıdaki Azure Log Analytics kullanmak üzere yapılandırılmış tüm HDInsight kümeleri için tüm hata iletileri için aranacak sorgu ve ardından türü **ÇALIŞTIRMA**. 
 
@@ -117,7 +117,7 @@ Düzenleyebilir veya var olan bir uyarıyı silmek için:
 3. Düzenlemek veya silmek için istediğiniz uyarıyı seçin.
 4. Aşağıdaki seçenekleriniz vardır: **Kaydet**, **at**, **devre dışı**, ve **Sil**.
 
-    ![HDInsight Log Analytics OMS uyarısını silme Düzenle](media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-edit-alert.png)
+    ![HDInsight Log Analytics uyarısını silme Düzenle](media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-edit-alert.png)
 
 Daha fazla bilgi için [Log analytics'teki uyarı kuralları ile çalışma](../log-analytics/log-analytics-alerts-creating.md).
 

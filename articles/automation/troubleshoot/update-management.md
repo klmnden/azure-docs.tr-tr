@@ -4,20 +4,20 @@ description: Güncelleştirme yönetimi ile ilgili sorunları giderme hakkında 
 services: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 08/08/2018
+ms.date: 10/17/2018
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 2e47320d5ad88edfa8ea6122f3a0abd104230974
-ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
+ms.openlocfilehash: 41883fd677d276f8f26721fdccc3ded020c3278b
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "42055174"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49405240"
 ---
 # <a name="troubleshooting-issues-with-update-management"></a>Güncelleştirme yönetimi ile ilgili sorunları giderme
 
-Bu makalede, güncelleştirme yönetimi kullanırken karşılaşabileceğiniz sorunları çözmek için çözümleri açıklanmaktadır.
+Bu makalede, güncelleştirme yönetimi kullanırken çalışabilir genelinde sorunları çözmek için çözümleri açıklanmaktadır.
 
 ## <a name="general"></a>Genel
 
@@ -36,7 +36,7 @@ The components for the 'Update Management' solution have been enabled, and now t
 Bu hata, aşağıdaki nedenlerden kaynaklanabilir:
 
 1. Otomasyon hesabını geri iletişimi engelleniyor.
-2. Eklenen olabilir, VM olan Sysprep kullanılarak hazırlanmış Microsoft izleme aracısının yüklü olmadığı bir kopyalanan makinenin geldiği.
+2. Eklenen VM'de Sysprep kullanılarak hazırlanmış Microsoft izleme aracısının yüklü olmadığı bir kopyalanan makineden gelmiş olabilir.
 
 #### <a name="resolution"></a>Çözüm
 
@@ -105,11 +105,33 @@ Unable to Register Machine for Patch Management, Registration Failed with Except
 
 #### <a name="cause"></a>Nedeni
 
-Karma Runbook çalışanı otomatik olarak imzalanan bir sertifika oluşturmak mümkün değildi.
+Karma Runbook çalışanı otomatik olarak imzalanan bir sertifika oluşturmak mümkün değildi
 
 #### <a name="resolution"></a>Çözüm
 
 Sistem hesabı, klasöre okuma erişimi olduğunu doğrulayın **C:\ProgramData\Microsoft\Crypto\RSA** ve yeniden deneyin.
+
+### <a name="hresult"></a>Senaryo: Makine, değerlendirilmeyen ve bir HResult özel durum gösterir şekilde gösterir.
+
+#### <a name="issue"></a>Sorun
+
+Gösterme makineler sahip **değerlendirilmeyen** altında **Uyumluluk**, ve bunun altındaki bir özel durum iletisi görürsünüz.
+
+#### <a name="cause"></a>Nedeni
+
+Windows update makinede doğru yapılandırılmamış.
+
+#### <a name="resolution"></a>Çözüm
+
+Tüm özel durum iletisi görmek için kırmızı renkte gösterilen özel durumu çift tıklayın. Aşağıdaki tabloda olası çözümleri veya gerçekleştirilecek eylemleri gözden geçirin:
+
+|Özel durum  |Çözüm veya eylem  |
+|---------|---------|
+|`Exception from HRESULT: 0x……C`     | İlgili hata kodunu arama [Windows güncelleştirme hatası kodu listesi](https://support.microsoft.com/help/938205/windows-update-error-code-list) özel durumun nedeni hakkında ek ayrıntıları bulmak için.        |
+|`0x8024402C` veya `0x8024401C`     | Bu hatalar, ağ bağlantısı sorunları var. Makinenizde güncelleştirme yönetimi için uygun ağ bağlantısı olduğundan emin olun. Bölümüne [ağ planlaması](../automation-update-management.md#ports) bağlantı noktaları ve gerekli olan adresleri listesi.        |
+|`0x8024402C`     | Bir WSUS sunucusu kullanıyorsanız, kayıt defteri değerlerini emin `WUServer` ve `WUStatusServer` kayıt defteri anahtarı altında `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate` doğru WSUS sunucusu vardır.        |
+|`The service cannot be started, either because it is disabled or because it has no enabled devices associated with it. (Exception from HRESULT: 0x80070422)`     | Windows Güncelleştirme Hizmeti (wuauserv) çalıştığından ve devre dışı emin olun.        |
+|Herhangi bir genel durum     | Bir arama olası çözümler için internet ve yerel BT desteği ile çalışır.         |
 
 ## <a name="linux"></a>Linux
 
@@ -159,7 +181,7 @@ Bir düzeltme eki uygulama sorunu çözemezseniz, aşağıdaki günlük dosyası
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Sorununuzu görülmez veya sorununuzu çözmenize yüklenemiyor, daha fazla destek için aşağıdaki kanalları birini ziyaret edin:
+Sorununuzu görmediniz veya sorununuzu çözmenize yüklenemiyor, daha fazla destek için aşağıdaki kanalları birini ziyaret edin:
 
 * [Azure Forumları](https://azure.microsoft.com/support/forums/) aracılığıyla Azure uzmanlarından yanıtlar alın
 * [@AzureSupport](https://twitter.com/azuresupport) hesabı ile bağlantı kurun. Bu resmi Microsoft Azure hesabı, müşteri deneyimini geliştirmek için Azure topluluğunu doğru kaynaklara ulaştırır: yanıtlar, destek ve uzmanlar.

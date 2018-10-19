@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 05/14/2018
 ms.author: jomolesk
-ms.openlocfilehash: 26227e1a6766a80bbcef3cfda3f2faee82396fe3
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: c51ce44d1f6c2dcacaed09a490e46ad3af1ec9dc
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45577063"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49406696"
 ---
 # <a name="azure-security-and-compliance-blueprint---paas-web-application-for-gdpr"></a>Azure güvenlik ve uyumluluk planı - GDPR için PaaS Web uygulaması
 
@@ -33,7 +33,7 @@ Bu başvuru mimarisi, ilişkili Uygulama Kılavuzu ve tehdit modeli, müşterile
 - Müşteriler, uygun güvenlik yürütmek için sorumludur ve her bir müşterinin uygulama ayrıntılarına bağlı uyumluluk değerlendirme gereksinimleri değişebilir, bu mimariyi kullanarak oluşturulan bir çözümün temel.
 
 ## <a name="architecture-diagram-and-components"></a>Mimari diyagramı ve bileşenleri
-Bu çözüm, bir Azure SQL veritabanı arka ucu ile bir PaaS web uygulaması için bir başvuru mimarisi sağlar. Web uygulaması, yalıtılmış bir ortamda Azure App Service, Azure veri merkezindeki özel, adanmış bir ortamda, barındırılır. Ortam yük, Azure tarafından yönetilen sanal makineleri arasında web uygulaması için trafiği dengeler. Bu mimari, ağ güvenlik grupları, bir Application Gateway, Azure DNS ve yük dengeleyici de içerir. Ayrıca, Application Insights, gerçek zamanlı uygulama performansı yönetimi ve analiz aracılığıyla Operations Management Suite (OMS) sağlar. **Azure başvuru mimarisi alt ağa yönetimi ve veri içeri aktarma için bir VPN veya ExpressRoute bağlantısı yapılandırma önerir.**
+Bu çözüm, bir Azure SQL veritabanı arka ucu ile bir PaaS web uygulaması için bir başvuru mimarisi sağlar. Web uygulaması, yalıtılmış bir ortamda Azure App Service, Azure veri merkezindeki özel, adanmış bir ortamda, barındırılır. Ortam yük, Azure tarafından yönetilen sanal makineleri arasında web uygulaması için trafiği dengeler. Bu mimari, ağ güvenlik grupları, bir Application Gateway, Azure DNS ve yük dengeleyici de içerir. Ayrıca, Azure İzleyici sistem durumu, gerçek zamanlı analizler sağlar. **Azure başvuru mimarisi alt ağa yönetimi ve veri içeri aktarma için bir VPN veya ExpressRoute bağlantısı yapılandırma önerir.**
 
 ![PaaS Web uygulaması başvuru mimarisi diyagramı GDPR için](images/gdpr-paaswa-architecture.png?raw=true "PaaS Web uygulaması için GDPR başvuru mimarisi diyagramı")
 
@@ -51,7 +51,6 @@ Bu çözüm, aşağıdaki Azure hizmetlerini kullanır. Dağıtım mimarisi ayr�
 - ağ güvenlik grubu
 - Azure DNS
 - Azure Storage
-- Operations Management Suite'e (OMS)
 - Azure İzleyici
 - Application Insights
 - Azure Güvenlik Merkezi
@@ -92,7 +91,7 @@ Bu mimari için Ase'ler kullanımını aşağıdaki denetimleri/yapılandırmala
 
 Her nsg sahip belirli bağlantı noktaları ve protokoller çözüm güvenli bir şekilde ve doğru bir şekilde çalışabilmek açın. Ayrıca, aşağıdaki yapılandırmalar her NSG için etkinleştirilir:
   - [Tanılama günlüklerini ve olayları](https://docs.microsoft.com/azure/virtual-network/virtual-network-nsg-manage-log) etkinleştirilir ve bir depolama hesabında depolanmış
-  - OMS Log Analytics bağlı olduğu [NSG'ın tanılama](https://github.com/krnese/AzureDeploy/blob/master/AzureMgmt/AzureMonitor/nsgWithDiagnostics.json)
+  - Log Analytics'e bağlı olduğu [NSG'ın tanılama](https://github.com/krnese/AzureDeploy/blob/master/AzureMgmt/AzureMonitor/nsgWithDiagnostics.json)
 
 **Alt ağlar**: her alt ağ, karşılık gelen NSG ile ilişkilidir.
 
@@ -156,12 +155,12 @@ Mimarisi, bekleyen veri şifrelemesi, Denetim veritabanı ve diğer ölçüler v
 
 ### <a name="logging-and-auditing"></a>Günlüğe kaydetme ve Denetim
 
-OMS, sistem durumu yanı sıra sistem ve kullanıcı etkinliğini, ayrıntılı günlük kaydını sağlar. OMS [Log Analytics](https://azure.microsoft.com/services/log-analytics/) çözüm toplar ve Azure içinde kaynaklar tarafından oluşturulan verileri analiz eder ve şirket içi Ortamlarınızdaki.
+Azure İzleyici sistem durumu yanı sıra sistem ve kullanıcı etkinliğini, ayrıntılı günlük kaydını sağlar. Bunu toplar ve Azure içinde kaynaklar tarafından oluşturulan verileri analiz eder ve şirket içi Ortamlarınızdaki.
 - **Etkinlik günlükleri**: [etkinlik günlüklerini](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) bir Abonelikteki kaynaklar üzerinde gerçekleştirilen işlemler hakkında bilgi sağlar. Etkinlik günlükleri bir işlemin Başlatıcı belirlemek yardımcı olabilir, oluşumunu ve durum zaman.
 - **Tanılama günlükleri**: [tanılama günlükleri](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) her kaynak tarafından oluşturulan tüm günlükleri içerir. Bu günlükler, Windows olayı sistem günlükleri, Azure depolama günlükleri, anahtar kasası denetim günlüklerini ve Application Gateway erişim ve güvenlik duvarı günlükleri içerir.
 - **Günlük arşivleme**: tüm tanılama günlükleri, bir merkezi ve şifrelenmiş Azure depolama hesabına arşivleme yazma. Bekletme kuruluşa özgü saklama gereksinimlerini karşılamak için kullanıcı-730 gün için yapılandırılabilir,. Bu günlükler, işleme, depolama ve Panosu raporlama için Azure Log Analytics'e bağlayın.
 
-Ayrıca, aşağıdaki OMS çözümleri Bu mimarinin bir parçası olarak dahil edilir:
+Ayrıca, aşağıdaki izleme çözümleri Bu mimarinin bir parçası olarak dahil edilir:
 -   [AD değerlendirmesi](https://docs.microsoft.com/azure/log-analytics/log-analytics-ad-assessment): Active Directory sistem durumu denetimi çözümü risk ve server ortamlarının sistem durumunu düzenli aralıklarla değerlendirir ve öneriler için dağıtılan sunucu altyapısı belirli öncelikli bir listesini sağlar.
 -   [Kötü amaçlı yazılımdan koruma değerlendirmesi](https://docs.microsoft.com/azure/log-analytics/log-analytics-malware): kötü amaçlı yazılımdan koruma çözümü, kötü amaçlı yazılım tehditleri ve koruma durumunu raporlar.
 -   [Azure Otomasyonu](https://docs.microsoft.com/azure/automation/automation-hybrid-runbook-worker): depolar, çalıştırır ve runbook'ları yöneten Azure Otomasyon çözümü. Bu çözümde, Application Insights ve Azure SQL veritabanı'ndaki günlüklerini toplama runbook'ları yardımcı olur.

@@ -1,20 +1,20 @@
 ---
 title: Azure Search dizin oluşturucularında alan eşlemeleri
 description: Alan adları ve veri gösterimleri farklılıkları dikkate almak için Azure Search dizin oluşturucu alan eşlemelerini yapılandırma
-author: chaosrealm
-manager: jlembicz
+ms.date: 10/17/2018
+author: mgottein
+manager: cgronlun
+ms.author: magottei
 services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
-ms.date: 08/30/2017
-ms.author: eugenesh
-ms.openlocfilehash: 51fa689030c4a8ce4e900ecd600cdd0524aa13d9
-ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
+ms.openlocfilehash: 01edc7001ec463cb16d8b6c715794b0028508143
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "42056950"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49404739"
 ---
 # <a name="field-mappings-in-azure-search-indexers"></a>Azure Search dizin oluşturucularında alan eşlemeleri
 Azure Search dizin oluşturucuyu kullanırken, kendiniz bazen burada giriş verileriniz, hedef dizin şemasını oldukça eşleşmiyor durumlarda bulabilirsiniz. Bu gibi durumlarda, kullandığınız **alan eşlemeleri** verilerinizi istediğiniz şekle dönüştürmek için.

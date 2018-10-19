@@ -5,19 +5,19 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 09/05/2018
+ms.date: 10/15/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: c06dc83f8b460e6215448fbc9e4ac42c749b5922
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: d8382cac86abb112018195695340ed12663a2333
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49354011"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49427425"
 ---
 # <a name="authenticate-access-to-blobs-and-queues-with-managed-identities-for-azure-resources-preview"></a>BLOB'lar ve Kuyruklar yönetilen kimliklerle erişim (Önizleme) Azure kaynakları için kimlik doğrulaması
 
-Azure Blob ve kuyruk depolama ile Azure Active Directory (Azure AD) kimlik doğrulaması desteği [kimliklerini Azure kaynakları için yönetilen](../../active-directory/managed-identities-azure-resources/overview.md). Azure kaynakları için yönetilen kimlikleri, Azure sanal makineleri (VM'ler), işlev uygulamaları, sanal makine ölçek kümeleri ve diğerleri çalışan uygulamalardan erişim BLOB'lar ve Kuyruklar için kimlik doğrulaması için kullanabilirsiniz. Yönetilen kimlik kullanarak Azure kaynakları ve Azure AD kimlik doğrulaması gücünden yararlanan, bulutta çalışan uygulamalarınızın ile kimlik bilgilerini depolama önleyebilirsiniz.  
+Azure Blob ve kuyruk depolama ile Azure Active Directory (Azure AD) kimlik doğrulaması desteği [kimliklerini Azure kaynakları için yönetilen](../../active-directory/managed-identities-azure-resources/overview.md). Kimlikleri yönetilen Azure kaynaklarını bloblara erişimi kimlik doğrulaması için ve Azure sanal makineleri (VM'ler), işlev uygulamaları, sanal makine ölçek kümeleri ve diğerleri çalışan uygulamalardan Azure AD kimlik bilgilerini kullanarak sıralar. Yönetilen kimlik kullanarak Azure kaynakları ve Azure AD kimlik doğrulaması gücünden yararlanan, bulutta çalışan uygulamalarınızın ile kimlik bilgilerini depolama önleyebilirsiniz.  
 
 Yönetilen bir kimlik bir blob kapsayıcısı veya kuyruğa izinler vermek için uygun kapsamda bu kaynak için izinleri kapsayan yönetilen kimlik için rol tabanlı erişim denetimi (RBAC) rolüne atayın. Depolamadaki RBAC rolleri hakkında daha fazla bilgi için bkz. [Yönet RBAC (Önizleme) ile depolama verilere erişim hakları](storage-auth-aad-rbac.md). 
 
@@ -34,6 +34,10 @@ BLOB'lar ve Kuyruklar makinenizden kimlik doğrulaması yapmak için Azure kayna
 - [Azure CLI](../../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md)
 - [Azure Resource Manager şablonu](../../active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm.md)
 - [Azure SDK'ları](../../active-directory/managed-identities-azure-resources/qs-configure-sdk-windows-vm.md)
+
+## <a name="assign-an-rbac-role-to-an-azure-ad-managed-identity"></a>Bir yönetilen Azure AD kimlik için bir RBAC rolü atayın
+
+Azure Storage uygulamanızı bir yönetilen kimlik doğrulamak için önce yönetilen kimliğe için rol tabanlı erişim denetimi (RBAC) ayarlarını yapılandırın. Azure depolama kapsayıcıları ve Kuyruklar için izinleri kapsayacak RBAC rolleri tanımlar. Yönetilen kimliği bir yönetilen kimlik için RBAC rolü atandığında, bu kaynağa erişim izni verilir. Daha fazla bilgi için [RBAC (Önizleme) ile Azure Blob ve kuyruk verilere erişim haklarını yönetme](storage-auth-aad-rbac.md).
 
 ## <a name="get-a-managed-identity-access-token"></a>Yönetilen kimlik erişim belirteci alma
 

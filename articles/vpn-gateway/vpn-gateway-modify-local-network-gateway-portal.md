@@ -15,16 +15,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/19/2017
 ms.author: cherylmc
-ms.openlocfilehash: bdd6f90fe97408bd45a72adf58bfdc190207de46
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 12f1f8bbcb103d0882059cadc12bc1a8b9d40bdb
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38651945"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49404554"
 ---
 # <a name="modify-local-network-gateway-settings-using-the-azure-portal"></a>Azure portalını kullanarak yerel ağ geçidi ayarlarını değiştirme
 
 Bazen yerel ağ geçidinizin AddressPrefix veya Gatewayıpaddress ayarlarını değiştirin. Bu makalede, yerel ağ geçidi ayarlarını değiştirme gösterilmektedir. Ayrıca aşağıdaki listeden farklı bir seçenek belirleyerek, farklı bir yöntem kullanarak bu ayarları değiştirebilirsiniz:
+
+Bağlantı silmeden önce tanımlanan PSK almak için bağlanan cihazlarınız için yapılandırmayı indirmek isteyebilirsiniz. Bu şekilde, diğer tarafta bulunabileceğini gerekmez.
 
 > [!div class="op_single_selector"]
 > * [Azure portal](vpn-gateway-modify-local-network-gateway-portal.md)

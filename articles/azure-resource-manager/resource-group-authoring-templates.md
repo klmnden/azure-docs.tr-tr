@@ -14,17 +14,42 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: 129d02bea6fe3668a308da0ab2a46ca8b59928e7
-ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
+ms.openlocfilehash: 1b982bddc951e710ba3bfa5fe8621d6595b95a52
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45542253"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49405353"
 ---
 # <a name="understand-the-structure-and-syntax-of-azure-resource-manager-templates"></a>Azure Resource Manager şablonları, söz dizimi ve yapısı anlama
 Bu makalede, Azure Resource Manager şablon yapısını açıklar. Bu, bir şablon ve bu bölümlerdeki kullanılabilir olan özellikleri farklı bölümlerini sayısını gösterir. Şablonda, JSON ve dağıtımınız için değerleri oluşturmada kullanabileceğiniz ifadeler bulunur. Şablon oluşturmanın adım adım öğretici için bkz: [ilk Azure Resource Manager şablonunuzu oluşturma](resource-manager-create-first-template.md).
 
+## <a name="quickstarts-and-tutorials"></a>Hızlı Başlangıçlar ve öğreticiler
+
+Resource manager şablonlarını nasıl geliştireceğinizi öğrenin, aşağıdaki hızlı başlangıçları ve öğreticileri kullanın:
+
+- Hızlı Başlangıçlar
+
+  	|Unvan|Açıklama|
+  	|------|-----|
+  	|[Azure portal’ı kullanma](./resource-manager-quickstart-create-templates-use-the-portal.md)|Portal ve düzenleme ve şablon dağıtma işlemini kullanarak bir şablon oluşturur.|
+  	|[Visual Studio Code'u kullanma](./resource-manager-quickstart-create-templates-use-visual-studio-code.md)|Visual Studio Code, şablonları ve Azure Cloud shell şablonları dağıtmak için nasıl kullanılacağını oluşturmak ve düzenlemek için kullanın.|
+  	|[Visual Studio'yu kullanın.](./vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)|Oluşturun, düzenleyin ve şablonları dağıtmak için Visual Studio'yu kullanın.|
+
+- Öğreticiler
+
+  	|Unvan|Açıklama|
+  	|------|-----|
+  	|[Şablon başvurusu kullanma](./resource-manager-tutorial-create-encrypted-storage-accounts.md)|Şablon oluşturmak için şablon başvuru belgeleri kullanın. Öğreticide depolama hesabı şemasını bulun ve şifrelenmiş depolama hesabı oluşturmak için bilgileri kullanın.|
+  	|[Birden çok örnek oluşturma](./resource-manager-tutorial-create-multiple-instances.md)|Azure kaynaklarını birden çok örneğini oluşturun. Öğreticide, birden fazla depolama hesabı oluşturun.|
+  	|[Kaynak dağıtım sırasını ayarlama](./resource-manager-tutorial-create-templates-with-dependent-resources.md)|Kaynak bağımlılıkları tanımlayın. Öğreticide, bir sanal ağ, sanal makine ve bağımlı Azure kaynaklarını oluşturun. Bağımlılıkları nasıl tanımlandığını öğreneceksiniz.|
+  	|[Koşulları kullanma](./resource-manager-tutorial-use-conditions.md)|Bazı parametre değerlerine göre kaynakları dağıtma. Öğreticide, yeni bir depolama hesabı oluşturun veya bir parametre değerine göre mevcut bir depolama hesabı kullanmak için bir şablon tanımlayabilirsiniz.|
+  	|[Anahtar kasası tümleştirme](./resource-manager-tutorial-use-key-vault.md)|Azure Key Vault'tan gizli anahtarları/parolaları almak. Öğreticide, bir sanal makine oluşturun.  Sanal Makine Yöneticisi parolası Key Vault'tan alınır.|
+  	|[Bağlı şablonlar oluşturma](./resource-manager-tutorial-create-linked-templates.md)|Şablonları modülarize etmek ve diğer şablonlar şablondan çağırın. Öğreticide, bir sanal ağ, sanal makine ve bağımlı kaynakları oluşturun.  Bağımlı depolama hesabı, bağlantılı bir şablonunda tanımlanır. |
+  	|[Güvenli dağıtım uygulamalarını kullanma](./deployment-manager-tutorial.md)|Azure Deployment manager'ı. |
+
 ## <a name="template-format"></a>Şablon biçimi
+
 En basit yapısına bir şablon aşağıdaki öğelere sahiptir:
 
 ```json

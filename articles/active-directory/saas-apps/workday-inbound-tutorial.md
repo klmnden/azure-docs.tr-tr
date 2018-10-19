@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 06/18/2018
 ms.author: asmalser
-ms.openlocfilehash: 917baa4b0d983df858c64cd0fa5b697b0fbb316c
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 2ab2ac34132eff65e1d6c77794486bc8d9858b40
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46298277"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49408192"
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning-preview"></a>Öğretici: Workday otomatik kullanıcı hazırlama (Önizleme) için yapılandırma
 
@@ -74,7 +74,7 @@ Bu öğreticide özetlenen senaryo, aşağıdaki öğeleri zaten sahip olduğunu
 * Genel yönetici erişimi olan geçerli bir Azure AD Premium P1 aboneliği
 * Sınama ve tümleştirme amacıyla Workday uygulama Kiracı
 * Sınama amacıyla çalışan verilerini test etmek için yönetici izinleri workday'deki sistem tümleştirme kullanıcısı oluşturun ve değişiklikler yapmak için
-* Windows hizmetini 2012 veya üzeri çalıştıran etki alanına katılmış bir sunucuya Active Directory kullanıcı sağlama için ana bilgisayar için gerekli [şirket içi eşitleme Aracısı](https://go.microsoft.com/fwlink/?linkid=847801)
+* Windows Server 2012 veya üzeri çalıştıran etki alanına katılmış bir sunucu için Active Directory kullanıcı sağlama için ana bilgisayar için gerekli [şirket içi eşitleme Aracısı](https://go.microsoft.com/fwlink/?linkid=847801)
 * [Azure AD Connect](../hybrid/whatis-hybrid-identity.md) Active Directory ve Azure AD arasında eşitlemek için
 
 ### <a name="solution-architecture"></a>Çözüm mimarisi

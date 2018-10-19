@@ -16,12 +16,12 @@ ms.workload: identity
 ms.date: 10/03/2018
 ms.author: celested
 ms.reviewer: jlu, annaba, hirsin
-ms.openlocfilehash: 3e4b4e904fd4615458e8d873baa1bf30588fe81d
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.openlocfilehash: 4fd7617bf45608cdae15919a40920ea0d214acb8
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48249443"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49407480"
 ---
 # <a name="how-to-migrate-from-the-azure-access-control-service"></a>Nasıl yapılır: Azure erişim denetimi Hizmeti'nden geçiş
 
@@ -225,7 +225,7 @@ Azure AD ile tümleştirmek için WS-Federation veya WIF kullanmak için aşağ�
 
 Alternatif bir yaklaşım izlemektir [Bu kod örneği](https://github.com/Azure-Samples/active-directory-dotnet-webapp-wsfederation), WS-Federation ayarlamak için biraz daha farklı yönergeler sağlar. Bu kod örneği, WIF, ancak bunun yerine, ASP.NET 4.5 OWIN ara yazılımı kullanmaz. Ancak, uygulama kaydı yönergelerini WIF kullanarak uygulamalar için geçerlidir ve Azure AD Premium lisansı gerekmez. 
 
-Bu yaklaşım tercih ederseniz anlamanız gerekir [Azure AD'de imzalama anahtarı geçiş işlemi](https://docs.microsoft.com/azure/active-directory/develop/active-directory-signing-key-rollover). Bu yaklaşım, imzalama anahtarı sorunu belirteçleri genel Azure AD kullanır. Varsayılan olarak, WIF İmzalama anahtarları otomatik olarak yenilenmez. Azure AD genel, imzalama anahtarları döndürdüğünde, WIF uygulamanız değişiklikleri kabul etmek için hazırlanması gerekir. Daha fazla bilgi için [Azure AD'de imzalama anahtarı geçiş işlemi hakkında önemli bilgiler](https://msdn.microsoft.com/en-us/library/azure/dn641920.aspx).
+Bu yaklaşım tercih ederseniz anlamanız gerekir [Azure AD'de imzalama anahtarı geçiş işlemi](https://docs.microsoft.com/azure/active-directory/develop/active-directory-signing-key-rollover). Bu yaklaşım, imzalama anahtarı sorunu belirteçleri genel Azure AD kullanır. Varsayılan olarak, WIF İmzalama anahtarları otomatik olarak yenilenmez. Azure AD genel, imzalama anahtarları döndürdüğünde, WIF uygulamanız değişiklikleri kabul etmek için hazırlanması gerekir. Daha fazla bilgi için [Azure AD'de imzalama anahtarı geçiş işlemi hakkında önemli bilgiler](https://msdn.microsoft.com/library/azure/dn641920.aspx).
 
 Openıd Connect veya OAuth protokolleri üzerinden Azure ad'yle tümleştirebilirsiniz varsa bunu öneririz. Kapsamlı belgeler ve Azure AD web uygulamanızı kullanılabilir tümleştirin konusunda rehberlik sunuyoruz bizim [Azure AD Geliştirici Kılavuzu](https://aka.ms/aaddev).
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: tomsh
-ms.openlocfilehash: 481fcb869004a6fca83fdf19c32c41010057de32
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: aa68bb0cb2e404072ef359591ce9309f8c27b631
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39008204"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49403994"
 ---
 # <a name="azure-operational-security-checklist"></a>Azure işletimsel güvenlik denetim listesi
 Hızlı, kolay ve uygun maliyetli, azure'da bir uygulamayı dağıtma. Uygulamanızı karşı bir listesi, önemli ve önerilen işletimsel güvenlik eylemleri dikkate almanız için değerlendirmede yardımcı olmak için bulut uygulaması bir denetim listesi sahip olmak yararlı üretimde dağıtmadan önce.
@@ -51,8 +51,7 @@ Bu denetim, karmaşık kurumsal uygulamaları azure'da dağıttıkları gibi çe
 Birçok kuruluşun başarıyla dağıtılan ve bulut uygulamalarını azure'da çalıştırılan. Sağlanan denetim listeleri gereken birkaç denetim listeleri vurgulayın ve başarılı dağıtımı ve işlemleri sıkıntıya ücretsiz olasılığını artırmak için yardımcı olur. Bu, Azure üzerinde var olan ve yeni uygulama dağıtımları için operasyonel ve stratejik konuları önemle öneririz.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Bu belgede size OMS Güvenlik ve Denetim çözümü tanıtılmaktadır. OMS Güvenlik hakkında daha fazla bilgi edinmek için şu makalelere göz atın:
+Güvenlik hakkında daha fazla bilgi edinmek için aşağıdaki makalelere bakın:
 
-- [Operations Management Suite (OMS) genel bakış](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview).
 - [Tasarım ve çalışma güvenliği](https://www.microsoft.com/trustcenter/security/designopsecurity).
 - [Azure Güvenlik Merkezi planlama ve işlemler](https://docs.microsoft.com/azure/security-center/security-center-planning-and-operations-guide).

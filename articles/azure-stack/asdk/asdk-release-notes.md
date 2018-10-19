@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/02/2018
+ms.date: 10/18/2018
 ms.author: sethm
 ms.reviewer: misainat
-ms.openlocfilehash: d7e379033cc64b9715ccc7e8c9cbe5fe75e0e5b1
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: 378617e331a5539fca3d993410325ef187816137
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48869083"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49430315"
 ---
 # <a name="azure-stack-development-kit-release-notes"></a>Azure Stack Geliştirme Seti sürüm notları  
 Bu makalede, geliştirmeleri, düzeltmeler ve Azure Stack geliştirme Seti'ni'de bilinen sorunlar hakkında bilgi sağlar. Hangi sürümü çalıştırdığınızdan emin değilseniz yapabilecekleriniz [denetlemek için portal'ı kullanmanızı](.\.\azure-stack-updates.md#determine-the-current-version).
@@ -107,7 +107,7 @@ Daha fazla bilgi için [Azure Stack syslog iletmeyi](../azure-stack-integrate-se
       1. Kiracı Portalı'nda Git **abonelikleri** ve aboneliği bulunamıyor. Tıklayın **kaynak sağlayıcıları**, ardından **Microsoft.Compute**ve ardından **yeniden kaydettirin**.
       2. Aynı abonelik altında Git **erişim denetimi (IAM)**, doğrulayın **Azure Stack – yönetilen Disk** listelenir.
    2. Bir konuk dizin ile ilişkili bir abonelik içindeki Vm'leri dağıtma, çok kiracılı bir ortam yapılandırdıysanız, bir iç hata iletisi ile başarısız olabilir. Hatayı gidermek için aşağıdaki adımları izleyin:
-      1. Uygulama [1808 Azure Stack düzeltme](https://support.microsoft.com/help/4465859).
+      1. Uygulama [1808 Azure Stack düzeltme](https://support.microsoft.com/help/4468920).
       2. Bağlantısındaki [bu makalede](../azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory) her Konuk dizinlerinizi yeniden yapılandırmak için.
 
 <!-- 2869209 – IS, ASDK --> 

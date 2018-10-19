@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2018
 ms.author: shvija
-ms.openlocfilehash: ff0ebbb140627caaaa71c5d09d0a4078eca86055
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: 29b5f877065029dc271e49c1afd6d547def58a6e
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48888162"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49408141"
 ---
 # <a name="use-virtual-network-service-endpoints-with-azure-event-hubs"></a>Azure Event Hubs ile sanal ağ hizmet uç noktaları kullanma
 
@@ -24,7 +24,7 @@ Event Hubs ile tümleştirilmesi [(VNet) sanal ağ hizmet uç noktaları] [ vnet
 > [!IMPORTANT]
 > Sanal ağlar desteklenir **standart** ve **adanmış** Event Hubs'ın katmanları. Temel katmanda desteklenmiyor. 
 
-En az bir sanal ağ alt ağı için hizmet uç noktasını bağlanacak yapılandırıldıktan sonra ilgili Event Hubs ad alanı artık her yerde trafiği kabul eder, ancak sanal ağlar yetkili. Sanal ağ açısından bakıldığında, sanal ağ alt ağından bir yalıtılmış ağ tüneli Mesajlaşma hizmeti için hizmet uç noktası bir Event Hubs ad alanı bağlama yapılandırır.
+En az bir sanal ağ alt ağı için hizmet uç noktasını bağlanacak yapılandırıldıktan sonra ilgili Event Hubs ad alanı artık her yerde trafiği kabul eder, ancak sanal ağlardaki alt ağlara yetkili. Sanal ağ açısından bakıldığında, sanal ağ alt ağından bir yalıtılmış ağ tüneli Mesajlaşma hizmeti için hizmet uç noktası bir Event Hubs ad alanı bağlama yapılandırır.
 
 Sonuç, alt ağ ve ilgili Event Hubs ad alanı, Mesajlaşma Hizmeti uç noktası bir genel IP aralığında olma gözlemlenebilir ağ adresi artma bağlı iş yükleri arasındaki özel ve yalıtılmış bir ilişkidir.
 
@@ -38,7 +38,7 @@ Bu, bulut çözümleri yalnızca Azure sektör lideri güvenilir ve ölçekleneb
 
 ## <a name="bind-event-hubs-to-virtual-networks"></a>Olay hub'ları sanal ağlara bağlama
 
-*Sanal ağ kuralları* Azure Event Hubs sunucunuzun belirli bir sanal ağ alt ağından gelen bağlantıları kabul edip etmeyeceğini denetleyen güvenlik duvarı güvenliği özelliğidir.
+*Sanal ağ kuralları* Azure Event Hubs ad alanınız belirli bir sanal ağ alt ağından gelen bağlantıları kabul edip etmeyeceğini denetleyen güvenlik duvarı güvenliği özelliğidir.
 
 Bir Event Hubs ad alanı, bir sanal ağa bağlama iki adımlı bir işlemdir. İlk oluşturmak gereken bir **sanal ağ hizmet uç noktası** bir sanal ağ alt ağı ve "Microsoft.EventHub" için açıklanan etkinleştir [hizmet uç noktası genel bakış] [ vnet-sep]. Hizmet uç noktası ekledikten sonra Event Hubs ad alanı ile bağlama bir *sanal ağ kuralı*.
 

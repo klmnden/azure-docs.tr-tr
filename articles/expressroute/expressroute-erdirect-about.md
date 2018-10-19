@@ -7,22 +7,22 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 09/21/2018
 ms.author: cherylmc
-ms.openlocfilehash: c33bec76fe17336221c873778c2993d75fec81e8
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: ce4bc88f6b599bb3f5f760b2ba83c81f2b6acc5f
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46962241"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49405187"
 ---
 # <a name="about-expressroute-direct-preview"></a>ExpressRoute hakkında doğrudan (Önizleme)
 
-ExpressRoute doğrudan müşteriler Microsoft'un küresel ağı dünya genelindeki stratejik dağıtılmış eşleme konumlarda doğrudan bağlanma özelliği sağlar. ExpressRoute doğrudan uygun ölçekte etkin/etkin bağlantı destekleyen çift 100Gbps bağlantı sağlar. 
+ExpressRoute Direct, müşterilere Microsoft’un dünya çapında stratejik noktalara yerleştirilmiş eşleme konumlarından oluşan küresel ağına doğrudan bağlanabilme olanağı sağlar. ExpressRoute doğrudan sağlar çift 100 GB/sn bağlantısı, uygun ölçekte etkin/etkin bağlantıyı destekler. 
 
 ExpressRoute doğrudan sağlayan önemli özellikler dahil ancak bunlarla sınırlı değildir:
 
-* Depolama ve Cosmos DB gibi hizmetleri çok büyük veri alımı 
-* Fiziksel yalıtım düzenlemesi ve gerekli olan sektörler için adanmış ve yalıtılmış gibi bağlantı: bankacılık, kamu ve perakende 
-* İş birimini temel alan bağlantı hattı dağıtımının ayrıntılı denetim
+* Depolama ve Cosmos DB gibi hizmetler için Büyük Veri Alımı özelliği 
+* Bankacılık, kamu ve perakendecilik gibi denetime tâbi, ayrılmış ve yalıtılmış bağlantı gerektiren sektörler için fiziksel yalıtım 
+* Bağlantı hattı dağıtımının iş birimine dayalı detaylı denetimi
 
 > [!IMPORTANT]
 > ExpressRoute doğrudan şu anda Önizleme aşamasındadır.
@@ -31,20 +31,20 @@ ExpressRoute doğrudan sağlayan önemli özellikler dahil ancak bunlarla sını
 
 ## <a name="enroll-in-the-preview"></a>Önizlemeye kaydolma
 
-ExpressRoute doğrudan kullanabilmeniz için önce önizleme aboneliğinizde kaydolmanız gerekir. Kaydetmek için, <ExpressRouteDirect@microsoft.com> adresine abonelik kimliğinizi içeren bir e-posta gönderin. ExpressRoute doğrudan Kurumsal düzeyde bir özelliktir. Ek ayrıntıları belirtin:
+ExpressRoute doğrudan kullanmadan önce ilk önizleme aboneliğinizde kaydolmanız gerekir. Kaydetmek için, <ExpressRouteDirect@microsoft.com> adresine abonelik kimliğinizi içeren bir e-posta gönderin. ExpressRoute doğrudan Kurumsal düzeyde bir özelliktir. Ek ayrıntıları belirtin:
 
 * Senaryo ile gerçekleştirmek için aradığınız **ExpressRoute doğrudan**
 * Konum bkz - [iş ortakları ve eşleme konumları](expressroute-locations-providers.md) tüm konumlara tam listesi için
 * Uygulama zaman çizelgesi
-* Hizmetleri ile ilgili her türlü sorularınız
+* Diğer sorular
 
 ## <a name="expressroute-using-a-service-provider-and-expressroute-direct"></a>ExpressRoute hizmet sağlayıcısı ve ExpressRoute doğrudan kullanma
 
 | **ExpressRoute kullanarak bir hizmet sağlayıcısı** | **ExpressRoute doğrudan** | 
 | --- | --- | 
-| Hızlı ekleme ve mevcut altyapısıyla bağlantısını etkinleştirmek için hizmet sağlayıcısı'nı kullanır | 100Gbps altyapı ve tam yönetim tüm katmanların gerektirir
+| Hızlı ekleme ve mevcut altyapısıyla bağlantısını etkinleştirmek için hizmet sağlayıcısı'nı kullanır | 100 GB/sn altyapı ve tam yönetim tüm katmanların gerektirir
 | Sağlayıcı Ethernet ve MPLS gibi yüzlerce ile tümleşir | Düzenlenen sektör ve büyük veri alımı için doğrudan/adanmış kapasite | 
-| 50 MB/sn 10Gbps devreler SKU'ları | 1 GB/sn devreler SKU'lardan 100Gbps için
+| 50 MB / 10 GB/sn devreler SKU'ları | 5 GB/sn SKU'lardan devreler için 100 GB/sn (5 GB/sn, 10 GB/sn, 40 GB/sn, 100 GB/sn)
 | Tek bir kiracı için en iyi duruma getirilmiş | Tek kiracılı/bulut hizmeti sağlayıcıları için en iyi duruma getirilmiş / birden çok iş birimleri
 
 ## <a name="expressroute-direct-circuits"></a>Doğrudan ExpressRoute bağlantı hatları
@@ -57,7 +57,7 @@ Her eşleme konumunda, Microsoft'un genel ağ erişimi olan ve varsayılan olara
 
 ## <a name="circuit-skus"></a>Bağlantı hattı SKU'ları
 
-ExpressRoute doğrudan Azure depolama ve diğer büyük veri hizmetlerle büyük veri alma senaryolarını destekler. ExpressRoute bağlantı hattına ExpressRoute doğrudan üzerinde şimdi de destek **40G** ve **100G** bağlantı hattı SKU'ları. 
+ExpressRoute doğrudan Azure depolama ve diğer büyük veri hizmetlerle büyük veri alma senaryolarını destekler. ExpressRoute bağlantı hattına ExpressRoute doğrudan üzerinde şimdi de destek **40 GB/sn** ve **100 GB/sn** bağlantı hattı SKU'ları. 
 
 ## <a name="vlan-tagging"></a>VLAN etiketleme
 

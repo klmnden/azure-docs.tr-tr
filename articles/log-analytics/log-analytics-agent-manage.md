@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 03/30/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: e00ccc4d55da805538801a0a8f3ee5502d871fab
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: eaf6aa538a4733528b52b1417c2d53318064e068
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48042317"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49405406"
 ---
 # <a name="managing-and-maintaining-the-log-analytics-agent-for-windows-and-linux"></a>Windows ve Linux için Log Analytics aracısını korumak ve yönetme
 
@@ -34,7 +34,7 @@ Log Analytics için Windows veya Linux Aracısı'nın ilk dağıtımdan sonra ar
 
 1. Yönetici haklarına sahip bir hesapla bilgisayarda oturum açın.
 2. **Denetim Masası**'nı açın.
-3. Seçin **Microsoft Monitoring Agent** ve ardından **Azure Log Analytics (OMS)** sekmesi.
+3. Seçin **Microsoft Monitoring Agent** ve ardından **Azure Log Analytics** sekmesi.
 4. Bir çalışma alanı kaldırılıyor, onu seçin ve ardından **Kaldır**. Aracı için raporlamayı sonlandırmak istediğiniz herhangi bir çalışma için bu adımı yineleyin.
 5. Bir çalışma alanı ekleme, tıklayın **Ekle** ve **bir Log Analytics çalışma alanı Ekle** iletişim kutusu, yapıştırma çalışma alanı kimliği ve çalışma alanı anahtarı (birincil anahtar). Bilgisayarın Azure kamu bulutundaki bir Log Analytics çalışma alanına raporlaması gerekiyorsa, Azure ABD devlet kurumları Azure bulut aşağı açılan listeden seçin. 
 6. Değişikliklerinizi kaydetmek için **Tamam**’a tıklayın.
@@ -101,7 +101,7 @@ Aşağıdaki adımları, farklı bir çalışma alanı ile kaydolun veya bir ça
 Aracı hizmeti değişikliklerin etkili olması yeniden başlatılması gerekmez.
 
 ## <a name="update-proxy-settings"></a>Proxy ayarlarını güncelleştirme 
-Hizmet bir ara sunucu üzerinden iletişim kurmak için aracıyı yapılandırmak için veya [OMS ağ geçidi](log-analytics-oms-gateway.md) dağıtımdan sonra aşağıdaki yöntemlerden birini bu görevi tamamlamak için kullanın.
+Hizmet bir ara sunucu üzerinden iletişim kurmak için aracıyı yapılandırmak için veya [Log Analytics gateway](log-analytics-oms-gateway.md) dağıtımdan sonra aşağıdaki yöntemlerden birini bu görevi tamamlamak için kullanın.
 
 ### <a name="windows-agent"></a>Windows Aracısı
 
@@ -110,7 +110,7 @@ Hizmet bir ara sunucu üzerinden iletişim kurmak için aracıyı yapılandırma
 1. Yönetici haklarına sahip bir hesapla bilgisayarda oturum açın.
 2. **Denetim Masası**'nı açın.
 3. Seçin **Microsoft Monitoring Agent** ve ardından **Proxy ayarlarını** sekmesi.
-4. Tıklayın **proxy sunucusu kullan** URL'sini sağlayın ve bağlantı noktası proxy sunucusu veya ağ geçidi sayısı. Proxy sunucusu veya OMS Ağ Geçidi kimlik doğrulaması gerektiriyorsa, kullanıcı adı ve parola kimlik doğrulaması ve ardından yazın **Tamam**. 
+4. Tıklayın **proxy sunucusu kullan** URL'sini sağlayın ve bağlantı noktası proxy sunucusu veya ağ geçidi sayısı. Proxy sunucusu veya Log Analytics Ağ Geçidi kimlik doğrulaması gerektiriyorsa, kullanıcı adı ve parola kimlik doğrulaması ve ardından yazın **Tamam**. 
 
 #### <a name="update-settings-using-powershell"></a>PowerShell kullanarak ayarlarını güncelleştirme 
 
@@ -141,7 +141,7 @@ $healthServiceSettings.SetProxyInfo($ProxyDomainName, $ProxyUserName, $cred.GetN
 ```  
 
 ### <a name="linux-agent"></a>Linux Aracısı
-Azure'da Linux bilgisayarlarını bir proxy sunucusu veya Log analytics'e OMS ağ geçidi üzerinden iletişim kurması gerekiyorsa aşağıdaki adımları gerçekleştirin.  Proxy yapılandırması değeri `[protocol://][user:password@]proxyhost[:port]` sözdizimine sahiptir.  *proxyhost* özelliği, ara sunucunun tam etki adı alanı veya IP adresini kabul eder.
+Azure'da Linux bilgisayarlarını bir proxy sunucusu veya Log Analytics ağ geçidi iletişim kurması gerekiyorsa aşağıdaki adımları gerçekleştirin.  Proxy yapılandırması değeri `[protocol://][user:password@]proxyhost[:port]` sözdizimine sahiptir.  *proxyhost* özelliği, ara sunucunun tam etki adı alanı veya IP adresini kabul eder.
 
 1. Aşağıdaki komutları çalıştırıp değerleri kendi ayarlarınıza göre değiştirerek `/etc/opt/microsoft/omsagent/proxy.conf` dosyasını düzenleyin.
 
@@ -185,7 +185,9 @@ Aracıyı kaldırmak için Linux bilgisayarında aşağıdaki komutu çalıştı
 ## <a name="configure-agent-to-report-to-an-operations-manager-management-group"></a>Bir aracıyı Operations Manager yönetim grubuna raporlama yapacak yapılandırın
 
 ### <a name="windows-agent"></a>Windows Aracısı
-OMS aracısı için bir System Center Operations Manager yönetim grubuna rapor için Windows yapılandırmak için aşağıdaki adımları gerçekleştirin. 
+Bir System Center Operations Manager yönetim grubuna rapor Windows için Log Analytics aracısını yapılandırmak için aşağıdaki adımları gerçekleştirin.
+
+[!INCLUDE [log-analytics-agent-note](../../includes/log-analytics-agent-note.md)] 
 
 1. Yönetici haklarına sahip bir hesapla bilgisayarda oturum açın.
 2. **Denetim Masası**'nı açın. 
@@ -199,7 +201,9 @@ OMS aracısı için bir System Center Operations Manager yönetim grubuna rapor 
 10. Tıklayın **Tamam** kapatmak için **Yönetim Grubu Ekle** iletişim kutusunu ve ardından **Tamam** kapatmak için **Microsoft Monitoring Agent özellikleri** iletişim kutusu.
 
 ### <a name="linux-agent"></a>Linux Aracısı
-Bir System Center Operations Manager yönetim grubuna rapor için Linux için OMS Aracısı'nı yapılandırmak için aşağıdaki adımları gerçekleştirin. 
+Bir System Center Operations Manager yönetim grubuna rapor için Linux için Log Analytics aracısını yapılandırmak için aşağıdaki adımları gerçekleştirin. 
+
+[!INCLUDE [log-analytics-agent-note](../../includes/log-analytics-agent-note.md)]
 
 1. Dosyayı Düzenle `/etc/opt/omi/conf/omiserver.conf`
 2. İle satır başına emin `httpsport=` bağlantı noktası 1270 tanımlar. Örneğin: `httpsport=1270`

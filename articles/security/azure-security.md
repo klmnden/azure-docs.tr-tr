@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 81eb23a0955bbc6a5f9dcd95c6874f0c5a8c286c
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: ce2b4304ea53be7e9a7be42b8a7fb30f713d85f8
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47434050"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49405217"
 ---
 # <a name="introduction-to-azure-security"></a>Azure güvenliğine giriş
 ## <a name="overview"></a>Genel Bakış
@@ -74,10 +74,10 @@ Yerleşik özellikleri altı (6) işlevsel alanları düzenlenmiştir: işlemler
 ## <a name="operations"></a>İşlemler
 Bu bölüm, temel özellikler güvenlik işlemleri ile ilgili ek bilgiler ve bu özellikler hakkındaki özet bilgileri sağlar.
 
-### <a name="operations-management-suite-security-and-audit-dashboard"></a>Operations Management Suite güvenlik ve Denetim Panosu
-[OMS güvenlik ve denetim çözümü](https://docs.microsoft.com/azure/operations-management-suite/oms-security-getting-started) kuruluşunuzun kapsamlı bir görünüm sağlar IT güvenlik duruşuna [yerleşik arama sorguları](https://blogs.technet.microsoft.com/msoms/2016/01/21/easy-microsoft-operations-management-suite-search-queries/) ilgilenmenizi gerektiren önemli sorunlar için. [Güvenlik ve Denetim](https://technet.microsoft.com/library/mt484091.aspx) panosu, OMS'de yer alan güvenlikle ilgili tüm öğelere ilişkin giriş ekranıdır. Bu, bilgisayarların güvenlik durumunu yüksek düzeyde öngörü sağlar. Ayrıca son 24 saat, 7 gün veya herhangi bir özel zaman dilimine ait tüm olayları görüntüleme becerisine sahiptir.
+### <a name="security-and-audit-dashboard"></a>Güvenlik ve Denetim Panosu
+[Güvenlik ve denetim çözümü](https://docs.microsoft.com/azure/operations-management-suite/oms-security-getting-started) kuruluşunuzun kapsamlı bir görünüm sağlar IT güvenlik duruşuna [yerleşik arama sorguları](https://blogs.technet.microsoft.com/msoms/2016/01/21/easy-microsoft-operations-management-suite-search-queries/) ilgilenmenizi gerektiren önemli sorunlar için. [Güvenlik ve Denetim](https://technet.microsoft.com/library/mt484091.aspx) panodur giriş ekranı her şeyin Log analytics'te güvenlik ilgili. Bu, bilgisayarların güvenlik durumunu yüksek düzeyde öngörü sağlar. Ayrıca son 24 saat, 7 gün veya herhangi bir özel zaman dilimine ait tüm olayları görüntüleme becerisine sahiptir.
 
-Ayrıca, OMS güvenlik ve uyumluluk için yapılandırabilirsiniz [otomatik olarak belirli eylemleri gerçekleştirme](https://blogs.technet.microsoft.com/robdavies/2016/04/20/simple-look-at-oms-alert-remediation-with-runbooks-part-1/) zaman belirli bir olay algılandı.
+Ayrıca, güvenlik ve uyumluluk için yapılandırabilirsiniz [otomatik olarak belirli eylemleri gerçekleştirme](https://blogs.technet.microsoft.com/robdavies/2016/04/20/simple-look-at-oms-alert-remediation-with-runbooks-part-1/) zaman belirli bir olay algılandı.
 
 ### <a name="azure-resource-manager"></a>Azure Resource Manager
 [Azure Resource Manager ](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-model) kaynaklarla çözümünüzdeki bir grup olarak çalışmanıza olanak tanır. Çözümünüzdeki tüm kaynakları tek ve eşgüdümlü bir işlemle dağıtabilir, güncelleştirebilir veya silebilirsiniz. Kullandığınız bir [Azure Resource Manager şablonu](https://blogs.technet.microsoft.com/canitpro/2015/06/29/devops-basics-infrastructure-as-code-arm-templates/) için dağıtım ve bu şablon test, hazırlama ve üretim gibi farklı ortamlarda da çalışabilir. Resource Manager kaynaklarınızı dağıttıktan sonra yönetmenize yardımcı olmak için güvenlik, denetleme ve etiketleme özellikleri sunar.
@@ -95,7 +95,7 @@ Kilitlenmeler, hata veya performans sorunları varsa, nedenini tanılamak için 
 [Azure İzleyici](https://docs.microsoft.com/azure/monitoring-and-diagnostics/) görselleştirme, sorgu, yönlendirme, uyarı, Otomatik ölçek ve Otomasyon verileri iki Azure altyapısından sunar ([etkinlik günlüğü](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)) ve tek tek her Azure kaynağı ([tanılama Günlükleri](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)). Azure İzleyici, Azure günlükleri üretilir, güvenlikle ilgili olaylar, sizi uyarmak için kullanabilirsiniz.
 
 ### <a name="log-analytics"></a>Log Analytics
-[Log Analytics](https://azure.microsoft.com/documentation/services/log-analytics/) parçası [Operations Management Suite](https://www.microsoft.com/cloud-platform/operations-management-suite) – hem şirket içi hem de üçüncü taraf bulut tabanlı altyapı (AWS gibi) ek Azure kaynakları için bir BT yönetimi çözümü sağlar. Ölçüm ve günlükleri görebilmeniz tek bir yerden, tüm ortamınız için Azure İzleyici verilerini doğrudan Log Analytics'e yönlendirilebilir.
+[Log Analytics](https://azure.microsoft.com/documentation/services/log-analytics/) – hem şirket içi hem de üçüncü taraf bulut tabanlı altyapı (AWS gibi) ek Azure kaynakları için bir BT yönetimi çözümü sağlar. Ölçüm ve günlükleri görebilmeniz tek bir yerden, tüm ortamınız için Azure İzleyici verilerini doğrudan Log Analytics'e yönlendirilebilir.
 
 Aracın hızlı bir şekilde güvenlikle ilgili girişler ile esnek sorgu yaklaşım büyük miktarlarda aracılığıyla aramanızı sağlar log Analytics'e adli ve diğer güvenlik analizi, kullanışlı bir aracı olabilir. Ayrıca, şirket içi [güvenlik duvarınızdan ve Ara günlükleri dışarı Azure'a ve Log Analytics kullanarak analiz için kullanılabilir.](https://docs.microsoft.com/azure/log-analytics/log-analytics-proxy-firewall)
 

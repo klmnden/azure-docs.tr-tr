@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/22/2017
 ms.author: cwatson
-ms.openlocfilehash: 623856f05eed44eca3752d56f047f9bb282bdc8e
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 38cfd354f11ef3d888ad70e71549868d398495f5
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47392100"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49429652"
 ---
 # <a name="manage-access-to-billing-information-for-azure-using-role-based-access-control"></a>Rol tabanlı erişim denetimi kullanarak Azure için fatura bilgilerini erişimi yönetme
 
@@ -67,7 +67,7 @@ Faturalandırma okuyucusu rolü, Azure portalında abonelik fatura bilgilerini y
     ![Azure portalında faturalama okuyucusu görebileceklerini gösteren ekran görüntüsü](./media/billing-manage-access/billing-reader-view.png)
 
 > [!NOTE]
-> Faturalandırma okuyucusu özellik Önizleme aşamasındadır ve enterprise (EA) abonelikleri veya genel olmayan bulutlarda henüz desteklemiyor.
+> Faturalandırma okuyucusu özellik Önizleme aşamasındadır ve henüz genel olmayan bulutlarda desteklemiyor. Kurumsal Yönetici ücretleri Görüntüle etkinleştirilirse, Kurumsal abonelik maliyetleri görüntüleyebilirsiniz.
 
 ## <a name="adding-users-to-other-roles"></a>Diğer rollere kullanıcı ekleme
 

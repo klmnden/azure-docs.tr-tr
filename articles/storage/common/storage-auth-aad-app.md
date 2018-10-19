@@ -1,21 +1,21 @@
 ---
 title: Azure Active Directory ile blob ve kuyruk verilere erişmek için uygulamalarınızdan (Önizleme) kimlik doğrulaması | Microsoft Docs
-description: Bir uygulama içinde kimlik doğrulaması ve ardından Azure depolama kaynaklarını (Önizleme) istekleri yetkilendirmek için Azure Active Directory kullanın.
+description: Bir uygulama içinde kimlik doğrulaması ve ardından BLOB'ları ve kuyrukları (Önizleme) istekleri yetkilendirmek için Azure Active Directory kullanın.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 09/07/2018
+ms.date: 10/15/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: 6a0b7139fd8d216397090154a4324c8e4305a939
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: d249753dd954ba610a757a88060c6c0f7c58ad95
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48816387"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49427102"
 ---
-# <a name="authenticate-with-azure-active-directory-from-an-azure-storage-application-preview"></a>Bir Azure depolama uygulaması (Önizleme) Azure Active Directory ile kimlik doğrulaması
+# <a name="authenticate-with-azure-active-directory-from-an-application-for-access-to-blobs-and-queues-preview"></a>BLOB'lar ve Kuyruklar (Önizleme) için erişim için bir uygulamadan Azure Active Directory kimlik doğrulaması
 
 Azure depolama ile Azure Active Directory (Azure AD) kullanarak önemli bir avantajı, kimlik bilgilerinizi artık kodunuzda depolanması gerektiğini ' dir. Bunun yerine, Azure AD'den bir OAuth 2.0 erişim belirteci isteğinde bulunabilirsiniz. Azure AD güvenlik sorumlusunu (kullanıcı, Grup veya hizmet sorumlusu) kimlik doğrulamasını işleyen çalışan uygulama. Doğrulama başarılı olursa, Azure AD erişim belirteci uygulamaya döndürür ve uygulama daha sonra Azure Depolama'ya yönelik isteklerin yetkilendirmek için erişim belirteci kullanabilirsiniz.
 
@@ -26,6 +26,10 @@ Azure Storage uygulamanızı bir güvenlik sorumlusunun kimlik doğrulama gerçe
 OAuth 2.0 kodu verme akışı genel bakış için bkz: [Authorize OAuth 2.0 kod kullanarak Azure Active Directory web uygulamalarına erişim akışı](../../active-directory/develop/v1-protocols-oauth-code.md).
 
 [!INCLUDE [storage-auth-aad-note-include](../../../includes/storage-auth-aad-note-include.md)]
+
+## <a name="assign-an-rbac-role-to-an-azure-ad-security-principal"></a>Bir Azure AD güvenlik sorumlusu için bir RBAC rolü atayın
+
+Azure depolama uygulamanızdan bir güvenlik sorumlusunun kimliğini doğrulamak için önce bu güvenlik sorumlusu için rol tabanlı erişim denetimi (RBAC) ayarlarını yapılandırın. Azure depolama kapsayıcıları ve Kuyruklar için izinleri kapsayacak RBAC rolleri tanımlar. Bu güvenlik sorumlusu, RBAC rolü için bir güvenlik sorumlusu atandığında, bu kaynağa erişim izni verilir. Daha fazla bilgi için [RBAC (Önizleme) ile Azure Blob ve kuyruk verilere erişim haklarını yönetme](storage-auth-aad-rbac.md).
 
 ## <a name="register-your-application-with-an-azure-ad-tenant"></a>Azure AD kiracısı ile uygulamanızı kaydetme
 

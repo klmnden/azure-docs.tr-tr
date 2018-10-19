@@ -1,6 +1,6 @@
 ---
-title: Azure Kubernetes küme - Operations Management izleme
-description: Günlük analizi kullanarak Azure kapsayıcı hizmeti kümesinde Kubernetes izleme
+title: Azure Kubernetes kümesi - Management işlemleri izleme
+description: Log Analytics kullanarak Azure Container Service Kubernetes kümesini izleme
 services: container-service
 author: bburns
 manager: jeconnoc
@@ -9,21 +9,21 @@ ms.topic: article
 ms.date: 12/09/2016
 ms.author: bburns
 ms.custom: mvc
-ms.openlocfilehash: 3b014ce4c91d1dc9fae744ef4b528c98f9f787b3
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: a353fe3803b2d93c151559076960df06eb260bfe
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32164328"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49426422"
 ---
-# <a name="monitor-an-azure-container-service-cluster-with-log-analytics"></a>Azure kapsayıcı hizmeti kümesi günlük analizi ile izleme
+# <a name="monitor-an-azure-container-service-cluster-with-log-analytics"></a>Log Analytics ile bir Azure Container Service kümesini izleme
 
 [!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
 
 ## <a name="prerequisites"></a>Önkoşullar
-Bu kılavuz, sahibi olduğunuzu varsayar [Azure kapsayıcı hizmeti kullanarak Kubernetes küme oluşturulan](container-service-kubernetes-walkthrough.md).
+Bu izlenecek yol, sahibi olduğunuzu varsayar [Azure Container Service kullanan bir Kubernetes kümesi oluşturuldu](container-service-kubernetes-walkthrough.md).
 
-Ayrıca, sahibi olduğunuzu varsayar `az` Azure CLI ve `kubectl` araçları yüklü.
+Ayrıca, sahibi olduğunuzu varsayar `az` Azure CLI ve `kubectl` araçlarının yüklü.
 
 Varsa, test edebilirsiniz `az` çalıştırarak yüklü aracı:
 
@@ -31,8 +31,8 @@ Varsa, test edebilirsiniz `az` çalıştırarak yüklü aracı:
 $ az --version
 ```
 
-Sahip değilseniz `az` yüklü, aracı yönergeler vardır [burada](https://github.com/azure/azure-cli#installation).
-Alternatif olarak, kullanabileceğiniz [Azure bulut Kabuk](https://docs.microsoft.com/azure/cloud-shell/overview), sahip olduğu `az` Azure CLI ve `kubectl` Araçları zaten yüklenmiş.
+Öğeniz yoksa `az` yüklü aracı yönergeler sunulmaktadır [burada](https://github.com/azure/azure-cli#installation).
+Alternatif olarak, [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview), sahip olduğu `az` Azure CLI ve `kubectl` Araçları zaten yüklenmiş.
 
 Varsa, test edebilirsiniz `kubectl` çalıştırarak yüklü aracı:
 
@@ -40,64 +40,64 @@ Varsa, test edebilirsiniz `kubectl` çalıştırarak yüklü aracı:
 $ kubectl version
 ```
 
-Sahip değilseniz `kubectl` yüklü çalıştırabilirsiniz:
+Öğeniz yoksa `kubectl` yüklü çalıştırabilirsiniz:
 ```console
 $ az acs kubernetes install-cli
 ```
 
-Kubectl aracınızı çalıştırabilirsiniz yüklü kubernetes anahtarları varsa test etmek için:
+Kubectl aracınızın çalıştırabileceğiniz yüklü kubernetes anahtarları varsa test etmek için:
 ```console
 $ kubectl get nodes
 ```
 
-Yukarıdaki komut hataları çıkışı, kubernetes küme anahtarları kubectl aracına yüklemeniz gerekiyorsa. Bunu aşağıdaki komutla yapabilirsiniz:
+Yukarıdaki komut hataları, kubernetes küme anahtarları kubectl aracınızın yüklemeniz gerekiyorsa. Aşağıdaki komutu kullanarak bunu yapabilirsiniz:
 ```console
 RESOURCE_GROUP=my-resource-group
 CLUSTER_NAME=my-acs-name
 az acs kubernetes get-credentials --resource-group=$RESOURCE_GROUP --name=$CLUSTER_NAME
 ```
 
-## <a name="monitoring-containers-with-log-analytics"></a>Günlük analizi ile kapsayıcıları izleme
+## <a name="monitoring-containers-with-log-analytics"></a>Log Analytics ile kapsayıcıları izleme
 
-Günlük analizi, yönetmek ve şirket içi korumak ve altyapı bulut yardımcı olan Microsoft'un bulut tabanlı BT yönetimi çözümüdür. Kapsayıcı, tek bir konumda kapsayıcı envanter, performans ve günlükleri görüntülemenize yardımcı olan günlük analizi çözümde çözümüdür. Denetim, merkezi konumda günlükler görüntüleyerek kapsayıcıları sorun giderme ve bir ana bilgisayar üzerindeki fazladan kapsayıcı tüketen gürültülü bulabilirsiniz.
+Log Analytics, yönetmek ve şirket içi koruma hem de bulut altyapısında yardımcı olan Microsoft'un bulut tabanlı BT yönetimi çözümüdür. Kapsayıcı çözümü, tek bir konumda kapsayıcı envanteri, performans ve günlükleri görüntülemenize yardımcı olur. Log analytics'te bir çözümdür. Denetim, kapsayıcıları merkezi konumda günlüklerini görüntüleyerek sorun giderme ve gürültülü fazla kapsayıcı bir konakta tüketen bulun.
 
 ![](media/container-service-monitoring-oms/image1.png)
 
-Kapsayıcı çözüm hakkında daha fazla bilgi için lütfen başvurmak [kapsayıcı çözüm günlük analizi](../../log-analytics/log-analytics-containers.md).
+Kapsayıcı çözümü hakkında daha fazla bilgi için bkz [kapsayıcı çözümü Log Analytics](../../log-analytics/log-analytics-containers.md).
 
-## <a name="installing-log-analytics-on-kubernetes"></a>Günlük analizi üzerinde Kubernetes yükleme
+## <a name="installing-log-analytics-on-kubernetes"></a>Log Analytics, Kubernetes üzerinde yükleme
 
-### <a name="obtain-your-workspace-id-and-key"></a>Çalışma alanı kimliği ve anahtarı edinin
-Günlük analizi için hizmete iletişim kurabilecek şekilde Aracısı bir çalışma alanı kimliği ve çalışma alanı anahtarı ile yapılandırılması gerekir. Çalışma alanı kimliği ve anahtarı hesabı oluşturmanız gerekir almak için <https://mms.microsoft.com>.
-Lütfen bir hesap oluşturmak için aşağıdaki adımları izleyin. İşiniz bittiğinde tıklayarak kimliği ve anahtarı elde etmeniz hesabı oluşturma, **ayarları**, sonra **bağlı kaynakları**ve ardından **Linux sunucuları**, aşağıda gösterildiği gibi.
+### <a name="obtain-your-workspace-id-and-key"></a>Çalışma alanı kimliği ve anahtarını alma
+İçin Log Analytics aracısını hizmetle iletişim kurabilecek şekilde bir çalışma alanı kimliği ve bir çalışma alanı anahtarı ile yapılandırılması gerekir. Çalışma alanı kimliği ve anahtarını adresinde bir hesap oluşturmanız gereken alma <https://mms.microsoft.com>.
+Lütfen bir hesap oluşturmak için adımları izleyin. Olduktan sonra hesabı oluşturmadan bitti Kimliğinizi alabilir ve anahtar tıklayarak **Log Analytics** dikey, ardından çalışma alanının adı. Ardından, altında **Gelişmiş ayarlar**, **bağlı kaynaklar**, ardından **Linux sunucuları**, aşağıda gösterildiği gibi ihtiyacınız olan bilgileri bulabilirsiniz.
 
  ![](media/container-service-monitoring-oms/image5.png)
 
-### <a name="install-the-log-analytics-agent-using-a-daemonset"></a>Bir DaemonSet kullanarak günlük analizi aracı yükleme
-DaemonSets Kubernetes tarafından bir kapsayıcı tek bir örneği kümedeki her ana bilgisayarda çalıştırmak için kullanılır.
-Bunlar izleme aracıları çalıştırmak için mükemmel.
+### <a name="install-the-log-analytics-agent-using-a-daemonset"></a>Bir DaemonSet kullanarak Log Analytics aracısını yükleme
+DaemonSets tarafından Kubernetes kümesindeki her bir konakta bir kapsayıcıyı tek bir örneğini çalıştırmak için kullanılır.
+Bunlar, izleme aracılarını çalıştırmak için ideal.
 
-Burada [DaemonSet YAML dosya](https://github.com/Microsoft/OMS-docker/tree/master/Kubernetes). Adlı bir dosyaya Kaydet `oms-daemonset.yaml` ve yer tutucu değerlerini değiştirme `WSID` ve `KEY` çalışma alanı kimliği ve anahtarı dosyasında.
+İşte [DaemonSet YAML dosyası](https://github.com/Microsoft/OMS-docker/tree/master/Kubernetes). Adlı bir dosyaya kaydedip `oms-daemonset.yaml` için yer tutucu değerlerini `WSID` ve `KEY` çalışma alanı Kimliğiniz ve anahtarınızla dosyasında.
 
-Çalışma alanı kimliği ve anahtarı DaemonSet yapılandırma ekledikten sonra kümenizdeki ile günlük analizi aracı yükleyebilirsiniz `kubectl` komut satırı aracı:
+Çalışma alanı kimliği ve anahtarı DaemonSet yapılandırmaya ekledikten sonra Log Analytics aracısını kümenizle yükleyebilirsiniz `kubectl` komut satırı aracı:
 
 ```console
 $ kubectl create -f oms-daemonset.yaml
 ```
 
-### <a name="installing-the-log-analytics-agent-using-a-kubernetes-secret"></a>Günlük analizi aracısını Kubernetes gizli anahtarı kullanarak yükleme
-Günlük analizi çalışma alanı Kimliğinizi ve anahtarınızı korumak için Kubernetes gizli DaemonSet YAML dosyasının bir parçası olarak kullanabilirsiniz.
+### <a name="installing-the-log-analytics-agent-using-a-kubernetes-secret"></a>Kubernetes gizli kullanarak Log Analytics aracısını yükleme
+Log Analytics çalışma alanı kimliği ve anahtarını korumak için Kubernetes gizli DaemonSet YAML dosyası bir parçası olarak kullanabilirsiniz.
 
- - Komut dosyası, gizli şablon dosyasını ve DaemonSet YAML dosyasını kopyalayın (gelen [depo](https://github.com/Microsoft/OMS-docker/tree/master/Kubernetes)) ve aynı dizinde olduklarından emin olun.
-      - Komut dosyası - gizli gen.sh üretiliyor gizli
+ - Betik, gizli şablon dosyası ve DaemonSet YAML dosyası kopyalayın (gelen [depo](https://github.com/Microsoft/OMS-docker/tree/master/Kubernetes)) ve aynı dizinde olduklarından emin olun.
+      - Gizli dizi betiği - gizli gen.sh oluşturuluyor
       - Gizli şablon - gizli template.yaml
    - DaemonSet YAML dosyası - omsagent ds secrets.yaml
- - Betiği çalıştırın. Komut dosyası günlük analizi çalışma alanı kimliği ve birincil anahtar için sorar. Ekle ve onu çalıştırabilmeniz için komut dosyasını bir gizli yaml dosyası oluşturulur.
+ - Betiği çalıştırın. Betik Log Analytics çalışma alanı kimliği ve birincil anahtar için sorar. Ekleyin ve onu çalıştırabilmeniz için betik gizli yaml dosyası oluşturur.
    ```
    #> sudo bash ./secret-gen.sh
    ```
 
-   - Gizli pod aşağıdaki çalıştırarak oluşturun: ``` kubectl create -f omsagentsecret.yaml ```
+   - Gizli dizileri pod, aşağıdaki komutu çalıştırarak oluşturun: ``` kubectl create -f omsagentsecret.yaml ```
 
    - Denetlemek için şu komutu çalıştırın:
 
@@ -123,4 +123,4 @@ Günlük analizi çalışma alanı Kimliğinizi ve anahtarınızı korumak için
   - Arka plan programı kümesi çalıştırarak, omsagent oluşturma ``` kubectl create -f omsagent-ds-secrets.yaml ```
 
 ### <a name="conclusion"></a>Sonuç
-İşte bu kadar! Birkaç dakika sonra günlük analizi panonuz akan verileri görüyor olmalısınız.
+İşte bu kadar! Birkaç dakika sonra Log Analytics panonuza akan verileri görebildiğine olmalıdır.

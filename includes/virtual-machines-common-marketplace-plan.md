@@ -5,25 +5,25 @@ services: virtual-machines-windows, virtual-machines-linux
 author: dlepow
 ms.service: multiple
 ms.topic: include
-ms.date: 09/28/2018
+ms.date: 10/09/2018
 ms.author: danlep
 ms.custom: include file
-ms.openlocfilehash: f9974aae1e5996ffeaa6cde690a5e10ccba4cc32
-ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
+ms.openlocfilehash: 4d2235eaea457c89d01a632afa5dd5a862bec344
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48019021"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49437152"
 ---
 ## <a name="deploy-an-image-with-marketplace-terms"></a>Görüntüyü Market koşullarıyla dağıtma
 
-Belirli sanal makine görüntüleri Azure Market'te ek lisansa sahip ve programlı olarak dağıtmadan önce kabul etmelisiniz satın alma koşulları.  
+Bazı VM görüntüleri Azure Market'te ek lisansa sahip ve programlı olarak dağıtmadan önce kabul etmelisiniz satın alma koşulları.  
 
-Böyle görüntüsünden VM dağıtmak için görüntünün koşullarını kabul edin ve programlamalı dağıtım etkinleştirmeniz gerekir. Yalnızca aboneliğinizdeki bunu bir kez yapmanız gerekir. Ardından, her zaman programlı olarak görüntüsünden VM dağıtmak, ayrıca belirtmeniz gerekir *satın alma planı* parametreleri.
+Böyle bir görüntüden bir VM dağıtmak için hem görüntünün koşullarını kabul edin ve programlamalı dağıtımını etkinleştirmek gerekir. Yalnızca abonelik başına kez yapmanız gerekir. Daha sonra her zaman dağıttığınız bir VM'den programlı olarak da ihtiyacınız belirtmek için görüntü *satın alma planı* parametreleri.
 
 Aşağıdaki bölümlerde show nasıl yapılır:
 
-* Bir Market görüntüsü ek lisans koşulları olup olmadığını öğrenin 
+* Bir Market görüntüsü ek lisans koşulları olup Bul 
 * Program aracılığıyla koşullarını kabul edin
 * Program aracılığıyla bir sanal makine dağıttığınızda satın alma planı parametrelerini belirtin
 

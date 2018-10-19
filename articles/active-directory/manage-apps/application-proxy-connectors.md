@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/28/2018
+ms.date: 10/17/2018
 ms.author: barbkess
-ms.reviewer: harshja
+ms.reviewer: japere
 ms.custom: it-pro
-ms.openlocfilehash: 23bf9d5fb26ee3a0f224f7a8acc2b0539a5c1607
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: c9c21b9beb891a685d7e264ec55817c0045455bc
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39364619"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49406286"
 ---
 # <a name="understand-azure-ad-application-proxy-connectors"></a>Azure AD uygulama ara sunucusu bağlayıcıları anlama
 
@@ -79,7 +79,7 @@ Bağlayıcılar otomatik olarak yük dengelemesi bir bağlayıcı grubu içinde 
 |4|16|320|1150|
 |8|32|270|1190|
 |16|64|245|1200*|
-\* Bu makineye 800 bağlantı sınırı vardı. Diğer tüm makineler için varsayılan 200 bağlantı üst sınırına kullandık.
+\* Bu makineyi, bazı önerilen ayarlar .net ötesinde varsayılan bağlantı sınırları artırmak için özel bir ayarı kullanılır. Kiracınız için değiştirildi. Bu sınırı almak için destek ile irtibat kurmadan önce varsayılan ayarlarla bir test çalıştırmanızı öneririz.
  
 >[!NOTE]
 >Kadar en fazla TPS 4, 8 ve 16 çekirdekli makinelerde arasındaki farkı yoktur. Bunlar arasındaki temel fark, beklenen gecikme ' dir.  

@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/28/2018
+ms.date: 10/18/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 6f66deff9052b79265222f052bebb8439a95d269
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: 065eee57b78ea10d5e8079de3a938dc00dd60ee2
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49352753"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49406781"
 ---
 # <a name="what-are-access-controls-in-azure-active-directory-conditional-access"></a>Azure Active Directory koşullu erişim erişim denetimleri nelerdir? 
 
@@ -105,7 +105,7 @@ Onaylı istemci uygulamaları ile bulut uygulamalarınızı destekleyecek şekil
 Bir kullanıcı bir kaynağa erişim izni verilmeden önce kullanım koşullarını kabul kiracınızdaki gerektirebilir. Yönetici olarak, yapılandırma ve kullanım koşullarını PDF'yi karşıya yükleyerek özelleştirin. Bir kullanıcı kalırsa bu denetimi bir uygulamaya erişim kapsamını yalnızca kullanım koşullarını kabul verilir. 
 
 
-### <a name="custom-controls"></a>Özel denetimler 
+### <a name="custom-controls-preview"></a>Özel denetimler (önizleme) 
 
 Kullanıcılarınızın daha fazla Azure Active Directory dışında gereksinimlerini karşılamak için uyumlu bir hizmete yönlendirin koşullu erişimde özel denetimler oluşturabilirsiniz. Bu, belirli harici çok faktörlü kimlik doğrulaması ve doğrulama sağlayıcıları koşullu erişim kurallarını zorunlu tutmak için ya da kendi özel hizmet oluşturmak için kullanmayı sağlar. Bu denetimi gerçekleştirmek için bir kullanıcının tarayıcı dış hizmete yönlendirilir, gerekli herhangi bir kimlik doğrulaması veya doğrulama etkinliklerini gerçekleştirir ve ardından Azure Active Directory'ye yönlendirilir. Kullanıcı başarıyla kimlik doğrulaması veya doğrulanan kullanıcı koşullu erişim akışı devam eder. 
 

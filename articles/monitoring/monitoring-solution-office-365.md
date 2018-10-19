@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2018
 ms.author: bwren
-ms.openlocfilehash: e3620bbf92cab926d56c4de0817f833b61cf2b03
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: d1fdec8e3a959aaeb68d4b63a1c71d6ef1ddd054
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46125094"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49406330"
 ---
 # <a name="office-365-management-solution-in-azure-preview"></a>Office 365 Yönetim çözümüne (Önizleme)
 
@@ -37,7 +37,7 @@ Yüklenmiş ve yapılandırılmış bu çözüm olan önce gerekli verilmiştir.
 
 - Kuruluş Office 365 aboneliği.
 - Genel yönetici olan bir kullanıcı hesabı için kimlik bilgileri.
-- Denetim verileri almak için şunları yapmanız gerekir [denetimi yapılandırma](https://support.office.com/en-us/article/Search-the-audit-log-in-the-Office-365-Security-Compliance-Center-0d4d0f35-390b-4518-800e-0c7ec95e946c?ui=en-US&rs=en-US&ad=US#PickTab=Before_you_begin) Office 365 aboneliğinize.  Unutmayın [posta kutusu denetimini](https://technet.microsoft.com/library/dn879651.aspx) ayrı olarak yapılandırılır.  Yine de çözümü yüklemek ve denetim yapılandırılmamışsa, diğer veri toplayın.
+- Denetim verileri almak için şunları yapmanız gerekir [denetimi yapılandırma](https://support.office.com/article/Search-the-audit-log-in-the-Office-365-Security-Compliance-Center-0d4d0f35-390b-4518-800e-0c7ec95e946c?ui=en-US&rs=en-US&ad=US#PickTab=Before_you_begin) Office 365 aboneliğinize.  Unutmayın [posta kutusu denetimini](https://technet.microsoft.com/library/dn879651.aspx) ayrı olarak yapılandırılır.  Yine de çözümü yüklemek ve denetim yapılandırılmamışsa, diğer veri toplayın.
  
 
 ## <a name="management-packs"></a>Yönetim paketleri
@@ -477,7 +477,7 @@ Bağlantısındaki işlemi kullanarak Office 365 yönetim çözümü kaldırabil
 
 ## <a name="data-collection"></a>Veri toplama
 ### <a name="supported-agents"></a>Desteklenen aracılar
-Office 365 çözüm herhangi bir veri almıyorsa [OMS aracılarını](../log-analytics/log-analytics-data-sources.md).  Office 365'ten doğrudan verileri alır.
+Office 365 çözüm herhangi bir veri almıyorsa [Log Analytics aracılarını](../log-analytics/log-analytics-data-sources.md).  Office 365'ten doğrudan verileri alır.
 
 ### <a name="collection-frequency"></a>Toplama sıklığı
 Bu, başlangıçta Toplanacak veriler için birkaç saat sürebilir. Toplama başladığında, Office 365 gönderen bir [Web kancası bildirim](https://msdn.microsoft.com/office-365/office-365-management-activity-api-reference#receiving-notifications) ayrıntılı ile verileri Log analytics'e her bir kayıt oluşturulur. Bu kayıt alınan sonra birkaç dakika içinde Log Analytics'te kullanılabilir.
@@ -518,7 +518,7 @@ Aşağıdaki özellikler, tüm Office 365 kayıtlarına yaygındır.
 | OrganizationId | Kuruluşunuzun Office 365 kiracısı için GUID. Bu değer her zaman içinde gerçekleştiği Office 365 hizmet ne olursa olsun, kuruluşunuz için aynı olacaktır. |
 | RecordType | Gerçekleştirilen işlem türü. |
 | ResultStatus | Eylemin (Operation özelliğinde belirtilen) başarılı olup olmadığını gösterir. Olası değerler şunlardır: Succeeded, PartiallySucceded veya Failed. Exchange yönetim etkinliği için ya da True değeridir ya da yanlış. |
-| UserId | UPN'sini (kullanıcı asıl adı) günlüğe kaydedilmesini kaydında sonuçlanan eylemi gerçekleştiren kullanıcının; Örneğin, my_name@my_domain_name. Sistem hesapları (sharepoınt\system veya gibi ntauthority\system adlı) tarafından gerçekleştirilen etkinlik kayıtları da dahil edilir. | 
+| Kullanıcı Kimliği | UPN'sini (kullanıcı asıl adı) günlüğe kaydedilmesini kaydında sonuçlanan eylemi gerçekleştiren kullanıcının; Örneğin, my_name@my_domain_name. Sistem hesapları (sharepoınt\system veya gibi ntauthority\system adlı) tarafından gerçekleştirilen etkinlik kayıtları da dahil edilir. | 
 | UserKey | Kullanıcı Kimliği özelliğinde belirtilen kullanıcı için alternatif bir kimliği.  Örneğin, bu özellik, kullanıcıların SharePoint, OneDrive iş ve Exchange için gerçekleştirilen olayları için passport benzersiz Tanımlayıcısı (PUID) ile doldurulur. Bu özellik, diğer hizmetler ve sistem hesapları tarafından gerçekleştirilen olayları gerçekleşen olayları için kullanıcı kimliği özelliği olarak aynı değeri de belirtebilirsiniz|
 | UserType | İşlemi gerçekleştiren kullanıcının türü.<br><br>Yönetici<br>Uygulama<br>DcAdmin<br>Normal<br>Ayrılmış<br>ServicePrincipal<br>Sistem |
 

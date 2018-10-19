@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2018
 ms.author: magattus
-ms.openlocfilehash: 6834222ec2befa305b558abf0976a1c9899a7086
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: d0b804c48f3de4d4ba29ebe0785f6dd991329a53
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49093035"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49409263"
 ---
 # <a name="azure-diagnostic-logs"></a>Azure tanılama günlükleri
 
@@ -95,17 +95,23 @@ Log Analytics, günlükleri depolamak için kullanmak için aşağıdaki adımla
 
 2. Seçin **yapılandırma** Log Analytics günlük tutmayı yapılandırmak için. 
 
-   **OMS çalışma alanları** sayfası görüntülenir.
+   **Log Analytics çalışma alanları** sayfası görüntülenir.
+
+    >[!NOTE] 
+    >OMS çalışma alanları, artık Log Analytics çalışma alanları da adlandırılır.
 
     ![Portalı - tanılama günlükleri](./media/cdn-diagnostics-log/06_Choose-workspace.png)
 
 3. Seçin **yeni çalışma alanı oluşturma**.
 
-    **OMS çalışma alanı** sayfası görüntülenir.
+    **Log Analytics çalışma alanı** sayfası görüntülenir.
+
+    >[!NOTE] 
+    >OMS çalışma alanları, artık Log Analytics çalışma alanları da adlandırılır.
 
     ![Portalı - tanılama günlükleri](./media/cdn-diagnostics-log/07_Create-new.png)
 
-4. İçin **OMS çalışma alanı**, bir OMS çalışma alanı adı girin. OMS çalışma alanı adı benzersiz olmalı ve yalnızca harf, rakam ve kısa çizgi içermelidir; boşluk ve alt çizgi izin verilmez. 
+4. İçin **Log Analytics çalışma alanı**, Log Analytics çalışma alanı adı girin. Log Analytics çalışma alanı adı benzersiz olmalı ve yalnızca harf, rakam ve kısa çizgi içermelidir; boşluk ve alt çizgi izin verilmez. 
 
 5. İçin **abonelik**, aşağı açılan listeden mevcut bir abonelik seçin. 
 

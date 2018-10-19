@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: annaba
-ms.openlocfilehash: ea65dcca3e5de06d1bc966b3e7cb6b608260a053
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 27febb01b04bd8ac82b8cd428afce78dc57f8b8d
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48803979"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49403575"
 ---
 # <a name="get-started-with-certificate-based-authentication-in-azure-active-directory"></a>Azure Active Directory'de sertifika tabanlı kimlik doğrulamasını kullanmaya başlama
 
@@ -37,7 +37,7 @@ Sertifika tabanlı kimlik doğrulaması yapılandırmak için aşağıdaki deyim
 
 - Sertifika tabanlı kimlik doğrulaması (CBA), yalnızca tarayıcı uygulamalarında veya modern kimlik doğrulaması (ADAL) kullanan yerel istemciler için federe ortamlar için desteklenir. Exchange Active Sync (EAS) için Exchange Online (Federasyon ve yönetilen hesapları için kullanılabilecek EXO), bir işlemdir.
 - Kök sertifika yetkilisini ve ara sertifika yetkilileri herhangi bir Azure Active Directory'de yapılandırılması gerekir.
-- Her sertifika yetkilisi, bir Internet'e yönelik URL başvurulabilen bir sertifika iptal listesini (CRL) olmalıdır.
+- Her sertifika yetkilisi, bir internet'e yönelik URL'si ile başvurulan bir sertifika iptal listesini (CRL) olmalıdır.
 - Azure Active Directory içinde yapılandırılan en az bir sertifika yetkilisi olması gerekir. İlgili adımları bulabilirsiniz [sertifika yetkililerini Yapılandır](#step-2-configure-the-certificate-authorities) bölümü.
 - Exchange ActiveSync istemcileri için istemci sertifikası kullanıcının yönlendirilebilir e-posta adresi Exchange online asıl adı veya konu alternatif adı alanında RFC822 adı değerini olmalıdır. Azure Active Directory dizin Proxy adresi özniteliğine RFC822 değeri eşler.
 - İstemci Cihazınızı, istemci sertifikaları veren en az bir sertifika yetkilisi erişiminiz olması gerekir.
@@ -60,7 +60,7 @@ Sertifika tabanlı kimlik doğrulaması yapılandırmak için aşağıdaki deyim
 Sertifikanızı yapılandırmak için Azure Active Directory'de yetkilileri her sertifika yetkilisi için aşağıdakileri yükleyin:
 
 * Sertifika ortak kısmını, *.cer* biçimi
-* Sertifika iptal listelerini (CRL'ler) bulunduğu URL'leri yan yana Internet
+* Sertifika iptal listelerini (CRL'ler) bulunduğu internet'e yönelik URL'ler
 
 Bir sertifika yetkilisi için şema şu şekilde görünür:
 

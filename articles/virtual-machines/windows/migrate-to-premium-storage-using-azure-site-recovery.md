@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 08/15/2017
 ms.author: luywang
 ms.component: disks
-ms.openlocfilehash: 5d3c2f09a6e4c45aa477cd85911147eab6de7a2c
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ms.openlocfilehash: 7378331e5f7540d807c76511226fcd2ed99883fa
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39714715"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49404146"
 ---
 # <a name="migrate-to-premium-storage-by-using-azure-site-recovery"></a>Azure Site Recovery kullanarak Premium depolamaya geçiş
 
@@ -77,8 +77,10 @@ Aynı bölge içinde veya bölgeler arasında Azure Iaas Vm'lerine geçirmek iç
 ### <a name="step-1-create-a-recovery-services-vault"></a>1. adım: bir kurtarma Hizmetleri kasası oluşturma
 
 1. [Azure portalı](https://portal.azure.com) açın.
-2. Seçin **kaynak Oluştur** > **Yönetim** > **yedekleme ve Site Recovery (OMS)**. Alternatif olarak, seçebileceğiniz **Gözat** > **kurtarma Hizmetleri kasası** > **Ekle**. 
-3. VM'ler için çoğaltılacak bir bölge belirtin. Aynı bölgede geçiş amacıyla, kaynak depolama hesabı ve kaynak VM'lerin bulunduğu bölgeyi seçin. 
+2. Seçin **kaynak Oluştur** > **Yönetim** > **yedekleme ve Site Recovery (OMS)**. Alternatif olarak, seçebileceğiniz **Gözat** > **kurtarma Hizmetleri kasası** > **Ekle**.
+   >[!NOTE]
+   >Yedekleme ve Site Recovery önceden parçası ![OMS Suite'i](https://github.com/MicrosoftDocs/azure-docs-pr/pull/azure-monitor/azure-monitor-rebrand.md#retirement-of-operations-management-suite-brand).
+1. VM'ler için çoğaltılacak bir bölge belirtin. Aynı bölgede geçiş amacıyla, kaynak depolama hesabı ve kaynak VM'lerin bulunduğu bölgeyi seçin. 
 
 ### <a name="step-2-choose-your-protection-goals"></a>2. adım: koruma hedeflerinizi seçme 
 

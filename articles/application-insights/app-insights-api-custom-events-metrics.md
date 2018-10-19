@@ -13,12 +13,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/16/2018
 ms.author: mbullwin
-ms.openlocfilehash: 3de3a7b15f2ebef549f925f6604956ca16f4551b
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 4e44a82969b0b91b04174d8643cf136abf14a575
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49388101"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49405251"
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>Özel olaylar ve ölçümler için Application Insights API
 
@@ -154,7 +154,7 @@ telemetry.trackEvent({name: "WinGame"});
 
 Telemetriyi kullanılabilir `customEvents` tablosundaki [Application Insights Analytics](app-insights-analytics.md). Her satır için bir çağrı temsil eden `trackEvent(..)` uygulamanızda.
 
-Varsa [örnekleme](app-insights-sampling.md) ItemCount özelliği 1'den büyük bir değer gösterir, işlemde olduğu. İçin örnek ItemCount == trackEvent() 10 çağrısına örnekleme işlemi yalnızca bir tanesi aktarılan 10 anlamına gelir. Özel olaylar doğru sayısını almak için bu nedenle gibi bir kod kullanın kullanmalısınız `customEvent | summarize sum(itemCount)`.
+Varsa [örnekleme](app-insights-sampling.md) ItemCount özelliği 1'den büyük bir değer gösterir, işlemde olduğu. İçin örnek ItemCount == trackEvent() 10 çağrısına örnekleme işlemi yalnızca bir tanesi aktarılan 10 anlamına gelir. Özel olaylar doğru sayısını almak için bu nedenle gibi bir kod kullanın kullanmalısınız `customEvents | summarize sum(itemCount)`.
 
 ## <a name="getmetric"></a>GetMetric
 

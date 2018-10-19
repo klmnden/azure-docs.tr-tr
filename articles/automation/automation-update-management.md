@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 10/11/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 67a987d9b491ba6813e900c293529ed677c45757
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: c89d312f7a667a279ff2f17b38b612a90c7bcddb
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49167690"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49406067"
 ---
 # <a name="update-management-solution-in-azure"></a>Güncelleştirme yönetimi çözümünü azure'da
 
@@ -212,7 +212,7 @@ Yeni bir güncelleştirme dağıtımı oluşturmak için Seç **güncelleştirme
 | Grupları güncelleştir (Önizleme)|Abonelik, kaynak grupları, konumları ve etiketleri, dağıtımınızdaki dahil etmek için Azure vm'leri dinamik bir grup oluşturmak için bir birleşimini temel bir sorgu tanımlarsınız. Daha fazla bilgi için bkz: [dinamik gruplar](automation-update-management.md#using-dynamic-groups)|
 | Güncelleştirilecek makineler |İçeri aktarılan grubu, kayıtlı bir aramayı seçin veya makine açılan listeden seçin ve tek bir makine seçin. **Makineler**'i seçerseniz makinenin hazır olma durumu **GÜNCELLEŞTİRME ARACISI HAZIRLIĞI** sütununda gösterilir.</br> Log Analytics'te bilgisayar grupları oluşturmaya yönelik farklı yöntemler hakkında bilgi edinmek için bkz. [Computer groups in Log Analytics (Log Analytics'te bilgisayar grupları)](../log-analytics/log-analytics-computer-groups.md) |
 |Güncelleştirme sınıflandırmaları|Gereksinim duyduğunuz tüm güncelleştirme sınıflandırmalarını seçin|
-|Güncelleştirmeleri Ekle/Dışla|Bu açılır **dahil edin/dışlayın** sayfası. Dahil etmek veya hariç tutmak ayrı sekmelerde güncelleştirmelerdir. Ekleme nasıl ele alındığını daha fazla bilgi için bkz: [ekleme davranışı](automation-update-management.md#inclusion-behavior) |
+|Güncelleştirmeleri Ekle/Dışla|Bu açılır **dahil edin/dışlayın** sayfası. Dahil edilecek veya dışlanacak güncelleştirmeler ayrı sekmelerdedir. Ekleme nasıl ele alındığını daha fazla bilgi için bkz: [ekleme davranışı](automation-update-management.md#inclusion-behavior) |
 |Zamanlama ayarları|Her iki kez başlatın ve saati seçin veya yineleme için yineleme|
 | Ön betiklerini + sonrası betikleri|Önce ve sonra dağıtımınız betiklerin seçin|
 | Bakım penceresi |Güncelleştirmeler için dakika sayısı. Değeri 30 dakika ile en fazla 6 saat değerinden küçük olamaz |
@@ -264,7 +264,7 @@ sudo yum -q --security check-update
 
 Şu anda yerel sınıflandırma veri kullanılabilirliğine CentOS etkinleştirmek için desteklenen yöntem yöntemi yok. Şu anda bu, kendi etkinleştirmiş olabilir müşteriler yalnızca en yüksek çaba destek sağlanır.
 
-## <a name="ports"></a>Bağlantı Noktaları
+##<a name="ports"></a>Ağ planlama
 
 Aşağıdaki adresleri özellikle güncelleştirme yönetimi için gereklidir. Bu adresler için iletişim bağlantı noktası 443 üzerinden gerçekleşir.
 

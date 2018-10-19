@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 9/11/2018
 ms.author: srrengar
-ms.openlocfilehash: a73a288852eea713623b65324853761e10fad282
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 68374cd1675f76555ff313b42e35bdf2aed96874
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47220475"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49408090"
 ---
 # <a name="set-up-log-analytics-for-a-cluster"></a>Bir kümesi için log Analytics'i ayarlama
 
@@ -51,7 +51,7 @@ Windows kullanıyorsanız, Log Analytics, küme olayları depolandığı depolam
 
 ### <a name="connect-the-log-analytics-workspace-to-your-cluster"></a>Log Analytics çalışma alanı kümenize bağlanın 
 
-1. Çalışma alanı kümenizden gelen Tanılama verileri bağlanması gerekir. Service Fabric analizi çözümü oluşturduğunuz kaynak grubuna gidin. Seçin **ServiceFabric\<nameOfWorkspace\>**  ve kendi genel bakış sayfasına gidin. Buradan, erişim Log Analytics çalışma alanı çözüm ayarları ve çalışma alanı ayarlarını değiştirebilirsiniz.
+1. Çalışma alanı kümenizden gelen Tanılama verileri bağlanması gerekir. Service Fabric analizi çözümü oluşturduğunuz kaynak grubuna gidin. Seçin **ServiceFabric\<nameOfWorkspace\>**  ve kendi genel bakış sayfasına gidin. Burada, çözüm ayarları, çalışma alanı ayarları değiştirin ve Log Analytics çalışma alanına erişim.
 
 2. Sol gezinti menüsünde altında **çalışma alanı veri kaynakları**seçin **depolama hesabı günlükleri**.
 
@@ -80,7 +80,7 @@ Kullanabilir ve değiştirme [Bu örnek şablonu](https://github.com/Azure-Sampl
 
 * 5 düğümlü Service Fabric kümesi oluşturur
 * Bir Log Analytics çalışma alanı ve Service Fabric çözümü oluşturur
-* Toplamak ve çalışma alanı için 2 örnek performans sayaçları göndermek için OMS Aracısı'nı yapılandırır
+* Toplamak ve çalışma alanı için 2 örnek performans sayaçları göndermek için Log Analytics aracısını yapılandırır
 * Service Fabric toplanacak WAD yapılandırır ve bunları Azure depolama tabloları gönderir (WADServiceFabric * EventTable)
 * Bu tablodan olayları okumak için Log Analytics çalışma alanı yapılandırır
 

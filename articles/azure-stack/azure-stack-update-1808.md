@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/12/2018
+ms.date: 10/18/2018
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: 3843898ba2d7cdd3697236a9f4cc19070c6f07c3
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: 1ca305ab88e30c911bbded1e5ff97162e12f7652
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49395182"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49429074"
 ---
 # <a name="azure-stack-1808-update"></a>Azure Stack 1808 güncelleştirme
 
@@ -158,7 +158,7 @@ Bu güncelleştirme ayrıca L1 Terminal içinde açıklanan hata (L1TF) olarak b
 
 ### <a name="post-update-steps"></a>Güncelleştirme sonrası adımlar
 Bu güncelleştirme yüklendikten sonra geçerli düzeltmeleri yükleyin. Daha fazla bilgi için aşağıdaki Bilgi Bankası makaleleri görüntülemek hem de bizim [hizmet İlkesi](azure-stack-servicing-policy.md). 
-- [KB 4467062 – Azure Stack düzeltme Azure Stack düzeltme 1.1808.4.108](https://support.microsoft.com/help/4467062/)
+- [KB 4468920 – Azure Stack düzeltme Azure Stack düzeltme 1.1808.5.110](https://support.microsoft.com/help/4468920/)
 
 
 ## <a name="known-issues-post-installation"></a>Bilinen sorunlar (yükleme sonrası)
@@ -259,7 +259,7 @@ Bu derleme sürümü için yükleme sonrası bilinen sorunlar verilmiştir.
       1. Kiracı Portalı'nda Git **abonelikleri** ve aboneliği bulunamıyor. Tıklayın **kaynak sağlayıcıları**, ardından **Microsoft.Compute**ve ardından **yeniden kaydettirin**.
       2. Aynı abonelik altında Git **erişim denetimi (IAM)**, doğrulayın **Azure Stack – yönetilen Disk** listelenir.
    2. Bir konuk dizin ile ilişkili bir abonelik içindeki Vm'leri dağıtma, çok kiracılı bir ortam yapılandırdıysanız, bir iç hata iletisi ile başarısız olabilir. Hatayı gidermek için aşağıdaki adımları izleyin:
-      1. Uygulama [1808 Azure Stack düzeltme](https://support.microsoft.com/help/4467062/).
+      1. Uygulama [1808 Azure Stack düzeltme](https://support.microsoft.com/help/4468920/).
       2. Bağlantısındaki [bu makalede](azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory) her Konuk dizinlerinizi yeniden yapılandırmak için.
       
 <!-- 3179561 - IS --> 

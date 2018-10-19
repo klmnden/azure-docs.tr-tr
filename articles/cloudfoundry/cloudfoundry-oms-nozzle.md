@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/22/2017
 ms.author: ningk
-ms.openlocfilehash: c58c2b255d269aef7e8b3fea62d003ad0c16ef0a
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 0039536caf917a051f0ddabd6be7cf2b1be90ba2
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38971257"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49404911"
 ---
 # <a name="deploy-azure-log-analytics-nozzle-for-cloud-foundry-system-monitoring"></a>Cloud Foundry sistemin izlenmesi için Azure Log Analytics Nozzle dağıtma
 
@@ -56,14 +56,14 @@ UAA komut satırı istemci ayarlamadan önce Rubygems yüklü olduğundan emin o
 
 ### <a name="3-create-a-log-analytics-workspace-in-azure"></a>3. Azure'da Log Analytics çalışma alanı oluşturma
 
-El ile veya bir şablon kullanarak Log Analytics çalışma alanı oluşturabilirsiniz. Şablon önceden yapılandırılmış OMS KPI görünümler ve uyarılar OMS konsolunda bir kurulumunu dağıtır. 
+El ile veya bir şablon kullanarak Log Analytics çalışma alanı oluşturabilirsiniz. Şablon önceden yapılandırılmış KPI görünümler ve uyarılar Log Analytics konsolun bir kurulumunu dağıtır. 
 
 #### <a name="to-create-the-workspace-manually"></a>Çalışma alanını el ile oluşturmak için:
 
 1. Azure portalında Azure Marketi'nde Hizmetler listesinde arama yapın ve Log Analytics'ı seçin.
 2. Seçin **Oluştur**ve ardından şu öğeler için seçim:
 
-   * **OMS çalışma alanı**: çalışma alanınız için bir ad yazın.
+   * **Log Analytics çalışma alanı**: çalışma alanınız için bir ad yazın.
    * **Abonelik**: CF dağıtımınız ile aynı olan birden fazla aboneliğiniz varsa, seçin.
    * **Kaynak grubu**: yeni bir kaynak grubu oluşturun veya aynı CF dağıtımınıza kullanın.
    * **Konum**: konumu girin.
@@ -71,19 +71,19 @@ El ile veya bir şablon kullanarak Log Analytics çalışma alanı oluşturabili
 
 Daha fazla bilgi için [Log Analytics ile çalışmaya başlama](https://docs.microsoft.com/azure/log-analytics/log-analytics-get-started).
 
-#### <a name="to-create-the-oms-workspace-through-the-oms-monitoring-template-from-azure-market-place"></a>Azure market yerden OMS çalışma alanını OMS izleme şablonu aracılığıyla oluşturmak için:
+#### <a name="to-create-the-log-analytics-workspace-through-the-monitoring-template-from-azure-market-place"></a>Azure market yerden izleme şablonu ile Log Analytics çalışma alanı oluşturmak için:
 
 1. Azure Portalı'nı açın.
 2. "+" İşaretine tıklayın veya "kaynak sol üst köşedeki oluştur".
-3. Arama penceresine "Cloud Foundry" yazın, "OMS Cloud Foundry izleme çözümü" seçin.
-4. İzleme çözümü şablonu ön sayfa yüklendiğinde, OMS Cloud Foundry şablonu dikey penceresini başlatmak için "Oluştur"'a tıklayın.
+3. Arama penceresine "Cloud Foundry" yazın, "Cloud Foundry izleme çözümü" seçin.
+4. İzleme çözümü şablonu ön sayfa yüklendiğinde, Cloud Foundry şablonu dikey penceresini başlatmak için "Oluştur"'a tıklayın.
 5. Gerekli parametreleri girin:
-    * **Abonelik**: OMS çalışma alanı için genellikle aynı Cloud Foundry dağıtım ile bir Azure aboneliği seçin.
-    * **Kaynak grubu**: mevcut bir kaynak grubunu seçin veya yeni bir OMS çalışma alanı oluşturun.
+    * **Abonelik**: Log Analytics çalışma alanı için genellikle aynı Cloud Foundry dağıtım ile bir Azure aboneliği seçin.
+    * **Kaynak grubu**: mevcut bir kaynak grubunu seçin veya Log Analytics çalışma alanı için yeni bir tane oluşturun.
     * **Kaynak grubu konumu**: kaynak grubunun konumunu seçin.
     * **OMS_Workspace_Name**: bir çalışma alanı adı girin. çalışma alanı yoksa, şablonun yeni bir tane oluşturun.
     * **OMS_Workspace_Region**: çalışma alanı konumunu seçin.
-    * **OMS_Workspace_Pricing_Tier**: SKU OMS çalışma alanı seçin. Bkz: [fiyatlandırma Kılavuzu](https://azure.microsoft.com/pricing/details/log-analytics/) başvuru.
+    * **OMS_Workspace_Pricing_Tier**: SKU Log Analytics çalışma alanını seçin. Bkz: [fiyatlandırma Kılavuzu](https://azure.microsoft.com/pricing/details/log-analytics/) başvuru.
     * **Yasal koşullar**: tıklayın yasal koşullar'yasal koşulu kabul için "Oluştur" a tıklayın.
 - Tüm parametreler belirttikten sonra şablonu dağıtmak için "Oluştur" a tıklayın. Dağıtım tamamlandığında durum bildirim sekme görünür.
 
@@ -137,8 +137,8 @@ cd oms-log-analytics-firehose-nozzle
 Şimdi geçerli dizininizde manifest.yml dosyasında ortam değişkenlerini ayarlayabilirsiniz. Uygulama bildirimi Nozzle için aşağıda gösterilmiştir. Değerleri, belirli Log Analytics çalışma alanı bilgileri ile değiştirin.
 
 ```
-OMS_WORKSPACE             : Log Analytics workspace ID: open OMS portal from your Log Analytics workspace, select Settings, and select connected sources.
-OMS_KEY                   : OMS key: open OMS portal from your Log Analytics workspace, select Settings, and select connected sources.
+OMS_WORKSPACE             : Log Analytics workspace ID: Open your Log Analytics workspace in the Azure portal, select **Advanced settings**, select **Connected Sources**, and select **Windows Servers**.
+OMS_KEY                   : OMS key: Open your Log Analytics workspace in the Azure portal, select **Advanced settings**, select **Connected Sources**, and select **Windows Servers**.
 OMS_POST_TIMEOUT          : HTTP post timeout for sending events to Log Analytics. The default is 10 seconds.
 OMS_BATCH_TIME            : Interval for posting a batch to Log Analytics. The default is 10 seconds.
 OMS_MAX_MSG_NUM_PER_BATCH : The maximum number of messages in a batch to Log Analytics. The default is 1000.
@@ -177,11 +177,11 @@ cf apps
 ```
 OMS Nozzle uygulamayı çalışır durumda olduğundan emin olun.
 
-## <a name="view-the-data-in-the-oms-portal"></a>OMS Portalı'nda verileri görüntüleyin
+## <a name="view-the-data-in-the-azure-portal"></a>Azure portalında veri görüntüleme
 
-İzleme çözümü ile OMS dağıttıysanız Marketi şablonun, Azure portalına gidin ve OMS çözüm bulunur. Çözüm, şablonda belirtilen kaynak grubunda bulabilirsiniz. Çözüm'e tıklayın, göz atın "OMS konsola" önceden yapılandırılmış görünümler, üst Cloud Foundry sistem KPI'ları, uygulama verileri, uyarıları ve VM sistem durumu ölçümleri listelenir. 
+İzleme çözümü Marketi şablon aracılığıyla dağıttıysanız, Azure portalına gidin ve çözüm bulun. Çözüm, şablonda belirtilen kaynak grubunda bulabilirsiniz. Çözüm'e tıklayın, göz atın "Log Analytics konsola" önceden yapılandırılmış görünümler, üst Cloud Foundry sistem KPI'ları, uygulama verileri, uyarıları ve VM sistem durumu ölçümleri listelenir. 
 
-OMS çalışma alanı el ile oluşturduysanız, görünümler ve Uyarılar oluşturmak için aşağıdaki adımları izleyin:
+Log Analytics çalışma alanını el ile oluşturduysanız, görünümler ve Uyarılar oluşturmak için aşağıdaki adımları izleyin:
 
 ### <a name="1-import-the-oms-view"></a>1. OMS görünüm alma
 
@@ -246,6 +246,6 @@ Azure Log Analytics Nozzle olarak açık kaynaklı. Sorular ve geri bildirim gö
 
 ## <a name="next-step"></a>Sonraki adım
 
-PCF2.0 VM performans ölçümlerini Azure log analytics nozzle için sistem ölçümlerini ileticisini aktarılan ve OMS çalışma alanınıza tümleşik. Artık VM performans ölçümleri için OMS Aracısı gerekir. Ancak Syslog bilgilerini toplamak için OMS Aracısı'nı kullanabilirsiniz. OMS Aracısı CF vm'lere bir Bosh eklentisi olarak yüklenir. 
+PCF2.0 VM performans ölçümlerini Azure log analytics nozzle için sistem ölçümlerini ileticisini aktarılan ve Log Analytics çalışma alanınıza tümleşik. Artık VM performans ölçümleri için Log Analytics aracısını gerekir. Ancak Log Analytics aracısını Syslog bilgilerini toplamak için kullanmaya devam edebilirsiniz. Log Analytics aracısını CF vm'lere bir Bosh eklentisi olarak yüklenir. 
 
-Ayrıntılar için bkz [dağıtma OMS Aracısı Cloud Foundry dağıtımınıza](https://github.com/Azure/oms-agent-for-linux-boshrelease).
+Ayrıntılar için bkz [dağıtma Log Analytics aracısını Cloud Foundry dağıtımınıza](https://github.com/Azure/oms-agent-for-linux-boshrelease).

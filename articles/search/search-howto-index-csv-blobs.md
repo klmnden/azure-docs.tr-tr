@@ -1,36 +1,36 @@
 ---
-title: CSV BLOB'lar Azure Search blob dizin oluşturucu ile dizin oluşturma | Microsoft Docs
-description: CSV BLOB'lar ile Azure Search dizin öğrenin
-author: chaosrealm
-manager: jlembicz
+title: Azure Search blob dizin oluşturucu ile CSV bloblarını dizine ekleme | Microsoft Docs
+description: Azure Search ile CSV bloblarını dizine öğrenin
+ms.date: 10/17/2018
+author: mgottein
+manager: cgronlun
+ms.author: magottei
 services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
-ms.date: 12/28/2017
-ms.author: eugenesh
-ms.openlocfilehash: bf65ab7858ba792418e325e7a025ee1bd88bbb27
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: b1f97b5e9542e32096bb060bce40e7b9620d0f49
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34363045"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49406084"
 ---
-# <a name="indexing-csv-blobs-with-azure-search-blob-indexer"></a>Dizin oluşturma CSV BLOB'lar ile Azure Search blob dizin oluşturucu
-Varsayılan olarak, [Azure Search blob dizin oluşturucu](search-howto-indexing-azure-blob-storage.md) ayrıştırıyor sınırlandırılmış metin BLOB'ları tek bir metin öbek. Ancak, CSV verileri içeren BLOB'lar ile genellikle her satır ayrı bir belge olarak blob'daki kabul istersiniz. Örneğin, aşağıdaki sınırlandırılmış metin verildiğinde, size iki belgelere ayrıştırma isteyebilirsiniz her "id", "datePublished" ve "etiketler" alanları içeren: 
+# <a name="indexing-csv-blobs-with-azure-search-blob-indexer"></a>Azure Search blob dizin oluşturucu ile CSV bloblarını dizine ekleme
+Varsayılan olarak, [Azure Search blob dizin oluşturucu](search-howto-indexing-azure-blob-storage.md) ayrıştırıyor sınırlandırılmış metin BLOB'ları tek bir metin parçası. Ancak, CSV verileri içeren BLOB'ları ile genellikle her satır ayrı bir belge olarak blob işlemesi gerektiğini istersiniz. Örneğin, aşağıdaki sınırlandırılmış metin göz önünde bulundurulduğunda, iki belgelere ayrıştırmak isteyebilirsiniz "id", "datePublished" ve "tags" alanlar içeren her: 
 
     id, datePublished, tags
     1, 2016-01-12, "azure-search,azure,cloud" 
     2, 2016-07-07, "cloud,mobile" 
 
-Bu makalede, CSV BLOB'lar bir Azure Search blob dizin oluşturucu ile ayrıştırmak öğreneceksiniz. 
+Bu makalede, bir Azure Search blob dizin oluşturucu ile CSV bloblarını ayrıştırma öğreneceksiniz. 
 
 > [!IMPORTANT]
-> Bu işlevsellik şu anda genel önizlemede ve üretim ortamlarında kullanılmamalıdır. Daha fazla bilgi için bkz: [REST API sürümü 2017-11-11-Önizleme =](search-api-2017-11-11-preview.md). 
+> Bu işlevsellik şu anda genel Önizleme aşamasındadır ve üretim ortamlarında kullanılmamalıdır. Daha fazla bilgi için [REST API Sürüm 2017-11-11-Preview =](search-api-2017-11-11-preview.md). 
 > 
 
-## <a name="setting-up-csv-indexing"></a>CSV Dizin oluşturmayı ayarlama
-CSV BLOB'lar dizin, oluşturmak veya bir dizin oluşturucu tanımıyla güncelleştirmek için `delimitedText` ayrıştırma modu:  
+## <a name="setting-up-csv-indexing"></a>CSV Dizin oluşturma ayarlama
+CSV bloblarını dizine oluşturun veya bir dizin oluşturucu tanımı ile güncelleştirmek için `delimitedText` ayrıştırma modu:  
 
     {
       "name" : "my-csv-indexer",
@@ -38,14 +38,14 @@ CSV BLOB'lar dizin, oluşturmak veya bir dizin oluşturucu tanımıyla güncelle
       "parameters" : { "configuration" : { "parsingMode" : "delimitedText", "firstLineContainsHeaders" : true } }
     }
 
-Oluşturma dizin oluşturucu API'si hakkında daha fazla ayrıntı için kullanıma [oluşturma dizin oluşturucu](https://docs.microsoft.com/rest/api/searchservice/create-indexer).
+Dizin Oluşturucu Oluşturma API'si hakkında daha fazla ayrıntı için kullanıma [dizin oluşturucu oluşturma](https://docs.microsoft.com/rest/api/searchservice/create-indexer).
 
-`firstLineContainsHeaders` Her bir blob ilk (boş olmayan) satırının üstbilgileri içerdiğini gösterir.
-BLOB'ları ilk başlık satırı içermiyorsa, üstbilgileri dizin oluşturucu yapılandırmasında belirtilen: 
+`firstLineContainsHeaders` Her blobun ilk (boş olmayan) satır üst bilgileri içerdiğini gösterir.
+Blobları ilk üst bilgi satırı içermiyorsa, üst bilgiler dizin oluşturucu yapılandırmasında belirtilen: 
 
     "parameters" : { "configuration" : { "parsingMode" : "delimitedText", "delimitedTextHeaders" : "id,datePublished,tags" } } 
 
-Ayırıcı karakter kullanarak özelleştirebileceğiniz `delimitedTextDelimiter` yapılandırma ayarı. Örneğin:
+Sınırlayıcı karakter kullanarak özelleştirebileceğiniz `delimitedTextDelimiter` yapılandırma ayarı. Örneğin:
 
     "parameters" : { "configuration" : { "parsingMode" : "delimitedText", "delimitedTextDelimiter" : "|" } }
 
@@ -53,12 +53,12 @@ Ayırıcı karakter kullanarak özelleştirebileceğiniz `delimitedTextDelimiter
 > Şu anda yalnızca UTF-8 kodlaması desteklenir. Diğer kodlamaları için destek gerekiyorsa, bunun için oy [UserVoice](https://feedback.azure.com/forums/263029-azure-search).
 
 > [!IMPORTANT]
-> Mod ayrıştırma sınırlandırılmış metin kullandığınızda, Azure Search, veri kaynağındaki tüm BLOB'lar CSV olacağını varsayar. Aynı veri kaynağında bir karışımını CSV ve CSV olmayan BLOB desteklemeniz gerekiyorsa, lütfen için oy [UserVoice](https://feedback.azure.com/forums/263029-azure-search).
+> Ayrıştırma modu sınırlandırılmış metin kullandığınızda, Azure Search veri kaynağındaki tüm blobları CSV olacağını varsayar. CSV ve CSV olmayan bloblar bir karışımını aynı veri kaynağında desteklemeniz gerekiyorsa, lütfen için oy verin [UserVoice](https://feedback.azure.com/forums/263029-azure-search).
 > 
 > 
 
-## <a name="request-examples"></a>İstek örnekleri
-Bu tüm koyma birlikte tam yükü örnekler şunlardır. 
+## <a name="request-examples"></a>Örnek istek
+Bu tüm koyarak birlikte eksiksiz yükü örnekler aşağıdadır. 
 
 Veri kaynağı: 
 
@@ -87,5 +87,5 @@ Dizin Oluşturucu:
     }
 
 ## <a name="help-us-make-azure-search-better"></a>Azure Search iyileştirmemize yardımcı olun
-Özellik istekleri veya fikir geliştirmeleri için varsa, giriş sağlama [UserVoice](https://feedback.azure.com/forums/263029-azure-search/).
+Özellik istekleri veya geliştirmeleri için fikriniz varsa, girdi sağlayın [UserVoice](https://feedback.azure.com/forums/263029-azure-search/).
 

@@ -10,12 +10,12 @@ ms.date: 08/31/2018
 ms.service: key-vault
 ms.workload: identity
 ms.topic: conceptual
-ms.openlocfilehash: c2696d5eb22443b565c48ef4f96d6e4a25827606
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 9b0600a7afb07600116440461037c7abcb9236de
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44295013"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49404333"
 ---
 # <a name="virtual-network-service-endpoints-for-azure-key-vault"></a>Sanal ağ hizmet uç noktaları için Azure anahtar kasası
 
@@ -62,7 +62,7 @@ Başvurmak [Azure anahtar kasası yapılandırma güvenlik duvarları ve sanal a
 |Azure Resource Manager şablon dağıtımı hizmeti|[Dağıtım sırasında güvenlik değerlerini geçirme](../azure-resource-manager/resource-manager-keyvault-parameter.md)|
 |Azure Disk Şifrelemesi birim şifreleme hizmeti|Etkinleştirmek için sanal makine dağıtımı sırasında BitLocker anahtarı (Windows VM) veya DM parola (Linux VM) ve anahtar şifreleme anahtarı erişmesine [Azure Disk şifrelemesi](../security/azure-security-disk-encryption.md)|
 |Azure Backup|Yedekleme ve geri yükleme ilgili anahtarları ve gizli dizileri Azure VM yedeklemesi sırasında izin kullanarak [Azure yedekleme](../backup/backup-introduction-to-azure-backup.md)|
-|Exchange Online ve SharePoint Online|Hizmet şifrelemesi ile müşteri anahtarı erişim izni [müşteri anahtarı](https://support.office.com/en-us/article/Controlling-your-data-in-Office-365-using-Customer-Key-f2cd475a-e592-46cf-80a3-1bfb0fa17697).|
+|Exchange Online ve SharePoint Online|Hizmet şifrelemesi ile müşteri anahtarı erişim izni [müşteri anahtarı](https://support.office.com/article/Controlling-your-data-in-Office-365-using-Customer-Key-f2cd475a-e592-46cf-80a3-1bfb0fa17697).|
 |Azure Information Protection|Kiracı anahtarı için erişim izni [Azure Information Protection.](https://docs.microsoft.com/azure/information-protection/what-is-information-protection)|
 |Uygulama Hizmetleri|[Key Vault üzerinden Azure Web App sertifikası dağıtma](https://blogs.msdn.microsoft.com/appserviceteam/2016/05/24/deploying-azure-web-app-certificate-through-key-vault/)|
 |Azure SQL|[Azure SQL veritabanı ve veri ambarı için kendi anahtarını Getir destekli saydam veri şifrelemesi](../sql-database/transparent-data-encryption-byok-azure-sql.md?view=sql-server-2017&viewFallbackFrom=azuresqldb-current)|

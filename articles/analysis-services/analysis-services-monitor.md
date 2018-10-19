@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 07/03/2018
+ms.date: 10/18/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 608323c467e0106af816c3432dec24090a9a9599
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: d10e9d3d2b6fe339b04d3c0754290313312bc2b7
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37442942"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49427289"
 ---
 # <a name="monitor-server-metrics"></a>Sunucu ölçümlerini izleme
 
@@ -36,7 +36,7 @@ Daha ayrıntılı tanılama işlemleri gerçekleştirmek için izleme, performan
 ## <a name="server-metrics"></a>Sunucu ölçümleri
 Hangi ölçümleri izleme senaryonuz için en iyi olduğunu belirlemek için bu tabloyu kullanın. Aynı grafiğe yalnızca aynı birimden ölçümler gösterilebilir.
 
-|Ölçüm|Ölçüm görünen adı|Birim|Toplama türü|Açıklama|
+|Ölçüm|Ölçüm görünen adı|Birim|Toplama Türü|Açıklama|
 |---|---|---|---|---|
 |CommandPoolJobQueueLength|Komut havuzu iş kuyruğu uzunluğu|Sayı|Ortalama|Komut iş parçacığı havuzu kuyruğundaki iş sayısı.|
 |CurrentConnections|Bağlantı: Geçerli bağlantılar|Sayı|Ortalama|Kurulan istemci bağlantılarının geçerli sayısı.|

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/14/2017
 ms.author: roiyz
-ms.openlocfilehash: 02fa19cad56f1a31ad60c597df1b004710cb5b50
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: 12f7c52f916f385ddf95cf16aa89c4848ab7c118
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47452097"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49406611"
 ---
 # <a name="log-analytics-virtual-machine-extension-for-windows"></a>İçin Windows Analytics sanal makine uzantısı oturum
 
@@ -30,14 +30,14 @@ Log Analytics bulut izleme özellikleri sağlar ve şirket içinde varlıklar. W
 
 ### <a name="operating-system"></a>İşletim sistemi
 
-Windows, Windows Server 2008 R2 karşı çalıştırılabilir için Log Analytics aracısını uzantısı 2012, 2012 R2 ve 2016 serbest bırakır.
+Windows, Windows Server 2008 R2 karşı çalıştırılabilir için Log Analytics Aracısı uzantısı 2012, 2012 R2 ve 2016 serbest bırakır.
 
 ### <a name="azure-security-center"></a>Azure Güvenlik Merkezi
 
 Azure Güvenlik Merkezi, otomatik olarak Log Analytics aracısını sağlar ve Azure aboneliğinin varsayılan log analytics çalışma bağlanır. Azure Güvenlik Merkezi kullanıyorsanız, bu belgedeki adımları çalıştırmayın. Bunun yapılması yapılandırılmış çalışma alanı ve bağlantıyı kesme Azure Güvenlik Merkezi ile üzerine yazar.
 
 ### <a name="internet-connectivity"></a>İnternet bağlantısı
-Windows için Log Analytics aracısını uzantısı, hedef sanal makineyi internet'e bağlı olduğundan emin gerektirir. 
+Windows için Log Analytics Aracısı uzantısı, hedef sanal makineyi internet'e bağlı olduğundan emin gerektirir. 
 
 ## <a name="extension-schema"></a>Uzantı şeması
 
@@ -81,7 +81,7 @@ Log Analytics aracısını Uzantı Şeması aşağıdaki JSON'u göstermektedir.
 
 ## <a name="template-deployment"></a>Şablon dağıtımı
 
-Azure VM uzantıları Azure Resource Manager şablonları ile dağıtılabilir. Önceki bölümde açıklanan JSON şeması bir Azure Resource Manager şablonunda bir Azure Resource Manager şablon dağıtımı sırasında Log Analytics aracısını uzantısı çalıştırmak için kullanılabilir. Log Analytics Aracısı VM uzantısını içeren bir örnek şablonu bulunabilir [Azure hızlı başlangıç Galerisine](https://github.com/Azure/azure-quickstart-templates/tree/master/201-oms-extension-windows-vm). 
+Azure VM uzantıları Azure Resource Manager şablonları ile dağıtılabilir. Önceki bölümde açıklanan JSON şeması bir Azure Resource Manager şablonunda bir Azure Resource Manager şablon dağıtımı sırasında Log Analytics Aracısı uzantısı çalıştırmak için kullanılabilir. VM uzantısı Log Analytics aracısını içeren bir örnek şablonu bulunabilir [Azure hızlı başlangıç Galerisine](https://github.com/Azure/azure-quickstart-templates/tree/master/201-oms-extension-windows-vm). 
 
 Sanal makine uzantısı için JSON içinde sanal makine kaynağı iç içe veya kök veya bir Resource Manager JSON şablonunu üst düzey yerleştirilir. Kaynak adı ve türü değeri JSON yerleşimini etkiler. Daha fazla bilgi için [ayarlamak için alt kaynakları ad ve tür](../../azure-resource-manager/resource-manager-templates-resources.md#child-resources). 
 

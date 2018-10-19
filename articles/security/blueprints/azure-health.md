@@ -9,12 +9,12 @@ ms.service: security
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: rarangap
-ms.openlocfilehash: cbeee643ee4a2705d3f0202a7206e10fbcc5acab
-ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
+ms.openlocfilehash: c0255ff31353ca8fe0cf684af53a12654b400208
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2018
-ms.locfileid: "48831628"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49407563"
 ---
 # <a name="azure-security-and-compliance-blueprint---hipaahitrust-health-data-and-ai"></a>Azure güvenlik ve uyumluluk planı - HIPAA/HITRUST sağlık verileri ve yapay ZEKA
 
@@ -361,8 +361,8 @@ Veri depolama alanı elde etmek için ortak bir API şema hızlı sağlık birli
 ### <a name="azure-alerts"></a>Azure Uyarıları
 - [Uyarılar Azure hizmetlerini izleme, bir yöntem sunar ve veriler üzerinde koşullar yapılandırmanıza olanak sağlar. Bir uyarı durumu izleme verilerini eşleştiğinde uyarılar, bildirimler de sağlar.
 
-### <a name="operations-management-suite-oms"></a>Operations Management Suite'e (OMS)
-[Operations Management Suite (OMS olarak da bilinir)](/azure/operations-management-suite/operations-management-suite-overview) Yönetim Hizmetleri koleksiyonudur.
+### <a name="log-analytics"></a>Log Analytics
+[Log Analytics](/azure/operations-management-suite/operations-management-suite-overview) Yönetim Hizmetleri koleksiyonudur.
 
 -   Güvenlik Merkezi için çalışma alanı etkindir
 

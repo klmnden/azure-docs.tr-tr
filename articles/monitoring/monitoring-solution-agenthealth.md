@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2017
 ms.author: magoedte
-ms.openlocfilehash: f0737c6a6ff228b92a030242faf7f4d634bdd9f2
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: e9ac4b7f7a0900f8b49f95c0db9ba5e9c962fa0e
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45733202"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49404044"
 ---
 #  <a name="agent-health-solution-in-azure"></a>Aracı durumu çözümü, Azure
 Aracı durumu çözümü, Azure, tüm raporlanan aracılar için doğrudan yanıt vermeyen Log Analytics için Log Analytics çalışma alanı veya System Center Operations Manager yönetim grubu bağlı ve işletimsel gönderme anlamanıza yardımcı olur veriler.  Ayrıca, kaç aracının dağıtıldığını, bunların coğrafi olarak nerelere dağıtıldığını da izleyebilir ve Azure’da, diğer bulut ortamlarında ya da şirket içinde dağıtılmış aracıların dağılımından her zaman haberdar olmaya yönelik diğer sorguları gerçekleştirebilirsiniz.    
@@ -65,7 +65,7 @@ Aşağıdaki tabloda bu çözüm tarafından desteklenen bağlı kaynaklar açı
 | Aracı Kategorisine Göre Dağılım | Sinyal olayları gönderen farklı kategorilerdeki araçlara ilişkin bir bölüm: Doğrudan aracılar, OpsMgr aracıları veya OpsMgr Management Server.|
 | Yönetim Grubuna Göre Dağılım | Ortamınızdaki farklı SCOM Yönetim gruplarına ilişkin bir bölüm.|
 | Aracıların coğrafi konumu | Aracılarınızın bulunduğu farklı ülkelere ve her ülkede yüklü olan toplam aracı sayısına ilişkin bir bölüm.|
-| Yüklü Ağ Geçidi Sayısı | Log Analytics Gateway yüklü olan sunucu sayısını ve bu sunucuların listesi.|
+| Yüklü Ağ Geçidi Sayısı | Log Analytics ağ geçidinin yüklü olduğu sunucular sayısı ve bu sunucuların listesi.|
 
 ![Aracı Durumu Çözüm panosu örneği](./media/monitoring-solution-agenthealth/agenthealth-solution-dashboard.png)  
 
@@ -85,7 +85,7 @@ Aşağıdaki tabloda bu çözüm tarafından desteklenen bağlı kaynaklar açı
 | OSMinorVersion | İşletim sistemi alt sürümü.|
 | Sürüm | Log Analytics aracısı veya Operations Manager Aracısı sürümü.|
 | SCAgentChannel | Değer *Doğrudan* ve/veya *SCManagementServer*’dır.|
-| IsGatewayInstalled | Log Analytics Gateway yüklü değilse, değeri olan *true*, aksi takdirde *false*.|
+| IsGatewayInstalled | Log Analytics gateway yüklü değilse, değeri olan *true*, aksi takdirde *false*.|
 | ComputerIP | Bilgisayarın IP adresi.|
 | RemoteIPCountry | Bilgisayarın dağıtıldığı coğrafi konum.|
 | ManagementGroupName | Operations Manager yönetim grubunun adı.|

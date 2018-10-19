@@ -8,12 +8,12 @@ ms.date: 09/18/2018
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: e3770fe29d6f1073a0ca6507fdf57059cbd3727e
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: f5906a93e92691cb6046fb04a9fd83f3484e17b8
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49067550"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49427408"
 ---
 # <a name="azure-policy-definition-structure"></a>Azure İlkesi tanım yapısı
 
@@ -200,7 +200,7 @@ Bir koşulu değerlendirir olup olmadığını bir **alan** belirli kriterlere u
 Kullanırken **gibi** ve **notLike** koşullar, joker karakter sağlayabilir `*` değerindeki değişikliği belirtir.
 Değer, birden fazla joker karakter içermemelidir `*`.
 
-Kullanırken **eşleşen** ve **notMatch** koşullar sağlamak `#` bir basamak gösterecek `?` harf ve gerçek o karakteri temsil etmesi için başka bir karakter. Örnekler için bkz [birden çok adı desenlerinin izin](../samples/allow-multiple-name-patterns.md).
+Kullanırken **eşleşen** ve **notMatch** koşulları sağlayan `#` bir basamak gösterecek `?` bir harfi için `.` tüm karakterleri ve diğer herhangi bir karakterle eşleştirmek için Bu gerçek bir karakteri temsil eder. Örnekler için bkz [birden çok adı desenlerinin izin](../samples/allow-multiple-name-patterns.md).
 
 ### <a name="fields"></a>Alanlar
 

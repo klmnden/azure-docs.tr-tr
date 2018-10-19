@@ -12,12 +12,12 @@ ms.author: aliceku
 ms.reviewer: vanto
 manager: craigg
 ms.date: 10/05/2018
-ms.openlocfilehash: aff1d59000a95f2b8f029b9db30ff1facb2f8ba6
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: 32d1956741f739234a3fdea7034f2f1e33a4c082
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49114677"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49408234"
 ---
 # <a name="azure-sql-transparent-data-encryption-bring-your-own-key-support"></a>Azure SQL saydam veri şifrelemesi: Destek kendi anahtarını Getir
 
@@ -67,8 +67,6 @@ TDE varsayılan TDE koruyucusu Key vault'tan kullanmak için yapılandırıldı�
   > Varsa Azure AD kimlik **olan yanlışlıkla silinmiş veya sunucunun izinler iptal** anahtar kasasının erişim ilkesi kullanarak sunucu anahtar kasası erişimi kaybeder ve şifrelenmiş TDE veritabanları, 24 saat içinde bırakılır.
 
 - Güvenlik duvarları ve sanal ağlar ile Azure Key Vault kullanırken aşağıdakileri yapılandırmanız gerekir: 
-  - "Seçili ağlar" dan erişime izin ver 
-  - Var olan sanal ağları ekleyin ve SQL veritabanı ağ varsa (Bu tek veritabanları için isteğe bağlı yönetilen örnekleri için gerekli değil) seçin. 
   - Güvenilen Microsoft hizmetlerinin bu güvenlik duvarını geçmesine izin ver: Evet seçti 
          
     > [!NOTE] 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2018
 ms.author: jdial
-ms.openlocfilehash: debefb329304235818b7b441122b90ae9a2834a9
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 69d2d80e40400cc7fa40aeb5a163dce5036905ab
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45578319"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49402769"
 ---
 # <a name="traffic-analytics-frequently-asked-questions"></a>Trafik analizi hakkında sık sorulan sorular
 
@@ -77,9 +77,9 @@ Evet.
 
 Evet. Mevcut bir çalışma öğesini seçerseniz, yeni sorgu diline geçirilmiş olan emin olun. Çalışma alanı yükseltmek istiyor musunuz, yeni bir tane oluşturmanız gerekir. Yeni sorgu diline hakkında daha fazla bilgi için bkz: [Azure Log Analytics yükseltme için yeni günlük araması](../log-analytics/log-analytics-log-search-upgrade.md).
 
-## <a name="can-my-azure-storage-account-be-in-one-subscription-and-my-operations-management-suite-workspace-be-in-a-different-subscription"></a>Bir abonelikte Azure depolama Hesabımı kullanılabilir ve Operations Management Suite çalışma Alanım'ı farklı bir abonelikte olabilir?
+## <a name="can-my-azure-storage-account-be-in-one-subscription-and-my-log-analytics-workspace-be-in-a-different-subscription"></a>Bir abonelikte Azure depolama Hesabımı kullanılabilir ve Log Analytics çalışma Alanım'ı farklı bir abonelikte olabilir?
 
-Evet, Azure depolama hesabınızdaki bir abonelikte olabilir ve Operations Management Suite çalışma alanınızı farklı bir abonelikte olabilir.
+Evet, Azure depolama hesabınızdaki bir abonelikte olabilir ve Log Analytics çalışma alanınızın farklı bir abonelikte olabilir.
 
 ## <a name="can-i-store-raw-logs-in-a-different-subscription"></a>Farklı bir abonelikte ham günlükleri depolayabilir miyim?
 
@@ -115,7 +115,7 @@ Sorun devam ederse, sorunları yükseltmek [User voice forumunu](https://feedbac
 
 Çünkü bu iletiyi görebilirsiniz:
 - Trafik analizi, yakın zamanda etkinleştirildi ve henüz bu anlamlı Öngörüler için yeterli veri toplanan değil.
-- Operations Management Suite çalışma alanı ücretsiz sürümünü kullanıyorsanız ve kota sınırları aşıldı. Bir çalışma alanı ile daha büyük bir kapasite kullanmanız gerekebilir.
+- Log Analytics çalışma alanı ücretsiz sürümünü kullanıyorsanız ve kota sınırları aşıldı. Bir çalışma alanı ile daha büyük bir kapasite kullanmanız gerekebilir.
     
 Sorun devam ederse, sorunları yükseltmek [User voice forumunu](https://feedback.azure.com/forums/217313-networking?category_id=195844).
     

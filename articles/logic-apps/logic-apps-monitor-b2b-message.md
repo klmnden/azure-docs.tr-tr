@@ -10,12 +10,12 @@ ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.assetid: bb7d9432-b697-44db-aa88-bd16ddfad23f
 ms.date: 07/21/2017
-ms.openlocfilehash: fd48dfaf7b863ab026da1758751509d9911ae01e
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 63aa455851633d1e49fd1b26861aaac8a670ef15
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46948018"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49404793"
 ---
 # <a name="monitor-b2b-messages-and-set-up-logging-for-integration-accounts-in-azure-logic-apps"></a>B2B iletilerini izleme ve Azure Logic apps'te tümleştirme hesapları için günlük kaydını ayarlama
 
@@ -58,7 +58,9 @@ Doğrudan tümleştirme hesabınızdan ya da oturum açın veya [Azure İzleyici
 
    1. Seçin **Log Analytics'e gönderme**. 
    2. Altında **Log Analytics**, seçin **yapılandırma**. 
-   3. Altında **OMS çalışma alanları**, günlüğe kaydetme için Log Analytics çalışma alanı seçin.
+   3. Altında **OMS çalışma alanları**, günlüğe kaydetme için Log Analytics çalışma alanı seçin. 
+   > [!NOTE]
+   > OMS çalışma alanları, artık Log Analytics çalışma alanları da adlandırılır. 
    4. Altında **günlük**seçin **IntegrationAccountTrackingEvents** kategorisi.
    5. **Kaydet**'i seçin.
 
@@ -93,6 +95,8 @@ Doğrudan tümleştirme hesabınızdan ya da oturum açın veya [Azure İzleyici
    1. Seçin **Log Analytics'e gönderme**. 
    2. Altında **Log Analytics**, seçin **yapılandırma**. 
    3. Altında **OMS çalışma alanları**, günlüğe kaydetme için Log Analytics çalışma alanı seçin.
+   > [!NOTE]
+   > OMS çalışma alanları, artık Log Analytics çalışma alanları da adlandırılır.
    4. Altında **günlük**seçin **IntegrationAccountTrackingEvents** kategorisi.
    5. İşiniz bittiğinde **Kaydet**’i seçin.
 
@@ -129,6 +133,6 @@ Azure tüm şemalar dışında özel türü sabit şema türü izlemeyi destekle
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* [Log analytics'te B2B iletilerini izleme](../logic-apps/logic-apps-track-b2b-messages-omsportal.md "OMS izleme B2B iletileri")
+* [Azure Log analytics'te B2B iletilerini izleme](../logic-apps/logic-apps-track-b2b-messages-omsportal.md "Azure Log analytics'te izlemek B2B iletileri")
 * [Enterprise Integration Pack hakkında daha fazla bilgi](../logic-apps/logic-apps-enterprise-integration-overview.md "Enterprise Integration Pack hakkında bilgi edinin")
 

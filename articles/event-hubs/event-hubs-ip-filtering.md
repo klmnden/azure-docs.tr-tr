@@ -1,5 +1,5 @@
 ---
-title: Azure Event Hubs IP bağlantı filtreleri | Microsoft Docs
+title: Azure Event Hubs IP filtreleri | Microsoft Docs
 description: IP bloğu bağlantıları, Azure Event hubs'a belirli IP adreslerinden filtreleme kullanın.
 services: event-hubs
 documentationcenter: ''
@@ -10,20 +10,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/08/2018
 ms.author: spelluru
-ms.openlocfilehash: c229a6f84096ecca892b74f7ce65cb831fa50be3
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: d0114821b5239146f64dde0b01652dc320994585
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48886188"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49408158"
 ---
 # <a name="use-ip-filters"></a>IP filtreleri kullanma
 
-Hangi Azure Event Hubs, yalnızca bilinen belirli sitelerden erişilebilir senaryoları için *IP Filtresi* özelliği özel IPv4 adreslerinden gelen trafiği kabul etmesini ya da reddetme kurallarını yapılandırmanıza olanak sağlar. Örneğin, bu adresler kurumsal bir NAT ağ geçidinin bu olabilir.
+Hangi Azure Event Hubs erişilebilir olması gerekir yalnızca bilinen belirli sitelerden senaryoları için *IP Filtresi* özelliği özel IPv4 adreslerinden gelen trafiği kabul etmesini ya da reddetme kurallarını yapılandırmanıza olanak sağlar. Örneğin, bu adresler kurumsal bir NAT ağ geçidinin bu olabilir.
 
 ## <a name="when-to-use"></a>Kullanılması gereken durumlar
 
-Önemli bir iki belirli IP adresleri gibi olan Event Hubs uç noktaları engellemek kullanışlı olduğu durumlarda kullanın:
+Önemli bir iki belirli IP adresleri gibi olan Event Hubs engellemek kullanışlı olduğu durumlarda kullanın:
 
 - Event hubs'ınız, yalnızca belirtilen IP adreslerinden trafiğini almasına ve diğer her şeyi reddet. Örneğin, Event Hubs ile kullandığınız [Azure Express Route] [ express-route] şirket içi altyapınız ile özel bağlantılar oluşturmak için. 
 - Event Hubs yönetici tarafından kuşkulu olarak belirlenmiştir IP adreslerinden gelen trafiği reddetmek gerekir.
@@ -47,12 +47,12 @@ IP Filtresi kurallarının sırayla uygulanır ve IP adresi ile eşleşen ilk ku
 > [!NOTE]
 > Reddetme IP adresleri, diğer Azure Hizmetleri (örneğin, Azure Stream Analytics, Azure sanal makineler veya Portalı'nda Device Explorer) Event Hubs ile etkileşim engelleyebilirsiniz.
 
-### <a name="creating-a-virtual-network-rule-with-azure-resource-manager-templates"></a>Azure Resource Manager şablonları ile bir sanal ağ kuralı oluşturuluyor
+### <a name="creating-an-ip-filter-rule-with-azure-resource-manager-templates"></a>Azure Resource Manager şablonları ile bir IP filtresi kuralı oluşturma
 
 > [!IMPORTANT]
 > Sanal ağlar desteklenir **standart** ve **adanmış** Event Hubs'ın katmanları. Temel katmanda desteklenmiyor. 
 
-Aşağıdaki Resource Manager şablonu var olan bir Event Hubs ad alanı için bir sanal ağ kuralı ekleyerek sağlar.
+Aşağıdaki Resource Manager şablonu var olan bir Event Hubs ad alanı için bir IP filtresi kuralı ekleme sağlar.
 
 Şablon parametreleri:
 

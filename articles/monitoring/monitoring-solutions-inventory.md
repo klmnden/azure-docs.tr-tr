@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/26/2018
 ms.author: bwren
-ms.openlocfilehash: 3154a2f8b283f68ec3e10ba621ccba3ee6d77de2
-ms.sourcegitcommit: 465ae78cc22eeafb5dfafe4da4b8b2138daf5082
+ms.openlocfilehash: 82cfa9e62dcc6b3a72dcb1ccf97f1f52a88a75c4
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44324759"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49404112"
 ---
 # <a name="data-collection-details-for-management-solutions-in-azure"></a>Azure yönetim çözümlerine için veri koleksiyonu ayrıntıları
 Bu makalede bir listesini içerir [yönetim çözümleri](monitoring-solutions.md) kullanımına Microsoft gelen bağlantılarla ilgili ayrıntılı belgelere.  Ayrıca kendi yöntemi ve Log Analytics ile veri toplama sıklığı hakkında bilgiler sağlar.  Farklı çözümlerin tanımlamak ve farklı yönetim çözümleri için veri akışı ve bağlantı gereksinimlerini anlamak için bu makaledeki bilgileri kullanabilirsiniz. 
@@ -34,7 +34,7 @@ Sütunların açıklamaları aşağıdaki gibidir:
 - **Operations Manager** -Microsoft monitoring agent olarak aynı aracı. Bu yapılandırmada bulunan [bir Operations Manager yönetim grubuna bağlı](../log-analytics/log-analytics-om-agents.md) Log Analytics'e bağlı. 
 -  **Azure depolama** -çözüm, bir Azure depolama hesabından veri toplar. 
 - **Operations Manager gerekli?** Bağlı Operations Manager yönetim grubu için veri toplama yönetim çözümü tarafından gereklidir. 
-- **Operations Manager aracısı veri yönetim grubu gönderilen** - aracı [bir SCOM yönetim grubuna bağlı](../log-analytics/log-analytics-om-agents.md), ardından veri yönetim sunucusundaki verileri Log Analytics'e gönderilir. Bu durumda, aracıyı doğrudan Log Analytics'e bağlama gerekmez. Bu kutusu seçili değilse, aracı bir SCOM yönetim grubuna bağlı olsa bile ardından veriler Aracıdan doğrudan Log Analytics'e gönderilir. ya da Log analytics'e iletişim kurabilmesi gerekir bir [OMS ağ geçidi](../log-analytics/log-analytics-oms-gateway.md).
+- **Operations Manager aracısı veri yönetim grubu gönderilen** - aracı [bir SCOM yönetim grubuna bağlı](../log-analytics/log-analytics-om-agents.md), ardından veri yönetim sunucusundaki verileri Log Analytics'e gönderilir. Bu durumda, aracıyı doğrudan Log Analytics'e bağlama gerekmez. Bu kutusu seçili değilse, aracı bir SCOM yönetim grubuna bağlı olsa bile ardından veriler Aracıdan doğrudan Log Analytics'e gönderilir. Log analytics'e iletişim kurabilmesi gerekir [Log Analytics gateway](../log-analytics/log-analytics-oms-gateway.md).
 - **Toplama sıklığı** -sıklığı belirtir verileri yönetim çözümü tarafından toplanır. 
 
 

@@ -8,20 +8,26 @@ ms.component: Speech
 ms.topic: article
 ms.date: 04/26/2018
 ms.author: panosper
-ms.openlocfilehash: 8f9a033ebf9cdfdb96ae8511b14202e49ec0a85e
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: c6912b45bc62ce9492e8e33bd1ffd8e7147b9d17
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48884468"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49427796"
 ---
 # <a name="batch-transcription"></a>Toplu iş transkripsiyonu
 
-Batch tanıma, ses büyük miktarlarda varsa idealdir. Ses dosyaları URI tarafından üzerine gelin ve döküm zaman uyumsuz modda geri dönebilirsiniz.
+Batch tanıma, ses büyük miktarda depolama alanında varsa idealdir. Rest API'mizi kullanarak, ses dosyaları SAS URI tarafından üzerine gelin ve döküm zaman uyumsuz olarak alır.
 
 ## <a name="batch-transcription-api"></a>Batch tanıma API'si
 
-Batch tanıma API'si, metin tanıma, ek özellikleri ile birlikte zaman uyumsuz konuşma sunar.
+Batch tanıma API'si, metin tanıma, ek özellikleri ile birlikte zaman uyumsuz konuşma sunar. Bu, bir REST API için yöntemleri gösterme değil:
+
+1. Toplu işlem isteği oluşturma
+
+2. Sorgu Durumu 
+
+3. Trnascriptions indiriliyor
 
 > [!NOTE]
 > Batch tanıma API'si, genellikle saatlik ses binlerce accumulate çağrı merkezleri için idealdir. API, büyük hacimli ses kayıtlarını özelliği kolaylaştıran bir "Başlat ve unut" felsefemiz tarafından yönlendirilir.
@@ -95,78 +101,77 @@ Aşağıdaki örnek kod bir abonelik anahtarı ve bir API anahtarı ile özelle�
         }
 ```
 
-Belirteç edindikten sonra transkripsiyonu isteyen bir ses dosyasına işaret eden SAS URI'sini belirtmeniz gerekir. Kodun geri kalanını durumu yinelenir ve sonuçları görüntüler.
+Belirteç edindikten sonra transkripsiyonu isteyen bir ses dosyasına işaret eden SAS URI'sini belirtmeniz gerekir. Kodun geri kalanını durumu yinelenir ve sonuçları görüntüler. Başlangıçta bir anahtar, bölge, kullanılacak modelleri ve SA ayarlarsınız. Aşağıdaki kod parçacığında gösterildiği gibi. Bu istemci ve POST isteğinin bir örneğinin tarafından izlenir. 
 
 ```cs
-   static async Task TranscribeAsync()
-        { 
             private const string SubscriptionKey = "<your Speech subscription key>";
             private const string HostName = "westus.cris.ai";
             private const int Port = 443;
     
+            // SAS URI 
+            private const string RecordingsBlobUri = "some SAS URI";
+
+            // adapted model Ids
+            private static Guid AdaptedAcousticId = new Guid("some guid");
+            private static Guid AdaptedLanguageId = new Guid("some guid");
+
             // Creating a Batch transcription API Client
             var client = CrisClient.CreateApiV2Client(SubscriptionKey, HostName, Port);
             
-            var transcriptions = await client.GetTranscriptionAsync().ConfigureAwait(false);
-
             var transcriptionLocation = await client.PostTranscriptionAsync(Name, Description, Locale, new Uri(RecordingsBlobUri), new[] { AdaptedAcousticId, AdaptedLanguageId }).ConfigureAwait(false);
+```
 
-            // get the transcription Id from the location URI
-            var createdTranscriptions = new List<Guid>();
-            createdTranscriptions.Add(new Guid(transcriptionLocation.ToString().Split('/').LastOrDefault()))
+İstek kullanıcı yapılan göre sorgulayabilir ve tanıma sonuçları kod parçacığı gösterildiği gibi indirin.
 
-            while (true)
+```cs
+  
+            // get all transcriptions for the user
+            transcriptions = await client.GetTranscriptionAsync().ConfigureAwait(false);
+
+            // for each transcription in the list we check the status
+            foreach (var transcription in transcriptions)
             {
-                // get all transcriptions for the user
-                transcriptions = await client.GetTranscriptionAsync().ConfigureAwait(false);
-                completed = 0; running = 0; notStarted = 0;
-
-                // for each transcription in the list we check the status
-                foreach (var transcription in transcriptions)
+                switch(transcription.Status)
                 {
-                    switch(transcription.Status)
-                    {
-                        case "Failed":
-                        case "Succeeded":
+                    case "Failed":
+                    case "Succeeded":
 
                             // we check to see if it was one of the transcriptions we created from this client.
-                            if (!createdTranscriptions.Contains(transcription.Id))
-                            {
-                                // not creted form here, continue
-                                continue;
-                            }
+                        if (!createdTranscriptions.Contains(transcription.Id))
+                        {
+                            // not creted form here, continue
+                            continue;
+                        }
                             
-                            completed++;
+                        completed++;
                             
-                            // if the transcription was successfull, check the results
-                            if (transcription.Status == "Succeeded")
-                            {
-                                var resultsUri = transcription.ResultsUrls["channel_0"];
-                                WebClient webClient = new WebClient();
-                                var filename = Path.GetTempFileName();
-                                webClient.DownloadFile(resultsUri, filename);
-                                var results = File.ReadAllText(filename);
-                                Console.WriteLine("Transcription succedded. Results: ");
-                                Console.WriteLine(results);
-                            }
-                            break;
-                        case "Running":
-                            running++;
-                            break;
-                        case "NotStarted":
-                            notStarted++;
-                            break;
+                        // if the transcription was successfull, check the results
+                        if (transcription.Status == "Succeeded")
+                        {
+                            var resultsUri = transcription.ResultsUrls["channel_0"];
+                            WebClient webClient = new WebClient();
+                            var filename = Path.GetTempFileName();
+                            webClient.DownloadFile(resultsUri, filename);
+                            var results = File.ReadAllText(filename);
+                            Console.WriteLine("Transcription succedded. Results: ");
+                            Console.WriteLine(results);
+                        }
+                    
+                    break;
+                    case "Running":
+                    running++;
+                     break;
+                    case "NotStarted":
+                    notStarted++;
+                    break;
+                    
                     }
                 }
-
-                Console.WriteLine(string.Format("Transcriptions status: {0} completed, {1} running, {2} not started yet", completed, running, notStarted));
-
-                await Task.Delay(TimeSpan.FromSeconds(5)).ConfigureAwait(false);
             }
-
-            Console.WriteLine("Press any key...");
         }
 ```
+
+Bizim [Swagger belgesinin](https://westus.cris.ai/swagger/ui/index) yukarıdaki çağrılarda tam ayrıntılar sağlar. Tam örnek burada gösterilen açıktır [GitHub](https://github.com/PanosPeriorellis/Speech_Service-BatchTranscriptionAPI).
 
 > [!NOTE]
 > Önceki kodda, Azure portalında oluşturduğunuz konuşma kaynak abonelik anahtarını arasındadır. Özel konuşma hizmeti kaynaktan alınan tuşu çalışmıyor.

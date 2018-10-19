@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 09/25/2018
 ms.author: raynew
-ms.openlocfilehash: 9f95ffe47275cfda77efa294ca6e8ccebe0070eb
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 2d2688799b1a0b4518b9c91bbc530936c834c5e3
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47158623"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49407445"
 ---
 # <a name="refine-a-group-using-group-dependency-mapping"></a>Grubun bağımlılık eşlemesini kullanarak bir grubu daraltma
 
@@ -39,7 +39,7 @@ Bağımlılık görselleştirmesi yararlanmak için yeni veya var olan, Log Anal
 > Bir geçiş projesine ilişkili çalışma alanı değiştiremezsiniz.
 
 ### <a name="download-and-install-the-vm-agents"></a>Sanal makine aracılarını indirip yükleme
-Grup bağımlılıklarını görüntülemek için indirip grubun parçası olan her bir şirket içi makinede aracıları yüklemeniz gerekir. İnternet bağlantısı olmayan makineleriniz varsa, ayrıca, indirmek ve yüklemek ihtiyacınız [OMS ağ geçidi](../log-analytics/log-analytics-oms-gateway.md) bunlar üzerinde.
+Grup bağımlılıklarını görüntülemek için indirip grubun parçası olan her bir şirket içi makinede aracıları yüklemeniz gerekir. İnternet bağlantısı olmayan makineleriniz varsa, ayrıca, indirmek ve yüklemek ihtiyacınız [Log Analytics gateway](../log-analytics/log-analytics-oms-gateway.md) bunlar üzerinde.
 
 1. İçinde **genel bakış**, tıklayın **Yönet** > **grupları**gerekli grubuna gidin.
 2. Makineler listesinde, **bağımlılık aracısını** sütun tıklayın **yüklemesi gerektirir** aracılarını indirin ve yükleyin ayarlama ile ilgili yönergeleri görmek için.

@@ -1,6 +1,6 @@
 ---
-title: Linux uygulama performansı, OMS Log Analytics'e toplama | Microsoft Docs
-description: Bu makalede, MySQL ve Apache HTTP Server için performans sayaçları toplamak Linux için OMS Aracısı yapılandırma ayrıntıları sağlar.
+title: Linux uygulama performansı Log analytics'te toplamak | Microsoft Docs
+description: Bu makalede, MySQL ve Apache HTTP Server için performans sayaçları toplamak Linux için Log Analytics aracısını yapılandırmak için ayrıntıları sağlar.
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -15,26 +15,27 @@ ms.workload: infrastructure-services
 ms.date: 05/04/2017
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 5120fa869d9c3fe28630b189b84b9c3e3f5577e2
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: df5e55c2c03fec13ada258be91f0d98b7ce70d94
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48044578"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49406169"
 ---
 # <a name="collect-performance-counters-for-linux-applications-in-log-analytics"></a>Log analytics'te Linux uygulamaları için performans sayaçlarını Topla 
-Yapılandırma ayrıntıları bu makalede sağlar [Linux için OMS Aracısı](https://github.com/Microsoft/OMS-Agent-for-Linux) belirli uygulamalar için performans sayaçları toplanamadı.  Bu makalede bulunan uygulamalar şunlardır:  
+[!INCLUDE [log-analytics-agent-note](../../includes/log-analytics-agent-note.md)]
+Yapılandırma ayrıntıları bu makalede sağlar [Linux için Log Analytics aracısını](https://github.com/Microsoft/OMS-Agent-for-Linux) belirli uygulamalar için performans sayaçları toplanamadı.  Bu makalede bulunan uygulamalar şunlardır:  
 
 - [MySQL](#MySQL)
 - [Apache HTTP Server](#apache-http-server)
 
 ## <a name="mysql"></a>MySQL
-MySQL sunucusu veya MariaDB sunucusu OMS aracısı yüklü olduğunda bilgisayarda algılanırsa, bir performans izleme sağlayıcısı MySQL sunucusu için otomatik olarak yüklenir. Bu sağlayıcı performans istatistiklerini kullanıma sunmak için yerel MySQL/MariaDB sunucusuna bağlanır. Sağlayıcı MySQL sunucusuna erişebilmesi için MySQL kullanıcı kimlik bilgilerinin yapılandırılması gerekir.
+Log Analytics aracısını yüklendiğinde sunucu MySQL veya MariaDB sunucu bilgisayarda algılanırsa, bir performans izleme sağlayıcısı MySQL sunucusu için otomatik olarak yüklenir. Bu sağlayıcı performans istatistiklerini kullanıma sunmak için yerel MySQL/MariaDB sunucusuna bağlanır. Sağlayıcı MySQL sunucusuna erişebilmesi için MySQL kullanıcı kimlik bilgilerinin yapılandırılması gerekir.
 
 ### <a name="configure-mysql-credentials"></a>MySQL kimlik bilgilerini yapılandırma
 MySQL OMI sağlayıcısı, önceden yapılandırılmış bir MySQL kullanıcısı gerektirir ve sorgu performansı ve sistem durumu bilgilerinden MySQL örneği için MySQL istemci kitaplıkları yüklü.  Bu kimlik bilgileri, Linux aracısı üzerinde depolanan bir kimlik doğrulama dosyasında depolanır.  Kimlik doğrulama dosyasını hangi bağlama adresi ve bağlantı noktası MySQL örneği dinleyen ve hangi ölçümleri toplamak için kullanılacak kimlik bilgilerini belirtir.  
 
-MySQL OMI Linux için OMS Aracısı yüklenmesi sırasında sağlayıcısı MySQL my.cnf yapılandırma dosyalarını (varsayılan konumlar) bağlama adresi ve bağlantı noktası tarama ve kısmen MySQL OMI kümesi kimlik doğrulaması dosyası.
+MySQL OMI Linux için Log Analytics aracısını yüklenmesi sırasında sağlayıcısı MySQL my.cnf yapılandırma dosyalarını (varsayılan konumlar) bağlama adresi ve bağlantı noktası tarama ve MySQL OMI kimlik doğrulama dosyasını kısmen ayarlayın.
 
 MySQL kimlik doğrulaması dosya konumunda depolanır `/var/opt/microsoft/mysql-cimprov/auth/omsagent/mysql-auth`.
 
@@ -115,7 +116,7 @@ Bu ayrıcalıkları verme aşağıdaki komutları çalıştırarak verilebilir.
 
 ### <a name="define-performance-counters"></a>Performans sayaçları tanımlayın
 
-Verileri Log Analytics'e göndermek Linux için OMS Aracısı'nı yapılandırdıktan sonra Toplanacak performans sayaçlarını yapılandırmanız gerekir.  Yordamı kullanın [Log analytics'te Windows ve Linux performans veri kaynakları](log-analytics-data-sources-windows-events.md) aşağıdaki tabloda sayaçlarla.
+Verileri Log Analytics'e göndermek Linux için Log Analytics aracısını yapılandırdıktan sonra Toplanacak performans sayaçlarını yapılandırmanız gerekir.  Yordamı kullanın [Log analytics'te Windows ve Linux performans veri kaynakları](log-analytics-data-sources-windows-events.md) aşağıdaki tabloda sayaçlarla.
 
 | Nesne Adı | Sayaç Adı |
 |:--|:--|
@@ -151,7 +152,7 @@ sudo /opt/microsoft/apache-cimprov/bin/apache_config.sh -u
 
 ### <a name="define-performance-counters"></a>Performans sayaçları tanımlayın
 
-Verileri Log Analytics'e göndermek Linux için OMS Aracısı'nı yapılandırdıktan sonra Toplanacak performans sayaçlarını yapılandırmanız gerekir.  Yordamı kullanın [Log analytics'te Windows ve Linux performans veri kaynakları](log-analytics-data-sources-windows-events.md) aşağıdaki tabloda sayaçlarla.
+Verileri Log Analytics'e göndermek Linux için Log Analytics aracısını yapılandırdıktan sonra Toplanacak performans sayaçlarını yapılandırmanız gerekir.  Yordamı kullanın [Log analytics'te Windows ve Linux performans veri kaynakları](log-analytics-data-sources-windows-events.md) aşağıdaki tabloda sayaçlarla.
 
 | Nesne Adı | Sayaç Adı |
 |:--|:--|

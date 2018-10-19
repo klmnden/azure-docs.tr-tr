@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/14/2017
 ms.author: daveba
-ms.openlocfilehash: f50714538cdfd1a0bd258a3b78d0885e3c7beed1
-ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
+ms.openlocfilehash: 06d78c9a9754638054a07c15ef67bfc703dd77ca
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48018494"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49428769"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-an-azure-vm-using-a-templates"></a>Şablonları kullanarak bir Azure sanal makinesinde Azure kaynakları için yönetilen kimlik Yapılandır
 
@@ -72,7 +72,7 @@ Bu bölümde, etkinleştirin ve bir Azure Resource Manager şablonu kullanarak b
 3. (İsteğe bağlı) Bir uzantısı olarak Azure kaynakları için yönetilen VM kimlikleri ekleme bir `resources` öğesi. Azure örnek meta veri hizmeti (IMDS) kimlik endpoint de belirteçlerini almak için kullanabileceğiniz gibi bu adım isteğe bağlıdır.  Aşağıdaki sözdizimini kullanın:
 
    >[!NOTE] 
-   > Aşağıdaki örnekte, bir Windows VM uzantısı varsayılır (`ManagedIdentityExtensionForWindows`) dağıtılıyor. Kullanarak Linux için yapılandırabilirsiniz `ManagedIdentityExtensionForLinux` için bunun yerine, `"name"` ve `"type"` öğeleri. VM uzantısı için Ocak 2019'da kullanımdan kaldırma planlanmaktadır.
+   > Aşağıdaki örnekler, bir Windows VM uzantısı varsayılır (`ManagedIdentityExtensionForWindows`) dağıtılıyor. Kullanarak Linux için yapılandırabilirsiniz `ManagedIdentityExtensionForLinux` için bunun yerine, `"name"` ve `"type"` öğeleri. VM uzantısı için Ocak 2019'da kullanımdan kaldırma planlanmaktadır.
    >
 
    ```JSON
@@ -113,7 +113,7 @@ Bu bölümde, etkinleştirin ve bir Azure Resource Manager şablonu kullanarak b
             },
             {
             "type": "Microsoft.Compute/virtualMachines/extensions",
-            "name": "[concat(variables('vmName'),'/ManagedIdentityExtensionForLinux')]",
+            "name": "[concat(variables('vmName'),'/ManagedIdentityExtensionForWindows')]",
             "apiVersion": "2018-06-01",
             "location": "[resourceGroup().location]",
             "dependsOn": [
@@ -298,7 +298,7 @@ Bu bölümde, Azure Resource Manager şablonu kullanarak bir Azure sanal makines
         },
         {
             "type": "Microsoft.Compute/virtualMachines/extensions",
-            "name": "[concat(variables('vmName'),'/ManagedIdentityExtensionForLinux')]",
+            "name": "[concat(variables('vmName'),'/ManagedIdentityExtensionForWindows')]",
             "apiVersion": "2018-06-01-preview",
             "location": "[resourceGroup().location]",
             "dependsOn": [
@@ -335,7 +335,7 @@ Bu bölümde, Azure Resource Manager şablonu kullanarak bir Azure sanal makines
         },
         {
             "type": "Microsoft.Compute/virtualMachines/extensions",
-            "name": "[concat(variables('vmName'),'/ManagedIdentityExtensionForLinux')]",
+            "name": "[concat(variables('vmName'),'/ManagedIdentityExtensionForWindows')]",
             "apiVersion": "2015-05-01-preview",
             "location": "[resourceGroup().location]",
             "dependsOn": [

@@ -1,6 +1,6 @@
 ---
-title: İzleme günlük analizi ile Azure Service Fabric kapsayıcılarında | Microsoft Docs
-description: Günlük analizi Azure Service Fabric kümelerde çalışan kapsayıcılar izlemek için kullanın.
+title: Azure Service fabric'te Log Analytics ile kapsayıcıları izlemek | Microsoft Docs
+description: Log Analytics, Azure Service Fabric kümelerinde çalışan kapsayıcıları izlemek üzere kullanın.
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
@@ -14,44 +14,46 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/1/2017
 ms.author: dekapur
-ms.openlocfilehash: 79d30a47b017379107b63b0006a35534f68c43b9
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: aabdae370c28f8fa633372be4505c00c25254408
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34210785"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49403259"
 ---
-# <a name="monitor-containers-with-log-analytics"></a>Günlük analizi ile İzleyici kapsayıcıları
+# <a name="monitor-containers-with-log-analytics"></a>Log Analytics ile kapsayıcıları izleme
  
-Bu makalede, kapsayıcı olayları görüntülemek için izleme çözümü OMS günlük analizi kapsayıcısı ayarlama ayarlamak için gerekli adımları yer almaktadır. Kapsayıcı olayları toplamak için kümenizi ayarlamak için bu bkz [adım adım öğretici](service-fabric-tutorial-monitoring-wincontainers.md).
+Bu makalede kapsayıcı olayları görüntülemek için Azure Log Analytics kapsayıcı izleme çözümünü için gerekli adımları ele alınmaktadır. Kapsayıcı olayları toplamak için kümenizi ayarlamak için bu bkz [adım adım öğretici](service-fabric-tutorial-monitoring-wincontainers.md). 
 
-## <a name="set-up-the-container-monitoring-solution"></a>İzleme çözümü kapsayıcısı ayarlama ayarlayın
+[!INCLUDE [log-analytics-agent-note.md](../../includes/log-analytics-agent-note.md)]
+
+## <a name="set-up-the-container-monitoring-solution"></a>Kapsayıcı izleme çözümünü ayarlama
 
 > [!NOTE]
-> Yanı sıra, kümeniz için günlük analizi ayarlanmış sahip düğümler üzerinde dağıtılan OMS Aracısı olması gerekir. ' Ndaki adımları izlerseniz değilse [günlük analizi ayarlamak](service-fabric-diagnostics-oms-setup.md) ve [OMS Aracısı bir kümeye ekleme](service-fabric-diagnostics-oms-agent.md) ilk.
+> Yanı sıra kümeniz için Log Analytics ayarlanmış sahip Log Analytics aracısını düğümlerinizi üzerinde dağıtılmış olması gerekir. Adımları izlerseniz yoksa [Log Analytics'i ayarlama](service-fabric-diagnostics-oms-setup.md) ve [Log Analytics aracısını bir kümeye ekleme](service-fabric-diagnostics-oms-agent.md) ilk.
 
-1. Kümeniz günlük analizi ve OMS Aracısı ile ayarlandıktan sonra kapsayıcıları dağıtın. Sonraki adıma geçmeden önce dağıtılacak kapsayıcılarınızı bekleyin.
+1. Log Analytics aracısını Log Analytics ile kümenizi ayarlandıktan kapsayıcılarınızı dağıtın. Sonraki adıma geçmeden önce dağıtılacak kapsayıcılarınızı bekleyin.
 
-2. Azure Marketi'nde aramak *kapsayıcı izlemesi çözümü* ve tıklayın **kapsayıcı izlemesi çözümü** izleme + Yönetimi altında görüntülenir kaynak kategorisi.
+2. Azure Market'te arama *kapsayıcı izleme çözümü* tıklayın **kapsayıcı izleme çözümü** izleme + Yönetim altında gösterilir kaynak kategorisi.
 
     ![Kapsayıcılar çözümü ekleme](./media/service-fabric-diagnostics-event-analysis-oms/containers-solution.png)
 
-3. Çözüm küme için oluşturulan aynı çalışma alanı içinde oluşturun. Bu değişiklik kapsayıcılarında docker verilerini toplamaya başlamak için aracının otomatik olarak tetikler. Yaklaşık 15 dakika veya bunu, gelen günlükleri ve istatistikleri açık yukarı çözüm görmeniz gerekir. Aşağıdaki resimde gösterildiği gibi.
+3. Küme için önceden oluşturulmuş çalışma alanı içindeki çözümü oluşturun. Bu değişiklik, kapsayıcılara göre docker verilerini toplamaya başlamak için aracının otomatik olarak tetikler. Yaklaşık 15 dakika veya bunu, aşağıdaki resimde gösterildiği gibi gelen günlüklerinin ve istatistiklerinin, ile açık yedekleme çözümü görmeniz gerekir.
 
-    ![Temel OMS Panosu](./media/service-fabric-diagnostics-event-analysis-oms/oms-containers-dashboard.png)
+    ![Temel Log Analytics Panosu](./media/service-fabric-diagnostics-event-analysis-oms/oms-containers-dashboard.png)
 
-Aracı OMS sorgulanan veya görselleştirilmiş performans göstergeleri için kullanılan birkaç kapsayıcı özgü günlükleri koleksiyonunu sağlar. Toplanan günlük türleri şunlardır:
+Log Analytics'te sorgulanan veya performans göstergelerini görselleştirmek için kullanılan birden fazla kapsayıcı özgü günlük koleksiyonu aracı sağlar. Toplanan günlük türleri şunlardır:
 
-* ContainerInventory: kapsayıcı konumunu, adı ve görüntüleri hakkında bilgi gösterir
-* ContainerImageInventory: bilgi kimlikleri veya boyutları dahil olmak üzere, dağıtılan görüntüler hakkında
-* ContainerLog: belirli hata günlüklerini, docker günlükleri (stdout, vb.) ve diğer girişleri
-* ContainerServiceLog: çalıştırılmış docker arka plan programı komutları
-* Perf: kapsayıcı dahil olmak üzere performans sayaçlarını cpu, bellek, ağ trafiğini, disk g/ç ve ana bilgisayar makinelerden özel ölçümleri
+* ContainerInventory: kapsayıcı konumunu ve adını görüntüleri ile ilgili bilgileri gösterir.
+* ContainerImageInventory: bilgi kimliği veya boyutları da dahil olmak üzere dağıtılan görüntüler hakkında
+* ContainerLog: özel hata günlükleri, docker günlüklerini (stdout, vb.) ve diğer girişler
+* ContainerServiceLog: çalıştırılmış docker daemon komutları
+* Performans: kapsayıcı dahil olmak üzere performans sayaçları cpu, bellek, ağ trafiğini, disk g/ç ve konak makinelerden özel ölçümler
 
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Daha fazla bilgi edinmek [OMS'ın kapsayıcıları çözüm](../log-analytics/log-analytics-containers.md).
-* Service Fabric üzerinde-kapsayıcı düzenleme hakkında daha fazla bilgiyi [Service Fabric ve kapsayıcıları](service-fabric-containers-overview.md)
-* İle familiarized [günlük arama ve sorgulama](../log-analytics/log-analytics-log-searches.md) günlük analizi bir parçası olarak sunulan özellikler
-* Ayarlamak için günlük analizi yapılandırma [uyarı otomatik](../log-analytics/log-analytics-alerts.md) algılama ve tanılama yardımcı olmak için kurallar
+* Daha fazla bilgi edinin [Log Analytics kapsayıcılar çözümü](../log-analytics/log-analytics-containers.md).
+* -Service fabric'te kapsayıcı düzenleme hakkında daha fazla bilgiyi [Service Fabric ve kapsayıcılar](service-fabric-containers-overview.md)
+* Analytics'in [günlük arama ve sorgulama](../log-analytics/log-analytics-log-searches.md) özellikleri Log Analytics kapsamında sunulan
+* Log Analytics'i yapılandırma [otomatik uyarı verme](../log-analytics/log-analytics-alerts.md) algılama ve tanılama konusunda yardımcı olmak için kurallar

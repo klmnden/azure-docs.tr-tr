@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 09/19/2018
 ms.author: tamram
-ms.openlocfilehash: d599b54fe828b88edd3d04d6cd66a4baf36c2c1a
-ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
+ms.openlocfilehash: 1962a3237fb54409d17fefa314605bafa91c3e9c
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2018
-ms.locfileid: "48831560"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49427646"
 ---
 # <a name="overview-of-azure-active-directory-authentication-over-smb-for-azure-files-preview"></a>SMB üzerinden Azure Active Directory kimlik doğrulaması için Azure dosyaları (Önizleme) genel bakış
 [!INCLUDE [storage-files-aad-auth-include](../../../includes/storage-files-aad-auth-include.md)]
@@ -58,7 +58,7 @@ Bir sanal makine üzerinde çalışan bir uygulama ile ilişkilendirilmiş bir k
 ![SMB üzerinden Azure AD kimlik doğrulamasının ekran gösteren diyagram](media/storage-files-active-directory-overview/azure-active-directory-over-smb-for-files-overview.png)
 
 ### <a name="enable-azure-ad-authentication-over-smb"></a>SMB üzerinden Azure AD kimlik doğrulamasını etkinleştirme
-29 Ağustos 2018'den sonra oluşturulan yeni ve var olan depolama hesaplarında Azure dosyaları için SMB üzerinden Azure AD kimlik doğrulamasını etkinleştirebilirsiniz. 
+24 Eylül 2018'den sonra oluşturulan yeni ve var olan depolama hesaplarında Azure dosyaları için SMB üzerinden Azure AD kimlik doğrulamasını etkinleştirebilirsiniz. 
 
 SMB üzerinden Azure AD kimlik doğrulamasını etkinleştirmeden önce Azure AD etki alanı Hizmetleri için birincil dağıtıldığını doğrulayın, depolama hesabınız olduğu ilişkili Azure AD kiracısı. Azure AD Domain Services ' henüz ayarlamadıysanız, sağlanan adım adım kılavuzu izleyin [etkinleştirme Azure Active Directory etki alanı Azure portalını kullanarak Hizmetleri](../../active-directory-domain-services/active-directory-ds-getting-started.md).
 

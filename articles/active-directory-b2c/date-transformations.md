@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: b287e7f3846de4391de02cce2cedd6a5df3cbc4a
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: ac7cc404998fed6897de1bed4b6bd31fca43e820
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49167656"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49405829"
 ---
 # <a name="date-claims-transformations"></a>Tarih dönüştürmeleri talep
 
@@ -25,12 +25,12 @@ Bu makalede, Azure Active Directory (Azure AD) B2C'de kimlik deneyimi çerçeves
 
 ## <a name="assertdatetimeisgreaterthan"></a>AssertDateTimeIsGreaterThan 
 
-Bir tarih ve saat (dize veri türü) ikinci bir tarih büyükse ve saat (dize veri türü) talep talep denetler ve bir özel durum oluşturur.
+Bir tarih ve saat (dize veri türü) ikinci tarihinden sonra ve saat (dize veri türü) talep talep denetler ve bir özel durum oluşturur.
 
 | Öğe | TransformationClaimType | Veri Türü | Notlar |
 | ---- | ----------------------- | --------- | ----- |
-| Inputclaim | leftOperand | dize | İlk talebin türü, ikinci talep büyük olmalıdır. |
-| Inputclaim | Right | dize | Olması gereken ikinci talebin türü değerinden ilk talep. |
+| Inputclaim | leftOperand | dize | İlk talebin türü, ikinci talep daha sonra olmalıdır. |
+| Inputclaim | Right | dize | İlk talep önce olmalıdır talebin türü, ikinci. |
 | InputParameter | AssertIfEqualTo | boole | Sol işlenen, sağ işlenenin eşitse, bu onay geçmelidir olup olmadığını belirtir. |
 | InputParameter | AssertIfRightOperandIsNotPresent | boole | Sağ işlenen eksik olması durumunda, bu onay geçmelidir olup olmadığını belirtir. |
 | InputParameter | TreatAsEqualIfWithinMillseconds | int | İki tür arasında izin vermek için milisaniye sayısını belirtir zamanları dikkate alınması gereken tarih saatleri eşit (örneğin, hesabı saat eğriltme için). |
@@ -39,7 +39,7 @@ Bir tarih ve saat (dize veri türü) ikinci bir tarih büyükse ve saat (dize ve
 
 ![AssertStringClaimsAreEqual yürütme](./media/date-transformations/assert-execution.png)
 
-Aşağıdaki örnek `currentDateTime` ile talep `approvedDateTime` talep. Bir hata varsa durum `currentDateTime` büyüktür `approvedDateTime`. Dönüşüm değerlerini 5 dakika içinde (30000 milisaniye cinsinden) fark olmaları durumunda eşit olarak değerlendirir.
+Aşağıdaki örnek `currentDateTime` ile talep `approvedDateTime` talep. Bir hata varsa durum `currentDateTime` saatinden sonra `approvedDateTime`. Dönüşüm değerlerini 5 dakika içinde (30000 milisaniye cinsinden) fark olmaları durumunda eşit olarak değerlendirir.
 
 ```XML
 <ClaimsTransformation Id="AssertApprovedDateTimeLaterThanCurrentDateTime" TransformationMethod="AssertDateTimeIsGreaterThan">
@@ -138,17 +138,17 @@ Geçerli UTC tarih ve saat alın ve değer için bir ClaimType ekleyin.
 
 ## <a name="datetimecomparison"></a>DateTimeComparison
 
-Bir dateTime büyük, daha az veya başka bir eşit olup olmadığını belirler. True veya false değerini içeren yeni bir Boole ClaimType Boole sonucudur.
+Bir dateTime daha sonra önceki ya da diğerine eşit olup olmadığını belirler. Yeni bir Boole ClaimType boolean değerini sonucudur `true` veya `false`.
 
 | Öğe | TransformationClaimType | Veri Türü | Notlar |
 | ---- | ----------------------- | --------- | ----- |
-| Inputclaim | firstDateTime | Tarih/saat | Karşılaştırılacak ilk tarih ve saat. Null değeri, bir özel durum oluşturur. |
-| Inputclaim | secondDateTime | Tarih/saat | Tamamlamak için ikinci tarih ve saat. Null değeri, geçerli datetTime değerlendirir. |
+| Inputclaim | firstDateTime | Tarih/saat | Önceki veya daha sonraki bir ikinci tarih ve saat olup Karşılaştırılacak ilk tarih ve saat. Null değeri, bir özel durum oluşturur. |
+| Inputclaim | secondDateTime | Tarih/saat | Önceki veya daha sonraki bir tarih ve saat ilk olup olmadığını Karşılaştırılacak ikinci tarih ve saat. Null değeri, geçerli datetTime kabul edilir. |
 | InputParameter | İşleci | dize | Aşağıdaki değerlerden biri: aynı, daha sonraki bir veya daha eski. |
 | InputParameter | timeSpanInSeconds | int | İlk tarih ve saat için zaman aralığını ekleyin. |
 | outputClaim | Sonuç | boole | Bu ClaimsTransformation çağrıldıktan sonra üreten ClaimType. |
 
-Bu, büyük, küçük veya eşittir birbirinden iki ClaimTypes olup olmadığını belirlemek üzere dönüştürme talep kullanın. Örneğin, bir kullanıcı Hizmetleri (TOS) koşullarınızı kabul en son ne zaman depolayabilir. 3 ay sonra kullanıcının yeniden TOS erişmesine izin isteyebilir.
+Bu talep dönüştürme eşit, sonra veya daha önceki her iki ClaimTypes olup olmadığını belirlemek için kullanın. Örneğin, bir kullanıcı Hizmetleri (TOS) koşullarınızı kabul en son ne zaman depolayabilir. 3 ay sonra kullanıcının yeniden TOS erişmesine izin isteyebilir.
 Talep dönüştürmeyi çalıştırmak için öncelikle geçerli tarih ve saat almanız ve son zamanı kullanıcı TOS de kabul eder.
 
 ```XML

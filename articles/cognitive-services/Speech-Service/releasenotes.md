@@ -9,12 +9,12 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 10/12/2018
 ms.author: wolfma
-ms.openlocfilehash: 3a9da3b0f2165dadd99691c6dc9e41cbf3d48620
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 7f637014c5f3e246d67ae051f9304e2f2536d725
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49340010"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49427391"
 ---
 # <a name="release-notes"></a>Sürüm notları
 
@@ -22,12 +22,12 @@ ms.locfileid: "49340010"
 
 Güvenilirlik geliştirmeleri ve hata düzeltmeleri:
 
-* İçinde disposing tanıyıcı yarış durumu nedeniyle olası önemli hata düzeltme
-* Ayarlama özellikleri olması durumunda olası önemli hata düzeltmesi.
-* Ek hata ve parametre denetimi.
-* Objective-C: NSString içinde geçersiz kılma adı kaynaklanan olası önemli hata düzeltmesi.
-* C: Objectice API görünürlüğünü ayarla
-* JavaScript: ilgili olaylar ve yükleri giderir.
+* Disposing tanıyıcı yarış durumu nedeniyle olası sabit önemli hata
+* Ayarlama özellikleri durumunda sabit olası önemli hata.
+* Eklenen ek hata ve parametre denetimi.
+* İçinde NSString adı geçersiz kılma nedeni objective-C: sabit olası önemli hata oluştu.
+* API görünürlüğünü objective-C: ayarlandı
+* JavaScript: olaylar ve yükleri düzeltildi.
 * Belgeleri geliştirmeleri.
 
 İçinde bizim [örnek depoyu](https://aka.ms/csspeech/samples), JavaScript için yeni bir örnek eklendi.

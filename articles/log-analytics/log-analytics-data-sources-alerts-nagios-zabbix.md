@@ -1,6 +1,6 @@
 ---
-title: Nagios ve Zabbix uyarıları OMS Log Analytics'e toplama | Microsoft Docs
-description: Nagios ve Zabbix izleme araçları açık kaynaklıdır. Diğer kaynaklardan gelen uyarıların yanı sıra bunları analiz etmek için yararlı Log Analytics'e bu Araçları'ndan uyarılar toplayabilirsiniz.  Bu makalede, bu sistemlerden uyarılarını toplamak Linux için OMS Aracısı'nı yapılandırmak açıklar.
+title: Log analytics'te Nagios ve Zabbix uyarıları Topla | Microsoft Docs
+description: Nagios ve Zabbix izleme araçları açık kaynaklıdır. Diğer kaynaklardan gelen uyarıların yanı sıra bunları analiz etmek için yararlı Log Analytics'e bu Araçları'ndan uyarılar toplayabilirsiniz.  Bu makalede, bu sistemlerden uyarılarını toplamak Linux için Log Analytics aracısını yapılandırmak açıklar.
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -15,18 +15,19 @@ ms.workload: infrastructure-services
 ms.date: 04/13/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: e668b2e989571d911c967d08d8012b11adaebd4d
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: eb129ebe6d63396934cbcda509d711cc63a5ee1b
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48041043"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49402949"
 ---
-# <a name="collect-alerts-from-nagios-and-zabbix-in-log-analytics-from-oms-agent-for-linux"></a>Linux için Nagios ve Zabbix'ten OMS Aracısı'ndan Log analytics'te uyarıları Topla 
-[Nagios](https://www.nagios.org/) ve [Zabbix](http://www.zabbix.com/) olan izleme araçları açık kaynak. Uyarıları şu araçlarından Log Analytics'e bunları ile birlikte analiz etmek için Toplayabileceğiniz [diğer kaynaklardan alınan uyarıları](log-analytics-alerts.md).  Bu makalede, bu sistemlerden uyarılarını toplamak Linux için OMS Aracısı'nı yapılandırmak açıklar.
+# <a name="collect-alerts-from-nagios-and-zabbix-in-log-analytics-from-log-analytics-agent-for-linux"></a>Linux için Log Analytics Aracısı'ndan Nagios ve Zabbix'ten Log analytics'te uyarıları Topla 
+[!INCLUDE [log-analytics-agent-note](../../includes/log-analytics-agent-note.md)]
+[Nagios](https://www.nagios.org/) ve [Zabbix](http://www.zabbix.com/) olan izleme araçları açık kaynak. Uyarıları şu araçlarından Log Analytics'e bunları ile birlikte analiz etmek için Toplayabileceğiniz [diğer kaynaklardan alınan uyarıları](log-analytics-alerts.md).  Bu makalede, bu sistemlerden uyarılarını toplamak Linux için Log Analytics aracısını yapılandırmak açıklar.
  
 ## <a name="prerequisites"></a>Önkoşullar
-Linux için OMS Aracısı Nagios toplama uyarılardan sürümüne destekler 4.2.x ve Zabbix sürümüne 2.x.
+Linux için Log Analytics aracısını sürümüne Nagios toplama uyarıları destekleyen 4.2.x ve Zabbix sürümüne 2.x.
 
 ## <a name="configure-alert-collection"></a>Uyarı koleksiyonunu yapılandırma
 

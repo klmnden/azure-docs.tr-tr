@@ -9,12 +9,12 @@ ms.workload: core
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: shvija
-ms.openlocfilehash: 27052759ccc4664ea95ea19cb52bebeec6fec5ae
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 6d5b52c8a5dd0306a349cac5e67eecc809005c6f
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48803367"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49429193"
 ---
 # <a name="receive-events-from-azure-event-hubs-using-nodejs"></a>Node.js kullanarak Azure Event Hubs'tan gelen olayları alma
 
@@ -57,7 +57,7 @@ Kopyalanmış SDK, Node.js kullanarak bir olay hub'ından olay alma işlemini g�
 
 1. Visual Studio Code projede açın. 
 2. Adlı bir dosya oluşturun **.env** altında **İşlemci** klasör. Örnek ortam değişkenlerinden kopyalayıp **sample.env** kök klasöründe.
-3. Olay hub'ı bağlantı dizesi, olay hub'ı adı ve depolama uç noktası yapılandırın. Olay hub'ından için bağlantı dizesini kopyalayabilirsiniz **bağlantı dizesi-birincil** anahtar altında **RootManageSharedAccessKey** olay hub'ı sayfasında Azure Portalı'nda. Ayrıntılı adımlar için bkz. [bağlantı dizesi alma](event-hubs-quickstart-portal.md#create-an-event-hubs-namespace).
+3. Olay hub'ı bağlantı dizesi, olay hub'ı adı ve depolama uç noktası yapılandırın. Olay hub'ından için bağlantı dizesini kopyalayabilirsiniz **bağlantı dizesi-birincil** anahtar altında **RootManageSharedAccessKey** olay hub'ı sayfasında Azure Portalı'nda. Ayrıntılı adımlar için bkz. [bağlantı dizesi alma](event-hubs-create.md#create-an-event-hubs-namespace).
 4. Azure CLI gidin **İşlemci** klasör yolu. Düğüm paketleri yükleyin ve aşağıdaki komutları çalıştırarak projeyi derleyin:
 
     ```nodejs

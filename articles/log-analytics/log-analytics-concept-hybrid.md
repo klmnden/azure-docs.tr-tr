@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 10/15/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 9decd861ff20a45939f700eef99245b6555829f8
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 03133c6d6518444f8e6fb15cfa425969dbafdedc
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49319753"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49406883"
 ---
 # <a name="collect-data-in-a-hybrid-environment-with-log-analytics-agent"></a>Log Analytics aracısını ile karma bir ortamda veri topla
 
@@ -38,7 +38,7 @@ Ortamınızda barındırılan bilgisayarları doğrudan Log Analytics'e bağlı 
 
 Çözümleme ve toplanan verilerin hareket önce ilk yükleme ve aracıları için Log Analytics hizmetine veri göndermek istediğiniz tüm bilgisayarların bağlanmak gerekir. Kurulum, komut satırı kullanarak şirket içi bilgisayarlarınızı veya ile Desired State Configuration (DSC) Azure automation'da aracıları yükleyebilirsiniz. 
 
-Linux ve Windows için aracı TCP bağlantı noktası 443 üzerinden giden Log Analytics hizmetiyle iletişim kurar ve Internet üzerinden iletişim kurmak için bir güvenlik duvarı veya proxy sunucusu bilgisayarı bağlandığı ağ yapılandırmasını öğrenmek için aşağıdaki gereksinimleri gözden geçirin Gerekli.  BT güvenlik ilkeleriniz bilgisayarların Internet'e bağlanmak için ağ üzerinde izin vermiyorsa, ayarlayabileceğiniz bir [OMS ağ geçidi](log-analytics-oms-gateway.md) ve aracının Log analytics'e ağ geçidi üzerinden bağlanmak için yapılandırın. Aracı yapılandırma bilgilerini almak ve hangi veri toplama kuralları ve çözümleri etkinleştirdiğiniz bağlı olarak toplanan veriler gönderme. 
+Linux ve Windows için aracı TCP bağlantı noktası 443 üzerinden giden Log Analytics hizmetiyle iletişim kurar ve Internet üzerinden iletişim kurmak için bir güvenlik duvarı veya proxy sunucusu bilgisayarı bağlandığı ağ yapılandırmasını öğrenmek için aşağıdaki gereksinimleri gözden geçirin Gerekli.  BT güvenlik ilkeleriniz bilgisayarların Internet'e bağlanmak için ağ üzerinde izin vermiyorsa, ayarlayabileceğiniz bir [Log Analytics gateway](log-analytics-oms-gateway.md) ve aracının Log analytics'e ağ geçidi üzerinden bağlanmak için yapılandırın. Aracı yapılandırma bilgilerini almak ve hangi veri toplama kuralları ve çözümleri etkinleştirdiğiniz bağlı olarak toplanan veriler gönderme. 
 
 Bilgisayarın System Center Operations Manager 2012 R2 veya üzeri izliyorsanız, veri toplamak ve hizmete iletmek ve tarafından izlenmesi için Log Analytics hizmeti ile birden çok girişli olabilir [Operations Manager](log-analytics-om-agents.md). Log Analytics ile tümleşik bir Operations Manager yönetim grubu tarafından izlenen Linux bilgisayarlar için veri kaynakları ve İleri toplanan verileri yönetim grubu yapılandırması almazsınız. Linux Aracısı, yalnızca tek bir çalışma alanına raporlama desteklese de Windows aracı en fazla dört çalışma alanlarını, rapor edebilirsiniz.  
 
@@ -92,7 +92,7 @@ Linux ve Windows Aracısı Log Analytics ile iletişim kurmak gerekli proxy ve g
 
 Bağlanmak ve ortamınızda runbook'ları kullanmak için Otomasyon hizmetine kaydetmek için Azure Otomasyon karma Runbook çalışanı'nı kullanmayı planlıyorsanız, bağlantı noktası numarası ve bölümünde açıklanan URL'lere erişimi olmalıdır [ağınız için yapılandırma Karma Runbook çalışanı](../automation/automation-hybrid-runbook-worker.md#network-planning). 
 
-Windows ve Linux Aracısı, proxy sunucusu veya OMS Log Analytics hizmeti HTTPS protokolünü kullanarak ağ geçidi ile iletişim kurulurken destekler.  Anonim ve temel kimlik doğrulaması (kullanıcı adı/parola) desteklenir.  Yüklemesi sırasında belirtilen hizmete doğrudan bağlı Windows aracısı için proxy yapılandırmasını veya [dağıtımdan sonra](log-analytics-agent-manage.md#update-proxy-settings) Denetim Masası'ndan veya PowerShell ile.  
+Windows ve Linux Aracısı, proxy sunucusu veya Log Analytics ağ geçidini HTTPS protokolünü kullanarak Log Analytics hizmeti ile iletişim kurulurken destekler.  Anonim ve temel kimlik doğrulaması (kullanıcı adı/parola) desteklenir.  Yüklemesi sırasında belirtilen hizmete doğrudan bağlı Windows aracısı için proxy yapılandırmasını veya [dağıtımdan sonra](log-analytics-agent-manage.md#update-proxy-settings) Denetim Masası'ndan veya PowerShell ile.  
 
 Linux aracısı için proxy sunucusu yüklemesi sırasında belirtilen veya [yüklemeden sonra](log-analytics-agent-manage.md#update-proxy-settings) proxy.conf yapılandırma dosyasını değiştirerek.  Linux Aracısı proxy yapılandırması değeri sözdizimi aşağıdaki gibidir:
 
@@ -106,8 +106,8 @@ Linux aracısı için proxy sunucusu yüklemesi sırasında belirtilen veya [yü
 |Protokol | https |
 |kullanıcı | Ara sunucu kimlik doğrulaması için isteğe bağlı bir kullanıcı adı |
 |password | Proxy kimlik doğrulaması için isteğe bağlı parola |
-|proxyhost | Adresi veya FQDN proxy sunucusu/OMS ağ geçidi |
-|port | Proxy sunucusu/OMS ağ geçidi için isteğe bağlı bağlantı noktası numarası |
+|proxyhost | Adresi veya FQDN proxy sunucusu/Log Analytics ağ geçidi |
+|port | Proxy sunucusu/Log Analytics ağ geçidi için isteğe bağlı bağlantı noktası numarası |
 
 Örneğin, `https://user01:password@proxy01.contoso.com:30443`
 
@@ -129,4 +129,4 @@ Linux aracısı için proxy sunucusu yüklemesi sırasında belirtilen veya [yü
 
 * Hakkında bilgi edinin [günlük aramaları](log-analytics-log-searches.md) veri kaynakları ve çözümlerinden toplanan verileri analiz etmek için. 
 
-* Hakkında bilgi edinin [çözümleri](log-analytics-add-solutions.md) Log Analytics'e işlev eklemek ve ayrıca OMS deposuna veri toplayın.
+* Hakkında bilgi edinin [çözümleri](log-analytics-add-solutions.md) Log Analytics'e işlev eklemek ve de Log Analytics çalışma alanına veri toplar.

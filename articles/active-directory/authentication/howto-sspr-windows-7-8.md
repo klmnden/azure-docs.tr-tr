@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: ae2fab560ca9579860aeba91f9322c6521a83de1
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 1465ba23f6fed85f0d4164f8e3fdc8c38be43ad3
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47168047"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49427748"
 ---
 # <a name="how-to-enable-password-reset-from-windows-7-8-and-81"></a>Nasıl yapılır: Windows 7, 8 ve 8.1 sıfırlama etkinleştirme parolası
 
@@ -76,6 +76,8 @@ HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Authentication\Credential Provide
 
 * Ayrıntılı günlük kaydını etkinleştirmek için bir REG_DWORD oluşturun: "EnableLogging" ve 1 olarak ayarlayın.
 * Ayrıntılı günlük kaydını devre dışı bırakmak için ' % s ' REG_DWORD "EnableLogging" 0 olarak değiştirin.
+
+Windows 7, 8 ve 8.1 makinelerinizi bir proxy sunucusu veya güvenlik duvarı ise HTTPS trafiğini (443) passwordreset.microsoftonline.com izin verilmelidir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: abshamsft
 ms.component: ''
-ms.openlocfilehash: f08b9e60a632428a120f9cfa50d29f1454e0b1d5
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 73978609d018eb43ab8031dc6e8261861e1ee3bf
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48041179"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49402554"
 ---
 # <a name="expressroute-monitor"></a>ExpressRoute İzleyicisi
 
@@ -36,7 +36,7 @@ Azure ExpressRoute izleme özelliği kullanabileceğiniz [Ağ Performansı İzle
 Yapılandırma için Ağ Performansı İzleyicisi'ni açmak için açık [Ağ Performansı İzleyicisi çözüm](log-analytics-network-performance-monitor.md) seçip **yapılandırma**.
 
 ### <a name="configure-network-security-group-rules"></a>Ağ güvenlik grubu kurallarını yapılandırma 
-Ağ Performansı İzleyicisi izlemek için kullanılan sunucular için azure'da yapay işlemler için Ağ Performansı İzleyicisi tarafından kullanılan bağlantı noktası TCP trafiğine izin vermek için ağ güvenlik grubu (NSG) kurallarını yapılandırın. Varsayılan bağlantı noktası 8084 ' dir. Bu yapılandırma, Operations Management Suite Aracısı şirket içi ile iletişim kurmak için Azure sanal makinelerinde yüklü sağlar İzleme Aracısı. 
+Ağ Performansı İzleyicisi izlemek için kullanılan sunucular için azure'da yapay işlemler için Ağ Performansı İzleyicisi tarafından kullanılan bağlantı noktası TCP trafiğine izin vermek için ağ güvenlik grubu (NSG) kurallarını yapılandırın. Varsayılan bağlantı noktası 8084 ' dir. Bu yapılandırma sağlayan bir şirket içi ile iletişim kurmak için Azure sanal makinelerinde yüklü Log Analytics aracısını İzleme Aracısı. 
 
 Nsg'ler hakkında daha fazla bilgi için bkz. [ağ güvenlik grupları](../virtual-network/manage-network-security-group.md). 
 

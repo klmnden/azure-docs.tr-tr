@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 09/26/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3cefecdf0f87483a1fb544d1eb4e3e514e388259
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 90b4bc17de60baa59d6c159105674468a63d10f9
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47406932"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49430179"
 ---
 # <a name="sql-server-azure-virtual-machines-dbms-deployment-for-sap-netweaver"></a>SAP NetWeaver için SQL Server Azure sanal makineleri DBMS dağıtım
 
@@ -418,7 +418,7 @@ Azure yedekleme olanaklar farklı SQL Server aramak için makaleyi okuyun [yedek
 
 
 ### <a name="automated-backup-for-sql-server"></a>SQL Server için Otomatik Yedekleme
-Otomatik yedekleme, otomatik bir yedekleme hizmeti için bir Windows Azure VM'de çalışan SQL Server Standard ve Enterprise sürümleri sağlar. Bu hizmet tarafından sağlanan [SQL Server Iaas Aracısı uzantısı](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension), otomatik olarak yüklendiği SQL Server Windows sanal makine görüntüleri Azure portalında üzerinde. Yüklü SQL Server ile kendi işletim sistemi görüntüleri dağıtmak istiyorsanız VM uzantıları ayrı olarak yüklemeniz gerekir. Gerekli olan adımları, bu konuda belgelenmiştir [makale](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension).
+Otomatik yedekleme, azure'daki bir Windows VM'de çalışan SQL Server Standard ve Enterprise sürümleri için otomatik bir yedekleme hizmeti sağlar. Bu hizmet tarafından sağlanan [SQL Server Iaas Aracısı uzantısı](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension), otomatik olarak yüklendiği SQL Server Windows sanal makine görüntüleri Azure portalında üzerinde. Yüklü SQL Server ile kendi işletim sistemi görüntüleri dağıtmak istiyorsanız VM uzantıları ayrı olarak yüklemeniz gerekir. Gerekli olan adımları, bu konuda belgelenmiştir [makale](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension).
 
 Bu yöntemin özellikleri hakkında daha fazla bilgi aşağıdaki makalelerde bulunabilir:
 

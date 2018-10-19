@@ -14,23 +14,23 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: tomsh
-ms.openlocfilehash: 706e946e61f7d5f48ce5071e90d724af717449d9
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 724603fdb80e6fce7d5b8756655d23a6c32d5558
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45575227"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49405472"
 ---
 # <a name="azure-operational-security-overview"></a>Azure operasyonel güvenliğine genel bakış
 [Azure operasyonel güvenlik](https://docs.microsoft.com/azure/security/azure-operational-security) verilerini, uygulamalarını ve diğer varlıklardan Microsoft azure'da korumak için Hizmetleri, denetimleri ve kullanıcılara sunulan özellikleri gösterir. Çeşitli Microsoft'a özgü özellikler aracılığıyla edinilen bilgileri içeren bir çerçevedir. Bu özellikler, Microsoft Security Development Lifecycle (SDL), Microsoft Security Response Center program ve siber güvenlik tehditleri hakkındaki ayrıntılı tanıma içerir.
 
-## <a name="operations-management-suite"></a>Operations Management Suite
+##  <a name="azure-management-services"></a>Azure Yönetim Hizmetleri
 Bir BT operasyon ekibinin, veri merkezi altyapı, uygulamaları ve verileri kararlılığını ve bu sistemlerin güvenliğini de dahil olmak üzere, yönetmekten sorumludur. Ancak, karmaşık BT ortamları arasında genellikle artan güvenlik öngörü kuruluşların verileri birden çok güvenlik ve yönetim sistemlerinden birlikte cobble gerektirir.
 
-[Microsoft Operations Management Suite](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview) yönetmek ve şirket içi korumak ve bulut altyapısı yardımcı olan bir bulut tabanlı BT yönetimi çözümüdür. Çekirdek işlevselliğini, Azure'da çalışan aşağıdaki hizmetleri tarafından sağlanır. Her hizmet belirli bir yönetim işlevi sağlar. Farklı yönetim senaryoları elde etmek için Hizmetleri birleştirebilirsiniz. 
+[Microsoft Log Analytics](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview) yönetmek ve şirket içi korumak ve bulut altyapısı yardımcı olan bir bulut tabanlı BT yönetimi çözümüdür. Çekirdek işlevselliğini, Azure'da çalışan aşağıdaki hizmetleri tarafından sağlanır. Azure içeren birden çok yardımcı hizmetler yönetmek ve korumak şirket içi ve bulut altyapısı. Her hizmet belirli bir yönetim işlevi sağlar. Farklı yönetim senaryoları elde etmek için Hizmetleri birleştirebilirsiniz. 
 
-### <a name="log-analytics"></a>Log Analytics
-[Azure Log Analytics](http://azure.microsoft.com/documentation/services/log-analytics) yönetilen kaynaklardan toplanan verileri merkezi bir depoya toplayarak Operations Management Suite için izleme hizmetleri sağlar. Bu veriler, olaylar, performans verileri ya da API aracılığıyla sağlanan özel veriler içerebilir. Veriler toplandıktan sonra uyarı, analiz ve dışarı aktarma için kullanılabilir. 
+### <a name="azure-monitor"></a>Azure İzleyici
+[Azure İzleyici](https://docs.microsoft.com/en-us/azure/azure-monitor/overview) merkezi veri depolarına yönetilen sourcesa veri toplar. Bu veriler, olaylar, performans verileri ya da API aracılığıyla sağlanan özel veriler içerebilir. Veriler toplandıktan sonra uyarı, analiz ve dışarı aktarma için kullanılabilir. 
 
 Çeşitli kaynaklardan gelen verileri birleştirmenize ve mevcut şirket içi ortamınızla verileri birleştirerek Azure hizmetlerinizden. Tüm eylemlerin her tür veri için kullanılabilir olacak şekilde log Analytics veri koleksiyonu bu verilerin üzerinde gerçekleştirilen eylemden de açıkça ayırır.
 
@@ -85,7 +85,7 @@ Güvenlik Merkezi, güvenlik sorunlarını ve güvenlik açıklarını tanımlam
 >[!Note]
 >Roller hakkında daha fazla bilgi ve Güvenlik Merkezi'nde eylemlerine izin görmek için [Azure Güvenlik Merkezi'nde izinler](https://docs.microsoft.com/azure/security-center/security-center-permissions).
 
-Güvenlik Merkezi Microsoft Monitoring Agent'ı kullanır. Operations Management Suite ve Log Analytics hizmeti kullanan aracının budur. Bu Aracıdan toplanan veriler, herhangi bir mevcut Log Analytics'te depolanır [çalışma](https://docs.microsoft.com/azure/log-analytics/log-analytics-manage-access) coğrafi konum VM'nin hesaba katılarak Azure aboneliğiniz veya yeni bir çalışma alanı ile ilişkili.
+Güvenlik Merkezi Microsoft Monitoring Agent'ı kullanır. Log Analytics hizmetinin kullandığı aynı aracı budur. Bu Aracıdan toplanan veriler, herhangi bir mevcut Log Analytics'te depolanır [çalışma](https://docs.microsoft.com/azure/log-analytics/log-analytics-manage-access) coğrafi konum VM'nin hesaba katılarak Azure aboneliğiniz veya yeni bir çalışma alanı ile ilişkili.
 
 ## <a name="azure-monitor"></a>Azure İzleyici
 Bulut uygulamanızdaki performans sorunlarını işletmenizi etkileyebilir. Birden çok birbirine bağlı bileşenleri ve sık sık sürümleri ile performans düşüşü yaşanması herhangi bir zamanda gerçekleşebilir. Ve bir uygulama geliştiriyorsanız, kullanıcılarınız genellikle test bulamadınız sorunları keşfedin. Bu sorunları hemen bilmeniz gerekenler ve araçları için sorun tanılanıp sahip olmalıdır.
@@ -155,8 +155,8 @@ Deneyimli DevOps uygulayıcıları aşağıdaki uygulamalardan birkaçını beni
 -   [Mikro Hizmetler](https://www.visualstudio.com/learn/what-are-microservices/) mimarisi iş kullanımı örnekleri, yeniden kullanılabilir küçük hizmetler yalıtılır için kullanılır.  Bu mimari, ölçeklenebilirlik ve verimlilik sağlar.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Operations Management Suite güvenlik ve denetim çözümü hakkında bilgi edinmek için aşağıdaki makalelere bakın:
+Güvenlik ve denetim çözümü hakkında bilgi edinmek için aşağıdaki makalelere bakın:
 
 - [Güvenlik ve uyumluluk](https://www.microsoft.com/cloud-platform/security-and-compliance)
-- [İzleme ve Operations Management Suite güvenlik ve denetim çözümünde güvenlik uyarılarını yanıtlama](https://docs.microsoft.com/azure/operations-management-suite/oms-security-responding-alerts)
-- [Operations Management Suite güvenlik ve denetim çözümünde kaynakları izleme](https://docs.microsoft.com/azure/operations-management-suite/oms-security-monitoring-resources)
+- [Azure Güvenlik Merkezi](https://docs.microsoft.com/en-us/azure/security-center/security-center-intro)
+- [Azure İzleyici](https://docs.microsoft.com/en-us/azure/azure-monitor/overview)

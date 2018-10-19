@@ -1,6 +1,6 @@
 ---
 title: Azure Log Analytics'te bağlantılar BT Hizmet Yönetimi Bağlayıcısı ile desteklenen | Microsoft Docs
-description: Bu makalede, ITSM ürünler/hizmetler merkezi olarak izlemeye ve ITSM çalışma öğelerini yönetmek için OMS Log analytics'te BT Hizmet Yönetimi Bağlayıcısı (ITSMC) ile bağlanma hakkında bilgi sağlar.
+description: Bu makalede, ITSM ürünler/hizmetler merkezi olarak izlemeye ve ITSM çalışma öğelerini yönetmek için Azure İzleyici'de BT Hizmet Yönetimi Bağlayıcısı (ITSMC) ile bağlanma hakkında bilgi sağlar.
 documentationcenter: ''
 author: jyothirmaisuri
 manager: riyazp
@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: v-jysur
 ms.component: ''
-ms.openlocfilehash: 50ab09d39fc0c224a97b6cf0c758c55026ac8ce7
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 190e173e035716431c92533e42ded97e147f21a7
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48042853"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49409212"
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector"></a>ITSM ürünler/hizmetler BT Hizmet Yönetimi Bağlayıcısı ile bağlanma
 Bu makalede, iş öğeleri merkezi olarak yönetmek için Log Analytics'te ITSM ürününüz/hizmetiniz ve BT Hizmet Yönetimi Bağlayıcısı'nı (ITSMC) arasındaki bağlantıyı yapılandırmak hakkında bilgi sağlar. ITSMC hakkında daha fazla bilgi için bkz: [genel bakış](log-analytics-itsmc-overview.md).
@@ -76,7 +76,7 @@ System Center Service Manager Örneğiniz için ITSMC bağlanmak için aşağıd
 | **İstemci gizli anahtarı**   | İstemci gizli anahtarını girin. Bu kimlik için oluşturulan   |
 | **Veri Eşitleme kapsamı**   | ITSMC eşitlemek istediğiniz Service Manager iş öğelerini seçin.  Bu iş öğeleri, Log Analytics'e aktarılır. **Seçenekler:** olaylar, değişiklik istekleri.|
 | **Veri Eşitleme** | Verilerden istediğiniz geçen gün sayısını yazın. **Üst sınır**: 120 gün. |
-| **ITSM çözümüne yeni yapılandırma öğesi oluşturma** | ITSM ürününde yapılandırma öğelerini oluşturmak istiyorsanız bu seçeneği belirleyin. Seçili olduğunda, OMS etkilenen CIS desteklenen ITSM sistemi içinde yapılandırma öğeleri (durumunda, mevcut olmayan CIS) oluşturur. **Varsayılan**: devre dışı. |
+| **ITSM çözümüne yeni yapılandırma öğesi oluşturma** | ITSM ürününde yapılandırma öğelerini oluşturmak istiyorsanız bu seçeneği belirleyin. Seçili olduğunda, Log Analytics etkilenen CIS desteklenen ITSM sistemi içinde yapılandırma öğeleri (durumunda, mevcut olmayan CIS) oluşturur. **Varsayılan**: devre dışı. |
 
 ![Service manager bağlantısı](./media/log-analytics-itsmc/service-manager-connection.png)
 
@@ -199,7 +199,7 @@ Aşağıdaki önkoşulların karşılandığından emin olun:
     - [Geneva için OAuth ayarlama](https://docs.servicenow.com/bundle/geneva-servicenow-platform/page/administer/security/task/t_SettingUpOAuth.html)
 
 
-- Microsoft OMS tümleştirmesi (ServiceNow uygulama) için kullanıcı uygulamayı yükleyin. [Daha fazla bilgi edinin](https://store.servicenow.com/sn_appstore_store.do#!/store/application/ab0265b2dbd53200d36cdc50cf961980/1.0.1 ).
+- Microsoft Log Analytics tümleştirmesi (ServiceNow uygulama) için kullanıcı uygulamayı yükleyin. [Daha fazla bilgi edinin](https://store.servicenow.com/sn_appstore_store.do#!/store/application/ab0265b2dbd53200d36cdc50cf961980/1.0.1 ).
 - Kullanıcı uygulamasının yüklü olduğu için tümleştirme kullanıcı rolü oluşturun. Tümleştirme kullanıcı rolü oluşturma hakkında bilgi [burada](#create-integration-user-role-in-servicenow-app).
 
 ### <a name="connection-procedure"></a>**Bağlantı yordamı**
@@ -221,7 +221,7 @@ ServiceNow bağlantısı oluşturmak için aşağıdaki yordamı kullanın:
 
 | **Alan** | **Açıklama** |
 | --- | --- |
-| **Bağlantı Adı**   | ITSMC ile bağlanmak istediğiniz ServiceNow örneği için bir ad yazın.  İçinde bu ITSM iş öğelerini yapılandırma / ayrıntılı log analytics'e görüntülemek, OMS'de daha sonra bu adı kullanın. |
+| **Bağlantı Adı**   | ITSMC ile bağlanmak istediğiniz ServiceNow örneği için bir ad yazın.  İçinde bu ITSM iş öğelerini yapılandırma / ayrıntılı log analytics'e görüntülemek, Log Analytics'te daha sonra bu adı kullanın. |
 | **İş ortağı türü**   | Seçin **ServiceNow**. |
 | **Kullanıcı Adı**   | ServiceNow uygulama ITSMC bağlantıyı desteklemek için oluşturduğunuz tümleştirme kullanıcı adını yazın. Daha fazla bilgi: [oluşturma ServiceNow uygulama kullanıcı rolü](#create-integration-user-role-in-servicenow-app).|
 | **Parola**   | Bu kullanıcı adıyla ilişkili parolayı yazın. **Not**: kullanıcı adı ve parola yalnızca kimlik doğrulama belirteçleri oluşturmak için kullanılır ve her yerde ITSMC hizmet içinde depolanmaz.  |
@@ -247,6 +247,9 @@ Daha fazla bilgi edinin: [Azure uyarıları oluşturma ITSM iş öğelerinden](l
 Aşağıdaki yordam kullanıcı:
 
 1.  Ziyaret [ServiceNow deposu](https://store.servicenow.com/sn_appstore_store.do#!/store/application/ab0265b2dbd53200d36cdc50cf961980/1.0.1) yükleyip **servicenow'ı ve Microsoft OMS tümleştirmesi için kullanıcı uygulaması** ServiceNow örneğinizin içinde.
+   
+   >[!NOTE]
+   >Azure İzleyici sürekli geçiş Microsoft Operations Management Suite (OMS) gelen bir parçası olarak, OMS artık Log Analytics adlandırılır.     
 2.  Yüklemeden sonra sol gezinti çubuğunda ServiceNow örneğinin, arama ve seçme Microsoft OMS entegratörü ziyaret edin.  
 3.  Tıklayın **yükleme Yapılacaklar listesi**.
 

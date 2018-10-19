@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 10/15/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: a889307138564bd56168d9561a56fc391704a459
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 01b3fe57cd52149c5c1191345b42bd8544202652
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49318988"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49404588"
 ---
 # <a name="how-to-troubleshoot-issues-with-the-log-analytics-agent-for-linux"></a>Linux için Log Analytics Aracısı ile ilgili sorunları giderme 
 
@@ -161,12 +161,20 @@ Log Analytics genel aracı yapılandırma dosyasında yer alan `/etc/opt/microso
 * Ekleme sırasında belirtilen proxy yanlış
 * Log Analytics ve Azure Otomasyonu hizmet uç noktaları, veri merkezinizdeki izin verilenler listesinde değil 
 
+<<<<<<< BAŞ
+### <a name="resolutions"></a>Çözümleri
+1. İle seçeneği ile aşağıdaki komutu kullanarak Linux için Log Analytics aracısını Log analytics'e Reonboard `-v` etkin. Bu, Log Analytics için Ara sunucu aracılığıyla bağlanan aracısının ayrıntılı çıkış sağlar. 
+`/opt/microsoft/omsagent/bin/omsadmin.sh -w <Log Analytics Workspace ID> -s <Log Analytics Workspace Key> -p <Proxy Conf> -v`
+
+  [!INCLUDE [log-analytics-agent-note](../../includes/log-analytics-agent-note.md)]
+=======
 ### <a name="resolution"></a>Çözüm
 1. Seçeneği ile aşağıdaki komutu kullanarak Log Analytics hizmetine Log Analytics aracısını ile Linux için Reonboard `-v` etkin. Log Analytics hizmeti için proxy üzerinden bağlanma aracısının ayrıntılı çıkış sağlar. 
 `/opt/microsoft/omsagent/bin/omsadmin.sh -w <Workspace ID> -s <Workspace Key> -p <Proxy Conf> -v`
+>>>>>>> fa48342aa69f6626ec310992464ba935729675b3
 
 2. Bölümü gözden geçirin [proxy ayarlarını güncelleştirme](log-analytics-agent-manage.md#update-proxy-settings) aracının bir proxy sunucu üzerinden iletişim kurmak için düzgün şekilde yapılandırdığınızdan doğrulayın.    
-* Çift aşağıdaki Log Analytics Hizmeti uç noktaların izin verilenler listesinde olup olmadığını denetleyin:
+* Çift aşağıdaki Log Analytics uç noktaların izin verilenler listesinde olup olmadığını denetleyin:
 
     |Aracı Kaynağı| Bağlantı Noktaları | Yön |
     |------|---------|----------|  
@@ -185,7 +193,11 @@ Log Analytics genel aracı yapılandırma dosyasında yer alan `/etc/opt/microso
 
 1. Komut tarih ile Linux sunucunuzdaki zamanını kontrol edin. Saati geçerli saatten 15 dakika +/-ise, ardından ekleme başarısız olur. İçin doğru Bu güncelleştirme tarih ve/veya saat dilimi Linux sunucunuzun. 
 2. Linux için Log Analytics aracısını en son sürümünü yüklediğinizi doğrulayın.  En yeni sürümü artık zaman farkı, onboarding hataya neden olduğunu bildirir.
+<<<<<<< BAŞ
+3. Doğru çalışma alanı Kimliğiniz ve çalışma alanı anahtarı bu konunun önceki kısımlarında yükleme yönergelerini kullanarak Reonboard.
+=======
 3. Doğru çalışma alanı Kimliğiniz ve çalışma alanı anahtarı bu makalenin önceki kısımlarında yükleme yönergelerini kullanarak Reonboard.
+>>>>>>> fa48342aa69f6626ec310992464ba935729675b3
 
 ## <a name="issue-you-see-a-500-and-404-error-in-the-log-file-right-after-onboarding"></a>Sorun: Sağ ekledikten sonra bir 500 ve 404 hatası günlük dosyasına bakın
 Log Analytics çalışma alanına ilk Linux veri yükleme oluşma zamanı bilinen bir sorundur. Bu, gönderilen veya hizmet deneyimi olan verileri etkilemez.
@@ -194,6 +206,17 @@ Log Analytics çalışma alanına ilk Linux veri yükleme oluşma zamanı biline
 
 ### <a name="probable-causes"></a>Olası nedenleri
 
+<<<<<<< BAŞ
+- Log analytics'e ekleme başarısız oldu
+- Log analytics'e engellendi
+- Linux veri için log Analytics aracısını yedeklenir
+
+### <a name="resolutions"></a>Çözümleri
+1. Aşağıdaki dosya varsa denetleyerek Log Analytics ekleme başarılı olup olmadığını kontrol edin: `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsadmin.conf`
+2. Reonboard kullanarak `omsadmin.sh` komut satırı yönergeleri
+3. Bir ara sunucu kullanıyorsanız, daha önce sağlanan proxy çözümleme adımlarına bakın.
+4. Linux için Log Analytics aracısını hizmetiyle iletişim kuramadığında bazı durumlarda, aracı üzerinde veri 50 MB'tır tam arabellek boyutu için sıraya alınır. Linux için Log Analytics aracısını aşağıdaki komutu çalıştırarak yeniden başlatılması gerekiyor: `/opt/microsoft/omsagent/bin/service_control restart [<workspace id>]`. 
+=======
 - Log Analytics hizmetinin eklenmesi başarısız oldu
 - Log Analytics hizmetine bağlantı engellenir
 - Linux veri için log Analytics aracısını yedeklenir
@@ -203,9 +226,10 @@ Log Analytics çalışma alanına ilk Linux veri yükleme oluşma zamanı biline
 2. Reonboard kullanarak `omsadmin.sh` komut satırı yönergeleri
 3. Bir ara sunucu kullanıyorsanız, daha önce sağlanan proxy çözümleme adımlarına bakın.
 4. Linux için Log Analytics aracısını hizmetiyle iletişim kuramadığında bazı durumlarda, aracı üzerinde veri 50 MB'tır tam arabellek boyutu için sıraya alınır. Aşağıdaki komutu çalıştırarak aracıyı yeniden başlatılması gerekiyor: `/opt/microsoft/omsagent/bin/service_control restart [<workspace id>]`. 
+>>>>>>> fa48342aa69f6626ec310992464ba935729675b3
 
     >[!NOTE]
-    >Aracı sürümü 1.1.0-28 ve daha sonra bu sorun düzeltilmiştir.
+    >This issue is fixed in agent version 1.1.0-28 and later.
 
 
 ## <a name="issue-you-are-not-seeing-forwarded-syslog-messages"></a>Sorun: İletilen Syslog iletilerini görmediğinizden 

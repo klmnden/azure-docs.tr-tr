@@ -1,5 +1,5 @@
 ---
-title: SQL Server'da Windows Azure sanal makineleri ile ilgili SSS | Microsoft Docs
+title: SQL Server Windows sanal makinelerinde Azure SSS | Microsoft Docs
 description: Bu makalede, Azure Vm'lerinde SQL Server çalıştırma hakkında sık sorulan soruların yanıtlarını sağlar.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -15,20 +15,20 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 07/12/2018
 ms.author: v-shysun
-ms.openlocfilehash: 48df858095cb867954460ec858567e41ed330063
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 906cec35c30c277ac1e8bc641d12fe37c29413dd
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39009269"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49427187"
 ---
-# <a name="frequently-asked-questions-for-sql-server-running-on-windows-azure-virtual-machines"></a>Windows Azure sanal makineler üzerinde çalışan SQL Server için sık sorulan sorular
+# <a name="frequently-asked-questions-for-sql-server-running-on-windows-virtual-machines-in-azure"></a>Azure'da Windows sanal makineler üzerinde çalışan SQL Server için sık sorulan sorular
 
 > [!div class="op_single_selector"]
 > * [Windows](virtual-machines-windows-sql-server-iaas-faq.md)
 > * [Linux](../../linux/sql/sql-server-linux-faq.md)
 
-Bu makalede çalıştırma hakkında en yaygın soruların yanıtları sağlanır [Windows Azure sanal Makineler'de SQL Server](https://azure.microsoft.com/services/virtual-machines/sql-server/).
+Bu makalede çalıştırma hakkında en yaygın soruların yanıtları sağlanır [azure'da Windows sanal makinelerinde SQL Server'a](https://azure.microsoft.com/services/virtual-machines/sql-server/).
 
 > [!NOTE]
 > Bu makalede Windows sanal makinelerinde SQL Server'a özgü sorunları ele alınmaktadır. Linux VM üzerinde SQL Server çalıştırıyorsanız bkz [Linux SSS](../../linux/sql/sql-server-linux-faq.md).

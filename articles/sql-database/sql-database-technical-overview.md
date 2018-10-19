@@ -13,12 +13,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 10/15/2018
-ms.openlocfilehash: 9f65537da2b32eee0a6870d22f7c444605ee56b1
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: 1ae68e8eac3baca53cda603769a89bc6a84fd468
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49364889"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49405937"
 ---
 # <a name="the-azure-sql-database-service"></a>Azure SQL veritabanı hizmeti
 
@@ -95,7 +95,7 @@ SQL Veritabanı ayrıca izlemeyi kolaylaştırmak için [ölçümler ve tanılam
 
 - **Azure Depolama**: Küçük maliyetlerle çok sayıda telemetri arşivleme için
 - **Azure Olay Hub'ı**: SQL Veritabanı telemetrisini özel izleme çözümünüz veya yoğun işlem hatlarıyla tümleştirmek için
-- **Azure Log Analytics**: Raporlama, uyarı ve azaltma özelliklerine sahip yerleşik izleme çözümü için. Azure Log Analytics, bir özelliği olan [Operations Management Suite (OMS)](../operations-management-suite/operations-management-suite-overview.md)
+- **Azure Log Analytics**: Raporlama, uyarı ve azaltma özelliklerine sahip yerleşik izleme çözümü için.
 
     ![architecture](./media/sql-database-metrics-diag-logging/architecture.png)
 

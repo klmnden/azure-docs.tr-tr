@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/30/2018
 ms.author: yzheng
 ms.component: common
-ms.openlocfilehash: 25e6fba6ac8aa34c0c30fd61f5fe297b94720439
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 05e7a7e3c2824a9b47ff723e91103611871d7ed2
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46983676"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49429567"
 ---
 # <a name="managing-the-azure-blob-storage-lifecycle-preview"></a>Azure Blob Depolama yaşam döngüsü (Önizleme) yönetme
 
@@ -37,7 +37,7 @@ Yaşam Döngüsü Yönetimi İlkesi ile hem genel amaçlı v2 (GPv2) hesabı ve 
 Yaşam döngüsü yönetimi ücretsiz önizleme olarak özelliğidir. Müşteriler normal işlem maliyetini ücretlendirilir [Blobları listeleme](https://docs.microsoft.com/rest/api/storageservices/list-blobs) ve [Blob katmanını ayarlama](https://docs.microsoft.com/rest/api/storageservices/set-blob-tier) API çağrıları. Bkz: [blok blobu fiyatlandırması](https://azure.microsoft.com/pricing/details/storage/blobs/) fiyatlandırması hakkında daha fazla bilgi edinmek için.
 
 ## <a name="register-for-preview"></a>Önizleme için kaydolun 
-Genel önizlemeye kaydolmak için aboneliğinize bu özelliği kaydetmek için bir istek göndermeniz gerekir. (Birkaç gün içinde) isteğiniz onaylandıktan sonra tüm mevcut ve yeni GPv2 veya Blob Depolama hesabında Batı ABD 2, Batı Orta ABD ve Batı Avrupa özelliğinin etkin olacaktır. Önizleme sırasında yalnızca blok blob desteklenir. Tarife ulaşana kadar ile çoğu önizleme olarak, bu özelliği üretim iş yükleri için kullanılmamalıdır
+Genel önizlemeye kaydolmak için aboneliğinize bu özelliği kaydetmek için bir istek göndermeniz gerekir. (Birkaç gün içinde) isteğiniz onaylandıktan sonra tüm mevcut ve yeni GPv2 veya Blob Depolama hesabında Batı ABD 2, Batı Orta ABD, Doğu ABD 2 ve Batı Avrupa özelliğinin etkin olacaktır. Önizleme sırasında yalnızca blok blob desteklenir. Tarife ulaşana kadar ile çoğu önizleme olarak, bu özelliği üretim iş yükleri için kullanılmamalıdır
 
 Bir istek göndermek için aşağıdaki PowerShell veya CLI komutları çalıştırın.
 
@@ -69,7 +69,7 @@ az feature show --namespace Microsoft.Storage --name DLM
 
 ## <a name="add-or-remove-policies"></a>Ekleme veya kaldırma ilkeleri 
 
-Ekleme, düzenleme veya Azure portalını kullanarak bir ilkeyi kaldırdığınızda [PowerShell](https://www.powershellgallery.com/packages/AzureRM.Storage/5.0.3-preview), [REST API'leri](https://docs.microsoft.com/rest/api/storagerp/storageaccounts/createorupdatemanagementpolicies), ya da istemci araçları aşağıdaki dillerde: [.NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Storage/8.0.0-preview), [Python](https://pypi.org/project/azure-mgmt-storage/2.0.0rc3/), [Node.js]( https://www.npmjs.com/package/azure-arm-storage/v/5.0.0), [Ruby](   https://rubygems.org/gems/azure_mgmt_storage/versions/0.16.2). 
+Ekleme, düzenleme veya Azure portalını kullanarak bir ilkeyi kaldırdığınızda [PowerShell](https://www.powershellgallery.com/packages/AzureRM.Storage/5.0.3-preview), [REST API'leri](https://docs.microsoft.com/rest/api/storagerp/managementpolicies/managementpolicies_createorupdate), ya da istemci araçları aşağıdaki dillerde: [.NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Storage/8.0.0-preview), [Python](https://pypi.org/project/azure-mgmt-storage/2.0.0rc3/), [Node.js]( https://www.npmjs.com/package/azure-arm-storage/v/5.0.0), [Ruby](   https://rubygems.org/gems/azure_mgmt_storage/versions/0.16.2). 
 
 ### <a name="azure-portal"></a>Azure portal
 
@@ -119,7 +119,7 @@ Bir ilke içinde iki parametreler gereklidir:
 
 | Parametre adı | Parametre türü | Notlar |
 |----------------|----------------|-------|
-| sürüm        | Bir dize olarak ifade edilen `x.x` | Önizleme sürüm numarasıdır 0,5 |
+| version        | Bir dize olarak ifade edilen `x.x` | Önizleme sürüm numarasıdır 0,5 |
 | rules          | Kural nesnelerinin bir dizisi | Her bir ilkede en az bir kural gerekir. Önizleme sırasında ilke başına en fazla 4 kuralları belirtebilirsiniz. |
 
 Bir kural içinde Gerekli Parametreler şunlardır:
@@ -316,6 +316,10 @@ Değiştirilebilir ve yaşam süresi boyunca düzenli olarak erişilen veriler i
   ]
 }
 ```
+## <a name="faq"></a>SSS
+### <a name="i-created-a-new-policy-why-are-the-actions-specified-not-executed-immediately"></a>Hemen Yürütülmeyen Eylemler neden belirtilen yeni bir ilke oluşturduğum? 
+
+Yaşam döngüsü ilkesi günde bir kez platform tarafından yürütülür. Yeni bir ilke ayarladıktan sonra uygulamanın katmanlama veya başlatılan ve yürütülen silme gibi eylemleri 24 saate kadar sürebilir.  
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

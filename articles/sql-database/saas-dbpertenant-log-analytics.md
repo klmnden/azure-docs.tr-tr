@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: billgib
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: 60139915e8d8dca382f4ef62b5129f1a84e7e80d
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: b207af3bed40f6287f60b25638f3091fa187aa6f
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47056718"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49405081"
 ---
 # <a name="set-up-and-use-log-analytics-with-a-multitenant-sql-database-saas-app"></a>Ayarlama ve çok kiracılı bir SQL veritabanı SaaS uygulamasıyla Log Analytics'i kullanma
 
@@ -32,7 +32,7 @@ Bu öğreticide şunların nasıl yapıldığını öğrenirsiniz:
 Bu öğreticiyi tamamlamak için aşağıdaki ön koşulların karşılandığından emin olun:
 
 * Wingtip bilet SaaS Kiracı başına veritabanı uygulama dağıtılır. Beş dakikadan kısa bir süre içinde dağıtmak için bkz. [Dağıt ve Wingtip bilet SaaS Kiracı başına veritabanı uygulamayı keşfetme](saas-dbpertenant-get-started-deploy.md).
-* Azure PowerShell’in yüklendiğinden. Daha fazla bilgi için [Azure PowerShell'i kullanmaya başlama](https://docs.microsoft.com/powershell/azure/get-started-azureps).
+* Azure PowerShell’in yüklendiğinden. Daha fazla bilgi için bkz. [Azure PowerShell kullanmaya başlayın](https://docs.microsoft.com/powershell/azure/get-started-azureps).
 
 Bkz: [performans izleme ve yönetim öğreticisini](saas-dbpertenant-performance-monitoring.md) bir irdelemesi ve SaaS senaryoları ve düzenleri ve bunların izleme çözümü gereksinimlerini nasıl etkiler.
 
@@ -42,7 +42,7 @@ Bkz: [performans izleme ve yönetim öğreticisini](saas-dbpertenant-performance
 
 Yüksek hacimli senaryolar için Log Analytics, izleme ve uyarı amacıyla kullanabilirsiniz. Log Analytics, tanılama günlükleri ve potansiyel olarak birçok hizmetten bir çalışma alanında toplanan telemetri üzerinden analizler sağlayan ayrı bir Azure hizmetidir. Log Analytics, yerleşik bir sorgu işlem verilerinin analiz izin dili ve veri görselleştirme araçları sağlar. SQL analizleri çözümü, birkaç önceden tanımlanmış bir elastik havuz ve veritabanı izleme ve uyarı görünümleri ve sorguları sağlar. Log Analytics, özel bir Görünüm Tasarımcısı da sağlar.
 
-Azure portalında ve Operations Management Suite log Analytics çalışma alanları ve analiz çözümleri açın. Azure portalında, daha yeni bir erişim noktası olmakla birlikte Operations Management Suite portalında bazı alanlar arkasındaki olabilir.
+OMS çalışma alanları, artık Log Analytics çalışma alanları da adlandırılır. Log Analytics çalışma alanları ve analiz çözümleri, Azure portalında açın. Azure portalında yeni erişim noktasıdır, ancak bazı alanlar Operations Management Suite portalında arkasında nedir olabilir.
 
 ### <a name="create-performance-diagnostic-data-by-simulating-a-workload-on-your-tenants"></a>Kiracılarınız bir iş yüküne benzetimini yaparak performansı tanılama veri oluşturma 
 
@@ -70,12 +70,12 @@ Log Analytics, yapılandırılması gereken ayrı bir hizmettir. Log Analytics g
 1. PowerShell ISE'de açın *... \\WingtipTicketsSaaS MultiTenantDb ana\\öğrenme modülleri\\performans izleme ve Yönetim\\Log Analytics\\Demo-LogAnalytics.ps1*.
 1. Betiği çalıştırmak için F5 tuşuna basın.
 
-Artık Azure portalında veya Operations Management Suite portalında Log Analytics açabilirsiniz. Log Analytics çalışma alanında telemetri toplamak için ve görünür yapmak için birkaç dakika sürer. Artık daha ilgi çekici bir deneyim olan tanılama verilerini toplama sistem bırakın. 
+Artık Azure portalında Log Analytics açabilirsiniz. Log Analytics çalışma alanında telemetri toplamak için ve görünür yapmak için birkaç dakika sürer. Artık daha ilgi çekici bir deneyim olan tanılama verilerini toplama sistem bırakın. 
 
 ## <a name="use-log-analytics-and-the-sql-analytics-solution-to-monitor-pools-and-databases"></a>Havuzları ve veritabanlarını izlemek için Log Analytics ve SQL Analytics çözümünü kullanma
 
 
-Bu alıştırmada veritabanları ve havuzları için toplanan telemetriyi bakmak için Log Analytics ve Operations Management Suite portalını açın.
+Bu alıştırmada, Log Analytics veritabanları ve havuzları için toplanan telemetriyi bakmak için Azure portalında açın.
 
 1. [Azure portala](https://portal.azure.com) gidin. Seçin **tüm hizmetleri** Log Analytics'i açın. Ardından, Log Analytics için arama yapın.
 
@@ -127,9 +127,9 @@ Bu alıştırmada veritabanları ve havuzları için toplanan telemetriyi bakmak
 
 1. Geri Log Analytics çalışma alanında **OMS portalında** var. çalışma alanını açın.
 
-    ![Operations Management Suite portalında kutucuğu](media/saas-dbpertenant-log-analytics/log-analytics-workspace-oms-portal.png)
+    ![Log Analytics çalışma alanı](media/saas-dbpertenant-log-analytics/log-analytics-workspace-oms-portal.png)
 
-Operations Management Suite portalında çalışma alanını daha fazla günlük ve ölçüm verileri araştırabilirsiniz. 
+Log Analytics çalışma alanında, daha fazla günlük ve ölçüm verileri araştırabilirsiniz. 
 
 İzleme ve uyarı Log Analytics'te Azure portalında her kaynağı tanımlanan uyarı aksine çalışma alanındaki veriler üzerinde sorguları temel alır. Sorguları uyarıları alma tarafından tanımlama tek başına veritabanı yerine tüm veritabanları üzerinde görünen tek bir uyarı tanımlayabilirsiniz. Sorgular yalnızca çalışma alanında bulunan verilerle sınırlıdır.
 

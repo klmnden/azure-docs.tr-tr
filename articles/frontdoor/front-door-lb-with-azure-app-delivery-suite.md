@@ -11,14 +11,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
-ms.openlocfilehash: 253ec8c0d1d6725e6ae5c47c79882284c633d6e9
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 05f77665352ee306f5684d5c7a09b27d4fe17650
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46984475"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49426827"
 ---
-# <a name="load-balancing-with-azures-application-delivery-suite"></a>Azure'nın uygulama teslim suite ile Yük Dengeleme
+# <a name="load-balancing-with-azures-application-delivery-suite"></a>Azure uygulama teslim paketiyle yük dengeleme
 
 ## <a name="introduction"></a>Giriş
 Microsoft Azure, birden çok ağ trafiğinizi nasıl dağıtıldığını yönetmek için küresel ve bölgesel hizmetler ve Yük Dengelemesi sağlar: Traffic Manager, ön kapısı hizmeti, uygulama ağ geçidi ve Load Balancer.  Azure'nın çok sayıda bölge ile birlikte ve bölgesel hizmetlerin birlikte kullanarak mimarisi, sağlam, ölçeklenebilir, yüksek performanslı uygulamalar oluşturmak sağlar.
@@ -36,7 +36,7 @@ Küresel ve bölgesel Services uygulamanızdaki bir uçtan uca güvenilir, yüks
 - Performans, gecikme süresi açısından en yakın olan bir arka uca istek sahibine göndermek için yönlendirme.
 - Öncelik oluşturan bir arka uç arka olarak diğer arka uçları ile tüm trafiği yönlendirmek için yönlendirme.
 - Ağırlıklı yönlendirme, her arka uç için atanan ağırlığı göre trafiği dağıtan hepsini.
-- İstek sahipleri belirli coğrafi bölgede bulunan bu bölgelere eşlenen arka uçları yönlendirildiği emin olmak için coğrafi yönlendirme (örneğin, İspanya gelen tüm isteklerin Doğu ABD Azure bölgesiyle yönlendirileceği)
+- İstek sahipleri belirli coğrafi bölgede bulunan bu bölgelere eşlenen arka uçları yönlendirildiği emin olmak için coğrafi yönlendirme (örneğin, İspanya gelen tüm isteklerin Fransa Orta Azure bölgesiyle yönlendirileceği)
 - Alt ağ IP adresini eşleştirmek izin veren yönlendirme aralıkları için arka uçlar, böylece bu gelen istekleri belirtilen arka ucuna gönderilecek (örneğin, Kurumsal HQ'ın IP adresi aralığından bağlanan tüm kullanıcıları genel değerinden farklı bir web içeriği almanız gerekir kullanıcılar için)
 
 İstemci, doğrudan o arka ucuna bağlanır. Azure Traffic Manager, bir arka uç kötü durumda ve ardından istemcilerin sağlıklı başka bir örneğine yeniden yönlendirir algılar. Başvurmak [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md) service hakkında daha fazla bilgi edinmek için belgeleri.
@@ -83,8 +83,8 @@ Aşağıdaki diyagramda bu senaryonun mimarisi gösterilmektedir:
 
 ## <a name="next-steps"></a>Sonraki Adımlar
 
-- Bilgi edinmek için nasıl [ön kapı oluşturmak](quickstart-create-front-door.md).
-- Bilgi [ön kapısı işleyişi](front-door-routing-architecture.md).
+- [Front Door oluşturmayı](quickstart-create-front-door.md) öğrenin.
+- [Front Door’un nasıl çalıştığını](front-door-routing-architecture.md) öğrenin.
 
 <!--Image references-->
 [1]: ./media/front-door-lb-with-azure-app-delivery-suite/application-delivery-figure1.png

@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 05/03/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: 7e4889148a752b552f8bd65702ea5dda450ded31
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 81eacf464c90d56c4ebeae1d1cefbd6f2f0fdab8
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48044306"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49408549"
 ---
 # <a name="computer-groups-in-log-analytics-log-searches"></a>Bilgisayar grupları Log analytics'te günlük aramaları
 
@@ -62,7 +62,7 @@ Azure portalında günlük araması bir bilgisayar grubu oluşturmak için aşa�
 
 
 ### <a name="active-directory"></a>Active Directory
-Log Analytics, Active Directory grup üyeliklerini içeri aktarmak için yapılandırdığınızda, OMS Aracısı ile herhangi bir etki alanına katılmış bilgisayarların grup üyeliği analiz eder.  Bir bilgisayar grubu, Log Analytics'te her Active Directory güvenlik grubu oluşturulur ve her bilgisayarın üyesi olduğu güvenlik gruplarına karşılık gelen bilgisayar gruplarına eklenir.  Bu üyelik sürekli olarak 4 saatte bir güncelleştirilir.  
+Log Analytics, Active Directory grup üyeliklerini içeri aktarmak için yapılandırdığınızda, Log Analytics aracısını sahip herhangi bir etki alanına katılmış bilgisayarların grup üyeliği analiz eder.  Bir bilgisayar grubu, Log Analytics'te her Active Directory güvenlik grubu oluşturulur ve her bilgisayarın üyesi olduğu güvenlik gruplarına karşılık gelen bilgisayar gruplarına eklenir.  Bu üyelik sürekli olarak 4 saatte bir güncelleştirilir.  
 
 Log Analytics, Log Analytics'ten Active Directory güvenlik gruplarını almak için yapılandırdığınız **Gelişmiş ayarlar** Azure portalında.  Seçin **bilgisayar grupları**, **Active Directory**, ardından **alma Active Directory grup üyeliklerini bilgisayarlardan**.  Başka bir yapılandırma işlemi gerekmez.
 
@@ -71,7 +71,7 @@ Log Analytics, Log Analytics'ten Active Directory güvenlik gruplarını almak i
 Grupları içeri aktardığınızda menü grubu üyeliği algılanan bilgisayarların sayısını ve içe aktarılan gruplarının sayısını listeler.  Döndürmek için bu bağlantıları birini tıklayabilirsiniz **ComputerGroup** bu bilgiyi kaydeder.
 
 ### <a name="windows-server-update-service"></a>Windows Server Update Service
-WSUS grup üyeliklerini içeri aktarmak için Log Analytics yapılandırdığınızda, OMS Aracısı ile ilgili tüm bilgisayarlar hedefleme grup üyeliğini analiz eder.  İstemci tarafı kullanıyorsanız hedefleme, Log Analytics'e bağlı ve tüm WSUS parçası olan herhangi bir bilgisayar grupları hedefleme Log Analytics'e içe grup üyeliği sahiptir. Sunucu tarafı kullanıyorsanız hedefleme, OMS Aracısı Log Analytics'e içeri aktarılacak grubu üyelik bilgilerini WSUS sunucusu yüklenmelidir.  Bu üyelik sürekli olarak 4 saatte bir güncelleştirilir. 
+WSUS grup üyeliklerini içeri aktarmak için Log Analytics yapılandırdığınızda, herhangi bir Log Analytics aracısını bilgisayarlarla hedefleme grup üyeliğini analiz eder.  İstemci tarafı kullanıyorsanız hedefleme, Log Analytics'e bağlı ve tüm WSUS parçası olan herhangi bir bilgisayar grupları hedefleme Log Analytics'e içe grup üyeliği sahiptir. Sunucu tarafı kullanıyorsanız hedefleme, Log Analytics aracısını Log Analytics'e içeri aktarılacak grup üyeliği bilgileri için sırayla WSUS sunucusunda yüklenmelidir.  Bu üyelik sürekli olarak 4 saatte bir güncelleştirilir. 
 
 Log Analytics, Log Analytics'ten içe aktarma WSUS grupları için yapılandırdığınız **Gelişmiş ayarlar** Azure portalında.  Seçin **bilgisayar grupları**, **WSUS**, ardından **içeri aktarma WSUS grup üyeliklerini**.  Başka bir yapılandırma işlemi gerekmez.
 

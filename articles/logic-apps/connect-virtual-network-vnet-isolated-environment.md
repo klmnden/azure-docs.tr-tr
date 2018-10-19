@@ -1,6 +1,6 @@
 ---
-title: Azure Logic Apps'ten Azure sanal ağlarına bağlanma
-description: Azure sanal ağları Azure Logic Apps'ten erişmek için özel, adanmış ve yalıtılmış tümleştirme logic apps tutan service ortamları oluşturabilir ve diğer kaynaklara ayrı genel veya "Genel" Azure'dan
+title: Azure sanal ağlarına Azure Logic Apps'ten tümleştirme hizmeti ortamı (ISE) bağlanın.
+description: Azure sanal ağları, Logic apps ve tümleştirme hesapları erişebilmesi için özel ve genel veya "Genel" azure'dan yalıtılmış kalsanız tümleştirme hizmeti ortamı (ISE) oluşturma
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -9,23 +9,21 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 09/25/2018
-ms.openlocfilehash: 354c31014448b914b33d2bef5483efc78092f726
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: b4e4e801c3c54b635f2f13b319257018ea544c03
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47391930"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49404129"
 ---
-# <a name="create-isolated-environments-to-access-azure-virtual-networks-from-azure-logic-apps"></a>Azure sanal ağları Azure Logic Apps'ten erişmek için yalıtılmış ortamlar oluşturun
+# <a name="connect-to-azure-virtual-networks-from-azure-logic-apps-through-an-integration-service-environment-ise"></a>Azure sanal ağlarına Azure Logic Apps'ten tümleştirme hizmeti ortamı (ISE) bağlanın.
 
 > [!NOTE]
 > Bu özellik bulunduğu *özel Önizleme*. Erişim talep etmek [burada katılma isteğiniz oluşturma](https://aka.ms/iseprivatepreview).
 
-Tümleştirme senaryolarını logic apps ve tümleştirme hesapları gereken yere erişimi için bir [Azure sanal ağı](../virtual-network/virtual-networks-overview.md), oluşturabileceğiniz bir [ *tümleştirme hizmeti ortamı* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) bağlantıları sanal ağınıza ve Logic Apps hizmetinin ağınıza dağıtır. Logic apps ve tümleştirme hesabı oluşturduğunuzda, bu işe kendi konum olarak seçin. Logic apps ve tümleştirme hesapları daha sonra doğrudan sanal makineleri (VM'ler), sunucular, sistemleri ve Hizmetleri, sanal ağınızda gibi kaynakları erişebilirsiniz. 
+Tümleştirme senaryolarını logic apps ve tümleştirme hesapları gereken yere erişimi için bir [Azure sanal ağı](../virtual-network/virtual-networks-overview.md), oluşturun bir [ *tümleştirme hizmeti ortamı* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), ayrılmış bir depolama kullanan özel ve yalıtılmış bir ortam olduğu ve diğer kaynaklar genel kullanıma ayrı tutulur veya *genel* Logic Apps hizmetinin. Bu ayrım, diğer Azure kiracılarında, uygulamalarınızın performansını olabilir herhangi bir etkisi de azaltır. Bu işe, ardından sanal ağınıza Logic Apps hizmetinin dağıtan Azure sanal ağa bağlayabilirsiniz. Bir mantıksal uygulama veya tümleştirme hesabı oluşturduğunuzda, bu işe kendi konum olarak seçin. Mantıksal uygulama veya tümleştirme hesabı, sanal makineleri (VM'ler), sunucular, sistemleri ve Hizmetleri, sanal ağınızda gibi kaynaklar doğrudan erişebilirsiniz. 
 
 ![Tümleştirme hizmeti ortamı seçin](./media/connect-virtual-network-vnet-isolated-environment/select-logic-app-integration-service-environment.png)
-
-Ayrılmış depolama ve ayrı olarak genel kullanıma mevcut diğer kaynakları kullanan özel ve yalıtılmış bir ortam, işe olduğu veya *genel* Logic Apps hizmetinin. Bu ayrım, diğer Azure kiracılarında, uygulamalarınızın performansını olabilir herhangi etkiyi azaltmak da yardımcı olur. 
 
 Bu makalede, bu görevlerin nasıl gerçekleştirileceğini gösterir:
 
@@ -150,7 +148,7 @@ Sonuçlar listesinden **tümleştirme hizmeti ortamı (Önizleme)** ve ardından
    | Özellik | Gerekli | Değer | Açıklama |
    |----------|----------|-------|-------------|
    | **Ad** | Evet | <*ortam adı*> | Ortamınızı verilecek ad | 
-   | **Abonelik** | Evet | <*Azure abonelik adı*> | Ortamınız için kullanılacak Azure aboneliği | 
+   | **Abonelik** | Evet | <*Azure-subscription-name*> | Ortamınız için kullanılacak Azure aboneliği | 
    | **Kaynak grubu** | Evet | <*Azure kaynak grubu adı*> | Ortamınızı oluşturmak için istediğiniz Azure kaynak grubu |
    | **Konum** | Evet | <*Azure veri merkezi bölgesi*> | Azure veri merkezi bölgesini ortamınız hakkında bilgilerin depolanacağı |
    | **Eş VNET'in** | Hayır | <*Azure sanal ağ adı*> | Ortamınızı ilişkilendirmek için Azure sanal ağı bir *eş* mantıksal uygulamalar bu ortamda, sanal ağınızın erişebilmek için. Bu ilişki oluşturabilmeniz için önce zaten emin olun [sanal ağınızdaki rol tabanlı erişim denetimi için Azure Logic Apps ayarlama](#vnet-access). <p>**Önemli**: bir sanal ağ gerekli olmasa da, sanal ağ seçme *yalnızca* ortamınızı oluşturduğunuzda. | 

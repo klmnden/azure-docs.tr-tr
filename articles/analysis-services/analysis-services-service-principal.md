@@ -4,15 +4,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 07/03/2018
+ms.date: 10/18/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 76cadc453a696b8d19788525bfb69cf9cacd353d
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 4e27c21b3b8d84b658b4cad10e05f8fa0b057268
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37448246"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49427330"
 ---
 # <a name="automation-with-service-principals"></a>Otomasyon ile hizmet sorumluları
 
@@ -32,7 +32,7 @@ Hizmet sorumluları, Azure portalında veya PowerShell kullanarak oluşturulabil
 Hizmet sorumlusu kimlik bilgileri ve sertifikaları güvenli bir şekilde Azure Otomasyonu'nda runbook işlemleri için saklanır. Daha fazla bilgi için bkz:
 
 [Azure automation'da kimlik bilgisi varlıkları](../automation/automation-credentials.md)   
-[Azure Otomasyonu sertifika varlıkları](../automation/automation-certificates.md)
+[Azure Otomasyonu'ndaki sertifika varlıkları](../automation/automation-certificates.md)
 
 ## <a name="add-service-principals-to-server-admin-role"></a>Sunucu Yöneticisi rolüne hizmet sorumlularını Ekle
 

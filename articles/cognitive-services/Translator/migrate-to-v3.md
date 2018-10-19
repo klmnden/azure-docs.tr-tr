@@ -10,12 +10,12 @@ ms.component: translator-text
 ms.topic: conceptual
 ms.date: 03/27/2018
 ms.author: v-jansko
-ms.openlocfilehash: eaf65bef28110d73378c213ae4781a409b86e1bd
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 74fcfa0e1474d7d2a25d0bf9d0476fb1bb870334
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46128188"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49429516"
 ---
 # <a name="translator-text-api-v2-to-v3-migration"></a>Translator Text API V2 V3 geçiş
 
@@ -32,23 +32,23 @@ Bu belgenin sonuna, daha fazla bilgi edinmek için yararlı bağlantılar içeri
 * Alfabeye - transliterate yöntemi API için eklendi. Bu yöntem, sözcük ve bir betik (örneğin cümlelerde dönüştürülecektir. Arapça) (örneğin başka bir komut dosyası içine Latin).
 * Dil - yeni bir 'diller' yöntemi 'Çevir', 'Sözlüğü' ve 'alfabeye' yöntemleri ile kullanmak için JSON biçiminde dil bilgileri sunar.
 * Çeviri - yeni ayrı yöntemler olarak V2 API'si olan özelliklerden bazıları desteklemek için 'Çevir' yöntemi için yeni özellikler eklenmiştir. TranslateArray buna bir örnektir.
-* Yöntem konuşun - metin okuma işlevselliği artık Microsoft Translator API'SİNDE desteklenmiyor. Azure Bilişsel hizmetler Bing konuşma API'si metin okuma işlevselliği kullanılabilir.
+* Yöntem konuşun - metin okuma işlevselliği artık Microsoft Translator API'SİNDE desteklenmiyor. Metin okuma işlevi [Microsoft konuşma hizmeti](https://docs.microsoft.com/azure/cognitive-services/speech-service/text-to-speech).
 
 Aşağıdaki listede yer alan V2 ve V3 yöntemleri V2 ile gelen işlevselliği sağlayan API'ler ve V3 yöntemleri tanımlar.
 
 | V2 API yöntemi   | V3 API uyumluluğu |
 |:----------- |:-------------|
-| Çevirme     | Çevirme          |
-| TranslateArray      | Çevirme          |
-| GetLanguageNames      | Diller          |
-| GetLanguagesForTranslate     | Diller        |
-| GetLanguagesForSpeak      | Bilişsel hizmetler konuşma tanıma API'si         |
-| Söyleyin     | Bilişsel hizmetler konuşma tanıma API'si          |
-| Algılama     | Algılama         |
-| DetectArray     | Algılama         |
-| AddTranslation     | Microsoft Translator HUB API         |
-| AddTranslationArray    | Microsoft Translator HUB API          |
-| BreakSentences      | BreakSentence         |
+| Çevirme     | [Çevir](reference/v3-0-translate.md)          |
+| TranslateArray      | [Çevir](reference/v3-0-translate.md)        |
+| GetLanguageNames      | [Diller](reference/v3-0-languages.md)         |
+| GetLanguagesForTranslate     | [Diller](reference/v3-0-languages.md)       |
+| GetLanguagesForSpeak      | [Microsoft konuşma hizmeti](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support#text-to-speech)         |
+| Söyleyin     | [Microsoft konuşma hizmeti](https://docs.microsoft.com/azure/cognitive-services/speech-service/text-to-speech)          |
+| Algılama     | [Algılama](reference/v3-0-detect.md)         |
+| DetectArray     | [Algılama](reference/v3-0-detect.md)         |
+| AddTranslation     | [Microsoft Translator API hub'ı](https://hub.microsofttranslator.com/Help/Download/Microsoft%20Translator%20Hub%20API%20Guide.pdf)         |
+| AddTranslationArray    | [Microsoft Translator API hub'ı](https://hub.microsofttranslator.com/Help/Download/Microsoft%20Translator%20Hub%20API%20Guide.pdf)          |
+| BreakSentences      | [BreakSentence](reference/v3-0-break-sentence.md)       |
 | GetTranslations      | Özelliği artık desteklenmiyor         |
 | GetTranslationsArray      | Özelliği artık desteklenmiyor         |
 

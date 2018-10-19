@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/01/2017
 ms.author: TomSh
-ms.openlocfilehash: eab55f6e2bf909ccdbdb30a8ced34dbc58d3954a
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 862143aec0ac54abb3c62677c5a1ab1c15007edb
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44721339"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49405574"
 ---
 # <a name="azure-security-technical-capabilities"></a>Azure güvenlik Teknik Özellikler
 
@@ -398,17 +398,17 @@ Ayrıca, Denetim listesi:
 
 Azure çalışma Güvenliği aracılığıyla edinilen Microsoft Security Development Lifecycle (SDL), programın Microsoft Güvenlik Yanıt Merkezi dahil Microsoft'a özgü bir çeşitli özellikleri bilgi içeren bir framework üzerine inşa edilmiştir ve siber güvenlik tehditleri hakkındaki ayrıntılı tanıma.
 
-### <a name="microsoft-operations-management-suiteoms"></a>Microsoft operations management Suite'i (OMS)
+### <a name="microsoft-azure-log-analytics"></a>Microsoft Azure günlük analizi
 
-[Microsoft Operations Management Suite (OMS)](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview) hibrit bulut BT yönetimi çözümüdür. Tek başına kullanılan veya mevcut System Center dağıtımınızı genişletmek için OMS size maksimum esneklik ve denetim için bulut tabanlı yönetim altyapınızın sağlar.
+[Log Analytics](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview) hibrit bulut BT yönetimi çözümüdür. Tek başına kullanılan veya mevcut System Center dağıtımınızı genişletmek için Log Analytics size maksimum esneklik ve denetim için bulut tabanlı yönetim altyapınızın sağlar.
 
-![Microsoft operations management Suite'i (OMS)](media/azure-security-technical-capabilities/azure-security-technical-capabilities-fig8.png)
+![Log Analytics](media/azure-security-technical-capabilities/azure-security-technical-capabilities-fig8.png)
 
-OMS ile rekabet çözümlerine göre daha düşük bir maliyetle, şirket içi, Azure, AWS, Windows Server, Linux, VMware ve OpenStack, dahil, herhangi bir buluttaki herhangi bir örneğine yönetebilirsiniz. OMS, bulut öncelikli dünyada için oluşturulmuş, yeni iş sorunlarını karşılamak ve uygulamaları ve bulut ortamları yeni iş yüklerine uyum sağlamak için diğer bir deyişle en hızlı ve en ekonomik yolu Kurumsal yönetmek için yeni bir yaklaşım sunar.
+Log Analytics ile rekabet çözümlerine göre daha düşük bir maliyetle, şirket içi, Azure, AWS, Windows Server, Linux, VMware ve OpenStack, dahil, herhangi bir buluttaki herhangi bir örneğine yönetebilirsiniz. Log Analytics, bulut öncelikli dünyada için oluşturulmuş, yeni iş sorunlarını karşılamak ve uygulamaları ve bulut ortamları yeni iş yüklerine uyum sağlamak için en hızlı ve en ekonomik yolu olan Kurumsal yönetmek için yeni bir yaklaşım sunar.
 
 ### <a name="log-analytics"></a>Log Analytics
 
-[Log Analytics](http://azure.microsoft.com/documentation/services/log-analytics), yönetilen kaynaklardan toplanan verileri merkezi bir depoda birleştirerek OMS için izleme hizmetleri sağlar. Bu verilere olaylar, performans verileri ya da API aracılığıyla sağlanan özel veriler dahil olabilir. Toplanan veriler uyarı, analiz ve dışarı aktarma için kullanılabilir hale gelir.
+[Log Analytics](http://azure.microsoft.com/documentation/services/log-analytics) yönetilen kaynaklardan toplanan verileri merkezi bir depoya toplayarak izleme hizmetleri sağlar. Bu verilere olaylar, performans verileri ya da API aracılığıyla sağlanan özel veriler dahil olabilir. Toplanan veriler uyarı, analiz ve dışarı aktarma için kullanılabilir hale gelir.
 
 ![Log Analytics](media/azure-security-technical-capabilities/azure-security-technical-capabilities-fig9.png)
 

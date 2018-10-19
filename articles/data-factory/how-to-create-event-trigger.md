@@ -10,14 +10,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/11/2018
+ms.date: 10/18/2018
 ms.author: douglasl
-ms.openlocfilehash: 20ee69654a6b19365c9b7c46e1fa11e102168365
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.openlocfilehash: f744e379521fe62f4b3fbbad0cc524ccb3e1b18d
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49309375"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49429397"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-in-response-to-an-event"></a>Bir olaya yanıt olarak bir işlem hattı çalıştırmalarını tetiği oluşturma
 
@@ -71,23 +71,26 @@ Aşağıdaki tabloda, olay tabanlı Tetikleyicileri için ilgili şema öğeleri
 | **JSON öğesi** | **Açıklama** | **Tür** | **İzin verilen değerler** | **Gerekli** |
 | ---------------- | --------------- | -------- | ------------------ | ------------ |
 | **Kapsam** | Depolama hesabı Azure Resource Manager kaynak kimliği. | Dize | Azure Resource Manager kimliği | Evet |
-| **Olayları** | Bu tetikleyici ateşlenmesine neden olayların türü. | Dizi    | Microsoft.Storage.BlobCreated, Microsoft.Storage.BlobDeleted | Evet, herhangi bir birleşimi. |
-| **blobPathBeginsWith** | Blob yolu için harekete geçirmek sağlanan deseni ile başlamalıdır. Örneğin, '/ kayıt / / aralık/blobları' yalnızca tetikleyici kayıt kapsayıcısı altında aralık klasördeki blobları için ateşlenir. | Dize   | | Bu özelliklerden en az biri sağlanmalıdır: blobPathBeginsWith, blobPathEndsWith. |
-| **blobPathEndsWith** | Blob yolu için harekete geçirmek sağlanan deseni ile bitmelidir. Örneğin, 'december/boxes.csv' yalnızca tetikleyici bir aralık klasör kutularında adlı BLOB'ları için ateşlenir. | Dize   | | Bu özelliklerden en az biri sağlanmalıdır: blobPathBeginsWith, blobPathEndsWith. |
+| **Olayları** | Bu tetikleyici ateşlenmesine neden olayların türü. | Dizi    | Microsoft.Storage.BlobCreated, Microsoft.Storage.BlobDeleted | Evet, bu değerlerden herhangi bir birleşimi. |
+| **blobPathBeginsWith** | Blob yolu tetikleyiciyi harekete geçirmek sağlanan deseni ile başlamalıdır. Örneğin, `/records/blobs/december/` bloblar için yalnızca tetikleyici `december` klasörü altında `records` kapsayıcı. | Dize   | | Bu özelliklerden en az biri için bir değer sağlamanız gereken: `blobPathBeginsWith` veya `blobPathEndsWith`. |
+| **blobPathEndsWith** | Blob yolu tetikleyiciyi harekete geçirmek sağlanan deseni ile bitmelidir. Örneğin, `december/boxes.csv` adlı bloblar için yalnızca tetikleyici `boxes` içinde bir `december` klasör. | Dize   | | Bu özelliklerden en az biri için bir değer sağlamanız gereken: `blobPathBeginsWith` veya `blobPathEndsWith`. |
 
 ## <a name="examples-of-event-based-triggers"></a>Olay tabanlı Tetikleyicileri örnekleri
 
 Bu bölümde, olay tabanlı tetikleyici ayarlarını örnekleri sağlar.
 
--   **BLOB yolu ile başlayan**('/ containername /') – kapsayıcısında tüm bloblar için olayları alır.
--   **BLOB yolu ile başlayan**('/ containername/blobları/foldername') – containername kapsayıcı ve KlasörAdı klasöründe tüm bloblar için olaylarını alır. Ayrıca, bir alt klasör başvurabilir; Örneğin, ' / containername/blobları/KlasörAdı/altklasöradı /'.
--   **BLOB yolu ile başlayan**('/ containername/blobs/foldername/file.txt') – containername kapsayıcısı altında KlasörAdı klasöründeki dosya.txt adlı bir blob için olaylarını alır.
--   **BLOB yolu ile sona erer**('dosya.txt') – alır olayları bir blobun herhangi bir yola dosya.txt adlı.
--   **BLOB yolu ile sona erer**('/ containername/blobs/file.txt') – dosya.txt kapsayıcı containername altında adlı bir blob için olaylarını alır.
--   **BLOB yolu ile sona erer**('foldername/file.txt') – bir blobun alır olayları adlı dosya.txt KlasörAdı klasöründeki tüm kapsayıcı altında.
+> [!IMPORTANT]
+> Dahil etmek zorunda `/blobs/` kapsayıcı ve klasöre, kapsayıcı ve dosya ya da kapsayıcı, klasör belirtin ve dosya olduğunda, aşağıdaki örneklerde gösterildiği gibi yol kesimi.
 
-> [!NOTE]
-> Dahil etmek zorunda `/blobs/` kapsayıcı ve klasöre, kapsayıcı ve dosya ya da kapsayıcı, klasör belirtin ve dosya yolunun segmenti.
+| Özellik | Örnek | Açıklama |
+|---|---|---|
+| **BLOB yolu ile başlar** | `/containername/` | Olayları için herhangi bir blob kapsayıcısında alır. |
+| **BLOB yolu ile başlar** | `/containername/blobs/foldername/` | Tüm bloblar için olaylarını alır `containername` kapsayıcı ve `foldername` klasör. |
+| **BLOB yolu ile başlar** | `/containername/blobs/foldername/subfoldername/` | Bir alt klasör de başvurabilirsiniz. |
+| **BLOB yolu ile başlar** | `/containername/blobs/foldername/file.txt` | Adlı bir blob için olaylarını alır `file.txt` içinde `foldername` klasörü altında `containername` kapsayıcı. |
+| **Biten BLOB yolu** | `file.txt` | Adlı bir blob için olaylarını alır `file.txt` miyim herhangi bir yolu. |
+| **Biten BLOB yolu** | `/containername/blobs/file.txt` | Adlı bir blob için olaylarını alır `file.txt` kapsayıcısı altında `containername`. |
+| **Biten BLOB yolu** | `foldername/file.txt` | Adlı bir blob için olaylarını alır `file.txt` içinde `foldername` klasörü altında herhangi bir kapsayıcı. |
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Tetikleyiciler hakkında ayrıntılı bilgi için bkz. [işlem hattı yürütme ve Tetikleyicileri](concepts-pipeline-execution-triggers.md#triggers).

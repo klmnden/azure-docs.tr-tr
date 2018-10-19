@@ -1,21 +1,21 @@
 ---
 title: Bir Azure Cosmos DB veri kaynağı için Azure Search dizini oluşturma | Microsoft Docs
 description: Bu makalede bir Azure Cosmos DB veri kaynağı ile bir Azure Search dizin oluşturucu oluşturma işlemini gösterir.
-author: chaosrealm
-manager: jlembicz
+ms.date: 10/17/2018
+author: mgottein
+manager: cgronlun
+ms.author: magottei
 services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
-ms.date: 05/29/2018
-ms.author: eugenesh
 robot: noindex
-ms.openlocfilehash: 769ad6dcb02efb7b2a602f387b6d223456cab45b
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: c74563ba98835403f12a4df048d7ff358014b826
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49395267"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49406679"
 ---
 # <a name="connecting-cosmos-db-with-azure-search-using-indexers"></a>Dizin oluşturucuları kullanarak Azure Search ile Cosmos DB'ye bağlanma
 

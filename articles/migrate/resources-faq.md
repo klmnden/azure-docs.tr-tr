@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 09/21/2018
 ms.author: snehaa
-ms.openlocfilehash: 2b704edee55f7d15da1b59d8f8b357b9ba7ca8f3
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: e39cf260cc4931fc0dddc4922479522cb521d08e
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48239226"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49407070"
 ---
 # <a name="azure-migrate---frequently-asked-questions-faq"></a>Azure geçişi - sık sorulan sorular (SSS)
 
@@ -62,7 +62,7 @@ Ek bileşenler (örneğin, virüsten koruma) içine eklenebilir. OVA şablonu ç
 
 ### <a name="what-data-is-collected-by-azure-migrate"></a>Azure geçişi tarafından verilerin ne toplanır?
 
-Azure geçişi, iki çeşit bulma, gereç tabanlı bulma ve aracı tabanlı bulma destekler.
+Azure Geçişi, gereç tabanlı ve aracı tabanlı bulma olmak üzere iki tür bulma işlemini destekler.
 Gereç tabanlı bulma şirket içi sanal makineleri ile ilgili meta verileri toplar, gereç tarafından toplanan meta verileri tam listesi aşağıda verilmiştir:
 
 **Sanal makinenin yapılandırma verileri**
@@ -86,7 +86,7 @@ Gereç tabanlı bulma şirket içi sanal makineleri ile ilgili meta verileri top
   - Ağ içine
   - Ağ dışına
 
-Aracı tabanlı bulma alet tabanlı bulma üzerinde sunulan bir seçenektir ve müşterilere yardımcı [bağımlılıkları görselleştirme](how-to-create-group-machine-dependencies.md) şirket içi sanal makinelerin. Bağımlılık aracıları toplamak ayrıntıları gibi FQDN, işletim sistemi, IP adresi, MAC adresi, VM'den VM ve gelen ve giden TCP bağlantılarını içinde çalışan işlemler. Aracı tabanlı bulma isteğe bağlıdır ve sanal makinelerin bağımlılıklarını görselleştirin istemiyorsanız aracıları yüklememeyi seçebilirsiniz.
+Aracı tabanlı bulma, gereç tabanlı bulma ile birlikte kullanılabilecek bir seçenektir ve müşterilerin şirket içi VM'ler üzerindeki [bağımlılıkları görselleştirmesine](how-to-create-group-machine-dependencies.md) yardımcı olur. Bağımlılık aracısı FQDN, işletim sistemi, IP adresi, MAC adresi, VM içinde çalışan işlemler ve VM'den gelen/giden TCP bağlantıları gibi bilgileri toplar. Aracı tabanlı bulma isteğe bağlıdır ve sanal makinelerin bağımlılıklarını görselleştirin istemiyorsanız aracıları yüklememeyi seçebilirsiniz.
 
 ### <a name="would-there-be-any-performance-impact-on-the-analyzed-esxi-host-environment"></a>Analiz edilen ESXi ana bilgisayar ortamının üzerinde bir performans etkisi olması?
 
@@ -98,7 +98,7 @@ Durumunda, [zaman bulma yaklaşımlardan](https://docs.microsoft.com/azure/migra
 
 Toplayıcı Gereci tarafından toplanan veriler, geçiş projesi oluştururken belirttiğiniz Azure konumunda depolanır. Veriler Microsoft abonelikte güvenli bir şekilde depolanır ve kullanıcı Azure geçişi projesini sildiğinde silinir.
 
-Aracıları Vm'lerde yüklerseniz bağımlılık görselleştirmesi için bağımlılık aracısı tarafından toplanan verileri ABD kullanıcının abonelikte oluşturulan bir OMS çalışma alanına depolanır. Aboneliğinizde OMS çalışma alanını sildiğinizde, bu verileri silinir. [Daha fazla bilgi edinin](https://docs.microsoft.com/azure/migrate/concepts-dependency-visualization).
+Aracıları Vm'lerde yüklerseniz bağımlılık görselleştirmesi için bağımlılık aracısı tarafından toplanan verileri ABD kullanıcının abonelikte oluşturulan bir Log Analytics çalışma alanında depolanır. Aboneliğinizde Log Analytics çalışma alanını sildiğinizde, bu verileri silinir. [Daha fazla bilgi edinin](https://docs.microsoft.com/azure/migrate/concepts-dependency-visualization).
 
 ### <a name="is-the-data-encrypted-at-rest-and-while-in-transit"></a>Veriler beklerken ve aktarım sırasında şifrelenir?
 
@@ -151,7 +151,7 @@ Evet, Azure geçişi, geçiş projesine mevcut bir çalışma alanı ekleyin ve 
 
 ### <a name="can-i-export-the-dependency-visualization-report"></a>Bağımlılık görselleştirme raporunu dışarı aktarabilir miyim?
 
-Hayır, bağımlılık görselleştirmesi dışarı aktarılamaz. Ancak, Azure geçişi kullandığı hizmet eşlemesi için bağımlılık görselleştirmeyi kullanabilirsiniz [hizmet eşlemesi REST API'lerini](https://docs.microsoft.com/rest/api/servicemap/machines/listconnections) bağımlılıkları bir json biçiminde alın.
+Hayır, bağımlılık görselleştirme raporunu dışarı aktarmak mümkün değildir. Ancak, Azure geçişi kullandığı hizmet eşlemesi için bağımlılık görselleştirmeyi kullanabilirsiniz [hizmet eşlemesi REST API'lerini](https://docs.microsoft.com/rest/api/servicemap/machines/listconnections) bağımlılıkları bir json biçiminde alın.
 
 ### <a name="how-can-i-automate-the-installation-of-microsoft-monitoring-agent-mma-and-dependency-agent"></a>Microsoft Monitoring Agent (MMA) ve bağımlılık aracısını yükleme nasıl otomatikleştirebilirim?
 

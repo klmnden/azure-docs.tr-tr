@@ -1,6 +1,6 @@
 ---
 title: Azure automation'da bir runbook ile log Analytics veri toplama | Microsoft Docs
-description: Adım adım öğretici, Log Analytics tarafından analiz için OMS depoda verileri toplamak için Azure automation'da bir runbook oluşturma işleminde size yol gösterir.
+description: Adım adım öğretici, Log Analytics tarafından depoda analiz verilerini toplamak için Azure automation'da bir runbook oluşturma işleminde size yol gösterir.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/27/2017
 ms.author: bwren
-ms.openlocfilehash: d3e8e876a6c01123d65c1e8df13328bdd5fad71f
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: f1a106a4f99c09134b8784e98ca547db51ce0eae
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37347160"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49409518"
 ---
 # <a name="collect-data-in-log-analytics-with-an-azure-automation-runbook"></a>Azure Otomasyonu runbook'u Log analytics'te verileri toplama
 Bir çeşitli kaynaklardan da dahil olmak üzere önemli miktarda Log analytics'te verileri toplayabilir [veri kaynakları](../log-analytics/log-analytics-data-sources.md) aracılarda da [Azure'dan toplanan veriler](../log-analytics/log-analytics-azure-storage.md).  Veri toplamak gereken, bu standart kaynakları aracılığıyla erişilebilir durumda değil ancak bir senaryo vardır.  Bu durumlarda, kullandığınız [HTTP veri toplayıcı API'sini](../log-analytics/log-analytics-data-collector-api.md) herhangi bir REST API istemcisinden Log Analytics'e veri yazmak için.  Bu veri toplamayı gerçekleştirmek için genel bir yöntemi, Azure Automation'da bir runbook kullanıyor.   
@@ -56,7 +56,7 @@ PowerShell Galerisi rağmen Bu öğretici için bu seçeneği kullanabilmeniz i�
 
 
 ## <a name="2-create-automation-variables"></a>2. Otomasyon değişkenleri oluşturma
-[Otomasyon değişkenleri](..\automation\automation-variables.md) Otomasyon hesabınızdaki tüm runbook'lar tarafından kullanılabilen değerleri tutar.  Runbook'ları daha esnek, gerçek runbook düzenleme olmadan bu değerleri değiştirmek olanak tanıyarak yaptıkları. OMS çalışma alanı anahtarını ve kimliği her isteğin HTTP veri toplayıcı API'sini gerektirir ve değişken varlıklar, bu bilgileri depolamak idealdir.  
+[Otomasyon değişkenleri](..\automation\automation-variables.md) Otomasyon hesabınızdaki tüm runbook'lar tarafından kullanılabilen değerleri tutar.  Runbook'ları daha esnek, gerçek runbook düzenleme olmadan bu değerleri değiştirmek olanak tanıyarak yaptıkları. Log Analytics çalışma alanı anahtarını ve kimliği her isteğin HTTP veri toplayıcı API'sini gerektirir ve değişken varlıklar, bu bilgileri depolamak idealdir.  
 
 ![Değişkenler](media/monitoring-runbook-datacollect/variables.png)
 
@@ -195,7 +195,7 @@ Zamanlama oluşturulduktan sonra bu zamanlamanın runbook her başlatıldığın
 
 6. Tıklayın **parametrelerini yapılandırma ve çalıştırma ayarları**.
 7. Değerleri girin, **ResourceGroupName** ve **AutomationAccountName**.
-8. **Tamam**’a tıklayın. 
+8. **Tamam** düğmesine tıklayın. 
 
 ## <a name="9-verify-runbook-starts-on-schedule"></a>9. Runbook başlatıldığında zamanlamaya göre doğrulayın
 Bir runbook başlatıldığında her [bir iş oluşturulur](../automation/automation-runbook-execution.md) ve günlüğe herhangi bir çıktı.  Aslında, runbook toplama aynı işleri şunlardır.  Runbook zamanlama için başlangıç saatini geçtikten sonra runbook için iş kontrol ederek beklenen şekilde başladığını doğrulayabilirsiniz.

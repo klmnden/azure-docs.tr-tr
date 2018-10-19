@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 03/22/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 433914bc4501b13ba65015d15b0c513a38bf1273
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 9a2193d78d564ad4a8c175a5116fa7dc9ebda256
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48041671"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49408753"
 ---
 # <a name="connect-configuration-manager-to-log-analytics"></a>Configuration Manager'ı Log Analytics'e bağlanma
 System Center Configuration Manager ortamınızı Azure Log Analytics'e eşitleme cihaz koleksiyonu verilere ve Log Analytics ve Azure Otomasyonu bu koleksiyonlara başvuru.  
@@ -40,7 +40,7 @@ Aşağıdaki adımlar, Log Analytics ile Configuration Manager tümleştirmesini
 6. Log analytics'te [koleksiyonları Configuration Manager'dan içeri aktarma](#import-collections) bilgisayar grupları olarak.
 7. Log Analytics'te verisinin Configuration Manager'dan olarak [bilgisayar grupları](log-analytics-computer-groups.md).
 
-Daha fazla Configuration Manager oms'ye bağlama hakkında [verileri Configuration Manager'dan Microsoft Operations Management Suite Eşitle](https://technet.microsoft.com/library/mt757374.aspx).
+Daha fazla Configuration Manager Log analytics'e bağlanma hakkında [verileri Configuration Manager'dan Microsoft Log analytics'e Eşitle](https://technet.microsoft.com/library/mt757374.aspx).
 
 ## <a name="grant-configuration-manager-with-permissions-to-log-analytics"></a>GRANT Configuration Manager'ı Log analytics'e izinlerle
 Aşağıdaki yordamda vermesi *katkıda bulunan* Log Analytics çalışma alanınızda AD uygulaması ve hizmet sorumlusu, daha önce oluşturduğunuz Configuration Manager için rol.  Bir çalışma alanı zaten yoksa bkz [Azure Log Analytics çalışma alanı oluşturma](log-analytics-quick-create-workspace.md) devam etmeden önce.  Bu, Configuration Manager'ın kimlik doğrulaması ve Log Analytics çalışma alanınıza bağlanmak için sağlar.  
@@ -59,20 +59,24 @@ Aşağıdaki yordamda vermesi *katkıda bulunan* Log Analytics çalışma alanı
 ## <a name="download-and-install-the-agent"></a>Aracısını indirme ve yükleme
 Makalesini gözden geçirin [Azure Log Analytics hizmetine bağlama Windows bilgisayarlara](log-analytics-agent-windows.md) Configuration Manager service'ı barındıran bilgisayarda Microsoft Monitoring Agent'ı yüklemek için kullanılabilen yöntemler anlamak için bağlantı noktası site sistemi rolü.  
 
-## <a name="add-an-oms-connection-to-configuration-manager"></a>Configuration Manager'a OMS bağlantısı ekleme
-OMS bağlantısı eklemek için Configuration Manager ortamınızı olmalıdır bir [hizmet bağlantı noktası](https://technet.microsoft.com/library/mt627781.aspx) çevrimiçi modu için yapılandırılmış.
+## <a name="add-a-log-analytics-connection-to-configuration-manager"></a>Configuration Manager için bir Log Analytics Bağlantısı Ekle
+Log Analytics bağlantısı eklemek için Configuration Manager ortamınızı olmalıdır bir [hizmet bağlantı noktası](https://technet.microsoft.com/library/mt627781.aspx) çevrimiçi modu için yapılandırılmış.
 
-1. İçinde **Yönetim** çalışma Configuration Manager, select **OMS Bağlayıcısı**. Bu açılır **OMS Bağlantısı Ekleme Sihirbazı'nı**. **İleri**’yi seçin.
+1. İçinde **Yönetim** çalışma Configuration Manager, select **OMS Bağlayıcısı**. Bu açılır **Log Analytics Bağlantı Sihirbazı ekleme**. **İleri**’yi seçin.
+
+   >[!NOTE]
+   >OMS, artık Log Analytics da adlandırılır.
+   
 2. Üzerinde **genel** aşağıdaki eylemleri yaptığınız her öğenin ayrıntılarını sahip ve ardından seçin ve onaylayın **sonraki**.
 
    1. Azure portalında bir Web uygulaması ve/veya Web API uygulaması olarak Configuration Manager kaydettiğinize göre ve sahip olduğunuz [kayıt istemci kimliği](../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md).
    2. Azure portalında Azure Active Directory'de kayıtlı uygulama için bir uygulama gizli anahtarı oluşturdunuz.  
-   3. Azure portalında OMS erişim iznine kayıtlı web uygulaması sağladık.  
-      ![OMS Sihirbazı genel sayfası bağlantısı](./media/log-analytics-sccm/sccm-console-general01.png)
+   3. Azure portalında Log Analytics erişim iznine kayıtlı web uygulaması sağladık.  
+      ![Log Analytics Sihirbazı genel sayfası bağlantısı](./media/log-analytics-sccm/sccm-console-general01.png)
 3. Üzerinde **Azure Active Directory** ekranında, sağlayarak Log analytics'e bağlantı ayarlarınızı yapılandırmak, **Kiracı**, **istemci kimliği**, ve **istemci Gizli anahtar**, ardından **sonraki**.  
-   ![OMS Sihirbazı Azure Active Directory sayfasına bağlantı](./media/log-analytics-sccm/sccm-wizard-tenant-filled03.png)
+   ![Log Analytics Sihirbazı Azure Active Directory sayfasına bağlantı](./media/log-analytics-sccm/sccm-wizard-tenant-filled03.png)
 4. Diğer tüm yordamları başarıyla sonra bilgileri üzerinde gerçekleştirilir, **OMS bağlantı yapılandırması** ekran otomatik olarak bu sayfada görüntülenir. Bağlantı ayarları için daha fazla bilgi için görünmelidir, **Azure aboneliği**, **Azure kaynak grubu**, ve **Operations Management Suite çalışma alanı**.  
-   ![OMS Sihirbazı OMS bağlantısı sayfasına bağlantı](./media/log-analytics-sccm/sccm-wizard-configure04.png)
+   ![Log Analytics Sihirbazı Log Analytics bağlantısını sayfasına bağlantı](./media/log-analytics-sccm/sccm-wizard-configure04.png)
 5. Sihirbaz, giriş bilgileri kullanarak Log Analytics hizmetine bağlanır. Eşitleme hizmeti ile ve ardından istediğiniz cihaz koleksiyonları seçin **Ekle**.  
    ![Koleksiyonları seçin](./media/log-analytics-sccm/sccm-wizard-add-collections05.png)
 6. Bağlantı ayarlarınızı doğrulayın **özeti** ekran ve ardından **sonraki**. **İlerleme** ekran bağlantı durumunu gösterir, ardından gereken **tam**.
@@ -91,7 +95,7 @@ Parolası veya istemci gizli anahtarı hiç olmadığı kadar süresi veya kaybo
 2. Bu sayfada tıklayın **Azure Active Directory** görüntülemek için sekmesinde, **Kiracı**, **istemci kimliği**, **istemci gizli anahtarı süre sonu**. **Doğrulama** , **istemci gizli anahtarının** süresi dolmuşsa.
 
 ## <a name="import-collections"></a>Koleksiyonları İçeri Aktar
-Configuration Manager OMS bağlantısı eklendi ve aracının yüklü bilgisayarda çalışan Configuration Manager hizmet bağlantı noktası site sistemi rolünün, sonraki adım Log analytics'te Yapılandırma Yöneticisi'nden koleksiyonları içeri aktarmak için bilgisayar grupları.
+Configuration Manager için bir Log Analytics bağlantısı eklendi ve aracının yüklü bilgisayarda çalışan Configuration Manager hizmet bağlantı noktası site sistemi rolünün, sonraki adıma günlüğünde Yapılandırma Yöneticisi'nden koleksiyonları içeri aktarmak için Bilgisayar grupları olarak Analytics.
 
 Cihaz koleksiyonları hiyerarşinizden içeri aktarmak için başlangıç yapılandırmasını tamamladıktan sonra koleksiyon üyelik bilgilerini üyelik güncel kalmasını sağlamak için 3 saatte alınır. Bu, istediğiniz zaman devre dışı seçebilirsiniz.
 
@@ -103,7 +107,7 @@ Cihaz koleksiyonları hiyerarşinizden içeri aktarmak için başlangıç yapıl
    ![Bilgisayar grupları - SCCM sekmesi](./media/log-analytics-sccm/sccm-computer-groups01.png)
 
 ## <a name="view-data-from-configuration-manager"></a>Verileri Configuration Manager'dan görüntüle
-Configuration Manager OMS bağlantısı eklendi ve Configuration Manager hizmet bağlantı noktası site sistem rolünü çalıştıran bilgisayarda aracının yüklü sonra Aracıdan verileri Log Analytics'e gönderilir. Log Analytics'te, Configuration Manager koleksiyon olarak görünür. [bilgisayar grupları](log-analytics-computer-groups.md). Gruplardan görüntüleyebileceğiniz **Configuration Manager** altındaki **Settings\Computer grupları**.
+Configuration Manager için bir Log Analytics bağlantısı eklendi ve Configuration Manager hizmet bağlantı noktası site sistem rolünü çalıştıran bilgisayarda aracının yüklü sonra Aracıdan verileri Log Analytics'e gönderilir. Log Analytics'te, Configuration Manager koleksiyon olarak görünür. [bilgisayar grupları](log-analytics-computer-groups.md). Gruplardan görüntüleyebileceğiniz **Configuration Manager** altındaki **Settings\Computer grupları**.
 
 Koleksiyonları içeri aktarıldıktan sonra kaç koleksiyon üyelikleri bilgisayarlarla algılanan görebilirsiniz. Aktarılan koleksiyonları sayısını da görebilirsiniz.
 

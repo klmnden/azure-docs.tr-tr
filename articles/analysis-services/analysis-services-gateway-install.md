@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 09/10/2018
+ms.date: 10/18/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 1ef5d51db34e0d0a947a4d6ba6c7e614b1ac3384
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: fa089db385995f6c44ea2238c91a3ac59946daae
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44348897"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49407665"
 ---
 # <a name="install-and-configure-an-on-premises-data-gateway"></a>Yükleme ve bir şirket içi veri ağ geçidi yapılandırma
 Aynı bölgede bir veya daha fazla Azure Analysis Services sunucusu şirket içi veri kaynaklarına bağlanmak için bir şirket içi veri ağ geçidi gereklidir. Ağ geçidi hakkında daha fazla bilgi için bkz. [şirket içi veri ağ geçidi](analysis-services-gateway.md).
@@ -40,7 +40,7 @@ Aynı bölgede bir veya daha fazla Azure Analysis Services sunucusu şirket içi
 * Ağ geçidini yüklerken, bilgisayarınızda oturum açmadıysanız kullanıcı hesabı günlük hizmeti ayrıcalıklar olmalıdır. Yükleme tamamlandığında, şirket içi veri ağ geçidi hizmeti bir hizmet olarak oturum açma için NT servıce\pbıegwservice hesabını kullanır. Kurulum tamamlandıktan sonra farklı bir hesap kurulumu sırasında veya hizmetleri belirtilebilir. Olun Grup İlkesi ayarları ile yüklerken oturumunuz hesabı hem seçtiğiniz hizmet hesabı, günlük hizmet ayrıcalıklarına sahip izin verin.
 * Azure'da oturum aç sahip bir hesap için aynı Azure AD'de [Kiracı](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant) aboneliğinde ağ geçidi kaydettirmekte olduğunuz. Azure B2B yüklerken ve bir ağ geçidi kaydediliyor (konuk) hesapları desteklenmez.
 * Veri kaynakları, bir Azure sanal ağ (VNet) varsa, yapılandırmalısınız [AlwaysUseGateway](analysis-services-vnet-gateway.md) sunucu özelliği.
-* Burada açıklanan (Birleşik) ağ geçidi, Azure kamu, Azure Almanya ve Çin Azure bağımsız bölgeler desteklenmiyor. Kullanım **Azure Analysis Services için ayrılmış şirket içi ağ geçidi**, sunucunuzun yüklü **Hızlı Başlangıç** portalında. 
+* Burada açıklanan (Birleşik) ağ geçidi, Azure Almanya bölgelerinde desteklenmez. Bunun yerine, **Azure Analysis Services için ayrılmış şirket içi ağ geçidi**, sunucunuzun yüklü **Hızlı Başlangıç** portalında. 
 
 
 ## <a name="download"></a>İndirme

@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 05/31/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 5180aa935ed5ab1a263c8dd002c2009ec89d5d86
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: cb2b4bdee445587b32516c8db869170ab067b8d3
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46311223"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49406866"
 ---
 # <a name="troubleshooting-errors-during-synchronization"></a>Eşitleme sırasında karşılaşılan hataları giderme
 Windows Server Active Directory'den (AD DS) Azure Active Directory (Azure AD) kimlik verilerini eşitlendiğinde hataları oluşabilir. Bu makalede, bu hataları ve hataları düzeltmek için olası yolları neden olası senaryolar bazıları eşitleme hatalarını farklı türde genel bir bakış sağlar. Bu makalede, sık karşılaşılan hata türlerini içerir ve tüm olası hataları kapsamayabilir.
@@ -178,7 +178,7 @@ b. UserPrincipalName özniteliği, gerekli biçime uymuyor.
 a. UserPrincipalName özniteliği, karakterleri ve gerekli biçime desteklenen olduğundan emin olun.
 
 #### <a name="related-articles"></a>İlgili makaleler
-* [Kullanıcıların Office 365 için dizin eşitleme yoluyla sağlamak hazırlama](https://support.office.com/en-us/article/Prepare-to-provision-users-through-directory-synchronization-to-Office-365-01920974-9e6f-4331-a370-13aea4e82b3e)
+* [Kullanıcıların Office 365 için dizin eşitleme yoluyla sağlamak hazırlama](https://support.office.com/article/Prepare-to-provision-users-through-directory-synchronization-to-Office-365-01920974-9e6f-4331-a370-13aea4e82b3e)
 
 ### <a name="federateddomainchangeerror"></a>FederatedDomainChangeError
 #### <a name="description"></a>Açıklama

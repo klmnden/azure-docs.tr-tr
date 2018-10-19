@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2018
 ms.author: apimpm
-ms.openlocfilehash: 8983e98bdfb99d71559e1d79d5f6e72c8366b954
-ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
+ms.openlocfilehash: 683efc6f772337754fc21a1e486d35b7f92e8f81
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48268538"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49428258"
 ---
 # <a name="how-to-implement-disaster-recovery-using-service-backup-and-restore-in-azure-api-management"></a>Olağanüstü durum kurtarma hizmeti Yedekleme kullanarak uygulayın ve Azure API Yönetimi'nde geri yükleme
 
@@ -122,7 +122,7 @@ Değiştirin `{tentand id}`, `{application id}`, ve `{redirect uri}` aşağıdak
 
 ## <a name="calling-the-backup-and-restore-operations"></a>Yedekleme ve geri yükleme işlemleri çağırma
 
-REST API'leri [API yönetim hizmeti - yedekleme](https://docs.microsoft.com/rest/api/apimanagement/apimanagementservice/backup) ve [API yönetim hizmeti - geri yükleme](https://docs.microsoft.com/rest/api/apimanagement/apimanagementservice/restore).
+REST API'leri [API yönetim hizmeti - yedekleme](https://docs.microsoft.com/rest/api/apimanagement/apimanagementservice/apimanagementservice_backup) ve [API yönetim hizmeti - geri yükleme](https://docs.microsoft.com/rest/api/apimanagement/apimanagementservice/apimanagementservice_restore).
 
 Aşağıdaki bölümlerde açıklanan "Yedekleme ve geri yükleme" işlemleri çağırmadan önce yetkilendirme isteği üst bilgisi, REST çağrısı için ayarlayın.
 

@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 10/11/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 694327cf7f7331a35a7e18cb68c566932c6231fc
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: 209d26ceb97bb32c18f6b8c4bad0fb3c5620b5b0
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49363512"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49408804"
 ---
 # <a name="automate-resources-in-your-datacenter-or-cloud-by-using-hybrid-runbook-worker"></a>Veri merkezinde veya bulutta kaynaklarında karma Runbook çalışanı kullanarak otomatik hale getirin.
 
@@ -97,7 +97,9 @@ Bir grubu kaldırmak için önce daha önce gösterilen bir yordamı kullanarak 
 
 Karma Runbook bağlanın ve Log Analytics ile kaydetmek çalışanı için bu bağlantı noktası numarası ve bu bölümünde açıklanan URL'lere erişimi olmalıdır. En üste bu erişime açıktır [bağlantı noktaları ve URL'ler Microsoft izleme aracısının gerektirdiği](../log-analytics/log-analytics-agent-windows.md) Log Analytics'e bağlanmak için.
 
-Log Analytics hizmeti ile aracı arasındaki iletişim için bir ara sunucu kullanıyorsanız uygun kaynakların erişilebilir olduğundan emin olun. İnternet'e erişimi kısıtlamak için Güvenlik Duvarı'nı kullanıyorsanız erişime izin vermek için güvenlik duvarını yapılandırmanız gerekir. OMS ağ geçidi bir ara sunucu kullanırsanız, karma çalışanları için yapılandırıldığından emin olun. Bunun nasıl yapılacağı hakkında yönergeler için bkz [Otomasyon karma çalışanı için OMS ağ geçidi yapılandırma](https://docs.microsoft.com/azure/log-analytics/log-analytics-oms-gateway#configure-for-automation-hybrid-workers).
+<<<<<<< Log Analytics hizmeti ile aracı arasındaki iletişim için bir ara sunucu kullanıyorsanız baş uygun kaynakların erişilebilir olduğundan emin olun. İnternet'e erişimi kısıtlamak için Güvenlik Duvarı'nı kullanıyorsanız erişime izin vermek için güvenlik duvarını yapılandırmanız gerekir. Log Analytics ağ geçidi bir ara sunucu kullanırsanız, karma çalışanları için yapılandırıldığından emin olun. Bunun nasıl yapılacağı hakkında yönergeler için bkz [Otomasyon karma çalışanı için Log Analytics ağ geçidini yapılandırma](https://docs.microsoft.com/azure/log-analytics/log-analytics-oms-gateway#configure-for-automation-hybrid-workers).
+=== Log Analytics hizmeti ile aracı arasındaki iletişim için bir ara sunucu kullanmak, uygun kaynakların erişilebilir olduğundan emin olun. İnternet'e erişimi kısıtlamak için Güvenlik Duvarı'nı kullanıyorsanız erişime izin vermek için güvenlik duvarını yapılandırmanız gerekir. OMS ağ geçidi bir ara sunucu kullanırsanız, karma çalışanları için yapılandırıldığından emin olun. Bunun nasıl yapılacağı hakkında yönergeler için bkz [Otomasyon karma çalışanı için OMS ağ geçidi yapılandırma](https://docs.microsoft.com/azure/log-analytics/log-analytics-oms-gateway#configure-for-automation-hybrid-workers).
+>>>>>>> f2c0e12936cdc838c25a786d71c35bb15c053c70
 
 Aşağıdaki bağlantı noktası ve URL'leri Otomasyonu ile iletişim kurmak karma Runbook çalışanı rolü için gereklidir:
 

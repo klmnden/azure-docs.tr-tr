@@ -5,21 +5,23 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 09/07/2018
+ms.date: 10/15/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: c26eee05a59a10036138f81086b3f6a9e0de6d5d
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 5da34e8e79c0df88cfad0b398aa8e1c22f158489
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45737303"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49428888"
 ---
-# <a name="manage-access-rights-to-azure-storage-data-with-rbac-preview"></a>RBAC (Önizleme) ile Azure depolama verilere erişim haklarını yönetme
+# <a name="manage-access-rights-to-azure-blob-and-queue-data-with-rbac-preview"></a>Azure Blob ve kuyruk verisi ile RBAC (Önizleme) için erişim haklarını yönetme
 
 Azure Active Directory (Azure AD) ile güvenli kaynaklara erişim hakları yetkilendirir [rol tabanlı erişim denetimi (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview). Azure depolama genel kapsayıcılar veya sıralara erişmek için kullanılan izin kümelerini kapsayacak yerleşik RBAC rolleri kümesi tanımlar. Ne zaman bir RBAC rolü atanmış bir Azure AD kimlik için kimlik bu kaynaklara erişimi verilir göre belirtilen kapsam. Abonelik, kaynak grubu, depolama hesabı veya bir kapsayıcının veya kuyruk düzeyi için erişimi sınırlayabilirsiniz. Azure portalı, Azure komut satırı araçları ve Azure Management API'leri kullanarak Azure Storage kaynakları için erişim hakları atayabilirsiniz. 
 
 Bir kullanıcı, Grup veya uygulama hizmet sorumlusunun bir Azure AD kimlik olabilir veya Azure kaynakları için bir yönetilen kimlik olabilir. Bir güvenlik sorumlusu, kullanıcı, Grup veya uygulama hizmet sorumlusu olabilir. A [yönetilen Azure kaynakları için kimliği](../../active-directory/managed-identities-azure-resources/overview.md) olan Azure sanal makineleri, işlev uygulamaları, sanal makine ölçek kümeleri ve diğerleri çalışan uygulamalardan kimliğini doğrulamak için kullanılan otomatik olarak yönetilen bir kimlik. Azure AD'de kimlik genel bakış için bkz. [anlamak Azure kimlik çözümleri](https://docs.microsoft.com/azure/active-directory/understand-azure-identity-solutions).
+
+[!INCLUDE [storage-auth-aad-note-include](../../../includes/storage-auth-aad-note-include.md)]
 
 ## <a name="rbac-roles-for-blobs-and-queues"></a>RBAC rolleri için BLOB'lar ve Kuyruklar
 

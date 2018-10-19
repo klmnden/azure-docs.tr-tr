@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 07/03/2018
+ms.date: 10/18/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: d19e45710aca3e1e18be6c4529da6474a97bc59f
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: a8d6080b573cbad1004166f28a3e6596560241be
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37450353"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49426524"
 ---
 # <a name="setup-diagnostic-logging"></a>Tanılama günlüğüne kaydetmeyi ayarlama
 
@@ -46,7 +46,7 @@ Seçme **altyapısı** tüm günlükleri [Xevent'ler](https://docs.microsoft.com
 |Keşif     |   Son keşfedin      |
 |Bildirim     |    Bildirim     |
 |Oturum     |  Oturum başlatma       |
-|Kilitler    |  Kilitlenme       |
+|Kilitler    |  Çıkmaz       |
 |Sorgu işleme     |   VertiPaq SE sorgusu başla      |
 |Sorgu işleme     |   VertiPaq SE sorgusu bitiş      |
 |Sorgu işleme     |   VertiPaq SE sorgusu önbellek eşleştir      |
@@ -70,7 +70,7 @@ Seçme **altyapısı** tüm günlükleri [Xevent'ler](https://docs.microsoft.com
 
 ## <a name="setup-diagnostics-logging"></a>Tanılama günlüğüne kaydetmeyi ayarlama
 
-### <a name="azure-portal"></a>Azure portalına
+### <a name="azure-portal"></a>Azure portal
 
 1. İçinde [Azure portalında](https://portal.azure.com) > sunucu, tıklayın **tanılama günlükleri** 'a tıklayın ve sol gezinti **tanılamayı Aç**.
 

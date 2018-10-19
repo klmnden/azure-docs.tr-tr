@@ -1,277 +1,263 @@
 ---
-title: 'Öğretici: Azure Active Directory Tümleştirme Uyarlamalı Insights ile | Microsoft Docs'
-description: Çoklu oturum açma Azure Active Directory ile Uyarlamalı Öngörüler arasında yapılandırmayı öğrenin.
+title: 'Öğretici: Azure Active Directory Tümleştirme Uyarlamalı öngörülerle | Microsoft Docs'
+description: Azure Active Directory ve Uyarlamalı Insights arasında çoklu oturum açmayı yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: femila
+ms.reviewer: joflore
 ms.assetid: 13af9d00-116a-41b8-8ca0-4870b31e224c
 ms.service: active-directory
-ms.component: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/14/2018
+ms.date: 10/16/2018
 ms.author: jeedes
-ms.openlocfilehash: 307c3cf258a74d1ddfb409f0d5b22d9e1fd6bf4b
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 74f38ef3043cfa0e6df40c264b72cc5eae38544e
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36213830"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49430298"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-adaptive-insights"></a>Öğretici: Azure Active Directory Tümleştirme Uyarlamalı Insights ile
+# <a name="tutorial-azure-active-directory-integration-with-adaptive-insights"></a>Öğretici: Azure Active Directory Tümleştirme Uyarlamalı öngörülerle
 
-Bu öğreticide, Azure Active Directory (Azure AD) ile Uyarlamalı Öngörüler tümleştirmek öğrenin.
+Bu öğreticide, Uyarlamalı Insights Azure Active Directory (Azure AD) ile tümleştirmeyi öğrenin.
 
-Azure AD ile Uyarlamalı Insights tümleştirme ile aşağıdaki avantajları sağlar:
+Uyarlamalı Insights'ı Azure AD ile tümleştirme ile aşağıdaki avantajları sağlar:
 
-- Uyarlamalı Öngörüler erişimi, Azure AD'de kontrol edebilirsiniz
-- Azure AD hesaplarına otomatik olarak Uyarlamalı Öngörüler'e (çoklu oturum açma) açan kullanıcılarınıza etkinleştirebilirsiniz
-- Hesaplarınızı bir merkezi konumda - Azure portalında yönetebilir
+- Uyarlamalı Insights erişimi, Azure AD'de kontrol edebilirsiniz.
+- Azure AD hesaplarına otomatik olarak Uyarlamalı Insights'a (çoklu oturum açma) açan, kullanıcılarınızın etkinleştirebilirsiniz.
+- Hesaplarınız bir merkezi konumda - Azure portalında yönetebilir.
 
-Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](../manage-apps/what-is-single-sign-on.md).
+Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz. [uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Azure AD tümleştirme Uyarlamalı Insights ile yapılandırmak için aşağıdaki öğeleri gerekir:
+Uyarlamalı Insights ile Azure AD tümleştirmesini yapılandırmak için aşağıdaki öğeler gerekir:
 
-- Bir Azure AD aboneliği
-- Bir Uyarlamalı Öngörüler çoklu oturum açma abonelik etkin
+- Azure AD aboneliği
+- Abonelik bir Uyarlamalı Insights çoklu oturum açma etkin
 
 > [!NOTE]
-> Bu öğreticide adımları test etmek için bir üretim ortamı'nı kullanarak önermiyoruz.
+> Bu öğreticideki adımları test etmek için üretim ortamı kullanarak önermiyoruz.
 
-Bu öğreticide test adımları için bu önerileri uygulamanız gerekir:
+Bu öğreticideki adımları test etmek için bu önerileri izlemelidir:
 
-- Gerekli olmadığı sürece, üretim ortamınızın kullanmayın.
-- Bir Azure AD deneme ortam yoksa, şunları yapabilirsiniz [bir aylık deneme sürümünü edinin](https://azure.microsoft.com/pricing/free-trial/).
+- Gerekli olmadıkça, üretim ortamında kullanmayın.
+- Azure AD deneme ortamı yoksa, şunları yapabilirsiniz [bir aylık deneme sürümü edinin](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Senaryo açıklaması
-Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide gösterilen senaryo iki ana yapı taşlarını oluşur:
+Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide özetlenen senaryo iki temel yapı taşları oluşur:
 
-1. Galeriden Uyarlamalı Öngörüler ekleme
-2. Çoklu oturum açmayı yapılandırma ve Azure AD sınama
+1. Galeriden Uyarlamalı Insights ekleme
+2. Yapılandırma ve test Azure AD çoklu oturum açma
 
-## <a name="adding-adaptive-insights-from-the-gallery"></a>Galeriden Uyarlamalı Öngörüler ekleme
-Azure AD Uyarlamalı Öngörüler tümleştirmesini yapılandırmak için yönetilen SaaS uygulamaları listenize Galeriden Uyarlamalı Öngörüler eklemeniz gerekir.
+## <a name="adding-adaptive-insights-from-the-gallery"></a>Galeriden Uyarlamalı Insights ekleme
+Azure AD Uyarlamalı Öngörüler tümleştirmesini yapılandırmak için Uyarlamalı Insights Galeriden yönetilen SaaS uygulamaları listesine eklemeniz gerekir.
 
-**Galeriden Uyarlamalı Öngörüler eklemek için aşağıdaki adımları gerçekleştirin:**
+**Galeriden Uyarlamalı Insights eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde  **[Azure portal](https://portal.azure.com)**, sol gezinti panosunda, tıklatın **Azure Active Directory** simgesi. 
+1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
 
-    ![Active Directory][1]
+    ![image](./media/adaptivesuite-tutorial/selectazuread.png)
 
 2. Gidin **kurumsal uygulamalar**. Ardından **tüm uygulamaları**.
 
-    ![Uygulamalar][2]
+    ![image](./media/adaptivesuite-tutorial/a_select_app.png)
+    
+3. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmındaki düğmesi.
 
-3. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmında düğmesi.
+    ![image](./media/adaptivesuite-tutorial/a_new_app.png)
 
-    ![Uygulamalar][3]
+4. Arama kutusuna **Uyarlamalı Insights**seçin **Uyarlamalı Insights** sonucu panelinden ardından **Ekle** uygulama eklemek için Ekle düğmesine.
 
-4. Arama kutusuna **Uyarlamalı Öngörüler**seçin **Uyarlamalı Öngörüler** sonuç panelinden ardından **Ekle** uygulama eklemek için düğmeyi.
+     ![image](./media/adaptivesuite-tutorial/tutorial_adaptivesuite_addfromgallery.png)
 
-    ![Bir Azure AD test kullanıcısı oluşturma](./media/adaptivesuite-tutorial/tutorial_adaptivesuite_addfromgallery.png)
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Yapılandırma ve Azure AD çoklu oturum açmayı test etme
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Çoklu oturum açmayı yapılandırma ve Azure AD sınama
-Bu bölümde, yapılandırma ve Azure AD çoklu oturum açma Uyarlamalı "Britta Simon." olarak adlandırılan bir test kullanıcı dayalı Öngörüler ile test etme
+Bu bölümde, yapılandırın ve Uyarlamalı "Britta Simon" adlı bir test kullanıcı tabanlı Insights ile Azure AD çoklu oturum açma testi.
 
-Tekli çalışmaya oturum için Azure AD ne karşılık gelen Uyarlamalı ilişkin bilgiler bir kullanıcı için Azure AD içinde olduğu bilmek ister. Diğer bir deyişle, bir Azure AD kullanıcısının Uyarlamalı Öngörüler ilgili kullanıcı arasında bir bağlantı ilişkisi kurulması gerekir.
+Tek çalışmak için oturum açma için Azure AD ne Uyarlamalı ınsights karşılığı kullanıcı için bir kullanıcı Azure AD'de olduğunu bilmeniz gerekir. Diğer bir deyişle, bir Azure AD kullanıcısı ve ilgili kullanıcı Uyarlamalı ınsights arasında bir bağlantı ilişki kurulması gerekir.
 
-Yapılandırma ve Azure AD çoklu oturum açma Uyarlamalı Insights ile test etmek için aşağıdaki yapı taşları tamamlamanız gerekir:
+Yapılandırma ve Azure AD çoklu oturum açma Uyarlamalı öngörülerle sınamak için aşağıdaki yapı taşlarını tamamlanması gerekir:
 
-1. **[Azure AD çoklu oturum açma yapılandırma](#configuring-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
-2. **[Bir Azure AD test kullanıcısı oluşturma](#creating-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
-3. **[Uyarlamalı Öngörüler test kullanıcısı oluşturma](#creating-an-adaptive-insights-test-user)**  - Britta Simon, karşılık gelen kullanıcı Azure AD gösterimini bağlı Uyarlamalı Öngörüler sağlamak için.
-4. **[Azure AD test kullanıcısı atama](#assigning-the-azure-ad-test-user)**  - Azure AD çoklu oturum açma kullanmak Britta Simon etkinleştirmek için.
-5. **[Çoklu oturum açmayı test](#testing-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
+1. **[Azure AD çoklu oturum açmayı yapılandırmayı](#configure-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
+2. **[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
+3. **[Uyarlamalı ınsights'ı bir test kullanıcısı oluşturma](#create-an-adaptive-insights-test-user)**  - kullanıcı Azure AD gösterimini bağlı Uyarlamalı ınsights'ta Britta simon'un bir karşılığı vardır.
+4. **[Azure AD test kullanıcı atama](#assign-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
+5. **[Çoklu oturum açmayı test](#test-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırma
+### <a name="configure-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırın
 
-Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve çoklu oturum açma Uyarlamalı Öngörüler uygulamanızda yapılandırın.
+Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve Uyarlamalı Insights uygulamanızda çoklu oturum açmayı yapılandırın.
 
 **Azure AD çoklu oturum açma Uyarlamalı Insights ile yapılandırmak için aşağıdaki adımları gerçekleştirin:**
 
-1. Azure portalında üzerinde **Uyarlamalı Öngörüler** uygulama tümleştirme sayfasını tıklatın **çoklu oturum açma**.
+1. İçinde [Azure portalında](https://portal.azure.com/), **Uyarlamalı Insights** uygulama tümleştirme sayfasında **çoklu oturum açma**.
 
-    ![Çoklu oturum açmayı yapılandırın][4]
+    ![image](./media/adaptivesuite-tutorial/B1_B2_Select_SSO.png)
 
-2. Üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** çoklu oturum açmayı etkinleştirmek için.
+2. Üzerinde **tek bir oturum açma yönteminizi seçmeniz** iletişim kutusunda, **SAML** modu, çoklu oturum açmayı etkinleştirmek için.
 
-    ![Çoklu oturum açmayı yapılandırın](./media/adaptivesuite-tutorial/tutorial_adaptivesuite_samlbase.png)
+    ![image](./media/adaptivesuite-tutorial/b1_b2_saml_sso.png)
 
-3. Üzerinde **Uyarlamalı Öngörüler etki alanı ve URL'leri** bölümünde, aşağıdaki adımları gerçekleştirin:
+3. Üzerinde **yukarı çoklu oturum açma SAML ile ayarlanmış** sayfasında **Düzenle** açmak için düğmeyi **temel SAML yapılandırma** iletişim.
 
-    ![Çoklu oturum açmayı yapılandırın](./media/adaptivesuite-tutorial/tutorial_adaptivesuite_url.png)
+    ![image](./media/adaptivesuite-tutorial/b1-domains_and_urlsedit.png)
 
-    a. İçinde **tanımlayıcısı (varlık kimliği)** metin kutusuna, URL şu biçimi kullanarak bir yazın: `https://login.adaptiveinsights.com:443/samlsso/<unique-id>`
+4. Üzerinde **temel SAML yapılandırma** bölümünde, uygulamada yapılandırmak istiyorsanız aşağıdaki adımları gerçekleştirin **IDP** intiated modu:
 
-    b. İçinde **yanıt URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın: `https://login.adaptiveinsights.com:443/samlsso/<unique-id>`
+    ![image](./media/adaptivesuite-tutorial/tutorial_adaptivesuite_url.png)
+
+    a. İçinde **tanımlayıcı (varlık kimliği)** metin kutusuna bir URL şu biçimi kullanarak: `https://login.adaptiveinsights.com:443/samlsso/<unique-id>`
+
+    b. İçinde **yanıt URL'si** metin kutusuna bir URL şu biçimi kullanarak: `https://login.adaptiveinsights.com:443/samlsso/<unique-id>`
 
     >[!NOTE]
-    > Uyarlamalı ilişkin bilgiler 's tanımlayıcısı (varlık kimliği) ve yanıt URL'si değerleri alabilirsiniz **SAML SSO ayarları** sayfası.
+    > Uyarlamalı Insights'tan 's tanımlayıcı (varlık kimliği) ve yanıt URL'si değerleri alabilirsiniz **SAML SSO ayarlarını** sayfası.
+ 
+5. Üzerinde **yukarı çoklu oturum açma SAML ile ayarlanmış** sayfasında **SAML imzalama sertifikası** bölümünde **indirme** indirmek için **sertifika (Base64)** ve bilgisayarınıza kaydedin.
 
-4. Üzerinde **SAML imzalama sertifikası** 'yi tıklatın **sertifika (Base64)** ve sertifika dosyayı bilgisayarınıza kaydedin.
+    ![image](./media/adaptivesuite-tutorial/tutorial_adaptivesuite_certficate.png) 
 
-    ![Çoklu oturum açmayı yapılandırın](./media/adaptivesuite-tutorial/tutorial_adaptivesuite_certificate.png)
+6. Üzerinde **Uyarlamalı ınsights'ı ayarlarken** bölümünde, ihtiyacınıza göre uygun URL'yi kopyalayın.
 
-5. Tıklatın **kaydetmek** düğmesi.
+    Not: URL aşağıdaki bildirebilir
 
-    ![Çoklu oturum açmayı yapılandırın](./media/adaptivesuite-tutorial/tutorial_general_400.png)
+    a. Oturum Açma URL'si:
 
-6. Üzerinde **Uyarlamalı Insights Yapılandırması** 'yi tıklatın **yapılandırma Uyarlamalı Öngörüler** açmak için **yapılandırma oturum açma** penceresi. Kopya **SAML varlık kimliği ve SAML çoklu oturum açma hizmet URL'si** gelen **hızlı başvuru bölümü.**
+    b. Azure Ad tanımlayıcısı
 
-    ![Çoklu oturum açmayı yapılandırın](./media/adaptivesuite-tutorial/tutorial_adaptivesuite_configure.png) 
+    c. Oturum Kapatma URL'si
 
-7. Farklı web tarayıcısı penceresinde Uyarlamalı Öngörüler şirket sitenize yönetici olarak oturum açın.
+    ![image](./media/adaptivesuite-tutorial/d1_samlsonfigure.png) 
+
+7. Farklı bir web tarayıcı penceresinde Uyarlamalı Insights şirketinizin sitesi için bir yönetici olarak oturum açın.
 
 8. Git **yönetici**.
 
     ![Yönetici](./media/adaptivesuite-tutorial/IC805644.png "yönetici")
 
-9. İçinde **kullanıcılar ve roller** 'yi tıklatın **SAML SSO ayarları yönetme**.
+9. İçinde **kullanıcıları ve rolleri** bölümünde **SAML SSO ayarlarını Yönet**.
 
-    ![SAML SSO ayarlarını Yönet](./media/adaptivesuite-tutorial/IC805645.png "SAML SSO ayarlarını yönet")
+    ![SAML SSO ayarlarını yönetme](./media/adaptivesuite-tutorial/IC805645.png "SAML SSO ayarlarını yönetme")
 
-10. Üzerinde **SAML SSO ayarları** sayfasında, aşağıdaki adımları gerçekleştirin:
+10. Üzerinde **SAML SSO ayarlarını** sayfasında, aşağıdaki adımları gerçekleştirin:
 
-    ![SAML SSO ayarları](./media/adaptivesuite-tutorial/IC805646.png "SAML SSO ayarları")
+    ![SAML SSO ayarlarını](./media/adaptivesuite-tutorial/IC805646.png "SAML SSO ayarları")
 
-    a. İçinde **kimlik sağlayıcı adı** metin kutusuna, yapılandırmanız için bir ad yazın.
+    a. İçinde **kimlik sağlayıcı adı** metin yapılandırmanız için bir ad yazın.
 
-    b. Yapıştır **SAML varlık kimliği** değeri kopyalanan Azure portalından **kimlik sağlayıcısı varlık kimliği** metin kutusu.
+    b. Yapıştırma **Azure Ad tanımlayıcısı** değeri kopyalanan Azure portalından **kimlik sağlayıcısı varlık kimliği** metin.
 
-    c. Yapıştır **SAML çoklu oturum açma hizmet URL'si** değeri kopyalanan Azure portalından **kimlik sağlayıcısı SSO URL** metin kutusu.
+    c. Yapıştırma **oturum açma URL'si** değeri kopyalanan Azure portalından **kimlik sağlayıcısı SSO URL** metin.
 
-    d. Yapıştır **SAML çoklu oturum açma hizmet URL'si** değeri kopyalanan Azure portalından **özel oturum kapatma URL'si** metin kutusu.
+    d. Yapıştırma **oturum kapatma URL'si** değeri kopyalanan Azure portalından **özel oturum kapatma URL'si** metin.
 
     e. İndirilen sertifikanızı karşıya yüklemek için tıklayın **dosya**.
 
-    f. İçin aşağıdakileri seçin:
+    f. İçin şunu seçin:
 
-    * **SAML kullanıcı kimliği**seçin **Uyarlamalı Öngörüler kullanıcının adını**.
+    * **SAML kullanıcı kimliği**seçin **Uyarlamalı Insights kullanıcının adını**.
 
-    * **SAML kullanıcı kimliği konumu**seçin **NameID, konu kullanıcı kimliği**.
+    * **SAML kullanıcı kimliği konumu**seçin **kullanıcı kimliği, Nameıd konusunda**.
 
-    * **SAML NameID biçimi**seçin **e-posta adresi**.
+    * **SAML Nameıd biçimi**seçin **e-posta adresi**.
 
-    * **SAML'yi etkinleştir**seçin **izin SAML SSO ve doğrudan Uyarlamalı Öngörüler oturum açma**.
+    * **SAML'yi etkinleştir**seçin **izin SAML SSO ve doğrudan Uyarlamalı Insights oturum açma**.
 
-    g. Kopya **Uyarlamalı Öngörüler SSO URL** kopyalayıp yapıştırabilir **tanımlayıcısı (varlık kimliği)** ve **yanıt URL'si** metin kutuları içinde **Uyarlamalı Öngörüler etki alanı ve URL'leri** Azure portalı bölümünde.
+    g. Kopyalama **Uyarlamalı Insights SSO URL** ve yapıştırmak **tanımlayıcı (varlık kimliği)** ve **yanıt URL'si** metin kutuları içinde **Uyarlamalı Insights etki alanı ve URL'ler** bölümünde Azure portalında.
 
     h. **Kaydet**’e tıklayın.
 
-### <a name="creating-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
-Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı oluşturmaktır.
+### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
 
-![Azure AD Kullanıcı oluşturma][100]
+Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcısı oluşturmaktır.
 
-**Azure AD'de bir test kullanıcı oluşturmak için aşağıdaki adımları gerçekleştirin:**
+1. Azure portalında, sol bölmede seçin **Azure Active Directory**seçin **kullanıcılar**ve ardından **tüm kullanıcılar**.
 
-1. İçinde **Azure portal**, sol gezinti bölmesinde tıklatın **Azure Active Directory** simgesi.
+    ![image](./media/adaptivesuite-tutorial/d_users_and_groups.png)
 
-    ![Bir Azure AD test kullanıcısı oluşturma](./media/adaptivesuite-tutorial/create_aaduser_01.png) 
+2. Seçin **yeni kullanıcı** ekranın üstünde.
 
-2. Kullanıcıların listesini görüntülemek için şu adrese gidin **kullanıcılar ve gruplar** tıklatıp **tüm kullanıcılar**.
+    ![image](./media/adaptivesuite-tutorial/d_adduser.png)
 
-    ![Bir Azure AD test kullanıcısı oluşturma](./media/adaptivesuite-tutorial/create_aaduser_02.png) 
+3. Kullanıcı özellikleri, aşağıdaki adımları gerçekleştirin.
 
-3. Açmak için **kullanıcı** iletişim kutusunda, tıklatın **Ekle** iletişim kutusunun üst kısmında.
+    ![image](./media/adaptivesuite-tutorial/d_userproperties.png)
 
-    ![Bir Azure AD test kullanıcısı oluşturma](./media/adaptivesuite-tutorial/create_aaduser_03.png) 
+    a. İçinde **adı** alana **BrittaSimon**.
+  
+    b. İçinde **kullanıcı adı** alan türü **brittasimon@yourcompanydomain.extension**  
+    Örneğin, BrittaSimon@contoso.com
 
-4. Üzerinde **kullanıcı** iletişim sayfasında, aşağıdaki adımları gerçekleştirin:
+    c. Seçin **özellikleri**seçin **Show parola** onay kutusunu işaretleyin ve ardından parola kutusunda görüntülenen değeri yazın.
 
-    ![Bir Azure AD test kullanıcısı oluşturma](./media/adaptivesuite-tutorial/create_aaduser_04.png)
+    d. **Oluştur**’u seçin.
+ 
+### <a name="create-an-adaptive-insights-test-user"></a>Uyarlamalı ınsights'ı bir test kullanıcısı oluşturma
 
-    a. İçinde **adı** metin kutusuna, türü **BrittaSimon**.
-
-    b. İçinde **kullanıcı adı** metin kutusuna, türü **e-posta adresi** BrittaSimon biri.
-
-    c. Seçin **Göster parola** ve değerini yazma **parola**.
-
-    d. **Oluştur**’a tıklayın.
-
-### <a name="creating-an-adaptive-insights-test-user"></a>Uyarlamalı Öngörüler test kullanıcısı oluşturma
-
-Uyarlamalı Insights'a oturum açmak Azure AD kullanıcıları etkinleştirmek için bunlar Uyarlamalı Öngörüler sağlanmalıdır. Uyarlamalı Öngörüler söz konusu olduğunda, sağlama bir el ile bir görevdir.
+Uyarlamalı Insights'a oturum açmak Azure AD kullanıcılarının etkinleştirmek için bunlar Uyarlamalı Öngörüler sağlanması gerekir. Uyarlamalı Insights söz konusu olduğunda, sağlama, elle bir görevin.
 
 **Kullanıcı sağlamayı yapılandırmak için aşağıdaki adımları gerçekleştirin:** 
 
-1. Oturum, **Uyarlamalı Öngörüler** yönetici olarak şirket site.
+1. Oturum açın, **Uyarlamalı Insights** yönetici olarak şirketin site.
 2. Git **yönetici**.
 
    ![Yönetici](./media/adaptivesuite-tutorial/IC805644.png "yönetici")
-3. İçinde **kullanıcılar ve roller** 'yi tıklatın **Kullanıcı Ekle**.
+
+3. İçinde **kullanıcıları ve rolleri** bölümünde **Kullanıcı Ekle**.
 
    ![Kullanıcı ekleme](./media/adaptivesuite-tutorial/IC805648.png "kullanıcı ekleme")
+   
 4. İçinde **yeni kullanıcı** bölümünde, aşağıdaki adımları gerçekleştirin:
 
-   ![Gönderme](./media/adaptivesuite-tutorial/IC805649.png "Gönder")
+   ![Gönderme](./media/adaptivesuite-tutorial/IC805649.png "gönderin")
 
-   a. Tür **adı**, **oturum açma**, **e-posta**, **parola** istediğiniz ilgili metin kutularına sağlamayı geçerli bir Azure Active Directory kullanıcı.
+   a. Tür **adı**, **oturum açma**, **e-posta**, **parola** ilgili zbilgisayarlar istediğiniz geçerli bir Azure Active Directory kullanıcısı metin kutuları.
 
    b. Seçin bir **rol**.
 
-   c. Tıklatın **gönderme**.
+   c. Tıklayın **gönderme**.
 
 >[!NOTE]
->API tarafından Uyarlamalı Öngörüler sağlama AAD kullanıcı hesaplarına sağlanan veya herhangi diğer Uyarlamalı Öngörüler kullanıcı hesabı oluşturma araçlarını kullanabilirsiniz.
+>Herhangi diğer Uyarlamalı Insights kullanıcı hesabı oluşturma araçları kullanabilir veya API'leri için AAD kullanıcı hesapları sağlamak Uyarlamalı Insights tarafından sağlanan.
 >
 
-### <a name="assigning-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atama
+### <a name="assign-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atayın
 
-Bu bölümde, Uyarlamalı Öngörüler'e erişim vererek, Azure çoklu oturum açma kullanılacak Britta Simon etkinleştirin.
+Bu bölümde, Uyarlamalı Öngörülere erişim vererek, Azure çoklu oturum açma kullanılacak Britta Simon etkinleştirin.
 
-![Kullanıcı atama][200]
+1. Azure portalında **kurumsal uygulamalar**seçin **tüm uygulamaları**.
 
-**Uyarlamalı Insights'a Britta Simon atamak için aşağıdaki adımları gerçekleştirin:**
+    ![image](./media/adaptivesuite-tutorial/d_all_applications.png)
 
-1. Azure portalında uygulamaları görünümünü açın ve ardından dizin görünümüne gidin ve Git **kurumsal uygulamalar** ardından **tüm uygulamaları**.
+2. Uygulamalar listesinde **Uyarlamalı Insights**.
 
-    ![Kullanıcı atama][201]
+    ![image](./media/adaptivesuite-tutorial/tutorial_adaptivesuite_app.png)
 
-2. Uygulamalar listesinde **Uyarlamalı Öngörüler**.
+3. Soldaki menüde **kullanıcılar ve gruplar**.
 
-    ![Çoklu oturum açmayı yapılandırın](./media/adaptivesuite-tutorial/tutorial_adaptivesuite_app.png)
+    ![image](./media/adaptivesuite-tutorial/d_leftpaneusers.png)
 
-3. Soldaki menüde tıklatın **kullanıcılar ve gruplar**.
+4. Seçin **Ekle** düğmesine ve ardından **kullanıcılar ve gruplar** içinde **atama Ekle** iletişim.
 
-    ![Kullanıcı atama][202]
+    ![image](./media/adaptivesuite-tutorial/d_assign_user.png)
 
-4. Tıklatın **Ekle** düğmesi. Ardından **kullanıcılar ve gruplar** üzerinde **eklemek atama** iletişim.
+4. İçinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** 'a tıklayın kullanıcı listesinde **seçin** ekranın alt kısmındaki düğmesi.
 
-    ![Kullanıcı atama][203]
+5. İçinde **atama Ekle** iletişim kutusunda **atama** düğmesi.
+    
+### <a name="test-single-sign-on"></a>Çoklu oturum açma testi
 
-5. Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** kullanıcıları listesinde.
+Bu bölümde, erişim panelini kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
 
-6. Tıklatın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.
-
-7. Tıklatın **atamak** düğmesini **eklemek atama** iletişim.
-
-### <a name="testing-single-sign-on"></a>Çoklu oturum açmayı test etme
-
-Bu bölümün amacı erişim paneli kullanılarak Microsoft Azure AD çoklu oturum açma yapılandırmanızı test sağlamaktır.
-
-Erişim paneli Uyarlamalı Öngörüler parçasında tıklattığınızda, otomatik olarak Uyarlamalı Öngörüler uygulamanıza açan.
+Erişim panelinde Uyarlamalı Insights kutucuğa tıkladığınızda, otomatik olarak Uyarlamalı Insights uygulamanızı açan.
+Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](../active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
-* [Azure Active Directory ile SaaS uygulamalarını tümleştirme ile nasıl öğreticiler listesi](tutorial-list.md)
-* [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](../manage-apps/what-is-single-sign-on.md)
-
-<!--Image references-->
-
-[1]: ./media/adaptivesuite-tutorial/tutorial_general_01.png
-[2]: ./media/adaptivesuite-tutorial/tutorial_general_02.png
-[3]: ./media/adaptivesuite-tutorial/tutorial_general_03.png
-[4]: ./media/adaptivesuite-tutorial/tutorial_general_04.png
-
-[100]: ./media/adaptivesuite-tutorial/tutorial_general_100.png
-
-[200]: ./media/adaptivesuite-tutorial/tutorial_general_200.png
-[201]: ./media/adaptivesuite-tutorial/tutorial_general_201.png
-[202]: ./media/adaptivesuite-tutorial/tutorial_general_202.png
-[203]: ./media/adaptivesuite-tutorial/tutorial_general_203.png
+* [SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi](tutorial-list.md)
+* [Azure Active Directory ile uygulama erişimi ve çoklu oturum açma özellikleri nelerdir?](../manage-apps/what-is-single-sign-on.md)

@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 09/05/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: d7c006ca0be5e8db4b7ab02974ff029d3fe738e3
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 0340a4d527023c050e2c776d31c02b59161a1316
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48042351"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49429488"
 ---
 # <a name="analyze-log-analytics-data-in-azure-monitor"></a>Azure İzleyici'de log Analytics verilerini çözümleme
 
@@ -57,34 +57,42 @@ Bir sorgu temel yapısı bir dikey çizgi karakteriyle ayırarak işleçleri diz
 
 Örneğin, geçtiğimiz gün içinde çoğu hata olayları üst on bilgisayarlarla bulmak istediğinizi varsayalım.
 
-    Event
-    | where (EventLevelName == "Error")
-    | where (TimeGenerated > ago(1days))
-    | summarize ErrorCount = count() by Computer
-    | top 10 by ErrorCount desc
+```Kusto
+Event
+| where (EventLevelName == "Error")
+| where (TimeGenerated > ago(1days))
+| summarize ErrorCount = count() by Computer
+| top 10 by ErrorCount desc
+```
 
 Veya belki de bir sinyal son gününe sahip olmayan bilgisayarları bulmak istediğiniz.
 
-    Heartbeat
-    | where TimeGenerated > ago(7d)
-    | summarize max(TimeGenerated) by Computer
-    | where max_TimeGenerated < ago(1d)  
+```Kusto
+Heartbeat
+| where TimeGenerated > ago(7d)
+| summarize max(TimeGenerated) by Computer
+| where max_TimeGenerated < ago(1d)  
+```
 
 Peki geçen haftadan itibaren her bilgisayar için işlemci kullanımı ile çizgi grafik?
 
-    Perf
-    | where ObjectName == "Processor" and CounterName == "% Processor Time"
-    | where TimeGenerated  between (startofweek(ago(7d)) .. endofweek(ago(7d)) )
-    | summarize avg(CounterValue) by Computer, bin(TimeGenerated, 5min)
-    | render timechart    
+```Kusto
+Perf
+| where ObjectName == "Processor" and CounterName == "% Processor Time"
+| where TimeGenerated  between (startofweek(ago(7d)) .. endofweek(ago(7d)) )
+| summarize avg(CounterValue) by Computer, bin(TimeGenerated, 5min)
+| render timechart    
+```
 
 Bu hızlı örnekleri, sorgu yapısını birlikte çalıştığınız veri türü ne olursa olsun benzer olduğunu görebilirsiniz.  Bu sonuç verileri tek komuttan ardışık düzende sonraki komuta burada gönderilir ayrı adımlara ayırabilirsiniz.
 
 Log Analytics çalışma alanı arasında aboneliğinizde da verileri sorgulayabilirsiniz.
 
-    union Update, workspace("contoso-workspace").Update
-    | where TimeGenerated >= ago(1h)
-    | summarize dcount(Computer) by Classification 
+```Kusto
+union Update, workspace("contoso-workspace").Update
+| where TimeGenerated >= ago(1h)
+| summarize dcount(Computer) by Classification 
+```
 
 ## <a name="how-log-analytics-data-is-organized"></a>Log Analytics verilerini nasıl düzenlenir
 Bir sorgu oluşturduğunuzda, aradığınız veri tabloları sahip belirleyerek işe başlayın. Farklı türlerde veri ayrılmış her adanmış tablolara [Log Analytics çalışma alanı](log-analytics-quick-create-workspace.md).  Farklı veri kaynakları için belge oluşturduğu veri türünün adını ve açıklamasını her birinin özelliklerini içerir.  Çok sayıda sorgu yalnızca tek bir tablodan veri gerektirir ancak diğerleri birden çok tablodan veri eklemek için çeşitli seçenekler kullanabilir.
