@@ -14,12 +14,12 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 10/30/2014
 ms.author: elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork
-ms.openlocfilehash: cadd771a516270faf23f18a36f54fa9a1541e6d5
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: cdc6e082207b9128be3e3005305510f3ee493850
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38698679"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49427850"
 ---
 # <a name="how-to-send-email-using-sendgrid-from-java"></a>Java'dan SendGrid kullanarak e-posta gönderme
 Bu kılavuzda, Azure üzerinde SendGrid e-posta hizmeti ile genel programlama görevlerini gerçekleştirmek gösterilmiştir. Örnek Java dilinde yazılır. Senaryoları ele alınmaktadır **e-posta oluşturma**, **e-posta gönderme**, **ekler eklenirken**, **filtreleri kullanarak**ve **özelliklerini güncelleştirme**. SendGrid ve e-posta gönderme hakkında daha fazla bilgi için bkz. [sonraki adımlar](#next-steps) bölümü.
@@ -46,7 +46,6 @@ Javax.mail kitaplıkları, örneğin almak <http://www.oracle.com/technetwork/ja
 
 ```
         import java.util.Properties;
-        import javax.activation.*;
         import javax.mail.*;
         import javax.mail.internet.*;
 

@@ -16,9 +16,9 @@ items:
   expanded: true
 - name: Öğreticiler
   items:
-  - name: Şifrelenmiş depolama hesabı oluşturma
+  - name: Şablon başvurusunu kullanma
     href: resource-manager-tutorial-create-encrypted-storage-accounts.md
-  - name: Birden çok depolama hesabı örneği oluşturma
+  - name: Birden çok kaynak örneği oluşturma
     href: resource-manager-tutorial-create-multiple-instances.md
   - name: Kaynak dağıtım sırasını ayarlama
     href: resource-manager-tutorial-create-templates-with-dependent-resources.md
@@ -128,10 +128,6 @@ items:
       href: programmatically-create-subscription.md
     - name: EA abonelikleri oluşturmak için erişim izni verme
       href: grant-access-to-create-subscription.md
-    - name: Yönetim grupları oluşturma
-      href: management-groups-create.md
-    - name: Yönetim gruplarınızı yönetme
-      href: management-groups-manage.md
   - name: Erişim Denetleme
     items:
     - name: Hizmet sorumlusu oluşturma
@@ -236,9 +232,9 @@ items:
     href: resource-manager-personal-data.md
   - name: Videolar
     href: https://azure.microsoft.com/documentation/videos/index/?services=azure-resource-manager
-ms.openlocfilehash: c47c85917445330ed2fa2ec50541b6db3f676a27
-ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
+ms.openlocfilehash: 3e7fc5f0e26bcfd0c52b874196eff1ac332b62bc
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47585943"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49403365"

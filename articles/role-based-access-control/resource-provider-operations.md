@@ -13,12 +13,12 @@ ms.workload: identity
 ms.date: 09/27/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: d9cf46a1fd28985d9ca98d173bbef17380b7de21
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: f3f5b656b4c90c3b39fc317160eea7ce8fea25ff
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49354402"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49409739"
 ---
 # <a name="azure-resource-manager-resource-provider-operations"></a>Azure Resource Manager kaynak sağlayıcısı işlemleri
 
@@ -3938,16 +3938,16 @@ Kaynak sağlayıcısı işlemleri her zaman artmaktadır. En son işlem almak i�
 > [!div class="mx-tdCol2BreakAll"]
 > | Eylem Türü | İşlem | Açıklama |
 > | --- | --- | --- |
-> | Eylem | Microsoft.OperationsManagement/managementAssociations/delete | Varolan yönetim ilişkilendirmesini silme |
-> | Eylem | Microsoft.OperationsManagement/managementAssociations/read | Varolan yönetim ilişkilendirmesini alma |
-> | Eylem | Microsoft.OperationsManagement/managementAssociations/write | Yeni bir yönetim ilişkilendirmesi oluşturma |
-> | Eylem | Microsoft.OperationsManagement/managementConfigurations/delete | Varolan yönetim yapılandırmasını silme |
-> | Eylem | Microsoft.OperationsManagement/managementConfigurations/read | Varolan yönetim yapılandırmasını alma |
-> | Eylem | Microsoft.OperationsManagement/managementConfigurations/write | Yeni bir yönetim yapılandırması oluşturma |
+> | Eylem | Microsoft.OperationsManagement/managementAssociations/delete | Varolan yönetim ilişkilendirmesini silme. |
+> | Eylem | Microsoft.OperationsManagement/managementAssociations/read | Varolan yönetim ilişkilendirmesini alma. |
+> | Eylem | Microsoft.OperationsManagement/managementAssociations/write | Yeni bir yönetim ilişkilendirmesi oluşturma. |
+> | Eylem | Microsoft.OperationsManagement/managementConfigurations/delete | Varolan yönetim yapılandırmasını silme. |
+> | Eylem | Microsoft.OperationsManagement/managementConfigurations/read | Varolan yönetim yapılandırmasını alma. |
+> | Eylem | Microsoft.OperationsManagement/managementConfigurations/write | Yeni bir yönetim yapılandırması oluşturun. |
 > | Eylem | Microsoft.OperationsManagement/register/action | Bir kaynak sağlayıcısına bir abonelik kaydedin. |
-> | Eylem | Microsoft.OperationsManagement/solutions/delete | Mevcut OMS çözümünü silme |
-> | Eylem | Microsoft.OperationsManagement/solutions/read | Mevcut OMS çözümünü edinme |
-> | Eylem | Microsoft.OperationsManagement/solutions/write | Yeni OMS çözümü oluşturma |
+> | Eylem | Microsoft.OperationsManagement/solutions/delete | Var olan izleme çözümü silin. |
+> | Eylem | Microsoft.OperationsManagement/solutions/read | İzleme çözümünü çıkmadan alın. |
+> | Eylem | Microsoft.OperationsManagement/solutions/write | Yeni bir izleme çözümü oluşturun. |
 
 ## <a name="microsoftpolicyinsights"></a>Microsoft.policyınsights
 

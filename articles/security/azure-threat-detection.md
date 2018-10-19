@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 9b688ca6faaa7e0d84dff0ae28e2a9b8b8279490
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 33a9cc0a7b3d18004e19d73a0d9b91bf33cdb055
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37856887"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49408838"
 ---
 # <a name="azure-advanced-threat-detection"></a>Azure Gelişmiş tehdit algılama
 
-Azure Active Directory (Azure AD), Azure Operations Management Suite (OMS) ve Azure Güvenlik Merkezi gibi hizmetler aracılığıyla Gelişmiş tehdit algılama işlevselliği yerleşik azure sunar. Güvenlik Hizmetleri ve özellikler bu koleksiyonu, Azure dağıtımlarınızı içinde neler olduğunu anlamak için basit ve hızlı bir yol sağlar.
+Azure Active Directory (Azure AD), Azure Log Analytics ve Azure Güvenlik Merkezi gibi hizmetler aracılığıyla Gelişmiş tehdit algılama işlevselliği yerleşik azure sunar. Güvenlik Hizmetleri ve özellikler bu koleksiyonu, Azure dağıtımlarınızı içinde neler olduğunu anlamak için basit ve hızlı bir yol sağlar.
 
 Azure, bir çeşit uygulama dağıtımlarınıza ilişkin gereksinimleri karşılamak için güvenlik özelliklerini ve yapılandırma seçenekleri sağlar. Bu makalede, bu gereksinimleri karşılayan anlatılmaktadır.
 
@@ -75,21 +75,21 @@ PIM size yardımcı olur:
 
 -   Ayrıcalıklı bir role erişimi hakkında uyarı alın.
 
-## <a name="operations-management-suite"></a>Operations Management Suite
+## <a name="azure-log-analytics"></a>Azure Log Analytics
 
-[Operations Management Suite (OMS)](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview) yönetmek ve şirket içi korumak ve bulut altyapısı yardımcı olan bir Microsoft bulut tabanlı BT yönetimi çözümüdür. OMS, bulut tabanlı bir hizmet olarak uygulandığından, çalışmaya hızlıca altyapı hizmetleri için çok az yatırım ile sağlayabilirsiniz. Yeni güvenlik özellikleri otomatik olarak devam eden bakım tasarruf sağlarsınız ve yükseltme maliyetlerinden.
+[Log Analytics](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview) yönetmek ve şirket içi korumak ve bulut altyapısı yardımcı olan bir Microsoft bulut tabanlı BT yönetimi çözümüdür. Log Analytics, bulut tabanlı bir hizmet olarak uygulandığından, çalışmaya hızlıca altyapı hizmetleri için çok az yatırım ile sağlayabilirsiniz. Yeni güvenlik özellikleri otomatik olarak devam eden bakım tasarruf sağlarsınız ve yükseltme maliyetlerinden.
 
-Değerli hizmetleri, kendi sağlamanın yanı sıra OMS System Center bileşenleriyle gibi tümleştirebilirsiniz [System Center Operations Manager](https://blogs.technet.microsoft.com/cbernier/2013/10/23/monitoring-windows-azure-with-system-center-operations-manager-2012-get-me-started/), mevcut güvenlik yönetimi yatırımlarınızı buluta genişletin. Tamamen karma bir yönetim deneyiminin elde edilebilmesi için System Center ve OMS birlikte çalışabilir.
+Değerli hizmetleri, kendi sağlamanın yanı sıra Log Analytics System Center bileşenleriyle gibi tümleştirebilirsiniz [System Center Operations Manager](https://blogs.technet.microsoft.com/cbernier/2013/10/23/monitoring-windows-azure-with-system-center-operations-manager-2012-get-me-started/), mevcut güvenlik yönetimi yatırımlarınızı buluta genişletin. System Center ve Log Analytics tam karma yönetim deneyimi sağlamak için birlikte çalışabilir.
 
 ### <a name="holistic-security-and-compliance-posture"></a>Bütünsel bir güvenlik ve uyumluluk duruşunu
 
-[OMS güvenlik ve Denetim Panosu](https://docs.microsoft.com/azure/operations-management-suite/oms-security-getting-started) kuruluşunuzun kapsamlı bir görünüm sağlar, ilgilenmenizi gerektiren önemli sorunlar için şirket içi arama sorgularıyla de IT güvenlik duruşuna. Güvenlik ve denetim OMS güvenliği ile ilgili her şey için giriş ekranı panodur. Bu pano, size bilgisayarlarınızın güvenlik durumuyla ilgili yüksek düzeyde öngörü sağlar. Ayrıca, tüm son 24 saat, 7 gün, olaylarından veya herhangi bir özel süre görüntüleyebilirsiniz.
+[Log Analytics güvenlik ve Denetim Panosu](https://docs.microsoft.com/azure/operations-management-suite/oms-security-getting-started) kuruluşunuzun kapsamlı bir görünüm sağlar, ilgilenmenizi gerektiren önemli sorunlar için şirket içi arama sorgularıyla de IT güvenlik duruşuna. Güvenlik ve Denetim Panosu, Log analytics'te güvenlik ile ilgili her şey için giriş ekranıdır. Bu pano, size bilgisayarlarınızın güvenlik durumuyla ilgili yüksek düzeyde öngörü sağlar. Ayrıca, tüm son 24 saat, 7 gün, olaylarından veya herhangi bir özel süre görüntüleyebilirsiniz.
 
-OMS panolara hızlıca Yardım ve kolayca herhangi bir ortamın genel güvenlik duruşunu anlamak, yazılımlar dahil olmak üzere, BT işlemleri bağlamında tüm değerlendirmesi, kötü amaçlı yazılımdan koruma değerlendirmesi ve yapılandırma temellerini güncelleştirin. Güvenlik günlüğü verileri, güvenlik ve uyumluluk denetim işlemlerini kolaylaştırmak için kolayca erişilebilir.
+Log Analytics, size hızlıca Yardım ve kolayca herhangi bir ortamın genel güvenlik duruşunu anlamak, yazılımlar dahil olmak üzere, BT işlemleri bağlamında tüm değerlendirmesi, kötü amaçlı yazılımdan koruma değerlendirmesi ve yapılandırma temellerini güncelleştirin. Güvenlik günlüğü verileri, güvenlik ve uyumluluk denetim işlemlerini kolaylaştırmak için kolayca erişilebilir.
 
-![OMS güvenlik ve Denetim Panosu](./media/azure-threat-detection/azure-threat-detection-fig3.jpg)
+![Log Analytics güvenlik ve Denetim Panosu](./media/azure-threat-detection/azure-threat-detection-fig3.jpg)
 
-OMS güvenlik ve Denetim Panosu dört ana kategoride düzenlenmiştir:
+Log Analytics güvenlik ve Denetim Panosu dört ana kategoride düzenlenmiştir:
 
 -   **Güvenlik etki alanları**: sağlar, daha fazla zaman içindeki güvenlik kayıtları; erişim kötü amaçlı yazılım değerlendirmesi güncelleştirme değerlendirmeleri; görünümü ağ güvenliği, kimlik, keşfedin ve erişim bilgileri; bilgisayarları güvenlik olaylarıyla; görüntüleyebilir ve Azure hızlı erişim Güvenlik Merkezi Panosu.
 
@@ -102,25 +102,25 @@ OMS güvenlik ve Denetim Panosu dört ana kategoride düzenlenmiştir:
 -   **Ortak Güvenlik sorguları**: ortamınızı izlemek için kullanabileceğiniz en sık kullanılan güvenlik sorguları listeler. Herhangi bir sorguyu seçtiğinizde, arama bölmesini açar ve bu sorgu için sonuçları görüntüler.
 
 ### <a name="insight-and-analytics"></a>İçgörü ve analiz
-Merkezine [Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) Azure tarafından barındırılan OMS deposu bulunur.
+Merkezine [Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) Azure tarafından barındırılan deposu bulunur.
 
 ![İçgörü ve analiz diyagramı](./media/azure-threat-detection/azure-threat-detection-fig4.png)
 
 Veri deposuna bağlı kaynaklardan veri kaynakları yapılandırılarak ve aboneliğinize çözümler ekleyerek toplayın.
 
-![OMS panosundaki ](./media/azure-threat-detection/azure-threat-detection-fig5.png)
+![Log Analytics Panosu ](./media/azure-threat-detection/azure-threat-detection-fig5.png)
 
 Veri kaynakları ve çözümleri kendi özellik kümesine sahip ayrı bir kayıt türleri oluşturma, ancak yine de bunları birlikte depoya sorgularda analiz gerçekleştirebilirsiniz. Çeşitli çeşitli kaynaklar tarafından toplanan veriler ile çalışmak için aynı araçları ve yöntemleri kullanın.
 
 
-Log Analytics ile etkileşim çoğunu olan herhangi bir tarayıcıda çalışan ve yapılandırma ayarlarını erişmenizi ve çok sayıda araç çözümlemenizi ve kullanmanızı sağlayacak toplanan verilerin sağlayan OMS Portalı aracılığıyla. Portaldan şunları kullanabilirsiniz:
+Log Analytics ile etkileşim çoğunu olan herhangi bir tarayıcıda çalışan ve yapılandırma ayarlarını erişmenizi ve çok sayıda araç çözümlemenizi ve kullanmanızı sağlayacak toplanan verilerin sağlayan Azure portalı üzerinden. Portaldan şunları kullanabilirsiniz:
 * [Günlük aramaları](https://docs.microsoft.com/azure/log-analytics/log-analytics-log-searches) oluşturmak burada toplanan verileri analiz etmek için sorgular.
 * [Panolar](https://docs.microsoft.com/azure/log-analytics/log-analytics-dashboards), en değerli Aramalarınızın grafik görünümleriyle özelleştirebileceğiniz.
 * [Çözümleri](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions), ek işlevlerle analiz araçları sağlar.
 
 ![Analiz Araçları](./media/azure-threat-detection/azure-threat-detection-fig6.png)
 
-Çözümler, Log Analytics’e işlevler ekler. Bunlar birincil bulutta çalıştırın ve OMS deposunda toplanan verilerin analizi sağlar. Günlük aramaları veya OMS panosunda çözüm sağlayan bir ek kullanıcı arabirimi kullanılarak çözümlenebilecek toplanacak yeni kayıt türlerinin çözümleri de tanımlayabilirsiniz.
+Çözümler, Log Analytics’e işlevler ekler. Bunlar birincil bulutta çalıştırın ve Log Analytics deposunda toplanan verilerin analizi sağlar. Günlük aramaları veya Log Analytics panosunda çözüm sağlayan bir ek kullanıcı arabirimi kullanılarak çözümlenebilecek toplanacak yeni kayıt türlerinin çözümleri de tanımlayabilirsiniz.
 
 Güvenlik ve Denetim Panosu, bu tür çözümler örneğidir.
 
@@ -357,9 +357,9 @@ Cloud App Security, bulutunuz ile görünürlüğü tümleştirilebilir:
 
 -   Tasdik etme ve bulut uygulamalarında yasaklanması.
 
--   Görünürlüğü ve İdaresi için bağlanan uygulamalar için sağlayıcı API'lerinden yararlanan, dağıtımı kolay uygulama bağlayıcıları kullanır.
+-   görünürlüğü ve İdaresi için bağlanan uygulamalar için sağlayıcı API'lerinden yararlanan, dağıtımı kolay uygulama bağlayıcıları kullanır.
 
--   Ayar ve sürekli olarak ince ayar yapmak, ilkeleri tanıyarak sürekli denetime sahip yardımcı olur.
+-   ayar ve sürekli olarak ince ayar yapmak, ilkeleri tanıyarak sürekli denetime sahip yardımcı olur.
 
 Bu kaynaklardan veri toplama işlemini, Cloud App Security Gelişmiş bir analiz üzerinde çalışır. Hemen anormal etkinlikler için uyarı ve bulut ortamınızda derin görünürlük sunar. Cloud App Security'de bir ilke yapılandırın ve bulut ortamınızdaki her şeyi koruyabilirsiniz kullanın.
 
