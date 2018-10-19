@@ -1,1 +1,0 @@
-**ŞUNLAR İÇİN GEÇERLİDİR:**![evet](media/analysis-services-appliesto/yes.png)Azure Analysis Services![evet](media/analysis-services-appliesto/yes.png)SQL Server Analysis Services (2017'den itibaren)

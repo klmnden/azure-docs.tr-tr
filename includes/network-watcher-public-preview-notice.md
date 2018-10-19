@@ -1,2 +1,0 @@
-> [!IMPORTANT]
-> Ağ İzleyicisi bağlantı denetimi şu anda genel Önizleme sürümündedir ve genel kullanılabilirlik sunumundaki özelliklerle aynı kullanılabilirlik ve güvenilirlik seviyesine sahip değildir. Belirli özellikler desteklenmiyor olabilir, kısıtlı yeteneklere sahip olabilir ve tüm [Azure konumlarında](https://azure.microsoft.com/regions/) mevcut olmayabilir. Kullanılabilirliği ve bu özellik durumuyla ilgili en güncel bildirimler için denetleme [Azure Ağ İzleyicisi'ni güncelleştirmeleri](https://azure.microsoft.com/updates/?product=network-watcher) sayfası. 
