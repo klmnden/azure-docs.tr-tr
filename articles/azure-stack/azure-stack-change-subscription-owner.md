@@ -1,6 +1,6 @@
 ---
 title: Azure Stack kullanıcı aboneliğin sahibi güncelleştir | Microsoft Docs
-description: Azure STack kullanıcı aboneliklerini faturalama sahibini değiştirin.
+description: Azure Stack kullanıcı aboneliklerini fatura sahibini değiştirin.
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -12,62 +12,60 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: get-started-article
-ms.date: 06/12/2018
+ms.date: 10/19/2018
 ms.author: sethm
 ms.reviewer: shnatara
-ms.openlocfilehash: a784f169bfdf23255b27d50f0e135384db6b2b88
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: e5ce479940faaaae95467fe6d426e999b4c6569f
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49077639"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49468679"
 ---
 # <a name="change-the-owner-for-an-azure-stack-user-subscription"></a>Bir Azure Stack kullanıcı aboneliği sahibini değiştirin
 
-Azure Stack operatörleri, bir kullanıcı abonelik faturalama sahibini değiştirmek için PowerShell kullanabilirsiniz. Sahibini değiştirmek için nedenlerinden biri, bir kullanıcı kuruluşunuzdan ayrıldığında değiştirmektir.   
+Azure Stack operatörleri, bir kullanıcı abonelik fatura sahibini değiştirmek için PowerShell kullanabilirsiniz. Örneğin, bir neden sahibini değiştirmek için bir kullanıcı kuruluşunuzdan ayrıldığında değiştirmektir.   
 
 İki tür vardır *sahipleri* bir abonelik için atanan:
 
-- **Faturalandırma sahibi** – varsayılan olarak, faturalama, abonelik bir teklifinden alır ve ardından söz konusu abonelik için fatura ilişkiyi sahip kullanıcı hesabı sahibidir. Bu ayrıca aboneliğin yönetici hesabıdır.  Yalnızca bir kullanıcı hesabı bu gösterim bir abonelikte olabilir. Bir faturalama genellikle bir kuruluşunuz veya ekibiniz sağlama sahibidir. 
+- **Faturalandırma sahibi**: varsayılan olarak, fatura sahibi, abonelik bir teklifinden alır ve ardından söz konusu abonelik için fatura ilişkiyi sahip kullanıcı hesabıdır. Bu ayrıca aboneliğin yönetici hesabıdır. Yalnızca bir kullanıcı hesabı bu gösterim bir abonelikte olabilir. Bir fatura genellikle kuruluşunuz veya ekibiniz müşteri adayı sahibidir. 
 
-  PowerShell cmdlet kullanın **kümesi AzsUserSubscription** faturalama sahibini değiştirmek için.  
+  PowerShell cmdlet kullanın [kümesi AzsUserSubscription](/powershell/module/azs.subscriptions.admin/set-azsusersubscription) fatura sahibini değiştirmek için.  
 
-- **RBAC rolleri eklenen sahipleri** – sahip rolü kullanarak ek kullanıcılar verilebilir [rol tabanlı erişim denetimi](azure-stack-manage-permissions.md) (RBAC) sistemi.  Faturalama sahibi tamamlayıcı olarak sahipleri herhangi bir sayıda ek kullanıcı hesapları eklenebilir. Ek sahipleri Ayrıca Yöneticiler abonelik ve aboneliğin faturalama sahibi silme izni hariç tüm ayrıcalıklara sahip. 
+- **RBAC rolleri eklenen sahipleri** – ek kullanıcılar verilebilir **sahibi** rolü kullanarak [rol tabanlı erişim denetimi](azure-stack-manage-permissions.md) (RBAC) sistemi. Fatura sahibi tamamlayıcı olarak sahipleri herhangi bir sayıda ek kullanıcı hesapları eklenebilir. Ek sahipleri Ayrıca Yöneticiler abonelik ve aboneliğin faturalama sahibi silme izni hariç tüm ayrıcalıkları. 
 
-  Ek sahiplerini yönetme, görmek için PowerShell kullanabilirsiniz [Azure rol tabanlı erişim denetimini yönetmek için PowerShell]( https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell).
+  Ek sahiplerini yönetme, görmek için PowerShell kullanabilirsiniz [Azure rol tabanlı erişim denetimini yönetmek için PowerShell](/azure/role-based-access-control/role-assignments-powershell).
 
+## <a name="change-the-billing-owner"></a>Fatura sahibini değiştirin
 
-## <a name="change-the-billing-owner"></a>Faturalandırma sahibini değiştirin
-Kullanıcı abonelik faturalama sahibini değiştirmek için aşağıdaki betiği çalıştırın.  Betiği çalıştırmak için kullandığınız bilgisayar Azure Stack'e bağlanma ve Azure Stack PowerShell modülü 1.3.0 çalıştırın veya üzeri. Daha fazla bilgi için [Azure Stack PowerShell yükleme](azure-stack-powershell-install.md). 
+Kullanıcı aboneliği fatura sahibini değiştirmek için aşağıdaki betiği çalıştırın. Betiği çalıştırmak için kullandığınız bilgisayar Azure Stack'e bağlanma ve Azure Stack PowerShell modülü 1.3.0 çalıştırın veya üzeri. Daha fazla bilgi için [Azure Stack PowerShell yükleme](azure-stack-powershell-install.md). 
 
 > [!Note]  
->  Bir çok kiracılı Azure Stack'te yeni sahibin mevcut sahibi ile aynı dizinde olmalıdır. Başka bir dizinde olan bir kullanıcı için aboneliğin sahipliğini sağlamadan önce önce [bu kullanıcı konuk olarak dizininize davet](https://docs.microsoft.com/azure/active-directory/b2b/add-users-administrator). 
-
+>  Yeni sahip, çok kiracısında Azure Stack, mevcut sahibi ile aynı dizinde olması gerekir. Başka bir dizinde olan bir kullanıcı için aboneliğin sahipliğini sağlamadan önce önce [bu kullanıcı konuk olarak dizininize davet](../active-directory/b2b/add-users-administrator.md). 
 
 Çalıştırılmadan önce betiğin aşağıdaki değerleri değiştirin: 
  
-- **$ArmEndpoint** – ortamınız için Resource Manager uç noktasını belirtin.  
-- **$TenantId** -Kiracı kimliğinizi belirtin 
-- **$SubscriptionId** – abonelik kimliğinizi belirtin
-- **$OwnerUpn** -olarak bir hesap belirtin *user@example.com* yeni faturalandırma sahibi olarak eklenecek.  
+- **$ArmEndpoint**: ortamınız için Resource Manager uç noktasını belirtin.  
+- **$TenantId**: Kiracı kimliğinizi belirtin 
+- **$SubscriptionId**: Abonelik kimliğinizi belirtin
+- **$OwnerUpn**: olarak bir hesap belirtin **user@example.com** yeni faturalandırma sahibi olarak eklenecek.  
 
-
-```PowerSHell   
-# Setup Azure Stack Admin Environment
+```PowerShell   
+# Set up Azure Stack admin environment
 Add-AzureRmEnvironment -ARMEndpoint $ArmEndpoint -Name AzureStack-admin
 Add-AzureRmAccount -Environment AzureStack-admin -TenantId $TenantId
 
-# Select Admin Subscriptionr
+# Select admin subscription
 $providerSubscriptionId = (Get-AzureRmSubscription -SubscriptionName "Default Provider Subscription").Id
-Write-Output "Setting context the Default Provider Subscription: $providerSubscriptionId" 
+Write-Output "Setting context to the Default Provider Subscription: $providerSubscriptionId" 
 Set-AzureRmContext -Subscription $providerSubscriptionId
 
-# Change User Subscription owner
+# Change user subscription owner
 $subscription = Get-AzsUserSubscription -SubscriptionId $SubscriptionId
 $Subscription.Owner = $OwnerUpn
 Set-AzsUserSubscription -InputObject $subscription
 ```
 
-
 ## <a name="next-steps"></a>Sonraki adımlar
+
 [Rol tabanlı erişim denetimini yönetme](azure-stack-manage-permissions.md)
