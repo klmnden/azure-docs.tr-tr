@@ -5,15 +5,15 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 03/21/2018
+ms.date: 010/17/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: cfdf7c723416471d733e2bc9c71e0f519020fbe6
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 60a64758ae93320fc44a0705038e9db7e114b9bd
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38740520"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49476405"
 ---
 Azure portalında, bağlantıya giderek klasik bir Sanal Ağ VPN Ağ Geçidi bağlantısının durumunu görüntüleyebilirsiniz. Aşağıdaki adımlarda, bağlantınıza gitmek ve doğrulamak için bir yol gösterilmiştir.
 

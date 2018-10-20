@@ -11,13 +11,13 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 10/15/2018
-ms.openlocfilehash: 4f6c98533a2ab1289ca5f1da25c44fe1a77a983c
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.date: 10/19/2018
+ms.openlocfilehash: 18cd0ea4b6804edc11fc4f57c4327ef9d9a6f51e
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49353674"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49466742"
 ---
 # <a name="azure-sql-database-and-sql-data-warehouse-firewall-rules"></a>Azure SQL veritabanı ve SQL veri ambarı güvenlik duvarı kuralları
 
@@ -80,7 +80,7 @@ Azure’daki uygulamaların Azure SQL sunucunuza bağlanmasına izin verebilmeni
 
 ## <a name="creating-and-managing-firewall-rules"></a>Oluşturma ve güvenlik duvarı kurallarını yönetme
 
-İlk sunucu düzeyinde güvenlik duvarı ayarı kullanılarak oluşturulabilir. [Azure portalında](https://portal.azure.com/) veya program aracılığıyla kullanarak [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql), [Azure CLI](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-create), veya [ REST API](https://docs.microsoft.com/rest/api/sql/firewallrules/firewallrules_createorupdate). Sunucu düzeyinde sonraki güvenlik duvarı kuralları ise bu yöntemler kullanılarak ve Transact-SQL aracılığıyla oluşturulup yönetilebilir.
+İlk sunucu düzeyinde güvenlik duvarı ayarı kullanılarak oluşturulabilir. [Azure portalında](https://portal.azure.com/) veya program aracılığıyla kullanarak [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql), [Azure CLI](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-create), veya [ REST API](https://docs.microsoft.com/rest/api/sql/firewallrules/createorupdate). Sunucu düzeyinde sonraki güvenlik duvarı kuralları ise bu yöntemler kullanılarak ve Transact-SQL aracılığıyla oluşturulup yönetilebilir.
 
 > [!IMPORTANT]
 > Veritabanı düzeyinde güvenlik duvarı kuralları yalnızca oluşturulabilir ve Transact-SQL kullanılarak yönetilebilir.
@@ -189,10 +189,10 @@ az sql server firewall-rule create --resource-group myResourceGroup --server $se
 
 | API | Düzey | Açıklama |
 | --- | --- | --- |
-| [Güvenlik Duvarı Kurallarını Listele](https://docs.microsoft.com/rest/api/sql/firewallrules/firewallrules_listbyserver) |Sunucu |Sunucu düzeyinde geçerli güvenlik duvarı kurallarını gösterir |
-| [Güvenlik Duvarı Kuralı Oluşturma veya Güncelleştirme](https://docs.microsoft.com/rest/api/sql/firewallrules/firewallrules_createorupdate) |Sunucu |Sunucu düzeyinde güvenlik duvarı kuralları oluşturur veya güncelleştirir |
-| [Güvenlik Duvarı Kuralını Sil](https://docs.microsoft.com/rest/api/sql/firewallrules/firewallrules_delete) |Sunucu |Sunucu düzeyinde güvenlik duvarı kurallarını kaldırır |
-| [Güvenlik duvarı kurallarını Al](https://docs.microsoft.com/rest/api/sql/firewallrules/firewallrules_get) | Sunucu | Sunucu düzeyinde güvenlik duvarı kuralları alır |
+| [Güvenlik Duvarı Kurallarını Listele](https://docs.microsoft.com/rest/api/sql/firewallrules/listbyserver) |Sunucu |Sunucu düzeyinde geçerli güvenlik duvarı kurallarını gösterir |
+| [Güvenlik Duvarı Kuralı Oluşturma veya Güncelleştirme](https://docs.microsoft.com/rest/api/sql/firewallrules/createorupdate) |Sunucu |Sunucu düzeyinde güvenlik duvarı kuralları oluşturur veya güncelleştirir |
+| [Güvenlik Duvarı Kuralını Sil](https://docs.microsoft.com/rest/api/sql/firewallrules/delete) |Sunucu |Sunucu düzeyinde güvenlik duvarı kurallarını kaldırır |
+| [Güvenlik duvarı kurallarını Al](https://docs.microsoft.com/rest/api/sql/firewallrules/get) | Sunucu | Sunucu düzeyinde güvenlik duvarı kuralları alır |
 
 ## <a name="server-level-firewall-rule-versus-a-database-level-firewall-rule"></a>Sunucu düzeyinde güvenlik duvarı kuralı ve veritabanı düzeyinde güvenlik duvarı kuralı
 

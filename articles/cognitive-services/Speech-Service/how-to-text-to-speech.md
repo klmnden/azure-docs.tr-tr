@@ -1,20 +1,21 @@
 ---
-title: Konuşma Hizmetleri kullanarak metinden konuşmaya kullanın
+title: Metin okuma konuşma hizmeti kullanın
+titleSuffix: Azure Cognitive Services
 description: Metin okuma konuşma hizmeti kullanmayı öğrenin.
-titleSuffix: Microsoft Cognitive Services
 services: cognitive-services
 author: erhopf
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/08/2018
 ms.author: erhopf
-ms.openlocfilehash: 774425d19101e4d326f0d6435d56aff1b37a31f7
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 162b690d4b371cfe76738cd83ce484a3062d139f
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49165054"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49469930"
 ---
 # <a name="use-text-to-speech-in-speech-service"></a>"Metin okuma" konuşma hizmeti kullanın
 
@@ -97,5 +98,5 @@ Metni konuşma REST API'si hakkında daha fazla bilgi için bkz. [REST API'leri]
 
 - [Konuşma deneme aboneliğinizi alın](https://azure.microsoft.com/try/cognitive-services/)
 - [C++'ta konuşma tanıma](quickstart-cpp-windows.md)
-- [C# ' de Konuşma tanıma](quickstart-csharp-dotnet-windows.md)
+- [C# dilinde konuşma tanıma](quickstart-csharp-dotnet-windows.md)
 - [Java'da konuşma tanıma](quickstart-java-android.md)

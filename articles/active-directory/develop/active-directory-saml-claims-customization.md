@@ -13,16 +13,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/11/2018
+ms.date: 10/20/2018
 ms.author: celested
-ms.reviewer: jeedes
+ms.reviewer: luleon, jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 5633dfbf59396e79226b196c2b699981409092ab
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: 4e80f5cb85a53281da9ec50a02d089f46e97dfde
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48902034"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49466725"
 ---
 # <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>Nasıl yapılır: Kurumsal uygulamalar için SAML belirtecinde verilen talepleri özelleştirme
 
@@ -49,21 +49,38 @@ Varsayılan talep değerleri düzenleyebilirsiniz. SAML belirteci öznitelikleri
 ![Kullanıcı özniteliği Düzenle][3]
 
 ## <a name="editing-the-nameidentifier-claim"></a>NameIdentifier talebini düzenleme
-Uygulamayı nerede oluştu sorunu çözmek için tıklayarak farklı bir kullanıcı adı kullanarak dağıtılmış, **kullanıcı tanımlayıcısı** açılan menü **kullanıcı öznitelikleri** bölümü. Bu eylem, birkaç farklı seçenek içeren bir iletişim kutusu sağlar:
+
+Uygulamayı nerede oluştu sorunu çözmek için farklı bir kullanıcı adı kullanarak dağıtılmış, seçin **kullanıcı tanımlayıcısı** açılan menü **kullanıcı öznitelikleri** bölümü. Bu eylem, birkaç farklı seçenek içeren bir iletişim kutusu sağlar:
 
 ![Kullanıcı özniteliği Düzenle][4]
 
-Açılan menü, seçin **user.mail** NameIdentifier talebini dizinde kullanıcının e-posta adresi olarak ayarlanacak. Ya da seçin **user.onpremisessamaccountname** kullanıcıya ayarlamak için kullanıcının şirket içi ad'nizden Azure AD'ye eşitlenen SAM hesabı adı.
+### <a name="attributes"></a>Öznitelikler
 
-Özel kullanabilirsiniz **ExtractMailPrefix()** e-posta adresi, SAM hesap adı veya kullanıcı asıl adı etki alanı soneki kaldırılacağı işlevi. Bu aracılığıyla geçirilen kullanıcı adı, yalnızca ilk bölümünü ayıklar (örneğin, "joe_smith" yerine joe_smith@contoso.com).
+İstenen kaynağı seçin `NameIdentifier` (veya Nameıd) talep. Aşağıdaki seçenekler arasından seçim.
 
-![Kullanıcı özniteliği Düzenle][5]
+| Ad | Açıklama |
+|------|-------------|
+| Email | Kullanıcının e-posta adresi |
+| userprincipalName | Kullanıcının kullanıcı asıl adı (UPN) |
+| onpremisessamaccount | Şirket içi ad'nizden Azure AD'ye eşitlenen SAM hesabı adı |
+| Nesne Kimliği | Azure AD'de kullanıcının nesne kimliği |
+| EmployeeID | EmployeeID kullanıcının |
+| Dizin genişletmeleri | Dizin genişletmeleri [şirket içi Azure AD Connect Sync kullanarak Active Directory eşitlendi](../hybrid/how-to-connect-sync-feature-directory-extensions.md) |
+| 1-15 uzantı öznitelikleri | Şirket içinde Azure AD'ye şemayı genişletmek için kullanılan uzantı öznitelikleri |
 
-Şimdi de ekledik **join()** kullanıcı tanıtıcı değeri ile doğrulanmış etki alanına katılmak için işlevi. join() işlevinde seçtiğinizde **kullanıcı tanımlayıcısı** ilk e-posta adresi veya kullanıcı asıl adı olarak gibi kullanıcı tanımlayıcısı seçin ve ardından ikinci açılan menü doğrulanmış etki alanınızı seçin. E-posta adresi doğrulanan etki alanı seçin ve ardından Azure AD alanından ilk değer joe_smith kullanıcı adını ayıklar, joe_smith@contoso.com ve contoso.onmicrosoft.com ile ekler. Aşağıdaki örneğe bakın:
+### <a name="transformations"></a>Dönüşümler
 
-![Kullanıcı özniteliği Düzenle][6]
+Özel talep dönüştürme işlevleri de kullanabilirsiniz.
+
+| İşlev | Açıklama |
+|----------|-------------|
+| **ExtractMailPrefix()** | Etki alanı soneki, e-posta adresi, SAM hesap adı veya kullanıcı asıl adı kaldırır. Bu aracılığıyla geçirilen kullanıcı adı, yalnızca ilk bölümünü ayıklar (örneğin, "joe_smith" yerine joe_smith@contoso.com). |
+| **join()** | Bir öznitelik ile doğrulanmış bir etki alanına katılır. Seçili kullanıcı tanıtıcı değeri bir etki alanı varsa, seçili doğrulanmış etki alanına eklemek için kullanıcı adı ayıklayacaksınız. Örneğin, e-posta seçerseniz (joe_smith@contoso.com) kullanıcı tanıtıcı değeri ve doğrulanmış etki alanı olarak select contoso.onmicrosoft.com olarak bu sonuçlanır joe_smith@contoso.onmicrosoft.com. |
+| **ToLower()** | Seçilen özniteliğin karakterleri, küçük harf karakterlere dönüştürür. |
+| **ToUpper()** | Seçilen özniteliğin karakterleri büyük harf karakterlere dönüştürür. |
 
 ## <a name="adding-claims"></a>Talep ekleme
+
 Bir talep eklerken (kesinlikle bir URI düzeni SAML belirtimi uyarınca izleyin gerekmez) bir öznitelik adı belirtebilirsiniz. Değerini dizinde depolanan tüm kullanıcı özniteliklerini ayarlayın.
 
 ![Kullanıcı özniteliği Ekle][7]
@@ -132,7 +149,7 @@ SAML bazı kısıtlı talep vardır. Ardından Azure AD, bu talepler eklerseniz,
 ## <a name="next-steps"></a>Sonraki adımlar
 
 * [Azure AD'de uygulama yönetimi](../manage-apps/what-is-application-management.md)
-* [Azure AD uygulama galerisinde bulunmayan uygulamalar için çoklu oturum açma yapılandırılıyor](../manage-apps/configure-federated-single-sign-on-non-gallery-applications.md)
+* [Azure AD uygulama galerisinde bulunmayan uygulamalar çoklu oturum açmayı yapılandırın](../manage-apps/configure-federated-single-sign-on-non-gallery-applications.md)
 * [SAML tabanlı çoklu oturum açma sorunlarını giderme](howto-v1-debug-saml-sso-issues.md)
 
 <!--Image references-->

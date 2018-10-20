@@ -8,12 +8,12 @@ ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: delhan
 ms.component: common
-ms.openlocfilehash: eb72d92496addacd82e4d30df625b4f9c0c823e5
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: ffb355b4471bd8455f67e657d9557c3f372c3f4e
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39521039"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49470329"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Azure Depolama Gezgini sorun giderme kılavuzu
 
@@ -74,7 +74,7 @@ MacOS Anahtarlık bir duruma neden olan sorunları Storage Explorer'ın kimlik d
 7. Oturum açmayı deneyin.
 
 ### <a name="general-sign-in-troubleshooting-steps"></a>Genel oturum açma sorun giderme adımları
-* MacOS üzerinde olan ve oturum açma penceresinde hiçbir zaman "... kimlik doğrulaması için bekleniyor" iletişim kutusu görüntülenir, daha sonra deneyin [adımları](#Mac-Keychain-Errors)
+* MacOS üzerinde olan ve oturum açma penceresinde hiçbir zaman "... kimlik doğrulaması için bekleniyor" iletişim kutusu görüntülenir, daha sonra deneyin [adımları](#mac-keychain-errors)
 * Depolama Gezgini'ni yeniden başlatın
 * Kimlik doğrulama penceresi boş ise, kimlik doğrulaması iletişim kutusunu kapatmadan önce en az bir dakika bekleyin.
 * Proxy ve sertifika ayarları, makine ve Depolama Gezgini için düzgün şekilde yapılandırıldığından emin olun.

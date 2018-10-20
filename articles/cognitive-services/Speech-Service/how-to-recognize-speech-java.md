@@ -1,21 +1,21 @@
 ---
 title: Java için Speech SDK'sı kullanarak konuşma tanıma
-titleSuffix: Microsoft Cognitive Services
-description: >
-  Konuşma tanımayı öğrenmesine (özelleştirilmiş modeli, sürekli bir mikrofondan gelen bir dosyadan veya kesin) Speech SDK'sı için Java kullanarak.
+titleSuffix: Azure Cognitive Services
+description: Konuşma tanımayı öğrenmesine (özelleştirilmiş modeli, sürekli bir mikrofondan gelen bir dosyadan veya kesin) Speech SDK'sı için Java kullanarak.
 services: cognitive-services
 author: wolfma61
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: Speech
-ms.topic: article
+ms.component: speech-service
+ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: wolfma
-ms.openlocfilehash: 02e6fa8c522384a1c3f0d69b456bf580c067a9c2
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: 0accd353f0079e5e9da80e3aab8eb542aaa21edd
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48883695"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49468338"
 ---
 # <a name="recognize-speech-by-using-the-speech-sdk-for-java"></a>Java için Speech SDK'sı kullanarak konuşma tanıma
 

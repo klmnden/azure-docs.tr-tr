@@ -4,17 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: Bing konuşma tanıma ve konuşma hizmeti arasındaki farklar Geliştirici açısından öğrenin ve konuşma hizmeti kullanmak için uygulamanızı geçişi.
 services: cognitive-services
 author: wsturman
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: Speech
-ms.topic: article
+ms.component: speech-service
+ms.topic: conceptual
 ms.date: 10/01/2018
 ms.author: gracez
-ms.openlocfilehash: e72cf547ac911b22a03cae6032351c8c0f22de8e
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: baf9b9cd9b3f57c1d708dd404d59c036df6c169f
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48884858"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49466656"
 ---
 # <a name="migrate-from-bing-speech-to-the-speech-service"></a>Konuşma hizmeti için Bing konuşma içeriğinden geçirme
 
@@ -22,13 +23,13 @@ Uygulamalarınızı konuşma hizmeti için Bing konuşma tanıma API'SİNDEN ge�
 
 Bu makalede, Bing konuşma API'leri ve konuşma hizmeti arasındaki farkları özetler ve uygulamalarınızı geçiş stratejileri önerir. Bing konuşma API'si abonelik anahtarınızı konuşma hizmeti tarafından kabul edilmez; Yeni bir konuşma tanıma hizmeti abonelik gerekir.
 
-Tek bir konuşma tanıma hizmeti abonelik anahtarı aşağıdaki özelliklere erişim verir. Yalnızca kullandığınız özellikleri için ücretlendirilirsiniz. Bu nedenle her ayrı olarak ölçülür.
+Tek bir Konuşma Tanıma Hizmeti abonelik anahtarıyla aşağıdaki özelliklerin tümüne erişebilirsiniz. Hepsinin kullanımı bağımsız bir şekilde ölçüldüğünden yalnızca kullandığınız hizmetler için ödeme yapmış olursunuz.
 
-* [Konuşma metin](speech-to-text.md)
-* [Özel Konuşmayı metne dönüştürme](https://cris.ai)
+* [Konuşmayı metne dönüştürme](speech-to-text.md)
+* [Özel konuşmayı metne dönüştürme](https://cris.ai)
 * [Metin okuma](text-to-speech.md)
 * [Özel metin okuma sesleri](how-to-customize-voice-font.md)
-* [Konuşma çevirisi](speech-translation.md) (içermemesi [metin çevirisi](../translator/translator-info-overview.md))
+* [Konuşma çevirisi ](speech-translation.md) ([Metin çevirisi](../translator/translator-info-overview.md) özelliğini kapsamaz)
 
 [Speech SDK'sı](speech-sdk.md) Bing konuşma istemci kitaplıkları için bir işlev yerini almaktadır, ancak farklı bir API kullanır.
 
@@ -56,7 +57,7 @@ WebSockets protokolleri | : heavy_check_mark: | : heavy_check_mark: | Konuşma h
 Hizmetten hizmete API çağrıları | : heavy_check_mark: | : heavy_minus_sign: | Bing konuşma C# hizmet kitaplığı aracılığıyla sağlanmalıdır. 
 Açık kaynak SDK'sı | : heavy_check_mark: | : heavy_minus_sign: |
 
-Konuşma hizmeti, zamana dayalı bir fiyatlandırma modeli (işlem tabanlı bir modeli yerine) kullanır. Bkz: [konuşma hizmeti fiyatlandırma](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/) Ayrıntılar için.
+Konuşma hizmeti, zamana dayalı bir fiyatlandırma modeli (işlem tabanlı bir modeli yerine) kullanır. Ayrıntılar için [Konuşma Tanıma Hizmeti fiyatlandırmasını](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/) inceleyin.
 
 ## <a name="migration-strategies"></a>Geçiş stratejileri
 

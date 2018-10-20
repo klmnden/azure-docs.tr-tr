@@ -1,5 +1,3 @@
-<!-- Linguist question: Please confirm that the following are API names and should be left as is: "Person Management, LargePersonGroup/PersonGroup Management, LargeFaceList/FaceList Management, and Face Algorithms" -->
----
 Başlık: API Başvurusu - yüz tanıma API'si titleSuffix: Azure Bilişsel hizmetler açıklaması: API Başvurusu, kişi yönetimi, LargePersonGroup/PersonGroup yönetimi, LargeFaceList/FaceList yönetim ve yüz algoritmalarını API'leri hakkında bilgi sağlar.
 Hizmetler: bilişsel hizmetler Yazar: SteveMSFT manager: cgronlun
 
@@ -18,3 +16,5 @@ Yüz tanıma API'leri aşağıdaki kategorileri içerir:
 - [LargeFaceList yönetim API'leri](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a157b68d2de3616c086f2cc): bir LargeFaceList için yönetmek için kullanılan [Bul benzer](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237).
 - [Kişi yönetimi API'leri PersonGroup](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523c): PersonGroup kişi yüzleri için yönetmek için kullanılan [kimliği](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239).
 - [PersonGroup yönetim API'leri](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395244): PersonGroup veri kümesi için yönetmek için kullanılan [kimliği](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239).
+
+<!-- Linguist question: Please confirm that the following are API names and should be left as is: "Person Management, LargePersonGroup/PersonGroup Management, LargeFaceList/FaceList Management, and Face Algorithms" -->
