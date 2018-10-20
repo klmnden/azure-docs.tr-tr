@@ -7,35 +7,33 @@ manager: kamalb
 ms.service: event-hubs
 ms.workload: core
 ms.topic: article
-ms.date: 09/18/2018
+ms.date: 10/18/2018
 ms.author: shvija
-ms.openlocfilehash: bb5a7b477b2d19c74cc645a15cc3d891c76f28c5
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 14ea98b9d31bee08b962e8b3801ed507472ba692
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/19/2018
-ms.locfileid: "49427204"
+ms.locfileid: "49455802"
 ---
 # <a name="send-events-to-azure-event-hubs-using-nodejs"></a>Node.js kullanarak Azure Event Hubs için olayları gönderme
 
-Azure Event Hubs, milyonlarca işleyebilen ileri düzeyde ölçeklenebilir bir olay yönetim sistemi saniyede olayları, işlemek ve çok büyük miktardaki verileri çözümlemek uygulamaları etkinleştirme bağlı cihazlarınız ve diğer sistemleri tarafından üretilen. Bir olay hub'ına toplandıktan sonra almak ve işlem içi işleyicileri kullanarak olayları işleme veya diğer analiz sistemleri ileterek.
+Azure Event Hubs saniyede milyonlarca olay alıp işleme kapasitesine sahip olan bir Büyük Veri akış platformu ve olay alma hizmetidir. Event Hubs dağıtılan yazılımlar ve cihazlar tarafından oluşturulan olayları, verileri ve telemetrileri işleyebilir ve depolayabilir. Bir olay hub’ına gönderilen veriler, herhangi bir gerçek zamanlı analiz sağlayıcısı ve işlem grubu oluşturma/depolama bağdaştırıcıları kullanılarak dönüştürülüp depolanabilir. Event Hubs ayrıntılı bakış için bkz: [Event Hubs'a genel bakış](event-hubs-about.md) ve [Event Hubs özellikleri](event-hubs-features.md).
 
-Event Hubs hakkında daha fazla bilgi için bkz: [Event Hubs'a genel bakış](event-hubs-about.md).
+Bu öğreticide, node.js'de yazılmış bir uygulamadan bir olay hub'ına olayları göndermek nasıl açıklar.
 
-Bu öğreticide, node.js'de yazılmış bir uygulamadan bir olay hub'ına olayları göndermek nasıl açıklar. Node.js olay işleyicisi ana bilgisayarı paketi kullanarak olayları almak için bkz. [karşılık gelen alma makale](event-hubs-node-get-started-receive.md).
-
-Bu hızlı başlangıç kullanılabilir kodu [GitHub](https://github.com/Azure/azure-event-hubs-node/tree/master/client). 
+> [!NOTE]
+> Bu hızlı başlangıçta, bir örnekten olarak indirebilirsiniz [GitHub](https://github.com/Azure/azure-event-hubs-node/tree/master/client), değiştirin `EventHubConnectionString` ve `EventHubName` dizeleri, olay hub'ı değerleri ve çalıştırın. Alternatif olarak, kendi oluşturmak için bu öğreticideki adımları izleyebilirsiniz.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
 Bu öğreticiyi tamamlamak için aşağıdaki önkoşulları karşılamanız gerekir:
 
 - Node.js sürümü 8.x ve daha yüksek. En son LTS sürümü [ https://nodejs.org ](https://nodejs.org).
-- Etkin bir Azure hesabı. Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap][] oluşturun.
 - Visual Studio Code (önerilir) veya diğer herhangi bir IDE
 
-## <a name="create-a-namespace-and-event-hub"></a>Ad alanı ve olay hub'ı oluşturma
-İlk adım, bir olay hub'ı ile bir Event Hubs ad alanı oluşturmak için Azure portalı kullanmaktır. Mevcut bir yoksa, yönergeleri izleyerek bu varlıkları oluşturabilirsiniz [bir Event Hubs ad alanı ve Azure portalını kullanarak bir olay hub'ı oluşturma](event-hubs-create.md).
+## <a name="create-an-event-hubs-namespace-and-an-event-hub"></a>Event Hubs ad alanı ve bir olay hub’ı oluşturma
+İlk adımda [Azure portalını](https://portal.azure.com) kullanarak Event Hubs türünde bir ad alanı oluşturun, ardından uygulamanızın olay hub’ı ile iletişim kurması için gereken yönetim kimlik bilgilerini edinin. Bir ad alanı ve olay hub'ı oluşturmak için verilen yordamı izleyin [bu makalede](event-hubs-create.md), ardından Bu öğreticide aşağıdaki adımlarla devam edin.
 
 ## <a name="clone-the-sample-git-repository"></a>Örnek Git deposunu kopyalayın
 Örnek Git deposundan kopyalama [Github](https://github.com/Azure/azure-event-hubs-node) makinenizde. 
@@ -105,12 +103,6 @@ export EVENTHUB_NAME="<your-event-hub-name>"
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
+Bu hızlı başlangıçta, Node.js kullanarak bir olay hub'ına ileti gönderdiniz. Node.js kullanarak bir olay hub'ından olay alma konusunda bilgi almak için bkz: [event hub'dan - Node.js olayları alma](event-hubs-node-get-started-receive.md)
 
-Event Hubs hakkında daha fazla bilgi için aşağıdaki makalelere bakın:
-
-* [Node.js kullanarak olay alma](event-hubs-node-get-started-receive.md)
-* [Github'da örnekleri](https://github.com/Azure/azure-event-hubs-node/tree/master/client/examples/)
-* [Event Hubs ile ilgili SSS](event-hubs-faq.md)
-
-<!-- Links -->
-[ücretsiz bir hesap]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
+Event Hubs için diğer Node.js örneklerini gözden kontrol [GitHub](https://github.com/Azure/azure-event-hubs-node/tree/master/client/examples/).

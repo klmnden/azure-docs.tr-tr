@@ -5,15 +5,15 @@ services: billing
 author: rothja
 ms.service: billing
 ms.topic: include
-ms.date: 08/22/2018
+ms.date: 10/19/2018
 ms.author: jroth
 ms.custom: include file
-ms.openlocfilehash: 2d0fa179e7d1ae87372536d315175f1406baf21a
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: ef670c2dc701f888be3c7bb9a546c8a8a46f993a
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45979710"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49458895"
 ---
 | Kaynak | Varsayılan Sınır | Üst Sınır |
 | --- | --- | --- |
@@ -24,8 +24,6 @@ ms.locfileid: "45979710"
 | [Depolama hesapları](../articles/storage/common/storage-quickstart-create-account.md) her Abonelikteki bölge başına |200 |200<sup>2</sup> |
 | Abonelik başına [Kaynak Grubu](../articles/azure-resource-manager/resource-group-overview.md) |980 |980 |
 | Abonelik başına [Kullanılabilirlik Kümesi](../articles/virtual-machines/windows/manage-availability.md#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy) |Bölge başına 2.000 |Bölge başına 2.000 |
-| Resource Manager API'si Okuma İşlemleri |Saatte 15.000 |Saatte 15.000 |
-| Resource Manager API'si Yazma İşlemleri |Saatte 1.200 |Saatte 1.200 |
 | Resource Manager API'si istek boyutu |4.194.304 bayt |4.194.304 bayt |
 | Abonelik başına etiket<sup>3</sup> |sınırsız |sınırsız |
 | Abonelik başına benzersiz etiket hesaplaması<sup>3</sup> | 10,000 | 10,000 |

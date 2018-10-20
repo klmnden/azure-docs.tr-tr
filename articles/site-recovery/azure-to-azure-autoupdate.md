@@ -6,14 +6,14 @@ author: rajani-janaki-ram
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 07/06/2018
+ms.date: 10/19/2018
 ms.author: rajanaki
-ms.openlocfilehash: 9f0a299fb8221554a3b0c9a19a616d5ba7613a67
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 06a7e23eb16cf6296a8997273ea8d554851600c3
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45574412"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49456499"
 ---
 # <a name="automatic-update-of-the-mobility-service-in-azure-to-azure-replication"></a>Azure'dan Azure'a çoğaltma Mobility hizmetini otomatik güncelleştirme
 
@@ -61,6 +61,19 @@ Etkinleştirdiğinizde çoğaltma bir sanal makine için başlangıç ya da [san
 
 > [!Note] 
 > Her iki seçenek, güncelleştirmeleri yönetmek için kullanılan Otomasyon hesabının bildirir. İlk kez bir kasada bu özelliği etkinleştirmek, yeni bir Otomasyon hesabı oluşturulur. Tüm sonraki etkinleştir çoğaltmalar aynı kasaya daha önce oluşturulmuş bir kullanır.
+
+### <a name="manage-manually"></a>El ile yönetme
+
+1. Azure sanal makinelerinizde yüklü mobilite hizmeti için kullanılabilir yeni güncelleştirmeler varsa, "Yeni Site recovery çoğaltma aracısı güncelleştirmesi kullanılabilir. okuyan bir bildirim görür Yüklemek için tıklayın."
+
+     ![Çoğaltılan öğeler penceresi](.\media\vmware-azure-install-mobility-service\replicated-item-notif.png)
+3. Sanal makine seçimi sayfasını açmak için bildirimi seçin.
+4. İstediğiniz üzerinde mobility hizmetini ve sanal makineleri seçin **Tamam**.
+
+     ![Çoğaltılan öğeler VM listesi](.\media\vmware-azure-install-mobility-service\update-okpng.png)
+
+Her bir seçili sanal makine için Mobility hizmetini güncelleştirme işlemi başlatır.
+
 
 ## <a name="common-issues--troubleshooting"></a>Sık karşılaşılan sorunlar ve sorun giderme
 

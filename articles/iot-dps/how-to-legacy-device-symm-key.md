@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: 51fea4fa1973fbe92242f1995d892cd5b038a29b
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 9553d1dd5dd8d8ff11ea480618b471b9898985e3
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46991649"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49456567"
 ---
 # <a name="how-to-provision-legacy-devices-using-symmetric-keys"></a>Simetrik anahtarlar kullanarak eski cihazları sağlamasını yapma
 
@@ -26,7 +26,7 @@ Bu makalede, bir HSM ya da bir sertifika kaydının uygulanabilir bir seçenek o
 
 Bu makale, ayrıca cihaz güncelleştirmesi Ana Grup anahtarı veya türetilmiş cihaz anahtarı yetkisiz erişimi önlemek için güvenli bir ortamda yer aldığını varsayar.
 
-Bu makalede, Windows tabanlı bir iş istasyonu doğru yönlendirilmiş demektir. Ancak, Linux üzerinde yordamları gerçekleştirebilirsiniz. Bir Linux örneği için bkz [çoklu müşteri mimarisi için sağlama](how-to-provision-multitenant.md).
+Bu makale Windows tabanlı bir iş istasyonuna yöneliktir. Ancak yordamları Linux üzerinde gerçekleştirebilirsiniz. Bir Linux örneği için, bkz. [Çoklu kiracı için sağlama](how-to-provision-multitenant.md).
 
 
 ## <a name="overview"></a>Genel Bakış
@@ -47,13 +47,13 @@ Bu makalede gösterilmiştir cihaz kodu olarak aynı deseni takip [hızlı başl
 * [Git](https://git-scm.com/download/)'in en son sürümünün yüklemesi.
 
 
-## <a name="prepare-an-azure-iot-c-sdk-development-environment"></a>Bir Azure IOT C SDK'sı geliştirme ortamınızı hazırlama
+## <a name="prepare-an-azure-iot-c-sdk-development-environment"></a>Azure IoT C SDK'sı için geliştirme ortamını hazırlama
 
-Bu bölümde, bir geliştirme ortamı oluşturmak için kullanılan hazırlayacak [Azure IOT C SDK'sı](https://github.com/Azure/azure-iot-sdk-c). 
+Bu bölümde, [Azure IoT C SDK'sını](https://github.com/Azure/azure-iot-sdk-c) oluşturmak için kullanılan geliştirme ortamını hazırlayacaksınız. 
 
-SDK'sı sanal cihaz için örnek kod içerir. Bu sanal cihazı sağlama sırasında cihazın önyükleme sırası çalışacaktır.
+SDK'sı sanal cihaz için örnek kod içerir. Simülasyon cihazı, cihazın önyükleme dizisi sırasında sağlamayı dener.
 
-1. ' % S'sürümü 3.11.4 olan [CMake derleme sistemini](https://cmake.org/download/). İlgili şifreleme karması değerini kullanarak indirilen ikili dağıtımı doğrulayın. Aşağıdaki örnekte, x64 MSI dağıtımı 3.11.4 sürümünün şifreleme karmasını doğrulamak için Windows PowerShell kullanılır:
+1. [CMake derleme sistemi](https://cmake.org/download/)'nin 3.11.4 sürümünü indirin. İlgili şifreleme karması değerini kullanarak indirilen ikili dağıtımı doğrulayın. Aşağıdaki örnekte, x64 MSI dağıtımı 3.11.4 sürümünün şifreleme karmasını doğrulamak için Windows PowerShell kullanılır:
 
     ```PowerShell
     PS C:\Downloads> $hash = get-filehash .\cmake-3.11.4-win64-x64.msi
@@ -61,7 +61,7 @@ SDK'sı sanal cihaz için örnek kod içerir. Bu sanal cihazı sağlama sırası
     True
     ```
     
-    Aşağıdaki sürüm 3.11.4 karma değerlerini bu makalenin yazıldığı sırada CMake sitesinde listelenen:
+    Bu metnin yazıldığı tarihte CMake sitesinde 3.11.4 sürümü için şu karma değerleri listeleniyordu:
 
     ```
     6dab016a6b82082b8bcd0f4d1e53418d6372015dd983d29367b9153f1a376435  cmake-3.11.4-Linux-x86_64.tar.gz
@@ -71,7 +71,7 @@ SDK'sı sanal cihaz için örnek kod içerir. Bu sanal cihazı sağlama sırası
 
     `CMake` yüklemesine başlamadan **önce** makinenizde Visual Studio önkoşullarının (Visual Studio ve "C++ ile masaüstü geliştirme" iş yükü) yüklenmiş olması önemlidir. Önkoşullar sağlandıktan ve indirme doğrulandıktan sonra, CMake derleme sistemini yükleyin.
 
-2. Komut istemini veya Git Bash kabuğunu açın. Azure IOT C SDK'sı GitHub deposunu kopyalamak için aşağıdaki komutu yürütün:
+2. Komut istemini veya Git Bash kabuğunu açın. Aşağıdaki komutu yürüterek Azure IoT C SDK'sı GitHub deposunu kopyalayın:
     
     ```cmd/sh
     git clone https://github.com/Azure/azure-iot-sdk-c.git --recursive
@@ -87,10 +87,10 @@ SDK'sı sanal cihaz için örnek kod içerir. Bu sanal cihazı sağlama sırası
     cd cmake
     ```
 
-4. Geliştirme istemci platformunuza belirli SDK'nin bir sürümüne yapılar aşağıdaki komutu çalıştırın. `cmake` dizininde simülasyon cihazı için bir Visual Studio çözümü de oluşturulur. 
+4. SDK’nın geliştirme istemci platformunuza ve özgü bir sürümünü oluşturmak için aşağıdaki komutu çalıştırın. `cmake` dizininde simülasyon cihazı için bir Visual Studio çözümü de oluşturulur. 
 
     ```cmd
-    cmake -Duse_prov_client:BOOL=ON ..
+    cmake -Dhsm_type_symm_key:BOOL=ON ..
     ```
     
     `cmake`, C++ derleyicinizi bulamazsa yukarıdaki komutu çalıştırırken derleme hatalarıyla karşılaşabilirsiniz. Bu durumda bu komutu [Visual Studio komut isteminde](https://docs.microsoft.com/dotnet/framework/tools/developer-command-prompt-for-vs) çalıştırmayı deneyin. 
@@ -98,7 +98,7 @@ SDK'sı sanal cihaz için örnek kod içerir. Bu sanal cihazı sağlama sırası
     Derleme başarılı olduktan sonra, son birkaç çıkış satırı aşağıdaki çıkışa benzer olacaktır:
 
     ```cmd/sh
-    $ cmake -Duse_prov_client:BOOL=ON ..
+    $ cmake -Dhsm_type_symm_key:BOOL=ON ..
     -- Building for: Visual Studio 15 2017
     -- Selecting Windows SDK version 10.0.16299.0 to target Windows 10.0.17134.
     -- The C compiler identification is MSVC 19.12.25835.0
@@ -124,7 +124,7 @@ SDK'sı sanal cihaz için örnek kod içerir. Bu sanal cihazı sağlama sırası
 
     - **Kanıtlama türü**: seçin **simetrik anahtar**.
 
-    - **Anahtarları otomatik Onayla**: Bu onay kutusunu işaretleyin.
+    - **Anahtarları Otomatik Olarak Oluştur**: Bu kutuyu işaretleyin.
 
     - **Hub'lara cihazları atamak istediğiniz seçin**: seçin **statik yapılandırma** belirli bir hub'ına atayabilmenizi sağlayacak.
 
@@ -132,9 +132,9 @@ SDK'sı sanal cihaz için örnek kod içerir. Bu sanal cihazı sağlama sırası
 
     ![Simetrik anahtar kanıtı için kayıt grubu Ekle](./media/how-to-legacy-device-symm-key/symm-key-enrollment-group.png)
 
-4. Kaydınıza, kaydedildikten sonra **birincil anahtar** ve **ikincil anahtar** oluşturulur ve kayıt girişine eklendi. Simetrik anahtar kayıt grubunuz görünür **mylegacydevices** altında *grup adı* sütununda *kayıt grupları* sekmesi. 
+4. Ortamınızı kaydettikten sonra, **Birincil Anahtar** ve **İkincil Anahtar** oluşturularak kayıt girişine eklenir. Simetrik anahtar kayıt grubunuz görünür **mylegacydevices** altında *grup adı* sütununda *kayıt grupları* sekmesi. 
 
-    Kayıt açın ve oluşturulan, değerini kopyalayın **birincil anahtar**. Ana Grup anahtarınızı anahtardır.
+    Kaydı açın ve oluşturduğunuz **Birincil Anahtar** değerini kopyalayın. Ana Grup anahtarınızı anahtardır.
 
 
 ## <a name="choose-a-unique-registration-id-for-the-device"></a>Bir cihaz için benzersiz kayıt kimliği seçin
@@ -216,7 +216,7 @@ Bu örnek kod, cihaz sağlama hizmeti örneğinizi sağlama isteği gönderdiği
 
     ![Portal dikey penceresinden Cihaz Sağlama Hizmeti uç noktası bilgilerini ayıklama](./media/quick-create-simulated-device-x509/extract-dps-endpoints.png) 
 
-2. Visual Studio'da açın **azure_iot_sdks.sln** CMake çalıştırarak daha önce oluşturulan çözüm dosyası. Çözüm dosyası şu konumda olması gerekir:
+2. Visual Studio'da açın **azure_iot_sdks.sln** CMake çalıştırarak daha önce oluşturulan çözüm dosyası. Çözüm dosyası şu konumda olmalıdır:
 
     ```
     \azure-iot-sdk-c\cmake\azure_iot_sdks.sln
@@ -230,7 +230,7 @@ Bu örnek kod, cihaz sağlama hizmeti örneğinizi sağlama isteği gönderdiği
     static const char* id_scope = "0ne00002193";
     ```
 
-5. Aynı dosyada `main()` işlevinin tanımını bulun. Emin `hsm_type` değişkeni ayarlanır `SECURE_DEVICE_TYPE_SYMMETRIC_KEY` aşağıda gösterildiği gibi:
+5. Aynı dosyada `main()` işlevinin tanımını bulun. `hsm_type` değişkeninin aşağıda gösterildiği gibi `SECURE_DEVICE_TYPE_SYMMETRIC_KEY` değerine ayarlandığından emin olun:
 
     ```c
     SECURE_DEVICE_TYPE hsm_type;
@@ -241,9 +241,9 @@ Bu örnek kod, cihaz sağlama hizmeti örneğinizi sağlama isteği gönderdiği
 
 6. **prov\_dev\_client\_sample** projesine sağ tıklayın ve **Başlangıç Projesi Olarak Ayarla**’yı seçin. 
 
-7. Visual Studio'nun içinde *Çözüm Gezgini* penceresinde gidin **hsm\_güvenlik\_istemci** proje ve genişletin. Genişletin **kaynak dosyaları**açın **hsm\_istemci\_key.c**. 
+7. Visual Studio *Çözüm Gezgini* penceresinde, **hsm\_security\_client** projesine gidip projeyi genişletin. **Kaynak Dosyalar**’ı genişletin ve **hsm\_client\_key.c** dosyasını açın. 
 
-    Bildirimi Bul `REGISTRATION_NAME` ve `SYMMETRIC_KEY_VALUE` sabitler. Dosyasına aşağıdaki değişiklikleri yapın ve dosyayı kaydedin.
+    `REGISTRATION_NAME` ve `SYMMETRIC_KEY_VALUE` sabitlerinin bildirimini bulun. Dosyada aşağıdaki değişiklikleri yapıp dosyayı kaydedin.
 
     Değerini güncelleştirin `REGISTRATION_NAME` ile sabit **cihazınız için benzersiz kayıt kimliği**.
     
@@ -256,7 +256,7 @@ Bu örnek kod, cihaz sağlama hizmeti örneğinizi sağlama isteği gönderdiği
 
 7. Çözümü çalıştırmak için Visual Studio menüsünde **Hata Ayıkla** > **Hata ayıklama olmadan başlat**'ı seçin. Projeyi yeniden derleme isteminde **Evet**'e tıklayarak, çalıştırmadan önce projeyi yeniden derleyin.
 
-    Aşağıdaki çıktı, sanal cihazı ayarlama başarıyla önyüklenmesini ve bir IOT hub'ına atanacak sağlama hizmeti örneğine bağlanma örneğidir:
+    Aşağıdaki çıkış, bir simülasyon cihazının başarıyla önyüklemesini yapma ve bir IoT hub’ına atanmak üzere sağlama Hizmeti örneğine bağlanma işlemlerinin bir örneğidir:
 
     ```cmd
     Provisioning API Version: 1.2.8
@@ -273,7 +273,7 @@ Bu örnek kod, cihaz sağlama hizmeti örneğinizi sağlama isteği gönderdiği
     Press enter key to exit:
     ```
 
-8. Portalda, sanal cihazınız için atanma IOT hub'ına gidin ve tıklayın **IOT cihazları** sekmesi. Başarılı sanal hub'ına sağlanması durumunda, cihaz kimliği üzerinde görünür **IOT cihazları** dikey penceresinde ile *durumu* olarak **etkin**. Tıklamanız gerekebilir **Yenile** üstünde düğme. 
+8. Portalda, simülasyon cihazınızın atandığı IoT hub’ına gidin ve **IoT Cihazları** sekmesine tıklayın. Simülasyon cihazının hub'a başarıyla sağlanması durumunda, cihaz kimliği **IoT Cihazları** dikey penceresinde *DURUM* değeri **etkinleştirildi** olarak gösterilir. En üstteki **Yenile** düğmesine tıklamanız gerekebilir. 
 
     ![Cihaz IOT hub'da kayıtlı](./media/how-to-legacy-device-symm-key/hub-registration.png) 
 

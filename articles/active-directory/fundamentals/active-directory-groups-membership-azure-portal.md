@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: fundamentals
 ms.topic: conceptual
-ms.date: 08/28/2018
+ms.date: 10/19/2018
 ms.author: lizross
 ms.custom: it-pro
 ms.reviewer: krbain
-ms.openlocfilehash: c28fe5ef226fac993fde221b16bfa875ba4845ca
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 09e023d1d562ea53d9927adf609335beac38a2d7
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45579777"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49468045"
 ---
 # <a name="how-to-add-or-remove-a-group-from-another-group-using-azure-active-directory"></a>Nasıl yapılır: ekleme veya bir grup Azure Active Directory'yi kullanarak başka bir gruptan kaldırma
 Bu makalede, bir grup Azure Active Directory'yi kullanarak başka bir gruptan ekleyip yardımcı olur.
@@ -25,12 +25,15 @@ Bu makalede, bir grup Azure Active Directory'yi kullanarak başka bir gruptan ek
 >[!Note]
 >Üst grubun silmeye çalışıyorsanız, bkz [güncelleştirmek veya bir grup ve üyelerini silmek nasıl](active-directory-groups-delete-group.md).
 
-## <a name="add-a-group-as-a-member-to-another-group"></a>Bir grubu başka bir gruba üye olarak ekleyin.
-Varolan bir grup üyesi grubu (alt) ve bir üst grubu oluşturma başka bir mevcut gruba ekleyebilirsiniz. Grubu üyeleri, öznitelikleri ve yapılandırma zamandan tasarruf üst grubunun özelliklerini devralır.
+## <a name="add-a-group-to-another-group"></a>Bir grubu başka bir gruba ekleyin
+Mevcut güvenlik grubuna üye grubu (alt) ve bir üst grubu oluşturma var olan başka bir güvenlik grubu (olarak da bilinen iç içe geçmiş gruplar) ekleyebilirsiniz. Grubu üyeleri, öznitelikleri ve yapılandırma zamandan tasarruf üst grubunun özelliklerini devralır.
 
-### <a name="to-add-a-group-as-a-member-to-another-group"></a>Bir grubu başka bir gruba üye olarak eklemek için
+>[!Important]
+>Şu anda desteklemiyoruz:<ul><li>Office 365 grupları için güvenlik grupları ekleme</li><li>Güvenlik grupları veya diğer Office 365 grupları için Office 365 grupları ekleme</li><li>İç içe geçmiş gruplara uygulama atama</li><li>İç içe geçmiş gruplara uygulama lisansları</li></ul>
 
-1. Oturum [Azure portalında](https://portal.azure.com) dizinde genel yönetici hesabını kullanarak.
+### <a name="to-add-a-group-as-a-member-of-another-group"></a>Bir grubu başka bir grubun üyesi olarak eklemek için
+
+1. Dizin için bir Genel yönetici hesabı kullanarak [Azure portalda](https://portal.azure.com) oturum açın.
 
 2. Seçin **Azure Active Directory**ve ardından **grupları**.
 
@@ -55,8 +58,8 @@ Varolan bir grup üyesi grubu (alt) ve bir üst grubu oluşturma başka bir mevc
 
     ![Grup üyeliği sayfası hem üye ve Grup ayrıntılarını gösterme](media/active-directory-groups-membership-azure-portal/group-membership-review.png)
 
-## <a name="remove-a-member-group-from-another-group"></a>Üye grubu başka bir gruptan Kaldır
-Varolan bir üye grubu başka bir gruptan kaldırabilirsiniz. Ancak, üyelik kaldırılması ayrıca tüm devralınan öznitelikleri ve kullanıcılarınız için özellikleri kaldırır.
+## <a name="remove-a-group-from-another-group"></a>Bir grubu başka bir gruptan Kaldır
+Mevcut bir güvenlik grubuna başka bir güvenlik grubundan kaldırabilirsiniz. Ancak, grup kaldırma de tüm devralınan öznitelikleri ve özellikleri üyeleri için kaldırır.
 
 ### <a name="to-remove-a-member-group-from-another-group"></a>Üye grubu başka bir gruptan kaldırmak için
 1. Üzerinde **gruplar - tüm gruplar** sayfasında arayın ve başka bir grubun üyesi olarak kaldırılacak grubunu seçin. Bu alıştırma için yeniden kullanıyoruz **MDM İlkesi - Batı** grubu.
@@ -73,12 +76,14 @@ Varolan bir üye grubu başka bir gruptan kaldırabilirsiniz. Ancak, üyelik kal
 ## <a name="additional-information"></a>Ek bilgiler
 Bu makalelerde Azure Active Directory ile ilgili ek bilgi sağlanmıştır.
 
-- [Gruplar ve üyeler görüntüleyin](active-directory-groups-view-azure-portal.md)
+- [Grupları ve üyeleri görüntüleme](active-directory-groups-view-azure-portal.md)
 
 - [Temel bir grup oluşturma ve üye ekleme](active-directory-groups-create-azure-portal.md)
 
 - [Üye ekleme veya gruptan kaldırma](active-directory-groups-members-azure-portal.md)
 
-- [Grup ayarlarınızı düzenleyin](active-directory-groups-settings-azure-portal.md)
+- [Grup ayarlarınızı düzenleme](active-directory-groups-settings-azure-portal.md)
 
-- [Gruba göre kullanıcılar için lisans atama](../users-groups-roles/licensing-groups-assign.md)
+- [SaaS uygulamalarına erişimi yönetmek için grup kullanma](../users-groups-roles/groups-saasapps.md)
+
+- [Senaryoları, sınırlamalar ve bilinen sorunlar Azure Active Directory'de lisanslama yönetmek için grupları kullanma](../users-groups-roles/licensing-group-advanced.md#limitations-and-known-issues)

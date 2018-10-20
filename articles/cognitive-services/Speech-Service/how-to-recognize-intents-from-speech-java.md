@@ -1,21 +1,21 @@
 ---
 title: Java için Speech SDK'sı kullanarak amaçlardan tutun konuşma tanıma
-titleSuffix: Microsoft Cognitive Services
-description: >
-  Java için Speech SDK'sı kullanarak amaçlardan tutun bir dosyadan veya bir mikrofon konuşma tanıma öğrenin.
+titleSuffix: Azure Cognitive Services
+description: Java için Speech SDK'sı kullanarak amaçlardan tutun bir dosyadan veya bir mikrofon konuşma tanıma öğrenin.
 services: cognitive-services
 author: wolfma61
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: Speech
-ms.topic: article
+ms.component: speech-service
+ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: wolfma
-ms.openlocfilehash: cc83c05f4e4183fd7c945cec831d905781b92e6f
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: cb7e7095278eed51c7616dc1c19dcf5c9d84b856
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46991836"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49469903"
 ---
 # <a name="recognize-intents-from-speech-by-using-the-speech-sdk-for-java"></a>Java için Speech SDK'sı kullanarak amaçlardan tutun konuşma tanıma
 
@@ -44,5 +44,5 @@ Bu makaledeki örnekleri/java/jre/konsol klasöründe kullandığınız kodunu a
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- [Konuşma tanıma nasıl](how-to-recognize-speech-java.md)
+- [Konuşmayı algılama](how-to-recognize-speech-java.md)
 - [Nasıl konuşma Çevir](how-to-translate-speech-java.md)

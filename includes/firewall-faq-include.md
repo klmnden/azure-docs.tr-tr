@@ -5,15 +5,15 @@ services: firewall
 author: vhorne
 ms.service: ''
 ms.topic: include
-ms.date: 10/15/2018
+ms.date: 10/20/2018
 ms.author: victorh
 ms.custom: include file
-ms.openlocfilehash: 1d52c9b3b9b91873bd6f34443f162c74d724a65c
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: e4d698b8b9c3f9e304780ee49bd4243a76e69138
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49367036"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49471539"
 ---
 ### <a name="what-is-azure-firewall"></a>Azure Güvenlik Duvarı nedir?
 
@@ -30,13 +30,6 @@ Azure Güvenlik Duvarı, Azure Sanal Ağ kaynaklarınızı koruyan yönetilen, b
 * Gelen DNAT desteği
 * Merkezi olarak oluşturma, zorlama ve Azure abonelikleri ve sanal ağlar arasında bağlantı ilkeleri uygulama ve ağ oturum
 * Günlüğe kaydetme ve analiz için tamamen tümleşik Azure İzleyici
-
-### <a name="what-is-the-pricing-for-azure-firewall"></a>Azure Güvenlik Duvarı için fiyatlandırma nedir?
-
-Azure güvenlik duvarı sabit maliyete + değişken maliyet vardır:
-
-* Sabit Ücret: $1.25/firewall/hour
-* Değişken ücreti: (giriş veya çıkış) duvarıyla işlenen $0.03/ GB
 
 ### <a name="what-is-the-typical-deployment-model-for-azure-firewall"></a>Azure Güvenlik Duvarı için tipik bir dağıtım modeli nedir?
 
@@ -78,6 +71,17 @@ Azure Güvenlik Duvarı hizmeti, ağ güvenlik grubu işlevselliğini tamamlar. 
 ### <a name="how-do-i-set-up-azure-firewall-with-my-service-endpoints"></a>My hizmet uç noktaları ile Azure Güvenlik Duvarı'nı nasıl ayarlayabilirim?
 
 PaaS hizmetlerine güvenli erişim için hizmet uç noktaları önerilir. Azure güvenlik duvarı alt ağdaki hizmet uç noktalarının etkinleştirilmesi ve bağlı uç sanal ağlarında devre dışı bırakmak isteyebilirsiniz. Bu şekilde özellikleri--Hizmeti uç nokta güvenliği ve tüm trafik için Merkezi günlük yararlanır.
+
+### <a name="what-is-the-pricing-for-azure-firewall"></a>Azure Güvenlik Duvarı için fiyatlandırma nedir?
+
+Azure güvenlik duvarı sabit maliyete + değişken maliyet vardır:
+
+* Sabit Ücret: $1.25/firewall/hour
+* Değişken ücreti: (giriş veya çıkış) duvarıyla işlenen $0.03/ GB
+
+Serbest bırakılmış bir güvenlik duvarı için herhangi bir maliyet vardır.
+
+Daha fazla bilgi için [güvenlik duvarı Azure fiyatlandırma](https://azure.microsoft.com/pricing/details/azure-firewall/).
 
 ### <a name="how-can-i-stop-and-start-azure-firewall"></a>Nasıl durdurun ve Azure güvenlik duvarını başlatma?
 

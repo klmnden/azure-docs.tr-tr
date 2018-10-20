@@ -12,12 +12,12 @@ ms.author: ronitr
 ms.reviewer: vanto
 manager: craigg
 ms.date: 10/15/2018
-ms.openlocfilehash: 36269392db785e7d2d203f032a84cccc8a6c62e0
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: 32b60a53581a0f372a7d994cfa260ebd7bcb27b2
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49352977"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49467050"
 ---
 # <a name="azure-sql-database-data-discovery-and-classification"></a>Azure SQL veritabanı veri bulma ve sınıflandırma
 
@@ -140,10 +140,10 @@ Sütun sınıflandırmaları Ekle/Kaldır ek olarak, veritabanının tamamı iç
 
 Sınıflandırmaları programlı olarak yönetmek için REST API de kullanabilirsiniz. Yayımlanan REST API'leri, aşağıdaki işlemleri destekler:
 
-- [Oluşturma veya güncelleştirme](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/sensitivitylabels_createorupdate) - oluşturur veya belirli bir sütunun duyarlılık etiketi güncelleştirir
-- [Silme](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/sensitivitylabels_delete) -belirli bir sütunun duyarlılık etiketi siler
-- [Alma](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/sensitivitylabels_get) -belirli bir sütunun duyarlılık etiketi alır
-- [Liste tarafından veritabanı](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/sensitivitylabels_listbydatabase) -belirli bir veritabanı duyarlılık etiketlerini alır
+- [Oluşturma veya güncelleştirme](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/createorupdate) - oluşturur veya belirli bir sütunun duyarlılık etiketi güncelleştirir
+- [Silme](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/delete) -belirli bir sütunun duyarlılık etiketi siler
+- [Alma](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/get) -belirli bir sütunun duyarlılık etiketi alır
+- [Liste tarafından veritabanı](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/listbydatabase) -belirli bir veritabanı duyarlılık etiketlerini alır
 
 ## <a id="subheading-5"></a>Sonraki adımlar
 

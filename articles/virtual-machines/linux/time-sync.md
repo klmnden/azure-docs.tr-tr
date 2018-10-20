@@ -3,7 +3,7 @@ title: Azure'da Linux VM'ler için eşitleme zaman | Microsoft Docs
 description: Zaman eşitleme Linux sanal makineleri için.
 services: virtual-machines-linux
 documentationcenter: ''
-author: cynthn
+author: zr-msft
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/17/2018
-ms.author: cynthn
-ms.openlocfilehash: 58fd3afa37d965cfbe21dcf23823ddb8425442b9
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.author: zarhoads
+ms.openlocfilehash: aec36b8ea0f342b133e6844e5a96314c6348289b
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49116720"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49465483"
 ---
 # <a name="time-sync-for-linux-vms-in-azure"></a>Azure'da Linux VM'ler için zaman eşitleme
 

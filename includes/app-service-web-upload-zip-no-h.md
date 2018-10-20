@@ -1,16 +1,16 @@
-İçinde [Azure portal](https://portal.azure.com), tıklatın **kaynak grupları** > **bulut-shell-depolama -\<your_region >**  >   **\<storage_account_name >**.
+İçinde [Azure portalında](https://portal.azure.com), tıklayın **kaynak grupları** > **cloud-shell-depolama -\<your_region >**  >   **\<depolama_hesabı_adı >**.
 
-![Bulut Kabuk depolama hesabı bulunamadı](../articles/app-service/media/app-service-deploy-zip/upload-choose-storage-account.png)
+![Cloud Shell depolama hesabı bulunamadı](../articles/app-service/media/app-service-deploy-zip/upload-choose-storage-account.png)
 
 İçinde **genel bakış** sayfa seçin depolama hesabının **dosyaları**.
 
-Otomatik olarak oluşturulan dosya paylaşımı seçip **karşıya**. Bu dosya paylaşımı bulut kabuğunda takılı `clouddrive`.
+Otomatik olarak oluşturulan dosya paylaşımını seçip **karşıya**. Bu dosya paylaşımı Cloud shell'de takılı `clouddrive`.
 
-![Karşıya Yükle düğmesini Bul](../articles/app-service/media/app-service-deploy-zip/upload-select-button.png)
+![Karşıya yükleme düğmesini bulabilirsiniz](../articles/app-service/media/app-service-deploy-zip/upload-select-button.png)
 
-Dosya seçiciyi ve ZIP dosyası seçin ve ardından **karşıya**. 
+Dosya Seçici ve ZIP dosyanızı seçin, ardından tıklatın **karşıya**. 
 
-Bulut Kabuğu'nda kullanmak `ls` varsayılan karşıya yüklenen ZIP dosyasında görebildiğini doğrulamak için `clouddrive` paylaşın.
+Cloud Shell'de kullanmak `ls` varsayılan olarak yüklenen ZIP dosyasını gördüğünüzü doğrulamak için `clouddrive` paylaşın.
 
 ```azurecli-interactive
 ls clouddrive

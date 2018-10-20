@@ -1,20 +1,21 @@
 ---
-title: Azure Bilişsel hizmetler, Bilişsel hizmetler konuşma SDK API'si belgeleri - öğreticiler, API Başvurusu
-description: Oluşturma ve Bilişsel hizmetler konuşma SDK'sı ile uygulama geliştirme hakkında bilgi edinin
-titleSuffix: Microsoft Cognitive Services
+title: Konuşma hizmeti SDK API'si belgeleri - öğreticiler, API Başvurusu
+titleSuffix: Azure Cognitive Services
+description: Oluşturma ve konuşma hizmeti SDK'sı ile uygulama geliştirme hakkında bilgi edinin
 services: cognitive-services
 author: wolfma61
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: wolfma
-ms.openlocfilehash: 4bfede8df88c64e795e33620650efb579f43ebba
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 7510b1501051b79f6bdaf33ec57647a7982fafda
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47404317"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49469427"
 ---
 # <a name="ship-an-application"></a>Bir uygulama teslim edin
 

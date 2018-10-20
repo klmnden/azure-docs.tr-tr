@@ -6,16 +6,16 @@ services: cognitive-services
 author: mikedodaro
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: project-url-preview
+ms.component: url-preview
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: rosh
-ms.openlocfilehash: 3416fd9bc63c48e976d0b00f42ec9f8119a40eb8
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: 2e4c5e6337c7fb222d18efada6ea9167e58aa024
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48870817"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49471416"
 ---
 # <a name="project-url-preview-v7-reference"></a>Proje URL'si Önizleme v7 başvurusu
 
@@ -187,9 +187,9 @@ Olası hata kodu ve alt hata kodu değerleri şunlardır.
 |InsufficientAuthorization|AuthorizationDisabled<br/>AuthorizationExpired|Çağıran kaynağa erişmek için izinlere sahip olmadığı durumlarda Bing InsufficientAuthorization döndürür. Bu abonelik anahtarını devre dışı bırakıldı veya süresi ortaya çıkabilir. <br/><br/>Hata InsufficientAuthorization, HTTP durum kodu 403 ise.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-- [C# hızlı başlangıç](csharp.md)
-- [Java hızlı başlangıç](java-quickstart.md)
-- [JavaScript hızlı başlangıç](javascript.md)
-- [Düğüm hızlı başlangıç](node-quickstart.md)
-- [Python hızlı başlangıç](python-quickstart.md)
+- [C# hızlı başlangıcı](csharp.md)
+- [Java hızlı başlangıcı](java-quickstart.md)
+- [JavaScript hızlı başlangıcı](javascript.md)
+- [Node hızlı başlangıcı](node-quickstart.md)
+- [Python hızlı başlangıcı](python-quickstart.md)
 

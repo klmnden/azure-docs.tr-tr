@@ -1,22 +1,25 @@
 ---
-title: Özel ses nedir? -Azure Bilişsel hizmetler
-description: Bu makalede, tanınabilir, tür, bir marka ses oluşturmanızı sağlayan Microsoft metin okuma ses özelleştirme, bir genel bakıştır.
+title: Özel ses tipi oluşturma
+titlesuffix: Azure Cognitive Services
+description: Bu makalede metin okuma ses özelleştirme tanınabilir, tür, bir marka ses oluşturmanızı sağlayan bir genel bakıştır.
 services: cognitive-services
-author: noellelacharite
+author: PanosPeriorellis
+manager: cgronlun
 ms.service: cognitive-services
-ms.topic: article
+ms.component: speech-service
+ms.topic: conceptual
 ms.date: 05/07/2018
-ms.author: nolach
-ms.openlocfilehash: 21b37d2b61af81e6481de4c5e7537a3382d895b6
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.author: panosper
+ms.openlocfilehash: bf06042d3b820e61d1f5b316a8b7b26d1a366388
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49113929"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49467727"
 ---
 # <a name="creating-custom-voice-fonts"></a>Özel ses tipi olarak oluşturma
 
-Microsoft metin okuma (TTS) ses özelleştirme markanız için tanınan, tür, tek bir ses oluşturmanıza olanak sağlar: bir *ses tipi.* 
+Metin okuma (TTS) ses özelleştirme markanız için tanınan, tür, tek bir ses oluşturmanıza olanak sağlar: bir *ses tipi.* 
 
 Ses tipi oluşturmak için studio kaydını yapabilir ve ilişkili betikler eğitim verileri olarak karşıya yükleyin. Hizmet, ardından kaydınız için ayarlanmış bir benzersiz ses modeli oluşturur. Bu ses tipi konuşma sentezlemek için kullanabilirsiniz. 
 

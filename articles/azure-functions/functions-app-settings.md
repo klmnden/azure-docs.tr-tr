@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/22/2018
 ms.author: glenga
-ms.openlocfilehash: ec309bc5484c0ac96d1323c56670c147737e7c64
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: 2eb736891b12c07441bc8828ca07dd0b9fa13d98
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49377872"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49458131"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Azure işlevleri için uygulama ayarları başvurusu
 
@@ -82,11 +82,11 @@ Kök dizin yolu burada *host.json* dosya ve işlev klasörleri yer. Bir işlev u
 
 ## <a name="azurewebjobssecretstoragetype"></a>AzureWebJobsSecretStorageType
 
-Depo veya için anahtar depolama sağlayıcı belirtir. Şu anda desteklenen depoları blob ("Blob") ve dosya sistemi ("disabled") ' dir. Dosya sistemi ("disabled") varsayılandır.
+Depo veya için anahtar depolama sağlayıcı belirtir. Şu anda desteklenen depoları blob depolama ("Blob") olan ve yerel dosya sistemi ("Files"). Blob sürüm 1 ve 2 sürümündeki dosya sistemi varsayılan değerdir. Sürüm 1 dosya sistemi yalnızca bir app service planında çalıştırmayı işlevler için çalışacağını unutmayın.
 
 |Anahtar|Örnek değer|
 |---|------------|
-|AzureWebJobsSecretStorageType|devre dışı|
+|AzureWebJobsSecretStorageType|Dosyalar|
 
 ## <a name="azurewebjobsstorage"></a>AzureWebJobsStorage
 

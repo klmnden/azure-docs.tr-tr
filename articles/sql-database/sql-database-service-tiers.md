@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 10/17/2018
-ms.openlocfilehash: 3b2359564020eeeb209a7eb78d81782a675f125d
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.date: 10/19/2018
+ms.openlocfilehash: 9dc993b6ba9b90dfa61660df004ef7dae8b93fa7
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49379296"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49470971"
 ---
 # <a name="azure-sql-database-purchasing-models"></a>Azure SQL veritabanı'nı satın alma modeli
 
@@ -33,21 +33,21 @@ Aşağıdaki tablo ve grafik karşılaştırın ve bu iki satın alma modeli.
 
 |**Satın alma modeli**|**Açıklama**|**En iyi**|
 |---|---|---|
-|DTU tabanlı model|Bu model, işlem, depolama ve GÇ kaynakları ile birlikte gelen bir ölçüyü temel alır. İşlem boyutları, tek veritabanları için veritabanı işlem birimleri (Dtu'lar) ve elastik havuzlar için esnek veritabanı işlem birimleri (Edtu) cinsinden ifade edilir. Dtu'lar ve Edtu'lar hakkında daha fazla bilgi için bkz. [Dtu'lar ve Edtu'lar nelerdir](sql-database-service-tiers.md#dtu-based-purchasing-model)?|Basit, önceden yapılandırılmış kaynak seçenekleri isteyen müşteriler için idealdir.| 
+|DTU tabanlı model|Bu model, işlem, depolama ve GÇ kaynakları ile birlikte gelen bir ölçüyü temel alır. İşlem boyutları, tek veritabanları için veritabanı işlem birimleri (Dtu'lar) ve elastik havuzlar için esnek veritabanı işlem birimleri (Edtu) cinsinden ifade edilir. Dtu'lar ve Edtu'lar hakkında daha fazla bilgi için bkz. [Dtu'lar ve Edtu'lar nelerdir](sql-database-service-tiers.md#dtu-based-purchasing-model)?|Basit, önceden yapılandırılmış kaynak seçenekleri isteyen müşteriler için idealdir.|
 |vCore tabanlı model|Bu model, işlem ve depolama kaynaklarını bağımsız olarak seçmenizi sağlar. Ayrıca, maliyet tasarrufu elde etmek için SQL Server için Azure hibrit avantajı kullanmanıza olanak sağlar.|Esneklik, Denetim ve saydamlık değerini müşteriler için idealdir.|
 ||||  
 
 ![Fiyatlandırma modeli](./media/sql-database-service-tiers/pricing-model.png)
 
-## <a name="vcore-based-purchasing-model"></a>Sanal çekirdek tabanlı satın alma modeli 
+## <a name="vcore-based-purchasing-model"></a>Sanal çekirdek tabanlı satın alma modeli
 
 Sanal çekirdek, fiziksel donanım (örneğin, sayı çekirdekleri, bellek, depolama boyutu) özelliklerini ve donanım Nesilleri arasında seçim yapma olanağı ile sunulan mantıksal CPU'yu temsil eder. Sanal çekirdek tabanlı satın alma modeli, esneklik, denetimi, bireysel kaynak kullanımının saydamlığı sağlar ve basit bir yol çevirmek için şirket iş yükü gereksinimlerini buluta. Bu model, işlem, bellek ve depolama iş yükü gereksinimlerine göre seçmenize olanak sağlar. Sanal çekirdek tabanlı satın alma modeli, arasından seçim yapabilirsiniz [genel amaçlı](sql-database-high-availability.md#basic-standard-and-general-purpose-service-tier-availability) ve [iş açısından kritik](sql-database-high-availability.md#premium-and-business-critical-service-tier-availability) hizmet katmanları için her ikisi de [tek veritabanları](sql-database-single-database-scale.md), [ Yönetilen örnek](sql-database-managed-instance.md), ve [elastik havuzlar](sql-database-elastic-pool.md). Tek veritabanları için de seçebilirsiniz [hiper ölçekli (Önizleme)](sql-database-service-tier-hyperscale.md) hizmet katmanı.
 
 Sanal çekirdek tabanlı satın alma modeli, bağımsız olarak işlem ve depolama kaynaklarını seçin, aynı şirket içi performans ve fiyat iyileştirme sağlar. Sanal çekirdek tabanlı satın alma modeli, müşteriler için ödeme yapar:
 
 - İşlem (hizmet katmanı + sanal çekirdek sayısı ve bellek + donanımın miktarı)
-- Tür ve veri ve günlük depolama miktarı 
-- Yedek depolama (RA-GRS) 
+- Tür ve veri ve günlük depolama miktarı
+- Yedek depolama (RA-GRS)
 
 > [!IMPORTANT]
 > İşlem, IOs, veri ve günlük depolama, veritabanı veya elastik havuz başına ücretlendirilir. Yedekleme depolama, her veritabanı ücretlendirilir. Yönetilen örnek ücretleri ayrıntılarını başvurmak [Azure SQL veritabanı yönetilen örneği](sql-database-managed-instance.md).
@@ -75,9 +75,7 @@ Dtu en kaynakları farklı bilgi işlem boyutlarına, Azure SQL veritabanı hizm
 
 ### <a name="elastic-database-transaction-units-edtus"></a>Elastik veritabanı işlem birimleri (Edtu)
 
-Bunun yerine her zaman kullanılabilir bir SQL veritabanı için her zaman gerekli değildir (Dtu) kaynakları ayrılmış bir dizi sağlamak daha veritabanlarına yerleştirebilirsiniz bir [elastik havuz](sql-database-elastic-pool.md) bir SQL veritabanı sunucusundaki kaynakları arasında bir havuzu paylaşır Bu veritabanları. Bir elastik havuzdaki paylaşılan kaynakları, elastik veritabanı işlem birimleri veya Edtu'lar tarafından ölçülür. Elastik havuzlar, birden çok veritabanına sahip son derece farklı ve öngörülemeyen kullanım düzenlerine ilişkin performans hedeflerini yönetmek için basit ve uygun maliyetli çözüm sağlar. Elastik havuz, havuzdaki bir veritabanı tarafından havuzdaki her bir veritabanına her zaman sağlamak gerekli kaynakları kullanılabilir en düşük düzeyde sahipken kaynakları tüketilemiyor garanti eder. 
-
-![SQL Veritabanı'na Giriş: Katmana ve düzeye göre eDTU’lar](./media/sql-database-what-is-a-dtu/sqldb_elastic_pools.png)
+Bunun yerine her zaman kullanılabilir bir SQL veritabanı için her zaman gerekli değildir (Dtu) kaynakları ayrılmış bir dizi sağlamak daha veritabanlarına yerleştirebilirsiniz bir [elastik havuz](sql-database-elastic-pool.md) bir SQL veritabanı sunucusundaki kaynakları arasında bir havuzu paylaşır Bu veritabanları. Bir elastik havuzdaki paylaşılan kaynakları, elastik veritabanı işlem birimleri veya Edtu'lar tarafından ölçülür. Elastik havuzlar, birden çok veritabanına sahip son derece farklı ve öngörülemeyen kullanım düzenlerine ilişkin performans hedeflerini yönetmek için basit ve uygun maliyetli çözüm sağlar. Elastik havuz, havuzdaki bir veritabanı tarafından havuzdaki her bir veritabanına her zaman sağlamak gerekli kaynakları kullanılabilir en düşük düzeyde sahipken kaynakları tüketilemiyor garanti eder.
 
 Bir havuz için belirli bir fiyat sayıda Edtu verilir. Elastik havuz içerisinde tek veritabanlarına yapılandırılan sınırlar içinde otomatik olarak ölçeklendirme elastikliği tanınır. Ağır yük altındaki bir veritabanı, talebi karşılamak üzere daha fazla Edtu kullanacaktır. Daha hafif yükler altında veritabanları daha az Edtu kullanacaktır. Hiçbir yük veritabanlarıyla hiçbir Edtu kullanacaktır. Tüm havuz için kaynakları sağlama tarafından yerine veritabanı başına yönetim görevleri, havuz için tahmin edilebilir bir bütçe sağlama basitleştirilmiştir.
 

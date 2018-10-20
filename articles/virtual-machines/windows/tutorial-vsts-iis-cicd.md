@@ -3,7 +3,7 @@ title: Öğretici - Azure DevOps hizmetleriyle azure'da CI/CD işlem hattı olu�
 description: Bu öğreticide, sürekli tümleştirme ve azure'da Windows sanal makinesi üzerinde IIS'ye bir web uygulaması dağıtır teslim için hizmetlerinize DevOps işlem hattı oluşturma konusunda bilgi edinin.
 services: virtual-machines-windows
 documentationcenter: virtual-machines
-author: cynthn
+author: zr-msft
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 05/12/2017
-ms.author: cynthn
+ms.author: zarhoads
 ms.custom: mvc
-ms.openlocfilehash: d4edf0d22ce04eb2cb865d80c2b70f1bcc2169df
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 4b4d514ec8bfd78b303a7f51c2a4072507da5be9
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44301907"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49471467"
 ---
 # <a name="tutorial-create-a-continuous-integration-pipeline-with-azure-devops-services-and-iis"></a>Öğretici: Azure DevOps Hizmetleri ve IIS ile sürekli tümleştirme işlem hattı oluşturma
 Derleme, test ve uygulama geliştirme için dağıtım aşamaları otomatikleştirmek için bir sürekli tümleştirme ve dağıtım (CI/CD) işlem hattı kullanabilirsiniz. Bu öğreticide, Azure DevOps Hizmetleri ve bir Windows sanal makinesi (VM), IIS çalıştıran Azure'da kullanarak bir CI/CD işlem hattı oluşturun. Aşağıdakileri nasıl yapacağınızı öğrenirsiniz:

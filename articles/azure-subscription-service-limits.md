@@ -8,14 +8,14 @@ tags: billing
 ms.assetid: 60d848f9-ff26-496e-a5ec-ccf92ad7d125
 ms.service: billing
 ms.topic: article
-ms.date: 09/11/2018
+ms.date: 10/19/2018
 ms.author: byvinyal
-ms.openlocfilehash: 0b78c7c94f5dc6d7c427188ac4ffd807a06a867e
-ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
+ms.openlocfilehash: c22f3dbc06dd43a31bf43634437c7f377dac8813
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47585501"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49457315"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Azure aboneliği ve hizmet sınırları, kotalar ve kısıtlamalar
 Bu belge Ayrıca bazen kota olarak da adlandırılır en yaygın Microsoft Azure sınırları bazıları listelenmiştir. Bu belge, şu anda tüm Azure Hizmetleri ele alınmamıştır. Zamanla, listenin genişletilir ve daha fazla platform kapsayacak şekilde güncelleştirildi.
@@ -91,7 +91,7 @@ Aşağıdaki sınırlar yeni bir tablo, Azure Resource Manager kullanırken fark
 * [Service Bus](#service-bus-limits)
 * [SignalR Service](#signalr-service-limits)
 * [Site Recovery](#site-recovery-limits)
-* [SQL Database](#sql-database-limits)
+* [SQL Veritabanı](#sql-database-limits)
 * [SQL Veri Ambarı](#sql-data-warehouse-limits)
 * [Depolama](#storage-limits)
 * [StorSimple sistemi](#storsimple-system-limits)
@@ -108,7 +108,7 @@ Aşağıdaki sınırlar yeni bir tablo, Azure Resource Manager kullanırken fark
 #### <a name="subscription-limits---azure-resource-manager"></a>Abonelik limitleri - Azure Resource Manager
 Azure kaynak grupları ve Azure Resource Manager kullanırken aşağıdaki sınırlar geçerlidir. Aşağıda Azure Resource Manager ile değişmedi sınırları listelenmemiştir. Lütfen bu sınırları için önceki tabloya bakın.
 
-Resource Manager istek sınırları işleme hakkında daha fazla bilgi için bkz: [istekleri azaltma Resource Manager](resource-manager-request-limits.md).
+Resource Manager API'si hakkında bilgi için okuma ve yazma sınırları, bkz: [istekleri azaltma Resource Manager](resource-manager-request-limits.md).
 
 [!INCLUDE [azure-subscription-limits-azure-resource-manager](../includes/azure-subscription-limits-azure-resource-manager.md)]
 

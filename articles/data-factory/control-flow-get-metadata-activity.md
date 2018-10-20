@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/03/2018
+ms.date: 10/19/2018
 ms.author: shlo
-ms.openlocfilehash: c24bec7366ea62b3dd8f7a301c9d2d62c6dd6c7d
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: f61399a3a6cb5c67343e28e4364d8d796ffbc066
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37859287"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49457102"
 ---
 # <a name="get-metadata-activity-in-azure-data-factory"></a>Azure Data Factory'de etkinlik meta verilerini al
 GetMetadata etkinliği, almak için kullanılabilir **meta verileri** Azure Data factory'deki herhangi bir veri. Bu etkinlik, aşağıdaki senaryolarda kullanılabilir:
@@ -43,7 +43,7 @@ GetMetadata etkinliği, bir veri kümesi gerekli bir giriş olarak alır ve etki
 
 **Dosya depolama:**
 
-| Bağlayıcı/meta verileri | ItemName<br>(dosya/klasör) | Itemtype<br>(dosya/klasör) | boyut<br>(dosya) | oluşturuldu<br>(dosya/klasör) | Son değiştirme<br>(dosya/klasör) |childItems<br>(klasör) |contentMD5<br>(dosya) | yapısı<br/>(dosya) | columnCount<br>(dosya) | var.<br>(dosya/klasör) |
+| Bağlayıcı/meta verileri | ItemName<br>(dosya/klasör) | Itemtype<br>(dosya/klasör) | boyut<br>(dosya) | oluşturuldu<br>(dosya/klasör) | Son değiştirme<br>(dosya/klasör) |childItems<br>(klasör) |contentMD5<br>(dosya) | yapısı<br/>(dosya) | columnCount<br>(dosya) | Var.<br>(dosya/klasör) |
 |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |
 | Amazon S3 | √/√ | √/√ | √ | x/x | √ / √ * | √ | x | √ | √ | √ / √ * |
 | Azure Blob | √/√ | √/√ | √ | x/x | √ / √ * | √ | √ | √ | √ | √/√ |
@@ -58,9 +58,10 @@ GetMetadata etkinliği, bir veri kümesi gerekli bir giriş olarak alır ve etki
 
 **İlişkisel veritabanı:**
 
-| Bağlayıcı/meta verileri | yapısı | columnCount | var. |
+| Bağlayıcı/meta verileri | yapısı | columnCount | Var. |
 |:--- |:--- |:--- |:--- |
 | Azure SQL Database | √ | √ | √ |
+| Azure SQL Veritabanı Yönetilen Örneği | √ | √ | √ |
 | Azure SQL Veri Ambarı | √ | √ | √ |
 | SQL Server | √ | √ | √ |
 
@@ -79,7 +80,7 @@ Alınacak GetMetadata etkinliği alan listesinde, aşağıdaki meta veri türler
 | contentMD5 | Dosya MD5. Yalnızca dosya için geçerli. |
 | yapısı | İlişkisel veritabanı tablo ve dosya içinde veri yapısı. Çıkış değeri sütun adı ve sütun türü listesidir. |
 | columnCount | Dosya veya ilişkisel tablo içindeki sütun sayısı. |
-| var.| Olup olmadığını veya bir dosya/klasör/tablosu bulunmaktadır. "Var" GetaMetadata alan listesinde belirtilirse, ' % s'öğesi (dosya/klasör/tablosu) bile yok, etkinlik başarısız olmaz dikkat edin. Bunun yerine döndürür `exists: false` çıktı. |
+| Var.| Olup olmadığını veya bir dosya/klasör/tablosu bulunmaktadır. "Var" GetaMetadata alan listesinde belirtilirse, ' % s'öğesi (dosya/klasör/tablosu) bile yok, etkinlik başarısız olmaz dikkat edin. Bunun yerine döndürür `exists: false` çıktı. |
 
 >[!TIP]
 >Bir dosya/klasör/table veya varsa doğrulamak istediğinizde, belirtin `exists` GetMetadata etkinliği alan listesinde, daha sonra kontrol edebilirsiniz `exists: true/false` neden etkinlik çıkışı. Varsa `exists` alan listesinde, GetMetadata etkinliği başarısız olur nesne bulunamadığında yapılandırılmadı.
@@ -131,7 +132,7 @@ Alınacak GetMetadata etkinliği alan listesinde, aşağıdaki meta veri türler
 Özellik | Açıklama | Gerekli
 -------- | ----------- | --------
 alan listesi | Gerekli meta veri bilgilerini türlerini listeler. Ayrıntılara bakın [meta veri seçenekleri](#metadata-options) desteklenen meta veriler bölümü. | Evet 
-veri kümesi | GetMetadata etkinliği tarafından alınmasına izin, meta verileri etkinliği olan başvuru veri kümesi. Bkz: [desteklenen yetenekler](#supported-capabilities) bölüm üzerinde desteklenen bağlayıcılar ve veri kümesi söz dizimi ayrıntıları bağlayıcı konusuna bakın. | Evet
+Veri kümesi | GetMetadata etkinliği tarafından alınmasına izin, meta verileri etkinliği olan başvuru veri kümesi. Bkz: [desteklenen yetenekler](#supported-capabilities) bölüm üzerinde desteklenen bağlayıcılar ve veri kümesi söz dizimi ayrıntıları bağlayıcı konusuna bakın. | Evet
 
 ## <a name="sample-output"></a>Örnek çıktı
 

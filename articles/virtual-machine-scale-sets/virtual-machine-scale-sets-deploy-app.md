@@ -3,7 +3,7 @@ title: Bir Azure sanal makine ölçek kümesine uygulama dağıtma | Microsoft D
 description: Linux ve Windows sanal makine örnekleri bir ölçek kümesindeki uygulamaları dağıtmayı öğrenin
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: cynthn
+author: zr-msft
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/29/2018
-ms.author: cynthn
-ms.openlocfilehash: 86bb231a4eb9468ccc92c182b099714950b2a81c
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.author: zarhoads
+ms.openlocfilehash: 22e035be27f16e7b73e545d75eb9cd108a919114
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46979456"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49471212"
 ---
 # <a name="deploy-your-application-on-virtual-machine-scale-sets"></a>Sanal makine ölçek kümelerinde uygulamanızı dağıtma
 Bir ölçek kümesindeki sanal makine (VM) örneklerinde uygulamaları çalıştırmak için önce uygulama bileşenlerini ve gerekli dosyaları yüklemeniz gerekir. Bu makalede örnek bir ölçek kümesi veya otomatik olarak var olan VM örneklerinde yükleme betikleri çalıştırma için özel bir VM görüntüsü oluşturmak için yollar sağlar. Ayrıca bir ölçek kümesi üzerinde uygulama veya işletim sistemi güncelleştirmelerini yönetmeyi öğrenin.

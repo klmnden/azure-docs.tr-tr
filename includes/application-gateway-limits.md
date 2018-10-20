@@ -1,6 +1,6 @@
 | Kaynak | Varsayılan limit | Not |
 | --- | --- | --- |
-| Application Gateway |Abonelik başına 50 | En fazla 100 |
+| Application Gateway |Abonelik başına 50 | En fazla 1000 |
 | Ön Uç IP Yapılandırmaları |2 |1 ortak ve 1 özel |
 | Ön Uç Bağlantı Noktaları |20 | |
 | Arka Uç Adres Havuzları |20 | |
@@ -15,8 +15,9 @@
 | En fazla istek zaman aşımı |24 saat | |
 | Site sayısı |20 |HTTP Dinleyicileri başına 1 |
 | Dinleyici başına URL Eşlemeleri |1 | |
+| Eş zamanlı WebSocket bağlantılarını |5000| |
 |URL uzunluğu üst sınırı|8000|
 | En fazla dosya yükleme boyutunu standart |2 GB | |
-| En büyük dosya karşıya yükleme boyutu WAF |100 MB| |
+| En büyük dosya karşıya yükleme boyutu WAF |Orta WAF ağ geçitleri - 100 MB<br>Geniş WAF ağ geçitleri - 500 MB| |
 |WAF gövdesi boyutu sınırı (olmadan dosyaları)|128 KB|
 

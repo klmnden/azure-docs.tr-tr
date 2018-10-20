@@ -1,26 +1,27 @@
 ---
 title: Konuşma çevirisi hakkında
+titlesuffix: Azure Cognitive Services
 description: Konuşma çevirisi özelliklerine genel bakış
-titleSuffix: Microsoft Cognitive Services
 services: cognitive-services
 author: erhopf
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/28/2018
 ms.author: erhopf
-ms.openlocfilehash: f3c22589270ccee2c60ca5ea5b15047d9c81fabe
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: af363a45ab113d89c7aad7a38c6e10d335bc6035
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49165446"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49469155"
 ---
 # <a name="about-the-speech-translation-api"></a>Konuşma çevirisi API'si hakkında
 
-Microsoft konuşma tanıma API'si uygulamaları, araçları ve cihazlar için uçtan uca, gerçek zamanlı, çok dilli konuşma çevirisi eklemenize olanak tanır. Aynı API hem konuşma okuma ve konuşma metin çevirisi için kullanılabilir.
+Konuşma hizmeti API'sini uygulamaları, araçları ve cihazlar için uçtan uca, gerçek zamanlı, çok dilli konuşma çevirisi eklemenize olanak tanır. Aynı API hem konuşma okuma ve konuşma metin çevirisi için kullanılabilir.
 
-Microsoft Translator konuşma tanıma API'si ile istemci uygulamaları, hizmet konuşma sesine akışla aktarma ve geri sonuçları bir akışını alın. Bu sonuçları tanınan metin kaynak dili ve çevirisini hedef dil ekleyin. Bir utterance işlemi tamamlanana kadar aynı zamanda son çeviri sağlanan sağlanan geçici çevirileri olabilir.
+Translator konuşma tanıma API'si ile istemci uygulamaları, hizmet konuşma sesine akışla aktarma ve geri sonuçları bir akışını alın. Bu sonuçları tanınan metin kaynak dili ve çevirisini hedef dil ekleyin. Bir utterance işlemi tamamlanana kadar aynı zamanda son çeviri sağlanan sağlanan geçici çevirileri olabilir.
 
 İsteğe bağlı olarak doğru konuşma konuşma çevirisi etkinleştirme son çeviri Sentezlenen ses sürümünü hazırlanabilir.
 

@@ -12,12 +12,12 @@ ms.author: aliceku
 ms.reviewer: vanto, carlrab, ronitr
 manager: craigg
 ms.date: 10/11/2018
-ms.openlocfilehash: b8bb9cbf53b297d8dca1ac67bae8765edcc2c9f4
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.openlocfilehash: 7cabf1f0020e2f72dae138c7b7b79e69ce2fc677
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49311212"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49456992"
 ---
 # <a name="an-overview-of-azure-sql-database-security-capabilities"></a>Azure SQL veritabanı güvenlik özelliklerine genel bakış
 
@@ -32,7 +32,11 @@ Tüm SQL türlerindeki güvenlik özelliklerine eksiksiz bir genel bakış için
 SQL Veritabanı, hareket halindeki verileriniz için [Aktarım Katmanı Güvenliği](https://support.microsoft.com/kb/3135244), bekleyen veriler için [Saydam Veri Şifrelemesi](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql) ve kullanılan veriler için [Always Encrypted](https://msdn.microsoft.com/library/mt163865.aspx) kullanarak verilerinizi şifreler ve güvenliğini sağlar.
 
 > [!IMPORTANT]
-> Veritabanına gelen ve veritabanından giden veriler "taşıma durumunda" olduğu Azure SQL Veritabanına yapılan tüm bağlantılar için şifreleme (SSL/TLS) gerekir. Uygulamanızın bağlantı dizesinde bağlantıyı şifrelemek için parametreleri belirtmeniz gerekir ve *değil* (Bu işlem, sizin için bağlantı dizenizi Azure portalından kopyalarsanız) sunucu sertifikası, aksi takdirde güvenmek için bağlantı sunucunun kimliğini doğrulamaz ve "adam-in--middle" saldırılarına açık olacaktır. Örneğin ADO.NET sürücüsü için bu bağlantı dizesi parametreleri **Encrypt=True** ve **TrustServerCertificate=False** olacaktır. TLS ve bağlantı hakkında daha fazla bilgi için bkz. [TLS konuları](sql-database-connect-query.md#tls-considerations-for-sql-database-connectivity)
+> Azure SQL veritabanı şifreleme (SSL/TLS), her zaman tüm sunucunuzun için tüm veriler "taşıma durumunda" şifrelenir, veritabanı ve istemci arasında da sağlar zorlar. Bu ayarı bağımsız olarak gerçekleşir **şifrele** veya **TrustServerCertificate** bağlantı dizesindeki.
+>
+> Uygulamanızın bağlantı dizesinde yoksa **değil** şifreli bir bağlantı belirtin ve *değil* sunucu sertifikasına güven (Bunun için ADO.NET sürücüsünü **Encrypt = True**ve **TrustServerCertificate = False**), uygulamanızın man için bir uygulama doğrulanıyor sunucu ya da şifreleme zorlamayı nedeniyle Orta saldırı maruz olabilir. Bağlantı dizenizi Azure portalından edindiyseniz, doğru ayarlarına sahip olur
+>
+> TLS ve bağlantı hakkında daha fazla bilgi için bkz. [TLS konuları](sql-database-connect-query.md#tls-considerations-for-sql-database-connectivity)
 
 Verilerinizi şifrelemek için kullanabileceğiniz diğer yöntemler şunlardır:
 

@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/25/2018
+ms.date: 10/18/2018
 ms.author: srrengar
-ms.openlocfilehash: a607f560b5e74071f5ee15d03e615138f25a3aef
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 5fc2674a145be99fb8867c5cf1b1f65ba860db80
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49406815"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49457842"
 ---
 # <a name="monitoring-and-diagnostics-for-azure-service-fabric"></a>Azure Service Fabric için izleme ve tanılama
 
@@ -71,7 +71,7 @@ SFX en son durumu raporlarına görmenin yanı sıra, her rapor bir olay olarak 
 
 ## <a name="other-logging-solutions"></a>Diğer günlük çözümleri
 
-İki çözümü önerilir ancak [Azure Log Analytics](service-fabric-diagnostics-event-analysis-oms.md) ve [Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md) Service Fabric ile tümleştirme, birçok olayları etw sağlayıcıları yazılır ve olan yerleşik diğer günlük çözümlerle genişletilebilir. İçine görünmelidir [Elastic Stack](https://www.elastic.co/products) (özellikle, bir küme çevrimdışı bir ortamda çalışan düşünüyorsanız), [Splunk](https://www.splunk.com/), [Dynatrace](https://www.dynatrace.com/), ya da diğer tercihinize platformu. 
+İki çözümü önerilir ancak [Azure Log Analytics](service-fabric-diagnostics-event-analysis-oms.md) ve [Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md) Service Fabric ile tümleştirme, birçok olayları ETW sağlayıcıları yazılır ve olan yerleşik diğer günlük çözümlerle genişletilebilir. İçine görünmelidir [Elastic Stack](https://www.elastic.co/products) (özellikle, bir küme çevrimdışı bir ortamda çalışan düşünüyorsanız), [Dynatrace](https://www.dynatrace.com/), ya da herhangi bir platform, tercih. Tümleştirilmiş iş ortaklarının listesi sahibiz [burada](service-fabric-diagnostics-partners.md).
 
 Seçtiğiniz önemli noktaları herhangi bir platform için nasıl, kullanıcı arabirimi ve verileri görselleştirmek ve kolay okunabilir panolar ve izleme işleminiz geliştirmek için sağladıkları ek araçlar oluşturma olanağı seçenekleri sorgulama kendinizi rahat hissedene içermelidir, Otomatik uyarı verme gibi.
 
@@ -80,5 +80,7 @@ Seçtiğiniz önemli noktaları herhangi bir platform için nasıl, kullanıcı 
 * Uygulamalarınızı izleme ile başlamak için bkz [uygulama düzeyi olay ve günlük oluşturma](service-fabric-diagnostics-event-generation-app.md).
 * Platform ve Service Fabric sağlar için önceden olayları izleme hakkında daha fazla [Platform düzeyi olay ve günlük oluşturma](service-fabric-diagnostics-event-generation-infra.md).
 * Uygulamanız için yapay ZEKA ' ayarlamak için adımları tamamlayın [İzleyici Service fabric'te ASP.NET Core uygulamasını ve tanılama](service-fabric-tutorial-monitoring-aspnet.md).
-* Kapsayıcıları izlemek üzere Azure Log Analytics'i ayarlama hakkında bilgi edinmek- [izleme ve tanılama için Windows Azure Service Fabric'teki kapsayıcıları](service-fabric-tutorial-monitoring-wincontainers.md).
+* Kapsayıcıları izlemek üzere OMS Log Analytics'i ayarlama hakkında bilgi edinmek- [izleme ve tanılama için Windows Azure Service Fabric'teki kapsayıcıları](service-fabric-tutorial-monitoring-wincontainers.md).
+* Örnek tanılama sorunlar ve çözümleri ile Service Fabric'te bkz [yaygın senaryoları tanılama](service-fabric-diagnostics-common-scenarios.md)
+* Service Fabric ile tümleştirme diğer tanılama ürünleri kullanıma [Service Fabric tanılama iş ortakları](service-fabric-diagnostics-partners.md)
 * Azure kaynakları - izleme genel öneriler hakkında bilgi edinin [en iyi uygulamalar - izleme ve tanılama](https://docs.microsoft.com/azure/architecture/best-practices/monitoring). 

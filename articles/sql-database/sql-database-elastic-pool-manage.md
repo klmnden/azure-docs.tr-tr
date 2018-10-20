@@ -11,13 +11,13 @@ author: oslake
 ms.author: moslake
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 10/15/2018
-ms.openlocfilehash: 6c43e5bf311d94ff2e5b5c31217c5071ea26746c
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.date: 10/19/2018
+ms.openlocfilehash: 0c939956a8f3336b5071748a8c2bdf8840b749ad
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49351871"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49466078"
 ---
 # <a name="create-and-manage-elastic-pools-in-azure-sql-database"></a>Azure SQL veritabanı elastik havuzları oluşturma ve yönetme
 
@@ -106,11 +106,11 @@ SQL veritabanı elastik havuzları ve havuza alınan veritabanları oluşturmak 
 |[Elastik havuzlar - güncelleştirme](https://docs.microsoft.com/rest/api/sql/elasticpools/elasticpools_listbyserver)|Var olan bir esnek havuzun güncelleştirir.|
 |[Elastik havuz etkinlikleri](https://docs.microsoft.com/rest/api/sql/elasticpoolactivities)|Elastik havuz etkinlikleri döndürür.|
 |[Elastik havuz veritabanı etkinlikleri](https://docs.microsoft.com/rest/api/sql/elasticpooldatabaseactivities)|İçinde bir elastik havuzdaki veritabanları üzerinde etkinlik döndürür.|
-|[Veritabanları - oluştur veya güncelleştir](https://docs.microsoft.com/rest/api/sql/databases/databases_createorupdate)|Yeni bir veritabanı oluşturur veya mevcut bir veritabanını güncelleştirir.|
-|[Veritabanları - Get](https://docs.microsoft.com/rest/api/sql/databases/databases_get)|Bir veritabanını alır.|
-|[Veritabanı - elastik havuz göre listesi](https://docs.microsoft.com/rest/api/sql/databases/databases_listbyelasticpool)|Elastik havuzdaki veritabanlarının listesini döndürür.|
-|[Veritabanı - sunucu listesi](https://docs.microsoft.com/rest/api/sql/databases/databases_listbyserver)|Bir sunucu veritabanlarının listesini döndürür.|
-|[Veritabanları - güncelleştirme](https://docs.microsoft.com/rest/api/sql/databases/databases_update)|Varolan bir veritabanını güncelleştirir.|
+|[Veritabanları - oluştur veya güncelleştir](https://docs.microsoft.com/rest/api/sql/databases/createorupdate)|Yeni bir veritabanı oluşturur veya mevcut bir veritabanını güncelleştirir.|
+|[Veritabanları - Get](https://docs.microsoft.com/rest/api/sql/databases/get)|Bir veritabanını alır.|
+|[Veritabanı - elastik havuz göre listesi](https://docs.microsoft.com/rest/api/sql/databases/listbyelasticpool)|Elastik havuzdaki veritabanlarının listesini döndürür.|
+|[Veritabanı - sunucu listesi](https://docs.microsoft.com/rest/api/sql/databases/listbyserver)|Bir sunucu veritabanlarının listesini döndürür.|
+|[Veritabanları - güncelleştirme](https://docs.microsoft.com/rest/api/sql/databases/update)|Varolan bir veritabanını güncelleştirir.|
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

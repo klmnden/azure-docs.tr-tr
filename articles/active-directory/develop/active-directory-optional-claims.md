@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 10/05/2018
 ms.author: celested
-ms.reviewer: hirsin
+ms.reviewer: paulgarn, hirsin
 ms.custom: aaddev
-ms.openlocfilehash: c42e8978a94730669f3c3f879d1d26c4426bd9da
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 784213531c061912dded8e7776e79bea5adb217b
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49079149"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49466061"
 ---
 # <a name="how-to-provide-optional-claims-to-your-azure-ad-app-public-preview"></a>Nasıl yapılır: Azure AD uygulamanızı (genel Önizleme) için isteğe bağlı bir talep sağla
 
@@ -215,7 +215,7 @@ Bu bölümde, isteğe bağlı bir talep özelliği, uygulamanız için nasıl ku
 
 1. [Azure Portal](https://portal.azure.com) oturum açın.
 1. Kimlik doğrulaması yaptınız sonra sayfanın sağ üst köşesinde seçerek Azure AD kiracınızı seçin.
-1. Seçin **Azure AD uzantısı** tıklayın ve sol gezinti bölmesi **uygulama kayıtları**.
+1. Seçin **uygulama kayıtları** sol taraftaki.
 1. İsteğe bağlı talepler için listeden yapılandırın ve üzerine tıklayarak istediğiniz uygulamayı bulun.
 1. Uygulama sayfasında **bildirim** satır içi bildirim düzenleyicisini açın. 
 1. Bu düzenleyici kullanılarak bildirimde doğrudan düzenleyebilirsiniz. Bildirim için şema izleyen [uygulama varlığı](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#application-entity)ve otomatik biçimleri bildirim kez kaydedildi. Yeni öğeleri eklenecek `OptionalClaims` özelliği.

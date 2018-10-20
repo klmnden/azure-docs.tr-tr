@@ -1,26 +1,18 @@
 ---
 title: 'Rota tabanlı VPN gateway oluşturma: Azure portal | Microsoft Docs'
-description: Bir rota tabanlı VPN Gateway Azure portalını kullanarak hızlıca oluşturun
+description: Azure portalını kullanarak rota temelli VPN Gateway oluşturma
 services: vpn-gateway
-documentationcenter: na
 author: cherylmc
-manager: jeconnoc
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: vpn-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 04/04/2018
+ms.date: 10/18/2018
 ms.author: cherylmc
-ms.openlocfilehash: fe05ab36f971105cf72342b8df5e2a82de7fc2b8
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.openlocfilehash: 7139b2de79b4e092ca761a4e51061c233e6031b5
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44391802"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49470311"
 ---
 # <a name="create-a-route-based-vpn-gateway-using-the-azure-portal"></a>Azure portalını kullanarak rota temelli VPN ağ geçidi oluşturma
 
@@ -74,33 +66,19 @@ Ağ geçidi alt ağı sanal ağ geçidi hizmetlerinin kullandığı ayrılmış 
   - **SKU**: VpnGw1
   - **Konum**: Doğu ABD
   - **Sanal ağ**: tıklayın **sanal ağ/sanal ağ Seç** açmak için **bir sanal ağ seçin** sayfası. Seçin **VNet1**.
+  - **Genel IP adresi**: Bu ayar, VPN ağ geçidiyle ilişkilendirilen genel IP adresi nesnesini belirtir. VPN ağ geçidi oluşturulduğunda genel IP adresi bu nesneye dinamik olarak atanır. VPN Gateway hizmeti şu anda yalnızca *Dinamik* Genel IP adresi ayırmayı desteklemektedir. Ancak, bu durum IP adresinin VPN ağ geçidinize atandıktan sonra değiştiği anlamına gelmez. Genel IP adresi, yalnızca ağ geçidi silinip yeniden oluşturulduğunda değişir. VPN ağ geçidiniz üzerinde gerçekleştirilen yeniden boyutlandırma, sıfırlama veya diğer iç bakım/yükseltme işlemleri sırasında değişmez.
 
-  ![Gateway ayarlarını yapılandırma](./media/create-routebased-vpn-gateway-portal/configure-gateway.png "gateway ayarlarını yapılandırma")
+    - **Yeni oluştur**'u seçili bırakın.
+    - Metin kutusunda genel IP adresiniz için bir **Ad** yazın. Bu alıştırma için kullanmak **Vnet1gwıp**.<br>
 
-## <a name="pip"></a>Genel IP adresi oluşturma
-
-Bir VPN ağ geçidi, dinamik olarak ayrılan bir genel IP adresi olmalıdır. Bir VPN ağ geçidine bir bağlantı oluşturduğunuzda, bu, şirket içi cihaz için bağlanan IP adresidir.
-
-1. Seçin **ilk IP yapılandırması ağ geçidi IP yapılandırması oluştur** genel bir IP adresi istemek için.
-
-  ![İlk IP yapılandırması](./media/create-routebased-vpn-gateway-portal/add-public-ip-address.png "ilk IP yapılandırması")
-2. Üzerinde **Seç genel IP sayfasına**, tıklayın **+ Yeni Oluştur** açmak için **genel IP adresi oluşturma** sayfası.
-3. Ayarları aşağıdaki değerleri yapılandırın:
-
-  - **Adı**: **Vnet1gwıp**
-  - **SKU**: **temel**
-
-  ![Genel IP oluşturma](./media/create-routebased-vpn-gateway-portal/public-ip-address-name.png "PIP oluşturma")
-4. Tıklayın **Tamam** yaptığınız değişiklikleri kaydetmek için bu sayfanın alt kısmındaki.
+    ![Gateway ayarlarını yapılandırma](./media/create-routebased-vpn-gateway-portal/gw.png "gateway ayarlarını yapılandırma")
 
 ## <a name="creategw"></a>VPN ağ geçidi oluşturma
 
 1. Ayarları doğrulayın **sanal ağ geçidi Oluştur** sayfası. Gerekirse değerlerini ayarlayın.
-
-  ![VPN ağ geçidi Oluştur](./media/create-routebased-vpn-gateway-portal/create-vpn-gateway.png "oluşturma VPN ağ geçidi")
 2. Tıklayın **Oluştur** sayfanın alt kısmındaki.
 
-Tıkladıktan sonra **Oluştur**, ayarlar doğrulanır ve **sanal ağ geçidini dağıtma** kutucuk Panoda görünür. Bir VPN ağ geçidi 45 dakikaya kadar sürebilir. Tamamlanma durumunu görmek için portal sayfanızı yenilemeniz gerekebilir.
+  Tıkladıktan sonra **Oluştur**, ayarlar doğrulanır ve **sanal ağ geçidini dağıtma** kutucuk Panoda görünür. Bir VPN ağ geçidi 45 dakikaya kadar sürebilir. Tamamlanma durumunu görmek için portal sayfanızı yenilemeniz gerekebilir.
 
 ## <a name="viewgw"></a>VPN ağ geçidi görüntüleyin
 

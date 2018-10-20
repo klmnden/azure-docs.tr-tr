@@ -12,12 +12,12 @@ ms.author: aliceku
 ms.reviewer: vanto
 manager: craigg
 ms.date: 10/15/2018
-ms.openlocfilehash: 94a3a502d5756d57cfebdf6698a4435dc1e19948
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: 0d5b7e484024294eb5c95b632dbef85c377b717e
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49353042"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49469036"
 ---
 # <a name="transparent-data-encryption-for-sql-database-and-data-warehouse"></a>SQL veritabanı ve veri ambarı için saydam veri şifrelemesi
 
@@ -113,17 +113,17 @@ REST API aracılığıyla saydam veri şifrelemesini yapılandırmak için Azure
 
 | Komut | Açıklama |
 | --- | --- |
-|[Oluşturma veya güncelleştirme sunucusu](https://docs.microsoft.com/rest/api/sql/servers/servers_createorupdate)|Azure Active Directory kimliği (anahtar Kasası'na erişim vermek için kullanılır) bir SQL Server örneğine ekler|
-|[Sunucu anahtarı oluşturma veya güncelleştirme](https://docs.microsoft.com/rest/api/sql/serverkeys/serverkeys_createorupdate)|Bir Key Vault anahtarı bir SQL Server örneğine ekler.|
-|[Sunucu anahtarını Sil](https://docs.microsoft.com/rest/api/sql/serverkeys/serverkeys_delete)|Bir Key Vault anahtarı bir SQL Server örneğinden kaldırır.|
-|[Sunucu anahtarları alma](https://docs.microsoft.com/rest/api/sql/serverkeys/serverkeys_get)|Bir SQL Server örneğinden belirli bir Key Vault anahtarı alır|
-|[Sunucu tarafından Server anahtarlarını Listele](https://docs.microsoft.com/rest/api/sql/serverkeys/serverkeys_listbyserver)|SQL Server örneği için anahtar kasası anahtarlarını alır |
-|[Şifreleme koruyucusu güncelle](https://docs.microsoft.com/rest/api/sql/encryptionprotectors/encryptionprotectors_createorupdate)|Saydam veri şifrelemesi koruyucu bir SQL Server örneği için ayarlar|
-|[Şifreleme koruyucusunu alın](https://docs.microsoft.com/rest/api/sql/encryptionprotectors/encryptionprotectors_get)|Saydam veri şifrelemesi koruyucu bir SQL Server örneğini alır.|
-|[Sunucu şifreleme Koruyucularıyla listesi](https://docs.microsoft.com/rest/api/sql/encryptionprotectors/encryptionprotectors_listbyserver)|Saydam veri şifrelemesi koruyucu bir SQL Server örneğini alır. |
-|[Saydam veri şifreleme yapılandırması güncelle](https://docs.microsoft.com/rest/api/sql/transparentdataencryptions/transparentdataencryptions_createorupdate)|Etkinleştirir veya bir veritabanı için saydam veri şifrelemesi devre dışı bırakır|
-|[Saydam veri şifrelemesi yapılandırmasını alma](https://docs.microsoft.com/rest/api/sql/transparentdataencryptions/transparentdataencryptions_get)|Bir veritabanı için saydam veri şifreleme yapılandırması alır|
-|[Liste saydam veri şifreleme yapılandırma sonuçları](https://docs.microsoft.com/rest/api/sql/transparentdataencryptionactivities/transparentdataencryptionactivities_listbyconfiguration)|Bir veritabanı için şifreleme sonucunu alır|
+|[Oluşturma veya güncelleştirme sunucusu](https://docs.microsoft.com/rest/api/sql/servers/createorupdate)|Azure Active Directory kimliği (anahtar Kasası'na erişim vermek için kullanılır) bir SQL Server örneğine ekler|
+|[Sunucu anahtarı oluşturma veya güncelleştirme](https://docs.microsoft.com/rest/api/sql/serverkeys/createorupdate)|Bir Key Vault anahtarı bir SQL Server örneğine ekler.|
+|[Sunucu anahtarını Sil](https://docs.microsoft.com/rest/api/sql/serverkeys/delete)|Bir Key Vault anahtarı bir SQL Server örneğinden kaldırır.|
+|[Sunucu anahtarları alma](https://docs.microsoft.com/rest/api/sql/serverkeys/get)|Bir SQL Server örneğinden belirli bir Key Vault anahtarı alır|
+|[Sunucu tarafından Server anahtarlarını Listele](https://docs.microsoft.com/rest/api/sql/serverkeys/listbyserver)|SQL Server örneği için anahtar kasası anahtarlarını alır |
+|[Şifreleme koruyucusu güncelle](https://docs.microsoft.com/rest/api/sql/encryptionprotectors/createorupdate)|Saydam veri şifrelemesi koruyucu bir SQL Server örneği için ayarlar|
+|[Şifreleme koruyucusunu alın](https://docs.microsoft.com/rest/api/sql/encryptionprotectors/get)|Saydam veri şifrelemesi koruyucu bir SQL Server örneğini alır.|
+|[Sunucu şifreleme Koruyucularıyla listesi](https://docs.microsoft.com/rest/api/sql/encryptionprotectors/listbyserver)|Saydam veri şifrelemesi koruyucu bir SQL Server örneğini alır. |
+|[Saydam veri şifreleme yapılandırması güncelle](https://docs.microsoft.com/rest/api/sql/transparentdataencryptions/createorupdate)|Etkinleştirir veya bir veritabanı için saydam veri şifrelemesi devre dışı bırakır|
+|[Saydam veri şifrelemesi yapılandırmasını alma](https://docs.microsoft.com/rest/api/sql/transparentdataencryptions/get)|Bir veritabanı için saydam veri şifreleme yapılandırması alır|
+|[Liste saydam veri şifreleme yapılandırma sonuçları](https://docs.microsoft.com/rest/api/sql/transparentdataencryptionactivities/listbyconfiguration)|Bir veritabanı için şifreleme sonucunu alır|
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

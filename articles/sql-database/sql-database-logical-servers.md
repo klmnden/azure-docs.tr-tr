@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 10/15/2018
-ms.openlocfilehash: 83db2bcfe21edc9f8f2649ef8c2b3a23e412e39d
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.date: 10/19/2018
+ms.openlocfilehash: 6432c6b2c1c224f44b962df63e1502729f69e57f
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49353994"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49470668"
 ---
 # <a name="azure-sql-database-logical-servers-and-their-management"></a>Azure SQL veritabanı mantıksal sunucuları ve bunların yönetimi
 
@@ -170,22 +170,22 @@ Azure SQL server, veritabanlarını ve güvenlik duvarları oluşturmak ve yöne
 
 | Komut | Açıklama |
 | --- | --- |
-|[Sunucuları - oluştur veya güncelleştir](https://docs.microsoft.com/rest/api/sql/servers/servers_createorupdate/rest/api)|Oluşturur veya yeni bir sunucu güncelleştirir.|
-|[Sunucuları - Sil](https://docs.microsoft.com/rest/api/sql/servers/servers_delete)|Bir SQL server siler.|
-|[Sunucuları - Get](https://docs.microsoft.com/rest/api/sql/servers/servers_get)|Bir sunucu alır.|
-|[Sunucuları - liste](https://docs.microsoft.com/rest/api/sql/servers/servers_list)|Sunucularının bir listesini döndürür.|
-|[Sunucuları - kaynak grubuna göre listesi](https://docs.microsoft.com/rest/api/sql/servers/servers_listbyresourcegroup)|Bir kaynak grubunda sunucularının bir listesini döndürür.|
-|[Sunucuları - güncelleştirme](https://docs.microsoft.com/rest/api/sql/servers/servers_update)|Mevcut bir sunucu güncelleştirir.|
-|[Veritabanları - oluştur veya güncelleştir](https://docs.microsoft.com/rest/api/sql/databases/databases_createorupdate)|Yeni bir veritabanı oluşturur veya mevcut bir veritabanını güncelleştirir.|
-|[Veritabanları - Sil](https://docs.microsoft.com/rest/api/sql/databases/databases_delete)|Bir veritabanını siler.|
-|[Veritabanları - Get](https://docs.microsoft.com/rest/api/sql/databases/databases_get)|Bir veritabanını alır.|
-|[Veritabanı - elastik havuz göre listesi](https://docs.microsoft.com/rest/api/sql/databases/databases_listbyelasticpool)|Elastik havuzdaki veritabanlarının listesini döndürür.|
-|[Veritabanı - sunucu listesi](https://docs.microsoft.com/rest/api/sql/databases/databases_listbyserver)|Bir sunucu veritabanlarının listesini döndürür.|
-|[Veritabanları - güncelleştirme](https://docs.microsoft.com/rest/api/sql/databases/databases_update)|Varolan bir veritabanını güncelleştirir.|
-|[Güvenlik duvarı kuralları - oluştur veya güncelleştir](https://docs.microsoft.com/rest/api/sql/firewallrules/firewallrules_createorupdate)|Oluşturur veya bir güvenlik duvarı kuralını güncelleştirir.|
-|[Güvenlik duvarı kuralları - Sil](https://docs.microsoft.com/rest/api/sql/firewallrules/firewallrules_delete)|Bir güvenlik duvarı kuralını siler.|
-|[Güvenlik duvarı kuralları - Get](https://docs.microsoft.com/rest/api/sql/firewallrules/firewallrules_get)|Bir güvenlik duvarı kuralını alır.|
-|[Güvenlik duvarı kuralları - sunucu listesi](https://docs.microsoft.com/rest/api/sql/firewallrules/firewallrules_listbyserver)|Güvenlik duvarı kurallarının bir listesini döndürür.|
+|[Sunucuları - oluştur veya güncelleştir](https://docs.microsoft.com/rest/api/sql/servers/createorupdate)|Oluşturur veya yeni bir sunucu güncelleştirir.|
+|[Sunucuları - Sil](https://docs.microsoft.com/rest/api/sql/servers/delete)|Bir SQL server siler.|
+|[Sunucuları - Get](https://docs.microsoft.com/rest/api/sql/servers/get)|Bir sunucu alır.|
+|[Sunucuları - liste](https://docs.microsoft.com/rest/api/sql/servers/list)|Sunucularının bir listesini döndürür.|
+|[Sunucuları - kaynak grubuna göre listesi](https://docs.microsoft.com/rest/api/sql/servers/listbyresourcegroup)|Bir kaynak grubunda sunucularının bir listesini döndürür.|
+|[Sunucuları - güncelleştirme](https://docs.microsoft.com/rest/api/sql/servers/update)|Mevcut bir sunucu güncelleştirir.|
+|[Veritabanları - oluştur veya güncelleştir](https://docs.microsoft.com/rest/api/sql/databases/createorupdate)|Yeni bir veritabanı oluşturur veya mevcut bir veritabanını güncelleştirir.|
+|[Veritabanları - Sil](https://docs.microsoft.com/rest/api/sql/databases/delete)|Bir veritabanını siler.|
+|[Veritabanları - Get](https://docs.microsoft.com/rest/api/sql/databases/get)|Bir veritabanını alır.|
+|[Veritabanı - elastik havuz göre listesi](https://docs.microsoft.com/rest/api/sql/databases/listbyelasticpool)|Elastik havuzdaki veritabanlarının listesini döndürür.|
+|[Veritabanı - sunucu listesi](https://docs.microsoft.com/rest/api/sql/databases/listbyserver)|Bir sunucu veritabanlarının listesini döndürür.|
+|[Veritabanları - güncelleştirme](https://docs.microsoft.com/rest/api/sql/databases/update)|Varolan bir veritabanını güncelleştirir.|
+|[Güvenlik duvarı kuralları - oluştur veya güncelleştir](https://docs.microsoft.com/rest/api/sql/firewallrules/createorupdate)|Oluşturur veya bir güvenlik duvarı kuralını güncelleştirir.|
+|[Güvenlik duvarı kuralları - Sil](https://docs.microsoft.com/rest/api/sql/firewallrules/delete)|Bir güvenlik duvarı kuralını siler.|
+|[Güvenlik duvarı kuralları - Get](https://docs.microsoft.com/rest/api/sql/firewallrules/get)|Bir güvenlik duvarı kuralını alır.|
+|[Güvenlik duvarı kuralları - sunucu listesi](https://docs.microsoft.com/rest/api/sql/firewallrules/listbyserver)|Güvenlik duvarı kurallarının bir listesini döndürür.|
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

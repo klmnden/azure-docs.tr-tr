@@ -1,6 +1,6 @@
 ---
 title: 'Azure işlevleri F # Geliştirici Başvurusu | Microsoft Docs'
-description: 'F # kullanarak Azure işlevleri geliştirme hakkında bilgi edinin.'
+description: 'F # betik kullanarak Azure işlevleri geliştirme hakkında bilgi edinin.'
 services: functions
 documentationcenter: fsharp
 author: sylvanc
@@ -10,18 +10,21 @@ ms.assetid: e60226e5-2630-41d7-9e5b-9f9e5acc8e50
 ms.service: azure-functions
 ms.devlang: fsharp
 ms.topic: reference
-ms.date: 09/09/2016
+ms.date: 10/09/2018
 ms.author: syclebsc
-ms.openlocfilehash: 5593f76511f43106d6743a158b051e118ef2a4a6
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 772b2dae016e093f2c3833374378c0e884dbe835
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46125264"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49456958"
 ---
 # <a name="azure-functions-f-developer-reference"></a>Azure işlevleri F # Geliştirici Başvurusu
 
-F # Azure işlevleri için küçük parçaları kodu veya "işlevleri" bulutta kolayca çalıştırmaya yönelik bir çözümdür. Veri, F # işlevi işlev bağımsız değişkenleri aracılığıyla akar. Bağımsız değişken adları içinde belirtilen `function.json`, ve işlevi Günlükçü ve iptal belirteçlerini gibi şeyleri erişmek için önceden tanımlanmış adları vardır.
+F # Azure işlevleri için küçük parçaları kodu veya "işlevleri" bulutta kolayca çalıştırmaya yönelik bir çözümdür. Veri, F # işlevi işlev bağımsız değişkenleri aracılığıyla akar. Bağımsız değişken adları içinde belirtilen `function.json`, ve işlevi Günlükçü ve iptal belirteçlerini gibi şeyleri erişmek için önceden tanımlanmış adları vardır. 
+
+>[!IMPORTANT]
+>F # betik (.fsx) tarafından desteklenen yalnızca [sürüm 1.x](functions-versions.md#creating-1x-apps) Azure işlevleri çalışma zamanı. F # ile sürüm 2.x çalışma zamanı kullanmak istiyorsanız, önceden derlenmiş F # sınıf kitaplığı projesi (.fs) kullanmanız gerekir. Oluşturma, yönetme ve yaptığınız gibi Visual Studio kullanarak bir F # sınıf kitaplığı projesi yayımlama bir [C# sınıf kitaplığı projesi](functions-dotnet-class-library.md). İşlevleri sürümleri hakkında daha fazla bilgi için bkz. [Azure işlevleri çalışma zamanı sürümleri genel bakış](functions-versions.md).
 
 Bu makalede, zaten okuduğunuz varsayılır [Azure işlevleri Geliştirici Başvurusu](functions-reference.md).
 

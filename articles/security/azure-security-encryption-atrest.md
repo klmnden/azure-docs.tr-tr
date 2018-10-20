@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/20/2018
+ms.date: 10/18/2018
 ms.author: barclayn
-ms.openlocfilehash: 71351a979e8bb443864c975b91539c527bea7f2a
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 40c69d996721b664fbea5cd539f60ecc6a521d24
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47033439"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49457655"
 ---
 # <a name="azure-data-encryption-at-rest"></a>Azure veri şifreleme bekleyen
 
@@ -281,6 +281,7 @@ Azure SQL veritabanı verilerinin istemci tarafı şifreleme aracılığıyla de
 | IoT Hub                          | -                  | -                  | -                  | Evet                |
 | Service Bus                      | Evet                | -                  | -                  | Evet                |
 | Event Hubs                       | Evet                | -                  | -                  | -                  |
+| Event Grid                       | Evet                | -                  | -                  | -                  |
 
 
 ## <a name="conclusion"></a>Sonuç

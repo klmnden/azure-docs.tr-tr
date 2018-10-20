@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 09/06/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: cc7b1b9e96e32b090c0ec9ec9ab029588e5ec4ce
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 418b23f0783341ff7e5aaf7e2bbb2e869eb7dc45
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49166976"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49466163"
 ---
 # <a name="rotate-secrets-in-azure-stack"></a>Azure Stack gizli Döndür
 
@@ -81,15 +81,18 @@ Aşağıdaki yönergeleri kullanarak gizli döndürmeye çalışıyor, bu uyarı
 
    > [!IMPORTANT]  
    > Gizli döndürme ortamınızda başarılı bir şekilde yürütülen taşınmadığından emin olun. Gizli anahtar döndürme gerçekleştirilmiş, Azure Stack 1807 veya gizli döndürme yürütmeden önce daha sonraki sürüme güncelleştirin. 
+
 1.  İşleçler, açın ve Azure Stack gizli dizilerinin dönüşü sırasında otomatik olarak Kapat uyarılar görebilirsiniz.  Bu davranış beklenir ve uyarıların yoksayılabilir.  İşleçler, Test AzureStack çalıştırarak bu uyarılar geçerliliğini doğrulayabilirsiniz.  İzlemek için SCOM kullanma işleçleri için bir sistem bakım moduna alma, Azure Stack sistemleri bu uyarılar ITSM sistemlerine erişmesini engeller ancak Azure Stack sistemi ulaşılamaz hale gelirse uyaracak şekilde devam eder. 
 2. Herhangi bir bakım işlemleri, kullanıcılara bildirin. Normal bakım pencereleri, çalışma saatleri sırasında mümkün olduğunca, zamanlayın. Bakım işlemleri, kullanıcı iş yükleri hem portal işlemlerini etkileyebilir.
     > [!note]  
     > Sonraki adımlar yalnızca Azure Stack dış gizli anahtarları döndürme yaparken geçerlidir.
-3. Yeni bir değişiklik kümesi dış sertifikalar hazırlayın. Yeni küme özetlenen sertifika belirtimleri eşleşen [Azure Stack PKI sertifikası gereksinimleri](https://docs.microsoft.com/azure/azure-stack/azure-stack-pki-certs).
-4.  Bir geri dönüş güvenli yedekleme konumu için kullanılan sertifikaları kadar Store. Döndürme çalıştırır ve ardından başarısız olursa, dönüş yeniden çalıştırmadan önce dosya paylaşımında sertifika yedek kopyaları değiştirin. Unutmayın, yedek kopyaları güvenli yedekleme yerde saklayın.
-5.  ERCS Vm'lerden erişebileceğiniz bir dosya paylaşımı oluşturun. Dosya Paylaşımı okunabilir ve yazılabilir için **CloudAdmin** kimlik.
-6.  PowerShell ISE konsolunda paylaşımına erişimine sahip olduğu bir bilgisayardan açın. Dosya paylaşımına gidin. 
-7.  Çalıştırma **[CertDirectoryMaker.ps1](http://www.aka.ms/azssecretrotationhelper)** , dış sertifikalar için gerekli dizini oluşturmak için.
+
+3. Çalıştırma **[Test AzureStack](https://docs.microsoft.com/azure/azure-stack/azure-stack-diagnostic-test)** ve tüm test çıkışları gizli anahtarları döndürme önce sağlıklı olduğunu onaylayın.
+4. Yeni bir değişiklik kümesi dış sertifikalar hazırlayın. Yeni küme özetlenen sertifika belirtimleri eşleşen [Azure Stack PKI sertifikası gereksinimleri](https://docs.microsoft.com/azure/azure-stack/azure-stack-pki-certs).
+5.  Bir geri dönüş güvenli yedekleme konumu için kullanılan sertifikaları kadar Store. Döndürme çalıştırır ve ardından başarısız olursa, dönüş yeniden çalıştırmadan önce dosya paylaşımında sertifika yedek kopyaları değiştirin. Unutmayın, yedek kopyaları güvenli yedekleme yerde saklayın.
+6.  ERCS Vm'lerden erişebileceğiniz bir dosya paylaşımı oluşturun. Dosya Paylaşımı okunabilir ve yazılabilir için **CloudAdmin** kimlik.
+7.  PowerShell ISE konsolunda paylaşımına erişimine sahip olduğu bir bilgisayardan açın. Dosya paylaşımına gidin. 
+8.  Çalıştırma **[CertDirectoryMaker.ps1](http://www.aka.ms/azssecretrotationhelper)** , dış sertifikalar için gerekli dizini oluşturmak için.
 
 ## <a name="rotating-external-and-internal-secrets"></a>İç ve dış gizli anahtarları döndürme
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: cynthn
-ms.openlocfilehash: fecf7e121b1c0404f1ec67d46cc88008250b9d68
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: c8035a87816c56daa5ac9e1f95b40d15fa556cd9
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46981068"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49465172"
 ---
 # <a name="encrypt-os-and-attached-data-disks-in-a-virtual-machine-scale-set-with-the-azure-cli-preview"></a>İşletim sistemi ve sanal makine ölçek kümesi Azure CLI (Önizleme) ile bağlı veri diskleri şifreleme
 

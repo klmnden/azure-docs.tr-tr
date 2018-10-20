@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/18/2018
 ms.author: shvija
-ms.openlocfilehash: 12d8f3764dc52d8e76c3fb4599f6913fc8791f73
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: bc4116bdb251ef6f3228b7394e5c8e0cdff67447
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/19/2018
-ms.locfileid: "49426150"
+ms.locfileid: "49470175"
 ---
 # <a name="automatically-scale-up-azure-event-hubs-throughput-units"></a>Azure Event Hubs işleme birimleri otomatik olarak ölçeklendirme
 
@@ -59,7 +59,7 @@ Otomatik şişme kullanarak etkinleştirebilirsiniz **ölçek** portalında ayar
 
 
 > [!NOTE]
-> Uyguladığınızda otomatik şişme üretilen iş birimleri artırmak için yapılandırma, neden ve ne zaman aktarım hızını artırdık hakkında bilgiler vermemiz tanılama günlüklerinin Event Hubs hizmeti yayar. 
+> Uyguladığınızda otomatik şişme üretilen iş birimleri artırmak için yapılandırma, neden ve ne zaman aktarım hızını artırdık hakkında bilgiler vermemiz tanılama günlüklerinin Event Hubs hizmeti yayar. Bir olay hub'ı için tanılama günlük kaydını etkinleştirmek için seçin **tanılama ayarları** olay hub'ı sayfasında Azure Portalı'nda sol menüsünde. 
 
 ### <a name="enable-auto-inflate-using-an-azure-resource-manager-template"></a>Otomatik Şişme bir Azure Resource Manager şablonu kullanarak etkinleştirin
 

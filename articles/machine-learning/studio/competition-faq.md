@@ -1,6 +1,6 @@
 ---
-title: Cortana Intelligence Competitions SSS | Microsoft Docs
-description: Microsoft Cortana Intelligence Competitions hakkında sık sorulan sorular.
+title: Cortana Intelligence Yarışmaları hakkında SSS | Microsoft Docs
+description: Sık sorulan Microsoft Cortana Intelligence Yarışmaları hakkında sorular.
 services: machine-learning
 documentationcenter: ''
 author: hning86
@@ -15,104 +15,104 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2017
-ms.openlocfilehash: 1db1b8ee7ba3611f8d1d69f711f1ec72308c7d06
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 15d46f16c78b8fa757d7810542b3d6bfa9a95f3c
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34833337"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49465636"
 ---
 # <a name="microsoft-cortana-intelligence-competitions-faq"></a>Microsoft Cortana Intelligence Yarışmaları Hakkında SSS
-**Cortana Intelligence Competitions nedir?**
+**Cortana Intelligence Yarışmaları nedir?**
 
-Microsoft Cortana Intelligence Competitions topluca bazı dünyanın en karmaşık veri bilimi sorunlarını çözme tarafından bir genel veri meraklıları topluluğu birleştirmiştir. Cortana Intelligence Competitions gelen veri meraklıları rekabet ve yüksek oranda doğru ve akıllı bir veri bilimi modelleri oluşturmak için dünya genelindeki izin verir. Bu barındırılan competitions herkese ilk kez kullanıma sunulan benzersiz veri kümelerini dayanır. Katılımcıların ödül win veya üst 10 ortak Skorbordu aracılığıyla tanıma alın. Competitions giriş sayfasında erişebilirsiniz [aka.ms/CIComp](http://aka.ms/CIComp).
+Microsoft Cortana Intelligence Yarışmaları topluca dünyanın en karmaşık veri bilimi sorunlarından bazılarını giderme tarafından bir topluluk tarafından veri analizi meraklılarının sahip. Cortana Intelligence Yarışmaları rekabet ve yüksek oranda doğru ve akıllı bir veri bilimi modelleri oluşturulabilir dünya genelindeki veri analizi meraklılarının gelen izin verir. Bu barındırılan Yarışmaları yapılmış herkes tarafından ilk kez kullanılabilir benzersiz veri kümelerini temel alır. Katılımcılar, ödül kazanma ya da en iyi 10 genel puan tablosu aracılığıyla tanıma alın. Yarışma giriş sayfasında erişebileceğiniz [aka.ms/CIComp](http://aka.ms/CIComp).
 
-**Ne sıklıkta Microsoft yeni competitions yayımlayacak mı?**
+**Microsoft yeni bir yarışmaya ne sıklıkta piyasaya?**
 
-Biz 1 taraf, Microsoft'un sahibi olduğu competitions düzenli olarak, yaklaşık 8-12 haftada başlatma. 
+Biz düzenli olarak, 1. taraf, Microsoft'a ait Yarışmaları yaklaşık her 8-12 Hafta sürülecektir. 
 
-**Burada t veri bilimi hakkında genel sorular sorabilirsiniz?**
+**Veri bilimi hakkında genel sorular nereden nüfusuna?**
 
-Genel sorular için kullandığınız [Microsoft Azure Machine Learning Forumu](https://social.msdn.microsoft.com/forums/azure/home?forum=MachineLearning).
+Genel sorular için kullanabileceğiniz [Microsoft Azure Machine Learning Forumu](https://social.msdn.microsoft.com/forums/azure/home?forum=MachineLearning).
 
-**Bir rekabet nasıl girilir?**
+**Yarışma nasıl katılabilirim?**
 
-Erişim [Competitions](https://gallery.cortanaintelligence.com/competitions) giriş sayfası [Azure AI galeri](https://gallery.cortanaintelligence.com/), veya gitmek [ http://aka.ms/CIComp ](http://aka.ms/CIComp). Giriş sayfası çalışmakta olan tüm competitions listeler. Her rekabet ayrıntılı yönergeler ve katılım kuralları, ödül ve süresi, kayıt sayfasındaki.
+Erişim [Yarışmaları](https://gallery.cortanaintelligence.com/competitions) giriş sayfası [Azure AI Gallery](https://gallery.cortanaintelligence.com/), veya Git [ http://aka.ms/CIComp ](http://aka.ms/CIComp). Giriş sayfası, çalışmakta olan tüm yarışmalar listeler. Her bir yarışma ayrıntılı yönergeler ve katılım kuralları, ödülleri ve süresi, kayıt sayfasındaki içerir.
 
-1. Tüm yönergeleri okuyun, katılmak ister misiniz rekabet bulun ve öğretici videoyu izleyin. Ardından **girin rekabet** düğmesini tıklatın ve var olan Azure Machine Learning çalışma alanınıza Starter deneme kopyalayın. Bir çalışma alanına erişim sahip değilseniz, birini oluşturmalısınız önceden. Başlatıcı denemeyi çalıştırın, performans ölçüm inceleyin, sonra modeli performansını artırmak için yaratıcılığınızı kullanın. Bu adımda, sürenin büyük bölümünden olasılıkla harcamanız.   
+1. Tüm yönergeleri okuyun, katılmak istiyorum yarışma bulun ve öğretici bir video izleyin. Ardından **girin yarışma** düğmesine tıklayın ve mevcut Azure Machine Learning çalışma alanınıza başlangıç deneme kopyalayın. Bir çalışma alanına erişim zaten yoksa, oluşturmanız gerekir önceden. Başlangıç denemeyi çalıştırın, performans ölçümü inceleyin ve ardından yaratıcılığınızı model performansını artırmak için kullanın. Çoğu zaman bu adımda, büyük olasılıkla geçireceksiniz.   
 
-2. Tahmine dayalı bir deneme Starter denemenizi dışında eğitilen model oluşturun. Ardından dikkatle giriş ayarlamak ve şema rekabet belgelerinde belirtilen gereksinimleri uydukları emin olmak için web hizmetinin çıktı. Eğitmen belge genellikle bunun için yönergeler açıklanmıştır. Eğitmen video varsa da izleyebilirsiniz.   
+2. Başlangıç denemenizi dışında eğitilen modeli ile Tahmine dayalı denemeye oluşturun. Ardından dikkatli bir şekilde giriş ayarlamak ve bunlar rekabet belgelerinde belirtilen gereksinimlere uyum sağlamak için web hizmeti şemasını çıktı. Öğretici belgesi, genellikle bunun için yönergeler ayrıntılı içerir. Varsa öğretici video da izleyebilirsiniz.   
 
-3. Tahmine dayalı denemenizi dışında bir web hizmetini dağıtın. Web hizmetini kullanarak test **Test** düğmesini veya emin olmak için otomatik olarak oluşturulan Excel şablonu doğru çalışıp çalışmadığını.   
+3. Bir web hizmeti, Tahmine dayalı denemeye dışında dağıtın. Web hizmetini kullanarak test **Test** düğme veya emin olmak için otomatik olarak oluşturulan Excel şablonu düzgün çalıştığından.   
 
-4. Web hizmetiniz rekabet girdi olarak göndermek ve Azure AI galeri rekabet sayfasında, ortak puan bakın. Ve Skorbordu yaparsanız karşılayın!  
+4. Web hizmeti olarak yarışması girişlerini gönderin ve genel puanınız Azure AI Gallery yarışma sayfasında bakın. Ve puan tablosu yaparsanız kutlayın!  
 
-Bir giriş başarıyla gönderdikten sonra kopyalanan Starter denemenizi geri dönebilirsiniz. Ardından yinelemek ve Tahmine dayalı denemenizi güncelleştirme web hizmetini güncelleştirmek ve yeni bir giriş gönderin.   
+Bir giriş başarıyla gönderdikten sonra kopyalanan başlangıç denemenizi geri dönebilirsiniz. Ardından yinelemek ve güncelleştirme deneyiminizi Tahmine dayalı web hizmetini güncelleştirmek ve yeni bir giriş göndermek.   
 
-**Açık kaynaklı araçları bu competitions katılmak için kullanabilir miyim?**
+**Bu bir yarışmaya katılmak için açık kaynak araçları kullanabilirim?**
 
-Rekabet katılımcıları Azure Machine Learning Studio, bulut tabanlı bir hizmet Cortana Intelligence Suite içinde geliştirme veri bilimi modellerinin ve gönderme için rekabet girişleri oluşturmak için kullanın. Yalnızca Machine Learning Studio'da makine öğrenimi denemelerine oluşturmak için bir GUI arabirimi sağlar, kendi R ve/veya Python komut dosyaları için yerel yürütme getirmek de sağlar. R ve Python çalışma zamanları Studio'da açık kaynak R/Python paketlerini zengin bir dizi birlikte gelir. Denemeyi de bir parçası olarak kendi paketleri içeri aktarabilirsiniz. Studio stili veri keşfi boşaltmak yerleşik bir Jupyter Not Defteri hizmetinin de vardır. Elbette, her zaman rekabet kullanılan veri kümelerindeki indirebilir ve Machine Learning Studio dışında sık kullanılan aracında keşfedin. 
+Yarışma katılımcıları veri bilimi modelleri ve gönderme için rekabet girişleri oluşturmak için geliştirme için Azure Machine Learning Studio, Cortana Intelligence suite'te, bulut tabanlı bir hizmet kullanın. Yalnızca Machine Learning Studio makine öğrenimi denemeleri oluşturmak için bir GUI arabirimi sağlar, ayrıca kendi R ve/veya Python betikleri yerel yürütme için getirmenize olanak sağlar. R ve Python çalışma zamanları Studio'da zengin bir dizi açık kaynaklı R/Python paketlerini birlikte gelir. Denemeyi de bir parçası olarak kendi paketleri içeri aktarabilirsiniz. Studio stili veri keşfi boşaltmak yerleşik bir Jupyter Not Defteri hizmetinin de sahiptir. Elbette, her zaman yarışmasına kullanılan veri kümelerine indirebilir ve Machine Learning Studio dışında en sevdiğiniz aracı olarak keşfedin. 
 
-**Girmek için bir veri Bilimcisi olması gerekiyor mu?**
+**Girmek için veri uzmanı olmanı gerekiyor mu?**
 
-Hayır. Aslında, veri meraklıları veri bilimi ve bizim bağlamı bağlamı girmek için diğer aspiring veri bilimcilerine hakkında merak herkes öneririz. Biz rekabet herkese izin vermek için destekleyici belgeler tasarladıktan. Hedef kitle aşağıdaki gibidir:
+Hayır. Aslında, veri analizi meraklılarının, veri bilimi ve bizim yarışmaya hevesli diğer veri bilimcileri hakkında merak herkes incelemenizi öneririz. Biz rekabet herkese izin vermek için destekleyici belgeler tasarladık. Hedef kitle aşağıdaki gibidir:
 
-* **Veri geliştiriciler**, **veri Bilimcilerine**, **BI** ve **analiz uzmanlarının**: verileri ve çözümlemeler içerik için oluşturmaktan sorumlu olan kişiler Başkalarının kullanmak için
-* **Veri Stewards**: verileri, ne anlama geldiğini ve nasıl, kullanılmaya ve hangi amaçla bilgisine sahip olanlar
-* **Öğrenciler** & **Araştırmacıları:** öğrenme ve ilgili verileri becerileri üniversiteler ya da yoğun açık çevrimiçi kurslar (MOOCs) katılımcıları akademik program aracılığıyla sağlamasını olanlar
+* **Veri geliştiricileri**, **veri Bilimcileri**, **BI** ve **analizi uzmanları**: veri ve analiz içeriği oluşturmaktan sorumlu olan kişiler Başkalarının kullanma
+* **Veri Stewards**: hangi amaçla ve verileri, ne anlama geldiğini ve nasıl kullanılacak istemiş hakkında bilgiye sahip olanlar
+* **Öğrenciler** ve **Araştırmacıları:** öğrenmek ve becerileri verilerle ilgili üniversiteler veya açık çevrimiçi kurslara (MOOCs) katılımcıları akademik programları aracılığıyla elde olanlar
 
-**Ekip olarak my arkadaşlarınızla girin?**
+**Arkadaşlarım ile bir takım olarak katılabilir miyim?**
 
-Rekabet platform şu anda takım katılımı desteklemiyor. Her rekabet giriş tek bir kullanıcı kimliğine bağlıdır. 
+Yarışma platform şu anda team katılımı desteklemiyor. Her yarışması girişlerini tek kullanıcı kimliğine bağlanır. 
 
-**Bir rekabet katılmak ödeme gerekiyor mu?**
+**Bir yarışmaya katılmak ödeme yapmam gerekiyor mu?**
 
-Katılmayı competitions ücretsizdir. Ancak, bir Azure Machine Learning çalışma alanına katılmayı erişmeniz. Yalnızca geçerli bir Microsoft hesabı veya bir Office 365 hesabınızla oturum günlüğü tarafından bir kredi kartı olmadan boş bir çalışma alanı oluşturabilirsiniz. Bir Azure veya Cortana Intelligence Suite müşteri değilseniz, oluşturabilir ve aynı Azure aboneliği altında bir standart çalışma alanını kullanın. Bir Azure aboneliği satın almak isterseniz, Git [Azure fiyatlandırma](https://azure.microsoft.com/pricing) sayfası. Standart ücretler standart çalışma alanına denemeler oluşturmak için kullanırken geçerli olduğunu unutmayın. Daha fazla bilgi için bkz: [Azure Machine Learning fiyatlandırma bilgileri](https://azure.microsoft.com/pricing/details/machine-learning/). 
+Yarışmaya katılmak ücretsizdir. Ancak, katılmak için bir Azure Machine Learning çalışma alanına erişim zorunda. Yalnızca geçerli bir Microsoft hesabı veya bir Office 365 hesabıyla oturum açarak, kredi kartı olmadan boş bir çalışma alanı oluşturabilirsiniz. Zaten bir Azure veya Cortana Intelligence Suite müşterisi değilseniz, oluşturabilir ve aynı Azure aboneliği altında standart bir çalışma alanını kullanın. Bir Azure aboneliği satın almak istiyorsanız, Git [Azure fiyatlandırması](https://azure.microsoft.com/pricing) sayfası. Standart ücretler standart bir çalışma alanı, denemeleri oluşturmak için kullanırken geçerli olduğunu unutmayın. Daha fazla bilgi için [Azure Machine Learning fiyatlandırma bilgilerini](https://azure.microsoft.com/pricing/details/machine-learning/). 
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 
-**Ortak ve özel puanları nelerdir?**
+**Genel ve özel puanları nelerdir?**
 
-Çoğu competitions içinde genellikle 10-20 dakika içinde yaptığınız her gönderi için ortak bir puan alırsınız fark edeceksiniz. Ancak rekabet sona erdikten sonra son sıralama için kullanılan özel bir puan alırsınız. 
+Çoğu yarışmalarına genel bir puan genellikle 10-20 dakika içinde yaptığınız her gönderi için alırsınız fark edeceksiniz. Ancak, Yarışma sona erdikten sonra son sıralama için kullanılan özel bir puan alırsınız. 
 
 Şunlar olur:
 
-* Rekabet kullanılan tüm veri kümesinin rastgele stratification eğitim ve test (Kalan) veri ile ayrılır. Hem eğitim hem de veri sınama etiketleri dağıtımlarını tutarlı olduğundan emin olmak için rastgele bölünmüş stratified.
-* Eğitim verileri karşıya ve size Starter deneme veri içeri aktarma modül yapılandırmasındaki bir parçası olarak belirtilen.
-* Test verilerinin aynı stratification kullanarak ortak ve özel test verisine, daha fazla ayrılır.
-* Genel test verileri Puanlama ilk gidiş için kullanılır. Sonuç ortak puan adlandırılır. Girişinizin gönderdiğinizde gönderimi geçmişinizde gördüğünüz öyledir. Bu puanı, göndermek için her giriş hesaplanır. Bu ortak puanı üzerinde ortak Skorbordu derecelendirmek için kullanılır.
-* Rekabet sona erdikten sonra özel test verilerinin Puanlama son gidiş için kullanılır. Bu özel puan adlandırılır. 
-* Her katılımcı için en yüksek ortak puanları girişlerle sabit sayıda (Bu sayı rekabet bağlı olarak değişebilir) özel Puanlama gidiş girmek için otomatik olarak seçilir. En yüksek özel skoru girişle daha sonra sonuçta ödül kazanan belirler son derecelendirme girmek için seçilir.  
+* Yarışma içinde kullanılan tüm veri kümesi, rastgele stratification eğitim ve test etme (Kalan) veri ile ayrılır. Hem eğitim hem de veri sınama etiketleri dağıtımlarını tutarlı olmasını sağlamak için rastgele bölme stratified.
+* Eğitim verileri karşıya yüklenmesini ve verileri içeri aktarma modül yapılandırmasındaki başlangıç deneme bir parçası olarak verilmiş.
+* Test verilerinin aynı stratification kullanarak ortak ve özel test verilerden yararlanın, daha fazla ayrılır.
+* Genel Test verilerinin Puanlama ilk hepsini için kullanılır. Sonuç genel puan adlandırılır. Bu giriş gönderdiğinizde gönderimi geçmişinizde gördüğünüz olur. Bu puanı, gönderdiğiniz her giriş için hesaplanır. Bu genel puanı genel puan tablosu üzerinde derecelendirmek için kullanılır.
+* Yarışma sona erdikten sonra özel test verilerinin Puanlama son hepsini için kullanılır. Bu özel puanı adlandırılır. 
+* Her katılımcı için en yüksek genel puanları girişlerle sabit sayıda (Bu sayı, Yarışma bağlı olarak değişebilir) özel Puanlama hepsini girmek için otomatik olarak seçilir. En yüksek özel puanı giriş, daha sonra sonuçta Ödülü kazanan belirler son derecelendirme girmek için seçilir.  
 
-**Müşteriler rekabet bizim platformunda barındırabilir?**
+**Müşteriler, bir yarışma platformumuzda barındırabilir miyim?**
 
-Bizimle iş ortaklığı ve ortak ve özel competitions bizim platformunda barındırmak için 3. taraf kuruluşlar Sihirbazına Hoş Geldiniz. Bu tür competitions onboarding işlemini tartışır mutluluk olacak rekabet hazırlanma ekibi sunuyoruz.  Lütfen bizimle iletişime alma [ compsupport@microsoft.com ](mailto:compsupport@microsoft.com) daha fazla ayrıntı için. 
+Biz bizimle iş ortağı ve hem genel hem de özel Yarışmaları platformumuzda barındırmak için 3. taraf kuruluşlar Hoş Geldiniz. Bu yarışma için ekleme işlemi hakkında sizinle Konuşmaktan memnuniyet olacak bir yarışma onboarding ekibi sahibiz.  Numaralı telefondan bizi Lütfen kurabilir [ compsupport@microsoft.com ](mailto:compsupport@microsoft.com) daha fazla ayrıntı için. 
 
-**Gönderimleri için sınırlamalar nelerdir?**
+**Gönderimler sınırlamaları nelerdir?**
 
-Tipik bir rekabet 24 saat aralığında (UTC saat 00:00:00 için 23:59:59) gönderebilirsiniz girdi sayısı ve rekabet süresinde gönderebilirsiniz girişleri toplam sayısını sınırlamak seçebilirsiniz. Bir sınırlama aşıldığında, ilgili hata iletileri alırsınız. 
+Tipik bir yarışma, 24 saatlik aralığı (UTC saat 00:00:00 için 23:59:59) içinde gönderebilirsiniz. girdi sayısı ve yarışma süresince gönderdiğiniz girişleri toplam sayısını sınırlamak seçebilirsiniz. Bir sınırlama aşıldığında uygun hata iletileri alırsınız. 
 
-**Bir rekabet win ne olur?**
+**Ben bir yarışma win ne olur?**
 
-Microsoft özel Skorbordu sonuçlarını doğrular ve ardından olduğumuzda sizinle iletişime. Lütfen e-posta adresinizi kullanıcı profilinizde güncel olduğundan emin olun.
+Microsoft özel puan tablosu sonuçlarını doğrular ve ardından biz sizinle iletişim kuracağız. E-posta adresinizi kullanıcı profilinizde güncel olduğundan emin olun.
 
-**Bir rekabet win olursa nasıl ödül para alır?**
+**Ben bir yarışma kazanın, para Ödülü nasıl alırım?**
 
-Rekabet kazanan varsa, uygunluk, lisans ve sürümünden bir bildirim imzalamak gerekir. Bu form rekabet kuralları reiterates. Kazanan ABD mükellefleri değillerse W-9 ya da bir formu W-8BEN BİZE vergi formu doldurmanız gerekir. Biz tüm kazanan ödül ödeme işleminin bir parçası olarak kayıt e-posta kullanarak sizinle iletişim kuracaktır. Lütfen bizim [hüküm ve koşullar](http://aka.ms/comptermsandconditions) ek ayrıntılar için.
+Yarışma birinci varsa, uygunluk, lisans ve sürüm bildirimi imzalamak gerekir. Bu formu Competition kuralları reiterates. Materyalleri, KAZANANI ABD mükellefleri değillerse W-9 ya da bir Form W-8BEN bir BİZE vergi formu doldurmanız gerekir. Kayıt e-postasını kullanarak biz ödül ödeme işleminin bir parçası tüm kazananları iletişime geçeceğiz. Lütfen bizim [hüküm ve koşullar](http://aka.ms/comptermsandconditions) bakın.
 
-**Ne birden fazla giriş aynı puanı alır?**
+**Peki birden fazla giriş aynı puanı alır?**
 
-Gönderme bağlantı kesici saattir. Daha önce gönderilen girişi daha sonra gönderilen girişi outranks.
+Gönderme saati giderici ' dir. Daha önce gönderilen girişi daha sonra gönderilen giriş outranks.
 
-**Kullanarak katılabilirsiniz Konuk çalışma?**
+**Kullanarak katılabilir Konuk çalışma?**
 
-Hayır. Katılmak için bir ücretsiz veya standart bir çalışma alanı kullanmanız gerekir. Bir konuk çalışma alanında rekabet starter deneme açabilir ancak, bu çalışma alanından gönderimi için geçerli bir girişi oluşturmak kullanabileceksiniz değil. 
+Hayır. Katılmak için bir ücretsiz veya standart bir çalışma alanı kullanmanız gerekir. Bir konuk çalışma alanında yarışma başlangıç deneme açabilirsiniz, ancak, bu çalışma alanından gönderimi için geçerli bir giriş oluşturmak mümkün olacaktır değil. 
 
-**Tüm Azure bölgesinde bir çalışma alanını kullanarak katılabilmesi için?**
+**Bir çalışma alanı kullanarak dilediğiniz Azure bölgesinde yer alabilir?**
 
-Şu anda, rekabet platform çalışma gönderildiği girişleri yalnızca destekler **Orta Güney ABD** Azure bölgesi. Herhangi bir ücretsiz çalışma alanından bir giriş gönderebilirsiniz şekilde Orta Güney ABD içinde tüm ücretsiz çalışma alanları bulunur. Standart çalışma kullanmayı seçerseniz, yalnızca emin olun Güney Orta ABD Azure bölgesinde bulunan, aksi takdirde, Gönderiminizi başarılı olmaz. 
+Şu anda rekabet platformu içinde bir çalışma alanından gönderilen girişleri yalnızca destekler **Orta Güney ABD** Azure bölgesi. Herhangi bir ücretsiz çalışma alanından bir giriş gönderdiğiniz için Güney Orta ABD içinde tüm ücretsiz çalışma alanları bulunur. Standart bir çalışma alanı kullanmayı tercih ederseniz, yalnızca Güney Orta ABD Azure bölgesinde bulunur ve aksi takdirde, Gönderiminizi başarılı olmaz emin olun. 
 
-**Biz kullanıcıların competitions çözümleri ve girişleri tutarım?**
+**Kullanıcıların Yarışmaları çözümleri ve girişleri saklarız?**
 
-Kullanıcı girişi yalnızca değerlendirme amacıyla kazanan çözümleri tanımlamak korunur. Lütfen bizim [hüküm ve koşullar](http://aka.ms/comptermsandconditions) özellikleri için.
+Kullanıcı girişleri, yalnızca değerlendirme amacıyla kazanan çözümleri tanımlamak korunur. Lütfen bizim [hüküm ve koşullar](http://aka.ms/comptermsandconditions) özellikleri için.
 

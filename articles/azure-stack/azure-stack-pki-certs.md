@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/16/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: 86e2f328968cb5e45b9aec71aac8e8ac9e6d656b
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 112940dbacf0bfdaff735eb0abd79e177cf5c9c5
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49403909"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49457047"
 ---
 # <a name="azure-stack-public-key-infrastructure-certificate-requirements"></a>Azure Stack ortak anahtar altyapısı sertifika gereksinimleri
 
@@ -40,8 +40,9 @@ Aşağıdaki listede, Azure Stack dağıtmak için gerekli sertifika gereksiniml
 - Sertifikaları döndürürken sertifikaları ya da dağıtım ya da yukarıdaki tüm ortak sertifika yetkilisinden verilen sertifikaları imzalamak için kullanılan aynı iç sertifika yetkilisinden verilen olmalıdır
 - Otomatik olarak imzalanan sertifikaların kullanılması desteklenmiyor
 - Azure Stack dağıtımı ve döndürme yapabilirsiniz veya tüm ad alanları sertifikanın konu adı ve konu alternatif adı (SAN) alanlarını kapsayan tek bir sertifikayı kullanın ya da kullanabilirsiniz, aşağıdaki ad alanlarının her biri için tek tek sertifikaları kullanmak için plan hizmetleri gerektirir. Her iki yaklaşım gibi gerekli olduğu bitiş noktası için joker karakterler kullanarak gerektiren **KeyVault** ve **KeyVaultInternal**. 
-- Sertifika imza algoritması 3DES olması gerekir. Algoritma SHA1, olamaz, daha güçlü olması gerekir. 
+- İmza algoritması SHA1, olamaz, daha güçlü olması gerekir. 
 - Ortak ve özel anahtarları Azure Stack yükleme için gerekli olduğu gibi PFX sertifika biçimi olmalıdır. 
+- PFX şifreleme 3DES (Bu bir Windows 10 istemci ya da Windows Server 2016 sertifika deposuna dışa aktarırken varsayılandır) olmalıdır.
 - Sertifika pfx dosyasını bir değer "Dijital imza" ve "KeyEncipherment", "Anahtar kullanımı" alanında olması gerekir.
 - Sertifika pfx dosyaları "Sunucu kimlik doğrulaması (1.3.6.1.5.5.7.3.1)" ve "İstemci kimlik doğrulaması (1.3.6.1.5.5.7.3.2)" değerlerini "Gelişmiş anahtar kullanımı" alanında olması gerekir.
 - Sertifikanın "verilen:" alanı aynı olmamalıdır, "tarafından verilen:" alanı.
@@ -63,7 +64,7 @@ Her Azure Stack genel altyapı uç noktası için uygun DNS adlarına sahip sert
 Dağıtımınız, [Bölge] ve [externalfqdn] değerleri bölge ve Azure Stack sisteminiz için seçtiğiniz dış etki alanı adlarının eşleşmesi gerekir. Örneğin bölge adı varsa, *Redmond* ve dış etki alanı adı *contoso.com*, DNS adlarını biçimi gerekir *&lt;önek >. redmond.contoso.com*. *&lt;Önek >* değerleri predesignated güvenliği sertifika ile sağlanan uç nokta tanımlamak amacıyla Microsoft tarafından. Ayrıca,  *&lt;önek >* değerler dış altyapı uç noktalarının belirli uç noktasını kullanan Azure Stack hizmeti bağlıdır. 
 
 > [!note]  
-> Tüm ad alanları tüm dizinlere kopyalanır konu ve konu alternatif adı (SAN) alanlarını da kapsayan tek joker karakter sertifika her biri için ayrı sertifikalar olarak veya uç nokta karşılık gelen dizine kopyalanır. sağlanan sertifika olabilir. Unutmayın, iki seçenek de joker karakterli sertifikalar için bitiş noktaları gibi kullanmanızı gerektirir **acs** ve gerekli nerede anahtar kasası. 
+> Üretim ortamları için ayrı sertifikalar her uç nokta için oluşturulan ve karşılık gelen dizinine kopyalanır öneririz. Geliştirme ortamları için sertifika konusu ve konu alternatif adı (SAN) alanlarındaki tüm dizinlere kopyalanır tüm ad alanlarını kapsayan bir tek bir joker sertifikası olarak sağlanabilir. Tüm uç noktaları ve hizmetler kapsayan tek bir sertifikayı güvenli bir duruş salt geliştirme bu nedenle ' dir. Unutmayın, iki seçenek de joker karakterli sertifikalar için bitiş noktaları gibi kullanmanızı gerektirir **acs** ve gerekli nerede anahtar kasası. 
 
 | Dağıtım klasörü | Gerekli bir sertifika konusu ve konu alternatif adları (SAN) | Kapsam (bölge başına) | Alt etki alanı ad alanı |
 |-------------------------------|------------------------------------------------------------------|----------------------------------|-----------------------------|

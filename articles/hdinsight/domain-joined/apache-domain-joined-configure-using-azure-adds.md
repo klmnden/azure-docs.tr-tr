@@ -8,12 +8,12 @@ ms.author: hrasheed
 ms.reviewer: hrasheed
 ms.topic: conceptual
 ms.date: 10/9/2018
-ms.openlocfilehash: 851fa7c6a970d725a52bc84d7d057472e09c3ee9
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: da64c626c121062960fa7724faaa64cdc620d64a
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49388349"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49466356"
 ---
 # <a name="configure-a-hdinsight-cluster-with-enterprise-security-package-by-using-azure-active-directory-domain-services"></a>Azure Active Directory Domain Services'ı kullanarak bir HDInsight kümesi Kurumsal güvenlik paketi ile yapılandırma
 
@@ -35,16 +35,6 @@ Azure AD DS'yi etkinleştirildiğinde, tüm kullanıcılar ve nesneler Azure Act
 
 Müşteriler, HDInsight kümeleri erişmesi gereken grupları eşitlenecek seçebilir. Bu seçenek, yalnızca belirli gruplara eşitlemenin adlandırılır *eşitleme kapsamı*. Bkz: [yapılandırma kapsamlı eşitleme Azure AD'den yönetilen etki alanınıza](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-scoped-synchronization) yönergeler için.
 
-Azure AD DS'yi etkinleştirdikten sonra yerel bir etki alanı adı hizmeti (DNS) sunucusu AD sanal makinelerde (VM) çalışır. Azure AD DS sanal ağ (Bu özel DNS sunucuları kullanılacak sanal) yapılandırın. Doğru IP adreslerini bulmak için seçin **özellikleri** altında **Yönet** kategorisi ve IP adreslerini göz listelenen altındaki **sanal ağdaki IP adresi**.
-
-![Yerel DNS sunucuları için IP adresleri bulun](./media/apache-domain-joined-configure-using-azure-adds/hdinsight-aadds-dns.png)
-
-Azure AD DS sanal ağı seçerek bu özel IP'ler kullanılacak DNS sunucularının yapılandırmasını değiştirmek **DNS sunucuları** altında **ayarları** kategorisi. Radyo düğmesinin yanındaki ardından **özel**, ilk IP adresini metin kutusuna girin ve tıklayın **Kaydet**. Aynı adımları kullanarak ek IP adreslerini ekleyin.
-
-![VNET DNS yapılandırması güncelleştiriliyor](./media/apache-domain-joined-configure-using-azure-adds/hdinsight-aadds-vnet-configuration.png)
-
-
-
 Güvenli LDAP etkinleştirilirken sertifika konu adında bir etki alanı adı veya konu alternatif adı yerleştirin. Örneğin, etki alanı adınızı ise *contoso.com*, bu tam adı, sertifika konu adı veya konu diğer adı var olduğundan emin olun. Daha fazla bilgi için [güvenli LDAP yapılandırma için bir Azure AD-DS yönetilen etki alanı](../../active-directory-domain-services/active-directory-ds-admin-guide-configure-secure-ldap.md).
 
 
@@ -53,11 +43,7 @@ Azure Active Directory etki alanı Hizmetleri'niz sistem durumunu görüntüleme
 
 ![Azure Active Directory Domain Services durumu](./media/apache-domain-joined-configure-using-azure-adds/hdinsight-aadds-health.png)
 
-Emin olmanız gerekir tüm [gerekli bağlantı noktaları](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd772723(v=ws.10)#communication-to-domain-controllers) AAD DS bir ağ güvenlik grubu tarafından sağlanıyorsa AAD DS alt ağda NSG kuralları güvenilir listededir. 
-
 ## <a name="create-and-authorize-a-managed-identity"></a>Oluşturma ve yönetilen bir kimlik yetkilendirme
-> [!NOTE]
-> Yalnızca AAD DS yöneticilerin bu yönetilen kimlik yetkilendirmek için ayrıcalıklara sahip.
 
 A **yönetilen kullanıcı tarafından atanan kimliği** etki alanı Hizmetleri işlemleri basitleştirmek için kullanılır. HDInsight etki alanı Hizmetleri katkıda bulunan rolü yönetilen kimlik atadığınızda, okuma, oluşturma, değiştirme ve silme etki alanı Hizmetleri. OU'lar ve hizmet ilkeleri oluşturma gibi belirli etki alanı hizmetleri işlemlerini HDInsight Kurumsal güvenlik paketi için gereklidir. Yönetilen kimlik herhangi bir abonelikte oluşturulabilir. Daha fazla bilgi için [kimliklerini Azure kaynakları için yönetilen](../../active-directory/managed-identities-azure-resources/overview.md).
 
@@ -71,18 +57,26 @@ Yönetilen kimlik oluşturup doğru rolü verilmiş olan bu yönetilen kimlik ku
 
 ![HDInsight yönetilen kimlik işleci rol ataması](./media/apache-domain-joined-configure-using-azure-adds/hdinsight-managed-identity-operator-role-assignment.png)
 
+## <a name="networking-considerations"></a>Ağ konusunda dikkat edilmesi gerekenler
+
+Azure AD DS'yi etkinleştirdikten sonra yerel bir etki alanı adı hizmeti (DNS) sunucusu AD sanal makinelerde (VM) çalışır. Azure AD DS sanal ağ (Bu özel DNS sunucuları kullanılacak sanal) yapılandırın. Doğru IP adreslerini bulmak için seçin **özellikleri** altında **Yönet** kategorisi ve IP adreslerini göz listelenen altındaki **sanal ağdaki IP adresi**.
+
+![Yerel DNS sunucuları için IP adresleri bulun](./media/apache-domain-joined-configure-using-azure-adds/hdinsight-aadds-dns.png)
+
+Azure AD DS sanal ağı seçerek bu özel IP'ler kullanılacak DNS sunucularının yapılandırmasını değiştirmek **DNS sunucuları** altında **ayarları** kategorisi. Radyo düğmesinin yanındaki ardından **özel**, ilk IP adresini metin kutusuna girin ve tıklayın **Kaydet**. Aynı adımları kullanarak ek IP adreslerini ekleyin.
+
+![VNET DNS yapılandırması güncelleştiriliyor](./media/apache-domain-joined-configure-using-azure-adds/hdinsight-aadds-vnet-configuration.png)
+
+Hem Azure AD DS'yi örneği hem de HDInsight küme aynı Azure sanal ağında yerleştirmek daha kolaydır. Farklı sanal ağ kullanmayı planlıyorsanız, bu sanal ağları eş ve etki alanı denetleyicisi HDI Vm'lere görünür olması gerekir. Daha fazla bilgi için [sanal ağ eşlemesi](../../virtual-network/virtual-network-peering-overview.md). 
+
+Sanal ağlar eşlendikten sonra HDInsight VNET özel bir DNS sunucusu kullanın ve Azure AD DS'yi özel IP'ler girişi DNS sunucusu adreslerini yapılandırın. Her iki Vnet'in aynı DNS sunucularını kullandığınızda, özel etki alanı adınızı doğru IP çözer ve HDInsight ' erişilebilir. Etki alanı adınızı "contoso.com" daha sonra Bu adımdan sonra ping "contoso.com" Azure AD DS IP sağa çözümlenmelidir örneğin. Ed ![eşlenmiş VNET için özel DNS sunucuları yapılandırma](./media/apache-domain-joined-configure-using-azure-adds/hdinsight-aadds-peered-vnet-configuration.png)
+
+**Sınanacak** ağınızın doğru şekilde ayarlanıp ayarlanmadığını windows VM HDInsight VNET/alt ağına katılın ve etki alanı adı (çözmek için bir IP) ping ve ardından çalıştırın **Ldp.exe'yi** Azure AD DS etki alanını erişmek için. Ardından **bu windows VM onaylamak için etki alanına** istemci ve sunucu tüm gerekli RPC çağrıları başarılı. Ayrıca **nslookup** (örneğin, dış Hive meta veri deposu veya Ranger DB) kullanıyor olabileceğiniz herhangi bir dış DB veya depolama hesabınız için ağ erişimi onaylamak için.
+Emin olmanız gerekir tüm [gerekli bağlantı noktaları](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd772723(v=ws.10)#communication-to-domain-controllers) AAD DS bir NSG tarafından sağlanıyorsa AAD DS alt ağ güvenlik grubu kurallarını güvenilir listededir. 
 
 ## <a name="create-a-hdinsight-cluster-with-esp"></a>ESP ile bir HDInsight kümesi oluşturma
 
-Sonraki adım, Azure AD DS kullanarak etkin ESP ile HDInsight kümesi oluşturmaktır.
-
-Hem Azure AD DS'yi örneği hem de HDInsight küme aynı Azure sanal ağında yerleştirmek daha kolaydır. Farklı sanal ağlarda bulunan olmaları durumunda, HDInsight VM'ler için etki alanı denetleyicisi tarafından görülebilir ve etki alanına eklenebilir böylece bu sanal ağları eşleyebilme gerekir. Daha fazla bilgi için [sanal ağ eşlemesi](../../virtual-network/virtual-network-peering-overview.md). 
-
-Sanal ağlar eşlendikten sonra HDInsight VNET özel bir DNS sunucusu kullanın ve Azure AD DS'yi özel IP'ler girişi DNS sunucusu adreslerini yapılandırın. Her iki Vnet'in aynı DNS sunucularını kullandığınızda, özel etki alanı adınızı doğru IP çözer ve HDInsight ' erişilebilir. Etki alanı adınızı "contoso.com" daha sonra Bu adımdan sonra ping "contoso.com" Azure AD DS IP sağa çözümlenmelidir örneğin. Eşleme doğru uygulanması durumunda test etmek için bir windows VM HDInsight VNET/alt ağına katılın ve etki alanı adı ping veya çalıştırmak **Ldp.exe'yi** Azure AD DS etki alanını erişmek için. Ardından bu windows VM tüm gerekli RPC çağrıları istemci ve sunucu arasında başarılı olduğunu doğrulamak için etki alanına katılın.
-
-![Eşlenen sanal ağ için özel DNS sunucuları yapılandırma](./media/apache-domain-joined-configure-using-azure-adds/hdinsight-aadds-peered-vnet-configuration.png)
-
-Bir HDInsight kümesi oluşturduğunuzda, Kurumsal güvenlik paketi kullanarak özel sekmedeki etkinleştirebilirsiniz.
+Önceki adımları doğru şekilde ayarladıktan sonra sonraki adıma HDInsight kümesi ile ESP etkin oluşturmaktır. Bir HDInsight kümesi oluşturduğunuzda, Kurumsal güvenlik paketi içinde etkinleştirebilirsiniz **özel** sekmesi. Dağıtım için bir Azure Resource Manager şablonu kullanmak isterseniz, portal deneyimi kez kullanın ve sonra yeniden kullanmak için son "Özet" sayfası üzerinde önceden doldurulmuş şablonunu indirin.
 
 ![Azure HDInsight güvenlik ve ağ özellikleri](./media/apache-domain-joined-configure-using-azure-adds/hdinsight-create-cluster-security-networking.png)
 

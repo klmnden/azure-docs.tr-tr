@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/06/2017
+ms.date: 10/19/2018
 ms.author: barbkess
-ms.reviewer: harshja
+ms.reviewer: japere
 ms.custom: it-pro
-ms.openlocfilehash: fcd02e264d5e85b1bef7e75d2a6375d6bf5e18c0
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: ad0ab8790c9d66dbba87d466e9661ef8cf33eef3
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39363958"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49456907"
 ---
 # <a name="enable-remote-access-to-sharepoint-with-azure-ad-application-proxy"></a>Azure AD uygulama ara sunucusu ile SharePoint uzaktan erişimi etkinleştirme
 
@@ -194,7 +194,7 @@ Son adımınız, böylece söz konusu dış URL'yi tabanlı bağlantılar oluşt
 
 3. Aşağı açılan listesinde **alternatif erişim eşleme koleksiyonu**seçin **değişiklik alternatif erişim eşleme koleksiyonu**.
 4. Örneğin, siteniz--seçin **SharePoint - 80**.
-5. Bir iç URL ya da genel bir URL olarak yayımlanmış URL'sini eklemek seçebilirsiniz. Bu örnek, extranet genel bir URL kullanır.
+5. Bir iç URL ya da genel bir URL olarak yayımlanmış URL'sini eklemek seçebilirsiniz. Bu örnek, extranet genel bir URL kullanır. Özel bağlantı noktası oluşturma, özel bir bağlantı noktası URL'ye eklediğinizden emin kullanıyorsanız.
 6. Tıklayın **Düzenle ortak URL'leri** içinde **Extranet** yolu ve ardından uygulamayı yayımladığınızda, oluşturulan dış URL'yi girin. Örneğin, **https://sharepoint-iddemo.msappproxy.net**.
 
   ![Yolun girme](./media/application-proxy-integrate-with-sharepoint-server/alternate-access3.png)

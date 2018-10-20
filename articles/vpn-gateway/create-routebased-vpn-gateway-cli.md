@@ -2,25 +2,17 @@
 title: 'Rota tabanlı Azure VPN gateway oluşturma: CLI | Microsoft Docs'
 description: CLI kullanarak bir VPN ağ geçidi oluşturmak nasıl hızlı bir şekilde öğrenin
 services: vpn-gateway
-documentationcenter: na
 author: cherylmc
-manager: jeconnoc
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: vpn-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 04/04/2018
+ms.date: 10/04/2018
 ms.author: cherylmc
-ms.openlocfilehash: 870fa0f369a7296534ccad54a31fec9da8cb5ed2
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: b8ca2d74012418dbd8ca9e878f133a250ebb5991
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46977596"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49465109"
 ---
 # <a name="create-a-route-based-vpn-gateway-using-cli"></a>CLI kullanarak rota temelli VPN ağ geçidi oluşturma
 

@@ -1,7 +1,7 @@
 ---
 pageTitle: Synonyms in Azure Search | Microsoft Docs
 description: Bir arama sorgusu kapsamını genişletmek için eş anlamlı sözcükler kullanın
-authors: mhko
+author: mhko
 services: search
 ms.service: search
 ms.devlang: rest-api
@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 04/20/2018
 manager: jlembicz
 ms.author: nateko
-ms.openlocfilehash: 9f887b065cf4fcc295873ee969030c67d17d9e2f
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: fcb4314583036c2abfffdf7e5d0b5d90478dbe6b
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49318478"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49468560"
 ---
 # <a name="synonyms-in-azure-search"></a>Azure Search'te eş anlamlıları
 

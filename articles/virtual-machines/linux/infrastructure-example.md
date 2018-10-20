@@ -3,7 +3,7 @@ title: Örnek Azure altyapısı gözden geçirme | Microsoft Docs
 description: Bir örnek altyapısını Azure'a dağıtmak için önemli tasarım ve uygulama yönergeleri hakkında bilgi edinin.
 documentationcenter: ''
 services: virtual-machines-linux
-author: cynthn
+author: zr-msft
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2017
-ms.author: cynthn
+ms.author: zarhoads
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d4b8cd07e50697139f68084f47c847ef8728c429
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: 794182e3988a353b1e305a36da0475bacdea69b8
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37932156"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49469859"
 ---
 # <a name="example-azure-infrastructure-walkthrough-for-linux-vms"></a>Linux VM'ler için örnek Azure altyapı Kılavuzu
 Bu makalede örnek uygulama altyapısı oluşturmaya gösterilmektedir. Biz, yönergeleri ve adlandırma kuralları, kullanılabilirlik kümeleri, sanal ağlar ve yük Dengeleyiciler kararları bir araya basit bir çevrimiçi mağaza için bir altyapı tasarımı ve gerçekte sanal makinelerinizi (VM) dağıtma açıklamaktadır.

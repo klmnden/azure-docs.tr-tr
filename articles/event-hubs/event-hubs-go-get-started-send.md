@@ -7,34 +7,33 @@ manager: kamalb
 ms.service: event-hubs
 ms.workload: core
 ms.topic: article
-ms.date: 07/23/2018
+ms.date: 10/18/2018
 ms.author: shvija
-ms.openlocfilehash: 40b3aa82c3e9e8ab9a30362c0a41998877655725
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: f5e30a103b09613caee8e9912a89a5bc2d390f65
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40005606"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49458097"
 ---
 # <a name="send-events-to-event-hubs-using-go"></a>Git kullanarak Event Hubs için olayları gönderme
 
-Azure Event Hubs, milyonlarca işleyebilen ileri düzeyde ölçeklenebilir bir olay yönetim sistemi saniyede olayları, işlemek ve çok büyük miktardaki verileri çözümlemek uygulamaları etkinleştirme bağlı cihazlarınız ve diğer sistemleri tarafından üretilen. Bir olay hub'ına toplandıktan sonra almak ve işlem içi işleyicileri kullanarak olayları işleme veya diğer analiz sistemleri ileterek.
+Azure Event Hubs saniyede milyonlarca olay alıp işleme kapasitesine sahip olan bir Büyük Veri akış platformu ve olay alma hizmetidir. Event Hubs dağıtılan yazılımlar ve cihazlar tarafından oluşturulan olayları, verileri ve telemetrileri işleyebilir ve depolayabilir. Bir olay hub’ına gönderilen veriler, herhangi bir gerçek zamanlı analiz sağlayıcısı ve işlem grubu oluşturma/depolama bağdaştırıcıları kullanılarak dönüştürülüp depolanabilir. Event Hubs ayrıntılı bakış için bkz: [Event Hubs'a genel bakış](event-hubs-about.md) ve [Event Hubs özellikleri](event-hubs-features.md).
 
-Event Hubs hakkında daha fazla bilgi için bkz: [Event Hubs'a genel bakış][Event Hubs overview].
+Bu öğreticide, bir seferde yazılmış bir uygulamadan bir olay hub'ına olayları göndermek açıklar. 
 
-Bu öğreticide, bir seferde yazılmış bir uygulamadan bir olay hub'ına olayları göndermek açıklar. Olayları almak için kullandığınız **Git eph** açıklandığı (olay işleyicisi ana bilgisayarı) paket [karşılık gelen alma makale](event-hubs-go-get-started-receive-eph.md).
-
-Bu öğreticideki kod öğesinden alınır [bu GitHub örneklerine](https://github.com/Azure-Samples/azure-sdk-for-go-samples/tree/master/eventhubs), hangi tam görmek için inceleyebilirsiniz içeri aktarma deyimlerini ve değişken bildirimleri dahil olmak üzere çalışan bir uygulama.
-
-Diğer örnekler kullanılabilir [olay hub'ları depo paketini](https://github.com/Azure/azure-event-hubs-go/tree/master/_examples).
+> [!NOTE]
+> Bu hızlı başlangıçta, bir örnekten olarak indirebilirsiniz [GitHub](https://github.com/Azure-Samples/azure-sdk-for-go-samples/tree/master/eventhubs), değiştirin `EventHubConnectionString` ve `EventHubName` dizeleri, olay hub'ı değerleri ve çalıştırın. Alternatif olarak, kendi oluşturmak için bu öğreticideki adımları izleyebilirsiniz.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
 Bu öğreticiyi tamamlamak için aşağıdaki önkoşulları karşılamanız gerekir:
 
 * Yerel olarak yüklü gidin. İzleyin [bu yönergeleri](https://golang.org/doc/install) gerekirse.
-* Etkin bir Azure hesabı. Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap][] oluşturun.
 * Mevcut bir Event Hubs ad alanı ve olay hub '. Yönergeleri izleyerek bu varlıkları oluşturabilirsiniz [bu makalede](event-hubs-create.md).
+
+## <a name="create-an-event-hubs-namespace-and-an-event-hub"></a>Event Hubs ad alanı ve bir olay hub’ı oluşturma
+İlk adımda [Azure portalını](https://portal.azure.com) kullanarak Event Hubs türünde bir ad alanı oluşturun, ardından uygulamanızın olay hub’ı ile iletişim kurması için gereken yönetim kimlik bilgilerini edinin. Bir ad alanı ve olay hub'ı oluşturmak için verilen yordamı izleyin [bu makalede](event-hubs-create.md), ardından Bu öğreticide aşağıdaki adımlarla devam edin.
 
 ## <a name="install-go-package"></a>Go paketini yükle
 
@@ -125,15 +124,13 @@ if err != nil {
 log.Printf("got partition IDs: %s\n, info.PartitionIDs)
 ```
 
+Olay hub'ına olayları göndermek için uygulamayı çalıştırın. 
+
+Tebrikler! Bir olay hub'ına ileti gönderdiniz.
+
 ## <a name="next-steps"></a>Sonraki adımlar
-
-Event Hubs hakkında daha fazla bilgi için şu sayfaları ziyaret edin:
-
-* [EventProcessorHost kullanarak olay alma](event-hubs-go-get-started-receive-eph.md)
-* [Event Hubs'a genel bakış][Event Hubs overview]
-* [Olay Hub’ı oluşturma](event-hubs-create.md)
-* [Event Hubs ile ilgili SSS](event-hubs-faq.md)
+Bu hızlı başlangıçta Go kullanarak olay hub'ına ileti gönderdiniz. Git kullanarak bir olay hub'ından olay alma konusunda bilgi almak için bkz: [olayları event hub'dan - Git alma](event-hubs-go-get-started-receive-eph.md).
 
 <!-- Links -->
 [Event Hubs overview]: event-hubs-about.md
-[ücretsiz bir hesap]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
+[free account]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio

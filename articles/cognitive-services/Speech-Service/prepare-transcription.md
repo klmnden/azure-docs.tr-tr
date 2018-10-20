@@ -1,20 +1,21 @@
 ---
 title: Konuşma hizmeti eğitim transkripsiyonu yönergeleri
+titleSuffix: Azure Cognitive Services
 description: Akustik ve dil modellerini ve ses tiplerini yönelik Konuşma hizmeti özelleştirmek için metin hazırlamayı öğrenin.
-titleSuffix: Microsoft Cognitive Services
 services: cognitive-services
 author: PanosPeriorellis
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/01/2018
 ms.author: panosper
-ms.openlocfilehash: f9cb205b5111e981ee70adca715139402c9e31a4
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 07b90942c8d231418888491fd47a9be3caff77ea
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44721832"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49467744"
 ---
 # <a name="transcription-guidelines-for-using-the-speech-service"></a>Konuşma hizmeti kullanarak transkripsiyonu yönergeleri
 
@@ -169,5 +170,5 @@ Metninizi içeri aktarmadan önce aşağıdaki normalleştirme uygulayabilir:
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- [Konuşma hizmeti deneme aboneliğinizi Al](https://azure.microsoft.com/try/cognitive-services/)
-- [C# ' de Konuşma tanıma](quickstart-csharp-dotnet-windows.md)
+- [Konuşma Tanıma Hizmeti deneme aboneliğinizi alın](https://azure.microsoft.com/try/cognitive-services/)
+- [C# dilinde konuşma tanıma](quickstart-csharp-dotnet-windows.md)

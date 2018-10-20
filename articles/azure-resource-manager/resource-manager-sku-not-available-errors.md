@@ -1,6 +1,6 @@
 ---
-title: Azure SKU kullanılamaz hataları | Microsoft Docs
-description: SKU giderileceğini açıklar dağıtımı sırasında kullanılamaz hatası.
+title: Azure SKU'nun kullanılabilir olmaması hatalarını | Microsoft Docs
+description: SKU ilgili sorunları giderme açıklar dağıtımı sırasında kullanılamaz hatası.
 services: azure-resource-manager
 documentationcenter: ''
 author: tfitzmac
@@ -11,22 +11,23 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 03/09/2018
+ms.date: 10/19/2018
 ms.author: tomfitz
-ms.openlocfilehash: 490c912a6abd6570c9bc74de8b86a516a8e6f807
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: d1279b5319ddd52ff2f3f6b4e696b73e8fe67607
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34358770"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49468696"
 ---
-# <a name="resolve-errors-for-sku-not-available"></a>SKU kullanılamaz hatalarını çözümleme
+# <a name="resolve-errors-for-sku-not-available"></a>Hataları gidermek için SKU kullanılamıyor
 
-Bu makalede nasıl çözümleneceğini **SkuNotAvailable** hata.
+Bu makalede çözümlemek nasıl **SkuNotAvailable** hata. Uygun SKU'su bu bölgede bulamıyor ya da iş karşılayan alternatif bölgelere gönderme gerekli bir [SKU isteği](https://aka.ms/skurestriction) üzere Azure desteği.
+
 
 ## <a name="symptom"></a>Belirti
 
-Bir kaynak (genellikle bir sanal makine) dağıtırken şu hata kodu ve hata iletisini alıyorsunuz:
+Bir kaynak (genellikle bir sanal makine) dağıtım yaparken, aşağıdaki hata kodu ve hata iletisi alırsınız:
 
 ```
 Code: SkuNotAvailable
@@ -36,62 +37,63 @@ for subscription '<subscriptionID>'. Please try another tier or deploy to a diff
 
 ## <a name="cause"></a>Nedeni
 
-(VM boyutu gibi) seçtiniz SKU kaynak seçtiğiniz konum için kullanılabilir olmadığında bu hatayı alırsınız.
+SKU (VM boyutu gibi), seçtiğiniz kaynak seçtiğiniz konum için mevcut olmadığı durumlarda bu hatayı alırsınız.
 
 ## <a name="solution-1---powershell"></a>Çözüm 1 - PowerShell
 
-SKU'ları bir bölgede kullanılabilir olan belirlemek için [Get-AzureRmComputeResourceSku](/powershell/module/azurerm.compute/get-azurermcomputeresourcesku) komutu. Konuma göre sonuçları filtrelenir. Bu komut için PowerShell en son sürümünü olması gerekir.
+Bir bölgede kullanılabilen SKU'ları belirlemek için [Get-AzureRmComputeResourceSku](/powershell/module/azurerm.compute/get-azurermcomputeresourcesku) komutu. Konuma göre sonuçları filtreleyin. Bu komut için en son PowerShell sürümünü olması gerekir.
 
-```powershell
-Get-AzureRmComputeResourceSku | where {$_.Locations -icontains "southcentralus"}
+```azurepowershell-interactive
+Get-AzureRmComputeResourceSku | where {$_.Locations -icontains "centralus"}
 ```
 
-Sonuçlar SKU'ları listesi için konum ve SKU yönelik kısıtlamaları içerir.
+Sonuçlar, konum ve SKU için herhangi bir kısıtlama için SKU listesini içerir. Bir SKU olarak listelenebilir bildirimi `NotAvailableForSubscription`.
 
 ```powershell
-ResourceType                Name      Locations Restriction                      Capability Value
-------------                ----      --------- -----------                      ---------- -----
-availabilitySets         Classic southcentralus             MaximumPlatformFaultDomainCount     3
-availabilitySets         Aligned southcentralus             MaximumPlatformFaultDomainCount     3
-virtualMachines      Standard_A0 southcentralus
-virtualMachines      Standard_A1 southcentralus
-virtualMachines      Standard_A2 southcentralus
+ResourceType          Name        Locations   Restriction                      Capability           Value
+------------          ----        ---------   -----------                      ----------           -----
+virtualMachines       Standard_A0 centralus   NotAvailableForSubscription      MaxResourceVolumeMB   20480
+virtualMachines       Standard_A1 centralus   NotAvailableForSubscription      MaxResourceVolumeMB   71680
+virtualMachines       Standard_A2 centralus   NotAvailableForSubscription      MaxResourceVolumeMB  138240
 ```
 
 ## <a name="solution-2---azure-cli"></a>Çözüm 2 - Azure CLI
 
-SKU'ları bir bölgede kullanılabilir olan belirlemek için `az vm list-skus` komutu. Daha sonra kullanabilirsiniz `grep` veya çıkış filtrelemek için benzer bir yardımcı programı.
+Bir bölgede kullanılabilen SKU'ları belirlemek için `az vm list-skus` komutu. Kullanım `--location` kullanmakta olduğunuz konuma çıkışı filtrelemek için parametre. Kullanım `--size` kısmi boyutu adına göre aramak için parametre.
 
-```bash
-$ az vm list-skus --output table
-ResourceType      Locations           Name                    Capabilities                       Tier      Size           Restrictions
-----------------  ------------------  ----------------------  ---------------------------------  --------  -------------  ---------------------------
-availabilitySets  eastus              Classic                 MaximumPlatformFaultDomainCount=3
-avilabilitySets   eastus              Aligned                 MaximumPlatformFaultDomainCount=3
-availabilitySets  eastus2             Classic                 MaximumPlatformFaultDomainCount=3
-availabilitySets  eastus2             Aligned                 MaximumPlatformFaultDomainCount=3
-availabilitySets  westus              Classic                 MaximumPlatformFaultDomainCount=3
-availabilitySets  westus              Aligned                 MaximumPlatformFaultDomainCount=3
-availabilitySets  centralus           Classic                 MaximumPlatformFaultDomainCount=3
-availabilitySets  centralus           Aligned                 MaximumPlatformFaultDomainCount=3
+```azurecli-interactive
+az vm list-skus --location southcentralus --size Standard_F --output table
 ```
+
+Komut, benzer bir sonuç döndürür:
+
+```azurecli
+ResourceType     Locations       Name              Zones    Capabilities    Restrictions
+---------------  --------------  ----------------  -------  --------------  --------------
+virtualMachines  southcentralus  Standard_F1                ...             None
+virtualMachines  southcentralus  Standard_F2                ...             None
+virtualMachines  southcentralus  Standard_F4                ...             None
+...
+```
+
 
 ## <a name="solution-3---azure-portal"></a>Çözüm 3 - Azure portalı
 
-SKU'ları bir bölgede kullanılabilir olan belirlemek için [portal](https://portal.azure.com). Portalında oturum açın ve arabirimi aracılığıyla bir kaynak ekleyin. Değerleri ayarlama gibi bu kaynak için kullanılabilir SKU'lar bakın. Dağıtımın tamamlanması gerekmez.
+Bir bölgede kullanılabilen SKU'ları belirlemek için [portalı](https://portal.azure.com). Portalda oturum açın ve arabirimi aracılığıyla bir kaynak ekleyin. Değerleri ayarlamak gibi bu kaynak için kullanılabilir SKU'ları bakın. Dağıtımı tamamlamak gerekmez.
 
-![kullanılabilir SKU'lar](./media/resource-manager-sku-not-available-errors/view-sku.png)
+Örneğin, bir sanal makine oluşturma işlemi başlatın. Diğer kullanılabilir boyut görmek için seçin **değiştirme boyutu**.
+
+![VM oluşturma](./media/resource-manager-sku-not-available-errors/create-vm.png)
+
+Filtreleme ve kaydırma aracılığıyla kullanılabilir boyutları.
+
+![Kullanılabilir SKU'lar](./media/resource-manager-sku-not-available-errors/available-sizes.png)
 
 ## <a name="solution-4---rest"></a>Çözüm 4 - REST
 
-SKU'ları bir bölgede kullanılabilir olan belirlemek için sanal makineler için REST API kullanın. Aşağıdaki isteği gönder:
+Bir bölgede kullanılabilen SKU'ları belirlemek için [kaynak SKU'ları - liste](/rest/api/compute/resourceskus/list) işlemi.
 
-```HTTP 
-GET
-https://management.azure.com/subscriptions/{subscription-id}/providers/Microsoft.Compute/skus?api-version=2016-03-30
-```
-
-Kullanılabilir SKU'ları ve bölgeler şu biçimde döndürür:
+Kullanılabilir SKU'lar ve bölgeleri şu biçimde döndürür:
 
 ```json
 {
@@ -121,4 +123,3 @@ Kullanılabilir SKU'ları ve bölgeler şu biçimde döndürür:
 }
 ```
 
-Bu bölgede uygun SKU bulamıyor veya işletmenizin karşılayan bir alternatif bölge gönderme gereksinimlerini bir [SKU isteği](https://aka.ms/skurestriction) Azure desteği.

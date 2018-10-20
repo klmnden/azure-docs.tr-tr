@@ -5,14 +5,14 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: article
-ms.date: 09/11/2018
+ms.date: 10/19/2018
 ms.author: raynew
-ms.openlocfilehash: 4036ab6e62f4738f4b2906eb7571dc5d0e972988
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.openlocfilehash: 1a818d37efd370ce0b3e27bff73a153544763ebb
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44391156"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49456635"
 ---
 # <a name="fail-over-and-fail-back-physical-servers-replicated-to-azure"></a>Yük devretme ve yeniden fiziksel sunucuları Azure'a çoğaltılan döndürme
 
@@ -44,7 +44,7 @@ Sunucu özelliklerini doğrulayın ve ile uyumlu olduğundan emin olun [Azure ge
 
 1. **Ayarlar** > **Çoğaltılan öğeler** bölümünde makine > **Yük devretme**’ye tıklayın.
 2. **Yük devretme**’de yük devretmenin yapılacağı bir **Kurtarma Noktası** seçin. Şu seçeneklerden birini kullanabilirsiniz:
-   - **En son**: Bu seçenek öncelikle Site Recovery'ye gönderilen tüm veriler işlenir. Yük devretmeden sonra oluşturulan Azure VM, yük devretme tetiklendiğinde Site Recovery’ye çoğaltılan tüm verilere sahip olduğundan en düşük RPO (Kurtarma Noktası Hedefi) sağlanır.
+   - **Varsayılan**: Bu seçenekte öncelikle Site Recovery’ye gönderilen tüm veriler işlenir. Yük devretmeden sonra oluşturulan Azure VM, yük devretme tetiklendiğinde Site Recovery’ye çoğaltılan tüm verilere sahip olduğundan en düşük RPO (Kurtarma Noktası Hedefi) sağlanır.
    - **En son işlenen**: Bu seçenek, makinenin Site Recovery tarafından işlenen en son kurtarma noktasına devreder. İşlenmemiş verileri işlemek için zaman harcanmadığından bu seçenekte düşük bir RTO (Kurtarma Süresi Hedefi) sağlanır.
    - **Uygulamayla tutarlı olan sonuncu**: Bu seçenek makinenin Site Recovery tarafından işlenen en son uygulamayla tutarlı kurtarma noktasına devreder.
    - **Özel**: Bir kurtarma noktası belirtin.
@@ -59,9 +59,9 @@ Sunucu özelliklerini doğrulayın ve ile uyumlu olduğundan emin olun [Azure ge
 
 ## <a name="prepare-to-connect-to-azure-vms-after-failover"></a>Yük devretmeden sonra Azure VM'lerine bağlanmak için hazırlık yapma
 
-Yük devretmeden sonra RDP/SSH'yi kullanarak Azure Vm'lerine bağlanmak isterseniz tabloda özetlenen gereksinimleri izleyin [burada](site-recovery-test-failover-to-azure.md#prepare-to-connect-to-azure-vms-after-failover).
+Yük devretme sonrasında RDP/SSH kullanarak Azure VM'lerine bağlanmak istiyorsanız [buradaki](site-recovery-test-failover-to-azure.md#prepare-to-connect-to-azure-vms-after-failover) tabloda özetlenen gereksinimleri izleyin.
 
-Açıklanan adımları izleyin [burada](site-recovery-failover-to-azure-troubleshoot.md) herhangi bir bağlantı sorunlarını gidermek için yük devretme sorunları gönderin.
+Yük devretme sonrasında karşılaştığınız bağlantı sorunlarını gidermek için [burada](site-recovery-failover-to-azure-troubleshoot.md) anlatılan adımları izleyin.
 
 ## <a name="create-a-process-server-in-azure"></a>Azure’da bir işlem sunucusu oluşturma
 

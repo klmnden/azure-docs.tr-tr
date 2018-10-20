@@ -1,24 +1,25 @@
 ---
-title: Bilişsel hizmetler konuşma SDK hakkında
-description: Konuşma hizmeti için kullanılabilir SDK'lar genel bakış.
+title: Konuşma hizmeti SDK'sı hakkında
 titleSuffix: Azure Cognitive Services
+description: Konuşma hizmeti için kullanılabilir SDK'lar genel bakış.
 services: cognitive-services
 author: erhopf
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: wolfma
-ms.openlocfilehash: 4be6b1e8373b6e7a7db8d97f2c99137cb6aca9bf
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: f071c15ea586f7b146b82a6201adf16dadc65add
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49364651"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49464820"
 ---
-# <a name="about-the-cognitive-services-speech-sdk"></a>Bilişsel hizmetler konuşma SDK hakkında
+# <a name="about-the-speech-service-sdk"></a>Konuşma hizmeti SDK'sı hakkında
 
-Bilişsel hizmetler konuşma Yazılım Geliştirme Seti (SDK), uygulamalarınızın yerel konuşma hizmeti işleve yazılım geliştirmeyi kolaylaştıran erişmenizi sağlar. Şu anda Erişim SDK'sı sağlar **Konuşmayı metne dönüştürme**, **konuşma çevirisi**, ve **amaç tanıma**.
+Konuşma hizmeti Yazılım Geliştirme Seti (SDK), uygulamalarınızın yerel konuşma hizmeti işleve yazılım geliştirmeyi kolaylaştıran erişmenizi sağlar. Şu anda Erişim SDK'sı sağlar **Konuşmayı metne dönüştürme**, **konuşma çevirisi**, ve **amaç tanıma**.
 
 [!INCLUDE [Speech SDK Platforms](../../../includes/cognitive-services-speech-service-speech-sdk-platforms.md)]
 

@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/15/2017
 ms.author: glenga
-ms.openlocfilehash: 66d04ca93a79f4d9cdd9f162c6cd3210ae35f4d2
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: e317a9c3cea800e05fbf3d2df73c124d2e7ffd23
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48902714"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49457672"
 ---
 # <a name="monitor-azure-functions"></a>Azure İşlevlerini İzleme
 
@@ -211,6 +211,7 @@ Günlük düzeyi `None` sonraki bölümde açıklanmıştır.
 
 *Host.json* bir işlev uygulaması, Application Insights'a gönderir ne kadar günlük dosyası oluşturur. Her kategori için göndermek için en düşük günlük düzeyi belirtin. Bir örneği aşağıda verilmiştir:
 
+#### <a name="functions-version-1"></a>İşlevleri sürüm 1 
 ```json
 {
   "logger": {
@@ -226,6 +227,22 @@ Günlük düzeyi `None` sonraki bölümde açıklanmıştır.
 }
 ```
 
+#### <a name="functions-version-2"></a>İşlevleri sürüm 2 
+İşlevler v2 şimdi kullandığı [.NET Core günlük filtresine ilişkin hiyerarşi](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#log-filtering). 
+```json
+{
+  "logging": {
+    "fileLoggingMode": "always",
+    "logLevel": {
+      "default": "Information",
+      "Host.Results": "Error",
+      "Function": "Error",
+      "Host.Aggregator": "Trace"
+    }
+  }
+}
+```
+
 Bu örnekte, aşağıdaki kurallar ayarlar:
 
 1. Kategori "Host.Results" veya "İşlev" ile günlükleri için yalnızca gönderme `Error` düzeyi ve üzeri için Application Insights. Günlüklerinde `Warning` düzeyi ve aşağıda göz ardı edilir.
@@ -236,6 +253,7 @@ Kategori değeri *host.json* günlük kaydı için aynı değeri ile başlayan t
 
 Varsa *host.json* aynı dize ile başlayan birden çok kategori içeren uzun olanlarla ilk eşleştirilir. Örneğin, çalışma zamanı günlüğe kaydetmek için "Host.Aggregator" dışında her şeyi istediğinizi varsayalım `Error` düzeyi, ancak isterseniz "Host.Aggregator günlüğe kaydetmek için" `Information` düzeyi:
 
+#### <a name="functions-version-1"></a>İşlevleri sürüm 1 
 ```json
 {
   "logger": {
@@ -246,6 +264,21 @@ Varsa *host.json* aynı dize ile başlayan birden çok kategori içeren uzun ola
         "Function": "Error",
         "Host.Aggregator": "Information"
       }
+    }
+  }
+}
+```
+
+#### <a name="functions-version-2"></a>İşlevleri sürüm 2 
+```json
+{
+  "logging": {
+    "fileLoggingMode": "always",
+    "logLevel": {
+      "default": "Information",
+      "Host": "Error",
+      "Function": "Error",
+      "Host.Aggregator": "Information"
     }
   }
 }

@@ -1,20 +1,21 @@
 ---
 title: Bir özel Uyandırma sözcük oluşturma
-description: Bir özel Uyandırma sözcük için konuşma cihaz SDK'sı oluşturmayı öğrenin.
 titleSuffix: Azure Cognitive Services
+description: Bir özel Uyandırma sözcük için konuşma cihaz SDK'sı oluşturmayı öğrenin.
 services: cognitive-services
 author: erhopf
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: speech
-ms.topic: article
+ms.component: speech-service
+ms.topic: conceptual
 ms.date: 04/28/2018
 ms.author: erhopf
-ms.openlocfilehash: 93fbf33ee35c49e7afc36bf5afbae1da0fe1c56f
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 5f138aee9dfa91e285591e5d50c14465ad32b77d
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/19/2018
-ms.locfileid: "49430213"
+ms.locfileid: "49469087"
 ---
 # <a name="create-a-custom-wake-word-by-using-the-speech-service"></a>Konuşma hizmeti kullanarak bir özel Uyandırma sözcük oluşturma
 

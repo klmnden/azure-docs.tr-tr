@@ -9,13 +9,13 @@ ms.reviewer: douglasl
 ms.service: database-migration
 ms.workload: data-services
 ms.topic: article
-ms.date: 10/09/2018
-ms.openlocfilehash: 064d7ca2f544dbf1c968310842e322d8c0db2ca1
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.date: 10/19/2018
+ms.openlocfilehash: 71d79ac34c4797cceb8374d65afb6fd7662f1c21
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48884451"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49456202"
 ---
 # <a name="what-is-the-azure-database-migration-service"></a>Azure veritabanı geçiş hizmeti nedir?
 Azure veritabanı geçiş hizmeti, birden çok veritabanı kaynağını sorunsuz geçiş için en düşük kapalı kalma süresi (çevrimiçi geçiş) Azure Data platformlarına sağlamak için tasarlanmış tam olarak yönetilen bir hizmettir.
@@ -29,7 +29,7 @@ Azure veritabanı geçiş hizmeti mevcut araç ve Hizmetleri işlevlerinden baz�
 ## <a name="regional-availability"></a>Bölgesel kullanılabilirlik
 Azure veritabanı geçiş hizmeti aşağıdaki bölgelerde kullanılabilir:
 
-![Azure veritabanı geçiş hizmeti bölgesel kullanılabilirlik](media\overview\dms-regional-availability.png)
+![Azure veritabanı geçiş hizmeti bölgesel kullanılabilirlik](media\overview\dms-regional-availability1.png)
 
 Azure veritabanı geçiş hizmeti, küresel Azure altyapısı sitesinde, bölgesel kullanılabilirliği hakkında en güncel bilgiler için bkz. [bölgelere göre kullanılabilir ürünler](https://azure.microsoft.com/global-infrastructure/services/).
 

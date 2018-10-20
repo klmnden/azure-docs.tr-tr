@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 10/16/2018
 ms.author: alkohli
-ms.openlocfilehash: caef76059219826da94d4cdafc98f1887ea5a185
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 8d4a99ab9d8107f1b3fbe70f59299f427bc88bd5
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/19/2018
-ms.locfileid: "49431868"
+ms.locfileid: "49465910"
 ---
 # <a name="develop-a-c-iot-edge-module-to-move-files-on-data-box-edge-preview"></a>Veri kutusu Edge (Önizleme) dosyalarını taşımak için bir C# IOT Edge modülü geliştirme
 
@@ -144,6 +144,9 @@ Kendi yazacağınız kodla özelleştirebileceğiniz bir C# çözüm şablonu ol
             private const string InputFolderPath = "/home/LocalShare";
             private const string OutputFolderPath = "/home/CloudShare";
     ````
+
+    > [!IMPORTANT]
+    > Not `InputFolderPath` ve `OutputFolderPath`. Bu modül dağıttığınızda Bu yolları sağlamanız gerekir.
 
 4. Ekleme **MessageBody** Program sınıfına sınıfı. Bu sınıflar gelen iletilerin gövdesi için beklenen şemayı tanımlar.
 

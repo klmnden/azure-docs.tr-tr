@@ -12,18 +12,18 @@ ms.author: v-daljep
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 10/15/2018
-ms.openlocfilehash: 1177703dc67e81e537d7682dcf9bbeb475748315
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: eaeb0d7f77b6d8ab6a3e12febba33c995a10ec3f
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49353943"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49466568"
 ---
 # <a name="email-notifications-for-automatic-tuning"></a>E-posta bildirimlerini otomatik ayarlama
 
 SQL veritabanı ayarlama önerileri Azure SQL veritabanı tarafından oluşturulan [otomatik ayarlama](sql-database-automatic-tuning.md). Bu çözümü sürekli olarak izler ve SQL veritabanları sağlama iş yükleri önerilerinde dizin oluşturma, dizin silinmesi ve sorgu yürütme planlarını iyileştirilmesi için ilgili tek tek her veritabanı için özelleştirilmiş çözümler.
 
-SQL veritabanı otomatik ayarlama önerileri içinde görüntülenebilir [Azure portalında](sql-database-advisor-portal.md), birlikte alınan [REST API](https://docs.microsoft.com/rest/api/sql/databaserecommendedactions/databaserecommendedactions_listbydatabaseadvisor) kullanarak veya çağıran [T-SQL](https://azure.microsoft.com/blog/automatic-tuning-introduces-automatic-plan-correction-and-t-sql-management/) ve [ PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqldatabaserecommendedaction) komutları. Bu makalede, otomatik ayarlama önerileri almak için bir PowerShell betiğini kullanarak temel alır.
+SQL veritabanı otomatik ayarlama önerileri içinde görüntülenebilir [Azure portalında](sql-database-advisor-portal.md), birlikte alınan [REST API](https://docs.microsoft.com/rest/api/sql/databaserecommendedactions/listbydatabaseadvisor) kullanarak veya çağıran [T-SQL](https://azure.microsoft.com/blog/automatic-tuning-introduces-automatic-plan-correction-and-t-sql-management/) ve [ PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqldatabaserecommendedaction) komutları. Bu makalede, otomatik ayarlama önerileri almak için bir PowerShell betiğini kullanarak temel alır.
 
 ## <a name="automate-email-notifications-for-automatic-tuning-recommendations"></a>E-posta bildirimlerini otomatik ayarlama önerileri için otomatik hale getirin
 

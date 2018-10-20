@@ -7,33 +7,34 @@ manager: timlt
 ms.service: event-hubs
 ms.workload: core
 ms.topic: article
-ms.date: 08/27/2018
+ms.date: 10/18/2018
 ms.author: shvija
-ms.openlocfilehash: f67982eda60a8fdfdf0d50785827c513275fd202
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 87d3261d5d9604b004c949e384e9d48e957229d7
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43124764"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49455734"
 ---
 # <a name="send-events-to-azure-event-hubs-using-java"></a>Java kullanarak Azure Event Hubs için olayları gönderme
 
-Event Hubs, saniye başına milyonlarca olayı içe almak, işlemek ve çok büyük miktarda veriyi uygulamanızın bağlı cihazlarınız ve uygulamalarınız tarafından üretilen uygulama etkinleştirme bir yüksek düzeyde ölçeklenebilir bir alım sistemidir. Bir olay hub'ına toplandıktan sonra dönüştürme ve herhangi bir gerçek zamanlı analiz sağlayıcısı veya depolama kümesi kullanarak verileri depolama.
+Azure Event Hubs saniyede milyonlarca olay alıp işleme kapasitesine sahip olan bir Büyük Veri akış platformu ve olay alma hizmetidir. Event Hubs dağıtılan yazılımlar ve cihazlar tarafından oluşturulan olayları, verileri ve telemetrileri işleyebilir ve depolayabilir. Bir olay hub’ına gönderilen veriler, herhangi bir gerçek zamanlı analiz sağlayıcısı ve işlem grubu oluşturma/depolama bağdaştırıcıları kullanılarak dönüştürülüp depolanabilir. Event Hubs ayrıntılı bakış için bkz: [Event Hubs'a genel bakış](event-hubs-about.md) ve [Event Hubs özellikleri](event-hubs-features.md).
 
-Daha fazla bilgi için [Event Hubs'a genel bakış][Event Hubs overview].
+Bu öğreticide, Java dilinde yazılmış bir konsol uygulaması kullanarak olayları bir event hub'ına gönderme işlemi gösterilmektedir. 
 
-Bu öğreticide, bir Java konsol uygulaması kullanarak olayları bir event hub'ına gönderme işlemi gösterilmektedir. Java olay işleyicisi konağı kitaplığı kullanarak olayları almak için bkz. [bu makalede](event-hubs-java-get-started-receive-eph.md), veya soldaki içindekiler bölümünden uygun alma diline tıklayın.
+> [!NOTE]
+> Bu hızlı başlangıçta, bir örnekten olarak indirebilirsiniz [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/Java/Basic/SimpleSend), değiştirin `EventHubConnectionString` ve `EventHubName` dizeleri, olay hub'ı değerleri ve çalıştırın. Alternatif olarak, kendi oluşturmak için bu öğreticideki adımları izleyebilirsiniz.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
 Bu öğreticiyi tamamlamak için aşağıdaki önkoşulları karşılamanız gerekir:
 
 * Java geliştirme ortamı. Bu öğreticide [Eclipse](https://www.eclipse.org/).
-* Etkin bir Azure hesabı. Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap][] oluşturun.
 
-Bu öğreticideki kod dayanır [SimpleSend GitHub örnek](https://github.com/Azure/azure-event-hubs/tree/master/samples/Java/Basic/SimpleSend), hangi tam görmek için inceleyebilirsiniz çalışan uygulama.
+## <a name="create-an-event-hubs-namespace-and-an-event-hub"></a>Event Hubs ad alanı ve bir olay hub’ı oluşturma
+İlk adımda [Azure portalını](https://portal.azure.com) kullanarak Event Hubs türünde bir ad alanı oluşturun, ardından uygulamanızın olay hub’ı ile iletişim kurması için gereken yönetim kimlik bilgilerini edinin. Bir ad alanı ve olay hub'ı oluşturmak için verilen yordamı izleyin [bu makalede](event-hubs-create.md), ardından Bu öğreticide aşağıdaki adımlarla devam edin.
 
-## <a name="send-events-to-event-hubs"></a>Event Hubs’a olaylar gönderme
+## <a name="add-reference-to-azure-event-hubs-library"></a>Azure Event Hubs kitaplığına bir başvuru ekleyin
 
 Event Hubs için Java istemci kitaplığı içindeki Maven projelerinde kullanılabilir [Maven Central Repository](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-eventhubs%22). Bu kitaplık içinde Maven proje dosyanızda aşağıdaki bağımlılık bildirimi kullanarak başvurabilirsiniz. Geçerli 1.0.2 sürümüdür:    
 
@@ -49,7 +50,7 @@ Derleme ortamlarının farklı türleri için en son JAR dosyalarının açıkç
 
 Basit olay yayımcısı, içeri aktarma *com.microsoft.azure.eventhubs* Event Hubs istemci sınıfları için paket ve *com.microsoft.azure.servicebus* için yardımcı sınıflar gibi paket Azure Service Bus Mesajlaşma istemcisi ile paylaşılan sık karşılaşılan özel durumlar. 
 
-### <a name="declare-the-send-class"></a>Gönderme sınıf bildirme
+## <a name="write-code-to-send-messages-to-the-event-hub"></a>Olay hub'ına ileti göndermek için kod yazma
 
 Aşağıdaki örnek için önce en sevdiğiniz Java geliştirme ortamında bir konsol/kabuk uygulaması için yeni bir Maven projesi oluşturun. Sınıf adını `SimpleSend`:     
 
@@ -109,7 +110,11 @@ ehClient.closeSync();
 
 ``` 
 
-### <a name="how-messages-are-routed-to-eventhub-partitions"></a>EventHub bölümleri iletileri nasıl yönlendirileceğini
+Derleme programı çalıştırın ve hiçbir hata olmadığından emin olun.
+
+Tebrikler! Bir olay hub'ına ileti gönderdiniz.
+
+### <a name="appendix-how-messages-are-routed-to-eventhub-partitions"></a>Ek: EventHub bölümleri nasıl iletiler yönlendirilir
 
 İleti tüketiciler tarafından alınır önce bunlar bölümlere ilk yayımcılar tarafından yayımlanan gerekir. Olay hub'ına zaman uyumlu olarak com.microsoft.azure.eventhubs.EventHubClient nesnede sendSync() yöntemi kullanarak ileti yayımlandığında, ileti belirli bir bölüme gönderilebilecek veya hepsini bir kez deneme biçimde için kullanılabilir tüm bölümleri dağıtılmış Bölüm anahtarı veya belirtilen üzerinde bağlı olarak.
 
@@ -138,14 +143,9 @@ eventHubClient.closeSync();
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Aşağıdaki bağlantıları inceleyerek Event Hubs hakkında daha fazla bilgi edinebilirsiniz:
-
-* [EventProcessorHost kullanarak olay alma](event-hubs-java-get-started-receive-eph.md)
-* [Event Hubs'a genel bakış][Event Hubs overview]
-* [Olay Hub’ı oluşturma](event-hubs-create.md)
-* [Event Hubs ile ilgili SSS](event-hubs-faq.md)
+Bu hızlı başlangıçta, Java kullanarak bir olay hub'ına ileti gönderdiniz. .NET Framework kullanarak bir olay hub'ından olay alma konusunda bilgi almak için bkz: [olayları event hub'dan - Java alma](event-hubs-java-get-started-receive-eph.md).
 
 <!-- Links -->
 [Event Hubs overview]: event-hubs-overview.md
-[ücretsiz bir hesap]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
+[free account]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
 

@@ -6,16 +6,16 @@ author: jeffgilb
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 10/02/2018
+ms.date: 10/19/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
 keywords: ''
-ms.openlocfilehash: 4ba890f4763fc77981917d9311cf2bf6c97ec80f
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: 6548693b91283665704be8fc83a483a9d20dc41b
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48902452"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49470555"
 ---
 # <a name="azure-stack-datacenter-integration---identity"></a>Azure Stack veri merkezi tümleştirmesi - kimlik
 Kimlik sağlayıcısı Azure Stack, Azure Active Directory (Azure AD) veya Active Directory Federasyon Hizmetleri (AD FS) kullanarak dağıtabilirsiniz. Azure Stack dağıtmadan önce seçim yapmanız gerekir. AD FS dağıtımı da bağlantı kesik moddayken Azure Stack dağıtımı olarak adlandırılır.
@@ -70,6 +70,17 @@ Otomasyon parametreleri için girdi olarak aşağıdaki bilgiler gereklidir:
 |---------|---------|---------|
 |CustomADGlobalCatalog|' % S'hedef Active Directory orman FQDN'si<br>ile tümleştirmek istediğiniz|contoso.com|
 |CustomADAdminCredentials|LDAP okuma iznine sahip bir kullanıcı|YOURDOMAIN\graphservice|
+
+### <a name="configure-active-directory-sites"></a>Active Directory sitelerini yapılandırma
+
+Birden çok siteye sahip Active Directory dağıtımları için Azure Stack dağıtımınıza yakın Active Directory sitesi yapılandırın. Yapılandırma, Azure Stack Graph hizmeti uzak bir siteden bir genel katalog sunucusu kullanarak sorguları gidermek olan önler.
+
+Azure Stack ekleme [genel VIP ağı](azure-stack-network.md#public-vip-network) alt ağ ile Azure Stack'e en yakın Azure AD Site. Örneğin, Seattle ve Redmond Seattle sitesinde dağıtılan Azure Stack ile iki site Active Directory'niz varsa Azure AD alanına Seattle için Azure Stack genel VIP alt ağı eklersiniz.
+
+Active Directory siteleri hakkında daha fazla bilgi için bkz. [site topolojisini tasarlama](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/designing-the-site-topology).
+
+> [!Note]  
+> Tek bir Site Active Directory'niz varsa bu adımı atlayabilirsiniz. Yapılandırılmış bir catch tüm alt ağı olması durumunda Azure Stack genel VIP alt ağı parçası olmadığını doğrulayın.
 
 ### <a name="create-user-account-in-the-existing-active-directory-optional"></a>Var olan Active Directory kullanıcı hesabı oluşturma (isteğe bağlı)
 
@@ -283,7 +294,7 @@ Kimlik doğrulaması için bir hizmet asıl adı (SPN) kullanımını zorunlu bi
 - Dağıtılan AD FS ile Azure Stack için System Center Yönetim Paketi
 - Azure stack'teki AD FS ile dağıtırken kaynak sağlayıcıları
 - Çeşitli uygulamalar
-- Etkileşimli olmayan oturum açma gerektirir
+- Etkileşimli olmayan bir oturum açma gerektirir
 
 > [!Important]  
 > AD FS yalnızca etkileşimli oturum açma oturumları destekler. Otomatik bir senaryo için etkileşimli olmayan oturum açma ihtiyacınız varsa, bir SPN kullanmanız gerekir.

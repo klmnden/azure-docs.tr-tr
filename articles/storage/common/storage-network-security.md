@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/25/2017
 ms.author: cbrooks
 ms.component: common
-ms.openlocfilehash: 98972b0c52470e6a404090d993c21a47b11cd660
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 7c01940c41067029bc3d47d19c2ded1d710cc2c6
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/19/2018
-ms.locfileid: "49427154"
+ms.locfileid: "49470073"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Azure depolama güvenlik duvarlarını ve sanal ağları yapılandırma
 Azure depolama, belirli bir ağa izin kümesi, depolama hesaplarınıza güvenli olanak tanıyan bir katmanlı güvenlik modeli sağlar.  Ağ kuralları yapılandırıldığında, yalnızca izin verilen ağları uygulamalardan bir depolama hesabına erişebilir.  İzin verilen bir ağdan çağırırken uygulamalar (geçerli bir erişim anahtarı veya SAS belirteci) depolama hesabına erişmek için uygun yetkilendirme gerektirecek şekilde devam edin.
@@ -190,11 +190,13 @@ Internet adresi aralıkları kullanarak sağlanabilir izin [CIDR gösteriminde](
 
 IP ağ kuralları için yalnızca verilir **genel internet** IP adresleri.  IP adres aralıkları özel ağlar için ayrılmış (sınıfında tanımlandığı gibi [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)) IP kurallarında izin verilmez.  Özel ağlar ile başlayan bir adres dahil *10.\** , *172.16.\**   -  *172.31.\**, ve *192.168.\** .
 
-IP ağ kuralları için aynı Azure bölgesindeki depolama hesabı kaynaklanan taleplere üzerinde hiçbir etkisi olacağını unutmayın.  Sanal ağ kuralları, aynı bölgede isteklere izin vermek için kullanın.
+> [!NOTE]
+> IP ağ kuralları için aynı Azure bölgesindeki depolama hesabı kaynaklanan taleplere üzerinde hiçbir etkisi olmaz.  Kullanım [sanal ağ kuralları](#grant-access-from-a-virtual-network) aynı bölgede isteklere izin vermek için.
+>
 
 Şu anda yalnızca IPv4 adresleri desteklenir.
 
-Her Depolama hesabı ile birleştirilebilir 100'e kadar IP ağ kurallarını destekleyebilir [sanal ağ kuralları](#grant-access-from-a-virtual-network)
+Her Depolama hesabı ile birleştirilebilir 100'e kadar IP ağ kurallarını destekleyebilir [sanal ağ kuralları](#grant-access-from-a-virtual-network).
 
 ### <a name="configuring-access-from-on-premises-networks"></a>Şirket içi ağlardan erişimi yapılandırma
 Depolama hesabınıza bir IP ağ kuralı ile şirket içi ağlarınızı erişim vermek için internet'e yönelik ağınız tarafından kullanılan IP adreslerini tanımlamanız gerekir.  Yardım için ağ yöneticinize başvurun.

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: 54804867cfaf38965b3dbf5ceb51e08a731d4dd8
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 73ff58148ac68b7aeb782b77385f9f971e02edb5
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46966566"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49457400"
 ---
 # <a name="how-to-provision-for-multitenancy"></a>Çoklu müşteri mimarisi için sağlama 
 
@@ -220,7 +220,7 @@ Bu bölümde, her VM üzerindeki Azure IOT C SDK'sı kopyalama. SDK, bir kiracı
 1. Her iki VM için geliştirme istemci platformunuza belirli SDK'nin bir sürümüne yapılar aşağıdaki komutu çalıştırın. 
 
     ```bash
-    cmake -Duse_prov_client:BOOL=ON ..
+    cmake -Dhsm_type_symm_key:BOOL=ON ..
     ```
 
     Derleme başarılı olduktan sonra, son birkaç çıkış satırı aşağıdaki çıkışa benzer olacaktır:
@@ -334,7 +334,7 @@ Bu bölümde, her iki bölgesel Vm'leri için sağlama örnek Azure IOT C SDK's�
      vi ~/azure-iot-sdk-c/provisioning_client/adapters/hsm_client_key.c
     ```
 
-1. Bildirimi Bul `REGISTRATION_NAME` ve `SYMMETRIC_KEY_VALUE` sabitler. Her iki bölgesel sanal makinelerdeki dosyaları için aşağıdaki değişiklikleri yapın ve dosyaları kaydedin.
+1. `REGISTRATION_NAME` ve `SYMMETRIC_KEY_VALUE` sabitlerinin bildirimini bulun. Her iki bölgesel sanal makinelerdeki dosyaları için aşağıdaki değişiklikleri yapın ve dosyaları kaydedin.
 
     Değerini güncelleştirin `REGISTRATION_NAME` ile sabit **cihazınız için benzersiz kayıt kimliği**.
     

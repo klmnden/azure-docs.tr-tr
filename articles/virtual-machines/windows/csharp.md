@@ -1,9 +1,9 @@
 ---
-title: Oluşturma ve C# kullanarak bir Azure sanal makinesi yönetme | Microsoft Docs
+title: Oluşturma ve C# kullanarak Azure sanal makinesi yönetme | Microsoft Docs
 description: Bir sanal makine ve tüm destekleyici kaynakları dağıtmak için C# ve Azure Resource Manager'ı kullanın.
 services: virtual-machines-windows
 documentationcenter: ''
-author: cynthn
+author: zr-msft
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
@@ -14,22 +14,22 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 ms.date: 07/17/2017
-ms.author: cynthn
-ms.openlocfilehash: 99c8e71e0a31f6ef2f4fb2087fb8678c68a052a7
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.author: zarhoads
+ms.openlocfilehash: 7281b2bfc8137e4f60c3309c9a57ccabf0fdb4cb
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31525951"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49471433"
 ---
-# <a name="create-and-manage-windows-vms-in-azure-using-c"></a>Oluşturma ve C# kullanarak azure'da Windows sanal makineleri yönetme #
+# <a name="create-and-manage-windows-vms-in-azure-using-c"></a>C# kullanarak azure'da Windows Vm'leri oluşturma ve yönetme #
 
-Bir [Azure sanal makine](overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (VM) çeşitli destekleyici Azure kaynakları gerekir. Bu makalede, oluşturma, yönetme ve C# kullanarak VM kaynakları silme yer almaktadır. Aşağıdakileri nasıl yapacağınızı öğrenirsiniz:
+Bir [Azure sanal makine](overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) çeşitli destekleyici Azure kaynakları (VM) gerekir. Bu makale, oluşturma, yönetme ve C# kullanarak VM kaynakları silme kapsar. Aşağıdakileri nasıl yapacağınızı öğrenirsiniz:
 
 > [!div class="checklist"]
 > * Visual Studio projesi oluşturma
-> * Paketi Yükle
-> * Kimlik bilgileri oluşturun
+> * Paketi yükleyin
+> * Kimlik bilgileri oluşturma
 > * Kaynak oluşturma
 > * Yönetim görevlerini gerçekleştirme
 > * Kaynakları silme
@@ -39,28 +39,28 @@ Bu adımların tamamlanması yaklaşık 20 dakika sürer.
 
 ## <a name="create-a-visual-studio-project"></a>Visual Studio projesi oluşturma
 
-1. Henüz yapmadıysanız, yükleme [Visual Studio](https://docs.microsoft.com/visualstudio/install/install-visual-studio). Seçin **.NET masaüstü geliştirme** iş yükleri sayfa ve ardından **yükleme**. Özet olarak, gördüğünüz **.NET Framework 4-4.6 geliştirme araçları** sizin için otomatik olarak seçilir. Visual Studio'nun zaten yüklediyseniz, Visual Studio Başlatıcısı'nı kullanarak .NET iş yükü ekleyebilirsiniz.
-2. Visual Studio'da sırasıyla **dosya** > **yeni** > **proje**.
-3. İçinde **şablonları** > **Visual C#** seçin **konsol uygulaması (.NET Framework)**, girin *myDotnetProject* projesinin adı, proje konumunu seçin ve ardından **Tamam**.
+1. Henüz yapmadıysanız, yükleme [Visual Studio](https://docs.microsoft.com/visualstudio/install/install-visual-studio). Seçin **.NET masaüstü geliştirme** iş yükleri sayfası ve ardından **yükleme**. Özet olarak, gördüğünüz gibi **.NET Framework 4-4.6 geliştirme araçları** sizin için otomatik olarak seçilir. Visual Studio zaten yüklediyseniz, Visual Studio Başlatıcısı'nı kullanarak .NET iş yükü ekleyebilirsiniz.
+2. Visual Studio’da, **Dosya** > **Yeni** > **Proje**’ye tıklayın.
+3. İçinde **şablonları** > **Visual C#** seçin **konsol uygulaması (.NET Framework)**, girin *myDotnetProject* adı Proje, projenin konumunu seçin ve ardından **Tamam**.
 
-## <a name="install-the-package"></a>Paketi Yükle
+## <a name="install-the-package"></a>Paketi yükleyin
 
-NuGet paketleri, bu adımları tamamlamak için gereken kitaplıklar yüklemek için kolay bir yoludur. Visual Studio'da ihtiyacınız kitaplıkları almak için bu adımları uygulayın:
+NuGet paketlerini bu adımları tamamlamak için gereken kitaplıklarını yüklemek için en kolay yoludur. Visual Studio'da ihtiyacınız kitaplıkları edinmek için şu adımları uygulayın:
 
-1. Tıklatın **Araçları** > **Nuget Paket Yöneticisi**ve ardından **Paket Yöneticisi Konsolu**.
-2. Bu komut konsolda yazın:
+1. Tıklayın **Araçları** > **Nuget Paket Yöneticisi**ve ardından **Paket Yöneticisi Konsolu**.
+2. Konsolunda aşağıdaki komutu yazın:
 
     ```
     Install-Package Microsoft.Azure.Management.Fluent
     ```
 
-## <a name="create-credentials"></a>Kimlik bilgileri oluşturun
+## <a name="create-credentials"></a>Kimlik bilgileri oluşturma
 
-Bu adım başlamadan önce erişimi olduğundan emin olun bir [Active Directory hizmet asıl](../../azure-resource-manager/resource-group-create-service-principal-portal.md). Uygulama kimliği, kimlik doğrulama anahtarı ve ihtiyacınız Kiracı kimliği bir sonraki adımda kaydetmelisiniz.
+Bu adım başlamadan önce erişimi olduğundan emin olun bir [Active Directory Hizmet sorumlusu](../../azure-resource-manager/resource-group-create-service-principal-portal.md). Uygulama kimliği, kimlik doğrulama anahtarı ve gereken Kiracı kimliği daha sonraki bir adımda kaydetmelisiniz.
 
 ### <a name="create-the-authorization-file"></a>Yetkilendirme dosyası oluşturma
 
-1. Çözüm Gezgini'nde sağ *myDotnetProject* > **Ekle** > **yeni öğe**ve ardından **metin dosyası** içinde *Visual C# öğeleri*. Dosya adı *azureauth.properties*ve ardından **Ekle**.
+1. Çözüm Gezgini'nde sağ *myDotnetProject* > **Ekle** > **yeni öğe**ve ardından **metindosyası** içinde *Visual C# öğeleri*. Dosya adı *azureauth.properties*ve ardından **Ekle**.
 2. Bu yetkilendirme özellikleri ekleyin:
 
     ```
@@ -74,10 +74,10 @@ Bu adım başlamadan önce erişimi olduğundan emin olun bir [Active Directory 
     graphURL=https://graph.windows.net/
     ```
 
-    Değiştir **&lt;abonelik kimliği&gt;** , abonelik tanımlayıcısı ile **&lt;uygulama kimliği&gt;** Active Directory Uygulama tanımlayıcısı ile **&lt;kimlik doğrulama anahtarı&gt;** uygulama anahtarla ve **&lt;Kiracı kimliği&gt;** , Kiracı tanımlayıcısı.
+    Değiştirin **&lt;subscrıptıon-ID&gt;** , abonelik tanımlayıcısı ile **&lt;uygulama-kimliği&gt;** ile Active Directory uygulaması tanımlayıcı, **&lt;kimlik doğrulama anahtarı&gt;** uygulama anahtarına sahip ve **&lt;Kiracı-kimliği&gt;** Kiracı tanımlayıcısı ile.
 
-3. Azureauth.properties dosyasını kaydedin. 
-4. Windows, oluşturduğunuz yetkilendirme dosyasının tam yolunu AZURE_AUTH_LOCATION adında bir ortam değişkeni ayarlayın. Örneğin, aşağıdaki PowerShell komutu kullanılabilir:
+3. Azureauth.properties dosyayı kaydedin. 
+4. Windows, oluşturduğunuz yetkilendirme dosyasının tam yolu AZURE_AUTH_LOCATION adında bir ortam değişkeni ayarlayın. Örneğin, aşağıdaki PowerShell komutu kullanılabilir:
 
     ```
     [Environment]::SetEnvironmentVariable("AZURE_AUTH_LOCATION", "C:\Visual Studio 2017\Projects\myDotnetProject\myDotnetProject\azureauth.properties", "User")
@@ -85,7 +85,7 @@ Bu adım başlamadan önce erişimi olduğundan emin olun bir [Active Directory 
 
 ### <a name="create-the-management-client"></a>Yönetim istemcisi oluşturma
 
-1. Oluşturduğunuz proje için Program.cs dosyasını açın ve bu dosyanın üst kısmında using deyimleri varolan deyimleri ekleyin:
+1. Oluşturduğunuz proje için Program.cs dosyasını açın ve ardından bu dosyasının en üstüne using deyimlerini mevcut deyimlerini ekleyin:
 
     ```
     using Microsoft.Azure.Management.Compute.Fluent;
@@ -127,7 +127,7 @@ var resourceGroup = azure.ResourceGroups.Define(groupName)
     .Create();
 ```
 
-### <a name="create-the-availability-set"></a>Kullanılabilirlik kümesi oluştur
+### <a name="create-the-availability-set"></a>Kullanılabilirlik kümesi oluşturma
 
 [Kullanılabilirlik kümeleri](tutorial-availability-sets.md) uygulamanız tarafından kullanılan sanal makinelerin bakımını kolaylaştırır.
 
@@ -142,7 +142,7 @@ var availabilitySet = azure.AvailabilitySets.Define("myAVSet")
     .Create();
 ```
 
-### <a name="create-the-public-ip-address"></a>Ortak IP adresi oluştur
+### <a name="create-the-public-ip-address"></a>Genel IP adresi oluşturma
 
 A [genel IP adresi](../../virtual-network/virtual-network-ip-addresses-overview-arm.md) sanal makineyle iletişim kurmak için gereklidir.
 
@@ -161,7 +161,7 @@ var publicIPAddress = azure.PublicIPAddresses.Define("myPublicIP")
 
 Bir sanal makine bir alt ağda olmalıdır bir [sanal ağ](../../virtual-network/virtual-networks-overview.md).
 
-Bir alt ağ ve sanal ağ oluşturmak için bu kodu Main yöntemine ekleyin:
+Bir alt ağ ve sanal ağ oluşturmak isterseniz bu kod Main yöntemine ekleyin:
 
 ```
 Console.WriteLine("Creating virtual network...");
@@ -173,9 +173,9 @@ var network = azure.Networks.Define("myVNet")
     .Create();
 ```
 
-### <a name="create-the-network-interface"></a>Ağ arabirimi oluştur
+### <a name="create-the-network-interface"></a>Ağ arabirimini oluşturun
 
-Bir sanal makinenin sanal ağ iletişim kurmak için bir ağ arabirimi gerekiyor.
+Bir sanal makinenin sanal ağda iletişim kurabilmek için ağ arabirimi gerekiyor.
 
 Bir ağ arabirimi oluşturmak için bu kodu Main yöntemine ekleyin:
 
@@ -193,7 +193,7 @@ var networkInterface = azure.NetworkInterfaces.Define("myNIC")
 
 ### <a name="create-the-virtual-machine"></a>Sanal makineyi oluşturma
 
-Tüm destekleyici kaynakları oluşturduğunuza göre bir sanal makine oluşturabilirsiniz.
+Oluşturduğunuz tüm destekleyici kaynakları, bir sanal makine oluşturabilirsiniz.
 
 Sanal makine oluşturmak için bu kodu Main yöntemine ekleyin:
 
@@ -213,11 +213,11 @@ azure.VirtualMachines.Define(vmName)
 ```
 
 > [!NOTE]
-> Bu öğretici, Windows Server işletim sistemi sürümünü çalıştıran bir sanal makine oluşturur. Diğer görüntüleri seçme hakkında daha fazla bilgi için bkz: [erişin ve seçin, Windows PowerShell ve Azure CLI Azure sanal makine görüntülerini](../linux/cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+> Bu öğretici, Windows Server işletim sistemi sürümünü çalıştıran bir sanal makine oluşturur. Diğer görüntüleri seçme hakkında daha fazla bilgi için bkz: [Windows PowerShell ve Azure CLI ile Azure sanal makine görüntülerine erişin ve seçin](../linux/cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 > 
 >
 
-Varolan bir diski bir Market görüntüsü yerine kullanmak istiyorsanız, bu kodu kullanın:
+Var olan bir diski yerine bir Market görüntüsü kullanmak istiyorsanız, bu kodu kullanın:
 
 ```
 var managedDisk = azure.Disks.Define("myosdisk")
@@ -240,7 +240,7 @@ azure.VirtualMachines.Define("myVM")
 
 ## <a name="perform-management-tasks"></a>Yönetim görevlerini gerçekleştirme
 
-Bir sanal makinenin yaşam döngüsü boyunca, sanal makineyi başlatmak, durdurmak veya silmek gibi yönetim görevleri gerçekleştirmek isteyebilirsiniz. Ayrıca, yinelenen veya karmaşık görevleri otomatikleştirmek için kod oluşturmak isteyebilirsiniz.
+Bir sanal makinenin yaşam döngüsü boyunca, sanal makineyi başlatmak, durdurmak veya silmek gibi yönetim görevleri gerçekleştirmek isteyebilirsiniz. Ayrıca yinelemeli veya karmaşık görevleri otomatikleştirmek için kod oluşturmak isteyebilirsiniz.
 
 VM ile herhangi bir şey yapmanız gerektiğinde bir örneğini almanız gerekir:
 
@@ -248,7 +248,7 @@ VM ile herhangi bir şey yapmanız gerektiğinde bir örneğini almanız gerekir
 var vm = azure.VirtualMachines.GetByResourceGroup(groupName, vmName);
 ```
 
-### <a name="get-information-about-the-vm"></a>VM hakkında bilgi alın
+### <a name="get-information-about-the-vm"></a>VM hakkında bilgi edinin
 
 Sanal makine hakkında bilgi almak için bu kodu Main yöntemine ekleyin:
 
@@ -320,9 +320,9 @@ Console.ReadLine();
 
 ### <a name="stop-the-vm"></a>VM’yi durdurma
 
-Bir sanal makineyi durdurun ve tüm ayarları korumak ancak bunun için sizden ücret devam ya da sanal makineyi durdurun ve bunu serbest bırakma. Bir sanal makine serbest bırakıldığında, kendisiyle ilişkili tüm kaynakları da deallocated ve fatura onun için edilir.
+Sanal makineyi durdurma ve tüm ayarlarını koruyabilirsiniz ancak için ücretlendirilmeye devam ya da sanal makineyi durdurma ve bunu serbest bırakın. Bir sanal makine serbest bırakıldığında onunla ilişkili tüm kaynakları serbest ve faturalandırma uçları için ayrıca olur.
 
-Serbest bırakma olmadan sanal makineyi durdurmak için bu kodu Main yöntemine ekleyin:
+Serbest bırakılıyor olmadan sanal makineyi durdurmak için bu kodu Main yöntemine ekleyin:
 
 ```
 Console.WriteLine("Stopping vm...");
@@ -331,13 +331,13 @@ Console.WriteLine("Press enter to continue...");
 Console.ReadLine();
 ```
 
-Sanal makine ayırması istiyorsanız, bu kod kapalı çağrısı değiştirin:
+Sanal makineyi serbest bırakmak isterseniz bu kod kopyalanabilmesi çağrısını değiştirin:
 
 ```
 vm.Deallocate();
 ```
 
-### <a name="start-the-vm"></a>VM Başlat
+### <a name="start-the-vm"></a>VM’yi başlatma
 
 Sanal makineyi başlatmak için bu kodu Main yöntemine ekleyin:
 
@@ -350,9 +350,9 @@ Console.ReadLine();
 
 ### <a name="resize-the-vm"></a>VM'yi yeniden boyutlandırın
 
-Dağıtım pek çok görünüşünün sanal makineniz için bir boyut karar verirken dikkate alınmalıdır. Daha fazla bilgi için bkz: [VM boyutları](sizes.md).  
+Birçok yönden dağıtımının sanal makineniz için bir boyutuna karar verirken dikkate alınmalıdır. Daha fazla bilgi için [VM boyutları](sizes.md).  
 
-Sanal makine boyutunu değiştirmek için bu kodu Main yöntemine ekleyin:
+Sanal makinenin boyutunu değiştirmek için bu kodu Main yöntemine ekleyin:
 
 ```
 Console.WriteLine("Resizing vm...");
@@ -363,9 +363,9 @@ Console.WriteLine("Press enter to continue...");
 Console.ReadLine();
 ```
 
-### <a name="add-a-data-disk-to-the-vm"></a>VM için bir veri diski Ekle
+### <a name="add-a-data-disk-to-the-vm"></a>VM'ye veri diski ekleme
 
-Bir veri diski sanal makineye eklemek için bu kodu han 0 ve ReadWrite önbelleğe alma türü bir LUN boyutu 2 GB olan bir veri diski eklemek için ana yöntemine ekleyin:
+Sanal makineye veri diski eklemek için han bir LUN 0 ReadWrite önbelleğe alma türü ve boyutu 2 GB olan bir veri diski eklemek için Main yöntemi için bu kodu ekleyin:
 
 ```
 Console.WriteLine("Adding data disk to vm...");
@@ -378,7 +378,7 @@ Console.ReadLine();
 
 ## <a name="delete-resources"></a>Kaynakları silme
 
-Azure'da kullanılan kaynaklar için ücretlendirildiğinizden, her zaman artık gerekli olmayan kaynakları silmek için iyi bir uygulamadır. Sanal makineler ve destekleyici tüm kaynakları silmek istiyorsanız, tüm yapmanız gereken olan kaynak grubunu silebilirsiniz.
+Azure'da kullanılan kaynaklar için ücretlendirilirsiniz, her zaman artık gerekli olmayan kaynakları silmek için iyi bir uygulama olmasıdır. Sanal makineleri ve tüm destekleyici kaynakları silmek isterseniz, tek yapmanız gereken olan kaynak grubunu silin.
 
 Kaynak grubunu silmek için bu kodu Main yöntemine ekleyin:
 
@@ -388,13 +388,13 @@ azure.ResourceGroups.DeleteByName(groupName);
 
 ## <a name="run-the-application"></a>Uygulamayı çalıştırma
 
-Tamamlamak için bu konsol uygulamasını tamamen çalıştırın yaklaşık beş dakika sürer. 
+Bu son tamamlanması tamamen başından çalıştırmak bu konsol uygulamasını yaklaşık beş dakika sürer. 
 
-1. Konsol uygulamasını çalıştırmak için tıklatın **Başlat**.
+1. Konsol uygulamasını çalıştırmak için tıklayın **Başlat**.
 
-2. Tuşuna önce **Enter** kaynakları silme başlatmak için Azure portalında kaynakların oluşturulmasını doğrulamak için birkaç dakika sürebilir. Dağıtım hakkında bilgi için dağıtım durumunu tıklatın.
+2. Basmadan önce **Enter** kaynakları silme başlatmak için Azure portalında kaynaklarının oluşturulmasını doğrulamak için birkaç dakika sürebilir. Dağıtım durumu, dağıtım hakkında bilgi için tıklayın.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Bilgileri kullanarak bir sanal makine oluşturmak için şablon kullanma avantajından yararlanmak [C# ve Resource Manager şablonu kullanarak bir Azure sanal makine dağıtma](csharp-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+* Bilgileri kullanarak bir sanal makine oluşturmak için bir şablon kullanma avantajından yararlanmak [C# ve Resource Manager şablonu kullanarak bir Azure sanal makine dağıtma](csharp-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 * Kullanma hakkında daha fazla bilgi edinin [.NET için Azure kitaplıkları](https://docs.microsoft.com/dotnet/azure/?view=azure-dotnet).
 

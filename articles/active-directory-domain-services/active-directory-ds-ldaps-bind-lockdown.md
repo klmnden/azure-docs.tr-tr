@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/01/2018
 ms.author: maheshu
-ms.openlocfilehash: 9728d42710ce44226363ea4954d83fcc3efbfb75
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: d3fbefd002f0b2774578d24cf2e3145a21a5e1f3
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39502961"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49456414"
 ---
 # <a name="bind-to-an-azure-ad-domain-services-managed-domain-using-secure-ldap-ldaps"></a>Güvenli LDAP (LDAPS) kullanarak bir Azure AD Domain Services yönetilen etki bağlama
 
@@ -38,8 +38,8 @@ Ardından, yönetilen etki alanına bağlayın. Tıklayın **bağlantı** tıkla
 Seçin **görünümü**ve ardından **ağaç** menüsünde. Temel DN alanı boş bırakın ve Tamam'ı tıklatın. Arama, kapsayıcıya sağ tıklayın ve arama seçmek istediğiniz kapsayıcıya gidin.
 
 > [!TIP]
-> - Kullanıcıları ve grupları Azure AD'den eşitlenen depolanır **AADDC Users** kapsayıcı. Bu kapsayıcı için arama yolu benzer ```CN=AADDC\ Users,DC=CONTOSO100,DC=COM```.
-> - Yönetilen etki alanına katılmış bilgisayarlar için bilgisayar hesaplarının depolanır **AADDC Computers** kapsayıcı. Bu kapsayıcı için arama yolu benzer ```CN=AADDC\ Computers,DC=CONTOSO100,DC=COM```.
+> - Kullanıcıları ve grupları Azure AD'den eşitlenen depolanır **AADDC Users** kuruluş birimi. Bu kuruluş birimi için arama yolu benzer ```OU=AADDC Users,DC=CONTOSO100,DC=COM```.
+> - Yönetilen etki alanına katılmış bilgisayarlar için bilgisayar hesaplarının depolanır **AADDC Computers** kuruluş birimi. Bu kuruluş birimi için arama yolu benzer ```OU=AADDC Computers,DC=CONTOSO100,DC=COM```.
 >
 >
 

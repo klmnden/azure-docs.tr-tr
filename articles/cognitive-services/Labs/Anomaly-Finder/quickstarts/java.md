@@ -5,16 +5,16 @@ services: cognitive-services
 author: chliang
 manager: bix
 ms.service: cognitive-services
-ms.technology: anomaly-detection
+ms.component: anomaly-detection
 ms.topic: article
 ms.date: 05/01/2018
 ms.author: kefre
-ms.openlocfilehash: 84997b5d50f879fd4be286a3ca362e70f90c9202
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.openlocfilehash: ef876e19353e8765b679a9aae6282ce3ade600c2
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48249200"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49456550"
 ---
 # <a name="use-the-anomaly-finder-api-with-java"></a>Anomali Bulucu API Java ile kullanma
 
@@ -43,7 +43,7 @@ Zaman serisi veri noktaları örneği aşağıdaki gibidir.
 2. Main sınıfını aşağıdaki kod ile değiştirin (tüm `package` deyimlerini tutun).
 3. `[YOUR_SUBSCRIPTION_KEY]` değerini geçerli abonelik anahtarınızla değiştirin.
 4. Değiştirin `[REPLACE_WITH_THE_EXAMPLE_OR_YOUR_OWN_DATA_POINTS]` örnek veya kendi veri noktaları.
-5. Bu genel kitaplıklar için Maven deposundan indirme `lib` projenizdeki dizin:
+5. Bu genel kitaplıkları Maven Deposu’ndan projenizdeki `lib` dizinine indirin:
    * `org.apache.httpcomponents:httpclient:4.5.2`
 6. 'Main' komutunu çalıştırın.
 
