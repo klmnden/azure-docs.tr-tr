@@ -1,6 +1,6 @@
 ---
 title: Yük devretme grupları ve etkin coğrafi çoğaltma - Azure SQL veritabanı | Microsoft Docs
-description: Etkin coğrafi çoğaltma otomatik yük devretme grupları kullanmak ve sistemin çalışmaması durumunda autoomatic yük devretme etkinleştirin.
+description: Etkin coğrafi çoğaltma otomatik yük devretme grupları kullanın ve kesinti olması durumunda otomatik yük devretme etkinleştirin.
 services: sql-database
 ms.service: sql-database
 ms.subservice: operations
@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 10/15/2018
-ms.openlocfilehash: 6e77d24c31401051d82501ca8064d02201bf218e
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.date: 10/19/2018
+ms.openlocfilehash: 9332bcb5849deacde13d67e4a18ea19af8af2977
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49354283"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49471484"
 ---
 # <a name="overview-active-geo-replication-and-auto-failover-groups"></a>Genel Bakış: Etkin coğrafi çoğaltma ve otomatik yük devretme grupları
 
@@ -279,8 +279,8 @@ Otomatik Yük devretme grupları ve etkin daha önce açıklandığı gibi coğr
 
 | API | Açıklama |
 | --- | --- |
-| [Oluşturma veya güncelleştirme veritabanı (createMode geri yükleme =)](https://docs.microsoft.com/rest/api/sql/databases/databases_createorupdate) |Oluşturur, güncelleştirir veya bir birincil veya ikincil bir veritabanını geri yükler. |
-| [Alma oluşturma veya güncelleştirme veritabanı durumu](https://docs.microsoft.com/rest/api/sql/databases/databases_createorupdate) |Durum oluşturma işlemi sırasında döndürür. |
+| [Oluşturma veya güncelleştirme veritabanı (createMode geri yükleme =)](https://docs.microsoft.com/rest/api/sql/databases/createorupdate) |Oluşturur, güncelleştirir veya bir birincil veya ikincil bir veritabanını geri yükler. |
+| [Alma oluşturma veya güncelleştirme veritabanı durumu](https://docs.microsoft.com/rest/api/sql/databases/createorupdate) |Durum oluşturma işlemi sırasında döndürür. |
 | [İkincil veritabanı birincil (Planlı yük devretme) olarak ayarlayın.](https://docs.microsoft.com/rest/api/sql/replicationlinks/replicationlinks_failover) |Yük devretme geçerli birincil çoğaltmayı veritabanından tarafından birincil veritabanı çoğaltmasını ayarlar. |
 | [İkincil veritabanı birincil (planlanmamış yük devretme) olarak ayarlayın.](https://docs.microsoft.com/rest/api/sql/replicationlinks/replicationlinks_failoverallowdataloss) |Yük devretme geçerli birincil çoğaltmayı veritabanından tarafından birincil veritabanı çoğaltmasını ayarlar. Bu işlem veri kaybına neden. |
 | [Çoğaltma bağlantısı alın](https://docs.microsoft.com/rest/api/sql/replicationlinks/replicationlinks_get) |Belirli bir çoğaltma bağlantısı belirli bir SQL veritabanı'nda bir coğrafi çoğaltma ortaklığı alır. Bu sys.geo_replication_links katalog görünümünde görünür bilgilerini alır. |
