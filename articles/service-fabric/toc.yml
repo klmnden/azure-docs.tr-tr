@@ -300,6 +300,8 @@ items:
       href: service-fabric-health-introduction.md
     - name: Sistem durumu olaylarını bildirme
       href: service-fabric-report-health.md
+    - name: Ortakları izleme
+      href: service-fabric-diagnostics-partners.md
   - name: API Management ile tümleştirme
     href: service-fabric-api-management-overview.md
 - name: Nasıl yapılır kılavuzları
@@ -761,9 +763,9 @@ items:
     href: https://azure.microsoft.com/updates/?product=service-fabric
   - name: Videolar
     href: https://azure.microsoft.com/documentation/videos/index/?services=service-fabric
-ms.openlocfilehash: b7e179792aed6a59c29b02c532d2634cdc6c115f
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 0800e4ad8e0813c92aef815b7e5d798f2043350c
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48804642"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49458046"
