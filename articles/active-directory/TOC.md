@@ -244,7 +244,6 @@
 
 #### Koşullu Erişim
 ##### [Müşteri Cihaz Kaydı önkoşullarına uymadı](active-directory-conditional-access.md)
-##### [Koşullu Erişim ilkeleri yanlış ayarlandığından kiracı engelleniyor](active-directory-conditional-access-device-remediation.md)
 ##### [Kapalı Corpnet kuralları nasıl ve ne zaman geçerlik kazanır?](https://aka.ms/calocation)
 ##### [Azure AD’de kullanıcının kaydetmesine izin verilen cihaz sayısını artırma](active-directory-azureadjoin-setup.md)
 ##### [Exchange Online için Koşullu Erişimi Ayarlama](https://aka.ms/csforexchange)
