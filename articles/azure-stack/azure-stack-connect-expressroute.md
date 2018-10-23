@@ -5,34 +5,32 @@ services: azure-stack
 documentationcenter: ''
 author: sethmanheim
 manager: femila
-editor: ''
-ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/12/2018
+ms.date: 10/22/2018
 ms.author: sethm
 ms.reviewer: ''
-ms.openlocfilehash: c30e70802d125744432f428f903f6ac6789f631e
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: e9365008c47c2aac71d3983a16db37b0c5ea62ea
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49389234"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49648114"
 ---
 # <a name="connect-azure-stack-to-azure-using-azure-expressroute"></a>Azure Stack, Azure ExpressRoute kullanarak Azure'a bağlanma
 
 *İçin geçerlidir: Azure Stack tümleşik sistemleri ve Azure Stack Geliştirme Seti*
 
-Bu makalede Azure Stack sanal ağ, doğrudan Microsoft Azure ExpressRoute bağlantısı kullanarak bir Azure sanal ağına bağlanmak nasıl gösterir.
+Bu makalede bir Azure Stack sanal ağı kullanarak bir Azure sanal ağına bağlanmak gösterilmektedir bir [Microsoft Azure ExpressRoute](/azure/expressroute/) doğrudan bağlantı.
 
 Bu makale bir öğretici olarak kullanın ve aynı test ortamını ayarlamak için örnekleri kullanın. Veya, makale, kendi ExpressRoute ortamını ayarlamanız konusunda size rehberlik edecek bir kılavuz olarak kullanabilirsiniz.
 
 ## <a name="overview-assumptions-and-prerequisites"></a>Genel bakış, tahminler ve Önkoşullar
 
-Azure ExpressRoute, bağlantı sağlayıcı tarafından sağlanan özel bir bağlantı üzerinden, şirket içi ağlarınızı Microsoft bulutuna genişletmenizi sağlar. ExpressRoute VPN bağlantısını genel Internet üzerinden değil.
+Azure ExpressRoute, bağlantı sağlayıcı tarafından sağlanan özel bir bağlantı üzerinden, şirket içi ağlarınızı Microsoft bulutuna genişletmenizi sağlar. ExpressRoute VPN bağlantısını genel internet üzerinden değil.
 
 Azure ExpressRoute hakkında daha fazla bilgi için bkz. [Expressroute'a genel bakış](../expressroute/expressroute-introduction.md).
 
@@ -59,25 +57,25 @@ Azure Stack ve Azure ExpressRoute kullanarak bağlanmak için aşağıdaki gerek
 
 ### <a name="expressroute-network-architecture"></a>ExpressRoute ağ mimarisi
 
-ExpressRoute kurulumunu tamamladıktan sonra bir sonraki diyagramda Azure Stack ve Azure ortamları, bu makaledeki örnekler kullanarak gösterir.
+ExpressRoute kurulumunu tamamladıktan sonra aşağıdaki diyagramda Azure Stack ve Azure ortamları, bu makaledeki örnekler kullanarak gösterilmektedir:
 
 *Şekil 1. ExpressRoute ağ*
 
 ![ExpressRoute ağ](media/azure-stack-connect-expressroute/Conceptual.png)
 
-Sonraki Mimari diyagram, nasıl birden çok kiracının Azure Stack altyapısından ExpressRoute yönlendirici üzerinden Azure'a Microsoft edge bağlama gösterir.
+Aşağıdaki diyagramda, nasıl birden çok kiracının Azure Stack altyapısından ExpressRoute yönlendirici üzerinden Azure'a Microsoft edge bağlama gösterilmektedir:
 
 *Şekil 2. Çok kiracılı bağlantıları*
 
 ![Çok kiracılı bağlantılar ile ExpressRoute](media/azure-stack-connect-expressroute/Architecture.png)
 
-Bu makalede örnekte gösterilen aynı çok kiracılı mimari kullanır *Şekil 2* Azure Stack ExpressRoute özel eşlemesini kullanarak Azure'a bağlanmak için. Sanal ağ geçidinden bir siteden siteye VPN bağlantısı, bir ExpressRoute yönlendiricisine otomatik olarak Azure Stack'te kullanarak yapmıştır.
+Bu makaledeki örnek, Azure Stack ExpressRoute özel eşlemesini kullanarak Azure'a bağlanmak için Şekil 2 ' gösterilen aynı çok kiracılı mimari kullanır. Bağlantı yapılır bir sanal ağ geçidine siteden siteye VPN bağlantısını bir ExpressRoute yönlendiricisine otomatik olarak Azure Stack'te kullanarak.
 
-Bu makaledeki adımlarda azure'da karşılık gelen sanal ağlar için Azure Stack'te iki farklı kiracılardan gelen iki Vnet arasında bir uçtan uca bağlantısı oluşturma işlemini göstermektedir. İki kiracılar'ı ayarlama isteğe bağlıdır, ayrıca tek bir kiracı için bu adımları kullanabilirsiniz.
+Bu makaledeki adımlarda azure'da karşılık gelen sanal ağlar için Azure Stack'te iki farklı kiracılardan gelen iki Vnet arasında bir uçtan uca bağlantısı oluşturma işlemini göstermektedir. İki kiracılar'ı ayarlama isteğe bağlıdır; Ayrıca, tek bir kiracı için aşağıdaki adımları kullanabilirsiniz.
 
 ## <a name="configure-azure-stack"></a>Azure yığını yapılandırma
 
-İlk Kiracı için Azure Stack ortamı ayarlamak için adımları aşağıdaki diyagramda bir kılavuz olarak kullanın. Birden fazla Kiracı tutunun varsa, bu adımları yineleyin.
+İlk Kiracı için Azure Stack ortamı ayarlamak için adımları aşağıdaki diyagramda bir kılavuz olarak kullanın. Birden fazla Kiracı tutunun, bu adımları yineleyin:
 
 >[!NOTE]
 >Bu adımlar Azure Stack portalını kullanarak kaynak oluşturma işlemini gösterir, ancak PowerShell de kullanabilirsiniz.
@@ -98,13 +96,14 @@ Gerekli ağ kaynaklarına Azure Stack için bir kiracı oluşturmak için aşağ
 #### <a name="create-the-virtual-network-and-vm-subnet"></a>Sanal ağ ve VM alt ağı oluşturma
 
 1. Kullanıcı Portalı bir kullanıcı (Kiracı) hesabıyla oturum açın.
-1. Portalında **+ kaynak Oluştur**.
 
-1. Altında **Azure Marketi**seçin **ağ**.
+2. Portalında **+ kaynak Oluştur**.
 
-1. Altında **öne çıkan**seçin **sanal ağ**.
+3. Altında **Azure Marketi**seçin **ağ**.
 
-1. Altında **sanal ağ oluştur**, uygun alanlara aşağıdaki tabloda gösterilen değerleri girin.
+4. Altında **öne çıkan**seçin **sanal ağ**.
+
+5. Altında **sanal ağ oluştur**, uygun alanlara aşağıdaki tabloda gösterilen değerleri girin:
 
    |Alan  |Değer  |
    |---------|---------|
@@ -113,53 +112,53 @@ Gerekli ağ kaynaklarına Azure Stack için bir kiracı oluşturmak için aşağ
    |Alt ağ adı     |Tenant1 Abon1|
    |Alt ağ adres aralığı     |10.1.1.0/24|
 
-1. Daha önce oluşturduğunuz Aboneliği, **Abonelik** alanında görmeniz gerekir. Kalan alanlar için:
+6. Daha önce oluşturduğunuz aboneliği görmelisiniz **abonelik** alan. Kalan alanlar için:
 
     * Altında **kaynak grubu**seçin **Yeni Oluştur** zaten, yoksa yeni bir kaynak grubu oluşturun veya **var olanı kullan**.
     * Varsayılan doğrulama **konumu**.
-    * **Oluştur**’u seçin.
-    * (İsteğe bağlı) Seçin **panoya Sabitle**.
+    * **Oluştur**’a tıklayın.
+    * (İsteğe bağlı) Tıklayın **panoya Sabitle**.
 
 #### <a name="create-the-gateway-subnet"></a>Ağ geçidi alt ağını oluşturma
 
-1. Altında **sanal ağ**, Tenant1VNet1 seçin.
+1. Altında **sanal ağ**seçin **Tenant1VNet1**.
 1. **AYARLAR** altında **Alt ağlar**’ı seçin.
 1. Seçin **+ ağ geçidi alt ağı** sanal ağa bir ağ geçidi alt ağı eklemek için.
 1. Alt ağın adı varsayılan olarak **GatewaySubnet** şeklinde ayarlanır. Ağ geçidi alt ağları, özel bir durumdur ve düzgün şekilde çalışabilmesi için bu adı kullanmanız gerekir.
 1. Doğrulayın **adres aralığı** olduğu **10.1.0.0/24**.
-1. Seçin **Tamam** ağ geçidi alt ağı oluşturmak için.
+1. Tıklayın **Tamam** ağ geçidi alt ağı oluşturmak için.
 
 #### <a name="create-the-virtual-network-gateway"></a>Sanal ağ geçidini oluşturma
 
-1. Azure Stack Kullanıcı Portalı'nda seçin **+ kaynak Oluştur**.
+1. Azure Stack Kullanıcı Portalı'nda tıklatın **+ kaynak Oluştur**.
 1. Altında **Azure Marketi**seçin **ağ**.
 1. Ağ kaynakları listesinden **Sanal ağ geçidi**’ni seçin.
 1. İçinde **adı** alanına **GW1**.
 1. Seçin **sanal ağ**.
 1. Seçin **Tenant1VNet1** aşağı açılan listeden.
-1. Seçin **genel IP adresi**>**genel IP adresi seçin**ve ardından **Yeni Oluştur**.
-1. İçinde **adı** alanına **GW1-PiP** seçip **Tamam**.
+1. Seçin **genel IP adresi**, ardından **genel IP adresi seçin**ve ardından **Yeni Oluştur**.
+1. İçinde **adı** alanına **GW1-PiP**ve ardından **Tamam**.
 1. **VPN türü** için varsayılan olarak **yol tabanlı** seçili olmalıdır. Bu ayarı tutun.
-1. **Abonelik** ve **Konum** seçeneklerinin doğruluğunu onaylayın. **Oluştur**’u seçin.
+1. **Abonelik** ve **Konum** seçeneklerinin doğruluğunu onaylayın. **Oluştur**’a tıklayın.
 
 #### <a name="create-the-local-network-gateway"></a>Yerel ağ geçidini oluşturma
 
-VPN bağlantısının diğer ucundaki uzak ağ geçidini yerel ağ geçidi kaynağı tanımlar. Bu örnekte, uzak bağlantı ExpressRoute yönlendiricinin LAN arabirim sonudur. Kiracı 1 için görünen *Şekil 2*, 10.60.3.255 uzak adresidir.
+VPN bağlantısının diğer ucundaki uzak ağ geçidini yerel ağ geçidi kaynağı tanımlar. Bu örnekte, uzak bağlantı ExpressRoute yönlendiricinin LAN arabirim sonudur. Kiracı 1, 2, gösterildiği uzak adres 10.60.3.255 içindir.
 
 1. Azure Stack Kullanıcı Portalı kullanıcı hesabınızla oturum açın ve seçin **+ kaynak Oluştur**.
 1. Altında **Azure Marketi**seçin **ağ**.
 1. Kaynak listesinden **yerel ağ geçidi**’ni seçin.
 1. İçinde **adı** alanına **ER yönlendirici GW**.
-1. İçin **IP adresi** alan, başvurmak *Şekil 2*. ExpressRoute yönlendiricisinin LAN arabirim Kiracı 1 için IP adresini 10.60.3.255 ' dir. Kendi ortamınızda yönlendiricinizin karşılık gelen arabiriminin IP adresini girin.
-1. İçinde **adres alanı** Azure'da bağlanmak istediğiniz sanal ağ adres alanını girin. Alt ağlar için Kiracı 1'de *Şekil 2* şunlardır:
+1. İçin **IP adresi** alan, Şekil 2 bakın. 10.60.3.255 değeri ExpressRoute yönlendirici LAN Kiracı 1 için IP adresidir. Kendi ortamınızda yönlendiricinizin karşılık gelen arabiriminin IP adresini girin.
+1. İçinde **adres alanı** Azure'da bağlanmak istediğiniz sanal ağ adres alanını girin. Alt ağlar için Kiracı 1'de *Şekil 2* aşağıdaki gibidir:
 
    * Azure Vnet'te hub 192.168.2.0/24 olur.
    * Azure Vnet'te uç 10.100.0.0/16 olur.
 
    > [!IMPORTANT]
-   > Bu örnek, statik yollar Azure Stack ağ geçidi ve ExpressRoute yönlendirici arasında siteden siteye VPN bağlantısı için kullandığınız varsayılır.
+   > Bu örnek, statik yollar Azure Stack ağ geçidi ve ExpressRoute yönlendirici arasında siteden siteye VPN bağlantısı için kullandığınızı varsayar.
 
-1. Doğrulayın, **abonelik**, **kaynak grubu**, ve **konumu** doğrudur. **Oluştur**’u seçin.
+1. Doğrulayın, **abonelik**, **kaynak grubu**, ve **konumu** doğrudur. Sonra **Oluştur**’a tıklayın.
 
 #### <a name="create-the-connection"></a>Bağlantı oluşturma
 
@@ -167,16 +166,16 @@ VPN bağlantısının diğer ucundaki uzak ağ geçidini yerel ağ geçidi kayna
 1. Altında **Azure Marketi**seçin **ağ**.
 1. Kaynak listesinden **Bağlantı**’yı seçin.
 1. Altında **Temelleri**, seçin **siteden siteye (IPSec)** olarak **bağlantı türü**.
-1. Seçin **abonelik**, **kaynak grubu**, ve **konumu**. **Tamam**’ı seçin.
+1. Seçin **abonelik**, **kaynak grubu**, ve **konumu**. **Tamam** düğmesine tıklayın.
 1. Altında **ayarları**seçin **sanal ağ geçidi**ve ardından **GW1**.
 1. Seçin **yerel ağ geçidi**ve ardından **ER yönlendirici GW**.
 1. İçinde **bağlantı adı** alanına **ConnectToAzure**.
 1. İçinde **paylaşılan anahtar (PSK)** alanına **abc123** seçip **Tamam**.
 1. Altında **özeti**seçin **Tamam**.
 
-**Sanal ağ geçidi genel IP adresini alma**
+#### <a name="get-the-virtual-network-gateway-public-ip-address"></a>Sanal ağ geçidi genel IP adresini alma
 
-Sanal ağ geçidi oluşturduktan sonra ağ geçidinin genel IP adresini alabilirsiniz. Daha sonra dağıtımınız için ihtiyaç durumunda bu adresini not edin. Dağıtımınıza bağlı olarak, bu adresi olarak kullanılan ***iç IP adresi***.
+Sanal ağ geçidi oluşturduktan sonra ağ geçidinin genel IP adresini alabilirsiniz. Daha sonra dağıtımınız için ihtiyaç durumunda bu adresini not edin. Dağıtımınıza bağlı olarak, bu adresi olarak kullanılan **iç IP adresi**.
 
 1. Azure Stack Kullanıcı Portalı'nda seçin **tüm kaynakları**.
 1. Altında **tüm kaynakları**, olan sanal ağ geçidi seçin **GW1** örnekte.
@@ -192,9 +191,9 @@ Veri trafiği VPN bağlantısı üzerinden test etmek için Azure Stack Vnet'te 
 1. Sanal makine görüntüleri listesinde seçin **Windows Server 2016 Datacenter değerlendirme** görüntü.
 
    >[!NOTE]
-   >Bu makale için kullanılan görüntü mevcut değilse, farklı bir Windows Server görüntüsüne sağlamak için Azure Stack operatörü isteyin.
+   >Bu makale için kullanılan görüntü kullanılamıyor, farklı bir Windows Server görüntüsüne sağlamak için Azure Stack operatörü isteyin.
 
-1. İçinde **sanal makine oluşturma**>**Temelleri**, girin **VM01** olarak **adı**.
+1. İçinde **sanal makine oluşturma**seçin **Temelleri**, Anahtar'a **VM01** olarak **adı**.
 1. Geçerli kullanıcı adı ve parolayı girin. Bu hesap, oluşturulduktan sonra VM'de oturum açmak için kullanacaksınız.
 1. Sağlayan bir **abonelik**, **kaynak grubu**ve **konumu**. **Tamam**’ı seçin.
 1. Altında **bir boyut seçin**, bu örneği için bir sanal makine boyutu seçin ve ardından **seçin**.
@@ -203,50 +202,47 @@ Veri trafiği VPN bağlantısı üzerinden test etmek için Azure Stack Vnet'te 
    * Sanal ağ **Tenant1VNet1**.
    * Alt kümesine **10.1.1.0/24**.
 
-   Varsayılan ayarları kullanın ve seçin **Tamam**.
+   Varsayılan ayarları kullanın ve tıklayın **Tamam**.
 
 1. Altında **özeti**, VM yapılandırmasını gözden geçirin ve ardından **Tamam**.
 
->[!NOTE]
->
->Daha fazla Kiracı eklemek için bu bölümlerdeki uyguladığınız adımları yineleyin:
->
->* Sanal ağ ve VM alt ağı oluşturma
->* Ağ geçidi alt ağını oluşturma
->* Sanal ağ geçidini oluşturma
->* Yerel ağ geçidini oluşturma
->* Bağlantı oluşturma
->* Sanal makine oluşturma
->
->Kiracı 2 örnek olarak kullanmak için kullanacaksanız, çakışan önlemek için IP adreslerini değiştirmeyi unutmayın.
+Daha fazla Kiracı eklemek için bu bölümlerdeki uyguladığınız adımları yineleyin:
+
+* [Sanal ağ ve VM alt ağı oluşturma](#create-the-virtual-network-and-vm-subnet)
+* [Ağ geçidi alt ağı oluşturma](#create-the-gateway-subnet)
+* [Sanal ağ geçidi oluşturma](#create-the-virtual-network-gateway)
+* [Yerel ağ geçidi oluşturma](#create-the-local-network-gateway)
+* [Bağlantı oluşturma](#create-the-connection)
+* [Sanal makine oluşturma](#create-a-virtual-machine)
+
+Örnek olarak Kiracı 2 kullanıyorsanız, çakışan önlemek için IP adreslerini değiştirmeyi unutmayın.
 
 ### <a name="configure-the-nat-virtual-machine-for-gateway-traversal"></a>Ağ geçidi geçişi için NAT sanal makineyi yapılandırın
 
 > [!IMPORTANT]
-> Bu bölüm, yalnızca Azure Stack geliştirme Seti'ni dağıtımlar için değildir. NAT, çok düğümlü dağıtımlar için gerekli değildir.
+> Bu bölüm, yalnızca Azure Stack geliştirme Seti'ni (ASDK) dağıtımlar için değildir. NAT çok düğümlü dağıtımlar için gerekli değildir.
 
-Azure Stack geliştirme Seti'ni müstakil ve fiziksel ana bilgisayar dağıtıldığı ağdan yalıtılmış ' dir. Ağ geçidi bağlı VIP ağının dış değilse, ağ adresi çevirisi (NAT) yapan bir yönlendiricinin arkasında gizlenmiştir.
+Azure Stack geliştirme Seti'ni müstakil ve fiziksel ana bilgisayar dağıtıldığı ağdan yalıtılmış ' dir. Ağ geçidi bağlı VIP ağının dış değil, ağ adresi çevirisi (NAT) yapan bir yönlendiricinin arkasında gizlenmiştir.
 
 Windows Server sanal makine (AzS-BGPNAT01) yönlendirme ve Uzaktan Erişim Hizmetleri (RRAS) rolünü çalıştıran yönlendiricidir. Her iki End'i bağlanmak siteden siteye VPN bağlantısını etkinleştirmek için AzS-BGPNAT01 sanal makine, NAT yapılandırmanız gerekir.
 
 #### <a name="configure-the-nat"></a>NAT yapılandırma
 
 1. Azure Stack ana bilgisayar yönetici hesabınızla oturum açın.
-1. Kopyalayın ve aşağıdaki PowerShell betiğini düzenleyin.  Değiştirin `"<your administrator password>"` yönetici parolası ve yükseltilmiş bir PowerShell ıse'de betik çalıştırın. Bu betik döndürür, *dış BGPNAT adresi*.
+1. Kopyalayın ve aşağıdaki PowerShell betiğini düzenleyin. Değiştirin `"your administrator password"` yönetici parolası ve yükseltilmiş bir PowerShell ıse'de betik çalıştırın. Bu betik döndürür, **dış BGPNAT adresi**.
 
    ```PowerShell
    cd \AzureStack-Tools-master\connect
    Import-Module .\AzureStack.Connect.psm1
-   $Password = ConvertTo-SecureString "<your administrator password>" `
+   $Password = ConvertTo-SecureString "your administrator password" `
     -AsPlainText `
     -Force
    Get-AzureStackNatServerAddress `
     -HostComputer "azs-bgpnat01" `
     -Password $Password
-
    ```
 
-1. NAT'ı yapılandırmak için kopyalayın ve aşağıdaki PowerShell betiğini düzenleyin. Değiştirilecek betiği düzenleyin `'<External BGPNAT address>'` ve `'<Internal IP address>'` şu örnek değerleri ile:
+1. NAT'ı yapılandırmak için kopyalayın ve aşağıdaki PowerShell betiğini düzenleyin. Değiştirilecek betiği düzenleyin `'External BGPNAT address'` ve `'Internal IP address'` şu örnek değerleri ile:
 
    * İçin *dış BGPNAT adresi* 10.10.0.62 kullanın
    * İçin *iç IP adresi* 192.168.102.1 kullanın
@@ -254,8 +250,8 @@ Windows Server sanal makine (AzS-BGPNAT01) yönlendirme ve Uzaktan Erişim Hizme
    Yükseltilmiş bir PowerShell ISE'den aşağıdaki betiği çalıştırın:
 
    ```PowerShell
-   $ExtBgpNat = '<External BGPNAT address>'
-   $IntBgpNat = '<Internal IP address>'
+   $ExtBgpNat = 'External BGPNAT address'
+   $IntBgpNat = 'Internal IP address'
 
    # Designate the external NAT address for the ports that use the IKE authentication.
    Invoke-Command `
@@ -297,7 +293,7 @@ Windows Server sanal makine (AzS-BGPNAT01) yönlendirme ve Uzaktan Erişim Hizme
 
 ## <a name="configure-azure"></a>Azure'ı yapılandırma
 
-Azure Stack'ı yapılandırmayı tamamladıktan sonra Azure kaynaklarını dağıtabilirsiniz. Aşağıdaki diyagramda, Azure'da bir kiracı sanal ağına örneği gösterilmektedir. Ağınızda Azure için herhangi bir ad ve adres düzeni'ni kullanabilirsiniz. Ancak, Azure'da ve Azure Stack sanal ağ adres aralığı benzersiz olması ve bu çakışmaması gerekir.
+Azure Stack'ı yapılandırmayı tamamladıktan sonra Azure kaynaklarını dağıtabilirsiniz. Aşağıdaki şekilde, Azure'da bir kiracı sanal ağına örneği gösterilmektedir. Ağınızda Azure için herhangi bir ad ve adres düzeni'ni kullanabilirsiniz. Ancak, Azure'da ve Azure Stack sanal ağ adres aralığı benzersiz olmalıdır ve çakışmaması gerekir.
 
 *Şekil 3. Azure sanal ağlar*
 
@@ -313,7 +309,7 @@ Azure Stack'te dağıtılan kaynakların, Azure'da dağıttığınız kaynaklar�
 
 Örnek Azure ağ altyapısı aşağıdaki gibi yapılandırılır:
 
-* Bir standart hub (192.168.2.0/24) ve bağlı bileşen (10.100.0.0./16) sanal ağ modeli. Merkez-uç ağ topolojisi hakkında daha fazla bilgi için bkz: [Azure'da merkez-uç ağ topolojisi uygulama](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke).
+* Bir standart hub (192.168.2.0/24) ve bağlı bileşen (10.100.0.0./16) sanal ağ modeli. Merkez-uç ağ topolojisi hakkında daha fazla bilgi için bkz: [Azure'da merkez-uç ağ topolojisi uygulama](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke).
 * Uç sanal ağı dağıtılan iş yükleri ve ExpressRoute bağlantı hattı merkez sanal ağa bağlanır.
 * İki sanal ağ, VNet eşlemesi kullanarak bağlanır.
 
@@ -333,7 +329,7 @@ Azure'da sanal ağlar oluşturma hakkında daha fazla bilgi için bkz. [sanal a�
 1. Bağlantısındaki [oluşturun ve bir ExpressRoute bağlantı hattını değiştirme](../expressroute/expressroute-howto-circuit-portal-resource-manager.md) Azure aboneliğinizi kullanarak ExpressRoute devresi oluşturma.
 
    >[!NOTE]
-   >Bunlar ExpressRoute devreniz kendi sonunda ayarlayabilirsiniz. Bu nedenle, bağlantı hattı için hizmet anahtarı hizmetinize verin.
+   >Bunlar ExpressRoute devreniz kendi sonunda ayarlayabilirsiniz bu nedenle, bağlantı hattı için hizmet anahtarı hizmetinize verin.
 
 1. Bağlantısındaki [oluşturun ve bir ExpressRoute bağlantı hattı için eşleme değiştirme](../expressroute/expressroute-howto-routing-portal-resource-manager.md) bir ExpressRoute bağlantı hattında özel eşdüzey hizmet sağlama yapılandırmak için.
 
@@ -360,7 +356,7 @@ Herhangi bir ek Kiracı ilgili kendi ExpressRoute bağlantı hatları Azure'da b
 
 ## <a name="configure-the-router"></a>Yönlendirici yapılandırma
 
-Aşağıdaki kullanabileceğiniz *ExpressRoute yönlendirici yapılandırması* ExpressRoute yönlendiriciniz yapılandırmak için bir kılavuz olarak diyagramı. Bu diyagram, karşılık gelen ExpressRoute bağlantı hatları ile iki Kiracı (1 Kiracı ve Kiracı 2) gösterir. Her kiracının kendi VRF (sanal Yönlendirme ve iletme) ExpressRoute yönlendirici LAN ve WAN yan bağlanır. Bu yapılandırma, iki Kiracı arasında uçtan uca yalıtımı sağlar. Yapılandırma örneği takip yönlendirici arabirimlerde kullanılan IP adreslerini not alın.
+ExpressRoute yönlendiriciniz yapılandırmak için aşağıdaki ExpressRoute yönlendirici yapılandırma diyagramda bir kılavuz olarak kullanabilirsiniz. Bu diyagram, karşılık gelen ExpressRoute bağlantı hatları ile iki Kiracı (1 Kiracı ve Kiracı 2) gösterir. Her kiracının kendi VRF (sanal Yönlendirme ve iletme) ExpressRoute yönlendirici LAN ve WAN yan bağlanır. Bu yapılandırma, iki Kiracı arasında uçtan uca yalıtımı sağlar. Yapılandırma örneği takip yönlendirici arabirimlerde kullanılan IP adreslerini not alın.
 
 *Şekil 4. ExpressRoute için yönlendirici yapılandırma*
 
@@ -369,8 +365,6 @@ Aşağıdaki kullanabileceğiniz *ExpressRoute yönlendirici yapılandırması* 
 Azure Stack siteden siteye VPN bağlantısı sonlandırmak için Ikev2 VPN ve BGP destekleyen herhangi bir yönlendirici kullanabilirsiniz. Aynı yönlendirici, bir ExpressRoute bağlantı hattı kullanılarak Azure'a bağlanmak için kullanılır.
 
 Cisco ASR 1000 Series toplama Hizmetleri yönlendirici yapılandırması aşağıda gösterilen ağ altyapısını destekler *ExpressRoute yönlendirici yapılandırması* diyagramı.
-
-**Cisco ASR 1000 yapılandırma örneği**
 
 ```
 ip vrf Tenant 1
@@ -593,7 +587,7 @@ route-map VNET-ONLY permit 10
 
 Siteden siteye bağlantı ve ExpressRoute bağlantı hattı kurduktan sonra bağlantınızı sınayın.
 
-Aşağıdaki çalıştırılabilen ping testleri yapın:
+Aşağıdaki çalıştırılabilen ping testleri gerçekleştirin:
 
 * Bir Azure sanal ağınızdaki sanal makinelerin oturum açın ve Azure Stack'te oluşturduğunuz sanal makineye ping.
 * Azure Stack ve Azure VNet içinde oluşturduğunuz sanal makinede ping oluşturulan sanal makinelerin birine oturum açın.
@@ -603,14 +597,13 @@ Aşağıdaki çalıştırılabilen ping testleri yapın:
 
 ### <a name="allow-icmp-in-through-the-firewall"></a>ICMP, güvenlik duvarı üzerinden izin ver
 
-Varsayılan olarak, Windows Server 2016, güvenlik duvarı üzerinden gelen ICMP paketleri izin vermez. Çalıştırılabilen ping testleri için kullanmakta olduğunuz her bir sanal makinede gelen ICMP paketleri izin vermeniz gerekir. ICMP için bir güvenlik duvarı kuralı oluşturmak için yükseltilmiş bir PowerShell penceresinde aşağıdaki cmdlet'i çalıştırın:
+Varsayılan olarak, Windows Server 2016 güvenlik duvarı üzerinden gelen ICMP paketleri izin vermez. Çalıştırılabilen ping testleri için kullandığınız her sanal makine için gelen ICMP paketleri izin vermeniz gerekir. ICMP için bir güvenlik duvarı kuralı oluşturmak için yükseltilmiş bir PowerShell penceresinde aşağıdaki cmdlet'i çalıştırın:
 
 ```PowerShell
 # Create ICMP firewall rule.
 New-NetFirewallRule `
   –DisplayName “Allow ICMPv4-In” `
   –Protocol ICMPv4
-
 ```
 
 ### <a name="ping-the-azure-stack-virtual-machine"></a>Azure Stack sanal makineye ping
@@ -625,11 +618,11 @@ New-NetFirewallRule `
 
 1. Azure vnet'teki sanal makineden ping IPv4 adresi.
 
-   Örnek ortamda 10.1.1.x/24 alt ağdan IPv4 adresidir. Ortamınızda adresi farklı olabilir. Ancak, Kiracı sanal ağ alt ağı için oluşturduğunuz alt ağ içinde olmalıdır.
+   Örnek ortamda 10.1.1.x/24 alt ağdan IPv4 adresidir. Ortamınızda adresi farklı olabilir ancak Kiracı sanal ağ alt ağı için oluşturduğunuz alt ağ içinde olmalıdır.
 
 ### <a name="view-data-transfer-statistics"></a>Veri aktarımı istatistiklerini görüntüleme
 
-Ne kadar trafik, bağlantı geçtiğini bilmek istiyorsanız, Azure Stack Kullanıcı Portalı bu bilgileri bulabilirsiniz. Ayrıca VPN ve ExpressRoute bağlantıları ping testi verinizi yayınlanmıştı olup olmadığını bulmak için en iyi yolu budur.
+Ne kadar trafik, bağlantı geçtiğini bilmek istiyorsanız, Azure Stack Kullanıcı Portalı bu bilgileri bulabilirsiniz. Bu ayrıca VPN ve ExpressRoute bağlantıları ping testi verinizi yayınlanmıştı olup olmadığını bulmak için iyi bir yoldur.
 
 1. Kiracı hesabınızı kullanarak Azure Stack kullanıcı portalında oturum açın ve seçin **tüm kaynakları**.
 1. VPN ağ geçidiniz için kaynak grubunu bulun ve seçin **bağlantı** nesne türü.
