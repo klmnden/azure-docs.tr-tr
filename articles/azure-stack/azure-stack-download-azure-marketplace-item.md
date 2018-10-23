@@ -12,21 +12,21 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/09/2018
+ms.date: 10/19/2018
 ms.author: sethm
 ms.reviewer: ''
-ms.openlocfilehash: cf6bc980f6fd821056a987d0c830863bd15ba779
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: b5c2c51429e37eea2473ae5966b1f41295875cb6
+ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48902017"
+ms.lasthandoff: 10/22/2018
+ms.locfileid: "49638180"
 ---
 # <a name="download-marketplace-items-from-azure-to-azure-stack"></a>Azure Stack için Azure Market öğelerini indirme
 
 *İçin geçerlidir: Azure Stack tümleşik sistemleri ve Azure Stack Geliştirme Seti*
 
-Bir bulut işleci olarak Azure Marketi'nden öğeleri indirin ve bunları Azure Stack'te kullanılabilir duruma getirin. Önceden test ve Azure Stack ile çalışmak için desteklenen Azure Market öğelerinin seçkin bir listeden seçim yapabilirsiniz öğeler görüntülenir. Ek öğeleri genellikle bu listeye eklenir, böylece yeni içerik için geri denetlemeye devam. 
+Bulut operatörü olarak, öğeleri Azure Market'ten indirebilir ve bunları Azure Stack'te kullanılabilir duruma getirin. Önceden test ve Azure Stack ile çalışmak için desteklenen Azure Market öğelerinin seçkin bir listeden seçim yapabilirsiniz öğeler görüntülenir. Ek öğeleri genellikle bu listeye eklenir, böylece yeni içerik için geri denetlemeye devam. 
 
 Azure Marketi'nde bağlamak için iki senaryo vardır: 
 
@@ -49,20 +49,20 @@ Azure Stack dağıtımınıza internet bağlantınız ve olması gerekir [Azure 
 
     Kullanılabilir alan gözden geçirmek için **bölge Yönetimi** keşfedin ve ardından gitmek istediğiniz bölgeyi seçin **kaynak sağlayıcıları** > **depolama**.
 
-    ![Depolama alanını gözden geçirin](media/azure-stack-download-azure-marketplace-item/storage.png)  
+    [ ![Depolama alanını inceleyin](media/azure-stack-download-azure-marketplace-item/storagesm.png "depolama alanını inceleyin") ](media/azure-stack-download-azure-marketplace-item/storage.png#lightbox)
 
     
 3. Azure Stack Marketini açın ve Azure'a bağlanın. Bunu yapmak için **Market Yönetim**ve ardından **Ekle azure'dan**.
 
-    ![Azure'dan ekleyin](media/azure-stack-download-azure-marketplace-item/marketplace.png)
+    [ ![Azure'dan ekleme](media/azure-stack-download-azure-marketplace-item/marketplacesm.png "Azure'dan Ekle") ](media/azure-stack-download-azure-marketplace-item/marketplace.png#lightbox)
 
     Portal, Azure Market'ten indirilebilir öğelerin listesini görüntüler. Açıklaması ve bunu yapanlar hakkında ek bilgi indirme boyutu da dahil olmak üzere görüntülemek için her bir öğede tıklayabilirsiniz. 
 
-    ![Market listesi](media/azure-stack-download-azure-marketplace-item/image03.png)
+    [ ![Market listesi](media/azure-stack-download-azure-marketplace-item/image03sm.png "Market listesi") ](media/azure-stack-download-azure-marketplace-item/image03.png#lightbox)
 
 4. Seçin ve ardından öğeyi **indirme**. Yükleme süreleri değişir.
 
-    ![İleti indirin](media/azure-stack-download-azure-marketplace-item/image04.png)
+    [ ![İleti indirme](media/azure-stack-download-azure-marketplace-item/image04.png "yükleme iletisi") ](media/azure-stack-download-azure-marketplace-item/image04.png#lightbox)
 
     İndirme tamamlandıktan sonra yeni Market öğesi, bir Azure Stack operatörü veya kullanıcı olarak dağıtabilirsiniz.
 
@@ -128,24 +128,24 @@ Bu senaryo iki bölümü vardır:
 
    Sync-AzSOfflineMarketplaceItem 
       -Destination "Destination folder path in quotes" `
-      -AzureTenantID $AzureContext.Tenant.TenantId `
+      -AzureTenantID $AzureContext.Tenant.TenantId ` 
       -AzureSubscriptionId $AzureContext.Subscription.Id 
    ```
 
-6. Araç çalıştığında Azure hesabı kimlik bilgilerinizi girmeniz istenir. Azure Stack kaydetmek için kullanılan Azure hesabınızda oturum açın. Oturum açma başarılı olduktan sonra aşağıdaki görüntüyle kullanılabilir Market öğelerinin listesi gibi bir ekran görürsünüz.  
+6. Araç çalıştığında, kullanılabilir Market öğelerinin listesini içeren aşağıdaki görüntüye benzer bir ekran görmeniz gerekir:
 
-   ![Azure Market öğeleri açılan menüsü](media/azure-stack-download-azure-marketplace-item/image05.png)
+   [ ![Azure Market öğeleri açılan](media/azure-stack-download-azure-marketplace-item/image05.png "Azure Market öğeleri") ](media/azure-stack-download-azure-marketplace-item/image05.png#lightbox)
 
-7. İndirip Not istediğiniz öğeyi seçin *sürüm*. (Basılı tutabilirsiniz *Ctrl* birden fazla görüntü seçmek için anahtar.) Başvuru *sürüm* içeri aktardığınızda sonraki yordamda öğesi. 
+7. İndirip Not istediğiniz öğeyi seçin *sürüm*. Basılı tutabilirsiniz *Ctrl* birden fazla görüntü seçmek için anahtar. Başvuru *sürüm* içeri aktardığınızda sonraki yordamda öğesi. 
    
    Kullanarak ayrıca görüntülerin listesini filtreleyebilirsiniz **Ölçüt Ekle** seçeneği.
 
 8. Seçin **Tamam**, daha sonra gözden geçirin ve yasal koşulları kabul edin. 
 
-9. İndirme gereken süre, öğe boyutuna bağlıdır. İndirme tamamlandıktan sonra öğesi, betikte belirttiğiniz klasöründe kullanılabilir. İndirme içeren bir VHD dosyasını (sanal makineler için) veya bir. ZIP dosyası (sanal makine uzantıları). Bir galeri paketinde ayrıca *.azpkg* biçimi. (A *.azpkg* paketi bir *.zip* dosyası.)
- 
+9. İndirme gereken süre, öğe boyutuna bağlıdır. İndirme tamamlandıktan sonra öğesi, betikte belirttiğiniz klasöründe kullanılabilir. İndirme, VHD dosyası (sanal makineler için) veya bir .zip dosyası (sanal makine uzantıları) içerir. Bir galeri paketi içerebilir *.azpkg* biçimi yalnızca bir .zip dosyasıdır.
 
 ### <a name="import-the-download-and-publish-to-azure-stack-marketplace"></a>İndirme içeri aktarma ve Azure Stack Market'te yayımlama
+
 1. Sanal makine görüntüleri veya sahip olduğunuz çözüm şablonları dosyalarını [daha önce indirilen](#use-the-marketplace-syndication-tool-to-download-marketplace-items) Azure Stack ortamınıza yerel olarak kullanılabilir hale getirilmelidir.  
 
 2. Market öğesi paket (.azpkg dosyası) ve sanal sabit disk görüntüsü (.vhd dosyası) Azure Stack Blob Depolama'ya yüklemek için yönetim portalını kullanın. Paket karşıya ve disk dosyaları kullanılabilir hale getirir bunları Azure Stack için Azure Stack Marketini daha sonra öğeyi yayımlayabilmeniz.
@@ -154,16 +154,15 @@ Bu senaryo iki bölümü vardır:
    1. Azure Stack Yönetim Portalı'nda Git **tüm hizmetleri** altındaki **veri + depolama** kategorisi seçin **depolama hesapları**.  
    
    2. Aboneliğinizde ve altında bir depolama hesabı seçin **BLOB hizmeti**seçin **kapsayıcıları**.  
-      ![BLOB hizmeti](media/azure-stack-download-azure-marketplace-item/blob-service.png)  
+      [ ![BLOB hizmeti](media/azure-stack-download-azure-marketplace-item/blob-service.png "Blob hizmeti") ](media/azure-stack-download-azure-marketplace-item/blob-service.png#lightbox)  
    
    3. Kullanın ve ardından istediğiniz kapsayıcıyı seçin **karşıya** açmak için **blobu karşıya yükleme** bölmesi.  
-      ![Kapsayıcı](media/azure-stack-download-azure-marketplace-item/container.png)  
+      [ ![Kapsayıcı](media/azure-stack-download-azure-marketplace-item/container.png "kapsayıcı") ](media/azure-stack-download-azure-marketplace-item/container.png#lightbox)  
    
-   4. Depolama alanına yüklemek ve ardından diski ve paket dosyaları karşıya yükleme blob bölmesinde, Gözat **karşıya**.  
-      ![upload](media/azure-stack-download-azure-marketplace-item/upload.png)  
+   4. Depolama alanına yüklemek ve ardından diski ve paket dosyaları karşıya yükleme blob bölmesinde, Gözat **karşıya**: [ ![karşıya](media/azure-stack-download-azure-marketplace-item/uploadsm.png "karşıya yükleme") ](media/azure-stack-download-azure-marketplace-item/upload.png#lightbox)  
 
    5. Karşıya dosya kapsayıcı bölmesinde görünür. Bir dosya seçin ve ardından URL'den kopyalayın **Blob özellikleri** bölmesi. Azure Stack'e Market öğesi içeri aktardığınızda bu URL'yi bir sonraki adımda kullanacaksınız.  Aşağıdaki görüntüde kapsayıcısıdır *blob test depolama* ve dosya *Microsoft.WindowsServer2016DatacenterServerCore ARM.1.0.801.azpkg*.  Dosyanın URL'si *https://testblobstorage1.blob.local.azurestack.external/blob-test-storage/Microsoft.WindowsServer2016DatacenterServerCore-ARM.1.0.801.azpkg*.  
-      ![BLOB özellikleri](media/azure-stack-download-azure-marketplace-item/blob-storage.png)  
+      [ ![BLOB özellikleri](media/azure-stack-download-azure-marketplace-item/blob-storagesm.png "Blob özellikleri") ](media/azure-stack-download-azure-marketplace-item/blob-storage.png#lightbox)  
 
 3. VHD görüntüsünü kullanarak Azure Stack'e içeri **Ekle AzsPlatformimage** cmdlet'i. Bu cmdlet'i kullandığınızda değiştirin *yayımcı*, *teklif*ve görüntünün aldığınız değerlerle diğer parametre değerleri. 
 
@@ -199,16 +198,14 @@ Bu senaryo iki bölümü vardır:
      –Verbose
     ```
 5. Bir galeri öğesi yayımladıktan sonra artık kullanmak kullanılabilir. Galeri öğesi yayımlandığında onaylamak için Git **tüm hizmetleri**ve ardından altındaki **genel** kategorisi seçin **Market**.  İndirme işleminiz bir çözüm şablonu, bu çözüm şablonu herhangi bir bağımlı VHD görüntü eklediğinizden emin olun.  
-  ![Görünüm Market](media/azure-stack-download-azure-marketplace-item/view-marketplace.png)  
+  [ ![Görünüm Market](media/azure-stack-download-azure-marketplace-item/view-marketplacesm.png "görünümü Market") ](media/azure-stack-download-azure-marketplace-item/view-marketplace.png#lightbox)  
 
-> [!NOTE]
-> Azure Stack PowerShell 1.3.0'ın yayınlanmasıyla birlikte, artık sanal makine uzantıları ekleyebilirsiniz.
-
-Örneğin:
+Azure Stack PowerShell 1.3.0'ın yayınlanmasıyla birlikte, artık sanal makine uzantıları ekleyebilirsiniz. Örneğin:
 
 ````PowerShell
 Add-AzsVMExtension -Publisher "Microsoft" -Type "MicroExtension" -Version "0.1.0" -ComputeRole "IaaS" -SourceBlob "https://github.com/Microsoft/PowerShell-DSC-for-Linux/archive/v1.1.1-294.zip" -SupportMultipleExtensions -VmOsType "Linux"
 ````
 
 ## <a name="next-steps"></a>Sonraki adımlar
+
 [Bir Market öğesi oluşturma ve yayımlama](azure-stack-create-and-publish-marketplace-item.md)
