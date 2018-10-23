@@ -9,12 +9,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 08/31/2018
-ms.openlocfilehash: ad042525ead23959be57a5dd2d5735bcedfedb1b
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: be0140606302335884d62ba60c875a049949b495
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43668334"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49353059"
 ---
 # <a name="install-and-use-the-azure-terraform-visual-studio-code-extension"></a>Azure Terraform Visual Studio Code uzantısını yükleme ve kullanma
 
@@ -103,7 +103,9 @@ Bu alıştırmada yeni bir Azure kaynak grubu sağlayan basit bir Terraform yap�
 
 1. Visual Studio Code menü çubuğundan **Dosya > Yeni Dosya**'yı seçin.
 
-1. [azurerm_resource_group](https://www.terraform.io/docs/providers/azurerm/r/resource_group.html#) dosyasına gidin ve **Örnek Kullanım** kod bloğu içindeki kodu kopyalayın:
+1. Tarayıcınızda [Terraform azurerm_resource_group page](https://www.terraform.io/docs/providers/azurerm/r/resource_group.html#) dosyasına gidin ve **Örnek Kullanım** kod bloğu içindeki kodu kopyalayın:
+
+    ![Örnek Kullanım](media/terraform-vscode-extension/tf-azurerm-resource-group-example-usage.png)
 
 1. Kopyalanan kodu Visual Studio Code'da oluşturduğunuz yeni dosyaya yapıştırın.
 

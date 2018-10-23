@@ -2,18 +2,18 @@
 title: "Öğretici: Azure Veri Gezgini verilerini Power BI'da görselleştirme"
 description: Bu öğreticide Power BI ile Azure Veri Gezgini'ne bağlanmayı ve verilerinizi görselleştirmeyi öğreneceksiniz.
 services: data-explorer
-author: mgblythe
-ms.author: mblythe
+author: orspod
+ms.author: v-orspod
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: tutorial
 ms.date: 09/24/2018
-ms.openlocfilehash: 938d8d6e291ca432ef3f642a0aaec74d5dcf5bf5
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: fc2d96c4dc8184ba26001fd77732ce7c45253d5a
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46977154"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49393721"
 ---
 # <a name="tutorial-visualize-data-from-azure-data-explorer-in-power-bi"></a>Öğretici: Azure Veri Gezgini verilerini Power BI'da görselleştirme
 
@@ -108,7 +108,7 @@ Azure Veri Gezgini'ne bağlandığınıza göre verileri Power Query Düzenleyic
 
     ![Sütunu filtreleme](media/visualize-power-bi/filter-column.png)
 
-1. **BeginLat** sütununun okunu seçin, **null** onay kutusunun işaretini kaldırın ve **Tamam**'ı seçin.
+1. **StormSummary** sütununun başlığına sağ tıklayıp **Kaldır**'ı seçin.
 
     ![Sütunu kaldırma](media/visualize-power-bi/remove-column.png)
 

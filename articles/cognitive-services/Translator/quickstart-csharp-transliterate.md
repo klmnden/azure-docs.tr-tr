@@ -10,18 +10,16 @@ ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/15/2018
 ms.author: nolachar
-ms.openlocfilehash: 53ac3f4aa85e889c86d09927ece7df012427e4a9
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 7fa8c5dc76e59ec236d6b9662bd2ba41db0add0f
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46367602"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49320416"
 ---
 # <a name="quickstart-transliterate-text-with-c35"></a>Hızlı Başlangıç: C# ile metni başka alfabeye çevirme
 
 Bu hızlı başlangıçta, Translator Metin Çevirisi API'sini kullanarak bir dildeki metni bir betikten diğerine dönüştüreceksiniz.
-
-Bu örneğin kaynak kodu [Github](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-C-Sharp)’da mevcuttur.
 
 ## <a name="prerequisites"></a>Ön koşullar
 
@@ -30,6 +28,9 @@ Bu kodu Windows’da çalıştırmak için [Visual Studio 2017](https://www.visu
 Translator Metin Çevirisi API'sini kullanmak için, ayrıca abonelik anahtarınızın olması gerekir; bkz. [Translator Metin Çevirisi API'sine kaydolma](translator-text-how-to-signup.md).
 
 ## <a name="transliterate-request"></a>Karakter Dönüştürme isteği
+
+> [!TIP]
+> En son kodu [Github](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-C-Sharp)'dan edinin.
 
 Aşağıdaki kod, [Karakter Dönüştürme](./reference/v3-0-transliterate.md) yöntemini kullanarak bir dildeki metni bir betikten diğerine dönüştürür.
 

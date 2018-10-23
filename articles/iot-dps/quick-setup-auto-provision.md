@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: ce1586e472e1d1ea5ddd9ca5a426b1bea2b5b931
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: 5533dacc4a782cbdb6026c4a4d5c5bed9e39147a
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42022575"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49320161"
 ---
 # <a name="set-up-the-iot-hub-device-provisioning-service-with-the-azure-portal"></a>Azure portalı ile IoT Hub Cihazı Sağlama Hizmetini ayarlama
 
@@ -40,12 +40,12 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
     * **Abonelik**: Bu Cihaz Sağlama hizmeti örneğini oluşturmak için kullanmak istediğiniz aboneliği seçin.
     * **Kaynak grubu:** Bu alan yeni örneği içerecek yeni kaynak grubunu oluşturmanızı veya mevcut bir kaynak grubunu seçmenizi sağlar. Yukarıda oluşturduğunuz IoT hub'ını içeren kaynak grubunu seçin; örneğin, **TestResources**. İlgili tüm kaynakları aynı gruba birlikte koyarak, bunları birlikte yönetebilirsiniz. Örneğin, kaynak grubunu sildiğinizde o grupta bulunan tüm kaynaklar da silinir. Daha fazla bilgi için bkz. [Azure kaynaklarınızı yönetmek için kaynak gruplarını kullanma](../azure-resource-manager/resource-group-portal.md).
     * **Konum**: Cihazlarınıza en yakın konumu seçin.
-    * **Panoya sabitle:** Örneği panonuza sabitleyip daha kolay bulabilmek için bu seçeneği belirtin.
 
     ![Portal dikey penceresinde Cihaz Sağlama hizmeti örneğiniz ile ilgili temel bilgileri girin](./media/quick-setup-auto-provision/create-iot-dps-portal.png)  
 
-4. Hizmet başarıyla dağıtıldıktan sonra özet dikey penceresi otomatik olarak açılır.
+4. Kaynak örneğinin oluşturma ilerlemesini izlemek için bildirim düğmesine tıklayın. Hizmet başarıyla dağıtıldıktan sonra **Panoya sabitle**'ye ve **Kaynağa git**'e tıklayın.
 
+    ![Dağıtımı izleme bildirimi](./media/quick-setup-auto-provision/pin-to-dashboard.png)
 
 ## <a name="link-the-iot-hub-and-your-device-provisioning-service"></a>IoT hub’ını ve Cihaz Sağlama Hizmetinizi bağlayın
 

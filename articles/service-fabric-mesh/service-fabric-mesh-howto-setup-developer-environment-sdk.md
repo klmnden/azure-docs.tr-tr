@@ -9,12 +9,12 @@ ms.date: 08/08/2018
 ms.topic: get-started-article
 ms.service: service-fabric-mesh
 manager: jeconnoc
-ms.openlocfilehash: e95c0ad90503410601cc0764fdc559579a1dd13d
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 094cab324c7a7c66f5fcb57d488661109fcdabea
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "41921070"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49362679"
 ---
 # <a name="set-up-your-windows-development-environment-to-build-service-fabric-mesh-apps"></a>Service Fabric Mesh uygulamalarını derlemek için Windows geliştirme ortamınızı ayarlayın
 
@@ -69,7 +69,7 @@ Install-WindowsFeature Containers
 Aşağıdaki sırayla Service Fabric Mesh çalışma zamanını, SDK'yı ve araçları yükleyin.
 
 1. Web Platformu Yükleyicisi'ni kullanarak [Service Fabric Mesh SDK'sını][download-sdkmesh] yükleyin. Bu işlem Microsoft Azure Service Fabric SDK’sını ve çalışma zamanını da yükler.
-2. Visual Studio Market'ten [Visual Studio Service Fabric Araçları (önizleme) uzantısını][download-tools] yükleyin.
+2. Visual Studio Market'ten [Visual Studio Service Fabric Mesh Araçları (önizleme) uzantısını][download-tools] yükleyin.
 
 ## <a name="build-a-cluster"></a>Küme oluşturma
 

@@ -1,5 +1,5 @@
 ---
-title: 'Örnek: Video Indexer ile videoları karşıya yükleme ve dizinleme'
+title: Video Indexer ile videoları karşıya yükleme ve dizinleme
 titlesuffix: Azure Cognitive Services
 description: Bu konuda, API'lerı kullanarak Video Indexer ile videolarınızı karşıya yükleme ve dizinleme gösterilmektedir.
 services: cognitive services
@@ -10,14 +10,14 @@ ms.component: video-indexer
 ms.topic: sample
 ms.date: 09/15/2018
 ms.author: juliako
-ms.openlocfilehash: f3889d1cddce92cbdd3049d4421bfdffc69da41e
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: 53dc65c3d2c56308dd298f33bb78047904810ae5
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48884314"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49377838"
 ---
-# <a name="example-upload-and-index-your-videos"></a>Örnek: Videolarınızı karşıya yükleme ve dizinleme  
+# <a name="upload-and-index-your-videos"></a>Videolarınızı karşıya yükleme ve dizinleme  
 
 Bu makalede, Azure Video Indexer ile karşıya video yükleme gösterilmektedir. Video Indexer API’si, iki adet karşıya yükleme seçeneği sağlar: 
 

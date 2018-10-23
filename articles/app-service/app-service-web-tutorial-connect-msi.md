@@ -11,19 +11,23 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 04/17/2018
+ms.date: 10/24/2018
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 3125db03dc13f70524fd094736f50b563ef712a4
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: 6a3bb5511828d9f8ea7168ffa4748b141484299f
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44379936"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49376439"
 ---
 # <a name="tutorial-secure-azure-sql-database-connection-from-app-service-using-a-managed-identity"></a>Öğretici: Yönetilen kimlik kullanarak App Service’tan Azure SQL Veritabanı bağlantısını güvenli hale getirme
 
 [App Service](app-service-web-overview.md), Azure’da yüksek oranda ölçeklenebilen, kendi kendine düzeltme eki uygulayan bir web barındırma hizmeti sunar. Ayrıca, uygulamanız için [Azure SQL Veritabanı](/azure/sql-database/)’na ve diğer Azure hizmetlerine erişimi güvenli hale getirmeye yönelik anahtar teslim bir çözüm olan [yönetilen kimliği](app-service-managed-service-identity.md) sağlar. App Service içindeki yönetilen kimlikler, bağlantı dizelerindeki kimlik bilgileri gibi uygulamanızdaki gizli dizileri ortadan kaldırarak uygulamanızı daha güvenli hale getirir. Bu öğreticide, [Öğretici: Azure’da SQL Veritabanı ile ASP.NET uygulaması derleme](app-service-web-tutorial-dotnet-sqldatabase.md) bölümünde derlediğiniz örnek ASP.NET web uygulamasına yönetilen kimlik ekleyeceksiniz. İşiniz bittiğinde, örnek uygulamanız kullanıcı adı ve parolaya gerek kalmadan SQL Veritabanıa güvenli bir şekilde bağlanacaktır.
+
+> [!NOTE]
+> Bu senaryo şu an için .NET Framework 4.6 ve üzeri tarafından desteklenmektedir ancak [.NET Core 2.1](https://www.microsoft.com/net/learn/get-started/windows) ile kullanılamaz. [.NET Core 2.2](https://www.microsoft.com/net/download/dotnet-core/2.2) senaryoyu destekler ancak henüz App Service varsayılan görüntülerine dahil edilmemiştir. 
+>
 
 Aşağıdakileri nasıl yapacağınızı öğreneceksiniz:
 
@@ -95,6 +99,7 @@ Visual Studio’daki **DotNetAppSqlDb** projenizde _packages.config_ dosyasını
 
 ```xml
 <package id="Microsoft.Azure.Services.AppAuthentication" version="1.1.0-preview" targetFramework="net461" />
+<package id="Microsoft.IdentityModel.Clients.ActiveDirectory" version="3.14.2" targetFramework="net461" />
 ```
 
 _Models\MyDatabaseContext.cs_ dosyasını açın ve aşağıdaki `using` deyimlerini dosyanın üstüne ekleyin:
@@ -122,7 +127,7 @@ public MyDatabaseContext(SqlConnection conn) : base(conn, true)
 Bu oluşturucu, App Service’ten Azure SQL Veritabanı için bir erişim belirteci kullanmak üzere özel bir SqlConnection nesnesi yapılandırır. App Service uygulamanız erişim belirtecini kullanarak yönetilen kimlik ile Azure SQL Veritabanında kimlik doğrulaması yapar. Daha fazla bilgi için bkz. [Azure kaynakları için belirteç edinme](app-service-managed-service-identity.md#obtaining-tokens-for-azure-resources). `if` deyimi, uygulamanızı LocalDB ile yerel olarak test etmeye devam etmenizi sağlar.
 
 > [!NOTE]
-> `SqlConnection.AccessToken` şu anda yalnızca .NET Framework 4.6 ve üzerinde desteklenir ve [.NET Core](https://www.microsoft.com/net/learn/get-started/windows)’da desteklenmez.
+> `SqlConnection.AccessToken` şu anda yalnızca .NET Framework 4.6 ve üzerinde desteklenir, [.NET Core 2.2](https://www.microsoft.com/net/download/dotnet-core/2.2) için de desteklenir ancak [.NET Core 2.1](https://www.microsoft.com/net/learn/get-started/windows) için destek sunulmaz.
 >
 
 Bu yeni oluşturucuyu kullanmak için `Controllers\TodosController.cs` dosyasını açın ve `private MyDatabaseContext db = new MyDatabaseContext();` satırını bulun. Var olan kod, [siz değiştirmeden](#modify-connection-string) önce düz metin biçiminde kullanıcı adı ve parolası olan standart bağlantı dizesini kullanarak bir veritabanı oluşturmak için `MyDatabaseContext` denetleyicisini kullanır.
@@ -130,7 +135,7 @@ Bu yeni oluşturucuyu kullanmak için `Controllers\TodosController.cs` dosyasın
 Tüm satırı aşağıdaki kod ile değiştirin:
 
 ```csharp
-private MyDatabaseContext db = new MyDatabaseContext(new SqlConnection());
+private MyDatabaseContext db = new MyDatabaseContext(new System.Data.SqlClient.SqlConnection());
 ```
 
 ### <a name="publish-your-changes"></a>Değişikliklerinizi yayımlama
@@ -172,32 +177,23 @@ Daha önce, yönetilen kimliği SQL Veritabanınızın Azure AD yöneticisi olar
 
 ### <a name="grant-permissions-to-azure-active-directory-group"></a>Azure Active Directory grubuna izinler verme
 
-Cloud Shell’de SQLCMD komutunu kullanarak SQL Veritabanı oturumunu açın. _\<servername>_ değerini SQL Veritabanı sunucunuzun adıyla, _\<AADusername>_ ile _\<AADpassword>_ değerini ise Azure AD kullanıcınızın kimlik bilgileriyle değiştirin.
-
-```azurecli-interactive
-sqlcmd -S <server_name>.database.windows.net -U <AADuser_name> -P "<AADpassword>" -G -l 30
-```
-
-SQL isteminde, daha önce kullanıcı olarak oluşturduğunuz Azure Active Directory grubunu ekleyen aşağıdaki komutları çalıştırın.
-
-```sql
-CREATE USER [myAzureSQLDBAccessGroup] FROM EXTERNAL PROVIDER;
-GO
-```
-
-Cloud Shell istemine geri dönmek için `EXIT` yazın. Ardından SQLCMD komutunu tekrar çalıştırın ancak bu kez _\<dbname>_ içinde veritabanı adını belirtin.
+Cloud Shell’de SQLCMD komutunu kullanarak SQL Veritabanı oturumunu açın. _\<server\_name>_ değerini SQL Veritabanı sunucunuzun adıyla, _\<db\_name>_ değerini uygulamanızın kullandığı veritabanının adıyla, _\<AADuser\_name>_ ve _\<AADpassword>_ değerini ise Azure AD kullanıcınızın kimlik bilgileriyle değiştirin.
 
 ```azurecli-interactive
 sqlcmd -S <server_name>.database.windows.net -d <db_name> -U <AADuser_name> -P "<AADpassword>" -G -l 30
 ```
 
-İstediğiniz veritabanının SQL isteminde Azure Active Directory grubuna okuma ve yazma izinleri vermek için aşağıdaki komutları çalıştırın.
+Önceden oluşturduğunuz Azure Active Directory grubunu eklemek ve uygulamanızın ihtiyaç duyduğu izinleri vermek için istediğiniz veritabanının SQL isteminde aşağıdaki komutları çalıştırın. Örneğin, 
 
 ```sql
+CREATE USER [myAzureSQLDBAccessGroup] FROM EXTERNAL PROVIDER;
 ALTER ROLE db_datareader ADD MEMBER [myAzureSQLDBAccessGroup];
 ALTER ROLE db_datawriter ADD MEMBER [myAzureSQLDBAccessGroup];
+ALTER ROLE db_ddladmin ADD MEMBER [myAzureSQLDBAccessGroup];
 GO
 ```
+
+Cloud Shell istemine geri dönmek için `EXIT` yazın. 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

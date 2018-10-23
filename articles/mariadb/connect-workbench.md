@@ -1,6 +1,6 @@
 ---
 title: MySQL Workbench’ten MariaDB için Azure Veritabanı’na bağlanma
-description: Bu Hızlı Başlangıçta, MySQL Workbench kullanarak MariaDB için Azure Veritabanı'na bağlanmak ve buradan veri sorgulamak için uygulanması gereken adımlar verilmektedir.
+description: Bu hızlı başlangıçta, MySQL Workbench kullanarak MariaDB için Azure Veritabanı'na bağlanmak ve buradan veri sorgulamak için uygulanması gereken adımlar verilmektedir.
 author: ajlam
 ms.author: andrela
 editor: jasonwhowell
@@ -9,69 +9,77 @@ ms.service: mariadb
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 09/24/2018
-ms.openlocfilehash: b3a4d00381361b5299e86b959d9775318ae81e88
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 45c1207ab6ab2a7a649efcd355bcab06ea79e149
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46998262"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49317611"
 ---
 # <a name="azure-database-for-mariadb-use-mysql-workbench-to-connect-and-query-data"></a>MariaDB için Azure Veritabanı: MySQL Workbench kullanarak bağlanma ve veri sorgulama
-Bu hızlı başlangıçta MySQL Workbench uygulamasını kullanarak MariaDB için Azure Veritabanı'na nasıl bağlanacağınız gösterilmiştir. 
+
+Bu hızlı başlangıçta MySQL Workbench'i kullanarak MariaDB için Azure Veritabanı örneğine nasıl bağlanacağınız gösterilmiştir. 
 
 ## <a name="prerequisites"></a>Ön koşullar
-Bu hızlı başlangıçta, başlangıç noktası olarak şu kılavuzlardan birinde oluşturulan kaynaklar kullanılmaktadır:
-- [Azure portalını kullanarak MariaDB için Azure Veritabanı sunucusu oluşturma](./quickstart-create-mariadb-server-database-using-azure-portal.md)
+
+Bu hızlı başlangıçta, başlangıç noktası olarak aşağıdaki kılavuzlardan birinde oluşturulan kaynaklar kullanılmaktadır:
+
+- [Azure portalı kullanarak MariaDB için Azure Veritabanı sunucusu oluşturma](./quickstart-create-mariadb-server-database-using-azure-portal.md)
 - [Azure CLI kullanarak MariaDB için Azure Veritabanı sunucusu oluşturma](./quickstart-create-mariadb-server-database-using-azure-cli.md)
 
 ## <a name="install-mysql-workbench"></a>MySQL Workbench’i yükleme
-[MySQL web sitesinden](https://dev.mysql.com/downloads/workbench/) MySQL Workbench’i indirip bilgisayarınıza yükleyin.
+
+[MySQL Workbench'i indirin](https://dev.mysql.com/downloads/workbench/) ve bilgisayarınıza yükleyin.
 
 ## <a name="get-connection-information"></a>Bağlantı bilgilerini alma
-MariaDB için Azure Veritabanı'na bağlanmak üzere gereken bağlantı bilgilerini alın. Tam sunucu adına ve oturum açma kimlik bilgilerine ihtiyacınız vardır.
 
-1. [Azure Portal](https://portal.azure.com/)’da oturum açın.
+MariaDB için Azure Veritabanı örneğine bağlanmak üzere gereken bağlantı bilgilerini alın. Tam sunucu adına ve oturum açma kimlik bilgilerine ihtiyacınız vardır.
 
-2. Azure portalında sol taraftaki menüden **Tüm kaynaklar**'a tıklayın ve oluşturduğunuz sunucuyu (örneğin, **mydemoserver**) arayın.
+1. [Azure Portal](https://portal.azure.com/) oturum açın.
 
-3. Sunucunun adına tıklayın.
+2. Azure portalın sol tarafındaki menüden **Tüm kaynaklar**'ı seçin. Oluşturduğunuz sunucuyu arayın (**demosunucum** gibi).
 
-4. Sunucunun **Genel Bakış** panelinden **Sunucu adı** ile **Sunucu yöneticisi oturum açma adı**’nı not alın. Parolanızı unutursanız, bu panelden parolayı da sıfırlayabilirsiniz.
- ![MariaDB için Azure Veritabanı sunucusu adı](./media/connect-workbench/1_server-overview-name-login.png)
+3. Sunucu adını seçin.
 
-## <a name="connect-to-server-using-mysql-workbench"></a>MySQL Workbench kullanarak sunucuya bağlanma 
-MySQL Workbench ile MariaDB için Azure Veritabanı sunucusuna bağlanmak için aşağıdaki adımları kullanın:
+4. Sunucunun **Genel Bakış** sayfasında **Sunucu adı** ve **Sunucu yöneticisi oturum açma adı** değerlerini not edin. Parolanızı unuttuysanız, bu sayfadan parolayı da sıfırlayabilirsiniz.
 
-1.  Bilgisayarınızda MySQL Workbench uygulamasını başlatın. 
+ ![MariaDB için Azure Veritabanı sunucusunun adı ve sunucu yöneticisi oturum açma adı](./media/connect-workbench/1_server-overview-name-login.png)
 
-2.  **Yeni Bağlantı Oluştur** iletişim kutusundaki **Parametreler** sekmesine aşağıdaki bilgileri girin:
+## <a name="connect-to-the-server-by-using-mysql-workbench"></a>MySQL Workbench kullanarak sunucuya bağlanma
 
-    ![yeni bağlantı oluştur](./media/connect-workbench/2-setup-new-connection.png)
+MySQL Workbench ile MariaDB için Azure Veritabanı sunucusuna bağlanmak için:
 
-    | **Ayar** | **Önerilen değer** | **Alan açıklaması** |
+1.  Bilgisayarınızda MySQL Workbench uygulamasını açın. 
+
+2.  **Setup New Connection** (Yeni Bağlantı Oluştur) iletişim kutusundaki **Parameters** (Parametreler) sekmesine aşağıdaki bilgileri girin:
+
+    | Ayar | Önerilen değer | Alan açıklaması |
     |---|---|---|
-    |   Bağlantı Adı | Tanıtım Bağlantısı | Bu bağlantı için bir etiket belirtin. |
-    | Bağlantı Yöntemi | Standart (TCP/IP) | Standart (TCP/IP) yeterlidir. |
-    | Ana Bilgisayar Adı | *sunucu adı* | MariaDB için Azure Veritabanını oluştururken kullandığınız sunucu adı değerini belirtin. Gösterilen örnek sunucumuz: mydemoserver.mariadb.database.azure.com. Örnekte gösterildiği gibi tam etki alanı adını (\*.mariadb.database.azure.com) kullanın. Sunucu adınızı anımsamıyorsanız bağlantı bilgilerini almak için bir önceki bölümdeki adımları izleyin.  |
-    | Bağlantı noktası | 3306 | MariaDB için Azure Veritabanı’na bağlanırken her zaman bağlantı noktası olarak 3306 kullanın. |
-    | Kullanıcı adı |  *sunucu yöneticisi oturum açma adı* | MariaDB için Azure Veritabanı’nı oluştururken girdiğiniz sunucu yöneticisi oturum açma kullanıcı adını yazın. Bizim örnek kullanıcı adımız myadmin@mydemoserver. Kullanıcı adını anımsamıyorsanız bağlantı bilgilerini almak için bir önceki bölümdeki adımları izleyin. Biçim şöyledir: *username@servername*.
-    | Parola | parolanız | Parolayı kaydetmek için **Kasada Depola...** düğmesine tıklayın. |
+    |   Bağlantı Adı | **Tanıtım bağlantısı** | Bu bağlantı için bir etiket belirtin. |
+    | Bağlantı Yöntemi | **Standart (TCP/IP)** | Standart (TCP/IP) yeterlidir. |
+    | Ana Bilgisayar Adı | *sunucu adı* | MariaDB için Azure Veritabanı örneğini oluşturmak üzere kullandığınız sunucu adı değerini belirtin. Örnek sunucumuz: **mydemoserver.mariadb.database.azure.com**. Örnekte gösterildiği gibi tam etki alanı adını (\*.mariadb.database.azure.com) kullanın. Sunucu adınızı anımsamıyorsanız bağlantı bilgilerini almak için bir önceki bölümdeki adımları tamamlayın.  |
+    | Bağlantı noktası | **3306** | MariaDB için Azure Veritabanı’na bağlanırken her zaman bağlantı noktası olarak 3306 kullanın. |
+    | Kullanıcı adı |  *sunucu yöneticisi oturum açma adı* | MariaDB için Azure Veritabanı örneğini oluşturmak üzere kullandığınız sunucu yöneticisi oturum açma kullanıcı adını girin. Örnekte kullanılan kullanıcı adı: **myadmin@mydemoserver**. Sunucu kullanıcısı oturum açma adını anımsamıyorsanız bağlantı bilgilerini almak için bir önceki bölümdeki adımları tamamlayın. Biçim şöyledir: *username@servername*.
+    | Parola | *parolanız* | Parolayı kaydetmek için **Store in Vault** (Kasada depola) seçeneğini belirtin. |
 
-3.   Tüm parametrelerin doğru yapılandırılıp yapılandırılmadığını test etmek için **Bağlantıyı Sına**’ya tıklayın. 
+    ![Yeni bağlantı oluşturma](./media/connect-workbench/2-setup-new-connection.png)
+
+3.   Tüm parametrelerin doğru yapılandırılıp yapılandırılmadığını denetlemek için **Test Connection** (Bağlantıyı Sına) öğesini seçin. 
 
 4.   Bağlantıyı kaydetmek için **Tamam**’a tıklayın. 
 
-5.   **MySQL Bağlantıları** listesinde sunucunuza karşılık gelen kutucuğa tıklayıp bağlantının kurulmasını bekleyin.
+5.   **MySQL Connections** (MySQL Bağlantılarım) bölümünde sunucunuza karşılık gelen kutucuğu seçin. Bağlantının kurulmasını bekleyin.
 
-        Sorgularınızı yazabileceğiniz boş bir düzenleyici içeren yeni bir SQL sekmesi açılır.
+    Sorgularınızı yazabileceğiniz boş bir düzenleyici içeren yeni bir SQL sekmesi açılır.
     
-        > [!NOTE]
-        > Varsayılan olarak SSL bağlantısının güvenli olması gerekir ve MariaDB için Azure Veritabanı sunucunuzda zorunlu tutulur. Normalde MySQL Workbench'in sunucunuza bağlanması için SSL sertifikalı ek yapılandırma gerekmez ancak SSL CA sertifikasını MySQL Workbench sunucunuza bağlamanızı öneririz. SSL’yi devre dışı bırakmanız gerekiyorsa, Azure portalına gidin ve Bağlantı güvenliği sayfasına tıklayarak SSL bağlantısını zorunlu kıl iki durumlu düğmesini devre dışı bırakın.
+    > [!NOTE]
+    > Varsayılan olarak SSL bağlantısının güvenli olması gerekir ve MariaDB için Azure Veritabanı sunucunuzda zorunlu tutulur. Normalde MySQL Workbench'in sunucunuza bağlanması için SSL sertifikalı ek yapılandırma gerekmez ancak SSL CA sertifikasını MySQL Workbench sunucunuza bağlamanızı öneririz. SSL özelliğini devre dışı bırakmanız gerekiyorsa Azure portalda sunucu genel bakış sayfasına gidin ve menüden **Bağlantı güvenliği** girişini seçin. **SSL bağlantısını zorla** bölümünde **Devre dışı** girişini seçin.
 
-## <a name="create-table-insert-read-update-and-delete-data"></a>Tablo oluşturma, ekleme, okuma, güncelleştirme ve verileri silme
-1. Bazı örnek verileri görmek için örnek SQL kodunu kopyalayıp boş bir SQL sekmesine tıklayın.
+## <a name="create-table-and-insert-read-update-and-delete-data"></a>Tablo oluşturma ve veri ekleme, okuma, güncelleştirme ve silme
 
-    Bu kod quickstartdb adlı boş bir veritabanı oluşturur ve sonra stok adlı bir örnek tablo oluşturur. Birkaç satır ekler ve sonra bu satırları okur. Verileri bir güncelleştirme deyimiyle değiştirir ve satırları yeniden okur. Son olarak bir satırı siler ve satırları yeniden okur.
+1. Bazı örnek verileri görmek için aşağıdaki örnek SQL kodunu kopyalayıp SQL sekmesindeki boş bir sayfaya tıklayın.
+
+    Bu kod **quickstartdb** adlı boş bir veritabanı oluşturur. Ardından **inventory** adlı bir örnek tablo oluşturur. Kod birkaç satır ekler ve sonra bu satırları okur. Verileri bir güncelleştirme deyimiyle değiştirir ve ardından satırları yeniden okur. Kod son olarak bir satırı siler ve satırları yeniden okur.
     
     ```sql
     -- Create a database
@@ -98,15 +106,15 @@ MySQL Workbench ile MariaDB için Azure Veritabanı sunucusuna bağlanmak için 
     SELECT * FROM inventory;
     ```
 
-    Ekran görüntüsünde, SQL Workbench’te örnek bir SQL kodu ve kod çalıştırıldıktan sonra oluşan çıktı gösterilmektedir.
+    Ekran görüntüsünde, MySQL Workbench’te örnek bir SQL kodu ve kod çalıştırıldıktan sonra oluşan çıktı gösterilmektedir:
     
-    ![Örnek SQL kodunu çalıştırmak için MySQL Workbench SQL Sekmesi](media/connect-workbench/3-workbench-sql-tab.png)
+    ![Örnek SQL kodunu çalıştırmak için MySQL Workbench SQL sekmesini seçin](media/connect-workbench/3-workbench-sql-tab.png)
 
-2. Örnek SQL Kodunu çalıştırmak için **SQL Dosyası** sekmesindeki araç çubuğunda bulunan şimşek simgesine tıklayın.
+2. Örnek SQL kodunu çalıştırmak için **SQL Dosyası** sekmesindeki araç çubuğunda bulunan şimşek simgesine tıklayın.
 3. Sayfanın ortasındaki **Sonuç Izgarası** bölümünde üç sekme halinde sonuçların yer aldığına dikkat edin. 
 4. Sayfanın en altındaki **Çıktı** listesine dikkat edin. Her komutun durumu gösterilir. 
 
-MySQL Workbench kullanarak MariaDB için Azure Veritabanı’na bağlandınız ve SQL dilini kullanarak verileri sorguladınız.
+Bu hızlı başlangıçta MySQL Workbench kullanarak MariaDB için Azure Veritabanı’na bağlandınız ve SQL dilini kullanarak verileri sorguladınız.
 
 <!--
 ## Next steps

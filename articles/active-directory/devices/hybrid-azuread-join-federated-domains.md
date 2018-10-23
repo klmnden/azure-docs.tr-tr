@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 08/25/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: 2f020bdf79811c959e07d753231fc133fe597861
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: c7396d7322958442fab51417eb350f26f7ada78e
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48855196"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49352669"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-federated-domains"></a>Öğretici: Federasyon etki alanları için hibrit Azure Active Directory'ye katılımı yapılandırma
 
@@ -124,7 +124,7 @@ Azure AD Connect kullanarak bir hibrit Azure AD'ye katılımı yapılandırmak i
 
     a. Ormanı seçin.
 
-    b. Kimlik doğrulama hizmetini seçin. Kuruluşunuzda sadece Windows 10 istemcileri yoksa AD FS sunucusu seçmeniz gerekir.
+    b. Kimlik doğrulama hizmetini seçin. Kuruluşunuzda yalnızca Windows 10 istemciler yoksa ve bilgisayar/cihaz eşitleme yapılandırmasını yapılandırmadıysanız veya kuruluşunuz SeamlessSSO kullanmıyorsa AD FS sunucusunu seçmeniz gerekir.
 
     c. Kuruluş yöneticisinin kimlik bilgilerini girmek için **Ekle** seçeneğine tıklayın.
 
@@ -194,7 +194,7 @@ Hizmet ayrıntılarını kontrol etmek için **Get-MSolDevice** cmdlet kullanır
 
 - Windows istemcisindeki kimlik ile eşleşen **cihaz kimliğine** sahip bir nesnenin bulunması gerekir.
 - **DeviceTrustType** değerinin **Etki Alanına Katılmış** olması gerekir. Bu, Azure AD portalında Cihazlar sayfasındaki **Hibrit Azure AD'ye katılmış** durumuna eşdeğerdir.
-- **Enabled** değerinin, koşullu erişimde kullanılan cihazlar için **True** olması gerekir. 
+- Koşullu erişimde kullanılan cihazlar için **Enabled** değerinin **True**, **DeviceTrustLevel** değerinin de **Managed** olması gerekir. 
 
 
 **Hizmet ayrıntılarını kontrol etmek için:**

@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 04/12/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 27167b011e23befda5d0c3703adeafc1581f4b98
-ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
+ms.openlocfilehash: 4333a234efe96f32541254819c9c5f21bb031757
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48268944"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49115085"
 ---
 # <a name="tutorial-add-an-https-endpoint-to-an-aspnet-core-web-api-front-end-service-using-kestrel"></a>Öğretici: Kestrel kullanarak bir ASP.NET Core Web API’si ön uç hizmetine HTTPS uç noktası ekleme
 
@@ -41,7 +41,7 @@ Bu öğretici dizisinde şunların nasıl yapıldığını öğrenirsiniz:
 > * [.NET Service Fabric uygulaması oluşturma](service-fabric-tutorial-deploy-app-to-party-cluster.md)
 > * [Uygulamayı uzak kümeye dağıtma](service-fabric-tutorial-deploy-app-to-party-cluster.md)
 > * Bir ASP.NET Core ön uç hizmetine HTTPS uç noktası ekleme
-> * [Azure Pipelines ile CI/CD yapılandırma](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)
+> * [Azure Pipelines kullanarak CI/CD yapılandırma](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)
 > * [Uygulama için izleme ve tanılamayı ayarlama](service-fabric-tutorial-monitoring-aspnet.md)
 
 ## <a name="prerequisites"></a>Ön koşullar
@@ -118,7 +118,7 @@ using Microsoft.Extensions.Configuration;
 using System.Security.Cryptography.X509Certificates;
 ```
 
-`ServiceInstanceListener` değerini yeni *EndpointHttps* uç noktasını kullanacak ve 443 numaralı bağlantı noktasını dinleyecek şekilde güncelleştirin.
+`ServiceInstanceListener` değerini yeni *EndpointHttps* uç noktasını kullanacak ve 443 numaralı bağlantı noktasını dinleyecek şekilde güncelleştirin. Web ana bilgisayarını Kestrel sunucusunu kullanacak şekilde yapılandırırken Kestrel'i tüm ağ arabirimlerinde IPv6 adreslerini dinleyecek şekilde yapılandırmanız gerekir: `opt.Listen(IPAddress.IPv6Any, port, listenOptions => {...}`.
 
 ```csharp
 new ServiceInstanceListener(
@@ -444,7 +444,7 @@ Uygulama dağıtılırken bir web tarayıcısı açın ve [https://mycluster.reg
 
 Sonraki öğreticiye ilerleyin:
 > [!div class="nextstepaction"]
-> [Azure Pipelines ile CI/CD yapılandırma](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)
+> [Azure Pipelines kullanarak CI/CD yapılandırma](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)
 
 [image1]: ./media/service-fabric-tutorial-dotnet-app-enable-https-endpoint/SetupBatProperties.png
 [image2]: ./media/service-fabric-tutorial-dotnet-app-enable-https-endpoint/VotingAppLocal.png

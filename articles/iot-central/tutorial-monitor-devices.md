@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: 9a3b7383651d679b079818fb32bd8f98160d0a4c
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: 91a4fceaf5a3e573964919d365a67519b26278ca
+ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35235490"
+ms.lasthandoff: 10/13/2018
+ms.locfileid: "49310633"
 ---
 # <a name="tutorial-use-azure-iot-central-to-monitor-your-devices"></a>Öğretici: Azure IoT Central kullanarak cihazlarınızı izleme
 
@@ -61,7 +61,7 @@ Panodaki grafik, cihaz sıcaklığının bir çizimini gösterir. Cihazın geçe
 
 Cihazın hedef sıcaklığını değiştirmek için **Ayarlar** sayfasını kullanın:
 
-1. **Ayarlar**'ı seçin. **Sıcaklığı Ayarla**’yı 100 olarak değiştirin. Yeni hedef sıcaklığı cihaza göndermek için **Güncelleştir**’i seçin. Cihaz ayarların değiştiğini kabul ettiğinde, ayar değerinin durumu **eşitlendi** olarak değişir:
+1. **Ayarlar**'ı seçin. **Sıcaklığı Ayarla**’yı 75 olarak değiştirin. Yeni hedef sıcaklığı cihaza göndermek için **Güncelleştir**’i seçin. Cihaz ayarların değiştiğini kabul ettiğinde, ayar değerinin durumu **eşitlendi** olarak değişir:
 
     ![Ayarları güncelleştirme](media/tutorial-monitor-devices/change_settings.png)
 

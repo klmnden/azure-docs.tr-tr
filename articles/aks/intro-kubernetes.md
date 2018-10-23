@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 09/26/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 67b80f539faab40884066f23aaf8a72ad7a6981b
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: ac18b8099b14f29579b35eb8dd2124d2d63f80d7
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47394420"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49390083"
 ---
 # <a name="azure-kubernetes-service-aks"></a>Azure Kubernetes Hizmeti (AKS)
 
@@ -29,7 +29,7 @@ AKS, gelişmiş güvenlik ve yönetim için, Azure Active Directory ile tümleş
 
 ### <a name="identity-and-security-management"></a>Kimlik ve güvenlik yönetimi
 
-AKS, küme kaynaklarına erişimi sınırlandırmak içi [Kubernetes rol tabanlı erişim denetimini (RBAC)][kubernetes-rbac] desteklemektedir. RBAC, Kubernetes kaynaklarına ve ad alanlarına nasıl erişilebileceğini ve bu kaynaklar üzerinde hangi izinlerin bulunduğunu denetlemenizi sağlar. Bir AKS kümesini Azure Active Directory (AD) ile tümleştirilecek şekilde de yapılandırabilirsiniz. Azure AD tümleştirmesiyle, Kubernetes erişimi var olan kimlik ve grup üyeliklerine göre yapılandırılabilir. Var olan Azure AD kullanıcılarınıza ve gruplarınıza, AKS kaynaklarına erişim hakkı ve tümleşik oturum açma deneyimi sağlanabilir.
+AKS, küme kaynaklarına erişimi sınırlandırmak içi [Kubernetes rol tabanlı erişim denetimini (RBAC)][kubernetes-rbac] desteklemektedir. RBAC, Kubernetes kaynaklarına ve ad alanlarına erişimi ve bu kaynakların izinlerini denetlemenizi sağlar. Bir AKS kümesini Azure Active Directory (AD) ile tümleştirilecek şekilde de yapılandırabilirsiniz. Azure AD tümleştirmesiyle, Kubernetes erişimi var olan kimlik ve grup üyeliklerine göre yapılandırılabilir. Var olan Azure AD kullanıcılarınıza ve gruplarınıza, AKS kaynaklarına erişim hakkı ve tümleşik oturum açma deneyimi sağlanabilir.
 
 AKS kümelerinizin güvenliğini sağlamak için, bkz. [Azure Active Directory’yi AKS ile Tümleştirme][aks-aad].
 
@@ -123,12 +123,12 @@ Azure CLI hızlı başlangıçları ile AKS dağıtma ve yönetme hakkında daha
 [aks-cli]: ./kubernetes-walkthrough.md
 [aks-gpu]: ./gpu-cluster.md
 [aks-http-routing]: ./http-application-routing.md
-[aks-networking]: ./networking-overview.md
+[aks-networking]: ./concepts-network.md
 [aks-portal]: ./kubernetes-walkthrough-portal.md
 [aks-scale]: ./tutorial-kubernetes-scale.md
 [aks-upgrade]: ./upgrade-cluster.md
-[azure-dev-spaces]: https://docs.microsoft.com/en-us/azure/dev-spaces/azure-dev-spaces
-[azure-devops]: https://docs.microsoft.com/en-us/azure/devops-project/overview
+[azure-dev-spaces]: https://docs.microsoft.com/azure/dev-spaces/azure-dev-spaces
+[azure-devops]: https://docs.microsoft.com/azure/devops-project/overview
 [azure-disk]: ./azure-disks-dynamic-pv.md
 [azure-files]: ./azure-files-dynamic-pv.md
 [container-health]: ../monitoring/monitoring-container-health.md

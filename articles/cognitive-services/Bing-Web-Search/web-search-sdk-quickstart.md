@@ -10,18 +10,16 @@ ms.component: bing-web-search
 ms.topic: quickstart
 ms.date: 08/16/2018
 ms.author: erhopf
-ms.openlocfilehash: cebeab562a54ec68b69eb6422685cc4b596ac223
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 04a70c2afbd499d3965e23487cd49540b38e08af
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46127898"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49318665"
 ---
 # <a name="quickstart-use-the-bing-web-search-sdk-for-c"></a>Hızlı başlangıç: C# için Bing Web Araması SDK'sını kullanma
 
 Bing Web Araması SDK'sı, Bing Web Araması özelliklerini C# uygulamanızla tümleştirmeyi kolaylaştırır. Bu hızlı başlangıçta istemci başlatmayı, istek göndermeyi ve yanıtı yazdırmayı öğreneceksiniz.
-
-Kodu hemen görmek istiyor musunuz? GitHub'daki [C# için Bing Web Araması SDK'sı örneklerini](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/) inceleyebilirsiniz.
 
 [!INCLUDE [bing-web-search-quickstart-signup](../../../includes/bing-web-search-quickstart-signup.md)]
 
@@ -36,6 +34,9 @@ Bu hızlı başlangıcı çalıştırmak için aşağıdakilere ihtiyacınız ol
 * [.Net Core SDK](https://www.microsoft.com/net/download)
 
 ## <a name="create-a-project-and-install-dependencies"></a>Proje oluşturma ve bağımlılıkları yükleme
+
+> [!TIP]
+> Güncel kodu [GitHub](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/)'dan Visual Studio çözümü olarak alın.
 
 İlk adım yeni bir konsol projesi oluşturmaktır. Konsol projesi oluşturma konusunda yardıma ihtiyacınız varsa bkz. [Merhaba Dünya -- İlk Programınız (C# Programlama Kılavuzu)](https://docs.microsoft.com/dotnet/csharp/programming-guide/inside-a-program/hello-world-your-first-program). Bing Web Araması SDK'sını uygulamanızda kullanmak için NuGet Paket Yöneticisi'ni kullanarak `Microsoft.Azure.CognitiveServices.Search.WebSearch` paketini yüklemeniz gerekir.
 

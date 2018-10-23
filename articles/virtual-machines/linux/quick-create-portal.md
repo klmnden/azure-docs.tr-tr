@@ -13,19 +13,19 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/14/2018
+ms.date: 10/12/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: fcc9f338ad69322091199ce9d5d2d1d6f9f2165e
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 78b20b977685989c10ba61a48afee7808c46f227
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47227291"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49320637"
 ---
 # <a name="quickstart-create-a-linux-virtual-machine-in-the-azure-portal"></a>Hızlı başlangıç: Azure portalında Linux sanal makinesi oluşturma
 
-Azure sanal makineleri (VM’ler), Azure portalı üzerinden oluşturulabilir. Bu yöntem, sanal makineleri ve tüm ilgili kaynaklarını oluşturmaya yönelik tarayıcı tabanlı bir kullanıcı arabirimi sağlar. Bu hızlı başlangıçta Azure portalı kullanarak Azure’da Ubuntu çalıştıran bir Linux sanal makinesinin (VM) nasıl dağıtılacağı gösterilir. VM’ye SSH oluşturup NGINX web sunucusunu yükleyerek VM’nizin çalıştığını görebilirsiniz.
+Azure sanal makineleri (VM’ler), Azure portalı üzerinden oluşturulabilir. Azure portal, sanal makineleri ve tüm ilgili kaynaklarını oluşturmaya yönelik tarayıcı tabanlı bir kullanıcı arabirimi sağlar. Bu hızlı başlangıçta Azure portalı kullanarak Ubuntu 16.04 LTS çalıştıran bir Linux sanal makinesinin (VM) nasıl dağıtılacağı gösterilir. Ayrıca VM'nizin çalıştığını görmek için SSH ile VM bağlantısı kurup NGINX web sunucusunu da yükleyeceksiniz.
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 
@@ -33,17 +33,27 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 
 Bu hızlı başlangıcı tamamlamak için bir SSH anahtar çifti gerekir. Bir SSH anahtar çiftiniz varsa bu adımı atlayabilirsiniz.
 
-Bir SSH anahtar çifti oluşturarak Linux VM’lerinde oturum açmak için bir Bash kabuğundan aşağıdaki komutu çalıştırın ve ekrandaki yönergeleri izleyin. Örneğin, [Azure Cloud Shell](../../cloud-shell/overview.md) veya [Linux için Windows Substem](/windows/wsl/install-win10)’i kullanabilirsiniz. Komut çıktısı genel anahtar dosyasının dosya adını içerir. Ortak anahtar dosyasının içeriğini (`cat ~/.ssh/id_rsa.pub`) panoya kopyalayın:
+SSH anahtar çifti oluşturmak için bir Bash kabuğu açın ve [ssh-keygen](https://www.ssh.com/ssh/keygen/) komutunu kullanın. Yerel bilgisayarınızda Bash kabuğunuz yoksa [Azure Cloud Shell](https://shell.azure.com/bash)'i kullanabilirsiniz.  
 
 ```bash
 ssh-keygen -t rsa -b 2048
 ```
 
+Yukarıdaki komut `~/.ssh directory` içinde `id_rsa` varsayılan adıyla ortak ve özel anahtarlar oluşturur. Komut, ortak anahtarın tam yolunu döndürür. `cat` komutuyla ortak anahtarın yolunu kullanarak içeriğini görüntüleyebilirsiniz.
+
+```bash 
+cat ~/.ssh/id_rsa.pub
+```
+
+Bu komutun çıktısını kaydedin. VM'nize oturum açmak için kullanacağınız yönetici hesabını yapılandırma sırasında buna ihtiyacınız olacak.
+
 PuTTy kullanımı dahil olmak üzere SSH anahtar çiftlerinin oluşturulması konusunda daha ayrıntılı bilgi edinmek için bkz. [Windows ile SSH anahtarları kullanma](ssh-from-windows.md).
 
-## <a name="log-in-to-azure"></a>Azure'da oturum açma
+SSH anahtar çiftinizi Cloud Shell'i kullanarak oluşturduğunuzda [Cloud Shell tarafından otomatik olarak takılan](https://docs.microsoft.com/azure/cloud-shell/persisting-shell-storage) bir Azure Dosya Paylaşımında depolanır. Anahtarlarınızı alana kadar bu dosya paylaşımını veya depolama hesabını silmeyin. Aksi takdirde VM erişimini kaybedersiniz. 
 
-http://portal.azure.com adresinden Azure portalında oturum açın
+## <a name="sign-in-to-azure"></a>Azure'da oturum açma
+
+[Azure Portal](https://portal.azure.com) oturum açın.
 
 ## <a name="create-virtual-machine"></a>Sanal makine oluşturma
 
@@ -69,6 +79,10 @@ http://portal.azure.com adresinden Azure portalında oturum açın
 
 1. Kalan varsayılan ayarları bırakın, ardından sayfanın alt kısmındaki **Gözden geçir + oluştur** düğmesini seçin.
 
+1. **Sanal makine oluştur** sayfasında oluşturmak üzere olduğunuz VM'nin ayrıntılarını görüntüleyebilirsiniz. Hazır olduğunuzda **Oluştur**'u seçin.
+
+VM'nizin dağıtılması birkaç dakika sürer. Dağıtım tamamlandıktan sonra bir sonraki bölüme geçin.
+
     
 ## <a name="connect-to-virtual-machine"></a>Sanal makineye bağlanma
 
@@ -78,32 +92,29 @@ VM ile bir SSH bağlantısı oluşturun.
 
     ![Portal 9](./media/quick-create-portal/portal-quick-start-9.png)
 
-2. **Sanal makineye bağlan** sayfasında, 22 numaralı bağlantı noktası üzerinden DNS adına göre bağlanmak için varsayılan seçenekleri olduğu gibi bırakın. **VM yerel hesabı kullanarak oturum açın** bölümünde bir bağlantı komutu gösterilir. Düğmeye tıklayarak komutu kopyalayın. Aşağıdaki örnekte SSH bağlantı komutunun nasıl göründüğü gösterilmiştir:
+2. **Sanal makineye bağlan** sayfasında, 22 numaralı bağlantı noktası üzerinden IP adresine göre bağlanmak için varsayılan seçenekleri olduğu gibi bırakın. **VM yerel hesabı kullanarak oturum açın** bölümünde bir bağlantı komutu gösterilir. Düğmeye tıklayarak komutu kopyalayın. Aşağıdaki örnekte SSH bağlantı komutunun nasıl göründüğü gösterilmiştir:
 
     ```bash
-    ssh azureuser@myvm-123abc.eastus.cloudapp.azure.com
+    ssh azureuser@10.111.12.123
     ```
 
-3. SSH bağlantı komutunu Windows üzerine Azure Cloud Shell veya Ubuntu üzerinde Bash gibi bir kabuğa yapıştırarak bağlantıyı oluşturun. 
+3. SSH anahtar çiftini oluşturmak için kullandığınız Bash kabuğunu kullanarak ([Azure Cloud Shell](https://shell.azure.com/bash) veya yerel Bash kabuğunuz gibi) SSH bağlantı komutunu kabuğa yapıştırarak bir SSH oturumu oluşturun. 
 
 ## <a name="install-web-server"></a>Web sunucusunu yükleyin
 
-Sanal makinenizin çalıştığını görmek için NGINX web sunucusunu yükleyin. Paket kaynaklarını güncelleştirmek ve en son NGINX paketini yüklemek için SSH oturumunuzdan aşağıdaki komutları çalıştırın:
+Sanal makinenizin çalıştığını görmek için NGINX web sunucusunu yükleyin. SSH oturumunuzdan paket kaynaklarınızı güncelleştirip en son NGINX paketini yükleyin.
 
 ```bash
-# update packages
 sudo apt-get -y update
-
-# install NGINX
 sudo apt-get -y install nginx
 ```
 
-İşiniz bittiğinde, `exit` seçeneği ile SSH oturumundan çıkıp Azure portalında VM özelliklerine geri dönün.
+İşlemi tamamladığınızda `exit` yazarak SSH oturumunu kapatın.
 
 
 ## <a name="view-the-web-server-in-action"></a>Web sunucusunu iş başında görün
 
-NGINX yüklüyken ve sanal makinenizde 80 numaralı bağlantı noktası açıkken, web sunucusuna İnternet üzerinden erişilebilir. Bir web tarayıcısı açın ve VM’nin ortak IP adresini girin. Genel IP adresi VM’ye genel bakış sayfasında veya gelen bağlantı noktası kuralını eklediğiniz *Ağ* sayfasının üstünde bulunabilir.
+İstediğiniz web tarayıcısını kullanarak varsayılan NGINX karşılama sayfasını görüntüleyin. VM'nin genel IP adresini web adresi olarak girin. Genel IP adresini VM genel bakış sayfasında veya önceden kullandığınız SSH bağlantı dizesinde bulabilirsiniz.
 
 ![Varsayılan NGINX sitesi](./media/quick-create-cli/nginx.png)
 

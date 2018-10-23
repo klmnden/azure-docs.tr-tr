@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 09/18/2018
+ms.date: 10/17/2018
 ms.topic: tutorial
 ms.service: cost-management
 ms.custom: ''
 manager: dougeby
-ms.openlocfilehash: c50259f0df955c3a22edc979dfebc8bfb2059e16
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: e705a0f57b598eb60932ca1056131cedc1416ffc
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46987801"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49394485"
 ---
 <!-- Intent: As a cloud-consuming administrator, I need to ensure that my reserved instances are optimized for cost and usage
 -->
@@ -41,7 +41,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 ## <a name="prerequisites"></a>Ön koşullar
 
 - Azure hesabınız olmalıdır.
-- Cloudyn için bir deneme kaydı veya ücretli aboneliğe sahip olmanız gerekir.
+- Cloudyn için bir deneme kaydına veya ücretli aboneliğe sahip olmanız gerekir.
 - Azure veya AWS'de RI satın almış olmalısınız.
 
 ## <a name="understand-azure-ri-costs"></a>Azure RI maliyetlerini anlama
@@ -125,7 +125,7 @@ Ayırma satın aldığınızda, bir kerelik ödeme yaparsınız. Cloudyn'de öde
 
 Gerçek Maliyet Analizi ve Zamana Göre Analiz raporlarında, satın alındığı aydan başlayarak ayırma için ödediğiniz tam miktar gösterilir. Bunlar, belirli bir dönemdeki gerçek harcamayı görmenize yardımcı olur.
 
-Cloudyn portalında **Maliyet** > **Maliyet Analizi**'ne gidin ve ardından **Gerçek Maliyet Analizi**'ni veya **Zamana Göre Gerçek Maliyet**'i seçin. Sonra filtreleri ayarlayın. Örneğin, yalnızca Azure/VM hizmetini filtreleyin ve Kaynak Türü ile Fiyat Modeli'ne göre gruplandırın. Aşağıdaki resme bakın:
+Cloudyn portalında **Maliyetler** > **Maliyet Analizi**'ne gidin ve ardından **Gerçek Maliyet Analizi**'ni veya **Zamana Göre Gerçek Maliyet**'i seçin. Sonra filtreleri ayarlayın. Örneğin, yalnızca Azure/VM hizmetini filtreleyin ve Kaynak Türü ile Fiyat Modeli'ne göre gruplandırın. Aşağıdaki resme bakın:
 
 ![Ayrılmış örneğin gerçek maliyeti](./media/tutorial-optimize-reserved-instances/azure05.png)
 
@@ -143,7 +143,7 @@ Amorti edilmiş ayrılmış örnek maliyeti, tek seferlik ayırma ücretinin al�
 
 Gerçek Maliyet raporunda, 16 Kasım'daki RI satın alması için 747 ABD Doları tutarında bir sıçrama görürsünüz. Amorti Edilmiş Maliyet raporunda (aşağıdaki resme bakın), 16 Kasım'da kısmi bir günlük maliyet vardır. 17 Kasım'dan başlayarak, 747 ABD Doları/365 = 2,05 ABD Doları tutarındaki amorti edilmiş RI maliyetini görürsünüz. Bu arada, satın alınan ayırmanın kullanılmamış olduğunu fark edebilir ve bu nedenle onu farklı bir VM boyutuna kaydırarak iyileştirebilirsiniz.
 
-Bunu görüntülemek için, **Maliyet** > **Maliyet Analizi**'ne gidin ve ardından **Amorti Edilmiş Maliyet Analizi**'ni veya **Zamana Göre Amorti Edilmiş Maliyet**'i seçin.
+Bunu görüntülemek için, **Maliyetler** > **Maliyet Analizi**'ne gidin ve ardından **Amorti Edilmiş Maliyet Analizi**'ni veya **Zamana Göre Amorti Edilmiş Maliyet**'i seçin.
 
 ![Amorti edilmiş ayrılmış örnek maliyeti](./media/tutorial-optimize-reserved-instances/azure07.png)
 

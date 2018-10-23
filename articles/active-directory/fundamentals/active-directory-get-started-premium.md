@@ -12,12 +12,12 @@ ms.date: 09/07/2017
 ms.author: lizross
 ms.reviewer: piotrci
 ms.custom: it-pro
-ms.openlocfilehash: bce7a060908e8043390fdce729161cad48a644be
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: a0a992e62e7b1e375ff2591aa82bdc7733e9d26f
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45731079"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49394706"
 ---
 # <a name="how-to-sign-up-for-azure-active-directory-premium"></a>Nasıl yapılır: Azure Active Directory Premium’a kaydolma
 Azure Active Directory (Azure AD) Premium ürününü satın alabilir ve bunu Azure aboneliğinizle ilişkilendirebilirsiniz. Yeni bir Azure aboneliği oluşturmanız gerekiyorsa, lisans planınızı ve Azure AD hizmeti erişimini etkinleştirmeniz gerekir.
@@ -27,11 +27,11 @@ Azure Active Directory (Azure AD) Premium ürününü satın alabilir ve bunu Az
 
 Active Directory Premium 1 veya Premium 2’ye kaydolmadan önce, mevcut aboneliğinizin veya planınızın hangisini kullanacağınızı belirlemeniz gerekir:
 
-    - Mevcut Azure veya Office 365 aboneliğiniz aracılığıyla
+- Mevcut Azure veya Office 365 aboneliğiniz aracılığıyla
 
-    - Enterprise Mobility + Security lisans planı aracılığıyla
+- Enterprise Mobility + Security lisans planı aracılığıyla
 
-    - Microsoft Toplu Lisanslama planı aracılığıyla
+- Microsoft Toplu Lisanslama planı aracılığıyla
 
 Önceden satın alınan veya etkinleştirilen Azure AD lisanslarıyla Azure aboneliğinizi kullanarak kaydolduğunuzda aynı dizindeki lisanslar otomatik olarak etkinleştirilir. Aksi takdirde, lisans planınızı ve Azure AD erişiminizi etkinleştirmeniz gerekir. Lisans planınızı etkinleştirme hakkında daha fazla bilgi için bkz. [Yeni lisans planınızı etkinleştirme](#activate-your-new-license-plan). Azure AD erişiminizi etkinleştirme hakkında daha fazla bilgi için bkz. [Azure AD erişiminizi etkinleştirme](#activate-your-azure-ad-access). 
 
@@ -43,20 +43,20 @@ Enterprise Mobility + Security; Azure AD Premium, Azure Information Protection v
 
 EMS hakkında daha fazla bilgi için bkz. [Enterprise Mobility + Security web sitesi](https://www.microsoft.com/cloud-platform/enterprise-mobility-security).
 
-    - EMS’yi, ücretsiz bir [Enterprise Mobility + Security E5 deneme aboneliği](https://signup.microsoft.com/Signup?OfferId=87dd2714-d452-48a0-a809-d2f58c4f68b7&ali=1) ile deneyebilirsiniz.
+- EMS’yi, ücretsiz bir [Enterprise Mobility + Security E5 deneme aboneliği](https://signup.microsoft.com/Signup?OfferId=87dd2714-d452-48a0-a809-d2f58c4f68b7&ali=1) ile deneyebilirsiniz.
 
-    - [Enterprise Mobility + Security E5 lisansı](https://signup.microsoft.com/Signup?OfferId=e6de2192-536a-4dc3-afdc-9e2602b6c790&ali=1) satın alma
+- [Enterprise Mobility + Security E5 lisansı](https://signup.microsoft.com/Signup?OfferId=e6de2192-536a-4dc3-afdc-9e2602b6c790&ali=1) satın alma
 
-    - [Enterprise Mobility + Security E3 lisansı](https://signup.microsoft.com/Signup?OfferId=4BBA281F-95E8-4136-8B0F-037D6062F54C&ali=1) satın alma
+- [Enterprise Mobility + Security E3 lisansı](https://signup.microsoft.com/Signup?OfferId=4BBA281F-95E8-4136-8B0F-037D6062F54C&ali=1) satın alma
 
 ## <a name="sign-up-using-your-microsoft-volume-licensing-plan"></a>Microsoft Toplu Lisanslama planınızı kullanarak kaydolma
 Microsoft Toplu Lisanslama planınız sayesinde, almak istediğiniz lisans sayısına göre şu iki programdan birini kullanarak Azure AD Premium’a kaydolabilirsiniz:
 
-    - **250 veya daha fazla lisans için.** [Microsoft Kurumsal Anlaşma](https://www.microsoft.com/en-us/licensing/licensing-programs/enterprise.aspx)
+- **250 veya daha fazla lisans için.** [Microsoft Kurumsal Anlaşma](https://www.microsoft.com/en-us/licensing/licensing-programs/enterprise.aspx)
 
-    - **5 ila 250 lisans için.** [Açık** Toplu Lisans](https://www.microsoft.com/en-us/licensing/licensing-programs/open-license.aspx)
+- **5 ila 250 lisans için.** [Açık Toplu Lisans](https://www.microsoft.com/en-us/licensing/licensing-programs/open-license.aspx)
 
-    Toplu lisans satın alma seçenekleri hakkında daha fazla bilgi için bkz. [Toplu Lisanslama ile satın alma](https://www.microsoft.com/en-us/licensing/how-to-buy/how-to-buy.aspx).
+Toplu lisans satın alma seçenekleri hakkında daha fazla bilgi için bkz. [Toplu Lisanslama ile satın alma](https://www.microsoft.com/en-us/licensing/how-to-buy/how-to-buy.aspx).
 
 ## <a name="activate-your-new-license-plan"></a>Yeni lisans planınızı etkinleştirme
 Yeni bir Azure AD lisans planı kullanarak kaydolduysanız, satın alımdan sonra gönderilen onay e-postasını kullanarak kuruluşunuz için bunu etkinleştirmeniz gerekir.

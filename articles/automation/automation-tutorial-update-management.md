@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/18/2018
 ms.author: zachal
 ms.custom: mvc
-ms.openlocfilehash: 4d504e0488d35c5c606468faa35bece1318503b4
-ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
+ms.openlocfilehash: bc1b52b97897cb1c635fb16e6ef9692de1ca8a44
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/20/2018
-ms.locfileid: "46498530"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49167265"
 ---
 # <a name="manage-windows-updates-by-using-azure-automation"></a>Azure Otomasyonu'nu kullanarak Windows güncelleştirmelerini yönetme
 
@@ -116,7 +116,8 @@ Bu sorgu, bilgisayarları ve belirtilen zaman çerçevesinde tamamlanan güncell
 
 #### <a name="runbook-alert"></a>Runbook uyarısı
 
-Başarısız dağıtımlar için, ana runbook başarısızlığıyla ilgili olarak uyarı almanız gerekir. Azure portal'da **İzleme** bölümüne gidin ve **Uyarı Oluştur**'u seçin.
+Başarısız olan dağıtımlar için ana runbook hata verdiğinde uyarı oluşturmanız gerekir.
+Azure portalında **İzleyici**'ye gidip **Uyarı Oluştur**'u seçin.
 
 **1. Uyarı koşulunu tamamlama** bölümünde **Hedef seçin**'e tıklayın. **Kaynak türüne göre filtrele** bölümünde **Otomasyon Hesapları**'nı seçin. Otomasyon Hesabınızı ve ardından **Bitti**'yi seçin.
 

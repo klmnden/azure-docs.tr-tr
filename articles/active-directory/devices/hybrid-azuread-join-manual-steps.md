@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 08/25/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: 4155ea7c24746f9d3381f2d1e4a1e08a7a56206a
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 4e3b7aff97cbcebe34e6af4755900e8888c5e57d
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43049946"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49352812"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-joined-devices-manually"></a>Öğretici: Hibrit Azure Active Directory'ye katılmış cihazları elle yapılandırma 
 
@@ -92,6 +92,8 @@ Kuruluşunuz Sorunsuz SSO kullanmayı planlıyorsa aşağıdaki URL'lere kurulu�
 Kuruluşunuz şirket içi AD ile yönetilen (federasyon olmayan) kurulum kullanıyorsa ve Azure AD ile federasyon için ADFS kullanmıyorsa Windows 10'da hibrit Azure AD'ye katılım özelliği, AD'deki bilgisayar nesnelerinin Azure AD'ye eşitlenmesine dayanır. Hibrit Azure AD'ye katılması gereken bilgisayar nesnelerini içeren tüm Kuruluş Birimlerinin (OU) Azure Ad Connect eşitleme yapılandırmasında eşitlemeler için etkinleştirildiğinden emin olun.
 
 1703 veya önceki sürümlereki Windows 10 cihazları için, kuruluşunuz giden bağlantı proxy'si aracılığıyla İnternete erişimi gerektiriyorsa Windows 10 bilgisayarlarını Azure AD'ye kayıt için etkinleştirmek üzere Web Proxy Otomatik Bulma (WPAD) uygulamanız gerekir. 
+
+Windows 10 1803 sürümünden itibaren federasyon etki alanındaki bir cihaz tarafından AD FS kullanılarak gerçekleştirilen hibrit Azure AD katılma girişimi başarısız olsa dahi Azure AD Connect'in bilgisayar/cihaz nesnelerini Azure AD ile eşleştirecek şekilde yapılandırılmış olması durumunda cihaz eşitlenen bilgisayarı/cihazı kullanarak hibrit Azure AD katılımını tamamlamaya çalışacaktır.
 
 ## <a name="configuration-steps"></a>Yapılandırma adımları
 

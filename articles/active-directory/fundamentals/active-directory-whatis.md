@@ -12,12 +12,12 @@ ms.workload: identity
 ms.topic: overview
 ms.date: 09/13/2018
 ms.custom: it-pro
-ms.openlocfilehash: 755c301651e7c49faa8b05b2b443c5cce1a03c90
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 08d32a99e2f1a77bcc7a5900b47e6771c33ec356
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46364083"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49393330"
 ---
 # <a name="what-is-azure-active-directory"></a>Azure Active Directory nedir?
 Azure Active Directory (Azure AD), Microsoft'un çok kiracılı bulut tabanlı dizin ve kimlik yönetimi hizmetidir. Azure AD, temel dizin hizmetlerini, uygulama erişimi yönetimini ve kimlik korumasını tek bir çözümde birleştirerek geliştiricilerin merkezi ilke ve kurallara göre uygulamalarına yönelik erişim denetimi sunmasına yardımcı olan standartlara dayalı bir platform sunar.

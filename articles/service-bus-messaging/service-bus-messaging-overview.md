@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 09/22/2018
 ms.custom: mvc
 ms.author: spelluru
-ms.openlocfilehash: 08295ceeb2ebe94a96eaade0a6443f0f59212d60
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 870cfcf8712cc5bee2674b82d5292e4241433386
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47394038"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49342216"
 ---
 # <a name="what-is-azure-service-bus"></a>Azure Service Bus nedir?
 
@@ -95,9 +95,9 @@ Aboneler, bir konu başlığından hangi iletileri almak istediklerini tanımlay
 
 İstemcinin bir gönderme işleminin sonucu konusunda kuşkulanmasına neden olacak bir hata oluşursa, [yineleme algılama](duplicate-detection.md) kuralı, gönderenin aynı iletiyi yeniden göndermesini ve kuyruk ya da konu başlığının yinelenen kopyaları atmasını sağlayarak bu kuşkuyu giderir.
 
-### <a name="sas-rbac-and-msi"></a>SAS, RBAC ve MSI
+### <a name="sas-rbac-and-managed-identities-for-azure-resources"></a>Azure kaynakları için SAS, RBAC ve Yönetilen kimlikler
 
-Service Bus, [Paylaşılan Erişim İmzaları](service-bus-sas.md) (SAS), [Rol Tabanlı Erişim Denetimi](service-bus-role-based-access-control.md) (RBAC) ve [Yönetilen Hizmet Kimliği](service-bus-managed-service-identity.md) (MSI) gibi güvenlik protokollerini destekler.
+Service Bus, [Paylaşılan Erişim İmzaları](service-bus-sas.md) (SAS), [Rol Tabanlı Erişim Denetimi](service-bus-role-based-access-control.md) (RBAC) ve [Azure kaynakları için Yönetilen kimlikler](service-bus-managed-service-identity.md) gibi güvenlik protokollerini destekler.
 
 ### <a name="geo-disaster-recovery"></a>Coğrafi olağanüstü durum kurtarma
 

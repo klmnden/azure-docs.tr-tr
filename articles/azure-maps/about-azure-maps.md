@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: e68050e4902183b899bf3fee31bef088b1a0faf2
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 4db494de87993a6434eaf5dbf441094578d72ea4
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45576077"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49165973"
 ---
 # <a name="what-is-azure-maps"></a>Azure Haritalar nedir?
 
@@ -23,6 +23,14 @@ Azure Haritalar, web ve mobil uygulamalarınıza coğrafi bağlam sağlamak amac
 Aşağıdaki videoda Azure Haritalar ayrıntılı olarak açıklanır:
 
 <iframe src="https://channel9.msdn.com/Shows/Azure-Friday/Azure-Location-Based-Services/player" width="960" height="540" allowFullScreen frameBorder="0"></iframe>
+
+## <a name="map-controls"></a>Harita Denetimleri
+
+### <a name="web-control"></a>Web Denetimi
+
+Azure Haritalar Web Denetimi, web veya mobil uygulamalarınızda görüntülediğiniz etkileşimli haritaları kendi içeriğiniz ve görüntülerinizle özelleştirmenizi sağlar. Bu denetimde büyük veri kümelerini yüksek performansla oluşturmanızı sağlayan WebGL bileşeni kullanılmaktadır. JavaScript veya TypeScript ile denetimi kullanarak dağıtın.
+
+![Azure Haritalar Web Denetimi](media/about-azure-maps/Introduction_WebMapControl.png)
 
 ## <a name="services-in-azure-maps"></a>Azure Haritalar'ın içindeki hizmetler
 

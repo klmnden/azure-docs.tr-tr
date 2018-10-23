@@ -2,24 +2,18 @@
 title: Azure Data Box’ı ayarlama| Microsoft Docs
 description: Azure Data Box’ınız için kabloları bağlamayı ve bağlanmayı öğrenin
 services: databox
-documentationcenter: NA
 author: alkohli
-manager: twooley
-editor: ''
-ms.assetid: ''
 ms.service: databox
-ms.devlang: NA
+ms.subservice: pod
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.date: 10/03/2018
+ms.date: 10/17/2018
 ms.author: alkohli
-ms.openlocfilehash: f9671e3acdb71affe2187258582254561785780e
-ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
+ms.openlocfilehash: c3766713c87dd721f7e4c9a90624192cdb402be9
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48785647"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49393839"
 ---
 # <a name="tutorial-cable-and-connect-to-your-azure-data-box"></a>Öğretici: Azure Data Box’ınız için kabloları bağlama ve bağlanma
 
@@ -91,6 +85,8 @@ Yerel web kullanıcı arabirimi ve portal kullanıcı arabirimini kullanarak cih
     - DHCP etkin değilse, **Ağ arabirimlerini ayarla**’ya gidin ve gerekirse statik IP’ler atayın.
 
     ![Cihaz panosu](media/data-box-deploy-set-up/data-box-dashboard-1.png)
+
+Veri ağı arabirimleri yapılandırıldıktan sonra DATA 1 - DATA 3 arabirimlerinden herhangi birinin IP adresini kullanarak `https://<IP address of a data network interface>` adresinden yerel web arabirimine erişebilirsiniz. 
 
 Cihaz kurulumu tamamlandıktan sonra cihaz paylaşımlarına bağlanabilir ve verileri bilgisayarınızdan cihaza kopyalayabilirsiniz. 
 

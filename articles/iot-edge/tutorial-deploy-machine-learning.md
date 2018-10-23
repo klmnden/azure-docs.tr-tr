@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 188e3c0e8b9a9d421b40e142e534aca2741fee56
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.openlocfilehash: 0af63c7beef0f5268ba078d517556fc64ac7bf87
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48248897"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49116362"
 ---
 # <a name="tutorial-deploy-azure-machine-learning-as-an-iot-edge-module-preview"></a>Öğretici: Azure Machine Learning'i bir IoT Edge modülü olarak dağıtma (önizleme)
 
@@ -45,7 +45,7 @@ Bir Azure IoT Edge cihazı:
 
 Bulut kaynakları:
 
-* Azure'da ücretsiz katman bir [IoT Hub'ı](../iot-hub/iot-hub-create-through-portal.md). 
+* Azure'da ücretsiz veya standart katman [IoT Hub'ı](../iot-hub/iot-hub-create-through-portal.md). 
 * Azure Machine Learning çalışma alanı. Yeni bir tane oluşturmak için [IoT Edge'de model dağıtmaya hazırlanma](../machine-learning/service/how-to-deploy-to-iot.md) bölümündeki yönergeleri izleyin.
 
 

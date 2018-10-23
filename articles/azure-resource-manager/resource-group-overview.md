@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/26/2018
 ms.author: tomfitz
-ms.openlocfilehash: dc73bbd775da31faecf236716a2b028171438b7c
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 841f82595257c97c15398347a3e1605219d1a534
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47220898"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49394434"
 ---
 # <a name="azure-resource-manager-overview"></a>Azure Resource Manager genel bakış
 Uygulamanızın altyapısı genellikle bir sanal makine, depolama hesabı, sanal ağ veya web uygulaması, veritabanı, veritabanı sunucusu ya da üçüncü taraf hizmetler gibi birçok bileşenden meydana gelir. Bu bileşenleri ayrı varlıklar olarak değerlendirmez, bunun yerine bunları tek bir varlığın ilgili ve birbirine bağımlı parçaları olarak kabul edersiniz. Bunları gruplar halinde dağıtmak, yönetmek ve izlemek isteyebilirsiniz. Azure Resource Manager, çözümünüzdeki kaynaklar ile gruplar halinde çalışmanıza olanak sağlar. Çözümünüzdeki tüm kaynakları tek ve eşgüdümlü bir işlemle dağıtabilir, güncelleştirebilir veya silebilirsiniz. Dağıtım için bir şablon kullanabilirsiniz. Üstelik bu şablon test, hazırlık ve üretim gibi farklı ortamlarda da çalışabilir. Resource Manager kaynaklarınızı dağıttıktan sonra yönetmenize yardımcı olmak için güvenlik, denetleme ve etiketleme özellikleri sunar. 
@@ -159,7 +159,7 @@ Son olarak, uygulamanızın kaynak kodunun bir parçası haline gelir. Bunu kayn
 
 Karmaşık bir hizmeti Azure’a dağıtırken, hizmetinizi birden çok bölgeye dağıtmanız ve bir sonraki adıma geçmeden önce sistem durumunu kontrol etmeniz gerekebilir. Hizmetin aşamalı kullanıma sunulmasını koordine etmek için [Azure Deployment Manager](deployment-manager-overview.md)’ı kullanın. Hizmetinizi aşamalı kullanıma sunarak, tüm bölgelere dağıtılmadan önce olası sorunları bulabilirsiniz. Bu önlemlere ihtiyacınız yoksa, önceki bölümde yer alan dağıtım işlemleri daha iyi seçenektir.
 
-Dağıtım Yöneticisi şu anda genel önizleme aşamasındadır.
+Dağıtım Yöneticisi şu anda özel önizleme aşamasındadır.
 
 ## <a name="tags"></a>Etiketler
 Resource Manager, kaynakları yönetme ve fatura gereksinimlerine göre kategorize etmenize olanak tanıyan bir etiketleme özelliği sunar. Karmaşık bir kaynak grubu ve kaynak koleksiyonunuz olduğunda ve bu varlıkları sizin için anlamlı bir şekilde görselleştirmeniz gerektiğinde etiketleri kullanabilirsiniz. Örneğin, kuruluşunuzda benzer görevleri üstlenen veya aynı departmana ait olan kaynakları etiketleyebilirsiniz. Kuruluşunuzdaki kullanıcılar etiketleri kullanmadan birden fazla kaynak oluşturduğunda, bunları daha sonra tanımlamak ve yönetmek zor olabilir. Örneğin, belirli bir projenin tüm kaynaklarını silmek isteyebilirsiniz. Kaynaklar proje için etiketlenmemişse bunları el ile bulmanız gerekir. Etiketleme, aboneliğinizden doğan gereksiz maliyetleri azaltmanın önemli bir yoludur. 

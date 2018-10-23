@@ -3,25 +3,23 @@ title: "Hızlı Başlangıç: Küçük resim oluşturma - C# SDK'sı - Görünt�
 titleSuffix: Azure Cognitive Services
 description: Bu hızlı başlangıçta, Görüntü İşleme Windows C# istemci kitaplığını kullanarak bir görüntüden küçük resim oluşturacaksınız.
 services: cognitive-services
-author: noellelacharite
+author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 09/14/2018
-ms.author: nolachar
-ms.openlocfilehash: 8fdbcf5bfe4d4fe60a2858b34b38c01d66e75d99
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.author: pafarley
+ms.openlocfilehash: 758021a9428672789923d1774f51fd319fe9885f
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47054821"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49343121"
 ---
 # <a name="quickstart-generate-a-thumbnail-using-the-computer-vision-sdk-and-c"></a>Hızlı Başlangıç: Görüntü İşleme SDK'sını ve C# dilini kullanarak küçük resim oluşturma
 
 Bu hızlı başlangıçta, Görüntü İşleme Windows istemci kitaplığını kullanarak bir görüntüden küçük resim oluşturacaksınız.
-
-Bu örneğin kaynak kodu [Github](https://github.com/Azure-Samples/cognitive-services-vision-csharp-sdk-quickstarts/tree/master/ComputerVision)'da mevcuttur.
 
 ## <a name="prerequisites"></a>Ön koşullar
 
@@ -30,6 +28,9 @@ Bu örneğin kaynak kodu [Github](https://github.com/Azure-Samples/cognitive-ser
 * [Microsoft.Azure.CognitiveServices.Vision.ComputerVision](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.ComputerVision) istemci kitaplığı NuGet paketi. Paketi indirmek gerekli değildir. Yükleme yönergeleri aşağıda verilmiştir.
 
 ## <a name="generatethumbnailasync-method"></a>GenerateThumbnailAsync yöntemi
+
+> [!TIP]
+> Güncel kodu [GitHub](https://github.com/Azure-Samples/cognitive-services-vision-csharp-sdk-quickstarts/tree/master/ComputerVision)'dan Visual Studio çözümü olarak alın.
 
 `GenerateThumbnailAsync` ve `GenerateThumbnailInStreamAsync` yöntemleri sırasıyla uzak ve yerel görüntüler için [Küçük Resim Alma API’sini](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fb) sarmalar.  Bir görüntünün küçük resmini oluşturmak için bu yöntemleri kullanabilirsiniz. Giriş görüntüsünün en boy oranından farklı olabilen bir yükseklik ve genişlik belirtirsiniz. Görüntü İşleme, ilgi bölgesini akıllı bir şekilde belirlemek için akıllı kırpma özelliğini kullanır ve ilgili bölgeyi temel alan kırpma koordinatları oluşturur.
 

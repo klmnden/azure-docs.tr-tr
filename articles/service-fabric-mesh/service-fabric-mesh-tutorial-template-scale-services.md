@@ -15,16 +15,16 @@ ms.workload: NA
 ms.date: 09/18/2018
 ms.author: ryanwi
 ms.custom: mvc, devcenter
-ms.openlocfilehash: bf0b38c8c2d465abe9f2e129110df41c349c3d07
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: 4d6839fea3ce0eb74cdf87396716cdc69c0cd1a0
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47055382"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49165990"
 ---
 # <a name="tutorial-scale-an-application-running-in-service-fabric-mesh"></a>Öğretici: Service Fabric Mesh’te çalışan bir uygulamayı ölçeklendirme
 
-Bu öğretici, bir dizinin ikinci bölümüdür. [Önceden Service Fabric Mesh’e dağıtılmış olan](service-fabric-mesh-tutorial-template-deploy-app.md) bir uygulamanın hizmet örneği sayısını kendinizin nasıl ölçeklendireceğinizi öğrenin.  İşiniz bittiğinde şunlara sahip olacaksınız:
+Bu öğretici, bir dizinin ikinci bölümüdür. [Önceden Service Fabric Mesh’e dağıtılmış olan](service-fabric-mesh-tutorial-template-deploy-app.md) bir uygulamanın hizmet örneği sayısını kendinizin nasıl ölçeklendireceğinizi öğrenin. İşlemi tamamladığınızda üç örnek çalıştıran bir ön uç hizmetine ve iki örnek çalıştıran bir veri hizmetine sahip olacaksınız.
 
 Serinin ikinci bölümünde şunları öğrenirsiniz:
 
@@ -47,7 +47,7 @@ Bu öğreticiye başlamadan önce:
 
 * Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturabilirsiniz.
 
-* [Azure CLI ve Service Fabric Mesh CLI’sini yerel olarak yükleme](service-fabric-mesh-howto-setup-cli.md#install-the-service-fabric-mesh-cli-locally).
+* [Azure CLI ve Service Fabric Mesh CLI’sini yerel olarak yükleyin](service-fabric-mesh-howto-setup-cli.md#install-the-service-fabric-mesh-cli-locally).
 
 ## <a name="manually-scale-your-services-in-or-out"></a>Hizmetlerinizin ölçeğini artırmanız veya azaltmanız
 

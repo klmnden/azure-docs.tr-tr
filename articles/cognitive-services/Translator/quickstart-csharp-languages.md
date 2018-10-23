@@ -10,18 +10,16 @@ ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/15/2018
 ms.author: nolachar
-ms.openlocfilehash: 967e978518debb5aef071807b1482d6f225c062f
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 82e051895bd5ba8542fa32aa147b050a25c43c84
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46367721"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49318410"
 ---
 # <a name="quickstart-get-supported-languages-with-c35"></a>Hızlı Başlangıç: C# ile desteklenen dilleri alma
 
 Bu hızlı başlangıçta, Translator Metin Çevirisi API’sini kullanarak çeviri, başka alfabeye çevirme ve sözlük arama için desteklenen dillerin ve örneklerin bir listesini alacaksınız.
-
-Bu örneğin kaynak kodu [Github](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-C-Sharp)’da mevcuttur.
 
 ## <a name="prerequisites"></a>Ön koşullar
 
@@ -30,6 +28,9 @@ Bu kodu Windows’da çalıştırmak için [Visual Studio 2017](https://www.visu
 Translator Metin Çevirisi API'sini kullanmak için, ayrıca abonelik anahtarınızın olması gerekir; bkz. [Translator Metin Çevirisi API'sine kaydolma](translator-text-how-to-signup.md).
 
 ## <a name="languages-request"></a>Diller isteği
+
+> [!TIP]
+> En son kodu [Github](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-C-Sharp)'dan edinin.
 
 Aşağıdaki kod, [Diller](./reference/v3-0-languages.md) yöntemini kullanarak çeviri, başka alfabeye çevirme ve sözlük arama için desteklenen dillerin ve örneklerin listesini alır.
 

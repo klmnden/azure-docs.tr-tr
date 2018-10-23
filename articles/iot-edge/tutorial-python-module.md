@@ -9,12 +9,12 @@ ms.date: 09/21/2018
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 0a32f925aa1ff4066a893fb107f4d785bd1fd8f8
-ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
+ms.openlocfilehash: 1316dcaf32b709dbc7c07f7d82388082d8d6e6a9
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47423570"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49319651"
 ---
 # <a name="tutorial-develop-and-deploy-a-python-iot-edge-module-to-your-simulated-device"></a>Öğretici: Python IoT Edge modülü geliştirme ve sanal cihazınıza dağıtma
 
@@ -41,7 +41,7 @@ Bir Azure IoT Edge cihazı:
 
 Bulut kaynakları:
 
-* Azure'da ücretsiz katman bir [IoT Hub'ı](../iot-hub/iot-hub-create-through-portal.md). 
+* Azure'da ücretsiz veya standart katman [IoT Hub'ı](../iot-hub/iot-hub-create-through-portal.md). 
 
 Geliştirme kaynakları:
 
@@ -82,7 +82,7 @@ Aşağıdaki adımlarda, Visual Studio Code'u ve Azure IoT Python modülünü ku
     pip install --upgrade --user cookiecutter
     ```
    >[!Note]
-   >Komut isteminden çağrılabilmesi için cookiecutter paketinin yükleneceği dizinin ortamınızın `Path` yolunda olduğundan emin olun.
+   >Komut isteminden çağrılabilmesi için cookiecutter paketinin yükleneceği dizinin ortamınızın `Path` yolunda olduğundan emin olun. Bunun için Windows'da PythonVersion yerine Python sürümünün bulunduğu `%APPDATA%\Python\PythonVersion\Scripts` dizinini eklemeniz gerekir.
 
 3. VS Code komut paletini açmak için **View (Görünüm)** > **Command Palette (Komut Paleti)** öğesini seçin. 
 
@@ -236,6 +236,16 @@ IoT Edge cihazınızı ayarlamak için kullandığınız hızlı başlangıç ma
 6. Yenile düğmesine tıklayın. Yeni **PythonModule** ile **TempSensor** modülü ve **$edgeAgent** ile **$edgeHub** bileşenlerinin çalıştığını görmeniz gerekir. 
 
 ## <a name="view-generated-data"></a>Oluşturulan verileri görüntüleme
+
+Dağıtım bildirimini IoT Edge cihazınıza uyguladıktan sonra cihazdaki IoT Edge çalışma zamanı yeni dağıtım bilgilerini toplar ve yürütmeye başlar. Cihazda çalışan ve dağıtım bildiriminde bulunmayan modüller durdurulur. Cihazda eksik olan modüller başlatılır. 
+
+IoT Edge cihazınızın durumunu görüntülemek için Visual Studio Code gezgininin **Azure IoT Hub Cihazları** bölümünü kullanabilirsiniz. Dağıtılan ve çalışan modüllerin listesini görmek için cihazınızın ayrıntılarını genişletin. 
+
+IoT Edge cihazında `iotedge list` komutunu kullanarak dağıtım modüllerinin durumunu görebilirsiniz. Dört modül görmeniz gerekir: İki IoT Edge çalışma zamanı modülü, tempSensor ve bu öğreticide oluşturduğunuz özel modül. Tüm modüllerin başlatılması birkaç dakika sürebilir. Bu nedenle tümünü görmüyorsanız komutu yeniden çalıştırın. 
+
+Modüller tarafından oluşturulan iletileri görüntülemek için `iotedge logs <module name>` komutunu kullanın. 
+
+Visual Studio Code'u kullanarak IoT hub'ınıza ulaşan iletileri görüntüleyebilirsiniz. 
 
 1. IoT hub'ına gelen verileri izlemek için, üç noktayı (**...**) ve sonra da **Start Monitoring D2C Messages** (D2C İletilerini İzlemeye Başla) öğesini seçin.
 2. Belirli bir cihazın D2C iletilerini izlemek için listeden cihaza sağ tıklayıp **Start Monitoring D2C Messages** (D2C İletilerini İzlemeye Başla) öğesini seçin.

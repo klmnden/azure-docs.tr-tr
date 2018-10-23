@@ -9,20 +9,20 @@ manager: cgronlund
 ms.custom: include file
 ms.topic: include
 ms.date: 07/27/2018
-ms.openlocfilehash: fb874d06fbccc7e1db542a5d063b9b6acd35b83f
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: 300b4a3e5c6c52f1c09f8e70a72f08406861a5d1
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48239990"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49400165"
 ---
 >[!IMPORTANT]
 >Oluşturduğunuz kaynaklar, diğer Azure Machine Learning hizmeti öğreticileri ve nasıl yapılır makalelerinde önkoşul olarak kullanılabilir. 
 
 
-Burada oluşturduğunuz kaynakları kullanmayacaksanız ücret ödememek için bu hızlı başlangıçta oluşturduğunuz kaynakları silin.
+Burada oluşturduğunuz kaynakları daha sonra kullanmayı planlamıyorsanız silerek ücret tahsil edilmesini engelleyebilirsiniz.
 
-1. Azure portalının en sol tarafındaki **Kaynak gruplarını** seçin.  
+1. Azure portalının en sol tarafındaki **Kaynak gruplarını** seçin.
  
    ![Azure portalında silme](./media/aml-delete-resource-group/delete-resources.png)
 
@@ -30,6 +30,6 @@ Burada oluşturduğunuz kaynakları kullanmayacaksanız ücret ödememek için b
 
 1. **Kaynak grubunu sil**'i seçin.
 
-1. Kaynak grubu adını yazın ve **Sil**'i seçin.
+1. Kaynak grubu adını girin ve **Sil**'i seçin.
 
-   "İç içe kaynaklar silinmeden önce kaynak silinemiyor" hatasını alırsanız önce iç içe kaynakları silmeniz gerekir. Ayrıntılar için [bu sorun giderme bölümüne bakın](../articles/machine-learning/desktop-workbench/known-issues-and-troubleshooting-guide.md#cant-delete-experimentation-account). 
+   "İç içe kaynaklar silinmeden önce kaynak silinemiyor" iletisini görürseniz önce iç içe kaynakları silmeniz gerekir. İç içe geçmiş kaynakları silme hakkında bilgi için [bu sorun giderme bölümüne](../articles/machine-learning/desktop-workbench/known-issues-and-troubleshooting-guide.md#cant-delete-experimentation-account) bakın. 

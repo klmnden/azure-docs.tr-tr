@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/16/2018
 ms.author: shvija
-ms.openlocfilehash: 03acd63ff00f0a3017297d1998289c8e68f0f290
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.openlocfilehash: 5abb2447fa90ea5900afb86746cc17eff62c2d2e
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "41918292"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49166296"
 ---
 # <a name="get-started-receiving-messages-with-the-event-processor-host-in-net-standard"></a>.NET Standard'da Olay İşlemcisi Konağı ile iletiler almaya başlama
 
@@ -43,13 +43,18 @@ Bu öğreticide, **Olay İşlemcisi Konağı** kitaplığını kullanarak bir ol
 ## <a name="create-an-azure-storage-account"></a>Azure Depolama hesabı oluşturma  
 
 1. [Azure Portal](https://portal.azure.com) oturum açın.  
-2. Portalın sol gezinti bölmesinde **Kaynak oluştur**'a, **Depolama**'ya ve ardından **Depolama Hesabı**'na tıklayın.  
-3. Depolama hesabı penceresindeki alanları doldurun ve **Oluştur**'a tıklayın.
+2. Portalın sol tarafındaki gezinti bölmesinde **Kaynak oluştur**'u, kategorilerden **Depolama**'yı seçin ve ardından **Depolama hesabı - blob, dosya, tablo, kuyruk** girişini seçin.  
+3. **Depolama hesabı oluştur** penceresindeki alanları doldurun ve **Gözden geçir + oluştur**'u seçin. 
 
     ![Depolama hesabı oluştur][1]
 
-4. **Dağıtımlar Başarılı** iletisini gördükten sonra, yeni depolama hesabının adına tıklayın. **Temel Bileşenler** penceresinde **Bloblar**'a tıklayın. **Blob hizmeti** iletişim kutusu açıldığında, en üstteki **+ Kapsayıcı**'ya tıklayın. Kapsayıcıya bir ad verin ve sonra da **Blob hizmeti** penceresini kapatın.  
-5. Sol taraftaki pencerede **Erişim tuşları**'na tıklayın ve depolama kapsayıcısının adını, depolama hesabını ve **key1** öğesinin değerini kopyalayın. Bu değerleri Not Defteri'ne veya başka bir geçici konuma kaydedin.  
+4. **Gözden geçir + oluştur** sayfasında alanların değerlerini gözden geçirdikten sonra **Oluştur**'u seçin. 
+5. **Dağıtımlar Başarılı** iletisini gördükten sonra, yeni depolama hesabının adını seçin. 
+6. **Temel Bileşenler** penceresinde **Bloblar**'u seçin. 
+7. En üstte **+ Kapsayıcı**'yı seçin. Kapsayıcıya bir ad verin.  
+8. Sol taraftaki pencerede **Erişim tuşları**'nı seçin ve depolama kapsayıcısının adını, depolama hesabını ve **key1** öğesinin değerini kopyalayın. 
+
+    Bu değerleri Not Defteri'ne veya başka bir geçici konuma kaydedin.
 
 ## <a name="create-a-console-application"></a>Konsol uygulaması oluşturma
 

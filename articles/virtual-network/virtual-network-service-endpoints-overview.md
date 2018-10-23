@@ -3,7 +3,7 @@ title: Azure sanal ağ hizmet uç noktaları | Microsoft Docs
 description: Hizmet uç noktalarını kullanarak bir sanal ağdan Azure kaynaklarına doğrudan erişimi etkinleştirmeyi öğrenin.
 services: virtual-network
 documentationcenter: na
-author: anithaa
+author: sumeetmittal
 manager: narayan
 editor: ''
 ms.assetid: ''
@@ -13,14 +13,14 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/15/2018
-ms.author: anithaa
+ms.author: sumeet.mittal
 ms.custom: ''
-ms.openlocfilehash: 3bae20a7d6eea298dd09d24c0c5b53365784b3d0
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: 77fad7b0035a9ba21d71e6c493a4f1a5bd9a2111
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48239192"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49395216"
 ---
 # <a name="virtual-network-service-endpoints"></a>Sanal Ağ Hizmeti Uç Noktaları
 
@@ -42,6 +42,7 @@ Bu özellik aşağıdaki Azure hizmetleri ve bölgeleri için sağlanır:
 - **[Azure SQL Veri Ambarı](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: Tüm Azure genel bulut bölgelerini önizleme aşamasında kullanıma sunuldu.
 - **[Azure Service Bus](../service-bus-messaging/service-bus-service-endpoints.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: Önizleme sürümünde kullanılabilir.
 - **[Azure Event Hubs](../event-hubs/event-hubs-service-endpoints.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: Önizleme sürümünde kullanılabilir.
+- **[Azure Data Lake Store 1. Nesil](../data-lake-store/data-lake-store-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: Önizleme sürümünde kullanılabilir.
 
 En güncel bildirimler için [Azure Sanal Ağ güncelleştirmeleri](https://azure.microsoft.com/updates/?product=virtual-network) sayfasını inceleyin.
 
@@ -65,6 +66,10 @@ Hizmet uç noktaları aşağıdaki avantajları sağlar:
 
 - Sanal ağ hizmet uç noktası, Azure hizmetine sanal ağınızın kimliğini sağlar. Hizmet uç noktaları sanal ağınızda etkinleştirdikten sonra, kaynaklara bir sanal ağ kuralı ekleyerek sanal ağınıza bağlı olan Azure hizmet kaynaklarının güvenliğini sağlayabilirsiniz.
 - Günümüzde, bir sanal ağdan gelen Azure hizmet trafiği, kaynak IP adresleri olarak ortak IP adreslerini kullanır. Hizmet uç noktaları ile, hizmet trafiği sanal ağınızdan Azure hizmetinize erişim sırasında kaynak IP adresleri olarak sanal ağ özel adreslerini kullanır. Bu anahtar IP güvenlik duvarlarında kullanılan ayrılmış ve genel IP adreslerini kullanmadan hizmetlere erişmenizi sağlar.
+
+>[!NOTE]
+> Hizmet uç noktaları ile alt ağdaki sanal makinelerin kaynak IP adresleri hizmet trafiği için genel IPv4 adresleri yerine özel IPv4 adreslerini kullanmaya başlar. Bu değişikliğin ardından Azure genel IP adreslerini kullanan mevcut Azure hizmeti güvenlik duvarı kuralları çalışmamaya başlar. Hizmet uç noktalarını ayarlamadan önce Azure hizmeti güvenlik duvarı kurallarının bu değişikliğe uygun olduğundan emin olun. Hizmet uç noktalarını yapılandırırken bu alt ağdan gelen hizmet trafiğinde geçici kesintiler de yaşayabilirsiniz. 
+ 
 - __Azure hizmetine erişimi şirket içi ortamla sınırlama__:
 
   Varsayılan olarak sanal ağlara ayrılmış olan Azure hizmeti kaynaklarına şirket içi ağlardan erişmek mümkün değildir. Şirket içinden gelen trafiğe izin vermek istiyorsanız şirket içi ortamdan veya ExpressRoute üzerinden genel (genelde NAT) IP adreslerine de izin vermeniz gerekir. Azure hizmet kaynakları için bu IP adresleri IP güvenlik duvarı yapılandırma adımından eklenebilir.
@@ -87,6 +92,7 @@ Hizmet uç noktaları aşağıdaki avantajları sağlar:
 
   IP adresi değişiklikleri yalnızca sanal ağınızdan giden hizmet trafiğini etkiler. Sanal makinelerinize atanmış genel IPv4 adreslerinin gelen/giden trafiği üzerinde herhangi bir etki görülmez. Azure hizmetleri açısından, Azure genel IP adreslerini kullanan mevcut güvenlik duvarı kurallarınız varsa bu kurallar sanal ağ özel adresine geçiş yapıldığında çalışmaz.
 - Hizmet uç noktaları kullanıldığında, Azure hizmetlerine yönelik DNS girişleri güncel durumdaki halde kalır ve Azure hizmetine atanmış olan ortak IP adreslerini çözümlemeye devam eder.
+
 - Hizmet uç noktasına sahip ağ güvenlik grupları (NSG):
   - Varsayılan olarak NSG'ler giden İnternet trafiğine ve dolayısıyla sanal ağınızdan Azure hizmetlerine giden trafiğe izin verir. Bu durum hizmet uç noktalarında da aynı şekilde çalışmaya devam eder. 
   - Giden İnternet trafiğinin tümünü reddetmek ve yalnızca belirli Azure hizmetlerine giden trafiğe izin vermek istiyorsanız NSG'lerinizde [hizmet etiketlerini](security-overview.md#service-tags) kullanabilirsiniz. Desteklenen Azure hizmetlerini NSG kurallarında hedef olarak belirtebilir ve her etikete ait IP adreslerinin bakımının Azure tarafından yapılmasını sağlayabilirsiniz. Daha fazla bilgi için bkz. [NSG'ler için Azure Hizmet etiketleri.](security-overview.md#service-tags) 

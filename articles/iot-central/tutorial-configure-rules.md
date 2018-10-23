@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: fb13bcee411b4fa27bf3ce5cd62fa3a483ea23e6
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 20dcad571a32638488ce111b5af55623f2305c57
+ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45731909"
+ms.lasthandoff: 10/13/2018
+ms.locfileid: "49310445"
 ---
 # <a name="tutorial-configure-rules-and-actions-for-your-device-in-azure-iot-central"></a>Öğretici: Azure IoT Central’da cihazınız için kurallar ve eylemler yapılandırma
 
@@ -96,6 +96,9 @@ Bir kural tanımladığınızda, kural koşulları yerine getirildiği zaman ça
 Kural kaydedildikten kısa bir süre sonra dinamik olur. Kuralda tanımlanan koşullar karşılandığında, uygulamanız eylemde belirtilen e-posta adresine bir ileti gönderir.
 
 ![E-posta eylemi](media/tutorial-configure-rules/email.png)
+
+> [!NOTE]
+> Test tamamlandıktan sonra gelen kutunuza uyarı gönderilmemesi için kuralı kapatın. 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

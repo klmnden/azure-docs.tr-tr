@@ -1,6 +1,6 @@
 ---
 title: 'Hızlı başlangıç: Azure portalda Machine Learning hizmeti çalışma alanı oluşturma - Azure Machine Learning'
-description: Azure Machine Learning hizmeti çalışma alanı oluşturmak için Azure portalı kullanın. Bu çalışma alanı Azure Machine Learning hizmetiyle makine öğrenmesi modellerini denemek, eğitmek ve dağıtmak için bulutta temel bir yapıdır.
+description: Azure Machine Learning çalışma alanı oluşturmak için Azure portalını kullanın. Bu çalışma alanı Azure Machine Learning ile bulutta makine öğrenmesi modellerini denemek, eğitmek ve dağıtmak için kullanabileceğiniz temel bileşenlerden biridir.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -9,26 +9,31 @@ ms.reviewer: sgilley
 author: rastala
 ms.author: roastala
 ms.date: 09/24/2018
-ms.openlocfilehash: b6f0201a36a676e7647b9f5e60bc2df3415b9594
-ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
+ms.openlocfilehash: 14bd85a23e2630a1cf2a8b5621d669c4c6748168
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2018
-ms.locfileid: "48831339"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49376627"
 ---
-# <a name="quickstart-use-the-azure-portal-to-get-started-with-azure-machine-learning-service"></a>Hızlı başlangıç: Azure portalı kullanarak Azure Machine Learning hizmetini kullanmaya başlama
+# <a name="quickstart-use-the-azure-portal-to-get-started-with-azure-machine-learning"></a>Hızlı başlangıç: Azure portalı kullanarak Azure Machine Learning'i kullanmaya başlama
 
-Bu hızlı başlangıçta Azure Machine Learning hizmeti çalışma alanı oluşturmak için Azure portalını kullanacaksınız. Bu çalışma alanı Azure Machine Learning hizmetiyle makine öğrenmesi modellerini denemek, eğitmek ve dağıtmak için bulutta temel bir yapıdır. 
+Bu hızlı başlangıçta Azure Machine Learning çalışma alanı oluşturmak için Azure portalını kullanacaksınız. Bu çalışma alanı Machine Learning ile bulutta makine öğrenmesi modellerini denemek, eğitmek ve dağıtmak için kullanabileceğiniz temel bileşenlerden biridir. 
 
-Bu öğreticide şunları yapacaksınız:
+Bu öğreticide şunları yaptınız:
 
-* Azure aboneliğinizde çalışma alanı oluşturma
-* Azure Notebooks'da Python ile deneme ve birden çok yinelemeden değerleri günlüğe kaydetme
-* Günlüğe kaydedilen değerleri çalışma alanınızda görüntüleme
+* Azure aboneliğinizde çalışma alanı oluşturma.
+* Bir Azure not defterinde Python ile deneme ve birden çok yinelemeden değerleri günlüğe kaydetme.
+* Günlüğe kaydedilen değerleri çalışma alanınızda görüntüleme.
 
-Size kolaylık sağlamak için, şu Azure kaynakları bölgesel olarak sağlandığında otomatik olarak çalışma alanınıza eklenir: [kapsayıcı kayıt defteri](https://azure.microsoft.com/services/container-registry/), [depolama](https://azure.microsoft.com/services/storage/), [uygulama içgörüleri](https://azure.microsoft.com/services/application-insights/), ve [anahtar kasası](https://azure.microsoft.com/services/key-vault/).
+Aşağıdaki Azure kaynakları, bölgesel kullanıma sunulduğunda çalışma alanınıza otomatik olarak eklenir:
 
-Oluşturduğunuz kaynaklar, diğer Azure Machine Learning hizmeti öğreticileri ve nasıl yapılır makalelerinde önkoşul olarak kullanılabilir. Diğer Azure hizmetlerinde de olduğu gibi, Azure Machine Learning hizmetiyle ilişkilendirilmiş bazı kaynakların sınırları vardır (BatchAI küme boyutu gibi). Varsayılan sınırları ve daha fazla kota isteğinde bulunmayı öğrenmek için lütfen [bu](how-to-manage-quotas.md) makaleyi okuyun.
+  - [Azure Container Registry](https://azure.microsoft.com/services/container-registry/)
+  - [Azure Depolama](https://azure.microsoft.com/services/storage/)
+  - [Azure Application Insights](https://azure.microsoft.com/services/application-insights/) 
+  - [Azure Anahtar Kasası.](https://azure.microsoft.com/services/key-vault/)
+
+Oluşturduğunuz kaynaklar, diğer Machine Learning hizmeti öğreticileri ve nasıl yapılır makalelerinde önkoşul olarak kullanılabilir. Diğer Azure hizmetlerinde de olduğu gibi, Machine Learning hizmetiyle ilişkilendirilmiş bazı kaynakların sınırları vardır. Örnek olarak Azure Batch AI kümesi boyutu verilebilir. Varsayılan sınırlar ve kotanızı artırma hakkında bilgi için [bu makaleyi](how-to-manage-quotas.md) inceleyin.
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 
@@ -37,50 +42,52 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 
 [!INCLUDE [aml-create-portal](../../../includes/aml-create-in-portal.md)]
 
-Çalışma alanı sayfasında `Explore your Azure Machine Learning service workspace` öğesine tıklayın
+Çalışma alanı sayfasında `Explore your Azure Machine Learning service workspace` öğesini seçin.
 
- ![çalışma alanını keşfetme](./media/quickstart-get-started/explore_aml.png)
+ ![Çalışma alanını keşfetme](./media/quickstart-get-started/explore_aml.png)
 
 
 ## <a name="use-the-workspace"></a>Çalışma alanını kullanma
 
 Şimdi çalışma alanının makine öğrenmesi betiklerinizin yönetimine nasıl yardımcı olduğunu göreceksiniz. Bu bölümde şunları yapacaksınız:
 
-* Azure Notebooks'da bir not defteri açma
-* Günlüğe kaydedilen bazı değerler oluşturan kodu çalıştırma
-* Günlüğe kaydedilen değerleri çalışma alanınızda görüntüleme
+* Azure Notebooks'da bir not defteri açma.
+* Günlüğe kaydedilen bazı değerler oluşturan kodu çalıştırma.
+* Günlüğe kaydedilen değerleri çalışma alanınızda görüntüleme.
 
-Bu, çalışma alanının betikte oluşturulan bilgileri izlemenize nasıl yardımcı olduğunu gösteren bir örnektir. 
+Bu örnek, çalışma alanının betikte oluşturulan bilgileri izlemenize nasıl yardımcı olduğunu gösterir. 
 
 ### <a name="open-a-notebook"></a>Not defterini açma 
 
-Azure Notebooks, Azure Machine Learning hizmetini çalıştırmak için gereken her şeyle önceden yapılandırılmıştır ve Jupyter not defterleri için ücretsiz bir bulut platformu sağlar.  
+Azure Notebooks, Machine Learning'i çalıştırmak için gereken her şeyle önceden yapılandırılmıştır ve Jupyter not defterleri için ücretsiz bir bulut platformu sağlar.  
 
-İlk denemenizi yapmak için `Open Azure Notebooks` düğmesine tıklayın.
+İlk denemenizi oluşturmak için `Open Azure Notebooks` öğesini seçin.
 
- ![Azure Notebooks'u başlatma](./media/quickstart-get-started/explore_ws.png)
+ ![Azure Notebooks'u açın](./media/quickstart-get-started/explore_ws.png)
 
-Siz oturum açtıktan sonra, yeni bir sekme açılır ve `Clone Library` istemi görüntülenir.  `Clone` öğesine tıklayın
+Oturum açabilmeniz için kuruluşunuzda [yönetici onayı](https://notebooks.azure.com/help/signing-up/work-or-school-account/admin-consent) gerekli olabilir.
+
+Siz oturum açtıktan sonra, yeni bir sekme açılır ve `Clone Library` istemi görüntülenir. `Clone` seçeneğini belirleyin
 
 
 ### <a name="run-the-notebook"></a>Not defterini çalıştırma
 
-İki not defterinin yanı sıra bir de `config.json` dosyası görürsünüz.  Bu yapılandırma dosyası az önce oluşturduğunuz çalışma alanıyla ilgili bilgileri içerir.  
+İki not defterinin yanı sıra bir de `config.json` dosyası görürsünüz. Bu yapılandırma dosyası, oluşturduğunuz çalışma alanıyla ilgili bilgileri içerir.  
 
-`01.run-experiment.ipynb` öğesine tıklayarak not defterini açın.
+Not defterini açmak için `01.run-experiment.ipynb` öğesini seçin.
 
-`Shift`+`Enter` tuşlarını kullanarak hücreleri teker teker çalıştırabilirsiniz.  Öte yandan `Cells` > `Run All` menüsünü kullanarak not defterinin tamamını da çalıştırabilirsiniz.  Hücrenin yanında [*] simgesinin görünmesi çalıştığını gösterir.  Bu hücrenin kodu tamamlandığında bir sayı görüntülenir.
+Hücreleri teker teker çalıştırmak için `Shift`+`Enter` kısayolunu kullanın. Dilerseniz `Cells` > `Run All` menüsünü kullanarak not defterinin tamamını da çalıştırabilirsiniz. Yıldız [*], ilgili hücrenin çalıştığını gösterir. Hücredeki kodun çalışması tamamlandığında bir sayı görünür.
 
-Oturum açmanız istenebilir.  İletideki kodu kopyalayın, sonra bağlantıya tıklayın ve kodu yeni pencereye yapıştırın.  Kodun başında veya sonunda boşluk kopyalamamaya dikkat edin.  Azure portalda kullandığınız hesapla oturum açın.
+Oturum açmanız istenebilir. İletideki kodu kopyalayın. Ardından bağlantıyı seçin ve kodu yeni pencereye yapıştırın. Kodun başında veya sonunda boşluk kopyalamamaya dikkat edin. Azure portalda kullandığınız hesapla oturum açın.
 
- ![oturum açma](./media/quickstart-get-started/login.png)
+ ![Oturum açma](./media/quickstart-get-started/login.png)
 
 Not defterinde, ikinci hücre çalışma alanınıza bağlanmak için `config.json` dosyasından alınır.
 ```
 ws = Workspace.from_config()
 ```
 
-Üçüncü kod hücresi "my-first-experiment" adlı bir deneme başlatır.  Çalışma alanınıza dönüp çalıştırma hakkındaki bilgileri aramak için bu adı kullanacaksınız.
+Üçüncü kod hücresi "my-first-experiment" adlı bir deneme başlatır. Çalışma alanınıza dönüp çalıştırma hakkındaki bilgileri aramak için bu adı kullanın.
 
 ```
 experiment = Experiment(workspace_object=ws, name = "my-first-experiment")
@@ -98,35 +105,37 @@ Kod çalıştırıldıktan sonra bu değerleri çalışma alanınızda görünt�
 
 ## <a name="view-logged-values"></a>Günlüğe kaydedilen değerleri görüntüleme
 
-Not defterindeki hücrelerin tümü tamamlandıktan sonra portal sayfasına dönün.  
+Not defterindeki tüm hücreleri çalıştırdıktan sonra portal sayfasına dönün.  
 
-`View Experiments` öğesine tıklayın.
+`View Experiments` öğesini seçin.
 
-![denemeleri görüntüleme](./media/quickstart-get-started/view_exp.png)
+![Denemeleri görüntüleme](./media/quickstart-get-started/view_exp.png)
 
 `Reports` açılan listesini kapatın.
 
-`my-first-experiment` öğesine tıklayın.
+`my-first-experiment` öğesini seçin.
 
-Az önce gerçekleştirdiğiniz çalışma hakkındaki bilgilere bakın.  Çalıştırma tablosunu bulmak için sayfayı aşağı kaydırın ve çalıştırma numarası bağlantısına tıklayın.
+Az önce gerçekleştirdiğiniz çalışma hakkındaki bilgilere bakın. Sayfayı kaydırarak çalıştırma tablosunu bulun. Çalıştırma sayısı bağlantısını seçin.
 
- ![çalıştırma geçmişi bağlantısı](./media/quickstart-get-started/report.png)
+ ![Çalıştırma geçmişi bağlantısı](./media/quickstart-get-started/report.png)
 
-Günlüğe kaydedilen verilerden otomatik olarak oluşturulan çizimlere bakın:
+Günlüğe kaydedilen verilerden otomatik olarak oluşturulan çizimlere bakın.  
 
-   ![geçmişi görüntüleme](./media/quickstart-get-started/plots.png)
+   ![Geçmişi görüntüleme](./media/quickstart-get-started/plots.png)
+
+Yaklaşık pi değerini belirleme kodu rastgele değerler kullandığından çizimlerinizde farklı değerler görünecektir.
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme 
 
 [!INCLUDE [aml-delete-resource-group](../../../includes/aml-delete-resource-group.md)]
 
-Çalışma alanı özelliklerini görüntüleyerek ve Sil düğmesini seçerek kaynak grubunu koruyup tek bir çalışma alanını silmeniz de mümkündür.
+Dilerseniz kaynak grubunu koruyabilir ancak tek bir çalışma alanını silebilirsiniz. Çalışma alanı özelliklerini görüntüleyin ve **Sil**'i seçin.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Artık modelleri denemeye ve dağıtmaya başlamak için gerekli kaynakları oluşturdunuz. Ayrıca not defterinden kod çalıştırdınız ve buluttaki çalışma alanınızda bu koddan gelen çalıştırma geçmişini incelediniz.
+Deneme ve model dağıtımı için gerekli kaynakları oluşturdunuz. Ayrıca bir defterde bulunan bazı kodları da çalıştırdınız. Buluttaki çalışma alanınızda bu koddan gelen çalıştırma geçmişini de incelediniz.
 
-Ayrıntılı bir iş akışı deneyimi için, Azure Machine Learning öğreticilerini izleyerek bir modeli eğitin ve dağıtın.  
+Ayrıntılı bir iş akışı deneyimi için, Machine Learning öğreticilerini izleyerek bir modeli eğitin ve dağıtın.  
 
 > [!div class="nextstepaction"]
 > [Öğretici: Görüntü sınıflandırma modelini eğitme](tutorial-train-models-with-aml.md)

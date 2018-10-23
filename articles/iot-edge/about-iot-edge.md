@@ -10,12 +10,12 @@ ms.topic: overview
 ms.date: 06/12/2018
 ms.author: kgremban
 ms.custom: mvc
-ms.openlocfilehash: 6e3571fb54f12ef3bb5519f572b8af5bf9247e7d
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: 107852bd2c4ec0b932008b498dde4ea77f8071a3
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37033093"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49116345"
 ---
 # <a name="what-is-azure-iot-edge"></a>Azure IoT Edge nedir?
 
@@ -55,7 +55,7 @@ Azure IoT Edge çalışma zamanı, IoT Edge cihazlarında özel mantığa ve bul
 * IoT Edge cihazında bulunan modüller arasındaki iletişimi kolaylaştırır.
 * IoT Edge cihazıyla bulut arasındaki iletişimi kolaylaştırır.
 
-![IoT Edge çalışma zamanı öngörüleri ve raporları IoT Hub'ına gönderir][1]
+![IoT Edge çalışma zamanı öngörüleri ve raporları IoT Hub'ına gönderir](./media/about-iot-edge/runtime.png)
 
 Azure IoT Edge cihazını nasıl kullanacağınız tamamen size bağlıdır. Çalışma zamanı çoğunlukla ağ geçitlerine AI dağıtımı için kullanılır ve bu ağ geçitleri diğer birden çok şirket içi cihazından verileri toplar ve işler; ama bu, seçeneklerden yalnızca biridir. Yaprak cihazlar da, bir ağ geçidine mi yoksa doğrudan buluta mı bağlı olduklarına bakılmaksızın Azure IoT Edge cihazları olabilir.
 
@@ -71,15 +71,10 @@ Azure IoT Edge, Azure IoT çözüm hızlandırıcıları ile rahatça tümleşti
 * İş yükünü bir dizi cihaza gönderebilir.
 * Sahadaki cihazlarda çalıştırılan iş yüklerini izleyebilir.
 
-![Telemetri, öngörüler ve cihaz eylemleri bulutla eşgüdümlüdür][2]
+![Telemetri, öngörüler ve cihaz eylemleri bulutla eşgüdümlüdür](./media/about-iot-edge/cloud-interface.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-[Bir sanal cihaza IoT Edge dağıtımı yaparak][lnk-quickstart] bu kavramları deneyin.
+[Bir sanal cihaza IoT Edge dağıtımı yaparak](quickstart.md) bu kavramları deneyin.
 
-<!-- Images -->
-[1]: ./media/about-iot-edge/runtime.png
-[2]: ./media/about-iot-edge/cloud-interface.png
-
-<!-- Links -->
-[lnk-quickstart]: quickstart.md
+ 

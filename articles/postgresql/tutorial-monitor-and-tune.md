@@ -7,12 +7,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: tutorial
 ms.date: 09/24/2018
-ms.openlocfilehash: 2e4d625cd123583baa30fde8e9826f5b57da49fe
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: ef8809afa2da36f44384d784e32532b7b121e3a9
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47393597"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49379153"
 ---
 # <a name="tutorial-monitor-and-tune-azure-database-for-postgresql"></a>Öğretici: PostgreSQL için Azure Veritabanını İzleme ve Ayarlama
 
@@ -28,7 +28,7 @@ PostgreSQL için Azure Veritabanı, sunucu performansınızı anlamanıza ve gel
 PostgreSQL sürüm 9.6 veya 10’un yüklü olduğu bir PostgreSQL için Azure Veritabanı sunucusuna ihtiyacınız vardır. Bir sunucu oluşturmak için [Öğretici oluştur](tutorial-design-database-using-azure-portal.md)’daki adımları izleyebilirsiniz.
 
 > [!IMPORTANT]
-> **Query Store**, **Sorgu Performansı İçgörüleri** ve **Performans Önerisi**, sınırlı sayıda bölgede Genel Önizleme aşamasındadır.
+> **Query Store**, **Sorgu Performansı İçgörüleri** ve **Performans Önerisi**, Genel Önizleme aşamasındadır.
 
 ## <a name="enabling-data-collection"></a>Veri koleksiyonunu etkinleştirme
 [Query Store](concepts-query-store.md), sorguların geçmişini toplar ve sunucunuzdaki istatistikleri bekler ve sunucunuzdaki **azure_sys** veritabanında saklar. Bu tercihli bir özelliktir. Etkinleştirmek için:

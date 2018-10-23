@@ -11,15 +11,15 @@ ms.workload: infrastructure
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 07/20/2018
+ms.date: 10/12/2018
 ms.author: tomfitz
 ms.custom: mvc
-ms.openlocfilehash: 2d19488d9b4d6ae6c71610788345b45c38e51cfa
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 715a8e5bab9e5d16b8c0e54298101df856d51a9a
+ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46968824"
+ms.lasthandoff: 10/13/2018
+ms.locfileid: "49309868"
 ---
 # <a name="tutorial-learn-about-linux-virtual-machine-governance-with-azure-cli"></a>Öğretici: Azure CLI ile Linux sanal makine yönetimi hakkında bilgi edinin
 
@@ -27,7 +27,7 @@ ms.locfileid: "46968824"
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-CLI'yi yerel olarak yükleyip kullanmayı tercih ederseniz bu öğretici için Azure CLI 2.0.30 veya sonraki bir sürümünü çalıştırmanız gerekir. Sürümü bulmak için `az --version` komutunu çalıştırın. Yükleme veya yükseltme yapmanız gerekiyorsa bkz. [Azure CLI'yı yükleme]( /cli/azure/install-azure-cli).
+Azure CLI'yi yerel olarak yükleyip kullanmayı tercih ederseniz bu öğretici için Azure CLI 2.0.30 veya sonraki bir sürümünü çalıştırmanız gerekir. Sürümü bulmak için `az --version` komutunu çalıştırın. Yükleme veya yükseltme yapmanız gerekiyorsa bkz. [Azure CLI'yı yükleme]( /cli/azure/install-azure-cli).
 
 ## <a name="understand-scope"></a>Kapsamı anlama
 
@@ -55,19 +55,17 @@ Sanal makine çözümlerini yönetmek için yaygın olarak gereken erişimi sağ
 * [Ağ Katılımcısı](../../role-based-access-control/built-in-roles.md#network-contributor)
 * [Depolama Hesabı Katılımcısı](../../role-based-access-control/built-in-roles.md#storage-account-contributor)
 
-Kullanıcılara rolleri tek tek atamak yerine, benzer eylemlerde bulunması gereken kullanıcılar için [bir Azure Active Directory grubu](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md) oluşturmak genellikle daha kolaydır. Ardından, bu grubu uygun role atayabilirsiniz. Bu makaleyi basitleştirmek için, üyeleri olmayan bir Azure Active Directory grubu oluşturun. Bu grubu hala bir kapsamın rolüne atayabilirsiniz. 
+Kullanıcılara rolleri tek tek atamak yerine, benzer eylemlerde bulunması gereken kullanıcılar için bir Azure Active Directory grubu kullanmak genellikle daha kolaydır. Ardından, bu grubu uygun role atayabilirsiniz. Bu makalede sanal makineyi yönetmek için var olan bir grubu kullanın veya portalı kullanarak [bir Azure Active Directory grubu oluşturun](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
 
-Aşağıdaki örnek, posta takma adı *vmDemoGroup* olan *VMDemoContributors* adlı bir Azure Active Directory grubu oluşturur. Posta takma adı, grubun diğer adı olarak görev yapar.
-
-```azurecli-interactive
-adgroupId=$(az ad group create --display-name VMDemoContributors --mail-nickname vmDemoGroup --query objectId --output tsv)
-```
-
-Komut istemi döndürüldükten kısa bir süre sonra grup Azure Active Directory’ye yayılır. 20 veya 30 saniye bekledikten sonra [az role assignment create](/cli/azure/role/assignment#az_role_assignment_create) komutunu kullanarak yeni Azure Active Directory grubunu kaynak grubu için Sanal Makine Katılımcısı rolüne atayabilirsiniz.  Aşağıdaki komutu yayılmadan önce çalıştırırsanız, **Dizinde <guid> sorumlusu yok** ifadesini içeren bir hata alırsınız. Komutu tekrar çalıştırmayı deneyin.
+Yeni grup oluşturduktan veya var olan bir grup belirledikten sonra [az role assignment create](/cli/azure/role/assignment#az_role_assignment_create) komutunu kullanarak yeni Azure Active Directory grubunu kaynak grubu için Sanal Makine Katılımcısı rolüne atayabilirsiniz.
 
 ```azurecli-interactive
+adgroupId=$(az ad group show --group <your-group-name> --query objectId --output tsv)
+
 az role assignment create --assignee-object-id $adgroupId --role "Virtual Machine Contributor" --resource-group myResourceGroup
 ```
+
+**<guid> sorumlusunun dizinde bulunmadığını** belirten bir hatayla karşılaşmanız yeni grubun Azure Active Directory'de yayılmadığını gösterir. Komutu tekrar çalıştırmayı deneyin.
 
 Genellikle, kullanıcıların dağıtılmış kaynakları yönetmek için atandığından emin olmak üzere *Ağ Katılımcısı* ve *Depolama Hesabı Katılımcısı* için işlemi yinelemeniz gerekir. Bu makalede, söz konusu adımları atlayabilirsiniz.
 
@@ -171,7 +169,7 @@ Kilitleri test etmek için aşağıdaki komutu çalıştırmayı deneyin:
 az group delete --name myResourceGroup
 ```
 
-Silme işleminin bir kilit nedeniyle gerçekleştirilemediğini belirten bir hata görürsünüz. Kaynak grubu yalnızca kilitleri spesifik olarak kaldırırsanız silinebilir. Bu adım [Kaynakları temizle](#clean-up-resources) bölümünde gösterilmektedir.
+Silme işleminin bir kilit nedeniyle tamamlanamadığını belirten bir hata görürsünüz. Kaynak grubu yalnızca kilitleri spesifik olarak kaldırırsanız silinebilir. Bu adım [Kaynakları temizle](#clean-up-resources) bölümünde gösterilmektedir.
 
 ## <a name="tag-resources"></a>Kaynakları etiketleme
 

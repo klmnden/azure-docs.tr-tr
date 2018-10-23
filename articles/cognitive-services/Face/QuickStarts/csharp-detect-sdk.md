@@ -3,25 +3,23 @@ title: 'Hızlı Başlangıç: Bir görüntüdeki yüzleri algılama - SDK, C#'
 titleSuffix: Azure Cognitive Services
 description: Bu hızlı başlangıçta, Bilişsel Hizmetler’de Yüz Tanıma Windows C# istemci kitaplığını kullanarak bir görüntüdeki yüzleri algılayacaksınız.
 services: cognitive-services
-author: noellelacharite
+author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: face-api
 ms.topic: quickstart
 ms.date: 09/14/2018
-ms.author: nolachar
-ms.openlocfilehash: a9a7efd89f8e7462812064615d07acf12acbc3a3
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.author: pafarley
+ms.openlocfilehash: b5fd10aaab28303079d3eef9c4c5c25207bb672e
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46364134"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49344991"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-c35---face"></a>Hızlı Başlangıç: C# kullanarak bir görüntüdeki yüzleri algılama - Yüz Tanıma
 
 Bu hızlı başlangıçta, Yüz Tanıma Windows istemci kitaplığını kullanarak bir görüntüdeki insan yüzlerini algılayacaksınız.
-
-Bu örneğin kaynak kodu [Github](https://github.com/Azure-Samples/cognitive-services-vision-csharp-sdk-quickstarts/tree/master/Face)’da mevcuttur.
 
 ## <a name="prerequisites"></a>Ön koşullar
 
@@ -30,6 +28,9 @@ Bu örneğin kaynak kodu [Github](https://github.com/Azure-Samples/cognitive-ser
 * [Microsoft.Azure.CognitiveServices.Vision.Face 2.2.0-preview](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.Face/2.2.0-preview) istemci kitaplığı NuGet paketi. Paketi indirmek gerekli değildir. Yükleme yönergeleri aşağıda verilmiştir.
 
 ## <a name="detectwithurlasync-method"></a>DetectWithUrlAsync yöntemi
+
+> [!TIP]
+> Güncel kodu [GitHub](https://github.com/Azure-Samples/cognitive-services-vision-csharp-sdk-quickstarts/tree/master/Face)'dan Visual Studio çözümü olarak alın.
 
 `DetectWithUrlAsync` ve `DetectWithStreamAsync` yöntemleri, sırasıyla uzak ve yerel görüntüler için [Yüz - Algılama API’sini](https://westcentralus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) sarmalar. Bu yöntemleri kullanarak bir görüntüdeki yüzleri algılayabilir ve aşağıdaki yüz özniteliklerini döndürebilirsiniz:
 

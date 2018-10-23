@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: af291782585cf0211cf8beac54adc36fd9fe0d34
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: 9683a33efba427e83b2ff27ec57d2d437c61d5ce
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42023033"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49166291"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-linux-x64-device"></a>Hızlı Başlangıç: Bir Linux x64 cihazına ilk IoT Edge modülünüzü dağıtma
 
@@ -117,7 +117,7 @@ Aşağıdaki adımları bir Linux makinede veya IoT Edge cihazı olarak çalış
 
 IoT Edge çalışma zamanını çalıştırmak için ihtiyacınız olan paketler, bir yazılım deposunda yönetilir. Bu depoya erişmek için IoT Edge cihazınızı yapılandırın. 
 
-Bu bölümdeki adımlar **Ubuntu 16.04** çalıştıran cihazlara yöneliktir. Diğer Linux sürümlerinde yazılım deposuna erişmek için bkz. [Azure IoT Edge çalışma zamanını Linux (x64) üzerine yükleme](how-to-install-iot-edge-linux.md) veya [Azure IoT Edge çalışma zamanını Linux (ARM32v7/armhf) üzerine yükleme](how-to-install-iot-edge-linux-arm.md).
+Bu bölümdeki adımlar **Ubuntu 16.04** çalıştıran x64 cihazlara yöneliktir. Diğer Linux sürümlerinde veya cihaz mimarilerinde yazılım deposuna erişmek için bkz. [Azure IoT Edge çalışma zamanını Linux (x64) üzerine yükleme](how-to-install-iot-edge-linux.md) veya [Azure IoT Edge çalışma zamanını Linux (ARM32v7/armhf) üzerine yükleme](how-to-install-iot-edge-linux-arm.md).
 
 1. IoT Edge cihazı olarak kullandığınız makineye depo yapılandırmasını yükleyin.
 

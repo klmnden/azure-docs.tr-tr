@@ -9,28 +9,16 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: af06766d89804b2f3d0aaf061494fb836f6ec262
-ms.sourcegitcommit: 06724c499837ba342c81f4d349ec0ce4f2dfd6d6
+ms.openlocfilehash: 0199efbc1456206c67efb846b4381cae333e3749
+ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46465614"
+ms.lasthandoff: 10/13/2018
+ms.locfileid: "49309051"
 ---
 # <a name="create-an-azure-iot-central-application"></a>Azure IoT Central uygulaması oluşturma
 
-_Oluşturucu_ olarak, Azure IoT Central kullanıcı arabirimini kullanarak Microsoft Azure IoT Central uygulamanızı tanımlayabilirsiniz. Bu hızlı başlangıçta şu işlemleri nasıl yapacağınız gösterilir:
-
-- Örnek bir _cihaz şablonu_ ve simülasyon _cihazları_ içeren bir Azure IoT Central uygulaması oluşturun.
-- Uygulamanızda **Soğutmalı Otomat** cihaz şablonunun özelliklerini görüntüleyin.
-- Simülasyon **Buzdolabı** cihazlarınızın telemetri verilerini ve analizini görüntüleyin.
-
-Bu hızlı başlangıçta, bir cihaz şablonundan simülasyon **Buzdolabı** cihazını görüyorsunuz. Simülasyon cihazı:
-
-* Uygulamanıza sıcaklık ve basınç gibi telemetri verileri gönderir.
-* Uygulamanıza hareket uyarısı gibi cihaz özelliği değerlerini bildirir.
-* Uygulamada ayarlayabileceğiniz fan hızı gibi cihaz ayarlarını içerir.
-
-Azure IoT Central uygulamasında bir cihaz şablonundan simülasyon cihazı oluşturduğunuzda, simülasyon cihazı gerçek bir cihaz bağlamadan önce uygulamanızı test etmenize olanak tanır.
+_Oluşturucu_ olarak, Azure IoT Central kullanıcı arabirimini kullanarak Microsoft Azure IoT Central uygulamanızı tanımlayabilirsiniz. Bu hızlı başlangıç örnek bir _cihaz şablonu_ ve simülasyon _cihazları_ içeren bir Azure IoT Central uygulaması oluşturma adımlarını göstermektedir.
 
 ## <a name="create-the-application"></a>Uygulama oluşturma
 

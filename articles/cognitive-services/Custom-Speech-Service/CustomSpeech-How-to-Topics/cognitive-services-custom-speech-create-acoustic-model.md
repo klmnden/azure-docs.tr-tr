@@ -1,24 +1,24 @@
 ---
-title: 'Öğretici: Akustik bir model oluşturma - Özel Konuşma Hizmeti'
-titlesuffix: Azure Cognitive Services
-description: Bu öğreticide Özel Konuşma Hizmeti ile bir akustik model oluşturmayı öğreneceksiniz.
+title: 'Öğretici: Özel Konuşma Tanıma Hizmeti ile akustik model oluşturma - Microsoft Bilişsel Hizmetler | Microsoft Docs'
+description: Bu öğreticide Microsoft Bilişsel Hizmetler'de Özel Konuşma Tanıma Hizmeti ile akustik model oluşturmayı öğreneceksiniz.
 services: cognitive-services
 author: PanosPeriorellis
-manager: cgronlun
+manager: onano
 ms.service: cognitive-services
 ms.component: custom-speech
 ms.topic: tutorial
 ms.date: 05/03/2017
 ms.author: panosper
-ROBOTS: NOINDEX
-ms.openlocfilehash: 72c5a0dfb8f33f273ba850378c1fefeef82b4d7a
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 53e93a08782ba66e69b903c32c4c3c7417e5a801
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47220251"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49344583"
 ---
 # <a name="tutorial-create-a-custom-acoustic-model"></a>Öğretici: Özel akustik model oluşturma
+
+[!INCLUDE [Deprecation note](../../../../includes/cognitive-services-custom-speech-deprecation-note.md)]
 
 Bu öğreticide, uygulamanızın tanımasını beklediğiniz konuşma verileri için özel bir akustik model oluşturacaksınız. Özel akustik model oluşturma, uygulamanızın gürültülü bir fabrika veya belirli bir kullanıcı popülasyonu gibi belirli bir ortamda kullanılacak şekilde tasarlanmış olması halinde yararlı olacaktır.
 
@@ -140,4 +140,4 @@ Akustik modeller tablosunda bu yeni modele karşılık gelen yeni bir giriş gö
 Bu öğreticide, ses dosyaları ve transkripsiyonlar ile kullanmak için özel bir akustik model geliştirdiniz. Metin dosyaları ile kullanacağınız özel bir dil dosyası oluşturmak için özel bir dil modeli oluşturma öğreticisine devam edin.
 
 > [!div class="nextstepaction"]
-> [Özel akustik model oluşturma](cognitive-services-custom-speech-create-language-model.md)
+> [Özel dil modeli oluşturma](cognitive-services-custom-speech-create-language-model.md)

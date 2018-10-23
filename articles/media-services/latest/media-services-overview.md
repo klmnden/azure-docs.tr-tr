@@ -13,24 +13,17 @@ ms.devlang: multiple
 ms.topic: overview
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 09/25/2018
+ms.date: 10/16/2018
 ms.author: juliako
 ms.custom: mvc
-ms.openlocfilehash: 3641806870c3eab0b3a05f538015a72d9a0b34ef
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 66c9b8297254b41156131d795376857029424e97
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47221948"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49377926"
 ---
 # <a name="what-is-azure-media-services-v3"></a>Azure Media Services v3 nedir?
-
-> [!div class="op_single_selector" title1="Select the version of Media Services that you are using:"]
-> * [Sürüm 2 - Genel Kullanım](../previous/media-services-overview.md)
-> * [Sürüm 3 - Önizleme](media-services-overview.md)
-
-> [!NOTE]
-> En son Azure Media Services sürümü Önizleme aşamasındadır ve v3 olarak adlandırılabilir.
 
 Azure Media Services, yayın kalitesinde video akışı elde etmenizi, erişilebilirlik ve dağıtımı iyileştirmenizi, içerikleri analiz etmenizi ve daha fazlasını yapmanızı sağlayan çözümler derlemenize olanak tanıyan bulut tabanlı bir platformdur. İster uygulama geliştiricisi, çağrı merkezi, devlet dairesi, isterse bir eğlence şirketi olun, Media Services günümüzün en popüler mobil cihazlarında ve tarayıcılarında büyük kitlelere olağanüstü kalitede medya deneyimi sunan uygulamalar oluşturmanıza yardımcı olur. 
 
@@ -133,6 +126,7 @@ Microsoft aşağıdaki istemci kitaplıklarını oluşturur ve destekler:
 |[Node.js başvurusu](https://aka.ms/ams-v3-nodejs-ref)|[Node.js SDK’sı](https://aka.ms/ams-v3-nodejs-sdk)|[Node.js örnekleri](https://github.com/Azure-Samples/media-services-v3-node-tutorials)||
 |[Python başvurusu](https://aka.ms/ams-v3-python-ref)|[Python SDK'sı](https://aka.ms/ams-v3-python-sdk)||
 |[Go başvurusu](https://aka.ms/ams-v3-go-ref)|[Go SDK'sı](https://aka.ms/ams-v3-go-sdk)||
+|Ruby|[Ruby SDK](https://aka.ms/ams-v3-ruby-sdk)||
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

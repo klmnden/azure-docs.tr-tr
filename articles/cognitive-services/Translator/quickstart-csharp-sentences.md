@@ -10,18 +10,16 @@ ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/15/2018
 ms.author: nolachar
-ms.openlocfilehash: 4569a580dfdad3a71201e607ae5b7895d0d01099
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 699c4b775f2c5745a5b52593d44a0af408c5e73a
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46364355"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49319617"
 ---
 # <a name="quickstart-get-sentence-lengths-with-c35"></a>Hızlı Başlangıç: C# ile cümle uzunluklarını alma
 
 Bu hızlı başlangıçta, Translator Metin Çevirisi API'sini kullanarak metindeki cümlelerin uzunluklarını bulacaksınız.
-
-Bu örneğin kaynak kodu [Github](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-C-Sharp)’da mevcuttur.
 
 ## <a name="prerequisites"></a>Ön koşullar
 
@@ -30,6 +28,9 @@ Bu kodu Windows’da çalıştırmak için [Visual Studio 2017](https://www.visu
 Translator Metin Çevirisi API'sini kullanmak için, ayrıca abonelik anahtarınızın olması gerekir; bkz. [Translator Metin Çevirisi API'sine kaydolma](translator-text-how-to-signup.md).
 
 ## <a name="breaksentence-request"></a>BreakSentence isteği
+
+> [!TIP]
+> En son kodu [Github](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-C-Sharp)'dan edinin.
 
 Aşağıdaki kod, [BreakSentence](./reference/v3-0-break-sentence.md) yöntemini kullanarak kaynak metni cümlelere böler.
 

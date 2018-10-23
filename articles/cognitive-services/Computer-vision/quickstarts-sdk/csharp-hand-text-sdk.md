@@ -3,25 +3,23 @@ title: "Hızlı Başlangıç: Metni ayıklama - C# SDK'sı - Görüntü İşleme
 titleSuffix: Azure Cognitive Services
 description: Bu hızlı başlangıçta Görüntü İşleme Windows C# istemci kitaplığını kullanarak bir görüntüden metin ayıklayacaksınız.
 services: cognitive-services
-author: noellelacharite
+author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 09/27/2018
-ms.author: nolachar
-ms.openlocfilehash: 86808756721b2dc983df6eaf8a9e643a12d73969
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.author: pafarley
+ms.openlocfilehash: d819aee7c42759e2427e27e0f640d79536069ccb
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47409029"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49343614"
 ---
 # <a name="quickstart-extract-text-using-the-computer-vision-sdk-and-c"></a>Hızlı Başlangıç: Görüntü İşleme SDK'sı ve C# kullanarak metin ayıklama
 
 Bu hızlı başlangıçta Görüntü İşleme Windows istemci kitaplığını kullanarak bir görüntüden el yazısı veya basılı metin ayıklayacaksınız.
-
-Bu örneğin kaynak kodu [Github](https://github.com/Azure-Samples/cognitive-services-vision-csharp-sdk-quickstarts/tree/master/ComputerVision)'da mevcuttur.
 
 ## <a name="prerequisites"></a>Ön koşullar
 
@@ -30,6 +28,9 @@ Bu örneğin kaynak kodu [Github](https://github.com/Azure-Samples/cognitive-ser
 * [Microsoft.Azure.CognitiveServices.Vision.ComputerVision](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.ComputerVision) istemci kitaplığı NuGet paketi. Paketi indirmek gerekli değildir. Yükleme yönergeleri aşağıda verilmiştir.
 
 ## <a name="recognizetextasync-method"></a>RecognizeTextAsync metodu
+
+> [!TIP]
+> Güncel kodu [GitHub](https://github.com/Azure-Samples/cognitive-services-vision-csharp-sdk-quickstarts/tree/master/ComputerVision)'dan Visual Studio çözümü olarak alın.
 
 `RecognizeTextAsync` ve `RecognizeTextInStreamAsync` metotları sırasıyla uzak ve yerel görüntüler için [Metin Tanıma API’sini](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2c6a154055056008f200) sarmalar. `GetTextOperationResultAsync` metodu [Metin Tanıma İşlemi Sonuçlarını Alma API'sini](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2cf1154055056008f201) sarmalar.  Bu metotları kullanarak bir görüntüdeki bir metni algılayabilir ve tanınan karakterleri makine tarafından kullanılabilir bir karakter akışı halinde ayıklayabilirsiniz.
 

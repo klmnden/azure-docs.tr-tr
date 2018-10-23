@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.service: cost-management
 ms.custom: ''
 manager: dougeby
-ms.openlocfilehash: 587459be69fe250b3e73fb9eb9d5cd08cf2e7a42
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: e1954ae9fcbb010c66e8a812e3e34477ac2bfc29
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46953693"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49395233"
 ---
 # <a name="tutorial-forecast-future-spending"></a>Öğretici: Gelecek harcamaları tahmin etme
 
@@ -29,13 +29,13 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 ## <a name="prerequisites"></a>Ön koşullar
 
 - Azure hesabınız olmalıdır.
-- Cloudyn için bir deneme kaydı veya ücretli aboneliğe sahip olmanız gerekir.
+- Cloudyn için bir deneme kaydına veya ücretli aboneliğe sahip olmanız gerekir.
 
 ## <a name="forecast-future-spending"></a>Gelecek harcamaları tahmin etme
 
 Cloudyn, zaman içindeki kullanımınızı temel alarak harcama tahmini yapmanıza yardımcı olan maliyet yansıtma raporlarını içerir. Birincil amaçları, maliyet eğilimlerinizin kuruluş beklentilerinizi aşmamasına yardımcı olmaktır. Kullandığınız raporlar, Geçerli Ay Öngörülen Maliyet ve Yıllık Öngörülen Maliyet içindir. Her ikisi de, mevcut kullanımınızın son 30 günlük kullanımınızla görece tutarlı olup olmayacağına göre tahmini gelecek harcamalarınızı gösterir.
 
-Geçerli Ay Öngörülen Maliyet raporu, hizmetlerinizin maliyetini gösterir. Ayın başlangıcına ve önceki aya ait maliyetleri kullanarak tahmini maliyeti gösterir. Portalın üstündeki raporlar menüsünde **Maliyet** > **Öngörü ve Bütçe** > **Geçerli Ay Öngörülen Maliyet** seçeneklerine tıklayın. Aşağıdaki resimde bir örnek gösterilir.
+Geçerli Ay Öngörülen Maliyet raporu, hizmetlerinizin maliyetini gösterir. Ayın başlangıcına ve önceki aya ait maliyetleri kullanarak tahmini maliyeti gösterir. Portalın üstündeki raporlar menüsünde **Maliyetler** > **Öngörü ve Bütçe** > **Geçerli Ay Öngörülen Maliyet** seçeneklerine tıklayın. Aşağıdaki resimde bir örnek gösterilir.
 
 ![Geçerli ay öngörülen maliyet](./media/tutorial-forecast-spending/project-month01.png)
 
@@ -47,7 +47,7 @@ Geçerli Ay Öngörülen Maliyet raporu, hizmetlerinizin maliyetini gösterir. A
 
 Yıllık Öngörülen Maliyet raporu, hizmetlerinizin sonraki 12 ay boyunca ortaya çıkabilecek tahmini maliyetini gösterir.
 
-Portalın üstündeki raporlar menüsünde **Maliyet** > **Öngörü ve Bütçe** > **Yıllık Öngörülen Maliyet** seçeneklerine tıklayın. Aşağıdaki resimde bir örnek gösterilir.
+Portalın üstündeki raporlar menüsünde **Maliyetler** > **Öngörü ve Bütçe** > **Yıllık Öngörülen Maliyet** seçeneklerine tıklayın. Aşağıdaki resimde bir örnek gösterilir.
 
 ![Yıllık öngörülen maliyet raporu](./media/tutorial-forecast-spending/project-annual01.png)
 

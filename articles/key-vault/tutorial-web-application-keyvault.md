@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 09/05/2018
 ms.author: barclayn
 ms.custom: mvc
-ms.openlocfilehash: d1776fc2347eb1a1f03a834b6a5f847ef5c551e4
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 521b6423550bf3e2d0bc90212b7e3fe0cbeddfc4
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46948892"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49167083"
 ---
 # <a name="tutorial-configure-an-azure-web-application-to-read-a-secret-from-key-vault"></a>Öğretici: Anahtar Kasasından gizli dizi okumak için bir Azure web uygulaması yapılandırma
 
@@ -126,10 +126,11 @@ Web uygulamanız için yüklemiş olmanız gereken iki NuGet paketi vardır. Bun
 1. Çözüm gezgininde web sitenizin adına sağ tıklayın.
 2. **Çözüm için NuGet paketlerini yönet...** öğesini seçin.
 3. Arama kutusunun yanındaki onay kutusunu seçin. **Ön sürümü dahil et**
-4. Aşağıda listelenen iki NuGet paketi için arama yapın ve bunların çözümünüze eklenmesini kabul edin:
+4. Aşağıda listelenen üç NuGet paketi için arama yapın ve bunların çözümünüze eklenmesini kabul edin:
 
     * [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) - Hizmetten Azure Hizmetine kimlik doğrulama senaryoları için erişim belirteçlerinin getirilmesini kolaylaştırır. 
     * [Microsoft.Azure.KeyVault](https://www.nuget.org/packages/Microsoft.Azure.KeyVault) - Anahtar Kasası ile etkileşim kurma yöntemleri içerir.
+    * [Microsoft.Extensions.Configuration.AzureKeyVault](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.AzureKeyVault/) - Azure Key Vault için `IConfiguration` uzantılarını içerir.
 
 5. Çözüm Gezgini'ni kullanarak `Program.cs` dosyasını açın ve Program.cs dosyasının içeriğini aşağıdaki kodla değiştirin. ```<YourKeyVaultName>``` yerine anahtar kasanızın adını yazın:
 

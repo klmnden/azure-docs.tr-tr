@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-ms.openlocfilehash: d99b76faf618439e51735d5f1096fd4f1cfd2364
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 9b8293196114f55f633e67cf19cd0c9e60f6398e
+ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47038298"
+ms.lasthandoff: 10/13/2018
+ms.locfileid: "49309469"
 ---
 # <a name="tutorial-customize-the-azure-iot-central-operators-view"></a>Öğretici: Azure IoT Central operatör görünümünü özelleştirme
 
@@ -56,7 +56,7 @@ Oluşturucu olarak, bir cihaz panosunda hangi bilgilerin gösterileceğini tanı
 
     ![Cihaz şablonu pano sayfası](media/tutorial-customize-operator/dashboard.png)
 
-4. Panoya bir KPI kutucuğu eklemek için **KPI**’yı seçin:
+4. Panoya Ana Performans Göstergesi (KPI) kutucuğu eklemek için **KPI**'yı seçin:
 
     ![KPI ekleme](media/tutorial-customize-operator/addkpi.png)
 
@@ -81,7 +81,7 @@ Oluşturucu olarak, bir cihaz panosunda hangi bilgilerin gösterileceğini tanı
 
 ## <a name="configure-your-settings-layout"></a>Ayar düzeninizi değiştirme
 
-Oluşturucu olarak, cihaz ayarlarının operatör görünümünü de yapılandırabilirsiniz. Operatör bir cihazı yapılandırmak için cihaz ayarları sayfasını kullanır. Örneğin, operatör buzdolabının hedef sıcaklığını ayarlamak için ayarlar sayfasını kullanır.
+Oluşturucu olarak, cihaz ayarlarının operatör görünümünü de yapılandırabilirsiniz. Operatör bir cihazı yapılandırmak için cihaz ayarları sayfasını kullanır. Örneğin, operatör bağlantılı klimanın hedef sıcaklığını ayarlamak için ayarlar sayfasını kullanır.
 
 1. Bağlı klimanızın ayar düzenini değiştirmek için **Ayarlar**’ı seçin ve **Şablonu Düzenle**’yi belirtin:
 
@@ -117,7 +117,7 @@ Pano ve ayarlara ek olarak cihaz özelliklerinin operatör görünümünü de ya
 
 **Şablonu Düzenle** modunda bir işlecin pano, ayarlar ve özellikler sayfalarını özelleştirebilirsiniz. **Şablonu Düzenle** modunda değilseniz, uygulamayı bir işleç olarak görüntüleyebilirsiniz.
 
-1. Bağlı klima cihazınızı işleç olarak görüntülemek isterseniz, şablonu düzenlemeyi durdurmak için **Bitti**’yi tıklamanız gerekir. Bu cihaz size cihazın operatör görünümünü döndürür.
+1. Bağlı klima cihazınızı operatör olarak görüntülemek isterseniz, şablonu düzenlemeyi durdurmak için **Bitti**’ye tıklayın ve cihazın operatör görünümüne dönün.
 
 2. Bu cihazın konumunu güncelleştirmek için konum kutucuğundaki değeri düzenleyin ve **Kaydet**’i seçin:
 

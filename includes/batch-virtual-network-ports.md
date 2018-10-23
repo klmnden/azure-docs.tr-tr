@@ -1,28 +1,109 @@
-- Sanal ağ, Batch hesabıyla aynı Azure **bölgesinde** ve **aboneliğinde** olmalıdır.
+---
+title: include dosyası
+description: include dosyası
+services: batch
+documentationcenter: ''
+author: dlepow
+manager: jeconnoc
+editor: ''
+ms.assetid: ''
+ms.service: batch
+ms.devlang: na
+ms.topic: include
+ms.tgt_pltfrm: na
+ms.workload: ''
+ms.date: 10/05/2018
+ms.author: danlep
+ms.custom: include file
+ms.openlocfilehash: 9246dea7fa12e5ac9378203e96352e917679525b
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.translationtype: HT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49312536"
+---
+### <a name="general-requirements"></a>Genel gereksinimler
 
-- Sanal makine yapılandırması ile oluşturulan havuzlar için yalnızca Azure Resource Manager tabanlı sanal ağlar desteklenir. Bulut hizmetleri yapılandırmasıyla oluşturulan havuzlar için yalnızca klasik sanal ağlar desteklenir.
-  
-- Klasik sanal ağ kullanmak için `MicrosoftAzureBatch` hizmet sorumlusu, belirtilen sanal ağ için `Classic Virtual Machine Contributor` Rol Tabanlı Erişim Denetimi (RBAC) rolüne sahip olmalıdır. Azure Resource Manager tabanlı bir sanal ağ kullanmak için, sanal ağa erişme ve alt ağda VM dağıtma izinlerinizin olması gerekir.
+* Sanal ağın havuzunuzu oluşturmak için kullandığınız Batch hesabıyla aynı abonelikte ve bölgede olması gerekir.
 
-- Havuz için belirtilen alt ağda havuz için hedeflenen VM sayısına yetecek kadar atanmamış IP adresi bulunması gerekir. Başka bir deyişle bu değerin havuzun `targetDedicatedNodes` ve `targetLowPriorityNodes` özelliklerinin toplamı olması gerekir. Alt ağda yeterli sayıda atanmamış IP adresi yoksa havuz işlem düğümlerini kısmen ayırır ve bir yeniden boyutlandırma hatası oluşur. 
+* Sanal ağı kullanan havuzda en fazla 4096 düğüm bulunabilir.
 
-- Bir Azure Sanal Ağına dağıtılmış sanal makine yapılandırmasındaki havuzlar, ek Azure ağ kaynaklarını otomatik olarak ayırır. Bir sanal ağdaki her 50 havuz düğümü için şu kaynaklar gereklidir: 1 ağ güvenlik grubu, 1 genel IP adresi ve 1 yük dengeleyici. Bu kaynaklar, Batch havuzu oluşturulurken elde edilen sanal ağı içeren abonelikteki [kotalarla](../articles/batch/batch-quota-limit.md) sınırlıdır.
+* Havuz için belirtilen alt ağda havuz için hedeflenen VM sayısına yetecek kadar atanmamış IP adresi bulunması gerekir. Başka bir deyişle bu değerin havuzun `targetDedicatedNodes` ve `targetLowPriorityNodes` özelliklerinin toplamı olması gerekir. Alt ağda yeterli sayıda atanmamış IP adresi yoksa havuz işlem düğümlerini kısmen ayırır ve bir yeniden boyutlandırma hatası oluşur. 
 
-- İşlem düğümlerinde görev zamanlanabilmesi için alt ağın Batch hizmetinden gelen iletişimlere izin vermesi gerekir. Bu durum sanal ağ ile ilişkilendirilmiş ağ güvenlik grubu (NSG) olup olmadığının kontrol edilmesiyle doğrulanabilir. Belirtilen alt ağdaki işlem düğümleriyle iletişim kurulması bir NSG tarafından reddedilirse Batch hizmeti, işlem düğümlerinin durumunu **kullanılamıyor** olarak ayarlar. 
+* Azure Depolama uç noktanızın sanal ağınızda kullanılan özel DNS sunucuları tarafından çözümlenebilmesi gerekir. Özellikle `<account>.table.core.windows.net`, `<account>.queue.core.windows.net` ve `<account>.blob.core.windows.net` biçimindeki URL'ler çözümlenebilir. 
 
-- Belirtilen sanal ağ ile ilişkilendirilmiş Ağ Güvenlik Grupları (NSG) ve/veya güvenlik duvarı varsa gelen ve giden bağlantı noktalarını aşağıdaki tablolarda gösterilen şekilde yapılandırın:
+Batch havuzunun Sanal Makine yapılandırmasında veya Cloud Services yapılandırmasında olma durumunda göre ek sanal ağ gereksinimleri farklı olabilir. Sanal ağa yapılacak yeni havuz dağıtımları için Sanal Makine yapılandırmasının kullanılması önerilir.
 
+### <a name="pools-in-the-virtual-machine-configuration"></a>Sanal Makine yapılandırmasındaki havuzlar
 
-  |    Hedef Bağlantı Noktaları    |    Kaynak IP adresi      |   Kaynak bağlantı noktası    |    Batch, NSG ekliyor mu?    |    VM'nin kullanılabilmesi için gerekli mi?    |    Kullanıcı eylemi   |
-  |---------------------------|---------------------------|----------------------------|----------------------------|-------------------------------------|-----------------------|
-  |   <ul><li>Sanal makine yapılandırmasıyla oluşturulan havuzlar için: 29876, 29877</li><li>Bulut hizmetleri yapılandırmasıyla oluşturulan havuzlar için: 10100, 20100, 30100</li></ul>        |    * <br /><br />Batch hizmeti, etkin bir şekilde “tümüne izin ver” seçeneğini gerektirmesine rağmen tüm Batch hizmeti dışındaki IP adreslerini filtreleyerek dışlayan sanal makine yapılandırması altında oluşturulmuş her bir VM’ye ağ arabirimi düzeyinde NSG uygular. | * veya 443 |    Evet. Batch, VM'lere eklenmiş olan ağ arabirimleri (NIC) düzeyinde NSG'ler ekler. Bu NSG'ler yalnızca Batch hizmeti rolü IP adreslerinden gelen trafiğe izin verir. Bu bağlantı noktalarını İnternet’e açsanız dahi trafik NIC üzerinde engellenir. |    Yes  |  Batch yalnızca Batch IP adreslerine izin verdiğinden NSG belirtmeniz gerekmez. <br /><br /> Ancak bir NSG belirtirseniz bu bağlantı noktalarının gelen trafiğe açık olduğundan emin olun.|
-  |    3389 (Windows), 22 (Linux)               |    VM'e uzaktan erişebilmeniz için hata ayıklama amacıyla kullanılan kullanıcı bilgisayarları.    |   *  | Hayır                                    |    Hayır                    |    VM için uzaktan erişime (RDP veya SSH) izin vermek istiyorsanız NSG ekleyin.   |                                
+**Desteklenen ağlar** - Yalnızca Azure Resource Manager tabanlı sanal ağlar
 
+**Alt ağ kimliği** - Alt ağı Batch API'leri ile belirtirken alt ağın *kaynak tanımlayıcısını* kullanın. Alt ağ tanımlayıcısı şu biçimdedir:
 
-  |    Giden Bağlantı Noktaları    |    Hedef    |    Batch, NSG ekliyor mu?    |    VM'nin kullanılabilmesi için gerekli mi?    |    Kullanıcı eylemi    |
-  |------------------------|-------------------|----------------------------|-------------------------------------|------------------------|
-  |    443    |    Azure Storage    |    Hayır    |    Yes    |    NSG eklerseniz bu bağlantı noktasının giden trafik için açık olduğundan emin olun.    |
+  ```
+  /subscriptions/{subscription}/resourceGroups/{group}/providers/Microsoft.Network/virtualNetworks/{network}/subnets/{subnet}
+  ```
 
-   Ayrıca, Azure Depolama uç noktanızın sanal ağınızda kullanılan özel DNS sunucuları tarafından çözümlenebildiğinden emin olun. Özellikle `<account>.table.core.windows.net`, `<account>.queue.core.windows.net` ve `<account>.blob.core.windows.net` biçimindeki URL'ler çözümlenebilir. 
+**İzinler** - Sanal ağ aboneliği veya kaynak grubu güvenlik ilkelerinin veya kilitlerinin belirli bir kullanıcının sanal ağ yönetim izinlerini kısıtlayıp kısıtlamadığını kontrol edin.
 
-   Resource Manager tabanlı bir NSG eklerseniz, giden bağlantılar için belirli bölgelere ait Depolama IP adreslerini seçmek üzere [hizmet etiketlerinden](../articles/virtual-network/security-overview.md#service-tags) faydalanabilirsiniz. Depolama IP adreslerinin Batch hesabınız ve sanal ağınız ile aynı bölgede olması gerektiğini unutmayın. Hizmet etiketleri şu anda seçili Azure bölgelerinde önizleme aşamasındadır.
+**Ek ağ kaynakları** - Batch, sanal ağı içeren kaynak grubuna otomatik olarak ek ağ kaynakları atar. Her 50 adanmış düğüm (veya her 20 düşük öncelikli düğüm) için Batch şunları atar: 1 ağ güvenlik grubu (NSG), 1 genel IP adresi ve 1 yük dengeleyici. Bu kaynaklar, aboneliğin [kaynak kotalarıyla](../articles/azure-subscription-service-limits.md) sınırlıdır. Büyük havuzlar için bu kaynaklardan birinde veya daha fazlasında kota artışı istemeniz gerekebilir.
+
+#### <a name="network-security-groups"></a>Ağ güvenlik grupları
+
+İşlem düğümlerinde görev zamanlayabilmek için alt ağın Batch hizmetinden gelen iletişim isteklerine, Azure Depolama veya diğer kaynaklarla iletişim kurabilmek için de giden iletişim isteklerine izin vermesi gerekir. Batch, Sanal Makine yapılandırmasındaki havuzlar için VM'lere ekli ağ arabirimleri (NIC) düzeyinde NSG'ler ekler. Bu NSG'ler şu trafiğe izin vermek için gelen ve giden bağlantı kurallarını otomatik olarak yapılandırır:
+
+* Batch hizmet rolü IP adreslerinden 29876 ve 29877 numaralı bağlantı noktalarına gelen TCP trafiği. 
+* Uzaktan erişime izin vermek için 22 (Linux düğümleri) veya 3389 (Windows düğümler) numaralı bağlantı noktasından gelen TCP trafiği.
+* Sanal ağa giden herhangi bir bağlantı noktasında giden trafik.
+* İnternete giden herhangi bir bağlantı noktasında giden trafik.
+
+> [!IMPORTANT]
+> Batch tarafından yapılandırılmış olan NSG'lerdeki gelen veya giden kurallarını değiştirirken veya yenilerini eklerken dikkatli olun. Belirtilen alt ağdaki işlem düğümleriyle iletişim kurulması bir NSG tarafından reddedilirse Batch hizmeti, işlem düğümlerinin durumunu **kullanılamıyor** olarak ayarlar.
+
+Batch kendi NSG'lerini yapılandırdığından alt ağ düzeyinde NSG belirtmenize gerek yoktur. Ancak belirtilen alt ağ ile ilişkilendirilmiş Ağ Güvenlik Grupları (NSG) ve/veya güvenlik duvarı varsa gelen ve giden güvenlik kurallarını aşağıdaki tablolarda gösterilen şekilde yapılandırın. 3389 (Windows) veya 22 (Linux) numaralı bağlantı noktalarına gelen trafiği yalnızca havuzdaki VM'lere uzaktan erişim izni vermeniz gerekiyorsa yapılandırın. Bu ayar havuz VM'lerinin kullanılabilir durumda olması için şart değildir.
+
+**Gelen güvenlik kuralları**
+
+| Kaynak IP adresleri | Kaynak bağlantı noktaları | Hedef | Hedef bağlantı noktaları | Protokol | Eylem |
+| --- | --- | --- | --- | --- | --- |
+Herhangi biri <br /><br />Batch hizmeti, etkin bir şekilde “tümüne izin ver” seçeneğini gerektirmesine rağmen tüm Batch hizmeti dışındaki IP adreslerini filtreleyerek dışlayan Sanal Makine yapılandırması altında oluşturulmuş her bir VM’ye ağ arabirimi düzeyinde NSG uygular. | * | Herhangi biri | 29876-29877 | TCP | İzin Ver |
+| VM'lere uzaktan erişebilmeniz için hata ayıklama amacıyla kullanılan kullanıcı bilgisayarları. | * | Herhangi biri |  3389 (Windows), 22 (Linux) | TCP | İzin Ver |
+
+**Giden güvenlik kuralları**
+
+| Kaynak | Kaynak bağlantı noktaları | Hedef | Hedef hizmet etiketi | Protokol | Eylem |
+| --- | --- | --- | --- | --- | --- |
+| Herhangi biri | 443 | [Hizmet etiketi](../articles/virtual-network/security-overview.md#service-tags) | Depolama (Batch hesabınız ve sanal ağınızla aynı bölgede)  | Herhangi biri | İzin Ver |
+
+### <a name="pools-in-the-cloud-services-configuration"></a>Bulut Hizmetleri yapılandırmasındaki havuzlar
+
+**Desteklenen sanal ağlar** - Yalnızca klasik sanal ağlar
+
+**Alt ağ kimliği** - Alt ağı Batch API'leri ile belirtirken alt ağın *kaynak tanımlayıcısını* kullanın. Alt ağ tanımlayıcısı şu biçimdedir:
+
+  ```
+  /subscriptions/{subscription}/resourceGroups/{group}/providers/Microsoft.ClassicVirtualNetwork /virtualNetworks/{network}/subnets/{subnet}
+  ```
+
+**İzinler** - `MicrosoftAzureBatch` hizmet sorumlusu, belirtilen sanal ağ için `Classic Virtual Machine Contributor` Rol Tabanlı Erişim Denetimi (RBAC) rolüne sahip olmalıdır.
+
+#### <a name="network-security-groups"></a>Ağ güvenlik grupları
+
+İşlem düğümlerinde görev zamanlayabilmek için alt ağın Batch hizmetinden gelen iletişim isteklerine, Azure Depolama veya diğer kaynaklarla iletişim kurabilmek için de giden iletişim isteklerine izin vermesi gerekir.
+
+Batch iletişimi yalnızca Batch IP adreslerinden havuz düğümlerine gelen iletişime izin verecek şekilde yapılandırdığından NSG belirtmenize gerek yoktur. Ancak belirtilen alt ağ ile ilişkilendirilmiş NSG'ler ve/veya güvenlik duvarı varsa gelen ve giden güvenlik kurallarını aşağıdaki tablolarda gösterilen şekilde yapılandırın. Belirtilen alt ağdaki işlem düğümleriyle iletişim kurulması bir NSG tarafından reddedilirse Batch hizmeti, işlem düğümlerinin durumunu **kullanılamıyor** olarak ayarlar.
+
+ 3389 (Windows) veya 22 (Linux) numaralı bağlantı noktalarına gelen trafiği yalnızca havuzdaki düğümlere uzaktan erişim izni vermeniz gerekiyorsa yapılandırın. Bu ayar havuz düğümlerinin kullanılabilir durumda olması için şart değildir.
+
+**Gelen güvenlik kuralları**
+
+| Kaynak IP adresleri | Kaynak bağlantı noktaları | Hedef | Hedef bağlantı noktaları | Protokol | Eylem |
+| --- | --- | --- | --- | --- | --- |
+Herhangi biri <br /><br />Bunun için "tümüne izin ver" izni gerekli olsa da Batch hizmeti her düğümün düzeyinde Batch harici IP adreslerini filtreleyen bir ACL kuralı uygular. | * | Herhangi biri | 10100, 20100, 30100 | TCP | İzin Ver |
+| VM'lere uzaktan erişebilmeniz için hata ayıklama amacıyla kullanılan kullanıcı bilgisayarları. | * | Herhangi biri |  3389 (Windows), 22 (Linux) | TCP | İzin Ver |
+
+**Giden güvenlik kuralları**
+
+| Kaynak | Kaynak bağlantı noktaları | Hedef | Hedef bağlantı noktaları | Protokol | Eylem |
+| --- | --- | --- | --- | --- | --- |
+| Herhangi biri | * | Herhangi biri | 443  | Herhangi biri | İzin Ver |

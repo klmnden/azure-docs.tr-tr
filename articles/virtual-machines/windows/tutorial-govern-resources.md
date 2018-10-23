@@ -11,15 +11,15 @@ ms.workload: infrastructure
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 07/20/2018
+ms.date: 10/12/2018
 ms.author: tomfitz
 ms.custom: mvc
-ms.openlocfilehash: a785a18ac4aec3006397b6d681c476f8acf982a7
-ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
+ms.openlocfilehash: 6377a54cc862bb5f62726c3ce91a41cc6eb0763d
+ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39205682"
+ms.lasthandoff: 10/13/2018
+ms.locfileid: "49311397"
 ---
 # <a name="tutorial-learn-about-windows-virtual-machine-governance-with-azure-powershell"></a>Öğretici: Azure PowerShell ile Windows sanal makine yönetimi hakkında bilgi edinin
 
@@ -55,24 +55,19 @@ Sanal makine çözümlerini yönetmek için yaygın olarak gereken erişimi sağ
 * [Ağ Katılımcısı](../../role-based-access-control/built-in-roles.md#network-contributor)
 * [Depolama Hesabı Katılımcısı](../../role-based-access-control/built-in-roles.md#storage-account-contributor)
 
-Kullanıcılara rolleri tek tek atamak yerine, benzer eylemlerde bulunması gereken kullanıcılar için [bir Azure Active Directory grubu](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md) oluşturmak genellikle daha kolaydır. Ardından, bu grubu uygun role atayabilirsiniz. Bu makaleyi basitleştirmek için, üyeleri olmayan bir Azure Active Directory grubu oluşturun. Bu grubu hala bir kapsamın rolüne atayabilirsiniz. 
+Kullanıcılara rolleri tek tek atamak yerine, benzer eylemlerde bulunması gereken kullanıcılar için bir Azure Active Directory grubu kullanmak genellikle daha kolaydır. Ardından, bu grubu uygun role atayabilirsiniz. Bu makalede sanal makineyi yönetmek için var olan bir grubu kullanın veya portalı kullanarak [bir Azure Active Directory grubu oluşturun](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
 
-Aşağıdaki örnek, posta takma adı *vmDemoGroup* olan *VMDemoContributors* adlı bir Azure Active Directory grubu oluşturur. Posta takma adı, grubun diğer adı olarak görev yapar.
-
-```azurepowershell-interactive
-$adgroup = New-AzureADGroup -DisplayName VMDemoContributors `
-  -MailNickName vmDemoGroup `
-  -MailEnabled $false `
-  -SecurityEnabled $true
-```
-
-Komut istemi döndürüldükten kısa bir süre sonra grup Azure Active Directory’ye yayılır. 20 veya 30 saniye bekledikten sonra [New-AzureRmRoleAssignment](/powershell/module/azurerm.resources/new-azurermroleassignment) komutunu kullanarak yeni Azure Active Directory grubunu kaynak grubu için Sanal Makine Katılımcısı rolüne atayabilirsiniz.  Aşağıdaki komutu yayılmadan önce çalıştırırsanız, **Dizinde <guid> sorumlusu yok** ifadesini içeren bir hata alırsınız. Komutu tekrar çalıştırmayı deneyin.
+Yeni grup oluşturduktan veya var olan bir grup belirledikten sonra [New-AzureRmRoleAssignment](/powershell/module/azurerm.resources/new-azurermroleassignment) komutunu kullanarak Azure Active Directory grubunu kaynak grubu için Sanal Makine Katılımcısı rolüne atayabilirsiniz.  
 
 ```azurepowershell-interactive
-New-AzureRmRoleAssignment -ObjectId $adgroup.ObjectId `
+$adgroup = Get-AzureRmADGroup -DisplayName <your-group-name>
+
+New-AzureRmRoleAssignment -ObjectId $adgroup.id `
   -ResourceGroupName myResourceGroup `
   -RoleDefinitionName "Virtual Machine Contributor"
 ```
+
+**<guid> sorumlusunun dizinde bulunmadığını** belirten bir hatayla karşılaşmanız yeni grubun Azure Active Directory'de yayılmadığını gösterir. Komutu tekrar çalıştırmayı deneyin.
 
 Genellikle, kullanıcıların dağıtılmış kaynakları yönetmek için atandığından emin olmak üzere *Ağ Katılımcısı* ve *Depolama Hesabı Katılımcısı* için işlemi yinelemeniz gerekir. Bu makalede, söz konusu adımları atlayabilirsiniz.
 
@@ -168,7 +163,7 @@ Kilitleri test etmek için aşağıdaki komutu çalıştırmayı deneyin:
 Remove-AzureRmResourceGroup -Name myResourceGroup
 ```
 
-Silme işleminin bir kilit nedeniyle gerçekleştirilemediğini belirten bir hata görürsünüz. Kaynak grubu yalnızca kilitleri spesifik olarak kaldırırsanız silinebilir. Bu adım [Kaynakları temizle](#clean-up-resources) bölümünde gösterilmektedir.
+Silme işleminin bir kilit nedeniyle tamamlanamadığını belirten bir hata görürsünüz. Kaynak grubu yalnızca kilitleri spesifik olarak kaldırırsanız silinebilir. Bu adım [Kaynakları temizle](#clean-up-resources) bölümünde gösterilmektedir.
 
 ## <a name="tag-resources"></a>Kaynakları etiketleme
 

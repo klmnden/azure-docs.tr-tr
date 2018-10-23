@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 05/22/2017
 ms.author: rafats
-ms.openlocfilehash: 76545c9953cff944c515e887a6a4214b9c76c501
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: fdeb58d72e15f563fd70ae94804de0773dd603c7
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47038536"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49387361"
 ---
 # <a name="introduction-to-azure-cosmos-db-sql-api"></a>Azure Cosmos DB: SQL API’si
 
@@ -67,14 +67,10 @@ Azure Cosmos DB, HTTP/HTTPS istekleri yapabilen herhangi bir dil tarafından ça
 
 | İndirme | Belgeler |
 | --- | --- |
-| [.NET SDK](http://go.microsoft.com/fwlink/?LinkID=402989) |[.NET kitaplığı](/dotnet/api/overview/azure/cosmosdb?view=azure-dotnet) |
-| [Node.js SDK’sı](http://go.microsoft.com/fwlink/?LinkID=402990) |[Node.js kitaplığı](https://github.com/Azure/azure-cosmosdb-node) |
-| [Java SDK](http://go.microsoft.com/fwlink/?LinkID=402380) |[Java kitaplığı](/java/api/com.microsoft.azure.documentdb) |
-| [JavaScript SDK'sı](https://github.com/Azure/azure-cosmos-js) |[JavaScript kitaplığı](https://github.com/Azure/azure-cosmos-js) |
-| yok |[Sunucu tarafı JavaScript SDK'sı](https://github.com/Azure/azure-cosmosdb-js-server) |
-| [Python SDK'sı](https://pypi.python.org/pypi/pydocumentdb) |[Python kitaplığı](https://github.com/Azure/azure-cosmos-python) |
-| yok | [MongoDB API’si](mongodb-introduction.md)
-
+| [.NET SDK](http://go.microsoft.com/fwlink/?LinkID=402989) |[.NET başvuru belgeleri](/dotnet/api/overview/azure/cosmosdb?view=azure-dotnet) |
+| [Java SDK](http://go.microsoft.com/fwlink/?LinkID=402380) |[Java başvuru belgeleri](/java/api/com.microsoft.azure.documentdb) |
+| [JavaScript SDK'sı](https://www.npmjs.com/package/@azure/cosmos) |[JavaScript başvuru belgeleri](https://docs.microsoft.com/javascript/api/@azure/cosmos/?view=azure-node-latest) |
+| [Python SDK'sı](https://pypi.python.org/pypi/pydocumentdb) |[Python başvuru belgeleri](https://github.com/Azure/azure-cosmos-python) |
 
 [Azure Cosmos DB Öykünücüsü](local-emulator.md)’nü kullanarak Azure aboneliği oluşturmadan veya masraf yapmadan uygulamanızı SQL API’si ile yerel ortamda geliştirip test edebilirsiniz. Uygulamanızın öykünücüdeki performansından memnun olduğunuzda bulut üzerinde Azure Cosmos DB hesabı kullanmaya başlayabilirsiniz.
 

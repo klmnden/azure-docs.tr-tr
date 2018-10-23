@@ -7,18 +7,20 @@ services: iot-fundamentals
 ms.topic: overview
 ms.date: 10/09/2018
 ms.author: robinsh
-ms.openlocfilehash: 6a44c36b5dd87c28db3de34a6858e29fb5730117
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: 6834ad6c6915ceb3306284ea738d76027e2c9479
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49067343"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49365365"
 ---
 # <a name="azure-iot-technologies-and-solutions-paas-and-saas"></a>Azure IoT teknolojileri ve çözümleri: PaaS ve SaaS
 
 Microsoft, tüm müşterilerin ihtiyaçlarını karşılayacak bir portföy oluşturarak herkese dijital dönüşüm avantajlarından faydalanma olanağı tanıyor. Azure IoT ürün portföyü, kullanılabilir PaaS/SaaS teknolojileri ve çözümlerine genel bir bakıştır. Kendi çözümünüzü oluşturmak için kullanılabilen iki yol sunar:
 
-- Hizmet Olarak Platform (PaaS): Özel IoT çözümlerinin geliştirilmesini hızlandırmanızı sağlayan önceden yapılandırılmış kurumsal sınıf çözümlerden oluşan bir koleksiyon olan [Azure IoT çözüm hızlandırıcılarını](https://www.azureiotsolutions.com/) kullanarak uygulamanızı oluşturun.
+- Hizmet Olarak Platform (PaaS): Uygulamanızı aşağıdaki hizmetlerden birini kullanarak oluşturun.
+    - Özel IoT çözümleri geliştirmeyi hızlandırmanızı sağlayan, önceden yapılandırılmış kurumsal düzeyde çözümlerden oluşan bir koleksiyon olan [Azure IoT çözüm hızlandırıcıları](https://www.azureiotsolutions.com/) veya 
+    - Uzamsal zeka grafı ve etki alanına özgü nesne modelleri kullanan bağlama uygun IoT çözümleri oluşturmak için fiziksel ortamı modellemenizi sağlayan [Azure Digital Twins](https://azure.microsoft.com/services/digital-twins/) hizmeti.
 
 - Hizmet Olarak Yazılım (SaaS): IoT çözümünün karmaşıklığından etkilenmeden IoT uygulamaları geliştirmeye yönelik yeni SaaS çözümü olan [Azure IoT Central](https://azure.microsoft.com/services/iot-central/)’ı hemen kullanmaya başlayın. Kuruluşunuz kendi IoT çözümünüzü oluşturacak kaynaklara sahip değilse, Azure IoT Central, dakikalar içinde cihaz modelleri, panolar ve kurallar oluşturabilecek kodsuz bir IoT çözümüdür.
 
@@ -95,7 +97,10 @@ Açık kaynak [cihaz SDK’larını](/azure/iot-hub/iot-hub-devguide-sdks) kulla
 [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/), milyonlarca IoT cihazları ile bir çözüm arka ucu arasında güvenilir ve güvenli çift yönlü iletişimler sağlayan tam olarak yönetilen bir hizmettir. Azure IoT Hub Cihaz Sağlama Hizmeti doğru IoT hub’a, kullanıcı müdahalesi gerektirmeden tam zamanında sağlama olanağı sunan bir yardımcı hizmettir. Bu sayede müşteriler milyonlarca cihazı güvenli ve ölçeklenebilir bir şekilde sağlayabiliyor.
 
 ### <a name="edge"></a>Edge
-[Azure IoT Edge](https://azure.microsoft.com/services/iot-edge/), bir Nesnelerin İnterneti (IoT) hizmetidir. Bu hizmet, verileri bulut yerine cihazlarda, diğer bir deyişle "uçta." İş yükünüzün bir kısmını uca taşıyarak, düşük gecikme süresi yaşamış ve çevrimdışı senaryolar seçeneğine sahip olmuş olursunuz.
+[Azure IoT Edge](https://azure.microsoft.com/services/iot-edge/) bir IoT hizmetidir. Bu hizmet, verileri bulut yerine cihazlarda, diğer bir deyişle "uçta." İş yükünüzün bir kısmını uca taşıyarak, düşük gecikme süresi yaşamış ve çevrimdışı senaryolar seçeneğine sahip olmuş olursunuz.
+
+### <a name="spatial-intelligence"></a>Uzamsal Zeka
+[Azure Digital Twins](https://azure.microsoft.com/services/digital-twins/), fiziksel ortamın bir modelini oluşturmanızı sağlayan bir IoT hizmetidir. İnsanlar, alanlar ve cihazlar arasındaki ilişkiyi modelleyen bir uzamsal zeka grafı sunar. Dijital ve fiziksel dünyadaki veriler arasında bağlantı kurarak bağlama özgü çözümler oluşturabilirsiniz.  
 
 ### <a name="data-and-analytics"></a>Veri ve analiz
 Azure Machine Learning ile bulut zekasını uca getirmeden, Azure Data Lake ile IoT cihazı verilerini ekonomik olarak depolamaya ve [Azure Time Series Insights](https://azure.microsoft.com/services/time-series-insights/) ile IoT cihazlarında bulunan büyük miktardaki verileri görselleştirmeye kadar kapsamlı olanaklar sunan bir dizi Azure veri ve analiz PaaS tekliflerinden faydalanın.

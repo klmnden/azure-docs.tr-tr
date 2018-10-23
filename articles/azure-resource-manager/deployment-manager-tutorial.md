@@ -13,14 +13,14 @@ ms.devlang: na
 ms.date: 10/04/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: ae0d37dd8df9b076e72959e9036ba35d322e4e63
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 5d18a1f86e1d870db64199c575450dd475590b55
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48803724"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49394491"
 ---
-# <a name="tutorial-use-azure-deployment-manager-with-resource-manager-templates-public-preview"></a>Öğretici: Azure Deployment Manager’ı Resource Manager şablonlarıyla kullanma (Genel önizleme)
+# <a name="tutorial-use-azure-deployment-manager-with-resource-manager-templates-private-preview"></a>Öğretici: Azure Deployment Manager’ı Resource Manager şablonlarıyla kullanma (Özel önizleme)
 
 [Azure Deployment Manager](./deployment-manager-overview.md)’ı kullanarak uygulamalarınızı birden çok bölgede nasıl dağıtacağınızı öğrenin. Deployment Manager’ı kullanmak için iki şablon oluşturmanız gerekir:
 
@@ -48,7 +48,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap oluşturun](htt
 Bu makaleyi tamamlamak için gerekenler:
 
 * [Azure Resource Manager şablonlarını](./resource-group-overview.md) geliştirme konusunda deneyim.
-* Azure Dağıtım Yöneticisi genel önizleme aşamasındadır. Azure Deployment Manager'ı kullanarak kaydolmak için [kayıt sayfasını](https://aka.ms/admsignup) doldurun. 
+* Azure Dağıtım Yöneticisi özel önizleme aşamasındadır. Azure Deployment Manager'ı kullanarak kaydolmak için [kayıt sayfasını](https://aka.ms/admsignup) doldurun. 
 * Azure PowerShell. Daha fazla bilgi için bkz. [Azure PowerShell kullanmaya başlayın](https://docs.microsoft.com/powershell/azure/get-started-azureps).
 * Deployment Manager cmdlet'leri. Bu yayın öncesi cmdlet’leri yüklemek için PowerShellGet’in en son sürümü gereklidir. En son sürümü edinmek için bkz. [PowerShellGet’i Yükleme](/powershell/gallery/installing-psget). PowerShellGet’i yükledikten sonra PowerShell penceresini kapatın. Bir PowerShell penceresi açın ve şu komutu çalıştırın:
 

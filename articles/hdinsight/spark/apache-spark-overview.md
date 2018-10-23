@@ -9,16 +9,16 @@ ms.custom: hdinsightactive,mvc
 ms.topic: overview
 ms.date: 05/07/2018
 ms.author: jasonh
-ms.openlocfilehash: 9e4cb497a2dc81b9503b03fd2db27ff2538d424a
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 7bc7c95c0d15e0c33f7f9a705fb47d27f9daacec
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43039691"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49378729"
 ---
 # <a name="what-is-apache-spark-in-azure-hdinsight"></a>Azure HDInsight’ta Apache Spark nedir?
 
-*Apache Spark*, büyük veri analizi uygulamalarının performansını artırmak üzere bellek içi işlemeyi destekleyen paralel işleme altyapısıdır. Azure HDInsight’ta Apache Spark, Microsoft'un buluttaki Apache Hadoop uygulamasıdır. HDInsight, Azure’da bir Spark kümesi oluşturup yapılandırmayı kolaylaştırır. HDInsight'taki Spark kümeleri, Azure Depolama ve Azure Data Lake Store ile uyumludur. Bu nedenle, HDInsight Spark kümelerini Azure’da depolanmış verilerinizi işlemek için kullanabilirsiniz. Bileşenler ve sürüm bilgileri için bkz. [Azure HDInsight’taki Hadoop bileşenleri ve sürümleri](../hdinsight-component-versioning.md).
+*Apache Spark*, büyük veri analizi uygulamalarının performansını artırmak üzere bellek içi işlemeyi destekleyen paralel işleme altyapısıdır. Azure HDInsight’ta Apache Spark, Microsoft'un buluttaki Apache Spark uygulamasıdır. HDInsight, Azure’da bir Spark kümesi oluşturup yapılandırmayı kolaylaştırır. HDInsight'taki Spark kümeleri, Azure Depolama ve Azure Data Lake Store ile uyumludur. Bu nedenle, HDInsight Spark kümelerini Azure’da depolanmış verilerinizi işlemek için kullanabilirsiniz. Bileşenler ve sürüm bilgileri için bkz. [Azure HDInsight’taki Hadoop bileşenleri ve sürümleri](../hdinsight-component-versioning.md).
 
 ![Spark: birleşik çerçeve](./media/apache-spark-overview/hdinsight-spark-overview.png)
 
