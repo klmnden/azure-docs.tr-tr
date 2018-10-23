@@ -10,12 +10,12 @@ ms.component: translator-text
 ms.topic: conceptual
 ms.date: 12/14/2017
 ms.author: v-jansko
-ms.openlocfilehash: 16334dbcb4631bd927069620e73c1c4474ff99fa
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 15b2d96cdf1794ae0f72c087ef95055da7c0964e
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46126267"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49646380"
 ---
 # <a name="how-to-receive-word-alignment-information"></a>Word hizalama bilgi alma
 
@@ -25,7 +25,7 @@ Hizalama bilgileri almak için çeviri yöntemini kullanın ve isteğe bağlı i
 ## <a name="alignment-information-format"></a>Hizalama bilgileri biçimi
 Hizalama, her bir sözcüğün kaynağı için aşağıdaki biçimde bir dize değeri olarak döndürülür. Her sözcüğün bilgilerini boşluk ayrılmış (betik) gibi dillerin Çince dahil olmak üzere, bir boşluk ile ayrılır:
 
-[[SourceTextStartIndex]: [SourceTextEndIndex]-[TgtTextStartIndex]: [TgtTextEndIndex]] *
+[[SourceTextStartIndex]:[SourceTextEndIndex]-[TgtTextStartIndex]:[TgtTextEndIndex]] *
 
 Örnek hizalama dizesi: "0:0-7:10 1:2-11:20 3:4-0:3 3:4-4:6 5:5-21:21".
 

@@ -1,6 +1,6 @@
 ---
-title: Bir test bir hizmet olarak Azure Stack doğrulama ile izleme | Microsoft Docs
-description: Hizmet olarak Azure Stack doğrulama ile bir test izleyin.
+title: İzleme ve Azure Stack VaaS portalında testleri yönetme | Microsoft Docs
+description: İzleme ve Azure Stack VaaS portalında testleri yönetme.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -10,124 +10,140 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 07/24/2018
+ms.date: 10/19/2018
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.openlocfilehash: 2dc4d3f2855864ff80648b5b9635ff28c0dacbb7
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: b9500176cd3779c46886e6ed8bc8c989bea20a8c
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44163338"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49647520"
 ---
-# <a name="monitor-a-test-with-azure-stack-validation-as-a-service"></a>Bir test bir hizmet olarak Azure Stack doğrulama ile izleme
+# <a name="monitor-and-manage-tests-in-the-vaas-portal"></a>İzleme ve testleri VaaS portalında yönetme
 
 [!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
-Bir testin yürütme görüntüleyerek izlenebilir **işlemleri** devam eden veya tamamlanmış test paketleri için sayfa. Bu sayfa, işlemlerini ve testin durumu ayrıntıları.
+Azure Stack çözümünüzü karşı testleri zamanlama sonra test yürütme durumu raporlama doğrulama (VaaS) hizmet olarak başlar. Bu bilgiler, VaaS portalında kullanılabilirliğiyle ve testleri iptal etme gibi eylemler ile birlikte kullanılabilir.
 
-## <a name="monitor-a-test"></a>Bir test izleyin
+## <a name="navigate-to-the-workflow-tests-summary-page"></a>İş akışı testleri Özet sayfasına gidin
 
-1. Bir çözümü seçin.
+1. Çözüm panosunda en az bir iş akışı sırasında sahip varolan bir çözümü seçin.
 
-2. Seçin **Yönet** herhangi bir iş akışı kutucuğa üzerinde.
+    ![İş akışı kutucukları](media/tile_all-workflows.png)
 
-3. Bir iş akışı kendi test Özet sayfasını açmak için tıklayın.
+1. Seçin **Yönet** iş akışı kutucuğundaki. Sonraki sayfanın seçili çözüm için oluşturulan iş akışları listeler.
 
-4. Bağlam menüsünü genişletin **[...]**  paketi örneği için test edin.
+1. Test özeti açmak için iş akışı adını seçin.
 
-5. Seçin **işlemlerini görüntüleme**
+## <a name="change-workflow-parameters"></a>İş akışı parametreleri değiştirin
 
-![Alternatif metin](media\image4.png)
+Her iş akışı türü düzenlemenize olanak sağlayan [Test parametreleri](azure-stack-vaas-parameters.md#test-parameters) iş akışı oluşturma sırasında belirtilebilen.
 
-Çalıştırma tamamlandı testler için günlükleri test özeti sayfasından tıklayarak indirilebilir **indirme günlükleri** bağlam menüsündeki bir testin **[...]** . Azure Stack iş ortakları Bu günlükler, başarısız testlerde hata ayıklamak için kullanabilirsiniz.
+1. Testleri Özet sayfasında, seçin **Düzenle** düğmesi.
 
-## <a name="open-the-test-pass-summary"></a>Test geçişi özeti açın
+1. Şunlara göre yeni değerleri sağlayın [iş akışı ortak parametreleri için bir hizmet olarak Azure Stack doğrulama](azure-stack-vaas-parameters.md).
 
-1. Portalı'nı açın. 
-2. Daha önce çalışma veya zamanlanmış testleri içeren varolan bir çözüm adını seçin.
+1. Seçin **Gönder** değerlerini kaydetmek için.
 
-    ![Test geçişleri yönetme](media/managetestpasses.png)
+> [!NOTE]
+> İçinde **Test geçiş** iş akışı, ihtiyaç duyacağınız test seçimi ve yeni parametre değerlerini kaydedebilmek için önce gözden geçirme sayfasına gidin.
 
-3. Seçin **Yönet** içinde **Test geçişleri** paneli.
-4. Test geçiş testi geçişi özetini açmak için seçin. Test adı inceleyebilirsiniz oluşturma tarihi, çalıştırma, test ne kadar sürdüğünü ve sonucu (başarılı veya başarısız).
-5. Seçin [ **.  .** ].
+### <a name="add-tests-test-pass-only"></a>Test (yalnızca Test geçiş) Ekle
 
-### <a name="test-pass-summary"></a>Test geçiş özeti
+İçinde **Test geçiş** iş akışları, her iki **ekleme testleri** ve **Düzenle** düğmeleri iş akışı içinde yeni testler zamanlamanıza olanak sağlar.
+
+> [!TIP]
+> Seçin **ekleme testleri** yalnızca yeni testleri zamanlayın istiyorsanız ve parametrelerini düzenlemek gerekmeyen bir **Test geçiş** iş akışı.
+
+## <a name="managing-test-instances"></a>Test örneklerini yönetme
+
+Terim ve kısaltmalarla çalıştırmalar için (yani, **Test geçiş** iş akışı), Azure Stack çözüm karşı zamanlanmış testleri testleri Özet sayfasında listelenir.
+
+Resmi çalıştırmalar için (yani, **doğrulama** iş akışları), Azure Stack çözüm doğrulamasını tamamlamak için gereken testleri testleri Özet sayfasında listelenir. Doğrulama testleri bu sayfadan zamanlanmış.
+
+Her bir zamanlanmış test örneği aşağıdaki bilgileri gösterir:
 
 | Sütun | Açıklama |
 | --- | --- |
-| Test adı | Testin adı. Doğrulama numarası başvuruyor. |
-| Oluşturulan | Test geçiş oluşturulduğu zaman. |
-| Başlatıldı | Son test çalıştırdığınızda. |
-| Süre | Test geçiş çalıştırmak için geçen süre sürenin uzunluğu. |
-| Durum | Sonucu (başarılı veya başarısız) rest geçişi için. |
-| Aracı Adı | Aracısı'nın tam etki alanı adı. |
-| Toplam işlem | Test geçişi yapılmaya işlemlerinin toplam sayısı. |
-| Başarılı işlemler | Test geçişi geçirilen işlemlerinin sayısı. |
-|  Başarısız olan işlemler | Başarısız işlemlerin sayısı. |
+| Test adı | Adı ve sürümü test. |
+| Kategori | Test amaçlı. |
+| Oluşturulan | Hangi test zamanlandığı saat. |
+| Başlatıldı | Hangi test yürütme başlama zamanı. |
+| Süre | Test çalıştırdığınızda uzunluğu. |
+| Durum | Durum veya test sonucu. Yürütme öncesi veya devam eden durumlar şunlardır: `Pending`, `Running`. Terminal durumlar şunlardır: `Cancelled`, `Failed`, `Aborted`, `Succeeded`. |
+| Aracı adı | Çalışan test aracısı'nın adı. |
+| Toplam işlem | Test sırasında çalıştı işlemlerinin toplam sayısı. |
+| Başarılı işlemler | Test sırasında başarılı işlem sayısı. |
+|  Başarısız olan işlemler | Test sırasında başarısız olan işlemlerin sayısı. |
 
-### <a name="group-columns-in-the-test-pass-summary"></a>Grup sütunları test özeti geçirin
+### <a name="actions"></a>Eylemler
 
-Seçin ve bir sütun üst bilgisi bir sütun değerine bir grup oluşturmak için sürükleyin.
+Her bir test örneği kendi bağlam menüsünde tıkladığınızda gerçekleştirebileceğiniz eylemleri listeler **[...]**  test örnekleri tabloda.
 
-## <a name="reschedule-a-test"></a>Bir test yeniden zamanlama
+#### <a name="view-information-about-the-test-definition"></a>Test tanımı hakkında bilgileri görüntüleyin
 
-1. [Test geçişi özeti açın](#open-the-test-pass-summary).
-2. Seçin **yeniden** test geçiş yeniden zamanlamak için.
-3. Azure Stack örneğiniz bulut yönetici parolasını girin.
-4. Hesabınızı tanımladığınız tanılama depolama bağlantı dizesi girin.
-5. Test yeniden zamanlayın.
+Seçin **bilgilerini görüntüleyin** test tanımı hakkında genel bilgileri görüntülemek için bağlam menüsünden. Bu, aynı ad ve sürümde test örneği tarafından paylaşılır.
 
-## <a name="cancel-a-test"></a>Bir testi iptal et
-
-1. [Test geçişi özeti açın](#open-the-test-pass-summary).
-2. Seçin **iptal**.
-
-## <a name="get-test-information"></a>Test bilgileri Al
-
-1. [Test geçişi özeti açın](#open-the-test-pass-summary).
-2. Seçin **bilgilerini görüntüleyin** test geçiş yeniden zamanlamak için.
-
-**Test bilgileri**
-
-| Ad | Açıklama |
+| Test özelliği | Açıklama |
 | -- | -- |
-| Test adı | Örneğin, Azure Stack 1806 RC doğrulama OEM güncelleştirmeyi test adı. |
-| Test sürümü | Örneğin, 5.1.4.0 test sürümü. |
-| Yayımcı | Microsoft tarafından test yayımcı. |
-| Kategori | Test kategorisi gibi **işlevsel** veya **güvenilirlik**. |
-| Hedef Hizmetleri | Gibi VirtualMachines sınanan Hizmetleri |
+| Test adı | Testin adı. |
+| Test sürümü | Test sürümü. |
+| Yayımcı | Test yayımcı. |
+| Kategori |  Test amaçlı. |
+| Hedef Hizmetleri | Test edilen Azure Stack Hizmetleri. |
 | Açıklama | Test açıklaması. |
-| Tahmini süre (dakika) | Testi çalıştırmak için geçen dakika cinsinden süre uzunluğu. |
-| Bağlantılar | GitHub sorun İzleyicisi bağlantısı. |
+| Tahmini süre (dakika) | Test beklenen çalışma zamanı. |
+| Bağlantılar | Test ya da iletişim noktaları ilgili bilgileri. |
 
-## <a name="get-test-parameters"></a>Test parametreleri Al
+#### <a name="view-test-instance-parameters"></a>Görünümü test örneği parametreleri
 
-1. [Test geçişi özeti açın](#open-the-test-pass-summary).
-2. Seçin **görüntülemek parametreleri** test geçiş yeniden zamanlamak için.
+Seçin **görüntülemek parametreleri** test örneği zamanlama sırasında sağlanan parametreleri görüntülemek için bağlam menüsünden. Parolalar gibi hassas dizeleri görüntülenmez. Bu eylem yalnızca zamanlanmış testleri için kullanılabilir.
 
-**Parametreler**
+Bu pencere, tüm test örnekleri için aşağıdaki meta verileri içerir:
 
-| Ad | Açıklama |
+| Test örnek özelliği | Açıklama |
 | -- | -- |
-| Test adı | Örneğin, oemupdate1806test test adı. |
-| Test sürümü | Örneğin, 5.1.4.0 rest sürümü. |
-| Test örneği kimliği | Test, örneğin, belirli örneğini tanımlayan bir GUID 20b20645-b400-4f0d-bf6f-1264d866ada9. |
-| cloudAdminUser | Bulut Yöneticisi olarak, örneğin, kullanılan hesabın adını **cloudadmin**. |
-| DiagnosticsContainerName | Tanılama kapsayıcı için kimliği 04dd3815-5f35-4158-92ea-698027693080. |
+| Test adı | Testin adı. |
+| Test sürümü | Test sürümü. |
+| Test örneği kimliği | Test belirli örneğini tanımlayan bir GUID. |
 
-## <a name="get-test-operations"></a>Test işlemleri Al
+#### <a name="view-test-instance-operations"></a>Test örneği işlemlerini görüntüleme
 
-1. [Test geçişi özeti açın](#open-the-test-pass-summary).
-2. Seçin **görüntüleme işlemleri** test geçiş yeniden zamanlamak için. İşlemleri Özet bölmesi açılır.
+Seçin **görüntüleme işlemleri** bağlamdan işlemleri ayrıntılı durumunu görüntülemek için menü, test sırasında gerçekleştirilen. Bu eylem yalnızca zamanlanmış testleri için kullanılabilir.
 
-## <a name="get-test-logs"></a>Test günlüklerini alma
+![işlemlerini görüntüleme](media/manage-test_context-menu-operations.png)
 
-1. [Test geçişi özeti açın](#open-the-test-pass-summary).
-2. Seçin **indirme günlükleri** test geçiş yeniden zamanlamak için.  
-    ReleaseYYYY-aa-DD.zip günlükleri indirmeleri içeren bir zip dosyası adı.
+#### <a name="download-logs-for-a-completed-test-instance"></a>Tamamlanan test örneği için günlükleri indirin
+
+Seçin **indirme günlükleri** indirmek için bağlam menüsünden bir `.zip` test yürütme sırasında günlükleri çıkış dosyası. Bu eylem, tamamlanan, yalnızca testler için bir test durumu ya da başka bir deyişle, kullanılabilir `Cancelled`, `Failed`, `Aborted`, veya `Succeeded`.
+
+#### <a name="reschedule-a-test-instance-or-schedule-a-test"></a>Bir test örneği randevularını yeniden zamanlayabilir veya bir test zamanlama
+
+Yönetim sayfasından testleri zamanlama testi altında çalışan iş akışı türü bağlıdır.
+
+##### <a name="test-pass-workflow"></a>Test geçiş iş akışı
+
+Test geçiş iş akışı **kullanılabilirliğiyle** bir test örneği aynı parametre kümesi özgün test örneği olarak kullanır ve *değiştirir* kendi günlükleri de dahil olmak üzere, özgün sonucu. Parolalar gibi hassas dizeleri, yeniden zamanladığınızda yeniden girmeniz gerekir.
+
+1. Seçin **yeniden** bağlam menüsünden test örneği yeniden zamanlama için bir istem açın.
+
+1. Herhangi bir geçerli parametre girin.
+
+1. Seçin **Gönder** test örneği randevularını yeniden zamanlayabilir ve var olan bir örneğini değiştirin.
+
+##### <a name="validation-workflows"></a>Doğrulama iş akışları
+
+[!INCLUDE [azure-stack-vaas-workflow-validation-section_schedule](includes/azure-stack-vaas-workflow-validation-section_schedule.md)]
+
+#### <a name="cancel-a-test-instance"></a>Bir test örneği iptal et
+
+Zamanlanmış bir testi durumunu olması durumunda iptal edilebileceğini `Pending` veya `Running`.  
+
+1. Seçin **iptal** bağlam menüsünden test örneği iptal etmek için bir istem açın.
+
+1. Seçin **Gönder** test örneği iptal etmek için.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- Hakkında daha fazla bilgi edinmek için [hizmet olarak Azure Stack doğrulama](https://docs.microsoft.com/azure/azure-stack/partner).
+- [Hizmet olarak doğrulama sorunlarını giderme](azure-stack-vaas-troubleshoot.md)

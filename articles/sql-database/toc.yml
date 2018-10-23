@@ -323,8 +323,10 @@ items:
         href: sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md
   - name: SQL özellik karşılaştırması
     href: sql-database-features.md
-  - name: Performans ve izleme
+  - name: İzleme ve performans ayarlama
     items:
+    - name: İzleme ve ayarlamaya genel bakış
+      href: sql-database-monitor-tune-overview.md
     - name: Akıllı performans
       items:
       - name: Sorgulama
@@ -335,8 +337,6 @@ items:
           href: https://docs.microsoft.com/sql/relational-databases/performance/adaptive-query-processing?toc=/azure/sql-database/toc.json
       - name: İzleme ve ayarlama
         items:
-        - name: İzleme ve ayarlamaya genel bakış
-          href: sql-database-monitor-tune-overview.md
         - name: Veritabanı danışmanı performans önerileri
           href: sql-database-advisor.md
         - name: Ayarlama eylemleri ve öneriler
@@ -351,11 +351,11 @@ items:
           href: sql-database-metrics-diag-logging.md
         - name: Tanılama günlüğünü kullanma
           href: sql-database-intelligent-insights-use-diagnostics-log.md
+        - name: Sorgu Performansı İçgörüleri
+          href: sql-database-query-performance.md
         - name: Performans sorunlarını giderme
           href: sql-database-intelligent-insights-troubleshoot-performance.md
-      - name: Sorgu Performansı İçgörüleri
-        href: sql-database-query-performance.md
-      - name: Otomatik performans ayarlama
+      - name: Otomatik ayarlama
         items:
         - name: Otomatik ayarlamaya genel bakış
           href: sql-database-automatic-tuning.md
@@ -634,9 +634,9 @@ items:
     href: /azure/architecture/
   - name: Müşteri hikayeleri
     href: http://customers.microsoft.com/en-us/search?sq=%22Azure%20SQL%20Database%22&ff=&p=0&so=story_publish_date%20desc
-ms.openlocfilehash: 38a8ec13b8a5e50d60ed46d1bd4d71af933d61f0
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 416f74c395f331de6af749f3de1d3a3e966b8b35
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49470380"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49650069"

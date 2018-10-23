@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/03/2018
 ms.author: damaerte
-ms.openlocfilehash: aad474195060c01a3f9d85e6f9037b568b0c16ad
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 4fc4f6523eb19294cabdf6b5b910dd346a877502
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39630395"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49645086"
 ---
 # <a name="powershell-in-azure-cloud-shell-for-windows-users"></a>PowerShell için Azure Cloud Shell Windows kullanıcılar
 
@@ -54,7 +54,7 @@ Kaldırılan ortak diğer adlar ve bunun yanı sıra, eşdeğer komutlar aşağ�
 ## <a name="persisting-home"></a>Kalıcı $HOME
 
 Daha önceki kullanıcılar yalnızca betikler ve diğer dosyaları kendi bulut sürücülerine kalıcı olamadı.
-Şimdi, kullanıcının $HOME dizininizin artık oturumları arasında kalıcıdır.
+Şimdi, kullanıcının $HOME dizininizin oturumları arasında kalıcıdır.
 
 ## <a name="powershell-profile"></a>PowerShell profili
 

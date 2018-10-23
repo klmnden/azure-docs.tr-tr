@@ -1,6 +1,6 @@
 ---
-title: Azure Market görüntüsü kullanarak Yönetilen Hizmet Kimliği özelliğine sahip bir Terraform Linux sanal makinesi oluşturma
-description: Bir Market görüntüsü kullanarak Yönetilen Hizmet Kimliği ve Uzak Durum Yönetimi özelliklerine sahip bir Terraform Linux sanal makinesi oluşturabilir ve Azure'a kolayca kaynak dağıtımı gerçekleştirebilirsiniz.
+title: Azure Market görüntüsü kullanarak yönetilen kimlik özelliğine sahip bir Terraform Linux sanal makinesi oluşturma
+description: Bir Market görüntüsü kullanarak yönetilen kimlik ve Uzak Durum Yönetimi özelliklerine sahip bir Terraform Linux sanal makinesi oluşturabilir ve Azure'a kolayca kaynak dağıtımı gerçekleştirebilirsiniz.
 services: terraform
 ms.service: terraform
 keywords: terraform, devops, MSI, sanal makine, uzak durum, azure
@@ -9,16 +9,16 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 3/12/2018
-ms.openlocfilehash: 0136966576e3fbb22855d74cc1866e48b4ac24c9
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: 1ec6228993c516ce2974c64bfa5b6dcdf63e7f91
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43669396"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49343835"
 ---
-# <a name="use-an-azure-marketplace-image-to-create-a-terraform-linux-virtual-machine-with-managed-service-identity"></a>Azure Market görüntüsü kullanarak Yönetilen Hizmet Kimliği özelliğine sahip bir Terraform Linux sanal makinesi oluşturma
+# <a name="use-an-azure-marketplace-image-to-create-a-terraform-linux-virtual-machine-with-managed-identities-for-azure-resources"></a>Azure Market görüntüsü kullanarak Azure kaynakları için yönetilen kimliğe sahip bir Terraform Linux sanal makinesi oluşturma
 
-Bu makalede bir [Terraform Market görüntüsünü](https://azuremarketplace.microsoft.com/marketplace/apps/azure-oss.terraform?tab=Overview) kullanarak [Yönetilen Hizmet Kimliği (MSI)](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview) ile yüklenmiş ve yapılandırılmış en son [Terraform](https://www.terraform.io/intro/index.html) sürümüne sahip bir Ubuntu Linux VM (16.04 LTS) oluşturmayı öğreneceksiniz. Bu görüntü ayrıca Terraform ile [uzak durum](https://www.terraform.io/docs/state/remote.html) yönetimi sağlamak için bir uzak arka uç da yapılandıracaktır. 
+Bu makalede bir [Terraform Market görüntüsünü](https://azuremarketplace.microsoft.com/marketplace/apps/azure-oss.terraform?tab=Overview) kullanarak [Azure kaynakları için yönetilen kimlikler](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview) ile yüklenmiş ve yapılandırılmış en son [Terraform](https://www.terraform.io/intro/index.html) sürümüne sahip bir Ubuntu Linux VM (16.04 LTS) oluşturmayı öğreneceksiniz. Bu görüntü ayrıca Terraform ile [uzak durum](https://www.terraform.io/docs/state/remote.html) yönetimi sağlamak için bir uzak arka uç da yapılandıracaktır. 
 
 Terraform Market görüntüsü, Terraform'u el ile yükleme ve yapılandırmanıza gerek kalmadan Terraform'u Azure'da kullanmaya başlamanızı kolaylaştırır. 
 
@@ -79,13 +79,13 @@ Terraform VM görüntüsü aşağıdaki adımları gerçekleştirir:
 
 VM'yi oluşturduktan sonra SSH kullanarak oturum açabilirsiniz. Metin kabuk arabirimi için 3. adımın "Temel Bilgiler" bölümünde oluşturduğunuz hesap kimlik bilgilerini kullanın. Windows'da [Putty](http://www.putty.org/) gibi bir SSH istemcisi aracı indirebilirsiniz.
 
-SSH kullanarak sanal makineye bağlandıktan sonra sanal makine üzerindeki Yönetilen Hizmet Kimliğine aboneliğin tamamında katkıda bulunan izni vermeniz gerekir. 
+SSH kullanarak sanal makineye bağlandıktan sonra sanal makine üzerindeki Azure kaynakları için yönetilen kimliklere aboneliğin tamamında katkıda bulunan izni vermeniz gerekir. 
 
 Katkıda bulunan izinleri sayesinde VM üzerindeki MSI, Terraform'u kullanarak VM kaynak grubu dışında kaynak oluşturabilirsiniz. Bu işlemi gerçekleştirmek için aşağıdaki betiği bir kez çalıştırmanız yeterlidir. Aşağıdaki komutu kullanın:
 
 `. ~/tfEnv.sh`
 
-Yukarıdaki betikte [AZ CLI v 2.0 etkileşimli oturum açma](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest#interactive-log-in) mekanizması kullanılarak Azure kimlik doğrulaması gerçekleştirilir ve sanal makine Yönetilen Hizmet Kimliğine aboneliğin tamamında katkıda bulunan izni atanır. 
+Yukarıdaki betikte [AZ CLI v 2.0 etkileşimli oturum açma](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest#interactive-log-in) mekanizması kullanılarak Azure kimlik doğrulaması gerçekleştirilir ve sanal makine Yönetilen Kimliğe aboneliğin tamamında katkıda bulunan izni atanır. 
 
  VM, Terraform uzak durum arka ucuna sahiptir. Bunu Terraform dağıtımınızda etkinleştirmek için tfTemplate dizinindeki remoteState.tf dosyasını Terraform betiklerinin kök dizinine kopyalayın.  
 

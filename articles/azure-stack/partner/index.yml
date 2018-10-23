@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 749dc6c2d329ae7055ee0a6adc429c378de51871
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: 26c0353bddb9455b1bda8961f3c05e0f6c7cc176
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "40235468"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49647723"
 documentType: LandingData
 title: Azure Stack iş ortağı belgeleri
 metadata:
@@ -22,19 +22,19 @@ metadata:
   ms.author: mabrigg
   ms.reviewer: John.Haskin
 abstract:
-  description: Doğrulama, Azure Stack ile kullanmak için donanım doğrulamak için bir hizmet olarak kullanabilirsiniz. Hizmet, Azure Stack'te teklifleri Microsoft ile ortak mühendislik çözüm iş ortakları tarafından kullanılmak üzere tasarlanmış yerel bir Azure hizmetidir.
+  description: Doğrulama, Azure Stack ile kullanmak için donanım denetlemek için bir hizmet olarak kullanabilirsiniz. Hizmet, Azure Stack'te teklifleri Microsoft ile ortak mühendislik çözüm iş ortakları tarafından kullanılmak üzere tasarlanmış yerel bir Azure hizmetidir.
 sections:
-- title: 5 dakikalık hızlı başlangıç
+- title: 5 Dakikalık Hızlı Başlangıç
   items:
   - type: paragraph
-    text: VM’lerinizi ve bilgisayarlarınızı Güvenlik Merkezi’ne eklemeyi ve güvenlik çözümlerinize bağlanmayı öğrenin.
+    text: Doğrulama testleri donanımınıza zamanlamak için bir servis portalı kullanmayı öğrenin.
   - type: list
     style: icon48
     items:
     - image:
         src: media/i_account-management.svg
       text: Doğrulama, ilk test zamanlamak için bir servis portalı kullanın.
-      href: /azure/azure-stack/partner/azure-stack-vaas-schedule-your-first-test
+      href: /azure/azure-stack/partner/azure-stack-vaas-schedule-test-pass
 - title: Adım adım öğreticiler
   items:
   - type: paragraph
@@ -42,16 +42,6 @@ sections:
   - type: list
     style: unordered
     items:
-    - html: <a href="/azure/azure-stack/partner/azure-stack-vaas-test-vm">Yerel aracısı ve test sanal makineleri dağıtma</a>
-    - html: <a href="/azure/azure-stack/partner/azure-stack-vaas-automate-with-powershell">PowerShell ile Azure Stack doğrulamayı otomatikleştirin</a>
     - html: <a href="/azure/azure-stack/partner/azure-stack-vaas-validate-solution-new">Yeni bir Azure Stack çözüm doğrula</a>
     - html: <a href="/azure/azure-stack/partner/azure-stack-vaas-validate-oem-package">OEM paketleri doğrula</a>
     - html: <a href="/azure/azure-stack/partner/azure-stack-vaas-validate-microsoft-updates">Microsoft yazılım güncelleştirmeleri doğrulayın</a>
-- title: Başvuru
-  items:
-  - type: list
-    style: cards
-    className: cardsD
-    items:
-    - title: Hizmet olarak doğrulama
-      html: <a href="/azure/azure-stack/partner/azure-stack-vaas-parameters">Doğrulama yapılandırma dosyası</a>

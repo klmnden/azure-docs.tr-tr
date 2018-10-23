@@ -7,16 +7,16 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: iainfou
-ms.openlocfilehash: e42601646474ba986e75632af41d500e18b64021
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: fb428e63be54688744bcdb022ba276a957f8aee1
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49393907"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49648783"
 ---
 # <a name="kubernetes-core-concepts-for-azure-kubernetes-service-aks"></a>Kubernetes kavramları Azure Kubernetes Service (AKS)
 
-Uygulama geliştirme bulunan tabanlı bir yaklaşımda taşınmış gibi düzenlemek ve arası bağlı kaynakları yönetmek için gereken önemli hale gelir. Kubernetes güvenilir hataya dayanıklı uygulama iş yüklerini zamanlama sağlama olanağı sunan önde gelen bir platformdur. Azure Kubernetes Service (AKS), daha fazla kapsayıcı tabanlı uygulama dağıtımını ve yönetimini basitleştirir sunan, yönetilen bir Kubernetes ' dir.
+Uygulama geliştirme, kapsayıcı tabanlı bir yaklaşımda taşınmış gibi düzenlemek ve arası bağlı kaynakları yönetmek için gereken önemli hale gelir. Kubernetes güvenilir hataya dayanıklı uygulama iş yüklerini zamanlama sağlama olanağı sunan önde gelen bir platformdur. Azure Kubernetes Service (AKS), daha fazla kapsayıcı tabanlı uygulama dağıtımını ve yönetimini basitleştirir sunan, yönetilen bir Kubernetes ' dir.
 
 Bu makalede temel Kubernetes altyapı bileşenleri gibi tanıtılır *küme ana*, *düğümleri*, ve *düğüm havuzları*. İş yükü kaynakları gibi *pod'ların*, *dağıtımları*, ve *ayarlar* Ayrıca, Grup kaynakları nasıl birlikte sunulan *ad alanları*.
 
