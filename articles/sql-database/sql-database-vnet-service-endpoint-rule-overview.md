@@ -12,12 +12,12 @@ ms.author: moslake
 ms.reviewer: vanto, genemi
 manager: craigg
 ms.date: 09/18/2018
-ms.openlocfilehash: 2500d0c67eda5bb91eed8214c161fcce29907abb
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 0fc5ca73dec79942e05c7dfd410bc0a13e5ffb44
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49466248"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49648726"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-sql-database-and-sql-data-warehouse"></a>Azure SQL veritabanı ve SQL veri ambarı için sanal ağ hizmet uç noktaları ve kuralları kullanma
 
@@ -105,6 +105,7 @@ Kullanma seçeneğiniz [rol tabanlı erişim denetimi (RBAC)] [ rbac-what-is-813
 > Bazı durumlarda, Azure SQL veritabanı ve sanal ağ alt ağı farklı Aboneliklerde bulunuyor. Bu durumlarda aşağıdaki yapılandırmaları emin olmanız gerekir:
 > - Her iki aboneliğin aynı Azure Active Directory kiracısı olmalıdır.
 > - Kullanıcı, hizmet uç noktaları etkinleştiriliyor ve verilen bir sunucu için bir sanal ağ alt ağı ekleme gibi işlemleri başlatmak için gerekli izinlere sahip.
+> - Her iki aboneliğin Microsoft.Sql sağlayıcı kayıtlı olması gerekir.
 
 ## <a name="limitations"></a>Sınırlamalar
 

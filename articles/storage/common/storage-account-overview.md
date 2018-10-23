@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/13/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: 0b2bf8cdb1af85e5ddbd3b18dd6dfa47bcb835b4
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: d7dbb808205c78b53277c6d916f5166a41c7e93d
+ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47432894"
+ms.lasthandoff: 10/22/2018
+ms.locfileid: "49638435"
 ---
 # <a name="azure-storage-account-overview"></a>Azure depolama hesabına genel bakış
 
@@ -25,9 +25,9 @@ Bir Azure depolama hesabı oluşturma hakkında bilgi edinmek için [depolama he
 
 Azure depolama üç tür depolama hesabı sağlar. Her tür farklı özellikleri destekler ve kendi fiyatlandırma modeline sahiptir. Uygulamalarınız için en iyi olan hesap türünü belirlemek için bir depolama hesabı oluşturmadan önce bu farklılıkları göz önünde bulundurun. Depolama hesabı türleri şunlardır:
 
-* **Genel amaçlı v2** hesapları (çoğu senaryo için önerilir)
-* **Genel amaçlı v1** hesapları
-* **Blob depolama** hesapları
+* **[Genel amaçlı v2 hesapları](#general-purpose-v2-accounts)**  (çoğu senaryo için önerilir)
+* **[Genel amaçlı v1 hesapları](#general-purpose-v1-accounts)**
+* **[BLOB Depolama hesapları](#blob-storage-accounts)** 
 
 Aşağıdaki tabloda, depolama hesabı türleri ve yeteneklerini açıklar:
 
@@ -41,7 +41,7 @@ Aşağıdaki tabloda, depolama hesabı türleri ve yeteneklerini açıklar:
 
 <sup>2</sup>tüm depolama hesapları, bekleyen veriler için depolama hizmeti şifrelemesi (SSE) kullanılarak şifrelenir. Daha fazla bilgi için [bekleyen veriler için Azure depolama hizmeti şifrelemesi](storage-service-encryption.md).
 
-<sup>3</sup>arşiv katmanı depolama hesap düzeyinde yalnızca tek bir blob düzeyinde kullanılabilir değildir. Yalnızca blok blobları ve ekleme blobları arşivlenen. Daha fazla bilgi için [Azure Blob Depolama: sık erişimli, seyrek erişimli ve Arşiv depolama katmanları](../blobs/storage-blob-storage-tiers.md).
+<sup>3</sup>arşiv katmanı değil yalnızca tek bir blob düzeyinde kullanılabilir depolama hesap düzeyinde. Yalnızca blok blobları ve ekleme blobları arşivlenen. Daha fazla bilgi için [Azure Blob Depolama: seyrek erişimli, seyrek ve Arşiv depolama katmanları](../blobs/storage-blob-storage-tiers.md).
 
 <sup>4</sup>bölgesel olarak yedekli depolama (ZRS) yalnızca standart genel amaçlı v2 depolama hesapları için kullanılabilir. ZRS hakkında daha fazla bilgi için bkz: [bölgesel olarak yedekli depolama (ZRS): yüksek kullanılabilirliğe sahip bir Azure depolama uygulamalar](storage-redundancy-zrs.md). Diğer çoğaltma seçenekleri hakkında daha fazla bilgi için bkz. [Azure depolama çoğaltma](storage-redundancy.md).
 
@@ -49,13 +49,16 @@ Aşağıdaki tabloda, depolama hesabı türleri ve yeteneklerini açıklar:
 
 Genel amaçlı v2 depolama hesabı için en son Azure depolama özelliklerini desteklemek ve tüm işlevleri, genel amaçlı v1 ve Blob Depolama hesapları dahil edilip derecelendirilir. Genel amaçlı v2 hesapları Azure depolama, ek olarak sektörde rekabetçi işlem fiyatları düşük gigabayt başına kapasite fiyatlar sunar. Genel amaçlı v2 depolama hesaplarının, bu Azure depolama hizmetleri destekler:
 
-- BLOB'ları (tüm türleri için)
+- BLOB'ları (tüm türleri: blok, ekleme, sayfa)
 - Dosyalar
 - Diskler
 - Kuyruklar
 - Tablolar
 
-Microsoft, çoğu senaryo için bir genel amaçlı v2 depolama hesabı kullanmanızı önerir. Genel amaçlı v2 hesabına kapalı kalma süresi veya uygulama taşıyabilmenizi sağlar ve veri kopyalamak zorunda kalmadan kolayca bir genel amaçlı v1 veya Blob Depolama hesabına yükseltebilirsiniz. Genel amaçlı v2 hesabına yükseltme hakkında daha fazla bilgi için bkz. [yükseltmek için bir genel amaçlı v2 depolama hesabı](storage-account-upgrade.md). 
+> [!NOTE]
+> Microsoft, çoğu senaryo için bir genel amaçlı v2 depolama hesabı kullanmanızı önerir. Genel amaçlı v2 hesabına kapalı kalma süresi olmadan ve verileri kopyalamak zorunda kalmadan kolayca bir genel amaçlı v1 veya Blob Depolama hesabına yükseltebilirsiniz.
+>
+> Genel amaçlı v2 hesabına yükseltme hakkında daha fazla bilgi için bkz. [yükseltmek için bir genel amaçlı v2 depolama hesabı](storage-account-upgrade.md). 
 
 Genel amaçlı v2 depolama hesaplarının, kullanım düzenlerini esas alarak verileri depolamak için birden çok erişim katmanı sunar. Daha fazla bilgi için [erişim katmanları için blok blob verilerine](#access-tiers-for-block-blob-data).
 
@@ -103,19 +106,20 @@ Azure depolama, kullanım düzenlerini esas alarak blok blob verilerine erişmek
 
 Kullanılabilir erişim katmanları şunlardır:
 
-* **Sık erişimli** erişim katmanı, sık sık depolama hesabındaki nesnelere erişimi için optimize edilmiştir. Sık erişimli katmanı veri erişimi maliyetlerini biraz daha yüksek olsa en uygun maliyetli. Yeni depolama hesaplarında sık erişimli katmanı içinde varsayılan olarak oluşturulur.
-* **Seyrek erişimli** erişim katmanı, büyük miktarlarda az sıklıkta erişilen ve en az 30 gün saklanan verileri depolamak için optimize edilmiştir. Veri depolama seyrek erişim katmanında daha uygun maliyetlidir, ancak bu verilere erişme biraz daha sık erişimli katmanı veri erişimi daha pahalı olabilir.
-* **Arşiv** katmanı, yalnızca tek bir blok bloblar için kullanılabilir. Arşiv katmanı, birkaç saatlik alma gecikmesinden etkilenmeyecek ve Arşiv katmanında en az 180 gün boyunca kalacak veriler için optimize edilmiştir. Arşiv katmanı verilerini depolamak için en uygun maliyetli bir seçenektir, ancak bu verilere sık erişimli veya seyrek erişimli katmanlarda verilere göre daha pahalıdır. 
-
 > [!NOTE]
 > [Premium erişim katmanı](../blobs/storage-blob-storage-tiers.md#premium-access-tier) Kuzey Avrupa, Doğu ABD 2, ABD Orta ve ABD Batı bölgelerinde yerel olarak yedekli depolama (LRS) hesabı olarak sınırlı önizlemede kullanılabilir. Önizlemeye kaydolmak öğrenmek için bkz: [Azure Premium Blob Depolama ile tanışın](http://aka.ms/premiumblob).
 
-Verilerinizin kullanım düzeninde bir değişiklik olursa herhangi bir zamanda bu erişim katmanları arasında geçiş yapabilirsiniz. 
+* **Etkin** erişim katmanı, sık sık depolama hesabındaki nesnelere erişimi için optimize edilmiştir. Sık erişimli katmanı veri erişimi maliyetlerini biraz daha yüksek olsa en uygun maliyetli. Yeni depolama hesaplarında sık erişimli oluşturulan varsayılan olarak katman.
+* **Seyrek erişimli** erişim katmanı, büyük miktarlarda az sıklıkta erişilen ve en az 30 gün saklanan verileri depolamak için optimize edilmiştir. Veri depolama seyrek erişim katmanında daha uygun maliyetlidir, ancak bu verilere erişme biraz daha sık erişimli katmanı veri erişimi daha pahalı olabilir.
+* **Arşiv** katmanı, yalnızca tek bir blok bloblar için kullanılabilir. Arşiv katmanı, birkaç saatlik alma gecikmesinden etkilenmeyecek ve Arşiv katmanında en az 180 gün boyunca kalacak veriler için optimize edilmiştir. Arşiv katmanı verilerini depolamak için en uygun maliyetli bir seçenektir, ancak bu verilere erişmek sık erişimli veya seyrek erişimli katmanları veri erişimi değerinden daha pahalıdır. 
+
+
+Verilerinizin kullanım düzeninde bir değişiklik olursa herhangi bir zamanda bu erişim katmanları arasında geçiş yapabilirsiniz. Erişim katmanları hakkında daha fazla bilgi için bkz. [Azure Blob Depolama: Premium (Önizleme), sık erişimli, seyrek erişimli ve Arşiv depolama katmanları](../blobs/storage-blob-storage-tiers.md).
 
 > [!IMPORTANT]
-> Mevcut bir depolama hesabı veya blob için erişim katmanının değiştirilmesi ek ücretlere neden olabilir.
+> Mevcut bir depolama hesabı veya blob için erişim katmanının değiştirilmesi ek ücretlere neden olabilir. Daha fazla bilgi için [depolama hesabı bölümünde faturalama](#storage-account-billing).
 
-Erişim katmanları hakkında daha fazla bilgi için bkz. [Azure Blob Depolama: Premium (Önizleme), sık erişimli, seyrek erişimli ve Arşiv depolama katmanları](../blobs/storage-blob-storage-tiers.md).
+
 
 ## <a name="replication"></a>Çoğaltma
 

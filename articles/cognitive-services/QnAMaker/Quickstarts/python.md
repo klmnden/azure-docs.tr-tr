@@ -1,5 +1,5 @@
 ---
-title: "Hızlı başlangıç: Soru-Cevap Oluşturma API'si (V4) için Python"
+title: REST API (V4) - Python - soru-cevap Oluşturucu
 titleSuffix: Azure Cognitive Services
 description: Azure Microsoft Bilişsel Hizmetler'deki Microsoft Translator Metin Çevirisi API'sini kullanmaya başlamanıza yardımcı olacak bilgileri ve kod örneklerini inceleyin.
 services: cognitive-services
@@ -7,17 +7,17 @@ author: diberry
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
-ms.topic: quickstart
-ms.date: 09/12/2018
+ms.topic: article
+ms.date: 10/19/2018
 ms.author: diberry
-ms.openlocfilehash: ac871aebd1b78750a5a3712d40486d4f7d3c3de7
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
-ms.translationtype: HT
+ms.openlocfilehash: 595eee6a10192d877aa77f4849bac494dff05808
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49388084"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49650018"
 ---
-# <a name="quickstart-for-microsoft-qna-maker-api-with-python"></a>Hızlı başlangıç: Python ile Microsoft Soru-Cevap Oluşturma API'si 
+# <a name="qna-maker-rest-api-with-python"></a>Python ile soru-cevap Oluşturucu REST API
 <a name="HOLTop"></a>
 
 Bu makalede Python ve [Microsoft Soru-Cevap Oluşturma API'si](../Overview/overview.md) ile aşağıdaki işlemlerin nasıl gerçekleştirileceği gösterilmektedir.
@@ -39,7 +39,7 @@ Bu makalede Python ve [Microsoft Soru-Cevap Oluşturma API'si](../Overview/overv
 
 [!INCLUDE [Code is available in Azure-Samples Github repo](../../../../includes/cognitive-services-qnamaker-python-repo-note.md)]
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Bu kodu çalıştırmak için [Python 3.x](https://www.python.org/downloads/) sürümü gereklidir.
 

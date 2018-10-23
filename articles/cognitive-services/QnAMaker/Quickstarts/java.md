@@ -1,23 +1,23 @@
 ---
-title: "Hızlı başlangıç: Soru-Cevap Oluşturma API'si (v4) için Java"
+title: REST API (V4) - Java - soru-cevap Oluşturucu
 titleSuffix: Azure Cognitive Services
-description: Azure Microsoft Bilişsel Hizmetler'deki Microsoft Translator Metin Çevirisi API'sini kullanmaya başlamanıza yardımcı olacak bilgileri ve kod örneklerini inceleyin.
+description: REST tabanlı bilgi alın ve kod örnekleri, hızlı bir şekilde yardımcı olmak için Microsoft Bilişsel hizmetler, Azure üzerinde Microsoft Translator metin çevirisi API'si ile çalışmaya başlamak.
 services: cognitive-services
 author: diberry
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
-ms.topic: quickstart
-ms.date: 09/12/2018
+ms.topic: article
+ms.date: 10/19/2018
 ms.author: diberry
-ms.openlocfilehash: 464860b94d0524cded48934e7684f5c78e595a7c
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
-ms.translationtype: HT
+ms.openlocfilehash: c92addcbb6a4071022474c5c157c498364ebf0f6
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49389352"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49647944"
 ---
-# <a name="quickstart-for-microsoft-qna-maker-api-with-java"></a>Hızlı başlangıç: Java ile Microsoft Soru-Cevap Oluşturma API'si 
+# <a name="qna-maker-rest-api-with-java"></a>Java ile soru-cevap Oluşturucu REST API 
 <a name="HOLTop"></a>
 
 Bu makalede Java ve [Microsoft Soru-Cevap Oluşturma API'si](../Overview/overview.md) ile aşağıdaki işlemlerin nasıl gerçekleştirileceği gösterilmektedir.
@@ -39,7 +39,7 @@ Bu makalede Java ve [Microsoft Soru-Cevap Oluşturma API'si](../Overview/overvie
 
 [!INCLUDE [Code is available in Azure-Samples Github repo](../../../../includes/cognitive-services-qnamaker-java-repo-note.md)]
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Bu kodu derleyip çalıştırmak için [JDK 7 veya 8](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)’e ihtiyacınız olacak. Varsa, sık kullandığınız bir Java IDE’yi veya bir metin düzenleyicisini kullanabilirsiniz.
 

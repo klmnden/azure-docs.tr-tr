@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 09/06/2018
 ms.author: diberry
-ms.openlocfilehash: b936b42671c15a77a901f321ed3c51f1ba3639cd
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 57742d72c8be0dcd999bc8b73f6d598263429c12
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47036601"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49646584"
 ---
 # <a name="api-v2-migration-guide"></a>API v2 Geçiş Kılavuzu
 Sürüm 1 [uç nokta](https://aka.ms/v1-endpoint-api-docs) ve [yazma](https://aka.ms/v1-authoring-api-docs) API'leri kullanımdan kaldırılacaktır. 2. sürüme geçirme anlamak için bu kılavuzu kullanın [uç nokta](https://aka.ms/luis-endpoint-apis) ve [yazma](https://aka.ms/luis-authoring-apis) API'leri. 
@@ -27,7 +27,7 @@ LUIS sahip yeni [bölgeleri](https://aka.ms/LUIS-regions) LUIS API'leri için sa
 Yazma API rota değiştirilen kullanımından **prog** kullanımına yol **API** rota.
 
 
-| sürüm | yol |
+| version | yol |
 |--|--|
 |1|/luis/V1.0/**prog**/apps|
 |2|/luis/**API**/v2.0/apps|
@@ -36,7 +36,7 @@ Yazma API rota değiştirilen kullanımından **prog** kullanımına yol **API**
 ## <a name="endpoint-route-changes"></a>Uç nokta rota değişiklikleri
 API uç noktası, farklı bir yanıt yanı sıra yeni querystring parametreleri vardır. Ayrıntılı bayrağı true ise, puanı, bağımsız olarak tüm hedefleri topScoringIntent yanı sıra bir ıntents adlı bir dizi döndürülür.
 
-| sürüm | Rota Al |
+| version | Rota Al |
 |--|--|
 |1|/luis/v1/Application? kimliği {AppID} = & q = {q}|
 |2|/ luis/v2.0/apps/{appId}?q={q} [& timezoneOffset] [& ayrıntılı] [& Yazım denetimi] [& hazırlama] [& bing-yazım-onay-subscription-key] [& günlük]|
@@ -106,7 +106,7 @@ v2 uç noktası başarılı yanıt:
 ## <a name="key-management-no-longer-in-api"></a>Artık API anahtarı yönetimi
 Abonelik uç noktası anahtarı API'leri bırakılmıştır 410 GONE döndürüyor.
 
-| sürüm | yol |
+| version | yol |
 |--|--|
 |1|/luis/V1.0/prog/Subscriptions|
 |1|/ luis/v1.0/prog/subscriptions/{subscriptionKey}|
@@ -116,7 +116,7 @@ Azure [uç nokta anahtarları](luis-how-to-azure-subscription.md) Azure portalı
 ## <a name="new-versioning-route"></a>Yeni sürüm oluşturma yolu
 V2 modeli şimdi bulunan bir [sürüm](luis-how-to-manage-versions.md). Sürüm 10 karakter rota adıdır. Varsayılan "0.1" sürümüdür.
 
-| sürüm | yol |
+| version | yol |
 |--|--|
 |1|/luis/V1.0/**prog**/apps/ {AppID} / varlıklar|
 |2|/luis/**API**/v2.0/apps/{appId}/**sürümleri**/ {VersionID} / varlıklar|
@@ -135,7 +135,7 @@ LUIS meta verileri döndürmek API'leri yeni adları vardır.
 ## <a name="sample-renamed-to-suggest"></a>"Önermek için" "Örnek" olarak yeniden adlandırıldı
 LUIS önerir mevcut konuşma [konuşma uç noktası](luis-how-to-review-endoint-utt.md) modeli geliştirmek. Önceki sürümde bu taşıyordu **örnek**. Yeni sürüm için örnek adı değiştirilirse **Öner**. Bu adlandırılır **[gözden geçirin, konuşma uç noktası](luis-how-to-review-endoint-utt.md)** LUIS Web sitesinde.
 
-| sürüm | yol |
+| version | yol |
 |--|--|
 |1|/luis/V1.0/**prog**/apps/ {AppID} /entities/ {Entityıd} /**örnek**|
 |1|/luis/V1.0/**prog**/apps/ {AppID} /intents/ {intentId} /**örnek**|
@@ -155,7 +155,7 @@ LUIS önerir mevcut konuşma [konuşma uç noktası](luis-how-to-review-endoint-
 Dışarı aktarılan 1.x uygulamanın JSON içine aktarmadan önce değiştirmeniz gereken bazı alanlar vardır [LUIS] [ LUIS] 2.0. 
 
 ### <a name="prebuilt-entities"></a>Önceden oluşturulmuş varlıklar 
-[Önceden oluşturulmuş varlıklarla](luis-prebuilt-entities.md) değiştirilmiştir. V2 kullandığınızdan emin olun önceden oluşturulmuş varlıklar. Bu kullanarak içerir [datetimeV2](luis-prebuilt-entities.md#use-a-prebuilt-datetimev2-entity), datetime yerine. 
+[Önceden oluşturulmuş varlıklarla](luis-prebuilt-entities.md) değiştirilmiştir. V2 kullandığınızdan emin olun önceden oluşturulmuş varlıklar. Bu kullanarak içerir [datetimeV2](luis-reference-prebuilt-datetimev2.md), datetime yerine. 
 
 ### <a name="actions"></a>Eylemler
 Actions özelliği artık geçerli değil. Boş olmalıdır 

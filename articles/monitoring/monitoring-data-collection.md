@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/27/2018
 ms.author: bwren
-ms.openlocfilehash: 19a611ca88310f06503bea2b8606699fe3e1c709
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 8d3e0874637bc3f13905c6038349b34c18b5fe56
+ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47406049"
+ms.lasthandoff: 10/22/2018
+ms.locfileid: "49637806"
 ---
 # <a name="monitoring-data-collected-by-azure-monitor"></a>Azure İzleyici tarafından toplanan verileri izleme
 [Azure İzleyici](../azure-monitor/overview.md) yardımcı olan bir hizmeti izlemek, uygulamalarınızın ve bunların bağımlı kaynakları olduğundan. Telemetri ve diğer verileri izlenen kaynaklardan bu işleve merkezi depolamadır. Bu makalede, Azure İzleyici tarafından kullanılan bu veriler nasıl depolanır ve kapsamlı bir açıklama sağlar.
@@ -108,7 +108,7 @@ Azure İzleyici tarafından toplanan ölçümleri üç temel kaynakları vardır
 
 
 ### <a name="viewing-metrics"></a>Ölçümleri görüntüleme
-Azure'da ölçümler Azure İzleyici ölçümleri deposunda toplanır. Bu, zaman serisi veritabanı 93 gün boyunca hızlı alma ve depoları ölçüm değerleri için en iyi duruma getirilmiş. Ölçümler için Log Analytics uzun süreli analiz ve eğilimler için kopyalayın.
+Azure İzleyici ölçümleri veritabanında azure'da ölçümleri toplanır. Bu, zaman serisi veritabanı 93 gün boyunca hızlı alma ve depoları ölçüm değerleri için en iyi duruma getirilmiş. Ölçümler için Log Analytics uzun süreli analiz ve eğilimler için kopyalayın.
 
 Ölçüm verilerini yukarıda açıklandığı gibi çeşitli şekillerde kullanılır. Kullanım [ölçüm Gezgini](../monitoring-and-diagnostics/monitoring-metric-charts.md) doğrudan ölçüm mağazanızdaki verileri analiz etmek ve zaman içinde birden çok ölçüm değerleri grafik. Etkileşimli olarak grafikleri görüntülemek veya bunları diğer görselleştirmeler ile bunları görüntülemek için panoya sabitleyin. Ölçümleri kullanarak da alabilirsiniz [Azure REST API izleme](../monitoring-and-diagnostics/monitoring-rest-api-walkthrough.md).
 
@@ -173,7 +173,7 @@ Zengin sorgu dilini kullanarak diğer veri türlerine sahip karmaşık bir anali
 Azure kaynaklardan ölçümleri toplamaya yönelik rehberlik alabilirsiniz [toplamak Azure hizmeti günlükleri ve Log analytics'teki kullanım ölçümlerini](../log-analytics/log-analytics-azure-storage.md). Azure PaaS kaynakları'ndan kaynakları ölçümleri toplamaya ilişkin yönergeler almak [Log Analytics ile Azure PaaS kaynak ölçümleri toplamayı yapılandırmak](../log-analytics/log-analytics-collect-azurepass-posh.md).
 
 ### <a name="logs-to-metrics"></a>Ölçümler için günlükleri
-Daha düşük gecikme süresi ve daha düşük bir maliyetle uyarılar oluşturmak için yukarıda açıklandığı gibi günlükleri, daha hızlı yanıt ölçümleridir. Log Analytics önemli ölçüde ölçümler için uygun olabilir, ancak Azure ölçümleri deposunda saklanan değil sayısal veri toplar.  Aracılar ve yönetim çözümlerinden toplanan performans verilerini buna yaygın bir örnektir. Bu değerlerden bazıları burada ölçüm Gezgini ile analizi ve Uyarılar için kullanılabilir ölçümleri deposuna kopyalanabilir.
+Daha düşük gecikme süresi ve daha düşük bir maliyetle uyarılar oluşturmak için yukarıda açıklandığı gibi günlükleri, daha hızlı yanıt ölçümleridir. Log Analytics önemli ölçüde ölçümler için uygun olabilir, ancak Azure ölçümleri veritabanında saklanmaz sayısal veri toplar.  Aracılar ve yönetim çözümlerinden toplanan performans verilerini buna yaygın bir örnektir. Bu değerlerden bazıları, ölçüm Gezgini ile analizi ve Uyarılar için kullanılabilir olduğu ölçüm veritabanına kopyalanabilir.
 
 Bu özellik açıklaması kullanılabilir [Azure İzleyici günlükler için ölçüm uyarıları oluşturma](../monitoring-and-diagnostics/monitoring-metric-alerts-logs.md). Değerleri destek listesi kullanılabilir [Azure İzleyici ile desteklenen ölçümler](../monitoring-and-diagnostics/monitoring-supported-metrics.md#microsoftoperationalinsightsworkspaces).
 

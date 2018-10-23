@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/14/2018
+ms.date: 10/19/2018
 ms.author: magoedte
-ms.openlocfilehash: 6df7d42bc291713a815cac9f719f53136ed35b19
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 430145119721ac947162d3b661377290a0ae2c11
+ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46956691"
+ms.lasthandoff: 10/22/2018
+ms.locfileid: "49638010"
 ---
-## <a name="understand-aks-cluster-performance-with-azure-monitor-for-containers"></a>Kapsayıcılar için Azure İzleyici ile AKS kümesi performansını anlama
+# <a name="understand-aks-cluster-performance-with-azure-monitor-for-containers"></a>Kapsayıcılar için Azure İzleyici ile AKS kümesi performansını anlama
 Performansını, Azure Kubernetes Service (AKS) izleme kümeleri, bir AKS kümesi doğrudan bir kapsayıcılar için Azure İzleyici ile iki yönlerden gözlemlenen veya Azure İzleyicisi'nden bir Abonelikteki tüm AKS kümeleri görüntüleyin. 
 
 Bu makalede, iki perspektiften ve hızlı bir şekilde değerlendirmenize, araştırmanıza ve algılanan sorunları gidermek nasıl arasında bir deneyim anlamanıza yardımcı olur.
@@ -109,6 +109,10 @@ Geçiş **düğümleri** sekmesi ve satır hiyerarşi izler Kubernetes nesne mod
 
 ![Performans Görünümü'nde örnek Kubernetes düğüm hiyerarşisi](./media/monitoring-container-insights-analyze/containers-nodes-view.png)
 
+Genişletilmiş bir düğümden, pod veya filtre söz konusu denetleyici için performans verilerini görüntülemek için denetleyiciye düğümde çalışan kapsayıcı detaya. Değerin altında tıklayın **denetleyicisi** sütun için belirli bir düğümün.   
+
+![Örneği detaya gitme düğümünden performans görünümü denetleyicisi](./media/monitoring-container-insights-analyze/drill-down-node-controller.png)
+
 Denetleyicileri veya sayfanın üstündeki kapsayıcılar'ı seçin ve bu nesneler için durumu ve kaynak kullanımını gözden geçirin.  Bunun yerine, bellek kullanımı, gözden geçirmek istiyorsanız **ölçüm** aşağı açılan listesinden **bellek RSS** veya **bellek çalışma kümesi**. **Bellek RSS** yalnızca Kubernetes sürüm 1.8 ve üzeri desteklenir. Aksi takdirde, değerlerini görüntüleyin **Min&nbsp; %**  olarak *NaN&nbsp;%*, tanımlanmamış bir temsil eden sayısal veri türü değeri olan veya çıkarıldığında değeri. 
 
 ![Kapsayıcı düğümlerini performans görünümü](./media/monitoring-container-insights-analyze/containers-node-metric-dropdown.png)
@@ -144,7 +148,9 @@ Burada denetleyicilerinizi performans durumunu görüntüleyebilirsiniz.
 
 ![< ad > denetleyicileri performans görünümü](./media/monitoring-container-insights-analyze/containers-controllers-view.png)
 
-Satır hiyerarşi denetleyicisi ile başlar ve denetleyici genişletir. Bir veya daha fazla kapsayıcıları görebilirsiniz. Pod'u genişletin, bir pod ve kapsayıcı gruplandırılmış son satır görüntüler.  
+Satır hiyerarşi denetleyicisi ile başlar ve bir denetleyici genişlettiğinizde, pod'ların bir veya daha fazla görüntüleyin.  Pod'ı genişletin ve son satırını pod'u gruplandırılmış kapsayıcı görüntüler. Genişletilmiş bir denetleyiciden, filtre bu düğüm için performans verilerini görüntülemek için çalıştığı düğüm için detaya gitme. Değerin altında tıklayın **düğüm** belirli denetleyicisi için sütun.   
+
+![Örneği detaya gitme düğümünden performans görünümü denetleyicisi](./media/monitoring-container-insights-analyze/drill-down-controller-node.png)
 
 Denetleyicileri görüntülediğinizde görüntülenen bilgileri aşağıdaki tabloda açıklanmıştır:
 
@@ -178,6 +184,10 @@ Seçicide seçin **kapsayıcıları**.
 Burada, Azure Kubernetes kapsayıcılarınızı performans durumunu görüntüleyebilirsiniz.  
 
 ![< ad > denetleyicileri performans görünümü](./media/monitoring-container-insights-analyze/containers-containers-view.png)
+
+Bir kapsayıcıdan, bir pod veya düğüm filtre bu nesne için performans verilerini görüntülemek için detaya gitme. Değerin altında tıklayın **Pod** veya **düğüm** sütun için belirli bir kapsayıcı.   
+
+![Örneği detaya gitme düğümünden performans görünümü denetleyicisi](./media/monitoring-container-insights-analyze/drill-down-controller-node.png)
 
 Kapsayıcıları görüntülediğinizde görüntülenen bilgileri aşağıdaki tabloda açıklanmıştır:
 
@@ -231,7 +241,7 @@ Log Analytics'e eğilimlerini arayın, performans sorunlarını tanılamanıza y
 
 Etkileşimli veri analizi seçerek çalışma alanında gerçekleştirebilirsiniz **görünümü Kubernetes olay günlüklerini** veya **kapsayıcı günlüklerini görüntüleme** önizleme bölmesinde seçeneği. **Günlük araması** bulunduğunuz Azure portal sayfasının sağındaki sayfası görüntülenir.
 
-![Log analytics'te verilerini çözümleme](./media/monitoring-container-insights-analyze/container-health-log-search-example.png)   
+![Log Analytics’te verileri analiz etme](./media/monitoring-container-insights-analyze/container-health-log-search-example.png)   
 
 Log Analytics'e iletilir kapsayıcı günlüklerini çıktısı, STDOUT ve STDERR alınır. Azure İzleyici, Azure tarafından yönetilen Kubernetes (AKS) izleme için Kube-system büyük oluşturulan veri hacmi nedeniyle bugün toplanmaz. 
 

@@ -1,5 +1,5 @@
 ---
-title: İşbirliğine dayalı Translation Framework (CTF) raporlama - Translator metin çevirisi
+title: İşbirliğine dayalı Translation Framework (CTF) raporlama - Translator metin çevirisi API'si
 titlesuffix: Azure Cognitive Services
 description: İşbirliğine dayalı Translation Framework (CTF) raporlama kullanma
 services: cognitive-services
@@ -10,19 +10,19 @@ ms.component: translator-text
 ms.topic: conceptual
 ms.date: 12/14/2017
 ms.author: v-jansko
-ms.openlocfilehash: 9b3ac6e6d10fb0e70549cadfd7bf65220deb8f33
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: aa59ce89bf8c2c4b31d85c572dcdfb3645f06884
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46126930"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49646022"
 ---
 # <a name="how-to-use-collaborative-translation-framework-ctf-reporting"></a>Collaborative Translation Framework (CTF) raporlamasını kullanma
 
 > [!NOTE]
 > Bu metot kullanımdan kaldırılmıştır. Translator metin çevirisi API'si, V3.0 içinde kullanılabilir değil.
 
-> İşbirliğine dayalı çevirileri Framework (CTF), daha önce Translator Text API, V2.0 için kullanılabilir, 1 Şubat 2018'den itibaren kullanım dışı bırakıldı. AddTranslation ve AddTranslationArray işlevleri izin düzeltmeleri işbirliğine dayalı çeviri çerçevesi aracılığıyla etkinleştirin. 31 Ocak 2018'den sonra bu iki işlevler yeni cümle gönderimler kabul etmedi ve kullanıcıların bir hata iletisi alırsınız. Bu işlevler, kullanımdan kaldırılmıştır ve değiştirilmeyecek. 
+> İşbirliğine dayalı çevirileri Framework (CTF), daha önce Translator Text API, V2.0 için kullanılabilir, 1 Şubat 2018'den itibaren kullanım dışı bırakıldı. AddTranslation ve AddTranslationArray işlevleri izin düzeltmeleri işbirliğine dayalı çeviri çerçevesi aracılığıyla etkinleştirin. 31 Ocak 2018'den sonra bu iki işlevler yeni cümle gönderimler kabul etmedi ve kullanıcıların bir hata iletisi alırsınız. Bu işlevler, kullanımdan kaldırılmıştır ve değiştirilmeyecek.
 
 >Benzer bir işlevsellik terminoloji ve stil özel çeviri sistemiyle oluşturmanıza olanak sağlayan Translator Hub API, kullanılabilir ve Translator metin çevirisi API'si kategori kimliği kullanarak çağırabilirsiniz. Translator Hub: [ https://hub.microsofttranslator.com ](https://hub.microsofttranslator.com). Translator API Hub: [ https://hub.microsofttranslator.com/swagger ](https://hub.microsofttranslator.com/swagger).
 
@@ -33,7 +33,7 @@ Raporlama işbirliğine dayalı Translation Framework (CTF) API istatistikleri v
 
 ## <a name="endpoint"></a>Uç Nokta
 Raporlama CTF API uç noktası http://api.microsofttranslator.com/v2/beta/ctfreporting.svc
-                        
+
 
 ## <a name="methods"></a>Yöntemler
 | Ad |    Açıklama|
@@ -64,7 +64,7 @@ UserTranslationCount[]GetUserTranslationCounts(
            string to,
            int? minRating,
            int? maxRating,
-           string user, 
+           string user,
            string category
            DateTime? minDateUtc,
            DateTime? maxDateUtc,
@@ -76,7 +76,7 @@ UserTranslationCount[]GetUserTranslationCounts(
 
 | Parametre | Açıklama |
 |:---|:---|
-| Uygulama Kimliği | **Gerekli** yetkilendirme üst bilgisi kullandıysanız, AppID alanı boş bırakın başka belirtin "Bearer" içeren bir dize + "" + erişim belirteci.|
+| appId | **Gerekli** yetkilendirme üst bilgisi kullandıysanız, AppID alanı boş bırakın başka belirtin "Bearer" içeren bir dize + "" + erişim belirteci.|
 | uriPrefix | **İsteğe bağlı** çeviri URI öneki içeren bir dize.|
 | başlangıç | **İsteğe bağlı** çeviri metnin dil kodu temsil eden bir dize. |
 | - | **İsteğe bağlı** metne çevirmek için dil kodunu temsil eden bir dize.|
@@ -135,27 +135,27 @@ UserTranslation[] GetUserTranslations (
             string to,
             int? minRating,
             int? maxRating,
-            string user, 
+            string user,
             string category
             DateTime? minDateUtc,
             DateTime? maxDateUtc,
             int? skip,
-            int? take); 
+            int? take);
 ```
 
 **Parametreler**
 
 | Parametre | Açıklama |
 |:---|:---|
-| Uygulama Kimliği | **Gerekli** yetkilendirme üst bilgisi kullandıysanız, AppID alanı boş bırakın başka belirtin "Bearer" içeren bir dize + "" + erişim belirteci.|
+| appId | **Gerekli** yetkilendirme üst bilgisi kullandıysanız, AppID alanı boş bırakın başka belirtin "Bearer" içeren bir dize + "" + erişim belirteci.|
 | uriPrefix| **İsteğe bağlı** çeviri URI öneki içeren bir dize.|
 | başlangıç| **İsteğe bağlı** çeviri metnin dil kodu temsil eden bir dize.|
 | -| **İsteğe bağlı** metne çevirmek için dil kodunu temsil eden bir dize.|
 | minRating| **İsteğe bağlı** çevrilmiş metin için en düşük kalite sıralaması temsil eden bir tamsayı değeri. Geçerli -10 ile 10 arasında bir değerdir. Varsayılan değer 1'dir.|
 | maxRating| **İsteğe bağlı** çevrilmiş metin için en yüksek kalite sıralaması temsil eden bir tamsayı değeri. Geçerli -10 ile 10 arasında bir değerdir. Varsayılan değer 1'dir.|
 | kullanıcı| **İsteğe bağlı. Gönderim oluşturanla üzerinde sonucu filtrelemek için kullanılan bir dize**|
-| category| **İsteğe bağlı** kategori veya çeviri etki alanı içeren bir dize. Bu parametre yalnızca genel varsayılan seçeneği destekler.| 
-| minDateUtc| **İsteğe bağlı** zaman çevirileri almak istediğiniz başlangıç tarihi. Tarihi UTC biçiminde olması gerekir.| 
+| category| **İsteğe bağlı** kategori veya çeviri etki alanı içeren bir dize. Bu parametre yalnızca genel varsayılan seçeneği destekler.|
+| minDateUtc| **İsteğe bağlı** zaman çevirileri almak istediğiniz başlangıç tarihi. Tarihi UTC biçiminde olması gerekir.|
 | maxDateUtc| **İsteğe bağlı** çevirileri almak istediğiniz zaman kasa tarih. Tarihi UTC biçiminde olması gerekir.|
 | atla| **İsteğe bağlı** bir sayfada atlamak istediğiniz sonuç sayısı. Örneğin, sonuçları ve 21 sonuç kaydının görünümünden ilk 20 satırları atla istiyorsanız, bu parametre için 20 belirtin. Bu parametre için varsayılan değer 0'dır.|
 | sınav zamanı| **İsteğe bağlı** almak istediğiniz sonuç sayısı. Her istek sayısının 100'dür. Varsayılan değer 50'dir.|
@@ -192,21 +192,3 @@ Dizi sonuç kümesini içeren **UserTranslation**. Her UserTranslation aşağıd
 **GitHib üzerinde kod örnekleri görüntüle**
 * [C#](https://github.com/MicrosoftTranslator/Documentation-Code-TextAPI/blob/master/ctf/ctf-getusertranslations-example-csharp.md)
 * [PHP](https://github.com/MicrosoftTranslator/Documentation-Code-TextAPI/blob/master/ctf/ctf-getusertranslations-example-php.md)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -11,13 +11,13 @@ author: allenwux
 ms.author: xiwu
 ms.reviewer: ''
 manager: craigg
-ms.date: 08/20/2018
-ms.openlocfilehash: 1d292007b06e12b6be28e053bc6def3b12c7befe
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.date: 10/22/2018
+ms.openlocfilehash: 4bc655f1e9da00a42c60e1ab763c5503b393d4a1
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47063668"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49646319"
 ---
 # <a name="best-practices-for-sql-data-sync"></a>SQL Data Sync için en iyi deneyimler 
 
@@ -70,6 +70,10 @@ Bir veritabanında bir eşitleme grubunda olan tüm tabloları eklemek gerekmez.
 Her bir eşitleme grubu tabloda bir birincil anahtarı olmalıdır. SQL Data Sync hizmet, birincil anahtarı olmayan tablo eşitleme yapılamıyor.
 
 SQL Data Sync, üretim ortamında kullanmadan önce ilk ve devam eden eşitleme performansı test edin.
+
+#### <a name="empty-tables-provide-the-best-performance"></a>Boş tabloları, en iyi performansı sağlar.
+
+Boş tablolar başlatma sırasında en iyi performansı sağlar. Hedef Tablo boşsa, veri eşitleme toplu ekleme verileri yüklemek için kullanır. Aksi takdirde, bir satır karşılaştırma ve ekleme çakışmalarını denetlemek için veri eşitleme yapar. Ancak, performansı önemli değilse, veriler içeren tablolar arasında eşitleme ayarlayabilirsiniz.
 
 ### <a name="provisioning-destination-databases"></a> Hedef veritabanı sağlama
 

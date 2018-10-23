@@ -7,15 +7,15 @@ author: diberry
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 3862a0dbd94b5764cf506b05201d8dc60430fc7d
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 9324f7b4f7bed844f16d17b8960878892be4b165
+ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47038978"
+ms.lasthandoff: 10/22/2018
+ms.locfileid: "49638401"
 ---
 # <a name="data-conversion-concepts-in-luis"></a>LUIS, veri dönüştürme kavramları
 LUIS, Bilişsel hizmetler konuşma hizmeti konuşma metin konuşma tahmin önce konuşulan konuşma dönüştürmek için kullanır. 
@@ -23,7 +23,7 @@ LUIS, Bilişsel hizmetler konuşma hizmeti konuşma metin konuşma tahmin önce 
 ## <a name="speech-to-intent-conversion-concepts"></a>Konuşma niyetini dönüştürme kavramları
 LUIS metinde konuşma dönüştürülmesi konuşulan konuşma bir uç noktasına göndermesi ve LUIS tahmini yanıt almanızı sağlar. Bir tümleştirme işlemidir [konuşma](https://docs.microsoft.com/azure/cognitive-services/Speech) LUIS ile hizmet. 
 
-### <a name="key-requirements"></a>Anahtar gereksinimleri
+### <a name="key-requirements"></a>Önemli gereksinimler
 Oluşturma gerekmez bir **Bing konuşma API'si** Bu tümleştirme için anahtar. A **Language Understanding** Azure portalında oluşturulan anahtarı bu tümleştirme için çalışır. LUIS başlangıç anahtarı kullanmayın, bu tümleştirme için çalışmaz.
 
 ### <a name="new-endpoint"></a>Yeni uç nokta 

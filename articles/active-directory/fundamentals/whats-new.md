@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: lizross
 ms.reviewer: dhanyahk
-ms.openlocfilehash: d39cfddc42ea0e03f6b0f6c8d1c0160839742518
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 98edf224ebbd15f6acafdfeb28769eecb4edff40
+ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47393919"
+ms.lasthandoff: 10/22/2018
+ms.locfileid: "49638135"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Azure Active Directory'deki yenilikler nelerdir?
 
@@ -131,7 +131,7 @@ Bu güncelleştirmeyle, artık tıklayabilirsiniz **özel uzantı özelliklerini
 **Hizmet kategorisi:** koşullu erişim  
 **Ürün özelliği:** kimlik güvenliği ve koruması
 
-Aşağıdaki uygulamalar listede yer [onaylı istemci uygulamalar](https://docs.microsoft.com/azure/active-directory/conditional-access/technical-reference.md#approved-client-app-requirement):
+Aşağıdaki uygulamalar listede yer [onaylı istemci uygulamalar](https://docs.microsoft.com/azure/active-directory/conditional-access/technical-reference#approved-client-app-requirement):
 
 - Microsoft To-Do
 
@@ -351,7 +351,7 @@ Bu bir katılım genel önizlemesidir. Google Federasyon hakkında daha fazla bi
 
 ## <a name="july-2018"></a>Temmuz 2018
 
-### <a name="improvements-to-azure-active-directory-email-notifications"></a>Azure Active Directory e-posta bildirimleri iyileştirmeleri
+### <a name="improvements-to-azure-active-directory-email-notifications"></a>Azure Active Directory geliştirmeleri e-posta bildirimleri
 
 **Türü:** değiştirilen özellik  
 **Hizmet kategorisi:** diğer  
@@ -375,7 +375,7 @@ Bir örnek, bazı yeni e-posta tasarımları ve daha fazla bilgi için bkz [e-po
 
 ---
 
-### <a name="azure-ad-activity-logs-are-now-available-through-azure-monitor"></a>Azure AD Etkinlik Günlükleri artık Azure İzleyici'de kullanılabilir
+### <a name="azure-ad-activity-logs-are-now-available-through-azure-monitor"></a>Azure AD etkinlik günlüklerini Azure İzleyici kullanılabilir
 
 **Türü:** yeni özellik  
 **Hizmet kategorisi:** raporlama  
@@ -393,7 +393,7 @@ Blogumuzu bu yeni özellikler hakkında daha fazla bilgi için bkz. [Azure AD et
 
 ---
 
-### <a name="conditional-access-information-added-to-the-azure-ad-sign-ins-report"></a>Koşullu erişim bilgileri Azure AD oturum açma raporuna eklendi
+### <a name="conditional-access-information-added-to-the-azure-ad-sign-ins-report"></a>Koşullu erişim bilgilerini Mac için Azure AD oturum açma işlemleri raporu eklendi
 
 **Türü:** yeni özellik  
 **Hizmet kategorisi:** raporlama  
@@ -413,7 +413,7 @@ Sunulmasıyla birlikte **istemci uygulaması** alan oturum açma etkinlik günl�
 
 ---
 
-### <a name="new-federated-apps-available-in-azure-ad-app-gallery---july-2018"></a>Azure AD uygulama galerisinde yeni Federasyon Uygulamaları kullanılabilir - Temmuz 2018
+### <a name="new-federated-apps-available-in-azure-ad-app-gallery---july-2018"></a>Yeni Federasyon uygulamaları kullanılabilir Azure AD uygulama galerisinde - Temmuz 2018
 
 **Türü:** yeni özellik  
 **Hizmet kategorisi:** kurumsal uygulamalar  
@@ -427,7 +427,7 @@ Uygulamalar hakkında daha fazla bilgi için bkz. [Azure Active Directory ile Sa
 
 ---
  
-### <a name="new-user-provisioning-saas-app-integrations---july-2018"></a>Yeni kullanıcı sağlama SaaS uygulama tümleştirmeleri - Temmuz 2018
+### <a name="new-user-provisioning-saas-app-integrations---july-2018"></a>SaaS uygulama tümleştirmeleri - Temmuz 2018 sağlama yeni kullanıcı
 
 **Türü:** yeni özellik  
 **Hizmet kategorisi:** uygulama sağlama  
@@ -445,7 +445,7 @@ Azure AD Galerisi'nde kullanıcı sağlamayı destekleyen tüm uygulamalar liste
 
 ---
 
-### <a name="connect-health-for-sync---an-easier-way-to-fix-orphaned-and-duplicate-attribute-sync-errors"></a>Eşitleme için Connect Health - Yalnız bırakılmış ve çoğaltışmış öznitelik eşitleme hatalarını kolaylıkla düzeltme
+### <a name="connect-health-for-sync---an-easier-way-to-fix-orphaned-and-duplicate-attribute-sync-errors"></a>Connect Health eşitleme - yalnız bırakılmış ve yinelenen öznitelik Eşitleme hataları düzeltmek için daha kolay bir yolu
 
 **Türü:** yeni özellik  
 **Hizmet kategorisi:** AD Bağlan  
@@ -463,7 +463,7 @@ Daha fazla bilgi için [Tanıla ve yinelenen öznitelik eşitleme hatalarını D
 
 ---
 
-### <a name="visual-updates-to-the-azure-ad-and-msa-sign-in-experiences"></a>Azure AD ve MSA oturum açma deneyimleri için görsel güncelleştirmeler
+### <a name="visual-updates-to-the-azure-ad-and-msa-sign-in-experiences"></a>Azure AD'ye Visual güncelleştirir ve MSA oturum açma deneyimleri
 
 **Türü:** değiştirilen özellik  
 **Hizmet kategorisi:** Azure AD  
@@ -473,7 +473,7 @@ Microsoft online services oturum açma deneyimi için kullanıcı Arabirimi gibi
 
 ---
 
-### <a name="new-release-of-azure-ad-connect---july-2018"></a>Yeni Azure AD Connect sürümü - Temmuz 2018
+### <a name="new-release-of-azure-ad-connect---july-2018"></a>Azure AD Connect - Temmuz 2018 tarihinden itibaren yeni yayın
 
 **Türü:** değiştirilen özellik  
 **Hizmet kategorisi:** uygulama sağlama  
@@ -491,7 +491,7 @@ Bu güncelleştirme hakkında daha fazla bilgi için bkz. [Azure AD Connect: sü
 
 ---
 
-### <a name="updates-to-the-terms-of-use-tou-end-user-ui"></a>Kullanım Koşulları (ToU) son kullanıcı arabirimi güncelleştirmeleri
+### <a name="updates-to-the-terms-of-use-tou-end-user-ui"></a>Kullanım koşulları (ToU) son kullanıcı UI güncelleştirmeleri
 
 **Türü:** değiştirilen özellik  
 **Hizmet kategorisi:** kullanım koşulları  
@@ -505,7 +505,7 @@ Kabul dize TOU son kullanıcı arabiriminde güncelleştiriyoruz.
 
 ---
  
-### <a name="pass-through-authentication-supports-legacy-protocols-and-applications"></a>Doğrudan kimlik doğrulama eski protokolleri ve uygulamaları destekliyor
+### <a name="pass-through-authentication-supports-legacy-protocols-and-applications"></a>Geçişli kimlik doğrulaması eski protokolleri ve uygulamaları destekler
 
 **Türü:** değiştirilen özellik  
 **Hizmet kategorisi:** kimlik doğrulamaları (oturum açma bilgileri)  
@@ -525,7 +525,7 @@ Geçişli kimlik doğrulaması artık eski protokolleri ve uygulamaları destekl
 
 ---
  
-### <a name="converged-security-info-management-for-self-service-password-reset-and-multi-factor-authentication"></a>Self servis parola sıfırlama ve Multi-Factor Authentication için yakınsanmış güvenlik bilgileri yönetimi
+### <a name="converged-security-info-management-for-self-service-password-reset-and-multi-factor-authentication"></a>Self Servis parola sıfırlama ve çok faktörlü kimlik doğrulaması için yakınsanmış güvenlik bilgileri yönetimi
 
 **Türü:** yeni özellik  
 **Hizmet kategorisi:** SSPR  
@@ -539,7 +539,7 @@ Bu bir katılım genel önizlemesidir. Yöneticilerin yeni deneyimi (istenirse) 
 
 ---
  
-### <a name="use-the-microsoft-authenticator-app-to-verify-your-identity-when-you-reset-your-password"></a>Parolanızı sıfırlarken kimliğinizi doğrulamak için Microsoft Authenticator uygulamasını kullanın
+### <a name="use-the-microsoft-authenticator-app-to-verify-your-identity-when-you-reset-your-password"></a>Parolanızı sıfırladıktan gerçekleştirdiğinizde kimliğinizi doğrulamak için Microsoft Authenticator uygulamasını kullanın
 
 **Türü:** değiştirilen özellik  
 **Hizmet kategorisi:** SSPR  
@@ -839,7 +839,7 @@ Azure AD uygulama galerisinde uygulamanızı listeleme hakkında daha fazla bilg
 
 ---
  
-### <a name="new-step-by-step-deployment-guides-for-azure-active-directory"></a>Azure Active Directory için yeni adım adım dağıtım kılavuzları
+### <a name="new-step-by-step-deployment-guides-for-azure-active-directory"></a>Azure Active Directory için yeni bir adım adım dağıtım kılavuzları
 
 **Türü:** yeni özellik  
 **Hizmet kategorisi:** diğer  
@@ -861,13 +861,13 @@ Hizmet sorumluları / uygulamalarınızı bulma konusunda sorun mu yaşıyorsunu
 
 ---
  
-### <a name="the-may-release-of-aadconnect-contains-a-public-preview-of-the-integration-with-pingfederate-important-security-updates-many-bug-fixes-and-new-great-new-troubleshooting-tools"></a>AADConnect Mayıs sürümü PingFederate tümleştirmesinin genel önizlemesi, önemli güvenlik güncelleştirmeleri, birçok hata düzeltmesi ve yeni ve harika sorun giderme araçlarını içerir. 
+### <a name="the-may-release-of-aadconnect-contains-a-public-preview-of-the-integration-with-pingfederate-important-security-updates-many-bug-fixes-and-new-great-new-troubleshooting-tools"></a>Genel Önizleme aşamasında, PingFederate ile tümleştirme AADConnect sürümünü içeren Mayıs önemli güvenlik güncelleştirmeleri, birçok hata düzeltmeleri ve yeni harika yeni sorun giderme araçları. 
 
 **Türü:** değiştirilen özellik  
 **Hizmet kategorisi:** AD Bağlan  
 **Ürün özelliği:** kimlik yaşam döngüsü yönetimi
  
-AADConnect Mayıs sürümü PingFederate tümleştirmesinin genel önizlemesi, önemli güvenlik güncelleştirmeleri, birçok hata düzeltmesi ve yeni ve harika sorun giderme araçlarını içerir. Sürüm notlarında bulabilirsiniz [burada](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-version-history#118190).
+Genel Önizleme aşamasında, PingFederate ile tümleştirme AADConnect sürümünü içeren Mayıs önemli güvenlik güncelleştirmeleri, birçok hata düzeltmeleri ve yeni harika yeni sorun giderme araçları. Sürüm notlarında bulabilirsiniz [burada](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-version-history#118190).
 
 ---
 

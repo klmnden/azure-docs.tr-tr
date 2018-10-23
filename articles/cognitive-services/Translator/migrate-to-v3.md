@@ -10,12 +10,12 @@ ms.component: translator-text
 ms.topic: conceptual
 ms.date: 03/27/2018
 ms.author: v-jansko
-ms.openlocfilehash: 74fcfa0e1474d7d2a25d0bf9d0476fb1bb870334
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: e0654d6a4696e6f02939cad51a715412fdcfb61a
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49429516"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49645243"
 ---
 # <a name="translator-text-api-v2-to-v3-migration"></a>Translator Text API V2 V3 geçiş
 
@@ -54,7 +54,7 @@ Aşağıdaki listede yer alan V2 ve V3 yöntemleri V2 ile gelen işlevselliği s
 
 ## <a name="move-to-json-format"></a>JSON biçimine Taşı
 
-Microsoft Translator metin çevirisi V2 kabul edilir ve XML biçiminde veriler döndürdü. V3 sürümünde API'si kullanılarak alınan tüm veriler JSON biçiminde olan. XML bundan böyle kabul edilecek veya V3 sürümünde döndürdü. 
+Microsoft Translator metin çevirisi V2 kabul edilir ve XML biçiminde veriler döndürdü. V3 sürümünde API'si kullanılarak alınan tüm veriler JSON biçiminde olan. XML bundan böyle kabul edilecek veya V3 sürümünde döndürdü.
 
 Bu değişiklik V2 metin çevirisi API'si için yazılan bir uygulamanın çeşitli yönlerini etkiler. Örnek: diller API metin çevirisi, harf çevirisi ve iki sözlük yöntemleri için dil bilgilerini döndürür. Tüm dil bilgisinin bir çağrıda tüm yöntemleri için istek veya bunları ayrı ayrı isteyin.
 

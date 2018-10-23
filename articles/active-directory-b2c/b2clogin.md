@@ -7,15 +7,15 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/04/2018
+ms.date: 10/22/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 8e06cf1a443d4fd158e29ef4b53206a83800dfe9
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 36025bf8460d690aab3b3617ad3341dfe7005e9e
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48803061"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49649287"
 ---
 # <a name="set-redirect-urls-to-b2clogincom-for-azure-active-directory-b2c"></a>Kümesi yeniden yönlendirme URL'leri b2clogin.com için Azure Active Directory B2C için
 
@@ -26,7 +26,12 @@ B2clogin.com kullanma, ek avantajlar gibi sunar:
 - Tanımlama bilgileri artık diğer Microsoft hizmetleriyle paylaşılır.
 - URL'nizde artık Microsoft bir başvuru içerir. Örneğin, `https://your-tenant-name.b2clogin.com/tfp/your-tenant-ID/policyname/v2.0/.well-known/openid-configuration`.
 
-B2clogin.com kullanılacak yeniden yönlendirme ayarlama b2clogin.com kullanmak için kimlik sağlayıcısı uygulamalarınızda URL'leri. B2clogin.com ilke başvuruları ve belirteç uç noktalar için kullanılacak Azure AD B2C'yi uygulamanız da ayarlarsınız. MSAL kullanıyorsanız, ayarlanacak ihtiyacınız **ValidateAuthority** özelliğini `false`.
+Bu ayar b2clogin.com kullanırken değiştirmeniz gerekebileceğini göz önünde bulundurun:
+
+- Yeniden yönlendirme ayarlama b2clogin.com kullanmak için kimlik sağlayıcısı uygulamalarınızda URL'leri. 
+- B2clogin.com ilke başvuruları ve belirteç uç noktalar için kullanılacak Azure AD B2C'yi uygulamanız ayarlayın. 
+- MSAL kullanıyorsanız, ayarlanacak ihtiyacınız **ValidateAuthority** özelliğini `false`.
+- Tüm değiştirdiğinizden emin olun **izin verilen çıkış noktaları** CORS ayarları için tanımladığınız [kullanıcı arabirimi özelleştirme](active-directory-b2c-ui-customization-custom-dynamic.md).  
 
 ## <a name="change-redirect-urls"></a>Değişiklik yeniden yönlendirme URL'leri
 

@@ -1,23 +1,23 @@
 ---
-title: "Hızlı başlangıç: Soru-Cevap Oluşturma API'si (V4) için C#"
+title: REST API (V4) - C# - soru-cevap Oluşturucu
 titleSuffix: Azure Cognitive Services
-description: Azure Microsoft Bilişsel Hizmetler'deki Microsoft Translator Metin Çevirisi API'sini kullanmaya başlamanıza yardımcı olacak bilgileri ve kod örneklerini inceleyin.
+description: REST tabanlı bilgi alın ve kod örnekleri, hızlı bir şekilde yardımcı olmak için Microsoft Bilişsel hizmetler, Azure üzerinde Microsoft Translator metin çevirisi API'si ile çalışmaya başlamak.
 services: cognitive-services
 author: diberry
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
-ms.topic: quickstart
-ms.date: 09/12/2018
+ms.topic: article
+ms.date: 10/19/2018
 ms.author: diberry
-ms.openlocfilehash: 8c030971a2725612a836ef86806e39efafea65f7
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
-ms.translationtype: HT
+ms.openlocfilehash: 0b468556892bf85dac1fbdd09e7299a793e1e700
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49387609"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49646363"
 ---
-# <a name="quickstart-for-microsoft-qna-maker-api-with-c"></a>Hızlı başlangıç: C# ile Microsoft Soru-Cevap Oluşturma API'si 
+# <a name="qna-maker-rest-api-with-c"></a>Soru-cevap Oluşturucu REST API ile C# 
 <a name="HOLTop"></a>
 
 Bu makalede C# ve [Microsoft Soru-Cevap Oluşturma API'si](../Overview/overview.md) ile aşağıdaki işlemlerin nasıl gerçekleştirileceği gösterilmektedir.
@@ -39,7 +39,7 @@ Bu makalede C# ve [Microsoft Soru-Cevap Oluşturma API'si](../Overview/overview.
 
 [!INCLUDE [Code is available in Azure-Samples Github repo](../../../../includes/cognitive-services-qnamaker-csharp-repo-note.md)]
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Bu kodu Windows’da çalıştırmak için [Visual Studio 2017](https://www.visualstudio.com/downloads/) gerekir. (Ücretsiz Community Edition’ı kullanabilirsiniz.)
 

@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 10/16/2018
+ms.date: 10/22/2018
 ms.author: juliako
-ms.openlocfilehash: 4001d0e21e7a0c8977d785463fb54aa4de45786c
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: 10bd2101839e1b6d1dbdc1e53c31693ab0be98fd
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49378746"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49647774"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Azure Media Services v3 sürüm notları 
 
@@ -38,7 +38,7 @@ Bu bölümde, Azure Media Services (AMS) Ekim güncelleştirmeleri açıklanmakt
 
 #### <a name="azure-cli-20"></a>Azure CLI 2.0
  
-Azure CLI 2.0 modülü canlı, içerik anahtar ilkeleri, hesabı/varlık filtreleri, akış ilkeleri de dahil olmak üzere tüm özellikleri.
+Azure CLI 2.0 modülü şu anda canlı, içerik anahtarı ilkeleri, akış ilkeler üzerinde işlemler içerir. Daha fazla bilgi için [planları için değişiklikleri](#plans-for-changes).
 
 #### <a name="azure-resource-management"></a>Azure Kaynak Yönetimi 
 
@@ -95,7 +95,7 @@ Video Indexer GA sürümü Ağustos'ta Duyuruldu. Yeni şu anda desteklenen öze
 
 ### <a name="plans-for-changes"></a>Değişiklikleri planları
 
-Azure CLI Sürüm 23/10/2018 tarihinde kullanıma sunulacaktır.
+Azure CLI Sürüm 06/11/2018 tarihinde kullanıma sunulacaktır.
 
 ### <a name="known-issues"></a>Bilinen sorunlar
 

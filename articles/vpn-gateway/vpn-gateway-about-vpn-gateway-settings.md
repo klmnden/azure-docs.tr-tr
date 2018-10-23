@@ -2,25 +2,17 @@
 title: Şirket içi Azure bağlantıları için VPN ağ geçidi ayarları | Microsoft Docs
 description: Azure sanal ağ geçidi için VPN Gateway ayarları hakkında bilgi edinin.
 services: vpn-gateway
-documentationcenter: na
 author: cherylmc
-manager: jpconnock
-editor: ''
-tags: azure-resource-manager,azure-service-management
-ms.assetid: ae665bc5-0089-45d0-a0d5-bc0ab4e79899
 ms.service: vpn-gateway
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 03/20/2018
+ms.topic: conceptual
+ms.date: 10/22/2018
 ms.author: cherylmc
-ms.openlocfilehash: 60cdc7bbe08df7816560e9720f96edc51769c342
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 30edc7308ad2d01d5245f8cd1073a7def674b74d
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38618230"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49649848"
 ---
 # <a name="about-vpn-gateway-configuration-settings"></a>VPN Gateway yapılandırma ayarları hakkında
 
@@ -29,10 +21,11 @@ Bir VPN ağ geçidi, ortak bir bağlantı üzerinden sanal ağınız ile şirket
 Bir VPN ağ geçidi bağlantısı, her biri yapılandırılabilir ayarlar içeren yapılandırmasına birden çok kaynak kullanır. Bu makaledeki bölümler, kaynakları ve Resource Manager dağıtım modelinde oluşturulan sanal ağ için bir VPN ağ geçidi ile ilgili ayarları ele alınmıştır. Her bağlantı çözüm için açıklamalar ve topoloji diyagramlarını bulabilirsiniz [VPN Gateway hakkında](vpn-gateway-about-vpngateways.md) makalesi.
 
 >[!NOTE]
-> Bu makalede değerleri - GatewayType 'Vpn' kullanan sanal ağ geçitleri için geçerlidir. Bu belirli sanal ağ geçitleri VPN ağ geçidi olarak adlandırılır nedeni budur. ExpressRoute ağ geçitleri için değerleri, VPN ağ geçitleri için kullandığınız aynı değerleri değildir.
+> Bu makalede değerleri, VPN ağ geçitleri (- GatewayType Vpn kullanan sanal ağ geçitleri) uygulayın. Bu makalede, tüm ağ geçidi türleri veya bölgesel olarak yedekli ağ geçitleri kapsamaz.
 >
->-GatewayType için 'ExpressRoute' geçerli değerler için bkz: [ExpressRoute için sanal ağ geçitleri](../expressroute/expressroute-about-virtual-network-gateways.md).
->
+>* -GatewayType için 'ExpressRoute' geçerli değerler için bkz: [ExpressRoute için sanal ağ geçitleri](../expressroute/expressroute-about-virtual-network-gateways.md).
+>* Bölgesel olarak yedekli ağ geçitleri için bkz: [bölgesel olarak yedekli ağ geçitleri hakkında](about-zone-redundant-vnet-gateways.md).
+>* Sanal WAN için bkz. [hakkında sanal WAN](../virtual-wan/virtual-wan-about.md). 
 >
 
 ## <a name="gwtype"></a>Ağ geçidi türleri
@@ -60,7 +53,7 @@ New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
 
 ### <a name="configure-a-gateway-sku"></a>Ağ geçidi SKU'sunu yapılandırın
 
-#### <a name="azure-portal"></a>Azure portalına
+#### <a name="azure-portal"></a>Azure portal
 
 Resource Manager sanal ağ geçidi oluşturmak için Azure portalını kullanıyorsanız, açılan listeyi kullanarak ağ geçidi SKU'sunu seçebilirsiniz. İle sunulan seçenekler, seçtiğiniz VPN türü ve ağ geçidi türü için karşılık gelir.
 

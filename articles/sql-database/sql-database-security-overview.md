@@ -9,15 +9,15 @@ ms.devlang: ''
 ms.topic: conceptual
 author: aliceku
 ms.author: aliceku
-ms.reviewer: vanto, carlrab, ronitr
+ms.reviewer: vanto, carlrab, emlisa
 manager: craigg
-ms.date: 10/11/2018
-ms.openlocfilehash: 7cabf1f0020e2f72dae138c7b7b79e69ce2fc677
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.date: 10/22/2018
+ms.openlocfilehash: 9978497f8bd3ebb11247f3bffe319866128e9f1d
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49456992"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49646516"
 ---
 # <a name="an-overview-of-azure-sql-database-security-capabilities"></a>Azure SQL veritabanı güvenlik özelliklerine genel bakış
 
@@ -34,7 +34,7 @@ SQL Veritabanı, hareket halindeki verileriniz için [Aktarım Katmanı Güvenli
 > [!IMPORTANT]
 > Azure SQL veritabanı şifreleme (SSL/TLS), her zaman tüm sunucunuzun için tüm veriler "taşıma durumunda" şifrelenir, veritabanı ve istemci arasında da sağlar zorlar. Bu ayarı bağımsız olarak gerçekleşir **şifrele** veya **TrustServerCertificate** bağlantı dizesindeki.
 >
-> Uygulamanızın bağlantı dizesinde yoksa **değil** şifreli bir bağlantı belirtin ve *değil* sunucu sertifikasına güven (Bunun için ADO.NET sürücüsünü **Encrypt = True**ve **TrustServerCertificate = False**), uygulamanızın man için bir uygulama doğrulanıyor sunucu ya da şifreleme zorlamayı nedeniyle Orta saldırı maruz olabilir. Bağlantı dizenizi Azure portalından edindiyseniz, doğru ayarlarına sahip olur
+> Uygulamanızın bağlantı dizesinde şifreli bir bağlantı belirttiğinizden emin olun ve *değil* sunucu sertifikasına güven için (Bu için ADO.NET sürücüsünü **Encrypt = True** ve  **TrustServerCertificate = False**). Bu, sunucu ve zorunlu şifreleme doğrulamak amacıyla uygulamanın zorlayarak Orta saldırı ortadaki uygulamanızdan önlemeye yardımcı olur. Bağlantı dizenizi Azure portalından elde doğru ayarları geçersiz olur.
 >
 > TLS ve bağlantı hakkında daha fazla bilgi için bkz. [TLS konuları](sql-database-connect-query.md#tls-considerations-for-sql-database-connectivity)
 
@@ -48,7 +48,7 @@ Verilerinizi şifrelemek için kullanabileceğiniz diğer yöntemler şunlardır
 Veri bulma & sınıflandırma (şu anda önizlemede), Azure SQL veritabanı'na bulma, Sınıflandırma, etiketleme ve veritabanlarınızı hassas verileri korumak için gelişmiş özellikler sunar. Bulma ve sınıflandırma büyük/küçük harfe duyarlı verilerinizi (iş/Finans, sağlık, PII, vb.), kurumsal bilgi koruma stature rol yürütebilirsiniz. Altyapı olarak hizmet eder:
 
 - (Denetim) izleme gibi çeşitli güvenlik senaryoları ve anormal hassas verilere erişimi üzerinde uyarı.
-- Yüksek oranda duyarlı verileri içeren veritabanları, erişimi denetleme ve güvenlik, sağlamlaştırma.
+- Erişimi denetleme ve güvenlik, sağlamlaştırma son derece hassas verileri içeren veritabanı.
 - Veri gizliliği standartlarını ve yasal uyumluluk gereksinimlerini karşılamak yardımcı olur.
 
 Daha fazla bilgi için [SQL DB veri bulma & sınıflandırma ile çalışmaya başlama](sql-database-data-discovery-and-classification.md).
@@ -82,7 +82,7 @@ Yetkilendirme, bir kullanıcının bir Azure SQL Veritabanında gerçekleştireb
 
 ### <a name="row-level-security"></a>Satır düzeyi güvenlik
 
-Satır Düzeyi Güvenlik, müşterilerin bir veritabanı tablosundaki satırlara erişimi, sorguyu yürüten kullanıcının özelliklerine göre (grup üyeliği veya yürütme bağlamı) denetlemesini sağlar. Daha fazla bilgi için bkz. [Satır düzeyi güvenlik](https://docs.microsoft.com/sql/relational-databases/security/row-level-security).
+Satır düzeyi güvenlik (örneğin, grup üyeliği veya yürütme bağlamı) Sorguyu yürüten kullanıcının özelliklerine dayanan bir veritabanı tablosundaki satırlara erişimi denetlemek müşterilerin sağlar. Daha fazla bilgi için bkz. [Satır düzeyi güvenlik](https://docs.microsoft.com/sql/relational-databases/security/row-level-security).
 
 ### <a name="dynamic-data-masking"></a>Dinamik veri maskeleme
 
@@ -98,7 +98,7 @@ SQL Veritabanı Denetimi, veritabanı etkinliklerini izler ve veritabanı olayla
 
 ### <a name="threat-detection"></a>Tehdit algılama
 
-Tehdit algılama, ek bir erişim veritabanı açıklıklarından yararlanmaya yönelik sıra dışı ve zararlı girişimlerini algılar, Azure SQL veritabanı hizmetine yerleşik güvenlik zekası katmanı ekleyerek denetim özelliklerini tamamlar. Şüpheli etkinlikler, olası güvenlik açıklarına ve SQL ekleme saldırılarına karşı yanı hakkında anormal veritabanı erişim modellerinin uyarılırsınız. Tehdit algılama uyarıları görüntülenebilir [Azure Güvenlik Merkezi](https://azure.microsoft.com/services/security-center/) şüpheli etkinlik ayrıntılarını sağlayın ve eylemi araştırmak ve tehdidi azaltmak için önerilir. Tehdit algılama, sunucu/15 ABD Doları/ay maliyeti. İlk 60 gün boyunca ücretsizdir. Daha fazla bilgi için bkz. [SQL Veritabanı Tehdit Algılamayı kullanmaya başlayın](sql-database-threat-detection.md).
+Tehdit algılama, ek bir erişim veritabanı açıklıklarından yararlanmaya yönelik sıra dışı ve zararlı girişimlerini algılar, Azure SQL veritabanı hizmetine yerleşik güvenlik zekası katmanı ekleyerek denetim özelliklerini tamamlar. Şüpheli etkinlikler, potansiyel açıklar, hakkında uyarı almanız ve anormal veritabanı erişim modellerinin yanı sıra SQL ekleme saldırıları. Tehdit algılama uyarıları görüntülenebilir [Azure Güvenlik Merkezi](https://azure.microsoft.com/services/security-center/) şüpheli etkinlik ayrıntılarını sağlayın ve eylemi araştırmak ve tehdidi azaltmak için önerilir. Tehdit algılama, sunucu/15 ABD Doları/ay maliyeti. İlk 60 gün boyunca ücretsizdir. Daha fazla bilgi için bkz. [SQL Veritabanı Tehdit Algılamayı kullanmaya başlayın](sql-database-threat-detection.md).
 
 ## <a name="compliance"></a>Uyumluluk
 
@@ -108,7 +108,7 @@ Yukarıdaki özelliklerine ve uygulamanızı Azure SQL veritabanı çeşitli gü
 
 SQL veritabanı, veritabanı tarar ve Güvenlik Merkezi panosunu kullanma sağlayarak, veri güvenliği yönetmenize yardımcı olur [SQL güvenlik açığı değerlendirmesi](sql-vulnerability-assessment.md).
 
-**Güvenlik Açığı değerlendirmesi**: [SQL güvenlik açığı değerlendirmesi](sql-vulnerability-assessment.md) (şu anda Önizleme) olan bir kolayca Azure SQL veritabanında yerleşik keşfetmek, izlemek ve olası veritabanı düzeltmenize yardımcı olabilen Aracı'nı yapılandırmak güvenlik açıklarını. Değerlendirme, bir güvenlik açığı taraması veritabanınızda yürütür ve güvenlik sorunlarını çözmek ve veritabanı güvenliğinizi artırmak için eyleme dönüştürülebilir adımlar da dahil olmak üzere güvenlik durumunuzu görünürlük sunan bir rapor oluşturur. Değerlendirme raporu, izni yapılandırmaları, özellik yapılandırmaları ve veritabanı ayarları için kabul edilebilir bir temel ayarlayarak, ortamınız için özelleştirilebilir. Bu, size yardımcı olabilir:
+**[SQL güvenlik açığı değerlendirmesi](sql-vulnerability-assessment.md)**  bir kolayca Azure SQL veritabanında yerleşik keşfetmek, izlemek ve olası veritabanı güvenlik açıklarını düzeltin yardımcı olabilecek Aracı'nı yapılandırmak. Değerlendirme, bir güvenlik açığı taraması veritabanınızda yürütür ve güvenlik sorunlarını çözmek ve veritabanı güvenliğinizi artırmak için eyleme dönüştürülebilir adımlar da dahil olmak üzere güvenlik durumunuzu görünürlük sunan bir rapor oluşturur. Değerlendirme raporu, izni yapılandırmaları, özellik yapılandırmaları ve veritabanı ayarları için kabul edilebilir bir temel ayarlayarak, ortamınız için özelleştirilebilir. Bu, size yardımcı olabilir:
 
 - Veritabanı tarama raporlarını gerektiren uyumluluk gereksinimlerini karşılayın.
 - Veri gizliliği standartlarını karşılayın.

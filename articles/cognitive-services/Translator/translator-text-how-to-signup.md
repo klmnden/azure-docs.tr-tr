@@ -1,21 +1,21 @@
 ---
-title: Translator Text API kaydolma
+title: Nasıl kaydolmak için Translator metin çevirisi-Translator metin çevirisi API'si
 titleSuffix: Azure Cognitive Services
-description: Translator metin çevirisi API'si için kaydolmayı öğrenin.
+description: Translator metin çevirisi API'si için kaydolarak bir abonelik anahtarı öğrenin.
 services: cognitive-services
-author: noellelacharite
+author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: conceptual
 ms.date: 06/15/2018
-ms.author: nolachar
-ms.openlocfilehash: 18d2926be9d358b90e5b34754e689604aef85522
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.author: erhopf
+ms.openlocfilehash: a08a3a5f2c4e17406863ab203c5af1781b4223d3
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46128326"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49648349"
 ---
 # <a name="how-to-sign-up-for-the-translator-text-api"></a>Translator metin çevirisi API'si için kaydolma
 

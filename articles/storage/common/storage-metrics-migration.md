@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/30/2018
 ms.author: fryu
 ms.component: common
-ms.openlocfilehash: fc11e29b03df617c4b5bb6f4fbb43cd478001d42
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 3f2ebb82f5affa3c41f237edcc039eb6214c7a4c
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39521430"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49649304"
 ---
 # <a name="azure-storage-metrics-migration"></a>Azure depolama ölçümleri geçişi
 
@@ -25,7 +25,7 @@ Bu makalede, eski ölçümleri yeni ölçümlere geçme işlemini göstermektedi
 
 Azure depolama eski ölçüm değerleri toplar ve toplar ve bunları aynı depolama hesabındaki tablolar $Metric depolar. İzleme bir hesap için Azure portalını kullanabilirsiniz. Azure depolama SDK'ları, şemaya dayalı $Metric tablolardan verileri okumak için de kullanabilirsiniz. Daha fazla bilgi için [depolama analizi](./storage-analytics.md).
 
-Eski ölçüm yalnızca Azure Blob Depolama kapasite ölçümleri sağlar. Eski ölçüm, Blob Depolama, tablo depolama, Azure dosyaları ve kuyruk depolama üzerinde işlem ölçümlerini sağlar. 
+Eski ölçüm yalnızca Azure Blob Depolama kapasite ölçümleri sağlar. Eski ölçüm, Blob Depolama, tablo depolama, Azure dosyaları ve kuyruk depolama üzerinde işlem ölçümlerini sağlar.
 
 Eski ölçüm düz bir şemada tasarlanmıştır. Ölçüm tetikleme trafik düzenlerini olmadığında tasarım ölçüm sıfır değerini verir. Örneğin, **ServerTimeoutError** değeri ayarı $Metric tablolardaki 0 olduğunda bile sunucu zaman aşımı hatalarını Canlı trafiği bir depolama hesabına almadığınız.
 
@@ -65,14 +65,14 @@ Aşağıdaki ölçümler eski ölçümleri desteklemeyen yeni teklifler şunlard
 
 | Eski ölçüm | Yeni ölçüm |
 | ------------------- | ----------------- |
-| **AnonymousAuthorizationError** | Boyut ile işlemleri **ResponseType** eşit **AuthorizationError** |
-| **AnonymousClientOtherError** | Boyut ile işlemleri **ResponseType** eşit **ClientOtherError** |
-| **AnonymousClientTimeoutError** | Boyut ile işlemleri **ResponseType** eşit **ClientTimeoutError** |
-| **AnonymousNetworkError** | Boyut ile işlemleri **ResponseType** eşit **NetworkError** |
-| **AnonymousServerOtherError** | Boyut ile işlemleri **ResponseType** eşit **ServerOtherError** |
-| **AnonymousServerTimeoutError** | Boyut ile işlemleri **ResponseType** eşit **ServerTimeoutError** |
-| **AnonymousSuccess** | Boyut ile işlemleri **ResponseType** eşit **başarılı** |
-| **AnonymousThrottlingError** | Boyut ile işlemleri **ResponseType** eşit **ClientThrottlingError** veya **ServerBusyError** |
+| **AnonymousAuthorizationError** | Boyut ile işlemleri **ResponseType** eşit **AuthorizationError** ve boyut **kimlik doğrulaması** eşit **anonim** |
+| **AnonymousClientOtherError** | Boyut ile işlemleri **ResponseType** eşit **ClientOtherError** ve boyut **kimlik doğrulaması** eşit **anonim** |
+| **AnonymousClientTimeoutError** | Boyut ile işlemleri **ResponseType** eşit **ClientTimeoutError** ve boyut **kimlik doğrulaması** eşit **anonim** |
+| **AnonymousNetworkError** | Boyut ile işlemleri **ResponseType** eşit **NetworkError** ve boyut **kimlik doğrulaması** eşit **anonim** |
+| **AnonymousServerOtherError** | Boyut ile işlemleri **ResponseType** eşit **ServerOtherError** ve boyut **kimlik doğrulaması** eşit **anonim** |
+| **AnonymousServerTimeoutError** | Boyut ile işlemleri **ResponseType** eşit **ServerTimeoutError** ve boyut **kimlik doğrulaması** eşit **anonim** |
+| **AnonymousSuccess** | Boyut ile işlemleri **ResponseType** eşit **başarı** ve boyut **kimlik doğrulaması** eşit **anonim** |
+| **AnonymousThrottlingError** | Boyut ile işlemleri **ResponseType** eşit **ClientThrottlingError** veya **ServerBusyError** ve boyut **kimlikdoğrulaması** eşit **anonim** |
 | **AuthorizationError** | Boyut ile işlemleri **ResponseType** eşit **AuthorizationError** |
 | **Kullanılabilirlik** | **Kullanılabilirlik** |
 | **AverageE2ELatency** | **Başarı E2e** |
@@ -87,14 +87,14 @@ Aşağıdaki ölçümler eski ölçümleri desteklemeyen yeni teklifler şunlard
 | **PercentSuccess** | Boyut ile işlemleri **ResponseType** eşit **başarılı** |
 | **Percentthrottlingerror'da** | Boyut ile işlemleri **ResponseType** eşit **ClientThrottlingError** veya **ServerBusyError** |
 | **Percenttimeouterror'da** | Boyut ile işlemleri **ResponseType** eşit **ServerTimeoutError** veya **ResponseType** eşit **ClientTimeoutError** |
-| **SASAuthorizationError** | Boyut ile işlemleri **ResponseType** eşit **AuthorizationError** |
-| **SASClientOtherError** | Boyut ile işlemleri **ResponseType** eşit **ClientOtherError** |
-| **SASClientTimeoutError** | Boyut ile işlemleri **ResponseType** eşit **ClientTimeoutError** |
-| **SASNetworkError** | Boyut ile işlemleri **ResponseType** eşit **NetworkError** |
-| **SASServerOtherError** | Boyut ile işlemleri **ResponseType** eşit **ServerOtherError** |
-| **SASServerTimeoutError** | Boyut ile işlemleri **ResponseType** eşit **ServerTimeoutError** |
-| **SASSuccess** | Boyut ile işlemleri **ResponseType** eşit **başarılı** |
-| **SASThrottlingError** | Boyut ile işlemleri **ResponseType** eşit **ClientThrottlingError** veya **ServerBusyError** |
+| **SASAuthorizationError** | Boyut ile işlemleri **ResponseType** eşit **AuthorizationError** ve boyut **kimlik doğrulaması** eşit **SAS** |
+| **SASClientOtherError** | Boyut ile işlemleri **ResponseType** eşit **ClientOtherError** ve boyut **kimlik doğrulaması** eşit **SAS** |
+| **SASClientTimeoutError** | Boyut ile işlemleri **ResponseType** eşit **ClientTimeoutError** ve boyut **kimlik doğrulaması** eşit **SAS** |
+| **SASNetworkError** | Boyut ile işlemleri **ResponseType** eşit **NetworkError** ve boyut **kimlik doğrulaması** eşit **SAS** |
+| **SASServerOtherError** | Boyut ile işlemleri **ResponseType** eşit **ServerOtherError** ve boyut **kimlik doğrulaması** eşit **SAS** |
+| **SASServerTimeoutError** | Boyut ile işlemleri **ResponseType** eşit **ServerTimeoutError** ve boyut **kimlik doğrulaması** eşit **SAS** |
+| **SASSuccess** | Boyut ile işlemleri **ResponseType** eşit **başarı** ve boyut **kimlik doğrulaması** eşit **SAS** |
+| **SASThrottlingError** | Boyut ile işlemleri **ResponseType** eşit **ClientThrottlingError** veya **ServerBusyError** ve boyut **kimlikdoğrulaması** eşit **SAS** |
 | **ServerOtherError** | Boyut ile işlemleri **ResponseType** eşit **ServerOtherError** |
 | **ServerTimeoutError** | Boyut ile işlemleri **ResponseType** eşit **ServerTimeoutError** |
 | **Başarılı** | Boyut ile işlemleri **ResponseType** eşit **başarılı** |

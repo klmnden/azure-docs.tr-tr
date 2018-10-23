@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/26/2018
+ms.date: 10/22/2018
 ms.author: shlo
-ms.openlocfilehash: 8132f89423883422d70981edd3ddaf86147830e2
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 71ed5988b4a529d38a47f6cf04afcaa937121135
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47394438"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49645999"
 ---
 # <a name="visual-authoring-in-azure-data-factory"></a>Azure Data Factory'de görsel yazma
 Görsel olarak yazma ve herhangi bir kod yazmak zorunda kalmadan, veri fabrikanızın kaynakları dağıtma Azure Data Factory kullanıcı arabirimi deneyimi (UX) sağlar. Etkinlikler bir işlem hattı tuvaline sürükleyin, test çalıştırmaları yapın, yinelemeli olarak, hata ayıklama ve dağıtabilir ve işlem hattı çalıştırmalarınızı izleyin. Görsel yazma gerçekleştirmek için kullanıcı Deneyimini kullanarak iki yaklaşım vardır:
@@ -80,6 +80,22 @@ Bir yapılandırma bölmesi görüntülenir. Yapılandırma ayarları hakkında 
 ## <a name="use-a-different-azure-active-directory-tenant"></a>Farklı bir Azure Active Directory kiracısı kullanma
 
 Bir Azure depoları Git deposu içinde farklı bir Azure Active Directory kiracısı oluşturabilirsiniz. Farklı bir belirtmek için Azure AD kiracısına sahip kullanmakta olduğunuz Azure aboneliği için yönetici izinlerine sahip olması.
+
+## <a name="use-your-personal-microsoft-account"></a>Kişisel Microsoft hesabınızı kullanın
+
+Git tümleştirmesi için kişisel bir Microsoft hesabı kullanmak için kuruluşunuzun Active Directory ile kişisel Azure deponuzu bağlayabilirsiniz.
+
+1. Kişisel Microsoft hesabınız, kuruluşunuzun Active Directory'ye konuk olarak ekleyin. Daha fazla bilgi için aşağıdaki makalelere bakın:
+
+    - [Azure DevOps kuruluşunuz Azure Active Directory'ye bağlanın](/azure/devops/organizations/accounts/connect-organization-to-azure-ad)
+
+    - [Azure portalında Azure Active Directory B2B işbirliği kullanıcıları ekleme](../active-directory/b2b/add-users-administrator.md)
+
+2. Kişisel Microsoft hesabınızla Azure portalında oturum açın. Ardından, kuruluşunuzun Active Directory geçin.
+
+3. Şimdi kişisel deponuza gördüğünüz Azure DevOps bölümüne gidin. Depo seçin ve Active Directory ile bağlanın.
+
+Bu yapılandırma adımları sonra Data Factory kullanıcı arabiriminde Git tümleştirmesi ayarladığınızda kişisel deponuza kullanılabilir.
 
 ## <a name="switch-to-a-different-git-repo"></a>Farklı bir Git deposuna geçin
 

@@ -9,12 +9,12 @@ ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/24/2018
-ms.openlocfilehash: 4d8b913c9e77254eb4d232e6bf5add136204b842
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 054cd54827dc11e57f249a270542ff81ff670912
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49427765"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49650001"
 ---
 # <a name="track-experiments-and-training-metrics-in-azure-machine-learning"></a>Denemeler ve Azure Machine learning'de eğitim metriklerini izleme
 
@@ -25,7 +25,7 @@ Azure Machine Learning hizmetinde denemelerinizi izleyebilir ve modeli oluşturm
 
 ## <a name="list-of-training-metrics"></a>Eğitim ölçümlerin listesi 
 
-Aşağıdaki ölçümler, bir denemeyi eğitim sırasında çalıştırılacak eklenebilir. Bir çalıştırmada izlenebilir daha ayrıntılı bir listesi görmek için bkz: [SDK başvuru belgeleri](https://docs.microsoft.com/python/api/overview/azure/azure-ml-sdk-overview?view=azure-ml-py).
+Aşağıdaki ölçümler, bir denemeyi eğitim sırasında çalıştırılacak eklenebilir. Bir çalıştırmada izlenebilir daha ayrıntılı bir listesi görmek için bkz: [SDK başvuru belgeleri](https://aka.ms/aml-sdk).
 
 |Tür| Funkce Pythonu | Örnek | Notlar|
 |----|:----|:----|:----|

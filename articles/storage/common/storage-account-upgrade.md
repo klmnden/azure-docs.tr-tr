@@ -5,20 +5,23 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 09/11/2018
+ms.date: 10/18/2018
 ms.author: tamram
-ms.openlocfilehash: 6e77c4836531a7efd0b52b9a411ac40ff6a613fa
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 10dc25740eca43c7cbd39b8ec783084e048d2af2
+ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47224503"
+ms.lasthandoff: 10/22/2018
+ms.locfileid: "49637610"
 ---
 # <a name="upgrade-to-a-general-purpose-v2-storage-account"></a>Genel amaçlı v2 depolama hesabı için yükseltme
 
 Genel amaçlı v2 depolama hesabı için en son Azure depolama özelliklerini desteklemek ve tüm işlevleri, genel amaçlı v1 ve Blob Depolama hesapları dahil edilip derecelendirilir. Genel amaçlı v2 hesapları çoğu depolama senaryoları için önerilir. Genel amaçlı v2 hesapları Azure depolama, ek olarak sektörde rekabetçi işlem fiyatları düşük gigabayt başına kapasite fiyatlar sunar.
 
-Genel amaçlı v2 depolama hesabı, genel amaçlı v1'den veya Blob Depolama hesapları için yükseltme basit bir işlemdir. Azure portal, PowerShell veya Azure CLI kullanarak yükseltebilirsiniz. Bir hesap yükseltme geri alınamaz ve faturalandırma ücretleri neden olabilir.
+Genel amaçlı v2 depolama hesabı, genel amaçlı v1'den veya Blob Depolama hesapları için yükseltme basit bir işlemdir. Azure portal, PowerShell veya Azure CLI kullanarak yükseltebilirsiniz. 
+
+> [!NOTE]
+> Depolama katmanının değiştirilmesi ek ücretlere neden olabilir. Daha fazla bilgi için [Fiyatlandırma ve faturalandırma](#pricing-and-billing) bölümüne bakın.
 
 ## <a name="upgrade-using-the-azure-portal"></a>Azure portalını kullanarak yükseltme
 
@@ -53,14 +56,33 @@ az storage account update -g <resource-group> -n <storage-account> --set kind=St
 
 Genel amaçlı v2 hesapları, tüm Azure depolama hizmetleri ve veri nesneleri destekler, ancak yalnızca blok blobları olarak Blob Depolama için erişim katmanları mevcuttur. Genel amaçlı v2 depolama hesabı için yükselttiğinizde, erişim katmanı için blob verilerinizi belirtebilirsiniz. 
 
-Erişim katmanı, beklenen kullanım düzenlerini esas alarak en uygun maliyetli depolama seçmenize olanak sağlar. Blok blobları, sık erişimli, seyrek erişimli depolanabilir veya arşiv katmanı. Erişim katmanları hakkında daha fazla bilgi için bkz. [Azure Blob Depolama: sık erişimli, seyrek erişimli ve Arşiv depolama katmanları](../blobs/storage-blob-storage-tiers.md).
+Erişim katmanı, beklenen kullanım düzenlerini esas alarak en uygun maliyetli depolama seçmenize olanak sağlar. Blok blobları, sık erişimli, seyrek erişimli veya arşiv katmanında depolanabilir. Erişim katmanları hakkında daha fazla bilgi için bkz. [Azure Blob Depolama: seyrek erişimli, seyrek ve Arşiv depolama katmanları](../blobs/storage-blob-storage-tiers.md).
 
 Varsayılan olarak, sık erişimli erişim katmanında yeni bir depolama hesabı oluşturulur ve bir genel amaçlı v1 depolama hesabı için sık erişim katmanı yükseltilir. Veri sonrası yükseltme için kullanılacak hangi erişim katmanı araştırıyorsanız senaryonuz göz önünde bulundurun. Genel amaçlı v2 hesabına geçirmek için iki normal kullanıcı senaryosu vardır:
 
 * Varolan genel amaçlı v1 depolama hesabınız ve blob verilerini için doğru depolama katmanı ile bir genel amaçlı v2 depolama hesabı için bir değişiklik değerlendirmek istiyorsunuz.
-* Genel amaçlı v2 depolama hesabı kullanın veya zaten varsa ve, blob verilerini sık erişimli veya seyrek erişimli depolama katmanı kullanıp kullanmayacağınızı değerlendirmek istediğiniz karar verdik.
+* Genel amaçlı v2 depolama hesabı kullanın veya zaten varsa ve sizin için blob verilerini sık veya seyrek erişimli depolama katmanı kullanıp kullanmayacağınızı değerlendirmek istiyorsunuz karar verdik.
 
 Her iki durumda da birinci öncelik depolanması, erişimi ve bir genel amaçlı v2 depolama hesabında depolanan verileriniz üzerinde işletim maliyetini tahmin etmek ve bu maliyetin mevcut maliyetlerinizle karşılaştırmak için olan.
+
+
+## <a name="pricing-and-billing"></a>Fiyatlandırma ve Faturalama
+Tüm depolama hesapları, blob depolama için her blobun katmanını temel alan bir fiyatlandırma modelini kullanır. Bir depolama hesabını kullanırken aşağıdaki fatura değerlendirmeleri geçerlidir:
+
+* **Depolama maliyetleri**: Depolanan veri miktarına ek olarak, veri depolamanın maliyeti depolama katmanına bağlı olarak değişir. Katmanın erişim sıklığı düştükçe gigabayt başına ücret de azalır.
+
+* **Veri erişimi maliyetleri**: Katmanın erişimi sıklığı düştükçe veri erişimi ücretleri artar. Seyrek erişimli depolama ve arşiv depolama katmanındaki verilerde, okuma işlemleri için erişilen gigabayt veri başına ücretlendirilirsiniz.
+
+* **İşlem maliyetleri**: Tüm katmanlarda, erişim sıklığı düştükçe artan bir işlem başına ücret uygulanır.
+
+* **Coğrafi Çoğaltma veri aktarımı maliyetleri**: Bu ücret, GRS ve RA-GRS dahil olmak üzere yalnızca coğrafi çoğaltma yapılandırılmış hesaplara uygulanır. Coğrafi çoğaltma veri aktarımı gigabayt başına ücret doğurur.
+
+* **Giden veri aktarımı maliyetleri**: Giden veri aktarımları (bir Azure bölgesinin dışına aktarılan veriler), genel amaçlı depolama hesapları ile tutarlı şekilde gigabayt başına esaslı olarak bant genişliği kullanımı için fatura doğurur.
+
+* **Depolama katmanını değiştirme**: Hesap depolama katmanını seyrek erişimliden sık erişimliye değiştirmek, depolama hesabında mevcut tüm verilerin okunmasına eşit bir ücret doğurur. Ancak, hesap depolama katmanını sık erişilenden seyrek erişilene değiştirmek, tüm verileri seyrek erişilen katmana yazma (yalnızca GPv2 hesapları) maliyetine eşit bir ücret yansıtır.
+
+> [!NOTE]
+> Depolama hesaplarına ilişkin fiyatlandırma modeli hakkında daha fazla bilgi için [Azure Depolama Fiyatlandırması](https://azure.microsoft.com/pricing/details/storage/) sayfasına bakın. Giden veri aktarımı ücretlerine ilişkin daha fazla bilgi için [Veri Aktarımları Fiyatlandırma Bilgileri](https://azure.microsoft.com/pricing/details/data-transfers/) sayfasına bakın.
 
 ### <a name="estimate-costs-for-your-current-usage-patterns"></a>Geçerli, kullanım desenleri için tahmini maliyetleri
 
@@ -73,15 +95,66 @@ Depolama ve blob verilerini belirli bir katman genel amaçlı v2 depolama hesab�
     - Ne kadar veri okuma ve depolama hesabına yazılır? 
     - Depolama hesabındaki veriler üzerinde işlemler gerçekleşir ve kaç okuma işlemleri yazma?
 
-Gereksinimleriniz için en iyi erişim katmanına karar vermek için ne kadar kapasitesini belirlemek için blob verilerinizi kullanıyor ve bu verileri nasıl kullanıldığını yararlı olabilir. 
+Gereksinimleriniz için en iyi erişim katmanına karar vermek için blob veri kapasitenizi ve bu verileri nasıl kullanıldığını belirlemek yararlı olabilir. Bu, hesabınız için izleme ölçümlere bakarak en iyi yapılabilir.
 
-Geçişten önce depolama hesabınız için kullanım verilerini toplamak için depolama hesabı kullanarak izleyebileceğiniz [Azure İzleyici](../../monitoring-and-diagnostics/monitoring-overview-azure-monitor.md). Azure İzleyici, günlüğe kaydetme işlemlerini gerçekleştiren ve Azure depolama gibi Azure Hizmetleri için ölçüm verileri sağlar. 
+### <a name="monitoring-existing-storage-accounts"></a>Var olan depolama hesaplarını izleme
 
-Depolama hesabınızda bloblar için kullanım verilerini izlemek için kapasite ölçümlerini Azure İzleyicisi'nde etkinleştirin. Kapasite ölçümleri ne kadar depolama hesabınızdaki BLOB, günlük olarak kullanıyorsanız ilgili verileri kaydedin. Kapasite ölçüm verilerini depolama hesabına depolama maliyetini tahmin etmek için kullanılabilir. Blob Depolama kapasite her hesap türü için nasıl fiyatlandırılır bilgi edinmek için [blok blobu fiyatlandırması](https://azure.microsoft.com/pricing/details/storage/blobs/).
+Var olan depolama hesaplarınızı izlemek ve bu verileri toplamak için, bir depolama hesabına yönelik günlüğe kaydetme işlemlerini gerçekleştiren ve ölçümler sağlayan Azure Depolama Analizi hizmetinden yararlanabilirsiniz. Depolama Analizi GPv1, GPv2 ve Blob depolama hesap türleri için toplu işlem istatistiklerini içeren ölçümleri ve depolama hizmetine yapılan isteklere ilişkin kapasite verilerini depolayabilir. Bu veriler aynı depolama hesabındaki iyi bilinen tablolara depolanır.
 
-Blob Depolama için veri erişim desenlerini izlemek için Azure İzleyici'de işlem ölçümlerini etkinleştirin. Her ne sıklıkta adlandırılır tahmin etmek için farklı Azure depolama işlemleri filtreleyebilirsiniz. Bilgi edinmek için farklı türlerdeki işlemlerin bloğu için ücretlendirilir ve ekleme blobları her hesap türü için bkz [blok blobu fiyatlandırması](https://azure.microsoft.com/pricing/details/storage/blobs/).  
+Daha fazla bilgi için bkz. [Storage Analytics Ölçümleri hakkında](https://msdn.microsoft.com/library/azure/hh343258.aspx) ve [Storage Analytics Ölçüm Tablosu Şeması](https://msdn.microsoft.com/library/azure/hh343264.aspx)
 
-Azure İzleyici'den ölçümleri toplama hakkında daha fazla bilgi için bkz. [Azure İzleyici'de Azure depolama ölçümleri](storage-metrics-in-azure-monitor.md).
+> [!NOTE]
+> Blob depolama hesapları, Tablo hizmeti uç noktasını yalnızca ilgili hesabın ölçüm verilerini depolamak ve bunlara erişmek için kullanıma sunar. 
+
+Blob depolamada depolama tüketimini izlemek için kapasite ölçümlerini etkinleştirmeniz gerekir.
+Bu özellik etkinleştirildiğinde bir depolama hesabının Blob hizmeti için kapasite verileri günlük olarak kaydedilir ve aynı depolama hesabı içindeki *$MetricsCapacityBlob* tablosuna yazılan bir tablo girişi olarak kaydedilir.
+
+Blob depolama hizmetinin veri erişim desenlerini izlemek için API’den saatlik işlem ölçümlerini etkinleştirmeniz gerekir. Saatlik işlem ölçümleri etkinleştirildiğinde API başına işlemler saatte bir toplanır ve aynı depolama hesabındaki *$MetricsHourPrimaryTransactionsBlob* tablosuna yazılan bir tablo girişi olarak kaydedilir. RA-GRS depolama hesapları kullanılırken *$MetricsHourSecondaryTransactionsBlob* tablosu, işlemleri ikincil uç noktaya kaydeder.
+
+> [!NOTE]
+> Blok ve ekleme blobu verileriyle birlikte sayfa bloblarını ve sanal makine disklerini veya kuyrukları, dosyaları ya da tabloları depoladığınız genel amaçlı bir depolama hesabınız olması durumunda bu tahmin işlemi geçerli değildir. Kapasite verileri blok bloblarını diğer türlerden ayırt etmez ve diğer veri türleri için kapasite verileri sunmaz. Bu türleri kullanıyorsanız alternatif bir yöntem de en son faturanızdaki miktarlara bakmaktır.
+
+Veri tüketim ve erişim modelinizi yaklaşık olarak tahmin etmek için, ölçümler için düzenli kullanımınızı temsil eden bir elde tutma süresi seçmeniz ve tahmin etmeniz önerilir. Seçeneklerden biri son yedi güne ait ölçüm verilerinin tutulması ve verilerin ay sonunda analiz için haftada bir toplanmasıdır. Diğer bir seçenek ise son 30 güne ait ölçüm verilerinin tutulması ve verilerin 30 günlük süre sonunda toplanıp çözümlenmesidir.
+
+Ölçüm verilerini etkinleştirme, toplama ve görüntüleme hakkında bilgi için bkz. [Azure Depolama ölçümlerini etkinleştirme ve ölçüm verilerini görüntüleme](../common/storage-enable-and-view-metrics.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+
+> [!NOTE]
+> Analiz verilerinin depolanması, erişimi ve indirilmesi de normal kullanıcı verileri gibi ücretlendirilir.
+
+### <a name="utilizing-usage-metrics-to-estimate-costs"></a>Kullanım ölçümlerinden yararlanarak maliyetleri tahmin etme
+
+#### <a name="capacity-costs"></a>Kapasite maliyetleri
+
+*$MetricsCapacityBlob* kapasite ölçüm tablosunda *'data'* satır anahtarını içeren en son giriş, kullanıcı verilerinin harcadığı kapasiteyi gösterir. *$MetricsCapacityBlob* kapasite ölçüm tablosunda *'analytics'* satır anahtarını içeren en son giriş, analiz günlüklerinin harcadığı kapasiteyi gösterir.
+
+Hem kullanıcı verileri hem de analiz günlükleri (etkinse) tarafından kullanılan bu toplam kapasite, verileri depolama hesabına depolama maliyetini tahmin etmek için kullanılabilir. Aynı yöntem ayrıca GPv1 depolama hesaplarında depolanma maliyetlerini tahmin etmek için kullanılabilir.
+
+#### <a name="transaction-costs"></a>İşlem maliyetleri
+
+İşlem ölçüm tablosundaki bir API’nin tüm girişleri için *'TotalBillableRequests'* toplamı, ilgili API’nin toplam işlem sayısını belirtir. *Örneğin*, belirli bir süre içindeki *'GetBlob'* işlemlerinin toplam sayısı *'user;GetBlob'* satır anahtarını içeren tüm girişlere yönelik toplam faturalandırılabilir isteklerin toplamına göre hesaplanabilir.
+
+Blob depolama hesaplarına ilişkin işlem maliyetlerini tahmin etmek için, farklı şekilde fiyatlandırıldıkları için işlemleri üç gruba ayırmanız gerekir.
+
+* *'PutBlob'*, *'PutBlock'*, *'PutBlockList'*, *'AppendBlock'*, *'ListBlobs'*, *'ListContainers'*, *'CreateContainer'*, *'SnapshotBlob'* ve *'CopyBlob'* gibi yazma işlemleri.
+* *'DeleteBlob'* ve *'DeleteContainer'* gibi silme işlemleri.
+* Diğer tüm işlemler.
+
+GPv1 depolama hesaplarının işlem maliyetlerini tahmin etmek için işlemden/API’den bağımsız olarak tüm işlemleri toplamanız gerekir.
+
+#### <a name="data-access-and-geo-replication-data-transfer-costs"></a>Veri erişimi ve coğrafi çoğaltma veri aktarımı maliyetleri
+
+Storage Analytics bir depolama hesabından okunan ve depolama hesabına yazılan veri miktarını belirtmese de, işlem ölçümleri tablosuna bakılarak bu değer kabaca tahmin edilebilir. İşlem ölçüm tablosundaki bir API’nin tüm girişleri için *'TotalIngress'* toplamı, ilgili API’nin toplam giriş verileri miktarını bayt cinsinden belirtir. Benzer şekilde, *'TotalEgress'* toplamı toplam çıkış verileri miktarını bayt cinsinden belirtir.
+
+Blob depolama hesaplarına ilişkin veri erişimi maliyetlerini hesaplamak için işlemleri iki gruba ayırmanız gerekir.
+
+* Depolama hesabından alınan veri miktarı birincil olarak *'GetBlob'* ve *'CopyBlob'* işlemleri için *'TotalEgress'* toplamına bakılarak tahmin edilebilir.
+
+* Depolama hesabına yazılan veri miktarı birincil olarak *'PutBlob'*, *'PutBlock'*, *'CopyBlob'* ve *'AppendBlock'* işlemleri için *'TotalIngress'* toplamına bakılarak tahmin edilebilir.
+
+Blob depolama hesaplarında coğrafi çoğaltma veri aktarımı maliyeti de bir GRS veya RA-GRS depolama hesabı kullanılırken yazılan veri miktarı tahmini kullanılarak hesaplanabilir.
+
+> [!NOTE]
+> Seyrek veya sık erişimli bir depolama katmanını kullanma maliyetlerini hesaplama hakkında daha ayrıntılı bir örnek için *'Sık ve Seyrek Erişimli erişim katmanları nelerdir ve hangisinin kullanılacağını nasıl belirlemeliyim?'* başlıklı SSS bölümüne bakın bkz. [Azure Depolama Fiyatlandırma Sayfası](https://azure.microsoft.com/pricing/details/storage/).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

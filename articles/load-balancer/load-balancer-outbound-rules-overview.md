@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/8/2018
+ms.date: 10/19/2018
 ms.author: kumud
-ms.openlocfilehash: 15783822631a5372b181f2d65746664d90b389da
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: 0ba7ed902c6ecb7a328aa6db3d3855b88bed2813
+ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48883967"
+ms.lasthandoff: 10/22/2018
+ms.locfileid: "49637571"
 ---
 # <a name="load-balancer-outbound-rules"></a>Yük Dengeleyici giden kuralları
 
@@ -84,7 +84,7 @@ Bağlantı noktalarını VM (NIC IP yapılandırması) başına 10.000 SNAT ayı
 
           "allocatedOutboundPorts": 10000
 
-Her bir giden kuralı tüm ön genel IP adresi 64.000 kısa ömürlü bağlantı noktaları en fazla bizim için SNAT bağlantı noktaları katkıda bulunur.  Yük Dengeleyici SNAT katları 8 bağlantı noktası ayırır. 8 katı olmayan bir değer sağlarsanız, yapılandırma işlemi reddedilir.  Genel IP adresleri sayısına göre bulunandan daha fazla SNAT bağlantı noktaları ayırmak çalışırsanız, yapılandırma işlemi reddedilir.  Örneğin, VM ve 7 VM başına 10.000 bağlantı noktaları ayırdığınızda bir arka uç havuzu tek bir genel IP adresi paylaşımında yapabileceği, yapılandırma reddedilen (7 x 10,0000 SNAT bağlantı noktaları > 64.000 SNAT bağlantı noktaları).  Daha fazla genel IP adresleri ön uç senaryoyu etkinleştirmek için bir giden kuralı ekleyebilirsiniz.
+Her bir giden kuralı tüm ön ortak IP adresini kullanmak için en fazla 64.000 kısa ömürlü bağlantı noktaları SNAT bağlantı noktaları katkıda bulunur.  Yük Dengeleyici SNAT katları 8 bağlantı noktası ayırır. 8 katı olmayan bir değer sağlarsanız, yapılandırma işlemi reddedilir.  Genel IP adresleri sayısına göre bulunandan daha fazla SNAT bağlantı noktaları ayırmak çalışırsanız, yapılandırma işlemi reddedilir.  Örneğin, VM ve 7 VM başına 10.000 bağlantı noktaları ayırdığınızda bir arka uç havuzu tek bir genel IP adresi paylaşımında yapabileceği, yapılandırma reddedilen (7 x 10,0000 SNAT bağlantı noktaları > 64.000 SNAT bağlantı noktaları).  Daha fazla genel IP adresleri ön uç senaryoyu etkinleştirmek için bir giden kuralı ekleyebilirsiniz.
 
 Geri döndürebilirsiniz [otomatik SNAT bağlantı noktası ayırma arka uç havuz boyutunu temel alarak](load-balancer-outbound-connections.md#preallocatedports) 0 bağlantı noktası numarası belirterek.
 

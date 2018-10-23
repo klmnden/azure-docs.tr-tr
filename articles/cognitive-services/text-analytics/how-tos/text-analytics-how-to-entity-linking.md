@@ -10,12 +10,12 @@ ms.component: text-analytics
 ms.topic: article
 ms.date: 10/01/2018
 ms.author: ashmaka
-ms.openlocfilehash: b2916e5c414562c55c35c9c5e7ab378963e004be
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.openlocfilehash: 42e1704df315c754b2b506a0470d128b7666c280
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48248083"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49645806"
 ---
 # <a name="how-to-use-named-entity-recognition-in-text-analytics-preview"></a>Adlandırılmış varlık tanıma, metin analizi (Önizleme) kullanma
 
@@ -26,14 +26,14 @@ ms.locfileid: "48248083"
 Metin analizi `entities` supprts uç nokta her iki adlandırılmış varlık tanıma (NER) ve varlık bağlama.
 
 ### <a name="entity-linking"></a>Varlık Bağlama
-Varlık bağlama metin (ör "Mars" erişebilir veya Latin afetler, war olarak kullanılıp kullanılmadığını belirleme) bulunan bir varlığın kimliğini ayırt etmek üzere yeteneğidir. Bu işlem varlıkların bağlı - Wikipedia Bilgi Bankası'nda olarak kullanılan tanınan için temel bir bilgi gerektirir `entities` uç nokta metin analizi.
+Varlık bağlama metni (örneğin, "Mars" erişebilir veya Latin afetler, war olarak kullanılıp kullanılmadığını belirleme) bulunan bir varlığın kimliğini ayırt etmek üzere yeteneğidir. Bu işlem varlıkların bağlı - Wikipedia Bilgi Bankası'nda olarak kullanılan tanınan için temel bir bilgi gerektirir `entities` uç nokta metin analizi.
 
-Metin analizi, [2.1 önizleme sürümüne](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1-Preview/operations/5ac4251d5b4ccd1554da7634), yalnızca varlık bağlama kullanılabilir.
+Metin analizi, [sürüm 2.0](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/5ac4251d5b4ccd1554da7634), yalnızca varlık bağlama kullanılabilir.
 
 ### <a name="named-entity-recognition-ner"></a>Adlandırılmış varlık tanıma (NER)
 Adlandırılmış varlık tanıma (NER) metin farklı varlıklarda tanımlamak ve bunları önceden tanımlanmış sınıflara kategorilere ayırma olanağıdır. Varlıkları desteklenen sınıflarını aşağıda listelenmiştir.
 
-Metin analizi sürüm 2.1 Önizleme (`https://[region].api.cognitive.microsoft.com/text/analytics/v2.1-preview/entities`), varlık bağlama ve adlandırılmış varlık tanıma (NER) kullanılabilir.
+Metin analizi, [2.1 önizleme sürümüne](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1-Preview/operations/5ac4251d5b4ccd1554da7634), varlık bağlama ve adlandırılmış varlık tanıma (NER) kullanılabilir.
 
 ### <a name="language-support"></a>Dil desteği
 
@@ -68,13 +68,13 @@ Varlık bağlama çeşitli dillerde kullanarak, karşılık gelen Bilgi Bankası
 
 
 
-## <a name="preparation"></a>Hazırlama
+## <a name="preparation"></a>Hazırlık
 
-JSON belgelerini şu biçimde olmalıdır: kimliği, metin, dil
+JSON belgeleri kimlik, metin, dil biçiminde olmalıdır.
 
-Şu anda desteklenen diller için lütfen bkz [bu liste](../text-analytics-supported-languages.md).
+Şu anda desteklenen diller için bkz. [bu liste](../text-analytics-supported-languages.md).
 
-Belge boyutuna, belge başına 5. 000'in altında karakter uzunluğunda olmalıdır ve en fazla 1.000 olabilir koleksiyon başına öğe sayısı (Kimlikler). İstek gövdesinde koleksiyon gönderilir. Aşağıdaki örnek, varlık bağlama sonuna kadar gönderdiğiniz içeriğin bir örnektir.
+Belge boyutu, belge başına 5.000 karakterden küçük olmalıdır ve koleksiyon başına en fazla 1000 öğeniz olabilir. Koleksiyon, istek gövdesinde gönderilir. Aşağıdaki örnek, varlık bağlama sonuna kadar gönderdiğiniz içeriğin bir örnektir.
 
 ```
 {"documents": [{"id": "1",
@@ -89,32 +89,32 @@ Belge boyutuna, belge başına 5. 000'in altında karakter uzunluğunda olmalıd
 }
 ```    
     
-## <a name="step-1-structure-the-request"></a>1. adım: isteği yapısı
+## <a name="step-1-structure-the-request"></a>1. Adım: İsteği yapılandırma
 
-İstek tanımı hakkında ayrıntılı bilgi bulunabilir [metin analizi API'sini çağırmak nasıl](text-analytics-how-to-call-api.md). Kolaylık olması için aşağıdaki noktaları açıklandı:
+İstek tanımıyla ilgili ayrıntılara [Metin Analizi API’sini çağırma](text-analytics-how-to-call-api.md) bölümünden erişilebilir. Kolaylık olması için aşağıdaki noktalar yeniden belirtilmektedir:
 
-+ Oluşturma bir **POST** isteği. Bu istek için API belgelerini gözden geçirin: [varlık bağlama API'si](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/5ac4251d5b4ccd1554da7634)
++ Bir **POST** isteği oluşturun. Bu istek için API belgelerini gözden geçirin: [varlık bağlama API'si](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/5ac4251d5b4ccd1554da7634)
 
-+ Anahtar ifade ayıklama HTTP uç noktasına ayarlayın. Dahil etmelisiniz `/entities` kaynak: `https://westus.api.cognitive.microsoft.com/text/analytics/v2.1-preview/entities`
++ Anahtar ifade ayıklaması için HTTP uç noktasını ayarlayın. `/entities` kaynağını içermelidir: `https://westus.api.cognitive.microsoft.com/text/analytics/v2.1-preview/entities`
 
-+ Metin analizi işlemleri için erişim anahtarı eklemek için bir istek üst bilgisi ayarlayın. Daha fazla bilgi için [uç noktalarını bulma ve erişim anahtarlarını](text-analytics-how-to-access-key.md).
++ Metin Analizi işlemlerine yönelik erişim anahtarını dahil etmek için bir istek üst bilgisi ayarlayın. Daha fazla bilgi için bkz. [Uç noktaları ve erişim anahtarlarını bulma](text-analytics-how-to-access-key.md).
 
-+ İstek gövdesinde bu analiz için hazırlanmış JSON belgeleri koleksiyonu sağlar.
++ İstek gövdesinde, bu analiz için hazırladığınız JSON belgeleri koleksiyonunu sağlayın
 
 > [!Tip]
-> Kullanım [Postman](text-analytics-how-to-call-api.md) veya **API sınama Konsolu** içinde [belgeleri](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1-Preview/operations/5ac4251d5b4ccd1554da7634) istek yapısı ve hizmete gönderin.
+> İsteği yapılandırmak ve hizmete GÖNDERMEK için [Postman](text-analytics-how-to-call-api.md) kullanın veya [belgelerdeki](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1-Preview/operations/5ac4251d5b4ccd1554da7634) **API testi konsolu**’nu açın.
 
-## <a name="step-2-post-the-request"></a>2. adım: isteği gönderin.
+## <a name="step-2-post-the-request"></a>2. Adım: İsteği gönderme
 
-Analiz isteği alındığında gerçekleştirilir. Hizmet, dakika başına en fazla 100 istek kabul eder. Her isteği en fazla 1 MB olabilir.
+İstek alındığında analiz gerçekleştirilir. Hizmet dakikada en fazla 100 istek kabul eder. Her istek maksimum 1 MB olabilir.
 
-Durum bilgisi olmayan hizmetin olduğunu hatırlayın. Hesabınızdaki veri depolanmaz. Sonuçları hemen yanıt olarak döndürülür.
+Hizmetin durum bilgisi olmadığını unutmayın. Hesabınızda bir veri depolanmaz. Sonuçlar hemen yanıtta döndürülür.
 
-## <a name="step-3-view-results"></a>3. adım: Sonuçları görüntüle
+## <a name="step-3-view-results"></a>3. Adım: Sonuçları görüntüleme
 
-Tüm POST isteklerinden bir JSON yanıtı kimlikleri biçimlendirilmiş ve özellikleri algılandı döndürür.
+Tüm POST istekleri, kimlikler ve algılanan özelliklerle JSON tarafından biçimlendirilmiş bir yanıt döndürür.
 
-Çıktı, hemen döndürülür. JSON kabul eden bir uygulama sonuçları akış veya çıkış yerel sistemin bir dosyaya kaydedin ve verileri sıralama ve arama olanak tanıyan bir uygulamayı içeri aktarın.
+Hemen çıktı döndürülür. Sonuçları, JSON kabul eden bir uygulamada akışa alabilir veya çıktıyı yerel sistemde bir dosyaya kaydedebilir, sonra da verileri sıralamanıza, aramanıza ve işlemenize olanak sağlayan bir uygulamaya içeri aktarabilirsiniz.
 
 Varlık bağlama için çıktının bir örneği sonraki gösterilmektedir:
 
@@ -280,17 +280,17 @@ Varlık bağlama için çıktının bir örneği sonraki gösterilmektedir:
 Bu makalede, kavramlar ve iş akışı Bilişsel hizmetler metin analizi kullanarak varlık bağlama öğrendiniz. Özet:
 
 + [Varlıkları API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1-Preview/operations/5ac4251d5b4ccd1554da7634) seçili diller için kullanılabilir.
-+ İstek gövdesindeki JSON belgelerini bir kimliği, metin ve dil kodu içerir.
-+ POST isteği olduğu için bir `/entities` kişiselleştirilmiş kullanarak uç nokta, [erişim anahtarı ve uç nokta](text-analytics-how-to-access-key.md) aboneliğiniz için geçerli.
++ İstek gövdesindeki JSON belgeleri bir kimlik, metin ve dil kodu içerir.
++ POST isteği, aboneliğiniz için geçerli olan kişiselleştirilmiş bir [erişim anahtarı ve uç nokta](text-analytics-how-to-access-key.md) kullanılarak `/entities` uç noktasına yapılır.
 + Bağlantılı varlık (güven puanları, kaydırmalar ve her web bağlantılarının kimliği belge dahil) içeren yanıt çıktı, herhangi bir uygulamada kullanılabilir
 
 ## <a name="see-also"></a>Ayrıca bkz. 
 
  [Metin Analizine genel bakış](../overview.md)  
  [Sık sorulan sorular (SSS)](../text-analytics-resource-faq.md)</br>
- [Metin analizi ürün sayfası](//go.microsoft.com/fwlink/?LinkID=759712) 
+ [Metin Analizi ürün sayfası](//go.microsoft.com/fwlink/?LinkID=759712) 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 > [!div class="nextstepaction"]
-> [Metin analizi API'si](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1-Preview/operations/5ac4251d5b4ccd1554da7634)
+> [Metin Analizi API’si](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1-Preview/operations/5ac4251d5b4ccd1554da7634)

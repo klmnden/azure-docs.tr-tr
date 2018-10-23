@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/05/2018
+ms.date: 10/21/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: d7906323da8e9ee1571efe908084ae1433884e61
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 8cfe8c309c11eb24bc6e7af9fc3ba3eef0422c35
+ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47405997"
+ms.lasthandoff: 10/22/2018
+ms.locfileid: "49638232"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>Azure Active Directory sorunsuz çoklu oturum açma: Hızlı Başlangıç
 
@@ -57,6 +57,9 @@ Aşağıdaki önkoşulların karşılandığından emin olun:
 ## <a name="step-2-enable-the-feature"></a>2. adım: özellik etkinleştirme
 
 Sorunsuz çoklu oturum açma aracılığıyla etkinleştirme [Azure AD Connect](whatis-hybrid-identity.md).
+
+>[!NOTE]
+> Ayrıca [PowerShell kullanarak sorunsuz SSO etkinleştirme](tshoot-connect-sso.md#manual-reset-of-the-feature) Azure AD Connect, gereksinimlerinizi karşılamaması durumunda. Active Directory ormanı birden fazla etki alanında olması ve sorunsuz çoklu oturum açma için etkinleştirmek istediğiniz etki alanı hakkında daha fazla hedeflenen istiyorsanız bu seçeneği kullanın.
 
 Yeni Azure AD Connect yüklemesini yapıyorsanız seçin [özel bir yükleme yolu](how-to-connect-install-custom.md). Konumunda **kullanıcı oturum açma** sayfasında **etkinleştirme çoklu oturum açma** seçeneği.
 

@@ -13,14 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/14/2018
+ms.date: 10/19/2018
 ms.author: cwatson
-ms.openlocfilehash: 821d263856f21897915ba7954487b4d029cc4ed0
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: d6e99c2d57baa5fc62f3894abc9d04635f81f5aa
+ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47395254"
+ms.lasthandoff: 10/22/2018
+ms.locfileid: "49638061"
 ---
 # <a name="add-or-change-azure-subscription-administrators"></a>Ekleme veya Azure aboneliği yöneticileri değiştirme
 
@@ -41,9 +41,9 @@ Bir kullanıcıyı Azure aboneliğine yönetici olarak eklemek için abonelik ka
 
 1. Ziyaret [ **abonelikleri** Azure portalında](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
 2. Erişim vermek istediğiniz aboneliği seçin.
-3. **Add (Ekle)** seçeneğini belirleyin.
+3. Listeden **Erişim denetimi (IAM)** öğesini seçin.
+4. **Add (Ekle)** seçeneğini belirleyin.
    (Ekle düğmesinin görünmemesi, izin eklemek için gerekli izinlere sahip olmadığınız anlamına gelir.)
-4. Listeden **Erişim denetimi (IAM)** öğesini seçin.
 5. **Rol** kutusunda **Sahip**'i seçin. 
 6. **Erişim ata:** kutusunda **Azure AD kullanıcısı, grubu veya uygulaması**'nı seçin. 
 7. **Seç** kutusuna Sahip olarak eklemek istediğiniz kullanıcının e-posta adresini yazın. Kullanıcıyı ve ardından **Kaydet**'i seçin.
@@ -67,6 +67,19 @@ Yalnızca [Sahip](../role-based-access-control/built-in-roles.md#owner) rolünde
     Ortak yönetici izni kaldırmak için **sağ** seçin ve ortak yönetici kullanıcı **ortak yöneticiyi kaldırmak**.
 
     ![Ortak yönetici kaldırır ekran görüntüsü](./media/billing-add-change-azure-subscription-administrator/remove-coadmin.png)
+
+### <a name="adding-a-guest-user-as-a-co-administrator"></a>Ortak yönetici olarak bir Konuk kullanıcı ekleme
+
+Ortak yönetici rolüne atanan Konuk kullanıcılar, ortak Yönetici rolüne üye kullanıcılarla karşılaştırıldığında bazı farklılıklar görebilirsiniz. Aşağıdaki senaryoyu göz önünde bulundurun:
+
+- Kullanıcı A'ile bir Azure AD iş veya Okul hesabı bir Azure aboneliğine yönelik Hizmet Yöneticisi ' dir.
+- B kullanıcısı, bir Microsoft hesabı vardır.
+- Kullanıcı A, b kullanıcısına ortak Yönetici rolüne atar
+- B kullanıcısı neredeyse her şeyi yapabilirsiniz, ancak uygulamaları veya Azure AD dizinindeki kullanıcıların arayın.
+
+Kullanıcının B her şeyi yönetmenizi beklenir. Bu farkın nedeni, Microsoft hesabı yerine bir üye kullanıcı Konuk kullanıcı aboneliğe eklenir. Konuk kullanıcıların karşılaştırıldığında üye kullanıcıları Azure AD'de farklı varsayılan izinleri vardır. Örneğin, üye kullanıcılar diğer kullanıcılar Azure AD'de okuyabilir ve Konuk kullanıcılar olamaz. Üye kullanıcılar Azure AD'de yeni hizmet sorumluları kaydedebilir ve Konuk kullanıcılar olamaz. Konuk kullanıcı, bu görevleri gerçekleştirmek gerekiyorsa, söz konusu atamak için olası bir çözüm olan Azure AD yönetici rollerini Konuk kullanıcının olmalıdır. Örneğin, önceki senaryoda atayabilirsiniz [dizin okuyucular](../active-directory/users-groups-roles/directory-assign-admin-roles.md#directory-readers) diğer kullanıcıların okuma ve atamak için rol [uygulama geliştiricisi](../active-directory/users-groups-roles/directory-assign-admin-roles.md#application-developer) hizmet sorumluları oluşturabilmek için rol. Üye ve Konuk kullanıcıları ve izinlerini hakkında daha fazla bilgi için bkz: [varsayılan kullanıcı izinleri Azure Active Directory nelerdir?](../active-directory/fundamentals/users-default-permissions.md).
+
+Unutmayın [Azure kaynakları için yerleşik roller](../role-based-access-control/built-in-roles.md) farklıdır [Azure AD yönetici rollerini](../active-directory/users-groups-roles/directory-assign-admin-roles.md). Yerleşik roller Azure AD'ye hiçbir erişim izni yok. Daha fazla bilgi için [farklı rollerin anladığınızdan](../role-based-access-control/rbac-and-directory-admin-roles.md).
 
 <a name="change-service-administrator-for-a-subscription"></a>
 

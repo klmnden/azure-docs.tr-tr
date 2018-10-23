@@ -10,19 +10,19 @@ ms.component: translator-text
 ms.topic: conceptual
 ms.date: 12/14/2017
 ms.author: v-jansko
-ms.openlocfilehash: e5061e322b4f0edb416f321cefef73776b9165ff
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: ccef55d56286cde47d23dbf2703c15fcf375e266
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46123955"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49646958"
 ---
 # <a name="how-to-use-the-transformtext-method"></a>TransformText yöntemin nasıl kullanılacağı
 
 > [!NOTE]
 > Bu metot kullanımdan kaldırılmıştır. Translator metin çevirisi API'si, V3.0 içinde kullanılabilir değil.
 
-Sosyal medya döndüren normalleştirilmiş bir form giriş için bir metin normalleştirme işlevi TransformText yöntemidir. Yöntemi, makine çevirisi ya da sosyal medya veya kullanıcı tarafından oluşturulan içerikleri genellikle bulunmayan temiz giriş metni beklediğiniz diğer uygulamalarını ön işleme adımı olarak kullanılabilir. İşlev, şu anda yalnızca İngilizce giriş ile çalışır. 
+Sosyal medya döndüren normalleştirilmiş bir form giriş için bir metin normalleştirme işlevi TransformText yöntemidir. Yöntemi, makine çevirisi ya da sosyal medya veya kullanıcı tarafından oluşturulan içerikleri genellikle bulunmayan temiz giriş metni beklediğiniz diğer uygulamalarını ön işleme adımı olarak kullanılabilir. İşlev, şu anda yalnızca İngilizce giriş ile çalışır.
 
 GET kullanarak HTTP üzerinden bir RESTful hizmeti yöntemidir. Bu basit XML ve JSON serileştirme destekler.
 
@@ -31,7 +31,7 @@ GET kullanarak HTTP üzerinden bir RESTful hizmeti yöntemidir. Bu basit XML ve 
 | Parametre | Açıklama |
 |:---|:---|
 | Yetkilendirme üst bilgisi | **Gerekli** uygulamayı tanımlamak için kullanılan HTTP üstbilgisi. Anahtar kullan: "Yetkilendirme" ve değeri: "Bearer" + "" + erişim belirteci. Ayrıntılar için buraya gidin.|
-| dil | **Gerekli** dil kodunu temsil eden bir dize. Bu parametre yalnızca İngilizce ile destekleyen **tr** dil adı.|
+| language | **Gerekli** dil kodunu temsil eden bir dize. Bu parametre yalnızca İngilizce ile destekleyen **tr** dil adı.|
 | category | **İsteğe bağlı** kategori veya çeviri etki alanı içeren bir dize. Bu parametre yalnızca varsayılan seçenek destekler **genel**.|
 | tümce | **Gerekli** düzeltmek istediğiniz bir cümle. |
 
@@ -44,12 +44,12 @@ Dönüş değeri dönüştürülen cümlenin sağlar.
 GetTranslationsResponse Microsoft.Translator.GetTranslations(appId, text, from, to, maxTranslations, options); TransformTextResponse
 {
 int ec;            // A positive number representing an error condition
-string em;         // A descriptive error message 
+string em;         // A descriptive error message
 string sentence;   // transformed text
 }
 ```
 
-## <a name="example"></a>Örnek 
+## <a name="example"></a>Örnek
 
 ```csharp
 using System;
@@ -72,9 +72,9 @@ namespace MicrosoftTranslatorSdk.HttpSamples
             AdmAccessToken admToken;
             string headerValue;
             //Get Client Id and Client Secret from https://datamarket.azure.com/developer/applications/
-            //Refer obtaining AccessToken (http://msdn.microsoft.com/library/hh454950.aspx) 
+            //Refer obtaining AccessToken (http://msdn.microsoft.com/library/hh454950.aspx)
             AdmAuthentication admAuth = new AdmAuthentication("clientID", "client secret");
-            
+
             try
             {
                 admToken = admAuth.GetAccessToken();
@@ -216,7 +216,7 @@ namespace MicrosoftTranslatorSdk.HttpSamples
         }
         private AdmAccessToken HttpPost(string DatamarketAccessUri, string requestDetails)
         {
-            //Prepare OAuth request 
+            //Prepare OAuth request
             WebRequest webRequest = WebRequest.Create(DatamarketAccessUri);
             webRequest.ContentType = "application/x-www-form-urlencoded";
             webRequest.Method = "POST";
@@ -235,6 +235,6 @@ namespace MicrosoftTranslatorSdk.HttpSamples
             }
         }
     }
-} 
+}
 
 ```

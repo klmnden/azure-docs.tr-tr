@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2017
 ms.author: gokuma
-ms.openlocfilehash: 891059a440189112c834f3402725781a6b4a3960
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: 234e9233e69877c9afe79a5a053a4310d013a9ab
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37952833"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49646119"
 ---
 # <a name="deep-learning-and-ai-frameworks"></a>Derin Öğrenme ve AI çerçeveleri
 [Veri bilimi sanal makinesi](http://aka.ms/dsvm) (DSVM) ve [derin öğrenme VM](http://aka.ms/dsvm/deeplearning) Tahmine dayalı analiz ile yapay zeka (AI) uygulamaları oluşturmanıza yardımcı olmak için ayrıntılı öğrenme çerçevelerini destekler ve bilişsel yetenekleri, görüntü ve dil anlama gibi. 
@@ -174,7 +174,7 @@ VM X2Go ile oturum açın. Bir terminal hizmeti başlatın:
 
     sudo systemctl start digits
 
-Hizmeti başlatmak için yaklaşık bir dakika sürer. Bir web tarayıcısını Başlat ve gidin `http://localhost:5000`.
+Hizmeti başlatmak için yaklaşık bir dakika sürer. Bir web tarayıcısını Başlat ve gidin `http://localhost:5000`. BASAMAK güvenli bir oturum açma sağlamaz ve VM dışında açıkta kalmamalıdır unutmayın.
 
 
 

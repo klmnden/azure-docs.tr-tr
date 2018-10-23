@@ -10,12 +10,12 @@ ms.date: 09/17/2018
 ms.service: application-insights
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 47ea4fadba50fdbbd6d83531bd4eb40fc581d2ad
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 9594ccd0449cf68a63c770cfdee03f255aa2beae
+ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46950208"
+ms.lasthandoff: 10/22/2018
+ms.locfileid: "49638384"
 ---
 # <a name="what-is-distributed-tracing"></a>Dağıtılmış izleme nedir?
 
@@ -45,7 +45,7 @@ Application Insights SDK'ları için .NET, .NET Core, Java, Node.js ve JavaScrip
 
 Uygun Application Insights yüklenmiş ve yapılandırılmış SDK ile izleme bilgileri otomatik olarak popüler çerçeveleri, kitaplıkları ve teknolojileri için SDK'sı bağımlılık otomatik-toplayıcıları tarafından toplanır. Desteklenen teknolojiler tam listesi kullanılabilir [bağımlılık toplama otomatik belgeleri](https://docs.microsoft.com/azure/application-insights/auto-collect-dependencies).
 
- Ayrıca, herhangi bir teknoloji el ile bir çağrıyla izlenebilir [TrackDependency](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics) üzerinde [TeleletryClient](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics).
+ Ayrıca, herhangi bir teknoloji el ile bir çağrıyla izlenebilir [TrackDependency](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics) üzerinde [TelemetryClient](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics).
 
 ## <a name="enable-via-opencensus"></a>OpenCensus etkinleştirme
 

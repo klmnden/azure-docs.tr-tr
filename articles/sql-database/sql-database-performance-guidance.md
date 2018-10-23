@@ -1,6 +1,6 @@
 ---
 title: Azure SQL veritabanı performans ayarlama Kılavuzu | Microsoft Docs
-description: Azure SQL veritabanı sorgu performansı artırmak için önerileri kullanma hakkında bilgi edinin.
+description: El ile Azure SQL veritabanı sorgu performansı ayarlamak için öneriler kullanma hakkında bilgi edinin.
 services: sql-database
 ms.service: sql-database
 ms.subservice: performance
@@ -11,46 +11,26 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 10/05/2018
-ms.openlocfilehash: 9af699dca5aab26f0bf24b4609bef14558236523
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.date: 10/22/2018
+ms.openlocfilehash: 95e09532616b4aff05dad7440dcda6872fd27484
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48854822"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49645533"
 ---
-# <a name="tuning-performance-in-azure-sql-database"></a>Azure SQL veritabanı'nda performans ayarlama
+# <a name="manual-tune-query-performance-in-azure-sql-database"></a>El ile Azure SQL veritabanında sorgu performansını ayarlama
 
-Azure SQL veritabanı tarafından sağlanan [önerileri](sql-database-advisor.md) veritabanınızın performansını geliştirmek için kullanabilir veya Azure SQL veritabanı sağlayabilirsiniz [uygulamanızı otomatik olarak uyum](sql-database-automatic-tuning.md) ve değişiklikleri uygulayın, İş yükünüzün performansını geliştirir.
+SQL veritabanı ile karşılaştığınız bir performans sorunu belirledikten sonra bu makale yardımcı olmak için tasarlanmıştır:
 
-Size uygun önerisi yok ve performans sorunlarını çözümlenmedi, performans iyileştirmek için aşağıdaki yöntemleri kullanabilirsiniz:
-
-- Hizmet katmanlarında artırmak, [DTU tabanlı satın alma modeli](sql-database-service-tiers-dtu.md) veya [sanal çekirdek tabanlı satın alma modeli](sql-database-service-tiers-vcore.md) veritabanınıza daha fazla kaynak sağlamak için.
 - Uygulamanızı ayarlamak ve performansı artırmak bazı en iyi yöntemler uygulayın.
 - Dizinleri değiştirerek veritabanını ayarlama ve sorguları daha verimli bir şekilde verileri ile çalışma.
 
-İhtiyaçlarınızı karşılamak kaynakları miktarını karar vermeniz gerekir çünkü bunlar el ile yöntemleridir. Aksi takdirde, uygulamanın veya veritabanı kodu yeniden yazın ve değişiklikleri dağıtmak gerekir.
-
-## <a name="increasing-service-tier-of-your-database"></a>Veritabanınızın Hizmet katmanını artırma
-
-Azure SQL veritabanı sunar [iki satın alma modeli](sql-database-service-tiers.md), [DTU tabanlı satın alma modeli](sql-database-service-tiers-dtu.md) ve [sanal çekirdek tabanlı satın alma modeli](sql-database-service-tiers-vcore.md) arasından seçim. Her hizmet katmanı, SQL veritabanınızı kullanabilirsiniz ve bu hizmet katmanı için tahmin edilebilir performans garantileri kaynakları kesinlikle yalıtır. Bu makalede, uygulamanız için Hizmet katmanını seçmek yardımcı olacak rehberlik sunuyoruz. Ayrıca Azure SQL veritabanı en iyi şekilde yararlanmak için uygulamanızı ayarlama yolları ele alır. Her hizmet katmanında kendi bölümüne sahiptir [kaynak sınırları](sql-database-resource-limits.md). Daha fazla bilgi için [sanal çekirdek tabanlı kaynak sınırları](sql-database-vcore-resource-limits-single-databases.md) ve [DTU tabanlı kaynak sınırları](sql-database-dtu-resource-limits-single-databases.md).
-
-> [!NOTE]
-> Bu makalede, Azure SQL veritabanı'nda tek veritabanları için performans yönergeleri odaklanır. Elastik havuzlar için ilgili performans rehberi için bkz [elastik havuzlar için fiyat ve performans konuları](sql-database-elastic-pool-guidance.md). Ancak, bu makaledeki ayarlama önerilerin çoğu bir elastik havuzdaki veritabanları için geçerlidir ve benzer performans avantajı unutmayın.
-
-SQL veritabanınız için gereken hizmet katmanı, her kaynak boyutu için en yüksek yük gereksinimlerine bağlıdır. Bazı uygulamalar, basit bir tek bir kaynak miktarını kullanır, ancak diğer kaynaklar için önemli gereksinimleri vardır.
-
-### <a name="service-tier-capabilities-and-limits"></a>Hizmet katmanı özellikleri ve sınırları
-
-Yalnızca gereksinim duyduğunuz kapasitesi için ödeme esnekliğine sahip her hizmet katmanında işlem boyutunu ayarlayın. Yapabilecekleriniz [kapasite ayarlama](sql-database-single-database-scale.md), yukarı veya aşağı, iş yükü değiştikçe. Örneğin, arka Okul alışveriş sezonu sırasında veritabanı iş yükünüzü yüksekse, belirlenen süre Temmuz-Eylül veritabanı için işlem boyutu artırabilir. En yüksek dönemi sona erdiğinde azaltabilir. Bulut ortamınıza işletmenizin mevsimsellik iyileştirerek ödeme en aza indirebilirsiniz. Bu model, iyi yazılım ürün yayın döngüleri için de çalışır. Test takımı, test çalıştırmaları ve test tamamladığınızda bu kapasiteye serbest bırakmak sırada kapasite ayırma. Gereksinim ve nadiren kullanıyor olabileceğiniz ayrılmış kaynaklarda harcama kaçının bir kapasite istek modeli kapasitesi için ödeme.
-
-### <a name="the-purpose-of-service-tiers"></a>Hizmet katmanları amacı
-
-Her veritabanı iş yükünüzü değişebilir olsa da, amacı hizmet katmanları, çeşitli işlem boyutlarda performans öngörülebilirliğini sağlamaktır. Büyük ölçekli veritabanı kaynak gereksinimleri olan müşterilerin daha ayrılmış bir bilgi işlem ortamda çalışabilir.
+Bu makalede, Azure SQL veritabanı ile zaten çalıştıktan varsayılır [veritabanı Danışmanı önerilerini](sql-database-advisor.md) ve Azure SQL veritabanı [otomatik ayarlama önerileri](sql-database-automatic-tuning.md). Ayrıca geçirdiğinizden emin varsayar [genel bakış izleme ve ayarlama](sql-database-monitor-tune-overview.md) ve bununla ilgili makalelerde ilgili performans sorunlarını gidermek için. Ayrıca, bu makalede bir CPU kaynaklarının, işlem boyutunu artırarak çözülebilir ya da hizmet katmanını veritabanınıza daha fazla kaynak sağlamak için çalıştırma ile ilgili performans sorunu olmadığını varsayar.
 
 ## <a name="tune-your-application"></a>Uygulamanızı ayarlamak
 
-Geleneksel şirket içi SQL Server ilk kapasite planlama işlemi, üretim ortamında bir uygulama çalışan işlemi genellikle ayrılır. Donanım ve ürün lisansları ilk satın alınır ve performans ayarı daha sonra gerçekleştirilir. Azure SQL veritabanı kullandığınızda, uygulama çalıştırma ve bu ayarlama işleminin interweave iyi bir fikirdir. İsteğe bağlı kapasite için ödeme modeliyle, uygulamanızı genellikle hatalı bir uygulama için gelecekteki büyüme planlarını, tahmin üzerinde temel donanım üzerinde fazladan sağlama yerine artık, gerekli en düşük kaynak kullanacak şekilde ayarlayabilirsiniz. Bazı müşteriler ayarlama olmayan bir uygulama seçin ve bunun yerine donanım kaynakları fazladan tercih. Meşgul bir dönem için bir anahtar uygulamasını değiştirmek istemiyorsanız, bu yaklaşım bir fikir olabilir. Ancak, Azure SQL veritabanı'nda hizmet katmanlarını kullandığınızda bir uygulama ayarlamayı kaynak gereksinimlerini ve daha düşük bir aylık fatura en aza indirebilirsiniz.
+Geleneksel şirket içi SQL Server ilk kapasite planlama işlemi, üretim ortamında bir uygulama çalışan işlemi genellikle ayrılır. Donanım ve ürün lisansları ilk satın alınır ve performans ayarı daha sonra gerçekleştirilir. Azure SQL veritabanı kullandığınızda, uygulama çalıştırma ve bu ayarlama işleminin interweave iyi bir fikirdir. İsteğe bağlı kapasite için ödeme modeliyle, uygulamanızı genellikle hatalı bir uygulama için gelecekteki büyüme planlarını, tahmin üzerinde temel donanım üzerinde fazladan sağlama yerine artık, gerekli en düşük kaynak kullanacak şekilde ayarlayabilirsiniz. Bazı müşteriler olmayan bir uygulama ayarlamak seçin ve bunun yerine donanım kaynakları fazladan sağlama tercih. Meşgul bir dönem için bir anahtar uygulamasını değiştirmek istemiyorsanız, bu yaklaşım bir fikir olabilir. Ancak, Azure SQL veritabanı'nda hizmet katmanlarını kullandığınızda bir uygulama ayarlamayı kaynak gereksinimlerini ve daha düşük bir aylık fatura en aza indirebilirsiniz.
 
 ### <a name="application-characteristics"></a>Uygulama özellikleri
 
@@ -75,17 +55,6 @@ Azure SQL veritabanı hizmet katmanları, performans, kararlılık ve öngörül
 ## <a name="tune-your-database"></a>Veritabanınızı ayarlayın
 
 Bu bölümde, uygulamanız için en iyi performans elde edin ve en düşük olası işlem boyutu çalıştırmak için Azure SQL veritabanı ayarlamak için kullanabileceğiniz bazı teknikleri atacağız. Aşağıdaki tekniklerden bazılarını geleneksel SQL Server en iyi ayarlama eşleşen, ancak diğerleri Azure SQL veritabanı'na özgüdür. Bazı durumlarda, tüketilen kaynaklar için ayarlama ve Azure SQL veritabanı'nda çalışmak için geleneksel SQL Server teknikleri genişletmek için alanlar bulmak bir veritabanı inceleyebilirsiniz.
-
-### <a name="identify-performance-issues-using-azure-portal"></a>Azure portalını kullanarak performans sorunlarını belirleme
-
-Azure portalında aşağıdaki araçlar, SQL veritabanı ile performans sorunlarını çözün ve çözümlemenize yardımcı olabilir:
-
-- [Sorgu Performansı İçgörüleri](sql-database-query-performance.md)
-- [SQL Veritabanı Danışmanı](sql-database-advisor.md)
-
-Azure portalda hem de bu araçları ve bunların nasıl kullanılacağı hakkında daha fazla bilgi bulunur. Verimli bir şekilde tanılayın ve sorunlarını düzeltmek için ilk Azure portalında araçları deneyebilirsiniz öneririz. Ardından, için eksik dizinleri ve sorgu, özel durumlarda ayarlama ele yaklaşımları ayarlama el ile kullanmanızı öneririz.
-
-Üzerinde Azure SQL veritabanı'ndaki sorunları tanımlama hakkında daha fazla bilgi [performansı Azure portalında izleme](sql-database-monitor-tune-overview.md) ve [Dmv'leri kullanarak veritabanlarını izleme](sql-database-monitoring-with-dmvs.md) makaleler.
 
 ### <a name="identifying-and-adding-missing-indexes"></a>Tanımlama ve eksik dizinleri ekleme
 

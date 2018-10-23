@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: abshamsft
 ms.component: ''
-ms.openlocfilehash: bf10226b1d3b2153e0e17d4126c35402d096a857
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: fc5ab802b39597d72f01f756c9bdb16597862e3c
+ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49409246"
+ms.lasthandoff: 10/22/2018
+ms.locfileid: "49638228"
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Ağ Performansı İzleyicisi çözüm azure'da
 
@@ -144,7 +144,7 @@ En az bir aracısının yüklü olduğu tüm alt ağlar listelenir **alt ağla
 
 Etkinleştirmek veya belirli alt ağlar izleme devre dışı bırakmak için:
 
-1. Seçin veya yanındaki onay kutusunu temizleyin **alt ağ kimliği**. Ardından emin olun **kullanımı için izleme** olduğundan seçilen veya temizlenen, uygun şekilde. Seçin veya birden çok alt ağa temizleyin. Alt ağlar devre dışı bırakıldığında, izlenen olmayan ve diğer aracıları ping işlemi durdurmak için aracıları güncelleştirilir. 
+1. Seçin veya yanındaki onay kutusunu temizleyin **alt ağ kimliği**. Ardından emin olun **kullanım izleme için** olduğundan seçilen veya temizlenen, uygun şekilde. Seçin veya birden çok alt ağa temizleyin. Alt ağlar devre dışı bırakıldığında, izlenen olmayan ve diğer aracıları ping işlemi durdurmak için aracıları güncelleştirilir. 
 2. Belirli bir alt ağ içinde izlemek istediğiniz düğümleri seçin. Listeden bir alt ağ seçin ve gerekli düğümleri izlenmeyen ve izlenen düğümleri içeren listeleri arasında taşıyın. Alt ağ için bir özel açıklama ekleyebilirsiniz.
 3. Seçin **Kaydet** yapılandırmayı kaydetmek için. 
 

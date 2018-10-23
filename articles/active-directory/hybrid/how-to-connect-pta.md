@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/19/2018
+ms.date: 10/21/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 4ae84ff481b25f1e91a29c067dea74ba25f924aa
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 899aeeb994ca5c9bf30dfca876dff61c1ccf3ea7
+ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49320331"
+ms.lasthandoff: 10/22/2018
+ms.locfileid: "49637588"
 ---
 # <a name="user-sign-in-with-azure-active-directory-pass-through-authentication"></a>Kullanıcı oturum açma ile Azure Active Directory geçişli kimlik doğrulaması
 
@@ -48,8 +48,9 @@ Geçişli kimlik doğrulaması ile birleştirebilirsiniz [sorunsuz çoklu oturum
   - Yönetim olmamasıdır. Aracı iyileştirmeleri ve hata düzeltmeleri otomatik olarak alır.
 - *Güvenlik*
   - Şirket içi parolaları, hiçbir zaman herhangi bir şekilde bulutta depolanır.
-  - Aracı yalnızca ağınızdaki giden bağlantılar sağlar. Bu nedenle, aracının DMZ olarak da bilinen bir çevre ağına yüklenmesine gerek yoktur yoktur.
   - İle sorunsuz bir şekilde çalışarak kullanıcı hesaplarınızı korur [Azure AD koşullu erişim ilkeleri](../active-directory-conditional-access-azure-portal.md), multi-Factor Authentication (MFA) dahil olmak üzere [eski bir kimlik doğrulama engelleme](../conditional-access/conditions.md) ve [ deneme yanılma parola saldırılarını filtreleme](../authentication/howto-password-smart-lockout.md).
+  - Aracı yalnızca ağınızdaki giden bağlantılar sağlar. Bu nedenle, aracının DMZ olarak da bilinen bir çevre ağına yüklenmesine gerek yoktur yoktur.
+  - Bir aracı ile Azure AD arasındaki iletişim, sertifika tabanlı kimlik doğrulaması kullanılarak korunmaktadır. Bu sertifikalar, Azure AD tarafından otomatik olarak birkaç her ay yenilenir.
 - *Yüksek oranda kullanılabilir*
   - Ek aracılar, oturum açma isteklerinin yüksek kullanılabilirlik sağlamak üzere birden çok şirket içi sunucuya yüklenebilir.
 

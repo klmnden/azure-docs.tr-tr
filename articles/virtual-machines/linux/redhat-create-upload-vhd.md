@@ -13,14 +13,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 08/07/2018
+ms.date: 09/27/2018
 ms.author: szark
-ms.openlocfilehash: f5bce08bfc61d5b9b17e9500c002c3b870384c7b
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 43253423e3a27a61000c3f93868dd8b42809b7ae
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39618667"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49650171"
 ---
 # <a name="prepare-a-red-hat-based-virtual-machine-for-azure"></a>Azure için Red Hat tabanlı bir sanal makine hazırlama
 Bu makalede, azure'da kullanım için Red Hat Enterprise Linux (RHEL) sanal makineyi hazırlama öğreneceksiniz. Bu makalede ele RHEL 6.7 + ve 7.1 + sürümleridir. Bu makalede ele hiper hazırlama için Hyper-V, çekirdek tabanlı sanal makine (KVM) ve VMware ' dir. Red Hats bulut erişimi Program'a uygunluk gereksinimleri hakkında daha fazla bilgi için bkz. [Red Hats bulut Access Web sitesinin](http://www.redhat.com/en/technologies/cloud-computing/cloud-access) ve [Azure üzerinde çalışan RHEL](https://access.redhat.com/ecosystem/ccsp/microsoft-azure).
@@ -35,7 +35,7 @@ Bu bölümde, zaten bir ISO dosyası Red Hat Web sitesinden alınan ve RHEL gör
 * Azure, VHDX biçimini desteklemiyor. Azure'un destekledikleri yalnızca VHD düzeltildi. Disk VHD biçimine dönüştürmek için Hyper-V Yöneticisi'ni kullanabilirsiniz veya convert-vhd cmdlet'ini kullanabilirsiniz. VirtualBox kullanıyorsanız belirleyin **boyutu sabit** diski oluştururken seçeneği dinamik olarak ayrılan varsayılan aksine.
 * Azure yalnızca 1. kuşak sanal makineleri destekler. 1. nesil sanal makine VHD dosya biçimine VHDX ve bir sabit boyutlu disk için dinamik olarak genişletilen dönüştürebilirsiniz. Bir sanal makinenin oluşturulması değiştiremezsiniz. Daha fazla bilgi için [Hyper-V'de 1 veya 2. kuşak sanal makine oluşturmalısınız?](https://technet.microsoft.com/windows-server-docs/compute/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v).
 * VHD için izin verilen en büyük boyutu 1,023 GB'dir.
-* Linux işletim sistemi yüklediğinizde, genellikle çoğu yüklemeleri için varsayılan olan mantıksal birim Yöneticisi (LVM) yerine standart bölümleri kullanmanızı öneririz. Özellikle, hiç olmadığı kadar başka bir özdeş sanal sorun giderme için makine bir işletim sistemi diski gerekiyorsa bu yöntem LVM adı kopyalanan sanal makineler ile çakışıyor uğraşmasına gerek kalmaz. [LVM'yi](configure-lvm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) veya [RAID](configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) veri diskleri üzerinde kullanılabilir.
+* Mantıksal birim Yöneticisi (LVM) desteklenir ve işletim sistemi diski veya Azure sanal makineler'de veri diskleri kullanılabilir. Ancak, genel olarak, işletim sistemi diski LVM yerine standart bir bölüm kullanmak için önerilir. Özellikle, hiç olmadığı kadar başka bir özdeş sanal sorun giderme için makine bir işletim sistemi diski gerekiyorsa bu yöntem LVM adı kopyalanan sanal makineler ile çakışıyor uğraşmasına gerek kalmaz. Ayrıca bkz: [LVM](configure-lvm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) ve [RAID](configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) belgeleri.
 * Evrensel Disk Biçimi (UDF) dosya sistemleri bağlamak için çekirdek desteği gereklidir. Azure'da ilk önyüklemede Konuk bağlı UDF biçimli medya Linux sanal makinesi için sağlama yapılandırması geçirir. Azure Linux Aracısı yapılandırmasını okuma ve sanal makine sağlamak için UDF dosya sistemi monte etmesini mümkün olması gerekir.
 * İşletim sistemi diski üzerinde takas bölümü yapılandırmayın. Linux Aracısı, geçici kaynak diski üzerinde takas dosyası oluşturmak için yapılandırılabilir.  Aşağıdaki adımlarda bunu hakkında daha fazla bilgi bulunabilir.
 * Tüm VHD'leri azure'da bir sanal Boyut 1 MB ile uyumlu olması gerekir. Ham bir diskten VHD'ye dönüştürme yaparken ham disk boyutu 1 MB dönüştürmeden önce bir çok olduğundan emin olmalısınız. Aşağıdaki adımlarda daha fazla ayrıntı bulunabilir. Ayrıca bkz: [Linux yükleme notları](create-upload-generic.md#general-linux-installation-notes) daha fazla bilgi için.

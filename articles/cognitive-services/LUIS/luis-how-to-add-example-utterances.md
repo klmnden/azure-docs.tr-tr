@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 09/06/2018
+ms.date: 10/10/2018
 ms.author: diberry
-ms.openlocfilehash: adb44dcc8c41b1a7846ff346d141dc0c4b028e96
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: 6a3edfd426fcdce83bd60332ba2b1ff6224dae1a
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48888297"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49645568"
 ---
 # <a name="add-example-utterances-and-label-with-entities"></a>Örnek konuşma ve varlık etiketi Ekle
 
@@ -159,6 +159,36 @@ Utterance içinde `Book 2 tickets from Seattle to Cairo`, Seattle kaynak konumu 
     >Tek bir uygulamada tüm varlıklar üzerinde alt varlık adlarının benzersiz olması gerekir. Alt varlıklar aynı ada sahip iki farklı hiyerarşik varlıklar içerebilir. 
 
     Bkz: [veri ayıklama](luis-concept-data-extraction.md#hierarchical-entity-data) JSON sorgu yanıtı uç noktasından hiyerarşik varlık ayıklama hakkında daha fazla bilgi edinmek için. Hiyerarşik varlık deneyin [hızlı](luis-quickstart-intent-and-hier-entity.md) hiyerarşik bir varlık kullanma hakkında daha fazla bilgi için.
+
+## <a name="entity-status-predictions"></a>Varlık durumu Öngörüler
+
+LUIS Portalı'nda yeni utterance girdiğinizde, utterance varlık tahmin hataları olabilir. LUIS nasıl varlık belirlediğini ile karşılaştırıldığında nasıl bir varlık etiketli arasında bir fark tahmin hata var. 
+
+Bu fark, utterance kırmızı alt çizgi ile LUIS Portalı'nda görsel olarak temsil edilir. Kırmızı alt çizgi, varlık köşeli ayraçlar içindeki ya da köşeli ayraç dışında görünebilir. 
+
+![Ekran görüntüsü, varlık durumu tahmin uyuşmazlık](./media/luis-how-to-add-example-utterances/entity-prediction-error.png)
+
+Utterance kırmızıyla altı çizili olan sözcükleri'ni seçin. 
+
+Varlık kutu görüntüler **varlık durumu** tahmin tutarsızlık ise kırmızı ünlem işareti. Varlık durumu ile etiketlenmiş ve tahmin edilen varlıklar arasındaki fark hakkında daha fazla bilgi görmek için seçin **varlık durumu** sonra sağ öğeyi seçin.
+
+![Ekran görüntüsü, varlık durumu tahmin uyuşmazlık](./media/luis-how-to-add-example-utterances/entity-status.png)
+
+Kırmızı çizgi aşağıdaki durumlarda hiçbirini görünebilir:
+
+    * Varlık etiketli bir utterance girildiğinde, ancak önce
+    * Varlık etiketi uygulandığında
+    * Varlık etiketi, kaldırılır
+    * Birden fazla varlık etiketi bu metni ne tahmini elde edildiğinde 
+
+Aşağıdaki çözümlerden varlık tahmin tutarsızlık gidermek:
+
+|Varlık|Görsel gösterge|Tahmin|Çözüm|
+|--|--|--|--|
+|Girilen utterance, henüz varlık etiketli değil.|kırmızı alt çizgi|Tahmin doğrudur.|Tahmin edilen değer ile varlık etiketi.|
+|Etiketlenmemiş metin|kırmızı alt çizgi|Yanlış tahmin|Yanlış bu varlığı kullanan geçerli konuşma tüm amaçlarını gözden geçirilmesi gerekir. Geçerli konuşma LUIS, bu metin tahmin ettiği varlık olduğunu mistaught.
+|Etiketli metin doğru|Mavi varlık vurgulayın, kırmızı alt çizgi|Yanlış tahmin|Daha fazla konuşma yerler ve kullanımları çeşitli doğru etiketli varlıkla sağlar. Geçerli konuşma bu LUIS öğretmeyi yeterli olduğu varlık ya da benzer varlıkları aynı bağlam içinde görünür olan. LUIS kafanız bu nedenle tek bir varlığa benzer varlık birleştirilmelidir. Başka bir çözüm bir kelimelerin önemi artırmak için bir ifade listesi eklemektir. |
+|Yanlış etiketli metin|Mavi varlık vurgulayın, kırmızı alt çizgi|Doğru tahmin| Daha fazla konuşma yerler ve kullanımları çeşitli doğru etiketli varlıkla sağlar. 
 
 
 ## <a name="remove-entity-labels-from-utterances"></a>Varlık etiketleri konuşma kaldırın

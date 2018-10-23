@@ -1,6 +1,6 @@
 ---
-title: Azure uygulama ağ geçidi ile uçtan uca SSL yapılandırma
-description: Bu makalede PowerShell kullanarak Azure uygulama ağ geçidi ile uçtan uca SSL yapılandırma
+title: Azure Application Gateway ile uçtan uca SSL'yi yapılandırma
+description: Bu makalede PowerShell kullanarak Azure Application Gateway ile uçtan uca SSL'yi yapılandırma
 services: application-gateway
 documentationcenter: na
 author: vhorne
@@ -10,50 +10,50 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 3/27/2018
+ms.date: 10/23/2018
 ms.author: victorh
-ms.openlocfilehash: 7e259936dce433683dd135171ee1c5626bf23739
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: f5b63c7448a502d681bbafb0ac80237a8e2c63c6
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32154203"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49650103"
 ---
-# <a name="configure-end-to-end-ssl-by-using-application-gateway-with-powershell"></a>PowerShell ile uygulama ağ geçidi kullanarak uçtan uca SSL yapılandırma
+# <a name="configure-end-to-end-ssl-by-using-application-gateway-with-powershell"></a>Application Gateway ve PowerShell kullanarak uçtan uca SSL'yi yapılandırma
 
 ## <a name="overview"></a>Genel Bakış
 
-Azure uygulama ağ geçidi uçtan uca şifreleme trafiği destekler. Uygulama ağ geçidi uygulama ağ geçidi SSL bağlantısını sonlandırır. Ağ geçidi ardından yönlendirme kuralları trafiği için geçerlidir, paketin yeniden şifreler ve tanımlanan yönlendirme kurallarına göre uygun arka uç sunucusuna iletir. Web sunucusundan alınan herhangi bir yanıt, son kullanıcıya dönerken aynı süreci izler.
+Azure Application Gateway, trafiğin uçtan uca şifrelenmesini destekler. Uygulama ağ geçidi, application Gateway SSL bağlantısını sonlandırır. Ağ geçidini daha sonra yönlendirme kurallarını trafiğe uygular, paketi yeniden şifreler ve tanımlanan yönlendirme kurallarına göre uygun arka uç sunucusuna iletir. Web sunucusundan alınan herhangi bir yanıt, son kullanıcıya dönerken aynı süreci izler.
 
-Uygulama ağ geçidi özel SSL seçenekleri tanımlama destekler. Ayrıca aşağıdaki protokol sürümleri devre dışı bırakma destekler: **TLSv1.0**, **TLSv1.1**, ve **TLSv1.2**, yanı kullanmak için hangi şifre paketleri ve tercih sırasına göre tanımlama . Yapılandırılabilir SSL seçenekleri hakkında daha fazla bilgi için bkz: [SSL ilkesine genel bakış](application-gateway-SSL-policy-overview.md).
+Application Gateway, özel SSL seçeneklerini tanımlama destekler. Ayrıca aşağıdaki protokol sürümleri devre dışı bırakmayı destekler: **TLSv1.0**, **TLSv1.1**, ve **TLSv1.2**, ayrıca kullanmak için hangi şifre paketleri ve tercih sırasına göre tanımlama . Yapılandırılabilir SSL seçenekleri hakkında daha fazla bilgi edinmek için [SSL ilkesine genel bakış](application-gateway-SSL-policy-overview.md).
 
 > [!NOTE]
-> SSL 2.0 ve SSL 3.0 varsayılan olarak devre dışıdır ve etkinleştirilemez. Bunlar Güvensiz olarak kabul edilir ve uygulama ağ geçidi ile kullanılamaz.
+> SSL 2.0 ve SSL 3.0 varsayılan olarak devre dışıdır ve etkinleştirilemez. Bunlar, güvenli olarak kabul edilir ve Application Gateway ile kullanılamaz.
 
 ![Senaryo görüntüsü][scenario]
 
 ## <a name="scenario"></a>Senaryo
 
-Bu senaryoda, bir uygulama ağ geçidi PowerShell ile uçtan uca SSL kullanarak oluşturmayı öğrenin.
+Bu senaryoda, uçtan uca SSL ve PowerShell kullanarak application gateway oluşturmayı öğrenin.
 
-Bu senaryo aşağıdakileri yapar:
+Bu senaryo olur:
 
-* Adlı bir kaynak grubu oluşturmak **appgw-rg**.
+* Adlı bir kaynak grubu oluşturma **appgw-rg**.
 * Adlı bir sanal ağ oluşturma **appgwvnet** bir adres alanı ile **10.0.0.0/16**.
-* Adlı iki alt ağ oluşturmak **appgwsubnet** ve **appsubnet**.
-* Bir küçük uygulama ağ geçidi destek uçtan uca SSL şifrelemesi bu sınırları SSL protokol sürümleri ve şifre paketleri oluşturun.
+* Adlı iki alt ağa oluşturma **appgwsubnet** ve **appsubnet**.
+* Bir kısa uygulama ağ geçidi destekleyici uçtan uca SSL şifrelemesini bu sınırları SSL protokolü sürümlerini ve şifre paketleri oluşturun.
 
 ## <a name="before-you-begin"></a>Başlamadan önce
 
-Bir uygulama ağ geçidi ile uçtan uca SSL'yi yapılandırmak için bir sertifika ağ geçidi için gereklidir ve sertifikaları arka uç sunucuları için gereklidir. Ağ geçidi sertifikası şifrelemek ve şifresini çözmek için SSL üzerinden gönderilen trafiği için kullanılır. Ağ geçidi sertifikası kişisel bilgi değişimi (PFX) biçiminde olması gerekir. Bu dosya biçimi, uygulama ağ geçidi tarafından şifreleme ve şifre çözme trafik gerçekleştirmek için gereken özel anahtarı dışarı olanak sağlar.
+Bir uygulama ağ geçidi ile uçtan uca SSL'yi yapılandırmak için bir sertifika ağ geçidi için gereklidir ve arka uç sunucuları için sertifikaları gereklidir. Ağ geçidi sertifikası, şifreleme ve SSL üzerinden gönderilen trafiği şifresini çözmek için kullanılır. Ağ geçidi sertifikası kişisel bilgi değişimi (PFX) biçiminde olması gerekir. Bu dosya biçimi, uygulama ağ geçidi tarafından şifreleme ve şifre çözme trafik gerçekleştirmek için gerekli olan özel anahtarı dışarı olanak tanır.
 
-Uçtan uca SSL şifrelemesi için arka uç uygulama ağ geçidi ile güvenilir listesinde olması gerekir. Uygulama ağ geçidi arka uç sunucularının ortak sertifika karşıya gerekir. Sertifika ekleniyor uygulama ağ geçidi ile bilinen arka uç örnekleri yalnızca iletişim kurar sağlar. Bu ek uçtan uca iletişimin güvenliğini sağlar.
+Uçtan uca SSL şifrelemesi için arka uç uygulama ağ geçidiyle Güvenilenler listesinde olmalıdır. Ortak sertifika arka uç sunucuları uygulama ağ geçidine yüklemeniz gerekir. Sertifika ekleme, uygulama ağ geçidi yalnızca bilinen arka uç örnekleriyle iletişim sağlar. Bu daha fazla uçtan uca iletişimin güvenliğini sağlar.
 
-Yapılandırma işlemi aşağıdaki bölümlerde açıklanmıştır.
+Yapılandırma işlemini aşağıdaki bölümlerde açıklanmıştır.
 
 ## <a name="create-the-resource-group"></a>Kaynak grubunu oluşturma
 
-Bu bölümde uygulama ağ geçidi içeren bir kaynak grubu oluşturmada size yol gösterir.
+Bu bölüm, uygulama ağ geçidi içeren bir kaynak grubu oluşturma işleminde size yol gösterir.
 
 
    1. Azure hesabınızda oturum açın.
@@ -78,17 +78,17 @@ Bu bölümde uygulama ağ geçidi içeren bir kaynak grubu oluşturmada size yol
 
 ## <a name="create-a-virtual-network-and-a-subnet-for-the-application-gateway"></a>Uygulama ağ geçidi için bir sanal ağ ve bir alt ağ oluştur
 
-Aşağıdaki örnek, bir sanal ağ ve iki alt ağı oluşturur. Bir alt ağ, uygulama ağ geçidi tutmak için kullanılır. Diğer alt web uygulamasını barındırmak arka uçları için kullanılır.
+Aşağıdaki örnek, bir sanal ağ ve iki alt ağ oluşturur. Bir alt ağ, uygulama ağ geçidi tutmak için kullanılır. Diğer alt ağı, web uygulamasını barındıran arka uçları için kullanılır.
 
 
-   1. Uygulama ağ geçidi için kullanılan alt ağ için bir adres aralığı atayın.
+   1. Application gateway için kullanılacak alt ağ adres aralığı atayın.
 
    ```powershell
    $gwSubnet = New-AzureRmVirtualNetworkSubnetConfig -Name 'appgwsubnet' -AddressPrefix 10.0.0.0/24
    ```
 
    > [!NOTE]
-   > Bir uygulama ağ geçidi için yapılandırılmış alt ağlar doğru şekilde boyutlandırılmalıdır. Bir uygulama ağ geçidi için en fazla 10 örneğini yapılandırılabilir. Her örneğin bir IP adresi alt ağdan alır. Çok küçük bir alt ağın, bir uygulama ağ geçidi ölçeklendirme olumsuz yönde etkileyebilir.
+   > Bir uygulama ağ geçidi için yapılandırılmış alt ağlar düzgün şekilde boyutlandırılmalıdır. Bir uygulama ağ geçidi en fazla 10 örnekleri için yapılandırılabilir. Her örnek, alt ağdan bir IP adresi alır. Çok küçük bir alt ağın, bir uygulama ağ geçidi ölçeklendirme olumsuz yönde etkileyebilir.
    > 
    > 
 
@@ -98,13 +98,13 @@ Aşağıdaki örnek, bir sanal ağ ve iki alt ağı oluşturur. Bir alt ağ, uyg
    $nicSubnet = New-AzureRmVirtualNetworkSubnetConfig  -Name 'appsubnet' -AddressPrefix 10.0.2.0/24
    ```
 
-   3. Önceki adımlarda tanımlanan alt ağları ile bir sanal ağ oluşturun.
+   3. Önceki adımlarda tanımlanan alt ağları ile sanal ağ oluşturun.
 
    ```powershell
    $vnet = New-AzureRmvirtualNetwork -Name 'appgwvnet' -ResourceGroupName appgw-rg -Location "West US" -AddressPrefix 10.0.0.0/16 -Subnet $gwSubnet, $nicSubnet
    ```
 
-   4. Aşağıdaki adımlarda kullanılacak alt ağ kaynaklarının ve sanal ağ kaynağı alır.
+   4. Sonraki adımlarda kullanılacak alt ağ kaynaklarının ve sanal ağ kaynağı alın.
 
    ```powershell
    $vnet = Get-AzureRmvirtualNetwork -Name 'appgwvnet' -ResourceGroupName appgw-rg
@@ -114,49 +114,49 @@ Aşağıdaki örnek, bir sanal ağ ve iki alt ağı oluşturur. Bir alt ağ, uyg
 
 ## <a name="create-a-public-ip-address-for-the-front-end-configuration"></a>Ön uç yapılandırma için genel bir IP adresi oluşturun
 
-Uygulama ağ geçidi için kullanılacak genel bir IP kaynağı oluşturun. Bu genel IP adresi adımları birinde kullanılır.
+Application gateway için kullanılacak bir genel IP kaynağı oluşturun. Bu genel IP adresi, aşağıdaki adımları biri kullanılır.
 
 ```powershell
 $publicip = New-AzureRmPublicIpAddress -ResourceGroupName appgw-rg -Name 'publicIP01' -Location "West US" -AllocationMethod Dynamic
 ```
 
 > [!IMPORTANT]
-> Uygulama ağ geçidi tanımlanan etki alanı etiketi ile oluşturulan bir ortak IP adresi kullanımını desteklemiyor. Yalnızca bir ortak IP adresi dinamik olarak oluşturulan etki alanı etiketi ile desteklenir. Uygulama ağ geçidi için kolay bir DNS adı gerekiyorsa, bir diğer ad olarak bir CNAME kaydı kullanmanızı öneririz.
+> Uygulama ağ geçidi bir tanımlanmış etki alanı etiketi ile oluşturulmuş bir genel IP adresi kullanımını desteklemiyor. Yalnızca genel IP adresi dinamik olarak oluşturulan etki alanı etiketi ile desteklenir. Uygulama ağ geçidi için kolay bir DNS adı gerekiyorsa, diğer ad olarak bir CNAME kaydı kullanmanızı öneririz.
 
 ## <a name="create-an-application-gateway-configuration-object"></a>Uygulama ağ geçidi yapılandırma nesnesi oluşturun
 
 Tüm yapılandırma öğeleri, uygulama ağ geçidi oluşturmadan önce ayarlanır. Aşağıdaki adımlar uygulama ağ geçidi kaynağı için gerekli yapılandırma öğelerini oluşturur.
 
-   1. Uygulama ağ geçidi IP yapılandırması oluşturun. Bu ayar, uygulama ağ geçidini kullanan alt yapılandırır. Uygulama ağ geçidi başladığında, yapılandırılan alt ağdan bir IP adresi seçer ve ağ trafiği arka uç IP havuzundaki IP adreslerine yollar. Her örneğin bir IP adresi aldığını göz önünde bulundurun.
+1. Bir uygulama ağ geçidi IP yapılandırması oluşturun. Bu ayar, uygulama ağ geçidinin kullandığı alt yapılandırır. Application gateway başladığında, yapılandırılan alt ağdan bir IP adresi seçer ve ağ trafiğini arka uç IP havuzundaki IP adreslerine yollar. Her örneğin bir IP adresi aldığını göz önünde bulundurun.
 
    ```powershell
    $gipconfig = New-AzureRmApplicationGatewayIPConfiguration -Name 'gwconfig' -Subnet $gwSubnet
    ```
 
 
-   2. Bir ön uç IP yapılandırmasını oluşturun. Bu ayar, uygulama ağ geçidi ön ucu için bir özel veya genel IP adresi eşler. Aşağıdaki adım önceki adımda genel IP adresi ön uç IP yapılandırmasını ilişkilendirir.
+2. Bir ön uç IP yapılandırmasını oluşturun. Bu ayar, uygulama ağ geçidi ön uç için özel veya genel bir IP adresi eşler. Aşağıdaki adımı genel IP adresi önceki adımda, ön uç IP yapılandırmasını ilişkilendirir.
 
    ```powershell
    $fipconfig = New-AzureRmApplicationGatewayFrontendIPConfig -Name 'fip01' -PublicIPAddress $publicip
    ```
 
-   3. Arka uç IP adresi havuzu ile arka uç web sunucularının IP adreslerini yapılandırın. Bu IP adresleri ön uç IP uç noktasından gelen ağ trafiğinin yönlendirildiği IP adresleridir. Örnek IP adreslerini kendi uygulama IP adresi uç ile değiştirin.
+3. Arka uç IP adresi havuzu ile arka uç web sunucularının IP adreslerini yapılandırın. Bu IP adresleri ön uç IP uç noktasından gelen ağ trafiğinin yönlendirildiği IP adresleridir. Örnek IP adreslerini, kendi uygulamanızın IP adresi uç noktalarını ile değiştirin.
 
    ```powershell
    $pool = New-AzureRmApplicationGatewayBackendAddressPool -Name 'pool01' -BackendIPAddresses 1.1.1.1, 2.2.2.2, 3.3.3.3
    ```
 
    > [!NOTE]
-   > Bir tam etki alanı adı (FQDN) de arka uç sunucuları için bir IP adresi yerine kullanılacak geçerli bir değer değil. Kullanarak etkinleştirin **- BackendFqdns** geçin. 
+   > Bir tam etki alanı adı (FQDN) da arka uç sunucuları için IP adresi yerine kullanmak için geçerli bir değer var. Kullanarak etkinleştirin **- BackendFqdns** geçin. 
 
 
-   4. Genel IP uç noktası için ön uç IP bağlantı noktası yapılandırın. Bu bağlantı noktası, son kullanıcılara bağlanan bağlantı noktasıdır.
+4. Genel IP uç noktası için ön uç IP bağlantı noktasını yapılandırın. Bu bağlantı noktası, son kullanıcılarının bağlantı noktasıdır.
 
    ```powershell
    $fp = New-AzureRmApplicationGatewayFrontendPort -Name 'port01'  -Port 443
    ```
 
-   5. Uygulama ağ geçidi için sertifika yapılandırın. Bu sertifika, uygulama ağ geçidi trafiğinde reencrypt ve şifresini çözmek için kullanılır.
+5. Uygulama ağ geçidi sertifikası yapılandırın. Bu sertifika, uygulama ağ geçidinde trafiği giden ve şifresini çözmek için kullanılır.
 
    ```powershell
    $passwd = ConvertTo-SecureString  <certificate file password> -AsPlainText -Force 
@@ -164,49 +164,62 @@ Tüm yapılandırma öğeleri, uygulama ağ geçidi oluşturmadan önce ayarlan�
    ```
 
    > [!NOTE]
-   > Bu örnek, SSL bağlantısı için kullanılan sertifikayı yapılandırır. Sertifikanın .pfx formatında olması gerekir ve parola 4 ile 12 karakter olmalıdır.
+   > Bu örnek SSL bağlantısı için kullanılan sertifikayı yapılandırır. Sertifikanın .pfx formatında olması gerekir ve parola 4 ile 12 karakter olmalıdır.
 
-   6. HTTP dinleyicisi için uygulama ağ geçidi oluşturun. Ön uç IP yapılandırmasını, bağlantı noktası ve kullanmak için SSL sertifikası atayın.
+6. HTTP dinleyicisi için uygulama ağ geçidi oluşturun. Ön uç IP yapılandırması, bağlantı noktası ve kullanmak için SSL sertifikası atayın.
 
    ```powershell
    $listener = New-AzureRmApplicationGatewayHttpListener -Name listener01 -Protocol Https -FrontendIPConfiguration $fipconfig -FrontendPort $fp -SSLCertificate $cert
    ```
 
-   7. SSL etkin arka uç havuzu kaynaklardaki kullanılan sertifikayı karşıya yükleyin.
+7. SSL etkin arka uç havuzu kaynaklar üzerinde kullanılacak sertifikayı yükleyin.
 
    > [!NOTE]
-   > Ortak anahtarı ile varsayılan araştırmasını alır *varsayılan* SSL bağlaması arka uç bilgisayarın IP adresi ve aldığı ortak anahtar değeri, ortak anahtar değeri sağlamak burada karşılaştırır. 
+   > Varsayılan araştırmasını alır ortak anahtardan *varsayılan* SSL bağlaması arka ucun IP adresi ve aldığı ortak anahtar değeri için ortak anahtar değerini sağlayın burada karşılaştırır. 
    
-   > Arka uçta ana bilgisayar üstbilgilerinin ve sunucu adı göstergesi (SNI) kullanıyorsanız, alınan ortak anahtar hangi trafik akışları hedeflenen siteye olmayabilir. Şüpheli değilseniz, ziyaret https://127.0.0.1/ için kullanılan hangi sertifikanın onaylamak için arka uç sunucularda *varsayılan* SSL bağlaması. Bu bölümde bu istek ortak anahtarı kullanın. Ana bilgisayar üstbilgilerinin ve SNI HTTPS bağlantılarına kullanıyorsanız ve bir yanıt ve sertifika için bir el ile tarayıcı istekten aldığınız değil https://127.0.0.1/ arka uç sunucularda, bunları varsayılan SSL bağlamada ayarlamanız gerekir. Bunu yaparsanız, araştırmalar başarısız ve arka uç izin verilenler listesinde değil.
+   > Alınan ortak anahtarı, arka uçta barındırma üstbilgileri ve sunucu adı belirtme (SNI) kullanıyorsanız, hangi trafik akışı için hedef siteye olmayabilir. Şüpheli olduğunuz, ziyaret https://127.0.0.1/ hangi sertifikanın için kullanılan onaylamak için arka uç sunucularda *varsayılan* SSL bağlaması. Bu bölümde, isteğinden ortak anahtarı kullanın. HTTPS bağlantılarına barındırma üstbilgileri ve SNI kullanıyorsanız ve bir yanıt ve sertifika için bir el ile tarayıcı istekten aldığınız değil https://127.0.0.1/ arka uç sunucularda varsayılan SSL bağlaması bunlara ayarlamanız gerekir. Bunu yaparsanız araştırmaları başarısız ve arka uç izin verilenler listesinde değil.
 
    ```powershell
    $authcert = New-AzureRmApplicationGatewayAuthenticationCertificate -Name 'whitelistcert1' -CertificateFile C:\users\gwallace\Desktop\cert.cer
    ```
 
    > [!NOTE]
-   > Bu adımda sağlanan sertifika arka uçta mevcut .pfx sertifika ortak anahtarı olması gerekir. Talep, kanıt ve akıl (CER) biçiminde arka uç sunucuda yüklü sertifikayı (kök sertifikanın değil) verin ve bu adımda kullanın. Bu adım whitelists arka uç uygulama ağ geçidi ile.
+   > Bu adımda sağlanan sertifikanın ortak anahtarını .pfx sertifikasını arka uçta mevcut olmalıdır. Talep ve kanıt akıl (CER) biçiminde arka uç sunucuda yüklü sertifika (kök sertifika değil) dışarı aktarma ve bu adımı kullanın. Bu adım beyaz arka uç uygulama ağ geçidiyle.
 
-   8. Uygulama ağ geçidi arka uç HTTP ayarları yapılandırın. HTTP ayarları için önceki adımda yüklediğiniz sertifikayı atayın.
+   Ardından Application Gateway v2 SKU kullanıyorsanız, güvenilen kök sertifika yerine bir kimlik doğrulama sertifikası oluşturun. Daha fazla bilgi için [ile Application Gateway uçtan uca SSL'ne genel bakış](ssl-overview.md#end-to-end-ssl-with-the-v2-sku):
+
+   ```powershell
+   $trustedRootCert01 = New-AzureRmApplicationGatewayTrustedRootCertificate -Name "test1" -CertificateFile  <path to root cert file>
+   ```
+
+8. Uygulama ağ geçidi arka uç HTTP ayarları yapılandırın. HTTP ayarları için önceki adımda yüklenen sertifikanın atayın.
 
    ```powershell
    $poolSetting = New-AzureRmApplicationGatewayBackendHttpSettings -Name 'setting01' -Port 443 -Protocol Https -CookieBasedAffinity Enabled -AuthenticationCertificates $authcert
    ```
-   9. Yük Dengeleyici davranışını yapılandıran bir Yük Dengeleyiciyi yönlendirme kuralını oluşturun. Bu örnekte, temel bir hepsini kural oluşturulur.
+
+   Application Gateway v2 SKU için aşağıdaki komutu kullanın:
+
+   ```powershell
+   $poolSetting01 = New-AzureRmApplicationGatewayBackendHttpSettings -Name “setting01” -Port 443 -Protocol Https -CookieBasedAffinity Disabled -TrustedRootCertificate $trustedRootCert01 -HostName "test1"
+   ```
+
+9. Yük Dengeleyici davranışını yapılandıran bir Yük Dengeleyiciyi yönlendirme kuralını oluşturun. Bu örnekte, bir temel hepsini bir kez deneme kuralı oluşturulur.
 
    ```powershell
    $rule = New-AzureRmApplicationGatewayRequestRoutingRule -Name 'rule01' -RuleType basic -BackendHttpSettings $poolSetting -HttpListener $listener -BackendAddressPool $pool
    ```
 
-   10. Uygulama ağ geçidinin örnek boyutunu yapılandırın. Kullanılabilir boyutları: **standart\_küçük**, **standart\_orta**, ve **standart\_büyük**.  Kapasite için kullanılabilen değerlerdir **1** aracılığıyla **10**.
+10. Uygulama ağ geçidinin örnek boyutunu yapılandırın. Kullanılabilir boyutlar **standart\_küçük**, **standart\_orta**, ve **standart\_büyük**.  Kapasite için kullanılabilir değerlerdir **1** aracılığıyla **10**.
 
-   ```powershell
-   $sku = New-AzureRmApplicationGatewaySku -Name Standard_Small -Tier Standard -Capacity 2
-   ```
+    ```powershell
+    $sku = New-AzureRmApplicationGatewaySku -Name Standard_Small -Tier Standard -Capacity 2
+    ```
 
-   > [!NOTE]
-   > Test amacıyla örnek sayısını 1 seçilebilir. Tüm örnek sayısı iki örneği altında SLA kapsamında değildir ve bu nedenle önerilmez bilmeniz önemlidir. Küçük ağ geçitleri geliştirme test ve üretim amaçları için kullanılacak olan.
+    > [!NOTE]
+    > Test amacıyla örnek sayısı 1 olarak seçilebilir. İki örnek altında'herhangi bir örnek sayısı SLA tarafından kapsanmaz ve bu nedenle önerilmez bilmek önemlidir. Küçük geliştirme ve test ve üretim amacıyla kullanılmak üzere ağ geçitleridir.
 
-   11. Uygulama ağ geçidinde kullanılacak SSL ilkesini yapılandırın. Uygulama ağ geçidi SSL protokol sürümleri için en düşük sürüm ayarlama özelliği destekler.
+11. Uygulama ağ geçidinde kullanılacak SSL ilkesini yapılandırın. Application Gateway SSL protokolü sürümleri için en düşük sürüm ayarlama özelliğini destekler.
 
    Aşağıdaki değerleri tanımlanabilir protokol sürümleri listesi verilmiştir:
 
@@ -214,7 +227,7 @@ Tüm yapılandırma öğeleri, uygulama ağ geçidi oluşturmadan önce ayarlan�
     - **TLSV1_1**
     - **TLSV1_2**
     
-   Aşağıdaki örnek, en düşük protokol sürümü ayarlar **TLSv1_2** ve sağlar **TLS\_ECDHE\_ECDSA\_ile\_AES\_128\_GCM\_SHA256**, **TLS\_ECDHE\_ECDSA\_ile\_AES\_256\_GCM\_SHA384**, ve **TLS\_RSA\_ile\_AES\_128\_GCM\_SHA256** yalnızca.
+   Aşağıdaki örnek, en düşük protokol sürümü ayarlar **TLSv1_2** ve sağlayan **TLS\_ECDHE\_ECDSA\_ile\_AES\_128\_GCM\_SHA256**, **TLS\_ECDHE\_ECDSA\_ile\_AES\_256\_GCM\_SHA384**, ve **TLS\_RSA\_ile\_AES\_128\_GCM\_SHA256** yalnızca.
 
    ```powershell
    $SSLPolicy = New-AzureRmApplicationGatewaySSLPolicy -MinProtocolVersion TLSv1_2 -CipherSuite "TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256", "TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384", "TLS_RSA_WITH_AES_128_GCM_SHA256"
@@ -222,40 +235,40 @@ Tüm yapılandırma öğeleri, uygulama ağ geçidi oluşturmadan önce ayarlan�
 
 ## <a name="create-the-application-gateway"></a>Uygulama ağ geçidi oluşturma
 
-Yukarıdaki adımları kullanarak uygulama ağ geçidi oluşturun. Ağ geçidi oluşturmayı çalıştırmak için uzun süren bir işlemdir.
+Yukarıdaki adımları kullanarak, uygulama ağ geçidi oluşturun. Ağ geçidi oluşturulmasını çalıştırmak uzun zaman alan bir işlemdir.
 
 ```powershell
 $appgw = New-AzureRmApplicationGateway -Name appgateway -SSLCertificates $cert -ResourceGroupName "appgw-rg" -Location "West US" -BackendAddressPools $pool -BackendHttpSettingsCollection $poolSetting -FrontendIpConfigurations $fipconfig -GatewayIpConfigurations $gipconfig -FrontendPorts $fp -HttpListeners $listener -RequestRoutingRules $rule -Sku $sku -SSLPolicy $SSLPolicy -AuthenticationCertificates $authcert -Verbose
 ```
 
-## <a name="limit-ssl-protocol-versions-on-an-existing-application-gateway"></a>Mevcut bir uygulama ağ geçidi SSL protokolü sürümlerinde sınırla
+## <a name="limit-ssl-protocol-versions-on-an-existing-application-gateway"></a>Var olan bir uygulama ağ geçidinde SSL protokolü sürümlerini sınırlama
 
-Yukarıdaki adımları uçtan uca SSL ile uygulama oluşturma ve belirli SSL protokol sürümleri devre dışı bırakma sürdü. Aşağıdaki örnekte belirli SSL ilkeleri var olan bir uygulama ağ geçidi üzerinde devre dışı bırakır.
+Önceki adımlarda uçtan uca SSL ile bir uygulama oluşturma ve belirli SSL protokolü sürümlerini devre dışı bırakma sürdü. Aşağıdaki örnekte mevcut bir uygulama ağ geçidi üzerinde belirli SSL ilkeler devre dışı bırakır.
 
-   1. Uygulama ağ geçidi güncelleştirilecek alın.
+   1. Güncelleştirmek için uygulama ağ geçidini alın.
 
    ```powershell
    $gw = Get-AzureRmApplicationGateway -Name AdatumAppGateway -ResourceGroupName AdatumAppGatewayRG
    ```
 
-   2. SSL ilke tanımlayın. Aşağıdaki örnekte, **TLSv1.0** ve **TLSv1.1** devre dışı bırakıldı ve şifre paketleri **TLS\_ECDHE\_ECDSA\_ile\_ AES\_128\_GCM\_SHA256**, **TLS\_ECDHE\_ECDSA\_ile\_AES\_256\_GCM\_SHA384**, ve **TLS\_RSA\_ile\_AES\_128\_GCM\_SHA256** yalnızca olan olanları izin verilir.
+   2. SSL ilkesi tanımlayın. Aşağıdaki örnekte, **TLSv1.0** ve **TLSv1.1** devre dışı bırakıldı ve şifre paketleri **TLS\_ECDHE\_ECDSA\_ile\_ AES\_128\_GCM\_SHA256**, **TLS\_ECDHE\_ECDSA\_ile\_AES\_256\_GCM\_SHA384**, ve **TLS\_RSA\_ile\_AES\_128\_GCM\_SHA256** yalnızca olanları izin verilir.
 
    ```powershell
    Set-AzureRmApplicationGatewaySSLPolicy -MinProtocolVersion TLSv1_2 -PolicyType Custom -CipherSuite "TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256", "TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384", "TLS_RSA_WITH_AES_128_GCM_SHA256" -ApplicationGateway $gw
 
    ```
 
-   3. Son olarak, ağ geçidini güncelleştirin. Bu son adım uzun süre çalışan bir görev olduğuna dikkat edin. Tamamlandığında, uçtan uca SSL uygulama ağ geçidinde yapılandırılır.
+   3. Son olarak, ağ geçidi güncelleştirin. Bu son adım, uzun süre çalışan bir görev olduğunu unutmayın. İşlem tamamlandığında, uygulama ağ geçidinde uçtan uca SSL yapılandırılır.
 
    ```powershell
    $gw | Set-AzureRmApplicationGateway
    ```
 
-## <a name="get-an-application-gateway-dns-name"></a>Bir uygulama ağ geçidi DNS adını Al
+## <a name="get-an-application-gateway-dns-name"></a>Bir uygulama ağ geçidi DNS adını alma
 
-Ağ geçidi oluşturulduktan sonra sonraki adıma iletişimi için ön uç yapılandırmaktır. Uygulama ağ geçidi, bir ortak IP kolay olmayan kullanırken dinamik olarak atanmış bir DNS adı gerektirir. Son kullanıcıların uygulama ağ geçidi isabet emin olmak için uygulama ağ geçidi için ortak uç noktası için bir CNAME kaydı kullanabilirsiniz. Daha fazla bilgi için bkz: [Azure'da bir özel etki alanı adı yapılandırma](../cloud-services/cloud-services-custom-domain-name-portal.md). 
+Ağ geçidi oluşturulduktan sonra sonraki adıma iletişim için ön uç yapılandırmaktır. Uygulama ağ geçidi, kolay değil bir genel IP kullanırken bir dinamik olarak atanan DNS adı gerektirir. Son kullanıcıların uygulama ağ geçidine ulaşmasını sağlamak için uygulama ağ geçidinin genel uç noktaya işaret edecek bir CNAME kaydı kullanabilirsiniz. Daha fazla bilgi için [Azure'da için bir özel etki alanı adı yapılandırma](../cloud-services/cloud-services-custom-domain-name-portal.md). 
 
-Bir diğer ad yapılandırmak için kullanarak uygulama ağ geçidi ve ilişkili IP/DNS adı ayrıntılarını almak **Publicıpaddress** öğesi uygulama ağ geçidine bağlı. İki web uygulamaları bu DNS adına işaret eden bir CNAME kaydı oluşturmak için uygulama ağ geçidi DNS adını kullanın. Biz A kayıtlarını kullanılmasını öneririz, VIP değiştirebilirsiniz olmadığından, uygulama ağ geçidi yeniden yok.
+Bir diğer ad yapılandırmak için uygulama ağ geçidinin ayrıntılarını ve onunla ilişkilendirilmiş olan IP/DNS adını kullanarak almak **Publicıpaddress** öğe uygulama ağ geçidine eklenmiş. Uygulama ağ geçidinin DNS adı, iki web uygulamasını bu DNS adını işaret eden bir CNAME kaydı oluşturmak için kullanın. Biz yoksa A kaydı kullanılması önerilir, VIP değiştirebilirsiniz çünkü uygulama ağ geçidi yeniden başlatın.
 
 ```powershell
 Get-AzureRmPublicIpAddress -ResourceGroupName appgw-RG -Name publicIP01
@@ -285,6 +298,6 @@ DnsSettings              : {
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Uygulama ağ geçidi üzerinden Web uygulaması güvenlik duvarı ile web uygulamalarınızın güvenliğini artırma hakkında daha fazla bilgi için bkz: [Web uygulaması güvenlik duvarı genel bakış](application-gateway-webapplicationfirewall-overview.md).
+Web uygulaması güvenlik duvarı uygulama ağ geçidi üzerinden, web uygulamalarınızın güvenliğini artırma hakkında daha fazla bilgi için bkz. [Web uygulaması güvenlik duvarına genel bakış](application-gateway-webapplicationfirewall-overview.md).
 
 [scenario]: ./media/application-gateway-end-to-end-SSL-powershell/scenario.png

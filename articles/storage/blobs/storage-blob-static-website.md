@@ -1,51 +1,77 @@
 ---
-title: Azure depolama (Önizleme) statik Web sitesi barındırma | Microsoft Docs
-description: Azure depolama artık (Önizleme) barındırma, modern web uygulamalarını barındırmak için uygun maliyetli ve ölçeklenebilir bir çözüm sağlayarak statik Web sitesi sunar.
+title: Azure Depolama'da statik Web sitesi barındırma
+description: Barındırma, modern web uygulamalarını barındırmak için uygun maliyetli ve ölçeklenebilir bir çözüm sağlayarak azure depolama statik Web sitesi.
 services: storage
-author: MichaelHauss
+author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 08/17/18
-ms.author: mihauss
+ms.date: 10/19/18
+ms.author: tamram
 ms.component: blobs
-ms.openlocfilehash: 65a1cd85baf18ac1f0d193e7e6d6c3139919fb59
-ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
+ms.openlocfilehash: 7dff6f7438c3bb9fc09803bbaa58895f89f88d71
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42617406"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49649831"
 ---
-# <a name="static-website-hosting-in-azure-storage-preview"></a>Azure depolama (Önizleme) statik Web sitesi barındırma
-Azure depolama artık (Önizleme) barındırma, Azure üzerinde uygun maliyetli ve ölçeklenebilir, modern web uygulamaları dağıtmanıza olanak sağlayan statik Web sitesi sunar. Statik içerik ve JavaScript veya diğer istemci tarafı kod, statik bir Web sitesinde Web sayfalarını içerir. Bunun tersine, dinamik Web siteleri sunucu tarafı kodu bağlıdır ve kullanarak barındırılan [Azure Web Apps](/azure/app-service/app-service-web-overview).
+# <a name="static-website-hosting-in-azure-storage"></a>Azure Depolama'da statik Web sitesi barındırma
+Azure depolama hesapları doğrudan adlı bir depolama kapsayıcısındaki statik içerik (HTML, CSS, JavaScript ve görüntü dosyaları) sunmak izin *$web*. Azure Depolama'da barındırma yararlanma dahil olmak üzere sunucusuz mimarileri kullanmanıza olanak verir [Azure işlevleri](/azure/azure-functions/functions-overview) ve diğer PaaS Hizmetleri.
 
-Web içerik sunucu yönetimine gerek kalmadan sağlama olanağı, esnek ve ekonomik modelleri doğru dağıtımları kaydırma gibi kritik öneme sahiptir. Azure Depolama'da statik Web sitesi barındırma da başlamasıyla bu ile sunucusuz mimarileri yararlanarak zengin bir arka uç özellikleri etkinleştirme mümkün kılar [Azure işlevleri](/azure/azure-functions/functions-overview) ve diğer PaaS Hizmetleri.
+Statik Web sitesi barındırma aksine, sunucu tarafı kodu bağımlı dinamik siteleri en iyi kullanarak barındırılan [Azure Web Apps](/azure/app-service/app-service-web-overview).
 
 ## <a name="how-does-it-work"></a>Nasıl çalışır?
-Depolama hesabınızı statik Web sitelerini etkinleştirdiğinizde, yeni bir web hizmeti uç noktası biçiminde oluşturulur `<account-name>.<zone-name>.web.core.windows.net`.
+Statik Web sitesi etkinleştirdiğinizde, depolama hesabı, barındırma, varsayılan dosyanızın adını seçin ve isteğe bağlı olarak Özel 404 sayfa yolu sağlayın. Özelliğin etkin olduğu gibi bir kapsayıcı adlı *$web* önceden yoksa oluşturulur. 
 
-Web hizmeti uç noktası her zaman anonim okuma erişimi verir, biçimlendirilmiş HTML sayfalarını hizmet hatalara yanıt verir ve yalnızca okuma işlemlerini nesnesi sağlar. Web hizmeti uç noktası, hem kök ve alt dizinlerdeki istenilen dizinde bulunan dizin belgeyi döndürür. Depolama hizmeti bir 404 hatası döndürdüğünde, yapılandırdığınız bir özel hata belge web uç noktası döndürür.
+Dosyalar *$web* kapsayıcı şunlardır:
 
-Statik Web siteniz için içerik "$web" adlı özel bir kapsayıcı içinde barındırılır. Zaten yoksa, etkinleştirme işleminin bir parçası olarak "$web" sizin için oluşturulur. Web uç noktası kullanarak hesap kökünde "$web" içeriğinde erişilebilir. Örneğin `https://contoso.z4.web.core.windows.net/` $web kök dizininde bu ada sahip bir belge zaten varsa, Web siteniz için yapılandırdığınız dizin belgeyi döndürür.
+- Anonim erişim istekleri aracılığıyla sunulan
+- yalnızca okuma işlemlerini nesnesi aracılığıyla kullanılabilir
+- büyük küçük harfe duyarlı
+- Bu düzen aşağıdaki genel Web kullanılabilir: 
+    - `https://<ACCOUNT_NAME>.<ZONE_NAME>.web.core.windows.net/<FILE_NAME>`
+- Bu düzen aşağıdaki Blob Depolama uç noktası aracılığıyla kullanılabilir: 
+    - `https://<ACCOUNT_NAME>.blob.core.windows.net/$web/<FILE_NAME>`
 
-Web sitenize içeriği karşıya yüklerken, blob depolama uç noktasını kullanın. 'Hesap kök dizininde erişilebilir image.jpg' adlı bir blob karşıya yüklemek için şu URL'yi kullanın `https://contoso.blob.core.windows.net/$web/image.jpg`. Karşıya yüklenen görüntüyü karşılık gelen web uç noktasında bir web tarayıcısında görüntülenebilen `https://contoso.z4.web.core.windows.net/image.jpg`.
+Blob Depolama uç noktası, dosyaları karşıya yüklemek için kullanın. Örneğin, dosyayı bu konuma karşıya:
+
+```bash
+https://contoso.blob.core.windows.net/$web/image.png
+```
+
+Tarayıcı şunun gibi bir konumda kullanılabilir:
+
+```bash
+https://contoso.z4.web.core.windows.net/image.png
+```
+
+Bir dosya adı sağlanmazsa, seçilen varsayılan dosya adı, kök ve alt dizinleri kullanılır. Sunucu bir 404 döndürür ve bir hata belgesi yolu belirtmezseniz varsayılan 404 sayfa kullanıcıya döndürülür.
+
+## <a name="cdn-and-ssl-support"></a>CDN ve SSL desteği
+
+Olun, statik Web sitesi HTTPS üzerinden kullanılabilir dosyaları için bkz: [HTTP'ler üzerinden özel etki alanlarıyla bloblara erişmek için Azure CDN'yi kullanma](storage-https-custom-domain-cdn.md). Bu işlemin bir parçası olarak, gerek *CDN'NİZİN web uç noktası* blob uç noktası değil. CDN yapılandırma hemen çalıştırılmadı olarak içeriğinizi görünür hale gelmeden önce birkaç dakika beklemeniz gerekebilir.
 
 
 ## <a name="custom-domain-names"></a>Özel etki alanı adları
-Özel bir etki alanı, web içeriğini barındırmak için kullanabilirsiniz. Bunu yapmak için yönergeleri izleyin. [Azure depolama hesabınız için bir özel etki alanı adı yapılandırma](storage-custom-domain-name.md). HTTPS üzerinden özel etki alanı barındırılan Web sitenize güvenle erişin için bkz: [HTTP'ler üzerinden özel etki alanlarıyla bloblara erişmek için Azure CDN'yi kullanma](storage-https-custom-domain-cdn.md). CDN'NİZİN blob uç noktası yerine web uç noktası ve CDN yapılandırma anında, gerçekleşmez içeriğinizi görülebilir birkaç dakika beklemeniz gerekebilir. Bu nedenle unutmayın.
 
-## <a name="pricing-and-billing"></a>Fiyatlandırma ve Faturalama
+Yapabilecekleriniz [Azure depolama hesabınız için bir özel etki alanı adı yapılandırma](storage-custom-domain-name.md) statik Web sitenizi özel bir etki alanını kullanılabilir hale getirmek için. Şirket etki alanınızı barındırmaya ayrıntılı bir bakış için [Azure, bkz: etki alanınızı Azure DNS'de konak](../../dns/dns-delegate-domain-azure-dns.md).
+
+## <a name="pricing"></a>Fiyatlandırma
 Statik Web sitesi barındırma, ek ücret alınmadan sağlanır. Azure Blob Depolama fiyatları hakkında daha fazla ayrıntı için kullanıma [Azure Blob Depolama fiyatlandırması sayfasını](https://azure.microsoft.com/pricing/details/storage/blobs/).
 
 ## <a name="quickstart"></a>Hızlı Başlangıç
+
 ### <a name="azure-portal"></a>Azure portal
-Henüz kaydolmadıysanız [GPv2 depolama hesabı oluşturma](../common/storage-quickstart-create-account.md) web uygulamanızı barındırmaya başlamak için Azure portalını kullanarak özellik yapılandırabilir ve sol gezinti çubuğunda "Ayarlar" altında "Statik Web sitesinde (Önizleme)"'a tıklayın. "Etkin"'i tıklatın ve dizin belge ve (isteğe bağlı) özel hata belgesi yolu adını girin.
+Adresinden Azure portalında açarak başlamak https://portal.azure.com ve aşağıdaki adımları çalıştırın:
+
+1. Tıklayarak **ayarları**
+2. Tıklayarak **statik Web sitesi**
+3. Girin bir *dizin belgesi adı*. (Bir ortak değer *index.html)*
+4. İsteğe bağlı olarak girin bir *hata belgesi yolu* için Özel 404 sayfa. (Bir ortak değer *404.html)*
 
 ![](media/storage-blob-static-website/storage-blob-static-website-portal-config.PNG)
 
-Statik Web sitesi etkinleştirme bir parçası oluşturulmuş "$web" kapsayıcı web varlıklarınızı yükleyin. Bunu doğrudan Azure Portalı'nda yapabilirsiniz veya avantajlarından yararlanabilirsiniz [Azure Depolama Gezgini](https://azure.microsoft.com/features/storage-explorer/) tüm dizin yapılarını yüklenecek. Bir dizin belgesi yapılandırdığınız adla eklediğinizden emin olun. Bu örnekte, belgenin "index.html" dir.
-
-> [!NOTE]
-> Belge adı büyük/küçük harfe duyarlıdır ve bu nedenle depolamadaki dosyanın adı tam olarak eşleşmesi gerekir.
+Sonra varlıklarınız için karşıya yükleme *$web* Azure Portalı aracılığıyla ya da ile kapsayıcı [Azure Depolama Gezgini](https://azure.microsoft.com/features/storage-explorer/) tüm dizinleri karşıya yüklemek için. Eşleşen bir dosya eklediğinizden emin olun *dizin belgesi adı* özelliği etkinleştirirken seçtiğiniz.
 
 Son olarak, Web sitenizi test etmek için web bitiş noktasına gidin.
 
@@ -55,36 +81,81 @@ Depolama Önizleme uzantıyı yükleyin:
 ```azurecli-interactive
 az extension add --name storage-preview
 ```
-Özelliği etkinleştirin:
+Özelliğini etkinleştirin. Kendi değerlerinizle köşeli ayraçlar dahil tüm yer tutucu değerlerini değiştirdiğinizden emin olun:
 
 ```azurecli-interactive
-az storage blob service-properties update --account-name <account-name> --static-website --404-document <error-doc-name> --index-document <index-doc-name>
+az storage blob service-properties update --account-name <ACCOUNT_NAME> --static-website --404-document <ERROR_DOCUMENT_NAME> --index-document <INDEX_DOCUMENT_NAME>
 ```
 Sorgu için web uç noktası URL'si:
 
 ```azurecli-interactive
-az storage account show -n <account-name> -g <resource-group> --query "primaryEndpoints.web" --output tsv
+az storage account show -n <ACCOUNT_NAME> -g <RESOURCE_GROUP> --query "primaryEndpoints.web" --output tsv
 ```
 
-Nesneleri $web kapsayıcısına yükleyin:
+Nesnelere karşıya *$web* kapsayıcı:
 
 ```azurecli-interactive
-az storage blob upload-batch -s deploy -d $web --account-name <account-name>
+az storage blob upload-batch -s <SOURCE> -d $web --account-name <ACCOUNT_NAME>
 ```
 
+## <a name="deployment"></a>Dağıtım
+
+İçerik için bir depolama kapsayıcısı dağıtmak için kullanılabilen yöntemler şunlardır:
+
+- [AzCopy](../common/storage-use-azcopy.md)
+- [Depolama Gezgini](https://azure.microsoft.com/features/storage-explorer/)
+- [Visual Studio Team System](https://code.visualstudio.com/tutorials/static-website/deploy-VSTS)
+- [Visual Studio Code uzantısı](https://code.visualstudio.com/tutorials/static-website/getting-started)
+
+Her durumda, dosyaları kopyalamak emin *$web* kapsayıcı.
+
+## <a name="metrics"></a>Ölçümler
+
+Statik Web sitesi sayfalarınıza ölçümleri etkinleştirmek üzere tıklayın **ayarları** > **izleme** > **ölçümleri**.
+
+Ölçüm verilerini farklı ölçümlerinde API'leri takma tarafından oluşturulur. Portal, yalnızca belirli bir zaman dilimi içinde yalnızca veri döndüren üyelerde odaklanabilmek için kullanılan API üyelerini görüntüler. Gerekli API üye seçebilir emin olmak için zaman aralığını genişletmek için ilk adım olacaktır.
+
+Zaman çerçevesini düğmesine tıklayıp **son 24 saat** ve ardından **Uygula** kullanıcı Arabirimi için istenen API erişmenizi olmasını sağlamak için.
+
+![Azure depolama statik Web siteleri ölçümleri zaman aralığı](./media/storage-blob-static-website/storage-blob-static-website-metrics-time-range.png)
+
+Ardından, **Blob** gelen *Namespace* açılır.
+
+![Azure depolama statik Web siteleri ölçümleri ad alanı](./media/storage-blob-static-website/storage-blob-static-website-metrics-namespace.png)
+
+Ardından **çıkış** ölçümü.
+
+![Azure depolama statik Web siteleri ölçümleri ölçüm](./media/storage-blob-static-website/storage-blob-static-website-metrics-metric.png)
+
+Seçin **toplam** gelen *toplama* Seçici.
+
+![Azure depolama statik Web siteleri ölçümleri toplama](./media/storage-blob-static-website/storage-blob-static-website-metrics-aggregation.png)
+
+Ardından, **Filtre Ekle** düğmesini tıklatın ve seçin **API adı** gelen *özelliği* Seçici.
+
+![Azure depolama statik Web siteleri ölçümleri API adı](./media/storage-blob-static-website/storage-blob-static-website-metrics-api-name.png)
+
+Son olarak, yanındaki kutuyu işaretleyin **GetWebContent** içinde *değerleri* ölçümleri raporu doldurmak için Seçici.
+
+![Azure depolama statik Web siteleri ölçümleri GetWebContent](./media/storage-blob-static-website/storage-blob-static-website-metrics-getwebcontent.png)
+
+Biri etkinleştirildiğinde, trafiği istatistikleri dosyalarda *$web* kapsayıcı ölçümleri panosunda bildirdi.
+
 ## <a name="faq"></a>SSS
-**Statik Web siteleri için tüm depolama hesabı türleri kullanılabilir mi?**  
+
+**Statik Web siteleri özelliği, tüm depolama hesap türleri için kullanılabilir mi?**  
 Hayır, statik Web sitesi barındırma, yalnızca GPv2 standart depolama hesaplarında kullanılabilir.
 
 **Depolama VNET ve yeni web uç noktada desteklenen güvenlik duvarı kuralları?**  
 Evet, yeni web uç noktası, depolama hesabı için yapılandırılmış sanal ağ ve güvenlik duvarı kuralları ilişkiden.
 
-**Web uç noktası, büyük küçük harfe duyarlı mi?**  
-Evet, web uç noktası yalnızca blob uç noktası gibi büyük küçük harfe duyarlı. 
+**Web uç noktası, büyük/küçük harf duyarlıdır?**  
+Evet, web uç noktası yalnızca blob uç noktası gibi büyük küçük harfe duyarlıdır. 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * [HTTP'ler üzerinden özel etki alanlarıyla bloblara erişmek için Azure CDN'yi kullanma](storage-https-custom-domain-cdn.md)
 * [Blob veya web uç noktanız için özel etki alanı adı yapılandırma](storage-custom-domain-name.md)
 * [Azure İşlevleri](/azure/azure-functions/functions-overview)
 * [Azure Web Apps](/azure/app-service/app-service-web-overview)
-* [İlk sunucusuz web uygulamanızı oluşturun](https://aka.ms/static-serverless-webapp)
+* [İlk sunucusuz web uygulamanızı oluşturun](https://docs.microsoft.com/azure/functions/tutorial-static-website-serverless-api-with-database)
+* [Öğretici: etki alanınızı Azure DNS'e ana bilgisayar](../../dns/dns-delegate-domain-azure-dns.md)

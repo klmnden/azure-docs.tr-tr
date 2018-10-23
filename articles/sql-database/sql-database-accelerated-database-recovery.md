@@ -11,12 +11,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 10/11/2018
-ms.openlocfilehash: ad9ef7aa56cde9dd2ae644b97570b3bcfb727516
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: 49ef31996cb9c55ed244202a85e123faf52fbd2a
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49355560"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49649797"
 ---
 # <a name="accelerated-database-recovery-preview"></a>Hızlandırılmış veritabanı kurtarma (Önizleme)
 
@@ -108,7 +108,7 @@ ADR dört anahtar bileşenleri şunlardır:
   sLog depoları (örneğin, meta veri önbellek geçersiz kılma, kilit alımları ve benzeri) sürüm bilgisi olmayan işlemler için kayıtları oturum ikincil bellek içi günlük bir akıştır. SLog aşağıdaki gibidir:
 
   - Düşük hacim ve bellek içi
-  - Diskte kalıcı olarak bırakıldı denetim noktası işlemi sırasında seri
+  - Denetim noktası işlemi sırasında serileştirilmekte olan tarafından diskte kalıcı olur
   - Düzenli aralıklarla işlem işleme kesildi
   - Hızlandırır Yinele ve yalnızca sürüm bilgisi olmayan işlemler işleyerek almayı geri al  
   - Yalnızca gerekli günlük kayıtlarını koruma tarafından agresif işlem günlüğünün kesilmesi sağlar.
@@ -127,4 +127,4 @@ Müşteriler aşağıdaki türde ADR etkinleştirme dikkate almanız gerekir:
 
 ## <a name="to-enable-adr-during-this-preview-period"></a>Bu önizleme dönemi boyunca ADR etkinleştirmek için
 
-Bu özellik Önizleme dönemi boyunca, bir e-posta Gönder [ mailto:adr@microsoft.com ](mailto:adr@microsoft.com) daha fazla bilgi edinin ve hızlandırılmış veritabanı kurtarma (ADR) kullanıma deneyin. E-postada, mantıksal sunucunuzun adını (için tek veritabanları, elastik havuzlar ve Azure veri ambarı) içerir. Bu bir önizleme özelliği olduğundan, test sunucunuzun bir üretim dışı sunucusu olmalıdır.
+Bu özellik Önizleme dönemi boyunca, bir e-posta Gönder [ adr@microsoft.com ](mailto:adr@microsoft.com) daha fazla bilgi edinin ve hızlandırılmış veritabanı kurtarma (ADR) kullanıma deneyin. E-postada, mantıksal sunucunuzun adını (için tek veritabanları, elastik havuzlar ve Azure veri ambarı) içerir. Bu bir önizleme özelliği olduğundan, test sunucunuzun bir üretim dışı sunucusu olmalıdır.

@@ -9,12 +9,12 @@ ms.author: xshi
 ms.date: 09/24/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 768ff899ca2c71cb32fe29bdd5d58654d8f7d431
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: ab4dd1186715fde51fbf188ace902c8092d192d0
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49394757"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49647196"
 ---
 # <a name="use-visual-studio-2017-to-develop-and-debug-c-modules-for-azure-iot-edge-preview"></a>Geliştirmek ve Azure IOT Edge (Önizleme) için C# modülleri hata ayıklamak için Visual Studio 2017 kullanın
 
@@ -36,7 +36,7 @@ Bu makalede ana geliştirme aracı olarak Visual Studio 2017 kullandığından, 
 
 Visual Studio 2017 hazır olduktan sonra ayrıca gerekir:
 
-- İndirme ve yükleme [Azure IOT Edge uzantısını](https://marketplace.visualstudio.com/items?itemName=vsc-iot.azureiotedgetools) IOT Edge oluşturmak için Visual Studio Market'ten Visual Studio 2017'de proje.
+- İndirme ve yükleme [Azure IOT Edge uzantısını](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools) IOT Edge oluşturmak için Visual Studio Market'ten Visual Studio 2017'de proje.
 - [Docker Community Edition](https://docs.docker.com/install/) geliştirme makinenizde derlemek ve çalıştırmak, modül görüntüleri için. Linux kapsayıcı modunda veya Windows kapsayıcı modunda çalışan Docker CE düzgün şekilde ayarlamanız gerekir.
 - Hata ayıklama, çalıştırma ve IOT Edge çözümünüzü yerel geliştirme ortamını ayarlamak için ihtiyacınız [Azure IOT EdgeHub geliştirme aracı](https://pypi.org/project/iotedgehubdev/). Yükleme [(2.7/3.6) Python ve Pip](https://www.python.org/). Yüklemeyi **iotedgehubdev** aşağıdaki komutu, terminalde çalıştırarak. Azure IOT EdgeHub geliştirme aracı sürümünüz 0.3.0 büyük olduğundan emin olun.
 

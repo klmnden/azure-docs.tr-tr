@@ -7,12 +7,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 09/24/2018
 ms.author: iainfou
-ms.openlocfilehash: f04b4015e201d272fa624b1de265792564ac14cd
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 140d663524696f19844fea8906b181f468b7d157
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47048388"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49647023"
 ---
 # <a name="use-azure-container-registry-as-a-helm-repository-for-your-application-charts"></a>Azure Container Registry, uygulama grafikleri için bir Helm deposu olarak kullanma
 
@@ -30,7 +30,7 @@ Bu makalede Azure Container Registry'de depolanan bir Helm grafiği deposu kulla
 Bu makaledeki adımları tamamlamak için aşağıdaki ön koşullar karşılanmalıdır:
 
 - **Azure Container Registry** -Azure aboneliğinizde bir kapsayıcı kayıt defteri oluşturun. Örneğin, [Azure portalında](container-registry-get-started-portal.md) veya [Azure CLI](container-registry-get-started-azure-cli.md).
-- **Helm istemci** aramak ve grafikleri yükleyin. Ayrıca bir Kubernetes kümesi içinde başlatılan bir Helm sunucusu (Tiller) gerekir. Gerekirse, [Azure Kubernetes Service kümesi oluşturma][aks-quickstart]. Yükleme ve Helm kullanma hakkında daha fazla bilgi için bkz. [yükleme Helm][helm-install].
+- **Helm istemci sürümü 2.11.0 (RC bir sürüm değil) veya üzeri** - çalışma `helm version` geçerli sürümünüzü bulmak için. Ayrıca bir Kubernetes kümesi içinde başlatılan bir Helm sunucusu (Tiller) gerekir. Gerekirse, [Azure Kubernetes Service kümesi oluşturma][aks-quickstart]. Yükleme ve Helm yükseltme hakkında daha fazla bilgi için bkz. [yükleme Helm][helm-install].
 - **Azure CLI Sürüm 2.0.46 veya üzeri** - çalışma `az --version` sürümü bulmak için. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI yükleme][azure-cli-install].
 
 ## <a name="add-a-repository-to-helm-client"></a>Helm istemciye bir depo Ekle

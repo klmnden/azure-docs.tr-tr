@@ -7,16 +7,16 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.topic: conceptual
 ms.date: 10/15/2018
-ms.openlocfilehash: cbb19ab831e242a48532bedef37157455c9fb583
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 8cfa6493a565a8ed3b059e1da752da5115d0731d
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49431761"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49649865"
 ---
 # <a name="improve-performance-of-apache-spark-workloads-using-azure-hdinsight-io-cache-preview"></a>Azure HDInsight GÇ Cache (Önizleme) kullanarak Apache Spark iş yüklerinin performansı
 
-GÇ, verileri önbelleğe alma hizmeti için Azure HDInsight, Apache Spark işlerinin performansı artıran önbelleğidir. GÇ önbelleği RubiX adlı açık kaynak bir önbelleğe alma bileşen kullanır. RubiX, verilere bulut depolama sistemlerinde büyük veri analiz altyapıları ile kullanmak için yerel disk önbellektir. RubiX sistemleri, önbelleğe alma arasında benzersiz olduğundan Solid-State sürücüleri (SSD) yerine işletim bellek ayırma amacıyla önbelleğe almak için kullanır. GÇ önbellek hizmeti başlatır ve kümenin her çalışan düğümüne RubiX meta verileri sunucularını yönetir. Ayrıca, kümenin tüm hizmetleri RubiX önbelleğin saydam kullanım için yapılandırır.
+GÇ, verileri önbelleğe alma hizmeti için Azure HDInsight, Apache Spark işlerinin performansı artıran önbelleğidir. GÇ önbellek, Spark kümeleri üzerinde çalışabilen Tez ve Hive iş yükleri ile de çalışır. GÇ önbelleği RubiX adlı açık kaynak bir önbelleğe alma bileşen kullanır. RubiX, verilere bulut depolama sistemlerinde büyük veri analiz altyapıları ile kullanmak için yerel disk önbellektir. RubiX sistemleri, önbelleğe alma arasında benzersiz olduğundan Solid-State sürücüleri (SSD) yerine işletim bellek ayırma amacıyla önbelleğe almak için kullanır. GÇ önbellek hizmeti başlatır ve kümenin her çalışan düğümüne RubiX meta verileri sunucularını yönetir. Ayrıca, kümenin tüm hizmetleri RubiX önbelleğin saydam kullanım için yapılandırır.
 
 Çoğu SSD'ler, bant genişliği saniye başına 1'den fazla GByte sağlar. İşletim sistemi bellek içi dosyası önbelleği tarafından tamamlanan bu bant genişliği, büyük veri işlem işleme altyapıları Apache Spark'ı yüklemek için yeterli bant genişliği sağlar. İşlem bellek seçeneği gibi yoğun bellek bağımlı görevlerini işlemek Apache Spark için kullanılabilir kalır. Bellek işletme özel kullanımda olan Apache Spark'ın en iyi kaynak kullanımını elde etmek sağlar.  
 
@@ -25,7 +25,7 @@ GÇ, verileri önbelleğe alma hizmeti için Azure HDInsight, Apache Spark işle
 
 ## <a name="benefits-of-azure-hdinsight-io-cache"></a>Azure HDInsight GÇ önbellek avantajları
 
-Önbelleğe alma, uzak bir bulut depolama alanından verileri okuma işleri için performans artışı sağlar.
+GÇ önbellek kullanarak Azure Blob depolamadan veri okuyan işleri için performans artışı sağlar.
 
 GÇ Cache kullanırken performans artışı görmek için Spark işleri herhangi bir değişiklik gerekmez. GÇ önbellek devre dışı bırakıldığında, bu Spark kod veri uzaktan Azure Blob depolama alanından okuduğunuz: `spark.read.load('wasbs:///myfolder/data.parquet').count()`. GÇ önbellek etkinleştirildiğinde, aynı kod satırının önbelleğe alınmış bir GÇ Önbellek Okuma neden olur. Üzerinde aşağıdaki gerçekleştirilen okuma, verileri yerel olarak SSD okuyun. HDInsight kümesi üzerinde çalışan düğümleri ile yerel olarak bağlı, özel SSD sürücülerine bulunur. HDInsight GÇ önbellek bu yerel SSD önbelleğe almak için en düşük düzeyde gecikme süresi sağlar ve bant genişliğini en üst düzeye çıkarır kullanır.
 
@@ -46,7 +46,7 @@ Azure HDInsight GÇ önbellek Önizleme'de varsayılan olarak devre dışı bır
 1. Etkilenen tüm hizmetlerin kümede yeniden onaylayın.
 
 >[!NOTE] 
-> Etkin ilerleme çubuğu gösterir olsa da, hizmet yeniden başlatılana kadar g/ç önbellek gerçekten etkin değil.
+> Etkin ilerleme çubuğu gösterir olsa da, etkilenen hizmetleri yeniden başlatılana kadar g/ç önbellek gerçekten etkin değil.
 
 ## <a name="troubleshooting"></a>Sorun giderme
   
@@ -75,3 +75,7 @@ GÇ önbelleğini etkinleştirdikten sonra Spark işleri çalıştırma disk ala
 1. Seçin **yeniden başlatmayı Onayla tüm**.
 
 Bu işe yaramazsa, g/ç önbellek devre dışı bırakın.
+
+## <a name="next-steps"></a>Sonraki Adımlar
+
+- Bu blog gönderisinde performans kıyaslamaları dahil olmak üzere, g/ç önbellek hakkında daha fazla bilgi: [Apache Spark işleri HDInsight GÇ Cache ile en fazla 9 x hızlandırmak elde edin](https://azure.microsoft.com/en-us/blog/apache-spark-speedup-with-hdinsight-io-cache/)

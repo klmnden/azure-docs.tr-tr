@@ -1,6 +1,7 @@
 ---
 title: Azure robot hizmeti - soru-cevap Oluşturucu ile soru-cevap Robotu
 titleSuffix: Azure Cognitive Services
+description: Bu öğretici Azure portalında Azure Bot hizmeti v3 ile soru-cevap bot oluşturma sürecinde kılavuzluk eder.
 services: cognitive-services
 author: tulasim88
 manager: cgronlun
@@ -9,12 +10,12 @@ ms.component: qna-maker
 ms.topic: article
 ms.date: 09/12/2018
 ms.author: tulasim
-ms.openlocfilehash: 74c7bc5c601cd36a8dd2454506745406bc00dac0
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 30400b04ec08d936242b022f10cf1485e009e6d2
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47031297"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49647332"
 ---
 # <a name="create-a-qna-bot-with-azure-bot-service-v3"></a>Azure ile soru-cevap Robotu oluşturun Bot hizmeti v3
 Bu öğretici Azure portalında Azure Bot hizmeti v3 ile soru-cevap bot oluşturma sürecinde kılavuzluk eder.

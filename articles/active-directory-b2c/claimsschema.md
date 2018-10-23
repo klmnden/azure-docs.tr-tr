@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 6c41890922e2235190d8844a573522846b42c779
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 92328ffd8b6dbbb2be82bc70352e19f3097eb2a7
+ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47434509"
+ms.lasthandoff: 10/22/2018
+ms.locfileid: "49637740"
 ---
 # <a name="claimsschema"></a>ClaimsSchema
 
@@ -50,7 +50,7 @@ ms.locfileid: "47434509"
 
 | Öğe | Oluşumlar | Açıklama |
 | ------- | ----------- | ----------- |
-| DisplayName | 0:1 | Çeşitli ekranında kullanıcılara görüntülenen başlığı. Değer olabilir [yerelleştirilmiş](localization.md). |
+| displayName | 0:1 | Çeşitli ekranında kullanıcılara görüntülenen başlığı. Değer olabilir [yerelleştirilmiş](localization.md). |
 | DataType | 0:1 | Talep türü. Veri türlerini boolean, tarih, dateTime, int, long, dize stringCollection, alternativeSecurityIdCollection kullanılabilir. |
 | DefaultPartnerClaimTypes | 0:1 | İş ortağı varsayılan talep türleri için belirtilen bir protokol kullanın. Değer, geçersiz kılınabilir **PartnerClaimType** belirtilen **Inputclaim** veya **OutputClaim** öğeleri. Bu öğe, bir protokol için varsayılan adı belirtmek için kullanın.  |
 | Maske | 0:1 | Talep görüntülenirken uygulanabilir karakter maskeleme isteğe bağlı bir dize. Örneğin, telefon numarası 324-232-4343 XXX-XXX-4343 maskelenmiş olamaz. |
@@ -88,7 +88,7 @@ Aşağıdaki örnekte olduğu saml2 tabanlı kimlik sağlayıcısı veya bağlı
 </ClaimType>
 ```
 
-Sonuç olarak, Azure AD B2C tarafından verilen JWT belirteci atlar `family_name` ClaimType adı yerine **Soyadı**.
+Sonuç olarak, Azure AD B2C tarafından verilen JWT belirteci yayan `family_name` ClaimType adı yerine **Soyadı**.
  
 ```JSON
 {

@@ -8,14 +8,14 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 10/10/2018
+ms.date: 10/19/2018
 ms.author: diberry
-ms.openlocfilehash: b5433ea0a92635b5bf9c2a4887451f1e64ec62e6
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: db8fc0b6926930521f11285dc56c886c10c42fc2
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49067780"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49649321"
 ---
 # <a name="language-understanding-faq"></a>Language Understanding hakkında SSS
 
@@ -157,11 +157,9 @@ Tahmin analizi için günlüğünüzü kullanıyorsanız, test konuşma oturum y
 * Konuşma içinde LUIS önerir kullanıcı konuşma listesinden silebilirsiniz **gözden geçirin, konuşma uç noktası** sayfası. Konuşma bu listeden silme önerilmesini engelliyor, ancak bunları günlüklerinden silmez.
 * Bir hesabı silerseniz, tüm uygulamalar, kendi örnek konuşma ve günlükleri birlikte silinir. Veriler kalıcı olarak silinmeden önce 60 gün boyunca sunucularda tutulur.
 
-### <a name="does-microsoft-access-my-luis-app-data-for-its-own-purposes-for-example-to-enhance-luis-or-microsoft-in-general"></a>Microsoft LUIS uygulaması verilerimi kendi amaçları için örneğin, genel LUIS veya Microsoft geliştirmek için erişir?
+### <a name="how-does-microsoft-manage-data-i-send-to-luis"></a>Microsoft, LUIS için gönderebilirim verileri nasıl yönetir?
 
-Hayır. LUIS uygulamanın veri modelini bir platform olarak LUIS geliştirmek için LUIS tarafından kullanılmayan veya Microsoft tarafından herhangi bir yolla kullanılmıştır. Her uygulamanın ayrı ve yalnızca ortak çalışanlarla ve kullanıcı tarafından sahip olunan verilerdir.
-
-Daha fazla bilgi edinin [kullanıcı gizliliğini](luis-user-privacy.md), [ek güvenlik Uyumluluk](luis-concept-security.md#security-compliance), ve [veri depolama](luis-concept-data-storage.md).
+[Güven Merkezi](https://www.microsoft.com/trustcenter) sunduğumuz ve veri yönetimi ve erişimi Azure Hizmetleri için seçenekleri açıklar.
 
 ## <a name="language-and-translation-support"></a>Dil ve çeviri desteği
 

@@ -8,12 +8,12 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 10/02/2018
 ms.author: lyrana
-ms.openlocfilehash: ef7838c41bb479da273123c2eb3def8e12802390
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: dc5570b188bfdc0e1be78aa2bd5c5d92e884f377
+ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49351311"
+ms.lasthandoff: 10/22/2018
+ms.locfileid: "49638027"
 ---
 # <a name="connect-and-authenticate-to-apis"></a>Bağlanıp API'lerine kimlikleri
 
@@ -46,6 +46,7 @@ Dijital İkizlerini API'lerini kullanmaya başlamak için Postman gibi bir istem
 1. Gidin https://www.getpostman.com/ uygulamayı indirmek için
 1. Adımları [burada](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad) bir Azure Active Directory uygulaması oluşturmak için (veya mevcut bir kayıt yeniden kullanmayı da seçebilirsiniz). 
 1. "Azure dijital İkizlerini" altında gerekli izinleri Ekle ve temsilci izinleri seçin. İzinler sonlandırmak için tıklamayı unutmayın.
+1. Uygulama bildirimini açın ve oauth2AllowImplicitFlow true olarak ayarlayın.
 1. Bir yanıt URL'si için yapılandırma [ https://www.getpostman.com/oauth2/callback ](https://www.getpostman.com/oauth2/callback).
 1. Seçin **yetkilendirme sekmesini**, tıklayarak **OAuth 2.0**seçip **yeni erişim belirteci Al**.
 

@@ -1,6 +1,6 @@
 ---
-title: Linux çalıştıran bir sanal makinede LVM yapılandırma | Microsoft Docs
-description: Linux Azure üzerinde LVM yapılandırmayı öğrenin.
+title: Linux çalıştıran bir sanal makinede LVM'yi yapılandırma | Microsoft Docs
+description: Azure'da Linux üzerinde LVM'yi yapılandırma konusunda bilgi edinin.
 services: virtual-machines-linux
 documentationcenter: na
 author: szarkos
@@ -13,27 +13,27 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 02/02/2017
+ms.date: 09/27/2018
 ms.author: szark
-ms.openlocfilehash: 9a22426d0422585714cb78d541a84d55d2fce6e0
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 81ee7957c0b26440c064b7f39bc4cfb32b2abd15
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30912238"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49648352"
 ---
-# <a name="configure-lvm-on-a-linux-vm-in-azure"></a>Azure'da bir Linux VM LVM yapılandırın
-Bu belge, Azure sanal makinenizde mantıksal Birimi Yöneticisi (LVM) yapılandırmak nasıl ele alınacaktır. Sanal makineye bağlı bir diskte LVM yapılandırmak için uygun olsa da, varsayılan olarak işletim sistemi disk üzerinde yapılandırılmış LVM çoğu bulut görüntüleri sahip olmaz. Bu işletim sistemi diski şimdiye kadar aynı dağıtım ve türü, başka bir VM yani sırasında kurtarma senaryosunda bağlıysa, yinelenen birim grupları ile sorunları önlemek için yapılır. Bu nedenle yalnızca veri disklerde LVM kullanmak için önerilir.
+# <a name="configure-lvm-on-a-linux-vm-in-azure"></a>Azure'da Linux sanal makinesi üzerinde LVM'yi yapılandırma
+Bu belge, Azure sanal makineler'de mantıksal birim Yöneticisi (LVM) yapılandırma işlemi ele alınmaktadır. LVM'yi işletim sistemi diski veya veri diskleri Azure sanal makinelerinde kullanılabilir, ancak varsayılan olarak çoğu bulut görüntü işletim sistemi diskinde yapılandırılmış LVM olmaz. Aşağıdaki adımlar, veri diskleri için LVM'yi yapılandırma üzerinde odaklanır.
 
-## <a name="linear-vs-striped-logical-volumes"></a>Doğrusal şeritli mantıksal birimler karşılaştırması
-LVM fiziksel disk sayısını bir tek bir depolama birimine yerleştirilebilmesi birleştirmek için kullanılabilir. Varsayılan olarak LVM genellikle doğrusal mantıksal birimler, fiziksel depolama alanı birlikte birleştirilmiş yani oluşturur. Bu durumda okuma/yazma işlemleri genellikle yalnızca tek bir diske gönderilir. Buna karşılık, biz de okuma ve yazma işlemleri (yani RADI0 için benzer) birim grubu içinde yer alan birden fazla diske dağıtıldığı şeritli mantıksal birimler oluşturabilirsiniz. Olası performans nedenleriyle böylece okuma ve yazma işlemleri tüm eklenen veri disklerini kullanan, mantıksal birimleri şeritler isteyeceksiniz.
+## <a name="linear-vs-striped-logical-volumes"></a>Şeritli mantıksal birimler ve doğrusal
+LVM'yi bir tek bir depolama birimine fiziksel disk sayısını birleştirmek için kullanılabilir. Varsayılan olarak LVM genellikle doğrusal mantıksal birimler, yani fiziksel depolama alanı birleştirilmesinden oluşturacaksınız. Bu durumda okuma/yazma işlemleri genellikle yalnızca tek bir diske gönderilir. Buna karşılık, okuma ve yazma işlemleri (RADI0 için benzer) birim grubu içindeki birden fazla diske dağıtıldığı şeritli mantıksal birimleri de oluşturabiliriz. Performansla ilgili nedenlerden dolayı böylece tüm bağlı veri diskleri okuma ve yazma işlemleri kullanmak, mantıksal birimleri stripe istediğiniz olasıdır.
 
-Bu belge, tek bir birimde grubuna birkaç veri diski birleştirmek ve şeritli mantıksal birim oluşturmak nasıl anlatmaktadır. Çoğu dağıtımları ile çalışmak için aşağıdaki adımları biraz genelleştirilmiş. Çoğu durumda, Azure üzerinde LVM yönetmek için iş akışları ve yardımcı programları diğer ortamlara temelde farklı değildir. Her zamanki gibi ayrıca Linux satıcınıza için lütfen belgeleri ve LVM belirli dağıtımınız ile kullanmak için en iyi uygulamalar danışın.
+Bu belge, bir tek birim grupta birkaç veri diskleri birleştiren ve Bölüştürülmüş bir mantıksal birim oluşturmak nasıl anlatmaktadır. Aşağıdaki adımlar, çoğu dağıtımları ile çalışmak için genelleştirilmiş. Çoğu durumda, azure'da LVM yönetmek için iş akışları ve yardımcı programlar diğer ortamlara tamamen farklı değildir. Her zamanki şekilde belgeleri ve LVM, belirli bir dağıtım ile kullanmak için en iyi uygulamalar için ayrıca Linux satıcınıza başvurun.
 
-## <a name="attaching-data-disks"></a>Veri diskleri ekleme
-Bir genellikle iki veya daha fazla boş veri disklerle LVM kullanırken başlamak isteyeceksiniz. G/ç gereksinimlerinize bağlı olarak, en fazla 500 GÇ/ps disk veya bizim Premium storage başına disk başına en fazla 5000 GÇ/ps ile bizim standart depolamada depolanan diskleri ekleme seçebilirsiniz. Bu makalede ayrıntıya sağlamak ve veri diskleri için Linux sanal makine ekleme konusunda geçer değil. Lütfen Microsoft Azure makalesine bakın [bir diski kullanıma açın](add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) Azure Linux sanal makinede boş veri diski ekleme konusunda ayrıntılı yönergeler için.
+## <a name="attaching-data-disks"></a>Veri diski ekleme
+Bir genellikle iki veya daha fazla boş veri diskleri ile LVM kullanırken başlamak isteyeceksiniz. GÇ gereksinimlerinize bağlı olarak, 500'e kadar GÇ/ps her disk veya Premium depolama disk başına en fazla 5000 GÇ/ps ile ile standart depolama içinde depolanan diski seçebilirsiniz. Bu makalede ayrıntıya sağlamak ve bir Linux sanal makinesine veri diski nasıl geçer değil. Microsoft Azure makaleye göz atın [bir diski](add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) azure'da Linux sanal makinesi için bir boş veri diski ekleme konusunda ayrıntılı yönergeler için.
 
-## <a name="install-the-lvm-utilities"></a>LVM yardımcı programlarını yükleyin
+## <a name="install-the-lvm-utilities"></a>LVM'yi yardımcı programlarını yükleyin
 * **Ubuntu**
 
     ```bash  
@@ -41,7 +41,7 @@ Bir genellikle iki veya daha fazla boş veri disklerle LVM kullanırken başlama
     sudo apt-get install lvm2
     ```
 
-* **RHEL, CentOS & Oracle Linux**
+* **RHEL, CentOS ve Oracle Linux**
 
     ```bash   
     sudo yum install lvm2
@@ -59,14 +59,14 @@ Bir genellikle iki veya daha fazla boş veri disklerle LVM kullanırken başlama
     sudo zypper install lvm2
     ```
 
-    Ayrıca düzenlemelisiniz üzerinde SLES11 `/etc/sysconfig/lvm` ve `LVM_ACTIVATED_ON_DISCOVERED` "etkinleştirmek için":
+    Ayrıca düzenlemelisiniz SLES11 üzerinde `/etc/sysconfig/lvm` ayarlayıp `LVM_ACTIVATED_ON_DISCOVERED` "etkinleştirmek için":
 
     ```sh   
     LVM_ACTIVATED_ON_DISCOVERED="enable" 
     ```
 
 ## <a name="configure-lvm"></a>LVM'yi yapılandırma
-Bu kılavuzda olarak adlandırılan üç veri diskleri ekli varsayacağız `/dev/sdc`, `/dev/sdd` ve `/dev/sde`. Bunlar her zaman aynı yol adları, VM'deki olabileceğini unutmayın. Çalıştırabilirsiniz '`sudo fdisk -l`' ya da kullanılabilir disklerinizi listelemek için benzer komutu.
+Bu kılavuzda bağlı, biz olarak başvuracağınız üç veri diskleri varsayacağız `/dev/sdc`, `/dev/sdd` ve `/dev/sde`. Bu yollar sanal disk yolu adları eşleşmiyor olabilir. Çalıştırabileceğiniz '`sudo fdisk -l`' veya kullanılabilir disklerinizi listelemek için benzer komutu.
 
 1. Fiziksel birimler hazırlayın:
 
@@ -77,32 +77,32 @@ Bu kılavuzda olarak adlandırılan üç veri diskleri ekli varsayacağız `/dev
     Physical volume "/dev/sde" successfully created
     ```
 
-2. Bir birim grubu oluşturun. Bu örnekte, biz birim grubu aradığınız `data-vg01`:
+2. Bir birim grubu oluşturun. Bu örnekte biz birim grubu aradığınız `data-vg01`:
 
     ```bash    
     sudo vgcreate data-vg01 /dev/sd[cde]
     Volume group "data-vg01" successfully created
     ```
 
-3. Mantıksal birim oluşturun. Biz aşağıdaki komutunu adlı tek bir mantıksal birim oluşturacak `data-lv01` tüm birim grubu span, ancak bunu da birim grubunda birden çok mantıksal birim oluşturmak için uygun olduğunu unutmayın.
+3. Mantıksal birim oluşturun. Biz aşağıdaki komutta adlı tek bir mantıksal birim oluşturur `data-lv01` birimin tamamını grubu span, ancak bunu Ayrıca toplu grubunda birden çok mantıksal birim oluşturmak için uygun olduğunu unutmayın.
 
     ```bash   
     sudo lvcreate --extents 100%FREE --stripes 3 --name data-lv01 data-vg01
     Logical volume "data-lv01" created.
     ```
 
-4. Mantıksal birimi biçimlendirme
+4. Mantıksal birimi biçimlendirin
 
     ```bash  
     sudo mkfs -t ext4 /dev/data-vg01/data-lv01
     ```
    
    > [!NOTE]
-   > SLES11 kullanımıyla `-t ext3` ext4 yerine. SLES11 yalnızca ext4 bağlanan dosya sistemlerinin salt okunur erişimi de destekler.
+   > SLES11 kullanımıyla `-t ext3` ext4 yerine. SLES11 yalnızca ext4 dosya sistemleri için yalnızca okuma erişimi destekler.
 
 ## <a name="add-the-new-file-system-to-etcfstab"></a>Yeni dosya sistemi için /etc/fstab Ekle
 > [!IMPORTANT]
-> Yanlış bir şekilde düzenleyerek `/etc/fstab` dosya önyüklenemez bir sisteme neden. Emin değilseniz, Lütfen doğru bu dosyayı düzenlemek hakkında bilgi için dağıtım 's belgelerine bakın. Ayrıca bir yedeğini önerilen `/etc/fstab` dosyasını düzenlemeden önce oluşturulur.
+> Yanlış düzenleme `/etc/fstab` dosya yapılamamasına bir sistemde neden olabilir. Emin değilseniz, düzgün bir şekilde bu dosya düzenleme hakkında daha fazla bilgi için ait dağıtım belgelerine bakın. Ayrıca, önerilen bir yedeğini `/etc/fstab` dosyasını düzenlemeden önce oluşturulur.
 
 1. Örneğin, yeni bir dosya sistemi için istenen bağlama noktası oluşturun:
 
@@ -110,7 +110,7 @@ Bu kılavuzda olarak adlandırılan üç veri diskleri ekli varsayacağız `/dev
     sudo mkdir /data
     ```
 
-2. Mantıksal birim yolunu bulun
+2. Mantıksal birimi yolu bulun
 
     ```bash    
     lvdisplay
@@ -119,22 +119,22 @@ Bu kılavuzda olarak adlandırılan üç veri diskleri ekli varsayacağız `/dev
     ....
     ```
 
-3. Açık `/etc/fstab` bir metin düzenleyicisinde ve örneğin yeni dosya sistemi için bir giriş ekleyin:
+3. Açık `/etc/fstab` bir metin düzenleyicisinde ve örneğin yeni bir dosya sistemi için bir giriş ekleyin:
 
     ```bash    
     /dev/data-vg01/data-lv01  /data  ext4  defaults  0  2
     ```   
-    Ardından, Kaydet ve Kapat `/etc/fstab`.
+    Ardından, kaydedin ve kapatın `/etc/fstab`.
 
-4. Test `/etc/fstab` giriştir doğru:
+4. Test `/etc/fstab` girdidir doğru:
 
     ```bash    
     sudo mount -a
     ```
 
-    Bu komutu bir hata iletisi sonuçlanırsa Lütfen sözdizimi iade `/etc/fstab` dosya.
+    Bu komut bir hata iletisi sonuçlanırsa sözdizimi iade `/etc/fstab` dosya.
    
-    Sonraki çalıştırma `mount` komutu dosya sistemi takılı emin olun:
+    Sonraki çalıştırma `mount` dosya sistemi monte emin olmak için komut:
 
     ```bash    
     mount
@@ -142,9 +142,9 @@ Bu kılavuzda olarak adlandırılan üç veri diskleri ekli varsayacağız `/dev
     /dev/mapper/data--vg01-data--lv01 on /data type ext4 (rw)
     ```
 
-5. (İsteğe bağlı) Hatasız önyükleme parametrelerinde `/etc/fstab`
+5. (İsteğe bağlı) Hatasız önyükleme parametreleri `/etc/fstab`
    
-    Çoğu dağıtımda ya da dahil `nobootwait` veya `nofail` bağlama eklenebilir parametreleri `/etc/fstab` dosya. Bu parametreler belirli dosya sistemi bağlanması gerektiğinde hataları için izin ve Linux sistemin düzgün RAID dosya sistemi bağlama alamıyor olsa bile önyüklemeye devam etmesini izin ver. Lütfen bu parametreleri hakkında daha fazla bilgi için dağıtım 's belgelerine bakın.
+    Çoğu dağıtımda ya da dahil `nobootwait` veya `nofail` bağlama eklenebilir parametreleri `/etc/fstab` dosya. Bu parametreleri hataları için belirli bir dosya sistemi bağlarken ve düzgün şekilde RAID dosya sistemi monte etmesini yüklenemiyor olsa bile önyüklenecek şekilde devam etmek Linux sistem verin. Bu parametreler hakkında daha fazla bilgi için dağıtımınıza ait belgelere bakın.
    
     Örnek (Ubuntu):
 
@@ -152,10 +152,10 @@ Bu kılavuzda olarak adlandırılan üç veri diskleri ekli varsayacağız `/dev
     /dev/data-vg01/data-lv01  /data  ext4  defaults,nobootwait  0  2
     ```
 
-## <a name="trimunmap-support"></a>KIRPMA/UNMAP desteği
-Bazı Linux tekrar disk üzerindeki kullanılmayan blokları atmak için KIRPMA/UNMAP işlemleri desteklemez. Bu işlemler sayfaları silinmiş Azure artık geçerli değil ve iptal edilecek bildirmek için standart depolama öncelikle faydalıdır. Büyük dosyaları oluşturmak ve bunları silerseniz sayfaları atılıyor maliyet kaydedebilirsiniz.
+## <a name="trimunmap-support"></a>TRIM/UNMAP desteği
+Bazı Linux çekirdeklerinin diskte kullanılmayan blokları atmak TRIM/UNMAP işlemleri destekler. Bu işlemler sayfaları silinmiş Azure artık geçerli değil ve atılabilir bilgilendirmek için standart depolama alanında birincil yararlıdır. Büyük dosyaları oluşturup ardından bunları silerseniz sayfaları atılıyor maliyetinden tasarruf ettirebilir.
 
-KIRPMA etkinleştirmenin iki yolu desteği, Linux VM'NİZDE vardır. Her zamanki gibi dağıtımınız için önerilen yaklaşım bakın:
+TRIM etkinleştirmek için iki şekilde destek Linux VM'nize vardır. Her zamanki şekilde dağıtımınız için önerilen yaklaşım bakın:
 
 - Kullanım `discard` bağlama seçeneği `/etc/fstab`, örneğin:
 
@@ -163,7 +163,7 @@ KIRPMA etkinleştirmenin iki yolu desteği, Linux VM'NİZDE vardır. Her zamanki
     /dev/data-vg01/data-lv01  /data  ext4  defaults,discard  0  2
     ```
 
-- Bazı durumlarda `discard` seçeneği performans etkileri olabilir. Alternatif olarak, çalıştırabilirsiniz `fstrim` komutunu el ile komut satırından veya düzenli olarak çalışacak şekilde crontab için ekleyin:
+- Bazı durumlarda `discard` seçeneği performans etkileri olabilir. Alternatif olarak, çalıştırabileceğiniz `fstrim` komutunu el ile komut satırından veya düzenli olarak çalıştırmak için crontab ekleyin:
 
     **Ubuntu**
 
