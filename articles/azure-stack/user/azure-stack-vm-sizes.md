@@ -5,21 +5,20 @@ services: azure-stack
 documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: ''
-ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2018
+ms.date: 10/22/2018
 ms.author: mabrigg
-ms.openlocfilehash: 74d521f1890f8ff6567802c1a16f4169dbf4a53f
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.reviewer: kivenkat
+ms.openlocfilehash: dc9e1b3fb59aca8fba0c84fbfa674931c24c12c9
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42057734"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49945901"
 ---
 # <a name="virtual-machine-sizes-supported-in-azure-stack"></a>Azure Stack'te desteklenen sanal makine boyutları
 
@@ -29,7 +28,7 @@ Bu makalede, Azure Stack'te kullanılabilir sanal makine (VM) boyutları listele
 
 ## <a name="general-purpose"></a>Genel amaçlı
 
-Dengeli CPU / bellek oranı genel amaçlı sanal makine boyutları sağlar. Test ve geliştirme, küçük ve orta büyüklükte veri tabanları ve düşük, orta düzey trafiğe sahip web sunucuları için kullanılırlar.
+Dengeli CPU / bellek oranı genel amaçlı bir VM boyutları sunar. Test ve geliştirme, küçük ve orta büyüklükte veri tabanları ve düşük, orta düzey trafiğe sahip web sunucuları için kullanılırlar.
 
 ### <a name="basic-a"></a>Temel A
 |Boyutu - boyut\ad |Sanal işlemci     |Bellek | En fazla geçici disk boyutu | En yüksek işletim sistemi disk aktarım hızı: (IOPS) | Maksimum geçici depolama aktarım hızı (IOPS) | Maksimum veri diski aktarım hızı (IOPS) | En fazla NIC |    
@@ -126,7 +125,7 @@ Dengeli CPU / bellek oranı genel amaçlı sanal makine boyutları sağlar. Test
 |**Standard_F16s** |16  |32  |64  |1000 |64000 |64 / 64 x 2300 |8 / 6000 12000  |
 
 
-### <a name="fsv2-series"></a>Fsv2 serisi
+### <a name="fsv2-series"></a>Fsv2-serisi
 *Azure Stack 1804 veya sonraki bir sürümü gerektirir* 
 
 |Boyut     |Sanal işlemci     |Bellek (GiB) | Geçici depolama alanı (GiB)  | En yüksek işletim sistemi disk aktarım hızı (IOPS) | Maksimum geçici depolama aktarım hızı (IOPS) | Maksimum veri diski / aktarım hızı (IOPS) | Maks NIC / beklenen ağ bant genişliği (MB/sn) |

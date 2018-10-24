@@ -16,14 +16,15 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/26/2018
 ms.author: sedusch
-ms.openlocfilehash: 9208f2cb207daff2b122550fede48a8dda11d1db
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 8a552356163e9c585ce9fea18e8cd5208c26a8be
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47407935"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49956366"
 ---
 # <a name="azure-virtual-machines-deployment-for-sap-netweaver"></a>Azure sanal makineler dağıtım için SAP NetWeaver
+
 [767598]:https://launchpad.support.sap.com/#/notes/767598
 [773830]:https://launchpad.support.sap.com/#/notes/773830
 [826037]:https://launchpad.support.sap.com/#/notes/826037
@@ -317,18 +318,23 @@ Azure sanal makineler, en az sürede ve uzun tedarik döngüleri olmadan işlem 
 Bu makalede, azure'da, diğer dağıtım seçenekleri dahil olmak üzere ve sorun giderme sanal makineleri (VM'ler) SAP uygulamaları dağıtma adımları ele. Bu makalede yer alan bilgiler geliştirir [planlama Azure sanal makineleri ve SAP NetWeaver uygulamasını][planning-guide]. Ayrıca SAP yükleme belgelerine ve yükleme ve SAP yazılım dağıtmak için birincil kaynaklardır SAP notları tamamlar.
 
 ## <a name="prerequisites"></a>Önkoşullar
+
 Bir Azure sanal makinesi için SAP yazılım dağıtımı ayarlama adımları ve kaynakları birden çok içerir. Başlamadan önce Azure sanal makinelerinde SAP yazılım yüklemeye yönelik önkoşulları karşıladığından emin olun.
 
 ### <a name="local-computer"></a>Yerel bilgisayar
+
 Windows veya Linux sanal makineleri yönetmek için bir PowerShell Betiği ve Azure portalını kullanabilirsiniz. Her iki araç için Windows 7 veya sonraki bir Windows sürümü çalıştıran yerel bir bilgisayar gerekir. Yalnızca Linux Vm'leri yönetmek istediğiniz ve bu görev için bir Linux bilgisayar kullanmak istiyorsanız, Azure CLI'yı kullanabilirsiniz.
 
 ### <a name="internet-connection"></a>Internet bağlantısı
+
 İndirmek ve SAP yazılım dağıtımı için gerekli olan betikleri ve araçları çalıştırmak için Internet'e bağlı gerekir. Azure Gelişmiş izleme uzantısı için SAP çalıştıran Azure VM'nin de Internet erişimi gerekir. Azure VM'de bir Azure sanal ağı veya şirket içi etki alanının parçasıysa, açıklandığı gibi ilgili proxy ayarlarının belirlendiğini emin [Proxy'yi yapılandırmak][deployment-guide-configure-proxy].
 
 ### <a name="microsoft-azure-subscription"></a>Microsoft Azure aboneliği
+
 Etkin bir Azure hesabınız olmalıdır.
 
 ### <a name="topology-and-networking"></a>Topoloji ve ağ
+
 Azure'da SAP dağıtımının mimarisini ve topolojisi tanımlayın yapmanız gerekir:
 
 * Kullanılacak azure depolama hesapları
@@ -342,6 +348,7 @@ Azure'da SAP dağıtımının mimarisini ve topolojisi tanımlayın yapmanız ge
 Oluşturun ve SAP yazılım dağıtım işlemi başlamadan önce Azure depolama hesapları (gerekliyse) veya Azure sanal ağları yapılandırın. Oluşturma ve bu kaynakları yapılandırma hakkında daha fazla bilgi için bkz. [planlama Azure sanal makineleri ve SAP NetWeaver uygulamasını][planning-guide].
 
 ### <a name="sap-sizing"></a>SAP boyutlandırma
+
 SAP boyutlandırma için aşağıdaki bilgileri bildirin:
 
 * SAP uygulama performans standart (SAP) yanı sıra SAP hızlı Boyutlandırıcı aracı'nı kullanarak öngörülen SAP iş yükü, örneğin, numara
@@ -351,11 +358,13 @@ SAP boyutlandırma için aşağıdaki bilgileri bildirin:
 * Şirket içi varlıklara ve Azure ile dağıtılmış SAP sistemini arasında gerekli ağ bant genişliği
 
 ### <a name="resource-groups"></a>Kaynak grupları
+
 Azure Resource Manager'da Azure aboneliğinizdeki tüm uygulama kaynaklarını yönetmek için kaynak gruplarını kullanabilirsiniz. Daha fazla bilgi için [Azure Resource Manager'a genel bakış][resource-group-overview].
 
 ## <a name="resources"></a>Kaynaklar
 
 ### <a name="42ee2bdb-1efc-4ec7-ab31-fe4c22769b94"></a>SAP kaynakları
+
 SAP yazılımı dağıtımınızı ayarlarken, aşağıdaki SAP kaynakları gerekir:
 
 * SAP notu [1928533], sahip olduğu:
@@ -380,6 +389,7 @@ SAP yazılımı dağıtımınızı ayarlarken, aşağıdaki SAP kaynakları gere
 * Parçası olan SAP özgü Azure CLI komutları [Azure CLI][azure-cli].
 
 ### <a name="42ee2bdb-1efc-4ec7-ab31-fe4c22769b94"></a>Windows kaynakları
+
 Bu Microsoft makaleler, azure'da SAP dağıtımları kapsar:
 
 * [Azure sanal makineleri planlama ve uygulama için SAP NetWeaver][planning-guide]
@@ -387,9 +397,11 @@ Bu Microsoft makaleler, azure'da SAP dağıtımları kapsar:
 * [Azure sanal makineleri DBMS dağıtım için SAP NetWeaver][dbms-guide]
 
 ## <a name="b3253ee3-d63b-4d74-a49b-185e76c4088e"></a>Azure vm'lerde SAP yazılım için dağıtım senaryoları
+
 Vm'leri ve ilişkili diskler azure'da dağıtmak için birçok seçeneğiniz vardır. Sanal makinelerinizin seçtiğiniz dağıtım türüne göre dağıtımına hazırlamak için farklı adımlar sürebilir çünkü dağıtım seçenekleri arasındaki farkları anlamak önemlidir.
 
 ### <a name="db477013-9060-4602-9ad4-b0316f8bb281"></a>Senaryo 1: SAP için Azure Market'ten bir VM dağıtma
+
 Sanal makinenizin dağıtılacağı bir üçüncü taraf Azure Marketi'nde veya Microsoft tarafından sağlanan bir görüntüyü kullanabilirsiniz. Market bazı standart bir işletim sistemi görüntüleri Windows Server ve Linux dağıtımları sunar. Veritabanı Yönetimi içeren bir görüntüyü de dağıtabilirsiniz, örneğin, Microsoft SQL Server sistemi (DBMS) SKU'ları. Görüntüleri DBMS SKU'ları ile kullanma hakkında daha fazla bilgi için bkz. [SAP NetWeaver için Azure sanal makineleri DBMS dağıtım][dbms-guide].
 
 Aşağıdaki akış çizelgesi, Azure Market'ten bir VM dağıtmak için adımları SAP özgü sırasını göstermektedir:
@@ -397,6 +409,7 @@ Aşağıdaki akış çizelgesi, Azure Market'ten bir VM dağıtmak için adımla
 ![VM dağıtımı için Azure Market'ten bir VM görüntüsü kullanarak SAP sistemlerini akış çizelgesi][deployment-guide-figure-100]
 
 #### <a name="create-a-virtual-machine-by-using-the-azure-portal"></a>Azure portalını kullanarak bir sanal makine oluşturun
+
 Azure Market'te bir görüntüden yeni bir sanal makine oluşturmak için en kolay yolu, Azure portalı kullanmaktır.
 
 1.  <https://portal.azure.com/#create/hub> kısmına gidin.  Veya, Azure portal menüsünde seçin **+ yeni**.
@@ -440,6 +453,7 @@ Sihirbaz, ek olarak sanal makine ağ arabirimleri ve depolama hesapları gibi t�
 Sanal makinenizi, seçili kaynak grubunda dağıtılmış.
 
 #### <a name="create-a-virtual-machine-by-using-a-template"></a>Bir şablonu kullanarak bir sanal makine oluşturma
+
 Yayımlanan SAP şablonlardan birini kullanarak bir sanal makine oluşturabilirsiniz [azure hızlı başlangıç şablonları GitHub deposunda][azure-quickstart-templates-github]. Ayrıca el ile bir sanal makine kullanarak oluşturabileceğiniz [Azure portalında][virtual-machines-windows-tutorial], [PowerShell][virtual-machines-ps-create-preconfigure-windows-resource-manager-vms], veya [AzureCLI] [virtual-machines-linux-tutorial].
 
 * [**İki katmanlı yapılandırma (yalnızca bir sanal makine) şablonu** (sap-2-katman-Pazar-görüntü)][sap-templates-2-tier-marketplace-image]
@@ -493,23 +507,29 @@ Azure portalında şablon için aşağıdaki parametreleri girin:
 Azure VM Aracısı, Azure Marketi'nden bir görüntü kullandığınızda varsayılan olarak dağıtılır.
 
 #### <a name="configure-proxy-settings"></a>Proxy ayarlarını yapılandırma
+
 Şirket içi ağınıza nasıl yapılandırıldığına bağlı olarak, VM'niz proxy ayarlamak gerekebilir. Sanal makinenize bağlı ise şirket içi ağınıza VPN veya ExpressRoute, bir VM aracılığıyla Internet erişimine sahip olmayabilir ve gerekli Uzantıları'nı indirin ve izleme verilerini toplamak mümkün olmayacaktır. Daha fazla bilgi için [Proxy'yi yapılandırmak][deployment-guide-configure-proxy].
 
 #### <a name="join-a-domain-windows-only"></a>(Yalnızca Windows) etki alanına Katıl
+
 Azure dağıtımınızı bir Azure siteden siteye VPN bağlantısı veya ExpressRoute aracılığıyla şirket içi Active Directory ve DNS örneğine bağlı olup olmadığını (Bu adlandırılır *şirketler arası* içinde [Azure sanal makineler planlama SAP NetWeaver için ve uygulama][planning-guide]), VM bir şirket içi etki alanına katıldığını beklenir. Bu görev için dikkat edilecek noktalar hakkında daha fazla bilgi için bkz. [bir şirket içi etki alanına (yalnızca Windows) için bir VM katılmak][deployment-guide-4.3].
 
 #### <a name="ec323ac3-1de9-4c3a-b770-4ff701def65b"></a>İzlemeyi Yapılandırma
+
 Emin olmak için SAP ortamınızı açıklandığı gibi SAP için Azure izleme uzantısı ayarlamak destekler [Azure Gelişmiş izleme uzantısını SAP için yapılandırmak][deployment-guide-4.5]. SAP izleme için önkoşul denetimi ve çekirdek SAP ve SAP konak Aracısı, gerekli en düşük sürümlerle kaynaklarında listelenen [SAP kaynakları][deployment-guide-2.2].
 
 #### <a name="monitoring-check"></a>İzleme denetimi
+
 İzleme çalışıp çalışmadığını, açıklandığı denetleyin [denetimler ve uçtan uca izleme ayarlamak için sorun giderme][deployment-guide-troubleshooting-chapter].
 
 #### <a name="post-deployment-steps"></a>Dağıtım sonrası adımlar
+
 Sonra VM'yi oluşturmak ve VM dağıtılır, VM'yi gerekli yazılım bileşenleri yüklemeniz gerekir. Bu tür bir VM dağıtımı dağıtım/yazılım yükleme sırası nedeniyle yüklenecek yazılım zaten ya da azure'da, başka bir VM'de veya eklenebilecek disk olarak kullanılabilir olmalıdır. Veya hangi şirket içi bağlantı, varlıklar (yükleme paylaşımları) verildiğinde bir içi ve dışı karışık senaryo kullanmayı düşünün.
 
 Azure VM'nizi dağıttıktan sonra aynı yönergeler ve bir şirket içi ortamda olduğu gibi sanal makinenizde SAP yazılımı yüklemek için Araçlar izleyin. Bir Azure VM'de SAP yazılımı yüklemek için hem SAP ve Microsoft karşıya yükleme ve Azure VHD'leri veya yönetilen diskler üzerinde SAP yükleme medyasında depolamak veya gerekli tüm SAP yükleme medyasını içeren bir dosya sunucusu olarak çalışır, bir Azure sanal makinesi, oluşturmanızı öneririz.
 
 ### <a name="54a1fc6d-24fd-4feb-9c57-ac588a55dff2"></a>2. Senaryo: özel bir görüntü ile bir VM için SAP dağıtma
+
 Bir işletim sistemi veya DBMS farklı sürümlerini farklı düzeltme eki gereksinimleri olduğundan, Azure Marketi'nde bulma görüntüleri ihtiyaçlarınızı karşılamayabilir. Bunun yerine, daha sonra yeniden dağıtabilirsiniz, kendi işletim sistemi/DBMS VM görüntüsünü kullanarak bir VM oluşturmak isteyebilirsiniz.
 Windows için bir tane oluşturmak için daha Linux için özel bir görüntü oluşturmak için farklı adımlar kullanın.
 
@@ -532,6 +552,7 @@ Aşağıdaki akış, bir özel görüntüsünden VM dağıtmak için adımları 
 ![VM dağıtımı için bir VM görüntüsü özel Market'te kullanarak SAP sistemlerini akış çizelgesi][deployment-guide-figure-300]
 
 #### <a name="create-a-virtual-machine-by-using-the-azure-portal"></a>Azure portalını kullanarak bir sanal makine oluşturun
+
 Azure portalını kullanarak yönetilen Disk görüntüsünden yeni bir sanal makine oluşturmak için en kolay yolu olan. Bir yönetme Disk görüntüsünün nasıl oluşturulacağı hakkında daha fazla bilgi için okuma [azure'da bir genelleştirilmiş VM'nin yönetilen görüntüsünü yakalama](https://docs.microsoft.com/azure/virtual-machines/windows/capture-image-resource)
 
 1.  <https://ms.portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.Compute%2Fimages> kısmına gidin. Veya, Azure portal menüsünde seçin **görüntüleri**.
@@ -569,7 +590,9 @@ Sihirbaz, ek olarak sanal makine ağ arabirimleri ve depolama hesapları gibi t�
   Seçimlerinizi gözden geçirin ve ardından **Tamam**.
 
 Sanal makinenizi, seçili kaynak grubunda dağıtılmış.
+
 #### <a name="create-a-virtual-machine-by-using-a-template"></a>Bir şablonu kullanarak bir sanal makine oluşturma
+
 Azure portalından özel bir işletim sistemi görüntüsü kullanarak bir dağıtım oluşturmak için aşağıdaki SAP şablonlardan birini kullanın. Bu şablonlar yayınlanır [azure hızlı başlangıç şablonları GitHub deposunda][azure-quickstart-templates-github]. Ayrıca el ile bir sanal makine kullanarak oluşturabileceğiniz [PowerShell][virtual-machines-upload-image-windows-resource-manager].
 
 * [**İki katmanlı yapılandırma (yalnızca bir sanal makine) şablonu** (sap-2-katman-kullanıcı-görüntü)][sap-templates-2-tier-user-image]
@@ -622,22 +645,28 @@ Azure portalında şablon için aşağıdaki parametreleri girin:
 1.  **Satın al**'ı seçin.
 
 #### <a name="install-the-vm-agent-linux-only"></a>VM Aracısı (yalnızca Linux)
+
 Önceki bölümde açıklanan şablonlarını kullanmak için Linux Aracısı kullanıcı görüntüde yüklü olması gereken veya dağıtım başarısız olur. Karşıdan yükleyip VM Aracısı kullanıcı resimde açıklandığı [indirme, yükleme ve Azure VM aracısını etkinleştirin][deployment-guide-4.4]. Şablonları kullanmazsanız, daha sonra VM Aracısı de yükleyebilirsiniz.
 
 #### <a name="join-a-domain-windows-only"></a>(Yalnızca Windows) etki alanına Katıl
+
 Azure dağıtımınızı bir Azure siteden siteye VPN bağlantısı veya Azure ExpressRoute aracılığıyla şirket içi Active Directory ve DNS örneğine bağlı olup olmadığını (Bu adlandırılır *şirketler arası* içinde [Azure sanal makineler Planlama ve uygulama için SAP NetWeaver][planning-guide]), VM bir şirket içi etki alanına katıldığını beklenir. Bu adım için dikkat edilecek noktalar hakkında daha fazla bilgi için bkz. [bir şirket içi etki alanına (yalnızca Windows) için bir VM katılmak][deployment-guide-4.3].
 
 #### <a name="configure-proxy-settings"></a>Proxy ayarlarını yapılandırma
+
 Şirket içi ağınıza nasıl yapılandırıldığına bağlı olarak, VM'niz proxy ayarlamak gerekebilir. Sanal makinenize bağlı ise şirket içi ağınıza VPN veya ExpressRoute, bir VM aracılığıyla Internet erişimine sahip olmayabilir ve gerekli Uzantıları'nı indirin ve izleme verilerini toplamak mümkün olmayacaktır. Daha fazla bilgi için [Proxy'yi yapılandırmak][deployment-guide-configure-proxy].
 
 #### <a name="configure-monitoring"></a>İzlemeyi Yapılandırma
+
 Emin olmak için SAP ortamınızı açıklandığı gibi SAP için Azure izleme uzantısı ayarlamak destekler [Azure Gelişmiş izleme uzantısını SAP için yapılandırmak][deployment-guide-4.5]. SAP izleme için önkoşul denetimi ve çekirdek SAP ve SAP konak Aracısı, gerekli en düşük sürümlerle kaynaklarında listelenen [SAP kaynakları][deployment-guide-2.2].
 
 #### <a name="monitoring-check"></a>İzleme denetimi
+
 İzleme çalışıp çalışmadığını, açıklandığı denetleyin [denetimler ve uçtan uca izleme ayarlamak için sorun giderme][deployment-guide-troubleshooting-chapter].
 
 
 ### <a name="a9a60133-a763-4de8-8986-ac0fa33aa8c1"></a>Senaryo 3: bir genelleştirilmiş Azure VHD'nin SAP ile kullanarak bir şirket içi VM taşıma
+
 Bu senaryoda, belirli bir SAP sistemine bir şirket içi ortamdan Azure'a taşımayı planlayın. Veri ve günlük dosyalarını azure'a DBMS ile işletim sistemi, SAP ikili dosyaları ve sonunda DBMS ikili dosyaları olan VHD'nin yanı sıra, VHD'leri yükleyerek bunu yapabilirsiniz. Açıklanan senaryoyu aksine [Senaryo 2: SAP için özel bir görüntü ile bir VM dağıtma][deployment-guide-3.3], bu durumda, konak adı, SAP SID tutun ve bunlar içinde yapılandırılmış olduğundan Azure VM'de SAP kullanıcı hesapları Şirket içi ortam. İşletim sistemi genelleştirmek gerekmez. Bu senaryo genellikle burada şirket içi SAP ortamının bir parçası çalışır ve bir bölümü Azure üzerinde çalışan şirket içi senaryolar için de geçerlidir.
 
 Bu senaryoda, VM Aracısı olduğunu **değil** dağıtımı sırasında otomatik olarak yüklenmiş. VM aracısı ve Azure Gelişmiş izleme uzantısını SAP için Azure üzerinde SAP NetWeaver'ı çalıştırmak için gerekli olduğundan, indirme, yükleme ve sanal makineyi oluşturduktan sonra her iki bileşenin el ile etkinleştirmeniz gerekir.
@@ -664,6 +693,7 @@ Aşağıdaki akış bir şirket içi VM genelleştirilmiş olmayan bir Azure VHD
 Disk zaten karşıya yüklendi ve Azure'da tanımlanan varsa (bkz [planlama Azure sanal makineleri ve SAP NetWeaver uygulamasını][planning-guide]), yapmak görevleri açıklanan önümüzdeki birkaç bölümler.
 
 #### <a name="create-a-virtual-machine"></a>Sanal makine oluşturma
+
 Azure Portalı aracılığıyla özel bir işletim sistemi diski kullanarak bir dağıtım oluşturmak için yayımlanan SAP şablonu kullanın. [azure hızlı başlangıç şablonları GitHub deposunda][azure-quickstart-templates-github]. Ayrıca el ile bir sanal makine PowerShell kullanarak oluşturabilirsiniz.
 
 * [**İki katmanlı yapılandırma (yalnızca bir sanal makine) şablonu** (sap-2-katman-kullanıcı-disk)][sap-templates-2-tier-os-disk]
@@ -703,23 +733,29 @@ Azure portalında şablon için aşağıdaki parametreleri girin:
 1.  **Satın al**'ı seçin.
 
 #### <a name="install-the-vm-agent"></a>VM aracısını yükleyin
+
 Önceki bölümde açıklanan şablonlarını kullanmak için işletim sistemi diskinde VM Aracısı yüklenmelidir ve dağıtım başarısız olur. Karşıdan yükleyip VM Aracısı VM içinde anlatıldığı gibi [indirme, yükleme ve Azure VM aracısını etkinleştirin][deployment-guide-4.4].
 
 Önceki bölümde açıklanan şablonları kullanmazsanız, daha sonra VM Aracısı de yükleyebilirsiniz.
 
 #### <a name="join-a-domain-windows-only"></a>(Yalnızca Windows) etki alanına Katıl
+
 Azure dağıtımınızı bir Azure siteden siteye VPN bağlantısı veya ExpressRoute aracılığıyla şirket içi Active Directory ve DNS örneğine bağlı olup olmadığını (Bu adlandırılır *şirketler arası* içinde [Azure sanal makineler planlama SAP NetWeaver için ve uygulama][planning-guide]), VM bir şirket içi etki alanına katıldığını beklenir. Bu görev için dikkat edilecek noktalar hakkında daha fazla bilgi için bkz. [bir şirket içi etki alanına (yalnızca Windows) için bir VM katılmak][deployment-guide-4.3].
 
 #### <a name="configure-proxy-settings"></a>Proxy ayarlarını yapılandırma
+
 Şirket içi ağınıza nasıl yapılandırıldığına bağlı olarak, VM'niz proxy ayarlamak gerekebilir. Sanal makinenize bağlı ise şirket içi ağınıza VPN veya ExpressRoute, bir VM aracılığıyla Internet erişimine sahip olmayabilir ve gerekli Uzantıları'nı indirin ve izleme verilerini toplamak mümkün olmayacaktır. Daha fazla bilgi için [Proxy'yi yapılandırmak][deployment-guide-configure-proxy].
 
 #### <a name="configure-monitoring"></a>İzlemeyi Yapılandırma
+
 Emin olmak için SAP ortamınızı açıklandığı gibi SAP için Azure izleme uzantısı ayarlamak destekler [Azure Gelişmiş izleme uzantısını SAP için yapılandırmak][deployment-guide-4.5]. SAP izleme için önkoşul denetimi ve çekirdek SAP ve SAP konak Aracısı, gerekli en düşük sürümlerle kaynaklarında listelenen [SAP kaynakları][deployment-guide-2.2].
 
 #### <a name="monitoring-check"></a>İzleme denetimi
+
 İzleme çalışıp çalışmadığını, açıklandığı denetleyin [denetimler ve uçtan uca izleme ayarlamak için sorun giderme][deployment-guide-troubleshooting-chapter].
 
 ## <a name="update-the-monitoring-configuration-for-sap"></a>SAP için izleme yapılandırmasını güncelleştirme
+
 Aşağıdaki senaryolardan birinde SAP İzleme yapılandırmasını güncelleştirme:
 * Birleşik Microsoft/SAP ekibi, izleme yeteneklerini genişletir ve daha fazla veya daha az sayaç ister.
 * Microsoft izleme verileri sunan temel alınan Azure altyapısının yeni bir sürüm sunar ve bu değişiklikleri uyarlanabilen Azure Gelişmiş izleme uzantısını SAP için gerekiyor.
@@ -730,9 +766,11 @@ Aşağıdaki senaryolardan birinde SAP İzleme yapılandırmasını güncelleşt
 İzleme ayarlarını güncelleştirmek için izleme altyapısının içindeki adımları izleyerek güncelleştirme [Azure Gelişmiş izleme uzantısını SAP için yapılandırmak][deployment-guide-4.5].
 
 ## <a name="detailed-tasks-for-sap-software-deployment"></a>Ayrıntılı görevler için SAP yazılım dağıtımı
+
 Bu bölüm yapılandırma ve dağıtım sürecini belirli görevleri yapmak için ayrıntılı adımları verilmiştir.
 
 ### <a name="604bcec2-8b6e-48d2-a944-61b0f5dee2f7"></a>Azure PowerShell cmdlet'lerini dağıtma
+
 1.  Git [Microsoft Azure indirmeleri](https://azure.microsoft.com/downloads/).
 1.  Altında **komut satırı araçları**altında **PowerShell**seçin **Windows yükleme**.
 1.  İndirilen dosyayı (örneğin, WindowsAzurePowershellGet.3f.3f.3fnew.exe) için Microsoft İndirme Yöneticisi iletişim kutusunda seçin **çalıştırma**.
@@ -761,6 +799,7 @@ Bilgisayarınızda yüklü Azure cmdlet sürümü geçerli sürümü, yükleme s
 <a name="figure-7"></a>
 
 ### <a name="1ded9453-1330-442a-86ea-e0fd8ae8cab3"></a>Azure CLI'yı dağıtma
+
 1.  Git [Microsoft Azure indirmeleri](https://azure.microsoft.com/downloads/).
 1.  Altında **komut satırı araçları**altında **Azure komut satırı arabirimi**seçin **yükleme** işletim sisteminiz için bağlantı.
 1.  İndirilen dosyayı (örneğin, WindowsAzureXPlatCLI.3f.3f.3fnew.exe) için Microsoft İndirme Yöneticisi iletişim kutusunda seçin **çalıştırma**.
@@ -785,16 +824,19 @@ Sonucu şöyle görünür:
 <a name="0ad010e6-f9b5-4c21-9c09-bb2e5efb3fda"></a>
 
 ### <a name="31d9ecd6-b136-4c73-b61e-da4a29bbc9cc"></a>Bir şirket içi etki alanı (yalnızca Windows) için bir ekleme
+
 Burada şirket içi Active Directory ve DNS Azure'da genişletilir, bir şirket içi senaryosunda SAP VM dağıtırsanız, sanal makinelerin bir şirket içi etki alanı katıldığınız bekleniyor. Bir şirket içi etki alanı ve bir şirket içi etki alanının bir üyesi olması gereken ek yazılım için bir VM katılmak için ayrıntılı adımlar, müşteri tarafından değişir. Genellikle, bir VM için bir şirket içi etki alanına katılmak için kötü amaçlı yazılımdan koruma yazılımı gibi ek yazılımlar ve izleme ya da yedekleme yazılımları yüklemeniz gerekir.
 
 Bu senaryoda, ayrıca bir VM ortamınızda bir etki alanına katıldığında Internet proxy ayarları zorlanırsa aynı proxy ayarlarını Windows yerel sistem hesabını (S-1-5-18) Konuk VM içinde olduğundan emin olun gerekir. Etki alanı, etki alanındaki sistemlerine uygulanan Grup İlkesi'ni kullanarak proxy zorlamak için en kolay seçenektir bakın.
 
 ### <a name="c7cbb0dc-52a4-49db-8e03-83e7edc2927d"></a>İndirme, yükleme ve Azure VM aracısını etkinleştirin
+
 (Örneğin, sysprep veya Windows Sistem hazırlığı aracı kaynaklanmayan bir görüntü) genelleştirilmiş olmayan bir işletim sistemi görüntü üzerinden dağıtılan sanal makineler için el ile indirme, yükleme ve Azure VM Aracısı'nı etkinleştirmeniz gerekir.
 
 Azure Market'ten bir VM dağıtırsanız, bu adım gerekli değildir. Görüntüleri Azure Market'te Azure VM Aracısı zaten var.
 
 #### <a name="b2db5c9a-a076-42c6-9835-16945868e866"></a>Windows
+
 1.  Azure VM Aracısı'nı indirme:
   1.  İndirme [Azure VM Aracısı Yükleyici paketi](https://go.microsoft.com/fwlink/?LinkId=394789).
   1.  VM Aracısı MSI paketi yerel olarak bir kişisel bilgisayar veya sunucuda Store.
@@ -808,6 +850,7 @@ Azure Market'ten bir VM dağıtırsanız, bu adım gerekli değildir. Görüntü
 Azure VM Aracısı'nı güncelleştirmek için kullanıcı etkileşimi gereklidir. VM Aracısı, otomatik olarak güncelleştirilir ve VM yeniden başlatma gerektirmez.
 
 #### <a name="6889ff12-eaaf-4f3c-97e1-7c9edc7f7542"></a>Linux
+
 Linux için VM aracısı yüklemek için aşağıdaki komutları kullanın:
 
 * **SUSE Linux Enterprise Server (SLES)**
@@ -825,9 +868,11 @@ Linux için VM aracısı yüklemek için aşağıdaki komutları kullanın:
 Azure Linux aracısını Güncelleştirme Aracısı'nı zaten yüklediyseniz, açıklanan adımları uygulayın [bir VM'de Azure Linux Aracısı Github'dan en son sürüme güncelleştirme][virtual-machines-linux-update-agent].
 
 ### <a name="baccae00-6f79-4307-ade4-40292ce4e02d"></a>Proxy yapılandırma
+
 Windows Proxy'yi yapılandırmak için uygulayacağınız adımlar, Linux proxy yapılandırma şekliniz farklıdır.
 
 #### <a name="windows"></a>Windows
+
 Proxy ayarlarını İnternet'e erişmek yerel sistem hesabı için doğru ayarlanmış olması gerekir. Proxy ayarlarını Grup İlkesi tarafından ayarlanmamışsa, yerel sistem hesabı ayarlarını yapılandırabilirsiniz.
 
 1. Git **Başlat**, girin **gpedit.msc**ve ardından **Enter**.
@@ -840,6 +885,7 @@ Proxy ayarlarını İnternet'e erişmek yerel sistem hesabı için doğru ayarla
 1. İçinde **özel durumları** kutusuna, IP adresi girin **168.63.129.16**. **Tamam**’ı seçin.
 
 #### <a name="linux"></a>Linux
+
 Yapılandırma dosyası şu konumdadır Microsoft Azure Konuk Aracısı'nın doğru ara sunucu yapılandırma \\vb.\\waagent.conf.
 
 Aşağıdaki parametreleri ayarlayın:
@@ -880,11 +926,13 @@ Proxy ayarları \\vb.\\waagent.conf gerekli VM uzantıları için de geçerlidir
 Kullanıcı tanımlı yollar hakkında daha fazla bilgi için bkz. [kullanıcı tanımlı yollar ve IP iletme][virtual-networks-udr-overview].
 
 ### <a name="d98edcd3-f2a1-49f7-b26a-07448ceb60ca"></a>SAP için Azure Gelişmiş izleme uzantısı yapılandırma
+
 Ne zaman hazırladığınız VM açıklandığı [dağıtım senaryoları için azure'da SAP sanal makinelerinin][deployment-guide-3], Azure VM Aracısı sanal makineye yüklenir. Azure Gelişmiş izleme uzantısını Azure uzantı deposunda küresel Azure veri merkezlerinde kullanılabilir olan, SAP için sonraki adım dağıtmaktır. Daha fazla bilgi için [planlama Azure sanal makineleri ve SAP NetWeaver uygulamasını][planning-guide-9.1].
 
 Yükleme ve yapılandırma Azure Gelişmiş izleme uzantısını SAP için PowerShell veya Azure CLI'yı kullanabilirsiniz. Windows makine kullanarak bir Windows veya Linux VM'i uzantıyı yüklemek için bkz: [Azure PowerShell][deployment-guide-4.5.1]. Bir Linux Masaüstü'nü kullanarak bir Linux VM üzerinde uzantıyı yüklemek için bkz: [Azure CLI][deployment-guide-4.5.2].
 
 #### <a name="987cf279-d713-4b4c-8143-6b11589bb9d4"></a>Linux ve Windows Vm'leri için Azure PowerShell
+
 Azure Gelişmiş izleme uzantısını SAP için PowerShell kullanarak yüklemek için:
 
 1. Azure PowerShell cmdlet'ini en son sürümünü yüklediğinizden emin olun. Daha fazla bilgi için [dağıtma, Azure PowerShell cmdlet'lerini][deployment-guide-4.1].  
@@ -917,6 +965,7 @@ Betik çıktısı, aşağıdaki bilgileri içerir:
 * İlgili verileri toplamak Azure tanılama 15-30 dakika bekleyin.
 
 #### <a name="408f3779-f422-4413-82f8-c57a23b4fc2f"></a>Linux VM'ler için Azure CLI
+
 Azure Gelişmiş izleme uzantısını SAP için Azure CLI kullanarak yüklemek için:
 
    1. Açıklandığı gibi Klasik Azure CLI yükleme [Klasik Azure CLI yükleme][azure-cli].
@@ -974,11 +1023,13 @@ Azure Gelişmiş izleme uzantısını SAP için Azure CLI kullanarak yüklemek i
    ```
 
 ## <a name="564adb4f-5c95-4041-9616-6635e83a810b"></a>Denetimler ve uçtan uca izleme için sorun giderme
+
 Azure VM dağıttıktan ve ilgili Azure izleme altyapıyı ayarladıktan sonra Azure Gelişmiş izleme uzantısını tüm bileşenlerinin beklendiği gibi çalışıp çalışmadığını denetleyin.
 
 Azure Gelişmiş izleme uzantısı için SAP için hazır olma denetimi açıklandığı gibi çalıştırın [hazırlık denetimi için Azure Gelişmiş izleme uzantısı için SAP][deployment-guide-5.1]. Tüm hazırlık denetimi sonucu pozitif ve tüm ilgili performans sayaçlarını Tamam görünürse, Azure izleme başarıyla ayarlandığını gösterdiğinde. SAP notları açıklandığı gibi SAP konak Aracısı yükleme işlemine devam etmeden [SAP kaynakları][deployment-guide-2.2]. Hazır olma denetimi sayaçları eksik olduğunu gösteriyorsa, sistem durumu denetimi için Azure izleme altyapısının açıklandığı gibi çalıştırın. [sistem durumu denetimi için Azure izleme altyapı yapılandırmasını] [ deployment-guide-5.2]. Daha fazla sorun giderme seçenekleri için bkz. [SAP için sorun giderme Azure izleme][deployment-guide-5.3].
 
 ### <a name="bb61ce92-8c5c-461f-8c53-39f5e5ed91f2"></a>Azure Gelişmiş izleme uzantısı için SAP için hazırlık denetimi
+
 Bu onay SAP uygulamanızın içinde görüntülenen tüm performans ölçümlerinin temel alınan Azure izleme altyapısı tarafından sağlandığından emin olur.
 
 #### <a name="run-the-readiness-check-on-a-windows-vm"></a>Bir Windows VM'de hazırlık denetimi Çalıştır
@@ -1005,6 +1056,7 @@ Azure Gelişmiş izleme uzantısı yüklü değil veya AzureEnhancedMonitoring h
 > 
 
 ##### <a name="check-the-output-of-azperflibexe"></a>Onay azperflib.exe çıktısı
+
 Tüm Azure performans sayaçları için SAP doldurulmuş Azperflib.exe çıktısını gösterir. Toplanan sayaçlarının listesi sonunda bir özeti ve sistem durumu göstergesi Azure izleme durumunu gösterir.
 
 ![Sistem durumu denetimi, herhangi bir sorun mevcut olduğunu gösteren azperflib.exe yürüterek çıktısı][deployment-guide-figure-1100]
@@ -1076,6 +1128,7 @@ Yüklü bir SAP NetWeaver ABAP uygulama sunucusu zaten varsa, işlem ST06 açın
 Tüm bu denetimlerin başarısız olursa, ve uzantıyı yeniden dağıtma hakkında ayrıntılı bilgi için bkz. [SAP için Azure izleme altyapısının sorun giderme][deployment-guide-5.3].
 
 ### <a name="e2d592ff-b4ea-4a53-a91a-e5521edb6cd1"></a>Sistem durumu için Azure izleme altyapı yapılandırmasını denetleyin
+
 Bazı izleme, veri açıklanan test tarafından belirtildiği şekilde doğru şekilde teslim edilemedi [Azure SAP Gelişmiş izleme için hazır olma denetimi][deployment-guide-5.1]çalıştırın `Test-AzureRmVMAEMExtension` cmdlet'ini olmadığını Azure için SAP altyapı ve izleme uzantısı izleme doğru şekilde yapılandırılır.
 
 1.  Açıklandığı gibi Azure PowerShell cmdlet en son sürümünü yüklediğinizden emin olun [dağıtma, Azure PowerShell cmdlet'lerini][deployment-guide-4.1].
@@ -1104,19 +1157,23 @@ Her sistem durumu denetimi sonucu olduğundan emin olun **Tamam**. Bazı denetim
 ### <a name="fe25a7da-4e4e-4388-8907-8abc2d33cfd8"></a>SAP için Azure izleme altyapı sorunlarını giderme
 
 #### <a name="windowslogowindows-azure-performance-counters-do-not-show-up-at-all"></a>![Windows][Logo_Windows] Azure performans sayaçları hiç gösterilmez
+
 AzureEnhancedMonitoring Windows hizmeti, azure'da performans ölçümleri toplar. Hizmet doğru şekilde yüklenmedi veya, sanal çalışmıyorsa, performans ölçüm toplanabilir.
 
 ##### <a name="the-installation-directory-of-the-azure-enhanced-monitoring-extension-is-empty"></a>Azure Gelişmiş izleme uzantısını yükleme dizinini boştur
 
 ###### <a name="issue"></a>Sorun
+
 Yükleme dizini C:\\paketleri\\eklentileri\\Microsoft.AzureCAT.AzureEnhancedMonitoring.AzureCATExtensionHandler\\&lt;sürüm >\\bırakma boştur.
 
 ###### <a name="solution"></a>Çözüm
+
 Uzantısı yüklü değil. (Daha önce açıklandığı gibi) bu Ara sunucu sorunu olup olmadığını belirler. Makineyi yeniden başlatın veya yeniden çalıştırmak ihtiyacınız olabilecek `Set-AzureRmVMAEMExtension` yapılandırma betiği.
 
 ##### <a name="service-for-azure-enhanced-monitoring-does-not-exist"></a>Azure Gelişmiş izleme için hizmet kayıtlı değil
 
 ###### <a name="issue"></a>Sorun
+
 AzureEnhancedMonitoring Windows hizmet yok.
 
 Azperflib.exe çıkış bir hata oluşturur:
@@ -1125,6 +1182,7 @@ Azperflib.exe çıkış bir hata oluşturur:
 <a name="figure-14"></a>
 
 ###### <a name="solution"></a>Çözüm
+
 Azure Gelişmiş izleme uzantısını SAP için hizmetin mevcut değilse, doğru şekilde yüklenmedi. Dağıtım senaryonuz için açıklanan adımları kullanarak uzantıyı yeniden [dağıtım senaryoları için azure'da SAP sanal makinelerinin][deployment-guide-3].
 
 Bir saat sonra uzantı dağıttıktan sonra yeniden Azure performans sayaçlarını Azure VM ile sağlanıp sağlanmadığını denetleyin.
@@ -1132,30 +1190,37 @@ Bir saat sonra uzantı dağıttıktan sonra yeniden Azure performans sayaçları
 ##### <a name="service-for-azure-enhanced-monitoring-exists-but-fails-to-start"></a>Azure Gelişmiş izleme hizmeti var, ancak başlatılamıyor
 
 ###### <a name="issue"></a>Sorun
+
 AzureEnhancedMonitoring Windows hizmeti var ve etkinleştirilir, ancak başlatılamıyor. Daha fazla bilgi için uygulama olay günlüğünü denetleyin.
 
 ###### <a name="solution"></a>Çözüm
+
 Yapılandırması doğru değil. İzleme uzantısı açıklandığı gibi sanal makine için yeniden [Azure Gelişmiş izleme uzantısını SAP için yapılandırmak][deployment-guide-4.5].
 
 #### <a name="windowslogowindows-some-azure-performance-counters-are-missing"></a>![Windows][Logo_Windows] Bazı Azure performans sayaçları kayboluyor
+
 AzureEnhancedMonitoring Windows hizmeti, azure'da performans ölçümleri toplar. Hizmet, çeşitli kaynaklardan veri alır. Bazı yapılandırma verilerini yerel olarak toplanır ve bazı performans ölçümlerini Azure Tanılama'ya okunur. Depolama sayaçları, oturum depolama abonelik düzeyinde kullanılır.
 
 SAP notu kullanarak sorun giderme olursa [1999351] değil, sorunu yeniden `Set-AzureRmVMAEMExtension` yapılandırma betiği. Hemen etkinleştirdikten sonra depolama analizi veya tanılama sayaçları oluşturulamaz çünkü bir saat beklemeniz gerekebilir. Sorun devam ederse, SAP Müşteri Destek iletisine için bileşen OP NT AZR BC Windows veya BC-işlem-LNX-AZR Linux sanal makinesi için açın.
 
 #### <a name="linuxlogolinux-azure-performance-counters-do-not-show-up-at-all"></a>![Linux][Logo_Linux] Azure performans sayaçları hiç gösterilmez
+
 Azure'da performans ölçümleri, bir arka plan tarafından toplanır. Arka plan programı çalışmıyorsa, performans ölçüm toplanabilir.
 
 ##### <a name="the-installation-directory-of-the-azure-enhanced-monitoring-extension-is-empty"></a>Azure Gelişmiş izleme uzantısını yükleme dizinini boştur
 
 ###### <a name="issue"></a>Sorun
+
 Dizin \\var\\LIB\\waagent\\ Azure Gelişmiş izleme uzantısı için bir alt dizin yok.
 
 ###### <a name="solution"></a>Çözüm
+
 Uzantısı yüklü değil. (Daha önce açıklandığı gibi) bu Ara sunucu sorunu olup olmadığını belirler. Makineyi yeniden başlatın ve/veya yeniden çalıştırmak ihtiyacınız olabilecek `Set-AzureRmVMAEMExtension` yapılandırma betiği.
 
 ##### <a name="the-execution-of-set-azurermvmaemextension-and-test-azurermvmaemextension-show-warning-messages-stating-that-standard-managed-disks-are-not-supported"></a>Set-AzureRmVMAEMExtension ve Test-AzureRmVMAEMExtension yürütülmesini standart yönetilen diskler desteklenmediğini belirten bir uyarı iletilerini göster
 
 ###### <a name="issue"></a>Sorun
+
 Ne zaman yürütülen Set-AzureRmVMAEMExtension veya Test-AzureRmVMAEMExtension iletileri bunlar gibi gösterilir:
 
 <pre><code>
@@ -1167,10 +1232,12 @@ WARNING: [WARN] Standard Managed Disks are not supported. Extension will be inst
 Daha önce açıklandığı gibi azperfli.exe yürütme iyi durumda olmayan bir durumu gösteren bir sonuç elde edebilirsiniz. 
 
 ###### <a name="solution"></a>Çözüm
+
 İletileri, standart yönetilen diskler standart Azure depolama hesapları istatistiklerle denetlemek için izleme uzantısı tarafından kullanılan API'ler sunan değil olgu kaynaklanır. Bu, birkaç önemli değildir. Standart Disk Depolama hesapları için izleme ile tanışın nedeni sık oluşan g/ç azaltma. Yönetilen diskler, bu tür bir depolama hesabındaki diskleri sayısını sınırlayarak azaltma kaçınır. Bu nedenle, bu türü izleme verilerinin olmaması önemli değildir.
 
 
 #### <a name="linuxlogolinux-some-azure-performance-counters-are-missing"></a>![Linux][Logo_Linux] Bazı Azure performans sayaçları kayboluyor
+
 Azure'da performans ölçümleri, çeşitli kaynaklardan veri alır bir arka plan programı tarafından toplanır. Bazı yapılandırma verilerini yerel olarak toplanır ve bazı performans ölçümlerini Azure Tanılama'ya okunur. Depolama sayaçları, depolama aboneliğinizdeki günlüklerinden gelir.
 
 Bilinen sorunların eksiksiz ve güncel listesi için bkz. Not SAP [1999351], SAP için Azure izleme Gelişmiş ek sorun giderme bilgileri içeriyor.

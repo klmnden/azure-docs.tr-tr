@@ -5,27 +5,26 @@ services: azure-stack
 documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: ''
-ms.assetid: 449ae53e-b951-401a-b2c9-17fee2f491f1
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/17/2018
+ms.date: 10/22/2019
 ms.author: mabrigg
-ms.openlocfilehash: 8f384a79811c9a9b104acb98c8f6b6e162946ab8
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.reviewer: fiseraci
+ms.openlocfilehash: 76f3db3631e1d66413bdce8d3f2379c2735a2eaf
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42059677"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49945612"
 ---
 # <a name="monitor-updates-in-azure-stack-using-the-privileged-endpoint"></a>Ayrıcalıklı uç noktayı kullanarak Azure stack'teki güncelleştirmelerini izleme
 
 *İçin geçerlidir: Azure Stack tümleşik sistemleri*
 
-Ayrıcalıklı uç nokta bir Azure Stack güncelleştirme çalıştırması ilerlemesini izlemek için kullanabileceğiniz ve başarısız bir güncelleştirme son başarılı adımından çalışmaya devam etmek için Azure Stack gereken portalı kullanılamıyor.  Azure Stack portalını kullanarak Azure Stack'te güncelleştirmeleri yönetmek için önerilen yöntemdir.
+Kullanabileceğiniz [ayrıcalıklı uç nokta](azure-stack-privileged-endpoint.md) Azure Stack ilerlemesini izlemek için güncelleştirme çalıştırın ve başarısız bir güncelleştirme son başarılı adımından çalışmaya devam etmek için Azure Stack portalını kullanılamaz duruma gelir.  Azure Stack portalını kullanarak Azure Stack'te güncelleştirmeleri yönetmek için önerilen yöntemdir.
 
 Güncelleştirme yönetimi için aşağıdaki yeni PowerShell cmdlet'leri, Azure Stack tümleşik sistemleri 1710 güncelleştirmesine dahil edilir.
 
@@ -168,7 +167,7 @@ Invoke-Command -Session $pepSession -ScriptBlock { Resume-AzureStackUpdate }
 
 ## <a name="troubleshoot"></a>Sorun giderme
 
-Ayrıcalıklı uç noktası, Azure Stack ortamında tüm ERCS sanal makinelerde kullanılabilir. Yüksek oranda kullanılabilir bir uç noktasına bağlantı bırakılmaz nedeniyle zaman kesintiler, uyarı veya hata iletilerini karşılaşabilirsiniz. Bu iletiler oturum kesildi veya ECE hizmetiyle iletişim kurulurken bir hata olduğunu gösteriyor olabilir. Bu davranış beklenmektedir. Birkaç dakika sonra işlemi yeniden deneyin veya diğer ERCS sanal makinelerden birinde yeni bir ayrıcalıklı uç nokta oturumu oluşturur. 
+Ayrıcalıklı uç noktası, Azure Stack ortamında tüm ERCS sanal makinelerde kullanılabilir. Yüksek oranda kullanılabilir bir uç noktasına bağlantı bırakılmaz nedeniyle zaman kesintiler, uyarı veya hata iletilerini karşılaşabilirsiniz. Bu iletiler oturum kesildi veya ECE hizmetiyle iletişim kurulurken bir hata olduğunu gösteriyor olabilir. Bu beklenen bir davranıştır. Birkaç dakika sonra işlemi yeniden deneyin veya diğer ERCS sanal makinelerden birinde yeni bir ayrıcalıklı uç nokta oturumu oluşturur. 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

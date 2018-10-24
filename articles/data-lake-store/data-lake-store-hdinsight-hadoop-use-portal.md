@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: 28bed3578c653c8081868b3d950ab6332879784a
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: b81916de0940aa56eda97df94527fa6adc208285
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46124338"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49955839"
 ---
 # <a name="create-hdinsight-clusters-with-azure-data-lake-storage-gen1-by-using-the-azure-portal"></a>Azure portalını kullanarak Azure Data Lake depolama Gen1 ile HDInsight kümeleri oluşturma
 > [!div class="op_single_selector"]
@@ -38,7 +38,7 @@ Bu öğreticiye başlamadan önce aşağıdaki gereksinimleri karşılamanızın
 * **Bir Azure Active Directory Hizmet sorumlusu**. Bu öğreticide, bir hizmet sorumlusu, Azure Active Directory'de (Azure AD) oluşturma hakkında yönergeler açıklanmaktadır. Ancak, bir hizmet sorumlusu oluşturmak için Azure AD yönetici olmanız gerekir. Bir yöneticiyseniz, bu önkoşulu atlayabilirsiniz ve öğreticiyle devam edin.
 
     >[!NOTE]
-    >Yalnızca bir Azure AD Yöneticisi olduğunuz bir hizmet sorumlusu oluşturabilirsiniz. Azure AD yöneticinizin bir HDInsight kümesi ile Data Lake depolama Gen1 oluşturabilmeniz için önce bir hizmet sorumlusu oluşturmanız gerekir. Ayrıca, hizmet sorumlusunun bir sertifika ile açıklandığı oluşturulmalıdır [sertifika ile hizmet sorumlusu oluşturma](../azure-resource-manager/resource-group-authenticate-service-principal.md#create-service-principal-with-self-signed-certificate).
+    >Yalnızca bir Azure AD Yöneticisi olduğunuz bir hizmet sorumlusu oluşturabilirsiniz. Azure AD yöneticinizin bir HDInsight kümesi ile Data Lake depolama Gen1 oluşturabilmeniz için önce bir hizmet sorumlusu oluşturmanız gerekir. Ayrıca, hizmet sorumlusunun bir sertifika ile açıklandığı oluşturulmalıdır [sertifika ile hizmet sorumlusu oluşturma](../active-directory/develop/howto-authenticate-service-principal-powershell.md#create-service-principal-with-self-signed-certificate).
     >
 
 ## <a name="create-an-hdinsight-cluster"></a>HDInsight kümesi oluşturma
@@ -55,7 +55,7 @@ Bu bölümde, varsayılan veya ek depolama alanı olarak Data Lake depolama Gen1
 
     ![HDInsight kümesi için hizmet sorumlusu ekleme](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.1.adls.storage.png "HDInsight kümesi için hizmet sorumlusu ekleme")
 
-    - **Select Data Lake Store hesabı**: mevcut bir Data Lake depolama Gen1 hesabını seçin. Mevcut bir Data Lake depolama Gen1 hesabı gereklidir.  Bkz: [önkoşulları](#prerequisites).
+    - **Select Data Lake Store hesabı**: mevcut bir Data Lake depolama Gen1 hesabını seçin. Mevcut bir Data Lake depolama Gen1 hesabı gereklidir.  [Ön koşullara](#prerequisites) bakın.
     - **Kök yolu**: depolanacak kümeye özgü dosyalar nerede bir yol girin. Ekran görüntüsünde olduğu __/kümeleri/myhdiadlcluster/__, hangi __/kümeleri__ klasör var olmalıdır ve portalın oluşturduğu *myhdicluster* klasör.  *Myhdicluster* küme adıdır.
     - **Data Lake Store erişimi**: HDInsight kümesi ve Data Lake depolama Gen1 hesabı arasında erişim yapılandırın. Yönergeler için [yapılandırma Data Lake depolama Gen1 erişim](#configure-data-lake-store-access).
     - **Ek depolama hesapları**: küme için ek depolama hesapları ekleme Azure depolama hesapları. Ek Data Lake depolama Gen1 hesapları eklemek için birincil depolama türü olarak Data Lake depolama Gen1 hesabı yapılandırırken verileri daha fazla Data Lake depolama Gen1 hesaplarında küme izinleri vermeyi tarafından gerçekleştirilir. Bkz: [yapılandırma Data Lake depolama Gen1 erişim](#configure-data-lake-store-access).

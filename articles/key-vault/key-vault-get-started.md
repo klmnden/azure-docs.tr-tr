@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/15/2018
 ms.author: barclayn
-ms.openlocfilehash: b5e235221d34434b908d605c9077ae2fede2fe94
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: d0be0cbd9ff16acc1ecb209997a0c87cd4e43b36
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49365634"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49955126"
 ---
 # <a name="get-started-with-azure-key-vault"></a>Azure Anahtar Kasası kullanmaya başlama 
 Bu makale PowerShell kullanarak Azure Key Vault kullanmaya başlamanıza yardımcı olur ve aşağıdaki etkinliklerde size kılavuzluk eder:
@@ -204,7 +204,7 @@ Gizli dizi içindeki değeri düz metin olarak görüntülemek için:
 Şimdi, anahtar kasanız ve anahtarınız veya gizli uygulamaların kullanması için hazır. Artık uygulamalara bunları kullanabilmeleri yetkilendirin.  
 
 ## <a id="register"></a>Bir uygulamayı Azure Active Directory’ye kaydetme
-Bu adım genellikle ayrı bir bilgisayarda bir geliştirici tarafından yapılır. Azure Key Vault’a özgü değildir. Uygulama Azure Active Directory'ye kaydetme hakkında ayrıntılı adımları gözden geçirmek için başlıklı makaleyi [uygulamaları Azure Active Directory ile tümleştirme](../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md) veya [Azure Active Directory oluşturmak için portalı kullanma Uygulama ve kaynaklara erişebilen hizmet sorumlusu](../azure-resource-manager/resource-group-create-service-principal-portal.md)
+Bu adım genellikle ayrı bir bilgisayarda bir geliştirici tarafından yapılır. Azure Key Vault’a özgü değildir. Uygulama Azure Active Directory'ye kaydetme hakkında ayrıntılı adımları gözden geçirmek için başlıklı makaleyi [uygulamaları Azure Active Directory ile tümleştirme](../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md) veya [Azure Active Directory oluşturmak için portalı kullanma Uygulama ve kaynaklara erişebilen hizmet sorumlusu](../active-directory/develop/howto-create-service-principal-portal.md)
 
 > [!IMPORTANT]
 > Öğreticiyi tamamlamak için bu adımda kaydedeceğiniz hesabınızın, kasanızın ve uygulamanızın hepsinin aynı Azure dizininde olması gerekir.

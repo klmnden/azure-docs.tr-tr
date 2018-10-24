@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: bd03c0801fed0da6d9a87466bc33819f6afa4578
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 61d9606ff14a48e6c224108596f0f01daa4813e1
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46296932"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49954304"
 ---
 # <a name="service-to-service-authentication-with-azure-data-lake-storage-gen1-using-net-sdk"></a>Hizmetten hizmete kimlik doğrulaması .NET SDK kullanarak Azure Data Lake depolama Gen1 ile
 > [!div class="op_single_selector"]
@@ -97,7 +97,7 @@ Bu kod parçacığı, .NET istemci uygulamanıza ekleyin. Yer tutucu değerlerin
 
 ## <a name="service-to-service-authentication-with-certificate"></a>Sertifika ile hizmetten hizmete kimlik doğrulaması
 
-Bu kod parçacığı, .NET istemci uygulamanıza ekleyin. Yer tutucu değerlerini (bir önkoşul olarak listelenen) bir Azure AD web uygulamasından alınan değerlerle değiştirin. Bu kod parçacığı uygulamanızın kimlik doğrulaması sağlar **etkileşimsiz** Data Lake depolama Gen1 ile bir Azure AD web uygulaması için sertifika kullanma. Azure AD uygulaması oluşturma hakkında yönergeler için bkz: [sertifikalar ile hizmet sorumlusu oluşturma](../azure-resource-manager/resource-group-authenticate-service-principal.md#create-service-principal-with-self-signed-certificate).
+Bu kod parçacığı, .NET istemci uygulamanıza ekleyin. Yer tutucu değerlerini (bir önkoşul olarak listelenen) bir Azure AD web uygulamasından alınan değerlerle değiştirin. Bu kod parçacığı uygulamanızın kimlik doğrulaması sağlar **etkileşimsiz** Data Lake depolama Gen1 ile bir Azure AD web uygulaması için sertifika kullanma. Azure AD uygulaması oluşturma hakkında yönergeler için bkz: [sertifikalar ile hizmet sorumlusu oluşturma](../active-directory/develop/howto-authenticate-service-principal-powershell.md#create-service-principal-with-self-signed-certificate).
 
     
     private static void Main(string[] args)

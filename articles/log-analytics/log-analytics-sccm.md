@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 03/22/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 9a2193d78d564ad4a8c175a5116fa7dc9ebda256
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 28ddfea0f4127f402b82388a10ee150b30a65736
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49408753"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49954241"
 ---
 # <a name="connect-configuration-manager-to-log-analytics"></a>Configuration Manager'ı Log Analytics'e bağlanma
 System Center Configuration Manager ortamınızı Azure Log Analytics'e eşitleme cihaz koleksiyonu verilere ve Log Analytics ve Azure Otomasyonu bu koleksiyonlara başvuru.  
@@ -32,7 +32,7 @@ Log Analytics, System Center Configuration Manager geçerli dal sürümü 1606 v
 ## <a name="configuration-overview"></a>Yapılandırmasına genel bakış
 Aşağıdaki adımlar, Log Analytics ile Configuration Manager tümleştirmesini yapılandırma adımlarını özetler.  
 
-1. Azure portalında bir Web uygulaması ve/veya Web API uygulaması olarak Configuration Manager kaydetmek ve istemci Kimliğini ve istemci gizli anahtarını kaydı Azure Active Directory'den olduğundan emin olun. Bkz: [Active Directory kaynaklarına erişmek uygulama ve hizmet sorumlusu oluşturmak için portalı kullanma](../azure-resource-manager/resource-group-create-service-principal-portal.md) bu adımı tamamlamak hakkında ayrıntılı bilgi için.
+1. Azure portalında bir Web uygulaması ve/veya Web API uygulaması olarak Configuration Manager kaydetmek ve istemci Kimliğini ve istemci gizli anahtarını kaydı Azure Active Directory'den olduğundan emin olun. Bkz: [Active Directory kaynaklarına erişmek uygulama ve hizmet sorumlusu oluşturmak için portalı kullanma](../active-directory/develop/howto-create-service-principal-portal.md) bu adımı tamamlamak hakkında ayrıntılı bilgi için.
 2. Azure portalında [Configuration Manager (kayıtlı web uygulaması) Log Analytics erişim izni vermek](#grant-configuration-manager-with-permissions-to-log-analytics).
 3. Configuration Manager'da [OMS Bağlantısı Ekleme Sihirbazı'nı kullanarak bir bağlantı ekleyin](#add-an-oms-connection-to-configuration-manager).
 4. Configuration Manager'da [bağlantı özelliklerini güncelleştirmek](#update-oms-connection-properties) süresi veya kaybolursa hiç olmadığı kadar parolası veya istemci gizli anahtarı.

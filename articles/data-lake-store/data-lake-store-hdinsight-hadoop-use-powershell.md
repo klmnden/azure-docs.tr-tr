@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: fe742156ccff4325ab6b9f9fc9619093784ccc03
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 0fa4a4c1586957dabf1c849fdb897a479c4f8db3
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46129803"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49957430"
 ---
 # <a name="use-azure-powershell-to-create-an-hdinsight-cluster-with-azure-data-lake-storage-gen1-as-additional-storage"></a>Azure Data Lake depolama Gen1 (olarak, ek depolama alanı) ile bir HDInsight kümesi oluşturmak için Azure PowerShell'i kullanma
 
@@ -57,7 +57,7 @@ Bu öğreticiye başlamadan önce aşağıdakilere sahip olmanız gerekir:
 * **Windows SDK'sı**. [Buradan](https://dev.windows.com/en-us/downloads) yükleyebilirsiniz. Bir güvenlik sertifikası oluşturmak için bunu kullanın.
 * **Azure Active Directory Hizmet sorumlusu**. Bu öğreticideki adımlar, Azure AD'de hizmet sorumlusu oluşturma hakkında yönergeler sağlar. Ancak, bir hizmet sorumlusu oluşturmak için Azure AD yönetici olmanız gerekir. Bir Azure AD Yöneticisi olarak, bu önkoşulu atlayın ve öğreticiyle devam edin.
 
-    **Bir Azure AD yöneticisi değilseniz**, bir hizmet sorumlusu oluşturmak için gerekli adımları gerçekleştirmek mümkün olmayacaktır. Bir HDInsight kümesi ile Data Lake depolama Gen1 oluşturabilmeniz için önce böyle bir durumda, Azure AD yöneticinizin öncelikle bir hizmet sorumlusu oluşturmanız gerekir. Ayrıca, hizmet sorumlusunun bir sertifika kullanmayı anlatıldığı gibi oluşturulmalıdır [sertifika ile hizmet sorumlusu oluşturma](../azure-resource-manager/resource-group-authenticate-service-principal.md#create-service-principal-with-certificate-from-certificate-authority).
+    **Bir Azure AD yöneticisi değilseniz**, bir hizmet sorumlusu oluşturmak için gerekli adımları gerçekleştirmek mümkün olmayacaktır. Bir HDInsight kümesi ile Data Lake depolama Gen1 oluşturabilmeniz için önce böyle bir durumda, Azure AD yöneticinizin öncelikle bir hizmet sorumlusu oluşturmanız gerekir. Ayrıca, hizmet sorumlusunun bir sertifika kullanmayı anlatıldığı gibi oluşturulmalıdır [sertifika ile hizmet sorumlusu oluşturma](../active-directory/develop/howto-authenticate-service-principal-powershell.md#create-service-principal-with-certificate-from-certificate-authority).
 
 ## <a name="create-a-data-lake-storage-gen1-account"></a>Bir Data Lake depolama Gen1 hesabı oluşturun
 Bir Data Lake depolama Gen1 hesabı oluşturmak için aşağıdaki adımları izleyin.

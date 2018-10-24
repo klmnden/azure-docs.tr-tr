@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 10/23/2018
 ms.author: jeffgilb
 ms.reviewer: ''
-ms.openlocfilehash: 16c908dabd313cd9d64ce5be9b7d0299423a7675
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 38120b2be2ab7789946a4ad2fe688954e6212189
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49344694"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49959035"
 ---
 # <a name="key-features-and-concepts-in-azure-stack"></a>Temel özellikler ve kavramlar Azure Stack'te
 Microsoft Azure Stack için yeniyseniz, bu hüküm ve özellik açıklamaları faydalı olabilir.
@@ -154,14 +154,6 @@ Azure RBAC sahip tüm kaynak türleri için geçerli olan üç temel rol: sahibi
 
 ## <a name="usage-data"></a>Kullanım verileri
 Microsoft Azure Stack toplar ve tüm kaynak sağlayıcılarını kullanım verilerini toplayan ve bunu Azure'a işleme için Azure ticaret tarafından iletir. Azure Stack'te toplanan kullanım verileri, bir REST API aracılığıyla görüntülenebilir. Bir Azure ile tutarlı Kiracı API'si yanı sıra sağlayıcısı ve sağlayıcı API'leri temsilci tüm Kiracı aboneliklerindeki kullanım verilerini almak için yoktur. Bu veriler, bir dış aracı ya da hizmet için fatura veya geri ödeme ile tümleştirmek için kullanılabilir. Azure ticaret tarafından kullanım işlendikten sonra Azure fatura Portalı'nda görüntülenebilir.
-
-## <a name="in-development-build-of-azure-stack-development-kit"></a>Azure Stack geliştirme Seti'ni geliştirme yapısı
-Azure Stack geliştirme Seti'ni en son sürümünü değerlendirmek teknolojisini daha önce benimseyen geliştirme derlemeler sağlar. Artımlı derlemeler üzerinde en son ana sürümüne bağlı oldukları. Ana sürüm birkaç ayda yayımlanacak devam edecek, ancak geliştirme derlemeleri ana sürümler arasında aralıklı olarak serbest bırakır.
-
-Geliştirme yapılar aşağıdaki avantajları sağlar:
-- Hata düzeltmeleri
-- Yeni Özellikler
-- Diğer iyileştirmeler
 
 ## <a name="next-steps"></a>Sonraki adımlar
 [Yönetim temel bilgileri](azure-stack-manage-basics.md)

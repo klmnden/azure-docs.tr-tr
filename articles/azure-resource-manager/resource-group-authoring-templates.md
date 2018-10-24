@@ -12,21 +12,21 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/30/2018
+ms.date: 10/22/2018
 ms.author: tomfitz
-ms.openlocfilehash: 1b982bddc951e710ba3bfa5fe8621d6595b95a52
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 28ef94113c76cd70e12a9682e1c523afc3f0a233
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49405353"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49945884"
 ---
 # <a name="understand-the-structure-and-syntax-of-azure-resource-manager-templates"></a>Azure Resource Manager şablonları, söz dizimi ve yapısı anlama
 Bu makalede, Azure Resource Manager şablon yapısını açıklar. Bu, bir şablon ve bu bölümlerdeki kullanılabilir olan özellikleri farklı bölümlerini sayısını gösterir. Şablonda, JSON ve dağıtımınız için değerleri oluşturmada kullanabileceğiniz ifadeler bulunur. Şablon oluşturmanın adım adım öğretici için bkz: [ilk Azure Resource Manager şablonunuzu oluşturma](resource-manager-create-first-template.md).
 
 ## <a name="quickstarts-and-tutorials"></a>Hızlı Başlangıçlar ve öğreticiler
 
-Resource manager şablonlarını nasıl geliştireceğinizi öğrenin, aşağıdaki hızlı başlangıçları ve öğreticileri kullanın:
+Resource Manager şablonlarını nasıl geliştireceğinizi öğrenin, aşağıdaki hızlı başlangıçları ve öğreticileri kullanın:
 
 - Hızlı Başlangıçlar
 
@@ -304,7 +304,7 @@ Kaynaklar bölümünde, dağıtılan veya güncelleştirilen kaynakları tanıml
 ],
 ```
 
-Daha fazla bilgi için [Azure Resource Manager şablonları, kaynaklar bölümü](resource-manager-templates-resources.md).
+Koşullu olarak dahil edin veya bir kaynak dağıtım sırasında hariç tutmak için kullanın [koşul öğesi](resource-manager-templates-resources.md#condition). Kaynaklar bölümü hakkında daha fazla bilgi için bkz: [Azure Resource Manager şablonları, kaynaklar bölümü](resource-manager-templates-resources.md).
 
 ## <a name="outputs"></a>Çıkışlar
 Çıkış bölümünde dağıtımdan döndürülen değerlerini belirtin. Örneğin, dağıtılmış bir kaynağa erişmek için URI döndürebilir.

@@ -4,7 +4,6 @@ description: Bu Traffic Manager tarafından kullanılan farklı trafik yönlendi
 services: traffic-manager
 documentationcenter: ''
 author: KumudD
-manager: jpconnock
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
@@ -12,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/17/2018
 ms.author: kumud
-ms.openlocfilehash: be429e7d3ae847eec6dc4fd5ad6b9c3e5d76d5b5
-ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
+ms.openlocfilehash: eb43b59a26bc9c1b514921a7b6dfa4b920a8fe5f
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48785418"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49955227"
 ---
 # <a name="traffic-manager-routing-methods"></a>Traffic Manager yönlendirme yöntemleri
 
@@ -129,8 +128,11 @@ Traffic Manager DNS sorgusu kaynak IP adresini okur ve veritabanından kaynaklan
 **Birden çok değerli** trafik yönlendirme yöntemi birden fazla sağlıklı uç noktası tek bir DNS sorgu yanıtına yararlanmanıza olanak sağlar. Bu, yanıt vermeyen olan döndürülen bir uç nokta olması durumunda diğer uç noktalar ile istemci tarafı deneme yapmak için çağırana sağlar. Bu düzen, bir hizmetin kullanılabilirliğini artırmak ve sağlıklı bir uç nokta elde etmek için yeni bir DNS sorgusu ile ilişkili gecikme süresini azaltın. Yalnızca IPv4 veya IPv6 adresleri 'Dış' türündeki uç noktalar ve olan belirtilen çok değerli yönlendirme yöntemini çalışır. Bu profil için bir sorgu alındığında, tüm sağlıklı uç noktalar döndürülür ve yapılandırılabilir bir maksimum dönüş sayısı tabidir.
 
 ## <a name = "subnet"></a>Alt ağ trafik yönlendirme yöntemi
-**Alt** trafik yönlendirme yöntemini profilindeki belirli Uç noktalara bir son kullanıcının IP adresi aralıkları kümesini eşlemenizi sağlar. Traffic Manager, bu profil için bir DNS sorgusu alırsa, daha sonra bu kaynak inceler (Bu arayan tarafından kullanılan DNS Çözümleyicisi giden IP adresi olur çoğu durumda), isteğin IP adresini belirlemek hangi uç noktaya eşlenir ve t döndürür Sorgu yanıtına hat uç noktası. Bir uç noktaya eşlenmesi için IP adresi, CIDR aralığı (ör. 1.2.3.0/24) veya adres aralığı (ör. 1.2.3.4-5.6.7.8) olarak belirtilebilir. Bir uç noktasıyla ilişkili IP aralıkları, bu profili içinde benzersiz olması gerekir ve bir çakışma farklı bir uç noktası IP adresi kümesiyle aynı profile sahip olamaz.
-Bu IP adresi eşlenebilir uç nokta varsa, Traffic Manager NODATA yanıt gönderir. Bu nedenle, uç noktalar genelinde tüm olası IP aralıklarını belirtildiğinden olun önerilir.
+**Alt** trafik yönlendirme yöntemini profilindeki belirli Uç noktalara bir son kullanıcının IP adresi aralıkları kümesini eşlemenizi sağlar. Traffic Manager, bu profil için bir DNS sorgusu alırsa, daha sonra bu kaynak inceler (Bu arayan tarafından kullanılan DNS Çözümleyicisi giden IP adresi olur çoğu durumda), isteğin IP adresini belirlemek hangi uç noktaya eşlenir ve t döndürür Sorgu yanıtına hat uç noktası. 
+
+Bir uç noktaya eşlenmesi için IP adresi, CIDR aralığı (ör. 1.2.3.0/24) veya adres aralığı (ör. 1.2.3.4-5.6.7.8) olarak belirtilebilir. Bir uç noktasıyla ilişkili IP aralıkları, bu profili içinde benzersiz olması gerekir ve bir çakışma farklı bir uç noktası IP adresi kümesiyle aynı profile sahip olamaz.
+Hiçbir adres aralığına sahip bir uç nokta tanımlarsanız, bir geri dönüş ve sınav zamanı akışından kalan hiçbir alt ağ olarak çalışır. Geri dönüş uç nokta dahil ise, Traffic Manager tüm tanımlanmamış aralıkları için NODATA yanıt gönderir. Bu nedenle, ya da geri dönüş bir uç noktası tanımlama, aksi takdirde, olası tüm IP aralıklarını, uç noktalar genelinde belirtildiğinden emin olun önerilir.
+
 Alt ağ yönlendirme belirli bir IP alanından bağlanan kullanıcılar için farklı bir deneyim sunmak için kullanılabilir. Örneğin, alt ağ yönlendirme kullanarak, bir müşteri, ofisten gelen tüm isteklerin farklı bir uç noktaya yönlendirilmesini uygulamasının bir iç tek sürümü burada test yapabilirsiniz. Belirli bir ISS'niz (örneğin, belirli bir ISS blok kullanıcıların) bağlanan kullanıcılar için farklı bir deneyim sağlamak istiyorsanız başka bir senaryodur.
 
 ## <a name="next-steps"></a>Sonraki adımlar

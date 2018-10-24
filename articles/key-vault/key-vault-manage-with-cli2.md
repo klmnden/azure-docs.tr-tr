@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/28/2018
 ms.author: barclayn
-ms.openlocfilehash: ba39ba2d4206fa86ed32bddf0538a2e997a79339
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 16b5aed4d034d989bf34b92975b2a743b82903b0
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47220576"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49954358"
 ---
 # <a name="manage-key-vault-using-the-azure-cli"></a>Azure CLI ile anahtar Kasası'nı yönetme 
 
@@ -199,7 +199,7 @@ Bir anahtar kasası kullanan uygulamaların, Azure Active Directory'den bir beli
 
 Uygulamanın bir belirteç almak için bu değerlerin her ikisini de Azure Active Directory'ye sunması gerekir. Bir uygulama bir belirteç almak üzere nasıl yapılandırılacağı uygulamaya göre değişir. [Key Vault örnek uygulaması](https://www.microsoft.com/download/details.aspx?id=45343) için uygulama sahibi bu değerleri app.config dosyasında ayarlar.
 
-Bir uygulamayı Azure Active Directory'ye kaydetme hakkında ayrıntılı adımlar için başlıklı makaleleri gözden geçirmeniz gereken [uygulamaları Azure Active Directory ile tümleştirme](../active-directory/develop/active-directory-integrating-applications.md), [Azure Active oluşturmak için portalı kullanma Dizin uygulaması ve kaynaklara erişebilen hizmet sorumlusu](../azure-resource-manager/resource-group-create-service-principal-portal.md), ve [Azure, Azure CLI ile hizmet sorumlusu oluşturma](/cli/azure/create-an-azure-service-principal-azure-cli).
+Bir uygulamayı Azure Active Directory'ye kaydetme hakkında ayrıntılı adımlar için başlıklı makaleleri gözden geçirmeniz gereken [uygulamaları Azure Active Directory ile tümleştirme](../active-directory/develop/active-directory-integrating-applications.md), [Azure Active oluşturmak için portalı kullanma Dizin uygulaması ve kaynaklara erişebilen hizmet sorumlusu](../active-directory/develop/howto-create-service-principal-portal.md), ve [Azure, Azure CLI ile hizmet sorumlusu oluşturma](/cli/azure/create-an-azure-service-principal-azure-cli).
 
 Bir uygulamayı Azure Active Directory'ye kaydetmek için:
 

@@ -16,12 +16,12 @@ ms.workload: Identity
 ms.date: 08/10/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: f85726f7058c783b6e369126532e40ceecc3c846
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: bf5384333504df023e98650934c77192f23f9f71
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46313561"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49946003"
 ---
 # <a name="azure-ad-connect-design-concepts"></a>Azure AD Connect: Tasarım kavramları
 Bu belgenin amacı, Azure AD Connect uygulama tasarım sırasında düşündüğünüz alanlarını açıklayan sağlamaktır. Bu belge belirli alanları ayrıntılı bir bakış ve diğer belgelerde Bu kavramlar kısaca açıklanmaktadır.
@@ -102,7 +102,7 @@ Azure AD Connect ile hızlı mod yüklerken, Azure AD Connect Sihirbazı otomati
 * İlk olarak, Azure AD Connect Sihirbazı'nı (varsa) önceki Azure AD Connect yüklemesi sourceAnchor özniteliği olarak kullanılan AD özniteliği almak için Azure AD kiracınıza sorgular. Bu bilgiler varsa, Azure AD Connect aynı AD özniteliğini kullanır.
 
   >[!NOTE]
-  > Azure AD Connect yalnızca yeni sürümlerini (1.1.524.0 ve sonra) sourceAnchor özniteliği hakkında bilgileri Azure AD kiracınızda depolar, yükleme sırasında kullanılır. Azure AD Connect'in eski sürümlerinde yoktur.
+  > Azure AD Connect yalnızca yeni sürümlerini (1.1.524.0 ve sonra) sourceAnchor özniteliği hakkında bilgi depolamak Azure AD kiracınızda yüklemesi sırasında kullanılır. Azure AD Connect'in eski sürümlerinde yoktur.
 
 * Sihirbaz, kullanılan sourceAnchor özniteliği hakkında bilgi kullanılabilir değilse, şirket içi Active directory'nizde ms-DS-ConsistencyGuid özniteliği durumunu denetler. Öznitelik dizinindeki herhangi bir nesne üzerinde yapılandırılmazsa sihirbaz ms-DS-ConsistencyGuid sourceAnchor özniteliği olarak kullanır. Öznitelik, dizinde veya daha fazla nesne yapılandırılmışsa, sihirbaz öznitelik diğer uygulamalar tarafından kullanılıyor ve sourceAnchor özniteliği olarak uygun değil sonucuna...
 
@@ -128,7 +128,7 @@ Azure AD Connect özel moduyla yüklerken, Azure AD Connect Sihirbazı sourceAnc
 Kaynak bağlantısı özniteliği olarak objectGUID kullanan mevcut bir Azure AD Connect dağıtımı varsa, bunun yerine consistencyguid içinde geçiş yapabilirsiniz.
 
 >[!NOTE]
-> Azure AD Connect yalnızca yeni sürümlerini (1.1.552.0 ve sonrası) consistencyguid içinde kaynak bağlayıcı özniteliği olarak objectGUID geçiş destekler.
+> Azure AD Connect yalnızca yeni sürümlerini (1.1.552.0 ve sonrası) consistencyguid içinde kaynak bağlayıcı özniteliği olarak objectGUID geçiş desteği.
 
 ObjectGUID consistencyguid içinde için kaynak bağlantısı özniteliği olarak değiştirmek için:
 

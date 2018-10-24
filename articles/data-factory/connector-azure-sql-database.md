@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/12/2018
 ms.author: jingwang
-ms.openlocfilehash: e50d1696fdc22916f5ac4699bd17ddc21a82a148
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: a4de054926339985b77f110bd00f77c5c8f7d705
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48815877"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49957998"
 ---
 # <a name="copy-data-to-or-from-azure-sql-database-by-using-azure-data-factory"></a>Azure Data Factory kullanarak Azure SQL veritabanı'ndan ya da veri kopyalama
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you use:"]
@@ -96,7 +96,7 @@ Farklı kimlik doğrulama türleri için sırasıyla önkoşulları ve JSON örn
 
 Bir hizmet sorumlusu tabanlı Azure AD uygulama belirteci kimlik doğrulamasını kullanmak için aşağıdaki adımları izleyin:
 
-1. **[Bir Azure Active Directory uygulaması oluşturma](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-azure-active-directory-application)**  Azure portalından. Uygulama adı ve bağlı hizmetini tanımlamak aşağıdaki değerleri not edin:
+1. **[Bir Azure Active Directory uygulaması oluşturma](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application)**  Azure portalından. Uygulama adı ve bağlı hizmetini tanımlamak aşağıdaki değerleri not edin:
 
     - Uygulama Kimliği
     - Uygulama anahtarı
@@ -582,13 +582,13 @@ Saklı yordam özellik yararlanır [Table-Valued parametreleri](https://msdn.mic
 | İkili |Bayt] |
 | Bit |Boole |
 | Char |Dize, Char] |
-| tarih |DateTime |
+| date |DateTime |
 | Tarih saat |DateTime |
 | datetime2 |DateTime |
 | Datetimeoffset |DateTimeOffset |
 | Ondalık |Ondalık |
 | FILESTREAM özniteliğini (varbinary(max)) |Bayt] |
-| Kayan |çift |
+| kayan nokta |çift |
 | image |Bayt] |
 | int |Int32 |
 | para |Ondalık |
@@ -599,13 +599,13 @@ Saklı yordam özellik yararlanır [Table-Valued parametreleri](https://msdn.mic
 | Gerçek |Tek |
 | rowVersion |Bayt] |
 | smalldatetime |DateTime |
-| tamsayı |Int16 |
+| smallint |Int16 |
 | küçük para |Ondalık |
 | sql_variant |Nesne * |
 | metin |Dize, Char] |
 | time |Zaman aralığı |
 | timestamp |Bayt] |
-| Mini tamsayı |Bayt |
+| tinyint |Bayt |
 | benzersiz tanımlayıcı |Guid |
 | varbinary |Bayt] |
 | varchar |Dize, Char] |

@@ -12,19 +12,29 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.component: compliance
-ms.date: 09/04/2018
+ms.date: 10/19/2018
 ms.author: rolyon
-ms.openlocfilehash: b6cc81a49875739a61aa397a65eb70c6b4f082ef
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: be00f6fb41572c0a9599f7005f2cdd1d6587f15a
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49393992"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49944156"
 ---
 # <a name="azure-active-directory-terms-of-use-feature"></a>Azure Active Directory Kullanım Koşulları özelliği
-Azure AD Kullanım Koşulları, kuruluşların son kullanıcılara bilgi sağlamak için kullanabileceği basit bir yöntem sunar. Bu sunum, kullanıcıların yasal gereksinimler veya uyumluluk gereksinimleriyle ilgili bildirimleri görmesi sağlar. Bu makalede Azure AD Kullanım Koşullarını kullanmaya nasıl başlayacağınız açıklanmaktadır.
+Azure AD Kullanım Koşulları, kuruluşların son kullanıcılara bilgi sağlamak için kullanabileceği basit bir yöntem sunar. Bu sunum, kullanıcıların yasal gereksinimler veya uyumluluk gereksinimleriyle ilgili bildirimleri görmesi sağlar. Bu makalede kullanım koşulları ile çalışmaya başlama işlemini açıklamaktadır.
 
 [!INCLUDE [GDPR-related guidance](../../../includes/gdpr-intro-sentence.md)]
+
+## <a name="overview-videos"></a>Genel Bakış videoları
+
+Aşağıdaki video, kullanım koşullarını hızlı bir genel bakış sağlar.
+
+>[!VIDEO https://www.youtube.com/embed/tj-LK0abNao]
+
+Videolar için bkz:
+- [Azure Active Directory Kullanım Koşulları'nı dağıtma](https://www.youtube.com/embed/N4vgqHO2tgY)
+- [Azure Active Directory kullanım koşulları kullanıma sunma](https://www.youtube.com/embed/t_hA4y9luCY)
 
 ## <a name="what-can-i-do-with-terms-of-use"></a>Kullanım Koşulları ile ne yapabilirim?
 Azure AD Kullanım Koşulları aşağıdakileri yapmanızı sağlar:
@@ -33,8 +43,9 @@ Azure AD Kullanım Koşulları aşağıdakileri yapmanızı sağlar:
 - Kullanıcı özniteliklerine dayalı belirli Kullanım Koşulları (örneğin, doktorlarla hemşirelere ya da yurtiçi ve uluslararası çalışanlara, [dinamik grupları](../users-groups-roles/groups-dynamic-membership.md) kullanarak) sunun.
 - Yüksek iş etkisine sahip uygulamalara (Salesforce gibi) erişim sırasında geçerli belirli Kullanım Koşulları sunun.
 - Kullanım Koşullarını farklı dillerde sunun.
+- Gizlilik düzenlemeleriyle Karşılama konusunda yardımcı olur.
 - Kullanım Koşullarınızı kabul etmemiş olan kullanıcıları listeleyin.
-- Kullanım Koşulları etkinlikleriyle ilgili bir denetim günlüğü görüntüleyin.
+- Uyumluluk ve denetim için kullanım etkinlik koşulları günlüğünü görüntüleyin.
 
 ## <a name="prerequisites"></a>Önkoşullar
 Azure AD Kullanım Koşullarını kullanmak ve yapılandırmak için şunlara sahip olmalısınız:

@@ -9,21 +9,21 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/14/2018
 ms.author: jasonh
-ms.openlocfilehash: 4537c0308ee587d921dc795054966f6a3dbb69c4
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 01ff5faa130bf1d6d5b89ac42d5664b13306c203
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43093229"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49956162"
 ---
 # <a name="create-a-non-interactive-authentication-net-hdinsight-application"></a>Etkileşimli olmayan kimlik doğrulaması .NET HDInsight uygulaması oluşturma
 Microsoft .NET Azure HDInsight uygulamanızın (etkileşimli olmayan) bir uygulamanın kendi kimlik altında ya da uygulamanızın (etkileşimli) oturum açmış kullanıcının kimliği altında çalıştırabilirsiniz. Bu makalede, etkileşimli olmayan kimlik doğrulaması Azure'a bağlanmak ve HDInsight'ı yönetmek için .NET uygulaması oluşturma işlemini gösterir. Etkileşimli bir uygulama örneği için bkz. [Azure HDInsight Bağlan](hdinsight-administer-use-dotnet-sdk.md#connect-to-azure-hdinsight). 
 
 Etkileşimli olmayan .NET uygulamanızdan şunlar gerekir:
 
-* Azure abonelik Kiracı Kimliğinizi (olarak da adlandırılan bir *dizin kimliği*). Bkz: [Kiracı kimliği alma](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-tenant-id).
-* Azure Active Directory (Azure AD) uygulama istemci kimliği. Bkz: [bir Azure Active Directory uygulaması oluşturma](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-azure-active-directory-application) ve [bir uygulama kimliği alma](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-application-id-and-authentication-key).
-* Azure AD uygulama gizli anahtarı. Bkz: [uygulama kimlik doğrulama anahtarını Al](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-application-id-and-authentication-key).
+* Azure abonelik Kiracı Kimliğinizi (olarak da adlandırılan bir *dizin kimliği*). Bkz: [Kiracı kimliği alma](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-id).
+* Azure Active Directory (Azure AD) uygulama istemci kimliği. Bkz: [bir Azure Active Directory uygulaması oluşturma](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application) ve [bir uygulama kimliği alma](../active-directory/develop/howto-create-service-principal-portal.md#get-application-id-and-authentication-key).
+* Azure AD uygulama gizli anahtarı. Bkz: [uygulama kimlik doğrulama anahtarını Al](../active-directory/develop/howto-create-service-principal-portal.md#get-application-id-and-authentication-key).
 
 ## <a name="prerequisites"></a>Önkoşullar
 * Bir HDInsight kümesi. Bkz: [çalışmaya başlama Öğreticisi](hadoop/apache-hadoop-linux-tutorial-get-started.md#create-cluster).
@@ -119,6 +119,6 @@ Azure AD uygulamanız atama bir [rol](../role-based-access-control/built-in-role
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* [Azure Active Directory, Azure portalında uygulama ve hizmet sorumlusu oluşturma](../azure-resource-manager/resource-group-create-service-principal-portal.md).
-* Bilgi edinmek için nasıl [Azure Resource Manager ile hizmet sorumlusu kimlik doğrulaması](../azure-resource-manager/resource-group-authenticate-service-principal.md).
+* [Azure Active Directory, Azure portalında uygulama ve hizmet sorumlusu oluşturma](../active-directory/develop/howto-create-service-principal-portal.md).
+* Bilgi edinmek için nasıl [Azure Resource Manager ile hizmet sorumlusu kimlik doğrulaması](../active-directory/develop/howto-authenticate-service-principal-powershell.md).
 * Hakkında bilgi edinin [Azure rol tabanlı erişim denetimi (RBAC)](../role-based-access-control/role-assignments-portal.md).

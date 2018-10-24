@@ -12,12 +12,12 @@ ms.author: moslake
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 09/14/2018
-ms.openlocfilehash: bbcd5de0d6c2b43b220d5010093eccc1c9a76269
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 306e541ad67d6b44d2d3cc4cd2f73aa09d629d0c
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49406303"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49954779"
 ---
 # <a name="manage-file-space-in-azure-sql-database"></a>Azure SQL veritabanı'nda dosya alanı yönetme
 Bu makalede, Azure SQL veritabanı ve açıkça yönetilecek gereksinimlerini elastik havuzlar ve veritabanları için ayrılan dosya alanı gerçekleştirilen adımlar, depolama alanının farklı türleri açıklanmaktadır.
@@ -225,7 +225,7 @@ Otomatik küçültme etkinleştirmek için aşağıdaki komutta veritabanı adı
 ALTER DATABASE [db1] SET AUTO_SHRINK ON
 ```
 
-Bu komut hakkında daha fazla bilgi için bkz. [veritabanı](https://docs.microsoft.com/en-us/sql/t-sql/statements/alter-database-transact-sql-set-options?view=sql-server-2017) seçenekleri. 
+Bu komut hakkında daha fazla bilgi için bkz. [veritabanı](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=sql-server-2017) seçenekleri. 
 
 ### <a name="rebuild-indexes"></a>Dizinleri yeniden oluştur
 

@@ -42,16 +42,16 @@ Bu öğretici aşağıdaki görevleri kapsar:
 
 1.  [Azure portalda](https://portal.azure.com/) oturum açın. 
 
-2.  **Kaynak oluştur** > **Veritabanları** > **Azure Cosmos DB**'yi seçin. 
+2.  **Kaynak oluştur**   >  **Veritabanları**   >  **Azure Cosmos DB** 'yi seçin. 
 
-3.  **Yeni hesap**  sayfasında, yeni Azure Cosmos DB hesabının ayarlarını girin. 
+3.  **Yeni hesap**   sayfasında, yeni Azure Cosmos DB hesabının ayarlarını girin. 
 
    |Ayar   |Önerilen değer  |Açıklama  |
    |---------|---------|---------|
    |Kimlik   |   Benzersiz bir ad girin    | Bu Azure Cosmos DB hesabını tanımlayan benzersiz bir ad girin. <br/><br/>Girdiğiniz kimliğe cassandra.cosmosdb.azure.com eklenerek temas noktanız oluşturulacağından benzersiz ancak tanımlanabilir bir kimlik kullanın.         |
-   |API    |  Cassandra   |  API, oluşturulacak hesap türünü belirler. <br/> **Cassandra**'yı seçin çünkü bu makalede CQL söz dizimi kullanılarak sorgulanabilecek geniş sütunlu bir veritabanı oluşturacaksınız.  |
+   |API    |  Cassandra   |  API, oluşturulacak hesap türünü belirler. <br/> **Cassandra** 'yı seçin çünkü bu makalede CQL söz dizimi kullanılarak sorgulanabilecek geniş sütunlu bir veritabanı oluşturacaksınız.  |
    |Abonelik    |  Aboneliğiniz        |  Bu Azure Cosmos DB hesabı için kullanmak istediğiniz Azure aboneliğini seçin.        |
-   |Kaynak Grubu   | Ad girin    |   **Yeni Oluştur**’u seçin ve ardından hesabınız için yeni bir kaynak grubu adı girin. Kolaylık olması için kimliğinizle aynı adı kullanabilirsiniz.    |
+   |Kaynak Grubu   | Ad girin    |   **Yeni Oluştur** ’u seçin ve ardından hesabınız için yeni bir kaynak grubu adı girin. Kolaylık olması için kimliğinizle aynı adı kullanabilirsiniz.    |
    |Konum    |  Kullanıcılarınıza en yakın bölgeyi seçin    |  Azure Cosmos DB hesabınızın barındırılacağı coğrafi konumu seçin. Verilere en hızlı erişimi sağlamak için kullanıcılarınıza en yakın olan konumu kullanın.    |
 
    ![Portalla hesap oluşturma](./media/create-cassandra-api-account-java/create-account.png)

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/21/2018
 ms.author: magattus
-ms.openlocfilehash: 7180e51a6ac1392e4a3f072097b1aeef3648c605
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 57891bcce289c30d7dce1cd00c301064aa9b97cc
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49093298"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49955245"
 ---
 # <a name="using-azure-cdn-with-sas"></a>Azure CDN ile SAS kullanma
 
@@ -71,28 +71,28 @@ Bu seçenek en basit olduğundan ve Azure CDN from kaynak sunucuya geçirilir te
  
 Bu seçenek yalnızca kullanılabilir **verizon'dan Azure CDN Premium** profilleri. Bu seçenek belirtilmişse, kaynak sunucuda blob depolama güvenliğini sağlayabilirsiniz. Dosya için özel erişim kısıtlamaları gerekmez ancak kullanıcıların doğrudan Azure CDN boşaltma sürelerini geliştirmek için depolama kaynak erişimini engellemek istiyorsanız bu seçeneği kullanmak isteyebilirsiniz. Kaynak sunucu, belirtilen kapsayıcıdaki dosyalara erişen herkesin kullanıcıya bilinmiyor, SAS belirteci gereklidir. Ancak, URL yeniden yazma kuralı nedeniyle CDN uç noktasında bir SAS belirteci gerekli değildir.
  
-1. Kullanım [kurallar altyapısı](cdn-rules-engine.md) bir URL yeniden yazma kuralı oluşturun. Yeni kurallar yayılması için yaklaşık 10 dakika yararlanın.
+1. Kullanım [kurallar altyapısı](cdn-rules-engine.md) bir URL yeniden yazma kuralı oluşturun. Yeni kurallar yaymak için 4 saat yararlanın.
 
    ![CDN'yi yönetmek düğmesi](./media/cdn-sas-storage-support/cdn-manage-btn.png)
 
    ![Düğme CDN kural altyapısı](./media/cdn-sas-storage-support/cdn-rules-engine-btn.png)
 
-   Aşağıdaki örnek URL yeniden yazma kuralı bir yakalama grubu ve adlı bir uç nokta ile yalnızca bir normal ifade deseni kullanılmaktadır *storagedemo*:
+   Aşağıdaki örnek URL yeniden yazma kuralı bir yakalama grubu ve adlı bir uç nokta ile yalnızca bir normal ifade deseni kullanılmaktadır *sasstoragedemo*:
    
    Kaynak:   
-   `(\/container1\/.*)`
+   `(container1\/.*)`
    
    Hedef:   
    ```
    $1?sv=2017-07-29&ss=b&srt=c&sp=r&se=2027-12-19T17:35:58Z&st=2017-12-19T09:35:58Z&spr=https&sig=kquaXsAuCLXomN7R00b8CYM13UpDbAHcsRfGOW3Du1M%3D
    ```
    ![Kural - sol CDN URL yeniden yazma](./media/cdn-sas-storage-support/cdn-url-rewrite-rule.png)
-   ![CDN URL yeniden yazma kuralı - sağ](./media/cdn-sas-storage-support/cdn-url-rewrite-rule-option-2.png)
+   ![CDN URL yeniden yazma kuralı - sağ](./media/cdn-sas-storage-support/cdn-url-rewrite-rule-option-4.png)
 
 2. Yeni kuralın etkin hale geldikten sonra herkes, URL'de bir SAS belirteci olup olmadığını kullanıyorsanız bağımsız olarak CDN uç noktasında belirtilen kapsayıcıdaki dosyalara erişebilirsiniz. Biçim şu şekildedir: `https://<endpoint hostname>.azureedge.net/<container>/<file>`
  
    Örneğin:   
-   `https://demoendpoint.azureedge.net/container1/demo.jpg`
+   `https://sasstoragedemo.azureedge.net/container1/demo.jpg`
        
 
 3. Önbelleğe alma süresi, önbelleğe alma kuralları kullanarak veya ekleyerek ince ayar `Cache-Control` kaynak sunucudaki üst bilgileri. Azure CDN, SAS belirteci düz bir sorgu dizesi olarak davrandığı için en iyi uygulama, ya da SAS süre önce sona bir önbelleğe alma süresi ayarlamanız gerekir. Aksi takdirde, bir dosya SAS etkin olan daha uzun bir süre için önbelleğe alınmışsa SAS süre geçtikten sonra dosya Azure CDN kaynak sunucudan erişilebilir olarak olabilir. Bu durum oluşursa, ve, önbelleğe alınan dosyanızı erişilemez hale getirmek istediğiniz bir dosyanın önbellekten temizlemek için temizleme işlemi gerçekleştirmeniz gerekir. Azure CDN'de önbelleğe alma süresi ayarlama hakkında daha fazla bilgi için bkz: [denetimi Azure CDN önbelleğe alma kuralları ile önbelleğe alma davranışını](cdn-caching-rules.md).
@@ -108,24 +108,24 @@ Azure CDN güvenlik belirteci kimlik doğrulamasını kullanmak için olmalıdı
  
    Örneğin:   
    ```
-   https://demoendpoint.azureedge.net/container1/demo.jpg?a4fbc3710fd3449a7c99986bkquaXsAuCLXomN7R00b8CYM13UpDbAHcsRfGOW3Du1M%3D
+   https://sasstoragedemo.azureedge.net/container1/demo.jpg?a4fbc3710fd3449a7c99986bkquaXsAuCLXomN7R00b8CYM13UpDbAHcsRfGOW3Du1M%3D
    ```
        
    Parametre seçenekleri bir güvenlik belirteci kimlik doğrulaması için bir SAS belirteci parametre seçeneklerini farklıdır. Bir güvenlik belirteci oluşturduğunuzda, sona erme süresini kullanmayı seçerseniz, SAS belirteci süre sonu zamanı aynı değere ayarlamanız gerekir. Bunun yapılması, sona erme süresini tahmin edilebilir olmasını sağlar. 
  
-2. Kullanım [kurallar altyapısı](cdn-rules-engine.md) SAS belirteci kapsayıcıdaki tüm blob'lara erişimi etkinleştirmek için bir URL yeniden yazma kuralı oluşturun. Yeni kurallar yayılması için yaklaşık 10 dakika yararlanın.
+2. Kullanım [kurallar altyapısı](cdn-rules-engine.md) SAS belirteci kapsayıcıdaki tüm blob'lara erişimi etkinleştirmek için bir URL yeniden yazma kuralı oluşturun. Yeni kurallar yaymak için 4 saat yararlanın.
 
-   Aşağıdaki örnek URL yeniden yazma kuralı bir yakalama grubu ve adlı bir uç nokta ile yalnızca bir normal ifade deseni kullanılmaktadır *storagedemo*:
+   Aşağıdaki örnek URL yeniden yazma kuralı bir yakalama grubu ve adlı bir uç nokta ile yalnızca bir normal ifade deseni kullanılmaktadır *sasstoragedemo*:
    
    Kaynak:   
-   `(\/container1\/.*)`
+   `(container1\/.*)`
    
    Hedef:   
    ```
    $1&sv=2017-07-29&ss=b&srt=c&sp=r&se=2027-12-19T17:35:58Z&st=2017-12-19T09:35:58Z&spr=https&sig=kquaXsAuCLXomN7R00b8CYM13UpDbAHcsRfGOW3Du1M%3D
    ```
    ![Kural - sol CDN URL yeniden yazma](./media/cdn-sas-storage-support/cdn-url-rewrite-rule.png)
-   ![CDN URL yeniden yazma kuralı - sağ](./media/cdn-sas-storage-support/cdn-url-rewrite-rule-option-3.png)
+   ![CDN URL yeniden yazma kuralı - sağ](./media/cdn-sas-storage-support/cdn-url-rewrite-rule-option-4.png)
 
 3. SAS yenileme, Url yeniden yazma Kuralı'nı yeni bir SAS belirteci ile güncelleştirdiğinizden emin olun. 
 

@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 10/22/2018
-ms.openlocfilehash: 1b96cb0531778b03ddf6adf15988755359e19562
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: c19e5dbcba334a100198708237cc814258a20053
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49649794"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49957703"
 ---
 # <a name="monitoring-azure-sql-database-using-dynamic-management-views"></a>Dinamik yönetim görünümlerini kullanarak Azure SQL Database’i izleme
 
@@ -50,7 +50,7 @@ CPU kullanımı % 80'in uzun süre için aşağıdaki sorun giderme adımları g
 
 Sorun şu anda meydana geliyorsa, iki olası senaryo vardır:
 
-#### <a name="there-are-many-queries-that-individually-run-quickly-but-cumulatively-consume-high-cpu"></a>Tek tek bir kolayca çalıştırın, ancak üst üste yüksek CPU kullanan çok sayıda sorgu yok
+#### <a name="many-individual-queries-that-cumulatively-consume-high-cpu"></a>Üst üste yüksek CPU kullanan çok sayıda tek sorgu
 
 Top sorgusu karmaları tanımlamak için aşağıdaki sorguyu kullanın:
 
@@ -65,7 +65,7 @@ FROM(SELECT query_stats.query_hash, SUM(query_stats.cpu_time) 'Total_Request_Cpu
 ORDER BY Total_Request_Cpu_Time_Ms DESC;
 ```
 
-#### <a name="some-long-running-queries-that-consume-cpu-are-still-running"></a>CPU kullanan bazı uzun süren sorgular hala çalışıyor
+#### <a name="long-running-queries-that-consume-cpu-are-still-running"></a>CPU kullanan uzun süren sorgular hala çalışıyor
 
 Bu sorguları tanımlamak için aşağıdaki sorguyu kullanın:
 
@@ -117,7 +117,9 @@ G/ç performans sorunlarını tanımlamak için kullanıldığında, g/ç sorunl
 
 ### <a name="if-the-io-issue-is-occurring-right-now"></a>Şu anda GÇ sorunu meydana geliyorsa
 
-Kullanım [sys.dm_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) veya [sys.dm_os_waiting_tasks](https://docs.microsoft.com/en-us/sql/relational-databases/system-dynamic-management-views/sys-dm-os-waiting-tasks-transact-sql) görmek için `wait_type` ve `wait_time`.
+Kullanım [sys.dm_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) veya [sys.dm_os_waiting_tasks](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-os-waiting-tasks-transact-sql) görmek için `wait_type` ve `wait_time`.
+
+#### <a name="identify-data-and-log-io-usage"></a>Verileri tanımlamak ve günlük GÇ kullanımını
 
 Veri GÇ kullanımını oturum üzere aşağıdaki sorguyu kullanın. Veri veya günlük GÇ % 80'in ise, kullanıcılar, SQL veritabanı hizmet katmanı için kullanılabilir GÇ kullanmış anlamına gelir.
 
@@ -132,9 +134,11 @@ GÇ sınırına ulaşıldı, iki seçeneğiniz vardır:
 - 1. seçenek: işlem boyutunu yükseltebilir veya hizmet katmanını
 - 2. seçenek: Belirleyin ve çoğu g/ç kullanan sorguları ayarlayabilirsiniz.
 
-Seçenek 2 arabellek ilgili GÇ (son iki saat izlenen etkinlik bakar) için Query Store karşı aşağıdaki sorguyu kullanabilirsiniz:
+#### <a name="view-buffer-related-io-using-the-query-store"></a>Query Store kullanarak görünüm arabellek ilgili GÇ
 
-```SQL
+Seçenek 2 için aşağıdaki sorguyu arabellek ilgili g/ç için Query Store karşı son iki saat izlenen etkinliği görüntülemek için kullanabilirsiniz:
+
+```sql
 -- top queries that waited on buffer
 -- note these are finished queries
 WITH Aggregated AS (SELECT q.query_hash, SUM(total_query_wait_time_ms) total_wait_time_ms, SUM(total_query_wait_time_ms / avg_query_wait_time_ms) AS total_executions, MIN(qt.query_sql_text) AS sampled_query_text, MIN(wait_category_desc) AS wait_category_desc
@@ -153,6 +157,85 @@ ORDER BY total_wait_time_ms DESC;
 GO
 ```
 
+#### <a name="view-total-log-io-for-writelog-waits"></a>Görünüm toplam günlük g/ç için WRITELOG bekler
+
+Bekleme türü ise `WRITELOG`, toplam günlük GÇ deyimi tarafından görüntülemek için aşağıdaki sorguyu kullanın:
+
+```sql
+-- Top transaction log consumers
+-- Adjust the time window by changing
+-- rsi.start_time >= DATEADD(hour, -2, GETUTCDATE())
+WITH AggregatedLogUsed
+AS (SELECT q.query_hash,
+           SUM(count_executions * avg_cpu_time / 1000.0) AS total_cpu_millisec,
+           SUM(count_executions * avg_cpu_time / 1000.0) / SUM(count_executions) AS avg_cpu_millisec,
+           SUM(count_executions * avg_log_bytes_used) AS total_log_bytes_used,
+           MAX(rs.max_cpu_time / 1000.00) AS max_cpu_millisec,
+           MAX(max_logical_io_reads) max_logical_reads,
+           COUNT(DISTINCT p.plan_id) AS number_of_distinct_plans,
+           COUNT(DISTINCT p.query_id) AS number_of_distinct_query_ids,
+           SUM(   CASE
+                      WHEN rs.execution_type_desc = 'Aborted' THEN
+                          count_executions
+                      ELSE
+                          0
+                  END
+              ) AS Aborted_Execution_Count,
+           SUM(   CASE
+                      WHEN rs.execution_type_desc = 'Regular' THEN
+                          count_executions
+                      ELSE
+                          0
+                  END
+              ) AS Regular_Execution_Count,
+           SUM(   CASE
+                      WHEN rs.execution_type_desc = 'Exception' THEN
+                          count_executions
+                      ELSE
+                          0
+                  END
+              ) AS Exception_Execution_Count,
+           SUM(count_executions) AS total_executions,
+           MIN(qt.query_sql_text) AS sampled_query_text
+    FROM sys.query_store_query_text AS qt
+        JOIN sys.query_store_query AS q
+            ON qt.query_text_id = q.query_text_id
+        JOIN sys.query_store_plan AS p
+            ON q.query_id = p.query_id
+        JOIN sys.query_store_runtime_stats AS rs
+            ON rs.plan_id = p.plan_id
+        JOIN sys.query_store_runtime_stats_interval AS rsi
+            ON rsi.runtime_stats_interval_id = rs.runtime_stats_interval_id
+    WHERE rs.execution_type_desc IN ( 'Regular', 'Aborted', 'Exception' )
+          AND rsi.start_time >= DATEADD(HOUR, -2, GETUTCDATE())
+    GROUP BY q.query_hash),
+     OrderedLogUsed
+AS (SELECT query_hash,
+           total_log_bytes_used,
+           number_of_distinct_plans,
+           number_of_distinct_query_ids,
+           total_executions,
+           Aborted_Execution_Count,
+           Regular_Execution_Count,
+           Exception_Execution_Count,
+           sampled_query_text,
+           ROW_NUMBER() OVER (ORDER BY total_log_bytes_used DESC, query_hash ASC) AS RN
+    FROM AggregatedLogUsed)
+SELECT OD.total_log_bytes_used,
+       OD.number_of_distinct_plans,
+       OD.number_of_distinct_query_ids,
+       OD.total_executions,
+       OD.Aborted_Execution_Count,
+       OD.Regular_Execution_Count,
+       OD.Exception_Execution_Count,
+       OD.sampled_query_text,
+       OD.RN
+FROM OrderedLogUsed AS OD
+WHERE OD.RN <= 15
+ORDER BY total_log_bytes_used DESC;
+GO
+```
+
 ## <a name="identify-tempdb-performance-issues"></a>Tanımlamak `tempdb` performans sorunları
 
 G/ç performans sorunlarını tanımlamak için kullanıldığında, üst bekleyin ilişkilendirilmiş türleri `tempdb` konular `PAGELATCH_*` (değil `PAGEIOLATCH_*`). Ancak, `PAGELATCH_*` beklediği değil her zaman anlama sahip olduğunuz `tempdb` Çekişme.  Bu bekleyin, ayrıca, aynı veri sayfasını hedefleyen eş zamanlı istek nedeniyle kullanıcı nesnesi veri sayfası çakışması olduğunu anlamına gelebilir. Daha fazla onaylamak için `tempdb` çekişmesini kullanım [sys.dm_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) wait_resource değeri ile başlayan onaylamak için `2:x:y` 2 olduğu `tempdb` veritabanı kimliği `x` dosya kimliği ve `y` sayfa kimliği.  
@@ -164,6 +247,8 @@ Tempdb çakışma için dayanan uygulama kodu yeniden yazın ya da azaltmak içi
 - Tablo değerli Parametreler
 - Sürüm deposu kullanım (özellikle ilişkili olan işlemler uzun süre çalışan)
 - Sıralar, karma birleştirmeler ve biriktiricileri sorgu planlarına sahip sorgular
+
+### <a name="top-queries-that-use-table-variables-and-temporary-tables"></a>Tablo değişkenleri ve geçici tablolar kullanan en sık kullanılan sorgular
 
 Tablo değişkenleri ve geçici tablolar kullanan üst sorguları tanımlamak için aşağıdaki sorguyu kullanın:
 
@@ -187,6 +272,8 @@ FROM(SELECT DISTINCT plan_handle, [Database], [Schema], [table]
      WHERE [table] LIKE '%@%' OR [table] LIKE '%#%') AS t
     JOIN #tmpPlan AS t2 ON t.plan_handle=t2.plan_handle;
 ```
+
+### <a name="identify-long-running-transactions"></a>Uzun süre çalışan işlemleri tanımlayın
 
 Uzun tanımlamak için aşağıdaki sorguyu kullanın, işlem çalışıyor. Uzun süre çalışan işlem sürüm deposuna temizleme engelleyin.
 
@@ -454,7 +541,7 @@ FROM sys.dm_exec_requests AS r
 ORDER BY mg.granted_memory_kb DESC;
 ```
 
-## <a name="calculating-database-size"></a>Veritabanı boyutu hesaplanıyor
+## <a name="calculating-database-and-objects-sizes"></a>Veritabanı ve nesneleri boyutları hesaplanıyor
 
 Aşağıdaki sorgu veritabanınızın (megabayt cinsinden) boyutunu döndürür:
 

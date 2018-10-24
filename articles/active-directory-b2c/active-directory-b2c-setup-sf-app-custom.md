@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/21/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: ebce7a661ab305e5dcfda191ddbad54a4e9d33a1
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: afed471694dd66adfc285965433a1efd92d1653b
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48887266"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49945105"
 ---
 # <a name="set-up-sign-in-with-a-salesforce-saml-provider-by-using-custom-policies-in-azure-active-directory-b2c"></a>Salesforce SAML sağlayıcısı ile oturum açma Azure Active Directory B2C'de özel ilkeler kullanarak ayarlama
 
@@ -118,7 +118,6 @@ Bir talep sağlayıcısı olarak bir Salesforce hesabına ekleyerek tanımlayabi
           <Description>Login with your Salesforce account</Description>
           <Protocol Name="SAML2"/>
           <Metadata>
-            <Item Key="RequestsSigned">false</Item>
             <Item Key="WantsEncryptedAssertions">false</Item>
             <Item Key="WantsSignedAssertions">false</Item>
             <Item Key="PartnerEntity">https://contoso-dev-ed.my.salesforce.com/.well-known/samlidp.xml</Item>

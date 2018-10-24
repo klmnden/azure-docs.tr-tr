@@ -9,12 +9,12 @@ ms.author: jmartens
 author: j-martens
 ms.reviewer: jmartens
 ms.date: 10/1/2018
-ms.openlocfilehash: 3a5ee8795dabcbf9e35e16a8ba0f9c0eb5490ead
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: 6372aada8c3d380f8d3cefb0479e45bbd7c63898
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48243382"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49945255"
 ---
 # <a name="vs-code-tools-for-ai-train-and-deploy-ml-models-from-vs-code"></a>AI için VS Code araçları: eğitme ve VS koddan ML modelleri dağıtma
 Bu makalede, nasıl kullanılacağını öğreneceksiniz **yapay ZEKA için VS Code Araçları** eğitmek ve makine öğrenimi ve derin öğrenme modelleri VS code'da Azure Machine Learning hizmeti ile dağıtmak için uzantı.
@@ -196,4 +196,4 @@ Azure Container Instance için bir örnek aşağıda verilmiştir: [ ![VS Code A
 
 VS Code dışında Machine Learning ile eğitim talimatları için okuma [öğretici: Azure Machine Learning ile modelleri eğitme](tutorial-train-models-with-aml.md).
 
-Çalıştıran ve yerel kodda hata ayıklama düzenleme talimatları için bkz. [Python Hello World Öğreticisi](https://code.visualstudio.com/docs/languages/python/docs/python/python-tutorial)
+Çalıştıran ve yerel kodda hata ayıklama düzenleme talimatları için bkz. [Python Hello World Öğreticisi](https://code.visualstudio.com/docs/python/python-tutorial)

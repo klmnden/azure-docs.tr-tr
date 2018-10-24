@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/02/2018
 ms.author: apimpm
-ms.openlocfilehash: ce4ff33a8af9cf864ad4902599a0ab18b2b27182
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: d359ad0e619e4d7784d763e70599ce784aa852cd
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49387234"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49945830"
 ---
 # <a name="how-to-save-and-configure-your-api-management-service-configuration-using-git"></a>Kaydet ve Git kullanarak API Management hizmet yapılandırmanızı yapılandırma
 
@@ -84,7 +84,7 @@ Aşağıdaki örneklerde Git Bash aracından [Git için Windows](http://www.git-
 Git aracı istenen klasöründe ve git deposunu Azure portalı tarafından sağlanan komutu kullanarak yerel makinenize kopyalamak için aşağıdaki komutu çalıştırın.
 
 ```
-git clone https://bugbashdev4.scm.azure-api.net/
+git clone https://{name}.scm.azure-api.net/
 ```
 
 Kullanıcı adı ve parola istendiğinde sağlar.
@@ -92,7 +92,7 @@ Kullanıcı adı ve parola istendiğinde sağlar.
 Herhangi bir hata alırsanız, değiştirmeyi deneyin, `git clone` kullanıcı adı ve parola, aşağıdaki örnekte gösterildiği gibi içerecek şekilde komutu.
 
 ```
-git clone https://username:password@bugbashdev4.scm.azure-api.net/
+git clone https://username:password@{name}.scm.azure-api.net/
 ```
 
 Bu hata sağlıyorsa, komut parola kısmı kodlama URL'si deneyin. Bunu yapmanın hızlı bir yolu olan Visual Studio'yu açın ve aşağıdaki komutu yürütün **komut penceresi**. Açmak için **komut penceresi**, herhangi bir çözüm veya proje Visual Studio'da açın (veya yeni bir boş bir konsol uygulaması oluşturun) ve **Windows**, **hemen** gelen **Hata ayıklama** menüsü.
@@ -104,7 +104,7 @@ Bu hata sağlıyorsa, komut parola kısmı kodlama URL'si deneyin. Bunu yapmanı
 Kodlanmış parolayı git komutu oluşturmak için kullanıcı adı ve depo konumu ile birlikte kullanın.
 
 ```
-git clone https://username:url encoded password@bugbashdev4.scm.azure-api.net/
+git clone https://username:url encoded password@{name}.scm.azure-api.net/
 ```
 
 Depo kopyalandı sonra görüntüleyebilir ve yerel dosya sisteminize çalışma. Daha fazla bilgi için [dosya ve klasör yerel Git deposu başvuru yapısı](#file-and-folder-structure-reference-of-local-git-repository).
@@ -120,7 +120,7 @@ git pull
 Çalıştırmadan önce `git pull` yerel deponuzu klasörde olduğundan emin olun. Yalnızca tamamladıysanız `git clone` komut sonra dizini aşağıdaki gibi bir komut çalıştırarak deponuza değiştirmeniz gerekir.
 
 ```
-cd bugbashdev4.scm.azure-api.net/
+cd {name}.scm.azure-api.net/
 ```
 
 ## <a name="to-push-changes-from-your-local-repo-to-the-server-repo"></a>Değişiklikleri yerel deponuzdan sunucu depoya göndermek için

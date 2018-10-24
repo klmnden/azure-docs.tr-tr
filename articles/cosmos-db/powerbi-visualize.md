@@ -10,18 +10,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/03/2018
 ms.author: sngun
-ms.openlocfilehash: dfd66c1ac2e627b72d24a520fc37c6ebfb361556
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: 90f5caa13bf95fb5298a06bda5a03e9bc17bcb1a
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48870016"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49945187"
 ---
 # <a name="visualize-azure-cosmos-db-data-by-using-the-power-bi-connector"></a>Power BI Bağlayıcısı'nı kullanarak Azure Cosmos DB verileri Görselleştir
 
 [Power BI](https://powerbi.microsoft.com/) oluşturduğunuz ve panolar ve raporlar çevrimiçi bir hizmettir. Power BI Desktop, yazma aracı, çeşitli veri kaynaklarından veri almanızı sağlayan bir rapordur. Azure Cosmos DB veri kaynağı, Power BI Desktop ile kullanabileceğiniz biridir. Power BI için Azure Cosmos DB Bağlayıcısı ile Azure Cosmos DB hesabı için Power BI Desktop bağlanabilirsiniz.  Power BI için Azure Cosmos DB veri içe aktardıktan sonra dönüştürmek, raporlar oluşturabilir ve raporları Power BI'a yayımlayın.   
 
-Bu makalede, Power BI Desktop için Azure Cosmos DB hesabına bağlanmak için gereken adımlar açıklanmaktadır. Bağlanma sonra bir koleksiyonuna gidin, verileri ayıklamak, JSON verileri tablo biçimine dönüştürmek ve Powerbı'a bir raporu yayımlayın.
+Bu makalede, Power BI Desktop için Azure Cosmos DB hesabına bağlanmak için gereken adımlar açıklanmaktadır. Bağlanma sonra bir koleksiyonuna gidin, verileri ayıklamak, JSON verileri tablo biçimine dönüştürmek ve Power BI'da bir raporu yayımlayın.
 
 > [!NOTE]
 > Azure Cosmos DB için Power BI Bağlayıcısı, Power BI Desktop için bağlanır. Power BI Desktop'ta oluşturulan raporlar için Powerbı.com yayımlanabilir. Azure Cosmos DB verilerinin doğrudan ayıklama PowerBI.com gerçekleştirilemiyor. 

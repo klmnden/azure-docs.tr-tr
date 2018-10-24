@@ -1,6 +1,6 @@
 ---
-title: Azure Data Factory kullanarak Machine Learning modellerini güncelleştirme | Microsoft Docs
-description: Nasıl oluşturulacağını açıklar Azure Data Factory ve Azure Machine Learning kullanarak Tahmine dayalı ardışık düzen oluşturun
+title: Azure Data Factory kullanarak makine öğrenimi modellerini güncelleştirme | Microsoft Docs
+description: Nasıl oluşturulacağını açıklar Azure Data Factory ve Azure Machine Learning kullanarak öngörülebilir komut zincirleri oluşturma
 services: data-factory
 documentationcenter: ''
 author: sharonlo101
@@ -13,61 +13,61 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 3eb9f765b5ffe1118b3b25aff8ecdde327021a54
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 7a5c0866bc08c5a73888d9baca41980106a62ae2
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37046488"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49954955"
 ---
-# <a name="updating-azure-machine-learning-models-using-update-resource-activity"></a>Azure Machine Learning modellerini kaynak güncelleştirme etkinliği kullanarak güncelleştirme
+# <a name="updating-azure-machine-learning-models-using-update-resource-activity"></a>Kaynak güncelleştirme etkinliği kullanarak Azure Machine Learning modellerini güncelleştirme
 
 > [!div class="op_single_selector" title1="Transformation Activities"]
 > * [Hive etkinliği](data-factory-hive-activity.md) 
 > * [Pig etkinliği](data-factory-pig-activity.md)
 > * [MapReduce etkinliği](data-factory-map-reduce.md)
-> * [Hadoop akış etkinliği](data-factory-hadoop-streaming-activity.md)
+> * [Hadoop akış etkinliğinde](data-factory-hadoop-streaming-activity.md)
 > * [Spark etkinliği](data-factory-spark.md)
 > * [Machine Learning Batch Yürütme Etkinliği](data-factory-azure-ml-batch-execution-activity.md)
 > * [Machine Learning Kaynak Güncelleştirme Etkinliği](data-factory-azure-ml-update-resource-activity.md)
 > * [Saklı Yordam Etkinliği](data-factory-stored-proc-activity.md)
 > * [Data Lake Analytics U-SQL Etkinliği](data-factory-usql-activity.md)
-> * [.NET özel etkinlik](data-factory-use-custom-activities.md)
+> * [.NET özel etkinliği](data-factory-use-custom-activities.md)
 
 
 > [!NOTE]
-> Bu makale, veri fabrikası 1 sürümü için geçerlidir. Data Factory hizmetinin geçerli sürümünü kullanıyorsanız bkz [makine öğrenimi modellerini veri fabrikasında güncelleştirme](../update-machine-learning-models.md).
+> Bu makale, Data Factory’nin 1. sürümü için geçerlidir. Data Factory hizmetinin geçerli sürümünü kullanıyorsanız bkz [Data factory'de machine learning modellerini güncelleştirme](../update-machine-learning-models.md).
 
-Bu makalede ana Azure Data Factory - Azure Machine Learning tümleştirme makale tamamlar: [Azure Machine Learning ve Azure Data Factory kullanarak Tahmine dayalı işlem hatlarını oluşturmak](data-factory-azure-ml-batch-execution-activity.md). Zaten yapmadıysanız, bu makalede okumadan önce ana makalesini gözden geçirin. 
+Bu makalede ana Azure Data Factory - Azure Machine Learning tümleştirme makale tamamlar: [Azure Machine Learning ve Azure Data Factory kullanarak öngörülebilir komut zincirleri oluşturma](data-factory-azure-ml-batch-execution-activity.md). Zaten yapmadıysanız, bu makalede okumadan önce ana makalesini gözden geçirin. 
 
 ## <a name="overview"></a>Genel Bakış
-Zaman içinde denemeler Puanlama Azure ML Tahmine dayalı modelleri yeni giriş veri kümeleri kullanarak retrained gerekir. Yeniden eğitme ile tamamladıktan sonra retrained ML modeliyle Puanlama web hizmetini güncelleştirmek istiyorsunuz. Web Hizmetleri aracılığıyla yeniden eğitme ve güncelleştirme Azure ML modelleri etkinleştirmek için tipik adımları şunlardır:
+Zaman içinde yeni bir giriş veri kümeleri kullanarak eğitilebileceği Azure ML denemeleri Puanlama Tahmine dayalı modelleri gerekir. Yeniden eğitme ile işiniz bittiğinde ile retrained ML model Puanlama web hizmeti güncelleştirmek istediğiniz. Web Hizmetleri aracılığıyla Azure ML modelleri yeniden eğitme ve güncelleştirme etkinleştirmek için tipik adımları şunlardır:
 
 1. Bir deneme oluşturma [Azure ML Studio](https://studio.azureml.net).
-2. Modelle memnun kaldığınızda, her ikisi için web hizmetleri yayımlamak için Azure ML Studio kullanma **eğitim denemenizi** ve puanlama /**Tahmine dayalı denemeye**.
+2. Modelle memnun kaldığınızda, Azure ML Studio hem de web hizmetleri yayımlayacağınızı **eğitim denemesini** ve puanlama /**Tahmine dayalı denemeye**.
 
-Aşağıdaki tabloda bu örnekte kullanılan web hizmetleri açıklanmaktadır.  Bkz: [yeniden eğitme Machine Learning modellerini programlama aracılığıyla](../../machine-learning/machine-learning-retrain-models-programmatically.md) Ayrıntılar için.
+Aşağıdaki tabloda, bu örnekte kullanılan web hizmetleri açıklanmaktadır.  Bkz: [yeniden eğitme Machine Learning modellerini programlama aracılığıyla](../../machine-learning/machine-learning-retrain-models-programmatically.md) Ayrıntılar için.
 
-- **Web hizmeti eğitim** - eğitim verileri alır ve eğitilmiş modeller üretir. Yeniden eğitme çıktı, Azure Blob depolamada .ilearner dosyasıdır. **Endpoint varsayılan** , eğitim yayımladığınızda, bir web hizmeti olarak denemeler için otomatik olarak oluşturulur. Daha fazla uç noktaları oluşturabilirsiniz, ancak bu örnek yalnızca varsayılan uç noktası kullanır.
-- **Web hizmeti Puanlama** - etiketlenmemiş veri örnekleri alır ve tahminleri yapar. Tahmin çıktısını bir .csv dosyası veya deneme yapılandırmasına bağlı olarak bir Azure SQL veritabanında satır gibi çeşitli formlar olabilir. Bir web hizmeti olarak Tahmine dayalı denemeye yayımladığınızda, varsayılan uç sizin için otomatik olarak oluşturulur. 
+- **Web hizmeti eğitim** - eğitim verilerini alır ve eğitilen modelleri üretir. Yeniden eğitme çıktı, Azure Blob depolama alanındaki bir .ilearner dosyasıdır. **Varsayılan uç nokta** , eğitim yayımladığınızda bir web hizmeti olarak denemeler için otomatik olarak oluşturulur. Daha fazla uç noktaları oluşturabilirsiniz, ancak bu örnek yalnızca varsayılan uç nokta kullanır.
+- **Puanlama Web hizmeti** - etiketlenmemiş veri örnekleri alır ve Öngörüler sağlar. Tahmin çıktısını bir .csv dosyası veya denemeyi yapılandırmasına bağlı olarak bir Azure SQL veritabanındaki satırlar gibi çeşitli forms olabilir. Bir web hizmeti olarak Tahmine dayalı denemeye yayımladığınızda, varsayılan uç nokta sizin için otomatik olarak oluşturulur. 
 
-Aşağıdaki resimde, eğitim ve uç noktaları Azure ML Puanlama arasındaki ilişki gösterilmektedir.
+Aşağıdaki resimde, eğitim ve uç noktaları Azure ML'de Puanlama arasındaki ilişki gösterilmektedir.
 
 ![Web Hizmetleri](./media/data-factory-azure-ml-batch-execution-activity/web-services.png)
 
-Çağırabilirsiniz **web hizmeti eğitim** kullanarak **Azure ML toplu iş yürütme etkinliği**. Eğitim web hizmetini çağırmak için Puanlama verileri (web hizmeti Puanlama) bir Azure ML web Hizmeti'ni çağırmadan olarak aynıdır. Önceki bölümlerde ayrıntılı bir Azure Data Factory işlem hattı Azure ML web hizmetinden çağırmak nasıl kapsar. 
+Çağırabilirsiniz **web hizmeti eğitim** kullanarak **Azure ML Batch yürütme etkinliği**. Bir eğitim web hizmetini çağırmak için Puanlama veri (Puanlama web hizmeti) bir Azure ML web hizmetini çağırmak olarak aynıdır. Önceki bölümlerde ayrıntılı bir Azure Data Factory işlem hattından bir Azure ML web hizmetini çağırmak nasıl kapsar. 
 
-Çağırabilirsiniz **web hizmeti Puanlama** kullanarak **Azure ML güncelleştirme kaynak etkinliği** web hizmeti ile yeni eğitilen modeli güncelleştirmek için. Aşağıdaki örnekler, bağlantılı hizmet tanımlarını sağlar: 
+Çağırabilirsiniz **Puanlama web hizmeti** kullanarak **Azure ML güncelleştirmek kaynak etkinliği** web hizmeti ile yeni eğitilen modeli güncelleştirmek için. Aşağıdaki örneklerde, bağlı hizmet tanımları sağlanır: 
 
-## <a name="scoring-web-service-is-a-classic-web-service"></a>Klasik web hizmeti olan Web hizmeti Puanlama
-Puanlama web hizmeti ise bir **Klasik web hizmeti**, ikinci oluşturma **varsayılan olmayan ve güncelleştirilebilir endpoint** Azure portalını kullanarak. Bkz [uç noktalar oluşturmak](../../machine-learning/machine-learning-create-endpoint.md) adımları makalesinde bulabilirsiniz. Varsayılan olmayan güncelleştirilebilir uç nokta oluşturduktan sonra aşağıdaki adımları uygulayın:
+## <a name="scoring-web-service-is-a-classic-web-service"></a>Bir Klasik web hizmeti, Puanlama Web hizmeti
+Puanlama web hizmeti ise bir **Klasik web hizmeti**, ikinci oluşturma **varsayılan olmayan ve güncelleştirilebilir uç nokta** Azure portalını kullanarak. Bkz [uç noktaları oluşturma](../../machine-learning/machine-learning-create-endpoint.md) adımları makalesinde bulabilirsiniz. Varsayılan olmayan güncelleştirilebilir uç nokta oluşturduktan sonra aşağıdaki adımları uygulayın:
 
-* Tıklatın **toplu iş yürütme** URI değeri almak için **mlEndpoint** JSON özelliği.
-* Tıklatın **güncelleştirme kaynağı** URI değeri almak için bağlantı **updateResourceEndpoint** JSON özelliği. Uç nokta sayfasında kendisini (sağ alt köşedeki) API anahtardır.
+* Tıklayın **toplu iş yürütme** URI değerini almak için **mlEndpoint** JSON özelliği.
+* Tıklayın **kaynak güncelleştirme** URI değerini almak için bağlantı **updateResourceEndpoint** JSON özelliği. Uç nokta sayfasının kendisine (sağ alt köşedeki) API anahtarını açıktır.
 
 ![güncelleştirilebilir uç noktası](./media/data-factory-azure-ml-batch-execution-activity/updatable-endpoint.png)
 
-Aşağıdaki örnek AzureML bağlantılı hizmeti için bir örnek JSON tanım sağlar. Bağlantılı hizmet apikey ile yapılan kimlik doğrulaması için kullanır.  
+Aşağıdaki örnek, bir örnek JSON tanımı AzureML bağlantılı hizmeti için sağlar. Bağlı hizmet kimlik doğrulaması için apiKey kullanır.  
 
 ```json
 {
@@ -83,14 +83,14 @@ Aşağıdaki örnek AzureML bağlantılı hizmeti için bir örnek JSON tanım s
 }
 ```
 
-## <a name="scoring-web-service-is-azure-resource-manager-web-service"></a>Web hizmeti Puanlama Azure Resource Manager web hizmetidir 
-Web hizmeti bir Azure Kaynak Yöneticisi uç noktasını kullanıma sunar web hizmetinin yeni tür ise, ikinci eklemek gerekmez **varsayılan olmayan** uç noktası. **UpdateResourceEndpoint** bağlantılı hizmetteki biçimi şöyledir: 
+## <a name="scoring-web-service-is-azure-resource-manager-web-service"></a>Azure Resource Manager web hizmeti, Puanlama Web hizmeti 
+Web hizmeti bir Azure Resource Manager uç noktasını kullanıma sunar ve web hizmeti yeni türü ise, ikinci eklemek gerekmez **varsayılan olmayan** uç noktası. **UpdateResourceEndpoint** bölümünde bağlı hizmetin şu biçimdedir: 
 
 ```
 https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resource-group-name}/providers/Microsoft.MachineLearning/webServices/{web-service-name}?api-version=2016-05-01-preview. 
 ```
 
-Değerleri URL'deki yer tutucu için web hizmeti üzerinde sorgulanırken alabileceğiniz [Azure Machine Learning Web Hizmetleri portalı](https://services.azureml.net/). Güncelleştirme kaynağı endpoint yeni tür bir AAD (Azure Active Directory) belirteci gerektirir. Belirtin **servicePrincipalId** ve **servicePrincipalKey**içinde AzureML bağlantılı hizmetinin. Bkz: [hizmet sorumlusu oluşturma ve Azure kaynak yönetmek için izinleri atamak nasıl](../../azure-resource-manager/resource-group-create-service-principal-portal.md). Örnek AzureML bağlantılı hizmet tanımı aşağıda verilmiştir: 
+Değerler için yer tutucu URL'nin web hizmeti üzerinde sorgulanırken alabileceğiniz [Azure Machine Learning Web Hizmetleri portalını](https://services.azureml.net/). Yeni güncelleştirme kaynak uç noktası türü, bir AAD (Azure Active Directory) belirteci gerektirir. Belirtin **Serviceprincipalıd** ve **servicePrincipalKey**birçok bağlı hizmeti. Bkz: [hizmet sorumlusu oluşturma ve Azure kaynak yönetme izinlerini atama](../../active-directory/develop/howto-create-service-principal-portal.md). AzureML bağlantılı hizmet tanımı örneği aşağıdadır: 
 
 ```json
 {
@@ -110,22 +110,22 @@ Değerleri URL'deki yer tutucu için web hizmeti üzerinde sorgulanırken alabil
 }
 ```
 
-Aşağıdaki senaryoyu daha fazla ayrıntı sağlar. Yeniden eğitme ve bir Azure Data Factory işlem hattı Azure ML modellerinden güncelleştirmek için bir örnek vardır.
+Aşağıdaki senaryoda, daha fazla ayrıntı sağlar. Yeniden eğitme ve bir Azure Data Factory işlem hattı Azure ML modelinden güncelleştirmek için bir örnek var.
 
 ## <a name="scenario-retraining-and-updating-an-azure-ml-model"></a>Senaryo: yeniden eğitme ve bir Azure ML model güncelleştiriliyor
-Bu bölümde kullanan örnek bir işlem hattı **Azure ML toplu iş yürütme etkinliği** bir model yeniden eğitme için. Ardışık Düzen de kullanır **Azure ML kaynak güncelleştirme etkinliği** modeli Puanlama web hizmeti güncelleştirmek için. Ayrıca bu bölüm JSON parçacıklarını tüm bağlı hizmetler, veri kümelerini ve ardışık düzen örnekte için sağlar.
+Bu bölümde kullanan bir örnek işlem hattı **Azure ML Batch yürütme etkinliği** modeli yeniden eğitme için. İşlem hattı de kullanır **Azure ML kaynak güncelleştirme etkinliği** model Puanlama web hizmeti içinde güncelleştirilecek. Bölüm ayrıca tüm bağlı hizmetler, veri kümeleri ve bu örnekteki işlem hattı JSON parçacıklarını sağlar.
 
-Burada, örnek ardışık diyagram görünümü verilmiştir. Gördüğünüz gibi Azure ML toplu iş yürütme etkinliği eğitim girdi alır ve eğitim çıktı (iLearner dosyası) oluşturur. Azure ML kaynak güncelleştirme etkinliği Bu eğitim çıktıyı alır ve puanlama web hizmeti uç noktası modelinde güncelleştirir. Kaynak güncelleştirme etkinliği herhangi bir çıktı üretmez. PlaceholderBlob Azure Data Factory hizmeti tarafından ardışık çalıştırmak için gerekli olan yalnızca bir kukla çıktı veri kümesi ' dir.
+Örnek işlem hattı diyagram görünümü aşağıda verilmiştir. Gördüğünüz gibi Azure ML Batch yürütme etkinliği Eğitim giriş alır ve eğitim çıktı (iLearner dosyası) oluşturur. Azure ML kaynak güncelleştirme etkinliği, bu eğitim çıkış alır ve model Puanlama web hizmeti uç noktasını güncelleştirir. Kaynak güncelleştirme etkinliği herhangi bir çıktı üretmez. PlaceholderBlob yalnızca Azure Data Factory hizmeti tarafından işlem hattını çalıştırmak için gerekli olan bir işlevsiz bir çıktı veri kümesidir.
 
-![ardışık düzeni diyagramı](./media/data-factory-azure-ml-batch-execution-activity/update-activity-pipeline-diagram.png)
+![işlem hattı diyagramı](./media/data-factory-azure-ml-batch-execution-activity/update-activity-pipeline-diagram.png)
 
-### <a name="azure-blob-storage-linked-service"></a>Azure Blob storage bağlı hizmeti:
-Azure Storage aşağıdaki veriler tutar:
+### <a name="azure-blob-storage-linked-service"></a>Azure Blob Depolama bağlı hizmeti:
+Azure depolama şu veri tutar:
 
-* Eğitim verileri. Azure ML eğitim web hizmeti için giriş verileri.  
-* iLearner dosya. Azure ML eğitim web hizmetinden çıktı. Bu ayrıca güncelleştirme kaynağı etkinliğin girişi dosyasıdır.  
+* Eğitim verileri. Azure ML eğitim web hizmeti giriş verileri.  
+* iLearner dosya. Azure ML eğitim web hizmetinden çıkışı. Bu dosya, kaynak güncelleştirme etkinliği için bir giriş da olabilir.  
 
-Bağlantılı hizmeti örnek JSON tanımını şöyledir:
+Örnek JSON tanımı bağlı hizmetin şu şekildedir:
 
 ```JSON
 {
@@ -139,8 +139,8 @@ Bağlantılı hizmeti örnek JSON tanımını şöyledir:
 }
 ```
 
-### <a name="training-input-dataset"></a>Eğitim girdi veri kümesi:
-Aşağıdaki veri kümesi Azure ML eğitim web hizmeti için giriş eğitim verilerini temsil eder. Azure ML toplu iş yürütme etkinliği bu veri kümesine bir girdi olarak alır.
+### <a name="training-input-dataset"></a>Eğitim giriş veri kümesi:
+Aşağıdaki veri kümesi, Azure ML eğitim web hizmeti giriş eğitim verilerini temsil eder. Azure ML Batch yürütme etkinliği, bu veri kümesi bir girdi olarak alır.
 
 ```JSON
 {
@@ -170,8 +170,8 @@ Aşağıdaki veri kümesi Azure ML eğitim web hizmeti için giriş eğitim veri
 }
 ```
 
-### <a name="training-output-dataset"></a>Eğitim çıktı veri kümesi:
-Aşağıdaki veri kümesi Azure ML eğitim web hizmetinden çıktı iLearner dosyasını temsil eder. Azure ML toplu iş yürütme etkinliği bu veri kümesini oluşturur. Bu veri kümesi de, Azure ML güncelleştirme kaynağı etkinliğin girişi olur.
+### <a name="training-output-dataset"></a>Eğitim çıkış veri kümesi:
+Aşağıdaki veri kümesi Azure ML eğitim web hizmetinden çıkış iLearner dosyasını temsil eder. Azure ML Batch yürütme etkinliği, bu veri kümesi üretir. Bu veri kümesi, ayrıca Azure ML kaynak güncelleştirme etkinliği için bir giriş olabilir.
 
 ```JSON
 {
@@ -195,7 +195,7 @@ Aşağıdaki veri kümesi Azure ML eğitim web hizmetinden çıktı iLearner dos
 ```
 
 ### <a name="linked-service-for-azure-ml-training-endpoint"></a>Azure ML eğitim uç noktası için bağlı hizmet
-Aşağıdaki JSON parçacığı eğitim web hizmeti için varsayılan uç noktaları bir Azure Machine Learning bağlantılı hizmeti tanımlar.
+Eğitim web hizmeti varsayılan uç noktaya işaret eden bir Azure Machine Learning bağlı hizmetinin aşağıdaki JSON kod parçacığında tanımlar.
 
 ```JSON
 {    
@@ -210,16 +210,16 @@ Aşağıdaki JSON parçacığı eğitim web hizmeti için varsayılan uç noktal
 }
 ```
 
-İçinde **Azure ML Studio**, değerlerini almak için aşağıdakileri **mlEndpoint** ve **apikey ile yapılan**:
+İçinde **Azure ML Studio**, değerlerini almak için aşağıdakileri **mlEndpoint** ve **apiKey**:
 
-1. Tıklatın **WEB Hizmetleri** sol menüde.
-2. Tıklatın **web hizmeti eğitim** web hizmetleri listesinde.
-3. Kopyala'yı tıklatın **API anahtarı** metin kutusu. Anahtar panoya veri fabrikası JSON düzenleyicisine yapıştırın.
-4. İçinde **Azure ML studio**, tıklatın **toplu iş yürütme** bağlantı.
-5. Kopya **istek URI'si** gelen **isteği** bölümünde ve veri fabrikası JSON düzenleyicisine yapıştırın.   
+1. Tıklayın **WEB Hizmetleri** sol menüsünde.
+2. Tıklayın **web hizmeti eğitim** web hizmetleri listesinde.
+3. Yanındaki Kopyala **API anahtarı** metin kutusu. Anahtar, panoya Data Factory JSON düzenleyicisine yapıştırın.
+4. İçinde **Azure ML studio**, tıklayın **toplu iş yürütme** bağlantı.
+5. Kopyalama **istek URI** gelen **istek** bölümünde ve Data Factory JSON düzenleyicisine yapıştırın.   
 
-### <a name="linked-service-for-azure-ml-updatable-scoring-endpoint"></a>Bağlantılı hizmeti Azure ML güncelleştirilebilir Puanlama uç noktası için:
-Aşağıdaki JSON parçacığı Puanlama web hizmeti varsayılan olmayan güncelleştirilebilir uç noktasına işaret eden bir Azure Machine Learning bağlantılı hizmeti tanımlar.  
+### <a name="linked-service-for-azure-ml-updatable-scoring-endpoint"></a>Azure ML güncelleştirilebilir Puanlama uç noktası için bağlı hizmet:
+Varsayılan olmayan güncelleştirilebilir bitiş Puanlama web hizmeti noktasına işaret eden bir Azure Machine Learning bağlı hizmetinin aşağıdaki JSON kod parçacığında tanımlar.  
 
 ```JSON
 {
@@ -239,7 +239,7 @@ Aşağıdaki JSON parçacığı Puanlama web hizmeti varsayılan olmayan güncel
 ```
 
 ### <a name="placeholder-output-dataset"></a>Yer tutucu çıktı veri kümesi:
-Azure ML güncelleştirme kaynağı etkinlik herhangi bir çıktı üretmez. Ancak, Azure Data Factory işlem hattı zamanlamasını sürücü için bir çıkış veri kümesi gerektirir. Bu nedenle, bir kukla/yer tutucu veri kümesi bu örnekte kullanırız.  
+Azure ML kaynak güncelleştirme etkinliği herhangi bir çıktı üretmez. Ancak, Azure Data Factory işlem hattı zamanlamasını sürücü için bir çıktı veri kümesi gerektirir. Bu nedenle, bir dummy/yer tutucu veri kümesi bu örnekte kullanırız.  
 
 ```JSON
 {
@@ -262,9 +262,9 @@ Azure ML güncelleştirme kaynağı etkinlik herhangi bir çıktı üretmez. Anc
 ```
 
 ### <a name="pipeline"></a>İşlem hattı
-Ardışık düzen iki etkinlik vardır: **AzureMLBatchExecution** ve **AzureMLUpdateResource**. Azure ML toplu iş yürütme etkinliği giriş olarak eğitim verileri alır ve bir iLearner dosya bir çıktı olarak üretir. Etkinlik giriş eğitim verilerle eğitim web hizmeti (web hizmeti olarak sunulan eğitim denemenizi) çağırır ve ilearner dosya webservice alır. PlaceholderBlob Azure Data Factory hizmeti tarafından ardışık çalıştırmak için gerekli olan yalnızca bir kukla çıktı veri kümesi ' dir.
+İşlem hattı iki etkinlik içerir: **AzureMLBatchExecution** ve **AzureMLUpdateResource**. Azure ML Batch yürütme etkinliği, giriş olarak eğitim verilerini alır ve çıktı olarak bir iLearner dosyası üretir. Etkinlik, giriş eğitim verilerle eğitim web hizmeti (bir web hizmeti olarak kullanıma sunulan eğitim denemesini) çağırır ve webservice olan ilearner dosyasını alır. PlaceholderBlob yalnızca Azure Data Factory hizmeti tarafından işlem hattını çalıştırmak için gerekli olan bir işlevsiz bir çıktı veri kümesidir.
 
-![ardışık düzeni diyagramı](./media/data-factory-azure-ml-batch-execution-activity/update-activity-pipeline-diagram.png)
+![işlem hattı diyagramı](./media/data-factory-azure-ml-batch-execution-activity/update-activity-pipeline-diagram.png)
 
 ```JSON
 {

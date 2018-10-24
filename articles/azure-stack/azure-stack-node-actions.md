@@ -11,15 +11,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/14/2018
+ms.date: 10/22/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: 1f59f2ce6e3bf8d34ce225aa93da76ad523775e0
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: f299cca57e3eaddd2a9d4868f3bae822392e45a0
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "42056011"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49944945"
 ---
 # <a name="scale-unit-node-actions-in-azure-stack"></a>Azure stack'teki ölçek birimi düğüm eylemleri
 
@@ -31,7 +31,7 @@ Bu makalede, bir ölçek birimi ve onun ilişkili düğümlerin durumunun nasıl
 > Bu makalede açıklanan tüm düğüm Eylemler aynı anda yalnızca hedef bir düğüm olmalıdır.
 
 
-## <a name="view-the-status-of-a-scale-unit-and-its-nodes"></a>Bir ölçek birimi ve düğümlerini durumunu görüntüleme
+## <a name="view-the-node-status"></a>Düğüm durumunu görüntüleme
 
 Yönetici portalı'nda, bir ölçek birimi ve ilişkili düğümlerinin durumunu kolayca görüntüleyebilirsiniz.
 
@@ -47,15 +47,15 @@ Burada, aşağıdaki bilgileri görüntüleyebilirsiniz:
 - tür sistemi
 - Toplam mantıksal çekirdek sayısı
 - toplam bellek
-- tek tek düğümler ve durumlarını listesi; Her iki **çalıştıran** veya **durduruldu**.
+- Tek tek düğümler ve durumlarını listesi; Her iki **çalıştıran** veya **durduruldu**
 
 ![Her düğüm için çalıştırma durumunu gösteren ölçek birimi kutucuğu](media/azure-stack-node-actions/ScaleUnitStatus.PNG)
 
-## <a name="view-information-about-a-scale-unit-node"></a>Bir ölçek birimi düğüm hakkındaki bilgileri görüntüleme
+## <a name="view-node-information"></a>Düğüm bilgilerini görüntüle
 
 Tek bir düğüm seçerseniz, aşağıdaki bilgileri görüntüleyebilirsiniz:
 
-- bölge adı
+- Bölge adı
 - sunucu modeli
 - Temel Kart Yönetim denetleyicisine (BMC) IP adresi
 - İşlemsel durumu

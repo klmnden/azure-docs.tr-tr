@@ -17,14 +17,14 @@ ms.date: 10/05/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: hirsin
-ms.openlocfilehash: b9ae7cf9d6fd383c7cdfa3957b5d9b94c7207d50
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: 5c560218bebd5399c85b9cebe11c7342e8d15a59
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48900664"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49945697"
 ---
-# <a name="how-azure-ad-uses-the-saml-protocol"></a>Azure AD, SAML protokolü kullanan nasıl
+# <a name="how-azure-ad-uses-the-saml-protocol"></a>Azure AD, SAML protokolünü nasıl kullanır?
 
 Uygulamaların kullanıcılarına çoklu oturum açma deneyimini sağlamak üzere etkinleştirmek için azure Active Directory (Azure AD) kullanan SAML 2.0 protokolü. [Çoklu oturum açma](single-sign-on-saml-protocol.md) ve [çoklu oturum kapatmak](single-sign-out-saml-protocol.md) Azure AD'nin SAML profilleri SAML onaylamalarını, protokoller ve bağlamaları kimlik sağlayıcı hizmetine nasıl kullanıldığı açıklanmaktadır.
 
@@ -32,7 +32,7 @@ SAML protokolü, kimlik sağlayıcısı (Azure AD) ve hizmet sağlayıcısı (ke
 
 Bir uygulamayı Azure AD ile kaydettiğinizde, uygulama geliştiricisi Azure AD ile Federasyon ile ilgili bilgileri kaydeder. Bu bilgiler içerir **yeniden yönlendirme URI'si** ve **meta veri URI'sini** uygulama.
 
-Azure AD kullanan bulut hizmetin **meta veri URI'sini** imzalama anahtarı ve oturum kapatma URI almanızı sağlar. Uygulama meta verileri URI desteklemiyorsa, geliştirici oturum kapatma URI sağlamak için Microsoft desteğine başvurun ve imzalama anahtarı.
+Azure AD kullanan bulut hizmetin **meta veri URI'sini** imzalama anahtarı ve oturum kapatma URI almanızı sağlar. Müşteri, uygulamada açabilir **Azure AD uygulama kaydı ->** ve ardından **ayarlar -> Özellikler**, bunlar oturum kapatma URL'si güncelleştirebilirsiniz. Bu şekilde Azure AD, doğru URL'yi yanıta gönderebilirsiniz. 
 
 Azure Active Directory kiracıya özel ve ortak (Kiracı bağımsız) tek oturum açma ve çoklu oturum kapatma uç noktalarını kullanıma sunar. Bu URL'ler adreslenebilir konumlarını temsil--meta verileri okuyabilmesi için uç noktaya dönebilmesi yalnızca tanımlayıcıları--değildirler.
 

@@ -1,23 +1,23 @@
 ---
-title: Azure Active Directory B2C'de özel ilkeler kullanarak bir kullanıcı arabirimini özelleştirme | Microsoft Docs
-description: Özel ilkeler Azure AD B2C'de kullanırken, bir kullanıcı arabirimi (UI) özelleştirme hakkında bilgi edinin.
+title: Azure Active Directory B2C'de bir özel ilke kullanarak uygulamanızın kullanıcı arabirimini özelleştirme | Microsoft Docs
+description: Özel bir ilke kullanarak Azure Active Directory B2C'de bir kullanıcı arabirimi özelleştirme hakkında bilgi edinin.
 services: active-directory-b2c
 author: davidmu1
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 04/04/2017
+ms.date: 10/23/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 9908a7cf96c56e414e0a8d7faea0352b60214ea4
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: f36d08a397836f17ec25a61e77cb1db5ce10b9d4
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37446172"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49945069"
 ---
-# <a name="azure-active-directory-b2c-configure-ui-customization-in-a-custom-policy"></a>Azure Active Directory B2C: Kullanıcı Arabirimi özelleştirme özel bir ilke yapılandırın.
+# <a name="customize-the-user-interface-of-your-application-using-a-custom-policy-in-azure-active-directory-b2c"></a>Azure Active Directory B2C'de bir özel ilke kullanarak uygulamanızın kullanıcı arabirimini özelleştirme
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
@@ -25,13 +25,13 @@ Bu makaleyi tamamladıktan sonra marka ve görünüm ile kaydolma ve oturum açm
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Başlamadan önce tamamlamanız [özel ilkeleri kullanmaya başlama](active-directory-b2c-get-started-custom.md). Kaydolma ve oturum açma ile yerel hesaplar için bir çalışma özel ilke olması gerekir.
+Bölümündeki adımları tamamlamanız [özel ilkeleri kullanmaya başlama](active-directory-b2c-get-started-custom.md). Kaydolma ve oturum açma ile yerel hesaplar için bir çalışma özel ilke olması gerekir.
 
 ## <a name="page-ui-customization"></a>Sayfa UI Özelleştirmesi
 
-Sayfa UI özelleştirmesi özelliğini kullanarak, herhangi bir özel ilke görünümünü özelleştirebilirsiniz. Ayrıca, marka ve uygulamanızı ve Azure AD B2C arasında visual tutarlılık koruyabilirsiniz.
+Sayfa UI özelleştirmesi özelliğini kullanarak, herhangi bir özel ilke görünümünü özelleştirebilirsiniz. Ayrıca bu sayede uygulamanızla Azure AD B2C arasında marka ve görsel tutarlılığı sağlayabilirsiniz.
 
-Çalışma şekli şöyledir: Azure AD B2C kod müşterinizin tarayıcıda çalışan ve modern bir yaklaşımı adlı kullanır [çıkış noktaları arası kaynak paylaşımı (CORS)](http://www.w3.org/TR/cors/). İlk olarak, özelleştirilmiş HTML içerikli özel ilkesindeki bir URL belirtin. Azure AD B2C kullanıcı Arabirimi öğeleri, URL'den yüklenir ve ardından sayfanın müşteriye görüntüler HTML içeriği ile birleştirir.
+Çalışma şekli şöyledir: Azure AD B2C kod müşterinizin tarayıcıda çalışan ve modern bir yaklaşımı adlı kullanır [çıkış noktaları arası kaynak paylaşımı (CORS)](http://www.w3.org/TR/cors/). İlk olarak, özelleştirilmiş HTML içerikli özel ilkesindeki bir URL belirtin. Azure AD B2C, kullanıcı arabirimi öğelerini URL'nizden yüklenen HTML içeriğiyle birleştirdikten sonra sayfayı müşteriye gösterir.
 
 ## <a name="create-your-html5-content"></a>HTML5 içerik oluşturma
 
@@ -119,27 +119,44 @@ Aşağıdakileri yaparak hazır kimliğinizi doğrulayın:
 2. Tıklayın **gönderme isteği**.  
     Bir hata alırsanız, emin olun, [CORS ayarları](#configure-cors) doğrudur. Tarayıcı önbelleğini temizlemeniz veya Ctrl + Shift + P tuşlarına basarak bir özel tarama oturumu açmak gerekebilir.
 
-## <a name="modify-your-sign-up-or-sign-in-custom-policy"></a>Kaydolma veya oturum açma özel ilkesini değiştirme
+## <a name="modify-the-extensions-file"></a>Uzantıları dosyasını değiştirme
 
-Üst düzey altında *\<TrustFrameworkPolicy\>* bulmanız gerekir, etiket *\<BuildingBlocks\>* etiketi. İçinde *\<BuildingBlocks\>* etiketler ekleyin bir *\<ContentDefinitions\>* aşağıdaki örnek kopyalayarak etiketi. Değiştirin *your_storage_account* yerine depolama hesabınızın adını.
+UI Özelleştirme yapılandırmak için kopyalama **ContentDefinition** ve uzantıları dosyasının temel dosyasından onun alt öğeleri.
 
-  ```xml
-  <BuildingBlocks>
-    <ContentDefinitions>
-      <ContentDefinition Id="api.idpselections">
-        <LoadUri>https://{your_storage_account}.blob.core.windows.net/customize-ui.html</LoadUri>
-        <DataUri>urn:com:microsoft:aad:b2c:elements:idpselection:1.0.0</DataUri>
-      </ContentDefinition>
-    </ContentDefinitions>
-  </BuildingBlocks>
-  ```
+1. İlkenizin temel dosyasını açın. Örneğin, *TrustFrameworkBase.xml*.
+2. İçin arama yapın ve tüm içeriğini kopyalayın **ContentDefinitions** öğesi.
+3. Uzantı dosyası açın. Örneğin, *TrustFrameworkExtensions.xml*. Arama **BuildingBlocks** öğesi. Öğe yoksa, bunu ekleyin.
+4. Tüm içeriğini yapıştırın **ContentDefinitions** öğesi alt öğesi olarak kopyaladığınız **BuildingBlocks** öğesi. 
+5. Arama **ContentDefinition** öğesini içeren `Id="api.signuporsignin"` kopyaladığınız XML.
+6. Değiştirin **LoadUri** depolama alanına yüklenir HTML dosyasının URL'si. Örneğin, 'https://mystore1.azurewebsites.net/b2c/customize-ui.html.
+    
+    Özel ilkenizi aşağıdaki gibi görünmelidir:
+
+    ```xml
+    <BuildingBlocks>
+      <ContentDefinitions>
+        <ContentDefinition Id="api.signuporsignin">
+          <LoadUri>https://your-storage-account.blob.core.windows.net/your-container/customize-ui.html</LoadUri>
+          <RecoveryUri>~/common/default_page_error.html</RecoveryUri>
+          <DataUri>urn:com:microsoft:aad:b2c:elements:unifiedssp:1.0.0</DataUri>
+          <Metadata>
+            <Item Key="DisplayName">Signin and Signup</Item>
+          </Metadata>
+        </ContentDefinition>
+      </ContentDefinitions>
+    </BuildingBlocks>
+    ```
+
+7. Uzantıları dosyayı kaydedin.
 
 ## <a name="upload-your-updated-custom-policy"></a>Güncelleştirilmiş özel ilkenizi karşıya yükleme
 
-1. İçinde [Azure portalında](https://portal.azure.com), [Azure AD B2C kiracınızın bağlamına geçiş](active-directory-b2c-navigate-to-b2c-context.md)ve ardından açın **Azure AD B2C** dikey penceresi.
+1. Azure AD B2C kiracınızı tıklayarak içeren dizine kullandığınızdan emin olun **dizin ve abonelik filtresi** üst menü ve kiracınız içeren dizine seçme.
+3. Seçin **tüm hizmetleri** Azure portalı ve ardından arayın ve seçin, sol üst köşedeki **Azure AD B2C**.
+4. Seçin **kimlik deneyimi çerçevesi**.
 2. Tıklayın **tüm ilkeleri**.
 3. Tıklayın **karşıya yükleme İlkesi**.
-4. Karşıya yükleme `SignUpOrSignin.xml` ile *\<ContentDefinitions\>* daha önce eklediğiniz etiket.
+4. Daha önce değiştirdiğiniz extensions dosyasını yükleyin.
 
 ## <a name="test-the-custom-policy-by-using-run-now"></a>Özel ilke kullanarak test **Şimdi Çalıştır**
 

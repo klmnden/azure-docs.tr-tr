@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/05/2017
 ms.author: apimpm
-ms.openlocfilehash: c94d4d4beea22e68a581cd208a25f915e4217614
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: 843b03ce33d1897e2e985ac832f883e1fae12960
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48870885"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49959052"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Sanal ağlar ile Azure API Management'ı kullanma
 Azure sanal ağları (Vnet) herhangi birini kullanarak Azure kaynaklarınızı erişimini denetleyen bir ağdaki internet olmayan routeable yerleştirmenize olanak sağlar. Bu ağlar ardından teknolojiler VPN kullanarak şirket içi ağa bağlanabilir. Buradaki bilgileri ile Başlat Azure sanal ağları hakkında daha fazla bilgi edinmek için: [Azure sanal ağa genel bakış](../virtual-network/virtual-networks-overview.md).
@@ -106,16 +106,17 @@ Bir sanal ağa API Management hizmet dağıtımı sırasında oluşabilecek yayg
 
 API Management hizmet örneği, sanal ağ içinde barındırıldığında, aşağıdaki tabloda bağlantı noktaları kullanılır.
 
-| Kaynak / hedef bağlantı noktaları | Yön          | Aktarım Protokolü | Kaynak / hedef                  | Amaç (*)                                                 | Sanal ağ türü |
+| Kaynak / hedef bağlantı noktaları | Yön          | Aktarım Protokolü |   [Hizmet etiketleri](../virtual-network/security-overview.md#service-tags) <br> Kaynak / hedef   | Amaç (*)                                                 | Sanal ağ türü |
 |------------------------------|--------------------|--------------------|---------------------------------------|-------------------------------------------------------------|----------------------|
 | * / 80, 443                  | Gelen            | TCP                | INTERNET / VIRTUAL_NETWORK            | İstemci iletişimi için API Yönetimi                      | Dış             |
-| * / 3443                     | Gelen            | TCP                | APIMANAGEMENT / VIRTUAL_NETWORK       | Azure portalı ve Powershell yönetim uç noktası         | Dış ve iç  |
+| * / 3443                     | Gelen            | TCP                | ApiManagement / vırtual_network       | Azure portalı ve Powershell yönetim uç noktası         | Dış ve iç  |
 | * / 80, 443                  | Giden           | TCP                | Vırtual_network / depolama             | **Azure depolama üzerinde bağımlılık**                             | Dış ve iç  |
-| * / 80, 443                  | Giden           | TCP                | VIRTUAL_NETWORK / INTERNET            | Azure Active Directory (uygunsa)                   | Dış ve iç  |
+| * / 80, 443                  | Giden           | TCP                | Vırtual_network / AzureActiveDirectory | Azure Active Directory (uygunsa)                   | Dış ve iç  |
 | * / 1433                     | Giden           | TCP                | VIRTUAL_NETWORK / SQL                 | **Azure SQL uç noktalarına erişimi**                           | Dış ve iç  |
 | * / 5672                     | Giden           | TCP                | Vırtual_network / EventHub            | Olay hub'ı İlkesi ve İzleme Aracısı için günlük bağımlılığı | Dış ve iç  |
 | * / 445                      | Giden           | TCP                | Vırtual_network / depolama             | Azure dosya paylaşımı için GIT bağımlılığı                      | Dış ve iç  |
 | * / 1886                     | Giden           | TCP                | VIRTUAL_NETWORK / INTERNET            | Kaynak Durumu'nda sistem durumu yayımlamak gerekli          | Dış ve iç  |
+| * / 443                     | Giden           | TCP                | Vırtual_network / AzureMonitor         | Yayımlama tanılama günlükleri ve ölçümler                        | Dış ve iç  |
 | * / 25                       | Giden           | TCP                | VIRTUAL_NETWORK / INTERNET            | E-postalar göndermek için SMTP geçişi bağlanma                    | Dış ve iç  |
 | * / 587                      | Giden           | TCP                | VIRTUAL_NETWORK / INTERNET            | E-postalar göndermek için SMTP geçişi bağlanma                    | Dış ve iç  |
 | * / 25028                    | Giden           | TCP                | VIRTUAL_NETWORK / INTERNET            | E-postalar göndermek için SMTP geçişi bağlanma                    | Dış ve iç  |

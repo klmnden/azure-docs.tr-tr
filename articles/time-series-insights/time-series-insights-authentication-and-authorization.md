@@ -11,12 +11,12 @@ ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 11/27/2017
-ms.openlocfilehash: d219e6f020b02a46084f1862cf468227bcd8d74c
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: cbd851737d7122ff8b0c75eb2050ab481c8cecc0
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49317985"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49958474"
 ---
 # <a name="authentication-and-authorization-for-azure-time-series-insights-api"></a>Kimlik doğrulama ve yetkilendirme için Azure zaman serisi öngörüleri API'si
 
@@ -108,4 +108,4 @@ Uygulama kimliği ve anahtarı Azure zaman serisi görüşleri ile kimlik doğru
 - API başvuru bilgileri için bkz: [sorgu API'si başvurusu](/rest/api/time-series-insights/time-series-insights-reference-queryapi).
 
 > [!div class="nextstepaction"]
-> [Hizmet sorumlusu oluşturma](../azure-resource-manager/resource-group-create-service-principal-portal.md)
+> [Hizmet sorumlusu oluşturma](../active-directory/develop/howto-create-service-principal-portal.md)

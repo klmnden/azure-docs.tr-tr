@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/09/2018
 ms.author: sujayt
-ms.openlocfilehash: 86d6c77dab817cf755c34bdd699ee1158e852f37
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.openlocfilehash: 040ace1eab4062c011ed82a59e7f5bfb789c256b
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "42056717"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49945748"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-issues"></a>Azure'dan Azure'a VM çoğaltmayla sorunları giderme
 
@@ -158,8 +158,8 @@ Site Recovery çoğaltması için iş, giden bağlantı için özel URL veya IP 
 
 - **Çözümleme**
    - VM üzerinde giden ağ bağlantısını denetlemek için güvenlik duvarı proxy'si kullanıyorsanız önkoşul URL'leri veya veri merkezi IP aralıkları'nın izin verilenler listesinde olduğundan emin olun. Bilgi için [güvenlik duvarı proxy Kılavuzu](https://aka.ms/a2a-firewall-proxy-guidance).
-   - VM üzerinde giden ağ bağlantısını denetlemek için NSG kurallarını kullanıyorsanız önkoşul veri merkezi IP aralıklarının Güvenilenler listesinde olduğundan emin olun. Bilgi için [ağ güvenlik grubu Kılavuzu](https://aka.ms/a2a-nsg-guidance).
-   - Güvenilir listeye eklenecek [gerekli URL'leri](azure-to-azure-about-networking.md#outbound-connectivity-for-urls) veya [gerekli IP aralıkları](azure-to-azure-about-networking.md#outbound-connectivity-for-ip-address-ranges), adımları [ağ rehberi belgesi](site-recovery-azure-to-azure-networking-guidance.md).
+   - VM üzerinde giden ağ bağlantısını denetlemek için NSG kurallarını kullanıyorsanız önkoşul veri merkezi IP aralıklarının Güvenilenler listesinde olduğundan emin olun. Bilgi için [ağ güvenlik grubu Kılavuzu](azure-to-azure-about-networking.md).
+   - Güvenilir listeye eklenecek [gerekli URL'leri](azure-to-azure-about-networking.md#outbound-connectivity-for-urls) veya [gerekli IP aralıkları](azure-to-azure-about-networking.md#outbound-connectivity-for-ip-address-ranges), adımları [ağ rehberi belgesi](azure-to-azure-about-networking.md).
 
 ### <a name="issue-2-site-recovery-configuration-failed-151072"></a>Sorun 2: (151072) Site Recovery yapılandırması başarısız oldu
 - **Olası nedeni** </br>

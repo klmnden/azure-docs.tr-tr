@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/01/2016
 ms.author: mlearned
-ms.openlocfilehash: f44bb7bd95ef405c65bb259a6d104475c2e283bd
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: a3dfca48b52af39e7a536b3012a3f4cdac4e9a94
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44297851"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49955176"
 ---
 # <a name="continuous-integration-in-azure-devops-services-using-azure-resource-group-deployment-projects"></a>Azure DevOps hizmetlerinde, Azure kaynak grubu dağıtım projeleri kullanarak sürekli tümleştirme
 Azure şablonu dağıtmak için çeşitli aşamalarda görevler: azure'a derleme, Test, kopyalama (aynı zamanda "Hazırlama" olarak adlandırılır) ve şablonu dağıtın. Azure DevOps hizmetler için şablonları dağıtmak için iki farklı yolu vardır. Her iki yöntem de aynı sonuçları sağlar, bu nedenle, iş akışınızı en uygun olanı seçin.
@@ -92,7 +92,7 @@ Aşağıdaki yordamları, Azure DevOps Services projenizde PowerShell Betiği ç
       Azure CLI için şunu kullanın:
       
       `azure account show`
-   8. Bir hizmet sorumlusu kimliği ve hizmet sorumlusu anahtarı Kiracı kimliği, izleme yordamı almak için [oluşturma Active Directory uygulaması ve hizmet sorumlusu portalını kullanarak](resource-group-create-service-principal-portal.md) veya [Azure hizmet sorumlusuyla kimlik doğrulaması Resource Manager](resource-group-authenticate-service-principal.md).
+   8. Bir hizmet sorumlusu kimliği ve hizmet sorumlusu anahtarı Kiracı kimliği, izleme yordamı almak için [oluşturma Active Directory uygulaması ve hizmet sorumlusu portalını kullanarak](active-directory/develop/howto-create-service-principal-portal.md) veya [Azure hizmet sorumlusuyla kimlik doğrulaması Resource Manager](active-directory/develop/howto-authenticate-service-principal-powershell.md).
    9. Hizmet sorumlusu kimliği ve hizmet sorumlusu anahtarı Kiracı kimliği değerlere Ekle **Azure aboneliği Ekle** iletişim kutusuna ve ardından **Tamam** düğmesi.
       
       Artık Azure PowerShell Betiği çalıştırmak için kullanılacak geçerli bir hizmet sorumlusuna sahipsiniz.

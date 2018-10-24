@@ -14,12 +14,12 @@ ms.workload: na
 ms.date: 08/22/2018
 ms.author: sethm
 ms.reviewer: thoroet
-ms.openlocfilehash: 891032e9f0a40b2a9df19ed25ffc19dd81507cab
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: a32327109bc71a41f871682936c5f27ed490975c
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45628967"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49958323"
 ---
 # <a name="give-applications-access-to-azure-stack-resources-by-creating-service-principals"></a>Hizmet sorumluları oluşturma tarafından Azure Stack kaynaklara uygulamaları erişimi verin
 
@@ -57,7 +57,7 @@ Hizmet sorumlusuna bir rol aynı Azure için atama adımlarını AD ve AD FS. Hi
 Azure Stack, Azure AD kimlik deposu olarak kullanıyorsa, bir hizmet sorumlusu Azure, Azure portalını kullanarak olduğu gibi aynı adımları kullanarak oluşturabilirsiniz.
 
 >[!NOTE]
-Sahip olduğunuzu denetleyin [Azure AD izinleri gerekli](../../azure-resource-manager/resource-group-create-service-principal-portal.md#required-permissions) bir hizmet sorumlusu oluşturma işlemi başlamadan önce.
+Sahip olduğunuzu denetleyin [Azure AD izinleri gerekli](../../active-directory/develop/howto-create-service-principal-portal.md#required-permissions) bir hizmet sorumlusu oluşturma işlemi başlamadan önce.
 
 ### <a name="create-service-principal"></a>Hizmet sorumlusu oluşturma
 

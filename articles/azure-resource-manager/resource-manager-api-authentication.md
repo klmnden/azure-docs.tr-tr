@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/12/2018
 ms.author: dugill
-ms.openlocfilehash: b841a1104a0cc1e74d9ab1f16ef39d3892ba7d55
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 69127702a7d8e7027e78a8e04a4e8e1bc3e36b65
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46996698"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49956349"
 ---
 # <a name="use-resource-manager-authentication-api-to-access-subscriptions"></a>Aboneliklere erişmek için Kaynak Yöneticisi'ni kullanın kimlik doğrulama API'si
 ## <a name="introduction"></a>Giriş
@@ -94,7 +94,7 @@ Sonuç uygulamada kimlik doğrulaması yaparken ihtiyacınız AppID içerir.
 ### <a name="optional-configuration---certificate-credential"></a>İsteğe bağlı yapılandırma - sertifika kimlik bilgisi
 Azure AD uygulamaları için de sertifika kimlik bilgilerini destekler: otomatik olarak imzalanan bir sertifika oluşturmak, özel anahtarı tutmak ve Azure AD uygulama kaydınızı için kullanılacak ortak anahtarı ekleyin. Kimlik doğrulaması için uygulamanızı Azure AD'ye özel anahtarınız ile imzalanmış küçük bir yükü gönderir ve Azure AD'ye kaydettiniz ortak anahtar kullanarak imzayı doğrular.
 
-Bir sertifika ile bir AD uygulamasını oluşturma hakkında daha fazla bilgi için bkz: [kaynaklara erişmek için bir hizmet sorumlusu oluşturmak için Azure PowerShell kullanarak](resource-group-authenticate-service-principal.md#create-service-principal-with-certificate-from-certificate-authority) veya [kaynaklara erişmek için bir hizmet sorumlusu oluşturmak için Azure CLI'yı kullanın](resource-group-authenticate-service-principal-cli.md) .
+Bir sertifika ile bir AD uygulamasını oluşturma hakkında daha fazla bilgi için bkz: [kaynaklara erişmek için bir hizmet sorumlusu oluşturmak için Azure PowerShell kullanarak](../active-directory/develop/howto-authenticate-service-principal-powershell.md#create-service-principal-with-certificate-from-certificate-authority) veya [kaynaklara erişmek için bir hizmet sorumlusu oluşturmak için Azure CLI'yı kullanın](resource-group-authenticate-service-principal-cli.md) .
 
 ## <a name="get-tenant-id-from-subscription-id"></a>Abonelik Kimliğinden Kiracı Kimliğinizi alma
 Resource Manager'ı çağırmak için kullanılabilecek bir belirteç istemek için uygulamanızı barındıran Azure aboneliği Azure AD kiracısını Kiracı kimliği gerekir. Büyük olasılıkla kullandıkları abonelik kimliklerini kullanıcılarınızı tanıyın, ancak bunlar kendi Kiracı kimlikleri Azure Active Directory için fark etmeyebilirsiniz. Kullanıcının Kiracı Kimliğini almak için abonelik kimliği için kullanıcıya sor Bu aboneliği sağlama aboneliği hakkında bir isteği gönderirken kimliği:
@@ -106,7 +106,7 @@ Resource Manager'ı çağırmak için kullanılabilecek bir belirteç istemek i�
 ## <a name="get-user--app-access-token"></a>Kullanıcı + uygulama erişim belirteci alma
 Uygulamanızı Azure AD ile bir OAuth 2.0 yetkilendirme kullanıcının kimlik bilgilerini kimlik doğrulaması ve yetkilendirme kodunu geri almak için isteği - kullanıcı yönlendirir. Uygulamanız, kaynak yöneticisi için bir erişim belirteci almak için yetkilendirme kodunu kullanır. [ConnectSubscription](https://github.com/dushyantgill/VipSwapper/blob/master/CloudSense/CloudSense/Controllers/HomeController.cs#L42) yöntemi yetkilendirme isteği oluşturur.
 
-Bu makalede, kullanıcının kimliğini doğrulamak için REST API istekleri gösterir. Kodunuzda kimlik doğrulaması gerçekleştirmek için yardımcı kitaplıkları da kullanabilirsiniz. Bu kitaplıklar hakkında daha fazla bilgi için bkz: [Azure Active Directory kimlik doğrulama kitaplıkları](../active-directory/active-directory-authentication-libraries.md). Bir uygulamada Kimlik Yönetimi ile ilgili yönergeler için bkz. [Azure Active Directory Geliştirici Kılavuzu](../active-directory/develop/azure-ad-developers-guide.md).
+Bu makalede, kullanıcının kimliğini doğrulamak için REST API istekleri gösterir. Kodunuzda kimlik doğrulaması gerçekleştirmek için yardımcı kitaplıkları da kullanabilirsiniz. Bu kitaplıklar hakkında daha fazla bilgi için bkz: [Azure Active Directory kimlik doğrulama kitaplıkları](../active-directory/active-directory-authentication-libraries.md). Bir uygulamada Kimlik Yönetimi ile ilgili yönergeler için bkz. [Azure Active Directory Geliştirici Kılavuzu](../active-directory/develop/v1-overview.md).
 
 ### <a name="auth-request-oauth-20"></a>Kimlik doğrulama isteği (OAuth 2.0)
 Bir açık Bağlan/OAuth2.0 yetkilendirme kimliği için Azure AD Authorize son noktası yürütün:

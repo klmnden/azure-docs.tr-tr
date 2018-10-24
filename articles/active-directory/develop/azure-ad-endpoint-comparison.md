@@ -17,12 +17,12 @@ ms.date: 09/27/2018
 ms.author: andret
 ms.reviewer: hirsin, andret
 ms.custom: aaddev
-ms.openlocfilehash: b75b31ddfc77be5ed651e7b8484e41a4ae73d8d8
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: e393851535c36eb604d57cc4d7c7561a3ebb201b
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47406541"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49955465"
 ---
 # <a name="comparing-the-azure-ad-v20-endpoint-with-the-v10-endpoint"></a>Azure AD v2.0 uç noktası v1.0 uç noktası ile karşılaştırma
 
@@ -133,7 +133,7 @@ Geliştiriciler için bu anda basitleştirilmiş bir öneri şu şekildedir:
 
 * Kişisel Microsoft hesapları, uygulamanızda desteklemelidir, v2.0 kullanın. Ancak bunu yapmadan önce bu makalede ele alınan sınırlamaları anladığınızdan emin olun.
 
-* Uygulamanız yalnızca destekleyen Microsoft iş ve Okul hesapları gerekiyorsa, v2.0 kullanmayın. Bunun yerine, başvurmak [v1.0 Kılavuzu](azure-ad-developers-guide.md).
+* Uygulamanız yalnızca destekleyen Microsoft iş ve Okul hesapları gerekiyorsa, v2.0 kullanmayın. Bunun yerine, başvurmak [v1.0 Kılavuzu](v1-overview.md).
 
 V2.0 uç noktası, böylece hiç olmadığı kadar yalnızca v2.0 uç noktası kullanmanız gerekir, burada listelenen kısıtlamalarla ortadan kaldırmak için evrilir. Bu arada, v2.0 uç noktası sizin için uygun olup olmadığını belirlemek için bu makaleyi kullanın. Bu makalede, v2.0 uç noktasının geçerli durumu yansıtacak şekilde güncelleştirmeye devam eder. Geri gereksinimlerinize göre v2.0 özellikleri yeniden değerlendirmek için denetleyin.
 

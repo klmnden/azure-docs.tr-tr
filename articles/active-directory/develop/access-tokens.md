@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/02/2018
+ms.date: 10/23/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: f184c18e97144f7efb30d61ebd024344510f3f5c
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 3a3768e796284895b25eb62d00a58b20ca811540
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49078775"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49958950"
 ---
 # <a name="azure-active-directory-access-tokens"></a>Azure Active Directory erişim belirteçleri
 
@@ -136,7 +136,7 @@ Microsoft kimlik, uygulamanızla ilgili yolları, çeşitli kimlik doğrulaması
 | Değer | Açıklama |
 |-----|-------------|
 | `pwd` | Parola kimlik doğrulaması, bir kullanıcının Microsoft parolası veya bir uygulamanın istemci gizli anahtarı. |
-| `rsa` | Kimlik doğrulaması temel bir RSA anahtar kanıtı üzerinde örneğin ile [Microsoft Authenticator pp](https://aka.ms/AA2kvvu). Kimlik doğrulaması X509 ait olan bir hizmeti tarafından otomatik olarak imzalanan bir JWT yapılmışsa bu içeren sertifika. |
+| `rsa` | Kimlik doğrulaması temel bir RSA anahtar kanıtı üzerinde örneğin ile [Microsoft Authenticator uygulamasını](https://aka.ms/AA2kvvu). Kimlik doğrulaması X509 ait olan bir hizmeti tarafından otomatik olarak imzalanan bir JWT yapılmışsa bu içeren sertifika. |
 | `otp` | E-posta veya kısa mesaj kullanarak bir kerelik geçiş kodu. |
 | `fed` | Bir Federasyon kimlik doğrulamasını onaylama (örneğin, JWT veya SAML) kullanıldı. |
 | `wia` | Tümleşik Windows Kimlik Doğrulaması |
@@ -179,7 +179,7 @@ https://login.microsoftonline.com/common/.well-known/openid-configuration
 ```
 
 > [!TIP]
-> Bu URL'de bir tarayıcı deneyin!
+> Bu deneyin [URL](https://login.microsoftonline.com/common/.well-known/openid-configuration) bir tarayıcıda!
 
 Bu meta veri belgesi:
 
@@ -187,7 +187,7 @@ Bu meta veri belgesi:
 * İçeren bir `jwks_uri`, Belirteçleri imzalamak için kullanılan ortak anahtar kümesini konumunu sağlar. JSON belgesini konumundaki `jwks_uri` tüm zaman içinde belirli o anda kullanımda ortak anahtar bilgilerini içerir. Uygulamanız kullanabilir `kid` hangi ortak anahtarı bu belgedeki belirli bir belirteç imzalamak için kullanılan seçmek için JWT üstbilgisinde talep. Ayrıca, doğru ortak anahtarı ve belirtilen algoritmasını kullanarak imza doğrulaması daha sonra gerçekleştirebilirsiniz.
 
 > [!NOTE]
-> Her ikisi de v1.0 uç noktanın döndürdüğü `x5t` ve `kid` talep. `x5t` V2.0 belirteçleri talep eksik. V2.0 uç noktası ile yanıt veren `kid` talep. Bundan sonra kullanılması önerilir `kid` belirtecinizi doğrulamak talep.
+> Her ikisi de v1.0 uç noktanın döndürdüğü `x5t` ve `kid` talepleri yalnızca v2.0 uç noktası ile yanıtlar sırada `kid` talep. Bundan sonra kullanılması önerilir `kid` belirtecinizi doğrulamak talep.
 
 Bu belgenin kapsamı dışında olan imzası doğrulama gerçekleştiriliyor - birçok açık kaynak kitaplıkları, gerekirse, bunu yapmanıza yardımcı olmak için kullanılabilir.
 
@@ -202,7 +202,7 @@ Bu adım, uygulamanızın iş mantığı gösterecektir, bazı yaygın yetkilend
 * Bu maddeyi `tid` API çağırmak için izin verilen bir kiracı ile eşleşir.
 * Kullanım `acr` kullanıcı MFA gerçekleştirilen doğrulamak talep. Bu kullanılarak zorlanıp zorlanmayacağını olduğunu unutmayın [koşullu erişim](https://docs.microsoft.com/azure/active-directory/conditional-access/overview).
 * Siz istediniz, `roles` veya `groups` erişim belirtecinde talep, kullanıcının bu eylemi gerçekleştirmek için izin verilen grupta olduğunu doğrulayın.
-  * Örtük akışını kullanarak belirteçleri için büyük olasılıkla sorgulamak ihtiyacınız olacak [grafik](https://developer.microsoft.com/graph/) bu için olarak verilerdir genellikle belirteç sığmayacak kadar büyük. 
+  * Örtük akışını kullanarak belirteçleri için büyük olasılıkla sorgulamak ihtiyacınız olacak [Microsoft Graph](https://developer.microsoft.com/graph/) bu için olarak verilerdir genellikle belirteç sığmayacak kadar büyük. 
 
 ## <a name="user-and-application-tokens"></a>Kullanıcı ve uygulama belirteçleri
 

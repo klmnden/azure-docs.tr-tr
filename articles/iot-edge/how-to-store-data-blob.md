@@ -9,16 +9,18 @@ ms.date: 10/03/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 6fdfc1002528fa48145e577dfee3eac935f31fcd
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 4b86f73302d9f5d07cd1e6e8c7801de56a988cc7
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49344855"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49955295"
 ---
 # <a name="store-data-at-the-edge-with-azure-blob-storage-on-iot-edge-preview"></a>IOT Edge (Önizleme) Azure Blob Depolama ile uçta veri Store
 
-IOT Edge üzerinde Azure Web günlüğü depolama blok blobu depolama çözümü uçta sağlar. Bir blob depolama modülü IOT Edge Cihazınızda bir Azure blob hizmeti gibi davranır, ancak blok blobları, IOT Edge Cihazınızda yerel olarak depolanır. Aynı Azure depolama SDK'ın yöntemleri kullanarak bloblarınızın erişebilir veya zaten kullanılan blob API çağrılarını engelle. 
+IOT Edge üzerinde Azure Blob Depolama sağlayan bir [blok blobu](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-block-blobs) uçta depolama çözümü. Bir blob depolama modülü IOT Edge Cihazınızda bir Azure blok blob hizmeti gibi davranır, ancak blok blobları, IOT Edge Cihazınızda yerel olarak depolanır. Aynı Azure depolama SDK'ın yöntemleri kullanarak bloblarınızın erişebilir veya zaten kullanılan blob API çağrılarını engelle. 
+
+Burada veri videoları, resimleri, Finans verileri, hastane verilerini veya yerel olarak işlenen veya aktarılan buluta yerel olarak, daha sonra depolanması için gereken herhangi bir veri gibi senaryoları bu modülü kullanmak için iyi örneklerdir.
 
 Bu makalede, Azure Blob Depolama, blob hizmeti, IOT Edge Cihazınızda çalışan IOT Edge kapsayıcısı üzerinde dağıtmak için yönergeler sağlar. 
 
@@ -48,21 +50,33 @@ Bulut kaynakları:
 
 ## <a name="deploy-blob-storage-to-your-device"></a>BLOB Depolama, cihazınıza dağıtma
 
-IOT Edge üzerinde Azure Blob Depolama, üç standart kapsayıcı görüntüleri, iki Linux kapsayıcıları (AMD64 ve ARM32 mimarileri) için ve biri Windows kapsayıcıları (AMD64) sağlar. Bu modül görüntülerden birini blob depolama, IOT Edge cihazına dağıtmak için kullandığınız zaman üç parça bir modül örneğinin cihazınız için yapılandırma bilgilerini sağlar:
-
-* Bir **hesap adı** ve **hesap anahtarı**. Blob depolama modülleri Azure depolama ile tutarlı kalmak için erişimi yönetmek için hesap adlarını ve hesabı anahtarları kullanın. Hesap adları, küçük harf ve sayı ile uzun üç için yirmi dört karakter arasında olmalıdır. Hesabı anahtarları, base64 olarak kodlanmış ve uzunluğu 64 baytın olması gerekir. Bir anahtar gibi araçlarla oluşturabilirsiniz [GeneratePlus](https://generate.plus/en/base64).
-* A **yerel depolama seçeneği**. Böylece modül durdurur veya yeniden blobları kalıcı blob storage modülünde blobları IOT Edge cihaz üzerinde yerel olarak depolar. Mevcut bir bildirmek [birim](https://docs.docker.com/storage/volumes
-) veya burada blobların depolanması Cihazınızda yerel klasör yolu. 
-
 Modüller IOT Edge cihazına dağıtmak için birkaç yolu vardır ve bunların tümünü IOT Edge modülleri Azure Blob Depolama için çalışır. Visual Studio kod şablonları ve Azure Portalı'nı kullanmak için iki basit yöntemler şunlardır. 
 
 ### <a name="azure-portal"></a>Azure portal
 
-BLOB Depolama, Azure portalı üzerinden dağıtmak için adımları izleyin. [dağıtma Azure IOT Edge modülleri Azure portalından](how-to-deploy-modules-portal.md). Önce modülünüzde dağıtmak, resim URI'sini kopyalayın ve kapsayıcısı hazırlama Git oluşturduğunuz kapsayıcı işletim sisteminize bağlı seçenekleri. Bu değerleri kullanmak **bir dağıtım bildirimi yapılandırma** dağıtım makalesindeki bölümüne bakın. 
+#### <a name="find-the-module"></a>Modül Bul
 
-Görüntü URI'si için blob depolama modülü sağlayın: **mcr.microsoft.com/azure-blob-storage:latest**. 
-   
-Aşağıdaki JSON şablon için kullandığınız **kapsayıcı oluşturma seçenekleri** alan. JSON, depolama hesabı adı, depolama hesabı anahtarı ve depolama dizini bağlama ile yapılandırın.  
+Blob depolama modülü bulmak için iki yoldan biriyle seçin:
+
+1. Azure portalı Ara "Azure Blob Depolama üzerinde IOT Edge". Ve **seçin** arama sonucu öğesi
+2. Azure Portalı'ndan Market'e gidin ve "Nesnelerin interneti hakkında"'i tıklatın. "IOT Edge modülleri" bölümünde "Azure Blob Depolama üzerinde IOT Edge" seçin. Tıklatıp **oluştur**
+
+#### <a name="steps-to-deploy"></a>Dağıtma adımları
+
+**IOT Edge modülü için hedef cihazlar**
+
+1. "Abonelik" IOT Hub'ınıza dağıtıldığı seçin.
+2. "IOT Hub'ınıza" seçin.
+3. "IOT Edge cihazı, bu modül dağıtmak için istediğiniz adı" sağlar. Cihazınızı bulmak için "Cihaz bulunamadı" kullanmayı da tercih edebilirsiniz.
+4. **Oluştur**’a tıklayın.
+
+**Modülleri ayarlama**
+
+1. "Modül Ekle" bölümünde "Altında dağıtım modülleri" adı "İle AzureBlobStorageonIoTEdge" ile başlayarak, modül zaten listede bulabilirsiniz. 
+2. **Seçin** "Dağıtım modülleri" listesinden blob depolama modülü. "IOT Edge özel modüller" yan paneli açılır.
+3. **Ad**: Burada modülünün adı değiştirebilirsiniz.
+4. **Görüntü URI'si**: URI değiştirin **mcr.microsoft.com/azure-blob-storage:latest**
+5. **Kapsayıcı oluşturma seçenekleri**: aşağıdaki JSON'u değerlerinizi içeren düzenleme ve Portal sayfasında JSON ile değiştirin:
    
    ```json
    {
@@ -81,17 +95,23 @@ Aşağıdaki JSON şablon için kullandığınız **kapsayıcı oluşturma seçe
    }
    ```   
    
-JSON oluşturma seçeneklerinde güncelleştirme `\<your storage account name\>` herhangi bir ada sahip. Güncelleştirme `\<your storage account key\>` 64 baytlık base64 anahtarına sahip. Bir anahtar gibi araçlarla oluşturabilirsiniz [GeneratePlus](https://generate.plus/en/base64?gp_base64_base[length]=64) seçin, bayt uzunluğunu verir. Diğer modüllerden blob depolamaya erişmek için bu kimlik bilgilerini kullanacaksınız.
+    * Güncelleştirme `<your storage account name>`. Hesap adları, küçük harf ve sayı ile uzun üç için yirmi dört karakter arasında olmalıdır.
+    * Güncelleştirme `<your storage account key>` 64 baytlık base64 anahtarına sahip. Bir anahtar gibi araçlarla oluşturabilirsiniz [GeneratePlus](https://generate.plus/en/base64?gp_base64_base[length]=64). Diğer modüllerden blob depolamaya erişmek için bu kimlik bilgilerini kullanacaksınız.
+    * Güncelleştirme `<storage directory bind>`. Kapsayıcı işletim sistemine bağlı olarak. Adını sağlayın bir [birim](https://docs.docker.com/storage/volumes/) veya istediğiniz verileri depolamak için blob modülü IOT Edge Cihazınızda dizinine mutlak yolu.  
 
-JSON oluşturma seçeneklerinde güncelleştirme `<storage directory bind>` kapsayıcı işletim sisteminize bağlı olarak. Adını sağlayın bir [birim](https://docs.docker.com/storage/volumes/) veya istediğiniz verileri depolamak için blob modülü IOT Edge Cihazınızda dizinine mutlak yolu.  
-
-   * Linux kapsayıcıları:  **\<depolama yolu >: / blobroot**. Örneğin, / srv/containerdata: / blobroot. Veya, birim my: / blobroot. 
-   * Windows kapsayıcıları:  **\<depolama yolu >: C: / BlobRoot**. Örneğin, C: / ContainerData:C: / BlobRoot. Veya, my-birim: C: / blobroot.
+       * Linux kapsayıcıları:  **\<depolama yolu >: / blobroot**. Örneğin, / srv/containerdata: / blobroot. Veya, birim my: / blobroot. 
+       * Windows kapsayıcıları:  **\<depolama yolu >: C: / BlobRoot**. Örneğin, C: / ContainerData:C: / BlobRoot. Veya, my-birim: C: / blobroot.
    
    > [!CAUTION]
    > Değişmez "/ blobroot" Linux ve "C:/BlobRoot" için Windows için  **\<depolama dizini bağlama >** değerleri.
 
-IOT Edge üzerinde Azure Blob depolamaya erişmek için kayıt defteri kimlik bilgilerini sağlamanız gerekmez ve dağıtımınız için tüm rotalar bildirmenize gerek yoktur. 
+    ![Modül değerlerini güncelleştirin](./media/how-to-store-data-blob/edit-module.png)
+
+6. **Kaydet** "IOT Edge özel modüller" değerler
+7. Tıklayın **sonraki** "modülleri ayarlama" bölümünde
+8. Tıklayın **sonraki** "Yolları belirtin" bölümünde
+9. Gözden geçirdikten sonra **Gönder** "Gözden geçirme dağıtımı" bölümünde.
+10. IOT hub'ına cihaz blob storage modülünde çalıştığından emin olun 
 
 ### <a name="visual-studio-code-templates"></a>Visual Studio Code şablonları
 
@@ -150,7 +170,7 @@ VS Code, sağlanan bir IOT Edge çözümü oluşturur ve ardından yeni bir penc
    STORAGE_ACCOUNT_KEY=
    ```
 
-8. Depolama hesabı adı için herhangi bir ad sağlayın ve depolama hesabı anahtarı bir 64 baytlık base64 anahtarı sağlayın. Bir anahtar gibi araçlarla oluşturabilirsiniz [GeneratePlus](https://generate.plus/en/base64?gp_base64_base[length]=64). Diğer modüllerden blob depolamaya erişmek için bu kimlik bilgilerini kullanacaksınız. 
+8. İçin değer sağlamanız `STORAGE_ACCOUNT_NAME`, hesabı adları küçük harf ve sayı ile uzun üç için yirmi dört karakter olmalıdır. Ve sağlamak için bir 64 baytlık base64 anahtar `STORAGE_ACCOUNT_KEY`. Bir anahtar gibi araçlarla oluşturabilirsiniz [GeneratePlus](https://generate.plus/en/base64?gp_base64_base[length]=64). Diğer modüllerden blob depolamaya erişmek için bu kimlik bilgilerini kullanacaksınız. 
 
 9. Kaydet **.env**. 
 

@@ -6,14 +6,14 @@ manager: deshner
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 10/15/2018
+ms.date: 10/22/2018
 ms.author: stefanmsft
-ms.openlocfilehash: faf4df8085c4a4f014caf1c6e276800dcf480ebf
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 852b2d35ae605f5529d162d52655fd258ca07c5a
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/23/2018
-ms.locfileid: "49651618"
+ms.locfileid: "49946105"
 ---
 # <a name="how-to-debug-issues-with-user-defined-functions-in-azure-digital-twins"></a>Azure dijital İkizlerini içinde kullanıcı tanımlı işlevlerle sorunlarında hata ayıklama
 
@@ -198,3 +198,7 @@ Tanılama ayarlarını etkinleştirme, bu sık karşılaşılan özel durumlar k
 1. **Veri bulunamadı**: var olmayan meta verilerine erişmek, kullanıcı tanımlı işlev çalışırsa, işlem başarısız olur.
 
 1. **Yetkili**:, kullanıcı tanımlı işlev yoksa, bir rol ataması ayarlayın veya topolojisinden belirli meta verilerine erişmek için yeterli izinlere sahip değil, işlem başarısız olur.
+
+## <a name="next-steps"></a>Sonraki adımlar
+
+Nasıl etkinleştireceğinizi öğrenin [izleme ve günlükleri](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) Azure dijital İkizlerini içinde.

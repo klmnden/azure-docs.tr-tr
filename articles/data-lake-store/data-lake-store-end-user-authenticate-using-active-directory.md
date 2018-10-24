@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: 2f0638b2449bfd582cb68e26d2043b7bc85342b6
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 6f7b812f32eda0c671b1ad1101b13a1290df0482
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46125961"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49954799"
 ---
 # <a name="end-user-authentication-with-azure-data-lake-storage-gen1-using-azure-active-directory"></a>Azure Active Directory kullanarak son kullanıcı kimlik doğrulaması ile Azure Data Lake depolama Gen1
 > [!div class="op_single_selector"]
@@ -45,7 +45,7 @@ Bu makalede nasıl oluşturulacağı hakkında konuşuyor bir **son kullanıcı 
   
     ![AAD etki alanı Al](./media/data-lake-store-end-user-authenticate-using-active-directory/get-aad-domain.png)
 
-* Azure Kiracı kimliğinizi Kiracı Kimliğini almak yönergeler için bkz: [Kiracı Kimliğinizi alma](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-tenant-id).
+* Azure Kiracı kimliğinizi Kiracı Kimliğini almak yönergeler için bkz: [Kiracı Kimliğinizi alma](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-id).
 
 ## <a name="end-user-authentication"></a>Son kullanıcı kimlik doğrulaması
 Uygulamanızı Azure AD ile oturum açmak için bir son kullanıcı istiyorsanız, bu kimlik doğrulama mekanizması önerilen yaklaşımdır. Uygulamanızı daha sonra oturum açmış aynı düzeyde erişim son kullanıcı ile Azure kaynaklarına erişemez. Son kullanıcınızın uygulamanızın erişimi sürdürmek sırada düzenli aralıklarla kimlik bilgilerini sağlamaları gerekir.
@@ -74,7 +74,7 @@ Uygulamanız, doğrudan Azure AD'ye kullanıcı kimlik bilgilerini sağlayabilir
 
 ## <a name="step-1-create-an-active-directory-native-application"></a>1. adım: yerel bir Active Directory uygulaması oluşturma
 
-Oluşturun ve bir Azure AD yerel uygulaması Azure Active Directory kullanarak son kullanıcı kimlik doğrulama ile Data Lake depolama Gen1 yapılandırın. Yönergeler için [bir Azure AD uygulaması oluştur](../azure-resource-manager/resource-group-create-service-principal-portal.md).
+Oluşturun ve bir Azure AD yerel uygulaması Azure Active Directory kullanarak son kullanıcı kimlik doğrulama ile Data Lake depolama Gen1 yapılandırın. Yönergeler için [bir Azure AD uygulaması oluştur](../active-directory/develop/howto-create-service-principal-portal.md).
 
 Bağlantıda bulunan yönergeleri takip ederken seçtiğinizden emin olun **yerel** aşağıdaki ekran görüntüsünde gösterildiği gibi uygulama türü için:
 
@@ -82,7 +82,7 @@ Bağlantıda bulunan yönergeleri takip ederken seçtiğinizden emin olun **yere
 
 ## <a name="step-2-get-application-id-and-redirect-uri"></a>2. adım: uygulama kimliği alma ve yeniden yönlendirme URI'si
 
-Bkz: [uygulama kimliği alma](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-application-id-and-authentication-key) uygulama kimliğini almak için
+Bkz: [uygulama kimliği alma](../active-directory/develop/howto-create-service-principal-portal.md#get-application-id-and-authentication-key) uygulama kimliğini almak için
 
 Yeniden yönlendirme URI'si almak için aşağıdaki adımları uygulayın.
 

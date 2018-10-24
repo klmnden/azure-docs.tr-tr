@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/15/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 88a9348ea7d6282b7410d5a323fd482dc82416c6
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 06e6e491fa1e9a047527efb78149855b125771ef
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45979661"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49960229"
 ---
 # <a name="back-up-azure-unmanaged-vm-disks-with-incremental-snapshots"></a>Artımlı anlık görüntülerle Azure yönetilmeyen VM disklerini yedekleme
 ## <a name="overview"></a>Genel Bakış
@@ -66,7 +66,7 @@ Anlık görüntülerini kullanarak özel bir yedekleme stratejisi sahip olduğun
 Aşağıdakileri yaparak artımlı anlık görüntü kopyalama uygulayabilirsiniz.
 
 * Kullanarak temel blob anlık [anlık görüntü Blob](https://docs.microsoft.com/rest/api/storageservices/Snapshot-Blob).
-* Hedef Yedekleme kullanarak depolama hesabı için anlık görüntü kopyalama [kopya blob'u](https://docs.microsoft.com/rest/api/storageservices/Copy-Blob). Yedekleme sayfa blob'u budur. Yedekleme sayfa blobu anlık görüntüsünü alın ve yedekleme hesabında depolayın.
+* Aynı veya herhangi bir Azure bölgesine diğer kullanarak hedef yedekleme depolama hesabı için anlık görüntü kopyalama [kopya blob'u](https://docs.microsoft.com/rest/api/storageservices/Copy-Blob). Yedekleme sayfa blob'u budur. Yedekleme sayfa blobu anlık görüntüsünü alın ve yedekleme hesabında depolayın.
 * Anlık görüntü blobu kullanarak temel blob başka bir anlık görüntüsünü alın.
 * Temel blob kullanarak ilk ve ikinci anlık görüntü arasındaki fark alma [GetPageRanges](https://docs.microsoft.com/rest/api/storageservices/Get-Page-Ranges). Yeni bir parametre kullanın **prevsnapshot**, istediğiniz fark almak için anlık görüntü tarih/saat değeri belirtin. Bu parametre, mevcut olduğunda, REST yanıtı hedef anlık görüntü ve NET sayfaları dahil olmak üzere önceki anlık görüntüye arasında değiştirilmiş sayfaları içerir.
 * Kullanım [PutPage](https://docs.microsoft.com/rest/api/storageservices/Put-Page) yedekleme sayfa blob'u için bu değişiklikleri uygulamak için.

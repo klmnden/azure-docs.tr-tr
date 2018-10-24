@@ -5,22 +5,20 @@ services: azure-stack
 documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: ''
-ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/05/2018
+ms.date: 10/22/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: 698e044aea6bbd78847cb209160c1fa6b2edcdbf
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 9f88e71df7697156e0745aeaf6b989548bcc223f
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44023428"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49945120"
 ---
 # <a name="azure-stack-certificates-signing-request-generation"></a>Azure Stack sertifika imzalama isteği oluşturma
 
@@ -43,10 +41,10 @@ Sisteminizde Azure Stack dağıtımı için PKI sertifikaları için CSR(s) olu�
  - Sertifika öznitelikleri:
     - Bölge adı
     - Dış tam etki alanı adı (FQDN)
-    - Konu
+    - Özne
  - Windows 10 veya Windows Server 2016
  
-  > [!NOTE]
+  > [!NOTE]  
   > Sertifikalarınızı aldığınızda adımlarda Sertifika yetkilinizden geri [hazırlama Azure Stack PKI sertifikaları](azure-stack-prepare-pki-certs.md) aynı sistemde tamamlanması gerekir!
 
 ## <a name="generate-certificate-signing-requests"></a>Sertifika imzalama istekleri oluştur
@@ -72,7 +70,7 @@ Hazırlama ve Azure Stack PKI sertifikalarını doğrulamak için aşağıdaki a
     ````PowerShell  
     $outputDirectory = "$ENV:USERPROFILE\Documents\AzureStackCSR"
     ````
-4.  Bildirme sistem tanımlayın
+4.  Kimlik sistemi bildirme
 
     Azure Active Directory
 
@@ -99,38 +97,35 @@ Hazırlama ve Azure Stack PKI sertifikalarını doğrulamak için aşağıdaki a
 6. Sertifika imzalama istekleri için her bir DNS adı oluşturmak için:
 
     ```PowerShell  
-    Start-AzsReadinessChecker -RegionName $regionName -FQDN $externalFQDN -subject $subjectHash -OutputRequestPath $OutputDirectory -IdentitySystem $IdentitySystem
+    New-AzsCertificateSigningRequest -RegionName $regionName -FQDN $externalFQDN -subject $subjectHash -OutputRequestPath $OutputDirectory -IdentitySystem $IdentitySystem
     ````
 
-    PaaS Hizmetleri dahil etmek için anahtar belirtin ```-IncludePaaS```
+    PaaS Hizmetleri dahil etmek için anahtar belirtin. ```-IncludePaaS```
 
 7. Alternatif olarak, geliştirme ve Test ortamları için. Birden çok konu diğer adları ile tek bir sertifika isteği oluşturmak için Ekle **- RequestType SingleCSR** parametresi ve değeri (**değil** üretim ortamları için önerilen):
 
     ```PowerShell  
-    Start-AzsReadinessChecker -RegionName $regionName -FQDN $externalFQDN -subject $subjectHash -RequestType SingleCSR -OutputRequestPath $OutputDirectory -IdentitySystem $IdentitySystem
+    New-AzsCertificateSigningRequest -RegionName $regionName -FQDN $externalFQDN -subject $subjectHash -RequestType SingleCSR -OutputRequestPath $OutputDirectory -IdentitySystem $IdentitySystem
     ````
 
-    PaaS Hizmetleri dahil etmek için anahtar belirtin ```-IncludePaaS```
+    PaaS Hizmetleri dahil etmek için anahtar belirtin. ```-IncludePaaS```
     
 8. Çıktıyı gözden geçirin:
 
     ````PowerShell  
-    AzsReadinessChecker v1.1803.405.3 started
-    Starting Certificate Request Generation
-
+    New-AzsCertificateSigningRequest v1.1809.1005.1 started.
+    
     CSR generating for following SAN(s): dns=*.east.azurestack.contoso.com&dns=*.blob.east.azurestack.contoso.com&dns=*.queue.east.azurestack.contoso.com&dns=*.table.east.azurestack.cont
     oso.com&dns=*.vault.east.azurestack.contoso.com&dns=*.adminvault.east.azurestack.contoso.com&dns=portal.east.azurestack.contoso.com&dns=adminportal.east.azurestack.contoso.com&dns=ma
     nagement.east.azurestack.contoso.com&dns=adminmanagement.east.azurestack.contoso.com*dn2=*.adminhosting.east.azurestack.contoso.com@dns=*.hosting.east.azurestack.contoso.com
     Present this CSR to your Certificate Authority for Certificate Generation: C:\Users\username\Documents\AzureStackCSR\wildcard_east_azurestack_contoso_com_CertRequest_20180405233530.req
     Certreq.exe output: CertReq: Request Created
 
-    Finished Certificate Request Generation
-
-    AzsReadinessChecker Log location: C:\Program Files\WindowsPowerShell\Modules\Microsoft.AzureStack.ReadinessChecker\1.1803.405.3\AzsReadinessChecker.log
-    AzsReadinessChecker Completed
+    Log location (contains PII): C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessChecker.log
+    New-AzsCertificateSigningRequest Completed
     ````
 
-9.  Gönderme **. İstek** (dahili veya genel) CA için oluşturulan dosya.  Çıktı dizinine **başlangıç AzsReadinessChecker** sertifika yetkilisine göndermek gerekli CSR(s) içerir.  Ayrıca, bir başvuru olarak sertifika isteği oluşturma sırasında kullanılan INF dosyaları içeren bir alt dizin içerir. CA'nız karşılayan oluşturulan isteğiniz kullanarak sertifikaları oluşturur mutlaka [Azure Stack PKI gereksinimleri](azure-stack-pki-certs.md).
+9.  Gönderme **. İstek** (dahili veya genel) CA için oluşturulan dosya.  Çıktı dizinine **yeni AzsCertificateSigningRequest** sertifika yetkilisine göndermek gerekli CSR(s) içerir.  Dizini Ayrıca, başvuru için sertifika isteği oluşturma sırasında kullanılan INF dosyaları içeren bir alt dizin içeriyor. CA'nız karşılayan oluşturulan isteğiniz kullanarak sertifikaları oluşturur mutlaka [Azure Stack PKI gereksinimleri](azure-stack-pki-certs.md).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

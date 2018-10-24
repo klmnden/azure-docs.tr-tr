@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/08/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: c5cbeed7f689a7ae159d753963c35281b051f632
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: 618e1f5249f2e05c26e91231b4283d82546a880b
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49114201"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49954496"
 ---
 # <a name="azure-storage-replication"></a>Azure Storage çoğaltma
 
@@ -38,7 +38,7 @@ Aşağıdaki tabloda, dayanıklılık ve kullanılabilirlik her çoğaltma strat
 | Tüm veri merkezinde (Bölgesel veya bölgesel olmayan) kullanılamaz                                           | Hayır                              | Evet                              | Evet                                  | Evet                                  |
 | Bir bölge çapında kesinti                                                                                     | Hayır                              | Hayır                               | Evet                                  | Evet                                  |
 | Bölge genelinde kullanım dışı kalması durumunda (bir bölgede uzaktan, coğrafi olarak çoğaltılmış) verilerinize okuma erişimi | Hayır                              | Hayır                               | Hayır                                   | Evet                                  |
-| Belirli bir yıl nesnelerin ___ dayanıklılık sağlayacak şekilde tasarlanmıştır                                          | en az % 99,999999999 (11 9) | en az % 99,9999999999 (12 9) | en az % 99,99999999999999 (16 9) | en az % 99,99999999999999 (16 9) |
+| Sağlamak üzere tasarlanmış \_ \_ belirli bir yıl boyunca nesnelerin dayanıklılık                                          | en az % 99,999999999 (11 9) | en az % 99,9999999999 (12 9) | en az % 99,99999999999999 (16 9) | en az % 99,99999999999999 (16 9) |
 | Desteklenen depolama hesabı türleri                                                                   | GPv1, GPv2 ve Blob                | GPv2, GPv1 (aracılığıyla, PowerShell, Azure CLI veya kaynak sağlayıcısı API'si)                             | GPv1, GPv2 ve Blob                     | GPv1, GPv2 ve Blob                     |
 | Okuma istekleri için kullanılabilirlik SLA'sı | En az % 99,9 (seyrek erişimli katman için % 99) | En az % 99,9 (seyrek erişimli katman için % 99) | En az % 99,9 (seyrek erişimli katman için % 99) | En az % 99,99 oranında (seyrek erişimli katman için % 99,9) |
 | Yazma isteklerine ilişkin kullanılabilirlik SLA'sı | En az % 99,9 (seyrek erişimli katman için % 99) | En az % 99,9 (seyrek erişimli katman için % 99) | En az % 99,9 (seyrek erişimli katman için % 99) | En az % 99,9 (seyrek erişimli katman için % 99) |

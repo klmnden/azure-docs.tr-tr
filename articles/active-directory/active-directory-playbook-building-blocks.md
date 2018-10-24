@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/04/2017
+ms.date: 10/23/2018
 ms.author: dstefan
-ms.openlocfilehash: c8517114f51b5aed8f8e31a19b672721b109775e
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: db6778bdea2e3e133535bf28b3c2297cdb65599d
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46298311"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49958916"
 ---
 # <a name="azure-active-directory-proof-of-concept-playbook-building-blocks"></a>Azure Active Directory kavram playbook prova: yapı taşları
 
@@ -150,7 +150,7 @@ Yaklaşık bir saat tamamlamaya: 60 dakika
 | Microsoft Documentation tüm aktörler için öğreticinin paylaşın  | [Öğretici: Azure Active Directory ServiceNow ile tümleştirme](saas-apps/servicenow-tutorial.md) |
 | Bir çalışma toplantı ayarlamak ve her aktör öğretici adımlarını izleyin. | [Öğretici: Azure Active Directory ServiceNow ile tümleştirme](saas-apps/servicenow-tutorial.md) |
 | Uygulama grubu Önkoşullarda atayın. POC kapsamı içinde koşullu erişimi varsa, daha sonra yeniden ziyaret ve MFA'yı eklemek ve benzer. <br/>Bu sağlama işleminde (yapılandırılmışsa) başlatır unutmayın |  [Kurumsal bir uygulamayı Azure Active Directory'de bir kullanıcı veya grup atama](manage-apps/assign-user-or-group-access-portal.md) <br/>[Bir grup oluşturun ve Azure Active Directory'de üye ekleme](fundamentals/active-directory-groups-create-azure-portal.md) |
-| ServiceNow uygulama galerisinden eklemek için Azure AD Yönetim Portalı kullanın| [Azure AD Yönetim Portalı: Kurumsal uygulamalar](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/Overview) <br/>[Azure Active Directory'de Kurumsal Uygulama Yönetimi'ndeki yenilikler](active-directory-enterprise-apps-whats-new-azure-portal.md) |
+| ServiceNow uygulama galerisinden eklemek için Azure AD Yönetim Portalı kullanın| [Azure AD Yönetim Portalı: Kurumsal uygulamalar](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/Overview) <br/>[Öğretici: Azure Active Directory ServiceNow ile tümleştirme](saas-apps/servicenow-tutorial.md) |
 | ServiceNow uygulama dikey "çoklu oturum açma", "SAML tabanlı oturum açma" etkinleştirme |  |
 | ServiceNow URL'niz ile "İşareti bulunan URL" ve "Tanımlayıcı" alanları doldurun<br/>"Yeni sertifikayı etkin hale getirmek için" onay kutusunu işaretleyin<br/>ve ayarları kaydedin |  |
 | ServiceNow yapılandırmanız için özelleştirilmiş yönergeleri görüntülemek için bölmenin altındaki "Yapılandırma ServiceNow" dikey penceresini açın |  |
@@ -163,8 +163,7 @@ Yaklaşık bir saat tamamlamaya: 60 dakika
 
 ### <a name="considerations"></a>Dikkat edilmesi gerekenler
 
-1. Yukarıda [öğretici](saas-apps/servicenow-tutorial.md) eski Azure'a başvuran AD yönetim deneyimi. Ancak PoC temel [hızlı](active-directory-enterprise-apps-whats-new-azure-portal.md#quickstart-get-going-with-your-new-application-right-away) karşılaşırsınız.
-2. Hedef uygulama galerisinde mevcut değilse, "kendi uygulamanızı getir" kullanabilirsiniz. Daha fazla bilgi edinin: [Azure Active Directory'de Kurumsal Uygulama Yönetimi'nde yenilikler: tek bir yerden özel uygulamalar ekleme](active-directory-enterprise-apps-whats-new-azure-portal.md#add-custom-applications-from-one-place)
+1. Hedef uygulama galerisinde mevcut değilse, "kendi uygulamanızı getir" kullanabilirsiniz. Daha fazla bilgi edinin: [Azure AD uygulama galerisinde bulunmayan uygulamalar yapılandırma](manage-apps/configure-single-sign-on-non-gallery-applications.md).
 
 ## <a name="saas-password-sso-configuration"></a>SaaS parola SSO yapılandırma
 
@@ -184,7 +183,7 @@ Yaklaşık tamamlama süresi: 15 dakika
 | Adım | Kaynaklar |
 | --- | --- |
 | Tarayıcı uzantısı yükleme | [IE için erişim paneli uzantısı](https://account.activedirectory.windowsazure.com/Applications/Installers/x64/Access%20Panel%20Extension.msi)<br/>[Erişim paneli uzantısını Chrome için](https://go.microsoft.com/fwLink/?LinkID=311859&clcid=0x409)<br/>[Erişim paneli uzantısı için Firefox](https://go.microsoft.com/fwLink/?LinkID=626998&clcid=0x409) |
-| Uygulama galerisinden yapılandırma | [Azure Active Directory'de Kurumsal Uygulama Yönetimi'nde yenilikler: yeni ve geliştirilmiş uygulama Galerisi](active-directory-enterprise-apps-whats-new-azure-portal.md#improvements-to-the-azure-active-directory-application-gallery) |
+| Uygulama galerisinden yapılandırma | [Öğretici: SAML tabanlı çoklu oturum açmayı yapılandırın](manage-apps/configure-single-sign-on-portal.md) |
 | Parola SSO yapılandırma | [Yeni Azure portalında kurumsal uygulamalar için çoklu oturum açmayı yönetme: parola tabanlı oturum açma](manage-apps/what-is-single-sign-on.md#how-does-single-sign-on-with-azure-active-directory-work).|
 | Uygulama grubu Önkoşullarda atayın | [Kurumsal bir uygulamayı Azure Active Directory'de bir kullanıcı veya grup atama](manage-apps/assign-user-or-group-access-portal.md) |
 | Oturum https://myapps.microsoft.com/ erişimi olan bir test kullanıcısı olarak |  |
@@ -195,10 +194,10 @@ Yaklaşık tamamlama süresi: 15 dakika
 
 ### <a name="considerations"></a>Dikkat edilmesi gerekenler
 
-Hedef uygulama galerisinde mevcut değilse, "kendi uygulamanızı getir" kullanabilirsiniz. Daha fazla bilgi edinin: [Azure Active Directory'de Kurumsal Uygulama Yönetimi'nde yenilikler: tek bir yerden özel uygulamalar ekleme](active-directory-enterprise-apps-whats-new-azure-portal.md#add-custom-applications-from-one-place)
+Hedef uygulama galerisinde mevcut değilse, "kendi uygulamanızı getir" kullanabilirsiniz. Daha fazla bilgi edinin: [Azure AD uygulama galerisinde bulunmayan uygulamalar yapılandırma](manage-apps/configure-single-sign-on-non-gallery-applications.md)
 
  Aşağıdaki gereksinimleri göz önünde bulundurun:
-   * Uygulama bir bilinen oturum açma URL'si olması gerekir
+   * Uygulama bir bilinen oturum açma URL'si olması gerekir.
    * Oturum açma sayfasında bir HTML formuna tarayıcı uzantıları otomatik olarak doldurmak bir daha fazla metin alanları içermelidir. En azından, kullanıcı adı ve parola içermelidir.
 
 ## <a name="saas-shared-accounts-configuration"></a>SaaS paylaşılan hesapları yapılandırma
@@ -219,7 +218,7 @@ Yaklaşık tamamlama süresi: 30 dakika
 | Adım | Kaynaklar |
 | --- | --- |
 | Tarayıcı uzantısı yükleme | [IE için erişim paneli uzantısı](https://account.activedirectory.windowsazure.com/Applications/Installers/x64/Access%20Panel%20Extension.msi)<br/>[Erişim paneli uzantısını Chrome için](https://go.microsoft.com/fwLink/?LinkID=311859&clcid=0x409)<br/>[Erişim paneli uzantısı için Firefox](https://go.microsoft.com/fwLink/?LinkID=626998&clcid=0x409) |
-| Uygulama galerisinden yapılandırma | [Azure Active Directory'de Kurumsal Uygulama Yönetimi'nde yenilikler: yeni ve geliştirilmiş uygulama Galerisi](active-directory-enterprise-apps-whats-new-azure-portal.md#improvements-to-the-azure-active-directory-application-gallery) |
+| Uygulama galerisinden yapılandırma | [Öğretici: SAML tabanlı çoklu oturum açma bir uygulama için yapılandırma](manage-apps/configure-single-sign-on-portal.md) |
 | Parola SSO yapılandırma | [Yeni Azure portalında kurumsal uygulamalar için çoklu oturum açmayı yönetme: parola tabanlı oturum açma](manage-apps/what-is-single-sign-on.md#how-does-single-sign-on-with-azure-active-directory-work).|
 | Grubun kimlik bilgilerini atarken Önkoşullarda tanımlanan uygulama atama | [Kurumsal bir uygulamayı Azure Active Directory'de bir kullanıcı veya grup atama](manage-apps/assign-user-or-group-access-portal.md) |
 | Bu erişim uygulama olarak farklı kullanıcı olarak oturum **aynı hesabı paylaşılan.**  |  |
@@ -228,7 +227,7 @@ Yaklaşık tamamlama süresi: 30 dakika
 
 ### <a name="considerations"></a>Dikkat edilmesi gerekenler
 
-Hedef uygulama galerisinde mevcut değilse, "kendi uygulamanızı getir" kullanabilirsiniz. Daha fazla bilgi edinin: [Azure Active Directory'de Kurumsal Uygulama Yönetimi'nde yenilikler: tek bir yerden özel uygulamalar ekleme](active-directory-enterprise-apps-whats-new-azure-portal.md#add-custom-applications-from-one-place)
+Hedef uygulama galerisinde mevcut değilse, "kendi uygulamanızı getir" kullanabilirsiniz. Daha fazla bilgi edinin: [çoklu oturum açma Azure AD uygulama galerisinde bulunmayan uygulamalar için yapılandırma](manage-apps/configure-single-sign-on-non-gallery-applications.md)
 
  Aşağıdaki gereksinimleri göz önünde bulundurun:
    * Uygulama bir bilinen oturum açma URL'si olması gerekir
@@ -364,7 +363,7 @@ Yaklaşık tamamlama süresi: 10 dakika
 | Adım | Kaynaklar |
 | --- | --- |
 | Azure AD yönetim portalında kurumsal uygulamalar dikey penceresine gidin | [Azure AD yönetim portalında: Kurumsal uygulamalar](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps/menuId/) |
-| Ön koşullar uygulamasından self servis ile yapılandırma | [Azure Active Directory'de Kurumsal Uygulama Yönetimi'nde yenilikler: Self Servis uygulama erişimi yapılandırma](active-directory-enterprise-apps-whats-new-azure-portal.md#configure-self-service-application-access) |
+| Ön koşullar uygulamasından self servis ile yapılandırma | [Self Servis uygulama erişimi yapılandırma](manage-apps/manage-self-service-access.md) |
 | My apps portalına bilgi çalışanı olarak oturum açın | http://myapps.microsoft.com |
 | Fark "+ uygulama Ekle" düğmesine op sayfanın. Uygulama erişim elde etmek için kullanın |  |
 
@@ -480,7 +479,7 @@ Yaklaşık tamamlama süresi: 15 dakika
 | Oturum açma https://portal.azure.com bir genel yönetici (GA) ve önyükleme PIM dikey olarak. Bu adımı gerçekleştirir genel yönetici güvenlik yöneticisi olarak sağlanmış.  Bu aktör GA1 adlandıralım | [İçinde Azure AD Privileged Identity Management Güvenlik Sihirbazı'nı kullanarak](privileged-identity-management/pim-security-wizard.md) |
 | Genel yönetici tanımlamak ve kalıcı uygun şekilde taşıyın. Bu, 1. adımda daha anlaşılır olması için kullanılan hesaptan farklı bir yönetici olmanız gerekir. Bu aktör GA2 adlandıralım | [Azure AD Privileged Identity Management: nasıl kullanıcı rolü ekleme veya kaldırma](privileged-identity-management/pim-how-to-add-role-to-user.md)<br/>[Azure AD Privileged Identity Management nedir?: rol etkinleştirme ayarlarını yapılandırma](privileged-identity-management/pim-configure.md#configure-the-role-activation-settings)  |
 | Şimdi, oturum için GA2 olarak https://portal.azure.com ve "Kullanıcı ayarları" değiştirmeyi deneyin. Bazı seçenekler gri unutmayın. | |
-| Şimdi gidin yeni bir sekmede ve 3. adım ile aynı oturumda https://portal.azure.com ve PIM dikey pencereyi panoya ekleyin. | [PIM kullanmaya başlayın](privileged-identity-management/pim-getting-started.md) |
+| Şimdi gidin yeni bir sekmede ve 3. adım ile aynı oturumda https://portal.azure.com ve PIM dikey pencereyi panoya ekleyin. | [PIM kullanmaya başlama](privileged-identity-management/pim-getting-started.md) |
 | Genel yönetici rolü etkinleştirme isteği | [Nasıl etkinleştirme veya devre dışı rolleri Azure AD Privileged Identity Management: rol etkinleştirme](privileged-identity-management/pim-how-to-activate-role.md#activate-a-role) |
 | GA2 hiçbir zaman MFA için kaydolduysanız, kayıt için Azure mfa'yı gerekli olduğunu unutmayın |  |
 | Adım 3'teki özgün sekmesine geri dönün ve tarayıcıyı yenile düğmesine tıklayın. Artık "kullanıcı ayarları" erişiminiz olduğunu unutmayın. | |

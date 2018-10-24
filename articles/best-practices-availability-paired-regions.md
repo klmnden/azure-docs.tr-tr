@@ -6,12 +6,12 @@ ms.service: multiple
 ms.topic: article
 ms.date: 07/03/2018
 ms.author: raynew
-ms.openlocfilehash: 5678b8408eac303d9036d21612f60fafc325425d
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 983a551da26e08797b2a65f609cff17954a52828
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48801922"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49954829"
 ---
 # <a name="business-continuity-and-disaster-recovery-bcdr-azure-paired-regions"></a>İş sürekliliği ve olağanüstü durum kurtarma (BCDR): eşleştirilmiş Azure bölgeleri
 
@@ -33,13 +33,14 @@ Her Azure bölgesi aynı coğrafyadaki birlikte bölgesel çift yaparak başka b
 | Brezilya |Brezilya Güney 2 |Orta Güney ABD |
 | Kanada |Kanada Orta |Doğu Kanada |
 | Çin |Çin Kuzey |Çin Doğu|
+| Çin |Çin Kuzey 2 |Çin Doğu 2|
 | Avrupa |Kuzey Avrupa |Batı Avrupa |
 | Fransa |Fransa Orta|Fransa Güney|
 | Almanya |Almanya Orta |Almanya Kuzeydoğu |
 | Hindistan |Orta Hindistan |Güney Hindistan |
 | Hindistan |Batı Hindistan (1) |Güney Hindistan |
 | Japonya |Japonya Doğu |Japonya Batı |
-| Kore |Kore Orta |Kore Güney |
+| Güney Kore |Kore Orta |Kore Güney |
 | Kuzey Amerika |Doğu ABD |Batı ABD |
 | Kuzey Amerika |Doğu ABD 2 |Orta ABD |
 | Kuzey Amerika |Orta Kuzey ABD |Orta Güney ABD |

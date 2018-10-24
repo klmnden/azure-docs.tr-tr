@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/04/2018
 ms.author: cherylmc
 Customer intent: As a Virtual WAN software-defined connectivity provider, I want to set up a provisioning environment.
-ms.openlocfilehash: 0ea1b69b788255b1d8d24e17fcc1409d35a4fd36
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: a4664e628af5824b7b197cbdb5c5af602a3a4476
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48814330"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49958695"
 ---
 # <a name="virtual-wan-partners"></a>Sanal WAN iş ortakları
 
@@ -46,7 +46,7 @@ Bir dal cihaz (müşterinin şirket içi VPN cihazına veya SDWAN CPE) denetleyi
 
 ###  <a name="access"></a>Erişim denetimi
 
-Müşteriler, uygun erişim denetimini cihazda kullanıcı Arabirimi için sanal WAN Ayarla mümkün olması gerekir. Bu işlem, bir Azure hizmet sorumlusu kullanılması önerilir. Hizmet sorumlusu tabanlı erişim dal bilgilerini karşıya yüklemek için cihaz denetleyicisi uygun kimlik doğrulaması sağlar. Daha fazla bilgi için [hizmet sorumlusu oluşturma](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-azure-active-directory-application). Bu işlevselliği Azure sanal WAN teklifi dışında olsa da, sonra ilgili ayrıntılarını cihaz Yönetimi panoya girilen azure'da erişimi ayarlamak için tipik adımlar aşağıda biz listesi
+Müşteriler, uygun erişim denetimini cihazda kullanıcı Arabirimi için sanal WAN Ayarla mümkün olması gerekir. Bu işlem, bir Azure hizmet sorumlusu kullanılması önerilir. Hizmet sorumlusu tabanlı erişim dal bilgilerini karşıya yüklemek için cihaz denetleyicisi uygun kimlik doğrulaması sağlar. Daha fazla bilgi için [hizmet sorumlusu oluşturma](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application). Bu işlevselliği Azure sanal WAN teklifi dışında olsa da, sonra ilgili ayrıntılarını cihaz Yönetimi panoya girilen azure'da erişimi ayarlamak için tipik adımlar aşağıda biz listesi
 
 * Şirket içi cihaz denetleyicisi için bir Azure Active Directory uygulaması oluşturun.
 * Uygulama kimliği ve kimlik doğrulama anahtarını alma

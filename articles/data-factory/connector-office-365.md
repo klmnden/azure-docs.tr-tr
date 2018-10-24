@@ -11,24 +11,20 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/15/2018
+ms.date: 10/22/2018
 ms.author: jingwang
-ms.openlocfilehash: c9252380581e77049e9464316ca77cc135f784b6
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: 82fb2241b5988bae9587807c03e7bec50e7c1677
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49377610"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49955397"
 ---
 # <a name="copy-data-from-office-365-into-azure-using-azure-data-factory-preview"></a>Azure Data Factory (Önizleme) kullanarak Azure'da Office 365'ten veri kopyalama 
 
 Azure Data Factory, Office 365'te kurumsal veri ölçeklenebilir bir şekilde Azure'a Kiracı ve analiz uygulamaları oluşturun ve bu değerli veri varlıklarını üzerinde göre içgörü zengin getirmenize olanak sağlar. Privileged Access Management ile tümleştirme için değerli seçkin verileri Office 365'te güvenli erişim denetimi sağlar.  Microsoft Graph veriler üzerinde daha fazla bilgi için Bağlan, lütfen [bu bağlantıyı](https://github.com/OfficeDev/ManagedAccessMSGraph/wiki).
 
 Bu makalede, kopyalama etkinliği Azure Data Factory'de Office 365'ten veri kopyalamak için nasıl kullanılacağını özetlenmektedir. Yapılar [kopyalama etkinliği'ne genel bakış](copy-activity-overview.md) kopyalama etkinliği genel bir bakış sunan makalesi.
-
-Dokuz dakikalık bir giriş ve Data Factory, Office 365 verilerine bağlanma ile ilgili tanıtımı için aşağıdaki videoyu izleyin:
-
-> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Get-cloud-scale-analytics-of-Office-365-data-with-Azure-Data-Factory/player]
 
 ## <a name="supported-capabilities"></a>Desteklenen özellikler
 
@@ -45,10 +41,10 @@ Dokuz dakikalık bir giriş ve Data Factory, Office 365 verilerine bağlanma ile
 Azure'da Office 365'ten veri kopyalamak için aşağıdaki önkoşul adımlarını tamamlamanız gerekir:
 
 - Office 365 Kiracı yöneticiniz kolaylaşmasına eylemleri açıklandığı gibi tamamlayın [burada](https://github.com/OfficeDev/ManagedAccessMSGraph/wiki/On-boarding).
-- Oluşturun ve Azure Active Directory'de bir Azure AD web uygulaması yapılandırın.  Yönergeler için [bir Azure AD uygulaması oluştur](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-azure-active-directory-application).
+- Oluşturun ve Azure Active Directory'de bir Azure AD web uygulaması yapılandırın.  Yönergeler için [bir Azure AD uygulaması oluştur](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application).
 - Office 365 için bağlı hizmetini tanımlamak için kullanacağınız aşağıdaki değerleri not edin:
-    - Kiracı kimliği  Yönergeler için [Kiracı kimliği alma](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-tenant-id).
-    - Uygulama kimliği ve uygulama anahtarı.  Yönergeler için [uygulama kimliği ve kimlik doğrulama anahtarını Al](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-application-id-and-authentication-key).
+    - Kiracı kimliği  Yönergeler için [Kiracı kimliği alma](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-id).
+    - Uygulama kimliği ve uygulama anahtarı.  Yönergeler için [uygulama kimliği ve kimlik doğrulama anahtarını Al](../active-directory/develop/howto-create-service-principal-portal.md#get-application-id-and-authentication-key).
 - Azure AD web uygulaması sahibi olarak veri erişim isteği yapacak kullanıcı kimliğini ekleyin (Azure AD web uygulaması > Ayarlar > sahipleri > Ekle sahibi).
 
 ## <a name="approving-new-data-access-requests"></a>Onaylama yeni veri erişim istekleri

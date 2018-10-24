@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 10/17/2018
-ms.openlocfilehash: 61950a1afda1fefdfab95f6d63420387dc2e2ac7
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.date: 10/22/2018
+ms.openlocfilehash: 88bea87c752563e1c19332121eb568b0bd329d03
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49378644"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49954152"
 ---
 # <a name="sql-database-frequently-asked-questions-faq"></a>SQL veritabanı sık sorulan sorular (SSS)
 
@@ -35,7 +35,7 @@ Hayır. Düzeltme eki uygulama etkisini genellikle gözümüzün değil ise, [ye
 
 ## <a name="what-is-the-new-vcore-based-purchasing-model-for-azure-sql-database"></a>Azure SQL veritabanı için yeni sanal çekirdek tabanlı satın alma modeli nedir
 
-Yeni satın alma modeli, mevcut DTU temelli model üzerinde yapılan bir eklemedir. Sanal çekirdek tabanlı model, müşterilere esneklik, denetimi, saydamlık sağlamak üzere tasarlanmıştır ve basit bir yol çevirmek için şirket iş yükü gereksinimlerini buluta. Ayrıca, iş yükü ihtiyaçlarını alarak kendi işlem ve depolama kaynakları yönetebileceğiniz ölçeklendirme müşterilerin olanak tanır. Tek veritabanı ve elastik havuz seçenekleri vCore modeli kullanarak da ile yüzde 30 tasarruf için uygun yedekleme [SQL Server için Azure hibrit avantajı](../virtual-machines/windows/hybrid-use-benefit-licensing.md). Bkz: [DTU tabanlı satın alma modeli](sql-database-service-tiers-dtu.md) ve [sanal çekirdek tabanlı satın alma modeli](sql-database-service-tiers-vcore.md) daha fazla bilgi için.
+Yeni satın alma modeli, mevcut DTU temelli model üzerinde yapılan bir eklemedir. Sanal çekirdek tabanlı model, müşterilere esneklik, denetimi, saydamlık sağlamak üzere tasarlanmıştır ve basit bir yol çevirmek için şirket iş yükü gereksinimlerini buluta. Ayrıca, iş yükü ihtiyaçlarını alarak kendi işlem ve depolama kaynakları yönetebileceğiniz ölçeklendirme müşterilerin olanak tanır. Tek veritabanı ve elastik havuz seçenekleri vCore modeli kullanarak da ile yüzde 30 tasarruf için uygun yedekleme [SQL Server için Azure hibrit avantajı](https://azure.microsoft.com/pricing/hybrid-benefit/#services). Bkz: [DTU tabanlı satın alma modeli](sql-database-service-tiers-dtu.md) ve [sanal çekirdek tabanlı satın alma modeli](sql-database-service-tiers-vcore.md) daha fazla bilgi için.
 
 ## <a name="what-is-a-vcore"></a>VCore nedir
 

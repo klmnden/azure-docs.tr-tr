@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: automation
 ms.component: update-management
 manager: carmonm
-ms.openlocfilehash: 2a70893c3e879b2cecb4d39d538b0df44b1ced15
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 1b258d115e7d9962ecab4b93dbcd98d13f5977c7
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49651639"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49956689"
 ---
 # <a name="understand-the-agent-check-results-in-update-management"></a>Güncelleştirme yönetimi Aracısı denetimi sonuçları anlama
 
@@ -70,7 +70,7 @@ Bu onay, kullanıcılarınızın gönderdiğiniz iletişimleri şifrelemek için
 
 Bu onay, aracıyı düzgün bir şekilde Aracısı ile iletişim kurup kuramadığını belirler.
 
-Proxy ve güvenlik duvarı yapılandırmaları, karma Runbook çalışanı Aracısı ile iletişim kurmasına izin vermelidir kayıt uç noktası. Adresleri ve bağlantı noktalarını açmak için bir listesi için bkz. [ağ karma çalışanları için planlama](../automation-hybrid-runbook-worker.md#network-planning)
+Proxy ve güvenlik duvarı yapılandırmaları karma Runbook çalışanı aracı kayıt uç noktası ile iletişim kurmasına izin vermeniz gerekir. Adresleri ve bağlantı noktalarını açmak için bir listesi için bkz. [ağ karma çalışanları için planlama](../automation-hybrid-runbook-worker.md#network-planning)
 
 ### <a name="operations-endpoint"></a>İşlemleri uç noktası
 

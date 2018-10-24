@@ -1,6 +1,6 @@
 ---
-title: Azure Media Services API erişmek için bir Azure AD uygulaması oluşturmak için PowerShell kullanın | Microsoft Docs
-description: Bir Azure Active Directory (Azure AD) uygulama oluşturmak ve Azure Media Services API erişim kadar ayarlamak için PowerShell kullanmayı öğrenin.
+title: Azure Media Services API'sine erişmek için bir Azure AD uygulaması oluşturmak için PowerShell kullanma | Microsoft Docs
+description: Azure Active Directory (Azure AD) uygulama oluşturma ve Azure Media Services API'sine erişim kadar ayarlamak için PowerShell kullanmayı öğrenin.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -13,25 +13,25 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/17/2017
 ms.author: juliako
-ms.openlocfilehash: 36f00c2b794730ae8191238c516cfedf871851bd
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 2aa777cf0c2068a5ee2382a9e75fc65db8a27207
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33790324"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49957310"
 ---
-# <a name="use-powershell-to-create-an-azure-ad-app-to-use-with-the-azure-media-services-api"></a>Azure Media Services API ile kullanmak için bir Azure AD uygulaması oluşturmak için PowerShell kullanın
+# <a name="use-powershell-to-create-an-azure-ad-app-to-use-with-the-azure-media-services-api"></a>Azure Media Services API'sine ile kullanmak için bir Azure AD uygulaması oluşturmak için PowerShell kullanma
 
-Azure Media Services kaynaklara erişmek için bir Azure Active Directory (Azure AD) uygulama ve hizmet sorumlusu oluşturmak için bir PowerShell komut dosyası kullanmayı öğrenin.  
+Bir PowerShell Betiği, Azure Media Services kaynaklarına erişmek için bir Azure Active Directory (Azure AD) uygulama ve hizmet sorumlusu oluşturmak için kullanmayı öğrenin.  
 
 ## <a name="prerequisites"></a>Önkoşullar
 
 - Bir Azure hesabı. Bir hesabınız yoksa, başlayan bir [Azure ücretsiz deneme](https://azure.microsoft.com/pricing/free-trial/). 
-- Bir Media Services hesabı. Daha fazla bilgi için bkz: [Azure portalda bir Azure Media Services hesabı oluşturma](media-services-portal-create-account.md).
-- Azure PowerShell sürümü 0.8.8 veya sonraki bir sürümü. Daha fazla bilgi için bkz: [Azure PowerShell'in nasıl kullanılacağı](https://docs.microsoft.com/powershell/azure/overview).
-- Azure Resource Manager cmdlet'lerini.  
+- Bir Media Services hesabı. Daha fazla bilgi için [Azure portalında bir Azure Media Services hesabı oluşturma](media-services-portal-create-account.md).
+- Azure PowerShell sürümü 0.8.8 veya sonraki bir sürümü. Daha fazla bilgi için [Azure PowerShell'in nasıl kullanılacağına](https://docs.microsoft.com/powershell/azure/overview).
+- Azure Resource Manager cmdlet'leri.  
 
-## <a name="create-an-azure-ad-app-by-using-powershell"></a>PowerShell kullanarak bir Azure AD uygulaması oluştur  
+## <a name="create-an-azure-ad-app-by-using-powershell"></a>PowerShell kullanarak bir Azure AD uygulamanızı oluşturma  
 
 ```powershell
 Connect-AzureRmAccount
@@ -55,9 +55,9 @@ $Retries = 0;While ($NewRole -eq $null -and $Retries -le 6)
 
 Daha fazla bilgi için aşağıdaki makalelere bakın:
 
-- [Kaynaklara erişmek üzere hizmet sorumlusu oluşturmak için Azure PowerShell kullanma](../../azure-resource-manager/resource-group-authenticate-service-principal.md)
+- [Kaynaklara erişmek üzere hizmet sorumlusu oluşturmak için Azure PowerShell kullanma](../../active-directory/develop/howto-authenticate-service-principal-powershell.md)
 - [Rol tabanlı erişim denetimini Azure PowerShell kullanarak yönetme](../../role-based-access-control/role-assignments-powershell.md)
-- [Arka plan programı uygulamaları sertifikaları kullanarak el ile yapılandırma](https://github.com/Azure-Samples/active-directory-dotnet-daemon-certificate-credential/blob/master/Manual-Configuration-Steps.md#add-the-certificate-as-a-key-for-the-todolistdaemonwithcert-application-in-azure-ad)
+- [Sertifikaları kullanarak arka plan programları el ile yapılandırma](https://github.com/Azure-Samples/active-directory-dotnet-daemon-certificate-credential/blob/master/Manual-Configuration-Steps.md#add-the-certificate-as-a-key-for-the-todolistdaemonwithcert-application-in-azure-ad)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

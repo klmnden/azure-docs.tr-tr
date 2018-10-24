@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 10/23/2018
 ms.author: amsriva
-ms.openlocfilehash: 626db07a81c6482a689329b8cddc9f40b464bb7e
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: e7020ef5c1f7411c7226e7a2db489112ee6bf0a4
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/23/2018
-ms.locfileid: "49649083"
+ms.locfileid: "49945510"
 ---
 # <a name="overview-of-end-to-end-ssl-with-application-gateway"></a>Application Gateway ile uçtan uca SSL’ye genel bakış
 
@@ -47,7 +47,7 @@ Kimlik doğrulama sertifikaları kullanım dışı ve uygulama ağ geçidi v2 SK
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Uçtan uca SSL hakkında bilgi edindikten sonra uçtan uca SSL kullanarak uygulama ağ geçidi oluşturmak için [Azure portal kullanarak SSL sonlandırmayla uygulama ağ geçidi yapılandırma](create-ssl-portal.md) bölümüne gidin.
+Uçtan uca SSL hakkında daha fazla edindikten sonra Git [ve PowerShell kullanarak Application Gateway uçtan uca SSL'yi yapılandırma](application-gateway-end-to-end-ssl-powershell.md) uçtan uca SSL kullanan bir uygulama ağ geçidi oluşturmak için.
 
 <!--Image references-->
 

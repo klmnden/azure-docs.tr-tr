@@ -58,7 +58,7 @@ Bu öğreticiyi tamamlamak için aşağıdaki ön koşulların karşılandığı
 ### <a name="plan-the-names"></a>Adları planlama
 
 Bu bölümdeki adımlarda, sağladığınız bir *kullanıcı* Kaynak adlarının benzersiz olduğundan emin olmak için kullanılan değer ve için bir ad *kaynak grubu* bir dağıtım tarafından oluşturulan tüm kaynakları içerir uygulamanın. Adlı bir kişi için *Ann Finley*, öneririz:
-- *Kullanıcı:* **af1***(kendi baş yanı sıra bir sayı. İkinci kez uygulamayı dağıtma (örneğin af2) farklı bir değer kullanın.)*
+- *Kullanıcı:* **af1**  *(kendi baş yanı sıra bir sayı. İkinci kez uygulamayı dağıtma (örneğin af2) farklı bir değer kullanın.)*
 - *Kaynak grubu:* **wingtip mt af1** *(wingtip-mt gösterir parçalı çok kiracılı uygulama budur. Kullanıcı adı af1 ekleme adlarıyla içerdiği tüm kaynakları kaynak grubu adını ilişkilendirir.)*
 
 Artık adlarınızı seçin ve not edin. 

@@ -38,8 +38,8 @@
 ### [Sunucu yönetme](analysis-services-manage.md)
 ### [Sunucu ölçümlerini izleme](analysis-services-monitor.md)
 ### [Tanılama günlüğüne kaydetmeyi ayarlama](analysis-services-logging.md)
-### [Hizmet sorumlusu oluşturma - Azure portalı](../azure-resource-manager/resource-group-create-service-principal-portal.md)
-### [Hizmet sorumlusu oluşturma - PowerShell](../azure-resource-manager/resource-group-authenticate-service-principal.md)
+### [Hizmet sorumlusu oluşturma - Azure portalı](../active-directory/develop/howto-create-service-principal-portal.md)
+### [Hizmet sorumlusu oluşturma - PowerShell](../active-directory/develop/howto-authenticate-service-principal-powershell.md)
 ### [Sunucu yöneticisi rolüne hizmet sorumlusu ekleme](analysis-services-addservprinc-admins.md)
 
 ## Model

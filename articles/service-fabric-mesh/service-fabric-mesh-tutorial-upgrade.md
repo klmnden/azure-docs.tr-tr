@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 09/18/2018
 ms.author: twhitney
 ms.custom: mvc, devcenter
-ms.openlocfilehash: c23646bca6109d27e57b2f928363e65c83c634eb
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 7985c8e9e26126040d842ded998a953281daa2ae
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47031161"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49953561"
 ---
 # <a name="tutorial-learn-how-to-upgrade-a-service-fabric-application-using-visual-studio"></a>Öğretici: Visual Studio kullanarak Service Fabric uygulaması yükseltme hakkında bilgi edinin
 
@@ -32,11 +32,11 @@ Bu öğreticide şunların nasıl yapıldığını öğrenirsiniz:
 
 Bu öğretici dizisinde şunların nasıl yapıldığını öğrenirsiniz:
 > [!div class="checklist"]
-> * [Bir Service Fabric kafes oluşturma Visual Studio'da uygulama](service-fabric-mesh-tutorial-create-dotnetcore.md)
-> * [Yerel geliştirme kümenizde çalışan bir Service Fabric Mesh uygulaması hata ayıklama](service-fabric-mesh-tutorial-debug-service-fabric-mesh-app.md)
-> * [Bir Service Fabric kafes dağıtma uygulama](service-fabric-mesh-tutorial-deploy-service-fabric-mesh-app.md)
+> * [Visual Studio’da Service Fabric Mesh uygulaması oluşturma](service-fabric-mesh-tutorial-create-dotnetcore.md)
+> * [Yerel geliştirme kümenizde çalışan bir Service Fabric Mesh uygulamasının hatalarını ayıklama](service-fabric-mesh-tutorial-debug-service-fabric-mesh-app.md)
+> * [Service Fabric Mesh uygulaması dağıtma](service-fabric-mesh-tutorial-deploy-service-fabric-mesh-app.md)
 > * Bir Service Fabric kafes yükseltme uygulama
-> * [Service Fabric Mesh kaynakları temizleme](service-fabric-mesh-tutorial-cleanup-resources.md)
+> * [Service Fabric Mesh kaynaklarını temizleme](service-fabric-mesh-tutorial-cleanup-resources.md)
 
 [!INCLUDE [preview note](./includes/include-preview-note.md)]
 
@@ -44,7 +44,7 @@ Bu öğretici dizisinde şunların nasıl yapıldığını öğrenirsiniz:
 
 Bu öğreticiye başlamadan önce:
 
-* To-do uygulaması dağıtmadıysanız bölümündeki yönergeleri [bir Service Fabric Mesh web uygulaması yayımlamak](service-fabric-mesh-tutorial-deploy-service-fabric-mesh-app.md).
+* To-Do uygulamasını dağıtmadıysanız, [Service Fabric Mesh web uygulamasını yayımlama](service-fabric-mesh-tutorial-deploy-service-fabric-mesh-app.md) başlığı altında verilen yönergeleri izleyin.
 
 ## <a name="upgrade-a-service-fabric-mesh-service-by-using-visual-studio"></a>Visual Studio kullanarak bir Service Fabric Mesh hizmet yükseltme
 
@@ -156,8 +156,8 @@ Bir web tarayıcısı açıp URL'ye giderek Azure'da çalışan web sitenizi gö
 
 Öğreticinin bu bölümünde şunları öğrendiniz:
 > [!div class="checklist"]
-> * Visual Studio kullanarak bir Service Fabric karmaşa uygulama yükseltme
+> * Visual Studio kullanarak bir Service Fabric Mesh uygulaması yükseltme
 
 Sonraki öğreticiye ilerleyin:
 > [!div class="nextstepaction"]
-> [Service Fabric Mesh kaynakları temizleme](service-fabric-mesh-tutorial-cleanup-resources.md)
+> [Service Fabric Mesh kaynaklarını temizleme](service-fabric-mesh-tutorial-cleanup-resources.md)

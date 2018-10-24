@@ -9,16 +9,16 @@ ms.author: gwallace
 ms.date: 09/18/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 1c5bcca2571ffee9e1c20f0b7d2608b62c962177
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: 245cbd86ae43560e4e41f4b97350f9a5857e1b25
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48815350"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49956634"
 ---
 # <a name="manage-pre-and-post-scripts-preview"></a>Yönetme öncesi ve sonrası betikler (Önizleme)
 
-Otomasyon hesabınızda (öncesi görev) önce PowerShell runbook'ları çalıştırmak öncesi ve sonrası komut dosyaları sağlar ve sonra (sonrası görev) bir güncelleştirme dağıtımı. Öncesi ve sonrası komut dosyalarını Azure içerik ve yerel olarak çalıştırın. Güncelleştirme dağıtımının beginnin sırasında öncesi komut dosyaları çalıştırın. Sonunda dağıtımın ve sonrasında, yapılandırılmış herhangi bir yeniden başlatma sonrası betiklerini çalıştırın.
+Otomasyon hesabınızda (öncesi görev) önce PowerShell runbook'ları çalıştırmak öncesi ve sonrası komut dosyaları sağlar ve sonra (sonrası görev) bir güncelleştirme dağıtımı. Öncesi ve sonrası komut dosyalarını Azure içerik ve yerel olarak çalıştırın. Güncelleştirme dağıtımının başında öncesi komut dosyaları çalıştırın. Sonunda dağıtımın ve sonrasında, yapılandırılmış herhangi bir yeniden başlatma sonrası betiklerini çalıştırın.
 
 ## <a name="runbook-requirements"></a>Runbook gereksinimleri
 

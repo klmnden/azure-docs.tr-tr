@@ -10,12 +10,12 @@ ms.component: translator-text
 ms.topic: article
 ms.date: 09/25/2018
 ms.author: v-jansko
-ms.openlocfilehash: 775e098eb2a067e3e0446bccc223c1c54e082347
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 222e37e38772b82e9d9849e3a955b865d43d3c63
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47435579"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49957415"
 ---
 # <a name="language-and-region-support-for-the-translator-text-api"></a>Translator metin API'si, dil ve bölge desteği
 
@@ -108,7 +108,7 @@ Transliterate yöntemi aşağıdaki dilleri desteklemektedir. İçinde "içine/d
 | Hintçe | Merhaba | Devanagari | <--> | Latin |
 | Japonca | ja | Japonca | <--> | Latin |
 | Kannada dili | KN | Kannada dili | --> | Latin |
-| Malasian | ML | Malayalam dili | --> | Latin |
+| Malayalam dili | ML | Malayalam dili | --> | Latin |
 | Marathi dili | MR | Devanagari | --> | Latin |
 | Odia | or | Odia | <--> | Latin |
 | Pencap dili | Pa | Gurmuki | <--> | Latin  |

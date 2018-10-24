@@ -1,6 +1,6 @@
 ---
-title: Azure anahtar kasası kimlik bilgilerini saklamak | Microsoft Docs
-description: Veri depoları Azure Data Factory çalışma zamanında otomatik olarak almak bir Azure anahtar kasası kullanılan kimlik bilgilerini depolamak öğrenin.
+title: Azure anahtar Kasası'nda kimlik bilgileri Store | Microsoft Docs
+description: Azure Data Factory çalışma zamanında otomatik olarak almak bir Azure anahtar Kasası'nda kullanılan veri depoları için kimlik bilgilerini depolamaya hakkında bilgi edinin.
 services: data-factory
 author: linda33wj
 manager: craigg
@@ -10,57 +10,57 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/25/2017
+ms.date: 10/22/2017
 ms.author: jingwang
-ms.openlocfilehash: e1be16ec6a7536cedf3a27ffacb9c4dffe42bbef
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 3428fb5034435d9f3444347329171d803136177c
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37052424"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49944677"
 ---
-# <a name="store-credential-in-azure-key-vault"></a>Azure anahtar kasası kimlik bilgisi deposu
+# <a name="store-credential-in-azure-key-vault"></a>Azure anahtar Kasası'nda kimlik bilgisi Store
 
-Veri depoları ve içinde hesaplar için kimlik bilgilerini depolamak bir [Azure anahtar kasası](../key-vault/key-vault-whatis.md). Azure Data Factory veri deposu/işlem kullanan bir etkinliği yürütülürken kimlik bilgilerini alır.
+Veri depoları ve işlemler, kimlik bilgilerini depolamak bir [Azure anahtar kasası](../key-vault/key-vault-whatis.md). Azure Data Factory, veri deposu/işlem kullanan bir etkinlik yürütülürken kimlik bilgilerini alır.
 
-Şu anda bu özelliği özel etkinlik dışındaki tüm etkinlik türlerini destekler. Bağlayıcı yapılandırması için özellikle "bağlantılı hizmet özellikleri" bölümüne bakın [her bağlayıcı konu](copy-activity-overview.md#supported-data-stores-and-formats) Ayrıntılar için.
+Şu anda özel etkinlik hariç tüm etkinlik türleri bu özelliği destekler. Bağlayıcı yapılandırması için özellikle, "bağlı hizmet özellikleri" bölümüne iade [her konu başlığı](copy-activity-overview.md#supported-data-stores-and-formats) Ayrıntılar için.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Bu özellik, veri fabrikası hizmet kimliğini kullanır. Gelen nasıl çalıştığını öğrenin [veri fabrikası hizmet kimliği](data-factory-service-identity.md) ve ilişkili bir veri fabrikanıza olduğundan emin olun.
+Bu özellik üzerinde veri fabrikası hizmet kimliği kullanır. Gelen nasıl çalıştığını öğrenin [veri fabrikası hizmet kimliği](data-factory-service-identity.md) ve ilişkili bir veri fabrikanıza olduğundan emin olun.
 
 >[!TIP]
->Azure anahtar kasasında bir gizlilik oluşturduğunuzda, **ADF hizmet bağlı gizli bir özellik değerini (örn. bağlantı dizesi/parola/hizmet asıl anahtar/vb. için) ister put**. Örneğin, Azure depolama bağlantılı hizmeti, put `DefaultEndpointsProtocol=http;AccountName=myAccount;AccountKey=myKey;` AKV gizli sonra ADF; Dynamics bağlantılı hizmeti için başvuru "connectionString" alanında put `myPassword` AKV gizli "parola" alanı ADF'dan sonra başvuru. Desteklenen özelliği ayrıntıları her bağlayıcı/işlem makalesine bakın.
+>Azure anahtar Kasası'nda bir gizli dizi oluşturduğunuzda **tüm ADF bağlı hizmeti gizli bir özelliğin değerini (örneğin bağlantı dizesi/parola/hizmet sorumlusu anahtarı/vb. için) ister put**. Örneğin, Azure depolama için bağlı hizmet, put `DefaultEndpointsProtocol=http;AccountName=myAccount;AccountKey=myKey;` AKV gizli sonra ADF; Dynamics bağlı hizmet için başvuru "connectionString" alanında put `myPassword` AKV gizli olarak "password" alanı ADF'dan sonra başvuru. Desteklenen özellik ayrıntıları her bağlayıcı/işlem makalesine başvurun.
 
 ## <a name="steps"></a>Adımlar
 
-Azure anahtar kasasında depolanan bir kimlik bilgisi başvurmak için aktarmanız gerekir:
+Azure Key Vault'ta depolanan bir kimlik bilgisi başvuru yapmak için gerekir:
 
-1. **Veri Fabrikası hizmet kimliği alma** "Hizmeti kimliği uygulama Fabrikanızda birlikte oluşturulan kimliği" değerini kopyalayarak. UI yazma ADF kullanırsanız, hizmet kimliği kimliği üzerinde Azure anahtar kasası bağlı hizmet oluşturma penceresi gösterilir; Ayrıca alabilirsiniz Azure portalından başvurmak [almak veri fabrikası hizmet kimliği](data-factory-service-identity.md#retrieve-service-identity).
-2. **Hizmet kimliği Azure anahtar Kasası'na erişim.** Anahtar kasasına erişim ilkeleri -> -> Ekle Yeni -> Bu hizmeti kimliği uygulama kimliği vermek için arama **almak** izin gizli izinleri açılır. Gizli anahtar kasasında erişmek bu belirlenen üreteci sağlar.
-3. **Azure anahtar Kasası'na işaret eden bir bağlantılı hizmet oluşturun.** Başvurmak [Azure anahtar kasası bağlantılı hizmeti](#azure-key-vault-linked-service).
-4. **Veri deposu bağlı hizmetini, hangi başvuru içinde karşılık gelen gizli depolanan anahtar kasası oluşturun.** Başvurmak [başvuru gizli anahtar kasasında depolanan](#reference-secret-stored-in-key-vault).
+1. **Veri Fabrikası hizmet kimliği almak** "Hizmet kimliği uygulama fabrikanızı birlikte oluşturulan kimliği" değerini kopyalayarak. Kullanıcı Arabirimi geliştirme ADF kullanırsanız, hizmet kimliği Azure Key Vault bağlı hizmeti oluşturma penceresinde gösterilir; Ayrıca almak Azure Portalı'ndan başvurmak [almak, veri fabrikası hizmet kimliği](data-factory-service-identity.md#retrieve-service-identity).
+2. **Azure Key Vault ile hizmet kimliği erişim verin.** Anahtar kasanıza erişim -> ilkeler -> Ekle Yeni -> Bu hizmeti kimliği uygulama kimliği vermek için arama **alma** izni gizli dizi izinleri açılır. Anahtar kasasındaki gizli erişmek belirlenen Bu fabrika sağlar.
+3. **Azure anahtar Kasası'na işaret eden bir bağlı hizmet oluşturursunuz.** Başvurmak [Azure Key Vault bağlı hizmeti](#azure-key-vault-linked-service).
+4. **Veri deposu bağlı hizmetini, hangi Başvurusu içinde karşılık gelen depolanan gizli anahtar kasası oluşturun.** Başvurmak [başvuru gizli anahtar kasasında depolanan](#reference-secret-stored-in-key-vault).
 
-## <a name="azure-key-vault-linked-service"></a>Azure anahtar Kasası'bağlı hizmeti
+## <a name="azure-key-vault-linked-service"></a>Azure Key Vault bağlı hizmeti
 
-Aşağıdaki özellikler, Azure anahtar kasası bağlantılı hizmeti için desteklenir:
+Azure Key Vault bağlı hizmeti için aşağıdaki özellikleri destekler:
 
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
 | type | Type özelliği ayarlanmalıdır: **AzureKeyVault**. | Evet |
-| baseUrl | Azure anahtar kasası URL'si belirtin. | Evet |
+| BaseUrl | Azure Key Vault URL'si belirtin. | Evet |
 
-**UI yazma kullanma:**
+**Kullanıcı Arabirimi geliştirme kullanarak:**
 
-Tıklatın **bağlantıları** -> **bağlı hizmetler** -> **+ yeni** "Azure anahtar kasası" için arama ->:
+Tıklayın **bağlantıları** -> **bağlı hizmetler** -> **+ yeni** -> "Azure Key Vault" için arama:
 
 ![Arama AKV](media/store-credentials-in-key-vault/search-akv.png)
 
-Sağlanan Azure anahtar kasası kimlik bilgilerinizi depolandığı seçin. Yapabileceğiniz **Bağlantıyı Sına** , AKV emin olmak için bağlantı geçerlidir. 
+Kimlik bilgilerinizi depolandığı sağlanan Azure anahtar Kasası'nı seçin. Yapabileceğiniz **Bağlantıyı Sına** , AKV emin olmak için bağlantı geçerlidir. 
 
 ![AKV yapılandırın](media/store-credentials-in-key-vault/configure-akv.png)
 
-**JSON örnek:**
+**JSON örneği:**
 
 ```json
 {
@@ -74,24 +74,24 @@ Sağlanan Azure anahtar kasası kimlik bilgilerinizi depolandığı seçin. Yapa
 }
 ```
 
-## <a name="reference-secret-stored-in-key-vault"></a>Başvuru gizli anahtar kasasında depolanan
+## <a name="reference-secret-stored-in-key-vault"></a>Anahtar Kasası'nda depolanan başvuru gizli
 
-Bir anahtar kasası gizlilik başvuran bağlantılı hizmetteki bir alan yapılandırırken aşağıdaki özellikleri desteklenir:
+Bir alan bir anahtar kasası gizli dizi başvuran bağlı hizmette yapılandırdığınızda, aşağıdaki özellikler desteklenir:
 
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
-| type | Alanın türü özelliğini ayarlamak: **AzureKeyVaultSecret**. | Evet |
-| secretName | Azure anahtar kasası gizliliği adı. | Evet |
-| secretVersion | Azure anahtar kasası gizliliği sürümü.<br/>Belirtilmezse, her zaman en son sürümünü gizli anahtarı kullanır.<br/>Ardından belirtilirse, belirtilen sürüme sticks.| Hayır |
-| Depolama | Kimlik bilgilerini saklamak için kullanacağınız bir Azure anahtar kasası bağlantılı hizmeti ifade eder. | Evet |
+| type | Alan öğesinin type özelliği ayarlanmalıdır: **AzureKeyVaultSecret**. | Evet |
+| secretName | Azure key vault'ta gizli dizi adı. | Evet |
+| secretVersion | Azure key vault'ta gizli dizi sürümü.<br/>Belirtilmezse, her zaman en son sürümünü gizli anahtarı kullanır.<br/>Ardından belirtilmişse belirli bir sürümüne yapışması.| Hayır |
+| Store | Kimlik bilgilerini saklamak için kullandığınız bir Azure Key Vault bağlı hizmetini ifade eder. | Evet |
 
-**UI yazma kullanma:**
+**Kullanıcı Arabirimi geliştirme kullanarak:**
 
-Seçin **Azure anahtar kasası** veri deposu/işlem bağlantı oluşturulurken gizli alanlar için. Sağlanan Azure anahtar kasası bağlı hizmeti seçin ve sağlamak **gizli anahtar adı**. İsteğe bağlı olarak gizli bir sürümünü de sağlayabilir. 
+Seçin **Azure anahtar kasası** veri deposu/işlem bağlantısı oluşturulurken gizli alanlar için. Sağlanan Azure Key Vault bağlı hizmeti seçin ve sağlayan **gizli dizi adı**. İsteğe bağlı olarak bir gizli dizi sürümü de sağlayabilirsiniz. 
 
 ![AKV gizli yapılandırma](media/store-credentials-in-key-vault/configure-akv-secret.png)
 
-**JSON örnek: ("parola" bölümüne bakın)**
+**JSON örneği: ("parola" bölümüne bakın)**
 
 ```json
 {
@@ -117,4 +117,4 @@ Seçin **Azure anahtar kasası** veri deposu/işlem bağlantı oluşturulurken g
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Kaynakları ve havuzlarını Azure Data Factory kopyalama etkinliği tarafından desteklenen veri depoları listesi için bkz: [desteklenen veri depoları](copy-activity-overview.md#supported-data-stores-and-formats).
+Azure Data Factory kopyalama etkinliği tarafından kaynak ve havuz olarak desteklenen veri depolarının listesi için bkz. [desteklenen veri depoları](copy-activity-overview.md#supported-data-stores-and-formats).

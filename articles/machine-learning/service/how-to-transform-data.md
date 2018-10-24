@@ -10,24 +10,25 @@ author: cforbe
 manager: cgronlun
 ms.reviewer: jmartens
 ms.date: 09/24/2018
-ms.openlocfilehash: 388957fc5dac5cdab5bee34a4431eaa524e76a48
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 06e7d227511a9b651a905df3172f59a191acce01
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46999911"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49945680"
 ---
 # <a name="transform-data-with-the-azure-machine-learning-data-prep-sdk"></a>Azure Machine Learning veri hazırlığı SDK'sı ile verileri dönüştürün
 
 [Azure Machine Learning veri hazırlığı SDK'sı](https://docs.microsoft.com/python/api/overview/azure/dataprep?view=azure-dataprep-py) verilerinizi temizlemek için farklı dönüştürme yöntemi sunar. Bu yöntemler sütun ekleme, istenmeyen satırları veya sütunları filtrelemek ve eksik değerleri impute basitleştirir.
 
 Şu anda aşağıdaki görevleri için yöntemleri vardır:
-- [Bir ifade kullanarak sütun ekleme](#add-column-using-expression)
+- [Bir ifade kullanarak sütun ekleme](#column)
 - [Eksik değerleri impute](#impute-missing-values)
 - [Sütunu örneğe göre türetme](#derive-column-by-example)
 - [Filtreleme](#filtering)
 - [Özel bir Python dönüşümler](#custom-python-transforms)
 
+<a name=column>
 ## <a name="add-column-using-an-expression"></a>Bir ifade kullanarak sütun ekleme
 
 Azure Machine Learning veri hazırlığı SDK içerir `substring` mevcut sütunlar arasında bir değer hesaplamak için kullanın ve ardından yeni bir sütun değeri put ifadeler. Bu örnekte biz veri yükleme ve söz konusu giriş verilerini sütunlar eklemek deneyin.

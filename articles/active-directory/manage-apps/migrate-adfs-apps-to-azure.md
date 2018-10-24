@@ -1,6 +1,6 @@
 ---
-title: AD FS şirket içi uygulamalarını Azure'a geçirin. | Microsoft Docs
-description: Bu makale federasyon SaaS uygulamalarına odaklanarak, kuruluşların şirket içi uygulamaların Azure AD'ye nasıl geçirildiğini anlamalarına yardımcı olmayı hedefler.
+title: Uygulamalar AD FS'den Azure AD'ye taşıyın. | Microsoft Docs
+description: Bu makalede, kuruluşların uygulamalar Federasyon SaaS uygulamalarına odaklanarak, Azure AD'ye taşıma anlamalarına yardımcı olmak için tasarlanmıştır.
 services: active-directory
 author: barbkess
 manager: mtillman
@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.date: 03/02/2018
 ms.author: barbkess
-ms.openlocfilehash: fa19c932a18102107068303e1474abd992df3161
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: b799a3947770b44752b599dbb2c47cbf1cfbcda2
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48903037"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49959069"
 ---
-# <a name="migrate-ad-fs-on-premises-apps-to-azure"></a>AD FS şirket içi uygulamalarını Azure'a geçirme 
+# <a name="move-applications-from-ad-fs-to-azure-ad"></a>Uygulamalar AD FS'den Azure AD'ye taşıma 
 
-Bu makale, şirket içi uygulamaların Azure Active Directory'ye (Azure AD) nasıl geçirildiğini anlamanıza yardımcı olur. Özellikle federasyon SaaS uygulamalarına odaklanır. 
+Bu makalede uygulamalarını AD FS'den Azure Active Directory (Azure AD) taşıma anlamanıza yardımcı olur. Özellikle federasyon SaaS uygulamalarına odaklanır. 
 
 Bu makalede adım adım yönergeler sağlanmaz. Şirket içi yapılandırmaların Azure AD'ye nasıl dönüştürüldüğünü anlayarak geçişi başarmanıza yardımcı olmak için kavramsal rehberlik sağlanır. Ayrıca yaygın senaryoları da kapsar.
 
@@ -31,7 +31,7 @@ Kullanıcı hesaplarının bulunduğu şirket içi bir dizininiz varsa, büyük 
 
 Ayrıca siz de çoğu kuruluş gibiyseniz, büyük olasılıkla bulut uygulamaları ve kimliklerini benimseme yolunda ilerliyorsunuz demektir. Belki de Office 365 ve Azure AD Connect ile hızla yol alıyorsunuzdur. Tüm iş yükleri için değil yalnızca önemli bazı iş yükleri için bulut tabanlı SaaS uygulamalarını kurmuş da olabilirsiniz.  
 
-Birçok kuruluşun doğrudan Active Directory Federation Service (AD FS) gibi bir şirket içi oturum açma hizmetine federasyon oluşturan SaaS veya özel iş kolu (LOB) uygulamaları, ayrıca Office 365 ve Azure AD tabanlı uygulamaları vardır. Bu geçiş kılavuzunda şirket içi uygulamaların Azure AD'ye neden ve nasıl geçirildiği açıklanır.
+Birçok kuruluşun doğrudan Active Directory Federation Service (AD FS) gibi bir şirket içi oturum açma hizmetine federasyon oluşturan SaaS veya özel iş kolu (LOB) uygulamaları, ayrıca Office 365 ve Azure AD tabanlı uygulamaları vardır. Bu kılavuzda nedenini açıklar ve uygulamalarınızı Azure AD'ye taşıma.
 
 >[!NOTE]
 >Bu kılavuzda SaaS uygulaması yapılandırma ve geçişi hakkında ayrıntılı bilgi ve özel LOB uygulamaları hakkında üst düzey bilgi sağlanır. Gelecekte özel LOB uygulamalarına yönelik daha ayrıntılı bir kılavuz sağlanması planlanmaktadır.
@@ -40,9 +40,9 @@ Birçok kuruluşun doğrudan Active Directory Federation Service (AD FS) gibi bi
 
 ![Azure AD yoluyla federasyon oluşturan uygulamalar](media/migrate-adfs-apps-to-azure/migrate2.png)
 
-## <a name="reasons-for-migrating-apps-to-azure-ad"></a>Uygulamaları Azure AD'ye geçirme nedenleri
+## <a name="reasons-for-moving-apps-to-azure-ad"></a>Uygulamaları Azure AD'ye taşınıyor nedenleri
 
-Zaten AD FS, Ping veya başka bir şirket içi kimlik doğrulama sağlayıcısı kullanan bir kuruluşa, uygulamaları Azure AD'ye geçirmek şu avantajları sağlar:
+Zaten AD FS, Ping veya başka bir şirket içi kimlik doğrulama sağlayıcısı kullanan bir kuruluş için uygulamaları Azure AD'ye taşınıyor, aşağıdaki avantajları sağlar:
 
 **Daha güvenli erişim**
 - [Azure AD koşullu erişim](../active-directory-conditional-access-azure-portal.md) kullanarak Azure Multi-Factor Authentication dahil ayrıntılı uygulama başına erişim denetimlerini yapılandırın. İlkeler, aynı bugün Office 365'le uyguluyor olabileceğiniz şekilde SaaS uygulamalarına ve özel uygulamalara da uygulanabilir.
@@ -61,7 +61,7 @@ Zaten AD FS, Ping veya başka bir şirket içi kimlik doğrulama sağlayıcısı
 - Azure AD'nin avantajlarını elde ederken, kimlik doğrulaması için şirket içi çözümünüzü kullanmaya devam edebilirsiniz. Bu şekilde, şirket için Multi-Factor Authentication çözümleri, günlük ve denetim gibi avantajlar da yitirilmez. 
 
 **Şirket içi kimlik sağlayıcısının devre dışı bırakılmasına yardımcı olma**
-- Şirket içi kimlik doğrulama ürününü devre dışı bırakmak isteyen kuruluşlarda, uygulamaları Azure AD'ye geçirmek işleri biraz azalttığından daha kolay geçiş yapılmasını sağlar. 
+- Şirket içi kimlik doğrulaması ürün devre dışı bırakmak istediğiniz kuruluşlarda, uygulamaları Azure AD'ye taşınıyor, kolay geçiş'göz önünden işinin bir kısmını alarak sağlar. 
 
 ## <a name="mapping-types-of-apps-on-premises-to-types-of-apps-in-azure-ad"></a>Şirket içi uygulama türlerini Azure AD'deki uygulama türleriyle eşleme
 Uygulamaların çoğu, kullandıkları oturum açma türüne göre birkaç kategoriden birine girer. Bu kategoriler, uygulamanın Azure AD'de nasıl temsil edildiğini belirler.
@@ -126,8 +126,8 @@ Aşağıdaki tabloda, uygulamada SSO ayarlarını yapılandırmaya yönelik öne
 |Tanımlayıcı/</br>“veren”|Uygulamanın perspektifinden IdP'nin tanımlayıcısı (bazen “veren kimliği” olarak da adlandırılır).</br></br>SAML belirtecinde, değer **Issuer** öğesi olarak gösterilir.|AD FS için tanımlayıcı genellikle AD FS Yönetimi'nde **Hizmet** > **Federasyon Hizmeti Özelliklerini Düzenle**'nin altında yer alan federasyon hizmeti tanımlayıcısıdır. Örneğin: http&#58;//fs.contoso.com/adfs/services/trust|Azure AD için buna karşılık gelen değer, {kiracı-kimliği} değerinin kiracı kimliği ile değiştirildiği desene uyar. Bu değeri Azure Portal'da, **Azure Active Directory** > **Özellikler** altında **Dizin Kimliği** olarak bulabilirsiniz: https&#58;//sts.windows.net/{kiracı-kimliği}/|
 |IdP </br>federasyon </br>meta veriler|IdP'nin genel kullanıma açık federasyon meta verilerinin konumu. (Bazı uygulamalar federasyon meta verilerini yönetici yapılandırma URL'lerine, tanımlayıcıya ve bağımsız olarak belirteç imzalama sertifikasına alternatif olarak kullanılır)|AD FS federasyon meta verileri URL'sini, AD FS Yönetimi'nde **Hizmet** > **Uç Noktalar** > **Meta Veriler** > **Tür: Federasyon Meta Verileri**'nın altında bulabilirsiniz. Örneğin: https&#58;//fs.contoso.com/FederationMetadata/2007-06/FederationMetadata.xml|Azure AD'de buna karşılık gelen değer şu desene uyar: https&#58;//login.microsoftonline.com/{KiracıEtkiAlanıAdı}/FederationMetadata/2007-06/FederationMetadata.xml. {KiracıEtkiAlanıAdı} değerinin yerine kiracınızın “contoso.onmicrosoft.com” biçimindeki adı kullanılır. </br></br>Daha fazla bilgi için bkz. [Federasyon meta verileri](../develop/azure-ad-federation-metadata.md).
 
-## <a name="migrating-saas-apps"></a>SaaS uygulamalarını geçirme
-SaaS uygulamalarını AD FS'den veya başka bir kimlik sağlayıcısından Azure AD'ye geçirme, bugün el ile yapılan bir işlemdir. Uygulamaya özgü yönergeler için [Market'te bulunan SaaS uygulamalarını tümleştirme konusundaki öğreticilerin listesine bakın](../saas-apps/tutorial-list.md).
+## <a name="moving-saas-apps"></a>SaaS uygulamaları taşıma
+Taşıma SaaS uygulamalarını AD fs'den veya başka bir kimlik sağlayıcısından Azure AD'ye bir el ile bugün işlemidir. Uygulamaya özgü yönergeler için [Market'te bulunan SaaS uygulamalarını tümleştirme konusundaki öğreticilerin listesine bakın](../saas-apps/tutorial-list.md).
 
 Tümleştirme öğreticilerinde bir yeşil alan tümleştirmesi yaptığınız varsayılır. Uygulamalarınızı planlar, değerlendirir, yapılandırır ve bunların tam geçişini yaparken, geçişe özgü birkaç önemli kavramı bilmeniz gerekir:  
 - Bazı uygulamalar kolayca geçirilebilir. Özel talepler gibi daha karmaşık gereksinimleri olan uygulamalar Azure AD ve/veya Azure AD Connect'te ek yapılandırma gerektirebilir.
@@ -135,7 +135,7 @@ Tümleştirme öğreticilerinde bir yeşil alan tümleştirmesi yaptığınız v
 - Ek taleplerin gerektiğini saptadıktan sonra, bunların Azure AD'de sağlandığından emin olun. Gerekli bir özniteliğin, örneğin **samAccountName** özniteliğinin Azure AD'ye eşitlendiğinden emin olmak için Azure AD Connect eşitleme yapılandırmasını gözden geçirin.
 - Öznitelikler Azure AD'de kullanılabilir olduktan sonra, bu öznitelikleri verilen belirteçlere talep olarak dahil etmek için Azure AD'de talep verme kuralları ekleyebilirsiniz. Bu kuralları Azure AD'de uygulamanın **Çoklu oturum açma** özelliklerinde eklersiniz.
 
-### <a name="assess-what-can-be-migrated"></a>Nelerin geçirilebileceğini değerlendirme
+### <a name="assess-what-can-be-moved"></a>Nelerin taşınabileceğini değerlendirin
 SAML 2.0 uygulamaları Market'teki Azure AD uygulama galerisi yoluyla veya Market dışı uygulamalar olarak Azure AD ile tümleştirilebilir.  
 
 Bazı yapılandırmalar Azure AD'de yapılandırırken ek adımlar gerektirir ve bazı yapılandırmalar da henüz desteklenmemektedir. Neleri taşıyabileceğinizi saptamak için, uygulamalarınızdan her birinin geçerli yapılandırmasına bakın. Özellikle şunlara dikkat edin:
@@ -144,8 +144,8 @@ Bazı yapılandırmalar Azure AD'de yapılandırırken ek adımlar gerektirir ve
 - Verilen SAML belirteci sürümleri.
 - Verme yetkilendirme kuralları veya erişim denetim ilkeleri veya Multi-Factor Authentication (ek kimlik doğrulaması) kuralları gibi diğer yapılandırmalar.
 
-#### <a name="what-can-be-migrated-today"></a>Bugün neler geçirilebilir
-Bugün kolayca geçirebileceğiniz uygulamalar, standart yapılandırma öğelerini ve taleplerini kullanan SAML 2.0 uygulamalarıdır. Bu uygulamalar şunlardan oluşabilir:
+#### <a name="what-can-be-moved-today"></a>Bugün nelerin taşınabileceğini
+Bugün kolayca taşıyabilirsiniz uygulamalar standart yapılandırma öğelerini ve taleplerini kullanan SAML 2.0 uygulamalarıdır. Bu uygulamalar şunlardan oluşabilir:
 - Kullanıcı asıl adı.
 - E-posta adresi.
 - Verilen ad.

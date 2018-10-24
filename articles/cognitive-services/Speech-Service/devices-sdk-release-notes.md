@@ -10,16 +10,27 @@ ms.component: speech-service
 ms.topic: conceptual
 ms.date: 08/07/2018
 ms.author: gracez
-ms.openlocfilehash: 3ba726098d10266601f94d0c174872d736255f8f
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 2040c80687b8961c2db6b1b954a317807ebbbb13
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/23/2018
-ms.locfileid: "49647656"
+ms.locfileid: "49946037"
 ---
 # <a name="release-notes-of-cognitive-services-speech-devices-sdk"></a>Bilişsel hizmetler konuşma cihazları SDK sürüm notları
 
 Aşağıdaki bölümlerde listesi değişiklikleri en son sürümlerde.
+
+## <a name="cognitive-services-speech-devices-sdk-101-2018-oct-release"></a>Bilişsel hizmetler konuşma cihaz SDK'sı 1.0.1: Ekim 2018 sürüm 
+
+* Güncelleştirilmiş [Speech SDK'sı](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) 1.0.1 sürümü bileşeni. Daha fazla bilgi için kendi [sürüm notları](https://aka.ms/csspeech/whatsnew). 
+* Konuşma tanıma doğruluğunu bizim ses gerçekleştirilen geliştirilmiş işlemi algoritmasıyla geliştirilecektir  
+* Bir sürekli tanıma ses oturumu hatanın giderilmesidir.
+
+**Bozucu değişiklikler** 
+
+* Bu sürümle birlikte birkaç önemli değişiklikler yapılmıştır. Lütfen denetleyin [bu sayfayı](https://aka.ms/csspeech/breakingchanges_1_0_0) API'leri için ilgili ayrıntılar için. 
+* KWS model dosyaları 1.0.1 konuşma cihazları SDK ile uyumlu değildir. Var olan Uyanma Word dosyaları yeni Uyandırma Word dosyaları cihaza yazıldıktan sonra silinir. 
 
 ## <a name="cognitive-services-speech-devices-sdk-050-2018-aug-release"></a>Bilişsel hizmetler konuşma cihazları SDK buradan 0.5.0 sürümünü: 2018-Ağu sürüm
 

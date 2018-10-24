@@ -7,12 +7,12 @@ ms.subservice: Azure Disk Encryption
 ms.topic: article
 ms.author: mstewart
 ms.date: 10/12/2018
-ms.openlocfilehash: 8b0f682e481ef73019d3371af2b84f6270e021ee
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 54aef992e95454387ee2fda1d1b34d6dcae3e21e
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49341897"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49959120"
 ---
 # <a name="azure-disk-encryption-prerequisites-previous-release"></a>Azure Disk şifrelemesi önkoşulları (önceki sürüm)
 
@@ -242,12 +242,12 @@ Hizmet sorumluları, Azure CLI kullanarak yönetebileceğiniz [az ad sp](/cli/az
 3.  Azure AD ClientID diğer komutlarında kullanılan AppID döndürdü. Ayrıca, az keyvault set-policy için kullanacağınız SPN bir hizmettir. Daha sonra Azure Disk Şifrelemesi'ni etkinleştirmek için kullanması gereken gizli paroladır. Azure AD gizli uygun şekilde koruyun.
  
 ### <a name="bkmk_ADappRM"></a> Bir Azure AD uygulaması ve hizmet sorumlusu ancak Azure portalında ayarlama
-Adımları uygulayın [Azure Active Directory kaynaklarına erişmek uygulama ve hizmet sorumlusu oluşturmak için portalı kullanma](../azure-resource-manager/resource-group-create-service-principal-portal.md) makale bir Azure AD uygulaması oluşturmak için. Aşağıda listelenen her adımı tamamlamak için doğrudan makale bölümüne sürer. 
+Adımları uygulayın [Azure Active Directory kaynaklarına erişmek uygulama ve hizmet sorumlusu oluşturmak için portalı kullanma](../active-directory/develop/howto-create-service-principal-portal.md) makale bir Azure AD uygulaması oluşturmak için. Aşağıda listelenen her adımı tamamlamak için doğrudan makale bölümüne sürer. 
 
-1. [Gerekli izinleri doğrulama](../azure-resource-manager/resource-group-create-service-principal-portal.md#required-permissions)
-2. [Bir Azure Active Directory uygulaması oluşturma](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-azure-active-directory-application) 
+1. [Gerekli izinleri doğrulama](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions)
+2. [Bir Azure Active Directory uygulaması oluşturma](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application) 
      - Herhangi bir ad kullanabilir ve oturum açma URL'si uygulama oluştururken istediğiniz.
-3. [Uygulama kimliği ve kimlik doğrulama anahtarını alma](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-application-id-and-authentication-key). 
+3. [Uygulama kimliği ve kimlik doğrulama anahtarını alma](../active-directory/develop/howto-create-service-principal-portal.md#get-application-id-and-authentication-key). 
      - Kimlik doğrulama anahtarı, istemci parolası ve Set-AzureRmVMDiskEncryptionExtension için AadClientSecret kullanılır. 
         - Kimlik doğrulama anahtarı, Azure AD'de oturum açmak için bir kimlik bilgisi olarak bir uygulama tarafından kullanılır. Azure portalında bu gizli anahtarları olarak adlandırılır, ancak anahtar kasalarına ilgisi yoktur. Bu gizli dizi uygun şekilde güvenli hale getirin. 
      - Uygulama kimliği, daha sonra Set-azurermvmdiskencryptionextension Aadclientıd ve Set-AzureRmKeyVaultAccessPolicy için ServicePrincipalName olarak kullanılacaktır. 

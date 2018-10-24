@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/21/2018
+ms.date: 10/22/2018
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: 9c353c9b34c3d4a2b21093cc0ae82e638f5ddd01
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 91bbbf6cced8dc3ade4906961d68a99f810d9fd9
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44357429"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49956995"
 ---
 # <a name="how-to-configure-single-sign-on-to-an-application-proxy-application"></a>Uygulama proxy'si uygulaması için çoklu oturum açma yapılandırma
 
@@ -36,7 +36,7 @@ SSO yapılandırmak için ilk uygulamanızı Azure Active Directory üzerinden �
 ## <a name="configuring-single-sign-on-modes-for-application-proxy-applications"></a>Çoklu oturum açma modları için uygulama Proxy uygulamaları yapılandırma
 Çoklu oturum açma belirli türünü yapılandırın. Oturum açma yöntemleri, hangi kimlik doğrulaması türü arka uç uygulamanın kullandığı şirket göre sınıflandırılır. Uygulama Proxy uygulamaları, üç tür oturum açmayı destekler:
 
--   **Parola tabanlı oturum açma**: parola tabanlı oturum açma için kullanılabilir oturum açma için kullanıcı adı ve parola alanları kullanan tüm uygulamaları. Yapılandırma adımları bulunduğunuz [parola SSO yapılandırma belgelerine](../active-directory-enterprise-apps-whats-new-azure-portal.md#bring-your-own-password-sso-applications).
+-   **Parola tabanlı oturum açma**: parola tabanlı oturum açma için kullanılabilir oturum açma için kullanıcı adı ve parola alanları kullanan tüm uygulamaları. Yapılandırma adımları bulunduğunuz [parola çoklu oturum açma Azure AD galeri uygulaması için yapılandırma](configure-password-single-sign-on-gallery-applications.md).
 
 -   **Tümleşik Windows kimlik doğrulaması**: tümleşik Windows kimlik doğrulaması (IWA) kullanarak uygulamalar için çoklu oturum açma Kerberos Kısıtlı temsilci (KCD) aracılığıyla etkinleştirilir. Bu yöntem uygulama Proxy Bağlayıcılarına, kullanıcıların kimliğine bürünmek ve göndermek ve kendileri adına belirteçlerini almak için Active Directory'de sağlar. KCD yapılandırma ayrıntıları bulunabilir [KCD belgeleri ile çoklu oturum açmayı](application-proxy-configure-single-sign-on-with-kcd.md).
 

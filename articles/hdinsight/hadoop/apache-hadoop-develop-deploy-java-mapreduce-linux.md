@@ -9,12 +9,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 04/23/2018
 ms.author: jasonh
-ms.openlocfilehash: 8583d993ecc23ac428047bf886bcb9158e3be978
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 6ad61957af65268fa9e3d58a3e0f3a5e9b4d4531
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43049443"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49957760"
 ---
 # <a name="develop-java-mapreduce-programs-for-hadoop-on-hdinsight"></a>HDInsight üzerinde Hadoop için Java MapReduce programları geliştirme
 
@@ -253,7 +253,7 @@ HDInsight baş düğüme jar dosyasını karşıya yüklemek için aşağıdaki 
    scp target/wordcountjava-1.0-SNAPSHOT.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:
    ```
 
-    Replace __USERNAME__ with your SSH user name for the cluster. Replace __CLUSTERNAME__ with the HDInsight cluster name.
+Değiştirin __kullanıcıadı__ ile küme SSH kullanıcı adı. Değiştirin __CLUSTERNAME__ ile HDInsight kümesi adı.
 
 Bu komut dosyaları, yerel sistemden baş düğüme kopyalar. Daha fazla bilgi için bkz. [HDInsight ile SSH kullanma](../hdinsight-hadoop-linux-use-ssh-unix.md).
 

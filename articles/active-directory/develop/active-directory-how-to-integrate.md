@@ -17,12 +17,12 @@ ms.date: 04/27/2017
 ms.author: celested
 ms.reviewer: bryanla
 ms.custom: aaddev
-ms.openlocfilehash: cde2706db255746293ddc29c6d5bdd31d970e535
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: fcc0badc17675c1c8923c744afd3fa46e98fef32
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48901558"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49954717"
 ---
 # <a name="integrating-with-azure-active-directory"></a>Azure Active Directory ile tümleştirme
 
@@ -82,7 +82,7 @@ Azure AD ile tümleştirme, ek kod yazmayı gerektirmeyen avantaj sunar.
 **Azure AD dünyanın dört bir yanındaki veri merkezlerinde dağıtılır ve yönetilir ve sistemlerimizdeki izlenir.**  Azure AD, Microsoft Azure ve Office 365 için Kimlik Yönetimi sistemidir ve dünyanın dört bir yanındaki 28 veri merkezlerinde dağıtılır. Dizin verilerini en az üç veri merkezlerine çoğaltılması garanti edilir. Genel load balancer'ları en yakın kopyasını verilerini içeren Azure AD kullanıcıların erişim sağlamak ve bir sorun algılandığında, otomatik olarak diğer veri merkezlerine istekleri yeniden yönlendirme.
 
 ## <a name="next-steps"></a>Sonraki Adımlar
-[Kod yazmaya başlama](azure-ad-developers-guide.md#get-started).
+[Kod yazmaya başlama](v1-overview.md#get-started).
 
 [Azure AD kullanarak kullanıcıların oturumunu](authentication-scenarios.md)
 

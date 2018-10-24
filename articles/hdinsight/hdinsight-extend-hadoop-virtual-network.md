@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/08/2018
-ms.openlocfilehash: 6455322a1a1cf392c16aba708ce8445f8c80c3df
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: 5ee249aee5d95f22f2e1f52d6356f09ea41ccd68
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49363852"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49945765"
 ---
 # <a name="extend-azure-hdinsight-using-an-azure-virtual-network"></a>Azure HDInsight'ın bir Azure sanal ağı kullanarak genişletme
 
@@ -173,7 +173,7 @@ Daha fazla bilgi için [VM'ler ve rol örnekleri için ad çözümlemesi](../vir
 
 ## <a name="directly-connect-to-hadoop-services"></a>Hadoop Hizmetleri doğrudan bağlanın
 
-Konumundaki kümeye bağlanabilirsiniz https://CLUSTERNAME.azurehdinsight.net. Bu adres, internet'ten gelen trafiği kısıtlamak için Nsg veya Udr'ler kullandıysanız, erişilebilir olmayabilir genel bir IP kullanır. Bir sanal ağda küme dağıttığınızda ek olarak, özel uç nokta kullanarak erişebileceğiniz https://CLUSTERNAME-internal.azurehdinsight.net. Bu uç nokta kümesi erişim için sanal ağ içinde bir özel IP çözümler.
+Konumundaki kümeye bağlanabilirsiniz https://CLUSTERNAME.azurehdinsight.net. Bu adres, internet'ten gelen trafiği kısıtlamak için Nsg veya Udr'ler kullandıysanız, erişilebilir olmayabilir genel bir IP kullanır. Bir sanal ağda küme dağıttığınızda ek olarak, özel uç nokta kullanarak erişebileceğiniz https://CLUSTERNAME-int.azurehdinsight.net. Bu uç nokta kümesi erişim için sanal ağ içinde bir özel IP çözümler.
 
 Ambari ve sanal ağ üzerinden diğer web sayfalarına bağlanmak için aşağıdaki adımları kullanın:
 

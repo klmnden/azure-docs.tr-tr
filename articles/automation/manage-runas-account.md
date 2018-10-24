@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 09/12/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: d2023d30cdb86a218d27024c8ccf0f397a7a5d09
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: 569efa7fbbd111937f00ba3b1e28219c163e2221
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48816631"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49958168"
 ---
 # <a name="manage-azure-automation-run-as-accounts"></a>Azure Otomasyonu farklı çalıştır hesaplarını yönetme
 
@@ -50,7 +50,7 @@ Oluşturun veya bir farklı çalıştır hesabını güncelleştirmek için öze
 |Oluşturma veya bir Otomasyon bağlantı kaldırma|[New-AzureRmAutomationConnection](/powershell/module/AzureRM.Automation/New-AzureRmAutomationConnection)</br>[Remove-AzureRmAutomationConnection](/powershell/module/AzureRM.Automation/Remove-AzureRmAutomationConnection)|Kaynak grubu üzerinde katkıda bulunan |
 
 * Makalesinde açıklandığı gibi Microsoft.Automation kaynaklarındaki katkıda bulunan rolüne eşdeğer izinlere sahip bir AD kullanıcı hesabı [Azure automation'da rol tabanlı erişim denetimi](automation-role-based-access-control.md#contributor).  
-* Azure AD kiracınızdaki yönetici olmayan kullanıcıların [AD uygulamalarını kaydedebilmesi için](../azure-resource-manager/resource-group-create-service-principal-portal.md#check-azure-subscription-permissions) Azure AD kiracısının **Kullanıcı ayarları** sayfasındaki **Kullanıcılar uygulamaları kaydedebilir** seçeneği **Evet** olarak ayarlanmış olmalıdır. Uygulama kayıtları ayarı **Hayır** olarak ayarlanırsa bu işlemi gerçekleştiren kullanıcının, Azure AD’de genel yönetici olması gerekir.
+* Azure AD kiracınızdaki yönetici olmayan kullanıcıların [AD uygulamalarını kaydedebilmesi için](../active-directory/develop/howto-create-service-principal-portal.md#check-azure-subscription-permissions) Azure AD kiracısının **Kullanıcı ayarları** sayfasındaki **Kullanıcılar uygulamaları kaydedebilir** seçeneği **Evet** olarak ayarlanmış olmalıdır. Uygulama kayıtları ayarı **Hayır** olarak ayarlanırsa bu işlemi gerçekleştiren kullanıcının, Azure AD’de genel yönetici olması gerekir.
 
 Genel yönetici/ortak Yönetici rolüne aboneliğin eklenen önce aboneliğin Active Directory örneğine üye değilseniz, bir konuk olarak eklenir. Bu durumda, aldığınız bir `You do not have permissions to create…` üzerinde uyarı **Otomasyon hesabı Ekle** sayfası. İlk olarak genel yönetici/ortak yönetici rolüne eklenen kullanıcılar aboneliğin Active Directory örneğinden kaldırılabilir ve tekrar eklenerek Active Directory’de tam bir Kullanıcı haline getirilebilir. Bu durumu doğrulamak için Azure portalındaki **Azure Active Directory** bölmesinde **Kullanıcılar ve gruplar**’ı, **Tüm kullanıcılar**’ı seçin ve belirli bir kullanıcıyı seçtikten sonra **Profil**’i seçin. Kullanıcı profili altındaki **Kullanıcı türü** özniteliğinin **Konuk** olmaması gerekir.
 

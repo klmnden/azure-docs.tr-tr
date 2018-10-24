@@ -9,12 +9,12 @@ ms.author: jmartens
 author: j-martens
 ms.reviewer: jmartens
 ms.date: 10/1/2018
-ms.openlocfilehash: f573dba2e7580d58c295d204fc75e2403c0d033c
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: a2f37cffb37ce7008c3e372763784240e0d4250b
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48243394"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49945561"
 ---
 # <a name="vs-code-tools-for-ai-get-started-with-azure-machine-learning-from-visual-studio-code"></a>AI için VS Code araçları: Visual Studio code'dan Azure Machine Learning ile çalışmaya başlama
 
@@ -34,7 +34,7 @@ Kullanım, veri, eğitin ve test ML hazırlama için Azure Machine Learning hizm
 
 Yüklediğinizde **yapay ZEKA Araçları** uzantısı (internet erişimi varsa) iki daha fazla uzantı otomatik olarak yüklenir. Bunlar [Azure hesabı](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account) uzantısı ve [Microsoft Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python) uzantısı
 
-Azure Machine Learning ile çalışmak için Python IDE'ye VS Code etkinleştirmek ihtiyacımız var. Çalışma [Visual Studio Code içindeki Python](https://code.visualstudio.com/docs/languages/python), araçları ile yapay ZEKA için otomatik olarak yüklenen Microsoft Python uzantı gerektirir. Uzantı, VS Code mükemmel bir IDE sağlar ve tüm işletim sistemlerinde Python yorumlayıcılarını çeşitli ile çalışır. Otomatik Tamamlama ve IntelliSense, linting, hata ayıklama ve birim testi birlikte conda ortamları ve sanal dahil olmak üzere, Python ortamları arasında kolayca geçiş olanağı sağlamak için VS Code'nın gücü tümünün yararlanır. Çalışan, düzenleme, bu kılavuzun denetleyin ve Python kodunda hata ayıklama, bkz: [Python Hello World Öğreticisi](https://code.visualstudio.com/docs/languages/python/docs/python/python-tutorial)
+Azure Machine Learning ile çalışmak için Python IDE'ye VS Code etkinleştirmek ihtiyacımız var. Çalışma [Visual Studio Code içindeki Python](https://code.visualstudio.com/docs/languages/python), araçları ile yapay ZEKA için otomatik olarak yüklenen Microsoft Python uzantı gerektirir. Uzantı, VS Code mükemmel bir IDE sağlar ve tüm işletim sistemlerinde Python yorumlayıcılarını çeşitli ile çalışır. Otomatik Tamamlama ve IntelliSense, linting, hata ayıklama ve birim testi birlikte conda ortamları ve sanal dahil olmak üzere, Python ortamları arasında kolayca geçiş olanağı sağlamak için VS Code'nın gücü tümünün yararlanır. Çalışan, düzenleme, bu kılavuzun denetleyin ve Python kodunda hata ayıklama, bkz: [Python Hello World Öğreticisi](https://code.visualstudio.com/docs/python/python-tutorial)
 
 **Yapay ZEKA uzantısı için araçları yüklemek için:**
 

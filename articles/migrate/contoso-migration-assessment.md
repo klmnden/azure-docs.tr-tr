@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/11/2018
+ms.date: 10/23/2018
 ms.author: raynew
-ms.openlocfilehash: b9ef650b772a160f7ddf8932f646f8081cb9e551
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: a0aa63291a7fb3f069663d40687f81c3a3265712
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49407138"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49945952"
 ---
 # <a name="contoso-migration-assess-on-premises-workloads-for-migration-to-azure"></a>Contoso geçiş: şirket içi iş yüklerini, Azure'a geçiş için değerlendirme
 
@@ -232,7 +232,7 @@ Contoso değerlendirme bağımlılık eşlemesini kullanır. Bağımlılık eşl
 
 ### <a name="set-statistics-settings"></a>İstatistik ayarlarını yapma
 
-Contoso dağıtım başlamadan önce vCenter Server için istatistik ayarları düzeyini 3 ayarlamanız gerekir. 
+Contoso dağıtım başlamadan önce vCenter Server için istatistik ayarları düzeyini 3 ayarlamanız gerekir.
 
 > [!NOTE]
 > - Düzeyi ayarladıktan sonra Contoso en az değerlendirme çalıştırılmadan önce bir gün beklemeniz gerekir. Aksi takdirde, değerlendirme beklendiği gibi çalışmayabilir.
@@ -258,7 +258,7 @@ Vm'leri bulmak için Azure geçişi projesini Contoso oluşturur. Contoso indiri
 ### <a name="create-a-project"></a>Proje oluşturma
 
 1. İçinde [Azure portalında](https://portal.azure.com), Contoso arar **Azure geçişi**. Ardından, Contoso bir proje oluşturur.
-2. Contoso bir proje adını belirtir (**ContosoMigration**) ve Azure aboneliği. Yeni bir Azure kaynak grubu oluşturur (**ContosoFailoverRG**). 
+2. Contoso bir proje adını belirtir (**ContosoMigration**) ve Azure aboneliği. Yeni bir Azure kaynak grubu oluşturur (**ContosoFailoverRG**).
     > [!NOTE]
     > - Azure geçişi projesini yalnızca Orta Batı ABD veya Doğu ABD bölgesinde oluşturabilirsiniz.
     > - Herhangi bir hedef konumdan geçiş planlayabilirsiniz.
@@ -283,17 +283,25 @@ Sanal Makineyi dağıtmadan önce Contoso OVA dosyasını güvenli olup olmadı�
 2. Contoso OVA dosyasını karma oluşturmak için şu komutu çalıştırır:
 
     ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
-    
-    **Örnek** 
-    
-    ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
-3. Oluşturulan karma bu ayarlara (sürüm 1.0.9.14) uygun olmalıdır:
 
+    **Örnek**
+
+    ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
+3. Oluşturulan karma bu ayarlara (sürüm 1.0.9.15) uygun olmalıdır:
+
+<<<<<<< BAŞ
     **Algoritma** | **Karma değeri**
     --- | ---
-    MD5 | 6d8446c0eeba3de3ecc9bc3713f9c8bd
-    SHA1 | e9f5bdfdd1a746c11910ed917511b5d91b9f939f
-    SHA256 | 7f7636d0959379502dfbda19b8e3f47f3a4744ee9453fc9ce548e6682a66f13c
+    MD5 | e9ef16b0c837638c506b5fc0ef75ebfa
+    SHA1 | 37b4b1e92b3c6ac2782ff5258450df6686c89864
+    SHA256 | 8a86fc17f69b69968eb20a5c4c288c194cdcffb4ee6568d85ae5ba96835559ba
+=======
+**Algoritma** | **Karma değeri**
+--- | ---
+MD5 | e9ef16b0c837638c506b5fc0ef75ebfa
+SHA1 | 37b4b1e92b3c6ac2782ff5258450df6686c89864
+SHA256 | 8a86fc17f69b69968eb20a5c4c288c194cdcffb4ee6568d85ae5ba96835559ba
+>>>>>>> 20dc93529e7c0a4d17f2f4524752b5e2bead4e37
 
 ### <a name="create-the-collector-appliance"></a>Toplayıcı gereci oluşturma
 

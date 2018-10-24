@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 09/22/2017
-ms.openlocfilehash: b329fb1416d28b0732e7b9ea4612f5bac8580b3a
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 62f71f29f813cd30c7d8e3c7f37f41677cf07364
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43132916"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49956383"
 ---
 # <a name="secure-calls-to-custom-apis-from-azure-logic-apps"></a>Azure mantıksal uygulamalardan özel API'lere giden çağrıların güvenliğini sağlama
 
@@ -104,7 +104,7 @@ PowerShell ile Azure Resource Manager aracılığıyla bu görevi gerçekleştir
 
 4. Kopyaladığınızdan emin olun **Kiracı kimliği** (GUID), Azure AD kiracınız için **uygulama kimliği**ve parolayı.
 
-Daha fazla bilgi için bilgi nasıl [kaynaklarına erişmek için PowerShell ile hizmet sorumlusu oluşturma](../azure-resource-manager/resource-group-authenticate-service-principal.md).
+Daha fazla bilgi için bilgi nasıl [kaynaklarına erişmek için PowerShell ile hizmet sorumlusu oluşturma](../active-directory/develop/howto-authenticate-service-principal-powershell.md).
 
 #### <a name="part-2-create-an-azure-ad-application-identity-for-your-web-app-or-api-app"></a>2. Bölüm: Azure AD uygulama kimliği, web veya API uygulaması oluşturma
 

@@ -9,12 +9,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/13/2018
 ms.author: shvija
-ms.openlocfilehash: 79cddcac4d469753bc39107e6db2d8ce901111d1
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.openlocfilehash: d9685d5c5a673b0ec27e973bbbfd327547c63652
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42746425"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49955363"
 ---
 # <a name="event-hubs-management-libraries"></a>Event Hubs yönetim kitaplıkları
 
@@ -30,8 +30,8 @@ Event Hubs ad alanlarını ve varlıkları dinamik olarak sağlamak için Azure 
 
 Event Hubs yönetim kitaplıklarını kullanmaya başlamak için Azure Active Directory (AAD) ile kimlik doğrulaması gerekir. AAD, Azure kaynaklarınıza erişim sağlayan bir hizmet sorumlusu olarak kimlik doğrulaması gerektirir. Hizmet sorumlusu oluşturma hakkında daha fazla bilgi için şu makalelerden birine bakın:  
 
-* [Active Directory uygulaması ve kaynaklara erişebilen hizmet sorumlusu oluşturmak için Azure portalını kullanma](../azure-resource-manager/resource-group-create-service-principal-portal.md)
-* [Kaynaklara erişmek üzere hizmet sorumlusu oluşturmak için Azure PowerShell kullanma](../azure-resource-manager/resource-group-authenticate-service-principal.md)
+* [Active Directory uygulaması ve kaynaklara erişebilen hizmet sorumlusu oluşturmak için Azure portalını kullanma](../active-directory/develop/howto-create-service-principal-portal.md)
+* [Kaynaklara erişmek üzere hizmet sorumlusu oluşturmak için Azure PowerShell kullanma](../active-directory/develop/howto-authenticate-service-principal-powershell.md)
 * [Kaynaklara erişmek üzere hizmet sorumlusu oluşturmak için Azure CLI kullanma](../azure-resource-manager/resource-group-authenticate-service-principal-cli.md)
 
 Bu öğreticiler sunmak bir `AppId` (istemci kimliği) `TenantId`, ve `ClientSecret` (kimlik doğrulama anahtarı), tüm yönetim kitaplıkları ile kimlik doğrulama için kullanılır. Olmalıdır **sahibi** üzerinde çalıştırmak istediğiniz kaynak grubu için izinleri.

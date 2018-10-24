@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/16/2018
 ms.author: shlo
-ms.openlocfilehash: 4eed11b312bce27dc0cd98daa3e2599a28fcabbd
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: aed816dadcced36946d6e173ca259a6c0f373727
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39524439"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49957472"
 ---
 # <a name="update-azure-machine-learning-models-by-using-update-resource-activity"></a>Kaynak güncelleştirme etkinliği'ni kullanarak Azure Machine Learning modellerini güncelleştirme
 Bu makalede ana Azure Data Factory - Azure Machine Learning tümleştirme makale tamamlar: [Azure Machine Learning ve Azure Data Factory kullanarak öngörülebilir komut zincirleri oluşturma](transform-data-using-machine-learning.md). Zaten yapmadıysanız, bu makalede okumadan önce ana makalesini gözden geçirin. 
@@ -98,7 +98,7 @@ https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{reso
 
 Değerler için yer tutucu URL'nin web hizmeti üzerinde sorgulanırken alabileceğiniz [Azure Machine Learning Web Hizmetleri portalını](https://services.azureml.net/). 
 
-Yeni güncelleştirme kaynak uç noktası türü, hizmet sorumlusu kimlik doğrulaması gerektirir. Hizmet sorumlusu kimlik doğrulaması kullanmak, Azure Active Directory (Azure AD) uygulama varlığın kaydedin ve bu izni **katkıda bulunan** veya **sahibi** abonelik veya kaynak grubunda yeri web hizmeti aittir. Bkz: [hizmet sorumlusu oluşturma ve Azure kaynak yönetme izinlerini atama](../azure-resource-manager/resource-group-create-service-principal-portal.md). Bağlı hizmetini tanımlamak için kullandığınız şu değerleri not edin:
+Yeni güncelleştirme kaynak uç noktası türü, hizmet sorumlusu kimlik doğrulaması gerektirir. Hizmet sorumlusu kimlik doğrulaması kullanmak, Azure Active Directory (Azure AD) uygulama varlığın kaydedin ve bu izni **katkıda bulunan** veya **sahibi** abonelik veya kaynak grubunda yeri web hizmeti aittir. Bkz: [hizmet sorumlusu oluşturma ve Azure kaynak yönetme izinlerini atama](../active-directory/develop/howto-create-service-principal-portal.md). Bağlı hizmetini tanımlamak için kullandığınız şu değerleri not edin:
 
 - Uygulama Kimliği
 - Uygulama anahtarı 

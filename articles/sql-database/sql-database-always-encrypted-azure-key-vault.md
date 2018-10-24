@@ -13,12 +13,12 @@ ms.author: vanto
 ms.reviewer: ''
 manager: craigg
 ms.date: 10/05/2018
-ms.openlocfilehash: 44fc04d4788c4381a4922f1335c393e03045900e
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: e0971b6b9b8460447d383d238843d4bdddc912f7
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49352403"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49958990"
 ---
 # <a name="always-encrypted-protect-sensitive-data-and-store-encryption-keys-in-azure-key-vault"></a>Her zaman şifreli: hassas verilerin korunmasına ve şifreleme anahtarları Azure Key Vault'ta depolama
 
@@ -48,7 +48,7 @@ Bu öğreticide, şunları yapmanız gerekir:
 ## <a name="enable-your-client-application-to-access-the-sql-database-service"></a>İstemci uygulamanızın SQL veritabanı hizmetine erişim
 İstemci uygulamanızı Azure Active Directory (AAD) uygulama ayarını ve kopyalama SQL veritabanı hizmetine erişim etkinleştirmelisiniz *uygulama kimliği* ve *anahtarı* için ihtiyacınız olacak Uygulamanızın kimlik doğrulaması.
 
-Alınacak *uygulama kimliği* ve *anahtarı*, adımları [bir Azure Active Directory kaynaklarına erişmek uygulama ve hizmet sorumlusu oluşturma](../azure-resource-manager/resource-group-create-service-principal-portal.md).
+Alınacak *uygulama kimliği* ve *anahtarı*, adımları [bir Azure Active Directory kaynaklarına erişmek uygulama ve hizmet sorumlusu oluşturma](../active-directory/develop/howto-create-service-principal-portal.md).
 
 ## <a name="create-a-key-vault-to-store-your-keys"></a>Anahtarlarınızı depolamak için key vault oluşturma
 İstemci uygulamanızı yapılandırılır ve uygulamanızın uygulama Kimliğine sahip olduğunu, anahtar kasası oluşturma ve kasanın gizli anahtarları (her zaman şifreli anahtarları) hem de uygulamanızın erişebilmesi için kendi erişim ilkesini yapılandırmak için zaman var. *Oluşturma*, *alma*, *listesi*, *oturum*, *doğrulayın*, *wrapKey*, ve *unwrapKey* izinler yeni bir sütun ana anahtarı oluşturma ve SQL Server Management Studio ile şifreleme ayarlama gerekli değil.

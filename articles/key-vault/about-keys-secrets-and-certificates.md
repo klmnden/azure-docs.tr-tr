@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/12/2018
 ms.author: bryanla
-ms.openlocfilehash: 1d6f84612dd2bac34c238ad7eaf323dc7fa00ba3
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.openlocfilehash: d93ad4185be3d4875c5747fd10359baab69af95d
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49311363"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49958663"
 ---
 # <a name="about-keys-secrets-and-certificates"></a>Anahtarlar, parolalar ve sertifikalar hakkında
 
@@ -101,7 +101,7 @@ Key Vault RSA ve Eliptik Eğri anahtarlar yalnızca destekler.
 -   **RSA**: "Soft" RSA anahtarı.
 -   **RSA HSM**: "Sabit" RSA anahtarı.
 
-Key Vault, 2048, 3072 ve 4096 boyuttaki RSA anahtarlarını destekliyor. Key Vault destekler Eliptik Eğri anahtar türleri P-256, p-384, p-521 ve P - 256 K.
+Key Vault, 2048, 3072 ve 4096 boyuttaki RSA anahtarlarını destekliyor. Key Vault destekler Eliptik Eğri anahtar türleri P-256, p-384, p-521 ve P-256_K (SECP256K1).
 
 ### <a name="cryptographic-protection"></a>Şifreleme koruma
 
@@ -110,12 +110,19 @@ Anahtar Kasası'nı kullandığından, şifreleme modüllerini HSM veya yazılı
 ###  <a name="ec-algorithms"></a>EC algoritmaları
  Aşağıdaki algoritması tanımlayıcıları EC ve EC-HSM anahtarları Key vault'ta desteklenir. 
 
+#### <a name="curve-types"></a>Eğri türleri
+
+-   **P-256** -p-256, tanımlanan NIST eğrisi [DSS FIPS PUB 186 4](https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.186-4.pdf).
+-   **P-256_K** -sn eğri SECP256K1, tanımlanan [sn 2: önerilen Eliptik Eğri Domain parametreleri](http://www.secg.org/sec2-v2.pdf).
+-   **P-384** -p-384 tanımlanan NIST eğrisi [DSS FIPS PUB 186 4](https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.186-4.pdf).
+-   **P-521** -p-521 tanımlanan NIST eğrisi [DSS FIPS PUB 186 4](https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.186-4.pdf).
+
 #### <a name="signverify"></a>OTURUM VE DOĞRULAYIN
 
--   **ES256** - ECDSA SHA-256 özetleyen ve anahtarları eğri p-256 ile oluşturulur. Bu algoritma [RFC7518] açıklanmıştır.
+-   **ES256** - ECDSA SHA-256 özetleyen ve anahtarları eğri p-256 ile oluşturulur. Bu algoritma anlatıldığı [RFC7518](https://tools.ietf.org/html/rfc7518).
 -   **ES256K** - ECDSA SHA-256 özetleyen ve anahtarları P-256_K eğri ile oluşturulur. Standardizasyon algoritmasıdır.
--   **ES384** - ECDSA için SHA-384 özetleyen ve anahtarları p-384 eğri ile oluşturulur. Bu algoritma [RFC7518] açıklanmıştır.
--   **ES512** - ECDSA için SHA-512 özetleyen ve anahtarları, p-521 eğrisini ile oluşturulur. Bu algoritma [RFC7518] açıklanmıştır.
+-   **ES384** - ECDSA için SHA-384 özetleyen ve anahtarları p-384 eğri ile oluşturulur. Bu algoritma anlatıldığı [RFC7518](https://tools.ietf.org/html/rfc7518).
+-   **ES512** - ECDSA için SHA-512 özetleyen ve anahtarları, p-521 eğrisini ile oluşturulur. Bu algoritma anlatıldığı [RFC7518](https://tools.ietf.org/html/rfc7518).
 
 ###  <a name="rsa-algorithms"></a>RSA algoritmalarını  
  RSA ve RSA HSM anahtarları Key vault'ta aşağıdaki algoritması tanımlayıcılar desteklenir.  

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ancav
 ms.component: ''
-ms.openlocfilehash: cb803450f7765ae62292ff3afb7f32209b437f78
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 235eda231dfb0f936bf55c7c8d93a8f709fdf9bc
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46978939"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49954869"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-data-store-for-a-windows-virtual-machine-classic"></a>Azure İzleyici'veri deposu için bir Windows sanal makine (Klasik) konuk işletim sistemi ölçümleri gönderme
 
@@ -39,9 +39,9 @@ Bu makalede açıklanan işlemi yalnızca klasik sanal makineleri Windows işlet
 
 1. Azure portalında depolama hesabı kaynak dikey penceresine gidin ve seçin **anahtarları** Not depolama hesabı adı ve depolama hesabı anahtarını alın. Sonraki adımlarda bu anahtarları ihtiyacınız ![depolama erişim anahtarlarını](./media/metrics-store-custom-guestos-classic-vm/storage-access-keys.png)
 
-## <a name="create-a-service-principal"></a>Hizmet sorumlusu oluşturma
+## <a name="create-a-service-principal"></a>Hizmet Sorumlusu oluşturma
 
-Azure Active Directory kiracınızdaki konusunda bulunan yönergeleri kullanarak bir hizmet ilkesi oluşturma [hizmet sorumlusu oluşturma](../azure-resource-manager/resource-group-create-service-principal-portal.md). Bu süreç boyunca çalışırken aşağıdakileri unutmayın: 
+Azure Active Directory kiracınızdaki konusunda bulunan yönergeleri kullanarak bir hizmet ilkesi oluşturma [hizmet sorumlusu oluşturma](../active-directory/develop/howto-create-service-principal-portal.md). Bu süreç boyunca çalışırken aşağıdakileri unutmayın: 
 - Bu uygulama için yeni istemci gizli anahtarı oluşturma  
 - Sonraki adımlarda, anahtar ve kullanmak için istemci kimliği kaydedin.
 

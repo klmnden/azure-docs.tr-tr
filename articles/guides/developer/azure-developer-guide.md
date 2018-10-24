@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: glenga
-ms.openlocfilehash: d298cfe22328db68cfbb6b4c7fc82b2de0c186b1
-ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
+ms.openlocfilehash: 4c56a1164a589af5d325d1378f331a7d0ee138b7
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47423604"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49956451"
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Azure geliştiricileri için kullanmaya başlama kılavuzu
 
@@ -162,7 +162,7 @@ Uygulamalarınızı kullanan yalnızca bilmek ancak kaynaklarınıza yetkisiz er
 
     >**Ne zaman kullanılacağı**: SSO bir deneyim sağlamak istediğinizde, grafik tabanlı verileri ile çalışma veya kullanıcıların etki alanı tabanlı kimlik doğrulaması.
 
-    >**Başlama**: daha fazla bilgi için bkz. [Azure Active Directory Geliştirici Kılavuzu](../../active-directory/develop/azure-ad-developers-guide.md).
+    >**Başlama**: daha fazla bilgi için bkz. [Azure Active Directory Geliştirici Kılavuzu](../../active-directory/develop/v1-overview.md).
 
 -   **App Service kimlik doğrulaması**: uygulamanızı barındırmak için App Service'ı seçtiğinizde, sosyal kimlik sağlayıcıları ile birlikte Azure AD için yerleşik kimlik doğrulama desteği ayrıca Al — Facebook, Google, Microsoft ve Twitter gibi.
 
@@ -289,7 +289,7 @@ Azure kaynaklarına erişime izin verdiğinizde, her zaman belirli bir görevi g
 
 -   **Hizmet sorumlusu nesneleri**: kullanıcı asıl adları ve gruplara erişim sağlamanın yanı sıra hizmet sorumlusu aynı erişim verebilirsiniz.
 
-    > **Ne zaman kullanılacağı**: ne zaman, program aracılığıyla Azure kaynaklarını yönetmek veya uygulamalar için erişim izni verme. Daha fazla bilgi için [oluşturma Active Directory uygulaması ve hizmet sorumlusu](../../resource-group-create-service-principal-portal.md).
+    > **Ne zaman kullanılacağı**: ne zaman, program aracılığıyla Azure kaynaklarını yönetmek veya uygulamalar için erişim izni verme. Daha fazla bilgi için [oluşturma Active Directory uygulaması ve hizmet sorumlusu](../../active-directory/develop/howto-create-service-principal-portal.md).
 
 #### <a name="tags"></a>Etiketler
 

@@ -17,12 +17,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: a8d1c94ac4357c7833f6db7cb9b4eaffa00c0396
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 46b66a6e718f18b76db6332487c350c2c199c342
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46963807"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49957783"
 ---
 # <a name="azure-active-directory-code-samples-v10-endpoint"></a>Azure Active Directory kod örnekleri (v1.0 uç noktası)
 
@@ -125,7 +125,7 @@ Aşağıdaki örnekler, başka bir web API'si çağıran bir web API'si gösteri
 
 ## <a name="see-also"></a>Ayrıca bkz.
 
-[Azure Active Directory Geliştirici Kılavuzu](azure-ad-developers-guide.md)
+[Azure Active Directory Geliştirici Kılavuzu](v1-overview.md)
 
 [Azure Active Directory kimlik doğrulama kitaplıkları](active-directory-authentication-libraries.md)
 

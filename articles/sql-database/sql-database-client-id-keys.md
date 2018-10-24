@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: f9b66a430e1ca5b24853a5ff31ce13393b12b0c5
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 1525b33b99bb4bdc4586ad3e8af00a0588293b9c
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47063804"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49954598"
 ---
 # <a name="get-the-required-values-for-authenticating-an-application-to-access-sql-database-from-code"></a>Bir uygulama kodundan SQL veritabanına erişmek için kimlik doğrulaması için gerekli değerleri alma
 Oluşturma ve SQL veritabanı koddan yönetmek için Azure kaynaklarınızın nerede oluşturdunuz Azure Active Directory (AAD) etki alanında aboneliği uygulamanızı kaydetmeniz gerekir.
@@ -25,7 +25,7 @@ Oluşturma ve SQL veritabanı koddan yönetmek için Azure kaynaklarınızın ne
 ## <a name="create-a-service-principal-to-access-resources-from-an-application"></a>Bir hizmet sorumlusu kaynaklarına erişmek için dosyasından bir uygulama oluşturma
 En son ihtiyacınız [Azure PowerShell](https://msdn.microsoft.com/library/mt619274.aspx) yüklü ve çalışır. Ayrıntılı bilgi için bkz. [Azure PowerShell'i yükleme ve yapılandırma](/powershell/azureps-cmdlets-docs).
 
-Aşağıdaki PowerShell betiği Active Directory (AD) uygulamasını ve C# uygulamamızda kimlik doğrulamak için gereken hizmet sorumlusunu oluşturur. Betik önceki C# örneği için gereken değerleri çıkarır. Ayrıntılı bilgi için bkz. [Kaynaklara erişmek üzere hizmet sorumlusu oluşturmak için Azure PowerShell kullanma](../azure-resource-manager/resource-group-authenticate-service-principal.md).
+Aşağıdaki PowerShell betiği Active Directory (AD) uygulamasını ve C# uygulamamızda kimlik doğrulamak için gereken hizmet sorumlusunu oluşturur. Betik önceki C# örneği için gereken değerleri çıkarır. Ayrıntılı bilgi için bkz. [Kaynaklara erişmek üzere hizmet sorumlusu oluşturmak için Azure PowerShell kullanma](../active-directory/develop/howto-authenticate-service-principal-powershell.md).
 
     # Sign in to Azure.
     Connect-AzureRmAccount

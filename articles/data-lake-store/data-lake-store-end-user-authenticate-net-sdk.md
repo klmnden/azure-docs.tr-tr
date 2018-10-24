@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: 65672d5dc42ae1e584a36bcc72c16911f6c1f6e2
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 206dddd70ae9063782b7dc8dfaf1214f53d5fac8
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46122834"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49955720"
 ---
 # <a name="end-user-authentication-with-azure-data-lake-storage-gen1-using-net-sdk"></a>.NET SDK kullanarak son kullanıcı kimlik doğrulaması ile Azure Data Lake depolama Gen1
 > [!div class="op_single_selector"]
@@ -82,7 +82,7 @@ Bu makalede, Azure Data Lake depolama Gen1 son kullanıcı kimlik doğrulaması 
 ## <a name="end-user-authentication"></a>Son kullanıcı kimlik doğrulaması
 Bu kod parçacığı, .NET istemci uygulamanıza ekleyin. Yer tutucu değerlerini (önkoşul olarak listelenen) bir Azure AD yerel uygulaması alınan değerlerle değiştirin. Bu kod parçacığı uygulamanızın kimlik doğrulaması sağlar **etkileşimli olarak** ile Data Lake depolama Gen1, yani Azure kimlik bilgilerinizi girmeniz istenir.
 
-Kullanım kolaylığı için aşağıdaki kod parçacığı yeniden yönlendirme URI'si herhangi bir Azure aboneliği için geçerli olan ve istemci kimliği için varsayılan değerleri kullanır. Aşağıdaki kod parçacığında, yalnızca Kiracı kimliğiniz için değer sağlamanız gerekir Verilen yönergeleri kullanarak Kiracı kimliği alabilir [Kiracı Kimliğinizi alma](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-tenant-id).
+Kullanım kolaylığı için aşağıdaki kod parçacığı yeniden yönlendirme URI'si herhangi bir Azure aboneliği için geçerli olan ve istemci kimliği için varsayılan değerleri kullanır. Aşağıdaki kod parçacığında, yalnızca Kiracı kimliğiniz için değer sağlamanız gerekir Verilen yönergeleri kullanarak Kiracı kimliği alabilir [Kiracı Kimliğinizi alma](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-id).
     
 - Main() işlevi aşağıdaki kodla değiştirin:
 

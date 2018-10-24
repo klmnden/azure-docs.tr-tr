@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/24/2018
+ms.date: 10/22/2018
 ms.author: mabrigg
 ms.reviewer: alfredop
-ms.openlocfilehash: aedaa729ec51d7b60b2c242239935f7b3e41794f
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
+ms.openlocfilehash: c6f17fd4cc225b7d4ce60d38bf2abcabf12a40c5
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42918196"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49945595"
 ---
 # <a name="provider-resource-usage-api"></a>Sağlayıcı kaynak kullanım API’si
 Terim *sağlayıcısı* Hizmet Yöneticisi ve herhangi bir sağlayıcı temsilcisi için geçerlidir. Azure Stack operatörleri ve sağlayıcı temsilcisi sağlayıcı kullanım API'si doğrudan kiracıları kullanımını görüntülemek için kullanabilirsiniz. Örneğin, diyagramda gösterildiği gibi P1'ın kullanım bilgileri için API sağlayıcısı P0 çağırabilir ve P1 ve P2'ın doğrudan kullanım P3 ve P4 kullanım bilgileri için çağırabilirsiniz.
@@ -32,7 +32,7 @@ Terim *sağlayıcısı* Hizmet Yöneticisi ve herhangi bir sağlayıcı temsilci
 
 Bu kullanım API'si bir API sağlayıcısı olduğundan, çağıran bir sağlayıcının abonelik sahibi, katkıda bulunan veya okuyucu rol atanması gerekir.
 
-| **Yöntemi** | **İstek URI'si** |
+| **Yöntem** | **İstek URI'si** |
 | --- | --- |
 | GET |https://{armendpoint}/subscriptions/{subId}/providers/Microsoft.Commerce.Admin/subscriberUsageAggregates?reportedStartTime={reportedStartTime}&reportedEndTime={reportedEndTime}&aggregationGranularity={granularity} & subscriberId {sub1.1} = & API-version = 2015-06-01-preview & continuationToken {belirteci-value} = |
 
@@ -109,13 +109,13 @@ Microsoft.Commerce.Admin hizmet çağırarak silinen abonelikler için kullanım
 
 **Tüm Kiracı kullanımı için döndürülecek etkin kullanıcıları için silinir:**
 
-| **Yöntemi** | **İstek URI'si** |
+| **Yöntem** | **İstek URI'si** |
 | --- | --- |
 | GET | https://{armendpoint}/subscriptions/{subId}/providersMicrosoft.Commerce.Admin/subscriberUsageAggregates?reportedStartTime={start-time}&reportedEndTime={end-endtime}&aggregationGranularity=Hourly&api-version= 2015-06-01-Önizleme |
 
 **Silinmiş veya etkin Kiracı kullanım döndürmek için:**
 
-| **Yöntemi** | **İstek URI'si** |
+| **Yöntem** | **İstek URI'si** |
 | --- | --- |
 | GET |https://{armendpoint}/subscriptions/{subId}/providersMicrosoft.Commerce.Admin/subscriberUsageAggregates?reportedStartTime={start-time}&reportedEndTime={end-endtime}&aggregationGranularity=Hourly&subscriberId={ Abonelik-kimliği} & API-version = 2015-06-01-Önizleme |
 

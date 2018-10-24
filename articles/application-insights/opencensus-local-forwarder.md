@@ -35,7 +35,7 @@ Yerel ileticinin olduğu bir [GitHub üzerinde açık kaynaklı proje](https://g
 Yerel ileticisi Windows altında çalışan en kolay yolu, bir Windows hizmeti olarak yükleyerek ' dir. Sürüm bir Windows hizmeti yürütülebilir dosyası ile birlikte gelir (*WindowsServiceHost/Microsoft.LocalForwarder.WindowsServiceHost.exe*), kolayca kaydedilebilir işletim sistemi.
 
 > [!NOTE]
-> Yerel ileticisi hizmetinin en az .NET Framework 4.7 gerektirir. Hizmet .NET Framework 4.7 yoksa yükleme, ancak başlatılamıyor. .NET Framework'ün en son sürümüne erişim sağlamak ** [.NET Framework Yükleme sayfasını ziyaret edin](
+> Yerel ileticisi hizmetinin en az .NET Framework 4.7 gerektirir. Hizmet .NET Framework 4.7 yoksa yükleme, ancak başlatılamıyor. .NET Framework'ün en son sürümüne erişim sağlamak **[.NET Framework Yükleme sayfasını ziyaret edin](
 https://www.microsoft.com/net/download/dotnet-framework-runtime/net472?utm_source=getdotnet&utm_medium=referral)**.
 
 1. LF indirin. WindowsServiceHost.zip dosyasından [yerel ileticisi sürüm sayfası](https://github.com/Microsoft/ApplicationInsights-LocalForwarder/releases) GitHub üzerinde.

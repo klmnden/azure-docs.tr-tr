@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/14/2017
 ms.author: zarhoads
-ms.openlocfilehash: a91d8452d7b85d3e7ff21dc523429be42d34336b
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: f3d83fa8ba5a78c7aacc7014e9ec50fb447bb1c6
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49468900"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49953697"
 ---
 # <a name="deploy-an-azure-virtual-machine-using-c-and-a-resource-manager-template"></a>C# ve Resource Manager şablonu kullanarak bir Azure sanal makine dağıtma
 Bu makalede, C# kullanarak bir Azure Resource Manager şablonu dağıtma işlemini göstermektedir. Oluşturduğunuz şablonun yeni bir sanal ağda tek bir alt ağ ile Windows Server çalıştıran tek bir sanal makine dağıtır.
@@ -185,7 +185,7 @@ Bu adımda, kaynakları dağıtan bir şablon dosyası ve şablon parametre değ
 
 ### <a name="create-the-authorization-file"></a>Yetkilendirme dosyası oluşturma
 
-Bir şablonu dağıtmadan önce erişimi olmasını emin olun. bir [Active Directory Hizmet sorumlusu](../../resource-group-authenticate-service-principal.md). Hizmet sorumlusundan istekleri için Azure Resource Manager kimliğini doğrulamak için bir belirteç edinme. Uygulama kimliği ve kimlik doğrulama anahtarı yetkilendirme dosyasında gereken Kiracı kimliği de kaydetmeniz gerekir.
+Bir şablonu dağıtmadan önce erişimi olmasını emin olun. bir [Active Directory Hizmet sorumlusu](../../active-directory/develop/howto-authenticate-service-principal-powershell.md). Hizmet sorumlusundan istekleri için Azure Resource Manager kimliğini doğrulamak için bir belirteç edinme. Uygulama kimliği ve kimlik doğrulama anahtarı yetkilendirme dosyasında gereken Kiracı kimliği de kaydetmeniz gerekir.
 
 1. Çözüm Gezgini'nde sağ *myDotnetProject* > **Ekle** > **yeni öğe**ve ardından **metindosyası** içinde *Visual C# öğeleri*. Dosya adı *azureauth.properties*ve ardından **Ekle**.
 2. Bu yetkilendirme özellikleri ekleyin:

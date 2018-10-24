@@ -17,12 +17,12 @@ ms.date: 04/27/2017
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: hirsin
-ms.openlocfilehash: 04cdba261d67e20762fd4bb4835568f763124fef
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: 312b1f7accee47c07c5fb0507061253fda5044f6
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39578482"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49958049"
 ---
 # <a name="azure-active-directory-authentication-protocols"></a>Azure Active Directory kimlik doğrulama protokolleri
 Azure Active Directory (Azure AD) çeşitli en yaygın olarak kullanılan kimlik doğrulama ve yetkilendirme protokolünü destekler. Bu bölümdeki konularda, desteklenen protokoller ve bunların uygulama Azure AD'de açıklanmaktadır. Konular, desteklenen talep türleri, Federasyon meta verilerinin kullanımı Giriş incelenmesi dahil, OAuth 2.0 ayrıntılı. ve SAML 2.0 protokolü başvurusu belgeleri ve sorun giderme bölümü.
@@ -38,6 +38,6 @@ Azure Active Directory (Azure AD) çeşitli en yaygın olarak kullanılan kimlik
 * [SAML Protokolü başvurusu](active-directory-saml-protocol-reference.md) -Azure AD çoklu oturum açma ve çoklu oturum kapatma SAML profilleri hakkında bilgi edinin.
 
 ## <a name="see-also"></a>Ayrıca Bkz.
-[Azure Active Directory Geliştirici Kılavuzu](azure-ad-developers-guide.md)
+[Azure Active Directory Geliştirici Kılavuzu](v1-overview.md)
 
 [Active Directory kod örnekleri](sample-v1-code.md)

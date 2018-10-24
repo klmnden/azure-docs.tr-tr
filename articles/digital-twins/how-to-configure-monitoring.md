@@ -6,14 +6,14 @@ manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 10/18/2018
+ms.date: 10/22/2018
 ms.author: adgera
-ms.openlocfilehash: 8efb3dc1d312f42e990d4f7a2410ba8f684375c1
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 1c8f1931a29ae9769f7d8ad57a184e3240105a1a
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/23/2018
-ms.locfileid: "49651633"
+ms.locfileid: "49945833"
 ---
 # <a name="how-to-configure-monitoring-in-azure-digital-twins"></a>Azure dijital İkizlerini izlemeyi yapılandırma
 
@@ -107,6 +107,9 @@ Bir kez, **Log Analytics** girişleri katları günlükleri bulmak ya da kullana
    ![Günlük yönetimi][8]
 
 Güçlü sorgu işlemleri hakkında daha fazla bilgi için bkz: [sorguları ile çalışmaya başlama](https://docs.microsoft.com/azure/log-analytics/query-language/get-started-queries).
+
+> [!NOTE]
+> 5 dakikalık bir gecikmeyle olayları gönderirken karşılaşabilirsiniz **Log Analytics** ilk kez.
 
 Azure Log Analytics de güçlü hata ve görüntüleyebileceğiniz tıklayarak uyarı bildirim hizmetleri sağlar **tanılayın ve sorunlarını çözmek**:
 

@@ -11,12 +11,12 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 04/15/2018
 ms.author: ghogen
-ms.openlocfilehash: 9cf49ae97da3bf67300bdc222c86bb712aeaed37
-ms.sourcegitcommit: 06724c499837ba342c81f4d349ec0ce4f2dfd6d6
+ms.openlocfilehash: c90ef26c0170db67b1d422701b6969ca3f9c9e38
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46465801"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49958525"
 ---
 # <a name="add-key-vault-to-your-web-application-by-using-visual-studio-connected-services"></a>Key Vault, Visual Studio bağlı Hizmetler'i kullanarak web uygulamanıza ekleyin
 
@@ -27,19 +27,19 @@ Bağlı hizmetler anahtar Kasası'nı etkinleştirmek için projenizde yaptığ�
 ## <a name="prerequisites"></a>Önkoşullar
 
 - **Bir Azure aboneliği**. Bir aboneliğiniz yoksa [ücretsiz hesap](https://azure.microsoft.com/pricing/free-trial/) için kaydolabilirsiniz.
-- **Visual Studio 2017 sürüm 15.7** ile **Web geliştirme** iş yükü yüklenmiş. [Hemen indirin](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs).
+- **Web Geliştirme** iş yükünün yüklendiği **Visual Studio 2017 sürüm 15.7**. [Şimdi indir](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs).
 - ASP.NET (çekirdek değil), varsayılan olarak yüklü olmayan .NET Framework 4.7.1 geliştirme araçları gerekir. Bunları yüklemek için Visual Studio Yükleyicisi'ni başlatın, **Değiştir**ve ardından **tek tek bileşenler**, sonra sağ tarafında genişletmek **ASP.NET ve web geliştirme**ve **.NET Framework 4.7.1 geliştirme araçları**.
 - 4.7.1 ASP.NET veya ASP.NET Core 2.0 web projesi açın.
 
 ## <a name="add-key-vault-support-to-your-project"></a>Key Vault desteği projenize ekleyin.
 
-1. İçinde **Çözüm Gezgini**, seçin **Ekle** > **bağlı hizmet**.
-   Projenize eklediğiniz Hizmetleri ile bağlı hizmet sayfasında görünür.
+1. **Çözüm Gezgini**’nde **Ekle** > **Bağlı Hizmet** seçeneklerini belirleyin.
+   Projenize ekleyebileceğiniz hizmetlerle birlikte Bağlı Hizmet sayfası görüntülenir.
 1. Kullanılabilir hizmetler menüsünde **güvenli parolaları ile Azure anahtar kasası**.
 
    !["Azure anahtar kasası ile güvenli gizli dizileri" seçin](media/vs-key-vault-add-connected-service/KeyVaultConnectedService1.PNG)
 
-   Visual Studio'da oturum açıldıktan ve hesabınızla ilişkili bir Azure aboneliğiniz varsa, aboneliklerinizin ile bir açılan listedeki bir sayfa görünür. Visual Studio'ya oturum açmadıysanız ve hesabı ile oturum açmadıysanız, Azure aboneliğiniz için kullandığınız hesabın aynısını olduğundan emin olun.
+   Visual Studio’da oturum açtıysanız ve hesabınızla ilişkili bir Azure aboneliğiniz varsa, aboneliklerinizi içeren bir açılır listenin yer aldığı bir sayfa görüntülenir. Visual Studio'ya oturum açmadıysanız ve hesabı ile oturum açmadıysanız, Azure aboneliğiniz için kullandığınız hesabın aynısını olduğundan emin olun.
 
 1. Yeni veya mevcut bir anahtar Kasası'nı seçin ve istediğiniz aboneliği seçin veya otomatik olarak oluşturulan adı değiştirmek için düzenleme bağlantısını seçin.
 
@@ -138,11 +138,33 @@ Gizli anahtarlarınız erişmek için:
       <h3>@ViewBag.Secret2</h3>
    ```
 
-Tebrikler, artık web uygulamanızı güvenli şekilde depolanan gizli dizileri erişmek için Key Vault'u kullanabilir onayladıktan.
+1. Azure portalında, yapılandırma dosyasından değil kukla değer girdiğiniz gizli değer okuyabilirsiniz yerel olarak doğrulamak için uygulamanızı çalıştırın.
+
+Ardından, uygulamanızı Azure'a yayımlayın.
+
+## <a name="publish-to-azure-app-service"></a>Azure App Service'e yayımlama
+
+1. Proje düğümünü sağ tıklatın ve seçin **Yayımla**. Bildiren bir ekran görünür **bir yayımlama hedefi seçin**. Sol tarafta, seçin **App Service**, ardından **Yeni Oluştur**.
+
+   ![App Service'te yayımlama](media/vs-key-vault-add-connected-service/AppServicePublish1.PNG)
+
+1. Üzerinde **App Service Oluştur** ekranında, abonelik ve kaynak grubu, anahtar Kasası'nda oluşturulan aynıdır ve seçin emin **Oluştur**.
+
+   ![App Service oluşturun](media/vs-key-vault-add-connected-service/AppServicePublish2.PNG)
+
+1. Web uygulamanızı oluşturduktan sonra **Yayımla** ekranı görüntülenir. Azure'da barındırılan yayımlanan web uygulamanız için URL'yi not alın. Görürseniz **hiçbiri** yanındaki **Key Vault**, App Service bağlanmak için hangi Key Vault bildirmek çözümlenmedi. Seçin **ekleme Key Vault** bağlantısını ve oluşturduğunuz anahtar Kasası'nı seçin.
+
+   ![Anahtar kasası Ekle](media/vs-key-vault-add-connected-service/AppServicePublish3.PNG)
+
+   Görürseniz **yönetme Key Vault**, düzenleme izinlerine geçerli ayarları görüntülemek için tıklayın veya Azure Portalı'nda, gizli dizileri için değişiklikler yapın.
+
+1. Şimdi, tarayıcıda web uygulamasını ziyaret etmek için Site URL'sini bağlantıyı seçin. Anahtar Kasası'ndaki doğru değeri gördüğünüzü doğrulayın.
+
+Tebrikler, web uygulamanızı Azure'da çalıştırdığınızda güvenli şekilde depolanan gizli dizileri erişmek için Key Vault'u kullanabilir onaylandı.
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 
-Artık gerekli olmadığında kaynak grubunu silin. Bu, Key Vault ve ilgili kaynakları siler. Kaynak grubunu portal aracılığıyla silmek için:
+Artık gerekli değilse kaynak grubunu silin. Bu, Key Vault ve ilgili kaynakları siler. Kaynak grubunu portal aracılığıyla silmek için:
 
 1. Portalın üst kısmındaki Arama kutusuna kaynak grubunuzun adını girin. Bu Hızlı Başlangıçta kullanılan kaynak grubunu arama sonuçlarında gördüğünüzde seçin.
 2. **Kaynak grubunu sil**'i seçin.

@@ -7,12 +7,12 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.topic: conceptual
 ms.date: 10/15/2018
-ms.openlocfilehash: 8cfa6493a565a8ed3b059e1da752da5115d0731d
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 3616183b5ea34b8a14712d2c449de87950443111
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49649865"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49954515"
 ---
 # <a name="improve-performance-of-apache-spark-workloads-using-azure-hdinsight-io-cache-preview"></a>Azure HDInsight GÇ Cache (Önizleme) kullanarak Apache Spark iş yüklerinin performansı
 
@@ -46,7 +46,7 @@ Azure HDInsight GÇ önbellek Önizleme'de varsayılan olarak devre dışı bır
 1. Etkilenen tüm hizmetlerin kümede yeniden onaylayın.
 
 >[!NOTE] 
-> Etkin ilerleme çubuğu gösterir olsa da, etkilenen hizmetleri yeniden başlatılana kadar g/ç önbellek gerçekten etkin değil.
+> Etkin ilerleme çubuğu gösterir olsa da, diğer etkilenen hizmetleri yeniden başlatılana kadar g/ç önbellek gerçekten etkin değil.
 
 ## <a name="troubleshooting"></a>Sorun giderme
   

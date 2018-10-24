@@ -2,18 +2,19 @@
 title: include dosyası
 description: include dosyası
 services: backup
-author: markgalioto
+author: rayne-wiselman
+manager: carmonm
 ms.service: backup
 ms.topic: include
-ms.date: 5/14/2018
-ms.author: markgal
+ms.date: 10/18/2018
+ms.author: raynew
 ms.custom: include file
-ms.openlocfilehash: 0ff9bf829e2dbe1bca078360ccded94bad63d9a6
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: 74fe531c07aa871b06b5d0773f7e8fb0ade80be4
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39249470"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49946224"
 ---
 ## <a name="create-a-recovery-services-vault"></a>Kurtarma Hizmetleri kasası oluşturma
 Kurtarma Hizmetleri kasası, yedeklemeleri ve zaman içinde oluşturulan kurtarma noktalarını depolayan bir varlıktır. Kurtarma Hizmetleri kasası Ayrıca, korunan sanal makinelerle ilişkili yedekleme ilkeleri içerir.

@@ -1548,7 +1548,7 @@ Bir araştırma bağlantı noktası eklemek için:
   }
   ```
 
-  Sonra Getir **SAP <*SID* >**  doğrulayın, küme rolünü **ProbePort** yeni değere ayarlanır.
+  Sonra Getir **SAP <*SID*>** doğrulayın, küme rolünü **ProbePort** yeni değere ayarlanır.
 
   ```PowerShell
   $SAPSID = "PR1"     # SAP <SID>

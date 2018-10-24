@@ -3,22 +3,22 @@ title: REST ile Azure Media Services API'sine erişmek için Azure AD kullanım 
 description: REST kullanarak Azure Active Directory kimlik doğrulaması ile Azure Media Services API'sine erişim öğrenin.
 services: media-services
 documentationcenter: ''
-author: willzhan
-manager: cfowler
+author: juliako
+manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/26/2017
+ms.date: 10/22/2018
 ms.author: willzhan;juliako;johndeu
-ms.openlocfilehash: b44c5b29f41f08ac5c1d5e6aa3c37f8c15ae7c54
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: d9d1fa7d8cf25057339e560c371deb939997b578
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45984666"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49945086"
 ---
 # <a name="use-azure-ad-authentication-to-access-the-azure-media-services-api-with-rest"></a>REST ile Azure Media Services API'sine erişmek için Azure AD kimlik doğrulaması kullanın.
 
@@ -47,7 +47,7 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
 - Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) oluşturun.
 - [Azure portalını kullanarak bir Azure Media Services hesabı oluşturma](media-services-portal-create-account.md).
-- Gözden geçirme [AAD kimlik doğrulamasına genel bakış ile Azure Media Services API'sine erişim](media-services-use-aad-auth-to-access-ams-api.md) makalesi.
+- Gözden geçirme [Azure AD kimlik doğrulamasına genel bakış ile Azure Media Services API'sine erişim](media-services-use-aad-auth-to-access-ams-api.md) makalesi.
 - Yükleme [Postman](https://www.getpostman.com/) bu makalede gösterilen REST API'leri yürütmek için REST istemci. 
 
     Bu öğreticide, uring duyuyoruz **Postman** ancak herhangi bir REST aracı uygun olacaktır. Diğer seçenekler şunlardır: REST eklentili **Visual Studio Code** veya **Telerik Fiddler**. 
@@ -60,7 +60,7 @@ Media Services API'sine erişmek için aşağıdaki veri noktaları toplamak ger
 
 |Ayar|Örnek|Açıklama|
 |---|-------|-----|
-|Azure Active Directory kiracı etki alanı|Microsoft.onmicrosoft.com|Azure AD'yi bir güvenli belirteç hizmeti (STS) uç noktası olarak, aşağıdaki biçimi kullanarak oluşturulur: https://login.microsoftonline.com/{your-aad-tenant-name.onmicrosoft.com}/oauth2/token. Azure AD, bir JWT (bir erişim belirteci) kaynaklara erişmek için verir.|
+|Azure Active Directory kiracı etki alanı|Microsoft.onmicrosoft.com|Azure AD'yi bir güvenli belirteç hizmeti (STS) uç noktası olarak, aşağıdaki biçimi kullanarak oluşturulur: https://login.microsoftonline.com/{your-ad-tenant-name.onmicrosoft.com}/oauth2/token. Azure AD, bir JWT (bir erişim belirteci) kaynaklara erişmek için verir.|
 |REST API uç noktası|https://amshelloworld.restv2.westus.media.azure.net/api/|Bu, tüm medya Hizmetleri REST API çağrıları, uygulamanızda yapılan uç noktadır.|
 |İstemci kimliği (uygulama kimliği)|f7fbbb29-a02d-4d91-bbc6-59a2579259d2|Azure AD uygulama (istemci) kimliği. Erişim belirteci almak için istemci kimliği gereklidir. |
 |İstemci Gizli Anahtarı|+mUERiNzVMoJGggD6aV1etzFGa1n6KeSlLjIq+Dbim0=|Azure AD uygulama anahtarları (gizli). Erişim belirteci almak için istemci gizli anahtarı gereklidir.|
@@ -144,8 +144,8 @@ Bu bölümde, nasıl kullanılacağını gösterir **Postman** bir JWT taşıyı
     Alternatif olarak, **toplu düzenleme** Yapıştır aşağıdaki gövdesi (Değiştir istemci kimliği ve gizli değerler) ve Postman penceresini sağdaki:
 
         grant_type:client_credentials
-        client_id:{Your Client ID that you got from your AAD Application}
-        client_secret:{Your client secret that you got from your AAD Application's Keys}
+        client_id:{Your Client ID that you got from your Azure AD Application}
+        client_secret:{Your client secret that you got from your Azure AD Application's Keys}
         resource:https://rest.media.azure.net
 
 8. **Gönder**’e basın.

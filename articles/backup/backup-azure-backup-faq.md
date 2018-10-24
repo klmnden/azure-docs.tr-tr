@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 8/2/2018
 ms.author: markgal
-ms.openlocfilehash: 2151733a5d91fb17c69fa1f4f6aac64a70928824
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: dd0059f8d4714603568577d0a3c977ce7b27d44c
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49364311"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49945850"
 ---
 # <a name="questions-about-the-azure-backup-service"></a>Azure Backup hizmetiyle ilgili sorular
 Bu makalede, Azure Backup bileşenleri hakkında sık sorulan sorular yanıtlanmaktadır. Bazı yanıtlarda, kapsamlı bilgiler içeren makalelerin bağlantıları vardır. **Yorumlar**’a (sağda) tıklayarak Azure Backup hakkında soru sorabilirsiniz. Yorumlar bu makalenin altında görünür. Ayrıca Azure Backup hizmeti ile ilgili sorularınızı [tartışma forumunda](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup) paylaşabilirsiniz.
@@ -82,6 +82,9 @@ Evet. Ancak, Azure Backup, System Center Data Protection Manager (DPM) ile kulla
 
 ### <a name="can-i-use-dpm-to-back-up-apps-in-azure-stack"></a>Uygulamaları Azure Stack'te yedeklemek için DPM'yi kullanabilir miyim?
 Hayır. Azure Stack korumak için Azure Backup kullanabilmenize rağmen Azure Backup şu anda Azure Stack'te uygulama yedeklemek için DPM'yi kullanarak desteklemez.
+
+### <a name="can-i-do-an-ilr-item-level-restore-for-vms-backed-up-to-the-online-vault-azure"></a>(Azure) çevrimiçi kasaya yedeklenen sanal makineler için bir ILR (öğe düzeyinde geri yükleme) yapabilirim?
+Hayır, öğe düzeyinde geri yükleme (ILR) için Site kurtarma Hizmetleri kasası yedeklenen sanal makineler için kullanılabilir değil.
 
 ## <a name="how-azure-backup-works"></a>Azure Backup nasıl çalışır?
 ### <a name="if-i-cancel-a-backup-job-once-it-has-started-is-the-transferred-backup-data-deleted-br"></a>Bir yedekleme işini başlatıldıktan sonra iptal edersem aktarılan yedekleme verileri silinir mi? <br/>

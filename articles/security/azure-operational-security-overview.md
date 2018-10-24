@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: tomsh
-ms.openlocfilehash: 724603fdb80e6fce7d5b8756655d23a6c32d5558
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 4305afff1e35e9e05f1b2314f8fb9d5a96383e9f
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49405472"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49955652"
 ---
 # <a name="azure-operational-security-overview"></a>Azure operasyonel güvenliğine genel bakış
 [Azure operasyonel güvenlik](https://docs.microsoft.com/azure/security/azure-operational-security) verilerini, uygulamalarını ve diğer varlıklardan Microsoft azure'da korumak için Hizmetleri, denetimleri ve kullanıcılara sunulan özellikleri gösterir. Çeşitli Microsoft'a özgü özellikler aracılığıyla edinilen bilgileri içeren bir çerçevedir. Bu özellikler, Microsoft Security Development Lifecycle (SDL), Microsoft Security Response Center program ve siber güvenlik tehditleri hakkındaki ayrıntılı tanıma içerir.
@@ -30,7 +30,7 @@ Bir BT operasyon ekibinin, veri merkezi altyapı, uygulamaları ve verileri kara
 [Microsoft Log Analytics](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview) yönetmek ve şirket içi korumak ve bulut altyapısı yardımcı olan bir bulut tabanlı BT yönetimi çözümüdür. Çekirdek işlevselliğini, Azure'da çalışan aşağıdaki hizmetleri tarafından sağlanır. Azure içeren birden çok yardımcı hizmetler yönetmek ve korumak şirket içi ve bulut altyapısı. Her hizmet belirli bir yönetim işlevi sağlar. Farklı yönetim senaryoları elde etmek için Hizmetleri birleştirebilirsiniz. 
 
 ### <a name="azure-monitor"></a>Azure İzleyici
-[Azure İzleyici](https://docs.microsoft.com/en-us/azure/azure-monitor/overview) merkezi veri depolarına yönetilen sourcesa veri toplar. Bu veriler, olaylar, performans verileri ya da API aracılığıyla sağlanan özel veriler içerebilir. Veriler toplandıktan sonra uyarı, analiz ve dışarı aktarma için kullanılabilir. 
+[Azure İzleyici](https://docs.microsoft.com/azure/azure-monitor/overview) merkezi veri depolarına yönetilen sourcesa veri toplar. Bu veriler, olaylar, performans verileri ya da API aracılığıyla sağlanan özel veriler içerebilir. Veriler toplandıktan sonra uyarı, analiz ve dışarı aktarma için kullanılabilir. 
 
 Çeşitli kaynaklardan gelen verileri birleştirmenize ve mevcut şirket içi ortamınızla verileri birleştirerek Azure hizmetlerinizden. Tüm eylemlerin her tür veri için kullanılabilir olacak şekilde log Analytics veri koleksiyonu bu verilerin üzerinde gerçekleştirilen eylemden de açıkça ayırır.
 
@@ -158,5 +158,5 @@ Deneyimli DevOps uygulayıcıları aşağıdaki uygulamalardan birkaçını beni
 Güvenlik ve denetim çözümü hakkında bilgi edinmek için aşağıdaki makalelere bakın:
 
 - [Güvenlik ve uyumluluk](https://www.microsoft.com/cloud-platform/security-and-compliance)
-- [Azure Güvenlik Merkezi](https://docs.microsoft.com/en-us/azure/security-center/security-center-intro)
-- [Azure İzleyici](https://docs.microsoft.com/en-us/azure/azure-monitor/overview)
+- [Azure Güvenlik Merkezi](https://docs.microsoft.com/azure/security-center/security-center-intro)
+- [Azure İzleyici](https://docs.microsoft.com/azure/azure-monitor/overview)

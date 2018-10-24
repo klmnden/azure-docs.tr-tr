@@ -8,15 +8,15 @@ ms.topic: article
 ms.date: 10/19/18
 ms.author: tamram
 ms.component: blobs
-ms.openlocfilehash: 7dff6f7438c3bb9fc09803bbaa58895f89f88d71
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: ddc85cb7c9bd4488295b22e687d199a73d23922c
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49649831"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49955635"
 ---
 # <a name="static-website-hosting-in-azure-storage"></a>Azure Depolama'da statik Web sitesi barındırma
-Azure depolama hesapları doğrudan adlı bir depolama kapsayıcısındaki statik içerik (HTML, CSS, JavaScript ve görüntü dosyaları) sunmak izin *$web*. Azure Depolama'da barındırma yararlanma dahil olmak üzere sunucusuz mimarileri kullanmanıza olanak verir [Azure işlevleri](/azure/azure-functions/functions-overview) ve diğer PaaS Hizmetleri.
+Azure depolama ve GPv2 hesapları doğrudan adlı bir depolama kapsayıcısındaki statik içerik (HTML, CSS, JavaScript ve görüntü dosyaları) sunmak izin *$web*. Azure Depolama'da barındırma yararlanma dahil olmak üzere sunucusuz mimarileri kullanmanıza olanak verir [Azure işlevleri](/azure/azure-functions/functions-overview) ve diğer PaaS Hizmetleri.
 
 Statik Web sitesi barındırma aksine, sunucu tarafı kodu bağımlı dinamik siteleri en iyi kullanarak barındırılan [Azure Web Apps](/azure/app-service/app-service-web-overview).
 
@@ -62,7 +62,7 @@ Statik Web sitesi barındırma, ek ücret alınmadan sağlanır. Azure Blob Depo
 ## <a name="quickstart"></a>Hızlı Başlangıç
 
 ### <a name="azure-portal"></a>Azure portal
-Adresinden Azure portalında açarak başlamak https://portal.azure.com ve aşağıdaki adımları çalıştırın:
+Adresinden Azure portalında açarak başlamak https://portal.azure.com ve GPv2 depolama hesabınızda aşağıdaki adımları çalıştırın:
 
 1. Tıklayarak **ayarları**
 2. Tıklayarak **statik Web sitesi**
@@ -71,7 +71,7 @@ Adresinden Azure portalında açarak başlamak https://portal.azure.com ve aşa�
 
 ![](media/storage-blob-static-website/storage-blob-static-website-portal-config.PNG)
 
-Sonra varlıklarınız için karşıya yükleme *$web* Azure Portalı aracılığıyla ya da ile kapsayıcı [Azure Depolama Gezgini](https://azure.microsoft.com/features/storage-explorer/) tüm dizinleri karşıya yüklemek için. Eşleşen bir dosya eklediğinizden emin olun *dizin belgesi adı* özelliği etkinleştirirken seçtiğiniz.
+Sonra varlıklarınız için karşıya yükleme *$web* Azure portalından veya ile kapsayıcı [Azure Depolama Gezgini](https://azure.microsoft.com/features/storage-explorer/) tüm dizinleri karşıya yüklemek için. Eşleşen bir dosya eklediğinizden emin olun *dizin belgesi adı* özelliği etkinleştirirken seçtiğiniz.
 
 Son olarak, Web sitenizi test etmek için web bitiş noktasına gidin.
 
@@ -80,6 +80,11 @@ Depolama Önizleme uzantıyı yükleyin:
 
 ```azurecli-interactive
 az extension add --name storage-preview
+```
+Birden fazla aboneliğiniz olması durumunda, CLI etkinleştirmek istediğiniz GPv2 depolama hesabına aboneliğine ayarlayın:
+
+```azurecli-interactive
+az account set --subscription <SUBSCRIPTION_ID>
 ```
 Özelliğini etkinleştirin. Kendi değerlerinizle köşeli ayraçlar dahil tüm yer tutucu değerlerini değiştirdiğinizden emin olun:
 
@@ -92,10 +97,10 @@ Sorgu için web uç noktası URL'si:
 az storage account show -n <ACCOUNT_NAME> -g <RESOURCE_GROUP> --query "primaryEndpoints.web" --output tsv
 ```
 
-Nesnelere karşıya *$web* kapsayıcı:
+Nesnelere karşıya *$web* kapsayıcısından bir kaynak dizin:
 
 ```azurecli-interactive
-az storage blob upload-batch -s <SOURCE> -d $web --account-name <ACCOUNT_NAME>
+az storage blob upload-batch -s <SOURCE_PATH> -d $web --account-name <ACCOUNT_NAME>
 ```
 
 ## <a name="deployment"></a>Dağıtım
@@ -115,7 +120,7 @@ Statik Web sitesi sayfalarınıza ölçümleri etkinleştirmek üzere tıklayın
 
 Ölçüm verilerini farklı ölçümlerinde API'leri takma tarafından oluşturulur. Portal, yalnızca belirli bir zaman dilimi içinde yalnızca veri döndüren üyelerde odaklanabilmek için kullanılan API üyelerini görüntüler. Gerekli API üye seçebilir emin olmak için zaman aralığını genişletmek için ilk adım olacaktır.
 
-Zaman çerçevesini düğmesine tıklayıp **son 24 saat** ve ardından **Uygula** kullanıcı Arabirimi için istenen API erişmenizi olmasını sağlamak için.
+Zaman çerçevesini düğmesine tıklayıp **son 24 saat** ve ardından **Uygula** 
 
 ![Azure depolama statik Web siteleri ölçümleri zaman aralığı](./media/storage-blob-static-website/storage-blob-static-website-metrics-time-range.png)
 

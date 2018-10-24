@@ -11,13 +11,13 @@ author: sachinpMSFT
 ms.author: sachinp
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 10/04/2018
-ms.openlocfilehash: a9e274cea7543fc3361b1f2d0a60fc18176b6248
-ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
+ms.date: 10/22/2018
+ms.openlocfilehash: 00e5a77bdf8554d473194b2e84947d7adb10df90
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2018
-ms.locfileid: "48831322"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49955274"
 ---
 # <a name="dtu-based-service-tiers"></a>DTU tabanlı hizmet katmanları
 
@@ -25,7 +25,6 @@ DTU tabanlı hizmet katmanları, bilgi işlem boyutlarına dahil edilen depolama
 
 > [!IMPORTANT]
 > SQL veritabanı yönetilen örneği, DTU tabanlı satın alma modeli genel önizlemede şu anda desteklemiyor. Daha fazla bilgi için [Azure SQL veritabanı yönetilen örneği](sql-database-managed-instance.md).
-
 > [!NOTE]
 > Sanal çekirdek tabanlı hizmet katmanları hakkında daha fazla bilgi için bkz: [sanal çekirdek tabanlı hizmet katmanları](sql-database-service-tiers-vcore.md). DTU tabanlı hizmet katmanları ve sanal çekirdek tabanlı hizmet katmanları ayrım yapma hakkında daha fazla bilgi için bkz: [Azure SQL veritabanı'nın satın alma modeli](sql-database-service-tiers.md).
 
@@ -33,7 +32,7 @@ DTU tabanlı hizmet katmanları, bilgi işlem boyutlarına dahil edilen depolama
 
 Hizmet katmanı seçme, öncelikli olarak iş sürekliliği, depolama ve performans gereksinimlerine bağlıdır.
 ||Temel|Standart|Premium|
-| :-- | --: |--:| --:| --:| 
+| :-- | --: |--:| --:| --:|
 |Hedef iş yükü|Geliştirme ve üretim|Geliştirme ve üretim|Geliştirme ve üretim||
 |Çalışma Süresi SLA'sı|%99,99|%99,99|%99,99|Önizleme sırasında yok|
 |Yedekleri bekletme|7 gün|35 gün|35 gün|
@@ -44,13 +43,16 @@ Hizmet katmanı seçme, öncelikli olarak iş sürekliliği, depolama ve perform
 |Bellek içi OLTP|Yok|Yok|Desteklenen|
 |||||
 
+> [!NOTE]
+> Azure keşfetmek için ücretsiz bir Azure hesabı ile birlikte temel bir hizmet katmanında, ücretsiz bir Azure SQL veritabanı alabilirsiniz. Bilgi için [Azure ücretsiz hesabınızla yönetilen bir bulut veritabanı oluşturun](https://azure.microsoft.com/free/services/sql-database/).
+
 ## <a name="single-database-dtu-and-storage-limits"></a>Tek veritabanı DTU ve depolama limitleri
 
 İşlem boyutları, tek veritabanları için veritabanı işlem birimleri (Dtu'lar) ve elastik havuzlar için esnek veritabanı işlem birimleri (Edtu) cinsinden ifade edilir. Dtu'lar ve Edtu'lar hakkında daha fazla bilgi için bkz. [DTU tabanlı satın alma modeli](sql-database-service-tiers.md#dtu-based-purchasing-model)?
 
 ||Temel|Standart|Premium|
 | :-- | --: | --: | --: | --: |
-| Maksimum depolama boyutu | 2 GB | 1 TB | 4 TB  | 
+| Maksimum depolama boyutu | 2 GB | 1 TB | 4 TB  |
 | En fazla dtu sayısı | 5 | 3000 | 4000 | |
 ||||||
 
@@ -59,18 +61,17 @@ Hizmet katmanı seçme, öncelikli olarak iş sürekliliği, depolama ve perform
 
 ## <a name="elastic-pool-edtu-storage-and-pooled-database-limits"></a>Elastik havuz eDTU ve depolama havuza veritabanı sınırları
 
-| | **Temel** | **Standart** | **Premium** | 
+| | **Temel** | **Standart** | **Premium** |
 | :-- | --: | --: | --: | --: |
-| Veritabanı başına maksimum depolama boyutu  | 2 GB | 1 TB | 1 TB | 
-| Havuz başına maksimum depolama boyutu | 156 GB | 4 TB | 4 TB | 
-| Veritabanı başına maksimum Edtu | 5 | 3000 | 4000 | 
-| Havuz başına maksimum Edtu | 1600 | 3000 | 4000 | 
-| Havuz başına veritabanı sayısı | 500  | 500 | 100 | 
+| Veritabanı başına maksimum depolama boyutu  | 2 GB | 1 TB | 1 TB |
+| Havuz başına maksimum depolama boyutu | 156 GB | 4 TB | 4 TB |
+| Veritabanı başına maksimum Edtu | 5 | 3000 | 4000 |
+| Havuz başına maksimum Edtu | 1600 | 3000 | 4000 |
+| Havuz başına veritabanı sayısı | 500  | 500 | 100 |
 ||||||
 
 > [!IMPORTANT]
 > 1 TB'den fazla depolama Premium katmanında şu anda aşağıdakiler dışındaki tüm bölgelerde: Batı Orta ABD, Doğu Çin, USDoDCentral, Almanya Orta, USDoDEast, ABD Devleti Güneybatı, USGov Iowa, Almanya Kuzeydoğu, Kuzey Çin. Diğer bölgelerde Premium katmanda depolama için 1 TB üst sınırı uygulanır. Bkz. [P11 P15 Geçerli Sınırlamalar](sql-database-dtu-resource-limits-single-databases.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
-
 > [!IMPORTANT]
 > Bazı durumlarda, kullanılmayan alanı geri kazanmak için bir veritabanı daraltma gerekebilir. Daha fazla bilgi için [Azure SQL veritabanı'nda dosya alanı yönetmek](sql-database-file-space-management.md).
 

@@ -12,15 +12,15 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/17/2018
+ms.date: 10/18/2018
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: e9d9f5b053537b3d6881763bcb39d7894ba78869
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 79b8cfa061bafb43cbcf2ec8a43638fd14c2fcd0
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46969523"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49954054"
 ---
 # <a name="allowed-certificate-authorities-for-enabling-custom-https-on-azure-cdn"></a>Azure CDN özel HTTPS'yi etkinleştirmek için sertifika yetkililerini izin
 
@@ -70,27 +70,6 @@ Aşağıdaki CA'lar, kendi sertifikanızı oluşturduğunuzda verilir:
 - GlobalSign kök CA
 - Go Daddy kök sertifika yetkilisi - G2
 - G2 Daddy güvenli sertifika yetkilisi - Git
-- Microsoft Authenticode(tm) kök yetkilisi
-- Microsoft Exchange hizmetleri CA 2015
-- Microsoft iç kurumsal kök
-- Microsoft BT ASLAN SSL CA 1
-- Microsoft BT SSL SHA1
-- Microsoft BT SSL SHA2
-- Microsoft BT TLS CA 1
-- Microsoft BT TLS CA 2
-- Microsoft BT TLS CA 4
-- Microsoft BT TLS CA 5
-- Microsoft kök yetkilisi
-- Microsoft kök sertifika yetkilisi
-- Microsoft kök sertifika yetkilisi 2010
-- Microsoft kök sertifika yetkilisi 2011
-- Microsoft Güvenli sunucu CA 2011
-- Kök Microsoft iş ortağı
-- Microsoft Zaman Damgalaması hizmet kök
-- Microsoft Windows Donanım uyumluluğu
-- MSIT CA Z2
-- MSIT Kurumsal CA'yı 1
-- MSIT Kurumsal CA'yı 3
 - RapidSSL RSA CA 2018
 - Kök kurumu
 - Symantec sınıfı 3 EV SSL CA - G3
@@ -102,12 +81,11 @@ Aşağıdaki CA'lar, kendi sertifikanızı oluşturduğunuzda verilir:
 - Thawte RSA CA 2018
 - Thawte zaman damgası CA
 - TrustAsia TLS RSA CA
-- UTN USERFirst nesnesi
 - VeriSign sınıfı 3 Genişletilmiş Doğrulama SSL CA
 - VeriSign sınıfı 3 Genişletilmiş Doğrulama SSL SGC CA
 - VeriSign sınıf 3 birincil ortak sertifika yetkilisi - G5
 - VeriSign uluslararası sunucusu CA - 3 sınıfı
 - VeriSign zaman damgası hizmeti kök
 - VeriSign Evrensel kök sertifika yetkilisi
-- WMSvc SHA2 DALEDGE1008
+
 

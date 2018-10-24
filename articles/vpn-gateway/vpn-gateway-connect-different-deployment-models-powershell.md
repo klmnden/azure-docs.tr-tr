@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 10/17/2018
 ms.author: cherylmc
-ms.openlocfilehash: 588692ad4c7c95a06d33b67b76bb8feff6b4ed53
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: 5f133af5ec077821607bf3e942c8a931808d34fc
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49457179"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49953596"
 ---
 # <a name="connect-virtual-networks-from-different-deployment-models-using-powershell"></a>PowerShell kullanarak farklı dağıtım modellerindeki sanal ağları birbirine bağlama
 
@@ -34,7 +34,7 @@ Aşağıdaki adımlar, her sanal ağ için dinamik ya da rota tabanlı ağ geçi
 
 ### <a name="pre"></a>Önkoşullar
 
-* Her iki Vnet'in zaten oluşturdunuz. Resource manager sanal ağı oluşturmak için ihtiyacınız varsa bkz [sanal ağ oluşturma](../virtual-network/quick-create-powershell.md#create-a-virtual-network). Klasik bir sanal ağ oluşturmak için bkz [Klasik sanal ağ oluşturma](https://docs.microsoft.com/en-us/azure/virtual-network/create-virtual-network-classic).
+* Her iki Vnet'in zaten oluşturdunuz. Resource manager sanal ağı oluşturmak için ihtiyacınız varsa bkz [sanal ağ oluşturma](../virtual-network/quick-create-powershell.md#create-a-virtual-network). Klasik bir sanal ağ oluşturmak için bkz [Klasik sanal ağ oluşturma](https://docs.microsoft.com/azure/virtual-network/create-virtual-network-classic).
 * Sanal ağlar için adres aralıklarını değil birbiriyle çakışma veya ağ geçitlerinin bağlı diğer bağlantılar aralıklardan herhangi biriyle çakışıyor.
 * En son PowerShell cmdlet'leri yüklediniz. Bkz: [Azure PowerShell'i yükleme ve yapılandırma işlemini](/powershell/azure/overview) daha fazla bilgi için. Hizmet Yönetimi (SM) hem de kaynak yöneticisi (RM) cmdlet'leri yüklediğinizden emin olun. 
 

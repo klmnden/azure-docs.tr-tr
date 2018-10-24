@@ -4,14 +4,14 @@ description: Azure geçişi hizmeti ve sorun giderme ipuçları için sık karş
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 09/28/2018
+ms.date: 10/23/2018
 ms.author: raynew
-ms.openlocfilehash: 906c6e56b670dfc26b5905a453fd43a3c72086c3
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: a41a27f2a87a67ea51bcbe110ac77f7908c44e7a
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47433506"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49945527"
 ---
 # <a name="troubleshoot-azure-migrate"></a>Azure Geçişi sorunlarını giderme
 
@@ -40,6 +40,14 @@ Disk ve ağ performans verileri toplamayı etkinleştirmek için istatistik ayar
 Gidebilirsiniz **Essentials** konusundaki **genel bakış** meta verilerin depolandığı konumun tam tanımlamak için proje sayfası. Konumun Azure geçişi tarafından coğrafyada rastgele seçilir ve üzerinde değişiklik yapamazsınız. Yalnızca belirli bir bölgede bir proje oluşturmak istiyorsanız, geçiş projesi oluşturabilir ve istediğiniz bölgeyi geçirmek için REST API'lerini kullanabilirsiniz.
 
    ![Proje konumu](./media/troubleshooting-general/geography-location.png)
+
+### <a name="i-am-using-the-continuous-discovery-ova-but-vms-that-are-deleted-in-my-on-premises-environment-are-still-being-shown-in-the-portal"></a>OVA, ancak şirket içi ortamımın silinir Vm'leri hala portalda gösterilir sürekli bulma kullanıyorum.
+
+Gereç sürekli bulma Gereci için sadece performans verilerini sürekli olarak toplar, şirket içi ortamda (yani VM ekleme, silme, disk ekleme vb.) herhangi bir yapılandırma değişikliği algılamaz. Bir yapılandırma değişikliği şirket içi ortamda ise portalındaki değişiklikleri yansıtacak şekilde aşağıdakileri yapabilirsiniz:
+
+1. Ayrıca öğeleri (VM'ler, diskler ve çekirdek vb.): Azure portalında bu değişiklikleri yansıtacak şekilde, gereç keşiften durdurun ve yeniden başlatın. Bunun, Azure geçişi projesinde değişiklikler güncelleştirildiğinden emin olmanızı sağlar.
+
+2. VM silme: bulma durdurup olsa bile gereç tasarlanmıştır yöntemi nedeniyle VM silme yansıtılmaz. Sonraki bulma verilerinden eski bulmalarına eklenir ve geçersiz olmasıdır. Bu durumda, yalnızca Portalı'nda VM grubunuzdan kaldırarak ve değerlendirmeyi yeniden hesaplama yok sayabilirsiniz.
 
 ## <a name="collector-errors"></a>Toplayıcı hataları
 
@@ -100,7 +108,7 @@ Bu sorun, VMware powerclı'yı yükleme ile ilgili bir sorun nedeniyle oluşabil
 
 ### <a name="error-unabletoconnecttoserver"></a>Hata UnableToConnectToServer
 
-VCenter Server "Servername.com:9443" hatası nedeniyle bağlantı kurulamıyor: hiçbir uç noktası konumunda dinleme https://Servername.com:9443/sdk iletiyi kabul.
+Şu hata nedeniyle "Servername.com:9443" vCenter Server’a bağlanılamıyor: https://Servername.com:9443/sdk adresini dinleyen, iletiyi kabul edebilecek bir uç nokta yoktu.
 
 Toplayıcı gerecini'nın en son sürümünü, aksi halde, yükseltme gerecine denetleyin [en son sürümü](https://docs.microsoft.com/azure/migrate/concepts-collector#how-to-upgrade-collector).
 
@@ -214,8 +222,8 @@ Olay izleme için Windows toplamak için aşağıdakileri yapın:
 | 754       | NoPerfDataAvaialable           | Performans verileri kullanılamıyor.                                               | VCenter Server'da istatistik düzeyini denetleyin. Performans verilerinin kullanılabilmesi için 3 ayarlanması gerekir. | İstatistik Düzeyini 3 (5 dakika, 30 dakika ve 2 saatlik süre için) olarak değiştirin ve en az bir gün bekledikten sonra yeniden deneyin.                   |
 | 756       | NullInstanceUUID               | InstanceUUID değeri null olan bir makine ile karşılaşıldı                                  | vCenter Server uygun olmayan bir nesneye sahip olabilir.                                                      | Hatayı giderip yeniden deneyin.                                                                                                           |
 | 757       | VMNotFound                     | Sanal makine bulunamadı                                                  | Sanal makine silinmiş olabilir: %VMID;                                                                | vCenter envanterinin kapsamı belirlenirken seçilen sanal makinelerin keşif sırasında mevcut olduğundan emin olun                                      |
-| 758       | GetPerfDataTimeout             | VCenter isteği zaman aşımına uğradı. İleti % Message;                                  | vCenter Server kimlik bilgileri yanlış                                                              | VCenter sunucusu kimlik bilgilerini denetleyin ve vCenter Server'ın erişilebilir olduğundan emin olun. İşlemi yeniden deneyin. Sorun devam ederse desteğe başvurun. |
-| 759       | VmwareDllNotFound              | VMWare.Vim DLL bulunamadı.                                                     | PowerCLI düzgün bir şekilde yüklenmedi.                                                                   | Lütfen Powerclı düzgün yüklü olup olmadığını denetleyin. İşlemi yeniden deneyin. Sorun devam ederse desteğe başvurun.                               |
+| 758       | GetPerfDataTimeout             | VCenter isteği zaman aşımına uğradı. İleti % Message;                                  | vCenter Server kimlik bilgileri yanlış                                                              | VCenter sunucusu kimlik bilgilerini denetleyin ve vCenter Server'ın erişilebilir olduğundan emin olun. İşlemi yeniden deneyin. Sorun devam ederse, destek ekibine başvurun. |
+| 759       | VmwareDllNotFound              | VMWare.Vim DLL bulunamadı.                                                     | PowerCLI düzgün bir şekilde yüklenmedi.                                                                   | Lütfen Powerclı düzgün yüklü olup olmadığını denetleyin. İşlemi yeniden deneyin. Sorun devam ederse, destek ekibine başvurun.                               |
 | 800       | ServiceError                   | Azure Geçişi Toplayıcısı hizmeti çalışmıyor.                               | Azure Geçişi Toplayıcısı hizmeti çalışmıyor.                                                       | Hizmeti services.msc kullanarak başlatın ve işlemi yeniden deneyin.                                                                             |
 | 801       | PowerCLIError                  | VMware PowerCLI yüklenemedi.                                          | VMware PowerCLI yüklenemedi.                                                                  | İşlemi yeniden deneyin. Sorun devam ederse kendiniz yükleyin ve işlemi yeniden deneyin.                                                   |
 | 802       | TimeSyncError                  | Saat, İnternet saat sunucusuyla eşitlenmemiş.                            | Saat, İnternet saat sunucusuyla eşitlenmemiş.                                                    | Makinedeki saatin saat dilimine göre doğru ayarlandığından emin olun ve işlemi yeniden deneyin.                                 |

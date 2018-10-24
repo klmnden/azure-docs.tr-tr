@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: e30f02fb7f250b32cb3c7bb5205f58ca658a8f2a
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: e797f1faf249a1ad1eebbd46984829de5f087936
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49426762"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49958678"
 ---
 # <a name="asynchronous-refresh-with-the-rest-api"></a>REST API ile zaman uyumsuz yenileme
 REST çağrılarını destekleyen herhangi bir programlama dilini kullanarak, Azure Analysis Services tablosal Modellerinizi zaman uyumsuz veri yenileme işlemleri gerçekleştirebilirsiniz. Bu, eşitleme için sorgu genişleme salt okunur çoğaltmaların içerir. 
@@ -236,7 +236,7 @@ Azure uygulaması gerekli API izinleri atanmış oluşturulması bu form kimlik 
 
 #### <a name="service-principal"></a>Hizmet sorumlusu
 
-Bkz: [hizmet sorumlusu - Azure portal'ı oluşturma](../azure-resource-manager/resource-group-create-service-principal-portal.md) ve [sunucu yöneticisi rolüne hizmet sorumlusu ekleme](analysis-services-addservprinc-admins.md) bir hizmet sorumlusu ayarlamak ve Azure AS gerekli izinler atama hakkında daha fazla bilgi . Adımları tamamladıktan sonra aşağıdaki ek adımları tamamlayın:
+Bkz: [hizmet sorumlusu - Azure portal'ı oluşturma](../active-directory/develop/howto-create-service-principal-portal.md) ve [sunucu yöneticisi rolüne hizmet sorumlusu ekleme](analysis-services-addservprinc-admins.md) bir hizmet sorumlusu ayarlamak ve Azure AS gerekli izinler atama hakkında daha fazla bilgi . Adımları tamamladıktan sonra aşağıdaki ek adımları tamamlayın:
 
 1.  Kod örneğinde, bulma **dize yetkilisi =...** , değiştirin **ortak** kuruluşunuzun ile Kiracı kimliği.
 2.  Yorum ClientCredential sınıf kimlik bilgileri nesnesinin örneğini oluşturmak için kullanılan şekilde açıklamasını kaldırın. Olun \<uygulama kimliği > ve \<uygulama anahtarı > değerleri güvenli bir şekilde erişilebilir veya sertifika tabanlı kimlik doğrulaması için hizmet sorumluları kullanın.

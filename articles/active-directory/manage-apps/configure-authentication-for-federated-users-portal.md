@@ -13,18 +13,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/08/2018
 ms.author: barbkess
-ms.openlocfilehash: f24be44b00f9c4e789e8d4797f6a0516dcfe940f
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: f9cd761080bc5098d0500841e7327ac8ce9f9a2d
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39494066"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49957947"
 ---
 # <a name="configure-azure-active-directory-sign-in-behavior-for-an-application-by-using-a-home-realm-discovery-policy"></a>Bir giriş bölgesi bulma ilke kullanarak Azure Active Directory oturum davranışı bir uygulama için yapılandırma
 
 Aşağıdaki belge Federasyon kullanıcıları için Azure Active Directory kimlik doğrulama davranışı yapılandırmak için bir giriş sağlar.   Federasyon etki alanlarındaki kullanıcılar için otomatik hızlandırmayı ve kimlik doğrulama kısıtlamaları yapılandırılmasını kapsar.
 
-## <a name="home-realm-discovery"></a>Giriş bölgesi bulma
+## <a name="home-realm-discovery"></a>Giriş Bölgesi Bulma
 Giriş bölgesi bulma (HRD) oturum açma zaman Azure Active Directory'de (bir kullanıcının kimliğini doğrulamak gereken yere belirlemek için Azure AD) sağlayan işlemidir.  Bunlar, bir kullanıcı bir kaynağa erişmek için Azure AD kiracısı veya Azure AD genel oturum açma sayfasında oturum açtığında, kullanıcı adı (UPN) yazın. Azure AD, kullanıcının oturum açmak gereken yere bulmak için kullanır. 
 
 Kullanıcı, aşağıdaki konumlardan birine doğrulanmasını alınması gerekebilir:
@@ -263,4 +263,4 @@ Get-AzureADPolicyAppliedObject -ObjectId <ObjectId of the Policy>
 ## <a name="next-steps"></a>Sonraki adımlar
 - Kimlik doğrulaması Azure AD'de nasıl çalıştığı hakkında daha fazla bilgi için bkz. [Azure AD için kimlik doğrulama senaryoları](../develop/authentication-scenarios.md).
 - Kullanıcı çoklu oturum açma hakkında daha fazla bilgi için bkz: [uygulama erişimi ve Azure Active Directory ile çoklu oturum açma](configure-single-sign-on-portal.md).
-- Ziyaret [Active Directory Geliştirici Kılavuzu](../develop/azure-ad-developers-guide.md) Geliştirici ile ilgili tüm içeriği genel bakış.
+- Ziyaret [Active Directory Geliştirici Kılavuzu](../develop/v1-overview.md) Geliştirici ile ilgili tüm içeriği genel bakış.

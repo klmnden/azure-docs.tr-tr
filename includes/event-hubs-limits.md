@@ -8,17 +8,18 @@ ms.topic: include
 ms.date: 02/26/2018
 ms.author: sethm
 ms.custom: include file
-ms.openlocfilehash: ab4c5b98ed9f6fcc8c271797db2d81dcc7ec4449
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: a49ce4e997a21e0db707c851f5ea46817bcb642e
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38756118"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49960207"
 ---
 Aşağıdaki tabloda için belirli sınırları ve kotalar listeler [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/). Event Hubs fiyatlandırması hakkında daha fazla bilgi için bkz: [Event Hubs fiyatlandırması](https://azure.microsoft.com/pricing/details/event-hubs/).
 
 | Sınır | Kapsam | Notlar | Değer |
 | --- | --- | --- | --- | --- |
+| Event Hubs ad alanlarını başına abonelik sayısı |Abonelik |- |1000 |
 | Event hubs ad alanı başına sayısı |Ad Alanı |Yeni bir olay hub'ı oluşturmak için sonraki istekler reddedilir. |10 |
 | Olay hub'ı başına bölüm sayısı |Varlık |- |32 |
 | Her olay hub'ı tüketici grubu sayısı |Varlık |- |20 |

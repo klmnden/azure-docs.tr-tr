@@ -6,14 +6,14 @@ author: adigan
 manager: Nkolli1
 ms.service: backup
 ms.topic: conceptual
-ms.date: 09/29/2016
+ms.date: 10/18/2018
 ms.author: adigan
-ms.openlocfilehash: 7331b1c99425500b58d186cedab1e83dd20e3684
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: b3b4d42d9a48d02639019f815cbf4fca15060771
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49389828"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49946054"
 ---
 # <a name="back-up-a-sharepoint-farm-to-azure"></a>Bir SharePoint grubunu Azure’a yedekleme
 Microsoft Azure'a çok diğer veri kaynaklarını yedekleme aynı şekilde, System Center Data Protection Manager (DPM) kullanarak bir SharePoint grubunu yedekleme. Azure Backup, yedekleme zamanlaması günlük oluşturmak için esneklik sağlar, haftalık, aylık veya yıllık yedekleme işaret ve çeşitli yedekleme noktaları için bekletme ilkesi seçenekleri sunar. DPM, Hızlı Kurtarma süresi hedeflerini (RTO) için yerel disk kopyaları depolamak ve ekonomik, uzun süreli saklama için azure'a kopyaları depolamak için yeteneği sağlar.
@@ -29,7 +29,7 @@ Azure yedekleme DPM için aşağıdaki senaryoları destekler:
 Bir SharePoint grubunu Azure'da yedekleme önce onaylamak için gereken birkaç nokta vardır.
 
 ### <a name="prerequisites"></a>Önkoşullar
-Devam etmeden önce tüm karşıladığınızdan emin olun [Microsoft Azure Backup'ı kullanma önkoşulları](backup-azure-dpm-introduction.md#prerequisites) iş yüklerini korumak için. Önkoşullar için bazı görevler aşağıdakileri içerir: bir yedekleme kasası oluşturun, kasa kimlik bilgilerini indirin, Azure Backup aracısını yükleyin ve DPM/Azure Backup sunucusu, kasa ile kaydeder.
+Devam etmeden önce tüm karşıladığınızdan emin olun [Microsoft Azure Backup'ı kullanma önkoşulları](backup-azure-dpm-introduction.md#prerequisites-and-limitations) iş yüklerini korumak için. Önkoşullar için bazı görevler aşağıdakileri içerir: bir yedekleme kasası oluşturun, kasa kimlik bilgilerini indirin, Azure Backup aracısını yükleyin ve DPM/Azure Backup sunucusu, kasa ile kaydeder.
 
 ### <a name="dpm-agent"></a>DPM Aracısı
 DPM Aracısı, SharePoint, SQL Server çalıştıran sunuculara ve SharePoint grubunun parçası olan diğer tüm sunucular çalıştıran sunucuya yüklenmelidir. Koruma aracısını ayarlama hakkında daha fazla bilgi için bkz: [Kurulum koruma aracısını](https://technet.microsoft.com/library/hh758034\(v=sc.12\).aspx).  Yalnızca bir tek bir web ön uç (WFE) sunucusuna aracı yükleme istisnadır. DPM, aracı yalnızca, koruma için giriş noktası olarak hizmet verecek bir WFE sunucusunda gerektirir.

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 04/18/2018
 ms.author: danlep
-ms.openlocfilehash: 1347d3aac01c62040c164eee22c7a905b07e8236
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: 67f8b49cd2205403dec8843beebb92c9f41f6e37
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48816980"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49955805"
 ---
 # <a name="authenticate-batch-service-solutions-with-active-directory"></a>Batch hizmeti çözümlerinin Active Directory ile kimlik doğrulaması
 
@@ -374,7 +374,7 @@ Açmak için hizmet sorumlusu kimlik bilgileri kullanın. bir **BatchServiceClie
 
 * Azure AD hakkında daha fazla bilgi edinmek için [Azure Active Directory belgeleri](https://docs.microsoft.com/azure/active-directory/). ADAL kullanan gösteren ayrıntılı örnekler kullanılabilir [Azure Kod örnekleri](https://azure.microsoft.com/resources/samples/?service=active-directory) kitaplığı.
 
-* Hizmet sorumluları hakkında daha fazla bilgi için bkz. [uygulaması ve Azure Active Directory'de Hizmet sorumlusu nesneleri](../active-directory/develop/app-objects-and-service-principals.md). Azure portalını kullanarak bir hizmet sorumlusu oluşturmak için bkz: [Active Directory kaynaklarına erişmek uygulama ve hizmet sorumlusu oluşturmak için portalı kullanma](../resource-group-create-service-principal-portal.md). Ayrıca, PowerShell veya Azure CLI ile hizmet sorumlusu oluşturabilirsiniz.
+* Hizmet sorumluları hakkında daha fazla bilgi için bkz. [uygulaması ve Azure Active Directory'de Hizmet sorumlusu nesneleri](../active-directory/develop/app-objects-and-service-principals.md). Azure portalını kullanarak bir hizmet sorumlusu oluşturmak için bkz: [Active Directory kaynaklarına erişmek uygulama ve hizmet sorumlusu oluşturmak için portalı kullanma](../active-directory/develop/howto-create-service-principal-portal.md). Ayrıca, PowerShell veya Azure CLI ile hizmet sorumlusu oluşturabilirsiniz.
 
 * Batch yönetimi uygulamaları Azure AD kullanarak kimlik doğrulaması yapmak için bkz: [Active Directory ile kimlik doğrulaması Batch yönetimi çözümleri](batch-aad-auth-management.md).
 

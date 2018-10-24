@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/19/2018
 ms.author: mcollier
 ms.component: ''
-ms.openlocfilehash: 9524d471388e69166191b6197fb295532b068092
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: 59e7ac5e2da733724c047f6842561ce87fb495bb
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39390563"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49955314"
 ---
 # <a name="azure-monitoring-rest-api-walkthrough"></a>Azure REST API izleme Kılavuzu
 Bu makalede kodunuzu kullanabilmeniz için kimlik doğrulaması yapma gösterilmektedir [Microsoft Azure İzleyici REST API Başvurusu](https://msdn.microsoft.com/library/azure/dn931943.aspx).         
@@ -25,7 +25,7 @@ Azure İzleyici API program aracılığıyla kullanılabilir varsayılan ölçü
 ## <a name="authenticating-azure-monitor-requests"></a>Azure İzleyici kimlik doğrulama istekleri
 İlk adım, isteğin kimliğini sağlamaktır.
 
-Azure İzleyici API'sine karşı yürütülen tüm görevler, Azure Resource Manager kimlik doğrulama modeli kullanın. Bu nedenle, tüm istekleri Azure Active Directory (Azure AD) ile kimlik doğrulaması gerekir. İstemci uygulaması kimlik doğrulaması için bir yaklaşım, Azure AD hizmet sorumlusu oluşturma ve (JWT) kimlik doğrulama belirtecini alma oluşturmaktır. Aşağıdaki örnek betik, Azure AD hizmet sorumlusu PowerShell aracılığıyla oluşturma gösterilmektedir. Daha ayrıntılı bir Rehber için belgelerine başvurun [kaynaklara erişmek için bir hizmet sorumlusu oluşturmak için Azure PowerShell kullanarak](https://docs.microsoft.com/powershell/azure/create-azure-service-principal-azureps). Ayrıca filtrelenebilir [Azure portal aracılığıyla hizmet sorumlusu oluşturma](../azure-resource-manager/resource-group-create-service-principal-portal.md).
+Azure İzleyici API'sine karşı yürütülen tüm görevler, Azure Resource Manager kimlik doğrulama modeli kullanın. Bu nedenle, tüm istekleri Azure Active Directory (Azure AD) ile kimlik doğrulaması gerekir. İstemci uygulaması kimlik doğrulaması için bir yaklaşım, Azure AD hizmet sorumlusu oluşturma ve (JWT) kimlik doğrulama belirtecini alma oluşturmaktır. Aşağıdaki örnek betik, Azure AD hizmet sorumlusu PowerShell aracılığıyla oluşturma gösterilmektedir. Daha ayrıntılı bir Rehber için belgelerine başvurun [kaynaklara erişmek için bir hizmet sorumlusu oluşturmak için Azure PowerShell kullanarak](https://docs.microsoft.com/powershell/azure/create-azure-service-principal-azureps). Ayrıca filtrelenebilir [Azure portal aracılığıyla hizmet sorumlusu oluşturma](../active-directory/develop/howto-create-service-principal-portal.md).
 
 ```PowerShell
 $subscriptionId = "{azure-subscription-id}"

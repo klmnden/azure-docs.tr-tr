@@ -5,14 +5,14 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 08/29/2018
+ms.date: 10/23/2018
 ms.author: cherylmc
-ms.openlocfilehash: 101dec93713983e5f2082a59103288fcda346740
-ms.sourcegitcommit: 3150596c9d4a53d3650cc9254c107871ae0aab88
+ms.openlocfilehash: 6b4cce641556a290111db530c0089e4da0a351c8
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47419313"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49958440"
 ---
 # <a name="expressroute-faq"></a>ExpressRoute SSS
 
@@ -246,7 +246,7 @@ REST API'si veya PowerShell cmdlet'ini kullanarak ExpressRoute bağlantı hattı
 ExpressRoute premium, aşağıdaki özellikler koleksiyonudur:
 
 * Yönlendirme tablosu sınırından 4000 yolların özel eşdüzey hizmet sağlama için 10.000 yollar artırdık.
-* Artırılmış ExpressRoute işlem hattına bağlı sanal ağlar sayısı (varsayılan: 10). Daha fazla bilgi için [ExpressRoute sınırları](#limits) tablo.
+* Artırılmış ExpressRoute bağlantı hattı üzerinde etkin sanal ağlar ve ExpressRoute Global erişim bağlantı sayısı (varsayılan: 10). Daha fazla bilgi için [ExpressRoute sınırları](#limits) tablo.
 * Office 365 ve Dynamics 365 bağlantısı.
 * Microsoft Çekirdek ağı üzerinden genel bağlantı. Artık jeopolitik bir bölgedeki bir sanal ağ ile ExpressRoute bağlantı hattına başka bir bölgede de bağlayabilirsiniz.<br>
     **Örnekler:**
@@ -255,9 +255,9 @@ ExpressRoute premium, aşağıdaki özellikler koleksiyonudur:
     *  İçin örneğin, SQL Azure Batı Avrupa, Silikon vadisi, bağlantı hattı bağlantı kurabilirsiniz olacak şekilde Microsoft eşlemesi, diğer coğrafi bölgelerdeki ön eklerin tanıtılıp.
 
 
-### <a name="limits"></a>Ben ExpressRoute premium etkinleştirilirse kaç sanal ağlar miyim ExpressRoute devresine bağlayabilir miyim?
+### <a name="limits"></a>Ben ExpressRoute premium etkinleştirilirse kaç sanal ağlar ve ExpressRoute Global erişim bağlantılarını ExpressRoute devresi etkinleştirebilirim?
 
-Aşağıdaki tablolarda, ExpressRoute sınırları ve ExpressRoute bağlantı hattı başına Vnet sayısı gösterilmektedir:
+Aşağıdaki tablolar ExpressRoute sınırları ve ExpressRoute bağlantı hattı başına sanal ağlar ve ExpressRoute Global erişim bağlantı sayısını gösterir:
 
 [!INCLUDE [ExpressRoute limits](../../includes/expressroute-limits.md)]
 

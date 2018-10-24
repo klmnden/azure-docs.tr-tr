@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/13/2017
+ms.date: 10/23/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: beac96629ef2cc0cbbe8644929e7e0cc7c97a243
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 800fcc131cc6dc7b86444a00d60ad6c52599d334
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48044357"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49955119"
 ---
 # <a name="configure-collection-of-azure-paas-resource-metrics-with-log-analytics"></a>Log Analytics ile Azure PaaS kaynak ölçümleri koleksiyonunu yapılandırma
 
@@ -42,7 +42,7 @@ Devam etmeden önce bilgisayarınızda yüklü aşağıdaki Azure Resource Manag
 Azure Resource Manager modüllerini en son sürümünü bilgisayarınıza yüklemek için bkz: [Azure PowerShell'i yükleme ve yapılandırma](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-4.4.1#update-azps).  
 
 ## <a name="enable-azure-diagnostics"></a>Azure tanılamayı etkinleştirin  
-PaaS kaynakları Azure tanılamayı yapılandırma gerçekleştirilir betik yürüterek **etkinleştir AzureRMDiagnostics.ps1**, kullanılabilir olduğu [PowerShell Galerisi](https://www.powershellgallery.com/packages/Enable-AzureRMDiagnostics/2.52/DisplayScript).  Betik aşağıdaki senaryoları destekler:
+PaaS kaynakları Azure tanılamayı yapılandırma gerçekleştirilir betik yürüterek **etkinleştir AzureRMDiagnostics.ps1**, kullanılabilir olduğu [PowerShell Galerisi](https://www.powershellgallery.com/packages/Enable-AzureRMDiagnostics/2.52).  Betik aşağıdaki senaryoları destekler:
   
 * Bir Abonelikteki bir veya daha fazla kaynak grupları ilgili kaynak belirtme  
 * Belirli bir kaynak grubu bir abonelik için ilgili bir kaynak belirtme  

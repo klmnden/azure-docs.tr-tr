@@ -4,15 +4,15 @@ description: Azure geçişi, Toplayıcı gerecini hakkında bilgi sağlar.
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 09/28/2018
+ms.date: 10/23/2018
 ms.author: snehaa
 services: azure-migrate
-ms.openlocfilehash: b79045e54b9c2ee4846f2216704a419e0ff85501
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 3c40fd97540d8529c95c7d18d2c3155dd37717e9
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47434441"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49945425"
 ---
 # <a name="about-the-collector-appliance"></a>Toplayıcı gerecini hakkında
 
@@ -170,7 +170,7 @@ OVA yeniden indirmeden Toplayıcı en son sürüme yükseltebilirsiniz.
 Toplayıcı gerecini bulma, tek seferlik veya sürekli bulma için kullanabileceğiniz iki yöntem vardır.
 
 
-### <a name="one-time-discovery"></a>Tek seferlik bulma
+### <a name="one-time-discovery"></a>Tek seferlik keşif
 
 Toplayıcı, bir kerelik vCenter sanal makineleri ile ilgili meta verileri toplamak için sunucu ile iletişim kurar. Bu yöntemi kullanarak:
 
@@ -179,17 +179,23 @@ Toplayıcı, bir kerelik vCenter sanal makineleri ile ilgili meta verileri topla
 - Bu keşif yöntemi için üçüncü düzey için vcenter Server istatistik ayarları ayarlamanız gerekir.
 - Düzeyi üç ayarladıktan sonra bunu bir gün için performans sayaçlarını oluşturmak için kapladığı. Bu nedenle, bir günün ardından bulma çalıştırırken öneririz.
 - Bir VM için performans verilerini toplamak, Gereci vCenter Server'da depolanan geçmiş performans verilerini kullanır. Bu performans geçmişi için geçtiğimiz ay toplar.
-- Azure geçişi, her bir ölçüm için ortalama bir sayaç (yoğun sayacı yerine) toplar.
+- Azure geçişi içinde eksik boyutlandırma neden olabilir her bir ölçüm için ortalama sayaçları (yoğun sayacı yerine) toplar.
 
-### <a name="continuous-discovery"></a>Sürekli bulma
+### <a name="continuous-discovery"></a>Sürekli keşif
 
-Toplayıcı gerecini sürekli olarak Azure geçişi projesine bağlıdır.
+Toplayıcı gerecini sürekli olarak Azure geçişi projesine bağlı olan ve sürekli olarak VM'lerin performans verilerini toplar.
 
 - Toplayıcı, gerçek zamanlı kullanım verilerine her 20 saniyede toplamak için şirket içi ortamı sürekli olarak profilleri.
 - Bu model, performans verilerini toplamak için vCenter Server istatistik ayarları üzerinde bağımlı değildir.
 - Gereç 20 saniye örneklerini yapar ve her 15 dakikada bir tek veri noktası oluşturur.
 - Verileri oluşturmak için Gereci noktası en yüksek değeri 20 saniye örnekleri seçer ve Azure'a gönderir.
 - Sürekli, dilediğiniz zaman Toplayıcı profil oluşturma durdurabilirsiniz.
+
+Gereç yalnızca performans verilerinin sürekli olarak toplar, şirket içi ortamda (yani VM ekleme, silme, disk ekleme vb.) herhangi bir yapılandırma değişikliği algılamaz dikkat edin. Bir yapılandırma değişikliği şirket içi ortamda ise portalındaki değişiklikleri yansıtacak şekilde aşağıdakileri yapabilirsiniz:
+
+1. Ayrıca öğeleri (VM'ler, diskler ve çekirdek vb.): Azure portalında bu değişiklikleri yansıtacak şekilde, gereç keşiften durdurun ve yeniden başlatın. Bunun, Azure geçişi projesinde değişiklikler güncelleştirildiğinden emin olmanızı sağlar.
+
+2. VM silme: bulma durdurup olsa bile gereç tasarlanmıştır yöntemi nedeniyle VM silme yansıtılmaz. Sonraki bulma verilerinden eski bulmalarına eklenir ve geçersiz olmasıdır. Bu durumda, yalnızca Portalı'nda VM grubunuzdan kaldırarak ve değerlendirmeyi yeniden hesaplama yok sayabilirsiniz.
 
 > [!NOTE]
 > Sürekli bulma işlevi Önizleme aşamasındadır. Düzey 3 vCenter Server istatistik ayarları ayarlanmamış ise bu yöntem kullanmanızı öneririz.
@@ -241,8 +247,8 @@ virtualDisk.read.average | 2 | 2 | Disk boyutu, depolama maliyeti, VM boyutunu h
 virtualDisk.write.average | 2 | 2  | Disk boyutu, depolama maliyeti, VM boyutunu hesaplar
 virtualDisk.numberReadAveraged.average | 1 | 3 |  Disk boyutu, depolama maliyeti, VM boyutunu hesaplar
 virtualDisk.numberWriteAveraged.average | 1 | 3 |   Disk boyutu, depolama maliyeti, VM boyutunu hesaplar
-NET.Received.average | 2 | 3 |  VM boyutu ve ağ maliyeti hesaplar                        |
-NET.transmitted.average | 2 | 3 | VM boyutu ve ağ maliyeti hesaplar    
+NET.Received.average | 2 | 3 |  VM boyutunu hesaplar                          |
+NET.transmitted.average | 2 | 3 | VM boyutunu hesaplar     
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

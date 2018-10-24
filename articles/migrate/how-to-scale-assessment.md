@@ -4,14 +4,14 @@ description: Azure geçişi hizmetini kullanarak şirket içi makinelerin çok s
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 09/10/2018
+ms.date: 10/23/2018
 ms.author: raynew
-ms.openlocfilehash: 5f02393e6c8d5e094443e418b3fe7439d73ff837
-ms.sourcegitcommit: 465ae78cc22eeafb5dfafe4da4b8b2138daf5082
+ms.openlocfilehash: 6809c0e56fe55c7962ae273db0b5ac4335089df1
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44325031"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49945867"
 ---
 # <a name="discover-and-assess-a-large-vmware-environment"></a>Büyük bir VMware ortamını bulma ve değerlendirme
 
@@ -31,7 +31,7 @@ Azure Geçişi’nin, değerlendirme amacıyla VM’leri otomatik olarak bulmas�
 - Kullanıcı türü: En azından salt okunur bir kullanıcı
 - İzinler: Veri Merkezi nesnesi –> Alt Nesneye Yay, rol=Salt okunur
 - Ayrıntılar: Veri merkezi düzeyinde atanmış ve veri merkezindeki tüm nesnelere erişimi olan kullanıcı.
-- Erişimi kısıtlamak için alt nesnelere (vSphere konakları, veri depoları, VM'ler ve ağlar) alt nesneye yay ile erişim yok rolünü atayın.
+- Erişimi kısıtlamak için Alt nesneye yay ile Erişim yok rolünü alt nesnelere (vSphere konakları, veri depoları, VM’ler ve ağlar) atayın.
 
 Bir kiracı ortamda dağıtıyorsanız, bunu ayarlamak için yöntemlerinden biri aşağıda verilmiştir:
 
@@ -120,14 +120,14 @@ Azure Geçişi, toplayıcı gereci olarak bilinen bir şirket içi VM oluşturur
 Birden çok proje varsa, vCenter Server'a yalnızca bir kez Toplayıcı gerecini indirin gerekir. İndirin ve gerecini ayarlamak sonra her proje için çalıştırın ve benzersiz proje Kimliğini ve anahtarını belirtin.
 
 1. Azure Geçişi projesinde **Kullanmaya Başlama** > **Bul ve Değerlendir** > **Makineleri Keşfet**’ye tıklayın.
-2. İçinde **makineleri keşfet**Gereci için iki seçenek vardır, tıklayın **indirme** seçeneklerinden uygun Gereci indirmek için.
+2. **Cihazları keşfet**’te, alet için iki seçenek vardır, tercihinize göre uygun aleti indirmek için **İndir**’i tıklayın.
 
-    a. **Tek seferlik:** Bu model için Gereci vCenter sanal makineleri ile ilgili meta verileri toplamak için sunucu ile iletişim kurar. Performans verileri toplama VM'lerin geçmiş performans verileri vCenter Server'da depolanan kullanır ve son bir ayın performans geçmişi toplar. Bu modelde, Azure geçişi toplar (yoğun sayacı) için her bir ölçüm sayaç ortalama, [daha fazla bilgi] (https://docs.microsoft.com/azure/migrate/concepts-collector#what-data-is-collected). Bir kerelik bulma olduğundan, Keşif tamamlandıktan sonra şirket içi ortamda değişiklikler yansıtılmaz. Aynı projeye aynı ortamın bir yeniden bulma yapmak zorunda isterseniz yansıtacak şekilde değişir.
+    a. **Tek seferlik keşif:** Bu model için alet, VM’ler hakkında meta veriler toplamak için vCenter Server ile iletişim kurar. VM’lerin performans verilerinin toplanması için, vCenter Server’da depolanan geçmiş performans verilerine dayanır ve son bir ayın performans geçmişini toplar. Bu modelde, Azure Geçişi her ölçüm için ortalama sayacı (en yüksek sayaca karşı) toplar, [daha fazla bilgi edinin] (https://docs.microsoft.com/azure/migrate/concepts-collector#what-data-is-collected). Bir kerelik bulma olduğundan, Keşif tamamlandıktan sonra şirket içi ortamda değişiklikler yansıtılmaz. Değişikliklerin yansıtılmasını istiyorsanız, aynı ortamın yeniden keşfetmeniz gerekir.
 
-    b. **Sürekli bulma:** Gereci Bu model için her VM için gerçek zamanlı kullanım verilerini toplamak için şirket içi ortamı sürekli olarak profilleri. Bu modelde, yoğun sayaçlar her ölçümü (CPU kullanımı, bellek kullanımı vb.) için toplanır. Bu model için performans verilerini toplama vCenter Server'ın istatistik ayarları, bağlı değildir. Sürekli dilediğiniz zaman Gereci profil oluşturma durdurabilirsiniz.
+    b. **Sürekli keşif:** Bu model için alet, her VM’nin gerçek zamanlı kullanım verilerini toplamak amacıyla sürekli şirket içi ortamın profilini oluşturur. Bu modelde her ölçüm için en yüksek sayaçlar toplanır (CPU kullanımı, bellek kullanımı vb.). Bu model, performans verilerinin toplanması için vCenter Server’ın istatistik ayarlarına bağlı değildir. Sürekli profil oluşturmayı aletten istediğiniz zaman durdurabilirsiniz.
 
     > [!NOTE]
-    > Sürekli bulma işlevi Önizleme aşamasındadır.
+    > Sürekli keşif işlevi önizleme aşamasındadır.
 
 3. İçinde **proje kimlik bilgilerini kopyalama**, kopya kimliği ve anahtarı için proje. Toplayıcıyı yapılandırırken bu bilgilere ihtiyaç duyarsınız.
 
@@ -146,9 +146,19 @@ OVA dosyasını dağıtmadan önce güvenli olup olmadığını denetleyin:
 
 3. Oluşturulan karma aşağıdaki ayarları eşleştiğinden emin olun.
 
-#### <a name="one-time-discovery"></a>Tek seferlik bulma
+#### <a name="one-time-discovery"></a>Tek seferlik keşif
 
-OVA sürüm 1.0.9.14
+<<<<<<< HEAD için OVA sürüm 1.0.9.15 (23/10/2018 tarihinde serbest bırakılmış)
+
+ <a name="algorithm--hash-value"></a>**Algoritma** | **karma değeri**
+=======
+OVA sürüm 1.0.9.15
+
+**Algoritma** | **karma değeri**
+>>>>>>> 20dc93529e7c0a4d17f2f4524752b5e2bead4e37---| ---MD5 | e9ef16b0c837638c506b5fc0ef75ebfa SHA1 | 37b4b1e92b3c6ac2782ff5258450df6686c89864 SHA256 | 8a86fc17f69b69968eb20a5c4c288c194cdcffb4ee6568d85ae5ba96835559ba
+
+<<<<<<< HEAD için OVA sürüm 1.0.9.14 (24/8/2018 tarihinde serbest bırakılmış) === OVA sürüm 1.0.9.14 için
+>>>>>>> 20dc93529e7c0a4d17f2f4524752b5e2bead4e37
 
 **Algoritma** | **Karma değeri**
 --- | ---
@@ -180,9 +190,9 @@ MD5 | d5b6a03701203ff556fa78694d6d7c35
 SHA1 | f039feaa10dccd811c3d22d9a59fb83d0b01151e
 SHA256 | e5e997c003e29036f62bf3fdce96acd4a271799211a84b34b35dfd290e9bea9c
 
-#### <a name="continuous-discovery"></a>Sürekli bulma
+#### <a name="continuous-discovery"></a>Sürekli keşif
 
-OVA sürüm 1.0.10.4
+OVA sürüm 1.0.10.4 için
 
 **Algoritma** | **Karma değeri**
 --- | ---
@@ -275,11 +285,11 @@ Gerçekleştirmeniz gereken her bulma için gerekli kapsam içindeki Vm'leri bul
 
 #### <a name="verify-vms-in-the-portal"></a>VM’lerin portalda olup olmadığını doğrulama
 
-Tek seferlik bulma için kaç VM bulma süresi bağlıdır bulduğunuza. Genellikle, Toplayıcı çalışmayı durdurduktan sonra 100 VM için yaklaşık bir saat tamamlamak yapılandırma ve performans verileri toplama alır. Değerlendirmeler (performans tabanlı ve şirket içi değerlendirmeleri olarak) hemen oluşturabilirsiniz bulma tamamlandıktan sonra.
+Tek seferlik keşif için, bulma süresi kaç VM bulduğunuza bağlıdır. Genellikle, Toplayıcı çalışmayı durdurduktan sonra 100 VM için yaklaşık bir saat tamamlamak yapılandırma ve performans verileri toplama alır. Keşif bittikten hemen sonra değerlendirmeler (hem performansa dayalı hem de şirket içi değerlendirmeler halinde) oluşturabilirsiniz.
 
-Sürekli bulma (önizlemede), Toplayıcı sürekli olarak şirket içi ortamda profil ve performans verilerini bir saatlik zaman aralığı içinde göndermeye devam. Keşif başlatılmadan bir saat sonra portalında makineleri gözden geçirebilirsiniz. VM'ler için herhangi bir performans temel alan değerlendirmeleri oluşturmadan önce en az bir gün için beklenecek önemle tavsiye edilir.
+Sürekli keşif için (önizlemede), toplayıcı şirket içi ortamın sürekli profilini oluşturur ve performans verilerini bir saatlik aralıklarla göndermeye devam eder. Keşfin başlamasından bir saat sonra makineleri portalda inceleyebilirsiniz. VM’ler için performansa dayalı değerlendirmeler oluşturmadan önce en az bir gün beklemeniz önerilir.
 
-1. Geçiş proje tıklayın **Yönet** > **makineler**.
+1. Geçiş projesinde **Yönet** > **Makineler**’e tıklayın.
 2. Bulmak istediğiniz VM’lerin portalda görüntülenip görüntülenmediğini kontrol edin.
 
 

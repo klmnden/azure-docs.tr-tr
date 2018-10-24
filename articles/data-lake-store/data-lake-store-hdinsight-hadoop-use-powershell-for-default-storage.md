@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: 345741a027317ed0ec347bc15334daeb11a9828c
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 6100a77d3c0bd1ac5e012651f1e7d359c4c67443
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46123989"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49954462"
 ---
 # <a name="create-hdinsight-clusters-with-azure-data-lake-storage-gen1-as-default-storage-by-using-powershell"></a>Varsayılan depolama alanı olarak Azure Data Lake depolama Gen1 ile PowerShell kullanarak HDInsight kümeleri oluşturma
 
@@ -47,7 +47,7 @@ Bu öğreticiye başlamadan önce aşağıdaki gereksinimleri karşıladığınd
 * **Azure Active Directory Hizmet sorumlusu**: Bu öğretici, Azure Active Directory (Azure AD) bir hizmet sorumlusu oluşturmak açıklar. Ancak, bir hizmet sorumlusu oluşturmak için Azure AD yönetici olmanız gerekir. Bir yöneticiyseniz, bu önkoşulu atlayabilirsiniz ve öğreticiyle devam edin.
 
     >[!NOTE]
-    >Yalnızca bir Azure AD Yöneticisi olduğunuz bir hizmet sorumlusu oluşturabilirsiniz. Azure AD yöneticinizin bir HDInsight kümesi ile Data Lake depolama Gen1 oluşturabilmeniz için önce bir hizmet sorumlusu oluşturmanız gerekir. Bölümünde anlatıldığı gibi bir sertifika ile hizmet sorumlusu oluşturulmalıdır [sertifika ile hizmet sorumlusu oluşturma](../azure-resource-manager/resource-group-authenticate-service-principal.md#create-service-principal-with-certificate-from-certificate-authority).
+    >Yalnızca bir Azure AD Yöneticisi olduğunuz bir hizmet sorumlusu oluşturabilirsiniz. Azure AD yöneticinizin bir HDInsight kümesi ile Data Lake depolama Gen1 oluşturabilmeniz için önce bir hizmet sorumlusu oluşturmanız gerekir. Bölümünde anlatıldığı gibi bir sertifika ile hizmet sorumlusu oluşturulmalıdır [sertifika ile hizmet sorumlusu oluşturma](../active-directory/develop/howto-authenticate-service-principal-powershell.md#create-service-principal-with-certificate-from-certificate-authority).
     >
 
 ## <a name="create-a-data-lake-storage-gen1-account"></a>Bir Data Lake depolama Gen1 hesabı oluşturun
