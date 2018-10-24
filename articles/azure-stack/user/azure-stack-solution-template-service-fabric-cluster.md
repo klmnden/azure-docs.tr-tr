@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 09/12/2018
-ms.author: mattbriggs
+ms.date: 10/22/2018
+ms.author: mabrigg
 ms.reviewer: shnatara
-ms.openlocfilehash: d402b2bcd5187cbb6ece78d7e981068c279c1f75
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 0b5f7442604dd31f730b0105d19231407e2b6f1a
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48804438"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49946122"
 ---
 # <a name="deploy-a-service-fabric-cluster-in-azure-stack"></a>Azure Stack'te bir Service Fabric kümesine dağıtma
 
@@ -48,7 +48,7 @@ Service Fabric kümesine dağıtmak için aşağıdakiler gereklidir:
 
 
 ## <a name="add-a-secret-to-key-vault"></a>Key Vault’a gizli dizi ekleme
-Bir Service Fabric kümesi dağıtmayı doğru anahtar kasası belirtin *gizli dizi tanımlayıcısı* veya Service Fabric kümesi için URL. Azure Resource Manager şablonu, bir anahtar kasası giriş olarak alır ve ardından Service Fabric kümesine yüklemesi sırasında küme sertifikası alır. 
+Bir Service Fabric kümesi dağıtmayı doğru anahtar kasası belirtin *gizli dizi tanımlayıcısı* veya Service Fabric kümesi için URL. Azure Resource Manager şablonu bir KeyVault girdi olarak alır. Ardından şablonu, Service Fabric kümesine yüklerken küme sertifikası alır.
 
 > [!IMPORTANT]  
 > Service Fabric ile kullanılmak için KeyVault gizli dizi eklemek için PowerShell kullanmanız gerekir. Portal kullanmayın.  
@@ -139,7 +139,7 @@ Daha fazla bilgi için [yönetme anahtar kasası PowerShell ile Azure Stack'te](
    - Kaynak Key Vault: tüm belirtin *keyVault kimliği* betik sonuçlarını dizeden. 
    - Küme sertifikası URL'si: tüm URL'den belirtin *gizli kimliği* betik sonuçlarından. 
    - Küme sertifikası parmak izi: belirtin *küme sertifikası parmak izi* betik sonuçlarından.
-   - Yönetici istemci sertifikası parmak izleri: Belirtin *yönetici istemci sertifikası parmak izi* önkoşullarda oluşturdunuz. 
+   - Yönetici istemci sertifikası parmak izleri: Belirtin *yönetici istemci sertifikası parmak izi* önkoşullarda oluşturulur. 
 
    ![Betik çıktısı](media/azure-stack-solution-template-service-fabric-cluster/image5.png)
 

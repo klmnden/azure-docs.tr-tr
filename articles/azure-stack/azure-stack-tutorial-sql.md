@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 10/16/2018
+ms.date: 10/23/2018
 ms.author: jeffgilb
 ms.reviewer: quying
-ms.openlocfilehash: 17f06a08388720c4483ef1c187edf20ec8359121
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 50f5662fa574b512ab607e17dbdfcf1861e2f5c6
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49386392"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49954921"
 ---
 # <a name="tutorial-offer-highly-available-sql-databases"></a>Öğretici: yüksek oranda kullanılabilir SQL veritabanı teklifi
 
@@ -63,30 +63,28 @@ SQL Server AlwaysOn Kullanılabilirlik grubu kullanarak dağıtmak için bu böl
 - Küme için dosya paylaşım tanığı olarak yapılandırılan bir VM (Windows Server 2016)
 - SQL ve dosya paylaşım tanığı Vm'leri içeren bir kullanılabilirlik kümesi  
 
-1. Yönetim portalında oturum açın:
-    - Çözümünüzün bölge ve dış etki alanı adını bir tümleşik sistemi dağıtımı için bir portal adresi göre değişir. Biçiminde olacaktır https://adminportal.&lt; *Bölge*&gt;.&lt; *FQDN*&gt;.
-    - Azure Stack geliştirme Seti'ni (ASDK) kullanıyorsanız, kullanıcı portalı adresidir [ https://adminportal.local.azurestack.external ](https://portal.local.azurestack.external).
+1. 
+[!INCLUDE [azs-admin-portal](../../includes/azs-admin-portal.md)]
 
 2. Seçin **\+** **kaynak Oluştur** > **özel**, ardından **şablon dağıtımı**.
 
-   ![Özel şablon dağıtımı](media/azure-stack-tutorial-sqlrp/custom-deployment.png)
+   ![Özel şablon dağıtımı](media/azure-stack-tutorial-sqlrp/1.png)
 
 
 3. Üzerinde **özel dağıtım** dikey penceresinde **şablonu Düzen** > **Hızlı Başlangıç şablonu** ve sonra kullanılabilir özel şablonlar için aşağı açılan listesini kullanın seçin **sql 2016 alwayson** şablon tıklayın **Tamam**, ardından **Kaydet**.
 
-   ![Hızlı Başlangıç şablonu seçin](./media/azure-stack-tutorial-sqlrp/quickstart-template.png)
-
+   [![](media/azure-stack-tutorial-sqlrp/2-sm.PNG "Hızlı Başlangıç şablonu seçin")](media/azure-stack-tutorial-sqlrp/2-lg.PNG#lightbox)
 
 4. Üzerinde **özel dağıtım** dikey penceresinde **parametreleri Düzenle** ve varsayılan değerleri gözden geçirin. Tüm gerekli parametre bilgilerini sağlayın ve ardından gerektikçe değerleri Değiştir **Tamam**.<br><br> En az:
 
     - Karmaşık parolalar ADMINPASSWORD SQLSERVERSERVICEACCOUNTPASSWORD ve SQLAUTHPASSWORD parametrelerini belirtin.
     - Tümü küçük harf DNSSUFFIX parametresi için geriye doğru arama için DNS sonekini girin (**azurestack.external** ASDK yüklemeleri için).
     
-    ![Özel dağıtım parametreleri](./media/azure-stack-tutorial-sqlrp/edit-parameters.png)
+   [![](media/azure-stack-tutorial-sqlrp/3-sm.PNG "Özel dağıtım parametreleri Düzenle")](media/azure-stack-tutorial-sqlrp/3-lg.PNG#lightbox)
 
 5. Üzerinde **özel dağıtım** dikey penceresinde, yeni bir kaynak grubu oluşturmak ve kullanmak için bir abonelik seçin veya özel dağıtımı için var olan bir kaynak grubunu seçin.<br><br> Ardından, kaynak grubu konumunu seçin (**yerel** ASDK yüklemeleri için) ve ardından **Oluştur**. Özel dağıtım ayarlarını doğrulanır ve ardından dağıtım başlar.
 
-    ![Özel dağıtım parametreleri](./media/azure-stack-tutorial-sqlrp/create-deployment.png)
+    [![](media/azure-stack-tutorial-sqlrp/4-sm.PNG "Özel dağıtım oluşturma")](media/azure-stack-tutorial-sqlrp/4-lg.PNG#lightbox)
 
 
 6. Yönetim portalında **kaynak grupları** ve ardından kaynak grubunun adı için özel dağıtım oluşturduğunuz (**resource-group** Bu örnek için). Tüm dağıtımlar başarıyla tamamladınız emin olmak için dağıtım durumunu görüntüleyin.<br><br>Ardından, kaynak grubu öğeleri gözden geçirin ve seçin **SQLPIPsql\<kaynak grubu adı\>**  genel IP adresi öğesi. Yük dengeleyicinin genel IP tam FQDN'sini ve genel IP adresini kaydedin. Bu SQL AlwaysOn Kullanılabilirlik grubu yararlanarak SQL barındırma sunucusu oluşturmak için bu Azure Stack operatör sağlamanız gerekir.
@@ -94,16 +92,16 @@ SQL Server AlwaysOn Kullanılabilirlik grubu kullanarak dağıtmak için bu böl
    > [!NOTE]
    > Şablon dağıtımı tamamlanması birkaç saat sürebilir.
 
-   ![Özel dağıtım parametreleri](./media/azure-stack-tutorial-sqlrp/deployment-complete.png)
+   ![Özel dağıtım tamamlandı](./media/azure-stack-tutorial-sqlrp/5.png)
 
 ### <a name="enable-automatic-seeding"></a>Otomatik dengeli dağıtımı etkinleştir
 Şablon başarıyla dağıtılan ve SQL AlwaysON kullanılabilirlik grubu yapılandırılmış sonra etkinleştirmelisiniz [otomatik dengeli dağıtımı](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/automatically-initialize-always-on-availability-group) her bir kullanılabilirlik grubundaki SQL Server örneği üzerinde. 
 
 Bir kullanılabilirlik grubunda otomatik dengeli dağıtımı ile oluşturduğunuzda, SQL Server otomatik olarak her veritabanı için ikincil çoğaltma grubundaki herhangi bir el ile müdahale olmadan AlwaysOn veritabanlarını yüksek kullanılabilirliğini sağlamak gerekli oluşturur.
 
-AlwaysOn Kullanılabilirlik grubu için otomatik dengeli dağıtımı yapılandırmak için aşağıdaki SQL komutlarını kullanın.
+AlwaysOn Kullanılabilirlik grubu için otomatik dengeli dağıtımı yapılandırmak için aşağıdaki SQL komutlarını kullanın. Değiştirin \<InstanceName\> birincil ile AlwaysOn Kullanılabilirlik grubu adı gerekli olan SQL Server adını ve < availability_group_name > örneği. 
 
-Birincil SQL örneğinde (Değiştir <InstanceName> birincil örnek SQL Server adı):
+Birincil SQL örneği:
 
   ```sql
   ALTER AVAILABILITY GROUP [<availability_group_name>]
@@ -114,7 +112,7 @@ Birincil SQL örneğinde (Değiştir <InstanceName> birincil örnek SQL Server a
 
 >  ![Birincil SQL örneği betiği](./media/azure-stack-tutorial-sqlrp/sql1.png)
 
-İkincil SQL örneklerinde (AlwaysOn Kullanılabilirlik grubu adıyla değiştirin < availability_group_name >):
+İkincil SQL örnekleri:
 
   ```sql
   ALTER AVAILABILITY GROUP [<availability_group_name>] GRANT CREATE ANY DATABASE
@@ -156,9 +154,8 @@ Sonra SQL kullanılabilirlik grubu oluşturulduğundan, yapılandırılmış ve 
 > [!NOTE]
 > Bu adımları Azure Stack Kullanıcı Portalı'ndan (Microsoft.SQLAdapter hizmeti) SQL Server özellikleriyle bir abonelikle bir kiracı kullanıcı olarak çalıştırın.
 
-1. Kullanıcı portalında oturum açın:
-    - Çözümünüzün bölge ve dış etki alanı adını bir tümleşik sistemi dağıtımı için bir portal adresi göre değişir. Biçiminde olacaktır https://portal.&lt; *Bölge*&gt;.&lt; *FQDN*&gt;.
-    - Azure Stack geliştirme Seti'ni (ASDK) kullanıyorsanız, kullanıcı portalı adresidir [ https://portal.local.azurestack.external ](https://portal.local.azurestack.external).
+1. 
+[!INCLUDE [azs-user-portal](../../includes/azs-user-portal.md)]
 
 2. Seçin **\+** **kaynak Oluştur** > **veri \+ depolama**, ardından **SQL veritabanı**.<br><br>Adı, harmanlama, en büyük boyutunu ve abonelik, kaynak grubunu ve konumu dağıtım için kullanmak da dahil olmak üzere gerekli veritabanı özellik bilgileri sağlar. 
 

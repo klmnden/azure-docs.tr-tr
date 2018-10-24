@@ -13,12 +13,12 @@ ms.topic: tutorial
 ms.date: 10/19/2018
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.openlocfilehash: 82a1d86f31bfb49ff97ec9928dd7ee946144a359
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: aa33db56910871891003866ef62431cfd7095d2a
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49650052"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49954135"
 ---
 # <a name="automate-azure-stack-validation-with-powershell"></a>PowerShell ile Azure Stack doğrulamayı otomatikleştirin
 
@@ -28,9 +28,7 @@ Aşağıdaki iş akışı için PowerShell kullanabilirsiniz:
 
 - Test geçiş
 
-Bu öğreticide, çok bir komut dosyası oluşturmayı öğrenin:
-
-Bu betik, aşağıdaki eylemleri gerçekleştirir:
+Bu öğreticide, bir komut dosyasının nasıl oluşturulacağını öğrenin:
 
 > [!div class="checklist"]
 > * Önkoşulları yükler

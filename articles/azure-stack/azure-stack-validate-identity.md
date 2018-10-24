@@ -15,12 +15,12 @@ ms.topic: get-started-article
 ms.date: 05/08/2018
 ms.author: sethm
 ms.reviewer: ''
-ms.openlocfilehash: 9c7ac89d1f12e8ec033b201f2c2dd845c11486e2
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: a9600d37f76ff56cff26ec7b740a6970e44e7018
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49077826"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49954564"
 ---
 # <a name="validate-azure-identity"></a>Azure kimlik doğrulama 
 Azure Active Directory (Azure AD) Azure Stack ile kullanmak hazır olduğunu doğrulamak için Azure Stack hazırlık Denetleyicisi Aracı (AzsReadinessChecker) kullanın. Azure Stack dağıtıma başlamadan önce Azure kimlik çözümü doğrulayın.  
@@ -62,10 +62,21 @@ Aşağıdaki önkoşulların karşılanması gerekir.
    - Değer AzureEnvironment belirtin *AzureCloud*, *AzureGermanCloud*, veya *AzureChinaCloud*.  
    - Azure Active Directory Kiracınızın değiştirmek için adının belirtin *contoso.onmicrosoft.com*. 
 
-   > `Start-AzsReadinessChecker -AADServiceAdministrator $serviceAdminCredential -AzureEnvironment AzureCloud -AADDirectoryTenantName contoso.onmicrosoft.com`
-4. Aracı çalıştırıldıktan sonra çıkışını gözden geçirin. Durumu doğrulamak **Tamam** hem oturum hem de yükleme gereksinimleri. Başarılı bir doğrulama şu resimdeki gibi görünür: 
+   > `Invoke-AzsAzureIdentityValidation -AADServiceAdministrator $serviceAdminCredential -AzureEnvironment AzureCloud -AADDirectoryTenantName contoso.onmicrosoft.com`
+4. Aracı çalıştırıldıktan sonra çıkışını gözden geçirin. Durumu doğrulamak **Tamam** yükleme gereksinimleri için. Başarılı bir doğrulama şu resimdeki gibi görünür: 
  
-![doğrulamayı Çalıştır](./media/azure-stack-validate-identity/validation.png)
+````PowerShell
+Invoke-AzsAzureIdentityValidation v1.1809.1005.1 started.
+Starting Azure Identity Validation
+
+Checking Installation Requirements: OK
+
+Finished Azure Identity Validation
+
+Log location (contains PII): C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessChecker.log
+Report location (contains PII): C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessCheckerReport.json
+Invoke-AzsAzureIdentityValidation Completed
+````
 
 
 ## <a name="report-and-log-file"></a>Rapor ve günlük dosyası
@@ -86,8 +97,22 @@ Aşağıdaki örnekler, yaygın doğrulama hataları hakkında rehberlik sağlar
 
 ### <a name="expired-or-temporary-password"></a>Süresi dolmuş veya geçici parola 
  
-![Parolanın süresi](./media/azure-stack-validate-identity/expired-password.png)
-**neden** -hesap parolası ya da süresi dolmuş veya geçici olduğundan oturum açamaz.     
+````PowerShell
+Invoke-AzsAzureIdentityValidation v1.1809.1005.1 started.
+Starting Azure Identity Validation
+
+Checking Installation Requirements: Fail 
+Error Details for Service Administrator Account admin@contoso.onmicrosoft.com
+The password for account  has expired or is a temporary password that needs to be reset before continuing. Run Login-AzureRMAccount, login with  credentials and follow the prompts to reset.
+Additional help URL https://aka.ms/AzsRemediateAzureIdentity
+
+Finished Azure Identity Validation
+
+Log location (contains PII): C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessChecker.log
+Report location (contains PII): C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessCheckerReport.json
+Invoke-AzsAzureIdentityValidation Completed
+````
+**Neden** -hesap parolası ya da süresi dolmuş veya geçici olduğundan oturum açamaz.     
 
 **Çözüm** - PowerShell'de aşağıdaki komutu çalıştırın ve ardından parolayı sıfırlamak için istemleri izleyin.  
 > `Login-AzureRMAccount`
@@ -95,13 +120,41 @@ Aşağıdaki örnekler, yaygın doğrulama hataları hakkında rehberlik sağlar
 Alternatif olarak, oturum https://portal.azure.com gibi hesabı ve kullanıcı parolasını değiştirmeye zorlanır.
 ### <a name="unknown-user-type"></a>Bilinmeyen kullanıcı türü 
  
-![Bilinmeyen kullanıcı](./media/azure-stack-validate-identity/unknown-user.png)
-**neden** -hesap belirtilen Azure Active Directory'ye (AADDirectoryTenantName) oturum açamaz. Bu örnekte, *AzureChinaCloud* olarak belirtilen *AzureEnvironment*.
+````PowerShell
+Invoke-AzsAzureIdentityValidation v1.1809.1005.1 started.
+Starting Azure Identity Validation
+
+Checking Installation Requirements: Fail 
+Error Details for Service Administrator Account admin@contoso.onmicrosoft.com
+Unknown user type detected. Check the account  is valid for AzureChinaCloud
+Additional help URL https://aka.ms/AzsRemediateAzureIdentity
+
+Finished Azure Identity Validation
+
+Log location (contains PII): C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessChecker.log
+Report location (contains PII): C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessCheckerReport.json
+Invoke-AzsAzureIdentityValidation Completed
+````
+**Neden** -hesap belirtilen Azure Active Directory'ye (AADDirectoryTenantName) oturum açamaz. Bu örnekte, *AzureChinaCloud* olarak belirtilen *AzureEnvironment*.
 
 **Çözüm** -hesap belirtilen Azure ortam için geçerli olduğunu doğrulayın. PowerShell'de, hesap için belirli bir ortama geçerli olduğunu doğrulamak için aşağıdaki komutu çalıştırın: Login-AzureRmAccount-EnvironmentName AzureChinaCloud 
 ### <a name="account-is-not-an-administrator"></a>Hesap bir yönetici değil 
  
-![Yöneticisi değil](./media/azure-stack-validate-identity/not-admin.png)
+````PowerShell
+Invoke-AzsAzureIdentityValidation v1.1809.1005.1 started.
+Starting Azure Identity Validation
+
+Checking Installation Requirements: Fail 
+Error Details for Service Administrator Account admin@contoso.onmicrosoft.com
+The Service Admin account you entered 'admin@contoso.onmicrosoft.com' is not an administrator of the Azure Active Directory tenant 'contoso.onmicrosoft.com'.
+Additional help URL https://aka.ms/AzsRemediateAzureIdentity
+
+Finished Azure Identity Validation
+
+Log location (contains PII): C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessChecker.log
+Report location (contains PII): C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessCheckerReport.json
+Invoke-AzsAzureIdentityValidation Completed
+````
 
 **Neden** -hesap başarıyla oturum açabilseniz hesap Azure Active Directory (AADDirectoryTenantName) bir yönetici değil.  
 
