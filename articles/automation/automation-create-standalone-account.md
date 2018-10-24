@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 03/15/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 581e9d052738b8e1976a766ea6e3525ecf76d741
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: dc369f5bc3d80a476e45d46cfe25541216484b1c
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49426439"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49958814"
 ---
 # <a name="create-a-standalone-azure-automation-account"></a>Tek başına Azure Otomasyonu hesabı oluşturma
 
@@ -37,7 +37,7 @@ Bu hesapları sizin için oluşturulan, oluşturma ve Otomasyon gerekliliklerini
 Oluşturulacak veya güncelleştirilecek bir Otomasyon hesabı ve bu makalede açıklanan görevleri tamamlamak için aşağıdaki ayrıcalıklara ve izinlere sahip olmalıdır:
 
 * Bir Otomasyon hesabı oluşturmak için Azure AD kullanıcı hesabınızın sahip rolüne eşdeğer izinlere sahip bir role eklenmesi gerekir **Microsoft. Otomasyon** kaynakları. Daha fazla bilgi için [Azure automation'da rol tabanlı erişim denetimi](automation-role-based-access-control.md).
-* Azure portalında altında **Azure Active Directory** > **Yönet** > **uygulama kayıtları**, **uygulama kayıtları**  ayarlanır **Evet**, Azure AD kiracınızdaki yönetici olmayan kullanıcılar [Active Directory uygulamaları kaydetme](../azure-resource-manager/resource-group-create-service-principal-portal.md#check-azure-subscription-permissions). Varsa **uygulama kayıtları** ayarlanır **Hayır**, bu eylemi gerçekleştiren kullanıcının Azure AD'de genel yönetici olması gerekir.
+* Azure portalında altında **Azure Active Directory** > **Yönet** > **uygulama kayıtları**, **uygulama kayıtları**  ayarlanır **Evet**, Azure AD kiracınızdaki yönetici olmayan kullanıcılar [Active Directory uygulamaları kaydetme](../active-directory/develop/howto-create-service-principal-portal.md#check-azure-subscription-permissions). Varsa **uygulama kayıtları** ayarlanır **Hayır**, bu eylemi gerçekleştiren kullanıcının Azure AD'de genel yönetici olması gerekir.
 
 Aboneliğin genel yönetici/Abonelikteki rolüne eklenmeden önce aboneliğin Active Directory örneğine üye değilseniz Active Directory'ye konuk olarak eklenir. Bu senaryoda, bu ileti gördüğünüz **Otomasyon hesabı Ekle** sayfası: "Oluşturma izniniz yok."
 
