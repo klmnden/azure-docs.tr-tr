@@ -13,6 +13,11 @@
 ### [Sanal ağlar](../virtual-network/virtual-network-vnet-plan-design-arm.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [Şirket içi ve dışı bağlantısı - VPN](../vpn-gateway/vpn-gateway-plan-design.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [Şirket içi ve dışı bağlantısı - adanmış özel](../expressroute/expressroute-workflows.md?toc=%2fazure%2fnetworking%2ftoc.json)
+### Arka uç bağlantısı birlikte çalışabilirliği
+#### [Önsöz ve Test Kurulumu](connectivty-interoperability-preface.md?toc=%2fazure%2fnetworking%2ftoc.json)
+#### [Test Kurulumu Yapılandırması](connectivty-interoperability-configuration.md?toc=%2fazure%2fnetworking%2ftoc.json)
+#### [Denetim Düzlemi Analizi](connectivty-interoperability-control-plane.md?toc=%2fazure%2fnetworking%2ftoc.json)
+#### [Veri Düzlemi Analizi](connectivty-interoperability-data-plane.md?toc=%2fazure%2fnetworking%2ftoc.json)
 
 ##  Kavramlar
 ### [Sanal ağlar](../virtual-network/virtual-networks-overview.md?toc=%2fazure%2fnetworking%2ftoc.json)

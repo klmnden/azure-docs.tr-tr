@@ -7,103 +7,101 @@ items:
     href: translator-info-overview.md
 - name: Hızlı Başlangıçlar
   items:
-  - name: C#
+  - name: Metin çevirme
     items:
-    - name: Metin çevirme
+    - name: C#, REST
       href: quickstart-csharp-translate.md
-    - name: Metin betiği dönüştürme
-      href: quickstart-csharp-transliterate.md
-    - name: Metinden dili tanımlama
-      href: quickstart-csharp-detect.md
-    - name: Alternatif çeviriler edinme
-      href: quickstart-csharp-dictionary.md
-    - name: Desteklenen dilleri alma
-      href: quickstart-csharp-languages.md
-    - name: Metinlerdeki cümle uzunluklarını alma
-      href: quickstart-csharp-sentences.md
-  - name: Başlayın
-    items:
-    - name: Metin çevirme
+    - name: Go, REST
       href: quickstart-go-translate.md
-    - name: Metin betiği dönüştürme
-      href: quickstart-go-transliterate.md
-    - name: Metinden dili tanımlama
-      href: quickstart-go-detect.md
-    - name: Alternatif çeviriler edinme
-      href: quickstart-go-dictionary.md
-    - name: Desteklenen dilleri alma
-      href: quickstart-go-languages.md
-    - name: Metinlerdeki cümle uzunluklarını alma
-      href: quickstart-go-sentences.md
-  - name: Java
-    items:
-    - name: Metin çevirme
+    - name: Java, REST
       href: quickstart-java-translate.md
-    - name: Metin betiği dönüştürme
-      href: quickstart-java-transliterate.md
-    - name: Metinden dili tanımlama
-      href: quickstart-java-detect.md
-    - name: Alternatif çeviriler edinme
-      href: quickstart-java-dictionary.md
-    - name: Desteklenen dilleri alma
-      href: quickstart-java-languages.md
-    - name: Metinlerdeki cümle uzunluklarını alma
-      href: quickstart-java-sentences.md
-  - name: Node.js
-    items:
-    - name: Metin çevirme
+    - name: Node.js, REST
       href: quickstart-nodejs-translate.md
-    - name: Metin betiği dönüştürme
-      href: quickstart-nodejs-transliterate.md
-    - name: Metinden dili tanımlama
-      href: quickstart-nodejs-detect.md
-    - name: Alternatif çeviriler edinme
-      href: quickstart-nodejs-dictionary.md
-    - name: Desteklenen dilleri alma
-      href: quickstart-nodejs-languages.md
-    - name: Metinlerdeki cümle uzunluklarını alma
-      href: quickstart-nodejs-sentences.md
-  - name: PHP
-    items:
-    - name: Metin çevirme
+    - name: PHP, REST
       href: quickstart-php-translate.md
-    - name: Metin betiği dönüştürme
-      href: quickstart-php-transliterate.md
-    - name: Metinden dili tanımlama
-      href: quickstart-php-detect.md
-    - name: Alternatif çeviriler edinme
-      href: quickstart-php-dictionary.md
-    - name: Desteklenen dilleri alma
-      href: quickstart-php-languages.md
-    - name: Metinlerdeki cümle uzunluklarını alma
-      href: quickstart-php-sentences.md
-  - name: Python
-    items:
-    - name: Metin çevirme
+    - name: Python, REST
       href: quickstart-python-translate.md
-    - name: Metin betiği dönüştürme
-      href: quickstart-python-transliterate.md
-    - name: Metinden dili tanımlama
-      href: quickstart-python-detect.md
-    - name: Alternatif çeviriler edinme
-      href: quickstart-python-dictionary.md
-    - name: Desteklenen dilleri alma
-      href: quickstart-python-languages.md
-    - name: Metinlerdeki cümle uzunluklarını alma
-      href: quickstart-python-sentences.md
-  - name: Ruby
-    items:
-    - name: Metin çevirme
+    - name: Ruby, REST
       href: quickstart-ruby-translate.md
-    - name: Metin betiği dönüştürme
+  - name: Metni başka dildi yazma
+    items:
+    - name: C#, REST
+      href: quickstart-csharp-transliterate.md
+    - name: Go, REST
+      href: quickstart-go-transliterate.md
+    - name: Java, REST
+      href: quickstart-java-transliterate.md
+    - name: Node.js, REST
+      href: quickstart-nodejs-transliterate.md
+    - name: PHP, REST
+      href: quickstart-php-transliterate.md
+    - name: Python, REST
+      href: quickstart-python-transliterate.md
+    - name: Ruby, REST
       href: quickstart-ruby-transliterate.md
-    - name: Metinden dili tanımlama
+  - name: Dili tanımlama
+    items:
+    - name: C#, REST
+      href: quickstart-csharp-detect.md
+    - name: Go, REST
+      href: quickstart-go-detect.md
+    - name: Java, REST
+      href: quickstart-java-detect.md
+    - name: Node.js, REST
+      href: quickstart-nodejs-detect.md
+    - name: PHP, REST
+      href: quickstart-php-detect.md
+    - name: Python, REST
+      href: quickstart-python-detect.md
+    - name: Ruby, REST
       href: quickstart-ruby-detect.md
-    - name: Alternatif çeviriler edinme
+  - name: Alternatif çeviriler edinme
+    items:
+    - name: C#, REST
+      href: quickstart-csharp-dictionary.md
+    - name: Go, REST
+      href: quickstart-go-dictionary.md
+    - name: Java, REST
+      href: quickstart-java-dictionary.md
+    - name: Node.js, REST
+      href: quickstart-nodejs-dictionary.md
+    - name: PHP, REST
+      href: quickstart-php-dictionary.md
+    - name: Python, REST
+      href: quickstart-python-dictionary.md
+    - name: Ruby, REST
       href: quickstart-ruby-dictionary.md
-    - name: Desteklenen dilleri alma
+  - name: Desteklenen dilleri alma
+    items:
+    - name: C#, REST
+      href: quickstart-csharp-languages.md
+    - name: Go, REST
+      href: quickstart-go-languages.md
+    - name: Java, REST
+      href: quickstart-java-languages.md
+    - name: Node.js, REST
+      href: quickstart-nodejs-languages.md
+    - name: PHP, REST
+      href: quickstart-php-languages.md
+    - name: Python, REST
+      href: quickstart-python-languages.md
+    - name: Ruby, REST
       href: quickstart-ruby-languages.md
-    - name: Metinlerdeki cümle uzunluklarını alma
+  - name: Tümce uzunluğu belirleme
+    items:
+    - name: C#, REST
+      href: quickstart-csharp-sentences.md
+    - name: Go, REST
+      href: quickstart-go-sentences.md
+    - name: Java, REST
+      href: quickstart-java-sentences.md
+    - name: Node.js, REST
+      href: quickstart-nodejs-sentences.md
+    - name: PHP, REST
+      href: quickstart-php-sentences.md
+    - name: Python, REST
+      href: quickstart-python-sentences.md
+    - name: Ruby, REST
       href: quickstart-ruby-sentences.md
   expanded: true
 - name: Öğreticiler
@@ -174,9 +172,9 @@ items:
     href: https://stackoverflow.com/questions/tagged/microsoft-translator
   - name: UserVoice
     href: https://cognitive.uservoice.com/forums/558796-translator
-ms.openlocfilehash: cd559b41832e83b4251531bc6af6a7fe4f7d80ea
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: acc5019177bf75a0bb34eb739cc8e2400552832e
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49406492"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49945272"

@@ -9,12 +9,12 @@
 ## [Geliştirme ortamınızı kurma](media-services-set-up-computer.md)
 ### [.NET](media-services-dotnet-how-to-use.md)
 ### [REST](media-services-rest-how-to-use.md)  
-## [API erişimi için AAD kimlik doğrulaması kullanma](media-services-use-aad-auth-to-access-ams-api.md)
-### [AAD kimlik doğrulamasını yönetmek için portalı kullanma](media-services-portal-get-started-with-aad.md)
+## [API’ye erişmek için Azure AD kimlik doğrulaması kullanma](media-services-use-aad-auth-to-access-ams-api.md)
+### [Azure AD kimlik doğrulamasını yönetmek için portal kullanma](media-services-portal-get-started-with-aad.md)
 ### [API’ye .NET ile erişme](media-services-dotnet-get-started-with-aad.md)
 ### [API’ye REST ile erişme](media-services-rest-connect-with-aad.md)
-### [AAD uygulaması oluşturmak ve yapılandırmak için Azure CLI kullanma](media-services-cli-create-and-configure-aad-app.md)
-### [AAD uygulaması oluşturmak için Azure PowerShell’i kullanma](media-services-powershell-create-and-configure-aad-app.md)
+### [Azure AD uygulaması oluşturmak ve yapılandırmak için Azure CLI kullanma](media-services-cli-create-and-configure-aad-app.md)
+### [Azure AD uygulaması oluşturmak ve yapılandırmak için Azure PowerShell kullanma](media-services-powershell-create-and-configure-aad-app.md)
 
 ## İsteğe bağlı video gönderme
 ### [Azure Portal](media-services-portal-vod-get-started.md)
