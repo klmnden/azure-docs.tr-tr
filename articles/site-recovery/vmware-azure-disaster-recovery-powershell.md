@@ -336,7 +336,7 @@ Bulunan bir sanal makineyi korumak için aşağıdaki ayrıntıları ihtiyacın�
 
 * Çoğaltılacak korunabilir öğe.
 * Sanal makine için çoğaltmak için depolama hesabı. Ayrıca, bir günlük depolama, premium depolama hesabı için sanal makineleri korumak için gereklidir.
-* Çoğaltma için kullanılan işlem sunucusu. Kullanılabilir işlem sunucularının listesini alınan ve kaydedilen ***$ProcessServers [0]****(genişletme dosya)* ve ***$ProcessServers [1]*** *(ConfigurationServer)* değişkenleri.  
+* Çoğaltma için kullanılan işlem sunucusu. Kullanılabilir işlem sunucularının listesini alınan ve kaydedilen ***$ProcessServers [0]***  *(genişletme dosya)* ve ***$ProcessServers [1]*** *(ConfigurationServer)* değişkenleri.
 * Mobility hizmet yazılımı makinelere göndermeli yükleme için kullanılacak hesabı. Kullanılabilir hesaplar listesi alınan ve depolanan ***$AccountHandles*** değişkeni.
 * Koruma kapsayıcısı eşlemesini çoğaltma için kullanılacak çoğaltma ilkesi için.
 * Kaynak grubu, sanal makinelerin yük devretme sırasında oluşturulmalıdır.
