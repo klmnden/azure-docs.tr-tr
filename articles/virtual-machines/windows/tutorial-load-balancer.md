@@ -3,7 +3,7 @@ title: Öğretici - Azure’da Windows sanal makinelerinde yük dengeleme | Micr
 description: Bu öğreticide, üç Windows sanal makinesi arasında yüksek kullanılabilirliğe sahip ve güvenli uygulama için bir yük dengeleyici oluşturmak üzere Azure PowerShell kullanmayı öğreneceksiniz
 services: virtual-machines-windows
 documentationcenter: virtual-machines
-author: cynthn
+author: zr-msft
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
@@ -14,14 +14,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 02/09/2018
-ms.author: cynthn
+ms.author: zarhoads
 ms.custom: mvc
-ms.openlocfilehash: 6d4dd900888e229c86685549c84b724044249429
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: b8e71a8874ae3ccee74723b8670d177d31f96d25
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37932577"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49470838"
 ---
 # <a name="tutorial-load-balance-windows-virtual-machines-in-azure-to-create-a-highly-available-application-with-azure-powershell"></a>Öğretici: Azure PowerShell ile yüksek oranda kullanılabilir bir uygulama oluşturmak için Azure’da Windows sanal makinelerinde yük dengeleme
 Yük dengeleme, gelen istekleri birden çok sanal makineye dağıtarak yüksek düzeyde kullanılabilirlik sunar. Bu öğreticide, Azure yük dengeleyicisinin trafiği dağıtan ve yüksek kullanılabilirlik sağlayan farklı bileşenleri hakkında bilgi edinebilirsiniz. Aşağıdakileri nasıl yapacağınızı öğrenirsiniz:

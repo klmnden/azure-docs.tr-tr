@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 11/22/2017
 ms.author: apimpm
-ms.openlocfilehash: f5132215b1fda93c62c1fbea46c3266fcc44ec46
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: edef88694cc335a63ce279e96a204ed4b8fe7376
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38307288"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49469512"
 ---
 # <a name="import-an-openapi-specification"></a>OpenAPI belirtimini içeri aktarma
 
@@ -65,11 +65,11 @@ Bu makalede şunları öğreneceksiniz:
 
 İşlemler doğrudan bir API’nin işlemlerini görüntülemek ve test etmek için kullanışlı bir yol sağlayan Azure portalından çağrılabilir.
 
+![API’yi test et](./media/api-management-get-started/01-import-first-api-01.png)
+
 1. Önceki adımda oluşturduğunuz API’yi seçin.
 2. **Test** sekmesine basın.
-
-    ![API’yi test et](./media/api-management-get-started/test-api.png)
-1. **GetSpeakers** seçeneğine tıklayın.
+3. **GetSpeakers** seçeneğine tıklayın.
 
     Sayfa, sorgu parametreleri için alanları görüntüler, ancak bu durumda bir alan yok. Sayfa, üst bilgiler için de alanları görüntüler. Bu API ile ilişkilendirilmiş ürünün abonelik anahtarı için, üst bilgilerden biri "Ocp-Apim-Subscription-Key" üst bilgisidir. APIM örneğini siz oluşturduysanız zaten bir yöneticisinizdir ve anahtar otomatik olarak doldurulur.
 4. **Gönder**’e basın.

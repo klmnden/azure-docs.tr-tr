@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.component: B2C
-ms.openlocfilehash: 47589b8cb8aa6e8d1cacaa028948242431f02c44
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: 0f2fa2bb8e20ce4cc187fe6f061d2d8c251c4673
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45604799"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49945221"
 ---
 # <a name="tutorial-enable-single-page-app-authentication-with-accounts-using-azure-active-directory-b2c"></a>Öğretici: Azure Active Directory B2C’yi kullanan hesaplarla tek sayfalı uygulama kimlik doğrulamasını etkinleştirme
 
@@ -201,4 +201,4 @@ Diğer Azure AD B2C öğreticilerini denemeyi planlıyorsanız Azure AD B2C dizi
 Bu öğreticide bir Azure AD B2C dizini oluşturmayı, ilkeleri oluşturmayı ve Azure AD B2C dizininizi kullanmak için örnek tek sayfalı uygulamayı güncelleştirmeyi öğrendiniz. Bir masaüstü uygulamasındaki korumalı bir web API’sini kaydetmeyi, yapılandırmayı ve çağırmayı öğretmek için sonraki öğreticiye geçin.
 
 > [!div class="nextstepaction"]
-> 
+> [Azure AD B2C kod örnekleri](https://azure.microsoft.com/resources/samples/?service=active-directory-b2c&sort=0)

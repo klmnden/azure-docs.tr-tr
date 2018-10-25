@@ -4,18 +4,18 @@ description: Endüstri standardı SMB protokolünü kullanarak bulutta ağ dosya
 services: storage
 author: RenaShahMSFT
 ms.service: storage
-ms.topic: get-started-article
+ms.topic: overview
 ms.date: 07/19/2018
 ms.author: renash
 ms.component: files
-ms.openlocfilehash: 7501d28d75f180f289f4e3e130e0a5f7219835b9
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: d42c3e665b4ed3057d340dce33145f8c08e69888
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39526030"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49945782"
 ---
-# <a name="introduction-to-azure-files"></a>Azure Dosyaları'na giriş
+# <a name="what-is-azure-files"></a>Azure Dosyaları nedir?
 Azure Dosyaları bulutta tamamen yönetilen dosya paylaşımları sunar. Bu dosyalara sektör standardı olan [Sunucu İleti Bloğu (SMB) protokolü](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) aracılığıyla erişilebilir. Azure dosya paylaşımları Windows, Linux ve macOS bulut ve şirket içi dağıtımları tarafından aynı anda bağlanabilir. Azure dosya paylaşımları ayrıca verilerin kullanıldığı yerin yakınlarında hızlı erişim sağlamak için Azure Dosya Eşitleme ile Windows Server’larda önbelleğe alınabilir.
 
 ## <a name="videos"></a>Videolar

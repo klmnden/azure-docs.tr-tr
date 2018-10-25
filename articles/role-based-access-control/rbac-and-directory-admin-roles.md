@@ -15,12 +15,12 @@ ms.date: 08/07/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro;
-ms.openlocfilehash: 401c9a3df4cb132769e05cb0487a763f4080dd23
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 5e32968ae83ef826fbc8e81f1b04eca687642343
+ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44304097"
+ms.lasthandoff: 10/22/2018
+ms.locfileid: "49637677"
 ---
 # <a name="classic-subscription-administrator-roles-azure-rbac-roles-and-azure-ad-administrator-roles"></a>Klasik abonelik yönetici rolleri, Azure RBAC rolleri ve Azure AD yönetici rolleri
 
@@ -61,6 +61,7 @@ Azure hesabı bir faturalama ilişkisini temsil eder. Azure hesabı bir kullanı
 Azure abonelikleri, Azure kaynaklarına erişimi düzenlemenize de yardımcı olur. Ayrıca kaynak kullanımının nasıl raporlandığını, faturalandırıldığını ve ödendiği denetlemenize yardımcı olur. Her abonelik farklı bir faturalandırma ve ödeme ayarına sahip olabilir, bu nedenle ofise, departmana, projeye vs. göre farklı abonelikleriniz ve farklı planlarınız olabilir. Her hizmet bir aboneliğe aittir ve programlama işlemleri için abonelik kimliği gerekebilir.
 
 Hesaplar ve abonelikler [Azure Hesap Merkezi](https://account.azure.com/Subscriptions)'nden yönetilir.
+
 ## <a name="azure-rbac-roles"></a>Azure RBAC rolleri
 
 Azure RBAC, [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md)'ı temel alan, işlem ve depolama gibi Azure kaynakları için ayrıntılı erişim yönetimi sağlayan bir yetkilendirme sistemidir. Azure RBAC'de 70'in üzerinde yerleşik rol bulunur. Dört temel RBAC rolü vardır. İlk üçü tüm kaynak türleri için geçerlidir:

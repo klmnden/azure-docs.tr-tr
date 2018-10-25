@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: overview
 ms.date: 10/06/2018
 ms.author: diberry
-ms.openlocfilehash: 0520c00ab20ca7210b3bb13567f9998e7231be43
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: 28580a29c2ffaadfa3b3ea26cb28f103d883d576
+ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48867689"
+ms.lasthandoff: 10/22/2018
+ms.locfileid: "49637281"
 ---
 # <a name="what-is-language-understanding-luis"></a>Language Understanding (LUIS) nedir?
 
@@ -192,16 +192,7 @@ LUIS ile kullanılan diğer Bilişsel Hizmetler:
 * [Konuşma hizmeti](../Speech-Service/overview.md), sözlü dil isteklerini metne dönüştürür. 
 * [Konuşma öğrenici](https://docs.microsoft.com/azure/cognitive-services/labs/conversation-learner/overview), LUIS ile daha hızlı bir şekilde sohbet botları oluşturmanızı sağlar.
 * [Kişilik sohbeti projesi](https://docs.microsoft.com/azure/cognitive-services/project-personality-chat/overview), bot ile kısa sohbetler yapmanızı sağlar.
-<!--
-## Other ways of implementing LUIS
 
-A client application for LUIS is:
-* [Windows Mixed Reality](https://docs.microsoft.com/windows/mixed-reality/) - learn more with this [Mixed reality course](https://docs.microsoft.com/windows/mixed-reality/mr-azure-303) with LUIS. 
-
-
-Labs: 
-
--->
 ## <a name="next-steps"></a>Sonraki adımlar
 
 [Önceden oluşturulmuş](luis-get-started-create-app.md) veya [özel](luis-quickstart-intents-only.md) etki alanıyla yeni bir LUIS uygulaması yazma. Genel IoT uygulamasının [tahmin uç noktasını sorgulama](luis-get-started-cs-get-intent.md).

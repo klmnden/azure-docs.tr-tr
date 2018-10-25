@@ -13,12 +13,12 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 01/22/2018
 ms.author: shlo
-ms.openlocfilehash: 5b8e1d894a0f2b7868433cb25a097a4cfcdc1796
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 1b6326f9b3d9565739d97b32b119a2f362f24e65
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43095794"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49954632"
 ---
 # <a name="create-a-data-factory-and-pipeline-using-python"></a>Python kullanarak veri fabrikası ve işlem hattı oluşturma
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -34,7 +34,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz](https://azure.microsoft.
 ## <a name="prerequisites"></a>Ön koşullar
 
 * **Azure Depolama hesabı**. Blob depolama alanını **kaynak** ve **havuz** veri deposu olarak kullanabilirsiniz. Azure depolama hesabınız yoksa, oluşturma adımları için [Depolama hesabı oluşturma](../storage/common/storage-quickstart-create-account.md) makalesine bakın.
-* **Azure Active Directory’de** [bu yönergeyi](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-azure-active-directory-application) izleyerek bir uygulama oluşturun. Sonraki adımlarda kullandığınız şu değerleri not edin: **uygulama kimliği**, **kimlik doğrulama anahtarı** ve **kiracı kimliği**. Aynı makalede bulunan yönergeleri izleyerek uygulamayı "**Katkıda bulunan**" rolüne atayın.
+* **Azure Active Directory’de** [bu yönergeyi](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application) izleyerek bir uygulama oluşturun. Sonraki adımlarda kullandığınız şu değerleri not edin: **uygulama kimliği**, **kimlik doğrulama anahtarı** ve **kiracı kimliği**. Aynı makalede bulunan yönergeleri izleyerek uygulamayı "**Katkıda bulunan**" rolüne atayın.
 
 ### <a name="create-and-upload-an-input-file"></a>Giriş dosyası oluşturma ve yükleme
 

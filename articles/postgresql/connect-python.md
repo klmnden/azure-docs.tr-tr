@@ -11,12 +11,12 @@ ms.custom: mvc, devcenter
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 02/28/2018
-ms.openlocfilehash: 926b35f49169c5a87e82996ba714aad40ba5244c
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 557d4217819449cd0513d4a21e331e660e37037b
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2018
-ms.locfileid: "29687328"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49987690"
 ---
 # <a name="azure-database-for-postgresql-use-python-to-connect-and-query-data"></a>PostgreSQL için Azure Veritabanı: Bağlanmak ve veri sorgulamak için Python'ı kullanma
 Bu hızlı başlangıçta [Python](https://python.org) kullanarak PostgreSQL için bir Azure Veritabanı'na nasıl bağlanacağınız gösterilmiştir. macOS, Ubuntu Linux ve Windows platformlarındaki veritabanında yer alan verileri sorgulamak, eklemek, güncelleştirmek ve silmek için SQL deyimlerinin nasıl kullanıldığını da gösterir. Bu makaledeki adımlarda, Python kullanarak geliştirmeyle ilgili bilgi sahibi olduğunuz ve PostgreSQL için Azure Veritabanı ile çalışmaya yeni başladığınız varsayılır.
@@ -31,7 +31,7 @@ Bu hızlı başlangıçta, başlangıç noktası olarak şu kılavuzlardan birin
 - [pip](https://pip.pypa.io/en/stable/installing/) paketi yüklü ([python.org](https://python.org) adresinden indirilen Python 2 >=2.7.9 veya Python 3 >=3.4 ikili dosyalarıyla çalışıyorsanız pip zaten yüklüdür).
 
 ## <a name="install-the-python-connection-libraries-for-postgresql"></a>PostgreSQL için Python bağlantı kitaplıklarını yükleme
-Veritabanına bağlanmanızı ve bu veritabanını sorgulamanızı sağlayan [psycopg2](http://initd.org/psycopg/docs/install.html) paketini yükleyin. psycopg2, en yaygın platformlar (Linux, OSX, Windows) için [wheel](http://pythonwheels.com/) paketleri biçiminde [PyPI üzerinde sağlanmaktadır](https://pypi.python.org/pypi/psycopg2/). Tüm bağımlılıklar dahil olmak üzere modülün ikili sürümünü almak için pip yüklemesini kullanın.
+Veritabanına bağlanmanızı ve bu veritabanını sorgulamanızı sağlayan [psycopg2](http://initd.org/psycopg/docs/install.html) paketini yükleyin. psycopg2, en yaygın platformlar (Linux, OSX, Windows) için [wheel](https://pythonwheels.com/) paketleri biçiminde [PyPI üzerinde sağlanmaktadır](https://pypi.python.org/pypi/psycopg2/). Tüm bağımlılıklar dahil olmak üzere modülün ikili sürümünü almak için pip yüklemesini kullanın.
 
 1. Kendi bilgisayarınızda bir komut satırı arabirimi başlatın:
     - Linux’ta Bash kabuğunu başlatın.

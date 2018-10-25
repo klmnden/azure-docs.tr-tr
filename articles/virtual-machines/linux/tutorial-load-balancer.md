@@ -3,7 +3,7 @@ title: Öğretici - Azure’da Linux sanal makinelerinde yük dengeleme | Micros
 description: Bu öğreticide, üç Linux sanal makinesi arasında yüksek kullanılabilirliğe sahip ve güvenli uygulama için bir yük dengeleyici oluşturmak üzere Azure CLI kullanmayı öğreneceksiniz
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: cynthn
+author: zr-msft
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
@@ -14,14 +14,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 11/13/2017
-ms.author: cynthn
+ms.author: zarhoads
 ms.custom: mvc
-ms.openlocfilehash: 58af3e2e1eab80120bbd97e8c2588b6a0678a4b5
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: b37f8c53e9528919da3aaf0acf66376876bd64b1
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46970847"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49470889"
 ---
 # <a name="tutorial-load-balance-linux-virtual-machines-in-azure-to-create-a-highly-available-application-with-the-azure-cli"></a>Öğretici: Azure CLI ile yüksek oranda kullanılabilir bir uygulama oluşturmak için Azure’da Linux sanal makinelerinde yük dengeleme
 

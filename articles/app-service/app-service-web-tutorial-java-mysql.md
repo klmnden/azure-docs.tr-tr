@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 05/22/2017
 ms.author: bbenz
 ms.custom: mvc
-ms.openlocfilehash: 0baab86c0cb76bfeecb30cdb62c968a476e402b9
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: db1005bbce25b0fa3fec76e6f9428a4cdd6fa4aa
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44296780"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50024384"
 ---
 # <a name="tutorial-build-a-java-and-mysql-web-app-in-azure"></a>Öğretici: Azure’da Java ve MySQL web uygulaması derleme
 
@@ -28,7 +28,7 @@ ms.locfileid: "44296780"
 > Bu makalede bir uygulamanın Windows üzerinde App Service'e dağıtımı yapılır. App Service'i _Linux_ üzerinde dağıtmak için bkz. [Kapsayıcılı bir Spring Boot uygulamasını Azure'a dağıtma](/java/azure/spring-framework/deploy-containerized-spring-boot-java-app-with-maven-plugin).
 >
 
-Bu öğreticide size, Azure’da bir Java web uygulaması oluşturma ve bu uygulamayı bir MySQL veritabanına bağlamayla ilgili yönergeler verilmiştir. İşiniz bittiğinde, [Azure App Service Web Apps](app-service-web-overview.md) üzerinde çalıştırılan [MySQL için Azure Veritabanı](https://docs.microsoft.com/azure/mysql/overview)'nda veri depolayan bir [Spring Boot](https://projects.spring.io/spring-boot/) uygulamanız olacaktır.
+Bu öğreticide size, Azure’da bir Java web uygulaması oluşturma ve bu uygulamayı bir MySQL veritabanına bağlamayla ilgili yönergeler verilmiştir. İşiniz bittiğinde, [Azure App Service Web Apps](app-service-web-overview.md) üzerinde çalıştırılan [MySQL için Azure Veritabanı](../mysql/overview.md)'nda veri depolayan bir [Spring Boot](https://projects.spring.io/spring-boot/) uygulamanız olacaktır.
 
 ![Azure uygulama hizmetinde çalıştırılan Java uygulaması](./media/app-service-web-tutorial-java-mysql/appservice-web-app.png)
 
@@ -122,7 +122,7 @@ Terminalde `Ctrl`+`C` tuşlarına basarak uygulamayı durdurun.
 
 ## <a name="create-an-azure-mysql-database"></a>Azure MySQL veritabanı oluşturma
 
-bu adımda, [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) kullanarak [MySQL için Azure Veritabanı](../mysql/quickstart-create-mysql-server-database-using-azure-cli.md) oluşturursunuz. Öğreticinin devamında, örnek uygulamayı bu veritabanını kullanacak şekilde yapılandırırsınız.
+bu adımda, [Azure CLI](/cli/azure/install-azure-cli) kullanarak [MySQL için Azure Veritabanı](../mysql/quickstart-create-mysql-server-database-using-azure-cli.md) oluşturursunuz. Öğreticinin devamında, örnek uygulamayı bu veritabanını kullanacak şekilde yapılandırırsınız.
 
 ### <a name="create-a-resource-group"></a>Kaynak grubu oluşturma
 
@@ -282,7 +282,7 @@ az webapp config set --name <app_name> --resource-group myResourceGroup --java-v
 
 Örnek uygulamayı çalıştırmadan önce, web uygulamasında uygulama ayarlarını Azure'da oluşturduğunuz Azure MySQL veritabanını kullanacak şekilde belirleyin. Bu özellikler web uygulamasına ortam değişkenleri olarak gösterilir ve paketli web uygulamasının içindeki application.properties'de ayarlanan değerleri geçersiz kılar. 
 
-Cloud Shell'de, CLI'de [`az webapp config appsettings`](https://docs.microsoft.com/cli/azure/webapp/config/appsettings) komutunu kullanarak uygulama ayarlarını belirleyin:
+Cloud Shell'de, CLI'de [`az webapp config appsettings`](/cli/azure/webapp/config/appsettings) komutunu kullanarak uygulama ayarlarını belirleyin:
 
 ```azurecli-interactive
 az webapp config appsettings set --settings SPRING_DATASOURCE_URL="jdbc:mysql://<mysql_server_name>.mysql.database.azure.com:3306/tododb?verifyServerCertificate=true&useSSL=true&requireSSL=false" --resource-group myResourceGroup --name <app_name>
@@ -299,7 +299,7 @@ az webapp config appsettings set --settings SPRING_DATASOURCE_PASSWORD=Javaapp_p
 ### <a name="get-ftp-deployment-credentials"></a>FTP dağıtım kimlik bilgilerini alma 
 Uygulamanızı FTP, yerel Git, GitHub, Azure DevOps ve Bitbucket gibi çeşitli yollarla Azure uygulama hizmetine dağıtabilirsiniz. Bu örnekte, daha önce yerel makinenizde oluşturulan .WAR dosyasını Azure App Service'e dağıtmak için FTP kullanılır.
 
-Ftp komutunda Web App'e hangi kimlik bilgilerinin geçirileceğini saptamak için, Cloud Shell'de [`az appservice web deployment list-publishing-profiles`](https://docs.microsoft.com/cli/azure/webapp/deployment#az-appservice-web-deployment-list-publishing-profiles) komutunu kullanın: 
+Ftp komutunda Web App'e hangi kimlik bilgilerinin geçirileceğini saptamak için, Cloud Shell'de [`az webapp deployment list-publishing-profiles`](/cli/azure/webapp/deployment#az-webapp-deployment-list-publishing-profiles) komutunu kullanın: 
 
 ```azurecli-interactive
 az webapp deployment list-publishing-profiles --name <app_name> --resource-group myResourceGroup --query "[?publishMethod=='FTP'].{URL:publishUrl, Username:userName,Password:userPWD}" --output json
@@ -440,25 +440,25 @@ Sayfadaki bu sekmelerde web uygulamanıza ekleyebileceğiniz çok sayıda harika
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 
-Bu kaynaklara başka bir öğretici (bkz. [Sonraki adımlar](#next)) için gereksinim duymuyorsanız, Cloud Shell'de aşağıdaki komutu çalıştırarak bu kaynakları silebilirsiniz: 
-  
+Bu kaynaklara başka bir öğretici (bkz. [Sonraki adımlar](#next)) için gereksinim duymuyorsanız, Cloud Shell'de aşağıdaki komutu çalıştırarak bu kaynakları silebilirsiniz: 
+  
 ```azurecli-interactive
-az group delete --name myResourceGroup 
-``` 
+az group delete --name myResourceGroup 
+``` 
 
 <a name="next"></a>
 
-## <a name="next-steps"></a>Sonraki adımlar
+## Next steps
 
 > [!div class="checklist"]
-> * Azure’da MySQL veritabanı oluşturma
-> * Örnek Java uygulamasını MySQL'e bağlama
-> * Uygulamayı Azure’da dağıtma
-> * Uygulamayı güncelleştirme ve yeniden dağıtma
-> * Azure’daki tanılama günlüklerinin akışını sağlama
-> * Uygulamayı Azure portalında yönetme
+> * Create a MySQL database in Azure
+> * Connect a sample Java app to the MySQL
+> * Deploy the app to Azure
+> * Update and redeploy the app
+> * Stream diagnostic logs from Azure
+> * Manage the app in the Azure portal
 
-Uygulamaya özel bir DNS adı eşlemeyle ilgili bilgi edinmek için sonraki öğreticiye geçin.
+Advance to the next tutorial to learn how to map a custom DNS name to the app.
 
 > [!div class="nextstepaction"] 
-> [Mevcut bir özel DNS adını Azure Web Apps ile eşleme](app-service-web-tutorial-custom-domain.md)
+> [Map an existing custom DNS name to Azure Web Apps](app-service-web-tutorial-custom-domain.md)

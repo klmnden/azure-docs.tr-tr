@@ -3,7 +3,7 @@ title: Azure CLI Örnekleri - Bölgesel olarak yedekli ölçek kümesi | Microso
 description: Azure CLI Örnekleri
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: cynthn
+author: zr-msft
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,14 +14,14 @@ ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/27/2018
-ms.author: cynthn
+ms.author: zarhoads
 ms.custom: mvc
-ms.openlocfilehash: f59a1083e76f8d2a629f1589f6b44c241eadca89
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 2d805243c8a744eb7d64e72a42113ab9e38d7210
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46986772"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49465126"
 ---
 # <a name="create-a-zone-redundant-virtual-machine-scale-set-with-powershell"></a>PowerShell ile bölgesel olarak yedekli sanal makine ölçek kümesi oluşturma
 Bu betik, birden çok Kullanılabilirlik Alanı’nda Ubuntu çalıştıran bir sanal makine ölçek kümesi oluşturur. Betiği çalıştırdıktan sonra sanal makineye RDP üzerinden erişebilirsiniz.

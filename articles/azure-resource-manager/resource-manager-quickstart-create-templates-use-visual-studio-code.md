@@ -10,15 +10,15 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 10/17/2018
+ms.date: 10/18/2018
 ms.topic: quickstart
 ms.author: jgao
-ms.openlocfilehash: 69a24dba752e4aa374e03e57ce197ae882647373
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: e8ca232f3c5664f69db800648b46abaf0822d6f1
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49378700"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49458148"
 ---
 # <a name="quickstart-create-azure-resource-manager-templates-by-using-visual-studio-code"></a>Hızlı başlangıç: Visual Studio Code kullanılarak Azure Resource Manager şablonları oluşturma
 
@@ -57,12 +57,7 @@ Bu hızlı başlangıçta kullanılan şablon [Standart depolama hesabı oluştu
 
 Visual Studio Code kullanarak şablon düzenlemeyi öğrenmek için `outputs` bölümüne bir öğe daha eklersiniz.
 
-1. Visual Studio Code'da **kind** değerini denetleyin. Değeri **Storage** ise **StorageV2** olarak güncelleştirin.
-
-    ```json
-    "kind": "StorageV2",
-    ```
-2. Bir veya birden çok çıkışı dışarı aktarılan şablona ekleyin:
+1. Bir veya birden çok çıkışı dışarı aktarılan şablona ekleyin:
 
     ```json
     "storageUri": {
@@ -90,7 +85,7 @@ Visual Studio Code kullanarak şablon düzenlemeyi öğrenmek için `outputs` b�
 
     ![Resource Manager şablonu visual studio code intelliSense](./media/resource-manager-quickstart-create-templates-use-visual-studio-code/resource-manager-templates-visual-studio-code-intellisense.png)
 
-3. Dosyayı kaydetmek için **Dosya**>**Kaydet**’e tıklayın.
+2. Dosyayı kaydetmek için **Dosya**>**Kaydet**’e tıklayın.
 
 ## <a name="deploy-the-template"></a>Şablonu dağıtma
 
@@ -128,7 +123,7 @@ Visual Studio Code kullanarak şablon düzenlemeyi öğrenmek için `outputs` b�
 7. Cloud Shell’den aşağıdaki komutları çalıştırın. PowerShell kodunu veya CLI kodunu gösteren sekmeyi seçin.
 
     # <a name="clitabcli"></a>[CLI](#tab/CLI)
-    ```cli
+    ```azurecli
     echo "Enter the Resource Group name:" &&
     read resourceGroupName &&
     echo "Enter the name for this deployment:" &&
@@ -141,7 +136,7 @@ Visual Studio Code kullanarak şablon düzenlemeyi öğrenmek için `outputs` b�
    
     # <a name="powershelltabpowershell"></a>[PowerShell](#tab/PowerShell)
     
-    ```powershell
+    ```azurepowershell
     $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
     $deploymentName = Read-Host -Prompt "Enter the name for this deployment"
     $location = Read-Host -Prompt "Enter the location (i.e. centralus)"
@@ -171,7 +166,7 @@ Visual Studio Code kullanarak şablon düzenlemeyi öğrenmek için `outputs` b�
 7. Yeni oluşturulan depolama hesabını listelemek için aşağıdaki CLI komutunu çalıştırın:
 
     # <a name="clitabcli"></a>[CLI](#tab/CLI)
-    ```cli
+    ```azurecli
     echo "Enter the Resource Group name:" &&
     read resourceGroupName &&
     echo "Enter the Storage Account name:" &&
@@ -181,7 +176,7 @@ Visual Studio Code kullanarak şablon düzenlemeyi öğrenmek için `outputs` b�
    
     # <a name="powershelltabpowershell"></a>[PowerShell](#tab/PowerShell)
     
-    ```powershell
+    ```azurepowershell
     $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
     $storageAccountName = Read-Host -Prompt "Enter the Storage Account name"
     Get-AzureRmStorageAccount -ResourceGroupName $resourceGroupName -Name $storageAccountName

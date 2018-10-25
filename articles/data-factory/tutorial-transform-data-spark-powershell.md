@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: douglasl
-ms.openlocfilehash: c01da1b667f5a57e9597b77e21dcd9cc95340cb1
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 21c2c9ab0300ed5eac9ceebbd88627ea091b3389
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43088235"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49954479"
 ---
 # <a name="transform-data-in-the-cloud-by-using-spark-activity-in-azure-data-factory"></a>Azure Data Factory'de Spark etkinliğini kullanarak verileri bulutta dönüştürme
 Bu öğreticide, Azure PowerShell kullanarak verileri Spark Etkinliği ve talep üzerine HDInsight bağlı hizmeti ile dönüştüren bir Data Factory işlem hattı oluşturacaksınız. Bu öğreticide aşağıdaki adımları gerçekleştireceksiniz:
@@ -135,7 +135,7 @@ Bağlı hizmet tanımında aşağıdaki özelliklerin değerlerini güncelleşti
 
 - **hostSubscriptionId**. &lt;SubscriptionID&gt;’yi Azure aboneliğinizin kimliği ile değiştirin. İsteğe bağlı HDInsight kümesi bu abonelikte oluşturulur. 
 - **tenant**. &lt;tenantID&gt; değerini Azure kiracınızın kimliği ile değiştirin. 
-- **servicePrincipalId**, **servicePrincipalKey**. &lt;servicePrincipalID&gt; ve &lt;servicePrincipalKey&gt; değerini Azure Active Directory’deki hizmet sorumlunuzun kimliği ve anahtarıyla değiştirin. Bu hizmet sorumlusu, abonelikte ya da kümenin oluşturulduğu kaynak grubunda Katkıda Bulunan rolünün bir üyesi olmalıdır. Ayrıntılar için bkz. [Azure Active Directory uygulaması ve hizmet sorumlusu oluşturma](../azure-resource-manager/resource-group-create-service-principal-portal.md). 
+- **servicePrincipalId**, **servicePrincipalKey**. &lt;servicePrincipalID&gt; ve &lt;servicePrincipalKey&gt; değerini Azure Active Directory’deki hizmet sorumlunuzun kimliği ve anahtarıyla değiştirin. Bu hizmet sorumlusu, abonelikte ya da kümenin oluşturulduğu kaynak grubunda Katkıda Bulunan rolünün bir üyesi olmalıdır. Ayrıntılar için bkz. [Azure Active Directory uygulaması ve hizmet sorumlusu oluşturma](../active-directory/develop/howto-create-service-principal-portal.md). 
 - **clusterResourceGroup**. &lt;resourceGroupOfHDICluster&gt; değerini HDInsight kümesinin oluşturulması gereken kaynak grubunun adıyla değiştirin. 
 
 > [!NOTE]

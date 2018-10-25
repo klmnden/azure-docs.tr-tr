@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 2e455845a145e07bc59378818b95e23e572cb577
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 07be154f05441c94e32b05fc8354f59b88713929
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47227118"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49456947"
 ---
 # <a name="quickstart-provision-a-simulated-device-with-symmetric-keys"></a>Hızlı Başlangıç: Simetrik anahtarlar ile bir simülasyon cihazı sağlama
 
@@ -46,12 +46,20 @@ Bu bölümde, [Azure IoT C SDK'sını](https://github.com/Azure/azure-iot-sdk-c)
 
 SDK bir simülasyon cihazı için örnek kod içerir. Simülasyon cihazı, cihazın önyükleme dizisi sırasında sağlamayı dener.
 
-1. [CMake derleme sisteminin](https://cmake.org/download/) en son sürümünü indirin. Aynı sitede, seçtiğiniz ikili dağıtım sürümünün şifreleme karmasını arayın. İlgili şifreleme karması değerini kullanarak indirilen ikili dağıtımı doğrulayın. Aşağıdaki örnekte, x64 MSI dağıtımı 3.11.4 sürümünün şifreleme karmasını doğrulamak için Windows PowerShell kullanılır:
+1. [CMake derleme sistemi](https://cmake.org/download/)'nin 3.11.4 sürümünü indirin. İlgili şifreleme karması değerini kullanarak indirilen ikili dağıtımı doğrulayın. Aşağıdaki örnekte, x64 MSI dağıtımı 3.11.4 sürümünün şifreleme karmasını doğrulamak için Windows PowerShell kullanılır:
 
     ```PowerShell
-    PS C:\Users\wesmc\Downloads> $hash = get-filehash .\cmake-3.11.4-win64-x64.msi
-    PS C:\Users\wesmc\Downloads> $hash.Hash -eq "56e3605b8e49cd446f3487da88fcc38cb9c3e9e99a20f5d4bd63e54b7a35f869"
+    PS C:\Downloads> $hash = get-filehash .\cmake-3.11.4-win64-x64.msi
+    PS C:\Downloads> $hash.Hash -eq "56e3605b8e49cd446f3487da88fcc38cb9c3e9e99a20f5d4bd63e54b7a35f869"
     True
+    ```
+    
+    Bu metnin yazıldığı tarihte CMake sitesinde 3.11.4 sürümü için şu karma değerleri listeleniyordu:
+
+    ```
+    6dab016a6b82082b8bcd0f4d1e53418d6372015dd983d29367b9153f1a376435  cmake-3.11.4-Linux-x86_64.tar.gz
+    72b3b82b6d2c2f3a375c0d2799c01819df8669dc55694c8b8daaf6232e873725  cmake-3.11.4-win32-x86.msi
+    56e3605b8e49cd446f3487da88fcc38cb9c3e9e99a20f5d4bd63e54b7a35f869  cmake-3.11.4-win64-x64.msi
     ```
 
     `CMake` yüklemesine başlamadan **önce** makinenizde Visual Studio önkoşullarının (Visual Studio ve "C++ ile masaüstü geliştirme" iş yükü) yüklenmiş olması önemlidir. Önkoşullar sağlandıktan ve indirme doğrulandıktan sonra, CMake derleme sistemini yükleyin.
@@ -75,7 +83,7 @@ SDK bir simülasyon cihazı için örnek kod içerir. Simülasyon cihazı, cihaz
 4. SDK’nın geliştirme istemci platformunuza ve özgü bir sürümünü oluşturmak için aşağıdaki komutu çalıştırın. `cmake` dizininde simülasyon cihazı için bir Visual Studio çözümü de oluşturulur. 
 
     ```cmd
-    cmake -Duse_prov_client:BOOL=ON ..
+    cmake -Dhsm_type_symm_key:BOOL=ON ..
     ```
     
     `cmake`, C++ derleyicinizi bulamazsa yukarıdaki komutu çalıştırırken derleme hatalarıyla karşılaşabilirsiniz. Bu durumda bu komutu [Visual Studio komut isteminde](https://docs.microsoft.com/dotnet/framework/tools/developer-command-prompt-for-vs) çalıştırmayı deneyin. 
@@ -83,7 +91,7 @@ SDK bir simülasyon cihazı için örnek kod içerir. Simülasyon cihazı, cihaz
     Derleme başarılı olduktan sonra, son birkaç çıkış satırı aşağıdaki çıkışa benzer olacaktır:
 
     ```cmd/sh
-    $ cmake -Duse_prov_client:BOOL=ON ..
+    $ cmake -Dhsm_type_symm_key:BOOL=ON ..
     -- Building for: Visual Studio 15 2017
     -- Selecting Windows SDK version 10.0.16299.0 to target Windows 10.0.17134.
     -- The C compiler identification is MSVC 19.12.25835.0

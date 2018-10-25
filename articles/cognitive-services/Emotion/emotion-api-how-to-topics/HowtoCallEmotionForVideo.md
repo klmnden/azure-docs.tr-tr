@@ -11,12 +11,12 @@ ms.topic: sample
 ms.date: 02/06/2017
 ms.author: anroth
 ROBOTS: NOINDEX
-ms.openlocfilehash: 2687145a89c11efb4a3bcb1494a39806e9aae551
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: 6c96ab18161230ffabd0703bdb6d0230bdc8d3ba
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48238616"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50026271"
 ---
 # <a name="example-call-emotion-api-for-video"></a>Örnek: Video için Duygu Tanıma API’sini çağırma
 
@@ -46,7 +46,7 @@ Bir istemci kitaplığı kullanılırken, VideoServiceClient sınıfının oluş
 ```
 var emotionServiceClient = new emotionServiceClient("Your subscription key");
 ```
-Bir abonelik anahtarı almak için bkz. [Abonelikler] (https://azure.microsoft.com/try/cognitive-services/).
+Bir abonelik anahtarı almak için bkz. [Abonelikler](https://azure.microsoft.com/try/cognitive-services/).
 
 ### <a name="Step2">2. Adım: Hizmete bir video yükleme ve durumunu denetleme</a>
 Video için Duygu Tanıma API'si çağrısı yapmanın en kolay yolu doğrudan bir video yüklemektir. Video dosyasından okunan verilerle uygulama/sekizli akış içerik türü ile bir "POST" isteği gönderilerek bu yapılır. Maksimum video boyutu 100 MB’tır.

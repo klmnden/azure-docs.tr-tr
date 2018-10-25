@@ -14,17 +14,17 @@ ms.topic: tutorial
 ms.date: 11/01/2017
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 91a85505eda34e11f0db9c5f3c46e33aad992ffe
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: caea4296bc0573141865aca27b04f9d9ee049e94
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45736708"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49955595"
 ---
 # <a name="tutorial-build-your-first-azure-data-factory-using-data-factory-rest-api"></a>Öğretici: Data Factory REST API kullanarak ilk Azure data factory’nizi derleme
 > [!div class="op_single_selector"]
 > * [Genel bakış ve önkoşullar](data-factory-build-your-first-pipeline.md)
-> * [Azure portalındaki](data-factory-build-your-first-pipeline-using-editor.md)
+> * [Azure Portal](data-factory-build-your-first-pipeline-using-editor.md)
 > * [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
 > * [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 > * [Resource Manager Şablonu](data-factory-build-your-first-pipeline-using-arm.md)
@@ -49,7 +49,7 @@ Bu öğreticideki işlem hattı bir etkinlik içerir: **HDInsight Hive etkinliğ
 ## <a name="prerequisites"></a>Ön koşullar
 * [Öğreticiye Genel Bakış](data-factory-build-your-first-pipeline.md) makalesinin tamamını okuyun ve **ön koşul** adımlarını tamamlayın.
 * [Curl](https://curl.haxx.se/dlwiz/) aracını makinenize yükleyin. Bir veri fabrikası oluşturmak için CURL aracını REST komutlarıyla kullanırsınız.
-* Aşağıdakileri yapmak için [bu makaledeki](../../azure-resource-manager/resource-group-create-service-principal-portal.md) yönergeleri izleyin:
+* Aşağıdakileri yapmak için [bu makaledeki](../../active-directory/develop/howto-create-service-principal-portal.md) yönergeleri izleyin:
   1. Azure Active Directory’de **ADFGetStartedApp** adlı bir Web uygulaması oluşturun.
   2. **İstemci kimliği** ve **gizli anahtarı** alın.
   3. **İstemci kimliğini** alın.

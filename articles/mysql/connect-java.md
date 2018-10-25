@@ -11,12 +11,12 @@ ms.custom: mvc, devcenter
 ms.topic: quickstart
 ms.devlang: java
 ms.date: 02/28/2018
-ms.openlocfilehash: d22eb6c6b56e24c2699bed8ac0a71a8192f0804e
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 4532b920fe1d4b20eb34f09fac4cb3b30ad36e6a
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35265046"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49985409"
 ---
 # <a name="azure-database-for-mysql-use-java-to-connect-and-query-data"></a>MySQL için Azure Veritabanı: Java'yı kullanarak bağlanma ve veri sorgulama
 Bu hızlı başlangıçta, Java uygulaması ve JDBC sürücüsü [MySQL Connector/J](https://dev.mysql.com/downloads/connector/j/) kullanarak MySQL için Azure Veritabanı'na nasıl bağlanacağınız gösterilmiştir. Hızlı başlangıçta, veritabanında verileri sorgulamak, eklemek, güncelleştirmek ve silmek için SQL deyimlerinin nasıl kullanılacağı da gösterilmiştir. Bu makalede, Java kullanarak geliştirmeyle ilgili bilgi sahibi olduğunuz ve MySQL için Azure Veritabanı ile çalışmaya yeni başladığınız varsayılır.
@@ -31,8 +31,8 @@ Bu hızlı başlangıçta, Java uygulaması ve JDBC sürücüsü [MySQL Connecto
 2. MySQL için Azure Veritabanı bağlantı güvenliğinizin, uygulamanız başarıyla bağlanacak şekilde açık bir güvenlik duvarı ve SSL ayarları ile yapılandırıldığından emin olma.
 
 3. MySQL Connector/J bağlayıcısını almak için aşağıdaki yaklaşımlardan birini kullanın:
-   - [mysql-connector-java](http://search.maven.org/#search%7Cga%7C1%7Cg%3A%22mysql%22%20AND%20a%3A%22mysql-connector-java%22) Maven paketini kullanarak [mysql dependency](https://mvnrepository.com/artifact/mysql/mysql-connector-java/5.1.6) öğesini projenizin POM dosyasına dahil edin.
-   - JDBC sürücüsü [MySQL Connector/J](https://dev.mysql.com/downloads/connector/j/) öğesini indirin ve uygulama sınıf yolunuza JDBC jar dosyasını (örneğin, mysql-connector-java-5.1.42-bin.jar) ekleyin. Sınıf yolları konusunda sorun yaşıyorsanız, lütfen ortamınızın [Apache Tomcat](https://tomcat.apache.org/tomcat-7.0-doc/class-loader-howto.html) veya [Java SE](http://docs.oracle.com/javase/7/docs/technotes/tools/windows/classpath.html) gibi sınıf yolu ayrıntıları hakkındaki belgelerine bakın
+   - [mysql-connector-java](https://search.maven.org/#search%7Cga%7C1%7Cg%3A%22mysql%22%20AND%20a%3A%22mysql-connector-java%22) Maven paketini kullanarak [mysql dependency](https://mvnrepository.com/artifact/mysql/mysql-connector-java/5.1.6) öğesini projenizin POM dosyasına dahil edin.
+   - JDBC sürücüsü [MySQL Connector/J](https://dev.mysql.com/downloads/connector/j/) öğesini indirin ve uygulama sınıf yolunuza JDBC jar dosyasını (örneğin, mysql-connector-java-5.1.42-bin.jar) ekleyin. Sınıf yolları konusunda sorun yaşıyorsanız, lütfen ortamınızın [Apache Tomcat](https://tomcat.apache.org/tomcat-7.0-doc/class-loader-howto.html) veya [Java SE](https://docs.oracle.com/javase/7/docs/technotes/tools/windows/classpath.html) gibi sınıf yolu ayrıntıları hakkındaki belgelerine bakın
 
 ## <a name="get-connection-information"></a>Bağlantı bilgilerini alma
 MySQL için Azure Veritabanı'na bağlanmak üzere gereken bağlantı bilgilerini alın. Tam sunucu adına ve oturum açma kimlik bilgilerine ihtiyacınız vardır.
@@ -233,7 +233,7 @@ public class ReadTable {
 ```
 
 ## <a name="update-data"></a>Verileri güncelleştirme
-**UPDATE** SQL deyimiyle verileri değiştirmek için aşağıdaki kodu kullanın. [getConnection()](https://dev.mysql.com/doc/connector-j/5.1/en/connector-j-usagenotes-connect-drivermanager.html) yöntemi MySQL'e bağlanmak için kullanılır. UPDATE deyimini hazırlamak ve çalıştırmak için [prepareStatement()](http://docs.oracle.com/javase/tutorial/jdbc/basics/prepared.html) ve executeUpdate() yöntemleri kullanılır. 
+**UPDATE** SQL deyimiyle verileri değiştirmek için aşağıdaki kodu kullanın. [getConnection()](https://dev.mysql.com/doc/connector-j/5.1/en/connector-j-usagenotes-connect-drivermanager.html) yöntemi MySQL'e bağlanmak için kullanılır. UPDATE deyimini hazırlamak ve çalıştırmak için [prepareStatement()](https://docs.oracle.com/javase/tutorial/jdbc/basics/prepared.html) ve executeUpdate() yöntemleri kullanılır. 
 
 host, database, user ve password parametrelerini kendi sunucunuzu ve veritabanınızı oluştururken belirttiğiniz değerlerle değiştirin.
 
@@ -314,7 +314,7 @@ public class UpdateTable {
 ```
 
 ## <a name="delete-data"></a>Verileri silme
-**DELETE** SQL deyimiyle verileri kaldırmak için aşağıdaki kodu kullanın. [getConnection()](https://dev.mysql.com/doc/connector-j/5.1/en/connector-j-usagenotes-connect-drivermanager.html) yöntemi MySQL'e bağlanmak için kullanılır.  UPDATE deyimini hazırlamak ve çalıştırmak için [prepareStatement()](http://docs.oracle.com/javase/tutorial/jdbc/basics/prepared.html) ve executeUpdate() yöntemleri kullanılır. 
+**DELETE** SQL deyimiyle verileri kaldırmak için aşağıdaki kodu kullanın. [getConnection()](https://dev.mysql.com/doc/connector-j/5.1/en/connector-j-usagenotes-connect-drivermanager.html) yöntemi MySQL'e bağlanmak için kullanılır.  UPDATE deyimini hazırlamak ve çalıştırmak için [prepareStatement()](https://docs.oracle.com/javase/tutorial/jdbc/basics/prepared.html) ve executeUpdate() yöntemleri kullanılır. 
 
 host, database, user ve password parametrelerini kendi sunucunuzu ve veritabanınızı oluştururken belirttiğiniz değerlerle değiştirin.
 

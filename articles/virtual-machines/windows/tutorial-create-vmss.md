@@ -3,7 +3,7 @@ title: Öğretici - Azure’da Windows için sanal makine ölçek kümesi oluşt
 description: Bu öğreticide, bir sanal makine ölçek kümesini kullanarak Windows VM'leri üzerinde yüksek oranda kullanılabilir bir uygulama oluşturmak ve dağıtmak için Azure PowerShell kullanmayı öğreneceksiniz
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: cynthn
+author: zr-msft
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: ''
 ms.topic: tutorial
 ms.date: 03/29/2018
-ms.author: cynthn
+ms.author: zarhoads
 ms.custom: mvc
-ms.openlocfilehash: 9d6f898f519a5baabcc132fdefbb3fa8f8a120cb
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: 915b3d6aed2aa00e29916d2803f56b2172375f60
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39346217"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49469569"
 ---
 # <a name="tutorial-create-a-virtual-machine-scale-set-and-deploy-a-highly-available-app-on-windows-with-azure-powershell"></a>Öğretici: Azure PowerShell ile sanal makine ölçek kümesi oluşturma ve Windows üzerinde yüksek oranda kullanılabilir bir uygulama dağıtma
 Sanal makine ölçek kümesi, birbiriyle aynı ve otomatik olarak ölçeklendirilen sanal makine kümesi dağıtmanızı ve yönetmenizi sağlar. Ölçek kümesi içindeki VM sayısını el ile ölçeklendirebilir veya CPU, bellek isteği ya da ağ trafiği gibi kaynak kullanımını temel alan otomatik ölçeklendirme kuralları tanımlayabilirsiniz. Bu öğreticide, Azure’da bir sanal makine ölçek kümesi dağıtılmaktadır. Aşağıdakileri nasıl yapacağınızı öğrenirsiniz:

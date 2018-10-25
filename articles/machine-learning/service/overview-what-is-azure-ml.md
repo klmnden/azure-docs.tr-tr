@@ -9,12 +9,12 @@ ms.reviewer: jmartens
 author: garyericson
 ms.author: garye
 ms.date: 09/24/2018
-ms.openlocfilehash: 660e5515b765e133d5bc9309be5439209b957353
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: 4a867692d3ce509443e5aa94536075fdcd4bab84
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48238535"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49945969"
 ---
 # <a name="what-is-azure-machine-learning-service-preview"></a>Azure Machine Learning hizmeti (önizleme) nedir?
 
@@ -54,7 +54,7 @@ Açık kaynaklı Python paketlerinde mevcut olan aşağıdaki gibi çok sayıda 
 - <a href="http://scikit-learn.org/stable/" target="_blank">Scikit-learn</a>
 - <a href="https://www.tensorflow.org" target="_blank">Tensorflow</a>
 - <a href="https://pytorch.org" target="_blank">PyTorch</a>
-- <a href="https://www.microsoft.com/cognitive-toolkit/" target="_blank">CNTK</a>
+- <a href="https://www.microsoft.com/en-us/cognitive-toolkit/" target="_blank">CNTK</a>
 - <a href="http://mxnet.io" target="_blank">MXNet</a>
 
 Bir model oluşturduktan sonra, test için yerel olarak dağıtılabilen bir kapsayıcı (Docker gibi) oluşturmak için ve sonra [Azure Container Instances](how-to-deploy-to-aci.md) veya [Azure Kubernetes Service](how-to-deploy-to-aks.md) içinde bir üretim web hizmeti olarak kullanabilirsiniz.

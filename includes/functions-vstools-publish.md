@@ -8,18 +8,18 @@ ms.topic: include
 ms.date: 08/26/2018
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: f0bcb2e7f99689d31be610f1523d2c57e332deb7
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: f3fa6c75fdaf30d13231bc3072bd671614c9a668
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43049735"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49650755"
 ---
 1. **Çözüm Gezgini**'nde projeye sağ tıklayın ve **Yayımla**'yı seçin.
 
 2. **Azure İşlev Uygulaması**'nı, **Yeni Oluştur**'u ve sonra da **Yayımla**'yı seçin.
 
-    ![Yayımlama hedefi seçme](./media/functions-vstools-publish/functions-vstools-create-new-function-app.png)
+    ![Yayımlama hedefi seçme](./media/functions-vstools-publish/functions-visual-studio-publish-profile.png)
 
     **Zip'ten çalıştır**'ı etkinleştirdiğinizde, Azure'da işlev uygulamanız doğrudan dağıtım paketinden çalıştırılır. Daha fazla bilgi için bkz. [Azure İşlevlerinizi paket dosyasından çalıştırma](../articles/azure-functions/run-functions-from-deployment-package.md).
 
@@ -27,7 +27,7 @@ ms.locfileid: "43049735"
 
 4. **Uygulama Hizmetini Oluştur** iletişim kutusunda, **Barındırma** ayarlarını resmin altındaki tabloda belirtildiği gibi kullanın:
 
-    ![App Service iletişim kutusu oluşturma](./media/functions-vstools-publish/functions-vstools-publish.png)
+    ![App Service iletişim kutusu oluşturma](./media/functions-vstools-publish/functions-visual-studio-publish.png)
 
     | Ayar      | Önerilen değer  | Açıklama                                |
     | ------------ |  ------- | -------------------------------------------------- |
@@ -41,4 +41,4 @@ ms.locfileid: "43049735"
 
 6. Dağıtım tamamlandığında, **Site URL'si** değerini (Azure'daki işlev uygulamanızın adresi) not edin.
 
-    ![Başarı iletisi yayımlama](./media/functions-vstools-publish/functions-vstools-publish-profile.png)
+    ![Başarı iletisi yayımlama](./media/functions-vstools-publish/functions-visual-studio-publish-complete.png)

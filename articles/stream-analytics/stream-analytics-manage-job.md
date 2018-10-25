@@ -10,12 +10,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 04/04/2018
-ms.openlocfilehash: 1955fc033e0351be9da89bbee11dc41d6281a63a
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: c29131720de8d6016d134fe7c0118fc3db9e22be
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47433999"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49985650"
 ---
 # <a name="create-a-stream-analytics-job-to-analyze-phone-call-data-and-visualize-results-in-a-power-bi-dashboard"></a>Telefon araması verilerini analiz etmek ve sonuçları bir Power BI panosunda görselleştirmek için Stream Analytics işi oluşturma
  
@@ -37,7 +37,7 @@ Başlamadan önce şunlara sahip olduğunuzdan emin olun:
 
 * Azure aboneliğiniz yoksa [ücretsiz bir hesap](https://azure.microsoft.com/free/) oluşturun.  
 * [Azure Portal](https://portal.azure.com/)’da oturum açın.  
-* Microsoft İndirme Merkezi’nden [TelcoGenerator.zip](http://download.microsoft.com/download/8/B/D/8BD50991-8D54-4F59-AB83-3354B69C8A7E/TelcoGenerator.zip) telefon araması olay oluşturucu uygulamasını indirebilir veya [GitHub](https://aka.ms/azure-stream-analytics-telcogenerator)’dan kaynak kodu alabilirsiniz.  
+* Microsoft İndirme Merkezi’nden [TelcoGenerator.zip](https://download.microsoft.com/download/8/B/D/8BD50991-8D54-4F59-AB83-3354B69C8A7E/TelcoGenerator.zip) telefon araması olay oluşturucu uygulamasını indirebilir veya [GitHub](https://aka.ms/azure-stream-analytics-telcogenerator)’dan kaynak kodu alabilirsiniz.  
 
 ## <a name="create-an-azure-event-hub"></a>Azure Olay Hub’ı oluşturma 
 
@@ -89,7 +89,7 @@ Bir uygulamanın Azure Olay Hub’larına veri gönderebilmesi için olay hub’
 
 TelcoGenerator uygulamasını başlatmadan önce bunu, daha önce oluşturduğunuz Azure Olay Hub’ına veri gönderecek şekilde yapılandırmanız gerekir.
 
-1. [TelcoGenerator.zip](http://download.microsoft.com/download/8/B/D/8BD50991-8D54-4F59-AB83-3354B69C8A7E/TelcoGenerator.zip) dosyasının içeriklerini ayıklayın.  
+1. [TelcoGenerator.zip](https://download.microsoft.com/download/8/B/D/8BD50991-8D54-4F59-AB83-3354B69C8A7E/TelcoGenerator.zip) dosyasının içeriklerini ayıklayın.  
 2. Tercih ettiğiniz metin düzenleyicisinde `TelcoGenerator\TelcoGenerator\telcodatagen.exe.config` dosyasını açın. (Birden fazla .config dosyası olduğundan doğru olanı açtığınızdan emin olun.)  
 
 3. Config dosyasındaki <appSettings> öğesini şu bilgilerle güncelleştirin:
@@ -260,7 +260,7 @@ Bir sorguyu sorgu düzenleyicisinden test edebilirsiniz ve sorgu testi için ör
 
 ## <a name="embedding-your-powerbi-dashboard-in-a-web-application"></a>Power BI Panonuzu bir Web Uygulamasına Ekleme
 
-Öğreticinin bu bölümünde, PowerBI ekibi tarafından panonuza eklenmesi için oluşturulan örnek bir [ASP.NET](http://asp.net/) web uygulamasını kullanacaksınız. Pano ekleme hakkında daha fazla bilgi için [Power BI ile ekleme](https://docs.microsoft.com/power-bi/developer/embedding) başlıklı makaleye bakın.
+Öğreticinin bu bölümünde, PowerBI ekibi tarafından panonuza eklenmesi için oluşturulan örnek bir [ASP.NET](https://asp.net/) web uygulamasını kullanacaksınız. Pano ekleme hakkında daha fazla bilgi için [Power BI ile ekleme](https://docs.microsoft.com/power-bi/developer/embedding) başlıklı makaleye bakın.
 
 Bu öğreticide, User Owns Data (Verilerin Sahibi Kullanıcıdır) uygulamasına yönelik adımları uygulayacağız. Uygulamayı ayarlamak için [PowerBI-Developer-Samples](https://github.com/Microsoft/PowerBI-Developer-Samples) Github deposuna gidin ve **User Owns Data** (Verilerin Sahibi Kullanıcıdır) bölümündeki yönergeleri uygulayın. (**integrate-dashboard-web-app** alt bölümündeki yönlendirme ve ana sayfa URL’lerini kullanın.) Pano örneğini kullandığımızdan [GitHub deposunda](https://github.com/Microsoft/PowerBI-Developer-Samples/tree/master/User%20Owns%20Data/integrate-dashboard-web-app) bulunan integrate-dashboard-web-app örnek kodunu kullanın.
 Uygulamayı tarayıcınızda çalıştırmaya başladıktan sonra, daha önce oluşturduğunuz panoyu web sayfasına eklemek için şu adımları uygulayın:

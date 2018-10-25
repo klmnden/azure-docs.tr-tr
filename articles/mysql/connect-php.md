@@ -10,15 +10,15 @@ ms.service: mysql
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 02/28/2018
-ms.openlocfilehash: 1e919ddb063bcd96b0c6766a28762d1b474cb8a1
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: 7fa9272a8609d933a3f12abb0f33e78c4bdc1b12
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42022799"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49984817"
 ---
 # <a name="azure-database-for-mysql-use-php-to-connect-and-query-data"></a>MySQL için Azure Veritabanı: PHP'yi kullanarak bağlanma ve veri sorgulama
-Bu hızlı başlangıçta [PHP](http://php.net/manual/intro-whatis.php) uygulaması kullanarak MySQL için Azure Veritabanı'na nasıl bağlanacağınız gösterilmiştir. Hızlı başlangıçta, veritabanında verileri sorgulamak, eklemek, güncelleştirmek ve silmek için SQL deyimlerinin nasıl kullanılacağı da gösterilmiştir. Bu konuda, PHP kullanarak geliştirmeyle ilgili bilgi sahibi olduğunuz ve MySQL için Azure Veritabanı ile çalışmaya yeni başladığınız varsayılır.
+Bu hızlı başlangıçta [PHP](https://secure.php.net/manual/intro-whatis.php) uygulaması kullanarak MySQL için Azure Veritabanı'na nasıl bağlanacağınız gösterilmiştir. Hızlı başlangıçta, veritabanında verileri sorgulamak, eklemek, güncelleştirmek ve silmek için SQL deyimlerinin nasıl kullanılacağı da gösterilmiştir. Bu konuda, PHP kullanarak geliştirmeyle ilgili bilgi sahibi olduğunuz ve MySQL için Azure Veritabanı ile çalışmaya yeni başladığınız varsayılır.
 
 ## <a name="prerequisites"></a>Ön koşullar
 Bu hızlı başlangıçta, başlangıç noktası olarak şu kılavuzlardan birinde oluşturulan kaynaklar kullanılmaktadır:
@@ -29,16 +29,16 @@ Bu hızlı başlangıçta, başlangıç noktası olarak şu kılavuzlardan birin
 PHP'yi kendi sunucunuza yükleyin veya PHP içeren bir Azure [web uygulaması](../app-service/app-service-web-overview.md) oluşturun.
 
 ### <a name="macos"></a>macOS
-- [PHP 7.1.4 sürümünü](http://php.net/downloads.php) indirin.
-- PHP'yi yükleyin ve diğer yapılandırmalar için [PHP kılavuzuna](http://php.net/manual/install.macosx.php) bakın.
+- [PHP 7.1.4 sürümünü](https://secure.php.net/downloads.php) indirin.
+- PHP'yi yükleyin ve diğer yapılandırmalar için [PHP kılavuzuna](https://secure.php.net/manual/install.macosx.php) bakın.
 
 ### <a name="linux-ubuntu"></a>Linux (Ubuntu)
-- [PHP 7.1.4 iş parçacığı güvenli olmayan (x64) sürümünü](http://php.net/downloads.php) indirin.
-- PHP'yi yükleyin ve diğer yapılandırmalar için [PHP kılavuzuna](http://php.net/manual/install.unix.php) bakın.
+- [PHP 7.1.4 iş parçacığı güvenli olmayan (x64) sürümünü](https://secure.php.net/downloads.php) indirin.
+- PHP'yi yükleyin ve diğer yapılandırmalar için [PHP kılavuzuna](https://secure.php.net/manual/install.unix.php) bakın.
 
 ### <a name="windows"></a>Windows
-- [PHP 7.1.4 iş parçacığı güvenli olmayan (x64) sürümünü](http://windows.php.net/download#php-7.1) indirin.
-- PHP'yi yükleyin ve diğer yapılandırmalar için [PHP kılavuzuna](http://php.net/manual/install.windows.php) bakın.
+- [PHP 7.1.4 iş parçacığı güvenli olmayan (x64) sürümünü](https://windows.php.net/download#php-7.1) indirin.
+- PHP'yi yükleyin ve diğer yapılandırmalar için [PHP kılavuzuna](https://secure.php.net/manual/install.windows.php) bakın.
 
 ## <a name="get-connection-information"></a>Bağlantı bilgilerini alma
 MySQL için Azure Veritabanı'na bağlanmak üzere gereken bağlantı bilgilerini alın. Tam sunucu adına ve oturum açma kimlik bilgilerine ihtiyacınız vardır.
@@ -52,7 +52,7 @@ MySQL için Azure Veritabanı'na bağlanmak üzere gereken bağlantı bilgilerin
 ## <a name="connect-and-create-a-table"></a>Bağlanma ve tablo oluşturma
 Bağlanmak ve **CREATE TABLE** SQL deyimini kullanarak tablo oluşturmak için aşağıdaki kodu kullanın. 
 
-Kod, PHP'de bulunan **MySQL Improved extension** (mysqli) sınıfını kullanır. Kod, MySQL'e bağlanmak için [mysqli_init](http://php.net/manual/mysqli.init.php) ve [mysqli_real_connect](http://php.net/manual/mysqli.real-connect.php) yöntemlerini çağırır. Ardından sorgu çalıştırmak için [mysqli_query](http://php.net/manual/mysqli.query.php) yöntemini çağırır. Daha sonra bağlantıyı kapatmak için [mysqli_close](http://php.net/manual/mysqli.close.php) yöntemini çağırır.
+Kod, PHP'de bulunan **MySQL Improved extension** (mysqli) sınıfını kullanır. Kod, MySQL'e bağlanmak için [mysqli_init](https://secure.php.net/manual/mysqli.init.php) ve [mysqli_real_connect](https://secure.php.net/manual/mysqli.real-connect.php) yöntemlerini çağırır. Ardından sorgu çalıştırmak için [mysqli_query](https://secure.php.net/manual/mysqli.query.php) yöntemini çağırır. Daha sonra bağlantıyı kapatmak için [mysqli_close](https://secure.php.net/manual/mysqli.close.php) yöntemini çağırır.
 
 host, username, password ve db_name parametre değerlerini kendi değerlerinizle değiştirin. 
 
@@ -91,7 +91,7 @@ mysqli_close($conn);
 ## <a name="insert-data"></a>Veri ekleme
 Bağlanmak ve **INSERT** SQL deyimi kullanarak veri eklemek için aşağıdaki kodu kullanın.
 
-Kod, PHP'de bulunan **MySQL Improved extension** (mysqli) sınıfını kullanır. Kod, [mysqli_prepare](http://php.net/manual/mysqli.prepare.php) yöntemini kullanarak hazır bir INSERT deyimi oluşturur, ardından [mysqli_stmt_bind_param](http://php.net/manual/mysqli-stmt.bind-param.php) yöntemini kullanarak, eklenen her bir sütun değerine ilişkin parametreleri bağlar. Kod, [mysqli_stmt_execute](http://php.net/manual/mysqli-stmt.execute.php) yöntemini kullanarak deyimi çalıştırır ve ardından [mysqli_stmt_close](http://php.net/manual/mysqli-stmt.close.php) yöntemini kullanarak deyimi kapatır.
+Kod, PHP'de bulunan **MySQL Improved extension** (mysqli) sınıfını kullanır. Kod, [mysqli_prepare](https://secure.php.net/manual/mysqli.prepare.php) yöntemini kullanarak hazır bir INSERT deyimi oluşturur, ardından [mysqli_stmt_bind_param](https://secure.php.net/manual/mysqli-stmt.bind-param.php) yöntemini kullanarak, eklenen her bir sütun değerine ilişkin parametreleri bağlar. Kod, [mysqli_stmt_execute](https://secure.php.net/manual/mysqli-stmt.execute.php) yöntemini kullanarak deyimi çalıştırır ve ardından [mysqli_stmt_close](https://secure.php.net/manual/mysqli-stmt.close.php) yöntemini kullanarak deyimi kapatır.
 
 host, username, password ve db_name parametre değerlerini kendi değerlerinizle değiştirin. 
 
@@ -126,7 +126,7 @@ mysqli_close($conn);
 ```
 
 ## <a name="read-data"></a>Verileri okuma
-Bağlanmak ve **SELECT** SQL deyimi kullanarak verileri okumak için aşağıdaki kodu kullanın.  Kod, PHP'de bulunan **MySQL Improved extension** (mysqli) sınıfını kullanır. Kod, [mysqli_query](http://php.net/manual/mysqli.query.php) yöntemini kullanarak SQL sorgusunu gerçekleştirir ve [mysqli_fetch_assoc](http://php.net/manual/mysqli-result.fetch-assoc.php) yöntemini kullanarak elde edilen satırları getirir.
+Bağlanmak ve **SELECT** SQL deyimi kullanarak verileri okumak için aşağıdaki kodu kullanın.  Kod, PHP'de bulunan **MySQL Improved extension** (mysqli) sınıfını kullanır. Kod, [mysqli_query](https://secure.php.net/manual/mysqli.query.php) yöntemini kullanarak SQL sorgusunu gerçekleştirir ve [mysqli_fetch_assoc](https://secure.php.net/manual/mysqli-result.fetch-assoc.php) yöntemini kullanarak elde edilen satırları getirir.
 
 host, username, password ve db_name parametre değerlerini kendi değerlerinizle değiştirin. 
 
@@ -159,7 +159,7 @@ mysqli_close($conn);
 ## <a name="update-data"></a>Verileri güncelleştirme
 Bağlanmak ve bir **UPDATE** SQL deyimi kullanarak verileri güncelleştirmek için aşağıdaki kodu kullanın.
 
-Kod, PHP'de bulunan **MySQL Improved extension** (mysqli) sınıfını kullanır. Kod, [mysqli_prepare](http://php.net/manual/mysqli.prepare.php) yöntemini kullanarak hazır bir UPDATE deyimi oluşturur, ardından [mysqli_stmt_bind_param](http://php.net/manual/mysqli-stmt.bind-param.php) yöntemini kullanarak, güncelleştirilen her bir sütun değerine ilişkin parametreleri bağlar. Kod, [mysqli_stmt_execute](http://php.net/manual/mysqli-stmt.execute.php) yöntemini kullanarak deyimi çalıştırır ve ardından [mysqli_stmt_close](http://php.net/manual/mysqli-stmt.close.php) yöntemini kullanarak deyimi kapatır.
+Kod, PHP'de bulunan **MySQL Improved extension** (mysqli) sınıfını kullanır. Kod, [mysqli_prepare](https://secure.php.net/manual/mysqli.prepare.php) yöntemini kullanarak hazır bir UPDATE deyimi oluşturur, ardından [mysqli_stmt_bind_param](https://secure.php.net/manual/mysqli-stmt.bind-param.php) yöntemini kullanarak, güncelleştirilen her bir sütun değerine ilişkin parametreleri bağlar. Kod, [mysqli_stmt_execute](https://secure.php.net/manual/mysqli-stmt.execute.php) yöntemini kullanarak deyimi çalıştırır ve ardından [mysqli_stmt_close](https://secure.php.net/manual/mysqli-stmt.close.php) yöntemini kullanarak deyimi kapatır.
 
 host, username, password ve db_name parametre değerlerini kendi değerlerinizle değiştirin. 
 
@@ -197,7 +197,7 @@ mysqli_close($conn);
 ## <a name="delete-data"></a>Verileri silme
 Bağlanmak ve **DELETE** SQL deyimi kullanarak verileri okumak için aşağıdaki kodu kullanın. 
 
-Kod, PHP'de bulunan **MySQL Improved extension** (mysqli) sınıfını kullanır. Kod, [mysqli_prepare](http://php.net/manual/mysqli.prepare.php) yöntemini kullanarak hazır bir DELETE deyimi oluşturur, ardından [mysqli_stmt_bind_param](http://php.net/manual/mysqli-stmt.bind-param.php) yöntemini kullanarak deyimdeki WHERE yan tümcesine ilişkin parametreleri bağlar. Kod, [mysqli_stmt_execute](http://php.net/manual/mysqli-stmt.execute.php) yöntemini kullanarak deyimi çalıştırır ve ardından [mysqli_stmt_close](http://php.net/manual/mysqli-stmt.close.php) yöntemini kullanarak deyimi kapatır.
+Kod, PHP'de bulunan **MySQL Improved extension** (mysqli) sınıfını kullanır. Kod, [mysqli_prepare](https://secure.php.net/manual/mysqli.prepare.php) yöntemini kullanarak hazır bir DELETE deyimi oluşturur, ardından [mysqli_stmt_bind_param](https://secure.php.net/manual/mysqli-stmt.bind-param.php) yöntemini kullanarak deyimdeki WHERE yan tümcesine ilişkin parametreleri bağlar. Kod, [mysqli_stmt_execute](https://secure.php.net/manual/mysqli-stmt.execute.php) yöntemini kullanarak deyimi çalıştırır ve ardından [mysqli_stmt_close](https://secure.php.net/manual/mysqli-stmt.close.php) yöntemini kullanarak deyimi kapatır.
 
 host, username, password ve db_name parametre değerlerini kendi değerlerinizle değiştirin. 
 

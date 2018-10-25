@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: resource-graph
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: a9281bc333b3edd12501a6813f12b9e7ad1bf59f
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 934dff93b9a7f5d6755f55ad1073e01e586b1ca7
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47219276"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49647842"
 ---
 # <a name="advanced-resource-graph-queries"></a>Gelişmiş Kaynak Grafiği sorguları
 
@@ -48,7 +48,7 @@ where type=~ 'microsoft.compute/virtualmachinescalesets'
 az graph query -q "where type=~ 'microsoft.compute/virtualmachinescalesets' | where name contains 'contoso' | project subscriptionId, name, location, resourceGroup, Capacity = toint(sku.capacity), Tier = sku.name | order by Capacity desc"
 ```
 
-```powershell
+```azurepowershell-interactive
 Search-AzureRmGraph -Query "where type=~ 'microsoft.compute/virtualmachinescalesets' | where name contains 'contoso' | project subscriptionId, name, location, resourceGroup, Capacity = toint(sku.capacity), Tier = sku.name | order by Capacity desc"
 ```
 
@@ -65,7 +65,7 @@ project tags
 az graph query -q "project tags | summarize buildschema(tags)"
 ```
 
-```powershell
+```azurepowershell-interactive
 Search-AzureRmGraph -Query "project tags | summarize buildschema(tags)"
 ```
 
@@ -95,12 +95,12 @@ where type =~ 'microsoft.compute/virtualmachines' and name matches regex @'^Cont
 az graph query -q "where type =~ 'microsoft.compute/virtualmachines' and name matches regex @'^Contoso(.*)[0-9]+$' | project name | order by name asc"
 ```
 
-```powershell
+```azurepowershell-interactive
 Search-AzureRmGraph -Query "where type =~ 'microsoft.compute/virtualmachines' and name matches regex @'^Contoso(.*)[0-9]+$' | project name | order by name asc"
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- Bkz. [başlangıç sorguları](starter.md) örnekleri
+- Bkz. [Başlangıç sorguları](starter.md) örnekleri
 - [Sorgu dili](../concepts/query-language.md) hakkında daha fazla bilgi edinin
 - [Kaynakları keşfetmeyi](../concepts/explore-resources.md) öğrenin

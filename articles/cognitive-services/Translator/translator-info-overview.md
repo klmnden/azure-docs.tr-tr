@@ -3,19 +3,19 @@ title: Translator Metin Çevirisi API’si nedir?
 titlesuffix: Azure Cognitive Services
 description: Çok dilli kullanıcı deneyimleri sağlamak için Translator Metin Çevirisi API’si ile uygulamalarınızı, web sitelerinizi, araçlarınızı ve diğer çözümlerinizi tümleştirin.
 services: cognitive-services
-author: noellelacharite
+author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: overview
 ms.date: 05/10/2018
-ms.author: nolachar
-ms.openlocfilehash: c0004960b7a234d374ec0ae1bdc2f6576b197705
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.author: erhopf
+ms.openlocfilehash: 6c89ff41531b130843eb288b98ffe7def1d8915e
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49385035"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49645087"
 ---
 # <a name="what-is-translator-text-api"></a>Translator Metin Çevirisi API’si nedir?
 
@@ -35,7 +35,7 @@ Mevcut Translator Konuşma Çevirisi API'sini, Bing Konuşma API'sini ve Özel K
 
 Temel Microsoft Translator hizmetinin bir uzantısı olan Custom Translator, sinirsel çeviri sistemini özelleştirmenize ve çeviriyi, belirlediğiniz terminoloji ve stile göre iyileştirmenize yardımcı olması için Translator Metin Çevirisi API'si ile birlikte kullanılabilir.
 
-Custom Translator sayesinde, kendi işletmenizde veya sektörünüzde kullanılan terminolojiyi işleyebilen çeviri sistemleri oluşturabilirsiniz. Ardından, özelleştirilmiş çeviri sisteminiz mevcut uygulamalarınızın, iş akışlarınızın ve web sitelerinizin yanı sıra çeşitli cihaz türleriyle, normal Microsoft Translator Metin Çevirisi API'si aracılığıyla kategori parametresi kullanılarak kolayca tümleştirilebilir. 
+Custom Translator sayesinde, kendi işletmenizde veya sektörünüzde kullanılan terminolojiyi işleyebilen çeviri sistemleri oluşturabilirsiniz. Ardından, özelleştirilmiş çeviri sisteminiz mevcut uygulamalarınızın, iş akışlarınızın ve web sitelerinizin yanı sıra çeşitli cihaz türleriyle, normal Microsoft Translator Metin Çevirisi API'si aracılığıyla kategori parametresi kullanılarak kolayca tümleştirilebilir.
 
 [Dil özelleştirmesi](customization.md) hakkında daha fazla bilgi edinin
 
@@ -45,7 +45,7 @@ Sinirsel Makine Çevirisi (NMT), yüksek kaliteli yapay zeka destekli makine çe
 
 NMT, yalnızca ham çeviri kalitesi puanı değil, daha akıcı olması ve insan diline daha çok benzemesi açısından da daha iyi çeviriler sunar. Bu akıcılığın temel nedeni, NMT'nin sözcükleri çevirmek için cümlenin bağlamından bütünüyle yararlanmasıdır. SMT ise her bir sözcüğün hemen birkaç sözcük öncesindeki ve sonrasındaki anlık bağlamı dikkate alıyordu.
 
-NMT modelleri API'nin temelindedir ve son kullanıcılara görünür değildir. Gözle görülür tek fark, özellikle de Çince, Japonca ve Arapça gibi diller için geliştirilmiş çeviri kalitesidir. 
+NMT modelleri API'nin temelindedir ve son kullanıcılara görünür değildir. Gözle görülür tek fark, özellikle de Çince, Japonca ve Arapça gibi diller için geliştirilmiş çeviri kalitesidir.
 
 [NMT'nin nasıl çalıştığı](https://www.microsoft.com/en-us/translator/mt.aspx#nnt) hakkında daha fazla bilgi edinin
 

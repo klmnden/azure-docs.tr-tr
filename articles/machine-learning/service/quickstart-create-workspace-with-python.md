@@ -9,16 +9,18 @@ ms.reviewer: sgilley
 author: hning86
 ms.author: haining
 ms.date: 09/24/2018
-ms.openlocfilehash: cc348ca50b942b6b8b1474ed4dac4067d107a4af
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: e4624b115143f9f2e6dd77aa8ee79597c86ba31c
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49378008"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49456218"
 ---
 # <a name="quickstart-use-python-to-get-started-with-azure-machine-learning"></a>Hızlı başlangıç: Machine Learning hizmetini kullanmaya başlamak için Python'ı kullanma
 
 Bu hızlı başlangıçta Python için Azure Machine Learning SDK'sını kullanarak bir Machine Learning hizmeti [çalışma alanı](concept-azure-machine-learning-architecture.md) oluşturup kullanacaksınız. Bu çalışma alanı Machine Learning ile bulutta makine öğrenmesi modellerini denemek, eğitmek ve dağıtmak için kullanabileceğiniz temel bileşenlerden biridir.
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE2G9N6]
 
 Bu öğreticide Python SDK'sını yükleyip şu işlemleri gerçekleştireceksiniz:
 

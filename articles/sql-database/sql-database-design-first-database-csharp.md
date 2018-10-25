@@ -12,23 +12,23 @@ ms.author: genemi
 ms.reviewer: carlrab
 manager: craigg-msft
 ms.date: 06/07/2018
-ms.openlocfilehash: 65a9bde6fa086dc56809df9619ceee1c5b417e31
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 504fae03e06632f5960bfe0761cc0167b9e1d3fb
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47063310"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49465229"
 ---
 # <a name="design-an-azure-sql-database-and-connect-with-cx23-and-adonet"></a>C&#x23; ve ADO.NET ile bir Azure SQL veritabanı tasarlama ve bağlama
 
-Azure SQL Veritabanı, Microsoft Bulut’ta (Azure) ilişkisel bir hizmet olarak veritabanıdır (DBaaS). Bu öğreticide, Visual Studio ile ADO.NET ve Azure portalını kullanarak şu işlemleri gerçekleştirmeyi öğreneceksiniz: 
+Azure SQL Veritabanı, Microsoft Bulut’ta (Azure) ilişkisel bir hizmet olarak veritabanıdır (DBaaS). Bu öğreticide, Visual Studio ile ADO.NET ve Azure portalını kullanarak şu işlemleri gerçekleştirmeyi öğreneceksiniz:
 
 > [!div class="checklist"]
 > * Azure portalında veritabanı oluşturma
 > * Azure portalında sunucu düzeyinde güvenlik duvarı kuralı ayarlama
 > * ADO.NET ve Visual Studio ile veritabanına bağlanma
 > * ADO.NET ile tablo oluşturma
-> * ADO.NET ile veri ekleme, güncelleştirme ve silme 
+> * ADO.NET ile veri ekleme, güncelleştirme ve silme
 > * ADO.NET ile veri sorgulama
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap oluşturun](https://azure.microsoft.com/free/).
@@ -43,13 +43,11 @@ And it starts with a ## H2.
 
 [!INCLUDE [sql-database-tutorial-portal-create-firewall-connection-1](../../includes/sql-database-tutorial-portal-create-firewall-connection-1.md)]
 
-
 <!-- The following included .md, sql-database-csharp-adonet-create-query-2.md, is long.
 And it starts with a ## H2.
 -->
 
 [!INCLUDE [sql-database-csharp-adonet-create-query-2](../../includes/sql-database-csharp-adonet-create-query-2.md)]
-
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
@@ -66,4 +64,3 @@ Verilerinizi geçirme hakkında bilgi edinmek için sonraki öğreticiye ilerley
 
 > [!div class="nextstepaction"]
 > [SQL Server veritabanınızı Azure SQL Veritabanına geçirme](sql-database-migrate-your-sql-server-database.md)
-

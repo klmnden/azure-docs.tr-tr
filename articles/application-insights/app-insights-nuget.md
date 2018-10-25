@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 10/16/2018
 ms.author: mbullwin
-ms.openlocfilehash: 96c9628807d2aae257e27432ea8d27a7d9325de0
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: b6188bbf89d9aee842d7f8e232a820b59c4d9e31
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49381209"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50023263"
 ---
 # <a name="application-insights-nuget-packages"></a>Application Insights NuGet paketleri
 
@@ -30,7 +30,7 @@ Application Insights için NuGet paketlerini kararlı sürüm geçerli listesi a
 |Microsoft.ApplicationInsights.Agent.Intercept | 2.4.0 | Yöntem çağrılarının durdurma sağlar | [Paketini indirme](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Agent.Intercept/) |
 | Microsoft.ApplicationInsights.DependencyCollector | 2.8.0 | .NET uygulamaları için Application Insights bağımlılık Toplayıcı. Bu Application Insights platforma özel paketler için bağımlı bir paket ve bağımlılık telemetrisi otomatik olarak toplanmasını sağlar. | [Paketini indirme](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DependencyCollector/) |
 | Microsoft.ApplicationInsights.PerfCounterCollector | 2.8.0 | Application Insights performans sayaçları Toplayıcı, Application Insights için toplanan performans sayaçlarını tarafından veri göndermesini sağlar. | [Paketini indirme](https://www.nuget.org/packages/Microsoft.ApplicationInsights.PerfCounterCollector/) |
-| Microsoft.applicationınsights.Web | 2.8.0 | .NET için Application Insights web uygulamaları | [Paket'ı indirin] (https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web/) |
+| Microsoft.applicationınsights.Web | 2.8.0 | .NET için Application Insights web uygulamaları | [Paketini indirme](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web/) |
 | Microsoft.applicationınsights.windowsserver | 2.8.0 | Application Insights Windows Server NuGet paketini otomatik olarak .NET uygulamaları için application ınsights telemetrisi toplama sağlar. Bu paket veya tek başına paketin platforma özel paketler (like .NET çalışan rolleri için) tarafından kapsanmayan .NET uygulamaları için Application Insights platforma özel paketler için bağımlı bir paket olarak kullanılabilir. | [Paketini indirme](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WindowsServer/)  
 | Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel | 2.8.0 | Çevrimdışı senaryolarda telemetri korur Application Insights Windows Server SDK telemetri kanal sağlar. | [Paketini indirme](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel/) |
 

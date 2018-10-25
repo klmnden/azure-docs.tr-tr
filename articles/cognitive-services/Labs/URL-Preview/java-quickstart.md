@@ -6,16 +6,16 @@ services: cognitive-services
 author: mikedodaro
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: project-url-preview
+ms.component: url-preview
 ms.topic: quickstart
 ms.date: 04/24/2018
 ms.author: rosh, v-gedod
-ms.openlocfilehash: 95e33ceddc2fbbab51d3c4f0164b410847430244
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: cdbed473af04b7a0ba0fd2bba56219d43bf72537
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48867128"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49465721"
 ---
 # <a name="quickstart-url-preview-with-java"></a>Hızlı başlangıç: Java ile URL Önizleme
 
@@ -53,7 +53,7 @@ Aşağıdaki kod bir `WebRequest` oluşturur, erişim anahtarı üst bilgisini a
 
 Bing Yanıt Arama API'si Bing arama motorundan sonuçları döndürür.
 1. gson kitaplığını indirip yükleyin.
-2. Sık kullandığınız IDE veya düzenleyicide yeni bir Java projesi oluşturun.
+2. Tercih ettiğiniz IDE veya düzenleyicide bir Java projesi oluşturun.
 3. Aşağıda sağlanan kodu ekleyin.
 4. subscriptionKey değerini, aboneliğiniz için geçerli olan bir erişim anahtarı ile değiştirin.
 5. Programı çalıştırın.

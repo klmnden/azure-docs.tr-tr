@@ -9,12 +9,12 @@ ms.topic: get-started-article
 ms.date: 02/26/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: e3e3a981daf1273b8b2387cb1c665317f860b1d2
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: c370d25ed5d70887c8beecae8fea3528a259a0ea
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46974876"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49954581"
 ---
 # <a name="set-up-an-azure-ad-service-principal-for-a-kubernetes-cluster-in-container-service"></a>Container Service’te bir Kubernetes kümesi için Azure AD hizmet sorumlusu oluşturma
 
@@ -37,14 +37,14 @@ Aşağıdaki gereksinimleri karşılayan mevcut bir Azure AD hizmet sorumlusunu 
 * **Gizli anahtar**: Bir parola olmalıdır. Şu anda sertifika kimlik doğrulaması için ayarlanmış bir hizmet sorumlusunu kullanamazsınız.
 
 > [!IMPORTANT]
-> Bir hizmet sorumlusu oluşturmak için, Azure AD kiracınızla bir uygulamayı kaydetme ve uygulamanızı aboneliğinizdeki bir role atama izinlerinizin olması gerekir. Gerekli izinlere sahip olup olmadığınızı görmek için [Portal’dan denetleyin](../../azure-resource-manager/resource-group-create-service-principal-portal.md#required-permissions).
+> Bir hizmet sorumlusu oluşturmak için, Azure AD kiracınızla bir uygulamayı kaydetme ve uygulamanızı aboneliğinizdeki bir role atama izinlerinizin olması gerekir. Gerekli izinlere sahip olup olmadığınızı görmek için [Portal’dan denetleyin](../../active-directory/develop/howto-create-service-principal-portal.md#required-permissions).
 >
 
 ## <a name="option-1-create-a-service-principal-in-azure-ad"></a>1. Seçenek: Azure AD'de hizmet sorumlusu oluşturma
 
 Kubernetes kümenizi dağıtmadan önce bir Azure AD hizmet sorumlusu oluşturmak isterseniz, Azure birkaç yöntem sunar.
 
-Aşağıdaki örnek komut bunu [Azure CLI](../../azure-resource-manager/resource-group-authenticate-service-principal-cli.md) ile nasıl gerçekleştirebileceğinizi göstermektedir. Veya [Azure PowerShell](../../azure-resource-manager/resource-group-authenticate-service-principal.md), [portal](../../azure-resource-manager/resource-group-create-service-principal-portal.md) ya da diğer yöntemleri kullanarak bir hizmet sorumlusu oluşturabilirsiniz.
+Aşağıdaki örnek komut bunu [Azure CLI](../../azure-resource-manager/resource-group-authenticate-service-principal-cli.md) ile nasıl gerçekleştirebileceğinizi göstermektedir. Veya [Azure PowerShell](../../active-directory/develop/howto-authenticate-service-principal-powershell.md), [portal](../../active-directory/develop/howto-create-service-principal-portal.md) ya da diğer yöntemleri kullanarak bir hizmet sorumlusu oluşturabilirsiniz.
 
 ```azurecli
 az login
