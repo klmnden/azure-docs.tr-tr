@@ -364,7 +364,7 @@ Bu bölümde, Active Directory'ye Workday'den kullanıcı verilerin nasıl aktı
 | **WorkerID**  |  EmployeeID | **Evet** | Yazılan yalnızca oluşturma sırasında |
 | **Kullanıcı Kimliği**    |  CN =    |   |   Yazılan yalnızca oluşturma sırasında |
 | **Birleştirme ("@", [UserID], "contoso.com")**   | userPrincipalName     |     | Yazılan yalnızca oluşturma sırasında 
-| **Değiştir (Orta (değiştirin (\[UserID\],, "(\[ \\ \\ / \\ \\ \\ \\ \\ \\ \[ \\\\\]\\\\:\\\\;\\ \\|\\\\=\\\\,\\\\+\\\\\*\\ \\? \\ \\ &lt; \\ \\ &gt; \]) "," ",), 1, 20)," ([\\\\.) \* \$] (file:///\\.) *$)", , "", , )**      |    SAMAccountName            |     |         Yazılan yalnızca oluşturma sırasında |
+| **Değiştir(Orta(değiştirin(\[UserID\], , "(\[\\\\/\\\\\\\\\\\\\[\\\\\]\\\\:\\\\;\\\\|\\\\=\\\\,\\\\+\\\\\*\\\\?\\\\&lt;\\\\&gt;\])", , "", , ), 1, 20), , "([\\\\.)\*\$](file:///\\.)*$)", , "", , )**      |    SAMAccountName            |     |         Yazılan yalnızca oluşturma sırasında |
 | **Anahtar (\[etkin\],, "0", "True", "1")** |  accountDisabled      |     | Oluşturun ve güncelleştirme |
 | **FirstName**   | givenName       |     |    Oluşturun ve güncelleştirme |
 | **Soyadı**   |   sn   |     |  Oluşturun ve güncelleştirme |

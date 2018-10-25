@@ -73,8 +73,9 @@ items:
   - name: Kaynak modeli
     href: sql-api-resources.md
   - name: Genel dağıtım
-    href: distribute-data-globally.md
     items:
+    - name: Giriş
+      href: distribute-data-globally.md
     - name: Önemli avantajlar
       href: distribute-data-globally-benefits.md
     - name: Genel dağıtımı etkinleştirme
@@ -86,8 +87,9 @@ items:
     - name: Çakışma çözümleme
       href: multi-master-conflict-resolution.md
   - name: Aktarım hızı
-    href: request-units.md
     items:
+    - name: Giriş
+      href: request-units.md
     - name: Aktarım hızı alma ve ayarlama
       href: set-throughput.md
   - name: Bölümleme ve veri dağıtımı
@@ -103,8 +105,9 @@ items:
   - name: Benzersiz anahtarlar
     href: unique-keys.md
   - name: Güvenlik
-    href: database-security.md
     items:
+    - name: Giriş
+      href: database-security.md
     - name: Veri şifrelemesi
       href: database-encryption-at-rest.md
     - name: Veri erişiminin güvenliğini sağlama
@@ -428,6 +431,12 @@ items:
         href: performance-testing.md
     - name: Düşük maliyetli okuma ve yazmalar
       href: key-value-store-cost.md
+  - name: Cosmos DB verilerini görselleştirme
+    items:
+    - name: Power BI kullanma
+      href: powerbi-visualize.md
+    - name: Qlik Sense kullanma
+      href: visualize-qlik-sense.md
   - name: Diğer Azure hizmetleri ile tümleştirme
     items:
     - name: Akış e-ticaret çözümünü değiştirme
@@ -458,8 +467,6 @@ items:
       href: spark-connector.md
     - name: Spark ve Kafka
       href: https://docs.microsoft.com/azure/hdinsight/apache-kafka-spark-structured-streaming-cosmosdb?toc=/azure/cosmos-db/toc.json
-    - name: Power BI bağlayıcısı
-      href: powerbi-visualize.md
     - name: ODBC sürücüsü
       href: odbc-driver.md
   - name: Toplu yürütücü kitaplığı
@@ -494,9 +501,9 @@ items:
       href: use-cases.md
     - name: Sosyal medya uygulamaları
       href: social-media-apps.md
-ms.openlocfilehash: 79c5c4d9d39a3735098b2d81a5d04259e3bc7acb
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: dfa5b34127abf569a359814b6064ec981f57796d
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49471178"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49985837"
