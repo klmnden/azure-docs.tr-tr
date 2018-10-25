@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 10/16/2018
+ms.date: 10/23/2018
 ms.author: jeffgilb
 ms.reviewer: quying
-ms.openlocfilehash: ea3e6c2e616f2618200c1e3904786abd72bbd75d
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: 84aaa5534c629554074544b4bb56ae8da8825397
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49376814"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49986467"
 ---
 # <a name="tutorial-offer-highly-available-mysql-databases"></a>Öğretici: yüksek oranda kullanılabilir olan MySQL veritabanları sunar.
 
@@ -65,16 +65,15 @@ MySQL sunucusu dağıtmak için bu bölümdeki adımları küme kullanarak kulla
 - Bir genel IP adresi (birincil MySQL kümesi için sanal makine)
 - MySQL kümesi barındırmak için üç Linux Vm'leri
 
-1. Yönetim portalında oturum açın:
-    - Çözümünüzün bölge ve dış etki alanı adını bir tümleşik sistemi dağıtımı için bir portal adresi göre değişir. Biçiminde olacaktır https://adminportal.&lt; *Bölge*&gt;.&lt; *FQDN*&gt;.
-    - Azure Stack geliştirme Seti'ni (ASDK) kullanıyorsanız, portalı adresidir [ https://adminportal.local.azurestack.external ](https://adminportal.local.azurestack.external).
+1. 
+[!INCLUDE [azs-admin-portal](../../includes/azs-admin-portal.md)]
 
 2. Seçin **\+** **kaynak Oluştur** > **işlem**, ardından **çoğaltma ile MySQL**.
 
-   ![Özel şablon dağıtımı](media/azure-stack-tutorial-mysqlrp/createcluster1.png)
+   ![Özel şablon dağıtımı](media/azure-stack-tutorial-mysqlrp/1.png)
 
 3. Temel dağıtım bilgilerini sağlamaları **Temelleri** sayfası. Varsayılan değerleri gözden geçirin ve gerektiği gibi değiştirin ve tıklayın **Tamam**.<br><br>En azından aşağıdakileri sağlar:
-   - Dağıtım adı (varsayılan değer mysql)
+   - Dağıtım adı (varsayılan değer mymysql)
    - Uygulama kök parolası. 12 karakter alfasayısal bir parolayla **hiçbir özel karakterler**
    - Uygulama veritabanı adı (varsayılan değer bitnami)
    - MySQL veritabanı çoğaltma oluşturmak için VM sayısı (varsayılan değer 2)
@@ -82,22 +81,22 @@ MySQL sunucusu dağıtmak için bu bölümdeki adımları küme kullanarak kulla
    - Kullanma veya yeni bir kaynak grubunu seçin
    - Konum seçin (varsayılan değer için ASDK yerel)
 
-   ![Dağıtımıyla ilgili temel bilgiler](media/azure-stack-tutorial-mysqlrp/createcluster2.png)
+   [![](media/azure-stack-tutorial-mysqlrp/2-sm.PNG "Dağıtımıyla ilgili temel bilgiler")](media/azure-stack-tutorial-mysqlrp/2-lg.PNG#lightbox)
 
 4. Üzerinde **ortamı Yapılandırması** sayfasında aşağıdaki bilgileri sağlayın ve ardından **Tamam**: 
    - Güvenli Kabuk (SSH) kimlik doğrulaması için kullanılacak parola veya SSH ortak anahtarı. Bir parola kullanıyorsanız, harf, rakam içermelidir ve **olabilir** özel karakterlerini içeremez
    - VM boyutu (varsayılan değer standart D1 v2 sanal makinesi)
    - Veri disk boyutu GB tıklayın **Tamam**
 
-   ![Ortam yapılandırma](media/azure-stack-tutorial-mysqlrp/createcluster3.png)
+   [![](media/azure-stack-tutorial-mysqlrp/3-sm.PNG "Ortam yapılandırma")](media/azure-stack-tutorial-mysqlrp/3-lg.PNG#lightbox)
 
 5. Dağıtım gözden **özeti**. İsteğe bağlı olarak, özelleştirilmiş şablon ve parametreleri indirebilir ve ardından **Tamam**.
 
-   ![Özet](media/azure-stack-tutorial-mysqlrp/createcluster4.png)
+   [![](media/azure-stack-tutorial-mysqlrp/4-sm.PNG "Özeti")](media/azure-stack-tutorial-mysqlrp/4-lg.PNG#lightbox)
 
 6. Tıklayın **Oluştur** üzerinde **satın** dağıtımı başlatmak için sayfa.
 
-   ![Satın Al](media/azure-stack-tutorial-mysqlrp/createcluster4.png)
+   ![Satın Al](media/azure-stack-tutorial-mysqlrp/5.png)
 
     > [!NOTE]
     > Dağıtım, yaklaşık bir saat sürer. Dağıtım tamamlandıktan ve MySQL kümesi devam etmeden önce tamamen yapılandırılmış emin olun. 
@@ -110,11 +109,11 @@ Varsayılan olarak, hiçbir genel erişim konak VM'si için MySQL yapılandırı
 
 1. Yönetici portalındaki MySQL küme dağıtılırken oluşturulan bir kaynak grubuna gidin ve ağ güvenlik grubunu seçin (**varsayılan alt ağ sg**):
 
-   ![açık](media/azure-stack-tutorial-mysqlrp/nsg1.png)
+   ![açık](media/azure-stack-tutorial-mysqlrp/6.png)
 
 2. Seçin **gelen güvenlik kuralları** ve ardından **Ekle**.<br><br>Girin **3306** içinde **hedef bağlantı noktası aralığı** ve isteğe bağlı olarak bir açıklama sağlayın **adı** ve **açıklama** alanları. Gelen güvenlik kuralı iletişim kutusunu kapatmak için Ekle'ye tıklayın.
 
-   ![açık](media/azure-stack-tutorial-mysqlrp/nsg2.png)
+   ![açık](media/azure-stack-tutorial-mysqlrp/7.png)
 
 ### <a name="configure-external-access-to-the-mysql-cluster"></a>MySQL kümesi dış erişimi yapılandırma
 Dış erişim MySQL kümenin bir Azure Stack MySQL Server konağı olarak eklenmeden önce etkinleştirilmesi gerekir.
@@ -167,9 +166,8 @@ MySQL kümesi oluşturulduğundan, yapılandırılmış ve bir Azure Stack MySQL
 > [!NOTE]
 > Bu adımları Azure Stack Kullanıcı Portalı'ndan bir abonelik MySQL Server özellikleriyle (Microsoft.MySQLAdapter hizmeti) ile bir kiracı kullanıcı olarak çalıştırın.
 
-1. Kullanıcı portalında oturum açın:
-    - Çözümünüzün bölge ve dış etki alanı adını bir tümleşik sistemi dağıtımı için bir portal adresi göre değişir. Biçiminde olacaktır https://portal.&lt; *Bölge*&gt;.&lt; *FQDN*&gt;.
-    - Azure Stack geliştirme Seti'ni (ASDK) kullanıyorsanız, kullanıcı portalı adresidir [ https://portal.local.azurestack.external ](https://portal.local.azurestack.external).
+1. 
+[!INCLUDE [azs-user-portal](../../includes/azs-user-portal.md)]
 
 2. Seçin **\+** **kaynak Oluştur** > **veri \+ depolama**, ardından **MySQL veritabanı** .<br><br>Ad, harmanlaması, kullanılacak aboneliği ve dağıtımı için kullanılacak konumu dahil olmak üzere gerekli veritabanı özellik bilgileri sağlar. 
 
