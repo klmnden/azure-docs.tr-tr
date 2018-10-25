@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/15/2018
+ms.date: 10/24/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 3c1c681e2c7ccd6b5fd3eaa3639853d99cb1e0b7
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: 397aa000da7ea70c12883622b60c0e3e6dded811
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40005220"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50025328"
 ---
 # <a name="sign-in-experiences-with-azure-ad-identity-protection"></a>Azure AD kimlik koruması ile oturum açma deneyimleri
 Azure Active Directory kimlik koruması ile yapabilecekleriniz:
@@ -57,13 +57,18 @@ Yöneticiler, kullanıcıların kendi hesapları için ek güvenlik doğrulamas�
 
 1. Bu adımda, kullanıcı hesabı çok faktörlü kimlik doğrulaması için ayarlanacak gereksinimi hakkında bir bildirim alır. 
    
-    ![Düzeltme](./media/flows/140.png "düzeltme")
+    ![Düzeltme](./media/flows/301.png "düzeltme")
+
 2. Çok faktörlü kimlik doğrulamasını'kurmak için sistemin nasıl irtibat kurulmasını istediğinizi bilmeniz gerekir.
    
-    ![Düzeltme](./media/flows/141.png "düzeltme")
-3. Sistem için bir sınama gönderir ve yanıt vermesi gerekir.
-   
-    ![Düzeltme](./media/flows/142.png "düzeltme")
+    ![Düzeltme](./media/flows/302.png "düzeltme")
+
+3. Sistem numarası telefon numaranızı ve nasıl irtibat kurulmasını istediğinizi sağlar.
+
+    ![Düzeltme](./media/flows/303.png "düzeltme")
+
+Kaydı tamamlamak için ya da bir kod girin veya bir telefon araması olarak yanıt gerekir. 
+
 
 ## <a name="risky-sign-in-recovery"></a>Riskli oturum açma kurtarma
 Yönetici oturum açma risk için bir ilke yapılandırmış, etkilenen kullanıcılar oturum açmak çalıştıklarında bildirilir. 

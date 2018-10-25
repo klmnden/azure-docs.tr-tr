@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/08/2018
 ms.author: cwatson
-ms.openlocfilehash: 460cd3a5b05680563661e2f6519eaa3506eee03b
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: e43188459bf495748a054b0f24936c9141bd218c
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47392098"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50025732"
 ---
 # <a name="understand-how-the-azure-reservation-discount-is-applied-to-virtual-machines"></a>Azure ayırma indirimi sanal makinelerine nasıl uygulanacağını anlama
 
@@ -51,15 +51,15 @@ Anlamak ve kullanım raporları faturalama Azure Ayırmalarınızın uygulamayı
 
 ## <a name="application-of-reservation-discount-to-windows-vms"></a>Ayırma indirimi, bir uygulama için Windows Vm'leri
 
-Windows VM örneklerini çalıştırırken ayırma altyapı maliyetlerini karşılamak için uygulanır. VM altyapı maliyetleri için Windows Vm'leri için ayırma uygulamasının Windows olmayan Vm'leri için aynıdır. Windows yazılım vCPU başına temelinde için ayrı olarak ücret ödersiniz. Bkz: [ayırmaları Windows yazılım maliyetleri](https://go.microsoft.com/fwlink/?linkid=862756). [Azure hibrit avantajı için Windows Server] ile maliyetleri lisanslama, Windows ele (https://docs.microsoft.com/azure/virtual-machines/windows/hybrid-use-benefit-licensing).
+Windows VM örneklerini çalıştırırken ayırma altyapı maliyetlerini karşılamak için uygulanır. VM altyapı maliyetleri için Windows Vm'leri için ayırma uygulamasının Windows olmayan Vm'leri için aynıdır. Windows yazılım vCPU başına temelinde için ayrı olarak ücret ödersiniz. Bkz: [ayırmaları Windows yazılım maliyetleri](https://go.microsoft.com/fwlink/?linkid=862756). Lisans maliyetlerini ile Windows ele [Windows Server için Azure hibrit avantajı](https://docs.microsoft.com/azure/virtual-machines/windows/hybrid-use-benefit-licensing).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 Azure ayırmaları hakkında daha fazla bilgi edinmek için aşağıdaki makalelere bakın:
 
 - [Azure ayırmaları nelerdir?](billing-save-compute-costs-reservations.md)
-- [Azure ayrılmış VM örnekleri ile sanal makineler için ön ödeme](../virtual-machines/windows/prepay-reserved-vm-instances.md)
-- [Azure SQL veritabanı'nın ayrılmış kapasite ile SQL veritabanı bilgi işlem kaynakları için ön ödeme](../sql-database/sql-database-reserved-capacity.md)
+- [Azure Ayrılmış VM Örnekleri ile Sanal Makinelere ön ödeme yapma](../virtual-machines/windows/prepay-reserved-vm-instances.md)
+- [Azure SQL Veritabanı ayrılmış kapasitesi ile SQL Veritabanı işlem kaynakları için ön ödeme yapma](../sql-database/sql-database-reserved-capacity.md)
 - [Azure Ayırmalarını yönetme](billing-manage-reserved-vm-instance.md)
 - [Kullandıkça Öde aboneliğinizi için ayırma kullanımını anlama](billing-understand-reserved-instance-usage.md)
 - [Kurumsal kayıt için ayırma kullanımını anlama](billing-understand-reserved-instance-usage-ea.md)

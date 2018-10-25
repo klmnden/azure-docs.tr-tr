@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 05/03/2018
 ms.author: v-daljep
 ms.component: ''
-ms.openlocfilehash: ea289abff7a40b0528f4cb88402594879ba6c437
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 3c80007a8188fb239a13aaa0ccc9ef2237a2d8d1
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49649663"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50025681"
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview"></a>Azure SQL Analytics (Önizleme) kullanarak Azure SQL veritabanı izleme
 
@@ -147,11 +147,48 @@ Sorgu süresi ve sorgu bekler Perspektifler sorgu raporu aracılığıyla herhan
 
 ![Azure SQL Analytics sorguları](./media/log-analytics-azure-sql/azure-sql-sol-queries.png)
 
-### <a name="pricing"></a>Fiyatlandırma
+## <a name="permissions"></a>İzinler
 
-Çözümü ücretsiz olsa da, veri alımı ayrılan her ay ücretsiz birimlerinin yukarıda tanılama telemetrisi tüketiminin uygular, bkz: [Log Analytics fiyatlandırma](https://azure.microsoft.com/en-us/pricing/details/monitor). Sağlanan veri alımı ücretsiz birimlerinin ücretsiz çeşitli veritabanları her ay izlemeyi etkinleştirin. Ağır iş yükleri daha etkin veritabanlarıyla boştaki veritabanlarının karşı daha fazla veri içe alma, lütfen unutmayın. Veri alımı tüketiminiz çözümünde, OMS çalışma alanı Azure SQL Analytics Gezinti menüsünde ve ardından kullanım ve Tahmini maliyetler seçerek kolayca izleyebilirsiniz.
+Azure SQL Analytics kullanmak için Azure okuyucusu rolüne verilebilmesi için en düşük gereksinim, kullanıcıları olacaktır. Bu rol ancak sorgu metni görmesine olanak veya tüm otomatik ayarlama eylemleri gerçekleştirin. Sahibi, katkıda bulunan, SQL DB Katılımcısı veya SQL Server Katılımcısı tam ölçüde çözümünü sağlayacak azure'da daha serbest rolleridir. Yalnızca Azure SQL Analytics kullanmak için gereken belirli izinleri ile ve diğer kaynakları yönetmek için erişim olmaksızın Portalı'nda özel rol oluşturma düşünmek isteyebilirsiniz.
 
-### <a name="analyze-data-and-create-alerts"></a>Verileri analiz etmek ve uyarılar oluşturun
+### <a name="creating-a-custom-role-in-portal"></a>Portalda özel rol oluşturma
+
+Bazı kuruluşların azure'daki katı izin denetimleri zorunlu tanıma, lütfen aşağıdaki PowerShell betiğini özel bir rol en düşük ile Azure portalında "SQL Analytics izleme operatörü" okuma ve yazma izinlerine oluşturulmasını etkinleştirme Bul Azure SQL Analytics tam boyutuna kullanmak için gerekli.
+
+"{Subscriptionıd}" Lütfen Değiştir aşağıdaki betiği, Azure abonelik kimliği ile bir Azure sahibi veya katkıda bulunan rolü olarak günlüğe bu betiği yürütün.
+
+   ```powershell
+    Connect-AzureRmAccount
+    Select-AzureRmSubscription {SubscriptionId}
+    $role = Get-AzureRmRoleDefinition -Name Reader
+    $role.Name = "SQL Analytics Monitoring Operator"
+    $role.Description = "Lets you monitor database performance with Azure SQL Analytics as a reader. Does not allow change of resources."
+    $role.IsCustom = $true
+    $role.Actions.Add("Microsoft.SQL/servers/databases/read");
+    $role.Actions.Add("Microsoft.SQL/servers/databases/topQueries/queryText/*");
+    $role.Actions.Add("Microsoft.Sql/servers/databases/advisors/read");
+    $role.Actions.Add("Microsoft.Sql/servers/databases/advisors/write");
+    $role.Actions.Add("Microsoft.Sql/servers/databases/advisors/recommendedActions/read");
+    $role.Actions.Add("Microsoft.Sql/servers/databases/advisors/recommendedActions/write");
+    $role.Actions.Add("Microsoft.Sql/servers/databases/automaticTuning/read");
+    $role.Actions.Add("Microsoft.Sql/servers/databases/automaticTuning/write");
+    $role.Actions.Add("Microsoft.Sql/servers/databases/*");
+    $role.Actions.Add("Microsoft.Sql/servers/advisors/read");
+    $role.Actions.Add("Microsoft.Sql/servers/advisors/write");
+    $role.Actions.Add("Microsoft.Sql/servers/advisors/recommendedActions/read");
+    $role.Actions.Add("Microsoft.Sql/servers/advisors/recommendedActions/write");
+    $role.Actions.Add("Microsoft.Resources/deployments/write");
+    $role.AssignableScopes = "/subscriptions/{SubscriptionId}"
+    New-AzureRmRoleDefinition $role
+   ```
+
+Yeni rol oluşturulduktan sonra Azure SQL Analytics kullanmak için özel izinleri vermek için gereken her kullanıcıya bu rolü atayın.
+
+## <a name="analyze-data-and-create-alerts"></a>Verileri analiz etmek ve uyarılar oluşturun
+
+Azure SQL Analytics veri analizi temel [Log Analytics dilini](./query-language/get-started-queries.md) özel sorgulama ve raporlama için. Lütfen veritabanı kaynağı olarak özel sorgulamak için toplanan kullanılabilir verileri açıklamasını bulmak [ölçümlerini ve günlüklerini kullanılabilir](../sql-database/sql-database-metrics-diag-logging.md#metrics-and-logs-available).
+
+Koşul sonrasında bir uyarı tetikleyen bir Log Analytics sorgusu karşılanıyor yazmak tabanlı otomatik çözümde uyarı. Lütfen aşağıda birkaç örnek çözümdeki Kurulum hangi uyarı bağlı olabilir Log Analytics sorgularını bulun.
 
 ### <a name="creating-alerts-for-azure-sql-database"></a>Uyarılar için Azure SQL veritabanı oluşturma
 
@@ -245,6 +282,10 @@ AzureDiagnostics
 > [!NOTE]
 > - Bu uyarıyı ayarlamanın ön gereksinim izlenen yönetilen örneği çözümü etkin ResourceUsageStats günlük akış sahip olur.
 > - Bu sorgu, bir uyarı kuralı koşul yönetilen örneği'nde var olduğunu belirten sorgudan gelen sonuçlar (> 0 sonuç) varsa bir uyarı ateşlenmesine kurulu olmasını gerektirir. Çıkış depolama yüzdesi tüketim yönetilen örneği ' dir.
+
+### <a name="pricing"></a>Fiyatlandırma
+
+Çözümü ücretsiz olsa da, veri alımı ayrılan her ay ücretsiz birimlerinin yukarıda tanılama telemetrisi tüketiminin uygular, bkz: [Log Analytics fiyatlandırma](https://azure.microsoft.com/en-us/pricing/details/monitor). Sağlanan veri alımı ücretsiz birimlerinin ücretsiz çeşitli veritabanları her ay izlemeyi etkinleştirin. Ağır iş yükleri daha etkin veritabanlarıyla boştaki veritabanlarının karşı daha fazla veri içe alma, lütfen unutmayın. Veri alımı tüketiminiz çözümünde, OMS çalışma alanı Azure SQL Analytics Gezinti menüsünde ve ardından kullanım ve Tahmini maliyetler seçerek kolayca izleyebilirsiniz.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 10/22/2018
-ms.openlocfilehash: 9ea4028a49211e52ab9ba305df86b88e1437bdfc
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 92fcf1138a5a7d364c884128d3fc82559ffb15aa
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49648131"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49987894"
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>Azure Stream Analytics çıkışları anlama
 Bu makalede, Azure Stream Analytics işi için çıktıların farklı türde açıklanır. Çıkış, depolamak ve Stream Analytics işi sonuçlarını kaydetmek olanak tanır. Yapabileceğiniz çıktı verilerini kullanarak, İş analizi ve veri depolama verilerinizi daha fazla. 
@@ -116,7 +116,7 @@ Olay hub'ı veri akışlarını çıkış olarak yapılandırmak için gereken b
 | Özellik adı | Açıklama |
 | --- | --- |
 | Çıktı diğer adı | Sorgu çıkışının bu olay hub'ına doğrudan sorgularında kullanılan bir kolay ad. |
-| Olay Hub'ı ad alanı |Bir olay hub'ı ad alanı, Mesajlaşma varlıkları kümesine ilişkin bir kapsayıcıdır. Yeni bir olay hub'ı oluşturduğunuzda, bir olay hub'ı ad alanı da oluşturmuş olursunuz. |
+| Olay hub'ı ad alanı |Bir olay hub'ı ad alanı, Mesajlaşma varlıkları kümesine ilişkin bir kapsayıcıdır. Yeni bir olay hub'ı oluşturduğunuzda, bir olay hub'ı ad alanı da oluşturmuş olursunuz. |
 | Olay Hub'ı adı | Olay hub'ı çıkış adı. |
 | Olay Hub'ı ilke adı | Paylaşılan Erişim İlkesi olay hub'ı yapılandırma sekmesinde oluşturulabilir. Her paylaşılan erişim ilkesinin bir adı ayarlayın ve erişim anahtarları izinleri vardır. |
 | Olay Hub'ı ilke anahtarı | Olay hub'ı ad kimlik doğrulaması yapmak için kullanılan paylaşılan erişim anahtarı. |
@@ -334,5 +334,5 @@ Aşağıdaki tabloda bazı toplu işleme çıktısı için dikkat edilecek nokta
 [stream.analytics.scale.jobs]: stream-analytics-scale-jobs.md
 [stream.analytics.introduction]: stream-analytics-introduction.md
 [stream.analytics.get.started]: stream-analytics-real-time-fraud-detection.md
-[stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
-[stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
+[stream.analytics.query.language.reference]: https://go.microsoft.com/fwlink/?LinkID=513299
+[stream.analytics.rest.api.reference]: https://go.microsoft.com/fwlink/?LinkId=517301

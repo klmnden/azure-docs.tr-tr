@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 5931958d17ea119e58c066a78a44169be2b9f451
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 7d7de02c96b9a17144b446b9ed86ebcbacd51162
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39627534"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50025014"
 ---
 # <a name="reporting-options-for-azure-ad-password-management"></a>Azure AD parola yönetimi için raporlama seçenekleri
 
@@ -23,7 +23,7 @@ Dağıtımdan sonra birçok kuruluşun öğrenmek istediğiniz nasıl ya da (SSP
 
 ![Raporlama][Reporting]
 
-[Azure portalı] (https://portal.azure.com/):
+Mevcut raporları aşağıdaki sorular yanıtlanabilir [Azure portalında](https://portal.azure.com/):
 
 > [!NOTE]
 > Siz [genel yönetici](../users-groups-roles/directory-assign-admin-roles.md), ve, bu veriler kuruluşunuz adına toplanması için katılım gerekir. Katılım için ziyaret gerekir **raporlama** sekme veya denetim günlükleri en az bir kez. O zamana kadar kuruluşunuz için veri toplanmaz.
@@ -46,7 +46,7 @@ Power BI kullanıcısıysanız, yok bir içerik paketi SSPR için kullanımı ko
 
 Azure portalı deneyiminde, parola sıfırlama görüntüleyebilir ve parola sıfırlama kayıt etkinlik şekilde geliştirildi. Sıfırlama adımları parolayı bulmak için aşağıdaki bilgileri kullanın ve parola sıfırlama kayıt olaylarını:
 
-1. Gözat [Azure portalında](https://portal.azure.com).
+1. [Azure portala](https://portal.azure.com) gidin.
 2. Seçin **tüm hizmetleri** sol bölmesinde.
 3. Arama **Azure Active Directory** Hizmetler listesinde ve bu seçeneği belirleyin.
 4. **Kullanıcı ve gruplar**'ı seçin.

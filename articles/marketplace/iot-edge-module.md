@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 09/22/2018
 ms.author: qianw211
-ms.openlocfilehash: ecc892a38d5e86a089085cd67a78ce7d00c86fd8
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
+ms.openlocfilehash: 46740e925a5d4e94c314105aba4920caf01532e7
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47181125"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49985617"
 ---
 # <a name="iot-edge-modules"></a>IoT Edge modülleri
 
@@ -84,7 +84,7 @@ Bunun almak ve Sertifikalı Azure Market'te yayımlanmış bir IOT Edge modülü
 
 Oturum açtıktan sonra aşağıdaki makaleler kullanılabilir [bulut yayımlama portalı](https://cloudpartner.azure.com/):
 
-- [IOT Edge modülü teklif oluşturma](https://cloudpartner.azure.com/#documentation/create-iot-edge-module-offer) -– bulut yayımlama portalında yeni bir IOT Edge modülü yayımlama adımları sunar.
+- [IOT Edge modülü teklif oluşturma](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/iot-edge-module/cpp-create-offer) -– bulut yayımlama portalında yeni bir IOT Edge modülü yayımlama adımları sunar.
 - [IOT Edge modülü sertifika alma süreci](https://cloudpartner.azure.com/#documentation/iot-edge-module-certification-process) – adımları ve bir IOT Edge modülü onaylamak için gereksinimleri özeti.
 - [IOT Edge modülü SSS](https://cloudpartner.azure.com/#documentation/iot-edge-module-faq) –-sık sorulan soruların bir listesi için IOT Edge modülleri ilgili.
 

@@ -11,12 +11,12 @@ ms.date: 08/01/2018
 ms.author: markgal
 ms.custom: H1Hack27Feb2017
 keywords: yedeklemeleri; VM yedeklemesi
-ms.openlocfilehash: fee0e20e232621764ba10d714b7ddfe9c759dafc
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: a30b4081bf01a76c6d89e7557fbb1b40baa86fbc
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44717922"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49985904"
 ---
 # <a name="back-up-azure-virtual-machines-to-recovery-services-vault"></a>Azure sanal makinelerini kurtarma Hizmetleri kasasına yedekleme
 
@@ -96,11 +96,11 @@ Sanal makine işlemleri menüsünden yedekleme işini yapılandırmak için aşa
 
   İlk yedekleme gerçekleştirilene kadar **yedekleme durumu**, **Uyarı (İlk yedekleme beklemede)** olarak gösterilir. Bir sonraki zamanlanmış yedekleme işi, altında oluştuğunda görmek için **özeti** ilke adına tıklayın. Yedekleme İlkesi menüsü açılır ve zamanlanmış yedekleme gösterilir.
 
-10. Sanal makineyi korumak için tıklayın **Şimdi Yedekle**. 
+10. Sanal makineyi korumak için tıklayın **Şimdi Yedekle**.
 
   ![İlk yedeklemeyi çalıştırmak Şimdi yedekle’ye tıklayın](./media/backup-azure-vms-first-look-arm/backup-now-update.png)
 
-  Şimdi Yedekle menüsü açılır. 
+  Şimdi Yedekle menüsü açılır.
 
   ![Şimdi Yedekle dikey penceresi](./media/backup-azure-vms-first-look-arm/backup-now-blade-short.png)
 
@@ -185,7 +185,7 @@ Depolama çoğaltma ayarını düzenlemek için:
   ![Yeni kasa için depolama yapılandırmasını görüntüleme](./media/backup-try-azure-backup-in-10-mins/set-storage-configuration-update.png)
 
 2. Yeni kasanın yönetim menüde Yönet bölümüne inin ve dikey kaydırma çubuğunu kullanın. **Yedekleme Altyapısı** yedekleme altyapısı menüsünü açmak için.
- 
+
    ![Yeni kasa için depolama yapılandırması ayarlama](./media/backup-try-azure-backup-in-10-mins/set-storage-config-bkup-infra.png)
 
 3. Yedekleme Altyapısı menüden **yedekleme yapılandırması** açmak için **yedekleme yapılandırması** menüsü.
@@ -291,6 +291,11 @@ Sanal makine üzerinde bir yedekleme ilkesinin dağıtılmış olması, verileri
   ![Şimdi Yedekle kurtarma noktasının korunduğu son günü ayarlayın](./media/backup-azure-vms-first-look-arm/backup-now-blade-calendar.png)
 
   Dağıtım bildirimleri, yedekleme işinin tetiklendiğini ve Yedekleme işleri sayfasında işin ilerleme durumunu izleyebileceğinizi bilmenizi sağlar. VM’nizin boyutuna bağlı olarak, ilk yedeklemenin oluşturulması biraz zaman alabilir.
+
+  > [!NOTE]
+  > Tüm Azure Backup tarafından yedeklenen veriler, kullanılmadıkları şifrelenir [depolama hizmeti şifrelemesi (SSE)](../storage/common/storage-service-encryption.md).
+  >
+  >
 
 6. İlk yedekleme durumunu izlemek için kasa panosunda **Yedekleme İşleri** kutucuğunda **Devam eden**’e tıklayın.
 

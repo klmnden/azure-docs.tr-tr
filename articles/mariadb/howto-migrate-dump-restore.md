@@ -8,12 +8,12 @@ services: mariadb
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 551fe303994f6c72f8a4bf39e76f12c62f58026b
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.openlocfilehash: 5ac80ef36241b58812832c66511c0a09d49b365f
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49309544"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49986993"
 ---
 # <a name="migrate-your-mariadb-database-to-azure-database-for-mariadb-using-dump-and-restore"></a>MariaDB veritabanı, döküm ve geri yükleme kullanarak MariaDB için Azure veritabanı'na geçirme
 Bu makalede, MariaDB için Azure veritabanı veritabanlarını geri iki yaygın yolları açıklanmaktadır.
@@ -129,5 +129,5 @@ Veritabanı içeri aktarma, dışarı aktarma için benzerdir. Aşağıdaki eyle
 - [MariaDB için Azure veritabanı uygulamaları bağlama](./howto-connection-string.md).
  
 <!--
-- For more information about migrating databases to Azure Database for MariaDB, see the [Database Migration Guide](http://aka.ms/datamigration).
+- For more information about migrating databases to Azure Database for MariaDB, see the [Database Migration Guide](https://aka.ms/datamigration).
 -->

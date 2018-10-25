@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: reference
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 3429917fcee520ae932253f1fdfead4ffb6535e6
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: cf6e2fa296d3d9f152edf22685b930586b4de524
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48811263"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50024826"
 ---
 <a name="retrieve-offers"></a>Alma sunar
 ===============
@@ -80,7 +80,7 @@ Teklifler yayımcı ad alanı altında bir Özet listesini alır.
 |  durum         | Teklif durumu. Olası değerler listesi için bkz: [teklif durumu](#offer-status) aşağıda.                         |
 |  id             | Teklif yayımcı ad alanında benzersiz olarak tanımlayan GUID.                                                    |
 |  version        | Teklifin geçerli sürümü. İstemci tarafından version özelliği değiştirilemez. Bu, her yayımladıktan sonra artırılır. |
-|  tanım     | Gerçek iş yükü tanımını bir Özet görünümünü içerir. Ayrıntılı bir tanım almak için [alma belirli teklif] kullanın. (. / cloud-partner-portal-api-retrieve-specific-offer.md) API. |
+|  tanım     | Gerçek iş yükü tanımını bir Özet görünümünü içerir. Ayrıntılı bir tanımı almak için kullanın [alma belirli teklif](./cloud-partner-portal-api-retrieve-specific-offer.md) API. |
 |  changedTime    | Teklif en son değiştirildiği UTC saati                                                                              |
 |  |  |
 

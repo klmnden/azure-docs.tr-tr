@@ -2,20 +2,20 @@
 title: Fan-dışarı/fan-içeren senaryolarda dayanıklı işlevler - Azure
 description: Fan-dışarı-fan-gelen senaryo dayanıklı işlevler uzantısını Azure işlevleri için uygulamayı öğrenin.
 services: functions
-author: cgillum
+author: kashimiz
 manager: jeconnoc
 keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 03/19/2018
+ms.date: 10/23/2018
 ms.author: azfuncdf
-ms.openlocfilehash: eec75ad9cf0f568e674b2a4f12d962982f84294f
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 44e71c8e9256bdfd3a55cdd21a6658bccfd5daad
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44092674"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49987554"
 ---
 # <a name="fan-outfan-in-scenario-in-durable-functions---cloud-backup-example"></a>Fan-dışarı/fan-arada senaryoda dayanıklı işlevler - bulut yedekleme örneği
 
@@ -109,7 +109,7 @@ C# uygulaması da oldukça kolaydır. Bazı kullanmak için Azure işlevleri ba�
 
 ### <a name="javascript-functions-v2-only"></a>JavaScript (yalnızca işlevler v2)
 
-JavaScript uygulamasını erişimi yok `Binder` özelliği, Azure işlevleri, böylece [düğüm için Azure depolama SDK'sı](https://github.com/Azure/azure-storage-node) yerini alır. SDK'sı gerektirir Not bir `AZURE_STORAGE_CONNECTION_STRING` uygulama ayarı.
+JavaScript uygulamasını erişimi yok `Binder` özelliği, Azure işlevleri, böylece [düğüm için Azure depolama SDK'sı](https://github.com/Azure/azure-storage-node) yerini alır.
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E2_CopyFileToBlob/index.js)]
 

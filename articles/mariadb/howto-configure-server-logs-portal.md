@@ -8,12 +8,12 @@ services: mariadb
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 0784dffc48aeddc854aa540cba24f1834cd41827
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 566d5b047078b6e65b0c320027cc8c63c81a282b
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46952843"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49986608"
 ---
 # <a name="configure-and-access-server-logs-in-the-azure-portal"></a>Yapılandırma ve Azure portalında erişim sunucusu günlükleri
 
@@ -26,7 +26,7 @@ Bu nasıl yapılır kılavuzunda adımlamak için ihtiyacınız vardır:
 ## <a name="configure-logging"></a>Günlük tutmayı yapılandırma
 Yavaş sorgu günlüğü erişimi yapılandırın. 
 
-1. [Azure Portal](http://portal.azure.com/)’da oturum açın.
+1. [Azure Portal](https://portal.azure.com/) oturum açın.
 
 2. MariaDB için Azure veritabanı sunucunuza seçin.
 

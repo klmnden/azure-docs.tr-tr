@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/19/2016
 ms.author: stewu
-ms.openlocfilehash: e9d0ad0398dfc238d48060247cdb6f29b0f34a60
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 433c6b7d70cea9406b67d65e23cc357939cb5aa0
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46123343"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50024299"
 ---
 # <a name="performance-tuning-guidance-for-hive-on-hdinsight-and-azure-data-lake-storage-gen1"></a>HDInsight ve Azure Data Lake depolama Gen1 Hive için performans ayarlama Kılavuzu
 
@@ -28,7 +28,7 @@ Varsayılan ayarlar, birçok farklı kullanım örnekleri arasında iyi bir perf
 * **Bir Azure aboneliği**. Bkz. [Azure ücretsiz deneme sürümü alma](https://azure.microsoft.com/pricing/free-trial/).
 * **Bir Data Lake depolama Gen1 hesabı**. Bir oluşturma hakkında yönergeler için bkz: [Azure Data Lake depolama Gen1 ile çalışmaya başlama](data-lake-store-get-started-portal.md)
 * **Azure HDInsight kümesinde** bir Data Lake depolama Gen1 hesabına erişim. Bkz: [ile Data Lake depolama Gen1 bir HDInsight kümesi oluşturma](data-lake-store-hdinsight-hadoop-use-portal.md). Küme için Uzak Masaüstü etkinleştirdiğinizden emin olun.
-* **HDInsight üzerinde Hive'ı çalıştıran**.  HDInsight üzerinde Hive işlerini çalıştırma hakkında bilgi edinmek için bkz [Hive kullanma HDInsight üzerinde] (https://docs.microsoft.com/azure/hdinsight/hdinsight-use-hive)
+* **HDInsight üzerinde Hive'ı çalıştıran**.  HDInsight üzerinde Hive işlerini çalıştırma hakkında bilgi edinmek için bkz. [HDInsight Hive kullanma](https://docs.microsoft.com/azure/hdinsight/hdinsight-use-hive)
 * **Performans ayarlama yönergeleri Data Lake depolama Gen1**.  Genel performans için bkz [Data Lake depolama Gen1 performans ayarlama Kılavuzu](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-performance-tuning-guidance)
 
 ## <a name="parameters"></a>Parametreler

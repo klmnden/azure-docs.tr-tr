@@ -2,26 +2,25 @@
 title: 'Azure yedekleme: sanal makineleri yedeklemek hazırlama'
 description: Azure'da sanal makineleri yedeklemek için ortamınızı hazırlandığından emin olun.
 services: backup
-author: markgalioto
+author: rayne-wiselman
 manager: carmonm
 keywords: yedeklemeleri; Yedekleme;
 ms.service: backup
 ms.topic: conceptual
-ms.date: 9/10/2018
-ms.author: markgal
-ms.openlocfilehash: 7ab88ce3565ccf79f20847a3a5e744c495d5fcb1
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.date: 10/23/2018
+ms.author: raynew
+ms.openlocfilehash: 30b35d38c30d3ee9410a85824c53001ca95cf30b
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48884942"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50025948"
 ---
-# <a name="prepare-your-environment-to-back-up-resource-manager-deployed-virtual-machines"></a>Resource Manager ile dağıtılan sanal makineleri yedeklemek için ortamınızı hazırlama
+# <a name="prepare-to-back-up-azure-vms"></a>Azure sanal makinelerini yedeklemek hazırlama
 
-Bu makalede, Azure Resource Manager tarafından dağıtılan bir bir sanal makinesini (VM) için ortamınızı hazırlamak için adımları sağlar. Yordamları gösterilen adımlar, Azure portalını kullanın. Bir sanal Makine'yi yedeklediğinizde, yedekleme verileri veya kurtarma noktaları, Kurtarma Hizmetleri kasasında depolanır. Kurtarma Hizmetleri kasaları, Klasik ve Resource Manager tarafından dağıtılan sanal makineler için yedekleme verileri depolar.
+Bu makalede, Azure Resource Manager tarafından dağıtılan bir bir sanal makinesini (VM) için ortamınızı hazırlamak için adımları sağlar. Yordamları gösterilen adımlar, Azure portalını kullanın. Bir sanal Makine'yi yedeklediğinizde, yedekleme verileri veya kurtarma noktaları, Kurtarma Hizmetleri yedekleme kasasında depolanır. 
 
-> [!NOTE]
-> Azure'da oluşturmaya ve kaynaklarla çalışmaya yönelik iki dağıtım modeli vardır: [Resource Manager ve klasik](../azure-resource-manager/resource-manager-deployment-model.md).
+
 
 Koruma (veya yedekleme önce) bir Resource Manager tarafından dağıtılan sanal makine şu önkoşulların mevcut olduğundan emin olun:
 
@@ -47,7 +46,6 @@ Bu koşullar, ortamınızda zaten mevcutsa devam [Vm'lerinizi yedekleyin](backup
 Ortamınızı hazırlama önce bu sınırlamalar anladığınızdan emin olun:
 
 * 32'den fazla veri diski içeren sanal makineleri yedekleme desteklenmez.
-* Ayrılmış IP adresi ve tanımlanmış uç nokta içeren sanal makineleri yedeklemeyi desteklemez.
 * Linux Linux birleşik anahtar Kurulum (LUKS) şifreleme ile şifrelenmiş VM'ler için yedekleme desteklenmez.
 * Küme Paylaşılan birimleri (CSV) veya genişleme dosya sunucusu yapılandırması içeren VM'lerin yedeklenmesi önerilmemektedir. Bu yapıldığında, CSV yazıcılar hata beklenir. Bunlar, bir anlık görüntü görevi sırasında küme yapılandırmasında bulunan tüm sanal makineler içeren gerektirir. Azure Backup, çoklu VM tutarlılığı desteklememektedir.
 * Yedekleme verileri, bir VM'ye bağlı ağ sürücülerini içermez.

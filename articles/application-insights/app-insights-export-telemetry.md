@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/20/2018
 ms.author: mbullwin
-ms.openlocfilehash: 31d7f0fd70edf7bbf05a3a180baa6cc078e02ba1
-ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
+ms.openlocfilehash: bc505aa9dc2258a8752d1986489957c401e4e4c4
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47585484"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50023523"
 ---
 # <a name="export-telemetry-from-application-insights"></a>Application Insights'tan telemetriyi dışarı aktarma
 Telemetrinizi standart saklama süresinden daha uzun süre tutmak mı istiyorsunuz? Veya özel bir şekilde işlemek? Sürekli dışarı aktarma için idealdir. Application Insights portalında gördüğünüz olayları için Microsoft Azure Depolama'da JSON biçiminde dışarı aktarılabilir. Buradan verilerinizi indirin ve, kod yazma, işlemeniz gerekir.  
@@ -39,7 +39,7 @@ Sürekli dışarı aktarma (burada, kalarak için istediğiniz sürece) depolama
 
 2. Telemetriyi dışarı aktarmak istediğiniz veri türlerini seçin.
 
-3. Oluşturma veya seçme [Azure depolama hesabınız] (.. / storage/common/storage-introduction.md) verileri depolamak istediğiniz. Depolama fiyatlandırma seçenekleri hakkında daha fazla bilgi için ziyaret [fiyatlandırma sayfası resmi](https://azure.microsoft.com/pricing/details/storage/).
+3. Oluşturma veya seçme bir [Azure depolama hesabı](../storage/common/storage-introduction.md) istediğiniz verileri depolamak. Depolama fiyatlandırma seçenekleri hakkında daha fazla bilgi için ziyaret [fiyatlandırma sayfası resmi](https://azure.microsoft.com/pricing/details/storage/).
 
     > [!Warning]
     > Varsayılan olarak, Application Insights kaynağınıza aynı coğrafi bölgede için depolama konumu da ayarlanır. Farklı bir bölgede depolamak, aktarımı ücrete tabi olabilirsiniz.

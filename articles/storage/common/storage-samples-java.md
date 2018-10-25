@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 01/12/2017
 ms.author: seguler
 ms.component: common
-ms.openlocfilehash: bdc25a7aeff88d058eaf3fddf6cec023edff3b9e
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 83080d1e73ddb06de9b454f106517ef230c4b25a
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39531796"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49984273"
 ---
 # <a name="azure-storage-samples-using-java"></a>Java kullanarak azure depolama örnekleri
 
@@ -22,7 +22,7 @@ ms.locfileid: "39531796"
 
 Aşağıdaki tabloda örnekleri depomuzda ve her örneğinde kapsanan senaryolar hakkında genel bir bakış sağlar. Github'da karşılık gelen örnek kod için bağlantılar'a tıklayın.
 
-<table style="font-size:90%"><thead><tr><th style="font-size:110%">Uç Nokta</th><th style="font-size:110%">Senaryo</th><th style="font-size:110%">Örnek Kod</th></tr></thead><tbody> 
+<table style="font-size:90%"><thead><tr><th style="font-size:110%">Uç Nokta</th><th style="font-size:110%">Senaryo</th><th style="font-size:110%">Örnek kod</th></tr></thead><tbody> 
 <tr> 
 <td rowspan="16"><b>Blob</b></td>
 <td>Ekleme blobu</td> 
@@ -161,31 +161,31 @@ Aşağıdaki tabloda örnekleri depomuzda ve her örneğinde kapsanan senaryolar
 <tr> 
 <td rowspan="7"><b>Tablo</b></td>
 <td>Tablo Oluştur</td> 
-<td><a href="https://github.com/Azure-Samples/storage-table-java-getting-started/blob/master/src/TableBasics.java">Java’da Azure Tablo Hizmetini Kullanmaya Başlama</a></td> 
+<td><a href="https://github.com/Azure-Samples/storage-table-java-getting-started/blob/master/src/main/java/com/microsoft/azure/cosmosdb/tablesample/TableBasics.java">Java’da Azure Tablo Hizmetini Kullanmaya Başlama</a></td> 
 </tr> 
 <tr> 
 <td>Varlık/tablo silme</td> 
-<td><a href="https://github.com/Azure-Samples/storage-table-java-getting-started/blob/master/src/TableBasics.java">Java’da Azure Tablo Hizmetini Kullanmaya Başlama</a></td> 
+<td><a href="https://github.com/Azure-Samples/storage-table-java-getting-started/blob/master/src/main/java/com/microsoft/azure/cosmosdb/tablesample/TableBasics.java">Java’da Azure Tablo Hizmetini Kullanmaya Başlama</a></td> 
 </tr> 
 <tr> 
 <td>Birleştirme/Ekle/Değiştir varlık</td> 
-<td><a href="https://github.com/Azure/azure-storage-java/blob/master/microsoft-azure-storage-samples/src/com/microsoft/azure/storage/table/gettingtstarted/TableBasics.java">Depolama Java istemci kitaplığı örnekleri</a></td> 
+<td><a href="https://github.com/Azure-Samples/storage-table-java-getting-started/blob/master/src/main/java/com/microsoft/azure/cosmosdb/tablesample/TableBasics.java">Java’da Azure Tablo Hizmetini Kullanmaya Başlama</a></td> 
 </tr> 
 <tr> 
 <td>Varlıkları sorgulayın</td> 
-<td><a href="https://github.com/Azure-Samples/storage-table-java-getting-started/blob/master/src/TableBasics.java">Java’da Azure Tablo Hizmetini Kullanmaya Başlama</a></td> 
+<td><a href="https://github.com/Azure-Samples/storage-table-java-getting-started/blob/master/src/main/java/com/microsoft/azure/cosmosdb/tablesample/TableBasics.java">Java’da Azure Tablo Hizmetini Kullanmaya Başlama</a></td> 
 </tr> 
 <tr> 
 <td>Sorgu tabloları</td> 
-<td><a href="https://github.com/Azure-Samples/storage-table-java-getting-started/blob/master/src/TableBasics.java">Java’da Azure Tablo Hizmetini Kullanmaya Başlama</a></td> 
+<td><a href="https://github.com/Azure-Samples/storage-table-java-getting-started/blob/master/src/main/java/com/microsoft/azure/cosmosdb/tablesample/TableBasics.java">Java’da Azure Tablo Hizmetini Kullanmaya Başlama</a></td> 
 </tr> 
 <tr> 
 <td>Tablo ACL/özellikleri</td> 
-<td><a href="https://github.com/Azure-Samples/storage-table-java-getting-started/blob/master/src/TableAdvanced.java">Java’da Azure Tablo Hizmetini Kullanmaya Başlama</a></td> 
+<td><a href="https://github.com/Azure-Samples/storage-table-java-getting-started/blob/master/src/main/java/com/microsoft/azure/cosmosdb/tablesample/TableAdvanced.java">Java’da Azure Tablo Hizmetini Kullanmaya Başlama</a></td> 
 </tr> 
 <tr> 
 <td>Varlık güncelleştir</td> 
-<td><a href="https://github.com/Azure/azure-storage-java/blob/master/microsoft-azure-storage-samples/src/com/microsoft/azure/storage/table/gettingtstarted/TableBasics.java">Depolama Java istemci kitaplığı örnekleri</a></td> 
+<td><a href="https://github.com/Azure-Samples/storage-table-java-getting-started/blob/master/src/main/java/com/microsoft/azure/cosmosdb/tablesample/TableBasics.java">Java’da Azure Tablo Hizmetini Kullanmaya Başlama</a></td> 
 </tr> 
 </tbody> 
 </table>

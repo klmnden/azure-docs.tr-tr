@@ -14,38 +14,38 @@ ms.workload: identity
 ms.date: 09/19/2018
 ms.author: andret
 ms.custom: include file
-ms.openlocfilehash: cf064be5f723651d571b2db619782f50225e5ade
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: 4f820a95759d16a9b6ac1eb1e442ae0bc8d681a3
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48843434"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49988283"
 ---
 ## <a name="setting-up-your-ios-application"></a>İOS uygulamanızı ayarlama
 
-Bu bölümde, ile nasıl tümleştireceğinizi bir iOS uygulaması (Swift) göstermek için yeni bir proje oluşturmak için adım adım yönergeler sağlar. *Microsoft ile oturum açma* bir belirteç gerektiren bir Web API sorgulayabilmesi.
+Bu bölümde, ile nasıl tümleştireceğinizi bir iOS uygulaması (Swift) göstermek için yeni proje oluşturma adım adım yönergeler sağlar. *Microsoft ile oturum açma* bir belirteç gerektiren bir Web API sorgulayabilmesi.
 
 > Bunun yerine bu örnek'ın XCode projesi indirme mi tercih ediyorsunuz? [Bir projeyi indirirken](https://github.com/Azure-Samples/active-directory-ios-swift-native-v2/archive/master.zip) ve atlamak [yapılandırma adımı](#register-your-application) çalıştırmadan önce kodu örneği yapılandırmak için.
 
-
 ## <a name="install-carthage-to-download-and-build-msal"></a>İndirip MSAL derleme Carthage yükleyin
+
 Carthage Paket Yöneticisi MSAL Önizleme dönemi boyunca kullanılan – yeteneği kitaplığa değişiklik yapmak Microsoft korurken XCode ile tümleşir.
 
-- Carthage en son sürümünü indirip [burada](https://github.com/Carthage/Carthage/releases "Carthage indirme URL'si")
+- Carthage en son sürümünü indirip [burada](https://github.com/Carthage/Carthage/releases "Carthage indirme URL'sini").
 
 ## <a name="creating-your-application"></a>Uygulamanızı oluşturma
 
-1.  Xcode'ni açın ve seçin `Create a new Xcode project`
-2.  Seçin `iOS`  >  `Single view Application` tıklatıp *İleri*
-3.  Bir ürün adı verin ve tıklatın *İleri*
-4.  Uygulamanızı oluşturun ve'ı tıklatın, bir klasör seçin *oluştur*
+1. Xcode açıp seçin **yeni bir Xcode projesi oluştur**.
+2. Seçin **iOS > tek görünüm uygulaması** seçip **sonraki**.
+3. Bir ürün adı verin ve seçin **sonraki**.
+4. Uygulamanızı oluşturun ve'ı tıklatın, bir klasör seçin *oluştur*
 
 ## <a name="build-the-msal-framework"></a>MSAL Framework'te derleme
 
 Çekme ve ardından en son sürümünü kullanarak Carthage MSAL kitaplıkları oluşturmak için aşağıdaki yönergeleri izleyin:
 
-1.  Bash Terminali açın ve uygulamanın kök klasöre gidin
-2.  Kopyalama aşağıda 'Cartfile' dosyası oluşturmak için bash terminalde yapıştırın:
+1. Bash Terminali açın ve uygulamanın kök klasöre gidin.
+2. Kopyalama aşağıda 'Cartfile' dosyası oluşturmak için bash terminalde yapıştırın:
 
 ```bash
 echo "github \"AzureAD/microsoft-authentication-library-for-objc\" \"master\"" > Cartfile
@@ -61,15 +61,16 @@ Kopyalama ve yapıştırma aşağıda. Bu komut bir Carthage/kullanıma klasöre
 carthage update
 ```
 
-> Yukarıdaki işlem, indirin ve Microsoft Authentication Library (MSAL) oluşturmak için kullanılır. MSAL alınırken, önbelleğe alma ve Azure Active Directory v2 tarafından korunan API'lerine erişmek için kullanılan kullanıcı belirteçleri yenileme işler.
+> Yukarıdaki işlem, indirin ve Microsoft Authentication Library (MSAL) oluşturmak için kullanılır. MSAL alınırken, önbelleğe alma ve Azure Active Directory v2.0 tarafından korunan API'lerine erişmek için kullanılan kullanıcı belirteçleri yenileme işler.
 
 ## <a name="add-the-msal-framework-to-your-application"></a>MSAL framework uygulamanıza ekleyin
-1.  Xcode'da açın `General` sekmesi
-2.  Git `Linked Frameworks and Libraries` ' ye tıklayın `+`
-3.  `Add other…` seçeneğini belirleyin
-4.  Seçim: `Carthage`  >  `Build`  >  `iOS`  >  `MSAL.framework` tıklatıp *açık*. Görmelisiniz `MSAL.framework` listesine eklenir.
-5.  Git `Build Phases` sekmesine ve tıklayın `+` simgesini seçin `New Run Script Phase`
-6.  Aşağıdaki içeriği ekleyin *betik alan*:
+
+1. Xcode'da açın **genel** sekmesi.
+2. Git **bağlantılı çerçeveler ve kitaplıklar** seçin ve bölüm **+**.
+3. Seçin **diğer Ekle...** .
+4. Seçin **Carthage > derleme > iOS > MSAL.framework** seçip **açık**. Görmelisiniz `MSAL.framework` listesine eklenir.
+5. Git **derleme aşamaları** sekmesinde **+** simgesine tıklayın ve ardından **yeni çalıştırma betik aşama**.
+6. Aşağıdaki içeriği ekleyin *betik alan*:
 
 ```text
 /usr/local/bin/carthage copy-frameworks
@@ -87,6 +88,7 @@ $(SRCROOT)/Carthage/Build/iOS/MSAL.framework
 ```
 
 ## <a name="creating-your-applications-ui"></a>Uygulamanızın kullanıcı Arabirimi oluşturma
+
 Main.storyboard dosyası, proje şablonunun bir parçası olarak otomatik olarak oluşturulması gerekir. Uygulama kullanıcı Arabirimi oluşturmak için aşağıdaki yönergeleri izleyin:
 
 1.  Control + tıklayın `Main.storyboard` bağlamsal menüyü getirin ve ardından: `Open As` > `Source Code`

@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 09/18/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 23f86581b5ecc5257ccb246c7199eef4246efb08
-ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
+ms.openlocfilehash: e51c0178691279d803e9a1afcd4147f1d6ed767e
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/20/2018
-ms.locfileid: "46498241"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49985259"
 ---
 # <a name="manage-updates-for-multiple-machines"></a>Birden çok makine için güncelleştirmeleri yönetme
 
@@ -127,7 +127,7 @@ Altında bir veya daha fazla sanal makineler için yeni bir güncelleştirme da�
 
 - **Ad**: güncelleştirme dağıtımını tanımlamak için benzersiz bir ad girin.
 - **İşletim sistemi**: seçin **Windows** veya **Linux**.
-- **(Önizleme) güncelleştirmek için grupları**: Abonelik, kaynak grupları, konumları ve etiketleri, dağıtımınızdaki dahil etmek için Azure vm'leri dinamik bir grup oluşturmak için bir birleşimini temel bir sorgu tanımlar. Bkz: daha fazla bilgi edinmek için [dinamik gruplar](automation-update-management.md#using-dynamic-groups)
+- **Güncelleştirilecek gruplar (önizleme)**: Dağıtımınıza dahil edilecek Azure sanal makinelerinin dinamik grubunu derlemek için bir abonelik, kaynak grupları, konumlar ve etiketler birleşimine göre bir sorgu tanımlayın. Daha fazla bilgi edinmek için bkz. [Dinamik Gruplar](automation-update-management.md#using-dynamic-groups)
 - **Güncelleştirilecek makineler**: kayıtlı arama, içeri aktarılan grubu seçin ya da güncelleştirmek istediğiniz makineleri seçin için makineleri seçin. **Makineler**'i seçerseniz makinenin hazır olma durumu **GÜNCELLEŞTİRME ARACISI HAZIRLIĞI** sütununda gösterilir. Güncelleştirme dağıtımı zamanlayabilirsiniz önce bilgisayarın sistem durumunu görebilirsiniz. Log Analytics'te bilgisayar grupları oluşturmaya yönelik farklı yöntemler hakkında bilgi edinmek için bkz. [Computer groups in Log Analytics (Log Analytics'te bilgisayar grupları)](../log-analytics/log-analytics-computer-groups.md)
 
   ![Yeni güncelleştirme dağıtım bölmesi](./media/manage-update-multi/update-select-computers.png)
@@ -142,7 +142,7 @@ Altında bir veya daha fazla sanal makineler için yeni bir güncelleştirme da�
   - Araçlar
   - Güncelleştirmeler
 
-- **Güncelleştirmeleri Ekle/Dışla** -açılır **dahil edin/dışlayın** sayfası. Dahil etmek veya hariç tutmak ayrı sekmelerde güncelleştirmelerdir. Ekleme nasıl ele alındığını hakkında ek bilgi için bkz: [ekleme davranışı](automation-update-management.md#inclusion-behavior)
+- **Dahil edilecek/dışlanacak güncelleştirmeler** - Böylece **Dahil Et / Dışla** sayfası açılır. Dahil edilecek veya dışlanacak güncelleştirmeler ayrı sekmelerdedir. Dahil etmenin nasıl işleneceği hakkında ek bilgi için bkz. [dahil etme davranışı](automation-update-management.md#inclusion-behavior)
 
 - **Zamanlama ayarları** - Geçerli saatten 30 dakika sonrası olan varsayılan tarih ve saati kabul edebilirsiniz. Farklı bir saat de belirtebilirsiniz.
 
@@ -150,7 +150,7 @@ Altında bir veya daha fazla sanal makineler için yeni bir güncelleştirme da�
 
    ![Zamanlama Ayarları iletişim kutusu](./media/manage-update-multi/update-set-schedule.png)
 
-- **Önceden komutlar + sonrası betiklerini**: önce ve sonra dağıtımınız betiklerin seçin. Daha fazla bilgi için bkz. [yönetme öncesi ve sonrası betikler](pre-post-scripts.md).
+- **Ön betikler + Son betikler**: Dağıtımınızdan önce ve sonra çalıştırılacak betikleri seçin. Daha fazla bilgi için bkz. [Ön ve Son betikleri yönetme](pre-post-scripts.md).
 - **Bakım penceresi (dakika)**: güncelleştirme dağıtımının gerçekleşmesini istediğiniz süreyi belirtin. Bu ayar, değişikliklerin sizin tanımladığınız hizmet pencereleri içinde gerçekleştirilmesini sağlar.
 
 - **Denetim yeniden** -Bu ayar, yeniden başlatmalar güncelleştirme dağıtımı için nasıl işleneceğini belirler.
@@ -163,6 +163,9 @@ Altında bir veya daha fazla sanal makineler için yeni bir güncelleştirme da�
    |Yalnızca yeniden başlatma - güncelleştirmeleri yüklemez|Bu seçenek, güncelleştirmelerin yoksayar ve yalnızca yeniden başlatır.|
 
 Zamanlamayı yapılandırmayı tamamladığınızda, seçin **Oluştur** düğmesi ve durum panosuna dönün. **Zamanlanmış** tablo oluşturduğunuz dağıtım zamanlaması gösterilir.
+
+> [!NOTE]
+> Birinci taraf güncelleştirmelerini dağıtma ve düzeltme ekleri önceden indirilirken güncelleştirme yönetimini destekler. Bu düzeltme eki sistemlerinde değişiklikler gerektirir, bkz: [birinci taraf ve öncesi destek indirme](automation-update-management.md#firstparty-predownload) sistemlerinize bu ayarları yapılandırmak hakkında bilgi edinmek için.
 
 ## <a name="view-results-of-an-update-deployment"></a>Güncelleştirme dağıtımının sonuçlarını görüntüleme
 

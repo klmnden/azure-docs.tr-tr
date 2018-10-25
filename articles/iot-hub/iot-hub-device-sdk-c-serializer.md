@@ -8,12 +8,12 @@ ms.devlang: c
 ms.topic: conceptual
 ms.date: 09/06/2016
 ms.author: yizhon
-ms.openlocfilehash: 410ef936da7cf464dbef1698cf7019643cc1fb42
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.openlocfilehash: 0a7e30be374ae5095e206ce0e519e51bb58f1f00
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48249324"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50024878"
 ---
 # <a name="azure-iot-device-sdk-for-c--more-about-serializer"></a>Azure IOT cihaz SDK'sını C için– seri hale getirici hakkında daha fazla bilgi
 
@@ -27,7 +27,7 @@ Son olarak, makalenin önceki makalelerde ileti ve özellik işleme gibi bazı k
 
 Bu makalede açıklanan her şeyi dayanır **seri hale getirici** SDK örnekleri. Örneği takip etmek istiyorsanız, bkz. **simplesample\_amqp** ve **simplesample\_http** c için Azure IOT cihaz SDK'sını eklenmiş olan uygulamalar
 
-Bulabilirsiniz [ **C için Azure IOT cihaz SDK'sını** ](https://github.com/Azure/azure-iot-sdk-c) API'de GitHub deposu ve görünüm ayrıntılarını [C API Başvurusu](https://azure.github.io/azure-iot-sdk-c/index.html).
+Bulabilirsiniz [ **C için Azure IOT cihaz SDK'sını** ](https://github.com/Azure/azure-iot-sdk-c) API'de GitHub deposu ve görünüm ayrıntılarını [C API Başvurusu](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/).
 
 ## <a name="the-modeling-language"></a>Modelleme Dili
 
@@ -69,7 +69,7 @@ Aşağıdaki veri türleri ile oluşturulan modeller desteklenir **seri hale get
 | double |çift duyarlıklı kayan nokta sayısı |
 | int |32 bit tamsayı |
 | float |tek duyarlıklı kayan nokta sayısı |
-| boylam |uzun tamsayı |
+| uzun |uzun tamsayı |
 | int8\_t |8 bit tamsayı |
 | Int16\_t |16 bit tam sayı |
 | Int32\_t |32 bit tamsayı |

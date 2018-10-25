@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 05/18/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 1b9d8d252055bb1368b7024ca9b0acf6c21ba7b3
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 932dcf485f6fe1a365f3bc0910c2223a118e9add
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48041620"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50024543"
 ---
 # <a name="guidance-for-personal-data-stored-in-log-analytics-and-application-insights"></a>Log Analytics ve Application Insights depolanan kişisel verilere yönelik kılavuz
 
@@ -102,7 +102,7 @@ Azure Resource Manager rol atandıktan sonra iki yeni API yolları kullanılabil
 
 #### <a name="log-data"></a>Günlük verileri
 
-* [Temizleme sonrası] (https://docs.microsoft.com/rest/api/loganalytics/workspaces%202015-03-20/purge) - silinecek verilerin parametrelerini belirten nesnesini alır ve bir başvuru GUID'sini döndürür 
+* [Temizleme sonrası](https://docs.microsoft.com/rest/api/loganalytics/workspaces%202015-03-20/purge) - silinecek verilerin parametrelerini belirten nesnesini alır ve bir başvuru GUID'sini döndürür 
 * GET temizleme durumu - POST temizleme çağrısına temizleme API'nizi durumunu belirlemek için çağıran bir URL içeren bir 'x-ms-durumunu-location' üst bilgisi döndürür. Örneğin:
 
     ```

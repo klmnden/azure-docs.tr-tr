@@ -14,18 +14,18 @@ ms.workload: identity
 ms.date: 04/19/2018
 ms.author: andret
 ms.custom: include file
-ms.openlocfilehash: 4512c02594fdfac96fbc785b13d8c992b4e57c52
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: bc439cbe5e690077213b5d7953a4e74488988c3b
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48843310"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49988557"
 ---
 # <a name="add-sign-in-with-microsoft-to-an-aspnet-web-app"></a>Oturum açma Microsoft ile bir ASP.NET web uygulamasına ekleme
 
-Bu kılavuzda oturum Openıd Connect'i kullanarak geleneksel web tarayıcı tabanlı bir uygulama ile bir ASP.NET MVC çözümünü kullanarak Microsoft ile nasıl uygulanacağını gösterir. 
+Bu kılavuzda oturum Openıd Connect'i kullanarak geleneksel web tarayıcı tabanlı bir uygulama ile bir ASP.NET MVC çözümünü kullanarak Microsoft ile nasıl uygulanacağını gösterir.
 
-Bu kılavuzun sonunda, uygulamanızın oturum açma işlemleri kişisel hesabı (outlook.com, live.com ve diğerleri dahil) kabul yanı sıra iş ve Okul hesapları herhangi bir şirket veya Azure Active Directory ile tümleşik olan Kuruluş olacaktır. 
+Bu kılavuzun sonunda, uygulamanızın oturum açma işlemleri kişisel hesabı (outlook.com, live.com ve diğerleri dahil) kabul yanı sıra iş ve Okul hesapları herhangi bir şirket veya Azure Active Directory ile tümleşik olan Kuruluş olacaktır.
 
 > Bu kılavuz, Visual Studio 2015 güncelleştirme 3 veya Visual Studio 2017'yi gerektirir.  Sizde yok mu?  [Visual Studio 2017’yi ücretsiz indirin](https://www.visualstudio.com/downloads/)
 
@@ -44,4 +44,3 @@ Bu kılavuz, aşağıdaki kitaplıkların kullanır:
 |[Microsoft.Owin.Security.OpenIdConnect](https://www.nuget.org/packages/Microsoft.Owin.Security.OpenIdConnect/)|Uygulamanın kimlik doğrulaması için OpenIdConnect kullanmasını sağlayan ara yazılım|
 |[Microsoft.Owin.Security.Cookies](https://www.nuget.org/packages/Microsoft.Owin.Security.Cookies)|Uygulamanın tanımlama bilgilerini kullanarak kullanıcı oturumunu korumasını sağlayan ara yazılım|
 |[Microsoft.Owin.Host.SystemWeb](https://www.nuget.org/packages/Microsoft.Owin.Host.SystemWeb)|OWIN tabanlı uygulamaların ASP.NET istek işlem hattını kullanarak IIS üzerinde çalışmasını sağlar|
-

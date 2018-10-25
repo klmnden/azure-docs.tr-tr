@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/23/2018
 ms.author: dstefan
-ms.openlocfilehash: db6778bdea2e3e133535bf28b3c2297cdb65599d
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 7aa0f80b8a0b53d4c53cf633938765e820c641cf
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49958916"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50025354"
 ---
 # <a name="azure-active-directory-proof-of-concept-playbook-building-blocks"></a>Azure Active Directory kavram playbook prova: yapı taşları
 
@@ -209,7 +209,7 @@ Yaklaşık tamamlama süresi: 30 dakika
 | Önkoşul | Kaynaklar |
 | --- | --- |
 | Hedef uygulama ve önceden tam oturum açma URL'leri listesi. Örneğin, Twitter kullanabilirsiniz. | [Microsoft Azure Marketi'nde twitter](https://azuremarketplace.microsoft.com/marketplace/apps/aad.twitter)<br/>[Twitter için kaydolun](https://twitter.com/signup?lang=en) |
-| Bu SaaS uygulaması için kimlik bilgisi paylaşılan. | [Azure AD kullanarak hesapları paylaşma](active-directory-sharing-accounts.md)<br/>[Azure AD parola toplama devretme Facebook, Twitter ve LinkedIn şimdi önizlemede otomatik! -Enterprise Mobility + Security blogu] (https://blogs.technet.microsoft.com/enterprisemobility/2015/02/20/azure-ad-automated-password-roll-over-for-facebook-twitter-and-linkedin-now-in-preview/ ) |
+| Bu SaaS uygulaması için kimlik bilgisi paylaşılan. | [Azure AD kullanarak hesapları paylaşma](active-directory-sharing-accounts.md)<br/>[Azure AD parola toplama devretme Facebook, Twitter ve LinkedIn şimdi önizlemede otomatik! -Enterprise Mobility + Security blogu](https://blogs.technet.microsoft.com/enterprisemobility/2015/02/20/azure-ad-automated-password-roll-over-for-facebook-twitter-and-linkedin-now-in-preview/ ) |
 | Hesabın aynısını erişecek en az iki takım üyeleri için kimlik bilgileri. Güvenlik grubunun bir parçası olmaları gerekir. | [Kurumsal bir uygulamayı Azure Active Directory'de bir kullanıcı veya grup atama](manage-apps/assign-user-or-group-access-portal.md) |
 | Internet Explorer, Chrome veya Firefox için erişim paneli uzantısını dağıtmak için bir bilgisayar için yerel yönetici erişimi | [IE için erişim paneli uzantısı](https://account.activedirectory.windowsazure.com/Applications/Installers/x64/Access%20Panel%20Extension.msi)<br/>[Erişim paneli uzantısını Chrome için](https://go.microsoft.com/fwLink/?LinkID=311859&clcid=0x409)<br/>[Erişim paneli uzantısı için Firefox](https://go.microsoft.com/fwLink/?LinkID=626998&clcid=0x409) |
 

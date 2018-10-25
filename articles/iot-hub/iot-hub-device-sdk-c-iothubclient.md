@@ -8,12 +8,12 @@ ms.devlang: c
 ms.topic: conceptual
 ms.date: 08/29/2017
 ms.author: yizhon
-ms.openlocfilehash: 4c4ff981560fc4025c6bf782df71e648a1356c3f
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.openlocfilehash: dd3b693271326c85688a275a65b67ad6257220e3
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48248151"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50024789"
 ---
 # <a name="azure-iot-device-sdk-for-c--more-about-iothubclient"></a>C – sı: Iothubclient hakkında daha fazla bilgi için Azure IOT cihaz SDK'sı
 
@@ -27,7 +27,7 @@ Makaleyi birkaç cihaz kimlik bilgilerini ve davranışını değiştirme hakkı
 
 Kullanacağız **sı: Iothubclient** SDK örnekleri bu konularda açıklanır. Örneği takip etmek istiyorsanız, bkz. **iothub\_istemci\_örnek\_http** ve **iothub\_istemci\_örnek\_amqp**c aşağıdaki bölümlerde açıklanan her şey bu örneklerde gösterilen için Azure IOT cihaz SDK'sını dahil edilen uygulamalar.
 
-Bulabilirsiniz [ **C için Azure IOT cihaz SDK'sını** ](https://github.com/Azure/azure-iot-sdk-c) API'de GitHub deposu ve görünüm ayrıntılarını [C API Başvurusu](https://azure.github.io/azure-iot-sdk-c/index.html).
+Bulabilirsiniz [ **C için Azure IOT cihaz SDK'sını** ](https://github.com/Azure/azure-iot-sdk-c) API'de GitHub deposu ve görünüm ayrıntılarını [C API Başvurusu](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/).
 
 ## <a name="the-lower-level-apis"></a>Alt düzey API'ler
 

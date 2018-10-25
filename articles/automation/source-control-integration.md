@@ -9,26 +9,26 @@ ms.author: gwallace
 ms.date: 09/26/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 9bbf3582da2664b6e6429677d47aad4d69a7c1bb
-ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
+ms.openlocfilehash: 5778c38d5a0c44e42b83fd139078be1f0bb45f7f
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48785333"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50023756"
 ---
 # <a name="source-control-integration-in-azure-automation"></a>Azure Otomasyonu’nda kaynak denetimi tümleştirmesi
 
-Kaynak denetimi, runbook'larınızı tutmanızı sağlar, Otomasyon hesabı ile GitHub veya Azure Dev Ops kaynak denetim deposu betiğinizde güncel. Kaynak denetimi kolayca takımınızla işbirliği yapmanıza, değişiklikleri izlemek ve runbook'larınızı önceki sürümleri geri alma sağlar. Örneğin, kaynak denetimi, geliştirme, test veya üretim Otomasyon hesaplarınız için kaynak denetiminde farklı dallara eşitleme sağlar. Bu Otomasyon hesabı üretim geliştirme ortamınızda test kod yükseltmek kolaylaştırır.
+Kaynak denetimi, runbook'larınızı tutmanızı sağlar, Otomasyon hesabı ile GitHub veya Azure DevOps kaynak denetim deposu betiğinizde güncel. Kaynak denetimi kolayca takımınızla işbirliği yapmanıza, değişiklikleri izlemek ve runbook'larınızı önceki sürümleri geri alma sağlar. Örneğin, kaynak denetimi, geliştirme, test veya üretim Otomasyon hesaplarınız için kaynak denetiminde farklı dallara eşitleme sağlar. Bu Otomasyon hesabı üretim geliştirme ortamınızda test kod yükseltmek kolaylaştırır.
 
 Azure Otomasyonu, kaynak denetimi 3 türlerini destekler:
 
 * GitHub
-* Visual Studio Team Services (Git)
-* Visual Studio Team Services (TFVC)
+* Azure DevOps (Git)
+* Azure DevOps (TFVC)
 
 ## <a name="pre-requisites"></a>Ön koşullar
 
-* Bir kaynak denetim deposu (GitHub veya Visual Studio Team Services)
+* Bir kaynak denetim deposu (GitHub veya Azure DevOps)
 * Doğru [izinleri](#personal-access-token-permissions) için kaynak denetim deposu
 * A [Run-As hesabı ve bağlantı](manage-runas-account.md)
 
@@ -50,7 +50,7 @@ Uygulama isteği izinleri sayfasında gözden geçirin ve tıklayın **kabul**.
 |Özellik  |Açıklama  |
 |---------|---------|
 |Kaynak denetimi adı     | Kaynak denetimi için bir kolay ad        |
-|Kaynak Denetim türü     | Kaynak denetimi türü. Kullanılabilen seçenekler:</br> GitHub</br>Visual Studio Team Services (Git)</br> Visual Studio Team Services (TFVC)        |
+|Kaynak Denetim türü     | Kaynak denetimi türü. Kullanılabilen seçenekler:</br> GitHub</br>Azure DevOps (Git)</br> Azure DevOps (TFVC)        |
 |Havuz     | Depo veya projenin adı. Bu değer, kaynak denetimi deposundan alınır. Örnek: $/ ContosoFinanceTFVCExample         |
 |Dal     | Kaynak dosyalarını çekmek için dal. Dal hedefleyen TFVC kaynak denetimi türü için kullanılamıyor.          |
 |Klasör yolu     | Eşitleme için runbook'ları içeren klasör. Örnek: /Runbooks         |

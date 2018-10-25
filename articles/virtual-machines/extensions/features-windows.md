@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: roiyz
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d7b183a5b87d5777609deac02e4424d9451e9643
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: e3b9de282b95b27a04ac6d182b1045e18e65c5f6
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47452505"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50025914"
 ---
 # <a name="virtual-machine-extensions-and-features-for-windows"></a>Sanal makine uzantıları ve özellikleri Windows için
 
@@ -57,7 +57,8 @@ Mümkün olan en iyi deneyimi sağlamak için en düşük aracı sürümü vard�
 
 #### <a name="supported-oses"></a>Desteklenen işletim sistemleri
 
-Windows Konuk Aracısı, uzantıları framework limiti işletim sistemleri için bu uzantılar vardır ancak birden çok Oses'te çalıştırır. [Bu makalede] daha fazla bilgi için bkz. (https://support.microsoft.com/en-us/help/4078134/azure-extension-supported-operating-systems ).
+Windows Konuk Aracısı, uzantıları framework limiti işletim sistemleri için bu uzantılar vardır ancak birden çok Oses'te çalıştırır. Daha fazla bilgi için [bu makaleye](https://support.microsoft.com/en-us/help/4078134/azure-extension-supported-operating-systems
+) bakın.
 
 Bazı uzantılar tüm işletim sistemlerinde desteklenmez ve yayabilir *hata kodu 51, 'Desteklenmeyen işletim sistemi'*. Desteklenebilirlik için ayrı bir uzantı belgelerine bakın.
 

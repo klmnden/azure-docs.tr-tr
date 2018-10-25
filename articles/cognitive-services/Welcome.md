@@ -9,12 +9,12 @@ ms.component: ''
 ms.topic: article
 ms.date: 09/12/2018
 ms.author: nitinme
-ms.openlocfilehash: 5fcd625edf913e6629bfedb7ce7a6b5fe204af28
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: f7a68aab4959c3793c7688504d73d2b539a26f83
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48901440"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50025404"
 ---
 # <a name="what-are-azure-cognitive-services"></a>Azure Bilişsel hizmetler nelerdir?
 
@@ -74,11 +74,11 @@ Azure Bilişsel hizmetler API'leri ve SDK'ları Hizmetleri geliştiricilerin do�
 
 ## <a name="use-free-trials"></a>Ücretsiz deneme sürümleri kullanın
 
-[Ücretsiz deneme kaydolma] (https://azure.microsoft.com/try/cognitive-services/ "Kaydolma Help") yalnızca bir e-posta ve birkaç basit adımda alır. Zaten yoksa, bir Microsoft Account gerekir. İstenen her bir API için benzersiz bir çift anahtar alırsınız. İkinci bir yedek olur. Gizli anahtarları kimseyle paylaşmayın. Deneme sahip hem bir hız sınırlama, ikinci veya dakika ve aylık kullanım CAP'ye başına işlem. Bir işlem yalnızca bir API çağrısıdır. Kısıtlamaları kilidini açmak için ücretli katmanlar için yükseltebilirsiniz.
+[Ücretsiz deneme kaydolma](https://azure.microsoft.com/try/cognitive-services/ "kayıt yardımcı") yalnızca bir e-posta ve birkaç basit adımda alır. Zaten yoksa, bir Microsoft Account gerekir. İstenen her bir API için benzersiz bir çift anahtar alırsınız. İkinci bir yedek olur. Gizli anahtarları kimseyle paylaşmayın. Deneme sahip hem bir hız sınırlama, ikinci veya dakika ve aylık kullanım CAP'ye başına işlem. Bir işlem yalnızca bir API çağrısıdır. Kısıtlamaları kilidini açmak için ücretli katmanlar için yükseltebilirsiniz.
 
 ## <a name="subscription-management"></a>Abonelik yönetimi
 
-Microsoft Account imzalandıktan sonra [Aboneliklerim] erişebilirsiniz (https://www.microsoft.com/cognitive-services/en-us/subscriptions "Aboneliklerim") kullanmakta olduğunuz ürünler, kalan kota ve ek ürün aboneliğinize ekleme olanağı gösterilecek.
+Microsoft Account imzalandıktan sonra erişebileceğiniz [Aboneliklerim](https://www.microsoft.com/cognitive-services/en-us/subscriptions "Aboneliklerim") kullanmakta olduğunuz ürünler, kalan kota ve ek ürün ekleme olanağı göstermek için aboneliğiniz için.
 
 ## <a name="upgrade-to-unlock-limits"></a>Sınırları kilidini açmak için yükseltme
 

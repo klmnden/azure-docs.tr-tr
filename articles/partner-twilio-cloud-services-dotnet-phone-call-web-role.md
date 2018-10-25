@@ -1,6 +1,6 @@
 ---
-title: Twilio (.NET) bir telefon araması yapma | Microsoft Docs
-description: Bir telefon araması yapın ve Azure üzerinde Twilio API hizmetiyle SMS mesajı göndermek öğrenin. .NET ile yazılan kod örnekleri.
+title: (.NET) Twilio telefon görüşmesi yapma | Microsoft Docs
+description: Telefon araması yapın ve Azure'da Twilio API'si hizmeti içeren bir SMS mesaj gönderme hakkında bilgi edinin. .NET ile yazılan kod örneklerini içerir.
 services: ''
 documentationcenter: .net
 author: devinrader
@@ -13,38 +13,38 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 05/04/2016
-ms.author: microsofthelp@twilio.com
-ms.openlocfilehash: cd9792881182fbe90d9c210130ae8a34b12da363
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.author: jeconnoc
+ms.openlocfilehash: 9433cbaba774237bc739106af410dd8d3dd7308f
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2017
-ms.locfileid: "26366013"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50025733"
 ---
-# <a name="how-to-make-a-phone-call-using-twilio-in-a-web-role-on-azure"></a>Azure üzerinde bir web rolü Twilio kullanarak bir telefon araması yapma
-Bu kılavuz Twilio Azure üzerinde barındırılan bir web sayfasından bir arama yapmak için nasıl kullanılacağını gösterir. Sonuçta elde edilen uygulama, aşağıdaki ekran görüntüsünde gösterildiği gibi verilen sayıda ve ileti ile arama yapmak için kullanıcıya sorar.
+# <a name="how-to-make-a-phone-call-using-twilio-in-a-web-role-on-azure"></a>Azure'da bir web rolünde Twilio kullanarak telefon görüşmesi yapma
+Bu kılavuz, Azure'da barındırılan bir web sayfasından çağrı yapmak için Twilio kullanma gösterilmektedir. Aşağıdaki ekran görüntüsünde gösterildiği gibi sonuç uygulamayı verilen sayının ve ileti ile arama yapmak için kullanıcıya sorar.
 
 ![Twilio ve ASP.NET kullanarak azure çağrı formu][twilio_dotnet_basic_form]
 
 ## <a name="twilio-prereqs"></a>Önkoşullar
 Bu konudaki kodu kullanmak için aşağıdakileri yapmanız gerekir:
 
-1. Twilio hesabı ve kimlik doğrulaması almak belirtecine [Twilio konsol][twilio_console]. Twilio ile çalışmaya başlamak için oturum açın [https://www.twilio.com/try-twilio][try_twilio]. Konumundaki fiyatlandırma değerlendirebilir [http://www.twilio.com/pricing][twilio_pricing]. Twilio tarafından sağlanan API'si hakkında daha fazla bilgi için bkz: [http://www.twilio.com/voice/api][twilio_api].
+1. Twilio hesap ve kimlik doğrulama Al belirtecine [Twilio konsol][twilio_console]. Twilio ile çalışmaya başlamak için oturum açın [ https://www.twilio.com/try-twilio ] [ try_twilio]. Bölümünde fiyatlar değerlendirebilirsiniz [ http://www.twilio.com/pricing ] [ twilio_pricing]. Twilio tarafından sağlanan API hakkında daha fazla bilgi için bkz: [ http://www.twilio.com/voice/api ] [ twilio_api].
 2. Ekleme *Twilio .NET kitaplığı* web rolünüz. Bkz: **Twilio kitaplıkları web rolü projenize eklemek için**, bu konunun devamındaki.
 
-Temel bir oluşturma konusunda bilgi sahibi olmanız gerekir [Azure Web rolü][azure_webroles_get_started].
+Temel oluşturma konusunda bilgi sahibi olmanız gerekir [Azure Web rolünde][azure_webroles_get_started].
 
 ## <a name="howtocreateform"></a>Nasıl yapılır: arama yapmak için web formu oluşturma
 <a id="use_nuget"></a>Twilio kitaplıkları web rolü projenize eklemek için:
 
 1. Çözümünüzü Visual Studio'da açın.
-2. Sağ **başvurular**.
-3. Tıklatın **NuGet paketlerini Yönet**.
-4. Tıklatın **çevrimiçi**.
-5. Arama çevrimiçi kutuya yazın *twilio*.
-6. Tıklatın **yükleme** Twilio paketinizdeki.
+2. Sağ **başvuruları**.
+3. Tıklayın **NuGet paketlerini Yönet**.
+4. Tıklayın **çevrimiçi**.
+5. Arama çevrimiçi kutusuna *twilio*.
+6. Tıklayın **yükleme** Twilio paketteki.
 
-Aşağıdaki kod, arama yapmak için kullanıcı verilerini almak için web formu oluşturulacağını gösterir. Bu örnekte, bir ASP.NET Web rolü adlı **TwilioCloud** oluşturulur.
+Aşağıdaki kod, arama yapmak için kullanıcı verilerini almak için bir web formu oluşturma işlemini gösterir. Bu örnekte, bir ASP.NET Web rolü adlı **TwilioCloud** oluşturulur.
 
 ```aspx
 <%@ Page Title="Home Page" Language="C#" MasterPageFile="~/Site.master"
@@ -70,8 +70,8 @@ Aşağıdaki kod, arama yapmak için kullanıcı verilerini almak için web form
 </asp:Content>
 ```
 
-## <a id="howtocreatecode"></a>Nasıl yapılır: arama yapmak için kod oluşturma
-Kullanıcı formu tamamlandığında olarak adlandırılır, aşağıdaki kod, arama iletisi oluşturur ve çağrı oluşturur. Bu örnekte, formdaki düğmenin onclick olay işleyicisini kod çalıştırılır. (Kullanım Twilio hesabı ve kimlik doğrulama belirteci atanan yer tutucu değerlerini yerine `accountSID` ve `authToken` aşağıdaki kodda.)
+## <a id="howtocreatecode"></a>Nasıl yapılır: çağrı yapmak için kod oluşturun
+Kullanıcı formu tamamladığında çağrılır, aşağıdaki kod, çağrı ileti oluşturur ve çağrı oluşturur. Bu örnekte, form üzerinde düğmesinin tıklatıldığında olay işleyicisi kod çalıştırılır. (Kullanım Twilio hesabınız ve kimlik doğrulama belirteci atanmış yer tutucu değerlerini yerine `accountSID` ve `authToken` aşağıdaki kodda.)
 
 ```csharp
 using System;
@@ -144,22 +144,22 @@ namespace WebRole1
 }
 ```
 
-Çağrı yapılır ve Twilio uç noktası, API sürümü ve arama durumu görüntülenir. Aşağıdaki ekran görüntüsünde bir örnek çalışma çıktısını gösterir.
+Çağrı yapılır ve Twilio uç noktası, API sürümü ve arama durumu görüntülenir. Örnek çalıştırmanın çıktısı aşağıdaki ekran gösterilir.
 
-![Twilio ve ASP.NET kullanılarak azure çağrı yanıtı][twilio_dotnet_basic_form_output]
+![Twilio ve ASP.NET kullanarak azure çağrı yanıtı][twilio_dotnet_basic_form_output]
 
-TwiML hakkında daha fazla bilgi bulunabilir [http://www.twilio.com/docs/api/twiml][twiml]. Hakkında daha fazla bilgi &lt;Say&gt; ve diğer Twilio fiiller bulunabilir [http://www.twilio.com/docs/api/twiml/say][twilio_say].
+TwiML hakkında daha fazla bilgi şu adreste bulunabilir: [ http://www.twilio.com/docs/api/twiml ] [ twiml]. Hakkında daha fazla bilgi &lt;Say&gt; ve diğer Twilio fiilleri şu yolda bulunabilir: [ http://www.twilio.com/docs/api/twiml/say ] [ twilio_say].
 
 ## <a id="nextsteps"></a>Sonraki adımlar
-Bu kod, bir ASP.NET web rolünde Azure ile ilgili Twilio kullanarak temel işlevselliğini göstermek için sağlanmıştır. Azure'a üretimde dağıtmadan önce daha fazla hata işleme veya diğer özellikler eklemek isteyebilirsiniz. Örneğin:
+Bu kod, Azure üzerinde ASP.NET web rolünde Twilio kullanarak temel işlevselliğini göstermek için sağlanmıştır. Üretimde Azure'a dağıtmadan önce daha fazla hata işleme veya diğer özellikler eklemek isteyebilirsiniz. Örneğin:
 
-* Bir web formu kullanmak yerine, Azure Blob storage veya Azure SQL veritabanı örneği telefon numaralarını depolamak ve metin çağırmak için kullanabilirsiniz. Azure BLOB'ları kullanma hakkında daha fazla bilgi için bkz: [.NET ile Azure Blob Depolama hizmetini kullanmayı][howto_blob_storage_dotnet]. SQL veritabanı kullanma hakkında daha fazla bilgi için bkz: [.NET uygulamalarında Azure SQL Database kullanmayı][howto_sql_azure_dotnet].
-* Kullanabileceğinizi `RoleEnvironment.getConfigurationSettings` hesap Kimliğini ve kimlik doğrulama belirteci form değerleri sabit kodlama yerine dağıtımınızın yapılandırma ayarları Twilio alınamadı. Hakkında bilgi için `RoleEnvironment` sınıfı için bkz: [Microsoft.WindowsAzure.ServiceRuntime Namespace][azure_runtime_ref_dotnet].
-* Twilio güvenlik yönergeleri okuyun [https://www.twilio.com/docs/security][twilio_docs_security].
-* Twilio hakkında daha fazla bilgi [https://www.twilio.com/docs][twilio_docs].
+* Web formu kullanmak yerine, Azure Blob Depolama veya Azure SQL veritabanı örneği telefon numaraları depolamak ve metin çağırmak için kullanabilirsiniz. Azure'da BLOB'ları kullanma hakkında daha fazla bilgi için bkz: [. NET'te Azure Blob Depolama hizmetinin kullanmayı][howto_blob_storage_dotnet]. SQL veritabanı'nı kullanma hakkında daha fazla bilgi için bkz: [.NET uygulamalarında Azure SQL veritabanı kullanmayı][howto_sql_azure_dotnet].
+* Kullanabileceğinizi `RoleEnvironment.getConfigurationSettings` hesap kimliği ve kimlik doğrulaması belirteci, formdaki değerler sabit kodlama yerine dağıtımınızın yapılandırma ayarlarından Twilio alınacak. Hakkında bilgi için `RoleEnvironment` sınıfı [Microsoft.WindowsAzure.ServiceRuntime Namespace][azure_runtime_ref_dotnet].
+* Twilio güvenlik yönergeleri okuyun [ https://www.twilio.com/docs/security ] [ twilio_docs_security].
+* Twilio hakkında daha fazla bilgi [ https://www.twilio.com/docs ] [ twilio_docs].
 
 ## <a name="seealso"></a>Ayrıca bkz.
-* [Azure'dan ses ve SMS özelliklerine yönelik Twilio kullanma](twilio-dotnet-how-to-use-for-voice-sms.md)
+* [Azure'dan ses ve SMS özellikleri için Twilio kullanma](twilio-dotnet-how-to-use-for-voice-sms.md)
 
 [twilio_console]: https://www.twilio.com/console
 [twilio_pricing]: http://www.twilio.com/pricing

@@ -14,17 +14,17 @@ ms.workload: identity
 ms.date: 09/13/2018
 ms.author: andret
 ms.custom: include file
-ms.openlocfilehash: 9d512af7fdd68ec3356b427429144ec9195fd95b
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: cf536879393622744da0a6dd5b4e38c8c52de39b
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48843280"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49988379"
 ---
-## <a name="use-msal-to-get-a-token"></a>Bir belirteç almak için MSAL kullanın 
+## <a name="use-msal-to-get-a-token"></a>Bir belirteç almak için MSAL kullanın
 
-1.  Altında **uygulama** > **java** > **{domain}. { Appname}** açın `MainActivity`. 
-2.  Aşağıdaki içeri aktarmaları ekleyin:
+1. Altında **uygulama** > **java** > **{domain}. { Appname}** açın `MainActivity`. 
+2. Aşağıdaki içeri aktarmaları ekleyin:
 
     ```java
     import android.app.Activity;
@@ -241,10 +241,13 @@ ms.locfileid: "48843280"
 
 <!--start-collapse-->
 ### <a name="more-information"></a>Daha fazla bilgi
+
 #### <a name="get-a-user-token-interactively"></a>Etkileşimli olarak kullanıcı belirteci alma
+
 Çağırma `AcquireTokenAsync` yöntemi oturum açın veya bunların hesap seçmek için kullanıcıların ister bir pencere başlatır. Uygulamalar genellikle ilk etkileşim için kullanıcıdan gerekir, ancak bu noktadan itibaren üzerinde sessiz bir şekilde çalışabilir. 
 
 #### <a name="get-a-user-token-silently"></a>Kullanıcı belirtecini sessizce alma
+
 `AcquireTokenSilentAsync` Yöntemi herhangi bir kullanıcı etkileşimi olmadan bir belirteç alır.  `AcquireTokenSilentAsync` bir geri dönüş için bir en yüksek çaba istekle olarak davranılıp `AcquireTokenAsync` gerektiğinde kullanıcı yeniden oturum açın veya çok faktörlü kimlik doğrulaması gibi bazı ek yetkilendirme uygulamak 
 
 Zaman `AcquireTokenSilentAsync` başarısız oluşturmak bir `MsalUiRequiredException`. Uygulamanız, bu özel durumun iki şekilde işleyebilir:
@@ -254,7 +257,8 @@ Zaman `AcquireTokenSilentAsync` başarısız oluşturmak bir `MsalUiRequiredExce
 * Yeniden deneme `AcquireTokenSilentAsync` daha sonra. Bu düzen, genellikle çevrimdışı içerik uygulamada mevcut olduğunda kullanıcıların diğer uygulama işlevleri kesintiye uğratmadan--Örneğin, ne zaman kullanabileceğini kullanılır. Uygulamayı yeniden denemeye karar verebilirsiniz `AcquireTokenSilentAsync` ağ zaman geri geçici olarak devre dışı olan sonra. 
 <!--end-collapse-->
 
-## <a name="call-the-microsoft-graph-api"></a>Microsoft Graph API çağırma 
+## <a name="call-the-microsoft-graph-api"></a>Microsoft Graph API çağırma
+
 İçine aşağıdaki yöntemleri ekleyin `MainActivity` sınıfı:
 
 ```java
@@ -311,6 +315,7 @@ private void updateGraphUI(JSONObject graphResponse) {
     graphText.setText(graphResponse.toString());
 }
 ```
+
 <!--start-collapse-->
 ### <a name="more-information-about-making-a-rest-call-against-a-protected-api"></a>Karşı korumalı bir API REST çağrısı yapma hakkında daha fazla bilgi
 
@@ -376,5 +381,6 @@ private void updateSignedOutUI() {
 `onSignOutClicked()` Yöntemi kullanıcılar MSAL önbellekten kaldırır. MSAL, artık oturum açmış olan kullanıcı için herhangi bir durum yoktur ve uygulamadaki oturumunu oturum açacaksınız. 
 
 ### <a name="more-information-on-multi-account-scenarios"></a>Birden çok hesap senaryoları hakkında daha fazla bilgi
+
 Aynı anda birden çok hesap oturum açtığınızda MSAL senaryolarını da destekler. Örneğin, çok sayıda e-posta uygulamaları aynı anda oturum açmanız birden çok hesapları sağlar. 
 <!--end-collapse-->

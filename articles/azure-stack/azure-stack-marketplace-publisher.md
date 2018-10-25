@@ -12,15 +12,15 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 9/26/2018
+ms.date: 10/24/2018
 ms.author: sethm
 ms.reviewer: ''
-ms.openlocfilehash: 518384776f777c3ea7cbd636dd2a48d919952f28
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: fabc72e6dc31bb7f244cda9634af3b2556ba23a9
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47409125"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50023802"
 ---
 #  <a name="add-marketplace-items-using-publishing-tool"></a>Market öğesi yayımlama aracını kullanarak Ekle
 
@@ -28,7 +28,7 @@ ms.locfileid: "47409125"
 
 ## <a name="prerequisites"></a>Önkoşullar
 
- - Azure Stack ana bilgisayarda Araç Seti çalıştırma veya sahip [VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn) aracını çalıştırdığınız makine bağlantısı.
+ - Azure Stack ana bilgisayarda Araç Seti çalıştırma veya sahip [VPN](.\asdk\asdk-connect.md#connect-to-azure-stack-with-vpn) ASDK konağa bağlantısı Aracı çalıştırdığınız makine.
 
  - İndirme [Azure Stack hızlı başlangıç şablonları](https://github.com/Azure/AzureStack-QuickStart-Templates/archive/master.zip) ve ayıklayın.
 
@@ -80,7 +80,7 @@ Bu bölümde, Azure Stack Marketini için Market öğesi yayımlama.
     |-----|-----|
     | Hizmet Yöneticisi adı | Hizmet Yöneticisi hesabını.  Örnek: ServiceAdmin@mydomain.onmicrosoft.com |
     | Parola | Hizmet Yöneticisi hesabının parolası. |
-    | API uç noktası | Azure Stack Azure Resource Manager uç noktası. Örnek: management.local.azurestack.external |
+    | API Uç Noktası | Azure Stack Azure Resource Manager uç noktası. Örnek: management.local.azurestack.external |
 2.  Tıklayın **Yayımla** ve yayımlama günlük görüntülenir.
 3.  Şimdi Azure Stack portal aracılığıyla yayımlanan öğeniz dağıtabilir.
 

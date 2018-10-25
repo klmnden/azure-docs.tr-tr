@@ -14,16 +14,16 @@ ms.workload: identity
 ms.date: 09/17/2018
 ms.author: nacanuma
 ms.custom: include file
-ms.openlocfilehash: 66aaabb942e6296243aada9951a232496e7734e9
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: 8d0b0c99b743461da41a518feae9c781f90c8b63
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48842986"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49988455"
 ---
-# <a name="call-the-microsoft-graph-api-from-a-javascript-single-page-application-spa"></a>Bir JavaScript tek sayfalı uygulama (SPA) Microsoft Graph API çağırma
+# <a name="call-the-microsoft-graph-api-from-a-javascript-single-page-application-spa"></a>Microsoft Graph API çağrısından bir JavaScript tek sayfalı uygulama (SPA)
 
-Bu kılavuzda bir JavaScript tek sayfa uygulama (SPA) kişisel, iş nasıl kaydolabilirsiniz gösterir ve Okul hesapları, bir erişim belirteci alma ve Microsoft Graph API'si veya Azure Active Directory v2 uç noktasından erişim belirteçlerini gerektiren diğer API çağrısı.
+Bu kılavuzda JavaScript tek sayfalı uygulama (SPA) kişisel, iş nasıl kaydolabilirsiniz gösterir ve Okul hesapları, bir erişim belirteci alma ve Microsoft Graph API'si veya Azure Active Directory v2.0 uç noktasından erişim belirteçlerini gerektiren diğer API çağrısı.
 
 ## <a name="how-the-sample-app-generated-by-this-guide-works"></a>Bu kılavuzda oluşturulan örnek uygulamasını nasıl çalışır?
 
@@ -32,7 +32,7 @@ Bu kılavuzda bir JavaScript tek sayfa uygulama (SPA) kişisel, iş nasıl kaydo
 <!--start-collapse-->
 ### <a name="more-information"></a>Daha Fazla Bilgi
 
-Bu kılavuzda oluşturulan örnek uygulama, Microsoft Graph API'si veya Azure Active Directory v2 uç noktasından belirteçleri kabul eden bir Web API sorgulamak bir JavaScript SPA sağlar. Bu senaryo için bir kullanıcı oturum açtıktan sonra bir erişim belirteci istenen ve HTTP istekleri aracılığıyla yetkilendirme üst bilgisi eklenir. Microsoft Authentication Library (MSAL tarafından) belirteç edinme ve yenileme işlenir.
+Bu kılavuzda oluşturulan örnek uygulama, Microsoft Graph API'si veya Azure Active Directory v2.0 uç noktasından belirteçleri kabul eden bir Web API sorgulamak bir JavaScript SPA sağlar. Bu senaryo için bir kullanıcı oturum açtıktan sonra bir erişim belirteci istenen ve HTTP isteklerini yetkilendirme üst bilgisi eklenir. Microsoft Authentication Library (MSAL tarafından) belirteç edinme ve yenileme işlenir.
 
 <!--end-collapse-->
 
@@ -46,7 +46,7 @@ Bu kılavuz, aşağıdaki kitaplığı kullanır:
 |[msal.js](https://github.com/AzureAD/microsoft-authentication-library-for-js)|JavaScript Preview için Microsoft kimlik doğrulama kitaplığı|
 
 > [!NOTE]
-> *msal.js* hedefleri *Azure Active Directory v2 uç noktası* -oturum açmak ve belirteçleri almak kişisel, okul ve iş hesapları sağlar. *Azure Active Directory v2 uç noktası* sahip [bazı sınırlamalar](..\articles\active-directory\develop\active-directory-v2-limitations.md).
-> Okuma v1 ve v2 uç noktaları arasındaki farkları [v1-v2 karşılaştırması](../articles/active-directory/develop/azure-ad-endpoint-comparison.md).
+> *msal.js* hedefleri *Azure Active Directory v2.0 uç noktası* -oturum açmak ve belirteçleri almak kişisel, okul ve iş hesapları sağlar. *Azure Active Directory v2.0 uç noktası* sahip [bazı sınırlamalar](..\articles\active-directory\develop\active-directory-v2-limitations.md).
+> Okuma v1.0 ve v2.0 uç noktaları arasındaki farkları [uç nokta karşılaştırma Kılavuzu](../articles/active-directory/develop/azure-ad-endpoint-comparison.md).
 
 <!--end-collapse-->

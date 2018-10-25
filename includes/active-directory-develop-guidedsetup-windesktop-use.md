@@ -14,18 +14,18 @@ ms.workload: identity
 ms.date: 09/17/2018
 ms.author: jmprieur
 ms.custom: include file
-ms.openlocfilehash: 538b0c969d8c039079c09232e06f55e24aabf393
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: 87ac7364a2c409af410fcb5cd09aed4377b28d8e
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48843053"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49988203"
 ---
 ## <a name="use-msal-to-get-a-token-for-the-microsoft-graph-api"></a>Microsoft Graph API'si için bir belirteç almak için MSAL kullanın
 
 Bu bölümde, Microsoft Graph API'si için bir belirteç almak için MSAL kullanın.
 
-1.  İçinde *MainWindow.xaml.cs* başvuru için MSAL sınıfı ekleyin:
+1. İçinde *MainWindow.xaml.cs* başvuru için MSAL sınıfı ekleyin:
 
     ```csharp
     using Microsoft.Identity.Client;
@@ -215,4 +215,3 @@ private void DisplayBasicTokenInfo(AuthenticationResult authResult)
 
 Kullanıcı oturum açtığında sonra Microsoft Graph API'sini çağırmak için kullanılan erişim belirteci yanı sıra MSAL, ayrıca bir kimlik belirteci alır. Bu belirteç, küçük bir alt kümesini kullanıcılara ilgili bilgileri içerir. `DisplayBasicTokenInfo` Yöntemi belirtecinde yer alan temel bilgileri görüntüler. Örneğin, kullanıcının görünen adı ve kimliği yanı sıra belirteç sona erme tarihini ve erişim belirteci temsil eden dize görüntüler. Seçebileceğiniz *Microsoft Graph API çağrısı* düğmesine birden çok kez ve sonraki istekleri için aynı belirteci yeniden olduğunu görebilirsiniz. MSAL çalışmanın kapılarını açtığında Genişletilmekte olan belirteci yenileme süresi sona erme tarihi de görebilirsiniz.
 <!--end-collapse-->
-

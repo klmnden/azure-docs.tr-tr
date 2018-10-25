@@ -6,16 +6,16 @@ author: jeffgilb
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 10/19/2018
+ms.date: 10/22/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
 keywords: ''
-ms.openlocfilehash: 6548693b91283665704be8fc83a483a9d20dc41b
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 8a33d4edb4107b936c36a744bb082c02b7830868
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49470555"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50024452"
 ---
 # <a name="azure-stack-datacenter-integration---identity"></a>Azure Stack veri merkezi tümleştirmesi - kimlik
 Kimlik sağlayıcısı Azure Stack, Azure Active Directory (Azure AD) veya Active Directory Federasyon Hizmetleri (AD FS) kullanarak dağıtabilirsiniz. Azure Stack dağıtmadan önce seçim yapmanız gerekir. AD FS dağıtımı da bağlantı kesik moddayken Azure Stack dağıtımı olarak adlandırılır.
@@ -53,7 +53,6 @@ Son adım için yeni bir sahip için varsayılan sağlayıcı aboneliği yapıla
 
 Gereksinimler:
 
-
 |Bileşen|Gereksinim|
 |---------|---------|
 |Graf|Microsoft Active Directory 2012/2012 R2/2016|
@@ -64,7 +63,6 @@ Gereksinimler:
 Graf, yalnızca tek bir Active Directory ormanı ile tümleştirmeyi destekler. Birden çok ormanınız varsa, yalnızca yapılandırmada belirtilen orman kullanıcılar ve gruplar getirmek için kullanılır.
 
 Otomasyon parametreleri için girdi olarak aşağıdaki bilgiler gereklidir:
-
 
 |Parametre|Açıklama|Örnek|
 |---------|---------|---------|
@@ -96,14 +94,14 @@ Active Directory siteleri hakkında daha fazla bilgi için bkz. [site topolojisi
 
 Bu yordam için Azure Stack'te ayrıcalıklı uç noktası ile iletişim kurabilen veri merkezi ağınızı bir bilgisayar kullanın.
 
-2. (Yönetici olarak çalıştır) yükseltilmiş Windows PowerShell oturumu açın ve ayrıcalıklı uç noktanın IP adresine bağlanın. Kimlik bilgilerini kullanan **CloudAdmin** kimliğini doğrulamak için.
+1. (Yönetici olarak çalıştır) yükseltilmiş Windows PowerShell oturumu açın ve ayrıcalıklı uç noktanın IP adresine bağlanın. Kimlik bilgilerini kullanan **CloudAdmin** kimliğini doğrulamak için.
 
    ```PowerShell  
    $creds = Get-Credential
    Enter-PSSession -ComputerName <IP Address of ERCS> -ConfigurationName PrivilegedEndpoint -Credential $creds
    ```
 
-3. Ayrıcalıklı uç noktasına bağlı olduğunuzdan, aşağıdaki komutu çalıştırın: 
+2. Ayrıcalıklı uç noktasına bağlı olduğunuzdan, aşağıdaki komutu çalıştırın: 
 
    ```PowerShell  
    Register-DirectoryService -CustomADGlobalCatalog contoso.com
@@ -210,6 +208,9 @@ Bu yordam için Azure Stack'te ayrıcalıklı uç noktasıyla iletişim kurabili
    Set-ServiceAdminOwner -ServiceAdminOwnerUpn "administrator@contoso.com"
    ```
 
+   > [!Note]  
+   > Var olan AD FS (hesap STS) sertifikayı döndürdüğünüzde AD FS tümleştirmenin yeniden ayarlamanız gerekir. Meta veri uç noktasının erişilebilir olduğundan veya meta veri dosyası sağlayarak yapılandırılmış olsa bile, tümleştirmenin ayarlamanız gerekir.
+
 ## <a name="configure-relying-party-on-existing-ad-fs-deployment-account-sts"></a>Var olan AD FS dağıtımı (hesabı STS) üzerinde bağlı olan taraf yapılandırma
 
 Microsoft, talep dönüştürme kuralları dahil olmak üzere bağlı olan taraf güveni yapılandıran bir betik sağlar. Betik kullanarak komutları el ile çalıştırırken isteğe bağlıdır.
@@ -274,7 +275,7 @@ El ile komutları çalıştırmak karar verirseniz, aşağıdaki adımları izle
    Add-ADFSRelyingPartyTrust -Name AzureStack -MetadataUrl "https://YourAzureStackADFSEndpoint/FederationMetadata/2007-06/FederationMetadata.xml" -IssuanceTransformRulesFile "C:\ClaimIssuanceRules.txt" -AutoUpdateEnabled:$true -MonitoringEnabled:$true -enabled:$true -TokenLifeTime 1440
    ```
 
-   > [!IMPORTANT]
+   > [!IMPORTANT]  
    > AD FS MMC ek bileşenini Windows Server 2012 veya 2012 R2 AD FS kullanırken verme yetkilendirme kurallarını yapılandırmak için kullanmanız gerekir.
 
 4. Azure Stack erişmek için Internet Explorer veya Edge Tarayıcısı'ı kullandığınızda, belirteç bağlamaları yoksay gerekir. Aksi takdirde, oturum açma denemesi başarısız. AD FS örneğinizin veya bir grup üyesi, aşağıdaki komutu çalıştırın:

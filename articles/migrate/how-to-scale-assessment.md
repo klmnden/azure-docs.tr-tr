@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: raynew
-ms.openlocfilehash: 6809c0e56fe55c7962ae273db0b5ac4335089df1
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: 32bed3a60c40b93471b75b9d54dccd822ccc3be8
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945867"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50025889"
 ---
 # <a name="discover-and-assess-a-large-vmware-environment"></a>Büyük bir VMware ortamını bulma ve değerlendirme
 
@@ -122,7 +122,7 @@ Birden çok proje varsa, vCenter Server'a yalnızca bir kez Toplayıcı gerecini
 1. Azure Geçişi projesinde **Kullanmaya Başlama** > **Bul ve Değerlendir** > **Makineleri Keşfet**’ye tıklayın.
 2. **Cihazları keşfet**’te, alet için iki seçenek vardır, tercihinize göre uygun aleti indirmek için **İndir**’i tıklayın.
 
-    a. **Tek seferlik keşif:** Bu model için alet, VM’ler hakkında meta veriler toplamak için vCenter Server ile iletişim kurar. VM’lerin performans verilerinin toplanması için, vCenter Server’da depolanan geçmiş performans verilerine dayanır ve son bir ayın performans geçmişini toplar. Bu modelde, Azure Geçişi her ölçüm için ortalama sayacı (en yüksek sayaca karşı) toplar, [daha fazla bilgi edinin] (https://docs.microsoft.com/azure/migrate/concepts-collector#what-data-is-collected). Bir kerelik bulma olduğundan, Keşif tamamlandıktan sonra şirket içi ortamda değişiklikler yansıtılmaz. Değişikliklerin yansıtılmasını istiyorsanız, aynı ortamın yeniden keşfetmeniz gerekir.
+    a. **Tek seferlik keşif:** Bu model için alet, VM’ler hakkında meta veriler toplamak için vCenter Server ile iletişim kurar. VM’lerin performans verilerinin toplanması için, vCenter Server’da depolanan geçmiş performans verilerine dayanır ve son bir ayın performans geçmişini toplar. Bu modelde, Azure geçişi için her ölçümü (yoğun sayacı) ve ortalama sayacını toplar [daha fazla bilgi edinin](https://docs.microsoft.com/azure/migrate/concepts-collector#what-data-is-collected). Bir kerelik bulma olduğundan, Keşif tamamlandıktan sonra şirket içi ortamda değişiklikler yansıtılmaz. Değişikliklerin yansıtılmasını istiyorsanız, aynı ortamın yeniden keşfetmeniz gerekir.
 
     b. **Sürekli keşif:** Bu model için alet, her VM’nin gerçek zamanlı kullanım verilerini toplamak amacıyla sürekli şirket içi ortamın profilini oluşturur. Bu modelde her ölçüm için en yüksek sayaçlar toplanır (CPU kullanımı, bellek kullanımı vb.). Bu model, performans verilerinin toplanması için vCenter Server’ın istatistik ayarlarına bağlı değildir. Sürekli profil oluşturmayı aletten istediğiniz zaman durdurabilirsiniz.
 

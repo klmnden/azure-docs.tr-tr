@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 09/17/2018
 ms.author: nacanuma
 ms.custom: include file
-ms.openlocfilehash: 77400453e455ff2ebf20f59f888a3e3d641bcf07
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: e42c678f3c6d030be13e40197a06e73b62581902
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48843162"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49988450"
 ---
 ## <a name="use-the-microsoft-authentication-library-msal-to-sign-in-the-user"></a>Kullanıcının oturum açmak için Microsoft kimlik doğrulama kitaplığı (MSAL) kullanma
 
@@ -127,24 +127,26 @@ else {
 <!--start-collapse-->
 ### <a name="more-information"></a>Daha Fazla Bilgi
 
-Bir kullanıcı tıklattıktan sonra *'Oturum açma'* düğmesini ilk kez `signIn` yöntem çağrılarını `loginPopup` kullanıcısı ile oturum. Bu yöntem ile bir açılan pencere açılırken sonuçları *Microsoft Azure Active Directory v2 uç noktası* sor ve kullanıcının kimlik bilgilerini doğrulamak için. Bir oturum açma başarılı sonucu olarak, kullanıcının özgün durumuna geri yönlendirilir *index.html* sayfa ve bir belirteç alındığında, tarafından işlenen `msal.js` ve belirtecinde yer alan bilgileri önbelleğe alınır. Bu belirteci olarak da bilinen *kimlik belirteci* ve kullanıcı görünen adı gibi kullanıcıyla ilgili temel bilgileri içerir. Tüm amaçlar için bu belirteci tarafından sağlanan herhangi bir veri kullanmayı planlıyorsanız, bu belirteç, uygulamanız için geçerli bir kullanıcı için belirteç verildiğini güvence altına almak için arka uç sunucunuzu doğrulayan emin olmanız gerekir.
+Bir kullanıcı tıklattıktan sonra **oturum** düğmesini ilk kez `signIn` yöntem çağrılarını `loginPopup` kullanıcısı ile oturum. Bu yöntem ile bir açılan pencere açılırken sonuçları *Microsoft Azure Active Directory v2.0 uç noktası* sor ve kullanıcının kimlik bilgilerini doğrulamak için. Bir oturum açma başarılı sonucu olarak, kullanıcının özgün durumuna geri yönlendirilir *index.html* sayfa ve bir belirteç alındığında, tarafından işlenen `msal.js` ve belirtecinde yer alan bilgileri önbelleğe alınır. Bu belirteci olarak da bilinen *kimlik belirteci* ve kullanıcı görünen adı gibi kullanıcıyla ilgili temel bilgileri içerir. Tüm amaçlar için bu belirteci tarafından sağlanan herhangi bir veri kullanmayı planlıyorsanız, bu belirteç, uygulamanız için geçerli bir kullanıcı için belirteç verildiğini güvence altına almak için arka uç sunucunuzu doğrulayan emin olmanız gerekir.
 
 Bu tarafından oluşturulan SPA Kılavuzu çağrıları `acquireTokenSilent` ve/veya `acquireTokenPopup` almak için bir *erişim belirteci* Microsoft Graph API için kullanıcı profili bilgileri sorgulamak için kullanılan. Kimlik belirteci doğrular bir örnek gerekirse göz atın [bu](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi-v2 "Github active-directory-javascript-singlepageapp-dotnet-webapi-v2 örnek") github'da – örnek örnek uygulama bir ASP kullanır Belirteç doğrulama için .NET web API'si.
 
 #### <a name="getting-a-user-token-interactively"></a>Kullanıcı belirtecini etkileşimli olarak alma
 
-İlk oturum açma işleminden sonra bu nedenle kaynak – erişmek için bir belirteç istemek ihtiyaç duydukları her zaman yeniden kimlik doğrulamaya zorlayabilir talep etmek istemediğiniz *acquireTokenSilent* çoğu zaman belirteçlerini almak için kullanılmalıdır. Durumlar vardır ancak kullanıcıları, Azure Active Directory v2 uç noktası ile – etkileşim kurmak gereken bazı örnekler şunlardır:
+İlk oturum açma işleminden sonra bu nedenle kaynak – erişmek için bir belirteç istemek ihtiyaç duydukları her zaman yeniden kimlik doğrulamaya zorlayabilir talep etmek istemediğiniz *acquireTokenSilent* çoğu zaman belirteçlerini almak için kullanılmalıdır. Durumlar vardır ancak kullanıcıları, Azure Active Directory v2.0 uç noktası ile – etkileşim kurmak gereken bazı örnekler şunlardır:
+
 - Parolanın süresi dolduğundan kullanıcıların kimlik bilgilerini yeniden girmesi gerektiğinde
 - Uygulamanız kullanıcının onaylaması gereken bir kaynağa erişim istediğinde
 - İki faktörlü kimlik doğrulama gerektiğinde
 
-Çağırma *acquireTokenPopup(scope)* sonuçları bir açılır pencerede (veya *acquireTokenRedirect(scope)* sonuçları kullanıcılarını Azure Active Directory v2 uç noktaya yönlendirme de) burada kullanıcılar gerekir kimlik bilgilerini onaylayan, gerekli kaynak için izin vermek ya da iki faktörlü kimlik doğrulamasını tamamlayan etkileşim kurun.
+Çağırma *acquireTokenPopup(scope)* sonuçları bir açılır pencerede (veya *acquireTokenRedirect(scope)* sonuçları kullanıcılarını Azure Active Directory v2.0 uç noktasına yönlendirme de) burada kullanıcılar gerekir kimlik bilgilerini onaylayan, gerekli kaynak için izin vermek ya da iki faktörlü kimlik doğrulamasını tamamlayan etkileşim kurun.
 
 #### <a name="getting-a-user-token-silently"></a>Kullanıcı belirtecini sessizce alma
+
 ` acquireTokenSilent` Belirteç edinme ve herhangi bir kullanıcı etkileşimi olmadan yenileme yöntemi işler. Sonra `loginPopup` (veya `loginRedirect`) ilk kez yürütülür `acquireTokenSilent` veya belirteçleri yenileme isteği için çağrıları sessizce yapıldıkça yapılan sonraki çağrılar için-korunan kaynaklara erişim için kullanılan belirteçleri elde etmek için yaygın kullanılan yöntemdir.
 `acquireTokenSilent` başarısız olabilir bazı durumlarda – Örneğin, kullanıcı parolasının süresi doldu. Uygulamanız, bu özel durumun iki şekilde işleyebilir:
 
-1.  Çağrı yapmak `acquireTokenPopup` hemen sonuçlanır kullanıcının oturum açmasını isteyen içinde. Bu düzen çevrimiçi uygulamalarında yaygın olarak kullanılan bulunduğu kimliği doğrulanmamış içerik uygulamada kullanıcı tarafından kullanılabilir. Bu Kılavuzlu kurulum tarafından oluşturulan örnek bu deseni kullanır.
+1. Çağrı yapmak `acquireTokenPopup` hemen sonuçlanır kullanıcının oturum açmasını isteyen içinde. Bu düzen çevrimiçi uygulamalarında yaygın olarak kullanılan bulunduğu kimliği doğrulanmamış içerik uygulamada kullanıcı tarafından kullanılabilir. Bu Kılavuzlu kurulum tarafından oluşturulan örnek bu deseni kullanır.
 
 2. Uygulamaları bir etkileşimli oturum açma kullanıcı oturum açmak için doğru zamanda seçebilir ya da uygulama yeniden deneyebilir gerekli olan, kullanıcı için bir görsel gösterimi de yapabilir `acquireTokenSilent` daha sonra. Bu yaygın olarak kullanılan kullanıcı uygulamanın diğer işlevleri kesintiye olmadan kullanabilir - Örneğin, kimliği doğrulanmamış içerik uygulamada kullanılabilir olduğunda. Bu durumda, korumalı kaynağa erişmeye veya güncel olmayan bilgileri yenilemek için oturum açmak istediğinizde kullanıcı karar verebilirsiniz.
 

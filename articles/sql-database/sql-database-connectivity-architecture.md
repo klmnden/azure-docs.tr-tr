@@ -12,12 +12,12 @@ ms.author: moslake
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 01/24/2018
-ms.openlocfilehash: 82bc76b47f8073e07163e7f827b900a59cf3ad7f
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: ca1ef9c402b370a8d1228e13d7fe3e13fd225f79
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49470584"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49986330"
 ---
 # <a name="azure-sql-database-connectivity-architecture"></a>Azure SQL veritabanı bağlantı mimarisi
 
@@ -73,9 +73,16 @@ Aşağıdaki tablo, Azure SQL veritabanı ağ geçidi tüm veri bölgeleri için
 | Orta Kanada | 40.85.224.249 | |
 | Doğu Kanada | 40.86.226.166 | |
 | Orta ABD | 23.99.160.139 | 13.67.215.62 |
+| Çin Doğu 1 | 139.219.130.35 | |
+| Çin Doğu 2 | 40.73.82.1 | |
+| Çin Kuzey 1 | 139.219.15.17 | |
+| Çin Kuzey 2 | 40.73.50.0 | |
 | Doğu Asya | 191.234.2.139 | 52.175.33.150 |
 | Doğu ABD 1 | 191.238.6.43 | 40.121.158.30 |
 | Doğu ABD 2 | 191.239.224.107 | 40.79.84.180 * |
+| Fransa Orta | 40.79.137.0 | 40.79.129.1 |
+| Almanya Orta | 51.4.144.100 | |
+| Almanya Kuzey Doğu | 51.5.144.179 | |
 | Hindistan Orta | 104.211.96.159 | |
 | Hindistan Güney | 104.211.224.146 | |
 | Hindistan Batı | 104.211.160.80 | |

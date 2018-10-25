@@ -11,13 +11,13 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlrab, bonova
 manager: craigg
-ms.date: 08/13/2018
-ms.openlocfilehash: 2f512c666555ca8bee58305b76573459f6e631e2
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.date: 10/24/2018
+ms.openlocfilehash: fd63d0ce9ef335efdebf9759d52cf93312986d16
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47166512"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50025387"
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>SQL Server'dan Azure SQL veritabanı yönetilen örnek T-SQL farklılıkları 
 
@@ -103,7 +103,7 @@ Bkz: [sertifika oluştur](https://docs.microsoft.com/sql/t-sql/statements/create
 > ``` 
 CREATE CERTIFICATE  
  FROM BINARY = asn_encoded_certificate    
-WITH PRIVATE KEY ( <private_key_options> ) 
+WITH PRIVATE KEY (<private_key_options>) 
 >```   
  
 ### <a name="clr"></a>CLR 
@@ -333,21 +333,22 @@ Restore deyimleri hakkında daha fazla bilgi için bkz. [geri deyimleri](https:/
  - `remote proc trans` 
 - `sp_execute_external_scripts` desteklenmiyor. Bkz: [sp_execute_external_scripts](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql#examples).
 - `xp_cmdshell` desteklenmiyor. Bkz: [xp_cmdshell](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/xp-cmdshell-transact-sql).
-- `Extended stored procedures` dahil olmak üzere desteklenmediği `sp_addextendedproc` ve `sp_dropextendedproc`. Bkz: [genişletilmiş saklı yordamlar](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/general-extended-stored-procedures-transact-sql)
+- `Extended stored procedures` dahil olmak üzere desteklenmediği `sp_addextendedproc`  ve `sp_dropextendedproc`. Bkz: [genişletilmiş saklı yordamlar](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/general-extended-stored-procedures-transact-sql)
 - `sp_attach_db`, `sp_attach_single_file_db`, ve `sp_detach_db` desteklenmez. Bkz: [sp_attach_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-attach-db-transact-sql), [sp_attach_single_file_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-attach-single-file-db-transact-sql), ve [sp_detach_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-detach-db-transact-sql).
 - `sp_renamedb` desteklenmiyor. Bkz: [sp_renamedb](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-renamedb-transact-sql).
 
 ### <a name="sql-server-agent"></a>SQL Server Agent
 
 - SQL Aracısı ayarları salt okunur. Yordam `sp_set_agent_properties` yönetilen örneği'nde desteklenmiyor.  
-- İşler - T-SQL iş adımları şu anda desteklenmiyor
-- Diğer tür iş adımları olmayan şu anda desteklenen (daha fazla adım türleri, genel Önizleme sırasında eklenir).
-  - Desteklenmeyen çoğaltma işleri de dahil olmak üzere:
+- İşler
+ - T-SQL iş adımları desteklenir.
+ - Şu çoğaltma işleri desteklenir:
     - İşlem günlüğü okuyucu.  
     - Anlık görüntü.
-    - Dağıtıcı.  
-    - Birleştirme.  
-  - SSIS henüz desteklenmiyor. 
+    - Dağıtıcı.
+ - SSIS desteklenir. 
+- İş adımları diğer türleri şu anda, dahil olmak üzere desteklenmez:
+  - Birleştirme çoğaltması iş adımı desteklenmiyor.  
   - Sıra okuyucusu desteklenmiyor.  
   - Komut kabuğu henüz desteklenmiyor. 
   - Yönetilen örnek (örneğin, ağ paylaşımları üzerinden robocopy) dış kaynaklara erişemez.  
@@ -411,7 +412,7 @@ Bu örnekte, var olan veritabanlarını çalışmaya devam eder ve yeni dosyalar
 ### <a name="incorrect-configuration-of-sas-key-during-database-restore"></a>SAS anahtarı hatalı yapılandırılması sırasında veritabanı geri yükleme
 
 `RESTORE DATABASE` okuyan .bak dosyası sürekli yeniden deneme .bak dosyası ve döndürülen hata, uzun süre sonunda okumak için paylaşılan erişim imzasını `CREDENTIAL` yanlış. SAS anahtarının doğru olduğundan emin olmak için bir veritabanını geri yüklemeden önce geri HEADERONLY yürütün.
-Önde gelen kaldırdığınızdan emin olun `?` Azure portalı kullanılarak oluşturulan SAS anahtarından.
+Önde gelen kaldırdığınızdan emin olun `?` SAS anahtarından Azure portalı kullanılarak oluşturulur.
 
 ### <a name="tooling"></a>Araç kullanımı
 

@@ -1,6 +1,6 @@
 ---
-title: Service Fabric hizmet uç noktaları belirtme | Microsoft Docs
-description: HTTPS uç noktaları ayarlama da dahil olmak üzere bir hizmet bildirimi uç noktası kaynaklarında açıklamak nasıl
+title: Service Fabric hizmet uç noktalarını belirtme | Microsoft Docs
+description: Uç nokta HTTPS uç noktaları ayarlama dahil olmak üzere bir hizmet bildirimi kaynakları nasıl
 services: service-fabric
 documentationcenter: .net
 author: mani-ramaswamy
@@ -14,19 +14,19 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: f486ce5c058286289873d87767f02bf92f91459e
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: b5c07c7d142e231c945906d6e75ce16a5bb1d252
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34701451"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49985990"
 ---
 # <a name="specify-resources-in-a-service-manifest"></a>Bir hizmet bildiriminde kaynakları belirtme
 ## <a name="overview"></a>Genel Bakış
-Hizmet bildirimi derlenmiş kod değiştirmeden bildirilen ve değiştirilen için hizmet tarafından kullanılan kaynakları sağlar. Azure Service Fabric hizmeti için uç nokta kaynakların yapılandırmasını destekler. Hizmet bildiriminde belirtilen kaynaklara erişimi, güvenlik grubuna uygulama bildiriminde aracılığıyla denetlenebilir. Kaynakları bildirimi dağıtım sırasında hizmet yeni bir yapılandırma mekanizması tanıtmak gerekmez anlamı değiştirilmesi bu kaynakları sağlar. Şema tanımı ServiceManifest.xml dosyası için Service Fabric SDK'sı ile yüklenir ve araçların *C:\Program Files\Microsoft SDKs\Service Fabric\schemas\ServiceFabricServiceModel.xsd*.
+Hizmet bildirimi, hizmet tarafından bildirilen ve değiştirilen derlenmiş kodunu değiştirmeden için kullanılan kaynaklar sağlar. Azure Service Fabric hizmeti için uç nokta kaynakların yapılandırmasını destekler. Hizmet bildiriminde belirtilen kaynaklara erişimi, IDAP uygulama bildiriminde aracılığıyla denetlenebilir. Kaynak bildirimi, dağıtım sırasında hizmetin yeni bir yapılandırma mekanizması tanıtmak gerekmez anlamı değiştirilmesi bu kaynakları sağlar. ServiceManifest.xml dosyasına ilişkin şema tanımı ile Service Fabric SDK'sı yüklü olduğundan ve araçları *C:\Program Files\Microsoft SDKs\Service Fabric\schemas\ServiceFabricServiceModel.xsd*.
 
 ## <a name="endpoints"></a>Uç Noktalar
-Bir uç nokta kaynağının hizmet bildiriminde tanımlandığında, Service Fabric bir bağlantı noktası açıkça belirtilmediğinde ayrılmış uygulama bağlantı noktası aralığından bağlantı noktaları atar. Örneğin, uç noktada arayın *ServiceEndpoint1* sonra bu paragraf sağlanan bildirim parçacığı belirtildi. Ayrıca, hizmetleri da belirli bir bağlantı noktasını bir kaynak isteğinde bulunabilirsiniz. Çoğaltmaları aynı düğüm üzerinde çalışan bir hizmet bağlantı noktasını paylaşmak sırada hizmet çoğaltmaları farklı küme düğümleri üzerinde çalışan farklı bağlantı noktası numaraları atanabilir. Hizmet çoğaltmaları ardından bu bağlantı noktalarını gerektiği için çoğaltma ve istemci isteklerini dinlemeye kullanabilirsiniz.
+Hizmet bildiriminde tanımlanan uç nokta kaynağı oluşturduğunuzda, Service Fabric açıkça bir bağlantı noktası belirtilmezse ayrılmış uygulama bağlantı noktası aralığından bağlantı noktaları atar. Örneğin, uç noktada Ara *ServiceEndpoint1* sonra bu paragrafın sağlanan bildirimi kod parçacığı belirtilen. Ayrıca, hizmetler kaynağın belirli bir bağlantı noktası isteyebilir. Çoğaltmaları aynı düğümde çalışan bir hizmetin bağlantı noktası paylaşma sırada farklı bir bağlantı noktası numaraları, farklı küme düğümleri üzerinde çalışan hizmet çoğaltmalardan atanabilir. Hizmet çoğaltmaları daha sonra bu bağlantı noktaları gerektiğinde çoğaltma ve istemci isteklerini dinlemek için kullanabilirsiniz.
 
 ```xml
 <Resources>
@@ -38,7 +38,7 @@ Bir uç nokta kaynağının hizmet bildiriminde tanımlandığında, Service Fab
 </Resources>
 ```
 
-Bir tek hizmet paketinde birden fazla kod paketi vardır sonra kod paketi de göndermede bulunulan gerekir **uç noktaları** bölümü.  Örneğin, varsa **ServiceEndpoint2a** ve **ServiceEndpoint2b** farklı kod paketleri, her bitiş noktasıyla ilgili kod paketi başvuran aynı hizmet paketinden uç noktaları olan olan aşağıda açıklanmıştır:
+Bir tek hizmet paketinde birden çok kod paketleri vardır sonra kod paketi ayrıca içinde başvurulması gereken **uç noktaları** bölümü.  Örneğin, varsa **ServiceEndpoint2a** ve **ServiceEndpoint2b** farklı kod paketleri, her uç noktaya karşılık gelen kod paketi başvuran aynı hizmet paketi uç noktalarının olduğunu gösterir. şu şekilde açıklığa kavuşturuldu:
 
 ```xml
 <Resources>
@@ -49,12 +49,12 @@ Bir tek hizmet paketinde birden fazla kod paketi vardır sonra kod paketi de gö
 </Resources>
 ```
 
-Başvurmak [durum bilgisi olan güvenilir hizmetler yapılandırma](service-fabric-reliable-services-configuration.md) (settings.xml) uç noktalarını yapılandırma paketi ayarları başvuran hakkında daha fazla dosya okunamıyor.
+Başvurmak [durum bilgisi olan Reliable Services yapılandırma](service-fabric-reliable-services-configuration.md) (settings.xml) uç noktalar başvuran yapılandırma paketi ayarları hakkında daha fazla dosya okunamıyor.
 
 ## <a name="example-specifying-an-http-endpoint-for-your-service"></a>Örnek: hizmetiniz için bir HTTP uç noktası belirtme
-Aşağıdaki hizmet bildirimi bir TCP uç nokta kaynağının ve iki HTTP uç noktası kaynakları tanımlayan &lt;kaynakları&gt; öğesi.
+Aşağıdaki hizmet bildirimi bir TCP uç nokta kaynağı ve iki HTTP uç noktası kaynakları tanımlayan &lt;kaynakları&gt; öğesi.
 
-HTTP otomatik olarak Service Fabric tarafından ACL misiniz noktalarıdır.
+HTTP uç noktalarını otomatik olarak Service Fabric tarafından ACL misiniz olursunuz.
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -101,17 +101,17 @@ HTTP otomatik olarak Service Fabric tarafından ACL misiniz noktalarıdır.
 ```
 
 ## <a name="example-specifying-an-https-endpoint-for-your-service"></a>Örnek: hizmetiniz için bir HTTPS uç noktası belirtme
-HTTPS protokolünü sunucu kimlik doğrulaması sağlar ve ayrıca istemci-sunucu iletişimi şifrelemek için kullanılır. Service Fabric hizmet HTTPS'yi etkinleştirmek için protokol belirtin *kaynakları uç noktaları -> Endpoint ->* uç nokta için daha önce gösterildiği gibi hizmet bildirimi bölümünü *ServiceEndpoint3*.
+HTTPS protokolünü, sunucu kimlik doğrulaması sağlar ve ayrıca istemci-sunucu iletişimi şifrelemek için kullanılır. Service Fabric hizmetinizi HTTPS'yi etkinleştirmek için protokolü belirtmek *Kaynakları -> uç noktalar -> uç nokta* uç nokta için daha önce gösterildiği gibi hizmet bildiriminin *ServiceEndpoint3*.
 
 > [!NOTE]
-> Bir hizmetin Protokolü uygulama yükseltme sırasında değiştirilemez. Yükseltme sırasında değiştirilir, önemli bir değişiklik olur.
+> Bir hizmetin Protokolü uygulama yükseltme sırasında değiştirilemez. Yükseltme sırasında değiştirilir, bir değişiklik olur.
 > 
 
 > [!WARNING] 
-> HTTPS kullanırken, aynı bağlantı noktası ve aynı düğümde dağıtılan sertifika farklı hizmet örnekleri (uygulamasının bağımsız olarak) için kullanmayın. Farklı uygulama durumlarda aynı bağlantı noktasını kullanan iki farklı hizmet yükseltme bir yükseltme hatasına neden olur. Daha fazla bilgi için bkz: [HTTPS uç noktaları birden çok uygulama yükseltme ](service-fabric-application-upgrade.md#upgrading-multiple-applications-with-https-endpoints).
+> HTTPS kullanırken, aynı bağlantı noktası ve aynı düğüme dağıtılan sertifika farklı hizmet örnekleri (uygulamayı bağımsız olarak) için kullanmayın. Farklı uygulama örneklerinin aynı bağlantı noktası kullanarak iki farklı hizmet yükseltme bir yükseltme hatasına neden olur. Daha fazla bilgi için [HTTPS uç noktaları ile birden çok uygulama yükseltme ](service-fabric-application-upgrade.md#upgrading-multiple-applications-with-https-endpoints).
 >
 
-HTTPS için ayarlamanız gerekir ApplicationManifest örnek aşağıda verilmiştir. Sertifikanızın parmak izini sağlanmalıdır. EndpointRef ServiceManifest, HTTPS protokolünü ayarlamak EndpointResource başvurudur. Birden fazla EndpointCertificate ekleyebilirsiniz.  
+HTTPS için ayarlanacak ihtiyacınız ApplicationManifest bir örnek aşağıda verilmiştir. Sertifikanızın parmak izi belirtilmelidir. EndpointRef EndpointResource ServiceManifest, HTTPS protokolünü ayarlayın, bir başvurudur. Birden fazla EndpointCertificate ekleyebilirsiniz.  
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -153,16 +153,16 @@ HTTPS için ayarlamanız gerekir ApplicationManifest örnek aşağıda verilmiş
 </ApplicationManifest>
 ```
 
-Linux kümeleri için **MY** Varsayılanları klasöre depolamak **/var/lib/sfcerts**.
+Linux kümeleri için **MY** varsayılan klasöre depolamak **/var/lib/sfcerts**.
 
 
-## <a name="overriding-endpoints-in-servicemanifestxml"></a>ServiceManifest.xml uç noktalarını geçersiz kılma
+## <a name="overriding-endpoints-in-servicemanifestxml"></a>Uç ServiceManifest.xml geçersiz kılma
 
-ApplicationManifest içinde eşdüzey ConfigOverrides bölümüne olacak bir ResourceOverrides bölümü ekleyin. Bu bölümde, hizmet bildiriminde belirtilen kaynaklar bölümünde uç noktalar bölümü için geçersiz kılma belirtebilirsiniz. Uç noktaları geçersiz kılma çalışma zamanında desteklenir 5.7.217/SDK 2.7.217 ve daha yüksek.
+İçinde ApplicationManifest ConfigOverrides bölümüne bir eşdüzey olacak bir ResourceOverrides bölümü ekleyin. Bu bölümde, hizmet bildiriminde belirtilen kaynaklar bölümünde uç noktalar bölümü için geçersiz kılma belirtebilirsiniz. Geçersiz kılma uç çalışma zamanı desteklenir 5.7.217/SDK 2.7.217 ve daha yüksek.
 
-Aşağıdaki gibi ApplicationParameters değişikliği ApplicationManifest kullanılarak ServiceManifest uç geçersiz kılmak için:
+Uç noktası ServiceManifest ApplicationParameters değişiklik ApplicationManifest aşağıdaki gibi kullanarak, geçersiz kılmak için:
 
-ServiceManifestImport bölümünde "ResourceOverrides" yeni bir bölüm ekleyin.
+Yeni bir bölüm "ResourceOverrides" Servicemanifestımport bölümüne ekleyin.
 
 ```xml
 <ServiceManifestImport>
@@ -180,7 +180,7 @@ ServiceManifestImport bölümünde "ResourceOverrides" yeni bir bölüm ekleyin.
   </ServiceManifestImport>
 ```
 
-Aşağıda parametreleri ekleyin:
+Aşağıdaki parametreleri ekleyin:
 
 ```xml
   <Parameters>
@@ -192,17 +192,17 @@ Aşağıda parametreleri ekleyin:
   </Parameters>
 ```
 
-Uygulama dağıtırken bu değerleri ApplicationParameters geçirebilirsiniz.  Örneğin:
+Uygulama dağıtımı sırasında bu değerleri ApplicationParameters geçirebilirsiniz.  Örneğin:
 
 ```powershell
 PS C:\> New-ServiceFabricApplication -ApplicationName fabric:/myapp -ApplicationTypeName "AppType" -ApplicationTypeVersion "1.0.0" -ApplicationParameter @{Port='1001'; Protocol='https'; Type='Input'; Port1='2001'; Protocol='http'}
 ```
 
-Not: ApplicationParameters boş olan değerleri sağlarsanız, biz ServiceManifest karşılık gelen EndPointName için sağlanan varsayılan değeri dönün.
+Not: ApplicationParameters boş olan değerleri girin, biz ServiceManifest içinde karşılık gelen Uçnoktaadı için sağlanan varsayılan değeri dönün.
 
 Örneğin:
 
-Belirttiğiniz ServiceManifest içindeki IF
+Eğer belirtilen ımagename'i
 
 ```xml
   <Resources>
@@ -212,6 +212,6 @@ Belirttiğiniz ServiceManifest içindeki IF
   </Resources>
 ```
 
-Ve uygulama parametreleri Port1 ve Protocol1 değeri null veya boş. Bağlantı noktasının hala ServiceFabric tarafından belirlenir. Ve protokolü tcp.
+Ve uygulama parametreleri Port1 ve Protocol1 değeri null veya boş. Bağlantı noktasının hala ServiceFabric tarafından belirlenir. Ve tcp Protokolü olacaktır.
 
-Yanlış bir değer belirtin varsayalım. Gibi bağlantı noktası için bir dize değeri "Foo" yerine int belirttiğiniz  ServiceFabricApplication yeni komutu bir hata ile başarısız olur: 'ResourceOverrides' bölümündeki 'Port1' name 'ServiceEndpoint1' özniteliği geçersiz kılma parametresi geçersiz. Belirtilen değer 'Foo' ve gerekli 'int'.
+Yanlış bir değer belirtmeniz varsayalım. Gibi bağlantı noktası için bir dize değeri "Foo" yerine tamsayı belirttiğiniz  Yeni ServiceFabricApplication komutu, bir hata ile başarısız olur: 'ResourceOverrides' bölümündeki 'Port1' name 'ServiceEndpoint1' özniteliği ile geçersiz kılma parametresi geçersiz. Belirtilen değer 'Foo' ve 'int' gereklidir.

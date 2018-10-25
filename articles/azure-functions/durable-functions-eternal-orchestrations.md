@@ -2,20 +2,20 @@
 title: Dayanıklı işlevler - Azure, dış düzenlemeler
 description: Dış düzenlemeler, Azure işlevleri için dayanıklı işlevler uzantısını kullanarak uygulamayı öğrenin.
 services: functions
-author: cgillum
+author: kashimiz
 manager: jeconnoc
 keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 09/29/2017
+ms.date: 10/23/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 98504534332b6faa7a7019aea9ab7b534d4c3faa
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 0e3a3476c3fca6329634c87f933f895ec582f364
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44094459"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49987550"
 ---
 # <a name="eternal-orchestrations-in-durable-functions-azure-functions"></a>Dayanıklı işlevler (Azure işlevleri) içinde dış düzenlemeler
 
@@ -34,12 +34,11 @@ Zaman `ContinueAsNew` çağrılırsa örneği kaybolmamasının kendisine çıka
 > [!NOTE]
 > Dayanıklı görev Framework aynı örnek Kimliğine tutar ancak dahili olarak yeni bir oluşturur *yürütme kimliği* tarafından sıfırlanır orchestrator işlevi için `ContinueAsNew`. Bu yürütme kimliği genellikle harici olarak gösterilmez, ancak orchestration yürütme hata ayıklaması hakkında bilmek de yararlı olabilir.
 
-> [!NOTE]
-> `ContinueAsNew` Yöntemi henüz JavaScript'te kullanılabilir değil.
-
 ## <a name="periodic-work-example"></a>Periyodik iş örneği
 
 Dış düzenlemeler için bir kullanım örneği süresiz olarak düzenli iş yapması gereken kod değil.
+
+#### <a name="c"></a>C#
 
 ```csharp
 [FunctionName("Periodic_Cleanup_Loop")]
@@ -54,6 +53,23 @@ public static async Task Run(
 
     context.ContinueAsNew(null);
 }
+```
+
+#### <a name="javascript-functions-v2-only"></a>JavaScript (yalnızca işlevler v2)
+
+```javascript
+const df = require("durable-functions");
+const moment = require("moment");
+
+module.exports = df.orchestrator(function*(context) {
+    yield context.df.callActivity("DoCleanup");
+
+    // sleep for one hour between cleanups
+    const nextCleanup = moment.utc(context.df.currentUtcDateTime).add(1, "h");
+    yield context.df.createTimer(nextCleanup);
+
+    context.df.continueAsNew(undefined);
+});
 ```
 
 Bu örnek ve Zamanlayıcı ile tetiklenen bir işlev arasındaki fark, bir zamanlamaya göre temizleme tetikleyici burada kez dayalı olmayan ' dir. Örneğin, saatte bir işlevi yürüten bir CRON zamanlama, 1: 00'da, 2:00, 3:00 yürütecek vb. ve çakışma bir sorunla karşılaşırsanız potansiyel olarak çalışabilir. Temizleme 30 dakika sürer, bu örnekte, ancak daha sonra 1: 00'da, 2:30, zamanlanacak 4:00, vb. ve hiçbir çakışma olasılığı yoktur.

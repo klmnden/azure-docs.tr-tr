@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 03/16/2018
 ms.reviewer: mazhar
 ms.author: mbullwin
-ms.openlocfilehash: c9629611544efe248b1b343ac1ba26740b9ce7e0
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 2fa4242de6a953e82e3f81831c491125e9a7c3f3
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47091698"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50026237"
 ---
 # <a name="walkthrough-enabling-telemetry-for-microsoft-dynamics-crm-online-using-application-insights"></a>İzlenecek yol: Microsoft Dynamics CRM Online Application Insights ile Telemetri etkinleştirme
 Bu makalede telemetri verilerinin alınacağı gösterilmektedir [Microsoft Dynamics CRM Online](https://www.dynamics.com/) kullanarak [Azure Application Insights](https://azure.microsoft.com/services/application-insights/). Veri ve veri görselleştirme yakalama uygulamanıza Application Insights betiğini ekleme tam işlemi gösterilecektir.
@@ -39,11 +39,7 @@ Uygulamanızı izlemek için bir Application Insights SDK'sını uygulamanıza e
     ![Tıklama +, geliştirici Hizmetleri, Application Insights.](./media/app-insights-sample-mscrm/01.png)
 
     Uygulama türü olarak ASP.NET’i seçin.
-3. Başlangıç sayfasını açın ve Aç "İzleyici ve istemci tarafı Tanılama".
-
-    ![Web sayfanızın ekleme için kod parçacığı](./media/app-insights-sample-mscrm/03.png)
-
-**Kod sayfasını açık tutun** sonraki adım başka bir tarayıcı penceresinde yaparken. Kod yakında gerekir. 
+3. Yönergelerini izleyin [uygulamanız için JavaScript SDK'sı betik alma](app-insights-javascript.md#set-up-application-insights-for-your-web-page), JavaScript kod parçacığını kopyalayın ve izleme anahtarı, Application Insights kaynağı için geçerli bir değer ile değiştirdiğinizden emin olun.
 
 ### <a name="create-a-javascript-web-resource-in-microsoft-dynamics-crm"></a>Microsoft Dynamics CRM JavaScript web kaynak oluştur
 1. Oturum açma ve CRM Online örneği yönetici ayrıcalıklarıyla açın.
@@ -60,7 +56,7 @@ Uygulamanızı izlemek için bir Application Insights SDK'sını uygulamanıza e
     Seçim bir ad verin **betik (JScript)** ve metin düzenleyicisini açın.
 
     ![Metin Düzenleyicisi'ni açın](./media/app-insights-sample-mscrm/00004.png)
-2. Uygulama anlayışları'ndan kodu kopyalayın. Kopyalarken, komut dosyası etiketlerini yoksaymak emin olun. Aşağıdaki ekran görüntüsünde bakın:
+2. Application Insights JavaScript SDK'ı izleme anahtarınızı önce yapılandırdığınız kodu kopyalayın. Kopyalarken, komut dosyası etiketlerini yoksaymak emin olun. Aşağıdaki ekran görüntüsüne bakın:
 
     ![Uygulamanızın izleme anahtarını ayarlayın](./media/app-insights-sample-mscrm/000005.png)
 

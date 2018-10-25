@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: roiyz
-ms.openlocfilehash: 255fe84f0d155902b2a3ac477a1e677efef42bb4
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 720b8584c201826e55099ad31667478b6aa57b27
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49386669"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50024533"
 ---
 # <a name="virtual-machine-extensions-and-features-for-linux"></a>Sanal makine uzantıları ve Linux için özellikleri
 
@@ -54,7 +54,8 @@ Mümkün olan en iyi deneyimi sağlamak için en düşük aracı sürümü vard�
 
 #### <a name="supported-oses"></a>Desteklenen işletim sistemleri
 
-Uzantıları framework limiti işletim sistemleri için bu uzantılar vardır ancak Linux Aracısı birden çok Oses'te çalıştırır. [Bu makalede] daha fazla bilgi için bkz. (https://support.microsoft.com/en-us/help/4078134/azure-extension-supported-operating-systems ).
+Uzantıları framework limiti işletim sistemleri için bu uzantılar vardır ancak Linux Aracısı birden çok Oses'te çalıştırır. Daha fazla bilgi için [bu makaleye](https://support.microsoft.com/en-us/help/4078134/azure-extension-supported-operating-systems
+) bakın.
 
 Bazı uzantılar tüm işletim sistemlerinde desteklenmez ve yayabilir *hata kodu 51, 'Desteklenmeyen işletim sistemi'*. Desteklenebilirlik için ayrı bir uzantı belgelerine bakın.
 

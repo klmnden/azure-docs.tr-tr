@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/31/2017
 ms.author: mikeray
-ms.openlocfilehash: 58ec400faee04f8624822bbcb5325fca7006c578
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 10b4fec92752e44048454e8b63e90fd9b7fecba0
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38698643"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50023194"
 ---
 # <a name="configure-an-external-listener-for-always-on-availability-groups-in-azure"></a>Azure'da AlwaysOn Kullanılabilirlik grupları için dış dinleyici yapılandırma
 > [!div class="op_single_selector"]
@@ -37,7 +37,7 @@ Bu konuda, bir Always On kullanılabilirlik Internet'te harici olarak erişilebi
 Kullanılabilirlik grubunuzun, şirket içinde yalnızca, yalnızca Azure yinelemeler içeriyor ya da karma yapılandırmalar için hem şirket içi hem de Azure span. Azure çoğaltmaları aynı bölge içinde veya birden çok sanal ağlar (Vnet'ler) kullanarak birden çok bölgede bulunabilir. Aşağıdaki adımlar varsayılmaktadır [bir kullanılabilirlik grubunda yapılandırılmış](../classic/portal-sql-alwayson-availability-groups.md) ancak bir dinleyici yapılandırılmadı.
 
 ## <a name="guidelines-and-limitations-for-external-listeners"></a>Kılavuzlar ve sınırlamalar için dış dinleyici
-Azure'da kullanılabilirlik grubu dinleyicisi hakkında aşağıdaki yönergelere, bulut hizmeti pubic VIP adresi kullanarak dağıtırken dikkat edin:
+Azure'da kullanılabilirlik grubu dinleyicisi hakkında aşağıdaki yönergelere, bulut hizmeti genel VIP adresini kullanarak dağıtırken dikkat edin:
 
 * Kullanılabilirlik grubu dinleyicisi, Windows Server 2008 R2, Windows Server 2012 ve Windows Server 2012 R2 üzerinde desteklenir.
 * İstemci uygulama, kullanılabilirlik grubunuzun Vm'leri içeren olandan farklı bir bulut hizmeti üzerinde bulunmalıdır. Azure aynı bulut hizmetinde istemci ve sunucu ile doğrudan sunucu döndürmeyi desteklemez.

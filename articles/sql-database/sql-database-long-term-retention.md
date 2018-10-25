@@ -11,25 +11,26 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 07/16/2018
-ms.openlocfilehash: 6110773ecaba0ad333e4cfc9f9cc6014bd29a7a6
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.date: 10/24/2018
+ms.openlocfilehash: 7fe34423e706054daf84eaa8baf45fe201a661c9
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48249528"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50026186"
 ---
 # <a name="store-azure-sql-database-backups-for-up-to-10-years"></a>Azure SQL veritabanı yedeklemeleri için 10 yıla kadar Store
 
 Birçok uygulama yasal yoksa, uyumluluk veya diğer iş amaçlı veritabanı yedeklemelerini Azure SQL veritabanı tarafından sağlanan 7-35 gün dışında tutulacak gerektiren [otomatik yedeklemeler](sql-database-automated-backups.md). Uzun süreli saklama (LTR) özelliğini kullanarak, belirtilen SQL veritabanı tam yedeklemelerde depolayabilirsiniz [RA-GRS](../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage) blob depolama için 10 yıla kadar. Ardından, yeni bir veritabanı olarak herhangi bir yedekleme geri yükleyebilirsiniz.
 
 > [!NOTE]
-> Azure SQL veritabanı mantıksal sunucuları barındırılan veritabanlarında LTR etkinleştirilebilir. Yine de yönetilen örnekleri'nde kullanılamaz.
+> Azure SQL veritabanı mantıksal sunucuları barındırılan veritabanlarında LTR etkinleştirilebilir. Henüz yönetilen örnekleri'nde barındırılan veritabanları için kullanılabilir değil.
 > 
 
 ## <a name="how-sql-database-long-term-retention-works"></a>SQL veritabanı uzun süreli saklama nasıl çalışır?
 
-Uzun süreli yedek saklama yararlanır [otomatik SQL veritabanı yedeklemelerini](sql-database-automated-backups.md) oluşturulan belirli bir noktaya geri yükleme (PITR) alır. Her bir SQL veritabanı için uzun vadeli bekletme ilkesini yapılandırın ve ne sıklıkla yedeklemeleri uzun süreli depolama alanına kopyalamanız gerekir belirtin. Bu esneklik etkinleştirmek için dört parametre birleşimi kullanarak ilkesi tanımlayabilirsiniz: Haftalık yedekleme bekletme (W), aylık yedekleme bekletme (M), yıllık yedekleme bekletme (Y) ve (WeekOfYear) yılın haftası. Belirtirseniz W, haftada bir yedekleme uzun süreli depolama alanına kopyalanır. M belirtirseniz, her ayın ilk haftasında sırasında bir yedek uzun süreli depolama alanına kopyalanacak. Y belirtirseniz, bir yedekleme WeekOfYear tarafından belirtilen bir hafta sırasında uzun süreli depolama alanına kopyalanacak. Her yedekleme Bu parametreler tarafından belirtilen süre boyunca uzun vadeli depolamada tutulacak. 
+Uzun süreli yedek saklama (LTR) yararlanır, tam veritabanı yedeklemeleri [otomatik olarak oluşturulan](sql-database-automated-backups.md) belirli bir noktaya geri yükleme (PITR) etkinleştirmek için. LTR İlkesi yapılandırdıysanız, bu yedeklemeler için farklı depolama BLOB'ları kopyalanır.
+LTR İlkesi her SQL veritabanı için yapılandırmak ve ne sıklıkla yedeklemeleri uzun vadeli depolama BLOB'ları için kopyalamanız gerekir belirtin. Bu esneklik etkinleştirmek için dört parametre birleşimi kullanarak ilkesi tanımlayabilirsiniz: Haftalık yedekleme bekletme (W), aylık yedekleme bekletme (M), yıllık yedekleme bekletme (Y) ve (WeekOfYear) yılın haftası. Belirtirseniz W, haftada bir yedekleme uzun süreli depolama alanına kopyalanır. M belirtirseniz, her ayın ilk haftasında sırasında bir yedek uzun süreli depolama alanına kopyalanacak. Y belirtirseniz, bir yedekleme WeekOfYear tarafından belirtilen bir hafta sırasında uzun süreli depolama alanına kopyalanacak. Her yedekleme Bu parametreler tarafından belirtilen süre boyunca uzun vadeli depolamada tutulacak. 
 
 Örnekler:
 

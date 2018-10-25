@@ -4,17 +4,17 @@ description: Azure kaynaklarını ve Azure AD kimlik doğrulaması için yöneti
 services: active-directory
 author: daveba
 ms.author: daveba
-ms.date: 06/27/2018
+ms.date: 10/23/2018
 ms.topic: conceptual
 ms.service: active-directory
 ms.component: msi
 manager: mtillman
-ms.openlocfilehash: 1e598fd010088ad3e5ca3b1da0b7c9a3fe8ec89f
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 25da856d8bd72f4e74718cf32f62bbb0a3eb5b88
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49648148"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49984698"
 ---
 # <a name="services-that-support-managed-identities-for-azure-resources"></a>Azure kaynakları için yönetilen kimlikleri destekleyen hizmetler
 
@@ -35,7 +35,8 @@ Aşağıdaki Azure Hizmetleri, Azure kaynakları için yönetilen kimlikleri des
 | Azure İşlevleri | Kullanılabilir | Kullanılamaz | [Azure portal](/azure/app-service/app-service-managed-service-identity#using-the-azure-portal)<br>[Azure CLI](/azure/app-service/app-service-managed-service-identity#using-the-azure-cli)<br>[Azure PowerShell](/azure/app-service/app-service-managed-service-identity#using-azure-powershell)<br>[Azure Resource Manager şablonu](/azure/app-service/app-service-managed-service-identity#using-an-azure-resource-manager-template) | [REST](/azure/app-service/app-service-managed-service-identity#using-the-rest-protocol)<br>[.NET](/azure/app-service/app-service-managed-service-identity#asal)<br>[JavaScript](/azure/app-service/app-service-managed-service-identity#token-js)<br>[PowerShell](/azure/app-service/app-service-managed-service-identity#token-powershell) |
 | Azure Logic Apps | Kullanılabilir | Kullanılamaz | [Azure portal](/azure/logic-apps/create-managed-service-identity#azure-portal)<br>[Azure Resource Manager şablonu](/azure/app-service/app-service-managed-service-identity#deployment-template) |  |
 | Azure Data Factory V2 | Kullanılabilir | Kullanılamaz | [Azure portal](~/articles/data-factory/data-factory-service-identity.md#generate-service-identity)<br>[PowerShell](~/articles/data-factory/data-factory-service-identity.md#generate-service-identity-using-powershell)<br>[REST](~/articles/data-factory/data-factory-service-identity.md#generate-service-identity-using-rest-api)<br>[SDK](~/articles/data-factory/data-factory-service-identity.md#generate-service-identity-using-sdk) |
-| Azure API Management | Kullanılabilir | Kullanılamaz | [Azure Resource Manager şablonu](/azure/api-management/api-management-howto-use-managed-service-identity) | 
+| Azure API Management | Kullanılabilir | Kullanılamaz | [Azure Resource Manager şablonu](/azure/api-management/api-management-howto-use-managed-service-identity) |
+| Azure Container Instances | Linux: Önizleme<br>Windows: Kullanılamıyor | Linux: Önizleme<br>Windows: Kullanılamıyor | [Azure CLI](~/articles/container-instances/container-instances-managed-identity.md)<br>[Azure Resource Manager şablonu](~/articles/container-instances/container-instances-managed-identity.md#enable-managed-identity-using-resource-manager-template)<br>[YAML](~/articles/container-instances/container-instances-managed-identity.md#enable-managed-identity-using-yaml-file) |  |
 
 
 ## <a name="azure-services-that-support-azure-ad-authentication"></a>Söz konusu destek Azure AD kimlik doğrulamasını Azure Hizmetleri

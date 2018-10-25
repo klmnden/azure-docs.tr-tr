@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 11/15/2017
 ms.author: rogarana
 ms.component: disks
-ms.openlocfilehash: 8f5c33a63fd932bedd7f1de3d3ae47306b3ea3e4
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: de5322709b5d7f7bcfe6c512bab94b025d9a56a7
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46954492"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50023569"
 ---
 # <a name="about-disks-storage-for-azure-windows-vms"></a>Azure Windows Vm'leri için diskleri depolama hakkında
 
@@ -34,7 +34,7 @@ Her bir sanal makinede bir ekli işletim sistemi diski var. Bir SATA sürücüs�
 
 ### <a name="temporary-disk"></a>Geçici disk
 
-Her sanal makine geçici bir diskle içerir. Geçici disk, uygulamalar ve işlemler için kısa vadeli depolama sağlar ve yalnızca sayfa veya takas dosyaları gibi verileri depolamak için tasarlanmıştır. Geçici diskteki veriler kaybolabilir sırasında bir [bakım olayı](manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#understand-vm-reboots---maintenance-vs-downtime) veya ne zaman, [bir VM'yi yeniden dağıtma](redeploy-to-new-node.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Başarılı standart yeniden başlatma VM'nin sırasında geçici sürücüdeki verilerin açık kalır. 
+Her sanal makine geçici bir diskle içerir. Geçici disk, uygulamalar ve işlemler için kısa vadeli depolama sağlar ve yalnızca sayfa veya takas dosyaları gibi verileri depolamak için tasarlanmıştır. Geçici diskteki veriler kaybolabilir sırasında bir [bakım olayı](manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#understand-vm-reboots---maintenance-vs-downtime) veya ne zaman, [bir VM'yi yeniden dağıtma](redeploy-to-new-node.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Başarılı standart yeniden başlatma VM'nin sırasında geçici sürücüdeki verilerin kalıcı olması. Bununla birlikte, burada verileri, yeni bir ana bilgisayara taşımayı gibi korunmayabilir durumlar vardır. Buna geçici sürücüdeki tüm verileri sisteme önemli olan verilerin olmamalıdır.
 
 Geçici disk pagefile.sys depolamak için kullanılır ve bir varsayılan olarak D: sürücüsü etiketlenir. Bu farklı bir sürücü harfi diske yeniden eşlemek için bkz: [Windows geçici diskinin sürücü harfini değiştirme](change-drive-letter.md). Geçici diskin boyutunu, sanal makine boyutuna göre değişir. Daha fazla bilgi için [boyutları için Windows sanal makineleri](sizes.md).
 

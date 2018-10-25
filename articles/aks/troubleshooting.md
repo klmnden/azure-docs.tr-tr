@@ -7,19 +7,19 @@ ms.service: container-service
 ms.topic: troubleshooting
 ms.date: 08/13/2018
 ms.author: saudas
-ms.openlocfilehash: 9f082c5f198ebd7123058bd250d3fef55494d553
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: 1fd8f7c8499b7f9223939b8d426f274e79fd190e
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43287548"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50025359"
 ---
 # <a name="aks-troubleshooting"></a>AKS sorunlarını giderme
 Oluşturduğunuz veya NLB Yöneticisi'ni AKS, bazen sorunlarla karşılaşabilirsiniz. Bu makalede bazı yaygın sorunlar ve sorun giderme adımları ayrıntılı olarak açıklanmaktadır.
 
 ### <a name="in-general-where-do-i-find-information-about-debugging-kubernetes-issues"></a>Genel olarak, Kubernetes sorunları hata ayıklama hakkında nereden bilgi?
 
-[Burada] (https://kubernetes.io/docs/tasks/debug-application-cluster/troubleshooting/) kubernetes kümelerini sorun giderme için resmi bir bağlantıdır.
+[Burada](https://kubernetes.io/docs/tasks/debug-application-cluster/troubleshooting/) kubernetes kümelerini sorun giderme için resmi bir bağlantıdır.
 [Burada](https://github.com/feiskyer/kubernetes-handbook/blob/master/en/troubleshooting/index.md) pod'ları, düğümler, kümeleri, vb. sorun giderme geçici olarak bir Microsoft mühendisi tarafından yayımlanan bir sorun giderme kılavuzu bir bağlantıdır.
 
 ### <a name="i-am-getting-a-quota-exceeded-error-during-create-or-upgrade-what-should-i-do"></a>Oluşturma veya yükseltme sırasında bir kota aşıldı hatası alıyorum. Ne yapmalıyım? 

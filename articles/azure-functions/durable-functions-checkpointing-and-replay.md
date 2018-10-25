@@ -2,20 +2,20 @@
 title: Kontrol noktalarına ve dayanıklı işlevler - Azure içinde yeniden yürütme
 description: Denetim noktası oluşturma ve yanıt işleyişi dayanıklı işlevler uzantısını Azure işlevleri için öğrenin.
 services: functions
-author: cgillum
+author: kashimiz
 manager: jeconnoc
 keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 09/29/2017
+ms.date: 10/23/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 0e8ce37e39e536383b77a7dc98d88a18e58182c6
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: 5336c0a510f0be7d548d1d549b5b763c12e700b2
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48239445"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49987724"
 ---
 # <a name="checkpoints-and-replay-in-durable-functions-azure-functions"></a>Kontrol noktalarına ve yeniden yürütme içinde dayanıklı işlevler (Azure işlevleri)
 
@@ -52,9 +52,9 @@ const df = require("durable-functions");
 
 module.exports = df.orchestrator(function*(context) {
     const output = [];
-    output.push(yield context.df.callActivityAsync("E1_SayHello", "Tokyo"));
-    output.push(yield context.df.callActivityAsync("E1_SayHello", "Seattle"));
-    output.push(yield context.df.callActivityAsync("E1_SayHello", "London"));
+    output.push(yield context.df.callActivity("E1_SayHello", "Tokyo"));
+    output.push(yield context.df.callActivity("E1_SayHello", "Seattle"));
+    output.push(yield context.df.callActivity("E1_SayHello", "London"));
 
     return output;
 });
@@ -77,7 +77,7 @@ Denetim noktası işlemi tamamlandıktan sonra orchestrator işlevi oluncaya kad
 
 Tamamlandığında, daha önce gösterilen işlev geçmişini aşağıdaki Azure tablo depolama (gösterim amacıyla kısaltılır) şuna benzer:
 
-| PartitionKey (InstanceId)                     | EventType             | Zaman damgası               | Girdi | Ad             | Sonuç                                                    | Durum | 
+| PartitionKey (InstanceId)                     | olay türü             | Zaman damgası               | Girdi | Ad             | Sonuç                                                    | Durum | 
 |----------------------------------|-----------------------|----------|--------------------------|-------|------------------|-----------------------------------------------------------|---------------------| 
 | eaee885b | OrchestratorStarted   | 2017-05-05T18:45:32.362Z |       |                  |                                                           |                     | 
 | eaee885b | ExecutionStarted      | 2017-05-05T18:45:28.852Z | Null  | E1_HelloSequence |                                                           |                     | 

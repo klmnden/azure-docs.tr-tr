@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 08/07/2018
+ms.date: 10/22/2018
 ms.author: harijay
-ms.openlocfilehash: 29b045266836ace35aab12c51746b7e339cbb88f
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: facd9be037894932e516e8294e36b6b0e55374c8
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49354351"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50024437"
 ---
 # <a name="virtual-machine-serial-console"></a>Sanal makine seri Konsolu
 
@@ -41,7 +41,7 @@ Linux VM'ler için seri konsol belgeleri [Buraya](serial-console-linux.md).
     ![](../media/virtual-machines-serial-console/virtual-machine-serial-console-diagnostics-settings.png)
 
 * Seri konsol kullanarak hesabı olmalıdır [katkıda bulunan rolü](../../role-based-access-control/built-in-roles.md) VM için ve [önyükleme tanılaması](boot-diagnostics.md) depolama hesabı. 
-* Seri konsol indirmesindeki olduğunuz sanal makine de parola tabanlı bir hesabı olmalıdır. İle bir tane oluşturabilirsiniz [parolayı Sıfırla](https://docs.microsoft.com/azure/virtual-machines/extensions/vmaccess#reset-password) VM erişimi uzantısı - işlevselliğini aşağıdaki ekran görüntüsüne bakın.
+* Sanal makinenin seri konsol erişimi de parola tabanlı bir hesabı olmalıdır. İle bir tane oluşturabilirsiniz [parolayı Sıfırla](https://docs.microsoft.com/azure/virtual-machines/extensions/vmaccess#reset-password) VM erişimi uzantısı - işlevselliğini aşağıdaki ekran görüntüsüne bakın.
 
     ![](../media/virtual-machines-serial-console/virtual-machine-serial-console-reset-password.png)
 
@@ -52,7 +52,6 @@ Sanal makineler için seri konsol üzerinden erişilebilir, yalnızca [Azure por
   2. Sol taraftaki menüde, sanal makineleri seçin.
   3. VM listesinde tıklayın. VM için genel bakış sayfası açılır.
   4. Destek + sorun giderme bölümüne aşağı kaydırın ve "Seri konsol" seçeneğine tıklayın. Seri konsolu ile yeni bir bölme açılır ve bağlantıyı başlatın.
-
 
 ## <a name="enable-serial-console-in-custom-or-older-images"></a>Seri konsol eski veya özel görüntüleri etkinleştir
 Azure'da yeni Windows Server görüntülerini olacaktır [Özel Yönetim Konsolu](https://technet.microsoft.com/library/cc787940(v=ws.10).aspx) (SAC) varsayılan olarak etkin. SAC Windows server sürümlerinde desteklenir, ancak istemci sürümleri (örneğin, Windows 10, Windows 8 veya Windows 7) kullanılamıyor. Şubat 2018 tarihinden önce oluşturulan Windows sanal makineleri için seri konsol etkinleştirmek için lütfen aşağıdaki adımları kullanın: 
@@ -74,7 +73,7 @@ Gerekirse, SAC çevrimdışı de etkinleştirilebilir:
 
 ### <a name="how-do-i-know-if-sac-is-enabled"></a>SAC etkin olup olmadığını nasıl anlarım?
 
-Varsa [SAC] (https://technet.microsoft.com/library/cc787940(v=ws.10).aspx) etkin seri konsol SAC istemi gösterilmez. Bazı durumlarda, VM sistem durumu bilgileri gösterilir ve diğer durumlarda boş olacaktır. Şubat 2018 tarihinden önce oluşturulan bir Windows Server görüntüsü kullanıyorsanız büyük olasılıkla SAC etkinleştirilmeyecek.
+Varsa [SAC](https://technet.microsoft.com/library/cc787940(v=ws.10).aspx) etkin seri konsol SAC istemi gösterilmez. Bazı durumlarda, VM sistem durumu bilgileri gösterilir ve diğer durumlarda boş olacaktır. Şubat 2018 tarihinden önce oluşturulan bir Windows Server görüntüsü kullanıyorsanız büyük olasılıkla SAC etkinleştirilmeyecek.
 
 ## <a name="enable-the-windows-boot-menu-in-serial-console"></a>Seri konsol içinde Windows önyükleme menüsünü etkinleştir 
 
@@ -99,6 +98,21 @@ Seri konsol, aşağıda gösterilen komut çubuğunda klavye simgesini kullanara
 
 Kilitlenme bilgi dökümü bir NMI aldığında oluşturmak için Windows yapılandırma hakkında daha fazla bilgi için bkz: [tam kilitlenme bilgi döküm dosyası veya bir çekirdek kilitlenme dökümü dosyalarının Windows tabanlı bir sistemde bir NMI kullanarak oluşturma](https://support.microsoft.com/en-us/help/927069/how-to-generate-a-complete-crash-dump-file-or-a-kernel-crash-dump-file)
 
+## <a name="open-cmd-or-powershell-in-serial-console"></a>CMD veya Powershell seri konsolundan açın
+
+1. Seri konsoluna bağlanın. Başarılı bir şekilde seri konsoluna bağlanmak, görürsünüz **SAC >** aşağıdaki ekran görüntüsünde gösterilmektedir:
+
+    ![SAC için Bağlan](./media/virtual-machines-serial-console/virtual-machine-windows-serial-console-connect-sac.png)
+
+3.  Tür `cmd` CMD örneğine sahip bir kanal oluşturmak için. 
+4.  Tür `ch -si 1` CMD örneği kanala geçin. 
+5.  ENTER tuşuna basın ve ardından yönetici izinlerine sahip oturum açma kimlik bilgilerinizi girin.
+6.  Geçerli kimlik bilgilerini girdikten sonra CMD örneği açılır.
+7.  PowerShell örneği başlatmak için aşağıdakileri yazın `PowerShell` CMD örneği ve ardından Enter tuşuna basın. 
+
+    ![PowerShell örneği açın](./media/virtual-machines-serial-console/virtual-machine-windows-serial-console-powershell.png)
+
+
 ## <a name="disable-serial-console"></a>Seri konsol devre dışı bırak
 Varsayılan olarak, seri konsol erişimi tüm VM'ler için Etkin Abonelikler var. Abonelik düzeyinde veya VM düzeyi seri konsol devre dışı bırakabilir.
 
@@ -110,7 +124,7 @@ Seri konsol devre dışı bırakılabilir bir tüm abonelik tarafından için [d
 
 ![](../media/virtual-machines-serial-console/virtual-machine-serial-console-rest-api-try-it.png)
 
-Alternatif olarak, Cloud Shell'de (bash komutları gösterilen) aşağıdaki komutları kümesini kullanabilir. devre dışı bırakmak için etkinleştirme ve devre dışı bırakılmış bir aboneliği için seri konsol durumunu görüntüleyin. 
+Alternatif olarak, Cloud Shell'de (bash komutları gösterilen) aşağıdaki komutları kümesini kullanabilir. devre dışı bırakmak için etkinleştirme ve seri konsol bir abonelik için devre dışı durumunu görüntüleyin. 
 
 * Bir abonelik için seri konsol devre dışı durumunu almak için:
     ```azurecli-interactive
@@ -196,7 +210,7 @@ Seri konsol ile ilgili bazı sorunlar farkında duyuyoruz. Bu sorunlar ve risk a
 
 Sorun                             |   Risk azaltma 
 :---------------------------------|:--------------------------------------------|
-Ulaşmaktan bağlantı başlık satırında bir günlük göstermez sonra girin | Lütfen şu sayfaya bakın: [Hitting girin hiçbir şey yapmaz](https://github.com/Microsoft/azserialconsole/blob/master/Known_Issues/Hitting_enter_does_nothing.md). Özel bir VM, sağlamlaştırılmış gereç veya önyükleme yapılandırma düzgün bir şekilde seri bağlantı noktasına bağlanmak başarısız olmasına, causers Windows çalıştırıyorsanız, bu durum oluşabilir. Windows 10 istemci VM çalıştırıyorsanız yalnızca Windows Server Vm'lerinin EMS etkin olacak şekilde yapılandırılmış olarak bu de gerçekleşir.
+Ulaşmaktan bağlantı başlık satırında bir günlük göstermez sonra girin | Bu sayfaya bakın: [Hitting girin hiçbir şey yapmaz](https://github.com/Microsoft/azserialconsole/blob/master/Known_Issues/Hitting_enter_does_nothing.md). Özel bir VM, sağlamlaştırılmış gereç veya önyükleme yapılandırma düzgün bir şekilde seri bağlantı noktasına bağlanmak başarısız olmasına, causers Windows çalıştırıyorsanız, bu durum oluşabilir. Windows 10 istemci VM çalıştırıyorsanız yalnızca Windows Server Vm'lerinin EMS etkin olacak şekilde yapılandırılmış olarak bu de gerçekleşir.
 Çekirdek hata ayıklamasını etkin olduğunda SAC komut istemi türü oluşturulamıyor | VM ve çalıştırmak için RDP `bcdedit /debug {current} off` yükseltilmiş bir komut isteminden. RDP gerçekleştiremezsiniz, bunun yerine başka bir Azure VM için işletim sistemi diski ve kullanarak bir veri diski olarak bağlı durumdayken değiştirmek `bcdedit /store <drive letter of data disk>:\boot\bcd /debug <identifier> off`, ardından diski geri değiştirme.
 Özgün içerik yinelenen bir karakter varsa PowerShell içinde SAC sonuçları üçüncü bir karakter yapıştırma | Geçmiş geçerli oturumun PSReadLine modülünü kaldırmak için bir çözüm olabilir. Çalıştırma `Remove-Module PSReadLine` - geçerli oturumu PSReadLine modülünden kaldırmak için bu silmez veya modül kaldırın.
 Bazı klavye girişleri garip SAC çıkış üretmesi (örneğin `[A`, `[3~`) | [VT100](https://aka.ms/vtsequences) kaçış dizileri SAC istemi tarafından desteklenmiyor.

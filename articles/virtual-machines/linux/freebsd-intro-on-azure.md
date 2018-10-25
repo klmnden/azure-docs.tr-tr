@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/13/2017
 ms.author: huishao
-ms.openlocfilehash: 0eab96d85aa9cc8bea8d30c5a36c8489b8ea652e
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 9c3815f0083d049d9b4baed8e360f5927fcd3d69
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46974179"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50025693"
 ---
 # <a name="introduction-to-freebsd-on-azure"></a>Azure üzerinde Freebsd'ye giriş
 Bu makalede, FreeBSD sanal makine Azure'da çalışan genel bir bakış sağlar.
@@ -48,22 +48,22 @@ FreeBSD sanal makine dağıtma Azure portalından Azure Marketi'nden bir görün
 ### <a name="create-a-freebsd-vm-through-azure-cli-on-freebsd"></a>Azure CLI aracılığıyla FreeBSD VM üzerinde Freebsd'ye oluşturma
 Yüklemek gereken ilk [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) FreeBSD makinede aşağıdaki komut rağmen.
 
-```bash 
+```bash 
 curl -L https://aka.ms/InstallAzureCli | bash
 ```
 
-Bash FreeBSD makinenizde yüklü değilse, aşağıdaki komut yüklemeden önce çalıştırın. 
+Bash FreeBSD makinenizde yüklü değilse, aşağıdaki komut yüklemeden önce çalıştırın. 
 
 ```bash
 sudo pkg install bash
 ```
 
-Python FreeBSD makinenizde yüklü değilse, komutları yüklemeden önce aşağıdaki çalıştırın. 
+Python FreeBSD makinenizde yüklü değilse, komutları yüklemeden önce aşağıdaki çalıştırın. 
 
 ```bash
 sudo pkg install python35
-cd /usr/local/bin 
-sudo rm /usr/local/bin/python 
+cd /usr/local/bin 
+sudo rm /usr/local/bin/python 
 sudo ln -s /usr/local/bin/python3.5 /usr/local/bin/python
 ```
 
@@ -72,7 +72,7 @@ Yükleme sırasında sizden istenir `Modify profile to update your $PATH and ena
 Artık Azure'da oturum açın ve FreeBSD VM'nizi oluşturun. FreeBSD 11.0 VM oluşturmak için bir örnek aşağıda verilmiştir. Parametre de ekleyebilirsiniz `--public-ip-address-dns-name` yeni oluşturulan bir genel IP için genel olarak benzersiz bir DNS adına sahip. 
 
 ```azurecli
-az login 
+az login 
 az group create --name myResourceGroup --location eastus
 az vm create --name myFreeBSD11 \
     --resource-group myResourceGroup \
@@ -131,7 +131,7 @@ $ sudo <COMMAND>
 Kullanarak isteğe bağlı olarak bir kök Kabuk edinebilirsiniz `sudo -s`.
 
 ## <a name="known-issues"></a>Bilinen sorunlar
-[Azure VM Konuk Aracısı](https://github.com/Azure/WALinuxAgent/) 2.2.2 sahip [bilinen sorun] sürümü (https://github.com/Azure/WALinuxAgent/pull/517) azure'da FreeBSD VM için sağlama hatası neden. Düzeltme tarafından yakalanan [Azure VM Konuk Aracısı](https://github.com/Azure/WALinuxAgent/) 2.2.3 Sürüm ve sonraki sürümleri. 
+[Azure VM Konuk Aracısı](https://github.com/Azure/WALinuxAgent/) 2.2.2 sürümüne sahip bir [bilinen sorun](https://github.com/Azure/WALinuxAgent/pull/517) azure'da FreeBSD VM için sağlama hatası neden. Düzeltme tarafından yakalanan [Azure VM Konuk Aracısı](https://github.com/Azure/WALinuxAgent/) 2.2.3 Sürüm ve sonraki sürümleri. 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * Git [Azure Marketi](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.FreeBSD111) FreeBSD VM oluşturmak için.

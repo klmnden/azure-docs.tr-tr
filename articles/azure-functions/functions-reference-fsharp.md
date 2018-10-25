@@ -12,12 +12,12 @@ ms.devlang: fsharp
 ms.topic: reference
 ms.date: 10/09/2018
 ms.author: syclebsc
-ms.openlocfilehash: 772b2dae016e093f2c3833374378c0e884dbe835
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: b7cb3a7094ef2c11df63c9e5595355d4076e2ccd
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49456958"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50025438"
 ---
 # <a name="azure-functions-f-developer-reference"></a>Azure işlevleri F # Geliştirici Başvurusu
 
@@ -52,7 +52,7 @@ FunctionsProject
  | - bin
 ```
 
-İşlev uygulamasını yapılandırmak için kullanılan bir paylaşılan [host.json] (işlevler-host-json.md) dosyası yoktur. Her işlev, kendi kod dosyası (.fsx) ve bağlama yapılandırma dosyası (function.json) vardır.
+Var olan bir paylaşılan [host.json](functions-host-json.md) işlev uygulamasını yapılandırmak için kullanılan dosya. Her işlev, kendi kod dosyası (.fsx) ve bağlama yapılandırma dosyası (function.json) vardır.
 
 Gerekli bağlama uzantıları [sürüm 2.x](functions-versions.md) işlevleri çalışma zamanı içinde tanımlanmıştır `extensions.csproj` dosyasıyla gerçek kitaplık dosyaları `bin` klasör. Yerel olarak geliştirirken gerekir [bağlama uzantıları kaydetme](functions-triggers-bindings.md#local-development-azure-functions-core-tools). Azure portalında işlevleri geliştirirken, bu kayıt sizin yerinize yapılır.
 

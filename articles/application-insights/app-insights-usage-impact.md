@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/25/2018
 ms.reviewer: daviste
 ms.author: mbullwin
-ms.openlocfilehash: 9188776fdd213f01523069b08bd898f48bee57a4
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 85547bd8528c4d5d4a627750bb5334f05ed231b1
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47091490"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50024327"
 ---
 # <a name="impact-analysis-with-application-insights"></a>Application Insights ile Etkisi Analizi
 
@@ -68,7 +68,7 @@ Bu durumda, sonuçları, artık ilk örnekte olduğu gibi bir sürekli x ekseni 
 
 ## <a name="how-does-the-impact-tool-calculate-these-conversion-rates"></a>Bu dönüşüm oranlarını etkisi Aracı'nı nasıl hesaplar?
 
-Bileşenler [Pearson bağıntı katsayısı] üzerine etkisi Aracı'nı kullanır (https://en.wikipedia.org/wiki/Pearson_correlation_coefficient). Sonuçları -1 ve sıfır bağıntı ve pozitif bir bağıntı gösteren 1 -1 ile 1 arasında hesaplanır.
+Etkisi aracı dayanan altyapı öğeleri, [Pearson bağıntı katsayısı](https://en.wikipedia.org/wiki/Pearson_correlation_coefficient). Sonuçları -1 ve sıfır bağıntı ve pozitif bir bağıntı gösteren 1 -1 ile 1 arasında hesaplanır.
 
 Etki analizi nasıl çalıştığına ilişkin temel dökümü aşağıdaki gibidir:
 

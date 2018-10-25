@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/29/2017
 ms.author: muralikk
 ms.component: common
-ms.openlocfilehash: 7fc3e68e9d714ca95a28a28b470b1e1fdbff2c47
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: 0be0d6c9613b4160a6c4c5cc3b63336fcf67d5c2
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48870902"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50025643"
 ---
 # <a name="preparing-hard-drives-for-an-import-job"></a>Sabit sürücüleri içeri aktarma işine hazırlama
 
@@ -309,7 +309,7 @@ Veri boyutu disk boyutundan daha büyükse WAImportExport aracı disklerde veri 
 
 #### <a name="where-can-i-find-previous-version-of-waimportexport-tool"></a>WAImportExport Aracı'nın önceki bir sürümü nereden edinebilirim?
 
-WAImportExport aracı WAImportExport V1 aracı olan tüm işlevleri içerir. Kullanıcıların birden çok kaynaktan belirtin ve birden çok sürücülerine yazma WAImportExport aracı sağlar. Ayrıca, bir kolayca içinden verileri tek bir CSV dosyası olarak kopyalanması gereken birden çok kaynak konumları yönetebilirsiniz. Ancak, durumda SAS desteği veya tek bir disk için [indirebileceği WAImportExport V1 aracı] tek kaynak kopyalamak istiyorsanız gerekir (http://go.microsoft.com/fwlink/?LinkID=301900&amp; clcid = 0x409) başvurun [WAImportExport V1 başvuru](storage-import-export-tool-how-to-v1.md) WAImportExport V1 ile ilgili Yardım için Kullanım.
+WAImportExport aracı WAImportExport V1 aracı olan tüm işlevleri içerir. Kullanıcıların birden çok kaynaktan belirtin ve birden çok sürücülerine yazma WAImportExport aracı sağlar. Ayrıca, bir kolayca içinden verileri tek bir CSV dosyası olarak kopyalanması gereken birden çok kaynak konumları yönetebilirsiniz. Ancak, SAS desteği veya tek bir disk için tek kaynak kopyalamak istediğiniz gerektiği durumlarda, yapabilecekleriniz [WAImportExport V1 Aracı'nı indirme](http://go.microsoft.com/fwlink/?LinkID=301900&amp;clcid=0x409) başvurun [WAImportExport V1 başvuru](storage-import-export-tool-how-to-v1.md) WAImportExport V1 kullanımı ile ilgili Yardım için .
 
 #### <a name="what-is-a-session-id"></a>Oturum Kimliği nedir?
 
@@ -407,7 +407,7 @@ WAImportExport aracı okur ve tek bir toplu 100000 dosyaların maksimum içeren 
 * [Azure içeri/dışarı aktarma Aracı'nı ayarlama](storage-import-export-tool-setup.md)
 * [İçeri aktarma işlemi sırasında özellikleri ve meta verileri ayarlama](storage-import-export-tool-setting-properties-metadata-import.md)
 * [Sabit sürücüleri içeri aktarma işine hazırlamak için örnek iş akışı](storage-import-export-tool-sample-preparing-hard-drives-import-job-workflow.md)
-* [Sık kullanılan komutlar için hızlı başvuru](storage-import-export-tool-quick-reference.md) 
+* [Sık kullanılan komutlar için hızlı başvuru](storage-import-export-tool-quick-reference.md) 
 * [Kopyalama günlük dosyalarıyla iş durumunu gözden geçirme](storage-import-export-tool-reviewing-job-status-v1.md)
 * [Bir içeri aktarma işini onarma](storage-import-export-tool-repairing-an-import-job-v1.md)
 * [Bir dışarı aktarma işini onarma](storage-import-export-tool-repairing-an-export-job-v1.md)

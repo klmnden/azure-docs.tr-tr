@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/03/2018
 ms.author: genli
-ms.openlocfilehash: 7d8325ce04a9fa7853fb622062022a6938375f96
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 2f6db23e02c836dea6d640757d12275b654ad468
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47430990"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50024639"
 ---
 # <a name="instance-level-public-ip-classic-overview"></a>Örnek düzeyi genel IP (Klasik) genel bakış
 Bir örnek düzeyi genel IP (ILPIP) doğrudan bir sanal makine veya Bulut Hizmetleri rolü örneği yerine, VM veya rol örneğindeki bulunan bir bulut hizmeti atayabileceğiniz genel bir IP adresi ' dir. Bir ILPIP sanal IP (bulut hizmetinize atanan VIP) yer almaz. Bunun yerine, bu doğrudan, VM'deki veya rol örneğine bağlanmak için kullanabileceğiniz bir ek IP adresidir.
@@ -47,7 +47,7 @@ Azure'da bir bulut hizmeti oluşturduğunuzda, karşılık gelen DNS A kayıtlar
 ## <a name="why-would-i-request-an-ilpip"></a>Bir ILPIP istek neden?
 Bulut kullanmak yerine VIP Doğrudan kendisine atanmış bir IP adresiyle VM veya rol Örneğinize bağlanmak istiyorsanız, hizmet:&lt;bağlantı noktası numarası&gt;, VM'nize veya rol Örneğiniz için bir ILPIP istek.
 
-* **Etkin FTP** -bir VM için bir ILPIP atayarak herhangi bir bağlantı noktasında trafik alabilir. Uç noktaları trafiği almak sanal makine için gerekli değildir.  Bkz. [FTP protokolünü genel bakış] (https://en.wikipedia.org/wiki/File_Transfer_Protocol#Protocol_overview) FTP protokolünü hakkında ayrıntılı bilgi için.
+* **Etkin FTP** -bir VM için bir ILPIP atayarak herhangi bir bağlantı noktasında trafik alabilir. Uç noktaları trafiği almak sanal makine için gerekli değildir.  Bkz: [FTP protokolüne genel bakış](https://en.wikipedia.org/wiki/File_Transfer_Protocol#Protocol_overview) FTP protokolünü hakkında ayrıntılı bilgi için.
 * **Giden IP** - sanal makineden kaynaklanan giden trafik kaynağı olarak ILPIP eşleştirilir ve ILPIP dış varlıklar VM benzersiz olarak tanımlar.
 
 > [!NOTE]

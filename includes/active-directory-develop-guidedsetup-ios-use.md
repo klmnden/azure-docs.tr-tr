@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 09/19/2018
 ms.author: andret
 ms.custom: include file
-ms.openlocfilehash: 248f2575e284ae456578b071013e1a5501329116
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: 06da33b91ef9846204b33ba2cb3dea40c75d425d
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48843087"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49988301"
 ---
 ## <a name="use-the-microsoft-authentication-library-msal-to-get-a-token-for-the-microsoft-graph-api"></a>Microsoft Graph API'si için bir belirteç almak için Microsoft kimlik doğrulama kitaplığı (MSAL) kullanma
 
@@ -29,17 +29,17 @@ Açık `ViewController.swift` ve kod ile değiştirin:
 import UIKit
 import MSAL
 
-/// 😃 A View Controller that will respond to the events of the Storyboard.
+// A View Controller that will respond to the events of the Storyboard.
 class ViewController: UIViewController, UITextFieldDelegate, URLSessionDelegate {
-    
-    // Update the below to your client ID you received in the portal. The below is for running the demo only
+
+    // Replace Your_Application_Id_Here with the client ID you received in the portal. The below is for running the demo only.
     let kClientID = "Your_Application_Id_Here"
-    
+
     // These settings you don't need to edit unless you wish to attempt deeper scenarios with the app.
     let kGraphURI = "https://graph.microsoft.com/v1.0/me/"
     let kScopes: [String] = ["https://graph.microsoft.com/user.read"]
     let kAuthority = "https://login.microsoftonline.com/common"
-    
+
     var accessToken = String()
     var applicationContext : MSALPublicClientApplication?
 
@@ -87,7 +87,7 @@ class ViewController: UIViewController, UITextFieldDelegate, URLSessionDelegate 
         super.viewWillAppear(animated)
         signoutButton.isEnabled = !self.accessToken.isEmpty
     }
-    
+
     /**
      This button will invoke the authorization flow.
     */
@@ -204,17 +204,20 @@ class ViewController: UIViewController, UITextFieldDelegate, URLSessionDelegate 
 
 <!--start-collapse-->
 ### <a name="more-information"></a>Daha Fazla Bilgi
+
 #### <a name="getting-a-user-token-interactively"></a>Kullanıcı belirtecini etkileşimli olarak alma
+
 Çağırma `acquireToken` kullanıcıdan oturum açmak için bir tarayıcı penceresi yöntemi sonuçlanıyor. Uygulamalar genellikle etkileşimli olarak korunan bir kaynağa erişmek için ihtiyaç duydukları ilk kez oturum açmak bir kullanıcı gerektirir ya da bir belirteç başarısız (örneğin kullanıcı parolasının süresi doldu) almak için sessiz bir işlem.
 
 #### <a name="getting-a-user-token-silently"></a>Kullanıcı belirtecini sessizce alma
+
 `acquireTokenSilent` Belirteç edinme ve herhangi bir kullanıcı etkileşimi olmadan yenileme yöntemi işler. Sonra `acquireToken` ilk kez yürütülür `acquireTokenSilent` veya belirteçleri yenileme isteği için çağrıları sessizce yapıldıkça yapılan sonraki çağrılar için-korunan kaynaklara erişim için kullanılan belirteçleri elde etmek için yaygın kullanılan yöntemdir.
 
 Sonuç olarak, `acquireTokenSilent` – örneğin kullanıcı oturumunuz veya başka bir cihazda parolasını değiştirdiğinden başarısız olur. MSAL etkileşimli bir eylem gerektirerek sorun çözülebilir, harekete algıladığında bir `MSALErrorCode.interactionRequired` özel durum. Uygulamanız, bu özel durumun iki şekilde işleyebilir:
 
-1.  Karşı çağrı yapmak `acquireToken` hemen sonuçlanır kullanıcının oturum açmasını isteyen içinde. Bu düzen, genellikle çevrimiçi uygulamalarda kullanılır olduğunda çevrimdışı içerik uygulamada kullanıcı için kullanılabilir. Bu Kılavuzlu kurulum tarafından oluşturulan örnek uygulama bu deseni kullanır: uygulamayı yürütme eylemi ilk zamanında görebilirsiniz. Hiçbir kullanıcı, uygulamayı her zamankinden kullanıldığından `applicationContext.allAccounts().first` null bir değer içerir ve bir ` MSALErrorCode.interactionRequired ` özel durumu oluşturulur. Ardından kod çağırarak özel durumu işleyen `acquireToken` kullanıcının oturum açmasını isteyen içinde elde edilen.
+1. Karşı çağrı yapmak `acquireToken` hemen sonuçlanır kullanıcının oturum açmasını isteyen içinde. Bu düzen, genellikle çevrimiçi uygulamalarda kullanılır olduğunda çevrimdışı içerik uygulamada kullanıcı için kullanılabilir. Bu Kılavuzlu kurulum tarafından oluşturulan örnek uygulama bu deseni kullanır: uygulamayı yürütme eylemi ilk zamanında görebilirsiniz. Hiçbir kullanıcı, uygulamayı her zamankinden kullanıldığından `applicationContext.allAccounts().first` null bir değer içerir ve bir ` MSALErrorCode.interactionRequired ` özel durumu oluşturulur. Ardından kod çağırarak özel durumu işleyen `acquireToken` kullanıcının oturum açmasını isteyen içinde elde edilen.
 
-2.  Uygulamaları bir etkileşimli oturum açma kullanıcı oturum açmak için doğru zamanda seçebilir ya da uygulama yeniden deneyebilir gerekli olan, kullanıcı için bir görsel gösterimi de yapabilir `acquireTokenSilent` daha sonra. Bu genellikle kullanılan kullanıcı uygulamanın diğer işlevleri kesintiye olmadan kullanabilir - Örneğin, çevrimdışı içeriği uygulamada kullanılabilir olduğunda. Bu durumda, kullanıcı, korumalı kaynağa erişmeye veya güncel olmayan bilgileri yenilemek için oturum açmak istedikleri veya uygulamanızı yeniden denemeye karar verebilirsiniz karar verebilir `acquireTokenSilent` ağ zaman geri geçici olarak kullanılamaz durumda olmasından sonra.
+2. Uygulamaları bir etkileşimli oturum açma kullanıcı oturum açmak için doğru zamanda seçebilir ya da uygulama yeniden deneyebilir gerekli olan, kullanıcı için bir görsel gösterimi de yapabilir `acquireTokenSilent` daha sonra. Bu genellikle kullanılan kullanıcı uygulamanın diğer işlevleri kesintiye olmadan kullanabilir - Örneğin, çevrimdışı içeriği uygulamada kullanılabilir olduğunda. Bu durumda, kullanıcı, korumalı kaynağa erişmeye veya güncel olmayan bilgileri yenilemek için oturum açmak istedikleri veya uygulamanızı yeniden denemeye karar verebilirsiniz karar verebilir `acquireTokenSilent` ağ zaman geri geçici olarak kullanılamaz durumda olmasından sonra.
 
 <!--end-collapse-->
 
@@ -287,6 +290,7 @@ Aşağıdaki yöntemi ekleyin `ViewController.swift` kullanıcının oturumunu k
 
 }
 ```
+
 <!--start-collapse-->
 ### <a name="more-info-on-sign-out"></a>Oturum kapatma hakkında daha fazla bilgi
 
@@ -299,11 +303,12 @@ MSAL, tek bir kullanıcı bu örnek uygulamasında desteklemesine rağmen burada
 
 Kullanıcının kimliğini doğrular, sonra tarayıcı kullanıcı yeniden uygulamaya yönlendirir. Bu geri çağırmayı kaydetmek için aşağıdaki adımları izleyin:
 
-1.  Açık `AppDelegate.swift` ve MSAL içeri aktarın:
+1. Açık `AppDelegate.swift` ve MSAL içeri aktarın:
 
 ```swift
 import MSAL
 ```
+
 <!-- Workaround for Docs conversion bug -->
 <ol start="2">
 <li>

@@ -1,6 +1,6 @@
 ---
-title: Yapılandırma ve Azure Portalı'nda MySQL için Azure veritabanı için sunucu günlüklerine erişim
-description: Bu makalede, yapılandırmak ve Azure Portal'da MySQL için Azure veritabanı sunucusu günlüklerine erişmek açıklar.
+title: Sunucu günlükleri, Azure portalında MySQL için Azure veritabanına erişmek ve yapılandırma
+description: Bu makalede, Azure portalından MySQL için Azure veritabanı'nda sunucu günlüklerini erişmek ve yapılandırma açıklanır.
 services: mysql
 author: rachel-msft
 ms.author: raagyema
@@ -9,64 +9,64 @@ editor: jasonwhowell
 ms.service: mysql
 ms.topic: article
 ms.date: 02/28/2018
-ms.openlocfilehash: eb35563bc21fc48d304f216e7b34cc9a77f35e83
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 030c9bf32da7b635066a744270739251b9bf3d03
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35265371"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49984715"
 ---
-# <a name="configure-and-access-server-logs-in-the-azure-portal"></a>Yapılandırma ve erişim sunucusu Azure portalında oturum
+# <a name="configure-and-access-server-logs-in-the-azure-portal"></a>Yapılandırma ve Azure portalında erişim sunucusu günlükleri
 
-Yapılandırma, liste indirin ve [Azure veritabanı için MySQL server günlüklerini](concepts-server-logs.md) Azure portalından.
+Yapılandırma, liste indirin ve [sunucu günlükleri MySQL için Azure veritabanı](concepts-server-logs.md) Azure portalından.
 
 ## <a name="prerequisites"></a>Önkoşullar
-Nasıl yapılır bu kılavuzu adım için gerekir:
+Bu nasıl yapılır kılavuzunda adımlamak için ihtiyacınız vardır:
 - [MySQL sunucusu için Azure veritabanı](quickstart-create-mysql-server-database-using-azure-portal.md)
 
 ## <a name="configure-logging"></a>Günlük tutmayı yapılandırma
 MySQL yavaş sorgu günlüğü erişimi yapılandırın. 
 
-1. [Azure Portal](http://portal.azure.com/)’da oturum açın.
+1. [Azure Portal](https://portal.azure.com/) oturum açın.
 
-2. MySQL sunucusu için Azure veritabanınızı seçin.
+2. MySQL sunucusu için Azure veritabanı'nı seçin.
 
-3. Altında **izleme** kenar, select bölümünde **sunucu günlükleri**. 
-   ![Select sunucusu günlükleri, yapılandırmak için tıklatın](./media/howto-configure-server-logs-in-portal/1-select-server-logs-configure.png)
+3. Altında **izleme** kenar seçme bölümünde **sunucu günlükleri**. 
+   ![Select sunucusu günlüklerini yapılandırmak için tıklayın](./media/howto-configure-server-logs-in-portal/1-select-server-logs-configure.png)
 
-4. Başlığı seçin **günlüklerini etkinleştirmek ve günlük parametreleri yapılandırmak için burayı tıklatın** sunucu parametreleri görmek için.
+4. Başlığı seçin **günlüklerini etkinleştirme ve günlük parametrelerini yapılandırmak için burayı tıklatın** sunucu parametreleri görmek için.
 
-5. Ayarlamanız gereken parametrelerini değiştirin. Bu oturumda yaptığınız tüm değişiklikleri mor ile vurgulanır. 
+5. Ayarlamak için gereken parametreler değiştirin. Bu oturumda yaptığınız tüm değişiklikler mor renkle vurgulanır. 
 
-   Parametreleri değişti sonra tıklayabilirsiniz **kaydetmek**. Veya **atmak** değişikliklerinizi.
+   Parametreleri değiştirildi. bir kez tıklayabilirsiniz **Kaydet**. Veya **at** yaptığınız değişiklikleri.
 
-   ![Kaydet'i tıklatın veya atın](./media/howto-configure-server-logs-in-portal/3-save-discard.png)
+   ![Kaydet'e tıklayın veya atın](./media/howto-configure-server-logs-in-portal/3-save-discard.png)
 
-6. Tıklayarak günlükleri listesine dönmek **Kapat düğmesini** (X simgesi) üzerinde **sunucu parametreleri** sayfası.
+6. Dönüş günlükleri listesine tıklayarak **Kapat düğmesi** (X simgesi) üzerinde **sunucu parametreleri** sayfası.
 
-## <a name="view-list-and-download-logs"></a>Listesini görüntülemek ve günlükleri indirmek
-Günlüğe kaydetme başladıktan sonra kullanılabilir günlüklerini listesini görüntülemek ve sunucu günlüklerini bölmesinde ayrı günlük dosyalarını yükleyin. 
+## <a name="view-list-and-download-logs"></a>Listesini görüntüleyebilir ve günlükleri indir
+Günlük başladıktan sonra mevcut bir listesini görüntülemek ve sunucu günlüklerini bölmesinde ayrı günlük dosyalarına indirin. 
 
 1. Azure portalı açın.
 
-2. MySQL sunucusu için Azure veritabanınızı seçin.
+2. MySQL sunucusu için Azure veritabanı'nı seçin.
 
-3. Altında **izleme** kenar, select bölümünde **sunucu günlükleri**. Sayfa gösterildiği gibi günlük dosyalarının listesini gösterir:
+3. Altında **izleme** kenar seçme bölümünde **sunucu günlükleri**. Sayfa gösterildiği gibi günlük dosyalarının listesini gösterir:
 
    ![Günlükleri listesi](./media/howto-configure-server-logs-in-portal/4-server-logs-list.png)
 
    > [!TIP]
-   > Günlük adlandırma kuralı **mysql - yavaş - < sunucu adı >-yyyymmddhh.log**. Tarih ve saat kullanılan dosya adı, günlük yayımlandığında saattir. Günlük dosyalarını Döndürülmüş her 24 saat veya 7.5 GB, hangisi gelir ilk.
+   > Adlandırma kuralı günlüğü **mysql - yavaş - < sunucu adı >-yyyymmddhh.log**. Dosya adında kullanılan saat ve tarihi olan günlük yayımlandığında zamandır. Günlük dosyaları Döndürülmüş her 24 saat veya 7.5 GB, hangisi gelir önce.
 
-4. Gerekirse, kullanın **arama kutusu** tarih/saat üzerine göre belirli bir günlük için hızlı bir şekilde daraltın. Arama günlüğü üzerinde adıdır.
+4. Gerekirse, kullanın **arama kutusuna** tarihi/saatini temel alan belirli bir günlük için hızlı bir şekilde daraltmak için. Arama günlüğü üzerinde adıdır.
 
-5. Kullanarak tek tek günlük dosyaları karşıdan **karşıdan** düğmesini (ok simgesi) her tablo satırı günlük dosyasında yanındaki gösterildiği gibi:
+5. Kullanarak tek bir günlük dosyalarını indirin **indirme** düğmesine (ok simgesi) yanında her tablo satırı günlük dosyasında gösterildiği gibi:
 
    ![İndirme simgesine tıklayın](./media/howto-configure-server-logs-in-portal/5-download.png)
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-- Bkz: [CLI erişim Server günlükleri](howto-configure-server-logs-in-cli.md) günlükleri programlı olarak indirmek hakkında bilgi edinmek için.
-- Daha fazla bilgi edinmek [sunucu günlükleri](concepts-server-logs.md) MySQL için Azure veritabanında. 
-- Parametre tanımları ve MySQL günlüğe kaydetme hakkında daha fazla bilgi için MySQL belgelerine bakın [günlükleri](https://dev.mysql.com/doc/refman/5.7/en/slow-query-log.html).
+- Bkz: [CLI sunucu günlüklerine erişme](howto-configure-server-logs-in-cli.md) günlüklerini programlı olarak indirme hakkında bilgi edinmek için.
+- Daha fazla bilgi edinin [sunucu günlükleri](concepts-server-logs.md) MySQL için Azure veritabanı'nda. 
+- MySQL günlük kaydı ve parametre tanımları hakkında daha fazla bilgi için MySQL belgeleri bakın [günlükleri](https://dev.mysql.com/doc/refman/5.7/en/slow-query-log.html).
 

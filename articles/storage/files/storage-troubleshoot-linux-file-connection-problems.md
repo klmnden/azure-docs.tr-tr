@@ -6,19 +6,19 @@ author: jeffpatt24
 tags: storage
 ms.service: storage
 ms.topic: article
-ms.date: 05/11/2018
+ms.date: 10/16/2018
 ms.author: jeffpatt
 ms.component: files
-ms.openlocfilehash: 31a0ffc2937f6d93a630bf6ce474d7dcf20c923f
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
-ms.translationtype: HT
+ms.openlocfilehash: 2ae116649de02c5602aa50d706f6a88ac5872960
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49364396"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50025863"
 ---
 # <a name="troubleshoot-azure-files-problems-in-linux"></a>Linux'ta Azure dosyaları sorunlarını giderme
 
-Bu makalede Linux istemcilerden bağlandığınızda, Microsoft Azure dosyaları'na ilgili genel sorunları listeler. Ayrıca olası nedenleri ve çözümlemeleri için bu sorunları sağlar.
+Bu makalede Linux istemcilerden bağlandığınızda, Microsoft Azure dosyaları'na ilgili genel sorunları listeler. Ayrıca olası nedenleri ve çözümlemeleri için bu sorunları sağlar. Bu makalede sorun giderme adımlarını ek olarak da kullanabilirsiniz [AzFileDiagnostics](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-02184089) Linux emin olmak için istemci doğru önkoşullara sahiptir. En iyi performansı elde etmek için ortamınızı ayarlama yardımcı olur ve bu makalede değinilen belirtileri çoğunu algılanması AzFileDiagnostics otomatikleştirir. Bu bilgiler de bulabilirsiniz [Azure dosyaları paylaşımlarını sorun giderici](https://support.microsoft.com/help/4022301/troubleshooter-for-azure-files-shares) bağlama/eşleme/bağlama Azure dosyaları paylaşımlarını sorunlara yardımcı olmak için adımları sağlar.
 
 <a id="permissiondenied"></a>
 ## <a name="permission-denied-disk-quota-exceeded-when-you-try-to-open-a-file"></a>"[izin reddedildi;] Disk kotası aşıldı" bir dosyayı açmaya çalıştığınızda
@@ -82,7 +82,7 @@ Bazı Linux dağıtımlarında henüz şifreleme özellikleri de SMB 3.0 desteğ
 
 ### <a name="solution"></a>Çözüm
 
-Linux için SMB 3.0 şifreleme özelliği 4.11 Çekirdeği'nde kullanıma sunulmuştur. Bu özellik, şirket içinde veya farklı bir Azure bölgesinde Azure dosya paylaşımını bağlama olanağı sağlar. Yayımlama zaman bu işlev, Ubuntu 17.04 ve Ubuntu 16.10 backported olmuştur. Linux SMB istemci şifreleme desteklemiyorsa, bağlama Azure VM'den bir Azure Linux dosyası olarak aynı veri merkezinde olan SMB 2.1 kullanarak dosyaları paylaşma ve doğrulayın [güvenli aktarım gerekli]( https://docs.microsoft.com/en-us/azure/storage/common/storage-require-secure-transfer) depolama alanında ayar devre dışı hesabı. 
+Linux için SMB 3.0 şifreleme özelliği 4.11 Çekirdeği'nde kullanıma sunulmuştur. Bu özellik, şirket içinde veya farklı bir Azure bölgesinde Azure dosya paylaşımını bağlama olanağı sağlar. Yayımlama zaman bu işlev, Ubuntu 17.04 ve Ubuntu 16.10 backported olmuştur. Linux SMB istemci şifreleme desteklemiyorsa, bağlama Azure VM'den bir Azure Linux dosyası olarak aynı veri merkezinde olan SMB 2.1 kullanarak dosyaları paylaşma ve doğrulayın [güvenli aktarım gerekli]( https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) depolama alanında ayar devre dışı hesabı. 
 
 <a id="slowperformance"></a>
 ## <a name="slow-performance-on-an-azure-file-share-mounted-on-a-linux-vm"></a>Azure dosya paylaşımını yavaş performans Linux sanal makinesine bağlı
@@ -150,7 +150,7 @@ Bu sorunun sık karşılaşılan nedenleri şunlardır:
 - SMB 3.0 şifreleme istemcide desteklenmiyor. SMB 3.0 şifreleme Ubuntu 16,4 ve sonraki bir sürümünü, SUSE 12.3 ve sonraki bir sürümü kullanılabilir. Diğer dağıtımları, çekirdek 4.11 ve sonraki bir sürümü gerektirir.
 - Desteklenmeyen TCP bağlantı noktası 445 üzerinden bir depolama hesabına bağlanmak çalışıyorsunuz.
 - Bir Azure VM'den Azure dosya paylaşımına bağlanmak çalışıyorsanız ve VM depolama hesabı ile aynı bölgede bulunmuyor.
-- Varsa [güvenli aktarım gerekli]( https://docs.microsoft.com/en-us/azure/storage/common/storage-require-secure-transfer) ayarı, depolama hesabında etkinleştirildiğinde, Azure dosyaları yalnızca SMB 3.0 şifreleme kullanarak bağlantılarına izin.
+- Varsa [güvenli aktarım gerekli]( https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) ayarı, depolama hesabında etkinleştirildiğinde, Azure dosyaları yalnızca SMB 3.0 şifreleme kullanarak bağlantılarına izin.
 
 ### <a name="solution"></a>Çözüm
 
@@ -180,7 +180,7 @@ ln -s linked -n t
 ln: failed to create symbolic link 't': Operation not supported
 ```
 ### <a name="solution"></a>Çözüm
-Linux CIFS istemcisi SMB2/3 protokolü üzerinden Windows stili sembolik bağlantıları oluşturulmasını desteklemiyor. Şu anda Linux istemcisi sembolik bağlantıların adlı başka bir stil destekler [Mishall + Fransızca çözümlemeyin] (https://wiki.samba.org/index.php/UNIX_Extensions#Minshall.2BFrench_symlinks) her ikisini de oluşturma ve işlemleri izleyin. Sembolik bağlantılar ihtiyaç duyan müşteriler "mfsymlinks" Bağlama seçeneği kullanabilirsiniz. Ayrıca Mac bilgisayarları tarafından kullanılan biçimi'ı olduğu için "mfsymlinks" genellikle önerilir.
+Linux CIFS istemcisi SMB2/3 protokolü üzerinden Windows stili sembolik bağlantıları oluşturulmasını desteklemiyor. Şu anda Linux istemcisi sembolik bağlantıların adlı başka bir stil destekler [Mishall + Fransızca çözümlemeyin](https://wiki.samba.org/index.php/UNIX_Extensions#Minshall.2BFrench_symlinks) her ikisini de oluşturma ve işlemleri izleyin. Sembolik bağlantılar ihtiyaç duyan müşteriler "mfsymlinks" Bağlama seçeneği kullanabilirsiniz. Ayrıca Mac bilgisayarları tarafından kullanılan biçimi'ı olduğu için "mfsymlinks" genellikle önerilir.
 
 Çözümlemeyin kullanabilmek için aşağıdaki, CIFS bağlama komutunun sonuna ekleyin:
 
@@ -191,7 +191,7 @@ Linux CIFS istemcisi SMB2/3 protokolü üzerinden Windows stili sembolik bağlan
 Bu nedenle komut şöyle görünür:
 
 ```
-sudo mount -t cifs //<storage-account-name>.file.core.windows.net/<share-name> <mount-point> -o vers=<smb-version>,username=<storage-account-name>,password=<storage-account-key>,dir_mode=0777,file_mode=0777,serverino,mfsynlinks
+sudo mount -t cifs //<storage-account-name>.file.core.windows.net/<share-name> <mount-point> -o vers=<smb-version>,username=<storage-account-name>,password=<storage-account-key>,dir_mode=0777,file_mode=0777,serverino,mfsymlinks
 ```
 
 Eklendikten sonra çözümlemeyin oluşturmak mümkün olmayacak üzerinde önerilen [Wiki](https://wiki.samba.org/index.php/UNIX_Extensions#Storing_symlinks_on_Windows_servers).

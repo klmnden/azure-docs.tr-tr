@@ -1,5 +1,5 @@
 ---
-title: Prepeare iş yüklerini Azure'a yedeklemek için DPM sunucusu
+title: DPM sunucusu iş yüklerini Azure'a Yedeklemeye hazırlanma
 description: DPM verileri bir Azure kurtarma Hizmetleri kasasına yedekleme giriş.
 services: backup
 author: adigan
@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: adigan
-ms.openlocfilehash: 3efe2f02666c69ff648eaab39fbc1dfe9dc5e3e7
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: ac89f0f2e2f86fa34fc754ee23e9b67329560fa4
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945442"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50024486"
 ---
 # <a name="prepare-to-back-up-workloads-to-azure-with-system-center-dpm"></a>System Center DPM ile azure'a iş yüklerini yedeklemek hazırlama
 
@@ -39,7 +39,7 @@ Makaleyi sağlar:
 DPM sunucularını Azure'a yedekleme iş avantajları şunlardır:
 
 * Şirket içi DPM için Azure Backup banda uzun vadeli dağıtım bir alternatif sunar.
-* Bir Azure sanal makinesinde çalışan DPM için Azure Backup, depolama alanı Azure diskine boşaltabilirsiniz olanak tanır. Bir yedekleme kasası Kasası'nda eski verileri depolamak, işletmenizin diske yeni verileri depolayarak ölçekleme olanak tanır.
+* Bir Azure sanal makinesinde çalışan DPM için Azure Backup, depolama alanı Azure diskine boşaltabilirsiniz olanak tanır. Bir yedekleme Kasası'nda eski verileri depolamak, işletmenizin diske yeni verileri depolayarak ölçekleme olanak tanır.
 
 ## <a name="prerequisites-and-limitations"></a>Önkoşullar ve sınırlamalar
 
@@ -54,7 +54,7 @@ Desteklenen uygulamalar | [Bilgi](https://docs.microsoft.com/system-center/dpm/d
 Desteklenen dosya türleri | Bu dosya türlerini, Azure Backup ile yedeklenebilir: (yalnızca tam yedeklemeler) şifrelenir (Artımlı yedeklemeler desteklenir) sıkıştırılır; Aralıklı (artımlı yedeklemeler desteklenir); Sıkıştırılmış ve aralıklı (seyrek olarak kabul edilir).
 Desteklenmeyen dosya türleri | Büyük küçük harfe duyarlı dosya sistemlerindeki sunucular; sabit bağlantılar (atlanır); yeniden ayrıştırma noktaları (atlanır); şifrelenmiş ve sıkıştırılmış (atlanır); şifrelenmiş ve aralıklı (atlanır); Sıkıştırılmış akış; akışı ayrıştıramadı.
 Yerel depolama | Yedeklemek istediğiniz her makine yedeklenmekte verilerin boyutunu % 5'en az yerel boş depolama alanı olması gerekir.  Örneğin, 100 GB veri yedekleme, en az 5 GB boş alan karalama konumu gerektirir.
-Depolama kasası | Bir Azure Backup kadar kasa veri miktarı için bir sınır yoktur ancak (örneğin bir sanal makine veya veritabanı) bir veri kaynağının boyutunu 54400 GB uzun olmaması gerekir.
+Depolama kasası | Bir Azure Backup vault'a Yedekleyebileceğiniz veri miktarı için bir sınır yoktur ancak (örneğin bir sanal makine veya veritabanı) bir veri kaynağının boyutunu 54400 GB uzun olmaması gerekir.
 Azure Backup aracısı | DPM, System Center 2012 SP1'de çalışıyorsa, paketi 2 veya üzeri için DPM SP1 yükleyin. Bu, aracı yüklemesi için gereklidir.<br/><br/> Bu makalede, Azure Backup Aracısı, Microsoft Azure kurtarma hizmeti (MARS) aracısı olarak da bilinen en son sürümünü dağıtmayı açıklar. Dağıtılan bir önceki sürümüne sahipseniz, bu yedekleme beklendiği gibi çalıştığından emin olmak için en son sürüme güncelleştirin. 
 
 
@@ -160,7 +160,7 @@ Azure Backup tarafından yedeklenen her makineler yedekleme aracı (Microsoft Az
 
     - Azure yedekleme, kurtarılan veriler için bir geçici bir bekleme sahası bu konumu kullanır.
     - Sonlandırma veri kurtarma işleminden sonra Azure Backup, bu alandaki verileri temizler.
-    - Konum içinde paralle kurtarma tahmin öğeleri tutmak için yeterli alan olmalıdır.
+    - Konum kurtarma paralel olarak tahmin öğeleri tutmak için yeterli alan olmalıdır.
 
     ![Kurtarma klasörü ayarını](../../includes/media/backup-install-agent/DPM_SetupOnlineBackup_RecoveryFolder.png)
 

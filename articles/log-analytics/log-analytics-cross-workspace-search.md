@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 04/17/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: d3fb6557571042be7db1380010738bacd72e50f5
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: cc7bcefe43eed524f50fcad09d7fb31a80d22b83
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48869509"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50025812"
 ---
 # <a name="perform-cross-resource-log-searches-in-log-analytics"></a>Log Analytics'te kaynaklar arası günlük aramaları gerçekleştirme  
 
@@ -29,7 +29,7 @@ Daha önce Azure Log Analytics ile yalnızca geçerli çalışma alanındaki ver
 Artık yalnızca birden fazla Log Analytics çalışma alanları, aynı zamanda aynı kaynak grubunu, başka bir kaynak grubu veya başka bir aboneliğe belirli bir Application Insights uygulamasından verileriniz üzerinde sorgulama yapabilirsiniz. İle verilerinizin sistem genelinde bir görünüm sağlar.  Yalnızca bu tür bir sorgu gerçekleştirebileceğiniz [Log Analytics](log-analytics-log-search-portals.md#log-analytics-page). 100'e (Log Analytics çalışma alanları ve Application Insights uygulaması), tek bir sorguda dahil edebileceğiniz kaynak sayısı sınırlıdır. 
 
 ## <a name="querying-across-log-analytics-workspaces-and-from-application-insights"></a>Application ınsights ve Log Analytics çalışma alanları arasında sorgulama
-Sorgunuzu başka bir çalışma alanı başvurmak için kullanma [ *çalışma* ](https://docs.loganalytics.io/docs/Language-Reference/Scope-functions/workspace()) tanımlayıcısı ve Application ınsights'tan bir uygulama için [ *uygulama* ](https://docs.loganalytics.io/docs/Language-Reference/Scope-functions/app())tanımlayıcısı.  
+Sorgunuzu başka bir çalışma alanı başvurmak için kullanma [ *çalışma* ](https://docs.microsoft.com/azure/log-analytics/query-language/workspace-expression) tanımlayıcısı ve Application ınsights'tan bir uygulama için [ *uygulama* ](https://docs.microsoft.com/azure/log-analytics/query-language/app-expression)tanımlayıcısı.  
 
 ### <a name="identifying-workspace-resources"></a>Çalışma alanı kaynakları tanımlama
 Aşağıdaki örnekler, günlükleri özetlenen sayısını güncelleştirme tablosundan adlı bir çalışma alanına dönmek için Log Analytics çalışma alanları arasında sorguları gösterir. *contosoretail BT*. 
@@ -104,4 +104,4 @@ union Update, workspace("contosoretail-it").Update, workspace("b459b4u5-912x-46d
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Gözden geçirme [Log Analytics günlük araması başvuru](https://docs.loganalytics.io/docs/Language-Reference) tüm kullanılabilir Log Analytics'te sorgu söz dizimi seçeneklerini görüntüleyin.    
+Gözden geçirme [Log Analytics günlük araması başvuru](https://docs.microsoft.com/azure/log-analytics/query-language/kusto) tüm kullanılabilir Log Analytics'te sorgu söz dizimi seçeneklerini görüntüleyin.    

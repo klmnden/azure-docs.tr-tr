@@ -14,17 +14,19 @@ ms.workload: identity
 ms.date: 09/17/2018
 ms.author: jmprieur
 ms.custom: include file
-ms.openlocfilehash: fb521fc9d4927a953cdd66948101969dfc102de4
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: b26b88d0e089217fa9915bdbdcb8f913731bcc67
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48843509"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49988217"
 ---
 ## <a name="register-your-application"></a>Uygulamanızı kaydetme
+
 Uygulamanızı iki yoldan biriyle kaydedebilirsiniz.
 
 ### <a name="option-1-express-mode"></a>1. seçenek: Hızlı mod
+
 Aşağıdakileri yaparak, uygulamanızı hızlı bir şekilde kaydedebilirsiniz:
 1. [Microsoft Uygulama Kayıt Portalı](https://apps.dev.microsoft.com/portal/register-app?appType=mobileAndDesktopApp&appTech=windowsDesktop&step=configure)'na gidin.
 
@@ -37,12 +39,13 @@ Aşağıdakileri yaparak, uygulamanızı hızlı bir şekilde kaydedebilirsiniz:
 5. Uygulama Kimliği alma yönergeleri izleyin ve kodunuzun yapıştırın.
 
 ### <a name="option-2-advanced-mode"></a>2. seçenek: Gelişmiş mod
+
 Uygulamanızı kaydetmek ve uygulama kayıt bilgilerinizi çözümünüze eklemek için aşağıdakileri yapın:
 1. Uygulamanızı henüz kaydolmadıysanız, Git [Microsoft uygulama kayıt portalı](https://apps.dev.microsoft.com/portal/register-app).
 
 2. Seçin **uygulama ekleme**.
 
-3. **Uygulama Adı** kutusuna uygulamanız için bir ad girin. 
+3. **Uygulama Adı** kutusuna uygulamanız için bir ad girin.
 
 4. **Destekli Kurulum** onay kutusunun işaretli olmadığından emin olun ve **Oluştur**’u seçin.
 

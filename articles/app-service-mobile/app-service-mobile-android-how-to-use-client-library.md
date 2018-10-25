@@ -13,19 +13,19 @@ ms.devlang: java
 ms.topic: article
 ms.date: 11/16/2017
 ms.author: crdun
-ms.openlocfilehash: 1ab7aa9ecdd51809f6e1d82958f21b78b16e7e63
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: a39ae42ba2344cb39318809e2f120e01a75344d7
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37859566"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50025795"
 ---
 # <a name="how-to-use-the-azure-mobile-apps-sdk-for-android"></a>Android için Azure Mobile Apps SDK'sını kullanma
 
 Bu kılavuzu gibi yaygın senaryoları uygulamak için Android istemci SDK'sı mobil uygulamalar için kullanmayı gösterir:
 
 * (Ekleme, güncelleştirme, silme) veri sorgulama.
-* Kimlik doğrulaması.
+* kimlik doğrulaması.
 * Hataları işleme.
 * İstemci özelleştirme.
 
@@ -144,7 +144,7 @@ public class AzureServiceAdapter {
 
 Artık çağırabilirsiniz `AzureServiceAdapter.Initialize(this);` içinde `onCreate()` ana etkinliği yöntemi.  İstemci erişimi gerektiren diğer yöntemleri `AzureServiceAdapter.getInstance();` hizmeti bağdaştırıcısı için bir başvuru almak için.
 
-## <a name="data-operations"></a>Veri İşlemleri
+## <a name="data-operations"></a>Veri işlemleri
 
 Azure Mobile Apps SDK'sı setinin mobil uygulama arka uçta SQL Azure içinde depolanan verilere erişim sağlamaktır.  Türü kesin belirlenmiş sınıf (tercih edilir) kullanarak bu verilere erişmesinden veya türsüz sorgular (önerilmez).  Bu bölümün toplu kullanarak türü kesin belirlenmiş sınıf ile ilgilidir.
 
@@ -154,7 +154,7 @@ SQL Azure tablolardaki verilere erişmek için mobil uygulama arka ucu tablolar�
 
 * id
 * metin
-* tamamlayın
+* Tamamlayın
 
 Karşılık gelen türü belirlenmiş istemci-tarafı nesnesi adlı bir dosyada bulunan **MyDataTable.java**:
 
@@ -1220,7 +1220,7 @@ private class ProgressFilter implements ServiceFilter {
             public void onSuccess(ServiceFilterResponse response) {
                 runOnUiThread(new Runnable() {
                     @Override
-                    pubic void run() {
+                    public void run() {
                         if (mProgressBar != null)
                             mProgressBar.setVisibility(ProgressBar.GONE);
                     }

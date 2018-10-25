@@ -9,20 +9,23 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 10/23/2018
 ms.author: juliako
-ms.openlocfilehash: 36c30e11e8b7bd8b3e8ae3e424649998dcfff5bb
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: 90aa3551bb9e2d903fb0f66e3a9b464b0f4be928
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49381206"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49987622"
 ---
 # <a name="analyzing-video-and-audio-files"></a>Video ve ses dosyalarını analiz etme
 
-Azure Media Services v3 Video Indexer AMS v3 Çözümleyicisi hazır (Bu makalede açıklanan) aracılığıyla, video ve ses dosyalarını içgörü sağlar. Daha ayrıntılı Öngörüler istiyorsanız, Video Indexer doğrudan kullanın. Ne zaman anlamak için Video Indexer vs kullanmak isteyebilirsiniz. Media Services Çözümleyicisi hazır kullanıma [karşılaştırma belge](../video-indexer/compare-video-indexer-with-media-services-presets.md).
+Azure Media Services v3 Video Indexer AMS v3 Çözümleyicisi hazır (Bu makalede açıklanan) aracılığıyla, video ve ses dosyalarını içgörü sağlar. Daha ayrıntılı içgörüler istiyorsanız doğrudan Video Indexer’ı kullanın. Video Indexer’ı ve Media Services çözümleyicisinin önceden belirlenmiş ayarlarını hangi durumlarda kullanacağınızı anlamak için [karşılaştırma belgesine](../video-indexer/compare-video-indexer-with-media-services-presets.md) bakın.
 
 İçeriğinizi Media Services v3 hazır kullanarak çözümlemek için oluşturduğunuz bir **dönüştürme** ve gönderme bir **iş** bu hazır birini kullanır: **AudioAnalyzerPreset** veya **VideoAnalyzerPreset**. Aşağıdaki makalede nasıl yapılacağı açıklanır **VideoAnalyzerPreset**: [öğretici: Azure Media Services ile videoları analiz etme](analyze-videos-tutorial-with-api.md).
+
+> [!NOTE]
+> Bir Video veya ses Çözümleyicisi hazır kullanırken, hesabınızda 10 S3 medya ayrılmış birimi ayarlamak için Azure portalını kullanın. Daha fazla bilgi için [medya işlemeyi ölçeklendirme](../previous/media-services-scale-media-processing-overview.md).
 
 ## <a name="audioanalyzerpreset"></a>AudioAnalyzerPreset
 
@@ -241,7 +244,7 @@ Azure Media Services v3 Video Indexer AMS v3 Çözümleyicisi hazır (Bu makaled
 |SpeakerTalkToListenRatio|Hesaplama videonun toplam zaman bölünmüş konuşmacının monolog (olmadan arasındaki sessizlik) üzerinde harcanan zamanı temel alır. Saat üçüncü ondalık noktasına yuvarlanır.|
 
 
-### <a name="sentiments"></a>yaklaşımlar
+### <a name="sentiments"></a>yaklaşımları
 
 Yaklaşımları sentimentType alanı (nötr/olumlu/olumsuz) tarafından toplanır. Örneğin, 0-0.1, 0.2 0,1.
 

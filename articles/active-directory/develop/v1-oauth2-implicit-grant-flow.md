@@ -17,14 +17,16 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: acdc3417643484fa98b16c4be1b83a44a8b73fc6
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: ccc5aa116d2f01b601e6b6b9aad456110b764856
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46963008"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49985735"
 ---
 # <a name="understanding-the-oauth2-implicit-grant-flow-in-azure-active-directory-ad"></a>Azure Active Directory (AD) OAuth2 örtük verme akışı anlama
+
+[!INCLUDE [active-directory-develop-applies-v1](../../../includes/active-directory-develop-applies-v1.md)]
 
 OAuth2 örtük verme, güvenlik kaygıları OAuth2 belirtimi uzun listesi izinle olan için ticaret. Ve ADAL JS ve SPA uygulamaları yazarken öneririz biri tarafından uygulanan yaklaşıma henüz olmasıdır. Neler sağlar? Tüm birkaç ödünler olduğu: ve ortaya çıkmıştır gibi örtük vermeyi sizin daha sonra amacınızın bir tarayıcıdan JavaScript aracılığıyla bir Web API'sini kullanan uygulamalar için en iyi yaklaşımdır.
 

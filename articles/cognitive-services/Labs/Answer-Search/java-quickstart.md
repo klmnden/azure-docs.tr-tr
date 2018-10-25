@@ -6,16 +6,16 @@ services: cognitive-services
 author: mikedodaro
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: project-answer-search
+ms.component: answer-search
 ms.topic: quickstart
 ms.date: 04/13/2018
 ms.author: rosh
-ms.openlocfilehash: 1e10ecf685aaf5b60b94a5e9e0d8e118f45e5168
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: 66d5488fa0e8f542327b4150d50e4351af6ade55
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48867050"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49469104"
 ---
 # <a name="quickstart-project-answer-search-query-in-java"></a>Hızlı başlangıç: Java'da Yanıt Arama Projesi sorgusu
 Bu makalede, Azure'da Microsoft Bilişsel Hizmetleri'nin parçası olan Bing Yanıt Arama API'sini göstermek için Java kullanılmaktadır. API HTTP istekleri gönderebilecek ve JSON ayrıştırabilecek her programlama diliyle uyumlu bir REST Web hizmetidir.
@@ -52,7 +52,7 @@ Aşağıdaki kod bir `WebRequest` oluşturur, erişim anahtarı üst bilgisini a
 
 Bing Yanıt Arama API'si Bing arama motorundan sonuçları döndürür.
 1. gson kitaplığını indirip yükleyin.
-2. Sık kullandığınız IDE veya düzenleyicide yeni bir Java projesi oluşturun.
+2. Tercih ettiğiniz IDE veya düzenleyicide bir Java projesi oluşturun.
 3. Aşağıda sağlanan kodu ekleyin.
 4. subscriptionKey değerini, aboneliğiniz için geçerli olan bir erişim anahtarı ile değiştirin.
 5. Programı çalıştırın.

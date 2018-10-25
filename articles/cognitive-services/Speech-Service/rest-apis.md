@@ -9,12 +9,12 @@ ms.component: speech-service
 ms.topic: conceptual
 ms.date: 05/09/2018
 ms.author: erhopf
-ms.openlocfilehash: 0cc278cdb59bfbb53578eae0f51c9b54204d7d12
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 7f3daf71f4d94371af5f7d98c4e03761d7217a2a
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49466282"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50025846"
 ---
 # <a name="speech-service-rest-apis"></a>Konuşma hizmeti REST API'leri
 
@@ -22,7 +22,7 @@ Azure Bilişsel hizmetler konuşma hizmeti REST API'leri tarafından sağlanan A
 
 ## <a name="speech-to-text"></a>Konuşmayı Metne Dönüştürme
 
-Konuşmayı metne dönüştürme REST API'si uç noktaları aşağıdaki tabloda gösterilmektedir. Eşleşen abonelik bölgenizi kullanın. 
+Konuşmayı metne dönüştürme REST API'si uç noktaları aşağıdaki tabloda gösterilmektedir. Eşleşen abonelik bölgenizi kullanın.
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-endpoints-speech-to-text.md)]
 
@@ -57,13 +57,13 @@ Aşağıdaki alanlar, HTTP istek bağlığında gönderilir.
 
 ### <a name="audio-format"></a>Ses biçimi
 
-Ses HTTP gövdesi gönderilen `PUT` isteği. 16-bit WAV PCM tek kanalda (tekli) 16 KHz aşağıdaki biçimleri/kodlama biçiminde olmalıdır.
+Ses HTTP gövdesi gönderilen `POST` isteği. 16-bit WAV PCM tek kanalda (tekli) 16 KHz aşağıdaki biçimleri/kodlama biçiminde olmalıdır.
 
 * WAV PCM codec biçimiyle
 * Geçerli codec OGG biçimi
 
 >[!NOTE]
->Yukarıdaki biçimleri, REST API ve konuşma hizmeti, WebSocket üzerinden desteklenir. [Speech SDK'sı](/index.yml) WAV PCM codec ile biçim şu anda yalnızca destekler. 
+>Yukarıdaki biçimleri, REST API ve konuşma hizmeti, WebSocket üzerinden desteklenir. [Speech SDK'sı](/index.yml) WAV PCM codec ile biçim şu anda yalnızca destekler.
 
 ### <a name="chunked-transfer"></a>Öbekli aktarım
 
@@ -145,7 +145,7 @@ Sonuçları JSON biçiminde döndürülür. `simple` Biçimi yalnızca aşağıd
 | `Error` | Tanıma hizmeti bir iç hatayla karşılaştı ve çalışmaya devam edemedi. Mümkün olduğunda yeniden deneyin. |
 
 > [!NOTE]
-> Ses yalnızca küfür oluşuyorsa ve `profanity` sorgu parametresi ayarlandığında `remove`, hizmeti bir konuşma sonuç döndürmez. 
+> Ses yalnızca küfür oluşuyorsa ve `profanity` sorgu parametresi ayarlandığında `remove`, hizmeti bir konuşma sonuç döndürmez.
 
 
 `detailed` Biçimi içeren aynı alanları `simple` , bunların ile biçimde bir `NBest` alan. `NBest` Alan büyük olasılıkla'den az büyük olasılıkla sıralanmış aynı konuşma alternatif ınterpretations listesi verilmiştir. İlk giriş ana tanıma işleminin sonucu aynıdır. Her girişin aşağıdaki alanları içerir:
@@ -207,7 +207,7 @@ Konuşma hizmeti, Bing konuşma tarafından desteklenen 16Khz çıkış ek olara
 
 Yerel Ayar | Dil   | Cinsiyet | Hizmet adı eşleme
 -------|------------|--------|------------
-tr-TR  | İngilizce (ABD) | Kadın | "Microsoft Server Konuşma metin konuşma ses (en-US, Jessa24kRUS)" 
+tr-TR  | İngilizce (ABD) | Kadın | "Microsoft Server Konuşma metin konuşma ses (en-US, Jessa24kRUS)"
 tr-TR  | İngilizce (ABD) | Erkek   | "Microsoft Server Konuşma metin konuşma ses (en-US, Guy24kRUS)"
 
 Kullanılabilir seslerini tam listesi kullanılabilir [desteklenen diller](language-support.md#text-to-speech).
@@ -235,7 +235,7 @@ Kullanılabilir ses çıkış biçimleri (`X-Microsoft-OutputFormat`) bir bit h�
 `audio-24khz-96kbitrate-mono-mp3`  | `audio-24khz-48kbitrate-mono-mp3`
 
 > [!NOTE]
-> Seçilen ses ve çıkış biçimi farklı bit hızlarında varsa, ses, gerektiği şekilde örneklenmiş. Ancak, 24khz sesleri desteklemeyen `audio-16khz-16kbps-mono-siren` ve `riff-16khz-16kbps-mono-siren` Çıkış biçimleri. 
+> Seçilen ses ve çıkış biçimi farklı bit hızlarında varsa, ses, gerektiği şekilde örneklenmiş. Ancak, 24khz sesleri desteklemeyen `audio-16khz-16kbps-mono-siren` ve `riff-16khz-16kbps-mono-siren` Çıkış biçimleri.
 
 ### <a name="request-body"></a>İstek gövdesi
 
@@ -254,7 +254,7 @@ Host: westus.tts.speech.microsoft.com
 Content-Length: 225
 Authorization: Bearer [Base64 access_token]
 
-<speak version='1.0' xml:lang='en-US'><voice xml:lang='en-US' xml:gender='Female' 
+<speak version='1.0' xml:lang='en-US'><voice xml:lang='en-US' xml:gender='Female'
     name='Microsoft Server Speech Text to Speech Voice (en-US, ZiraRUS)'>
         Microsoft Speech Service Text-to-Speech API
 </voice></speak>
@@ -328,10 +328,10 @@ cURL Linux (ve Linux için Windows alt sistemi) kullanılabilir komut satırı a
 > Komut okunabilirlik için birden çok satırda gösterilir, ancak bir kabuk isteminde tek bir satıra girin.
 
 ```
-curl -v -X POST 
- "https://westus.api.cognitive.microsoft.com/sts/v1.0/issueToken" 
- -H "Content-type: application/x-www-form-urlencoded" 
- -H "Content-Length: 0" 
+curl -v -X POST
+ "https://westus.api.cognitive.microsoft.com/sts/v1.0/issueToken"
+ -H "Content-type: application/x-www-form-urlencoded"
+ -H "Content-Length: 0"
  -H "Ocp-Apim-Subscription-Key: YOUR_SUBSCRIPTION_KEY"
 ```
 
@@ -411,7 +411,7 @@ Aşağıdaki C# kod daha önce gösterilen sınıfı mongodb'nin ' dir. `Authent
     */
 public class Authentication
 {
-    public static readonly string FetchTokenUri = 
+    public static readonly string FetchTokenUri =
         "https://westus.api.cognitive.microsoft.com/sts/v1.0/issueToken";
     private string subscriptionKey;
     private string token;
@@ -486,4 +486,3 @@ public class Authentication
 - [Konuşma deneme aboneliğinizi alın](https://azure.microsoft.com/try/cognitive-services/)
 - [Akustik modelleri özelleştirme](how-to-customize-acoustic-models.md)
 - [Dil modellerini özelleştirme](how-to-customize-language-model.md)
-

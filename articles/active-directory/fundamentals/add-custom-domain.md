@@ -12,12 +12,12 @@ ms.date: 09/18/2018
 ms.author: lizross
 ms.reviewer: elkuzmen
 ms.custom: it-pro
-ms.openlocfilehash: 30b4a038c2ad9bd86f2ba78d52ed3754acec07f0
-ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
+ms.openlocfilehash: 59743df45cf2c7810404d9e6c636790c2855cf74
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48785266"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50023126"
 ---
 # <a name="how-to-add-your-custom-domain-name-using-the-azure-active-directory-portal"></a>Nasıl yapılır: Azure Active Directory portalı kullanarak özel etki alanı adınızı ekleme
 Her yeni Azure AD kiracısı bir ilk etki alanı adı ile gelir *domainname*. onmicrosoft.com. Değiştirme veya silme ilk etki alanı adı, ancak kuruluşunuzun adları listesine ekleyebilirsiniz. Özel etki alanı adları ekleme yardımcı olur, kullanıcılarınızın tanıdığı gibi kullanıcı adları oluşturmak için *alain@contoso.com*.
@@ -28,9 +28,9 @@ Her yeni Azure AD kiracısı bir ilk etki alanı adı ile gelir *domainname*. on
 ## <a name="create-your-directory-in-azure-ad"></a>Azure AD dizininizi oluşturma
 Etki alanı adınızı aldıktan sonra ilk Azure AD dizininizi oluşturabilirsiniz.
 
-1. Oturum [Azure portalında](https://portal.azure.com/) abonelik sahibi kullanarak hesap dizinini ve ardından **Azure Active Directory**.
+1. Oturum [Azure portalında](https://portal.azure.com/) dizininiz için olan bir hesap kullanarak **sahibi** rolü için aboneliğe tıklayın ve ardından **Azure Active Directory**. Abonelik rolleri hakkında daha fazla bilgi için bkz. [Klasik Abonelik Yöneticisi rolleri, Azure RBAC rolleri ve Azure AD yönetici rollerini](../../role-based-access-control/rbac-and-directory-admin-roles.md#azure-rbac-roles).
 
-    ![Azure portal ekran](media/active-directory-access-create-new-tenant/azure-ad-portal.png)
+    ![Azure portalı ekranı](media/active-directory-access-create-new-tenant/azure-ad-portal.png)
 
     >[!TIP]
     > Şirket içi Windows Server AD'nizi Azure AD ile birleştirmeyi planlıyorsanız, dizinlerinizi eşitlemek için Azure AD Connect aracını çalıştırdığınızda **Bu etki alanını, yerel Active Directory dizinimde çoklu oturum açmak üzere yapılandırmak istiyorum** onay kutusunu seçmeniz gerekir. Ayrıca aynı etki alanı adını sihirbazın şirket içi dizininizi **Azure AD Etki Alanı** ile birleştirme adımında da kaydetmeniz gerekir. [Bu yönergelerde](../hybrid/how-to-connect-install-custom.md#verify-the-azure-ad-domain-selected-for-federation) sihirbazdaki bu adımın nasıl göründüğünü görebilirsiniz. Azure AD Connect aracınız yoksa [buradan indirebilirsiniz](http://go.microsoft.com/fwlink/?LinkId=615771).
@@ -72,7 +72,7 @@ Azure AD'ye özel etki alanı adınızı ekledikten sonra için etki alanı kay�
 Özel etki alanı adınızı kaydettikten sonra Azure AD'de geçerli olduğundan emin olmanız gerekir. Azure ad etki alanı kayıt şirketinizde gelen yayılmasını anlık olabilir veya etki alanı kayıt şirketinizde bağlı olarak birkaç gün sürebilir.
 
 ### <a name="to-verify-your-custom-domain-name"></a>Özel etki alanı adınızı doğrulamak için
-1. Oturum [Azure portalında](https://portal.azure.com/) dizinde genel yönetici hesabını kullanarak.
+1. Dizin için bir Genel yönetici hesabı kullanarak [Azure portalda](https://portal.azure.com/) oturum açın.
 
 2. Seçin **Azure Active Directory**ve ardından **özel etki alanı adları**.
 

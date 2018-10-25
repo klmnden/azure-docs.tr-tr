@@ -1,33 +1,29 @@
 ---
 title: Azure PowerShell örnekleri için Traffic Manager | Microsoft Docs
-description: Azure PowerShell örnekleri için trafik Yöneticisi
+description: Azure PowerShell örnekleri için Traffic Manager
 services: traffic-manager
 documentationcenter: traffic-manager
 author: KumudD
-manager: jeconnoc
-editor: tysonn
-tags: ''
-ms.assetid: ''
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: infrastructure
-ms.date: 04/26/2018
+ms.date: 10/23/2018
 ms.author: kumud
-ms.openlocfilehash: 270f072d24542f047053e9fa42e1303a261ba742
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.openlocfilehash: f95cd1cfaa3d61d301bf485b3c66022f3d68c1dd
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/01/2018
-ms.locfileid: "32313072"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49986675"
 ---
-# <a name="azure-powershell-samples-for-traffic-manager"></a>Azure PowerShell örnekleri için trafik Yöneticisi
+# <a name="azure-powershell-samples-for-traffic-manager"></a>Azure PowerShell örnekleri için Traffic Manager
 
-Aşağıdaki tabloda trafik Yöneticisi betikleri Azure PowerShell kullanarak yerleşik bağlantılarını içerir.
+Aşağıdaki tablo, Azure PowerShell kullanılarak oluşturulan Traffic Manager betiklerinin bağlantılarını içerir.
 
-|Başlık  |Açıklama |
+|Unvan  |Açıklama |
 |---------|---------|
-|[Uygulama yüksek kullanılabilirlik için birden çok bölgede doğrudan trafiği](./scripts/traffic-manager-powershell-websites-high-availability.md)   |    İki uygulama hizmeti planları, iki web uygulamaları, trafik Yöneticisi profili ve iki trafik Yöneticisi uç noktaları oluşturur.     |
+|[Uygulama yüksek kullanılabilirlik için birden çok bölge arasında trafiği](./scripts/traffic-manager-powershell-websites-high-availability.md)   |    İki app service planı, iki web uygulaması, traffic manager profili ve iki traffic manager uç noktası oluşturur.     |
 |    |         |
 

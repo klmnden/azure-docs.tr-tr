@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 10/11/2018
 ms.author: iainfou
-ms.openlocfilehash: 87c3ab9624116e9c1c61041531fdf5d3b26117e1
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: 4c60474c07a3853e409436359713578178b639fb
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49381226"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50024875"
 ---
 # <a name="configure-advanced-networking-in-azure-kubernetes-service-aks"></a>Azure Kubernetes Service (AKS) Gelişmiş ağ yapılandırma
 
@@ -31,25 +31,25 @@ Bu makalede Gelişmiş ağ oluşturma ve sanal ağ ile bir AKS kümesi kullanmak
 
 ## <a name="plan-ip-addressing-for-your-cluster"></a>Kümeniz için IP adresini planlama
 
-Gelişmiş ağ ile yapılandırılan kümeler için ek planlama gerektirir. Sanal ağınız ile onun alt ağ boyutunu hem çalıştırmayı planladığınız pod'ların sayısını, hem de küme için düğüm sayısını, uyum sağlamak gerekir.
+Gelişmiş ağ ile yapılandırılan kümeler için ek planlama gerektirir. Sanal ağınız ile onun alt ağ boyutunu çalıştırmayı planladığınız pod'ların sayısını ve kümenin düğüm sayısını, uyum sağlamak gerekir.
 
-Pod'ların ve küme düğümleri için IP adresleri, sanal ağ içinde belirtilen alt ağından atanır. Her düğüm düğüm ve düğüme zamanlanmış pod'ların atanan Azure CNI tarafından önceden yapılandırılmış 30 ek IP adreslerini içeren IP olduğu birincil bir IP ile yapılandırılır. Kümenizin ölçeğini daralttığınızda, her düğüm alt ağdaki IP adresleriyle benzer şekilde yapılandırılır.
+Pod'ların ve küme düğümleri için IP adresleri, sanal ağ içinde belirtilen alt ağından atanır. Her düğüm, birincil bir IP adresi ile yapılandırılır. Varsayılan olarak 30 ek IP adresleri düğümde zamanlanmış pod'ların atanan Azure CNI tarafından önceden yapılandırılmış. Kümenizin ölçeğini daralttığınızda, her düğüm alt ağdaki IP adresleriyle benzer şekilde yapılandırılır. Ayrıca görüntüleyebilirsiniz [düğüm başına en fazla pod'ların](#maximum-pods-per-node).
 
 IP adresi planı bir AKS kümesi bir sanal oluşur için ağ, düğümler, pod'ların ve bir Kubernetes hizmeti adres aralığı için en az bir alt ağ.
 
 | Adres aralığı / Azure kaynağı | Limitler ve boyutlandırma |
 | --------- | ------------- |
 | Sanal ağ | Azure sanal ağı /8 büyük olabilir, ancak 65.536 yapılandırılmış IP adresleri için sınırlıdır. |
-| Alt ağ | Düğümler, pod'ların ve kümenizde sağlanan tüm Kubernetes ile Azure kaynaklarını tutabilecek kadar büyük olmalıdır. Örneğin, bir iç Azure yük dengeleyici dağıtırsanız, Küme alt ağından değil genel IP'ler, ön uç IP'ler ayrılır. <p/>Hesaplamak için *minimum* alt ağ boyutu: `(number of nodes) + (number of nodes * pods per node)` <p/>Örneğin, 50 düğümlü bir küme: `(50) + (50 * 30) = 1,550` (/ 21 veya daha büyük) |
+| Alt ağ | Düğümler, pod'ların ve kümenizde sağlanan tüm Kubernetes ile Azure kaynaklarını tutabilecek kadar büyük olmalıdır. Örneğin, bir iç Azure yük dengeleyici dağıtırsanız, Küme alt ağından değil genel IP'ler, ön uç IP'ler ayrılır. <p/>Hesaplamak için *minimum* alt ağ boyutu: `(number of nodes) + (number of nodes * maximum pods per node that you configure)` <p/>Örneğin, 50 düğümlü bir küme: `(50) + (50 * 30 (default)) = 1,550` (/ 21 veya daha büyük)<p>Kümenizi oluştururken pod'ların düğüm başına en fazla belirtmezseniz, pod'ların düğüm başına en fazla sayısını kümesine *30*. IP adresleri gerekli en düşük sayısı bu değere göre belirlenir. En düşük IP adresi gereksinimlerinize göre farklı bir maksimum değer hesaplamak olup [pod'ların düğüm başına en fazla sayısını yapılandırmak nasıl](#configure-maximum---new-clusters) kümenizi dağıttığınızda bu değeri ayarlamak için. |
 | Kubernetes hizmeti adres aralığı | Bu aralık herhangi bir ağ öğe tarafından kullanılan veya bu sanal ağa bağlı. Hizmeti adresi CIDR /12 küçük olmalıdır. |
 | Kubernetes DNS hizmeti IP adresi | Kubernetes içinde IP adresi (kube-dns) Küme hizmetini bulma tarafından kullanılan adres aralığı hizmeti. |
 | Docker köprü adresi | IP adresi (CIDR gösteriminde) Docker köprü düğümlerinde IP adresi kullanılır. Varsayılan değer 172.17.0.1/16. |
 
 ## <a name="maximum-pods-per-node"></a>Düğüm başına en fazla pod'ları
 
-Pod'ların bir AKS kümesindeki düğüm başına varsayılan en büyük sayısını temel ve Gelişmiş Ağ ve küme dağıtım yöntemi arasında değişir.
+Pod'ların bir AKS kümesindeki düğüm başına en fazla sayısını 110 ' dir. *Varsayılan* pod'ların düğüm başına en fazla sayısını temel ve Gelişmiş Ağ ve küme dağıtım yöntemi arasında farklılık gösterir.
 
-| Dağıtım yöntemi | Temel | Gelişmiş | Dağıtım sırasında yapılandırılabilir |
+| Dağıtım yöntemi | Temel varsayılan | Gelişmiş varsayılan | Dağıtım sırasında yapılandırılabilir |
 | -- | :--: | :--: | -- |
 | Azure CLI | 110 | 30 | Evet (en fazla 110) |
 | Resource Manager şablonu | 110 | 30 | Evet (en fazla 110) |

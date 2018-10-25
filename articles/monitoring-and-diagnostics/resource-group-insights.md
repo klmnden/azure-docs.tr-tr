@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 09/19/2018
 ms.reviewer: mbullwin
 ms.author: daviste
-ms.openlocfilehash: 7e0a68efc93d0f907edfb38dbc548ac95a35b3e1
-ms.sourcegitcommit: 06724c499837ba342c81f4d349ec0ce4f2dfd6d6
+ms.openlocfilehash: 4b24ab406cc9cdbc3ce03ee203ec034843d5630a
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46465818"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49986432"
 ---
 # <a name="monitor-resource-groups-with-azure-monitor-preview"></a>Kaynak grupları, Azure İzleyici (Önizleme) ile izleme
 
@@ -64,7 +64,7 @@ Uygulamanızın ne etmişsinizdir yavaş çalışıyor veya kullanıcılar hata 
 
 Çoğu kaynak türleri, Azure İzleyici çalışma galeri şablonları açılır. Oluşturduğunuz her bir çalışma kitabının kaydedilmiş, ekibinizle paylaşılan ve gelecekte benzer sorunları tanılamak için yeniden kullanılan özelleştirilebilir.
 
-### <a name="investigate-failures"></a>Hataları araştır
+### <a name="investigate-failures"></a>Hataları Araştır
 
 Hataları sekme seçimine test etmek için **hataları** altında **Araştır** sol menüdeki.
 
@@ -100,7 +100,7 @@ Bu tablo görselleştirmesine yönlendiren temel alınan Log Analytics sorgusu o
 
 Sorguyu doğrudan değiştirebilirsiniz. Referans olarak kullanın ve bundan kendi özel parametreli çalışma kitabı tasarlarken ödünç alın.
 
-### <a name="investigate-performance"></a>Performansı araştır
+### <a name="investigate-performance"></a>Performansını araştırın
 
 Çalışma kitaplarının kendi galeri performans sunar. App Service için önceden oluşturulmuş uygulama performansını çalışma kitabı aşağıdaki görünümü sunar:
 
@@ -113,7 +113,12 @@ Bu durumda, düzen seçerseniz bu görselleştirmeler kümesini Azure İzleyici 
 ## <a name="troubleshooting"></a>Sorun giderme
 
 ### <a name="enabling-access-to-alerts"></a>Uyarılar erişimini etkinleştirme
-Kaynak grupları için Azure İzleyici uyarı durumu, kaynak grubundaki kaynakları erişmek için belirli izinler gerekiyor. Uyarılar yüklenirken bir hata iletisi görürseniz, yeterli izinlere sahip değilsiniz. Yöneticinizden size **sahibi** veya **katkıda bulunan** rolü için kaynak grubunu içeren aboneliği.
+
+Kaynak gruplar için Azure İzleyici'de uyarıları görmek için birisi bu aboneliğin sahibi veya katkıda bulunan rolüne sahip herhangi bir kaynak grubu aboneliği için kaynak gruplar için Azure İzleyici açması gerekir. Bu Abonelikteki kaynak gruplarının tüm kaynak grupları için Azure İzleyici'de uyarıları görmek için okuma erişimi olan herkes olanak sağlar. Bir sahibi veya katkıda bulunan rolü varsa, birkaç dakika sonra bu sayfayı yenileyin.
+
+Kaynak grupları için Azure İzleyici uyarı durumu almak için Azure İzleyici uyarı yönetim sisteminde kullanır. Uyarılar Yönetimi varsayılan olarak her bir kaynak grubu ve abonelik için yapılandırılmamış ve sahibi veya katkıda bulunan rolüne sahip bir kişi tarafından yalnızca etkinleştirilebilir. Bu olabilir ya da etkin:
+* Azure İzleyici kaynak grupları için herhangi bir kaynak grubu aboneliği için açılıyor.
+* Veya tıklayarak aboneliğe giderek **kaynak sağlayıcıları**, ardından **kaydetmek için Alerts.Management**.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

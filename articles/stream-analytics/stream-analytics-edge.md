@@ -1,6 +1,6 @@
 ---
-title: Azure Stream Analytics olarak IOT kenarında (Önizleme)
-description: Azure Stream Analytics kenar işleri oluşturmak ve bunları Azure IOT kenar aygıtları runnning dağıtabilirsiniz.
+title: IOT Edge (Önizleme) üzerinde Azure Stream Analytics
+description: Edge işleri, Azure Stream Analytics'te oluşturmak ve bunları Azure IOT Edge cihazları runnning için dağıtabilirsiniz.
 services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
@@ -9,114 +9,114 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/16/2017
-ms.openlocfilehash: 5ce0420dde5bf232fe8067a3b14814f14380602e
-ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
+ms.openlocfilehash: 73b594aaabd814108dfce813b53a4ea865336e63
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34802536"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49985072"
 ---
-# <a name="azure-stream-analytics-on-iot-edge-preview"></a>Azure Stream Analytics olarak IOT kenarında (Önizleme)
+# <a name="azure-stream-analytics-on-iot-edge-preview"></a>IOT Edge (Önizleme) üzerinde Azure Stream Analytics
 
 > [!IMPORTANT]
-> Bu işlevselliği Önizleme aşamasındadır ve üretimde kullanım için önerilmez.
+> Bu işlevi Önizleme aşamasındadır ve üretim amaçlı kullanım için önerilmez.
  
-Azure Stream Analytics (ASA) olarak IOT kenarında böylece cihaz tarafından oluşturulan verilerin tam değerini kilidini açabilir yakın gerçek zamanlı analitik Intelligence yakın IOT cihazlara dağıtmak için geliştiricilere güçlendirir. Azure Stream Analytics, düşük gecikme süresi, dayanıklılık, bant genişliği ve uyumluluk verimli kullanımı için tasarlanmıştır. Kuruluşların şimdi Denetim mantığı endüstriyel işlemleri yakın dağıtın ve bulutta yapılan büyük veri analizi tamamlar.  
+IOT Edge üzerinde Azure Stream Analytics (ASA), böylece cihaz tarafından üretilen verilerin tüm değerini açığa çıkarabilirsiniz yakın neredeyse gerçek zamanlı analitik zekayı IOT cihazlarına dağıtmak için geliştiricilerin güçlendirir. Azure Stream Analytics, düşük gecikme süresi, dayanıklılık, bant genişliği ve uyumluluk verimli kullanımı için tasarlanmıştır. Kuruluşlar artık endüstriyel işlemler yakın Denetim mantığı dağıtabilir ve bulutta yapılan büyük veri analizi tamamlar.  
 
-Azure Stream Analytics IOT kenar üzerinde çalışan içinde [Azure IOT kenar](https://azure.microsoft.com/campaigns/iot-edge/) framework. İş içinde ASA oluşturulduktan sonra dağıtın ve ASA işleri IOT hub'ı kullanarak yönetin. Bu özellik önizlemede. Sorularınız veya geri bildirim varsa, kullanabileceğiniz [Bu anket](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR2czagZ-i_9Cg6NhAZlH9ypUMjNEM0RDVU9CVTBQWDdYTlk0UDNTTFdUTC4u) ürün ekibine başvurun. 
+IOT Edge üzerinde Azure Stream Analytics, çalışan içinde [Azure IOT Edge](https://azure.microsoft.com/campaigns/iot-edge/) framework. İçinde ASA işi oluşturulduktan sonra dağıtabilir ve ASA işleri, IOT hub'ı kullanarak yönetin. Bu özellik önizlemede. Tüm sorularınız veya Geri bildiriminiz varsa, kullanabileceğiniz [bu anketi](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR2czagZ-i_9Cg6NhAZlH9ypUMjNEM0RDVU9CVTBQWDdYTlk0UDNTTFdUTC4u) ürün ekibine başvurun. 
 
 ## <a name="scenarios"></a>Senaryolar
 ![Üst düzey diyagramı](media/stream-analytics-edge/ASAedge_highlevel.png)
 
-* **Düşük gecikme süreli komut ve Denetim**: Örneğin, güvenlik sistemleri üretim işletimsel veri son derece düşük gecikme süresine sahip yanıtlaması gerekir. IOT Kenar çubuğunda ASA ile verileri yakın gerçek zamanlı ve bir makine durdurmak veya uyarıları tetiklemek için anormallikleri algıladığınızda komutları vermek algılayıcı çözümleyebilirsiniz.
-*   **Bulut bağlantı sınırlı**: Uzak araştırma ekipman, bağlı tekneler veya offshore ayrıntılara, gibi görev kritik sistemler gereksinim çözümlemek ve bulut bağlantı aralıklı olduğunda bile veri tepki vermek. ASA, akış mantıksal ağ bağlantısı bağımsız olarak çalışır ve hangi buluta başka bir işleme veya depolama için gönderdiğiniz seçebilirsiniz.
-* **Sınırlı bant genişliği**: veri birimi jet motoru tarafından üretilen veya bağlı araba veri filtre veya gereken önceden işlenen buluta göndermeden önce çok büyük olabilir. ASA kullanarak, filtre veya buluta gönderilmesi gereken veri toplama.
-* **Uyumluluk**: Mevzuat uyumluluğu, yerel olarak anonim veya buluta gönderilmeden önce bir araya getirilir için bazı veriler gerektirebilir.
+* **Düşük gecikme süreli komut ve Denetim**: Örneğin, güvenlik sistemleri üretim işlem verilerine son derece düşük gecikme süresi ile yanıt vermelidir. IOT Edge üzerinde ASA ile algılayıcı verileri neredeyse gerçek zamanlı ve bir makine durdurmak veya uyarıları tetiklemek için anomalileri algılayın, komutları sorunu çözümleyebilirsiniz.
+*   **Bulut bağlantısının sınırlı**: çözümlemek ve bulut bağlantısı kesintili olduğunda bile veri tepki vermek uzaktan araştırma donanım, bağlı tekneler veya yurtdışında incelediğinizde gibi görev açısından kritik sistemleri gerekir. ASA, akış mantığınızı ağ bağlantısı bağımsız olarak çalışır ve hangi buluta daha fazla işleme veya depolama için gönderdiğiniz seçebilirsiniz.
+* **Sınırlı bant genişliği**: veri hacmi jet motoru tarafından üretilen ya da bağlı arabalar veri filtre veya gereken ön işlemden buluta göndermeden önce çok büyük olabilir. ASA kullanarak filtreleyin veya buluta gönderilmesi gereken veri toplama.
+* **Uyumluluk**: yönetmeliklere uygunluk, bazı verileri yerel olarak anonim hale getirilen veya buluta gönderilmeden önce toplanan gerektirebilir.
 
-## <a name="edge-jobs-in-azure-stream-analytics"></a>Azure Stream Analytics kenar işler
-### <a name="what-is-an-edge-job"></a>Bir "kenar" işi nedir?
+## <a name="edge-jobs-in-azure-stream-analytics"></a>Azure Stream Analytics Edge işi
+### <a name="what-is-an-edge-job"></a>"Edge" işi nedir?
 
-ASA kenar işleri çalıştırma modüllerle içinde [Azure IOT kenar çalışma zamanı](https://docs.microsoft.com/azure/iot-edge/how-iot-edge-works). İki bölümden oluşan bunlar:
-1.  İş tanımı için sorumlu olan bir bulut bölümü: kullanıcılar, bulutta girişleri, çıktı, sorgu ve diğer ayarları (bozuk olayları, vb.) tanımlayın.
-2.  Yerel olarak çalışan IOT kenar modül ASA. ASA karmaşık olay işleme altyapısı içerir ve iş tanımı buluttan alır. 
+Edge ASA işleri çalıştırma modüllerde olarak [Azure IOT Edge çalışma zamanı](https://docs.microsoft.com/azure/iot-edge/how-iot-edge-works). İki bölümden oluşan bunlar:
+1.  İş tanımı için sorumlu olduğu bir bulut bölümü: kullanıcılar, bulutta giriş, çıkış, sorgu ve diğer ayarları (sıralama dışı olaylar, vb.) tanımlayın.
+2.  ASA yerel olarak çalışan IOT Edge modülü. Bu, ASA karmaşık olay işleme altyapısı içerir ve iş tanımını buluttan alır. 
 
-ASA kenar işleri aygıtlara dağıtmak için IOT hub'ı kullanır. Hakkında daha fazla bilgi [IOT kenar dağıtım görülme burada](https://docs.microsoft.com/azure/iot-edge/module-deployment-monitoring).
+ASA, edge işleri aygıtlara dağıtmak için IOT hub'ı kullanır. Hakkında daha fazla bilgi [IOT Edge dağıtımı burada görülebilir](https://docs.microsoft.com/azure/iot-edge/module-deployment-monitoring).
 
 ![Edge işi](media/stream-analytics-edge/ASAedge_job.png)
 
 
 ### <a name="installation-instructions"></a>Yükleme yönergeleri
-Üst düzey adımlar aşağıdaki tabloda açıklanmıştır. Daha fazla ayrıntı aşağıdaki bölümlerde verilmiştir.
+Üst düzey adımlar aşağıdaki tabloda açıklanmıştır. Daha fazla ayrıntı, aşağıdaki bölümlerde verilmiştir.
 |      |Adım   | Yerleştir     | Notlar   |
 | ---   | ---   | ---       |  ---      |
-| 1   | **Depolama kapsayıcısı oluşturma**   | Azure portalına       | Depolama kapsayıcıları, burada bunlar IOT cihazlarınızı tarafından erişilip iş tanımınızı kaydetmek için kullanılır. <br>  Var olan tüm depolama kapsayıcısını yeniden kullanabilirsiniz.     |
-| 2   | **Bir ASA kenar işi oluşturma**   | Azure portalına      |  Select yeni bir proje oluşturmak **kenar** olarak **barındırma ortamı**. <br> Bu işleri oluşturulan ve yönetilen buluttan ve kendi IOT sınır cihazları üzerinde çalıştırın.     |
-| 3   | **IOT kenar ortamınıza aygıtlarınızın Kurulumu**   | Cihazlar      | Yönergeler için [Windows](https://docs.microsoft.com/azure/iot-edge/quickstart) veya [Linux](https://docs.microsoft.com/azure/iot-edge/quickstart-linux).          |
-| 4   | **ASA IOT kenar aygıtlarınızın dağıtma**   | Azure portalına      |  ASA iş tanımı daha önce oluşturduğunuz depolama kapsayıcısı dışarı aktarılır.       |
-İzleyebileceğiniz [Bu adım adım öğretici](https://docs.microsoft.com/azure/iot-edge/tutorial-deploy-stream-analytics) ilk ASA işinizde IOT kenar dağıtmak için. Aşağıdaki videoda bir IOT sınır cihazı bir Stream Analytics işini çalıştırmak için işlem anlamanıza yardımcı olması:  
+| 1   | **Bir depolama kapsayıcısı oluşturma**   | Azure portal       | Depolama kapsayıcıları, IOT cihazlarınızı, burada erişilebilmelerini iş tanımınızı kaydetmek için kullanılır. <br>  Herhangi bir mevcut depolama kapsayıcısını yeniden kullanabilirsiniz.     |
+| 2   | **ASA edge işi oluşturma**   | Azure portal      |  Select yeni bir iş oluşturma **Edge** olarak **barındırma ortamı**. <br> Bu işlerin buluttan oluşturulan ve yönetilen ve kendi IOT Edge cihazlarında çalıştırın.     |
+| 3   | **IOT Edge ortamınızda aygıtlarınızın Kurulumu**   | Cihazlar      | Yönergeler için [Windows](https://docs.microsoft.com/azure/iot-edge/quickstart) veya [Linux](https://docs.microsoft.com/azure/iot-edge/quickstart-linux).          |
+| 4   | **Aygıtlarınızın IOT Edge üzerinde ASA dağıtma**   | Azure portal      |  ASA işi tanımı, daha önce oluşturduğunuz depolama kapsayıcısına dışarı aktarılır.       |
+İzleyebileceğiniz [Bu adım adım öğretici](https://docs.microsoft.com/azure/iot-edge/tutorial-deploy-stream-analytics) ilk IOT Edge üzerinde ASA işiniz dağıtılacak. Aşağıdaki videoda bir Stream Analytics işi bir IOT edge Cihazınızda çalıştırmak üzere işlemlerini anlamanıza yardımcı olması:  
 
 
 > [!VIDEO https://channel9.msdn.com/Events/Connect/2017/T157/player]
 
-#### <a name="create-a-storage-container"></a>Depolama kapsayıcısı oluşturma
-Depolama kapsayıcısı derlenmiş ASA sorgu ve iş yapılandırmasını dışarı aktarmak için gereklidir. ASA Docker görüntüsünü belirli sorgunuzu ile yapılandırmak için kullanılır. 
-1. İzleyin [bu yönergeleri](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account) Azure portalından bir depolama hesabı oluşturmak için. ASA ile bu hesabı kullanmak için tüm diğer varsayılan seçenekleri kullanmaya devam edebilir.
-2. Yeni oluşturulan depolama hesabında blob depolama kapsayıcısını oluşturun:
-    1. Tıklayın **BLOB'lar**, ardından **+ kapsayıcı**. 
-    2. Bir ad girin ve kapsayıcı olarak tutun **özel**.
+#### <a name="create-a-storage-container"></a>Bir depolama kapsayıcısı oluşturma
+Bir depolama kapsayıcısı derlenmiş ASA sorgu ve işlem yapılandırmasını dışarı aktarmak için gereklidir. ASA Docker görüntüsü, belirli bir sorgu ile yapılandırmak için kullanılır. 
+1. İzleyin [bu yönergeleri](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account) Azure portalından bir depolama hesabı oluşturmak için. Tüm varsayılan seçenekleri ile ASA bu hesabı kullanmak için tutabilirsiniz.
+2. Yeni oluşturulan depolama hesabında blob depolama kapsayıcısı oluşturun:
+    1. Tıklayarak **Blobları**, ardından **+ kapsayıcı**. 
+    2. Bir ad girin ve kapsayıcı olarak tutmak **özel**.
 
-#### <a name="create-an-asa-edge-job"></a>Bir ASA kenar işi oluşturma
+#### <a name="create-an-asa-edge-job"></a>ASA Edge işi oluşturma
 > [!Note]
-> Bu öğreticide Azure portalını kullanarak ASA iş oluşturma odaklanır. Ayrıca [ASA kenar işi oluşturmak için Visual Studio eklentisi kullanma](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-tools-for-visual-studio-edge-jobs)
+> Bu öğreticide Azure portalını kullanarak ASA işi oluşturma odaklanır. Ayrıca [ASA Edge işi oluşturmak için Visual Studio eklentisini kullanma](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-tools-for-visual-studio-edge-jobs)
 
-1. Azure Portal'dan yeni "Stream Analytics işi" oluşturun. [Burada yeni bir ASA işi oluşturmak için doğrudan bağlantı](https://ms.portal.azure.com/#create/Microsoft.StreamAnalyticsJob).
+1. Azure portalında yeni bir "Stream Analytics işi" oluşturun. [Burada yeni bir ASA işi oluşturmak için doğrudan bağlantı](https://ms.portal.azure.com/#create/Microsoft.StreamAnalyticsJob).
 
-2. Oluşturma ekranında şunları seçin **kenar** olarak **barındırma ortamı** (aşağıdaki resme bakın) ![proje oluşturma](media/stream-analytics-edge/ASAEdge_create.png)
+2. Oluşturma ekranında seçin **Edge** olarak **barındırma ortamı** (aşağıdaki resme bakın) ![proje oluşturma](media/stream-analytics-edge/ASAEdge_create.png)
 3. İş tanımı
-    1. **Giriş Stream(s) tanımlamak**. Bir veya birkaç giriş akışları işinizi tanımlayın.
-    2. Başvuru verileri (isteğe bağlı) tanımlayın.
-    3. **Çıktı Stream(s) tanımlamak**. Bir veya birkaç çıkış akışları işinizi tanımlayın. 
-    4. **Sorgu tanımlamak**. ASA sorgu satır içi Düzenleyicisi'ni kullanarak bulutta tanımlayın. Derleyici ASA köşesi etkin sözdizimi otomatik olarak denetler. Örnek verileri karşıya yükleyerek, sorgunuzu test edebilirsiniz. 
-4. Depolama kapsayıcısı bilgilerini kümesinde **IOT Edge ayarları** menüsü.
+    1. **Giriş pencereler tanımlamak**. İşiniz için bir veya birden çok giriş akışları tanımlayın.
+    2. (İsteğe bağlı) başvuru verileri tanımlar.
+    3. **Çıkış pencereler tanımlamak**. İşiniz için bir veya birden çok çıkış akışları tanımlayın. 
+    4. **Sorgu tanımlama**. ASA sorgu değiştirici kullanarak bulutta tanımlayın. Derleyici, ASA edge için etkin söz dizimi otomatik olarak denetler. Örnek verileri karşıya yükleyerek, sorgunuzu test edebilirsiniz. 
+4. Depolama kapsayıcısı bilgi kümesinde **IOT Edge ayarları** menüsü.
 5. İsteğe bağlı ayarlar
-    1. **Olay sıralama**. Portalda sipariş ilkesi yapılandırabilirsiniz. Belgeleri kullanılabilir [burada](https://msdn.microsoft.com/library/azure/mt674682.aspx?f=255&MSPPError=-2147217396).
+    1. **Olay sıralama**. Portalda, sırası ilkesi yapılandırabilirsiniz. Belgelere [burada](https://msdn.microsoft.com/library/azure/mt674682.aspx?f=255&MSPPError=-2147217396).
     2. **Yerel ayar**. İnternalization biçimini ayarlayın.
 
 
 
 > [!Note]
-> Bir dağıtım oluşturduğunuzda, ASA iş tanımı için bir depolama kapsayıcısı dışa aktarır. Bu iş tanımı aynı kalır bir dağıtım süresi boyunca. Sonuç olarak, kenar üzerinde çalışan bir işi güncelleştirmek istiyorsanız, ASA işinde düzenleyin ve sonra yeni bir dağıtım IOT hub'ı oluşturmak gerekir.
+> Bir dağıtım oluşturduğunuzda, ASA bir depolama kapsayıcısına iş tanımını dışa aktarır. Bu iş tanımı aynı kalır bir dağıtım süresi boyunca. Sonuç olarak edge üzerinde çalışan bir iş güncelleştirmek istiyorsanız, ASA işi düzenleyin ve ardından IOT Hub'ında yeni bir dağıtım yaratmanız gerekir.
 
 
-#### <a name="set-up-your-iot-edge-environment-on-your-devices"></a>IOT kenar ortamınıza aygıtlarınızın ayarlama
-Azure IOT kenar çalıştıran cihazlarda kenar işleri dağıtılabilir.
-Bunun için bu adımları gerçekleştirmeniz gerekir:
-- IOT hub'ı oluşturun.
-- Docker ve IOT kenar sınır aygıtlarınızda yükleyin.
-- Cihaz olarak ayarlamak **IOT sınır cihazları** IOT hub.
+#### <a name="set-up-your-iot-edge-environment-on-your-devices"></a>IOT Edge ortamınızı aygıtlarınızın ayarlama
+Edge işleri, Azure IOT Edge çalıştıran cihazlara dağıtılabilir.
+Bunun için bu adımları izlemeniz gerekir:
+- IOT Hub oluşturun.
+- Docker ve IOT Edge çalışma zamanı edge cihazlarınıza yükleyebilir.
+- Cihazlarınızı olarak ayarlamak **IOT Edge cihazları** IOT hub'ında.
 
-Bu adımları IOT kenar belgelerinde açıklanan [Windows](https://docs.microsoft.com/azure/iot-edge/quickstart) veya [Linux](https://docs.microsoft.com/azure/iot-edge/quickstart-linux).  
+IOT Edge belgeleri için bu adımları açıklanan [Windows](https://docs.microsoft.com/azure/iot-edge/quickstart) veya [Linux](https://docs.microsoft.com/azure/iot-edge/quickstart-linux).  
 
 
-####  <a name="deployment-asa-on-your-iot-edge-devices"></a>IOT kenar aygıtlarınızın ASA dağıtımı
-##### <a name="add-asa-to-your-deployment"></a>Dağıtımınız için ASA ekleme
-- Azure portalında, IOT hub'ı açın ve gidin **IOT kenar** ve hedeflemek için bu dağıtım için istediğiniz cihaza tıklayın.
-- Seçin **ayarlamak modülleri**seçeneğini belirleyip **+ Ekle** ve **Azure Stream Analytics Modülü**.
-- Abonelik ve oluşturduğunuz ASA kenar işi seçin. Kaydet'i tıklatın.
+####  <a name="deployment-asa-on-your-iot-edge-devices"></a>Aygıtlarınızın IOT Edge üzerinde ASA dağıtım
+##### <a name="add-asa-to-your-deployment"></a>ASA dağıtıma ekleme
+- Azure portalında, IOT hub'ı açın ve gidin **IOT Edge** ve bu dağıtım için hedeflemek istediğiniz cihaza tıklayın.
+- Seçin **modülleri ayarlama**, ardından **+ Ekle** ve **Azure Stream Analytics Modülü**.
+- Abonelik ve oluşturduğunuz ASA Edge işi seçin. Kaydet’e tıklayın.
 ![Dağıtımınızda ASA Modül Ekle](media/stream-analytics-edge/set_module.png)
 
 
 > [!Note]
-> Bu adım sırasında ASA (zaten mevcut değilse) depolama kapsayıcısında "EdgeJobs" adlı bir klasör oluşturur. Her dağıtım için yeni bir alt "EdgeJobs" klasöründe oluşturulur.
-> İşinizi kenar aygıtlara dağıtmak için ASA iş tanımı dosyası için bir paylaşılan erişim imzası (SAS) oluşturur. SAS anahtarını cihaz çifti kullanarak IOT sınır cihazları güvenli bir şekilde aktarılır. Bu anahtar kullanım süresi sonu oluşturulduktan gününden üç yıl sayısıdır.
+> Bu adım sırasında ASA (Bunu zaten mevcut değilse) depolama kapsayıcısında "EdgeJobs" adlı bir klasör oluşturur. Her bir dağıtım için "EdgeJobs" klasöründe yeni bir alt klasör oluşturulur.
+> İşinizi uç cihazlarına dağıtmak için ASA işi tanım dosyasını bir paylaşılan erişim imzası (SAS) oluşturur. SAS anahtarını, cihaz ikizi kullanarak IOT Edge cihazları güvenli bir şekilde aktarılır. Bu anahtarı süre sonu oluşturulduğu günden itibaren üç yıldır.
 
 
-IOT kenar dağıtımları hakkında daha fazla bilgi için bkz: [bu sayfayı](https://docs.microsoft.com/azure/iot-edge/module-deployment-monitoring).
+IOT Edge dağıtımları hakkında daha fazla bilgi için bkz [bu sayfayı](https://docs.microsoft.com/azure/iot-edge/module-deployment-monitoring).
 
 
-##### <a name="configure-routes"></a>Yolları yapılandırın
-IOT kenar bildirimli olarak modülleri arasında ve modülleri ve IOT hub'ı arasında iletileri yönlendirmek için bir yol sağlar. Tam sözdizimini açıklanan [burada](https://docs.microsoft.com/azure/iot-edge/module-composition).
-Girişleri ve çıkışları ASA işinde oluşturulan adlarını yönlendirme için uç noktalar olarak kullanılabilir.  
+##### <a name="configure-routes"></a>Yolları Yapılandır
+IOT Edge modülleri ve IOT hub'ı arasında ve modüller arasında iletileri bildirimli olarak yönlendirmek için bir yol sağlar. Tam söz dizimi açıklanmıştır [burada](https://docs.microsoft.com/azure/iot-edge/module-composition).
+Giriş ve çıkışları ASA işi oluşturulan adlarını yönlendirme için uç noktalar olarak kullanılabilir.  
 
 ###### <a name="example"></a>Örnek
 ```
@@ -129,26 +129,26 @@ Girişleri ve çıkışları ASA işinde oluşturulan adlarını yönlendirme i�
 }   
 
 ```
-Bu örnek için aşağıdaki resimde açıklanan senaryo rotaları gösterir. Adlı bir kenar işi içeren "**ASA**", adlandırılmış bir girişi "**sıcaklık**"ve adlı bir çıktı"**uyarı**".
+Bu örnek aşağıdaki resimde açıklanan senaryo için yollar gösterir. Edge işi adlı içerdiği "**ASA**", adlı bir giriş ile "**sıcaklık**"ve adlı bir çıktı"**uyarı**".
 ![Yönlendirme örneği](media/stream-analytics-edge/RoutingExample.png)
 
-Bu örnekte aşağıdaki rotaların tanımlar:
+Bu örnek aşağıdaki yolları tanımlar:
 - Her ileti **tempSensor** adlı modül gönderilen **ASA** adlı giriş **sıcaklık**,
-- Tüm çıkışları **ASA** modülü bu (upstream$), cihaza bağlı IOT hub'ına gönderilir
-- Tüm çıkışları **ASA** modülü gönderilen **denetim** uç noktasını **tempSensor**.
+- Tüm çıkışları **ASA** modülü, bu cihazı (Yukarı Akış$), bağlı IOT hub'ına gönderilir
+- Tüm çıkışları **ASA** modülü gönderilen **denetimi** uç noktasını **tempSensor**.
 
 
 ## <a name="technical-information"></a>Teknik bilgiler
-### <a name="current-limitations-for-edge-jobs-compared-to-cloud-jobs"></a>Bulut işlerini karşılaştırıldığında kenar işleri için geçerli sınırlamalar
-Hedef işleri kenar ve işleri bulut eşlik arasında olmalıdır. Çoğu SQL sorgu dil özellikleri zaten desteklenir.
-Ancak aşağıdaki özellikleri kenar işleri henüz desteklenmez:
+### <a name="current-limitations-for-edge-jobs-compared-to-cloud-jobs"></a>Edge işleri bulut işlerine kıyasla geçerli sınırlamalar
+İşleri kenar ve işleri bulut eşlik arasında sahip olmaktır. Çoğu SQL sorgu dil özellikleri zaten desteklenir.
+Ancak aşağıdaki özellikleri, edge işleri için henüz desteklenmiyor:
 * Kullanıcı tanımlı işlevler (UDF) ve kullanıcı tanımlı toplamlarda (UDA).
 * Azure ML işlevleri.
-* Birden fazla 14 toplamalar tek bir adımda kullanma.
+* Tek bir adımda 14'ten fazla toplamaları kullanma.
 * Giriş/Çıkış AVRO biçimi. Şu anda yalnızca CSV ve JSON desteklenir.
 * Aşağıdaki SQL işleçleri:
-    * AnomalyDetection
-    * Jeo-uzamsal işleçler:
+    * Anomalydetectıon
+    * Jeo-uzamsal işleçleri:
         * CreatePoint
         * CreatePolygon
         * CreateLineString
@@ -156,50 +156,50 @@ Ancak aşağıdaki özellikleri kenar işleri henüz desteklenmez:
         * ST_WITHIN
         * ST_OVERLAPS
         * ST_INTERSECTS
-    * BÖLÜM
+    * BÖLÜMÜ
     * GetMetadataPropertyValue
 
 
 ### <a name="runtime-and-hardware-requirements"></a>Çalışma zamanı ve donanım gereksinimleri
-ASA IOT kenarına çalıştırmak için çalıştırabilirsiniz aygıtları gerekir [Azure IOT kenar](https://azure.microsoft.com/campaigns/iot-edge/). 
+IOT Edge üzerinde ASA çalıştırmak için çalıştırmak üzere cihazları gerekir [Azure IOT Edge](https://azure.microsoft.com/campaigns/iot-edge/). 
 
-ASA ve Azure IOT kullanmak kenar **Docker** kapsayıcıları (Windows, Linux) birden çok ana bilgisayar işletim sistemlerinde çalışan taşınabilir bir çözüm sağlar.
+ASA ve Azure IOT Edge'i kullanma **Docker** kapsayıcıları (Windows, Linux) birden çok konak işletim sistemlerinde çalışan taşınabilir bir çözüm sağlamak için.
 
-ASA IOT Kenar çubuğunda x86 64 veya Azure Resource Manager mimarileri üzerinde çalışan Windows ve Linux görüntü olarak kullanılabilir hale getirilir. 
+IOT Edge üzerinde ASA, x86 64 veya Azure Resource Manager mimarileri üzerinde çalışan Windows ve Linux görüntüleri olarak kullanılabilir. 
 
 
 ### <a name="input-and-output"></a>Giriş ve çıkış
 #### <a name="input-and-output-streams"></a>Giriş ve çıkış akışları
-ASA kenar işleri IOT kenar cihazlarda çalışan diğer modüllerden girişleri ve çıkışları elde edebilirsiniz. Gelen ve belirli modüller bağlanmak için dağıtım sırasında yönlendirme yapılandırması ayarlayabilirsiniz. Daha fazla bilgi üzerinde açıklanan [IOT kenar modülünün birleşim belgelerine](https://docs.microsoft.com/azure/iot-edge/module-composition).
+ASA Edge işleri, giriş ve çıkışları, IOT Edge cihaz üzerinde çalışan diğer modüllerden alabilirsiniz. Gelen ve belirli modüller bağlanmak için dağıtım sırasında yönlendirme yapılandırması ayarlayabilirsiniz. Daha fazla bilgi açıklanır [IOT Edge modülü oluşturma belgeleri](https://docs.microsoft.com/azure/iot-edge/module-composition).
 
-Giriş ve çıkış için CSV ve JSON biçimleri desteklenir.
+Giriş ve çıkışları için CSV ve JSON biçimleri desteklenir.
 
-Her giriş ve çıkış akışına ASA işinizi oluşturmak için karşılık gelen bir uç nokta dağıtılan modülünüzün oluşturulur. Bu uç noktalar, dağıtımınızın yollar kullanılabilir.
+Her giriş ve çıkış akışına, ASA işi oluşturmak için dağıtılan modülünüzde karşılık gelen bir uç noktası oluşturulur. Bu uç noktaları, dağıtım yolları kullanılabilir.
 
-AT var, yalnızca akış girişi ve desteklenen akış çıktı türleri Edge Hub. Giriş destekler başvurusu dosya türü başvuru. Diğer çıkışlar bulut işi aşağı kullanılarak erişilebilir. Örneğin, Edge'de barındırılan bir Stream Analytics işi çıkış IOT Hub'ına sonra gönderebilir kenar Hub'ına çıkış gönderir. IOT Hub ve çıktı girişten Power BI veya başka bir çıktı türü ile bir ikinci barındırılan bulut Azure akış analizi işi'ni kullanabilirsiniz.
+Akış girişi AT var, yalnızca desteklenen ve Edge hub'ı stream çıktı türleri şunlardır. Başvuru girişi başvuru destekleyen dosya türü. Bulut işi aşağı yönde kullanarak diğer çıkışlar erişilebilir. Örneğin, Edge'de barındırılan bir Stream Analytics işi, daha sonra çıktı IOT Hub'ına gönderebilirsiniz Edge Hub'ına çıktısını gönderir. Power BI veya başka bir çıkış türü için IOT Hub ve çıkış girdilere sahip ikinci bir bulutta barındırılan Azure Stream Analytics işi'ni kullanabilirsiniz.
 
 
 
 ##### <a name="reference-data"></a>Başvuru verileri
-Başvuru verileri (arama tablosu olarak da bilinir) statik veya yavaş doğası gereği değiştirme sınırlı bir veri kümesi ' dir. Bir arama gerçekleştirmek ya da veri akışı ile ilişkilendirmek için kullanılır. Yapmak için Azure Stream Analytics işiniz başvuru verilerinde kullanımı, genellikle kullanacağınız bir [başvuru veri birleştirme](https://msdn.microsoft.com/library/azure/dn949258.aspx) Sorgunuzdaki. Daha fazla bilgi için bkz: [ASA belgelerine başvuru verileri hakkında](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-use-reference-data).
+Başvuru verileri (arama tablosu olarak da bilinir) statik veya yavaş doğası gereği değiştirme sınırlı bir veri kümesi var. Bir arama gerçekleştirme ya da, veri akışı ile ilişkilendirmek için kullanılır. Yapmak için Azure Stream Analytics işinizi başvuru verilerinde kullanımı, genel olarak kullanacağınız bir [başvuru veri birleştirme](https://msdn.microsoft.com/library/azure/dn949258.aspx) sorgunuzda. Daha fazla bilgi için [başvuru verilerini ASA belgelerine](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-use-reference-data).
 
-Başvuru verileri IOT Kenar çubuğunda ASA kullanmak için aşağıdaki adımları izleyin: 
-1. İşiniz için yeni bir giriş oluştur
+IOT Edge üzerinde ASA için başvuru verilerini kullanması için bu adımları izleyin: 
+1. İşiniz için yeni bir girdi oluşturma
 2. Seçin **başvuru verileri** olarak **kaynak türü**.
-3. Dosya yolu ayarlayın. Dosya yolu olmalıdır bir **mutlak** cihazdaki dosya yolu ![başvuru veri oluşturma](media/stream-analytics-edge/ReferenceData.png)
-4. Etkinleştirme **paylaşılan sürücüleri** , Docker yapılandırmanızı ve emin olun sürücü dağıtımınıza başlamadan önce etkinleştirilir.
+3. Dosya yolunu ayarlayın. Dosya yolu olmalıdır bir **mutlak** cihazdaki dosya yolu ![başvuru veri oluşturma](media/stream-analytics-edge/ReferenceData.png)
+4. Etkinleştirme **paylaşılan sürücüleri** , Docker yapılandırmasını ve emin sürücü dağıtımınıza başlamadan önce etkinleştirilir.
 
-Daha fazla bilgi için bkz: [burada Docker için Windows belgelerine](https://docs.docker.com/docker-for-windows/#shared-drives).
+Daha fazla bilgi için [burada Docker için Windows belgelerine](https://docs.docker.com/docker-for-windows/#shared-drives).
 
 > [!Note]
-> Şu anda yalnızca yerel başvuru verileri desteklenir.
+> Şu anda yalnızca yerel başvuru verilerini desteklenir.
 
 
 
 
-## <a name="license-and-third-party-notices"></a>Lisans ve üçüncü taraf bildirimler
-* [Azure Stream Analytics IOT kenar Önizleme lisans üzerindeki](https://go.microsoft.com/fwlink/?linkid=862827). 
-* [Azure akış analizi için üçüncü taraf bildirim IOT kenar preview'daki](https://go.microsoft.com/fwlink/?linkid=862828).
+## <a name="license-and-third-party-notices"></a>Lisans ve üçüncü taraf bildirimleri
+* [Önizleme lisans IOT Edge üzerinde Azure Stream Analytics](https://go.microsoft.com/fwlink/?linkid=862827). 
+* [IOT Edge preview üzerinde Azure Stream Analytics için üçüncü taraf bildirimi](https://go.microsoft.com/fwlink/?linkid=862828).
 
 ## <a name="get-help"></a>Yardım alın
 Daha fazla yardım için deneyin [Azure Stream Analytics forumumuzu](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
@@ -207,15 +207,15 @@ Daha fazla yardım için deneyin [Azure Stream Analytics forumumuzu](https://soc
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* [Azure IOT kenar hakkında daha fazla bilgi](https://docs.microsoft.com/azure/iot-edge/how-iot-edge-works)
-* [ASA IOT kenar öğretici hakkında](https://docs.microsoft.com/azure/iot-edge/tutorial-deploy-stream-analytics)
-* [Bu Anketi kullanılarak ekibine geri bildirim gönderin](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR2czagZ-i_9Cg6NhAZlH9ypUMjNEM0RDVU9CVTBQWDdYTlk0UDNTTFdUTC4u) 
-* [Visual Studio Araçları'nı kullanarak Stream Analytics kenar işleri geliştirin](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-tools-for-visual-studio-edge-jobs)
+* [Azure IOT Edge hakkında daha fazla bilgi](https://docs.microsoft.com/azure/iot-edge/how-iot-edge-works)
+* [Öğretici IOT Edge üzerinde ASA](https://docs.microsoft.com/azure/iot-edge/tutorial-deploy-stream-analytics)
+* [Bu anketi kullanarak ekibine geri bildirim gönderin](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR2czagZ-i_9Cg6NhAZlH9ypUMjNEM0RDVU9CVTBQWDdYTlk0UDNTTFdUTC4u) 
+* [Visual Studio Araçları'nı kullanarak Stream Analytics Edge işlerini geliştirme](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-tools-for-visual-studio-edge-jobs)
 
 <!--Link references-->
 [stream.analytics.developer.guide]: ../stream-analytics-developer-guide.md
 [stream.analytics.scale.jobs]: stream-analytics-scale-jobs.md
 [stream.analytics.introduction]: stream-analytics-introduction.md
 [stream.analytics.get.started]: stream-analytics-real-time-fraud-detection.md
-[stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
-[stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
+[stream.analytics.query.language.reference]: https://go.microsoft.com/fwlink/?LinkID=513299
+[stream.analytics.rest.api.reference]: https://go.microsoft.com/fwlink/?LinkId=517301

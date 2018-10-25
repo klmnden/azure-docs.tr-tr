@@ -8,14 +8,14 @@ ms.service: cosmos-db
 ms.component: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: reference
-ms.date: 05/21/2018
+ms.date: 10/24/2018
 ms.author: maquaran
-ms.openlocfilehash: 553917a29b3564fff71d6ab994ec199891cbaae7
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: f09430aeb38e6762729167494a23096c7bc5ca85
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49409110"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50023960"
 ---
 # <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>.NET değişiklik akışı işlemci SDK: İndirme ve sürüm notları
 > [!div class="op_single_selector"]
@@ -43,11 +43,13 @@ ms.locfileid: "49409110"
 
 ### <a name="v2-builds"></a>v2 oluşturur.
 
+### <a name="a-name221221"></a><a name="2.2.1"/>2.2.1
+* Sabit Estimator hesaplama birden çok ana hesap ve yeni bir oturum belirteci biçimi.
+
 ### <a name="a-name220220"></a><a name="2.2.0"/>2.2.0
 * Bölümlenmiş kira koleksiyonları için destek eklendi. Bölüm anahtarı /id tanımlanması gerekir.
 * Küçük değişiklik: IChangeFeedDocumentClient arabirimi ve ChangeFeedDocumentClient sınıfı yöntemlerinin parametreleri RequestOptions ve CancellationToken içerecek şekilde değiştirildi. IChangeFeedDocumentClient noktasıdır DocumentClient tasarlamanız ve ona ek izleme yapmak için tüm çağrıları ıntercept örn değişiklik akışı işlemci ile kullanmak için belge istemcisinin özel uygulanışı sağlamak izin veren bir gelişmiş Genişletilebilirlik hata işleme , vs. Bu güncelleştirme ile IChangeFeedDocumentClient uygulayan kodu uygulamasında yeni parametreleri içerecek şekilde değiştirilmesi gerekir.
 * Küçük tanılama geliştirmeleri.
-
 
 ### <a name="a-name210210"></a><a name="2.1.0"/>2.1.0
 * Yeni API ile görev eklenen&lt;IReadOnlyList&lt;RemainingPartitionWork&gt; &gt; IRemainingWorkEstimator.GetEstimatedRemainingWorkPerPartitionAsync(). Bu, her bölüm için tahmin edilen iş almak için kullanılabilir.
@@ -140,6 +142,7 @@ Cosmos DB devre dışı bırakılan bir SDK'sını kullanarak yapılan tüm iste
 
 | Sürüm | Yayınlanma Tarihi | Sona erme tarihi |
 | --- | --- | --- |
+| [2.2.1](#2.2.1) |24 Ekim 2018 |--- |
 | [1.3.3](#1.3.3) |08 Mayıs 2018 |--- |
 | [1.3.2](#1.3.2) |18 Nisan 2018 |--- |
 | [1.3.1](#1.3.1) |13 Mart 2018 |--- |

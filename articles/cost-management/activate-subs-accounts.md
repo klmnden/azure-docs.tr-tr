@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: 304a52f5571790ea49587a5aeda433f003f0e0bd
-ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
+ms.openlocfilehash: a53ff5fdb256a46f42e7461bb46b6847d17ed230
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47423077"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49958756"
 ---
 # <a name="activate-azure-subscriptions-and-accounts-with-cloudyn"></a>Azure aboneliklerini ve hesaplarını Cloudyn ile etkinleştirme
 
@@ -64,7 +64,7 @@ Bir aboneliğe hesap güncelleştirme eklediğinizde, Cloudyn'e Azure verilerini
     2. Azure portalında **Azure Active Directory** seçeneğini belirleyin.
     3. Kiracı kimliğini almak için Azure AD kiracınızda **Özellikler**'i seçin.
     4. Dizin Kimliği GUID’ini kopyalayın. Bu değer kiracı kimliğinizdir.
-    Daha fazla bilgi için bkz. [Kiracı kimliğini alma](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-tenant-id).
+    Daha fazla bilgi için bkz. [Kiracı kimliğini alma](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-id).
 3. Gerekirse, Ücret Kimliğinizi seçin. Ücret kimliğinizi bilmiyorsanız, bulmak için aşağıdaki adımları kullanın.
     1. Azure portalının sağ üst kısmında kullanıcı bilgilerinize tıklayın ve sonra **Faturamı görüntüle**’ye tıklayın.
     2. **Faturalama Hesabı** bölümünde **Abonelikler**’e tıklayın.

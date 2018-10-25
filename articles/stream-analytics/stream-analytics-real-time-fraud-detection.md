@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/28/2017
-ms.openlocfilehash: e0d430ced1dbddbfca79806591c83c33e732eefd
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 43202e88482933aed7952f6cc97dcaf1e0dcb5e7
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37901723"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49986041"
 ---
 # <a name="get-started-using-azure-stream-analytics-real-time-fraud-detection"></a>Azure Stream Analytics'i kullanmaya başlayın: Gerçek zamanlı sahtekarlık algılama
 
@@ -39,7 +39,7 @@ Bu öğreticide, örnek telefon araması meta verileri üreten bir istemci uygul
 Başlamadan önce şunlara sahip olduğunuzdan emin olun:
 
 * Bir Azure hesabı.
-* Araması olay Oluşturucu uygulamasının [TelcoGenerator.zip](http://download.microsoft.com/download/8/B/D/8BD50991-8D54-4F59-AB83-3354B69C8A7E/TelcoGenerator.zip), hangi indirilebilir Microsoft Download Center'dan gelen. Bu paket, bilgisayarınızdaki bir klasöre ayıklayın. Kaynak kodu ve uygulamayı bir hata ayıklayıcıda çalışmasını görmek istiyorsanız, uygulama kaynak kodu alabilirsiniz [GitHub](https://aka.ms/azure-stream-analytics-telcogenerator). 
+* Araması olay Oluşturucu uygulamasının [TelcoGenerator.zip](https://download.microsoft.com/download/8/B/D/8BD50991-8D54-4F59-AB83-3354B69C8A7E/TelcoGenerator.zip), hangi indirilebilir Microsoft Download Center'dan gelen. Bu paket, bilgisayarınızdaki bir klasöre ayıklayın. Kaynak kodu ve uygulamayı bir hata ayıklayıcıda çalışmasını görmek istiyorsanız, uygulama kaynak kodu alabilirsiniz [GitHub](https://aka.ms/azure-stream-analytics-telcogenerator). 
 
     >[!NOTE]
     >Windows, indirilen .zip dosyasını engelleyebilir. Sıkıştırılmış dosyayı olamaz, dosyaya sağ tıklayın ve seçin **özellikleri**. "Bu dosya başka bir bilgisayardan geldi ve bu bilgisayarın korunmasına yardımcı olmak için engellenmiş olabilir" iletisini görürseniz, seçin **Engellemeyi Kaldır** seçeneğini ve ardından **Uygula**.
@@ -138,7 +138,7 @@ TelcoGenerator uygulamasını başlatmadan önce böylece araması kayıtları o
     Parametreler şunlardır: 
 
     * Saat başına CDR sayısı. 
-    * SIM kart sahtekarlık olasılığını: Uygulama sahte arama benzetimi gerçekleştirmesi gerektiği tüm çağrıları yüzdesi olarak ne sıklıkta. ' % S'değeri 0.2, yaklaşık %20 çağrısı kayıtların sahte görüneceğini anlamına gelir.
+    * SIM kart sahtekarlık olasılığını: Uygulama sahte arama benzetimi gerçekleştirmesi gerektiği tüm çağrıları yüzdesi olarak ne sıklıkta. 0.2 değeri arama kayıtlarının %20'sinin sahte görüneceğini anlamına gelir.
     * Saat cinsinden süre. Uygulamanın çalışması gereken saat sayısı. Ayrıca, komut satırında Ctrl + C tuşlarına basarak uygulamayı dilediğiniz zaman durdurabilirsiniz.
 
     Birkaç saniye sonra uygulama, telefon araması kayıtlarını olay hub'ına gönderirken ekranda bu kayıtları görüntülemeye başlar.
@@ -159,7 +159,7 @@ Bu gerçek zamanlı sahtekarlık algılama uygulamada kullanarak anahtar alanlar
 
 Arama olaylarından oluşan bir akışa sahip olduğunuza göre bir Stream Analytics işi ayarlayabilirsiniz. İşlemini ayarladığınız olay hub'ından veri okur. 
 
-### <a name="create-the-job"></a>İş oluşturma 
+### <a name="create-the-job"></a>İşi oluşturma 
 
 1. Azure portalında **kaynak Oluştur** > **nesnelerin interneti** > **Stream Analytics işi**.
 
@@ -186,7 +186,7 @@ Arama olaylarından oluşan bir akışa sahip olduğunuza göre bir Stream Analy
    |---------|---------|---------|
    |Girdi diğer adı  |  CallStream   |  İşin girdisini tanımlamak için bir ad girin.   |
    |Abonelik   |  \<Aboneliğiniz\> |  Oluşturduğunuz olay Hub'ına Azure aboneliğini seçin.   |
-   |Olay Hub'ı ad alanı  |  asa-eh-ns-demo |  Olay hub'ı ad alanı adını girin.   |
+   |Olay hub'ı ad alanı  |  asa-eh-ns-demo |  Olay hub'ı ad alanı adını girin.   |
    |Olay Hub'ı adı  | asa-eh-frauddetection-demo | Olay Hub'ınızın adını seçin.   |
    |Olay Hub'ı ilke adı  | asa-ilkeyi-yönetme-demo | Daha önce oluşturduğunuz erişim ilkesi seçin.   |
     </br>

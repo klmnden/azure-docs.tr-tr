@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 06/18/2018
 ms.author: bwren, vinagara
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 06c01a7c87c43931a27c03b2014995be6c2678eb
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 8ec5f1cef3f9ca82953093d2086b615087db1a7f
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49409076"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50024792"
 ---
 # <a name="adding-log-analytics-saved-searches-and-alerts-to-management-solution-preview"></a>Log Analytics ekleme aramaları ve Uyarıları kaydedilen yönetim çözümü (Önizleme)
 
@@ -297,7 +297,7 @@ Web kancası eylemi kaynakların özellikleri aşağıdaki tablolarda açıklanm
 
 ## <a name="sample"></a>Örnek
 
-Aşağıdaki kaynakları içermektedir içeren bir çözümü bir örnek aşağıda verilmiştir:
+Aşağıdaki kaynakları içeren bir çözümü bir örnek aşağıda verilmiştir:
 
 - Kayıtlı arama
 - Zamanlama

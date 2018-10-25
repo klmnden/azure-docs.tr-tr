@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 07/17/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: a0b5188605874a04f0341cde1a68487c8a50df84
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 48dcc558d4855874df02ad5c631211f16fd8c29e
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47431823"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50024996"
 ---
 # <a name="running-runbooks-on-a-hybrid-runbook-worker"></a>Bir karma Runbook çalışanı üzerinde runbook'ları çalıştırma
 
@@ -89,7 +89,7 @@ Bir karma Runbook çalışanında Azure kaynakları için yönetilen bir kimlik 
 1. Bir Azure VM oluşturma
 2. [Sanal makinenizde Azure kaynakları için yönetilen kimlik Yapılandır](../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md#enable-system-assigned-managed-identity-on-an-existing-vm)
 3. [Bir kaynak grubu Kaynak Yöneticisi'nde, VM erişim](../active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-arm.md#grant-your-vm-access-to-a-resource-group-in-resource-manager)
-4. [Sanal makinenin sistem tarafından atanan yönetilen kimlik kullanarak bir erişim belirteci alma] (.. / active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-arm.md#get-an-access-token-using-the-vms-system-assigned-managed-identity-and-use-it-to-call-azure-resource-manager)
+4. [Sanal makinenin sistem tarafından atanan yönetilen kimlik kullanarak bir erişim belirteci alma](../active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-arm.md#get-an-access-token-using-the-vms-system-assigned-managed-identity-and-use-it-to-call-azure-resource-manager)
 5. [Windows karma Runbook çalışanı yükleme](automation-windows-hrw-install.md#installing-the-windows-hybrid-runbook-worker) sanal makinede.
 
 Yukarıdaki adımlar tamamlandıktan sonra kullanabileceğiniz `Connect-AzureRmAccount -Identity` Azure kaynaklarında kimlik doğrulaması için runbook. Bu farklı çalıştır hesabı yararlanın ve farklı çalıştır hesabının sertifika süresi yönetme ihtiyacını azaltır.

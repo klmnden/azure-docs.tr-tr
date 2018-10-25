@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 10/11/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 2bd1d52db88ca280b811898c173f66b2deee1649
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: 6d2076a91bc7e7c0e2ca9d2fe6899cddec2f8d0b
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49638165"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50024503"
 ---
 # <a name="update-management-solution-in-azure"></a>Güncelleştirme yönetimi çözümünü azure'da
 
@@ -39,7 +39,7 @@ Güncelleştirme yönetimi, yerel makine aynı kiracıda birden çok abonelik i�
 
 Bir CVE kullanıma sunulduğunda, Linux makineleri değerlendirme için gösterilmesi düzeltme eki 2-3 saat sürer.  Windows makineleri için piyasaya sürüldükten sonra değerlendirmesi için gösterilecek yamasının 12-15 saat sürer.
 
-Bilgisayar güncelleştirme uyumluluğu taraması tamamlandıktan sonra aracıyı Azure Log Analytics'e toplu bilgiler iletir. Bir Windows bilgisayarda Uyumluluk taraması çalıştığı her 12 saatte varsayılan olarak.
+Bilgisayar güncelleştirme uyumluluğu taraması tamamlandıktan sonra aracıyı Azure Log Analytics'e toplu bilgiler iletir. Bir Windows bilgisayarda Uyumluluk taraması varsayılan olarak her 12 saatte bir çalıştırılır.
 
 Tarama zamanlamasına ek olarak, MMA'yı yeniden başlatılması durumunda 15 dakika içinde güncelleştirme yükleme öncesinde ve güncelleştirme yüklemesi sonrasında, güncelleştirme uyumluluğu için tarama başlatılır.
 
@@ -56,7 +56,7 @@ Zamanlanmış dağıtım, bilgisayarları açıkça belirterek veya seçerek uyg
 
 Güncelleştirmeler Azure Automation’daki runbook'lar tarafından yüklenir. Bu runbook'ları görüntüleyemezsiniz ve runbook'lar herhangi bir yapılandırma gerekmez. Güncelleştirme dağıtımı oluşturulduğunda, güncelleştirme dağıtımına dahil edilen bilgisayarlar için belirtilen zamanda ana güncelleştirme runbook'unu başlatan bir zamanlama oluşturur. Ana runbook, gerekli güncelleştirmelerin yükleneceği her aracıda bir alt runbook başlatır.
 
-Tarih ve güncelleştirme dağıtımında belirtilen saatte, hedef bilgisayarlar dağıtımı paralel olarak yürütün. Yüklemeden önce bir tarama güncelleştirmelerin hala gerekli olduğunu doğrulamak için çalıştığı. WSUS istemci bilgisayarları için WSUS'de güncelleştirmeleri onaylı olmayan güncelleştirme dağıtımının başarısız olur.
+Tarih ve güncelleştirme dağıtımında belirtilen saatte, hedef bilgisayarlar dağıtımı paralel olarak yürütün. Yüklemeden önce güncelleştirmelerin hala gerekli olduğunu doğrulamak için bir tarama çalıştırılır. WSUS istemci bilgisayarları için WSUS'de güncelleştirmeleri onaylı olmayan güncelleştirme dağıtımının başarısız olur.
 
 Birden fazla Log Analytics çalışma alanları (çoklu yönlendirmeyi) ortamında güncelleştirme yönetimi için kayıtlı bir makine olması desteklenmiyor.
 
@@ -264,7 +264,34 @@ sudo yum -q --security check-update
 
 Şu anda yerel sınıflandırma veri kullanılabilirliğine CentOS etkinleştirmek için desteklenen yöntem yöntemi yok. Şu anda bu, kendi etkinleştirmiş olabilir müşteriler yalnızca en yüksek çaba destek sağlanır.
 
-##<a name="ports"></a>Ağ planlama
+## <a name="firstparty-predownload"></a>Düzeltme eki uygulama birinci taraf ve önceden indir
+
+Güncelleştirme yönetimi, Windows Güncelleştirmeleri indirmek ve yüklemek için Windows Update'te kullanır. Sonuç olarak, Windows Update tarafından kullanılan ayarları birçoğu saygı gösteririz. Windows olmayan güncelleştirmeleri etkinleştirmek için Ayarlar'ı kullanıyorsanız, güncelleştirme yönetimi güncelleştirmeleri de yönetebilir. Güncelleştirme dağıtımı gerçekleşmeden önce güncelleştirme indiriliyor etkinleştirmek istiyorsanız, güncelleştirme dağıtımları hızlı gitmesi ve bakım penceresi aşan daha yüksektir.
+
+### <a name="pre-download-updates"></a>Öncesi güncelleştirmeleri indir
+
+Grup İlkesi'nde otomatik olarak karşıdan yüklenen güncelleştirmeleri yapılandırmak için ayarlayabileceğiniz [Otomatik Güncelleştirmeleri Yapılandır ayarını](/windows-server/administration/windows-server-update-services/deploy/4-configure-group-policy-settings-for-automatic-updates#BKMK_comp5) için **3**. Bu, arka planda gerekli güncelleştirmeleri indirir, ancak bunları yüklemez. Bu güncelleştirme yönetimi zamanlamaları denetiminde tutar ancak güncelleştirme yönetimi bakım penceresinin dışında karşıdan yükleyeceğiniz güncelleştirmeleri izin verir. Bu engelleyebilir **bakım penceresi aşıldı** güncelleştirme yönetimi hataları.
+
+Ayrıca bu güncelleştirmeleri otomatik olarak indir istediğiniz sistemde aşağıdaki PowerShell PowerShell'le ayarlayabilirsiniz.
+
+```powershell
+$WUSettings = (New-Object -com "Microsoft.Update.AutoUpdate").Settings
+$WUSettings.NotificationLevel = 3
+$WUSettings.Save()
+```
+
+### <a name="enable-updates-for-other-microsoft-products"></a>Diğer Microsoft ürünleri için güncelleştirmeleri etkinleştirecek
+
+Varsayılan olarak, Windows Update, güncelleştirmeleri yalnızca Windows için sağlar. Etkinleştirirseniz **sağla güncelleştirmeleri diğer Microsoft ürünleri için Windows güncelleştirebilirim olduğunda**, güncelleştirmeleri ile diğer ürünler için sağlanan şeyler güvenlik düzeltme ekleri gibi SQL Server veya diğer birinci taraf yazılımlar gibi. Bu seçenek, Grup İlkesi tarafından yapılandırılamaz. Aşağıdaki PowerShell, diğer birinci taraf düzeltme ekleri üzerinde etkinleştirmek istediğiniz sistemlerinde çalıştırın ve güncelleştirme yönetimi, bu ayar ne uygun olacaktır.
+
+```powershell
+$ServiceManager = (New-Object -com "Microsoft.Update.ServiceManager")
+$ServiceManager.Services
+$ServiceID = "7971f918-a847-4430-9279-4a52d1efe18d"
+$ServiceManager.AddService2($ServiceId,7,"")
+```
+
+## <a name="ports"></a>Ağ planlama
 
 Aşağıdaki adresleri özellikle güncelleştirme yönetimi için gereklidir. Bu adresler için iletişim bağlantı noktası 443 üzerinden gerçekleşir.
 

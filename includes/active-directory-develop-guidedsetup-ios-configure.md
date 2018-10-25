@@ -14,30 +14,34 @@ ms.workload: identity
 ms.date: 09/19/2018
 ms.author: brandwe
 ms.custom: include file
-ms.openlocfilehash: 331d16df55e26df5d49555c636b307499dd052af
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: 1604b7c9ee9888375e65aa679803c6e996e13b14
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48843217"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49988291"
 ---
 ## <a name="register-your-application"></a>Uygulamanızı kaydetme
+
 Uygulamanızı iki yoldan biriyle sonraki iki bölümde açıklandığı gibi kaydedebilirsiniz.
 
 ### <a name="option-1-express-mode"></a>1. seçenek: Hızlı mod
+
 Artık uygulamanızı kaydetmek gerekiyor *Microsoft uygulama kayıt portalı*:
-1. Uygulamanızı kaydetmek [Microsoft uygulama kayıt portalı](https://apps.dev.microsoft.com/portal/register-app?appType=mobileAndDesktopApp&appTech=ios&step=configure)
-2.  Uygulamanız ve e-posta adresiniz için bir ad girin
-3.  Destekli kurulum seçeneğinin işaretli olduğundan emin olun
-4.  Kodunuza yapıştırın ve uygulama Kimliğini almak için yönergeleri izleyin
+
+1. Uygulamanızı kaydetmek [Microsoft uygulama kayıt portalı](https://apps.dev.microsoft.com/portal/register-app?appType=mobileAndDesktopApp&appTech=ios&step=configure).
+2. Uygulamanız ve e-posta adresiniz için bir ad girin.
+3. Destekli kurulum seçeneğinin işaretli olduğundan emin olun.
+4. Uygulama Kimliğini almak ve kodunuza yapıştırmak için yönergeleri izleyin.
 
 ### <a name="option-2-advanced-mode"></a>2. seçenek: Gelişmiş mod
 
-1.  Git [Microsoft uygulama kayıt portalı](https://apps.dev.microsoft.com/portal/register-app)
-2.  Uygulamanız için bir ad girin
-3.  Destekli kurulum seçeneğini işaretli olduğundan emin olun
-4.  Tıklayın `Add Platform`, ardından `Native Application` tıklayın `Save`
-5.  Xcode için geri dönün. İçinde `ViewController.swift`, ile başlayan satırı değiştirin '`let kClientID`' yalnızca kayıtlı uygulama Kimliğine sahip:
+1. Git [Microsoft uygulama kayıt portalı](https://apps.dev.microsoft.com/portal/register-app).
+2. Uygulamanız için bir ad girin.
+3. Destekli kurulum seçeneğini işaretli olduğundan emin olun.
+4. Seçin `Add Platform` seçip `Native Application`.
+5. `Save` öğesini seçin.
+6. Xcode için geri dönün. İçinde `ViewController.swift`, ile başlayan satırı değiştirin '`let kClientID`' yalnızca kayıtlı uygulama Kimliğine sahip:
 
 ```swift
 let kClientID = "Your_Application_Id_Here"

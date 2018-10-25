@@ -15,14 +15,14 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 07/02/2018
 ms.author: shvija
-ms.openlocfilehash: d4ed53cf1f0d21e488631434b60309602169b59a
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: bee6219bca21c3bc2bf4f97aa061fce0b30d55ff
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40004659"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49985175"
 ---
-# <a name="event-hubs-diagnostic-logs"></a>Event Hubs tanılama günlükleri
+# <a name="set-up-diagnostic-logs-for-an-azure-event-hub"></a>Tanılama günlükleri için bir Azure olay hub'ı ayarlama
 
 Azure Event Hubs için iki tür günlüğü görüntüleyebilirsiniz:
 
@@ -80,7 +80,7 @@ eventHub | (Ad alanı adı içerir) olay hub'ı tam adı.
 PartitionID | Yazılmakta olan olay hub'ı bölüm.
 archiveStep | ArchiveFlushWriter
 startTime | Başlangıç zamanı hatası.
-hatalar | Kaç kez bir hata oluştu.
+hataları | Kaç kez bir hata oluştu.
 Durationınseconds | Hata süresi.
 message | Hata iletisi.
 category | ArchiveLogs

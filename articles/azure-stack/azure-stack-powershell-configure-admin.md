@@ -11,15 +11,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: article
-ms.date: 09/17/2018
+ms.date: 10/24/2018
 ms.author: mabrigg
 ms.reviewer: thoroet
-ms.openlocfilehash: aa86b44364ee84a9640fe0b39b6279982f5594ad
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 63fd864ebda1cb766792b99a2725fb069d5b5f2a
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45982534"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50024078"
 ---
 # <a name="connect-to-azure-stack-with-powershell-as-an-operator"></a>PowerShell ile Azure Stack operatör bağlanma
 
@@ -29,7 +29,7 @@ Azure Stack tekliflerini, planları, kotalar ve Uyarılar oluşturmak gibi kayna
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Aşağıdaki Önkoşullar'nden ya da çalıştırmak [Geliştirme Seti](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-remote-desktop), ya da Eğer bir Windows tabanlı dış istemciden [VPN üzerinden bağlı](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn). 
+Aşağıdaki Önkoşullar'nden ya da çalıştırmak [Geliştirme Seti](.\asdk\asdk-connect.md#connect-to-azure-stack-with-remote-desktop) ya da Eğer bir Windows tabanlı dış istemciden [ASDK VPN aracılığıyla bağlı](.\asdk\asdk-connect.md#connect-to-azure-stack-with-vpn). 
 
  - Yükleme [Azure Stack ile uyumlu Azure PowerShell modüllerini](azure-stack-powershell-install.md).  
  - İndirme [Azure Stack ile çalışması için gereken araçları](azure-stack-powershell-download.md).  

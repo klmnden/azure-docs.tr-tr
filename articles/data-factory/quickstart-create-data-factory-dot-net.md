@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 03/28/2018
 ms.author: jingwang
-ms.openlocfilehash: a7916a434552cbcb999f1e69c7a5bc2419f517fb
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: a4f9e1111516d439f018e965883eb8268c83289c
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43094351"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49954802"
 ---
 # <a name="create-a-data-factory-and-pipeline-using-net-sdk"></a>.NET SDK’sını kullanarak veri fabrikası ve işlem hattı oluşturma
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -41,7 +41,7 @@ Bu makaledeki kılavuzda Visual Studio 2017 kullanılır. Visual Studio 2013 vey
 [Azure .NET SDK’sını](http://azure.microsoft.com/downloads/) indirip makinenize yükleyin.
 
 ## <a name="create-an-application-in-azure-active-directory"></a>Azure Active Directory’de uygulama oluşturma
-Aşağıdaki görevleri gerçekleştirmek için [bu makaledeki](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-azure-active-directory-application) bölümlerde yer alan yönergeleri izleyin: 
+Aşağıdaki görevleri gerçekleştirmek için [bu makaledeki](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application) bölümlerde yer alan yönergeleri izleyin: 
 
 1. **Azure Active Directory uygulaması oluşturma**. Azure Active Directory'de, bu öğreticide oluşturduğunuz .NET uygulamasını temsil eden bir uygulama oluşturma. Oturum açma URL'si için, makalede gösterildiği gibi bir işlevsiz URL sağlayabilirsiniz (`https://contoso.org/exampleapp`).
 2. **Uygulama kimliği** ve **kimlik doğrulaması anahtarı** değerlerini alın ve bu öğreticinin ilerleyen kısmında kullanmak üzere bu değerleri not edin. 

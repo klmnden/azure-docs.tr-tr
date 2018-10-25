@@ -14,17 +14,19 @@ ms.workload: identity
 ms.date: 09/17/2018
 ms.author: nacanuma
 ms.custom: include file
-ms.openlocfilehash: 3cbcae9c02abaf11ded31304f97abdd74f905c6e
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: 0c4908315bd7c0e4d83c7aba735cc4d102216a28
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48842913"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49988452"
 ---
 ## <a name="test-your-code"></a>Kodunuzu test etme
 
 ### <a name="test-with-node"></a>Düğüm ile test
+
 Visual Studio kullanmıyorsanız, web sunucunuza başlatıldığından emin olun.
+
 1. Sunucusunu konumunu temel alarak bir TCP bağlantı noktasını dinlemek üzere yapılandırmak, **index.html** dosya. Düğüm için uygulama klasöründeki bir komut satırı isteminde aşağıdaki komutları çalıştırarak bağlantı noktasını dinlemek için web sunucusunu başlatın:
 
     ```bash
@@ -36,15 +38,14 @@ Visual Studio kullanmıyorsanız, web sunucunuza başlatıldığından emin olun
 <p/><!-- -->
 
 ### <a name="test-with-visual-studio"></a>Visual Studio ile test
-Visual Studio kullanıyorsanız, tuşuna basın ve proje çözüm seçtiğinizden emin olun **F5** projeyi çalıştırın. Http:// tarayıcı açılır<span></span>localhost: {port} konumu göreceksiniz **oturum** düğmesi.
 
+Visual Studio kullanıyorsanız, tuşuna basın ve proje çözüm seçtiğinizden emin olun **F5** projeyi çalıştırın. Http:// tarayıcı açılır<span></span>localhost: {port} konumu göreceksiniz **oturum** düğmesi.
 
 ## <a name="test-your-application"></a>Uygulamanızı test edin
 
 Tarayıcı, bir index.html dosyası yüklendikten sonra tıklayın **oturum**. Microsoft Azure Active Directory (Azure AD) v2.0 uç noktası ile oturum açmanız istenir:
 
 ![JavaScript SPA'ya hesabınızda oturum açın](media/active-directory-develop-guidedsetup-javascriptspa-test/javascriptspascreenshot1.png)
-
 
 ### <a name="provide-consent-for-application-access"></a>Uygulama erişimi için rıza sağlamanın
 
@@ -53,6 +54,7 @@ Uygulamanıza oturum ilk kez profilinizi erişmek ve oturum açmak için uygulam
 ![Uygulama erişimi için izninizi sağlayın](media/active-directory-develop-guidedsetup-javascriptspa-test/javascriptspaconsent.png)
 
 ### <a name="view-application-results"></a>Uygulama sonuçlarını görüntüle
+
 Sonra oturum açma işlemlerini sayfasında gösterilen Microsoft Graph API yanıtında döndürülen kullanıcı profili bilgilerinize görmeniz gerekir.
 
 ![Microsoft Graph API çağrısından beklenen sonuçları](media/active-directory-develop-guidedsetup-javascriptspa-test/javascriptsparesults.png)

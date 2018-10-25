@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.openlocfilehash: ca596b2d33a6248dac94ddd7eef9a9c44daac3c8
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: af7a0d01fcf9df42da79a6529c8d4b0e31d73aa1
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49343750"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49985497"
 ---
 # <a name="introduction-to-ml-services-and-open-source-r-capabilities-on-hdinsight"></a>ML Hizmetleri ve açık kaynak R yeteneklerini HDInsight giriş
 
@@ -102,7 +102,7 @@ Bu seçeneği belirlerseniz, web hizmeti ile kullanmak için açık kaynak model
 
 ### <a name="score-on-premises"></a>Puan şirket içi
 
-Modelinizi oluşturduktan sonra şirket puanlamak için R modelinde seri hale getirmek, indirdiği seri durumdan çıkarılamıyor ve yeni veri puanlamasında kullanmak. Daha önce açıklanan yaklaşımı kullanarak yeni verileri puanlamak [HDInsight içinde Puanlama](#scoring-in-hdinsight) kullanarak veya [web Hizmetleri](https://docs.microsoft.com/machine-learning-server/operationalize/concept-what-are-web-services).
+Modelinizi oluşturduktan sonra şirket puanlamak için R modelinde seri hale getirmek, indirdiği seri durumdan çıkarılamıyor ve yeni veri puanlamasında kullanmak. Daha önce açıklanan yaklaşımı kullanarak yeni verileri puanlamak [puanı HDInsight içinde](#score-in-hdinsight) kullanarak veya [web Hizmetleri](https://docs.microsoft.com/machine-learning-server/operationalize/concept-what-are-web-services).
 
 ## <a name="maintain-the-cluster"></a>Küme koru
 

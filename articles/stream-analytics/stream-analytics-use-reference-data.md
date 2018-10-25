@@ -9,12 +9,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/25/2018
-ms.openlocfilehash: 2a6172a4e163d937f5a0a2140831b730bca23c3f
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: fd912885335b41e3d7ca8ee717b6bb1b9c88e729
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43696532"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49984154"
 ---
 # <a name="using-reference-data-for-lookups-in-stream-analytics"></a>Stream analytics'te aramaları için başvuru verilerini kullanma
 Başvuru verileri (arama tablosu olarak da bilinir) statik veya yavaş doğası gereği, değişen bir arama gerçekleştirme ya da, veri akışı ile ilişkilendirmek için kullanılan sınırlı bir veri kümesi var. Azure Stream Analytics, düşük gecikme süreli akış işlemesi için bellek başvuru verileri yükler. Yapmak için Azure Stream Analytics işinizi başvuru verilerinde kullanımı, genel olarak kullanacağınız bir [başvuru veri birleştirme](https://msdn.microsoft.com/library/azure/dn949258.aspx) sorgunuzda. Stream Analytics, başvuru verileri için depolama katmanı olarak Azure Blob Depolama kullanır ve Azure Data Factory başvuru ile veri dönüştürülür ve/veya başvuru veriler olarak kullanmak için Azure Blob depolama alanına kopyalanır [çok sayıda bulut tabanlı ve Şirket içi veri depolarına](../data-factory/copy-activity-overview.md). Başvuru verileri blob adı, belirtilen tarih/saat, artan bloblar (giriş yapılandırmasında tanımlanmış) öğesinin bir dizisi olarak modellenir. Bunu **yalnızca** dizinin sonuna bir tarih/saat kullanarak eklemeyi destekler **büyük** dizideki son blob tarafından belirtilenden.
@@ -85,5 +85,5 @@ Azure Stream Analytics, yenilenmiş bir başvuru veri BLOB için bir dakika aral
 [stream.analytics.scale.jobs]: stream-analytics-scale-jobs.md
 [stream.analytics.introduction]: stream-analytics-real-time-fraud-detection.md
 [stream.analytics.get.started]: stream-analytics-get-started.md
-[stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
-[stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
+[stream.analytics.query.language.reference]: https://go.microsoft.com/fwlink/?LinkID=513299
+[stream.analytics.rest.api.reference]: https://go.microsoft.com/fwlink/?LinkId=517301

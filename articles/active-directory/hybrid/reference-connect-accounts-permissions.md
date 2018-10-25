@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 10/12/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 03f096bf160c44f7a35f54a73cff6ea701b87d22
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: 66585c495dfb46e51120ae3eef2685d634fd9606
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49352932"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50024979"
 ---
 # <a name="azure-ad-connect-accounts-and-permissions"></a>Azure AD Connect: Hesaplar ve izinler
 
@@ -82,11 +82,11 @@ Bu kimlik bilgileri yalnızca yükleme sırasında kullanılır ve yükleme tama
 
 ![Hızlı yükleme](./media/reference-connect-accounts-permissions/express.png)
 
-Express installlation sihirbaz sayfalarında toplandı, kimlik bilgilerini bir özeti aşağıda verilmiştir ve ne için kullanılır.
+Hızlı Yükleme Sihirbazı sayfaları, toplanan, kimlik bilgilerini bir özeti aşağıda verilmiştir ve ne için kullanılır.
 
 | Sihirbaz sayfası | Toplanan kimlik bilgileri | Gerekli izinler | İçin kullanılan |
 | --- | --- | --- | --- |
-| Yok |Yükleme Sihirbazı çalıştıran kullanıcı |Yerel sunucunun Yöneticisi |<li>Oluşturur [ADSync yapılandırmaya hesabı](#azure-ad-connect-sync-service-account) eşitleme hizmetini çalıştırmak için kullanılan hesap. |
+| Yok |Yükleme Sihirbazı çalıştıran kullanıcı |Yerel sunucunun Yöneticisi |<li>Oluşturur [ADSync hizmeti hesabı](#azure-ad-connect-sync-service-account) eşitleme hizmetini çalıştırmak için kullanılan hesap. |
 | Azure AD'ye Bağlanma |Azure AD directory kimlik bilgileri |Azure AD'de genel yönetici rolü |<li>Azure AD dizini eşitleme etkinleştiriliyor.</li>  <li>Oluşturulmasını [Azure AD Bağlayıcısı hesabı](#azure-ad-service-account) Azure AD'de devam eden eşitleme işlemleri için kullanılır.</li> |
 | AD DS'ye Bağlanma |Şirket içi Active Directory kimlik bilgileri |Active Directory'de Enterprise Admins (EA) grubunun üyesi |<li>Oluşturur [AD DS bağlayıcı hesabı](#active-directory-account) Active Directory ve bu izinleri verir. Bu hesap oluşturulan okumak ve dizin eşitleme sırasında yazmak için kullanılır.</li> |
 
@@ -97,7 +97,7 @@ Express installlation sihirbaz sayfalarında toplandı, kimlik bilgilerini bir �
 
 ### <a name="custom-installation-wizard-summary"></a>Özel bir Yükleme Sihirbazı Özeti
 
-Özel installlation sihirbaz sayfalarında toplandı, kimlik bilgilerini bir özeti aşağıda verilmiştir ve ne için kullanılır.
+Özel bir Yükleme Sihirbazı sayfaları, toplanan, kimlik bilgilerini bir özeti aşağıda verilmiştir ve ne için kullanılır.
 
 ![Hızlı yükleme](./media/reference-connect-accounts-permissions/customize.png)
 

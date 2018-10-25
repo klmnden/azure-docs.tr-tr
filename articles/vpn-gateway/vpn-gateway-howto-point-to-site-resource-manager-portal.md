@@ -6,14 +6,14 @@ author: cherylmc
 tags: azure-resource-manager
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 09/06/2018
+ms.date: 10/24/2018
 ms.author: cherylmc
-ms.openlocfilehash: d524555330653a90f52505c22f50f4d677ab6632
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 3254f0c26e21bc7ba71fc23362f263cb126ea3b0
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49387268"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50026373"
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-native-azure-certificate-authentication-azure-portal"></a>Yerel Azure sertifika doğrulaması kullanarak Noktadan Siteye sanal ağ bağlantısını yapılandırma: Azure portal
 
@@ -73,7 +73,7 @@ Sanal ağınızı oluşturduktan sonra ad çözünürlüğünü işlemek için b
 [!INCLUDE [create-gateway](../../includes/vpn-gateway-add-gw-p2s-rm-portal-include.md)]
 
 >[!NOTE]
->Temel SKU, IKEv2 veya RADIUS kimlik doğrulamasını desteklemez.
+>Temel SKU, IKEv2 veya RADIUS kimlik doğrulamasını desteklemez. Mac istemcileri, sanal ağınıza bağlanmak zorunda planlıyorsanız, temel SKU kullanmayın.
 >
 
 ## <a name="generatecert"></a>5. İstemci sertifikaları oluşturma
@@ -172,7 +172,7 @@ VPN istemcisi yapılandırma dosyaları, P2S bağlantısı üzerinden bir sanal 
 
 Ağ iletişim kutusunda kullanmak istediğiniz istemci profilini bulun, [VpnSettings.xml](point-to-site-vpn-client-configuration-azure-cert.md#installmac) dosyasından ayarları belirleyin ve **Bağlan**’a tıklayın.
 
-Ayrıntılı yönergeler için lütfen [Yükleme - Mac (OS X)](https://docs.microsoft.com/azure/vpn-gateway/point-to-site-vpn-client-configuration-azure-cert#installmac) bölümüne bakın.
+Denetleme [yükleyin - Mac (OS X)](https://docs.microsoft.com/azure/vpn-gateway/point-to-site-vpn-client-configuration-azure-cert#installmac) ayrıntılı yönergeler için. Bağlantı sorunları yaşıyorsanız, sanal ağ geçidi temel SKU kullanmadığından emin olun. Temel SKU, Mac istemcileri için desteklenmiyor.
 
   ![Mac bağlantısı](./media/vpn-gateway-howto-point-to-site-rm-ps/applyconnect.png)
 

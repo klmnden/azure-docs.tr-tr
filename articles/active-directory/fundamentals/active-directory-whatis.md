@@ -12,12 +12,12 @@ ms.workload: identity
 ms.topic: overview
 ms.date: 09/13/2018
 ms.custom: it-pro
-ms.openlocfilehash: 08d32a99e2f1a77bcc7a5900b47e6771c33ec356
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: 406baeac60c7c0cdf5f74876e5fc29ea23d3d6f6
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49393330"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49957556"
 ---
 # <a name="what-is-azure-active-directory"></a>Azure Active Directory nedir?
 Azure Active Directory (Azure AD), Microsoft'un çok kiracılı bulut tabanlı dizin ve kimlik yönetimi hizmetidir. Azure AD, temel dizin hizmetlerini, uygulama erişimi yönetimini ve kimlik korumasını tek bir çözümde birleştirerek geliştiricilerin merkezi ilke ve kurallara göre uygulamalarına yönelik erişim denetimi sunmasına yardımcı olan standartlara dayalı bir platform sunar.
@@ -74,7 +74,7 @@ Azure AD uygulamanızı geliştirmek için Azure Active Directory Temel, Premium
 Ücretsiz 30 günlük deneme için kaydolmak ve ilk bulut çözümünüzü dağıtmak için bkz [Azure Active Directory Premium denemesi](https://azure.microsoft.com/trial/get-started-active-directory/).
 
 ## <a name="as-a-developer-how-do-i-get-started"></a>Geliştirici olarak nasıl kullanmaya başlarım?
-Ücretsiz 30 günlük deneme için kaydolmak ve uygulamalarınızı Azure AD ile tümleştirmeye başlamak için bkz. [Azure Active Directory Premium denemesi](https://azure.microsoft.com/trial/get-started-active-directory/). Daha fazla bilgi için Azure Active Directory’nin [Geliştirici Kılavuzu](../develop/azure-ad-developers-guide.md)’na da bakabilirsiniz.
+Ücretsiz 30 günlük deneme için kaydolmak ve uygulamalarınızı Azure AD ile tümleştirmeye başlamak için bkz. [Azure Active Directory Premium denemesi](https://azure.microsoft.com/trial/get-started-active-directory/). Daha fazla bilgi için Azure Active Directory’nin [Geliştirici Kılavuzu](../develop/v1-overview.md)’na da bakabilirsiniz.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 - [Azure kimlik ve erişim yönetiminin temelleri hakkında daha fazla bilgi edinin](identity-fundamentals.md).

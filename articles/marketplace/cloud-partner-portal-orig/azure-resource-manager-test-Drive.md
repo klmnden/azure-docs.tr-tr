@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 19e3141bf7d28c7f781be21aedf14222e35bfd6c
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 90c434a37d3209e0c11a04425c337ec6930cfd00
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48811620"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50025268"
 ---
 <a name="azure-resource-manager-test-drive"></a>Azure Resource Manager Test Sürüşü
 =================================
@@ -190,7 +190,7 @@ Parametre/değişkeni dizelerinizi birleştirme emin olun (\'contosovm\') benzer
 
 Örneğin, çoğu kaynak adları bir rakamla başlayamaz, ancak bir rakam ile başlayan bir dize benzersiz bir dize işlevi döndürebilir. Bu nedenle, benzersiz bir ham dize çıkış kullanırsanız, dağıtımlar başarısız olur. 
 
-[Bu makaledeki] kaynak adlandırma kuralları ve kısıtlamaları hakkında ek bilgiler bulabilirsiniz (https://docs.microsoft.com/azure/guidance/guidance-naming-conventions).
+Kaynak adlandırma kuralları ve kısıtlamaları hakkında daha fazla bilgi bulabilirsiniz [bu makalede](https://docs.microsoft.com/azure/guidance/guidance-naming-conventions).
 
 ### <a name="deployment-location"></a>Dağıtım konumu
 
@@ -306,7 +306,7 @@ Doldurmak için sonraki bölüme, Teklif Ayrıntıları, Test Sürüşü hakkın
 
 ![Test Sürüşü ayrıntılı bilgi](./media/azure-resource-manager-test-drive/howtopub2.png)
 
-**Açıklama -** *gerekli* budur burada Test Sürüşünüz nedir hakkında temel bir açıklama yazın. Müşteri, hangi senaryolarını Test Sürüşünüz ürününüzü hakkında kapsayan okumak için buraya gelir. 
+**Açıklama -** *gerekli* budur burada Test Sürüşünüz nedir hakkında temel bir açıklama yazın. Müşteri, hangi senaryolarını Test Sürüşünüz ürününüzü hakkında kapsayan okumak için buraya gelir. 
 
 **Kullanıcı el ile -** *gerekli* Test Sürüşü deneyiminizin ayrıntılı izlenecek yolu budur. Müşteri, bu açılır ve tam olarak kendi Test Sürüşü yapmasını istediğiniz aracılığıyla size yol. Bu içeriği kolayca izleyin ve anlamak önemlidir! (.Pdf dosyası olması gerekir)
 

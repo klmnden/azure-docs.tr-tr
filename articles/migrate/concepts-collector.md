@@ -4,15 +4,15 @@ description: Azure geçişi, Toplayıcı gerecini hakkında bilgi sağlar.
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 10/23/2018
+ms.date: 10/24/2018
 ms.author: snehaa
 services: azure-migrate
-ms.openlocfilehash: 3c40fd97540d8529c95c7d18d2c3155dd37717e9
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: 006a246323e9f82ea9c9a6a2940ed624d7e44e13
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945425"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49986789"
 ---
 # <a name="about-the-collector-appliance"></a>Toplayıcı gerecini hakkında
 
@@ -198,7 +198,7 @@ Gereç yalnızca performans verilerinin sürekli olarak toplar, şirket içi ort
 2. VM silme: bulma durdurup olsa bile gereç tasarlanmıştır yöntemi nedeniyle VM silme yansıtılmaz. Sonraki bulma verilerinden eski bulmalarına eklenir ve geçersiz olmasıdır. Bu durumda, yalnızca Portalı'nda VM grubunuzdan kaldırarak ve değerlendirmeyi yeniden hesaplama yok sayabilirsiniz.
 
 > [!NOTE]
-> Sürekli bulma işlevi Önizleme aşamasındadır. Düzey 3 vCenter Server istatistik ayarları ayarlanmamış ise bu yöntem kullanmanızı öneririz.
+> Sürekli bulma işlevi Önizleme aşamasındadır. Bu yöntem, ayrıntılı performans verilerini toplar ve sonuçları içinde doğru boyutlandırmaya gibi bu yöntem kullanmanızı öneririz.
 
 
 ## <a name="discovery-process"></a>Bulma işlemi

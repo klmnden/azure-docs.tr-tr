@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: tutorial
 ms.date: 11/30/2017
-ms.openlocfilehash: 29b28b0d81314d062c1b334092979cc9bccbeb31
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: a6adf97a11821ff58c01d2450f06d07e7327fdfb
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43127668"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49957938"
 ---
 # <a name="monitor-virtual-machine-changes-with-azure-event-grid-and-logic-apps"></a>Azure Event Grid ve Logic Apps ile sanal makine değişikliklerini izleme
 
@@ -90,7 +90,7 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
    ![Azure kimlik bilgilerinizle oturum açın](./media/monitor-virtual-machine-changes-event-grid-logic-app/sign-in-event-grid.png)
 
    > [!NOTE]
-   > @outlook.com veya @hotmail.com gibi kişisel bir Microsoft hesabında oturum açtıysanız, Event Grid tetikleyicisi doğru görüntülenmeyebilir. Geçici bir çözüm olarak, [Hizmet Sorumlusu ile bağlan](../azure-resource-manager/resource-group-create-service-principal-portal.md)’ı seçin veya *user-name*@emailoutlook.onmicrosoft.com gibi Azure aboneliğinizle ilişkili bir Azure Active Directory’nin bir üyesi olarak kimlik doğrulaması yapın.
+   > @outlook.com veya @hotmail.com gibi kişisel bir Microsoft hesabında oturum açtıysanız, Event Grid tetikleyicisi doğru görüntülenmeyebilir. Geçici bir çözüm olarak, [Hizmet Sorumlusu ile bağlan](../active-directory/develop/howto-create-service-principal-portal.md)’ı seçin veya *user-name*@emailoutlook.onmicrosoft.com gibi Azure aboneliğinizle ilişkili bir Azure Active Directory’nin bir üyesi olarak kimlik doğrulaması yapın.
 
 8. Şimdi mantıksal uygulamanızı yayımcı olaylarına kaydedin. Aşağıdaki tabloda belirtildiği gibi olay aboneliğinizin ayrıntılarını sağlayın:
 

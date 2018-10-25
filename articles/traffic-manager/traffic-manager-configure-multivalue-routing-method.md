@@ -3,8 +3,7 @@ title: Azure Traffic Manager'da çok değerli trafik yönlendirme yöntemini yap
 description: Bu makalede, trafiği yönlendirmek için A/AAAA uç noktaları Traffic Manager yapılandırma açıklanmaktadır.
 services: traffic-manager
 documentationcenter: ''
-author: kumudd
-manager: jeconnoc
+author: KumudD
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
@@ -12,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: kumud
-ms.openlocfilehash: 1fae1147c941ed28d23a478a0e809b2dffba7a35
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: d9a0342332c2483b859e916b50fd05c9cb1e3395
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46131367"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49986777"
 ---
 # <a name="configure-multivalue-routing-method-in-traffic-manager"></a>Trafik Yöneticisi'nde çoklu değer yönlendirme yöntemini yapılandırma
 
@@ -42,7 +41,7 @@ En düşük gecikme süresine uç noktaya göndererek kullanıcı trafiği yönl
 2. İçinde **Traffic Manager profili oluştur**girin veya seçin, aşağıdaki bilgileri, kalan ayarlar için varsayılan değerleri kabul edin ve ardından **Oluştur**:
     | Ayar                 | Değer                                              |
     | ---                     | ---                                                |
-    | Ad                   | Bu adın trafficmanager.net bölge ve Traffic Manager profilinize erişmek için kullanılan trafficmanager.net DNS adı sonuçlarında içinde benzersiz olması gerekir.                                   |
+    | Ad                   | Bu adın trafficmanager.net bölgesinde benzersiz olması ve Traffic Manager profilinize erişmek için kullanılan trafficmanager.net DNS adı ile sonuçlanması gerekir.                                   |
     | Yönlendirme yöntemi          | Seçin **birden çok değerli** yönlendirme yöntemi.                                       |
     | Abonelik            | Aboneliğinizi seçin.                          |
     | Kaynak grubu          | Seçin *myResourceGroupTM1*. |
@@ -73,9 +72,9 @@ En düşük gecikme süresine uç noktaya göndererek kullanıcı trafiği yönl
  
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- Hakkında bilgi edinin [ağırlıklı trafik yönlendirme yöntemini](traffic-manager-configure-weighted-routing-method.md).
-- Hakkında bilgi edinin [öncelikli yönlendirme yöntemini](traffic-manager-configure-priority-routing-method.md).
+- [Ağırlıklı trafik yönlendirme yöntemi](traffic-manager-configure-weighted-routing-method.md) hakkında bilgi edinin.
+- [Öncelik yönlendirme yöntemi](traffic-manager-configure-priority-routing-method.md) hakkında bilgi edinin.
 - Daha fazla bilgi edinin [performans yönlendirme yöntemi](traffic-manager-configure-performance-routing-method.md)
-- Hakkında bilgi edinin [coğrafi yönlendirme yöntemini](traffic-manager-configure-geographic-routing-method.md).
+- [Coğrafi yönlendirme yöntemi](traffic-manager-configure-geographic-routing-method.md) hakkında bilgi edinin.
 
 

@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
-ms.openlocfilehash: 05f77665352ee306f5684d5c7a09b27d4fe17650
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 4c9f92481af1e69a111869cb6fc1305923bb0484
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49426827"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50026016"
 ---
 # <a name="load-balancing-with-azures-application-delivery-suite"></a>Azure uygulama teslim paketiyle yük dengeleme
 
@@ -60,7 +60,7 @@ Genel Yönlendirme için bir genel yük dengeleyici Traffic Manager ve Azure ön
 | --------------- | ------------------------ |
 |**Herhangi bir protokol:** çünkü Traffic Manager DNS katmanında çalışır, her tür ağ trafiği yönlendirebilirsiniz. HTTP, TCP, UDP, vs. | **HTTP hızlandırma:** ile ön kapısı trafiğidir Edge Microsoft'un ağ proxy.  Bu nedenle, HTTP (S) istek gecikme süresi ve aktarım hızı geliştirmeleri SSL anlaşması için gecikme süresini azaltma ve sık erişimli AFD bağlantılarından uygulamanıza kullanarak bakın.|
 |**Şirket içi yönlendirme:** DNS katmanında yönlendirme, trafiği her zaman noktadan noktaya gider.  Şirket içi veri Merkezinize şube ofisinizde yönlendirme doğrudan bir yol alabilir; Traffic Manager kullanarak da kendi ağ üzerinde. | **Bağımsız ölçeklenebilirlik:** çünkü ön kapısı, HTTP isteği ile çalışır, farklı bir URL yolu için istekleri farklı arka ucuna yönlendirilmiş / bölgesel hizmet havuzları (mikro) kuralları ve her uygulama mikro hizmet durumunu temel alan.|
-|**Faturalandırma biçimi:** DNS kullanıma dayalı faturalandırma ile kullanıcılarınız ve daha fazla kullanıcısı olan hizmetler için ölçeklenebilir, yüksek kullanım maliyeti azaltmak için plateaus. |**Satır içi güvenlik:** ön kapısı, oran sınırlandırma ve IP trafiği, uygulamanızı ulaşmadan önce uçlarınıza korumanıza olanak acl'sinin gibi kuralları sağlar. 
+|**Faturalandırma biçimi:** DNS kullanıma dayalı faturalandırma Kullanıcılarınızla ve daha fazla kullanıcısı olan hizmetleri ölçeklenen, en yüksek kullanımı maliyetini azaltmak için plateaus. |**Satır içi güvenlik:** ön kapısı, oran sınırlandırma ve IP trafiği, uygulamanızı ulaşmadan önce uçlarınıza korumanıza olanak acl'sinin gibi kuralları sağlar. 
 
 </br>Performans, çalışabilirlik ve ön kapısı HTTP iş yükleriniz için güvenlik avantajları nedeniyle, müşterilerin ön kapısı, HTTP iş yükleri için kullanmanızı öneririz.    Traffic Manager ve ön kapısı paralel olarak tüm trafiği uygulamanız için hizmet vermek için kullanılabilir. 
 

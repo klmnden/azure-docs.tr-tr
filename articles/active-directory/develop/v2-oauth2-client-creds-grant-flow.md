@@ -17,14 +17,17 @@ ms.date: 01/07/2017
 ms.author: celested
 ms.reviewer: hirsin, dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 02d5bf9ef293731ce707596a90cd7e9aa0b96450
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: 2dc1be6b861515cf34f8dd799fa732da530e82a1
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39581890"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49985412"
 ---
 # <a name="azure-active-directory-v20-and-the-oauth-20-client-credentials-flow"></a>Azure Active Directory v2.0 ve OAuth 2.0 istemci kimlik bilgileri akışı
+
+[!INCLUDE [active-directory-develop-applies-v2](../../../includes/active-directory-develop-applies-v2.md)]
+
 Kullanabileceğiniz [OAuth 2.0 istemci kimlik bilgileri verme](http://tools.ietf.org/html/rfc6749#section-4.4) RFC olarak da adlandırılır 6749 içinde belirtilen *iki bacaklı OAuth*, uygulamanın kimliğini kullanarak web barındırılan kaynaklara erişmek için. Hemen bir kullanıcı etkileşimi olmadan arka planda çalışması gereken sunucudan sunucuya etkileşimleri için bu tür bir verme yaygın olarak kullanılır. Bu tür uygulamalar genellikle olarak ifade edilir *Daemon'ları* veya *hizmet hesapları*.
 
 > [!NOTE]
@@ -54,8 +57,8 @@ ACL'ler kullanmak yerine, uygulama izinleri kümesi kullanıma sunmak için API'
 
 * Tüm posta kutularındaki postaları Okuma
 * Tüm posta kutularında posta yazma ve okuma
-* Herhangi bir kullanıcı adına posta gönderme
-* Dizin verilerini okuyun
+* Herhangi bir kullanıcı olarak posta gönderme
+* Dizin verilerini okuma
 
 Uygulama izinleri hakkında daha fazla bilgi için Git [Microsoft Graph](https://graph.microsoft.io).
 
@@ -174,8 +177,8 @@ scope=https%3A%2F%2Fgraph.microsoft.com%2F.default
 | kiracı |Gerekli | Dizin Kiracı uygulama, GUID ya da etki alanı adı biçiminde boşluğunun planlamaktadır. |
 | client_id |Gerekli |Uygulama Kimliği [uygulama kayıt portalı](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) uygulamanıza atanan. |
 | scope |Gerekli |Geçirilen değer `scope` bu istek parametresi istediğiniz ile yapıştırılmış kaynağın kaynak tanımlayıcısı (uygulama kimliği URI'si) olmalıdır `.default` soneki. Microsoft Graph örnekte değeri, `https://graph.microsoft.com/.default`. Bu değer, v2.0 uç noktası, uygulamanız için yapılandırdığınız tüm doğrudan uygulama izinleri, bunu olanlar için kullanmak istediğiniz kaynakla ilişkili bir belirteç vermek bildirir. |
-| client_assertion_type |gerekli |Değer olmalıdır `urn:ietf:params:oauth:client-assertion-type:jwt-bearer` |
-| client_assertion |gerekli | Onaylama (bir JSON Web belirteci) oluşturmak ve sertifika ile imzalamak için gereken kimlik bilgileri olarak uygulamanız için kayıtlı. Hakkında bilgi edinin [sertifika kimlik bilgileri](active-directory-certificate-credentials.md) sertifikanız ve onaylama biçimi kaydetme hakkında bilgi edinmek için.|
+| client_assertion_type |Gerekli |Değer olmalıdır `urn:ietf:params:oauth:client-assertion-type:jwt-bearer` |
+| client_assertion |Gerekli | Onaylama (bir JSON Web belirteci) oluşturmak ve sertifika ile imzalamak için gereken kimlik bilgileri olarak uygulamanız için kayıtlı. Hakkında bilgi edinin [sertifika kimlik bilgileri](active-directory-certificate-credentials.md) sertifikanız ve onaylama biçimi kaydetme hakkında bilgi edinmek için.|
 | grant_type değeri |Gerekli |Olmalıdır `client_credentials`. |
 
 Client_secret parametresi tarafından iki parametre değiştirilir dışında parametreler neredeyse aynı paylaşılan gizli diziyi isteğiyle olduğu gibi olduğuna dikkat edin: client_assertion_type ve client_assertion.
