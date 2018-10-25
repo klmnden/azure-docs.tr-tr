@@ -89,7 +89,7 @@ HTTP yöntemi
 
 *İstek URL'si*
 
-**https://login.microsoftonline.com/*{Tenantıd}*  /oauth2/belirteç**
+**https://login.microsoftonline.com/*{Tenantıd}*/oauth2/belirteç**
 
 *URI parametresi*
 
@@ -225,7 +225,7 @@ Abone uç noktası bir SaaS hizmetine belirli bir plan için bir abonelik başla
 
 **PUT**
 
-**https://marketplaceapi.microsoft.com/api/saas/subscriptions/*{Subscriptionıd}* ? api-version = 2017-04-15**
+**https://marketplaceapi.microsoft.com/api/saas/subscriptions/*{Subscriptionıd}*?api-version=2017-04-15**
 
 | **Parametre adı**  | **Açıklama**                                       |
 |---------------------|-------------------------------------------------------|
@@ -290,7 +290,7 @@ Değişiklik uç noktası şu anda abone planlarına dönüştürmek için yeni 
 
 **DÜZELTME EKİ**
 
-**https://marketplaceapi.microsoft.com/api/saas/subscriptions/*{Subscriptionıd}* ? api-version = 2017-04-15**
+**https://marketplaceapi.microsoft.com/api/saas/subscriptions/*{Subscriptionıd}*?api-version=2017-04-15**
 
 | **Parametre adı**  | **Açıklama**                                       |
 |---------------------|-------------------------------------------------------|
@@ -356,7 +356,7 @@ Abone uç noktası silme eylemini belirtilen kimliğe sahip bir aboneliği silme
 
 **DELETE**
 
-**https://marketplaceapi.microsoft.com/api/saas/subscriptions/*{Subscriptionıd}* ? api-version = 2017-04-15**
+**https://marketplaceapi.microsoft.com/api/saas/subscriptions/*{Subscriptionıd}*?api-version=2017-04-15**
 
 | **Parametre adı**  | **Açıklama**                                       |
 |---------------------|-------------------------------------------------------|
@@ -407,7 +407,7 @@ Bu uç noktayı (abonelik/Aboneliği Kaldır/Değiştir planı) bir tetiklenen z
 
 **GET**
 
-**https://marketplaceapi.microsoft.com/api/saas/operations/*{Operationıd}* ? api-version = 2017-04-15**
+**https://marketplaceapi.microsoft.com/api/saas/operations/*{Operationıd}*?api-version=2017-04-15**
 
 | **Parametre adı**  | **Açıklama**                                       |
 |---------------------|-------------------------------------------------------|
@@ -477,7 +477,7 @@ Get eylemini abone uç noktası ile belirtilen kaynak tanımlayıcı bir aboneli
 
 **GET**
 
-**https://marketplaceapi.microsoft.com/api/saas/subscriptions/*{Subscriptionıd}* ? api-version = 2017-04-15**
+**https://marketplaceapi.microsoft.com/api/saas/subscriptions/*{Subscriptionıd}*?api-version=2017-04-15**
 
 | **Parametre adı**  | **Açıklama**                                       |
 |---------------------|-------------------------------------------------------|
