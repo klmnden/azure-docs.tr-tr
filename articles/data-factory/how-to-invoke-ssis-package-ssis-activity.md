@@ -13,12 +13,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: b2e0b65f210774f760ce2d0898c601115ab3a94d
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: cda439973c584a57cadc30de7fb931732682de00
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46960167"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50092466"
 ---
 # <a name="run-an-ssis-package-with-the-execute-ssis-package-activity-in-azure-data-factory"></a>SSIS paketi yürütme etkinliği Azure Data factory'de bir SSIS paketi çalıştırın
 Bu makalede bir SSIS paketi yürütme etkinliği kullanarak SSIS paketi bir Azure Data Factory işlem hattında çalıştırmayı öğrenin. 
@@ -91,9 +91,11 @@ Bu adımda, bir işlem hattı oluşturmak için Data Factory kullanıcı arabiri
 
 ### <a name="optionally-parameterize-the-activity"></a>İsteğe bağlı olarak, etkinlik Parametreleştirme
 
-İsteğe bağlı olarak, proje veya paket parametrelerinizi kullanarak JSON biçiminde için değerleri, ifadeler ve İşlevler, Data Factory sistem değişkenlere başvurabilir, Ata **kaynak kodu görüntüle** yürütme SSIS alt kısmındaki düğmesi Paket etkinlik kutusunu veya **kod** işlem hattı alanının sağ üst köşedeki düğmesi. Örneğin, Data Factory işlem hattı parametrelerinin SSIS projenize veya paket parametreleri aşağıdaki ekran görüntülerinde gösterildiği gibi atayabilirsiniz:
+SSIS paketi yürütme etkinliği box'ınızı veya "Code" altındaki "Kaynak kodu görüntüle" düğmesini kullanarak JSON biçiminde, proje veya paket parametreleri için değerleri, ifadeler ve İşlevler, Data Factory sistem değişkenlere başvurabilir, isteğe bağlı olarak, Ata işlem hattı bölgenizde sağ üst köşesinde bulunan düğme. Örneğin, Data Factory işlem hattı parametrelerinin SSIS projenize veya paket parametreleri aşağıdaki ekran görüntülerinde gösterildiği gibi atayabilirsiniz:
 
 ![SSIS paketi yürütme etkinliği için JSON betiğini Düzenle](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-parameters.png)
+
+![SSIS paketi yürütme etkinliği parametrelerini Ekle](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-parameters2.png)
 
 ![SSIS paketi yürütme etkinliği parametrelerini Ekle](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-parameters2.png)
 
@@ -204,9 +206,9 @@ Bu adımda, bir SSIS paketi yürütme etkinliği ile işlem hattı oluşturma. E
                     "runtime": "x64",
                     "loggingLevel": "Basic",
                     "packageLocation": {
-                        "packagePath": "FolderName/ProjectName/PackageName.dtsx"            
+                        "packagePath": "FolderName/ProjectName/PackageName.dtsx"            
                     },
-                    "environmentPath":   "FolderName/EnvironmentName",
+                    "environmentPath":   "FolderName/EnvironmentName",
                     "projectParameters": {
                         "project_param_1": {
                             "value": "123"
@@ -244,7 +246,7 @@ Bu adımda, bir SSIS paketi yürütme etkinliği ile işlem hattı oluşturma. E
                         }
                     },
                     "propertyOverrides": {
-                        "\\PackageName.dtsx\\MaxConcurrentExecutables ": {
+                        "\\PackageName.dtsx\\MaxConcurrentExecutables ": {
                             "value": 8,
                             "isSensitive": false
                         }

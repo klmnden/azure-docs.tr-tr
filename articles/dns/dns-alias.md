@@ -7,55 +7,62 @@ ms.service: dns
 ms.topic: article
 ms.date: 9/25/2018
 ms.author: victorh
-ms.openlocfilehash: 05a6a1700de2b8b334b40d9efd9b8d79e9e7241f
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 52b42e964e7abe207064aff49f7f8f27f8476ef4
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46957593"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50092851"
 ---
 # <a name="azure-dns-alias-records-overview"></a>Azure DNS diğer ad kayıtlarını genel bakış
 
-Azure DNS diğer ad kayıtlarını nitelik diğer Azure kaynaklarından DNS bölgenizi içinde başvurmak izin veren bir DNS kayıt kümesi üzerinde ' dir. Örneğin, bir A kaydı yerine bir Azure genel IP adresine başvuran bir diğer ad kayıt kümesi oluşturabilirsiniz. Diğer ad kayıt dinamik olarak bir Azure genel IP adresi hizmet örneğine işaret olduğundan, diğer ad kayıt kümesi kendisini sorunsuz bir şekilde DNS çözümlemesi sırasında güncelleştirir.
+Azure DNS diğer ad kayıtlarını DNS kayıt kümesi üzerinde nitelikleri ' dir. Bunlar, diğer Azure kaynaklarından DNS bölgenizi içinde başvurabilirsiniz. Örneğin, bir A kaydı yerine bir Azure genel IP adresine başvuruyor bir diğer ad kayıt kümesi oluşturabilirsiniz. Azure genel IP'LERİNDEN diğer ad kaydı kümesi puanları, hizmet örneği dinamik adres. Sonuç olarak, diğer ad kayıt kümesi sorunsuz bir şekilde kendi DNS çözümlemesi sırasında güncelleştirir.
 
-Aşağıdaki kayıt türlerinin bir Azure DNS bölgesindeki bir diğer ad kayıt kümesi desteklenir: A, AAAA ve CNAME. 
+Bir diğer ad kayıt kümesi, aşağıdaki kayıt türlerinin bir Azure DNS bölgesindeki desteklenir: 
+
+- A 
+- AAAA 
+- CNAME 
 
 > [!NOTE]
-> Diğer ad kayıtlarını A veya AAAA kayıt türleri için Traffic Manager için yalnızca dış uç nokta türleri için desteklenir. IPv4 veya IPv6 adresi (İdeal olarak statik IP) dış Traffic Manager'da uç noktaları için uygun şekilde sağlamanız gerekir.
+> Diğer ad kayıtlarını A veya AAAA kayıt türleri için Azure Traffic Manager için yalnızca dış uç nokta türleri için desteklenir. Dış Traffic Manager'da uç noktaları için uygun şekilde IPv4 veya IPv6 adresi sağlamanız gerekir. İdeal olarak, statik IP adresini kullanın.
 
 ## <a name="capabilities"></a>Özellikler
 
-- **Bir DNS A/AAAA kayıt kümesi için bir genel IP kaynağı işaret**. A/AAAA kayıt kümesi oluşturma ve bir genel IP kaynağına işaret edecek bir diğer ad kayıt kümesi hale getirebilirsiniz.
-- **Traffic Manager profili için bir DNS A/AAAA/CNAME kayıt kümesi noktası**. Traffic Manager profilinin CNAME için işaret edecek şekilde işaretleyebilmesine ek olarak (örneğin: contoso.trafficmanager.net) bir DNS CNAME kayıt kümesinden, şimdi de, DNS'de bir A veya AAAA kayıt kümesinden dış uç noktaları olan bir Traffic Manager profili işaret edebilir bölge.
+- **Bir genel IP kaynağı için bir DNS A/AAAA kayıt kümesi gelin.** A/AAAA kayıt kümesi oluşturma ve bir genel IP kaynağına işaret edecek bir diğer ad kayıt kümesi kolaylaştırır.
+
+- **Traffic Manager profili için bir DNS A/AAAA/CNAME kayıt kümesi gelin.** Bir DNS CNAME kayıt kümesi için bir Traffic Manager profilinin CNAME işaret edebilir. Contoso.trafficmanager.net buna bir örnektir. Şimdi de dış uç noktalardan gelen bir A veya AAAA kaydı DNS bölgenizi kümesi olan bir Traffic Manager profiline işaret edebilir.
+
    > [!NOTE]
-   > Diğer ad kayıtlarını A veya AAAA kayıt türleri için Traffic Manager için yalnızca dış uç nokta türleri için desteklenir. IPv4 veya IPv6 adresi (İdeal olarak statik IP) dış Traffic Manager'da uç noktaları için uygun şekilde sağlamanız gerekir.
-- **Aynı bölgede başka bir DNS kayıt kümesi işaret**. Diğer ad kayıtlarını aynı türdeki diğer kayıt kümelerine başvurabilir. Örneğin, bir DNS CNAME kayıt kümesi aynı türde başka bir CNAME kayıt kümesi için bir diğer ad olması olabilir. Bu özellik, diğer adlar olabilir. bazı kayıt kümelerini ve bazı davranış açısından diğer adları olarak istiyorsanız kullanışlıdır.
+   > Diğer ad kayıtlarını A veya AAAA kayıt türleri için Traffic Manager için yalnızca dış uç nokta türleri için desteklenir. Dış Traffic Manager'da uç noktaları için uygun şekilde IPv4 veya IPv6 adresi sağlamanız gerekir. İdeal olarak, statik IP adresini kullanın.
+   
+- **Aynı bölgede başka bir DNS kayıt kümesi gelin.** Diğer ad kayıtları aynı türdeki diğer kayıt kümelerine başvurabilir. Örneğin, bir DNS CNAME kayıt kümesi aynı türde başka bir CNAME kayıt kümesi için bir diğer ad olabilir. Bu düzenleme, diğer adlar olmasını bazı kayıt kümelerini ve bazı diğer olmayan istiyorsanız kullanışlıdır.
 
 ## <a name="scenarios"></a>Senaryolar
-Diğer ad kayıtlarını için bazı yaygın senaryolar şunlardır:
+Diğer ad kayıtlarını için bazı yaygın senaryolar vardır.
 
 ### <a name="prevent-dangling-dns-records"></a>DNS kayıtlarını Sallantıdaki engelle
-Gelen Azure DNS bölgelerini barındırmasını diğer ad kayıtlarını yakın bir genel IP ve Traffic Manager profili gibi Azure kaynaklarının yaşam döngüsü izlemek için kullanılabilir. Geleneksel DNS kayıtları ile yaygın sorunlardan biri olan "Sallantıdaki kayıtlarla", özellikle A/AAAA veya CNAME kayıt türleri. 
+ Azure DNS bölgelerini barındırmasını diğer ad kayıtlarını yakından yaşam döngüsünü Azure kaynakları izlemek için kullanılabilir. Kaynaklar, genel bir IP veya Traffic Manager profili içerir. Geleneksel DNS kayıtları ile ortak bir sorunu kayıtları sarkan. Özellikle A ile bu sorun oluşur/AAAA veya CNAME kayıt türleri. 
 
-Geleneksel bir DNS bölgesi kaydını hedef IP veya CNAME artık mevcut değilse, DNS bölge kaydı bu durumu kendi lehine olanağıyla sahiptir ve el ile güncelleştirilmesi gerekiyor. Bazı kuruluşlarda el ile bu güncelleştirme, zaman içinde olmayabilir veya rolleri ve ilişkili izin düzeylerini ayrımı nedeniyle sorunlara neden olabilir.
+Hedef IP veya CNAME artık mevcut değilse, geleneksel bir DNS bölgesi kaydıyla, DNS bölge kaydı bilmez. Sonuç olarak, kayıt el ile güncelleştirilmelidir. Bazı Kurumlarda, bu el ile güncelleştirme zaman içinde gerçekleşebilir değil. Rolleri ve ilişkili izin düzeylerini ayrımı nedeniyle sorunlu da olabilir.
 
-Örneğin, bir uygulamaya ait bir CNAME veya IP adresini silmek için yetkiye sahip rolü bu hedefe işaret eden DNS kaydı güncelleştirmek için yeterli yetkiye sahip olmayabilirsiniz. Sonuç olarak, IP veya CNAME silindiğinde ve onu işaret kaldırılmış, kesinti son kullanıcılar için olası neden DNS kaydı arasında bir gecikme olabilir.
+Örneğin, bir rol bir uygulamaya ait bir CNAME veya IP adresini silmek yetkisine sahip olabilir. Ancak bu hedefe işaret eden DNS kaydı güncelleştirmek için yeterli yetkiniz yok. Gecikme süresi arasında IP veya CNAME silinir ve kendisine işaret eden DNS kaydı kaldırıldığında gerçekleşir. Bu gecikme süresi, kesinti kullanıcılar için durum neden.
 
-Diğer ad kayıtlarını, bu senaryoyla ilişkili karmaşıklığı ortadan kaldırın ve Sallantıdaki böyle başvurular önlemeye yardımcı olur. Bir DNS kaydı için genel bir IP ya da Traffic Manager profili işaret etmek için bir diğer ad kaydı nitelenmiş ve temel alınan kaynaklarla silinirse, DNS diğer ad kaydı aynı anda hem de kaldırılır. Bu, son kullanıcılar, hiç kesinti etkilese sağlar.
+Diğer ad kayıtlarını bu senaryoyla ilişkili neden olduğu karmaşadan kurtulun. Bunlar Sallantıdaki başvuruları önlemeye yardımcı olun. Örneğin, bir diğer ad kaydı genel bir IP ya da Traffic Manager profili işaret edecek şekilde yetkili bir DNS kaydı'ı alın. Temel alınan kaynaklarla silinirse, aynı anda DNS diğer ad kaydı kaldırılır. Bu işlem, kullanıcıların hiç kesinti etkilese emin olur.
 
 ### <a name="update-dns-zones-automatically-when-application-ips-change"></a>Uygulama IP'ler değiştirdiğinizde, DNS bölgelerini otomatik olarak güncelleştirin
 
-Benzer şekilde, önceki senaryoda bir uygulama veya temel sanal makine yeniden başlatılırsa, bir diğer ad kaydı temel alınan genel IP kaynağı için IP adresinin değiştiği zaman otomatik olarak güncelleştirilir. Son kullanıcılar eski IP adresine sahip başka bir uygulamaya yönlendirilir, olası güvenlik risklerini önleyebilirsiniz.
+Bu senaryo, Öncekine benzer. Belki de bir uygulama taşınır veya temel sanal makine yeniden başlatılır. Bir diğer ad kaydı daha sonra otomatik olarak IP adresi için temel alınan genel IP kaynağı değiştiğinde güncelleştirir. Olası güvenlik risklerini önlemek için kullanıcılara eski IP adresine sahip başka bir uygulamaya doğrudan.
 
-### <a name="host-load-balanced-applications-at-the-zone-apex"></a>Konak yük dengeli küme uygulamaları bölgenin tepesindeki
+### <a name="host-load-balanced-applications-at-the-zone-apex"></a>Konak yük dengeli uygulamalarda bölgenin tepesindeki
 
-DNS protokolü bölgenin tepesindeki bir A veya AAAA kaydı dışında herhangi bir şeyi atamayı engeller (örnek: contoso.com). Traffic Manager profilinde bölgenin tepesinde kaydını işaret edecek şekilde olası olmadığından bu sunar uygulamaların arkasında bir Traffic Manager yük sahip uygulama sahipleri için sorun dengeli. Sonuç olarak, uygulama sahipleri, geçici bir çözüm kullanmak için zorlanan. Örneğin, başka bir etki alanına (www.contoso.com contoso.com'da) bölge tepesinde yönlendirmek için uygulama katmanında bir yeniden yönlendirme. Bu, tek bir yeniden yönlendirme işlevsellik bakımından hata noktası sunar.
+DNS protokolü, bir A veya AAAA kaydı bölgenin tepesindeki dışında herhangi bir şeyi atamayı engeller. Contoso.com buna bir örnektir. Bu kısıtlama, yük dengeli uygulamalarda arkasında Traffic Manager sahip uygulama sahipleri için bir sorunu gösterir. Traffic Manager profilinde bölgenin tepesinde kaydını işaret etmek mümkün değildir. Sonuç olarak, uygulama sahipleri, geçici bir çözüm kullanmanız gerekir. Uygulama katmanındaki bir yeniden yönlendirme başka bir etki bölge tepesinde yeniden yönlendirmeniz gerekir. Contoso.com yeniden yönlendirme www.contoso.com için buna bir örnektir. Bu düzenleme tek bir yeniden yönlendirme işlevine yönelik bir hata noktası sunar.
 
-Diğer ad kayıtlarını ile bu sorun artık yok. Uygulama sahibi kendi bölge tepesinde kayıt dış uç noktaları olan bir Traffic Manager profiline şimdi işaret edebilir. Bu özellik ile uygulama sahipleri kendi DNS bölgesi içinde başka bir etki alanı için kullanılan aynı Traffic Manager profilini işaret edebilir. Örneğin, yapılandırılmış yalnızca dış uç noktaları Traffic Manager profiline sahip olduğu sürece contoso.com ve www.contoso.com her ikisi de aynı Traffic Manager profiline işaret edebilir.
+Diğer ad kayıtlarını ile bu sorun artık yok. Artık uygulama sahipleri kendi bölge tepesinde kayıt dış uç noktaları olan bir Traffic Manager profiline işaret edebilir. Uygulama sahibi kendi DNS bölgesi içinde başka bir etki alanı için kullanılan aynı Traffic Manager profilini işaret edebilir. Örneğin, contoso.com ve www.contoso.com aynı Traffic Manager profiline işaret edebilir. Traffic Manager profilini yapılandırılmış yalnızca harici son noktaları olduğu sürece bu durum geçerlidir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Diğer ad kayıtları hakkında daha fazla bilgi için aşağıdaki makalelere bakın:
+Diğer ad kayıtları hakkında daha fazla bilgi edinmek için aşağıdaki makalelere bakın:
 
 - [Öğretici: Azure genel IP adresine başvurmak için bir diğer ad kaydı yapılandırma](tutorial-alias-pip.md)
 - [Öğretici: bir diğer ad kaydı apex etki alanı adları ile Traffic Manager'ı destekleyecek şekilde yapılandırma](tutorial-alias-tm.md)

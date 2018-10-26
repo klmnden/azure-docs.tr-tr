@@ -6,15 +6,15 @@ ms.service: automation
 ms.component: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 09/18/2018
+ms.date: 10/25/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: e51c0178691279d803e9a1afcd4147f1d6ed767e
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: a803353b5dacaa56c181cdad0955191d547eb3c4
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49985259"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50092262"
 ---
 # <a name="manage-updates-for-multiple-machines"></a>Birden çok makine için güncelleştirmeleri yönetme
 
@@ -43,7 +43,7 @@ Güncelleştirme yönetimi aşağıdaki işletim sistemlerinde desteklenir:
 |CentOS 6 (x86/x64) ve 7 (x64)      | Linux aracılarının bir güncelleştirme havuzuna erişimi olmalıdır.        |
 |Red Hat Enterprise 6 (x86/x64) ve 7 (x64)     | Linux aracılarının bir güncelleştirme havuzuna erişimi olmalıdır.        |
 |SUSE Linux Enterprise Server 11 (x86/x64) ve 12 (x64)     | Linux aracılarının bir güncelleştirme havuzuna erişimi olmalıdır.        |
-|Ubuntu 12.04 LTS, 14.04 LTS ve 16.04 LTS (x86/x64)      |Linux aracılarının bir güncelleştirme havuzuna erişimi olmalıdır.         |
+|Ubuntu 14.04 LTS, 16.04 LTS ve 18.04 LTS (x86/x64)      |Linux aracılarının bir güncelleştirme havuzuna erişimi olmalıdır.         |
 
 > [!NOTE]
 > Güncelleştirmelerin Ubuntu'daki bakım penceresinin dışında uygulanmasının önüne geçmek için Katılımsız Yükseltme paketini otomatik güncelleştirmeler devre dışı bırakılacak şekilden yeniden yapılandırın. Daha fazla bilgi için bkz. [Ubuntu Server Kılavuzu'ndaki Otomatik Güncelleştirmeler konu başlığı](https://help.ubuntu.com/lts/serverguide/automatic-updates.html).

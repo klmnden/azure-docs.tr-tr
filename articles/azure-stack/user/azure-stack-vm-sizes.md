@@ -10,15 +10,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/22/2018
+ms.date: 10/23/2018
 ms.author: mabrigg
 ms.reviewer: kivenkat
-ms.openlocfilehash: dc9e1b3fb59aca8fba0c84fbfa674931c24c12c9
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: 1af7a1d595b39878f3ed30591e8ad78e767e8cf7
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945901"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50087500"
 ---
 # <a name="virtual-machine-sizes-supported-in-azure-stack"></a>Azure Stack'te desteklenen sanal makine boyutları
 
@@ -31,6 +31,10 @@ Bu makalede, Azure Stack'te kullanılabilir sanal makine (VM) boyutları listele
 Dengeli CPU / bellek oranı genel amaçlı bir VM boyutları sunar. Test ve geliştirme, küçük ve orta büyüklükte veri tabanları ve düşük, orta düzey trafiğe sahip web sunucuları için kullanılırlar.
 
 ### <a name="basic-a"></a>Temel A
+
+> [!NOTE]
+> *Temel A* sanal makine boyutları için devre dışı [sanal makine ölçek kümeleri oluşturma](../azure-stack-compute-add-scalesets.md) (VMSS) portal üzerinden. Bu boyut ile bir VMSS oluşturmak için PowerShell ya da bir şablon kullanın.
+
 |Boyutu - boyut\ad |Sanal işlemci     |Bellek | En fazla geçici disk boyutu | En yüksek işletim sistemi disk aktarım hızı: (IOPS) | Maksimum geçici depolama aktarım hızı (IOPS) | Maksimum veri diski aktarım hızı (IOPS) | En fazla NIC |    
 |-----------------|-----|---------|---------|-----|------|-----------|----|
 |**A0\Basic_A0**  |1    |768 MB   | 20 GB   |300  | 300  |1 / 1 x 300  |1   |

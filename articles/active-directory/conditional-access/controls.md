@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/18/2018
+ms.date: 10/25/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 065eee57b78ea10d5e8079de3a938dc00dd60ee2
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: a40774faadc4393a1ebbb6e26673ba7dff22560c
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49406781"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50092313"
 ---
 # <a name="what-are-access-controls-in-azure-active-directory-conditional-access"></a>Azure Active Directory koşullu erişim erişim denetimleri nelerdir? 
 
@@ -166,8 +166,14 @@ Oturum denetimleri, bulut uygulaması içinde sınırlı deneyim sağlar. Oturum
 
 ### <a name="use-app-enforced-restrictions"></a>Uygulama tarafından zorlanan kısıtlamaları kullan
 
-Bu denetim, cihaz bilgilerini bulut uygulamasına geçirmek Azure AD zorunlu tutmak için kullanabilirsiniz. Bu, kullanıcı bir cihaz uyumlu veya etki alanına katılmış CİHAZDAN geliyorsa bilmeniz bulut uygulaması yardımcı olur. Bu denetimidir şu anda yalnızca bulut uygulaması olarak SharePoint ile desteklenir. SharePoint cihaz bilgilerini kullanıcılara cihaz durumuna bağlı olarak sınırlı veya tam bir deneyim sağlamak için kullanır.
-SharePoint ile sınırlı erişim isteme hakkında daha fazla bilgi için bkz: [yönetilmeyen cihazların erişimini denetleme](https://aka.ms/spolimitedaccessdocs).
+Bu denetim, seçili bulut uygulamaları için cihaz bilgilerini geçirmek Azure AD zorunlu tutmak için kullanabilirsiniz. Cihaz bilgilerini bir bağlantı uyumlu veya etki alanına katılmış bir CİHAZDAN başlatılır bilmeniz bulut uygulamaları sağlar. Bu denetim yalnızca SharePoint Online ve Exchange Online seçilen bulut uygulamaları destekler. Bulut uygulaması seçili olduğunda, aygıt bilgisi sınırlı veya tam bir deneyim ile cihaz durumuna bağlı olarak kullanıcılara sağlamanız kullanır.
+
+Daha fazla bilgi için bkz:
+
+- [SharePoint Online ile sınırlı erişimini etkinleştirme](https://aka.ms/spolimitedaccessdocs) 
+
+- [Exchange Online ile sınırlı erişimini etkinleştirme](https://aka.ms/owalimitedaccess)
+
 
 
 

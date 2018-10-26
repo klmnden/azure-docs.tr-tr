@@ -11,19 +11,24 @@ author: rmatchoro
 ms.author: ronmat
 ms.reviewer: vanto, carlrab
 manager: craigg
-ms.date: 09/19/2018
-ms.openlocfilehash: ed7a117d4422b3b3feddd7d2fafa5eabea43f9e5
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.date: 10/25/2018
+ms.openlocfilehash: 2882bd782359697cf714214e68166c9f997f52e4
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47164946"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50093556"
 ---
 # <a name="azure-sql-database-threat-detection"></a>Azure SQL veritabanı tehdit algılama
 
-Azure SQL veritabanı tehdit algılama, erişim veritabanı açıklıklarından yararlanmaya yönelik sıra dışı ve zararlı olabilecek girişimleri gösteren anormal etkinlikleri algılar.
+Azure SQL tehdit algılama için [SQL veritabanı](sql-database-technical-overview.md) ve [SQL veri ambarı](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) erişim veritabanı açıklıklarından yararlanmaya yönelik sıra dışı ve zararlı olabilecek girişimleri gösteren anormal etkinlikleri algılar.
 
 Tehdit algılama parçasıdır [SQL Gelişmiş tehdit koruması](sql-advanced-threat-protection.md) Gelişmiş SQL güvenlik özellikleri için birleştirilmiş bir pakettir (ATP) teklifi. Tehdit algılama, erişilebilir ve merkezi SQL ATP portalı üzerinden yönetilebilir.
+
+
+> [!NOTE] 
+> Bu konu başlığı, Azure SQL sunucusunun yanı sıra Azure SQL sunucusu üzerinde oluşturulmuş olan SQL Veritabanı ve SQL Veri Ambarı veritabanları için de geçerlidir. Kolaylık açısından, hem SQL Veritabanı hem de SQL Veri Ambarı için SQL Veritabanı terimi kullanılmaktadır.
+
 
 ## <a name="what-is-threat-detection"></a>Tehdit algılama nedir?
 
@@ -65,7 +70,7 @@ Anormal veritabanı etkinliklerinin algılanması üzerine bir e-posta bildirimi
 
 SQL veritabanı tehdit algılama, uyarıları ile tümleştirilir [Azure Güvenlik Merkezi](https://azure.microsoft.com/services/security-center/). Veritabanı ve Azure portalında SQL ATP dikey pencereleri içinde Canlı SQL tehdit algılama kutucuklar etkin tehditleri durumunu izler.
 
-Tıklayın **tehdit algılaması Uyarısı** Azure Güvenlik Merkezi'ni başlatmak için uyarılar sayfasında ve veritabanında algılanan etkin SQL tehditler genel bir bakış edinin.
+Tıklayın **tehdit algılaması Uyarısı** Azure Güvenlik Merkezi'ni başlatmak için uyarılar sayfasında ve veritabanı veya veri ambarını algılanan etkin SQL tehditler genel bir bakış edinin.
 
    ![Tehdit algılama Uyarısı](./media/sql-database-threat-detection/threat_detection_alert.png)
    

@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 57446f068945d74351a77f21e16874d9e24ddcab
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: e8a09a9fc87bff692b5d5b4c54f87839f2591b63
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48801939"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50086956"
 ---
 # <a name="how-to-configure-password-writeback"></a>Nasıl yapılır: parola geri yazmayı yapılandırın
 
@@ -72,13 +72,14 @@ Parola geri yazmanın gerçekleşmesini sağlamak için uygun izinleri ayarlamak
 3. Sol bölmede bulunan seçin ve etki alanı kökünde temsil eden nesneye sağ tıklayın **özellikleri** > **güvenlik** > **Gelişmiş**.
 4. Gelen **izinleri** sekmesinde **Ekle**.
 5. İzinler (Azure AD Connect kurulumunun) uygulanmakta olan bir hesabı seçin.
-6. İçinde **uygulandığı** aşağı açılan listesinden **Descendent kullanıcı** nesneleri.
+6. İçinde **uygulandığı** aşağı açılan listesinden **alt kullanıcı nesneleri**.
 7. Altında **izinleri**, aşağıdaki seçenekleri seçin:
-    * **Parola sıfırlama**
     * **Parola değiştirme**
+    * **Parola sıfırlama**
+8. Altında **özellikleri**, aşağıdaki seçenekleri seçin:
     * **LockoutTime yazma**
     * **PwdLastSet yazma**
-8. Seçin **Uygula/Tamam** değişiklikleri uygulamak ve açık bir iletişim kutusu çıkın.
+9. Seçin **Uygula/Tamam** değişiklikleri uygulamak ve açık bir iletişim kutusu çıkın.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

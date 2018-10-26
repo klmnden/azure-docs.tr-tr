@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 10/22/2018
 ms.author: juliako
-ms.openlocfilehash: 56e9a0b4eec347d2367c38ab00c6c9d9dca60752
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: cb34855fc9451679c885eebb0ef5a2fab0be8c57
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49986908"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50086854"
 ---
 # <a name="streaming-locators"></a>Akış Bulucuları
 
@@ -26,20 +26,20 @@ ms.locfileid: "49986908"
 
 Aşağıdaki tabloda StreamingLocator'ın özelliklerini gösterir ve bunların tanımlarının sağlar.
 
-|Ad|Tür|Açıklama|
-|---|---|---|
-|id |dize|Kaynak için tam kaynak kimliği.|
-|ad   |dize|Kaynak adı.|
-|properties.alternativeMediaId  |dize|Bu akış Bulucusu alternatif ortam kimliği.|
-|properties.assetName   |dize|Varlık adı|
-|properties.contentKeys |StreamingLocatorContentKey]|Bu akış Bulucu tarafından kullanılan ContentKeys.|
-|Properties.Created |dize|Akış Bulucusu oluşturma zamanı.|
-|properties.defaultContentKeyPolicyName |dize|Bu akış Bulucu tarafından kullanılan ContentKeyPolicy varsayılan adı.|
-|properties.endTime |dize|Akış Bulucu bitiş saati.|
-|properties.startTime   |dize|Akış Bulucu başlangıç zamanı.|
-|properties.streamingLocatorId  |dize|Akış Bulucu StreamingLocatorId.|
-|properties.streamingPolicyName |dize|Bu akış Bulucu tarafından kullanılan akış ilke adı. Akış oluşturduğunuz ilke adı belirtin veya önceden tanımlanmış akış ilkelerden birini kullanabilirsiniz. Önceden tanımlanmış akış ilkeleri kullanılabilir: 'Predefined_DownloadOnly', 'Predefined_ClearStreamingOnly', 'Predefined_DownloadAndClearStreaming', 'Predefined_ClearKey', 'Predefined_MultiDrmCencStreaming' ve ' Predefined_ MultiDrmStreaming'|
-|type   |dize|Kaynak türü.|
+|Ad|Açıklama|
+|---|---|
+|id |Kaynak için tam kaynak kimliği.|
+|ad   |Kaynak adı.|
+|properties.alternativeMediaId|Bu akış Bulucusu alternatif ortam kimliği.|
+|properties.assetName   |Varlık adı|
+|properties.contentKeys |Bu akış Bulucu tarafından kullanılan ContentKeys.|
+|Properties.Created |Akış Bulucusu oluşturma zamanı.|
+|properties.defaultContentKeyPolicyName|Bu akış Bulucu tarafından kullanılan ContentKeyPolicy varsayılan adı.|
+|properties.endTime |Akış Bulucu bitiş saati.|
+|properties.startTime|Akış Bulucu başlangıç zamanı.|
+|properties.streamingLocatorId|Akış Bulucu StreamingLocatorId.|
+|properties.streamingPolicyName |Bu akış Bulucu tarafından kullanılan akış ilke adı. Akış oluşturduğunuz ilke adı belirtin veya önceden tanımlanmış akış ilkelerden birini kullanabilirsiniz. Önceden tanımlanmış akış ilkeleri kullanılabilir: 'Predefined_DownloadOnly', 'Predefined_ClearStreamingOnly', 'Predefined_DownloadAndClearStreaming', 'Predefined_ClearKey', 'Predefined_MultiDrmCencStreaming' ve ' Predefined_ MultiDrmStreaming'|
+|type|Kaynak türü.|
 
 Tam tanımı için bkz [akış bulucuları](https://docs.microsoft.com/rest/api/media/streaminglocators).
 

@@ -10,15 +10,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/12/2018
+ms.date: 10/23/2018
 ms.author: mabrigg
 ms.reviewer: efemmano
-ms.openlocfilehash: 7ccf746cfd9645b63c2810bff83cfb0c4fa55d65
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 4ec9affa78d1f244208a24bcf8a6603e867d4c08
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44713757"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50086514"
 ---
 # <a name="use-the-azure-stack-portal"></a>Azure Stack portalını kullanın
 
@@ -32,12 +32,13 @@ Genel tekliflere abone olmak için Azure Stack portalını kullanın ve bu tekli
 
 - Tümleşik bir sistem için URL, işlecin bölge ve dış etki alanı adına göre değişir ve biçimde olacaktır https://portal.&lt; *Bölge*&gt;.&lt; *FQDN*&gt;.
 - Azure Stack geliştirme Seti'ni kullanıyorsanız, portalı adresidir https://portal.local.azurestack.external.
-
-![Azure Stack kullanıcı portalının ekran yakalama](media/azure-stack-use-portal/UserPortal.png)
+- Tüm Azure Stack dağıtımlar için varsayılan saat dilimini Eşgüdümlü Evrensel Saat (UTC) olarak ayarlanır. Bu otomatik olarak UTC'ye varsayılan olarak yükleme sırasında döner ancak Azure Stack, yükleme sırasında bir saat dilimi seçebilirsiniz.
 
 ## <a name="customize-the-dashboard"></a>Panoyu özelleştirin
 
 Pano kutucukları varsayılan kümesini içerir. Seçebileceğiniz **panoyu Düzenle** varsayılan pano değiştirmek veya **yeni Pano** özel bir Pano oluşturmak için. Ekleyerek veya kaldırarak kutucukları bir panoya kolayca özelleştirebilirsiniz. Örneğin, bir işlem kutucuk eklemek için seçin **+ kaynak Oluştur**. Sağ **işlem**ve ardından **panoya Sabitle**.
+
+![Azure Stack kullanıcı portalının ekran yakalama](media/azure-stack-use-portal/userportal.png)
 
 ## <a name="create-subscription-and-browse-available-resources"></a>Abonelik oluşturmak ve kullanılabilir kaynaklara göz atın
 

@@ -1,5 +1,5 @@
 ---
-title: Bilinen sorunlar VM'ler için Azure İzleyici | Microsoft Docs
+title: Azure İzleyici için Vm'leri (Önizleme) bilinen sorunlar | Microsoft Docs
 description: VM'ler için Azure İzleyici sistem durumunu ve uygulama bileşenleri ve diğer kaynaklarla ilgili bağımlılıkları otomatik olarak keşfetme yanı sıra Azure VM'nin işletim sistemi izleme performansını birleştirir ve arasındaki iletişimi eşleyen bir Azure çözümüdür bunları. Bu makalede, bilinen sorunlar ele alınmıştır.
 services: azure-monitor
 documentationcenter: ''
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/15/2018
+ms.date: 10/25/2018
 ms.author: magoedte
-ms.openlocfilehash: 6d1f1d1ae07ec32262f655fd6ed7205a70e252f4
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: eba9e26f12fd9e1862727adec4f8c8f594e8f659
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49385100"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50091683"
 ---
-# <a name="known-issues-with-azure-monitor-for-vms"></a>VM'ler için Azure İzleyici ile ilgili bilinen sorunlar
+# <a name="known-issues-with-azure-monitor-for-vms-preview"></a>VM'ler (Önizleme) için Azure İzleyici ile ilgili bilinen sorunlar
 
 Aşağıda Azure İzleyici sistem durumu özelliği olan VM'ler için bilinen sorunlar verilmiştir:
 

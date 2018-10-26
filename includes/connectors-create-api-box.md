@@ -1,18 +1,31 @@
-### <a name="prerequisites"></a>Ön koşullar
-* A [kutusunu](http://box.com) hesabı  
+---
+author: ecfan
+ms.service: logic-apps
+ms.topic: include
+ms.date: 11/03/2016
+ms.author: estfan
+ms.openlocfilehash: d1db175ecc2cf61de0debc15d198d6367aae8bdd
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50093008"
+---
+### <a name="prerequisites"></a>Önkoşullar
+* A [kutusu](http://box.com) hesabı  
 
-Bir mantıksal uygulama kutusunu hesabınızı kullanabilmeniz için önce kutusunu hesabınıza bağlanmak için mantığı uygulamasını yetkilendirmeniz gerekir. Neyse ki, Azure Portal'da mantıksal uygulama içinde bu kolayca yapabilirsiniz.  
+Box hesabınıza bir mantıksal uygulama kullanabilmeniz için önce box hesabınıza bağlanmak için mantıksal uygulamayı yetkilendirmeniz gerekir. Neyse ki, Azure Portalı'nda mantıksal uygulama içinde bunu kolayca yapabilirsiniz.  
 
-Mantıksal uygulamanızı kutusunu hesabınıza bağlanmak için yetki vermek için adımlar şunlardır:  
+Mantıksal uygulamanızı box hesabınıza bağlanmak için yetki vermek için adımlar şunlardır:  
 
-1. Mantıksal Uygulama Tasarımcısı'nda kutusuna bir bağlantı oluşturmak için seçin **Göster Microsoft yönetilen API'ler** açılır listesinde enter *kutusunu* arama kutusuna. Tetikleyici seçin veya eylem kullanmak ister:  
-   ![kutusunu bağlantı oluşturma adım](./media/connectors-create-api-box/box-1.png)  
-2. Önce kutusu için herhangi bir bağlantısı oluşturmadıysanız, kutusunu kimlik bilgilerinizi sağlamanız istenir. Bu kimlik bilgileri bağlanmak için mantıksal uygulamanızı yetkilendirmek için kullanılır ve kutusunu hesabınızın veri erişim:  
-   ![kutusunu bağlantı oluşturma adım](./media/connectors-create-api-box/box-2.png)  
-3. Kutusunu kullanıcı adı ve mantıksal uygulamanızı yetkilendirmek için parola sağlayın:  
-   ![kutusunu bağlantı oluşturma adım](./media/connectors-create-api-box/box-3.png)  
+1. Mantıksal Uygulama Tasarımcısı'nda kutusuna bir bağlantı oluşturmak için seçin **yönetilen API'leri Göster Microsoft** açılan liste enter *kutusu* arama kutusuna. Tetikleyici veya eylemi kullanmak ister seçin:  
+   ![kutusu bağlantı oluşturma adımı](./media/connectors-create-api-box/box-1.png)  
+2. Önce kutu içine almak için herhangi bir bağlantı oluşturmadıysanız, kutusu kimlik bilgilerinizi sağlamanız girmem isteniyor. Bu kimlik bilgileri, mantıksal uygulamanızı bağlanmak için yetki vermek için kullanılan ve kutusu hesabınızın veri erişim:  
+   ![kutusu bağlantı oluşturma adımı](./media/connectors-create-api-box/box-2.png)  
+3. Kutusuna kullanıcı adınızı ve parolanızı mantıksal uygulamanızı yetkilendirmek için sağlayın:  
+   ![kutusu bağlantı oluşturma adımı](./media/connectors-create-api-box/box-3.png)  
 4. Bize kutusuna bağlanmasına izin ver:  
-   ![kutusunu bağlantı oluşturma adım](./media/connectors-create-api-box/box-4.png)  
-5. Bağlantı oluşturuldu ve artık bir mantıksal uygulamanızı adımlarda yüklemeye devam etmek ücretsiz dikkat edin:  
-   ![kutusunu bağlantı oluşturma adım](./media/connectors-create-api-box/box-5.png)  
+   ![kutusu bağlantı oluşturma adımı](./media/connectors-create-api-box/box-4.png)  
+5. Bağlantı oluşturuldu ve artık mantıksal uygulamanızdaki diğer adımlarla devam etmek ücretsiz, dikkat edin:  
+   ![kutusu bağlantı oluşturma adımı](./media/connectors-create-api-box/box-5.png)  
 

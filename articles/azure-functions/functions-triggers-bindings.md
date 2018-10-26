@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 09/24/2018
 ms.author: glenga
-ms.openlocfilehash: 694dd98caadb12571c58f9d615cf75325654c772
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 6227e9c522cb4b041e56f2bbdd703a68b44ecf92
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48801314"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50087687"
 ---
 # <a name="azure-functions-triggers-and-bindings-concepts"></a>Azure işlevleri Tetikleyicileri ve bağlamaları kavramları
 
@@ -75,11 +75,12 @@ Aşağıda, bu tetikleyici ve bağlama ile çalışan bir C# kodu verilmiştir. 
 ```cs
 #r "Newtonsoft.Json"
 
+using Microsoft.Extensions.Logging;
 using Newtonsoft.Json.Linq;
 
 // From an incoming queue message that is a JSON object, add fields and write to Table storage
 // The method return value creates a new row in Table Storage
-public static Person Run(JObject order, TraceWriter log)
+public static Person Run(JObject order, ILogger log)
 {
     return new Person() { 
             PartitionKey = "Orders", 
@@ -124,7 +125,7 @@ Bir sınıf kitaplığı, aynı tetikleyici ve bağlama bilgileri &mdash; kuyruk
      [return: Table("outTable", Connection = "MY_TABLE_STORAGE_ACCT_APP_SETTING")]
      public static Person Run(
          [QueueTrigger("myqueue-items", Connection = "MY_STORAGE_ACCT_APP_SETTING")]JObject order, 
-         TraceWriter log)
+         ILogger log)
      {
          return new Person() {
                  PartitionKey = "Orders",
@@ -238,10 +239,10 @@ Dönüş değeri için zaman uyumsuz örneği tarafından izlenen bir çıkış 
 ```cs
 [FunctionName("QueueTrigger")]
 [return: Blob("output-container/{id}")]
-public static string Run([QueueTrigger("inputqueue")]WorkItem input, TraceWriter log)
+public static string Run([QueueTrigger("inputqueue")]WorkItem input, ILogger log)
 {
     string json = string.Format("{{ \"id\": \"{0}\" }}", input.Id);
-    log.Info($"C# script processed queue message. Item={json}");
+    log.LogInformation($"C# script processed queue message. Item={json}");
     return json;
 }
 ```
@@ -249,10 +250,10 @@ public static string Run([QueueTrigger("inputqueue")]WorkItem input, TraceWriter
 ```cs
 [FunctionName("QueueTrigger")]
 [return: Blob("output-container/{id}")]
-public static Task<string> Run([QueueTrigger("inputqueue")]WorkItem input, TraceWriter log)
+public static Task<string> Run([QueueTrigger("inputqueue")]WorkItem input, ILogger log)
 {
     string json = string.Format("{{ \"id\": \"{0}\" }}", input.Id);
-    log.Info($"C# script processed queue message. Item={json}");
+    log.LogInformation($"C# script processed queue message. Item={json}");
     return Task.FromResult(json);
 }
 ```
@@ -273,19 +274,19 @@ public static Task<string> Run([QueueTrigger("inputqueue")]WorkItem input, Trace
 Zaman uyumsuz örneği tarafından izlenen C# betik kodu, şu şekildedir:
 
 ```cs
-public static string Run(WorkItem input, TraceWriter log)
+public static string Run(WorkItem input, ILogger log)
 {
     string json = string.Format("{{ \"id\": \"{0}\" }}", input.Id);
-    log.Info($"C# script processed queue message. Item={json}");
+    log.LogInformation($"C# script processed queue message. Item={json}");
     return json;
 }
 ```
 
 ```cs
-public static Task<string> Run(WorkItem input, TraceWriter log)
+public static Task<string> Run(WorkItem input, ILogger log)
 {
     string json = string.Format("{{ \"id\": \"{0}\" }}", input.Id);
-    log.Info($"C# script processed queue message. Item={json}");
+    log.LogInformation($"C# script processed queue message. Item={json}");
     return Task.FromResult(json);
 }
 ```
@@ -306,9 +307,9 @@ public static Task<string> Run(WorkItem input, TraceWriter log)
 F # kodu şu şekildedir:
 
 ```fsharp
-let Run(input: WorkItem, log: TraceWriter) =
+let Run(input: WorkItem, log: ILogger) =
     let json = String.Format("{{ \"id\": \"{0}\" }}", input.Id)   
-    log.Info(sprintf "F# script processed queue message '%s'" json)
+    log.LogInformation(sprintf "F# script processed queue message '%s'" json)
     json
 ```
 
@@ -401,9 +402,9 @@ Sınıf kitaplıkları aynı yaklaşımı kullanabilirsiniz:
 [FunctionName("QueueTrigger")]
 public static void Run(
     [QueueTrigger("%input-queue-name%")]string myQueueItem, 
-    TraceWriter log)
+    ILogger log)
 {
-    log.Info($"C# Queue trigger function processed: {myQueueItem}");
+    log.LogInformation($"C# Queue trigger function processed: {myQueueItem}");
 }
 ```
 
@@ -445,9 +446,9 @@ public static void Run(
 
 ```csharp
 // C# example of binding to {filename}
-public static void Run(Stream image, string filename, Stream imageSmall, TraceWriter log)  
+public static void Run(Stream image, string filename, Stream imageSmall, ILogger log)  
 {
-    log.Info($"Blob trigger processing: {filename}");
+    log.LogInformation($"Blob trigger processing: {filename}");
     // ...
 } 
 ```
@@ -463,9 +464,9 @@ public static void Run(
     [BlobTrigger("sample-images/{filename}")] Stream image,
     [Blob("sample-images-sm/{filename}", FileAccess.Write)] Stream imageSmall,
     string filename,
-    TraceWriter log)
+    ILogger log)
 {
-    log.Info($"Blob trigger processing: {filename}");
+    log.LogInformation($"Blob trigger processing: {filename}");
     // ...
 }
 
@@ -544,19 +545,20 @@ Bu C# ve F # içinde çalışmak, aşağıdaki örnekte olduğu gibi seri için 
 
 ```csharp
 using System.Net;
+using Microsoft.Extensions.Logging;
 
 public class BlobInfo
 {
     public string BlobName { get; set; }
 }
   
-public static HttpResponseMessage Run(HttpRequestMessage req, BlobInfo info, string blobContents, TraceWriter log)
+public static HttpResponseMessage Run(HttpRequestMessage req, BlobInfo info, string blobContents, ILogger log)
 {
     if (blobContents == null) {
         return req.CreateResponse(HttpStatusCode.NotFound);
     } 
 
-    log.Info($"Processing: {info.BlobName}");
+    log.LogInformation($"Processing: {info.BlobName}");
 
     return req.CreateResponse(HttpStatusCode.OK, new {
         data = $"{blobContents}"

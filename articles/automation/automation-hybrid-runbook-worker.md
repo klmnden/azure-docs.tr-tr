@@ -6,15 +6,15 @@ ms.service: automation
 ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 10/11/2018
+ms.date: 10/25/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 95c49ccc11a12c2e9174ba2d186a302f500e8bf2
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: bb7e422e0eb4a71e0f88a911083f8f5d6fb0ef2f
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49650154"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50092177"
 ---
 # <a name="automate-resources-in-your-datacenter-or-cloud-by-using-hybrid-runbook-worker"></a>Veri merkezinde veya bulutta kaynaklarında karma Runbook çalışanı kullanarak otomatik hale getirin.
 
@@ -26,7 +26,7 @@ Aşağıdaki görüntüde bu işlevselliği gösterilmektedir:
 
 Her karma Runbook çalışanı, aracı yükleme sırasında belirttiğiniz bir karma Runbook çalışanı grubunun bir üyesidir. Bir grubu tek bir aracı ekleyebilirsiniz, ancak yüksek kullanılabilirlik için bir grupta birden çok aracı yükleyebilirsiniz.
 
-Bir karma Runbook çalışanı üzerinde bir runbook'u başlattığınızda, üzerinde çalıştığı grubu belirtin. Gruptaki her çalışan tüm işleri olup olmadığını görmek için Azure Otomasyonu yoklar. Bir iş varsa, bu işi almak için ilk worker götürür. Belirli bir alt belirtemezsiniz. Karma Runbook çalışanları, birçok Azure sanal sahip sınırları paylaşmayın. Bunlar aynı sınırlarını disk alanı, bellek veya ağ yuvaları üzerinde yok. Karma Runbook çalışanları, yalnızca karma Runbook çalışanında kendisini kaynaklar tarafından sınırlandırılmıştır. Ayrıca, karma Runbook çalışanları 180 dakika paylaşmayın [adil paylaşımı](automation-runbook-execution.md#fair-share) süre sınırı, Azure sanal yapın. Azure sanal ve karma Runbook çalışanları için hizmet sınırları hakkında daha fazla bilgi için iş bkz [sınırları](../azure-subscription-service-limits.md#automation-limits) sayfası.
+Bir karma Runbook çalışanı üzerinde bir runbook'u başlattığınızda, üzerinde çalıştığı grubu belirtin. Gruptaki her çalışan tüm işleri olup olmadığını görmek için Azure Otomasyonu yoklar. Bir iş varsa, bu işi almak için ilk worker götürür. Karma çalışanı donanım profili ve yükleme işleri sırasının işleme süresi bağlıdır. Belirli bir alt belirtemezsiniz. Karma Runbook çalışanları, birçok Azure sanal sahip sınırları paylaşmayın. Bunlar aynı sınırlarını disk alanı, bellek veya ağ yuvaları üzerinde yok. Karma Runbook çalışanları, yalnızca karma Runbook çalışanında kendisini kaynaklar tarafından sınırlandırılmıştır. Ayrıca, karma Runbook çalışanları 180 dakika paylaşmayın [adil paylaşımı](automation-runbook-execution.md#fair-share) süre sınırı, Azure sanal yapın. Azure sanal ve karma Runbook çalışanları için hizmet sınırları hakkında daha fazla bilgi için iş bkz [sınırları](../azure-subscription-service-limits.md#automation-limits) sayfası.
 
 ## <a name="install-a-hybrid-runbook-worker"></a>Karma Runbook çalışanı'nı yükleme
 

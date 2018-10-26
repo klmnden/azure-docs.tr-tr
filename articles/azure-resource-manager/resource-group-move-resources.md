@@ -10,14 +10,14 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/17/2018
+ms.date: 10/25/2018
 ms.author: tomfitz
-ms.openlocfilehash: c32c4f97a963485e87e36afc44e9cea2ebcebd90
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: e99d5d36fa46e9972e706d580e4dfb1d5f9e8bbc
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49394423"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50093842"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Kaynakları yeni kaynak grubuna veya aboneliğe taşıma
 
@@ -28,8 +28,10 @@ Kaynakları taşırken, hem kaynak grubunun hem de hedef grubu işlem sırasınd
 Kaynağın konumu değiştirilemez. Bir kaynak taşıma yalnızca bu yeni bir kaynak grubuna taşınır. Yeni kaynak grubu farklı bir konuma sahip olabilir, ancak, kaynak konumunu değiştirmez.
 
 > [!NOTE]
-> Bu makale, mevcut bir Azure içinde kaynaklar teklifi hesap taşıma açıklamaktadır. Aslında (ön ödeme için Kullandıkça Öde'den yükseltme gibi) sunarak Azure hesabınızı değiştirmek devam ederken, mevcut bir kaynak ile çalışmak için bkz istiyorsanız [Azure aboneliğinizi başka bir teklife geç](../billing/billing-how-to-switch-azure-offer.md).
->
+> Bu makale, mevcut bir Azure içinde kaynaklar teklifi hesap taşıma açıklamaktadır. Aslında (boş Kullandıkça Öde aboneliğine yükseltme gibi) sunarak Azure hesabınızı değiştirmek istiyorsanız, aboneliğinizin dönüştürmeniz gerekir. 
+> * Ücretsiz deneme sürümü yükseltmek için bkz: [ücretsiz deneme sürümü ya da Microsoft Imagine Azure aboneliğinizi Kullandıkça Öde aboneliğine yükseltme](..//billing/billing-upgrade-azure-subscription.md).
+> * Bir Kullandıkça Öde hesabına değiştirmek için bkz [Azure Kullandıkça Öde aboneliğinizi değiştirmek için farklı bir teklif](../billing/billing-how-to-switch-azure-offer.md).
+> * Abonelik dönüştüremezse [bir Azure destek isteği oluşturma](../azure-supportability/how-to-create-azure-support-request.md). Seçin **abonelik yönetimi** sorun türü için.
 >
 
 ## <a name="checklist-before-moving-resources"></a>Kaynakları taşımadan önce Yapılacaklar listesi
@@ -269,7 +271,7 @@ Aşağıdaki listede, bir yeni kaynak grubu ve abonelik taşınamaz Azure hizmet
 
 Yönetilen diskler taşıma 24 Eylül 2018'den itibaren desteklenir. 
 
-1. Bu özelliği etkinleştirmek üzere kaydolmanız gerekir.
+1. Kaynak abonelikte bu özellik kaydedin.
 
   ```azurepowershell-interactive
   Register-AzureRmProviderFeature -FeatureName ManagedResourcesMove -ProviderNamespace Microsoft.Compute

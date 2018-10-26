@@ -14,18 +14,18 @@ ms.tgt_pltfrm: ''
 ms.topic: article
 ms.date: 4/27/2018
 ms.author: shhurst
-ms.openlocfilehash: e6ac6a4aa46feb768df437ff9d5969b2b41092c3
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 5aa5ea2a39a0fb9f969e965fed14063522197cda
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48041654"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50085843"
 ---
 # <a name="handle-large-messages-with-chunking-in-azure-logic-apps"></a>Azure Logic Apps'te Öbekleme ile büyük iletileri işleme
 
 İletilerini işlerken, Logic Apps ileti içeriği için en büyük boyutu sınırlar. Yükü azaltmaya yardımcı olur, bu sınır depolamak ve büyük iletileri işleme oluşturuldu. Bu sınırdan büyük iletileri işlemek için Logic Apps için *öbek* daha küçük iletilere büyük bir ileti. Bu şekilde, belirli koşullar altında Logic Apps kullanarak büyük dosyaları yine de aktarabilirsiniz. Logic Apps bağlayıcıları veya HTTP üzerinden diğer hizmetleriyle iletişim kurarken, büyük iletiler kullanabilir ancak *yalnızca* öbekler halinde. Bu durum, bağlayıcılar Öbekleme da desteklemesi gerekir veya Logic Apps ve bu hizmetler arasındaki temel alınan HTTP ileti değişimi Öbekleme kullanmalısınız anlamına gelir.
 
-Bu makalede, sınırından daha büyük iletiler için destek Öbekleme yukarı nasıl ayarlayacağınızı gösterir.
+Bu makalede, sınırdan büyük iletileri işleme eylemleri için Öbekleme nasıl ayarlayacağınızı gösterir. Mantıksal uygulama tetikleyicileri, artan nedeniyle Öbekleme desteklemez, birden çok ileti alışverişi ek yükü. 
 
 ## <a name="what-makes-messages-large"></a>İletileri "large" ne yapar?
 

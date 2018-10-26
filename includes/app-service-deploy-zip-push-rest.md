@@ -1,3 +1,16 @@
+---
+author: cephalin
+ms.service: app-service
+ms.topic: include
+ms.date: 11/03/2016
+ms.author: cephalin
+ms.openlocfilehash: ed771d1817e7ee1161e0f94ec9eefb5d2dfb3e23
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50133064"
+---
 ## <a name="rest"></a>ZIP dosyası REST API'leri ile dağıtma 
 
 Kullanabileceğiniz [dağıtım hizmeti REST API'leri](https://github.com/projectkudu/kudu/wiki/REST-API) .zip dosyası, uygulamanızı Azure'a dağıtmak için. Dağıtmak için https://<app_name>.scm.azurewebsites.net/api/zipdeploy bir POST isteği gönderin. POST isteğinin ileti gövdesinde .zip dosyasını içermesi gerekir. Uygulamanızın dağıtım kimlik bilgileri, HTTP BASIC kimlik doğrulaması kullanılarak istekte belirtilir. Daha fazla bilgi için [.zip anında dağıtım başvurusu](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file). 

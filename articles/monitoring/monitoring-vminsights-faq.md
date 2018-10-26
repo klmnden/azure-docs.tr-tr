@@ -1,6 +1,6 @@
 ---
-title: VM'ler için Azure İzleyici hakkında sık sorulan sorular | Microsoft Docs
-description: VM'ler için Azure İzleyici sistem durumunu ve uygulama bileşenleri ve diğer kaynaklarla ilgili bağımlılıkları otomatik olarak keşfetme yanı sıra Azure VM'nin işletim sistemi izleme performansını birleştirir ve arasındaki iletişimi eşleyen bir Azure çözümüdür bunları. Bu makalede, sık sorulan soruları yanıtlar.
+title: Azure İzleyici (Önizleme) VM'ler için sık sorulan sorular | Microsoft Docs
+description: VM'ler (Önizleme) için Azure İzleyici sistem durumunu ve uygulama bileşenleri ve diğer kaynaklarla ilgili bağımlılıkları otomatik olarak keşfetme yanı sıra Azure VM'nin işletim sistemi izleme performansını birleştirir ve iletişimi eşleyen bir Azure çözümüdür Bunlar arasında. Bu makalede, sık sorulan soruları yanıtlar.
 services: azure-monitor
 documentationcenter: ''
 author: mgoedtel
@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/19/2018
+ms.date: 10/25/2018
 ms.author: magoedte
-ms.openlocfilehash: 282620342d2348868ceab5257de7415a9cb2147c
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: ff870f948acaae14ba772e14d48b27683f0bf07e
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49388372"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50091700"
 ---
-# <a name="azure-monitor-for-vms-frequently-asked-questions"></a>Azure İzleyici VM'ler için sık sorulan sorular
-Bu Microsoft FAQ, Microsoft azure'da sanal makineler için Azure İzleyici hakkında sık sorulan soruların listesini içerir. Çözümü hakkında ek sorularınız varsa, Git [tartışma forumuna](https://feedback.azure.com/forums/34192--general-feedback) ve sorularınızı gönderin. Sık sorulan bir soru, böylece hızla ve kolayca bulunabilir, bu makaleye ekleriz.
+# <a name="azure-monitor-for-vms-preview-frequently-asked-questions"></a>Azure İzleyici (Önizleme) VM'ler için sık sorulan sorular
+Bu Microsoft FAQ VM'ler için Azure İzleyici hakkında sık sorulan soruların bir listesidir. Çözümü hakkında ek sorularınız varsa, Git [tartışma forumuna](https://feedback.azure.com/forums/34192--general-feedback) ve sorularınızı gönderin. Sık sorulan bir soru, böylece hızla ve kolayca bulunabilir, bu makaleye ekleriz.
 
 ## <a name="can-i-onboard-to-an-existing-workspace"></a>Alabilirim yerleşik mevcut bir çalışma alanına?
 Sanal makinelerinizi bir Log Analytics çalışma alanınıza bağlıysa, ekleme, sağlanan VM'ler için Azure İzleyici için listelenen desteklenen bölgelerden birinde olduğunda, o çalışma uygulamasını kullanmaya devam edebilir [burada](monitoring-vminsights-onboard.md#prerequisites).

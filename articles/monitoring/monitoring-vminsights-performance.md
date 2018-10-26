@@ -1,5 +1,5 @@
 ---
-title: VM'ler için Azure İzleyici ile performans grafik nasıl | Microsoft Docs
+title: Azure İzleyici ile performans VM'ler (Önizleme) için grafik nasıl | Microsoft Docs
 description: Performans, Azure İzleyici sanal makineler için otomatik olarak Windows ve Linux sistemleri üzerindeki uygulama bileşenlerini bulur ve hizmetler arasındaki iletişimi eşleyen bir özelliğidir. Bu makalede, çeşitli senaryoları içinde kullanma hakkında ayrıntılar sağlar.
 services: azure-monitor
 documentationcenter: ''
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/18/2018
+ms.date: 10/25/2018
 ms.author: magoedte
-ms.openlocfilehash: a63a9d22638231aa076cc4ced9030a378d0c36e4
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 776a8901696bd69eeee6fd4b3622c8992bfc25a3
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49429499"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50094321"
 ---
-# <a name="how-to-chart-performance-with-azure-monitor-for-vms"></a>VM'ler için Azure İzleyici ile grafik performansı nasıl
+# <a name="how-to-chart-performance-with-azure-monitor-for-vms-preview"></a>Nasıl yapılır Azure İzleyici ile grafik performansı için Vm'leri (Önizleme)
 VM'ler için Azure İzleyici, birkaç ana performans göstergelerini (KPI'lar) bir sanal makineye ne kadar iyi belirlemenize yardımcı olmak için şu gerçekleştiriyor hedefleyen bir dizi performans grafiklerini içerir. Performans sorunlarını, anormallikleri belirlemek ya da seçili ölçüme göre kaynak kullanımını görüntülemek için her bir makine listeleyen bir perspektif geçiş grafikleri bir süre boyunca kaynak kullanımını gösterir. Performans ile işlem yapılırken dikkate alınması gereken çok sayıda öğe olsa da, işletim sisteminde işlemci, bellek, ağ bağdaştırıcıları ve diskleri bildirilen olarak sanal makineler için Azure İzleyici odaklanmıştır. Performans sistem durumu izleme özelliğini tamamlar ve bir olası sistem bileşeni hatası, destek ayarlama ve iyileştirme verimlilik elde etmek için gösteren sorunları ortaya veya kapasite planlamasını desteklemek yardımcı olur.  
 
 ## <a name="multi-vm-perspective-from-azure-monitor"></a>Azure İzleyicisi'nden çoklu VM perspektifi

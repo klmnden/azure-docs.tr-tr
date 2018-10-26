@@ -12,12 +12,12 @@ ms.devlang: fsharp
 ms.topic: reference
 ms.date: 10/09/2018
 ms.author: syclebsc
-ms.openlocfilehash: b7cb3a7094ef2c11df63c9e5595355d4076e2ccd
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: bd971b84b907d3fda1bea9922b2fd1881eb369e9
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/25/2018
-ms.locfileid: "50025438"
+ms.locfileid: "50087245"
 ---
 # <a name="azure-functions-f-developer-reference"></a>Azure işlevleri F # Geliştirici Başvurusu
 
@@ -79,7 +79,7 @@ type TestObject =
     { SenderName : string
       Greeting : string }
 
-let Run(req: TestObject, log: TraceWriter) =
+let Run(req: TestObject, log: ILogger) =
     { req with Greeting = sprintf "Hello, %s" req.SenderName }
 ```
 
@@ -96,11 +96,11 @@ let Run(input: string, item: byref<Item>) =
 ```
 
 ## <a name="logging"></a>Günlüğe kaydetme
-Çıkış için oturum, [akış günlükleri](../app-service/web-sites-enable-diagnostic-log.md) F #'ta işlevinizi türünde bir bağımsız değişken almalıdır `TraceWriter`. Tutarlılık sağlamak için bu bağımsız değişken adlı olan öneririz `log`. Örneğin:
+Çıkış için oturum, [akış günlükleri](../app-service/web-sites-enable-diagnostic-log.md) içinde F#, işlevinizi türünde bir bağımsız değişken almalıdır [ILogger](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger). Tutarlılık sağlamak için bu bağımsız değişken adlı olan öneririz `log`. Örneğin:
 
 ```fsharp
-let Run(blob: string, output: byref<string>, log: TraceWriter) =
-    log.Verbose(sprintf "F# Azure Function processed a blob: %s" blob)
+let Run(blob: string, output: byref<string>, log: ILogger) =
+    log.LogInformation(sprintf "F# Azure Function processed a blob: %s" blob)
     output <- input
 ```
 
@@ -132,8 +132,9 @@ Ad alanları normal şekilde açılabilir:
 ```fsharp
 open System.Net
 open System.Threading.Tasks
+open Microsoft.Extensions.Logging
 
-let Run(req: HttpRequestMessage, log: TraceWriter) =
+let Run(req: HttpRequestMessage, log: ILogger) =
     ...
 ```
 
@@ -157,8 +158,9 @@ Framework'te derleme başvuruları ile benzer şekilde, eklenebilir `#r "Assembl
 open System.Net
 open System.Net.Http
 open System.Threading.Tasks
+open Microsoft.Extensions.Logging
 
-let Run(req: HttpRequestMessage, log: TraceWriter) =
+let Run(req: HttpRequestMessage, log: ILogger) =
     ...
 ```
 
@@ -196,8 +198,9 @@ Ad alanları ve Azure işlevleri otomatik olarak içeren derlemeler, F # derleyi
 
 open System
 open Microsoft.Azure.WebJobs.Host
+open Microsoft.Extensions.Logging
 
-let Run(blob: string, output: byref<string>, log: TraceWriter) =
+let Run(blob: string, output: byref<string>, log: ILogger) =
     ...
 ```
 
@@ -253,10 +256,11 @@ Bir ortam değişkeni veya değeri ayarlamak uygulama almak için kullanın `Sys
 
 ```fsharp
 open System.Environment
+open Microsoft.Extensions.Logging
 
-let Run(timer: TimerInfo, log: TraceWriter) =
-    log.Info("Storage = " + GetEnvironmentVariable("AzureWebJobsStorage"))
-    log.Info("Site = " + GetEnvironmentVariable("WEBSITE_SITE_NAME"))
+let Run(timer: TimerInfo, log: ILogger) =
+    log.LogInformation("Storage = " + GetEnvironmentVariable("AzureWebJobsStorage"))
+    log.LogInformation("Site = " + GetEnvironmentVariable("WEBSITE_SITE_NAME"))
 ```
 
 ## <a name="reusing-fsx-code"></a>.Fsx kodu yeniden kullanma
@@ -267,15 +271,15 @@ Diğer kod kullanabileceğiniz `.fsx` dosyaları kullanarak bir `#load` yönerge
 ```fsharp
 #load "logger.fsx"
 
-let Run(timer: TimerInfo, log: TraceWriter) =
+let Run(timer: TimerInfo, log: ILogger) =
     mylog log (sprintf "Timer: %s" DateTime.Now.ToString())
 ```
 
 `logger.fsx`
 
 ```fsharp
-let mylog(log: TraceWriter, text: string) =
-    log.Verbose(text);
+let mylog(log: ILogger, text: string) =
+    log.LogInformation(text);
 ```
 
 Yollar sağlar `#load` yönerge olan göreli konumunu, `.fsx` dosya.

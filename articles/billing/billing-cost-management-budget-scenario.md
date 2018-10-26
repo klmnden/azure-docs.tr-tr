@@ -15,14 +15,14 @@ ms.tgt_pltfrm: na
 ms.workload: billing
 ms.date: 7/25/2018
 ms.author: erikre
-ms.openlocfilehash: 19d8fbf82410136fd6a50a2088dd9b774dd6cb27
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.openlocfilehash: 08cdce23fe298bdac932d1ca8abb8166f4d7bbbd
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39259220"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50094822"
 ---
-# <a name="manage-costs-with-azure-budgets"></a>Azure bütçe ile maliyetleri yönetme
+# <a name="manage-costs-with-azure-budgets"></a>Azure Budgets ile maliyetleri yönetme
 
 Maliyet denetimi, bulutta yatırımınızın değerini en üst düzeye çıkarma için kritik bir bileşenidir. Maliyet görünürlük, raporlama ve maliyet tabanlı düzenleme sürekli işletme işlemleri için çok önemli olduğu bazı senaryolar vardır. [Azure maliyet Yönetimi API'leri](https://docs.microsoft.com/rest/api/consumption/) bu senaryoların her biri desteklemek için API kümesi sağlar. API'leri, ayrıntılı örnek düzeyi maliyetlerini görüntülemenizi sağlayan kullanım ayrıntılarını sağlar.
 
@@ -125,7 +125,7 @@ Yukarıdaki adımları gerçekleştiren mantıksal uygulamanızı oluşturmak i�
 
 Azure mantıksal uygulamanızı dağıttıktan sonra **Logic Apps Tasarımcısı'nda** açılır ve bir giriş içeren bir dikey pencere, video ve sık kullanılan Tetikleyicileri gösterir. 
 
-### <a name="add-a-trigger"></a>Tetikleyici ekleyin
+### <a name="add-a-trigger"></a>Bir tetikleyici ekleme
 
 Her mantıksal uygulama, belirli bir olay gerçekleştiğinde ya da belirli bir koşul karşılandığında tetiklenen bir tetikleyiciyle başlamalıdır. Tetikleyici her etkinleştirildiğinde Logic Apps altyapısı iş akışınızı başlatan ve çalıştıran bir mantıksal uygulama örneği oluşturur. Eylemler tetikleyiciden sonra gerçekleşen tüm adımlardır. 
 
@@ -139,7 +139,7 @@ Her mantıksal uygulama, belirli bir olay gerçekleştiğinde ya da belirli bir 
 4.  İçin "JSON Ayrıştır" arama **Logic Apps Tasarımcısı'nda** bulmak ve seçmek için arama kutusuna **veri işlemleri - JSON Ayrıştır** [eylem](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview#logic-app-concepts). 
     
     ![Azure - mantıksal uygulama - ekleme eylemi JSON Ayrıştır](./media/billing-cost-management-budget-scenario/billing-cost-management-budget-scenario-06.png) 
-5.  "Yükü" olarak girin **içerik** Parse JSON yükü adı.
+5.  "Yükü" olarak girin **içeriği** adı için JSON Ayrıştır yükü veya dinamik içerik "Body" etiketini kullanın.
 6.  Seçin **şema oluşturmak için örnek yük kullanma** seçeneğini **JSON Ayrıştır** kutusu.
     
     ![Şema oluşturmak için azure - mantıksal uygulama - örnek JSON verileri kullanın](./media/billing-cost-management-budget-scenario/billing-cost-management-budget-scenario-07.png) 

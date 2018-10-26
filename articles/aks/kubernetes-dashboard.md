@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 10/08/2018
 ms.author: iainfou
-ms.openlocfilehash: 9d953cdb82412c07fe0ed4bef75dece4a929cad9
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: eb5d1ee88fc95f7d02842ea089f65c6d17a6d69d
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49067599"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50091750"
 ---
 # <a name="access-the-kubernetes-web-dashboard-in-azure-kubernetes-service-aks"></a>Azure Kubernetes Service (AKS) Kubernetes web panosuna erişme
 
@@ -24,7 +24,7 @@ Kubernetes panosunu hakkında daha fazla bilgi için bkz. [Kubernetes Web kullan
 
 Bu belgedeki adımlarda bir AKS kümesi oluşturduğunuz ve belirledik varsayılır bir `kubectl` kümeyle bağlantı. Bir AKS kümesi oluşturmak için ihtiyacınız varsa bkz [AKS hızlı başlangıçları][aks-quickstart].
 
-Ayrıca Azure CLI Sürüm 2.0.46 gerekir veya daha sonra yüklü ve yapılandırılmış. Sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI yükleme][install-azure-cli].
+Ayrıca Azure CLI sürüm 2.0.46 veya üzerini yüklemiş ve yapılandırmış olmanız gerekir. Sürümü bulmak için `az --version` komutunu çalıştırın. Gerekirse yüklemek veya yükseltmek bkz [Azure CLI yükleme][install-azure-cli].
 
 ## <a name="start-the-kubernetes-dashboard"></a>Kubernetes panosunu başlatmak
 
@@ -33,6 +33,9 @@ Kubernetes panosunu başlatmak için [az aks Gözat] [ az-aks-browse] komutu. A�
 ```azurecli
 az aks browse --resource-group myResourceGroup --name myAKSCluster
 ```
+
+> [!NOTE]
+> Bu komut Azure Cloud Shell'den çalıştırıyorsanız, eklemeniz gerekecektir `--enable-cloud-console-aks-browse` parametre panoyu açın.
 
 Bu komut, Kubernetes API ile geliştirme sisteminizde arasındaki bir proxy oluşturur ve bir web tarayıcı Kubernetes panosunu açar. Bir web tarayıcı Kubernetes panosunu açık değilse, Azure CLI, genellikle belirtilen URL adresini kopyalayıp yapıştırın *http://127.0.0.1:8001*.
 

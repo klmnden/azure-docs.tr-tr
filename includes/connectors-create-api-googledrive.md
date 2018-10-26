@@ -1,20 +1,33 @@
-### <a name="prerequisites"></a>Ön koşullar
+---
+author: ecfan
+ms.service: logic-apps
+ms.topic: include
+ms.date: 11/03/2016
+ms.author: estfan
+ms.openlocfilehash: fe726986b3f93ab3bb447b8973727a658ac1c706
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50133340"
+---
+### <a name="prerequisites"></a>Önkoşullar
 * A [Googledrive'a](https://www.google.com/drive/) hesabı  
 
-Bir mantıksal uygulama Googledrive'a hesabınızı kullanabilmeniz için önce Googledrive'a hesabınıza bağlanmak için mantığı uygulamasını yetkilendirmeniz gerekir. Neyse ki, Azure Portal'da mantıksal uygulama içinde bu kolayca yapabilirsiniz.  
+Bir mantıksal uygulama çalıştırmasında Googledrive'a hesabınızı kullanabilmeniz için önce Googledrive'a hesabınıza bağlanmak için mantıksal uygulama yetkilendirmeniz gerekir. Neyse ki, Azure Portalı'nda mantıksal uygulama içinde bunu kolayca yapabilirsiniz.  
 
 Mantıksal uygulamanızı Googledrive'a hesabınıza bağlanmak için yetki vermek için adımlar şunlardır:  
 
-1. Mantıksal Uygulama Tasarımcısı'nda Googledrive'a, bir bağlantı oluşturmak için seçin **Göster Microsoft yönetilen API'ler** açılır listesinde enter *Googledrive'a* arama kutusuna. Tetikleyici seçin veya eylem kullanmak ister:  
-   ![Googledrive'a bağlantı oluşturma adım](./media/connectors-create-api-googledrive/googledrive-1.png)  
-2. Önce Googledrive'a bağlantılarına oluşturmadıysanız, Googledrive'a kimlik bilgilerinizi girmeniz istendiğinde şunu. Bu kimlik bilgileri bağlanmak için mantıksal uygulamanızı yetkilendirmek için kullanılır ve Googledrive'a hesabınızın veri erişim:  
-   ![Googledrive'a bağlantı oluşturma adım](./media/connectors-create-api-googledrive/googledrive-2.png)  
-3. Googledrive'a e-posta adresinizi girin:  
-   ![Googledrive'a bağlantı oluşturma adım](./media/connectors-create-api-googledrive/googledrive-3.png)  
+1. Mantıksal Uygulama Tasarımcısı'nda Googledrive'a, bağlantı oluşturmak için seçin **yönetilen API'leri Göster Microsoft** açılan liste enter *Googledrive'a* arama kutusuna. Tetikleyici veya eylemi kullanmak ister seçin:  
+   ![Googledrive'a bağlantı oluşturma adımı](./media/connectors-create-api-googledrive/googledrive-1.png)  
+2. Önce Googledrive'a bağlanın herhangi bir bağlantı oluşturmadıysanız, Googledrive'a kimlik bilgilerinizi sağlamanız girmem isteniyor. Bu kimlik bilgileri, mantıksal uygulamanızı bağlanmak için yetki vermek için kullanılan ve Googledrive'a hesabınızın veri erişimi:  
+   ![Googledrive'a bağlantı oluşturma adımı](./media/connectors-create-api-googledrive/googledrive-2.png)  
+3. Googledrive'a e-posta adresinizi sağlayın:  
+   ![Googledrive'a bağlantı oluşturma adımı](./media/connectors-create-api-googledrive/googledrive-3.png)  
 4. Mantıksal uygulamanızı yetkilendirmek için Googledrive'a parolanızı sağlayın:  
-   ![Googledrive'a bağlantı oluşturma adım](./media/connectors-create-api-googledrive/googledrive-4.png)
-5. Googledrive'a bağlanın bağlantıya izin ver  
-   ![Googledrive'a bağlantı oluşturma adım](./media/connectors-create-api-googledrive/googledrive-5.png)  
-6. Bağlantı oluşturuldu ve artık bir mantıksal uygulamanızı adımlarda yüklemeye devam etmek ücretsiz dikkat edin:  
-   ![Googledrive'a bağlantı oluşturma adım](./media/connectors-create-api-googledrive/googledrive-6.png)  
+   ![Googledrive'a bağlantı oluşturma adımı](./media/connectors-create-api-googledrive/googledrive-4.png)
+5. Googledrive'a bağlanın bağlantısı izin ver  
+   ![Googledrive'a bağlantı oluşturma adımı](./media/connectors-create-api-googledrive/googledrive-5.png)  
+6. Bağlantı oluşturuldu ve artık mantıksal uygulamanızdaki diğer adımlarla devam etmek ücretsiz, dikkat edin:  
+   ![Googledrive'a bağlantı oluşturma adımı](./media/connectors-create-api-googledrive/googledrive-6.png)  
 

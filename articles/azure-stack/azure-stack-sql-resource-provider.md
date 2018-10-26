@@ -1,6 +1,6 @@
 ---
-title: SQL veritabanları Azure yığında kullanarak | Microsoft Docs
-description: SQL veritabanları Azure yığını ve hızlı adımlar SQL Server Kaynak sağlayıcısı bağdaştırıcısı dağıtmak için bir hizmet olarak nasıl dağıtabileceğini öğrenin.
+title: Azure Stack'te SQL veritabanlarını kullanma | Microsoft Docs
+description: Azure Stack ve hızlı adımları SQL Server Kaynak sağlayıcısı bağdaştırıcısını dağıtmak için bir hizmet olarak SQL veritabanlarını nasıl dağıtılacağı hakkında bilgi edinin.
 services: azure-stack
 documentationCenter: ''
 author: jeffgilb
@@ -11,41 +11,38 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/21/2018
+ms.date: 10/25/2018
 ms.author: jeffgilb
-ms.reviewer: jeffgo
-ms.openlocfilehash: 55d0e51606e8768a01c0b5a7766dbafe24d97a0d
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.reviewer: quying
+ms.openlocfilehash: 3d608843ef31a1ed665fcb1fd90b822f34f77fdd
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36307834"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50086361"
 ---
-# <a name="use-sql-databases-on-microsoft-azure-stack"></a>Microsoft Azure yığın üzerinde SQL veritabanları kullanın
+# <a name="use-sql-databases-on-microsoft-azure-stack"></a>Microsoft Azure Stack'te SQL veritabanlarını kullanma
 
-SQL veritabanları hizmet olarak kullanıma sunmak için SQL Server Kaynak sağlayıcısı bağdaştırıcısı API kullanın [Azure yığın](azure-stack-poc.md). Kaynak sağlayıcısını yüklemek ve bir veya daha fazla SQL Server örneklerine bağlamak sonra siz ve kullanıcılarınız oluşturabilirsiniz:
+SQL veritabanları hizmet olarak sunmak için SQL Server Kaynak sağlayıcısı bağdaştırıcısını kullanın [Azure Stack](azure-stack-poc.md). Kaynak sağlayıcısını yüklemek ve bir veya daha fazla SQL Server örneklerine bağlanabilirsiniz sonra siz ve kullanıcılarınız oluşturabilirsiniz:
 
-- Veritabanları bulut yerel uygulamalar için.
+- Bulutta yerel uygulamalar için veritabanları.
 - SQL kullanan Web siteleri.
 - SQL kullanan iş yükleri.
 
-Kaynak sağlayıcısı tüm veritabanı yönetim yeteneklerini sağlamaz [Azure SQL veritabanı](https://azure.microsoft.com/services/sql-database/). Örneğin, otomatik olarak kaynakları tahsis esnek havuzlar desteklenmez. Ancak, benzer kaynak sağlayıcısı destekler oluşturma, okuma, güncelleştirme ve Sil (CRUD) işlemleridir bir SQL Server veritabanı. Kaynak sağlayıcısı API hakkında daha fazla bilgi için bkz: [Windows Azure paketi SQL Server Kaynak sağlayıcısı REST API Başvurusu](https://msdn.microsoft.com/library/dn528529.aspx).
+Kaynak sağlayıcısı veritabanı yönetim yeteneklerini sağlamaz [Azure SQL veritabanı](https://azure.microsoft.com/services/sql-database/). Örneğin, otomatik olarak kaynak tahsis elastik havuzlar desteklenmez. Ancak, kaynak sağlayıcısı destekler benzer oluşturma, okuma, güncelleştirme ve silme (CRUD) işlemleri SQL Server veritabanı. 
 
->[!NOTE]
-SQL Server Kaynak sağlayıcısı API Azure SQL veritabanı ile uyumlu değil.
+## <a name="sql-resource-provider-adapter-architecture"></a>SQL kaynak sağlayıcısı bağdaştırıcısını mimarisi
 
-## <a name="sql-resource-provider-adapter-architecture"></a>SQL kaynak sağlayıcı bağdaştırıcısı mimarisi
+Kaynak sağlayıcısı, aşağıdaki bileşenlerden oluşur:
 
-Kaynak sağlayıcısı aşağıdaki bileşenlerden oluşur:
+- **SQL kaynak sağlayıcısı bağdaştırıcısını sanal makine (VM)**, sağlayıcı hizmetlerini çalıştıran bir Windows Server VM olduğu.
+- **Kaynak sağlayıcısı**isteklerini işler ve veritabanı kaynaklara erişir.
+- **SQL Server'ı barındıran sunucular**, veritabanları için kapasite sunan barındırma sunucuları denir.
 
-- **SQL kaynak sağlayıcısı bağdaştırıcısı sanal makine (VM)**, sağlayıcı hizmetlerini çalıştıran bir Windows Server VM olduğu.
-- **Kaynak sağlayıcısı**isteklerini işler ve erişimleri veritabanı kaynakları.
-- **SQL Server'ı barındıran sunucular**, veritabanları için kapasite sağlayan barındırma sunucuları denir.
-
-SQL Server'ın en az bir örnek oluşturmak veya dış SQL Server örnekleri için erişim sağlamanız gerekir.
+SQL Server'ın en az bir örnek oluşturun veya dış SQL Server örneğine erişebilmesi gerekir.
 
 > [!NOTE]
-> Barındırma Azure yığın üzerinde yüklü olan sunucuları tümleşik sistemleri Kiracı abonelikten oluşturulması gerekir. Varsayılan sağlayıcı abonelikten oluşturulamıyor. Bunlar, Kiracı portalı veya uygun ile oturum açma PowerShell kullanarak oluşturulmalıdır. Tüm barındırma sunucuları Faturalanabilir sanal makineler ve lisansları olması gerekir. Hizmet Yöneticisi Kiracı aboneliğin sahibi olabilir.
+> Barındıran Azure Stack üzerinde yüklü bir sunucu tarafından sunulan tümleşik sistemler Kiracı abonelikten oluşturulması gerekir. Varsayılan sağlayıcı aboneliği oluşturulamıyor. Bunlar, Kiracı portalı veya PowerShell ilgili oturum açma ile kullanarak oluşturulmalıdır. Tüm barındırma sunucuları Faturalanabilir sanal makineler ve lisansına sahip olması gerekir. Hizmet Yöneticisi, Kiracı aboneliğin sahibi olabilir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

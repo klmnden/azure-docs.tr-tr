@@ -8,12 +8,12 @@ ms.date: 10/17/2018
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 33c2bd48084c3d0e73fe2f4a1ce922e7a66b944f
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 532d3d73c939a44678091734f2bbff22267ab6b7
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49955459"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50094873"
 ---
 # <a name="troubleshoot-errors-with-runbooks"></a>Runbook'ları ile hatalarını giderme
 
@@ -93,8 +93,9 @@ Abonelik adı geçerli değil veya abonelik ayrıntıları get yapılmaya çalı
 
 Azure'a düzgün bir şekilde kimlik doğrulaması yaptınız ve seçmek için çalıştığınız abonelik erişimi belirlemek için aşağıdaki adımları uygulayın:  
 
-1. Siz çalıştırdığınızdan emin olun **Add-AzureAccount** cmdlet'ini çalıştırmadan önce **Select-AzureSubscription** cmdlet'i.  
-2. Ekleyerek bu hatayı görmeye devam ediyorsanız, kodunuzu değiştirin **- AzureRmContext** parametre **Add-AzureAccount** cmdlet'ini ve ardından kod yürütün.
+1. Betiğinizi Azure Automation'ın tek başına çalışacağından emin olmak için dışında test edin.
+2. Siz çalıştırdığınızdan emin olun **Add-AzureAccount** cmdlet'ini çalıştırmadan önce **Select-AzureSubscription** cmdlet'i.  
+3. Ekleyerek bu hatayı görmeye devam ediyorsanız, kodunuzu değiştirin **- AzureRmContext** parametre **Add-AzureAccount** cmdlet'ini ve ardından kod yürütün.
 
    ```powershell
    $Conn = Get-AutomationConnection -Name AzureRunAsConnection
@@ -104,7 +105,7 @@ Azure'a düzgün bir şekilde kimlik doğrulaması yaptınız ve seçmek için �
    $context = Get-AzureRmContext
 
    Get-AzureRmVM -ResourceGroupName myResourceGroup -AzureRmContext $context
-   ```
+    ```
 
 ### <a name="auth-failed-mfa"></a>Senaryo: çok faktörlü kimlik doğrulaması etkin olmadığından Azure kimlik doğrulaması başarısız oldu
 
@@ -305,7 +306,7 @@ Aşağıdaki çözümlerden birini sorunu düzeltin:
 * Cmdlet adı doğru girdiğinizden denetleyin.  
 * Cmdlet, Otomasyon hesabınızda var olduğundan ve hiçbir çakışma yok emin olun. Cmdlet'in mevcut olup olmadığını doğrulamak için düzenleme modu ve arama çalıştırın veya kitaplığı içinde bulmak istediğiniz cmdlet'in bir runbook'u açın `Get-Command <CommandName>`. Hesaba cmdlet kullanılabilir doğruladıktan ve diğer cmdlet'leri veya runbook'ları adı çakışması yok sonra tuvaline ekleyin ve runbook'unuzu ayarlayın, geçerli bir parametre kullandığınızdan emin olun.  
 * Bir ad çakışması varsa ve iki farklı modülde cmdlet kullanılabilir, bu cmdlet'i için tam olarak nitelenmiş adını kullanarak çözebilirsiniz. Örneğin, kullanabileceğiniz **ModuleName\CmdletName**.  
-* Karma çalışanı grubu içinde şirket runbook yürütme, modül/cmdlet karma çalışanı barındıran makinede yüklü olduğundan emin olun.
+* Ardından bir karma çalışanı grubu içinde şirket runbook yürütme, modül ve cmdlet yüklendiğini karma çalışanı barındıran makinede emin olun.
 
 ### <a name="long-running-runbook"></a>Senaryo:, Tamamlanması uzun süre çalışan bir runbook başarısız.
 

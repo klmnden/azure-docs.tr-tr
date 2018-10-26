@@ -9,16 +9,16 @@ ms.author: gwallace
 ms.date: 10/17/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 2b1a6e2921fdaf9ede1184cfc02c3f61f63c60ac
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: 85ff0013b469c006d1922c3994ec58a0595d1dd2
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49393773"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50091994"
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Azure automation'da Runbook yürütme
 
-Azure Automation'da bir runbook başlattığınızda bir iş oluşturulur. Bir iş, bir runbook'un tek bir yürütme örneğidir. Her bir iş çalıştırmak için bir Azure Otomasyonu çalışanı atanır. Çalışanların birçok Azure hesapları ile paylaşılır, ancak farklı bir Otomasyon hesaplarından işleri birbirinden yalıtılmış. Yoksa sahip denetim işiniz için isteği hangi çalışan hizmetleri. Tek bir runbook'ta aynı anda çalışan çok sayıda iş olabilir. Yürütme Ortamı aynı Otomasyon hesabına ait işler için yeniden kullanılabilir. Runbook'ların listesini Azure portalında görüntülediğinizde, her runbook için başlatılan tüm işlerin durumunu listeler. Her durumunu izlemek her runbook için iş listesini görüntüleyebilirsiniz. Farklı iş durumları açıklamasını [iş durumları](#job-statuses).
+Azure Automation'da bir runbook başlattığınızda bir iş oluşturulur. Bir iş, bir runbook'un tek bir yürütme örneğidir. Her bir iş çalıştırmak için bir Azure Otomasyonu çalışanı atanır. Çalışanların birçok Azure hesapları ile paylaşılır, ancak farklı bir Otomasyon hesaplarından işleri birbirinden yalıtılmış. Yoksa sahip denetim işiniz için isteği hangi çalışan hizmetleri. Tek bir runbook'ta aynı anda çalışan çok sayıda iş olabilir. Yürütme Ortamı aynı Otomasyon hesabına ait işler için yeniden kullanılabilir. Runbook'ların listesini Azure portalında görüntülediğinizde, her runbook için başlatılan tüm işlerin durumunu listeler. Her durumunu izlemek her runbook için iş listesini görüntüleyebilirsiniz. İş günlükleri, en fazla 30 gün için saklanır. Farklı iş durumları açıklamasını [iş durumları](#job-statuses).
 
 [!INCLUDE [GDPR-related guidance](../../includes/gdpr-dsr-and-stp-note.md)]
 

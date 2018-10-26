@@ -3,8 +3,8 @@ title: Azure'da OpenShift kapsayıcı platformu dağıtma | Microsoft Docs
 description: Azure'da OpenShift kapsayıcı platformu dağıtın.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: haroldw
-manager: najoshi
+author: haroldwongms
+manager: joraio
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
@@ -15,40 +15,41 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: ''
 ms.author: haroldw
-ms.openlocfilehash: 48b6287fef673c5f335531b6f230993969fc9e1c
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 21eebb6c27a83b939f321d38026da7d4c39b7071
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46996341"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50085895"
 ---
 # <a name="deploy-openshift-container-platform-in-azure"></a>Azure'da OpenShift kapsayıcı platformu dağıtma
 
 Azure'da OpenShift kapsayıcı platformu dağıtmak için birkaç yöntemden birini kullanabilirsiniz:
 
-- Gerekli Azure altyapı bileşenlerini el ile dağıtın ve ardından OpenShift kapsayıcı platformu izleyin [belgeleri](https://docs.openshift.com/container-platform/3.10/welcome/index.html).
+- Gerekli Azure altyapı bileşenlerini el ile dağıtın ve izleyin [OpenShift kapsayıcı platformu belgeleri](https://docs.openshift.com/container-platform).
 - Mevcut bir kullanabilirsiniz [Resource Manager şablonu](https://github.com/Microsoft/openshift-container-platform/) , OpenShift kapsayıcı platformu küme dağıtımını basitleştirir.
 - Başka bir seçenek kullanmaktır [Azure Marketi'nde teklif](https://azuremarketplace.microsoft.com/marketplace/apps/redhat.openshift-container-platform?tab=Overview).
 
 Red Hat aboneliklerini tüm seçenekler için gereklidir. Dağıtım sırasında Red Hat Enterprise Linux örneği Red Hat aboneliğe kayıtlı ve OpenShift kapsayıcı platformu için yetkilendirmeleri içeren havuzu kimliğine bağlı.
-Geçerli Red Hat Abonelik Yöneticisi (RHSM) kullanıcı adı, parola ve havuzu kimliği olduğundan emin olun Oturum açarak bu bilgileri doğrulayabilirsiniz https://access.redhat.com.
+Bir geçerli Red Hat Abonelik Yöneticisi (RHSM) kullanıcı adı, parola ve havuzu kimliği olduğundan emin olun Bir etkinleştirme anahtarı, kuruluş kimliği ve Havuz kimliği kullanabilirsiniz Oturum açarak bu bilgileri doğrulayabilirsiniz https://access.redhat.com.
 
-## <a name="deploy-by-using-the-openshift-container-platform-resource-manager-template"></a>OpenShift kapsayıcı platformu Resource Manager şablonu kullanarak dağıtın
+## <a name="deploy-using-the-openshift-container-platform-resource-manager-template"></a>OpenShift kapsayıcı platformu Resource Manager şablonu kullanarak dağıtma
 
-Resource Manager şablonu kullanarak dağıtmak için giriş parametreleri sağlamak için bir parametre dosyası kullanın. Giriş parametreleri kullanarak kapsamında değildir dağıtım öğeleri özelleştirmek için GitHub depo çatalını oluşturmanız ve uygun öğeleri değiştirin.
+Resource Manager şablonu kullanarak dağıtmak için giriş parametreleri sağlamak için bir parametre dosyası kullanın. Daha fazla dağıtımı özelleştirmek için GitHub depo çatalını oluşturmanız ve uygun öğeleri değiştirin.
 
-Bazı ortak özelleştirme seçenekleri dahil ancak bunlarla sınırlı değildir:
+Bazı ortak özelleştirme seçenekleri içerir, ancak bunlarla sınırlı değildir:
 
-- Sanal ağın CIDR (azuredeploy.json değişkeninde)
 - Savunma VM boyutu (azuredeploy.json değişkeninde)
 - Adlandırma kuralları (azuredeploy.json değişkenlerinde)
 - OpenShift küme özellikleri, hosts dosyasını (deployOpenShift.sh) değiştirme
 
 ### <a name="configure-the-parameters-file"></a>Parametre dosyasını yapılandırın
 
-Kullanım `appId` değerinden daha önce oluşturduğunuz için hizmet sorumlusu `aadClientId` parametresi. 
+[OpenShift kapsayıcı platformu şablon](https://github.com/Microsoft/openshift-container-platform) sahip birden fazla dalı OpenShift kapsayıcı platformu farklı sürümleri için kullanılabilir.  Gereksinimlerinize göre doğrudan deposundan dağıtabilirsiniz veya deponun çatalını oluşturup dağıtmadan önce şablonları veya betik özel değişiklikleri yapın.
 
-Aşağıdaki örnek, tüm gerekli girişleri ile azuredeploy.parameters.json adlı bir parametre dosyası oluşturur.
+Kullanım `appId` değerinden daha önce oluşturduğunuz için hizmet sorumlusu `aadClientId` parametresi.
+
+Aşağıdaki örnek, tüm gerekli girişleri ile azuredeploy.parameters.json adlı bir parametre dosyası gösterir.
 
 ```json
 {
@@ -59,10 +60,27 @@ Aşağıdaki örnek, tüm gerekli girişleri ile azuredeploy.parameters.json adl
             "value": "Standard_E2s_v3"
         },
         "infraVmSize": {
-            "value": "Standard_E2s_v3"
+            "value": "Standard_D4s_v3"
         },
         "nodeVmSize": {
-            "value": "Standard_E2s_v3"
+            "value": "Standard_D4s_v3"
+        },
+        "cnsVmSize": {
+            "value": "Standard_E4s_v3"
+        },
+        "osImageType": {
+            "value": "defaultgallery"
+        },
+        "marketplaceOsImage": {
+            "value": {
+                "publisher": "RedHat",
+                "offer": "RHEL",
+                "sku": "7-RAW",
+                "version": "latest"
+            }
+        },
+        "storageKind": {
+            "value": "managed"
         },
         "openshiftClusterPrefix": {
             "value": "mycluster"
@@ -89,13 +107,10 @@ Aşağıdaki örnek, tüm gerekli girişleri ile azuredeploy.parameters.json adl
             "value": "true"
         },
         "enableLogging": {
-            "value": "true"
-        },
-        "enableCockpit": {
             "value": "false"
         },
-        "rhsmUsernamePasswordOrActivationKey": {
-            "value": "usernamepassword"
+        "enableCNS": {
+            "value": "false"
         },
         "rhsmUsernameOrOrgId": {
             "value": "{RHSM Username}"
@@ -104,6 +119,9 @@ Aşağıdaki örnek, tüm gerekli girişleri ile azuredeploy.parameters.json adl
             "value": "{RHSM Password}"
         },
         "rhsmPoolId": {
+            "value": "{Pool ID}"
+        },
+        "rhsmBrokerPoolId": {
             "value": "{Pool ID}"
         },
         "sshPublicKey": {
@@ -127,55 +145,141 @@ Aşağıdaki örnek, tüm gerekli girişleri ile azuredeploy.parameters.json adl
         "aadClientSecret": {
             "value": "{Strong Password}"
         },
-        "defaultSubDomainType": {
+        "masterClusterDnsType": {
+            "value": "default"
+        },
+        "masterClusterDns": {
+            "value": "console.contoso.com"
+        },
+        "routingSubDomainType": {
             "value": "nipio"
+        },
+        "routingSubDomain": {
+            "value": "routing.contoso.com"
+        },
+        "virtualNetworkNewOrExisting": {
+            "value": "new"
+        },
+        "virtualNetworkName": {
+            "value": "openshiftvnet"
+        },
+        "addressPrefixes": {
+            "value": "10.0.0.0/14"
+        },
+        "masterSubnetName": {
+            "value": "mastersubnet"
+        },
+        "masterSubnetPrefix": {
+            "value": "10.1.0.0/16"
+        },
+        "infraSubnetName": {
+            "value": "infrasubnet"
+        },
+        "infraSubnetPrefix": {
+            "value": "10.2.0.0/16"
+        },
+        "nodeSubnetName": {
+            "value": "nodesubnet"
+        },
+        "nodeSubnetPrefix": {
+            "value": "10.3.0.0/16"
+        },
+        "existingMasterSubnetReference": {
+            "value": "/subscriptions/abc686f6-963b-4e64-bff4-99dc369ab1cd/resourceGroups/vnetresourcegroup/providers/Microsoft.Network/virtualNetworks/openshiftvnet/subnets/mastersubnet"
+        },
+        "existingInfraSubnetReference": {
+            "value": "/subscriptions/abc686f6-963b-4e64-bff4-99dc369ab1cd/resourceGroups/vnetresourcegroup/providers/Microsoft.Network/virtualNetworks/openshiftvnet/subnets/masterinfrasubnet"
+        },
+        "existingCnsSubnetReference": {
+            "value": "/subscriptions/abc686f6-963b-4e64-bff4-99dc369ab1cd/resourceGroups/vnetresourcegroup/providers/Microsoft.Network/virtualNetworks/openshiftvnet/subnets/cnssubnet"
+        },
+        "existingNodeSubnetReference": {
+            "value": "/subscriptions/abc686f6-963b-4e64-bff4-99dc369ab1cd/resourceGroups/vnetresourcegroup/providers/Microsoft.Network/virtualNetworks/openshiftvnet/subnets/nodesubnet"
+        },
+        "masterClusterType": {
+            "value": "public"
+        },
+        "masterPrivateClusterIp": {
+            "value": "10.1.0.200"
+        },
+        "routerClusterType": {
+            "value": "public"
+        },
+        "routerPrivateClusterIp": {
+            "value": "10.2.0.201"
+        },
+        "routingCertType": {
+            "value": "selfsigned"
+        },
+        "masterCertType": {
+            "value": "selfsigned"
+        },
+        "proxySettings": {
+            "value": "none"
+        },
+        "httpProxyEntry": {
+            "value": "none"
+        },
+        "httpsProxyEntry": {
+            "value": "none"
+        },
+        "noProxyEntry": {
+            "value": "none"
         }
     }
 }
 ```
 
-Özel bilgileri ile köşeli ayraçlar içine öğeleri değiştirin.
+Parametreleri özel bilgileri ile değiştirin.
 
-### <a name="deploy-by-using-azure-cli"></a>Azure CLI kullanarak dağıtma
+Farklı sürümleri, bu nedenle kullandığınız dal için gerekli parametreleri doğrulayın farklı parametreler olabilir.
+
+### <a name="deploy-using-azure-cli"></a>Azure CLI kullanarak dağıtma
 
 > [!NOTE] 
-> Aşağıdaki komutu Azure CLI.8 gerektirir veya üzeri. CLI sürümü ile doğrulayabilirsiniz `az --version` komutu. CLI sürümünü güncelleştirmek için bkz: [Azure CLI yükleme](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latesti).
+> Aşağıdaki komut, Azure CLI'yı 2.0.8 gerektirir veya üzeri. CLI sürümü ile doğrulayabilirsiniz `az --version` komutu. CLI sürümünü güncelleştirmek için bkz: [Azure CLI yükleme](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latesti).
 
-Aşağıdaki örnek, OpenShift kümeyi ve tüm ilgili kaynakları myOpenShiftCluster ile bir dağıtım adı myResourceGroup, adlı bir kaynak grubuna dağıtır. Şablon, doğrudan GitHub deposunu ve adlı azuredeploy.parameters.json dosyasının dosya kullanılan yerel bir parametre olarak başvuruluyor.
+Aşağıdaki örnek, OpenShift kümeyi ve tüm ilgili kaynakları myOpenShiftCluster ile bir dağıtım adı openshiftrg, adlı bir kaynak grubuna dağıtır. Şablon, doğrudan GitHub deposunu ve adlı azuredeploy.parameters.json dosyasının dosya kullanılan yerel bir parametre olarak başvuruluyor.
 
 ```azurecli 
-az group deployment create -g myResourceGroup --name myOpenShiftCluster \
+az group deployment create -g openshiftrg --name myOpenShiftCluster \
       --template-uri https://raw.githubusercontent.com/Microsoft/openshift-container-platform/master/azuredeploy.json \
       --parameters @./azuredeploy.parameters.json
 ```
 
-Dağıtımın tamamlanması toplam dağıtılan düğüm sayısına bağlı olarak en az 30 dakika sürer. OpenShift konsol OpenShift ana yazdırır dağıtım tamamlandığında terminal için DNS adı ve URL.
+Dağıtım dağıtılan düğüm ve yapılandırılan seçeneklerin, toplam sayısına göre tamamlamak için en az 30 dakika sürer. OpenShift Konsolu URL'sini ve savunma DNS FQDN dağıtım tamamlandığında terminale yazdırır.
 
 ```json
 {
-  "OpenShift Console Uri": "http://openshiftlb.cloudapp.azure.com:8443/console",
-  "OpenShift Master SSH": "ssh clusteradmin@myopenshiftmaster.cloudapp.azure.com -p 2200"
+  "Bastion DNS FQDN": "bastiondns4hawllzaavu6g.eastus.cloudapp.azure.com",
+  "OpenShift Console URL": "http://openshiftlb.eastus.cloudapp.azure.com/console"
 }
 ```
 
-## <a name="deploy-by-using-the-openshift-container-platform-azure-marketplace-offer"></a>OpenShift kapsayıcı platformu Azure Marketi'nde teklif kullanarak dağıtma
+Dağıtım tamamlamak ekleyin bekleniyor komut satırı bağlamanın istemiyorsanız `--no-wait` grubu dağıtımı için seçenekleri biri olarak. Dağıtım çıkışı, Azure portalında kaynak grubu için Dağıtım bölümündeki alınabilir.
+ 
+## <a name="deploy-using-the-openshift-container-platform-azure-marketplace-offer"></a>OpenShift kapsayıcı platformu Azure Marketi'nde teklif kullanarak dağıtma
 
 OpenShift kapsayıcı platformu Azure'a dağıtmak için en basit yolu kullanmaktır [Azure Marketi'nde teklif](https://azuremarketplace.microsoft.com/marketplace/apps/redhat.openshift-container-platform?tab=Overview).
 
-En basit seçenek budur ancak özelleştirme özellikleri sınırlıdır. Bu teklif, üç yapılandırma seçenekleri içerir:
+En basit seçenek budur ancak özelleştirme özellikleri sınırlıdır. Market teklifi, aşağıdaki yapılandırma seçeneklerini içerir:
 
-- **Küçük**: bir ana düğüm, altyapı bir düğümü, iki uygulama düğümü ve bir savunma düğümü ile yüksek olmayan kullanılabilirlik (HA) küme dağıtır. Tüm düğümleri olan standart DS2v2 VM boyutları. Bu küme, 10 toplam çekirdek gerektirir ve küçük ölçekli sınamak için idealdir.
-- **Orta**: üç ana düğüm, iki altyapı düğüm, dört uygulama düğüm ve bir savunma düğümü ile bir HA kümesi dağıtır. Savunma düğüm dışındaki tüm düğümleri olan standart DS3v2 VM boyutları. Standart DS2v2 savunma düğümüdür. Bu küme 38 çekirdek gerektirir.
-- **Büyük**: üç ana düğüm, iki altyapı düğümleri, altı uygulama düğümleri ve bir savunma düğümü ile bir HA kümesi dağıtır. Ana ve altyapı düğümleri olan standart DS3v2 VM boyutları. Uygulama düğümleri olan standart DS4v2 VM boyutları ve standart DS2v2 savunma düğümüdür. Bu küme 70 çekirdek gereklidir.
-
-Azure bulut çözümü sağlayıcısı yapılandırmasını, Orta ve büyük bir küme boyutlarını için isteğe bağlıdır. Küçük bir küme boyutu, Azure bulut çözümü sağlayıcısı yapılandırma seçeneği sağlamaz.
+- **Ana düğümler**: örnek türü üç (3) ana düğümleri ile yapılandırılabilir.
+- **Infra düğümleri**: üç (3) altyapısı düğümleri ile yapılandırılabilir örnek türü.
+- **Düğümleri**: düğüm sayısını (2 ile 9 arasında) yapılandırılabilir örnek türü yanı sıra.
+- **Disk türü**: yönetilen diskler kullanılır.
+- **Ağ**: yeni veya var olan ağ yanı sıra özel CIDR aralığı için destek.
+- **CNS**: CNS etkinleştirilebilir.
+- **Ölçümleri**: ölçümler etkinleştirilebilir.
+- **Günlüğe kaydetme**: günlüğe kaydetme etkinleştirilebilir.
+- **Azure bulut sağlayıcısı**: etkin hale getirilebilir.
 
 ## <a name="connect-to-the-openshift-cluster"></a>OpenShift kümeye bağlanma
 
-Dağıtım tamamlandığında OpenShift konsoluyla birlikte tarayıcınızı kullanarak bağlanmak `OpenShift Console Uri`. Alternatif olarak, aşağıdaki komutu kullanarak OpenShift ana bağlanabilir:
+Dağıtım tamamlandığında, bağlantı, dağıtım çıktı bölümünden alın. OpenShift konsoluna tarayıcınızla kullanarak bağlanma `OpenShift Console URL`. Alternatif olarak, savunma ana bilgisayar için SSH kullanabilirsiniz. Yönetici kullanıcı adı clusteradmin ve savunma genel IP DNS FQDN bastiondns4hawllzaavu6g.eastus.cloudapp.azure.com olduğu yerde bir örneği verilmiştir:
 
 ```bash
-$ ssh clusteradmin@myopenshiftmaster.cloudapp.azure.com -p 2200
+$ ssh clusteradmin@bastiondns4hawllzaavu6g.eastus.cloudapp.azure.com
 ```
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
@@ -183,11 +287,15 @@ $ ssh clusteradmin@myopenshiftmaster.cloudapp.azure.com -p 2200
 Kullanım [az grubu Sil](/cli/azure/group#az_group_delete) komutunu kullanarak kaynak grubunu, OpenShift küme kaldırmak için ve artık gerekmediğinde tüm ilgili kaynakları.
 
 ```azurecli 
-az group delete --name myResourceGroup
+az group delete --name openshiftrg
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 - [Dağıtım sonrası görevler](./openshift-post-deployment.md)
 - [Azure'da OpenShift dağıtım sorunlarını giderme](./openshift-troubleshooting.md)
-- [OpenShift kapsayıcı platformu ile çalışmaya başlama](https://docs.openshift.com/container-platform/3.6/getting_started/index.html)
+- [OpenShift kapsayıcı platformu ile çalışmaya başlama](https://docs.openshift.com/container-platform)
+
+### <a name="documentation-contributors"></a>Belgelere Katkıda Bulunanlar
+
+Vincent Power (vincepower) ve Alfred Sin (asinn826) Katkıları bu belgeleri güncel tutmak için teşekkür ederiz!

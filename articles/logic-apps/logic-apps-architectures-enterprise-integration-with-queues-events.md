@@ -9,12 +9,12 @@ ms.author: mattfarm
 ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.date: 06/15/2018
-ms.openlocfilehash: 8fbc84b4016659b6d0d6ce9ec47c05a0b241c3d9
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 5b58f4b71d8d9f3ca91d8cefc6215073fd836765
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48855383"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50093675"
 ---
 # <a name="enterprise-integration-architecture-with-queues-and-events"></a>Kuyruklar ve olayları ile Kurumsal tümleştirme mimarisi
 
@@ -26,7 +26,7 @@ Bu seri, genel tümleştirme uygulaması oluşturmak için geçerli olabilecek y
 
 ## <a name="architecture-components"></a>Mimari bileşenler
 
-Bu mimari makalesinde açıklanan ve mimarinin geliştirir [başvuru mimarisi: basit bir kurumsal tümleştirme](../logic-apps/logic-apps-architectures-simple-enterprise-integration.md). Bu mimarisinin [önerileri](../logic-apps/logic-apps-architectures-simple-enterprise-integration.md#recommendations) burada da geçerli olur, ancak konuyu uzatmamak amacıyla, bu makalede bu önerileri atlar [önerileri](#recommendations) bölümü. Bu Kurumsal tümleştirme mimarisi şu bileşenleri içerir:
+Bu mimari makalesinde açıklanan ve mimarinin geliştirir [başvuru mimarisi: basit bir kurumsal tümleştirme](/azure/architecture/reference-architectures/enterprise-integration/simple-enterprise-integration). Bu mimarisinin [önerileri](/azure/architecture/reference-architectures/enterprise-integration/simple-enterprise-integration#recommendations) burada da geçerli olur, ancak konuyu uzatmamak amacıyla, bu makalede bu önerileri atlar [önerileri](#recommendations) bölümü. Bu Kurumsal tümleştirme mimarisi şu bileşenleri içerir:
 
 - **Kaynak grubu**: A [kaynak grubu](../azure-resource-manager/resource-group-overview.md) Azure kaynakları için mantıksal bir kapsayıcıdır.
 
@@ -143,4 +143,4 @@ Event Grid hizmeti aracılığıyla bir doğrulama kodu olay teslimi güvenliği
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* Hakkında bilgi edinin [basit Kurumsal tümleştirme](logic-apps-architectures-simple-enterprise-integration.md)
+* Hakkında bilgi edinin [basit Kurumsal tümleştirme](/azure/architecture/reference-architectures/enterprise-integration/simple-enterprise-integration)

@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: raynew
-ms.openlocfilehash: 32bed3a60c40b93471b75b9d54dccd822ccc3be8
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: f289e9745eb220e735cc5c58ce8006c9fea7e61e
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/25/2018
-ms.locfileid: "50025889"
+ms.locfileid: "50086667"
 ---
 # <a name="discover-and-assess-a-large-vmware-environment"></a>Büyük bir VMware ortamını bulma ve değerlendirme
 
@@ -148,17 +148,12 @@ OVA dosyasını dağıtmadan önce güvenli olup olmadığını denetleyin:
 
 #### <a name="one-time-discovery"></a>Tek seferlik keşif
 
-<<<<<<< HEAD için OVA sürüm 1.0.9.15 (23/10/2018 tarihinde serbest bırakılmış)
-
- <a name="algorithm--hash-value"></a>**Algoritma** | **karma değeri**
-=======
-OVA sürüm 1.0.9.15
+OVA sürüm 1.0.9.15 (23/10/2018 tarihinde serbest bırakılmış)
 
 **Algoritma** | **karma değeri**
 >>>>>>> 20dc93529e7c0a4d17f2f4524752b5e2bead4e37---| ---MD5 | e9ef16b0c837638c506b5fc0ef75ebfa SHA1 | 37b4b1e92b3c6ac2782ff5258450df6686c89864 SHA256 | 8a86fc17f69b69968eb20a5c4c288c194cdcffb4ee6568d85ae5ba96835559ba
 
-<<<<<<< HEAD için OVA sürüm 1.0.9.14 (24/8/2018 tarihinde serbest bırakılmış) === OVA sürüm 1.0.9.14 için
->>>>>>> 20dc93529e7c0a4d17f2f4524752b5e2bead4e37
+OVA sürüm 1.0.9.14 (24/8/2018 tarihinde serbest bırakılmış)
 
 **Algoritma** | **Karma değeri**
 --- | ---

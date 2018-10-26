@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 10/24/2018
 ms.author: mabrigg
 ms.reviewer: thoroet
-ms.openlocfilehash: 63fd864ebda1cb766792b99a2725fb069d5b5f2a
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: bbd20df7f002d6072110e3b94887bac24ce13cd2
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/25/2018
-ms.locfileid: "50024078"
+ms.locfileid: "50087449"
 ---
 # <a name="connect-to-azure-stack-with-powershell-as-an-operator"></a>PowerShell ile Azure Stack operatör bağlanma
 
@@ -29,7 +29,7 @@ Azure Stack tekliflerini, planları, kotalar ve Uyarılar oluşturmak gibi kayna
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Aşağıdaki Önkoşullar'nden ya da çalıştırmak [Geliştirme Seti](.\asdk\asdk-connect.md#connect-to-azure-stack-with-remote-desktop) ya da Eğer bir Windows tabanlı dış istemciden [ASDK VPN aracılığıyla bağlı](.\asdk\asdk-connect.md#connect-to-azure-stack-with-vpn). 
+Aşağıdaki Önkoşullar'nden ya da çalıştırmak [Geliştirme Seti](.\asdk\asdk-connect.md#connect-with-rdp) ya da Eğer bir Windows tabanlı dış istemciden [ASDK VPN aracılığıyla bağlı](.\asdk\asdk-connect.md#connect-with-vpn). 
 
  - Yükleme [Azure Stack ile uyumlu Azure PowerShell modüllerini](azure-stack-powershell-install.md).  
  - İndirme [Azure Stack ile çalışması için gereken araçları](azure-stack-powershell-download.md).  

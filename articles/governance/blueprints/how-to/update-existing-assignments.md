@@ -4,16 +4,16 @@ description: Azure şemaları, mevcut bir atamanın güncelleştirilmesi mekaniz
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 09/18/2018
+ms.date: 10/25/2018
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: ecac0fb21a6691874d5e8db49eadd7114d41845f
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 2c9f660e54da50e32ce1d0dc43b0efeacd643c57
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46956209"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50093794"
 ---
 # <a name="how-to-update-an-existing-blueprint-assignment"></a>Var olan bir şema atamasını güncelleştirme
 
@@ -25,11 +25,11 @@ Bir şema atandığında atama güncelleştirilebilir. Mevcut bir atamanın gün
 
 ## <a name="updating-assignments"></a>Atamaları güncelleştiriliyor
 
-1. Tıklayarak Azure portalında Azure şemaları hizmet başlatma **tüm hizmetleri** arama ve seçme **ilke** sol bölmesinde. Üzerinde **ilke** sayfasında, tıklayarak **şemaları**.
+1. Tıklayarak **tüm hizmetleri** arama ve seçme **ilke** sol bölmesinde. **İlke** sayfasında **Şemalar**’a tıklayın.
 
-1. Seçin **atanan şemalar** sol sayfasında.
+1. Soldaki sayfadan **Atanan Şemalar** öğesini seçin.
 
-1. Planlar listesinden, şema atamasını tıklatın ve ardından **güncelleştirme ataması** düğmesini veya şema atamasını sağ tıklayıp **güncelleştirme ataması**.
+1. Şema atamasını şemaları listede sol. Ardından **güncelleştirme ataması** düğmesini veya şema atamasını sağ tıklayıp **güncelleştirme ataması**.
 
    ![Güncelleştirme ataması](../media/update-existing-assignments/update-assignment.png)
 
@@ -45,27 +45,31 @@ Bir şema atandığında atama güncelleştirilebilir. Mevcut bir atamanın gün
 
 ## <a name="rules-for-updating-assignments"></a>Kuralları atamaları güncelleştiriliyor
 
-Güncelleştirilmiş atamaları dağıtımını birkaç önemli kurallara uygun olmalıdır. Bu kurallar, istenen değişikliği ve yapıt kaynağı olan türüne bağlı olarak var olan bir kaynak dağıtılan veya güncelleştirilmiş ne belirler.
+Güncelleştirilmiş atamaları dağıtımını birkaç önemli kurallara uygun olmalıdır. Bu kurallar, zaten dağıtılmış kaynaklar için ne olacağını belirler. Hangi eylemler gerçekleştirildikçe istenen değişikliği ve dağıtılmış veya güncelleştirilmesi yapıt kaynak türünü belirler.
 
 - Rol Atamaları
-  - Rol veya (kullanıcı, Grup veya uygulama) rolü atanan değişirse, yeni bir rol ataması oluşturulur. Daha önceden dağıtılan rol ataması yerinde kalır.
+  - Rol veya (kullanıcı, Grup veya uygulama) rolü atanan değişirse, yeni bir rol ataması oluşturulur. Daha önce dağıttığınız rol atamaları yerinde kalır.
 - İlke Atamaları
   - İlke ataması parametrelerinin değiştirilirse mevcut atamanın güncelleştirilir.
-  - İlke ataması tanımı değiştirilirse, yeni ilke ataması oluşturulur. Daha önce dağıtılan ilke ataması yerinde kalır.
-  - Daha önce dağıtılan ilke ataması, ilke atama yapıtındaki blueprint kaldırılırsa, yerinde kalır.
+  - İlke ataması tanımı değiştirilirse, yeni ilke ataması oluşturulur. Daha önce dağıtılan ilke atamaları yerinde kalır.
+  - İlke atama yapıtındaki blueprint kaldırılırsa, ilke atamaları yerinde kalır dağıtıldı.
 - Azure Resource Manager şablonları
-  - Şablon olarak Resource Manager üzerinden işlenir bir **PUT**. Her kaynak türü bu farklı işler, şemalar tarafından çalıştırıldığında bu eylem etkisini belirlemek dahil edilen her kaynak için belgeleri gözden geçirin.
+  - Şablon olarak Resource Manager üzerinden işlenir bir **PUT**. Her kaynak türü farklı bu eylemin işlediği gibi şemalar tarafından çalıştırıldığında bu eylem etkisini belirlemek dahil edilen her kaynak için belgeleri gözden geçirin.
 
 ## <a name="possible-errors-on-updating-assignments"></a>Olası hataları üzerinde atamaları güncelleştiriliyor
 
-Atamalar güncelleştirilirken yürütüldüğünde sonu değişiklik yapmak mümkündür. Buna örnek olarak, zaten dağıtıldıktan sonra bir kaynak grubu konumunu değişiyor. Tarafından desteklenen herhangi bir değişiklik [Azure Resource Manager](../../../azure-resource-manager/resource-group-overview.md) yapılması olabilir, ancak herhangi Azure Resource Manager aracılığıyla bir hata sonucunda da neden olur atama hatası değiştirebilirsiniz.
+Atamalar güncelleştirilirken yürütüldüğünde sonu değişiklik yapmak mümkündür. Bir örnek, zaten dağıtıldıktan sonra bir kaynak grubu konumunu değişiyor. Tarafından desteklenen herhangi bir değişiklik [Azure Resource Manager](../../../azure-resource-manager/resource-group-overview.md) yapılması olabilir, ancak herhangi Azure Resource Manager aracılığıyla bir hata sonucunda da neden olur atama hatası değiştirebilirsiniz.
 
-Atama bir kaç kez güncelleştirilebilir bir sınır yoktur. Bu nedenle, ya da hatalı bir parametre, varolan bir nesneye veya Azure Resource Manager tarafından izin verilmeyen bir değişiklik nedeniyle bir hata oluşursa hatayı belirlemek ve başka bir güncelleştirme için atama yapın.
+Atama bir kaç kez güncelleştirilebilir bir sınır yoktur. Bir hata oluşursa, hatayı belirlemek ve başka bir güncelleştirme için atama yapın.  Örnek hata senaryolar:
+
+- Hatalı bir parametre
+- Varolan bir nesneye
+- Azure Resource Manager tarafından desteklenmeyen bir değişiklik
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- Hakkında bilgi edinin [blueprint yaşam döngüsü](../concepts/lifecycle.md)
-- Nasıl kullanılacağını anlamak [statik ve dinamik parametreleri](../concepts/parameters.md)
-- Özelleştirme öğrenin [blueprint sıralama sırası](../concepts/sequencing-order.md)
-- Öğrenin yapmak kullanım [blueprint kaynak kilitleme](../concepts/resource-locking.md)
-- İle bir blueprint ataması sırasında sorunları gidermek [genel sorun giderme](../troubleshoot/general.md)
+- [Şema yaşam döngüsü](../concepts/lifecycle.md) hakkında bilgi edinin
+- [Statik ve dinamik parametreleri](../concepts/parameters.md) kullanmayı anlayın
+- [Şema sıralamasını](../concepts/sequencing-order.md) özelleştirmeyi öğrenin
+- [Şema kaynak kilitleme](../concepts/resource-locking.md) özelliğini kullanmayı öğrenin
+- [Genel sorun giderme](../troubleshoot/general.md) adımlarıyla şema atama sorunlarını giderin

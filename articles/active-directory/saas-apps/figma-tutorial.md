@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/30/2018
+ms.date: 10/22/2018
 ms.author: jeedes
-ms.openlocfilehash: 4094de1a1c17e844d96ac789bb4bc1655fdc1546
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: b57fdb3f039a9395133854f8b4d4f2095e3a4f9b
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43669252"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50095254"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-figma"></a>Öğretici: Azure Active Directory Figma ile tümleştirme
 
@@ -61,19 +61,19 @@ Azure AD'de Figma tümleştirmesini yapılandırmak için Figma Galeriden yönet
 
 **Galeriden Figma eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
+1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
-    ![Azure Active Directory düğmesi][1]
+    ![Active Directory][1]
 
 2. Gidin **kurumsal uygulamalar**. Ardından **tüm uygulamaları**.
 
-    ![Kurumsal uygulamalar dikey penceresi][2]
+    ![Uygulamalar][2]
 
 3. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmındaki düğmesi.
 
-    ![Yeni Uygulama düğmesi][3]
+    ![Uygulamalar][3]
 
-4. Arama kutusuna **Figma**seçin **Figma** sonucu panelinden ardından **Ekle** uygulama eklemek için Ekle düğmesine.
+4. Arama kutusuna **Figma**. Seçin **Figma** sonuçlar paneli ve ardından **Ekle** uygulama eklemek için Ekle düğmesine.
 
     ![Sonuç listesinde Figma](./media/figma-tutorial/tutorial_figma_addfromgallery.png)
 
@@ -84,13 +84,13 @@ Bu bölümde, yapılandırın ve Azure AD çoklu oturum açma "Britta Simon" adl
 Tek iş için oturum açma için Azure AD için Figma ile bağlantılı olması gerekir.  Yapılandırma ve Azure AD çoklu oturum açma Figma ile test etmek için aşağıdaki adımları tamamlayın:
 
 1. [**Figma Destek ekibine başvurun** ](mailto:support@figma.com?subject=SAML+Config) kuruluşunuz için bir SAML yapılandırma başlatmak ve bir ORG_SAML_CONFIG_ID alın.
-2. **[Azure AD çoklu oturum açmayı yapılandırmayı](#configure-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
-3. **[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
-4. **[Figma test kullanıcısı oluşturma](#create-a-figma-test-user)**  - kullanıcı Azure AD gösterimini bağlı Figma Britta simon'un bir karşılığı vardır.
-5. **[Azure AD test kullanıcı atama](#assign-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
-6. **[Çoklu oturum açmayı test](#test-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
+2. **[Azure AD çoklu oturum açmayı yapılandırma](#configuring-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
+3. **[Bir Azure AD test kullanıcısı oluşturma](#creating-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
+4. **[Figma test kullanıcısı oluşturma](#creating-a-figma-test-user)**  - kullanıcı Azure AD gösterimini bağlı Figma Britta simon'un bir karşılığı vardır.
+5. **[Azure AD test kullanıcı atama](#assigning-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
+6. **[Çoklu oturum açma testi](#testing-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
 
-### <a name="configure-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırın
+### <a name="configuring-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırma
 
 Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve Figma uygulamanızda çoklu oturum açmayı yapılandırın.
 
@@ -98,13 +98,21 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve F
 
 1. Azure portalında, üzerinde **Figma** uygulama tümleştirme sayfasını tıklatın **çoklu oturum açma**.
 
-    ![Çoklu oturum açma bağlantısı yapılandırma][4]
+    ![Çoklu oturum açmayı yapılandırın][4]
 
-2. Üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** çoklu oturum açmayı etkinleştirmek için.
+2. Üzerinde **tek bir oturum açma yönteminizi seçmeniz** iletişim kutusunu tıklatın **seçin** için **SAML** modu, çoklu oturum açmayı etkinleştirmek için.
 
-    ![Çoklu oturum açma iletişim kutusu](./media/figma-tutorial/tutorial_figma_samlbase.png)
+    ![Çoklu oturum açmayı yapılandırın](./media/figma-tutorial/tutorial_general_301.png)
 
-3. Üzerinde **Figma etki alanı ve URL'ler** bölümünde, uygulamada yapılandırmak istiyorsanız aşağıdaki adımları gerçekleştirin **IDP** başlatılan modu:
+3. Değiştirmeniz gerekiyorsa **SAML** herhangi bir başka bir modda modundan tıklayın **oturum açma tek Mod Değiştir** ekranın en üstünde.
+
+    ![Çoklu oturum açmayı yapılandırın](./media/figma-tutorial/tutorial_general_300.png)
+
+4. Üzerinde **yukarı çoklu oturum açma SAML ile ayarlanmış** sayfasında **Düzenle** açmak için simgeyi **temel SAML yapılandırma** iletişim.
+
+    ![Çoklu oturum açmayı yapılandırın](./media/figma-tutorial/tutorial_general_302.png)
+
+5. Üzerinde **temel SAML yapılandırma** bölümünde, uygulamada yapılandırmak istiyorsanız aşağıdaki adımları gerçekleştirmek **IDP** başlatılan modu:
 
     ![Figma etki alanı ve URL'ler tek oturum açma bilgileri](./media/figma-tutorial/tutorial_figma_url1.png)
 
@@ -112,7 +120,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve F
 
     b. İçinde **yanıt URL'si** metin kutusuna bir URL şu biçimi kullanarak: `https://www.figma.com/saml/<ORG_SAML_CONFIG_ID>/consume`
 
-4. Denetleme **Gelişmiş URL ayarlarını göster** ve uygulamada yapılandırmak istiyorsanız, aşağıdaki adımı uygulayın **SP** başlatılan modu:
+6. Tıklayın **ek URL'lerini ayarlayın** ve uygulamada yapılandırmak istiyorsanız, aşağıdaki adımı uygulayın **SP** başlatılan modu:
 
     ![Figma etki alanı ve URL'ler tek oturum açma bilgileri](./media/figma-tutorial/tutorial_figma_url2.png)
 
@@ -121,88 +129,105 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve F
     > [!NOTE]
     > Bu değerler gerçek değildir. Bu değerler gerçek tanımlayıcısı, yanıt URL'si ve oturum açma URL'si ile güncelleştirin. İlgili kişi [Figma Destek ekibine](mailto:support@figma.com?subject=SAML+Config) bu değerleri almak için.
 
-5. Üzerinde **SAML imzalama sertifikası** bölümünde, kopyalamak için Kopyala düğmesine **uygulama Federasyon meta verileri URL'sini** kopyalayıp Not Defteri'ne yapıştırın.
+7. Figma uygulama belirli bir biçimde SAML onaylamalarını bekler. Bu uygulama için aşağıdaki talepleri yapılandırın. Bu öznitelikleri değerlerini yönetebilirsiniz **kullanıcı öznitelikleri** uygulama tümleştirme sayfasında bölümü. Üzerinde **yukarı çoklu oturum açma SAML ile ayarlanmış** sayfasında **Düzenle** açmak için düğmeyi **kullanıcı öznitelikleri** iletişim.
+
+    ![Öznitelik bölümü](./media/figma-tutorial/edit_attribute.png)
+
+8. İçinde **kullanıcı taleplerini** bölümünde **kullanıcı öznitelikleri** iletişim kutusunda, SAML belirteci özniteliği yukarıdaki görüntüde gösterilen şekilde yapılandırın ve aşağıdaki adımları gerçekleştirin:
+
+    | Ad | Kaynak özniteliği|
+    | ---------------| --------- |
+    | `externalId` | `user.mailnickname` |
+    | `displayName` | `user.displayname` |
+    | `title` | `user.jobtitle` |
+    | `emailaddress` | `user.mail` |
+    | `familyName` | `user.surname` |
+    | `givenName` | `givenName` |
+    | `userName` | `user.userprincipalname` |
+
+    a. Tıklayın **Ekle yeni talep** açmak için **yönetmek, kullanıcı talepleri** iletişim.
+
+    ![Yeni öznitelik](./media/figma-tutorial/new_save_attribute.png)
+
+    ![Öznitelik Ekle](./media/figma-tutorial/new_attribute_details.png)
+
+    b. İçinde **adı** metin kutusuna, bu satır için gösterilen öznitelik adı yazın.
+
+    c. Bırakın **Namespace** boş.
+
+    d. Kaynağı olarak **özniteliği**.
+
+    e. Gelen **kaynak özniteliği** listesinde, ilgili satır için gösterilen öznitelik değeri yazın.
+
+    f. Tıklayın **Tamam**
+
+    g. **Kaydet**’e tıklayın.
+
+9. Üzerinde **yukarı çoklu oturum açma SAML ile ayarlayın** sayfasında **SAML imzalama sertifikası** bölümünde, kopyalamak için Kopyala düğmesine **uygulama Federasyon meta verileri URL'sini** ve üzerinde kaydedin, bilgisayar.
 
     ![Sertifika indirme bağlantısı](./media/figma-tutorial/tutorial_figma_certificate.png)
 
-6. Tıklayın **Kaydet** düğmesi.
+10. Çoklu oturum açma Figma tarafında yapılandırmak için lütfen bu formu doldurun: [ https://goo.gl/forms/XkRB1z5ed4eVUzXn2 ](https://goo.gl/forms/XkRB1z5ed4eVUzXn2). Kabul eder, **uygulama Federasyon meta verileri URL'sini** # 9. adım.
 
-    ![Çoklu oturum açma Kaydet düğmesi yapılandırın](./media/figma-tutorial/tutorial_general_400.png)
-
-7. Çoklu oturum açma Figma tarafında yapılandırmak için lütfen bu formu doldurun: [ https://goo.gl/forms/XkRB1z5ed4eVUzXn2 ](https://goo.gl/forms/XkRB1z5ed4eVUzXn2). Kabul eder, **uygulama Federasyon meta verileri URL'sini** # 5. adımdaki.
-
-### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
+### <a name="creating-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
 
 Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcısı oluşturmaktır.
 
-   ![Bir Azure AD test kullanıcısı oluşturma][100]
+1. Azure portalında, sol bölmede seçin **Azure Active Directory**seçin **kullanıcılar**ve ardından **tüm kullanıcılar**.
 
-**Azure AD'de bir test kullanıcısı oluşturmak için aşağıdaki adımları gerçekleştirin:**
+    ![Azure AD kullanıcısı oluşturun][100]
 
-1. Azure portalında, sol bölmede, tıklayın **Azure Active Directory** düğmesi.
+2. Seçin **yeni kullanıcı** ekranın üstünde.
 
-    ![Azure Active Directory düğmesi](./media/figma-tutorial/create_aaduser_01.png)
+    ![Bir Azure AD test kullanıcısı oluşturma](./media/figma-tutorial/create_aaduser_01.png) 
 
-2. Kullanıcıların listesini görüntülemek için Git **kullanıcılar ve gruplar**ve ardından **tüm kullanıcılar**.
+3. Kullanıcı özellikleri, aşağıdaki adımları gerçekleştirin.
 
-    !["Kullanıcılar ve Gruplar" ve "Tüm kullanıcılar" bağlantıları](./media/figma-tutorial/create_aaduser_02.png)
+    ![Bir Azure AD test kullanıcısı oluşturma](./media/figma-tutorial/create_aaduser_02.png)
 
-3. Açmak için **kullanıcı** iletişim kutusu, tıklayın **Ekle** en üstündeki **tüm kullanıcılar** iletişim kutusu.
+    a. İçinde **adı** alanına **BrittaSimon**.
+  
+    b. İçinde **kullanıcı adı** alanına **brittasimon@yourcompanydomain.extension**  
+    Örneğin, BrittaSimon@contoso.com
 
-    ![Ekle düğmesi](./media/figma-tutorial/create_aaduser_03.png)
+    c. Seçin **özellikleri**seçin **Show parola** onay kutusunu işaretleyin ve ardından parola kutusunda görüntülenen değeri yazın.
 
-4. İçinde **kullanıcı** iletişim kutusunda, aşağıdaki adımları gerçekleştirin:
+    d. **Oluştur**’u seçin.
 
-    ![Kullanıcı iletişim kutusu](./media/figma-tutorial/create_aaduser_04.png)
-
-    a. İçinde **adı** kutusuna **BrittaSimon**.
-
-    b. İçinde **kullanıcı adı** Britta Simon kullanıcı e-posta adresini yazın.
-
-    c. Seçin **Göster parola** onay kutusunu işaretleyin ve ardından görüntülenen değeri yazın **parola** kutusu.
-
-    d. **Oluştur**’a tıklayın.
-
-### <a name="create-a-figma-test-user"></a>Figma test kullanıcısı oluşturma
+### <a name="creating-a-figma-test-user"></a>Figma test kullanıcısı oluşturma
 
 Bu bölümün amacı Figma Britta Simon adlı bir kullanıcı oluşturmaktır. Figma tam zamanında sağlama, varsayılan olarak etkin olan destekler. Bu bölümde, hiçbir eylem öğesini yoktur. Yeni bir kullanıcı, henüz yoksa Figma erişme denemesi sırasında oluşturulur.
 
-### <a name="assign-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atayın
+### <a name="assigning-the-azure-ad-test-user"></a>Azure AD test kullanıcı atama
 
-Bu bölümde, Azure çoklu oturum açma kullanmak için Figma erişim vererek Britta Simon etkinleştirin.
+Bu bölümde, Azure çoklu oturum açma için SAML HubSpot erişim vererek kullanmak Britta Simon etkinleştirin.
 
-![Kullanıcı rolü atayın][200]
+1. Azure portalında **kurumsal uygulamalar**seçin **tüm uygulamaları**.
 
-**Britta Simon Figma için atamak için aşağıdaki adımları gerçekleştirin:**
+    ![Kullanıcı Ata][201]
 
-1. Azure portalında uygulama görünümü açtığınız dizin görünümüne gidin ve Git **kurumsal uygulamalar** ardından **tüm uygulamaları**.
+2. Uygulamalar listesinde **HubSpot SAML**.
 
-    ![Kullanıcı Ata][201] 
-
-2. Uygulamalar listesinde **Figma**.
-
-    ![Uygulamalar listesinde Figma bağlantı](./media/figma-tutorial/tutorial_figma_app.png)  
+    ![Çoklu oturum açmayı yapılandırın](./media/figma-tutorial/tutorial_figma_app.png) 
 
 3. Soldaki menüde **kullanıcılar ve gruplar**.
 
-    !["Kullanıcılar ve Gruplar" bağlantısı][202]
+    ![Kullanıcı Ata][202]
 
 4. Tıklayın **Ekle** düğmesi. Ardından **kullanıcılar ve gruplar** üzerinde **atama Ekle** iletişim.
 
-    ![Atama Ekle bölmesi][203]
+    ![Kullanıcı Ata][203]
 
-5. Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** kullanıcıları listesinde.
+5. İçinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** 'a tıklayın kullanıcı listesinde **seçin** ekranın alt kısmındaki düğmesi.
 
-6. Tıklayın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.
+6. İçinde **atama Ekle** iletişim kutusunda **atama** düğmesi.
 
-7. Tıklayın **atama** düğmesini **atama Ekle** iletişim.
-
-### <a name="test-single-sign-on"></a>Çoklu oturum açma testi
+### <a name="testing-single-sign-on"></a>Çoklu oturum açma testi
 
 Bu bölümde, erişim panelini kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
 
 Erişim panelinde Figma kutucuğa tıkladığınızda, otomatik olarak Figma uygulamanıza açan.
-Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](../user-help/active-directory-saas-access-panel-introduction.md). 
+Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 

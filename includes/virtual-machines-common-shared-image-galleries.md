@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/20/2018
 ms.author: akjosh; cynthn
 ms.custom: include file
-ms.openlocfilehash: 56f48f6676b3c878effe788316024e642c17ff5a
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 6ad38d2dc1c5c41dc10685d680f70c59e7983cd2
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49400231"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50035270"
 ---
 Paylaşılan görüntü Galerisi yapısı ve özel VM görüntülerinizi etrafında kuruluş oluşturmanıza yardımcı olan bir hizmettir. Paylaşılan görüntü Galerisi üç temel değer önermeleri sağlar.
 - Basit yönetim
@@ -146,7 +146,7 @@ Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Compute
 
 **S.** Özelleştirilmiş diskten bir görüntü sürümü oluşturabilir miyim?
 
- A. Hayır, şu anda özel disk görüntüleri desteklemiyoruz. Özelleştirilmiş disk varsa, yapmanız [VHD'den VM oluşturma](https://docs.microsoft.com/azure/virtual-machines/windows/create-vm-specialized-portal#create-a-vm-from-a-disk) specializeddisk yeni bir sanal makineye ekleyerek. Çalışan bir VM oluşturduktan sonra [Windows VM'den] yönetilen bir görüntü oluşturmak için yönergeleri takip etmeniz (https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-custom-images) veya [Linux VM](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-custom-images). Genelleştirilmiş bir yönetilen bir görüntü oluşturduktan sonra paylaşılan görüntü açıklaması ve görüntü sürümü oluşturma işlemini başlatabilirsiniz.
+ A. Hayır, şu anda özel disk görüntüleri desteklemiyoruz. Özelleştirilmiş disk varsa, yapmanız [VHD'den VM oluşturma](https://docs.microsoft.com/azure/virtual-machines/windows/create-vm-specialized-portal#create-a-vm-from-a-disk) specializeddisk yeni bir sanal makineye ekleyerek. Çalışan bir VM oluşturduktan sonra yönetilen bir görüntüden oluşturmak için yönergeleri takip etmeniz [Windows VM](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-custom-images) veya [Linux VM](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-custom-images). Genelleştirilmiş bir yönetilen bir görüntü oluşturduktan sonra paylaşılan görüntü açıklaması ve görüntü sürümü oluşturma işlemini başlatabilirsiniz.
 
 
 **S.** Paylaşılan görüntü Galerisi, görüntü tanımı ve Azure portalı üzerinden görüntü sürümü oluşturabilir miyim?

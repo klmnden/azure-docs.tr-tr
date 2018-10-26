@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: conceptual
 ms.date: 10/19/2018
 ms.author: diberry
-ms.openlocfilehash: 92b4864f8991380740e6edb498328ce2eea98250
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: fdf81943a7bdbae80f4474915a72bb61f1123a30
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49650120"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50085874"
 ---
 # <a name="entities-in-luis"></a>LUIS varlıkları
 
@@ -96,8 +96,9 @@ LUIS, çok sayıda varlık türlerini sunar. önceden oluşturulmuş varlıklar,
 ## <a name="entity-limits"></a>Varlık sınırları
 Gözden geçirme [sınırları](luis-boundaries.md#model-boundaries) anlamak için bir model ekleyebilirsiniz kaç her varlık türü.
 
-## <a name="entity-roles"></a>Varlık rolleri
-Varlık [rolleri](luis-concept-roles.md) özel ve önceden oluşturulmuş varlıklar için uygulama ve desenler içinde kullanılır. 
+## <a name="roles-versus-hierarchical-entities"></a>Hiyerarşik varlıkları ve rolleri
+
+Daha fazla bilgi için [hiyerarşik varlıkları ve rolleri](luis-concept-roles.md#roles-versus-hierarchical-entities).
 
 ## <a name="composite-vs-hierarchical-entities"></a>Bileşik vs hiyerarşik varlıklar
 Bileşik varlıkları ve hiyerarşik varlıkları hem üst-alt ilişkileri ve makine öğrendiniz. Makine öğrenimi, farklı bağlamlardaki (bir kelimelerin düzenleme) tabanlı varlıkları anlamak LUIS sağlar. Bileşik varlıklar, bunların alt öğeleri olarak farklı varlık türleri izin verdiğinden daha esnektir. Hiyerarşik bir varlığın alt yalnızca basit varlıklardır. 

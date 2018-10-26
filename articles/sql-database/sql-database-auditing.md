@@ -11,21 +11,26 @@ author: ronitr
 ms.author: ronitr
 ms.reviewer: vanto
 manager: craigg
-ms.date: 10/15/2018
-ms.openlocfilehash: 2a0bacaf0405a5223afedcd3897e2a1514f7128b
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.date: 10/25/2018
+ms.openlocfilehash: fc82fa592a513d735d4adc602bedaf8e492af13b
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49466690"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50092960"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>SQL veritabanı denetimini kullanmaya başlayın
 
-Azure SQL veritabanı denetimi veritabanı olaylarını ve Azure depolama hesabınızdaki bir denetim günlüğüne yazar izler. Ayrıca denetleme:
+Azure için Denetim [SQL veritabanı](sql-database-technical-overview.md) ve [SQL veri ambarı](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) veritabanı olaylarını izler ve bir denetim günlüğüne, Azure depolama hesabı, OMS çalışma alanına veya olay hub'ları yazar. Ayrıca denetleme:
 
 - Mevzuatla uyumluluk, veritabanı etkinliğini anlama ve tutarsızlıklar ve işletme sorunlarını veya şüpheli güvenlik ihlallerini anomalileri kavramanıza yardımcı olur.
 
 - Etkinleştirir ve uyumluluk garanti etmez ancak uyumluluk standardını da kıldığı kolaylaştırır. Azure hakkında daha fazla bilgi bu standartlara uyumluluk programları için bkz: [Azure Güven Merkezi](https://azure.microsoft.com/support/trust-center/compliance/).
+
+
+> [!NOTE] 
+> Bu konu başlığı, Azure SQL sunucusunun yanı sıra Azure SQL sunucusu üzerinde oluşturulmuş olan SQL Veritabanı ve SQL Veri Ambarı veritabanları için de geçerlidir. Kolaylık açısından, hem SQL Veritabanı hem de SQL Veri Ambarı için SQL Veritabanı terimi kullanılmaktadır.
+
 
 ## <a id="subheading-1"></a>Azure SQL veritabanı denetimi genel bakış
 
@@ -51,7 +56,7 @@ Bir denetim ilkesi, ilke varsayılan sunucu olarak veya belirli bir veritabanı 
 
 - Varsa *sunucu blob denetimi etkinse*, onu *her zaman veritabanına uygulanır*. Veritabanı denetim ayarları bağımsız olarak veritabanı denetlenecektir.
 
-- Veritabanında BLOB denetimi etkinleştirme, sunucuda etkinleştirmenin yanı sıra mu *değil* geçersiz kılabilir veya sunucu blob denetimi ayarlarından herhangi birini değiştirin. Her iki denetimleri yan yana bulunur. Diğer bir deyişle, veritabanı iki kez paralel olarak denetlenir; Sunucu İlkesi ve bir kez veritabanı İlkesi tarafından bir kez.
+- Veritabanını veya veri ambarını BLOB denetimi etkinleştirme, sunucuda etkinleştirmenin yanı sıra mu *değil* geçersiz kılabilir veya sunucu blob denetimi ayarlarından herhangi birini değiştirin. Her iki denetimleri yan yana bulunur. Diğer bir deyişle, veritabanı iki kez paralel olarak denetlenir; Sunucu İlkesi ve bir kez veritabanı İlkesi tarafından bir kez.
 
    > [!NOTE]
    > Sunucu blob denetimi hem veritabanı birlikte blob denetimi etkinleştirmelerini kaçınmanız gerekir:
@@ -87,7 +92,7 @@ Aşağıdaki bölümde, Denetim Azure portalını kullanarak yapılandırmayı a
 
     ![depolama hesabı](./media/sql-database-auditing-get-started/auditing_select_storage.png)
 
-7. Yazma denetim yapılandırmak için bir Log Analytics çalışma alanına select günlükleri **Log Analytics (Önizleme)** açın **Log Analytics ayrıntıları**. Seçin veya burada günlüklerine yazılır ve ardından Log Analytics çalışma alanı **Tamam**.
+7. Yazma denetim yapılandırmak için bir Log Analytics çalışma alanına, select günlükleri **Log Analytics (Önizleme)** açın **Log Analytics ayrıntıları**. Seçin veya burada günlüklerine yazılır ve ardından Log Analytics çalışma alanı **Tamam**.
 
     ![Log Analytics](./media/sql-database-auditing-get-started/auditing_select_oms.png)
 
@@ -98,6 +103,11 @@ Aşağıdaki bölümde, Denetim Azure portalını kullanarak yapılandırmayı a
 9. **Kaydet**’e tıklayın.
 10. Denetlenen olayları özelleştirmek isterseniz, bunu aracılığıyla yapabilirsiniz [PowerShell cmdlet'leri](#subheading-7) veya [REST API](#subheading-9).
 11. Denetim ayarlarınızı yapılandırdıktan sonra yeni tehdit algılama özelliğini açmak ve güvenlik uyarıları alacak e-postalar yapılandırın. Tehdit algılama kullandığınızda, olası güvenlik tehditlerini gösteren anormal veritabanı etkinliklerini etkin uyarılar alırsınız. Daha fazla bilgi için [tehdit algılamayı kullanmaya başlama](sql-database-threat-detection-get-started.md).
+
+
+> [!IMPORTANT]
+>Bir Azure SQL veri ambarı veya bir Azure SQL veri ambarı'na da olan bir sunucuyu denetlemeyi etkinleştirme **sürdürülüyor veri ambarında sonuçlanır**, burada, daha önce duraklatıldı durumunda bile. **Denetim yeniden etkinleştirdikten sonra veri ambarını duraklatmak emin olun**.'
+
 
 ## <a id="subheading-3"></a>Denetim günlüklerini ve raporları analiz edin
 
@@ -206,6 +216,9 @@ Birincil veritabanında Denetimi etkinleştirdiğinizde, coğrafi olarak çoğal
     FAILED_DATABASE_AUTHENTICATION_GROUP
 
     Bölümünde anlatıldığı gibi eylemleri ve Eylem grupları, PowerShell kullanarak farklı türleri için denetimi yapılandırabilirsiniz [Azure PowerShell kullanarak yönetme SQL veritabanı denetimi](#subheading-7) bölümü.
+
+- AAD kimlik doğrulamasını kullanırken oturum açma bilgileri kayıt olacak başarısız *değil* SQL denetim günlüğünde görünür. Başarısız oturum açma Denetim kayıtlarını görüntülemek için ziyaret etmesi gerekir [Azure Active Directory portalında]( ../active-directory/reports-monitoring/reference-sign-ins-error-codes.md), bu olayların ayrıntıları kaydeder.
+
 
 ## <a id="subheading-7"></a>Azure PowerShell kullanarak SQL veritabanı denetimini yönetme
 

@@ -6,15 +6,15 @@ ms.service: automation
 ms.component: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 10/11/2018
+ms.date: 10/25/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 6d2076a91bc7e7c0e2ca9d2fe6899cddec2f8d0b
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: 90a5be07b6939df1850bb1574c71254bb896f004
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/25/2018
-ms.locfileid: "50024503"
+ms.locfileid: "50093845"
 ---
 # <a name="update-management-solution-in-azure"></a>Güncelleştirme yönetimi çözümünü azure'da
 
@@ -73,7 +73,7 @@ Aşağıdaki tabloda, desteklenen işletim sistemlerinin bir listesi gösterilir
 |CentOS 6 (x86/x64) ve 7 (x64)      | Linux aracılarının bir güncelleştirme havuzuna erişimi olmalıdır. Sınıflandırma tabanlı düzeltme eki uygulama, CentOS, kullanıma hazır yoksa güvenlik verileri döndürmek için 'ı yum' gerektirir.         |
 |Red Hat Enterprise 6 (x86/x64) ve 7 (x64)     | Linux aracılarının bir güncelleştirme havuzuna erişimi olmalıdır.        |
 |SUSE Linux Enterprise Server 11 (x86/x64) ve 12 (x64)     | Linux aracılarının bir güncelleştirme havuzuna erişimi olmalıdır.        |
-|Ubuntu 14.04 LTS ve 16.04 LTS (x86/x64)      |Linux aracılarının bir güncelleştirme havuzuna erişimi olmalıdır.         |
+|Ubuntu 14.04 LTS, 16.04 LTS ve 18.04 (x86/x64)      |Linux aracılarının bir güncelleştirme havuzuna erişimi olmalıdır.         |
 
 ### <a name="unsupported-client-types"></a>Desteklenmeyen istemci türleri
 
@@ -174,7 +174,7 @@ Aşağıdaki tabloda bu çözüm tarafından desteklenen bağlı kaynaklar açı
 
 ### <a name="collection-frequency"></a>Toplama sıklığı
 
-Yönetilen her Windows bilgisayarı için günde iki kez tarama gerçekleştirilir. Her 15 dakikada bir Windows API'si çağrılarak son güncelleştirme zamanı durumu değişip değişmediğini belirlemek için sorgulanamıyor. Durum değiştiyse, bir Uyumluluk taraması başlatılır. 
+Yönetilen her Windows bilgisayarı için günde iki kez tarama gerçekleştirilir. Her 15 dakikada bir Windows API'si çağrılarak son güncelleştirme zamanı durumu değişip değişmediğini belirlemek için sorgulanamıyor. Durum değiştiyse, bir Uyumluluk taraması başlatılır.
 
 Yönetilen her Linux bilgisayarı için 3 saatte bir tarama gerçekleştirilir.
 

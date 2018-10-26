@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 09/28/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: f0791173450d5db3b33762ec9d5ed5c1adf96788
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 4dd3253b1d7ee159914f2d1fd6a8644bbc69c1f0
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49321640"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50092800"
 ---
 # <a name="prerequisites-for-azure-ad-connect"></a>Azure AD Connect önkoşulları
 Bu konu ön koşullar ve Azure AD Connect için donanım gereksinimlerini açıklar.
@@ -63,7 +63,7 @@ Azure AD Connect'i yüklemeden önce gereken birkaç şey vardır.
 ### <a name="sql-server-used-by-azure-ad-connect"></a>Azure AD Connect tarafından kullanılan SQL Server
 * Azure AD Connect’e kimlik verilerini depolamak için bir SQL Server veritabanı gerekiyor. Varsayılan olarak, bir SQL Server 2012 Express LocalDB'nı (SQL Server Express'in hafif bir sürüm) yüklenir. SQL Server Express yaklaşık 100.000 nesneye yönetmenize olanak sağlayan bir 10 GB boyut sınırı vardır. Dizin nesneleri daha yüksek hacimde yönetmeniz gerekiyorsa, Yükleme Sihirbazı'nı farklı bir SQL Server yüklemesine işaret edecek şekilde gerekir.
 * Ayrı bir SQL Server kullanıyorsanız, ardından bu gereksinimleri geçerlidir:
-  * Azure AD Connect, SQL Server 2008 (en son hizmet paketiyle) SQL Server 2016 SP1, Microsoft SQL Server'ın tüm sürümleri destekler. Microsoft Azure SQL veritabanı **desteklenmiyor** veritabanı olarak.
+  * Azure AD Connect, SQL Server 2008 (en son hizmet paketiyle) SQL Server 2017, Microsoft SQL Server'ın tüm sürümleri destekler. Microsoft Azure SQL veritabanı **desteklenmiyor** veritabanı olarak.
   * Büyük küçük harf duyarsız bir SQL harmanlaması kullanmanız gerekir. Bu harmanlamaları ile tanımlanan bir \_CI_ adında. Bu **desteklenmiyor** tarafından tanımlanan bir büyük/küçük harfe harmanlamasını kullanacak şekilde \_CS_ adında.
   * Yalnızca bir eşitleme Altyapısı SQL örneği başına olabilir. Bu **desteklenmiyor** FIM/MIM eşitleme, DirSync veya Azure AD Sync ile bir SQL örneği paylaşmak için.
 

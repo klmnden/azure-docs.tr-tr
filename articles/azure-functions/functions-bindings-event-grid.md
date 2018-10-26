@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 09/04/2018
 ms.author: glenga
-ms.openlocfilehash: a52ba16d7c8548d378d1b13a85fc1fd1070144e8
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 4bfc1fa167185023b71566bde6e6199bdb18849b
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46128392"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50087653"
 ---
 # <a name="event-grid-trigger-for-azure-functions"></a>Azure işlevleri için olay Kılavuzu tetikleyicisi
 
@@ -53,7 +53,7 @@ Bir olay Kılavuzu tetikleyicisi için dile özgü örneğe bakın:
 
 HTTP tetikleyicisi örneği için bkz. [HTTP tetikleyicisi kullanmayı](#use-an-http-trigger-as-an-event-grid-trigger) bu makalenin ilerleyen bölümlerinde.
 
-### <a name="c-example"></a>C# örneği
+### <a name="c-version-1x"></a>C#(Sürüm 1.x)
 
 Aşağıdaki örnek, bir işlevler gösterir 1.x [C# işlevi](functions-dotnet-class-library.md) için bağlar `JObject`:
 
@@ -63,19 +63,22 @@ using Microsoft.Azure.WebJobs.Extensions.EventGrid;
 using Microsoft.Azure.WebJobs.Host;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using Microsoft.Extensions.Logging;
 
 namespace Company.Function
 {
     public static class EventGridTriggerCSharp
     {
         [FunctionName("EventGridTriggerCSharp")]
-        public static void Run([EventGridTrigger]JObject eventGridEvent, TraceWriter log)
+        public static void Run([EventGridTrigger]JObject eventGridEvent, ILogger log)
         {
-            log.Info(eventGridEvent.ToString(Formatting.Indented));
+            log.LogInformation(eventGridEvent.ToString(Formatting.Indented));
         }
     }
 }
 ```
+
+### <a name="c-2x"></a>C#(2.x)
 
 Aşağıdaki örnek, bir işlevler gösterir 2.x [C# işlevi](functions-dotnet-class-library.md) için bağlar `EventGridEvent`:
 
@@ -84,15 +87,16 @@ using Microsoft.Azure.EventGrid.Models;
 using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Extensions.EventGrid;
 using Microsoft.Azure.WebJobs.Host;
+using Microsoft.Extensions.Logging;
 
 namespace Company.Function
 {
     public static class EventGridTriggerCSharp
     {
         [FunctionName("EventGridTest")]
-        public static void EventGridTest([EventGridTrigger]EventGridEvent eventGridEvent, TraceWriter log)
+        public static void EventGridTest([EventGridTrigger]EventGridEvent eventGridEvent, ILogger log)
         {
-            log.Info(eventGridEvent.Data.ToString());
+            log.LogInformation(eventGridEvent.Data.ToString());
         }
     }
 }
@@ -119,6 +123,8 @@ Veri bağlama işte *function.json* dosyası:
 }
 ```
 
+#### <a name="c-script-version-1x"></a>C#betik (sürüm 1.x)
+
 İşte bağlar işlevleri 1.x C# betik kodu `JObject`:
 
 ```cs
@@ -133,15 +139,18 @@ public static void Run(JObject eventGridEvent, TraceWriter log)
 }
 ```
 
+#### <a name="c-script-version-2x"></a>C#betik (sürüm 2.x)
+
 İşte bağlar işlevleri 2.x C# betik kodu `EventGridEvent`:
 
 ```csharp
 #r "Microsoft.Azure.EventGrid"
 using Microsoft.Azure.EventGrid.Models;
+using Microsoft.Extensions.Logging;
 
-public static void Run(EventGridEvent eventGridEvent, TraceWriter log)
+public static void Run(EventGridEvent eventGridEvent, ILogger log)
 {
-    log.Info(eventGridEvent.Data.ToString());
+    log.LogInformation(eventGridEvent.Data.ToString());
 }
 ```
 
@@ -207,7 +216,7 @@ Java kod aşağıdaki gibidir:
 ```
 
 İçinde [Java Çalışma Zamanı Kitaplığı işlevleri](/java/api/overview/azure/functions/runtime), kullanın `EventGridTrigger` ek açıklama parametreleri değeri EventGrid ' gelmesi. Bu ek açıklamalar parametrelerle bir olay geldiğinde çalıştırmak işlev neden.  Bu ek açıklama yerel Java türler, pojo'ları veya kullanarak boş değer atanabilir değer ile kullanılabilir `Optional<T>`. 
-     
+
 ## <a name="attributes"></a>Öznitelikler
 
 İçinde [C# sınıfı kitaplıklar](functions-dotnet-class-library.md), kullanın [EventGridTrigger](https://github.com/Azure/azure-functions-eventgrid-extension/blob/master/src/EventGridExtension/EventGridTriggerAttribute.cs) özniteliği.
@@ -216,11 +225,11 @@ Java kod aşağıdaki gibidir:
 
 ```csharp
 [FunctionName("EventGridTest")]
-public static void EventGridTest([EventGridTrigger] JObject eventGridEvent, TraceWriter log)
+public static void EventGridTest([EventGridTrigger] JObject eventGridEvent, ILogger log)
 {
     ...
 }
- ```
+```
 
 Tam bir örnek için bkz. [C# örneği](#c-example).
 
@@ -432,7 +441,7 @@ Gibi bir araç kullanın [Postman](https://www.getpostman.com/) veya [curl](http
 
 ```
 http://localhost:7071/admin/extensions/EventGridExtensionConfig?functionName={functionname}
-``` 
+```
 
 `functionName` Parametresi, belirtilen adı olmalıdır `FunctionName` özniteliği.
 
@@ -494,11 +503,11 @@ Test etmek istediğiniz türde bir Event Grid aboneliği oluşturun ve ngrok uç
 İşlevler için bu endpoint düzeni kullanın 1.x:
 ```
 https://{subdomain}.ngrok.io/admin/extensions/EventGridExtensionConfig?functionName={functionname}
-``` 
+```
 İşlevler için bu endpoint düzeni kullanın 2.x:
 ```
 https://{subdomain}.ngrok.io/runtime/webhooks/eventgrid?functionName={functionName}
-``` 
+```
 `functionName` Parametresi, belirtilen adı olmalıdır `FunctionName` özniteliği.
 
 Azure CLI kullanarak bir örnek aşağıda verilmiştir:
@@ -536,9 +545,9 @@ Aşağıdaki örnek C# kod HTTP tetikleyicisi için olay Kılavuzu tetikleyicisi
 [FunctionName("HttpTrigger")]
 public static async Task<HttpResponseMessage> Run(
     [HttpTrigger(AuthorizationLevel.Anonymous, "post")]HttpRequestMessage req,
-    TraceWriter log)
+    ILogger log)
 {
-    log.Info("C# HTTP trigger function processed a request.");
+    log.LogInformation("C# HTTP trigger function processed a request.");
 
     var messages = await req.Content.ReadAsAsync<JArray>();
 
@@ -547,7 +556,7 @@ public static async Task<HttpResponseMessage> Run(
         "Microsoft.EventGrid.SubscriptionValidationEvent", 
         System.StringComparison.OrdinalIgnoreCase))
     {
-        log.Info("Validate request received");
+        log.LogInformation("Validate request received");
         return req.CreateResponse<object>(new
         {
             validationResponse = messages[0]["data"]["validationCode"]
@@ -559,9 +568,9 @@ public static async Task<HttpResponseMessage> Run(
     {
         // Handle one event.
         EventGridEvent eventGridEvent = message.ToObject<EventGridEvent>();
-        log.Info($"Subject: {eventGridEvent.Subject}");
-        log.Info($"Time: {eventGridEvent.EventTime}");
-        log.Info($"Event data: {eventGridEvent.Data.ToString()}");
+        log.LogInformation($"Subject: {eventGridEvent.Subject}");
+        log.LogInformation($"Time: {eventGridEvent.EventTime}");
+        log.LogInformation($"Event data: {eventGridEvent.Data.ToString()}");
     }
 
     return req.CreateResponse(HttpStatusCode.OK);
@@ -604,9 +613,9 @@ Aşağıdaki örnek C# kod HTTP tetikleyicisi için olay Kılavuzu tetikleyicisi
 
 ```csharp
 [FunctionName("HttpTrigger")]
-public static async Task<HttpResponseMessage> Run([HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", Route = null)]HttpRequestMessage req, TraceWriter log)
+public static async Task<HttpResponseMessage> Run([HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", Route = null)]HttpRequestMessage req, ILogger log)
 {
-    log.Info("C# HTTP trigger function processed a request.");
+    log.LogInformation("C# HTTP trigger function processed a request.");
 
     var requestmessage = await req.Content.ReadAsStringAsync();
     var message = JToken.Parse(requestmessage);
@@ -618,7 +627,7 @@ public static async Task<HttpResponseMessage> Run([HttpTrigger(AuthorizationLeve
         "Microsoft.EventGrid.SubscriptionValidationEvent",
         System.StringComparison.OrdinalIgnoreCase))
         {
-            log.Info("Validate request received");
+            log.LogInformation("Validate request received");
             return req.CreateResponse<object>(new
             {
                 validationResponse = message[0]["data"]["validationCode"]
@@ -629,9 +638,9 @@ public static async Task<HttpResponseMessage> Run([HttpTrigger(AuthorizationLeve
     {
         // The request is not for subscription validation, so it's for an event.
         // CloudEvents schema delivers one event at a time.
-        log.Info($"Source: {message["source"]}");
-        log.Info($"Time: {message["eventTime"]}");
-        log.Info($"Event data: {message["data"].ToString()}");
+        log.LogInformation($"Source: {message["source"]}");
+        log.LogInformation($"Time: {message["eventTime"]}");
+        log.LogInformation($"Event data: {message["data"].ToString()}");
     }
 
     return req.CreateResponse(HttpStatusCode.OK);

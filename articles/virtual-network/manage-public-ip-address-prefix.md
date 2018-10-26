@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: anavin
-ms.openlocfilehash: 71dee9f36a3e8e11cc23f966c9157f6409a3b5e0
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 32ad02583f84a84c494dc8300834cd9ff2f0d771
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47405742"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50094982"
 ---
 # <a name="create-change-or-delete-a-public-ip-address-prefix"></a>Oluşturma, değiştirme veya genel bir IP adresi ön eki Sil
 
@@ -62,8 +62,8 @@ Genel IP adresi ön eklerini bir ücreti vardır. Ayrıntılar için bkz [fiyatl
 
 |Araç|Komut|
 |---|---|
-|CLI|[az ağ public-ip ön eki oluşturma](/cli/azure/network/public-ip/prefix/az-network-public-ip-prefix-create)|
-|PowerShell|[Yeni AzureRmPublicIpAddressPrefix](/powershell/module/azurerm.network/new-azurermpublicipaddressprefix)|
+|CLI|[az ağ public-ip ön eki oluşturma](/cli/azure/network/public-ip/prefix#az-network-public-ip-prefix-create)|
+|PowerShell|[Yeni AzureRmPublicIpPrefix](/powershell/module/azurerm.network/new-azurermpublicipprefix)|
 
 ## <a name="create-a-static-public-ip-address-from-a-prefix"></a>Bir önekten statik genel IP adresi oluşturma
 Bir önek oluşturduktan sonra statik IP adresi ön ekini oluşturmanız gerekir. Bunu yapmak için aşağıdaki adımları izleyin.
@@ -71,7 +71,7 @@ Bir önek oluşturduktan sonra statik IP adresi ön ekini oluşturmanız gerekir
 1. Metni içeren kutuya *kaynak Ara* Azure portalının üst kısmında, yazın *genel IP adresi ön eki*. Zaman **genel IP adresi ön eklerini** arama sonuçlarında görünmesini, onu seçin.
 2. Ortak Ip'lerden oluşturmak istediğiniz prefx seçin.
 3. Arama sonuçlarında görüntülendiğinde seçin ve tıklayın **+ IP adresi Ekle** genel bakış bölümünde. Durumunda bu görmüyorsanız, Önizleme için doğru bağlantı kullandığınızdan emin olun: https://aka.ms/publicipprefixportal
-4. Girin veya seçin, aşağıdaki ayarları için değerleri **genel IP adresi oluşturma**. Bir önek, standart SKU, IPv4 ve statik olduğundan, yalnızca aşağıdaki informtion sağlamanız gerekir:
+4. Girin veya seçin, aşağıdaki ayarları için değerleri **genel IP adresi oluşturma**. Bir önek, standart SKU, IPv4 ve statik olduğundan, yalnızca aşağıdaki bilgileri vermeniz gerekir:
 
    |Ayar|Gerekli mi?|Ayrıntılar|
     |---|---|---|
@@ -91,8 +91,8 @@ Bir önek oluşturduktan sonra statik IP adresi ön ekini oluşturmanız gerekir
 
 |Araç|Komut|
 |---|---|
-|CLI|[az ağ public-ip ön ek listesini](/cli/azure/network/public-ip/prefix/az-network-public-ip-prefix-list) listesi genel IP adreslerine [az ağ public-ip önek show](/cli/azure/network/public-ip/prefix/az-network-public-ip-prefix-show) ayarları; göstermek için [az ağ public-ip önek güncelleştirme](/cli/azure/network/public-ip-prefix#az-network-public-ip-prefix-update) güncelleştirmek için; [az ağ public-ip ön eki Sil](/cli/azure/network/public-ip/prefix/az-network-public-ip-prefix-delete) silmek için|
-|PowerShell|[Get-AzureRmPublicIpAddressPrefix](/powershell/module/azurerm.network/get-azurermpublicipaddressprefix) genel bir IP adresi nesnesi almak ve ilişkili ayarları görüntülemek için [kümesi AzureRmPublicIpAddressPrefix](/powershell/module/azurerm.network/set-azurermpublicipaddressprefix) ; ayarlarını güncelleştirmek için [Remove-AzureRmPublicIpAddressPrefix](/powershell/module/azurerm.network/remove-azurermpublicipaddressprefix) silmek için|
+|CLI|[az ağ public-ip ön ek listesini](/cli/azure/network/public-ip/prefix#az-network-public-ip-prefix-list) listesi genel IP adreslerine [az ağ public-ip önek show](/cli/azure/network/public-ip/prefix#az-network-public-ip-prefix-show) ayarları; göstermek için [az ağ public-ip önek güncelleştirme](/cli/azure/network/public-ip-prefix#az-network-public-ip-prefix-update) güncelleştirmek için; [az ağ public-ip ön eki Sil](/cli/azure/network/public-ip/prefix#az-network-public-ip-prefix-delete) silmek için|
+|PowerShell|[Get-AzureRmPublicIpPrefix](/powershell/module/azurerm.network/get-azurermpublicipprefix) genel bir IP adresi nesnesi almak ve ilişkili ayarları görüntülemek için [kümesi AzureRmPublicIpPrefix](/powershell/module/azurerm.network/set-azurermpublicipprefix) ; ayarlarını güncelleştirmek için [Remove-AzureRmPublicIpPrefix](/powershell/module/azurerm.network/remove-azurermpublicipprefix) silmek için|
 
 ## <a name="permissions"></a>İzinler
 

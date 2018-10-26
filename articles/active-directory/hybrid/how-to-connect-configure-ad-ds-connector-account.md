@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 10/12/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: a14462ec5311a9b82293ba7f6e9ae76dc1972b36
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
-ms.translationtype: HT
+ms.openlocfilehash: b6fef23b3624703305a13b205b588c83dd135764
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49355557"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50094747"
 ---
 # <a name="azure-ad-connectconfigure-ad-ds-connector-account-permissions"></a>Azure AD Connect: AD DS bağlayıcı hesap izinlerini yapılandırma 
 
@@ -42,7 +42,7 @@ Aşağıdaki tabloda, AD nesneler üzerinde gerekli izinleri bir özetini sunar:
 | Grup geri yazma |Okuma, oluşturma, güncelleştirme ve silme grubu eşitlenmesi için nesneleri **Office 365 grupları**.  Daha fazla bilgi için [grup geri yazma](how-to-connect-preview.md#group-writeback).|
 
 ## <a name="using-the-adsyncconfig-powershell-module"></a>ADSyncConfig PowerShell modülünü kullanma 
-ADSyncConfig modülü gerektirir [Uzak Sunucu Yönetim Araçları (RSAT) AD DS için](https://docs.microsoft.com/en-us/windows-server/remote/remote-server-administration-tools) beri AD DS PowerShell modülü ve araçları bağlıdır. RSAT için AD DS'yi yüklemek için 'Yönetici olarak çalıştır' ile bir Windows PowerShell penceresi açın ve yürütün: 
+ADSyncConfig modülü gerektirir [Uzak Sunucu Yönetim Araçları (RSAT) AD DS için](https://docs.microsoft.com/windows-server/remote/remote-server-administration-tools) beri AD DS PowerShell modülü ve araçları bağlıdır. RSAT için AD DS'yi yüklemek için 'Yönetici olarak çalıştır' ile bir Windows PowerShell penceresi açın ve yürütün: 
 
 ``` powershell
 Install-WindowsFeature RSAT-AD-Tools 
@@ -269,10 +269,10 @@ Bu PowerShell Betiği, bir parametre olarak sağlanan AD Bağlayıcısı hesabı
 - Belirtilen nesnenin devralma devre dışı bırak 
 - Kendi KENDİNE söz konusu olduğunda, varsayılan izinleri korumak istediğimiz için kendi KENDİNE özgü ACE dışında belirli nesne üzerindeki tüm ACE kaldırın. 
  
- -NesneDN izinlerini sıkılaştırıldığını gereken AD hesabın parametredir. Bu genellikle, AD DS bağlayıcısında yapılandırılmış MSOL_nnnnnnnnnnnn etki alanı hesabı (AD DS bağlayıcı hesabınızın belirleme bakın). Credential parametresi, hedef AD nesne için Active Directory izinlerini kısıtlamak için gerekli ayrıcalıklara sahip bir yönetici hesabı belirtmeniz gerekir. Genellikle Kurumsal veya etki alanı yöneticisi budur.  
+ -ADConnectorAccountDN izinlerini sıkılaştırıldığını gereken AD hesabın parametredir. Bu genellikle, AD DS bağlayıcısında yapılandırılmış MSOL_nnnnnnnnnnnn etki alanı hesabı (AD DS bağlayıcı hesabınızın belirleme bakın). Credential parametresi, hedef AD nesne için Active Directory izinlerini kısıtlamak için gerekli ayrıcalıklara sahip bir yönetici hesabı belirtmeniz gerekir. Genellikle Kurumsal veya etki alanı yöneticisi budur.  
 
 ``` powershell
-Set-ADSyncRestrictedPermissions [-ObjectDN] <String> [-Credential] <PSCredential> [-DisableCredentialValidation] [-WhatIf] [-Confirm] [<CommonParameters>] 
+Set-ADSyncRestrictedPermissions [-ADConnectorAccountDN] <String> [-Credential] <PSCredential> [-DisableCredentialValidation] [-WhatIf] [-Confirm] [<CommonParameters>] 
 ```
  
 Örneğin: 

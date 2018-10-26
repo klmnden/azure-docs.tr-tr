@@ -13,28 +13,28 @@ ms.custom: ''
 ms.workload: infrastructure-services
 ms.date: 09/26/2018
 ms.author: victorh
-ms.openlocfilehash: ab1c9405042de02183b8742fa940a3a5a482923a
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 8fb3dce108b59b8df0d330ec642365d2487eae35
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47165239"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50085470"
 ---
 # <a name="autoscaling-and-zone-redundant-application-gateway-public-preview"></a>Otomatik ölçeklendirme ve bölgesel olarak yedekli bir uygulama ağ geçidi (genel Önizleme)
 
-Uygulama ağ geçidi ve Web uygulaması Güvenlik Duvarı (WAF) artık performans geliştirmeleri sunar ve otomatik ölçeklendirme, bölge artıklığı ve statik VIP'ler için destek gibi önemli yeni özellikleri için destek ekleyen yeni bir SKU'ya altında genel önizlemede kullanıma sunuldu. Mevcut özellikleri genel kullanıma sunulan SKU altında yeni bir SKU'da ilgili bilinen kısıtlamaların bölümünde listelenen birkaç özel durum desteklenmeye devam edilir. Yeni SKU'lara aşağıdaki geliştirmeler şunları içerir:
+Uygulama ağ geçidi ve Web uygulaması Güvenlik Duvarı (WAF) artık performans geliştirmeleri sunar ve otomatik ölçeklendirme, bölge artıklığı ve statik VIP'ler için destek gibi önemli yeni özellikleri için destek ekleyen yeni bir v2 SKU altında genel önizlemede kullanıma sunuldu. Genel olarak kullanılabilen SKU altında var olan özellikler ile ilgili bilinen kısıtlamaların bölümünde listelenen bazı özel durumlar yeni v2 SKU desteklemeye devam eder. Yeni v2 SKU'ları aşağıdaki geliştirmeler şunları içerir:
 
-- **Otomatik ölçeklendirme**: uygulama ağ geçidi veya WAF dağıtımlar altında SKU ölçeklendirme yapabilen yukarı veya aşağı trafiği değişen tabanlı otomatik ölçeklendirme desenleri yükleme. Otomatik ölçeklendirme, ayrıca bir dağıtım boyutunu veya örnek sayısının sağlama sırasında seçin gereksinimini ortadan kaldırır. Bu nedenle, SKU true esneklik sunar. Yeni bir SKU'da Application Gateway, hem sabit kapasite (otomatik ölçeklendirmeyi devre dışı) yanı sıra otomatik ölçeklendirme etkin modda çalışabilir. Sabit kapasite modu, tutarlı ve öngörülebilir iş yüklerine sahip senaryolar için kullanışlıdır. Otomatik ölçeklendirme modu, çok sayıda uygulama trafiği varyans bkz uygulamalarda yararlıdır.
+- **Otomatik ölçeklendirme**: uygulama ağ geçidi veya WAF dağıtımlar altında SKU ölçeklendirme yapabilen yukarı veya aşağı trafiği değişen tabanlı otomatik ölçeklendirme desenleri yükleme. Otomatik ölçeklendirme ayrıca sağlama sırasında dağıtım boyutu veya örnek sayısı seçme gereksinimini de ortadan kaldırır. Bu nedenle, SKU true esneklik sunar. Yeni bir SKU'da Application Gateway, hem sabit kapasite (otomatik ölçeklendirmeyi devre dışı) yanı sıra otomatik ölçeklendirme etkin modda çalışabilir. Sabit kapasite modu, tutarlı ve öngörülebilir iş yüklerine sahip senaryolar için kullanışlıdır. Otomatik ölçeklendirme modu, uygulama trafiği'deki çok sayıda bkz uygulamalarda yararlıdır.
    
    > [!NOTE]
    > WAF SKU'su için otomatik ölçeklendirme şu anda kullanılamıyor. Otomatik ölçeklendirme modu yerine sabit kapasite moduyla WAF yapılandırın.
 - **Bölge yedekliliği**: bir uygulama ağ geçidi veya WAF dağıtım, birden çok kullanılabilirlik alanları, sağlamak ve bir Traffic Manager ile her bölgedeki ayrı bir Application Gateway örneğinden döndürme gereğini ortadan kaldıran yayılabilir. Tek bir bölge veya uygulama ağ geçidi örneklerinin dağıtıldığı birden çok bölge böylece kalmasını sağlama bölge hata dayanıklılığı seçebilirsiniz. Uygulamalar için arka uç havuzu kullanılabilirlik alanları genelinde benzer şekilde dağıtılabilir.
 - **Performans iyileştirmeleri**: 5 X daha iyi, SSL yük boşaltma performans SKU genel kullanıma göre otomatik ölçeklendirme SKU kadar sunar.
 - **Daha hızlı dağıtım ve güncelleştirme zamanı** genel olarak kullanılabilen SKU karşılaştırıldığında daha hızlı dağıtım ve güncelleştirme zamanı SKU otomatik ölçeklendirme sağlar.
-- **Statik VIP**: VIP application gateway artık statik VIP türü özel olarak desteklemektedir. Bu, uygulama ağ geçidiyle ilişkili VIP yeniden başlatmadan sonra bile değişmez sağlar.
+- **Statik VIP**: VIP application gateway artık statik VIP türü özel olarak desteklemektedir. Bu da Application Gateway ile ilişkilendirilmiş VIP değerinin yeniden başlatma sonrasında dahi aynı kalmasını sağlar.
 
 > [!IMPORTANT]
-> Otomatik ölçeklendirme ve bölgesel olarak yedekli bir uygulama ağ geçidi SKU'su, şu anda genel Önizleme aşamasındadır. Bu önizleme sürümü, bir hizmet düzeyi sözleşmesi olmadan sağlanmaktadır ve üretim iş yükleri için önerilmez. Belirli özellikler desteklenmiyor olabilir ya da kısıtlı yeteneklere sahip olabilir. Ayrıntılar için bkz. [Microsoft Azure Önizlemeleri için Ek Kullanım Koşulları](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Otomatik ölçeklendirme yapan ve bölgesel olarak yedekli uygulama ağ geçidi SKU'su şu anda genel önizleme aşamasındadır. Bu önizleme bir hizmet düzeyi sözleşmesi olmadan sağlanır ve üretim iş yüklerinde kullanılması önerilmez. Bazı özellikler desteklenmiyor olabileceği gibi özellikleri sınırlandırılmış da olabilir. Ayrıntılar için bkz. [Microsoft Azure Önizlemeleri için Ek Kullanım Koşulları](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ![](./media/application-gateway-autoscaling-zone-redundant/application-gateway-autoscaling-zone-redundant.png)
 
@@ -48,6 +48,11 @@ Otomatik ölçeklendirme SKU, Doğu ABD 2, Orta ABD, Batı abd2, Fransa Orta, Ba
 
 |Sorun|Ayrıntılar|
 |--|--|
+|Kimlik doğrulama sertifikası|Desteklenmiyor.<br>Daha fazla bilgi için [ile Application Gateway uçtan uca SSL'ne genel bakış](ssl-overview.md#end-to-end-ssl-with-the-v2-sku).|
+|Standard_v2 ve standart Application Gateway, aynı alt ağda karıştırma|Desteklenmiyor.<br>Ayrıca, otomatik ölçeklendirme etkin olduğunda, bir alt ağ yalnızca bir uygulama ağ geçidi olabilir.|
+|Kullanıcı tanımlı yol (UDR) uygulama ağ geçidi alt ağı üzerinde|Desteklenmiyor|
+|Gelen bağlantı noktası aralığı için NSG| -65200 ila 65535 Standard_v2 için SKU<br>-65503 için 65534 standart SKU için.<br>Daha fazla bilgi için [SSS](application-gateway-faq.md#are-network-security-groups-supported-on-the-application-gateway-subnet).|
+|Azure Tanılama'da Performans Günlükleri|Desteklenmiyor.<br>Azure ölçümleri kullanılmalıdır.|
 |Faturalandırma|Şu anda hiçbir ödeme yoktur.|
 |FIPS modundayken, WebSocket|Bunlar şu anda desteklenmemektedir.|
 |ILB yalnızca modu|Bu şu anda desteklenmiyor. Genel ve ILB modu birlikte desteklenir.|

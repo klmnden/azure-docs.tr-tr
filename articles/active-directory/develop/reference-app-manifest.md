@@ -13,20 +13,34 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/24/2018
+ms.date: 10/24/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: sureshja
-ms.openlocfilehash: bc7999d56da8398b4f54b0144a595ee7c2e2ea35
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: 372bff911c0925e05297872da66279e727149010
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49115119"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50086786"
 ---
 # <a name="azure-active-directory-app-manifest"></a>Azure Active Directory Uygulama bildirimi
 
-Azure Active Directory (Azure AD) ile tümleştiren uygulamalar Azure AD kiracısı ile kayıtlı olması gerekir. Uygulamada yapılandırabileceğiniz [Azure portalında](https://portal.azure.com) seçerek **uygulama kayıtları** altında **Azure Active Directory**, yapılandırmak istediğiniz uygulama seçme ve ardından seçme **bildirim**.
+Uygulama bildirimi, Microsoft kimlik platformu uygulama nesnenin tüm öznitelikleri bir tanım içeriyor. Ayrıca uygulama nesnesi güncelleştirmeye yönelik bir mekanizma olarak kullanılır. Uygulama varlığı ve şeması hakkında daha fazla bilgi için bkz. [Graph API Uygulama varlığı belgeleri](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#application-entity).
+
+Azure portalı veya program aracılığıyla Microsoft Graph'ı kullanarak uygulamanın öznitelikleri yapılandırabilirsiniz. Bununla birlikte, burada bir uygulamanın özniteliği yapılandırmak için uygulama bildiriminizi düzenleyin gerekecektir bazı senaryolar vardır. Bu senaryolar şunlardır:
+
+* Azure AD çok kiracılı ve kişisel Microsoft hesapları olarak uygulama kaydettiyseniz, kullanıcı arabiriminde desteklenen Microsoft hesapları değiştiremezsiniz. Bunun yerine, desteklenen bir hesap türünü değiştirmek için uygulama bildirim düzenleyicisini kullanmanız gerekir.
+* İzinler ve uygulamanızın desteklediği rolleri tanımlamak gerekiyorsa, uygulama bildirimini değiştirmeniz gerekir.
+
+## <a name="configure-the-app-manifest"></a>Uygulama bildirimi yapılandırma
+
+Uygulama bildirimini yapılandırmak için:
+
+1. Oturum açma [Azure portalında](https://portal.azure.com).
+1. Seçin **Azure Active Directory** hizmet ve ardından **uygulama kayıtları** veya **uygulama kayıtları (Önizleme)**.
+1. Yapılandırmak istediğiniz uygulamayı seçin.
+1. Uygulamanın gelen **genel bakış** sayfasında **bildirim** bölümü. Portal bildirimi düzenlemenize olanak sağlayan web tabanlı bir bildirim düzenleyicisinde açılır. İsteğe bağlı olarak seçebileceğiniz **indirin** yerel bildirimi düzenleyin ve ardından **karşıya** uygulamanızı uygulamak için.
 
 ## <a name="manifest-reference"></a>Bildirimi başvurusu
 
@@ -63,7 +77,7 @@ Azure Active Directory (Azure AD) ile tümleştiren uygulamalar Azure AD kiracı
 | `requiredResourceAccess` | Dizi türü | Dinamik onayı ile `requiredResourceAccess` yönetici onayı deneyimi ve statik onay kullanan kullanıcılar için kullanıcı onayı deneyimi sürücüler. Ancak, bu genel durum kullanıcı onayı deneyimi sürücü değil.<br>`resourceAppId` Uygulama erişim gerektiren kaynağın benzersiz tanımlayıcısıdır. Bu değer, hedef kaynak uygulama bildirilen AppID eşit olmalıdır.<br>`resourceAccess` Belirtilen kaynak uygulama gerektiren uygulama rolleri ve izin kapsamları OAuth2.0 listeleyen bir dizidir. İçeren `id` ve `type` değerleri belirtilen kaynakları. | <code>[<br>&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;"resourceAppId":"00000002-0000-0000-c000-000000000000",<br>&nbsp;&nbsp;&nbsp;&nbsp;"resourceAccess":[<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"id":"311a71cc-e848-46a1-bdf8-97ff7156d8e6",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"type":"Scope"<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;&nbsp;]<br>&nbsp;&nbsp;}<br>] </code> |
 | `samlMetadataUrl` | dize | Uygulama SAML meta verilerinin URL'si. | `https://MyRegisteredAppSAMLMetadata` |
 | `signInUrl` | dize | Uygulama giriş sayfası URL'sini belirtir. | `https://MyRegisteredApp` |
-| `signInAudience` | dize | Hangi microsoft hesapları için geçerli uygulamanın desteklenen belirtir. Desteklenen değerler şunlardır:<ul><li>**AzureADMyOrg** -kullanıcılar Microsoft ile iş veya Okul hesabı kuruluşumun Azure AD kiracısında (yani, tek kiracılı)</li><li>**AzureADMultipleOrgs** -kullanıcılar Microsoft ile iş veya Okul hesabı herhangi bir kuruluşun Azure AD kiracısında (yani, çok kiracılı)</li> <li>**AzureADandPersonalMicrosoftAccount** -kişisel bir Microsoft hesabı ya da herhangi bir kuruluşun Azure AD kiracısında bir iş veya Okul hesabı olan kullanıcılar</li></ul> | `AzureADandPersonalMicrosoftAccount` |
+| `signInAudience` | dize | Hangi Microsoft hesapları için geçerli uygulamanın desteklenen belirtir. Desteklenen değerler şunlardır:<ul><li>**AzureADMyOrg** -kullanıcılar Microsoft ile iş veya Okul hesabı kuruluşumun Azure AD kiracısında (yani, tek kiracılı)</li><li>**AzureADMultipleOrgs** -kullanıcılar Microsoft ile iş veya Okul hesabı herhangi bir kuruluşun Azure AD kiracısında (yani, çok kiracılı)</li> <li>**AzureADandPersonalMicrosoftAccount** -kişisel bir Microsoft hesabı ya da herhangi bir kuruluşun Azure AD kiracısında bir iş veya Okul hesabı olan kullanıcılar</li></ul> | `AzureADandPersonalMicrosoftAccount` |
 | `tags` | Dize dizisi | Kategorilere ayırmak ve uygulamayı tanımlamak için kullanılan özel dizeleri. | <code>[<br>&nbsp;&nbsp;"ProductionApp"<br>]</code> |
 
 ## <a name="next-steps"></a>Sonraki adımlar

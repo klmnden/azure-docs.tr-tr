@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/05/2018
 ms.author: mabrigg
-ms.openlocfilehash: f1088e63b33d7c0a00777d7a06e6e80244acc84d
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: cb02ecb06728f5f36a0d51a3ec22cc8ba5cb44e7
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49954876"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50094764"
 ---
 # <a name="considerations-for-using-virtual-machines-in-azure-stack"></a>Azure Stack'te sanal makineleri kullanma konuları
 
@@ -37,7 +37,7 @@ Azure Stack sanal makineleri isteğe bağlı ve ölçeklenebilir işlem kaynağ�
 | Sanal makine uzantıları |Azure, çok çeşitli sanal makine uzantıları destekler. Kullanılabilir uzantılar hakkında bilgi için bkz [sanal makine uzantıları ve özellikleri](../../virtual-machines/windows/extensions-features.md) makalesi.| Azure Stack, Azure'da kullanılabilen uzantıları kümesini destekler ve her uzantının sahip belirli sürümler. Azure Stack bulut yönetici kullanıcıları için kullanılabilir yapılması hangi uzantıları seçebilirsiniz. Desteklenen uzantılar listesinde görüntülemek üzere başvurmak [sanal makine uzantıları](#virtual-machine-extensions) bu makalenin. |
 | Sanal makine ağı | Kiracı sanal makinesi için atanan genel IP adresleri Internet üzerinden erişilebilir.<br><br><br>Azure sanal makineleri olan sabit bir DNS adı | Bir kiracı sanal makineye atanan genel IP adresleri yalnızca Azure Stack geliştirme Seti'ni ortamı içinden erişilebilir. Bir kullanıcının bu Azure Stack geliştirme Seti'ni erişiminiz olmalıdır [RDP](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-remote-desktop) veya [VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn) Azure Stack'te oluşturulan bir sanal makineye bağlanmak için.<br><br>Belirli bir Azure Stack örneğinde oluşturulan sanal makineler bulut Yöneticisi tarafından yapılandırılan değere göre bir DNS adına sahip. |
 | Sanal makine depolama | Destekler [yönetilen diskler.](../../virtual-machines/windows/managed-disks-overview.md) | Yönetilen diskler, Azure Stack'te 1808 ve üzeri sürümü ile desteklenir. |
-| Sanal makine disk performansı | Disk türünü ve boyutuna bağlıdır. | VM diskleri olan VM boyutuna bağlıdır başvurmak için eklenen [Azure Stack'te desteklenen sanal makine boyutları](azure-stack-vm-sizes.md) makalesi.
+| Sanal makine disk performansı | Disk türünü ve boyutuna bağlıdır. | VM diskleri bağlı VM boyutuna bağlıdır başvurmak için [Azure Stack'te desteklenen sanal makine boyutları](azure-stack-vm-sizes.md) makalesi.
 | API sürümleri | Azure, her zaman tüm sanal makine özellikleri için en son API sürümleri vardır. | Azure yığını, bu hizmetler için belirli Azure hizmetlerinin ve belirli API sürümlerini destekler. Desteklenen API sürümlerinin listesi görüntülemek için başvurmak [API sürümlerini](#api-versions) bu makalenin. |
 |Sanal makine kullanılabilirlik kümeleri|Birden çok hata etki alanları (2 veya 3 bölge başına)<br>Birden çok güncelleştirme etki alanları<br>Yönetilen disk desteği|Birden çok hata etki alanları (2 veya 3 bölge başına)<br>Birden çok güncelleştirme etki alanı (en fazla 20)<br>Yönetilen disk desteği yok|
 |Sanal makine ölçek kümeleri|Otomatik ölçeklendirme desteklenmiyor|Otomatik olarak ölçeklendirme desteklenmiyor.<br>Portal, Resource Manager şablonları veya PowerShell kullanarak bir ölçek kümesine daha fazla örnek ekleyin.

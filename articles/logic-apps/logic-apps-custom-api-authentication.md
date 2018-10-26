@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 09/22/2017
-ms.openlocfilehash: 62f71f29f813cd30c7d8e3c7f37f41677cf07364
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 7e1f2411db828917d7a3c5e21348b553a5a5a3bb
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49956383"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50087517"
 ---
 # <a name="secure-calls-to-custom-apis-from-azure-logic-apps"></a>Azure mantıksal uygulamalardan özel API'lere giden çağrıların güvenliğini sağlama
 
@@ -96,11 +96,11 @@ Mantıksal uygulamanızı karşı Azure AD kimlik doğrulaması için bu Azure A
 
 PowerShell ile Azure Resource Manager aracılığıyla bu görevi gerçekleştirebilirsiniz. PowerShell'de şu komutları çalıştırın:
 
-1. `Switch-AzureMode AzureResourceManager`
+1. `Add-AzureRmAccount`
 
-2. `Add-AzureAccount`
+2. `$SecurePassword = Read-Host -AsSecureString` (Bir parola girin ve ENTER tuşuna basın)
 
-3. `New-AzureADApplication -DisplayName "MyLogicAppID" -HomePage "http://mydomain.tld" -IdentifierUris "http://mydomain.tld" -Password "identity-password"`
+3. `New-AzureRmADApplication -DisplayName "MyLogicAppID" -HomePage "http://mydomain.tld" -IdentifierUris "http://mydomain.tld" -Password $SecurePassword`
 
 4. Kopyaladığınızdan emin olun **Kiracı kimliği** (GUID), Azure AD kiracınız için **uygulama kimliği**ve parolayı.
 

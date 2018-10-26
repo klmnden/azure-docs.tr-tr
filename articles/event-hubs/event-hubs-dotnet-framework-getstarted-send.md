@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2018
 ms.author: shvija
-ms.openlocfilehash: ae5d89aab4ce1bd599ed9a50dc46336f8a96a2f5
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: 9d7792c8eb33e6ceca5ba794f56c5a4c99d59554
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49456241"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50084416"
 ---
 # <a name="send-events-to-azure-event-hubs-using-the-net-framework"></a>.NET Framework kullanarak olayları Azure Event Hubs’a gönderme
 Azure Event Hubs saniyede milyonlarca olay alıp işleme kapasitesine sahip olan bir Büyük Veri akış platformu ve olay alma hizmetidir. Event Hubs dağıtılan yazılımlar ve cihazlar tarafından oluşturulan olayları, verileri ve telemetrileri işleyebilir ve depolayabilir. Bir olay hub’ına gönderilen veriler, herhangi bir gerçek zamanlı analiz sağlayıcısı ve işlem grubu oluşturma/depolama bağdaştırıcıları kullanılarak dönüştürülüp depolanabilir. Event Hubs ayrıntılı bakış için bkz: [Event Hubs'a genel bakış](event-hubs-about.md) ve [Event Hubs özellikleri](event-hubs-features.md).
@@ -53,16 +53,16 @@ Visual Studio'da, **Konsol Uygulaması** proje şablonunu kullanarak yeni bir Vi
 
 1. Aşağıdaki `using` deyimlerini **Program.cs** dosyasının üst kısmına ekleyin:
    
-      ```csharp
-      using System.Threading;
-      using Microsoft.ServiceBus.Messaging;
-      ```
+    ```csharp
+    using System.Threading;
+    using Microsoft.ServiceBus.Messaging;
+    ```
 2. Aşağıdaki alanları **Program** sınıfına ekleyin; bu işlemi yaparken yer tutucu değerlerini önceki bölümde oluşturduğunuz olay hub’ı adıyla ve daha önce kaydettiğiniz ad alanı düzeyinde bağlantı dizesiyle değiştirin.
    
-        ```csharp
-        static string eventHubName = "Your Event Hub name";
-        static string connectionString = "namespace connection string";
-        ```
+    ```csharp
+    static string eventHubName = "Your Event Hub name";
+    static string connectionString = "namespace connection string";
+    ```
 3. **Program** sınıfına aşağıdaki yöntemi ekleyin:
    
       ```csharp

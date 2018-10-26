@@ -5,22 +5,20 @@ services: azure-stack
 documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: ''
-ms.assetid: 9B51A3FB-EEFC-4CD8-84A8-38C52CFAD2E4
-ms.service: azure-stack
+mss.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 9/10/2018
+ms.date: 10/25/2018
 ms.author: mabrigg
 ms.reviewer: hectorl
-ms.openlocfilehash: 9f2668ff84ade4ba99b7aa7dcd67feafadc1c6c4
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: 4cb8ffe218ef1cd64b93201eddbbd09bb16026db
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44377845"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50087398"
 ---
 # <a name="backup-and-data-recovery-for-azure-stack-with-the-infrastructure-backup-service"></a>Azure Stack altyapısını yedekleme hizmetiyle için yedekleme ve veri kurtarma
 
@@ -33,7 +31,7 @@ Bulut üretime koymak hazır olduğunuzda yedeklemeyi etkinleştirebilirsiniz. T
 Yedekleme hizmetinizi etkinleştirmeden önce olduğundan emin olun [gereksinimleri yerinde](#verify-requirements-for-the-infrastructure-backup-service).
 
 > [!Note]  
-> Yedekleme hizmet olarak altyapı, kullanıcı verileri ve uygulamaları içermez. Yedekleme yönergeleri için aşağıdaki makalelere bakın ve geri yükleme [uygulama hizmetleri](https://aka.ms/azure-stack-app-service), [SQL](https://aka.ms/azure-stack-ms-sql), ve [MySQL](https://aka.ms/azure-stack-mysql) kaynak sağlayıcıları ve ilişkili kullanıcı verileri...
+> Yedekleme hizmet olarak altyapı, kullanıcı verileri ve uygulamaları içermez. <!-- See the following articles for instructions on backing up and restore [App Services](https://aka.ms/azure-stack-app-service), [SQL](https://aka.ms/azure-stack-ms-sql), and [MySQL](https://aka.ms/azure-stack-mysql) resource providers and associated user data. -->
 
 ## <a name="the-infrastructure-backup-service"></a>Altyapı yedekleme hizmeti
 

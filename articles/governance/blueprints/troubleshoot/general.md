@@ -4,34 +4,34 @@ description: Oluşturma ve atama şemaları sorunları gidermeyi öğrenin
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 09/18/2018
+ms.date: 10/25/2018
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: dd1163ece225c2e9a9b082f5e8364f34b06a10ae
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: b910f90e70af4ce6d4243c06bfe5bd03d25d74d6
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46982299"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50092943"
 ---
 # <a name="troubleshoot-errors-using-azure-blueprints"></a>Kullanarak Azure şemaları hatalarıyla ilgili sorunları giderme
 
-Oluştururken ya da bir blueprint'i atama hatalarla karşılaşabilirsiniz. Bu makalede, oluşabilecek çeşitli hataları ve bunların nasıl çözüleceğine açıklanır.
+Oluştururken ya da bir blueprint'i atama hatalarla karşılaşırsanız çalıştırabilirsiniz. Bu makalede, oluşabilecek çeşitli hataları ve bunların nasıl çözüleceğine açıklanır.
 
 ## <a name="finding-error-details"></a>Bulma hatası ayrıntıları
 
-Birçok hata, bir şema bir kapsama atama sonucunu olacaktır. Atama başarısız olduğunda, şema dağıtımı başarısız hakkında ayrıntılar sağlar. Bu bilgiler sonraki dağıtım başarılı olur ve düzeltilebilir böylece sorunu gösterir.
+Birçok hata, bir şema bir kapsama atama sonucunu olacaktır. Atama başarısız olduğunda, şema dağıtımı başarısız hakkında ayrıntılar sağlar. Bu bilgiler, böylece sonraki dağıtım başarılı olduktan ve düzeltilebilir sorunu gösterir.
 
-1. Tıklayarak Azure portalında Azure şemaları hizmet başlatma **tüm hizmetleri** arama ve seçme **ilke** sol bölmesinde. Üzerinde **ilke** sayfasında, tıklayarak **şemaları**.
+1. Tıklayarak **tüm hizmetleri** arama ve seçme **ilke** sol bölmesinde. **İlke** sayfasında **Şemalar**’a tıklayın.
 
 1. Seçin **atanan şemalar** blueprint ataması başarısız atamanın bulmak için filtre uygulamak için arama kutusunu kullanın ve sol sayfasında. Tablosu atamaları göre de sıralayabilirsiniz **sağlama durumu** tüm başarısız atamalar görmek için sütun gruplandırıldığı.
 
 1. Sol tıklatma ile şema üzerinde _başarısız_ durumu veya sütuna sağ tıklayıp **atama ayrıntıları**.
 
-1. Blueprint üst kısmında atama uyarı atama başarısız oldu, kırmızı bir başlık sayfasıdır. Daha fazla bilgi almak için başlık herhangi bir yere tıklayın.
+1. Atama başarısız oldu uyarı kırmızı bir başlık blueprint ataması sayfanın en üstündeki ' dir. Daha fazla bilgi almak için başlık herhangi bir yere tıklayın.
 
-Şema ve şema değil bir bütün olarak bulunan bir yapıt tarafından neden olduğu hata yaygındır. Örneğin, blueprint'e yapıt içeriyorsa bir Key Vault, ancak anahtar kasası oluşturma oluşturmak için Azure İlkesi tarafından engellendiğinde, tüm atama başarısız olur.
+Blueprint bir bütün olarak değil ve bir yapıt tarafından neden olduğu hata yaygındır. Bir yapının bir Key Vault oluşturur ve Azure İlkesi, anahtar kasası oluşturmayı engeller, tüm atama başarısız olur.
 
 ## <a name="general-errors"></a>Genel hatalar
 
@@ -50,11 +50,11 @@ Bir ilke için pek çok dağıtımı ile çakışıyor:
 
 #### <a name="resolution"></a>Çözüm
 
-Hata bilgileri listelenen ilkeleri çakışıyor olmaması için plan yapın. Bu mümkün değilse, alternatif bir seçenekleri var. şema çakışıyor İlkesi artık, bu nedenle değiştirilen bir ilke ataması kapsamı için
+Hata ayrıntılarında ilkelerle çakışmadığından biçimde şemayı değiştirin. Bu değişiklik mümkün değilse, alternatif bir seçenek şema çakışıyor İlkesi artık, bu nedenle değiştirilen bir ilke ataması kapsamı sağlamaktır.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Sorununuzu görülmez veya sorununuzu çözmenize yüklenemiyor, daha fazla destek için aşağıdaki kanalları birini ziyaret edin:
+Sorununuzu görmediniz veya sorununuzu çözmenize yüklenemiyor, daha fazla destek için aşağıdaki kanalları birini ziyaret edin:
 
 - [Azure Forumları](https://azure.microsoft.com/support/forums/) aracılığıyla Azure uzmanlarından yanıtlar alın
 - [@AzureSupport](https://twitter.com/azuresupport) hesabı ile bağlantı kurun. Bu resmi Microsoft Azure hesabı, müşteri deneyimini geliştirmek için Azure topluluğunu doğru kaynaklara ulaştırır: yanıtlar, destek ve uzmanlar.

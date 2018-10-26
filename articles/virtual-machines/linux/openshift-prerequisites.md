@@ -3,8 +3,8 @@ title: OpenShift Azure önkoşullarına içinde | Microsoft Docs
 description: Azure'da OpenShift dağıtmak için Önkoşullar.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: haroldw
-manager: najoshi
+author: haroldwongms
+manager: joraio
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
@@ -15,32 +15,32 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: ''
 ms.author: haroldw
-ms.openlocfilehash: 36271116d697e5ee6c6ed08d5fdc6063a511e820
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: fd20fe880ae77992e5eadb5f2b581d3f5b53f86e
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46984353"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50085884"
 ---
 # <a name="common-prerequisites-for-deploying-openshift-in-azure"></a>Azure'da OpenShift dağıtmak için genel Önkoşullar
 
-Bu makalede, OpenShift Origin veya azure'da OpenShift kapsayıcı platformu dağıtmak için ortak önkoşulları açıklanır.
+Bu makalede, OpenShift kapsayıcı platformu veya OKD azure'da dağıtmak için ortak önkoşulları açıklanır.
 
 OpenShift yüklenmesini Ansible playbook'ları kullanır. Ansible, yükleme adımlarını tamamlamak için tüm küme konaklarına bağlanmak için güvenli Kabuk (SSH) kullanır.
 
-Uzak ana bilgisayarlara SSH bağlantısını başlattığınızda bir parola giremezsiniz. Bu nedenle, kendisiyle ilişkili bir parola özel anahtarı olamaz veya dağıtım başarısız olur.
+Ansible, uzak ana SSH bağlantı başlattığında, bir parola girin olamaz. Bu nedenle, özel anahtarı ile ilişkili bir parola (parola) sahip olamaz veya dağıtım başarısız olur.
 
 Azure Resource Manager şablonları sanal makineler (VM) dağıtmak için aynı ortak anahtara erişim tüm VM'ler için kullanılır. Tüm playbook'ları da yürüten VM'ye karşılık gelen özel anahtar ekleme gerekir. Güvenli bir şekilde bunun için VM'de oturum özel anahtarı geçirmek için bir Azure anahtar kasası kullanın.
 
-Kapsayıcılar için kalıcı depolama için bir gereksinimi varsa, kalıcı birimleri gerekli değildir. OpenShift için bu özelliği Azure sanal sabit diskleri (VHD) destekler, ancak Azure ilk bulut sağlayıcısı olarak yapılandırılması gerekir. 
+Kapsayıcılar için kalıcı depolama için bir gereksinimi varsa, kalıcı birimleri gerekli değildir. OpenShift için bu özelliği Azure sanal sabit diskleri (VHD) destekler, ancak Azure ilk bulut sağlayıcısı olarak yapılandırılması gerekir.
 
 Bu modelde, OpenShift:
 
-- Bir Azure depolama hesabında bir VHD oluşturur.
-- Bir VM ve biçim birimi VHD'ye bağlar.
+- Bir VHD nesnesi, bir Azure depolama hesabı veya yönetilen disk oluşturur.
+- Bir VM VHD bağlaması ve birimi biçimlendirir.
 - Pod birime bağlar.
 
-Bu yapılandırmanın çalışması için OpenShift Azure'da önceki görevleri gerçekleştirmek için izinler gerekiyor. Bunu bir hizmet sorumlusu ile elde. Hizmet sorumlusu, kaynaklara izinlerine sahip Azure Active Directory'de bir güvenlik hesabıdır.
+Bu yapılandırmanın çalışması için OpenShift Azure'da bu görevleri gerçekleştirmek için izinler gerekiyor. Bunu bir hizmet sorumlusu ile elde. Hizmet sorumlusu, kaynaklara izinlerine sahip Azure Active Directory'de bir güvenlik hesabıdır.
 
 Hizmet sorumlusu depolama hesapları ve kümeyi oluşturan Vm'lere erişimi olmalıdır. Tüm OpenShift küme kaynaklarını tek bir kaynak grubuna dağıtıyorsanız, hizmet sorumlusu, kaynak grubu için izinler verilebilir.
 
@@ -48,7 +48,7 @@ Bu kılavuz Önkoşullar ile ilişkili yapıtları oluşturmayı açıklar.
 
 > [!div class="checklist"]
 > * OpenShift küme için SSH anahtarları yönetmek için bir anahtar kasası oluşturun.
-> * Azure bulut çözümü sağlayıcısı tarafından kullanılmak üzere hizmet sorumlusu oluşturun.
+> * Azure bulut sağlayıcısı tarafından kullanılmak üzere hizmet sorumlusu oluşturun.
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 
@@ -60,7 +60,7 @@ az login
 ```
 ## <a name="create-a-resource-group"></a>Kaynak grubu oluşturma
 
-[az group create](/cli/azure/group#az_group_create) komutuyla bir kaynak grubu oluşturun. Azure kaynak grubu, Azure kaynaklarının dağıtıldığı ve yönetildiği bir mantıksal kapsayıcıdır. Anahtar Kasası'nı barındıracak bir adanmış kaynak grubu kullanın. Bu grubun içine OpenShift küme kaynakları dağıtmak bir kaynak grubundan ayrıdır. 
+[az group create](/cli/azure/group#az_group_create) komutuyla bir kaynak grubu oluşturun. Azure kaynak grubu, Azure kaynaklarının dağıtıldığı ve yönetildiği bir mantıksal kapsayıcıdır. Anahtar Kasası'nı barındıracak bir adanmış kaynak grubu kullanmak için önerilir. Bu grubun içine OpenShift küme kaynakları dağıtmak bir kaynak grubundan ayrıdır.
 
 Aşağıdaki örnekte adlı bir kaynak grubu oluşturur *keyvaultrg* içinde *eastus* konumu:
 
@@ -80,16 +80,16 @@ az keyvault create --resource-group keyvaultrg --name keyvault \
 ```
 
 ## <a name="create-an-ssh-key"></a>SSH anahtarı oluşturma 
-OpenShift Origin kümeye erişim güvenliğini sağlamak için bir SSH anahtarı gereklidir. Kullanarak SSH anahtar çifti oluşturma `ssh-keygen` komutunu (Linux veya Mac OS x):
+OpenShift kümeye erişim güvenliğini sağlamak için bir SSH anahtarı gereklidir. Kullanarak SSH anahtar çifti oluşturma `ssh-keygen` komutunu (Linux veya Mac OS x):
  
  ```bash
 ssh-keygen -f ~/.ssh/openshift_rsa -t rsa -N ''
 ```
 
 > [!NOTE]
-> SSH anahtar çiftinizi parola sahip olamaz.
+> SSH anahtar çiftinizi parola olamaz / parola.
 
-Windows üzerinde SSH anahtarları hakkında daha fazla bilgi için bkz. [oluşturma SSH anahtarları üzerinde Windows](/azure/virtual-machines/linux/ssh-from-windows).
+Windows üzerinde SSH anahtarları hakkında daha fazla bilgi için bkz. [oluşturma SSH anahtarları üzerinde Windows](/azure/virtual-machines/linux/ssh-from-windows). OpenSSH biçimdeki özel anahtarı dışarı aktardığınızdan emin olun.
 
 ## <a name="store-the-ssh-private-key-in-azure-key-vault"></a>SSH özel anahtarı Azure anahtar Kasası'nda Store
 OpenShift dağıtım OpenShift asıl güvenli erişim için oluşturulan SSH anahtarı kullanır. Güvenli bir şekilde SSH anahtarı almak için dağıtımı etkinleştirmek için aşağıdaki komutu kullanarak anahtar Key Vault'ta Depolama:
@@ -103,18 +103,29 @@ OpenShift, bir kullanıcı adı ve parola veya hizmet sorumlusu kullanarak Azure
 
 Bir hizmet sorumlusu oluşturma [az ad sp create-for-rbac](/cli/azure/ad/sp#az_ad_sp_create_for_rbac) ve OpenShift gereken kimlik bilgilerini çıktı.
 
-Aşağıdaki örnek, bir hizmet sorumlusu oluşturur ve myResourceGroup adlı bir kaynak grubuna katkıda bulunan izinleri atar. Windows kullanıyorsanız, yürütme ```az group show --name myResourceGroup --query id``` ayrı olarak ve çıkış akışına kapsam seçeneği.
+Aşağıdaki örnek, bir hizmet sorumlusu oluşturur ve openshiftrg adlı bir kaynak grubuna katkıda bulunan izinleri atar.
+ayrı olarak ve çıkış akışına kapsam seçeneği.
+
+İlk olarak openshiftrg adlı kaynak grubunu oluşturun:
 
 ```azurecli
-az ad sp create-for-rbac --name openshiftsp \
-          --role Contributor --password {Strong Password} \
-          --scopes $(az group show --name myResourceGroup --query id)
+az group create -l eastus -n openshiftrg
 ```
+
+Hizmet sorumlusu oluşturma:
+
+```azurecli
+scope=`az group show --name openshiftrg --query id`
+az ad sp create-for-rbac --name openshiftsp \
+      --role Contributor --password {Strong Password} \
+      --scopes $scope
+```
+Windows kullanıyorsanız, yürütme ```az group show --name openshiftrg --query id``` ve çıkış $scope yerine kullanın.
 
 Komuttan döndürülen AppID özelliği dikkat edin:
 ```json
 {
-  "appId": "11111111-abcd-1234-efgh-111111111111",            
+  "appId": "11111111-abcd-1234-efgh-111111111111",
   "displayName": "openshiftsp",
   "name": "http://openshiftsp",
   "password": {Strong Password},
@@ -135,6 +146,5 @@ Bu makalede, aşağıdaki konular ele:
 
 Ardından, OpenShift kümesi dağıtın:
 
-- [OpenShift Origin dağıtma](./openshift-origin.md)
 - [OpenShift kapsayıcı platformu dağıtma](./openshift-container-platform.md)
-
+- [OKD dağıtma](./openshift-okd.md)

@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 10/22/2018
 ms.author: juliako
-ms.openlocfilehash: 118660e8947663328554ac0116b5519267197336
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: c5f441fef95989e5c82586d96fc6c10e00a9627c
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49984307"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50085504"
 ---
 # <a name="streaming-policies"></a>Akış İlkeleri
 
@@ -29,17 +29,17 @@ Azure Media Services v3 sürümünde akış ilkeleri akış protokolleri ve şif
 
 Aşağıdaki tabloda StreamingPolicy'nın özelliklerini gösterir ve bunların tanımlarının sağlar.
 
-|Ad|Tür|Açıklama|
-|---|---|---|
-|id|dize|Kaynak için tam kaynak kimliği.|
-|ad|dize|Kaynak adı.|
-|properties.commonEncryptionCbcs|CommonEncryptionCbcs|CommonEncryptionCbcs yapılandırması|
-|properties.commonEncryptionCenc|CommonEncryptionCenc|CommonEncryptionCenc yapılandırması|
-|Properties.Created |dize|Akış ilkesi oluşturma zamanı|
-|properties.defaultContentKeyPolicyName |dize|Geçerli akışı İlkesi tarafından kullanılan varsayılan ContentKey|
-|properties.envelopeEncryption  |EnvelopeEncryption|EnvelopeEncryption yapılandırması|
-|properties.noEncryption|Şifreleme yok|Şifreleme yok yapılandırmaları|
-|type|dize|Kaynak türü.|
+|Ad|Açıklama|
+|---|---|
+|id|Kaynak için tam kaynak kimliği.|
+|ad|Kaynak adı.|
+|properties.commonEncryptionCbcs|CommonEncryptionCbcs yapılandırması|
+|properties.commonEncryptionCenc|CommonEncryptionCenc yapılandırması|
+|Properties.Created |Akış ilkesi oluşturma zamanı|
+|properties.defaultContentKeyPolicyName |Geçerli akışı İlkesi tarafından kullanılan varsayılan ContentKey|
+|properties.envelopeEncryption  |EnvelopeEncryption yapılandırması|
+|properties.noEncryption|Şifreleme yok yapılandırmaları|
+|type|Kaynak türü.|
 
 Tam tanımı için bkz [akış ilkeleri](https://docs.microsoft.com/rest/api/media/streamingpolicies).
 

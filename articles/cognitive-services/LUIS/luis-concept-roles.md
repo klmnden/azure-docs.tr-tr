@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: conceptual
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 9bbbb797cd7e7d1cea52f1d5b1b491998b595db7
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: 94a02a06335b35a36c35d4b69776b1eb630b402d
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49638095"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50086037"
 ---
 # <a name="entity-roles-in-patterns-are-contextual-subtypes"></a>Varlık desenleri bağlamsal subtypes rolleridir
 Adlandırılmış ve bağlamsal subtypes yalnızca kullanılan bir varlığın rolleridir [desenleri](luis-concept-patterns.md).
@@ -42,13 +42,8 @@ Bir desenin şablon utterance içinde rolleri içinde utterance kullanılır:
 ## <a name="role-syntax-in-patterns"></a>Rol sözdizimi desenleri
 Varlık ve rol parantez içinde içine alınmış `{}`. Varlık ve rol virgül ile ayrılır. 
 
-## <a name="roles-versus-hierarchical-entities"></a>Hiyerarşik varlıkları ve rolleri
-Hiyerarşik varlıkları aynı bağlamsal bilgi roller olarak ancak yalnızca içinde konuşma sağlayan **hedefleri**. Benzer şekilde, hiyerarşik varlıklar olarak ancak yalnızca aynı bağlamsal bilgi roller sağlar **desenleri**.
 
-|Bağlamsal öğrenme|Kullanılan|
-|--|--|
-|hiyerarşik varlıklar|Hedefleri|
-|roles|Desenleri|
+[!include[H2 Roles versus hierarchical entities](../../../includes/cognitive-services-luis-hier-roles.md)] 
 
 ## <a name="roles-with-prebuilt-entities"></a>Önceden oluşturulmuş varlıklarla rolleri
 

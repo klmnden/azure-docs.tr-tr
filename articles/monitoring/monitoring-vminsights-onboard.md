@@ -1,5 +1,5 @@
 ---
-title: Sanal makineler için yerleşik Azure İzleyici | Microsoft Docs
+title: VM'ler (Önizleme) için yerleşik Azure İzleyici | Microsoft Docs
 description: Bu makalede nasıl eklemenize ve dağıtılmış uygulamanızı nasıl performans gösterdiğini ve sistem durumu sorunları belirlenen anlamak başlatabilmeniz VM'ler için Azure İzleyicisi'ni yapılandırabilirsiniz.
 services: azure-monitor
 documentationcenter: ''
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/16/2018
+ms.date: 10/25/2018
 ms.author: magoedte
-ms.openlocfilehash: 33d16e211667edc6c082ab8c101e69ee5875efb8
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: f55f81d1e28a7626dfe00f6bea349bf74e3a1d24
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49390253"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50092783"
 ---
-# <a name="how-to-onboard-the-azure-monitor-for-vms"></a>Nasıl eklenirim Azure izleme VM'ler için 
+# <a name="how-to-onboard-the-azure-monitor-for-vms-preview"></a>Nasıl için yerleşik Azure izleme VM'ler için (Önizleme)
 Bu makalede, Azure sanal makinelerinizin işletim sistemi durumunu izleyin ve keşfedin ve bunlar üzerinde barındırılabilir uygulama bağımlılıkları eşleme VM'ler için Azure İzleyici'kurmak açıklar.  
 
 VM'ler için Azure İzleyicisi'ni etkinleştirmek aşağıdaki yöntemlerden birini kullanarak elde edilir ve her yöntemle ilgili ayrıntılar, makalenin sonraki bölümlerinde sağlanır.  
@@ -31,7 +31,7 @@ VM'ler için Azure İzleyicisi'ni etkinleştirmek aşağıdaki yöntemlerden bir
 * Belirtilen abonelik veya PowerShell kullanarak bir kaynak grubu arasında birden fazla Azure sanal makineleri veya sanal makine ölçek ayarlar.
 
 ## <a name="prerequisites"></a>Önkoşullar
-Başlamadan önce aşağıdaki alt bölümlerde açıklandığı gibi sahip olduğunuzdan emin olun.
+Başlamadan önce aşağıdaki alt bölümlerde açıklandığı gibi anladığınızdan emin olun.
 
 ### <a name="log-analytics"></a>Log Analytics 
 

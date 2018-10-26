@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: lizross
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 98edf224ebbd15f6acafdfeb28769eecb4edff40
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: 0a840ed4e931034d89c1104ee76bfd7b248f341b
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49638135"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50095612"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Azure Active Directory'deki yenilikler nelerdir?
 
@@ -36,6 +36,60 @@ Azure AD iyileştirmeleri düzenli olarak alır. İle en son gelişmeleri günce
 Bu sayfaya ay güncelleştirilir, böylece bunu düzenli olarak tekrar ziyaret.
 
 ---
+## <a name="october-2018"></a>Ekim 2018
+
+### <a name="azure-ad-logs-now-work-with-azure-log-analytics-public-preview"></a>Azure AD günlükleri artık Azure Log Analytics (genel Önizleme) ile çalışma
+
+**Türü:** yeni özellik  
+**Hizmet kategorisi:** raporlama  
+**Ürün özelliği:** izleme ve Raporlama
+
+Azure Log Analytics için artık Azure AD günlüklerinizi iletebilir duyurmaktan Mutluluk duyuyoruz! Bu en çok istenen özellik analytics'e işletmenizi, işlemleri ve güvenlik yanı sıra altyapınızı izlemeye yardımcı olmak için bir yol için daha iyi erişmesini yardımcı olur. Daha fazla bilgi için [Azure Active Directory etkinlik günlükleri artık Azure Log Analytics'te](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Azure-Active-Directory-Activity-logs-in-Azure-Log-Analytics-now/ba-p/274843) blogu.
+
+---
+
+### <a name="new-federated-apps-available-in-azure-ad-app-gallery---october-2018"></a>Yeni Federasyon uygulamaları kullanılabilir Azure AD uygulama galerisinde - Ekim 2018
+
+**Türü:** yeni özellik  
+**Hizmet kategorisi:** kurumsal uygulamalar  
+**Ürün özelliği:** 3. taraf tümleştirme
+ 
+Ekim 2018'de Federasyon ile 14 Bu yeni uygulamalar için uygulama Galerisi desteği ekledik:
+
+[Ödül Puanlarım](https://docs.microsoft.com/azure/active-directory/saas-apps/myawardpoints-tutorial), [Vibe HCM](https://docs.microsoft.com/azure/active-directory/saas-apps/vibehcm-tutorial), ambyint, [MyWorkDrive](https://docs.microsoft.com/azure/active-directory/saas-apps/myworkdrive-tutorial), [BorrowBox](https://docs.microsoft.com/azure/active-directory/saas-apps/borrowbox-tutorial), tuş takımı, [ON24 sanal ortam](https://docs.microsoft.com/azure/active-directory/saas-apps/on24-tutorial), [RingCentral](https://docs.microsoft.com/azure/active-directory/saas-apps/ringcentral-tutorial), [Zscaler üç](https://docs.microsoft.com/azure/active-directory/saas-apps/zscaler-three-tutorial), [Phraseanet](https://docs.microsoft.com/azure/active-directory/saas-apps/phraseanet-tutorial), [Appraisd](https://docs.microsoft.com/azure/active-directory/saas-apps/appraisd-tutorial), [Workspot denetimi](https://docs.microsoft.com/azure/active-directory/saas-apps/workspotcontrol-tutorial), [Shuccho kayıt](https://docs.microsoft.com/azure/active-directory/saas-apps/shucchonavi-tutorial), [Glassfrog](https://docs.microsoft.com/azure/active-directory/saas-apps/glassfrog-tutorial)
+
+Uygulamalar hakkında daha fazla bilgi için bkz. [Azure Active Directory ile SaaS uygulama tümleştirmesi](https://aka.ms/appstutorial). Azure AD uygulama galerisinde uygulamanızı listeleme hakkında daha fazla bilgi için bkz. [uygulamanızı Azure Active Directory Uygulama galerisinde listeleyin](https://aka.ms/azureadapprequest).
+
+---
+
+### <a name="azure-ad-domain-services-email-notifications"></a>E-posta bildirimleri Azure AD etki alanı Hizmetleri
+
+**Türü:** yeni özellik  
+**Hizmet kategorisi:** Azure AD Domain Services  
+**Ürün özelliği:** Azure AD Domain Services
+
+Azure AD Domain Services yönetilen etki alanınız ile ilgili sorunları veya yanlış yapılandırmalar hakkında Azure portalındaki uyarılar sağlar. Bu uyarılar, desteğe başvurun gerek kalmadan sorunları düzeltmek deneyebilmek adım adım kılavuzlar içerir.
+
+Ekim ayında başlayarak, yönetilen etki alanınız için bildirim ayarlarını özelleştirmek mümkün olacaktır için yeni uyarılar ortaya çıktığında, insanların sürekli güncelleştirmeler için portalı denetleyin gereğini ortadan kaldırır, atanmış bir gruba e-posta gönderilir.
+
+Daha fazla bilgi için [bildirim ayarları Azure AD Etki Alanı Hizmetleri'nde](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-notifications).
+
+---
+
+### <a name="azure-ad-portal-supports-using-the-forcedelete-domain-api-to-delete-custom-domains"></a>Özel etki alanları silinecek ForceDelete etki alanı API kullanarak azure AD portalı destekler 
+
+**Türü:** değiştirilen özellik  
+**Hizmet kategorisi:** dizin yönetimi  
+**Ürün özelliği:** dizini
+
+Artık ForceDelete etki alanı API başvuruları, kullanıcılar, gruplar ve uygulamalar gibi özel bir etki alanı adınızla (contoso.com) öğesinden geri ilk varsayılan etki alanı adı (zaman uyumsuz olarak yeniden adlandırarak özel etki alanı silmek için kullanabileceğiniz duyurmaktan Mutluluk duyuyoruz contoso.onmicrosoft.com).
+
+Bu değişiklik, özel etki alanı adı kuruluşunuz artık kullanıyorsa veya başka bir Azure AD ile etki alanı adı kullanmanız gerekiyorsa daha hızlı bir şekilde silmek için yardımcı olur.
+
+Daha fazla bilgi için [bir özel etki alanı adını silme](https://docs.microsoft.com/azure/active-directory/users-groups-roles/domains-manage#delete-a-custom-domain-name).
+
+---
+
 ## <a name="september-2018"></a>Eylül 2018
  
 ### <a name="updated-administrator-role-permissions-for-dynamic-groups"></a>Dinamik gruplar için güncelleştirilmiş yöneticisi rol izinleri

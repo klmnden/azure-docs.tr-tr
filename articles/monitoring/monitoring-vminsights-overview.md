@@ -1,5 +1,5 @@
 ---
-title: VM'ler için Azure İzleyici nedir? | Microsoft Docs
+title: Azure İzleyici VM'ler (Önizleme) nedir? | Microsoft Docs
 description: VM'ler için Azure İzleyici bir sistem durumunu ve uygulama bileşenleri ve diğer kaynaklarla ilgili bağımlılıkları otomatik olarak keşfetme yanı sıra Azure VM'nin işletim sistemi izleme performansını birleştirir ve iletişimi eşleyen bir Azure İzleyici özelliğidir. Bunlar arasında. Bu makalede, genel bir bakış sağlar.
 services: azure-monitor
 documentationcenter: ''
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/24/2018
+ms.date: 10/25/2018
 ms.author: magoedte
-ms.openlocfilehash: 26fcc3eb78af53360cca57382b4c06b017f36c0e
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: e39954f9155419e0dea019203efa22ba0d654f92
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47063277"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50093692"
 ---
-# <a name="what-is-azure-monitor-for-vms"></a>VM'ler için Azure İzleyici nedir?
+# <a name="what-is-azure-monitor-for-vms-preview"></a>Azure İzleyici VM'ler (Önizleme) nedir?
 
 VM'ler için Azure İzleyici, Windows ve Linux Vm'leri, farklı işlemler ve diğer kaynakları ve dış işlemlere birbirine bağımlılıkları da dahil olmak üzere, sistem durumu ve performansı analiz ederek, uygun ölçekte Azure sanal makinelerinizi (VM) izler. Uygulama bağımlılıkları VM'ler için şirket içi veya başka bir bulut sağlayıcısı barındırılan ve çözüm, performans izleme için destek içerir.  Daha ayrıntılı bu öngörüleri sunmak için üç önemli özellikleri içerir:
 

@@ -1,16 +1,29 @@
-### <a name="prerequisites"></a>Ön koşullar
+---
+author: ecfan
+ms.service: logic-apps
+ms.topic: include
+ms.date: 11/03/2016
+ms.author: estfan
+ms.openlocfilehash: 752c43604349a2361a8f5b26cd6d0bce7b516bc0
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50133409"
+---
+### <a name="prerequisites"></a>Önkoşullar
 * A [MailChimp](https://www.MailChimp.com/) hesabı 
 
-Bir mantıksal uygulama MailChimp hesabınızı kullanabilmeniz için önce MailChimp hesabınıza bağlanmak için mantığı uygulamasını yetkilendirmeniz gerekir. Neyse ki, Azure Portal'da mantıksal uygulama içinde bu kolayca yapabilirsiniz. 
+MailChimp hesabınızda bir mantıksal uygulama kullanabilmeniz için önce MailChimp hesabınıza bağlanmak için mantıksal uygulama yetkilendirmeniz gerekir. Neyse ki, Azure Portalı'nda mantıksal uygulama içinde bunu kolayca yapabilirsiniz. 
 
 Mantıksal uygulamanızı MailChimp hesabınıza bağlanmak için yetki vermek için adımlar şunlardır:
 
-1. Mantıksal Uygulama Tasarımcısı'nda MailChimp, bir bağlantı oluşturmak için seçin **Göster Microsoft yönetilen API'ler** açılır listesinde enter *MailChimp* arama kutusuna. Tetikleyici seçin veya eylem kullanmak ister:  
-   ![Adım 1'in MailChimp](./media/connectors-create-api-mailchimp/mailchimp-1.png)
-2. Önce MailChimp bağlantılarına oluşturmadıysanız, MailChimp kimlik bilgilerinizi girmeniz istendiğinde şunu. Bu kimlik bilgileri bağlanmak için mantıksal uygulamanızı yetkilendirmek için kullanılır ve MailChimp hesabınızın veri erişim:  
-   ![MailChimp adım 2](./media/connectors-create-api-mailchimp/mailchimp-2.png)
-3. MailChimp kullanıcı adı ve mantıksal uygulamanızı yetkilendirmek için parola sağlayın:  
-   ![Adım 3'in MailChimp](./media/connectors-create-api-mailchimp/mailchimp-3.png)   
-4. Bağlantı oluşturuldu ve artık bir mantıksal uygulamanızı adımlarda yüklemeye devam etmek ücretsiz dikkat edin:  
-   ![MailChimp adım 4](./media/connectors-create-api-mailchimp/mailchimp-4.png)
+1. Mantıksal Uygulama Tasarımcısı'nda MailChimp, bağlantı oluşturmak için seçin **yönetilen API'leri Göster Microsoft** açılan liste enter *MailChimp* arama kutusuna. Tetikleyici veya eylemi kullanmak ister seçin:  
+   ![MailChimp 1. adım](./media/connectors-create-api-mailchimp/mailchimp-1.png)
+2. MailChimp önce herhangi bir bağlantı oluşturmadıysanız, MailChimp kimlik bilgilerinizi sağlamanız girmem isteniyor. Bu kimlik bilgileri, mantıksal uygulamanızı bağlanmak için yetki vermek için kullanılan ve MailChimp hesabınıza ait veri erişimi:  
+   ![MailChimp 2. adım](./media/connectors-create-api-mailchimp/mailchimp-2.png)
+3. MailChimp kullanıcı adınızı ve parolanızı mantıksal uygulamanızı yetkilendirmek için sağlayın:  
+   ![MailChimp 3. adım](./media/connectors-create-api-mailchimp/mailchimp-3.png)   
+4. Bağlantı oluşturuldu ve artık mantıksal uygulamanızdaki diğer adımlarla devam etmek ücretsiz, dikkat edin:  
+   ![MailChimp 4. adım](./media/connectors-create-api-mailchimp/mailchimp-4.png)
 

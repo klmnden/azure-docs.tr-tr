@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/05/2018
+ms.date: 10/23/2018
 ms.author: sethm
 ms.reviewer: harik
-ms.openlocfilehash: 523be365e8b66c157546470a70ddec73d3e1e5d1
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: f00b175fed36fbe2b28f1d11843bb17c54ac3873
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45630690"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50086973"
 ---
 # <a name="azure-stack-servicing-policy"></a>Azure Stack hizmet İlkesi
 Bu makalede, Azure Stack tümleşik sistemleri ve desteklenen bir duruma sisteminizi tutmak için yapmanız gerekenlere hizmet İlkesi açıklanır. 
@@ -37,11 +37,12 @@ Tümleşik sistemler için güncelleştirme paketleri iki tür vardır:
 ## <a name="update-package-release-cadence"></a>Güncelleştirme paketi yayın sıklığı
 Microsoft, yazılım güncelleştirme paketleri aylık temposu serbest bırakmak bekliyor. Ancak, bir ay içindeki birden çok veya hiçbir güncelleştirme sürümleri mümkündür. OEM donanım satıcıları güncellemeleri gerektiğinde olarak bırakın. 
 
-Planlama ve güncelleştirmeleri yönetme ve geçerli sürümünüzde belirleme belgelere [yönetme genel bakış güncelleştirmeleri](azure-stack-updates.md). Belirli bir güncelleştirme hakkında daha fazla bilgi için indirin, güncelleştirme sürüm notları için bkz dahil olmak üzere: 
+Planlama ve güncelleştirmeleri yönetme ve geçerli sürümünüzde belirleme belgelere [yönetme genel bakış güncelleştirmeleri](azure-stack-updates.md). 
+
+Belirli bir güncelleştirme hakkında daha fazla bilgi için indirin, güncelleştirme sürüm notları için bkz dahil olmak üzere: 
+- [Azure Stack 1809 güncelleştirme](azure-stack-update-1809.md)
 - [Azure Stack 1808 güncelleştirme](azure-stack-update-1808.md)
 - [Azure Stack 1807 güncelleştirme](azure-stack-update-1807.md)
-- [Azure Stack 1805 güncelleştirme](azure-stack-update-1805.md)
-
 
 ## <a name="hotfixes"></a>Düzeltmeler
 Bazen, Microsoft bu adrese önleyici veya zamana duyarlı genellikle belirli bir sorunun Azure Stack için düzeltmeler sağlar.  Her bir düzeltme sorun, nedeni ve çözümü ayrıntıları karşılık gelen bir Microsoft Bilgi Bankası makalesiyle serbest bırakılır. 

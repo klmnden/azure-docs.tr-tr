@@ -1,3 +1,16 @@
+---
+author: PatAltimore
+ms.service: active-directory-b2c
+ms.topic: include
+ms.date: 11/03/2016
+ms.author: patricka
+ms.openlocfilehash: bff2543ec48c66c10db697650def0077e3de28be
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50133969"
+---
 Hassas parola sıfırlama uygulamanızı etkinleştirmek için kullandığınız bir **parola sıfırlama** ilkesi. Kiracı genelinde parola sıfırlama seçeneği Not [burada](../articles/active-directory-b2c/active-directory-b2c-reference-sspr.md) belirtilir. Bu ilke, müşterilerin parola sıfırlama ve başarıyla tamamlandığında uygulamanın alacağı belirteçlerin içeriğini sırasında karşılaşacağı deneyimleri açıklar.
 
 [!INCLUDE [active-directory-b2c-portal-navigate-b2c-service](active-directory-b2c-portal-navigate-b2c-service.md)]
@@ -8,7 +21,7 @@ Ayarların ilkeler bölümünde **Parola sıfırlama ilkeleri**’ni seçip **+ 
 
 Uygulamanızın başvuracağı ilke **Adını** girin. Örneğin, `SSPR` girin.
 
-**Kimlik sağlayıcıları**’nı seçin ve **E-posta adresi kullanarak parola sıfırla**’yı işaretleyin. **Tamam**’a tıklayın.
+**Kimlik sağlayıcıları**’nı seçin ve **E-posta adresi kullanarak parola sıfırla**’yı işaretleyin. **Tamam** düğmesine tıklayın.
 
 ![Kimlik sağlayıcısı olarak E-posta adresi kullanarak parola sıfırla’yı seçin ve Tamam düğmesine tıklayın](media/active-directory-b2c-create-password-reset-policy/add-b2c-password-reset-identity-providers.png)
 

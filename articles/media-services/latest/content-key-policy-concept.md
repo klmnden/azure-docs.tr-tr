@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 10/22/2018
 ms.author: juliako
-ms.openlocfilehash: 9a5ef8df9b1ca87430fb5e8d1da94f1899c4a856
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 24597c36ab6569abb53c7be331631556e2abfe66
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49985871"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50085971"
 ---
 # <a name="content-key-policies"></a>İçerik Anahtar İlkeleri
 
@@ -28,16 +28,16 @@ Azure Media Services v3 sürümünde içerik anahtar ilkeleri, Media Services an
 
 Aşağıdaki tabloda ContentKeyPolicy'nın özelliklerini gösterir ve bunların tanımlarının sağlar.
 
-|Ad|Tür|Açıklama|
-|---|---|---|
-|id|dize|Kaynak için tam kaynak kimliği.|
-|ad|dize|Kaynak adı.|
-|Properties.Created |dize|İlke oluşturma tarihi|
-|Properties.Description |dize|İlke için bir açıklama.|
-|properties.lastModified    |dize|İlkeyi son değiştirilme tarihi|
-|Properties.Options |ContentKeyPolicyOption]|Anahtar ilkesi seçenekleri.|
-|properties.policyId    |dize|Eski bir ilke kimliği|
-|type   |dize|Kaynak türü.|
+|Ad|Açıklama|
+|---|---|
+|id|Kaynak için tam kaynak kimliği.|
+|ad|Kaynak adı.|
+|Properties.Created |İlke oluşturma tarihi|
+|Properties.Description |İlke için bir açıklama.|
+|properties.lastModified|İlkeyi son değiştirilme tarihi|
+|Properties.Options |Anahtar ilkesi seçenekleri.|
+|properties.policyId    |Eski bir ilke kimliği|
+|type   |Kaynak türü.|
 
 Tam tanımı için bkz [içerik anahtar ilkeleri](https://docs.microsoft.com/rest/api/media/contentkeypolicies).
 

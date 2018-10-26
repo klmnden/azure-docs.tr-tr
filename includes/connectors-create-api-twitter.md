@@ -1,3 +1,16 @@
+---
+author: ecfan
+ms.service: logic-apps
+ms.topic: include
+ms.date: 11/03/2016
+ms.author: estfan
+ms.openlocfilehash: c2e311a85430abdad4736e8c88d96b18d182ecf9
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50091897"
+---
 ### <a name="prerequisites"></a>Önkoşullar
 * Bir Twitter hesabı 
 

@@ -6,14 +6,14 @@ manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 10/10/2018
+ms.date: 10/25/2018
 ms.author: adgera
-ms.openlocfilehash: 28eb8b5dc0f75b5e031070803d35c8a1ceb1f000
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: a17fe8ed47384ed248b339643be11269b8b9cdc0
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49364355"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50092194"
 ---
 # <a name="security-best-practices"></a>En iyi güvenlik uygulamaları
 
@@ -26,15 +26,16 @@ Bu makalede izlemek için anahtar en iyi yöntemler özetlenmiştir.
 > [!IMPORTANT]
 > IOT alanınızın düzeyde güvenlik sağlamak için (cihaz satıcılarınıza dahil) ek güvenlik kaynakları gözden geçirin.
 
-## <a name="iot-security-best-practices"></a>IOT güvenlik en iyi uygulamalar
+## <a name="iot-security-best-practices"></a>IoT güvenliği için en iyi uygulamalar
 
 Güvenle IOT cihazlarınızı güvenli hale getirmek için bazı önemli yöntemler şunlardır:
 
 > [!div class="checklist"]
 > * IOT alanınıza artıklığının şekilde bağlı her cihazı güvenli hale getirin.
 > * Her cihaz, sensör ve IOT alanınız içinde kişi rolünü sınırlayın. İhlal edilmesi durumunda, etkiyi en aza indirilir.
-> * Aygıt IP adresi filtresi olası kullanın.
+> * Olası kullanımını cihazının IP adresi filtreleme ve bağlantı noktası kısıtlama.
 > * Performansı artırmak için g/ç ve cihaz bant genişliğini sınırlayın. Hız sınırlama, hizmet reddi saldırılarını önleyerek güvenliğini artırabilirsiniz.
+> * Cihaz üretici yazılımını güncel tutun.
 
 Güvenle IOT alanına güvenli hale getirmek için bazı önemli yöntemler şunlardır:
 
@@ -55,7 +56,7 @@ Azure dijital İkizlerini, kullanıcıların kimliklerini doğrulamak ve uygulam
 
 > [!div class="checklist"]
 > * Azure Active Directory Uygulama gizli dizileri ve anahtarları güvenli bir konuma gibi Store [Key Vault](https://azure.microsoft.com/services/key-vault/).
-> * Güvenilen bir tarafından yayınlanan bir sertifika kullanmak [sertifika yetkililerini](https://docs.microsoft.com/azure/active-directory/authentication/active-directory-certificate-based-authentication-get-started) kimliğini doğrulamak için uygulama gizli anahtarlarının yerine.
+> * Güvenilen bir tarafından yayınlanan bir sertifika kullanmak [sertifika yetkilisi](https://docs.microsoft.com/azure/active-directory/authentication/active-directory-certificate-based-authentication-get-started) kimliğini doğrulamak için uygulama gizli anahtarlarının yerine.
 > * OAuth 2.0 belirteç için erişim kapsamını sınırlandırın.
 > * Bir belirtecin geçerli olduğu süreyi doğrulayın ve bir belirteç olup geçerli kalır.
 > * Uygun uzunlukta belirteçleri için geçerli olan süreyi ayarlayın.

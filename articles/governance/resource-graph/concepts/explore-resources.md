@@ -4,16 +4,16 @@ description: Kaynaklarınızı keşfedin ve nasıl bağlandığını keşfetmek 
 services: resource-graph
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 09/18/2018
+ms.date: 10/22/2018
 ms.topic: conceptual
 ms.service: resource-graph
 manager: carmonm
-ms.openlocfilehash: f488dfad8a38bbfab3b5b74e5b504463af09c089
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: bcd25b95d1369ef98662384945123126ebbbd70f
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49645941"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50086905"
 ---
 # <a name="explore-your-azure-resources-with-resource-graph"></a>Kaynak Grafiği ile Azure kaynaklarınızı keşfedin
 
@@ -21,7 +21,7 @@ Azure Kaynak Grafiği keşfedin ve hızla ve uygun ölçekte Azure kaynakların�
 
 ## <a name="explore-virtual-machines"></a>Sanal makineleri keşfedin
 
-Azure'da ortak bir kaynak bir sanal makinedir. Bir kaynak türü sanal makineler sorgulanabilir çeşitli özelliklere sahiptir. Her bir özellik, filtreleme veya tam olarak aradığınız kaynak bulmak için bir seçenek sunar.
+Azure'da ortak bir kaynak bir sanal makinedir. Bir kaynak türü sanal makineler, sorgulanabilir birçok özelliklere sahip. Her bir özellik, filtreleme veya tam olarak aradığınız kaynak bulmak için bir seçenek sunar.
 
 ### <a name="virtual-machine-discovery"></a>Sanal makine bulma
 
@@ -214,7 +214,7 @@ az graph query -q "where type =~ 'Microsoft.Compute/virtualMachines' and propert
 Search-AzureRmGraph -Query "where type =~ 'Microsoft.Compute/virtualMachines' and properties.hardwareProfile.vmSize == 'Standard_B2s' | project name, resourceGroup"
 ```
 
-### <a name="virtual-machines-connected-to-premium-managed-disks"></a>Premium yönetilen diskler için sanal makinelere bağlanan
+### <a name="virtual-machines-connected-to-premium-managed-disks"></a>Premium yönetilen disklere bağlı sanal makineleri
 
 Bu bağlı premium yönetilen diskler ayrıntılarını almak istediyseniz **Standard_B2s** sanal makineler, size bu yönetilen disklerin kaynak kimliği bulunun için sorguyu genişletebilirsiniz.
 
@@ -236,11 +236,11 @@ az graph query -q "where type =~ 'Microsoft.Compute/virtualmachines' and propert
 Search-AzureRmGraph -Query "where type =~ 'Microsoft.Compute/virtualmachines' and properties.hardwareProfile.vmSize == 'Standard_B2s' | extend disk = properties.storageProfile.osDisk.managedDisk | where disk.storageAccountType == 'Premium_LRS' | project disk.id"
 ```
 
-Sonucu bir disk listesidir. kimliğin
+Disk kimlikleri listesini sonucudur.
 
 ### <a name="managed-disk-discovery"></a>Yönetilen disk bulma
 
-Önceki sorguyu ilk kaydı alma, şunları ilk sanal makineye bağlı yönetilen disk üzerinde bulunan özellikler keşfedeceğiz. Güncelleştirilmiş sorgu disk kimliği ve değişiklik türü kullanır.
+Önceki sorgunun ilk kaydıyla şunları ilk sanal makineye bağlı yönetilen disk üzerinde bulunan özellikler keşfedeceğiz. Güncelleştirilmiş sorgu disk kimliği kullanır ve türü değiştirir.
 
 Örnek, önceki sorgudan örnek çıktı:
 
@@ -314,7 +314,7 @@ JSON sonuçları şu örneğe benzer şekilde yapılandırılmıştır:
 
 ## <a name="explore-virtual-machines-to-find-public-ip-addresses"></a>Genel IP adreslerini bulmak için sanal makineleri keşfedin
 
-Bu sorgu Azure CLI'yı çok adımlı kümesini ilk bulur ve tüm ağ arabirimleri (NIC) kaynaklarına bağlı sanal makinelere, bir genel IP adresidir her IP adresi kaynağı bulun ve bu değerleri depolamak için NIC listesini kullanır ve son olarak sağlar depolar bir gerçek bir genel IP adresleri listesi.
+İlk sorgu bu Azure CLI kümesi bulur ve tüm ağ arabirimleri (NIC) kaynaklarına sanal makinelere bağlanan depolar. Ardından NIC listesini bir genel IP adresidir her IP adresi kaynağı bulmak için kullanır ve bu değerleri depolamak. Son olarak, genel IP adreslerinden oluşan bir liste sağlar.
 
 ```azurecli-interactive
 # Use Resource Graph to get all NICs and store in the 'nic' variable
@@ -324,7 +324,7 @@ az graph query -q "where type =~ 'Microsoft.Compute/virtualMachines' | project n
 cat nics.txt
 ```
 
-Biz oluşturduktan sonra `nics.txt` dosyası kullanacağız, sonraki sorgu ilgili ağ arabirimi kaynakların ayrıntılarını almak için bir genel IP adresi bir NIC'ye bağlı olduğu
+Kullanım `nics.txt` ilgili ağ arabiriminin kaynakların ayrıntılarını almak için sonraki sorgu dosyasında bir genel IP adresi bir NIC'ye bağlı olduğu
 
 ```azurecli-interactive
 # Use Resource Graph with the 'nics.txt' file to get all related public IP addresses and store in 'publicIp.txt' file

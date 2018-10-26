@@ -10,12 +10,12 @@ ms.author: netahw
 author: nhaiby
 ms.date: 05/20/2018
 ROBOTS: NOINDEX
-ms.openlocfilehash: 371903e1ee080d2b98fd46ac4d6d9838416e1335
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: b1b4e3e19adb38a69e16aaa98300972df3bb71a8
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46973431"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50093658"
 ---
 # <a name="build-and-deploy-image-similarity-models-with-azure-machine-learning"></a>Azure Machine Learning ile görüntü benzerlik modellerini Derleme ve dağıtma
 
@@ -38,7 +38,7 @@ Oluşturma ve dağıtma AMLPCV ile bu model, aşağıdaki adımları izleyerek g
 7. Web hizmeti dağıtımı
 8. Web hizmeti yük testi
 
-[CNTK](https://www.microsoft.com/cognitive-toolkit/) kullanılır derin öğrenme framework eğitim yerel olarak desteklenen GPU makinede gibi gerçekleştirilir ([derin öğrenme veri bilimi sanal makinesi](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.dsvm-deep-learning?tab=Overview)), ve dağıtımı, Azure ML kullanıma hazır hale getirme CLI'yı kullanır.
+[CNTK](https://www.microsoft.com/en-us/cognitive-toolkit/) kullanılır derin öğrenme framework eğitim yerel olarak desteklenen GPU makinede gibi gerçekleştirilir ([derin öğrenme veri bilimi sanal makinesi](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.dsvm-deep-learning?tab=Overview)), ve dağıtımı, Azure ML kullanıma hazır hale getirme CLI'yı kullanır.
 
 ## <a name="prerequisites"></a>Önkoşullar
 

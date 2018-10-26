@@ -4,14 +4,14 @@ description: Azure geçişi hizmeti ve sorun giderme ipuçları için sık karş
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 10/23/2018
+ms.date: 10/24/2018
 ms.author: raynew
-ms.openlocfilehash: a41a27f2a87a67ea51bcbe110ac77f7908c44e7a
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: a32b1b73a12242a6c6b1c29fbf116aff73515b46
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945527"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50086752"
 ---
 # <a name="troubleshoot-azure-migrate"></a>Azure Geçişi sorunlarını giderme
 
@@ -51,9 +51,16 @@ Gereç sürekli bulma Gereci için sadece performans verilerini sürekli olarak 
 
 ## <a name="collector-errors"></a>Toplayıcı hataları
 
-### <a name="deployment-of-collector-ova-failed"></a>OVA Toplayıcı dağıtımı başarısız oldu
+### <a name="deployment-of-azure-migrate-collector-failed-with-the-error-the-provided-manifest-file-is-invalid-invalid-ovf-manifest-entry"></a>Azure geçişi toplayıcısı dağıtımı başarısız oldu, hata: sağlanan bir bildirim dosyası geçersiz: Geçersiz OVF bildirim girişi.
 
-OVA dağıtmak için vSphere web istemcisi kullanıyorsanız bu OVA kısmen karşıdan yüklediyseniz veya tarayıcı nedeniyle gerçekleşebilir. İndirme işleminin tamamlandığından emin olun ve farklı bir tarayıcı ile OVA dağıtmayı deneyin.
+1. Azure geçişi toplayıcısı OVA dosyasını doğru karma değerini denetleyerek indirilir olmadığını doğrulayın. Başvurmak [makale](https://docs.microsoft.com/azure/migrate/tutorial-assessment-vmware#verify-the-collector-appliance) karma değeri doğrulayın. Karma değeriyle eşleşmiyor, tekrar OVA dosyasını indirmek ve dağıtımı yeniden deneyin.
+2. Yine başarısız olursa ve OVF dağıtmak için VMware vSphere istemci kullanıyorsanız, vSphere Web istemcisi dağıtmayı deneyin. Yine başarısız olursa farklı web tarayıcısı kullanarak deneyin.
+3. VSphere web istemcisi kullanarak ve vCenter Server 6.5 dağıtılmaya çalışılırken, izleyerek doğrudan ESXi ana bilgisayarındaki OVA dağıtmayı deneyin aşağıdaki adımları:
+  - ESXi Konağı (yerine doğrudan vCenter Server) bağlanma web istemcisi kullanarak (https:// <*ana bilgisayar IP adresi*> /ui)
+  - Giriş gidin > envanteri
+  - Dosyaya tıklayın > dağıtma OVF şablonu > OVA için göz atın ve dağıtımı tamamlandı
+4. Dağıtım yine başarısız olursa Azure geçişi desteğe başvurun.
+
 
 ### <a name="collector-is-not-able-to-connect-to-the-internet"></a>Toplayıcı, internet'e bağlanmak mümkün değildir.
 

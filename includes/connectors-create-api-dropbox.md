@@ -1,18 +1,31 @@
-### <a name="prerequisites"></a>Ön koşullar
+---
+author: ecfan
+ms.service: logic-apps
+ms.topic: include
+ms.date: 11/03/2016
+ms.author: estfan
+ms.openlocfilehash: 3f4430631a664f81f53f9df1f46ebc27c635de36
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50133791"
+---
+### <a name="prerequisites"></a>Önkoşullar
 * A [Dropbox](https://www.Dropbox.com/) hesabı 
 
-Bir mantıksal uygulama Dropbox hesabınıza kullanmadan önce Dropbox hesabınıza bağlanmak için mantığı uygulamasını yetkilendirmeniz gerekir. Neyse ki, Azure Portal'da mantıksal uygulama içinde bu kolayca yapabilirsiniz. 
+Dropbox hesabınıza bir mantıksal uygulama kullanabilmeniz için önce Dropbox hesabınıza bağlanmak için mantıksal uygulama yetkilendirmeniz gerekir. Neyse ki, Azure Portalı'nda mantıksal uygulama içinde bunu kolayca yapabilirsiniz. 
 
 Mantıksal uygulamanızı Dropbox hesabınıza bağlanmak için yetki vermek için adımlar şunlardır:
 
-1. Mantıksal Uygulama Tasarımcısı'nda Dropbox, bir bağlantı oluşturmak için seçin **Göster Microsoft yönetilen API'ler** açılır listesinde enter *Dropbox* arama kutusuna. Tetikleyici seçin veya eylem kullanmak ister:  
+1. Mantıksal Uygulama Tasarımcısı'nda dropbox'a, bir bağlantı oluşturmak için seçin **yönetilen API'leri Göster Microsoft** açılan liste enter *Dropbox* arama kutusuna. Tetikleyici veya eylemi kullanmak ister seçin:  
    ![Adım 1'in Dropbox](./media/connectors-create-api-dropbox/dropbox-1.png)
-2. Önce Dropbox bağlantılarına oluşturmadıysanız, Dropbox kimlik bilgilerinizi girmeniz istendiğinde şunu. Bu kimlik bilgileri bağlanmak için mantıksal uygulamanızı yetkilendirmek için kullanılır ve Dropbox hesabınızın veri erişim:  
-   ![Dropbox adım 2](./media/connectors-create-api-dropbox/dropbox-2.png)
-3. Dropbox kullanıcı adı ve mantıksal uygulamanızı yetkilendirmek için parola sağlayın:  
-   ![Dropbox adım 3](./media/connectors-create-api-dropbox/dropbox-3.png)   
-4. Dropbox hesabı kullanmak üzere mantıksal uygulama yetkilendirin.  
-   ![Dropbox adım 4](./media/connectors-create-api-dropbox/dropbox-4.png)
-5. Bağlantı oluşturuldu ve artık bir mantıksal uygulamanızı adımlarda yüklemeye devam etmek ücretsiz dikkat edin:  
+2. Dropbox'a önce herhangi bir bağlantı oluşturmadıysanız, Dropbox kimlik bilgilerinizi sağlamanız girmem isteniyor. Bu kimlik bilgileri, mantıksal uygulamanızı bağlanmak için yetki vermek için kullanılan ve Dropbox hesabınıza ait veri erişimi:  
+   ![Dropbox 2. adım](./media/connectors-create-api-dropbox/dropbox-2.png)
+3. Dropbox kullanıcı adınızı ve parolanızı mantıksal uygulamanızı yetkilendirmek için sağlayın:  
+   ![Dropbox 3. adım](./media/connectors-create-api-dropbox/dropbox-3.png)   
+4. Mantıksal uygulama, Dropbox hesabınızdaki kullanmak için yetkilendirin.  
+   ![Dropbox 4. adım](./media/connectors-create-api-dropbox/dropbox-4.png)
+5. Bağlantı oluşturuldu ve artık mantıksal uygulamanızdaki diğer adımlarla devam etmek ücretsiz, dikkat edin:  
    ![Adım 5'in Dropbox](./media/connectors-create-api-dropbox/dropbox-5.png)   
 

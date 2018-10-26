@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/30/2018
 ms.author: johnkem
 ms.component: activitylog
-ms.openlocfilehash: 5288dc508c35c72f3c1996ce665ccf83a84a4ea3
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 7538951b1ac8290b574180779b83c6b8e79fcf1f
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46948977"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50094372"
 ---
 # <a name="monitor-subscription-activity-with-the-azure-activity-log"></a>Azure etkinlik günlüğü ile abonelik etkinliğini izleme
 
@@ -104,7 +104,7 @@ A **günlük profilini** etkinlik günlüğünüzü nasıl verilir denetimleri. 
 Günlükleri yayan bir aynı abonelikte değil bir depolama hesabına veya olay hub'ı ad alanını kullanabilirsiniz. Ayarı yapılandıran kullanıcının her iki aboneliğin uygun RBAC erişiminiz olması gerekir.
 
 > [!NOTE]
->  Şu anda arşivlenemiyor verileri bir depolama hesabı, güvenli bir sanal ağda.
+>  Verileri güvenli bir sanal ağda olduğu bir depolama hesabına şu anda arşivlenemiyor.
 
 > [!WARNING]
 > Depolama hesabındaki günlük verilerinin biçimi, 1 Kasım 2018 tarihinde JSON Satırları olarak değişecektir. [Etkinin açıklaması ve yeni biçimi işlemek üzere araçlarınızı güncelleştirme için bu makaleye bakın.](./monitor-diagnostic-logs-append-blobs.md) 

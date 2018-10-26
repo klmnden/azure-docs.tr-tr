@@ -8,15 +8,15 @@ ms.topic: conceptual
 ms.author: haining
 author: hning86
 ms.reviewer: larryfr
-ms.date: 09/24/2018
-ms.openlocfilehash: 64104fc70c7be1589c9332905f243a2e1e692eee
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.date: 10/24/2018
+ms.openlocfilehash: b00f72c987b6ce8c44796bd036af670ec39fa7a6
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48237985"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50093641"
 ---
-# <a name="architecture-and-concepts-how-does-azure-machine-learning-service-work"></a>Mimari ve kavramları: Azure Machine Learning hizmeti nasıl çalışır? 
+# <a name="how-the-azure-machine-learning-service-works-architecture-and-concepts"></a>Azure Machine Learning hizmetinin nasıl çalıştığı: Mimari ve kavramları
 
 Bu belgede, Azure Machine Learning hizmeti kavramları ve mimarisi açıklanmaktadır. Aşağıdaki diyagramda, hizmet ana bileşenleri gösteren ve hizmeti kullanırken genel iş akışı gösterilmektedir: 
 
@@ -156,6 +156,13 @@ Bir deney, belirli bir betik birçok çalıştırmalardan gruplandırmasıdır. 
 
 Bir deney kullanma örneği için bkz. [hızlı başlangıç: Azure Machine Learning hizmeti ile çalışmaya başlama](quickstart-get-started.md) belge.
 
+
+## <a name="pipelines"></a>İşlem hatları
+
+İşlem hatları oluşturmak ve bu veri hazırlama, model eğitiminin, model dağıtımı ve çıkarım gibi Birleştir birlikte machine learning (ML) aşamaları iş akışları yönetmek için kullanılır. Her aşamada, her biri çeşitli işlem hedeflerini katılımsız çalışabilir, birden çok adım kapsayabilir.
+
+Machine learning işlem hatlarını bu hizmeti hakkında daha fazla bilgi için bkz [işlem hatları ve Azure Machine Learning](concept-ml-pipelines.md).
+
 ## <a name="compute-target"></a>Hedef işlem
 
 Bir işlem hedefine eğitim betiğinizi çalıştırmak veya web hizmeti dağıtımınız barındırmak için kullanılan işlem kaynağıdır. Desteklenen işlem hedefleri şunlardır: 
@@ -210,6 +217,6 @@ Bu işlemlerin ilerleme durumunu kolayca izleyebilmek etkinlikleri SDK veya Web 
 
 Azure Machine Learning kullanmaya başlamak için aşağıdaki bağlantıları kullanın:
 
-* [Azure Machine Learning hizmeti nedir](overview-what-is-azure-ml.md)
-* [Hızlı Başlangıç: Python ile bir çalışma alanı oluşturma](quickstart-get-started.md)
-* [Öğretici: bir modeli eğitme](tutorial-train-models-with-aml.md)
+* [Azure Machine Learning hizmeti nedir?](overview-what-is-azure-ml.md)
+* [Hızlı Başlangıç: Python ile çalışma alanı oluşturma](quickstart-get-started.md)
+* [Öğretici: Modeli eğitme](tutorial-train-models-with-aml.md)

@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 10/24/2018
 ms.author: jeffgilb
 ms.reviewer: adshar
-ms.openlocfilehash: 4f95fb5f2199e8c276b78a83391f3814303a9470
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: 671818ca8f8fa07b506252d5d4d0c7a768577b19
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/25/2018
-ms.locfileid: "50024636"
+ms.locfileid: "50087483"
 ---
 # <a name="run-a-validation-test-for-azure-stack"></a>Azure Stack için bir doğrulama testi Çalıştır
 
@@ -39,7 +39,7 @@ Bir sorun varsa, Microsoft Müşteri Hizmetleri desteği ile iletişime geçin v
     3. PowerShell'i yönetici olarak açın.
     4. Çalıştırın: `Enter-PSSession -ComputerName <ERCS-VM-name> -ConfigurationName PrivilegedEndpoint`
     5. Çalıştırın: `Test-AzureStack`
-4. Herhangi bir test başarısız olarak rapor çalıştırırsanız: `Get-AzureStackLog -FilterByRole SeedRing -OutputPath <Log output path>` cmdlet Test-AzureStack günlükleri toplar. Tanılama günlükleri hakkında daha fazla bilgi için bkz. [Azure Stack'te tanılama araçları](azure-stack-diagnostics.md). Günlük toplama veya gerekir testleri UYAR rapor Microsoft Müşteri Hizmetleri desteği (CSS) başvurun.
+4. Aşağıdakilerden sınamaktadır rapor **başarısız**çalıştırın: `Get-AzureStackLog -FilterByRole SeedRing -OutputPath <Log output path>` cmdlet Test-AzureStack günlükleri toplar. Tanılama günlükleri hakkında daha fazla bilgi için bkz. [Azure Stack'te tanılama araçları](azure-stack-diagnostics.md). Günlükleri toplayın veya gerekir yoksa Microsoft Müşteri Hizmetleri desteği (CSS) başvurun testleri rapor **UYAR**.
 5. Gönderme **SeedRing** günlükleri Microsoft Müşteri Hizmetleri desteği. Microsoft Müşteri Hizmetleri desteği sorunu çözmek için sizinle birlikte çalışır.
 
 ## <a name="reference-for-test-azurestack"></a>Test-AzureStack için başvuru

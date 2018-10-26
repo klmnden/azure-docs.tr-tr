@@ -12,28 +12,32 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/24/2018
+ms.date: 10/25/2018
 ms.author: jeffgilb
-ms.openlocfilehash: 55be312046f5cdea2c1481ed435b5859ab2c2540
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.reviewer: knithinc
+ms.openlocfilehash: 1b5d5a2934205877f0e0c2ac891e62c90e960b3d
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/25/2018
-ms.locfileid: "50026919"
+ms.locfileid: "50085158"
 ---
-# <a name="connect-to-the-azure-stack-development-kit"></a>Azure Stack Geliştirme Seti bağlanma
+# <a name="connect-to-the-asdk"></a>İçin ASDK bağlanma
 
-Kaynakları yönetmek için Azure Stack geliştirme Seti'ni (ASDK) için önce bağlanmanız gerekir. Bu makalede, biz için ASDK bağlamak için atmanız gereken adımları açıklar. Aşağıdaki bağlantı seçeneklerden birini kullanabilirsiniz:
+Kaynakları yönetmek için Azure Stack geliştirme Seti'ni (ASDK) için önce bağlanmanız gerekir. Bu makalede, biz ASDK için aşağıdaki bağlantı seçeneklerini kullanarak bağlanmak için attığınız adımlar açıklanmaktadır:
 
-* [Uzak Masaüstü Bağlantısı](#connect-with-remote-desktop). Uzak Masaüstü bağlantısı kullanarak bağlandığınızda, tek bir kullanıcı için Geliştirme Seti hızlı bir şekilde bağlanabilirsiniz.
+* [Uzak Masaüstü Bağlantısı (RDP)](#connect-with-rdp). Uzak Masaüstü bağlantısı kullanarak bağlandığınızda, tek bir kullanıcı için Geliştirme Seti hızlı bir şekilde bağlanabilirsiniz.
 * [Sanal özel ağ (VPN)](#connect-with-vpn). Bir VPN kullanarak bağlandığınızda, birden çok kullanıcı eşzamanlı olarak Azure Stack altyapısının dışında istemcilerden bağlanabilirsiniz. Bir VPN bağlantısı bazı kurulum gerektirir.
 
-<a name="connect-to-azure-stack-with-remote-desktop"></a>
-##  <a name="connect-to-azure-stack-by-using-remote-desktop-connection"></a>Uzak Masaüstü bağlantısını kullanarak Azure Stack'e bağlanma
+<a name="connect-with-rdp"></a>
+## <a name="connect-to-azure-stack-using-rdp"></a>RDP kullanarak Azure Stack'e bağlanma
 
-Tek bir eş zamanlı kullanıcı işleci portalında veya Kullanıcı Portalı Uzak Masaüstü bağlantısı üzerinden kaynakları yönetebilir.
+Tek bir eş zamanlı kullanıcı kaynakları Azure Stack yönetim portalında veya Uzak Masaüstü bağlantısı aracılığıyla kullanıcı portalında doğrudan ASDK ana bilgisayardan yönetebilirsiniz. 
 
-1. Uzak Masaüstü Bağlantısı (mstc.exe) açın ve Geliştirme Seti ana bilgisayarı olarak bağlanma **AzureStack\AzureStackAdmin** ASDK Kurulum sırasında belirtilen parolayla.  
+> [!TIP]
+> Bu seçenek, RDP yeniden ASDK ana bilgisayarda açmış durumdayken ASDK ana bilgisayarda oluşturulan sanal makineler için oturum açarken kullandığınız da sağlar. 
+
+1. Uzak Masaüstü Bağlantısı (mstc.exe) açın ve ASDK ana bilgisayara uzaktan oturum yetkisine sahip bir hesap kullanarak Geliştirme Seti ana bilgisayar IP adresine bağlanın. Varsayılan olarak, **AzureStack\AzureStackAdmin** ASDK ana bilgisayarına uzak öğesini izinlerine sahiptir.  
 
 2. Geliştirme Seti ana bilgisayarda Sunucu Yöneticisi'ni (ServerManager.exe) açın. Seçin **yerel sunucu**, devre dışı **IE Artırılmış Güvenlik Yapılandırması**, Sunucu Yöneticisi'ni kapatın.
 
@@ -44,15 +48,15 @@ Tek bir eş zamanlı kullanıcı işleci portalında veya Kullanıcı Portalı U
 > [!NOTE]
 > Ne zaman hangi hesabın kullanılacağını hakkında daha fazla bilgi için bkz: [ASDK yönetim temel bilgileri](asdk-admin-basics.md#what-account-should-i-use).
 
-<a name="connect-to-azure-stack-with-vpn"></a>
-## <a name="connect-to-azure-stack-by-using-vpn"></a>Azure Stack VPN kullanarak bağlanma
+<a name="connect-with-vpn"></a>
+## <a name="connect-to-azure-stack-using-vpn"></a>Azure Stack VPN kullanarak bağlanma
 
-Azure Stack portalı ve Visual Studio ve PowerShell gibi yerel olarak yüklenen araçlar erişmek için bir ASDK VPN bağlantısı bölünmüş tünel oluşturabilir. VPN bağlantıları kullanarak, birden çok kullanıcı aynı zamanda ASDK tarafından barındırılan Azure Stack kaynaklara bağlanabilir.
+Azure Stack portalı ve Visual Studio ve PowerShell gibi yerel olarak yüklenen araçlar erişmek için bir ASDK ana bilgisayara VPN bağlantısı bölünmüş tünel oluşturabilir. VPN bağlantıları kullanarak, birden çok kullanıcı aynı zamanda ASDK tarafından barındırılan Azure Stack kaynaklara bağlanabilir.
 
 VPN bağlantısı desteklenen hem Azure AD için ve Active Directory Federasyon Hizmetleri (AD FS) dağıtımları.
 
 > [!NOTE]
-> Azure Stack altyapısının Vm'leri bağlantısı bir VPN bağlantısı sağlamaz.
+> Bir VPN bağlantısı *yok* Azure Stack Vm'lere bağlantı sağlamak. Azure Stack VPN bağlıyken Vm'leri rdp'ye mümkün olmayacaktır.
 
 ### <a name="prerequisites"></a>Önkoşullar
 ASDK bir VPN bağlantısı kurmadan önce aşağıdaki önkoşulları karşıladığınızdan emin olun.
@@ -98,29 +102,33 @@ Add-AzsVpnConnection `
 
 Kurulum başarılı olursa **azurestack** VPN bağlantıları listesinde görünür.
 
-![Ağ bağlantıları](media/asdk-connect/image3.png)  
+![Ağ bağlantıları](media/asdk-connect/vpn.png)  
 
 ### <a name="connect-to-azure-stack"></a>Azure Stack'e Bağlanma
 
-Aşağıdaki yöntemlerden birini kullanarak Azure Stack örneğine bağlanın:  
+  Aşağıdaki yöntemlerden birini kullanarak Azure Stack örneğine bağlanın:  
 
-* Kullanım `Connect-AzsVpn ` komutu:
-    
-  ```PowerShell
-  Connect-AzsVpn `
-    -Password $Password
-  ```
+  * Kullanım `Connect-AzsVpn ` komutu:
+      
+    ```PowerShell
+    Connect-AzsVpn `
+      -Password $Password
+    ```
 
-  İstendiğinde, Azure Stack ana güven ve sertifika yükleme **AzureStackCertificateAuthority** yerel bilgisayarınızın sertifika deposunda. 
+  * Yerel bilgisayarınızda seçin **ağ ayarlarını** > **VPN** > **azurestack** > **bağlanma**. Oturum açma isteminde kullanıcı adını girin (**AzureStack\AzureStackAdmin**) ve parolanızı.
+
+İlk kez bağlandığınızda, size Azure Stack kök sertifikası yüklemeniz istenir **AzureStackCertificateAuthority** yerel bilgisayarınızın sertifika deposunda. Bu adım ASDK sertifika yetkilisi (CA) güvenilir konaklar listesine ekler. Tıklayın **Evet** sertifikayı yüklemek için.
+
+![Kök sertifika](media/asdk-connect/cert.png)  
   
   > [!IMPORTANT]
-  > İstendiğinde PowerShell penceresi tarafından gizlenmiş olabilir.
-
-* Yerel bilgisayarınızda seçin **ağ ayarlarını** > **VPN** > **azurestack** > **bağlanma**. Oturum açma isteminde kullanıcı adını girin (**AzureStack\AzureStackAdmin**) ve parolanızı.
+  > İstendiğinde PowerShell penceresine veya diğer uygulamalar tarafından gizlenmiş olabilir.
 
 ### <a name="test-vpn-connectivity"></a>VPN bağlantısını test etme
 
-Portal bağlantısını sınamak için bir web tarayıcısı açın ve ardından ya da Kullanıcı Portalı'na gidin (https://portal.local.azurestack.external/) veya Yönetim Portalı (https://adminportal.local.azurestack.external/). Oturum açın ve kaynakları oluşturun.  
+Portal bağlantısını sınamak için bir web tarayıcısı açın ve ardından ya da Kullanıcı Portalı'na gidin (https://portal.local.azurestack.external/) veya Yönetim Portalı (https://adminportal.local.azurestack.external/). 
+
+Kaynakları oluşturup yönetmek için uygun bir abonelik kimlik bilgilerinizle oturum açın.  
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

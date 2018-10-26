@@ -1,5 +1,5 @@
 ---
-title: VM'ler için Azure İzleyici ile Uygulama bağımlılıklarını görüntüleme | Microsoft Docs
+title: VM'ler (Önizleme) için Azure İzleyici ile Uygulama bağımlılıklarını görüntüleme | Microsoft Docs
 description: Harita, Azure İzleyici sanal makineler için otomatik olarak Windows ve Linux sistemleri üzerindeki uygulama bileşenlerini bulur ve hizmetler arasındaki iletişimi eşleyen bir özelliğidir. Bu makalede, çeşitli senaryoları içinde kullanma hakkında ayrıntılar sağlar.
 services: azure-monitor
 documentationcenter: ''
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/17/2018
+ms.date: 10/25/2018
 ms.author: magoedte
-ms.openlocfilehash: 8641b6cfb14bceb248cc587095a9d3469ce2c9e0
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: af3d2b997a4d58f2d32705c55151c4cf13bdcc7c
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49402158"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50095487"
 ---
-# <a name="using-azure-monitor-for-vms-map-to-understand-application-components"></a>Uygulama bileşenleri anlamak için Vm'leri harita Azure İzleyicisi'ni kullanma
+# <a name="using-azure-monitor-for-vms-preview-map-to-understand-application-components"></a>Uygulama bileşenleri anlamak için Vm'leri (Önizleme) Map için Azure İzleyicisi'ni kullanma
 Windows ve Linux ortamınızı Azure İzleyici ile iki şekilde VM'ler için doğrudan bir sanal makineden veya Azure İzleyici'den VM grupları arasında gösterilebilir azure'da çalışan sanal makineler üzerinde bulunan uygulama bileşenlerini görüntüleme. 
 
 Bu makalede, iki perspektiften arasındaki eşleme özelliğini kullanma deneyimi anlamanıza yardımcı olur. VM'ler için Azure İzleyici yapılandırma hakkında daha fazla bilgi için bkz: [VM'ler için Azure İzleyici'ı etkinleştirme](monitoring-vminsights-onboard.md).

@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 10/24/2018
 ms.author: juliako
-ms.openlocfilehash: 62cc4634a0f76b0562d5b3c1355a7442fc5cf989
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: e7abdb568b11870fb467ee6d3759881ca337d3cc
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49985242"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50085848"
 ---
 # <a name="assets"></a>Varlıklar
 
@@ -34,19 +34,19 @@ Ayrıca, hakkında bilgi edinin [depolama hesapları Media Services](storage-acc
 
 Aşağıdaki tabloda, varlık özelliklerini gösterir ve bunların tanımlarının verir.
 
-|Ad|Tür|Açıklama|
-|---|---|---|
-|id|dize|Kaynak için tam kaynak kimliği.|
-|ad|dize|Kaynak adı.|
-|properties.alternateId |dize|Varlık alternatif kimliği.|
-|properties.assetId |dize|Varlık Kimliği|
-|Properties.Container |dize|Varlık blob kapsayıcısının adı.|
-|Properties.Created |dize|Varlık oluşturma tarihi.|
-|Properties.Description |dize|Varlık açıklaması.|
-|properties.lastModified |dize|En son değiştirildiği tarih varlığı.|
-|properties.storageAccountName |dize|Depolama hesabı adı.|
-|properties.storageEncryptionFormat |AssetStorageEncryptionFormat |Varlık şifeleme biçimi. Bir None veya MediaStorageEncryption.|
-|type|dize|Kaynak türü.|
+|Ad|Açıklama|
+|---|---|
+|id|Kaynak için tam kaynak kimliği.|
+|ad|Kaynak adı.|
+|properties.alternateId |Varlık alternatif kimliği.|
+|properties.assetId |Varlık Kimliği|
+|Properties.Container |Varlık blob kapsayıcısının adı.|
+|Properties.Created |Varlık oluşturma tarihi.|
+|Properties.Description|Varlık açıklaması.|
+|properties.lastModified |En son değiştirildiği tarih varlığı.|
+|properties.storageAccountName |Depolama hesabı adı.|
+|properties.storageEncryptionFormat |Varlık şifeleme biçimi. Bir None veya MediaStorageEncryption.|
+|type|Kaynak türü.|
 
 Tam tanımı için bkz [varlıklar](https://docs.microsoft.com/rest/api/media/assets).
 

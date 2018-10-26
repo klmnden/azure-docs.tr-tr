@@ -1,3 +1,16 @@
+---
+author: PatAltimore
+ms.service: active-directory-b2c
+ms.topic: include
+ms.date: 11/03/2016
+ms.author: patricka
+ms.openlocfilehash: 3485cc96ad1d9ab8f89facf33687a7ab2be43b1e
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50133733"
+---
 [!INCLUDE [active-directory-b2c-portal-navigate-b2c-service](active-directory-b2c-portal-navigate-b2c-service.md)]
 
 Ayarların ilkeler bölümünde **Oturum açma veya kaydolma ilkeleri**’ni seçip **+ Ekle**’ye tıklayın.
@@ -6,11 +19,11 @@ Ayarların ilkeler bölümünde **Oturum açma veya kaydolma ilkeleri**’ni se�
 
 Uygulamanızın başvuracağı ilke **Adını** girin. Örneğin, `SiUpIn` girin.
 
-**Kimlik sağlayıcıları**’nı seçin ve **E-posta ile kaydolma**’yı işaretleyin. İsteğe bağlı olarak, zaten yapılandırılmışsa sosyal kimlik sağlayıcıları öğesini de seçebilirsiniz. **Tamam**’a tıklayın.
+**Kimlik sağlayıcıları**’nı seçin ve **E-posta ile kaydolma**’yı işaretleyin. İsteğe bağlı olarak, zaten yapılandırılmışsa sosyal kimlik sağlayıcıları öğesini de seçebilirsiniz. **Tamam** düğmesine tıklayın.
 
 ![Kimlik sağlayıcısı olarak E-posta ile kaydolma’yı seçin ve Tamam düğmesine tıklayın.](media/active-directory-b2c-create-sign-in-sign-up-policy/add-b2c-signup-signin-identity-providers.png)
 
-**Kaydolma öznitelikleri**’ni seçin. Tüketiciden kayıt sırasında toplamak istediğiniz öznitelikleri seçin. Örneğin, **Ülke/Bölge**, **Görünen Ad** ve **Posta Kodu**’nu işaretleyin. **Tamam**’a tıklayın.
+**Kaydolma öznitelikleri**’ni seçin. Tüketiciden kayıt sırasında toplamak istediğiniz öznitelikleri seçin. Örneğin, **Ülke/Bölge**, **Görünen Ad** ve **Posta Kodu**’nu işaretleyin. **Tamam** düğmesine tıklayın.
 
 ![Bazı öznitelikleri seçin ve Tamam düğmesine tıklayın.](media/active-directory-b2c-create-sign-in-sign-up-policy/add-b2c-signup-signin-sign-up-attributes.png)
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/17/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: 5ddf510d50f38ed9aaf742bd06c330e53ffe1391
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 6f007ca3aacb338c14bf481ee58407596c8290ad
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46992805"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50091632"
 ---
 # <a name="alerts-on-activity-log"></a>Etkinlik günlüğü uyarıları 
 
@@ -50,7 +50,7 @@ Etkinlik günlüğü uyarıları, birkaç ortak seçeneğiniz vardır:
 - **Olayı başlatan tarafından**: olarak da bilinen "çağırana." E-posta adresi veya işlemi gerçekleştiren kullanıcının Azure Active Directory tanımlayıcısı.
 
 > [!NOTE]
-> Etkinlik için 100 uyarı kuralları kadar bir abonelikte ya da kapsamda'nın: tek bir kaynak, tüm kaynaklar kaynak grubuna (veya) tüm abonelik düzeyi.
+> Bir abonelikte en fazla 100 uyarı kuralları bir kapsamda ya da etkinliğin oluşturulabilir: tek bir kaynak, tüm kaynaklar kaynak grubuna (veya) tüm abonelik düzeyi.
 
 Bir etkinlik günlüğü uyarısı etkinleştirildiğinde, Eylemler veya bildirimleri oluşturmak için bir eylem grubu kullanır. Bir eylem grubu yeniden kullanılabilir e-posta adresleri gibi bildirim alıcıları Web kancası URL'leri ya da SMS telefon numaralarını kümesidir. Alıcılar, merkezileştirme ve bildirim kanallarınızın grup için birden çok uyarı başvurulabilir. Etkinlik günlüğü uyarınızın tanımlamak için iki seçeneğiniz vardır. Şunları yapabilirsiniz:
 

@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 09/22/2018
 ms.author: qianw211
-ms.openlocfilehash: 46740e925a5d4e94c314105aba4920caf01532e7
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 0468c41f0813277b6ba6d3be8ad89c3178dd1420
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49985617"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50094687"
 ---
 # <a name="iot-edge-modules"></a>IoT Edge modülleri
 
@@ -78,15 +78,11 @@ IOT Edge modülü, Azure Marketi'nde içerik yayımlamak için aşağıdaki önk
 
 **Teknik gereksinimler**
 
-Bunun almak ve Sertifikalı Azure Market'te yayımlanmış bir IOT Edge modülü için birincil teknik gereksinimleri bölümünde detayları [IOT Edge modülü sertifika alma süreci](https://cloudpartner.azure.com/#documentation/iot-edge-module-certification-process) üzerinde [bulut yayımlama Portal](https://cloudpartner.azure.com/).  
+Bunun almak ve Sertifikalı Azure Market'te yayımlanmış bir IOT Edge modülü için birincil teknik gereksinimleri bölümünde detayları [teknik varlıkları, IOT Edge modülü hazırlama](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/iot-edge-module/cpp-create-technical-assets).  
 
 ## <a name="documentation-and-resources"></a>Belgeleri ve kaynakları
 
-Oturum açtıktan sonra aşağıdaki makaleler kullanılabilir [bulut yayımlama portalı](https://cloudpartner.azure.com/):
-
-- [IOT Edge modülü teklif oluşturma](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/iot-edge-module/cpp-create-offer) -– bulut yayımlama portalında yeni bir IOT Edge modülü yayımlama adımları sunar.
-- [IOT Edge modülü sertifika alma süreci](https://cloudpartner.azure.com/#documentation/iot-edge-module-certification-process) – adımları ve bir IOT Edge modülü onaylamak için gereksinimleri özeti.
-- [IOT Edge modülü SSS](https://cloudpartner.azure.com/#documentation/iot-edge-module-faq) –-sık sorulan soruların bir listesi için IOT Edge modülleri ilgili.
+[IOT Edge modülü teklif oluşturma](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/iot-edge-module/cpp-create-offer) -– bulut yayımlama portalında yeni bir IOT Edge modülü yayımlama adımları sunar.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

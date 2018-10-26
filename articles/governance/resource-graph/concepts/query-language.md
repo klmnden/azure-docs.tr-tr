@@ -4,28 +4,28 @@ description: Azure kaynak grafik sorgu dilini nasıl çalıştığı açıklanı
 services: resource-graph
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 09/18/2018
+ms.date: 10/22/2018
 ms.topic: conceptual
 ms.service: resource-graph
 manager: carmonm
-ms.openlocfilehash: 6fcf3087feb7f208ea46d0e08824e965160a61d4
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: 09bcedc5250755f06ba23b84a0ae90b4d43a23db
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48236459"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50086174"
 ---
 # <a name="understanding-the-azure-resource-graph-query-language"></a>Azure kaynak grafik sorgu dilini anlama
 
 Azure kaynak grafik sorgu dilini birkaç işleç ve işlevlerini destekler. Her iş ve temel alınarak işletmek [Azure Veri Gezgini](../../../data-explorer/data-explorer-overview.md).
 
-Azure Veri Gezgini için belgelere başlatmak için kaynak graf tarafından kullanılan bir sorgu dili hakkında bilgi edinmek için en iyi yolu olan [sorgu dili](/azure/kusto/query/index). Bu dil nasıl yapılandırıldığını ve çeşitli işleçler nasıl desteklediği hakkında bir anlayış sağlar ve işlevleri birlikte çalışır.
+Azure Veri Gezgini için belgelere başlatmak için kaynak graf tarafından kullanılan bir sorgu dili hakkında bilgi edinmek için en iyi yolu olan [sorgu dili](/azure/kusto/query/index). Dil nasıl yapılandırıldığını ve çeşitli işleçler nasıl desteklediği hakkında bir anlayış sağlar ve işlevleri birlikte çalışır.
 
 ## <a name="supported-tabular-operators"></a>Desteklenen tablo işleçleri
 
 Kaynak Graph'te desteklenen tablosal işleçlerin listesi aşağıda verilmiştir:
 
-- [Sayısı](/azure/kusto/query/countoperator)
+- [count](/azure/kusto/query/countoperator)
 - [Farklı](/azure/kusto/query/distinctoperator)
 - [Genişletme](/azure/kusto/query/extendoperator)
 - [Sınırı](/azure/kusto/query/limitoperator)
@@ -56,4 +56,4 @@ Kaynak Graph'te desteklenen işlevler listesi aşağıda verilmiştir:
 
 - Kullanımda dili bakın [başlangıç sorguları](../samples/starter.md)
 - Bkz: Gelişmiş kullanır [Gelişmiş sorgular](../samples/advanced.md)
-- Öğrenme [kaynakları keşfedin](explore-resources.md)
+- [Kaynakları keşfetmeyi](explore-resources.md) öğrenin

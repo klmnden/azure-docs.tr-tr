@@ -1,5 +1,5 @@
 ---
-title: İzleme sanal makine durumu Azure İzleyici ile VM'ler için | Microsoft Docs
+title: İzleme sanal makine durumu Azure İzleyici ile VM'ler için (Önizleme) | Microsoft Docs
 description: Bu makalede, VM'ler için Azure İzleyici ile temel işletim sistemi ve sanal makine durumunu anlamak nasıl açıklar.
 services: azure-monitor
 documentationcenter: ''
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/15/2018
+ms.date: 10/25/2018
 ms.author: magoedte
-ms.openlocfilehash: 84314f64d8a96e65f63cb5c6051f7f5e902cd682
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 059667787c905f47f6629afdb249a2273ceed585
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49387830"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50094236"
 ---
-# <a name="understand-the-health-of-your-azure-virtual-machines-with-azure-monitor-for-vms"></a>VM'ler için Azure İzleyici ile Azure sanal makinelerinizin durumunu anlama
+# <a name="understand-the-health-of-your-azure-virtual-machines-with-azure-monitor-for-vms-preview"></a>VM'ler (Önizleme) için Azure İzleyici ile Azure sanal makinelerinizin durumunu anlama
 Azure İzleme alanı ayrı ayrı bir spesifik rol ya da görev gerçekleştiren birden çok hizmet içerir, ancak bir Azure sanal makinelerinde barındırılan işletim sistemi ayrıntılı sistem durumu açısından sağlama kullanılabilir değildi.  Log Analytics veya Azure İzleyicisi'ni kullanarak için farklı koşullar izleyebilir olsa da bunlar model ve sistem durumunu temel bileşenler veya genel sanal makine durumunu temsil eden üzere tasarlanmamıştır.  VM sistem durumu özelliği için Azure İzleyici ile proaktif olarak Windows veya Linux konuk işletim sistemi ile anahtar bileşenleri ve bu durumunu ölçmek nasıl belirten ölçütleri ilişkilerini temsil eden bir model performansını ve kullanılabilirliğini izler bileşenleri ve iyi durumda olmayan bir koşul algılandığında sizi uyarır.  
 
 Azure VM genel sistem durumunu görüntüleme ve işletim sistemi temel Vm'leri sistem durumu, sanal makineden doğrudan veya Azure İzleyici kaynak grubunun içindeki tüm sanal makineleri için Azure İzleyici ile iki yönlerden gösterilebilir.
@@ -35,7 +35,7 @@ Bu bölümde, Azure Windows ve Linux sanal makinelerini izlemek için tanımlana
 
 ### <a name="windows-vms"></a>Windows VM'leri
 
-- Kullanılabilir megabayt belleği 
+- Kullanılabilir megabayt belleği 
 - Ortalama Disk yazma (Mantıksal Disk) saniyede
 - Ortalama Disk yazma (Disk) saniyede
 - Okuma başına ortalama Mantıksal Disk saniye

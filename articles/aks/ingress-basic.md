@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/30/2018
 ms.author: iainfou
-ms.openlocfilehash: 3b6a0bb47e070c094fd955257e6ed041b6634db8
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: fdce7c1f5876442a10fbf77b315e082a0a817dfd
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49362998"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50093394"
 ---
 # <a name="create-an-ingress-controller-in-azure-kubernetes-service-aks"></a>Azure Kubernetes Service (AKS) giriş denetleyicisini oluşturma
 
@@ -24,8 +24,8 @@ Aşağıdakileri de yapabilirsiniz:
 
 - [HTTP uygulama yönlendirme eklentiyi etkinleştir][aks-http-app-routing]
 - [Bir özel, iç ağ ve IP adresi kullanan bir giriş denetleyicisini oluşturma][aks-ingress-internal]
-- [Dinamik genel IP ile bir giriş denetleyicisi oluşturmak ve TLS sertifikalarını otomatik olarak oluşturmak için şimdi şifreleme yapılandırma][aks-ingress-tls]
-- [Bir statik genel IP adresiyle bir giriş denetleyicisi oluşturmak ve TLS sertifikalarını otomatik olarak oluşturmak için şimdi şifreleme yapılandırma][aks-ingress-static-tls]
+- [Kendi TLS sertifikalarını kullanan bir giriş denetleyicisini oluşturma][aks-ingress-own-tls]
+- Şimdi şifreleme TLS sertifikalarını otomatik olarak oluşturmak için kullandığı bir giriş denetleyicisine oluşturma [dinamik genel IP adresi ile] [ aks-ingress-tls] veya [bir statik genel IP adresi ile][aks-ingress-static-tls]
 
 ## <a name="before-you-begin"></a>Başlamadan önce
 
@@ -173,8 +173,8 @@ Aşağıdakileri de yapabilirsiniz:
 
 - [HTTP uygulama yönlendirme eklentiyi etkinleştir][aks-http-app-routing]
 - [Bir özel, iç ağ ve IP adresi kullanan bir giriş denetleyicisini oluşturma][aks-ingress-internal]
-- [Dinamik genel IP ile bir giriş denetleyicisi oluşturmak ve TLS sertifikalarını otomatik olarak oluşturmak için şimdi şifreleme yapılandırma][aks-ingress-tls]
-- [Bir statik genel IP adresiyle bir giriş denetleyicisi oluşturmak ve TLS sertifikalarını otomatik olarak oluşturmak için şimdi şifreleme yapılandırma][aks-ingress-static-tls]
+- [Kendi TLS sertifikalarını kullanan bir giriş denetleyicisini oluşturma][aks-ingress-own-tls]
+- Şimdi şifreleme TLS sertifikalarını otomatik olarak oluşturmak için kullandığı bir giriş denetleyicisine oluşturma [dinamik genel IP adresi ile] [ aks-ingress-tls] veya [bir statik genel IP adresi ile][aks-ingress-static-tls]
 
 <!-- LINKS - external -->
 [helm-cli]: https://docs.microsoft.com/azure/aks/kubernetes-helm#install-helm-cli
@@ -187,3 +187,4 @@ Aşağıdakileri de yapabilirsiniz:
 [aks-ingress-tls]: ingress-tls.md
 [aks-ingress-static-tls]: ingress-static-ip.md
 [aks-http-app-routing]: http-application-routing.md
+[aks-ingress-own-tls]: ingress-own-tls.md

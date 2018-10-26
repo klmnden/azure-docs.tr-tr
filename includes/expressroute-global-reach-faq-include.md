@@ -5,15 +5,15 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: include
-ms.date: 09/24/2018
+ms.date: 10/23/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: b9c4cf6c90ef5507b318b4f13afb982aab151c79
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 4a3581b3d61c5ad17352c2865fc059704c1eece1
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48874010"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "50035195"
 ---
 ### <a name="what-is-expressroute-global-reach"></a>ExpressRoute Global erişim nedir?
 
@@ -21,7 +21,7 @@ ExpressRoute Global erişim global Microsoft ağı ExpressRoute hizmeti aracıl�
 
 ### <a name="how-do-i-enable-or-disable-expressroute-global-reach"></a>Nasıl etkinleştirmek veya devre dışı ExpressRoute Global erişim?
 
-Birlikte, ExpressRoute devreleri bağlanarak ExpressRoute Global erişim sağlar. Özelliği, devre kesme tarafından devre dışı. Yapılandırma konusuna bakın.
+Birlikte, ExpressRoute devreleri bağlanarak ExpressRoute Global erişim sağlar. Özelliği, devre kesme tarafından devre dışı. Bkz: [yapılandırma](../articles/expressroute/expressroute-howto-set-global-reach.md).
 
 ### <a name="do-i-need-expressroute-premium-for-expressroute-global-reach"></a>ExpressRoute Premium ExpressRoute Global erişim gerekiyor mu?
 
@@ -36,6 +36,7 @@ ExpressRoute, Microsoft bulut Hizmetleri için şirket içi ağınızdan bağlan
 ExpressRoute Global erişim aşağıdaki ülkelerde desteklenir. ExpressRoute bağlantı hatları, bu ülkelerde eşleme adreslerde oluşturulmalıdır.
 
 * Avustralya
+* Fransa
 * Hong Kong
 * İrlanda
 * Japonya
@@ -58,3 +59,11 @@ Hayır. Her iki şirket içi ağlarınız arasında bağlantıyı etkinleştirme
 ### <a name="what-is-the-network-throughput-i-can-expect-between-my-on-premises-networks-after-i-enable-expressroute-global-reach"></a>ExpressRoute Global erişim etkinleştirdiğinizde my şirket içi ağlar arasında bekleyebilirim ağ aktarım hızı nedir?
 
 Ağ aktarım hızını ExpressRoute Global erişim tarafından etkin şirket içi ağlarınız arasında küçük iki ExpressRoute devrelerinin göre ücret alınır.
+
+### <a name="with-expressroute-global-reach-what-are-the-limits-on-the-number-of-routes-i-can-advertise-and-the-number-of-routes-i-will-receive"></a>ExpressRoute Global erişim ile tanıtabilir miyim yolların sayısını ve yolları alma sınırları nelerdir?
+
+Sayısı, Microsoft Azure özel eşleme üzerinde tanıtabilirsiniz standart devredeki 4000 veya 10000 Premium devresi üzerinde kalır. Azure özel eşleme hakkında Microsoft'tan alacağınız yolların sayısını Azure sanal ağlarınıza yollarını toplamı olacak ve yolları diğer şirket içi ağlarınızı ExpressRoute Global erişim bağlı. Lütfen şirket içi yönlendiricinizi uygun en fazla önek sınırı ayarladığınızdan emin olun. 
+
+### <a name="what-is-the-sla-for-expressroute-global-reach"></a>ExpressRoute genel ulaşmak için SLA'sı nedir?
+
+ExpressRoute Global erişim sağlar; aynı [kullanılabilirlik SLA'sı](https://azure.microsoft.com/support/legal/sla/expressroute/v1_3/) normal ExpressRoute hizmet olarak.

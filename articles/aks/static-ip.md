@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 09/26/2018
 ms.author: iainfou
-ms.openlocfilehash: b51da8c5e5e113cdb7e449206f7137386b278be4
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: b64727f6a77bb1151a4f9016b6179a7ee22e3a5c
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/25/2018
-ms.locfileid: "50025931"
+ms.locfileid: "50085487"
 ---
 # <a name="use-a-static-public-ip-address-with-the-azure-kubernetes-service-aks-load-balancer"></a>Azure Kubernetes Service (AKS) yük dengeleyiciyle bir statik genel IP adresi kullanın
 
@@ -55,9 +55,9 @@ Aşağıdaki sıkıştırılmış örneğe çıktıda gösterildiği gibi IP adr
     "id": "/subscriptions/<SubscriptionID>/resourceGroups/MC_myResourceGroup_myAKSCluster_eastus/providers/Microsoft.Network/publicIPAddresses/myAKSPublicIP",
     "idleTimeoutInMinutes": 4,
     "ipAddress": "40.121.183.52",
-    [..]
+    [...]
   }
-````
+```
 
 Genel IP adresini kullanarak daha sonra alabilirsiniz [az ağ genel IP listesi] [ az-network-public-ip-list] komutu. Kaynak grubu düğümü, oluşturduğunuz genel IP adresi ve sorgu için bir ad belirtin *IPADDRESS* aşağıdaki örnekte gösterildiği gibi:
 
@@ -89,6 +89,28 @@ Hizmet oluşturup dağıtımla `kubectl apply` komutu.
 
 ```console
 kubectl apply -f load-balancer-service.yaml
+```
+
+## <a name="use-a-static-ip-address-outside-of-the-node-resource-group"></a>Düğüm kaynak grubu dışında bir statik IP adresi kullanın
+
+Kubernetes 1.10 ile ya da daha sonra dışında düğüm kaynak grubu oluşturulur statik bir IP adresi kullanacak şekilde gerçekleştirebilirsiniz. AKS kümesi tarafından kullanılan hizmet sorumlusunun bir kaynak grubu için izinleri vermiş olması gerekir.
+
+Düğüm kaynak grubu dışında bir IP adresi kullanmak için hizmet tanımı için bir ek açıklama ekleyin. Aşağıdaki örnekte adlı bir kaynak grubu için ek açıklama ayarlar *myResourceGroup*. Kendi kaynak grubu adı girin:
+
+```yaml
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    service.beta.kubernetes.io/azure-load-balancer-resource-group: myResourceGroup
+  name: azure-load-balancer
+spec:
+  loadBalancerIP: 40.121.183.52
+  type: LoadBalancer
+  ports:
+  - port: 80
+  selector:
+    app: azure-load-balancer
 ```
 
 ## <a name="troubleshoot"></a>Sorun giderme

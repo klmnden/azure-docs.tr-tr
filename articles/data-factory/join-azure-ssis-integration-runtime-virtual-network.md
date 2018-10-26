@@ -13,12 +13,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: 633717a9f5f74648f7418970dd8047079efe18b9
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 38839379f584b40cdbefad3e4cbb3bc47881c9a7
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49649100"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50094604"
 ---
 # <a name="join-an-azure-ssis-integration-runtime-to-a-virtual-network"></a>Bir Azure-SSIS tümleştirme çalışma zamanını bir sanal ağa katılın
 Bir Azure sanal ağına aşağıdaki senaryolarda, Azure-SSIS Integration runtime (IR) katılın: 
@@ -28,6 +28,9 @@ Bir Azure sanal ağına aşağıdaki senaryolarda, Azure-SSIS Integration runtim
 - Sanal ağ hizmet uç noktaları/yönetilen örnek ile Azure SQL veritabanı'nda SQL Server Integration Services (SSIS) Katalog veritabanı barındırır. 
 
  Azure Data Factory, Azure-SSIS tümleştirme çalışma zamanınızın Klasik dağıtım modeli veya Azure Resource Manager dağıtım modeli oluşturulan bir sanal ağa eklemenize olanak tanır. 
+
+> [!IMPORTANT]
+> Klasik sanal ağ şu anda kullanımdan kaldırılıyor, bu nedenle Lütfen bunun yerine Azure Resource Manager sanal ağ.  Klasik sanal ağ'ı zaten kullanıyorsanız, Azure Resource Manager sanal ağı olabildiğince çabuk kullanmak için lütfen geçiş yapın.
 
 ## <a name="access-to-on-premises-data-stores"></a>Şirket içi veri depolarına erişim
 SSIS paketlerini tek genel bulut veri depoları erişirseniz, Azure-SSIS IR'yi bir sanal ağa eklemeniz gerekmez. SSIS paketlerini şirket içi veri depolarına erişirseniz, Azure-SSIS IR'nin şirket içi ağa bağlı bir sanal ağa eklemeniz gerekir. 
@@ -46,11 +49,13 @@ Dikkat edilecek bazı önemli noktalar şunlardır:
 SSIS kataloğunu Azure SQL veritabanı'nda sanal ağ hizmet uç noktaları veya yönetilen örneği ile barındırılıyorsa için Azure-SSIS IR birleştirebilirsiniz: 
 
 - Aynı sanal ağ 
-- Sanal ağ hizmet uç noktaları/yönetilen ile örneğini Azure SQL veritabanı için kullanılan bir ağ ve ağ bağlantısı olan farklı bir sanal ağ 
+- Yönetilen örnek için kullanılan bir ağ ve ağ bağlantısı olan farklı bir sanal ağ 
+
+Sanal ağ hizmet uç noktaları ile Azure SQL veritabanı'nda, SSIS kataloğunu barındırmak, aynı sanal ağ ve alt ağ için Azure-SSIS IR katılın emin olun.
 
 Yönetilen örneği aynı sanal ağ için Azure-SSIS IR katılırsanız, Azure-SSIS IR yönetilen örneği'den farklı bir alt ağda olduğundan emin olun. Azure-SSIS IR, yönetilen örneğe farklı bir sanal ağa katılırsanız, (Bu aynı bölgeye sınırlıdır) sanal ağ eşlemesi veya sanal ağ için sanal ağ bağlantısı öneririz. Bkz: [uygulamanızı Azure SQL veritabanı yönetilen örneği bağlamak](../sql-database/sql-database-managed-instance-connect-app.md).
 
-Sanal ağı Klasik dağıtım modeli veya Azure Resource Manager dağıtım modeli dağıtılabilir.
+Her durumda, sanal ağın yalnızca Azure Resource Manager dağıtım modeliyle dağıtılabilir.
 
 Aşağıdaki bölümlerde daha ayrıntılı bilgi verilmektedir. 
 
@@ -73,13 +78,13 @@ Aşağıdaki bölümlerde daha ayrıntılı bilgi verilmektedir.
 
 Azure-SSIS tümleştirme çalışma zamanını oluşturan kullanıcının aşağıdaki izinlere sahip olmalıdır:
 
-- SSIS IR geçerli sürümü için bir Azure sanal ağı birleştirdiğimiz, iki seçeneğiniz vardır:
+- Bir Azure Resource Manager sanal ağı, SSIS IR birleştirdiğimiz, iki seçeneğiniz vardır:
 
-  - Yerleşik rolü kullanmak *ağ Katılımcısı*. Bu rolü gerektiren *Microsoft.Network/\**  kadar geniş kapsamı olan izin, ancak.
+  - Yerleşik kullanın *ağ Katılımcısı* rol. Bu rol ile birlikte gelen *Microsoft.Network/\**  daha bir çok geniş kapsamı olan izni.
 
-  - İznini içeren bir özel rol oluşturma *Microsoft.Network/virtualNetworks/\*/JOIN/eylem*. 
+  - Yalnızca gerekli içeren özel bir rol oluşturun *Microsoft.Network/virtualNetworks/\*/JOIN/eylem* izni. 
 
-- Klasik bir Azure sanal ağı için SSIS IR'yi birleştirdiğimiz, yerleşik rolü kullanmanızı öneririz *Klasik sanal makine Katılımcısı*. Aksi takdirde sanal ağ alanına katılma izni içeren özel bir rol tanımlamak gerekir.
+- Klasik bir sanal ağa, SSIS IR birleştirdiğimiz, yerleşik kullanmanızı öneririz *Klasik sanal makine Katılımcısı* rol. Aksi takdirde sanal ağ alanına katılma izni içeren özel bir rol tanımlamak gerekir.
 
 ### <a name="subnet"></a> Alt ağı seçin
 -   Sanal ağ geçitleri için ayrılmış olduğundan, bir Azure-SSIS Integration Runtime'ı dağıtmak için GatewaySubnet seçmeyin. 

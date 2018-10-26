@@ -4,7 +4,7 @@ description: Bir OpenShift kümesi dağıtıldıktan sonra ek görevler için.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: haroldwongms
-manager: najoshi
+manager: joraio
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
@@ -13,22 +13,23 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 05/09/2018
+ms.date: ''
 ms.author: haroldw
-ms.openlocfilehash: 39febceff58127fb9777ace6e3063fbe41605b79
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 7b129eea513b7856ca99b02842b3b9c33c6ec19b
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49426456"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50084994"
 ---
 # <a name="post-deployment-tasks"></a>Dağıtım sonrası görevler
 
-OpenShift küme dağıtıldıktan sonra ek öğelerini yapılandırabilirsiniz. Bu makalede, aşağıdakileri içerir:
+OpenShift küme dağıtıldıktan sonra ek öğelerini yapılandırabilirsiniz. Bu makalede ele alınmıştır:
 
 - Azure Active Directory (Azure AD) kullanarak çoklu oturum açmayı yapılandırma
 - OpenShift izlemek için log Analytics'i yapılandırma
 - Ölçümler ve günlüğe kaydetme yapılandırma
+- Açık hizmet Aracısı (OSBA) Azure için yükleme
 
 ## <a name="configure-single-sign-on-by-using-azure-active-directory"></a>Azure Active Directory'yi kullanarak çoklu oturum açmayı yapılandırın
 
@@ -39,15 +40,15 @@ Azure Active Directory kimlik doğrulaması için kullanmak için önce bir Azur
 Bu adımlar, uygulama kaydı ve izinler ayarlamak üzere GUI (portal) oluşturmak için Azure CLI'yı kullanın. Uygulama kaydı oluşturmak için şu beş bilgilere ihtiyacınız vardır:
 
 - Görünen ad: uygulama kaydı adı (örneğin, OCPAzureAD)
-- Giriş sayfası: OpenShift konsol URL'si (örneğin, https://masterdns343khhde.westus.cloudapp.azure.com:8443/console)
-- Tanımlayıcı URI'si: OpenShift Konsolu URL'si (örneğin, https://masterdns343khhde.westus.cloudapp.azure.com:8443/console)
+- Giriş sayfası: OpenShift konsol URL'si (örneğin, https://masterdns343khhde.westus.cloudapp.azure.com/console)
+- Tanımlayıcı URI'si: OpenShift Konsolu URL'si (örneğin, https://masterdns343khhde.westus.cloudapp.azure.com/console)
 - Yanıt URL'si: genel URL ve uygulama kayıt adı (örneğin, ana https://masterdns343khhde.westus.cloudapp.azure.com/oauth2callback/OCPAzureAD)
 - Parola: Güvenli parola (güçlü bir parola kullanın)
 
 Aşağıdaki örnek, önceki bilgileri kullanarak bir uygulama kaydı oluşturur:
 
 ```azurecli
-az ad app create --display-name OCPAzureAD --homepage https://masterdns343khhde.westus.cloudapp.azure.com:8443/console --reply-urls https://masterdns343khhde.westus.cloudapp.azure.com/oauth2callback/OCPAzureAD --identifier-uris https://masterdns343khhde.westus.cloudapp.azure.com:8443/console --password {Strong Password}
+az ad app create --display-name OCPAzureAD --homepage https://masterdns343khhde.westus.cloudapp.azure.com/console --reply-urls https://masterdns343khhde.westus.cloudapp.azure.com/oauth2callback/hwocpadint --identifier-uris https://masterdns343khhde.westus.cloudapp.azure.com/console --password {Strong Password}
 ```
 
 Komut başarılı olursa, bir JSON çıkışı benzer alın:
@@ -58,9 +59,9 @@ Komut başarılı olursa, bir JSON çıkışı benzer alın:
   "appPermissions": null,
   "availableToOtherTenants": false,
   "displayName": "OCPAzureAD",
-  "homepage": "https://masterdns343khhde.westus.cloudapp.azure.com:8443/console",
+  "homepage": "https://masterdns343khhde.westus.cloudapp.azure.com/console",
   "identifierUris": [
-    "https://masterdns343khhde.westus.cloudapp.azure.com:8443/console"
+    "https://masterdns343khhde.westus.cloudapp.azure.com/console"
   ],
   "objectId": "62cd74c9-42bb-4b9f-b2b5-b6ee88991c80",
   "objectType": "Application",
@@ -82,7 +83,7 @@ Azure portalında:
 
   ![Uygulama kaydı](media/openshift-post-deployment/app-registration.png)
 
-6.  1. Adım'a tıklayın: API seçin ve ardından **Azure Active Directory (Microsoft.Azure.ActiveDirectory)**. Tıklayın **seçin** altındaki.
+6.  1. Adım'a tıklayın: API seçin ve ardından **Windows Azure Active Directory (Microsoft.Azure.ActiveDirectory)**. Tıklayın **seçin** altındaki.
 
   ![Uygulama kaydı API seçimi](media/openshift-post-deployment/app-registration-select-api.png)
 
@@ -106,7 +107,7 @@ Yaml dosyasında aşağıdaki satırları bulun:
 
 ```yaml
 oauthConfig:
-  assetPublicURL: https://masterdns343khhde.westus.cloudapp.azure.com:8443/console/
+  assetPublicURL: https://masterdns343khhde.westus.cloudapp.azure.com/console/
   grantConfig:
     method: auto
   identityProviders:
@@ -146,16 +147,9 @@ oauthConfig:
         token: https://login.microsoftonline.com/<tenant Id>/oauth2/token
 ```
 
-Aşağıdaki CLI komutunu kullanarak Kiracı Kimliğini bulun: ```az account show```
+Metni doğru altında identityProviders hizalar emin olun. Aşağıdaki CLI komutunu kullanarak Kiracı Kimliğini bulun: ```az account show```
 
 Tüm ana düğüm üzerinde OpenShift Yöneticisi hizmetlerini yeniden başlatın:
-
-**OpenShift Origin**
-
-```bash
-sudo systemctl restart origin-master-api
-sudo systemctl restart origin-master-controllers
-```
 
 **Birden çok ana sunucu ile OpenShift kapsayıcı Platformu (OCP)**
 
@@ -170,135 +164,47 @@ sudo systemctl restart atomic-openshift-master-controllers
 sudo systemctl restart atomic-openshift-master
 ```
 
+**Birden çok ana sunucu ile OKD**
+
+```bash
+sudo systemctl restart origin-master-api
+sudo systemctl restart origin-master-controllers
+```
+
+**Tek bir ana şablon ile OKD**
+
+```bash
+sudo systemctl restart origin-master
+```
+
 OpenShift konsolunda, artık kimlik doğrulaması için iki seçenek görürsünüz: htpasswd_auth ve [uygulama kaydı].
 
 ## <a name="monitor-openshift-with-log-analytics"></a>Log Analytics ile izleme OpenShift
 
-Log Analytics ile OpenShift izlemek için iki seçenekten birini kullanabilirsiniz: Log Analytics VM konağında veya Log Analytics kapsayıcı Aracısı yükleme. Bu makale, Log Analytics kapsayıcıyı dağıtmak için yönergeler sağlar.
+OpenShift için Log Analytics aracısını eklemenin üç yolu vardır.
+- Linux için Log Analytics aracısını doğrudan her OpenShift düğümüne yükleme
+- OpenShift her düğümde log Analytics VM uzantısını etkinleştirme
+- Log Analytics aracısını bir OpenShift arka plan programı kümesi olarak yükleme
 
-## <a name="create-an-openshift-project-for-log-analytics-and-set-user-access"></a>Log Analytics için OpenShift proje oluşturma ve kullanıcı erişimini ayarlama
-
-```bash
-oadm new-project omslogging --node-selector='zone=default'
-oc project omslogging
-oc create serviceaccount omsagent
-oadm policy add-cluster-role-to-user cluster-reader system:serviceaccount:omslogging:omsagent
-oadm policy add-scc-to-user privileged system:serviceaccount:omslogging:omsagent
-```
-
-## <a name="create-a-daemon-set-yaml-file"></a>Arka plan programı kümesi yaml dosyası oluşturma
-
-Ocp adlı bir dosya oluşturun-omsagent.yml:
-
-```yaml
-apiVersion: extensions/v1beta1
-kind: DaemonSet
-metadata:
-  name: oms
-spec:
-  selector:
-    matchLabels:
-      name: omsagent
-  template:
-    metadata:
-      labels:
-        name: omsagent
-        agentVersion: 1.4.0-45
-        dockerProviderVersion: 10.0.0-25
-    spec:
-      nodeSelector:
-        zone: default
-      serviceAccount: omsagent
-      containers:
-      - image: "microsoft/oms"
-        imagePullPolicy: Always
-        name: omsagent
-        securityContext:
-          privileged: true
-        ports:
-        - containerPort: 25225
-          protocol: TCP
-        - containerPort: 25224
-          protocol: UDP
-        volumeMounts:
-        - mountPath: /var/run/docker.sock
-          name: docker-sock
-        - mountPath: /etc/omsagent-secret
-          name: omsagent-secret
-          readOnly: true
-        livenessProbe:
-          exec:
-            command:
-              - /bin/bash
-              - -c
-              - ps -ef | grep omsagent | grep -v "grep"
-          initialDelaySeconds: 60
-          periodSeconds: 60
-      volumes:
-      - name: docker-sock
-        hostPath:
-          path: /var/run/docker.sock
-      - name: omsagent-secret
-        secret:
-         secretName: omsagent-secret
-````
-
-## <a name="create-a-secret-yaml-file"></a>Gizli yaml dosyası oluşturma
-
-Gizli yaml dosyası oluşturmak için iki parça bilgi gerekir: Log Analytics çalışma alanı Kimliğiniz ve Log Analytics çalışma alanı paylaşılan anahtarı. 
-
-Örnek ocp-secret.yml dosyası aşağıdaki gibidir: 
-
-```yaml
-apiVersion: v1
-kind: Secret
-metadata:
-  name: omsagent-secret
-data:
-  WSID: wsid_data
-  KEY: key_data
-```
-
-Log Analytics çalışma alanı kimliği Değiştir wsid_data Base64 ile kodlanmış Ardından key_data Base64 ile kodlanmış Log Analytics çalışma alanı paylaşılan anahtarı ile değiştirin.
-
-```bash
-wsid_data='11111111-abcd-1111-abcd-111111111111'
-key_data='My Strong Password'
-echo $wsid_data | base64 | tr -d '\n'
-echo $key_data | base64 | tr -d '\n'
-```
-
-## <a name="create-the-secret-and-daemon-set"></a>Gizli dizi ve arka plan programı kümesi oluşturma
-
-Gizli dizi dosyasını dağıtın:
-
-```bash
-oc create -f ocp-secret.yml
-```
-
-Log Analytics aracısını arka plan programı kümesi dağıtın:
-
-```bash
-oc create -f ocp-omsagent.yml
-```
+Tam yönergeler burada bulunur: https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-containers#configure-a-log-analytics-agent-for-red-hat-openshift.
 
 ## <a name="configure-metrics-and-logging"></a>Ölçümler ve günlüğe kaydetme yapılandırın
 
-OpenShift kapsayıcı platformu için Azure Resource Manager şablonu ölçümlerini etkinleştirme ve günlüğe kaydetme için giriş parametrelerini sağlar. OpenShift kapsayıcı platformu Market teklifi ve OpenShift Origin Resource Manager şablonu yoktur.
+Bir daldaki bağlı olarak, OpenShift kapsayıcı platformu ve OKD için Azure Resource Manager şablonları ölçümlerini etkinleştirme ve yüklemenin bir parçası günlüğe kaydetme için giriş parametrelerini sağlayabilir.
 
-OCP Market teklifi kullandıysanız, kolayca olabilir ve günlüğe kaydetme, yükleme sırasında etkin olmayan veya OCP Resource Manager şablonunu ve ölçümleri kullandıysanız bu çözümledikten sonra etkinleştirin. OpenShift Origin Resource Manager şablonu kullanıyorsanız, bazı öncesi iş gereklidir.
+OpenShift kapsayıcı platformu Market teklifi, Ölçümler ve Küme yükleme sırasında günlük kaydını etkinleştirmek için bir seçenek de sağlar.
 
-### <a name="openshift-origin-template-pre-work"></a>OpenShift Origin şablonu ön çalışma
+Varsa ölçümleri / küme yüklenmesi sırasında günlük kaydının etkin değildi, olaydan sonra kolayca etkinleştirilebilir.
 
-1. SSH bağlantı noktası 2200'ı kullanarak ilk ana düğüme.
+### <a name="ansible-inventory-pre-work"></a>Ansible Envanter ön çalışma
 
-   Örnek:
+Ansible Envanter dosyası doğrulayın (/ ansible/etc/hosts) ölçümler için uygun değişkeni yok / günlüğe kaydetme. Envanter dosyası kullanılan şablonunu temel alarak farklı konaklarda bulunabilir.
 
-   ```bash
-   ssh -p 2200 clusteradmin@masterdnsixpdkehd3h.eastus.cloudapp.azure.com 
-   ```
+OpenShift Container şablonu ve Market teklifi için Envanter dosyası savunma ana bilgisayarda bulunur. OKD şablonu için Envanter dosyası ya da bir ana-0 konakta bulunduğundan veya savunma ana dal kullanılıyor göre.
 
-2. /Etc/ansible/hosts dosyasını düzenleyin ve (# etkinleştirme HTPasswdPasswordIdentityProvider) kimlik sağlayıcısı bölümünden sonra aşağıdaki satırları ekleyin:
+1. /Etc/ansible/hosts dosyasını düzenleyin ve (# etkinleştirme HTPasswdPasswordIdentityProvider) kimlik sağlayıcısı bölümünden sonra aşağıdaki satırları ekleyin. Bu satırlar zaten mevcut olması durumunda, onları yeniden eklemeyin.
+
+   OpenShift / OKD uygulamasının 3,9 ve önceki sürümleri
 
    ```yaml
    # Setup metrics
@@ -320,35 +226,130 @@ OCP Market teklifi kullandıysanız, kolayca olabilir ve günlüğe kaydetme, y�
    openshift_master_logging_public_url=https://kibana.$ROUTING
    ```
 
+   OpenShift / OKD'ın 3.10 ve sonraki sürümleri
+
+   ```yaml
+   # Setup metrics
+   openshift_metrics_install_metrics=false
+   openshift_metrics_start_cluster=true
+   openshift_metrics_hawkular_nodeselector={"node-role.kubernetes.io/infra":"true"}
+   openshift_metrics_cassandra_nodeselector={"node-role.kubernetes.io/infra":"true"}
+   openshift_metrics_heapster_nodeselector={"node-role.kubernetes.io/infra":"true"}
+
+   # Setup logging
+   openshift_logging_install_logging=false
+   openshift_logging_fluentd_nodeselector={"logging":"true"}
+   openshift_logging_es_nodeselector={"node-role.kubernetes.io/infra":"true"}
+   openshift_logging_kibana_nodeselector={"node-role.kubernetes.io/infra":"true"}
+   openshift_logging_curator_nodeselector={"node-role.kubernetes.io/infra":"true"}
+   openshift_logging_master_public_url=https://kibana.$ROUTING
+   ```
+
 3. $ROUTING aynı /etc/ansible/hosts dosyasındaki openshift_master_default_subdomain seçeneği kullanılacak dizeyle değiştirin.
 
 ### <a name="azure-cloud-provider-in-use"></a>Azure bulut sağlayıcısı kullanın
 
-İlk ana düğüm (kaynak) veya savunma düğümü (OCP), dağıtım sırasında sağlanan kimlik bilgileri kullanarak SSH. Aşağıdaki komutu yürütün:
+SSH savunma düğüm veya ilk ana düğüm (şablon ve dal kullanımda göre) için dağıtım sırasında sağlanan kimlik bilgilerini kullanarak. Aşağıdaki komutu yürütün:
+
+**OpenShift kapsayıcı platformu 3.7 ve önceki sürümleri**
 
 ```bash
-ansible-playbook $HOME/openshift-ansible/playbooks/byo/openshift-cluster/openshift-metrics.yml \
+ansible-playbook /usr/share/ansible/openshift-ansible/playbooks/byo/openshift-cluster/openshift-metrics.yml \
 -e openshift_metrics_install_metrics=True \
 -e openshift_metrics_cassandra_storage_type=dynamic
 
-ansible-playbook $HOME/openshift-ansible/playbooks/byo/openshift-cluster/openshift-logging.yml \
+ansible-playbook /usr/share/ansible/openshift-ansible/playbooks/byo/openshift-cluster/openshift-logging.yml \
 -e openshift_logging_install_logging=True \
 -e openshift_hosted_logging_storage_kind=dynamic
 ```
 
-### <a name="azure-cloud-provider-not-in-use"></a>Azure bulut sağlayıcısı kullanımda
-
-İlk ana düğüm (kaynak) veya savunma düğümü (OCP), dağıtım sırasında sağlanan kimlik bilgileri kullanarak SSH. Aşağıdaki komutu yürütün:
+**OpenShift kapsayıcı platformu 3,9 ve üzeri**
 
 ```bash
-ansible-playbook $HOME/openshift-ansible/playbooks/byo/openshift-cluster/openshift-metrics.yml \
--e openshift_metrics_install_metrics=True 
+ansible-playbook /usr/share/ansible/openshift-ansible/playbooks/openshift-metrics/config.yml \
+-e openshift_metrics_install_metrics=True \
+-e openshift_metrics_cassandra_storage_type=dynamic
 
-ansible-playbook $HOME/openshift-ansible/playbooks/byo/openshift-cluster/openshift-logging.yml \
--e openshift_logging_install_logging=True 
+ansible-playbook /usr/share/ansible/openshift-ansible/playbooks/openshift-logging/config.yml \
+-e openshift_logging_install_logging=True \
+-e openshift_logging_es_pvc_dynamic=true
 ```
+
+**OKD 3.7 ve önceki sürümleri**
+
+```bash
+ansible-playbook ~/openshift-ansible/playbooks/byo/openshift-cluster/openshift-metrics.yml \
+-e openshift_metrics_install_metrics=True \
+-e openshift_metrics_cassandra_storage_type=dynamic
+
+ansible-playbook ~/openshift-ansible/playbooks/byo/openshift-cluster/openshift-logging.yml \
+-e openshift_logging_install_logging=True \
+-e openshift_hosted_logging_storage_kind=dynamic
+```
+
+**OKD 3,9 ve üzeri**
+
+```bash
+ansible-playbook ~/openshift-ansible/playbooks/byo/openshift-cluster/openshift-metrics.yml \
+-e openshift_metrics_install_metrics=True \
+-e openshift_metrics_cassandra_storage_type=dynamic
+
+ansible-playbook ~/openshift-ansible/playbooks/openshift-logging/config.yml \
+-e openshift_logging_install_logging=True \
+-e openshift_logging_es_pvc_dynamic=true
+```
+
+### <a name="azure-cloud-provider-not-in-use"></a>Azure bulut sağlayıcısı kullanımda
+
+SSH savunma düğüm veya ilk ana düğüm (şablon ve dal kullanımda göre) için dağıtım sırasında sağlanan kimlik bilgilerini kullanarak. Aşağıdaki komutu yürütün:
+
+
+**OpenShift kapsayıcı platformu 3.7 ve önceki sürümleri**
+
+```bash
+ansible-playbook /usr/share/ansible/openshift-ansible/playbooks/byo/openshift-cluster/openshift-metrics.yml \
+-e openshift_metrics_install_metrics=True
+
+ansible-playbook /usr/share/ansible/openshift-ansible/playbooks/byo/openshift-cluster/openshift-logging.yml \
+-e openshift_logging_install_logging=True
+```
+
+**OpenShift kapsayıcı platformu 3,9 ve üzeri**
+
+```bash
+ansible-playbook /usr/share/ansible/openshift-ansible/playbooks/openshift-metrics/config.yml \
+-e openshift_metrics_install_metrics=True
+
+ansible-playbook /usr/share/ansible/openshift-ansible/playbooks/openshift-logging/config.yml \
+-e openshift_logging_install_logging=True
+```
+
+**OKD 3.7 ve önceki sürümleri**
+
+```bash
+ansible-playbook ~/openshift-ansible/playbooks/byo/openshift-cluster/openshift-metrics.yml \
+-e openshift_metrics_install_metrics=True
+
+ansible-playbook ~/openshift-ansible/playbooks/byo/openshift-cluster/openshift-logging.yml \
+-e openshift_logging_install_logging=True
+```
+
+**OKD 3,9 ve üzeri**
+
+```bash
+ansible-playbook ~/openshift-ansible/playbooks/byo/openshift-cluster/openshift-metrics.yml \
+-e openshift_metrics_install_metrics=True
+ansible-playbook ~/openshift-ansible/playbooks/openshift-logging/config.yml \
+-e openshift_logging_install_logging=True
+```
+
+## <a name="install-open-service-broker-for-azure-osba"></a>Açık hizmet Aracısı (OSBA) Azure'ı yükleme
+
+Hizmet Aracısı'nı açmak için Azure veya OSBA, sağlar OpenShift doğrudan Azure bulut hizmetleri sağlama. OSBA Azure için açık hizmet Aracısı API uygulaması içinde. Açık hizmet Aracısı tanımlayan bir bulut yerel uygulamalarını bulut sağlayıcılarının kilit açma olmadan bulut hizmetlerini yönetmek için kullanabilirsiniz için ortak dil belirtimi API'dir.
+
+OSBA üzerinde OpenShift yüklemek için buradaki yönergeleri izleyin: https://github.com/Azure/open-service-broker-azure#openshift-project-template. 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- [OpenShift kapsayıcı platformu ile çalışmaya başlama](https://docs.openshift.com/container-platform/3.6/getting_started/index.html)
-- [OpenShift Origin kullanmaya başlama](https://docs.openshift.org/latest/getting_started/index.html)
+- [OpenShift kapsayıcı platformu ile çalışmaya başlama](https://docs.openshift.com/container-platform)
+- [OKD ile çalışmaya başlama](https://docs.okd.io/latest)

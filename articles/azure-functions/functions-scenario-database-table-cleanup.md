@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 05/22/2017
 ms.author: glenga
-ms.openlocfilehash: 024958d8a548313b53fc24ade5805de036a89afb
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: adeabacfd468a7a5967ff05f527849e31cbeead8
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49351924"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50084467"
 ---
 # <a name="use-azure-functions-to-connect-to-an-azure-sql-database"></a>Bir Azure SQL veritabanı'na bağlanmak için Azure işlevleri'ni kullanın
 Bu konu Azure SQL veritabanı tablosundaki satırları temizler, zamanlanmış bir iş oluşturmak için Azure işlevleri kullanmayı gösterir. Yeni C# betik işlevi Azure portalında bir önceden tanımlanmış bir zamanlayıcı tetikleyici şablonunu temel alınarak oluşturulur. Bu senaryoyu desteklemek için ayrıca bir veritabanı bağlantı dizesi bir işlev uygulaması uygulama ayarı olarak ayarlamanız gerekir. Bu senaryo, veritabanında bir toplu işlemi kullanır. 
@@ -86,11 +86,12 @@ Azure'da işlevlerinizin yürütülmesini bir işlev uygulaması barındırır. 
     using System.Configuration;
     using System.Data.SqlClient;
     using System.Threading.Tasks;
+    using Microsoft.Extensions.Logging;
     ```
 
 4. Varolan `Run` işlevi aşağıdaki kod ile:
     ```cs
-    public static async Task Run(TimerInfo myTimer, TraceWriter log)
+    public static async Task Run(TimerInfo myTimer, ILogger log)
     {
         var str = ConfigurationManager.ConnectionStrings["sqldb_connection"].ConnectionString;
         using (SqlConnection conn = new SqlConnection(str))
@@ -103,7 +104,7 @@ Azure'da işlevlerinizin yürütülmesini bir işlev uygulaması barındırır. 
             {
                 // Execute the command and log the # rows affected.
                 var rows = await cmd.ExecuteNonQueryAsync();
-                log.Info($"{rows} rows were updated");
+                log.LogInformation($"{rows} rows were updated");
             }
         }
     }

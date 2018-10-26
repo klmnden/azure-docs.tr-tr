@@ -4,28 +4,26 @@ description: Bir kaynakları Azure'a dağıtmak için Azure Resource Manager ve 
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
-manager: timlt
-editor: tysonn
 ms.assetid: 55903f35-6c16-4c6d-bf52-dbf365605c3f
 ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/06/2017
+ms.date: 10/24/2018
 ms.author: tomfitz
-ms.openlocfilehash: e6dd119bcd72fa6a5c7515150bfa85f015ee5c0e
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 083a318f008799713f4d8d9aeacfe2e27f6ad195
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47223110"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50085947"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-powershell"></a>Kaynakları Resource Manager şablonları ve Azure PowerShell ile dağıtma
 
 Bu makalede, Azure PowerShell Resource Manager şablonları ile kaynaklarınızı Azure'a dağıtmak için kullanmayı açıklar. Dağıtma ile ilgili kavramları hakkında bilgi sahibi değilseniz ve Azure çözümlerinizi bkz [Azure Resource Manager'a genel bakış](resource-group-overview.md).
 
-Resource Manager şablonu makinenizde yerel bir dosya veya GitHub gibi bir depoda bulunan bir dış dosya olabilir dağıtın. Bu makalede dağıttığınız şablonu kullanılabilir [örnek şablonu](#sample-template) bölümünde veya as [depolama hesabı GitHub şablonunda](https://github.com/Azure/azure-quickstart-templates/blob/master/101-storage-account-create/azuredeploy.json).
+Resource Manager şablonu makinenizde yerel bir dosya veya GitHub gibi bir depoda bulunan bir dış dosya olabilir dağıtın. Bu makalede dağıttığınız şablon olarak kullanılabilir [depolama hesabı GitHub şablonunda](https://github.com/Azure/azure-quickstart-templates/blob/master/101-storage-account-create/azuredeploy.json).
 
 Gerekirse, [Azure PowerShell kılavuzunda](/powershell/azure/overview) bulunan yönergeleri kullanarak Azure PowerShell modülünü yükleyin ve sonra Azure bağlantısı oluşturmak için `Connect-AzureRmAccount` komutunu çalıştırın.
 
@@ -71,7 +69,7 @@ New-AzureRmResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName Ex
   -storageAccountType Standard_GRS
 ```
 
-Yukarıdaki örnekte genel olarak erişilebilen bir URI şablonu için çoğu senaryo için şablonunuzu hassas bir veri içermemesi çünkü düşünülerek gerektirir. Hassas verileri (örneğin, bir yönetici parolası) belirtmeniz gerekiyorsa, bu değeri güvenli bir parametre geçirin. Ancak, şablonunuzu genel olarak erişilebilir olmasını istemiyorsanız, bir özel depolama kapsayıcısında depolayarak koruyabilirsiniz. Paylaşılan erişim imzası (SAS) belirteci gerektiren şablonu dağıtma hakkında daha fazla bilgi için bkz: [SAS belirteci ile özel şablonu Dağıt](resource-manager-powershell-sas-token.md).
+Yukarıdaki örnekte genel olarak erişilebilen bir URI şablonu için çoğu senaryo için şablonunuzu hassas verileri eklememelisiniz çünkü düşünülerek gerektirir. Hassas verileri (örneğin, bir yönetici parolası) belirtmeniz gerekiyorsa, bu değeri güvenli bir parametre geçirin. Ancak, şablonunuzu genel olarak erişilebilir olmasını istemiyorsanız, bir özel depolama kapsayıcısında depolayarak koruyabilirsiniz. Paylaşılan erişim imzası (SAS) belirteci gerektiren şablonu dağıtma hakkında daha fazla bilgi için bkz: [SAS belirteci ile özel şablonu Dağıt](resource-manager-powershell-sas-token.md).
 
 [!INCLUDE [resource-manager-cloud-shell-deploy.md](../../includes/resource-manager-cloud-shell-deploy.md)]
 
@@ -90,9 +88,39 @@ Genellikle, tüm kaynakları tek bir kaynak grubu için şablonunuzdaki dağıt�
 
 <a id="parameter-file" />
 
-## <a name="parameter-files"></a>Parametre dosyaları
+## <a name="parameters"></a>Parametreler
 
-Betiğinizde değerleri satır içi olarak parametre geçirme yerine parametre değerlerini içeren bir JSON dosyası kullanmak daha kolay. Parametre dosyasını şu biçimde olmalıdır:
+Parametre değerlerini geçirmek için satır içi parametre ya da bir parametre dosyası kullanabilirsiniz. Bu makalede Yukarıdaki örneklerde, satır içi parametreleri göster.
+
+### <a name="inline-parameters"></a>Satır içi parametreleri
+
+Satır içi parametreleri geçirmek için adlı parametre adlarını sağlayan `New-AzureRmResourceGroupDeployment` komutu. Örneğin, bir dize ve dizi için bir şablon geçirmek için kullanın:
+
+```powershell
+$arrayParam = "value1", "value2"
+New-AzureRmResourceGroupDeployment -ResourceGroupName testgroup `
+  -TemplateFile c:\MyTemplates\demotemplate.json `
+  -exampleString "inline string" `
+  -exampleArray $arrayParam
+```
+
+Ayrıca, dosya içeriğini Al ve bu içeriği satır içi parametresi olarak sağlayın.
+
+```powershell
+$arrayParam = "value1", "value2"
+New-AzureRmResourceGroupDeployment -ResourceGroupName testgroup `
+  -TemplateFile c:\MyTemplates\demotemplate.json `
+  -exampleString $(Get-Content -Path c:\MyTemplates\stringcontent.txt -Raw) `
+  -exampleArray $arrayParam
+```
+
+Bir parametre değeri bir dosyadan alınırken, yapılandırma değerlerini sağlamak ihtiyacınız olduğunda yararlıdır. Örneğin, sağlayabilir [Linux sanal makinesi için cloud-init değerleri](../virtual-machines/linux/using-cloud-init.md).
+
+### <a name="parameter-files"></a>Parametre dosyaları
+
+Betiğinizde değerleri satır içi olarak parametre geçirme yerine parametre değerlerini içeren bir JSON dosyası kullanmak daha kolay. Parametre dosyasını yerel bir dosya veya bir dış dosya erişilebilir bir URI'ye sahip olabilir.
+
+Parametre dosyasını şu biçimde olmalıdır:
 
 ```json
 {
@@ -106,7 +134,7 @@ Betiğinizde değerleri satır içi olarak parametre geçirme yerine parametre d
 }
 ```
 
-Parametreler bölümü (storageAccountType), şablonunuzda tanımlanan parametre eşleşen bir parametre adı içerdiğine dikkat edin. Parametre dosyasını, parametre için bir değer içerir. Bu değer, şablona dağıtım sırasında otomatik olarak geçirilir. Farklı dağıtım senaryoları için birden çok parametre dosyası oluşturun ve ardından uygun bir parametre dosyası geçirin. 
+Parametreler bölümü (storageAccountType), şablonunuzda tanımlanan parametre eşleşen bir parametre adı içerdiğine dikkat edin. Parametre dosyasını, parametre için bir değer içerir. Bu değer, şablona dağıtım sırasında otomatik olarak geçirilir. Birden fazla parametre dosyası oluşturun ve ardından uygun bir parametre dosyası senaryosu için geçirin. 
 
 Önceki örneği kopyalayabilir ve adlı bir dosya kaydedin `storage.parameters.json`.
 
@@ -126,9 +154,13 @@ New-AzureRmResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName Ex
   -TemplateParameterUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.parameters.json
 ```
 
+### <a name="parameter-precedence"></a>Parametre önceliği
+
 Satır içi parametreleri ve aynı dağıtım işlemi yerel parametre dosyasında kullanabilirsiniz. Örneğin, yerel dosyada bazı değerler belirtin ve diğer değerleri satır içi dağıtımı sırasında ekleyin. Hem yerel parametre dosyasında hem de satır içi parametre değerlerini sağlayın, satır içi değeri önceliklidir.
 
 Bir dış parametre dosyası kullanmak, ancak diğer değerleri ya da satır içi geçiremezsiniz veya yerel bir dosyadan. Bir parametre dosyasında belirttiğinizde **TemplateParameterUri** parametre, tüm satır içi parametreleri yok sayılır. Dış dosya içinde tüm parametre değerlerini sağlayın. Şablon parametre dosyasında içeremez duyarlı bir değer içeriyorsa, bu değer için bir anahtar kasası ekleyin veya tüm parametre değerlerini satır içi dinamik olarak sağlayın.
+
+### <a name="parameter-name-conflicts"></a>Parametre adı çakışıyor
 
 Şablonunuzu PowerShell komutunu parametrelerinden biri olarak aynı ada sahip bir parametre içeriyorsa, PowerShell, şablon parametresi ile sonek sunar. **FromTemplate**. Örneğin, adında bir parametre **ResourceGroupName** ile şablon çakışıyor **ResourceGroupName** parametresinde [New-AzureRmResourceGroupDeployment](/powershell/module/azurerm.resources/new-azurermresourcegroupdeployment) cmdlet'i. İçin bir değer sağlamanız istenir **ResourceGroupNameFromTemplate**. Genel olarak, dağıtım işlemleri için kullanılan parametreler olarak aynı ada sahip adlandırma parametreleri olmayan tarafından bu karışıklığı kaçınmanız gerekir.
 
@@ -141,7 +173,7 @@ Test-AzureRmResourceGroupDeployment -ResourceGroupName ExampleResourceGroup `
   -TemplateFile c:\MyTemplates\storage.json -storageAccountType Standard_GRS
 ```
 
-Hata algılanırsa, komutu bir yanıt tamamlanır. Hata algılanırsa, komutu bir hata iletisi döndürür. Örneğin, depolama hesabının SKU, yanlış bir değer geçirmeye çalışırken şu hatayı döndürür:
+Hata algılanırsa, komutu bir yanıt tamamlanır. Hata algılanırsa, komutu bir hata iletisi döndürür. Örneğin, depolama hesabının SKU, yanlış bir değere geçirme şu hatayı döndürür:
 
 ```powershell
 Test-AzureRmResourceGroupDeployment -ResourceGroupName testgroup `
@@ -161,59 +193,10 @@ Test-AzureRmResourceGroupDeployment : After parsing a value an unexpected charac
   ". Path 'variables', line 31, position 3.
 ```
 
-## <a name="sample-template"></a>Örnek şablon
-
-Bu makaledeki örneklerde aşağıdaki şablonu kullanılır. Kopyalayıp storage.json adlı bir dosya olarak kaydedin. Bu şablonu oluşturma hakkında bilgi almak için bkz. [ilk Azure Resource Manager şablonunuzu oluşturma](resource-manager-create-first-template.md).  
-
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "storageAccountType": {
-      "type": "string",
-      "defaultValue": "Standard_LRS",
-      "allowedValues": [
-        "Standard_LRS",
-        "Standard_GRS",
-        "Standard_ZRS",
-        "Premium_LRS"
-      ],
-      "metadata": {
-        "description": "Storage Account type"
-      }
-    }
-  },
-  "variables": {
-    "storageAccountName": "[concat(uniquestring(resourceGroup().id), 'standardsa')]"
-  },
-  "resources": [
-    {
-      "type": "Microsoft.Storage/storageAccounts",
-      "name": "[variables('storageAccountName')]",
-      "apiVersion": "2016-01-01",
-      "location": "[resourceGroup().location]",
-      "sku": {
-          "name": "[parameters('storageAccountType')]"
-      },
-      "kind": "Storage", 
-      "properties": {
-      }
-    }
-  ],
-  "outputs": {
-      "storageAccountName": {
-          "type": "string",
-          "value": "[variables('storageAccountName')]"
-      }
-  }
-}
-```
-
 ## <a name="next-steps"></a>Sonraki adımlar
 * Bu makaledeki örneklerde, varsayılan aboneliğinizde bir kaynak grubunda kaynak dağıtın. Farklı bir aboneliği kullanmak için bkz: [birden çok Azure aboneliklerini yönetme](/powershell/azure/manage-subscriptions-azureps).
-* Kaynak grubunda var, ancak şablonunda tanımlanmayan kaynak nasıl ele alınacağını belirtmek için bkz: [Azure Resource Manager dağıtım modları](deployment-modes.md).
+* Kaynak grubunda var, ancak şablonunda tanımlanmayan kaynakları nasıl ele alınacağını belirtmek için bkz: [Azure Resource Manager dağıtım modları](deployment-modes.md).
 * Şablonunuzda parametreleri tanımlayan anlamak için bkz. [yapısını ve Azure Resource Manager şablonları söz dizimini anlamak](resource-group-authoring-templates.md).
 * Sık karşılaşılan dağıtım hataları çözümleme hakkında daha fazla ipucu için bkz. [Azure Resource Manager ile yaygın Azure dağıtım hatalarını giderme](resource-manager-common-deployment-errors.md).
 * Bir SAS belirteci gerektiren şablonu dağıtma hakkında daha fazla bilgi için bkz: [SAS belirteci ile özel şablonu Dağıt](resource-manager-powershell-sas-token.md).
-* Hizmetinizi birden çok bölge arasında güvenli bir şekilde piyasaya çıkma için görmeniz [Azure Deployment Manager](deployment-manager-overview.md).
+* Güvenli bir şekilde, bir hizmetin ölçeğini birden fazla bölgeye toplamak için bkz: [Azure Deployment Manager](deployment-manager-overview.md).

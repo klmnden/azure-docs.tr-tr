@@ -4,20 +4,22 @@ description: Güncelleştirme yönetimi ile ilgili sorunları giderme hakkında 
 services: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 10/17/2018
+ms.date: 10/25/2018
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 41883fd677d276f8f26721fdccc3ded020c3278b
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: f52767058ef69d29465f1274109b6d3ffe58296c
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49405240"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50092636"
 ---
 # <a name="troubleshooting-issues-with-update-management"></a>Güncelleştirme yönetimi ile ilgili sorunları giderme
 
 Bu makalede, güncelleştirme yönetimi kullanırken çalışabilir genelinde sorunları çözmek için çözümleri açıklanmaktadır.
+
+Bir aracı sorun giderici arka plandaki sorunu belirlemek karma çalışan aracısı yok. Sorun giderici hakkında daha fazla bilgi için bkz: [güncelleştirme aracı sorunlarını giderme](update-agent-issues.md). Diğer sorunlarda, olası sorunlar hakkında ayrıntılı bilgileri altına bakın.
 
 ## <a name="general"></a>Genel
 
@@ -110,6 +112,20 @@ Karma Runbook çalışanı otomatik olarak imzalanan bir sertifika oluşturmak m
 #### <a name="resolution"></a>Çözüm
 
 Sistem hesabı, klasöre okuma erişimi olduğunu doğrulayın **C:\ProgramData\Microsoft\Crypto\RSA** ve yeniden deneyin.
+
+### <a name="nologs"></a>Senaryo: Güncelleştirme yönetimi veri Log Analytics'te bir makine için gösterilmiyor
+
+#### <a name="issue"></a>Sorun
+
+Gösterme makineler sahip **değerlendirilmeyen** altında **Uyumluluk**, ancak bir karma Runbook çalışanı ancak güncelleştirme yönetimi için Log analytics'te sinyal verileri görürsünüz.
+
+#### <a name="cause"></a>Nedeni
+
+Karma Runbook çalışanı yeniden kayıtlı ve yeniden gerekebilir.
+
+#### <a name="resolution"></a>Çözüm
+
+Bölümündeki adımları [Windows karma Runbook çalışanı dağıtma](../automation-windows-hrw-install.md) karma çalışanı yeniden yüklemek için.
 
 ### <a name="hresult"></a>Senaryo: Makine, değerlendirilmeyen ve bir HResult özel durum gösterir şekilde gösterir.
 
