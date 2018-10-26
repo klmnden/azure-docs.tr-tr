@@ -18,18 +18,18 @@ ms.locfileid: "48886816"
 ---
 # <a name="how-to-target-azure-functions-runtime-versions"></a>Azure İşlevleri çalışma zamanı sürümleri nasıl hedeflenir?
 
-Bir işlev uygulaması, Azure İşlevleri çalışma zamanının belirli bir sürümünde çalışır. İki ana sürüm vardır: [1.x ve 2.x](functions-versions.md). İşlev uygulamaları, varsayılan olarak çalışma zamanının 2.x sürümünde oluşturulur. Bu makalede, Azure'daki bir işlev uygulamasının seçtiğiniz sürüm üzerinde çalıştırılacak şekilde nasıl yapılandırılacağı açıklanmaktadır. Yerel bir geliştirme ortamını belirli bir sürüm için yapılandırma hakkında bilgi için bkz. [Code and test Azure Functions locally (Azure İşlevleri'ni yerel olarak kodlama ve test etme)](functions-run-local.md).
+Bir işlev uygulaması, Azure İşlevleri çalışma zamanının belirli bir sürümünde çalışır. İki ana sürümü vardır: [1.x ve 2.x](functions-versions.md). İşlev uygulamaları, varsayılan olarak çalışma zamanının 2.x sürümünde oluşturulur. Bu makalede, Azure'daki bir işlev uygulamasının seçtiğiniz sürüm üzerinde çalıştırılacak şekilde nasıl yapılandırılacağı açıklanmaktadır. Yerel bir geliştirme ortamını belirli bir sürüm için yapılandırma hakkında bilgi için bkz.[Code and test Azure Functions locally (Azure İşlevleri'ni yerel olarak kodlama ve test etme)](functions-run-local.md).
 
 > [!NOTE]
 > Bir veya daha fazla işleve sahip bir işlev uygulaması için çalışma zamanı sürümünü değiştiremezsiniz. Çalışma zamanı sürümünü değiştirmek için Azure portal'ı kullanmanız gerekir.
 
 ## <a name="automatic-and-manual-version-updates"></a>Otomatik ve el ile sürüm güncelleştirmeleri
 
-İşlevler, bir işlev uygulamasında 'FUNCTIONS_EXTENSION_VERSION' uygulama ayarını kullanarak çalışma zamanının belirli bir sürümünü hedeflemenize olanak sağlar. İşlev uygulaması siz açıkça yeni bir sürüme geçene kadar belirtilen ana sürüm üzerinde tutulur.
+İşlevler, bir işlev uygulamasında `FUNCTIONS_EXTENSION_VERSION` uygulama ayarını kullanarak çalışma zamanının belirli bir sürümünü hedeflemenize olanak sağlar. İşlev uygulaması siz açıkça yeni bir sürüme geçene kadar belirtilen ana sürüm üzerinde tutulur.
 
 Yalnızca ana sürümü (2.x için "~2" veya 1.x için "~1") belirtirseniz işlev uygulaması, çalışma zamanının yeni ikincil sürümleri kullanıma sunulduğunda otomatik olarak bu sürümlere güncelleştirilir. Yeni ikincil sürümler hataya neden olan değişiklikler içermez. İkincil bir sürüm (örneğin, "2.0.12345") belirtirseniz işlev uygulaması, siz açıkça değiştirene kadar ilgili sürüme sabitlenir.
 
-Yeni bir sürüm genel kullanıma sunulduğunda portalda görüntülenecek bir istem size yazılımınızı söz konusu sürüme yükseltme olanağı sunar. Yeni bir sürüme yükseltme yaptıktan sonra dilediğiniz zaman 'FUNCTIONS_EXTENSION_VERSION' ayarını kullanarak önceki bir sürüme geri dönebilirsiniz.
+Yeni bir sürüm genel kullanıma sunulduğunda portalda görüntülenecek bir istem size yazılımınızı söz konusu sürüme yükseltme olanağı sunar. Yeni bir sürüme yükseltme yaptıktan sonra dilediğiniz zaman `FUNCTIONS_EXTENSION_VERSION` ayarını kullanarak önceki bir sürüme geri dönebilirsiniz.
 
 Çalışma zamanı sürümündeki değişiklikler işlev uygulamanızın yeniden başlatılmasına neden olur.
 
@@ -45,20 +45,20 @@ Aşağıdaki yordamı uygulayarak, bir işlev uygulamasının kullandığı mevc
 
     ![İşlev uygulaması ayarlarını seçin](./media/set-runtime-version/add-update-app-setting.png)
 
-1.**İşlev uygulaması ayarları** sekmesinde **Çalışma zamanı sürümü** bölümünü bulun. Burada ilgili çalışma zamanı sürümünü ve istenen ana sürümü görebilirsiniz. Aşağıdaki örnekte sürüm '~2' olarak ayarlanmıştır.
+1. **İşlev uygulaması ayarları** sekmesinde **Çalışma zamanı sürümü** bölümünü bulun. Burada ilgili çalışma zamanı sürümünü ve istenen ana sürümü görebilirsiniz. Aşağıdaki örnekte sürüm `~2` olarak ayarlanmıştır.
 
    ![İşlev uygulaması ayarlarını seçin](./media/set-runtime-version/function-app-view-version.png)
 
 1. İşlev uygulamanızı 1.x çalışma zamanı sürümüne sabitlemek için **Çalışma zamanı sürümü** bölümünde **~1** seçeneğini belirleyin. Uygulamanızda işlevler varsa bu anahtar devre dışı bırakılır.
 
-1. Çalışma zamanı sürümünü değiştirdiyseniz **Genel Bakış** sekmesine dönün ve uygulamayı yeniden başlatmak için **Yeniden Başlat** seçeneğini belirleyin. İşlev uygulaması, 1.x çalışma zamanı sürümü üzerinde çalıştırılarak yeniden başlatılır ve işlev oluşturduğunuzda 1.x sürümüne ilişkin şablonlar kullanılır.
+1. Çalışma zamanı sürümünü değiştirdiyseniz **Genel Bakış** sekmesine dönün ve uygulamayı yeniden başlatmak için **Yeniden Başlat** seçeneğini belirleyin.  İşlev uygulaması, 1.x çalışma zamanı sürümü üzerinde çalıştırılarak yeniden başlatılır ve işlev oluşturduğunuzda 1.x sürümüne ilişkin şablonlar kullanılır.
 
 ## <a name="view-and-update-the-runtime-version-using-azure-cli"></a>Azure CLI'sini kullanarak çalışma zamanı sürümünü görüntüleme ve güncelleştirme
 
-'FUNCTIONS_EXTENSION_VERSION' ayarını Azure CLI'sinden de görüntüleyebilir ve belirleyebilirsiniz.
+Ayrıca görüntülemek ve ayarlamak `FUNCTIONS_EXTENSION_VERSION` Azure clı'dan.
 
 >[!NOTE]
->Çalışma zamanı sürümü diğer ayarları etkileyebileceğinden sürümü portalda değiştirmeniz gerekir. Çalışma zamanı sürümlerini değiştirdiğinizde portal, Node.js sürümü ve çalışma zamanı yığını gibi diğer gerekli güncelleştirmeleri de otomatik olarak yapar. 
+>Çalışma zamanı sürümü diğer ayarları etkileyebileceğinden sürümü portalda değiştirmeniz gerekir. Çalışma zamanı sürümlerini değiştirdiğinizde portal, Node.js sürümü ve çalışma zamanı yığını gibi diğer gerekli güncelleştirmeleri de otomatik olarak yapar.  
 
 Azure CLI'sini kullanarak [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings#set) komutuyla geçerli çalışma zamanı sürümünü görüntüleyebilirsiniz.
 
@@ -67,7 +67,7 @@ az functionapp config appsettings list --name <function_app> \
 --resource-group <my_resource_group>
 ```
 
-Bu kodun `<function_app>` kısmını işlev uygulamanızın adıyla, `<my_resource_group>` kısmını ise işlev uygulamanıza ilişkin kaynak grubunun adıyla değiştirin.
+Bu kod içinde `<function_app>` işlev uygulamanızın adıyla. Ayrıca değiştirin `<my_resource_group>` işlev uygulamanız için kaynak grubunun adıyla. 
 
 Kolayca anlaşılması için kesilmiş olan aşağıdaki çıktıda `FUNCTIONS_EXTENSION_VERSION` ayarını görebilirsiniz.
 
@@ -94,7 +94,7 @@ Kolayca anlaşılması için kesilmiş olan aşağıdaki çıktıda `FUNCTIONS_E
 ]
 ```
 
-İşlev uygulamasındaki `FUNCTIONS_EXTENSION_VERSION` ayarını az functionapp config appsettings set komutu ile güncelleştirebilirsiniz.
+Güncelleştirebilirsiniz `FUNCTIONS_EXTENSION_VERSION` işlev uygulaması ayarı [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings#set) komutu.
 
 ```azurecli-interactive
 az functionapp config appsettings set --name <function_app> \
@@ -102,7 +102,7 @@ az functionapp config appsettings set --name <function_app> \
 --settings FUNCTIONS_EXTENSION_VERSION=<version>
 ```
 
-Bu kodun `<function_app>` kısmını işlev uygulamanızın adıyla değiştirin. `<my_resource_group>` kısmını da işlev uygulamanıza ilişkin kaynak grubunun adıyla değiştirin. Ayrıca `<version>` kısmını, 1.x çalışma zamanının geçerli bir sürümüyle veya 2.x sürümü için ~2 ile değiştirin.
+Değiştirin `<function_app>` işlev uygulamanızın adıyla. Ayrıca değiştirin `<my_resource_group>` işlev uygulamanız için kaynak grubunun adıyla. Ayrıca, değiştirin `<version>` 1.x çalışma zamanı, geçerli bir sürüm ile veya `~2` sürümü için 2.x.
 
 Önceki kod örneğinde **Deneyin** seçeneğini belirleyerek bu komutu [Azure Cloud Shell](../cloud-shell/overview.md) üzerinde de çalıştırabilirsiniz. Oturum açmak için [az login](/cli/azure/reference-index#az-login) komutunu yürüttükten sonra bu komutu yürütmek için Azure [Azure CLI'yi yerel olarak](/cli/azure/install-azure-cli) da kullanabilirsiniz.
 
