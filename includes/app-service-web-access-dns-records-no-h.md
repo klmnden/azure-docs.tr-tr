@@ -1,3 +1,16 @@
+---
+author: cephalin
+ms.service: app-service-web
+ms.topic: include
+ms.date: 11/03/2016
+ms.author: cephalin
+ms.openlocfilehash: d001d76bca5b9a0837349b6e05b3b0a271ea3a73
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.translationtype: HT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50134330"
+---
 > [!NOTE]
 > Azure Web Apps’inize yönelik bir özel DNS adını yapılandırmak için Azure DNS’yi kullanabilirsiniz. Daha fazla bilgi için bkz. [Bir Azure hizmeti için özel etki alanı ayarları sağlamak üzere Azure DNS'yi kullanma](../articles/dns/dns-custom-domain.md#app-service-web-apps).
 >
