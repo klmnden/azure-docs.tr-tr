@@ -42,9 +42,9 @@ Bu öğretici aşağıdaki görevleri kapsar:
 
 1.  [Azure portalda](https://portal.azure.com/) oturum açın. 
 
-2.  **Kaynak oluştur**   >  **Veritabanları**   >  **Azure Cosmos DB** 'yi seçin. 
+2.  **Kaynak oluştur** > **Veritabanları** > **Azure Cosmos DB** 'yi seçin. 
 
-3.  **Yeni hesap**   sayfasında, yeni Azure Cosmos DB hesabının ayarlarını girin. 
+3.  **Yeni hesap**  sayfasında, yeni Azure Cosmos DB hesabının ayarlarını girin. 
 
    |Ayar   |Önerilen değer  |Açıklama  |
    |---------|---------|---------|

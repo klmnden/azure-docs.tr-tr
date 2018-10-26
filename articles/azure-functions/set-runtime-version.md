@@ -55,7 +55,7 @@ Aşağıdaki yordamı uygulayarak, bir işlev uygulamasının kullandığı mevc
 
 ## <a name="view-and-update-the-runtime-version-using-azure-cli"></a>Azure CLI'sini kullanarak çalışma zamanı sürümünü görüntüleme ve güncelleştirme
 
-Ayrıca görüntülemek ve ayarlamak `FUNCTIONS_EXTENSION_VERSION` Azure clı'dan.
+`FUNCTIONS_EXTENSION_VERSION` ayarını Azure CLI'sinden de görüntüleyebilir ve belirleyebilirsiniz.
 
 >[!NOTE]
 >Çalışma zamanı sürümü diğer ayarları etkileyebileceğinden sürümü portalda değiştirmeniz gerekir. Çalışma zamanı sürümlerini değiştirdiğinizde portal, Node.js sürümü ve çalışma zamanı yığını gibi diğer gerekli güncelleştirmeleri de otomatik olarak yapar.  
@@ -67,7 +67,7 @@ az functionapp config appsettings list --name <function_app> \
 --resource-group <my_resource_group>
 ```
 
-Bu kod içinde `<function_app>` işlev uygulamanızın adıyla. Ayrıca değiştirin `<my_resource_group>` işlev uygulamanız için kaynak grubunun adıyla. 
+Bu kodun `<function_app>` kısmını işlev uygulamanızın adıyla, `<my_resource_group>` kısmını ise işlev uygulamanıza ilişkin kaynak grubunun adıyla değiştirin. 
 
 Kolayca anlaşılması için kesilmiş olan aşağıdaki çıktıda `FUNCTIONS_EXTENSION_VERSION` ayarını görebilirsiniz.
 
@@ -94,7 +94,7 @@ Kolayca anlaşılması için kesilmiş olan aşağıdaki çıktıda `FUNCTIONS_E
 ]
 ```
 
-Güncelleştirebilirsiniz `FUNCTIONS_EXTENSION_VERSION` işlev uygulaması ayarı [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings#set) komutu.
+`FUNCTIONS_EXTENSION_VERSION` işlev uygulaması ayarını [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings#set) komutu ile güncelleştirebilirsiniz.
 
 ```azurecli-interactive
 az functionapp config appsettings set --name <function_app> \
@@ -102,7 +102,7 @@ az functionapp config appsettings set --name <function_app> \
 --settings FUNCTIONS_EXTENSION_VERSION=<version>
 ```
 
-Değiştirin `<function_app>` işlev uygulamanızın adıyla. Ayrıca değiştirin `<my_resource_group>` işlev uygulamanız için kaynak grubunun adıyla. Ayrıca, değiştirin `<version>` 1.x çalışma zamanı, geçerli bir sürüm ile veya `~2` sürümü için 2.x.
+Değiştirin `<function_app>` işlev uygulamanızın adıyla. `<my_resource_group>` kısmını ise işlev uygulamanıza ilişkin kaynak grubunun adıyla değiştirin. Ayrıca `<version>`kısmını, 1.x çalışma zamanının geçerli bir sürümüyle veya 2.x sürümü için `~2` ile değiştirin.
 
 Önceki kod örneğinde **Deneyin** seçeneğini belirleyerek bu komutu [Azure Cloud Shell](../cloud-shell/overview.md) üzerinde de çalıştırabilirsiniz. Oturum açmak için [az login](/cli/azure/reference-index#az-login) komutunu yürüttükten sonra bu komutu yürütmek için Azure [Azure CLI'yi yerel olarak](/cli/azure/install-azure-cli) da kullanabilirsiniz.
 
