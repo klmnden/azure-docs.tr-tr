@@ -11,17 +11,59 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 10/16/2018
+ms.date: 10/24/2018
 ms.author: raiye
-ms.openlocfilehash: 7540f12f888108ed7091cece575b6d25131ef47b
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: 989627388e9ad1c99daa31bd9c8af884ab16b421
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49377523"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50087789"
 ---
 # <a name="azure-guest-os"></a>Azure konuk işletim sistemi
 Aşağıdaki tablolarda Azure konuk işletim sistemine uygulanan güncelleştirmelerin Microsoft Güvenlik Yanıt Merkezi (MSRC) gösterilmektedir. Belirli bir güncelleştirmenin Konuk kullanmakta olduğunuz işletim sistemi için geçerli olup olmadığını belirlemek için bu makaleyi arayın. Güncelleştirmeler her zaman taşıyan İleri için belirli [ailesi] [ family-explain] sürümünde yapılan.
+
+## <a name="october-2018-guest-os"></a>Ekim 2018 konuk işletim sistemi
+>[!NOTE]
+>Ekim konuk işletim sistemi, şu anda, otomatik güncelleştirmeler için yapılandırılmış olan bir bulut hizmeti vm'lerine da sunulacaktır. Piyasaya çıkış tamamlandığında, bu sürümü ile Azure portal ve yapılandırma dosyalarını el ile güncelleştirmeleri kullanılabilir hale getirilir. Aşağıdaki düzeltme ekleri, Ekim konuk işletim sisteminde dahil edilir. Bu liste değiştirilebilir ' dir.
+
+| Ürün Kategorisi | Üst KB makalesi | Güvenlik Açığı açıklaması | Konuk işletim sistemi | İlk tarih |
+| --- | --- | --- | --- | --- |
+| Rel 18-10 | [4462917] | Windows 10 Güvenlik | 5,24 | 9 Ekim 2018 |
+| Rel 18-10 | [4464330] | Windows 10 Güvenlik | 6.01 | 9 Ekim 2018 |
+| Rel 18-10 | [4462915] | Windows Güvenlik | 2.79 | 9 Ekim 2018 |
+| Rel 18-10 | [4462931] | Windows Güvenlik | 3.66 | 9 Ekim 2018 |
+| Rel 18-10 | [4462941] | Windows Güvenlik | 4.59 | 9 Ekim 2018 |
+| Rel 18-10 | [4462930] | Flash | 3.66, 4.59, 5,24, 6.01 | 9 Ekim 2018 |
+| Rel 18-10 | [4462949] | Internet Explorer | 2.79, 3.66 4.59 | 9 Ekim 2018 |
+| Yok | [4339284] | Saat dilimi güncelleştirme | 2.79, 3.66 4.59 | 24 Temmuz 2018 |
+| Yok | [4457144] | Eylül güvenlikle dökümü | 2.79 | 11 Eylül 2018'den |
+| Yok | [4457044] | Eylül güvenlikle .NET 3.5 dökümü | 2.79 | 11 Eylül 2018'den |
+| Yok | [4457038] | Eylül güvenlikle .NET 4.5.2'nin dökümü | 2.79 | 11 Eylül 2018'den |
+| Yok | [4457135] | Eylül güvenlikle dökümü | 3.66 | 11 Eylül 2018'den |
+| Yok | [4457042] | Eylül güvenlikle .NET 3.5 dökümü | 3.66 | 11 Eylül 2018'den |
+| Yok | [4457037] | Eylül güvenlikle .NET 4.5.2'nin dökümü | 3.66 | 11 Eylül 2018'den |
+| Yok | [4457129] | Eylül güvenlikle dökümü | 4.59 | 11 Eylül 2018'den |
+| Yok | [4457045] | Eylül güvenlikle .NET 3.5 dökümü | 4.59 | 11 Eylül 2018'den |
+| Yok | [4457036] | Eylül güvenlikle .NET 4.5.2'nin dökümü | 4.59 | 11 Eylül 2018'den |
+
+[4462917]: http://support.microsoft.com/kb/4462917
+[4464330]: http://support.microsoft.com/kb/4464330
+[4462915]: http://support.microsoft.com/kb/4462915
+[4462931]: http://support.microsoft.com/kb/4462931
+[4462941]: http://support.microsoft.com/kb/4462941
+[4462930]: http://support.microsoft.com/kb/4462930
+[4462949]: http://support.microsoft.com/kb/4462949
+[4339284]: http://support.microsoft.com/kb/4339284
+[4457144]: http://support.microsoft.com/kb/4457144
+[4457044]: http://support.microsoft.com/kb/4457044
+[4457038]: http://support.microsoft.com/kb/4457038
+[4457135]: http://support.microsoft.com/kb/4457135
+[4457042]: http://support.microsoft.com/kb/4457042
+[4457037]: http://support.microsoft.com/kb/4457037
+[4457129]: http://support.microsoft.com/kb/4457129
+[4457045]: http://support.microsoft.com/kb/4457045
+[4457036]: http://support.microsoft.com/kb/4457036
 
 ## <a name="september-2018-guest-os"></a>Eylül 2018'den konuk işletim sistemi
 | Ürün Kategorisi | Üst KB makalesi | Güvenlik Açığı açıklaması | Konuk işletim sistemi | İlk tarih |

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/11/2018
 ms.author: fboylu
-ms.openlocfilehash: 2a5d8540dba491dec8b2da227b0e84c10ff09c77
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: 8f42ee996dae476de3744239d4cc5f053722d52b
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49395018"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50093220"
 ---
 # <a name="azure-ai-guide-for-predictive-maintenance-solutions"></a>Tahmine dayalı bakım çözümleri için Azure yapay ZEKA Kılavuzu
 
@@ -414,7 +414,6 @@ Bu kılavuz son bölümü PdM çözüm şablonları, öğreticiler ve Azure'da g
 
 | # | Unvan | Açıklama |
 |--:|:------|-------------|
-| 1 | [Azure Tahmine dayalı bakım Machine Learning örneği](https://github.com/Azure/MachineLearningSamples-PredictiveMaintenance) |Sonraki N zaman birimleri hata tahmin etmek için PdM örneği. Bu örnek, bir Azure ML Workbench projesi olarak yazılır ve PdM için yeni başlayanlar için idealdir. [Ek belgeler](https://docs.microsoft.com/azure/machine-learning/desktop-workbench/scenario-predictive-maintenance) Bu örnek ile ilgili.|
 | 2 | [Azure Tahmine dayalı bakım çözüm şablonu](https://github.com/Azure/AI-PredictiveMaintenance) | ML model ve eksiksiz bir Azure altyapı Tahmine dayalı bakım senaryolarını IOT Uzaktan izleme bağlamında destekleyebildiğini gösterir ve açık kaynaklı çözüm şablonu. |
 | 3 | [Tahmine dayalı bakım için derin öğrenme](https://github.com/Azure/MachineLearningSamples-DeepLearningforPredictiveMaintenance) | Azure not defteri ile Tahmine dayalı bakım için LSTM (uzun kısa vadeli bellek) ağları (yinelenen sinir ağları sınıfı) kullanarak bir demo çözümüyle bir [Bu örnek Web günlüğü gönderisini](https://azure.microsoft.com/blog/deep-learning-for-predictive-maintenance).|
 | 4 | [R ile Tahmine dayalı bakım modelleme Kılavuzu](https://gallery.azure.ai/Notebook/Predictive-Maintenance-Modelling-Guide-R-Notebook-1) | R betiklerini ile PdM modelleme Kılavuzu|
