@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: 1f3dcc7da3e91d3805cae805422778978d0187c5
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 68021d25e3deab1c6551d29b0febd9f07e144b57
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46971340"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50095347"
 ---
 # <a name="tutorial-create-cross-cloud-scaling-solutions-with-azure"></a>Öğretici: Azure ile Bulutlar arası ölçeklendirme çözümleri oluşturma
 
@@ -101,7 +101,7 @@ Azure ve Azure Stack Web uygulamasına dağıtmak için karma sürekli tümleşt
 
 ### <a name="add-code-to-visual-studio-team-services-project"></a>Kod eklemek için Visual Studio Team Services projesi
 
-1. Oturum Aç Visual Studio Team Services (VSTS) için VSTS üzerinde proje oluşturma haklarına sahip bir hesapla~~.~~
+1. Visual Studio Team Services (VSTS) için VSTS üzerinde proje oluşturma haklarına sahip bir hesapla oturum açın.
 
     Karma CI/CD, hem uygulama kodunda hem de altyapı kodunu uygulayabilirsiniz. Kullanım [Azure Resource Manager şablonları](https://azure.microsoft.com/resources/templates/) hem özel hem de barındırılan buluta yönelik geliştirme için.
 

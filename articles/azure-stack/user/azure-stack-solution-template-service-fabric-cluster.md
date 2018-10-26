@@ -14,18 +14,20 @@ ms.topic: tutorial
 ms.date: 10/22/2018
 ms.author: mabrigg
 ms.reviewer: shnatara
-ms.openlocfilehash: 0b5f7442604dd31f730b0105d19231407e2b6f1a
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: abb77f59e49a98c1195dcd2e7b622b2b8e3fd7b8
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49946122"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50087296"
 ---
 # <a name="deploy-a-service-fabric-cluster-in-azure-stack"></a>Azure Stack'te bir Service Fabric kümesine dağıtma
 
 Kullanım **Service Fabric kümesi** Azure Stack'te güvenli bir Service Fabric kümesini dağıtmak için Azure Market'ten öğesi. 
 
 Service Fabric ile çalışma hakkında daha fazla bilgi için bkz. [Azure Service Fabric genel bakış](https://docs.microsoft.com/azure/service-fabric/service-fabric-overview) ve [Service Fabric kümesi güvenlik senaryoları](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security), Azure belgeleri.
+
+Azure Stack Service Fabric kümesinde kaynak sağlayıcısı Microsoft.ServiceFabric kullanmıyor. Bunun yerine, Azure Stack'te Service Fabric kümesi bir sanal makine ölçek kümesi Desired State Configuration ' nı (DSC) kullanarak önceden yüklü yazılım ile ' dir.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
