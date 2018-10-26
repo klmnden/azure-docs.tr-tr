@@ -174,8 +174,6 @@ items:
       href: automation-create-alert-triggered-runbook.md
     - name: Amazon Web Hizmetleri Sanal Makinesi oluşturma
       href: automation-scenario-aws-deployment.md
-    - name: Kaynak grubunu kaldırma
-      href: automation-scenario-remove-resourcegroup.md
     - name: GitHub Enterprise ile kaynak denetimi tümleştirmesi
       href: automation-scenario-source-control-integration-with-github-ent.md
     - name: Azure DevOps ile kaynak denetimi tümleştirmesi
@@ -202,6 +200,8 @@ items:
     href: troubleshoot/desired-state-configuration.md
   - name: Karma Runbook Çalışanı
     href: troubleshoot/hybrid-runbook-worker.md
+  - name: Değişiklik İzleme ve Stok
+    href: troubleshoot/change-tracking.md
   - name: Güncelleştirme Yönetimi
     href: troubleshoot/update-management.md
   - name: Güncelleştirme Aracısı sorunlarını giderme
@@ -238,9 +238,9 @@ items:
     href: http://stackoverflow.com/questions/tagged/azure-automation
   - name: Videolar
     href: https://azure.microsoft.com/documentation/videos/index/?services=automation
-ms.openlocfilehash: 37f9efb0c82a9ccefab1b492d45b9060a1a9312e
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: c0dd1231814d41761c35831b6bfabae1c5480c5c
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49645431"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50095295"

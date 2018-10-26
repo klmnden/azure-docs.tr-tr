@@ -266,7 +266,6 @@
 
 #### İzinler
 ##### [API için izinleri seçme](develop/perms-for-given-api.md)
-##### [Uygulamama izin verme](develop/registration-config-grant-permissions-how-to.md)
 ##### [Temsilci izinleri ile uygulama izinlerini karşılaştırması](develop/delegated-and-app-perms.md)
 ##### [Uygulama onayı](develop/consent-framework.md)
 
@@ -313,14 +312,6 @@
 ### Özel etki alanı adları
 #### [Hızlı Başlangıç](fundamentals/add-custom-domain.md)
 ### [Dizininizi yönetme](fundamentals/active-directory-administer.md)
-### [Enterprise State Roaming](active-directory-windows-enterprise-state-roaming-overview.md)
-#### [Etkinleştirme](active-directory-windows-enterprise-state-roaming-enable.md)
-#### [Grup ilkesi ayarları](active-directory-windows-enterprise-state-roaming-group-policy-settings.md)
-#### [Windows 10 ayarları](active-directory-windows-enterprise-state-roaming-windows-settings-reference.md)
-#### [SSS](active-directory-windows-enterprise-state-roaming-faqs.md)
-#### [Sorun giderme](active-directory-windows-enterprise-state-roaming-troubleshooting.md)
-
-
 ### [Azure AD Connect kullanarak şirket içi kimlikleri tümleştirme](hybrid/whatis-hybrid-identity.md)
 
 ### [Belirteç ömrünü yapılandırma](develop/active-directory-configurable-token-lifetimes.md)

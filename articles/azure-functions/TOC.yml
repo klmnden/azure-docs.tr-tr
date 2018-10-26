@@ -156,6 +156,8 @@ items:
       href: manage-connections.md
     - name: Hata işleme
       href: functions-bindings-error-pages.md
+    - name: Event Grid tetikleyicisinde yerel olarak hata ayıklama
+      href: functions-debug-event-grid-trigger-local.md
   - name: Dağıtma
     items:
     - name: Sürekli dağıtım
@@ -288,9 +290,9 @@ items:
     href: https://github.com/Azure/Azure-Functions/
   - name: Hizmet güncelleştirmeleri
     href: https://azure.microsoft.com/updates/?product=functions&updatetype=&platform=
-ms.openlocfilehash: ebca3260b7837959d11256601abc25d1e043f851
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: cc3f57460b841664a96b13d64df9da5a2cafa87c
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49645982"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50094696"
