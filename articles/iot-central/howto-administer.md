@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 1bb0bc0aa7ad6bbbad502832ba8e0a96f36de428
-ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
+ms.openlocfilehash: 25b4777be4257933b84d58d0f10cf12571de9590
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48268319"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50155329"
 ---
 # <a name="administer-your-iot-central-application"></a>IOT Central uygulamanızı yönetme
 
@@ -33,7 +33,7 @@ Microsoft Azure IOT Central bir uygulama oluşturduktan sonra kullanabileceğini
 
 İçinde **Yönetim** bölümünde, ikincil Gezinti Menüsü çeşitli yönetim görevlerini bağlantılar içeriyor.
 
-Erişimi ve kullanımı **Yönetim** bölümünde olmanız gerekir **yönetici** rolü için bir Azure IOT Central uygulamasına. Azure IOT Central bir uygulama oluşturursanız, otomatik olarak atanmış **yönetici** o uygulama için rol. *Kullanıcıları yönetme* bölümünde bu makalede açıklanır daha nasıl atanacağı hakkında **yönetici** diğer kullanıcılara rol.
+Erişimi ve kullanımı **Yönetim** bölümünde olmanız gerekir **yönetici** rolü için bir Azure IOT Central uygulamasına. Azure IOT Central bir uygulama oluşturursanız, otomatik olarak atanmış **yönetici** o uygulama için rol. [Kullanıcıları yönetme](#manage-users) bölümünde bu makalede açıklanır daha nasıl atanacağı hakkında **yönetici** diğer kullanıcılara rol.
 
 ## <a name="change-application-name"></a>Uygulama adını değiştir
 

@@ -1,3 +1,16 @@
+---
+author: alkohli
+ms.service: storsimple
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: alkohli
+ms.openlocfilehash: cce78fb6a5472a625e973bb8ca4afdfd6290a26c
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50165795"
+---
 <!--author=alkohli last changed: 07/19/2017-->
 
 #### <a name="to-create-a-volume"></a>Birim oluşturmak için
@@ -34,7 +47,7 @@
        1. ACR’nize bir **Ad** verin.
        2. **iSCSI Başlatıcısı Adı** altında, Windows konağınızın iSCSI Tam Adını (IQN) girin. IQN’niz yoksa [Windows Server konağının IQN’sini al](#get-the-iqn-of-a-windows-server-host)’a gidin.
 
-    9. **Oluştur**'a tıklayın. Belirtilen ayarlarla bir birim oluşturulur.
+    9. **Oluştur**’a tıklayın. Belirtilen ayarlarla bir birim oluşturulur.
 
         ![Oluştur’a tıklayın](./media/storsimple-8000-create-volume-u2/step5createvol3.png)
 

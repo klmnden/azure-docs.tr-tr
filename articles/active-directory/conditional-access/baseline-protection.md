@@ -17,12 +17,12 @@ ms.workload: identity
 ms.date: 08/08/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: e7e92c2f3564591133816baaaf758d72b083330b
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 585a4968672c8bcab0efb988d556e447983dfc5a
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49958559"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50158712"
 ---
 # <a name="what-is-baseline-protection-preview"></a>Taban çizgisi protection (Önizleme) nedir?  
 
@@ -51,7 +51,7 @@ Kullanıcılara ayrıcalıklı hesaplara erişim ortamınıza sınırsız erişi
 
 ![Azure Active Directory](./media/baseline-protection/01.png)
 
-Bu temel ilke kullanıcıları ve grupları Dışla seçeneği sağlar. Biri hariç tutmak isteyebileceğiniz *[Acil Durum erişimi yönetici hesabı](../users-groups-roles/directory-emergency-access.md)* , kilitli dışında Kiracı emin olmak için.
+Bu temel ilke kullanıcılar dışında seçeneği sağlar. Biri hariç tutmak isteyebileceğiniz *[Acil Durum erişimi yönetici hesabı](../users-groups-roles/directory-emergency-access.md)* , kilitli dışında Kiracı emin olmak için.
 
 
 ## <a name="enable-a-baseline-policy"></a>Temel ilke etkinleştir 

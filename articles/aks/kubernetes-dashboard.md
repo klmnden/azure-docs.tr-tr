@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 10/08/2018
 ms.author: iainfou
-ms.openlocfilehash: eb5d1ee88fc95f7d02842ea089f65c6d17a6d69d
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: 127f6a5cd8f46b72a4cddcef09cb31b60edd0582
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50091750"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50157199"
 ---
 # <a name="access-the-kubernetes-web-dashboard-in-azure-kubernetes-service-aks"></a>Azure Kubernetes Service (AKS) Kubernetes web panosuna erişme
 
@@ -34,8 +34,8 @@ Kubernetes panosunu başlatmak için [az aks Gözat] [ az-aks-browse] komutu. A�
 az aks browse --resource-group myResourceGroup --name myAKSCluster
 ```
 
-> [!NOTE]
-> Bu komut Azure Cloud Shell'den çalıştırıyorsanız, eklemeniz gerekecektir `--enable-cloud-console-aks-browse` parametre panoyu açın.
+> [!TIP]
+> Azure Cloud Shell'den bu komutu çalıştırırsanız, ekleme `--enable-cloud-console-aks-browse` doğru da panoyu açmak için parametre.
 
 Bu komut, Kubernetes API ile geliştirme sisteminizde arasındaki bir proxy oluşturur ve bir web tarayıcı Kubernetes panosunu açar. Bir web tarayıcı Kubernetes panosunu açık değilse, Azure CLI, genellikle belirtilen URL adresini kopyalayıp yapıştırın *http://127.0.0.1:8001*.
 

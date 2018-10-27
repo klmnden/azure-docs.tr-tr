@@ -3,7 +3,7 @@ title: Güvenli LDAP (LDAPS) Azure AD Etki Alanı Hizmetleri'nde sorun giderme |
 description: Bir Azure AD Domain Services yönetilen etki alanı için güvenli LDAP (LDAPS) sorunlarını giderme
 services: active-directory-ds
 documentationcenter: ''
-author: mahesh-unnikrishnan
+author: eringreenlee
 manager: mtillman
 editor: curtand
 ms.assetid: 445c60da-e115-447b-841d-96739975bdf6
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/01/2018
-ms.author: maheshu
-ms.openlocfilehash: 9713a06bbf6a61b316e061cb851721a3554cd632
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.author: ergreenl
+ms.openlocfilehash: 3925db10a490be3c6d572f6d107e556595be8237
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39503681"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50155789"
 ---
 # <a name="troubleshoot-secure-ldap-ldaps-for-an-azure-ad-domain-services-managed-domain"></a>Bir Azure AD Domain Services yönetilen etki alanı için güvenli LDAP (LDAPS) sorunlarını giderme
 

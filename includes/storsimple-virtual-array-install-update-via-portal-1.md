@@ -1,3 +1,16 @@
+---
+author: alkohli
+ms.service: storsimple
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: alkohli
+ms.openlocfilehash: 350dbc286c060ad10c21ebe1e8715b910871f837
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50164702"
+---
 <!--author=alkohli last changed: 11/02/17 -->
 
 #### <a name="to-install-updates-via-the-azure-portal"></a>Azure portalı aracılığıyla güncelleştirmeleri yüklemek için
@@ -10,11 +23,11 @@
 
     ![cihaz güncelleştirme](../includes/media/storsimple-virtual-array-install-update-via-portal-04/azupdate2m.png)  
 
-3. Yazılım güncelleştirmeleri varsa bir ileti görürsünüz. Güncelleştirmeleri denetlemek için **Tara**’ya da tıklayabilirsiniz. Kullanmakta olduğunuz yazılım sürümü not edin. 
+3. Yazılım güncelleştirmeleri varsa bir ileti görürsünüz. Güncelleştirmeleri denetlemek için **Tara**’ya da tıklayabilirsiniz. Çalıştırmakta olduğunuz yazılım sürümü not edin. 
 
     ![cihaz güncelleştirme](../includes/media/storsimple-virtual-array-install-update-via-portal-1/azupdate3m1.png)
 
-    Tarama başlar ve başarıyla tamamlandığında, size bildirilir.
+    Tarama başlayıp başarıyla tamamlandığında size bildirilir.
 
     ![cihaz güncelleştirme](../includes/media/storsimple-virtual-array-install-update-via-portal-1/azupdate5m.png)
 
@@ -22,7 +35,7 @@
 
     ![cihaz güncelleştirme](../includes/media/storsimple-virtual-array-install-update-via-portal-1/azupdate6m.png)
 
-5. İçinde **yeni güncelleştirmeler** dikey penceresinde, sürüm notlarını gözden geçirin. Ayrıca güncelleştirmeler karşıdan yüklendikten sonra yükleme işlemini onaylayın gerektiğini unutmayın. **Tamam** düğmesine tıklayın.
+5. İçinde **yeni güncelleştirmeler** dikey penceresinde, sürüm notlarını gözden geçirin. Güncelleştirmeler İndirildikten sonra yüklemeyi onaylamanız gerektiğini de unutmayın. **Tamam** düğmesine tıklayın.
 
     ![cihaz güncelleştirme](../includes/media/storsimple-virtual-array-install-update-via-portal-1/azupdate7m.png)
 
@@ -46,11 +59,11 @@
 
     ![cihaz güncelleştirme](../includes/media/storsimple-virtual-array-install-update-via-portal-1/azupdate15m1.png)
 
-    Bu, olanak eylemde **Güncelleştirmeleri Yükle** dikey. İşle ilgili ayrıntılı bilgileri burada görüntüleyebilirsiniz.
+    Bu eylem açılır **Güncelleştirmeleri Yükle** dikey penceresi. İşle ilgili ayrıntılı bilgileri burada görüntüleyebilirsiniz.
 
     ![cihaz güncelleştirme](../includes/media/storsimple-virtual-array-install-update-via-portal-1/azupdate16m1.png)
 
-9. Yazılım sürümü güncelleştirme 0,6 (10.0.10293.0) çalıştıran sanal bir dizi ile başladıysanız, güncelleştirme 1 şimdi çalıştırıyorsanız ve yapılır. Geri kalan adımları atlayabilirsiniz. Bir yazılım sürümü güncelleştirme 0,6 (10.0.10293.0) önce çalışan sanal bir dizi ile başladıysanız, güncelleştirme 0,6 şimdi güncelleştirilir. Güncelleştirmelerinin kullanılabilir olduğunu belirten başka bir ileti görürsünüz. Güncelleştirme 1'i yüklemek için 4-8 adımları yineleyin.
+9. Yazılım sürümü güncelleştirme 0.6 (10.0.10293.0) çalıştıran bir sanal dizin ile başladıysanız, artık güncelleştirme 1 çalıştırıyorsanız ve gerçekleştirilir. Kalan adımları atlayabilirsiniz. Güncelleştirme 0.6 (10.0.10293.0) önceki bir yazılım sürümü çalıştıran bir sanal dizin ile başladıysanız, artık güncelleştirme 0.6 güncelleştirilir. Güncelleştirmelerin mevcut olduğunu belirten başka bir ileti görürsünüz. 4-8, güncelleştirme 1'i yüklemek için adımları yineleyin.
 
     ![cihaz güncelleştirme](../includes/media/storsimple-virtual-array-install-update-via-portal-1/azupdate17.png)
 

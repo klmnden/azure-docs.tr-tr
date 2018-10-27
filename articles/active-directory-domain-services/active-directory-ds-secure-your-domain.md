@@ -3,7 +3,7 @@ title: Azure Active Directory Domain Services yönetilen etki alanınıza güven
 description: Yönetilen etki alanınıza güvenli
 services: active-directory-ds
 documentationcenter: ''
-author: mahesh-unnikrishnan
+author: eringreenlee
 manager: mtillman
 editor: curtand
 ms.assetid: 6b4665b5-4324-42ab-82c5-d36c01192c2a
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2018
-ms.author: maheshu
-ms.openlocfilehash: 20579f7abd6cd815377c3e97d820a3e5490e0f95
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.author: ergreenl
+ms.openlocfilehash: 1dea3def00423ecf092562aa47c76258316194a9
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48902528"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50159069"
 ---
 # <a name="secure-your-azure-ad-domain-services-managed-domain"></a>Azure AD Domain Services yönetilen etki alanınıza güvenli
 Bu makale, yönetilen etki alanınıza güvenli hale getirmenize yardımcı olur. Zayıf şifre paketleri kullanımını devre dışı'ı açın ve NTLM kimlik bilgisi karması eşitleme devre dışı bırakın.
@@ -38,7 +38,7 @@ Bu makale, yönetilen etki alanınıza güvenli hale getirmenize yardımcı olur
 Aşağıdaki PowerShell betiğini kullanın:
 1. Yönetilen etki alanında NTLM v1 desteğini devre dışı bırakın.
 2. NTLM, şirket içi parola karmalarının eşitlenmesini devre dışı bırakmak AD.
-3. Yönetilen etki alanındaki TLS v1 devre dışı bırakın.
+3. Yönetilen etki alanında TLS v1’i devre dışı bırakın.
 
 ```powershell
 // Login to your Azure AD tenant

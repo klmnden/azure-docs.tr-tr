@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 10/15/2018
 ms.author: yijenj
-ms.openlocfilehash: a0b3c220a1cd857bc8bea0eb5ab41625845fcc5d
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: 604eb528ef33a95993aa5b6d3ff6eebb77936aa2
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49365637"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50157947"
 ---
 # <a name="azure-partner-customer-usage-attribution"></a>Azure iş ortağı müşteri kullanım attribution
 
@@ -44,7 +44,7 @@ Microsoft iş ortağı olarak, Azure kullanımı, bir müşterinin adıma sağla
 
 Bir genel benzersiz tanıtıcısı (GUID) eklemek için ana şablon dosyası için tek bir değişiklik yapın:
 
-1. [Bir GUID Oluştur](#create-guids) (örneğin, eb7927c8-dd66-43e1-b0cf-c346a422063) ve [, GUID kayda](#register-guids-and-offers).
+1. [Bir GUID Oluştur](#create-guids) önerilen yöntemi kullanarak ve [, GUID kayda](#register-guids-and-offers).
 
 1. Resource Manager şablonunu açın.
 
@@ -58,9 +58,26 @@ Bir genel benzersiz tanıtıcısı (GUID) eklemek için ana şablon dosyası iç
 
 1. [Şablon dağıtımı'nda GUID başarısını doğrulama](#verify-the-guid-deployment).
 
-### <a name="sample-template-code"></a>Örnek şablon kodu
+### <a name="sample-resource-manager-template-code"></a>Örnek Resource Manager şablonu kodu
+Lütfen değiştirdiğinizden emin olun. ana şablon dosyasına eklerken kendi giriş içeren örnek kodlar aşağıda.
+Kaynak olarak eklenmesi gerekir **mainTemplate.json** veya **azuredeploy.json** dosya yalnızca ve, tüm iç içe veya bağlı şablonları.
+```
+// Make sure to modify this sample code with your own inputs where applicable
 
-![Örnek şablon kodu](media/marketplace-publishers-guide/tracking-sample-code-for-lu-1.PNG)
+{ // add this resource to the mainTemplate.json (do not add the entire file)
+    "apiVersion": "2018-02-01",
+    "name": "pid-XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX" // use your generated GUID here
+    "type": "Microsoft.Resources/deployments",
+    "properties": {
+        "mode": "Incremental",
+        "template": {
+            "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+            "contentVersion": "1.0.0.0",
+            "resources": []
+        }
+    }
+} // remove all comments from the file when complete
+```
 
 ## <a name="use-the-resource-manager-apis"></a>Resource Manager API'leri kullanın
 
@@ -77,7 +94,7 @@ Bu izleme yaklaşımı için bir GUID, API çağrıları tasarlarken isteğindek
 > [!Note]
 > Dize biçimi büyük/küçük harf önemlidir. Varsa **PID -** önekini dahil değilse, verileri sorgulamak mümkün değildir. Farklı SDK'ları farklı bir şekilde izleyin. Bu yöntem uygulamak için destek ve yaklaşım izleme için tercih edilen Azure SDK'sını gözden geçirin. 
 
-### <a name="example-the-python-sdk"></a>Örnek: Python SDK'sı
+#### <a name="example-the-python-sdk"></a>Örnek: Python SDK'sı
 
 Python için kullanma **config** özniteliği. Öznitelik, yalnızca bir UserAgent için ekleyebilirsiniz. Bir örneği aşağıda verilmiştir:
 
@@ -104,7 +121,7 @@ export AZURE_HTTP_USER_AGENT='pid-eb7927c8-dd66-43e1-b0cf-c346a422063'
 
 ## <a name="create-guids"></a>GUID oluştur
 
-Bir GUID 32 onaltılık basamak olan bir başvuru benzersiz sayıdır. İzleme için GUID'leri oluşturmak için bir GUID Oluşturucu kullanmanız gerekir. Yararlanın, önerilen [Azure Depolama'nın GUID generator form](https://aka.ms/StoragePartners). Azure Depolama'nın GUID Oluşturucu kullanmayı tercih ederseniz vardır ancak birden çok [çevrimiçi GUID oluşturucuları](https://www.bing.com/search?q=guid%20generator) kullanabileceğiniz.
+Bir GUID 32 onaltılık basamak olan bir başvuru benzersiz sayıdır. İzleme için GUID'leri oluşturmak için bir GUID Oluşturucu kullanmanız gerekir. Azure depolama ekibi oluşturan bir [GUID generator form](https://aka.ms/StoragePartners) bir GUID biçimi, e-posta gönderilir ve farklı izleme sistemleri arasında yeniden kullanılabilir. 
 
 > [!Note]
 > Yüksek oranda kullanmanızı öneririz. olduğu [Azure Depolama'nın GUID generator form](https://aka.ms/StoragePartners) , GUID oluşturmak için. Daha fazla bilgi için müşterilerimize [SSS](#faq).

@@ -17,12 +17,12 @@ ms.date: 10/02/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 83c1deb7c767c29046e6c1af4452270e90b391df
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: ceafee3ac3453590d1687f662c7f3c9a8d8b4e0c
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49987741"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50156638"
 ---
 # <a name="azure-active-directory-v20-and-the-oauth-20-device-code-flow"></a>Azure Active Directory v2.0 ve OAuth 2.0 cihaz kod akışı
 
@@ -131,7 +131,7 @@ Başarılı bir token yanıt şöyle görünecektir:
 | Parametre | Biçimlendir | Açıklama |
 | --------- | ------ | ----------- |
 |`token_type` | Dize| Her zaman "Bearer. |
-|`scope` | Boşluk ayrılmış dizeleri | Bu, bir erişim belirteci döndürdüyse kapsamlar için erişim belirteci geçerliyse listeler. |
+|`scope` | Ayrılmış boşluk dizeleri | Bu, bir erişim belirteci döndürdüyse kapsamlar için erişim belirteci geçerliyse listeler. |
 |`expires_in`| int | Dahil edilen erişim belirtecinin saniye için geçerlidir. |
 |`access_token`| Donuk dize | Çıkarılan [kapsamları](v2-permissions-and-consent.md) , istendi.  |
 |`id_token`   | JWT | Verilen if özgün `scope` parametresi dahil `openid` kapsam.  |

@@ -1,40 +1,53 @@
-## <a name="configure-your-application-to-access-azure-storage"></a>Azure depolama alanına erişmek için uygulamanızı yapılandırın
-Uygulamanızı depolama hizmetlerine erişmek için kimliğini doğrulamak için iki yolu vardır:
+---
+author: tamram
+ms.service: storage
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: tamram
+ms.openlocfilehash: 6911e06dc023027ab32b99387b9f7d3f5e708f86
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50164278"
+---
+## <a name="configure-your-application-to-access-azure-storage"></a>Azure depolamaya erişmek için uygulamanızı yapılandırma
+Uygulamanızın depolama hizmetlerine erişmek için kimlik doğrulaması için iki yolu vardır:
 
-* Paylaşılan anahtar: Paylaşılan yalnızca test amacıyla anahtarı kullan
-* Paylaşılan erişim imzası (SAS): Üretim uygulamaları SAS kullanılmak
+* Paylaşılan anahtar: Paylaşılan yalnızca test amacıyla anahtar kullan
+* Paylaşılan erişim imzası (SAS): Üretim uygulamaları kullanım SAS
 
 ### <a name="shared-key"></a>Paylaşılan Anahtar
-Paylaşılan anahtar kimlik doğrulaması, uygulamanızın hesap adı ve hesap anahtarı depolama hizmetlerine erişmek için kullanacağı anlamına gelir. Hızlı bir şekilde bu kitaplığının nasıl kullanıldığını gösteren amacıyla, biz bu Başlarken, paylaşılan anahtar kimlik doğrulaması kullanır.
+Paylaşılan anahtar kimlik doğrulaması, uygulamanızın hesap adınızı ve hesap anahtarını depolama hizmetlerine erişmek için kullanacağı anlamına gelir. Hızlı bir şekilde bu kitaplığının nasıl kullanılacağını gösteren amacıyla, biz de bu Başlarken paylaşılan anahtar kimlik doğrulaması kullanacaklardır.
 
 > [!WARNING] 
-> **Yalnızca test amacıyla paylaşılan anahtar kimlik doğrulaması kullanın!** Hesap adı ve hesap anahtarı, ilişkili depolama hesabına tam okuma/yazma erişimi vermek, uygulamanızı indirmeleri her kişiye dağıtılacaktır. Bu **değil** güvenilmeyen istemciler tarafından tehlikeye anahtarınızı sahip risk gibi iyi bir uygulamadır.
+> **Yalnızca test amacıyla paylaşılan anahtar kimlik doğrulamasını kullanın!** Hesap adınızı ve hesap anahtarını, ilişkili depolama hesabına tam okuma/yazma erişimi veren, uygulamanızı indirir herkesin dağıtılacaktır. Bu **değil** güvenilmeyen istemciler tarafından tehlikeye anahtarınızı sahip risk gibi iyi bir uygulama.
 > 
 > 
 
-Paylaşılan anahtar kimlik doğrulaması kullanırken, oluşturacağınız bir [bağlantı dizesi](../articles/storage/common/storage-configure-connection-string.md). Bağlantı dizesi oluşur:  
+Paylaşılan anahtar kimlik doğrulamasını kullanırken, oluşturacağınız bir [bağlantı dizesi](../articles/storage/common/storage-configure-connection-string.md). Bağlantı dizesi oluşur:  
 
-* **DefaultEndpointsProtocol** -HTTP veya HTTPS seçebilirsiniz. Ancak, HTTPS kullanılması önerilir.
-* **Hesap adı** -depolama hesabınızın adını
-* **Hesap anahtarı** - üzerinde [Azure Portal](https://portal.azure.com), depolama hesabınıza gidin ve tıklayın **anahtarları** bu bilgileri bulmak için simge.
-* (İsteğe bağlı) **EndpointSuffix** -bu Azure Çin ya da Azure yönetimi gibi farklı uç nokta sonekleri ile bölgelerdeki depolama hizmetleri için kullanılır.
+* **Defaultendpointsprotocol =** -HTTP veya HTTPS seçebilirsiniz. Ancak, HTTPS kullanarak önemle tavsiye edilir.
+* **Hesap adı** -depolama hesabınızın adı
+* **Hesap anahtarı** - [Azure portalı](https://portal.azure.com), depolama hesabınıza gidin ve tıklayın **anahtarları** bu bilgileri bulmak için simge.
+* (İsteğe bağlı) **EndpointSuffix** -bu bölgelerde Azure Çin veya Azure idare gibi farklı sayıda uç nokta sonekleri depolama hizmetleri için kullanılır.
 
-Burada, paylaşılan anahtar kimlik doğrulaması kullanarak bağlantı dizesi örneği verilmiştir:
+Paylaşılan anahtar kimlik doğrulamasını kullanarak bağlantı dizesinin bir örnek aşağıda verilmiştir:
 
 `"DefaultEndpointsProtocol=https;AccountName=your_account_name_here;AccountKey=your_account_key_here"`
 
 ### <a name="shared-access-signatures-sas"></a>Paylaşılan Erişim İmzaları (SAS)
-Bir mobil uygulama için bir paylaşılan erişim imzası (SAS) kullanarak Azure Storage hizmeti karşı bir istemci tarafından bir istek kimlik doğrulaması için önerilen yöntem gerçekleşir. SAS bir belirtilen süre, belirtilen bir izin kümesi ile bir istemci bir kaynağa erişim izni vermesini sağlar.
-Depolama hesabı sahibi kullanmak mobil istemcileriniz için bir SAS oluşturmanız gerekir. SAS oluşturmak için büyük olasılıkla istemcilerinize dağıtılacak SAS oluşturur ayrı bir hizmet yazma istersiniz. Test amacıyla kullanabilirsiniz [Microsoft Azure Storage Gezgini](http://storageexplorer.com) veya [Azure Portal](https://portal.azure.com) SAS oluşturmak için. SAS oluşturduğunuzda, SAS geçerli olduğu zaman aralığını ve istemciye SAS verir izinleri belirtebilirsiniz.
+Bir mobil uygulama için bir paylaşılan erişim imzası (SAS) kullanarak Azure Depolama hizmetinden bir istemci tarafından bir istek kimliğini doğrulamak için önerilen yöntem olduğu. SAS süre boyunca belirtilen bir izin kümesi ile belirli bir süre için bir istemci bir kaynağa erişim izni vermenizi sağlar.
+Depolama hesabı sahibi olarak kullanmak, mobil istemciler için bir SAS oluşturmak gerekir. SAS oluşturmak için büyük olasılıkla istemcilerinize dağıtılması için bir SAS oluşturuyor ayrı bir hizmet yazmak isteyebilirsiniz. Test amacıyla kullanabilirsiniz [Microsoft Azure Depolama Gezgini](http://storageexplorer.com) veya [Azure portalı](https://portal.azure.com) bir SAS oluşturmak için. SAS'ı oluşturduğunuzda, SAS geçerli olacağı zaman aralığını ve istemciye SAS veren izinler belirtebilirsiniz.
 
-Aşağıdaki örnek, Microsoft Azure Storage Gezgini SAS oluşturmak için nasıl kullanılacağını gösterir.
+Aşağıdaki örnek, Microsoft Azure Depolama Gezgini bir SAS oluşturmak için nasıl kullanılacağını gösterir.
 
-1. Henüz yapmadıysanız [Microsoft Azure Storage Gezgini yükleyin](http://storageexplorer.com)
+1. Henüz kaydolmadıysanız [Microsoft Azure Depolama Gezgini'ni yükleme](http://storageexplorer.com)
 2. Aboneliğinize bağlanın.
-3. Depolama hesabınıza tıklayın ve alt sol "Eylemler" sekmesini tıklatın. "Paylaşılan erişim"bağlantı dizesi"için SAS oluşturmak için imzası Al"'i tıklatın.
-4. Burada, verir okuma ve yazma izinlerine hizmeti, kapsayıcı ve nesne düzeyinde depolama hesabının blob hizmeti için bir SAS bağlantı dizesi örneği verilmiştir.
+3. Depolama hesabınıza tıklayın ve sol altta "Eylemler" sekmesine tıklayın. "Paylaşılan erişim"bağlantı dizesi"için bir SAS oluşturmak için imzası Al"'a tıklayın.
+4. Burada, okuma ve yazma hizmeti, kapsayıcı ve depolama hesabının blob hizmeti için nesne düzeyi izinleri olduğunu bir SAS bağlantı dizesi örneği verilmiştir.
    
    `"SharedAccessSignature=sv=2015-04-05&ss=b&srt=sco&sp=rw&se=2016-07-21T18%3A00%3A00Z&sig=3ABdLOJZosCp0o491T%2BqZGKIhafF1nlM3MzESDDD3Gg%3D;BlobEndpoint=https://youraccount.blob.core.windows.net"`
 
-Bir SAS kullanırken görebileceğiniz gibi hesap anahtarınızı uygulamanızda gösterme değil. SAS ve SAS kullanıma kullanarak için en iyi uygulamalar hakkında daha fazla bilgiyi [paylaşılan erişim imzaları: SAS modelini anlama](../articles/storage/common/storage-dotnet-shared-access-signature-part-1.md).
+Bir SAS kullanırken görebileceğiniz gibi hesap anahtarınız uygulamanızda gösterme değil. SAS ve göz atarak SAS kullanmak için en iyi uygulamalar hakkında daha fazla bilgi [paylaşılan erişim imzaları: SAS modelini anlama](../articles/storage/common/storage-dotnet-shared-access-signature-part-1.md).
 

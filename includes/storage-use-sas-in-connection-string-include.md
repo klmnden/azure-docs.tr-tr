@@ -1,3 +1,16 @@
+---
+author: tamram
+ms.service: storage
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: tamram
+ms.openlocfilehash: 2f27c50b1d016265c20102521a137bcbb0646115
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50166269"
+---
 Depolama hesabınızdaki kaynaklara erişim veren bir paylaşılan erişim imzası (SAS) URL sahip, SAS bağlantı dizesinde kullanabilirsiniz. SAS isteğin kimliğini doğrulamak için gereken bilgileri içerdiğinden, SAS bağlantı dizesiyle protokolü, hizmet uç noktası ve kaynağa erişmek için gerekli kimlik bilgilerini sağlar.
 
 Paylaşılan erişim imzası içerir bir bağlantı dizesi oluşturmak için dizesi şu biçimde belirtin:

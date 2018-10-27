@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/03/2018
 ms.author: jeedes
-ms.openlocfilehash: c9134ceebca696ed2b3376a69e26c2ea06f4f0f6
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: c33edf13a8bcafd4a6c3d4885553fc856ec941d8
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39506209"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50158134"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-4me"></a>Öğretici: Azure Active Directory 4me ile tümleştirme
 
@@ -37,7 +37,7 @@ Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek ist
 
 Azure AD Tümleştirmesi ile 4me yapılandırmak için aşağıdaki öğeler gerekir:
 
-- Azure AD aboneliğiniz
+- Azure AD aboneliği
 - Abonelik 4me çoklu oturum açma etkin
 
 > [!NOTE]
@@ -59,7 +59,7 @@ Azure AD'de 4me tümleştirmesini yapılandırmak için 4me Galeriden yönetilen
 
 **Galeriden 4me eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde  **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
+1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
 
     ![Azure Active Directory düğmesi][1]
 
@@ -177,7 +177,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve 4
 
     c. Altında **SAML** bölümünde **SAML SSO URL** metin değerini yapıştırın **SAML çoklu oturum açma hizmeti URL'si**, hangi Azure portaldan kopyaladığınız.
 
-    d. İçinde **sertifika parmak izi** metin kutusu, yapıştırma **parmak İZİ** duplets sırada (AA:BB:CC:DD:EE:FF:GG:HH:II), Azure Portalı'ndan kopyaladığınız üste değeri listeleyin.
+    d. İçinde **sertifika parmak izi** metin kutusu, yapıştırma **parmak İZİ** duplets sırada (AA:BB:CC:DD:EE:FF:GG:HH:II), Azure Portalı'ndan kopyaladığınız bir virgülle ayrılmış değer.
 
     e. **Kaydet**’e tıklayın.
 
@@ -218,7 +218,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
 Bu bölümün amacı 4me Britta Simon adlı bir kullanıcı oluşturmaktır. 4me tam zamanında sağlama, varsayılan olarak etkin olan destekler. Bu bölümde, hiçbir eylem öğesini yoktur. Yeni bir kullanıcı, henüz yoksa 4me erişme denemesi sırasında oluşturulur.
 
 >[!Note]
->Bir kullanıcı el ile oluşturmanız gerekiyorsa, kişi [4me Destek ekibine](mailto:support@4me.com).
+>Bir kullanıcı el ile oluşturmanız gerekiyorsa, kişi [4me Destek ekibine](mailto:support@4me.com).
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atayın
 

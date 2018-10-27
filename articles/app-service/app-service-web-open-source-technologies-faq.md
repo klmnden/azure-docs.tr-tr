@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/11/2018
 ms.author: genli
-ms.openlocfilehash: d65a33dc13d0b91a9ace04dab0be6c37bcd2188f
-ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
+ms.openlocfilehash: 4185cbad6358f6b2e48513c0d79c0a357eb6235a
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42623292"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50156485"
 ---
 # <a name="open-source-technologies-faqs-for-web-apps-in-azure"></a>Açık kaynak teknolojilerini azure'daki Web uygulamaları için SSS
 
@@ -43,9 +43,9 @@ PHP günlüğü etkinleştirmek için:
 9. **Kaydet**’i seçin.
 10. Kalem simgesini seçin **wp-config.php**.
 11. Metin, aşağıdaki kodla değiştirin:
-   ```
+   ```php
    //Enable WP_DEBUG modedefine('WP_DEBUG', true);//Enable debug logging to /wp-content/debug.logdefine('WP_DEBUG_LOG', true);
-   //Supress errors and warnings to screendefine('WP_DEBUG_DISPLAY', false);//Supress PHP errors to screenini_set('display_errors', 0);
+   //Suppress errors and warnings to screendefine('WP_DEBUG_DISPLAY', false);//Supress PHP errors to screenini_set('display_errors', 0);
    ```
 12. Azure portalında web uygulama menüsünde, web uygulamanızı yeniden başlatın.
 
@@ -70,7 +70,7 @@ Node.js uygulaması sürümünü değiştirmek için aşağıdaki seçeneklerden
 *   İisnode.yml dosyasını değiştirin. Node.js sürümü iisnode.yml dosyasını değiştirerek yalnızca ayarlar çalışma zamanı ortamı bu iisnode kullanır. Uygulamanızın Kudu cmd ve diğerleri tarafından ayarlanmış olan Node.js sürümünü kullanmaya devam **uygulama ayarları** Azure portalında.
 
     İisnode.yml el ile ayarlamak için uygulama kök klasöründe bir iisnode.yml dosyası oluşturun. Dosyasında aşağıdaki satırı ekleyin:
-   ```
+   ```yml
    nodeProcessCommandLine: "D:\Program Files (x86)\nodejs\5.9.1\node.exe"
    ```
    
@@ -80,7 +80,7 @@ Node.js uygulaması sürümünü değiştirmek için aşağıdaki seçeneklerden
     2. Hiç yoksa (deploy.cmd, .deployment dosyaları) web uygulaması kök klasöründe varsayılan dağıtım betiğini oluşturur.
     3. Hangi oluşturduğu bir iisnode.yml dosyası Node.js sürümünü package.json dosyasına bahsetmeniz durumunda bir dağıtım betiği çalıştıran > altyapısı `"engines": {"node": "5.9.1","npm": "3.7.3"}`
     4. Aşağıdaki kod satırını iisnode.yml dosyasını sahiptir:
-        ```
+        ```yml
         nodeProcessCommandLine: "D:\Program Files (x86)\nodejs\5.9.1\node.exe"
         ```
 
@@ -146,7 +146,7 @@ Hatayı gidermek için:
 2. Özel Tomcat veya Azure Market Tomcat web sunucusu kullanıyorsanız, bu .jar dosyasını Tomcat lib klasörüne kopyalayın.
 3. Azure portalından Java etkinleştiriyorsanız (seçin **Java 1.8** > **Tomcat sunucusu**), uygulamanıza paralel klasörde sqljdbc.* jar dosyasını kopyalayın. Ardından, aşağıdaki sınıf ayarları web.config dosyasına ekleyin:
 
-    ```
+    ```xml
     <httpPlatform>
     <environmentVariables>
     <environmentVariablename ="JAVA_OPTS" value=" -Djava.net.preferIPv4Stack=true

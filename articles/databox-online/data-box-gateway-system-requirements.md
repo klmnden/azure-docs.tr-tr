@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: article
 ms.date: 10/17/2018
 ms.author: alkohli
-ms.openlocfilehash: f70cd5de29cc3050142dfff905acae2008dab115
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: 6978360769ba350d85a06116bfee6db9f80b0607
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49379131"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50157369"
 ---
 # <a name="azure-data-box-gateway-system-requirements-preview"></a>Azure veri kutusu ağ geçidi sistem gereksinimleri (Önizleme)
 
@@ -56,7 +56,7 @@ Veri kutusu ağ geçidi sanal cihaz için sistem gereksinimleri şunlardır:
 
 ## <a name="supported-storage-accounts"></a>Desteklenen depolama hesapları
 
-Veri kutusu ağ geçidi için desteklenen depolama türlerinin bir listesi aşağıda verilmiştir.
+Veri kutusu ağ geçidi için desteklenen depolama hesaplarının listesi aşağıda verilmiştir.
 
 | **Depolama hesabı** | **Notlar** |
 | --- | --- |

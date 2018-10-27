@@ -1,3 +1,16 @@
+---
+author: alkohli
+ms.service: storsimple
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: alkohli
+ms.openlocfilehash: c54431009105c1d213e6cefeba06c39c781e2c1a
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50166488"
+---
 <!--author=SharS last changed: 06/22/2016-->
 
 ### <a name="to-configure-and-register-the-device"></a>Cihazı yapılandırmak ve kaydetmek için
@@ -6,21 +19,21 @@
 3. Cihazınızda ayarlamak istediğiniz dili seçmeniz istenecektir. Dili belirtip **Enter** tuşuna basın.
    
     ![StorSimple cihazı yapılandırma ve kaydetme 1](./media/storsimple-configure-and-register-device-gov-u2/HCS_RegisterYourDevice1-gov-include.png)
-4. Sunulan seri konsol menüsünde seçeneği 1, **oturum oturum tam erişim**.
+4. Verilen seri konsol menüsünde **Tam erişimle oturum açmak** için 1 seçeneğini belirleyin.
    
     ![StorSimple kayıt cihazı 2](./media/storsimple-configure-and-register-device-gov-u2/HCS_RegisterYourDevice2-gov-include.png)
-5. Cihazınız için en düşük gerekli ağ ayarlarını yapılandırmak için aşağıdaki adımları gerçekleştirin.
+5. Cihazınız en düşük gerekli ağ ayarlarını yapılandırmak için aşağıdaki adımları gerçekleştirin.
    
    > [!IMPORTANT]
-   > Bu yapılandırma adımları, cihazın etkin denetleyicisinde gerçekleştirilmelidir. Seri konsol menüsü, bant iletisindeki denetleyici durumunu belirtir. Olan değil bağlanırsanız etkin denetleyiciye kesin ve etkin denetleyiciye bağlayın.
+   > Bu yapılandırma adımları, cihazın etkin denetleyicisinde gerçekleştirilmelidir. Seri konsol menüsü, bant iletisindeki denetleyici durumunu belirtir. Etkin denetleyiciye olan, olmayan bağlanmanız durumunda, kesin ve ardından etkin denetleyiciye bağlayın.
    
    1. Komut istemine parolanızı yazın. Varsayılan cihaz parolası **Password1**’dir.
    2. Aşağıdaki komutu yazın:
       
         `Invoke-HcsSetupWizard`
-   3. Cihazın ağ ayarlarını yapılandırmanıza yardımcı olacak bir kurulum sihirbazı görüntülenir. Aşağıdaki bilgileri sağlayın:
+   3. Cihazın ağ ayarlarını yapılandırmanıza yardımcı olacak bir kurulum sihirbazı görüntülenir. Aşağıdaki bilgileri verin:
       
-      * Veri 0 ağ arabirimi için IP adresi
+      * DATA 0 ağ arabirimi için IP adresi
       * Alt ağ maskesi
       * Ağ geçidi
       * Birincil DNS sunucusu için IP adresi
@@ -29,46 +42,46 @@
       > [!NOTE]
       > Alt ağ maskesi ve DNS ayarlarının uygulanması için birkaç dakika beklemeniz gerekebilir.
     
-   4. İsteğe bağlı olarak, web proxy sunucunuzu yapılandırın.
+   4. İsteğe bağlı olarak, web Ara sunucusunu yapılandırın.
       
       > [!IMPORTANT]
-      > Web proxy yapılandırması isteğe bağlı olsa da, bir web proxy kullanıyorsanız, yalnızca burada yapılandırabilirsiniz olduğunu unutmayın. Daha fazla bilgi için [Cihazınız için web ara sunucusunu yapılandırma](../articles/storsimple/storsimple-configure-web-proxy.md)’ya gidin.
+      > Web proxy yapılandırması isteğe bağlı olsa da, bir web proxy kullanıyorsanız, yalnızca, burada yapılandırabilirsiniz olduğunu unutmayın. Daha fazla bilgi için [Cihazınız için web ara sunucusunu yapılandırma](../articles/storsimple/storsimple-configure-web-proxy.md)’ya gidin.
      
 6. Kurulum sihirbazından çıkmak için Ctrl + C tuşlarına basın.
-8. (Bu ortak Azure Klasik portalında varsayılan işaret ettiğinden) cihaz Microsoft Azure kamu Portalı'na işaret etmek için aşağıdaki cmdlet'i çalıştırın. Bu, hem denetleyicileri yeniden başlatılır. Her denetleyici ne zaman yeniden görebilmeniz için aynı anda hem denetleyicileri bağlanmak için iki PuTTY oturumu kullanmanızı öneririz.
+8. (Bunu genel Azure Klasik portalında varsayılan olarak işaret ettiğinden) Microsoft Azure kamu portalında cihaz işaret etmek için aşağıdaki cmdlet'i çalıştırın. Bu, her iki denetleyicilerinin yeniden başlatır. Her denetleyici ne zaman yeniden görebilmeniz için aynı anda hem denetleyicisine bağlanmak için iki PuTTY oturumuna kullanmanızı öneririz.
    
     `Set-CloudPlatform -AzureGovt_US`
    
-   Bir onay iletisi görürsünüz. Varsayılanı kabul (**Y**).
+   Bir onay iletisi görürsünüz. Varsayılan değeri kabul edin (**Y**).
 9. Kurulum devam etmek için aşağıdaki cmdlet'i çalıştırın:
    
     `Invoke-HcsSetupWizard`
    
-    ![Resume Kurulum Sihirbazı](./media/storsimple-configure-and-register-device-gov-u2/HCS_ResumeSetup-gov-include.png)
+    ![Kurulum Sihirbazı devam etme](./media/storsimple-configure-and-register-device-gov-u2/HCS_ResumeSetup-gov-include.png)
    
-10. Ağ ayarlarını kabul edin. Her ayar kabul ettikten sonra bir doğrulama iletisi görürsünüz.
+10. Ağ ayarlarını kabul edin. Her ayar kabul ettikten sonra doğrulama iletisi görürsünüz.
 11. Güvenlik nedenleriyle, cihaz yönetici parolasının süresi ilk oturumun ardından dolar; artık bunu değiştirmeniz gerekir. İstendiğinde cihaz yöneticisi parolasını verin. Geçerli bir cihaz yöneticisi parolası 8-15 karakter arasında olmalıdır. Parolada aşağıdakilerden üçü olmalıdır: küçük harf, büyük harf, rakam ve özel karakter.
     
     <br/>![StorSimple kayıt cihazı 5](./media/storsimple-configure-and-register-device-gov-u2/HCS_RegisterYourDevice5_gov-include.png)
-12. Kurulum sihirbazının son adımı cihazınızı StorSimple Cihaz Yöneticisi hizmetine kaydeder. Bunun için makalesinde aldığınız hizmet kayıt anahtarı gerekir [2. adım: Hizmet kayıt anahtarını alın](../articles/storsimple/storsimple-8000-deployment-walkthrough-gov-u2.md#step-2-get-the-service-registration-key). Kayıt anahtarını verdikten sonra cihazın kaydolması için 2-3 dakika beklemeniz gerekebilir.
+12. Kurulum sihirbazının son adımı cihazınızı StorSimple Cihaz Yöneticisi hizmetine kaydeder. Bunun için aldığınız hizmet kayıt anahtarı gerekir [2. adım: Hizmet kayıt anahtarı alma](../articles/storsimple/storsimple-8000-deployment-walkthrough-gov-u2.md#step-2-get-the-service-registration-key). Kayıt anahtarını verdikten sonra cihazın kaydolması için 2-3 dakika beklemeniz gerekebilir.
     
     > [!NOTE]
     > Kurulum sihirbazından çıkmak için istediğiniz zaman Ctrl + C tuşlarına basabilirsiniz. Tüm ağ ayarlarını (Data 0 için IP adresi, alt ağ maskesi ve ağ geçidi) girdiyseniz girişleriniz korunur.
     
     ![StorSimple kayıt ilerleme durumu](./media/storsimple-configure-and-register-device-gov-u2/HCS_RegistrationProgress-gov-include.png)
-13. Cihaz kaydedildikten sonra Hizmet Verileri Şifreleme anahtarı görüntülenir. Bu anahtarı kopyalayın ve güvenli bir konuma kaydedin. **Bu anahtar StorSimple cihaz Yöneticisi hizmetiyle ek cihazlar kaydetmek için hizmet kayıt anahtarı gereklidir.** Bu anahtar hakkında daha fazla bilgi için bkz. [StorSimple güvenliği](../articles/storsimple/storsimple-8000-security.md).
+13. Cihaz kaydedildikten sonra Hizmet Verileri Şifreleme anahtarı görüntülenir. Bu anahtarı kopyalayın ve güvenli bir konuma kaydedin. **StorSimple cihaz Yöneticisi hizmetiyle ek cihazlar kaydetmek için hizmet kayıt anahtarıyla birlikte bu anahtar gereklidir.** Bu anahtar hakkında daha fazla bilgi için bkz. [StorSimple güvenliği](../articles/storsimple/storsimple-8000-security.md).
     
     ![StorSimple kayıt cihazı 7](./media/storsimple-configure-and-register-device-gov-u2/HCS_RegisterYourDevice7_gov-include.png)
     > [!IMPORTANT]
     > Seri konsol penceresinden metin kopyalamak için metni seçmeniz yeterlidir. Artık bunu panoya veya metin düzenleyicilere yapıştırabilirsiniz.
     > 
-    > Kullanmayın **Ctrl + C** hizmet verileri şifreleme anahtarını kopyalamak için. Kullanarak **Ctrl + C** Kurulum sihirbazından çıkmak neden olur. Sonuç olarak, cihaz yöneticisi parolası değiştirilmez ve cihaz varsayılan parolasına döner.
+    > Kullanmayın **Ctrl + C** hizmet veri şifreleme anahtarını kopyalamak için. Kullanarak **Ctrl + C** Kurulum sihirbazından çıkmanıza neden olur. Sonuç olarak, cihaz yöneticisi parolası değiştirilmez ve cihaz varsayılan parolasına döner.
     
 14. Seri konsoldan çıkın.
-15. Azure Kamu portalına geri dönün ve aşağıdaki adımları tamamlayın:
+15. Azure kamu Portalı'na dönün ve aşağıdaki adımları tamamlayın:
     
     1. StorSimple Cihaz Yöneticisi hizmetinize gidin.
-    2. **Cihazlar**’a tıklayın. Aygıtlar listesinden ddeploying olduğunuz cihazı tanımlayın. Cihaz başarıyla hizmete durumu arayarak bağlandığını doğrulayın. Cihazın durumu **Çevrimiçi** olmalıdır.
+    2. **Cihazlar**’a tıklayın. Cihazlar listesinden ddeploying olduğunu tanımlamaktır. Cihaz başarıyla hizmete durumunu arayarak bağlandığını doğrulayın. Cihazın durumu **Çevrimiçi** olmalıdır.
             
         Cihazın durumu **Çevrimdışı** olduğu durumda, birkaç dakikada cihazın çevrimiçi olması bekleyin.
        

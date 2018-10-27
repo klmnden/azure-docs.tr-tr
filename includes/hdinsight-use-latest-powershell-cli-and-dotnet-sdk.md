@@ -1,3 +1,16 @@
+---
+author: jasonwhowell
+ms.service: hdinsight
+ms.topic: include
+ms.date: 10/25/2018
+ms.author: jasonh
+ms.openlocfilehash: 4b4b1f3a52dcbaa01f9fac73bce09a75495408df
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50166460"
+---
 > [!IMPORTANT]
 > Azure PowerShell, Azure CLI ve HDInsight .NET SDK'sı ile Azure Service Manager (ASM) kullanılarak HDInsight kaynaklarının yönetilmesi için destek **kullanım dışı**ve 1 Ocak 2017 tarihinde kaldırılmıştır. Bu belgedeki adımlarda, yeni Azure PowerShell cmdlet'lerini, Azure CLI komutlarını ve Azure Resource Manager ile çalışan bir .NET SDK kullanın.
 > 

@@ -3,7 +3,7 @@ title: 'Azure AD etki alanı Hizmetleri: Ağ yönergeleri | Microsoft Docs'
 description: Azure Active Directory Domain Services ilgili ağ konuları
 services: active-directory-ds
 documentationcenter: ''
-author: mahesh-unnikrishnan
+author: eringreenlee
 manager: mtillman
 editor: curtand
 ms.assetid: 23a857a5-2720-400a-ab9b-1ba61e7b145a
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/01/2017
-ms.author: maheshu
-ms.openlocfilehash: de5f3582a931cbf21d5504afd1fd385066874f45
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.author: ergreenl
+ms.openlocfilehash: eb97e709e18daba3722dc43a869ef034dbe573cf
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39504242"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50157437"
 ---
 # <a name="networking-considerations-for-azure-ad-domain-services"></a>Azure AD Domain Services ilgili ağ konuları
 ## <a name="how-to-select-an-azure-virtual-network"></a>Nasıl bir Azure sanal ağı seçin

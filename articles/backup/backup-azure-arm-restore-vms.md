@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 09/04/2017
 ms.author: geg
-ms.openlocfilehash: 450314dddd49825bae689701b694f9a26758835e
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: 5812bafbcfa104150325dcdde374f88200b071c0
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49377648"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50155210"
 ---
 # <a name="use-the-azure-portal-to-restore-virtual-machines"></a>Sanal makineleri geri yükleme için Azure portalını kullanma
 Tanımlı aralıklarla verilerinizin anlık görüntülerini alarak verilerinizi koruyun. Bu anlık görüntüler, Kurtarma noktaları olarak bilinir ve kurtarma Hizmetleri kasalarında depolandıkları. Onarım veya bir sanal makine (VM) yeniden gerekliyse, kaydedilmiş kurtarma noktalarının birini VM geri yükleyebilirsiniz. Bir kurtarma noktasından geri yüklediğinizde, şunları yapabilirsiniz:
@@ -151,7 +151,7 @@ POST geri yükleme işlemi, aşağıda kullanın:
 İçinde **yerde geri** sekmesinden yapılır **değiştirin mevcut**.
 
 ## <a name="replace-existing-disks-from-a-restore-point"></a>Var olan diskleri geri yükleme noktasından değiştirin
-**Varolan** seçeneği yardımcı olur. geçerli VM mevcut diskleri seçilen geri yükleme noktası ile değiştirin. Bu işlem, yalnızca geçerli VM varsa gerçekleştirilebilir. Tüm sebeplerden dolayı silinmişse, bu işlem gerçekleştirilemez. Alternatif olarak, yapmanız önerilir **Yeni Oluştur** VM veya devam etmek için diskleri geri yükleme işlemleri. Değer başlatma işlemleri diskleri önce diskleri işlemleri, bir önlem olarak, varolan Değiştir sırasında'biz verilerini yedekler. Diskleri geri yükleme noktası varsa, daha fazla/geçerli VM ve ardından diskleri geri yükleme noktası sayısı'den az yalnızca VM ücreti yansıtılır. Mevcut Değiştir seçeneği şu anda yalnızca yönetilen diskler için desteklenir ve şifrelenmemiş VM'ler.  
+**Varolan** seçeneği yardımcı olur. geçerli VM mevcut diskleri seçilen geri yükleme noktası ile değiştirin. Bu işlem, yalnızca geçerli VM varsa gerçekleştirilebilir. Tüm sebeplerden dolayı silinmişse, bu işlem gerçekleştirilemez. Alternatif olarak, yapmanız önerilir **Yeni Oluştur** VM veya devam etmek için diskleri geri yükleme işlemleri. Değer başlatma işlemleri diskleri önce diskleri işlemleri, bir önlem olarak, varolan Değiştir sırasında'biz verilerini yedekler. Diskleri geri yükleme noktası varsa, daha fazla/geçerli VM ve ardından diskleri geri yükleme noktası sayısı'den az yalnızca VM ücreti yansıtılır. **Varolan** seçenektir yönetilmeyen diskler ve şifrelenmiş VM'ler için şu anda desteklenmiyor. İçin de desteklenmeyen [VM genelleştirilmiş](https://docs.microsoft.com/azure/virtual-machines/windows/capture-image-resource) ve kullanılarak oluşturulan VM'ler için [özel görüntüleri](https://azure.microsoft.com/resources/videos/create-a-custom-virtual-machine-image-in-azure-resource-manager-with-powershell/).  
 
  Üzerinde **geri yükleme Yapılandırması** dikey penceresinde seçilmesi gereken yalnızca giriştir **hazırlama konumu**.
 

@@ -1,3 +1,16 @@
+---
+author: alkohli
+ms.service: storsimple
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: alkohli
+ms.openlocfilehash: b9f5e5d0b774d3875999fa5337f41040c4217c8b
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50164631"
+---
 <!--author=alkohli last changed: 11/07/16 -->
 
 #### <a name="to-install-updates-via-the-azure-portal"></a>Azure portalı aracılığıyla güncelleştirmeleri yüklemek için
@@ -50,6 +63,6 @@
 
     ![cihaz güncelleştirme](../includes/media/storsimple-virtual-array-install-update-via-portal/azupdate16m.png)
 
-9. Güncelleştirmeler başarıyla yüklendikten sonra aygıt güncelleştirmeleri dikey penceresinde bu etkili olması için bir ileti görür. Değişikliklerini Ayrıca yazılım sürümü **10.0.10288.0**. 
+9. Güncelleştirmeler başarıyla yüklendikten sonra cihaz güncelleştirmeleri dikey penceresinde bu etkili olması için bir ileti görürsünüz. Yazılım sürümü de değişikliklerini **10.0.10288.0**. 
 
     ![cihaz güncelleştirme](../includes/media/storsimple-virtual-array-install-update-via-portal/azupdate17m.png)

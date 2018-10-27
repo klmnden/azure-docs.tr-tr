@@ -3,7 +3,7 @@ title: 'Azure AD Domain Services: Karşılaştırma Azure AD Domain Services ken
 description: Azure Active Directory Domain Services kendin YAP etki alanı denetleyicilerine karşılaştırma
 services: active-directory-ds
 documentationcenter: ''
-author: mahesh-unnikrishnan
+author: eringreenlee
 manager: mtillman
 editor: curtand
 ms.assetid: 165249d5-e0e7-4ed1-aa26-91a05a87bdc9
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/07/2017
-ms.author: maheshu
-ms.openlocfilehash: acb125ef807193e79e45bca7e217efe3ffb31698
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.author: ergreenl
+ms.openlocfilehash: f7455076d59e447ade9c15203593d260cf676894
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39505959"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50155806"
 ---
 # <a name="how-to-decide-if-azure-ad-domain-services-is-right-for-your-use-case"></a>Azure AD etki alanı Hizmetleri karar verme, kullanım örneği için doğru
 Azure AD Domain Services ile kimlik altyapısını azure'da koruma hakkında endişelenmenize gerek kalmadan Azure altyapı hizmetleri iş yüklerinizi dağıtabilirsiniz. Yönetilen bu hizmet, dağıtmak ve yönetmek, kendi tipik bir Windows Server Active Directory Dağıtım farklıdır. Hizmet kolayca dağıtılır ve otomatik sistem durumu izleme ve düzeltme sağlar. Biz, dağıtım senaryoları için destek eklemek için hizmet sürekli geliştirilmektedir.
@@ -95,7 +95,7 @@ Yönetilen etki alanında LDAP okuma iş yüklerini destekler. Bu nedenle, yöne
 #### <a name="ldap-write"></a>LDAP yazma
 Yönetilen etki alanı kullanıcı nesneleri için salt okunur. Bu nedenle, kullanıcı nesnesinin öznitelikleri karşı LDAP yazma işlemleri gerçekleştiren uygulamalar, yönetilen bir etki alanında çalışmaz. Ayrıca, kullanıcı parolalarını yönetilen etki alanı içinde değiştirilemez. Başka bir örnek grup üyelikleri veya izin verilmeyen yönetilen etki alanındaki grup öznitelikleri değiştirilmesini olacaktır. Kullanıcı öznitelikleri veya parolaları (PowerShell/Azure portalından) Azure AD'de yapılan değişiklikler ancak veya şirket içinde AD DS AAD yönetilen etki alanına eşitlenir.
 
-#### <a name="group-policy"></a>Grup İlkesi
+#### <a name="group-policy"></a>Grup ilkesi
 Bir yerleşik GPO'yu her "AADDC Computers" ve "AADDC Users" kapsayıcıları yoktur. Grup İlkesi yapılandırmak için bu yerleşik GPO özelleştirebilirsiniz. 'AAD DC Administrators' grubunun üyeleri ayrıca özel GPO'ları oluşturmak ve bunları (özel OU'ları dahil) mevcut OU'lara bağlayın.
 [Daha fazla bilgi](active-directory-ds-admin-guide-administer-group-policy.md)
 

@@ -1,16 +1,29 @@
-## <a name="net-sample-code-repositories"></a>.NET örnek kodu depoları
+---
+author: tamram
+ms.service: storage
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: tamram
+ms.openlocfilehash: 15ed78095cf3ff465b24d181d2fb2d4c4dde2f69
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50165461"
+---
+## <a name="net-sample-code-repositories"></a>.NET örnek kod depoları
 
-Burada, Azure depolama .NET istemci kitaplığı için tüm bizim örnek depoları listesi verilmiştir.
+Tüm örnek depolarımız Azure depolama .NET istemci kitaplığı listesi aşağıda verilmiştir.
 
 * [Azure Blob Depolama Fotoğraf Galerisi Web uygulaması](https://azure.microsoft.com/resources/samples/storage-blobs-dotnet-webapp/)
 * [.NET için Azure Blob Depolama örnekleri](https://azure.microsoft.com/resources/samples/storage-blob-dotnet-getting-started/)
-* [Artımlı anlık görüntüleri yedekleme Azure sanal makine diskleriyle](https://azure.microsoft.com/resources/samples/storage-blob-dotnet-back-up-with-incremental-snapshots/)
-* [Azure istemci tarafı şifreleme .NET kullanmaya Başlarken](https://azure.microsoft.com/resources/samples/storage-dotnet-client-side-encryption/)
-* [Azure dosya hizmeti .NET kullanmaya Başlarken](https://azure.microsoft.com/resources/samples/storage-file-dotnet-getting-started/)
-* [Azure kuyruk hizmetinde .NET kullanmaya Başlarken](https://azure.microsoft.com/resources/samples/storage-queue-dotnet-getting-started/)
-* [Azure depolama kaynak sağlayıcısı .NET kullanmaya Başlarken](https://azure.microsoft.com/resources/samples/storage-dotnet-resource-provider-getting-started/)
+* [Artımlı anlık görüntülerle Azure sanal makinesini yedekle diskler](https://azure.microsoft.com/resources/samples/storage-blob-dotnet-back-up-with-incremental-snapshots/)
+* [. NET'te Azure istemci tarafı şifreleme kullanmaya başlama](https://azure.microsoft.com/resources/samples/storage-dotnet-client-side-encryption/)
+* [. NET'te Azure dosya hizmeti ile çalışmaya başlama](https://azure.microsoft.com/resources/samples/storage-file-dotnet-getting-started/)
+* [. NET'te Azure kuyruk hizmeti kullanmaya başlama](https://azure.microsoft.com/resources/samples/storage-queue-dotnet-getting-started/)
+* [. NET'te Azure depolama kaynak sağlayıcısı ile çalışmaya başlama](https://azure.microsoft.com/resources/samples/storage-dotnet-resource-provider-getting-started/)
 * [.NET’te Azure Tablo Depolama Kullanmaya Başlama](https://azure.microsoft.com/resources/samples/storage-table-dotnet-getting-started/)
-* [Paylaşılan erişim imzası (SAS) ile çalışmaya başlama](https://azure.microsoft.com/resources/samples/storage-dotnet-sas-getting-started/)
+* [Kullanmaya başlama paylaşılan erişim imzaları (SAS)](https://azure.microsoft.com/resources/samples/storage-dotnet-sas-getting-started/)
 * [REST API aracılığıyla İçeri/Dışarı Aktarma İş Yönetimi](https://azure.microsoft.com/resources/samples/storage-dotnet-import-export-job-management/)
-* [MyDriving - bir Azure IOT ve mobil örnek uygulama](https://azure.microsoft.com/resources/samples/mydriving/)
+* [MyDriving - bir Azure IOT ve mobil örnek uygulaması](https://azure.microsoft.com/resources/samples/mydriving/)
 * [.NET depolama istemci kitaplığı örnekleri](https://github.com/Azure/azure-storage-net/tree/master/Samples/GettingStarted)

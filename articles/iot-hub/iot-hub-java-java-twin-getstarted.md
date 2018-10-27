@@ -2,19 +2,18 @@
 title: Azure IOT Hub cihaz ikizlerini (Java) kullanmaya başlama | Microsoft Docs
 description: Azure IOT Hub cihaz ikizlerini etiketler ekleyin ve ardından IOT Hub sorgu kullanma Cihaz uygulaması ve Azure IOT hizmeti etiketleri ekler ve IOT Hub sorgu çalışan bir hizmet uygulaması uygulamak için Java SDK'sını uygulamak için Azure IOT cihaz SDK'sı için Java kullanın.
 author: dominicbetts
-manager: timlt
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: java
 ms.topic: conceptual
 ms.date: 07/04/2017
 ms.author: dobett
-ms.openlocfilehash: b8884cafbf250b9d7a88219b5647addafee9904a
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: a19eb99f6400e57f93c3a8d18c472ba6324383db
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39186909"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50155533"
 ---
 # <a name="get-started-with-device-twins-java"></a>Cihaz ikizlerini (Java) kullanmaya başlama
 
@@ -31,7 +30,9 @@ Bu öğreticide, iki Java konsol uygulaması oluşturun:
 Bu öğreticiyi tamamlamak için aşağıdakiler gerekir:
 
 * En güncel [Java SE Development Kit 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
+
 * [Maven 3](https://maven.apache.org/install.html)
+
 * Etkin bir Azure hesabı. (Hesabınız yoksa, oluşturabileceğiniz bir [ücretsiz bir hesap](http://azure.microsoft.com/pricing/free-trial/) yalnızca birkaç dakika içinde.)
 
 [!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
@@ -44,13 +45,15 @@ Bu bölümde, IOT hub'daki cihaz ikizine etiket ile ilişkili olarak, konum meta
 
 1. Geliştirme makinenizde adlı boş bir klasör oluşturma `iot-java-twin-getstarted`.
 
-1. İçinde `iot-java-twin-getstarted` klasöründe adlı bir Maven projesi oluşturun **Ekle-etiketleri-query** komut isteminizde aşağıdaki komutu kullanarak. Bunun tek ve uzun bir komut olduğunu unutmayın:
+2. İçinde `iot-java-twin-getstarted` klasöründe adlı bir Maven projesi oluşturun **Ekle-etiketleri-query** komut isteminizde aşağıdaki komutu kullanarak. Bunun tek ve uzun bir komut olduğunu unutmayın:
 
-    `mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=add-tags-query -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false`
+    ```
+    mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=add-tags-query -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
+    ```
 
-1. Komut isteminizde gidin `add-tags-query` klasör.
+3. Komut isteminizde gidin `add-tags-query` klasör.
 
-1. Bir metin düzenleyicisi kullanarak açın `pom.xml` dosyası `add-tags-query` klasörü ve aşağıdaki bağımlılığı ekleyin **bağımlılıkları** düğümü. Bu bağımlılık kullanmanızı sağlayan **IOT hizmeti istemcisi** , IOT hub ile iletişim kurmak için uygulamanızda paket:
+4. Bir metin düzenleyicisi kullanarak açın `pom.xml` dosyası `add-tags-query` klasörü ve aşağıdaki bağımlılığı ekleyin **bağımlılıkları** düğümü. Bu bağımlılık kullanmanızı sağlayan **IOT hizmeti istemcisi** , IOT hub ile iletişim kurmak için uygulamanızda paket:
 
     ```xml
     <dependency>
@@ -64,7 +67,7 @@ Bu bölümde, IOT hub'daki cihaz ikizine etiket ile ilişkili olarak, konum meta
     > [!NOTE]
     > En son sürümünü kontrol **IOT hizmeti istemcisi** kullanarak [Maven arama](http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-service-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22).
 
-1. Aşağıdaki **derleme** düğümünün sonra **bağımlılıkları** düğümü. Bu yapılandırma, uygulama oluşturmak için Java 1.8 kullanmak için Maven bildirir:
+5. Aşağıdaki **derleme** düğümünün sonra **bağımlılıkları** düğümü. Bu yapılandırma, uygulama oluşturmak için Java 1.8 kullanmak için Maven bildirir:
 
     ```xml
     <build>
@@ -82,11 +85,11 @@ Bu bölümde, IOT hub'daki cihaz ikizine etiket ile ilişkili olarak, konum meta
     </build>
     ```
 
-1. Kaydet ve Kapat `pom.xml` dosya.
+6. Kaydet ve Kapat `pom.xml` dosya.
 
-1. Bir metin düzenleyicisi kullanarak açın `add-tags-query\src\main\java\com\mycompany\app\App.java` dosya.
+7. Bir metin düzenleyicisi kullanarak açın `add-tags-query\src\main\java\com\mycompany\app\App.java` dosya.
 
-1. Aşağıdaki **içeri aktarma** deyimlerini dosyaya ekleyin:
+8. Aşağıdaki **içeri aktarma** deyimlerini dosyaya ekleyin:
 
     ```java
     import com.microsoft.azure.sdk.iot.service.devicetwin.*;
@@ -97,7 +100,7 @@ Bu bölümde, IOT hub'daki cihaz ikizine etiket ile ilişkili olarak, konum meta
     import java.util.Set;
     ```
 
-1. Aşağıdaki sınıf düzeyi değişkenleri **App** sınıfına ekleyin. Değiştirin `{youriothubconnectionstring}` not ettiğiniz IOT hub bağlantı dizenizle *IOT Hub oluşturma* bölümü:
+9. Aşağıdaki sınıf düzeyi değişkenleri **App** sınıfına ekleyin. Değiştirin `{youriothubconnectionstring}` not ettiğiniz IOT hub bağlantı dizenizle *IOT Hub oluşturma* bölümü:
 
     ```java
     public static final String iotHubConnectionString = "{youriothubconnectionstring}";
@@ -107,13 +110,13 @@ Bu bölümde, IOT hub'daki cihaz ikizine etiket ile ilişkili olarak, konum meta
     public static final String plant = "Redmond43";
     ```
 
-1. Güncelleştirme **ana** şunlar için yöntem imzası `throws` yan tümcesi:
+10. Güncelleştirme **ana** şunlar için yöntem imzası `throws` yan tümcesi:
 
     ```java
     public static void main( String[] args ) throws IOException
     ```
 
-1. Aşağıdaki kodu ekleyin **ana** yöntemini **DeviceTwin** ve **DeviceTwinDevice** nesneleri. **DeviceTwin** nesne, IOT hub'ınızla iletişim işler. **DeviceTwinDevice** nesnesi, cihaz ikizi özelliklerini ve etiketleri ile temsil eder:
+11. Aşağıdaki kodu ekleyin **ana** yöntemini **DeviceTwin** ve **DeviceTwinDevice** nesneleri. **DeviceTwin** nesne, IOT hub'ınızla iletişim işler. **DeviceTwinDevice** nesnesi, cihaz ikizi özelliklerini ve etiketleri ile temsil eder:
 
     ```java
     // Get the DeviceTwin and DeviceTwinDevice objects
@@ -121,7 +124,7 @@ Bu bölümde, IOT hub'daki cihaz ikizine etiket ile ilişkili olarak, konum meta
     DeviceTwinDevice device = new DeviceTwinDevice(deviceId);
     ```
 
-1. Aşağıdaki `try/catch` bloğunu **ana** yöntemi:
+12. Aşağıdaki `try/catch` bloğunu **ana** yöntemi:
 
     ```java
     try {
@@ -133,7 +136,7 @@ Bu bölümde, IOT hub'daki cihaz ikizine etiket ile ilişkili olarak, konum meta
     }
     ```
 
-1. Güncelleştirilecek **bölge** ve **tesis** , cihaz ikizindeki cihaz ikizi etiketler ekleyin aşağıdaki kodda `try` bloğu:
+13. Güncelleştirilecek **bölge** ve **tesis** , cihaz ikizindeki cihaz ikizi etiketler ekleyin aşağıdaki kodda `try` bloğu:
 
     ```java
     // Get the device twin from IoT Hub
@@ -162,7 +165,7 @@ Bu bölümde, IOT hub'daki cihaz ikizine etiket ile ilişkili olarak, konum meta
     System.out.println(device);
     ```
 
-1. IOT hub'ındaki cihaz ikizlerini sorgulamak için aşağıdaki kodu ekleyin. `try` önceki adımda eklediğiniz koddan sonra blok. Kod, iki sorguları çalıştırır. Her sorgu, en fazla 100 cihaz döndürür:
+14. IOT hub'ındaki cihaz ikizlerini sorgulamak için aşağıdaki kodu ekleyin. `try` önceki adımda eklediğiniz koddan sonra blok. Kod, iki sorguları çalıştırır. Her sorgu, en fazla 100 cihaz döndürür:
 
     ```java
     // Query the device twins in IoT Hub
@@ -191,11 +194,13 @@ Bu bölümde, IOT hub'daki cihaz ikizine etiket ile ilişkili olarak, konum meta
     }
     ```
 
-1. Kaydet ve Kapat `add-tags-query\src\main\java\com\mycompany\app\App.java` dosyası
+15. Kaydet ve Kapat `add-tags-query\src\main\java\com\mycompany\app\App.java` dosyası
 
-1. Derleme **Ekle-etiketleri-query** uygulama ve olan hataları düzeltin. Komut isteminizde gidin `add-tags-query` klasörü ve aşağıdaki komutu çalıştırın:
+16. Derleme **Ekle-etiketleri-query** uygulama ve olan hataları düzeltin. Komut isteminizde gidin `add-tags-query` klasörü ve aşağıdaki komutu çalıştırın:
 
-    `mvn clean package -DskipTests`
+    ```
+    mvn clean package -DskipTests
+    ```
 
 ## <a name="create-a-device-app"></a>Cihaz uygulaması oluşturma
 
@@ -203,11 +208,13 @@ Bu bölümde, IOT Hub'ına gönderilen bildirilen özellik değerini ayarlayan b
 
 1. İçinde `iot-java-twin-getstarted` klasöründe adlı bir Maven projesi oluşturun **simulated-device** komut isteminizde aşağıdaki komutu kullanarak. Bunun tek ve uzun bir komut olduğunu unutmayın:
 
-    `mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=simulated-device -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false`
+    ```
+    mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=simulated-device -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
+    ```
 
-1. Komut isteminizde gidin `simulated-device` klasör.
+2. Komut isteminizde gidin `simulated-device` klasör.
 
-1. Bir metin düzenleyicisi kullanarak açın `pom.xml` dosyası `simulated-device` klasörü ve aşağıdaki bağımlılıkları ekleyin **bağımlılıkları** düğümü. Bu bağımlılık kullanmanızı sağlayan **IOT cihaz istemcisi** , IOT hub ile iletişim kurmak için uygulamanızda paket:
+3. Bir metin düzenleyicisi kullanarak açın `pom.xml` dosyası `simulated-device` klasörü ve aşağıdaki bağımlılıkları ekleyin **bağımlılıkları** düğümü. Bu bağımlılık kullanmanızı sağlayan **IOT cihaz istemcisi** , IOT hub ile iletişim kurmak için uygulamanızda paket:
 
     ```xml
     <dependency>
@@ -220,7 +227,7 @@ Bu bölümde, IOT Hub'ına gönderilen bildirilen özellik değerini ayarlayan b
     > [!NOTE]
     > En son sürümünü kontrol **IOT cihaz istemcisi** kullanarak [Maven arama](http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-device-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22).
 
-1. Aşağıdaki **derleme** düğümünün sonra **bağımlılıkları** düğümü. Bu yapılandırma, uygulama oluşturmak için Java 1.8 kullanmak için Maven bildirir:
+4. Aşağıdaki **derleme** düğümünün sonra **bağımlılıkları** düğümü. Bu yapılandırma, uygulama oluşturmak için Java 1.8 kullanmak için Maven bildirir:
 
     ```xml
     <build>
@@ -238,11 +245,11 @@ Bu bölümde, IOT Hub'ına gönderilen bildirilen özellik değerini ayarlayan b
     </build>
     ```
 
-1. Kaydet ve Kapat `pom.xml` dosya.
+5. Kaydet ve Kapat `pom.xml` dosya.
 
-1. Bir metin düzenleyicisi kullanarak açın `simulated-device\src\main\java\com\mycompany\app\App.java` dosya.
+6. Bir metin düzenleyicisi kullanarak açın `simulated-device\src\main\java\com\mycompany\app\App.java` dosya.
 
-1. Aşağıdaki **içeri aktarma** deyimlerini dosyaya ekleyin:
+7. Aşağıdaki **içeri aktarma** deyimlerini dosyaya ekleyin:
 
     ```java
     import com.microsoft.azure.sdk.iot.device.*;
@@ -253,7 +260,7 @@ Bu bölümde, IOT Hub'ına gönderilen bildirilen özellik değerini ayarlayan b
     import java.util.Scanner;
     ```
 
-1. Aşağıdaki sınıf düzeyi değişkenleri **App** sınıfına ekleyin. Değiştirme `{youriothubname}` IOT hub'ı adınızla ve `{yourdevicekey}` cihaz anahtarı değerini *bir cihaz kimliği oluşturma* bölümü:
+8. Aşağıdaki sınıf düzeyi değişkenleri **App** sınıfına ekleyin. Değiştirme `{youriothubname}` IOT hub'ı adınızla ve `{yourdevicekey}` cihaz anahtarı değerini *bir cihaz kimliği oluşturma* bölümü:
 
     ```java
     private static String connString = "HostName={youriothubname}.azure-devices.net;DeviceId=myDeviceID;SharedAccessKey={yourdevicekey}";
@@ -263,7 +270,7 @@ Bu bölümde, IOT Hub'ına gönderilen bildirilen özellik değerini ayarlayan b
 
     Bu örnek uygulama, bir **DeviceClient** nesnesi örneğini oluşturduğunda **prokotol** değişkenini kullanır. 
 
-1. Aşağıdaki kodu ekleyin **ana** yöntemi:
+9. Aşağıdaki kodu ekleyin **ana** yöntemi:
     * IOT Hub ile iletişim kurmak için bir cihaz istemcisi oluşturun.
     * Oluşturma bir **cihaz** cihaz ikizi özelliklerini depolamak için nesne.
 
@@ -280,7 +287,7 @@ Bu bölümde, IOT Hub'ına gönderilen bildirilen özellik değerini ayarlayan b
     };
     ```
 
-1. Aşağıdaki kodu ekleyin **ana** yöntemi oluşturmak için bir **connectivityType** bildirilen özellik ve IOT Hub'ına gönderebilirsiniz:
+10. Aşağıdaki kodu ekleyin **ana** yöntemi oluşturmak için bir **connectivityType** bildirilen özellik ve IOT Hub'ına gönderebilirsiniz:
 
     ```java
     try {
@@ -300,7 +307,7 @@ Bu bölümde, IOT Hub'ına gönderilen bildirilen özellik değerini ayarlayan b
     }
     ```
 
-1. Sonuna aşağıdaki kodu ekleyin **ana** yöntemi. Bekleyen **Enter** zaman IOT hub'ının cihaz ikizi işlemleri durumunu bildirmek anahtar sağlar:
+11. Sonuna aşağıdaki kodu ekleyin **ana** yöntemi. Bekleyen **Enter** zaman IOT hub'ının cihaz ikizi işlemleri durumunu bildirmek anahtar sağlar:
 
     ```java
     System.out.println("Press any key to exit...");
@@ -312,11 +319,13 @@ Bu bölümde, IOT Hub'ına gönderilen bildirilen özellik değerini ayarlayan b
     client.close();
     ```
 
-1. Kaydet ve Kapat `simulated-device\src\main\java\com\mycompany\app\App.java` dosya.
+12. Kaydet ve Kapat `simulated-device\src\main\java\com\mycompany\app\App.java` dosya.
 
-1. Derleme **simulated-device** uygulama ve olan hataları düzeltin. Komut isteminizde gidin `simulated-device` klasörü ve aşağıdaki komutu çalıştırın:
+13. Derleme **simulated-device** uygulama ve olan hataları düzeltin. Komut isteminizde gidin `simulated-device` klasörü ve aşağıdaki komutu çalıştırın:
 
-    `mvn clean package -DskipTests`
+    ```
+    mvn clean package -DskipTests
+    ```
 
 ## <a name="run-the-apps"></a>Uygulamaları çalıştırma
 
@@ -324,23 +333,29 @@ Artık konsol uygulamaları çalıştırmaya hazırsınız.
 
 1. Bir komut isteminde `add-tags-query` çalıştırmak için aşağıdaki komutu çalıştırın, klasör **Ekle-etiketleri-query** service uygulaması:
 
-    `mvn exec:java -Dexec.mainClass="com.mycompany.app.App"`
+    ```
+    mvn exec:java -Dexec.mainClass="com.mycompany.app.App"
+    ```
 
-    ![Etiket değerlerini güncelleştirin ve cihaz sorguları çalıştırmak için Java IOT Hub hizmet uygulaması](media/iot-hub-java-java-twin-getstarted/service-app-1.png)
+    ![Etiket değerlerini güncelleştirin ve cihaz sorguları çalıştırmak için Java IOT Hub hizmet uygulaması](./media/iot-hub-java-java-twin-getstarted/service-app-1.png)
 
     Gördüğünüz **tesis** ve **bölge** cihaz ikizine eklenen etiketler. Cihazınız ilk sorgu döndürür, ancak ikinci desteklemez.
 
-1. Bir komut isteminde `simulated-device` klasör eklemek için aşağıdaki komutu çalıştırın, **connectivityType** özelliği için cihaz ikizi bildirdi:
+2. Bir komut isteminde `simulated-device` klasör eklemek için aşağıdaki komutu çalıştırın, **connectivityType** özelliği için cihaz ikizi bildirdi:
 
-    `mvn exec:java -Dexec.mainClass="com.mycompany.app.App"`
+    ```
+    mvn exec:java -Dexec.mainClass="com.mycompany.app.App"
+    ```
 
-    ![Cihaz istemcisi ekler ** connectivityType ** bildirilen özellik](media/iot-hub-java-java-twin-getstarted/device-app-1.png)
+    ![Cihaz istemcisi ekler ** connectivityType ** bildirilen özellik](./media/iot-hub-java-java-twin-getstarted/device-app-1.png)
 
-1. Bir komut isteminde `add-tags-query` çalıştırmak için aşağıdaki komutu çalıştırın, klasör **Ekle-etiketleri-query** service uygulaması ikinci kez:
+3. Bir komut isteminde `add-tags-query` çalıştırmak için aşağıdaki komutu çalıştırın, klasör **Ekle-etiketleri-query** service uygulaması ikinci kez:
 
-    `mvn exec:java -Dexec.mainClass="com.mycompany.app.App"`
+    ```
+    mvn exec:java -Dexec.mainClass="com.mycompany.app.App"
+    ```
 
-    ![Etiket değerlerini güncelleştirin ve cihaz sorguları çalıştırmak için Java IOT Hub hizmet uygulaması](media/iot-hub-java-java-twin-getstarted/service-app-2.png)
+    ![Etiket değerlerini güncelleştirin ve cihaz sorguları çalıştırmak için Java IOT Hub hizmet uygulaması](./media/iot-hub-java-java-twin-getstarted/service-app-2.png)
 
     Cihazınızı gönderdiği artık **connectivityType** özelliği IOT hub'ına ikinci sorgu, Cihazınızı döndürür.
 
@@ -351,12 +366,5 @@ Bu öğreticide, Azure portalında yeni bir IoT hub'ı yapılandırdınız ve ar
 Bilgi edinmek için aşağıdaki kaynakları kullanın. nasıl yapılır:
 
 * İle cihazlardan telemetri gönderme [IOT Hub ile çalışmaya başlama](quickstart-send-telemetry-java.md) öğretici.
+
 * İle etkileşimli olarak (örneğin, bir kullanıcı tarafından denetlenen uygulamasından fan özelliğini) cihazları denetleme [doğrudan yöntemler kullanma](quickstart-control-device-java.md) öğretici.
-
-<!-- Images. -->
-[7]: ./media/iot-hub-java-java-twin-getstarted/invoke-method.png
-[8]: ./media/iot-hub-java-java-twin-getstarted/device-listen.png
-[9]: ./media/iot-hub-java-java-twin-getstarted/device-respond.png
-
-<!-- Links -->
-[lnk-hub-sdks]: iot-hub-devguide-sdks.md

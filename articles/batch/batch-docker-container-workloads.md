@@ -8,14 +8,14 @@ ms.service: batch
 ms.devlang: multiple
 ms.topic: article
 ms.workload: na
-ms.date: 06/04/2018
+ms.date: 10/24/2018
 ms.author: danlep
-ms.openlocfilehash: a85db0315a2ee8aa9fd34b8c18893f4cb1068528
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: 458b0f7bbf581c7f2490a8122f351dac612b4ff0
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39090971"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50155635"
 ---
 # <a name="run-container-applications-on-azure-batch"></a>Azure Batch'te kapsayıcı uygulamaları çalıştırma
 
@@ -157,7 +157,7 @@ new_pool = batch.models.PoolAddParameter(
 ```
 
 
-Aşağıdaki örnek C# örneği TensorFlow görüntüden önceden getirme istediğinizi varsayar [Docker Hub](https://hub.docker.com). Bu örnek, havuz düğümlerine sanal makine ana bilgisayarında çalışan bir başlangıç görevi içerir. Bir başlangıç görevi konak, örneğin, kapsayıcılardan erişilebilir bir dosya sunucusuna bağlamak için çalıştırabilirsiniz.
+Aşağıdaki C# örneği varsayar TensorFlow görüntüden önceden getirme istediğiniz [Docker Hub](https://hub.docker.com). Bu örnek, havuz düğümlerine sanal makine ana bilgisayarında çalışan bir başlangıç görevi içerir. Bir başlangıç görevi konak, örneğin, kapsayıcılardan erişilebilir bir dosya sunucusuna bağlamak için çalıştırabilirsiniz.
 
 ```csharp
 
@@ -225,11 +225,15 @@ CloudPool pool = batchClient.PoolOperations.CreatePool(
 
 ## <a name="container-settings-for-the-task"></a>Görev için kapsayıcı ayarları
 
-Kapsayıcı görevleri işlem düğümlerinde çalıştırılacak görev seçenekleri, kullanılacak görüntüleri ve kayıt defteri çalıştırma gibi kapsayıcı özgü ayarları belirtmeniz gerekir.
+Kapsayıcı görevleri ve işlem düğümleri üzerinde çalışmak için kapsayıcı çalıştırma seçenekleri, kullanılacak görüntüleri ve kayıt defteri gibi kapsayıcı özgü ayarları belirtmeniz gerekir.
 
 Kullanım `ContainerSettings` kapsayıcı özgü ayarları yapılandırmak için görev sınıflarında özelliği. Bu ayarları tarafından tanımlanan [TaskContainerSettings](/dotnet/api/microsoft.azure.batch.taskcontainersettings) sınıfı.
 
 Kapsayıcı görüntülerini üzerinde görevleri çalıştırırsanız [bulut görev](/dotnet/api/microsoft.azure.batch.cloudtask) ve [iş yöneticisi görevi](/dotnet/api/microsoft.azure.batch.cloudjob.jobmanagertask) kapsayıcı ayarları gerektirir. Ancak, [başlangıç görevi](/dotnet/api/microsoft.azure.batch.starttask), [iş hazırlama görevi](/dotnet/api/microsoft.azure.batch.cloudjob.jobpreparationtask), ve [iş bırakma görevi](/dotnet/api/microsoft.azure.batch.cloudjob.jobreleasetask) kapsayıcı ayarları gerektirmeyen (diğer bir deyişle, bir kapsayıcı bağlam içinde veya doğrudan çalıştırabilirler düğümde).
+
+İsteğe bağlı [ContainerRunOptions](/dotnet/api/microsoft.azure.batch.taskcontainersettings.containerrunoptions) için ek bağımsız değişkenler `docker create` komutu görev kapsayıcısını oluşturmak için çalışır.
+
+### <a name="container-task-working-directory"></a>Kapsayıcı görev çalışma dizini
 
 Normal (kapsayıcı olmayan) bir görev için Batch ayarlayan ortam çok benzer kapsayıcı çalışma dizininde bir Azure Batch kapsayıcı görevi için komut satırı yürütür:
 
@@ -237,9 +241,13 @@ Normal (kapsayıcı olmayan) bir görev için Batch ayarlayan ortam çok benzer 
 * Tüm görev ortam değişkenlerini kapsayıcıya eşlenir.
 * Uygulama paketleri ve kaynak dosyaları gibi özelliklerini kullanabilmeniz için uygulamanın çalışma dizini normal bir görev için olanla aynıdır ayarlanır
 
-Batch kapsayıcınızı varsayılan çalışma dizinindeki değiştiğinden, tipik kapsayıcı giriş noktasından farklı bir konumda görev çalışır (örneğin, `c:\` varsayılan olarak bir Windows kapsayıcısı veya `/` Linux'ta). Zaten bu şekilde yapılandırılmazsa görev komut satırı veya kapsayıcı giriş noktanız mutlak bir yol belirttiğinden emin olun.
+Batch kapsayıcı varsayılan çalışma dizinindeki değiştiğinden, tipik kapsayıcı çalışma dizininden farklı bir konumda görev çalışır (örneğin, `c:\` varsayılan olarak bir Windows kapsayıcısı veya `/` Linux veya başka bir kapsayıcı görüntüsü yapılandırılmışsa dizin). Kapsayıcı uygulamalarınız Batch bağlamda düzgün çalışmasını sağlamak için aşağıdakilerden birini yapın: 
 
-Docker Hub'ından çekilir bir Ubuntu kapsayıcısında çalışan temel bir komut satırı aşağıdaki Python kod parçacığı gösterir. Kapsayıcı çalıştırma seçenekleri için ek bağımsız değişkenler `docker create` görevi yürütecek komut. Burada, `--rm` seçeneği görev tamamlandıktan sonra kapsayıcıyı kaldırır.
+* Zaten bu şekilde yapılandırılmazsa, görev komut satırı (veya kapsayıcı çalışma dizini) mutlak bir yol belirttiğinden emin olun.
+
+* Görevin ContainerSettings içinde çalışan bir dizine kapsayıcı çalıştırma seçenekleri ayarlayın. Örneğin, `--workdir /app`.
+
+Docker Hub'ından çekilir bir Ubuntu kapsayıcısında çalışan temel bir komut satırı aşağıdaki Python kod parçacığı gösterir. Burada, `--rm` çalıştırdığınız kapsayıcı görevi tamamlandıktan sonra kapsayıcıyı kaldırır.
 
 ```python
 task_id = 'sampletask'

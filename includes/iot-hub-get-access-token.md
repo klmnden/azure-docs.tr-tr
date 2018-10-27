@@ -1,7 +1,20 @@
+---
+author: dominicbetts
+ms.service: iot-hub
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: dobett
+ms.openlocfilehash: ab9d059ede2464318205a90b8ac738727e8d89a4
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50164585"
+---
 ## <a name="obtain-an-azure-resource-manager-token"></a>Bir Azure Resource Manager belirteç edinme
-Azure Active Directory kaynakları Azure Kaynak Yöneticisi'ni kullanarak gerçekleştirdiğiniz tüm görevler kimliğini doğrulaması gerekir. Burada gösterilen örnekte, parola kimlik doğrulaması kullanır, diğer yaklaşım için bkz [Azure Resource Manager kimlik doğrulama istekleri][lnk-authenticate-arm].
+Azure Active Directory, Azure Resource Manager kullanarak kaynakları üzerinde gerçekleştirdiğiniz tüm görevleri doğrulaması gerekir. Diğer yaklaşımlar görmek için parola kimlik doğrulaması, burada gösterilen örnek kullanır [Azure Resource Manager kimlik doğrulama istekleri][lnk-authenticate-arm].
 
-1. Aşağıdaki kodu ekleyin **ana** uygulama kimliği ve parola kullanarak Azure AD'den bir belirteç almak için Program.cs yöntemi.
+1. Aşağıdaki kodu ekleyin **ana** program.CS'de Webhostbuilder'a uygulama kimliği ve parola kullanarak Azure AD'den bir belirteç almak için yöntemi.
    
     ```
     var authContext = new AuthenticationContext(string.Format  
@@ -16,14 +29,14 @@ Azure Active Directory kaynakları Azure Kaynak Yöneticisi'ni kullanarak gerçe
       return;
     }
     ```
-2. Oluşturma bir **ResourceManagementClient** sonuna aşağıdaki kodu ekleyerek belirteç kullanan nesne **ana** yöntemi:
+2. Oluşturma bir **ResourceManagementClient** sonuna aşağıdaki kodu ekleyerek belirteci kullanan nesne **ana** yöntemi:
    
     ```
     var creds = new TokenCredentials(token.AccessToken);
     var client = new ResourceManagementClient(creds);
     client.SubscriptionId = subscriptionId;
     ```
-3. Oluşturma veya bir başvuru için kullanmakta olduğunuz kaynak grubu elde:
+3. Oluşturma veya kullanmakta olduğunuz kaynak grubu için bir başvuru alın:
    
     ```
     var rgResponse = client.ResourceGroups.CreateOrUpdate(rgName,

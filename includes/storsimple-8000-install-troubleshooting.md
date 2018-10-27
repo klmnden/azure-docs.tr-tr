@@ -1,9 +1,22 @@
+---
+author: alkohli
+ms.service: storsimple
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: alkohli
+ms.openlocfilehash: a2ef939b621b02a49c29a37bc12b335db7ba60b9
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50164361"
+---
 <!--author=alkohli last changed: 08/29/17-->
 
 ## <a name="troubleshooting-update-failures"></a>Güncelleştirme hatalarını giderme
 **Yükseltme öncesi denetimlerin başarısız olduğuna dair bir bildirim görürseniz ne yapmalısınız?**
 
-Ön denetim başarısız olursa, sayfanın sonundaki ayrıntılı bildirim çubuğuna baktığınızdan emin olun. Bu, hangi ön denetimin başarısız olduğuna dair yönlendirme sağlar. Örneğin, denetleyici sistem durumu denetimi ve donanım bileşen sistem durumu denetimi başarısız olan bir bildirim alın. Git **İzleyici > donanım durumu**. Her iki denetleyicilerinin sağlıklı ve çevrimiçi olduğundan emin olmanız gerekir. StorSimple cihazı tüm donanım bileşenleri bu dikey pencerede sağlıklı olmasını gösterilir emin olmanız gerekir. Ardından güncelleştirmeleri yüklemeyi deneyebilirsiniz. Donanım bileşeni sorunlarını çözemiyorsanız, sonraki adımlar için Microsoft Destek’e başvurmanız gerekecektir.
+Ön denetim başarısız olursa, sayfanın sonundaki ayrıntılı bildirim çubuğuna baktığınızdan emin olun. Bu, hangi ön denetimin başarısız olduğuna dair yönlendirme sağlar. Örneğin, denetleyici durumu denetimi ve donanım bileşeni sistem durumu denetimi başarısız olan bir bildirim alırsınız. Git **İzleyici > donanım sistem durumu**. Her iki denetleyicilerinin sağlıklı ve çevrimiçi olduğundan emin olmanız gerekir. StorSimple cihazındaki tüm donanım bileşenlerinin bu dikey pencerede sağlıklı olarak gösterildiğini emin olmanız gerekir. Ardından güncelleştirmeleri yüklemeyi deneyebilirsiniz. Donanım bileşeni sorunlarını çözemiyorsanız, sonraki adımlar için Microsoft Destek’e başvurmanız gerekecektir.
 
 **“Güncelleştirmeler yüklenemedi” hata iletisini alırsanız ve hatanın nedeninin belirlemek için verilen tavsiye güncelleme sorun giderme kılavuzuna bakmak olduğunda ne yapmalısınız?**
 

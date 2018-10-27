@@ -5,15 +5,15 @@ services: automation
 ms.service: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 10/02/2018
+ms.date: 10/25/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 9ba60f770c094f65ee5a4ed6dc21a5e07bac3d27
-ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
+ms.openlocfilehash: e865d4e9cbad2c2064d961bc6e407440ce8556fc
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48267758"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50158814"
 ---
 # <a name="run-shell-scripts-in-your-linux-vm-with-run-command"></a>Kabuk betikleri Linux VM'nize ile Çalıştır komutunu çalıştırın.
 
@@ -38,6 +38,9 @@ Bu yetenek, burada bir sanal makineleri içinde bir betik çalıştırmak istedi
 * Bir betiği çalıştırabilirsiniz en uzun süreyi sonra hangi BT zaman aşımına uğrar 90 dakika olan
 * VM'den giden bağlantı betik sonuçlarını döndürmek için gereklidir.
 
+> [!NOTE]
+> Düzgün çalışması için Çalıştır komutunu Azure genel IP adresleri için bağlantıyı (bağlantı noktası 443) gerektirir. Uzantı Bu uç noktalara erişimi yoksa, komut başarıyla çalışır ancak sonuçları döndüren değil. Sanal makine üzerindeki trafiği engelliyorsanız kullanabileceğiniz [hizmet etiketleri](../../virtual-network/security-overview.md#service-tags) kullanarak trafiği Azure genel IP adreslerine izin verecek şekilde `AzureCloud` etiketi.
+
 ## <a name="azure-cli"></a>Azure CLI
 
 Bir örneği verilmiştir kullanarak [az vm Çalıştır komutunu](/cli/azure/vm/run-command?view=azure-cli-latest#az-vm-run-command-invoke) bir kabuk betiği bir Azure Linux VM'de çalıştırmak için komutu.
@@ -55,7 +58,7 @@ Bir VM'de gidin [Azure](https://portal.azure.com) seçip **komutu çalıştırı
 
 ![Komut listesini çalıştırın.](./media/run-command/run-command-list.png)
 
-Bir komutu çalıştırmak için seçin. Bazı komutlar, isteğe bağlı veya gerekli giriş parametreleri olabilir. Bu komutlar için parametreleri giriş değerleri sağlamasına metin alanları olarak sunulur. Her komut genişleterek çalıştırıldığı betik görüntüleyebilirsiniz **komut dosyasını Göster**. **RunShellScript** kendi özel betik sağlamak sağladığından diğer komutlardan farklıdır. 
+Bir komutu çalıştırmak için seçin. Bazı komutlar, isteğe bağlı veya gerekli giriş parametreleri olabilir. Bu komutlar için parametreleri giriş değerleri sağlamasına metin alanları olarak sunulur. Her komut genişleterek çalıştırıldığı betik görüntüleyebilirsiniz **komut dosyasını Göster**. **RunShellScript** kendi özel betik sağlamak sağladığından diğer komutlardan farklıdır.
 
 > [!NOTE]
 > Yerleşik komutlar düzenlenebilir değil.

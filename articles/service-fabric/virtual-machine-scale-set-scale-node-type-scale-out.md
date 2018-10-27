@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/21/2018
 ms.author: ryanwi
-ms.openlocfilehash: fb7ec0a6e96a9665782f85cf8a7fc496e20a9a5e
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 8f460b41cd2ce62b7a3e0138caa25f68e2fd22ad
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45576043"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50156502"
 ---
 # <a name="scale-a-service-fabric-cluster-out-by-adding-a-virtual-machine-scale-set"></a>Bir sanal makine ölçek kümesi ekleyerek çıkış bir Service Fabric kümesini ölçekleme
 Bu makalede yeni bir sanal makine ölçek kümesi mevcut bir kümeye ekleyerek bir Azure Service Fabric kümesini ölçekleme açıklar. Service Fabric kümesi bir ağa bağlı, mikro hizmetlerin dağıtıldığı ve yönetildiği sanal veya fiziksel makine kümesidir. Bir makine ya da bir kümenin parçası olan sanal makine bir düğüm denir. Sanal makine ölçek kümeleri dağıtmak ve sanal makine koleksiyonunu bir küme olarak yönetmek için kullandığınız bir Azure işlem kaynağıdır. Bir Azure kümesinde tanımlanan her düğüm türü [ayrı ölçek kümesi olarak ayarlanan](service-fabric-cluster-nodetypes.md). Ardından her düğüm türü ayrı olarak yönetilebilir. Service Fabric kümesi oluşturduktan sonra bir küme düğümü türü dikey olarak ölçeklendirebilirsiniz (düğümlerin kaynakları değişikliği), düğüm türündeki VM'lerin işletim sistemini yükseltin veya yeni bir sanal makine ölçek kümesi mevcut bir kümeye ekleyin.  Kümedeki herhangi bir zamanda iş yükleri küme üzerinde çalışırken bile ölçeklendirebilirsiniz.  Küme ölçekler gibi uygulamalarınızı otomatik olarak da ölçeklendirin.
@@ -34,7 +34,7 @@ Bu makalede yeni bir sanal makine ölçek kümesi mevcut bir kümeye ekleyerek b
 VM boyutu ve işletim sistemi birincil düğüm türündeki sanal makineleri güncelleştirmek için süreç şöyledir.  Yükseltmeden sonra birincil düğüm türü VM boyutu standart D4_V2 ve kapsayıcılar ile çalışan Windows Server 2016 Datacenter verilmiştir.
 
 > [!WARNING]
-> Bir üretim kümesindeki bu yordama başlamadan önce örnek şablonları incelemek ve bir test kümesine göre işlemini doğrulama öneririz. Kümeyi bir süre için de kullanılamaz. Birden çok VMSS parrallel içinde aynı NodeType olarak bildirilen değişiklik değil; değişiklikleri her NodeType VMSS için ayrı ayrı uygulamak için dağıtım işlemlerini listeleyin gerçekleştirmeniz gerekecek.
+> Bir üretim kümesindeki bu yordama başlamadan önce örnek şablonları incelemek ve bir test kümesine göre işlemini doğrulama öneririz. Kümeyi bir süre için de kullanılamaz. Birden çok VMSS parrallel içinde aynı NodeType olarak bildirilen değişiklik değil; ayrılmış dağıtım işlemlerini değişiklikleri her NodeType VMSS için ayrı ayrı uygulamak için gerçekleştirmeniz gerekir.
 
 1. İki düğüm türleri ve iki ölçek kümeleri (bir ölçek kümesi düğüm türü) ile ilk küme dağıtma kullanarak bu örnek [şablon](https://github.com/Azure/service-fabric-scripts-and-templates/blob/master/templates/nodetype-upgrade/Deploy-2NodeTypes-2ScaleSets.json) ve [parametreleri](https://github.com/Azure/service-fabric-scripts-and-templates/blob/master/templates/nodetype-upgrade/Deploy-2NodeTypes-2ScaleSets.parameters.json) dosyaları.  Hem ölçek kümeleri, standart D2_V2 boyutu ve çalışan Windows Server 2012 R2 Datacenter ' dir.  Taban çizgisi yükseltmeyi tamamlamak küme için bekleyin.   
 2. İsteğe bağlı - durum bilgisi olan bir örnek kümesine dağıtın.
@@ -200,5 +200,5 @@ Ayrıca bu yeni düğüm türü, Service Fabric küme kaynağına eklemeniz gere
 * Hakkında bilgi edinin [uygulama ölçeklenebilirlik](service-fabric-concepts-scalability.md).
 * [Azure kümesine veya dışa ölçeklendirme](service-fabric-tutorial-scale-cluster.md).
 * [Azure bir kümeyi programlama yoluyla ölçeklendirme](service-fabric-cluster-programmatic-scaling.md) fluent Azure kullanarak işlem SDK.
-* [Standaone kümesini içe veya dışa ölçeklendirme](service-fabric-cluster-windows-server-add-remove-nodes.md).
+* [Tek başına küme içe veya dışa ölçeklendirme](service-fabric-cluster-windows-server-add-remove-nodes.md).
 

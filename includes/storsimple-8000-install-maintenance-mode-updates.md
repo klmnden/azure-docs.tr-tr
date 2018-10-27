@@ -1,41 +1,54 @@
+---
+author: alkohli
+ms.service: storsimple
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: alkohli
+ms.openlocfilehash: 560c9c177bfa693580979101e5b9343fcff7fe40
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50164940"
+---
 ### <a name="install-maintenance-mode-updates-via-windows-powershell-for-storsimple"></a>StorSimple için Windows PowerShell aracılığıyla Bakım modu güncelleştirmeleri yükle
 
-StorSimple cihazına Bakım modu güncelleştirmeleri uyguladığınızda, tüm g/ç istekleri duraklatıldı. Geçici olmayan rasgele erişim belleği (NVRAM) gibi hizmetleri veya Küme hizmeti durdurulur. Girin ya da bu modundan çıkmak hem denetleyicileri yeniden başlatın. Bu mod çıktığınızda, tüm hizmetleri sürdürme ve iyi durumda. (Bu işlem birkaç dakika sürebilir.)
+StorSimple cihazını Bakım modu güncelleştirmeleri uygulayabilir, tüm g/ç istekleri duraklatıldı. Geçici olmayan rastgele erişim belleği (NVRAM) gibi hizmetler veya Küme hizmeti durdurulur. Her iki denetleyicilerinin girin ya da bu modundan çıkmak yeniden başlatın. Bu modundan çıkmak, tüm hizmetleri sürdürme ve iyi durumda. (Bu işlem birkaç dakika sürebilir.)
 
 > [!IMPORTANT]
-> * Bakım modu girmeden önce her iki aygıt denetleyicileri Azure portalında sağlıklı olduğunu doğrulayın. Denetleyici sağlam, değilse [Microsoft Destek birimine başvurun](../articles/storsimple/storsimple-8000-contact-microsoft-support.md) sonraki adımlar için.
-> * Bakım modunda olduğunda, önce bir denetleyici ve ardından diğer denetleyicisi güncelleştirmeniz gerekir.
+> * Bakım modu girmeden önce her iki cihaz denetleyicisinin Azure portalında sağlıklı olduğunu doğrulayın. Denetleyicinin sağlam, değilse [Microsoft Destek'e başvur](../articles/storsimple/storsimple-8000-contact-microsoft-support.md) sonraki adımlar için.
+> * Bakım modunda olduğunda, öncelikle bir denetleyici ve diğer denetleyiciye güncelleştirmeniz gerekiyor.
 
-1. Seri konsoluna bağlanmak için PuTTY kullanın. [Seri konsola bağlanmak için PuTTy kullanma](../articles/storsimple/storsimple-8000-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console) bölümündeki ayrıntılı yönergeleri izleyin. Komut isteminde **Enter** tuşuna basın. Seçenek 1 **oturum oturum tam erişim**.
+1. Seri konsoluna bağlanmak için PuTTY kullanın. [Seri konsola bağlanmak için PuTTy kullanma](../articles/storsimple/storsimple-8000-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console) bölümündeki ayrıntılı yönergeleri izleyin. Komut isteminde **Enter** tuşuna basın. Seçenek 1 **tam erişimle oturum açmak**.
 
-2. Bakım moduna denetleyicisi için şunu yazın:
+2. Denetleyici bakım moduna almak için şunu yazın:
     
     `Enter-HcsMaintenanceMode`
 
-    İki denetleyiciye bakım moduna yeniden başlatın.
+    Her iki denetleyici de bakım moduna yeniden başlatın.
 
 3. Bakım modu güncelleştirmeleri yükleyin. Şunu yazın:
 
     `Start-HcsUpdate`
 
-    Onayınız istenir. Güncelleştirmeleri onayladıktan sonra bunlar şu anda erişen denetleyicisine yüklenir. Güncelleştirmeler yüklendikten sonra denetleyici yeniden başlatır.
+    Onaylamanız istenir. Güncelleştirmeleri onayladıktan sonra bunlar şu anda erişen denetleyicisine yüklenir. Güncelleştirmeler yüklendikten sonra denetleyici yeniden başlatılır.
 
-4. Güncelleştirmelerinin durumunu izleyin. Eş denetleyiciye geçerli denetleyicisi güncelleştiriyor ve diğer komutları işleyebilir değil olarak oturum açın. Şunu yazın:
+4. Güncelleştirmelerin durumunu izleyin. Geçerli denetleyici güncelleştiriyor ve diğer tüm komutların işleyebilir değil eş denetleyicisine oturum açın. Şunu yazın:
 
     `Get-HcsUpdateStatus`
 
-    Varsa `RunInProgress` olan `True`, güncelleştirme devam ediyor. Varsa `RunInProgress` olan `False`, güncelleştirme tamamlandı gösterir.
+    Varsa `RunInProgress` olduğu `True`, güncelleştirme devam ediyor. Varsa `RunInProgress` olduğu `False`, güncelleştirme tamamlandığını gösterir.
 
-5. Disk Bellenim güncelleştirmeleri başarıyla uygulandıktan ve güncelleştirilmiş denetleyicisi yeniden başlatıldıktan sonra disk bellenim sürümü doğrulayın. Güncelleştirilmiş denetleyicisinde yazın:
+5. Disk üretici yazılımı güncelleştirmeleri başarıyla uygulanıp ve güncelleştirilmiş denetleyicisi yeniden başlatıldıktan sonra disk üretici yazılımı sürümünü doğrulayın. Güncelleştirilmiş denetleyicide yazın:
 
     `Get-HcsFirmwareVersion`
    
-    Beklenen disk bellenim sürümleri şunlardır:  `XMGJ, XGEG, KZ50, F6C2, VR08, N003, 0107`
+    Beklenen disk üretici yazılımı sürümleri şunlardır:  `XMGJ, XGEG, KZ50, F6C2, VR08, N003, 0107`
 
-6. Bakım modundan çıkın. Her aygıt denetleyicisi için aşağıdaki komutu yazın:
+6. Bakım modundan çıkın. Her bir cihaz denetleyicisi için aşağıdaki komutu yazın:
 
     `Exit-HcsMaintenanceMode`
 
     Bakım modundan çıktığınızda denetleyiciler yeniden başlatılır.
 
-7. Azure portalına geri dönün. Portal, 24 saat için Bakım modu güncelleştirmeleri yüklü göstermeyebilir.
+7. Azure portalına dönün. Yüklediğiniz Bakım modu güncelleştirmeleri 24 saat boyunca portalda gösterilmeyebilir.

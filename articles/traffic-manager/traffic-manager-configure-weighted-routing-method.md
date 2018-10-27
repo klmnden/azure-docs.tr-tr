@@ -4,9 +4,6 @@ description: Bu makalede, trafik Yöneticisi'nde hepsini bir kez deneme yöntemi
 services: traffic-manager
 documentationcenter: ''
 author: kumudd
-manager: timlt
-editor: ''
-ms.assetid: 6dca6de1-18f7-4962-bd98-6055771fab22
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
@@ -14,19 +11,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/20/2017
 ms.author: kumud
-ms.openlocfilehash: 6637132481ee33d43ec2b747ba89a56983205ff2
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 132cbecdad8303414f15ff3f18caaccd6d430ded
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47432452"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50154950"
 ---
 # <a name="configure-the-weighted-traffic-routing-method-in-traffic-manager"></a>Trafik Yöneticisi'nde ağırlıklı trafik yönlendirme yöntemini yapılandırma
 
-Yaygın trafik yönlendirme yöntemi bulut Hizmetleri ve Web dahil, aynı uç noktaların bir kümesini sağlar ve her bir biçimde hepsini bir kez deneme trafik göndermek için modelidir. Aşağıdaki adımlar, bu tür trafik yönlendirme yöntemini yapılandırma özetlemektedir.
+Bir ortak trafik yönlendirme yöntemi bulut Hizmetleri ve Web dahil, aynı uç noktaların bir kümesini sağlar ve trafiği her birine eşit gönderme modelidir. Aşağıdaki adımlar, bu tür trafik yönlendirme yöntemini yapılandırma özetlemektedir.
 
 > [!NOTE]
-> Azure Web uygulaması zaten hepsini bir kez deneme Yük Dengeleme işlevi (birden çok veri merkezinde içeren) bir Azure bölgesi içinde Web siteleri için sağlar. Traffic Manager, farklı veri merkezlerinde Web siteleri için hepsini bir kez deneme trafik yönlendirme yöntemini belirtmenize olanak sağlar.
+> Azure Web uygulaması zaten hepsini bir kez deneme Yük Dengeleme işlevi (Bu, birden çok veri merkezinde oluşturan) bir Azure bölgesi içinde Web siteleri için sağlar. Traffic Manager, farklı veri merkezlerindeki Web sitesi üzerinden trafiği dağıtmak sağlar.
 
 ## <a name="to-configure-the-weighted-traffic-routing-method"></a>Ağırlıklı trafik yönlendirme yöntemini yapılandırma
 
@@ -51,7 +48,7 @@ Yaygın trafik yönlendirme yöntemi bulut Hizmetleri ve Web dahil, aynı uç no
 
 - Hakkında bilgi edinin [öncelik trafik yönlendirme yöntemini](traffic-manager-configure-priority-routing-method.md).
 - Hakkında bilgi edinin [performans trafiği yönlendirme yöntemini](traffic-manager-configure-performance-routing-method.md).
-- Hakkında bilgi edinin [coğrafi yönlendirme yöntemini](traffic-manager-configure-geographic-routing-method.md).
+- [Coğrafi yönlendirme yöntemi](traffic-manager-configure-geographic-routing-method.md) hakkında bilgi edinin.
 - Bilgi edinmek için nasıl [Traffic Manager ayarlarını sınama](traffic-manager-testing-settings.md).
 
 <!--Image references-->

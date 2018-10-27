@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/09/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: ef72829d507d6a471ec9a8972ead262da7f7b582
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: 4362a6b936c52319f6f6fc625370733f3c84e361
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49068714"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50158865"
 ---
 # <a name="topologies-for-azure-ad-connect"></a>Azure AD Connect için topolojiler
 Bu makalede, çeşitli şirket içi ve Azure AD Connect eşitleme anahtar tümleştirme çözümü olarak kullanan Azure Active Directory (Azure AD) topolojileri açıklanır. Bu makale, desteklenen ve desteklenmeyen yapılandırmalar içerir.
@@ -87,7 +87,7 @@ Birden fazla Azure AD Connect eşitleme sunucusu tek bir bağlı olan Azure AD k
 ### <a name="multiple-forests-separate-topologies"></a>Birden çok orman, ayrı topolojiler
 ![Kullanıcılar yalnızca bir kez temsil eden tüm dizinler seçeneği](./media/plan-connect-topologies/MultiForestUsersOnce.png)
 
-![Birden çok orman ve ayrı topolojiler gösterimi](./media/plan-connect-topologies/MultiForestSeperateTopologies.png)
+![Birden çok orman ve ayrı topolojiler gösterimi](./media/plan-connect-topologies/MultiForestSeparateTopologies.png)
 
 Bu ortamda, tüm şirket içi ormanları ayrı varlıklar olarak kabul edilir. Hiçbir kullanıcı başka bir ormanda bulunur. Her bir orman kendi Exchange kuruluşu olan ve ormanlar arasında hiçbir GALSync yoktur. Bu topoloji, burada her departman bağımsız olarak çalışır duruma birleşme/edinme sonra veya bir kuruluşta olabilir. Bu orman, Azure AD aynı kuruluşta bulunan ve birleşik bir GAL ile görünür. Önceki resimde, her ormanda her nesne meta veri deposunda bir kez temsil edilir ve hedef Azure AD kiracısında toplanır.
 

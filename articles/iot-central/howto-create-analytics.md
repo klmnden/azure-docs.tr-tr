@@ -8,20 +8,20 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: bf86e769aff4a9b03d5df1b1aef702814c605fa4
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: c170f573a473d3fdfca5c916b4be594dc93d6b27
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46368095"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50156332"
 ---
 # <a name="how-to-use-analytics-to-analyze-your-device-data"></a>Cihazınızın verileri analiz etmek için Analytics kullanma
 
 
-*Bu makale, işleçler, Oluşturucular ve Yöneticiler için geçerlidir.*
+*Bu makale, işleçler, oluşturucular ve yöneticiler için geçerlidir.*
 
 
-Microsoft Azure IOT Central, büyük miktarda verileri anlamlı zengin analiz özellikleri sağlar. Başlamak için ziyaret **Analytics** sol gezinti menüsünde. 
+Azure IOT Central, büyük miktarda verileri anlamlı zengin analiz özellikleri sağlar. Başlamak için ziyaret **Analytics** sol gezinti menüsünde. 
 
   ![Analytics IOT Central gitme](media\howto-create-analytics\analytics-navigation.png)
 
@@ -60,12 +60,12 @@ to-do: confirm if 10 is the max number of measurements
 
 Sahip olduğunuz çeşitli şekillerde daha fazla sorgu sonuçlarınız görselleştirme gereksinimlerinizi karşılayacak şekilde değiştirebilirsiniz. Bir graf görünümünden ve ızgara görünümü arasında geçiş, daraltma/genişletme yakınlaştırma, Veri kümenizi yenileyin ve satırları nasıl gösterildiğini alter.
 
-* **Kılavuzu Göster:** sonuçlarınızı tablo biçimi, her veri noktası için belirli bir değeri görüntülemek etkinleştirmek için kullanıma sunulacak. Bu görünüm, ayrıca erişilebilirlik standartlarını karşılar. 
+* **Kılavuzu Göster:** sonuçlarınızı belirli her veri noktasının değerini görüntülemek sağlayan bir tablo biçiminde kullanıma sunulacak. Bu görünüm, ayrıca erişilebilirlik standartlarını karşılar. 
 * **Grafiğin göster:** sonuçlarınızı bir kolayca noktaları yukarı ve aşağı doğru eğilimleri ve anormallikleri satır biçiminde görüntülenir. 
 
  ![Analiz için kılavuz görünümü gösteriliyor](media\howto-create-analytics\analytics-showgrid.png)
 
-Yakınlaştırma, verileriniz üzerinde odaklanmanıza imkan sağlar. Bir zaman dönemi bulursanız, sonuç kümesinde odaklanmak yakınlaştırmak ve aşağıdaki eylemlerden birini gerçekleştirmek için kullanılabilir denetimleri kullanmak istediğiniz alanı, imleç tutamaçları kullanarak ister misiniz:
+Yakınlaştırma, verileriniz üzerinde odaklanmanıza imkan sağlar. Odaklanmak için sonuç kümesinde istediğiniz bir zaman dönemi bulursanız, imlecinizi yakınlaştırmak ve aşağıdaki eylemlerden birini gerçekleştirmek için kullanılabilir denetimleri kullanmak istediğiniz alanı almak için kullanın:
 * **Yakınlaştırma:** bir zaman dönemi seçtikten sonra yakınlaştırma, etkin ve verileriniz için yakınlaştırın olanak sağlar.
 * **Uzaklaştır:** bu denetim, yakınlaştırma, son yakınlaştırma bir düzeyi sağlar. Örneğin, üç kez verilerinize olduğunuz ekranı yakınlaştırdığınızda, uzaklaştırma sürecek bir kerede tek bir adımda geri.
 * **Yakınlaştırma sıfırlanması:** çeşitli yakınlaştırma düzeyleri gerçekleştirdiğiniz sonra özgün Sonuç kümenizi döndürülecek yakınlaştırma sıfırlama denetimini kullanabilirsiniz. 

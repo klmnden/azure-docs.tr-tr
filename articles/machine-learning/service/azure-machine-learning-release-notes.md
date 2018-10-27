@@ -8,13 +8,13 @@ ms.topic: reference
 author: hning86
 ms.author: haining
 ms.reviewer: j-martens
-ms.date: 03/28/2018
-ms.openlocfilehash: 58d0d028c920faa7e86884c85f8fb677ce67c390
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.date: 10/24/2018
+ms.openlocfilehash: 0927ae14d232ec2ce3a46bb66ed535deabbe0138
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49389930"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50158695"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Azure Machine Learning hizmeti sürüm notları
 
@@ -24,19 +24,19 @@ Bu makalede, Azure Machine Learning hizmet sürümleri hakkında bilgi edinin.
 
 ### <a name="azure-machine-learning-sdk-for-python-v0168"></a>Azure Machine SDK için Python v0.1.68 Learning
 
-#### <a name="new-features"></a>Yeni Özellikler
- * Yeni çalışma alanı oluştururken, birden çok Kiracı desteği.
++ **Yeni Özellikler**
+  * Yeni çalışma alanı oluştururken, birden çok Kiracı desteği.
 
-#### <a name="breaking-changes"></a>Yeni değişiklikler
- * **Yaklaşan bir sonraki sürümde** *Workspace.compute_targets, veri depoları, denemeleri, resimler, modeller* ve *webservices'a* yöntemleri yerine özellikler olur. Örneğin, *Workspace.compute_targets()* ile *Workspace.compute_targets*.
++ **Bozucu değişiklikler**
+  * **Yaklaşan bir sonraki sürümde** *Workspace.compute_targets, veri depoları, denemeleri, resimler, modeller* ve *webservices'a* yöntemleri yerine özellikler olur. Örneğin, *Workspace.compute_targets()* ile *Workspace.compute_targets*.
 
-#### <a name="bugs-fixed"></a>Düzeltilen hatalar
- * Pynacl kitaplığı sürüm artık web hizmetine dağıtırken sabitlenmiş gerekir.
++ **Düzeltilen hatalar**
+  * Pynacl kitaplığı sürüm artık web hizmetine dağıtırken sabitlenmiş gerekir.
 
 ### <a name="azure-machine-learning-data-prep-sdk-v030"></a>Azure Machine Learning veri hazırlama SDK v0.3.0
 
-#### <a name="new-features"></a>Yeni Özellikler:
-* Kullanıcıların yürütmek için bir Python dosyası yolunda geçirilecek yöntemi transform_partition_with_file(script_path) eklendi
++ **Yeni Özellikler**
+  * Kullanıcıların yürütmek için bir Python dosyası yolunda geçirilecek yöntemi transform_partition_with_file(script_path) eklendi
 
 ## <a name="2018-10-01"></a>2018-10-01
 
@@ -45,56 +45,55 @@ Bu makalede, Azure Machine Learning hizmet sürümleri hakkında bilgi edinin.
 
 Bkz: [bilinen sorunların listesi](resource-known-issues.md) bilinen hataların ve geçici çözümleri hakkında bilgi edinmek için.
 
-#### <a name="breaking-changes"></a>Yeni değişiklikler
- * Workspace.experiments, Workspace.models, Workspace.compute_targets, Workspace.images, Workspace.web_services dönüş sözlük, daha önce listesi döndürdü. Bkz: [azureml.core.Workspace](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py) API belgeleri.
++ **Bozucu değişiklikler**
+  * Workspace.experiments, Workspace.models, Workspace.compute_targets, Workspace.images, Workspace.web_services dönüş sözlük, daha önce listesi döndürdü. Bkz: [azureml.core.Workspace](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py) API belgeleri.
 
- * Machine Learning otomatik normalleştirilmiş Ortalama kare hata birincil ölçümleri kaldırıldı.
+  * Machine Learning otomatik normalleştirilmiş Ortalama kare hata birincil ölçümleri kaldırıldı.
 
++ **HyperDrive**
+  * Bayes çeşitli HyperDrive hata düzeltmeleri, ölçümleri çağrıları için performans geliştirmeleri alın. 
+  * Tensorflow 1.10 1.9 sürümüne yükseltme 
+  * Docker görüntü iyileştirmesi hazırlıksız başlatma için. 
+  * Rapor doğru durum hatasıyla çıkarsanız bile kod artık diğer 0'dan iş güçlendirin. 
+  * Öznitelik doğrulamada SDK RunConfig. 
+  * Çalıştırma HyperDrive nesnesi iptal normal çalışmaya benzer destekler: herhangi bir parametre geçirin gerek yoktur. 
+  * Dağıtılmış çalıştırır ve HyperDrive çalıştırmalar için aşağı açılan değerleri durumunu korumak için pencere öğesi geliştirmeleri. 
+  * Parametre sunucusu için sabit, TensorBoard ve diğer günlük dosyalarını destekler. 
+  * Hizmet tarafı Intel(r) MPI desteği. 
+  * Hata düzeltmesi, için parametre ayarlama için düzeltme çalışma BatchAI doğrulama sırasında dağıtılmış. 
+  * Bağlam Yöneticisi artık birincil tanıtır. 
 
-#### <a name="hyperdrive"></a>HyperDrive
- * Bayes çeşitli HyperDrive hata düzeltmeleri, ölçümleri çağrıları için performans geliştirmeleri alın. 
- * Tensorflow 1.10 1.9 sürümüne yükseltme 
- * Docker görüntü iyileştirmesi hazırlıksız başlatma için. 
- * Rapor doğru durum hatasıyla çıkarsanız bile kod artık diğer 0'dan iş güçlendirin. 
- * Öznitelik doğrulamada SDK RunConfig. 
- * Çalıştırma HyperDrive nesnesi iptal normal çalışmaya benzer destekler: herhangi bir parametre geçirin gerek yoktur. 
- * Dağıtılmış çalıştırır ve HyperDrive çalıştırmalar için aşağı açılan değerleri durumunu korumak için pencere öğesi geliştirmeleri. 
- * Parametre sunucusu için sabit, TensorBoard ve diğer günlük dosyalarını destekler. 
- * Hizmet tarafı Intel(r) MPI desteği. 
- * Hata düzeltmesi, için parametre ayarlama için düzeltme çalışma BatchAI doğrulama sırasında dağıtılmış. 
- * Bağlam Yöneticisi artık birincil tanıtır. 
++ **Azure portal deneyimi**
+  * Çalıştırma ayrıntıları log_table() ve log_row() desteklenir. 
+  * Otomatik olarak grafikler tabloları ve satırları için 1,2 veya 3 sayısal sütunlara ve isteğe bağlı bir kategorik sütun oluşturun.
 
-#### <a name="azure-portal-experience"></a>Azure portal deneyimi
- * Çalıştırma ayrıntıları log_table() ve log_row() desteklenir. 
- * Otomatik olarak grafikler tabloları ve satırları için 1,2 veya 3 sayısal sütunlara ve isteğe bağlı bir kategorik sütun oluşturun.
++ **Otomatik makine öğrenimi**
+  * Geliştirilmiş hata işleme ve belgeler 
+  * Çalıştırma özelliği alımı performans sorunlarını düzelttik. 
+  * Sabit çalışma sorunu devam edin. 
+  * Ensembling yineleme sorunlar düzeltildi.
+  * MAC OS sabit eğitim asılı hata.
+  * Aşağı örnekleme makrosu ortalama çekme isteği/ROC eğrisi özel doğrulama senaryosunda.
+  * Ek dizin mantıksal kaldırıldı.
+  * Filtre get_output API ' kaldırıldı.
 
-#### <a name="automated-machine-learning"></a>Otomatik makine öğrenimi
- * Geliştirilmiş hata işleme ve belgeler 
- * Çalıştırma özelliği alımı performans sorunlarını düzelttik. 
- * Sabit çalışma sorunu devam edin. 
- * Ensembling yineleme sorunlar düzeltildi.
- * MAC OS sabit eğitim asılı hata.
- * Aşağı örnekleme makrosu ortalama çekme isteği/ROC eğrisi özel doğrulama senaryosunda.
- * Ek dizin mantıksal kaldırıldı.
- * Filtre get_output API ' kaldırıldı.
++ **İşlem hatları**
+  * Bir yöntem bir işlem hattı yürütme ilk çalıştırma gerek kalmadan doğrudan yayımlamak için Pipeline.publish() eklendi.   
+  * Bir işlem hattı getirilecek PipelineRun.get_pipeline_runs() yöntemi, yayımlanan bir ardışık düzen tarafından oluşturulan çalışan eklendi.
 
-#### <a name="pipelines"></a>İşlem hatları
- * Bir yöntem bir işlem hattı yürütme ilk çalıştırma gerek kalmadan doğrudan yayımlamak için Pipeline.publish() eklendi.   
- * Bir işlem hattı getirilecek PipelineRun.get_pipeline_runs() yöntemi, yayımlanan bir ardışık düzen tarafından oluşturulan çalışan eklendi.
-
-#### <a name="project-brainwave"></a>Project Brainwave
- * Yeni AI modelleri FPGA üzerinde kullanılabilir güncelleştirilmiş destek.
++ **Project Brainwave**
+  * Yeni AI modelleri FPGA üzerinde kullanılabilir güncelleştirilmiş destek.
 
 ### <a name="azure-machine-learning-data-prep-sdk-v020"></a>Azure Machine Learning veri hazırlama SDK v0.2.0
 [Sürüm 0.2.0](https://pypi.org/project/azureml-dataprep/0.2.0/) özellikler ve hata düzeltmeleri içerir:
 
-**Yeni Özellikler:** 
- * Bir sık erişimli kodlaması için destek
- * Quantile dönüştürme için destek
++ **Yeni Özellikler**
+  * Bir sık erişimli kodlaması için destek
+  * Quantile dönüştürme için destek
    
-**Hata düzeltildi:**
- * Herhangi bir hortum sürümü ile çalışır hortum sürümünüzü düşürme gerekmez.
- * Değer için tüm değerleri, yalnızca ilk üç sayar.
++ **Hata düzeltildi:**
+  * Herhangi bir hortum sürümü ile çalışır hortum sürümünüzü düşürme gerekmez.
+  * Değer için tüm değerleri, yalnızca ilk üç sayar.
 
 ## <a name="2018-09-public-preview-refresh"></a>2018-09 (genel Önizleme yenileme)
 

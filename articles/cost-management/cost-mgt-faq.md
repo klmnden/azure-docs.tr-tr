@@ -5,41 +5,41 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 09/18/2018
+ms.date: 10/26/2018
 ms.topic: troubleshooting
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: 4984332e1a149ae838bc76a24abec90364f5699e
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: ba6d8250d70320b33822d73c9213e9005128633f
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47221987"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50157216"
 ---
 # <a name="frequently-asked-questions-for-cloudyn"></a>Cloudyn için sık sorulan sorular
 
-Bu makalede Cloudyn hakkında bazı yaygın sorular ele alınmıştır. Cloudyn hakkında sorularınız varsa, onları sorabilir [Cloudyn için sık sorulan sorular](https://social.msdn.microsoft.com/Forums/231bf072-2c71-4121-8339-ac9d868137b9/faqs-for-azure-cost-management-by-cloudyn?forum=Cloudyn).
+Bu makalede Cloudyn hakkında bazı yaygın sorular ele alınmıştır. Cloudyn hakkında sorularınız varsa, onları sorabilir [Cloudyn için sık sorulan sorular](https://social.msdn.microsoft.com/Forums/home?forum=faqs-for-azure-cost-management-by-cloudyn).
 
 ## <a name="how-can-i-resolve-common-indirect-enterprise-setup-problems"></a>Sık karşılaşılan dolaylı Kurumsal kurulum sorunlarını nasıl giderebilirim?
 
-Cloudyn portalını ilk kez kullandığınızda, bir Kurumsal Anlaşma ya da bulut çözümü sağlayıcısı (CSP) kullanıcı varsa aşağıdaki iletileri görebilirsiniz:
+Cloudyn portalını ilk kullandığınızda, Kurumsal Anlaşma veya Bulut Çözümü Sağlayıcı (CSP) kullanıcısıysanız şu iletileri görebilirsiniz:
 
 - "Belirtilen API anahtarı bir üst düzey kayıt anahtarı değil" görüntülenen **Cloudyn ayarlamak** Sihirbazı.
 - "– Hayır Kurumsal Anlaşma portalında gösterilen doğrudan kayıt".
 - "Son 30 güne ait kullanım verisi bulunamadı. Biçimlendirme Azure hesabınız için etkinleştirildi emin olmak için dağıtımcı başvurun", Cloudyn portalında görüntülenmez.
 
-Önceki ileti, bir kurumsal bayi veya CSP aracılığıyla Azure Kurumsal Anlaşma satın aldığınızı belirtir. Satıcınıza veya CSP etkinleştirmek gereken _biçimlendirme_ Azure hesabı için böylece verilerinizi Cloudyn'de görüntüleyebilirsiniz.
+Önceki ileti, bir kurumsal bayi veya CSP aracılığıyla Azure Kurumsal Anlaşma satın aldığınızı belirtir. Cloudyn'de verilerinizi görüntüleyebilmeniz için satıcınızın veya CSP’nin Azure hesabınız için _işaretlemeyi_ etkinleştirmesi gerekir.
 
 Sorunların çözümü:
 
 1. Kurumsal bayinin hesabınız için _işaretlemeyi_ etkinleştirmesi gerekir. Yönergeler için bkz. [Dolaylı Müşteri Ekleme Kılavuzu](https://ea.azure.com/api/v3Help/v2IndirectCustomerOnboardingGuide).
 
-2. Cloudyn ile kullanmak için Azure Kurumsal Anlaşma anahtarı üret Yönergeler için [ekleme bilgisayarınızı Azure EA](https://support.cloudyn.com/hc/articles/210429585-Adding-Your-AZURE-EA) veya [Bul EA kayıt Kimliğinizi ve API anahtarı](https://youtu.be/u_phLs_udig).
+2. Cloudyn ile kullanılmak için Azure Kurumsal Anlaşma anahtarını üretirsiniz. Yönergeler için [ekleme bilgisayarınızı Azure EA](quick-register-ea.md#register-with-cloudyn) veya [Bul EA kayıt Kimliğinizi ve API anahtarı](https://youtu.be/u_phLs_udig).
 
-Yalnızca bir Azure Hizmet Yöneticisi, Cloudyn etkinleştirebilirsiniz. Ortak yönetici izinleri yeterli değil.
+Yalnızca bir Azure hizmet yöneticisi Cloudyn'i etkinleştirebilir. Ortak yönetici izinleri yeterli değil.
 
-Cloudyn ayarlamak için Azure Kurumsal Anlaşma API anahtarı oluşturmadan önce adresindeki yönergeleri izleyerek Azure faturalandırma API'si etkinleştirmeniz gerekir:
+Cloudyn'i kurmak için Azure Kurumsal Anlaşma API anahtarını oluşturabilmeniz için aşağıda belirtilen kaynaklarda yer alan yönergeleri izleyerek Azure Faturalama API’sini etkinleştirmeniz gerekir:
 
 - [Kurumsal müşteriler için Raporlama API’lerine genel bakış](../billing/billing-enterprise-api.md)
 - **API’lere veri erişimini etkinleştirme** bölümünde [Microsoft Azure kurumsal portal Raporlama API’si](https://ea.azure.com/helpdocs/reportingAPI)
@@ -100,7 +100,7 @@ Cloudyn doğrudan URL kullanmaktan kaçının https://app.cloudyn.com.
 
 ## <a name="how-do-i-activate-unactivated-accounts-with-azure-credentials"></a>Azure kimlik etkinleştirilmemiş hesaplarıyla nasıl etkinleştirebilirim?
 
-Hesaplarınız Cloudyn tarafından bulunduktan hemen sonra maliyet verilerini hemen maliyet tabanlı raporlara sağlanır. Bununla birlikte, Cloudyn kullanım ve performans verilerini sağlamak hesapları için Azure kimlik bilgilerinizi kaydetmeniz gerekir. Yönergeler için [Azure Resource Manager'ı ekleme](https://support.cloudyn.com/hc/articles/212784085-Adding-Azure-Resource-Manager).
+Hesaplarınız Cloudyn tarafından bulunduktan hemen sonra maliyet verilerini hemen maliyet tabanlı raporlara sağlanır. Bununla birlikte, Cloudyn kullanım ve performans verilerini sağlamak hesapları için Azure kimlik bilgilerinizi kaydetmeniz gerekir. Yönergeler için [bir hesap ekleyin veya aboneliği güncelleştirme](activate-subs-accounts.md#add-an-account-or-update-a-subscription).
 
 Azure'ı eklemek için hesap adı, abonelik sağındaki düzenleme simgesi Cloudyn portalında, bir hesabın kimlik bilgilerini seçin.
 
@@ -108,10 +108,7 @@ Azure kimlik bilgilerinizi Cloudyn'e eklenene kadar hesabı olarak görünür _b
 
 ## <a name="how-do-i-add-multiple-accounts-and-entities-to-an-existing-subscription"></a>Mevcut bir aboneliğe birden çok hesap ve varlıkları nasıl ekleyebilirim?
 
-Ek varlıklar Cloudyn aboneliğine ek Kurumsal anlaşmalar eklemek için kullanılır. Aşağıdaki bağlantılar, ek varlıklar ekleme işlemi açıklanmaktadır:
-
-- [Varlık ekleme](https://support.cloudyn.com/hc/articles/212016145-Adding-an-Entity) makale
-- [Maliyet varlıkları ile hiyerarşinizi tanımlama](https://support.cloudyn.com/hc/articles/115005142529-Video-Defining-your-hierarchy-with-Cost-Entities) video
+Ek varlıklar Cloudyn aboneliğine ek Kurumsal anlaşmalar eklemek için kullanılır. Daha fazla bilgi için [oluşturun ve varlıkları yönetme](tutorial-user-access.md#create-and-manage-entities).
 
 CSP'ler için:
 

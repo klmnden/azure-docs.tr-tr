@@ -1,6 +1,6 @@
 ---
-title: Azure IOT Merkezi mimari kavramlarını | Microsoft Docs
-description: Bu makale Azure IOT merkezi mimarisi ile ilgili temel kavramları tanıtır
+title: Azure IOT Central mimari kavramları | Microsoft Docs
+description: Bu makalede Azure IOT Central mimarisiyle ilgili temel kavramlar tanıtılmaktadır.
 author: dominicbetts
 ms.author: dobett
 ms.date: 11/30/2017
@@ -8,94 +8,94 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: timlt
-ms.openlocfilehash: 44408e7b6ad1a068f265bf7b78d973e6aae3001b
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 564ea3efe35a1054b8c905cff4b7f4c739cc9216
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34628768"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50156383"
 ---
-# <a name="azure-iot-central-architecture"></a>Azure IOT Orta mimarisi
+# <a name="azure-iot-central-architecture"></a>Azure IOT Central mimarisi
 
-Bu makalede, Microsoft Azure IOT merkezi mimarisine genel bakış sağlar.
+Bu makalede, Microsoft Azure IOT Central mimarisine genel bir bakış sağlar.
 
-![Üst düzey mimari](media/concepts-architecture/architecture.png)
+![Üst düzey mimarisi](media/concepts-architecture/architecture.png)
 
 ## <a name="devices"></a>Cihazlar
 
-Cihazların Azure IOT merkezi uygulamanız ile veri değişimi. Bir aygıt yapabilirsiniz:
+Cihazlar, Azure IOT Central uygulamanız ile veri değişimi. Bir cihazı edebilirsiniz:
 
-- Ölçümleri telemetri gibi gönderin.
+- Ölçümler gibi telemetri gönderin.
 - Ayarları uygulamanız ile eşitleyin.
 
-Azure IOT Merkezi, bir aygıt ile uygulamanızı değiştirebilir veri aygıt şablonda belirtilen. Cihaz şablonları hakkında daha fazla bilgi için bkz: [meta verileri Yönetim](#metadata-management).
+Azure IOT Central içinde bir cihaz uygulamanızla gönderip verileri bir cihaz şablonunda belirtilir. Cihaz şablonları hakkında daha fazla bilgi için bkz. [meta veri yönetimi](#metadata-management).
 
-Cihazların Azure IOT merkezi uygulamanızı nasıl bağlanacağını hakkında daha fazla bilgi için bkz: [cihaz bağlantısı](concepts-connectivity.md).
+Cihazlar, Azure IOT Central uygulamasına nasıl bağlanacağını hakkında daha fazla bilgi için bkz: [cihaz bağlantısı](concepts-connectivity.md).
 
 ## <a name="cloud-gateway"></a>Bulut ağ geçidi
 
-Azure IOT Orta Azure IOT Hub cihaz bağlantısı sağlayan bir bulut ağ geçidi olarak kullanır. IOT hub'ı etkinleştirir:
+Azure IOT Central, Azure IOT Hub, cihaz bağlantısı sağlayan bir bulut ağ geçidi olarak kullanır. IOT Hub'ı sağlar:
 
 - Bulut ölçeğinde veri alımı.
-- Aygıt Yönetimi.
-- Cihaz bağlantısı güvenliğini sağlayın.
+- Cihaz yönetimi.
+- Cihaz bağlantısı güvenli hale getirin.
 
-IOT Hub hakkında daha fazla bilgi için bkz: [Azure IOT Hub](https://docs.microsoft.com/azure/iot-hub/).
+IOT Hub hakkında daha fazla bilgi edinmek için [Azure IOT hub'ı](https://docs.microsoft.com/azure/iot-hub/).
 
-Cihaz Bağlantısı'nda Azure IOT Merkezi hakkında daha fazla bilgi için bkz: [cihaz bağlantısı](concepts-connectivity.md).
+Azure IOT Central, cihaz bağlantısı hakkında daha fazla bilgi için bkz: [cihaz bağlantısı](concepts-connectivity.md).
 
 ## <a name="data-stores"></a>Veri depolama alanları
 
-Azure IOT Orta bulutta uygulama verilerini depolar. Uygulama verileri depolanan şunları içerir:
+Azure IOT Central, uygulama verilerini bulutta depolar. Uygulama verileri depolanan içerir:
 
 - Cihaz şablonları.
 - Cihaz kimlikleri.
-- Cihaz meta veriler.
+- Cihaz meta verileri.
 - Kullanıcı ve rol verileri.
 
-Azure IOT Orta bir zaman serisi depolamak için aygıtlardan gönderilen ölçüm verilerini kullanır. Zaman serisi veri analizi hizmeti tarafından kullanılan aygıtlardan.
+Azure IOT Central, cihazlardan gönderilen ölçüm verileri için bir zaman serisi depolama kullanır. Analytics hizmeti tarafından kullanılan cihazlardan zaman serisi verileri.
 
 ## <a name="analytics"></a>Analiz
 
-Analytics hizmeti, uygulama görüntüler özel raporlama verilerini oluşturmaktan sorumlu. Bir işleç için [analytics özelleştirme](howto-create-analytics.md) uygulamada görüntülenir. Analytics hizmeti üstünde oluşturulmuş [Azure zaman serisi Öngörüler](https://azure.microsoft.com/services/time-series-insights/) ve cihazlarınızın gönderilen ölçüm verilerini işler.
+Analytics service, uygulama görüntüler özel raporlama verileri oluşturmak için sorumludur. Bir işleç için [analizini özelleştirme](howto-create-analytics.md) uygulamada görüntülenir. Analiz Hizmeti üstünde oluşturulmuş [Azure Time Series Insights](https://azure.microsoft.com/services/time-series-insights/) ve ölçüm verileri cihazlarınızdan gönderilen işler.
 
 ## <a name="rules-and-actions"></a>Kurallar ve eylemler
 
-[Kurallar ve Eylemler](howto-create-telemetry-rules.md) uygulama içinde görevleri otomatikleştirmek için yakından birlikte çalışma. Oluşturucu cihaz telemetrisi tanımlı bir eşiğin aşılması sıcaklık gibi temel alarak kurallar tanımlayabilirsiniz. Azure IOT Orta akış işlemci zaman kural koşulların karşılanıp karşılanmadığını belirlemek için kullanır. Bir kural koşulu karşılandığında Oluşturucu tarafından tanımlanan bir eylemi tetikler. Örneğin, bir eylem mühendisin aygıtta sıcaklık çok yüksek olduğunu bildiren bir e-posta gönderebilirsiniz.
+[Kurallar ve Eylemler](howto-create-telemetry-rules.md) uygulama içinde görevleri otomatikleştirmek için yakından birlikte çalışan. Bir oluşturucu, tanımlı bir eşiğin aşılması sıcaklık gibi cihaz telemetrisi temel alarak kurallar tanımlayabilirsiniz. Azure IOT Central, kural koşulları ne zaman karşılandığını belirlemek için bir akış işlemci kullanır. Bir kural koşulu karşılandığında, Oluşturucu tarafından tanımlanan bir eylem tetikler. Örneğin, bir eylem mühendisin sıcaklık bir aygıtta çok yüksek olduğunu bildiren bir e-posta gönderebilirsiniz.
 
 ## <a name="metadata-management"></a>Meta veri yönetimi
 
-Azure IOT merkezi bir uygulamada, cihaz şablonları davranış ve aygıt türlerinin özelliği tanımlar. Örneğin, bir buzdolabı aygıt şablon uygulamanıza bir buzdolabı gönderdiği telemetri belirtir.
+Azure IOT Central bir uygulamada, cihaz şablonları, cihaz türlerinin özellik ve davranışını tanımlar. Örneğin, bir buzdolabı için uygulamanızın gönderdiği telemetri buzdolabınız cihaz şablonu belirtir.
 
 ![Şablonu Mimarisi](media/concepts-architecture/template_architecture.png)
 
-Bir aygıt şablonunda:
+Bir cihaz şablonunda:
 
-- **Ölçümleri** cihaz telemetri gönderen uygulama belirtin.
-- **Ayarları** bir işleç ayarlayabilirsiniz yapılandırmalarını belirtin.
-- **Özellikler** bir işleç ayarlayabilirsiniz meta verileri belirtin.
-- **Kuralları** davranışı bir aygıttan gönderilen verileri temel alan uygulamasında otomatikleştirin.
+- **Ölçümleri** cihazın telemetri gönderen uygulamaya belirtin.
+- **Ayarları** operatörün ayarlayabilirsiniz yapılandırmaları belirtin.
+- **Özellikleri** operatörün ayarlayabilirsiniz meta verileri belirtin.
+- **Kuralları** bir CİHAZDAN gönderilen verileri temel alan uygulama davranışını otomatikleştirin.
 - **Panolar** uygulamasında bir cihazı özelleştirilebilir görünümleridir.
 
-Bir uygulama, her cihaz şablonuna dayalı bir veya daha fazla benzetilmiş ve gerçek aygıtları sahip olabilir.
+Bir uygulama, her cihaz şablonu temel alan bir veya daha fazla sanal ve gerçek cihazlar olabilir.
 
-## <a name="rbac"></a>RBAC
+## <a name="role-based-access-control-rbac"></a>Rol tabanlı erişim denetimi (RBAC)
 
-Bir [yönetici erişim kurallarını tanımlayabilir](howto-administer.md) önceden tanımlanmış roller kullanarak Azure IOT merkezi bir uygulama için. Yönetici kullanıcılar uygulamanın hangi alanlarda kullanıcının erişimi belirlemek roller atayabilirsiniz.
+Bir [yönetici erişim kurallarını tanımlayabilir](howto-administer.md) önceden tanımlı roller kullanarak Azure IOT Central uygulaması için. Yönetici kullanıcılar uygulamanın hangi alanlarda kullanıcının erişebileceği belirlemek roller atayabilirsiniz.
 
 ## <a name="security"></a>Güvenlik
 
-Azure IOT Merkezi içindeki güvenlik özellikleri içerir:
+Azure IOT Central içindeki güvenlik özellikleri içerir:
 
-- Veri aktarım ve REST şifrelenir.
-- Kimlik doğrulaması Azure Active Directory veya Microsoft Account tarafından sağlanır. İki öğeli kimlik doğrulama desteklenir.
+- Veriler aktarımda ve bekleme sırasında şifrelenir.
+- Kimlik doğrulaması, Azure Active Directory veya Microsoft Account tarafından sağlanır. İki öğeli kimlik doğrulaması desteklenir.
 - Tam Kiracı yalıtımı.
-- Aygıt düzeyi güvenlik.
+- Cihaz düzeyinde güvenlik.
 
 ## <a name="ui-shell"></a>UI Kabuğu
 
-UI Kabuk bir modern, esnek, HTML5 tarayıcı tabanlı uygulamasıdır.
+Modern, duyarlı, HTML5 tarayıcı tabanlı bir uygulama UI kabuktur.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Mimarisiyle Azure IOT Merkezi hakkında öğrendiniz, önerilen sonraki hakkında bilgi edinmek için adımdır [cihaz bağlantısı](concepts-connectivity.md) Azure IOT merkezi olarak.
+Azure IOT Central'ın mimarisi hakkında bilgi edindiniz, hakkında bilgi edinmek için önerilen sonraki adım olan [cihaz bağlantısı](concepts-connectivity.md) Azure IOT Central içinde.

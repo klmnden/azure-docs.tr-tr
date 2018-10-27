@@ -9,13 +9,13 @@ ms.component: core
 ms.reviewer: larryfr
 manager: cgronlun
 ms.topic: conceptual
-ms.date: 8/6/2018
-ms.openlocfilehash: 657a762874f7c2fb40553552ef6c17d9b5b6da0f
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.date: 10/24/2018
+ms.openlocfilehash: 6c2d5a776f603161ef730028168b91844c120aec
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49958627"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50159001"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>Azure Machine Learning için bir geliştirme ortamı yapılandırma
 
@@ -120,12 +120,16 @@ Veri bilimi sanal makineler üzerinde daha fazla bilgi için [veri bilimi sanal 
     pip install --upgrade azureml-sdk[notebooks,automl] azureml-dataprep
     ```
 
-    > [!NOTE]
-    > Bir ileti alırsanız `PyYAML` olamaz kaldırılmış, aşağıdaki komutu kullanın:
-    >
-    > `pip install --upgrade azureml-sdk[notebooks,automl] azureml-dataprep --ignore-installed PyYAML`
+   Sınıflar ve yöntemler aşağıdaki sdk'larda Python başvurusu belgelerini görebilirsiniz:
+   + [Azure Machine için Python SDK'sı Learning](https://aka.ms/aml-sdk)
+   + [Azure Machine Learning Veri Hazırlama SDK'sı](https://aka.ms/data-prep-sdk)
 
-    Bu SDK'yı yüklemek için birkaç dakika sürebilir.
+   > [!NOTE]
+   > Bir ileti alırsanız `PyYAML` olamaz kaldırılmış, aşağıdaki komutu kullanın:
+   >
+   > `pip install --upgrade azureml-sdk[notebooks,automl] azureml-dataprep --ignore-installed PyYAML`
+
+   Bu SDK'yı yüklemek için birkaç dakika sürebilir.
 
 1. Makine öğrenimi denemesi paketleri yükleyin. Aşağıdaki komutu kullanın ve Değiştir `<new package>` yüklemek istediğiniz paket:
 
