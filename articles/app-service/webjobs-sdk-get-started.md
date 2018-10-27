@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 04/27/2018
 ms.author: glenga
-ms.openlocfilehash: e2f9bee2adcebfd47ca088a1bbe76b870e285044
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: b0f4ef5079ac689827cb49884fa1c6a51529ea83
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45580453"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50140358"
 ---
 # <a name="get-started-with-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Olay temelli arka planda işleme için Azure WebJobs SDK ile çalışmaya başlama
 
@@ -182,7 +182,7 @@ Bu bölümde, yeni framework kullanan konsol günlüğünü ayarlama.
 
 Yerel olarak çalışan Azure depolama öykünücüsü WebJobs SDK gereken tüm özelliklere sahip değil. Bu nedenle bu bölümde Azure depolama hesabı oluşturma ve bunu kullanmak için projeyi yapılandırın.
 
-1. Açık **Sunucu Gezgini** ve Azure'da oturum açın. Sağ **Azure** düğümüne tıklayın ve ardından **Microsoft Azure aboneliğine bağlanma**.
+1. Açık **Sunucu Gezgini** Visual studio ve azure'da oturum açın. Sağ **Azure** düğümüne tıklayın ve ardından **Microsoft Azure aboneliğine bağlanma**.
 
    ![Azure'da oturum açma](./media/webjobs-sdk-get-started/sign-in.png)
 
@@ -245,7 +245,7 @@ Bu bölümde, projeyi yerel olarak çalıştırın ve bir kuyruk iletisi oluştu
 
 1. Konsol penceresini kapatın.
 
-1. İçinde **Sunucu Gezgini**, yeni depolama hesabınız için düğümü genişletin ve ardından sağ tıklayarak **kuyrukları**. 
+1. İçinde **Sunucu Gezgini** Visual Studio'da, yeni depolama hesabınız için düğümü genişletin ve ardından sağ tıklayarak **kuyrukları**. 
 
 1. Seçin **kuyruk oluşturma**. 
 
@@ -310,7 +310,7 @@ Bu bölümde, Azure'a dağıtmadan önce Application Insights günlük ayarlama 
 
 ### <a name="configure-app-settings"></a>Uygulama ayarlarını yapılandırma 
 
-1. İçinde **Sunucu Gezgini**, genişletme **App Service** düğümünde **Azure**.
+1. İçinde **Sunucu Gezgini** Visual Studio'da genişletme **App Service** düğümünde **Azure**.
 
 1. App Service uygulamanızı olan kaynak grubunu genişletin ve ardından App Service uygulamanıza sağ tıklayın.
 
@@ -396,7 +396,7 @@ Bu bölümde, Azure'a dağıtmadan önce Application Insights günlük ayarlama 
 
 Bu bölümde, yerel olarak yeniden Konsolu için de Application Insights, günlük verilerini artık geçiyor doğrulamak için çalıştırın.
 
-1. Kullanım **Sunucu Gezgini** kuyruk iletisi oluşturmak için aynı şekilde yaptığınız [önceki](#trigger-the-function)girin dışında *Hello App Insights!* ileti metni.
+1. Kullanım **Sunucu Gezgini** aynı şekilde Visual bir kuyruk iletisi oluşturmak üzere Studio'da yaptığınız [önceki](#trigger-the-function)girin dışında *Hello App Insights!* ileti metni.
 
 1. Projeyi çalıştırın.
 
@@ -442,7 +442,6 @@ Bu bölümde bir WebJob olarak projeyi dağıtın. Bir App Service uygulamasına
 
 1. Değil çalıştırdığınız yerel olarak emin olun (hala açık değilse konsol penceresini kapatın). Aksi takdirde yerel örneğini oluşturduğunuz herhangi bir kuyruk iletileri işlemek için ilk olabilir.
 
-1. Kullanım **Sunucu Gezgini** kuyruk iletisi oluşturmak için aynı şekilde yaptığınız [önceki](#trigger-the-function)girin dışında *Merhaba Azure!*.
 
 1. Yenileme **kuyruk** sayfasında Visual Studio ve yeni iletinin Azure App Service'te çalışan işlevi işlenen çünkü kayboldu.
 
@@ -485,7 +484,7 @@ Giriş bağlamaları veri okuyan kod basitleştirin. Bu örnekte, kuyruk iletisi
 
 1. Depolama hesabınızdaki blob kapsayıcı oluşturun.
 
-   a. İçinde **Sunucu Gezgini**, depolama hesabınız için düğümünü genişletin, sağ **Blobları**ve ardından **Blob kapsayıcısı Oluştur**.
+   a. İçinde **Sunucu Gezgini** Visual Studio'da, depolama hesabınızın düğümünü genişletin, sağ **Blobları**ve ardından **Blob kapsayıcısı Oluştur**.
 
    b. İçinde **Blob kapsayıcısı Oluştur** iletişim kutusunda girin *kapsayıcı* kapsayıcı adı ve ardından olarak **Tamam**.
 

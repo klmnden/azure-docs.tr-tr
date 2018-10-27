@@ -1,34 +1,31 @@
 ---
-title: 'Azure Databricks: Sık kullanılan sorular ve Yardım | Microsoft Docs'
+title: 'Azure Databricks: Sık kullanılan sorular ve Yardım'
 description: Sık sorulan sorular ve sorun giderme bilgileri Azure Databricks hakkında yanıtlarını alın.
 services: azure-databricks
-documentationcenter: ''
-author: nitinme
-manager: cgronlun
-editor: cgronlun
+author: mamccrea
+ms.author: mamccrea
+ms.reviewer: jasonh
 ms.service: azure-databricks
 ms.workload: big-data
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 05/29/2018
-ms.author: nitinme
-ms.openlocfilehash: c3ba235c60480c38a21ee3264c54b4a4dcdea340
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.topic: conceptual
+ms.date: 10/25/2018
+ms.openlocfilehash: 3bcc511ec6ad8a246c2b1b3a33eb59043a45830e
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39434610"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50138370"
 ---
 # <a name="frequently-asked-questions-about-azure-databricks"></a>Azure Databricks hakkında sık sorulan sorular
 
-Bu makalede, Azure Databricks için ilgili en sık kullanılan sorgular listelenir. Ayrıca, Databricks kullanırken sahip olabileceğiniz bazı yaygın sorunlar listelenir. Daha fazla bilgi için [Azure Databricks nedir](what-is-azure-databricks.md). 
+Bu makalede, Azure Databricks için ilgili en sık sorulan listelenmektedir. Ayrıca, Databricks kullanırken sahip olabileceğiniz bazı yaygın sorunlar listelenir. Daha fazla bilgi için [Azure Databricks nedir](what-is-azure-databricks.md). 
 
-## <a name="can-i-use-my-own-keys-for-local-encryption"></a>Yerel şifreleme için kendi anahtarlarımı kullanabilir miyim? 
-Azure Key vault'tan kendi anahtarlarınızı kullanarak geçerli sürümde desteklenmiyor. 
+## <a name="can-i-use-azure-key-vault-to-store-keyssecrets-to-be-used-in-azure-databricks"></a>Azure Databricks'te kullanılacak anahtarlar/gizli dizileri depolamak için Azure anahtar kasası kullanabilir miyim?
+Evet. Azure Databricks ile kullanmak için anahtarlar/gizli dizileri depolamak için Azure anahtar Kasası'nı kullanabilirsiniz. Daha fazla bilgi için [Azure anahtar kasası tarafından desteklenen kapsamların](https://docs.azuredatabricks.net/user-guide/secrets/secret-scopes.html#akv-ss).
+
 
 ## <a name="can-i-use-azure-virtual-networks-with-databricks"></a>Databricks ile Azure sanal ağları kullanabilir miyim?
-Databricks sağlama bir parçası olarak yeni bir sanal ağ oluşturulur. Bu sürümde, kendi Azure sanal ağı kullanamazsınız.
+Evet. Azure Databricks ile bir Azure sanal ağ (VNET) kullanabilirsiniz. Daha fazla bilgi için [dağıtma, Azure sanal ağınızda Azure Databricks](https://docs.azuredatabricks.net/administration-guide/cloud-configurations/azure/vnet-inject.html).
 
 ## <a name="how-do-i-access-azure-data-lake-store-from-a-notebook"></a>Azure Data Lake Store not defterinden nasıl erişebilirim? 
 
@@ -116,7 +113,7 @@ Daha ayrıntılı yönergeler için bkz. [kaynak sağlayıcıları ve türleri](
 
 #### <a name="background"></a>Arka plan
 
-Azure Databricks, Azure AD ile tümleşiktir. Bu, Azure databricks'te izinleri (örneğin, dizüstü bilgisayarlar veya kümeleri) ayarlamak Azure AD'den kullanıcı belirterek sağlar. Azure Databricks'ın, Azure ad kullanıcılarının adlarını listelemek bu bilgileri okuma izni gerektirir. Bu, bir onay gerektirir. Onay zaten mevcut değilse hatayı görürsünüz.
+Azure Databricks, Azure Active Directory ile tümleştirilmiştir. Kullanıcıların Azure AD'de belirterek izinleri Azure databricks'te (örneğin, dizüstü bilgisayarlar veya kümeleri) ayarlayabilirsiniz. Azure AD, kullanıcı adlarını listelemek Azure Databricks için bu bilgileri için okuma izni ve verilecek onay gerektirir. Onay zaten mevcut değilse hatayı görürsünüz.
 
 #### <a name="solution"></a>Çözüm
 

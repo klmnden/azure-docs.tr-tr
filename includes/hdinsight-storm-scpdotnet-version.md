@@ -1,3 +1,16 @@
+---
+author: jasonwhowell
+ms.service: hdinsight
+ms.topic: include
+ms.date: 10/25/2018
+ms.author: jasonh
+ms.openlocfilehash: 43b90181faa5b3ee23b1d3a15146dffb93ab2e2e
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50164842"
+---
 > [!IMPORTANT]
 > Projenizde kullanılan SCP.Net sürümü, HDInsight kümesinde mevcut Storm sürümle aynı olmalıdır. Hangi sürümünü kullanmanız gerektiğini belirlemek için aşağıdaki tabloyu kullanın:
 > 

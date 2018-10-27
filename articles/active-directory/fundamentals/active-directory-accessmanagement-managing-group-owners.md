@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: lizross
 ms.custom: it-pro
-ms.openlocfilehash: f546ea5b5f9288849334d27cd1721f0c22fb8806
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: fae68bccbeaa54ca1bab9d77510fe6baecd11fcc
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46297784"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50139729"
 ---
 # <a name="how-to-add-or-remove-group-owners-in-azure-active-directory"></a>Nasıl yapılır: ekleme veya Azure Active Directory'de Grup sahipleri kaldırma
 Azure Active Directory (Azure AD) gruplarına ait ve Grup sahipleri tarafından yönetilir. Grup sahipleri bir grup ve üyelerini yönetmek için bir kaynak sahibi (Yönetici) atanır. Grup sahipleri güvenlik grubunun üyesi olması gerekmez. Bir grup sahibi atandıktan sonra yalnızca bir kaynak sahibi ekleyebilir veya sahipleri kaldırabilirsiniz.
@@ -27,9 +27,9 @@ Bazı durumlarda, yönetici olarak bir grup sahibi atamamayı karar verebilirsin
 Ek Grup sahipleri, Azure AD kullanarak bir gruba ekleyin.
 
 ### <a name="to-add-a-group-owner"></a>Bir grup sahibi eklemek için
-1. Oturum [Azure portalında](https://portal.azure.com) dizinde genel yönetici hesabını kullanarak.
+1. Dizin için bir Genel yönetici hesabı kullanarak [Azure portalda](https://portal.azure.com) oturum açın.
 
-2. Seçin **Azure Active Directory**seçin **grupları**, ardından sahip eklemek istediğiniz grubu seçin (Bu örnekte, _MDM İlkesi - Batı_).
+2. Seçin **Azure Active Directory**seçin **grupları**, ardından sahip eklemek istediğiniz grubu seçin (Bu örnekte, *MDM İlkesi - Batı*).
 
 3. Üzerinde **MDM İlkesi - Batı genel bakış** sayfasında **sahipleri**.
 
@@ -45,9 +45,9 @@ Ek Grup sahipleri, Azure AD kullanarak bir gruba ekleyin.
 Sahibi Azure AD kullanarak bir gruptan kaldırın.
 
 ### <a name="to-remove-an-owner"></a>Sahibi kaldırmak için
-1. Oturum [Azure portalında](https://portal.azure.com) dizinde genel yönetici hesabını kullanarak.
+1. Dizin için bir Genel yönetici hesabı kullanarak [Azure portalda](https://portal.azure.com) oturum açın.
 
-2. Seçin **Azure Active Directory**seçin **grupları**, ardından sahip eklemek istediğiniz grubu seçin (Bu örnekte, _MDM İlkesi - Batı_).
+2. Seçin **Azure Active Directory**seçin **grupları**, ardından bir sahibi kaldırmak istediğiniz grubu seçin (Bu örnekte, *MDM İlkesi - Batı*).
 
 3. Üzerinde **MDM İlkesi - Batı genel bakış** sayfasında **sahipleri**.
 

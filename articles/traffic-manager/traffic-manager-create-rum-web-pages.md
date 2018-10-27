@@ -1,13 +1,9 @@
 ---
-title: Gerçek kullanıcı ölçümler için Azure Traffic Manager web sayfalarıyla | Microsoft Docs
-description: Trafik Yöneticisi için gerçek kullanıcı ölçümleri göndermek için web sayfalarınıza ayarlayın
+title: Gerçek kullanıcı ölçümleri için web sayfaları ile Azure Traffic Manager | Microsoft Docs
+description: Traffic Manager gerçek kullanıcı ölçümleri göndermek için web sayfalarınıza ayarlayın
 services: traffic-manager
 documentationcenter: traffic-manager
 author: KumudD
-manager: jeconnoc
-editor: ''
-tags: ''
-ms.assetid: ''
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
@@ -16,60 +12,60 @@ ms.workload: infrastructure
 ms.date: 03/16/2018
 ms.author: kumud
 ms.custom: ''
-ms.openlocfilehash: 71661d8640dbe14082292cb9637964adac9fa803
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 19a641ba86333047b90c36cef242d524ccad5fe1
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30180631"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50138197"
 ---
-# <a name="how-to-send-real-user-measurements-to-azure-traffic-manager-using-web-pages"></a>Web sayfalarını kullanarak Azure trafik Yöneticisi için gerçek kullanıcı ölçümleri gönderme
+# <a name="how-to-send-real-user-measurements-to-azure-traffic-manager-using-web-pages"></a>Web pages kullanılarak Azure Traffic Manager gerçek kullanıcı ölçümleri gönderme
 
-Gerçek kullanıcı ölçümleri (RUM) anahtarı alma ve web sayfası için oluşturulan kodu katıştırma trafik Yöneticisi için gerçek kullanıcı ölçümleri göndermek için web sayfalarınıza yapılandırabilirsiniz.
+Gerçek kullanıcı ölçümleri (RUM) anahtarı alma ve web sayfası için oluşturulan kod ekleme, Traffic Manager gerçek kullanıcı ölçümleri göndermek için web sayfalarınıza yapılandırabilirsiniz.
 
-## <a name="obtain-a-real-user-measurements-key"></a>Gerçek kullanıcı ölçümleri anahtarı edinme
+## <a name="obtain-a-real-user-measurements-key"></a>Bir gerçek kullanıcı ölçümleri anahtarı edinme
 
-Alın ve trafik Yöneticisi için istemci uygulamasından gönderebilmek ölçümleri adlı benzersiz bir dize kullanarak hizmeti tarafından tanımlanan **gerçek kullanıcı ölçümleri (RUM) anahtarı**. Azure portal, bir REST API kullanarak RUM bir anahtarı elde edebilirsiniz veya PowerShell veya Azure CLI kullanarak.
+Olması ve Traffic Manager, istemci uygulamasından gönderme ölçüleri adlı benzersiz bir dize kullanarak hizmet tarafından tanımlanan **gerçek kullanıcı ölçümleri (RUM) anahtar**. Azure portalı, bir REST API kullanarak ÇALIŞTIRMA bir anahtar alabilirsiniz veya PowerShell veya Azure CLI kullanarak.
 
-Azure portalını kullanarak RUM anahtarı edinmek için:
-1. Bir tarayıcı üzerinden Azure portalında oturum açın. Zaten bir hesabınız yoksa, ücretsiz bir aylık deneme için kaydolabilirsiniz.
-2. Değiştirmek istediğiniz trafik Yöneticisi profili adı portal'ın arama çubuğunda aramak ve sonuçları trafik Yöneticisi profili ardından, görüntülenen.
-3. Trafik Yöneticisi profili dikey tıklayın **gerçek kullanıcı ölçümleri** altında **ayarları**.
-4. Tıklatın **oluşturmak anahtar** yeni RUM anahtarı oluşturmak için.
+Azure portalını kullanarak RUM anahtarı almak için:
+1. Azure portalında bir tarayıcıdan oturum açın. Zaten bir hesabınız yoksa, ücretsiz bir aylık deneme için kaydolabilirsiniz.
+2. Portalın arama çubuğunda, değiştirmek istediğiniz Traffic Manager profil adı için arama yapın ve sonra sonuçları Traffic Manager profili seçin, görüntülenen.
+3. Traffic Manager profili dikey penceresinde **gerçek kullanıcı ölçümleri** altında **ayarları**.
+4. Tıklayın **anahtar oluştur** RUM yeni bir anahtar oluşturmak için.
  
   ![Gerçek kullanıcı ölçümleri anahtarı oluşturma](./media/traffic-manager-create-rum-visual-studio/generate-rum-key.png)
 
-   **Şekil 1: Gerçek kullanıcı ölçümleri anahtar oluşturma**
+   **Şekil 1: Gerçek kullanıcı ölçümleri anahtarı oluşturma**
 
-5. Dikey şimdi RUM oluşturulan anahtarı ve HTML sayfanıza gömülü olması gereken bir JavaScript kod parçacığı görüntüler.
+5. Dikey pencere artık RUM oluşturulan anahtarı ve HTML sayfanıza eklenmesi gereken JavaScript kod parçacığını görüntüler.
  
     ![Gerçek kullanıcı ölçümleri anahtarı için JavaScript kodu](./media/traffic-manager-create-rum-web-pages/rum-javascript-code.png)
 
-    **Şekil 2: Gerçek kullanıcı ölçümleri anahtarı ve ölçüm JavaScript**
+    **Şekil 2: Gerçek kullanıcı ölçümleri anahtarı ve ölçüm JavaScript'i**
  
-6.  Tıklatın **kopyalama** düğmesi JavaScript kodunu kopyalayın. 
+6.  Tıklayın **kopyalama** düğmesine tıklayarak JavaScript kodu kopyalayın. 
 
 >[!IMPORTANT]
-> Düzgün çalışması için oluşturulan JavaScript gerçek kullanıcı ölçümleri özelliği için kullanın. Bu komut dosyası veya gerçek kullanıcı ölçümleri tarafından kullanılan komut değişiklikleri beklenmeyen davranışlara neden olabilir.
+> Oluşturulan JavaScript için gerçek kullanıcı ölçümleri özelliği düzgün şekilde çalışabilmesi için kullanın. Bu betik veya gerçek kullanıcı ölçümleri tarafından kullanılan betikler değişiklikleri beklenmeyen davranışa neden olabilir.
 
 ## <a name="embed-the-code-to-an-html-web-page"></a>Bir HTML web sayfası için kod ekleme
 
-RUM anahtarı aldıktan sonra bu kopyalanan JavaScript son kullanıcılarınızın ziyaret HTML sayfasına katıştırmak için sonraki adım olacaktır. HTML düzenleme birçok yolla yapılabilir ve farklı araçlar ve iş akışlarını kullanma. Bu örnekte, bu komut dosyası eklemek için bir HTML sayfasında güncelleştirme gösterilmiştir. HTML kaynak yönetimi iş akışınıza uyarlamak için bu kılavuzu kullanabilirsiniz.
+ÇALIŞTIRMA anahtarı aldıktan sonra sonraki adım, bu kopyalanan JavaScript ekleme, son kullanıcılarınızın ziyaret ettiği bir HTML sayfasına sağlamaktır. HTML düzenleme birçok şekilde yapılabilir ve farklı araçlar ve iş akışlarını kullanma. Bu örnekte, bu komut dosyası eklemek için bir HTML sayfası gösterilmektedir. HTML kaynak yönetimi akışınızı uyarlamak için bu kılavuzu kullanabilirsiniz.
 
-1.  Bir metin düzenleyicide HTML sayfasını açın
+1.  HTML sayfası bir metin düzenleyicisinde açın.
 2.  HTML gövde bölümüne önceki adımda kopyaladığınız JavaScript kodu yapıştırın (kopyalanan kod satırı 8 & 9; Şekil 3).
  
-    ![JavaScript kodu için gerçek kullanıcı ölçümleri web sayfasına ekleme](./media/traffic-manager-create-rum-web-pages/real-user-measurement-embed-script.png)  
+    ![Web sayfasına ekleme JavaScript kodu için gerçek kullanıcı ölçümleri](./media/traffic-manager-create-rum-web-pages/real-user-measurement-embed-script.png)  
 
-    **Şekil 3: Basit HTML katıştırılmış gerçek kullanıcı ölçümleri JavaScript ile**
+    **Şekil 3: Basit HMTL katıştırılmış gerçek kullanıcı ölçümleri JavaScript**
 
-3.  HTML dosyası ve internet'e bağlı bir Web sunucusu üzerinde konak kaydedin. 
-4. Bu sayfa bir web tarayıcısı işlenmeden sonraki sefer başvurulan JavaScript indirilir ve ölçüm ve operations raporlama betiği çalıştırır.
+3.  İnternet'e bağlı bir Web sunucusu üzerinde konak ve HTML dosyasını kaydedin. 
+4. Bu sayfa bir web tarayıcısı üzerinde işlenen, sonraki açışınızda, başvurulan JavaScript indirilir ve ölçüm ve raporlama işlemlerinin betiği çalıştırır.
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-- Daha fazla bilgi edinmek [gerçek kullanıcı ölçümleri](traffic-manager-rum-overview.md)
-- Bilgi [trafik Yöneticisi nasıl çalışır?](traffic-manager-overview.md)
-- Daha fazla bilgi edinmek [trafik yönlendirme yöntemleri](traffic-manager-routing-methods.md) Traffic Manager tarafından desteklenen
-- Bilgi edinmek için nasıl [bir Traffic Manager profili oluşturma](traffic-manager-create-profile.md)
+- Daha fazla bilgi edinin [gerçek kullanıcı ölçümleri](traffic-manager-rum-overview.md)
+- Bilgi [Traffic Manager nasıl çalışır?](traffic-manager-overview.md)
+- Daha fazla bilgi edinin [trafik yönlendirme yöntemlerini](traffic-manager-routing-methods.md) Traffic Manager tarafından desteklenen
+- Bilgi edinmek için nasıl [Traffic Manager profili oluşturma](traffic-manager-create-profile.md)
 

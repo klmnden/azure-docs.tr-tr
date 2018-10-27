@@ -1,12 +1,9 @@
 ---
-title: Azure Traffic Manager coğrafi yönlendirme türü tarafından kullanılan ülke/bölge hiyerarşi | Microsoft Docs
-description: Bu makalede Azure trafik Yöneticisi coğrafi yönlendirme türü tarafından kullanılan ülke/bölge hiyerarşi listeler
+title: Azure Traffic Manager coğrafi yönlendirme türü tarafından kullanılan ülke/bölge hiyerarşisi | Microsoft Docs
+description: Bu makalede, Azure Traffic Manager coğrafi yönlendirme türü tarafından kullanılan ülke/bölge hiyerarşisi listelenir.
 services: traffic-manager
 documentationcenter: ''
 author: kumudd
-manager: timlt
-editor: ''
-ms.assetid: ''
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
@@ -14,16 +11,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/22/2017
 ms.author: kumud
-ms.openlocfilehash: 45fa209b4417ce8b65d1fa4f2f59ff6c2d50f3a4
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 1609daa4edbc3db9384941d575c141faaa799fb6
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2018
-ms.locfileid: "28201505"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50138251"
 ---
-# <a name="countryregion-hierarchy-used-by-azure-traffic-manager-for-geographic-traffic-routing-method"></a>Coğrafi trafik yönlendirme yöntemini için Azure Traffic Manager tarafından kullanılan ülke/bölge hiyerarşisi
+# <a name="countryregion-hierarchy-used-by-azure-traffic-manager-for-geographic-traffic-routing-method"></a>Coğrafi trafik yönlendirme yöntemi için Azure Traffic Manager tarafından kullanılan ülke/bölge hiyerarşisi
 
-Ülke ve bölgelerden tarafından kullanılan bu makalede listelenmektedir **Geographic** trafik yönlendirme metodu Azure trafik Yöneticisi'nde. Ayrıca bu bilgileri programlı olarak çağırarak alabilirsiniz [Azure Traffic Manager'ın REST API](https://docs.microsoft.com/rest/api/trafficmanager/). 
+Bu makalede, ülke ve bölge tarafından kullanılan listeler **Geographic** trafiği yönlendirme yöntemini Azure Traffic Manager. Siz de bu bilgileri programlı olarak çağırarak elde edebileceğiniz [Azure Traffic Manager'ın REST API](https://docs.microsoft.com/rest/api/trafficmanager/). 
 
 - WORLD(World)
 
@@ -31,13 +28,13 @@ ms.locfileid: "28201505"
 
         - AD(Andorra)
 
-        - AL(Albania)
+        - Al(Albania)
 
         - AT(Austria)
 
-        - AX (Åland Adaları)
+        - AX (Aland Adaları)
 
-        - BA (Bosna Hersek)
+        - BA (Bosna-Hersek)
 
         - BE(Belgium)
 
@@ -127,13 +124,13 @@ ms.locfileid: "28201505"
 
         - SK(Slovakia)
 
-        - SM(San Marino)
+        - SM (San Marino)
 
         - UA(Ukraine)
 
         - VA (Vatikan)
 
-        - XJ(Jan Mayen)
+        - XJ (Jan Mayen)
 
         - XK(Kosovo)
 
@@ -163,7 +160,7 @@ ms.locfileid: "28201505"
 
         - SY(Syria)
 
-        - SA (Polonya)
+        - SA (Suudi Arabistan)
 
         - TR(Turkey)
 
@@ -179,7 +176,7 @@ ms.locfileid: "28201505"
 
         - BB(Barbados)
 
-        - BL(Saint Barthélemy)
+        - BL (Saint Barthélemy)
 
         - BM(Bermuda)
 
@@ -209,7 +206,7 @@ ms.locfileid: "28201505"
 
             - CA-on(Ontario)
 
-            - CA-PE(Prince Edward Island)
+            - CA PE(Prince Edward Island)
 
             - CA-QC(Québec)
 
@@ -221,7 +218,7 @@ ms.locfileid: "28201505"
 
         - Cu(Cuba)
 
-        - CW(CuraÃ§ao)
+        - CW(CuraÃ§AO)
 
         - DM(Dominica)
 
@@ -243,11 +240,11 @@ ms.locfileid: "28201505"
 
         - KN (Saint Kitts ve Nevis)
 
-        - Anahtarınıza (Cayman Adaları)
+        - KY (Cayman Adaları)
 
         - LC(Saint Lucia)
 
-        - MF(Saint Martin)
+        - MF (Saint Martin)
 
         - MQ(Martinique)
 
@@ -257,11 +254,11 @@ ms.locfileid: "28201505"
 
         - NI(Nicaragua)
 
-        - PA(Panama)
+        - Pa(Panama)
 
         - PM (Saint Pierre ve Miquelon)
 
-        - PR (Porto Riko)
+        - Çekme isteği (Porto Riko)
 
         - SV (El Salvador)
 
@@ -271,13 +268,13 @@ ms.locfileid: "28201505"
 
         - TT (Trinidad ve Tobago)
 
-        - UM (ABD Harici Adaları)
+        - ÜMMÜL (ABD Harici Adaları)
 
         - US(United States)
 
             - US-ak(Alaska)
 
-            - US-AL(Alabama)
+            - US-Al(Alabama)
 
             - US-ar(Arkansas)
 
@@ -293,7 +290,7 @@ ms.locfileid: "28201505"
 
             - US-de(Delaware)
 
-            - US-FL(Florida)
+            - US-fl(Florida)
 
             - US-GA(Georgia)
 
@@ -333,7 +330,7 @@ ms.locfileid: "28201505"
 
             - ABD ND(North Dakota)
 
-            - US-NE(Nebraska)
+            - US-ne(Nebraska)
 
             - ABD NH(New Hampshire)
 
@@ -347,9 +344,9 @@ ms.locfileid: "28201505"
 
             - US-OH(Ohio)
 
-            - US-OK(Oklahoma)
+            - US-ok(Oklahoma)
 
-            - US-OR(Oregon)
+            - US-OR(oregon)
 
             - US-Pa(Pennsylvania)
 
@@ -373,19 +370,19 @@ ms.locfileid: "28201505"
 
             - US-WI(Wisconsin)
 
-            - US-WV(West Virginia)
+            - ABD WV(West Virginia)
 
             - US-WY(Wyoming)
 
         - VC (Saint Vincent ve Grenadinler)
 
-        - VG (İngiliz þehirlerini)
+        - VG (İngiliz Virgin Adaları)
 
         - VI (ABD Virgin Adaları)
 
-        - XE(Sint Eustatius)
+        - XE (Sint Eustatius)
 
-        - XS(Saba)
+        - Xs(Saba)
 
     - GEO-AS(Asia)
 
@@ -397,7 +394,7 @@ ms.locfileid: "28201505"
 
         - BD(Bangladesh)
 
-        - BN(Brunei)
+        - Bn(Brunei)
 
         - BT(Bhutan)
 
@@ -405,7 +402,7 @@ ms.locfileid: "28201505"
 
         - CN(China)
 
-        - CX (Noel Adası)
+        - CX (Christmas Adası)
 
         - Ge(Georgia)
 
@@ -431,13 +428,13 @@ ms.locfileid: "28201505"
 
         - LA(Laos)
 
-        - LK(Sri Lanka)
+        - LK (Sri Lanka)
 
         - MM(Myanmar)
 
         - MN(Mongolia)
 
-        - İletilerin (Makao ÖİB)
+        - Ay (Makao ÖİB)
 
         - MV(Maldives)
 
@@ -479,17 +476,17 @@ ms.locfileid: "28201505"
 
         - BW(Botswana)
 
-        - CD (Kongo (KDC))
+        - CD (Kongo Cumhuriyeti (KC))
 
         - CF (Orta Afrika Cumhuriyeti)
 
         - CG(Congo)
 
-        - CI (Fildişi Kıyısı)
+        - CI (Fildişi Sahili)
 
         - CM(Cameroon)
 
-        - CV(Cabo Verde)
+        - CV (Cabo Verde)
 
         - DJ(Djibouti)
 
@@ -509,11 +506,11 @@ ms.locfileid: "28201505"
 
         - GN(Guinea)
 
-        - GQ (Ekvator Gine)
+        - GQ (Ekvator Ginesi)
 
         - GW(Guinea_Bissau)
 
-        - KE(Kenya)
+        - Ke(Kenya)
 
         - KM(Comoros)
 
@@ -527,7 +524,7 @@ ms.locfileid: "28201505"
 
         - MG(Madagascar)
 
-        - ML(Mali)
+        - ML(mali)
 
         - MR(Mauritania)
 
@@ -551,9 +548,9 @@ ms.locfileid: "28201505"
 
         - SD(Sudan)
 
-        - SH (St Helena, Ascension, Tristan da Cunha)
+        - SH (St. Helena, Ascension, Tristan da Cunha)
 
-        - SL(Sierra Leone)
+        - SL (Sierra Leone)
 
         - SN(Senegal)
 
@@ -567,7 +564,7 @@ ms.locfileid: "28201505"
 
         - TD(CHAD)
 
-        - TF (Fransız Güney bölgeleri)
+        - TF (Fransız Güney Toprakları)
 
         - TG(Togo)
 
@@ -605,7 +602,7 @@ ms.locfileid: "28201505"
 
         - FK (Falkland Adaları)
 
-        - GF (Fransızca Guyanası)
+        - GF (Fransız Guyanası)
 
         - GS (Güney Georgia ve Güney Sandwich Adaları)
 
@@ -643,7 +640,7 @@ ms.locfileid: "28201505"
 
             - AU WA(Western Australia)
 
-        - Çekme (Etikan Adaları)
+        - Çekme (Cook Adaları)
 
         - FJ(Fiji)
 
@@ -651,13 +648,13 @@ ms.locfileid: "28201505"
 
         - GU(Guam)
 
-        - HM (Heard ve McDonald Adaları)
+        - HM (Heard Adası ve McDonald Adaları)
 
         - Kı(Kiribati)
 
         - MH (Marshall Adaları)
 
-        - MP (Kuzey Adaları)
+        - MP (Kuzey Mariana Adaları)
 
         - NC (Yeni Kaledonya)
 
@@ -669,7 +666,7 @@ ms.locfileid: "28201505"
 
         - NZ (Yeni Zelanda)
 
-        - PF (Fransızca Polinezyası)
+        - PF (Fransız Polinezyası)
 
         - PG (Papua Yeni Gine)
 
@@ -687,10 +684,10 @@ ms.locfileid: "28201505"
 
         - VU(Vanuatu)
 
-        - WF (ve Futuna)
+        - WF (Wallis ve Futuna)
 
         - WS(Samoa)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- Daha fazla bilgi edinmek [Geographic trafik yönlendirme yöntemini Azure trafik Yöneticisi'nde](traffic-manager-routing-methods.md#geographic).
+- Daha fazla bilgi edinin [coğrafi trafik yönlendirme yöntemini Azure Traffic Manager](traffic-manager-routing-methods.md#geographic).

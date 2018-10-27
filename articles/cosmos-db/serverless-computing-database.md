@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: sngun
-ms.openlocfilehash: c183bbe2c20bdc1772160cbbd8260dece0b6eb54
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.openlocfilehash: 7348f76ab0d5a1057e9fd929e8a55dd0a9e99eb6
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49309510"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50140985"
 ---
 # <a name="serverless-database-computing-using-azure-cosmos-db-and-azure-functions"></a>Azure Cosmos DB ile Azure işlevleri'ni kullanarak sunucusuz veritabanı bilgi işlem
 
@@ -31,7 +31,8 @@ Azure Cosmos DB ile Azure işlevleri, sunucusuz uygulamalar ve veritabanları a�
 * Bind bir işlevi kullanarak bir Azure Cosmos DB kapsayıcısı bir **çıktı bağlaması**. Bir işlev tamamlandığında, çıkış bağlamaları veri bir kapsayıcıya yazma.
 
 > [!NOTE]
-> Şu anda Azure Cosmos DB tetikleyicisi, giriş bağlamaları ve çıkış bağlamaları yalnızca SQL API ve Gremlin API hesaplarıyla çalışır.
+> Şu anda, Azure Cosmos DB tetikleyicisi, giriş bağlamaları ve çıkış bağlamaları yalnızca SQL API'si ile kullanım için desteklenir. Tüm diğer Azure Cosmos DB API'leri için API'niz için MongoDB API'si, Cassandra API, Gremlin API ve tablo API'si gibi statik istemci kullanarak veritabanı işlevinizden erişmelidir.
+
 
 Aşağıdaki diyagram, her biri üç bu tümleştirmelere gösterir: 
 

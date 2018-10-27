@@ -6,14 +6,14 @@ manager: timlt
 ms.service: iot-accelerators
 services: iot-accelerators
 ms.topic: conceptual
-ms.date: 12/12/2017
+ms.date: 10/26/2018
 ms.author: dobett
-ms.openlocfilehash: ae5218bae12b9489d67b0264f0e5fdb6d833cb9e
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: 23b36fb647c2949dca1c5efe7f8194ec5a397965
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39187776"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50140409"
 ---
 # <a name="connected-factory-solution-accelerator-walkthrough"></a>Bağlı Fabrika çözüm hızlandırıcısı adım adım kılavuzu
 
@@ -53,7 +53,7 @@ Aşağıdaki diyagram, çözüm hızlandırıcısının mantıksal bileşenlerin
 
 Sanal istasyonlar ve sanal üretim yürütme sistemleri (MES) bir fabrikanın üretim hattını oluşturur. Sanal cihazlar ve OPC Yayımcı Modülü, OPC Fundation tarafından yayımlanan [OPC UA .NET Standardı][lnk-OPC-UA-NET-Standard]’nı temel alır.
 
-OPC Proxy ve OPC Yayımcısı [Azure IoT Edge][lnk-Azure-IoT-Gateway]'i temel alan modüller olarak uygulanır. Her sanal üretim hattına bağlı, atanmış bir ağ geçidi bulunur.
+OPC Proxy ve OPC Yayımcısı [Azure IoT Edge][lnk-Azure-IoT-Gateway]'i temel alan modüller olarak uygulanır. Her sanal üretim hattına bağlı bir ağ geçidi var.
 
 Tüm benzetim bileşenleri bir Azure Linux VM’sinde barındırılan Docker kapsayıcıları içinde çalışır. Benzetim, varsayılan olarak sekiz sanal üretim hattını çalıştırmak üzere yapılandırılmıştır.
 
@@ -61,15 +61,19 @@ Tüm benzetim bileşenleri bir Azure Linux VM’sinde barındırılan Docker kap
 
 Üretim hattı, parça üretir. Farklı istasyonlardan oluşur: derleme istasyonu, test istasyonu ve paketleme istasyonu.
 
-Benzetim çalışır, OPC UA düğümleri aracılığıyla gösterilen verileri çalıştırır ve güncelleştirir. Tüm sanal üretim hattı istasyonları, OPC UA aracılığıyla MES tarafından düzenlenir.
+Benzetim çalışır ve OPC UA düğümleri aracılığıyla sunulan verileri güncelleştirir. Tüm sanal üretim hattı istasyonları, OPC UA aracılığıyla MES tarafından düzenlenir.
 
 ## <a name="simulated-manufacturing-execution-system"></a>Sanal üretim yürütme sistemi
 
-MES, istasyon durumu değişikliklerini algılamak üzere üretim hattındaki her bir istasyonu OPC UA aracılığıyla izler. İstasyonları denetlemek üzere OPC UA yöntemlerini çağırır ve işlem tamamlanana kadar ürünü bir istasyondan diğerine geçirir.
+MES, istasyon durumu değişikliklerini algılamak üzere üretim hattındaki her bir istasyonu OPC UA aracılığıyla izler. OPC UA istasyonları denetlemek üzere yöntemlerini çağırır ve tamamlanana kadar ürünü bir istasyondan diğerine geçirir.
 
 ## <a name="gateway-opc-publisher-module"></a>Ağ geçidi OPC yayımcı modülü
 
-OPC Yayımcı Modülü, istasyonun OPC UA sunucularına bağlanır ve yayımlanacak OPC düğümlerine abone olur. Modül, düğüm verilerini JSON biçimine dönüştürür, şifreler ve OPC UA Pub/Sub iletileri olarak IoT Hub’a gönderir.
+OPC Yayımcı Modülü, istasyonun OPC UA sunucularına bağlanır ve yayımlanacak OPC düğümlerine abone olur. Modülü:
+
+1. Düğüm verilerini JSON biçimine dönüştürür.
+1. JSON şifreler.
+1. JSON OPC UA Pub/Sub iletileri olarak IOT Hub'ına gönderir.
 
 OPC Yayımcı modülü, yalnızca bir giden https bağlantı noktası (443) gerektirir ve mevcut kuruluş altyapısı ile birlikte çalışabilir.
 
@@ -77,7 +81,7 @@ OPC Yayımcı modülü, yalnızca bir giden https bağlantı noktası (443) gere
 
 Ağ Geçidi OPC UA Proxy Modülü, ikili OPC UA komutu ile denetim iletileri arasında tünel oluşturur ve yalnızca bir giden https bağlantı noktası (443) gerektirir. Web Proxy’leri dahil olmak üzere, mevcut kuruluş altyapısı ile birlikte çalıştırabilir.
 
-Paketlenmiş TCP/IP verilerini uygulama katmanında aktarmak üzere IoT Hub Cihaz yöntemlerini kullanır ve böylece SSL/TLS kullanarak uç nokta güveni, veri şifreleme ve bütünlüğü sağlar.
+Paketlenmiş TCP/IP verilerini uç nokta güveni, veri şifreleme ve SSL/TLS kullanarak bütünlüğünü sağlamak için uygulama katmanında aktarmak için IOT Hub cihaz yöntemlerini kullanır.
 
 Proxy üzerinden geçirilen OPC UA ikili protokolü, UA kimlik doğrulaması ve şifrelemesi kullanır.
 
@@ -93,13 +97,13 @@ IoT Hub, Azure TSI’ye bir olay kaynağı gönderir. TSI, iletilere eklenen zam
 * Kaynak zaman damgası
 * OPC UA DisplayName
 
-Şu anda TSI, müşterilerin verileri saklama süresini özelleştirmesine izin vermemektedir.
+Şu anda TSI, müşterilerin ne kadar süreyle bunlar verileri saklama süresini özelleştirmesine izin vermez.
 
-TSI bir **SearchSpan** (**Time.From**, **Time.To**) kullanarak düğüm verilerinde sorgu çalıştırır ve **OPC UA ApplicationUri** veya **OPC UA NodeId** veya **OPC UA DisplayName**’e göre toplar.
+Düğüm verilerinin zaman tabanlı kullanarak TSI sorguları **SearchSpan** ve göre toplar **OPC UA ApplicationUri** veya **OPC UA nodeId** veya **OPC UA DisplayName**.
 
-OEE ve KPI ölçeklerine ait verileri ve zaman serisi grafiklerini almak için, veriler olay sayısı, Toplam, Ortalama, En Az ve En Fazla değerlerine göre toplanır.
+Çözüm için verileri OEE ve KPI ölçeklerine ve zaman serisi grafiklerini almak için olayları sayısına göre verilerini toplayan **toplam**, **ortalama**, **Min**, ve  **En fazla**.
 
-Zaman serisi, farklı bir işlem kullanılarak oluşturulur. OEE ve KPI’lar, istasyona dayalı verilerden hesaplanır ve uygulamadaki topoloji (üretim hatları, fabrikalar, kuruluş) için oluşturulur.
+Zaman serisi, farklı bir işlem kullanılarak oluşturulur. Çözüm, temel verilerden istasyon OEE ve KPI değerlerini hesaplar ve üretim hatlarının, Fabrikalar ve kuruluş için ayarlanacak değerleri Balonlar.
 
 Buna ek olarak, OEE ve KPI topolojisi için zaman serisi, görüntülenen bir zaman aralığı hazır olduğunda uygulamada hesaplanır. Örneğin, gün görünümü saatte bir kez güncelleştirilir.
 
@@ -116,7 +120,7 @@ IoT Hub çözümde aynı zamanda şunları yapar:
 Çözüm, VM’nin disk deposu ve dağıtım verilerinin depolanması için Azure blob depolama kullanır.
 
 ## <a name="web-app"></a>Web uygulaması
-Çözüm hızlandırıcısının bir parçası olarak dağıtılan web uygulaması; tümleşik OPC UA istemcisi, uyarı işleme ve telemetri görselleştirmesinden oluşur.
+Çözüm Hızlandırıcısını bir parçası olarak dağıtılan web uygulaması, bir tümleşik OPC UA istemcisi, uyarı işleme ve telemetri görselleştirmesinden içerir.
 
 ## <a name="telemetry-data-flow"></a>Telemetri veri akışı
 
@@ -161,7 +165,7 @@ IoT Hub çözümde aynı zamanda şunları yapar:
     - Bu adım veri merkezi içinde gerçekleştirilir.
 
 11. Web tarayıcısı, Bağlı Fabrika WebApp öğesine bağlanır.
-    - Bağlı Fabrika panosunu oluşturur.
+    - Bağlı Fabrika panosunu görüntüler.
     - HTTPS üzerinden bağlanır.
     - Bağlı Fabrika uygulaması erişimi için kullanıcının Azure Active Directory kimlik doğrulamasından geçmesi gerekir.
     - Bağlı Fabrika uygulamasına giden WebApi çağrılarının güvenliği, Sahtekarlığı Önleme Belirteçleri ile sağlanır.
@@ -182,9 +186,9 @@ IoT Hub çözümde aynı zamanda şunları yapar:
 
 2. OPC Proxy (sunucu bileşeni) kendisini IoT Hub'a kaydeder.
     - Bilinen cihazların tümünü IoT Hub'dan okur.
-    - Socket veya Websocket üzerinden TLS üzerinden MQTT kullanır.
+    - Socket veya WebSocket TLS üzerinden MQTT kullanır.
 
-3. Web tarayıcısı, Bağlı Fabrika WebApp öğesine bağlanır ve Bağlı Fabrika panosunu oluşturur.
+3. Web tarayıcısı bağlı Fabrika WebApp için bağlanır ve bağlı Fabrika panosunu görüntüler.
     - HTTPS kullanır.
     - Kullanıcı bağlanmak istediği OPC UA sunucusunu seçer.
 
@@ -212,7 +216,7 @@ IoT Hub çözümde aynı zamanda şunları yapar:
     - Bu veriler, Bağlı Fabrika uygulamasındaki OPC UA yığınına gönderilir.
 
 11. Bağlı Fabrika WebApp, OPC Browser UX değerini OPC UA sunucusundan aldığı özgün OPC UA verileriyle zenginleştirmiş bir şekilde oluşturulmak üzere Web Tarayıcısına döndürür.
-    - OPC Browser IX istemci tarafı OPC adres alanına göz atarken ve OPC adres alanındaki düğümlere işlevleri uygularken verileri Bağlı Fabrika WebApp kaynağından almak için güvenliği Sahtekarlığı Önleme Belirteçleriyle sağlanan HTTPS üzerinden AJAX çağrıları kullanır.
+    - Bir kullanıcı OPC adres alanına göz gider ve OPC adres alanındaki düğümlere işlevleri geçerlidir, ancak OPC Browser UX istemci verileri bağlı Fabrika WebApp ' almak için sahteciliğe karşı koruma belirteçleri ile güvenliği sağlanan HTTPS üzerinden AJAX çağrıları kullanır.
     - İstemci gerekirse OPC UA sunucusuyla bilgi alışverişi yapmak için 4-10 arasındaki iletişim adımlarını kullanır.
 
 > [!NOTE]

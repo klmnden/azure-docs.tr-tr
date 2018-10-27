@@ -13,16 +13,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/08/2017
+ms.date: 10/26/2018
 ms.author: markvi
 ms.reviewer: nigu
 ms.custom: seohack1
-ms.openlocfilehash: 3bdf44e0a1cf0ccda6d015fa3683964f3530d4af
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: eefbfcf741db3d0949910bc5da8494e087c39ec7
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40003492"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50139166"
 ---
 # <a name="get-started-with-azure-active-directory-identity-protection-and-microsoft-graph"></a>Microsoft Graph ve Azure Active Directory kimlik koruması ile çalışmaya başlama
 Microsoft Graph olan Microsoft unified API uç noktası ve giriş, [Azure Active Directory kimlik koruması](../active-directory-identityprotection.md) API'leri. İlk API **identityRiskEvents**, Microsoft Graph listesi için sorgu sağlar [risk olayları](../reports-monitoring/concept-risk-events.md) ve ilişkili bilgileri. Bu makalede, bu API sorgulama başlamanıza yardımcı olur. Bir ayrıntılı giriş, tüm belgeler ve Graph Gezgini erişimi için bkz. [Microsoft Graph site](https://graph.microsoft.io/).
@@ -37,8 +37,11 @@ Microsoft Graph üzerinden kimlik koruması verilere erişmek için dört adım 
 
 Başlamadan önce şunları yapmanız gerekir:
 
-* Azure AD'de uygulama oluşturmak için yönetici ayrıcalıkları
-* Kiracınızın etki alanının (örneğin, contoso.onmicrosoft.com)
+- Bir Azure AD P2 kiracısı
+
+- Azure AD'de uygulama oluşturmak için yönetici ayrıcalıkları
+
+- Kiracınızın etki alanının (örneğin, contoso.onmicrosoft.com)
 
 
 ## <a name="retrieve-your-domain-name"></a>Etki alanı adınızı alma 
@@ -49,12 +52,14 @@ Başlamadan önce şunları yapmanız gerekir:
    
     ![Uygulama oluşturma](./media/graph-get-started/41.png)
 
+3. Tıklayın **özel etki alanı adları**.
 
-3. İçinde **Yönet** bölümünde **özellikleri**.
+    ![Özel etki alanı adları](./media/graph-get-started/71.png)
 
-    ![Uygulama oluşturma](./media/graph-get-started/42.png)
+4. Etki alanı adları listesinden birincil olarak işaretlenmiş etki alanı adını kopyalayın.
 
-4. Etki alanı adınızı kopyalayın.
+    ![Özel etki alanı adları](./media/graph-get-started/72.png)
+
 
 
 ## <a name="create-a-new-app-registration"></a>Yeni bir uygulama kaydı oluşturma
@@ -74,7 +79,7 @@ Başlamadan önce şunları yapmanız gerekir:
 
     a. İçinde **adı** metin kutusu, uygulamanız için bir ad yazın (örneğin: AADIP Risk olayı API uygulama).
    
-    b. Olarak **türü**seçin **Web uygulaması ve / veya Web API**.
+    b. Olarak **uygulama türü**seçin **Web uygulaması ve / veya Web API**.
    
     c. İçinde **oturum açma URL'si** metin kutusuna `http://localhost`.
 
@@ -224,7 +229,7 @@ Microsoft Graph ve Graph API'sini kullanarak uygulamalar oluşturma hakkında da
 
 - [Microsoft Graph](https://graph.microsoft.io/)
 
-- [Microsoft Graph'ne genel bakış](https://graph.microsoft.io/docs)
+- [Microsoft Graph’a genel bakış](https://graph.microsoft.io/docs)
 
 - [Azure AD kimlik koruması hizmeti kök](https://graph.microsoft.io/docs/api-reference/beta/resources/identityprotection_root)
 

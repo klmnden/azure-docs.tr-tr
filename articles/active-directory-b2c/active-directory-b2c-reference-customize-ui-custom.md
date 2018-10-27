@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/25/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: c6882dd56ee96e1fcab5926b77f11ce928bf950b
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: c363056fc013cc8b8fd67fb9d656d3550d3bf5a2
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37442364"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50139518"
 ---
 # <a name="customize-the-ui-of-a-user-journey-with-custom-policies"></a>Bir kullanıcı yolculuğunun özel ilkeler ile kullanıcı arabirimini özelleştirme
 
@@ -41,7 +41,7 @@ Burada şablon sayfalarını ait Burada sağladığınız sınırlı metin ve g�
 HTML5/CSS dosyaları uygun şekilde hazırlayın tarafından istediğiniz kadar çok içerik sayfaları sağlayabilir.
 
 > [!NOTE]
-> Güvenlik nedenleriyle, JavaScript kullanımını özelleştirmek için şu anda engelleniyor. JavaScript engelini kaldırmak için özel etki alanı adı için Azure AD B2C kiracınızı kullanmak gereklidir.
+> Güvenlik nedenleriyle, JavaScript kullanımını özelleştirmek için şu anda engelleniyor. 
 
 Her HTML5/CSS şablonlarınızı sağladığınız bir *bağlantı* gerekli karşılık gelen öğe `<div id=”api”>` HTML veya olarak bundan böyle gösteren içerik sayfası öğe. Azure AD B2C, tüm içerik sayfalarının bu belirli DIV olmasını gerektirir
 

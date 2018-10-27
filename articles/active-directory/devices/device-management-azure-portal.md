@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/25/2018
+ms.date: 10/26/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 7aa7cd2e5b1cf1346a5a7b1f82ec9c7933dd1112
-ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
+ms.openlocfilehash: bda1a9df8a58833a544dc065dee0110bccf3ec59
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45542489"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50138869"
 ---
 # <a name="how-to-manage-devices-using-the-azure-portal"></a>Azure portalını kullanarak cihazları yönetme
 
@@ -118,7 +118,14 @@ Bazı iOS cihazlarınız için kesme içeren cihaz adları, potansiyel olarak ke
 
 ## <a name="device-management-tasks"></a>Cihaz yönetim görevleri
 
-Bir yönetici olarak kayıtlı veya alanına katılmış cihazları yönetebilirsiniz. Bu bölümde, genel cihaz yönetim görevleri hakkında bilgi sağlar.
+Genel yönetici olarak, kayıtlı veya alanına katılmış cihazları yönetebilirsiniz. Intune hizmet yöneticileri yapabilirsiniz:
+ 
+- Update - örnekler etkinleştirme/cihazları devre dışı bırakma gibi günlük işlemlerini cihazlardır
+
+- Bir cihaz kullanımdan kaldırıldığında ve Azure AD'de silinmesi gereken cihazları Sil
+
+Bu bölümde, genel cihaz yönetim görevleri hakkında bilgi sağlar.
+
 
 
 ### <a name="manage-an-intune-device"></a>Bir Intune cihaz yönetme

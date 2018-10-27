@@ -6,30 +6,30 @@ manager: timlt
 ms.service: iot-accelerators
 services: iot-accelerators
 ms.topic: conceptual
-ms.date: 07/12/2018
+ms.date: 10/26/2018
 ms.author: dobett
-ms.openlocfilehash: 822e02d42be8ce516901190af4be579d13ac841d
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: 61a4e3700e88efba1ea9cea876b19e2f7ed4168b
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48888331"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50137079"
 ---
 # <a name="predictive-maintenance-solution-accelerator-overview"></a>Tahmine Dayalı Bakım çözüm hızlandırıcısına genel bakış
 
-Tahmine Dayalı Bakım çözümü, arızanın oluşma ihtimali olan anı tahmin eden iş senaryosu için uçtan uca bir çözümdür. Bu çözüm hızlandırıcısını, bakım iyileştirmesi gibi etkinlikler için proaktif olarak kullanabilirsiniz. Çözüm; IoT Hub, Akış analizi ve [Azure Machine Learning][lnk-machine-learning] çalışma alanı gibi önemli Azure IoT çözüm hızlandırıcılarını birleştirir. Bu çalışma alanı, bir uçak motorunun Kalan Kullanım Ömrü’nü (RUL) öngörmek için genel bir örnek veri kümesini temel alan bir model içerir. Bu çözüm, kendinize özel iş gereksinimlerinizi karşılayacak bir çözümü planlamanız ve uygulamanız amacıyla sizin için bir başlangıç noktası olarak IoT iş senaryosunu tam olarak uygular.
+Tahmine Dayalı Bakım çözümü, arızanın oluşma ihtimali olan anı tahmin eden iş senaryosu için uçtan uca bir çözümdür. Bu çözüm hızlandırıcısını, bakım iyileştirmesi gibi etkinlikler için proaktif olarak kullanabilirsiniz. Çözüm önemli Azure IOT Çözüm Hızlandırıcıları hizmetlerin, IOT Hub gibi bir araya getirir ve [Azure Machine Learning] [ lnk-machine-learning] çalışma. Bu çalışma alanı, bir uçak motorunun Kalan Kullanım Ömrü’nü (RUL) öngörmek için genel bir örnek veri kümesini temel alan bir model içerir. Bu çözüm, kendinize özel iş gereksinimlerinizi karşılayacak bir çözümü planlamanız ve uygulamanız amacıyla sizin için bir başlangıç noktası olarak IoT iş senaryosunu tam olarak uygular.
 
 ## <a name="logical-architecture"></a>Mantıksal mimari
 
 Aşağıdaki diyagram, çözüm hızlandırıcısının mantıksal bileşenlerinin ana hatlarını vermektedir:
 
-![][img-architecture]
+![Mantıksal mimari][img-architecture]
 
 Mavi öğeler, çözüm hızlandırıcısını dağıttığınız bölgede sağlanan Azure hizmetleridir. Çözüm hızlandırıcısını dağıtabileceğiniz bölgelerin listesi, [sağlama sayfasında][lnk-azureiotsuite] görüntülenir.
 
-Yeşil öğe uçak motorunu temsil eden sanal cihazdır. [Sanal cihazlar](#simulated-devices) bölümde bu sanal cihazlarla ilgili daha fazla bilgiye ulaşabilirsiniz.
+Yeşil öğe uçak sanal altyapısıdır. [Sanal cihazlar](#simulated-devices) bölümde bu sanal cihazlarla ilgili daha fazla bilgiye ulaşabilirsiniz.
 
-Gri öğeler, *cihaz yönetimi* becerilerini uygulayan bileşenleri temsil eder. Tahmine Dayalı Bakım çözüm hızlandırıcısının geçerli sürümü, bu kaynakları sağlamaz. Cihaz yönetimi hakkında daha fazla bilgi için bkz [Uzaktan izleme çözüm hızlandırıcısının][lnk-remote-monitoring].
+Gri öğeler uygulayan bileşenlerdir *cihaz Yönetimi* özellikleri. Tahmine Dayalı Bakım çözüm hızlandırıcısının geçerli sürümü, bu kaynakları sağlamaz. Cihaz yönetimi hakkında daha fazla bilgi için bkz [Uzaktan izleme çözüm hızlandırıcısının][lnk-remote-monitoring].
 
 ## <a name="azure-resources"></a>Azure kaynakları
 
@@ -37,17 +37,17 @@ Azure portalda sağlanan kaynaklarınızı görüntülemek için seçtiğiniz ç
 
 ![Hızlandırıcı kaynakları][img-resource-group]
 
-Çözüm hızlandırıcısını sağladığınızda, Machine Learning çalışma alanına bağlantısı da olan bir e-posta alırsınız. Machine Learning çalışma alanına gidebilirsiniz [Microsoft Azure IOT Çözüm Hızlandırıcıları] [ lnk-azureiotsuite] sağlanan çözümünüz için sayfa. Çözüm **Hazır** durumda olduğunda bu sayfada bir kutucuk kullanılabilir.
+Çözüm hızlandırıcısını sağladığınızda, Machine Learning çalışma alanına bağlantısı da olan bir e-posta alırsınız. Machine Learning çalışma alanına gidebilirsiniz [Microsoft Azure IOT Çözüm Hızlandırıcıları] [ lnk-azureiotsuite] sayfası. Çözüm **Hazır** durumda olduğunda bu sayfada bir kutucuk kullanılabilir.
 
 ![Machine learning modeli][img-machine-learning]
 
 ## <a name="simulated-devices"></a>Sanal cihazlar
 
-Çözüm hızlandırıcısında simülasyon cihazı bir uçak motorunu temsil eder. Çözüm, tek bir uçakla eşlenen 2 motorla sağlanır. Her motor dört tür telemetri yayar: Algılayıcı 9, Algılayıcı 11, Algılayıcı 14 ve Algılayıcı 15, Machine Learning modelinin bu motorun RUL değerini hesaplaması için gereken verileri sağlar. Her sanal cihaz IoT Hub'ına şu telemetri iletilerini gönderir:
+Çözüm içinde bir sanal cihaz uçak motorunun hızlandırıcısıdır. Çözüm, tek bir uçakla eşlenen 2 motorla sağlanır. Her motor dört tür telemetri yayar: Algılayıcı 9, Algılayıcı 11, Algılayıcı 14 ve Algılayıcı 15, Machine Learning modelinin bu motorun RUL değerini hesaplaması için gereken verileri sağlar. Her sanal cihaz IoT Hub'ına şu telemetri iletilerini gönderir:
 
-*Döngü sayısı*. Bir döngü, iki ile on saat arasındaki bir süreyle tamamlanmış uçuşu temsil eder. Uçuş sırasında telemetri verileri yarım saatte bir yakalanır.
+*Döngü sayısı*. Bir döngü, iki ile on saat arasındaki bir süreyle tamamlanmış uçuşu olur. Uçuş sırasında telemetri verileri yarım saatte bir yakalanır.
 
-*Telemetri*. Motor özniteliklerini temsil eden dört algılayıcı vardır. Bu algılayıcılar genel olarak Algılayıcı 9, Algılayıcı 11, Algılayıcı 14 ve Algılayıcı 15 olarak etiketlenir. Bu dört algılayıcı, RUL modelinden yararlı sonuçlar almak için yeterli olan telemetriyi temsil eder. Çözüm hızlandırıcısında kullanılan model, gerçek altyapı algılayıcı verilerinin bulunduğu ortak bir veri kümesinden oluşturulur. Özgün veri kümesinden modelin oluşturulması hakkında daha fazla bilgi için bkz. [Cortana Intelligence Gallery Tahmine Dayalı Bakım Şablonu][lnk-cortana-analytics].
+*Telemetri*. Motor özniteliklerini kayıt dört algılayıcı vardır. Bu algılayıcılar genel olarak Algılayıcı 9, Algılayıcı 11, Algılayıcı 14 ve Algılayıcı 15 olarak etiketlenir. Bu dört algılayıcı RUL modelinden yararlı sonuçlar almak yeterli telemetriyi gönderin. Çözüm hızlandırıcısında kullanılan model, gerçek altyapı algılayıcı verilerinin bulunduğu ortak bir veri kümesinden oluşturulur. Özgün veri kümesinden modelin oluşturulması hakkında daha fazla bilgi için bkz. [Cortana Intelligence Gallery Tahmine Dayalı Bakım Şablonu][lnk-cortana-analytics].
 
 Sanal cihazlar, çözümde IoT hub'ı tarafından gönderilen aşağıdaki komutları işleyebilir:
 
@@ -62,25 +62,25 @@ IoT hub'ı cihaz komut bildirim sağlar.
 
 **İş: Telemetri**, gelen cihaz telemetrisi akışını iki durumu kullanarak çalıştırır:
 
-* İlki, cihazlardan tüm telemetriyi seçer ve bu verileri blob depolamaya gönderir. Ardından veriler web uygulamasında görselleştirilir.
+* İlki, cihazlardan tüm telemetriyi seçer ve bu verileri blob depolamaya gönderir. Buradan, bu web uygulamasında görselleştirilir.
 * İkinciyse iki dakikalık kayan pencere üzerinde ortalama algılayıcı değerlerini ölçer ve bu verileri Olay hub'ı aracılığıyla **olay işlemcisi**’ne gönderir.
 
 ## <a name="event-processor"></a>Olay işlemcisi
-**Olay işleyicisi konağı** bir Azure Web İşi’nde çalıştırır. **Olay işlemcisi**, tamamlanan bir döngü için ortalama algılayıcı değerlerini alır. Daha sonra bu değerleri bir motorun RUL değerini hesaplaması için eğitilmiş modelin kullanımına sunan bir API’ye geçirir. API, çözümün bir parçası olarak sağlanan Machine Learning çalışma alanı tarafından kullanıma sunulur.
+**Olay işleyicisi konağı** bir Azure Web İşi’nde çalıştırır. **Olay işlemcisi**, tamamlanan bir döngü için ortalama algılayıcı değerlerini alır. Ardından motor için RUL hesaplar eğitilen bir modeli için bu değerleri geçirir. Bir API, çözümün bir parçası olan Machine Learning çalışma alanı modelde erişim sağlar.
 
 ## <a name="machine-learning"></a>Machine Learning
 Machine Learning bileşeni gerçek uçak motorlarından toplanan verilerden türetilmiş bir model kullanır. [Azureiotsuite.com][lnk-azureiotsuite] sayfasındaki çözümün kutucuğundan Machine Learning çalışma alanına gidebilirsiniz. Çözüm **Hazır** durumda olduğunda kutucuk kullanılabilir.
 
-Azure Machine Learning modeli, IOT Çözüm Hızlandırıcıları hizmetleriyle toplanan cihaz telemetrisinden bu becerileri göstermek için bir şablon olarak kullanılabilir. Microsoft oluşturduğu bir [regresyon modeli] [ lnk_regression_model] herkese verilerini temel alarak uçak motorunun<sup>\[1\]</sup>ve adım adım kılavuzu modelin nasıl kullanılacağını üzerinde.
+Machine Learning modeli, IOT Çözüm Hızlandırıcısı hizmetleriyle toplanan telemetri ile nasıl çalışılacağını gösteren bir şablon olarak kullanılabilir. Microsoft oluşturduğu bir [regresyon modeli] [ lnk_regression_model] herkese verilerini temel alarak uçak motorunun<sup>\[1\]</sup>ve adım adım kılavuzu modelin nasıl kullanılacağını üzerinde.
 
-Azure IoT Tahmine Dayalı Bakım çözümü, bu şablondan oluşturulan regresyon modelini kullanır. Bu model, Azure aboneliğinize dağıtılır ve otomatik olarak oluşturulan bir API ile kullanıma sunulur. Çözümde, 4 (toplamda 100) motoru temsil eden test verilerinin bir alt kümesi ve 4 (toplamda 21) algılayıcı veri akışı bulunur. Bu veriler, eğitilmiş modelden doğru bir sonuç elde etmek için yeterlidir.
+Azure IoT Tahmine Dayalı Bakım çözümü, bu şablondan oluşturulan regresyon modelini kullanır. Model Azure aboneliğinize dağıtılır ve otomatik olarak oluşturulan bir API kullanılabilir. Çözüm için 4 (toplamda 100) test veri kümesini içeren altyapıları ve 4 (toplamda 21) algılayıcı veri akışı. Bu veriler, eğitilmiş modelden doğru bir sonuç elde etmek için yeterlidir.
 
 *\[1\] A. Saxena ve K. Goebel (2008). "Turbofan Engine Degradation Simulation Data Set" (Turbofan Motor Bozulması Benzetimi Veri Kümesi), NASA Ames Prognostics Veri Deposu (https://c3.nasa.gov/dashlink/resources/139/), NASA Ames Research Center, Moffett Field, CA*)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Tahmine Dayalı Bakım çözüm hızlandırıcısının temel bileşenlerini gördüğünüze göre bunları özelleştirmek isteyebilirsiniz.
 
-IoT çözüm hızlandırıcılarının diğer özellik ve yeteneklerinden bazılarını da keşfedebilirsiniz:
+IOT Çözüm Hızlandırıcıları diğer özelliklerinden bazılarını da keşfedebilirsiniz:
 
 * [IoT çözüm hızlandırıcıları için sık sorulan sorular][lnk-faq]
 * [Baştan sona IoT güvenliği][lnk-security-groundup]

@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/02/2018
+ms.date: 10/26/2018
 ms.author: genli
-ms.openlocfilehash: d16f106fa1776b0d11a97f71ffe16cf89fb9584a
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: 2a0f6b75c540f319848805e8a9bda7b166d5d709
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42057155"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50138668"
 ---
 #  <a name="network-virtual-appliance-issues-in-azure"></a>Azure'da ağ sanal Gereci sorunları
 
@@ -77,14 +77,14 @@ PowerShell kullanma
 **Trafiği NVA yönlendirilebilir olup olmadığını denetleyin**
 
 1. Üzerinde [Azure portalında](https://portal.azure.com)açın **Ağ İzleyicisi**seçin **sonraki atlama**.
-2. Sonraki atlama NVA ve sonraki atlamayı görüntülemek, hedef IP adresi olmasını istediğiniz bir sanal makine belirtin. 
+2. NVA ve sonraki atlamayı görüntülemek, hedef IP adresi için trafiği yönlendirmek için yapılandırılmış bir sanal makine belirtin. 
 3. NVA olarak listelenmemişse **sonraki atlama**denetleyin ve Azure rota tablolarını güncelleştir.
 
 **Trafiği NVA ulaşıp ulaşamadığını denetleyin**
 
 1.  İçinde [Azure portalında](https://portal.azure.com)açın **Ağ İzleyicisi**ve ardından **IP akışı doğrulama**. 
-2.  Bir VM ve NVA'ın IP adresini belirtin ve ardından trafik bir ağ güvenlik grupları (NSG) tarafından engellenmediğini denetleyin.
-3.  Trafiği engelleyen bir NSG kuralı varsa, NSG'de bulun **geçerli güvenlik** kurallar ve trafiğin geçmesine izin verecek şekilde güncelleştirin. Ardından çalıştırın **IP akışı doğrulama** yeniden ve **bağlantısını denetleyin** , iç veya dış IP adresine TCP iletişimi VM'den test etmek için.
+2.  VM ve NVA'ın IP adresini belirtin ve ardından trafik bir ağ güvenlik grupları (NSG) tarafından engellenmediğini denetleyin.
+3.  Trafiği engelleyen bir NSG kuralı varsa, NSG'de bulun **geçerli güvenlik** kurallar ve trafiğin geçmesine izin verecek şekilde güncelleştirin. Ardından çalıştırın **IP akışı doğrulama** yeniden ve **bağlantı sorunlarını giderme** , iç veya dış IP adresine TCP iletişimi VM'den test etmek için.
 
 **NVA ve VM'ler için beklenen trafik dinleyip olup olmadığını denetleyin**
 

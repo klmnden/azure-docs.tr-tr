@@ -11,12 +11,12 @@ ms.topic: article
 ms.workload: na
 ms.date: 04/05/2018
 ms.author: danlep
-ms.openlocfilehash: 5e0358ebf525c39c09df4268971fa71c02457821
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: fb0760f24b8f384818db8154ffe871d7fd4ce429
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47094202"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50138353"
 ---
 # <a name="monitor-and-debug-an-azure-batch-net-application-with-application-insights"></a>İzleme ve Application Insights ile bir Azure Batch .NET uygulama hatalarını ayıklama
 
@@ -25,6 +25,10 @@ ms.locfileid: "47094202"
 Bu makalede, ekleme, Azure Batch .NET çözümünüze Application Insights Kitaplığı'nı yapılandırma ve uygulama kodunuz izleme gösterilmektedir. Ayrıca, uygulamanızı Azure portal aracılığıyla izlemek ve özel panolar oluşturmak için yol gösterir. Application Insights'ı diğer dillerde desteği sağlamak için bakmak [dilleri, platformlar ve tümleştirmeler belgeleri](../application-insights/app-insights-platforms.md).
 
 Bu makalede eşlik eden kodunu içeren bir örnek C# çözüm edinilebilir [GitHub](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/ApplicationInsights). Bu örnek için Application Insights izleme kodu ekler [TopNWords](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/TopNWords) örnek. Bu örnek oluşturma ve TopNWords ilk çalıştırma deneyin bilmiyorsanız. Bunun yapılması, bir dizi bir giriş bloblarını birden çok işlem düğümlerinde paralel işleme temel bir Batch workflow anlamanıza yardımcı olur. 
+
+> [!TIP]
+> Alternatif olarak, Batch Gezgini içinde VM performans sayaçları gibi Application Insights verilerini görüntülemek için Batch çözümünüzü yapılandırın. [Batch Explorer](https://github.com/Azure/BatchExplorer) oluşturma, hata ayıklama ve izleme Azure Batch uygulamalarıyla yardımcı olmak için bir ücretsiz ve zengin özellikli tek başına istemci aracıdır. Mac, Linux veya Windows için [yükleme paketi](https://azure.github.io/BatchExplorer/) indirebilirsiniz. Bkz: [batch ınsights depo](https://github.com/Azure/batch-insights) için Application Insights verilerini Batch Explorer'ı etkinleştirmek hızlı adımlar. 
+>
 
 ## <a name="prerequisites"></a>Önkoşullar
 * [Visual Studio 2017](https://www.visualstudio.com/vs)

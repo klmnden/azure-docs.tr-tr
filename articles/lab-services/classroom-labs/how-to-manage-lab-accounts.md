@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/17/2018
 ms.author: spelluru
-ms.openlocfilehash: fd43c62f1a291a59d5d373437a49b263d6af4cb3
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: 6f9b85ec4821ff2454970136b3c8af2cb0f92154
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39345897"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50140832"
 ---
 # <a name="manage-lab-accounts-in-azure-lab-services"></a>Azure Lab Services Laboratuvar hesaplarını yönetme 
 Azure Lab Services içinde bir laboratuvar hesabı sınıf laboratuvarlarını gibi yönetilen Laboratuvarları için bir kapsayıcıdır. Yönetici Azure Lab Services ile bir laboratuvar hesabı ayarlama ayarlar ve Laboratuvarları hesabı oluşturabilirsiniz Laboratuvar sahipleri erişim sağlar. Bu makalede bir laboratuvar hesabı oluşturun, tüm Laboratuvar hesaplarını görüntülemek veya bir laboratuvar hesabı silme işlemini açıklamaktadır.
@@ -55,17 +55,17 @@ Bir laboratuvar hesabında sınıf laboratuvarı ayarlamak için kullanıcının
     ![Laboratuvar Oluşturan rolüne kullanıcı ekleme](../media/tutorial-setup-lab-account/add-user-to-lab-creator-role.png)
 
 ## <a name="specify-marketplace-images-available-to-lab-owners"></a>Laboratuvar sahiplerine sunulan Market görüntülerini belirtme
-Bir laboratuvar hesabı sahibi olarak, Laboratuvar creators labs Laboratuvar hesap oluşturmak için kullanabileceğiniz bir Market görüntüleri belirtebilirsiniz. 
+Laboratuvar sahibi olarak laboratuvar oluşturucuların laboratuvar hesabında laboratuvar oluşturmak için kullanacağı Market görüntülerini belirtebilirsiniz. 
 
 1. Sol taraftaki menüden **Market görüntüleri**'ni seçin. Listede varsayılan olarak tüm görüntüler (hem etkin hem devre dışı) yer alır. Yalnızca etkin/devre dışı görüntüleri görmek için en üstteki açılan listeden **Yalnızca etkin**/**Yalnızca devre dışı** seçeneğini belirleyerek listeyi filtreleyebilirsiniz. 
     
     ![Market görüntüleri sayfası](../media/tutorial-setup-lab-account/marketplace-images-page.png)
 
-    Liste görünümünde görüntülenen Market görüntüleri aşağıdaki koşulları karşılayan değerler şunlardır:
+    Listede görüntülenen Market görüntüleri yalnızca aşağıdaki koşulları karşılayan görüntülerdir:
         
     - Tek bir VM oluşturur.
-    - Azure Resource Manager Vm'leri sağlamak için kullanır.
-    - Bir ek lisans planı satın alınıyor gerektirmez
+    - VM'leri sağlamak için Azure Resource Manager'ı kullanır
+    - Ek lisans planı satın alınmasını gerektirmez
 2. Etkin durumdaki bir Market görüntüsünü **devre dışı bırakmak** için aşağıdaki eylemlerden birini gerçekleştirin: 
     1. Son sütundaki **... (üç nokta)** simgesini ve ardından **Görüntüyü devre dışı bırak**'ı seçin. 
 
@@ -90,6 +90,28 @@ Laboratuvar hesaplarını bir listede görüntüler önceki bölümde yönergele
 2. Seçin **Sil** araç çubuğundan. 
 3. Tür **Evet** onay.
 4. **Sil**’i seçin. 
+
+## <a name="view-and-manage-labs-in-the-lab-account"></a>Görüntüleme ve Labs'de bir laboratuvar hesabı yönetme
+
+1. Üzerinde **Laboratuvar hesabı** sayfasında **Labs** sol menüsünde.
+
+    ![Hesap Labs'de](../media/how-to-manage-lab-accounts/labs-in-account.png)
+1. Gördüğünüz bir **labs listesi** hesabında aşağıdaki bilgilerle: 
+    1. Laboratuvar adı.
+    2. Laboratuvar oluşturulduğu tarih. 
+    3. Laboratuvar oluşturan kullanıcının e-posta adresi. 
+    4. Laboratuvarda izin verilen kullanıcıların sayısı. 
+    5. Laboratuvar durumu. 
+
+## <a name="delete-a-lab-in-the-lab-account"></a>Bir laboratuvar hesabı laboratuvarda Sil
+Labs'de bir laboratuvar hesabı listesini görmek için önceki bölümdeki yönergeleri uygulayın.
+
+1. Seçin **... (üç nokta)** seçip **Sil**. 
+
+    ![Bir laboratuvar delete - düğme](../media/how-to-manage-lab-accounts/delete-lab-button.png)
+2. Seçin **Evet** uyarı iletisinde. 
+
+
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Azure Lab Services kullanarak bir laboratuvarı ayarlamaya başlama:

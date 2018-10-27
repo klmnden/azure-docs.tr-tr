@@ -3,7 +3,7 @@ title: Azure Application Insights Huniler
 description: Müşteriler uygulamanızla nasıl etkileşim bulunacak Huniler nasıl kullanabileceğinizi öğrenin.
 services: application-insights
 documentationcenter: ''
-author: mrbullwinkle
+author: NumberByColors
 manager: carmonm
 ms.service: application-insights
 ms.workload: tbd
@@ -11,13 +11,15 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/17/2017
-ms.author: mbullwin
-ms.openlocfilehash: 8478106fd68f6fcc65dff832b5cb27ca8db5f5bd
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.pm_owner: daviste;NumberByColors
+ms.reviewer: mbullwin
+ms.author: daviste
+ms.openlocfilehash: 2233fc1068891ec63dacaf5871eef7957c3ac7dc
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47093730"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50139882"
 ---
 # <a name="discover-how-customers-are-using-your-application-with-application-insights-funnels"></a>Müşterilerin uygulamanızı Application Insights Huniler ile nasıl kullandığını keşfedin
 

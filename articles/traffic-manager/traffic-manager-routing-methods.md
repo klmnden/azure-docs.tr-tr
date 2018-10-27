@@ -11,25 +11,25 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/17/2018
 ms.author: kumud
-ms.openlocfilehash: eb43b59a26bc9c1b514921a7b6dfa4b920a8fe5f
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 57ae9f3a747ef3fde1a21de8a56ec4059becf392
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49955227"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50139354"
 ---
 # <a name="traffic-manager-routing-methods"></a>Traffic Manager yönlendirme yöntemleri
 
 Azure Traffic Manager çeşitli hizmet uç noktaları için ağ trafiğini yönlendirmek üzere nasıl dağıtılacağını belirlemenin altı trafik yönlendirme yöntemlerini destekler. Herhangi bir profil için Traffic Manager trafik yönlendirme yöntemini aldığı her DNS sorgusu için ilişkili geçerlidir. Trafik yönlendirme yöntemini, hangi uç noktaya DNS yanıtında döndürülen belirler.
 
-Traffic Manager'daki dört trafik yönlendirme yöntemleri vardır:
+Trafik Yöneticisi'nde aşağıdaki trafik yönlendirme yöntemleri kullanılabilir:
 
 * **[Öncelik](#priority):** seçin **öncelik** ne zaman tüm trafiği için birincil hizmet uç noktası ve birincil durumda yedekleme sağlamak istediğiniz veya yedekleme uç noktaları kullanılamıyor.
 * **[Ağırlıklı](#weighted):** seçin **ağırlıklı** trafiği bir uç nokta kümesine arasında dağıtmak istediğinizde, eşit veya, ağırlıklara göre tanımlayın.
 * **[Performans](#performance):** seçin **performans** zaman uç noktalar farklı coğrafi konumlarda olan ve son kullanıcıların en düşük ağ gecikme süresi açısından "en yakın" uç nokta kullanmasını istediğiniz.
 * **[Coğrafi](#geographic):** seçin **coğrafi** DNS sorgularını, böylece kullanıcılar hangi coğrafi konum temelinde belirli Uç noktalara (Azure, dış veya iç içe) yönlendirilir kaynaklanan. Bu, kullanıcının coğrafi bölgede bilerek ve bunları oturum tabanlı yönlendirme önemli olduğu senaryolar etkinleştirmek için Traffic Manager müşterileri güçlendirir. Veri egemenliği mandates içeriği ve kullanıcı deneyimi yerelleştirmesi uymak ve farklı bölgelerden trafik ölçme verilebilir.
 * **[Birden çok değerli](#multivalue):** seçin **birden çok değerli** için Traffic Manager profilleri, yalnızca IPv4/IPv6 adresleri uç noktalar olarak sahip olabilirsiniz. Bu profil için bir sorgu alındığında, tüm sağlıklı uç noktalar döndürülür.
-* **[Alt ağ](#subnet):** seçin **alt** kümeleri son kullanıcı IP adresi aralıklarının bir Traffic Manager profili içinde belirli bir uç noktaya eşlemek için trafik yönlendirme yöntemi. Bir istek alındığında, uç nokta, bu isteğin kaynak IP adresi için eşleştirilecek döndürdü. 
+* **[Alt ağ](#subnet):** seçin **alt** kümeleri son kullanıcı IP adresi aralıklarının bir Traffic Manager profili içinde belirli bir uç noktaya eşlemek için trafik yönlendirme yöntemi. Bir istek alındığında, uç nokta, bu isteğin kaynak IP adresi için eşleştirilecek döndürdü. 
 
 
 Tüm Traffic Manager profillerini uç nokta sistem durumu ve otomatik bir uç nokta yük devretme izleme içerir. Daha fazla bilgi için [Traffic Manager uç nokta izleme](traffic-manager-monitoring.md). Tek bir Traffic Manager profili, yalnızca bir trafik yönlendirme yöntemini kullanabilirsiniz. Herhangi bir zamanda profiliniz için farklı trafik yönlendirme yöntemini seçebilirsiniz. Bir dakika içinde değişiklikler uygulanır ve kapalı kalma süresi olmadan oluşur. Trafik yönlendirme yöntemleri, iç içe Traffic Manager profilleri kullanılarak birleştirilebilir. İç içe geçme daha büyük ve karmaşık uygulamaların gereksinimlerini karşılayan karmaşık ve esnek trafik yönlendirme yapılandırmaları sağlar. Daha fazla bilgi için [iç içe Traffic Manager profillerini](traffic-manager-nested-profiles.md).

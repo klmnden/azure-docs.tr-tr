@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/05/2017
+ms.date: 10/25/2018
 ms.author: mbullwin
-ms.openlocfilehash: 5743408b000dd7497a10f27db2a4ea9d87082b8d
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 91b050c4e1ca37c0af208d6df1ce4f8272235294
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47091804"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50139780"
 ---
 # <a name="monitor-azure-web-app-performance"></a>Azure web uygulaması performansını izleme
 [Azure Portal](https://portal.azure.com)’da [Azure web uygulamalarınız](../app-service/app-service-web-overview.md) için uygulama performansını izleme özelliğini ayarlayabilirsiniz. [Azure Application Insights](app-insights-overview.md), uygulamanızı izleyerek uygulama etkinlikleriyle ilgili telemetriyi Application Insights hizmetine gönderir ve telemetri burada depolanıp analiz edilir. Burada, sorunların tanılanmasına, performansın geliştirilmesine ve kullanımın değerlendirilmesine yardımcı olan ölçüm grafikleri ve arama araçları kullanılabilir.
@@ -33,24 +33,32 @@ Uygulamanız için şu iki yoldan biriyle izleme yapılandırabilirsiniz:
 Azure’da çalışmakta olan bir web uygulamanız varsa zaten bazı izleme verileri alırsınız: İstek ve hata oranları. Yanıt süreleri, bağımlılıklara yapılan çağrılar, akıllı algılama ve güçlü Log Analytics sorgu dili gibi ek özelliklere sahip olmak için Application Insights’ı ekleyin. 
 
 1. Web uygulamanızın Azure denetim masasında **Application Insights’ı seçin**.
-   
-    ![İzleme bölümünden Application Insights’ı seçin](./media/app-insights-azure-web-apps/05-extend.png)
-   
-   * Bu uygulama için başka yollardan zaten bir Application Insights kaynağı oluşturmadıysanız, yeni kaynak oluşturma seçeneğini belirleyin.
-2. Application Insights yüklendikten sonra **web uygulamanızı izleyin** . 
-   
-    ![Web uygulamanızı izleme](./media/app-insights-azure-web-apps/restart-web-app-for-insights.png)
+
+    ![Ayarlarda, Application ınsights'ı seçin.](./media/app-insights-azure-web-apps/settings-app-insights.png)
+
+   * Yeni bir kaynak oluşturmak bu uygulama için bir Application Insights kaynağı zaten ayarlamadıysanız'ı seçin. 
+
+    > [!NOTE]
+    > Tıkladığınızda **Tamam** için istenir yeni kaynak oluşturmak için **izleme ayarlarını uygula**. Seçme **devam** yeni Application Insights kaynağınıza de bunu yapılması, web uygulamasına bağlayacaksınız **web uygulamanızı yeniden tetikleyin**. 
+
+    ![Web uygulamanızı izleme](./media/app-insights-azure-web-apps/create-resource.png)
+
+2. Kaynağınızı seçin oluşturulduktan sonra **denetimi ve web uygulaması için Application Insights uzantısını güncelleştirme** uzantının güncel olduğundan emin olmak için.
+
+     ![Kontrol edin ve site uzantısı'nı güncelleştirin](./media/app-insights-azure-web-apps/check-and-update.png)
+
+3. Application Insights yüklendikten sonra **web uygulamanızı izleyin** .
 
    Sayfa görüntülemesi ve kullanıcı telemetrisi için **istemci tarafı izlemeyi etkinleştirin**.
 
    * Ayarlar > Uygulama Ayarları'nı seçin.
-   * Uygulama Ayarları'nın altında yeni bir anahtar değer çifti ekleyin: 
-   
-    Anahtar: `APPINSIGHTS_JAVASCRIPT_ENABLED` 
-    
+   * Uygulama Ayarları'nın altında yeni bir anahtar değer çifti ekleyin:
+
+    Anahtar: `APPINSIGHTS_JAVASCRIPT_ENABLED`
+
     Değer:`true`
    * Ayarları **Kaydedin** ve uygulamanızı **Yeniden başlatın**.
-3. **Uygulamanızı izleyin**.  [Verileri keşfedin](#explore-the-data).
+4. Seçerek uygulama izleme verilerini keşfedin **ayarları** > **Application Insights** > **içinde daha fazla Application Insights görüntülemek**.
 
 İsterseniz, daha sonra uygulamayı Application Insights ile derleyebilirsiniz.
 
@@ -63,14 +71,14 @@ Application Insights, uygulamanıza bir SDK yükleyerek daha ayrıntılı teleme
 
 1. **Visual Studio**’da (2013 güncelleştirme 2 veya sonraki sürümler), projeniz için Application Insights’ı yapılandırın.
 
-    Web projesine sağ tıklayıp **Ekle > Application Insights**’ı veya **Application Insights’ı Yapılandır**’ı seçin.
-   
+    Web projesine sağ tıklayın ve seçin **Ekle > Application Insights** veya **proje** > **Application Insights**  >  **Konfigurovat Application Insights**.
+
     ![Web projesine sağ tıklayıp Application Insights Ekle veya Yapılandır’ı seçin](./media/app-insights-azure-web-apps/03-add.png)
-   
+
     Oturum açmanız istenirse Azure hesabınızda kullandığınız kimlik bilgilerini kullanın.
-   
+
     Bu işlemin iki etkisi olur:
-   
+
    1. Azure’da telemetrinin depolanacağı, analiz edileceği ve görüntüleneceği bir Application Insights kaynağı oluşturulur.
    2. Application Insights NuGet paketi kodunuza eklenir (henüz eklenmediyse) ve kodunuz Azure kaynağına telemetri gönderilecek şekilde yapılandırılır.
 2. Uygulamayı geliştirme makinenizde çalıştırarak (F5) **telemetriyi test edin**.
@@ -79,29 +87,6 @@ Application Insights, uygulamanıza bir SDK yükleyerek daha ayrıntılı teleme
 *Farklı bir Application Insights kaynağına nasıl geçiş yapabilirim?*
 
 * Visual Studio’da projeye sağ tıklayıp **Application Insights’ı Yapılandır**’ı seçin ve istediğiniz kaynağı seçin. Yeni kaynak oluşturma seçeneğini görürsünüz. Yeniden derleyin ve dağıtın.
-
-## <a name="explore-the-data"></a>Verileri keşfetme
-1. Web uygulamanızın denetim masasındaki Application Insights dikey penceresinde, istek ve hataları gerçekleştikten bir veya iki saniye sonra gösteren Canlı Akış’ı görürsünüz. Uygulamanızı yeniden yayımlıyorsanız herhangi bir sorunu anında görmenizi sağlayan bu ekran çok kullanışlıdır.
-2. Seçeneklere tıklayarak tam Application Insights kaynağına gidin.
-
-    ![Tıklayarak gitme](./media/app-insights-azure-web-apps/view-in-application-insights.png)
-
-    Kaynağa doğrudan Azure kaynak gezintisinden de gidebilirsiniz.
-
-1. Daha fazla ayrıntı görmek için herhangi bir grafikte tıklayarak gezinin:
-   
-    ![Application Insights’a genel bakış dikey penceresinde bir grafiğe tıklayın](./media/app-insights-azure-web-apps/07-dependency.png)
-   
-    [Ölçüm dikey pencerelerini özelleştirme](app-insights-metrics-explorer.md) olanağınız vardır.
-2. Tek tek olayları ve bunların özelliklerini görmek için tıklamaya devam edin:
-   
-    ![Bir olay türüne göre filtrelenen bir arama açmak için olay türüne tıklayın](./media/app-insights-azure-web-apps/08-requests.png)
-   
-    Tüm özellikleri açmaya yönelik "..." seçeneğini görebilirsiniz.
-   
-    [Aramaları özelleştirme](app-insights-diagnostic-search.md) olanağınız vardır.
-
-Telemetriniz üzerinde daha güçlü aramalar gerçekleştirmek için [Log Analytics sorgu dilini](app-insights-analytics-tour.md) kullanın.
 
 ## <a name="more-telemetry"></a>Daha fazla telemetri
 

@@ -3,7 +3,7 @@ title: 'Azure Active Directory Domain Services: Uyumlu üçüncü taraf yazılı
 description: Azure Active Directory Domain Services ile çalışan bir üçüncü taraf yazılım
 services: active-directory-ds
 documentationcenter: ''
-author: mahesh-unnikrishnan
+author: eringreenlee
 manager: mtillman
 editor: curtand
 ms.assetid: 57cbf436-fc1d-4bab-b991-7d25b6e987ef
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/06/2017
-ms.author: maheshu
-ms.openlocfilehash: a12061ebb6d0f36f2613865a795475542c50a074
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.author: ergreenl
+ms.openlocfilehash: dbac33c24ca29a7fa6883e95b73e948cc7fe1e9b
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39502891"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50154904"
 ---
 # <a name="third-party-software-compatible-with-azure-ad-domain-services"></a>Azure AD Domain Services ile uyumlu üçüncü taraf yazılım
 

@@ -1,3 +1,16 @@
+---
+author: tamram
+ms.service: storage
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: tamram
+ms.openlocfilehash: 8c577db3e9f2bff9e86c3a7c37274630f90dd680
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50166344"
+---
 Depolama öykünücüsü, tek bir sabit hesap ve iyi bilinen bir kimlik doğrulama anahtarı için paylaşılan anahtar kimlik doğrulamasını destekler. Bu hesap ve anahtar depolama öykünücüsü ile kullanmak için izin verilen, yalnızca paylaşılan anahtar kimlik bilgileridir. Bunlar:
 
 ```

@@ -10,12 +10,12 @@ ms.component: qna-maker
 ms.topic: article
 ms.date: 09/12/2018
 ms.author: tulasim
-ms.openlocfilehash: 76024266a8ae3eb03e910e140184a07ae363e881
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 53fadc0e3ea21b94ca656774baf077192c0394b4
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49384974"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50137302"
 ---
 # <a name="qna-maker-limits"></a>Soru-cevap Oluşturucu sınırlar
 Soru-cevap Oluşturucu arasında sınırları kapsamlı bir listesi.
@@ -26,7 +26,7 @@ Soru-cevap Oluşturucu arasında sınırları kapsamlı bir listesi.
 
 |**Azure arama katmanı** | **Ücretsiz** | **Temel** |**S1** | **S2**| **S3** |**S3 HD**|
 |---|---|---|---|---|---|----|
-|Yayımlanan bilgi bankalarından sayısı izin verilen (en fazla dizin--1 (test için ayrılmış)|2|14|49|199|199|2999|
+|Yayımlanan bilgi bankalarından sayısı izin verilen (en fazla dizin--1 (test için ayrılmış)|2|14|49|199|199|2,999|
 
 ## <a name="extraction-limits"></a>Ayıklama sınırları
 * En fazla ayıklanabileceği dosya sayısını ve en büyük dosya boyutu: bkz [QnAMaker fiyatlandırması](https://azure.microsoft.com/pricing/details/cognitive-services/qna-maker/)
@@ -41,8 +41,8 @@ Soru-cevap Oluşturucu arasında sınırları kapsamlı bir listesi.
 
 ## <a name="knowledge-base-content-limits"></a>Bilgi Bankası içerik sınırları
 Bilgi Bankası'nda içeriği genel sınırlamaları:
-* Yanıt metnin uzunluğunu: 250000
-* Soru metnin uzunluğunu: 1000
+* Yanıt metnin uzunluğunu: 25.000
+* Soru metnin uzunluğunu: 1.000
 * Meta verileri anahtar/değer metnin uzunluğunu: 100
 * Karakterler için meta veri adı desteklenen: harfler, rakamlar ve _  
 * Meta veri değeri için karakter desteklenir: hariç: ve | 

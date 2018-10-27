@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: glenga
-ms.openlocfilehash: 5487ff0b74176493f7e1ef621d1427dbc18f8a2e
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: 155e3f5184c19267ea64f3457bf12666479d1602
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50087560"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50139112"
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions-1x"></a>Azure işlevleri için Azure Cosmos DB bağlamaları 1.x
 
@@ -33,9 +33,8 @@ Bu makalede ile nasıl çalışılacağı açıklanmaktadır [Azure Cosmos DB](.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-## <a name="supported-apis"></a>Desteklenen API'ler
-
-[!INCLUDE [SQL API support only](../../includes/functions-cosmosdb-sqlapi-note.md)]
+> [!NOTE]
+> Azure Cosmos DB bağlamaları yalnızca SQL API ile kullanım için desteklenir. Tüm diğer Azure Cosmos DB API'leri için veritabanına işlevinizden API'niz için statik bir istemci kullanarak erişmeli dahil olmak üzere [MongoDB API'si](../cosmos-db/mongodb-introduction.md)] (.. /cosmos-DB/mongodb-introduction.MD) [Cassandra API'si](../cosmos-db/cassandra-introduction.md), [Gremlin API](../cosmos-db/graph-introduction.md), ve [tablo API'si](../cosmos-db/table-introduction.md).
 
 ## <a name="packages---functions-1x"></a>Paketler - 1.x işlevleri
 

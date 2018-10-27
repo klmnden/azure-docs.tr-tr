@@ -3,7 +3,7 @@ title: Azure Application Insights ile kullanım analizi | Microsoft docs
 description: Kullanıcılarınız ve uygulamanızla neler yaptığını anlayın.
 services: application-insights
 documentationcenter: ''
-author: mrbullwinkle
+author: NumberByColors
 manager: carmonm
 ms.service: application-insights
 ms.workload: tbd
@@ -11,13 +11,15 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 10/10/2017
-ms.author: mbullwin
-ms.openlocfilehash: d5b580df531e2f0c61ac1d43cfd5ae353f314fce
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.pm_owner: daviste;NumberByColors
+ms.reviewer: mbullwin
+ms.author: daviste
+ms.openlocfilehash: eeaf46a9ce523ecd11689d0aa430fcc522732f70
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47091910"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50139865"
 ---
 # <a name="usage-analysis-with-application-insights"></a>Application Insights ile kullanım analizi
 
@@ -82,7 +84,7 @@ Trafik sitenize siteniz, sayfa görünümü telemetrisini gönderir, özel bir �
 
 ## <a name="retention---how-many-users-come-back"></a>Bekletme - kaç kullanıcının döndürülmesini?
 
-Bekletme ne sıklıkta belirli bir zaman aralığı sırasında bazı iş eylemi gerçekleştiren kullanıcı kohortlar göre uygulamasını kullanmak için kullanıcılarınızın dönüş anlamanıza yardımcı olur. 
+Bekletme ne sıklıkta belirli bir zaman aralığı sırasında bazı iş eylemi gerçekleştiren kullanıcı kohortlar göre uygulamasını kullanmak için kullanıcılarınızın dönüş anlamanıza yardımcı olur. 
 
 - Hangi belirli özellikleri diğerlerinden geri daha fazla gelen kullanıcıların neden anlama 
 - Gerçek kullanıcı verilerine dayalı form varsayımlar 

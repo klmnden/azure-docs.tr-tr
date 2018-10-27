@@ -8,12 +8,12 @@ ms.date: 10/25/2018
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: c071c8f422e0cb3a4e0d5e528989dd2987a6796f
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: 4e71797837927fe5f5233bcf88d35fef98f504e9
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50094856"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50139451"
 ---
 # <a name="understand-resource-locking-in-azure-blueprints"></a>Kaynak Azure şemaları kilitleme anlama
 
@@ -42,7 +42,7 @@ Atama tarafından oluşturulan kaynakları silmek gerekli hale gelirse, bunları
 Bir RBAC rolü `denyAssignments` atama seçtiyseniz yapıt kaynaklarına blueprint ataması sırasında uygulanan **kilit** seçeneği. Rol şema atamasını yönetilen kimlik eklenir ve yalnızca yapıt kaynakları aynı yönetilen kimlik tarafından kaldırılabilir. Bu güvenlik önlemi kilitleme mekanizması uygular ve şemaları dışında şema kilidi kaldırılıyor engeller. Rol ve kilit kaldırma işlemi yalnızca yalnızca uygun haklara sahip kişiler tarafından gerçekleştirilebilir şema atamasını kaldırarak mümkündür.
 
 > [!IMPORTANT]
-> Azure Active Directory rol atama ayrıntıları 30 dakikaya kadar önbelleğe alır. Sonuç olarak, `denyAssignments` şema üzerinde kaynakların tam aslında hemen olmayabilir. Bu süre boyunca, şema kilitleri tarafından korunacak amaçlanan bir kaynağı silmek mümkün olabilir.
+> Azure Resource Manager rol atama ayrıntıları 30 dakikaya kadar önbelleğe alır. Sonuç olarak, `denyAssignments` şema üzerinde kaynakların tam aslında hemen olmayabilir. Bu süre boyunca, şema kilitleri tarafından korunacak amaçlanan bir kaynağı silmek mümkün olabilir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

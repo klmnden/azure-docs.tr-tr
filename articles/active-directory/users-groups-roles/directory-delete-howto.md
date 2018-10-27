@@ -13,12 +13,12 @@ ms.date: 06/13/2018
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
-ms.openlocfilehash: b1d3439412e324c71687c43aa9e47c520cb72262
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: ab752799c9e64e47abe0200a26215f9e01c489f6
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42062125"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50139695"
 ---
 # <a name="delete-an-azure-active-directory-tenant"></a>Azure Active Directory kiracısı Sil
 Bir kiracı silindiğinde, kiracıda bulunan tüm kaynaklar da silinir. Kiracı, silmeden önce ilişkili kaynakları en aza indirerek hazırlamanız gerekir. Yalnızca Azure Active Directory (Azure AD) genel yönetici portalından Azure AD kiracısı silebilirsiniz.
@@ -73,7 +73,7 @@ Bir aboneliğe koyabilirsiniz bir **Deprovisoned** durumu iş Yönetim Merkezi i
   
   ![hüküm ve koşullar](./media/directory-delete-howto/delete-terms.png)
 
-4. Abonelik durumu değiştirildiğinde artık abonelik silinmek üzere işaretlendi. Abonelik eneters **yetki kaldırıldı** 72 saat belirtin.
+4. Abonelik durumu değiştirildiğinde artık abonelik silinmek üzere işaretlendi. Abonelik girer **yetki kaldırıldı** 72 saat belirtin.
 
 5. Kiracınızda, bir aboneliğin silinmesinden ve 72 saat tetiklenirse, oturum sonra tekrar içine Azure AD yönetim merkezini yeniden ve orada gerekli bir eylem ve, Kiracı silinmesini engelleyen herhangi bir abonelik olması gerekir. Başarılı bir şekilde, Azure AD kiracısını silmek mümkün olması gerekir.
   

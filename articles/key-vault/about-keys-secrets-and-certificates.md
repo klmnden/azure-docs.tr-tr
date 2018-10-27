@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/12/2018
 ms.author: bryanla
-ms.openlocfilehash: d93ad4185be3d4875c5747fd10359baab69af95d
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 00a2c0d50a2476995dfb0d16d0cdbc5bd0ec313b
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49958663"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50139016"
 ---
 # <a name="about-keys-secrets-and-certificates"></a>Anahtarlar, parolalar ve sertifikalar hakkında
 
@@ -245,7 +245,7 @@ Gizli veriler ek olarak, aşağıdaki öznitelikleri belirtilebilir:
 
 - *exp*: IntDate, isteğe bağlı, varsayılan **sonsuza kadar**. *Exp* (süre) öznitelik tanımlar ve sonrasında, gizli verilerin alınması GEREKTİĞİNİ değil, sona erme zamanı hariç [belirli durumlarda](#date-time-controlled-operations). Bu alan için olan **bilgilendirici** yalnızca belirli bir gizli dizi kullanılamaz anahtar kasası hizmeti, kullanıcıları bilgilendirir gibi amacıyla. Değerini IntDate değerini içeren bir sayı olmalıdır.   
 - *NBF*: IntDate, isteğe bağlı, varsayılan **artık**. *Nbf* (değil önce) öznitelik tanımlar önüne gizli verileri SecurityDescriptor, zaman hariç [belirli durumlarda](#date-time-controlled-operations). Bu alan için olan **bilgilendirici** yalnızca amacıyla. Değerini IntDate değerini içeren bir sayı olmalıdır. 
-- *Etkin*: Boole, isteğe bağlı, varsayılan **true**. Bu öznitelik, gizli veriler alınıp alınamayacağını belirtir. Etkinleştirilmiş bir öznitelik ile birlikte kullanılır ve *exp* arasında bir işlem olduğunda oluşur ve bu exp, yalnızca etkinleştirilirse ayarlanır **true**. İşlemler dışındaki *nbf* ve *exp* penceresi olan otomatik olarak izin verilmeyen, içinde hariç [belirli durumlarda](#date-time-controlled-operations).  
+- *Etkin*: Boole, isteğe bağlı, varsayılan **true**. Bu öznitelik, gizli veriler alınıp alınamayacağını belirtir. Etkinleştirilmiş bir öznitelik ile birlikte kullanılan *nbf* ve *exp* bir işlemi oluştuğunda arasında *nbf* ve *exp*, yalnızca olacaktır etkinleştirilirse izin kümesine olduğu **true**. İşlemler dışındaki *nbf* ve *exp* penceresi olan otomatik olarak izin verilmeyen, içinde hariç [belirli durumlarda](#date-time-controlled-operations).  
 
 Gizli dizi öznitelikleri içeren bir yanıta dahil ek salt okunur özniteliği vardır:  
 

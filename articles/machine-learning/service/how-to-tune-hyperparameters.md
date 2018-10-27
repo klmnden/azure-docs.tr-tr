@@ -9,12 +9,12 @@ ms.service: machine-learning
 ms.component: core
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 13820dd511d31217b79385e893edbb55a3a57693
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: e66dcac1d83c71174ad5d7c3fdcd2310143f8e01
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49430032"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50140815"
 ---
 # <a name="tune-hyperparameters-for-your-model"></a>İçin model ayarlama hiperparametreleri
 
@@ -238,16 +238,18 @@ Bu örnekte, değerlendirme aralığı 5 başlayarak her bir aralıkta erken son
 
 ### <a name="no-termination-policy"></a>Sonlandırma İlkesi yok
 
-Tüm eğitim çalıştırmalarının çalıştırılıp, NoTerminationPolicy kullanmak istiyorsanız. Bu, herhangi bir erken sonlandırma ilke uygulanarak değil bir etkisi olmaz.
+Tüm eğitim çalıştırmalarının çalıştırılıp, ilke hiçbiri olarak ayarlamak istiyorsanız. Bu, herhangi bir erken sonlandırma ilke uygulanarak değil bir etkisi olmaz.
 
 ```Python
-from azureml.train.hyperdrive import NoTerminationPolicy
-early_termination_policy = NoTerminationPolicy()
+policy=None
 ```
 
 ### <a name="default-policy"></a>Varsayılan ilke
 
-İlke yok belirtilirse, hizmet ayarlama hiper parametre ORTANCA durdurma ilkesiyle kullanacağı `evaluation_interval` 1 ve `delay_evaluation` varsayılan olarak 5. Yaklaşık % 25-%35 tasarruf kaybı olmadan ile birincil ölçüm (değerlendirme verilerimizi göre) üzerinde sağlayabilen koruyucu ayarları şunlardır.
+İlke yok belirtilirse, Hiper parametre ayarı hizmet tüm eğitim çalıştırmalarının tamamlanmak üzere çalıştırılmasını sağlayacaktır.
+
+>[!NOTE] 
+>Taahhüdü işleri sonlandırmadan tasarruf sağlar koruyucu bir ilke arıyorsanız ORTANCA durdurma ilkesiyle kullanabileceğiniz `evaluation_interval` 1 ve `delay_evaluation` 5. Yaklaşık % 25-%35 tasarruf kaybı olmadan ile birincil ölçüm (değerlendirme verilerimizi göre) üzerinde sağlayabilen koruyucu ayarları şunlardır.
 
 ## <a name="allocate-resources"></a>Kaynakları ayırın
 
