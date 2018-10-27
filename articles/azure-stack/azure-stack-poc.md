@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 10/15/2018
+ms.date: 10/25/2018
 ms.author: jeffgilb
 ms.reviewer: unknown
 ms.custom: mvc
-ms.openlocfilehash: b2b81938eafe104369e52e72f9958e2adf2cca6f
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 041d679cfc428278737a5668887e73f13ac694b1
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49345229"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50137062"
 ---
 # <a name="what-is-azure-stack"></a>Azure Stack nedir?
 
@@ -30,7 +30,7 @@ Microsoft Azure Stack, veri merkezinizde Azure Hizmetleri sunmanıza olanak sağ
 Azure Stack gereksinimlerinizi karşılamak için iki dağıtım seçeneği sunulur.
 
 ## <a name="azure-stack-integrated-systems"></a>Azure Stack tümleşik sistemleri
-Azure Stack tümleşik sistemleri, bir Microsoft ortaklık sunulur ve [donanım iş ortaklarından](https://azure.microsoft.com/overview/azure-stack/integrated-systems/), bulut hızını belirleyebileceği yenilik sunan bir çözümü oluşturma ve yönetim Basitlik bilgi işlem. Azure Stack bir tümleşik donanım ve yazılım sistemi sunulan olduğundan, esneklik ve buluttan yenilik olanağı yanı sıra, gereken denetim sahip. Azure Stack tümleşik sistemleri boyutu 4-12 düğümlerinden aralığı ve ortaklaşa donanım iş ortakları ve Microsoft tarafından desteklenir.  Yeni senaryoları oluşturabilir ve üretim iş yükleri için yeni çözümlerini dağıtmak için Azure Stack tümleşik sistemleri kullanın.
+Azure Stack tümleşik sistemleri, bir Microsoft ortaklık sunulur ve [donanım iş ortaklarından](https://azure.microsoft.com/overview/azure-stack/integrated-systems/), bulut hızını belirleyebileceği yenilik sunan bir çözümü oluşturma ve yönetim Basitlik bilgi işlem. Azure Stack bir tümleşik donanım ve yazılım sistemi sunulan olduğundan, esneklik ve buluttan yenilik olanağı yanı sıra, gereken denetim sahip. Azure Stack tümleşik sistemleri boyutu 4-16 düğümlerden aralığı ve tüm dünyada donanım iş ortağı ve Microsoft tarafından desteklenir.  Yeni senaryoları oluşturabilir ve üretim iş yükleri için yeni çözümlerini dağıtmak için Azure Stack tümleşik sistemleri kullanın.
 
 ## <a name="azure-stack-development-kit"></a>Azure Stack Geliştirme Seti
 
