@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: e901ba81b92a5d7a7454fbfaca96902e1e8008a8
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: c45b86913f8c76b80da921e2813d405b61d08041
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "41927055"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50139200"
 documentType: LandingData
 title: IoT Çözüm Hızlandırıcısı Belgeleri
 metadata:
@@ -17,7 +17,7 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 07/24/2018
+  ms.date: 10/26/2018
   ms.author: dobett
 abstract:
   description: IoT çözüm hızlandırıcılarını kullanmayı öğrenin. Bu makalelerde uzaktan izleme, endüstriyel IoT, tahmine dayalı bakım ve cihaz benzetimi gibi sık kullanılan IoT senaryolarını uygulamaya başlamak için çözüm hızlandırıcılarının nasıl kullanılacağı gösterilmektedir.
@@ -43,4 +43,5 @@ sections:
     - html: <a href="/azure/iot-accelerators/iot-accelerators-remote-monitoring-monitor">IoT cihazlarınızı izleme</a>
     - html: <a href="/azure/iot-accelerators/iot-accelerators-remote-monitoring-automate">İzleme çözümünüze bağlı cihazlarla sorunları algılama</a>
     - html: <a href="/azure/iot-accelerators/iot-accelerators-remote-monitoring-manage">İzleme çözümünüze bağlı cihazları yapılandırma ve yönetme</a>
+    - html: <a href="/azure/iot-accelerators/iot-accelerators-remote-monitoring-root-cause-analysis">Bir uyarıda kök neden analizi yürütme</a>
     - html: <a href="/azure/iot-accelerators/iot-accelerators-remote-monitoring-maintain">Uyarıları kullanma ve cihaz sorunlarını düzeltme</a>

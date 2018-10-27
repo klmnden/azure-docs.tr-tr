@@ -12,19 +12,24 @@ items:
   - name: Runbook oluşturma
     href: automation-quickstart-create-runbook.md
   - name: DSC yapılandırması oluşturma
+    displayName: DSC, state configuration, config, node configuration, node
     href: automation-quickstart-dsc-configuration.md
   expanded: true
 - name: Öğreticiler
   items:
   - name: İzleyici görevleriyle güncelleştirilen dosyaları izleme
+    displayName: hybrid runbook worker, hybrid worker, trigger
     href: automation-watchers-tutorial.md
   - name: MV’lerinize yönelik güncelleştirmeleri yönetme
+    displayName: alert, patch
     href: automation-tutorial-update-management.md
   - name: Runbook ile güncelleştirme ekleme ve değişiklik izleme
     href: automation-onboard-solutions.md
   - name: Ortamınızdaki yazılımları belirleme
+    displayName: inventory
     href: automation-tutorial-installed-software.md
   - name: VM üzerindeki değişikliklerle ilgili sorunları giderme
+    displayName: inventory
     href: automation-tutorial-troubleshoot-changes.md
 - name: Nasıl yapılır kılavuzları
   items:
@@ -39,6 +44,7 @@ items:
   - name: Güncelleştirme Yönetimi
     items:
     - name: Güncelleştirme Yönetimine genel bakış
+      displayName: dynamic groups, pre scripts, post scripts, reboot control, first party, pre download, inclusion
       href: automation-update-management.md
     - name: Birden çok VM için güncelleştirmesini yönetme
       href: manage-update-multi.md
@@ -47,12 +53,15 @@ items:
     - name: OMS güncelleştirme dağıtımlarını Azure’a geçirme
       href: migrate-oms-update-deployments.md
     - name: SCCM’yi Güncelleştirme Yönetimi ile Tümleştirme
+      displayName: Configuration Manager
       href: oms-solution-updatemgmt-sccmintegration.md
   - name: Değişiklik İzleme
     items:
     - name: Değişiklik İzlemeye genel bakış
+      displayName: wildcard, recursion, environment variables, registry
       href: automation-change-tracking.md
     - name: İzlenen dosyaların içeriklerini görüntüleme
+      displayName: change tracking, hash
       href: change-tracking-file-contents.md
   - name: Envanter
     items:
@@ -63,14 +72,17 @@ items:
     - name: Tek başına Otomasyon hesabı oluşturma
       href: automation-create-standalone-account.md
     - name: Otomasyon Farklı Çalıştır hesabı yönetme
+      displayName: certificate renewal
       href: manage-runas-account.md
     - name: AWS ile kimlik doğrulamasını yapılandırma
       href: automation-config-aws-account.md
     - name: Rol tabanlı erişim denetimini yönetme
+      displayName: RBAC
       href: automation-role-based-access-control.md
   - name: Runbook oluşturma
     items:
     - name: Runbook türleri
+      displayName: graphical, python, powershell, powershell workflow
       href: automation-runbook-types.md
     - name: Runbook oluşturma ve çalıştırma
       href: automation-creating-importing-runbook.md
@@ -83,6 +95,7 @@ items:
     - name: Python runbook'u oluşturma
       href: automation-first-runbook-textual-python2.md
     - name: Metin temelli runbook’ları düzenleme
+      displayName: powershell
       href: automation-edit-textual-runbook.md
     - name: Grafik temelli runbook’ları düzenleme
       href: automation-graphical-authoring-intro.md
@@ -93,11 +106,14 @@ items:
     - name: Alt runbook’lar
       href: automation-child-runbooks.md
     - name: Runbook çıkışı
+      displayName: message streams, progress records, preference
       href: automation-runbook-output-and-messages.md
     - name: Kaynak denetimi tümleştirmesi
+      displayName: github, vsts, azure devops, personal access token
       href: source-control-integration.md
     - name: Kaynak denetimi tümleştirmesi - eski
       href: automation-source-control-integration-legacy.md
+      displayname: github
     - name: Grafik runbook SDK’sı ile runbook’lar oluşturma
       href: graphical-runbook-sdk.md
   - name: Otomatikleştirme
@@ -111,8 +127,10 @@ items:
     - name: Grafik runbook'larında hata işleme
       href: automation-runbook-graphical-error-handling.md
     - name: Runbook işini izleme
+      displayName: fair share, activity log
       href: automation-runbook-execution.md
     - name: Azure Otomasyonu verilerini yönetme
+      displayName: backup
       href: automation-managing-data.md
     - name: Azure Otomasyonu runbook’una bir JSON nesnesi geçirme
       href: automation-pass-json-string.md
@@ -127,26 +145,36 @@ items:
     - name: Windows Karma Runbook Çalışanı dağıtma
       href: automation-windows-hrw-install.md
     - name: Linux Karma Runbook Çalışanı dağıtma
+      displayName: signature validation
       href: automation-linux-hrw-install.md
     - name: Karma Runbook Çalışanı üzerinde runbook çalıştırma
+      displayName: signed runbooks
       href: automation-hrw-run-runbooks.md
   - name: Durum Yapılandırması
+    displayName: DSC
     items:
     - name: Durum Yapılandırmasına genel bakış
+      displayName: DSC
       href: automation-dsc-overview.md
     - name: Başlarken
+      displayName: DSC
       href: automation-dsc-getting-started.md
     - name: Durum Yapılandırması ile sunucuları istenen duruma göre yapılandırma ve kaymaları yönetme
+      displayName: DSC, compliance
       href: tutorial-configure-servers-desired-state.md
     - name: Makineleri yönetim için hazırlama
+      displayName: DSC, state configuration
       href: automation-dsc-onboarding.md
     - name: DSC yapılandırmaları derleme
+      displayName: state configuration, composite resources, configurationData
       href: automation-dsc-compile.md
     - name: Bileşik Kaynakları kullanarak DSC Yapılandırmaları oluşturma
       href: compose-configurationwithcompositeresources.md
     - name: Chocolatey kullanarak sürekli dağıtım
+      displayName: dsc, state configuration
       href: automation-dsc-cd-chocolatey.md
     - name: Durum Yapılandırması raporlama verilerini Log Analytics'e iletme
+      displayName: DSC
       href: automation-dsc-diagnostics.md
   - name: Paylaşılan kaynakları yönetme
     items:
@@ -171,12 +199,15 @@ items:
     - name: Ölçüm uyarıları ile runbook’ları izleme
       href: automation-alert-metric.md
     - name: Azure uyarılarından runbook başlatma
+      displayName: Monitor, Azure Monitor
       href: automation-create-alert-triggered-runbook.md
     - name: Amazon Web Hizmetleri Sanal Makinesi oluşturma
       href: automation-scenario-aws-deployment.md
     - name: GitHub Enterprise ile kaynak denetimi tümleştirmesi
+      displayName: CI, runbooks
       href: automation-scenario-source-control-integration-with-github-ent.md
     - name: Azure DevOps ile kaynak denetimi tümleştirmesi
+      displayName: VSTS, CI, runbooks
       href: automation-scenario-source-control-integration-with-VSTS.md
     - name: Azure Otomasyonu PowerShell runbook’unda Azure Resource Manager şablonu dağıtma
       href: automation-deploy-template-runbook.md
@@ -189,22 +220,30 @@ items:
   - name: Geçiş
     items:
     - name: Orchestrator'dan geçiş
+      displayName: SCORCH, runbooks
       href: automation-orchestrator-migration.md
 - name: Sorun giderme
   items:
   - name: Ekleme
+    displayName: troubleshoot
     href: troubleshoot/onboarding.md
   - name: Runbook'lar
+    displayName: troubleshoot
     href: troubleshoot/runbooks.md
   - name: Durum Yapılandırması (DSC)
+    displayName: Desired State Configuration, troubleshoot
     href: troubleshoot/desired-state-configuration.md
   - name: Karma Runbook Çalışanı
+    displayName: troubleshoot, HRW, hybrid worker
     href: troubleshoot/hybrid-runbook-worker.md
   - name: Değişiklik İzleme ve Stok
+    displayName: troubleshoot
     href: troubleshoot/change-tracking.md
   - name: Güncelleştirme Yönetimi
+    displayName: troubleshoot
     href: troubleshoot/update-management.md
   - name: Güncelleştirme Aracısı sorunlarını giderme
+    displayName: hybrid runbook worker, hybrid worker, troubleshoot
     href: troubleshoot/update-agent-issues.md
 - name: Başvuru
   items:
@@ -238,9 +277,9 @@ items:
     href: http://stackoverflow.com/questions/tagged/azure-automation
   - name: Videolar
     href: https://azure.microsoft.com/documentation/videos/index/?services=automation
-ms.openlocfilehash: c0dd1231814d41761c35831b6bfabae1c5480c5c
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: 9ecdfd37ac2de97342447d25c4e09c53730651bf
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50095295"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50155632"

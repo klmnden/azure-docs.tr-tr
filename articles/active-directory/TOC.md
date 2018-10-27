@@ -326,12 +326,6 @@
 
 ## [Sorun giderme](fundamentals/active-directory-troubleshooting-support-howto.md)
 
-## Azure AD Kavram Kanıtı (PoC) Dağıtma
-### [PoC El Kitabı: Giriş](active-directory-playbook-intro.md)
-### [PoC El Kitabı: Malzemeler](active-directory-playbook-ingredients.md)
-### [PoC El Kitabı: Uygulama](active-directory-playbook-implementation.md)
-### [PoC El Kitabı: Yapı Taşları](active-directory-playbook-building-blocks.md)
-
 # Başvuru
 ## [Kod örnekleri](https://azure.microsoft.com/resources/samples/?service=active-directory)
 ## [Azure PowerShell cmdlet'leri](/powershell/azure/overview)
