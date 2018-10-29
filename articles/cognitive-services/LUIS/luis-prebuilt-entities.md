@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 10/18/2018
 ms.author: diberry
-ms.openlocfilehash: 2f7c724b14efd569a5993f9a9319c9004874bc43
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 0fe9dbed302fd2d61305167a3bda25b1b403b761
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49647604"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50139983"
 ---
 # <a name="prebuilt-entities-to-recognize-common-data-types"></a>Ortak veri türleri tanımak için önceden oluşturulmuş varlıklar
 
@@ -25,7 +25,7 @@ LUIS, tarihler, saatler, sayılar, Ölçümler ve para birimi gibi bilgileri gen
 
 1. Adını tıklayarak uygulamanızı açın **uygulamalarım** sayfasında ve ardından **varlıkları** sol tarafındaki. 
 
-1. Üzerinde **varlıkları** sayfasında **önceden oluşturulmuş varlıklarla yönetme**.
+1. Üzerinde **varlıkları** sayfasında **önceden oluşturulmuş bir varlık ekleme**.
 
 1. İçinde **önceden oluşturulmuş varlıklar ekleme** iletişim kutusunda, datetimeV2 seçin önceden oluşturulmuş varlık. 
 

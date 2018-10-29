@@ -3,17 +3,17 @@ title: Azure IOT Central için genel bir Node.js istemci uygulaması bağlayın 
 description: Bir cihaz geliştirici olarak, Azure IOT Central uygulamasına genel bir Node.js cihaz bağlanma.
 author: tbhagwat3
 ms.author: tanmayb
-ms.date: 04/16/2018
+ms.date: 10/26/2018
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 8a5d880d0238e38fbbaa9de22fc1baf604f0fc07
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 4702b0eb53897f173311c40469c912cf41751f24
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45733473"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50155159"
 ---
 # <a name="connect-a-generic-client-application-to-your-azure-iot-central-application-nodejs"></a>Azure IOT Central uygulamanızı (Node.js) genel istemci uygulamaya bağlama
 
@@ -34,16 +34,16 @@ Azure IOT Central uygulamanızda aşağıdaki ölçümleri ve cihaz özellikleri
 
 Aşağıdaki telemetriyi ekleme **ölçümleri** sayfası:
 
-| Görünen Ad | Alan Adı  | Birimler | Min | Maks | Ondalık basamak |
+| Görünen Ad | Alan Adı  | Birimler | Min | Maks | Ondalık Basamak Sayısı |
 | ------------ | ----------- | ----- | --- | --- | -------------- |
 | Sıcaklık  | sıcaklık | F     | 60  | 110 | 0              |
 | Nem oranı     | Nem oranı    | %     | 0   | 100 | 0              |
 | Basınç     | basınç    | kPa   | 80  | 110 | 0              |
 
 > [!NOTE]
-  Çift telemetri ölçümün veri türü.
+  Veri telemetri ölçü bir kayan türüdür nokta sayısı.
 
-Alan adları cihaz şablona tabloda gösterildiği gibi tam olarak girin. Alan adları eşleşmiyorsa, telemetri uygulamada görüntülenemiyor.
+Alan adları cihaz şablona tabloda gösterildiği gibi tam olarak girin. İlgili cihaz kod özellik adları alan adları eşleşmiyorsa, telemetri uygulamada görüntülenemiyor.
 
 ### <a name="state-measurements"></a>Durum ölçümleri
 
@@ -54,9 +54,9 @@ Alan adları cihaz şablona tabloda gösterildiği gibi tam olarak girin. Alan a
 | Fan Modu     | fanmode     | 1       | Çalışıyor      | 0       | Durduruldu      |
 
 > [!NOTE]
-  Veri türü, durumu ölçümü dizedir.
+  Veri türü durumu ölçümü dizedir.
 
-Alan adları cihaz şablona tabloda gösterildiği gibi tam olarak girin. Alan adları eşleşmiyorsa, uygulama durumu görüntülenemiyor.
+Alan adları cihaz şablona tabloda gösterildiği gibi tam olarak girin. İlgili cihaz kod özellik adları alan adları eşleşmiyorsa, uygulama durumu görüntülenemiyor.
 
 ### <a name="event-measurements"></a>Olay ölçümleri
 
@@ -67,7 +67,7 @@ Aşağıdaki olayın ekleme **ölçümleri** sayfası:
 | Elektriği  | overheat    | Hata    |
 
 > [!NOTE]
-  Veri türü, olay ölçümü dizedir.
+  Veri türü olay ölçümü dizedir.
 
 ### <a name="device-properties"></a>Cihaz özellikleri
 
@@ -78,7 +78,7 @@ Aşağıdaki cihaz özelliklerinde ekleme **özellikleri sayfasında**:
 | Seri Numarası       | serialNumber      | metin      |
 | Cihaz üreticisi | üretici      | metin      |
 
-Alan adları cihaz şablona tabloda gösterildiği gibi tam olarak girin. Uygulama, alan adları eşleşmiyorsa, özellik değeri gösterilemiyor.
+Alan adları cihaz şablona tabloda gösterildiği gibi tam olarak girin. İlgili cihaz kod özellik adları alan adları eşleşmiyorsa, uygulama cihaz özellik değeri gösterilemiyor.
 
 ### <a name="settings"></a>Ayarlar
 
@@ -89,15 +89,15 @@ Aşağıdaki **numarası** ayarlarında **Ayarları sayfası**:
 | Fan hızı       | fanSpeed       | RPM   | 0        | 0   | 3000 | 0       |
 | Sıcaklığı Ayarla | setTemperature | F     | 0        | 20  | 200  | 80      |
 
-Cihaz şablona tabloda gösterildiği gibi tam olarak alan adı girin. Alan adları eşleşmiyorsa, cihaz ayarı değerini alamaz.
+Cihaz şablona tabloda gösterildiği gibi tam olarak alan adı girin. İlgili cihaz kod özellik adları alan adları eşleşmiyorsa, cihaz ayarı değerini alamaz.
 
 ## <a name="add-a-real-device"></a>Gerçek cihaz ekleme
 
-Azure IOT Central uygulamanızı oluşturun ve cihaz bağlantı dizesini not edin cihaz şablonundan gerçek bir cihaz ekleyin. Daha fazla bilgi için [Azure IOT Central uygulamanıza gerçek bir cihaz ekleyin](tutorial-add-device.md)
+Azure IOT Central uygulamanızı oluşturun ve cihaz bağlantı dizesini not edin cihaz şablonundan gerçek bir cihaz ekleyin. IOT Central bir Node.js uygulaması bağlanma ile ilgili adım adım yönergeler için bkz. [uygulamasından gerçek cihaz bağlantı dizesi oluştur](tutorial-add-device.md#generate-connection-string-for-real-device-from-application) ve [istemci kodu hazırlama](tutorial-add-device.md#prepare-the-client-code) öğreticilerde > Bir cihaz ekleyin.
 
 ### <a name="create-a-nodejs-application"></a>Node.js uygulaması oluşturma
 
-Aşağıdaki adımları uygulamaya eklenen gerçek cihaz uygulayan bir istemci uygulaması oluşturma işlemini göstermektedir.
+Aşağıdaki adımları uygulamaya eklenen gerçek cihaz uygulayan bir istemci uygulaması oluşturma işlemini göstermektedir. Burada Node.js uygulaması gerçek fiziksel cihazı temsil eder. 
 
 1. Makinenizde `connected-air-conditioner-adv` adlı bir klasör oluşturun. Komut satırı ortamınızda bu klasöre gidin.
 
@@ -130,10 +130,10 @@ Aşağıdaki adımları uygulamaya eklenen gerçek cihaz uygulayan bir istemci u
     ```
 
   > [!NOTE]
-   > Azure IOT Central değiştiğinden Azure IOT Hub cihazı sağlama hizmeti (DPS) kullanarak tüm cihaz bağlantıları için bu instrustions için izleyin [cihaz bağlantı dizesini alma](concepts-connectivity.md#getting-device-connection-string) ve bu öğreticinin geri kalanını ile devam edin.
+  > Azure IOT Central değiştiğinden Azure IOT Hub cihazı sağlama hizmeti (DPS) kullanarak tüm cihaz bağlantıları için bu instrustions için izleyin [cihaz bağlantı dizesini alma](concepts-connectivity.md#getting-device-connection-string) ve bu öğreticinin geri kalanını ile devam edin. Daha fazla yardım için ayrıntılı yönergeleri kümesi de bulabilirsiniz [istemci kodu hazırlama](tutorial-add-device.md#prepare-the-client-code) öğreticilerde > bir cihaz ekleyin.
 
 
-    Yer tutucu güncelleştirme `{your device connection string}` cihaz bağlantı dizesiyle. Bu örnekte biz başlatmak `targetTemperature` sıfır olarak, isteğe bağlı olarak bir CİHAZDAN geçerli okuma veya değeri cihaz ikizinden alabilir. 
+  Yer tutucu güncelleştirme `{your device connection string}` cihaz bağlantı dizesiyle. Bu örnekte biz başlatmak `targetTemperature` sıfır olarak, isteğe bağlı olarak bir CİHAZDAN geçerli okuma veya değeri cihaz ikizinden alabilir. 
 
 1. Telemetri, durum ve olay ölçümleri, Azure IOT Central uygulamasına göndermek için dosyasına aşağıdaki işlevi ekleyin:
 
@@ -157,7 +157,7 @@ Aşağıdaki adımları uygulamaya eklenen gerçek cihaz uygulayan bir istemci u
     }
     ```
 
-    1. Cihaz özellikleri, Azure IOT Central uygulamasına göndermek için dosyanıza aşağıdaki işlevi ekleyin:
+1. Cihaz özellikleri, Azure IOT Central uygulamasına göndermek için dosyanıza aşağıdaki işlevi ekleyin:
 
     ```javascript
     // Send device properties.
@@ -269,11 +269,11 @@ Azure IOT Central, uygulamanızdaki bir operatör olarak, gerçek cihazınız i�
 
     ![Telemetri görüntüleme](media/howto-connect-nodejs/viewtelemetry.png)
 
-* Cihazınızın gönderen cihazın özellik değerlerini görüntülemek **özellikleri** sayfası.
+* Cihazınızın gönderen cihazın özellik değerlerini görüntülemek **özellikleri** sayfası. Bağlantı başarılı olursa cihaz özellikleri kutucukları güncelleştirilir. 
 
     ![Cihaz özelliklerini görüntüleme](media/howto-connect-nodejs/viewproperties.png)
 
-* Fan hız ve hedef sıcaklık gelen ayarlamak **ayarları** sayfası.
+* Fan hız ve hedef sıcaklık gelen ayarlamak **ayarları** sayfası. Bağlantı başarılı olursa ayarları değerlerini eşitler. 
 
     ![Fan hızı ayarlama](media/howto-connect-nodejs/setfanspeed.png)
 
