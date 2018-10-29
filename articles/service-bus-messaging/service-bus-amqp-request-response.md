@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/22/2018
 ms.author: spelluru
-ms.openlocfilehash: b05e23019e7b0a03965e51052bf334d0cbff041d
-ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
+ms.openlocfilehash: 6ba3d8e4273d0f2ce2626d8876c386a3714d5355
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48269352"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50159103"
 ---
 # <a name="amqp-10-in-microsoft-azure-service-bus-request-response-based-operations"></a>Microsoft Azure hizmet veri yolu AMQP 1.0: istek-yanıt tabanlı işlemler
 
@@ -179,7 +179,7 @@ Kilitlemeden iletileri göz atar.
   
 |Anahtar|Değer türü|Gerekli|Değer içeriği|  
 |---------|----------------|--------------|--------------------|  
-|`from-sequence-number`|boylam|Evet|Sıra numarası gözlem başlayacağı.|  
+|`from-sequence-number`|uzun|Evet|Sıra numarası gözlem başlayacağı.|  
 |`message-count`|int|Evet|En fazla göz atmak için ileti sayısı.|  
   
 #### <a name="response"></a>Yanıt  
@@ -188,7 +188,7 @@ Yanıt iletisi, aşağıdaki uygulama özellikleri eklemeniz gerekir:
   
 |Anahtar|Değer türü|Gerekli|Değer içeriği|  
 |---------|----------------|--------------|--------------------|  
-|statusCode|int|Evet|HTTP yanıt kodunu [RFC2616]<br /><br /> 200: Tamam – daha fazla ileti yok<br /><br /> 0xcc: No içerik – daha fazla ileti yok|  
+|statusCode|int|Evet|HTTP yanıt kodunu [RFC2616]<br /><br /> 200: Tamam – daha fazla ileti yok<br /><br /> 204: No içerik – daha fazla ileti yok|  
 |Durumaçıklaması|dize|Hayır|Durum açıklaması.|  
   
 Yanıt iletisi gövdesi oluşması gerekir bir **amqp değer** bölüm içeren bir **harita** aşağıdaki girişleri:  
@@ -308,7 +308,7 @@ Yanıt iletisi, aşağıdaki uygulama özellikleri eklemeniz gerekir:
   
 |Anahtar|Değer türü|Gerekli|Değer içeriği|  
 |---------|----------------|--------------|--------------------|  
-|statusCode|int|Evet|HTTP yanıt kodunu [RFC2616]<br /><br /> 200: Tamam – daha fazla ileti yok<br /><br /> 0xcc: No içerik – daha fazla ileti yok|  
+|statusCode|int|Evet|HTTP yanıt kodunu [RFC2616]<br /><br /> 200: Tamam – daha fazla ileti yok<br /><br /> 204: No içerik – daha fazla ileti yok|  
 |Durumaçıklaması|dize|Hayır|Durum açıklaması.|  
   
 Yanıt iletisi gövdesi oluşması gerekir bir **amqp değer** aşağıdaki girdileri içeren bir harita içeren bölümü:  
@@ -334,7 +334,7 @@ Kilitlemeden oturumu iletileri atar.
   
 |Anahtar|Değer türü|Gerekli|Değer içeriği|  
 |---------|----------------|--------------|--------------------|  
-|gelen dizisi-sayı|boylam|Evet|Sıra numarası gözlem başlayacağı.|  
+|gelen dizisi-sayı|uzun|Evet|Sıra numarası gözlem başlayacağı.|  
 |ileti sayısı|int|Evet|En fazla göz atmak için ileti sayısı.|  
 |oturum kimliği|dize|Evet|Oturum kimliği|  
   
@@ -344,7 +344,7 @@ Yanıt iletisi, aşağıdaki uygulama özellikleri eklemeniz gerekir:
   
 |Anahtar|Değer türü|Gerekli|Değer içeriği|  
 |---------|----------------|--------------|--------------------|  
-|statusCode|int|Evet|HTTP yanıt kodunu [RFC2616]<br /><br /> 200: Tamam – daha fazla ileti yok<br /><br /> 0xcc: No içerik – daha fazla ileti yok|  
+|statusCode|int|Evet|HTTP yanıt kodunu [RFC2616]<br /><br /> 200: Tamam – daha fazla ileti yok<br /><br /> 204: No içerik – daha fazla ileti yok|  
 |Durumaçıklaması|dize|Hayır|Durum açıklaması.|  
   
 Yanıt iletisi gövdesi oluşması gerekir bir **amqp değer** aşağıdaki girdileri içeren bir harita içeren bölümü:  
@@ -449,7 +449,7 @@ Yanıt iletisi, aşağıdaki uygulama özellikleri eklemeniz gerekir:
   
 |Anahtar|Değer türü|Gerekli|Değer içeriği|  
 |---------|----------------|--------------|--------------------|  
-|statusCode|int|Evet|HTTP yanıt kodunu [RFC2616]<br /><br /> 200: Tamam – daha fazla ileti yok<br /><br /> 0xcc: No içerik – daha fazla ileti yok|  
+|statusCode|int|Evet|HTTP yanıt kodunu [RFC2616]<br /><br /> 200: Tamam – daha fazla ileti yok<br /><br /> 204: No içerik – daha fazla ileti yok|  
 |Durumaçıklaması|dize|Hayır|Durum açıklaması.|  
   
 Yanıt iletisi gövdesi oluşması gerekir bir **amqp değer** bölüm içeren bir **harita** aşağıdaki girişleri:  
@@ -477,15 +477,15 @@ Yanıt iletisi gövdesi oluşması gerekir bir **amqp değer** bölüm içeren b
 |Anahtar|Değer türü|Gerekli|Değer içeriği|  
 |---------|----------------|--------------|--------------------|  
 |Kural adı|dize|Evet|Kural adı, abonelik ve konu adı dahil değil.|  
-|Kural açıklaması|Harita|Evet|Sonraki bölümde belirtilen kural açıklaması.|  
+|Kural açıklaması|map|Evet|Sonraki bölümde belirtilen kural açıklaması.|  
   
 **Kural açıklaması** harita, aşağıdaki girişleri içermelidir burada **sql filtresi** ve **bağıntı filtresi** karşılıklı olarak birbirini dışlar:  
   
 |Anahtar|Değer türü|Gerekli|Değer içeriği|  
 |---------|----------------|--------------|--------------------|  
-|SQL filtresi|Harita|Evet|`sql-filter`, sonraki bölümde belirtildiği gibi.|  
-|Bağıntı filtresi|Harita|Evet|`correlation-filter`, sonraki bölümde belirtildiği gibi.|  
-|SQL kural eylemi|Harita|Evet|`sql-rule-action`, sonraki bölümde belirtildiği gibi.|  
+|SQL filtresi|map|Evet|`sql-filter`, sonraki bölümde belirtildiği gibi.|  
+|Bağıntı filtresi|map|Evet|`correlation-filter`, sonraki bölümde belirtildiği gibi.|  
+|SQL kural eylemi|map|Evet|`sql-rule-action`, sonraki bölümde belirtildiği gibi.|  
   
 Sql filtresi eşlemesi aşağıdaki girdileri şunları içermelidir:  
   
@@ -505,7 +505,7 @@ Sql filtresi eşlemesi aşağıdaki girdileri şunları içermelidir:
 |oturum kimliği|dize|Hayır||  
 |yanıt için oturum kimliği|dize|Hayır||  
 |içerik türü|dize|Hayır||  
-|properties|Harita|Hayır|Service Bus haritalar [BrokeredMessage.Properties](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Properties).|  
+|properties|map|Hayır|Service Bus haritalar [BrokeredMessage.Properties](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Properties).|  
   
 **Sql kural eylemi** harita, aşağıdaki girişleri içermelidir:  
   
@@ -668,7 +668,7 @@ Temsil eden bir ileti eşlemesi, aşağıdaki girişleri içermelidir:
   
 |Anahtar|Değer türü|Gerekli|Değer içeriği|  
 |---------|----------------|--------------|--------------------|  
-|Kilit belirteci|UUID|Evet|Kilit belirteci if `receiver-settle-mode` 1'dir.|  
+|Kilit belirteci|uuid|Evet|Kilit belirteci if `receiver-settle-mode` 1'dir.|  
 |message|bayt dizisi|Evet|AMQP 1.0 kablo ile kodlanmış ileti.|  
   
 ### <a name="update-disposition-status"></a>Güncelleştirme değerlendirme durumu  
@@ -692,7 +692,7 @@ Ertelenmiş ileti değerlendirme durumunu güncelleştirir. Bu işlem, işlemler
 |Kilit belirteçleri|uuid dizisi|Evet|Değerlendirme durumu güncelleştirmek için ileti kilidi belirteçleri.|  
 |Teslim edilemeyen iletiler açıklaması|dize|Hayır|Değerlendirme durumu ayarlanırsa ayarlanabilir **askıya**.|  
 |Teslim edilemeyen iletiler açıklaması|dize|Hayır|Değerlendirme durumu ayarlanırsa ayarlanabilir **askıya**.|  
-|değiştirilecek özellikleri|Harita|Hayır|Service Bus listesi, ileti özelliklerini değiştirmek için aracılı.|  
+|değiştirilecek özellikleri|map|Hayır|Service Bus listesi, ileti özelliklerini değiştirmek için aracılı.|  
   
 #### <a name="response"></a>Yanıt  
 

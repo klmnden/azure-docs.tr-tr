@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: iainfou
-ms.openlocfilehash: fb428e63be54688744bcdb022ba276a957f8aee1
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 1b0b3d0db2067a492905d8f828934f0b63fb8f54
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49648783"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50155992"
 ---
 # <a name="kubernetes-core-concepts-for-azure-kubernetes-service-aks"></a>Kubernetes kavramları Azure Kubernetes Service (AKS)
 
@@ -71,6 +71,27 @@ Azure VM boyutu, düğümleri için kaç CPU'lar, tanımlar ne kadar bellek ve b
 AKS kümenizde düğümleri için VM görüntüsü şu anda Ubuntu Linux üzerinde temel alır. AKS kümesi oluşturma veya düğüm sayısını, Azure platformu istenen VM sayısını oluşturur ve bunları yapılandırır. Gerçekleştirmeniz için el ile yapılandırma yoktur.
 
 İşletim sistemi, kapsayıcı çalışma zamanı, farklı bir konak kullanın veya özel paketler dahil gerekiyorsa kendi Kubernetes kümesi kullanarak dağıtabilirsiniz [acs-engine][acs-engine]. Yukarı Akış `acs-engine` özellikleri serbest bırakır ve resmi olarak AKS kümelerde desteklenen önce yapılandırma seçenekleri sağlar. Örneğin, Windows kapsayıcıları ve Docker dışındaki bir kapsayıcı çalışma zamanı kullanmak istiyorsanız, kullanabileceğiniz `acs-engine` yapılandırmak ve geçerli ihtiyaçlarınıza uygun bir Kubernetes kümesi dağıtmak için.
+
+### <a name="resource-reservations"></a>Kaynak ayırmalar
+
+Her düğümde temel Kubernetes bileşenleri gibi yönetmeniz gerekmez *kubelet*, *kube-proxy*, ve *kube-dns*, ancak bazı kullanılabilir kullanma işlem kaynakları. Düğümü performansı ve işlevselliği korumak için her bir düğümde aşağıdaki işlem kaynaklarını ayrılmıştır:
+
+- **CPU** - 60ms
+- **Bellek** -4 GiB en fazla %20
+
+Bu bellek ayırma miktarını kullanılabilir CPU ve bellek uygulamalarınız için daha az düğüm içeriyor görünebilir anlamına gelir. Kaynak kısıtlamaları nedeniyle çalıştırdığınız uygulamaların sayısı varsa, bu ayırmalar CPU emin olun ve bellek için temel Kubernetes bileşenleri kullanılabilir durumda kalır. Kaynak ayırmalar değiştirilemez.
+
+Örneğin:
+
+- **Standart DS2 v2** düğüm boyutu 2 vCPU ve 7 GiB bellek içerir
+    - %20 7 GiB bellek 1.4 GiB =
+    - Toplam *(7-1.4) 5.6 GiB =* bellek düğüm için kullanılabilir
+    
+- **Standart E4s v3** düğüm boyutu 4 vCPU ve 32 GiB bellek içerir
+    - %20 32 GiB bellek 6.4 = GiB ancak AKS yalnızca en fazla 4 GiB ayırır
+    - Toplam *(32-4) 28 GiB =* düğüm için kullanılabilir
+    
+Temel alınan düğümün işletim sistemi, ayrıca kendi çekirdek işlevleri tamamlamak için CPU ve bellek kaynakları miktar gerektirir.
 
 ### <a name="node-pools"></a>Düğüm havuzları
 
