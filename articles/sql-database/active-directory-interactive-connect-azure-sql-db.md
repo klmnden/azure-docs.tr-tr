@@ -124,13 +124,13 @@ Ad alanı üzerinde C# programı kullanır **Microsoft.IdentityModel.Clients.act
 
 C# örneği dayanan bir ad alanları olan **System.Data.SqlClient**. Sabit özel ilgi çekecektir **SqlAuthenticationMethod**. Bu numaralandırma aşağıdaki değerlere sahip:
 
-- **SqlAuthenticationMethod.activedirectory * etkileşimli ***:&nbsp; multi factor authentication MFA elde etmek için bir Azure AD kullanıcı adı ile bunu kullanın.
+- **SqlAuthenticationMethod.activedirectory \*etkileşimli**\*:&nbsp; multi factor authentication MFA elde etmek için bir Azure AD kullanıcı adı ile bunu kullanın.
     - Bu değer mevcut makalenin odak noktası olur. Bu, etkileşimli bir deneyim MFA kullanıcı bu tutabildiğini, kullanıcı parolasını ve ardından MFA doğrulama için iletişim kutularını görüntüleme üretir.
     - Bu değer, .NET Framework sürümü 4.7.2 ile başlayarak kullanılabilir.
 
-- **SqlAuthenticationMethod.activedirectory * tümleşik ***:&nbsp; bu iş için bir *Federasyon* hesabı. Birleştirilmiş bir hesap için kullanıcı adı, Windows etki alanına adı verilir. Bu yöntem, mfa'yı desteklemez.
+- **SqlAuthenticationMethod.activedirectory \*tümleşik**\*:&nbsp; bu iş için bir *Federasyon* hesabı. Birleştirilmiş bir hesap için kullanıcı adı, Windows etki alanına adı verilir. Bu yöntem, mfa'yı desteklemez.
 
-- **SqlAuthenticationMethod.activedirectory * parola ***:&nbsp; bir Azure AD kullanıcısı ve kullanıcının parolasını gerektiren kimlik doğrulaması için bunu kullanın. Azure SQL veritabanı kimlik doğrulaması gerçekleştirir. Bu yöntem, mfa'yı desteklemez.
+- **SqlAuthenticationMethod.activedirectory \*parola**\*:&nbsp; bir Azure AD kullanıcısı ve kullanıcının parolasını gerektiren kimlik doğrulaması için bunu kullanın. Azure SQL veritabanı kimlik doğrulaması gerçekleştirir. Bu yöntem, mfa'yı desteklemez.
 
 
 
