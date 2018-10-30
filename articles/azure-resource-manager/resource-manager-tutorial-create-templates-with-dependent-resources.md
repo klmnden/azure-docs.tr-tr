@@ -10,15 +10,15 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 10/09/2018
+ms.date: 10/19/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 50f1c81f08787181de2fe3a9f6fb97a96a2bd882
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: 5e198310dd18cc8574b5510b9318ff4badaffca3
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49114321"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49646322"
 ---
 # <a name="tutorial-create-azure-resource-manager-templates-with-dependent-resources"></a>Öğretici: Bağımlı kaynaklarla Azure Resource Manager şablonları oluşturma
 
@@ -29,7 +29,7 @@ Bu öğreticide bir depolama hesabı, bir sanal makine, bir sanal ağ ve ek birk
 Bu öğretici aşağıdaki görevleri kapsar:
 
 > [!div class="checklist"]
-> * Anahtar kasasını hazırlama
+> * Güvenli bir ortam ayarlama
 > * Hızlı başlangıç şablonunu açma
 > * Şablonu keşfetme
 > * Parametre dosyasını düzenleme
@@ -42,77 +42,12 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap oluşturun](htt
 Bu makaleyi tamamlamak için gerekenler:
 
 * [Visual Studio Code](https://code.visualstudio.com/) ve Resource Manager Araçları uzantısı.  Bkz. [Uzantıyı yükleme](./resource-manager-quickstart-create-templates-use-visual-studio-code.md#prerequisites)
-
-## <a name="prepare-key-vault"></a>Key Vault'u hazırlama
-
-Parola spreyi saldırılarını önlemek için sanal makine yönetici hesabı için otomatik olarak oluşturulan bir parolayı kullanmanız ve bu parolayı Key Vault'ta depolamanız önerilir. Aşağıdaki yordam, parolayı depolamak için bir anahtar kasası ve gizli dizi oluşturur. Ayrıca şablon dağıtımının Key Vault'ta depolanan gizli diziye erişmesi için gerekli izinleri yapılandırır. Key Vault farklı bir Azure aboneliğindeyse ek erişim ilkelerinin yapılandırılması gerekir. Ayrıntılar için bkz. [Dağıtım sırasında gizli parametre değeri geçirmek için Azure Key Vault'u kullanma](./resource-manager-keyvault-parameter.md).
-
-1. [Azure Cloud Shell](https://shell.azure.com)'de oturum açın.
-2. Sol üst köşeden tercih ettiğiniz **PowerShell** veya **Bash** ortamına geçiş yapın.
-3. Aşağıdaki Azure PowerShell veya Azure CLI komutunu çalıştırın.  
+* Parola spreyi saldırılarını önlemek için sanal makine yönetici hesabı için bir parola oluşturun. Örneği aşağıda verilmiştir:
 
     ```azurecli-interactive
-    keyVaultName='<your-unique-vault-name>'
-    resourceGroupName='<your-resource-group-name>'
-    location='Central US'
-    userPrincipalName='<your-email-address-associated-with-your-subscription>'
-    
-    # Create a resource group
-    az group create --name $resourceGroupName --location $location
-    
-    # Create a Key Vault
-    keyVault=$(az keyvault create \
-      --name $keyVaultName \
-      --resource-group $resourceGroupName \
-      --location $location \
-      --enabled-for-template-deployment true)
-    keyVaultId=$(echo $keyVault | jq -r '.id')
-    az keyvault set-policy --upn $userPrincipalName --name $keyVaultName --secret-permissions set delete get list
-
-    # Create a secret
-    password=$(openssl rand -base64 32)
-    az keyvault secret set --vault-name $keyVaultName --name 'vmAdminPassword' --value $password
-    
-    # Print the useful property values
-    echo "You need the following values for the virtual machine deployment:"
-    echo "Resource group name is: $resourceGroupName."
-    echo "The admin password is: $password."
-    echo "The Key Vault resource ID is: $keyVaultId."
+    openssl rand -base64 32
     ```
-
-    ```azurepowershell-interactive
-    $keyVaultName = "<your-unique-vault-name>"
-    $resourceGroupName="<your-resource-group-name>"
-    $location='Central US'
-    $userPrincipalName="<your-email-address-associated-with-your-subscription>"
-    
-    # Create a resource group
-    New-AzureRmResourceGroup -Name $resourceGroupName -Location $location
-        
-    # Create a Key Vault
-    $keyVault = New-AzureRmKeyVault `
-      -VaultName $keyVaultName `
-      -resourceGroupName $resourceGroupName `
-      -Location $location `
-      -EnabledForTemplateDeployment
-    Set-AzureRmKeyVaultAccessPolicy -VaultName $keyVaultName -UserPrincipalName $userPrincipalName -PermissionsToSecrets set,delete,get,list
-      
-    # Create a secret
-    $password = openssl rand -base64 32
-    
-    $secretValue = ConvertTo-SecureString $password -AsPlainText -Force
-    Set-AzureKeyVaultSecret -VaultName $keyVaultName -Name "vmAdminPassword" -SecretValue $secretValue
-    
-    # Print the useful property values
-    echo "You need the following values for the virtual machine deployment:"
-    echo "Resource group name is: $resourceGroupName."
-    echo "The admin password is: $password."
-    echo "The Key Vault resource ID is: " $keyVault.ResourceID
-    ```
-4. Çıkış değerlerini not edin. Öğreticinin sonraki bölümlerinde bunlara ihtiyacınız olacaktır
-
-> [!NOTE]
-> Her Azure hizmetinin parola gereksinimleri farklıdır. Örneğin Azure sanal makinelerinin gereksinimleri, "VM oluşturma sırasında parola gereksinimleri nedir?" sayfasında yer alır.
+    Azure Key Vault şifreleme anahtarları ve diğer gizli dizileri korumak üzere tasarlanmıştır. Daha fazla bilgi için bkz. [Öğretici: Azure Key Vault'u Resource Manager şablonu dağıtımıyla tümleştirme](./resource-manager-tutorial-use-key-vault.md). Ayrıca parolanızı üç ayda bir güncelleştirmenizi öneririz.
 
 ## <a name="open-a-quickstart-template"></a>Hızlı başlangıç şablonunu açma
 
@@ -126,7 +61,6 @@ Azure Hızlı Başlangıç Şablonları, Resource Manager şablonları için bir
     ```
 3. Dosyayı açmak için **Aç**’ı seçin.
 4. **Dosya**>**Farklı Kaydet**'i seçerek dosyanın bir kopyasını yerel bilgisayarınıza **azuredeploy.json** adıyla kaydedin.
-5. 1-4 arası adımları tekrarlayarak **https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-windows/azuredeploy.parameters.json** adresini açın ve dosyayı **azuredeploy.parameters.json** olarak kaydedin.
 
 ## <a name="explore-the-template"></a>Şablonu keşfetme
 
@@ -170,44 +104,16 @@ Aşağıdaki diyagramda bu şablondaki kaynaklar ve bağımlılık bilgileri gö
 
 Bağımlılıkların belirtilmesi, Resource Manager'ın çözümü verimli bir şekilde dağıtmasını sağlar. Depolama hesabı, genel IP adresi ve sanal ağ herhangi bir bağımlılığa sahip olmadığından paralel olarak dağıtılır. Genel IP adresi ve sanal ağ dağıtıldıktan sonra ağ arabirimi oluşturulur. Resource Manager, diğer tüm kaynaklar dağıtıldıktan sonra sanal makineyi dağıtır.
 
-## <a name="edit-the-parameters-file"></a>Parametre dosyasını düzenleme
-
-Şablon dosyasında değişiklik yapmanıza gerek yoktur. Ancak Key Vault'tan yönetici parolasını almak için parametre dosyasını değiştirmeniz gerekir.
-
-1. Açık değilse, Visual Studio Code’da **azuredeploy.parameters.json** dosyasını açın.
-2. **adminPassword** parametresini şu şekilde güncelleştirin:
-
-    ```json
-    "adminPassword": {
-        "reference": {
-            "keyVault": {
-            "id": "/subscriptions/<SubscriptionID>/resourceGroups/mykeyvaultdeploymentrg/providers/Microsoft.KeyVault/vaults/<KeyVaultName>"
-            },
-            "secretName": "vmAdminPassword"
-        }
-    },
-    ```
-    **id** yerine son yordamda oluşturduğunuz anahtar kasası kaynak kimliğini yazın. Çıktılardan biridir. 
-
-    ![Key Vault ve Resource Manager şablonu sanal makine dağıtımını tümleştirme parametre dosyası](./media/resource-manager-tutorial-use-key-vault/resource-manager-tutorial-create-vm-parameters-file.png)
-3. Şu değerleri verin:
-
-    - **adminUsername**: Sanal makine yönetici hesabının adı.
-    - **dnsLabelPrefix**: dnsLablePrefix adı.
-4. Değişiklikleri kaydedin.
-
 ## <a name="deploy-the-template"></a>Şablonu dağıtma
 
 Şablonları dağıtmak için birçok yöntem vardır.  Bu öğreticide Azure portaldan Cloud Shell'i kullanacaksınız.
 
-1. [Cloud Shell](https://shell.azure.com)'de oturum açın. Dilerseniz [Azure portal](https://portal.azure.com) oturumu açtıktan sonra aşağıdaki resimde gösterildiği gibi, sağ üst köşeden **Cloud Shell**’i seçebilirsiniz:
-
-    ![Azure portal Cloud Shell](./media/resource-manager-tutorial-create-templates-with-dependent-resources/azure-portal-cloud-shell.png)
+1. [Cloud Shell](https://shell.azure.com)'de oturum açın. 
 2. Cloud Shell'in sol üst köşesinden **PowerShell**'i ve ardından **Onayla**'yı seçin.  Bu öğreticide PowerShell'i kullanacaksınız.
 3. Cloud Shell'de **Dosya yükle**'yi seçin:
 
     ![Azure portal Cloud shell dosya karşıya yükleme](./media/resource-manager-tutorial-create-templates-with-dependent-resources/azure-portal-cloud-shell-upload-file.png)
-4. Öğreticide daha önce kaydettiğiniz dosyaları seçin. Varsayılan ad **azuredeploy.json** ve **azuredeploy.paraemters.json** şeklindedir.  Aynı ada sahip dosyalar varsa bildirim gösterilmeden eski dosyaların üzerine yazılır.
+4. Öğreticide daha önce kaydettiğiniz şablonu seçin. Varsayılan ad **azuredeploy.json** olur.  Aynı dosya adına sahip bir dosyanız varsa bildirim gösterilmeden eski dosyanın üzerine yazılır.
 5. Dosyanın başarıyla yüklendiğini doğrulamak için Cloud Shell'de aşağıdaki komutu çalıştırın. 
 
     ```bash
@@ -222,22 +128,28 @@ Bağımlılıkların belirtilmesi, Resource Manager'ın çözümü verimli bir �
 
     ```bash
     cat azuredeploy.json
-    cat azuredeploy.parameters.json
     ```
-7. Cloud Shell'de aşağıdaki PowerShell komutlarını çalıştırın. Örnek betikte Key Vault için oluşturulmuş olan kaynak grubu kullanılır. Aynı kaynak grubunu kullanmak, kaynakları silme işlemini kolaylaştıracaktır.
+7. Cloud Shell'de aşağıdaki PowerShell komutlarını çalıştırın. Güvenliği iyileştirmek için sanal makine yönetici hesabı için oluşturulmuş bir parola kullanın. [Ön koşullara](#prerequisites) bakın.
 
-    ```powershell
-    $resourceGroupName = "<Enter the resource group name>"
-    $deploymentName = "<Enter a deployment name>"
+    ```azurepowershell
+    $deploymentName = Read-Host -Prompt "Enter the name for this deployment"
+    $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
+    $adminUsername = Read-Host -Prompt "Enter the virtual machine admin username"
+    $adminPassword = Read-Host -Prompt "Enter the admin password"
+    $dnsLablePrefix = Read-Host -Prompt "Enter the DNS label prefix"
 
+    New-AzureRmResourceGroup -Name $resourceGroupName -Location $location
     New-AzureRmResourceGroupDeployment -Name $deploymentName `
         -ResourceGroupName $resourceGroupName `
-        -TemplateFile azuredeploy.json `
-        -TemplateparameterFile azuredeploy.parameters.json
+        -adminUsername = $adminUsername `
+        -adminPassword = $adminPassword `
+        -dnsLabelPrefix = $dnsLabelPrefix `
+        -TemplateFile azuredeploy.json 
     ```
 8. Yeni oluşturulan sanal makineyi listelemek için aşağıdaki PowerShell komutunu çalıştırın:
 
-    ```powershell
+    ```azurepowershell
+    $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
     Get-AzureRmVM -Name SimpleWinVM -ResourceGroupName $resourceGroupName
     ```
 

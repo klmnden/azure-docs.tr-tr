@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 10/10/2018
+ms.date: 10/19/2018
 ms.topic: quickstart
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: 12b7a605350b07565660e9e4d1334b286aa5ac00
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 6b935322c9d892793f3695e0922d15f5886c7e25
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49079115"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49471297"
 ---
 # <a name="quickstart-explore-and-analyze-costs-with-cost-analysis"></a>Hızlı Başlangıç: Maliyet analiziyle maliyetleri keşfetme ve analiz etme
 
@@ -34,21 +34,25 @@ Bu hızlı başlangıçta şunları yapmayı öğrenirsiniz:
 
 Maliyet analizi tüm [Kurumsal Sözleşme (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/) müşterileri tarafından kullanılabilir. Maliyet verilerini görüntülemek için aşağıdaki kapsamlardan birine veya daha fazlasına en azından yazma erişiminiz olmalıdır.
 
-- *Fatura hesabı* kapsamı https://ea.azure.com adresinde tanımlanır ve Kuruluş Yöneticisi erişimi gerekir. Önkoşul EA ayarı gerekli değildir. Maliyet analizindeki fatura bilgileri, kurumsal anlaşma kapsamındaki tüm aboneliklere aittir. Fatura hesabı genellikle *Kurumsal Anlaşma* veya *Kayıt* olarak nitelenir.
 
-- *Bölüm* kapsamı https://ea.azure.com adresinde tanımlanır ve Bölüm Yöneticisi erişimi gerekir. EA portalında **DA ücretleri görüntüleme** ayarı etkinleştirilmiş olmalıdır. Maliyet analizindeki fatura bilgileri, bölümle bağlantılı kayıt hesabındaki tüm aboneliklere aittir.
+|**Kapsam**|**Tanımlanma yeri**|**Kapsam maliyetlerini analiz etmek için gereken erişim**|**Önkoşul EA ayarı**|**Fatura verilerini şurada bir araya getirir**|
+|---                |---                  |---                   |---            |---           |
+|Faturalama hesabı<sup>1</sup>|[https://ea.azure.com ](https://ea.azure.com )|Kuruluş Yöneticisi|None|Kurumsal sözleşmedeki tüm abonelikler|
+|Bölüm|[https://ea.azure.com ](https://ea.azure.com )|Bölüm Yöneticisi|DA ücretleri görüntüleme etkinleştirildi|Bölüme bağlı olan kayıt hesabına ait olan tüm abonelikler|
+|Kayıt hesabı<sup>2</sup2>|[https://ea.azure.com ](https://ea.azure.com )|Hesap Sahibi|AO ücretleri görüntüleme etkinleştirildi|Kayıt hesabındaki tüm abonelikler|
+|Yönetim grubu|[https://portal.azure.com ](https://portal.azure.com )|Maliyet Yönetimi Okuyucusu (veya Okuyucu)|AO ücretleri görüntüleme etkinleştirildi|Yönetim grubu altındaki tüm abonelikler|
+|Abonelik|[https://portal.azure.com ](https://portal.azure.com )|Maliyet Yönetimi Okuyucusu (veya Okuyucu)|AO ücretleri görüntüleme etkinleştirildi|Abonelikteki tüm kaynaklar/kaynak grupları|
+|Kaynak grubu|[https://portal.azure.com ](https://portal.azure.com )|Maliyet Yönetimi Okuyucusu (veya Okuyucu)|AO ücretleri görüntüleme etkinleştirildi|Kaynak grubundaki tüm kaynaklar|
 
-- *Kayıt hesabı* kapsamı https://ea.azure.com adresinde tanımlanır ve Hesap Sahibi erişimi gerekir. EA portalında **AO ücretleri görüntüleme** ayarı etkinleştirilmiş olmalıdır. Maliyet analizindeki fatura bilgileri, kayıt hesabındaki tüm aboneliklere aittir. Kayıt hesabı genellikle *hesap sahibi* olarak nitelenir.
+<sup>1</sup>Fatura hesabı genellikle Kurumsal Sözleşme veya Kayıt olarak nitelenir.
 
-- *Yönetim grubu* kapsamı https://portal.azure.com adresinde tanımlanır ve Maliyet Yönetimi Okuyucu (veya Okuyucu) erişimi gerekir. EA portalında **AO ücretleri görüntüleme** ayarı etkinleştirilmiş olmalıdır. Maliyet analizindeki fatura bilgileri, yönetim grubu altındaki tüm aboneliklere aittir.
-
-- *Abonelik* kapsamı https://portal.azure.com adresinde tanımlanır ve Maliyet Yönetimi Okuyucu (veya Okuyucu) erişimi gerekir. EA portalında **AO ücretleri görüntüleme** ayarı etkinleştirilmiş olmalıdır. Maliyet analizindeki fatura bilgileri, abonelikteki tüm kaynaklara ve kaynak gruplarına aittir.
-
-- *Kaynak grubu* kapsamı https://portal.azure.com adresinde tanımlanır ve Maliyet Yönetimi Okuyucu (veya Okuyucu) erişimi gerekir. EA portalında **AO ücretleri görüntüleme** ayarı etkinleştirilmiş olmalıdır. Maliyet analizindeki fatura bilgileri, kaynak grubundaki tüm kaynaklara aittir.
-
-
+<sup>2</sup>Kayıt hesabı genellikle hesap sahibi olarak nitelenir.
 
 **DA ücretleri görüntüleme** ve **AO ücretleri görüntüleme** ayarları hakkında daha fazla bilgi için bkz. [Maliyet erişimini etkinleştirme](../billing/billing-enterprise-mgmt-grp-troubleshoot-cost-view.md#enabling-access-to-costs).
+
+
+
+
 
 ## <a name="sign-in-to-azure"></a>Azure'da oturum açma
 

@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 05/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 5a93feec7996fc0ebf742b8d62b159dca5f1c1ed
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: c3eecfdf4bc2e6bf6798a6b3845cdc2e2e243341
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34636996"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49467438"
 ---
 # <a name="tutorial-set-up-a-lab-by-using-azure-devtest-labs"></a>Öğretici: Azure DevTest Labs kullanarak bir laboratuvar ayarlama
 Bu öğreticide, Azure portalı kullanarak bir laboratuvar oluşturursunuz. Laboratuvar yöneticisi bir kuruluşta laboratuvar ayarlar, laboratuvarda sanal makineler oluşturur ve ilkeler yapılandırır. Laboratuvar kullanıcıları (örneğin: geliştirici ve test ediciler), laboratuvarda sanal makineler talep eder, sanal makinelere bağlanır ve sanal makineleri kullanır. 
@@ -55,7 +55,7 @@ Aşağıdaki adımlar, Azure portal kullanarak Azure DevTest Labs’de nasıl bi
 1. **DevTest Lab** sayfasında, araç çubuğunda **+Ekle**’yi seçin. 
 
     ![Ekle düğmesi](./media/tutorial-create-custom-lab/add-vm-to-lab-button.png)
-1. **Temel seçin** sayfasında, **Ubuntu** anahtar sözcüğüyle arama yapın ve listedeki temel görüntülerden birini seçin. 
+1. **Temel seçin** sayfasında, anahtar sözcüğüyle (örn.: Windows, Ubuntu) arama yapın ve listedeki temel görüntülerden birini seçin. 
 1. **Sanal makine** sayfasında aşağıdaki eylemleri gerçekleştirin: 
     1. **Sanal makine adı** alanına, sanal makine için bir ad girin. 
     2. **Kullanıcı adı** alanına, sanal makineye erişimi olan kullanıcı için bir ad girin. 
@@ -71,6 +71,9 @@ Aşağıdaki adımlar, Azure portal kullanarak Azure DevTest Labs’de nasıl bi
 
         ![Sanal makine oluşturma durumu](./media/tutorial-create-custom-lab/vm-creation-status.png)
 1. Sanal makine oluşturulduktan sonra, **Talep edilebilir sanal makineler** listesinde bu sanal makineyi görürsünüz. 
+
+    > [!NOTE] 
+    > Laboratuvara bir Linux VM’si eklerken VM’ye SSH ve RDP erişimini etkinleştirebilirsiniz. VM’yi oluştururken erişimi etkinleştirmezseniz SSH ve RDP için bağlantı noktaları açmak için VM ile ilişkili ağ güvenlik grubunda elle kural ekleyebilirsiniz.
 
 ## <a name="add-a-user-to-the-lab-user-role"></a>Laboratuvar Kullanıcısı rolüne kullanıcı ekleme
 

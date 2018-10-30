@@ -4,15 +4,15 @@ description: Azure Geçişi hizmetine genel bir bakış sağlar.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: overview
-ms.date: 09/25/2018
+ms.date: 10/23/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: d2a8885ffb9148d408eff0e8a7d2ef09121e5359
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 30cca10a83be09b8c9736df546958c3a1fe66f37
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47162055"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50025652"
 ---
 # <a name="about-azure-migrate"></a>Azure Geçişi Hakkında
 
@@ -29,16 +29,16 @@ Azure Geçişi şunları yapmanıza yardımcı olur:
 
 ## <a name="current-limitations"></a>Geçerli sınırlamalar
 
-- Şu anda Azure sanal makinelerine geçiş için yalnızca şirket içi VMware sanal makinelerini (VM) değerlendirebilirsiniz. VMware sanal makineleri, vCenter Server (sürüm 5.5, 6.0 veya 6.5) tarafından yönetilmelidir.
+- Azure sanal makinelerine geçiş için yalnızca şirket içi VMware sanal makinelerini (VM) değerlendirebilirsiniz. VMware sanal makineleri, vCenter Server (sürüm 5.5, 6.0 veya 6.5) tarafından yönetilmelidir.
 - Hyper-V sanal makinelerini ve fiziksel sunucuları değerlendirmek istiyorsanız Hyper-V için [Azure Site Recovery Dağıtım Planlayıcısı](http://aka.ms/asr-dp-hyperv-doc)'nı, fiziksel makineler için de [iş ortaklarımız tarafından sunulan araçları](https://azure.microsoft.com/migration/partners/) kullanabilirsiniz.
 - Tek keşifte en fazla 1500 sanal makine ve tek projede en fazla 1500 sanal makine bulabilirsiniz. Ayrıca tek değerlendirmede en fazla 1500 sanal makineyi değerlendirebilirsiniz.
 - Daha büyük bir ortam keşfetmek istiyorsanız keşfi bölüp birden fazla proje oluşturabilirsiniz. [Daha fazla bilgi edinin](how-to-scale-assessment.md). Azure Geçişi, abonelik başına 20’ye kadar projeyi destekler.
 - Azure Geçişi yalnızca yönetilen disklerin geçiş değerlendirmesini destekler.
-- Azure Geçişi projesini yalnızca Birleşik Devletler coğrafyasında oluşturabilirsiniz. Bu durum, herhangi bir Azure hedef konumu için yapacağınız geçiş planını etkilemez. Geçiş projesinin coğrafyası yalnızca şirket içi ortamda bulunan meta verileri depolamak için kullanılır. Azure Geçişi tarafından toplanan meta veriler hakkında [daha fazla bilgi edinin](https://docs.microsoft.com/azure/migrate/resources-faq#discovery-and-assessment). Toplanan meta veriler, seçilen [ Azure coğrafyasındaki](https://azure.microsoft.com/global-infrastructure/geographies/) bölgelerden birinde depolanır:
+-  Azure Geçişi projesini yalnızca Birleşik Devletler coğrafyasında oluşturabilirsiniz. Ancak herhangi bir hedef Azure konumu için geçiş planlayabilirsiniz.
+    - Geçiş projesi bölgesinde yalnızca şirket içi ortamında keşfedilen meta veriler depolanır.
+    - Meta veriler Orta Batı ABD/Doğu ABD coğrafi bölgelerinden birinde depolanır.
+    - Log Analytics çalışma alanı ile bağımlılık görselleştirmesi kullanırsanız proje ile aynı bölgede oluşturulur. 
 
-**Coğrafya** | **Bölgeler**
---- | ---
-Amerika Birleşik Devletleri | Batı Orta ABD, Doğu ABD
 
 ## <a name="what-do-i-need-to-pay-for"></a>Ne için ödeme yapmam gerekiyor?
 

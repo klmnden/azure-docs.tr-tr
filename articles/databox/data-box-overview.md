@@ -7,14 +7,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: overview
-ms.date: 09/24/2018
+ms.date: 10/23/2018
 ms.author: alkohli
-ms.openlocfilehash: 1beecd4c37ef333464e96b93294c25d182ffdf91
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 731730aae59fa654394bf01a139af0088c207774
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49090815"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49955346"
 ---
 # <a name="what-is-azure-data-box"></a>Azure Data Box nedir?
 
@@ -62,7 +62,7 @@ Data Box cihazı bu sürümde aşağıdaki özelliklere sahiptir.
 | Boyutlar                                              | Cihaz - Genişlik: 309,0 mm Yükseklik: 430,4 mm Derinlik: 502,0 mm |            
 | Raf alanı                                              | Yanlamasına rafa yerleştirildiğinde 7 U (rafa takılamaz)|
 | Gerekli kablolar                                         | 1 X güç kablosu (dahildir) <br> 2 RJ45 kablosu <br> 2 X SFP+ Twinax bakır kablo|
-| Depolama kapasitesi                                        | 100 TB <br> RAID 5 korumasından sonra 80 TB kullanılabilir kapasite|
+| Depolama kapasitesi                                        | 100 TB boyutundaki cihaz, RAID 5 korumasından sonra 80 TB kullanılabilir kapasiteye sahip|
 | Ağ arabirimleri                                      | 2 X 1 GbE arabirimi - MGMT, DATA 3. <br> MGMT - yönetim için, kullanıcı tarafından yapılandırılamaz, ilk kurulumda kullanılır <br> DATA3 - veriler için, kullanıcı tarafından yapılandırılabilir ve varsayılan olarak dinamiktir <br> MGMT ve DATA 3, 10 GbE olarak da çalışabilir <br> 2 X 10 GbE arabirimi - DATA 1, DATA 2 <br> Her ikisi de veriler içindir, dinamik (varsayılan) veya statik olarak yapılandırılabilir |
 | Veri aktarım medyası                                     | RJ45, SFP+ bakır 10 GbE Ethernet  |
 | Güvenlik                                                | Üzerinde oynanmasına karşı dayanıklı özel vidaları olan, sağlamlaştırılmış cihaz kasası <br> Cihazın altına yapıştırılmış, üzerinde oynandığını belli eden çıkartmalar|

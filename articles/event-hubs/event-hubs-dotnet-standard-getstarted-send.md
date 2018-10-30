@@ -12,34 +12,29 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/16/2018
+ms.date: 10/18/2018
 ms.author: shvija
-ms.openlocfilehash: 6f95d8dc291911ac7506e33b80c2d71c8f50dfdc
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: e826dcdbc6d32e6f0ad6ddf72a95869c96af6d69
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47405640"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49456533"
 ---
 # <a name="get-started-sending-messages-to-azure-event-hubs-in-net-standard"></a>.NET Standard'da Azure Event Hubs'a ileti göndermeye başlama
+Event Hubs bağlı cihaz ve uygulamalardan büyük miktarlarda olay verileri (telemetri) işleyen bir hizmettir. Verileri Event Hubs’a topladıktan sonra bir depolama kümesi kullanarak depolayabilir veya gerçek zamanlı bir analiz sağlayıcısı kullanarak dönüştürebilirsiniz. Bu büyük ölçekli olay toplama ve işleme özelliği, Nesnelerin İnterneti (IoT) gibi modern uygulama mimarilerinin temel bir bileşenidir. Olay Hub’larının ayrıntılı genel bakışı için bkz. [Olay Hub’larına genel bakış](event-hubs-about.md) ve [Olay Hub’ları özellikleri](event-hubs-features.md).
+
+Bu öğretici, .NET Core kullanılarak C# dilinde yazılmış bir konsol uygulaması ile bir olay hub’ına olay gönderme işlemini gösterir. 
 
 > [!NOTE]
-> Bu örnek [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleSender)'da sağlanır.
-
-Bu öğreticide, olay hub'ına bir dizi ileti gönderen bir .NET Core konsol uygulamasının nasıl yazılacağı gösterilir. [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleSender) çözümünü olduğu gibi, `EventHubConnectionString` ve `EventHubName` dizelerini kendi olay hub'ı değerlerinizle değiştirerek kullanabilirsiniz. Öte yandan, bu öğreticideki adımları izleyerek kendi çözümünüzü de oluşturabilirsiniz.
+> Bu hızlı başlangıcı [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleSender)’dan örnek olarak indirebilir, `EventHubConnectionString` ve `EventHubName` dizelerini olay hub’ınızdaki değerlerle değiştirebilir ve çalıştırabilirsiniz. Alternatif olarak bu öğreticideki adımları izleyerek kendi çözümünüzü de oluşturabilirsiniz.
 
 ## <a name="prerequisites"></a>Ön koşullar
-
 * [Microsoft Visual Studio 2015 veya 2017](http://www.visualstudio.com). Bu öğreticideki örneklerde Visual Studio 2017 kullanılır, ama Visual Studio 2015 de desteklenir.
-* [.NET Core Visual Studio 2015 veya 2017 araçları](http://www.microsoft.com/net/core).
-* Azure aboneliği.
-* [Bir olay hub'ı ad alanı ve olay hub'ı](event-hubs-quickstart-portal.md).
-
-Olay hub'ına ileti göndermek için, bu öğreticide Visual Studio kullanılarak bir C# konsol uygulaması yazılır.
+* [.NET Core Visual Studio 2015 veya 2017 araçları](http://www.microsoft.com/net/core). 
 
 ## <a name="create-an-event-hubs-namespace-and-an-event-hub"></a>Event Hubs ad alanı ve bir olay hub’ı oluşturma
-
-Ad alanı ve olay hub'ı oluşturmak için [bu makalede](event-hubs-quickstart-portal.md) verilen yordamı izleyin ve ardından bu öğreticiyle devam edin.
+İlk adımda [Azure portalını](https://portal.azure.com) kullanarak Event Hubs türünde bir ad alanı oluşturun, ardından uygulamanızın olay hub’ı ile iletişim kurması için gereken yönetim kimlik bilgilerini edinin. Bir ad alanı ve olay hub'ı oluşturmak için [bu makalede](event-hubs-create.md) verilen yordamı uygulayın, ardından bu öğreticide yer alan aşağıdaki adımlarla devam edin.
 
 ## <a name="create-a-console-application"></a>Konsol uygulaması oluşturma
 
@@ -54,7 +49,7 @@ Aşağıdaki adımları izleyerek [`Microsoft.Azure.EventHubs`](https://www.nuge
 1. Yeni oluşturulan projeye sağ tıklayın ve **NuGet Paketlerini Yönet**’i seçin.
 2. **Gözat** sekmesine tıklayın, "Microsoft.Azure.EventHubs" için arama yapın ve **Microsoft.Azure.EventHubs** paketini seçin. Yüklemeyi tamamlamak için **Yükle**'ye tıklayın, ardından bu iletişim kutusunu kapatın.
 
-## <a name="write-some-code-to-send-messages-to-the-event-hub"></a>Olay hub'ına ileti göndermek için bazı kodlar yazma
+## <a name="write-code-to-send-messages-to-the-event-hub"></a>Olay hub'ına ileti göndermek için kod yazma
 
 1. Aşağıdaki `using` deyimlerini Program.cs dosyasının en üstüne ekleyin:
 
@@ -199,11 +194,6 @@ Aşağıdaki adımları izleyerek [`Microsoft.Azure.EventHubs`](https://www.nuge
 Tebrikler! Bir olay hub'ına ileti gönderdiniz.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Aşağıdaki bağlantılarda Event Hubs hakkında daha fazla bilgi edinebilirsiniz:
-
-* [Event Hubs'dan olayları alma](event-hubs-dotnet-standard-getstarted-receive-eph.md)
-* [Event Hubs’a genel bakış](event-hubs-what-is-event-hubs.md)
-* [Olay Hub’ı oluşturma](event-hubs-create.md)
-* [Event Hubs ile ilgili SSS](event-hubs-faq.md)
+Bu hızlı başlangıçta .Net Standardını kullanarak bir olay hub’ına iletiler gönderdiniz. .NET Standardı kullanarak olay hub’ından olaylar almayı öğrenmek için bkz. [Olay hub’ından olaylar alma, .NET Standardı](event-hubs-dotnet-standard-getstarted-receive-eph.md).
 
 [1]: ./media/event-hubs-dotnet-standard-getstarted-send/netcoresnd.png

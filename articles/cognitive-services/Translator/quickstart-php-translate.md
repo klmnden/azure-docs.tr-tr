@@ -1,23 +1,23 @@
 ---
-title: 'Hızlı Başlangıç: Metin çevirme - Translator Metin Çevirisi, PHP'
+title: "Hızlı Başlangıç: Metin çevirme, PHP - Translator Metin Çevirisi API'si"
 titleSuffix: Azure Cognitive Services
 description: Bu hızlı başlangıçta, PHP ile Translator Metin Çevirisi API’sini kullanarak metni bir dilden diğerine çevireceksiniz.
 services: cognitive-services
-author: noellelacharite
+author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/22/2018
-ms.author: nolachar
-ms.openlocfilehash: 7b9716ba3d2ec793dc9591d5487acc4ced3276fa
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.author: erhopf
+ms.openlocfilehash: 5edecf780c1687a4abc583f3223f0245964ddf18
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46125145"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49647808"
 ---
-# <a name="quickstart-translate-text-with-php"></a>Hızlı Başlangıç: PHP ile metin çevirme
+# <a name="quickstart-translate-text-with-the-translator-text-rest-api-php"></a>Hızlı Başlangıç: Translator Metin Çevirisi REST API’si (PHP) ile metin çevirme
 
 Bu hızlı başlangıçta, Translator Metin Çevirisi API'sini kullanarak metni bir dilden diğerine çevireceksiniz.
 

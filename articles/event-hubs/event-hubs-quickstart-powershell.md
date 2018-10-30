@@ -11,23 +11,24 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 08/16/2018
 ms.author: shvija
-ms.openlocfilehash: 305776db1d3e0bacc266e514e0a59fe6b3fbd4b4
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 25c64b3ac2d051aac5998d23f07e149a1dd57bc9
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49388536"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49456244"
 ---
 # <a name="quickstart-create-an-event-hub-using-azure-powershell"></a>Hızlı başlangıç: Azure PowerShell'i kullanarak olay hub'ı oluşturma
 
-Azure Event Hubs saniyede milyonlarca olay alıp işleyebilen, ölçeklenebilirlik yüzeyi yüksek bir veri akışı platformu ve veri alma hizmetidir. Bu hızlı başlangıçta Azure PowerShell kullanarak olay hub'ı oluşturma ve .NET Standard SDK'sını kullanarak olay hub'ıyla ileti alışverişi yapma adımları gösterilmektedir.
+Azure Event Hubs saniyede milyonlarca olay alıp işleme kapasitesine sahip olan bir Büyük Veri akış platformu ve olay alma hizmetidir. Event Hubs dağıtılan yazılımlar ve cihazlar tarafından oluşturulan olayları, verileri ve telemetrileri işleyebilir ve depolayabilir. Bir olay hub’ına gönderilen veriler, herhangi bir gerçek zamanlı analiz sağlayıcısı ve işlem grubu oluşturma/depolama bağdaştırıcıları kullanılarak dönüştürülüp depolanabilir. Olay Hub’larının ayrıntılı genel bakışı için bkz. [Olay Hub’larına genel bakış](event-hubs-about.md) ve [Olay Hub’ları özellikleri](event-hubs-features.md).
 
-Bu hızlı başlangıcı tamamlamak bir Azure aboneliğinizin olması gerekir. Aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap oluşturun][].
+Bu hızlı başlangıçta Azure PowerShell'i kullanarak olay hub'ı oluşturacaksınız.
 
 ## <a name="prerequisites"></a>Ön koşullar
 
 Bu öğreticiyi tamamlamak için şunlar sahip olduğunuzdan emin olun:
 
+- Azure aboneliği. Aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap oluşturun][].
 - [Visual Studio 2017 Güncelleştirme 3 (sürüm 15.3, 26730.01)](http://www.visualstudio.com/vs) veya sonraki sürümler.
 - [.NET Standard SDK'sı](https://www.microsoft.com/net/download/windows), sürüm 2.0 veya üzeri.
 
@@ -35,9 +36,7 @@ Bu öğreticiyi tamamlamak için şunlar sahip olduğunuzdan emin olun:
 
 PowerShell'i yerel ortamda kullanıyorsanız bu hızlı başlangıcı tamamlamak için PowerShell'in en son sürümüne sahip olmanız gerekir. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure PowerShell'i Yükleme ve Yapılandırma](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-5.7.0).
 
-## <a name="provision-resources"></a>Kaynak sağlama
-
-### <a name="create-a-resource-group"></a>Kaynak grubu oluşturma
+## <a name="create-a-resource-group"></a>Kaynak grubu oluşturma
 
 Kaynak grubu, Azure kaynaklarından oluşan mantıksal bir koleksiyondur ve olay hub'ı oluşturmak için bir kaynak grubuna ihtiyacınız vardır. 
 
@@ -47,7 +46,7 @@ Aşağıdaki örnekte Doğu ABD bölgesinde bir kaynak grubu oluşturulmaktadır
 New-AzureRmResourceGroup –Name myResourceGroup –Location eastus
 ```
 
-### <a name="create-an-event-hubs-namespace"></a>Event Hubs ad alanı oluşturma
+## <a name="create-an-event-hubs-namespace"></a>Event Hubs ad alanı oluşturma
 
 Kaynak grubunuzu oluşturduktan sonra bu kaynak grubu içinde bir Event Hubs ad alanı oluşturun. Event Hubs ad alanı, içinde olay hub'ınızı oluşturabileceğiniz benzersiz bir tam etki alanı adı sağlar. `namespace_name` değerini ad alanınız için benzersiz bir adla değiştirin:
 
@@ -55,7 +54,7 @@ Kaynak grubunuzu oluşturduktan sonra bu kaynak grubu içinde bir Event Hubs ad 
 New-AzureRmEventHubNamespace -ResourceGroupName myResourceGroup -NamespaceName namespace_name -Location eastus
 ```
 
-### <a name="create-an-event-hub"></a>Olay hub’ı oluşturma
+## <a name="create-an-event-hub"></a>Olay hub’ı oluşturma
 
 Bir Event Hubs ad alanı oluşturduğunuza göre şimdi bu ad alanının içinde bir olay hub'ı oluşturabilirsiniz:
 
@@ -63,98 +62,14 @@ Bir Event Hubs ad alanı oluşturduğunuza göre şimdi bu ad alanının içinde
 New-AzureRmEventHub -ResourceGroupName myResourceGroup -NamespaceName namespace_name -EventHubName eventhub_name
 ```
 
-### <a name="create-a-storage-account-for-event-processor-host"></a>Olay İşleyicisi Ana Bilgisayarı için bir depolama hesabı oluşturma
-
-Olay İşleyicisi Ana Bilgisayarı, olay hub’larına ait denetim noktalarını ve paralel alıcıları yöneterek bu olay hub’larından olay almayı basitleştirir. Olay İşleyicisi Ana Bilgisayarı, denetim noktası için bir depolama hesabına ihtiyaç duyar. Bir depolama hesabı oluşturmak anahtarlarını almak için aşağıdaki komutları çalıştırın:
-
-```azurepowershell-interactive
-# Create a standard general purpose storage account 
-New-AzureRmStorageAccount -ResourceGroupName myResourceGroup -Name storage_account_name -Location eastus -SkuName Standard_LRS 
-e
-# Retrieve the storage account key for accessing it
-Get-AzureRmStorageAccountKey -ResourceGroupName myResourceGroup -Name storage_account_name
-```
-
-### <a name="get-the-connection-string"></a>Bağlantı dizesini alma
-
-Olay hub'ınıza bağlanmak ve olayları işlemek için bir bağlantı dizesi gerekir. Bağlantı dizenizi almak için şu komutu çalıştırın:
-
-```azurepowershell-interactive
-Get-AzureRmEventHubKey -ResourceGroupName myResourceGroup -NamespaceName namespace_name -Name RootManageSharedAccessKey
-```
-
-## <a name="stream-into-event-hubs"></a>Event Hubs'a akış sağlama
-
-Artık Event Hubs'a akış başlatabilirsiniz. Bu örnekleri [Event Hubs deposundan](https://github.com/Azure/azure-event-hubs) indirebilir veya Git üzerinden kopyalayabilirsiniz
-
-### <a name="ingest-events"></a>Olayları alma
-
-Olay akışını başlatmak için GitHub'dan [SampleSender](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleSender) dosyasını indirin veya aşağıdaki komutu kullanarak [Event Hubs GitHub deposunu](https://github.com/Azure/azure-event-hubs) kopyalayın:
-
-```bash
-git clone https://github.com/Azure/azure-event-hubs.git
-```
-
-\azure-event-hubs\samples\DotNet\Microsoft.Azure.EventHubs\SampleSender klasörüne gidin ve SampleSender.sln dosyasını Visual Studio'ya yükleyin.
-
-Ardından [Microsoft.Azure.EventHubs](https://www.nuget.org/packages/Microsoft.Azure.EventHubs/) Nuget paketini projeye ekleyin.
-
-Program.cs dosyasında aşağıdaki yer tutucuları olay hub'ınızın adı ve bağlantı dizenizle değiştirin:
-
-```C#
-private const string EhConnectionString = "Event Hubs connection string";
-private const string EhEntityPath = "Event Hub name";
-
-```
-
-Şimdi örneği derleyin ve çalıştırın. Olayların, olay hub'ınıza alındığını görebilirsiniz:
-
-![][3]
-
-### <a name="receive-and-process-events"></a>Olayları alma ve işleme
-
-Şimdi, az önce gönderdiğiniz iletileri alan Olay İşlemcisi Ana Bilgisayarı alıcı örneğini indirin. GitHub'dan [SampleEphReceiver](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleEphReceiver) dosyasını indirin veya aşağıdaki komutu kullanarak [Event Hubs GitHub deposunu](https://github.com/Azure/azure-event-hubs) kopyalayın:
-
-```bash
-git clone https://github.com/Azure/azure-event-hubs.git
-```
-
-\azure-event-hubs\samples\DotNet\Microsoft.Azure.EventHubs\SampleEphReceiver klasörüne gidin ve SampleEphReceiver.sln dosyasını Visual Studio'ya yükleyin.
-
-Ardından [Microsoft.Azure.EventHubs](https://www.nuget.org/packages/Microsoft.Azure.EventHubs/) ve [Microsoft.Azure.EventHubs.Processor](https://www.nuget.org/packages/Microsoft.Azure.EventHubs.Processor/) Nuget paketlerini projenize ekleyin.
-
-Program.cs dosyasında aşağıdaki sabitleri ilgili değerlerle değiştirin:
-
-```C#
-private const string EventHubConnectionString = "Event Hubs connection string";
-private const string EventHubName = "Event Hub name";
-private const string StorageContainerName = "Storage account container name";
-private const string StorageAccountName = "Storage account name";
-private const string StorageAccountKey = "Storage account key";
-```
-
-Şimdi örneği derleyin ve çalıştırın. Olayların örnek uygulamanıza geldiğini görebilirsiniz:
-
-![][4]
-
-Azure portalda belirli bir Event Hubs ad alanı için olayların işleme hızını aşağıdaki şekilde görüntüleyebilirsiniz:
-
-![][5]
-
-## <a name="clean-up-resources"></a>Kaynakları temizleme
-
-Bu hızlı başlangıcı tamamladıktan sonra kaynak grubunuzu ve içindeki ad alanını, depolama hesabını ve olay hub'ını silebilirsiniz. `myResourceGroup` değerini oluşturduğunuz kaynak grubunun adıyla değiştirin. 
-
-```azurepowershell-interactive
-Remove-AzureRmResourceGroup -Name myResourceGroup
-```
+Tebrikler! Azure PowerShell’i kullanarak bir Event Hubs ad alanı ve bu ad alanının içinde bir olay hub'ı oluşturdunuz. 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu makalede, Event Hubs ad alanını ve olay hub'ınızdan olay gönderip almak için gereken diğer kaynakları oluşturdunuz. Daha fazla bilgi edinmek için aşağıdaki öğreticiyle devam edin:
+Bu makalede, Event Hubs ad alanını oluşturdunuz ve olay hub'ınızdan olay gönderip almak için örnek uygulamaları kullandınız. Bir olay hub'ına olay gönderip almaya yönelik adım adım yönergeler için aşağıdaki öğreticilere bakın: 
 
-> [!div class="nextstepaction"]
-> [Event Hubs veri akışları üzerindeki veri anormalliklerini görselleştirme](event-hubs-tutorial-visualize-anomalies.md)
+- **Olay hub'ına olay gönderme**: [.NET Standard](event-hubs-dotnet-standard-getstarted-send.md), [.NET Framework](event-hubs-dotnet-framework-getstarted-send.md), [Java](event-hubs-java-get-started-send.md), [Python](event-hubs-python-get-started-send.md), [Node.js ](event-hubs-node-get-started-send.md), [Go](event-hubs-go-get-started-send.md), [C](event-hubs-c-getstarted-send.md)
+- **Olay hub'ından olay alma**: [.NET Standard](event-hubs-dotnet-standard-getstarted-receive-eph.md), [.NET Framework](event-hubs-dotnet-framework-getstarted-receive-eph.md), [Java](event-hubs-java-get-started-receive-eph.md), [Python](event-hubs-python-get-started-receive.md), [Node.js ](event-hubs-node-get-started-receive.md), [Go](event-hubs-go-get-started-receive-eph.md), [Apache Storm](event-hubs-storm-getstarted-receive.md)
 
 [ücretsiz bir hesap oluşturun]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
 [Install and Configure Azure PowerShell]: https://docs.microsoft.com/powershell/azure/install-azurerm-ps

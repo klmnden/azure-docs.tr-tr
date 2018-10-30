@@ -12,12 +12,12 @@ ms.service: azure-functions
 ms.custom: mvc
 ms.devlang: azure-cli
 manager: jeconnoc
-ms.openlocfilehash: ef5459b2b31b67afe187612ffc1ab079a5045a8c
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: 07a079e00963f1f5aff96369649e2e4fb248aae0
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49114919"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49986007"
 ---
 # <a name="create-your-first-function-from-the-command-line"></a>Komut satırından ilk işlevinizi oluşturma
 
@@ -45,7 +45,7 @@ Geçerli yerel dizinin `MyFunctionProj` klasöründe bir işlev uygulaması proj
 func init MyFunctionProj
 ```
 
-İstendiğinde, aşağıdaki dil seçimlerinden bir worker çalışma zamanı seçmek için ok tuşlarını kullanın:
+İstendiğinde, aşağıdaki dil seçimlerinden bir worker çalışma zamanı seçin:
 
 + `dotnet`: yeni bir .NET Core sınıf kitaplığı projesi (.csproj) oluşturur.
 + `node`: bir JavaScript projesi oluşturur.
@@ -59,110 +59,17 @@ Writing local.settings.json
 Initialized empty Git repository in C:/functions/MyFunctionProj/.git/
 ```
 
-## <a name="create-a-function"></a>İşlev oluşturma
-
-Aşağıdaki komut yeni projeye gider ve HTTP ile tetiklenen `MyHtpTrigger` adlı bir işlev oluşturur.
+Yeni `MyFunctionProj` proje klasörüne gitmek için aşağıdaki komutu kullanın.
 
 ```bash
 cd MyFunctionProj
-func new --name MyHttpTrigger --template "HttpTrigger"
 ```
 
-Komut yürütüldüğünde, aşağıdaki çıktıya benzer, JavaScript işlevi olan bir şey görürsünüz:
+[!INCLUDE [functions-create-function-core-tools](../../includes/functions-create-function-core-tools.md)]
 
-```output
-Writing C:\functions\MyFunctionProj\MyHttpTrigger\index.js
-Writing C:\functions\MyFunctionProj\MyHttpTrigger\sample.dat
-Writing C:\functions\MyFunctionProj\MyHttpTrigger\function.json
-```
+[!INCLUDE [functions-update-function-code](../../includes/functions-update-function-code.md)]
 
-## <a name="edit-the-function"></a>İşlevi düzenle
-
-Varsayılan olarak şablon, istekte bulunurken bir işlev anahtarı gerektiren bir işlev oluşturur. Azure’da işlevi test etmeyi kolaylaştırmak üzere, işlevi anonim erişime izin vermek için güncelleştirmeniz gerekir. Bu değişikliği yapmanızın yolu işlev projenizin diline bağlıdır.
-
-### <a name="c"></a>C\#
-
-Yeni işleviniz olan MyHttpTrigger.cs kod dosyasını açın ve işlev tanımındaki **AuthorizationLevel** özniteliğini `anonymous` değerine güncelleştirin ve değişikliklerinizi kaydedin.
-
-```csharp
-[FunctionName("MyHttpTrigger")]
-        public static IActionResult Run([HttpTrigger(AuthorizationLevel.Anonymous, 
-            "get", "post", Route = null)]HttpRequest req, ILogger log)
-```
-
-### <a name="javascript"></a>JavaScript
-
-Yeni işlevinizin function.json dosyasını açın, dosyayı bir metin düzenleyicide açın, **bindings.httpTrigger**’daki **authLevel** özelliğini `anonymous`’e güncelleştirin ve değişikliklerinizi kaydedin.
-
-```json
-  "bindings": [
-    {
-      "authLevel": "anonymous",
-      "type": "httpTrigger",
-      "direction": "in",
-      "name": "req",
-      "methods": [
-        "get",
-        "post"
-      ]
-    },
-    {
-      "type": "http",
-      "direction": "out",
-      "name": "$return"
-    }
-  ]
-```
-
-Artık işlev anahtarını sağlamanıza gerek kalmadan işlevi Azure’da çağırabilirsiniz. İşlevi anahtarı, yerel olarak çalıştırılırken hiçbir zaman gerekli değildir.
-
-## <a name="run-the-function-locally"></a>İşlevi yerel olarak çalıştırma
-
-Aşağıdaki komut işlev uygulamasını başlatır. Uygulama, Azure’daki Azure İşlevleri çalışma zamanını kullanarak çalışır.
-
-```bash
-func host start --build
-```
-
-C# projeleri derlemek için `--build` seçeneği gereklidir. Bu JavaScript projesi seçeneğine ihtiyacınız yoktur.
-
-İşlevler ana bilgisayarı başlatıldığında, kolay okunması için kırpılmış olan aşağıdaki çıktıya benzer bir şey yazar:
-
-```output
-
-                  %%%%%%
-                 %%%%%%
-            @   %%%%%%    @
-          @@   %%%%%%      @@
-       @@@    %%%%%%%%%%%    @@@
-     @@      %%%%%%%%%%        @@
-       @@         %%%%       @@
-         @@      %%%       @@
-           @@    %%      @@
-                %%
-                %
-
-...
-
-Content root path: C:\functions\MyFunctionProj
-Now listening on: http://0.0.0.0:7071
-Application started. Press Ctrl+C to shut down.
-
-...
-
-Http Functions:
-
-        HttpTrigger: http://localhost:7071/api/HttpTrigger
-
-[8/27/2018 10:38:27 PM] Host started (29486ms)
-[8/27/2018 10:38:27 PM] Job host started
-```
-
-Çalışma zamanı çıktısından `HTTPTrigger` işlevinizin URL’sini kopyalayın ve tarayıcınızın adres çubuğuna yapıştırın. `?name=<yourname>` sorgu dizesini bu URL’ye ekleyip isteği yürütün. Yerel işlevin döndürdüğü GET isteğine tarayıcıda verilen yanıt aşağıda gösterilmiştir:
-
-![Tarayıcıda yerel olarak test etme](./media/functions-create-first-azure-function-azure-cli/functions-test-local-browser.png)
-
-İşlevinizi yerel olarak çalıştırdığınıza göre, işlev uygulamasını ve gerekli diğer kaynakları Azure’da oluşturabilirsiniz.
+[!INCLUDE [functions-run-function-test-local](../../includes/functions-run-function-test-local.md)]
 
 [!INCLUDE [functions-create-resource-group](../../includes/functions-create-resource-group.md)]
 

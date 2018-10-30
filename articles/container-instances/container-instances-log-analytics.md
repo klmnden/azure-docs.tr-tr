@@ -7,12 +7,12 @@ ms.service: container-instances
 ms.topic: overview
 ms.date: 07/17/2018
 ms.author: danlep
-ms.openlocfilehash: 62457fe5b0336cb6ae6ac4fc63f4884ed14cf9d3
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: dc6aab03ec3e0ec47026c7d435ea538612c7bffb
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48856046"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49405608"
 ---
 # <a name="container-instance-logging-with-azure-log-analytics"></a>Azure Log Analytics ile kapsayıcı örneği
 
@@ -100,7 +100,7 @@ Komutu verdikten kısa bir süre sonra, Azure’dan dağıtım ayrıntılarını
 
 Kapsayıcı grubunu dağıttıktan sonra, ilk günlük girdilerinin Azure portalında görünmesi birkaç dakika (en fazla 10) alabilir. Kapsayıcı grubunun günlüklerini görüntülemek için, Log Analytics çalışma alanını açın ve şunları yapın:
 
-1. **OMS Çalışma Alanı** genel bakışında, **Günlük Araması**’nı seçin
+1. **OMS çalışma alanı** genel bakışında, **Günlük Araması**’nı seçin. OMS çalışma alanları artık Log Analytics çalışma alanları olarak adlandırılır.  
 1. **Deneyebileceğiniz diğer sorgular** altında, **Toplanan tüm veriler** bağlantısını seçin
 
 `search *` sorgusu tarafından görüntülenen birkaç sonuç görmeniz gerekir. İlk başta herhangi bir sonuç göremezseniz, birkaç dakika bekleyin ve sorguyu tekrar yürütmek için **ÇALIŞTIR**’ı seçin. Varsayılan olarak, günlük girişleri "Liste" görünümünde gösterilir--günlük girişlerini daraltılmış bir biçimde görmek için **Tablo** seçeneğini belirleyin. Daha sonra ayrı bir günlük girdisinin içeriğini görmek için bir satırı genişletebilirsiniz.

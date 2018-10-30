@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/18/2018
 ms.author: ryanwi
-ms.openlocfilehash: 7573746b91f057d83a299d54801785118cc1c878
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: 36b9a2e710a2a7f34ee9374e89f3fb19cc591ac3
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44380140"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49429601"
 ---
 # <a name="tutorial-deploy-a-net-application-in-a-windows-container-to-azure-service-fabric"></a>Öğretici: Azure Service Fabric’e Windows kapsayıcısındaki bir .NET uygulamasını dağıtma
 
@@ -61,7 +61,9 @@ Artık kapsayıcı, Service Fabric uygulamasında oluşturulup paketlenmeye haz�
 ## <a name="create-an-azure-sql-db"></a>Azure SQL Veritabanı oluşturma
 Fabrikam Fiber CallCenter uygulamasını üretim ortamında çalıştırırken, verilerin bir veritabanında kalıcı olarak bulunması gerekir. Şu anda kapsayıcıdaki verilerin kalıcı olmasını garanti altına alan bir yöntem olmadığından üretim verileriniz, kapsayıcıdaki bir SQL Server’da depolanamaz.
 
-[Azure SQL Veritabanı](/azure/sql-database/sql-database-get-started-powershell)'nı öneririz. Azure'da yönetilen SQL Server Veritabanı ayarlamak ve çalıştırmak için aşağıdaki betiği çalıştırın.  Betik değişkenlerinde gerekli değişiklikleri yapın. *clientIP*, geliştirme bilgisayarınızın IP adresidir.  Bir şirket güvenlik duvarının arkasındaysanız, geliştirme bilgisayarınızın IP adresi İnternet'e gösterilen IP adresi olmayabilir.  Ayrıca, bilgisayarının IP adreslerini listeleyen [Azure portalı](https://portal.azure.com) aracılığıyla SQL veritabanı için sunucu güvenlik duvarı kuralı ayarlayabilirsiniz.
+[Azure SQL Veritabanı](/azure/sql-database/sql-database-get-started-powershell)'nı öneririz. Azure'da yönetilen SQL Server Veritabanı ayarlamak ve çalıştırmak için aşağıdaki betiği çalıştırın.  Betik değişkenlerinde gerekli değişiklikleri yapın. *clientIP*, geliştirme bilgisayarınızın IP adresidir.
+
+Bir şirket güvenlik duvarının arkasındaysanız, geliştirme bilgisayarınızın IP adresi İnternet'e gösterilen IP adresi olmayabilir. Veritabanının güvenlik duvarı kuralı için doğru IP adresine sahip olduğunun doğrulamak için [Azure portal](https://portal.azure.com)’a gidin ve SQL Veritabanları bölümünde veritabanınızı bulun. Adına tıklayın ve sonra Genel Bakış bölümünde “Sunucu güvenlik duvarını ayarla”ya tıklayın. "İstemci IP adresi", geliştirme makinenizin IP adresidir. "AllowClient" kuralındaki IP adresiyle eşleştiğinden emin olun.
 
 ```powershell
 $subscriptionID="<subscription ID>"

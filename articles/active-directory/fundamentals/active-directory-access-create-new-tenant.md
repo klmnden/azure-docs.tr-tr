@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 09/10/2018
 ms.author: lizross
 custom: it-pro
-ms.openlocfilehash: 8ef68c8afcf61a1a11c341a679443071aece9812
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: eacb2e7c52adae9de0b74c3dade59446cc8459ed
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46363013"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50023566"
 ---
 # <a name="quickstart-access-azure-active-directory-to-create-a-new-tenant"></a>Hızlı Başlangıç: Yeni bir kiracı oluşturmak için Azure Active Directory’ye erişme
 Kuruluşunuz için yeni bir kiracı oluşturulması da dahil olmak üzere, Azure Active Directory (Azure AD) portalı kullanarak tüm yönetim görevlerinizi gerçekleştirebilirsiniz. 
@@ -24,13 +24,6 @@ Kuruluşunuz için yeni bir kiracı oluşturulması da dahil olmak üzere, Azure
 Bu hızlı başlangıçta, Azure portala ve Azure Active Directory’ye nasıl erişeceğinizi ve kuruluşunuz için temel bir kiracının nasıl oluşturulacağını öğreneceksiniz.
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/) oluşturun.
-
-## <a name="prerequisites"></a>Ön koşullar
-Başlamadan önce şunları gerçekleştirmeniz gerekir:
-
-- Kuruluşunuzun geçerli bir Azure AD lisansının olduğundan emin olun.
-
-- Genel yönetici olduğunuzdan emin olun.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Azure portalında oturum açın
 Genel yönetici hesabını kullanarak kuruluşunuzun [Azure portalda](https://portal.azure.com/) oturum açın.
@@ -76,3 +69,5 @@ Bu uygulamayı kullanmaya devam etmeyecekseniz aşağıdaki adımları kullanara
 - Gruplar ve üyeler ekleme; bkz. [Temel bir grup oluşturma ve üyeler ekleme](active-directory-groups-create-azure-portal.md)
 
 - Kuruluşunuzun uygulama ve kaynak erişimini yönetmenize yardımcı olması için [Privileged Identity Management kullanarak rol tabanlı erişim](../../role-based-access-control/pim-azure-resource.md) ve [Koşullu erişim](../../role-based-access-control/conditional-access-azure-management.md) hakkında bilgi edinin.
+
+- [Temel lisans bilgileri, terminoloji ve ilişkili özellikleri](active-directory-whatis.md) dahil olmak üzere Azure AD hakkında bilgi edinin.

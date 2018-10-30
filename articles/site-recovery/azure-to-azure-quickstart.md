@@ -6,15 +6,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: quickstart
-ms.date: 10/10/2018
+ms.date: 10/19/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: e10b5271caef5530c94cca73b3e2e1d435080676
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: 623c45cbc82139090d893b8501c7d363c4443d67
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49066930"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49456206"
 ---
 # <a name="replicate-an-azure-vm-to-another-azure-region"></a>Bir Azure VM’yi başka bir Azure bölgesine çoğaltma
 
@@ -24,7 +24,8 @@ Bu hızlı başlangıç, bir Azure VM’nin farklı bir Azure bölgesine nasıl 
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 
-
+> [!NOTE]
+> Bu makale, yeni kullanıcıları Azure Site Recovery deneyimleri boyunca varsayılan seçenekler ve minimum özelleştirme ile yönlendirmeyi amaçlamaktadır. Özelleştirilebilen çeşitli ayarlar hakkında daha fazla bilgi almak istiyorsanız [Azure VM’leri için çoğaltmayı etkinleştirme öğreticisi](azure-to-azure-tutorial-enable-replication.md)’ne danışın
 
 ## <a name="log-in-to-azure"></a>Azure'da oturum açma
 
@@ -33,15 +34,12 @@ http://portal.azure.com adresinden Azure portalında oturum açın.
 ## <a name="enable-replication-for-the-azure-vm"></a>Azure VM için çoğaltmayı etkinleştirme
 
 1. Azure portalında, **Sanal makineler** seçeneğine tıklayın ve çoğaltmak istediğiniz VM’yi seçin.
-
 2. **İşlemler** menüsünde **Olağanüstü durum kurtarma** seçeneğine tıklayın.
 3. **Olağanüstü durumdan kurtarma yapılandırma** > **Hedef bölge** bölümünde, çoğaltma yapacağınız hedef bölgeyi seçin.
 4. Bu Hızlı Başlangıç için, diğer varsayılan ayarları kabul edin.
 5. **Çoğaltmayı etkinleştir**’e tıklayın. Bu, sanal makineye yönelik çoğaltmayı etkinleştirmek için bir iş başlatır.
 
     ![çoğaltmayı etkinleştir](media/azure-to-azure-quickstart/enable-replication1.png)
-
-
 
 ## <a name="verify-settings"></a>Ayarları doğrulama
 
@@ -68,7 +66,7 @@ http://portal.azure.com adresinden Azure portalında oturum açın.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu hızlı başlangıçta, tek bir VM’yi ikincil bir bölgeye çoğalttınız.
+Bu hızlı başlangıçta, tek bir VM’yi ikincil bir bölgeye çoğalttınız. Şimdi daha fazla seçeneği keşfedebilir ve bir keşif planı kullanarak bir dizi Azure VM’sini çoğaltmayı deneyebilirsiniz.
 
 > [!div class="nextstepaction"]
 > [Azure VM’leri için olağanüstü durum kurtarmayı yapılandır](azure-to-azure-tutorial-enable-replication.md)
