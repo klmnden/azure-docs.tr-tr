@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: fc4b2f153c89d4253bc3fdd9c5a49973baa38752
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.openlocfilehash: 79a6636043499cffb7eded409cdc27c56de98e33
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49310224"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49430230"
 ---
 # <a name="tutorial-azure-ad-password-reset-from-the-login-screen"></a>Öğretici: Oturum açma ekranından Azure AD parola sıfırlama
 
@@ -118,6 +118,8 @@ Windows kilit ekranı kayıt defteri anahtarı veya grup ilkesi ile devre dış�
 Azure AD denetim günlüğü parola sıfırlamanın oluştuğu yerin IP adresi ve ClientType'ı hakkında bilgi içerir.
 
 ![Azure AD denetim günlüğünde oturum açma ekranı parola sıfırlaması örneği](media/tutorial-sspr-windows/windows-sspr-azure-ad-audit-log.png)
+
+Windows 10 makinelerinizi bir ara sunucu veya güvenlik duvarı arkasında ise, passwordreset.microsoftonline.com ve ajax.aspnetcdn.com adreslerine yönelik HTTPS trafiğine (443) izin verilmelidir.
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 

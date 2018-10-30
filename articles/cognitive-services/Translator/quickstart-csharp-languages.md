@@ -1,23 +1,23 @@
 ---
-title: 'Hızlı Başlangıç: Desteklenen dilleri alma - Translator Metin Çevirisi API’si, C#'
+title: 'Hızlı Başlangıç: Desteklenen dilleri alma, C# - Translator Metin Çevirisi API’si'
 titleSuffix: Azure Cognitive Services
 description: Bu hızlı başlangıçta, C# ile Translator Metin Çevirisi API’sini kullanarak çeviri, başka alfabeye çevirme ve sözlük arama için desteklenen dillerin ve örneklerin bir listesini alacaksınız.
 services: cognitive-services
-author: noellelacharite
+author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/15/2018
-ms.author: nolachar
-ms.openlocfilehash: 82e051895bd5ba8542fa32aa147b050a25c43c84
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.author: erhopf
+ms.openlocfilehash: 9ac881adcf7d273c9a3bcea55d084acced59c107
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49318410"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49645414"
 ---
-# <a name="quickstart-get-supported-languages-with-c35"></a>Hızlı Başlangıç: C# ile desteklenen dilleri alma
+# <a name="quickstart-get-supported-languages-with-the-translator-text-rest-api-c"></a>Hızlı Başlangıç: Translator Metin Çevirisi REST API'si (C#) ile desteklenen dilleri alma
 
 Bu hızlı başlangıçta, Translator Metin Çevirisi API’sini kullanarak çeviri, başka alfabeye çevirme ve sözlük arama için desteklenen dillerin ve örneklerin bir listesini alacaksınız.
 

@@ -1,25 +1,31 @@
 ---
-title: 'Hızlı Başlangıç: Java bilgi bankası güncelleştirme - Soru-Cevap Oluşturucu'
+title: 'Hızlı başlangıç: Bilgi bankası güncelleştirme - REST, Java - Soru-Cevap Oluşturma'
 titleSuffix: Azure Cognitive Services
-description: Java'da Soru-Cevap Oluşturma için bilgi bankası nasıl güncelleştirilir?
+description: Bu REST tabanlı hızlı başlangıçta program aracılığıyla örnek bir Soru-Cevap Oluşturma bilgi bankası (KB) güncelleştirme adımları gösterilmektedir. KB güncelleştirme amacıyla kullandığınız JSON tanımı soru-cevap çiftlerinde ekleme, silme ve değiştirme işlemlerini gerçekleştirmenizi sağlar.
 services: cognitive-services
 author: diberry
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: quickstart
-ms.date: 09/12/2018
+ms.date: 10/19/2018
 ms.author: diberry
-ms.openlocfilehash: fc2792086d93e584535389c8c0f162fc1e592cbd
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: b7aaf57def84feec95cc6a157ac6dd33a17b2fc0
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49388254"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49645864"
 ---
-# <a name="update-a-knowledge-base-in-java"></a>Java'da bilgi bankası güncelleştirme
+# <a name="quickstart-update-a-knowledge-base-in-qna-maker-using-java"></a>Hızlı başlangıç: Java kullanarak Soru-Cevap Oluşturma’da bilgi bankası güncelleştirme
 
-Aşağıdaki kod, [Güncelleştirme](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da7600) yöntemini kullanarak mevcut bir bilgi bankasını güncelleştirir.
+Bu hızlı başlangıçta var olan bir Soru-Cevap Oluşturma bilgi bankasını (KB) program aracılığıyla güncelleştirme adımları gösterilmektedir.  Bu JSON kodu yeni veri kaynağı ekleyerek, veri kaynaklarını değiştirerek veya veri kaynaklarını silerek bir KB'yi güncelleştirmenizi sağlar.
+
+Bu API Soru-Cevap Oluşturma portalında düzenleme yapıp **Kaydet ve eğit** düğmesini kullanmakla eşdeğerdir.
+
+Bu hızlı başlangıç şu Soru-Cevap Oluşturma API'lerini çağırır:
+* [Update](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da7600): JSON ile tanımlanan bilgi bankası modeli API isteğinin gövdesinde gönderilir. 
+* [İşlem Ayrıntılarını Alma](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/operations_getoperationdetails)
 
 [!INCLUDE [Code is available in Azure-Samples Github repo](../../../../includes/cognitive-services-qnamaker-java-repo-note.md)]
 

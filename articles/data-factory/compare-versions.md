@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 04/09/2018
 ms.author: makromer
-ms.openlocfilehash: ca00a414402c1cfdef55cfbde9291688f091bf77
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: aecb193d1d9a10dbb5c936401f9900c4b2be071f
+ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43095928"
+ms.lasthandoff: 10/22/2018
+ms.locfileid: "49638254"
 ---
 # <a name="compare-azure-data-factory-with-data-factory-version-1"></a>Azure Data Factory ile Data Factory sürüm 1'in karşılaştırılması
 Bu makale Data Factory ile Data Factory sürüm 1’i karşılaştırır. Data Factory hakkında giriş bilgileri için bkz. [Data Factory'ye giriş](introduction.md).Data Factory sürüm 1 hakkında giriş bilgileri için bkz. [Azure Data Factory'ye Giriş](v1/data-factory-introduction.md). 
@@ -62,7 +62,7 @@ Durum da dahil olmak üzere etkinlik çıktıları, işlem hattının sonraki bi
 [Until](control-flow-until-activity.md) etkinliği, programlama dillerindeki do-until döngü yapısıyla aynı işlevselliği sağlar. Etkinlikle ilişkilendirilmiş olan koşul `true` sonucunu verene kadar bir dizi etkinliği döngüsel olarak çalıştırır. Data Factory'de bitiş etkinliği için bir zaman aşımı değeri belirtebilirsiniz.  
 
 ### <a name="trigger-based-flows"></a>Tetikleyici temelli akışlar
-İşlem hatları talep üzerine veya duvar saati zamanlamasına göre tetiklenebilir. [İşlem hatları ve tetikleyiciler](concepts-pipeline-execution-triggers.md) makalesi, tetikleyiciler hakkında ayrıntılı bilgiler sunar. 
+İşlem hatları talep üzerine (blob gönderisi gibi olay tabanlı) veya duvar saati zamanına göre tetiklenebilir. [İşlem hatları ve tetikleyiciler](concepts-pipeline-execution-triggers.md) makalesi, tetikleyiciler hakkında ayrıntılı bilgiler sunar. 
 
 ### <a name="invoking-a-pipeline-from-another-pipeline"></a>Bir işlem hattını başka bir işlem hattından çağırma
 [İşlem Hattı Yürütme etkinliği](control-flow-execute-pipeline-activity.md) bir Data Factory işlem hattının başka bir işlem hattını çağırmasını sağlar.

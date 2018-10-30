@@ -1,25 +1,31 @@
 ---
-title: 'Hızlı Başlangıç: Go bilgi bankası güncelleştirme - Soru-Cevap Oluşturucu'
+title: 'Hızlı başlangıç: Bilgi bankası güncelleştirme - REST, Go - Soru-Cevap Oluşturma'
 titleSuffix: Azure Cognitive Services
-description: Go’da Soru-Cevap Oluşturma için bilgi bankası nasıl güncelleştirilir?
+description: Bu REST tabanlı hızlı başlangıçta program aracılığıyla örnek bir Soru-Cevap Oluşturma bilgi bankası (KB) güncelleştirme adımları gösterilmektedir. KB güncelleştirme amacıyla kullandığınız JSON tanımı soru-cevap çiftlerinde ekleme, silme ve değiştirme işlemlerini gerçekleştirmenizi sağlar.
 services: cognitive-services
 author: diberry
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: quickstart
-ms.date: 09/12/2018
+ms.date: 10/19/2018
 ms.author: diberry
-ms.openlocfilehash: b447b77eb1fdd9135f7d15a791414d166194b2dd
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 5275184994dce446a7ca572a049f3860c4782139
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49389318"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49646890"
 ---
-# <a name="update-a-knowledge-base"></a>Bilgi bankası güncelleştirme
+# <a name="quickstart-update-a-knowledge-base-in-qna-maker-using-go"></a>Hızlı başlangıç: Go kullanarak Soru-Cevap Oluşturma’da bilgi bankası güncelleştirme
 
-Aşağıdaki kod, [Güncelleştirme](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da7600) yöntemini kullanarak mevcut bir bilgi bankasını güncelleştirir.
+Bu hızlı başlangıçta var olan bir Soru-Cevap Oluşturma bilgi bankasını (KB) program aracılığıyla güncelleştirme adımları gösterilmektedir.  Bu JSON kodu yeni veri kaynağı ekleyerek, veri kaynaklarını değiştirerek veya veri kaynaklarını silerek bir KB'yi güncelleştirmenizi sağlar.
+
+Bu API Soru-Cevap Oluşturma portalında düzenleme yapıp **Kaydet ve eğit** düğmesini kullanmakla eşdeğerdir.
+
+Bu hızlı başlangıç şu Soru-Cevap Oluşturma API'lerini çağırır:
+* [Update](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da7600): JSON ile tanımlanan bilgi bankası modeli API isteğinin gövdesinde gönderilir. 
+* [İşlem Ayrıntılarını Alma](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/operations_getoperationdetails)
 
 1. Sık kullandığınız IDE'de yeni bir Go projesi oluşturun.
 2. Aşağıda sağlanan kodu ekleyin.
@@ -191,7 +197,7 @@ Press any key to continue.
 
 ## <a name="get-request-status"></a>İstek alma durumu
 
-Bilgi bankası oluşturma veya güncelleştirme isteğinin durumunu denetlemek için [İşlem](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/operations_getoperationdetails) yöntemini çağırabilirsiniz. Bu yöntemin nasıl kullanıldığını görmek için lütfen [Oluşturma](#Create) veya [Güncelleştirme](#Update) yönteminin örnek koduna bakın.
+Bilgi bankası oluşturma veya güncelleştirme isteğinin durumunu denetlemek için [İşlem](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/operations_getoperationdetails) yöntemini çağırabilirsiniz. Bu yöntemin nasıl kullanıldığını görmek için lütfen [Oluşturma](create-new-kb-go.md) hızlı başlangıcının örnek koduna bakın.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

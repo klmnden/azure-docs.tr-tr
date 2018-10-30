@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 10/10/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 46291fe425e5d0fd1c142960a250c5601bd8ad29
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 3a2edb898c8053627684818d7fe257fe3402df5f
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49078013"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49645482"
 ---
 # <a name="tutorial-integrate-azure-key-vault-in-resource-manager-template-deployment"></a>Öğretici: Azure Key Vault'u Resource Manager şablonu dağıtımıyla tümleştirme
 
@@ -154,7 +154,7 @@ Azure Hızlı Başlangıç Şablonları, Resource Manager şablonları için bir
 3. Şu değerleri verin:
 
     * **adminUsername**: Sanal makine yönetici hesabının adı.
-    * **dnsLabelPrefix**: dnsLablePrefix adı.
+    * **dnsLabelPrefix**: dnsLablePrefix’i adlandırın.
 4. Değişiklikleri kaydedin.
 
 ## <a name="deploy-the-template"></a>Şablonu dağıtma

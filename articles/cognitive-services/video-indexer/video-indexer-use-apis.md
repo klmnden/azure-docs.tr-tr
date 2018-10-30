@@ -1,5 +1,5 @@
 ---
-title: "Öğretici: Video Indexer API'sini kullanma"
+title: Video Indexer API'sini kullanma
 titlesuffix: Azure Cognitive Services
 description: Bu makalede, Video Indexer API'sini kullanmaya nasıl başlayacağınız gösterilmektedir.
 services: cognitive services
@@ -8,16 +8,16 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: video-indexer
 ms.topic: tutorial
-ms.date: 09/09/2018
+ms.date: 10/20/2018
 ms.author: juliako
-ms.openlocfilehash: 7bd7ed1b2d2f437ef57598c42ca12ce8bfb174a1
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 401811ec8803f3ede5a829dc96edc1e7f15e5ee0
+ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45985573"
+ms.lasthandoff: 10/22/2018
+ms.locfileid: "49637756"
 ---
-# <a name="tutorial-use-the-video-indexer-api"></a>Öğretici: Video Indexer API'sini kullanma
+# <a name="use-the-video-indexer-api"></a>Video Indexer API'sini kullanma
 
 > [!Note]
 > Video Indexer V1 API, 1 Ağustos 2018'de kullanım dışı bırakıldı. Artık, Video Indexer v2 API kullanılmalıdır. <br/>Video Indexer v2 API'leri ile geliştirme çalışmaları yapmak için [buradaki](https://api-portal.videoindexer.ai/) yönergelere bakın. 
@@ -51,6 +51,9 @@ Bu makalede geliştiricilerin [Video Indexer API’sinden](https://api-portal.vi
     Abone olduktan sonra aboneliğinizi, birincil ve ikincil anahtarlarınızı görebilirsiniz. Anahtarlar korunmalıdır. Anahtarlar yalnızca sunucu kodunuz tarafından kullanılmalıdır. Bu anahtarlar istemci tarafında (.js, .html vb.) mevcut olmamalıdır.
 
     ![Kaydolma](./media/video-indexer-use-apis/video-indexer-api03.png)
+
+> [!TIP]
+> Video Indexer kullanıcısı, tek bir abonelik anahtarını kullanarak birden çok Video Indexer hesabına bağlanabilir. Daha sonra bu Video Indexer hesaplarını farklı Media Services hesaplarına bağlayabilirsiniz.
 
 ## <a name="obtain-access-token-using-the-authorization-api"></a>Yetkilendirme API'sini kullanarak erişim belirtecini alma
 

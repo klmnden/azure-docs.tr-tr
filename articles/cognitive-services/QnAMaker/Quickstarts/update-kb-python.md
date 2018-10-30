@@ -1,24 +1,30 @@
 ---
-title: 'Hızlı Başlangıç: Python Bilgi bankası güncelleştirme - Soru-Cevap Oluşturucu'
-description: Python’da Soru-Cevap Oluşturma için bilgi bankası nasıl güncelleştirilir?
+title: 'Hızlı başlangıç: Bilgi bankası güncelleştirme - REST, Python - Soru-Cevap Oluşturma'
+description: Bu REST tabanlı hızlı başlangıçta program aracılığıyla örnek bir Soru-Cevap Oluşturma bilgi bankası (KB) güncelleştirme adımları gösterilmektedir. KB güncelleştirme amacıyla kullandığınız JSON tanımı soru-cevap çiftlerinde ekleme, silme ve değiştirme işlemlerini gerçekleştirmenizi sağlar.
 services: cognitive-services
 author: diberry
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: quickstart
-ms.date: 09/12/2018
+ms.date: 10/19/2018
 ms.author: diberry
-ms.openlocfilehash: d58e12df30ab1b45e460cf8a4ea098d350164ec3
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 35ef0222de6093e7bae3b41377db2ea3fd3c3d75
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47031943"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49645923"
 ---
-# <a name="update-a-knowledge-base-in-python"></a>Python’da bilgi bankası güncelleştirme
+# <a name="quickstart-update-a-knowledge-base-in-qna-maker-using-python"></a>Hızlı başlangıç: Python kullanarak Soru-Cevap Oluşturma’da bilgi bankası güncelleştirme
 
-Aşağıdaki kod, [Güncelleştirme](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da7600) yöntemini kullanarak mevcut bir bilgi bankasını güncelleştirir.
+Bu hızlı başlangıçta var olan bir Soru-Cevap Oluşturma bilgi bankasını (KB) program aracılığıyla güncelleştirme adımları gösterilmektedir.  Bu JSON kodu yeni veri kaynağı ekleyerek, veri kaynaklarını değiştirerek veya veri kaynaklarını silerek bir KB'yi güncelleştirmenizi sağlar.
+
+Bu API Soru-Cevap Oluşturma portalında düzenleme yapıp **Kaydet ve eğit** düğmesini kullanmakla eşdeğerdir.
+
+Bu hızlı başlangıç şu Soru-Cevap Oluşturma API'lerini çağırır:
+* [Update](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da7600): JSON ile tanımlanan bilgi bankası modeli API isteğinin gövdesinde gönderilir. 
+* [İşlem Ayrıntılarını Alma](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/operations_getoperationdetails)
 
 [!INCLUDE [Code is available in Azure-Samples Github repo](../../../../includes/cognitive-services-qnamaker-python-repo-note.md)]
 

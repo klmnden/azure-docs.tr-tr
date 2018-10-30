@@ -10,12 +10,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 08/01/2018
 ms.author: shvija
-ms.openlocfilehash: 336756e72c6c07f52101ddd0cd99a6ef9744d3c3
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: 5493819efb32fa594cf27695b2ab5d1273225756
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49351770"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49429907"
 ---
 # <a name="what-is-azure-event-hubs"></a>Azure Event Hubs nedir?
 
@@ -81,8 +81,13 @@ Aşağıdaki şekilde Event Hubs akış işleme mimarisi gösterilmektedir:
 
 Event Hubs'ı kullanmaya başlamak için aşağıdaki makalelere bakın:
 
-* [Event Hubs'a alma](event-hubs-quickstart-portal.md)
-* [Event Hubs özelliklerine genel bakış](event-hubs-features.md)
-* [Sık sorulan sorular](event-hubs-faq.md)
+1. **Olay hub'ı oluşturma**: [Azure portal](event-hubs-create.md), [Azure CLI](event-hubs-quickstart-cli.md), [Azure PowerShell](event-hubs-quickstart-powershell.md), [Azure Resource Manager şablonu](event-hubs-resource-manager-namespace-event-hub.md)
+2. **Olay hub'ına olay gönderme**: [.NET Standard](event-hubs-dotnet-standard-getstarted-send.md), [.NET Framework](event-hubs-dotnet-framework-getstarted-send.md), [Java](event-hubs-java-get-started-send.md), [Python](event-hubs-python-get-started-send.md), [Node.js ](event-hubs-node-get-started-send.md), [Go](event-hubs-go-get-started-send.md), [C](event-hubs-c-getstarted-send.md)
+3. **Olay hub'ından olay alma**: [.NET Standard](event-hubs-dotnet-standard-getstarted-receive-eph.md), [.NET Framework](event-hubs-dotnet-framework-getstarted-receive-eph.md), [Java](event-hubs-java-get-started-receive-eph.md), [Python](event-hubs-python-get-started-receive.md), [Node.js ](event-hubs-node-get-started-receive.md), [Go](event-hubs-go-get-started-receive-eph.md), [Apache Storm](event-hubs-storm-getstarted-receive.md)   
+
+Event Hubs hakkında daha fazla bilgi edinmek için şu makalelere göz atın:
+
+- [Event Hubs özelliklerine genel bakış](event-hubs-features.md)
+- [Sık sorulan sorular](event-hubs-faq.md).
 
 

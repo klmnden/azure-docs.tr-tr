@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: blueprints
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: 7af0d4819d4044f4cccc43cde1cffe7dff7982a7
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: 6b7ca276f3273faa485d08633061f882493f72f7
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47056446"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49647281"
 ---
 # <a name="define-and-assign-an-azure-blueprint-in-the-portal"></a>Portalda Azure Blueprint Tanımlama ve Atama
 
@@ -42,7 +42,7 @@ Uyumluluk için standart desen tanımlamanın ilk adımı kullanılabilir durumd
 
    ![Şema oluşturma](./media/create-blueprint-portal/create-blueprint-button.png)
 
-1. Şema için 'MyBlueprint' (harfler ve rakamlar -- en fazla 48 karakter içerebilir, boşluk veya özel karakter içeremez) gibi bir **Şema Adı** belirtin, ancak **Şema Açıklaması**’nı şimdilik boş bırakın.  **Konum Tanımla** kutusunda sağ taraftaki üç noktaya tıklayın, şemayı kaydetmek istediğiniz [yönetim grubu](../management-groups/overview.md)’nu seçin ve **Seç**’e tıklayın.
+1. Şema için 'MyBlueprint' (harfler ve rakamlar -- en fazla 48 karakter içerebilir, boşluk veya özel karakter içeremez) gibi bir **Şema Adı** belirtin, ancak **Şema Açıklaması**’nı şimdilik boş bırakın.  **Tanım Konumu** kutusunda sağ taraftaki üç noktaya tıklayın, şemayı kaydetmek istediğiniz [yönetim grubu](../management-groups/overview.md)’nu seçin ve **Seç**’e tıklayın.
 
    > [!NOTE]
    > Şema tanımları yalnızca yönetim gruplarına kaydedilebilir. İlk yönetim grubunuzu oluşturmak için [bu adımları](../management-groups/create.md) izleyin.
@@ -111,7 +111,7 @@ Uyumluluk için standart desen tanımlamanın ilk adımı kullanılabilir durumd
 
    ![Yapıt - Azure Resource Manager şablonu](./media/create-blueprint-portal/add-resource-manager-template.png)
 
-1. Tamamladığınız şema aşağıdakine benzer olmalıdır. Her yapıtın _Parametreler_ sütunu altında '_y_ parametreden _x_ tanesi doldurulmuş' durumdadır. **Dinamik parametreler**, her bir şema ataması sırasında ayarlanır ve rol atamasındaki tek **statik parametre** zaten yapılandırılmıştır.
+1. Tamamladığınız şema aşağıdakine benzer olmalıdır. Her yapıtın _Parametreler_ sütunu altında '_y_ parametreden _x_ tanesi doldurulmuş' durumdadır. **Dinamik parametreler** şemanın her atamasında ayarlanır.
 
    ![Tamamlanan şema](./media/create-blueprint-portal/completed-blueprint.png)
 

@@ -1,9 +1,9 @@
 ---
-title: Azure PowerShell Betiği Örneği - OMS | Microsoft Docs
-description: Azure PowerShell Betiği Örneği - OMS
+title: Azure PowerShell Betiği Örneği - Log Analytics | Microsoft Docs
+description: Azure PowerShell Betiği Örneği - Log Analytics
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: cynthn
+author: zr-msft
 manager: jeconnoc
 editor: tysonn
 tags: azure-service-management
@@ -14,18 +14,18 @@ ms.topic: sample
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 03/01/2017
-ms.author: cynthn
+ms.author: zarhoads
 ms.custom: mvc
-ms.openlocfilehash: bde05b4e50d270a685b986ddf52e7707d545b2d9
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: 2ce61feec3670674253ac697f2e373cbf40808e4
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44055344"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49471265"
 ---
-# <a name="create-an-operations-management-suite-monitored-vm-with-powershell"></a>PowerShell ile Operations Management Suite tarafından izlenen bir VM oluşturma
+# <a name="create-a-log-analytics-monitored-vm-with-powershell"></a>PowerShell ile Log Analytics tarafından izlenen VM oluşturma
 
-Bu betik bir Azure Sanal Makinesi oluşturur, Operations Management Suite (OMS) aracısını yükler ve sistemi bir OMS çalışma alanına kaydeder. Betik çalıştıktan sonra sanal makine OMS konsolunda görünür.
+Bu betik bir Azure Sanal Makinesi oluşturur, Log Analytics aracısını yükler ve sistemi bir Log Analytics çalışma alanına kaydeder. Betik çalıştıktan sonra sanal makine konsolda görünür.
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install.md)]
 
@@ -33,7 +33,7 @@ Bu betik bir Azure Sanal Makinesi oluşturur, Operations Management Suite (OMS) 
 
 ## <a name="sample-script"></a>Örnek betik
 
-[!code-powershell[main](../../../powershell_scripts/virtual-machine/create-vm-monitor-oms/create-vm-monitor-oms.ps1 "Create VM OMS")]
+[!code-powershell[main](../../../powershell_scripts/virtual-machine/create-vm-monitor-oms/create-vm-monitor-oms.ps1 "Create VM")]
 
 ## <a name="clean-up-deployment"></a>Dağıtımı temizleme
 
@@ -59,7 +59,7 @@ Bu betik, dağıtımı oluşturmak için aşağıdaki komutları kullanır. Tabl
 | [New-AzureRmNetworkInterface](/powershell/module/azurerm.network/new-azurermnetworkinterface) | Ağ arabirimi oluşturur. |
 | [New-AzureRmVMConfig](/powershell/module/azurerm.compute/new-azurermvmconfig) | Sanal makine yapılandırması oluşturur. Bu yapılandırma; sanal makine adı, işletim sistemi ve yönetici kimlik bilgileri gibi bilgileri içerir. Yapılandırma, sanal makine oluşturulurken kullanılır. |
 | [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm) | Sanal makine oluşturur. |
-| [Set-AzureRmVMExtension](/powershell/module/azurerm.compute/set-azurermvmextension) | Sanal makineye bir VM uzantısı ekleyin. Bu örnekte OMS aracısını yüklemek ve VM’yi bir OMS çalışma alanına kaydetmek için Operations Management Suite aracı uzantısı kullanılır. |
+| [Set-AzureRmVMExtension](/powershell/module/azurerm.compute/set-azurermvmextension) | Sanal makineye bir VM uzantısı ekleyin. Bu örnekte Log Analytics aracısını yüklemek ve VM’yi bir Log Analytics çalışma alanına kaydetmek için Log Analytics aracı uzantısı kullanılır. |
 |[Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) | Kaynak grubunu ve grubun içerdiği tüm kaynakları kaldırır. |
 
 ## <a name="next-steps"></a>Sonraki adımlar

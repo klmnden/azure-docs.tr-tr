@@ -6,22 +6,25 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 07/06/2018
+ms.date: 10/19/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: facf8895770f890bfbbef946a32cc681f685e998
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 361a1934a1e0cdcc0647c4c4f62af98f52b8c899
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37915211"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49456890"
 ---
 # <a name="prepare-on-premises-vmware-servers-for-disaster-recovery-to-azure"></a>Şirket içi VMware sunucularını Azure’a olağanüstü durum kurtarmaya hazırlama
 
 [Azure Site Recovery](site-recovery-overview.md), planlı ve plansız kesintiler sırasında iş uygulamalarınızı çalışır durumda tutarak, iş sürekliliğinize ve olağanüstü durum kurtarma (BCDR) stratejinize katkıda bulunur. Site Recovery, şirket içi makinelerin ve Azure sanal makinelerinin çoğaltma, yük devretme ve kurtarma gibi olağanüstü durum kurtarma işlemlerini yönetir ve düzenler.
 
 - Bu, şirket içi VMware sanal makineleri için Azure’da olağanüstü durum kurtarmanın nasıl ayarlanacağını gösteren serideki ikinci öğreticidir. Birinci öğreticide, VMware olağanüstü durum kurtarma için gerekli [Azure bileşenlerini ayarladık](tutorial-prepare-azure.md).
-- Öğreticiler, bir senaryo için en basit dağıtım yolunu size göstermek için tasarlanmıştır. Mümkün olduğunca varsayılan seçenekleri kullanır ve tüm olası ayarları ve yolları göstermez. 
+
+
+> [!NOTE]
+> Öğreticiler, bir senaryo için en basit dağıtım yolunu size göstermek için tasarlanmıştır. Mümkün olduğunca varsayılan seçenekleri kullanır ve tüm olası ayarları ve yolları göstermez. Ayrıntılı yönergeler için ilgili senaryonun **Nasıl Yapılır** bölümüne başvurun.
 
 Bu makalede, Azure Site Recovery kullanarak VMware VM'lerini Azure'a çoğaltmak istediğinizde şirket içi VMware ortamınızı nasıl hazırlayacağınızı gösteriyoruz. Aşağıdakileri nasıl yapacağınızı öğrenirsiniz:
 
@@ -101,11 +104,13 @@ Yük devretmeden sonra SSH kullanarak Linux VM’lerine bağlanmak için aşağ�
 - VM için bir [ortak IP adresi ekleyin](site-recovery-monitoring-and-troubleshooting.md).
 - VM’nin bir ekran görüntüsünü görmek için **Önyükleme tanılaması**’nı kontrol edebilirsiniz.
 
+
+## <a name="failback-requirements"></a>Yeniden çalışma gereksinimleri
+Şirket içi durumunuza geri dönmeyi planlıyorsanız, belirli [önkoşulların karşılandığından](vmware-azure-reprotect.md##before-you-begin) da emin olmanız gerekir. Ancak bu önkoşullar VM’lerinizde **olağanüstü durum kurtarmayı etkinleştirmeye başlamak için gerekli değildir** ve Azure’a yük devretme sonrasında da yapılabilir.
+
 ## <a name="useful-links"></a>Yararlı bağlantılar
 
 Birden çok VM'yi çoğaltıyorsanız, başlamadan önce kapasiteyi ve dağıtımı planlamanız gerekir. [Daha fazla bilgi edinin](site-recovery-deployment-planner.md).
-
-
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

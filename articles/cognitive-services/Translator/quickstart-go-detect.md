@@ -1,23 +1,23 @@
 ---
-title: 'Hızlı Başlangıç: Metinden dili tanımlama - Translator Metin Çevirisi, Go'
+title: 'Hızlı Başlangıç: Metinden dili tanımlama, Go - Translator Metin Çevirisi API’si'
 titleSuffix: Azure Cognitive Services
 description: Bu hızlı başlangıçta, Go ile Translator Metin Çevirisi API’sini kullanarak kaynak metnin dilini tanımlayacaksınız.
 services: cognitive-services
-author: noellelacharite
+author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/29/2018
-ms.author: nolachar
-ms.openlocfilehash: 25834fae2ce60d93ebeb3a25298b97294748bf9b
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.author: erhopf
+ms.openlocfilehash: 0275b408e71ec967f6453c94566b4799b3dd4396
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46129718"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49647213"
 ---
-# <a name="quickstart-identify-language-from-text-with-go"></a>Hızlı Başlangıç: Go ile metinden dil tanımlama
+# <a name="quickstart-identify-language-from-text-with-the-translator-text-rest-api-go"></a>Hızlı Başlangıç: Translator Metin Çevirisi REST API’si (Go) ile metinden dil tanımlama
 
 Bu hızlı başlangıçta, Translator Metin Çevirisi API'sini kullanarak kaynak metnin dilini tanımlayacaksınız.
 

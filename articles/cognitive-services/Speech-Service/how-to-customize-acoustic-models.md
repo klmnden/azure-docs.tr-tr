@@ -1,19 +1,21 @@
 ---
-title: Konuşma Tanıma Hizmeti ile akustik modeli oluşturma - Azure Bilişsel Hizmetler
+title: 'Öğretici: Özel Konuşma Hizmeti ile akustik bir model oluşturma'
+titlesuffix: Azure Cognitive Services
 description: Azure Bilişsel Hizmetler'de Özel Konuşma Tanıma Hizmeti ile akustik model oluşturmayı öğrenin.
 services: cognitive-services
 author: PanosPeriorellis
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: tutorial
 ms.date: 06/25/2018
 ms.author: panosper
-ms.openlocfilehash: 39e591f6154573bb25fccc423ff63a82f282beaf
-ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
+ms.openlocfilehash: 81449889ae9218f2b59ea48f10c676dcee9aa8b1
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48017371"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49466095"
 ---
 # <a name="tutorial-create-a-custom-acoustic-model"></a>Öğretici: Özel akustik model oluşturma
 

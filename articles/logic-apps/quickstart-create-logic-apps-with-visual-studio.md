@@ -12,12 +12,12 @@ ms.custom: mvc
 ms.reviewer: klam, LADocs
 ms.suite: integration
 ms.date: 07/31/2018
-ms.openlocfilehash: b8961edebd80d5f36d844734e3c93a4bd3b1f0cf
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: 6783c59b354e0eebc7fa6d8f67985b8d7b72c22a
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42162142"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49645840"
 ---
 # <a name="quickstart-create-and-automate-tasks-processes-and-workflows-with-azure-logic-apps---visual-studio"></a>Hızlı başlangıç: Azure Logic Apps ile görevleri, işlemleri ve iş akışlarını oluşturma ve otomatik hale getirme - Visual Studio
 
@@ -148,6 +148,10 @@ Mantıksal uygulamanızı çalıştırabilmeniz için uygulamanızı yalnızca b
 
    ![Dağıtım durumu çıktısı](./media/quickstart-create-logic-apps-with-visual-studio/logic-app-output-window.png)
 
+   Seçtiğiniz bağlayıcılar bir şey yazmanızı gerektiriyorsa, arka planda bir PowerShell penceresi açılabilir ve gerekli parolaları veya gizli anahtarları isteyebilir. Bu bilgileri girdikten sonra dağıtım işlemi devam eder.
+   
+   ![Dağıtım powershell_window](./media/quickstart-create-logic-apps-with-visual-studio/logic-apps-powershell-window.png)
+   
    Dağıtım tamamlandıktan sonra mantıksal uygulamanız Azure portalında etkindir ve belirttiğiniz zamanlamaya göre (dakikada bir kez) RSS akışını denetler. 
    RSS akışında yeni öğeler olduğunda mantıksal uygulamanız her yeni öğe için bir e-posta gönderir. 
    Aksi takdirde mantıksal uygulamanız yeniden denetlemek için bir sonraki zaman aralığını bekler. 

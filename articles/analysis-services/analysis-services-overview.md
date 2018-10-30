@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: overview
-ms.date: 10/03/2018
+ms.date: 10/18/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: d09fcde90cf182bc8197c579718ecef7c5ce1eed
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: 3cdc4a8a670b5af43e72b38d7a3b6d9aafdac348
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49394536"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49429448"
 ---
 # <a name="what-is-azure-analysis-services"></a>Azure Analysis Services nedir?
 
@@ -81,29 +81,34 @@ Azure Analysis Services, dünyanın dört bir yanındaki bölgelerde desteklenir
 |Güney Brezilya     |    B1, B2, S0, S1, S2, S4, D1     |     1    |
 |Orta Kanada    |     B1, B2, S0, S1, S2, S4, D1    |     1    |
 |Doğu ABD     |     B1, B2, S0, S1, S2, S4, D1    |    1     |
-|Doğu ABD 2     |     B1, B2, S0, S1, S2, S4, D1  <br>S8, S9   |    7<br>1    |
+|Doğu ABD 2     |     B1, B2, S0, S1, S2, S4, D1   |    7    |
+|Doğu ABD 2     |     S8, S9   |    1    |
 |Orta Kuzey ABD     |     B1, B2, S0, S1, S2, S4, D1     |    1     |
 |Orta ABD     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
 |Orta Güney ABD     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
 |Batı Orta ABD   |     B1, B2, S0, S1, S2, S4, D1    |    3     |
-|Batı ABD     |    B1, B2, S0, S1, S2, S4, D1  <br>S8, S9   |    7<br>2  |
-|Batı ABD 2    |    B1, B2, S0, S1, S2, S4, D1   <br>S8, S9  |    3<br>1     |
+|Batı ABD     |    B1, B2, S0, S1, S2, S4, D1    |    7   |
+|Batı ABD     |    S8, S9   |    2  |
+|Batı ABD 2    |    B1, B2, S0, S1, S2, S4, D1    |    3   |
+|Batı ABD 2    |    S8, S9  |    1     |
 
 ### <a name="europe"></a>Avrupa
 
 |Bölge  | Desteklenen planlar | Sorgu çoğaltmaları (yalnızca Standart planlar) |
 |---------|---------|:---------:|
 |Kuzey Avrupa     |    B1, B2, S0, S1, S2, S4, D1      |    7     |
-|Birleşik Krallık Güney   |    B1, B2, S0, S1, S2, S4, D1      |     1    |
-|Batı Avrupa     |    B1, B2, S0, S1, S2, S4, D1   <br>S8, S9    |    7<br>1     |
+|Birleşik Krallık Güney     |    B1, B2, S0, S1, S2, S4, D1      |     1    |
+|Batı Avrupa     |    B1, B2, S0, S1, S2, S4, D1   |    7    |
+|Batı Avrupa    |   S8, S9  |  1  |
 
 ### <a name="asia-pacific"></a>Asya Pasifik 
 
 |Bölge  | Desteklenen planlar | Sorgu çoğaltmaları (yalnızca Standart planlar) |
 |---------|---------|:---------:|
+|Avustralya Doğu     |    B1, B2, S0, S1, S2, S4     |    3     |
+|Avustralya Doğu     |    S8, S9    |    1     |
 |Avustralya Güneydoğu     | B1, B2, S0, S1, S2, S4, D1       |    1     |
-|Avustralya Doğu     |    B1, B2, S0, S1, S2, S4    <br>S8, S9    |    3<br>1     |
-|Japonya Doğu  |   B1, B2, S0, S1, S2, S4, D1       |    1     |
+|Japonya Doğu     |   B1, B2, S0, S1, S2, S4, D1       |    1     |
 |Güneydoğu Asya     |     B1, B2, S0, S1, S2, S4, S8, S9, D1     |   1      |
 |Batı Hindistan     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
 
@@ -184,9 +189,11 @@ Azure Güvenliği hakkında daha fazla bilgi edinmek için bkz. [Microsoft Güve
 
 ![BI geliştirici araçları](./media/analysis-services-overview/aas-overview-dev-tools.png)
 
-### <a name="sql-server-data-tools-ssdt-for-visual-studio"></a>Visual Studio için SQL Server Veri Araçları (SSDT)
+### <a name="visual-studio"></a>Visual Studio
 
-Ücretsiz [Visual Studio için SQL Server Veri Araçları (SSDT)](https://msdn.microsoft.com/library/mt204009.aspx) ile modeller geliştirin ve dağıtın. SSDT'de, hızla başlangıç yapıp ilerlemeniz için Analysis Services proje şablonları vardır. SSDT şimdi tablosal 1400 modelleri için karma işlevselliğini ve modern Veri Al veri kaynağı sorgusunu içerir. Power BI Masaüstü ve Excel 2016'daki Veri Al işlevini biliyorsanız, üst düzeyde özelleştirilmiş veri kaynağı sorguları oluşturmanın ne kadar kolay olduğunu zaten biliyor olmalısınız. Microsoft Analysis Services Projeleri ayrıca Visual Studio’da yüklenebilir VSIX paketi olarak kullanılabilir. [Market'ten indirin](https://marketplace.visualstudio.com/items?itemName=ProBITools.MicrosoftAnalysisServicesModelingProjects).
+Ücretsiz [Visual Studio için SQL Server Veri Araçları (SSDT)](https://msdn.microsoft.com/library/mt204009.aspx) ile modeller geliştirin ve dağıtın. SSDT'de, hızla başlangıç yapıp ilerlemeniz için Analysis Services proje şablonları vardır. SSDT şimdi tablosal 1400 modelleri için karma işlevselliğini ve modern Veri Al veri kaynağı sorgusunu içerir. Power BI Masaüstü ve Excel 2016'daki Veri Al işlevini biliyorsanız, üst düzeyde özelleştirilmiş veri kaynağı sorguları oluşturmanın ne kadar kolay olduğunu zaten biliyor olmalısınız. 
+
+Visual Studio 2017 kullanıyorsanız, Microsoft Analysis Services Projeleri ücretsiz yüklenebilir VSIX paketi olarak kullanıma sunulmuştur. [Market'ten indirin](https://marketplace.visualstudio.com/items?itemName=ProBITools.MicrosoftAnalysisServicesModelingProjects).
 
 ### <a name="sql-server-management-studio"></a>Sql Server Management Studio
 

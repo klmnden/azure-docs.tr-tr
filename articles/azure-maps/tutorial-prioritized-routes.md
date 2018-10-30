@@ -1,20 +1,20 @@
 ---
 title: Azure Haritalar ile birden fazla yol | Microsoft Docs
 description: Azure Haritalar’ı kullanarak farklı seyahat modları için yolları bulma
-author: dsk-2015
-ms.author: dkshir
-ms.date: 10/02/2018
+author: walsehgal
+ms.author: v-musehg
+ms.date: 10/22/2018
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 340bf83f07b9e730cc43baccc60a39f5ba1f9942
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: 864f662cd6be3c5929166db92f2dad92b9c6586e
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48815316"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49648216"
 ---
 # <a name="find-routes-for-different-modes-of-travel-using-azure-maps"></a>Azure Haritalar’ı kullanarak farklı seyahat modları için yolları bulma
 
@@ -74,15 +74,16 @@ Aşağıdaki adımlarda, Harita Denetimi API’sinin tümleşik olduğu statik b
     </html>
     ```
     HTML üst bilgisi, Azure Haritalar kitaplığı için CSS ve JavaScript dosyalarına yönelik kaynak konumlarını ekler. HTML dosyasının gövdesindeki *betik* segmenti, haritanın satır içi JavaScript kodunu içerir.
+
 3. HTML dosyasının *betik* bloğuna aşağıdaki JavaScript kodunu ekleyin. **\<Hesap anahtarınız\>** dizesini, Haritalar hesabınızdan kopyaladığınız birincil anahtarla değiştirin. Haritaya nereye odaklanacağını söylemezseniz tam dünya görünümünü görürsünüz. Bu kod, haritanın merkez noktasını ayarlar ve varsayılan olarak belirli bir alana odaklanabilmeniz için bir yakınlaştırma düzeyi bildirir.
 
     ```JavaScript
     // Instantiate map to the div with id "map"
-    var MapsAccountKey = "<your account key>";
+    var mapCenterPosition = [-73.985708, 40.75773];
+    atlas.setSubscriptionKey("<your account key>");
     var map = new atlas.Map("map", {
-        "subscription-key": MapsAccountKey
-         center: [-118.2437, 34.0522],
-         zoom: 12
+      center: mapCenterPosition,
+      zoom: 11
     });
     ```
     Azure Harita Denetimi API’sinin bir bileşeni olan **atlas.Map**, görsel ve etkileşimli bir web haritası için denetim olanağı sunar.
@@ -93,10 +94,10 @@ Aşağıdaki adımlarda, Harita Denetimi API’sinin tümleşik olduğu statik b
 
 ## <a name="visualize-traffic-flow"></a>Trafik akışını görselleştirme
 
-1. Haritaya trafik akışı görüntüsünü ekleyin.  **map.addEventListener**, harita tamamen yüklendikten sonra haritaya eklenmiş olan tüm harita işlevlerinin yüklenmesini sağlar.
+1. Haritaya trafik akışı görüntüsünü ekleyin.  **map.events.add**, harita tamamen yüklendikten sonra haritaya eklenmiş olan tüm harita işlevlerinin yüklenmesini sağlar.
 
     ```JavaScript
-    map.addEventListener("load", function() {
+    map.events.add("load", function() {
         // Add Traffic Flow to the Map
         map.setTraffic({
             flow: "relative"
@@ -146,7 +147,7 @@ Bu öğreticide başlangıç noktasını Seattle’daki Fabrikam adlı hayali ş
         padding: 100
     });
     
-    map.addEventListener("load", function() { 
+    map.events.add("load", function() { 
         // Add pins to the map for the start and end point of the route
         map.addPins([startPin, destinationPin], {
             name: "route-pins",
@@ -155,7 +156,7 @@ Bu öğreticide başlangıç noktasını Seattle’daki Fabrikam adlı hayali ş
         });
     });
     ```
-    **map.setCameraBounds** çağrısı, harita penceresini başlangıç ve bitiş noktalarının koordinatlarına göre ayarlar. **map.addEventListener**, harita tamamen yüklendikten sonra haritaya eklenmiş olan tüm harita işlevlerinin yüklenmesini sağlar. **map.addPins** API’si, Harita denetimine görsel bileşen olarak nokta ekler.
+    **map.setCameraBounds** çağrısı, harita penceresini başlangıç ve bitiş noktalarının koordinatlarına göre ayarlar. **map.events.add**, harita tamamen yüklendikten sonra haritaya eklenmiş olan tüm harita işlevlerinin yüklenmesini sağlar. **map.addPins** API’si, Harita denetimine görsel bileşen olarak nokta ekler.
 
 3. Dosyayı kaydedin ve iğneleri haritanızda görmek için tarayıcınızı yenileyin. Bildirdiğiniz haritanın merkez noktasının Los Angeles’ta olmasına rağmen **map.setCameraBounds**, başlangıç ve bitiş noktalarını göstermek için görünümü taşımıştır.
 
@@ -165,7 +166,7 @@ Bu öğreticide başlangıç noktasını Seattle’daki Fabrikam adlı hayali ş
 
 ## <a name="render-routes-prioritized-by-mode-of-travel"></a>Ulaşım yöntemine göre önceliklendirilmiş yolları işleme
 
-Bu bölümde, bir hedef için belirtilen başlangıç noktasından ulaşım aracınıza bağlı olarak birden fazla yol tarifi almak için Azure Haritalar yol hizmeti API’sini nasıl kullanabileceğiniz açıklanmaktadır. Yönlendirme hizmeti, mevcut trafik koşullarını göz önünde bulundurarak iki konum arasındaki *en hızlı*, *en kısa*, *ekonomik* veya *heyecan verici* yolları planlamak için API’ler sağlar. Ayrıca, Azure’ın geçmişe ait kapsamlı trafik veritabanını kullanarak herhangi bir gün ve saat için yol süresini tahmin eder. Böylece kullanıcıların ileri bir tarih için yol tarifi alabilmesini sağlar. Daha fazla bilgi için bkz. [Yol tariflerini alma](https://docs.microsoft.com/rest/api/maps/route/getroutedirections).  Aşağıdaki kod bloklarının harita tamamen yüklendikten sonra yüklendiğinden emin olmak için tümü **map load eventListener** içine eklenmelidir.
+Bu bölümde, bir hedef için belirtilen başlangıç noktasından ulaşım aracınıza bağlı olarak birden fazla yol tarifi almak için Azure Haritalar yol hizmeti API’sini nasıl kullanabileceğiniz açıklanmaktadır. Yönlendirme hizmeti, mevcut trafik koşullarını göz önünde bulundurarak iki konum arasındaki *en hızlı*, *en kısa*, *ekonomik* veya *heyecan verici* yolları planlamak için API’ler sağlar. Ayrıca, Azure’ın geçmişe ait kapsamlı trafik veritabanını kullanarak herhangi bir gün ve saat için yol süresini tahmin eder. Böylece kullanıcıların ileri bir tarih için yol tarifi alabilmesini sağlar. Daha fazla bilgi için bkz. [Yol tariflerini alma](https://docs.microsoft.com/rest/api/maps/route/getroutedirections). Aşağıdaki kod bloklarının harita tamamen yüklendikten sonra yüklendiğinden emin olmak için tümü **map load eventListener** içine eklenmelidir.
 
 1. İlk olarak, rota yolunu veya *linestring*’i görüntülemek için haritaya yeni bir katman ekleyin. Bu öğreticide, her biri kendi stiline sahip olan **araba yolu** ve **kamyon yolu** şeklinde iki farklı yol vardır. *Betik* bloğuna aşağıdaki JavaScript kodunu ekleyin:
 
@@ -233,7 +234,7 @@ Bu bölümde, bir hedef için belirtilen başlangıç noktasından ulaşım arac
     // Execute the car route query then add the route to the map once a response is received  
     client.route.getRouteDirections(routeQuery).then(response => {
         // Parse the response into GeoJSON
-        var geoJsonResponse = new tlas.service.geojson
+        var geoJsonResponse = new atlas.service.geojson
             .GeoJsonRouteDiraectionsResponse(response);
 
         // Get the first in the array of routes and add it to the map 

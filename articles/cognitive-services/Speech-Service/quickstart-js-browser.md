@@ -1,52 +1,53 @@
 ---
-title: "Hızlı Başlangıç: Bilişsel hizmetler konuşma SDK'sını kullanarak bir tarayıcıda JavaScript dilinde konuşma tanıma"
-titleSuffix: Microsoft Cognitive Services
-description: Bilişsel hizmetler konuşma SDK'sını kullanarak bir tarayıcıda JavaScript dilinde Konuşma tanımayı öğrenmesine
+title: 'Hızlı Başlangıç: Konuşma Tanıma Hizmeti SDK’sını kullanarak tarayıcıda JavaScript’te konuşma tanıma'
+titleSuffix: Azure Cognitive Services
+description: Konuşma Tanıma Hizmeti SDK’sını kullanarak tarayıcıda JavaScript’te konuşma tanımayı öğrenme
 services: cognitive-services
 author: fmegen
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: Speech
-ms.topic: article
+ms.component: speech-service
+ms.topic: quickstart
 ms.date: 10/12/2018
 ms.author: fmegen
-ms.openlocfilehash: 2667d398141b53c87328eec7b608c4f613c15ea4
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
-ms.translationtype: MT
+ms.openlocfilehash: b01746c20dbef7726f129badac045c1fb440f602
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49340282"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49467472"
 ---
-# <a name="quickstart-recognize-speech-in-javascript-in-a-browser-using-the-cognitive-services-speech-sdk"></a>Hızlı Başlangıç: Bilişsel hizmetler konuşma SDK'sını kullanarak bir tarayıcıda JavaScript dilinde konuşma tanıma
+# <a name="quickstart-recognize-speech-in-javascript-in-a-browser-using-the-speech-service-sdk"></a>Hızlı Başlangıç: Konuşma Tanıma Hizmeti SDK’sını kullanarak tarayıcıda JavaScript’te konuşma tanıma
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
-Bu makalede, Konuşmayı metne dönüştürme özelliği Bilişsel hizmetler konuşma SDK'sı JavaScript bağlantısını kullanarak bir Web sitesi oluşturmayı öğreneceksiniz.
-Uygulama üzerindeki Microsoft Bilişsel hizmetler konuşma SDK bağlıdır ([1.0.1 sürümü indirme](https://aka.ms/csspeech/jsbrowserpackage)).
+Bu makalede, konuşmayı metne dönüştürmek için Bilişsel Hizmetler Konuşma SDK’sının JavaScript bağlamasını kullanarak bir web sitesi oluşturmayı öğreneceksiniz.
+Uygulama Microsoft Bilişsel Hizmetler Konuşma SDK'sını temel alır ([Sürüm 1.0.1’i indirin](https://aka.ms/csspeech/jsbrowserpackage)).
 
-## <a name="prerequisites"></a>Önkoşullar
+## <a name="prerequisites"></a>Ön koşullar
 
-* Konuşma hizmeti için bir abonelik anahtarı. Bkz: [konuşma hizmeti ücretsiz olarak deneyin](get-started.md).
-* PC veya Mac, çalışma mikrofon ile.
-* Bir metin düzenleyicisi.
-* Chrome ya da Microsoft Edge geçerli sürümü.
-* İsteğe bağlı olarak, bir web sunucusu, PHP komut barındırmayı destekler.
+* Konuşma tanıma hizmeti için bir abonelik anahtarı. Bkz. [Konuşma Tanıma Hizmetini ücretsiz olarak deneyin](get-started.md).
+* Çalışan bir mikrofon ile bir PC veya Mac.
+* Bir metin düzenleyici.
+* Chrome ya da Microsoft Edge’in güncel bir sürümü.
+* İsteğe bağlı olarak, PHP betiklerini barındırmayı destekleyen bir web sunucusu.
 
-## <a name="create-a-new-website-folder"></a>Yeni bir Web sitesi klasörü oluşturun
+## <a name="create-a-new-website-folder"></a>Yeni bir Web sitesi klasörü oluşturma
 
-Yeni, boş bir klasör oluşturun. Örnek bir web sunucusunda barındırmak istemeniz durumunda, web sunucusunun klasöre erişebildiğini doğrulayın.
+Yeni, boş bir klasör oluşturun. Örneği bir web sunucusunda barındırmak istiyorsanız, web sunucusunun klasöre erişebildiğinden emin olun.
 
-## <a name="unpack-the-speech-sdk-for-javascript-into-that-folder"></a>Konuşma SDK için JavaScript bu klasöre paketini açın.
+## <a name="unpack-the-speech-sdk-for-javascript-into-that-folder"></a>JavaScript için Konuşma SDK’sını bu klasöre çıkarın
 
 [!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
-Karşıdan yükleme Speech SDK'sı olarak bir [.zip paketi](https://aka.ms/csspeech/jsbrowserpackage) ve yeni oluşturduğunuz klasöre paketinden çıkarın. Bu, başka bir deyişle, açılmış iki dosyada sonuçlanmalıdır `microsoft.cognitiveservices.speech.sdk.bundle.js` ve `microsoft.cognitiveservices.speech.sdk.bundle.js.map`.
-İkinci gerekiyorsa isteğe bağlıdır ve SDK kodu, hata ayıklama amacıyla kullanılan dosyasıdır.
+Konuşma SDK’sını [.zip paketi](https://aka.ms/csspeech/jsbrowserpackage) olarak indirin ve yeni oluşturulan klasöre çıkarın. Bu, `microsoft.cognitiveservices.speech.sdk.bundle.js` ve `microsoft.cognitiveservices.speech.sdk.bundle.js.map` adlı iki dosyanın çıkarılmasıyla sonuçlanmalıdır.
+İkinci dosya isteğe bağlıdır ve gerekirse SDK kodunda hata ayıklamak için kullanılabilir.
 
 ## <a name="create-an-indexhtml-page"></a>Bir index.html sayfası oluşturma
 
-Adlı klasörde yeni bir dosya oluşturmak `index.html` ve bu dosyayı bir metin düzenleyiciyle açın.
+Klasörde `index.html` adlı yeni bir dosya oluşturun ve bu dosyayı bir metin düzenleyiciyle açın.
 
-1. Aşağıdaki HTML çatıyı oluşturun:
+1. Aşağıdaki HTML çatısını oluşturun:
 
   ```html
   <html>
@@ -65,42 +66,42 @@ Adlı klasörde yeni bir dosya oluşturmak `index.html` ve bu dosyayı bir metin
   </html>
   ```
 
-1. İlk yorum aşağıda dosyanıza aşağıdaki kullanıcı Arabirimi kodu ekleyin:
+1. Aşağıda kullanıcı arabirimi kodunu dosyanızda ilk açıklamanın altına ekleyin:
 
   [!code-html[](~/samples-cognitive-services-speech-sdk/quickstart/js-browser/index.html#uidiv)]
 
-1. Konuşma SDK'sına bir başvuru ekleyin
+1. Konuşma SDK’sına bir başvuru ekleme
 
   [!code-html[](~/samples-cognitive-services-speech-sdk/quickstart/js-browser/index.html#speechsdkref)]
 
-1. Yukarı düğme tanıma, tanıma işleminin sonucu ve abonelik için işleyiciler UI kod tarafından tanımlanan ilgili alanları bağlayabilirsiniz:
+1. Tanıma düğmesi, tanıma sonucu ve kullanıcı arabirimi kodu tarafından tanımlanan abonelikle ilgili alanlar için işleyicileri bağlayın:
 
   [!code-html[](~/samples-cognitive-services-speech-sdk/quickstart/js-browser/index.html#quickstartcode)]
 
 ## <a name="create-the-token-source-optional"></a>Belirteç kaynağı oluşturma (isteğe bağlı)
 
-Bir web sunucusunda web sayfasını barındırmak istediğiniz durumlarda, bir belirteç kaynağının tanıtım uygulamanız için isteğe bağlı olarak sağlayabilirsiniz.
-Bu şekilde, abonelik anahtarınızı hiçbir zaman sunucunuzun herhangi bir yetkilendirme kodu kendilerini girmeden Konuşma özelliklerini kullanmak üzere kullanıcıların verirken bırakır.
+Web sayfasını bir web sunucusunda barındırmak istiyorsanız, tanıtım uygulamanız için isteğe bağlı olarak bir belirteç kaynağı sağlayabilirsiniz.
+Bu şekilde, abonelik anahtarınız hiçbir zaman sunucunuzdan çıkmaz ve kullanıcılar bir yetkilendirme kodu girmeden konuşma özelliklerini kullanabilir.
 
-1. `token.php` adlı yeni bir dosya oluşturun. Bu örnekte, web sunucunuza PHP komut dili destekleyen varsayıyoruz. Aşağıdaki kodu girin:
+1. `token.php` adlı yeni bir dosya oluşturun. Bu örnekte web sunucunuzun PHP betik oluşturma dilini desteklediği varsayılmaktadır. Aşağıdaki kodu girin:
 
   [!code-php[](~/samples-cognitive-services-speech-sdk/quickstart/js-browser/token.php)]
 
-1. Düzen `index.html` dosya ve dosyanıza aşağıdaki kodu ekleyin:
+1. `index.html` dosyasını düzenleyin ve aşağıdaki kodu dosyanıza ekleyin:
 
   [!code-html[](~/samples-cognitive-services-speech-sdk/quickstart/js-browser/index.html#authorizationfunction)]
 
 > [!NOTE]
-> Yetkilendirme belirteçleri yalnızca sınırlı bir ömrü vardır.
-> Bu basit örnek yetkilendirme belirteçleri otomatik olarak yenilenecek şekilde nasıl algılanacağını göstermez. El ile bir kullanıcı olarak, sayfayı yeniden yükleyin veya yenilemek için F5'e basın.
+> Yetkilendirme belirteçlerinin sınırlı bir kullanım ömrü vardır.
+> Bu basit örnekte yetkinlendirme belirteçlerinin otomatik olarak yenilenmesi gösterilmez. Kullanıcı olarak, sayfayı el ile yeniden yükleyebilir veya yenilemek için F5’e basabilirsiniz.
 
-## <a name="build-and-run-the-sample-locally"></a>Derleme ve örneği yerel olarak çalıştırma
+## <a name="build-and-run-the-sample-locally"></a>Örneği yerel olarak derleyin ve çalıştırın
 
-Uygulamayı başlatmak için index.html dosyasını çift tıklatın veya index.html ile sık kullandığınız web tarayıcınızı açın. Abonelik anahtarınızı girin olanak tanıyan basit bir GUI sunacaktır ve [bölge](regions.md) ve mikrofon kullanarak bir tanıma tetikleyin.
+Uygulamayı başlatmak için, index.html dosyasına çift tıklayın veya index.html dosyasını sık kullandığınız web tarayıcısıyla açın. Abonelik anahtarınızı ve [bölgenizi](regions.md) girmenize ve mikrofonu kullanarak bir tanıma tetiklemenize olanak sağlayan basit bir GUI sunar.
 
-## <a name="build-and-run-the-sample-via-a-web-server"></a>Derleme ve örnek bir web sunucusu çalıştırma
+## <a name="build-and-run-the-sample-via-a-web-server"></a>Web sunucusu aracılığıyla örnek derleme ve çalıştırma
 
-Uygulamanızı başlatın, sık kullandığınız web tarayıcınızı açın ve klasör barındırın genel URL'ye noktası için girin, [bölge](regions.md)ve mikrofon kullanarak bir tanıma tetikleyin. Yapılandırılmışsa, bir belirteç, belirteç kaynağınızdan alacaksınız.
+Uygulamanızı başlatmak için, sık kullandığınız bir web tarayıcısını açın klasörü barındırdığınız ortak URL’ye işaret edin, [bölgenizi](regions.md) girin ve mikrofonu kullanarak bir tanıma tetikleyin. Yapılandırılırsa, belirteç kaynağınızdan bir belirteç alır.
 
 [!INCLUDE [Download the sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
 `quickstart/js-browser` klasöründe bu örneği arayın.
@@ -108,4 +109,4 @@ Uygulamanızı başlatın, sık kullandığınız web tarayıcınızı açın ve
 ## <a name="next-steps"></a>Sonraki adımlar
 
 > [!div class="nextstepaction"]
-> [Örneklerimizi Al](speech-sdk.md#get-the-samples)
+> [Örneklerimizi alın](speech-sdk.md#get-the-samples)

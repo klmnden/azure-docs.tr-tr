@@ -3,7 +3,7 @@ title: Azure API Yönetimi’nde ilk API’nizi içeri aktarma ve yayımlama | M
 description: API Yönetimi ile ilk API’nizin nasıl içeri aktarılacağını ve yayımlanacağını öğrenin.
 services: api-management
 documentationcenter: ''
-author: vladvino
+author: mikebudzynski
 manager: cfowler
 editor: ''
 ms.service: api-management
@@ -14,12 +14,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: apimpm
-ms.openlocfilehash: 538977b9057a5699d61d6c2cc44209367e3550e2
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: cf913c0aaf7dd9957f21452caf8e43a9e3c8b2db
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47093411"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49467404"
 ---
 # <a name="import-and-publish-your-first-api"></a>İlk API’nizi içeri aktarma ve yayımlama 
 
@@ -73,9 +73,11 @@ Bu bölümde, bir OpenAPI belirtimi arka uç API’sinin nasıl içeri aktarıla
 
 ## <a name="test-the-new-apim-api-in-the-azure-portal"></a>Azure portalında yeni APIM API’sini test etme
 
+![API haritasını test etme](./media/api-management-get-started/01-import-first-api-01.png)
+
 İşlemler doğrudan bir API’nin işlemlerini görüntülemek ve test etmek için kullanışlı bir yol sağlayan Azure portalından çağrılabilir.  
 1. Önceki adımda oluşturduğunuz API’yi seçin (**API’ler** sekmesinden).
-2. **Test** sekmesine basın.  ![API'yi test et](./media/api-management-get-started/test-api.png)
+2. **Test** sekmesine basın.
 3. **GetSpeakers** seçeneğine tıklayın.
     Sayfa, sorgu parametreleri alanlarını ve üst bilgileri görüntüler, ancak bu durumda bir alan yok. Bu API ile ilişkilendirilmiş ürünün abonelik anahtarı için, üst bilgilerden biri "Ocp-Apim-Subscription-Key" üst bilgisidir. Anahtar otomatik olarak doldurulur.
 4. **Gönder**’e basın.
@@ -87,7 +89,8 @@ Bu bölümde, bir OpenAPI belirtimi arka uç API’sinin nasıl içeri aktarıla
 API’leri test etmek için **Geliştirici portalından** da işlemler çağrılabilir.
 
 1. **Geliştirici portalına** gidin.
-![Geliştirici portalı](./media/api-management-get-started/developer-portal.png)
+
+ ![Geliştirici portalı](./media/api-management-get-started/developer-portal.png)
 
 2. **API'ler**’i seçip **Tanıtım Konferansı API'si**’ne ve ardından **GetSpeakers**’a tıklayın.
     

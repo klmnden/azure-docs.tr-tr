@@ -1,23 +1,23 @@
 ---
-title: 'Hızlı Başlangıç: Metin betiğini dönüştürme - Translator Metin Çevirisi, Java'
+title: "Hızlı Başlangıç: Metin betiğini dönüştürme, Java - Translator Metin Çevirisi API'si"
 titleSuffix: Azure Cognitive Services
 description: Bu hızlı başlangıçta, Java ile Translator Metin Çevirisi API’sini kullanarak bir dildeki metni bir betikten diğerine dönüştüreceksiniz.
 services: cognitive-services
-author: noellelacharite
+author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/21/2018
-ms.author: nolachar
-ms.openlocfilehash: 47d0462dcf7e54a3c2b2e2ea8b713b02af2baf37
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.author: erhopf
+ms.openlocfilehash: 53482c725b2cb20ec8c53354ee9683bb0c4c61d0
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46297443"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49645226"
 ---
-# <a name="quickstart-transliterate-text-with-java"></a>Hızlı Başlangıç: Java ile metni başka alfabeye çevirme
+# <a name="quickstart-transliterate-text-with-the-translator-text-rest-api-java"></a>Hızlı Başlangıç: Translator Metin Çevirisi REST API’si (Java) ile metin çevirme
 
 Bu hızlı başlangıçta, Translator Metin Çevirisi API’sini kullanarak bir dildeki metni bir betikten diğerine dönüştüreceksiniz.
 

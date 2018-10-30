@@ -14,12 +14,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 08/10/2018
 ms.author: apimpm
-ms.openlocfilehash: 4f5097f8555d0345add7de8a0f648190bd4e1e00
-ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
+ms.openlocfilehash: 0346cf456c53b14fd3c5b14b2e40eddd8b89fe4d
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "41918552"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49465959"
 ---
 # <a name="create-and-publish-a-product"></a>Ürün oluşturma ve yayımlama  
 
@@ -31,7 +31,7 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 > * Ürün oluşturma ve yayımlama
 > * Ürüne bir API ekleme
 
-![ürün ekleme](media/api-management-howto-add-products/added-product.png)
+![Ürün öğreticisi ekleme](media/api-management-howto-add-products/added-product.png)
 
 ## <a name="prerequisites"></a>Ön koşullar
 
@@ -40,10 +40,10 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
 ## <a name="create-and-publish-a-product"></a>Ürün oluşturma ve yayımlama
 
+![Ürün ekleme](media/api-management-howto-add-products/02-create-publish-product-01.png)
+
 1. **Ürünler** sayfasını görüntülemek için soldaki menüden **Ürünler**’e tıklayın.
 2. **+ Ekle**'ye tıklayın.
-
-    ![ürün eklendi](media/api-management-howto-add-products/add-product.png)
 
     Ürün eklerken aşağıdaki bilgileri sağlamanız gerekir: 
 
@@ -77,7 +77,7 @@ Geliştiricilerin bir API’ye erişebilmesi için önce ürüne abone olması g
 
 ### <a name="add-an-api-to-an-existing-product"></a>Mevcut bir ürüne API ekleme
 
-![ürün ekleme API'si](media/api-management-howto-add-products/add-product-api.png)
+![ürün ekleme API'si](media/api-management-howto-add-products/02-create-publish-product-02.png)
 
 1. **Ürünler** sekmesinden bir ürün seçin.
 2. **API'ler** sekmesine gidin.

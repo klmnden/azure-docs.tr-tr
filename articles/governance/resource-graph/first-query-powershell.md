@@ -9,16 +9,16 @@ ms.topic: quickstart
 ms.service: resource-graph
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 1a2bc5626e94f5fcb0ec8c2be8d91c8fc6484e0b
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 001805aaf87ed6c3481a8ad8378cdc22ef74d274
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47224571"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49646397"
 ---
 # <a name="run-your-first-resource-graph-query-using-azure-powershell"></a>Azure PowerShell kullanarak ilk Kaynak Grafiği sorgunuzu çalıştırma
 
-Azure Kaynak Grafiği’ni kullanmada ilk adım, Azure PowerShell modülünün yüklenmesini sağlamaktır. Bu hızlı başlangıç, Azure PowerShell yüklemenize modül ekleme işlemini incelemenizi sağlar.
+Azure Kaynak Grafiği’ni kullanmada ilk adım, Azure PowerShell modülünün yüklenip yüklenmediğini denetlemektir. Bu hızlı başlangıç, Azure PowerShell yüklemenize modül ekleme işlemini incelemenizi sağlar.
 
 Bu işlemin sonunda, modülü seçtiğiniz Azure PowerShell yüklemesine eklemiş ve ilk Kaynak Grafiği sorgunuzu çalıştırmış olacaksınız.
 
@@ -26,7 +26,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz](https://azure.microsoft.
 
 ## <a name="add-the-resource-graph-module"></a>Kaynak Grafiği modülü ekleme
 
-Azure PowerShell’in Azure Kaynak Grafiği’ni sorgulamasını etkinleştirmek için modül eklenmelidir. Bu modül yerel olarak yüklenmiş Windows PowerShell ve PowerShell Core’un yanı sıra, [Azure PowerShell Docker görüntüsü](https://hub.docker.com/r/azuresdk/azure-powershell/) ile birlikte de kullanılabilir.
+Azure PowerShell’in Azure Kaynak Grafiği’ni sorgulamasını etkinleştirmek için modül eklenmelidir. Bu modül yerel olarak yüklenmiş Windows PowerShell ve PowerShell Core veya [Azure PowerShell Docker görüntüsü](https://hub.docker.com/r/azuresdk/azure-powershell/) ile birlikte de kullanılabilir.
 
 ### <a name="base-requirements"></a>Temel gereksinimler
 
@@ -41,7 +41,11 @@ Azure Kaynak Grafiği modülü aşağıdaki yazılımı gerektirir:
   > [!NOTE]
   > Modülün Cloud Shell’e yüklenmesi şu anda önerilmez.
 
-- PowerShellGet. Henüz yüklenmiş ve güncellenmiş değilse, [bu yönergeleri](/powershell/gallery/installing-psget) izleyin.
+- PowerShellGet 2.0.1 veya üzeri. Henüz yüklenmiş ve güncellenmiş değilse, [bu yönergeleri](/powershell/gallery/installing-psget) izleyin.
+
+### <a name="cloud-shell"></a>Cloud Shell
+
+Cloud Shell’de Azure Kaynak Grafı eklemek için aşağıdaki PowerShell Core yönergelerini izleyin.
 
 ### <a name="powershell-core"></a>PowerShell Core
 
@@ -49,21 +53,21 @@ PowerShell Core’un Kaynak Grafiği modülü **Az.ResourceGraph**’tır.
 
 1. **Yönetimsel** PowerShell Core komut isteminde aşağıdaki komutu çalıştırın:
 
-   ```powershell
+   ```azurepowershell-interactive
    # Install the Resource Graph module from PowerShell Gallery
    Install-Module -Name Az.ResourceGraph
    ```
 
-1. Modülün içeri aktarıldığını ve doğru sürüm olduğunu doğrulayın (0.2.0):
+1. Modülün içeri aktarıldığını ve doğru sürüm olduğunu doğrulayın (0.3.0):
 
-   ```powershell
+   ```azurepowershell-interactive
    # Get a list of commands for the imported Az.ResourceGraph module
    Get-Command -Module 'Az.ResourceGraph' -CommandType 'Cmdlet'
    ```
 
 1. Aşağıdaki komutla **Az** - **AzureRm** arası için geriye dönük diğer adları etkinleştirin:
 
-   ```powershell
+   ```azurepowershell-interactive
    # Enable backwards alias compatibility
    Enable-AzureRmAlias
    ```
@@ -79,7 +83,7 @@ Windows PowerShell’in Kaynak Grafiği modülü **AzureRm.ResourceGraph**’tı
    Install-Module -Name AzureRm.ResourceGraph -AllowPrerelease
    ```
 
-1. Modülün içeri aktarıldığını ve doğru sürüm olduğunu doğrulayın (0.1.0-önizleme):
+1. Modülün içeri aktarıldığını ve doğru sürüm olduğunu doğrulayın (0.1.1-önizleme):
 
    ```powershell
    # Get a list of commands for the imported AzureRm.ResourceGraph module
@@ -88,12 +92,12 @@ Windows PowerShell’in Kaynak Grafiği modülü **AzureRm.ResourceGraph**’tı
 
 ## <a name="run-your-first-resource-graph-query"></a>İlk Kaynak Grafiği sorgunuzu çalıştırma
 
-Artık Azure PowerShell modülü, seçtiğiniz ortamınıza eklendiğine göre, basit bir Kaynak Grafiği sorgusu denemenin zamanı geldi. Sorgu ilk beş Azure kaynağını, her kaynağın **Adı** ve **Kaynak Türü** ile birlikte döndürür.
+Azure PowerShell modülünün seçtiğiniz ortamınıza eklenmesiyle birlikte şimdi basit bir Kaynak Grafiği sorgusu denemenin zamanı geldi. Sorgu ilk beş Azure kaynağını, her kaynağın **Adı** ve **Kaynak Türü** ile birlikte döndürür.
 
 1. `Search-AzureRmGraph` cmdlet’ini kullanarak İlk Azure Kaynak Grafiği sorgunuzu çalıştırın:
 
-   ```powershell
-   # Login first with Connect-AzureRmAccount
+   ```azurepowershell-interactive
+   # Login first with Connect-AzureRmAccount if not using Cloud Shell
 
    # Run Azure Resource Graph query
    Search-AzureRmGraph -Query 'project name, type | limit 5'
@@ -104,7 +108,7 @@ Artık Azure PowerShell modülü, seçtiğiniz ortamınıza eklendiğine göre, 
 
 1. Sorguyu `order by` **Ad** özelliğine güncelleştirin:
 
-   ```powershell
+   ```azurepowershell-interactive
    # Run Azure Resource Graph query with 'order by'
    Search-AzureRmGraph -Query 'project name, type | limit 5 | order by name asc'
    ```
@@ -112,14 +116,14 @@ Artık Azure PowerShell modülü, seçtiğiniz ortamınıza eklendiğine göre, 
   > [!NOTE]
   > İlk sorguda olduğu gibi, bu sorguyu birden çok kez çalıştırmak, muhtemelen istek başına farklı bir kaynak kümesi sunacaktır. Sorgu komutlarının düzeni önemlidir. Bu örnekte `order by`, `limit`’den sonra gelmektedir. Bu, sorgu sonuçlarını önce sınırlar, sonra düzenler.
 
-1. Sorguyu ilk önce `order by` **Ad** özelliğine ve ardından `limit`’e en iyi 5 sonuca güncelleştirin:
+1. Sorguyu ilk önce `order by` **Ad** özelliğine ve ardından `limit`’e en iyi beş sonuca güncelleştirin:
 
-   ```powershell
+   ```azurepowershell-interactive
    # Run Azure Resource Graph query with `order by` first, then with `limit`
    Search-AzureRmGraph -Query 'project name, type | order by name asc | limit 5'
    ```
 
-Son sorgu birden çok kez çalıştırıldığında, ortamınızda hiçbir şeyin değişmediği varsayılarak döndürülen sonuçlar tutarlı ve beklendiği gibi olur, yani **Ad** özelliğine göre düzenlenir ama yine de en iyi 5 sonuçla sınırlıdır.
+Son sorgu birkaç kere çalıştırıldığında, ortamınızda hiçbir şeyin değişmediği varsayılarak döndürülen sonuçlar tutarlı ve beklendiği gibi olur, yani **Ad** özelliğine göre düzenlenir ama yine de en iyi beş sonuçla sınırlıdır.
 
 ## <a name="cleanup"></a>Temizleme
 

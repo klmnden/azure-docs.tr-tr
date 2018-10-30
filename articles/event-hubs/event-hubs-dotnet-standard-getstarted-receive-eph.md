@@ -14,47 +14,29 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/16/2018
 ms.author: shvija
-ms.openlocfilehash: 5abb2447fa90ea5900afb86746cc17eff62c2d2e
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 03cba90874d0f42e6c404009dc4115fb4f1798ed
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49166296"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49468084"
 ---
 # <a name="get-started-receiving-messages-with-the-event-processor-host-in-net-standard"></a>.NET Standard'da Olay İşlemcisi Konağı ile iletiler almaya başlama
+Event Hubs bağlı cihaz ve uygulamalardan büyük miktarlarda olay verileri (telemetri) işleyen bir hizmettir. Verileri Event Hubs’a topladıktan sonra bir depolama kümesi kullanarak depolayabilir veya gerçek zamanlı bir analiz sağlayıcısı kullanarak dönüştürebilirsiniz. Bu büyük ölçekli olay toplama ve işleme özelliği, Nesnelerin İnterneti (IoT) gibi modern uygulama mimarilerinin temel bir bileşenidir. Olay Hub’larının ayrıntılı genel bakışı için bkz. [Olay Hub’larına genel bakış](event-hubs-about.md) ve [Olay Hub’ları özellikleri](event-hubs-features.md).
+
+Bu öğreticide, [Olay İşleyicisi Ana Bilgisayarı](event-hubs-event-processor-host.md)’nı kullanarak bir olay hub’ından iletiler alan .NET Core konsol uygulamasını yazma işlemi gösterilmektedir. [Olay İşleyicisi Ana Bilgisayarı](event-hubs-event-processor-host.md), olay hub’larına ait kalıcı denetim noktalarını ve paralel alımları yöneterek bu olay hub’larına ait alma olaylarını basitleştiren bir .NET sınıfıdır. Olay İşleyicisi Ana Bilgisayarı’nı kullanarak, farklı düğümlerde barındırıldığında bile birden çok alıcı arasında olayları bölebilirsiniz. Bu örnek, tek alıcı için Olay İşleyicisi Ana Bilgisayarı'nın nasıl kullanıldığını göstermektedir. [Olay işleme ölçeğini genişletme] [Olay Hub’ları içeren Olay İşleme Ölçeğini Genişletme] örneği, birden çok alıcıyla Olay İşleyicisi Ana Bilgisayarı'nın nasıl kullanılacağını göstermektedir.
 
 > [!NOTE]
-> Bu örnek [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleEphReceiver)'da sağlanır.
-
-Bu öğreticide, **Olay İşlemcisi Konağı** kitaplığını kullanarak bir olay hub’ından iletiler alan .NET Core konsol uygulamasını yazma işlemi gösterilmektedir. [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleEphReceiver) çözümünü olduğu gibi, dizeleri kendi olay hub'ı ve depolama hesabı değerlerinizle değiştirerek kullanabilirsiniz. Öte yandan, bu öğreticideki adımları izleyerek kendi çözümünüzü de oluşturabilirsiniz.
+> Bu hızlı başlangıcı [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleEphReceiver)’dan örnek olarak indirebilir ve `EventHubConnectionString` ve `EventHubName`, `StorageAccountName`, `StorageAccountKey` ve `StorageContainerName` dizelerini olay hub’ınızdaki değerlerle değiştirebilir ve çalıştırabilirsiniz. Alternatif olarak bu öğreticideki adımları izleyerek kendi çözümünüzü de oluşturabilirsiniz.
 
 ## <a name="prerequisites"></a>Ön koşullar
-
 * [Microsoft Visual Studio 2015 veya 2017](http://www.visualstudio.com). Bu öğreticideki örneklerde Visual Studio 2017 kullanılır, ama Visual Studio 2015 de desteklenir.
 * [.NET Core Visual Studio 2015 veya 2017 araçları](http://www.microsoft.com/net/core).
-* Azure aboneliği.
-* Azure Event Hubs ad alanı ve bir olay hub’ı.
-* Bir Azure depolama hesabı.
 
-## <a name="create-an-event-hubs-namespace-and-an-event-hub"></a>Event Hubs ad alanı ve bir olay hub’ı oluşturma  
+## <a name="create-an-event-hubs-namespace-and-an-event-hub"></a>Event Hubs ad alanı ve bir olay hub’ı oluşturma
+İlk adımda [Azure portalını](https://portal.azure.com) kullanarak Event Hubs türünde bir ad alanı oluşturun, ardından uygulamanızın olay hub’ı ile iletişim kurması için gereken yönetim kimlik bilgilerini edinin. Bir ad alanı ve olay hub'ı oluşturmak için [bu makalede](event-hubs-create.md) verilen yordamı uygulayın, ardından bu öğreticide yer alan aşağıdaki adımlarla devam edin.
 
-İlk adımda [Azure Portal](https://portal.azure.com) kullanılarak Event Hubs türünde bir ad alanı oluşturulur, ardından uygulamanızın olay hub’ı ile iletişim kurması için gereken yönetim kimlik bilgileri alınır. Ad alanı ve olay hub'ı oluşturmak için [bu makalede](event-hubs-create.md) verilen yordamı izleyin ve ardından bu öğreticiyle devam edin.  
-
-## <a name="create-an-azure-storage-account"></a>Azure Depolama hesabı oluşturma  
-
-1. [Azure Portal](https://portal.azure.com) oturum açın.  
-2. Portalın sol tarafındaki gezinti bölmesinde **Kaynak oluştur**'u, kategorilerden **Depolama**'yı seçin ve ardından **Depolama hesabı - blob, dosya, tablo, kuyruk** girişini seçin.  
-3. **Depolama hesabı oluştur** penceresindeki alanları doldurun ve **Gözden geçir + oluştur**'u seçin. 
-
-    ![Depolama hesabı oluştur][1]
-
-4. **Gözden geçir + oluştur** sayfasında alanların değerlerini gözden geçirdikten sonra **Oluştur**'u seçin. 
-5. **Dağıtımlar Başarılı** iletisini gördükten sonra, yeni depolama hesabının adını seçin. 
-6. **Temel Bileşenler** penceresinde **Bloblar**'u seçin. 
-7. En üstte **+ Kapsayıcı**'yı seçin. Kapsayıcıya bir ad verin.  
-8. Sol taraftaki pencerede **Erişim tuşları**'nı seçin ve depolama kapsayıcısının adını, depolama hesabını ve **key1** öğesinin değerini kopyalayın. 
-
-    Bu değerleri Not Defteri'ne veya başka bir geçici konuma kaydedin.
+[!INCLUDE [event-hubs-create-storage](../../includes/event-hubs-create-storage.md)]
 
 ## <a name="create-a-console-application"></a>Konsol uygulaması oluşturma
 
@@ -118,7 +100,7 @@ Aşağıdaki adımları izleyerek [**Microsoft.Azure.EventHubs**](https://www.nu
     }
     ```
 
-## <a name="write-a-main-console-method-that-uses-the-simpleeventprocessor-class-to-receive-messages"></a>İletileri almak için SimpleEventProcessor sınıfını kullanan bir ana konsol yöntemi yazma
+## <a name="update-the-main-method-to-use-simpleeventprocessor"></a>SimpleEventProcessor’ı kullanmak için Ana yöntemi güncelleştirme
 
 1. Aşağıdaki `using` deyimlerini Program.cs dosyasının üst kısmına ekleyin.
 
@@ -220,12 +202,11 @@ Aşağıdaki adımları izleyerek [**Microsoft.Azure.EventHubs**](https://www.nu
 
 Tebrikler! Olay İşlemcisi Konağı'nı kullanarak bir olay hub’ından iletiler aldınız.
 
-## <a name="next-steps"></a>Sonraki adımlar
-Aşağıdaki bağlantıları inceleyerek Event Hubs hakkında daha fazla bilgi edinebilirsiniz:
+> [!NOTE]
+> Bu öğretici, [EventProcessorHost](event-hubs-event-processor-host.md)’un tek bir örneğini kullanır. Verimliliği artırmak için, birden çok [EventProcessorHost](event-hubs-event-processor-host.md) örneğinin [Ölçeği genişletilmiş olay işleme](https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3) örneğinde gösterildiği gibi çalıştırmanızı öneririz. Bu gibi durumlarda, alınan olayların yükünü dengelemek üzere birden çok örnek otomatik olarak birbiriyle koordine olur. 
 
-* [Event Hubs’a genel bakış](event-hubs-what-is-event-hubs.md)
-* [Olay Hub’ı oluşturma](event-hubs-create.md)
-* [Event Hubs ile ilgili SSS](event-hubs-faq.md)
+## <a name="next-steps"></a>Sonraki adımlar
+Bu hızlı başlangıçta bir olay hub’ından iletiler alan .Net Standart uygulaması oluşturdunuz. .NET Standardı kullanarak olay hub’ına olaylar göndermeyi öğrenmek için bkz. [Olay hub’ından olaylar gönderme, .NET Standard](event-hubs-dotnet-standard-getstarted-send.md).
 
 [1]: ./media/event-hubs-dotnet-standard-getstarted-receive-eph/event-hubs-python1.png
 [2]: ./media/event-hubs-dotnet-standard-getstarted-receive-eph/netcorercv.png

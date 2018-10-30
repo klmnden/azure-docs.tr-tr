@@ -1,20 +1,20 @@
 ---
 title: Azure Haritalar ile arama | Microsoft Docs
 description: Azure Haritalar’ı kullanarak yakınlardaki ilgi çekici noktayı arama
-author: dsk-2015
-ms.author: dkshir
-ms.date: 10/02/2018
+author: walsehgal
+ms.author: v-musehg
+ms.date: 10/22/2018
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 761674c5839f0513532355116db07604f9e9d9dc
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: 10fb30b77cc3cd18cbb6b3def9682349474fba71
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48816829"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49645824"
 ---
 # <a name="search-nearby-points-of-interest-using-azure-maps"></a>Azure Haritalar’ı kullanarak yakınlardaki ilgi çekici noktaları arama
 
@@ -116,11 +116,10 @@ Harita Denetimi API’si, Haritalar’ı web uygulamanızla kolayca tümleştirm
 
     ```JavaScript
     // Instantiate map to the div with id "map"
-    var MapsAccountKey = "<your account key>";
-    var map = new atlas.Map("map", {
-        "subscription-key": MapsAccountKey
-    });
+    atlas.setSubscriptionKey("<your account key>");
+    var map = new atlas.Map("map");
     ```
+
     Bu segment, Azure Haritalar hesap anahtarınız için Harita Denetimi API’sini başlatır. **Atlas**, API ve ilgili görsel bileşenleri içeren ad alanıdır. **Atlas.Map**, görsel ve etkileşimli bir web haritası için gerekli denetimi sağlar.
 
 4. Değişikliklerinizi dosyaya kaydedin ve HTML sayfasını bir tarayıcıda açın. Bu, **atlas.map** komutunu çağırıp hesap anahtarınızı kullanarak oluşturabileceğiniz en temel haritadır.
@@ -148,14 +147,14 @@ Bu bölümde, Haritalar Arama API’sini kullanarak haritanızda ilgi çekici bi
     var client = new atlas.service.Client(MapsAccountKey);
     ```
 
-3. Tüm harita işlevleri, harita yüklendikten sonra yüklenmelidir. Bunu sağlamak için tüm harita işlevlerini harita eventListener bloğunun içine yerleştirebilirsiniz. Aşağıdaki kod satırlarını haritanın [eventListener](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addeventlistener) bloğuna ekleyerek işlevler eklenmeden önce haritanın tamamen yüklendiğinden emin olabilirsiniz.
+3. Tüm harita işlevleri, harita yüklendikten sonra yüklenmelidir. Bunu sağlamak için tüm harita işlevlerini harita eventListener bloğunun içine yerleştirebilirsiniz. Aşağıdaki kod satırlarını haritanın [eventListener](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) bloğuna ekleyerek işlevler eklenmeden önce haritanın tamamen yüklendiğinden emin olabilirsiniz.
     
     ```JavaScript
-         map.addEventListener("load", function() {
+         map.events.add("load", function() {
          });
     ```
 
-4. Sorguyu oluşturmak için **harita yükleme eventListener** bloğunun içine aşağıdaki betik bloğunu ekleyin. Bu, Arama Hizmetinin temel arama API'si olan Belirsiz Arama Hizmetini kullanır. Belirsiz Arama Hizmeti, adres ve ilgi çekici nokta (POI) belirteci kombinasyonları gibi belirsiz girişlerin çoğunu işler. Belirtilen yarıçap içinde olup yakında bulunan Benzin İstasyonlarını arar. Ardından yanıt GeoJSON biçimine ayrıştırılır, nokta özelliğine dönüştürülür ve bunlar haritaya iğne olarak eklenir. Betiğin son kısmı, Harita'nın [setCameraBounds](https://docs.microsoft.com/javascript/api/azure-maps-control/models.cameraboundsoptions?view=azure-iot-typescript-latest) özelliğini kullanarak harita için kamera sınırları ekler.
+4. Sorguyu oluşturmak için **harita yükleme olayları** bloğunun içine aşağıdaki betik bloğunu ekleyin. Bu, Arama Hizmetinin temel arama API'si olan Belirsiz Arama Hizmetini kullanır. Belirsiz Arama Hizmeti, adres ve ilgi çekici nokta (POI) belirteci kombinasyonları gibi belirsiz girişlerin çoğunu işler. Belirtilen yarıçap içinde olup yakında bulunan Benzin İstasyonlarını arar. Ardından yanıt GeoJSON biçimine ayrıştırılır, nokta özelliğine dönüştürülür ve bunlar haritaya iğne olarak eklenir. Betiğin son kısmı, Harita'nın [setCameraBounds](https://docs.microsoft.com/javascript/api/azure-maps-control/models.cameraboundsoptions?view=azure-iot-typescript-latest) özelliğini kullanarak harita için kamera sınırları ekler.
 
     ```JavaScript
 
@@ -190,8 +189,8 @@ Bu bölümde, Haritalar Arama API’sini kullanarak haritanızda ilgi çekici bi
             map.setCameraBounds({
                bounds: geojsonResponse.getGeoJsonResults().bbox,
                padding: 50
-            );
-        });
+            });
+    });
     ```
 5. **MapSearch.html** dosyasını kaydedin ve tarayıcınızı yenileyin. Şimdi haritanın Seattle’da ortalandığını ve bölgedeki benzin istasyonu konumlarının mavi raptiyelerle işaretlendiğini görmeniz gerekir.
 

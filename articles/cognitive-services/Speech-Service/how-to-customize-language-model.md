@@ -1,19 +1,21 @@
 ---
-title: Konuşma Tanıma Hizmetleri ile dil modeli oluşturma - Microsoft Bilişsel Hizmetler
-description: Microsoft Bilişsel Hizmetler'de Konuşma Tanıma Hizmetleri ile dil modeli oluşturmayı öğrenin.
+title: 'Öğretici: Konuşma Tanıma Hizmeti ile bir dil modeli oluşturma'
+titlesuffix: Azure Cognitive Services
+description: Konuşma Tanıma Hizmeti ile bir dil modeli oluşturmayı öğrenin.
 services: cognitive-services
 author: PanosPeriorellis
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: tutorial
 ms.date: 06/25/2018
 ms.author: panosper
-ms.openlocfilehash: d74a5ded7d86969b3ca2cc20a59ddc20af7dc932
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: b8d58450ccc5081e3be3131761d1321a32567df3
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49364124"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49469002"
 ---
 # <a name="tutorial-create-a-custom-language-model"></a>Öğretici: Özel dil modeli oluşturma
 

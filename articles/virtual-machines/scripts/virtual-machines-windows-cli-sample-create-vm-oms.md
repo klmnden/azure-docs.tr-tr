@@ -1,6 +1,6 @@
 ---
-title: Azure CLI Betik Örneği - OMS izleme ile Windows Server 2016 VM oluşturma | Microsoft Docs
-description: Azure CLI Betik Örneği - OMS izleme ile Windows Server 2016 VM oluşturma
+title: Azure CLI Betik Örneği - Log Analytics izleme ile Windows Server 2016 VM oluşturma | Microsoft Docs
+description: Azure CLI Betik Örneği - Log Analytics izleme ile Windows Server 2016 VM oluşturma
 services: virtual-machines-Windows
 documentationcenter: virtual-machines
 author: rickstercdn
@@ -16,16 +16,16 @@ ms.workload: infrastructure
 ms.date: 02/23/2017
 ms.author: rclaus
 ms.custom: mvc
-ms.openlocfilehash: 05ecaa856cf2c513b48f0ba0f170dfb3bbf31e75
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: d4b73981e3cb21f7b4caefaf443014853929b708
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34658300"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49403398"
 ---
-# <a name="monitor-a-vm-with-operations-management-suite"></a>Operations Management Suite ile bir VM’yi izleme
+# <a name="monitor-a-vm-with-log-analytics"></a>Log Analytics ile VM izleme
 
-Bu betik bir Azure Sanal Makinesi oluşturur, Operations Management Suite (OMS) aracısını yükler ve sistemi bir OMS çalışma alanına kaydeder. Betik çalıştıktan sonra sanal makine OMS konsolunda görünür.
+Bu betik bir Azure Sanal Makinesi oluşturur, Log Analytics aracısını yükler ve sistemi bir Log Analytics çalışma alanına kaydeder. Betik çalıştıktan sonra sanal makine Azure İzleme’de görünür.
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
@@ -51,7 +51,7 @@ Bu betik, bir kaynak grubu, sanal makine ve tüm ilgili kaynakları oluşturmak 
 |---|---|
 | [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | Tüm kaynakların depolandığı bir kaynak grubu oluşturur. |
 | [az vm create](https://docs.microsoft.com/cli/azure/vm#az_vm_create) | Sanal makine oluşturur ve ağ kartına, sanal ağa, alt ağa ve NSG’ye bağlar. Bu komut ayrıca kullanılacak sanal makine görüntüsünü ve yönetici kimlik bilgilerini belirtir.  |
-| [azure vm extension set](https://docs.microsoft.com/cli/azure/vm/extension#az_vm_extension_set) | Bir sanal makineye karşı VM uzantısı çalıştırır. Bu örnekte OMS aracısını yüklemek ve VM’yi bir OMS çalışma alanına kaydetmek için Operations Management Suite aracı uzantısı kullanılır. |
+| [azure vm extension set](https://docs.microsoft.com/cli/azure/vm/extension#az_vm_extension_set) | Bir sanal makineye karşı VM uzantısı çalıştırır. |
 | [az group delete](https://docs.microsoft.com/cli/azure/vm/extension#az_vm_extension_set) | Bir kaynak grubunu tüm iç içe geçmiş kaynaklar dahil siler. |
 
 ## <a name="next-steps"></a>Sonraki adımlar

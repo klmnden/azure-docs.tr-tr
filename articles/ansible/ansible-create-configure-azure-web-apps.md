@@ -1,6 +1,6 @@
 ---
-title: Ansible'ı kullanarak Azure Web Uygulamaları oluşturma (Önizleme)
-description: Ansible'ı kullanarak Linux'ta App Service hizmetinde Java 8 ve Tomcat kapsayıcı çalışma zamanı ile Web Uygulaması oluşturmayı öğrenin
+title: Ansible'ı kullanarak Azure web uygulamaları oluşturma (Önizleme)
+description: Ansible'ı kullanarak Linux'ta App Service hizmetinde Java 8 ve Tomcat kapsayıcı çalışma zamanı ile web uygulaması oluşturmayı öğrenin
 ms.service: ansible
 keywords: ansible, azure, devops, bash, playbook, Azure App Service, Web Uygulaması, Java
 author: tomarcher
@@ -8,29 +8,29 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 09/20/2018
-ms.openlocfilehash: 1899b1fc1e0a38d859fb3a7ce2153585579650f3
-ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
+ms.openlocfilehash: 48b4c201b2b96bd4662e8c90be7298a4f418af53
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47586710"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49426567"
 ---
-# <a name="create-azure-app-service-web-apps-using-ansible-preview"></a>Ansible'ı kullanarak Azure App Service Web Uygulamaları oluşturma (önizleme)
-[Azure App Service Web Apps](https://docs.microsoft.com/azure/app-service/app-service-web-overview) (veya yalnızca Web Apps) web uygulamaları, REST API'leri ve mobil arka uçlar barındırmaya yönelik bir hizmettir. .NET, .NET Core, Java, Ruby, Node.js, PHP veya Python dahil en sevdiğiniz dilde geliştirebilirsiniz.
+# <a name="create-azure-app-service-web-apps-by-using-ansible-preview"></a>Ansible'ı kullanarak Azure App Service web uygulamaları oluşturma (önizleme)
+[Azure App Service Web Apps](https://docs.microsoft.com/azure/app-service/app-service-web-overview) (veya yalnızca Web Apps) web uygulamalarını, REST API'lerini ve mobil arka uçları barındırır. .NET, .NET Core, Java, Ruby, Node.js, PHP veya Python dahil en sevdiğiniz dilde geliştirebilirsiniz.
 
-Ansible, ortamınızdaki kaynakların dağıtımını ve yapılandırılmasını otomatikleştirmenizi sağlar. Bu makalede Ansible'ı kullanarak Java çalışma zamanıyla bir Web Uygulaması oluşturma adımları gösterilmektedir. 
+Ansible, ortamınızdaki kaynakların dağıtımını ve yapılandırılmasını otomatikleştirmenizi sağlar. Bu makalede Ansible'ı kullanarak Java çalışma zamanıyla bir web uygulaması oluşturma adımları gösterilmektedir. 
 
 ## <a name="prerequisites"></a>Ön koşullar
 - **Azure aboneliği** - Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) oluşturun.
 - [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation1.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation1.md)] [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation2.md)]
 
 > [!Note]
-> Bu öğreticideki örnek playbook'ları çalıştırmak için Ansible 2.7 gerekir. Ansible 2.7 RC sürümünü `sudo pip install ansible[azure]==2.7.0rc2` çalıştırarak yükleyebilirsiniz. Ansible 2.7, Ekim 2018'de kullanıma sunulacaktır. Bundan sonra, varsayılan sürümü 2.7 olacağı için sürümü burada belirtmeniz gerekmez. 
+> Bu öğreticideki örnek playbook'ları çalıştırmak için Ansible 2.7 gerekir. Ansible 2.7 RC sürümünü `sudo pip install ansible[azure]==2.7.0rc2` çalıştırarak yükleyebilirsiniz. Ansible 2.7 kullanıma sunulduktan sonra varsayılan sürüm 2.7 olacağından sürümü burada belirtmeniz gerekmez. 
 
 ## <a name="create-a-simple-app-service"></a>Basit bir App Service örneği oluşturma
 Bu bölüm, aşağıdaki kaynakları tanımlayan bir örnek Ansible playbook sunar:
 - App Service planınızın ve web uygulamanızın dağıtılacağı kaynak grubu
-- Linux'ta App Service hizmetinde Java 8 ve Tomcat kapsayıcı çalışma zamanı ile bir Web Uygulaması
+- Linux'ta App Service hizmetinde Java 8 ve Tomcat kapsayıcı çalışma zamanı ile bir Web uygulaması
 
 ```
 - hosts: localhost
@@ -62,14 +62,14 @@ Bu bölüm, aşağıdaki kaynakları tanımlayan bir örnek Ansible playbook sun
               java_container: tomcat
               java_container_version: 8.5
 ```
-Yukarıdaki playbook'u firstwebapp.yml olarak kaydedin.
+Önceki playbook'u **firstwebapp.yml** olarak kaydedin.
 
 Playbook'u çalıştırmak için **ansible-playbook** komutunu aşağıdaki gibi kullanın:
 ```bash
 ansible-playbook firstwebapp.yml
 ```
 
-Ansible playbook'un çalıştırılması sonucu oluşan çıktı Web uygulamasının başarıyla oluşturulduğunu gösterir:
+Ansible playbook'un çalıştırılması sonucu oluşan çıktı web uygulamasının başarıyla oluşturulduğunu gösterir:
 
 ```
 TASK [Create a resource group] *************************************************
@@ -84,18 +84,18 @@ PLAY RECAP *********************************************************************
 localhost                  : ok=2    changed=2    unreachable=0    failed=0   
 ```
 
-## <a name="create-app-service-with-traffic-manager"></a>Traffic Manager ile App Service oluşturma
-[Azure Traffic Manager](https://docs.microsoft.com/azure/app-service/web-sites-traffic-manager)'ı kullanarak web istemcilerinden gelen isteklerin Azure App Service'teki uygulamalara nasıl dağıtılacağını denetleyebilirsiniz. App Service uç noktaları bir Azure Traffic Manager profiline eklendiğinde Azure Traffic Manager, App Service uygulamalarının durumunu (çalışıyor, durduruldu veya silindi) izleyerek trafik gönderilecek uç noktaları belirleyebilir.
+## <a name="create-an-app-service-by-using-traffic-manager"></a>Traffic Manager’ı kullanarak uygulama hizmeti oluşturma
+[Azure Traffic Manager](https://docs.microsoft.com/azure/app-service/web-sites-traffic-manager)'ı kullanarak web istemcilerinden gelen isteklerin Azure App Service'teki uygulamalara nasıl dağıtılacağını denetleyebilirsiniz. App Service uç noktaları bir Azure Traffic Manager profiline eklendiğinde, Traffic Manager, App Service uygulamalarınızın durumunu izler. Durumlar arasında çalışıyor, durduruldu ve silindi yer alır. Ardından Traffic Manager bu uç noktalardan hangilerinin trafik alması gerektiğine karar verebilir.
 
 App Service'teki uygulamalar bir [App Service planında](https://docs.microsoft.com/azure/app-service/azure-web-sites-web-hosting-plans-in-depth-overview
-) çalışır. App Service planı, bir web uygulamasının birlikte çalıştırılacağı işlem kaynakları kümesini tanımlar. App Service planınızı ve Web Uygulamanızı farklı gruplarda yönetebilirsiniz.
+) çalışır. App Service planı, bir web uygulamasının birlikte çalıştırılacağı işlem kaynakları kümesini tanımlar. App Service planınızı ve web uygulamanızı farklı gruplarda yönetebilirsiniz.
 
 Bu bölüm, aşağıdaki kaynakları tanımlayan bir örnek Ansible playbook sunar:
 - App Service planınızın dağıtılacağı kaynak grubu
-- App Service Planı
+- App Service planı
 - Web uygulamanızın dağıtılacağı ikincil kaynak grubu
-- Linux'ta App Service hizmetinde Java 8 ve Tomcat kapsayıcı çalışma zamanı ile bir Web Uygulaması
-- Traffic Manager Profili
+- Linux'ta App Service hizmetinde Java 8 ve Tomcat kapsayıcı çalışma zamanı ile bir Web uygulaması
+- Traffic Manager profili
 - Oluşturulan web sitesini kullanan Traffic Manager uç noktası
 
 ```
@@ -179,14 +179,14 @@ Bu bölüm, aşağıdaki kaynakları tanımlayan bir örnek Ansible playbook sun
       target_resource_id: "{{ webapp.webapps[0].id }}"
 
 ```
-Playbook'u webapp.yml olarak kaydedin veya [playbook'u indirin](https://github.com/Azure-Samples/ansible-playbooks/blob/master/webapp.yml).
+Önceki playbook'u **webapp.yml** olarak kaydedin veya [playbook'u indirin](https://github.com/Azure-Samples/ansible-playbooks/blob/master/webapp.yml).
 
 Playbook'u çalıştırmak için **ansible-playbook** komutunu aşağıdaki gibi kullanın:
 ```bash
 ansible-playbook webapp.yml
 ```
 
-Ansible playbook çıktısı App Service planı, Web uygulaması, Traffic Manager profili ve uç noktasının başarıyla oluşturulduğunu gösterir:
+Ansible playbook çıktısı App Service planı, web uygulaması, Traffic Manager profili ve uç noktasının başarıyla oluşturulduğunu gösterir:
 ```
 TASK [Create resource group] ****************************************************************************
 changed: [localhost]

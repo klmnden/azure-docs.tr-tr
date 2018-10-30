@@ -1,22 +1,23 @@
 ---
-title: Konuşma tanıma hizmeti nedir?
-description: "Microsoft'un sunduğu Bilişsel Hizmetler'in bir parçası olan Konuşma tanıma hizmeti, daha önce ayrı olarak sunulan şu birkaç Azure konuşma hizmetini bir araya getirmektedir: Bing Konuşma (konuşma tanıma ve metin okuma), Özel Konuşma Tanıma ve Konuşma Çevirisi."
+title: Konuşma Tanıma Hizmeti nedir?
 titleSuffix: Azure Cognitive Services
+description: "Azure Bilişsel Hizmetler'in bir parçası olan Konuşma Tanıma Hizmeti, daha önce ayrı olarak sunulan şu birkaç konuşma hizmetini bir araya getirmektedir: Bing Konuşma (konuşma tanıma ve metin okumayı içerir), Özel Konuşma Tanıma ve Konuşma Çevirisi."
 services: cognitive-services
 author: erhopf
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: overview
 ms.date: 09/24/2018
 ms.author: erhopf
-ms.openlocfilehash: 7a61d85d96b993d49a536c38c2907a3d6ef55e65
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: ba4204c23f3467ff07940fd6a72464e67604dde1
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49365467"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49470455"
 ---
-# <a name="what-is-the-speech-service"></a>Konuşma tanıma hizmeti nedir?
+# <a name="what-is-the-speech-service"></a>Konuşma Tanıma Hizmeti nedir?
 
 
 Konuşma tanıma hizmeti, diğer Azure konuşma tanıma hizmetleriyle aynı şekilde Cortana ve Microsoft Office gibi ürünlerde kullanılan konuşma tanıma teknolojileri ile kullanıma sunulmuştur.

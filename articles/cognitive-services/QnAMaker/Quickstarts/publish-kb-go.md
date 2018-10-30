@@ -1,25 +1,28 @@
 ---
-title: 'Hızlı Başlangıç: Go Bilgi Bankası yayımlama - Soru-Cevap Oluşturma'
+title: 'Hızlı başlangıç: Bilgi bankası yayımlama - REST, Go - Soru-Cevap Oluşturma'
 titleSuffix: Azure Cognitive Services
-description: Soru-Cevap Oluşturma için Go’da nasıl bilgi bankası yayımlanılır?
+description: Bu REST tabanlı hızlı başlangıçta test edilen bilgi bankasının son sürümünü yayımlanmış bilgi bankasını temsil eden ayrılmış Azure Search dizinine gönderen KB’nizi yayımlama adımları gösterilmektedir. Ayrıca uygulamanızda veya sohbet botunuzda çağrılabilecek bir uç nokta da oluşturulur.
 services: cognitive-services
 author: diberry
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: quickstart
-ms.date: 09/12/2018
+ms.date: 10/19/2018
 ms.author: diberry
-ms.openlocfilehash: c53763ad54932137e09e39c4b95dfd29f6c79c13
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: 67914cccd4b1cee2bb43f18fc00346f15d79cafa
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48883542"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49646101"
 ---
-# <a name="quickstart-publish-a-knowledge-base-in-go"></a>Hızlı başlangıç: Go’da bilgi bankası yayımlama
+# <a name="quickstart-publish-a-knowledge-base-in-qna-maker-using-go"></a>Hızlı başlangıç: Go kullanarak Soru-Cevap Oluşturma’da bilgi bankası yayımlama
 
-Aşağıdaki kod, [Yayımla](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fe) yöntemini kullanarak mevcut bir bilgi bankasını yayımlar.
+Bu hızlı başlangıçta bilgi bankanızı (KB) program aracılığıyla yayımlama adımları gösterilmektedir. Yayımlama, bilgi bankanızın son sürümünü adanmış bir Azure Search dizinine gönderir ve uygulamanızda ya da sohbet botunuzda çağrılabilecek bir uç nokta oluşturur.
+
+Bu hızlı başlangıç şu Soru-Cevap Oluşturma API'lerini çağırır:
+* [Publish](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fe): Bu API için istek gövdesinde herhangi bir bilgi iletilmesi gerekmez.
 
 1. Sık kullandığınız IDE'de yeni bir Go projesi oluşturun.
 2. Aşağıda sağlanan kodu ekleyin.
