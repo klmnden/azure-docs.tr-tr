@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 10/24/2018
+ms.date: 10/28/2018
 ms.author: raiye
-ms.openlocfilehash: 989627388e9ad1c99daa31bd9c8af884ab16b421
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: 0430eefb55893420cf7ea603998f14465fb2cc60
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50087789"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50215523"
 ---
 # <a name="azure-guest-os"></a>Azure konuk işletim sistemi
 Aşağıdaki tablolarda Azure konuk işletim sistemine uygulanan güncelleştirmelerin Microsoft Güvenlik Yanıt Merkezi (MSRC) gösterilmektedir. Belirli bir güncelleştirmenin Konuk kullanmakta olduğunuz işletim sistemi için geçerli olup olmadığını belirlemek için bu makaleyi arayın. Güncelleştirmeler her zaman taşıyan İleri için belirli [ailesi] [ family-explain] sürümünde yapılan.
@@ -30,11 +30,11 @@ Aşağıdaki tablolarda Azure konuk işletim sistemine uygulanan güncelleştirm
 | Ürün Kategorisi | Üst KB makalesi | Güvenlik Açığı açıklaması | Konuk işletim sistemi | İlk tarih |
 | --- | --- | --- | --- | --- |
 | Rel 18-10 | [4462917] | Windows 10 Güvenlik | 5,24 | 9 Ekim 2018 |
-| Rel 18-10 | [4464330] | Windows 10 Güvenlik | 6.01 | 9 Ekim 2018 |
+| Rel 18-10 | [4464330] | Windows 10 Güvenlik | 6.0 | 9 Ekim 2018 |
 | Rel 18-10 | [4462915] | Windows Güvenlik | 2.79 | 9 Ekim 2018 |
 | Rel 18-10 | [4462931] | Windows Güvenlik | 3.66 | 9 Ekim 2018 |
 | Rel 18-10 | [4462941] | Windows Güvenlik | 4.59 | 9 Ekim 2018 |
-| Rel 18-10 | [4462930] | Flash | 3.66, 4.59, 5,24, 6.01 | 9 Ekim 2018 |
+| Rel 18-10 | [4462930] | Flash | 3.66, 4.59, 5,24, 6.0 | 9 Ekim 2018 |
 | Rel 18-10 | [4462949] | Internet Explorer | 2.79, 3.66 4.59 | 9 Ekim 2018 |
 | Yok | [4339284] | Saat dilimi güncelleştirme | 2.79, 3.66 4.59 | 24 Temmuz 2018 |
 | Yok | [4457144] | Eylül güvenlikle dökümü | 2.79 | 11 Eylül 2018'den |

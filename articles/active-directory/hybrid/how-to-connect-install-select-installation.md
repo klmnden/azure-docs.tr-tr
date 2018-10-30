@@ -43,7 +43,7 @@ Bunu varsayılır:
 
 Seçenekler burada Express kullanmaya devam edebilirsiniz:
 
-- Tüm OU'larda eşitlenecek istemiyorsanız hala Express ve kullanabilirsiniz son sayfasında seçimini kaldır **... eşitleme işlemini ***. Yükleme Sihirbazı'nı yeniden çalıştırın ve alanındaki OU'ları değiştirmek [yapılandırma seçenekleri](how-to-connect-installation-wizard.md#customize-synchronization-options) ve zamanlanmış eşitlemeyi etkinleştirin.
+- Tüm OU'larda eşitlenecek istemiyorsanız hala Express ve kullanabilirsiniz son sayfasında seçimini kaldır **...eşitleme işlemini**\*. Yükleme Sihirbazı'nı yeniden çalıştırın ve alanındaki OU'ları değiştirmek [yapılandırma seçenekleri](how-to-connect-installation-wizard.md#customize-synchronization-options) ve zamanlanmış eşitlemeyi etkinleştirin.
 - Bir Azure AD Premium, parola geri yazma gibi özellikleri etkinleştirmek istiyorsunuz. Önce ilk yükleme almak için express gidin. Yükleme Sihirbazı'nı yeniden çalıştırın ve değiştirme [yapılandırma seçenekleri](how-to-connect-installation-wizard.md#customize-synchronization-options).
 
 ## <a name="custom"></a>Özel

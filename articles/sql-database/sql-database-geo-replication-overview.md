@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 10/19/2018
-ms.openlocfilehash: 9332bcb5849deacde13d67e4a18ea19af8af2977
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.date: 10/29/2018
+ms.openlocfilehash: 3495a923683d78446e61ff0545c7d86023c14bc0
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49471484"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50233863"
 ---
 # <a name="overview-active-geo-replication-and-auto-failover-groups"></a>Genel Bakış: Etkin coğrafi çoğaltma ve otomatik yük devretme grupları
 
@@ -281,18 +281,18 @@ Otomatik Yük devretme grupları ve etkin daha önce açıklandığı gibi coğr
 | --- | --- |
 | [Oluşturma veya güncelleştirme veritabanı (createMode geri yükleme =)](https://docs.microsoft.com/rest/api/sql/databases/createorupdate) |Oluşturur, güncelleştirir veya bir birincil veya ikincil bir veritabanını geri yükler. |
 | [Alma oluşturma veya güncelleştirme veritabanı durumu](https://docs.microsoft.com/rest/api/sql/databases/createorupdate) |Durum oluşturma işlemi sırasında döndürür. |
-| [İkincil veritabanı birincil (Planlı yük devretme) olarak ayarlayın.](https://docs.microsoft.com/rest/api/sql/replicationlinks/replicationlinks_failover) |Yük devretme geçerli birincil çoğaltmayı veritabanından tarafından birincil veritabanı çoğaltmasını ayarlar. |
-| [İkincil veritabanı birincil (planlanmamış yük devretme) olarak ayarlayın.](https://docs.microsoft.com/rest/api/sql/replicationlinks/replicationlinks_failoverallowdataloss) |Yük devretme geçerli birincil çoğaltmayı veritabanından tarafından birincil veritabanı çoğaltmasını ayarlar. Bu işlem veri kaybına neden. |
-| [Çoğaltma bağlantısı alın](https://docs.microsoft.com/rest/api/sql/replicationlinks/replicationlinks_get) |Belirli bir çoğaltma bağlantısı belirli bir SQL veritabanı'nda bir coğrafi çoğaltma ortaklığı alır. Bu sys.geo_replication_links katalog görünümünde görünür bilgilerini alır. |
-| [Çoğaltma bağlantılarını - veritabanı listesi](https://docs.microsoft.com/rest/api/sql/replicationlinks/replicationlinks_listbydatabase) | Belirli bir SQL veritabanı'nda bir coğrafi çoğaltma ortaklığı tüm çoğaltma bağlantılarını alır. Bu sys.geo_replication_links katalog görünümünde görünür bilgilerini alır. |
-| [Çoğaltma bağlantısı Sil](https://docs.microsoft.com/rest/api/sql/replicationlinks/replicationlinks_delete) | Bir veritabanı çoğaltma bağlantısını siler. Yük devretme sırasında yapılamaz. |
-| [Oluşturma veya yük devretme grubu güncelleştirme](https://docs.microsoft.com/rest/api/sql/failovergroups/failovergroups_createorupdate) | Oluşturur veya bir yük devretme grubu güncelleştirir |
-| [Yük devretme grubunu sil](https://docs.microsoft.com/rest/api/sql/failovergroups/failovergroups_delete) | Yük devretme grubuna sunucudan kaldırır |
-| [Yük devretme (Planlı)](https://docs.microsoft.com/rest/api/sql/failovergroups/failovergroups_failover) | Geçerli birincil sunucudan bu sunucuya devreder. |
-| [Zorla yük devretme, veri kaybı izin ver](https://docs.microsoft.com/rest/api/sql/failovergroups/failovergroups_forcefailoverallowdataloss) |üzerinden bu sunucu için geçerli birincil sunucudan ails. Bu işlem veri kaybına neden. |
-| [Yük devretme grubunu Al](https://docs.microsoft.com/rest/api/sql/failovergroups/failovergroups_get) | Bir yük devretme grubunu alır. |
-| [Sunucu tarafından yük devretme grupları Listele](https://docs.microsoft.com/rest/api/sql/failovergroups/failovergroups_listbyserver) | Sunucu yük devretme gruplarını listeler. |
-| [Yük devretme grubu güncelleştirme](https://docs.microsoft.com/rest/api/sql/failovergroups/failovergroups_update) | Bir yük devretme grubu güncelleştirir. |
+| [İkincil veritabanı birincil (Planlı yük devretme) olarak ayarlayın.](https://docs.microsoft.com/rest/api/sql/replicationlinks/failover) |Yük devretme geçerli birincil çoğaltmayı veritabanından tarafından birincil veritabanı çoğaltmasını ayarlar. |
+| [İkincil veritabanı birincil (planlanmamış yük devretme) olarak ayarlayın.](https://docs.microsoft.com/rest/api/sql/replicationlinks/failoverallowdataloss) |Yük devretme geçerli birincil çoğaltmayı veritabanından tarafından birincil veritabanı çoğaltmasını ayarlar. Bu işlem veri kaybına neden. |
+| [Çoğaltma bağlantısı alın](https://docs.microsoft.com/rest/api/sql/replicationlinks/get) |Belirli bir çoğaltma bağlantısı belirli bir SQL veritabanı'nda bir coğrafi çoğaltma ortaklığı alır. Bu sys.geo_replication_links katalog görünümünde görünür bilgilerini alır. |
+| [Çoğaltma bağlantılarını - veritabanı listesi](https://docs.microsoft.com/rest/api/sql/replicationlinks/listbydatabase) | Belirli bir SQL veritabanı'nda bir coğrafi çoğaltma ortaklığı tüm çoğaltma bağlantılarını alır. Bu sys.geo_replication_links katalog görünümünde görünür bilgilerini alır. |
+| [Çoğaltma bağlantısı Sil](https://docs.microsoft.com/rest/api/sql/replicationlinks/delete) | Bir veritabanı çoğaltma bağlantısını siler. Yük devretme sırasında yapılamaz. |
+| [Oluşturma veya yük devretme grubu güncelleştirme](https://docs.microsoft.com/rest/api/sql/failovergroups/createorupdate) | Oluşturur veya bir yük devretme grubu güncelleştirir |
+| [Yük devretme grubunu sil](https://docs.microsoft.com/rest/api/sql/failovergroups/delete) | Yük devretme grubuna sunucudan kaldırır |
+| [Yük devretme (Planlı)](https://docs.microsoft.com/rest/api/sql/failovergroups/failover) | Geçerli birincil sunucudan bu sunucuya devreder. |
+| [Zorla yük devretme, veri kaybı izin ver](https://docs.microsoft.com/rest/api/sql/failovergroups/forcefailoverallowdataloss) |üzerinden bu sunucu için geçerli birincil sunucudan ails. Bu işlem veri kaybına neden. |
+| [Yük devretme grubunu Al](https://docs.microsoft.com/rest/api/sql/failovergroups/get) | Bir yük devretme grubunu alır. |
+| [Sunucu tarafından yük devretme grupları Listele](https://docs.microsoft.com/rest/api/sql/failovergroups/listbyserver) | Sunucu yük devretme gruplarını listeler. |
+| [Yük devretme grubu güncelleştirme](https://docs.microsoft.com/rest/api/sql/failovergroups/update) | Bir yük devretme grubu güncelleştirir. |
 |  | |
 
 ## <a name="next-steps"></a>Sonraki adımlar
