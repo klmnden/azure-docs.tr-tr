@@ -44,7 +44,7 @@ Hizmet hesabı parolasını değiştirdiğinizde yapılması gereken iki şey va
 Parola güncelleştirdiyseniz, ikinci olarak, belirli koşullar altında eşitleme hizmeti artık DPAPI ile şifreleme anahtarını geri alabilirsiniz. Şifreleme anahtarı olmadan, eşitleme hizmeti şirket içine/dışına AD ile Azure AD eşitleme için gerekli olan parolaları şifresi çözülemiyor.
 Hataları gibi görürsünüz:
 
-- Windows Hizmet Denetimi Yöneticisi altında eşitleme hizmeti başlatmayı deneyin ve şifreleme anahtarı alınamıyor bu hatayla başarısız oluyor "** Windows yerel bilgisayarda Microsoft Azure AD eşitleme başlatılamadı. Daha fazla bilgi için sistem olay günlüğünü inceleyin. Microsoft olmayan bir hizmette varsa hizmet satıcısını ve hizmete özgü hata koduna bakın **-21451857952 ***. "
+- Windows Hizmet Denetimi Yöneticisi altında eşitleme hizmeti başlatmayı deneyin ve şifreleme anahtarı alınamıyor bu hatayla başarısız oluyor "**Windows yerel bilgisayarda Microsoft Azure AD eşitleme başlatılamadı. Daha fazla bilgi için sistem olay günlüğünü inceleyin. Microsoft olmayan bir hizmette varsa hizmet satıcısını ve hizmete özgü hata koduna bakın \*\*-21451857952**\*\*."
 - Altındaki Windows Olay Görüntüleyicisi, uygulama olay günlüğüne bir hata içeriyor. **olay kimliği 6028** ve hata iletisi *"**sunucu şifreleme anahtarı erişilemez durumda.**"*
 
 Bu hata almazsınız emin olmak için konusundaki yordamları izleyin [Azure AD Connect Sync şifreleme anahtarını bırakıp](#abandoning-the-azure-ad-connect-sync-encryption-key) parola değiştirme.

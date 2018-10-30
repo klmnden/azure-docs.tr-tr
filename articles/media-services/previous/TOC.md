@@ -233,7 +233,7 @@
 ## [Azure PowerShell (Resource Manager)](/powershell/module/azurerm.media)
 ## [Azure PowerShell (Hizmet Yönetimi)](/powershell/module/servicemanagement/azure/?view=azuresmps-3.7.0)
 ## [.NET](/dotnet/api/microsoft.windowsazure.mediaservices.client)
-## [REST](/rest/api/media/mediaservice)
+## [REST](https://docs.microsoft.com/rest/api/media/operations/azure-media-services-rest-api-reference)
 ## Belirtimler
 ### [Canlı Alma - Bölünmüş MP4 canlı alma belirtimi](media-services-fmp4-live-ingest-overview.md)
 ### [Canlı Alma - Canlı Akışta Zamanlanmış Meta Verilere Sinyal Gönderme](media-services-specifications-live-timed-metadata.md)

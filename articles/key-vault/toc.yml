@@ -31,6 +31,8 @@ items:
   items:
   - name: Anahtar Kasası nedir?
     href: key-vault-whatis.md
+  - name: Anahtar kasanızın güvenliğini sağlama
+    href: key-vault-secure-your-key-vault.md
   - name: Güvenlik dünyaları
     href: key-vault-ovw-security-worlds.md
   - name: Geçici silme
@@ -72,8 +74,6 @@ items:
     href: key-vault-soft-delete-powershell.md
   - name: Erişim vermek için grupları kullanma
     href: key-vault-group-permissions-for-apps.md
-  - name: Anahtar kasanızın güvenliğini sağlama
-    href: key-vault-secure-your-key-vault.md
   - name: Güvenlik duvarlarını ve sanal ağları yapılandırma
     href: key-vault-network-security.md
 - name: Başvuru
@@ -92,6 +92,10 @@ items:
     href: /python/api/overview/azure/key-vault?view=azure-python
   - name: REST
     href: /rest/api/keyvault
+  - name: Kimlik doğrulaması, istekler ve yanıtlar
+    href: authentication-requests-and-responses.md
+  - name: Ortak parametreler ve üst bilgiler
+    href: common-parameters-and-headers.md
   - name: Geliştirme
     items:
     - name: Geliştirici kılavuzu
@@ -104,47 +108,39 @@ items:
       href: vs-secure-secret-appsettings.md
     - name: .NET kullanarak hizmet kimlik doğrulaması
       href: service-to-service-authentication.md
-    - name: Visual Studio ile çalışma
-      items:
-      - name: Anahtar Kasası Bağlı Hizmetini kullanma
-        href: vs-key-vault-add-connected-service.md
-      - name: ASP.NET projeleriyle çalışmaya başlama
-        href: vs-key-vault-aspnet-get-started.md
-      - name: ASP.NET projeme ne oldu?
-        href: vs-key-vault-aspnet-what-happened.md
-      - name: ASP.NET Core projeleriyle çalışmaya başlama
-        href: vs-key-vault-aspnet-core-get-started.md
-      - name: ASP.NET Core projeme ne oldu?
-        href: vs-key-vault-aspnet-core-what-happened.md
+    - name: Anahtar Kasası Bağlı Hizmetini kullanma
+      href: vs-key-vault-add-connected-service.md
 - name: Kaynaklar
   items:
   - name: Microsoft Learn ile becerilerinizi geliştirin
     href: /learn/browse/?products=azure-key-vault
-  - name: Müşteri verileri
+  - name: Kimlik doğrulaması, istekler ve yanıtlar
+    href: authentication-requests-and-responses.md
+  - name: Ortak parametreler ve üst bilgiler
+    href: common-parameters-and-headers.md
+  - name: Müşteri Verileri
     href: key-vault-customer-data.md
   - name: Sürüm Notları
     href: key-vault-versions.md
-  - name: Hizmet
-    items:
-    - name: Fiyatlandırma
-      href: https://azure.microsoft.com/pricing/details/key-vault/
-    - name: Bölge kullanılabilirliği
-      href: https://azure.microsoft.com/global-infrastructure/services/?products=key-vault
-    - name: Hizmet Düzeyi Sözleşmesi (SLA)
-      href: https://azure.microsoft.com/support/legal/sla/key-vault/
-    - name: Hizmet sınırlamaları
-      href: key-vault-service-limits.md
-    - name: Hizmet durumu
-      href: https://azure.microsoft.com/status/
-    - name: Hizmet güncelleştirmeleri
-      href: https://azure.microsoft.com/updates/?product=key-vault
-  - name: Ekip blogu
+  - name: Fiyatlandırma
+    href: https://azure.microsoft.com/pricing/details/key-vault/
+  - name: Bölge kullanılabilirliği
+    href: https://azure.microsoft.com/global-infrastructure/services/?products=key-vault
+  - name: Hizmet Düzeyi Sözleşmesi (SLA)
+    href: https://azure.microsoft.com/support/legal/sla/key-vault/
+  - name: Hizmet sınırlamaları
+    href: key-vault-service-limits.md
+  - name: Hizmet durumu
+    href: https://azure.microsoft.com/status/
+  - name: Hizmet güncelleştirmeleri
+    href: https://azure.microsoft.com/updates/?product=key-vault
+  - name: Blog
     href: http://blogs.technet.com/b/kv/
 - name: Ürün Geri Bildirimi
   href: https://feedback.azure.com/forums/906355-azure-key-vault
-ms.openlocfilehash: 64b4f6cbb26da244898d46b8fd5250a2eeeef91e
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: e58f20767e6a3ae49eff17e5388b7abeb1dcaa65
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50140951"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50221334"
