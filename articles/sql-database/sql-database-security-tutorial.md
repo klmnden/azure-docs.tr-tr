@@ -12,12 +12,12 @@ ms.author: daredis
 ms.reviewer: vanto, carlrab
 manager: craigg
 ms.date: 09/07/2018
-ms.openlocfilehash: ceed69503900b38d7f6a29bbe116ab9a4d54e396
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: b81e76201f7f751ee01e903d83f316811abaf483
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48857967"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49955488"
 ---
 # <a name="secure-your-azure-sql-database"></a>Azure SQL Veritabanınızın güvenliğini sağlama
 
@@ -59,7 +59,7 @@ Bu öğreticiyi tamamlamak için aşağıdakileri yaptığınızdan emin olun:
 
 SQL veritabanları Azure’daki bir güvenlik duvarı tarafından korunur. Varsayılan olarak, diğer Azure hizmetlerinden gelen bağlantılar dışında sunucuya ve sunucu içindeki veritabanlarına yönelik tüm bağlantılar reddedilir. Daha fazla bilgi için bkz. [Azure SQL Veritabanı'nda sunucu düzeyinde ve veritabanı düzeyinde güvenlik duvarı kuralları yapılandırma](sql-database-firewall-configure.md).
 
-En güvenli yapılandırma, 'Azure hizmetlerine erişime izin ver' ayarının KAPALI olarak belirlenmesidir. Veritabanına bir Azure VM veya bulut hizmetinden bağlanmanız gerekirse bir [Ayrılmış IP](../virtual-network/virtual-networks-reserved-public-ip.md) oluşturmanız ve yalnızca ayrılmış IP adresinin güvenlik duvarı aracılığıyla erişimine izin vermeniz gerekir. 
+En güvenli yapılandırma, 'Azure hizmetlerine erişime izin ver' ayarının KAPALI olarak belirlenmesidir. Veritabanına bir Azure VM veya bulut hizmetinden bağlanmanız gerekirse bir [Ayrılmış IP (klasik dağıtım)](../virtual-network/virtual-networks-reserved-public-ip.md) oluşturmanız ve yalnızca ayrılmış IP adresinin güvenlik duvarı üzerinden erişmesine izin vermeniz gerekir. [Resource Manager](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm) dağıtım modelini kullanıyorsanız, kaynağa ayrılmış bir Genel IP adresi atanır ve güvenlik duvarı üzerinden bu IP adresinin erişmesine izin vermeniz gerekir.
 
 Sunucunuzun belirli bir IP adresinden bağlantılara izin vermesi için bir [SQL Veritabanı sunucu düzeyinde güvenlik duvarı kuralı](sql-database-firewall-configure.md) oluşturmak üzere aşağıdaki adımları izleyin. 
 

@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: d695627efddc0ca02c3d9299f4b8a13bdc85e8fb
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: 3094075607f096200ce1fb7ad499776bdcd3e093
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42055871"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50233608"
 ---
 # <a name="move-data-between-on-premises-sources-and-the-cloud-with-data-management-gateway"></a>Şirket içi kaynakları ve veri yönetimi ağ geçidi ile bulut arasında veri taşıma
 > [!NOTE]
@@ -65,7 +65,7 @@ Bu adımda, Azure portalında adlı bir Azure Data Factory örneği oluşturmak 
    > [!IMPORTANT]
    > Azure veri fabrikasının adı genel olarak benzersiz olmalıdır. Hatayı alırsanız: **veri fabrikası adı "ADFTutorialOnPremDF" kullanılamıyor**(örneğin, yournameADFTutorialOnPremDF) veri fabrikasının adını değiştirin ve yeniden oluşturmayı deneyin. Bu öğreticinin geri kalan adımları gerçekleştirirken ADFTutorialOnPremDF yerine bu adı kullanın.
    >
-   > Data factory adı gelecekte bir **DNS** adı olarak kaydedilmiş olabilir; bu nedenle herkese görünür hale gelmiştir.
+   > Veri fabrikasının adı olarak kaydedilmiş olabilir bir **DNS** adı ve gelecekte hale gelmiş publicaly görünür.
    >
    >
 4. Data factory’yi oluşturmak istediğiniz **Azure aboneliği**’ni seçin.
@@ -304,7 +304,7 @@ Bu adımda, kopyalama işlemi için girdi ve çıktı verilerini temsil eden gir
 ## <a name="create-pipeline"></a>İşlem hattı oluşturma
 Bu adımda, oluşturduğunuz bir **işlem hattı** biriyle **kopyalama etkinliği** kullanan **EmpOnPremSQLTable** giriş olarak ve **OutputBlobTable** olarak çıktı.
 
-1. Data Factory Düzenleyicisi'nde tıklayın **... Daha fazla** ve **Yeni işlem hattı** öğelerine tıklayın.
+1. Data Factory Düzenleyicisi'nde tıklayın **... Daha fazla** ve **Yeni işlem hattı öğelerine tıklayın.
 2. Sağ bölmedeki JSON aşağıdaki metinle değiştirin:    
 
     ```JSON   

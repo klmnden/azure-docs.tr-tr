@@ -14,12 +14,12 @@ ms.tgt_pltfrm: ASP.NET
 ms.workload: tbd
 ms.date: 06/13/2018
 ms.author: zhshang
-ms.openlocfilehash: 40d5a02f83188330facc82701abdfb950585781c
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.openlocfilehash: 36fb87d3255149c041c4288d13c54eaff8425e06
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49310407"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50024371"
 ---
 # <a name="quickstart-broadcast-real-time-messages-from-console-app"></a>Hızlı Başlangıç: Konsol uygulamasından gerçek zamanlı iletiler yayımlama
 
@@ -124,47 +124,55 @@ Farklı istemci adları ile birden çok istemci başlatabilirsiniz.
 Azure SignalR hizmeti, üçüncü taraf hizmetlerin sistemle tümleştirilmesini sağlar.
 ### <a name="usage"> </a> Teknik özelliklerin tanımı
 Aşağıdaki tabloda, desteklenen tüm REST API sürümleri gösterilmektedir. Belirli bir sürüme ait tanım dosyasını da bulabilirsiniz
+
 Sürüm | API Durumu | Kapı | Özel
 --- | --- | --- | ---
-`1.0-preview` | Kullanılabilir | 5002 | [Swagger] (https://github.com/Azure/azure-signalr/tree/dev/docs/swagger/v1-preview.json)
-`1.0` | Kullanılabilir | Standart | [Swagger] (https://github.com/Azure/azure-signalr/tree/dev/docs/swagger/v1.json)
+`1.0-preview` | Kullanılabilir | 5002 | [Swagger](https://github.com/Azure/azure-signalr/tree/dev/docs/swagger/v1-preview.json)
+`1.0` | Kullanılabilir | Standart | [Swagger](https://github.com/Azure/azure-signalr/tree/dev/docs/swagger/v1.json)
+
 Her sürüm için kullanılabilir API'lerin listesi aşağıda verilmiştir.
+
 API | `1.0-preview` | `1.0`
 --- | --- | ---
-[Tümüne yayın] (# broadcast) | : heavy_check_mark: | : Heavy_check_mark:
-[Gruba yayın] (# broadcast-group) | : heavy_check_mark: | : Heavy_check_mark:
-Bazı gruplara yayın | : heavy_check_mark: (Kullanım dışı) | `N / A`
-[Belirli kullanıcılara gönder] (# send-user) | : heavy_check_mark: | : Heavy_check_mark:
-Bazı kullanıcılara gönder | : heavy_check_mark: (Kullanım dışı) | `N / A`
-[Gruba kullanıcı ekleme] (# add-user-to-group) | `N / A` | : Heavy_check_mark:
-[Gruptan kullanıcı kaldırma] (# remove-user-from-group) | `N / A` | : Heavy_check_mark:
+[Tümüne yayınla](#broadcast) | :heavy_check_mark: | :heavy_check_mark:
+[Gruba yayınla](#broadcast-group) | :heavy_check_mark: | :heavy_check_mark:
+Bazı gruplara yayın | :heavy_check_mark: (Kullanım dışı) | `N / A`
+[Belirli kullanıcılara gönder](#send-user) | :heavy_check_mark: | :heavy_check_mark:
+Bazı kullanıcılara gönder | :heavy_check_mark: (Kullanım dışı) | `N / A`
+[Gruba kullanıcı ekleme](#add-user-to-group) | `N / A` | :heavy_check_mark:
+[Gruptan kullanıcı kaldırma](#remove-user-from-group) | `N / A` | :heavy_check_mark:
+
 <a name="broadcast"> </a>
 ### <a name="broadcast-to-everyone"></a>Herkese yayınlama
 Sürüm | API HTTP Yöntemi | İstek URL'si | İstek gövdesi
 --- | --- | --- | ---
-`1.0-preview` | `POST` | `https: // <instance-name> .service.signalr.net: 5002 / api / v1-preview / hub / <hub-name>` | `{" target ":" <method-name> "," arguments ": [...]}`
-`1.0` | `POST` | `https: // <instance-name> .service.signalr.net / api / v1 / hubs / <hub-name>` | Yukarıdaki gibi
+`1.0-preview` | `POST` | `https://<instance-name>.service.signalr.net:5002/api/v1-preview/hub/<hub-name>` | `{"target": "<method-name>", "arguments": [...]}`
+`1.0` | `POST` | `https://<instance-name>.service.signalr.net/api/v1/hubs/<hub-name>` | Yukarıdakiyle aynı
+
 <a name="broadcast-group"> </a>
 ### <a name="broadcast-to-a-group"></a>Gruba yayınla
 Sürüm | API HTTP Yöntemi | İstek URL'si | İstek gövdesi
 --- | --- | --- | ---
-`1.0-preview` | `POST` | `https: // <instance-name> .service.signalr.net: 5002 / api / v1-preview / hub / <hub-name> / group / <group-name>` | `{" target ":" <method-name> "," arguments ": [...]}`
-`1.0` | `POST` | `https: // <instance-name> .service.signalr.net / api / v1 / hubs / <hub-name> / groups / <group-name>` | Yukarıdakiyle aynı
+`1.0-preview` | `POST` | `https://<instance-name>.service.signalr.net:5002/api/v1-preview/hub/<hub-name>/group/<group-name>` | `{"target": "<method-name>", "arguments": [...]}`
+`1.0` | `POST` | `https://<instance-name>.service.signalr.net/api/v1/hubs/<hub-name>/groups/<group-name>` | Yukarıdakiyle aynı
+
 <a name="send-user"> </a>
 ### <a name="sending-to-specific-users"></a>Belirli kullanıcılara gönderme
 Sürüm | API HTTP Yöntemi | İstek URL'si | İstek gövdesi
 --- | --- | --- | ---
-`1.0-preview` | `POST` | `https: // <instance-name> .service.signalr.net: 5002 / api / v1-preview / hub / <hub-name> / user / <user-id>` | `{" target ":" <method-name> "," arguments ": [...]}`
-`1.0` | `POST` | `https: // <instance-name> .service.signalr.net / api / v1 / hubs / <hub-name> / users / <user-id>` | Yukarıdakiyle aynı
+`1.0-preview` | `POST` | `https://<instance-name>.service.signalr.net:5002/api/v1-preview/hub/<hub-name>/user/<user-id>` | `{"target": "<method-name>", "arguments": [...]}`
+`1.0` | `POST` | `https://<instance-name>.service.signalr.net/api/v1/hubs/<hub-name>/users/<user-id>` | Yukarıdakiyle aynı
+
 <a name="add-user-to-group"> </a>
 ### <a name="adding-a-user-to-a-group"></a>Gruba kullanıcı ekleme
 Sürüm | API HTTP Yöntemi | İstek URL'si
 --- | --- | ---
-`1.0` | `PUT` | `Https: // <instance-name> .service.signalr.net / api / v1 / hubs / <hub-name> / groups / <group-name> / users / <userid>`
+`1.0` | `PUT` | `https://<instance-name>.service.signalr.net/api/v1/hubs/<hub-name>/groups/<group-name>/users/<userid>`
+
 <a name="remove-user-from-group"> </a>
 ### <a name="removing-a-user-from-a-group"></a>Gruptan kullanıcı kaldırma
 Sürüm | API HTTP Yöntemi | İstek URL'si
 --- | --- | ---
-`1.0` | `DELETE` | `Https: // <instance-name> .service.signalr.net / api / v1 / hubs / <hub-name> / groups / <group-name> / users / <userid>`
+`1.0` | `DELETE` | `https://<instance-name>.service.signalr.net/api/v1/hubs/<hub-name>/groups/<group-name>/users/<userid>`
 
 [!INCLUDE [Cleanup](includes/signalr-quickstart-cleanup.md)]

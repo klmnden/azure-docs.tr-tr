@@ -1,5 +1,5 @@
 ---
-title: 'Öğretici: Nesne algılama projesi oluşturma - Özel Görüntü İşleme API’si, Python'
+title: 'Öğretici: Python için Özel Görüntü İşleme SDK’sı ile nesne algılama projesi oluşturma - Özel Görüntü İşleme Hizmeti'
 titlesuffix: Azure Cognitive Services
 description: Bir proje oluşturun, etiketler ekleyin, görüntüleri karşıya yükleyin, projenizi eğitin ve varsayılan uç noktayı kullanarak bir tahminde bulunun.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.component: custom-vision
 ms.topic: tutorial
 ms.date: 05/03/2018
 ms.author: areddish
-ms.openlocfilehash: f49f5ab32d834b32de54be2d96c3671ad46f79f3
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 36b283965766130e86e079c807139998cd01c8a6
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46363709"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49958542"
 ---
-# <a name="tutorial-build-an-object-detection-project-with-python"></a>Öğretici: Python ile bir nesne algılama projesi derleme
+# <a name="tutorial-create-an-object-detection-project-with-the-custom-vision-sdk-for-python"></a>Öğretici: Python için Özel Görüntü İşleme SDK’sı ile nesne algılama projesi oluşturma
 
 Bir nesne algılama projesi oluşturmak için Görüntü İşleme API’sini kullanan temel bir Python betiğini keşfedin. Oluşturulduktan sonra etiketlenmiş bölgeler ekleyebilir, görüntüleri karşıya yükleyebilir, projeyi eğitebilir, projenin varsayılan tahmin uç nokta URL’sini alabilir ve bir görüntüyü programlama yoluyla test etmek için uç noktayı kullanabilirsiniz. Özel Görüntü İşleme API’sini kullanarak kendi uygulamanızı derlemek için şablon olarak bu açık kaynak örneği kullanın.
 

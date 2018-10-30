@@ -1,36 +1,29 @@
 ---
-title: Azure Depolama Gezgini'ni kullanarak Azure dosya paylaşımlarını yönetme
-description: Azure Depolama Gezgini'ni kullanarak Azure Dosyaları'nı yönetmeyi öğrenin.
+title: Azure Depolama Gezgini kullanarak Azure dosya paylaşımlarını yönetme için hızlı başlangıç
+description: Bu hızlı başlangıcı Azure dosyalarını yönetmek için Azure Depolama Gezgini kullanma hakkında bilgi edinmek için kullanın.
 services: storage
 author: wmgries
 ms.service: storage
-ms.topic: get-started-article
-ms.date: 02/27/2018
+ms.topic: quickstart
+ms.date: 10/18/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: 949d96bb1b5ffdc948737d4a47ffa14b2e344b5e
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: f86a86fd9858fcc6f0b78256da1e96effbcbe68c
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45574740"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49944227"
 ---
-# <a name="manage-azure-file-shares-with-azure-storage-explorer"></a>Azure Depolama Gezgini ile Azure dosya paylaşımlarını yönetme 
-[Azure Dosyaları](storage-files-introduction.md), Microsoft’un kullanımı kolay bulut dosya sistemidir. Bu makalede, [Azure Depolama Gezgini](https://azure.microsoft.com/features/storage-explorer/)'ni kullanarak Azure dosya paylaşımlarında çalışmanın temelleri gösterilir. Depolama Gezgini Windows, macOS ve Linux için kullanılabilen popüler bir istemci aracıdır. Depolama Gezgini’ni kullanarak Azure dosya paylaşımlarını ve diğer depolama kaynaklarını yönetebilirsiniz.
+# <a name="quickstart-create-and-manage-azure-file-shares-with-azure-storage-explorer"></a>Hızlı Başlangıç: Azure Depolama Gezgini ile Azure dosya paylaşımları oluşturma ve yönetme
+Bu kılavuzda, Azure Depolama Gezgini'ni kullanarak [Azure dosya paylaşımlarında](storage-files-introduction.md) çalışmanın temelleri gösterilir. Azure dosya paylaşımları diğer dosya paylaşımları gibidir, ancak bulutta depolanır ve Azure platformu tarafından desteklenir. Azure dosya paylaşımları endüstri standardı SMB protokolünü destekler ve birden çok makine, uygulama ve örnek arasında dosya paylaşmayı olanaklı kılar. 
 
+Azure Depolama Gezgini Windows, macOS ve Linux için kullanılabilen popüler bir istemci aracıdır. Depolama Gezgini’ni kullanarak Azure dosya paylaşımlarını ve diğer depolama kaynaklarını yönetebilirsiniz.
+
+Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
+
+## <a name="prerequisites"></a>Ön koşullar
 Bu hızlı başlangıç için Depolama Gezgini'nin yüklü olması gerekir. İndirip yüklemek için [Azure Depolama Gezgini](https://azure.microsoft.com/features/storage-explorer/)’ne gidin.
-
-Bu makalede şunları öğreneceksiniz:
-
-> [!div class="checklist"]
-> * Kaynak grubu ve depolama hesabı oluşturma
-> * Azure dosya paylaşımı oluşturma 
-> * Dizin oluşturma
-> * Dosyayı karşıya yükleme
-> * Dosya indirme
-> * Paylaşım anlık görüntüsü oluşturma ve kullanma
-
-Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturabilirsiniz.
 
 ## <a name="create-a-storage-account"></a>Depolama hesabı oluşturma
 Depolama Gezgini’ni yeni kaynaklar oluşturmak için kullanamazsınız. Bu tanıtım için [Azure portalında](https://portal.azure.com/) depolama hesabı oluşturun. 
@@ -49,7 +42,7 @@ Bu hızlı başlangıç için, Azure hesabınızı kullanarak oturum açın. **A
 ![Microsoft Azure Depolama Gezgini - Bağlan penceresinin ekran görüntüsü](./media/storage-how-to-use-files-storage-explorer/connect-to-azure-storage-1.png)
 
 ### <a name="create-a-file-share"></a>Dosya paylaşımı oluşturma
-*storageacct<random number>* depolama hesabı içinde ilk Azure dosya paylaşımınızı oluşturmak için:
+`storageacct<random number>` depolama hesabı içinde ilk Azure dosya paylaşımınızı oluşturmak için:
 
 1. Oluşturduğunuz depolama hesabını genişletin.
 2. **Dosya Paylaşımları**'na sağ tıklayın ve sonra **Dosya Paylaşımı Oluştur**'u seçin.  
@@ -57,13 +50,12 @@ Bu hızlı başlangıç için, Azure hesabınızı kullanarak oturum açın. **A
 
 3. Dosya paylaşımı için *myshare* yazın ve sonra Enter tuşuna basın.
 
-> [!IMPORTANT]  
-> Paylaşım adları yalnızca küçük harf, sayı ve tek kısa çizgi içerebilir (ancak kısa çizgiyle başlayamaz). Dosya paylaşımlarının ve dosyaların adlandırılması hakkında tüm ayrıntılara ulaşmak için bkz. [Paylaşım, dizin, dosya ve meta verileri adlandırma ve bunlara başvuruda bulunma](https://docs.microsoft.com/rest/api/storageservices/Naming-and-Referencing-Shares--Directories--Files--and-Metadata).
+Paylaşım adları yalnızca küçük harf, sayı ve tek kısa çizgi içerebilir (ancak kısa çizgiyle başlayamaz). Dosya paylaşımlarının ve dosyaların adlandırılması hakkında tüm ayrıntılara ulaşmak için bkz. [Paylaşım, dizin, dosya ve meta verileri adlandırma ve bunlara başvuruda bulunma](https://docs.microsoft.com/rest/api/storageservices/Naming-and-Referencing-Shares--Directories--Files--and-Metadata).
 
 Dosya paylaşımı oluşturulduktan sonra sağ bölmede dosya paylaşımınız için bir sekme açılır. 
 
-## <a name="work-with-the-contents-of-an-azure-file-share"></a>Bir Azure dosya paylaşımının içerikleriyle çalışma
-Artık Azure dosya paylaşımını oluşturduğunuza göre, [Windows](storage-how-to-use-files-windows.md), [Linux](storage-how-to-use-files-linux.md) veya [macOS](storage-how-to-use-files-mac.md)'ta SMB ile dosya paylaşımını bağlayabilirsiniz. Alternatif olarak, Azure CLI’yi kullanarak Azure dosya paylaşımınızla çalışabilirsiniz. SMB kullanarak dosya paylaşımınızı bağlamak yerine Azure CLI kullanmanın avantajı, Azure CLI ile yapılan tüm isteklerin Dosya REST API’si kullanılarak yapılmasıdır. Dosya REST API’sini kullanarak, SMB erişimi olmayan istemciler üzerinde dosyalar ve dizinler oluşturabilir, değiştirebilir ve silebilirsiniz.
+## <a name="use-your-azure-file-share"></a>Azure dosya paylaşımınızı kullanma
+Artık Azure dosya paylaşımını oluşturduğunuza göre, [Windows](storage-how-to-use-files-windows.md), [Linux](storage-how-to-use-files-linux.md) veya [macOS](storage-how-to-use-files-mac.md)'ta SMB ile dosya paylaşımını bağlayabilirsiniz. Alternatif olarak, Azure Depolama Gezgini’ni kullanarak Azure dosya paylaşımınızla çalışabilirsiniz. SMB kullanarak dosya paylaşımınızı bağlamak yerine Azure Depolama Gezgini kullanmanın avantajı, Azure Depolama Gezgini ile yapılan tüm isteklerin Dosya REST API’si kullanılarak yapılmasıdır. Dosya REST API’sini kullanarak, SMB erişimi olmayan istemciler üzerinde dosyalar ve dizinler oluşturabilir, değiştirebilir ve silebilirsiniz.
 
 ### <a name="create-a-directory"></a>Dizin oluşturma
 Dizin eklemek, dosya paylaşımınızın yönetimi için hiyerarşik bir yapı sağlar. Dizininizde birden çok düze oluşturabilirsiniz. Ancak, alt dizinleri oluşturmadan önce üst dizinlerin var olduğundan emin olmanız gerekir. Örneğin, myDirectory/mySubDirectory yolu için öncelikle *myDirectory* dizinini oluşturmanız gerekir. Daha sonra *mySubDirectory* dizinini oluşturabilirsiniz. 
@@ -89,41 +81,12 @@ Dosya paylaşımınızdan bir dosyanın kopyasını indirmek için dosyaya sağ 
 
 Pencerenin en altındaki **Etkinlikler** bölmesinde indirme işleminin ilerleme durumu görünür.
 
-## <a name="create-and-modify-share-snapshots"></a>Paylaşım anlık görüntülerini oluşturma ve değiştirme
-Anlık görüntü, Azure dosya paylaşımının zamanın bir noktasındaki kopyasını saklar. Dosya paylaşımı anlık görüntüleri, aşağıdakiler gibi zaten tanıyor olabileceğiniz diğer teknolojilere benzer:
-- NTFS ve ReFS gibi Windows dosya sistemleri için [Birim Gölge Kopyası Hizmeti (VSS)](https://docs.microsoft.com/windows/desktop/VSS/volume-shadow-copy-service-portal)
-- Linux sistemleri için [Mantıksal Birim Yöneticisi (LVM)](https://en.wikipedia.org/wiki/Logical_Volume_Manager_(Linux)#Basic_functionality) anlık görüntüleri
-- macOS için [Apple Dosya Sistemi (APFS)](https://developer.apple.com/library/content/documentation/FileManagement/Conceptual/APFS_Guide/Features/Features.html) anlık görüntüleri
-
-Paylaşım anlık görüntüsü oluşturmak için:
-
-1. *myshare* dosya paylaşımının sekmesini seçin.
-2. Üst menüden **Anlık Görüntü Oluştur**’u seçin. (Depolama Gezgini’nin pencere boyutlarına bağlı olarak, bu seçeneği görmek için öncelikle **Diğer** öğesini seçmeniz gerekebilir.)  
-    ![Bağlamda Anlık Görüntü Oluştur düğmesinin ekran görüntüsü](media/storage-how-to-use-files-storage-explorer/create-share-snapshot-1.png)
-
-### <a name="list-and-browse-share-snapshots"></a>Paylaşım anlık görüntülerini listeleme ve bunlara göz atma
-Anlık görüntü oluşturulduktan sonra, paylaşımın anlık görüntülerini listelemek için **Dosya Paylaşımının Anlık Görüntülerini Gör**’ü seçin. (Depolama Gezgini’nin pencere boyutlarına bağlı olarak, bu seçeneği görmek için öncelikle **Diğer** öğesini seçmeniz gerekebilir.) Paylaşım anlık görüntüsüne göz atmak için anlık görüntüye çift tıklayın.
-
-![Anlık görüntülere göz atma penceresinin anlık görüntüsü](media/storage-how-to-use-files-storage-explorer/list-browse-snapshots-1.png)
-
-### <a name="restore-from-a-share-snapshot"></a>Paylaşım anlık görüntüsünden geri yükleme
-Paylaşım anlık görüntüsünden dosyanın nasıl geri yüklendiğini göstermek için, ilk olarak canlı Azure dosya paylaşımından bir dosyayı silmeniz gerekir. *myDirectory* klasörüne gidin, karşıya yüklediğiniz dosyaya sağ tıklayın ve ardından **Sil**'i seçin. O dosyayı paylaşım anlık görüntüsünden geri yüklemek için:
-
-1. **Dosya Paylaşımının Anlık Görüntülerini Gör**’ü seçin. (Depolama Gezgini’nin pencere boyutlarına bağlı olarak, bu seçeneği görmek için öncelikle **Diğer** öğesini seçmeniz gerekebilir.)
-2. Paylaşım anlık görüntüleri listesinde paylaşım anlık görüntüsüne çift tıklayın.
-3. Sildiğiniz dosyayı bulana kadar anlık görüntüye göz atın. Dosya paylaşımını seçin ve ardından **Anlık Görüntüyü Geri Yükle**’yi seçin. (Depolama Gezgini’nin pencere boyutlarına bağlı olarak, bu seçeneği görmek için öncelikle **Diğer** öğesini seçmeniz gerekebilir.) Bir pencere açılır ve dosyayı geri yüklemeniz durumunda dosya paylaşımındaki içeriğin üzerine yazılacağı ve bu işlemin geri alınamayacağı hakkında bir uyarı gösterilir. **Tamam**’ı seçin.
-4. Dosya artık canlı Azure dosya paylaşımının altındaki özgün konumunda olmalıdır.
-
-### <a name="delete-a-share-snapshot"></a>Paylaşım anlık görüntüsünü silme
-Paylaşım anlık görüntüsünü silmek için [paylaşım anlık görüntüleri listesine gidin](#list-and-browse-share-snapshots). Silmek istediğiniz paylaşım anlık görüntüsüne sağ tıklayın ve **Sil**'i seçin.
-
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 Depolama Gezgini’ni kaynakları kaldırmak için kullanamazsınız. Bu hızlı başlangıçtan temizlemek için [Azure portalını](https://portal.azure.com/) kullanabilirsiniz. 
 
 [!INCLUDE [storage-files-clean-up-portal](../../../includes/storage-files-clean-up-portal.md)]
 
 ## <a name="next-steps"></a>Sonraki adımlar
-- [Dosya paylaşımlarını Azure portalıyla yönetme](storage-how-to-use-files-portal.md)
-- [Dosya paylaşımlarını Azure PowerShell ile yönetme](storage-how-to-use-files-powershell.md)
-- [Dosya paylaşımlarını Azure CLI ile yönetme](storage-how-to-use-files-cli.md)
-- [Azure Dosyaları dağıtımını planlama](storage-files-planning.md)
+
+> [!div class="nextstepaction"]
+> [Azure Dosyaları nedir?](storage-files-introduction.md)

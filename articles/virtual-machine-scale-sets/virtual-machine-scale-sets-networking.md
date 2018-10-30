@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/17/2017
 ms.author: negat
-ms.openlocfilehash: 43aa74e7250f4825702e249032db1566346ab558
-ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
+ms.openlocfilehash: 6ed3488218a5b813478fa18f7bb05dcfb07a319c
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2018
-ms.locfileid: "48831220"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49955161"
 ---
 # <a name="networking-for-azure-virtual-machine-scale-sets"></a>Azure sanal makine ölçek kümeleri için ağ hizmeti
 
@@ -50,10 +50,26 @@ Azure Hızlandırılmış Ağ, sanal makineye tek kökte G/Ç sanallaştırması
 ## <a name="create-a-scale-set-that-references-an-existing-azure-load-balancer"></a>Mevcut Azure Load Balancer’a başvuran bir ölçek kümesi oluşturma
 Azure portalı kullanılarak ölçek kümesi oluşturulduğunda, yapılandırma seçeneklerinin çoğunda yeni bir yük dengeleyici oluşturulur. Mevcut yük dengeleyiciye başvurması gereken bir ölçek kümesi oluşturuyorsanız, bunu CLI kullanarak yapabilirsiniz. Aşağıdaki örnek betik bir yük dengeleyici ve ardından ona başvuran bir ölçek kümesi oluşturur:
 ```bash
-az network lb create -g lbtest -n mylb --vnet-name myvnet --subnet mysubnet --public-ip-address-allocation Static --backend-pool-name mybackendpool
+az network lb create \
+    -g lbtest \
+    -n mylb \
+    --vnet-name myvnet \
+    --subnet mysubnet \
+    --public-ip-address-allocation Static \
+    --backend-pool-name mybackendpool
 
-az vmss create -g lbtest -n myvmss --image Canonical:UbuntuServer:16.04-LTS:latest --admin-username negat --ssh-key-value /home/myuser/.ssh/id_rsa.pub --upgrade-policy-mode Automatic --instance-count 3 --vnet-name myvnet --subnet mysubnet --lb mylb --backend-pool-name mybackendpool
-
+az vmss create \
+    -g lbtest \
+    -n myvmss \
+    --image Canonical:UbuntuServer:16.04-LTS:latest \
+    --admin-username negat \
+    --ssh-key-value /home/myuser/.ssh/id_rsa.pub \
+    --upgrade-policy-mode Automatic \
+    --instance-count 3 \
+    --vnet-name myvnet \
+    --subnet mysubnet \
+    --lb mylb \
+    --backend-pool-name mybackendpool
 ```
 
 ## <a name="create-a-scale-set-that-references-an-application-gateway"></a>Bir Application Gateway’e başvuran bir ölçek kümesi oluşturma
@@ -91,7 +107,7 @@ Azure şablonunda özel DNS sunucularını yapılandırmak için, ölçek kümes
 ```
 
 ### <a name="creating-a-scale-set-with-configurable-virtual-machine-domain-names"></a>Yapılandırılabilir sanal makine etki alanı adlarıyla ölçek kümesi oluşturma
-CLI kullanarak özel DNS adıyla bir ölçek kümesi oluşturmak için, **vmss create** komutuna etki alanı adını temsil eden dizeden sonra **--vm-domain-name** bağımsız değişkenini ekleyin.
+CLI kullanarak sanal makineler için özel bir DNS adıyla bir ölçek kümesi oluşturmak için, **virtual machine scale set create** komutuna etki alanı adını temsil eden dizeden sonra **--vm-domain-name** bağımsız değişkenini ekleyin.
 
 Azure şablonunda etki alanı adını ayarlamak için, ölçek kümesinin **networkInterfaceConfigurations** bölümüne bir **dnsSettings** özelliği ekleyin. Örnek:
 
@@ -155,23 +171,35 @@ CLI kullanarak ölçek kümesi sanal makinelerine atanmış genel IP adreslerini
 
 PowerShell kullanarak ölçek kümesi genel IP adreslerini listelemek için, _Get-AzureRmPublicIpAddress_ komutunu kullanın. Örnek:
 ```PowerShell
-PS C:\> Get-AzureRmPublicIpAddress -ResourceGroupName myrg -VirtualMachineScaleSetName myvmss
+Get-AzureRmPublicIpAddress -ResourceGroupName myrg -VirtualMachineScaleSetName myvmss
 ```
 
 Doğrudan genel IP adresi yapılandırmasının kaynak kimliğine başvuruda bulunarak da genel IP adreslerini sorgulayabilirsiniz. Örnek:
 ```PowerShell
-PS C:\> Get-AzureRmPublicIpAddress -ResourceGroupName myrg -Name myvmsspip
+Get-AzureRmPublicIpAddress -ResourceGroupName myrg -Name myvmsspip
 ```
 
-Ölçek kümesi sanal makinelerine atanan genel IP adreslerini, [Azure Kaynak Gezgini](https://resources.azure.com)’ni ve Azure REST API’nin **2017-03-30** veya üstü sürümlerini kullanarak da sorgulayabilirsiniz.
+Ayrıca, ölçek kümesi sanal makinelerine atanan genel IP adreslerini, [Azure Kaynak Gezgini](https://resources.azure.com)'ni ve Azure REST API'nin **2017-03-30** veya üstü sürümlerini sorgulayarak da görüntüleyebilirsiniz.
 
-Kaynak kümesinin genel IP adreslerini Kaynak Gezgini’ni kullanarak görüntülemek için, ölçek kümenizin altındaki **publicipaddresses** bölümüne bakın. Örneğin: https://resources.azure.com/subscriptions/_your_sub_id_/resourceGroups/_your_rg_/providers/Microsoft.Compute/virtualMachineScaleSets/_your_vmss_/publicipaddresses
+[Azure Kaynak Gezgini](https://resources.azure.com)'ni sorgulamak için:
 
-```
+1. Bir web tarayıcısında [Azure Kaynak Gezgini](https://resources.azure.com)'ni açın.
+1. Sol taraftaki *abonelikler*'i, yanındaki *+* işaretine tıklayarak genişletin. *Abonelikler* altında yalnızca bir öğeniz varsa zaten genişletilmiştir.
+1. Aboneliğinizi genişletin.
+1. Kaynak grubunuzu genişletin.
+1. *Sağlayıcılar*'ı genişletin.
+1. *Microsoft.Compute*'u genişletin.
+1. *virtualMachineScaleSets*'i genişletin.
+1. Ölçek kümenizi genişletin.
+1. *publicipaddresses* üzerine tıklayın.
+
+Azure REST API'sine sorgulamak için:
+
+```bash
 GET https://management.azure.com/subscriptions/{your sub ID}/resourceGroups/{RG name}/providers/Microsoft.Compute/virtualMachineScaleSets/{scale set name}/publicipaddresses?api-version=2017-03-30
 ```
 
-Örnek çıktı:
+[Azure Kaynak Gezgini](https://resources.azure.com) ve Azure REST API'den örnek çıktı:
 ```json
 {
   "value": [
@@ -289,12 +317,14 @@ Aşağıdaki örnek, sanal makine başına birden çok NIC girdisi ve birden ço
 ```
 
 ## <a name="nsg--asgs-per-scale-set"></a>Ölçek kümesi başına NSG ve ASG'ler
+[Ağ Güvenlik Grupları](../virtual-network/security-overview.md), bir Azure sanal ağındaki Azure kaynaklarının gelen ve giden trafiğini güvenlik kurallarıyla filtrelemenize izin verir. [Uygulama Güvenlik Grupları](../virtual-network/security-overview.md#application-security-groups), Azure kaynaklarınızın ağ güvenliğini işlemenizi ve bunları uygulamanızın yapısının bir uzantısı olarak gruplamanızı sağlar.
+
 Ağ Güvenlik Grupları, ölçek kümesi sanal makine özelliklerinin ağ arabirimi yapılandırması bölümüne bir başvuru eklemek yoluyla doğrudan ölçek kümesine uygulanabilir.
 
 Uygulama Güvenlik Grupları da ölçek kümesi sanal makine özelliklerinin ağ arabirimi IP yapılandırmaları bölümüne bir başvuru eklemek yoluyla doğrudan ölçek kümesine uygulanabilir.
 
 Örnek: 
-```
+```json
 "networkProfile": {
     "networkInterfaceConfigurations": [
         {
@@ -334,6 +364,42 @@ Uygulama Güvenlik Grupları da ölçek kümesi sanal makine özelliklerinin ağ
     ]
 }
 ```
+
+Ağ Güvenlik Grubunuzun ölçek kümeniz ile ilişkilendirildiğini doğrulamak için `az vmss show` komutunu kullanın. Aşağıdaki örnekte sonuçları filtrelemek ve çıktının yalnızca ilgili bölümünü göstermek için `--query` kullanılmaktadır.
+
+```bash
+az vmss show \
+    -g myResourceGroup \
+    -n myScaleSet \
+    --query virtualMachineProfile.networkProfile.networkInterfaceConfigurations[].networkSecurityGroup
+
+[
+  {
+    "id": "/subscriptions/.../resourceGroups/myResourceGroup/providers/Microsoft.Network/networkSecurityGroups/nsgName",
+    "resourceGroup": "myResourceGroup"
+  }
+]
+```
+
+Uygulama Güvenlik Grubunuzun ölçek kümeniz ile ilişkilendirildiğini doğrulamak için `az vmss show` komutunu kullanın. Aşağıdaki örnekte sonuçları filtrelemek ve çıktının yalnızca ilgili bölümünü göstermek için `--query` kullanılmaktadır.
+
+```bash
+az vmss show \
+    -g myResourceGroup \
+    -n myScaleSet \
+    --query virtualMachineProfile.networkProfile.networkInterfaceConfigurations[].ipConfigurations[].applicationSecurityGroups
+
+[
+  [
+    {
+      "id": "/subscriptions/.../resourceGroups/myResourceGroup/providers/Microsoft.Network/applicationSecurityGroups/asgName",
+      "resourceGroup": "myResourceGroup"
+    }
+  ]
+]
+```
+
+
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Azure sanal ağları hakkında daha fazla bilgi için bkz. [Azure sanal ağlarına genel bakış](../virtual-network/virtual-networks-overview.md).

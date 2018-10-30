@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/26/2018
 ms.author: tomfitz
-ms.openlocfilehash: 841f82595257c97c15398347a3e1605219d1a534
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: 2c5d0dc322a4a56f0de9bd3c1af7efc158131a89
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49394434"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49954224"
 ---
 # <a name="azure-resource-manager-overview"></a>Azure Resource Manager genel bakış
 Uygulamanızın altyapısı genellikle bir sanal makine, depolama hesabı, sanal ağ veya web uygulaması, veritabanı, veritabanı sunucusu ya da üçüncü taraf hizmetler gibi birçok bileşenden meydana gelir. Bu bileşenleri ayrı varlıklar olarak değerlendirmez, bunun yerine bunları tek bir varlığın ilgili ve birbirine bağımlı parçaları olarak kabul edersiniz. Bunları gruplar halinde dağıtmak, yönetmek ve izlemek isteyebilirsiniz. Azure Resource Manager, çözümünüzdeki kaynaklar ile gruplar halinde çalışmanıza olanak sağlar. Çözümünüzdeki tüm kaynakları tek ve eşgüdümlü bir işlemle dağıtabilir, güncelleştirebilir veya silebilirsiniz. Dağıtım için bir şablon kullanabilirsiniz. Üstelik bu şablon test, hazırlık ve üretim gibi farklı ortamlarda da çalışabilir. Resource Manager kaynaklarınızı dağıttıktan sonra yönetmenize yardımcı olmak için güvenlik, denetleme ve etiketleme özellikleri sunar. 
@@ -64,6 +64,30 @@ Resource Manager çeşitli avantajlar sunar:
 Kuruluşların abonelikleri etkili bir şekilde yönetmek için Resource Manager'ı nasıl kullanabileceği hakkında yönergeler için bkz. [Azure kurumsal iskelesi: öngörücü abonelik idaresi](/azure/architecture/cloud-adoption-guide/subscription-governance?toc=%2fazure%2fazure-resource-manager%2ftoc.json).
 
 Global Azure, Azure bağımsız bulutları ve Azure Stack genelinde kullanabileceğiniz Resource Manager şablonları oluşturma konusundaki öneriler için bkz. [Bulut tutarlılığı için Azure Resource Manager şablonları geliştirme](templates-cloud-consistency.md).
+
+## <a name="quickstarts-and-tutorials"></a>Hızlı başlangıçlar ve öğreticiler
+
+Kaynak yöneticisi şablonları geliştirmeyi öğrenmek için aşağıdaki hızlı başlangıçları ve öğreticileri kullanın:
+
+- Hızlı Başlangıçlar
+
+    |Başlık|Açıklama|
+    |------|-----|
+    |[Azure portal’ı kullanma](./resource-manager-quickstart-create-templates-use-the-portal.md)|Portalı ve şablonu düzenleme ve dağıtma işlemini kullanarak bir şablon oluştur.|
+    |[Visual Studio Code kullanma](./resource-manager-quickstart-create-templates-use-visual-studio-code.md)|Şablonlar oluşturmak ve düzenlemek için Visual Studio Code ve şablon dağıtmak için Azure Cloud Shell kullanma.|
+    |[Visual Studio kullanma](./vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)|Şablonlar oluşturmak, düzenlemek ve dağıtmak için Visual Studio kullanma.|
+
+- Öğreticiler
+
+    |Başlık|Açıklama|
+    |------|-----|
+    |[Şablon başvurusunda yararlanma](./resource-manager-tutorial-create-encrypted-storage-accounts.md)|Şablon geliştirmek için şablon başvuru belgelerini kullanın. Öğreticide depolama hesabı şemasını bulacak ve şifrelenmiş bir depolama hesabı oluşturmak için bu bilgileri kullanacaksınız.|
+    |[Birden çok örnek oluşturma](./resource-manager-tutorial-create-multiple-instances.md)|Birden çok Azure kaynağı örneği oluşturma. Öğreticide birden fazla depolama hesabı örneği oluşturacaksınız.|
+    |[Kaynak dağıtım sırasını belirleme](./resource-manager-tutorial-create-templates-with-dependent-resources.md)|Kaynak bağımlılıklarını tanımlayın. Öğreticide bir sanal ağ, bir sanal makine ve bağımlı Azure kaynakları oluşturacaksınız. Bağımlılıkların nasıl tanımlandığını öğreneceksiniz.|
+    |[Koşulları kullanma](./resource-manager-tutorial-use-conditions.md)|Kaynakları bazı parametre değerlerine göre dağıtma. Öğreticide, bir parametre değerine göre yeni bir depolama hesabı oluşturmak veya mevcut bir depolama hesabını kullanmak için bir şablon tanımlayacaksınız.|
+    |[Anahtar kasasını tümleştirme](./resource-manager-tutorial-use-key-vault.md)|Azure Key Vault'tan gizli anahtarlar/parolalar alma. Öğreticide bir sanal makine oluşturacaksınız.  Sanal makine yönetici parolası bir Key Vault'tan alınır.|
+    |[Bağlı şablonlar oluşturma](./resource-manager-tutorial-create-linked-templates.md)|Şablon modülleştirme ve bir şablondan başka şablonları çağırma. Öğreticide bir sanal ağ, bir sanal makine ve bağımlı kaynakları oluşturacaksınız.  Bağımlı depolama hesabı, bağlantılı bir şablonda tanımlanır. |
+    |[Güvenli dağıtım uygulamaları kullanma](./deployment-manager-tutorial.md)|Azure Dağıtım Yöneticisi'ni kullanma. |
 
 ## <a name="resource-groups"></a>Kaynak grupları
 Kaynak gruplarınızı tanımlarken göz önüne almanız gereken bazı önemli faktörler bulunur:
@@ -214,9 +238,9 @@ Rollerin ve izin verilen eylemlerin tam listesi için bkz. [RBAC: Yerleşik Roll
 
 Bazı durumlarda, kaynaklara erişen bir kod ya da komut dosyası çalıştırmak istersiniz, ancak bunu bir kullanıcının kimlik bilgileri altında çalıştırmayı istemezsiniz. Bunun yerine, uygulama için hizmet sorumlusu adlı bir kimlik oluşturmak ve hizmet sorumlusu için uygun rolü atamak istersiniz. Resource Manager, uygulama için kimlik bilgileri oluşturmanızı ve uygulamanın kimliğini programlı olarak doğrulamanızı sağlar. Hizmet sorumluları oluşturma hakkında bilgi için aşağıdaki konulardan birine bakın:
 
-* [Kaynaklara erişmek üzere hizmet sorumlusu oluşturmak için Azure PowerShell kullanma](resource-group-authenticate-service-principal.md)
+* [Kaynaklara erişmek üzere hizmet sorumlusu oluşturmak için Azure PowerShell kullanma](../active-directory/develop/howto-authenticate-service-principal-powershell.md)
 * [Kaynaklara erişmek üzere hizmet sorumlusu oluşturmak için Azure CLI kullanma](resource-group-authenticate-service-principal-cli.md)
-* [Kaynaklara erişebilen bir Azure Active Directory uygulaması ve hizmet sorumlusu oluşturmak için portalı kullanma](resource-group-create-service-principal-portal.md)
+* [Kaynaklara erişebilen bir Azure Active Directory uygulaması ve hizmet sorumlusu oluşturmak için portalı kullanma](../active-directory/develop/howto-create-service-principal-portal.md)
 
 Kullanıcıların kritik kaynakları silmesini ve değiştirmesini önlemek için bunları açıkça kilitleyebilirsiniz. Daha fazla bilgi için bkz. [Azure Resource Manager ile kaynakları kilitleme](resource-group-lock-resources.md).
 

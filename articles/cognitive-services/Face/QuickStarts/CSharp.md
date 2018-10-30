@@ -1,5 +1,5 @@
 ---
-title: 'Hızlı Başlangıç: Bir görüntüdeki yüzleri algılama - Yüz Tanıma API’si C#'
+title: 'Hızlı Başlangıç: REST API ve C# kullanarak bir görüntüdeki yüzleri algılama'
 titleSuffix: Azure Cognitive Services
 description: Bu hızlı başlangıçta, C# ile Yüz Tanıma API’sini kullanarak bir görüntüdeki yüzleri algılayacaksınız.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.component: face-api
 ms.topic: quickstart
 ms.date: 05/10/2018
 ms.author: pafarley
-ms.openlocfilehash: 080e616067bb0b8a640ded6faec184030314d79a
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 5a3b3e70a12f70874bf54e8f01a0f8baf3eec845
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49341030"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49954530"
 ---
-# <a name="quickstart-detect-faces-in-an-image-using-c"></a>Hızlı Başlangıç: C# kullanarak bir görüntüdeki yüzleri algılama
+# <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-c"></a>Hızlı Başlangıç: REST API ve C# kullanarak bir görüntüdeki yüzleri algılama
 
 Bu hızlı başlangıçta, Yüz Tanıma API'sini kullanarak bir görüntüdeki insan yüzlerini algılayacaksınız.
 

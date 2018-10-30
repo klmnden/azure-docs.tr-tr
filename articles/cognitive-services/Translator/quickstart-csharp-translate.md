@@ -1,23 +1,23 @@
 ---
-title: 'Hızlı Başlangıç: Metin çevirme - Translator Metin Çevirisi, C#'
+title: 'Hızlı Başlangıç: Metin çevirme, C# - Translator Metin Çevirisi'
 titleSuffix: Azure Cognitive Services
 description: Bu hızlı başlangıçta, C# ile Translator Metin Çevirisi API’sini kullanarak metni bir dilden diğerine çevireceksiniz.
 services: cognitive-services
-author: noellelacharite
+author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/15/2018
-ms.author: nolachar
-ms.openlocfilehash: 2b524591f3af32e566b0ca364626daf7aaf4ace2
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.author: erhopf
+ms.openlocfilehash: ffd46969bd7333d2422654c8683f66ff313706c2
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49318461"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49648471"
 ---
-# <a name="quickstart-translate-text-with-c35"></a>Hızlı Başlangıç: C# ile metin çevirme
+# <a name="quickstart-translate-text-with-the-translator-text-rest-api-c"></a>Hızlı Başlangıç: Translator Metin Çevirisi REST API’si (C#) ile metin çevirme
 
 Bu hızlı başlangıçta, Translator Metin Çevirisi API'sini kullanarak metni bir dilden diğerine çevireceksiniz.
 

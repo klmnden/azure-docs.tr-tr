@@ -1,5 +1,5 @@
 ---
-title: 'Hızlı Başlangıç: Bir görüntüdeki yüzleri algılama - Yüz Tanıma API’si, Java'
+title: 'Hızlı Başlangıç: REST API ve Java kullanarak bir görüntüdeki yüzleri algılama'
 titleSuffix: Azure Cognitive Services
 description: Bu hızlı başlangıçta, Java ile Yüz Tanıma API’sini kullanarak bir görüntüdeki yüzleri algılayacaksınız.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.component: face-api
 ms.topic: quickstart
 ms.date: 05/10/2018
 ms.author: pafarley
-ms.openlocfilehash: 42a8b13b87623b92ee0fe92db4e6a0caff5c3a1b
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: df9490a3ee2af115b48dafd323e1afdec24b392d
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49339124"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49956230"
 ---
-# <a name="quickstart-detect-faces-in-an-image-using-java"></a>Hızlı Başlangıç: Java kullanarak bir görüntüdeki yüzleri algılama
+# <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-java"></a>Hızlı Başlangıç: REST API ve Java kullanarak bir görüntüdeki yüzleri algılama
 
 Bu hızlı başlangıçta, Yüz Tanıma API'sini kullanarak bir görüntüdeki insan yüzlerini algılayacaksınız.
 

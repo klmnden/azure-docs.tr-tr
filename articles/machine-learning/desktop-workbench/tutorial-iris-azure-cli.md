@@ -11,12 +11,12 @@ ms.custom: mvc, tutorial
 ms.topic: tutorial
 ms.date: 10/15/2017
 ROBOTS: NOINDEX
-ms.openlocfilehash: b9b515a2ccaedc40fc531d6a1cc58cbe98212b4a
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: c5f7b8b98f97e020b4f6fb4b125d444df87f8d5a
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46967906"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50025761"
 ---
 # <a name="tutorial-classifying-iris-using-the-command-line-interface"></a>Öğretici: Komut satırı arabirimini kullanarak Süsen Sınıflandırması
 
@@ -143,13 +143,13 @@ $ az ml project create --name <project name> --workspace <workspace name> --acco
 ```
 
 ### <a name="create-a-new-project-associated-with-a-cloud-git-repository"></a>Bulut Git deposuyla ilişkilendirilmiş yeni proje oluşturma
-Azure DevOps Git deposuyla ilişkilendirilmiş yeni bir proje oluşturabilirsiniz. Deneme her gönderildiğinde, tüm proje klasörünün anlık görüntüsü uzak Git deposuna işlenir. Diğer ayrıntılar için bkz. [Azure Machine Learning Workbench projesiyle Git deposunu kullanma](using-git-ml-project.md).
+Azure Repos’ta Git deposuyla ilişkilendirilmiş yeni bir proje oluşturabilirsiniz. Deneme her gönderildiğinde, tüm proje klasörünün anlık görüntüsü uzak Git deposuna işlenir. Diğer ayrıntılar için bkz. [Azure Machine Learning Workbench projesiyle Git deposunu kullanma](using-git-ml-project.md).
 
 > [!NOTE]
-> Azure Machine Learning yalnızca Azure DevOps'ta oluşturulmuş boş Git depolarını destekler.
+> Azure Machine Learning yalnızca Azure Repos'ta oluşturulmuş boş Git depolarını destekler.
 
 ```azure-cli
-$ az ml project create --name <project name> --workspace <workspace name> --account <experimentation account name> --resource-group <resource group name> --path <local folder path> --repo <VSTS repo URL>
+$ az ml project create --name <project name> --workspace <workspace name> --account <experimentation account name> --resource-group <resource group name> --path <local folder path> --repo <repo URL>
 ```
 > [!TIP]
 > "Depo url'si geçersiz olabilir veya kullanıcının erişimi olmayabilir" hatasını alıyorsanız, Azure DevOps'ta bir güvenlik belirteci oluşturabilir (_Güvenlik_ altında, _Kişisel erişim belirteçleri ekle_ menüsü) ve projenizi oluştururken `--vststoken` bağımsız değişkenini kullanabilirsiniz. 

@@ -1,5 +1,5 @@
 ---
-title: 'Öğretici: Bir görüntüdeki yüzleri algılama ve çerçeveleme - Yüz Tanıma API’si, Android için Java'
+title: 'Öğretici: Android SDK ile görüntüdeki yüzleri algılama ve çerçeveleme'
 titleSuffix: Azure Cognitive Services
 description: Bu öğreticide, bir görüntüdeki yüzleri algılamak ve çerçevelemek için Yüz Tanıma API’sini kullanan basit bir Android uygulaması oluşturacaksınız.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.component: face-api
 ms.topic: tutorial
 ms.date: 07/12/2018
 ms.author: pafarley
-ms.openlocfilehash: 08344e21d4f425a021bdefe840390ede8b3fb01e
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 99b2734745df722f45443b5347ae6dd054c8aa31
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49342390"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49957046"
 ---
 # <a name="tutorial-create-an-android-app-to-detect-and-frame-faces-in-an-image"></a>Öğretici: Resimdeki yüzleri algılamak ve çerçeve içine almak için Android uygulaması oluşturma
 

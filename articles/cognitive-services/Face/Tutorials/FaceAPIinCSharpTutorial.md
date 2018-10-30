@@ -1,5 +1,5 @@
 ---
-title: "Öğretici: Bir görüntüdeki yüzleri algılama ve çerçeveleme - Yüz Tanıma API'si, C#"
+title: 'Öğretici: C# ile .NET SDK’sını kullanarak bir görüntüdeki yüzleri algılama ve çerçeveleme'
 titleSuffix: Azure Cognitive Services
 description: Bu öğreticide bir görüntüdeki yüzleri algılamak ve çerçevelemek için Yüz Tanıma API'sini kullanan bir Windows uygulaması oluşturacaksınız.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.component: face-api
 ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: pafarley
-ms.openlocfilehash: ba850c1d4f9d8018f333662eead56f8e91b3fbd7
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: df5e46270275ca08a8499607fbad4c1161382fab
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49340962"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49956503"
 ---
-# <a name="tutorial-create-a-wpf-app-to-detect-and-frame-faces-in-an-image"></a>Öğretici: Resimdeki yüzleri algılamak ve çerçeve içine almak için WPF uygulaması oluşturma
+# <a name="tutorial-create-a-wpf-app-to-detect-and-frame-faces-in-an-image-using-the-net-sdk"></a>Öğretici: .NET SDK’sını kullanarak görüntüdeki yüzleri algılamak ve çerçeve içine almak için WPF uygulaması oluşturma
 
 Bu öğreticide, .NET istemci kitaplığı aracılığıyla Yüz Tanıma hizmetini kullanan bir Windows Presentation Framework (WPF) uygulaması oluşturursunuz. Uygulama resimdeki yüzleri algılar, her yüzün çevresine bir çerçeve çizer ve durum çubuğunda yüzün açıklamasını görüntüler. Örnek kodun tamamı GitHub'da [Windows'da resimdeki yüzleri algılama ve çerçeve içine alma](https://github.com/Azure-Samples/Cognitive-Face-CSharp-sample).
 

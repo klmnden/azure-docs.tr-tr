@@ -1,0 +1,70 @@
+---
+title: Microsoft kimlik platformuna kaydedilmiş bir uygulamayı kaldırma | Azure
+description: Microsoft kimlik platformuna kaydedilmiş bir uygulamayı kaldırmayı öğrenin.
+services: active-directory
+documentationcenter: ''
+author: CelesteDG
+manager: mtillman
+editor: ''
+ms.service: active-directory
+ms.component: develop
+ms.devlang: na
+ms.topic: quickstart
+ms.tgt_pltfrm: na
+ms.workload: identity
+ms.date: 10/25/2018
+ms.author: celested
+ms.custom: aaddev
+ms.reviewer: lenalepa, sureshja
+ms.openlocfilehash: c10aa28dc83d96a99da40b7d95d8e7051108d4c0
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.translationtype: HT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49988920"
+---
+# <a name="quickstart-remove-an-application-registered-with-the-microsoft-identity-platform-preview"></a>Hızlı Başlangıç: Microsoft kimlik platformuna kaydedilmiş bir uygulamayı kaldırma (Önizleme)
+
+Microsoft kimlik platformuna kayıtlı uygulamaları olan kurumsal geliştiricilerin ve hizmet olarak yazılım (SaaS) sağlayıcılarının bir uygulamanın kaydını kaldırması gerekebilir.
+
+Bu hızlı başlangıçta şunları yapmayı öğreneceksiniz:
+
+* [Kendiniz veya kuruluşunuz tarafından yazılmış bir uygulamayı kaldırma](#remove-an-application-authored-by-your-organization)
+* [Başka bir kuruluş tarafından yazılmış bir uygulamayı kaldırma](#remove-an-application-authoried-by-another-organization)
+
+## <a name="prerequisites"></a>Ön koşullar
+
+Başlamak için aşağıdaki önkoşulları karşıladığınızdan emin olun:
+
+* Kaydedilmiş uygulamaları olan bir kiracısı olma. Uygulama eklemeyi ve kaydetmeyi öğrenmek için bkz. [Microsoft kimlik platformuna uygulama kaydetme](quickstart-register-app.md).
+* Azure portalında uygulama kaydı için Önizleme deneyimine katılma. Bu hızlı başlangıçtaki adımlar yeni kullanıcı arabirimine karşılık gelir ve yalnızca Önizleme deneyimine geçmeyi kabul ettiyseniz çalışır.
+
+## <a name="remove-an-application-authored-by-you-or-your-organization"></a>Kendiniz veya kuruluşunuz tarafından yazılmış bir uygulamayı kaldırma
+
+Kendiniz veya kuruluşunuz tarafından kaydedilmiş uygulamalar gerek bir uygulama nesnesi, gerekse kiracınızdaki bir hizmet sorumlusu nesnesi tarafından temsil edilir. Daha fazla bilgi için bkz. [Uygulama Nesneleri ve Hizmet Sorumlusu Nesneleri](active-directory-application-objects.md).
+
+### <a name="to-remove-an-application"></a>Uygulama kaldırma
+
+1. Bir iş veya okul hesabını ya da kişisel bir Microsoft hesabını kullanarak [Azure portalında](https://portal.azure.com) oturum açın.
+2. Hesabınız size birden fazla Azure AD kiracısına erişim sunuyorsa sağ üst köşeden hesabınızı seçin ve portal oturumunuzu istediğiniz Azure AD kiracısına ayarlayın.
+3. Sol taraftaki gezinti bölmesinde **Azure Active Directory** hizmetini, ardından **Uygulama kayıtları (Önizleme)** seçeneğini belirleyin. Yapılandırmak istediğiniz uygulamayı bulun ve seçin. Uygulamayı seçtikten sonra uygulamanın **Genel Bakış** sayfasını görebilirsiniz.
+4. **Genel Bakış** sayfasından **Sil**'i seçin.
+5. Uygulamayı silmek istediğinizi onaylamak için **Evet**'i seçin.
+
+  > [!NOTE]
+  > Uygulama silmek için uygulamanın sahiplerinden biri olarak listelenmeniz veya yönetici ayrıcalıklarına sahip olmanız gerekir.
+
+## <a name="remove-an-application-authored-by-another-organization"></a>Başka bir kuruluş tarafından yazılmış bir uygulamayı kaldırma
+
+Bir kiracı bağlamında **Uygulama kayıtlarını** görüntülüyorsanız, **Tüm uygulamalar** sekmesinin altında görünen uygulamaların bir alt kümesi başka bir kiracıdandır ve kiracınıza onay işlemi sırasında kaydedilmiştir. Daha açık söylersek, bunlar kiracınızda yalnızca bir hizmet sorumlusu nesnesi tarafından ve karşılık gelen herhangi bir uygulama nesnesi olmadan temsil edilir. Uygulama ve hizmet sorumlusu nesneleri arasındaki farklar hakkında daha fazla bilgi için bkz. [Azure AD'de uygulama ve hizmet sorumlusu nesneleri](active-directory-application-objects.md).
+
+Bir uygulamanın dizininize olan daha önce onay verdiğiniz erişimini kaldırmak için şirket yöneticisinin uygulamanın hizmet sorumlusunu kaldırması gerekir. Yöneticinin genel yönetim erişimi olması gerekir ve uygulamayı Azure portalı aracılığıyla kaldırabilir veya erişimi kaldırmak için [Azure AD PowerShell Cmdlet'lerini](http://go.microsoft.com/fwlink/?LinkId=294151) kullanabilir.
+
+## <a name="next-steps"></a>Sonraki adımlar
+
+Aşağıdaki ilgili diğer uygulama yönetimi hızlı başlangıçları hakkında bilgi edinin:
+
+* [Microsoft kimlik platformuna uygulama kaydetme](quickstart-register-app.md)
+* [Bir istemci uygulamasını web API'lerine erişecek şekilde yapılandırma](quickstart-configure-app-access-web-apis.md)
+* [Bir uygulamayı web API'lerini kullanıma sunacak şekilde yapılandırma](quickstart-configure-app-expose-web-apis.md)
+* [Bir uygulama tarafından desteklenen hesapları değiştirme](quickstart-modify-supported-accounts.md)

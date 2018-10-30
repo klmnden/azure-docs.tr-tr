@@ -1,5 +1,5 @@
 ---
-title: 'Hızlı Başlangıç: Bir görüntüdeki yüzleri algılama - SDK, C#'
+title: 'Hızlı Başlangıç: C# ile .NET SDK’sını kullanarak bir görüntüdeki yüzleri algılama'
 titleSuffix: Azure Cognitive Services
 description: Bu hızlı başlangıçta, Bilişsel Hizmetler’de Yüz Tanıma Windows C# istemci kitaplığını kullanarak bir görüntüdeki yüzleri algılayacaksınız.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.component: face-api
 ms.topic: quickstart
 ms.date: 09/14/2018
 ms.author: pafarley
-ms.openlocfilehash: b5fd10aaab28303079d3eef9c4c5c25207bb672e
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: a4b0b8b277ed6bc6e2bc3c7549d1e67d5f18c615
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49344991"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49954972"
 ---
-# <a name="quickstart-detect-faces-in-an-image-using-c35---face"></a>Hızlı Başlangıç: C# kullanarak bir görüntüdeki yüzleri algılama - Yüz Tanıma
+# <a name="quickstart-detect-faces-in-an-image-using-the-net-sdk-with-c"></a>Hızlı Başlangıç: C# ile .NET SDK’sını kullanarak bir görüntüdeki yüzleri algılama
 
 Bu hızlı başlangıçta, Yüz Tanıma Windows istemci kitaplığını kullanarak bir görüntüdeki insan yüzlerini algılayacaksınız.
 

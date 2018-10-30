@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 9/24/2018
+ms.date: 10/24/2018
 ms.author: victorh
-ms.openlocfilehash: 1940fb210481dc75fe48d110776185e90cb3e42f
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 875efddfff9b50ab05665cb8c158467dc46c8d0d
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46991054"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49987449"
 ---
 # <a name="tutorial-monitor-azure-firewall-logs-and-metrics"></a>Öğretici: Azure Güvenlik Duvarı günlüklerini ve ölçümlerini izleme
 
@@ -51,11 +51,11 @@ Tanılama günlüğüne kaydetme işlemi etkinleştirildikten sonra verilerin g�
 5. Bu örnekte günlükler Log Analytics'te depolandığı için ad olarak **Firewall log analytics** yazın.
 6. Çalışma alanınızı yapılandırmak için **Log Analytics'e gönder**'e tıklayın. Tanılama günlüklerini kaydetmek için Event Hubs'ı veya depolama hesabını da kullanabilirsiniz.
 7. **Log Analytics** bölümünde **Yapılandır**'a tıklayın.
-8. OMS Çalışma Alanları sayfasında **Yeni Çalışma Alanı Oluştur**'a tıklayın.
-9. **Log Analytics çalışma alanı** sayfasında yeni **OMS Çalışma Alanı** adı olarak **firewall-oms** yazın.
+8. Log Analytics çalışma alanları sayfasında **Yeni Çalışma Alanı Oluştur**'a tıklayın.
+9. **Log Analytics çalışma alanı** sayfasında yeni **Log Analytics çalışma alanı** adı olarak **firewall-oms** yazın.
 10. Aboneliğinizi seçin, var olan güvenlik duvarı kaynak grubunu (**Test-FW-RG**) kullanın, konum olarak **Doğu ABD** seçin ve **Ücretsiz** fiyatlandırma katmanını belirleyin.
 11. **Tamam** düğmesine tıklayın.
-   ![Yapılandırma işlemini başlatma][1]
+   ![Yapılandırma işleminin başlatılmasıyla][1] OMS çalışma alanları artık Log Analytics çalışma alanları olarak adlandırılır.  
 12. **Günlük** bölümünde uygulama ve ağ kuralları için günlükleri toplamak için **AzureFirewallApplicationRule** ve **AzureFirewallNetworkRule** girişlerini seçin.
    ![Tanılama ayarlarını kaydetme][2]
 13. **Kaydet**’e tıklayın.
@@ -95,6 +95,8 @@ Aşağıdaki yöntemlerden birini kullanarak etkinlik günlüğü verilerini gö
 ## <a name="view-and-analyze-the-network-and-application-rule-logs"></a>Ağ ve uygulama kuralı günlüklerini görüntüleme ve analiz etme
 
 Azure [Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.md), sayaç ve olay günlüğü dosyalarını toplar. Günlüklerinizi analiz etmek için görselleştirmelere ve güçlü arama özelliklerine sahiptir.
+
+Azure Güvenlik Duvarı Log Analytics örnek sorguları için bkz. [Azure Güvenlik Duvarı Log Analytics örnekleri](log-analytics-samples.md).
 
 Dilerseniz depolama hesabınıza bağlanabilir ve JSON erişim günlüklerini ve performans günlüklerini alabilirsiniz. İndirdiğiniz JSON dosyalarını CSV biçimine dönüştürebilir ve Excel, Power BI veya diğer veri görselleştirme araçlarında görüntüleyebilirsiniz.
 

@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: overview
 ms.date: 09/27/2018
 ms.author: alkohli
-ms.openlocfilehash: 5a95675d5e37adec5fb1f1542daad329484a2a4c
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 1d38b563e2a272acdbaa4ea0c2a169a04e798d12
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49092619"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49649406"
 ---
 # <a name="azure-data-box-frequently-asked-questions"></a>Azure Data Box: Sık Sorulan Sorular
 
@@ -217,7 +217,7 @@ A.  Veriler Azure'a kopyalandıktan sonra Data Box disklerindeki veriler NIST SP
 ## <a name="audit-report"></a>Denetim raporu
 
 ### <a name="how-does-azure-data-box-service-help-support-customers-chain-of-custody-procedure"></a>Azure Data Box hizmeti müşterilere delil zinciri yordamı konusunda nasıl destek oluyor?
-A.  Azure Data Box hizmeti delil zinciri belgeleri için kullanabileceğiniz raporlar sunar. Denetleme ve kopyalama günlükleri Azure'daki depolama hesabınızda mevcuttur ve tamamlanan siparişlerin geçmişi Azure portaldaki sipariş sayfasından indirilebilir.
+A.  Azure Data Box hizmeti delil zinciri belgeleri için kullanabileceğiniz raporlar sunar. Denetleme ve kopyalama günlükleri Azure'daki depolama hesabınızda mevcuttur ve siparişler tamamlandıktan sonra Azure portalda [sipariş geçmişini indirebilirsiniz](data-box-portal-admin.md#download-order-history).
 
 
 ### <a name="what-type-of-reporting-is-available-to-support-chain-of-custody"></a>Delil zinciri desteği için sunulan rapor türleri nelerdir?
@@ -230,7 +230,7 @@ A.  Delil zinciri desteği için aşağıdaki rapor türleri sunulur:
 - Veriler Azure depolama hesabınıza kopyalandıktan sonra Data Box cihazının temizlenmesi (NIST 800 88R1 standartlarına göre).
 
 ### <a name="are-the-carrier-tracking-logs--from-upsdhl-available"></a>Sevkiyat takip günlükleri (UPS/DHL) mevcut mu? 
-A.  Sevkiyat takip günlükleri, Data Box denetim günlüğü raporuna kaydedilir. Bu rapor cihaz Azure veri merkezine iade edildikten ve cihaz üzerindeki veriler silindikten sonra sunulur. Daha erken ihtiyaç duymanız durumunda taşıyıcının web sitesine gidip sipariş takip numarasıyla takip bilgilerine ulaşabilirsiniz.
+A.  Taşıyıcı takip günlükleri, Data Box sipariş geçmişine kaydedilir. Bu rapor cihaz Azure veri merkezine iade edildikten ve cihaz üzerindeki veriler silindikten sonra sunulur. Daha erken ihtiyaç duymanız durumunda taşıyıcının web sitesine gidip sipariş takip numarasıyla takip bilgilerine ulaşabilirsiniz.
 
 ### <a name="can-i-transport-the-data-box-to-azure-datacenter"></a>Data Box'ı Azure veri merkezine kendim götürebilir miyim? 
 A.  Hayır. Azure veri merkezleri şu an için müşteriler veya UPS/DHL dışındaki taşıyıcılar tarafından gerçekleştirilen Data Box teslimatlarını kabul etmemektedir.

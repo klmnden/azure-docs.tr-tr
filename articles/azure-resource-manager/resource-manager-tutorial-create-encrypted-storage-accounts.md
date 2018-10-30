@@ -10,15 +10,15 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 09/07/2018
+ms.date: 10/18/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: d48374d7919be3d141ea199e8238a220dbfe0332
-ms.sourcegitcommit: 3150596c9d4a53d3650cc9254c107871ae0aab88
+ms.openlocfilehash: a3fc3e0cc30b379c84ac0ba12f733d2db4e41587
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47419534"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49945799"
 ---
 # <a name="tutorial-create-an-azure-resource-manager-template-for-deploying-an-encrypted-storage-account"></a>Öğretici: Şifrelenmiş depolama hesabı dağıtmak için bir Azure Resource Manager şablonu oluşturma
 
@@ -40,8 +40,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap oluşturun](htt
 
 Bu makaleyi tamamlamak için gerekenler:
 
-* [Visual Studio Code](https://code.visualstudio.com/).
-* Resource Manager Araçları uzantısı. Yüklemek için bkz. [Resource Manager Araçları uzantısını yükleme](./resource-manager-quickstart-create-templates-use-visual-studio-code.md#prerequisites).
+* [Resource Manager Araçları uzantısı](./resource-manager-quickstart-create-templates-use-visual-studio-code.md#prerequisites) içeren [Visual Studio Code](https://code.visualstudio.com/).
 
 ## <a name="open-a-quickstart-template"></a>Hızlı başlangıç şablonunu açma
 
@@ -56,7 +55,7 @@ Bu hızlı başlangıçta kullanılan şablon [Standart depolama hesabı oluştu
 3. Dosyayı açmak için **Aç**’ı seçin.
 4. Dosyayı yerel bilgisayarınıza **azuredeploy.json** olarak kaydetmek için **Dosya**>**Farklı Kaydet**’i seçin.
 
-## <a name="understand-the-format"></a>Biçimi anlama
+## <a name="understand-the-schema"></a>Şemayı anlama
 
 VS Code'da şablonu kök düzeye daraltın. Aşağıdaki öğelere sahip çok basit bir yapı görürsünüz:
 
@@ -69,7 +68,7 @@ VS Code'da şablonu kök düzeye daraltın. Aşağıdaki öğelere sahip çok ba
 * **resources**: Kaynak grubunda dağıtılan veya güncelleştirilen kaynak türlerini belirtin.
 * **outputs**: Dağıtım sonrasında döndürülen değerleri belirtin.
 
-## <a name="use-parameters-in-template"></a>Şablonda parametre kullanma
+## <a name="use-parameters"></a>Parametre kullanma
 
 Parametreler, belirli bir ortam için tasarlanmış değerler kullanarak dağıtımı özelleştirmenizi sağlar. Depolama hesabı için gerekli değerleri ayarlarken şablonda tanımlanmış olan parametreleri kullanırsınız.
 
@@ -90,7 +89,7 @@ resourceGroup() işlevi, geçerli kaynak grubunu temsil eden bir nesne döndür�
 "name": "[parameters('storageAccountType')]"
 ```
 
-## <a name="use-variables-in-template"></a>Şablonda değişken kullanma
+## <a name="use-variables"></a>Değişken kullanma
 
 Değişkenler, şablonun tamamında kullanılabilecek değerler oluşturmanızı sağlar. Değişkenler, şablonların karmaşıklığının azaltılmasına yardımcı olur.
 
@@ -117,9 +116,7 @@ Bu öğreticinin hedefi, şifrelenmiş bir depolama hesabı oluşturmak üzere �
 
     ![Resource Manager şablon başvurusu depolama hesabı](./media/resource-manager-tutorial-create-encrypted-storage-accounts/resource-manager-template-resources-reference-storage-accounts.png)
 
-    resource-manager-template-resources-reference-storage-accounts
-1. Şifrelemeyle ilgili bilgileri inceleyin.  
-1. Depolama hesabı kaynak tanımının properties öğesine aşağıdaki JSON kodunu ekleyin:
+4. Şifrelemeyle ilgili tanım bilgilerini bulun.  
 
     ```json
     "encryption": {
@@ -131,11 +128,9 @@ Bu öğreticinin hedefi, şifrelenmiş bir depolama hesabı oluşturmak üzere �
         }
     }
     ```
-    Bu bölüm, blob depolama hizmetinin şifreleme işlevini etkinleştirir.
-
-Son kaynaklar öğesinin aşağıdaki şekilde görünmesi için Visual Studio Code'dan şablonu değiştirin:
-
-![Resource Manager şablonu şifrelenmiş depolama hesabı kaynakları](./media/resource-manager-tutorial-create-encrypted-storage-accounts/resource-manager-template-encrypted-storage-resources.png)
+5. Son kaynaklar öğesinin aşağıdaki şekilde görünmesi için Visual Studio Code'dan şablonu değiştirin:
+    
+    ![Resource Manager şablonu şifrelenmiş depolama hesabı kaynakları](./media/resource-manager-tutorial-create-encrypted-storage-accounts/resource-manager-template-encrypted-storage-resources.png)
 
 ## <a name="deploy-the-template"></a>Şablonu dağıtma
 

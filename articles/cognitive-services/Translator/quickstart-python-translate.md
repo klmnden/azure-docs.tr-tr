@@ -1,116 +1,170 @@
 ---
-title: 'Hızlı Başlangıç: Metin çevirme - Translator Metin Çevirisi, Python'
+title: 'Hızlı Başlangıç: Metin çevirisi yapmak için Python kullanma - Translator Metin Çevirisi'
 titleSuffix: Azure Cognitive Services
-description: Bu hızlı başlangıçta, Python ile Translator Metin Çevirisi API’sini kullanarak metni bir dilden diğerine çevireceksiniz.
+description: Bu hızlı başlangıçta, 10 dakikadan daha kısa bir sürede Python ile Translator Metin Çevirisi API'sini kullanarak metni bir dilden diğerine çevireceksiniz.
 services: cognitive-services
-author: noellelacharite
+author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
-ms.date: 06/21/2018
-ms.author: nolachar
-ms.openlocfilehash: cd1941c0a815d959f3e2e98fdd809062f4e01014
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.date: 10/17/2018
+ms.author: erhopf
+ms.openlocfilehash: a9f848098f377a79ded07d3bbe41f212cb4a7e74
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46129214"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49945358"
 ---
-# <a name="quickstart-translate-text-with-python"></a>Hızlı Başlangıç: Python ile metin çevirme
+# <a name="quickstart-use-the-translator-text-api-to-translate-a-string-using-python"></a>Hızlı Başlangıç: Python kullanarak bir dizeyi çevirmek için Translator Metin Çevirisi API'sini kullanma
 
-Bu hızlı başlangıçta, Translator Metin Çevirisi API'sini kullanarak metni bir dilden diğerine çevireceksiniz.
+Bu hızlı başlangıçta, Python ve Translator Metin Çevirisi REST API'sini kullanarak bir metin dizesini İngilizceden İtalyanca ve Almancaya çevirmeyi öğreneceksiniz.
+
+Bu hızlı başlangıç, Translator Metin Çevirisi kaynağına sahip bir [Azure Bilişsel Hizmetler hesabı](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) gerektirir. Bir hesabınız yoksa, abonelik anahtarı almak için [ücretsiz deneme sürümünü](https://azure.microsoft.com/try/cognitive-services/) kullanabilirsiniz.
 
 ## <a name="prerequisites"></a>Ön koşullar
 
-Bu kodu çalıştırmak için [Python 3.x](https://www.python.org/downloads/) sürümüne ihtiyacınız olacak.
+Bu hızlı başlangıç şunları gerektirir:
 
-Translator Metin Çevirisi API'sini kullanmak için, ayrıca abonelik anahtarınızın olması gerekir; bkz. [Translator Metin Çevirisi API'sine kaydolma](translator-text-how-to-signup.md).
+* Python 2.7.x veya 3.x
+* Translator Metin Çevirisi için Azure abonelik anahtarı
 
-## <a name="translate-request"></a>Çeviri isteği
+## <a name="create-a-project-and-import-required-modules"></a>Bir proje oluşturun ve gerekli modülleri içeri aktarın
 
-Aşağıdaki kod, [Çeviri](./reference/v3-0-translate.md) yöntemini kullanarak kaynak metni bir dilden diğerine çevirir.
-
-1. Sık kullandığınız kod düzenleyicisinde yeni bir Python projesi oluşturun.
-2. Aşağıda sağlanan kodu ekleyin.
-3. `subscriptionKey` değerini, aboneliğiniz için geçerli olan bir erişim anahtarı ile değiştirin.
-4. Programı çalıştırın.
+Favori IDE ortamınızda veya düzenleyicide yeni bir Python projesi oluşturun. Ardından bu kod parçacığını projenizde `translate-text.py` adlı bir dosyaya kopyalayın.
 
 ```python
 # -*- coding: utf-8 -*-
-
-import http.client, urllib.parse, uuid, json
-
-# **********************************************
-# *** Update or verify the following values. ***
-# **********************************************
-
-# Replace the subscriptionKey string value with your valid subscription key.
-subscriptionKey = 'ENTER KEY HERE'
-
-host = 'api.cognitive.microsofttranslator.com'
-path = '/translate?api-version=3.0'
-
-# Translate to German and Italian.
-params = "&to=de&to=it";
-
-text = 'Hello, world!'
-
-def translate (content):
-
-    headers = {
-        'Ocp-Apim-Subscription-Key': subscriptionKey,
-        'Content-type': 'application/json',
-        'X-ClientTraceId': str(uuid.uuid4())
-    }
-
-    conn = http.client.HTTPSConnection(host)
-    conn.request ("POST", path + params, content, headers)
-    response = conn.getresponse ()
-    return response.read ()
-
-requestBody = [{
-    'Text' : text,
-}]
-content = json.dumps(requestBody, ensure_ascii=False).encode('utf-8')
-result = translate (content)
-
-# Note: We convert result, which is JSON, to and from an object so we can pretty-print it.
-# We want to avoid escaping any Unicode characters that result contains. See:
-# https://stackoverflow.com/questions/18337407/saving-utf-8-texts-in-json-dumps-as-utf8-not-as-u-escape-sequence
-output = json.dumps(json.loads(result), indent=4, ensure_ascii=False)
-
-print (output)
+import os, requests, uuid, json
 ```
 
-## <a name="translate-response"></a>Çeviri yanıtı
+> [!NOTE]
+> Bu modülleri kullanmadıysanız, programınızı çalıştırmadan önce bunları yüklemeniz gerekir. Bu paketleri yüklemek için şunu çalıştırın: `pip install requests uuid`.
 
-Başarılı bir yanıt, aşağıdaki örnekte gösterildiği gibi JSON biçiminde döndürülür:
+İlk açıklama Python yorumlayıcısına UTF-8 kodlaması kullanması gerektiğini bildirir. Ardından bir ortam değişkeninden abonelik anahtarınızı okumak, HTTP isteğini yapılandırmak, benzersiz bir tanımlayıcı oluşturmak ve Translator Metin Çevirisi API'si tarafından döndürülen JSON yanıtını işlemek için gereken modüller içeri aktarılır.
+
+## <a name="set-the-subscription-key-base-url-and-path"></a>Abonelik anahtarını, temel URL’yi ve yolu ayarlayın
+
+Bu örnek, `TRANSLATOR_TEXT_KEY` ortam değişkeninden Translator Metin Çevirisi abonelik anahtarınızı okumaya çalışır. Ortam değişkenlerini bilmiyorsanız, `subscriptionKey` öğesini dize olarak ayarlayabilir ve koşul deyimini açıklama satırı yapabilirsiniz.
+
+Bu kodu projenize kopyalayın:
+
+```python
+# Checks to see if the Translator Text subscription key is available
+# as an environment variable. If you are setting your subscription key as a
+# string, then comment these lines out.
+if 'TRANSLATOR_TEXT_KEY' in os.environ:
+    subscriptionKey = os.environ['TRANSLATOR_TEXT_KEY']
+else:
+    print('Environment variable for TRANSLATOR_TEXT_KEY is not set.')
+    exit()
+# If you want to set your subscription key as a string, uncomment the line
+# below and add your subscription key.
+#subscriptionKey = 'put_your_key_here'
+```
+
+Şu anda Translator Metin Çevirisi için bir uç nokta kullanılabilir ve `base_url` olarak ayarlanmıştır. `path`, `translate` rotasını ayarlar ve API sürüm 3’ü kullanmak istediğimizi belirler.
+
+`params` çıkış dillerini ayarlamak için kullanılır. Bu örnekte İngilizceden İtalyanca ve Almancaya çeviri yapacağız: `it` ve `de`.
+
+>[!NOTE]
+> Uç noktalar, rotalar ve istek parametreleri hakkında daha fazla bilgi için bkz. [Translator Metin Çevirisi API’si 3.0: Çeviri](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate).
+
+```python
+base_url = 'https://api.cognitive.microsofttranslator.com'
+path = '/translate?api-version=3.0'
+params = '&to=de&to=it'
+constructed_url = base_url + path + params
+```
+
+## <a name="add-headers"></a>Üst bilgileri ekleme
+
+Bir isteğin kimliğini doğrulamanın en kolay yolu, abonelik anahtarınızda bir `Ocp-Apim-Subscription-Key` üst bilgisi olarak geçirmektir. Bu örnekte bu yöntem kullanılır. Alternatif olarak, abonelik anahtarınızı bir erişim belirteciyle değiştirebilir ve isteğinizi doğrulamak için erişim belirtecini bir `Authorization` üst bilgisi olarak geçirebilirsiniz. Daha fazla bilgi için bkz. [Kimlik doğrulaması](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication).
+
+Bu kod parçacığını projenize kopyalayın:
+
+```python
+headers = {
+    'Ocp-Apim-Subscription-Key': subscriptionKey,
+    'Content-type': 'application/json',
+    'X-ClientTraceId': str(uuid.uuid4())
+}
+```
+
+## <a name="create-a-request-to-translate-text"></a>Metni çevirmek için bir istek oluşturun
+
+Çevirmek istediğiniz dizeyi veya dizeleri tanımlayın:
+
+```python
+body = [{
+    'text' : 'Hello World!'
+}]
+```
+
+Ardından, `requests` modülünü kullanarak bir post isteği oluşturacağız. Üç bağımsız değişken kabul eder: Birleştirilmiş URL, istek üst bilgileri ve istek gövdesi:
+
+```python
+request = requests.post(constructed_url, headers=headers, json=body)
+response = request.json()
+```
+
+## <a name="print-the-response"></a>Yanıtı yazdırma
+
+Son adım sonuçları yazdırmaktır. Bu kod parçacığı anahtarları sıralayarak, girintiyi ayarlayarak ve öğe ve anahtar ayırıcıları bildirerek sonuçların daha iyi görünmesini sağlar.
+
+```python
+print(json.dumps(response, sort_keys=True, indent=4, separators=(',', ': ')))
+```
+
+## <a name="put-it-all-together"></a>Hepsini bir araya getirin
+
+İşte bu kadar! Translator Metin Çevirisi API'sini çağıran ve bir JSON yanıtı döndüren basit bir program oluşturdunuz. Artık programınızı çalıştırmak zamanı geldi:
+
+```console
+python translate-text.py
+```
+
+Kodunuzu bizimkiyle karşılaştırmak isterseniz, tam örnek kodu [GitHub](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-Python)’da bulabilirsiniz.
+
+## <a name="sample-response"></a>Örnek yanıt
 
 ```json
 [
-  {
-    "detectedLanguage": {
-      "language": "en",
-      "score": 1.0
-    },
-    "translations": [
-      {
-        "text": "Hallo Welt!",
-        "to": "de"
-      },
-      {
-        "text": "Salve, mondo!",
-        "to": "it"
-      }
-    ]
-  }
+    {
+        "detectedLanguage": {
+            "language": "en",
+            "score": 1.0
+        },
+        "translations": [
+            {
+                "text": "Hallo Welt!",
+                "to": "de"
+            },
+            {
+                "text": "Salve, mondo!",
+                "to": "it"
+            }
+        ]
+    }
 ]
 ```
 
+## <a name="clean-up-resources"></a>Kaynakları temizleme
+
+Abonelik anahtarınızı programınıza sabit kodladıysanız, bu hızlı başlangıcı tamamladıktan sonra abonelik anahtarını kaldırdığınızdan emin olun.
+
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Başka alfabeye çevirme ve dil tanımlayıcı gibi bu ve diğer hızlı başlangıçlardaki örnek kodlarla birlikte GitHub’daki diğer örnek Translator Metin Çevirisi projelerini keşfedin.
-
 > [!div class="nextstepaction"]
-> [GitHub’da Python örneklerini keşfedin](https://aka.ms/TranslatorGitHub?type=&language=python)
+> [GitHub’da Python örneklerini keşfedin](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-Python)
+
+## <a name="see-also"></a>Ayrıca bkz.
+
+Metin çevirisine ek olarak, Translator Metin Çevirisi API'sini aşağıdakileri yapmak için kullanabilirsiniz:
+
+* [Metni başka dilde yazma](quickstart-python-transliterate.md)
+* [Girişe göre dili belirleyin](quickstart-python-detect.md)
+* [Alternatif çeviriler edinme](quickstart-python-dictionary.md)
+* [Desteklenen dillerin listesini alma](quickstart-python-languages.md)
+* [Girişten tümce uzunluklarını belirleme](quickstart-python-sentences.md)

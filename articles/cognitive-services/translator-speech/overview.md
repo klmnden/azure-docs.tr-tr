@@ -10,12 +10,12 @@ ms.component: translator-speech
 ms.topic: overview
 ms.date: 3/5/2018
 ms.author: v-jansko
-ms.openlocfilehash: 77e60fe39f7cbb985ee0e7ed2785805e80c389ae
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 641081e4a01aa5810d569795c10e967e4b46568e
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49341149"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50023586"
 ---
 # <a name="what-is-translator-speech-api"></a>Translator Konuşma Çevirisi API'si nedir?
 
@@ -34,7 +34,7 @@ Konuşmanın konuşmaya çevirisi için, hizmet konuşulan metinden hedef diller
 Translator Konuşma Çevirisi API'si istemciyle sunucu arasında tam çift yönlü bir iletişim kanalı sağlamak için WebSocket protokolünü kullanır. 
 
 ## <a name="about-microsoft-translator"></a>Microsoft Translator Hakkında
-Microsoft Translator, bulut tabanlı bir makine çevirisi hizmetidir. Bu hizmetin temelinde, çeşitli Microsoft ürünlerini ve hizmetlerini desteklemenin yanı sıra dünya çapında binlerce işletmenin uygulamalarında ve iş akışlarında kullanılıp bu işletmelerin içeriklerini tüm dünyadaki hedef kitleye ulaştırmasını sağlayan [Translator Metin Çevirisi API'si] (https://www.microsoft.com/en-us/translator/translatorapi.aspx)) ve Translator Konuşma Çevirisi API'si yer alır.
+Microsoft Translator, bulut tabanlı bir makine çevirisi hizmetidir. Bu hizmetin temelinde, çeşitli Microsoft ürünlerini ve hizmetlerini desteklemenin yanı sıra dünya çapında binlerce işletmenin uygulamalarında ve iş akışlarında kullanılıp bu işletmelerin içeriklerini tüm dünyadaki hedef kitleye ulaştırmasını sağlayan [Translator Metin Çevirisi API'si](https://www.microsoft.com/en-us/translator/translatorapi.aspx) ve Translator Konuşma Çevirisi API'si yer alır.
 
 [Microsoft Translator hizmeti](https://www.microsoft.com/en-us/translator/home.aspx) hakkında daha fazla bilgi edinin
 

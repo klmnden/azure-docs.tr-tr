@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/18/2018
 ms.author: zachal
 ms.custom: mvc
-ms.openlocfilehash: bc1b52b97897cb1c635fb16e6ef9692de1ca8a44
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 6046781f59b64dcec4769686a2acd710c7b68965
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49167265"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49987316"
 ---
 # <a name="manage-windows-updates-by-using-azure-automation"></a>Azure Otomasyonu'nu kullanarak Windows güncelleştirmelerini yönetme
 
@@ -90,7 +90,7 @@ Her uyarı türü için, tanımlanması gereken farklı uyarı koşulları vard�
 
 #### <a name="log-analytics-query-alert"></a>Log Analytics sorgu uyarısı
 
-Başarılı dağıtımlar için, Log Analytics sorgularına dayalı uyarılar oluşturabilirsiniz. Başarısız dağıtımlar için, düzenleyicilerin dağıtımları güncelleştirmek üzere kullandığı ana runbook başarısız olduğunda uyarı verilmesi için [Runbook uyarısı](#runbook-alert) adımlarını kullanabilirsiniz. Birçok farklı senaryoda kullanılabilecek ek uyarılar için özel bir sorgu yazabilirsiniz.
+Başarılı dağıtımlar için, Log Analytics sorgularına dayalı uyarılar oluşturabilirsiniz. Başarısız dağıtımlar için, güncelleştirme dağıtımlarını düzenleyen ana runbook başarısız olduğunda uyarı verilmesi amacıyla [Runbook uyarısı](#runbook-alert) adımlarını kullanabilirsiniz. Birçok farklı senaryoda kullanılabilecek ek uyarılar için özel bir sorgu yazabilirsiniz.
 
 Azure portalında **İzleyici**'ye gidip **Uyarı Oluştur**'u seçin.
 
@@ -194,6 +194,9 @@ Zamanlamayı yapılandırdıktan sonra **Oluştur**'u seçin.
 ![Güncelleştirme Zamanlama Ayarları bölmesi](./media/automation-tutorial-update-management/manageupdates-schedule-win.png)
 
 Durum panosu açılır. Oluşturduğunuz dağıtım zamanlamasını göstermek için **Zamanlanan güncelleştirme dağıtımları**'nı seçin.
+
+> [!NOTE]
+> Güncelleştirme Yönetimi, birinci taraf güncelleştirmelerini ve indirme öncesi yamalarını dağıtmayı destekler. Bu işlem sistemlerdeki değişikliklere yama yapılmasını gerektirir. Sistemlerinde bu ayarları yapılandırmayı öğrenmek için bkz. [birinci taraf ve indirme öncesi destek](automation-update-management.md#firstparty-predownload).
 
 ## <a name="view-results-of-an-update-deployment"></a>Güncelleştirme dağıtımının sonuçlarını görüntüleme
 

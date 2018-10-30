@@ -1,5 +1,5 @@
 ---
-title: 'Öğretici: C#’ta nesne algılama projesi derleme - Özel Görüntü İşleme Hizmeti'
+title: 'Öğretici: C# için Özel Görüntü İşleme SDK’sı ile nesne algılama projesi oluşturma - Özel Görüntü İşleme Hizmeti'
 titlesuffix: Azure Cognitive Services
 description: Bir proje oluşturun, etiketler ekleyin, görüntüleri karşıya yükleyin, projenizi eğitin ve varsayılan uç noktayı kullanarak bir tahminde bulunun.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.component: custom-vision
 ms.topic: tutorial
 ms.date: 05/07/2018
 ms.author: areddish
-ms.openlocfilehash: d04fb86abbc0f174e895c166d97fc5467831206f
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 222a17f1d39bc52d1e5ff34e421d0203d80dd1bd
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46366922"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49958514"
 ---
-# <a name="tutorial-use-custom-vision-api-to-build-an-object-detection-project-in-c"></a>Öğretici: C#’ta nesne algılama projesi derlemek için Özel Görüntü İşleme API’sini kullanma
+# <a name="tutorial-create-an-object-detection-project-with-the-custom-vision-sdk-for-c"></a>Öğretici: C# için Özel Görüntü İşleme SDK’sı ile nesne algılama projesi oluşturma
 
 Bir nesne algılama projesi oluşturmak için Görüntü İşleme API’sini kullanan temel bir Windows uygulamasının nasıl kullanılacağını öğrenin. Oluşturulduktan sonra etiketlenmiş bölgeler ekleyebilir, görüntüleri karşıya yükleyebilir, projeyi eğitebilir, projenin varsayılan tahmin uç nokta URL’sini alabilir ve bir görüntüyü programlama yoluyla test etmek için uç noktayı kullanabilirsiniz. Özel Görüntü İşleme API’sini kullanarak Windows için kendi uygulamanızı derlemek için şablon olarak bu açık kaynak örneği kullanın.
 

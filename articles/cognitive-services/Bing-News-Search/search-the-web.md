@@ -10,12 +10,12 @@ ms.component: bing-news-search
 ms.topic: overview
 ms.date: 06/21/2016
 ms.author: scottwhi
-ms.openlocfilehash: 787fdea047f9e7d77ca0a156f1c41fa50fd2fa48
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 4ed816b117d11dd38e6a8ea5191171b812db0f1c
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48801480"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50023211"
 ---
 # <a name="what-is-bing-news-search"></a>Bing Haber Arama nedir?
 
@@ -265,7 +265,7 @@ Bir haber makalesiyle ilgili başka makaleler varsa, haber makalesi [clusteredAr
 
 İlk isteğinizi hızlı bir şekilde başlatmak için bkz. [İlk İsteğinizi Yapma](./quickstart.md).
 
-[Bing Haber Arama API'si v7] (https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference)) başvurusunu inceleyin. Başvuruda arama sonuçlarını istemek için kullanabileceğiniz uç noktaların, üst bilgilerin ve sorgu parametrelerinin listesi yer alır. Ayrıca yanıt nesnelerinin tanımları da bulunur.
+[Bing Haber Arama API’si v7](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference) başvurusunu inceleyin. Başvuruda arama sonuçlarını istemek için kullanabileceğiniz uç noktaların, üst bilgilerin ve sorgu parametrelerinin listesi yer alır. Ayrıca yanıt nesnelerinin tanımları da bulunur.
 
 Arama kutusu kullanıcı deneyiminizi geliştirmek için bkz. [Bing Otomatik Öneri API'si](../bing-autosuggest/get-suggested-search-terms.md). Kullanıcı sorgu terimini girerken bu API'yi çağırarak başkaları tarafından kullanılan ilgili sorgu terimlerini alabilirsiniz.
 
