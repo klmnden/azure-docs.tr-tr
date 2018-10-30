@@ -9,12 +9,12 @@ ms.author: haining
 author: hning86
 ms.reviewer: larryfr
 ms.date: 10/24/2018
-ms.openlocfilehash: b00f72c987b6ce8c44796bd036af670ec39fa7a6
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: 95f74b23b9d0c89966347f066041b23f64f3b82c
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50093641"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50210695"
 ---
 # <a name="how-the-azure-machine-learning-service-works-architecture-and-concepts"></a>Azure Machine Learning hizmetinin nasıl çalıştığı: Mimari ve kavramları
 
@@ -143,7 +143,7 @@ Aşağıdaki bilgileri içeren bir kaydı bir çalıştırmadır:
 
 * Meta verileri çalıştırmayı (zaman damgası, süresi vb.) hakkında
 * Betiğinizi tarafından günlüğe ölçümleri
-* Çıkış dosyalarını denemeyi tarafından otomatik olarak toplanan veya sizin tarafınızdan açıkça karşıya yüklendi.
+* Çıktı tarafından denemeyi autocollected dosyaları veya sizin tarafınızdan açıkça karşıya.
 * Bir anlık görüntüsünü çalıştırma önce komut dosyalarınızı içeren dizine
 
 Bir modeli eğitmek için bir betik gönderdiğinizde çalıştırma oluşturulur. Bir çalıştırma, sıfır veya daha fazla alt çalıştırma olabilir. Kendi alt çalışır, böylece en üst düzey çalışma, her biri olabilir, iki alt çalışma olabilir.
@@ -156,23 +156,28 @@ Bir deney, belirli bir betik birçok çalıştırmalardan gruplandırmasıdır. 
 
 Bir deney kullanma örneği için bkz. [hızlı başlangıç: Azure Machine Learning hizmeti ile çalışmaya başlama](quickstart-get-started.md) belge.
 
-
 ## <a name="pipelines"></a>İşlem hatları
 
-İşlem hatları oluşturmak ve bu veri hazırlama, model eğitiminin, model dağıtımı ve çıkarım gibi Birleştir birlikte machine learning (ML) aşamaları iş akışları yönetmek için kullanılır. Her aşamada, her biri çeşitli işlem hedeflerini katılımsız çalışabilir, birden çok adım kapsayabilir.
+İşlem hatları oluşturup birleştirmek iş akışları yönetmek için kullanılan makine öğrenimi aşamaları. Örneğin, bir işlem hattı, veri hazırlama, model eğitiminin, model dağıtımı ve çıkarım aşamaları içerebilir. Her aşamada, her biri çeşitli işlem hedeflerini katılımsız çalışabilir, birden çok adım kapsayabilir.
 
 Machine learning işlem hatlarını bu hizmeti hakkında daha fazla bilgi için bkz [işlem hatları ve Azure Machine Learning](concept-ml-pipelines.md).
 
 ## <a name="compute-target"></a>Hedef işlem
 
-Bir işlem hedefine eğitim betiğinizi çalıştırmak veya web hizmeti dağıtımınız barındırmak için kullanılan işlem kaynağıdır. Desteklenen işlem hedefleri şunlardır: 
+Bir işlem hedefine eğitim betiğinizi çalıştırmak veya hizmet dağıtımınızı barındırmak için kullanılan işlem kaynağıdır. Desteklenen işlem hedefleri şunlardır: 
 
-* Yerel bilgisayarınıza
-* (Örneğin, veri bilimi sanal makinesi) azure'da bir Linux sanal makinesi
-* Azure Batch AI kümesi
-* HDInsight için Apache Spark
-* Azure Container Örneği
-* Azure Kubernetes Service
+| Hedef işlem | Eğitim | Dağıtım |
+| ---- |:----:|:----:|
+| Yerel bilgisayarınıza | ✓ | &nbsp; |
+| Azure'da bir Linux sanal makinesi</br>(veri bilimi sanal makinesi gibi) | ✓ | &nbsp; |
+| Azure Batch AI kümesi | ✓ | &nbsp; |
+| Azure Databricks | ✓ | &nbsp; | &nbsp; |
+| Azure Data Lake Analytics | ✓ | &nbsp; |
+| HDInsight için Apache Spark | ✓ | &nbsp; |
+| Azure Container Örneği | ✓ | ✓ |
+| Azure Kubernetes Service | &nbsp; | ✓ |
+| Azure IoT Edge | &nbsp; | ✓ |
+| Project Brainwave</br>(Alanda programlanabilen geçit dizileri) | &nbsp; | ✓ |
 
 İşlem hedefleri, bir çalışma alanına eklenir. İşlem yerel makine dışındaki hedefleri çalışma alanının kullanıcılar tarafından paylaşılır.
 
@@ -194,7 +199,7 @@ Bir çalıştırma yapılandırma eğitim komut dosyanızı içeren veya bir bel
 
 Bir modeli eğitmek için eğitim betiğini ve ilişkili dosyaları içeren dizini belirtin. Siz de eğitim sırasında toplanan bilgileri depolamak için kullanılan bir deney adı belirtin. Eğitimi sırasında tüm dizinde eğitim ortama (işlem hedefi) kopyalanır ve çalışma yapılandırması tarafından belirtilen kodun başlatılır. Dizinin bir anlık görüntü, ayrıca çalışma alanında denemeyi altında depolanır.
 
-Bir modeli eğitmek için betikleri kullanma örneği için bkz: [Python ile bir çalışma alanı oluşturma](quickstart-get-started.md)
+Bir örnek için bkz [Python ile bir çalışma alanı oluşturma](quickstart-get-started.md)
 
 ## <a name="logging"></a>Günlüğe kaydetme
 

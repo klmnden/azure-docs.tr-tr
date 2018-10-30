@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.component: fundamentals
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 06/13/2018
+ms.date: 10/29/2018
 ms.author: lizross
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: 7848b52bcf5204a871920cbfab8a0e95223654d4
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 3f23b28c1b20155e50fddf17db90cd2a53c04855
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45735910"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50209828"
 ---
 # <a name="what-is-group-based-licensing-in-azure-active-directory"></a>Grup tabanlı Azure Active Directory lisansı nedir?
 
@@ -28,14 +28,12 @@ Microsoft'un ücretli bulut hizmetleri Office 365, Enterprise Mobility + Securit
 
 Bu zorlukları gidermek için, Azure AD artık grup tabanlı lisanslama özelliğini içermektedir. Gruba bir veya birden çok ürün lisansı atayabilirsiniz. Azure AD lisansların tüm grup üyelerine atanmasını güvence altına alır. Gruba katılan tüm yeni üyelere uygun lisanslar atanır. Kullanıcılar gruptan ayrıldığında, söz konusu lisanslar kaldırılır. Bu, PowerShell yoluyla lisans yönetimini kuruluşta ve bölüm yapısında tek tek kullanıcı değişikliklerini yansıtacak şekilde otomatik hale getirme gereksinimini ortadan kaldırır.
 
->[!Note]
->Grup tabanlı lisanslama Azure Active Directory'nin (Azure AD) bir genel önizleme özelliğidir ve tüm ücretli Azure AD lisans planlarıyla sağlanır. Önizlemeler hakkında daha fazla bilgi için bkz. [Microsoft Azure Önizlemeleri için Ek Kullanım Koşulları](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="features"></a>Özellikler
 
 Grup tabanlı lisanslamanın başlıca özellikleri şunlardır:
 
-- Lisanslar Azure AD'de her güvenlik grubuna atanabilir. Güvenlik grupları Azure AD Connect kullanılarak şirket içinde eşitlenebilir. Ayrıca, güvenlik gruplarını doğrudan Azure AD'de (yalnızca bulut grupları olarak da adlandırılır) veya Azure AD dinamik grup özelliği yoluyla otomatik olarak oluşturabilirsiniz.
+- Lisanslar Azure AD'de her güvenlik grubuna atanabilir. Güvenlik grupları, Azure AD Connect kullanarak şirket içi, eşitlenebilir. Ayrıca, güvenlik gruplarını doğrudan Azure AD'de (yalnızca bulut grupları olarak da adlandırılır) veya Azure AD dinamik grup özelliği yoluyla otomatik olarak oluşturabilirsiniz.
 
 - Gruba bir ürün lisansı atandığında, yönetici üründe bir veya birden çok hizmet planını devre dışı bırakabilir. Normalde bu işlem, kuruluş ürüne eklenmiş olan hizmeti kullanmaya henüz hazır olmadığında yapılır. Örneğin, yönetici bir bölüme Office 365'i atayabilir ama Yammer hizmetini geçici olarak devre dışı bırakabilir.
 
@@ -45,11 +43,11 @@ Grup tabanlı lisanslamanın başlıca özellikleri şunlardır:
 
 - Azure AD, grup üyeliği değişikliklerinden kaynaklanan lisans değişikliklerini otomatik olarak yönetir. Normalde, lisans değişiklikleri üyelik değişikliğini izleyen birkaç dakika içinde geçerlilik kazanır.
 
-- Kullanıcı, lisans ilkeleri belirtilmiş olan birden çok gruba üye olabilir. Ayrıca kullanıcının, herhangi bir grubun dışında doğrudan atanmış bazı lisansları da olabilir. Sonuçta elde edilen kullanıcı durumu tüm atanan ürün ve hizmet lisanslarının bir bileşimidir.
+- Kullanıcı, lisans ilkeleri belirtilmiş olan birden çok gruba üye olabilir. Ayrıca kullanıcının, herhangi bir grubun dışında doğrudan atanmış bazı lisansları da olabilir. Sonuçta elde edilen kullanıcı durumu tüm atanan ürün ve hizmet lisanslarının bir bileşimidir. Birden fazla kaynaktan atanmış bir kullanıcı aynı lisans, lisans yalnızca bir kez tüketilir.
 
 - Bazı durumlarda, bir kullanıcıya lisans atanamayabilir. Örneğin, kiracıda yeterli kullanılabilir lisans olmayabilir veya aynı anda çakışan hizmetler atanmış olabilir. Yöneticiler, Azure AD'nin grup lisanslarını tam olarak işleyemediği kullanıcılar hakkındaki bilgilere erişebilir. Bu bilgiler temelinde düzeltme eylemi gerçekleştirebilir.
 
-- Genel önizleme sırasında, grup tabanlı lisans yönetimini kullanmak için kiracıda Azure AD Temel veya Premium sürümlerinin ücretli veya deneme aboneliği gerekir.
+- Ücretli veya deneme aboneliği Azure AD temel veya bir ücretli veya deneme Office 365 Kurumsal E3, Office 365 A3 ve üzeri sürümleri, kiracıda, Grup tabanlı lisans yönetimi kullanmak için gereklidir. Bu özellik, lisans atanmış olan grupların üyesi olan her benzersiz kullanıcı lisansı gerektirir. Lisans atanan gruplarının üyeleri olarak bunlar için kullanıcılara lisans atama gerekmez ancak tüm kullanıcıları kapsayacak kiracıda lisansları en az sayıda olmalıdır. Örneğin, lisans atanmış kiracınızda içindeki tüm gruplar 1.000 benzersiz kullanıcıların toplam olsaydı, lisans gereksinimi karşılamak için en az 1000 lisansları gerekir.
 
 ## <a name="your-feedback-is-welcome"></a>Geri bildiriminiz bizim için çok önemlidir!
 
@@ -62,4 +60,6 @@ Grup tabanlı lisanslama aracılığıyla lisans yönetimine yönelik diğer sen
 * [Azure Active Directory'de gruba lisans atama](../users-groups-roles/licensing-groups-assign.md)
 * [Azure Active Directory'de grubun lisans sorunlarını tanımlama ve çözme](../users-groups-roles/licensing-groups-resolve-problems.md)
 * [Azure Active Directory'de tek tek lisanslı kullanıcıları grup tabanlı lisanslamaya geçirme](../users-groups-roles/licensing-groups-migrate-users.md)
+* [Kullanıcılar Azure Active Directory'de Grup tabanlı lisanslama kullanarak ürün lisansları arasında geçirme](../users-groups-roles/licensing-groups-change-licenses.md)
 * [Azure Active Directory grup tabanlı lisanslamayla ilgili ek senaryolar](../users-groups-roles/licensing-group-advanced.md)
+* [Azure Active Directory'de Grup tabanlı lisanslama için PowerShell örnekleri](../users-groups-roles/licensing-ps-examples.md)

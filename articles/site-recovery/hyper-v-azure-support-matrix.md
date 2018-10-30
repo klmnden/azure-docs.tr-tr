@@ -1,21 +1,21 @@
 ---
-title: Hyper-V'den azure'a çoğaltma için destek matrisi | Microsoft Docs
-description: Azure Site Recovery ile azure'a Hyper-V çoğaltma için gereksinimleri ve desteklenen bileşenlerin özetler
+title: Şirket içi Hyper-V Vm'lerini azure'a olağanüstü durum kurtarması için destek matrisi | Microsoft Docs
+description: Azure Site Recovery ile azure'a Hyper-V VM'LERİNDE olağanüstü durum kurtarma için gereksinimleri ve desteklenen bileşenlerin özetler
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/10/2018
+ms.date: 10/28/2018
 ms.author: raynew
-ms.openlocfilehash: 83d2fabbe3a1b0ab44cb97e53baf0aa40349aeed
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: e389f37448211afc35fb98572161be4fcaea7556
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49079217"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50210729"
 ---
-# <a name="support-matrix-for-hyper-v-replication-to-azure"></a>Hyper-V'den azure'a çoğaltma için destek matrisi
+# <a name="support-matrix-for-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>Şirket içi Hyper-V Vm'lerini azure'a olağanüstü durum kurtarması için destek matrisi
 
 
 Bu makalede kullanarak desteklenen bileşenler ve şirket içi Hyper-V Vm'lerini azure'a olağanüstü durum kurtarması için ayarları özetler [Azure Site Recovery](site-recovery-overview.md).

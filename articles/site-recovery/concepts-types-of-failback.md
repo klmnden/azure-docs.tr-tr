@@ -1,6 +1,6 @@
 ---
-title: Azure Site recovery'de yeniden çalışma | Microsoft Docs
-description: Bu makalede, çeşitli türlerde geri dönmesi ve Azure Site Recovery hizmeti ile şirket içi dön yük sırasında değerlendirilmesi için uyarılar genel bakış sağlar.
+title: Yeniden çalışma sırasında Azure Site Recovery ile olağanüstü durum kurtarma | Microsoft Docs
+description: Bu makalede, çeşitli türlerde geri dönme ve şirket içi dön yük boyunca Azure Site Recovery hizmeti ile olağanüstü durum kurtarma sırasında değerlendirilmesi için uyarılar genel bakış sağlar.
 services: site-recovery
 author: rajani-janaki-ram
 manager: guaravd
@@ -8,16 +8,16 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: rajanki
-ms.openlocfilehash: 2a9ee380fc16c4088d98875dd465509c4023d037
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: e97d736e7e117e0ccce6dc021a9de2ea15ac5484
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37920398"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50210151"
 ---
 # <a name="overview-of-failback"></a>Yeniden çalışma genel bakış
 
-Azure'a üzerinden başarısız olduktan sonra şirket içi sitenize geri dönebilirsiniz. Yeniden çalışma, Azure Site Recovery ile olası iki farklı tür vardır: 
+Üzerinden Azure'a olağanüstü durum kurtarma işleminin bir parçası başarısız olduktan sonra şirket içi sitenize geri dönebilirsiniz. Yeniden çalışma, Azure Site Recovery ile olası iki farklı tür vardır: 
 
 - Özgün konuma geri başarısız 
 - Alternatif bir konuma başarısız

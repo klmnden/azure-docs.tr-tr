@@ -1,20 +1,21 @@
 ---
-title: SQL Server ve Azure Site Recovery ile uygulamaları çoğaltmak | Microsoft Docs
-description: Bu makalede, Azure Site Recovery için SQL Server olağanüstü durum özellikleri kullanarak SQL Server çoğaltma açıklar.
+title: SQL Server ve Azure Site Recovery ile SQL Server için olağanüstü durum kurtarma ayarlama | Microsoft Docs
+description: Bu makalede, SQL Server ve Azure Site Recovery kullanarak SQL Server için olağanüstü durum kurtarma ayarlama açıklanır.
 services: site-recovery
-author: rayne-wiselman
+author: sujayt
+manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 07/22/2018
-ms.author: raynew
-ms.openlocfilehash: a734999f0fa473b5f1ee8ed55c4b73950566490d
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.author: sutalasi
+ms.openlocfilehash: 46f5f73293875cd89036eb615e7bd81188bc4c67
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43188782"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50210270"
 ---
-# <a name="protect-sql-server-using-sql-server-disaster-recovery-and-azure-site-recovery"></a>SQL Server'ın SQL Server olağanüstü durum kurtarma ve Azure Site Recovery kullanarak koruma
+# <a name="set-up-disaster-recovery-for-sql-server"></a>SQL Server için olağanüstü durum kurtarmayı ayarlayın 
 
 Bu makalede, SQL Server iş sürekliliği ve olağanüstü durum kurtarma (BCDR) teknolojilerini bir birleşimini kullanarak bir uygulama SQL Server arka ucunu korumak açıklanır ve [Azure Site Recovery](site-recovery-overview.md).
 

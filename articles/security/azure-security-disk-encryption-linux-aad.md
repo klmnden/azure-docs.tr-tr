@@ -7,12 +7,12 @@ ms.subservice: Azure Disk Encryption
 ms.topic: article
 ms.author: mstewart
 ms.date: 09/19/2018
-ms.openlocfilehash: 81a9f84a925fc424fc6371fcbe02a141d4ee8ec1
-ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
+ms.openlocfilehash: b0b67121e172bb29d1f95e56d3b31f509552bf2e
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/20/2018
-ms.locfileid: "46498360"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50211239"
 ---
 # <a name="enable-azure-disk-encryption-for-linux-iaas-vms-previous-release"></a>Linux Iaas VM'ler (önceki sürüm) için Azure Disk şifrelemesini etkinleştirme
 
@@ -192,8 +192,11 @@ Parametresi, ancak tüm bölümleri geçerlidir ve karşıladıkları sürece ş
 - Bir işletim sistemi/kök/önyükleme bölümü değildir
 - Zaten şifreli değil
 - BEK birimi değil
+- Bir RAID birimine değil
+- LVM'yi birimi değil
 - Bağlanmıştır
 
+RAID veya LVM birimin yerine RAID veya LVM birimin oluşturan diskleri şifreleme.
 
 ### <a name="bkmk_EFATemplate"> </a> Bir şablonla EncryptFormatAll parametresini kullanın
 EncryptFormatAll seçeneğini kullanmak için bir Linux VM şifreler önceden mevcut olan tüm Azure Resource Manager şablonu kullanma ve değiştirme **EncryptionOperation** AzureDiskEncryption kaynak için alan.

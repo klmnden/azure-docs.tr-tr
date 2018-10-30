@@ -1,22 +1,20 @@
 ---
-title: Birden çok kiracıyı destekleyen VMware VM çoğaltma için Azure (Azure Site Recovery kullanarak CSP) genel bakış | Microsoft Docs
-description: Azure Site Recovery desteğine genel bakış için Kiracı aboneliklerinde CSP programı aracılığıyla çok kiracılı bir ortam sağlar.
-services: site-recovery
+title: Birden çok kiracıyı destekleyen VMware VM'LERİNDE olağanüstü durum kurtarma için Azure (Azure Site Recovery kullanarak CSP) için genel bakış | Microsoft Docs
+description: Çok kiracılı ortam (CSP) programında azure'a VMWare olağanüstü durum kurtarma için Azure Site Recovery desteğine genel bakış sağlar.
 author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: mayg
-ms.openlocfilehash: 4cd0c3baf385a864e2173de9bbce897bb5066dae
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: 89e731d6c255092b087f0615bad49185c7181f1f
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49352880"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50210769"
 ---
-# <a name="overview-of-multi-tenant-support-for-vmware-replication-to-azure-with-csp"></a>CSP ile azure'a VMware çoğaltması için çok kiracılı desteğe genel bakış
+# <a name="overview-of-multi-tenant-support-for-vmware-fisaster-recovery-to-azure-with-csp"></a>Birden çok kiracıyı destekleyen VMware fisaster kurtarma CSP ile azure'a genel bakış
 
 [Azure Site Recovery](site-recovery-overview.md) Kiracı abonelikler için çok kiracılı ortamlarını destekler. Oluşturulan ve Microsoft bulut çözümü sağlayıcısı (CSP) programı aracılığıyla yönetilen Kiracı abonelikler için çok kiracılı modeli de destekler.
 

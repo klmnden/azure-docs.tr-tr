@@ -1,21 +1,20 @@
 ---
-title: Çoğaltma ve VMware Vm'lerini PowerShell kullanarak Azure Site Recovery'de azure'a yük devretme | Microsoft Docs
-description: Çoğaltma ve yük devretme için Azure PowerShell kullanarak Azure Site Recovery, VMware Vm'leri için nasıl ayarlanacağını öğrenin.
-services: site-recovery
+title: Azure PowerShell kullanarak Azure Site Recovery'de VMware vm'lerinin olağanüstü durum kurtarma ayarlama | Microsoft Docs
+description: Çoğaltma ve yük devretme için Azure PowerShell kullanarak Azure Site Recovery'de VMware vm'lerinin olağanüstü durum kurtarma ayarlama konusunda bilgi edinin.
 author: sujayt
 manager: rochakm
 ms.service: site-recovery
 ms.date: 07/06/2018
 ms.topic: conceptual
 ms.author: sutalasi
-ms.openlocfilehash: 070e51b132828e4fdf597d28fc2ad602adf76692
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 631225e6e0a7bb3bc42741e2761e3746c001c217
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48042811"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50211647"
 ---
-# <a name="replicate-and-fail-over-vmware-vms-to-azure-with-powershell"></a>Çoğaltma ve VMware Vm'lerini PowerShell ile azure'a yük devretme
+# <a name="set-up-disaster-recovery-of-vmware-vms-to-azure-with-powershell"></a>Azure PowerShell ile VMware vm'lerinin olağanüstü durum kurtarmayı ayarlama
 
 Bu makalede, çoğaltma ve yük devretme VMware sanal makinelerini Azure PowerShell kullanarak azure'a bakın. 
 

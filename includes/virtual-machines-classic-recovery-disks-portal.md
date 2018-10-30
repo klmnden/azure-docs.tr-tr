@@ -1,3 +1,16 @@
+---
+author: cynthn
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: cynthn
+ms.openlocfilehash: 5490bdd3934b438a683ce4271fbec20b3d13735d
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50226717"
+---
 Azure’daki sanal makineniz (VM) bir önyükleme veya disk bir hatasıyla karşılaşırsa, sanal sabit diskin kendisinde sorun giderme adımları gerçekleştirmeniz gerekebilir. Başarısız olan bir uygulama güncelleştirmesinin, VM’yi önyükleme işleminin başarılı bir şekilde tamamlanmasını engellemesi yaygın bir örnektir. Bu makalede hatalarını düzeltmek ve orijinal VM'yi yeniden oluşturmak amacıyla sanal sabit diskinizi başka bir VM'ye bağlanmak için Azure Portal’ı nasıl kullanacağınız açıklanmıştır.
 
 
@@ -54,9 +67,9 @@ Hataları çözümlendikten sonra sanal sabit diski sorun giderme VM’nizden ç
 
 ## <a name="create-a-vm-from-the-original-hard-disk"></a>Orijinal sabit diskten bir VM oluşturma
 
-Özgün sanal sabit diskten bir VM oluşturmak için kullanmak [Azure portal](https://portal.azure.com).
+Özgün sanal sabit diskten bir VM oluşturmak için kullanın [Azure portalında](https://portal.azure.com).
 
 1. [Azure portalda](https://portal.azure.com) oturum açın.
-2. En üst sol portalında, select **kaynak oluşturma** > **işlem** > **sanal makine** > **gelen Galeri**.
+2. En sol üst köşesindeki portallarına select **kaynak Oluştur** > **işlem** > **sanal makine** > **gelen Galeri**.
 3. **Bir görüntü seçin** bölümünde, **Disklerim**’i ve ardından orijinal sanal sabit diski seçin. Konum bilgileri kontrol edin. Bu, VM’nin dağıtılması gereken bölgedir. İleri düğmesini seçin.
 4. **Sanal makine yapılandırması** bölümünde VM’nin adını yazın ve VM için bir boyut seçin.

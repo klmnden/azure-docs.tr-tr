@@ -6,16 +6,16 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 10/08/2018
+ms.date: 10/26/2018
 ms.author: alinast
-ms.openlocfilehash: b7561848ffd0158e22e97530774112dcee2a9864
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: a45f82b142ee4f4c9c88ea755607b88323feaae5
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49324302"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50210134"
 ---
-# <a name="data-processing-and-user-defined-functions"></a>Veri işleme ve kullanıcı tanımlı işlevler
+# <a name="data-processing-and-user-defined-functions"></a>Veri işleme ve kullanıcı tanımlı işlevleri
 
 Azure dijital İkizlerini Gelişmiş bilgi işlem özellikleri sunar. Geliştiriciler, tanımlamak ve özel işlevler için önceden tanımlı uç noktaları olayları göndermek için gelen telemetri iletilerini çalıştırın.
 
@@ -25,7 +25,7 @@ Geliştiriciler cihazlar dijital çiftleri için telemetri verilerini gönderdik
 
 ![Dijital İkizlerini veri işleme akış][1]
 
-1. _Doğrulama_ aşaması dönüştüren bir anlaşılır gelen telemetri iletiye [ `data transfer object` ](https://en.wikipedia.org/wiki/Data_transfer_object) biçimi. Bu aşama, ayrıca cihaz ve algılayıcıyı doğrulama yürütür.
+1. _Doğrulama_ aşaması dönüştüren bir anlaşılır gelen telemetri iletiye [ **veri aktarımı nesnesi** ](https://en.wikipedia.org/wiki/Data_transfer_object) biçimi. Bu aşama, ayrıca cihaz ve algılayıcıyı doğrulama yürütür.
 1. _Eşleşen_ aşaması çalıştırmak için uygun kullanıcı tanımlı işlevlere bulur. Önceden tanımlanmış matchers cihaz, sensör ve gelen telemetri iletileriyle alanı bilgileri kullanıcı tanımlı işlevlere göre bulur.
 1. _İşlem_ aşama önceki aşamada eşleşen kullanıcı tanımlı işlevlere çalıştırır. Bu işlevlere okuma ve uzamsal grafik düğümleri üzerinde hesaplanan değerlerini güncelleştirin ve için özel bildirimleri gösterin.
 1. _Gönderme_ aşaması herhangi bir özel işlem aşaması bildirim grafikte tanımlanan Uç noktalara yönlendirir.
@@ -40,11 +40,11 @@ Azure dijital İkizlerini veri işlemeye oluşur üç nesneleri tanımlama: _mat
 
 _Matchers_ hangi eylemleri gelen algılayıcı telemetrisi göz önünde bulundurularak gerçekleşecek değerlendirme koşulları tanımlayın. Eşleşme belirlemek için bu koşullar özelliklerinden algılayıcı, algılayıcının üst cihaz ve algılayıcının üst alanı içerebilir. Koşullar karşılaştırmalar olarak ifade edilir bir [JSON yolu](http://jsonpath.com/) aşağıdaki örnekte özetlendiği gibi:
 
-- Veri türünün tüm algılayıcılar `Temperature`.
+- Veri türünün tüm algılayıcılar **sıcaklık**.
 - Sahip `01` kendi bağlantı noktası.
-- Genişletilmiş özellik anahtarı ile cihazlara ait `Manufacturer` değerine ayarlanırsa `GoodCorp`.
-- Tür alanları için ait `Venue`.
-- Üst alt öğeleri olan `SpaceId` `DE8F06CA-1138-4AD7-89F4-F782CC6F69FD`.
+- Genişletilmiş özellik anahtarı ile cihazlara ait **üretici** değerine ayarlanırsa `"GoodCorp"`.
+- Tür alanları için ait `"Venue"`.
+- Üst alt öğeleri olan **SpaceId** `DE8F06CA-1138-4AD7-89F4-F782CC6F69FD`.
 
 ```JSON
 {

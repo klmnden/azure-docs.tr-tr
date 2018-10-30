@@ -1,17 +1,17 @@
 ---
-title: Azure Site recovery'de bir işlem sunucusunu | Microsoft Docs
-description: Bu makalede VMware VM ve fiziksel sunucu çoğaltması Azure Site recovery'de için ayarlanmış bir işlem sunucusunu.
+title: VMware vm'lerinin olağanüstü durum kurtarma için bir işlem sunucusu ve fiziksel sunucuları azure'a Azure Site Recovery kullanarak yönetme | Microsoft Docs
+description: Bu makalede VMware Vm'lerinin ve fiziksel sunucudan azure'a Azure Site Recovery ile olağanüstü durum kurtarma için ayarlanmış bir işlem sunucusunu.
 author: Rajeswari-Mamilla
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 07/21/2018
+ms.date: 10/29/2018
 ms.author: ramamill
-ms.openlocfilehash: b3c6f1d130a6f5427fe8377bd70de743f0700052
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 8a9342a2354cd4c92fa0230965b4eef6284ee826
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47434849"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50209131"
 ---
 # <a name="manage-process-servers"></a>İşlem sunucularını yönetme
 

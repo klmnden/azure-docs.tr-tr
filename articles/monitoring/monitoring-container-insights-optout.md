@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/04/2018
 ms.author: magoedte
-ms.openlocfilehash: 7cd2aecf21a86bb58452e48fcdf1d79f1d3a2104
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 56250625a0770828fc31985f737df944f76d3f13
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49321233"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50209629"
 ---
-# <a name="how-to-stop-monitoring-your-azure-kubernetes-service-aks-with-azure-monitor-for-containers"></a>Azure Kubernetes Service (AKS) kapsayıcıları için Azure İzleyici ile izleme durdurma
+# <a name="how-to-stop-monitoring-your-azure-kubernetes-service-aks-with-azure-monitor-for-containers-preview"></a>Azure Kubernetes Service (AKS) kapsayıcıları (Önizleme) için Azure İzleyici ile izleme durdurma
 
 Sonra AKS kümenizi izleme etkinleştirirseniz, artık bunu izlemek istediğiniz karar, yapabilecekleriniz *çıkma*.  Bu makalede, Azure CLI kullanarak bunu sağlamak gösterilmektedir veya sağlanan Azure Resource Manager şablonları ile.  
 

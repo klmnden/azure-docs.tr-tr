@@ -1,6 +1,16 @@
-
-
-
+---
+author: cynthn
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: cynthn
+ms.openlocfilehash: 45a6bd349169265ef411d01a3601a27551847633
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50226976"
+---
 Bu makale, kullanıcıların klasik dağıtım modeliyle oluşturulmuş Azure sanal makineleri hakkında sorduğu bazı yaygın sorular ele alınmıştır.
 
 ## <a name="can-i-migrate-my-vm-created-in-the-classic-deployment-model-to-the-new-resource-manager-model"></a>Klasik dağıtım modelinde oluşturulmuş sanal makinemi Resource Manager modeline geçirebilir miyim?
@@ -48,7 +58,7 @@ Klasik dağıtım modelinde oluşturulan sanal makineler için Azure Sanal Ağ�
 Sanal makineyi oluştururken sanal makinenin ait olmasını istediğiniz ağı belirtmeniz gerekir. Mevcut bir sanal makineyi sanal ağa bağlayamazsınız. Bununla birlikte, önce mevcut sanal makineden sanal sabit diski (VHD) ayırıp sonra bu diskle istediğiniz ağ yapılandırmasına sahip yeni bir sanal makine oluşturarak bu soruna geçici bir çözüm bulabilirsiniz.
 
 ## <a name="how-can-i-access--my-virtual-machine"></a>Sanal makinelerime nasıl erişebilirim?
-Bir Windows VM veya bir güvenli Kabuk (SSH) için bir Linux VM için Uzak Masaüstü bağlantısı kullanarak sanal makinede oturum açmak için uzak bir bağlantı oluşturmanız gerekir. Yönergeler için bkz.
+Bir Windows VM veya bir güvenli Kabuk (SSH) için bir Linux VM için Uzak Masaüstü bağlantısı kullanarak sanal makineye oturum açmak için Uzak bağlantı kurmak gerekir. Yönergeler için bkz.
 
 * [Windows Server çalıştıran bir sanal makinede oturum açma](../articles/virtual-machines/windows/classic/connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json). Sunucu bir Uzak Masaüstü Hizmetleri oturum konağı olarak yapılandırılmadığı sürece en fazla 2 eş zamanlı bağlantı desteklenir.  
 * [Linux Çalıştıran Bir Sanal Makinede Oturum Açma](../articles/virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Varsayılan olarak, SSH en fazla 10 eş zamanlı bağlantıya izin verir. Yapılandırma dosyasını düzenleyerek bu sayıyı artırabilirsiniz.
@@ -57,7 +67,7 @@ Uzak Masaüstü veya SSH ile ilgili sorun yaşıyorsanız, sorunun giderilmesine
 
 Windows VM’ler için ek seçenekler şunlardır:
 
-* Azure portalında VM bulun ve ardından **sıfırlama uzaktan erişim** komut çubuğundan.
+* Azure portalında VM'yi bulun ve tıklayın **uzaktan erişimi Sıfırla** komut çubuğundan.
 * [Windows tabanlı Azure Sanal Makinesine Uzak Masaüstü bağlantıları ile ilgili sorunları giderme](../articles/virtual-machines/windows/troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) konusunu gözden geçirin.
 * Windows PowerShell Uzaktan İletişimini kullanarak VM’ye bağlanın veya diğer kaynakların VM’ye bağlanması için ek uç noktalar oluşturun. Ayrıntılar için bkz. [Sanal Makineye Uç Noktaları Ayarlama](../articles/virtual-machines/windows/classic/setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
@@ -78,13 +88,13 @@ Yükseltme terimi genellikle donanımı değiştirmeksizin işletim sisteminin d
 Windows Server geçişine yönelik araçlar ve işlemler hakkındaki genel ayrıntılar için bkz. [Rolleri ve Özellikleri Windows Server’a Geçirme](http://go.microsoft.com/fwlink/p/?LinkId=396940).
 
 ## <a name="whats-the-default-user-name-and-password-on-the-virtual-machine"></a>Sanal makinede varsayılan kullanıcı adı ve parola nedir?
-Azure tarafından sağlanan görüntülerin önceden yapılandırılmış bir kullanıcı adı ve parolası yoktur. Bu görüntülerden birini kullanarak sanal makine oluşturduğunuzda, bir kullanıcı adı ve sanal makinede oturum açmak için kullanacağınız parola sağlamanız gerekir.
+Azure tarafından sağlanan görüntülerin önceden yapılandırılmış bir kullanıcı adı ve parolası yoktur. Bu görüntülerden birini kullanarak sanal makine oluşturduğunuzda, bir kullanıcı adı ve sanal makineye oturum açmak için kullanacağınız bir parola sağlamanız gerekir.
 
 Kullanıcı adını veya parolayı unuttuysanız ve VM Aracısını yüklediyseniz sorunu çözmek için [VMAccess](../articles/virtual-machines/windows/extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) uzantısını yükleyip kullanabilirsiniz.
 
 Ek ayrıntılar:
 
-* Linux görüntüleri için Azure portalını kullanıyorsanız, 'azureuser' varsayılan kullanıcı adı olarak verilir, ancak bu sanal makine oluşturmak için şekilde 'Galeri'den' yerine 'Hızlı Oluştur' kullanarak değiştirebilirsiniz. ‘Galeri’den’ seçeneğini kullanmanız, oturumunuzu açmak için bir parola mı, SSH anahtarı mı yoksa ikisini birden mi kullanmak istediğinize karar vermenize de imkan tanır. Kullanıcı hesabı, ayrıcalıklı komutları çalıştırmak için ‘sudo’ erişimi olan ayrıcalıksız bir kullanıcıdır. ‘Root’ hesabı devre dışıdır.
+* Linux görüntüleri için Azure portalını kullanıyorsanız, varsayılan kullanıcı adı olarak 'azureuser' verilir, ancak bu şekilde sanal makine oluşturmak için 'Galeri'den' 'Hızlı Oluştur' yerine'i kullanarak değiştirebilirsiniz. ‘Galeri’den’ seçeneğini kullanmanız, oturumunuzu açmak için bir parola mı, SSH anahtarı mı yoksa ikisini birden mi kullanmak istediğinize karar vermenize de imkan tanır. Kullanıcı hesabı, ayrıcalıklı komutları çalıştırmak için ‘sudo’ erişimi olan ayrıcalıksız bir kullanıcıdır. ‘Root’ hesabı devre dışıdır.
 * Windows görüntüleri için VM’yi oluştururken bir kullanıcı adı ve parola sağlamanız gerekir. Hesap Administrators grubuna eklenir.
 
 ## <a name="can-azure-run-anti-virus-on-my-virtual-machines"></a>Azure sanal makinelerimde virüsten koruma yazılımı çalıştırabilir mi?
@@ -104,7 +114,7 @@ Azure, sanal makinenin boyutuna ve işletim sistemine bağlı olarak saatlik fiy
 
 VM durumu Çalışıyor veya Durduruldu olduğunda ücretlendirilirsiniz, ancak VM durumu Durduruldu (Serbest bırakıldı) olduğunda ücret ödemezsiniz. Bir sanal makinenin durumunu Durduruldu (Serbest bırakıldı) yapmak için aşağıdakilerden birini yapın:
 
-* Kapatıldı veya Azure portalından VM silin.
+* Kapat veya VM Azure portalından silin.
 * Azure PowerShell modülünden erişebileceğiniz Stop-AzureVM cmdlet’ini kullanın.
 * Hizmet Yönetimi REST API’sindeki Kapatma Rolü işlemini kullanarak PostShutdownAction öğesi için StoppedDeallocated değerini belirtin.
 
@@ -117,7 +127,7 @@ Azure tarafından sanal makinenizi etkileyen ciddi bir donanım sorunu algıland
 
 Herhangi bir tek başına VM (yani bir kullanılabilirlik kümesine ait olmayan bir VM) için Azure, planlı bakımdan en az bir hafta önce sanal makinelerin güncelleştirme sırasında yeniden başlatılabileceği konusunda aboneliğin Hizmet Yöneticisi’ne e-posta ile bildirim gönderir. VM’lerde çalışan uygulamalar kapalı kalma süresiyle karşılaşabilir.
 
-Planlı bakım nedeniyle yeniden başlatma meydana geldiğinde yeniden başlatma günlükleri görüntülemek için Azure portalında veya Azure PowerShell de kullanabilirsiniz. Ayrıntılar için bkz. [VM Yeniden Başlatma Günlüklerini Görüntüleme](https://azure.microsoft.com/blog/2015/04/01/viewing-vm-reboot-logs/).
+Planlı bakım nedeniyle yeniden başlatma işlemi meydana geldiğinde, yeniden başlatma günlüklerini görüntülemek için Azure portal veya Azure PowerShell kullanabilirsiniz. Ayrıntılar için bkz. [VM Yeniden Başlatma Günlüklerini Görüntüleme](https://azure.microsoft.com/blog/2015/04/01/viewing-vm-reboot-logs/).
 
 Yedeklilik sağlamak için benzer şekilde yapılandırılmış iki veya daha fazla sanal makineyi aynı kullanılabilirlik kümesine koyun. Bu, planlı veya planlanmamış bakım sırasında en az bir sanal makinenin kullanılabilir kalmasına yardımcı olur. Azure, bu yapılandırma için belirli düzeylerde VM kullanılabilirliği garantisi verir. Ayrıntılar için bkz. [Sanal makinelerin kullanılabilirliğini yönetme](../articles/virtual-machines/windows/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 

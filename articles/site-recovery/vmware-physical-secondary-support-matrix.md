@@ -1,23 +1,22 @@
 ---
-title: VMware sanal makinelerinin çoğaltma veya fiziksel sunucuları Azure Site Recovery ile ikincil bir VMware siteye destek matrisi | Microsoft Docs
-description: Azure Site Recovery ile ikincil bir siteye VMware/fiziksel sunucu çoğaltma desteği özetler
-services: site-recovery
+title: VMware Vm'lerini veya fiziksel sunucuları Azure Site Recovery ile ikincil VMware sitesindeki olağanüstü durum kurtarma için destek matrisi | Microsoft Docs
+description: VMware Vm'lerini ve fiziksel sunucuları Azure Site Recovery ile ikincil bir siteye olağanüstü durum kurtarma desteği özetler.
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 07/06/2018
+ms.date: 10/29/2018
 ms.author: raynew
-ms.openlocfilehash: 4df929e8a185a04aef5cb13f30c19b0db707e765
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 8406cf2b31b87cdb4f6c9b6ba3d06559cf1d4d41
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44022002"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50209811"
 ---
-# <a name="support-matrix-for-replication-of-vmware-vms-and-physical-servers-to-a-secondary-site"></a>VMware sanal makinelerinin çoğaltma ve fiziksel sunucuları ikincil bir siteye destek matrisi
+# <a name="support-matrix-for-disaster-recovery-of-vmware-vms-and-physical-servers-to-a-secondary-site"></a>VMware Vm'lerini ve fiziksel sunucuları ikincil bir siteye olağanüstü durum kurtarma için destek matrisi
 
-Bu makalede, kullandığınız zaman desteklenen özellikler özetlenmektedir [Azure Site Recovery](site-recovery-overview.md) için ikincil VMware sitesindeki VMware Vm'leri veya Windows/Linux fiziksel sunucuları çoğaltmak için hizmet.
+Bu makalede, kullandığınız zaman desteklenen özellikler özetlenmektedir [Azure Site Recovery](site-recovery-overview.md) fiziksel sunucuları ikincil VMware sitesindeki VMware Vm'leri veya Windows/Linux için olağanüstü durum kurtarma hizmeti.
 
 - VMware Vm'lerini veya fiziksel sunucuları Azure'a çoğaltmak istiyorsanız, gözden [Bu destek matrisi](vmware-physical-azure-support-matrix.md).
 - Hyper-V Vm'lerini ikincil bir siteye çoğaltmak istiyorsanız, gözden [Bu destek matrisi](hyper-v-azure-support-matrix.md).

@@ -1,20 +1,20 @@
 ---
-title: (Fiziksel sunucuları azure'a) kaynak ortamı ayarlama | Microsoft Docs
-description: Bu makalede, Azure'da Windows veya Linux çalıştıran fiziksel sunucuları çoğaltmaya başlamak için şirket içi ortamınızı ayarlama açıklar.
+title: Fiziksel sunucuları Azure Site Recovery kullanarak azure'a olağanüstü durum kurtarması için yapılandırma sunucusunu ayarlama | Microsoft Docs
+description: Bu makalede şirket içi fiziksel sunucularını azure'a olağanüstü durum kurtarma için şirket içi yapılandırma sunucusu nasıl kurulur.
 services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
-ms.topic: article
-ms.date: 07/21/2018
+ms.topic: conceptual
+ms.date: 10/28/2018
 ms.author: raynew
-ms.openlocfilehash: 0cbba45ce49667293d8f16bf370424acd70ff78b
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: 739129045fab72a9b535be25b853c902c7dbd251
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39213495"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50209556"
 ---
-# <a name="set-up-the-source-environment-physical-server-to-azure"></a>(Fiziksel sunucudan azure'a) kaynak ortamı ayarlama
+# <a name="set-up-the-configuration-server-for-disaster-recovery-of-physical-servers-to-azure"></a>Fiziksel sunucuları azure'a olağanüstü durum kurtarması için yapılandırma sunucusunu ayarlama
 
 Bu makalede, Azure'da Windows veya Linux çalıştıran fiziksel sunucuları çoğaltmaya başlamak için şirket içi ortamınızı ayarlama açıklar.
 

@@ -1,5 +1,5 @@
 ---
-title: Azure AD'de grup tabanlı lisanslama için PowerShell örnekleri | Microsoft Docs
+title: Azure AD'de grup tabanlı lisanslama için PowerShell ve Microsoft Graph örnekleri | Microsoft Docs
 description: Azure Active Directory grup tabanlı lisanslama için PowerShell senaryoları
 services: active-directory
 keywords: Azure AD lisanslama
@@ -11,21 +11,21 @@ ms.service: active-directory
 ms.component: users-groups-roles
 ms.topic: article
 ms.workload: identity
-ms.date: 04/23/2018
+ms.date: 10/29/2018
 ms.author: curtand
-ms.openlocfilehash: 9ff51308022881dabb0bd8efaa5852d0f296474a
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: d046b8e6c054131a4154654637f12dbdc26608a6
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37872741"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50210440"
 ---
 # <a name="powershell-examples-for-group-based-licensing-in-azure-ad"></a>Azure AD'de grup tabanlı lisanslama için PowerShell örnekleri
 
-Grup tabanlı lisanslama için tam işlevsellik aracılığıyla [Azure portalında](https://portal.azure.com), ve şu anda PowerShell desteği sınırlıdır. Ancak, varolan kullanılarak gerçekleştirilebilir faydalı bazı görevler vardır [MSOnline PowerShell cmdlet'leri](https://docs.microsoft.com/powershell/msonline/v1/azureactivedirectory). Bu belge, nelerin mümkün olduğunu örnekler sağlar.
+Grup tabanlı lisanslama için tam işlevsellik aracılığıyla [Azure portalında](https://portal.azure.com), ve şu anda PowerShell ve Microsoft Graph desteği sınırlıdır. Ancak, varolan kullanılarak gerçekleştirilebilir faydalı bazı görevler vardır [MSOnline PowerShell cmdlet'leri](https://docs.microsoft.com/powershell/msonline/v1/azureactivedirectory) ve Microsoft Graph. Bu belge, nelerin mümkün olduğunu örnekler sağlar.
 
 > [!NOTE]
-> Cmdlet'leri çalıştırmadan başlamadan önce bağlandığınız kiracınız için ilk olarak çalıştırarak emin `Connect-MsolService` cmdlet'i.
+> Cmdlet'leri çalıştırmadan başlamadan önce bağlandığınız kiracınız için ilk olarak çalıştırarak emin `Connect-MsolService`  cmdlet'i.
 
 > [!WARNING]
 > Bu kod, tanıtım amacıyla bir örnek olarak verilmiştir. Ortamınızda kullanmak istiyorsanız, önce küçük ölçekte veya ayrı bir test kiracısında test göz önünde bulundurun. Ortamınıza özgü ihtiyaçları karşılamak için kodu ayarlamanız gerekebilir.
@@ -46,6 +46,34 @@ EMSPREMIUM
 
 > [!NOTE]
 > Veriler, ürün (SKU) bilgilerine sınırlıdır. Lisans devre dışı hizmet planları listelemek mümkün değildir.
+
+Microsoft Graph'ten aynı verileri almak için aşağıdaki'ı kullanın
+
+```
+GET https://graph.microsoft.com/beta/groups/99c4216a-56de-42c4-a4ac-e411cd8c7c41$select=assignedLicenses
+```
+Çıktı:
+```
+HTTP/1.1 200 OK
+{
+  “value”: [
+{
+  “assignedLicenses”: [
+     {
+          "accountId":"f1b45b40-57df-41f7-9596-7f2313883635",
+          "skuId":"c7df2760-2c81-4ef7-b578-5b5392b571df",
+      "disabledPlans":[]
+     },
+     {
+          "accountId":"f1b45b40-57df-41f7-9596-7f2313883635",
+          "skuId":" b05e124f-c7cc-45a0-a6aa-8cf78c946968",
+      "disabledPlans":[]
+     },
+  ],
+}
+  ]
+}
+```
 
 ## <a name="get-all-groups-with-licenses"></a>Tüm grupları ile lisans Al
 
@@ -141,6 +169,34 @@ ObjectId                             DisplayName             GroupType Descripti
 --------                             -----------             --------- -----------
 11151866-5419-4d93-9141-0603bbf78b42 Access to Office 365 E1 Security  Users who should have E1 licenses
 ```
+Microsoft Graph'ten aynı verileri almak için aşağıdaki'ı kullanın
+```
+GET https://graph.microsoft.com/beta/groups?$filter=hasMembersWithLicenseErrors+eq+true
+```
+Çıktı:
+```
+HTTP/1.1 200 OK
+{
+  "value":[
+    {
+      "odata.type": "Microsoft.DirectoryServices.Group",
+      "objectType": "Group",
+      "id": "11151866-5419-4d93-9141-0603bbf78b42",
+      ... # other group properties.
+    },
+    {
+      "odata.type": "Microsoft.DirectoryServices.Group",
+      "objectType": "Group",
+      "id": "c57cdc98-0dcd-4f90-a82f-c911b288bab9",
+      ...
+    },
+    ... # other groups with license errors.
+  ]
+"odata.nextLink":"https://graph.microsoft.com/beta/ groups?$filter=hasMembersWithLicenseErrors+eq+true&$skipToken=<encodedPageToken>"
+}
+```
+
+
 ## <a name="get-all-users-with-license-errors-in-a-group"></a>Tüm kullanıcılar bir gruptaki lisans hatalarla Al
 
 Bazı lisans ile ilgili hataları içeren bir grubu göz önünde bulundurulduğunda, bu hataları tarafından etkilenen tüm kullanıcılar artık listeleyebilirsiniz. Bir kullanıcı, diğer gruplara hatalarından çok olabilir. Ancak, bu örnekte sınırlandırırız sonuçları yalnızca söz konusu grubuyla ilgili hataları kontrol ederek **ReferencedObjectId** her özellik **IndirectLicenseError** kullanıcı girişi.
@@ -167,6 +223,28 @@ ObjectId                             DisplayName      License Error
 --------                             -----------      ------------
 6d325baf-22b7-46fa-a2fc-a2500613ca15 Catherine Gibson MutuallyExclusiveViolation
 ```
+Microsoft Graph'ten aynı verileri almak için aşağıdaki'ı kullanın
+```
+GET https://graph.microsoft.com/beta/groups/11151866-5419-4d93-9141-0603bbf78b42/membersWithLicenseErrors
+```
+Çıktı:
+```
+HTTP/1.1 200 OK
+{
+  "value":[
+    {
+      "odata.type": "Microsoft.DirectoryServices.User",
+      "objectType": "User",
+      "id": "6d325baf-22b7-46fa-a2fc-a2500613ca15",
+      ... # other user properties.
+    },
+    ... # other users.
+  ],
+  "odata.nextLink":"https://graph.microsoft.com/beta/groups/11151866-5419-4d93-9141-0603bbf78b42/membersWithLicenseErrors?$skipToken=<encodedPageToken>" 
+}
+
+```
+
 ## <a name="get-all-users-with-license-errors-in-the-entire-tenant"></a>Tüm kullanıcıların Lisans hatalarla tüm kiracıda alın.
 
 Aşağıdaki komut dosyası, lisans hataları gruplardan bir veya daha fazla sahip tüm kullanıcılar almak için kullanılabilir. Betik, bir satır kullanıcıdaki, her hatanın kaynağını NET bir şekilde belirlemesine olanak tanıyan lisans hatası yazdırır.
@@ -299,6 +377,58 @@ ObjectId                             SkuId       AssignedDirectly AssignedFromGr
 157870f6-e050-4b3c-ad5e-0f0a377c8f4d contoso:EMS             True             False
 1f3174e2-ee9d-49e9-b917-e8d84650f895 contoso:EMS            False              True
 240622ac-b9b8-4d50-94e2-dad19a3bf4b5 contoso:EMS             True              True
+```
+
+Graf sonucu göstermek için basit bir yol yoktur, ancak bu API'SİNDEN görülebilir.
+```
+GET https://graph.microsoft.com/beta/users/e61ff361-5baf-41f0-b2fd-380a6a5e406a?$select=licenseAssignmentStates
+```
+Çıktı:
+```
+HTTP/1.1 200 OK
+{
+  "value":[
+    {
+      "odata.type": "Microsoft.DirectoryServices.User",
+      "objectType": "User",
+      "id": "e61ff361-5baf-41f0-b2fd-380a6a5e406a",
+      "licenseAssignmentState":[
+        {
+          "skuId": "157870f6-e050-4b3c-ad5e-0f0a377c8f4d”,
+          "disabledPlans":[],
+          "assignedByGroup": null, # assigned directly.
+          "state": "Active",
+          "error": "None"
+        },
+        {
+          "skuId": "1f3174e2-ee9d-49e9-b917-e8d84650f895",
+          "disabledPlans":[],
+          "assignedByGroup": “e61ff361-5baf-41f0-b2fd-380a6a5e406a”, # assigned by this group.
+          "state": "Active",
+          "error": "None"
+        },
+        {
+          "skuId": "240622ac-b9b8-4d50-94e2-dad19a3bf4b5", 
+          "disabledPlans":[
+            "e61ff361-5baf-41f0-b2fd-380a6a5e406a"
+          ],
+          "assignedByGroup": "e61ff361-5baf-41f0-b2fd-380a6a5e406a",
+          "state": "Active",
+          "error": "None"
+        },
+        {
+          "skuId": "240622ac-b9b8-4d50-94e2-dad19a3bf4b5",
+          "disabledPlans":[],
+          "assignedByGroup": null, # It is the same license as the previous one. It means the license is assigned directly once and inherited from group as well.
+          "state": " Active ",
+          "error": " None"
+        }
+      ],
+      ...
+    }
+  ],
+}
+
 ```
 
 ## <a name="remove-direct-licenses-for-users-with-group-licenses"></a>Grup lisansları ile kullanıcılar için doğrudan lisansları kaldırın
@@ -481,7 +611,9 @@ aadbe4da-c4b5-4d84-800a-9400f31d7371 User has no direct license to remove. Skipp
 Grupları aracılığıyla lisans yönetimi için ayarlama özelliği hakkında daha fazla bilgi edinmek için aşağıdaki makalelere bakın:
 
 * [Grup tabanlı Azure Active Directory lisansı nedir?](../fundamentals/active-directory-licensing-whatis-azure-portal.md)
-* [Azure Active Directory'deki bir gruba lisans atama](licensing-groups-assign.md)
-* [Azure Active Directory'de bir grup için lisans sorunlarını belirleme ve çözme](licensing-groups-resolve-problems.md)
-* [Azure Active Directory'de Grup tabanlı lisanslama için tek tek lisanslı kullanıcıları geçirme](licensing-groups-migrate-users.md)
-* [Azure Active Directory grup tabanlı lisanslama ek senaryoları](licensing-group-advanced.md)
+* [Azure Active Directory'de gruba lisans atama](licensing-groups-assign.md)
+* [Azure Active Directory'de grubun lisans sorunlarını tanımlama ve çözme](licensing-groups-resolve-problems.md)
+* [Azure Active Directory'de tek tek lisanslı kullanıcıları grup tabanlı lisanslamaya geçirme](licensing-groups-migrate-users.md)
+* [Kullanıcılar Azure Active Directory'de Grup tabanlı lisanslama kullanarak ürün lisansları arasında geçirme](../users-groups-roles/licensing-groups-change-licenses.md)
+* [Azure Active Directory grup tabanlı lisanslamayla ilgili ek senaryolar](licensing-group-advanced.md)
+* [Azure Active Directory'de Grup tabanlı lisanslama için PowerShell örnekleri](../users-groups-roles/licensing-ps-examples.md)

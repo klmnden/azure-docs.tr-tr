@@ -9,6 +9,8 @@ items:
     href: allocation-failure-classic.md
 - name: RDP
   items:
+  - name: Sık sık bağlantı kesiliyor
+    href: troubleshoot-rdp-intermittent-connectivity.md
   - name: RDP’yi sıfırlama
     href: reset-rdp.md
   - name: RDP sorunlarını giderme
@@ -17,10 +19,8 @@ items:
     href: detailed-troubleshoot-rdp.md
   - name: Belirli hatalarda sorun giderme
     href: troubleshoot-specific-rdp-errors.md
-  - name: Lisans sunucusu yok hatalarında sorun giderme
-    href: troubleshoot-rdp-no-license-server.md
-  - name: Uzak masaüstü hizmetleri ile ilgili sorunları giderme
-    href: troubleshoot-remote-desktop-services-issues.md
+  - name: RDP bağlantısının sık sık kesilmesine ilişkin sorunları giderme
+    href: troubleshoot-rdp-intermittent-connectivity.md
 - name: SSH
   items:
   - name: SSH hakkındaki sorunları giderme
@@ -129,9 +129,9 @@ items:
   href: troubleshoot-vm-by-use-nested-virtualization.md
 - name: Sistemin yeniden başlatılma nedenini anlama
   href: understand-vm-reboot.md
-ms.openlocfilehash: ed437e8bce61ecb095d61fae8be8538f12a0134d
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: 49e216bfd9f1b7ad9c8e9f74ae67d38359f7f474
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50087024"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50138285"

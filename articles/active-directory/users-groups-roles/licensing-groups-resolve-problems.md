@@ -11,15 +11,15 @@ ms.service: active-directory
 ms.component: users-groups-roles
 ms.topic: article
 ms.workload: identity
-ms.date: 06/05/2017
+ms.date: 10/29/2018
 ms.author: curtand
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5d64cf71ea3a44b7539835e3616150218e8b3635
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: ee441a8c9a0d8a70a2797f090a143189cdb6872a
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37861904"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50211545"
 ---
 # <a name="identify-and-resolve-license-assignment-problems-for-a-group-in-azure-active-directory"></a>Azure Active Directory'de bir grup için lisans atama sorunlarını tanımlama ve çözme
 
@@ -65,7 +65,7 @@ Hangi kullanıcıların ve grupların lisanslarını kullanan görmek için bir 
 
 **Sorun:** çakışan bir hizmet planı farklı bir ürünü aracılığıyla kullanıcıya zaten atanmış başka bir hizmet planı ile bir grup içinde belirtilen ürün içerir. Bazı hizmet planları, bunlar ilgili başka bir hizmet planı ile aynı kullanıcıya atanamaz bir şekilde yapılandırılır.
 
-Aşağıdaki örnek göz önünde bulundurun. Bir kullanıcının Office 365 kuruluş için bir lisans *E1* doğrudan etkin tüm planlarla atanmış. Kullanıcının Office 365 Kurumsal olan bir gruba eklendi *E3* kendisine atanmış bir ürün. E3 ürün grubu lisans ataması "Çakışan hizmet planları" hatasıyla başarısız oluyor, böylece E1 dahil edilen planları ile çakışamaz hizmet planları içerir. Bu örnekte, çakışan hizmet planları şunlardır:
+Aşağıdaki örneği inceleyin. Bir kullanıcının Office 365 kuruluş için bir lisans *E1* doğrudan etkin tüm planlarla atanmış. Kullanıcının Office 365 Kurumsal olan bir gruba eklendi *E3* kendisine atanmış bir ürün. E3 ürün grubu lisans ataması "Çakışan hizmet planları" hatasıyla başarısız oluyor, böylece E1 dahil edilen planları ile çakışamaz hizmet planları içerir. Bu örnekte, çakışan hizmet planları şunlardır:
 
 -   SharePoint Online (Plan 1) ile SharePoint Online (Plan 2) çakışıyor.
 -   Exchange Online (Plan 1) ile Exchange Online (Plan 2) çakışıyor.
@@ -96,6 +96,19 @@ Bu sorunu çözmek için kullanıcıların lisanslı Grup ekranla konumlardan ka
 
 > [!NOTE]
 > Azure AD Grup lisansları atarken, belirtilen kullanım konumu olmadan herhangi bir kullanıcı dizin konumunu alır. Yöneticiler doğru kullanım konumu değerlerinin kullanıcıları grup tabanlı lisanslama yerel yasalara ve düzenlemelere uygun kullanmadan önce ayarlamanızı öneririz.
+
+## <a name="duplicate-proxy-addresses"></a>Yinelenen proxy adresleri
+
+Exchange Online kullanıyorsanız, kiracınızdaki bazı kullanıcılar yanlışlıkla aynı proxy adres değeriyle yapılandırılmış olabilir. Grup tabanlı lisanslama böyle bir kullanıcıya bir lisans atamak denediğinde başarısız olur ve "Proxy adresi zaten kullanılıyor" gösterir.
+
+> [!TIP]
+> Yinelenen proxy adresi olup olmadığını görmek için Exchange Online karşı aşağıdaki PowerShell cmdlet'ini yürütün:
+```
+Run Get-Recipient | where {$_.EmailAddresses -match "user@contoso.onmicrosoft.com"} | fL Name, RecipientType,emailaddresses
+```
+> Bu sorun hakkında daha fazla bilgi için bkz. [Exchange Online'da "Proxy adresi zaten kullanılıyor" hata iletisini](https://support.microsoft.com/help/3042584/-proxy-address-address-is-already-being-used-error-message-in-exchange-online). Makale hakkında bilgileri de içerir. [Exchange Online'a uzak PowerShell kullanarak bağlanma konusunda](https://technet.microsoft.com/library/jj984289.aspx). Daha fazla bilgi için bu makaleye bakın [proxyAddresses özniteliği Azure AD'de nasıl doldurulur üzerinde](https://support.microsoft.com/help/3190357/how-the-proxyaddresses-attribute-is-populated-in-azure-ad).
+
+Etkilenen kullanıcılar için herhangi bir proxy adresi sorunu çözdükten sonra lisans artık uygulanabilir emin olmak için grupta lisans işleme zorlamak emin olun.
 
 ## <a name="what-happens-when-theres-more-than-one-product-license-on-a-group"></a>Bir grup üzerinde birden fazla ürün lisans olmadığında ne olur?
 
@@ -134,19 +147,7 @@ Artık bu gruba eklenen herhangi bir kullanıcı bir lisans E3 ürünün ve Work
 > [!TIP]
 > Her bir önkoşul hizmet planı için birden çok gruplar oluşturabilirsiniz. Örneğin, kullanıcılarınız için hem Office 365 Kurumsal E1 hem de Office 365 Kurumsal E3 kullanırsanız, iki gruba lisans Microsoft Workplace Analytics oluşturabilirsiniz: E1 önkoşul ve E3 kullanan diğer kullanan bir. Bu, eklenti E1 ve E3 kullanıcılara ek lisans kullanmasa bile Dağıt sağlar.
 
-## <a name="license-assignment-fails-silently-for-a-user-due-to-duplicate-proxy-addresses-in-exchange-online"></a>Lisans ataması sessizce yinelenen proxy adresleri nedeniyle bir kullanıcı için Exchange Online başarısız
 
-Exchange Online kullanıyorsanız, kiracınızdaki bazı kullanıcılar yanlışlıkla aynı proxy adres değeriyle yapılandırılmış olabilir. Grup tabanlı lisanslama böyle bir kullanıcıya bir lisans atamak denediğinde başarısız olur ve bir hata kaydetmez. Bu örnekte hata kaydetmek için hata bu özellik Önizleme sürümünde bir sınırlamadır ve daha önce ele kullanacağız *genel kullanılabilirlik*.
-
-> [!TIP]
-> Öncelikle, bazı kullanıcılar, bir lisans almadı ve söz konusu kullanıcılar için kaydedilen herhangi bir hata olduğunu fark ederseniz, yinelenen bir proxy adresi olup olmadığını denetleyin.
-> Yinelenen proxy adresi olup olmadığını görmek için Exchange Online karşı aşağıdaki PowerShell cmdlet'ini yürütün:
-```
-Run Get-Recipient | where {$_.EmailAddresses -match "user@contoso.onmicrosoft.com"} | fL Name, RecipientType,emailaddresses
-```
-> Bu sorun hakkında daha fazla bilgi için bkz. [Exchange Online'da "Proxy adresi zaten kullanılıyor" hata iletisini](https://support.microsoft.com/help/3042584/-proxy-address-address-is-already-being-used-error-message-in-exchange-online). Makale hakkında bilgileri de içerir. [Exchange Online'a uzak PowerShell kullanarak bağlanma konusunda](https://technet.microsoft.com/library/jj984289.aspx).
-
-Etkilenen kullanıcılar için herhangi bir proxy adresi sorunu çözdükten sonra lisans artık uygulanabilir emin olmak için grupta lisans işleme zorlamak emin olun.
 
 ## <a name="how-do-you-force-license-processing-in-a-group-to-resolve-errors"></a>Hataları gidermek için bir gruptaki lisans işleme nasıl zorlama?
 
@@ -154,11 +155,19 @@ Hataları gidermek için zamandaki bağlı olarak hangi adımları el ile kullan
 
 Örneğin, kullanıcıların doğrudan lisans atamaları kaldırarak bazı lisanslarını ücretsiz, tam olarak tüm kullanıcı üyeleri lisans daha önce başarısız olan grupları işlenmesini tetiklemek gerekir. Bir grubu yeniden işlemek için Grup bölmesine, açık Git **lisansları**ve ardından **suretiyle** araç çubuğunda.
 
+## <a name="how-do-you-force-license-processing-on-a-user-to-resolve-errors"></a>Hataları gidermek için bir kullanıcı lisansı işleme nasıl zorlama?
+
+Hataları gidermek için zamandaki bağlı olarak hangi adımları kullanıcı durumu güncelleştirmek için bir kullanıcı işlenmesini el ile tetiklemek gerekli olabilir.
+
+Örneğin, etkilenen bir kullanıcı için yinelenen bir proxy adresi sorunu çözdükten sonra kullanıcının işlemi tetiklemek gerekir. Bir kullanıcı yeniden işlemek için kullanıcı bölmesine, açık Git **lisansları**ve ardından **suretiyle** araç çubuğunda.
+
 ## <a name="next-steps"></a>Sonraki adımlar
 
 Grupları aracılığıyla lisans yönetimi için diğer senaryolar hakkında daha fazla bilgi için şunlara bakın:
 
-* [Azure Active Directory'deki bir gruba lisans atama](licensing-groups-assign.md)
 * [Grup tabanlı Azure Active Directory lisansı nedir?](../fundamentals/active-directory-licensing-whatis-azure-portal.md)
-* [Azure Active Directory'de Grup tabanlı lisanslama için tek tek lisanslı kullanıcıları geçirme](licensing-groups-migrate-users.md)
-* [Azure Active Directory grup tabanlı lisanslama ek senaryoları](licensing-group-advanced.md)
+* [Azure Active Directory'de gruba lisans atama](licensing-groups-assign.md)
+* [Azure Active Directory'de tek tek lisanslı kullanıcıları grup tabanlı lisanslamaya geçirme](licensing-groups-migrate-users.md)
+* [Kullanıcılar Azure Active Directory'de Grup tabanlı lisanslama kullanarak ürün lisansları arasında geçirme](licensing-groups-change-licenses.md)
+* [Azure Active Directory grup tabanlı lisanslamayla ilgili ek senaryolar](licensing-group-advanced.md)
+* [Azure Active Directory'de Grup tabanlı lisanslama için PowerShell örnekleri](licensing-ps-examples.md)

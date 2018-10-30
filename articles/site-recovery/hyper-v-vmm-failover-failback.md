@@ -1,19 +1,19 @@
 ---
-title: Yük devretme ve ilk durumuna geri döndürme Hyper-V Vm'leri, Site Recovery ile ikincil veri merkezine çoğaltılmasını | Microsoft Docs
-description: İçinde Hyper-V Vm'lerini ikincil şirket içi sitenize başarısız ve Azure Site Recovery ile birincil siteye geri başarısız hakkında bilgi edinin
+title: Yük devretme ve ilk durumuna geri döndürme Hyper-V Vm'lerini Azure Site Recovery ile olağanüstü durum kurtarma sırasında bir ikincil veri merkezine çoğaltılmasını | Microsoft Docs
+description: İçinde Hyper-V Vm'lerini ikincil şirket içi sitenize başarısız ve Azure Site Recovery ile olağanüstü durum kurtarma sırasında yeniden birincil siteye başarısız öğrenin.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/10/2018
+ms.date: 10/28/2018
 ms.author: raynew
-ms.openlocfilehash: 782ddc3ebb7b3c533d0eb5c4b7735a13cbaf268c
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 80a26f7f2c97fdbc5342d8845277facd79f22a62
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49077689"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50210015"
 ---
 # <a name="fail-over-and-fail-back-hyper-v-vms-replicated-to-your-secondary-on-premises-site"></a>Yük devretme ve ilk durumuna geri döndürme, ikincil şirket içi siteye çoğaltılan Hyper-V Vm'leri
 
@@ -68,7 +68,7 @@ Bu yordamda, normal bir yük devretme çalıştırma açıklanmaktadır.
  
 1. VM'ye tıklayın > tıklayarak **ters çoğaltma**.
 2. İş tamamlandıktan sonra VM'ye tıklayın > içinde **yük devretme**, yük devretme yönü (buluttan ikincil VMM) doğrulayın ve kaynak ve hedef konumları seçin. 
-4. Yük devretme başlatın. Yük devretme işleminin ilerleyişini izleyin **işleri** sekmesi.
+4. Yük devretmeyi başlatın. Yük devretme işleminin ilerleme durumunu **İşler** sekmesinden takip edebilirsiniz.
 5. Birincil VMM bulutundaki VM kullanılabilir olup olmadığını denetleyin.
 6. İkincil sitenin birincil VM çoğaltma, yeniden başlatmak istiyorsanız, tıklayarak **ters çoğaltma**.
 

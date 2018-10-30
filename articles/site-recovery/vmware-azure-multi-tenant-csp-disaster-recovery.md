@@ -1,21 +1,20 @@
 ---
-title: Azure'a VMware çoğaltması için Site kurtarma ve bulut çözümü sağlayıcısı (CSP) programını kullanarak çok kiracılı ortamında ayarlama | Microsoft Docs
-description: Oluşturup Kiracı CSP aboneliği yönetmek ve Azure Site Recovery, çok kiracılı kurulumunda dağıtma açıklar
-services: site-recovery
+title: Azure Site Recovery ve bulut çözümü sağlayıcısı (CSP) programını kullanarak çok kiracılı ortamında VMware olağanüstü durum kurtarma ayarlama | Microsoft Docs
+description: Çok müşterili bir ortamda Azure Site Recovery ile VMware olağanüstü durum kurtarma ayarlamayı açıklar.
 author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: mayg
-ms.openlocfilehash: bd356a7e4285f8663b91da1f200cc2ae3c266bf3
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: c26421f848cf25e391589fa791f801e30fd14797
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49354130"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50208910"
 ---
-# <a name="set-up-vmware-replication-in-a-multi-tenancy-environment-with-the-cloud-solution-provider-csp-program"></a>VMware çoğaltma bulut çözümü sağlayıcısı (CSP) programı ile çok kiracılı ortamında ayarlama
+# <a name="set-up-vmware-disaster-recovery-in-a-multi-tenancy-environment-with-the-cloud-solution-provider-csp-program"></a>Bulut çözümü sağlayıcısı (CSP) programı ile çok kiracılı ortamında VMware olağanüstü durum kurtarmayı ayarlama
 
 [CSP programı](https://partner.microsoft.com/en-US/cloud-solution-provider) Office 365, Enterprise Mobility Suite ve Microsoft Azure gibi Microsoft bulut Hizmetleri için birlikte daha iyi hikayeler destekler. CSP, iş ortakları uçtan uca ilişkisi olan müşterilerin kendi ve birincil ilişki için bağlantı noktası haline gelir. İş ortakları, müşterilerin Azure abonelikleri dağıtın ve abonelikleri kendi katma değer, özelleştirilmiş teklifleri ile birleştirin.
 

@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/26/2018
+ms.date: 10/27/2018
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: 161b54620bd8a3c9994228a30bd7495717064168
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: d80e7bc1d391d9b5bfd718ca2dc0e9dc7ecb2268
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50158475"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50210882"
 ---
 # <a name="azure-stack-1809-update"></a>Azure Stack 1809 güncelleştirme
 
@@ -38,6 +38,8 @@ Azure Stack 1809 güncelleştirmenin yapı numarasıdır **1.1809.0.90**.
 ### <a name="new-features"></a>Yeni Özellikler
 
 Bu güncelleştirme Azure Stack için aşağıdaki geliştirmeleri içerir:
+
+- Bu sürümle birlikte, Azure Stack sistemleri desteklediği yapılandırmalar 4-16 düğümlerinin tümleşik.
 
 - <!--  2712869   | IS  ASDK -->  **Azure Stack syslog istemcisi (Genel kullanım)** bu istemci denetimler, uyarılar ve Azure Stack altyapısının bir syslog sunucusu veya güvenlik bilgileri ve Olay yönetimi (SIEM) yazılım ilgili güvenlik günlükleri iletilmesini sağlar. Azure Stack için dış. Syslog istemci artık syslog sunucunun dinlediği bağlantı noktasını destekler.
 
@@ -147,6 +149,8 @@ Bu güvenlik açıkları hakkında daha fazla bilgi için yukarıdaki bağlantı
 - <!-- 2468613 - IS --> Bu güncelleştirme yüklemesi sırasında başlık uyarılarla görebileceğiniz *hatası – şablon FaultType UserAccounts.New için eksik.*  Bu uyarılar güvenle yok sayabilirsiniz. Bu güncelleştirme yüklemesi tamamlandıktan sonra bu uyarıları otomatik olarak kapatılacak.
 
 - <!-- 2489559 - IS --> Bu güncelleştirme yüklemesi sırasında sanal makineleri oluşturmaya çalışmayın. Güncelleştirmeleri yönetme hakkında daha fazla bilgi için bkz. [Azure Stack genel bakış güncelleştirmeleri yönetme](azure-stack-updates.md#plan-for-updates).
+
+- <!-- 3139614 | IS --> Azure Stack için bir güncelleştirme uyguladıysanız, OEM'den **güncelleştirme kullanılabilir** bildirim Azure Stack Yönetici portalında görünmeyebilir. Microsoft update yüklemek için indirin ve burada bulunan yönergeleri kullanarak el ile içeri aktarılması [güncelleştirmelerini Azure Stack'te](azure-stack-apply-updates.md).
 
 ### <a name="post-update-steps"></a>Güncelleştirme sonrası adımlar
 

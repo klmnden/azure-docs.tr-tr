@@ -1,29 +1,22 @@
 ---
-title: Azure Site Recovery kullanarak çok katmanlı bir Dynamics AX dağıtımını çoğaltın | Microsoft Docs
-description: Bu makalede, çoğaltma ve Azure Site Recovery korumalarına Dynamics AX açıklanır
-services: site-recovery
-documentationcenter: ''
+title: Azure Site Recovery kullanarak çok katmanlı bir Dynamics AX dağıtımı için olağanüstü durum kurtarma ayarlama | Microsoft Docs
+description: Bu makalede, Azure Site Recovery ile Dynamics AX için olağanüstü durum kurtarma ayarlama işlemi açıklanmaktadır
 author: asgang
 manager: rochakm
-editor: ''
-ms.assetid: 9126f5e8-e9ed-4c31-b6b4-bf969c12c184
 ms.service: site-recovery
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: asgang
-ms.openlocfilehash: eb6f7d9b34e00ce1efd8c871439c2504e5f550d5
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: e2cba8cb53e73bd1fc25f1fe43fa0365247e2bd2
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43669451"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50210831"
 ---
-# <a name="replicate-a-multitier-dynamics-ax-application-by-using-azure-site-recovery"></a>Azure Site Recovery kullanarak çok katmanlı bir Dynamics AX uygulamasının çoğaltın
+# <a name="set-up-disaster-recovery-for-a-multitier-dynamics-ax-application"></a>Çok katmanlı bir Dynamics AX uygulamasının olağanüstü durum kurtarmayı ayarlama 
 
-## <a name="overview"></a>Genel Bakış
+
 
 
  Dynamics AX, kurumların uyumluluk basitleştirmek konumlar arasında işlemleri standartlaştırmak ve kaynakları yönetmek için kullanılan en popüler ERP çözümleri biridir. Uygulama bir olağanüstü durum olması halinde bir kuruluş için kritik olduğundan uygulama en az sürede çalışır duruma olmalıdır.
@@ -86,7 +79,7 @@ Bağlı olup olmadığını VM'ler üzerinde dağıtılır üzerinde ilgili Site
 
 Şu anlık görüntü, bir VMware sitesi Azure'a koruma senaryosunda Dynamics bileşeni Vm'leri koruma durumunu gösterir.
 
-![Korumalı öğeler](./media/site-recovery-dynamics-ax/protecteditems.png)
+![Korunan öğeler](./media/site-recovery-dynamics-ax/protecteditems.png)
 
 ### <a name="4-configure-networking"></a>4. Ağ yapılandırması
 **VM işlem yapılandırma ve ağ ayarları**

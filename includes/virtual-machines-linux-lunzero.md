@@ -1,3 +1,16 @@
+---
+author: cynthn
+ms.service: virtual-machines-linux
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: cynthn
+ms.openlocfilehash: 46fd31b54b7692700cce0bebe484c4f5de591942
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50226736"
+---
 Bir Linux VM'ye veri diskleri ekleme, bir diskin LUN 0 yoksa hatalarla karşılaşabilirsiniz. El ile kullanarak bir diski ekliyorsanız `azure vm disk attach-new` komutunu bir LUN belirtin (`--lun`) uygun LUN belirlemek üzere Azure platformunun izin vermek yerine, dikkatli bir disk zaten mevcut olduğundan / 0 LUN sunulacaktır. 
 
 Bir kod parçacığı çıktısı gösteren aşağıdaki örneği göz önünde bulundurun `lsscsi`:

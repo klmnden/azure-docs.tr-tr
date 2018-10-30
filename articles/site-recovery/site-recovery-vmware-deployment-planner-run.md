@@ -1,21 +1,20 @@
 ---
-title: VMware’den Azure’a Azure Site Recovery dağıtım planlayıcısı| Microsoft Docs
-description: Bu makalede, VMware’den Azure’a senaryosu için Azure Site Recovery dağıtım planlayıcısını çalıştırma modu açıklanır.
-services: site-recovery
+title: Vmware'den azure'a olağanüstü durum kurtarma için Azure Site Recovery dağıtım Planlayıcısı çalıştırma | Microsoft Docs
+description: Bu makale, Vmware'den azure'a olağanüstü durum kurtarma için Azure Site Recovery dağıtım Planlayıcısı'nı çalıştırmak açıklamaktadır.
 author: nsoneji
 manager: garavd
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: nisoneji
-ms.openlocfilehash: f83ab78cae17859dc28349cf7c435d7101c5fa3b
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: b890dce5d94c2177c8fc8cdb5477b92df15c8095
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49093172"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50211035"
 ---
-# <a name="run-azure-site-recovery-deployment-planner-for-vmware-to-azure"></a>VMware’den Azure’a senaryosu için Azure Site Recovery dağıtım planlayıcısını çalıştır
+# <a name="run-the-azure-site-recovery-deployment-planner-for-vmware-disaster-recovery-to-azure"></a>Vmware'den azure'a olağanüstü durum kurtarma için Azure Site Recovery dağıtım Planlayıcısı'nı çalıştırın
 Bu makale, VMware’den Azure’a üretim dağıtımları için Azure Site Recovery Dağıtım Planlayıcısı kullanım kılavuzudur.
 
 

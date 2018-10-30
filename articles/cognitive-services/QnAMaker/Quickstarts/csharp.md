@@ -1,7 +1,7 @@
 ---
 title: REST API (V4) - C# - soru-cevap Oluşturucu
 titleSuffix: Azure Cognitive Services
-description: REST tabanlı bilgi alın ve kod örnekleri, hızlı bir şekilde yardımcı olmak için Microsoft Bilişsel hizmetler, Azure üzerinde Microsoft Translator metin çevirisi API'si ile çalışmaya başlamak.
+description: Alma C# hızlı bir şekilde yardımcı olması için REST tabanlı bilgi ve kod örnekleri, azure'da Microsoft Bilişsel Hizmetler Microsoft Translator metin tanıma API'sini kullanmaya başlama.
 services: cognitive-services
 author: diberry
 manager: cgronlun
@@ -10,17 +10,17 @@ ms.component: qna-maker
 ms.topic: article
 ms.date: 10/19/2018
 ms.author: diberry
-ms.openlocfilehash: 0b468556892bf85dac1fbdd09e7299a793e1e700
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: a93d6d939f1ccdaa7cbbe16de1e380227489ac45
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49646363"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50211494"
 ---
 # <a name="qna-maker-rest-api-with-c"></a>Soru-cevap Oluşturucu REST API ile C# 
 <a name="HOLTop"></a>
 
-Bu makalede C# ve [Microsoft Soru-Cevap Oluşturma API'si](../Overview/overview.md) ile aşağıdaki işlemlerin nasıl gerçekleştirileceği gösterilmektedir.
+Bu makalede nasıl kullanılacağını gösterir [Microsoft soru-cevap Oluşturucu API'si](../Overview/overview.md) ile C# aşağıdakileri yapmak için.
 
 - [Yeni bilgi bankası oluşturma.](#Create)
 - [Var olan bilgi bankasını güncelleştirme.](#Update)

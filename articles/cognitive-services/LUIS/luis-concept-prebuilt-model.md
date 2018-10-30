@@ -1,7 +1,7 @@
 ---
 title: Önceden oluşturulmuş modelleri - varlık, amacı, etki alanı - LUIS
 titleSuffix: Azure Cognitive Services
-description: ''
+description: Önceden oluşturulmuş modelleri, etki alanları, amacı, konuşma ve varlıklar sağlar. Önceden oluşturulmuş bir etki alanı ile uygulamanızı başlatabilir veya ilgili bir etki alanı daha sonra uygulamanıza ekleyin.
 services: cognitive-services
 author: diberry
 manager: cgronlun
@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: diberry
-ms.openlocfilehash: 2a978665eff2f8aa3eab3c7d70b39bdb61ecfda4
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 6237dc66e6e085a2501642abd679844c38e98ed1
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49651905"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50210542"
 ---
 # <a name="prebuilt-domain-intent-and-entity-models"></a>Etki alanı, hedefi ve varlık önceden oluşturulmuş modelleri
 

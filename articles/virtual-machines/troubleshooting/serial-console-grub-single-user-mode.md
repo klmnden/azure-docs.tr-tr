@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: alsin
-ms.openlocfilehash: 411c743421af79ea066df3a5fc07f71b8b6cb993
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 43f9d7d39cfcdd7b670aca6184533def0b6966f5
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48855876"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50211392"
 ---
 # <a name="use-serial-console-to-access-grub-and-single-user-mode"></a>GRUB ve tek kullanıcı modu erişmek için seri Konsolu
 GRUB genel birleşik Şifresizdir ' dir. GRUB ' diğer özelliklerin yanı sıra tek kullanıcı moduna önyükleme, önyükleme yapılandırması üzerinde değişiklik yapabilirsiniz.
@@ -33,7 +33,7 @@ Tek kullanıcı moduna girmek için yedekleme, sanal Makinenizin önyükleme yap
 ## <a name="general-grub-access"></a>Genel GRUB erişim
 GRUB erişmek için seri konsol dikey penceresini açık tutarken, sanal Makinenizin yeniden başlatmanız gerekir. Bazı dağıtım paketlerini GRUB, diğer otomatik olarak birkaç saniye GRUB Göster ve zaman aşımı iptal etmek kullanıcı klavye girişini izin sırada gösterilecek klavye girdisi gerektirir. 
 
-GRUB sanal Makinenize erişim tek kullanıcı moduna aktarabilmek için etkinleştirildiğinden emin olmak isteyeceksiniz. Distro bağlı olarak GRUB etkinleştirildiğinden emin olmak için bazı Kurulumu iş olabilir. Distro özgü bilgiler aşağıda verilmiştir.
+GRUB sanal Makinenize erişim tek kullanıcı moduna aktarabilmek için etkinleştirildiğinden emin olmak isteyeceksiniz. Distro bağlı olarak GRUB etkinleştirildiğinden emin olmak için bazı Kurulumu iş olabilir. Distro özgü bilgiler aşağıda hem de kullanılabilir [bu bağlantıyı](https://blogs.msdn.microsoft.com/linuxonazure/2018/10/23/why-proactively-ensuring-you-have-access-to-grub-and-sysrq-in-your-linux-vm-could-save-you-lots-of-down-time/).
 
 ### <a name="reboot-your-vm-to-access-grub-in-serial-console"></a>Seri konsol içinde GRUB erişmek için VM'yi yeniden başlatın
 Seri konsol dikey açık sanal makinenizin yeniden başlatılmasını bir SysRq ile yapılabilir `'b'` , komut [SysRq](./serial-console-nmi-sysrq.md) etkin veya genel bakış dikey penceresinde (açık kapatmadan yeniden başlatmak için yeni bir tarayıcı sekmesinde VM yeniden tıklayarak düğmesi Seri konsol dikey). Bilgisayarı yeniden başlattığınızda GRUB ' beklenmesi gerekenler öğrenmek distro özgü aşağıdaki yönergeleri izleyin.
@@ -186,6 +186,7 @@ Oracle Linux tek kullanıcı modunda etkinleştirmek için yukarıdaki RHEL yön
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * Ana seri konsol Linux belgeleri sayfasının bulunduğu [burada](serial-console-linux.md).
+* Seri konsola kullanmayı öğrenin [GRUB çeşitli dağıtım paketlerini etkinleştir](https://blogs.msdn.microsoft.com/linuxonazure/2018/10/23/why-proactively-ensuring-you-have-access-to-grub-and-sysrq-in-your-linux-vm-could-save-you-lots-of-down-time/)
 * Seri Konsolu [NMI ve SysRq çağrıları](serial-console-nmi-sysrq.md)
 * Seri konsol için de kullanılabilir olan [Windows](serial-console-windows.md) VM'ler
 * Daha fazla bilgi edinin [önyükleme tanılaması](boot-diagnostics.md)

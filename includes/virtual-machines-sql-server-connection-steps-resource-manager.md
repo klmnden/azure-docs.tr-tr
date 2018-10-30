@@ -1,3 +1,16 @@
+---
+author: rothja
+ms.service: virtual-machines-sql
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: jroth
+ms.openlocfilehash: 4e79fef08af8ff73ce63ab4732c9efd77e3a5d3f
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50226647"
+---
 ### <a name="configure-a-dns-label-for-the-public-ip-address"></a>Genel IP adresi için DNS etiketi yapılandırma
 
 SQL Server Veritabanı Altyapısına İnternet'ten bağlanmak için önce genel IP adresi için bir DNS etiketi yapılandırmayı düşünün. IP adresine göre de bağlanabilirsiniz, ancak DNS Etiketi tanımlanması daha kolay olan ve temeldeki genel IP adresini soyutlayan bir A Kaydı oluşturur.

@@ -4,16 +4,16 @@ description: Bu makalede, program aracılığıyla oluşturma ve Azure ilkesine 
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 09/18/2018
+ms.date: 10/29/2018
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: dd7ec4f1d0c018a3c7eed19bea523f7c09bfea3e
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 4a68b60df76dcc554158d6c8db4d0dfe8dd32be7
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46985325"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50209233"
 ---
 # <a name="programmatically-create-policies-and-view-compliance-data"></a>Programlı olarak ilkeler oluşturma ve uyumluluk verilerini görüntüleyin
 
@@ -85,6 +85,12 @@ Kaynaklarınızın daha iyi görünürlük ilk adım, ilkeleri, kaynaklarınız 
    ```
 
    Değiştirin _ContosoRG_ hedeflenen kaynak grubunuzun adı.
+
+   **Kapsam** parametresi `New-AzureRmPolicyAssignment` aboneliklerini ve Yönetim gruplarını ile de çalışır. Parametresi bir tam kaynak yolu kullanır, **ResourceId** özelliği `Get-AzureRmResourceGroup` döndürür. Desenini **kapsam** her kapsayıcı aşağıdaki gibidir.  Değiştirin `{rgName}`, `{subId}`, ve `{mgName}` sırasıyla adı, abonelik kimliği ve yönetim grubu adı ile kaynak grubu.
+
+   - Kaynak grubu- `/subscriptions/{subId}/resourceGroups/{rgName}`
+   - Aboneliği- `/subscriptions/{subId}/`
+   - Yönetim grubu- `/providers/Microsoft.Management/managementGroups/{mgName}`
 
 Azure Resource Manager PowerShell modülü kullanarak kaynak ilkelerini yönetmeyle ilgili daha fazla bilgi için bkz. [AzureRM.Resources](/powershell/module/azurerm.resources/#policies).
 

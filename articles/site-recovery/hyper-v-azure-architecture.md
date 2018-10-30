@@ -1,20 +1,20 @@
 ---
-title: Hyper-V'den azure'a Azure Site recovery'de Azure'a çoğaltma mimarisi | Microsoft Docs
-description: Bu makalede, Azure Site Recovery hizmeti ile şirket içi Hyper-V VM'leri Azure'a çoğaltma işleminde kullanılan bileşenlere ve mimariye ilişkin genel bir bakış sunulmaktadır.
+title: Hyper-V'den azure'a Azure Site recovery'de Azure'a olağanüstü durum kurtarma mimarisi | Microsoft Docs
+description: Bu makalede, Azure Site Recovery hizmeti ile olağanüstü durum kurtarma için şirket içi Hyper-V Vm'lerini (VMM olmadan) azure'a dağıtırken kullanılan bileşenlere ve genel bir bakış sağlar.
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/10/2018
+ms.date: 10/28/2018
 ms.author: raynew
-ms.openlocfilehash: 49059415c5f96eeb4dd871e7d2c8ae4ab9b2c12e
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 23b12f5b0423f717e96ec1f59480f0175648c75f
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49078367"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50210661"
 ---
-# <a name="hyper-v-to-azure-replication-architecture"></a>Hyper-V'den Azure'a çoğaltma mimarisi
+# <a name="hyper-v-to-azure-disaster-recovery-architecture"></a>Hyper-V'den Azure'a olağanüstü durum kurtarma mimarisi
 
 
 Bu makalede mimari ve çoğaltma, yük devretme ve şirket içi Hyper-V konakları ve Azure arasında Hyper-V sanal makineleri (VM'ler) kurtarma kullanılan işlemleri kullanarak [Azure Site Recovery](site-recovery-overview.md) hizmeti.

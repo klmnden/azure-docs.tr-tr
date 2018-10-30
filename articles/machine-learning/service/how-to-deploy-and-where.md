@@ -9,12 +9,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 08/29/2018
-ms.openlocfilehash: 606e8aed42bce69d5b3210b4e97f8cbfeaaf104c
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 97ac405db3de4fa2c6f1173f813eafd41a5361ad
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46961017"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50209454"
 ---
 # <a name="deploy-models-with-the-azure-machine-learning-service"></a>Azure Machine Learning hizmeti ile modelleri dağıtma
 
@@ -22,36 +22,41 @@ Azure Machine Learning hizmeti eğitilen modelinizi dağıtabileceğiniz çeşit
 
 Modelleri için aşağıdaki işlem hedeflerine dağıtabilirsiniz:
 
-- Azure Container Instances (ACI)
-- Azure Kubernetes Hizmeti (AKS)
-- Azure IoT Edge
-- Alanda programlanabilir kapı dizileri (FPGA)
+- [Azure Container Instances'a (ACI)](#aci): hızlı dağıtım. Geliştirme veya test için iyidir.
+- [Azure Kubernetes Service (AKS)](#aks): büyük ölçekli üretim dağıtımları için iyi. Otomatik ölçeklendirme ve hızlı yanıt süresi sağlar.
+- [Azure IOT Edge](#iotedge): IOT cihazlarında Modellerinizi dağıtın. Çıkarım cihazda'olmuyor.
+- [Alanda programlanabilir kapı dizileri (FPGA)](#fpga): Gerçek zamanlı çıkarım için son derece düşük gecikme süresi.
 
 Bu belgenin geri kalan ayrıntılı bu seçeneklerin her biri hakkında konuşuyor.
 
-## <a name="azure-container-instances"></a>Azure Container Instances
+## <a id="aci"></a>Azure Container Instances
 
 Kullanım Azure Container Instances varsa, bir REST API uç noktası olarak Modellerinizi dağıtmak veya aşağıdaki koşullardan biri daha fazla bilgi için geçerlidir:
-- Puanlama ve modelinizi doğrulama için hızlı dağıtım için bakıyorsunuz. ACI dağıtım, genellikle 5 dakikadan daha kısa bir süre içinde tamamlanır.
+- Hızlı bir şekilde dağıtın ve modelinizi doğrulama gerekir. ACI dağıtım 5 dakikadan daha kısa bir süre içinde tamamlanır.
 - Modelinizi bir geliştirme veya test ortamı verirsiniz. ACI, abonelik başına 20 kapsayıcı grubu dağıtmanıza olanak tanır. Daha fazla bilgi için [kotaları ve Azure Container Instances için bölge kullanılabilirliği](https://docs.microsoft.com/azure/container-instances/container-instances-quotas) belge.
 
 Daha fazla bilgi için [model Azure Container Instances'a dağıtma](how-to-deploy-to-aci.md) belge.
 
-## <a name="azure-kubernetes-service"></a>Azure Kubernetes Service
+## <a id="aks"></a>Azure Kubernetes hizmeti
 
-Büyük ölçekli üretim senaryoları için Azure Kubernetes Service (AKS) için model dağıtabilirsiniz. Mevcut bir AKS kümesi kullanmak veya Azure Machine Learning SDK'sı, CLI veya Azure portalını kullanarak yeni bir tane oluşturun.
+Büyük ölçekli üretim senaryoları için Azure Kubernetes Service (AKS) kullanın. Mevcut bir AKS kümesi kullanmak veya Azure Machine Learning SDK'sı, CLI veya Azure portalını kullanarak yeni bir tane oluşturun.
 
-Bir küme olduğundan AKS oluşturma işlemi için çalışma süresi. Oluşturulduktan sonra bu küme birden çok dağıtım için yeniden kullanabilirsiniz. Küme veya onu içeren kaynak grubunu silerseniz, sonraki açışınızda dağıtmanız gerekir. yeni bir küme oluşturmanız gerekir.
+Olan bir AKS kümesi oluşturma işlemi için çalışma süresi. Bu kümeye birden çok dağıtımlar için yeniden kullanabilirsiniz. Kümeyi silmeniz halinde, sonraki açışınızda dağıtmanız gerekir. yeni bir küme oluşturmanız gerekir.
 
-AKS'ye dağıtma, otomatik ölçeklendirme, günlüğe kaydetme, model veri koleksiyonu ve web hizmetleriniz için hızlı yanıt süresi sağlar. 
+Azure Kubernetes hizmeti, aşağıdaki özellikleri sağlar:
+
+* Otomatik ölçeklendirme
+* Günlüğe kaydetme
+* Model veri koleksiyonu
+* Web hizmetlerinizi hızlı yanıt süresi
 
 Bir AKS kümesi oluşturma işlemi yaklaşık 20 dakika sürer.
 
 Daha fazla bilgi için [Azure Kubernetes Service için model dağıtma](how-to-deploy-to-aks.md) belge.
 
-## <a name="azure-iot-edge"></a>Azure IoT Edge
+## <a id="iotedge"></a>Azure IOT Edge
 
-IOT cihazları ile verileri buluta göndermeden ve verileri döndürmek için bulutta barındırılan model üzerinde bekleyen yerine cihazın puanlamaların gerçekleştirilmesinin anlatıldığı daha hızlıdır. Azure IOT Edge, uç cihazlarında modelinizi barındırabilirsiniz. Bir veya daha fazla aşağıdaki özellikleri gerekirse modelinizi IOT Edge dağıtma:
+IOT cihazları ile Puanlama için buluta veri göndermek yerine cihazın puanlamaların gerçekleştirilmesinin anlatıldığı daha hızlıdır. Azure IOT Edge, uç cihazlarında modelinizi barındırabilirsiniz. Bir veya daha fazla aşağıdaki özellikleri gerekirse modelinizi IOT Edge dağıtma:
 - Hatta bir bulut bağlantısı olmadan öncelikli görevlerin yerel olarak işleme
 - Hızlı bir şekilde buluttan çekmek için çok büyük oluşturulan verilerle çalışın
 - Gerçek zamanlı olarak veya yerel cihazları yakın zeka işlemeden etkinleştir
@@ -62,9 +67,9 @@ Daha fazla bilgi için [Azure IOT Edge dağıtma](https://docs.microsoft.com/azu
 IOT Edge hizmeti hakkında daha fazla bilgi için bkz. [Azure IOT Edge belgeleri](https://docs.microsoft.com/azure/iot-edge/).
 
 
-## <a name="field-programmable-gate-arrays-fpga"></a>Alanda programlanabilir kapı dizileri (FPGA)
+## <a id="fpga"></a>Alanda programlanabilir kapı dizileri (FPGA)
 
-Project Brainwave tarafından desteklenen donanım hızlandırılmış modelleri, gerçek zamanlı çıkarım istekleri için çok düşük gecikme süresine ulaşmanız mümkün kılar. Project Brainwave alanda programlanabilir kapı dizileri Azure bulutta dağıtılan derin sinir ağı (DNN) hızlandırır. Yaygın olarak kullanılan Dnn'leri aktarımlı öğrenme için featurizers olarak kullanılabilir veya kendi verilerinizden özelleştirilebilir ağırlıklara sahip eğitilir.
+Project Brainwave tarafından desteklenen donanım hızlandırılmış modelleri, gerçek zamanlı çıkarım istekleri için çok düşük gecikme süresine ulaşmanız mümkün kılar. Project Brainwave alanda programlanabilir kapı dizileri Azure bulutta dağıtılan derin sinir ağı (DNN) hızlandırır. Yaygın olarak kullanılan Dnn'leri aktarımlı öğrenme için featurizers olarak kullanılabilir mi ya kendi verilerinizden özelleştirilebilir ağırlıklara sahip eğitilir.
 
 Daha fazla bilgi için [bir FPGA Dağıt](how-to-deploy-fpga-web-service.md) belge.
 

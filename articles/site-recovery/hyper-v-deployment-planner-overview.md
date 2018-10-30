@@ -1,22 +1,20 @@
 ---
-title: Hyper-V’den Azure’a Azure Site Recovery dağıtım planlayıcısı| Microsoft Docs
-description: Bu belge, Hyper-V’den Azure’a dağıtım senaryosu için Azure Site Recovery dağıtım planlayıcısı kullanım kılavuzudur.
-services: site-recovery
+title: Azure Site Recovery dağıtım Planlayıcısı azure'a olağanüstü durum kurtarma Hyper-V sanal makineleri hakkında | Microsoft Docs
+description: Azure'a Azure Site Recovery dağıtım Planlayıcısı Hyper-V olağanüstü durum kurtarma hakkında bilgi edinin.
 author: nsoneji
 manager: garavd
 ms.service: site-recovery
-ms.workload: storage-backup-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: nisoneji
-ms.openlocfilehash: 7a91217e35ae7a32714478171dcebc002e384fcb
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: ae93611bfe5dd11bea8bc0327868c2865b36b713
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49093604"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50210678"
 ---
-# <a name="site-recovery-deployment-planner-for-hyper-v-to-azure"></a>Hyper-v'den azure'a Azure Site Recovery dağıtım Planlayıcısı
+# <a name="about-the-azure-site-recovery-deployment-planner-for-hyper-v-disaster-recovery-to-azure"></a>Azure Site Recovery dağıtım planlayıcısı hakkında azure'a Hyper-V olağanüstü durum kurtarma
 
 Bu makale, Hyper-V’den Azure’a üretim dağıtımları için Azure Site Recovery Dağıtım Planlayıcısı kullanım kılavuzudur.
 

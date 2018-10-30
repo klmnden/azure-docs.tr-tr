@@ -1,63 +1,73 @@
+---
+author: cynthn
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: cynthn
+ms.openlocfilehash: 32f533d06b7db0284459951e65f9c04fe0bb0285
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50226518"
+---
+Yardımcı bir kullanılabilirlik kümesi, kesinti sırasında sanal makineleriniz gibi tutmak bakım sırasında. Bir kullanılabilirlik kümesinde iki veya daha çok benzer şekilde yapılandırılmış sanal makinelere yerleştirerek uygulamalar veya sanal makinenizi çalıştıran hizmet kullanılabilirliğini sürdürmek için gereken yedeklilik oluşturur. Bu işlemin nasıl çalıştığı hakkında daha fazla ayrıntı için bkz [sanal makinelerin kullanılabilirliğini yönetme][Manage the availability of virtual machines].
 
+Uygulamanızı her zaman etkili bir şekilde kullanılabilir ve çalışır durumda olduğunu sağlamak için kullanılabilirlik kümeleri hem Yük Dengeleme uç kullanmak için en iyi bir uygulamadır. Yük dengeli uç noktaları hakkında daha fazla ayrıntı için bkz: [Yük Dengeleme için Azure altyapı hizmetlerinde][Load balancing for Azure infrastructure services].
 
+Klasik sanal makineler, iki seçenekten birini kullanarak bir kullanılabilirlik kümesi içine ekleyebilirsiniz:
 
-Yardımcı bir kullanılabilirlik kümesi sanal makinelerinizin kapalı kalma süresi sırasında kullanılabilir gibi tutmak bakımı sırasında. Bir kullanılabilirlik kümesinde iki veya daha fazla benzer şekilde yapılandırılmış sanal makine yerleştirme uygulamalar veya sanal makinenize çalışan hizmetleri kullanılabilirliğini sürdürmek için gerekli artıklık oluşturur. Bunun nasıl çalıştığı hakkında daha fazla bilgi için bkz [sanal makinelerin kullanılabilirliğini yönetme][Manage the availability of virtual machines].
-
-Uygulamanızın her zaman verimli bir şekilde kullanılabilir olduğundan ve çalıştığından emin olmak için kullanılabilirlik kümeleri ve Yük Dengeleme uç noktaları kullanmak için en iyi bir uygulamadır. Yük dengeli uç noktalar hakkında daha fazla ayrıntı için bkz: [Yük Dengeleme için Azure altyapı hizmetleri][Load balancing for Azure infrastructure services].
-
-Kullanılabilirlik kümesi iki seçenekten birini kullanarak içine Klasik sanal makineleri ekleyin:
-
-* [Seçenek 1: bir sanal makine kullanılabilirlik aynı anda kümesi oluşturup][Option 1: Create a virtual machine and an availability set at the same time]. Ardından, bu sanal makineleri oluşturduğunuzda, yeni sanal makineler kümeye ekleyin.
-* [Seçenek 2: var olan bir sanal makine bir kullanılabilirlik kümesine ekleme][Option 2: Add an existing virtual machine to an availability set].
+* [Seçenek 1: bir sanal makine ve bir kullanılabilirlik kümesi aynı anda oluşturma][Option 1: Create a virtual machine and an availability set at the same time]. Ardından, bu sanal makineler oluştururken yeni sanal makineler kümeye ekleyin.
+* [2. seçenek: mevcut bir sanal makineyi bir kullanılabilirlik kümesine ekleme][Option 2: Add an existing virtual machine to an availability set].
 
 > [!NOTE]
-> Klasik modelde aynı kullanılabilirlik kümesinde yerleştirmek istediğiniz sanal makineleri aynı bulut hizmetine ait olmalıdır.
+> Klasik modeldeki sanal makinelerin aynı kullanılabilirlik kümesine yerleştirmek istediğiniz aynı bulut hizmetine ait olmalıdır.
 > 
 > 
 
-## <a id="createset"> </a>Seçenek 1: bir sanal makine ve kullanılabilirlik aynı anda kümesi oluşturma
-Bunu yapmak için Azure portalında veya Azure PowerShell komutlarını kullanabilirsiniz.
+## <a id="createset"> </a>Seçenek 1: bir sanal makine ve bir kullanılabilirlik kümesi aynı anda oluşturma
+Bunu yapmak için Azure portal veya Azure PowerShell komutlarını kullanabilirsiniz.
 
-Azure Portalı'nı kullanmak için:
+Azure portalını kullanmak için:
 
 1. Önceden yapmadıysanız, [Azure portal](https://portal.azure.com)da oturum açın
-2. Tıklatın **kaynak oluşturma** > **işlem**.
-3. Kullanmak istediğiniz Market sanal makine görüntüsü seçin. Bir Linux veya Windows sanal makine oluşturmak seçebilirsiniz.
-4. Seçili sanal makine için dağıtım modeli değerine ayarlandığını doğrulayın **Klasik** ve ardından **oluştur**
+2. Tıklayın **kaynak Oluştur** > **işlem**.
+3. Market, kullanmak istediğiniz sanal makine görüntüsünü seçin. Bir Linux veya Windows sanal makinesi oluşturmayı seçebilirsiniz.
+4. Seçilen sanal makine için dağıtım modelini değerine ayarlandığını doğrulayın **Klasik** ve ardından **oluştur**
    
-    ![Alt görüntü metin](./media/virtual-machines-common-classic-configure-availability/ChooseClassicModel.png)
-5. Bir sanal makine adı, kullanıcı adı ve parolası (Windows makineler) veya SSH ortak anahtarı (Linux makinelerde) girin. 
+    ![Alternatif resim metni](./media/virtual-machines-common-classic-configure-availability/ChooseClassicModel.png)
+5. Bir sanal makine adı, kullanıcı adı ve parola (Windows makineler için) veya SSH ortak anahtarı (Linux makineler için) girin. 
 6. VM boyutunu seçin ve ardından **seçin** devam etmek için.
 7. Seçin **isteğe bağlı yapılandırma > kullanılabilirlik kümesi**, ve sanal makineye eklemek istediğiniz kullanılabilirlik kümesini seçin.
    
-    ![Alt görüntü metin](./media/virtual-machines-common-classic-configure-availability/ChooseAvailabilitySet.png) 
-8. Yapılandırma ayarlarınızı gözden geçirin. İşiniz bittiğinde tıklatın **oluşturma**.
-9. Azure sanal makine oluştururken altında ilerleme durumunu izleyebilirsiniz **sanal makineleri** hub menüsünde.
+    ![Alternatif resim metni](./media/virtual-machines-common-classic-configure-availability/ChooseAvailabilitySet.png) 
+8. Yapılandırma ayarlarınızı gözden geçirin. İşiniz bittiğinde tıklayın **Oluştur**.
+9. Azure, sanal makine oluştururken, altında ilerleme durumunu izleyebilirsiniz **sanal makineler** hub menüsünde.
 
-Bir Azure sanal makinesi oluşturmak ve yeni veya var olan kullanılabilirlik kümesine eklemek için Azure PowerShell komutlarını kullanmak için bkz: [oluşturmak ve Windows tabanlı sanal makineleri önceden için Azure PowerShell kullanma](../articles/virtual-machines/windows/classic/create-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+Bir Azure sanal makinesi oluşturun ve yeni veya mevcut bir kullanılabilirlik kümesine eklemek için Azure PowerShell komutlarını kullanmak için bkz: [oluşturma ve önceden yapılandırma Windows tabanlı sanal makineler için Azure PowerShell'i kullanma](../articles/virtual-machines/windows/classic/create-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
-## <a id="addmachine"> </a>Seçenek 2: var olan bir sanal makine bir kullanılabilirlik kümesi ekleyin.
-Azure Portal'da, mevcut bir kullanılabilirlik Klasik varolan sanal makinelere veya bunları için yeni bir tane oluşturmak ekleyebilirsiniz. (Sanal makineler aynı kullanılabilirlik kümesindeki aynı bulut hizmetine ait olması gerektiğini aklınızda tutun.) Adımlar neredeyse aynıdır. Azure PowerShell ile sanal makine var olan bir kullanılabilirlik kümesine ekleyebilirsiniz.
+## <a id="addmachine"> </a>2. seçenek: mevcut bir sanal makineyi bir kullanılabilirlik kümesine ekleme
+Azure portalında mevcut Klasik sanal makineleri için mevcut bir kullanılabilirlik kümesi veya bunlar için yeni bir tane oluşturun ekleyebilirsiniz. (Aynı kullanılabilirlik kümesindeki sanal makinelerin aynı bulut hizmetine ait olmalıdır aklınızda tutun.) Adımlar neredeyse aynıdır. Azure PowerShell ile sanal makineyi var olan bir kullanılabilirlik kümesine ekleyebilirsiniz.
 
-1. Zaten yapmadıysanız, oturum [Azure portal](https://portal.azure.com).
-2. Sol menüsünde **sanal makineleri (Klasik)**.
+1. Zaten yapmadıysanız, oturum [Azure portalında](https://portal.azure.com).
+2. Sol menüsünde **sanal makineler (Klasik)**.
    
-    ![Alt görüntü metin](./media/virtual-machines-common-classic-configure-availability/ChooseClassicVM.png)
+    ![Alternatif resim metni](./media/virtual-machines-common-classic-configure-availability/ChooseClassicVM.png)
 3. Sanal makineler listesinden kümeye eklemek istediğiniz sanal makinenin adını seçin.
 4. Seçin **kullanılabilirlik kümesi** sanal makineden **ayarları**.
    
-    ![Alt görüntü metin](./media/virtual-machines-common-classic-configure-availability/AvailabilitySetSettings.png)
+    ![Alternatif resim metni](./media/virtual-machines-common-classic-configure-availability/AvailabilitySetSettings.png)
 5. Sanal makineye eklemek istediğiniz kullanılabilirlik kümesi seçin. Sanal makine kullanılabilirlik kümesi aynı bulut hizmetine ait olmalıdır.
    
-    ![Alt görüntü metin](./media/virtual-machines-common-classic-configure-availability/AvailabilitySetPicker.png)
+    ![Alternatif resim metni](./media/virtual-machines-common-classic-configure-availability/AvailabilitySetPicker.png)
 6. **Kaydet**’e tıklayın.
 
-Azure PowerShell komutlarını kullanmak için bir yönetici düzeyi Azure PowerShell oturumu açın ve aşağıdaki komutu çalıştırın. Yer tutucuları için (gibi &lt;VmCloudServiceName&gt;), dahil olmak üzere tırnak işaretleri içindeki her şeyi değiştirin < ve > karakterleri doğru adlara sahip.
+Azure PowerShell komutlarını kullanmak için bir yönetici düzeyinde Azure PowerShell oturumu açın ve aşağıdaki komutu çalıştırın. Yer tutucu (gibi &lt;VmCloudServiceName&gt;), tırnak işaretleri dahil olmak üzere, içindeki her şeyi değiştirin < ve > karakterleri doğru ada sahip.
 
     Get-AzureVM -ServiceName "<VmCloudServiceName>" -Name "<VmName>" | Set-AzureAvailabilitySet -AvailabilitySetName "<AvSetName>" | Update-AzureVM
 
 > [!NOTE]
-> Sanal makine kullanılabilirlik kümesine ekleme işlemini tamamlamak için yeniden başlatılması gerekebilir.
+> Sanal makineyi kullanılabilirlik kümesine ekleme işlemini sonlandırmak için yeniden başlatılması gerekebilir.
 > 
 > 
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/22/2018
 ms.author: harijay
-ms.openlocfilehash: facd9be037894932e516e8294e36b6b0e55374c8
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: 2cde7d2af4dee9e2bd241f0856b8f2d29ccad6ad
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50024437"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50210746"
 ---
 # <a name="virtual-machine-serial-console"></a>Sanal makine seri Konsolu
 
@@ -54,20 +54,26 @@ Sanal makineler için seri konsol üzerinden erişilebilir, yalnızca [Azure por
   4. Destek + sorun giderme bölümüne aşağı kaydırın ve "Seri konsol" seçeneğine tıklayın. Seri konsolu ile yeni bir bölme açılır ve bağlantıyı başlatın.
 
 ## <a name="enable-serial-console-in-custom-or-older-images"></a>Seri konsol eski veya özel görüntüleri etkinleştir
-Azure'da yeni Windows Server görüntülerini olacaktır [Özel Yönetim Konsolu](https://technet.microsoft.com/library/cc787940(v=ws.10).aspx) (SAC) varsayılan olarak etkin. SAC Windows server sürümlerinde desteklenir, ancak istemci sürümleri (örneğin, Windows 10, Windows 8 veya Windows 7) kullanılamıyor. Şubat 2018 tarihinden önce oluşturulan Windows sanal makineleri için seri konsol etkinleştirmek için lütfen aşağıdaki adımları kullanın: 
+Azure'da yeni Windows Server görüntülerini olacaktır [Özel Yönetim Konsolu](https://technet.microsoft.com/library/cc787940(v=ws.10).aspx) (SAC) varsayılan olarak etkin. SAC Windows server sürümlerinde desteklenir, ancak istemci sürümleri (örneğin, Windows 10, Windows 8 veya Windows 7) kullanılamıyor. 
+
+(Şubat 2018 tarihinden önce oluşturulan) daha eski Windows Server görüntüleri için Azure portalının Çalıştır komutu özelliği aracılığıyla seri konsol otomatik olarak sağlayabilir. Azure portalında "EnableEMS" adlı Run komutu arayın.
+
+![](./media/virtual-machines-serial-console/virtual-machine-windows-serial-console-runcommand.png)
+
+Alternatif olarak, Şubat 2018 tarihinden önce oluşturulan Windows sanal makineleri için seri konsoluna el ile etkinleştirmek için lütfen aşağıdaki adımları kullanın: 
 
 1. Windows sanal makinenize Uzak Masaüstü aracılığıyla bağlanma
-2. Bir yönetim komut isteminden aşağıdaki komutları çalıştırın. 
-* `bcdedit /ems {current} on`
-* `bcdedit /emssettings EMSPORT:1 EMSBAUDRATE:115200`
-3. SAC Konsolu etkinleştirilmesi için sistemi yeniden başlatın
+1. Bir yönetim komut isteminden aşağıdaki komutları çalıştırın. 
+    * `bcdedit /ems {current} on`
+    * `bcdedit /emssettings EMSPORT:1 EMSBAUDRATE:115200`
+1. SAC Konsolu etkinleştirilmesi için sistemi yeniden başlatın
 
-![](/media/virtual-machines-serial-console/virtual-machine-windows-serial-console-connect.gif)
+![](./media/virtual-machines-serial-console/virtual-machine-windows-serial-console-connect.gif)
 
 Gerekirse, SAC çevrimdışı de etkinleştirilebilir:
 
 1. Var olan sanal makineye veri diski olarak yapılandırılmış SAC istediğiniz windows disk ekleyin. 
-2. Bir yönetim komut isteminden aşağıdaki komutları çalıştırın. 
+1. Bir yönetim komut isteminden aşağıdaki komutları çalıştırın. 
 * `bcdedit /store <mountedvolume>\boot\bcd /ems {default} on`
 * `bcdedit /store <mountedvolume>\boot\bcd /emssettings EMSPORT:1 EMSBAUDRATE:115200`
 

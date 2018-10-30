@@ -1,27 +1,20 @@
 ---
-title: Azure'da çoğaltma kapasitesini tahmin edin | Microsoft Docs
-description: Azure Site Recovery kullanarak çoğaltırken kapasitesini tahmin etmek için bu makaleyi kullanın.
-services: site-recovery
-documentationcenter: ''
+title: Azure Site Recovery ile olağanüstü durum kurtarma Hyper-V için kapasite planlaması | Microsoft Docs
+description: Azure Site Recovery hizmeti ile olağanüstü durum kurtarmayı ayarlarken kapasitesini tahmin etmek için bu makaleyi kullanın.
 author: rayne-wiselman
-manager: jwhit
-editor: ''
-ms.assetid: 0a1cd8eb-a8f7-4228-ab84-9449e0b2887b
+manager: carmonm
 ms.service: site-recovery
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 10/11/2018
-ms.author: nisoneji
-ms.openlocfilehash: 3df7bd5ed44bdf514d48e451468329bd11fdf596
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.date: 10/28/2018
+ms.author: raynew
+ms.openlocfilehash: f600471e8a3602628a5040051f382e6e020f29d5
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49094046"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50211426"
 ---
-# <a name="plan-capacity-for-protecting-hyper-v-vms-with-site-recovery"></a>Site Recovery ile Hyper-V Vm'leri korumak için kapasite planlama
+# <a name="plan-capacity-for-hyper-v-vm-disaster-recovery"></a>Hyper-V VM'LERİNDE olağanüstü durum kurtarma için kapasite planlama 
 
 Geliştirilmiş yeni bir sürümü [Hyper-V'den Azure dağıtım için Azure Site Recovery dağıtım Planlayıcısı](site-recovery-hyper-v-deployment-planner.md) kullanıma sunulmuştur. Bu, eski aracı yerini alır. Yeni aracı dağıtımı planlama için kullanın.
 Aracı, aşağıdaki yönergeleri sağlar:

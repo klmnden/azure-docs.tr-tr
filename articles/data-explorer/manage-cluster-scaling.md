@@ -8,12 +8,12 @@ ms.service: data-explorer
 services: data-explorer
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 59a6a94e2906413423a4ae03a7c1c115b2ec0cc0
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: bd3be916587ab884ea5579234a6189af54b53797
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47048314"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50209216"
 ---
 # <a name="manage-cluster-scaling-to-accommodate-changing-demand"></a>Küme, değişen talepleri karşılamak için ölçekleme yönetme
 
@@ -63,4 +63,4 @@ Aşağıdaki grafikte, sonraki birkaç adım akışı gösterilmektedir. Daha fa
 
 Bir ölçek genişletme işlemi, Azure Veri Gezgini kümeniz şimdi yapılandırdınız. Bir ölçeklendirme işlemi için başka bir kural ekleyin. Bu, kümenizin ölçeğini dinamik olarak belirttiğiniz kullanım ölçümlerine bağlı sağlar.
 
-Küme ölçeklendirme sorunları ile ilgili yardıma ihtiyacınız varsa, Lütfen bir destek isteği açın [Azure portalında](https://portal.azure.com).
+Küme ölçeklendirme sorunları ile ilgili yardıma ihtiyacınız varsa, Lütfen bir destek isteği açın [Azure portalında](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).

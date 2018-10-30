@@ -1,19 +1,18 @@
 ---
-title: Hedef (Fizikselden azure'a) hazırlama | Microsoft Docs
-description: Bu makalede, Azure'da Windows veya Linux çalıştıran fiziksel sunucuları çoğaltmaya başlamak üzere Azure ortamınızı hazırlamak açıklar.
-services: site-recovery
+title: Şirket içi fiziksel sunucularını azure'a olağanüstü durum kurtarma için hedef ortamı ayarlama | Microsoft Docs
+description: Bu makalede, Azure Site Recovery ile fiziksel sunucuları olağanüstü durum kurtarma için Azure ortamı hedef açıklar.
 author: bsiva
 manager: abhemraj
 ms.service: site-recovery
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/06/2018
 ms.author: bsiva
-ms.openlocfilehash: 370d245e39b848acade18d0e73f60a3246737629
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: b89d04a6e2fd11a61de8b56690664f6204c208ad
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37915529"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50209301"
 ---
 # <a name="prepare-target-vmware-to-azure"></a>Hedef (Vmware'den azure'a) hazırlama
 
