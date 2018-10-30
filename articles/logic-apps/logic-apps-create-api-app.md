@@ -10,12 +10,12 @@ ms.reviewer: klam, jehollan, LADocs
 ms.topic: article
 ms.assetid: bd229179-7199-4aab-bae0-1baf072c7659
 ms.date: 05/26/2017
-ms.openlocfilehash: a761e384a356a0cbf5531eee7340ddbbd1526909
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: a3f837b41ba6ec7ecadb3e34917a8088e4d1e2d9
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43122255"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50233523"
 ---
 # <a name="create-custom-apis-you-can-call-from-azure-logic-apps"></a>Azure mantıksal uygulamalardan arayabileceğiniz özel API'ler oluşturma
 
@@ -41,7 +41,7 @@ Apı'lerinizi barındırmak [Azure App Service](../app-service/app-service-web-o
 > * [Python](../app-service/containers/quickstart-python.md)
 > * [Ruby](../app-service/containers/quickstart-ruby.md)
 >
-> Logic apps için oluşturulan API uygulaması örnekleri için ziyaret [Azure Logic Apps GitHub deposu](http://github.com/logicappsio) veya [blog](http://aka.ms/logicappsblog).
+> Logic apps için oluşturulan API uygulaması örnekleri için ziyaret [Azure Logic Apps GitHub deposu](http://github.com/logicappsio) veya [blog](https://aka.ms/logicappsblog).
 
 ## <a name="how-do-custom-apis-differ-from-custom-connectors"></a>Özel API'leri nasıl özel bağlayıcılar arasından farklıdır?
 
@@ -167,7 +167,7 @@ API'nin açısından açıklanan yoklama tetikleyici, belirli adımlar şunlard�
 
 | Yeni verileri veya olay bulundu?  | API yanıtı | 
 | ------------------------- | ------------ |
-| Bulundu | Bir HTTP dönüş `200 OK` durumu ile yanıt yükünde (sonraki adım için giriş). <br/>Bu yanıt, bir mantıksal uygulama örneği oluşturur ve iş akışı başlatır. | 
+| Bulunamadı | Bir HTTP dönüş `200 OK` durumu ile yanıt yükünde (sonraki adım için giriş). <br/>Bu yanıt, bir mantıksal uygulama örneği oluşturur ve iş akışı başlatır. | 
 | Bulunamadı | Bir HTTP dönüş `202 ACCEPTED` durumu ile bir `location` başlığı ve bir `retry-after` başlığı. <br/>Tetikleyici, `location` üstbilgi de içermelidir bir `triggerState` , genellikle bir "zaman damgası." sorgu parametresi API'nizi bu tanımlayıcı, mantıksal uygulama tetiklendi son süreyi izlemek için kullanabilirsiniz. | 
 ||| 
 
@@ -230,7 +230,7 @@ Kimlik doğrulamayı ayarladıktan sonra dağıtım Apı'leriniz için ayarlayı
 
 * Sorularınız için [Azure Logic Apps forumunu](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps) ziyaret edin.
 
-* Logic Apps’in geliştirilmesine yardımcı olmak için, [Logic Apps kullanıcı geri bildirim sitesinde](http://aka.ms/logicapps-wish) oy kullanın veya fikirlerinizi paylaşın. 
+* Logic Apps’in geliştirilmesine yardımcı olmak için, [Logic Apps kullanıcı geri bildirim sitesinde](https://aka.ms/logicapps-wish) oy kullanın veya fikirlerinizi paylaşın. 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

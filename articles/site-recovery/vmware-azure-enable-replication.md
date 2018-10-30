@@ -1,19 +1,8 @@
 ---
-title: Azure Site Recovery ile azure'a VMware VM çoğaltmayı etkinleştirme | Microsoft Docs
-description: Bu makalede VMware vm'lerinin Azure Site Recovery kullanarak azure'a çoğaltma ayarlama açıklar.
-services: site-recovery
-author: asgang
-ms.service: site-recovery
-ms.date: 07/06/2018
-ms.topic: conceptual
-ms.author: asgang
-ms.openlocfilehash: 9a868b196a287b7a5121803136d3c0119f64d9fe
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
-ms.translationtype: MT
-ms.contentlocale: tr-TR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37917032"
----
+Başlık: Azure Site Recovery ile azure'a VMware olağanüstü durum kurtarma için VMware sanal makinelerinin çoğaltmasını etkinleştir | Microsoft Docs açıklaması: Bu makalede, Azure Site Recovery kullanarak azure'a olağanüstü durum kurtarma için VMware VM çoğaltmayı etkinleştirmek açıklanır.
+Yazar: asgang ms.service: site recovery ms.date: 07/06/2018 ms.topic: kavramsal ms.author: asgang
+
+
 # <a name="enable-replication-to-azure-for-vmware-vms"></a>Azure'a VMware Vm'leri için çoğaltmayı etkinleştirme
 
 

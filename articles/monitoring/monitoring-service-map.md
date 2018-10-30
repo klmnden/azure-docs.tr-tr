@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/03/2018
+ms.date: 10/28/2018
 ms.author: magoedte
-ms.openlocfilehash: 49688b958d904450c50944725b18e0d518e27146
-ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
+ms.openlocfilehash: 32cd373499a1ac6dd8cc02e666b0f6ff70688157
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48269267"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50215268"
 ---
 # <a name="using-service-map-solution-in-azure"></a>Azure'da hizmet eşlemesi çözümünü kullanma
 Hizmet Eşlemesi, Windows ve Linux sistemleri üzerindeki uygulama bileşenlerini otomatik olarak bulur ve hizmetler arasındaki iletişimi eşler. Hizmet eşlemesi ile bunları düşündüğünüz gibi sunucularınızı görüntüleyebilirsiniz: kritik Hizmetleri sunmak birbirine sistemleri olarak. Bir aracı yüklemesini dışında hiçbir yapılandırma tüm TCP bağlantılı mimarisi arasında bağlantı noktaları gerekli ve hizmet eşlemesi sunucuları, işlemler, gelen ve giden bağlantı gecikmesi arasındaki bağlantıları gösterir.
@@ -72,11 +72,6 @@ Makineleri çalıştığını göstermek için haritada genişletilebileceğini 
 
 Varsayılan olarak, hizmet eşlemesi haritalar son 30 dakika bağımlılık bilgileri gösterir. Üst sol zamanı denetimleri kullanarak, maps geçmiş zaman aralıkları (örneğin, bir olay sırasında veya bir değişikliği oluşmadan önce) bağımlılıkları geçmişte nasıl baktığı göstermek için bir saat için sorgulayabilirsiniz. Hizmet eşlemesi veriler, 7 gün içinde ücretsiz çalışma alanı yanı sıra, 30 gün boyunca Ücretli çalışma alanlarında depolanır.
 
-
-
-
-
-
 ## <a name="status-badges-and-border-coloring"></a>Durumu rozetlerinin ve kenarlık renkleri
 Haritadaki her bir sunucunun altındaki sunucu hakkındaki durum bilgilerini yaygınlaşmıştır durumu rozetlerinin listesi olabilir. İşaretler, çözüm tümleştirmeler sunucudan ilgili bazı bilgiler olduğunu gösterir. Rozet tıkladığınızda sağ bölmede durumuna ayrıntıları için doğrudan yönlendirilirsiniz. Şu anda durumu rozetlerinin uyarılar, hizmet Masası, değişiklikler, güvenlik ve güncelleştirmeleri içerir.
 
@@ -104,7 +99,7 @@ Burada, seçebileceğiniz **Yeni Oluştur** ve grubun bir ad verin.
 ![Ad Grup](media/monitoring-service-map/machine-groups-name.png)
 
 >[!NOTE]
->Makine grupları şu anda 10 sunucularına sınırlıdır, ancak yakında bu sınırı artırmanız planlıyoruz.
+>Makine grupları 10 sunucularına sınırlıdır.
 
 ### <a name="viewing-a-group"></a>Grup görüntüleme
 Bazı grupları oluşturduktan sonra grupları sekmesini seçerek görüntüleyebilirsiniz.

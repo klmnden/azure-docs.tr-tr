@@ -6,14 +6,14 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 10/08/2018
+ms.date: 10/26/2018
 ms.author: alinast
-ms.openlocfilehash: 1c2068af510cb3733ce99a6ae7b40487a8c1a015
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: c1d66e0b58567244f8c1406ee258c9311994ff20
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49324311"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50215115"
 ---
 # <a name="understanding-digital-twins-object-models-and-spatial-intelligence-graph"></a>Dijital İkizlerini nesne modelleri ve uzamsal zeka graf anlama
 
@@ -25,7 +25,7 @@ _Dijital İkizlerini nesne modellerini_ etki alanına özgü kavramları, katego
 
 ![Dijital İkizlerini uzamsal grafik oluşturma][1]
 
-<a id="model" />
+<a id="model"></a>
 
 Uzamsal grafik alanları, cihazlar, algılayıcılar ve kullanıcıların bir araya getirir. Her birlikte gerçek dünyada modellerin bir şekilde bağlantılıdır: 43 mekan sahip birden çok farklı alanları her dört Katlar. Kullanıcılar kendi iş istasyonları ile ilişkili ve graf kısımlarına erişim verilir.  Örneğin, bir yönetici hakları ziyaretçisi yalnızca belirli bir yapı verileri görüntüleme haklarına olabilirken, uzamsal grafiğe değişiklik yapmak için gerekir.
 
@@ -52,19 +52,19 @@ Diğer nesnelerin kategorileri şunlardır:
 - **Matchers** hangi UDF'ler belirlemek nesneleri için belirli bir telemetri iletisi yürütülecek olan.
 - **Uç noktaları** burada telemetri iletilerini ve dijital İkizlerini olayları yönlendirilir, örneğin Konumlar `Event Hub`, `Service Bus`, `Event Grid`.
 
-<a id="graph" />
+<a id="graph"></a>
 
-## <a name="spatial-intelligence-graph"></a>Uzamsal zeka grafiği
+## <a name="spatial-intelligence-graph"></a>Uzamsal zeka grafı
 
 **Uzamsal grafik** hiyerarşik Graph alanları, cihazlar ve kişiler tanımlanan **dijital İkizlerini nesne modeli**. Uzamsal destekledikleri _devralma_, _filtreleme_, _geçiş_, _ölçeklenebilirlik_, ve _genişletilebilirliği_ . Kullanıcılar, yönetin ve bunların uzamsal graph REST API'leri (aşağıya bakın) koleksiyonu ile etkileşim.
 
-Dijital İkizlerini hizmet aboneliklerinde dağıtır kullanıcı otomatik olarak tüm yapısına yönelik tam erişim verme kök düğümü genel Yöneticisi olur. Bu kullanıcı ardından kullanarak grafik alanları sağlayabilirsiniz `Space` API. Cihazları kullanarak sağlanmasını `Device` API, algılayıcılar kullanarak sağlanmasını `Sensor` API vb. Ayrıca sunuyoruz [açık kaynak Araçları](https://github.com/Azure-Samples/digital-twins-samples-csharp) toplu grafikte sağlamak için.
+Dijital İkizlerini hizmet aboneliklerinde dağıtır kullanıcı otomatik olarak tüm yapısına yönelik tam erişim verme kök düğümü genel Yöneticisi olur. Bu kullanıcı ardından boşluk API kullanarak grafiği boşluk sağlayabilirsiniz. Cihazları cihaz API'si kullanılarak sağlanan, algılayıcılar algılayıcı API vb. kullanarak sağlanan. Ayrıca sunuyoruz [açık kaynak Araçları](https://github.com/Azure-Samples/digital-twins-samples-csharp) toplu grafikte sağlamak için.
 
 Graf _devralma_ izinleri ve altındaki tüm düğümler için bir üst düğümden düzen özellikleri için geçerlidir. Örneğin, belirli bir düğümde bir kullanıcı için rol atandığında kullanıcı bu rolün izinleri verilen düğüm ve her düğüm altındaki sahip olur. Ayrıca, her bir özellik anahtarı ve belirli bir düğümde tanımlanan genişletilmiş tür o düğümü altındaki tüm düğümler tarafından devralınır.
 
-Graf _filtreleme_ kimlikleri, adı, türleri, alt türleri, üst alanı, ilişkili alanları, algılayıcı veri türleri, özellik anahtarları ve değerleri, çapraz, minLevel, maxLevel ve başka bir OData filtre tarafından istek sonuçlarını daraltmak kullanıcıların sağlar Parametreler.
+Graf _filtreleme_ kimlikleri, adı, türleri, alt türleri, üst alanı, ilişkili alanları, algılayıcı veri türleri, özellik anahtarları ve değerleri, istek sonuçları daraltmak kullanıcıların sağlayan *çapraz*,  *minLevel*, *maxLevel*ve diğer OData filtre parametreleri.
 
-Graf _geçiş_ uzamsal grafik derinliği ve onun üzerinden gitmek kullanıcıların sağlar. Derinlik için graf yukarıdan aşağıya veya aşağıdan yukarıya Gezinti parametreleri kullanarak geçiş yapılabilir `traverse`, `minLevel`, `maxLevel`. Avantajlarına için doğrudan üst boşlukla veya alt öğelerinden birine bağlı eşdüzey düğümleri almak için graph çıkıldığında. Bir nesne sorgulanırken kullanarak nesne ilişkileri olan tüm ilgili nesneleri alabilir `includes` alma API'leri parametresi.
+Graf _geçiş_ uzamsal grafik derinliği ve onun üzerinden gitmek kullanıcıların sağlar. Derinlik için graf yukarıdan aşağıya veya aşağıdan yukarıya Gezinti parametreleri kullanarak geçiş yapılabilir *çapraz*, *minLevel*, *maxLevel*. Avantajlarına için doğrudan üst boşlukla veya alt öğelerinden birine bağlı eşdüzey düğümleri almak için graph çıkıldığında. Bir nesne sorgulanırken kullanarak nesne ilişkileri olan tüm ilgili nesneleri alabilir *içerir* alma API'leri parametresi.
 
 Azure dijital İkizlerini garanti eder, grafik _ölçeklenebilirlik_, gerçek iş yüklerinizi işleyebilir. Dijital İkizlerini Gayrimenkul, altyapı, cihazlar, algılayıcılar, telemetri ve diğer, büyük Portföyleri temsil etmek için kullanılabilir.
 
@@ -80,8 +80,8 @@ https://yourInstanceName.yourLocation.azuresmartspaces.net/management/swagger
 
 | Özel öznitelik adı | Değiştirin |
 | --- | --- |
-| `yourInstanceName` | Azure dijital İkizlerini örneğinizin adı |
-| `yourLocation` | Örneğiniz üzerinde barındırılıyorsa hangi sunucu bölge |
+| *örneğinizinadı* | Azure dijital İkizlerini örneğinizin adı |
+| *yourLocation* | Örneğiniz üzerinde barındırılıyorsa hangi sunucu bölge |
 
  Tam URL biçimi, aşağıdaki resimde kullanılan görülebilir:
 

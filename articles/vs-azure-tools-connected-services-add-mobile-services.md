@@ -15,12 +15,12 @@ ms.workload: mobile
 ms.custom: vs-azure
 ms.date: 12/16/2015
 ms.author: mlearned
-ms.openlocfilehash: 6cceb760ab62ea4f7225c9cc0cee7a6baf8ed8be
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: a1b2524b059601e1f6f999af7a9d9e063f7c0420
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42442220"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50233455"
 ---
 # <a name="adding-mobile-services-by-using-visual-studio-connected-services"></a>Visual Studio bağlı Hizmetler'i kullanarak mobil hizmet ekleme
 Visual Studio 2015 ile Azure mobil Hizmetleri'ni kullanarak bağlanabilirsiniz **bağlı hizmet Ekle** iletişim. Tüm C# istemci uygulamalarından, tüm JavaScript uygulaması veya platformlar arası Cordova uygulaması bağlanabilirsiniz. Bağlandıktan sonra oluşturma ve verilere erişmek, özel API'ler ve zamanlanan işler oluşturabilir veya anında iletme bildirimleri için destek eklendi.  Bağlı hizmetler işlemi, tüm uygun başvuruları ve bağlantı kodunu ekler. Çeşitli Azure AD gibi popüler kimlik şemaları ile kimlik doğrulaması için yerleşik destek avantajından da sürebilir Facebook, Twitter ve Microsoft Accounts.
@@ -68,7 +68,7 @@ Aşağıdaki proje türlerini Azure mobil Hizmetler'e bağlanmak için bağlı h
 6. Kod örneklerini kılavuz olarak kullanarak, mobil hizmetinize erişmek için kod yazmaya başlayın!
 
 ## <a name="how-your-project-is-modified"></a>Projenizi nasıl değiştirilir
-Visual Studio'nun projenizi nasıl değiştirdiğini, proje türüne göre değişir. C# için istemci uygulamalar, [ne olduğunu – C# projeleri](http://go.microsoft.com/fwlink/p/?LinkId=513119). JavaScript istemci uygulamalar için [ne olduğunu – JavaScript projeleri](http://go.microsoft.com/fwlink/p/?LinkId=513120). Cordova uygulamaları için bkz: [ne olduğunu – Cordova projeleri](http://go.microsoft.com/fwlink/p/?LinkId=513116).
+Visual Studio'nun projenizi nasıl değiştirdiğini, proje türüne göre değişir. İçin C# istemci uygulamalar, [ne – C# projeleri](http://go.microsoft.com/fwlink/p/?LinkId=513119). JavaScript istemci uygulamalar için [ne olduğunu – JavaScript projeleri](http://go.microsoft.com/fwlink/p/?LinkId=513120). Cordova uygulamaları için bkz: [ne olduğunu – Cordova projeleri](http://go.microsoft.com/fwlink/p/?LinkId=513116).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Soru sorun ve Yardım alın: 

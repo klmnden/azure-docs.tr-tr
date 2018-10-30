@@ -1,25 +1,18 @@
 ---
-title: Yük devretme Azure hataları için sorun giderme | Microsoft Docs
-description: Bu makalede, azure'a yük devretme, sık karşılaşılan sorunları giderme yolları açıklanır.
-services: site-recovery
-documentationcenter: ''
+title: Azure'a yük devretme sorunlarını giderme | Microsoft Docs
+description: Bu makalede, Azure Site Recovery ile azure'a yük devretme sırasında sık karşılaşılan sorunları gidermek açıklar.
 author: ponatara
 manager: abhemraj
-editor: ''
-ms.assetid: ''
 ms.service: site-recovery
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
 ms.date: 09/11/2018
 ms.author: ponatara
-ms.openlocfilehash: 6be71424e30c5783a03b157171b3f5acd0160e65
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.openlocfilehash: de0b3a51ae7c7cca91366b955c5fa74963d95d27
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44391019"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50211681"
 ---
 # <a name="troubleshoot-errors-when-failing-over-a-virtual-machine-to-azure"></a>Bir sanal makinenin azure'a yük devri sırasında karşılaşılan sorunları giderme
 

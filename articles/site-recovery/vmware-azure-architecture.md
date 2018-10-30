@@ -1,25 +1,26 @@
 ---
-title: VMware-Azure Site recovery'de Azure'a çoğaltma mimarisi | Microsoft Docs
-description: Bu makalede şirket içi VMware Vm'leri, Azure Site Recovery ile azure'a çoğaltırken kullanılan bileşenlere ve genel bir bakış sağlar.
+title: Vmware'den Azure'a olağanüstü durum kurtarma mimaride Azure Site Recovery | Microsoft Docs
+description: Bu makalede Azure'da Azure Site Recovery ile şirket içi VMware vm'lerinin olağanüstü durum kurtarma ayarlama çoğaltırken kullanılan bileşenler ve genel bir bakış sağlar.
 author: rayne-wiselman
 ms.service: site-recovery
+ms.topic: conceptual
 ms.date: 09/12/2018
 ms.author: raynew
-ms.openlocfilehash: 498c41324bfc85f6f91acc8000df4c34856cf428
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 58129ece0fb1b7f446e5f8d738b5d1135aa0256e
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44715763"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50212395"
 ---
-# <a name="vmware-to-azure-replication-architecture"></a>Vmware'den Azure'a çoğaltma mimarisi
+# <a name="vmware-to-azure-disaster-recovery-architecture"></a>Vmware'den Azure'a olağanüstü durum kurtarma mimarisi
 
-Bu mimari ve işlemlerdeki çoğaltma, yük devretme ve kurtarma VMware sanal makinelerini (VM) olduğunda kullanılan bir şirket içi VMware sitesi ile Azure arasında kullanarak makalede [Azure Site Recovery](site-recovery-overview.md).
+Bu mimari ve işlemlerdeki olağanüstü durum kurtarma çoğaltma, yük devretme ve kurtarma VMware sanal makinelerini (VM) dağıtırken kullanılan bir şirket içi VMware sitesi ve Azure kullanarak arasında makalede [Azure Site Recovery](site-recovery-overview.md) servuce.
 
 
 ## <a name="architectural-components"></a>Mimari bileşenler
 
-Aşağıdaki tablo ve grafik azure'a VMware çoğaltması için kullanılan bileşenleri üst düzey bir görünümünü sağlar.
+Aşağıdaki tablo ve grafik Vmware'den azure'a olağanüstü durum kurtarma için kullanılan bileşenleri üst düzey bir görünümünü sağlar.
 
 **Bileşen** | **Gereksinim** | **Ayrıntılar**
 --- | --- | ---

@@ -1,6 +1,6 @@
 ---
-title: Active Directory ve DNS'yi Azure Site Recovery ile koruma | Microsoft Docs
-description: Bu makalede, Azure Site RECOVERY'yi kullanarak Active Directory için bir olağanüstü durum kurtarma çözümü uygulamak açıklar.
+title: Active Directory ve DNS Azure Site Recovery ile olağanüstü durum kurtarma ayarlama | Microsoft Docs
+description: Bu makalede, Active Directory ve DNS Azure Site Recovery ile olağanüstü durum kurtarma çözümü uygulamak açıklar.
 services: site-recovery
 documentationcenter: ''
 author: mayurigupta13
@@ -9,14 +9,14 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: mayg
-ms.openlocfilehash: 1072c903e9bd9ccb3d63cae426283a677d10077e
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: 51d435d9edea5e341127cac89bc96a71c7bc8bb4
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49354300"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50211902"
 ---
-# <a name="use-azure-site-recovery-to-protect-active-directory-and-dns"></a>Active Directory ve DNS'yi koruma için Azure Site RECOVERY'yi kullanın.
+# <a name="set-up-disaster-recovery-for-active-directory-and-dns"></a>Active Directory ve DNS için olağanüstü durum kurtarmayı ayarlayın
 
 SharePoint, Dynamics AX ve SAP gibi Kurumsal uygulamaları düzgün çalışması için Active Directory ve DNS altyapısı bağlıdır. Uygulamalar için olağanüstü durum kurtarma ayarladığınızda, genellikle doğru uygulama işlevselliğinden emin olmak için diğer uygulama bileşenleri kurtarmadan önce Active Directory ve DNS kurtarmak gerekir.
 

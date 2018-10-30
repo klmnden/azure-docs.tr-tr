@@ -11,12 +11,12 @@ ms.assetid: d6d14f5f-2126-4e33-808e-41de08e6721f
 ms.topic: article
 tags: connectors
 ms.date: 08/25/2018
-ms.openlocfilehash: 813df5b4ef37ad1264df48863aa8f0ed5a4d4789
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 68378c87e18df874059579445352b8fd1b2b6c13
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43048783"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50232724"
 ---
 # <a name="exchange-messages-in-the-cloud-with-azure-service-bus-and-azure-logic-apps"></a>Azure Service Bus ve Azure Logic Apps ile bulutta Exchange iletileri
 
@@ -64,7 +64,7 @@ Mantıksal uygulamanız için Service Bus ad alanınızı erişme izinleri oldu�
       ![Service Bus ad alanı bağlantı dizesini kopyalayın](./media/connectors-create-api-azure-service-bus/find-service-bus-connection-string.png)
 
    > [!TIP]
-   > Bağlantı dizeniz, Service Bus ad alanı veya bir kuyruk gibi bir Mesajlaşma varlığı ile ilişkili olup olmadığını onaylamak için bağlantı dizesi için arama `EntityPath` parametresi. Bu parametre bulursanız, bağlantı dizesi için belirli bir varlık ve mantıksal uygulamanız ile kullanılacak doğru dizesi değil.
+   > Bağlantı dizeniz, Service Bus ad alanı veya bir kuyruk gibi bir Mesajlaşma varlığı ile ilişkili olup olmadığını onaylamak için bağlantı dizesi için arama `EntityPath`  parametresi. Bu parametre bulursanız, bağlantı dizesi için belirli bir varlık ve mantıksal uygulamanız ile kullanılacak doğru dizesi değil.
 
 ## <a name="add-trigger-or-action"></a>Tetikleyici veya eylemi ekleme
 
@@ -140,7 +140,7 @@ Tetikleyiciler ve Eylemler sınırları hakkında teknik ayrıntılar için bağ
 ## <a name="get-support"></a>Destek alın
 
 * Sorularınız için [Azure Logic Apps forumunu](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps) ziyaret edin.
-* Özelliklerle ilgili fikirlerinizi göndermek veya gönderilmiş olanları oylamak için [Logic Apps kullanıcı geri bildirimi sitesini](http://aka.ms/logicapps-wish) ziyaret edin.
+* Özelliklerle ilgili fikirlerinizi göndermek veya gönderilmiş olanları oylamak için [Logic Apps kullanıcı geri bildirimi sitesini](https://aka.ms/logicapps-wish) ziyaret edin.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

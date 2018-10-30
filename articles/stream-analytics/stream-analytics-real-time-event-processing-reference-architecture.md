@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/24/2017
-ms.openlocfilehash: 08ad2d853ab909ea859ffd1230dd651aa6661500
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 1195ab125749cd211a35d7ff00c4f418dbd59f62
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49987639"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50232435"
 ---
 # <a name="reference-architecture-real-time-event-processing-with-microsoft-azure-stream-analytics"></a>Başvuru mimarisi: Gerçek zamanlı Olay işleme ile Microsoft Azure Stream Analytics
 Başvuru mimarisi için gerçek zamanlı Olay işleme Azure Stream Analytics ile gerçek zamanlı platformu Microsoft Azure ile hizmet (PaaS) akış işleme çözümü olarak dağıtmak için genel bir şema sağlamak amacını taşımaktadır.
@@ -25,7 +25,7 @@ Geleneksel olarak, analiz çözümleri ETL (ayıklama, dönüştürme ve yüklem
 Microsoft Azure, bir dizi farklı çözüm senaryolarına ve gereksinimlerine destekleyebildiğini analytics teknolojilerinin kapsamlı bir katalog sunar. Bir uçtan uca çözümü dağıtmak için hangi Azure hizmetlerinin seçilmesi, teklifleri kapsamını verilen bir mücadele haline gelebilir. Bu yazıda, birlikte çalışabilirlik olay akışı çözümünü destekleyen çeşitli Azure Hizmetleri ve özellikleri tanımlamak için tasarlanmıştır. Ayrıca bazı müşteriler bu tür bir yaklaşım yararlanabilir senaryolar açıklanmaktadır.
 
 ## <a name="contents"></a>İçindekiler
-* Yönetim Özeti
+* Yönetici Özeti
 * Gerçek zamanlı analiz giriş
 * Gerçek zamanlı verilerin azure'da değer önerisi
 * Gerçek zamanlı analiz için ortak senaryolar

@@ -1,19 +1,18 @@
 ---
-title: Azure Site RECOVERY'yi kullanarak ikincil bir siteye Hyper-V sanal makinelerinin bir DR tatbikatı çalıştırma | Microsoft Docs
-description: Azure Site Recovery kullanarak bir ikincil veri merkezinde VMM bulutlarındaki Hyper-V Vm'leri için DR detaylandırması çalıştırmayı öğrenin.
-services: site-recovery
+title: Azure Site RECOVERY'yi kullanarak ikincil bir siteye Hyper-V vm'lerinin olağanüstü durum kurtarma tatbikatı çalıştırma | Microsoft Docs
+description: Azure Site Recovery kullanarak bir ikincil şirket içi veri merkezinde VMM bulutlarındaki Hyper-V Vm'leri için DR detaylandırması çalıştırmayı öğrenin.
 author: ponatara
 manager: abhemraj
 ms.service: site-recovery
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/06/2018
 ms.author: ponatara
-ms.openlocfilehash: 03533af27ac6fd406b4639c31c3add0015a76f45
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 3f7e534e9c698e31e1061c35aec713d20c7e570f
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37918807"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50211358"
 ---
 # <a name="run-a-dr-drill-for-hyper-v-vms-to-a-secondary-site"></a>DR tatbikatı Hyper-V Vm'leri için ikincil bir siteye çalıştırın.
 

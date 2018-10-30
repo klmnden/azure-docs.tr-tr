@@ -5,17 +5,17 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 5/21/2018
+ms.date: 10/29/2018
 ms.topic: article
 ms.service: azure-blockchain
-ms.reviewer: zeyadr
+ms.reviewer: coborn
 manager: femila
-ms.openlocfilehash: ee8057be98d18db5963a3e5f1ba1f8bd8d76fe05
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: c08557156848d4e7fcf0b1adbe6c8faa4ee00c82
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48243293"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50231381"
 ---
 # <a name="hyperledger-fabric-single-member-network"></a>Hyperledger Fabric tek üye ağ
 
@@ -28,7 +28,7 @@ Bu makaleyi okuduktan sonra şunları yapabilir olacaksınız:
 
 ## <a name="about-blockchain"></a>Blockchain hakkında
 
-Blok zinciri topluluğuna yeni başladıysanız, Azure üzerinde bir kolayca ve yapılandırılabilir şekilde teknolojisi hakkında bilgi edinmek için harika bir fırsat budur. Blok zinciri Bitcoin arkasındaki temel teknolojidir; Ancak, sanal bir para birimi Etkinleştirici çok daha fazlasına olur. Bu, güvenli çok taraflı hesaplama saldırılara karşı değiştirilemezlik, doğrulanabilirliğini denetler, denetlenebilirlik ve dayanıklılık Garantisi ile sağlayan bileşik bir var olan veritabanı, dağıtılmış sisteme ve şifreleme teknolojileri olur. Farklı protokollere bu öznitelikler sağlamak için farklı mekanizmaları. [Hyperledger Fabric](https://github.com/hyperledger/fabric) böyle bir protokoldür.
+Blok zinciri topluluğuna yeniyseniz, bu çözüm şablonu kolay ve yapılandırılabilir bir şekilde azure'da teknolojisi hakkında bilgi edinmek için harika bir fırsattır. Blok zinciri Bitcoin arkasındaki temel teknolojidir; Ancak, sanal bir para birimi Etkinleştirici çok daha fazlasına olur. Bu, güvenli çok taraflı hesaplama saldırılara karşı değiştirilemezlik, doğrulanabilirliğini denetler, denetlenebilirlik ve dayanıklılık Garantisi ile sağlayan bileşik bir var olan veritabanı, dağıtılmış sisteme ve şifreleme teknolojileri olur. Farklı protokollere bu öznitelikler sağlamak için farklı mekanizmaları. [Hyperledger Fabric](https://github.com/hyperledger/fabric) böyle bir protokoldür.
 
 ## <a name="consortium-architecture-on-azure"></a>Azure'da Consortium mimarisi
 
@@ -36,7 +36,7 @@ Bu şablon test ve üretim için tek bir kullanıcı benzetimini yardımcı olma
 
 Ağ düğüm üç tür oluşur:
 
-1. **Üye düğümünü**: kaydeder ve ağ üyeleri yöneten Fabric üyelik hizmeti çalıştıran bir düğüm. Bu laboratuvarda, bir tek üyeye düğüm kullanılır ancak bu düğüm sonunda ölçeklenebilirlik ve yüksek kullanılabilirlik için kümelenebilir.
+1. **Üye düğümünü**: kaydeder ve ağ üyeleri yöneten Fabric üyelik hizmeti çalıştıran bir düğüm. Bu düğüm, ölçeklenebilirlik ve yüksek kullanılabilirlik için kümelenmiş; Ancak bu laboratuvarda, bir tek üyeye düğümü kullanılır.
 2. **Sipariş eden düğümler**: toplam gibi bir teslim garantisi uygulama iletişim hizmetini çalıştıran bir düğüm sipariş yayın veya atomik işlemler.
 3. **Eş düğümleri**: hareketlerini tamamlar ve durumu ve dağıtılmış kayıt defteri bir kopyasını tutan bir düğümü.
 
@@ -57,13 +57,13 @@ Abonelik aldıktan sonra Git [Azure portalında](https://portal.azure.com). Seç
 
 ## <a name="deployment"></a>Dağıtım
 
-Başlamak için seçim **Hyperledger Fabric tek üye Blockchain** tıklatıp **Oluştur**. Bu açılır **Temelleri** dikey Sihirbazı'nda.
+Başlatmak için **Hyperledger Fabric tek üye Blockchain** tıklatıp **Oluştur** açmak için **Temelleri** dikey Sihirbazı'nda.
 
 Şablon dağıtımı birden çok düğümlü ağ yapılandırması için size yol gösterir. Dağıtım akışı üç adımlamayla ayrılmıştır: temel ağ yapılandırması ve yapı yapılandırması.
 
 ### <a name="basics"></a>Temel Bilgiler
 
-Altında **Temelleri** dikey penceresinde, abonelik ve kaynak grubu temel sanal makine özellikleri gibi herhangi bir dağıtım için standart parametreler için değerler belirtin.
+İçinde **Temelleri** dikey penceresinde herhangi bir dağıtım için standart parametreler için değerler belirtin. Özellikleri gibi abonelik, kaynak grubu ve temel sanal makine.
 
 ![Temel Bilgiler](./media/hyperledger-fabric-single-member-blockchain/basics.png)
 
@@ -72,7 +72,7 @@ Parametre Adı| Açıklama| İzin Verilen Değerler|Varsayılan Değer
 **Kaynak ön eki**| Temel olarak dağıtılan kaynaklar adlandırmak için kullanılan bir dize.|6 karakter veya daha az|NA
 **VM kullanıcı adı**| Bu üye için dağıtılan sanal makinelerin her biri için yönetici kullanıcı adı.|1 - 64 karakter|azureuser
 **Kimlik doğrulaması türü**| Sanal makinenin kimliğini doğrulamak için yöntem.|Parola veya SSH ortak anahtarı|Parola
-**Parola (kimlik doğrulaması türü = parola)**|Dağıtılan sanal makinelerin her biri için yönetici hesabının parolası. Parola şunlardan 3 tanesini içermelidir: 1 büyük harf karakter, 1 küçük harf, 1 sayı ve 1 özel karakter.<br /><br />Tüm VM'lerin aynı parolayı başlangıçta olsa da, parola sağladıktan sonra değiştirebilirsiniz.|12 - 72 karakter|NA
+**Parola (kimlik doğrulaması türü = parola)**|Dağıtılan sanal makinelerin her biri için yönetici hesabının parolası. Parola şu karakter türlerinin üç içermelidir: 1 büyük harf karakter, 1 küçük harf, 1 sayı ve 1 özel karakter.<br /><br />Tüm VM'lerin aynı parolayı başlangıçta olsa da, parola sağladıktan sonra değiştirebilirsiniz.|12 - 72 karakter|NA
 **SSH anahtarı (kimlik doğrulaması türü ortak anahtar =)**|Uzaktan oturum açma için kullanılan güvenli Kabuk anahtarı.||NA
 **IP adresine göre erişimi kısıtlama**|Ayar türü, istemci uç noktası erişimi kısıtlı olup olmadığını belirlemek için.|Evet/Hayır| Hayır
 **IP adresi veya alt ağı izin (IP adresine göre erişimi kısıtlama = Yes)**|IP adresi veya erişim denetimi etkinleştirildiğinde istemci uç noktasına erişmek için izin verilen IP adresleri kümesi.||NA
@@ -82,7 +82,7 @@ Parametre Adı| Açıklama| İzin Verilen Değerler|Varsayılan Değer
 
 ### <a name="network-size-and-performance"></a>Ağ boyutu ve performansı
 
-Sonraki altında **boyutu ve performansı, ağ** girişleri için üyelik, sipariş eden ve eş düğümleri sayısı gibi bir konsorsiyum ağı boyutunu belirtin. Farklı altyapı seçeneklerini ve sanal makine boyutu seçin.
+Ardından **boyutu ve performansı, ağ** girişleri Konsorsiyum ağı boyutunu belirtin. Üyelik, sipariş eden ve eş düğümleri sayısı gibi. Farklı altyapı seçeneklerini ve sanal makine boyutu seçin.
 
 ![Ağ boyutu ve performansı](./media/hyperledger-fabric-single-member-blockchain/network-size-performance.png)
 
@@ -135,7 +135,7 @@ Ayrıntılar ekranını ve ardından üç yararlı çıktıyı parametrelerle, d
 
 - _API uç noktası_ ağı üzerinde bir uygulamayı dağıttığınızda kullanılabilir.
 - _ÖNEK_ ayrıca adlı _dağıtım ön eki_ , benzersiz olarak kaynaklarınızı ve dağıtım tanımlar. Komut satırı tabanlı araçlar kullanıldığında kullanılır.
-- _SSH için ilk VM_ sağlar, önceden oluşturulmuş bir ssh komutu doğru parametrelerle gerekli ağınızdaki ilk VM bağlanmak için; Hyperledger Fabric söz konusu olduğunda, CA Fabric düğümü olacaktır.
+- _SSH için ilk VM_ sağlar, önceden oluşturulmuş bir ssh komutu ağınızdaki; ilk VM bağlanmak için gereken doğru parametrelere sahip Fabric CA düğüm Hyperledger Fabric için de artar.
 
 Belirtilen yönetici kullanıcı adı ve parolası/SSH anahtarı ile sanal makineler SSH aracılığıyla her düğüm için uzaktan bağlanabilir. Kendi genel IP adresleri düğümünü sanal makinelere sahip olduğundan, yük dengeleyici üzerinden gidin ve bağlantı noktası numarasını belirtmeniz gerekir. Üçüncü şablon çıktısı, ilk işlem düğümüne erişmek için SSH komutu şöyledir ** SSH için ilk VM (için örnek dağıtımı: `sh -p 3000 azureuser@hlf2racpt.northeurope.cloudapp.azure.com`). Ek işlem düğümlerine almak için bağlantı noktası numarası bir artırmasına (örneğin, bağlantı noktası 3000, ilk işlem düğümü olan ikinci 3001, üçüncü 3002 üzerinde vs.).
 

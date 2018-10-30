@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/25/2018
+ms.date: 10/29/2018
 ms.author: juliako
-ms.openlocfilehash: 1d626a22802a1de19bcc5647179d76d44e826cfd
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: f15ba7606136786b49eb4d6a0da097e7abf3fab4
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50159052"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50231670"
 ---
 # <a name="scaling-media-processing-overview"></a>Genel Bakış medya işlemeyi ölçeklendirme
 Bu sayfa hakkında genel bakış ve neden medya işlemeyi ölçeklendirme sağlar. 
@@ -33,7 +33,7 @@ Aşağıdaki tabloda farklı kodlama hızlarını arasında seçim yaparken bir 
 
 |RU türü|Senaryo|Örnek sonuçlarını [video 7 dk 1080 p](https://nimbuspmteam.blob.core.windows.net/asset-46f1f723-5d76-477e-a153-3fd0f9f90f73/SeattlePikePlaceMarket_7min.ts?sv=2015-07-08&sr=c&si=013ab6a6-5ebf-431e-8243-9983a6b5b01c&sig=YCgEB8DxYKK%2B8W9LnBykzm1ZRUTwQAAH9QFUGw%2BIWuc%3D&se=2118-09-21T19%3A28%3A57Z)|
 |---|---|---|
-| **S1**|Tek bit hızlı kodlama. <br/>SD veya çözümleri altındaki dosyaları, duyarlı, düşük maliyetli değildir zaman.|Tek bit hızlı MP4 dosyası, aynı çözünürlükte, kodlamayı yaklaşık 5 dakika sürer.|
+| **S1**|Tek bit hızlı kodlama. <br/>SD veya çözümleri altındaki dosyaları, duyarlı, düşük maliyetli değildir zaman.|Çoklu bit hızı SD çözümleme MP4 dosyasını kullanarak "H264 Çoklu bit hızı SD 16 x 9" için kodlama, 10 dakika sürer.|
 | **S2**|Tekli bit hızı ve Çoklu bit hızlı kodlama.<br/>SD hem HD kodlaması için normal kullanım.|"H264 tekli bit hızı ile 720 p" kodlama yaklaşık 8 dakika sürer hazır.<br/><br/>Kodlama ile "H264 Çoklu bit hızı 720p" önayarını yaklaşık 16,8 birkaç dakika sürer.|
 | **S3**|Tekli bit hızı ve Çoklu bit hızlı kodlama.<br/>Tam HD ve 4K çözünürlüklü videolar. Kodlama duyarlı, daha hızlı bir döngü süresi.|"H264 tekli bit hızı ile 1080 p" kodlama yaklaşık 4 dakika sürer hazır.<br/><br/>Kodlama ile "H264 Çoklu bit hızı 1080p" önayarını yaklaşık 8 dakika sürer.|
 

@@ -1,6 +1,6 @@
 ---
-title: Virtual Machine Manager bulutlarındaki Hyper-V Vm'lerini PowerShell (Azure Resource Manager) ile ikincil bir siteye çoğaltmak | Microsoft Docs
-description: Virtual Machine Manager bulutlarındaki Hyper-V Vm'lerini PowerShell (Resource Manager) kullanarak Virtual Machine Manager ikincil bir siteye çoğaltma işlemi açıklanır
+title: Azure Site Recovery ve PowerShell ile ikincil bir siteye VMM bulutlarındaki Hyper-V sanal makineleri olağanüstü durum kurtarma ayarlama | Microsoft Docs
+description: Azure Site Recovery ve PowerShell kullanarak ikincil bir VMM sitesine VMM bulutlarındaki Hyper-V Vm'lerinde olağanüstü durum kurtarma işlemini ayarlama işlemi açıklanmaktadır.
 services: site-recovery
 author: sujayt
 manager: rochakm
@@ -8,14 +8,14 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: sutalasi
-ms.openlocfilehash: 896b3cb3c40673dfbc7269cab1d37790f78912b0
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 6ade1d584fad05e33a72a0ff5099378a9cf7f29f
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48041365"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50214588"
 ---
-# <a name="replicate-hyper-v-vms-to-a-secondary-site-by-using-powershell-resource-manager"></a>PowerShell (Resource Manager) aracılığıyla Hyper-V Vm'lerini ikincil bir siteye çoğaltma
+# <a name="set-up-disaster-recovery-of-hyper-v-vms-to-a-secondary-site-by-using-powershell-resource-manager"></a>PowerShell (Resource Manager) aracılığıyla Hyper-V Vm'lerini ikincil bir siteye olağanüstü durum kurtarmayı ayarlama
 
 Bu makalede, Hyper-V Vm'lerini ikincil bir Virtual Machine Manager buluta System Center Virtual Machine Manager bulutlarındaki çoğaltılması site kullanarak şirket için adımları otomatikleştirmek gösterilmektedir [Azure Site Recovery](site-recovery-overview.md).
 

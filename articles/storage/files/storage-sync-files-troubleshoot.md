@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/06/2018
 ms.author: jeffpatt
 ms.component: files
-ms.openlocfilehash: d240bafa543633999a74ef66efcfd7130a4a7b7a
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 1a135b0e17889c544a99ad677e9fa42ad6de994c
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49389285"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50231891"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Azure Dosya Eşitleme ile ilgili sorunları giderme
 Kuruluşunuzun dosya paylaşımlarını Azure dosyaları'nda esneklik, performans ve bir şirket içi dosya sunucusunun uyumluluğu korurken merkezileştirmek için Azure dosya eşitleme'yi kullanın. Azure dosya eşitleme Windows Server, Azure dosya paylaşımınızın hızlı bir önbelleğine dönüştürür. SMB, NFS ve FTPS gibi verilerinizi yerel olarak erişmek için Windows Server üzerinde kullanılabilir olan herhangi bir protokolünü kullanabilirsiniz. Dünya genelinde gereken sayıda önbellek olabilir.
@@ -74,9 +74,9 @@ Azure dosya paylaşımının zaten başka bir bulut uç noktası tarafından kul
 Bu iletiyi görürseniz ve Azure dosya paylaşımı şu anda bir bulut uç noktası tarafından kullanılmadığından, Azure dosya paylaşımında Azure dosya eşitleme meta verileri temizlemek için aşağıdaki adımları tamamlayın:
 
 > [!Warning]  
-> Meta veriler üzerinde bir bulut uç noktası tarafından kullanılmakta olan bir Azure dosya paylaşımı siliniyor, Azure dosya eşitleme işlemlerinin başarısız olmasına neden olur. 
+> Meta veriler üzerinde bir bulut uç noktası tarafından kullanılmakta olan bir Azure dosya paylaşımı siliniyor, Azure dosya eşitleme işlemlerinin başarısız olmasına neden olur. 
 
-1. Azure portalında, Azure dosya paylaşımına gidin.  
+1. Azure portalında, Azure dosya paylaşımına gidin.  
 2. Azure dosya paylaşımına sağ tıklayın ve ardından **meta verileri Düzenle**.
 3. Sağ **SyncService**ve ardından **Sil**.
 
@@ -519,7 +519,7 @@ Değişiklikleri Azure dosya paylaşımında doğrudan ve değişiklik algılama
 | | |
 | **HRESULT** | 0x80c8021c |
 | **HRESULT (ondalık)** | -2134375908 |
-| **Hata dizesi** | ECS_E_SYNC_METADATA_KNOWLEGE_LIMIT_REACHED |
+| **Hata dizesi** | ECS_E_SYNC_METADATA_KNOWLEDGE_LIMIT_REACHED |
 | **Düzeltme gerekli** | Evet |
 | | |
 | **HRESULT** | 0x80c80253 |

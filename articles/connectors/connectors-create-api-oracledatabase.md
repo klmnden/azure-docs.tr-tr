@@ -1,6 +1,6 @@
 ---
-title: Oracle veritabanına - Azure mantıksal uygulamaları | Microsoft Docs
-description: INSERT ve Oracle veritabanı REST API'leri ve Azure Logic Apps ile kayıtlarını yönetme
+title: Oracle veritabanı - Azure Logic Apps | Microsoft Docs
+description: Ekle ve Oracle veritabanı REST API'ler ve Azure Logic Apps ile kayıtlarını yönetme
 author: ecfan
 manager: jeconnoc
 ms.author: estfan
@@ -11,124 +11,124 @@ services: logic-apps
 ms.reviewer: klam, LADocs
 ms.suite: integration
 tags: connectors
-ms.openlocfilehash: 8e83a246c815a01b417f7658535906c396bf5996
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 78ac8f83bceef88e89edefa0eececb058e8efe2b
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35296028"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50230242"
 ---
 # <a name="get-started-with-the-oracle-database-connector"></a>Oracle Veritabanı Bağlayıcısı ile çalışmaya başlama
 
-Oracle Veritabanı Bağlayıcısı'nı kullanarak, varolan bir veritabanında veri kullanan kurumsal iş akışları oluşturun. Bu bağlayıcı, şirket içi Oracle veritabanı veya bir Azure sanal makinesi için Oracle veritabanı ile bağlanabilir. Bu bağlayıcı ile şunları yapabilirsiniz:
+Oracle Veritabanı Bağlayıcısı'nı kullanarak, varolan bir veritabanında veri kullanan kurumsal iş akışları oluşturun. Bu bağlayıcı, şirket içi Oracle veritabanı veya bir Azure sanal makinesinde Oracle veritabanı ile bağlanabilirsiniz. Bu bağlayıcıyı kullanarak, şunları yapabilirsiniz:
 
-* Müşteriler veritabanına yeni bir müşteri ekleyerek veya bir sırada siparişler veritabanını güncelleştirmek, iş akışı oluşturma.
-* Bir satır veri almak, yeni bir satır ekleyin ve hatta silmek için Eylemler kullanın. Örneğin, bir kayıt Dynamics CRM Online içinde (tetikleyici) oluşturulduğunda, bir satır bir Oracle veritabanına (bir eylem) ekleyin. 
+* Bir müşteri veritabanına yeni bir müşteri eklemek veya bir sipariş veritabanındaki sipariş güncelleştiriliyor, iş akışınızı oluşturun.
+* Bir satır veri almak, yeni bir satır ekleyin ve hatta silebilir eylemlerini kullanın. Örneğin, Dynamics CRM Online'da (tetikleyici) bir kayıt oluşturulduğunda bir satır bir Oracle veritabanına (bir eylem) ekleyin. 
 
-Bu makalede bir mantıksal uygulama Oracle Veritabanı Bağlayıcısı'nı kullanmayı gösterir.
+Bu makalede, Oracle veritabanı bağlayıcının bir mantıksal uygulamada kullanma işlemini göstermektedir.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
 * Desteklenen Oracle sürümleri: 
-    * Oracle 9 ve sonraki sürümler
+    * Oracle 9 ve üstü
     * Oracle istemci yazılımı 8.1.7 ve sonraki sürümler
 
-* Şirket içi veri ağ geçidini yükleyin. [Şirket içi veri mantığı uygulamalardan bağlanmak](../logic-apps/logic-apps-gateway-connection.md) adımlar listelenmektedir. Ağ geçidi şirket içi Oracle veritabanına bağlanmak için gereken veya bir Azure VM Oracle DB ile yüklü. 
+* Şirket içi veri ağ geçidi yükleyin. [Mantıksal uygulamalardan şirket içi verilere bağlanma](../logic-apps/logic-apps-gateway-connection.md) adımları listelenir. Ağ geçidi, şirket içi Oracle veritabanına bağlanmak için gereklidir ve Oracle DB ile bir Azure VM'yi yüklü. 
 
     > [!NOTE]
-    > Şirket içi veri ağ geçidi köprü olarak davranır ve şirket içi veri (buluta değil veri) ve logic apps arasında güvenli veri aktarımını sağlar. Aynı ağ geçidi, birden çok hizmet ve birden çok veri kaynağı ile kullanılabilir. Bu nedenle, yalnızca bir kez ağ geçidi yüklemeniz gerekebilir.
+    > Şirket içi veri ağ geçidi bir köprü görevi görür ve şirket içi veriler (bulutta olmayan veriler) ve logic apps arasında güvenli veri aktarımı sağlar. Aynı ağ geçidi, birden çok hizmet ve birden çok veri kaynağı ile kullanılabilir. Bu nedenle, yalnızca bir kez ağ geçidi yüklemeniz gerekebilir.
 
-* Oracle istemcisi şirket içi veri ağ geçidinin yüklendiği makineye yükleyin. Oracle .NET için 64-bit Oracle veri sağlayıcısı yüklediğinizden emin olun:  
+* Oracle istemcisini şirket içi veri ağ geçidinin yüklü olduğu bir makineye yükleyin. .NET Oracle için 64-bit Oracle veri sağlayıcısı'nı yüklediğinizden emin olun:  
 
   [Windows x64 için 64-bit ODAC 12c sürüm 4 (12.1.0.2.4)](http://www.oracle.com/technetwork/database/windows/downloads/index-090165.html)
 
     > [!TIP]
-    > Oracle istemcisi yüklü değilse, oluşturmak veya bağlantı kullanmak çalıştığınızda hata oluşur. Bu makalede yaygın hatalar da görebilirsiniz.
+    > Oracle istemcisi yüklü değilse, oluşturmak veya bağlantısı çalıştığınızda hata oluşur. Bu makalede sık karşılaşılan bakın.
 
 
-## <a name="add-the-connector"></a>Bağlayıcısını ekleyin
+## <a name="add-the-connector"></a>Bağlayıcı Ekle
 
 > [!IMPORTANT]
-> Bu bağlayıcı hiçbir tetikleyici yok. Yalnızca eylem yok. Mantıksal uygulamanızı oluşturduğunuzda, bu nedenle mantıksal uygulamanızı gibi başlatmak için başka bir tetikleyici ekleyin **çizelgesi - yinelenme**, veya **istek / yanıt - yanıt**. 
+> Bu bağlayıcı, herhangi bir tetikleyici yok. Bu, yalnızca eylemleri vardır. Mantıksal uygulamanızı oluşturduğunuzda, bu nedenle gibi mantıksal uygulamanızı başlatmak için başka bir tetikleyici ekleme **zamanlama - yinelenme**, veya **istek / yanıt - yanıt**. 
 
-1. İçinde [Azure portal](https://portal.azure.com), boş mantıksal uygulama oluşturma.
+1. İçinde [Azure portalında](https://portal.azure.com), boş bir mantıksal uygulama oluşturun.
 
 2. Mantıksal uygulamanızı başlangıcında seçin **istek / yanıt - istek** tetikleyici: 
 
     ![](./media/connectors-create-api-oracledatabase/request-trigger.png)
 
-3. **Kaydet**’i seçin. Kaydettiğinizde, bir istek URL'sini otomatik olarak oluşturulur. 
+3. **Kaydet**’i seçin. İstek URL'si, kaydettiğinizde, otomatik olarak oluşturulur. 
 
 4. Seçin **yeni adım**seçip **Eylem Ekle**. Yazın `oracle` kullanılabilir eylemleri görmek için: 
 
     ![](./media/connectors-create-api-oracledatabase/oracledb-actions.png)
 
     > [!TIP]
-    > Bu ayrıca tetikleyiciler ve Eylemler herhangi bir bağlayıcı için kullanılabilir görmek için en hızlı yoludur. Bağlayıcı adı bölümünde gibi yazın `oracle`. Tasarımcı hiçbir tetikleyici ve eylemleri listeler. 
+    > Bu da herhangi bir bağlayıcı için kullanılabilir eylemleri ve Tetikleyicileri görmek için en hızlı yoludur. Bağlayıcı adı bir parçası yazın `oracle`. Tasarımcı, hiçbir tetikleyici ve eylemleri listeler. 
 
-5. Eylemlerden birini gibi seçin **Oracle veritabanı - Get satır**. Seçin **Connect şirket içi veri ağ geçidi üzerinden**. Oracle Sunucusu adı, kimlik doğrulama yöntemi, kullanıcı adı, parola girin ve ağ geçidi seçin:
+5. Eylemler, biri gibi seçin **Oracle Database - Get satır**. Seçin **şirket içi veri ağ geçidi üzerinden Bağlan**. Oracle Sunucusu adı, kimlik doğrulama yöntemi, kullanıcı adı, parola girin ve ağ geçidini seçin:
 
     ![](./media/connectors-create-api-oracledatabase/create-oracle-connection.png)
 
-6. Bağlantı kurulduktan sonra listeden bir tablo seçin ve tablonuza satır kimliği girin. Tabloya tanımlayıcı bilmeniz gerekir. Bilmiyorsanız, Oracle DB yöneticinize başvurun ve çıktısını almak `select * from yourTableName`. Bu, devam etmek için gereken kişisel bilgileri sağlar.
+6. Bağlandıktan sonra listeden bir tablo seçin ve tablonuza satır kimliği girin. Tablo tanımlayıcısı bilmeniz gerekir. Bilmiyorsanız, Oracle DB yöneticinize başvurun ve çıktısını almak `select * from yourTableName`. Bu, devam etmeniz için gereken bilgiler sağlar.
 
-    Aşağıdaki örnekte, İnsan Kaynakları veritabanından iş veri döndürülmüyor: 
+    Aşağıdaki örnekte, iş verilerini, İnsan Kaynakları veritabanından döndürülüyor: 
 
     ![](./media/connectors-create-api-oracledatabase/table-rowid.png)
 
-7. Bu sonraki adımda herhangi diğer bağlayıcıları, iş akışını oluşturmak için kullanabilirsiniz. Oracle alma verilerden test etmek isterseniz, daha sonra kendiniz bir e-posta gönderme e-posta bağlayıcıları, böyle bir Office 365 veya Gmail birini kullanarak Oracle verilerle gönderin. Oracle tablosundan dinamik belirteçleri oluşturmak için kullanmak `Subject` ve `Body` e-postanızın:
+7. Bu sonraki adımda diğer bağlayıcılardan herhangi biri, iş akışınızı oluşturmak için kullanabilirsiniz. Veri Oracle almayı test etmek isterseniz, sonra kendinize bir e-posta Gönder e-posta bağlayıcıların böyle bir Office 365 veya Gmail birini kullanarak Oracle verileri gönderin. Oracle tablosu gelen dinamik belirteçleri oluşturmak için kullanın `Subject` ve `Body` e-postanızın:
 
     ![](./media/connectors-create-api-oracledatabase/oracle-send-email.png)
 
-8. **Kaydet** mantıksal uygulama ve ardından **çalıştırmak**. Tasarımcı kapatın ve durum çalıştırır geçmişi bakın. Başarısız olursa, başarısız ileti satırını seçin. Tasarımcı açar ve hangi adım başarısız oldu ve hata bilgilerini de gösterir gösterir. Başarılı olursa, eklenen bilgiler içeren bir e-posta almanız gerekir.
+8. **Kaydet** mantıksal uygulama ve ardından **çalıştırma**. Tasarımcı kapatın ve durumu için çalıştırma geçmişi bakın. Başarısız olursa, başarısız iletisi satırı seçin. Tasarımcı açılır ve hangi adım başarısız oldu ve hata bilgilerini de gösterir gösterir. Başarılı olursa, eklenen bilgiler içeren bir e-posta almanız gerekir.
 
 
-### <a name="workflow-ideas"></a>İş akışı fikirleri
+### <a name="workflow-ideas"></a>İş akışı fikir
 
-* #Oracle diyez izlemek ve bunlar sorgulanan ve diğer uygulamalar içinde kullanılan şekilde tweet'leri bir veritabanında yerleştirmek istediğiniz. Bir mantıksal uygulama Ekle `Twitter - When a new tweet is posted` tetikleyebilir ve girin **#oracle** diyez. Ardından, ekleyin `Oracle Database - Insert row` eylemi ve tablonuzu seçin:
+* #Oracle diyez etiketi izleyin ve bunlar sorgulanabilen ve diğer uygulamaları içinde kullanılan şekilde tweetleri bir veritabanında koymak istiyorsanız. Bir mantıksal uygulama, ekleme `Twitter - When a new tweet is posted` tetikleyin ve girin **#oracle** diyez etiketi. Ardından, ekleme `Oracle Database - Insert row` eylem ve tablonuzu seçme:
 
     ![](./media/connectors-create-api-oracledatabase/twitter-oracledb.png)
 
-* Service Bus kuyruğuna gönderilen iletileri. Bu iletileri almak ve onları bir veritabanında koymak istiyor. Bir mantıksal uygulama Ekle `Service Bus - when a message is received in a queue` tetikleyebilir ve sırayı seçin. Ardından, ekleyin `Oracle Database - Insert row` eylemi ve tablonuzu seçin:
+* Bir Service Bus kuyruğuna iletiler gönderilir. Bu iletiler alın ve onları bir veritabanında koymak istiyorsanız. Bir mantıksal uygulama, ekleme `Service Bus - when a message is received in a queue` tetikleyin ve kuyruk seçin. Ardından, ekleme `Oracle Database - Insert row` eylem ve tablonuzu seçme:
 
     ![](./media/connectors-create-api-oracledatabase/sbqueue-oracledb.png)
 
-## <a name="common-errors"></a>Sık karşılaşılan hataları
+## <a name="common-errors"></a>Sık karşılaşılan hatalar
 
-#### <a name="error-cannot-reach-the-gateway"></a>**Hata**: ağ geçidi ulaşamıyor
+#### <a name="error-cannot-reach-the-gateway"></a>**Hata**: ağ geçidine erişilemiyor
 
-**Neden**: şirket içi veri ağ geçidi buluta bağlanabiliyor değil. 
+**Neden**: şirket içi veri ağ geçidi buluta bağlayın mümkün değildir. 
 
-**Azaltma**: ağ geçidiniz burada yükler ve internet'e bağlanabilen şirket içi makinede çalıştığından emin olun.  Ağ geçidi, bir bilgisayar kapalı olabilir veya uyku yüklenmiyor öneririz. Ayrıca, şirket içi veri Ağ Geçidi Hizmeti (PBIEgwService) yeniden başlatabilirsiniz.
+**Risk azaltma**: Burada, yüklediğiniz ve internet'e bağlanabilen şirket içi makine üzerinde ağ geçidinizin çalıştığından emin olun.  Ağ geçidi, bir bilgisayar kapalı olabilir veya uyku yüklenmiyor öneririz. Ayrıca, şirket içi veri Ağ Geçidi Hizmeti (PBIEgwService) yeniden başlatabilirsiniz.
 
-#### <a name="error-the-provider-being-used-is-deprecated-systemdataoracleclient-requires-oracle-client-software-version-817-or-greater-see-httpsgomicrosoftcomfwlinkplinkid272376httpsgomicrosoftcomfwlinkplinkid272376-to-install-the-official-provider"></a>**Hata**: kullanılmakta olan sağlayıcı kullanım dışıdır: ' System.Data.OracleClient gerektirir Oracle istemci yazılımı 8.1.7 veya daha büyük.'. Bkz: [ https://go.microsoft.com/fwlink/p/?LinkID=272376 ](https://go.microsoft.com/fwlink/p/?LinkID=272376) resmi sağlayıcıyı yüklemek için.
+#### <a name="error-the-provider-being-used-is-deprecated-systemdataoracleclient-requires-oracle-client-software-version-817-or-greater-see-httpsgomicrosoftcomfwlinkplinkid272376httpsgomicrosoftcomfwlinkplinkid272376-to-install-the-official-provider"></a>**Hata**: kullanılan sağlayıcı kullanım dışıdır: ' System.Data.OracleClient, Oracle istemci version 8.1.7 gerektirir veya büyük.'. Bkz: [ https://go.microsoft.com/fwlink/p/?LinkID=272376 ](https://go.microsoft.com/fwlink/p/?LinkID=272376) resmi sağlayıcıyı yükleyin.
 
-**Neden**: Oracle istemci SDK şirket içi veri ağ geçidi çalıştığı makinede yüklü değil.  
+**Neden**: Oracle istemci SDK'sı şirket içi veri ağ geçidi çalıştığı makinede yüklü değil.  
 
-**Çözümleme**: indirin ve şirket içi veri ağ geçidi ile aynı bilgisayarda Oracle istemci SDK'sını yükleyin.
+**Çözüm**: indirin ve şirket içi veri ağ geçidi ile aynı bilgisayarda Oracle istemci SDK'sını yükleyin.
 
-#### <a name="error-table-tablename-does-not-define-any-key-columns"></a>**Hata**: '[Tablename]' tablosu tüm anahtar sütunlarını tanımlamak değil
+#### <a name="error-table-tablename-does-not-define-any-key-columns"></a>**Hata**: '[Tablename]' tablosu hiçbir anahtar sütununu tanımlamıyor
 
-**Neden**: tablosunda hiçbir birincil anahtar yok.  
+**Neden**: tablonun herhangi bir birincil anahtara sahip değil.  
 
-**Çözümleme**: Oracle veritabanı connector, birincil anahtar sütunu içeren bir tablo kullanılmasını gerektirir.
+**Çözüm**: Oracle veritabanı connector, birincil anahtar sütunu içeren bir tablo kullanılmasını gerektirir.
 
 #### <a name="currently-not-supported"></a>Şu anda desteklenmiyor
 
-* Görünümleri ve saklı yordamlar 
-* Bileşik anahtarlar ile herhangi bir tabloyu
-* İç içe nesne türlerinin tablolardaki
+* Görünüm ve saklı yordam 
+* Bileşik anahtarlar içeren herhangi bir tablo
+* Tablolardaki iç içe nesne türleri
  
-## <a name="connector-specific-details"></a>Bağlayıcı özgü ayrıntıları
+## <a name="connector-specific-details"></a>Özel bağlayıcı ayrıntıları
 
-Tüm tetikleyiciler ve Eylemler swagger tanımlanan görüntüleyebilir ve ayrıca herhangi bir sınır bkz [Bağlayıcısı ayrıntıları](/connectors/oracle/). 
+Tetikleyiciler ve eylemlerin swagger'da tanımlanan görüntüleyebilir ve ayrıca herhangi bir sınırlama Bkz [bağlayıcı ayrıntıları](/connectors/oracle/). 
 
 ## <a name="get-some-help"></a>Bazı Yardım alın
 
-[Azure Logic Apps Forumu](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps) sorular sormak, soruları yanıtlayın ve diğer Logic Apps kullanıcıların ne yaptıklarını görmek için harika bir yerdir. 
+[Azure Logic Apps forumunu](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps) sorular sormak, soruları yanıtlamak ve diğer Logic Apps kullanıcılarının neler yaptığını görmek için harika bir yerdir. 
 
-Logic Apps ve bağlayıcıları oylama ve fikirlerinizi adresindeki gönderme tarafından artırmaya yardımcı olabilir [ http://aka.ms/logicapps-wish ](http://aka.ms/logicapps-wish). 
+Oylama ve fikirlerinizi, gönderme Logic Apps ve bağlayıcıları geliştirmeye yardımcı [ https://aka.ms/logicapps-wish ](https://aka.ms/logicapps-wish). 
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-[Mantıksal uygulama oluşturma](../logic-apps/quickstart-create-first-logic-app-workflow.md)ve Logic Apps içinde kullanılabilir bağlayıcılar keşfetme [API'leri listesi](apis-list.md).
+[Mantıksal uygulama oluşturma](../logic-apps/quickstart-create-first-logic-app-workflow.md), Logic Apps sürümünde kullanılabilen bağlayıcıları keşfedin [API listesi](apis-list.md).

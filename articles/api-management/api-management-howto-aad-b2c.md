@@ -1,6 +1,6 @@
 ---
-title: Azure Active Directory B2C - Azure API Management kullanarak Geliştirici hesaplarını yetkilendirmede | Microsoft Docs
-description: API Management'te Azure Active Directory B2C kullanarak kullanıcıları yetkilendirmek öğrenin.
+title: Azure Active Directory B2C - Azure API Management'ı kullanarak Geliştirici hesaplarını yetkilendirme | Microsoft Docs
+description: API Yönetimi'nde Azure Active Directory B2C'yi kullanarak kullanıcıları yetkilendirme konusunda bilgi edinin.
 services: api-management
 documentationcenter: API Management
 author: miaojiang
@@ -13,122 +13,121 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2017
 ms.author: apimpm
-ms.openlocfilehash: a6e7aad6c3d20a67ecba66c49be4efcdebdf718a
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: fbba1d9b4bdf1536ed596e9a78e53116fe824027
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32153430"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50232928"
 ---
 > [!WARNING]
-> Azure Active Directory B2C tümleştirme sağlanmıştır [geliştirici, standart ve Premium](https://azure.microsoft.com/pricing/details/api-management/) yalnızca katmanlarını.
+> Azure Active Directory B2C tümleştirme kullanılabilir [geliştirici, standart ve Premium](https://azure.microsoft.com/pricing/details/api-management/) yalnızca katmanları.
 
-# <a name="how-to-authorize-developer-accounts-by-using-azure-active-directory-b2c-in-azure-api-management"></a>Azure API Management'te Azure Active Directory B2C kullanarak Geliştirici hesaplarını yetkilendirmede nasıl
+# <a name="how-to-authorize-developer-accounts-by-using-azure-active-directory-b2c-in-azure-api-management"></a>Azure API Yönetimi'nde Azure Active Directory B2C kullanarak Geliştirici hesaplarını yetkilendirme nasıl
 ## <a name="overview"></a>Genel Bakış
-Azure Active Directory B2C bir tüketiciye yönelik web ve mobil uygulamaları için bulut kimlik yönetimi çözümüdür. Geliştirici portalınızın erişimi yönetmek için kullanabilirsiniz. Bu kılavuz, Azure Active Directory B2C ile tümleştirmek için API Management hizmetiniz gerekli yapılandırmayla gösterir. Klasik Azure Active Directory'yi kullanarak Geliştirici portalına erişim etkinleştirme hakkında daha fazla bilgi için bkz: [Azure Active Directory'yi kullanarak Geliştirici hesaplarını yetkilendirmede nasıl].
+Azure Active Directory B2C, tüketicilere yönelik web ve mobil uygulamalar için bir bulut kimlik yönetimi çözümü ' dir. Geliştirici portalınızın erişimi yönetmek için kullanabilirsiniz. Bu kılavuz API Management hizmetinizdeki Azure Active Directory B2C ile tümleştirmek için gerekli yapılandırmayı gösterir. Klasik Azure Active Directory kullanarak Geliştirici portal erişimini etkinleştirme hakkında daha fazla bilgi için bkz: [Azure Active Directory kullanarak Geliştirici hesaplarını yetkilendirme nasıl].
 
 > [!NOTE]
-> Bu kılavuzdaki adımları tamamlamak için ilk bir uygulama oluşturmak için bir Azure Active Directory B2C kiracısına sahip olmanız gerekir. Ayrıca, kaydolma ve oturum açma ilkeleri hazır olması gerekir. Daha fazla bilgi için bkz: [Azure Active Directory B2C genel bakış].
+> Bu kılavuzdaki adımları tamamlamak için önce bir uygulamayı oluşturmak için bir Azure Active Directory B2C kiracısı olmalıdır. Ayrıca, kaydolma ve oturum açma ilkeleri hazır olması gerekir. Daha fazla bilgi için [Azure Active Directory B2C genel bakış].
 
-## <a name="authorize-developer-accounts-by-using-azure-active-directory-b2c"></a>Azure Active Directory B2C kullanarak Geliştirici hesaplarını yetkilendirmede
+## <a name="authorize-developer-accounts-by-using-azure-active-directory-b2c"></a>Azure Active Directory B2C kullanarak Geliştirici hesaplarını yetkilendirme
 
-1. Kullanmaya başlamak için tıklayın **yayımcı portalına** API Management hizmetiniz için Azure Portalı'nda. Bu sizi API Management yayımcı portalına götürür.
-
-   ![Yayımcı portalı][api-management-management-console]
+1. Başlamak için oturum açın [Azure portalında](https://portal.azure.com) ve API Management örneğinizin bulun.
 
    > [!NOTE]
-   > Henüz bir API Management hizmeti örneği oluşturmadıysanız, bkz: [bir API Management hizmet örneği oluşturma] [ Create an API Management service instance] içinde [Azure API Management öğretici ile çalışmaya başlama][Get started with Azure API Management].
+   > Henüz bir API Management hizmet örneği oluşturmadıysanız, bkz. [bir API Management hizmet örneği oluşturma] [ Create an API Management service instance] içinde [Azure API Yönetimi Öğreticisi ile çalışmaya başlama] [Get started with Azure API Management].
 
-2. Üzerinde **API Management** menüsünde tıklatın **güvenlik**. Üzerinde **kimlikleri** sekmesinde, seçin **Azure Active Directory B2C**.
+2. Altında **güvenlik**seçin **kimlikleri**. Tıklayın **+ Ekle** en üstünde.
 
-  ![Dış kimlikler 1][api-management-howto-aad-b2c-security-tab]
+   **Ekle kimlik sağlayıcısı** bölmesi sağ tarafta görüntülenir. Seçin **Azure Active Directory B2C**.
+    
+   ![AAD B2C kimlik sağlayıcısı olarak ekleme][api-management-howto-add-b2c-identity-provider]
 
-3. Not **tekrar yönlendirme URL'sini** ve anahtar Azure Active Directory B2C Azure portalında.
+3. Kopyalama **yeniden yönlendirme URL'si**.
 
-  ![Dış kimlikler 2][api-management-howto-aad-b2c-security-tab-reply-url]
+  ![AAD B2C kimlik sağlayıcısına yeniden yönlendirme URL'si][api-management-howto-copy-b2c-identity-provider-redirect-url]
 
-4. Tıklatın **uygulamaları** düğmesi.
+4. Yeni bir sekmede, Azure Active Directory B2C kiracınızda Azure portal ve açık erişim **uygulamaları** dikey penceresi.
 
-  ![Yeni bir uygulama 1 kaydetme][api-management-howto-aad-b2c-portal-menu]
+  ![Yeni bir uygulamayı 1 kaydetme][api-management-howto-aad-b2c-portal-menu]
 
-5. Tıklatın **Ekle** düğmesi yeni bir Azure Active Directory B2C uygulaması oluşturun.
+5. Tıklayın **Ekle** yeni bir Azure Active Directory B2C uygulaması oluşturmak için.
 
-  ![Yeni bir uygulama 2 kaydetme][api-management-howto-aad-b2c-add-button]
+  ![Yeni bir uygulamayı 2 kaydetme][api-management-howto-aad-b2c-add-button]
 
-6. İçinde **yeni uygulama** dikey penceresinde, uygulama için bir ad girin. Seçin **Evet** altında **Web uygulaması/Web API**ve seçin **Evet** altında **örtük akışına izin**. Ardından kopyalama **tekrar yönlendirme URL'sini** gelen **Azure Active Directory B2C** bölümünü **kimlikleri** sekmesinde yayımcı portalında ve yapıştırın **yanıt URL'si** metin kutusu.
+6. İçinde **yeni uygulama** dikey penceresinde, uygulama için bir ad girin. Seçin **Evet** altında **Web uygulaması/Web API'sini**ve **Evet** altında **örtük akışa izin ver**. Yapıştırın **tekrar yönlendirme URL'sini** 3. adımda kopyaladığınız **yanıt URL'si** metin kutusu.
 
-  ![Yeni bir uygulamayı 3 Kaydet][api-management-howto-aad-b2c-app-details]
+  ![Yeni bir uygulamayı 3 kaydetme][api-management-howto-aad-b2c-app-details]
 
-7. **Oluştur** düğmesine tıklayın. Uygulama oluşturulduğunda görünür **uygulamaları** dikey. Ayrıntılarını görmek için uygulama adına tıklayın.
+7. **Oluştur** düğmesine tıklayın. Uygulama oluşturulduğunda görünür **uygulamaları** dikey penceresi. Ayrıntılarını görmek için uygulamanın adına tıklayın.
 
-  ![Yeni bir uygulama 4 kaydetme][api-management-howto-aad-b2c-app-created]
+  ![Yeni bir uygulamayı 4 kaydetme][api-management-howto-aad-b2c-app-created]
 
-8. Gelen **özellikleri** dikey penceresinde, kopya **uygulama kimliği** panoya.
+8. Gelen **özellikleri** dikey penceresinde kopyalama **uygulama kimliği** panoya.
 
-  ![1 uygulama kimliği][api-management-howto-aad-b2c-app-id]
+  ![Uygulama kimliği 1][api-management-howto-aad-b2c-app-id]
 
-9. Geçiş yayımcı portalına dönün ve kimliği içine yapıştırma **istemci kimliği** metin kutusu.
+9. Geçiş API Management'a **Ekle kimlik sağlayıcısı** bölmesi ve içine yapıştırma kimliği **istemci kimliği** metin kutusu.
 
   ![Uygulama kimliği 2][api-management-howto-aad-b2c-client-id]
 
-10. Azure portalına anahtarı, tıklatın **anahtarları** düğmesine tıklayın ve ardından **anahtar üret**. Tıklatın **kaydetmek** yapılandırmasını kaydetmek ve görüntülemek için **uygulama anahtarı**. Anahtarı panoya kopyalayın.
+10. B2C uygulaması kayıt anahtarı, tıklatın **anahtarları** düğmesine ve ardından **anahtar üret**. Tıklayın **Kaydet** yapılandırmasını kaydetmek ve görüntülemek için **uygulama anahtarı**. Anahtar, panoya kopyalayın.
 
   ![1 uygulama anahtarı][api-management-howto-aad-b2c-app-key]
 
-11. Geçiş yayımcı portalına dönün ve içine anahtarını yapıştırın **gizli** metin kutusu.
+11. Geçiş API Management'a **Ekle kimlik sağlayıcısı** bölmesi ve anahtarını yapıştırın **gizli** metin kutusu.
 
-  ![Uygulama anahtarı 2][api-management-howto-aad-b2c-client-secret]
+  ![2 uygulama anahtarı][api-management-howto-aad-b2c-client-secret]
 
-12. Azure Active Directory B2C kiracısı'nda etki alanı adını belirtin **izin Kiracı**.
+12. Azure Active Directory B2C kiracısında etki alanı adını **Kiracının izin verilen**.
 
   ![İzin verilen Kiracı][api-management-howto-aad-b2c-allowed-tenant]
 
-13. Belirtin **kaydolma İlkesi** ve **Signın İlkesi**. İsteğe bağlı olarak, ayrıca sağlayabilirsiniz **Profil Düzenleme İlkesi** ve **parola sıfırlama İlkesi**.
+13. Belirtin **kaydolma İlkesi** ve **Signın ilke** B2C Kiracısı ilkelerden. İsteğe bağlı olarak, sağlayabilirsiniz **Profil Düzenleme İlkesi** ve **parolası sıfırlama İlkesi**.
 
   ![İlkeler][api-management-howto-aad-b2c-policies]
 
   > [!NOTE]
-  > İlkeler hakkında daha fazla bilgi için bkz: [Azure Active Directory B2C: Genişletilebilir ilke çerçevesini].
+  > İlkeleri hakkında daha fazla bilgi için bkz. [Azure Active Directory B2C: Genişletilebilir ilke çerçevesi].
 
-14. İstenen yapılandırma belirttikten sonra tıklatın **kaydetmek**.
+14. İstenen yapılandırmayı belirledikten sonra tıklayın **Kaydet**.
 
-  Değişiklikler kaydedildikten sonra geliştiricilerin yeni hesapları oluşturabilir ve Azure Active Directory B2C kullanarak oturum açın Geliştirici portalına olacaktır.
+  Değişiklikler kaydedildikten sonra geliştiricilerin yeni hesapları oluşturmanız ve Azure Active Directory B2C kullanarak oturum açın ve geliştirici portalında mümkün olacaktır.
 
-## <a name="sign-up-for-a-developer-account-by-using-azure-active-directory-b2c"></a>Azure Active Directory B2C kullanarak bir geliştirici hesabı için kaydolun
+## <a name="sign-up-for-a-developer-account-by-using-azure-active-directory-b2c"></a>Azure Active Directory B2C kullanarak bir geliştirici hesabı açın
 
-1. Azure Active Directory B2C kullanarak bir geliştirici hesabı için kaydolmak için yeni bir tarayıcı penceresi açın ve geliştirici portalına gidin. Tıklatın **kaydolun** düğmesi.
+1. Azure Active Directory B2C kullanarak bir geliştirici hesabı kaydolmak için yeni bir tarayıcı penceresi açın ve Geliştirici Portalı'na gidin. Tıklayın **kaydolun** düğmesi.
 
    ![Geliştirici Portalı 1][api-management-howto-aad-b2c-dev-portal]
 
-2. İle kaydolmak isterseniz **Azure Active Directory B2C**.
+2. Kaydolmak için istediğinize **Azure Active Directory B2C**.
 
-   ![Geliştirici Portalı 2][api-management-howto-aad-b2c-dev-portal-b2c-button]
+   ![Geliştirici portalını Yapılandır 2][api-management-howto-aad-b2c-dev-portal-b2c-button]
 
-3. Önceki bölümde yapılandırılmış kaydolma İlkesi yönlendirilirsiniz. E-posta adresinizi veya var olan sosyal hesaplarınızı birini kullanarak kaydolmak seçin.
+3. Önceki bölümde yapılandırdığınız kaydolma İlkesi yönlendirilirsiniz. E-posta adresinizi veya biri, mevcut sosyal hesaplarını kullanarak oturum açmak seçin.
 
    > [!NOTE]
-   > Azure Active Directory B2C etkin tek seçenek ise **kimlikleri** sekmesini yayımcı Portalı'nda, kaydolma ilkeye doğrudan yönlendirilmesi.
+   > Azure Active Directory B2C etkin tek seçenek ise **kimlikleri** sekmesi publisher Portalı'nda, kaydolma ilkeye doğrudan yönlendirilirsiniz.
 
    ![Geliştirici portalı][api-management-howto-aad-b2c-dev-portal-b2c-options]
 
-   Kayıt işlemi tamamlandıktan sonra Geliştirici portalına yönlendirilirsiniz. Artık Geliştirici portalına API Management hizmet örneği için oturum açtınız.
+   Kayıt işlemi tamamlandığında, geliştirici portalına yönlendirilirsiniz. Şimdi Geliştirici Portalı, API Management hizmet örneği için oturum açmadıysanız.
 
     ![Kayıt tamamlandı][api-management-registration-complete]
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 *  [Azure Active Directory B2C genel bakış]
-*  [Azure Active Directory B2C: Genişletilebilir ilke çerçevesini]
-*  [Azure Active Directory B2C, kimlik sağlayıcısı bir Microsoft hesabı kullanın]
-*  [Azure Active Directory B2C, kimlik sağlayıcısı bir Google hesabı kullan]
-*  [Azure Active Directory B2C, kimlik sağlayıcısı LinkedIn hesabını kullan]
-*  [Azure Active Directory B2C, kimlik sağlayıcısı Facebook hesabıyla kullanın]
+*  [Azure Active Directory B2C: Genişletilebilir ilke çerçevesi]
+*  [Azure Active Directory B2C'de kimlik sağlayıcısı olarak bir Microsoft hesabı kullanın]
+*  [Bir Google hesabı Azure Active Directory B2C'de kimlik sağlayıcısı kullanın]
+*  [Bir LinkedIn hesabıyla bir kimlik sağlayıcısı olarak Azure Active Directory B2C'yi kullanın]
+*  [Bir Facebook hesabı Azure Active Directory B2C'de kimlik sağlayıcısı kullanın]
 
 
 
-
-[api-management-howto-aad-b2c-security-tab]: ./media/api-management-howto-aad-b2c/api-management-b2c-security-tab.PNG
-[api-management-howto-aad-b2c-security-tab-reply-url]: ./media/api-management-howto-aad-b2c/api-management-b2c-security-tab-reply-url.PNG
+[api-management-howto-add-b2c-identity-provider]: ./media/api-management-howto-aad-b2c/api-management-add-b2c-identity-provider.PNG
+[api-management-howto-copy-b2c-identity-provider-redirect-url]: ./media/api-management-howto-aad-b2c/api-management-b2c-identity-provider-redirect-url.PNG
 [api-management-howto-aad-b2c-portal-menu]: ./media/api-management-howto-aad-b2c/api-management-b2c-portal-menu.PNG
 [api-management-howto-aad-b2c-add-button]: ./media/api-management-howto-aad-b2c/api-management-b2c-add-button.PNG
 [api-management-howto-aad-b2c-app-details]: ./media/api-management-howto-aad-b2c/api-management-b2c-app-details.PNG
@@ -189,12 +188,12 @@ Azure Active Directory B2C bir tüketiciye yönelik web ve mobil uygulamaları i
 [WebApp-GraphAPI-DotNet]: https://github.com/AzureADSamples/WebApp-GraphAPI-DotNet
 [Accessing the Graph API]: http://msdn.microsoft.com/library/azure/dn132599.aspx#BKMK_Graph
 [Azure Active Directory B2C genel bakış]: https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-overview
-[Azure Active Directory'yi kullanarak Geliştirici hesaplarını yetkilendirmede nasıl]: https://docs.microsoft.com/azure/api-management/api-management-howto-aad
-[Azure Active Directory B2C: Genişletilebilir ilke çerçevesini]: https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-policies
-[Azure Active Directory B2C, kimlik sağlayıcısı bir Microsoft hesabı kullanın]: https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-setup-msa-app
-[Azure Active Directory B2C, kimlik sağlayıcısı bir Google hesabı kullan]: https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-setup-goog-app
-[Azure Active Directory B2C, kimlik sağlayıcısı Facebook hesabıyla kullanın]: https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-setup-fb-app
-[Azure Active Directory B2C, kimlik sağlayıcısı LinkedIn hesabını kullan]: https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-setup-li-app
+[Azure Active Directory kullanarak Geliştirici hesaplarını yetkilendirme nasıl]: https://docs.microsoft.com/azure/api-management/api-management-howto-aad
+[Azure Active Directory B2C: Genişletilebilir ilke çerçevesi]: https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-policies
+[Azure Active Directory B2C'de kimlik sağlayıcısı olarak bir Microsoft hesabı kullanın]: https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-setup-msa-app
+[Bir Google hesabı Azure Active Directory B2C'de kimlik sağlayıcısı kullanın]: https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-setup-goog-app
+[Bir Facebook hesabı Azure Active Directory B2C'de kimlik sağlayıcısı kullanın]: https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-setup-fb-app
+[Bir LinkedIn hesabıyla bir kimlik sağlayıcısı olarak Azure Active Directory B2C'yi kullanın]: https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-setup-li-app
 
 [Prerequisites]: #prerequisites
 [Configure an OAuth 2.0 authorization server in API Management]: #step1

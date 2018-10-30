@@ -1,19 +1,18 @@
 ---
-title: VMware VM ve fiziksel sunucu çoğaltması Azure Site Recovery ile azure'a yönelik çoğaltma sorunlarını giderme | Microsoft Docs
-description: Bu makalede, VMware Vm'leri ve fiziksel sunucuları Azure Site Recovery ile Azure'a çoğaltırken yaygın çoğaltma sorunlarını giderme sağlar.
-services: site-recovery
+title: VMware Vm'lerini ve fiziksel sunucuları Azure Site Recovery ile azure'a olağanüstü durum kurtarma için çoğaltma sorunlarını giderme | Microsoft Docs
+description: Bu makalede VMware vm'lerinin olağanüstü durum kurtarma sırasında yaygın çoğaltma sorunlarına yönelik sorun giderme bilgileri ve fiziksel sunucuları Azure Site Recovery ile azure'a sağlar.
 author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 07/06/2018
+ms.date: 10/29/2018
 ms.author: ramamill
-ms.openlocfilehash: c2100ee2388ae09bd309167b1be77f7bdbe32f69
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: 915f7d7d2d6be02dfef0cd6bb9a2fa156ed565bc
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39126026"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50214741"
 ---
 # <a name="troubleshoot-replication-issues-for-vmware-vms-and-physical-servers"></a>VMware Vm'lerini ve fiziksel sunucular için çoğaltma sorunlarını giderme
 

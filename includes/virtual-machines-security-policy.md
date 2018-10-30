@@ -1,3 +1,16 @@
+---
+author: cynthn
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: cynthn
+ms.openlocfilehash: 4887dbcc89180c54b8e991e6fa152463476c5ce9
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50226420"
+---
 Sanal makinenize (VM), çalışan uygulamalar için güvenli tutmak önemlidir. Sanal makinelerinize güvenli hale getirme, bir veya daha fazla Azure Hizmetleri ve VM'ler ve güvenli depolama verilerinizin güvenli erişim kapsayan özellikler içerebilir. Bu makalede, VM ve uygulamalarınızı güvenli tutmak sağlayan bilgiler sağlar.
 
 ## <a name="antimalware"></a>Kötü Amaçlı Yazılımdan Koruma
@@ -26,7 +39,7 @@ Vm'lere bağlanma, oturum için daha güvenli bir yol sağlamak üzere ortak ana
 
 Bulut uygulamaları oluştururken yaygın olarak karşılaşılan bir zorluk, bulut hizmetlerinde kimlik doğrulaması yapmak için kodunuzda bulunan kimlik bilgilerinin yönetimidir. Kimlik bilgilerinin güvenlik altında tutulması önemli bir görevdir. İdeal olan kimlik bilgilerinin geliştirici iş istasyonlarında asla gösterilmemesi ve kaynak denetimine kaydedilmemesidir. Azure Key Vault kimlik bilgilerini, gizli dizileri ve diğer anahtarları güvenle depolamak için bir yol sağlar, ama bunları alabilmek için kodunuzun Key Vault'ta kimlik doğrulaması yapması gerekir. 
 
-Azure Kaynakları özelliği, Azure Active Directory'de (Azure AD) için yönetilen kimlikleri bu sorunu çözer. Bu özellik, Azure hizmetlerine Azure AD üzerinde otomatik olarak yönetilen bir kimlik sağlar. Bu kimliği kullanarak, Key Vault da dahil olmak üzere Azure AD kimlik doğrulamasını destekleyen tüm hizmetlerde kodunuzda kimlik bilgileri olmadan kimlik doğrulaması yapabilirsiniz.  Bir VM'de çalışan kodunuz yalnızca VM içinden erişilebilir iki uç noktalarından bir belirteç isteğinde bulunabilirsiniz. Bu hizmet hakkında daha ayrıntılı bilgi için gözden [kimliklerini Azure kaynakları için yönetilen](../articles/active-directory/managed-identities-azure-resources/overview.md) genel bakış sayfası.   
+Azure Active Directory (Azure AD) hizmetindeki Azure kaynakları yönetilen hizmetleri bu sorunu çözer. Bu özellik, Azure hizmetlerine Azure AD üzerinde otomatik olarak yönetilen bir kimlik sağlar. Bu kimliği kullanarak, Key Vault da dahil olmak üzere Azure AD kimlik doğrulamasını destekleyen tüm hizmetlerde kodunuzda kimlik bilgileri olmadan kimlik doğrulaması yapabilirsiniz.  Bir VM'de çalışan kodunuz yalnızca VM içinden erişilebilir iki uç noktalarından bir belirteç isteğinde bulunabilirsiniz. Bu hizmet hakkında daha ayrıntılı bilgi için gözden [kimliklerini Azure kaynakları için yönetilen](../articles/active-directory/managed-identities-azure-resources/overview.md) genel bakış sayfası.   
 
 ## <a name="policies"></a>İlkeler
 

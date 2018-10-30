@@ -1,22 +1,20 @@
 ---
-title: Şirket içinden Azure'a çoğaltma için ağ arabirimlerini Azure Site recovery'de yönetme | Microsoft Docs
-description: Şirket içi Azure Site Recovery ile Azure'a çoğaltma için ağ arabirimleri yönetme işlemi açıklanır
-services: site-recovery
+title: Azure'da şirket içi olağanüstü durum kurtarma için Azure Site recovery'de ağ arabirimleri yönetme | Microsoft Docs
+description: Ağ arabirimleri için Azure Site Recovery ile şirket içi olağanüstü durum kurtarmayı yönetme işlemi açıklanır
 author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: mayg
-ms.openlocfilehash: 0ca2d32910e57042d2cbc9d3b772d226d835b545
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: afa8dfc39177e3f15db0092691d910b6b2cd3764
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49352419"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50212463"
 ---
-# <a name="manage-virtual-machine-network-interfaces-for-on-premises-to-azure-replication"></a>Şirket içinden Azure'a çoğaltma için sanal makine ağ arabirimleri yönetme
-
+# <a name="manage-virtual-machine-network-interfaces-for-on-premises-disaster-recovery-to-azure"></a>Sanal makine ağ arabirimleri, Azure'da şirket içi olağanüstü durum kurtarma için yönetme
 Azure sanal makineler'de (VM) bağlı en az bir ağ arabirimi olması gerekir. Birçok ağ arabirimleri VM boyutu destekler bağlı olarak olabilir.
 
 Varsayılan olarak, bir Azure sanal makinesine bağlı ilk ağ arabiriminin birincil ağ arabirimi olarak tanımlanır. Sanal makinedeki diğer tüm ağ arabirimleri, ikincil ağ arabirimlerine ' dir. Ayrıca varsayılan olarak, sanal makineden giden tüm trafiği birincil ağ arabiriminin birincil IP yapılandırması için atanan IP adresi kullanıma gönderilir.

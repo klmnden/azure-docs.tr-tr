@@ -4,17 +4,17 @@ description: Azure İlkesi değerlendirmeleri ve etkileri uyumluluğunu belirler
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 09/18/2018
+ms.date: 10/29/2018
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: 3fa185e741f1b14bf3f2e7413945b70b1ea1baaa
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: f88e68150aa2708557775df2719409228166520b
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46970864"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50233421"
 ---
 # <a name="getting-compliance-data"></a>Uyumluluk verilerini alma
 
@@ -40,6 +40,44 @@ Atanan ilkeleri ve girişimler değerlendirmeleri çeşitli olayları sonucu ola
 - Bir ilke veya girişim bir kapsama atanmış güncelleştirilir. Bu senaryo için zamanlama ve değerlendirme döngüsü aynıdır bir kapsam için yeni bir atama.
 - Bir kaynak atama Resource Manager, REST, Azure CLI veya Azure PowerShell aracılığıyla bir kapsamla dağıtılır. Bu senaryoda, geçerli olay (ekleme, Denetim, reddetme, dağıtım) ve tek tek kaynak için uyumlu durumu bilgileri kullanılabilir portal ve SDK'ları yaklaşık 15 dakika sonra. Bu olay, bir değerlendirme diğer kaynakların neden olmaz.
 - Standart uyumluluk değerlendirme döngüsü. Her 24 saatte bir kez atamaları otomatik olarak tekrar değerlendirilir. Bu yüzden zaman değerlendirme döngüsünü, önceden tanımlanmış hiçbir beklentisi tamamlayacak bir ilke veya girişim kaynaklarının büyük bir kapsam karşı değerlendirilir zaman alabilir. İşlem tamamlandıktan sonra güncelleştirilmiş uyumluluk sonuçları portal ve SDK'ları kullanılabilir.
+- İsteğe bağlı taraması
+
+### <a name="on-demand-evaluation-scan"></a>İsteğe bağlı değerlendirme taraması
+
+Bir abonelik veya kaynak grubu için bir değerlendirme taraması, REST API çağrısı ile başlatılabilir. Bu zaman uyumsuz bir işlemdir. Bu nedenle, tarama yanıt tamamlanana kadar tarama başlatmak için REST uç noktasını beklemez. Bunun yerine, istenen değerlendirme durumunu sorgulamak için bir URI sağlar.
+
+Her bir REST API URI'sinde kendi değerlerinizle değiştirmeniz gereken değişkenler bulunur:
+
+- `{YourRG}` -Kaynak grubunuzun adıyla değiştirin
+- `{subscriptionId}` - Abonelik kimliğinizle değiştirin
+
+Tarama, bir abonelik veya kaynak grubundaki kaynakların değerlendirme destekler. İstenen kapsam için bir tarama bir REST API'sini kullanmaya başlama **POST** komutunu aşağıdaki URI yapıları kullanarak:
+
+- Abonelik
+
+  ```http
+  POST https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.PolicyInsights/policyStates/latest/triggerEvaluation?api-version=2018-07-01-preview
+  ```
+
+- Kaynak grubu
+
+  ```http
+  POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{YourRG}/providers/Microsoft.PolicyInsights/policyStates/latest/triggerEvaluation?api-version=2018-07-01-preview
+  ```
+
+Çağrı döndürür bir **202 kabul edildi** durumu. Dahil edilen yanıtta başlığıdır bir **konumu** cfg aşağıdaki formatta özelliği:
+
+```http
+https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.PolicyInsights/asyncOperationResults/{ResourceContainerGUID}?api-version=2018-07-01-preview
+```
+
+`{ResourceContainerGUID}` İstenen kapsam için statik olarak oluşturulur. Bir kapsam zaten açık bir isteğe bağlı tarama gerçekleştirme, yeni bir tarama başlatılamadı. Yeni istek aynı bunun yerine, sağlanan `{ResourceContainerGUID}` **konumu** durumu için URI. REST API **alma** komutunu **konumu** URI'sini döndürür bir **202 kabul edildi** değerlendirme devam ederken. Değerlendirme taraması tamamlandıktan sonra döndürür bir **200 Tamam** durumu. Tamamlanmış bir tarama durumuyla birlikte bir JSON yanıt gövdesidir:
+
+```json
+{
+    "status": "Succeeded"
+}
+```
 
 ## <a name="how-compliance-works"></a>Uyumluluk nasıl çalışır?
 

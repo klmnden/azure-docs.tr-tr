@@ -11,15 +11,15 @@ ms.service: active-directory
 ms.topic: article
 ms.workload: identity
 ms.component: users-groups-roles
-ms.date: 06/02/2017
+ms.date: 10/29/2018
 ms.author: curtand
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 15b52920774a878cd386ced5966d507768a8af70
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 9b94bf4c499a5d6323e774df90304f0134bc5894
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39627398"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50215421"
 ---
 # <a name="scenarios-limitations-and-known-issues-using-groups-to-manage-licensing-in-azure-active-directory"></a>Senaryoları, sınırlamalar ve bilinen sorunlar Azure Active Directory'de lisanslama yönetmek için grupları kullanma
 
@@ -211,23 +211,21 @@ PowerShell veya Graph API'si ile bir grubu silmek çalışırken, benzer hatalar
 
 Grup tabanlı lisanslama kullanıyorsanız, aşağıdaki sınırlamalar ve bilinen sorunların listesi ile tanımak için iyi bir fikirdir.
 
-- Şu anda grup tabanlı lisanslama diğer gruplar (iç içe geçmiş gruplar) içeren gruplar desteklemez. İç içe geçmiş bir grup için bir lisans uygularsanız, yalnızca hemen birinci düzey kullanıcı grubunun üyesi uygulanan lisansları.
+- Şu anda grup tabanlı lisanslama diğer gruplar (iç içe geçmiş gruplar) içeren gruplar desteklemez. İçine yerleştirilmiş başka bir grup olan bir gruba lisans uyguladığınızda yalnızca grubun birinci düzeyindeki üyelerine lisans atanır.
 
-- Bu özellik yalnızca güvenlik grupları ile kullanılabilir. Office grubu şu anda desteklenmez ve lisans atama işleminde kullanılacak mümkün olmayacaktır.
+- Bu özellik, yalnızca güvenlik grupları ve securityEnabled olan Office 365 grupları ile kullanılabilir = TRUE.
 
 - [Office 365 Yönetici portalını](https://portal.office.com ) grup tabanlı lisanslama şu anda desteklemiyor. Bir kullanıcı bir lisans bir gruptan devralınır. Bu lisans normal kullanıcı lisansı olarak Office Yönetim Portalı'nda görüntülenir. Lisans değiştirmek ya da lisans kaldırmaya denerseniz, portal bir hata iletisi döndürür. Devralınan Grup lisansları bir kullanıcı doğrudan değiştirilemez.
 
-- Bir kullanıcı bir gruptan kaldırılır ve lisans kaybeder (örneğin, SharePoint Online) lisans service planlarından ayarlanmış olan bir **askıya alındı** durumu. Hizmet planları, son bir devre dışı durumuna ayarlanmamış. Bir yönetici grubu üyeliği Yönetimi'nde hata yaparsa bu önlem kullanıcı verileri yanlışlıkla kaldırılmasını önleyebilirsiniz.
-
 - Lisansları atanmış veya büyük bir grup (örneğin, 100.000 kullanıcı) için değiştirilmiş, performans olumsuz etkilenebilir. Özellikle, Azure AD Otomasyonu tarafından oluşturulan değişiklik hacmini, Azure AD arasında dizin eşitlemesi performansını olumsuz etkileyebilir ve şirket içi sistemler.
 
-- Bazı yüksek yük durumlarda, lisans işleme gecikebilir ve değişiklikleri ekleme/grup kaldırma gibi lisans ya da grubu, kullanıcıların ekleme/kaldırma işlenmesi uzun sürebilir. Görürseniz yaptığınız değişiklikleri, lütfen işlemek için birden fazla 24 saat sürebilir. [bir destek bileti açın](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/supportRequest) araştırmak bize izin vermek için. Bunu ulaşmadan önce bu özelliğin performans özelliklerini geliştirmek *genel kullanılabilirlik*.
+- Kullanıcılarınızın üyeliklerini yönetmek için dinamik grupları kullanıyorsanız kullanıcının grubun bir parçası olduğunu doğrulayın. Bu durum lisans atama için gereklidir. Aksi takdirde dinamik grubun [üyelik kuralı işleme durumunu denetleyin](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-create-rule#check-processing-status-for-a-membership-rule). 
+
+- Belirli yüksek yük durumlarda bu grup için lisans değişiklikleri veya var olan lisans gruplarına üyelik değişiklikleri işlemek için bir uzun zaman alabilir. Görürseniz değişikliklerinizi grubu boyutu 60 K kullanıcılar veya less, lütfen işlemek için birden fazla 24 saat sürebilir. [bir destek bileti açın](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/supportRequest) araştırmak bize izin vermek için. 
 
 - Lisans Yönetimi Otomasyonu otomatik olarak her türlü ortamda değişikliği için tepki vermez. Örneğin, lisans, bir hata durumunda bazı kullanıcıların neden çalıştırdığınız. İçin kullanılabilir lisans sayısı, boş, bazı doğrudan atanan lisansları diğer kullanıcılardan kaldırabilirsiniz. Ancak, sistem otomatik olarak bu değişiklik react ve hata durumundaki kullanıcıların düzeltin.
 
   Sınırlamalar bu türde bir geçici çözüm olarak, gidebilirsiniz **grubu** dikey penceresinde Azure AD'de tıklatıp **suretiyle**. Bu komut, bu gruptaki tüm kullanıcılar işler ve hata durumları mümkünse giderir.
-
-- Bir lisans nedeniyle yinelenen proxy adresi yapılandırmasının bir kullanıcı için Exchange Online atanamadı, Grup tabanlı lisanslama hataları kaydetmez; Bu kullanıcılar, lisans ataması sırasında atlanır. Bu sorunu çözmek üzere hakkında daha fazla bilgi için bkz. [Bu bölümde](licensing-groups-resolve-problems.md#license-assignment-fails-silently-for-a-user-due-to-duplicate-proxy-addresses-in-exchange-online).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
@@ -237,3 +235,5 @@ Grup tabanlı lisanslama aracılığıyla lisans yönetimine yönelik diğer sen
 * [Azure Active Directory'de gruba lisans atama](licensing-groups-assign.md)
 * [Azure Active Directory'de grubun lisans sorunlarını tanımlama ve çözme](licensing-groups-resolve-problems.md)
 * [Azure Active Directory'de tek tek lisanslı kullanıcıları grup tabanlı lisanslamaya geçirme](licensing-groups-migrate-users.md)
+* [Kullanıcılar Azure Active Directory'de Grup tabanlı lisanslama kullanarak ürün lisansları arasında geçirme](../users-groups-roles/licensing-groups-change-licenses.md)
+* [Azure Active Directory'de Grup tabanlı lisanslama için PowerShell örnekleri](../users-groups-roles/licensing-ps-examples.md)

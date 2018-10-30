@@ -11,15 +11,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/11/2018
+ms.date: 10/29/2018
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.openlocfilehash: fbb51d8dc3b1ea4c6b34120e8fe35474ae949cf2
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: 7071e22d703ab7ec3a51eff02d1694fc04cb3417
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49116921"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50231245"
 ---
 # <a name="troubleshoot-your-deployment-to-kubernetes-to-azure-stack"></a>Kubernetes için Azure Stack dağıtımınıza sorunlarını giderme
 
@@ -28,7 +28,7 @@ ms.locfileid: "49116921"
 > [!Note]  
 > Azure Stack'te Kubernetes önizlemeye sunuldu.
 
-Aşağıdaki makalede Kubernetes kümeniz sorun giderme sırasında arar. Dağıtım uyarıyı gözden geçirin ve dağıtımınızın durumunu dağıtım için gerekli öğeler tarafından gözden geçirin. Azure Stack veya Linux sanal makineleri barındıran Kubernetes dağıtım günlüklerini toplamak gerekebilir. Ayrıca, bir yönetim uç noktasından günlükleri almak için Azure Stack yöneticinizle birlikte çalışmanız gerekebilir.
+Aşağıdaki makalede Kubernetes kümeniz sorun giderme sırasında arar. Dağıtım uyarıyı gözden geçirin ve dağıtımınızın durumunu dağıtım için gerekli öğeler bakarak gözden geçirebilirsiniz. Azure Stack veya Linux sanal makineleri barındıran Kubernetes dağıtım günlüklerini toplamak gerekebilir. Ayrıca, bir yönetim uç noktasından günlükleri almak için Azure Stack yöneticinizle birlikte çalışmanız gerekebilir.
 
 ## <a name="overview-of-deployment"></a>Dağıtıma genel bakış
 
@@ -47,7 +47,7 @@ Küme dağıtımı için genel süreç Aşağıdaki diyagramda gösterilmektedir
     Kubernetes gibi küme ayarlamak için gereken değerleri girin:
     -  **Kullanıcı adı** Kubernetes kümesinin parçası olan bir Linux sanal makineleri ve DVM için kullanıcı adı.
     -  **SSH ortak anahtarı** DVM ve Kubernetes kümesinin bir parçası olarak oluşturulan tüm Linux makinelerinin yetkilendirme için kullanılan anahtarı
-    -  **Hizmet İlkesi** Kubernetes Azure bulut sağlayıcısı tarafından kullanılan kimliği. Uygulama kimliği olarak, hizmet sorumlusu oluştururken belirlenen istemci kimliği. 
+    -  **Hizmet İlkesi** Kubernetes Azure bulut sağlayıcısı tarafından kullanılan kimliği. Asıl hizmetiniz oluşturulduğunda, istemci kimliği uygulama kimliği olarak belirlenmiştir. 
     -  **İstemci gizli anahtarı** , hizmet sorumlusu oluştururken oluşturduğunuz anahtar oldukları.
 
 2. VM dağıtımı oluşturur ve özel betik uzantısı.

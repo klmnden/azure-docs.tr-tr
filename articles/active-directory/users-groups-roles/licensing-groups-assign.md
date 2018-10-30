@@ -11,15 +11,15 @@ ms.service: active-directory
 ms.topic: article
 ms.workload: identity
 ms.component: users-groups-roles
-ms.date: 06/05/2017
+ms.date: 10/29/2018
 ms.author: curtand
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7a235851d7172d32d62c64b163e0b7635a1a47fd
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: e08ca3453cc43fa0f35102ca5563b4b07ce45dea
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37862073"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50215013"
 ---
 # <a name="assign-licenses-to-users-by-group-membership-in-azure-active-directory"></a>Azure Active Directory'de Grup üyeliği kullanıcıları için lisans atama
 
@@ -28,7 +28,7 @@ Bu makalede bir Azure Active Directory'de (Azure AD) kullanıcı grubu ürün li
 Bu örnekte, Kiracı adlı bir güvenlik grubu içeren **ik departmanı**. Bu grubun tüm üyelerinin İnsan Kaynakları departmanı (yaklaşık 1000 kullanıcı) içerir. Tüm departmanı için Office 365 Kurumsal E3 lisansı atamak istediğiniz. Departman kullanmaya başlamak hazır olana kadar üründe mevcut Kurumsal Yammer service geçici olarak devre dışı bırakılmalıdır. Ayrıca, Enterprise Mobility + Security Lisanslarımı aynı kullanıcı grubunu dağıtmak istiyorsanız.
 
 > [!NOTE]
-> Bazı Microsoft Hizmetleri, tüm konumlardaki kullanılamaz. Bir kullanıcıya lisans atanabilmesi için önce yönetici kullanıcı kullanım konum özelliği belirtmesi gerekir.
+> Bazı Microsoft hizmetleri tüm konumlarda kullanılamaz. Bir kullanıcıya lisans atanabilmesi için önce yönetici kullanıcı kullanım konum özelliği belirtmesi gerekir.
 
 > Grup lisansı atama için kullanım konumu belirtilmemiş olmadan herhangi bir kullanıcı dizin konumunu devralır. Birden fazla konumda kullanıcılar varsa, her zaman kullanım konumu lisans ataması sonucu sağlar (örneğin aracılığıyla yapılandırması) AAD Connect - Azure AD'de kullanıcı oluşturma akışınızı parçası her zaman doğru olduğundan ve kullanıcıların almadığınız olarak ayarlamanızı öneririz izin verilmeyen bir konumda Hizmetleri.
 
@@ -52,7 +52,7 @@ Bu örnekte, Kiracı adlı bir güvenlik grubu içeren **ik departmanı**. Bu gr
 
    ![Atama seçenekleri](./media/licensing-groups-assign/assignment-options.png)
 
-7. Atama tamamlamak için **Ata lisans** bölmesinde tıklayın **atama** bölmesinin alt kısmındaki.
+7. Atamayı tamamlamak için **Lisans ata** bölmesinin en altında bulunan **Ata**'ya tıklayın.
 
 8. Bildirim durumu ve işleminin sonucunu gösteren sağ üst köşesinde görüntülenir. (Örneğin, nedeniyle önceden var olan lisans grubunda) grubuna ataması tamamlanamadı, hatanın ayrıntılarını görüntülemek için bildirime tıklayın.
 
@@ -104,6 +104,8 @@ Biz, ik departmanı grubu için bir lisans şablonu artık belirttiniz. Bu grubu
 Grupları aracılığıyla lisans yönetimi için ayarlama özelliği hakkında daha fazla bilgi edinmek için aşağıdaki makalelere bakın:
 
 * [Grup tabanlı Azure Active Directory lisansı nedir?](../fundamentals/active-directory-licensing-whatis-azure-portal.md)
-* [Azure Active Directory'de bir grup için lisans sorunlarını belirleme ve çözme](licensing-groups-resolve-problems.md)
-* [Azure Active Directory'de Grup tabanlı lisanslama için tek tek lisanslı kullanıcıları geçirme](licensing-groups-migrate-users.md)
-* [Azure Active Directory grup tabanlı lisanslama ek senaryoları](../active-directory-licensing-group-advanced.md)
+* [Azure Active Directory'de grubun lisans sorunlarını tanımlama ve çözme](licensing-groups-resolve-problems.md)
+* [Azure Active Directory'de tek tek lisanslı kullanıcıları grup tabanlı lisanslamaya geçirme](licensing-groups-migrate-users.md)
+* [Kullanıcılar Azure Active Directory'de Grup tabanlı lisanslama kullanarak ürün lisansları arasında geçirme](licensing-groups-change-licenses.md)
+* [Azure Active Directory grup tabanlı lisanslamayla ilgili ek senaryolar](../active-directory-licensing-group-advanced.md)
+* [Azure Active Directory'de Grup tabanlı lisanslama için PowerShell örnekleri](licensing-ps-examples.md)

@@ -10,12 +10,12 @@ ms.component: bing-image-search
 ms.topic: troubleshooting
 ms.date: 10/06/2017
 ms.author: v-jerkin
-ms.openlocfilehash: ea170f4751952288c7894cab9c5acda2bf443043
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: cdc8d8cad26ce4807c8f7bf8fe1d33f13d5799c1
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46295524"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50232945"
 ---
 # <a name="frequently-asked-questions-faq-about-the-bing-image-search-api"></a>Bing resim arama API'si hakkında sık sorulan sorular (SSS)
 
@@ -35,9 +35,9 @@ Aşağıdaki üst bilgiler, Bing resim arama API'si alınan yanıtları oluşabi
 
 Bing resim arama API'si JavaScript'ten çağırdığınızda, ancak, tarayıcınızın yerleşik güvenlik özellikleri (CORS), bu üstbilgi değerlerini erişmesini engelleyebilir.
 
-Üst bilgilerine erişmek için Bing resim arama API'si isteği bir CORS Ara sunucu aracılığıyla yapabilirsiniz. Böyle bir ara sunucu yanıtı sahip bir `Access-Control-Expose-Headers` üst bilgi, beyaz yanıt üst bilgileri ve JavaScript için kullanılabilir hale getirir.
+Üst bilgilerine erişmek için Bing resim arama API'si isteği bir CORS Ara sunucu aracılığıyla yapabilirsiniz. Böyle bir ara sunucudan gelen yanıtta, yanıt üst bilgilerini beyaz listeye alan ve JavaScript’in kullanımına sunan `Access-Control-Expose-Headers` üst bilgisi bulunur.
 
-İzin vermek için bir CORS Ara Sunucusu'nun yükleneceği kolaydır bizim [öğretici uygulama](tutorial-bing-image-search-single-page-app.md) isteğe bağlı istemci üstbilgileri erişmek için. Bu, zaten yoksa, birinci [Node.js yükleme](https://nodejs.org/en/download/). Ardından bir komut isteminde aşağıdaki komutu girin.
+İzin vermek için bir CORS Ara Sunucusu'nun yükleneceği kolaydır bizim [öğretici uygulama](tutorial-bing-image-search-single-page-app.md) isteğe bağlı istemci üstbilgileri erişmek için. İlk olarak, henüz yüklemediyseniz [Node.js'yi yükleyin](https://nodejs.org/en/download/). Ardından bir komut isteminde aşağıdaki komutu girin.
 
     npm install -g cors-proxy-server
 
@@ -45,17 +45,17 @@ Ardından, Bing resim arama API'si uç nokta HTML dosyasındaki değiştirin:
 
     http://localhost:9090/https://api.cognitive.microsoft.com/bing/v7.0/search
 
-Son olarak, CORS Ara sunucusu aşağıdaki komutla başlatın:
+Son olarak, aşağıdaki komutla CORS ara sunucusunu başlatın:
 
     cors-proxy-server
 
-Öğretici uygulamayı kullanırken komut penceresini açık bırakın; pencereyi kapattıktan proxy durdurur. Arama sonuçları altında Genişletilebilir HTTP üstbilgileri bölümünde artık görebilirsiniz `X-MSEdge-ClientID` üst bilgisi (diğerlerinin arasında) ve her istek için aynı olduğunu doğrulayın.
+Öğretici uygulamasını kullanırken komut penceresini açık bırakın; pencere kapatılırsa ara sunucu durdurulur. Arama sonuçlarının altındaki genişletilebilir HTTP Üst Bilgileri bölümünde artık `X-MSEdge-ClientID` üst bilgisini (diğerleriyle birlikte) görebilir ve bunun her istekte aynı olduğunu doğrulayabilirsiniz.
 
 ## <a name="response-headers-in-production"></a>Üretimde yanıt üstbilgileri
 
 Önceki yanıtında açıklanan CORS Ara yaklaşımı, geliştirme, test ve öğrenme için uygundur.
 
-Ancak, bir üretim ortamında, Bing Web araması API'si kullanan Web sayfası olarak aynı etki alanında bir sunucu tarafı betik barındırmamalısınız. Bu betik aslında istek üzerine Web sayfası JavaScript API çağrılarını yapın ve istemciye üst bilgiler dahil olmak üzere tüm sonuçları geçirin. Bir kaynak (sayfa ve komut dosyası) iki Kaynakları paylaşarak CORS oyuna gelmez ve Web sayfasında JavaScript acessible özel üst bilgileri olan.
+Ancak, bir üretim ortamında, Bing Web araması API'si kullanan Web sayfası olarak aynı etki alanında bir sunucu tarafı betik barındırmamalısınız. Bu betik aslında istek üzerine Web sayfası JavaScript API çağrılarını yapın ve istemciye üst bilgiler dahil olmak üzere tüm sonuçları geçirin. Bir kaynak (sayfa ve komut dosyası) iki Kaynakları paylaşarak CORS oyuna gelmez ve özel üstbilgi JavaScript Web sayfasındaki erişilebilir.
 
 Sunucu tarafı betik ihtiyaç duyduğu yalnızca bu yaklaşım ayrıca API anahtarınızı genel maruz kalma riskinizi beri önler. Betik (HTTP başvuran gibi) başka bir yöntem isteğine yetki emin olmak için kullanabilirsiniz.
 

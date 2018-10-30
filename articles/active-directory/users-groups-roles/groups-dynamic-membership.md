@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
-ms.date: 09/20/2018
+ms.date: 10/26/2018
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: e8f0077bf5a1a2911b3aec032fadacf31ad75463
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 13d6ed9feab4654d3574a5aced72efa0345365a6
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48855281"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50215336"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Azure Active Directory'de gruplar için dinamik Üyelik kuralları
 
@@ -316,7 +316,7 @@ Bir üyelik kuralı kullanılarak bir kiracı içindeki tüm cihazları içeren 
 device.objectid -ne null
 ```
 
-### <a name="extension-properties-and-custom-extension-properties"></a>Uzantı özellikleri ve özel uzantı özellikleri
+## <a name="extension-properties-and-custom-extension-properties"></a>Uzantı özellikleri ve özel uzantı özellikleri
 
 Uzantı öznitelikleri ve özel extenson özellikleri dinamik Üyelik kuralları dize özellikleri olarak desteklenir. Uzantı öznitelikleri, şirket içi Windows Server AD eşitlenir ve "burada X, 1-15 eşit ExtensionAttributeX" biçiminin gerçekleştirin. Bir özellik olarak uzantısı özniteliği kullanan bir kural, bir örnek aşağıda verilmiştir:
 
@@ -335,7 +335,7 @@ Uzantı öznitelikleri ve özel extenson özellikleri dinamik Üyelik kuralları
 user.extension_c272a57b722d4eb29bfe327874ae79cb__OfficeNumber -eq "123"
 ```
 
-Özel özellik adını bir kullanıcı sorgulayarak dizininde bulunabilir özelliği Graph Gezgini kullanarak ve arama özellik adı.
+Özel özellik adını bir kullanıcı sorgulayarak dizininde bulunabilir özelliği Graph Gezgini kullanarak ve arama özellik adı. Ayrıca, artık seçebilirsiniz **özel uzantı özelliklerini alma** bağlantı benzersiz uygulama Kimliğini girin ve bir dinamik üyelik kuralı oluşturulurken kullanılacak özel uzantı özelliklerinin tam listesini almak için dinamik kullanıcı grubu kuralı Oluşturucusu. Bu liste, bu uygulama için tüm yeni özel uzantı özellikleri almak için aynı zamanda yenilenebilir.
 
 ## <a name="rules-for-devices"></a>Cihazlar için kuralları
 

@@ -1,3 +1,16 @@
+---
+author: cynthn
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: cynthn
+ms.openlocfilehash: bc273b8979b29057163e02dc9605e631aef173f1
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50227322"
+---
 # <a name="use-infrastructure-automation-tools-with-virtual-machines-in-azure"></a>Azure'da sanal makineler ile altyapıyı Otomasyon araçları kullanma
 Oluşturup uygun ölçekte tutarlı bir şekilde Azure sanal makineleri (VM'ler) yönetmek için Otomasyon biçimi genellikle istenildiği gibi. Birçok araca ve tam Azure altyapı dağıtımı ve Yönetimi yaşam döngüsünü otomatikleştirmenize olanak tanıyan çözümler vardır. Bu makalede, Azure'da kullanabileceğiniz altyapı Otomasyonu araçlardan bazıları tanıtılmaktadır. Bu araçlar genellikle aşağıdaki yaklaşımlardan birini sığacak:
 

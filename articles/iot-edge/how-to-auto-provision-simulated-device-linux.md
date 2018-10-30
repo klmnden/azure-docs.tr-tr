@@ -8,12 +8,12 @@ ms.date: 06/27/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 9609aab6c70bc0c2755de142023bd26e7417987a
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 2416d70e3c9d0f66ff755d8049e78e0275c89258
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37347150"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50232078"
 ---
 # <a name="create-and-provision-an-edge-device-with-a-virtual-tpm-on-a-linux-virtual-machine"></a>Bir Linux sanal makinesinde sanal bir TPM ile Edge cihazı oluşturma ve sağlama
 
@@ -73,7 +73,7 @@ Bu yeni VM oluşturmak için bir görünüm dakika sürebilir.
 2. Gidin **güvenlik**. 
 3. Onay kutusunu temizleyin **Güvenli Önyükleme etkinleştirme**.
 4. Denetleme **Güvenilir Platform Modülü'nü etkinleştirme**. 
-5. **Tamam**’a tıklayın.  
+5. **Tamam** düğmesine tıklayın.  
 
 ### <a name="start-the-virtual-machine-and-collect-tpm-data"></a>TPM veri toplamak ve sanal makineyi Başlat
 
@@ -125,7 +125,7 @@ DPS'de bir kayıt oluşturduğunuzda, bildirme fırsatına sahip bir **ilk cihaz
 
 ## <a name="install-the-iot-edge-runtime"></a>IOT Edge çalışma zamanını yükleme
 
-IoT Edge çalışma zamanı tüm IoT Edge cihazlarına dağıtılır. Bileşenleri kapsayıcılarında çalıştırmak ve kod ucuna çalıştırabilmeniz için cihaza ek kapsayıcıları dağıtma olanak sağlar. IOT Edge çalışma zamanı, sanal m; achine & üzerinde yükleyin. 
+IoT Edge çalışma zamanı tüm IoT Edge cihazlarına dağıtılır. Bileşenleri kapsayıcılarında çalıştırmak ve kod ucuna çalıştırabilmeniz için cihaza ek kapsayıcıları dağıtma olanak sağlar. IOT Edge çalışma zamanı, sanal makinenize yükleyin. 
 
 DPS'niz bilmeniz **kimlik kapsamı** ve cihaz **kayıt kimliği** cihaz türünüzle eşleşen makaleye başlamadan önce. Örnek Ubuntu server yüklü değilse, kullanın **x64** yönergeleri. Otomatik değil el ile sağlama için IOT Edge çalışma zamanı yapılandırdığınızdan emin olun. 
 

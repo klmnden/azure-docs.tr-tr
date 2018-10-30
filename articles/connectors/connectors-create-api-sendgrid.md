@@ -11,12 +11,12 @@ ms.assetid: bc4f1fc2-824c-4ed7-8de8-e82baff3b746
 ms.topic: article
 tags: connectors
 ms.date: 08/24/2018
-ms.openlocfilehash: c8747210a77879d551e323a7c0e46a9ab013fa3f
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.openlocfilehash: 7eecd3908883b195b52755d03e70872afe9180bb
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42887198"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50228865"
 ---
 # <a name="send-emails-and-manage-mailing-lists-in-sendgrid-by-using-azure-logic-apps"></a>E-posta Gönder ve Azure Logic Apps kullanarak SendGrid, posta listelerini yönetin
 
@@ -73,7 +73,7 @@ Tetikleyiciler ve Eylemler sınırları hakkında teknik ayrıntılar için bağ
 ## <a name="get-support"></a>Destek alın
 
 * Sorularınız için [Azure Logic Apps forumunu](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps) ziyaret edin.
-* Özelliklerle ilgili fikirlerinizi göndermek veya gönderilmiş olanları oylamak için [Logic Apps kullanıcı geri bildirimi sitesini](http://aka.ms/logicapps-wish) ziyaret edin.
+* Özelliklerle ilgili fikirlerinizi göndermek veya gönderilmiş olanları oylamak için [Logic Apps kullanıcı geri bildirimi sitesini](https://aka.ms/logicapps-wish) ziyaret edin.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

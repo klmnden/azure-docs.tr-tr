@@ -1,6 +1,6 @@
 ---
-title: Hyper-V’den Azure’a Azure Site Recovery Dağıtım Planlayıcısı maliyet tahmini ayrıntıları| Microsoft Docs
-description: Bu makalede Hyper-V'den Azure dağıtım senaryosu için Azure Site Recovery Dağıtım Planlayıcısı kullanılarak oluşturulan bir raporun maliyet tahmini ayrıntıları açıklanır.
+title: Azure Site Recovery dağıtım Planlayıcısı maliyet tahmini raporunu Hyper-V Vm'lerini azure'a olağanüstü durum kurtarması için gözden geçirin | Microsoft Docs
+description: Bu makalede maliyet gözden geçirmek nasıl raporu oluşturulan Hyper-V azure'a olağanüstü durum kurtarma için Azure Site Recovery dağıtım Planlayıcısı tahmini.
 services: site-recovery
 author: nsoneji
 manager: garavd
@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: nisoneji
-ms.openlocfilehash: 40a8e2e6d994608d4aa26f6d9b3723c0ee27d3db
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 0233446f817436632efc4110872e84b6b3105453
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49387251"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50213194"
 ---
 # <a name="cost-estimation-report-by-azure-site-recovery-deployment-planner"></a>Azure Site Recovery Dağıtım Planlayıcısı maliyet tahmini raporu 
 

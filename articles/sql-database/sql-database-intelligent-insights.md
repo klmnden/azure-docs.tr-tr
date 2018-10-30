@@ -1,5 +1,5 @@
 ---
-title: Akıllı İçgörüler - Azure SQL veritabanı ile veritabanı kullanımı izleme | Microsoft Docs
+title: Akıllı İçgörüler - Azure SQL veritabanı ile veritabanı performansını izleme | Microsoft Docs
 description: Azure SQL veritabanı Intelligent Insights yerleşik zeka, yapay zeka veritabanı kullanımını sürekli olarak izleyip kötü performansa neden aksatıcı olayları algılayacak kullanır.
 services: sql-database
 ms.service: sql-database
@@ -12,14 +12,14 @@ ms.author: v-daljep
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 10/05/2018
-ms.openlocfilehash: b64c8f5d30f95cccf8a029adfd5c443a81597c4d
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: e87cd3742a5dcd52c3a447bb66ea9089c18d5aee
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48870698"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50214690"
 ---
-# <a name="intelligent-insights-using-artificial-intelligence-to-monitor-database-usage"></a>Veritabanı kullanımını izlemek için yapay zeka kullanarak akıllı Öngörüler
+# <a name="intelligent-insights-using-ai-to-monitor-and-troubleshoot-database-performance"></a>Veritabanı performansı izleme ve sorun giderme için yapay ZEKA kullanarak akıllı Öngörüler
 
 Azure SQL veritabanı akıllı Öngörüler, SQL veritabanı ve yönetilen örneği veritabanınızın performansı ile neler olduğunu bilmenizi sağlar.
 

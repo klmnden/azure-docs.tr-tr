@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 10/11/2018
-ms.openlocfilehash: 52f30adf1ea383b098d3f187a315257f101e8a9b
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 1ae350e74a9b56aaaa72b38a9e3a43bddfbefefc
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49320450"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50232282"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Limitler ve yapılandırma bilgilerini Azure Logic Apps
 
@@ -332,7 +332,7 @@ Bir bölgede tüm logic apps, aynı IP adresi aralıklarını kullanın. Logic a
 >
 > * Oluşturma bir [tümleştirme hizmeti ortamı](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), hangi Azure sanal ağdaki kaynaklara bağlanabilir. 
 > 
-> * API Management'ı zaten kullanıyorsanız, bu senaryo için bu hizmeti kullanabilirsiniz. Daha fazla bilgi için bkz. [basit Kurumsal tümleştirme mimarisi](http://aka.ms/aisarch).
+> * API Management'ı zaten kullanıyorsanız, bu senaryo için bu hizmeti kullanabilirsiniz. Daha fazla bilgi için bkz. [basit Kurumsal tümleştirme mimarisi](https://aka.ms/aisarch).
 
 | Logic Apps bölgesi | Giden IP | 
 |-------------------|-------------|  

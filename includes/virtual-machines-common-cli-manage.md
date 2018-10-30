@@ -1,3 +1,16 @@
+---
+author: cynthn
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: cynthn
+ms.openlocfilehash: e08e6ca4f6413b475bd8a0e5ff30b74921c2f0e6
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50226537"
+---
 Azure CLI, macOS, Linux ve Windows, Azure kaynaklarını oluşturmak ve yönetmek sağlar. Bu makalede oluşturmak ve sanal makineleri (VM'ler) yönetmek için en yaygın komutlardan bazıları ayrıntılı olarak açıklanmaktadır.
 
 Bu makalede Azure CLI 2.0.4 sürüm gerektirir veya üzeri. Sürümü bulmak için `az --version` komutunu çalıştırın. Yükseltmeniz gerekirse bkz [Azure CLI yükleme](/cli/azure/install-azure-cli). Ayrıca [Cloud Shell](/azure/cloud-shell/quickstart) tarayıcınızdan.

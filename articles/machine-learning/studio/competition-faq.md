@@ -15,17 +15,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2017
-ms.openlocfilehash: 15d46f16c78b8fa757d7810542b3d6bfa9a95f3c
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: fcbba3578627f53ff1de29fe6e309db9608b31c9
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49465636"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50231517"
 ---
 # <a name="microsoft-cortana-intelligence-competitions-faq"></a>Microsoft Cortana Intelligence Yarışmaları Hakkında SSS
 **Cortana Intelligence Yarışmaları nedir?**
 
-Microsoft Cortana Intelligence Yarışmaları topluca dünyanın en karmaşık veri bilimi sorunlarından bazılarını giderme tarafından bir topluluk tarafından veri analizi meraklılarının sahip. Cortana Intelligence Yarışmaları rekabet ve yüksek oranda doğru ve akıllı bir veri bilimi modelleri oluşturulabilir dünya genelindeki veri analizi meraklılarının gelen izin verir. Bu barındırılan Yarışmaları yapılmış herkes tarafından ilk kez kullanılabilir benzersiz veri kümelerini temel alır. Katılımcılar, ödül kazanma ya da en iyi 10 genel puan tablosu aracılığıyla tanıma alın. Yarışma giriş sayfasında erişebileceğiniz [aka.ms/CIComp](http://aka.ms/CIComp).
+Microsoft Cortana Intelligence Yarışmaları topluca dünyanın en karmaşık veri bilimi sorunlarından bazılarını giderme tarafından bir topluluk tarafından veri analizi meraklılarının sahip. Cortana Intelligence Yarışmaları rekabet ve yüksek oranda doğru ve akıllı bir veri bilimi modelleri oluşturulabilir dünya genelindeki veri analizi meraklılarının gelen izin verir. Bu barındırılan Yarışmaları kullanılabilir publicaly ilk kez yapılmış benzersiz veri kümelerini temel alır. Katılımcılar, ödül kazanma ya da en iyi 10 genel puan tablosu aracılığıyla tanıma alın. Yarışma giriş sayfasında erişebileceğiniz [aka.ms/CIComp](http://aka.ms/CIComp).
 
 **Microsoft yeni bir yarışmaya ne sıklıkta piyasaya?**
 

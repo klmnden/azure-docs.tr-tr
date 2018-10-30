@@ -1,22 +1,20 @@
 ---
-title: 'Azure Site Recovery Aracısı hatasıyla ilgili sorunları giderme: Konuk Aracısı durumu yok | Microsoft Docs'
-description: Belirtiler, nedenleri ve çözümleri aracı ve uzantı ile ilgili Azure Site Recovery hatası sayısı
-services: site-recovery
+title: Azure Site Recovery aracıları ile ilgili sorunları giderme | Microsoft Docs
+description: Belirtiler, nedenleri ve çözümleri, Azure Site Recovery Aracısı hataları hakkında bilgi sağlar.
 author: asgang
 manager: rochakm
 ms.service: site-recovery
-ms.devlang: na
-ms.topic: article
-ms.date: 07/06/2018
+ms.topic: troubleshooting
+ms.date: 10/29/2018
 ms.author: asgang
-ms.openlocfilehash: c0429e87f6c58ef2b9c7a268bee596d769e95910
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 3090dd9e0d9681dbf77f052e9d324f2add0a1910
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37919813"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50215047"
 ---
-# <a name="troubleshoot-azure-site-recovery-extension-failures-issues-with-the-agent-or-extension"></a>Azure Site Recovery uzantı sorunlarını giderme: aracı veya uzantı ile ilgili sorunlar
+# <a name="troubleshoot-issues-with-the-azure-site-recovery-agent"></a>Azure Site Recovery Aracısı ile ilgili sorunları giderme
 
 Bu makale, Azure Site Recovery hataları VM aracısı ve uzantı ile ilgili yardımcı olacak sorun giderme adımlarını çözmek sağlar.
 
@@ -105,7 +103,7 @@ Uzantıyı kaldırmak için:
 
 1. İçinde [Azure portalında](https://portal.azure.com/)yedekleme hatası yaşayan VM'yi gidin.
 2. Seçin **ayarları**.
-3. Seçin **uzantıları**.
+3. **Uzantılar**'ı seçin.
 4. Seçin **Site kurtarma uzantısı**.
 5. Seçin **kaldırma**.
 

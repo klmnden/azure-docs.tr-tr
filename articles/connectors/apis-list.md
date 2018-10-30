@@ -9,12 +9,12 @@ ms.reviewer: klam, LADocs
 ms.suite: integration
 ms.topic: article
 ms.date: 08/23/2018
-ms.openlocfilehash: 6b31882ec3916e60ac7dc7b8117328176abef1b4
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.openlocfilehash: 3230692208d27ebac073e257266c885b5e03095c
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42818543"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50233642"
 ---
 # <a name="connectors-for-azure-logic-apps"></a>Azure Logic Apps için bağlayıcılar
 
@@ -158,7 +158,7 @@ Tetikleyiciler ve eylemler hakkında daha fazla bilgi için bkz. [bağlayıcıla
 
 * Sorularınız için [Azure Logic Apps forumunu](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps) ziyaret edin.
 
-* Gönderin veya Azure Logic Apps ve bağlayıcıları için fikirleri oylamak için şurayı ziyaret edin [Logic Apps kullanıcı geri bildirim sitesinde](http://aka.ms/logicapps-wish).
+* Gönderin veya Azure Logic Apps ve bağlayıcıları için fikirleri oylamak için şurayı ziyaret edin [Logic Apps kullanıcı geri bildirim sitesinde](https://aka.ms/logicapps-wish).
 
 * Önemli olan makaleler veya düşündüğünüz ayrıntıları eksik belgeleri misiniz? Yanıt Evet ise, var olan makaleyi ekleyerek veya kendi yardımcı olabilir. Belgeler açık kaynaklıdır ve Github'da barındırılır. Azure belgelerine ait başlama [GitHub deposu](https://github.com/Microsoft/azure-docs). 
 

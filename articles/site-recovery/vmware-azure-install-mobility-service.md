@@ -1,19 +1,19 @@
 ---
-title: Mobility hizmetini (VMware veya fiziksel-Azure) yükleme | Microsoft Docs
-description: Şirket içi VMware Vm'leri ve fiziksel sunucuları Azure Site Recovery ile koruma için Mobility hizmeti aracısı yüklemeyi öğrenin.
+title: Azure'a VMware Vm'lerini ve fiziksel sunucuları olağanüstü durum kurtarma için Mobility hizmetini yükleme | Microsoft Docs
+description: VMware Vm'lerini ve fiziksel sunucuları olağanüstü durum kurtarma için Mobility Hizmeti Aracısı Azure Site Recovery hizmetini kullanarak Azure'a yüklemeyi öğrenin.
 author: Rajeswari-Mamilla
 ms.service: site-recovery
 ms.topic: article
-ms.date: 07/06/2018
+ms.date: 10/29/2018
 ms.author: ramamill
-ms.openlocfilehash: 094c1776c0760c04d85aff6ad3d812a2ad7afa56
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 145affbcff128e0ec599ad1f97c79260b0dcae5a
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39527006"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50212701"
 ---
-# <a name="install-the-mobility-service"></a>Mobility hizmetini yükleme 
+# <a name="install-the-mobility-service-for-disaster-recovery-of-vmware-vms-and-physical-servers"></a>VMware Vm'lerini ve fiziksel sunucuları olağanüstü durum kurtarma için Mobility hizmetini yükleme
 
 Azure Site Recovery Mobility hizmeti, VMware Vm'leri ve fiziksel sunucuları Azure'a çoğaltmak istediğiniz yüklenir. Hizmet, bir bilgisayardaki veri yazma yakalar ve ardından bunları işlem sunucusuna gönderir. Azure'a çoğaltmak istediğiniz her bilgisayarda (VMware VM veya fiziksel sunucu) için Mobility hizmetini dağıtma. Sunucuları üzerindeki Mobility hizmetinin ve aşağıdaki yöntemleri kullanarak korumak istediğiniz VMware Vm'leri dağıtabilirsiniz:
 
@@ -113,7 +113,7 @@ Windows Server yüklü bir bilgisayara Mobility hizmetini kaldırmak için aşa�
 2. Seçin **Microsoft Azure Site Recovery Mobility hizmeti/ana hedef sunucusu**ve ardından **kaldırma**.
 
 ### <a name="uninstall-at-a-command-prompt"></a>Bir komut isteminde kaldırma
-1. Yönetici olarak bir komut istemi penceresi açın.
+1. Yönetici olarak bir komut istemi penceresini açın.
 2. Mobility hizmetini kaldırmak için aşağıdaki komutu çalıştırın:
 
     ```

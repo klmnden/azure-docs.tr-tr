@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 10/15/2018
 ms.author: tamram
-ms.openlocfilehash: ae6f7646192b7bee8cbd836f1eff3814c26a6b46
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: ed35380e66e6d5d59058552d8e0504220c100b73
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49427340"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50231398"
 ---
 # <a name="enable-azure-active-directory-authentication-over-smb-for-azure-files-preview"></a>Azure Active Directory kimlik doğrulaması SMB üzerinden Azure dosyaları (Önizleme) için etkinleştirin.
 [!INCLUDE [storage-files-aad-auth-include](../../../includes/storage-files-aad-auth-include.md)]
@@ -88,7 +88,11 @@ Aşağıdaki resimde, Azure AD kimlik doğrulaması üzerinden SMB depolama hesa
   
 ### <a name="powershell"></a>PowerShell  
 
-Azure PowerShell üzerinden SMB üzerinden Azure AD kimlik doğrulamasını etkinleştirmek için önce yükleme `AzureRM.Storage 6.0.0-preview` modülü. PowerShell'i yükleme hakkında daha fazla bilgi için bkz: [PowerShellGet ile Windows üzerindeki Azure PowerShell yükleme](https://docs.microsoft.com/powershell/azure/install-azurerm-ps).
+Azure PowerShell üzerinden SMB üzerinden Azure AD kimlik doğrulamasını etkinleştirmek için önce yükleme `AzureRM.Storage` modülü, sürüm `6.0.0-preview`aşağıdaki gibi. PowerShell'i yükleme hakkında daha fazla bilgi için bkz. [PowerShellGet ile Windows üzerindeki Azure PowerShell yükleme](https://docs.microsoft.com/powershell/azure/install-azurerm-ps):
+
+```powershell
+Install-Module -Name AzureRM.Storage -RequiredVersion 6.0.0-preview -AllowPrerelease
+```
 
 Ardından, yeni bir depolama oluşturma çağrı sonra hesap [Set-AzureRmStorageAccount](https://docs.microsoft.com/powershell/module/azurerm.storage/set-azurermstorageaccount) ve **EnableAzureFilesAadIntegrationForSMB** parametresi **true**. Aşağıdaki örnekte, yer tutucu değerlerini kendi değerlerinizle değiştirin unutmayın.
 

@@ -1,5 +1,5 @@
 ---
-title: Kapsayıcılar için Azure İzleyici gidermek için nasıl | Microsoft Docs
+title: Kapsayıcılar (Önizleme) için Azure İzleyici gidermek için nasıl | Microsoft Docs
 description: Bu makalede, sorun giderme ve kapsayıcılar için Azure İzleyici ile ilgili sorunları giderme nasıl açıklanmaktadır.
 services: azure-monitor
 documentationcenter: ''
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/19/2018
 ms.author: magoedte
-ms.openlocfilehash: 19d015947e5d2331c50cd64956e8a7650f96616d
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: 69e5a61d5e66e5904df31456e9311a39058787b2
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49638333"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50212361"
 ---
-# <a name="troubleshooting-azure-monitor-for-containers"></a>Kapsayıcılar için Azure İzleyici sorunlarını giderme
+# <a name="troubleshooting-azure-monitor-for-containers-preview"></a>Azure İzleyici (Önizleme) kapsayıcı için sorun giderme
 
 Azure Kubernetes Service (AKS) kümenizi kapsayıcılar için Azure İzleyici ile izleme yapılandırdığınızda veri toplama işlemini engelliyor veya durum raporlama bir sorunla karşılaşabilirsiniz. Bu makalede bazı yaygın sorunlar ve sorun giderme adımları ayrıntılı olarak açıklanmaktadır.
 

@@ -9,12 +9,12 @@ ms.author: deli
 ms.reviewer: klam, estfan, LADocs
 ms.topic: article
 ms.date: 08/25/2018
-ms.openlocfilehash: 41dd8ad721329c4c4d2761c9e4a37c640251dac3
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 0c30ffec58b1542fa80cf0c9873a0e6df8641104
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43125287"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50232554"
 ---
 # <a name="connect-to-on-premises-file-systems-with-azure-logic-apps"></a>Azure Logic Apps ile şirket içi dosya sistemlerine bağlanın
 
@@ -99,7 +99,7 @@ Tetikleyiciler ve Eylemler sınırları hakkında teknik ayrıntılar için bağ
 
 * Sorularınız için [Azure Logic Apps forumunu](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps) ziyaret edin.
 
-* Azure Logic Apps ve bağlayıcıları geliştirmeye yardımcı olmak için oy kullanın veya fikirlerinizi [Azure Logic Apps User Voice sitesinden](http://aka.ms/logicapps-wish).
+* Azure Logic Apps ve bağlayıcıları geliştirmeye yardımcı olmak için oy kullanın veya fikirlerinizi [Azure Logic Apps User Voice sitesinden](https://aka.ms/logicapps-wish).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

@@ -1,3 +1,16 @@
+---
+author: cynthn
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: cynthn
+ms.openlocfilehash: 0e46caf855bca184ff8a714d2c93d573b910fea8
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50226568"
+---
 Kolayca [otomatik olarak ölçeklendirme](../articles/monitoring-and-diagnostics/insights-autoscale-best-practices.md) , [sanal makineleri (VM'ler)](../articles/virtual-machines/windows/overview.md) kullandığınızda [sanal makine ölçek kümeleri](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) ve [Azure otomatik ölçeklendirme özelliği İzleyici](../articles/monitoring-and-diagnostics/monitoring-overview-autoscale.md). Sanal makinelerinizin bir ölçek kümesinin otomatik olarak ölçeklendirilmesi üyelerinin olması gerekir. Bu makalede, dikey ve yatay otomatik ve el ile yöntemleri kullanarak sanal makinelerinizi ölçeklendirmek nasıl daha iyi anlamak sağlayan bilgiler sağlar.
 
 ## <a name="horizontal-or-vertical-scaling"></a>Yatay veya dikey ölçeklendirme

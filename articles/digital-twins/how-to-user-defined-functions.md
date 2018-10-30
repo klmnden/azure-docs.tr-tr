@@ -6,14 +6,14 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 10/25/2018
+ms.date: 10/26/2018
 ms.author: alinast
-ms.openlocfilehash: 49566d21fa6897f5c1371bbea2bb602a393de66d
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 8094965da5fb0a5fad0313fd96e2878f86d78aa7
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50140798"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50215506"
 ---
 # <a name="how-to-use-user-defined-functions-in-azure-digital-twins"></a>Azure dijital İkizlerini kullanıcı tanımlı işlevler kullanma
 
@@ -50,9 +50,9 @@ Geçerli Eşleştiricisi koşul hedefleri:
 - `SensorDevice`
 - `SensorSpace`
 
-Aşağıdaki örnek Eşleştiricisi true ile herhangi bir algılayıcı telemetri olayı olarak değerlendirilecektir `Temperature` veri türü değeri olarak. Bir kullanıcı tanımlı işlev üzerinde birden fazla matchers oluşturabilirsiniz.
+Aşağıdaki örnek Eşleştiricisi true ile herhangi bir algılayıcı telemetri olayı olarak değerlendirilecektir `"Temperature"` veri türü değeri olarak. Bir kullanıcı tanımlı işlev üzerinde birden fazla matchers oluşturabilirsiniz.
 
-```text
+```plaintext
 POST https://yourManagementApiUrl/api/v1.0/matchers
 {
   "Name": "Temperature Matcher",
@@ -123,9 +123,9 @@ function process(telemetry, executionContext) {
 
 ### <a name="example-functions"></a>Örnek işlevleri
 
-Algılayıcı telemetri algılayıcı için doğrudan veri türüyle okuma ayarlamak `Temperature`, olduğu `sensor.DataType`:
+Algılayıcı telemetri algılayıcı için doğrudan veri türüyle okuma ayarlamak **sıcaklık**, olduğu `sensor.DataType`:
 
-```javascript
+```JavaScript
 function process(telemetry, executionContext) {
 
   // Get sensor metadata
@@ -139,7 +139,7 @@ function process(telemetry, executionContext) {
 }
 ```
 
-`telemetry` Parametresi sunan bir `SensorId` ve `Message`. `executionContext` Parametre aşağıdaki öznitelikleri gösterir:
+*Telemetri* parametresi sunan **SensorId** ve **ileti** öznitelikleri (bir algılayıcı tarafından gönderilen bir iletinin karşılık gelen). *ExecutionContext* parametre aşağıdaki öznitelikleri gösterir:
 
 ```csharp
 var executionContext = new UdfExecutionContext
@@ -153,7 +153,7 @@ var executionContext = new UdfExecutionContext
 
 Telemetri algılayıcı okuma önceden tanımlanmış bir eşik değerini geçiyor, sonraki örnekte, biz bir iletiyi günlüğe kaydeder. Tanılama ayarlarınızı dijital İkizlerini örneğinde etkinse, kullanıcı tanımlı işlevleri günlüklerinden de iletilir:
 
-```javascript
+```JavaScript
 function process(telemetry, executionContext) {
 
   // Retrieve the sensor value
@@ -168,7 +168,7 @@ function process(telemetry, executionContext) {
 
 Önceden tanımlanmış sabit sıcaklık düzeye yükseldiğinde, aşağıdaki kod bir uyarı tetikler.
 
-```javascript
+```JavaScript
 function process(telemetry, executionContext) {
 
   // Retrieve the sensor value
@@ -196,7 +196,7 @@ Başvurmak için daha karmaşık bir UDF kod örneği, [kullanılabilir alanlar�
 
 Biz altında çalıştırılacak kullanıcı tanımlı işlevi için bir rol ataması oluşturmanız gerekir. Biz yapmazsanız, grafik nesnelerde eylemler gerçekleştirmek için yönetim API'si ile etkileşim için uygun izinlere sahip değil. Kullanıcı tanımlı işlev gerçekleştirdiği eylemleri, dijital İkizlerini yönetim API'leri rol tabanlı erişim denetimine muaf değildir. Bunlar belirli roller ya da belirli erişim denetimi yolları belirterek kapsamda sınırlanabilir. Daha fazla bilgi için [rol tabanlı erişim denetimi](./security-role-based-access-control.md) belgeleri.
 
-- Rolleri için sorgu ve UDF için atamak istediğiniz rolü Kimliğini alın. Aşağıdaki Roleıd geçirin.
+1. Rolleri için sorgu ve UDF için atamak istediğiniz rolü Kimliğini alın. geçirin **Roleıd** aşağıda.
 
 ```plaintext
 GET https://yourManagementApiUrl/api/v1.0/system/roles
@@ -206,8 +206,9 @@ GET https://yourManagementApiUrl/api/v1.0/system/roles
 | --- | --- |
 | *yourManagementApiUrl* | Yönetim API'niz için tam URL yolu  |
 
-- Daha önce oluşturulan UDF kimliği objectID olacaktır
-- Bulma `Path` tam yolu ve kopyalama alanları sorgulamak `spacePaths` değeri. UDF rol ataması oluştururken yolda yapıştırın
+2. **ObjectID** daha önce oluşturulan UDF kimliği olacaktır.
+3. Değerini bulun **yolu** alanlarınıza ile sorgulamak `fullpath`.
+4. Döndürülen kopyalama `spacePaths` değeri. Kullanacağınız aşağıda.
 
 ```plaintext
 GET https://yourManagementApiUrl/api/v1.0/spaces?name=yourSpaceName&includes=fullpath
@@ -217,6 +218,8 @@ GET https://yourManagementApiUrl/api/v1.0/spaces?name=yourSpaceName&includes=ful
 | --- | --- |
 | *yourManagementApiUrl* | Yönetim API'niz için tam URL yolu  |
 | *yourSpaceName* | Kullanmak istediğiniz alanı adı |
+
+4. Şimdi, döndürülen yapıştırın `spacePaths` içine değer **yolu** UDF rol ataması oluşturmak için.
 
 ```plaintext
 POST https://yourManagementApiUrl/api/v1.0/roleassignments
@@ -253,7 +256,7 @@ Belirtilen bir alan tanımlayıcısı grafikten yer alır.
 
 | param  | Tür                | Açıklama  |
 | ------ | ------------------- | ------------ |
-| `id`  | `guid` | alanı tanımlayıcısı |
+| *Kimliği*  | `guid` | alanı tanımlayıcısı |
 
 ### <a name="getsensormetadataid--sensor"></a>getSensorMetadata(id) ⇒ `sensor`
 
@@ -263,7 +266,7 @@ Belirtilen bir algılayıcı tanımlayıcısı, algılayıcı grafikten alır.
 
 | param  | Tür                | Açıklama  |
 | ------ | ------------------- | ------------ |
-| `id`  | `guid` | Algılayıcı tanımlayıcısı |
+| *Kimliği*  | `guid` | Algılayıcı tanımlayıcısı |
 
 ### <a name="getdevicemetadataid--device"></a>getDeviceMetadata(id) ⇒ `device`
 
@@ -273,7 +276,7 @@ Belirtilen bir cihaz tanımlayıcısı, cihaz grafikten alır.
 
 | param  | Tür                | Açıklama  |
 | ------ | ------------------- | ------------ |
-| `id`  | `guid` | Cihaz tanımlayıcısı |
+| *Kimliği* | `guid` | Cihaz tanımlayıcısı |
 
 ### <a name="getsensorvaluesensorid-datatype--value"></a>⇒ getSensorValue (sensorId, veri türü) `value`
 
@@ -283,8 +286,8 @@ Bir algılayıcı tanımlayıcısı ve kendi veri türüne, algılayıcı için 
 
 | param  | Tür                | Açıklama  |
 | ------ | ------------------- | ------------ |
-| `sensorId`  | `guid` | Algılayıcı tanımlayıcısı |
-| `dataType`  | `string` | Algılayıcı veri türü |
+| *sensorId*  | `guid` | Algılayıcı tanımlayıcısı |
+| *Veri türü*  | `string` | Algılayıcı veri türü |
 
 ### <a name="getspacevaluespaceid-valuename--value"></a>(spaceId, valueName) getSpaceValue ⇒ `value`
 
@@ -294,8 +297,8 @@ Bir alanı tanımlayıcısı ve değer adı verildiğinde, bu alanı özelliğin
 
 | param  | Tür                | Açıklama  |
 | ------ | ------------------- | ------------ |
-| `spaceId`  | `guid` | alanı tanımlayıcısı |
-| `valueName` | `string` | özellik adı alanı |
+| *spaceId*  | `guid` | alanı tanımlayıcısı |
+| *değer adı* | `string` | özellik adı alanı |
 
 ### <a name="getsensorhistoryvaluessensorid-datatype--value"></a>⇒ getSensorHistoryValues (sensorId, veri türü) `value[]`
 
@@ -305,8 +308,8 @@ Bir algılayıcı tanımlayıcısı ve kendi veri türüne, algılayıcı için 
 
 | param  | Tür                | Açıklama  |
 | ------ | ------------------- | ------------ |
-| `sensorId` | `guid` | Algılayıcı tanımlayıcısı |
-| `dataType` | `string` | Algılayıcı veri türü |
+| *sensorId* | `guid` | Algılayıcı tanımlayıcısı |
+| *Veri türü* | `string` | Algılayıcı veri türü |
 
 ### <a name="getspacehistoryvaluesspaceid-datatype--value"></a>⇒ getSpaceHistoryValues (spaceId, veri türü) `value[]`
 
@@ -316,8 +319,8 @@ Bir alanı tanımlayıcısı ve değer adı verildiğinde, bu özellik alanı i�
 
 | param  | Tür                | Açıklama  |
 | ------ | ------------------- | ------------ |
-| `spaceId` | `guid` | alanı tanımlayıcısı |
-| `valueName` | `string` | özellik adı alanı |
+| *spaceId* | `guid` | alanı tanımlayıcısı |
+| *değer adı* | `string` | özellik adı alanı |
 
 ### <a name="getspacechildspacesspaceid--space"></a>getSpaceChildSpaces(spaceId) ⇒ `space[]`
 
@@ -327,7 +330,7 @@ Bir alanı tanımlayıcısı göz önünde bulundurulduğunda, bu üst alanı i�
 
 | param  | Tür                | Açıklama  |
 | ------ | ------------------- | ------------ |
-| `spaceId` | `guid` | alanı tanımlayıcısı |
+| *spaceId* | `guid` | alanı tanımlayıcısı |
 
 ### <a name="getspacechildsensorsspaceid--sensor"></a>getSpaceChildSensors(spaceId) ⇒ `sensor[]`
 
@@ -337,7 +340,7 @@ Bir alanı tanımlayıcısı göz önünde bulundurulduğunda, bu üst alanı al
 
 | param  | Tür                | Açıklama  |
 | ------ | ------------------- | ------------ |
-| `spaceId` | `guid` | alanı tanımlayıcısı |
+| *spaceId* | `guid` | alanı tanımlayıcısı |
 
 ### <a name="getspacechilddevicesspaceid--device"></a>getSpaceChildDevices(spaceId) ⇒ `device[]`
 
@@ -347,7 +350,7 @@ Bir alanı tanımlayıcısı göz önünde bulundurulduğunda, alt cihazlar içi
 
 | param  | Tür                | Açıklama  |
 | ------ | ------------------- | ------------ |
-| `spaceId` | `guid` | alanı tanımlayıcısı |
+| *spaceId* | `guid` | alanı tanımlayıcısı |
 
 ### <a name="getdevicechildsensorsdeviceid--sensor"></a>getDeviceChildSensors(deviceId) ⇒ `sensor[]`
 
@@ -357,7 +360,7 @@ Cihaz tanımlayıcısı göz önünde bulundurulduğunda, bu üst cihaz için al
 
 | param  | Tür                | Açıklama  |
 | ------ | ------------------- | ------------ |
-| `deviceId` | `guid` | Cihaz tanımlayıcısı |
+| *cihaz kimliği* | `guid` | Cihaz tanımlayıcısı |
 
 ### <a name="getspaceparentspacechildspaceid--space"></a>getSpaceParentSpace(childSpaceId) ⇒ `space`
 
@@ -367,7 +370,7 @@ Bir alanı tanımlayıcısı göz önünde bulundurulduğunda, kendi üst alanı
 
 | param  | Tür                | Açıklama  |
 | ------ | ------------------- | ------------ |
-| `childSpaceId` | `guid` | alanı tanımlayıcısı |
+| *childSpaceId* | `guid` | alanı tanımlayıcısı |
 
 ### <a name="getsensorparentspacechildsensorid--space"></a>getSensorParentSpace(childSensorId) ⇒ `space`
 
@@ -377,7 +380,7 @@ Bir algılayıcı tanımlayıcı göz önünde bulundurulduğunda, kendi üst al
 
 | param  | Tür                | Açıklama  |
 | ------ | ------------------- | ------------ |
-| `childSensorId` | `guid` | Algılayıcı tanımlayıcısı |
+| *childSensorId* | `guid` | Algılayıcı tanımlayıcısı |
 
 ### <a name="getdeviceparentspacechilddeviceid--space"></a>getDeviceParentSpace(childDeviceId) ⇒ `space`
 
@@ -387,7 +390,7 @@ Cihaz tanımlayıcısı göz önünde bulundurulduğunda, kendi üst yer alır.
 
 | param  | Tür                | Açıklama  |
 | ------ | ------------------- | ------------ |
-| `childDeviceId` | `guid` | Cihaz tanımlayıcısı |
+| *childDeviceId* | `guid` | Cihaz tanımlayıcısı |
 
 ### <a name="getsensorparentdevicechildsensorid--space"></a>getSensorParentDevice(childSensorId) ⇒ `space`
 
@@ -397,7 +400,7 @@ Bir algılayıcı tanımlayıcı göz önünde bulundurulduğunda, kendi üst ci
 
 | param  | Tür                | Açıklama  |
 | ------ | ------------------- | ------------ |
-| `childSensorId` | `guid` | Algılayıcı tanımlayıcısı |
+| *childSensorId* | `guid` | Algılayıcı tanımlayıcısı |
 
 ### <a name="getspaceextendedpropertyspaceid-propertyname--extendedproperty"></a>(spaceId, propertyName) getSpaceExtendedProperty ⇒ `extendedProperty`
 
@@ -407,8 +410,8 @@ Bir alanı tanımlayıcısı göz önünde bulundurulduğunda, alanından özell
 
 | param  | Tür                | Açıklama  |
 | ------ | ------------------- | ------------ |
-| `spaceId` | `guid` | alanı tanımlayıcısı |
-| `propertyName` | `string` | özellik adı alanı |
+| *spaceId* | `guid` | alanı tanımlayıcısı |
+| *PropertyName* | `string` | özellik adı alanı |
 
 ### <a name="getsensorextendedpropertysensorid-propertyname--extendedproperty"></a>(sensorId, propertyName) getSensorExtendedProperty ⇒ `extendedProperty`
 
@@ -418,8 +421,8 @@ Bir algılayıcı tanımlayıcı göz önünde bulundurulduğunda, algılayıcı
 
 | param  | Tür                | Açıklama  |
 | ------ | ------------------- | ------------ |
-| `sensorId` | `guid` | Algılayıcı tanımlayıcısı |
-| `propertyName` | `string` | Algılayıcı özellik adı |
+| *sensorId* | `guid` | Algılayıcı tanımlayıcısı |
+| *PropertyName* | `string` | Algılayıcı özellik adı |
 
 ### <a name="getdeviceextendedpropertydeviceid-propertyname--extendedproperty"></a>(cihaz kimliği, propertyName) getDeviceExtendedProperty ⇒ `extendedProperty`
 
@@ -429,8 +432,8 @@ Cihaz tanımlayıcısı göz önünde bulundurulduğunda, CİHAZDAN özelliği v
 
 | param  | Tür                | Açıklama  |
 | ------ | ------------------- | ------------ |
-| `deviceId` | `guid` | Cihaz tanımlayıcısı |
-| `propertyName` | `string` | cihaz özellik adı |
+| *cihaz kimliği* | `guid` | Cihaz tanımlayıcısı |
+| *PropertyName* | `string` | cihaz özellik adı |
 
 ### <a name="setsensorvaluesensorid-datatype-value"></a>setSensorValue (sensorId, veri türü, değer)
 
@@ -440,9 +443,9 @@ Belirtilen veri türü ile algılayıcı nesnede bir değer ayarlar.
 
 | param  | Tür                | Açıklama  |
 | ------ | ------------------- | ------------ |
-| `sensorId` | `guid` | Algılayıcı tanımlayıcısı |
-| `dataType`  | `string` | Algılayıcı veri türü |
-| `value`  | `string` | değer |
+| *sensorId* | `guid` | Algılayıcı tanımlayıcısı |
+| *Veri türü*  | `string` | Algılayıcı veri türü |
+| *value*  | `string` | değer |
 
 ### <a name="setspacevaluespaceid-datatype-value"></a>setSpaceValue (spaceId, veri türü, değer)
 
@@ -452,9 +455,9 @@ Belirtilen veri türüne sahip alan nesne üzerinde bir değer ayarlar.
 
 | param  | Tür                | Açıklama  |
 | ------ | ------------------- | ------------ |
-| `spaceId` | `guid` | alanı tanımlayıcısı |
-| `dataType` | `string` | veri türü |
-| `value` | `string` | değer |
+| *spaceId* | `guid` | alanı tanımlayıcısı |
+| *Veri türü* | `string` | veri türü |
+| *value* | `string` | değer |
 
 ### <a name="logmessage"></a>log(Message)
 
@@ -464,7 +467,7 @@ Kullanıcı tanımlı işlev içinde aşağıdaki iletiyi günlüğe kaydeder.
 
 | param  | Tür                | Açıklama  |
 | ------ | ------------------- | ------------ |
-| `message` | `string` | günlüğe kaydedilecek ileti |
+| *İleti* | `string` | günlüğe kaydedilecek ileti |
 
 ### <a name="sendnotificationtopologyobjectid-topologyobjecttype-payload"></a>sendNotification (topologyObjectId, topologyObjectType, yükü)
 
@@ -474,9 +477,9 @@ Gönderilecek özel bir bildirim gönderir.
 
 | param  | Tür                | Açıklama  |
 | ------ | ------------------- | ------------ |
-| `topologyObjectId`  | `guid` | Grafik nesne tanımlayıcısı (ör. alan / algılayıcı /device kimliği)|
-| `topologyObjectType`  | `string` | (ör. alan / algılayıcı / cihaz)|
-| `payload`  | `string` | bildirimi gönderilecek JSON yükü |
+| *topologyObjectId*  | `guid` | Grafik nesne tanımlayıcısı (ör. alan / algılayıcı /device kimliği)|
+| *topologyObjectType*  | `string` | (ör. alan / algılayıcı / cihaz)|
+| *Yükü*  | `string` | bildirimi gönderilecek JSON yükü |
 
 ## <a name="return-types"></a>Dönüş türleri
 
@@ -515,7 +518,7 @@ Genişletilmiş özellik ve geçerli bir alan değerini döndürür.
 
 | param  | Tür                | Açıklama  |
 | ------ | ------------------- | ------------ |
-| `propertyName` | `string` | Genişletilmiş özellik adı |
+| *PropertyName* | `string` | Genişletilmiş özellik adı |
 
 #### <a name="valuevaluename--value"></a>Value(ValueName) ⇒ `value`
 
@@ -523,7 +526,7 @@ Geçerli alan değerini döndürür.
 
 | param  | Tür                | Açıklama  |
 | ------ | ------------------- | ------------ |
-| `valueName` | `string` | değer adı |
+| *değer adı* | `string` | değer adı |
 
 #### <a name="historyvaluename--value"></a>History(ValueName) ⇒ `value[]`
 
@@ -531,7 +534,7 @@ Geçmiş geçerli alan değerlerini döndürür.
 
 | param  | Tür                | Açıklama  |
 | ------ | ------------------- | ------------ |
-| `valueName` | `string` | değer adı |
+| *değer adı* | `string` | değer adı |
 
 #### <a name="notifypayload"></a>Notify(Payload)
 
@@ -539,7 +542,7 @@ Belirtilen yük ile bir bildirim gönderir.
 
 | param  | Tür                | Açıklama  |
 | ------ | ------------------- | ------------ |
-| `payload` | `string` | Bildirime eklenecek JSON yükü |
+| *Yükü* | `string` | Bildirime eklenecek JSON yükü |
 
 ### <a name="device"></a>Cihaz
 
@@ -575,7 +578,7 @@ Genişletilmiş özellik ve geçerli cihaz için değerini döndürür.
 
 | param  | Tür                | Açıklama  |
 | ------ | ------------------- | ------------ |
-| `propertyName` | `string` | Genişletilmiş özellik adı |
+| *PropertyName* | `string` | Genişletilmiş özellik adı |
 
 #### <a name="notifypayload"></a>Notify(Payload)
 
@@ -583,7 +586,7 @@ Belirtilen yük ile bir bildirim gönderir.
 
 | param  | Tür                | Açıklama  |
 | ------ | ------------------- | ------------ |
-| `payload` | `string` | Bildirime eklenecek JSON yükü |
+| *Yükü* | `string` | Bildirime eklenecek JSON yükü |
 
 ### <a name="sensor"></a>Algılayıcı
 
@@ -623,7 +626,7 @@ Genişletilmiş özellik ve geçerli algılayıcı için değerini döndürür.
 
 | param  | Tür                | Açıklama  |
 | ------ | ------------------- | ------------ |
-| `propertyName` | `string` | Genişletilmiş özellik adı |
+| *PropertyName* | `string` | Genişletilmiş özellik adı |
 
 #### <a name="value--value"></a>Value()) ⇒ `value`
 
@@ -639,7 +642,7 @@ Belirtilen yük ile bir bildirim gönderir.
 
 | param  | Tür                | Açıklama  |
 | ------ | ------------------- | ------------ |
-| `payload` | `string` | Bildirime eklenecek JSON yükü |
+| *Yükü* | `string` | Bildirime eklenecek JSON yükü |
 
 ### <a name="value"></a>Değer
 

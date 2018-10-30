@@ -1,22 +1,21 @@
 ---
 title: Azure Site Recovery ile hangi iş yüklerini koruyabilirsiniz? | Microsoft Docs
 description: Azure Site Recovery hizmeti ile olağanüstü durum kurtarma kullanılarak korunabilen iş yüklerini açıklar.
-services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 07/22/2018
+ms.date: 10/29/2018
 ms.author: raynew
-ms.openlocfilehash: 5295002e823dc864f0f0dcc67594f49b5431bce7
-ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
+ms.openlocfilehash: 70f19213da9c311e306e09890f54185f6d2834dc
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39205961"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50213251"
 ---
 # <a name="what-workloads-can-you-protect-with-azure-site-recovery"></a>Azure Site Recovery ile hangi iş yüklerini koruyabilirsiniz?
 
-Bu makalede, [Azure Site Recovery](site-recovery-overview.md) hizmetiyle çoğaltabileceğiniz iş yükleri ve uygulamalar açıklanmıştır.
+Bu makalede iş yükleri ve uygulamalar için olağanüstü durum kurtarma ile Koruyabileceğiniz [Azure Site Recovery](site-recovery-overview.md) hizmeti.
 
 
 

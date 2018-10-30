@@ -5,17 +5,17 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 5/21/2018
+ms.date: 10/29/2018
 ms.topic: article
 ms.service: azure-blockchain
-ms.reviewer: zeyadr
+ms.reviewer: coborn
 manager: femila
-ms.openlocfilehash: 823bea9bac8ff270d5b5c02e3b76a2f7236c9c99
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: fa58ecf4607efc1d212e40b98d199756d4b987f8
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48243330"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50231806"
 ---
 # <a name="ethereum-proof-of-work-consortium-solution-template"></a>Ethereum iş kavram consortium çözüm şablonu
 
@@ -119,7 +119,7 @@ Beşinci bölge| Beşinci bölgesi (bölge sayısı 5 seçildiğinde görünür)
 
 ### <a name="network-size-and-performance"></a>Ağ boyutu ve performansı
 
-Sonraki altında **ağ, boyut ve performans** girişleri sayısını ve boyutunu araştırma düğümü ve işlem düğümü gibi Konsorsiyum ağı boyutunu belirtin.
+Sonraki altında **ağ, boyut ve performans** girişleri Konsorsiyum ağı boyutunu belirtin. Sayısı ve boyutu araştırma düğümü ve işlem düğümü gibi.
 
 ![Ağ boyutu ve performansı](./media/ethereum-deployment/network-size-performance.png)
 
@@ -261,10 +261,10 @@ Ardından, modülü içeri aktarın:
 
 Son olarak, uygun girişle işlevi çalıştırın:
 
-- **MyGatewayResourceId** : ağ geçidi kaynak yolu. Adlı şablon dağıtımı çıkış parametresi budur **CONSORTIUM_MEMBER_GATEWAY_ID**.
-- **OtherGatewayResourceId** : katılan üyenin ağ geçidinin kaynak yolu. Bu katılan bir üyesi tarafından sağlanır ve şablon dağıtımı çıktı parametresi olarak da adlandırılır **CONSORTIUM_MEMBER_GATEWAY_ID**.
-- **ConnectionName** : Bu ağ geçidi bağlantısı belirleyebilmeniz için bir ad.
-- **Paylaşılan anahtar** : önceden oluşturulmuş gizli arasında bağlantı kurma iki Konsorsiyum ağı üyesi.
+- **MyGatewayResourceId:** geçidinizin kaynak yolu. Adlı şablon dağıtımı çıkış parametresi budur **CONSORTIUM_MEMBER_GATEWAY_ID**.
+- **OtherGatewayResourceId:** katılma üyenin ağ geçidinin kaynak yolu. Bu katılan bir üyesi tarafından sağlanır ve şablon dağıtımı çıktı parametresi olarak da adlandırılır **CONSORTIUM_MEMBER_GATEWAY_ID**.
+- **ConnectionName:** , bu ağ geçidi bağlantısı tanımlamak bir ad.
+- **Paylaşılan anahtar:** önceden oluşturulmuş gizli arasında bağlantı kurma iki Konsorsiyum ağı üyesi.
 
 **CreateConnection** -MyGatewayResourceId <resource path of your Gateway> - OtherGatewayResourceId < katılma üyenin ağ geçidinin kaynak yolu > - ConnectionName myConnection - SharedKey "MySharedKeyAbc123"
 
@@ -274,11 +274,11 @@ Azure CLI betiği indirip yerel olarak depolar. Azure CLI betiği konumunu adlı
 
 Uygun giriş ile betiği çalıştırın:
 
-- **MyGatewayResourceId** : ağ geçidi kaynak yolu. Adlı şablon dağıtımı çıkış parametresi budur **CONSORTIUM_MEMBER_GATEWAY_ID**.
-- **OtherGatewayResourceId** : katılan üyenin ağ geçidinin kaynak yolu. Bu Birleşen üye tarafından sağlanan ve şablon dağıtım parametresi olarak da adlandırılan bunların dağıtım **CONSORTIUM_MEMBER_GATEWAY_ID**.
-- **ConnectionName** : Bu ağ geçidi bağlantısı belirleyebilmeniz için bir ad.
-- **Paylaşılan anahtar** : önceden oluşturulmuş gizli arasında bağlantı kurma iki Konsorsiyum ağı üyesi.
-- **Konum** : ağ geçidi kaynağınızı dağıtıldığı Azure bölgesi.
+- **MyGatewayResourceId:** geçidinizin kaynak yolu. Adlı şablon dağıtımı çıkış parametresi budur **CONSORTIUM_MEMBER_GATEWAY_ID**.
+- **OtherGatewayResourceId:** katılma üyenin ağ geçidinin kaynak yolu. Bu Birleşen üye tarafından sağlanan ve şablon dağıtım parametresi olarak da adlandırılan bunların dağıtım **CONSORTIUM_MEMBER_GATEWAY_ID**.
+- **ConnectionName:** , bu ağ geçidi bağlantısı tanımlamak bir ad.
+- **Paylaşılan anahtar:** önceden oluşturulmuş gizli arasında bağlantı kurma iki Konsorsiyum ağı üyesi.
+- **Konum:** , ağ geçidi kaynağı dağıtıldığı Azure bölgesi.
 
 ``` powershell
 az network vpn-connection create --name $ConnectionName --resource-group
@@ -316,7 +316,7 @@ Chrome'da uzantıyı yüklemek için Özelleştir gidin ve Google Chrome (taşma
 
 ![MetaMask uzantısı](./media/ethereum-deployment/metamask-extension.png)
 
-Yüklendikten sonra MetaMask açın ve yeni bir kasa oluşturun. Varsayılan olarak, kasa Morden Test ağa bağlanır. Bu özellikle işlem düğümlerinin önündeki yük dengeleyici için dağıtılan özel consortium ağa bağlanacak şekilde değiştirmeniz gerekir. Şablon çıktısı olarak adlandırılmış kullanıma sunulan Ethereum RPC uç nokta 8545, bağlantı noktası almak `ETHEREUM-RPC-ENDPOINT`, aşağıda gösterildiği gibi özel RPC girin.
+Yüklendikten sonra MetaMask açın ve yeni bir kasa oluşturun. Varsayılan olarak, kasa Morden Test ağa bağlanır. Bu özellikle işlem düğümlerinin önündeki yük dengeleyici için dağıtılan özel consortium ağa bağlanacak şekilde değiştirin. Şablon çıktısı olarak adlandırılmış kullanıma sunulan Ethereum RPC uç nokta 8545, bağlantı noktası almak `ETHEREUM-RPC-ENDPOINT`, aşağıda gösterildiği gibi özel RPC girin.
 
 ![MetaMask ayarları](./media/ethereum-deployment/metamask-settings.png)
 

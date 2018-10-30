@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 10/10/2018
-ms.openlocfilehash: 41823d697139e039703cd47e0bfe3380fd2d20d6
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: 68f7df2ab004477fae5df1d200fcd44929465e93
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49116095"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50233132"
 ---
 # <a name="create-or-join-parallel-branches-for-workflow-actions-in-azure-logic-apps"></a>Oluşturun veya Azure Logic Apps'te iş akışı eylemi için paralel dallarından katılın
 
@@ -187,7 +187,7 @@ Kod Görünümü'nde çalışıyorsanız, birleşim yapısı mantıksal uygulama
 ## <a name="get-support"></a>Destek alın
 
 * Sorularınız için [Azure Logic Apps forumunu](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps) ziyaret edin.
-* Gönderin veya özellikleri ve önerileri oylamak için şurayı ziyaret edin [Azure Logic Apps kullanıcı geri bildirim sitesinde](http://aka.ms/logicapps-wish).
+* Gönderin veya özellikleri ve önerileri oylamak için şurayı ziyaret edin [Azure Logic Apps kullanıcı geri bildirim sitesinde](https://aka.ms/logicapps-wish).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

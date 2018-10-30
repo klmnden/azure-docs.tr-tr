@@ -1,21 +1,21 @@
 ---
-title: Site Recovery ile azure'a (VMM ile) Hyper-V VM çoğaltması için Ağ eşlemesi hakkında | Microsoft Docs
-description: Azure Site Recovery ile birlikte VMM bulutlarında yönetilen Hyper-V VM çoğaltması için ağ eşlemesini ayarlamak açıklar.
+title: Site Recovery ile azure'a (VMM ile) Hyper-V VM'LERİNDE olağanüstü durum kurtarma için Ağ eşlemesi hakkında | Microsoft Docs
+description: Azure Site Recovery ile azure'a olağanüstü durum kurtarma Hyper-V vm'lerini (VMM bulutlarında yönetilen) için ağ eşlemesini ayarlama işlemini açıklamaktadır.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 10/10/2018
+ms.date: 10/28/2018
 ms.author: raynew
-ms.openlocfilehash: d683554a97a1616b0d4d7b1ae95d62b476de04eb
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: cecc1df23ebed88db315e7de14ea850ba5297697
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49078520"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50212990"
 ---
-# <a name="prepare-network-mapping-for-hyper-v-vm-replication-to-azure"></a>Hyper-V sanal makinelerini Azure’a çoğaltma işlemi için ağ eşlemesini hazırlama
+# <a name="prepare-network-mapping-for-hyper-v-vm-disaster-recovery-to-azure"></a>Azure'a Hyper-V VM'LERİNDE olağanüstü durum kurtarma için ağ eşlemesini hazırlama
 
 
 Bu makalede, anlamak ve System Center Virtual Machine Manager (VMM) bulutlarındaki Hyper-V sanal makinelerini azure'a veya ikincil bir siteye çoğaltma yaptığınızda ağ eşlemeye Hazırlama yardımcı olur. kullanarak [Azure Site Recovery](site-recovery-overview.md) hizmeti.

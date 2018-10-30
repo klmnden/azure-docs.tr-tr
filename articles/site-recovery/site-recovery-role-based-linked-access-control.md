@@ -1,22 +1,19 @@
 ---
-title: Azure Site Recovery yönetmek için rol tabanlı erişim denetimi kullanarak | Microsoft Docs
-description: Bu makalede nasıl uygulanacağını ve Azure Site Recovery dağıtımlarınızı yönetmek için rol tabanlı erişim denetimi (RBAC) kullanın
+title: Rol tabanlı erişim denetimi (RBAC) ile Azure Site Recovery erişimini yönetme | Microsoft Docs
+description: Bu makalede, rol tabanlı erişim bontrol Azure Site Recovery erişimi yönetmek için (RBAC) uygulanacağını açıklar.
 ms.service: site-recovery
-ms.workload: backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.date: 10/16/2018
 author: mayurigupta13
 ms.topic: conceptual
 ms.author: mayg
-ms.openlocfilehash: 9ec9acab4ad83af22504058c21b102df94b8692d
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: 19d41d8c9b1a54cefc09190531b064d640048385
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49353246"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50212055"
 ---
-# <a name="use-role-based-access-control-to-manage-site-recovery-access"></a>Site Recovery erişimi yönetmek için rol tabanlı erişim denetimi kullanma
+# <a name="manage-site-recovery-access-with-role-based-access-control-rbac"></a>Rol tabanlı erişim denetimi (RBAC) Site Recovery erişimini yönetme
 
 Azure Rol Tabanlı Erişim Denetimi (RBAC), Azure için ayrıntılı erişim yönetimi sağlar. RBAC kullanarak, kendi sorumluluklarını ayırabilir ve belirli işlerini gerçekleştirmek için gereken şekilde kullanıcılara yalnızca belirli erişim izinleri verme.
 

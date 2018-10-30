@@ -1,20 +1,20 @@
 ---
-title: Hyper-V’den Azure’a Azure Site Recovery dağıtım planlayıcısı | Microsoft Docs
-description: Bu makalede Azure çoğaltması için Site Recovery dağıtım Planlayıcısı foro Hyper-V çalıştıran öğretir.
+title: Azure'a Hyper-V olağanüstü durum kurtarma için Azure Site Recovery dağıtım Planlayıcısı çalıştırma | Microsoft Docs
+description: Bu makalede Hyper-V azure'a olağanüstü durum kurtarma için Azure Site Recovery dağıtım Planlayıcısı çalıştırmayı öğrenin.
 author: nsoneji
 manager: garavd
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: nisoneji
-ms.openlocfilehash: 9da79884973c620bbf8b6a191f3dd6db5bd19064
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 1df8f7025787eb864b7e9ad6f41105df8fb2cc8a
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49094199"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50213347"
 ---
-# <a name="run-azure-site-recovery-deployment-planner-for-hyper-v-to-azure"></a>Hyper-V’den Azure’a Azure Site Recovery dağıtım planlayıcısını çalıştırma
+# <a name="run-the-azure-site-recovery-deployment-planner-for-hyper-v-disaster-recovery-to-azure"></a>Azure'a Hyper-V olağanüstü durum kurtarma için Azure Site Recovery dağıtım Planlayıcısını çalıştırın
 
 Çalıştırabileceğiniz Site Recovery dağıtım Planlayıcısı komut satırı aracını (ASRDeploymentPlanner.exe) aşağıdaki dört modun herhangi birinde içinde: 
 -   [Sanal makine (VM) listesini alma](#get-vm-list-for-profiling-hyper-v-vms)

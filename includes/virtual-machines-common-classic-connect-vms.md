@@ -1,42 +1,53 @@
+---
+author: cynthn
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: cynthn
+ms.openlocfilehash: 2e72d669abcc784fe8159fd4c54bd074dc60299c
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50227502"
+---
+![Tek başına bulut hizmetinde sanal makineler](./media/virtual-machines-common-classic-connect-vms/CloudServiceExample.png)
 
-
-![Sanal makinelerde tek başına bulut hizmeti](./media/virtual-machines-common-classic-connect-vms/CloudServiceExample.png)
-
-Bir sanal ağ, sanal makineleriniz yerleştirirseniz kaç bulut Hizmetleri için kullanmak istediğiniz yük dengeleme ve kullanılabilirlik kümeleri karar verebilirsiniz. Ayrıca, şirket içi ağ ve sanal ağı şirket içi ağınıza bağlanmak ağlardaki sanal makineler aynı şekilde düzenleyebilirsiniz. Bir örneği aşağıda verilmiştir:
+Bir sanal ağda sanal makinelerinizi yerleştirirseniz, kaç bulut Hizmetleri için kullanmak istediğiniz yük dengeleme ve kullanılabilirlik kümeleri karar verebilirsiniz. Ayrıca, şirket içi ağ ve sanal ağ, şirket içi ağınıza bağlanmak ağlardaki sanal makineler aynı şekilde düzenleyebilirsiniz. Bir örneği aşağıda verilmiştir:
 
 ![Bir sanal ağdaki sanal makineler](./media/virtual-machines-common-classic-connect-vms/VirtualNetworkExample.png)
 
-Sanal ağlar, Azure sanal makinelere bağlanmak için önerilen yoldur. En iyi uygulama olarak, her katman, uygulamanızın ayrı bulut hizmetinde yapılandırmaktır. Ancak, en fazla abonelik başına 200 bulut Hizmetleri içinde kalması için aynı bulut hizmetine bazı sanal makinelerden farklı bir uygulama katmanları birleştirebilirsiniz gerekebilir. Bu ve diğer sınırları gözden geçirmek için bkz: [Azure aboneliği ve hizmet sınırları, kotaları ve kısıtlamaları](../articles/azure-subscription-service-limits.md).
+Sanal ağlar, azure'da sanal makineleri bağlamak için önerilen yoldur. Uygulamanızın her bir katman içinde ayrı bulut hizmeti yapılandırmak için en iyi yöntem olacaktır. Ancak, en yüksek abonelik başına 200 bulut Hizmetleri içinde kalması için aynı bulut hizmeti bazı sanal makinelerden farklı uygulama katmanları birleştirin gerekebilir. Bu ve diğer sınırlamaları gözden geçirmek için bkz: [Azure aboneliği ve hizmet limitleri, kotalar ve kısıtlamalar](../articles/azure-subscription-service-limits.md).
 
-## <a name="connect-vms-in-a-virtual-network"></a>Sanal makineleri sanal bir ağa bağlan
+## <a name="connect-vms-in-a-virtual-network"></a>Sanal makineleri bir sanal ağ bağlama
 Bir sanal ağdaki sanal makinelere bağlanmak için:
 
-1. Sanal ağ oluşturma [Azure portal](../articles/virtual-network/virtual-networks-create-vnet-classic-pportal.md) ve 'Klasik dağıtım' belirtin.
-2. Bulut Hizmetleri ve Yük Dengeleme tasarımınız kullanılabilirlik kümeleri için yansıtmak üzere dağıtımınız için kümesi oluşturun. Azure portalında tıklatın **kaynak oluşturma > işlem > bulut hizmeti** her bir bulut hizmeti için.
+1. Sanal ağ oluşturma [Azure portalında](../articles/virtual-network/virtual-networks-create-vnet-classic-pportal.md) 'Klasik dağıtım' belirtin.
+2. Dağıtımınızın tasarımınızı kullanılabilirlik kümeleri için yansıtır ve Yük Dengeleme bulut Hizmetleri kümesi oluşturun. Azure portalında **kaynak Oluştur > işlem > bulut hizmeti** her bulut hizmeti için.
 
-  Bulut hizmetinin ayrıntılarını dolgu olarak aynı seçin _kaynak grubu_ sanal ağ ile kullanılır.
+  Bulut hizmeti ayrıntıları doldururken aynı seçin _kaynak grubu_ sanal ağ ile kullanılır.
 
-3. Her yeni bir sanal makine oluşturmak için tıklatın **kaynak oluşturma > işlem**, ardından uygun VM görüntüsünü seçin **öne çıkan uygulamalar**.
+3. Her yeni bir sanal makine oluşturmak için tıklayın **kaynak Oluştur > işlem**, uygun sanal makine görüntüsünden seçip **öne çıkan uygulamalar**.
 
-  VM'deki **Temelleri** dikey penceresinde, aynı seçin _kaynak grubu_ sanal ağ ile kullanılır.
+  VM'de **Temelleri** dikey penceresinde aynı seçin _kaynak grubu_ sanal ağ ile kullanılır.
 
-  ![Bir sanal ağ kullanırken VM temel bilgileri dikey penceresi](./media/virtual-machines-common-classic-connect-vms/CreateVM_Basics_VN.png)
+  ![Bir sanal ağ kullanılırken VM temel bilgiler dikey penceresi](./media/virtual-machines-common-classic-connect-vms/CreateVM_Basics_VN.png)
 
-4. VM'i dolgu olarak **ayarları**, doğru seçin _bulut hizmeti_ veya _sanal ağ_ VM için.
+4. VM'i doldururken **ayarları**, doğru seçin _bulut hizmeti_ veya _sanal ağ_ VM için.
 
-  Azure seçiminize bağlı diğer öğesini seçer.
+  Azure, seçiminize göre bir öğe seçer.
 
-  ![Bir sanal ağ kullanırken VM ayarlar dikey penceresi](./media/virtual-machines-common-classic-connect-vms/CreateVM_Settings_VN.png)
+  ![Bir sanal ağ kullanılırken VM ayarlar dikey penceresi](./media/virtual-machines-common-classic-connect-vms/CreateVM_Settings_VN.png)
 
 
-## <a name="connect-vms-in-a-standalone-cloud-service"></a>Sanal makineleri bir tek başına bulut hizmetine bağlanmak
+## <a name="connect-vms-in-a-standalone-cloud-service"></a>Vm'leri bir tek başına bulut hizmetine bağlama
 Bir tek başına bulut hizmeti sanal makinelere bağlanmak için:
 
-1. Bulut hizmeti oluşturma [Azure portal](http://portal.azure.com). Tıklatın **yeni > işlem > bulut hizmeti**. Veya, ilk sanal makine oluşturduğunuzda, dağıtımınız için bulut hizmeti oluşturabilir.
-2. Sanal makine oluşturduğunuzda, bulut hizmeti ile kullanılan aynı kaynak grubunu seçin.
+1. Bulut hizmeti oluşturma [Azure portalında](http://portal.azure.com). Tıklayın **yeni > işlem > bulut hizmeti**. Veya ilk sanal makinenizi oluşturduğunuzda, bulut hizmeti dağıtımınız için oluşturabilirsiniz.
+2. Sanal makine oluşturduğunuzda, bulut hizmetiyle birlikte kullanılan kaynak grubunu seçin.
 
-  ![Bir sanal makine var olan bir bulut hizmetine Ekle](./media/virtual-machines-common-classic-connect-vms/CreateVM_Basics_SA.png)
+  ![Var olan bir bulut hizmeti için bir sanal makine ekleyin](./media/virtual-machines-common-classic-connect-vms/CreateVM_Basics_SA.png)
 
-3.  VM ayrıntılarını doldurun gibi ilk adımda oluşturduğunuz bulut hizmeti adını seçin.
+3.  Sanal makine ayrıntıları bölümünü doldurun gibi bulut hizmeti ilk adımda oluşturduğunuz adını seçin.
 
-  ![Bir sanal makine için bir bulut hizmeti seçme](./media/virtual-machines-common-classic-connect-vms/CreateVM_Settings_SA.png)
+  ![Bir bulut hizmeti için bir sanal makine seçme](./media/virtual-machines-common-classic-connect-vms/CreateVM_Settings_SA.png)

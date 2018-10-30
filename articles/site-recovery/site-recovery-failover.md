@@ -1,21 +1,22 @@
 ---
-title: Site recovery'de yük devretme | Microsoft Docs
-description: Çoğaltma, yük devretme ve kurtarma sanal makinelerin ve fiziksel sunucuları Azure Site Recovery düzenler. Azure'a veya ikincil veri merkezine yük devretme hakkında bilgi edinin.
+title: Yük devretme sırasında Azure Site Recovery ile olağanüstü durum kurtarma | Microsoft Docs
+description: Döndürme hakkında üzerinde Vm'leri ve fiziksel sunucuları Azure Site Recovery hizmeti ile olağanüstü durum kurtarma sırasında öğrenin.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 09/11/2018
-ms.author: ponatara
-ms.openlocfilehash: c9a2f258ca952ca36000e1ca0630fbde31ba7ba0
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.date: 10/28/2018
+ms.author: raynew
+ms.openlocfilehash: 6e16529740377b9a082fda4f3e4409b57441715e
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44391326"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50215166"
 ---
-# <a name="failover-in-site-recovery"></a>Site Recovery'de yük devretme
+# <a name="fail-over-vms-and-physical-servers"></a>Vm'leri ve fiziksel sunucuları başarısız 
+
 Bu makalede nasıl yük devretme sanal makinelere ve fiziksel Site Recovery tarafından korunan sunucular açıklanır.
 
 ## <a name="prerequisites"></a>Önkoşullar
@@ -114,9 +115,9 @@ Yük devretmeden sonra sanal makinelerde sürücü harfini korumak için ayarlay
 
 ## <a name="prepare-to-connect-to-azure-vms-after-failover"></a>Yük devretmeden sonra Azure VM'lerine bağlanmak için hazırlık yapma
 
-Yük devretmeden sonra RDP/SSH'yi kullanarak Azure Vm'lerine bağlanmak isterseniz tabloda özetlenen gereksinimleri izleyin [burada](site-recovery-test-failover-to-azure.md#prepare-to-connect-to-azure-vms-after-failover).
+Yük devretme sonrasında RDP/SSH kullanarak Azure VM'lerine bağlanmak istiyorsanız [buradaki](site-recovery-test-failover-to-azure.md#prepare-to-connect-to-azure-vms-after-failover) tabloda özetlenen gereksinimleri izleyin.
 
-Açıklanan adımları izleyin [burada](site-recovery-failover-to-azure-troubleshoot.md) herhangi bir bağlantı sorunlarını gidermek için yük devretme sorunları gönderin.
+Yük devretme sonrasında karşılaştığınız bağlantı sorunlarını gidermek için [burada](site-recovery-failover-to-azure-troubleshoot.md) anlatılan adımları izleyin.
 
 
 ## <a name="next-steps"></a>Sonraki adımlar

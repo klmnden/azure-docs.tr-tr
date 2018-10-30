@@ -7,12 +7,12 @@ ms.subservice: Azure Disk Encryption
 ms.topic: article
 ms.author: mstewart
 ms.date: 09/19/2018
-ms.openlocfilehash: 1cebb3dae8fbfd4188487a6ff7fca42ac0505cf0
-ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
+ms.openlocfilehash: 3561c2959283cd1c589414b96724cf0341af5e0a
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/20/2018
-ms.locfileid: "46498496"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50215387"
 ---
 # <a name="enable-azure-disk-encryption-for-linux-iaas-vms"></a>Linux Iaas sanal makineleri için Azure Disk şifrelemesini etkinleştirme 
 
@@ -252,7 +252,11 @@ Parametresi, ancak tüm bölümleri geçerlidir ve karşıladıkları sürece ş
 - Bir işletim sistemi/kök/önyükleme bölümü değildir
 - Zaten şifreli değil
 - BEK birimi değil
+- Bir RAID birimine değil
+- LVM'yi birimi değil
 - Bağlanmıştır
+
+RAID veya LVM birimin yerine RAID veya LVM birimin oluşturan diskleri şifreleme.
 
 ### <a name="bkmk_EFAPSH"> </a> Azure CLI ile EncryptFormatAll parametresini kullanın
 Kullanım [az vm şifrelemeyi etkinleştirme](/cli/azure/vm/encryption#az-vm-encryption-enable) azure'da çalıştırılan Iaas sanal makine üzerinde şifrelemeyi etkinleştirmek için komutu.

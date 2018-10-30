@@ -1,21 +1,20 @@
 ---
-title: Azure Vm'lerini bir şirket içi siteye yeniden koruma | Microsoft Docs
-description: Azure sanal makinelerinin yük devretme sonrasında bir yeniden çalışma için tekrar şirket içi Vm'lerinizi getirin başlatabilirsiniz. Bir geri dönme önce yeniden koruma hakkında bilgi edinin.
-services: site-recovery
+title: VMware Vm'lerini ve fiziksel sunucuları olağanüstü durum kurtarma sırasında Azure Vm'lerinden şirket içi siteye yeniden koruma | Microsoft Docs
+description: Yük devretmeden sonra azure'da VMware Vm'lerini ve fiziksel sunucuları olağanüstü durum kurtarma sırasında Azure'dan şirket içi siteye yeniden çalışma hakkında bilgi edinin.
 author: rajani-janaki-ram
 manager: gauravd
 ms.service: site-recovery
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/06/2018
 ms.author: rajanaki
-ms.openlocfilehash: 1b410b2832d856f80d640aab2096fef270156c81
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: 3f661ab5ff2a127ba7507a64bb4520cbad740473
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39346688"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50213296"
 ---
-# <a name="reprotect-machines-from-azure-to-an-on-premises-site"></a>Makineleri azure'dan şirket içi sitede yeniden koruma
+# <a name="reprotect-and-fail-back-machines-to-an-on-premises-site-after-failover-to-azure"></a>Yeniden koruma ve bir şirket içi siteye geri makineleri, azure'a yük devredildikten sonra başarısız
 
 Sonra [yük devretme](site-recovery-failover.md) şirket içi VMware Vm'lerini veya fiziksel sunucuları azure'a, ilk başarısız olan şirket içi sitenize geri yük devretme sırasında oluşturulan Azure Vm'lerini yeniden koruma için adımdır. Bu makalede bunun nasıl yapılacağı açıklanır. 
 

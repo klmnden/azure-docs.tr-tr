@@ -1,21 +1,20 @@
 ---
-title: VMware Vm'leri ve fiziksel sunucuları Azure Site Recovery ile azure'a çoğaltmak için destek matrisi | Microsoft Docs
-description: Azure Site Recovery kullanılarak Azure'da VMware Vm'lerini ve fiziksel sunucu çoğaltma için bileşenleri ve desteklenen işletim sistemleri özetlenmektedir.
-services: site-recovery
+title: VMware Vm'lerini ve fiziksel sunucuları Azure Site Recovery ile azure'a olağanüstü durum kurtarma için destek matrisi | Microsoft Docs
+description: VMware Vm'lerini ve fiziksel sunucudan azure'a Azure Site Recovery ile olağanüstü durum kurtarma için bileşenleri ve desteklenen işletim sistemleri özetlenmektedir.
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 09/10/2018
+ms.date: 10/29/2018
 ms.author: raynew
-ms.openlocfilehash: f6f1ceb4f9afaaeb0a436879802144bdebc06280
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: b472ed1c32e64b8f8ac881c09f22590c49f39c75
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49378661"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50215370"
 ---
-# <a name="support-matrix-for-vmware-and-physical-server-replication-to-azure"></a>VMware ve fiziksel sunucu çoğaltması azure'a destek matrisi
+# <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>VMware Vm'lerini ve fiziksel sunucuları azure'a olağanüstü durum kurtarma için destek matrisi
 
 Bu makalede kullanarak desteklenen bileşenler ve Azure'da VMware vm'lerinin olağanüstü durum kurtarma için ayarları özetler [Azure Site Recovery](site-recovery-overview.md).
 

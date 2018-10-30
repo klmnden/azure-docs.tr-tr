@@ -1,22 +1,19 @@
 ---
-title: IP adresleri üzerinden Azure sanal makineleri başka bir Azure bölgesine başarısız olduğunda bekletilecek | Microsoft Docs
-description: Azure Site Recovery ile Azure'a yük devretme senaryosu için IP adresleri saklamak açıklar
+title: Azure VM yük devretmesi için IP adreslerini korumak | Microsoft Docs
+description: IP adresleri, Azure Site Recovery ile ikincil bir bölgeye olağanüstü durum kurtarma için Azure Vm'leri üzerinde başarısız olduğunda bekletilecek açıklar
 ms.service: site-recovery
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.date: 10/16/2018
 author: mayurigupta13
 ms.topic: conceptual
 ms.author: mayg
-ms.openlocfilehash: 4260a4487480c42b518374965d8deda1e7803e62
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: 86adaa21a069c168b512231ba231940bfa2ef9e8
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49353331"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50213041"
 ---
-# <a name="ip-address-retention-for-azure-virtual-machine-failover"></a>Azure sanal makine yük devretme için IP adresi bekletme
+# <a name="ip-address-retention-for-azure-vm-failover"></a>Azure VM yük devretmesi için IP adresi bekletme
 
 Azure Site Recovery, Azure Vm'leri için olağanüstü durum kurtarma sağlar. Üzerinden bir Azure bölgesinden diğerine başarısız olduğunda, müşteriler genellikle IP yapılandırmalarına saklanmasını gerektirir. Site Recovery varsayılan olarak, kaynak sanal ağ ve alt ağ yapısı hedef bölge üzerinde bu kaynakları oluşturulurken taklit eder. Statik özel IP adresleriyle yapılandırılmış Azure Vm'leri için Site Recovery de bu IP zaten bir Azure kaynağı veya çoğaltılan bir sanal makine tarafından engellenirse değil, aynı özel IP hedef VM sağlama girişimi bir en iyi hale getirir.
 

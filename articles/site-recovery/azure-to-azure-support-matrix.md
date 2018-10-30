@@ -1,26 +1,23 @@
 ---
-title: Azure'dan Azure'a çoğaltma için azure Site Recovery destek matrisi | Microsoft Docs
+title: Azure Site Recovery ile Azure bölgeleri arasında Azure Iaas sanal makinelerinin olağanüstü durum kurtarma için Azure Site Recovery destek matrisi | Microsoft Docs
 description: Desteklenen işletim sistemleri ve yapılandırmalar Azure sanal makineleri (VM'ler), Azure Site Recovery çoğaltması için bir bölgeden diğerine için olağanüstü durum kurtarma (DR) gereksinimlerini özetler.
 services: site-recovery
-author: sujayt
-manager: rochakm
+author: rayne-wiselman
+manager: carmonm
 ms.service: site-recovery
-ms.devlang: na
-ms.topic: article
-ms.date: 09/10/2018
-ms.author: sujayt
-ms.openlocfilehash: 49773e076ed8bb06ff76f9f654b914a709051fb5
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.topic: conceptual
+ms.date: 10/28/2018
+ms.author: raynew
+ms.openlocfilehash: a2668ab99ef110c89ddd69cd5e8df858552d27af
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49378627"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50215064"
 ---
-# <a name="support-matrix-for-replicating-from-one-azure-region-to-another"></a>Bir Azure bölgesinden diğerine çoğaltma için destek matrisi
+# <a name="support-matrix-for-disaster-recovery-of-azure-vms-between-azure-regions"></a>Azure bölgeleri arasında Azure Vm'leri olağanüstü durum kurtarma için destek matrisi
 
-
-
-Bu makalede, desteklenen yapılandırmalar ve çoğalttığınızda bileşenleri ve Azure sanal makineleri bir bölgesinden başka bir bölgeye kurtarma özetler kullanarak [Azure Site Recovery](site-recovery-overview.md) hizmeti.
+Bu makalede, çoğaltma, yük devretme ve kurtarma Azure sanal makinelerini bir Azure bölgesinden diğerine ile olağanüstü durum kurtarma kullanarak dağıttığınızda desteklenen yapılandırmalar ve bileşenleri özetlenir [Azure Site Recovery](site-recovery-overview.md) hizmeti.
 
 ## <a name="user-interface-options"></a>Kullanıcı arabirimi seçenekleri
 

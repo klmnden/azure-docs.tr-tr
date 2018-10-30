@@ -1,21 +1,21 @@
 ---
-title: Hedef ortamı (VMware/Fizikselden azure'a) hazırlama | Microsoft Docs
-description: Bu makalede, VMware VM çoğaltma ve fiziksel sunucuları azure'a çoğaltma için hedef Azure ortamını hazırlama açıklar.
+title: Azure'a VMware çoğaltma için hedef ortamı hazırlama | Microsoft Docs
+description: Bu makalede Azure ortamı azure'a VMware VM çoğaltma için hedef hazırlamayı öğrenin.
 services: site-recovery
-author: bsiva
-manager: abhemraj
+author: Rajeswari-Mamilla
+manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 09/28/2018
-ms.author: bsiva
-ms.openlocfilehash: 948812f05697362978ad041566d22977efec92a1
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.date: 10/29/2018
+ms.author: ramamill
+ms.openlocfilehash: a6f983b08415659b9a989ebed824cddd210396e1
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47434645"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50233438"
 ---
-# <a name="prepare-the-target-environment-vmwarephysical-to-azure"></a>Hedef ortamı (VMware/Fizikselden azure'a) hazırlama
+# <a name="prepare-the-target-environment-for-disaster-recovery-of-vmware-vms-or-physical-servers-to-azure"></a>Fiziksel sunucuları azure'a VMware vm'lerinin olağanüstü durum kurtarma için hedef ortamı hazırlama
 
 Bu makalede, hedef VMware sanal makineleri veya fiziksel sunucuları Azure'a çoğaltmaya başlamak için Azure ortamını hazırlama açıklar.
 

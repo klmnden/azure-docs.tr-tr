@@ -10,12 +10,12 @@ ms.reviewer: klam, LADocs
 ms.topic: article
 ms.assetid: e06311bc-29eb-49df-9273-1f05bbb2395c
 ms.date: 01/31/18
-ms.openlocfilehash: 0d5a7cb97636b9ca3aabf6c4199ce9e41bc1665d
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 6249c45a1cd3a8acbb9770fc39da881d8da9057f
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44304433"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50230160"
 ---
 # <a name="common-scenarios-examples-tutorials-and-walkthroughs-for-azure-logic-apps"></a>Yaygın senaryolar, örnekler, öğreticiler ve Kılavuzlar Azure Logic Apps için
 
@@ -59,7 +59,7 @@ Logic apps, sistemleri ve bağlayıcılar yayımlamadınız hizmetler için de g
 * [İş akışı çalıştırmaları için uzun süre çalışan eylemlerin ayarlama](../logic-apps/logic-apps-create-api-app.md)
 * [Dış olaylar ve Eylemler ile Web kancalarını yanıt](../logic-apps/logic-apps-create-api-app.md)
 * [Çağrı, tetikleyici veya iç içe HTTP isteklerine yanıt veren zaman uyumlu iş akışları](../logic-apps/logic-apps-http-endpoint.md)
-* [Öğretici: mantıksal uygulamalar ve Power BI ile dakikalar içinde yapay ZEKA destekli bir Sosyal Panosu derleme](http://aka.ms/logicappsdemo)
+* [Öğretici: mantıksal uygulamalar ve Power BI ile dakikalar içinde yapay ZEKA destekli bir Sosyal Panosu derleme](https://aka.ms/logicappsdemo)
 * [Video: Yanıt için Twilio SMS Web kancaları ve metin yanıt gönderme](https://channel9.msdn.com/Blogs/Windows-Azure/Azure-Logic-Apps-Walkthrough-Webhook-Functions-and-an-SMS-Bot)
 
 ## <a name="control-flow-error-handling-and-logging-capabilities"></a>Denetim akışı, hata işleme ve günlüğe kaydetme özellikleri
@@ -84,11 +84,11 @@ Tam olarak, geliştirin ve Visual Studio, Azure DevOps veya diğer kaynak deneti
 
 ## <a name="content-types-conversions-and-transformations-within-a-run"></a>İçerik türleri, dönüştürme ve çalışması içinde dönüşümleri
 
-Erişim, dönüştürün ve Azure Logic Apps'te birçok işlevleri kullanarak birden çok içerik türüne dönüştürme [iş akışı tanımlama dili](http://aka.ms/logicappsdocs). Örneğin, bir dize, JSON ve XML arasında dönüştürme yapabilirsiniz `@json()` ve `@xml()` ifadeleri iş akışı. Logic Apps altyapısı, içerik aktarımı kayıpsız bir şekilde hizmetler arasında desteklemek için içerik türleri korur.
+Erişim, dönüştürün ve Azure Logic Apps'te birçok işlevleri kullanarak birden çok içerik türüne dönüştürme [iş akışı tanımlama dili](https://aka.ms/logicappsdocs). Örneğin, bir dize, JSON ve XML arasında dönüştürme yapabilirsiniz `@json()` ve `@xml()` ifadeleri iş akışı. Logic Apps altyapısı, içerik aktarımı kayıpsız bir şekilde hizmetler arasında desteklemek için içerik türleri korur.
 
 * [İş akışı ifadeleri logic apps'te nasıl çalışır?](../logic-apps/logic-apps-author-definitions.md)
 * [JSON olmayan içerik türlerini işleme](../logic-apps/logic-apps-content-type.md)gibi `application/xml`, `application/octet-stream`, ve `multipart/formdata`
-* [Azure Logic Apps iş akışı tanımı dil şeması](http://aka.ms/logicappsdocs)
+* [Azure Logic Apps iş akışı tanımı dil şeması](https://aka.ms/logicappsdocs)
 
 ## <a name="other-integrations-and-capabilities"></a>Diğer tümleştirmeler ve özellikleri
 

@@ -1,10 +1,10 @@
 ---
 title: Hız ve Azure Media Services ile kodlama eşzamanlılık yönetme | Microsoft Docs
-description: Bu makalede hızı ve Azure Media Services ile kodlama işleri/görevleri eşzamanlılığı nasıl yönetebilmeniz için kısa bir genel bakış sunulmaktadır.
+description: Bu makalede, hız ve kodlama işleri/görevlerinize Azure Media Services ile eşzamanlılığı nasıl yönetebileceğinizi kısa genel bakış sağlar.
 services: media-services
 documentationcenter: ''
 author: juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: 676313f8-a158-4e3a-a99b-2c29a341ecc9
 ms.service: media-services
@@ -12,30 +12,30 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/10/2017
+ms.date: 10/29/2018
 ms.author: juliako
-ms.openlocfilehash: d7e3d6d0c176d0a903c3027ab4feddb332557566
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 3f358be630d9a50d0f048d66c9f79e168c8adcdf
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33788280"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50230208"
 ---
-#  <a name="manage-speed-and-concurrency-of-your-encoding"></a>Hız ve, kodlama eşzamanlılık yönetme
+#  <a name="manage-speed-and-concurrency-of-your-encoding"></a>Hız ve tutarlılık, kodlama yönetme
 
-Bu makalede hızı ve kodlama işleri/görevlerinizi eşzamanlılığı nasıl yönetebilmeniz için kısa bir genel bakış sunulmaktadır.
+Bu makalede, hız ve kodlama işleri/görevleri eşzamanlılığı nasıl yönetebileceğinizi kısa genel bakış sağlar.
 
 ## <a name="overview"></a>Genel Bakış
 
-Media Services, bir **ayrılmış birim türü** ile görevleri işleme medyanızı işlenir hızını belirler. Şu ayrılmış birim türlerinden birini seçebilirsiniz: **S1**, **S2** veya **S3**. Örneğin, aynı kodlama işi **S2** ayrılmış birim türünü kullandığınızda **S1** türüne göre daha hızlı çalışır. [Kodlama birimleri ölçeklendirme](media-services-scale-media-processing-overview.md) konu arasında farklı kodlama hızları seçerken karar vermenize yardımcı olan bir tablo gösterir.
+Medya Hizmetleri'nde bir **ayrılmış birim türünü** ile medya işleme görevlerinizin işlenme hızını belirler. Şu ayrılmış birim türlerinden birini seçebilirsiniz: **S1**, **S2** veya **S3**. Örneğin, aynı kodlama işi **S2** ayrılmış birim türünü kullandığınızda **S1** türüne göre daha hızlı çalışır. [Kodlama birimleri ölçeklendirme](media-services-scale-media-processing-overview.md) konu farklı kodlama hızlarını arasında seçim yaparken kararı vermenize yardımcı olan bir tablo gösterir.
 
-Ayrılmış birim türü belirtmeye ek olarak, hesabınızla sağlayacak belirtebilirsiniz **ayrılan birimler**. Sağlanan ayrılmış birim sayısı, verili bir hesapta eşzamanlı olarak işlenebilecek medya görevlerinin sayısını belirler. Örneğin, beş medya görevler eşzamanlı olarak kadar uzun çalışıyor olacak beş ayrılmış birimler, hesabınız varsa, olarak işlenecek görevler vardır. Kalan görevler sıraya bekler ve sıralı olarak çalışan bir görev tamamlandığında işlemek için toplanmış. Bir hesap sağlanan tüm ayrılan birimler yoksa, ardından görevleri sırayla çekilir. Bu durumda, sonraki bir başlangıç ve bitiş görev arasındaki bekleme süresine sistemde kaynakları kullanılabilirliğine bağlı olacaktır.
+Ayrılmış birim türünü belirtmenin yanı sıra, hesabınızla sağlamak için belirtebileceğiniz **ayrılmış birim**. Sağlanan ayrılmış birim sayısı, verili bir hesapta eşzamanlı olarak işlenebilecek medya görevlerinin sayısını belirler. Örneğin, beş medya görevi aynı anda uzun çalışacağı beş ayrılmış birim, hesabınız varsa, olarak işlenmek üzere görevleri vardır. Kalan görevlerin kuyrukta bekler ve sıralı olarak çalışan bir görev tamamlandığında işlemek için toplanmış. Sağlanan herhangi bir ayrılmış birim hesabınız yoksa, ardından görevleri sıralı olarak seçilir. Bu durumda, bir görev tamamlama ve ileri bir başlangıç arasındaki bekleme süresini sistemde kaynaklarının kullanılabilirliğine bağlıdır.
 
 Ayrıntılı bilgi ve kodlama birimleri ölçeklendirme gösteren örnekler için bkz: [bu](media-services-scale-media-processing-overview.md) konu.
 
 ## <a name="next-step"></a>Sonraki adım
 
-[Kodlama ölçek birimleri](media-services-scale-media-processing-overview.md)
+[Kodlama birimleri ölçeklendirme](media-services-scale-media-processing-overview.md)
 
 ## <a name="media-services-learning-paths"></a>Media Services’i öğrenme yolları
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

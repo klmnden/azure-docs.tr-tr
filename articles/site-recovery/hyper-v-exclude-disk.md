@@ -1,17 +1,17 @@
 ---
-title: Azure Site Recovery kullanarak disk korumasını hariç tutma | Microsoft Docs
-description: Hyper-V’den Azure’a VM disklerinin çoğaltma işleminden nasıl ve neden hariç tutulacağı açıklanmaktadır.
+title: Azure Site Recovery hizmeti ile olağanüstü durum kurtarmayı ayarlarken, diskleri çoğaltmanın dışında tutma | Microsoft Docs
+description: VM diskleri Azure'a olağanüstü durum kurtarma sırasında çoğaltmanın dışında tutmak açıklar.
 author: nsoneji
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: nisoneji
-ms.openlocfilehash: 38b7e965a85bf7014167f9a5c3fd66202c02e0fa
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 851da02ebd7486c0e96451a14086eb95d81968b4
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49091921"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50213211"
 ---
 # <a name="exclude-disks-from-replication"></a>Diskleri çoğaltmanın dışında tutma
 Bu makalede, disklerin çoğaltmanın dışında nasıl tutulacağı açıklanmaktadır. Bu dışında tutma, kullanılan çoğaltma bant genişliğini iyileştirebilir veya bu gibi disklerin kullandığı hedef tarafı kaynakları iyileştirebilir.

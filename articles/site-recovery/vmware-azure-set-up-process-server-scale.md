@@ -1,21 +1,20 @@
 ---
-title: Azure'da bir işlem sunucusu VMware VM ve Azure Site Recovery ile fiziksel sunucuda yeniden çalışma için ayarlama | Microsoft Docs
-description: Bu makalede, Azure Vm'leri vmware'e yeniden çalışma, azure'da bir işlem sunucusu ayarlamak açıklar.
-services: site-recovery
+title: VMware Vm'leri ve fiziksel sunucuları Azure Site Recovery ile olağanüstü durum kurtarma sırasında geri başarısız için azure'da bir işlem sunucusu ayarlama | Microsoft Docs
+description: Bu makalede, azure'da bir işlem sunucusu Azure'dan şirket içi VMware Vm'leri ve fiziksel sunucuları olağanüstü durum kurtarma sırasında yeniden çalışma için nasıl ayarlanacağı açıklanır.
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/10/2018
+ms.date: 10/28/2018
 ms.author: raynew
-ms.openlocfilehash: 641f671f23dde0bcc32ad1ef8343a5a84227c67f
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 330f0197b8a7735043e93f00dc4baa5578f50228
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49955399"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50212242"
 ---
-# <a name="set-up-additional-process-servers-for-scalability"></a>Ölçeklenebilirlik için ek işlem sunucularını ayarlama
+# <a name="scale-for-failback-with-additional-process-servers"></a>Ek işlem sunucusu ile yeniden çalışma için ölçek
 
 Varsayılan olarak, VMware Vm'lerini veya fiziksel sunucuları azure'a çoğaltırken [Site Recovery](site-recovery-overview.md), bir işlem sunucusu yapılandırma sunucusu makineye yüklenir ve Site Recovery arasında veri aktarımını koordine etmek için kullanılır ve Şirket içi altyapınızı. Kapasite ve çoğaltma dağıtımınızın ölçeğini artırmak için ek bağımsız işlem sunucuları ekleyebilirsiniz. Bu makalede bunun nasıl yapılacağı açıklanır.
 

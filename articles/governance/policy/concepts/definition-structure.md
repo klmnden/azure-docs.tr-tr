@@ -8,12 +8,12 @@ ms.date: 09/18/2018
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: f5906a93e92691cb6046fb04a9fd83f3484e17b8
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 0ff56b86243956d1fa6b51a6dfd14af9e00d8367
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49427408"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50212786"
 ---
 # <a name="azure-policy-definition-structure"></a>Azure İlkesi tanım yapısı
 
@@ -228,8 +228,8 @@ Aşağıdaki alanları desteklenir:
 
 İlke etkisi aşağıdaki türlerini destekler:
 
-- **Reddetme**: Denetim günlüğüne bir olay oluşturur ve istek başarısız olur
-- **Denetim**: denetim günlüğünde uyarı olayı oluşturur, ancak istek başarısız olmaz
+- **Reddetme**: istek başarısız olur ve etkinlik günlüğüne bir olay oluşturur
+- **Denetim**: etkinlik günlüğünde uyarı olayı oluşturur, ancak istek başarısız olmaz
 - **Append**: dizi alanları isteği ekler
 - **AuditIfNotExists**: bir kaynak mevcut değilse denetim sağlar
 - **Deployıfnotexists**: zaten yoksa, bir kaynak dağıtır.

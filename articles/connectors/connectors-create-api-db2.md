@@ -10,12 +10,12 @@ ms.suite: integration
 ms.topic: article
 ms.date: 08/23/2018
 tags: connectors
-ms.openlocfilehash: 354e67183a36f511811d74a0685dea2e23d6c0e2
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.openlocfilehash: 9ba2476ccf2601f5d7d2c0e93c7661f740f32145
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42818884"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50231772"
 ---
 # <a name="manage-ibm-db2-resources-with-azure-logic-apps"></a>Azure Logic Apps ile IBM DB2 kaynaklarını yönetme
 
@@ -361,7 +361,7 @@ Bağlayıcının Swagger dosyası tarafından açıklandığı gibi sınırları
 ## <a name="get-support"></a>Destek alın
 
 * Sorularınız için [Azure Logic Apps forumunu](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps) ziyaret edin.
-* Özelliklerle ilgili fikirlerinizi göndermek veya gönderilmiş olanları oylamak için [Logic Apps kullanıcı geri bildirimi sitesini](http://aka.ms/logicapps-wish) ziyaret edin.
+* Özelliklerle ilgili fikirlerinizi göndermek veya gönderilmiş olanları oylamak için [Logic Apps kullanıcı geri bildirimi sitesini](https://aka.ms/logicapps-wish) ziyaret edin.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

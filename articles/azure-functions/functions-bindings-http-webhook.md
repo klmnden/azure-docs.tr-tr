@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: glenga
-ms.openlocfilehash: 7fa9d097a8f000c886425d53ee000c6013f3bbb0
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: 8b245b51eb349e8c8aaa61d30ec3daec427ea2fd
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50086735"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50212174"
 ---
 # <a name="azure-functions-http-triggers-and-bindings"></a>Azure işlevleri HTTP Tetikleyicileri ve bağlamaları
 
@@ -44,7 +44,7 @@ HTTP bağlantıları sağlanır [Microsoft.Azure.WebJobs.Extensions.Http](http:/
 
 HTTP tetikleyicisi olan bir HTTP isteği bir işlev çağırma sağlar. HTTP tetikleyicisi, sunucusuz API oluşturma ve Web kancaları için yanıtlamak için kullanabilirsiniz. 
 
-Varsayılan olarak, bir HTTP tetikleyicisi işlevlerini boş bir gövdeye sahip HTTP 200 OK döndürür 1.x veya işlev boş bir gövdeye sahip HTTP 204 Hayır içerik 2.x. Yanıt değiştirmek için yapılandırma bir [HTTP çıktı bağlamasını](#http-output-binding).
+Varsayılan olarak, bir HTTP tetikleyicisi işlevlerini boş bir gövdeye sahip HTTP 200 OK döndürür 1.x veya işlev boş bir gövdeye sahip HTTP 204 Hayır içerik 2.x. Yanıt değiştirmek için yapılandırma bir [HTTP çıktı bağlamasını](#output).
 
 ## <a name="trigger---example"></a>Tetikleyici - örnek
 

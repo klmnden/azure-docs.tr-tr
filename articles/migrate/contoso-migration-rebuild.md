@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: raynew
-ms.openlocfilehash: 6c68d90605590ed8a17296e83276c7ef5396d6a2
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 48b4878eef7395b51d19c59443736bae5aeb7365
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49092993"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50233591"
 ---
 # <a name="contoso-migration-rebuild-an-on-premises-app-to-azure"></a>Contoso geçiş: şirket içi bir uygulamayı Azure'da yeniden oluşturun
 
@@ -116,7 +116,7 @@ Contoso, Artıları ve eksileri listesini birbirine koyarak önerilen tasarım d
 --- | --- | ---
 [AKS](https://docs.microsoft.com/sql/dma/dma-overview?view=ssdt-18vs2017) | Kubernetes yönetim, dağıtımı ve işlemleri basitleştirir. Tam olarak yönetilen bir Kubernetes kapsayıcı düzenleme hizmeti sağlar.  | AKS ücretsiz bir hizmettir.  Yalnızca sanal makineler ve ilişkili depolama ve kullanılan ağ kaynakları için ödeme yaparsınız. [Daha fazla bilgi edinin](https://azure.microsoft.com/pricing/details/kubernetes-service/).
 [Azure İşlevleri](https://azure.microsoft.com/services/functions/) | Bir olay odaklı, sunucusuz bilgi işlem deneyimiyle geliştirme hızlandırır. İsteğe bağlı olarak ölçeklendirin.  | Yalnızca tüketilen kaynaklar için ödeme yaparsınız. Planı, saniye başına kaynak tüketimi ve yürütme göre faturalandırılır. [Daha fazla bilgi edinin](https://azure.microsoft.com/pricing/details/functions/).
-[Azure kapsayıcı kayıt defteri](https://azure.microsoft.com/services/container-registry/) | Tüm kapsayıcı dağıtımı türlerinin görüntülerini depolar. | Özellikler, depolama ve kullanım süresi göre maliyeti. [Daha fazla bilgi edinin](https://azure.microsoft.com/pricing/details/container-registry/).
+[Azure Container Registry](https://azure.microsoft.com/services/container-registry/) | Tüm kapsayıcı dağıtımı türlerinin görüntülerini depolar. | Özellikler, depolama ve kullanım süresi göre maliyeti. [Daha fazla bilgi edinin](https://azure.microsoft.com/pricing/details/container-registry/).
 [Azure App Service](https://azure.microsoft.com/services/app-service/containers/) | Herhangi bir platformda çalışan kurumsal sınıf web, mobil ve API uygulamalarını hızlı bir şekilde oluşturun, dağıtın ve ölçeklendirin. | App Service planları, saniyelik olarak faturalandırılır. [Daha fazla bilgi edinin](https://azure.microsoft.com/pricing/details/app-service/windows/).
 
 ## <a name="prerequisites"></a>Önkoşullar
@@ -139,7 +139,7 @@ Contoso geçişi nasıl çalışacağını aşağıda verilmiştir:
 > * **1. adım: Sağlama AKS ve ACR**: Contoso yönetilen AKS kümesi ve PowerShell kullanarak Azure kapsayıcı kayıt defteri sağlar
 > * **2. adım: Docker kapsayıcıları oluşturma**: Azure DevOps kullanarak Docker kapsayıcılar için CI ' ayarlama ve bunları ACR'ye gönderin.
 > * **3. adım: arka uç mikro Hizmetleri dağıtma**: arka uç mikro hizmetler tarafından kullanılan altyapı geri kalanını dağıttıkları.
-> * **4. adım: ön uç altyapıyı**: inlcuding evcil hayvan telefonlar, Cosmos DB ve görüntü işleme API'si için blob depolama, ön uç altyapısı dağıttıkları.
+> * **4. adım: ön uç altyapıyı**: Bunlar evcil hayvan telefonlar, Cosmos DB ve görüntü işleme API'si için blob depolama da dahil olmak üzere, ön uç altyapısı dağıtın.
 > * **5. adım: arka uç geçirme**: mikro Hizmetleri dağıtın ve arka uç geçirmek için AKS üzerinde çalıştırın.
 > * **6. adım: ön uç yayımlama**: Bunlar Azure App service ve evcil hayvan hizmet tarafından çağrılacak işlev uygulaması için SmartHotel360 uygulamayı yayımlayın.
 
@@ -545,7 +545,7 @@ Contoso yöneticileri Web sitesi artık yayımlayabilirsiniz.
 
     ![Yeni ortam](./media/contoso-migration-rebuild/vsts-publishfront8.png)
 
-14. Seçmeleri **yuva ile Azure App Service dağıtımı**ve ortamı adı **Prod**.
+14. Seçmeleri **yuva ile Azure App Service dağıtımı**ve ortam adını **Prod**.
 15. Bunlar tıklayarak **1 iş, 2 görev**, abonelik, uygulama hizmeti adı seçin ve **hazırlama** yuvası.
 
     ![Ortam adı](./media/contoso-migration-rebuild/vsts-publishfront10.png)

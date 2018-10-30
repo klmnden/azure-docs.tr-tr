@@ -1,22 +1,21 @@
 ---
-title: Site Recovery ile genel IP adresi | Microsoft Docs
-description: Olağanüstü durum kurtarma ve geçiş için Azure Site Recovery ve Azure Traffic Manager kullanarak genel IP adresleri nasıl ayarlanacağı açıklanmaktadır
+title: Azure Site Recovery ile yük devretme sonrasında genel IP adresleri kullanın. | Microsoft Docs
+description: Olağanüstü durum kurtarma ve geçiş için Azure Site Recovery ve Azure Traffic Manager ile genel IP adreslerini ayarlama açıklanmaktadır
 services: site-recovery
-documentationcenter: ''
 author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
 ms.date: 09/28/2018
 ms.author: mayg
-ms.openlocfilehash: fd17c786515a6db1f8aa5c1aff7c0dcd42ed7dc6
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 80c38ecc766d60fba578e877998aeb216ea66012
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47435223"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50215285"
 ---
-# <a name="public-ip-address-with-site-recovery"></a>Site Recovery ile genel IP adresi
+# <a name="set-up-public-ip-addresses-after-failover"></a>Yük devretme sonrasında genel IP adreslerini ayarlama
 
 Genel IP adresleri, İnternet kaynaklarının Azure kaynakları ile gelen iletişimi kurmasına izin verir. Genel IP adresleri ayrıca Azure kaynaklarının İnternet ve kaynağa atanmış bir IP adresi ile genel kullanıma yönelik Azure hizmetleri ile giden iletişimi kurmasını sağlar.
 - Azure sanal makineler (VM), Azure uygulama ağ geçitleri, Azure Load balancer'ları, Azure VPN ağ geçitleri ve diğerleri gibi kaynak Internet'ten gelen iletişimi. Yine de Internet'ten sanal makineleri gibi bazı kaynaklar ile bir VM, sanal makine bir yük dengeleyici arka uç havuzu bir parçasıdır ve yük dengeleyicinin genel IP adresi atanır sürece atanmış bir genel IP adresi yoksa iletişim kurabilir.

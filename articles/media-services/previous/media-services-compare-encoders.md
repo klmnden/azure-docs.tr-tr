@@ -1,10 +1,10 @@
 ---
-title: İsteğe bağlı medya kodlayıcılar üzerinde Azure karşılaştırması | Microsoft Docs
-description: Bu konuda kodlama özelliklerini karşılaştırır **Medya Kodlayıcısı standart** ve **Medya Kodlayıcısı Premium iş akışı**.
+title: Azure üzerinde isteğe bağlı medya kodlayıcılarına karşılaştırması | Microsoft Docs
+description: Bu konuda kodlama yeteneklerini karşılaştırır **Media Encoder Standard** ve **Media Encoder Premium iş akışı**.
 services: media-services
 documentationcenter: ''
 author: juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: a79437c0-4832-423a-bca8-82632b2c47cc
 ms.service: media-services
@@ -12,49 +12,49 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/05/2017
+ms.date: 10/24/2018
 ms.author: juliako;anilmur
-ms.openlocfilehash: cf420c6b5f72b2109016bdb8b86d6cfcc506f4e5
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: c08759f4682c6010c2338ff7aaf61cda92eb0484
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34639529"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50232096"
 ---
-# <a name="comparison-of-azure-on-demand-media-encoders"></a>İsteğe bağlı medya kodlayıcılar üzerinde Azure karşılaştırması
+# <a name="comparison-of-azure-on-demand-media-encoders"></a>Azure üzerinde isteğe bağlı medya kodlayıcılarına karşılaştırması
 
-Bu konuda kodlama özelliklerini karşılaştırır **Medya Kodlayıcısı standart** ve **Medya Kodlayıcısı Premium iş akışı**.
+Bu konuda kodlama yeteneklerini karşılaştırır **Media Encoder Standard** ve **Media Encoder Premium iş akışı**.
 
 ## <a name="video-and-audio-processing-capabilities"></a>Video ve ses işleme özellikleri
 
-Aşağıdaki tabloda Medya Kodlayıcısı standart (MES) ve Medya Kodlayıcısı Premium iş akışı (MEPW) arasında işlevlerini karşılaştırılmaktadır. 
+Aşağıdaki tabloda, Media Encoder Premium iş akışı (MEPW) ile Medya Kodlayıcısı standart (MES) arasındaki işlevlerini karşılaştırılmaktadır. 
 
 |Özellik|Media Encoder Standard|Media Encoder Premium İş Akışı|
 |---|---|---|
-|Kodlama sırasında koşullu mantık Uygula<br/>(giriş HD ise, örneğin, ardından 5.1 ses kodlama)|Hayır|Evet|
-|Kapalı açıklamalı alt yazı|Hayır|[Evet](media-services-premium-workflow-encoder-formats.md#closed_captioning)|
-|[Dolby® profesyonel yüksek ses düzeltme](http://www.dolby.com/us/en/technologies/dolby-professional-loudness-solutions.pdf)<br/> iletişim kutusu Intelligence™ ile|Hayır|Evet|
-|Titreşim, ters telesine|Temel|Yayın Kalitesi|
-|Siyah kenarlıklar algılayacak ve <br/>(pillarboxes, letterboxes)|Hayır|Evet|
+|Kodlama sırasında koşullu mantığı uygulama<br/>(giriş HD ise, örneğin, ardından 5.1 ses kodlama)|Hayır|Evet|
+|Kapalı Açıklamalı Altyazı|Hayır|[Evet](media-services-premium-workflow-encoder-formats.md#closed_captioning)|
+|[Dolby® profesyonel ses yüksekliği düzeltme](http://www.dolby.com/us/en/technologies/dolby-professional-loudness-solutions.pdf)<br/> iletişim kutusu Intelligence™ ile|Hayır|Evet|
+|Titreşim, ters telesine|Temel|Yayın kalitesinde|
+|Algılama ve siyah kenarlıklar kaldırma <br/>(pillarboxes letterboxes)|Hayır|Evet|
 |Küçük resim oluşturma|[Evet](media-services-dotnet-generate-thumbnail-with-mes.md)|[Evet](media-services-media-encoder-premium-workflow-tutorials.md#thumbnails_to__multibitrate_MP4)|
-|Kırpma/kırpma ve videoları Dikiş|[Evet](media-services-advanced-encoding-with-mes.md#trim_video)|Evet|
-|Ses veya video yer paylaşımları|[Evet](media-services-advanced-encoding-with-mes.md#overlay)|[Evet](media-services-media-encoder-premium-workflow-multiplefilesinput.md#example-1--overlay-an-image-on-top-of-the-video)|
+|Kırpma/kırpma ve videolar birleştirme|[Evet](media-services-advanced-encoding-with-mes.md#trim_video)|Evet|
+|Ses veya görüntü yer paylaşımları|[Evet](media-services-advanced-encoding-with-mes.md#overlay)|[Evet](media-services-media-encoder-premium-workflow-multiplefilesinput.md#example-1--overlay-an-image-on-top-of-the-video)|
 |Grafik yer paylaşımları|Görüntü kaynaklardan|Resim ve metin kaynaklardan|
-|Birden çok ses dili izler|Sınırlı|[Evet](media-services-media-encoder-premium-workflow-multiplefilesinput.md#example-2--multiple-audio-language-encoding)|
+|Çoklu ses dili izler|Sınırlı|[Evet](media-services-media-encoder-premium-workflow-multiplefilesinput.md#example-2--multiple-audio-language-encoding)|
 
-## <a id="billing"></a>Her Kodlayıcı tarafından kullanılan faturalama ölçer
-| Ortam işlemci adı | Geçerli fiyatlandırma | Notlar |
+## <a id="billing"></a>Her bir kodlayıcı tarafından kullanılan faturalandırma ölçümü
+| Medya işlemci adı | Geçerli fiyatlandırma | Notlar |
 | --- | --- | --- |
-| **Media Encoder Standard** |KODLAYICI |Toplam süreyi dakika cinsinden belirtilen hızda çıktı olarak üretilen tüm medya dosyalarının göre kodlama görevleri ücretlendirilecek [burada][1], KODLAYICI sütununun altında. |
-| **Media Encoder Premium İş Akışı** |PREMIUM KODLAYICI |Toplam süreyi dakika cinsinden belirtilen hızda çıktı olarak üretilen tüm medya dosyalarının göre kodlama görevleri ücretlendirilecek [burada][1], PREMIUM KODLAYICI sütununun altında. |
+| **Media Encoder Standard** |KODLAYICI |Belirtilen oranlar, çıktı olarak üretilen tüm medya dosyalarını gösteren dakika cinsinden toplam süre temel kodlama görevleri ücretlendirilir [burada][1], KODLAYICI sütununun altında. |
+| **Media Encoder Premium İş Akışı** |PREMIUM KODLAYICI |Belirtilen oranlar, çıktı olarak üretilen tüm medya dosyalarını gösteren dakika cinsinden toplam süre temel kodlama görevleri ücretlendirilir [burada][1], PREMIUM KODLAYICI sütununun altında. |
 
-## <a name="input-containerfile-formats"></a>Kapsayıcı/dosya biçimleri giriş
-| Kapsayıcı/dosya biçimleri giriş | Media Encoder Standard | Media Encoder Premium İş Akışı |
+## <a name="input-containerfile-formats"></a>Giriş kapsayıcısı/dosya biçimleri
+| Giriş kapsayıcısı/dosya biçimleri | Media Encoder Standard | Media Encoder Premium İş Akışı |
 | --- | --- | --- |
 | Adobe® Flash® F4V |Evet |Evet |
 | MXF/SMPTE 377M |Evet |Evet |
 | GXF |Evet |Evet |
-| MPEG-2 aktarım akışları |Evet |Evet |
+| MPEG-2 aktarım akışı |Evet |Evet |
 | MPEG-2 Program akışları |Evet |Evet |
 | MPEG-4/MP4 |Evet |Evet |
 | Windows Media/ASF |Evet |Evet |
@@ -65,22 +65,22 @@ Aşağıdaki tabloda Medya Kodlayıcısı standart (MES) ve Medya Kodlayıcısı
 | Matroska/WebM |Evet |Hayır |
 | QuickTime (.mov) |Evet |Hayır |
 
-## <a name="input-video-codecs"></a>Görüntü codec bileşenleri giriş
-| Görüntü codec bileşenleri giriş | Media Encoder Standard | Media Encoder Premium İş Akışı |
+## <a name="input-video-codecs"></a>Giriş video codec bileşenleri
+| Giriş video codec bileşenleri | Media Encoder Standard | Media Encoder Premium İş Akışı |
 | --- | --- | --- |
-| AVC 8 bit/10-en fazla 4 bit: AVCIntra dahil olmak üzere 2:2 |8 bit 4:2:0. ve 4:2:2 |Evet |
-| Hırslı DNxHD (içinde MXF) |Evet |Evet |
+| AVC 8 bit/10-en fazla 4 bit: 2:2, avcıntra |8 bit 4:2:0. ve 4:2:2 |Evet |
+| Avid DNxHD (mxf biçiminde) |Evet |Evet |
 | DVCPro/DVCProHD (in MXF) |Evet |Evet |
 | JPEG2000 |Evet |Evet |
-| MPEG-2 (422 profili ve yüksek düzey kadar; XDCAM, XDCAM HD, XDCAM IMX, CableLabs® ve D10 gibi çeşitleri dahil) |En fazla 422 profili |Evet |
+| MPEG-2 (422 profili ve yüksek düzeye kadar; XDCAM, XDCAM HD, XDCAM IMX, CableLabs® ve D10 gibi çeşitler dahil) |422 profiline kadar |Evet |
 | MPEG-1 |Evet |Evet |
 | Windows Media Video/VC-1 |Evet |Evet |
-| Canopus denetim merkezini/HQX |Hayır |Hayır |
+| Canopus HQ/HQX |Hayır |Hayır |
 | MPEG-4 bölüm 2 |Evet |Hayır |
 | [Theora](https://en.wikipedia.org/wiki/Theora) |Evet |Hayır |
 | Apple ProRes 422 |Evet |Hayır |
 | Apple ProRes 422 LT |Evet |Hayır |
-| Apple ProRes 422 denetim merkezini |Evet |Hayır |
+| Apple ProRes 422 HQ |Evet |Hayır |
 | Apple ProRes Proxy |Evet |Hayır |
 | Apple ProRes 4444 |Evet |Hayır |
 | Apple ProRes 4444 XQ |Evet |Hayır |
@@ -89,21 +89,21 @@ Aşağıdaki tabloda Medya Kodlayıcısı standart (MES) ve Medya Kodlayıcısı
 ## <a name="input-audio-codecs"></a>Giriş ses codec bileşenleri
 | Giriş ses codec bileşenleri | Media Encoder Standard | Media Encoder Premium İş Akışı |
 | --- | --- | --- |
-| AES (SMPTE 331 M ve 302 M, AES3 2003) |Hayır |Evet |
+| AES (SMPTE 331 M ve 302 M, AES3-2003) |Hayır |Evet |
 | Dolby® E |Hayır |Evet |
 | Dolby® dijital (AC3) |Hayır |Evet |
 | Dolby® dijital artı (E-AC3) |Hayır |Evet |
-| AAC (AAC-LC, HE AAC ve AAC-HEv2; kadar 5.1) |Evet |Evet |
+| AAC (AAC-LC, AAC-HE ve AAC-HEv2; en fazla 5.1) |Evet |Evet |
 | MPEG Katman 2 |Evet |Evet |
-| MP3 (MPEG-1 ses Katman 3) |Evet |Evet |
+| MP3 (MPEG-1 Ses Katmanı 3) |Evet |Evet |
 | Windows Media Ses |Evet |Evet |
 | WAV/PCM |Evet |Evet |
 | [FLAC](https://en.wikipedia.org/wiki/FLAC)</a> |Evet |Hayır |
 | [Geçerli](https://en.wikipedia.org/wiki/Opus_\(audio_format\)) |Evet |Hayır |
 | [Vorbis](https://en.wikipedia.org/wiki/Vorbis)</a> |Evet |Hayır |
 
-## <a name="output-containerfile-formats"></a>Çıktı kapsayıcı/dosya biçimleri
-| Çıktı kapsayıcı/dosya biçimleri | Media Encoder Standard | Media Encoder Premium İş Akışı |
+## <a name="output-containerfile-formats"></a>Çıkış kapsayıcısı/dosya biçimleri
+| Çıkış kapsayıcısı/dosya biçimleri | Media Encoder Standard | Media Encoder Premium İş Akışı |
 | --- | --- | --- |
 | Adobe® Flash® F4V |Hayır |Evet |
 | MXF (OP1a, XDCAM ve AS02) |Hayır |Evet |
@@ -115,32 +115,32 @@ Aşağıdaki tabloda Medya Kodlayıcısı standart (MES) ve Medya Kodlayıcısı
 | AVI (sıkıştırılmamış 8 bit/10 bit) |Hayır |Evet |
 | Kesintisiz akış dosyası biçimi (PIFF 1.3) |Hayır |Evet |
 
-## <a name="output-video-codecs"></a>Çıktı görüntü codec bileşenleri
-| Çıktı görüntü codec bileşenleri | Media Encoder Standard | Media Encoder Premium İş Akışı |
+## <a name="output-video-codecs"></a>Çıkış video codec bileşenleri
+| Çıkış Video codec bileşenleri | Media Encoder Standard | Media Encoder Premium İş Akışı |
 | --- | --- | --- |
-| AVC (H.264; 8 bit; yüksek profili kadar 5.2; 4 K Ultra HD; düzey AVC içi) |Yalnızca 8 bit 4:2:0 |Evet |
-| HEVC (H.265; 8 bit ve 10-bit;)  |Hayır |Evet |
-| Hırslı DNxHD (içinde MXF) |Hayır |Evet |
-| MPEG-2 (422 profili ve yüksek düzey kadar; XDCAM, XDCAM HD, XDCAM IMX, CableLabs® ve D10 gibi çeşitleri dahil) |Hayır |Evet |
+| AVC (H.264; 8-bit; yüksek profiline kadar 5.2; 4 K Ultra HD; düzeyi AVC içi) |Yalnızca 8 bit 4:2:0 |Evet |
+| HEVC (H.265; 8-bit ve 10-bit;)  |Hayır |Evet |
+| Avid DNxHD (mxf biçiminde) |Hayır |Evet |
+| MPEG-2 (422 profili ve yüksek düzeye kadar; XDCAM, XDCAM HD, XDCAM IMX, CableLabs® ve D10 gibi çeşitler dahil) |Hayır |Evet |
 | MPEG-1 |Hayır |Evet |
 | Windows Media Video/VC-1 |Hayır |Evet |
 | JPEG küçük resim oluşturma |Evet |Evet |
 | PNG küçük resim oluşturma |Evet |Evet |
 | BMP küçük resim oluşturma |Evet |Hayır |
 
-## <a name="output-audio-codecs"></a>Çıktı ses codec bileşenleri
-| Çıktı ses codec bileşenleri | Media Encoder Standard | Media Encoder Premium İş Akışı |
+## <a name="output-audio-codecs"></a>Çıkış ses codec bileşenleri
+| Çıkış ses codec bileşenleri | Media Encoder Standard | Media Encoder Premium İş Akışı |
 | --- | --- | --- |
-| AES (SMPTE 331 M ve 302 M, AES3 2003) |Hayır |Evet |
+| AES (SMPTE 331 M ve 302 M, AES3-2003) |Hayır |Evet |
 | Dolby® dijital (AC3) |Hayır |Evet |
-| Dolby® dijital Plus (E-AC3) 7.1 kadar |Hayır |Evet |
-| AAC (AAC-LC, HE AAC ve AAC-HEv2; kadar 5.1) |Evet |Evet |
+| Dolby® dijital artı (E-AC3) kadar 7.1 |Hayır |Evet |
+| AAC (AAC-LC, AAC-HE ve AAC-HEv2; en fazla 5.1) |Evet |Evet |
 | MPEG Katman 2 |Hayır |Evet |
-| MP3 (MPEG-1 ses Katman 3) |Hayır |Evet |
+| MP3 (MPEG-1 Ses Katmanı 3) |Hayır |Evet |
 | Windows Media Ses |Hayır |Evet |
 
 >[!NOTE]
->Dolby® dijital için (AC3) kodlamak, çıktı yalnızca bir ISO MP4 dosyasına yazılabilir.
+>Dolby® dijital için (AC3) kodlama, çıkış yalnızca bir ISO MP4 dosyasına yazılabilir.
 
 ## <a name="media-services-learning-paths"></a>Media Services’i öğrenme yolları
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
@@ -149,8 +149,8 @@ Aşağıdaki tabloda Medya Kodlayıcısı standart (MES) ve Medya Kodlayıcısı
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="related-articles"></a>İlgili makaleler
-* [Medya Kodlayıcısı standart hazır özelleştirerek gelişmiş kodlama görevleri gerçekleştirme](media-services-custom-mes-presets-with-dotnet.md)
-* [Kotalar ve kısıtlamaları](media-services-quotas-and-limitations.md)
+* [Gelişmiş kodlama görevleri, Media Encoder Standard hazır ayarlarını özelleştirerek gerçekleştirin](media-services-custom-mes-presets-with-dotnet.md)
+* [Kotalar ve sınırlamalar](media-services-quotas-and-limitations.md)
 
 <!--Reference links in article-->
 [1]: http://azure.microsoft.com/pricing/details/media-services/

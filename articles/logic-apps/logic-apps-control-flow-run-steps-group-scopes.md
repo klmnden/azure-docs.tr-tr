@@ -10,12 +10,12 @@ manager: jeconnoc
 ms.reviewer: klam, LADocs
 ms.date: 10/03/2018
 ms.topic: article
-ms.openlocfilehash: ac184ce790a0700fcacc63f70c2bb321142d7224
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: aac59e087ba106bc20d94fea85cb8a3cd9273482
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49320552"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50233081"
 ---
 # <a name="run-actions-based-on-group-status-with-scopes-in-azure-logic-apps"></a>Azure Logic apps'te kapsamları Grup durumuyla göre eylemleri çalıştırma
 
@@ -213,7 +213,7 @@ Ardından, böylece belirli eylemleri grup ve bunların durumunu değerlendirmek
 
       ![Kapsam durumlarını seçin](./media/logic-apps-control-flow-run-steps-group-scopes/select-run-after-statuses.png)
 
-   1. İşlemi tamamladığınızda, seçin **Bitti**. 
+   1. İşiniz bittiğinde **Bitti**'yi seçin. 
    Koşul artık bir "bilgi" simgesi gösterir.
 
 1. İçinde **doğruysa** ve **false ise** dallar ekleme gerçekleştirmek istediğiniz eylemleri her kapsam duruma göre örneğin, bir e-posta veya ileti gönderin.
@@ -389,7 +389,7 @@ Kod Görünümü'nde çalışıyorsanız, mantıksal uygulamanızın JSON tanım
 ## <a name="get-support"></a>Destek alın
 
 * Sorularınız için [Azure Logic Apps forumunu](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps) ziyaret edin.
-* Gönderin veya özellikleri ve önerileri oylamak için şurayı ziyaret edin [Azure Logic Apps kullanıcı geri bildirim sitesinde](http://aka.ms/logicapps-wish).
+* Gönderin veya özellikleri ve önerileri oylamak için şurayı ziyaret edin [Azure Logic Apps kullanıcı geri bildirim sitesinde](https://aka.ms/logicapps-wish).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

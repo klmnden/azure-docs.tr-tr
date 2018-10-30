@@ -1,21 +1,20 @@
 ---
 title: Azure Site Recovery ile VMware olağanüstü durum kurtarması için yapılandırma sunucusunu dağıtma | Microsoft Docs
 description: Bu makalede Azure Site Recovery ile VMware olağanüstü durum kurtarması için yapılandırma sunucusunu dağıtma
-services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 07/06/2018
+ms.date: 10/29/2018
 ms.author: raynew
-ms.openlocfilehash: 4222214705c42fe09d90d77faa7be63cc2a13206
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 516edd922d6ead9a71f81c3b9b777b15f1fb28ae
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44025285"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50233166"
 ---
-# <a name="deploy-a-configuration-server"></a>Yapılandırma sunucusunu dağıtma
+# <a name="deploy-a-configuration-server-for-vmware-disaster-recovery-to-azure"></a>Azure'a VMware olağanüstü durum kurtarması için yapılandırma sunucusunu dağıtma
 
 Kullanırken bir şirket içi yapılandırma sunucusunu dağıtma [Azure Site Recovery](site-recovery-overview.md) VMware Vm'lerini ve fiziksel sunucuları azure'a olağanüstü durum kurtarma için. Yapılandırma sunucusu koordinatları iletişimleri arasında şirket içi VMware ve Azure. Veri çoğaltma işlemlerini yönetir. Bu makalede, VMware Vm'lerini Azure'a çoğaltırken, yapılandırma sunucusu dağıtmak için gereken adımlar anlatılmaktadır. [Bu makaleyi takip](physical-azure-set-up-source.md) fiziksel sunucu çoğaltması için yapılandırma sunucusunu ayarlamak gerekiyorsa.
 
@@ -117,6 +116,14 @@ Yapılandırma sunucusuna Ek NIC eklemek istiyorsanız, sunucuyu kasaya kaydetme
 8. Kaydı tamamlamak için **Yapılandırmayı son haline getir** seçeneğini belirleyin.
 9. Kayıt tamamlandıktan sonra Azure portalını açın, yapılandırma sunucusunun ve VMware sunucusunun listelendiğini doğrulayın **kurtarma Hizmetleri kasası** > **Yönet**  >  **Site Recovery altyapısı** > **yapılandırma sunucusu**.
 
+## <a name="upgrade-the-configuration-server"></a>Yapılandırma sunucusunu yükseltme
+
+Yapılandırma sunucusunu en son sürüme yükseltmek için aşağıdaki adımları [adımları](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server).
+
+## <a name="manage-the-configuration-server"></a>Yapılandırma sunucusunu yönetme
+
+Devam eden çoğaltma kesintileri önlemek için yapılandırma sunucusunu bir kasaya kaydedildikten sonra yapılandırma sunucusunun IP adresi değişmez emin olun. Genel yapılandırma sunucusu yönetim görevleri hakkında daha fazla bilgi [burada](vmware-azure-manage-configuration-server.md).
+
 ## <a name="faq"></a>SSS
 
 1. Yapılandırma sunucusu, farklı amaçlara yönelik yüklendiği VM kullanabilir miyim?
@@ -140,14 +147,6 @@ Yapılandırma sunucusuna Ek NIC eklemek istiyorsanız, sunucuyu kasaya kaydetme
 7. Kasa kayıt anahtarlarının nereden indirebilirim?
 
     İçinde **kurtarma Hizmetleri kasası**, **yönetme** > **Site Recovery altyapısı** > **yapılandırmasunucusu**. Sunucularda seçin **indirme kayıt anahtarı** kasa kimlik bilgileri dosyası indirilemedi.
-
-## <a name="upgrade-the-configuration-server"></a>Yapılandırma sunucusunu yükseltme
-
-Yapılandırma sunucusunu en son sürüme yükseltmek için aşağıdaki adımları [adımları](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server).
-
-## <a name="manage-the-configuration-server"></a>Yapılandırma sunucusunu yönetme
-
-Devam eden çoğaltma kesintileri önlemek için yapılandırma sunucusunu bir kasaya kaydedildikten sonra yapılandırma sunucusunun IP adresi değişmez emin olun. Genel yapılandırma sunucusu yönetim görevleri hakkında daha fazla bilgi [burada](vmware-azure-manage-configuration-server.md).
 
 ## <a name="troubleshoot-deployment-issues"></a>Dağıtım sorunlarını giderme
 

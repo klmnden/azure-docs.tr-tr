@@ -1,22 +1,21 @@
 ---
-title: Azure Site Recovery ile azure'a yük devretmeden sonra IP adresini ayarlama | Microsoft Docs
-description: IP adresi şirket içi Azure Site Recovery ile yük devretme sonrasında Azure Vm'lerine bağlanmak için ayarlama açıklanmaktadır
+title: IP adresi olağanüstü durum kurtarma ve Azure Site Recovery ile azure'a yük devredildikten sonra bağlanmak için ayarlama | Microsoft Docs
+description: IP adresi şirket içi Azure Site Recovery ile olağanüstü durum kurtarma ve yük devretme sonrasında Azure Vm'lerine bağlanmak için ayarlama açıklanmaktadır
 services: site-recovery
-documentationcenter: ''
 author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: mayg
-ms.openlocfilehash: 9b7797ba58a44e64460f4dbc58d562b4c470c043
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: ce7e5fde60503a969b88892be890173861fb15be
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49353096"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50215234"
 ---
-# <a name="set-up-ip-addressing-to-connect-after-failover-to-azure"></a>IP adresleme azure'a yük devredildikten sonra bağlanmak için ayarlama
+# <a name="set-up-ip-addressing-to-connect-to-azure-vms-after-failover"></a>IP adresi yük devretmeden sonra Azure Vm'lerine bağlanmak için ayarlama
 
 Bu makalede kullandıktan sonra Azure Vm'lerine bağlanmak için ağ gereksinimleri açıklanır [Azure Site Recovery](site-recovery-overview.md) çoğaltma ve azure'a yük devretme için hizmet.
 

@@ -1,6 +1,6 @@
 ---
-title: Güvenlik, Azure mimari tasarımları tümleştirme | Microsoft Docs
-description: " Bu makalede, güvenlik tasarımı ve uygulama tümleştirmeyi kolay hale getirmek için azure'da uygulama ve Hizmetleri mimarisi anlamanıza yardımcı olur. "
+title: Güvenlik, Azure mimari Görselliğin | Microsoft Docs
+description: " Bu makalede, tasarım ve uygulama güvenlik tümleştirme daha kolay hale getirmek için azure'da uygulama ve Hizmetleri mimarisi anlamanıza yardımcı olur. "
 services: security
 documentationcenter: na
 author: TomShinder
@@ -14,45 +14,45 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: f15378c50dbf80863305ed4d1f31ae75f46a7789
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 8ca9f0b75627e7ad366b3c02ec3126713a283ed2
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/23/2017
-ms.locfileid: "25549450"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50233744"
 ---
 # <a name="application-architecture-on-azure"></a>Azure’da uygulama mimarisi
-Güvenli hale getirmek için Microsoft azure'da, bulut tabanlı çözümlerinizi güçlü bir mimari temel önemlidir. Mimarlar tasarımcıları ve uygulayıcılar tüm uygulama ve Hizmetleri mimarisinin güçlü bir bilgilerini yararlanır. Bu temel bilgi, bulut tabanlı çözümler tüm bileşenlerini anlama ve güvenlik tasarımı ve uygulama tüm yönlerini tümleştirmeyi kolay hale yardımcı olur.
+Güvenliğini sağlamaya yardımcı olmak için bulut tabanlı çözümlerinizi Microsoft azure'da güçlü bir mimari temel önemlidir. Mimarları, tasarımcılar ve uygulayıcılar sağlam bir uygulama ve Hizmetleri mimarisi bilgilerden yararlanın. Bu temel bilgi, bulut tabanlı çözümler tüm bileşenlerini anlayın ve güvenlik tasarımı ve uygulaması tüm yönlerini tümleştirmeyi kolaylaştırmak yardımcı olur.
 
-Mimari araştırmalar ve tasarımlar ile yardımcı olmak için şunları sunuyoruz:
+Tasarım ve mimari araştırmalar ile yardımcı olmak için şunları sunuyoruz:
 
-* Mimari infographics
-* Mimari planlar
-* Bulut ve kuruluş Sembol kümesi
-* 3B şeması Visio şablonu
+* Mimari infografikleri
+* Mimari şemalar
+* Bulut ve kurumsal simge kümesi
+* Hazırlanan 3B kavramsal tasarımı Visio şablonu
 
-## <a name="architectural-infographics"></a>Mimari infographics
-Microsoft çeşitli mimari ilgili posterler/infographics yayımlar. Bunlar:
+## <a name="architectural-infographics"></a>Mimari infografikleri
+Microsoft, birkaç mimari ilgili posterler/infografikleri yayımlar. Bunlar:
 
-* [Gerçek bulut uygulamaları oluşturma](https://azure.microsoft.com/documentation/infographics/building-real-world-cloud-apps/)
-* [Bulut Hizmetleri ile ölçeklendirme](https://azure.microsoft.com/documentation/infographics/cloud-services/)
+* [Gerçek hayatta kullanılan bulut uygulamaları oluşturma](https://azure.microsoft.com/documentation/infographics/building-real-world-cloud-apps/)
+* [Cloud Services ile ölçeklendirme](https://azure.microsoft.com/documentation/infographics/cloud-services/)
 
-## <a name="architectural-blueprints"></a>Mimari planlar
-Microsoft yayımlar üst düzey bir dizi [mimari planlar](http://aka.ms/azblueprints) belirli türlerdeki Microsoft ürünlerini kullanan sistemleri nasıl oluşturulacağını gösteren.
-Y: her şeması içerir
+## <a name="architectural-blueprints"></a>Mimari şemalar
+Microsoft üst düzey bir dizi yayınlar [mimari kavramsal tasarımlar](https://aka.ms/azblueprints) gösteren belirli türde Microsoft ürünlerini kullanan sistemler oluşturma.
+Y: her şema içerir
 
-* İndirin ve değiştirebileceği düz 2B Visio 2003 tabanlı bir dosya
-* Renkli 3B perspektifinin PDF dosyası şeması daha az teknik izleyicilere tanıtmak için
-* 3B sürümü üzerinden anlatan video
+* İndirip değişiklik Visio 2003 tabanlı 2B düz dosya
+* Blueprint daha az teknik kitlelere tanıtmak için renkli 3B perspektifini PDF dosyası
+* 3B sürümü anlatan videoyu
 
-## <a name="cloud-and-enterprise-symbol-set"></a>Bulut ve kuruluş Sembol kümesi
-[Visio ve video eğitim sembolleri görüntüleme](http://aka.ms/CnESymbolsVideo) ve ardından [bulut indirin ve kuruluş sembol ayarlamak](http://aka.ms/CnESymbols) Azure, Windows Server, SQL Server ve daha fazla açıklamak teknik malzemeleri oluşturmaya yardımcı olmak için. Microsoft ürünlerini kullanan diğer kişilere kitap eğitir mimarisi diyagramları, eğitim malzemelerini, sunuları, veri sayfaları, infographics, teknik incelemeler ve hatta üçüncü taraf books sembolleri kullanabilirsiniz. Ancak, bunlar için kullanıcı arabirimleri kullanımda değildir.
+## <a name="cloud-and-enterprise-symbol-set"></a>Bulut ve kurumsal simge kümesi
+[Visio ve video eğitimi sembolleri görüntüleme](https://aka.ms/CnESymbolsVideo) ardından [bulut indirin ve kuruluş sembol ayarlayın](https://aka.ms/CnESymbols) Azure, Windows Server, SQL Server ve daha fazla açıklayın teknik malzemeleri oluşturmasına yardımcı olmak için. Mimari diyagramlar, eğitim malzemeleri, sunular, veri, infografikleri, teknik incelemeler ve hatta üçüncü taraf books sembolleri Microsoft ürünlerini kullanan diğer kişilere kitap eğitir kullanabilirsiniz. Ancak, bunlar için kullanıcı arabirimleri kullanımda değildir.
 
-## <a name="3d-blueprint-visio-template"></a>3B şeması Visio şablonu
-3B sürümleri [Microsoft mimarisi planlar](http://aka.ms/azblueprints) başlangıçta Microsoft dışı aracında oluşturulmuş. Yeni Visio 2013 (ve üstü) şablonu 5 Ağustos 2015 tarihinde parçası olarak gönderilen bir [EDX.ORG üzerinde dağıtılmış Microsoft Architecture sertifika indirmelere](https://docs.microsoft.com/azure/architecture/#microsoft-architecture-certification-course).
+## <a name="3d-blueprint-visio-template"></a>Hazırlanan 3B kavramsal tasarımı Visio şablonu
+3B sürümleri [Microsoft mimari şemaları](https://aka.ms/azblueprints) Microsoft olmayan bir araçta başlangıçta oluşturulmuş. Yeni bir Visio 2013 (ve üzeri) şablonu 5 Ağustos 2015'te bir parçası olarak gönderilen bir [EDX.ORG üzerinde dağıtılmış Microsoft Architecture sertifika kurs](https://docs.microsoft.com/azure/architecture/#microsoft-architecture-certification-course).
 
-Şablon dışında indirmelere da kullanılabilir.
+Şablon da kursu dışında kullanılabilir.
 
-* [Eğitim videosunu görüntüleyin](http://aka.ms/3dBlueprintTemplateVideo) yerine getirebileceği bilmesi ilk
-* Karşıdan [Microsoft 3B şeması Visio şablonu](http://aka.ms/3DBlueprintTemplate)
-* Karşıdan [Bulut ve kuruluş sembol](https://docs.microsoft.com/azure/architecture/#drawing-symbol-and-icon-sets) 3B şablonla kullanmak için
+* [Eğitim videosunu görüntüleyin](https://aka.ms/3dBlueprintTemplateVideo) neler yapabileceğini bilmesi ilk
+* İndirme [Microsoft 3B kavramsal tasarımı Visio şablonu](https://aka.ms/3DBlueprintTemplate)
+* İndirme [Bulut ve kurumsal semboller](https://docs.microsoft.com/azure/architecture/#drawing-symbol-and-icon-sets) ile 3B şablonu kullanmak için

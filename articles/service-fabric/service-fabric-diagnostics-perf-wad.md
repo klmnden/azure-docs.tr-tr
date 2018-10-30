@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/26/2018
 ms.author: srrengar
-ms.openlocfilehash: 68e0192756db539767dd808d0f0d408e77c2ae1b
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: bc86ef5a32e08bc00b5a2fa53dccb8d6313f167b
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49405659"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50230994"
 ---
 # <a name="performance-monitoring-with-the-windows-azure-diagnostics-extension"></a>Windows Azure tanılama uzantısı ile performans izleme
 
@@ -115,7 +115,7 @@ WAD ile performans sayaçları toplamak için kümenin Resource Manager şablonu
     New-AzureRmResourceGroupDeployment -ResourceGroupName <ResourceGroup> -TemplateFile <PathToTemplateFile> -TemplateParameterFile <PathToParametersFile> -Verbose
     ```
 
-5. Yükseltme tamamlandıktan sonra WAD (alır 15-45 dakika arasında), sıralı performans sayaçlarını toplama olması ve kümenizle ilişkili depolama hesabında WADPerformanceCountersTable adlı tabloda gönderme. Application Insights ile performans Sayaçlarınızı bkz [Resource Manager şablonuna AI havuz ekleme](service-fabric-diagnostics-event-analysis-appinsights.md#add-the-ai-sink-to-the-resource-manager-template).
+5. Yükseltme tamamlandıktan sonra WAD (alır 15-45 dakika arasında), sıralı performans sayaçlarını toplama olması ve kümenizle ilişkili depolama hesabında WADPerformanceCountersTable adlı tabloda gönderme. Application Insights ile performans Sayaçlarınızı bkz [Resource Manager şablonuna AI havuz ekleme](service-fabric-diagnostics-event-analysis-appinsights.md#add-the-application-insights-sink-to-the-resource-manager-template).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * Kümenizi daha fazla performans sayacını toplar. Bkz: [performans ölçümlerini](service-fabric-diagnostics-event-generation-perf.md) toplama sayaçları listesi.

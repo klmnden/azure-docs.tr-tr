@@ -1,5 +1,5 @@
 ---
-title: Kapsayıcılar için Azure İzleyicisi'nin genel bakış | Microsoft Docs
+title: Azure İzleyici genel bakış için kapsayıcılar (Önizleme) | Microsoft Docs
 description: Bu makalede, AKS kapsayıcı öngörüleri çözümüdür ve değer AKS kümeleri ve Azure Container Instances'da durumunu izleyerek sunar izleyen kapsayıcılar için Azure İzleyici açıklanır.
 services: azure-monitor
 documentationcenter: ''
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/14/2018
 ms.author: magoedte
-ms.openlocfilehash: 6819cf96eb968e8faad5441cf3f3dd672653f1cd
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 13fde8a4ec4ecf43b9997d5d4d181a232505626f
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46971442"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50213007"
 ---
-# <a name="azure-monitor-for-containers-overview"></a>Kapsayıcılara genel bakış için Azure İzleyici
+# <a name="azure-monitor-for-containers-preview-overview"></a>Azure İzleyici kapsayıcılar (Önizleme) genel bakış
 
 Kapsayıcılar için Azure İzleyici, yönetilen Azure Kubernetes Service (AKS) barındırılan Kubernetes kümelerini dağıtılan kapsayıcı iş yüklerinin performansını izlemek için tasarlanmış bir özelliktir. Özellikle birden çok uygulama ile ölçekli olarak bir üretim kümesi çalıştırırken, kapsayıcılarınızın izlenmesi kritik önem taşır.
 

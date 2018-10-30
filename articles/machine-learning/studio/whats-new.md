@@ -1,6 +1,6 @@
 ---
-title: Azure Machine Learning yenilikler | Microsoft Docs
-description: Azure Machine Learning ile kullanılabilen yeni özellikleri.
+title: Azure Machine Learning Studio'da yenilikler | Microsoft Docs
+description: Azure Machine Learning Studio'da kullanılabilen yeni özellikleri.
 services: machine-learning
 documentationcenter: ''
 author: YasinMSFT
@@ -14,44 +14,49 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/28/2017
-ms.openlocfilehash: 61bea7fde96b239a50ec25a702a73ecfb62ce717
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.date: 10/28/2018
+ms.openlocfilehash: 2f990ce30b66392e8a649e4e88b21457d9fe223b
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34836081"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50212667"
 ---
-# <a name="whats-new-in-azure-machine-learning"></a>Azure Machine Learning’deki Yenilikler
+# <a name="whats-new-in-azure-machine-learning-studio"></a>Azure Machine Learning Studio'da yenilikler nelerdir?
 
-### <a name="the-march-2017-release-of-microsoft-azure-machine-learning-updates-provides-the-following-feature"></a>Microsoft Azure Machine Learning güncelleştirmeleri Mart 2017 sürümünde aşağıdaki özellik sağlar:
+## <a name="october-2018"></a>Ekim 2018
+
+R dili altyapısında [R betiği yürütme](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/execute-r-script) modülü, yeni bir R çalışma zamanı sürüm--Microsoft R Open (MRO) 3.4.4 ekledi. MRO 3.4.4 açık kaynaklı CRAN R 3.4.4 temel alır ve bu nedenle, r sürümüyle çalışan paketleri ile uyumlu  Makalede, desteklenen R paketleri hakkında daha fazla bilgi edinin "[Azure Machine Learning Studio tarafından desteklenen R paketleri](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/r-packages-supported-by-azure-machine-learning#bkmk_List)".
+
+## <a name="march-2017"></a>Mart 2017 
+Microsoft Azure Machine Learning güncelleştirmeleri bu sürümünde, aşağıdaki özellik sağlar:
+
+* Azure Machine Learning BES işleri için adanmış kapasite
+
+    Machine Learning Batch havuzu kullanımları işleme [Azure Batch](../../batch/batch-technical-overview.md) Azure Machine Learning Batch yürütme hizmeti için müşteri tarafından yönetilen ölçek sağlamak için hizmeti. Batch havuzu işleme toplu işlerini gönderin ve aynı bunları tahmin edilebilir bir biçimde yürütmek Azure Batch havuzları oluşturmanıza olanak sağlar.
+
+    Daha fazla bilgi için [Machine Learning işler için Azure Batch hizmeti](dedicated-capacity-for-bes-jobs.md).
 
 
-
-* Azure Machine Learning BES işleri için ayrılmış kapasitesi
-
-    Machine Learning Batch havuzu kullanır işleme [Azure Batch](../../batch/batch-technical-overview.md) Azure Machine Learning toplu yürütme hizmeti için müşteri tarafından yönetilen ölçek sağlamak için hizmeti. Batch havuzu işleme, toplu iş göndermek ve aynı bunları tahmin edilebilir bir biçimde yürütme Azure Batch havuzları oluşturmanıza olanak sağlar.
-
-    Daha fazla bilgi için bkz: [Machine Learning işleri için Azure Batch hizmetini](dedicated-capacity-for-bes-jobs.md).
-
-
-### <a name="the-august-2016-release-of-microsoft-azure-machine-learning-updates-provide-the-following-features"></a>Microsoft Azure Machine Learning güncelleştirmeleri Ağustos 2016 sürümünde aşağıdaki özellikleri sağlar:
-* Klasik Web Hizmetleri artık yönetilebilir yeni [Microsoft Azure Machine Learning Web Hizmetleri](https://services.azureml.net/) Portalı'da Web hizmetiniz tüm yönlerini yönetmek için bir yer sağlar.    
+## <a name="august-2016"></a>Ağustos 2016 
+Microsoft Azure Machine Learning güncelleştirmeleri, bu sürüm aşağıdaki özellikleri sağlar:
+* Klasik Web Hizmetleri artık yönetilebilir yeni [Microsoft Azure Machine Learning Web Hizmetleri](https://services.azureml.net/) portal Web hizmetiniz tüm yönlerini yönetmek için bir yer sağlar.    
   * Web hizmeti sağlayan [kullanım istatistiklerini](manage-new-webservice.md).
-  * Azure Machine Learning uzaktan-istek çağrıları örnek verileri kullanarak test basitleştirir.
-  * Yeni bir toplu iş yürütme hizmeti test sayfası örnek verileri ve iş gönderme geçmişi ile sağlar.
+  * Azure Machine Learning Uzaktan isteği çağrıları örnek verileri kullanarak test basitleştirir.
+  * Yeni bir toplu yürütme hizmeti test sayfası ile örnek verileri ve iş gönderme geçmişi sağlar.
   * Uç nokta daha kolay yönetim sağlar.
 
-### <a name="the-july-2016-release-of-microsoft-azure-machine-learning-updates-provide-the-following-features"></a>Microsoft Azure Machine Learning güncelleştirmeleri Temmuz 2016 sürümünde aşağıdaki özellikleri sağlar:
-* Web Hizmetleri aracılığıyla yönetilen Azure kaynakları olarak yönetilen şimdi [Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md) arabirimleri, aşağıdaki geliştirmeleri için izin verme:
-  * Yüklenmeyen yeni [REST API'leri](https://msdn.microsoft.com/library/azure/Dn950030.aspx) dağıtmak ve Kaynak Yöneticisi'ni yönetmek için Web Hizmetleri tabanlı.
-  * Yeni bir [Microsoft Azure Machine Learning Web Hizmetleri](https://services.azureml.net/) Portalı'da Web hizmetiniz tüm yönlerini yönetmek için bir yer sağlar.
-* Yeni bir araya getirir abonelik tabanlı, çok bölgede web hizmeti dağıtım modeli Kaynak Yöneticisi'ni kullanarak tabanlı Web Hizmetleri için Resource Manager kaynak sağlayıcısı yararlanarak API'ler.
-* Yeni tanıtır [fiyatlandırma planı](https://azure.microsoft.com/pricing/details/machine-learning/) ve Yeni Kaynak Yöneticisi'ni RP için fatura kullanarak yönetim özelliklerini planlayın.
-  * Artık [web hizmetiniz için birden çok bölgeye dağıtmak](how-to-deploy-to-multiple-regions.md) her bölgede bir aboneliği oluşturmak gerek olmadan.
-* Web hizmeti sağlar [kullanım istatistiklerini](manage-new-webservice.md).
-* Azure Machine Learning uzaktan-istek çağrıları örnek verileri kullanarak test basitleştirir.
-* Yeni bir toplu iş yürütme hizmeti test sayfası örnek verileri ve iş gönderme geçmişi ile sağlar.
+## <a name="july-2016"></a>Temmuz 2016 
+Microsoft Azure Machine Learning güncelleştirmeleri, bu sürüm aşağıdaki özellikleri sağlar:
+* Web Hizmetleri aracılığıyla yönetilen Azure kaynaklarıyla yönetiliyor [Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md) arabirimleri, aşağıdaki geliştirmeleri için izin verme:
+  * Vardır yeni [REST API'leri](https://msdn.microsoft.com/library/azure/Dn950030.aspx) dağıtma ve yönetme, Resource Manager tabanlı Web hizmetler.
+  * Yeni bir [Microsoft Azure Machine Learning Web Hizmetleri](https://services.azureml.net/) portal Web hizmetiniz tüm yönlerini yönetmek için bir yer sağlar.
+* İçeren yeni bir abonelik tabanlı, çok bölgeli web hizmet dağıtım modeli kullanılarak Resource Manager tabanlı Web Hizmetleri için Resource Manager kaynak sağlayıcısı yararlanarak API'ler.
+* Yeni tanıtır [fiyatlandırma planları](https://azure.microsoft.com/pricing/details/machine-learning/) ve faturalandırma için yeni Resource Manager RP kullanarak yönetim özelliklerini planlayın.
+  * Artık [web hizmetini birden fazla bölgeye dağıtma](how-to-deploy-to-multiple-regions.md) her bölgede bir abonelik oluşturmak gerek olmadan.
+* Web hizmeti sağlamaktadır [kullanım istatistiklerini](manage-new-webservice.md).
+* Azure Machine Learning Uzaktan isteği çağrıları örnek verileri kullanarak test basitleştirir.
+* Yeni bir toplu yürütme hizmeti test sayfası ile örnek verileri ve iş gönderme geçmişi sağlar.
 
-Ayrıca, Machine Learning Studio, yeni Web hizmeti modeline dağıtmanıza olanak sağlamak için güncelleştirilmiş veya Klasik Web hizmeti modeline dağıtmak devam edin. 
+Ayrıca, Machine Learning Studio, yeni Web hizmeti modeline dağıtmanıza olanak sağlamak için güncelleştirildi veya Klasik Web hizmetini model dağıtma devam edin. 
 

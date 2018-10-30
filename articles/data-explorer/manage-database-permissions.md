@@ -8,18 +8,18 @@ ms.service: data-explorer
 services: data-explorer
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: b0fb2cd79c0ee685ad2000c5444a84d53e462f24
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: 287b95b59b0ec2b308d3e455c4f6ffce4baf4ff7
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48868284"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50212888"
 ---
 # <a name="manage-azure-data-explorer-database-permissions"></a>Azure Veri Gezgini veritabanı izinlerini yönetme
 
 Azure Veri Gezgini sağlar, veritabanlarını ve tabloları, erişimi denetlemek kullanarak bir *rol tabanlı erişim denetimi* modeli. Bu modelde, *sorumluları* (kullanıcılar, gruplar ve uygulamalar) eşleştirilmiş *rolleri*. İlkeleri atanmış oldukları rollerine göre kaynaklara erişebilir.
 
-Bu makalede, kullanılabilir roller ve ilkeleri bu rollere atama açıklanmaktadır.
+Bu makalede, kullanılabilir roller ve ilkeleri Azure portalı ve Azure Veri Gezgini yönetim komutları kullanarak roller atama açıklanmaktadır.
 
 ## <a name="roles-and-permissions"></a>Roller ve izinler
 
@@ -77,4 +77,4 @@ Azure Veri Gezgini, aşağıdaki roller vardır:
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-[Sorguları yazma](write-queries.md)
+[Sorgu yazma](write-queries.md)

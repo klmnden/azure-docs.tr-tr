@@ -1,7 +1,7 @@
 ---
 title: REST API (V4) - Python - soru-cevap Oluşturucu
 titleSuffix: Azure Cognitive Services
-description: Azure Microsoft Bilişsel Hizmetler'deki Microsoft Translator Metin Çevirisi API'sini kullanmaya başlamanıza yardımcı olacak bilgileri ve kod örneklerini inceleyin.
+description: Hızlı bir şekilde yardımcı olması için alma Python bilgi ve kod örnekleri, Microsoft Translator metin çevirisi API'si, Azure üzerinde Microsoft Bilişsel hizmetler kullanarak başlayın.
 services: cognitive-services
 author: diberry
 manager: cgronlun
@@ -10,17 +10,17 @@ ms.component: qna-maker
 ms.topic: article
 ms.date: 10/19/2018
 ms.author: diberry
-ms.openlocfilehash: 595eee6a10192d877aa77f4849bac494dff05808
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 1eff6ab146bb3a7ee053b8ac7fe3137d7c58c93a
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49650018"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50212480"
 ---
 # <a name="qna-maker-rest-api-with-python"></a>Python ile soru-cevap Oluşturucu REST API
 <a name="HOLTop"></a>
 
-Bu makalede Python ve [Microsoft Soru-Cevap Oluşturma API'si](../Overview/overview.md) ile aşağıdaki işlemlerin nasıl gerçekleştirileceği gösterilmektedir.
+Bu makalede nasıl kullanılacağını gösterir [Microsoft soru-cevap Oluşturucu API'si](../Overview/overview.md) aşağıdakileri yapmak için Python ile.
 
 - [Yeni bilgi bankası oluşturma.](#Create)
 - [Var olan bilgi bankasını güncelleştirme.](#Update)

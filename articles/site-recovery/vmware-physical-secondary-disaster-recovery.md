@@ -1,21 +1,18 @@
 ---
 title: VMware Vm'lerini veya fiziksel sunucuları Azure Site Recovery ile ikincil bir siteye olağanüstü durum kurtarma ayarlama | Microsoft Docs
 description: VMware Vm'leri veya Windows ve Linux fiziksel sunucuları Azure Site Recovery ile ikincil bir siteye olağanüstü durum kurtarma ayarlamayı öğrenin.
-services: site-recovery
-author: nsoneji
-manager: gauarvd
+author: rayne-wiselman
+manager: carmonm
 ms.service: site-recovery
-ms.workload: backup-recovery
-ms.tgt_pltfrm: na
-ms.topic: article
-ms.date: 08/01/2018
+ms.topic: conceptual
+ms.date: 10/29/2018
 ms.author: raynew
-ms.openlocfilehash: 94abdd30dc9cd279ab791541250787a111f80d30
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: fe6199aea91bbb7518ccdbfe640848a59edcee49
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39618997"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50215472"
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-vmware-virtual-machines-or-physical-servers-to-a-secondary-site"></a>Şirket içi VMware sanal makinelerini veya fiziksel sunucuları ikincil bir siteye olağanüstü durum kurtarmayı ayarlama
 
@@ -176,7 +173,7 @@ Scout güncelleştirme 5 toplu bir güncelleştirmesidir. Bu, güncelleştirme 1
 > [!NOTE]
 > * P2V küme düzeltmeleri, yalnızca yeni Site kurtarma Scout güncelleştirme 5 ile korunan fiziksel MSCS kümeler için geçerlidir. Eski güncelleştirmeleri korumalı P2V MSCS kümeleriyle küme düzeltmeleri yüklemek için 12 bölümünde belirtildiği yükseltme adımları [Site kurtarma Scout sürüm notları](https://aka.ms/asr-scout-release-notes).
 > * Başlangıçta korumalı oldukları gibi yeniden koruma süresi aynı disk kümesi her küme düğümleri üzerinde etkin olan, yeniden koruma fiziksel bir MSCS kümesindeki yalnızca var olan hedef diskler kullanabilirsiniz. Aksi takdirde, el ile yapılacak adımlar bölümünü 12 kullanın [Site kurtarma Scout sürüm notları](https://aka.ms/asr-scout-release-notes), hedef tarafı disklerin yeniden koruma sırasında yeniden kullanım için doğru veri deposunu yoluna taşıyın. P2V modunda MSCS Küme yükseltme adımları izleyerek olmadan yeniden koruma, hedef ESXi sunucusunda yeni bir disk oluşturur. Eski diskleri deposundan el ile silmeniz gerekir.
-> * Bir kaynağı SLES11 veya SLES11 (ile herhangi bir hizmet paketi) sunucusu düzgün bir şekilde yeniden başlatıldığında, el ile işaretleme **kök** disk çoğaltma çiftlerinin yeniden eşitleme. CX arabirimindeki bildirim yoktur. Yeniden eşitleme için kök disk işaretlemeyin, veri bütünlüğü sorunları görebilirsiniz.
+> * Bir kaynağı SLES11 veya SLES11 (ile herhangi bir hizmet paketi) sunucusu düzgün bir şekilde yeniden başlatıldığında, el ile işaretleme **kök** disk çoğaltma çiftlerinin yeniden eşitleme. CX arabirimindeki bildirim yoktur. Yeniden eşitleme için kök disk işaretlemeyin, veri bütünlüğü sorunları görebilirsiniz.
 
 
 ### <a name="azure-site-recovery-scout-801-update-4"></a>Azure Site kurtarma Scout 8.0.1 güncelleştirme 4

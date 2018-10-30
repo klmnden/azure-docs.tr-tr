@@ -6,29 +6,29 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 10/08/2018
+ms.date: 10/26/2018
 ms.author: alinast
-ms.openlocfilehash: 61d05a7e9936a0edd17c5528ce4f55233b6e7e0e
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 7eddea7e0d57b89318232da6f086bbe2f649ee77
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49324306"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50211936"
 ---
-# <a name="device-connectivity-and-telemetry-ingress"></a>Cihaz bağlantısı ve telemetri giriş
+# <a name="device-connectivity-and-telemetry-ingress"></a>Cihaz bağlantısı ve telemetri sorunları
 
 Tüm IOT çözümlerinin temel cihazlardan ve sensörlerden tarafından gönderilen telemetri verilerini oluşturur. Bu nedenle, bu farklı kaynakları temsil eden ve bunları bir konuma bağlamında yönetme bir baş IOT uygulama geliştirmede konudur. Azure dijital İkizlerini cihazlardan ve sensörlerden olan bir uzamsal zeka grafik uniting tarafından IOT çözümleri geliştirme sürecini basitleştirir.
 
-Başlamak için bir `IoTHub` ileti göndermek için kök alanı tüm cihazlara izin verme, uzamsal grafiğin kök kaynak oluşturulmalıdır. IOT hub'ı oluşturuldu ve sensörlerden cihazlarla dijital İkizlerini örneğinde kaydedildi sonra cihazları bir dijital İkizlerini hizmete veri göndermeye başlayabilir [Azure IOT cihaz SDK'sı](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks).
+Başlamak için bir IOT hub'ı kaynak ileti göndermek için kök alanı tüm cihazlara izin verme, uzamsal grafiğin kök oluşturulmalıdır. IOT hub'ı oluşturuldu ve sensörlerden cihazlarla dijital İkizlerini örneğinde kaydedildi sonra cihazları bir dijital İkizlerini hizmete veri göndermeye başlayabilir [Azure IOT cihaz SDK'sı](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks).
 
-Onboarding cihazlar için adım adım kılavuzu bulunabilir [dijital İkizlerini yapılandırmak ve dağıtmak için öğreticiyi](tutorial-facilities-setup.md). Bir bakışta adımlar şunlardır:
+Kolaylaşmasına cihazlar için adım adım kılavuzu bulunabilir [dijital İkizlerini yapılandırmak ve dağıtmak için öğreticiyi](tutorial-facilities-setup.md). Bir bakışta adımlar şunlardır:
 
 - Azure dijital İkizlerini örneğini dağıtma [Azure portalı](https://portal.azure.com)
 - Graftaki alanları oluşturma
-- Oluşturma bir `IoTHub` kaynak ve grafınızı boşluk atayın
+- Bir IOT hub'ı kaynak oluşturmak ve grafınızı boşluk atayın
 - Cihazlardan ve sensörlerden graftaki oluşturun ve bunları Yukarıdaki adımlarda alanları atama
 - Telemetri iletilerini koşullara göre filtrelemek için bir Eşleştiricisi oluşturma
-- Oluşturma bir [ **kullanıcı tanımlı işlev** ](concepts-user-defined-functions.md) ve bir alan grafiğinde, telemetri iletilerini, özel işlenmesi atayın
+- Oluşturma bir [kullanıcı tanımlı işlev](concepts-user-defined-functions.md) ve bir alan grafiğinde, telemetri iletilerini, özel işlenmesi atayın
 - Graf verilerine erişmek kullanıcı tanımlı işlev izin vermek için rol atama
 - Dijital İkizlerini yönetim API'lerinden IOT Hub cihaz bağlantı dizesini alın
 - Azure IOT cihaz SDK'sı ile bir cihazda cihaz bağlantı dizesini yapılandırma
@@ -49,11 +49,11 @@ https://yourManagementApiUrl/api/v1.0/devices?hardwareIds=yourDeviceHardwareId&i
 
 | Özel öznitelik adı | Değiştirin |
 | --- | --- |
-| `yourManagementApiUrl` | Yönetim API'niz için tam URL yolu |
-| `yourDeviceGuid` | Cihaz kimliği |
-| `yourDeviceHardwareId` | Cihaz donanım kimliği |
+| *yourManagementApiUrl* | Yönetim API'niz için tam URL yolu |
+| *yourDeviceGuid* | Cihaz kimliği |
+| *yourDeviceHardwareId* | Cihaz donanım kimliği |
 
-Cihazın yanıt yükünde kopyalama `connectionString` Azure dijital çiftleri için veri göndermek için Azure IOT cihaz SDK'sı çağrılırken kullanacağınız özelliği.
+Cihazın yanıt yükünde kopyalama *connectionString* Azure dijital çiftleri için veri göndermek için Azure IOT cihaz SDK'sı çağrılırken kullanacağınız özelliği.
 
 ## <a name="device-to-cloud-message"></a>Cihaz bulut iletisi
 
@@ -61,14 +61,14 @@ Cihazınızın ileti biçimi ve yükü çözümünüzün gereksinimlerine uyacak
 
 ### <a name="telemetry-properties"></a>Telemetri özellikleri
 
-While yükü içeriğini bir `Message` rastgele verilerin yedekleme boyutu 256 KB'den az sayıda gereksinim vardır üzerinde beklenen [Message.Properties](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.message.properties?view=azure-dotnet). Aşağıda özetlenen adımlar, sistem tarafından desteklenen gerekli ve isteğe bağlı özellikleri yansıtır:
+While yükü içeriğini bir **ileti** rastgele verilerin yedekleme boyutu 256 KB'den az sayıda gereksinim vardır üzerinde beklenen [ `Message.Properties` ](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.message.properties?view=azure-dotnet). Aşağıda özetlenen adımlar, sistem tarafından desteklenen gerekli ve isteğe bağlı özellikleri yansıtır:
 
 | Özellik Adı | Değer | Gerekli | Açıklama |
 |---|---|---|---|
-| DigitalTwins Telemetri | 1.0 | evet | Bir ileti sistemi tanımlayan bir sabit değer |
-| DigitalTwins SensorHardwareId | `string(72)` | evet | Algılayıcı gönderme benzersiz bir tanımlayıcı `Message`. Bu değer, bir nesnenin eşleşmelidir `HardwareId` sistemin işlemek özellik. Örneğin, `00FF0643BE88-CO2` |
-| CreationTimeUtc | `string` | hayır | Bir [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) biçimlendirilmiş tarih dize örnekleme süresi akıştaki tanımlama. Örneğin, `2018-09-20T07:35:00.8587882-07:00` |
-| CorrelationId | `string` | hayır | A `uuid` kullanılabilen izleme olayları için sistem. Örneğin, `cec16751-ab27-405d-8fe6-c68e1412ce1f`
+| *DigitalTwins Telemetri* | 1.0 | Evet | Bir ileti sistemi tanımlayan bir sabit değer |
+| *DigitalTwins SensorHardwareId* | `string(72)` | Evet | Algılayıcı gönderme benzersiz bir tanımlayıcı **ileti**. Bu değer, bir nesnenin eşleşmelidir **HardwareId** sistemin işlemek özellik. Örneğin, `00FF0643BE88-CO2` |
+| *CreationTimeUtc* | `string` | Hayır | Bir [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) biçimlendirilmiş tarih dize örnekleme süresi akıştaki tanımlama. Örneğin, `2018-09-20T07:35:00.8587882-07:00` |
+| *Bağıntı Kimliği* | `string` | Hayır | Sistem izleme olayları için kullanılabilir UUID'si. Örneğin, `cec16751-ab27-405d-8fe6-c68e1412ce1f`
 
 ### <a name="sending-your-message-to-digital-twins"></a>Dijital çiftleri için ileti gönderme
 

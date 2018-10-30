@@ -1,5 +1,5 @@
 ---
-title: AKS küme performansını izleme Azure İzleyici ile kapsayıcılar için | Microsoft Docs
+title: AKS küme performansını izleme Azure İzleyici ile için kapsayıcılar (Önizleme) | Microsoft Docs
 description: Bu makalede nasıl görüntüleyebilir ve kapsayıcılar için Azure İzleyici ile performans ve günlük verilerini analiz etme açıklanır.
 services: azure-monitor
 documentationcenter: ''
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/19/2018
 ms.author: magoedte
-ms.openlocfilehash: 430145119721ac947162d3b661377290a0ae2c11
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: daec3d6e6cd8e4df3fdfe45fbb8ee98966c8a38e
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49638010"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50214163"
 ---
-# <a name="understand-aks-cluster-performance-with-azure-monitor-for-containers"></a>Kapsayıcılar için Azure İzleyici ile AKS kümesi performansını anlama
+# <a name="understand-aks-cluster-performance-with-azure-monitor-for-containers-preview"></a>Kapsayıcılar (Önizleme) için Azure İzleyici ile AKS kümesi performansını anlama
 Performansını, Azure Kubernetes Service (AKS) izleme kümeleri, bir AKS kümesi doğrudan bir kapsayıcılar için Azure İzleyici ile iki yönlerden gözlemlenen veya Azure İzleyicisi'nden bir Abonelikteki tüm AKS kümeleri görüntüleyin. 
 
 Bu makalede, iki perspektiften ve hızlı bir şekilde değerlendirmenize, araştırmanıza ve algılanan sorunları gidermek nasıl arasında bir deneyim anlamanıza yardımcı olur.

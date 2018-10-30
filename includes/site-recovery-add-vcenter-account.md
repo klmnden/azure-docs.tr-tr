@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: raynew
 ms.openlocfilehash: 290bca5f3839356817651096e6a274c868a5a268
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50166033"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50221927"
 ---
 1. Yapılandırma sunucunuzda CSPSConfigtool.exe dosyasını başlatın. Masaüstünde kısayol olarak bulunur ve *yükleme konumu*\home\svsystems\bin klasöründedir.
 2. **Hesapları Yönet** > **Hesap Ekle**’ye tıklayın.

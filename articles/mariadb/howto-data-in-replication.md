@@ -8,12 +8,12 @@ services: mariadb
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 13d1353b0f8b3320972973d428f4aedb0fb68ac8
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: f75b3e33cbd5719211bb30b22ab8d53c344b5579
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46990697"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50212769"
 ---
 # <a name="how-to-configure-azure-database-for-mariadb-data-in-replication"></a>MariaDB veri çoğaltma için Azure veritabanını yapılandırma
 
@@ -62,7 +62,7 @@ Aşağıdaki adımlar, hazırlama ve MariaDB barındırılan şirket içi, sanal
 
    Çoğaltma ayrıcalıkları ile yapılandırılan ana sunucu üzerinde bir kullanıcı hesabı oluşturun. Bu SQL komutlarını veya MySQL Workbench gibi bir araç aracılığıyla yapılabilir. Bu kullanıcı oluştururken belirtilmesi gerektiğinden SSL ile yineleme planlama olup olmadığını göz önünde bulundurun. Anlamak için MariaDB belgelere başvurun nasıl [kullanıcı hesaplarını eklemek](https://mariadb.com/kb/en/library/create-user/) ana sunucunuz üzerindeki. 
 
-   Aşağıdaki komutları oluşturulan yeni çoğaltma rolü herhangi bir makineden, yalnızca yöneticisini barındıran bilgisayarın asıl erişebilir. Bu belirtilerek yapılır "syncuser@'%'" oluşturma kullanıcı komutu. MariaDB belgeleri hakkında daha fazla bilgi için bkz. [hesap adlarını belirten](https://mariadb.com/kb/en/library/create-user/#account-names).
+   Aşağıdaki komutları oluşturulan yeni çoğaltma rolü herhangi bir makineden, yalnızca yöneticisini barındıran bilgisayarın asıl erişebilir. Bu belirtilerek yapılır "syncuser\@'%'" oluşturma kullanıcı komutu. MariaDB belgeleri hakkında daha fazla bilgi için bkz. [hesap adlarını belirten](https://mariadb.com/kb/en/library/create-user/#account-names).
 
    **SQL komutu**
 

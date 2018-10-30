@@ -10,12 +10,12 @@ ms.topic: article
 ms.reviewer: klam, deli, LADocs
 ms.suite: integration
 ms.date: 10/05/2018
-ms.openlocfilehash: cb355d713ceadbd5cf205a378930bdd84685a913
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 0fec590523fa130af2e5670a92914c056df289d1
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48862802"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50229626"
 ---
 # <a name="quickstart-create-and-manage-automated-logic-app-workflows---visual-studio-code"></a>Hızlı Başlangıç: Oluşturma ve otomatik mantıksal uygulama iş akışlarını - Visual Studio Code yönetme
 
@@ -223,5 +223,5 @@ Zaten Azure'da dağıtılan var olan bir mantıksal uygulama üzerinde çalışm
 ## <a name="get-support"></a>Destek alın
 
 * Sorularınız için <a href="https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps" target="_blank">Azure Logic Apps forumunu</a> ziyaret edin.
-* Özelliklerle ilgili fikirlerinizi göndermek veya gönderilmiş olanları oylamak için <a href="http://aka.ms/logicapps-wish" target="_blank">Logic Apps kullanıcı geri bildirimi sitesini</a> ziyaret edin.
+* Özelliklerle ilgili fikirlerinizi göndermek veya gönderilmiş olanları oylamak için <a href="https://aka.ms/logicapps-wish" target="_blank">Logic Apps kullanıcı geri bildirimi sitesini</a> ziyaret edin.
 

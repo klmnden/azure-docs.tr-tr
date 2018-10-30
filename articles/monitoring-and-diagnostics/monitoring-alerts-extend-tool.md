@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/04/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: d70eecb6a5d6bafbfa6507dbe8b1bcb1cad67191
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: cbe6ddc2c4680028d5a4a0491756c7a7b9897c69
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46990255"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50233251"
 ---
 # <a name="extend-alerts-from-log-analytics-into-azure-alerts"></a>Uyarıları Log Analytics'ten Azure uyarılarına genişletecektir genişletme
 Azure Log analytics'te uyarıları özelliği, Azure uyarıları ile değiştirilmektedir. Bu geçişin bir parçası olarak, ilk olarak yapılandırdığınız Log Analytics'te uyarıları Azure'a genişletilir. Bunlar otomatik olarak Azure'a taşınması için beklemek istemiyorsanız işlemi başlatabilirsiniz:
@@ -22,7 +22,7 @@ Azure Log analytics'te uyarıları özelliği, Azure uyarıları ile değiştiri
 - Program aracılığıyla AlertsVersion API'si kullanarak.  
 
 > [!NOTE]
-> Microsoft, tamamlanana kadar yinelenen bir dizide 14 Mayıs 2018'de başlayarak Azure uyarıları Log Analytics'e genel bulut örneklerinde oluşturulan uyarıların otomatik olarak genişletilir. Oluşturma sorunları varsa [Eylem grupları](monitoring-action-groups.md), kullanın [düzeltme adımları](monitoring-alerts-extend-tool.md#troubleshooting) otomatik olarak oluşturulan eylem grupları alınamıyor. 5 Temmuz 2018'e kadar bu adımları kullanabilirsiniz. *Azure Government ve Log Analytics Soveriegn bulut kullanıcıları için uygulanamaz*. 
+> Microsoft, tamamlanana kadar yinelenen bir dizide 14 Mayıs 2018'de başlayarak Azure uyarıları Log Analytics'e genel bulut örneklerinde oluşturulan uyarıların otomatik olarak genişletilir. Oluşturma sorunları varsa [Eylem grupları](monitoring-action-groups.md), kullanın [düzeltme adımları](monitoring-alerts-extend-tool.md#troubleshooting) otomatik olarak oluşturulan eylem grupları alınamıyor. 5 Temmuz 2018'e kadar bu adımları kullanabilirsiniz. *Azure kamu ve Log Analytics bağımsız bulut kullanıcıları için uygulanamaz*. 
 
 ## <a name="option-1-initiate-from-the-operations-management-suite-portal"></a>1. seçenek: Operations Management Suite Portalı'ndan Başlat
 Aşağıdaki adımlarda, çalışma alanı için uyarıları Operations Management Suite Portalı'ndan genişletmek anlatılmaktadır.  

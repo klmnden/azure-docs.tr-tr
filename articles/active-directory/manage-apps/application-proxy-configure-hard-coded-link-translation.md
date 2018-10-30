@@ -15,12 +15,12 @@ ms.date: 05/04/2018
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 0d139437a069406db2ae0f189480072f8063a327
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 73854cba151dfbebe53862a39fbe980502192c2d
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45982281"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50230072"
 ---
 # <a name="redirect-hardcoded-links-for-apps-published-with-azure-ad-application-proxy"></a>Azure AD uygulama ara sunucusu ile yayımlanan uygulamalar için sabit kodlanmış bağlantıları yeniden yönlendirin
 
@@ -97,6 +97,7 @@ Performans ve güvenliğini geliştirmek için bazı bağlantılar çevrilmiş d
 
 - Bağlantılar kod etiketleri içinde değil. 
 - HTML veya CSS bağlantılar. 
+- URL kodlanmış biçimindeki bağlantıları.
 - İç bağlantı başka programlar tarafından açılmış. E-posta ya da anlık ileti gönderilen veya diğer belgelerin içinde bulunan bağlantılar çevrilmiş olmaz. Kullanıcılar için dış URL'yi Git bilmeniz gerekir.
 
 Bu iki senaryodan biri desteklemeniz gerekiyorsa, aynı iç ve dış URL'leri bağlantı çeviri yerine kullanın.  
@@ -114,7 +115,7 @@ Bağlantı çeviri ile çalışmaya başlama, bir düğmeye tıklatmak kadar kol
 
 Kullanıcılarınızın bu uygulamaya eriştiğinde, artık proxy otomatik olarak kiracınızda uygulama proxy'si aracılığıyla yayımlanan iç URL'ler için tarar.
 
-## <a name="send-feedback"></a>Geri bildirim gönderin
+## <a name="send-feedback"></a>Seslenme iber
 
 Bu özellik tüm uygulamalar için çalışır hale getirmek için yardımınıza istiyoruz. 30'dan etiketleri HTML ve CSS arayın. Bir örnek çevrildiğini olmayan oluşturulan bağlantı varsa, bir kod parçacığı için gönderme [uygulama Proxy geri bildirimi](mailto:aadapfeedback@microsoft.com). 
 

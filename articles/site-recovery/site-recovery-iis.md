@@ -1,21 +1,20 @@
 ---
-title: Çok katmanlı bir Azure Site RECOVERY'yi kullanarak IIS tabanlı web uygulamasının çoğaltmak | Microsoft Docs
+title: Olağanüstü durum kurtarma ayarlama fo çok katmanlı bir Azure Site RECOVERY'yi kullanarak IIS tabanlı web uygulamasının | Microsoft Docs
 description: Azure Site RECOVERY'yi kullanarak IIS web grubu sanal makinelerini çoğaltma öğrenin.
-services: site-recovery
 author: nsoneji
 manager: gauravd
 ms.service: site-recovery
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: nisoneji
-ms.openlocfilehash: 830ced767a34302a635b9e685a2aee60c95fc81f
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: bac995829e90fea35eebf5e5e57a0ffb85bbba0c
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37920857"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50211834"
 ---
-# <a name="replicate-a-multi-tier-iis-based-web-application"></a>Çok katmanlı bir IIS tabanlı web uygulamasının çoğaltın
+# <a name="set-up-disaster-recovery-for-a-multi-tier-iis-based-web-application"></a>Çok katmanlı bir IIS tabanlı web uygulamasının olağanüstü durum kurtarmayı ayarlayın
 
 Uygulama yazılımı, bir kuruluştaki iş üretkenliğini altyapısıdır. Çeşitli web uygulamaları bir kuruluştaki farklı amaçla kullanılabilir. Bordro işleme, finansal uygulamalar ve müşterilere yönelik Web siteleri, uygulamalar gibi bazı uygulamalar, bir kuruluş için önemli olabilir. Üretkenlik kaybını önlemek için bu uygulamalara sürekli olarak çalışır ve çalışıyor olması kuruluş için önemli. Daha da önemlisi, bu uygulamaları sürekli kullanılabilir olması marka veya görüntü kuruluşun zarar önlemeye yardımcı olabilir.
 

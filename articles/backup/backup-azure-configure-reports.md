@@ -6,22 +6,29 @@ author: adiganmsft
 manager: shivamg
 ms.service: backup
 ms.topic: conceptual
-ms.date: 07/26/2018
+ms.date: 10/29/2018
 ms.author: adigan
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0c1d7a404ffd9b4da4868f56a5e17300495b57db
-ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
+ms.openlocfilehash: 945a91b9021ed5ff02e8c1ef7baf85e2098202ca
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48269369"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50214673"
 ---
 # <a name="configure-azure-backup-reports"></a>Azure Backup raporlarını yapılandırma
 Bu makalede, bir kurtarma Hizmetleri kasası kullanarak Azure Backup için raporları yapılandırmak için izlemeniz gereken adımlar açıklanır. Ayrıca, Power BI'ı kullanarak raporlara erişmek nasıl gösterir. Bu adımları tamamladıktan sonra doğrudan görüntülemek, özelleştirme ve raporlar oluşturmak için Power BI'da gidebilirsiniz.
 
+> [!IMPORTANT]
+> 1 Kasım 2018 tarihinden itibaren Azure yedekleme belirten "JSON girişi sonunda fazladan karakterler bulduk. Power BI uygulamasında verileri yüklenirken karşılaşılan sorunları bazı müşteriler görebilirsiniz Özel durum IDataReader arabirimi tarafından tetiklendi."
+Veriler depolama hesabına yüklendikten biçiminde bir değişiklikten dolayı budur.
+Lütfen uygulamanın bu sorunu önlemek için en son sürüme yükseltin.
+>
+>
+
 ## <a name="supported-scenarios"></a>Desteklenen senaryolar
 - Azure Backup raporları için Azure sanal makine yedekleme ve dosya ve klasör desteklenir Azure kurtarma Hizmetleri Aracısı'nı kullanarak buluta yedekleme.
-- Azure SQL veritabanı, Data Protection Manager ve Azure Backup sunucusu için raporlar şu anda desteklenmiyor.
+- Azure SQL veritabanı, Azure dosya paylaşımları, Data Protection Manager ve Azure Backup sunucusu için raporlar şu anda desteklenmiyor.
 - Aynı depolama hesabını her kasa için yapılandırılmışsa, kasaları ve Aboneliklerde, raporları görüntüleyebilirsiniz. Seçilen depolama hesabına kurtarma Hizmetleri kasasıyla aynı bölgede olması gerekir.
 - Power BI raporları için zamanlanmış yenileme sıklığını 24 saattir. Ayrıca, Power BI'da raporlar bir geçici yenileme gerçekleştirebilirsiniz. Bu durumda, en son verileri müşteri depolama hesabındaki raporları oluşturmak için kullanılır.
 

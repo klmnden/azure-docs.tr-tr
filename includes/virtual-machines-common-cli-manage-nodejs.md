@@ -1,3 +1,16 @@
+---
+author: cynthn
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: cynthn
+ms.openlocfilehash: 682288338d66f1006e9f1d7f3d6d30f822626425
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50226948"
+---
 Kaynak gruplarını kullanarak Azure kaynakları ve iş yükleri dağıtmak amacıyla Azure CLI’yı Resource Manager komutları ve şablonlarıyla kullanabilmeniz için önce Azure’lu bir hesaba sahip olmanız gerekir. Hesabınız yoksa [buradan ücretsiz Azure denemesi](https://azure.microsoft.com/pricing/free-trial/) edinebilirsiniz.
 
 Zaten Azure CLI’yı yükleyip aboneliğinizi bağlamadıysanız [Azure CLI Yükleme](../articles/cli-install-nodejs.md) konusunu inceleyin, `azure config mode arm` ile modu `arm` olarak ayarlayın ve `azure login` komutuyla Azure’a bağlanın.

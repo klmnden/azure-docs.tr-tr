@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/26/2018
 ms.author: zhiweiw
-ms.openlocfilehash: e470a44732b881311eacecfdf2bd2211598d880a
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: ca9f23703315424fcf08350ae3111a20dd94c160
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49984869"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50233234"
 ---
 # <a name="health-service-data-is-not-up-to-date-alert"></a>Sistem sağlığı hizmeti verileri güncel uyarı değil
 
@@ -35,19 +35,27 @@ ms.locfileid: "49984869"
 * Kullanım [test bağlantısı aracı](how-to-connect-health-agent-install.md#test-connectivity-to-azure-ad-connect-health-service) bağlantı sorunları bulmak için.
 * HTTP Proxy varsa, lütfen izleyin [yapılandırma adımları burada](how-to-connect-health-agent-install.md#configure-azure-ad-connect-health-agents-to-use-http-proxy). 
 
+### <a name="connect-health-for-sync"></a>Eşitleme için connect Health
+
+| Veri öğeleri | Sorun giderme adımları |
+| --- | --- | 
+| PerfCounter | - [Azure hizmet uç noktasına giden bağlantı](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections) <br />- [Giden trafik için SSL incelemesi filtrelenmiş ya da devre dışı](https://technet.microsoft.com/library/ee796230.aspx) <br /> - [Aracıyı çalıştıran sunucudaki güvenlik duvarı bağlantı noktaları](https://technet.microsoft.com/library/ms345310(v=sql.100).aspx) <br /> - [IE Artırılmış Güvenlik etkinse, belirlenen Web sitelerine izin ver](https://technet.microsoft.com/en-us/windows/ms537180(v=vs.60)) |
+| AadSyncService-SynchronizationRules <br /> AadSyncService-bağlayıcılar <br /> AadSyncService-GlobalConfigurations <br /> AadSyncService-RunProfileResults <br /> AadSyncService-ServiceConfigurations <br /> AadSyncService ServiceStatus | -Giden bağlantı IP adreslerine göre başvurduğu [Azure IP aralıkları](https://www.microsoft.com/download/details.aspx?id=41653) <br /> - [Azure hizmet uç noktasına giden bağlantı](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections) <br /> -  [Aracıyı çalıştıran sunucudaki güvenlik duvarı bağlantı noktaları](https://technet.microsoft.com/library/ms345310(v=sql.100).aspx) | 
+
 ### <a name="connect-health-for-adfs"></a>AD FS için connect Health
+
 İş akışında izleyin ve doğrulamak için AD FS için ek adımlar [AD FS Yardım](https://adfshelp.microsoft.com/TroubleshootingGuides/Workflow/3ef51c1f-499e-4e07-b3c4-60271640e282).
 
-### <a name="data-collection-map-required-steps"></a>Veri koleksiyonunu eşleme gerekli adımları
-| Hizmet Adı | Veri öğeleri | Sorun giderme adımları |
-| --- | --- | --- | 
-| AD FS için Connect Health | PerfCounter, TestResult | - [Azure hizmet uç noktasına giden bağlantı](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections) <br />- [Giden trafik için SSL incelemesi filtrelenmiş ya da devre dışı](https://technet.microsoft.com/library/ee796230.aspx) <br />-  [Aracıyı çalıştıran sunucudaki güvenlik duvarı bağlantı noktaları](https://technet.microsoft.com/library/ms345310(v=sql.100).aspx) <br /> - [IE Artırılmış Güvenlik etkinse, belirlenen Web sitelerine izin ver](https://support.microsoft.com/help/815141/internet-explorer-enhanced-security-configuration-changes-the-browsing) |
-|  | ADFS UsageMetrics | IP adreslerini temel alan giden bağlantı başvurduğu [Azure IP aralıkları](https://www.microsoft.com/download/details.aspx?id=41653) | 
-| Eşitleme için connect Health | PerfCounter | - [Azure hizmet uç noktasına giden bağlantı](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections) <br />- [Giden trafik için SSL incelemesi filtrelenmiş ya da devre dışı](https://technet.microsoft.com/library/ee796230.aspx) <br /> - [Aracıyı çalıştıran sunucudaki güvenlik duvarı bağlantı noktaları](https://technet.microsoft.com/library/ms345310(v=sql.100).aspx) <br /> - [IE Artırılmış Güvenlik etkinse, belirlenen Web sitelerine izin ver](https://support.microsoft.com/help/815141/internet-explorer-enhanced-security-configuration-changes-the-browsing) |
-|  | AadSyncService-SynchronizationRules <br /> AadSyncService-bağlayıcılar <br /> AadSyncService-GlobalConfigurations <br /> AadSyncService-RunProfileResults <br /> AadSyncService-ServiceConfigurations <br /> AadSyncService ServiceStatus | -Giden bağlantı IP adreslerine göre başvurduğu [Azure IP aralıkları](https://www.microsoft.com/download/details.aspx?id=41653) <br /> - [Azure hizmet uç noktasına giden bağlantı](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections) <br /> -  [Aracıyı çalıştıran sunucudaki güvenlik duvarı bağlantı noktaları](https://technet.microsoft.com/library/ms345310(v=sql.100).aspx) | 
-| EKLER için connect Health  | PerfCounter, ekler-TopologyInfo-Json, ortak test Json | - [Azure hizmet uç noktasına giden bağlantı](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections) <br /> - [Giden trafik için SSL incelemesi filtrelenmiş ya da devre dışı](https://technet.microsoft.com/library/ee796230.aspx) <br />-  [Aracıyı çalıştıran sunucudaki güvenlik duvarı bağlantı noktaları](https://technet.microsoft.com/library/ms345310(v=sql.100).aspx) <br /> - [IE Artırılmış Güvenlik etkinse, belirlenen Web sitelerine izin ver](https://support.microsoft.com/help/815141/internet-explorer-enhanced-security-configuration-changes-the-browsing) <br />  -Giden bağlantı IP adreslerine göre başvurduğu [Azure IP aralıkları](https://www.microsoft.com/download/details.aspx?id=41653)  |
+| Veri öğeleri | Sorun giderme adımları |
+| --- | --- | 
+| PerfCounter, TestResult | - [Azure hizmet uç noktasına giden bağlantı](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections) <br />- [Giden trafik için SSL incelemesi filtrelenmiş ya da devre dışı](https://technet.microsoft.com/library/ee796230.aspx) <br />-  [Aracıyı çalıştıran sunucudaki güvenlik duvarı bağlantı noktaları](https://technet.microsoft.com/library/ms345310(v=sql.100).aspx) <br /> - [IE Artırılmış Güvenlik etkinse, belirlenen Web sitelerine izin ver](https://technet.microsoft.com/en-us/windows/ms537180(v=vs.60)) |
+|  ADFS UsageMetrics | IP adreslerini temel alan giden bağlantı başvurduğu [Azure IP aralıkları](https://www.microsoft.com/download/details.aspx?id=41653) | 
 
+### <a name="connect-health-for-adds"></a>EKLER için connect Health
 
+| Veri öğeleri | Sorun giderme adımları |
+| --- | --- | 
+| PerfCounter, ekler-TopologyInfo-Json, ortak test Json | - [Azure hizmet uç noktasına giden bağlantı](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections) <br /> - [Giden trafik için SSL incelemesi filtrelenmiş ya da devre dışı](https://technet.microsoft.com/library/ee796230.aspx) <br />-  [Aracıyı çalıştıran sunucudaki güvenlik duvarı bağlantı noktaları](https://technet.microsoft.com/library/ms345310(v=sql.100).aspx) <br /> - [IE Artırılmış Güvenlik etkinse, belirlenen Web sitelerine izin ver](https://technet.microsoft.com/en-us/windows/ms537180(v=vs.60)) <br />  -Giden bağlantı IP adreslerine göre başvurduğu [Azure IP aralıkları](https://www.microsoft.com/download/details.aspx?id=41653)  |
 
 
 ## <a name="next-steps"></a>Sonraki adımlar

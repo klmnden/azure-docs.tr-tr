@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/19/2018
+ms.date: 10/29/2018
 ms.author: terrylan
-ms.openlocfilehash: 309dddcea1022d9f14c1d4492f5564f2a4ad3b6f
-ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
+ms.openlocfilehash: 69818fdb8124b9afa176ccd4dfd74cf0f2f4b346
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/20/2018
-ms.locfileid: "46498513"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50233812"
 ---
 # <a name="azure-network-security-overview"></a>Azure ağ güvenliğine genel bakış
 
@@ -29,12 +29,15 @@ Bu makale Azure ağ güvenlik alanında sunan seçeneklerden bazıları kapsar. 
 
 * Azure ağı
 * Ağ erişim denetimi
+* Azure Güvenlik Duvarı
 * Güvenli uzaktan erişim ve şirket içi bağlantı
 * Kullanılabilirlik
 * Ad çözümlemesi
 * Çevre ağı (DMZ) mimarisi
-* İzleme ve tehdit algılama
 * Azure DDoS koruması
+* Azure ön kapısı
+* Traffic manager
+* İzleme ve tehdit algılama
 
 ## <a name="azure-networking"></a>Azure ağı
 
@@ -126,6 +129,19 @@ Nsg'ler, Udr ve zorlamalı tünel ağ ve Aktarım katmanı güvenlik düzeyini s
 
 Bir Azure iş ortağı çözümü kullanarak gelişmiş ağ güvenliği özelliklere erişebilirsiniz. Güvenlik çözümleri ziyaret ederek en güncel Azure iş ortağı ağı bulabilirsiniz [Azure Marketi](https://azure.microsoft.com/marketplace/)ve "güvenlik" ve "ağ güvenliği" için arama
 
+## <a name="azure-firewall"></a>Azure Güvenlik Duvarı
+
+Azure Güvenlik Duvarı, Azure Sanal Ağ kaynaklarınızı koruyan yönetilen, bulut tabanlı bir güvenlik hizmetidir. Yerleşik yüksek kullanılabilirlik oranı ve kısıtlamasız bulut ölçeklenebilirliğiyle hizmet olarak tam durum bilgisi olan bir güvenlik duvarıdır. Bazı özellikler şunlardır:
+
+* Yüksek kullanılabilirlik
+* Bulut ölçeklenebilirliği
+* Uygulama FQDN filtreleme kuralları
+* Ağ trafiği filtreleme kuralları
+
+Daha fazla bilgi edinin:
+
+* [Azure güvenlik duvarına genel bakış](../firewall/overview.md)
+
 ## <a name="secure-remote-access-and-cross-premises-connectivity"></a>Güvenli uzaktan erişim ve şirket içi bağlantı
 
 Kurulum, yapılandırma ve yönetim uzaktan yapılacak Azure kaynaklarını gereksinimleriniz. Ayrıca, dağıtmak isteyebilirsiniz [karma BT](http://social.technet.microsoft.com/wiki/contents/articles/18120.hybrid-cloud-infrastructure-design-considerations.aspx) bileşenleri şirket içi çözümler ve Azure genel bulut. Bu senaryolar, güvenli uzaktan erişim gerektirir.
@@ -139,9 +155,15 @@ Azure ağ güvenli uzaktan erişim aşağıdaki senaryoları destekler:
 
 ### <a name="connect-individual-workstations-to-a-virtual-network"></a>Ayrı iş istasyonları bir sanal ağa bağlanma
 
-Bireysel geliştiriciler veya operasyon personeli sanal makinelerini ve hizmetlerini azure'da yönetmenize olanak tanıyan isteyebilirsiniz. Örneğin, bir sanal ağ üzerindeki bir sanal makine erişmeniz varsayalım. Ancak, güvenlik ilkeniz ayrı sanal makinelere RDP veya SSH ile uzaktan erişim izin vermiyor. Bu durumda, bir noktadan siteye VPN bağlantısını kullanabilir.
+Bireysel geliştiriciler veya operasyon personeli sanal makinelerini ve hizmetlerini azure'da yönetmenize olanak tanıyan isteyebilirsiniz. Örneğin, bir sanal ağ üzerindeki bir sanal makine erişmeniz varsayalım. Ancak, güvenlik ilkeniz ayrı sanal makinelere RDP veya SSH ile uzaktan erişim izin vermiyor. Bu durumda, kullanabileceğiniz bir [noktadan siteye VPN](../vpn-gateway/point-to-site-about.md) bağlantı.
 
-Noktadan siteye VPN bağlantısı tarafından kullanılan [SSTP VPN](https://technet.microsoft.com/library/cc731352.aspx) sağlamak kullanıcı ve sanal ağ arasında özel ve güvenli bir bağlantı ayarlamak protokol. VPN bağlantı kurulduğunda kullanıcı için RDP veya SSH VPN bağlantısı üzerinden sanal ağdaki tüm sanal makine. (Bu kullanıcı kimlik doğrulaması yapabilir ve yetkili varsayar.)
+Noktadan siteye VPN bağlantısı, kullanıcı ve sanal ağ arasında özel ve güvenli bir bağlantı oluşturmanıza olanak sağlar. VPN bağlantı kurulduğunda kullanıcı için RDP veya SSH VPN bağlantısı üzerinden sanal ağdaki tüm sanal makine. (Bu kullanıcı kimlik doğrulaması yapabilir ve yetkili varsayar.) Noktadan siteye VPN destekler:
+
+* Yuva Tünel Protokolü (SSTP), bir özel SSL tabanlı VPN Protokolü güvenliğini sağlayın. Bir SSL VPN çözümü, güvenlik duvarları, SSL kullanan TCP bağlantı noktası 443 de çoğu güvenlik duvarı açık olduğundan duvarlarından geçebildiği. SSTP yalnızca Windows cihazlarda desteklenir. Azure, SSTP (Windows 7 ve üzeri) yüklü Windows'ın tüm sürümlerini destekler.
+
+* IKEv2 VPN, standart tabanlı bir IPsec VPN çözümüdür. IKEv2 VPN, Mac cihazlardan (OSX sürüm 10.11 ve üzeri) bağlantı kurmak için kullanılabilir.
+
+* [OpenVPN](https://azure.microsoft.com/updates/openvpn-support-for-azure-vpn-gateways/)
 
 Daha fazla bilgi edinin:
 
@@ -165,11 +187,13 @@ Noktadan siteye ve siteden siteye VPN bağlantıları, şirket içi bağlantıla
 * VPN bağlantıları internet üzerinden veri taşıyın. Bu, olası güvenlik sorunlarına genel bir ağ üzerinden veri taşıma ile ilgili bu bağlantılar sunar. Ayrıca internet bağlantıları için kullanılabilirlik ve güvenilirlik garanti edilemez.
 * Sanal ağlara VPN bağlantıları, bazı uygulamalar ve max yaklaşık 200 MB/sn hızında kullanıma geldiklerinde amaçları için bant genişliği olmayabilir.
 
-Yüksek düzeyde güvenlik ve kullanılabilirlik, şirketler arası bağlantılar için genellikle gereken kuruluşlar adanmış WAN bağlantıları uzak sitelere bağlanmak için kullanın. Azure, şirket içi ağınızı bir sanal ağa bağlanmak için kullanabileceğiniz özel bir WAN bağlantısı kullanma olanağı sağlar. Azure ExpressRoute bu sağlar.
+Yüksek düzeyde güvenlik ve kullanılabilirlik, şirketler arası bağlantılar için genellikle gereken kuruluşlar adanmış WAN bağlantıları uzak sitelere bağlanmak için kullanın. Azure, şirket içi ağınızı bir sanal ağa bağlanmak için kullanabileceğiniz özel bir WAN bağlantısı kullanma olanağı sağlar. Azure ExpressRoute, Express route doğrudan ve Express route küresel erişim etkinleştirme bu.
 
 Daha fazla bilgi edinin:
 
 * [Expressroute'a teknik genel bakış](../expressroute/expressroute-introduction.md)
+* [ExpressRoute doğrudan](../expressroute/expressroute-erdirect-about.md)
+* [Express route küresel erişim](..//expressroute/expressroute-global-reach.md)
 
 ### <a name="connect-virtual-networks-to-each-other"></a>Sanal ağları birbirine bağlama
 
@@ -287,6 +311,46 @@ Daha fazla bilgi edinin:
 
 * [Microsoft bulut Hizmetleri ve ağ güvenliği](../best-practices-network-security.md)
 
+## <a name="azure-ddos-protection"></a>Azure DDoS koruması
+
+Dağıtılmış hizmet engelleme (DDoS) saldırıları, uygulamalarını buluta taşıyan müşterilerin karşılaştığı en büyük kullanılabilirlik ve güvenlik sorunlarından biridir. DDoS saldırıları, bir uygulamanın kaynaklarını tüketerek uygulamanın geçerli kullanıcılar için kullanılamaz duruma gelmesini amaçlar. DDoS saldırıları internet üzerinden genel olarak erişilebilen herhangi bir uç noktasını hedefleyebilir.
+Microsoft olarak bilinen DDoS koruması sağlar **temel** Azure platformunun bir parçası olarak. Bu, ücretsiz olarak sunulur ve her zaman ortak ağ düzeyinde saldırı izleme ve gerçek zamanlı azaltma üzerinde içerir. DDoS koruması ile dahil korumaları yanı sıra **temel** etkinleştirebilirsiniz **standart** seçeneği. DDoS koruması standart özellikler şunlardır:
+
+* **Yerel platform tümleştirme:** yerel olarak tümleştirilmiş Azure. Azure portalı üzerinden yapılandırma içerir. Standart DDoS koruması, kaynaklarınızı ve kaynak yapılandırması farkındadır.
+* **Kullanıma hazır koruma:** Basitleştirilmiş yapılandırma standart DDoS koruması etkinleştirilmiş olarak bir sanal ağ üzerindeki tüm kaynaklar hemen korur. Hiçbir müdahale veya kullanıcı tanımı gereklidir. Bunu algılandığında DDoS koruması standart anında ve otomatik olarak saldırı azaltır.
+* **Her zaman açık trafik izleme:** , uygulama trafiği düzenlerinin DDoS saldırılarının göstergelerini bakarak haftada 7 gün, günde 24 saat izlenir. Koruma ilkeleri aşıldığında azaltma gerçekleştirilir.
+* **Saldırı azaltma raporları** saldırı azaltma raporları toplanan ağ akışı veri kaynaklarınıza hedeflenen saldırıları hakkında ayrıntılı bilgi sağlamak için kullanın.
+* **Saldırı azaltma akış günlükleri** saldırı azaltma akış günlüklerini gözden trafiğin bırakılmasına izin iletilen trafiği ve diğer saldırı verileri neredeyse gerçek zamanlı etkin bir DDoS saldırı sırasında.
+* **Uyarlamalı ayarlama:** akıllı trafik profil oluşturma uygulamanızdaki trafiği zamanla öğrenir ve seçer ve hizmetiniz için en uygun profili güncelleştirir. Trafiği zamanla olan değişimini profilinin ayarlar. Katman 7 koruması için Katman 3: bir web uygulaması güvenlik duvarı ile kullanıldığında tam yığın DDoS koruması sağlar.
+* **Kapsamlı azaltma Ölçek:** üzerinden 60 farklı saldırı türleri azaltılabilir, en büyük bilinen DDoS saldırılarına karşı korumaya yönelik genel kapasiteyle.
+* **Saldırı ölçümleri:** Summarized ölçümleri her saldırılara karşı Azure İzleyici erişilebilir.
+* **Saldırı Uyarı:** uyarıları, başlatma ve durdurma bir saldırı sırasında yapılandırılabilir ve saldırı'nın süresi boyunca yerleşik saldırı ölçümleri kullanarak. Uyarıları operasyonel yazılımınızı Microsoft Azure Log Analytics, Splunk, Azure depolama, e-posta ve Azure portalı gibi tümleştirin.
+* **Maliyet garantisi:** veri aktarımı ve uygulama ölçeklendirme hizmet KREDİLERİ belgelenmiş bir DDoS saldırıları için.
+* **DDoS hızlı yanıt veren** DDoS koruması standart müşterileri artık etkin bir saldırı sırasında hızlı yanıt takım erişime sahiptir. DRR saldırı araştırma, bir saldırı ve saldırı sonrası analiz sırasında özel azaltmaları yardımcı olabilir.
+
+
+Daha fazla bilgi edinin:
+
+* [DDOS koruma genel bakış](../virtual-network/ddos-protection-overview.md)
+
+## <a name="azure-front-door"></a>Azure ön kapısı
+
+Azure ön kapısı hizmeti tanımlayın, yönetmek ve genel yönlendirme, web trafiğini izlemenize olanak sağlar. Bu, en iyi performans ve yüksek kullanılabilirlik için trafiğiniz ait yönlendirme iyileştirir. Azure Front Door, HTTP/HTTPS iş yükünüzü istemci IP adreslerine, ülke koduna ve http parametrelerine dayalı istismardan korumaya yönelik erişim denetimi için özel web uygulaması güvenlik duvarı (WAF) kuralları yazmanıza olanak tanır. Ayrıca, ön kapısı ayrıca hız sınırı Savaşı kötü amaçlı bot trafiği kuralları oluşturmanıza olanak sağlar, SSL yük boşaltma ve başına HTTP/HTTPS isteği içeren uygulama katmanı işleme.
+
+Ön kapısı platform kendisi, Azure DDoS koruması temel tarafından korunur. Korumayı artırmak için, sanal ağlarınızda Azure DDoS Koruması Standart etkinleştirilebilir ve kaynakları ağ katmanı (TCP/UDP) saldırılarına karşı otomatik ayar ve risk azaltma yoluyla koruma altına alır. Ön kapısı 7. Katman ters Ara sunucu, yalnızca web trafiğinin yedeklemek için geçişine izin son sunucuları ve diğer trafik türleri varsayılan olarak engelleyin.
+
+Daha fazla bilgi edinin:
+
+* Azure ön tam kümesini hakkında daha fazla bilgi için özellikleri gözden geçirebileceğiniz kapı [Azure ön kapısı genel bakış](../frontdoor/front-door-overview.md)
+
+## <a name="azure-traffic-manager"></a>Azure Traffic manager
+
+Azure Traffic Manager, trafiği farklı Azure bölgelerindeki hizmetlere en uygun şekilde dağıtırken yüksek kullanılabilirlik ve yanıtlama hızı sağlayan DNS tabanlı bir trafik yük dengeleyicidir. Traffic Manager, trafik yönlendirme yöntemine ve uç noktaların sistem durumuna bağlı olarak istemci isteklerini en uygun hizmet uç noktasına yönlendirmek için DNS hizmetini kullanır. Uç nokta, Azure içinde veya dışında barındırılan İnternet'e yönelik bir hizmettir. Traffic manager uç noktaları izler ve kullanım dışı olan uç nokta trafiği yönlendirmek değil.
+
+Daha fazla bilgi edinin:
+
+* [Azure Traffic Manager'a genel bakış](../traffic-manager/traffic-manager-overview.md)
+
 ## <a name="monitoring-and-threat-detection"></a>İzleme ve tehdit algılama
 
 Azure ile erken algılama, izleme, bu anahtar alanında yardımcı olmak için özellikleri sağlar ve ağ trafiğini toplamaya ve gözden geçirme.
@@ -318,6 +382,14 @@ Daha fazla bilgi edinin:
 
 * [Azure Güvenlik Merkezi'ne Giriş](../security-center/security-center-intro.md)
 
+### <a name="virtual-network-tap"></a>Sanal Ağ TAP
+
+Azure sanal ağ TAP (Terminal erişim noktası) bir ağ paketi Toplayıcı veya Analiz aracı, sanal makine ağ trafiğini sürekli akışı sağlar. Analiz aracı ve Toplayıcı, bir ağ sanal Gereci iş ortağı tarafından sağlanır. Aynı sanal ağda birden çok ağ arabirimi aynı veya farklı Aboneliklerdeki trafiğe DOKUNUN kaynak kullanabilirsiniz.
+
+Daha fazla bilgi edinin:
+
+* [Sanal ağ TAP](../virtual-network/virtual-network-tap-overview.md)
+
 ### <a name="logging"></a>Günlüğe kaydetme
 
 Ağ düzeyinde günlüğe kaydetme, herhangi bir ağ güvenlik senaryo için temel bir işlevdir. Azure'da ağ düzeyinde bilgi günlük kaydı almak Nsg'ler için elde edilen bilgileri günlüğe kaydedebilirsiniz. NSG günlüğüyle bilgileri alın:
@@ -330,21 +402,3 @@ Ayrıca [Microsoft Power BI](https://powerbi.microsoft.com/what-is-power-bi/), g
 Daha fazla bilgi edinin:
 
 * [Ağ güvenlik grupları (Nsg'ler) için log Analytics](../virtual-network/virtual-network-nsg-manage-log.md)
-
-## <a name="azure-ddos-protection"></a>Azure DDoS koruması
-
-Dağıtılmış Hizmet engelleme (DDoS) saldırılarının uygulamalarını buluta taşıyarak müşterilerinin karşılaştığı en büyük kullanılabilirlik ve güvenlik sorunlarını bazıları verilmiştir. Bir DDoS saldırısının yasal kullanıcılara uygulamayı kullanılamaz hale getirme, uygulamanın kaynaklarını tüketebilir dener. DDoS saldırıları, internet üzerinden genel olarak erişilebilen herhangi bir uç noktada hedefleyebilir.
-Microsoft olarak bilinen DDoS koruması sağlar **temel** Azure platformunun bir parçası olarak. Bu, ücretsiz olarak sunulur ve her zaman ortak ağ düzeyinde saldırı izleme ve gerçek zamanlı azaltma üzerinde içerir. DDoS koruması ile dahil korumaları yanı sıra **temel** etkinleştirebilirsiniz **standart** seçeneği. DDoS koruması standart özellikler şunlardır:
-
-* **Yerel platform tümleştirme:** yerel olarak tümleştirilmiş Azure. Azure portalı üzerinden yapılandırma içerir. Standart DDoS koruması, kaynaklarınızı ve kaynak yapılandırması farkındadır.
-* **Kullanıma hazır koruma:** Basitleştirilmiş yapılandırma standart DDoS koruması etkinleştirilmiş olarak bir sanal ağ üzerindeki tüm kaynaklar hemen korur. Hiçbir müdahale veya kullanıcı tanımı gereklidir. Bunu algılandığında DDoS koruması standart anında ve otomatik olarak saldırı azaltır.
-* **Her zaman açık trafik izleme:** , uygulama trafiği düzenlerinin DDoS saldırılarının göstergelerini bakarak haftada 7 gün, günde 24 saat izlenir. Koruma ilkeleri aşıldığında azaltma gerçekleştirilir.
-* **Uyarlamalı ayarlama:** akıllı trafik profil oluşturma uygulamanızdaki trafiği zamanla öğrenir ve seçer ve hizmetiniz için en uygun profili güncelleştirir. Trafiği zamanla olan değişimini profilinin ayarlar. Katman 7 koruması için Katman 3: bir web uygulaması güvenlik duvarı ile kullanıldığında tam yığın DDoS koruması sağlar.
-* **Kapsamlı azaltma Ölçek:** üzerinden 60 farklı saldırı türleri azaltılabilir, en büyük bilinen DDoS saldırılarına karşı korumaya yönelik genel kapasiteyle.
-* **Saldırı ölçümleri:** Summarized ölçümleri her saldırılara karşı Azure İzleyici erişilebilir.
-* **Saldırı Uyarı:** uyarıları, başlatma ve durdurma bir saldırı sırasında yapılandırılabilir ve saldırı'nın süresi boyunca yerleşik saldırı ölçümleri kullanarak. Uyarıları operasyonel yazılımınızı Microsoft Azure Log Analytics, Splunk, Azure depolama, e-posta ve Azure portalı gibi tümleştirin.
-* **Maliyet garantisi:** veri aktarımı ve uygulama ölçeklendirme hizmet KREDİLERİ belgelenmiş bir DDoS saldırıları için.
-
-Daha fazla bilgi edinin:
-
-* [DDOS koruma genel bakış](../virtual-network/ddos-protection-overview.md)

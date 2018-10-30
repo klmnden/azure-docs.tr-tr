@@ -11,12 +11,12 @@ ms.assetid: 8bce2183-544d-4668-a2dc-9a62c152d9fa
 ms.topic: article
 tags: connectors
 ms.date: 08/25/2018
-ms.openlocfilehash: eea70d979a69a4855b6eeb892d1705ecadaa8434
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
+ms.openlocfilehash: 0fbd89202796cb4543dbecbeee605c9b87cc9d05
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42918654"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50230668"
 ---
 # <a name="monitor-and-manage-twitter-by-using-azure-logic-apps"></a>İzleme ve Azure Logic Apps kullanarak Twitter'ı yönetme
 
@@ -89,7 +89,7 @@ Tetikleyiciler ve Eylemler sınırları hakkında teknik ayrıntılar için bağ
 ## <a name="get-support"></a>Destek alın
 
 * Sorularınız için [Azure Logic Apps forumunu](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps) ziyaret edin.
-* Özelliklerle ilgili fikirlerinizi göndermek veya gönderilmiş olanları oylamak için [Logic Apps kullanıcı geri bildirimi sitesini](http://aka.ms/logicapps-wish) ziyaret edin.
+* Özelliklerle ilgili fikirlerinizi göndermek veya gönderilmiş olanları oylamak için [Logic Apps kullanıcı geri bildirimi sitesini](https://aka.ms/logicapps-wish) ziyaret edin.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

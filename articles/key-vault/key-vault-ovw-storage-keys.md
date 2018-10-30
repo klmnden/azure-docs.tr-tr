@@ -9,12 +9,12 @@ author: bryanla
 ms.author: bryanla
 manager: mbaldwin
 ms.date: 10/03/2018
-ms.openlocfilehash: adc8b84f0f22e85de88c4bd80c10a2a35d7b490a
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: 02fffe7c4a3acff6ce6d68046eee4286003b1766
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49114609"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50232231"
 ---
 # <a name="azure-key-vault-storage-account-keys"></a>Azure anahtar kasası depolama hesabı anahtarları
 
@@ -31,38 +31,45 @@ ms.locfileid: "49114609"
 --------------
 1. [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) Azure CLI yükleme   
 2. [Depolama hesabı oluşturma](https://azure.microsoft.com/services/storage/)
-    - Lütfen bu adımları izleyerek [belge](https://docs.microsoft.com/azure/storage/) bir depolama hesabı oluşturmak için  
+    - Bu adımları izleyerek [belge](https://docs.microsoft.com/azure/storage/) bir depolama hesabı oluşturmak için  
     - **Adlandırma:** depolama hesabı adları 3 ila 24 karakter uzunluğunda olmalıdır ve yalnızca sayılar ve küçük harfler içerebilir.        
       
 <a name="step-by-step-instructions"></a>Adım adım yönergeleri ile
 -------------------------
+İçinde yönergeler, size Key Vault operatör izinleri depolama hesabınız için bir hizmet olarak atama
 
-1. Yönetmek istediğiniz Azure depolama hesabının kaynak Kimliğini alın.
-    a. Bir depolama hesabı oluşturduktan sonra yönetmek istediğiniz depolama hesabının kaynak Kimliğini almak için aşağıdaki komutu çalıştırın
+1. Depolama hesabının kaynak Kimliğini almak için aşağıdaki komutu çalıştırın, bir depolama hesabı oluşturulduktan sonra yönetmek istediğiniz
+
     ```
     az storage account show -n storageaccountname (Copy ID out of the result of this command)
     ```
+    
 2. Uygulama kimliği, Azure anahtar Kasası'nın hizmet sorumlusu alma 
+
     ```
     az ad sp show --id cfa8b339-82a2-471a-a3c9-0fc0be7a4093
     ```
+    
 3. Azure Key Vault kimlik için depolama anahtarı operatörü rolünü atama
+
     ```
     az role assignment create --role "Storage Account Key Operator Service Role"  --assignee-object-id hhjkh --scope idofthestorageaccount
     ```
+    
 4. Anahtar kasası oluşturma yönetilen depolama hesabı.     <br /><br />
-   Komut, depolamanın erişim anahtarlarını düzenli aralıklarla yeniden üretme nokta ile yeniden oluşturmak için Key Vault ister. Aşağıda, bir oluşturma süresini 90 gün ayarlıyorsunuz. 90 günün sonunda, Key Vault yeniden 'anahtar1' ve 'anahtar1' active 'anahtar2' anahtarını değiştirme.
-   ### <a name="key-regeneration"></a>Yeniden anahtar oluşturma
+   Aşağıda, bir oluşturma süresini 90 gün ayarlıyorsunuz. 90 günün sonunda, Key Vault yeniden 'anahtar1' ve 'anahtar1' active 'anahtar2' anahtarını değiştirme.
+   
     ```
-    az keyvault storage add --vault-name <YourVaultName> -n <StorageAccountName> --active-key-name key2 --auto-generate-key --regeneration-period P90D --resource-id <Resource-id-of-storage-account>
+    az keyvault storage add --vault-name <YourVaultName> -n <StorageAccountName> --active-key-name key2 --auto-regenerate-key --regeneration-period P90D --resource-id <Resource-id-of-storage-account>
     ```
     Kullanıcı depolama hesabı oluşturmadıysanız ve depolama hesabı için izinlere sahip değil durumunda, aşağıdaki adımları, anahtar Kasası'nda tüm depolama izinleri yönetebilirsiniz emin olmak hesabınız için izinleri ayarlayın.
-    [!NOTE] Kullanıcı önce kullanıcının nesne kimliği aldığımız depolama hesabının izni vermiyor durumunda
+ > [!NOTE] 
+    Kullanıcının depolama hesabı için izinler yok durumda biz ilk kullanıcının nesne kimliği alın
 
     ```
     az ad user show --upn-or-object-id "developer@contoso.com"
 
-    az keyvault set-policy --name <YourVaultName> --object-id <ObjectId> --storage-permissions backup delete list regeneratekey recover purge restore set setsas update
+    az keyvault set-policy --name <YourVaultName> --object-id <ObjectId> --storage-permissions backup delete list regeneratekey recover     purge restore set setsas update
     ```
 
 ### <a name="relevant-powershell-cmdlets"></a>İlgili Powershell cmdlet'leri

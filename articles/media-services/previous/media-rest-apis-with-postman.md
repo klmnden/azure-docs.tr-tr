@@ -1,45 +1,45 @@
 ---
-title: Postman Azure Media Services REST API çağrıları için yapılandırma
-description: Postman Media Services REST API çağrıları için yapılandırmayı öğrenin.
+title: Azure Media Services REST API çağrıları için Postman'ı yapılandırma
+description: Media Services REST API çağrıları için Postman'ı yapılandırmayı öğrenin.
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/04/2017
+ms.date: 10/29/2018
 ms.author: juliako
-ms.openlocfilehash: 72b110cac8d4945c958d760ff98e2da2f2796b62
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: ee7f87a9c358f2b6ee655d13b74297a96b25cfcc
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33788266"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50233795"
 ---
-# <a name="configure-postman-for-media-services-rest-api-calls"></a>Postman Media Services REST API çağrıları için yapılandırma
+# <a name="configure-postman-for-media-services-rest-api-calls"></a>Media Services REST API çağrıları için Postman'ı yapılandırma
 
-Bu öğretici nasıl yapılandırılacağını göstermektedir **Postman** böylece Azure Media Services (AMS) REST Apı'lerinizi çağırmak için kullanılabilir. Öğretici ortamı ve koleksiyon dosyalarıyla içeri aktarmak nasıl gösterir **Postman**. Koleksiyon, Azure Media Services (AMS) API'lerini çağırmanın HTTP isteği gruplandırılmış tanımlarını içerir. Ortam dosyası koleksiyon tarafından kullanılan değişkenleri içerir.
+Bu öğreticide nasıl yapılandırılacağı gösterilmektedir **Postman** böylece Azure Media Services (AMS) REST API'leri çağırmak için kullanılabilir. Bu öğreticide, ortam ve koleksiyon dosyasına aktarmak gösterilmektedir **Postman**. Koleksiyon, Azure Media Services (AMS) REST API'lerini çağırma HTTP isteklerinin gruplandırılmış tanımları içerir. Koleksiyon tarafından kullanılan değişkenleri ortam dosyası içerir.
 
-Bu ortam ve koleksiyon Azure Media Services REST API'leri ile çeşitli görevlerin nasıl yerine getirileceğini gösteren makalelerinde kullanılır.
+Bu ortam ve koleksiyonu gösteren Azure Media Services REST API'leri ile çeşitli görevleri elde etmek nasıl makaleleri kullanılır.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-- Yükleme [Postman](https://www.getpostman.com/) AMS REST öğreticileri bazıları gösterilen REST API'leri yürütmek için REST istemci. 
+- AMS REST öğreticilerinden bazılarında gösterilen REST API'lerini yürütmek için [Postman](https://www.getpostman.com/) REST istemcisini yükleyin. 
 
-    Kullanıyoruz **Postman** ancak herhangi bir REST aracı uygun olacaktır. Diğer seçenekleri şunlardır: **Visual Studio Code** REST eklentisi ile veya **Telerik Fiddler**. 
+    Biz **Postman**'ı kullanıyoruz, ancak herhangi bir REST aracı da olabilir. Diğer seçenekler şunlardır: REST eklentili **Visual Studio Code** veya **Telerik Fiddler**. 
 
-## <a name="configure-the-environment"></a>Ortamını yapılandırma 
+## <a name="configure-the-environment"></a>Ortamı yapılandırma 
 
-1. AMS eğitimlerine kullanılan ortam değişkeni içeren bir .json dosyası oluşturun. Dosya adı (örneğin, **AzureMediaServices.postman_environment.json**). Dosyasını açın ve Postman ortamından tanımlar kodu yapıştırın [Bu kod listesi](postman-environment.md). 
-2. Açık **Postman**.
-3. Ekranın sağ tarafta seçin **Yönet ortamı** seçeneği.
+1. AMS öğreticilerinde kullanılan ortam değişkenlerini içeren bir .json dosyası oluşturun. Dosya adı (örneğin, **AzureMediaServices.postman_environment.json**). Dosyasını açın ve Postman ortamından tanımlar kodu yapıştırın [Bu kod listesi](postman-environment.md). 
+2. **Postman**'ı açın.
+3. Ekranın sağ tarafında **Ortamı yönet** seçeneğini belirleyin.
 
     ![Dosyayı karşıya yükleme](./media/media-services-rest-upload-files/postman-create-env.png)
-4. Gelen **Yönet ortamı** iletişim kutusunda, tıklatın **alma**.
+4. **Ortamı yönet** iletişim kutusunda **İçe aktar**'ı tıklatın.
 5. Göz atın ve seçim **AzureMediaServices.postman_environment.json** dosya.
 6. **AzureMedia** ortam eklenir.
 7. İletişim kutusunu kapatın.
@@ -47,10 +47,10 @@ Bu ortam ve koleksiyon Azure Media Services REST API'leri ile çeşitli görevle
 
     ![Dosyayı karşıya yükleme](./media/media-services-rest-upload-files/postman-choose-env.png)
 
-## <a name="configure-the-collection"></a>Koleksiyonunu yapılandırma
+## <a name="configure-the-collection"></a>Koleksiyonu yapılandırma
 
-1. İçeren bir .json dosyası oluşturma **Postman** Media Services'e bir dosyayı karşıya yüklemek için gereken tüm işlemleri içeren koleksiyon. Dosya adı (örneğin, **AzureMediaServicesOperations.postman_collection.json**). Dosyasını açın ve tanımlar kodu yapıştırın **Postman** koleksiyonundan [Bu kod listesi](postman-collection.md).
-2. Tıklatın **alma** koleksiyon dosyasını içeri aktarmak için.
+1. İçeren bir .json dosyası oluşturma **Postman** Media Services için bir dosyayı karşıya yüklemek için gereken tüm işlemleri içeren koleksiyon. Dosya adı (örneğin, **AzureMediaServicesOperations.postman_collection.json**). Dosyasını açın ve tanımlar kodu yapıştırın **Postman** koleksiyonundan [Bu kod listesi](postman-collection.md).
+2. Koleksiyon dosyasını içe aktarmak için **İçe Aktar**'ı tıklatın.
 3. Seçin **AzureMediaServicesOperations.postman_collection.json** dosya.
 
     ![Dosyayı karşıya yükleme](./media/media-services-rest-upload-files/postman-import-collection.png)

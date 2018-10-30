@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 10/22/2018
-ms.openlocfilehash: 88bea87c752563e1c19332121eb568b0bd329d03
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 7bb692735cb3541fb05b2c39dd7325fa74a00034
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49954152"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50232214"
 ---
 # <a name="sql-database-frequently-asked-questions-faq"></a>SQL veritabanı sık sorulan sorular (SSS)
 
@@ -31,7 +31,7 @@ Süre en az % 99,99 oranında kullanılabilir olacağına garanti veriyoruz, Mic
 
 ## <a name="can-i-control-when-patching-downtime-occurs"></a>Kapalı kalma süresi düzeltme eki uygulama oluştuğunda denetleyebilirim
 
-Hayır. Düzeltme eki uygulama etkisini genellikle gözümüzün değil ise, [yeniden deneme mantığı uyguluyor](sql-database-develop-overview.md#resiliency) uygulamanızda.
+Hayır. Düzeltme eki uygulama etkisini genellikle belirgin değil ise, [yeniden deneme mantığı uyguluyor](sql-database-develop-overview.md#resiliency) uygulamanızda.
 
 ## <a name="what-is-the-new-vcore-based-purchasing-model-for-azure-sql-database"></a>Azure SQL veritabanı için yeni sanal çekirdek tabanlı satın alma modeli nedir
 

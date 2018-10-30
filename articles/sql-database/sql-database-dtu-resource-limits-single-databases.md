@@ -12,12 +12,12 @@ ms.author: sachinp
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 10/23/2018
-ms.openlocfilehash: 0a514cced50a2a05008c03dfb438cceefb332d17
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 5ddcacbf805ae9d2ce093058b21d53189457ffb9
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49987333"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50233778"
 ---
 # <a name="resource-limits-for-single-databases-using-the-dtu-based-purchasing-model"></a>DTU tabanlı satın alma modeli kullanarak tek veritabanı kaynak sınırları
 
@@ -81,7 +81,7 @@ Tek veritabanları için aşağıdaki tablolarda her hizmet katmanında tek bir 
 |||||||
 
 > [!IMPORTANT]
-> 1 TB'den fazla depolama Premium katmanında şu anda aşağıdakiler dışındaki tüm bölgelerde: Çin Doğu, Kuzey Çin, Almanya Orta, Almanya Kuzeydoğu, UK Kuzey, UK Güney, ABD DOD Orta, US DOD Doğu, ABD hükümeti Orta ve Batı Orta ABD.  Bu bölgelerde Premium katmanda depolama için 1 TB üst sınırı uygulanır. Bkz. [P11 P15 Geçerli Sınırlamalar](#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
+> 1 TB'den fazla depolama Premium katmanında şu anda aşağıdakiler dışındaki tüm bölgelerde: Çin Doğu, Kuzey Çin, Almanya Orta, Almanya Kuzeydoğu, Birleşik Krallık Kuzey, UK Güney, ABD DOD Orta, US DOD Doğu, ABD kamu Orta ve Batı Orta ABD.  Bu bölgelerde Premium katmanda depolama için 1 TB üst sınırı uygulanır. Bkz. [P11 P15 Geçerli Sınırlamalar](#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
 
 ## <a name="single-database-change-storage-size"></a>Tek veritabanı: depolama boyutunu değiştirme
 

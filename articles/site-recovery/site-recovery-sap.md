@@ -1,27 +1,23 @@
 ---
-title: Azure Site Recovery kullanarak çok katmanlı SAP NetWeaver uygulama dağıtımı korumak | Microsoft Docs
-description: Bu makalede, Azure Site RECOVERY'yi kullanarak SAP NetWeaver uygulama dağıtımlarının korunmasına açıklar.
-services: site-recovery
-documentationcenter: ''
+title: Çok katmanlı SAP NetWeaver uygulama dağıtımı için Azure Site Recovery ile olağanüstü durum kurtarma ayarlama | Microsoft Docs
+description: Bu makalede, Azure Site RECOVERY'yi kullanarak SAP NetWeaver uygulama dağıtımları için olağanüstü durum kurtarma ayarlamayı açıklar.
 author: asgang
 manager: rochakm
-editor: ''
-ms.assetid: ''
 ms.service: site-recovery
 ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 07/06/2018
+ms.topic: conceptual
+ms.date: 10/29/2018
 ms.author: asgang
-ms.openlocfilehash: a498ac9f973bbcf87bec104f18b542cc7e8b5800
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: c83cf9fb319c21881f0db8bd94dc9a94a3b811bc
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49318699"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50211732"
 ---
-# <a name="protect-a-multi-tier-sap-netweaver-application-deployment-by-using-site-recovery"></a>Site Recovery kullanarak çok katmanlı SAP NetWeaver uygulama dağıtımını koruma
+# <a name="set-up-disaster-recovery-for-a-multi-tier-sap-netweaver-app-deployment"></a>Çok katmanlı SAP NetWeaver uygulama dağıtımı için olağanüstü durum kurtarmayı ayarlama
 
 En büyük boyut ve orta ölçekli SAP dağıtımları çeşit olağanüstü durum kurtarma çözümü kullanın. Güçlü ve test edilebilir olağanüstü durum kurtarma çözümlerinin önemi, SAP gibi uygulamalar için daha fazla çekirdek iş işlemleri geçildiği arttı. Azure Site Recovery, test edilmiş ve SAP uygulamalarıyla tümleştirilmiş. Site kurtarma özellikleri çoğu şirket içi olağanüstü durum kurtarma çözümlerinin ve daha düşük bir maliyetle toplam sahip olma maliyetinizi (TCO) rakip çözümlerine kıyasla aşıyor.
 
@@ -62,7 +58,7 @@ Site Recovery dağıtmadan önce bu altyapı oluşturmanızı öneririz.
 
 Bu başvuru mimarisi, SAP NetWeaver Windows ortamında yüksek kullanılabilirlik ile Azure üzerinde çalışan gösterir.  Bu mimari, kuruluşunuzun gereksinimlerini karşılayacak şekilde belirli bir sanal makine (VM) boyutları ile dağıtılır.
 
-![Tipik bir SAP dağıtım modeli diyagramı](./media/site-recovery-sap/reference_sap.png)
+![Tipik bir SAP dağıtım modeli diyagramı](./media/site-recovery-sap/sap-netweaver_latest.png)
 
 ## <a name="disaster-recovery-considerations"></a>Olağanüstü durum kurtarma değerlendirmeleri
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 04/24/2018
 ms.author: roiyz
-ms.openlocfilehash: 1201e7ec232a5bd45351072949dc0b9c19af434f
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: 7396277c58b079dc2f0c68b7832a6f2ca57ee287
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47452182"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50212310"
 ---
 # <a name="custom-script-extension-for-windows"></a>Windows için özel betik uzantısı
 
@@ -73,7 +73,7 @@ Bu öğeler hassas verisi olarak kabul edilir ve uzantıları korumalı ayarı y
 
 ```json
 {
-    "apiVersion": "2015-06-15",
+    "apiVersion": "2018-06-01",
     "type": "Microsoft.Compute/virtualMachines/extensions",
     "name": "config-app",
     "location": "[resourceGroup().location]",
@@ -108,7 +108,7 @@ Bu öğeler hassas verisi olarak kabul edilir ve uzantıları korumalı ayarı y
 
 | Ad | Değer / örnek | Veri Türü |
 | ---- | ---- | ---- |
-| apiVersion | 2015-06-15 | tarih |
+| apiVersion | 2015-06-15 | date |
 | Yayımcı | Microsoft.Compute | dize |
 | type | CustomScriptExtension | dize |
 | typeHandlerVersion | 1.9 | int |
@@ -135,7 +135,10 @@ Genel ayarlar, betik yürütüldüğü VM düz metin olarak gönderilir.  Koruma
 
 ## <a name="template-deployment"></a>Şablon dağıtımı
 
-Azure VM uzantıları Azure Resource Manager şablonları ile dağıtılabilir. Önceki bölümde açıklanan JSON şeması bir Azure Resource Manager şablonunda bir Azure Resource Manager şablon dağıtımı sırasında özel betik uzantısı'nı çalıştırmak için kullanılabilir. Özel betik uzantısı'nı içeren bir örnek şablonu burada bulunabilir [GitHub](https://github.com/Microsoft/dotnet-core-sample-templates/tree/master/dotnet-core-music-windows).
+Azure VM uzantıları Azure Resource Manager şablonları ile dağıtılabilir. Önceki bölümde açıklanan JSON şeması bir Azure Resource Manager şablonunda bir Azure Resource Manager şablon dağıtımı sırasında özel betik uzantısı'nı çalıştırmak için kullanılabilir. Aşağıdaki örnekler özel betik uzantısı kullanma işlemini gösterir:
+
+* [Öğretici: Azure Resource Manager şablonları ile sanal makine uzantıları dağıtma](../../azure-resource-manager/resource-manager-tutorial-deploy-vm-extensions.md)
+* [Windows ve Azure SQL DB iki katmanlı uygulama dağıtma](https://github.com/Microsoft/dotnet-core-sample-templates/tree/master/dotnet-core-music-windows)
 
 ## <a name="powershell-deployment"></a>PowerShell dağıtım
 

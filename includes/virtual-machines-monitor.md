@@ -1,3 +1,16 @@
+---
+author: cynthn
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: cynthn
+ms.openlocfilehash: 109f4621af3e3ca617dfe521575d9352f22c5917
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50226853"
+---
 Toplama, görüntüleme ve çözümleme tanılama Vm'lerinizi izleme için birçok fırsat avantajlarından yararlanın ve verilerini günlüğe kaydedebilirsiniz. Basit yapmak için [izleme](../articles/azure-monitor/overview.md) VM'NİZDE, Azure portalında sanal makine için genel bakış ekranını kullanabilirsiniz. Kullanabileceğiniz [uzantıları](../articles/virtual-machines/windows/extensions-features.md) Vm'lerinizde ek ölçüm verilerini toplamak için tanılamayı yapılandırmak için. Gibi daha gelişmiş izleme seçeneklerini kullanabilirsiniz [Application Insights](../articles/application-insights/app-insights-overview.md) ve [Log Analytics](../articles/log-analytics/log-analytics-queries.md).
 
 ## <a name="diagnostics-and-metrics"></a>Tanılama ve ölçümler 

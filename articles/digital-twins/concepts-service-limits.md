@@ -6,27 +6,27 @@ manager: deshner
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 10/10/2018
+ms.date: 10/26/2018
 ms.author: dwalthermsft
-ms.openlocfilehash: aa5f6053bf1c98d2b84c02617da30f5d856ed3fc
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: f9a3d934de47630ac3fd2356001014d006c2a4eb
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49324303"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50212276"
 ---
-# <a name="public-preview-service-limits"></a>Genel Önizleme hizmet sınırları
+# <a name="public-preview-service-limits"></a>Genel önizleme hizmet sınırları
 
-Genel Önizleme süresince Azure dijital İkizlerini geçici abonelik, örneği ve aşağıda açıklanan oran sınırları olacaktır.
+Sırasında **genel Önizleme**, Azure dijital İkizlerini geçici abonelik, örneği ve aşağıda açıklanan oran sınırları vardır.
 
 Bu kısıtlamalar, yeni hizmet ve birçok özelliklerini öğrenmeye kolaylaştırmaya yardımcı olmak üzere mevcut.
 
 > [!NOTE]
-> Bu sınırlar artar ve/veya genel kullanılabilirlik (GA tarafından) kaldırıldı.
+> Bu sınırlar artar ve/veya tarafından kaldırılan **genel kullanılabilirlik** (**GA**).
 
 ## <a name="per-subscription-limits"></a>Abonelik başına limitler
 
-Genel Önizleme sırasında her bir Azure aboneliği oluşturabilir veya aynı anda tam olarak bir Azure dijital İkizlerini örneği çalışıyor olması.
+Sırasında **genel Önizleme**, her bir Azure aboneliği oluşturun veya aynı anda tam olarak bir Azure dijital İkizlerini örneği çalışıyor olması.
 
 > [!TIP]
 > Örneğiniz silme, yeni bir tane oluşturmak izin verir.
@@ -35,9 +35,9 @@ Genel Önizleme sırasında her bir Azure aboneliği oluşturabilir veya aynı a
 
 Buna karşılık her Azure dijital İkizlerini örneğine sahip olabilir:
 
-- Bir `IoTHub` kaynak
-- Bir `EventHub` DeviceMessage olay türü için uç nokta
-- En fazla üç `EventHub`, `ServiceBus`, veya `EventGrid` olay türündeki uç noktalar `SensorChange`, `SpaceChange`, `TopologyOperation`, veya `UdfCustom`
+- Bir **IoTHub** kaynak
+- Bir **EventHub** olay türü için uç nokta **DeviceMessage**
+- En fazla üç **EventHub**, **ServiceBus**, veya **EventGrid** olay türündeki uç noktalar **SensorChange**, **SpaceChange** , **TopologyOperation**, veya **UdfCustom**
 
 ## <a name="management-api-limits"></a>Yönetim API'si sınırları
 
@@ -54,7 +54,7 @@ Yönetim API'niz için istek oran sınırları şunlardır:
 Azure dijital İkizlerini Örneğinize yapılan tüm kullanıcı tanımlı işlev çağrılarının toplam sayısı aşağıdaki sınırları ayarlayın:
 
 - 400 kitaplık istemci çağrısı / saniye
-- Saniye başına 100 SendNotification çağrı
+- 100 **SendNotification** saniye başına çağrı
 
 > [!NOTE]
 > Aşağıdaki işlemleri geçici olarak uygulanacak ek oran sınırları neden olabilir:

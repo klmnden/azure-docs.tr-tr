@@ -1,23 +1,22 @@
 ---
-title: Sık sorulan sorular - Vmware'den Azure Site Recovery ile Azure'a çoğaltma | Microsoft Docs
-description: Şirket içi VMware Vm'lerini Azure Site Recovery kullanarak Azure'a çoğalttığınızda, bu makalede, sık sorulan sorular özetler.
-services: site-recovery
+title: Sık sorulan soruları - VMware-Azure Site Recovery ile Azure'a olağanüstü durum kurtarma | Microsoft Docs
+description: Azure Site Recovery kullanılarak Azure'da şirket içi VMware vm'lerinin olağanüstü durum kurtarma oluşturduğunuzda bu makalede, sık sorulan sorular özetler.
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
-ms.date: 07/19/2018
+ms.date: 10/29/2018
 ms.topic: conceptual
 ms.author: raynew
-ms.openlocfilehash: 487e0c763ca4b247f1818b2beaf3282734fc4e27
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 086acdd74932836627c600b5545bc4353052ad6f
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49388451"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50215455"
 ---
 # <a name="common-questions---vmware-to-azure-replication"></a>Sık sorulan sorular - Vmware'den Azure'a çoğaltma
 
-Bu makalede, şirket içi VMware Vm'lerini Azure'a çoğaltırken görüyoruz yaygın soruların yanıtları sağlanır. Bu makaleyi okuduktan sonra sorularınız varsa gönderin [Azure kurtarma Hizmetleri Forumu](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr).
+Bu makalede, şirket içi VMware vm'lerinin olağanüstü durum kurtarma Azure'a dağıtırken görüyoruz yaygın soruların yanıtları sağlanır. Bu makaleyi okuduktan sonra sorularınız varsa gönderin [Azure kurtarma Hizmetleri Forumu](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr).
 
 
 ## <a name="general"></a>Genel

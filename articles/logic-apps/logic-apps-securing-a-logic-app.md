@@ -10,12 +10,12 @@ ms.reviewer: estfan, LADocs
 ms.assetid: 9fab1050-cfbc-4a8b-b1b3-5531bee92856
 ms.topic: article
 ms.date: 11/22/2016
-ms.openlocfilehash: 1307b6df22c51af9710d44abb23178d65e3507aa
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: 0fe35b67a424caedcea2c71885d1757943ace9d1
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44377403"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50232605"
 ---
 # <a name="secure-access-in-azure-logic-apps"></a>Azure Logic apps'te güvenli erişim
 
@@ -168,7 +168,7 @@ Ortamlar arasında dağıtımı için bir iş akışı tanımı bazı yönlerini
 
 ### <a name="using-parameters-and-secure-parameters"></a>Parametreleri ve güvenli parametreleri kullanma
 
-Çalışma zamanında, bir kaynak parametresinin değeri erişmeye [iş akışı tanımlama dili](http://aka.ms/logicappsdocs) sağlayan bir `@parameters()` işlemi. Ayrıca, [kaynak dağıtım şablonunun parametrelerini belirtin](../azure-resource-manager/resource-group-authoring-templates.md#parameters). Ancak parametre türü olarak belirtirseniz `securestring`, parametre kaynak tanımı geri kalanı ile döndürülen olmaz ve dağıtımdan sonra kaynak görüntüleyerek erişilebilir olmaz.
+Çalışma zamanında, bir kaynak parametresinin değeri erişmeye [iş akışı tanımlama dili](https://aka.ms/logicappsdocs) sağlayan bir `@parameters()` işlemi. Ayrıca, [kaynak dağıtım şablonunun parametrelerini belirtin](../azure-resource-manager/resource-group-authoring-templates.md#parameters). Ancak parametre türü olarak belirtirseniz `securestring`, parametre kaynak tanımı geri kalanı ile döndürülen olmaz ve dağıtımdan sonra kaynak görüntüleyerek erişilebilir olmaz.
 
 > [!NOTE]
 > Parametreniz üstbilgileri veya bir istek gövdesi kullanılırsa, parametre görünür çalıştırma geçmişi ve giden HTTP istek erişerek olabilir. İçerik erişim ilkelerinizi uygun şekilde ayarladığınızdan emin olun.

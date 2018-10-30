@@ -7,20 +7,22 @@ ms.service: firewall
 ms.topic: article
 ms.date: 10/24/2018
 ms.author: victorh
-ms.openlocfilehash: cba8ee486e13f00043a6b2092ae98bd84f9f6cba
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: cff31ba73730b7cf7cb27ecb132ec70806234924
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50095185"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50233404"
 ---
 # <a name="azure-firewall-log-analytics-samples"></a>Azure güvenlik duvarı Log Analytics örnekleri
 
-Aşağıdaki örnekler Log Analytics, Azure güvenlik duvarı günlükleri analiz etmek için kullanılabilir.
+Aşağıdaki örnekler Log Analytics, Azure güvenlik duvarı günlükleri analiz etmek için kullanılabilir. Örnek dosya Log Analytics görünümü Tasarımcısı'nda yerleşik olarak bulunur [Log Analytics Görünüm Tasarımcısı](https://docs.microsoft.com/azure/log-analytics/log-analytics-view-designer) makalede görünüm tasarım kavramları hakkında daha fazla bilgi bulunur.
 
 ## <a name="log-analytics-view"></a>Log Analytics Görünümü
 
-İşte bir örnek log analytics görselleştirme nasıl yapılandırabilirsiniz. Örnek görselleştirme indirebileceğiniz [burada](scripts/AzureFirewall.omsview). Görünüm log analytics çalışma alanınıza eklemek için aşağıdaki adımları uygulayın:
+İşte bir örnek log analytics görselleştirme nasıl yapılandırabilirsiniz. Örneğin görselleştirmedeki indirebileceğiniz [azure-docs-json-samples](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-firewall/AzureFirewall.omsview) depo. Bu sayfadaki Köprü sağ tıklayın ve en kolay yoludur *Kaydet* gibi bir ad **AzureFirewall.omsview**. 
+
+Görünüm log analytics çalışma alanınıza eklemek için aşağıdaki adımları uygulayın:
 
 1. Log analytics çalışma alanı, Azure Portalı'nda açın.
 2. Açık **görüntülemek Tasarımcısı** aşağıda **genel**.

@@ -1,18 +1,18 @@
 ---
-title: " Azure Site Recovery ile fiziksel sunucu olağanüstü durum kurtarma için yapılandırma sunucusunu yönetme | Microsoft Docs"
-description: Bu makalede, Azure Site Recovery hizmeti ile azure'a fiziksel sunucu olağanüstü durum kurtarma için var olan bir yapılandırma sunucusunu yönetme açıklar.
+title: Şirket içi fiziksel sunucuları Azure Site Recovery ile azure'a olağanüstü durum kurtarması için yapılandırma sunucusunu yönetme | Microsoft Docs
+description: Bu makalede, Azure'da fiziksel sunucu olağanüstü durum kurtarma için Azure Site Recovery yapılandırma sunucusunu yönetme konusunda açıklanır.
 services: site-recovery
-author: AnoopVasudavan
+author: Rajeswari-Mamilla
 ms.service: site-recovery
 ms.topic: article
-ms.date: 07/06/2018
-ms.author: anoopkv
-ms.openlocfilehash: 068d2774791995fab1c07c73e6d733a6e09379f1
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.date: 10/29/2018
+ms.author: ramamill
+ms.openlocfilehash: 4bf9277598c3e56c0429dddcb2204cb1338a33be
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37951185"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50213262"
 ---
 # <a name="manage-the-configuration-server-for-physical-server-disaster-recovery"></a>Fiziksel sunucu olağanüstü durum kurtarma için yapılandırma sunucusunu yönetme
 

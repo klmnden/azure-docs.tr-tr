@@ -1,20 +1,20 @@
 ---
-title: Hyper-V çoğaltması Azure Site recovery'de ikincil site arası mimari | Microsoft Docs
-description: Bu makalede, Azure Site Recovery ile ikincil System Center VMM sitesine şirket içi Hyper-V VM’lerini çoğaltma mimarisine genel bir bakış sunulmaktadır.
+title: Hyper-V olağanüstü durum kurtarma için ikincil bir şirket içi site ile Azure Site Recovery | Microsoft Docs
+description: Bu makalede, Azure Site Recovery ile ikincil System Center VMM sitesine şirket içi Hyper-V sanal makineleri olağanüstü durum kurtarma için mimarisine genel bir bakış sağlar.
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 10/10/2018
+ms.date: 10/28/2018
 ms.author: raynew
-ms.openlocfilehash: 8f8b498164cc4a77cace470f7483aa572fefbaed
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 98eb654468eb27b8100a0cc9b73994e5a7add167
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49078928"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50214605"
 ---
-# <a name="hyper-v-replication-to-a-secondary-site"></a>İkincil bir siteye Hyper-V çoğaltma
+# <a name="architecture---hyper-v-replication-to-a-secondary-site"></a>Mimarisi - ikincil bir siteye Hyper-V çoğaltması
 
 Bu makalede, Azure portalından [Azure Site Recovery](site-recovery-overview.md) hizmeti kullanılarak, System Center Virtual Machine Manager (VMM) bulutlarındaki Hyper-V sanal makinelerini (VM) ikincil bir VMM sitesine çoğaltırken kullanılan bileşenler ve işlemler açıklanmaktadır.
 

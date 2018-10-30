@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.component: content-moderator
 ms.topic: article
 ms.author: sajagtap
-ms.openlocfilehash: 1c08b30c0e59aac21d24f75d88530ba51b67d6b4
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 2e1a912f2d2aa8a6f9b165524351f2a16232537c
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44023942"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50212208"
 ---
 # <a name="human-in-the-loop"></a>İnsan içinde--döngüsü
 
@@ -31,3 +31,5 @@ ms.locfileid: "44023942"
 5. Herhangi bir API veya iş için insan tarafından İnceleme ekleyin yalnızca bağlayıcı oluşturmanın tarafından işlem.
 6. Microsoft PhotoDNA, metin analizi ve yüz tanıma API'leri sonuçlarını gözden geçirmek için varsayılan bağlayıcıları kullanın.
 7. Temel performans ölçümlerini, içerik denetleme işlemleri alın.
+
+![Content Moderator video inceleme aracı](../images/video-review-default-view.png)

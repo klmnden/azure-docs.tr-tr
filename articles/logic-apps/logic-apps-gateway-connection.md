@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 07/20/2018
 ms.reviewer: yshoukry, LADocs
 ms.suite: integration
-ms.openlocfilehash: 65c7e03b349314ad61fa5f1ea8322f4d1352b8e6
-ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
+ms.openlocfilehash: 6b6006293d562dbc270dc77bc49da2027f171dd2
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39145698"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50233302"
 ---
 # <a name="connect-to-data-sources-on-premises-from-azure-logic-apps-with-on-premises-data-gateway"></a>Şirket içi veri kaynaklarına Azure Logic Apps'ten şirket içi veri ağ geçidi ile bağlanma
 
@@ -53,7 +53,7 @@ Henüz yapmadıysanız, adımları [şirket içi veri ağ geçidi yükleyip](../
 
 Yerel bilgisayarda ağ geçidini yükledikten sonra ağ geçidiniz için bir Azure kaynağı sonra oluşturabilirsiniz. Bu adım, Azure aboneliğinizle de, ağ geçidi kaynağı ilişkilendirir.
 
-1. <a href="https://portal.azure.com" target="_blank">Azure Portal</a>’da oturum açın. Aynı Azure iş veya Okul e-posta adresini ağ geçidi yüklemek için kullanılan emin olun.
+1. <a href="https://portal.azure.com" target="_blank">Azure Portal</a> oturum açın. Aynı Azure iş veya Okul e-posta adresini ağ geçidi yüklemek için kullanılan emin olun.
 
 2. Ana Azure menüsünde **kaynak Oluştur** > 
 **tümleştirme** > **şirket içi veri ağ geçidi**.
@@ -155,7 +155,7 @@ Farklı bir ağ geçidi kaynağı oluşturmak, ağ geçidiniz ile farklı bir ka
 ## <a name="get-support"></a>Destek alın
 
 * Sorularınız için [Azure Logic Apps forumunu](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps) ziyaret edin.
-* Özelliklerle ilgili fikirlerinizi göndermek veya gönderilmiş olanları oylamak için [Logic Apps kullanıcı geri bildirimi sitesini](http://aka.ms/logicapps-wish) ziyaret edin.
+* Özelliklerle ilgili fikirlerinizi göndermek veya gönderilmiş olanları oylamak için [Logic Apps kullanıcı geri bildirimi sitesini](https://aka.ms/logicapps-wish) ziyaret edin.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

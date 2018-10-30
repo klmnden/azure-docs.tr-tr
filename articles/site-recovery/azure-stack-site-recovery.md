@@ -6,18 +6,18 @@ author: rayne-wiselman
 manager: carmonm
 ms.topic: conceptual
 ms.service: site-recovery
-ms.date: 10/09/2018
+ms.date: 10/28/2018
 ms.author: raynew
-ms.openlocfilehash: 802c2223a72a89dbe2a97404aab4b0fc85c391ed
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: 9da64ebe675f9d481c7474a81fec294d50e49ce7
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48902833"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50215217"
 ---
 # <a name="replicate-azure-stack-vms-to-azure"></a>Azure Stack sanal makinelerini Azure'a çoğaltma
 
-Bu makalede, Azure Stack Vm'leri için Azure'da olağanüstü durum kurtarma ayarlama işlemini kullanarak göstermektedir [Azure Site Recovery hizmeti](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview).
+Bu makalede, Azure, Azure Stack Vm'leri olağanüstü durum kurtarma ayarlama işlemini göstermektedir kullanarak [Azure Site Recovery hizmeti](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview).
 
 Site Recovery, iş sürekliliği ve olağanüstü durum kurtarma (BCDR) stratejinize katkı sağlar. VM iş yüklerinizi beklendiği zaman kullanılabilir durumda kalır ve beklenmeyen kesintiler hizmet sağlar.
 
@@ -189,7 +189,7 @@ Artık yapılandırma sunucusunu yükleyin:
 [!INCLUDE [site-recovery-add-configuration-server](../../includes/site-recovery-add-configuration-server.md)]
 
 > [!NOTE]
-> Yapılandırma sunucusu, ayrıca komut satırından yüklenebilir. [Daha fazla bilgi edinin](http://aka.ms/installconfigsrv).
+> Yapılandırma sunucusu, ayrıca komut satırından yüklenebilir. [Daha fazla bilgi edinin](physical-manage-configuration-server.md#install-from-the-command-line).
 
 > Hesap adının portalda görünmesi 15 dakika veya daha fazla sürebilir. Hemen güncelleştirme yapmak için **Yapılandırma Sunucuları** > ***sunucu adı*** > **Sunucuyu Yenile** seçeneğini belirleyin.
 

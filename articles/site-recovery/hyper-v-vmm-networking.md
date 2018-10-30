@@ -1,19 +1,19 @@
 ---
 title: IP adresi Azure Site Recovery ile yük devretme sonrasında bir ikincil şirket içi siteye bağlanmak için ayarlama | Microsoft Docs
-description: Bir ikincil şirket içi sitedeki vm'lere yük devretme sonrasında Azure Site Recovery bağlamak için IP adresini ayarlama işlemi açıklanmaktadır.
+description: Olağanüstü durum kurtarma ve Azure Site Recovery ile yük devretme sonrasında bir ikincil şirket içi sitedeki vm'lere bağlanmak için IP adresini ayarlama işlemi açıklanmaktadır.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/10/2018
+ms.date: 10/28/2018
 ms.author: rayne
-ms.openlocfilehash: dc28611f4b27d263e19f76ce4313f8d531a8cba2
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 1a9a89138dc71f7a0255b8ab4084182848d6e994
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49077013"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50211749"
 ---
 # <a name="set-up-ip-addressing-to-connect-to-a-secondary-on-premises-site-after-failover"></a>IP adresi yük devretmenin ardından ikincil şirket içi siteye bağlanmak için ayarlama
 

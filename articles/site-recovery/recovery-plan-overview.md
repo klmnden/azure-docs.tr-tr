@@ -1,29 +1,24 @@
 ---
-title: Azure Site Recovery, Kurtarma planlarını kullanarak | Microsoft Docs
-description: Azure Site Recovery kurtarma planlarında hakkında bilgi edinin.
-services: site-recovery
-documentationcenter: ''
+title: Azure Site Recovery ile olağanüstü durum kurtarma, Kurtarma planlarını kullanarak | Microsoft Docs
+description: Azure Site Recovery hizmeti ile olağanüstü durum kurtarma için kurtarma planları kullanma hakkında bilgi edinin.
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
-ms.devlang: na
 ms.topic: article
-ms.date: 07/06/2018
+ms.date: 10/28/2018
 ms.author: raynew
-ms.openlocfilehash: 011c9acb5d34e15f65b64d59867e7501f0720a08
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 463a7fc51cac6160fbb97fc53077d0b5eda80533
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37920129"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50215200"
 ---
 # <a name="about-recovery-plans"></a>Kurtarma planları hakkında
 
 Bu makalede kurtarma planlarında [Azure Site Recovery](site-recovery-overview.md).
 
 Kurtarma planında makineleri kurtarma gruplar halinde toplar. Bir planı siparişi, yönergeleri ve görevler için ekleyerek özelleştirebilirsiniz. Bir plan tanımlandıktan sonra üzerinde bir yük devretme çalıştırabilirsiniz.
-
-
 
 
 

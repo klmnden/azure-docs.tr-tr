@@ -1,21 +1,20 @@
 ---
-title: VMware’den Azure’a Azure Site Recovery dağıtım planlayıcısı| Microsoft Docs
-description: Bu belge Azure Site Recovery dağıtım planlayıcısı kullanıcı kılavuzudur.
-services: site-recovery
+title: İçinde Azure Site Recovery dağıtım Planlayıcısı maliyet tahmini raporunu gözden geçirin | Microsoft Docs
+description: Bu makalede, Azure Site Recovery dağıtım Planlayıcısı maliyet tahmini raporunu Vmware'den Azure'a olağanüstü durum kurtarma için gözden geçirmek nasıl açıklar.
 author: nsoneji
 manager: garavd
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: nisoneji
-ms.openlocfilehash: 7470dab537a8ab248228b9c445e1124e7ec9c444
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 7244aa2c0b665b47d597662b98ec291d6bfeeddd
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49387812"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50215030"
 ---
-# <a name="cost-estimation-report-of-azure-site-recovery-deployment-planner"></a>Azure Site Recovery dağıtım planlayıcısı maliyet tahmini raporu  
+# <a name="review-the-cost-estimation-report-in-the-site-recovery-deployment-planner-for-vmware-disaster-recovery-to-azure"></a>Vmware'den azure'a olağanüstü durum kurtarma için Site Recovery dağıtım Planlayıcısı maliyet tahmini raporunu gözden geçirin
 
 Dağıtım planlayıcısı raporu, [Öneriler](site-recovery-vmware-deployment-planner-analyze-report.md#recommendations) sayfalarında maliyet tahmini özeti ve Maliyet Tahmini sayfasında da ayrıntılı maliyet analizi sağlar. Sanal makine başına ayrıntılı maliyet analizi içerir. 
 

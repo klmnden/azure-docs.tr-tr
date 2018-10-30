@@ -1,20 +1,17 @@
 ---
-title: Oluşturma ve yük devretme ve kurtarma için Azure Site Recovery kurtarma planları özelleştirme | Microsoft Docs
-description: Oluşturma ve Azure Site Recovery kurtarma planlarında özelleştirme hakkında bilgi edinin. Bu makalede, yük devretme ve Vm'leri ve fiziksel sunucuları kurtarma açıklar.
-services: site-recovery
-documentationcenter: ''
-author: rayne-wiselman
+title: Oluşturma ve Azure Site Recovery ile olağanüstü durum kurtarma için kurtarma planlarını özelleştirme | Microsoft Docs
+description: Oluşturma ve Azure Site Recovery hizmetini kullanarak olağanüstü durum kurtarma için kurtarma planları özelleştirme hakkında bilgi edinin.
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 07/06/2018
+ms.date: 10/28/2018
 ms.author: raynew
-ms.openlocfilehash: 145b23aa7b8e48a0301676595c8d59a64bebdd0b
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 5253b5743216fdb7cea9e3d387f64fdba8f56d8a
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39226677"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50212344"
 ---
 # <a name="create-and-customize-recovery-plans"></a>Oluşturma ve kurtarma planlarını özelleştirme
 

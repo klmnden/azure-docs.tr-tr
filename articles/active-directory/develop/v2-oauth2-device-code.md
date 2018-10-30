@@ -17,12 +17,12 @@ ms.date: 10/02/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: ceafee3ac3453590d1687f662c7f3c9a8d8b4e0c
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 29cbb96cc6dec4bac601e8795599f77c955c418a
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50156638"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50230838"
 ---
 # <a name="azure-active-directory-v20-and-the-oauth-20-device-code-flow"></a>Azure Active Directory v2.0 ve OAuth 2.0 cihaz kod akışı
 
@@ -68,7 +68,7 @@ scope=user.read%20openid%20profile
 
 ### <a name="device-authorization-response"></a>Cihaz kimlik doğrulama yanıtı
 
-Başarılı yanıt, oturum açmak izin vermek için gerekli bilgileri içeren bir JSON nesnesi olacaktır.  
+Başarılı yanıt, oturum açmak izin vermek için gerekli bilgileri içeren bir JSON nesnesi olur.  
 
 | Parametre | Biçimlendir | Açıklama |
 | ---              | --- | --- |
@@ -113,7 +113,7 @@ Cihaz kod akışı, bir yoklama Protokolü olduğundan, istemci kullanıcı kiml
 | `expired_token`|  En az `expires_in` saniye geçtikten ve kimlik doğrulama artık bu mümkün `device_code`. | Yoklama durdurun ve kimliği doğrulanmamış bir duruma geri döndürebilir. |
 
 
-### <a name="succesful-authentication-response"></a>Başarılı kimlik doğrulaması yanıtını
+### <a name="successful-authentication-response"></a>Başarılı kimlik doğrulaması yanıtını
 
 Başarılı bir token yanıt şöyle görünecektir:
 

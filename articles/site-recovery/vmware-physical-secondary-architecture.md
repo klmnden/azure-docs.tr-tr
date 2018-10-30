@@ -1,21 +1,22 @@
 ---
-title: Azure Site recovery'de VMware/fiziksel sunucu çoğaltma mimarisi | Microsoft Docs
-description: Bu makalede çoğaltma VMware Vm'lerini veya fiziksel Windows/Linux sunucuları Azure Site Recovery ile ikincil VMware sitesindeki şirket çoğaltırken kullanılan bileşenler ve genel bir bakış sağlar.
+title: Azure Site recovery'de VMware/fiziksel sunucu olağanüstü durum kurtarma mimarisi | Microsoft Docs
+description: Bu makalede şirket içi VMware Vm'lerini veya fiziksel Windows/Linux sunucuları Azure Site Recovery ile ikincil VMware sitesindeki olağanüstü durum kurtarma sırasında kullanılan bileşenlere ve genel bir bakış sağlar.
 author: rayne-wiselman
+manager: carmonm
 ms.service: site-recovery
-ms.topic: article
-ms.date: 07/06/2018
+ms.topic: conceptual
+ms.date: 10/29/2018
 ms.author: raynew
-ms.openlocfilehash: 04591c57f90e3c540963d77c2213498bf0ad2577
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 16e8a9719280b55e86d1d4622a32470b37287dd4
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37921405"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50215132"
 ---
-# <a name="vmware-vmphysical-server-to-vmware-replication-architecture"></a>VMware VM'LERİNİ/fiziksel sunucuya VMware çoğaltma mimarisi
+# <a name="vmware-vmphysical-server-to-vmware-disaster-recovery-architecture"></a>VMware olağanüstü durum kurtarma mimarisi için VMware VM'LERİNİ/fiziksel sunucuları
 
-Bu makalede mimari ve işlemlerdeki çoğaltma, yük devretme ve şirket içi VMware sanal makinelerini (VM) veya ikincil VMware sitesi kullanarak bir fiziksel Windows/Linux sunucularını kurtarma kullanılan [Azure Site Recovery](site-recovery-overview.md).
+Mimari ve işlemlerdeki kullanılan bu makalede olağanüstü durum kurtarma çoğaltma, yük devretme ve şirket içi VMware sanal makinelerini (VM) veya ikincil VMware sitesi kullanarak bir fiziksel Windows/Linux sunucularını kurtarma ayarlandığında [Azure Site Recovery](site-recovery-overview.md).
 
 
 ## <a name="architectural-components"></a>Mimari bileşenler

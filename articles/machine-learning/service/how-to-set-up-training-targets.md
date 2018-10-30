@@ -10,18 +10,18 @@ ms.service: machine-learning
 ms.component: core
 ms.topic: article
 ms.date: 09/24/2018
-ms.openlocfilehash: 7754e93035a5f76d31f6a4202c757c909706a52a
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 2c4255b70ae9eb3b31b6fdfce33853f0d517aa1f
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50156944"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50215489"
 ---
 # <a name="select-and-use-a-compute-target-to-train-your-model"></a>Seçme ve modelinizi eğitmek için işlem hedefi kullanma
 
-Azure Machine Learning hizmeti ile birçok farklı ortamlarda modelinizi eğitebilirsiniz. Olarak adlandırılan, bu ortamların __hedefleri işlem__, yerel veya Bulut üzerinde olabilir. Bu belgede, desteklenen işlem hedefleri ve bunların nasıl kullanıldığı hakkında bilgi edineceksiniz.
+Azure Machine Learning hizmeti ile farklı ortamlarda modelinizi eğitebilirsiniz. Olarak adlandırılan, bu ortamların __hedefleri işlem__, yerel veya Bulut üzerinde olabilir. Bu belgede, desteklenen işlem hedefleri ve bunları nasıl kullanacağınızı öğrenin.
 
-Bir işlem hedefine dağıtıldığında, eğitim betiği veya Konaklara modelinizi bir web hizmeti olarak çalışan bir kaynaktır. Bunlar oluşturulabilir ve Azure Machine Learning SDK'sı veya CLI kullanılarak yönetilebilir. Başka bir işlem tarafından (örneğin, Azure portal veya Azure CLI) oluşturulan işlem hedefleri varsa, Azure Machine Learning hizmeti çalışma alanınıza ekleyerek kullanabilirsiniz.
+İşlem hedefi, eğitim betiği çalıştırır ve modelinizi bir web hizmeti olarak dağıtıldığında barındıran kaynaktır. Bunlar oluşturulabilir ve Azure Machine Learning SDK'sı veya CLI kullanılarak yönetilebilir. Başka bir işlem tarafından (örneğin, Azure portal veya Azure CLI) oluşturulan işlem hedefleri varsa, Azure Machine Learning hizmeti çalışma alanınıza ekleyerek kullanabilirsiniz.
 
 Makinenizde yerel çalışmalar başlayın ve ardından GPU veya Azure Batch AI ile uzak veri bilimi sanal makineler gibi diğer ortamlara ve ölçeklendirin. 
 
@@ -36,8 +36,13 @@ Azure Machine Learning hizmeti, aşağıdaki işlem hedeflerini destekler:
 |----|:----:|:----:|:----:|:----:|
 |[Yerel bilgisayar](#local)| Belki de | &nbsp; | ✓ | &nbsp; |
 |[Veri bilimi sanal makinesi (DSVM)](#dsvm) | ✓ | ✓ | ✓ | ✓ |
-|[Azure Batch AI](#batch)| ✓ | ✓ | ✓ | ✓ | ✓ |
+|[Azure Batch AI](#batch)| ✓ | ✓ | ✓ | ✓ |
+|[Azure Databricks](#databricks)| &nbsp; | &nbsp; | &nbsp; | ✓[*](#pipeline-only) |
+|[Azure Data Lake Analytics'i](#adla)| &nbsp; | &nbsp; | &nbsp; | ✓[*](#pipeline-only) |
 |[Azure HDInsight](#hdinsight)| &nbsp; | &nbsp; | &nbsp; | ✓ |
+
+> [!IMPORTANT]
+> <a id="pipeline-only"></a>* Azure Databricks ve Azure Data Lake Analytics __yalnızca__ bir işlem hattında kullanılabilir. İşlem hatları hakkında daha fazla bilgi için bkz. [Azure Machine Learning işlem hatlarında](concept-ml-pipelines.md) belge.
 
 __[Azure Container Instances'a (ACI)](#aci)__  modelleri eğitmek için de kullanılabilir. Bu, Hesaplı ve kolayca oluşturmak ve bunlarla çalışmak sunucusuz bulut teklifi olur. ACI veya model seçimi otomatik GPU hızlandırma, otomatik hyper parametresi ayarlama, desteklemiyor. Ayrıca, bir işlem hattında kullanılamaz.
 
@@ -52,7 +57,7 @@ __[Azure Container Instances'a (ACI)](#aci)__  modelleri eğitmek için de kulla
 > [!IMPORTANT]
 > Var olan bir Azure kapsayıcı örneğini çalışma alanınıza eklenemiyor. Bunun yerine, yeni bir örneğini oluşturmanız gerekir.
 >
-> Bir çalışma alanı içinde bir Azure HDInsight kümesi oluşturulamıyor. Bunun yerine, mevcut bir kümeye eklemeniz gerekir.
+> Azure HDInsight, Azure Databricks ve Azure Data Lake Store içinde bir çalışma alanı oluşturulamıyor. Bunun yerine, kaynak oluşturmak ve ardından çalışma alanınıza ekleyin.
 
 ## <a name="workflow"></a>İş akışı
 
@@ -311,6 +316,106 @@ Bir ACI işlem hedefi oluşturmak için birkaç saniyeden birkaç dakika sürebi
 
 Jupyter Azure Container Instance üzerinde eğitim gösteren not defteri için bkz: [ https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/03.train-on-aci/03.train-on-aci.ipynb ](https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/03.train-on-aci/03.train-on-aci.ipynb).
 
+## <a id="databricks"></a>Azure Databricks
+
+Azure Databricks, Azure bulutta Apache Spark tabanlı bir ortam olan. Bir Azure Machine Learning işlem hattı ile bir işlem hedefine eğitimindeki modeller gibi kullanılabilir.
+
+> [!IMPORTANT]
+> Bir Azure Databricks işlem hedefi bir Machine Learning işlem hattında yalnızca kullanılabilir.
+>
+> Modelinizi eğitmek için kullanmadan önce bir Azure Databricks çalışma alanı oluşturmanız gerekir. Bu kaynak oluşturmak için bkz [Azure Databricks'te Spark işini çalıştırma](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal) belge.
+
+Azure Databricks işlem hedefi olarak eklemek için Azure Machine Learning SDK'yı kullanın ve aşağıdaki bilgileri sağlayın:
+
+* __İşlem adı__: Bu işlem kaynağına atamak istediğiniz ad.
+* __Kaynak Kimliği__: Azure Databricks çalışma alanı kaynak kimliği. Bu değer için biçim örneği aşağıda gösterilmiştir:
+
+    ```text
+    /subscriptions/<your_subscription>/resourceGroups/<resource-group-name>/providers/Microsoft.Databricks/workspaces/<databricks-workspace-name>
+    ```
+
+    > [!TIP]
+    > Kaynak Kimliğini almak için aşağıdaki Azure CLI komutunu kullanın. Değiştirin `<databricks-ws>` , Databricks çalışma alanı adı:
+    > ```azurecli-interactive
+    > az resource list --name <databricks-ws> --query [].id
+    > ```
+
+* __Erişim belirteci__: Azure Databricks için kimliğini doğrulamak için kullanılan erişim belirteci. Bir erişim belirteci oluşturmak için bkz: [kimlik doğrulaması](https://docs.azuredatabricks.net/api/latest/authentication.html) belge.
+
+Aşağıdaki kod, Azure Databricks işlem hedefi olarak eklemek gösterilmektedir:
+
+```python
+databricks_compute_name = os.environ.get("AML_DATABRICKS_COMPUTE_NAME", "<databricks_compute_name>")
+databricks_resource_id = os.environ.get("AML_DATABRICKS_RESOURCE_ID", "<databricks_resource_id>")
+databricks_access_token = os.environ.get("AML_DATABRICKS_ACCESS_TOKEN", "<databricks_access_token>")
+
+try:
+    databricks_compute = ComputeTarget(workspace=ws, name=databricks_compute_name)
+    print('Compute target already exists')
+except ComputeTargetException:
+    print('compute not found')
+    print('databricks_compute_name {}'.format(databricks_compute_name))
+    print('databricks_resource_id {}'.format(databricks_resource_id))
+    print('databricks_access_token {}'.format(databricks_access_token))
+    databricks_compute = DatabricksCompute.attach(
+             workspace=ws,
+             name=databricks_compute_name,
+             resource_id=databricks_resource_id,
+             access_token=databricks_access_token
+         )
+    
+    databricks_compute.wait_for_completion(True)
+```
+
+## <a id="adla"></a>Azure Data Lake Analytics'i
+
+Azure Data Lake Analytics, Azure bulutta büyük veri analiz platformudur. Bir Azure Machine Learning işlem hattı ile bir işlem hedefine eğitimindeki modeller gibi kullanılabilir.
+
+> [!IMPORTANT]
+> Bir Azure Data Lake Analytics işlem hedefi bir Machine Learning işlem hattında yalnızca kullanılabilir.
+>
+> Modelinizi eğitmek için kullanmadan önce bir Azure Data Lake Analytics hesabı oluşturmanız gerekir. Bu kaynak oluşturmak için bkz [Azure Data Lake Analytics ile çalışmaya başlama](https://docs.microsoft.com/azure/data-lake-analytics/data-lake-analytics-get-started-portal) belge.
+
+Data Lake Analytics işlem hedefi olarak eklemek için Azure Machine Learning SDK'yı kullanın ve aşağıdaki bilgileri sağlayın:
+
+* __İşlem adı__: Bu işlem kaynağına atamak istediğiniz ad.
+* __Kaynak Kimliği__: Data Lake Analytics hesabı kaynak kimliği. Bu değer için biçim örneği aşağıda gösterilmiştir:
+
+    ```text
+    /subscriptions/<your_subscription>/resourceGroups/<resource-group-name>/providers/Microsoft.DataLakeAnalytics/accounts/<datalakeanalytics-name>
+    ```
+
+    > [!TIP]
+    > Kaynak Kimliğini almak için aşağıdaki Azure CLI komutunu kullanın. Değiştirin `<datalakeanalytics>` Data Lake Analytics hesap adınızı adı:
+    > ```azurecli-interactive
+    > az resource list --name <datalakeanalytics> --query [].id
+    > ```
+
+Aşağıdaki kod, Data Lake Analytics işlem hedefi olarak eklemek gösterilmektedir:
+
+```python
+adla_compute_name = os.environ.get("AML_ADLA_COMPUTE_NAME", "<adla_compute_name>")
+adla_resource_id = os.environ.get("AML_ADLA_RESOURCE_ID", "<adla_resource_id>")
+
+try:
+    adla_compute = ComputeTarget(workspace=ws, name=adla_compute_name)
+    print('Compute target already exists')
+except ComputeTargetException:
+    print('compute not found')
+    print('adla_compute_name {}'.format(adla_compute_name))
+    print('adla_resource_id {}'.format(adla_resource_id))
+    adla_compute = AdlaCompute.attach(
+             workspace=ws,
+             name=adla_compute_name,
+             resource_id=adla_resource_id
+         )
+    
+    adla_compute.wait_for_completion(True)
+```
+
+> [!TIP]
+> Azure Machine Learning işlem hatlarını, yalnızca varsayılan Data Lake Analytics hesabı veri deposunda depolanan verilerle çalışabilirsiniz. Veri gerekirse çalışma varsayılandan farklı bir depoda, kullanabilirsiniz bir [ `DataTransferStep` ](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.data_transfer_step.datatransferstep?view=azure-ml-py) eğitim önce verileri kopyalamak için.
+
 ## <a id="hdinsight"></a>Bir HDInsight kümesi ekleme 
 
 HDInsight, büyük veri analizi için popüler bir platformdur. Apache Spark, modelinizi eğitmek için kullanılan sağlar.
@@ -351,8 +456,19 @@ run_config.auto_prepare_environment = True
 ```
 
 ## <a name="submit-training-run"></a>Çalıştırma eğitim gönderin
-    
-Eğitim çalıştırması gönderildiği kodunu işlem hedef bağımsız olarak aynıdır:
+
+Bir eğitim çalıştırma göndermek için iki yolu vardır:
+
+* Gönderme bir `ScriptRunConfig` nesne.
+* Gönderme bir `Pipeline` nesne.
+
+> [!IMPORTANT]
+> Azure Databricks, Azure Datalake Analytics ve Azure HDInsight hedefleri yalnızca bir işlem hattında kullanılabilen işlem.
+> Yerel işlem hedefi, bir işlem hattında kullanılamaz.
+
+### <a name="submit-using-scriptrunconfig"></a>Kullanarak Gönder `ScriptRunConfig`
+
+Bir eğitim göndermek için kod desenini kullanarak çalıştıran `ScriptRunConfig` işlem hedef bağımsız olarak aynıdır:
 
 * Oluşturma bir `ScriptRunConfig` işlem hedefi çalıştırma Yapılandırması'nı kullanarak nesne.
 * Çalıştırma gönderin.
@@ -360,13 +476,46 @@ Eğitim çalıştırması gönderildiği kodunu işlem hedef bağımsız olarak 
 
 Aşağıdaki örnek, bu belgede daha önce oluşturulan sistem tarafından yönetilen yerel işlem hedefi için yapılandırmayı kullanır:
 
-```pyghon
+```python
 src = ScriptRunConfig(source_directory = script_folder, script = 'train.py', run_config = run_config_system_managed)
 run = exp.submit(src)
 run.wait_for_completion(show_output = True)
 ```
 
 Jupyter HDInsight üzerinde Spark ile eğitim gösteren not defteri için bkz: [ https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/05.train-in-spark/05.train-in-spark.ipynb ](https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/05.train-in-spark/05.train-in-spark.ipynb).
+
+### <a name="submit-using-a-pipeline"></a>Bir işlem hattı kullanarak Gönder
+
+Kod bir eğitim çalışan bir işlem hattı kullanarak gönderme işlem hedefi aynı için Desen:
+
+* İşlem kaynağı için işlem hattı için bir adım ekleyin.
+* İşlem hattını kullanarak farklı çalıştır gönderin.
+* Çalıştırmak için bekleyin.
+
+Aşağıdaki örnek, bu belgede daha önce oluşturduğunuz Azure Databricks işlem hedefini kullanır:
+
+```python
+dbStep = DatabricksStep(
+    name="databricksmodule",
+    inputs=[step_1_input],
+    outputs=[step_1_output],
+    num_workers=1,
+    notebook_path=notebook_path,
+    notebook_params={'myparam': 'testparam'},
+    run_name='demo run name',
+    databricks_compute=databricks_compute,
+    allow_reuse=False
+)
+# list of steps to run
+steps = [dbStep]
+pipeline = Pipeline(workspace=ws, steps=steps)
+pipeline_run = Experiment(ws, 'Demo_experiment').submit(pipeline)
+pipeline_run.wait_for_completion()
+```
+
+Machine learning işlem hatlarını hakkında daha fazla bilgi için bkz. [işlem hatları ve Azure Machine Learning](concept-ml-pipelines.md) belge.
+
+Örneğin, bir işlem hattı, eğitim gösteren Jupyter Notebook bkz [ https://github.com/Azure/MachineLearningNotebooks/tree/master/pipeline ](https://github.com/Azure/MachineLearningNotebooks/tree/master/pipeline).
 
 ## <a name="view-and-set-up-compute-using-the-azure-portal"></a>Görüntüleyebilir ve Azure portalını kullanarak hesaplamayı ayarlayabilirsiniz
 
@@ -387,11 +536,18 @@ Hangi hedef Azure portalından, bir çalışma alanıyla ilişkili işlem görü
 
 1. İşlem hedefi için bir ad girin.
 1. İçin eklemek için işlem türünü seçin __eğitim__. 
+
+    > [!IMPORTANT]
+    > Tüm işlem, türleri, Azure portalını kullanarak oluşturulabilir. Şu anda eğitim oluşturulabilir türleri şunlardır:
+    > 
+    > * Sanal Makine
+    > * Batch AI
+
 1. Seçin __Yeni Oluştur__ ve gerekli formu doldurun. 
 1. __Oluştur__’u seçin
 1. Durumunu görüntüleyebilirsiniz. işlem hedef listeden seçerek oluşturma işlemi.
 
-    ![İşlem listesini görüntüle](./media/how-to-set-up-training-targets/View_list.png) ardından, işlem ayrıntılarını görürsünüz.
+    ![İşlem listesini görüntüle](./media/how-to-set-up-training-targets/View_list.png) ardından işlem hedef ayrıntılarını görürsünüz.
     ![Ayrıntıları görüntüle](./media/how-to-set-up-training-targets/vm_view.PNG)
 1. Artık bu hedeflere yukarıdaki ayrıntılı olarak karşı çalıştırma gönderebilirsiniz.
 
@@ -401,8 +557,16 @@ Hangi hedef Azure portalından, bir çalışma alanıyla ilişkili işlem görü
 
 1. Tıklayın **+** işlem hedefi eklemek oturum açın.
 2. İşlem hedefi için bir ad girin.
-3. Eğitim için eklemek için işlem türünü seçin. Batch AI ve sanal makineler şu anda portalında eğitim için desteklenir.
-4. 'Var olanı Kullan' seçin.
+3. Eğitim için eklemek için işlem türünü seçin.
+
+    > [!IMPORTANT]
+    > Tüm türleri, portalı kullanarak eklenebilecek işlem.
+    > Şu anda eğitim eklenebilecek türleri şunlardır:
+    > 
+    > * Sanal Makine
+    > * Batch AI
+
+1. 'Var olanı Kullan' seçin.
     - Batch AI kümeleri eklerken, açılan listeden işlem hedefini seçin, Batch AI Çalışma ve Batch AI kümesi seçin ve ardından **Oluştur**.
     - Bir sanal makineyi eklerken, IP adresi, kullanıcı adı/parola bileşimi, Private/Public anahtarları ve bağlantı noktasını girin ve Oluştur'a tıklayın.
 
@@ -412,7 +576,7 @@ Hangi hedef Azure portalından, bir çalışma alanıyla ilişkili işlem görü
     > * [Oluşturma ve Linux veya Macos'ta SSH anahtarlarını kullanma]( https://docs.microsoft.com/azure/virtual-machines/linux/mac-create-ssh-keys)
     > * [Oluşturma ve Windows üzerinde SSH anahtarlarını kullanma]( https://docs.microsoft.com/azure/virtual-machines/linux/ssh-from-windows)
 
-5. İşlem hedef hesaplar listesinden seçerek sağlama durumu durumunu görüntüleyebilirsiniz.
+5. Sağlama durumu durumunu, işlem hedef listeden seçerek görüntüleyebilirsiniz.
 6. Artık bu hedeflere karşı çalıştırma gönderebilirsiniz.
 
 ## <a name="examples"></a>Örnekler

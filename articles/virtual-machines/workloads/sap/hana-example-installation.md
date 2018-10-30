@@ -1,6 +1,6 @@
 ---
 title: SAP HANA (büyük örnekler) azure'da HANA yükleme | Microsoft Docs
-description: Nasıl HANA (büyük örnek) Azure üzerinde SAP HANA yükleyin.
+description: Nasıl HANA (büyük örnekler) Azure üzerinde SAP HANA yükleyin.
 services: virtual-machines-linux
 documentationcenter: ''
 author: hermanndms
@@ -14,122 +14,124 @@ ms.workload: infrastructure
 ms.date: 09/10/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 76a7ce99799b85d81aa6e127ebe1e57e2df3e59a
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: f4629894933507bda7359fb034c4079d38100029
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44164770"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50231416"
 ---
-# <a name="example-of-an-sap-hana-installation-on-hana-large-instances"></a>HANA büyük örnekler üzerinde SAP HANA yükleme örneği
+# <a name="install-hana-on-sap-hana-on-azure-large-instances"></a>SAP HANA (büyük örnekler) azure'da HANA yükleyin
 
-Bu bölümde, bir HANA büyük örneği birim üzerinde SAP HANA yükleneceği gösterilmektedir. Sahip olduğumuz başlangıç durumu gibi görünür:
+SAP HANA (büyük örnekler) azure'da HANA yüklemek için önce aşağıdakileri yapmanız gerekir:
+- Microsoft, sizin için bir SAP HANA büyük örneği dağıtmak için tüm verileri sağlayın.
+- SAP HANA büyük örneği Microsoft'tan alırsınız.
+- Şirket içi ağınıza bağlı bir Azure sanal ağı oluşturun.
+- ExpressRoute bağlantı hattı HANA büyük örnekler için aynı Azure sanal ağına bağlayın.
+- HANA büyük örnekleri için bir Sıçrama kutusu kullandığınız bir Azure sanal makinesine yükleyin.
+- Atlama kutusundan, HANA büyük örneği birimine bağlanabildiğinden emin olun ve bunun tersi de geçerlidir.
+- Tüm gerekli paketleri ve düzeltme eklerinin yüklü olup olmadığını kontrol edin.
+- Kullanmakta olduğunuz işletim sistemine HANA yüklemesi hakkında belgeler ve SAP notları okuyun. Tercih ettiğiniz HANA yayın işletim sistemi sürüm üzerinde desteklendiğinden emin olun.
 
-- Microsoft tüm verileri bir SAP HANA büyük örneği dağıtmak için sağladığınız.
-- SAP HANA büyük örneği Microsoft'tan aldığınız.
-- Şirket içi ağınıza bağlı olan Azure sanal ağı oluşturduğunuz.
-- Aynı Azure sanal ağı için HANA büyük örnekler için ExpressRotue devre bağlı.
-- Azure HANA büyük örnekleri için bir Sıçrama kutusu kullandığınız sanal yüklediğiniz.
-- HANA büyük örneği birim ve tersi Sıçrama kutusundan bağlanabildiğinden emin yaptığınız.
-- Tüm gerekli paketleri ve düzeltme eklerinin yüklü olup olmadığını kontrol.
-- SAP notları ve belgeler HANA yüklemesi kullanıyorsanız ve HANA yayın tercih ettiğiniz işletim sisteminde desteklendiğinden emin yapılan işletim sistemi ile ilgili makaleyi yayın.
+Sonraki bölümde, HANA yükleme paketleri atlama kutusunu sanal makineye yükleme bir örnek gösterilmektedir. Bu durumda, işletim sistemi Windows ' dir.
 
-Sonraki sıralarında gösterilene atlama kutusuna bu durumda bir Windows işletim sisteminde, HANA büyük örneği birim paketler kopyasını ve Kurulum dizisini çalıştıran VM, HANA yükleme paketlerinin indirilir.
+## <a name="download-the-sap-hana-installation-bits"></a>SAP HANA yüklemesi indirme
+HANA büyük örneği birimleri doğrudan internet'e bağlı değildir. SAP'den HANA büyük örneği sanal makineye doğrudan yükleme paketlerini indiremez. Bunun yerine Sıçrama kutusu sanal makineye paketlerini indirin.
 
-## <a name="download-of-the-sap-hana-installation-bits"></a>SAP HANA yükleme indirme
-HANA büyük örneği birimleri doğrudan internet bağlantısı yoksa HANA büyük örneği VM SAP'den yükleme paketleri doğrudan indiremez. Eksik doğrudan internet bağlantısı üstesinden gelmek için atlama kutusunu gerekir. Atlama kutusuna VM paketleri karşıdan yükleyin.
+SAP S-kullanıcı veya SAP Market erişmenize olanak sağlayan diğer kullanıcı ihtiyacınız var.
 
-HANA yükleme paketleri indirmek için bir SAP S-kullanıcı veya SAP Market erişmenize olanak sağlayan diğer kullanıcı gerekir. Oturum açtıktan sonra bu ekranları sırasıyla gidin:
+1. Oturum açın ve gidin [SAP Service Marketplace](https://support.sap.com/en/index.html). Seçin **yazılımı indirin** > **yükleme ve yükseltme** > **alfabetik dizin tarafından**. Ardından **altında H-SAP HANA Platform sürümü** > **SAP HANA Platform sürümü 2.0** > **yükleme**. Aşağıdaki ekran görüntüsünde gösterilen dosyalarını indirin.
 
-Git [SAP Service Marketplace](https://support.sap.com/en/index.html) > karşıdan yükleme yazılımı tıklayın > yükleme ve yükseltme > alfabetik dizin tarafından > – H altında SAP HANA Platform sürümü > SAP HANA Platform sürümü 2.0 > yükleme > indirin Aşağıdaki dosyaları
+   ![Dosyaları indirmek için ekran görüntüsü](./media/hana-installation/image16_download_hana.PNG)
 
-![HANA yüklemesi indirin](./media/hana-installation/image16_download_hana.PNG)
+2. Bu örnekte, SAP HANA 2.0 yükleme paketleri indirilen. Azure'da atlama kutusunu sanal makine, aşağıda gösterildiği gibi bu dizine kendiliğinden arşivleri genişletin.
 
-SAP HANA 2.0 yükleme paketleri indirilen tanıtım durumda. Azure atlama çubuğundaki VM, kendi kendine ayıklanan arşivleri dizine aşağıda gösterildiği gibi genişletin.
+   ![Kendi kendine ayıklanan arşiv ekran görüntüsü](./media/hana-installation/image17_extract_hana.PNG)
 
-![HANA yüklemesi ayıklayın](./media/hana-installation/image17_extract_hana.PNG)
+3. Arşivleri ayıklanan gibi ayıklama (Bu durumda, 51052030) tarafından oluşturulan dizine kopyalayın. Dizin, HANA büyük örneği birim /hana/shared birimden oluşturduğunuz bir dizine kopyalayın.
 
-Arşivleri ayıklanan gibi çıkarma durumda 51052030, yukarıda oluşturduğunuz bir dizine /hana/shared birim içine HANA büyük örneği birimine tarafından oluşturulan dizine kopyalayın.
-
-> [!Important]
-> Alanı sınırlıdır ve başka işlemler tarafından kullanılması gereken yükleme paketleri kök ya da önyükleme LUN kopyalamayın.
+   > [!Important]
+   > Alanı sınırlıdır ve başka işlemler tarafından kullanılması gerekir çünkü yükleme paketleri kök ya da önyükleme LUN, kopyalamayın.
 
 
 ## <a name="install-sap-hana-on-the-hana-large-instance-unit"></a>SAP HANA HANA büyük örneği biriminde yükleyin
-SAP HANA yüklemek için kullanıcı kök olarak oturum açmanız gerekir. Yalnızca kök SAP HANA yüklemek için yeterli izinlere sahiptir.
-Üzerinden/hana paylaşılan / kopyaladığınız dizin izinlerini ayarlamak için yapmanız gereken ilk şey var. İzinleri ayarlamanız gerekir
+SAP HANA yüklemek için kullanıcı kök olarak oturum açın. Yalnızca kök SAP HANA yüklemek için yeterli izinlere sahiptir. /Hana/shared üzerinden kopyaladığınız dizinle izinleri ayarlayın.
 
 ```
 chmod –R 744 <Installation bits folder>
 ```
 
-Grafik Kurulum kullanılarak SAP HANA'ya yüklemek istiyorsanız, gtk2 paket HANA büyük örnekler üzerinde yüklü olması gerekir. Komutu ile yüklü olup olmadığını denetleyin
+SAP HANA grafik kullanıcı arabirimi Kurulum kullanılarak yüklemek istiyorsanız, gtk2 paket HANA büyük örnekler üzerinde yüklü olması gerekir. Yüklü olup olmadığını denetlemek için aşağıdaki komutu çalıştırın:
 
 ```
 rpm –qa | grep gtk2
 ```
 
-Daha fazla adımlarda size grafik kullanıcı arabirimi ile SAP HANA Kurulum gösteren. Sonraki adım olarak yükleme dizinine gidin ve HDB_LCM_LINUX_X86_64 alt dizinine gidin. Başlatma
+(Sonraki adımlarda grafik kullanıcı arabirimi ile SAP HANA Kurulum gösteriyoruz.)
+
+Yükleme dizinine gidin ve HDB_LCM_LINUX_X86_64 alt dizinine gidin. 
+
+Bu dizine dışında başlatın:
 
 ```
 ./hdblcmgui 
 ```
-Bu dizini. Artık, bir dizi ekranlar arasında veri sağlayacağınız için gerek duyduğunuz senaryolara gerçekleşir. Gösterilen durumda biz SAP HANA veritabanı sunucusu ve SAP HANA istemci bileşenlerini yüklüyorsunuz. Bu nedenle bizim 'SAP HANA veritabanı' aşağıda gösterildiği gibi seçimdir
+AT noktada, ekranlar yüklemesi için veri sağlayan bir dizi ilerlemeyi. Bu örnekte, biz SAP HANA veritabanı sunucusu ve SAP HANA istemci bileşenlerini yüklüyorsunuz. Bu nedenle bizim seçimdir **SAP HANA veritabanı**.
 
-![HANA yüklemede seçin](./media/hana-installation/image18_hana_selection.PNG)
+![Ekran SAP HANA yaşam döngüsü yönetimi ekranında, SAP HANA veritabanı seçilmedi](./media/hana-installation/image18_hana_selection.PNG)
 
-Sonraki ekranda, yeni sistemi yükleyin' seçeneğini seçin
+Sonraki ekranda seçin **yeni sisteme yüklemek**.
 
-![Yeni yükleme HANA seçin](./media/hana-installation/image19_select_new.PNG)
+![Ekran SAP HANA yaşam döngüsü yönetimi ekranında, yeni seçilen sistemi yükleyin](./media/hana-installation/image19_select_new.PNG)
 
-Bu adımdan sonra ayrıca SAP HANA veritabanı sunucusuna yüklenebilir çeşitli ek bileşenler arasındaki seçmeniz gerekir.
+Ardından, yüklemek için kullanabileceğiniz birkaç ek bileşenler arasında seçin.
 
-![Ek HANA bileşenleri seçin](./media/hana-installation/image20_select_components.PNG)
+![Ekran SAP HANA yaşam döngüsü yönetimi ekranında, ek bileşenlerin listesi](./media/hana-installation/image20_select_components.PNG)
 
-Bu belgede, SAP HANA Client ve SAP HANA Studio seçtik. Ayrıca bir ölçek büyütme örneği yüklediğimiz. Bu nedenle 'Tek konak System' seçim yapması sonraki ekranda, 
+Burada, SAP HANA Client ve SAP HANA Studio seçin. Biz de bir ölçek büyütme örneğini yükleyin. Ardından **tek ana bilgisayar sistemi**. 
 
-![Ölçek büyütme yüklemesi seçin](./media/hana-installation/image21_single_host.PNG)
+![Ekran SAP HANA yaşam döngüsü yönetimi ekranında, seçili tek ana bilgisayar sistemi](./media/hana-installation/image21_single_host.PNG)
 
-Sonraki ekranda, bazı veri sağlamanız gerekir.
+Ardından, bazı veriler sağlar.
 
-![SAP HANA SID sağlayın](./media/hana-installation/image22_provide_sid.PNG)
+![Ekran SAP HANA yaşam döngüsü yönetimi ekranında, Sistem özellikleri alanları tanımlamak için](./media/hana-installation/image22_provide_sid.PNG)
 
 > [!Important]
-> HANA sistemi kimliği (SID) olarak aynı SID, HANA büyük örneği dağıtım sıralı olduğunda Microsoft sağladığınız sağlamanız gerekir. Farklı bir SID seçerek farklı birimlerde erişim izin sorunları nedeniyle başarısız yükleme yapar
+> HANA sistemi kimliği (SID) olarak aynı SID, HANA büyük örneği dağıtım sıralı olduğunda Microsoft sağlanan sağlamanız gerekir. Farklı bir SID seçme yüklemenin farklı birimlerde erişim izin sorunları nedeniyle başarısız olmasına neden olur.
 
-Yükleme olarak paylaşılan dizin directory/hana/kullanırsınız. Sonraki adımda, HANA veri dosyaları ve HANA günlük dosyaları için konumlar sağlamanız gerekir.
+Yükleme yolu için /hana/shared dizini kullanın. Sonraki adımda, HANA veri dosyaları ve HANA günlük dosyaları için konumlar sağlar.
 
 
-![HANA günlük konumu girin](./media/hana-installation/image23_provide_log.PNG)
+![Ekran SAP HANA yaşam döngüsü yönetimi ekranında, verilerin ve günlük alan alanlar](./media/hana-installation/image23_provide_log.PNG)
 
 > [!Note]
-> Verileri olarak tanımlayın ve günlük dosyaları zaten bu ekranı önce ekran seçimdeki seçtiğiniz SID içeren bağlama noktalarını birlikte gelen birimler gerekir. SID yazdığınız bir uyuşmazlık, ekranda önce geri dönüp SID bağlama noktalarına sahip değerine ayarlayın.
+> Sistem Özellikleri (önce iki ekran) tanımlandığında, belirtilen SID, bağlama noktaları SID'si eşleşmelidir. Yoksa uyuşmazlık, geri dönün ve SID bağlama noktalarına sahip değerine ayarlayın.
 
 Sonraki adımda, ana bilgisayar adını gözden geçirin ve sonunda düzeltin. 
 
-![Gözden geçirme ana bilgisayar adı](./media/hana-installation/image24_review_host_name.PNG)
+![Ekran SAP HANA yaşam döngüsü yönetimi ekranında, ana bilgisayar adı](./media/hana-installation/image24_review_host_name.PNG)
 
 Sonraki adımda, ayrıca, HANA büyük örneği dağıtım sıralı Microsoft'a verdiğiniz veri gerekir. 
 
-![Sistem kullanıcısı sağlamak fazla](./media/hana-installation/image25_provide_guid.PNG)
+![Ekran görüntüsü, SAP HANA ile yaşam döngüsü yönetimi, sistem yöneticisine alanları tanımlamak için](./media/hana-installation/image25_provide_guid.PNG)
 
 > [!Important]
-> Sipariş birim dağıtım Microsoft sağladığınız olarak aynı sistem kullanıcı kimliği ve kullanıcı grubu kimliği'nı sağlamanız gerekir. Çok aynı kimlikleri vermek başarısız olursa, HANA büyük örneği birim üzerinde SAP HANA yüklemesi başarısız olur.
+> Aynı sağlamak **sistem yönetici kullanıcı Kimliğini** ve **kullanıcı grubu kimliği** birim dağıtım siparişi gibi Microsoft'a sağlanan. Aksi takdirde, HANA büyük örneği birim üzerinde SAP HANA yüklemesi başarısız olur.
 
-Biz, bu belgede, SAP HANA veritabanı sapadm kullanıcının parolasını ve Sistem kullanıcısı için parola sağlamanız gereken görünmüyorsa, sonraki iki ekrana içinde SAP HANA datab bir parçası olarak yüklenen SAP konak aracısı için kullanılır ase örneği.
+Sonraki iki ekrana burada gösterilmez. SAP HANA veritabanı sistem kullanıcının parolasını ve parola sapadm kullanıcıya vermek sağlıyor. İkinci SAP HANA veritabanı örneği bir parçası olarak yüklenen SAP konak aracısı için kullanılır.
 
-Parola tanımladıktan sonra bir onay ekranı başlanan bir uyarıdır. tüm veriler listelenir ve yükleme işlemine devam denetleyin. Yükleme ilerleme durumu gibi bir aşağıdaki belgeler bir ilerleme durumu ekranı ulaşın
+Parola tanımladıktan sonra bir onay ekranı görürsünüz. tüm veriler listelenir ve yükleme işlemine devam denetleyin. Yükleme ilerleme durumu, bunun gibi belgelerin bir ilerleme durumu ekranı ulaşana:
 
-![Yükleme ilerleme durumunu denetleme](./media/hana-installation/image27_show_progress.PNG)
+![Ekran SAP HANA yaşam döngüsü yönetimi ekranında, Yükleme İlerleme göstergesi](./media/hana-installation/image27_show_progress.PNG)
 
-Yükleme tamamlandıktan gibi aşağıdakine benzer bir resmi gerekir
+Yükleme tamamlandıktan, bunun gibi bir ekranı görmeniz gerekir:
 
-![Yükleme tamamlandı](./media/hana-installation/image28_install_finished.PNG)
+![Yüklemeyi gösteren ekran görüntüsü SAP HANA yaşam döngüsü yönetimi ekranında, tamamlandı](./media/hana-installation/image28_install_finished.PNG)
 
-Bu noktada, SAP HANA örneği kullanım için hazır ve çalışır ve hazır olmalıdır. SAP HANA Studio'dan bağlanabilir olması gerekir. Ayrıca SAP HANA'ın en son düzeltme eklerinin denetleyin ve bu düzeltme ekleri uygulama emin olun.
+SAP HANA örneği artık kullanım için en fazla ve çalışır ve hazır olmalıdır. SAP HANA Studio'dan bağlanabilir olması gerekir. Ayrıca denetleyin ve en son güncelleştirmeleri uygulamak emin olun.
 
 
-**Sonraki adımlar**
+## <a name="next-steps"></a>Sonraki adımlar
 
-- Başvuru [SAP HANA büyük örnekleri azure'da yüksek kullanılabilirlik ve olağanüstü durum kurtarma](hana-overview-high-availability-disaster-recovery.md).
+- [SAP HANA büyük örnekleri azure'da yüksek kullanılabilirlik ve olağanüstü durum kurtarma](hana-overview-high-availability-disaster-recovery.md)
 

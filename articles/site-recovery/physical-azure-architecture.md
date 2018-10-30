@@ -1,20 +1,20 @@
 ---
-title: Fiziksel sunucuya Azure Site recovery'de Azure'a çoğaltma mimarisi | Microsoft Docs
-description: Bu makalede Azure Site Recovery hizmeti ile şirket içi fiziksel sunucuları Azure'a çoğaltırken kullanılan bileşenlere ve genel bir bakış sağlar.
+title: Azure Site Recovery kullanarak azure'a fiziksel sunucu olağanüstü durum kurtarma için Mimari | Microsoft Docs
+description: Bu makalede, Azure Site Recovery hizmeti ile şirket içi fiziksel sunucularını azure'a olağanüstü durum kurtarma sırasında kullanılan bileşenlere ve genel bir bakış sağlar.
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/10/2018
+ms.date: 10/28/2018
 ms.author: raynew
-ms.openlocfilehash: 15e8e9ce7b12585f7ea89a0440fdb93cfb171feb
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 9dd60e31867e874ba59a6e2084714a22b661afdd
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49077048"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50213058"
 ---
-# <a name="physical-server-to-azure-replication-architecture"></a>Fiziksel sunucuya Azure çoğaltması mimarisi
+# <a name="physical-server-to-azure-disaster-recovery-architecture"></a>Fiziksel sunucuya Azure olağanüstü durum kurtarma mimarisi
 
 Bu makalede kullanılan çoğaltma, yük devretme ve bir şirket içi siteyle Azure arasındaki fiziksel Windows ve Linux sunucularını kurtarma işlemlerini ve mimarisini kullanarak [Azure Site Recovery](site-recovery-overview.md) hizmeti.
 

@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 09/26/2018
 ms.author: iainfou
-ms.openlocfilehash: b64727f6a77bb1151a4f9016b6179a7ee22e3a5c
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: 0e5d42dddf550d8c7d4a579afd8436343749a995
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50085487"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50233659"
 ---
 # <a name="use-a-static-public-ip-address-with-the-azure-kubernetes-service-aks-load-balancer"></a>Azure Kubernetes Service (AKS) yük dengeleyiciyle bir statik genel IP adresi kullanın
 
@@ -93,7 +93,10 @@ kubectl apply -f load-balancer-service.yaml
 
 ## <a name="use-a-static-ip-address-outside-of-the-node-resource-group"></a>Düğüm kaynak grubu dışında bir statik IP adresi kullanın
 
-Kubernetes 1.10 ile ya da daha sonra dışında düğüm kaynak grubu oluşturulur statik bir IP adresi kullanacak şekilde gerçekleştirebilirsiniz. AKS kümesi tarafından kullanılan hizmet sorumlusunun bir kaynak grubu için izinleri vermiş olması gerekir.
+Kubernetes 1.10 ile ya da daha sonra dışında düğüm kaynak grubu oluşturulur statik bir IP adresi kullanacak şekilde gerçekleştirebilirsiniz. AKS kümesi tarafından kullanılan hizmet sorumlusunun SP izinleri vermek için aşağıdaki komutu kullanarak diğer kaynak grubunu, izinleri vermiş olması gerekir:
+```
+az role assignment create --assignee <SP Client ID> --role "Network Contributor" --scope /subscriptions/<subscription id>/resourceGroups/<resource group name>
+```
 
 Düğüm kaynak grubu dışında bir IP adresi kullanmak için hizmet tanımı için bir ek açıklama ekleyin. Aşağıdaki örnekte adlı bir kaynak grubu için ek açıklama ayarlar *myResourceGroup*. Kendi kaynak grubu adı girin:
 

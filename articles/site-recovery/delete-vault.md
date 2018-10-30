@@ -1,6 +1,6 @@
 ---
-title: Site Recovery kasasını silme
-description: Site Recovery senaryo temel alınarak bir Azure Site Recovery kasasını silme öğrenin.
+title: Azure Site Recovery hizmeti için yapılandırılmış bir kurtarma Hizmetleri kasasını silme
+description: Azure Site Recovery için yapılandırılmış bir kurtarma Hizmetleri kasasını silme hakkında bilgi edinin
 author: rajani-janaki-ram
 manager: rochakm
 ms.service: site-recovery
@@ -8,14 +8,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: rajani-janaki-ram
-ms.openlocfilehash: 9c4a88d8a3d63555a57bd5553b721cfbcd77df2c
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: f351bd715baf86407c249e13aa02cf3c37e374c4
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38971197"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50212429"
 ---
-# <a name="delete-a-site-recovery-vault"></a>Site Recovery kasasını silme
+# <a name="delete-a-site-recovery-recovery-services-vault"></a>Site Recovery kurtarma Hizmetleri kasasını silme
 
 Bağımlılıklar Azure Site Recovery kasası silmesi engelleyebilirsiniz. Yapmanız gereken eylemler Site kurtarma senaryosuna bağlı olarak değişiklik gösterir. Azure Yedekleme'de kullanılan bir kasayı silme için bkz: [Azure bir Backup kasasını silme](../backup/backup-azure-delete-vault.md).
 

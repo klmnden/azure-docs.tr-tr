@@ -1,21 +1,21 @@
 ---
-title: VMware’den Azure’a Azure Site Recovery dağıtım planlayıcısı| Microsoft Docs
-description: Bu makalede VMware'den Azure'a dağıtım senaryosu için Azure Site Recovery dağıtım planlayıcısının oluşturduğu raporun analizi açıklanır.
-services: site-recovery
+title: Azure'a VMware olağanüstü durum kurtarma için Azure Site Recovery dağıtım Planlayıcısı raporunu analiz etme | Microsoft Docs
+description: Bu makalede Vmware'den azure'a olağanüstü durum kurtarma için Azure Site Recovery dağıtım Planlayıcısı tarafından oluşturulan raporu analiz etme.
 author: nsoneji
 manager: garavd
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: nisoneji
-ms.openlocfilehash: e6aa3a8c788fe06a528a9c363a28faffa0a9ca88
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: d709b13aaf6b6ee9a913484ed503da1e76982d17
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49094097"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50213925"
 ---
-# <a name="azure-site-recovery-deployment-planner-report"></a>Azure Site Recovery dağıtım planlayıcısı raporu
+# <a name="analyze-the-azure-site-recovery-deployment-planner-report-for-vmware-disaster-recovery-to-azure"></a>Vmware'den azure'a olağanüstü durum kurtarma için Azure Site Recovery dağıtım Planlayıcısı raporunu analiz etme
+
 Oluşturulan Microsoft Excel raporu şu sayfaları içerir:
 ## <a name="on-premises-summary"></a>Şirket içi özeti
 Şirket içi özeti çalışma sayfası, profili oluşturulmuş VMware ortamına genel bir bakış sağlar.

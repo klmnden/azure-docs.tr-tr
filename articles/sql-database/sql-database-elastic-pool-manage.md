@@ -11,13 +11,13 @@ author: oslake
 ms.author: moslake
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 10/19/2018
-ms.openlocfilehash: 0c939956a8f3336b5071748a8c2bdf8840b749ad
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.date: 10/29/2018
+ms.openlocfilehash: fbe648ad1869753666babd9d573f086177fc8adf
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49466078"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50232692"
 ---
 # <a name="create-and-manage-elastic-pools-in-azure-sql-database"></a>Azure SQL veritabanı elastik havuzları oluşturma ve yönetme
 
@@ -99,11 +99,11 @@ SQL veritabanı elastik havuzları ve havuza alınan veritabanları oluşturmak 
 
 | Komut | Açıklama |
 | --- | --- |
-|[Elastik havuzlar - oluştur veya güncelleştir](https://docs.microsoft.com/rest/api/sql/elasticpools/elasticpools_createorupdate)|Yeni bir elastik havuz oluşturur veya mevcut bir elastik havuz güncelleştirir.|
-|[Elastik havuzlar - Sil](https://docs.microsoft.com/rest/api/sql/elasticpools/elasticpools_delete)|Esnek havuz siler.|
-|[Elastik havuzlar - Get](https://docs.microsoft.com/rest/api/sql/elasticpools/elasticpools_get)|Elastik havuz alır.|
-|[Elastik havuzlar - sunucusu listesi](https://docs.microsoft.com/rest/api/sql/elasticpools/elasticpools_listbyserver)|Bir sunucu elastik havuzları listesini döndürür.|
-|[Elastik havuzlar - güncelleştirme](https://docs.microsoft.com/rest/api/sql/elasticpools/elasticpools_listbyserver)|Var olan bir esnek havuzun güncelleştirir.|
+|[Elastik havuzlar - oluştur veya güncelleştir](https://docs.microsoft.com/rest/api/sql/elasticpools/createorupdate)|Yeni bir elastik havuz oluşturur veya mevcut bir elastik havuz güncelleştirir.|
+|[Elastik havuzlar - Sil](https://docs.microsoft.com/rest/api/sql/elasticpools/delete)|Esnek havuz siler.|
+|[Elastik havuzlar - Get](https://docs.microsoft.com/rest/api/sql/elasticpools/get)|Elastik havuz alır.|
+|[Elastik havuzlar - sunucusu listesi](https://docs.microsoft.com/rest/api/sql/elasticpools/listbyserver)|Bir sunucu elastik havuzları listesini döndürür.|
+|[Elastik havuzlar - güncelleştirme](https://docs.microsoft.com/rest/api/sql/elasticpools/listbyserver)|Var olan bir esnek havuzun güncelleştirir.|
 |[Elastik havuz etkinlikleri](https://docs.microsoft.com/rest/api/sql/elasticpoolactivities)|Elastik havuz etkinlikleri döndürür.|
 |[Elastik havuz veritabanı etkinlikleri](https://docs.microsoft.com/rest/api/sql/elasticpooldatabaseactivities)|İçinde bir elastik havuzdaki veritabanları üzerinde etkinlik döndürür.|
 |[Veritabanları - oluştur veya güncelleştir](https://docs.microsoft.com/rest/api/sql/databases/createorupdate)|Yeni bir veritabanı oluşturur veya mevcut bir veritabanını güncelleştirir.|

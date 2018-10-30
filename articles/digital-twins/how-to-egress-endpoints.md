@@ -6,20 +6,20 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 10/08/2018
+ms.date: 10/26/2018
 ms.author: alinast
-ms.openlocfilehash: c917fab84448684cf29af162ec0781d764605f71
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: c09ee84cda5f0a9747d3ee1f8f1b37d1323f2cc2
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49324338"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50212259"
 ---
 # <a name="egress-and-endpoints"></a>Çıkış ve uç noktaları
 
 Azure dijital İkizlerini kavramını destekler _uç noktaları_ her uç nokta kullanıcının Azure aboneliğinde bir ileti/olay Aracısı burada temsil eder. Olayları ve iletileri göndermenin **olay hub'ı**, **Event Grid**, ve **hizmet veri yolu konuları**.
 
-Olaylar, önceden tanımlı yönlendirme tercihlerini göre uç noktalarına gönderilir: kullanıcı, hangi uç noktaya aşağıdaki olaylardan herhangi biri alması gereken belirtebilirsiniz:`TopologyOperation`, `UdfCustom`, `SensorChange`, `SpaceChange`, veya `DeviceMessage`.
+Olaylar, önceden tanımlı yönlendirme tercihlerini göre uç noktalarına gönderilir: kullanıcı, hangi uç noktaya aşağıdaki olaylardan herhangi biri alması gereken belirtebilirsiniz: **TopologyOperation**, **UdfCustom**, **SensorChange**, **SpaceChange**, veya **DeviceMessage**.
 
 Yönlendirme olayları ve olay türleri temel anlamak için bkz [yönlendirme olayları ve iletileri](concepts-events-routing.md).
 
@@ -27,9 +27,9 @@ Yönlendirme olayları ve olay türleri temel anlamak için bkz [yönlendirme ol
 
 Olay türlerinin her biri için olay biçimler şunlardır:
 
-- `TopologyOperation`
+- **TopologyOperation**
 
-  Graf değişiklikleri uygular. `subject` Özelliği, etkilenen nesne türünü belirtir. Bu olay tetikleyebilir nesne türleri şunlardır: `Device, DeviceBlobMetadata`, `DeviceExtendedProperty`, `ExtendedPropertyKey`, `ExtendedType`, `KeyStore`, `Report`, `RoleDefinition`, `Sensor`, `SensorBlobMetadata`, `SensorExtendedProperty`, `Space` ,  `SpaceBlobMetadata`, `SpaceExtendedProperty`, `SpaceResource`, `SpaceRoleAssignment`, `System`, `User`, `UserBlobMetadata`, `UserExtendedProperty`.
+  Graf değişiklikleri uygular. *Konu* özelliği, etkilenen nesne türünü belirtir. Bu olay tetikleyebilir nesne türleri şunlardır: **cihaz**, **DeviceBlobMetadata**, **DeviceExtendedProperty**, **ExtendedPropertyKey**, **ExtendedType**, **KeyStore**, **rapor**, **RoleDefinition**, **algılayıcısı**, **SensorBlobMetadata**, **SensorExtendedProperty**, **alanı**, **SpaceBlobMetadata**,  **SpaceExtendedProperty**, **SpaceResource**, **SpaceRoleAssignment**, **sistem**, **kullanıcı**, **UserBlobMetadata**, **UserExtendedProperty**.
 
   Örnek:
 
@@ -55,11 +55,14 @@ Olay türlerinin her biri için olay biçimler şunlardır:
 
     | Özel öznitelik adı | Değiştirin |
     | --- | --- |
-    | `yourTopicName` | Özelleştirilmiş, konu adı |
+    | *yourTopicName* | Özelleştirilmiş, konu adı |
 
-- `UdfCustom`
+- **UdfCustom**
 
-  Kullanıcı tanımlı işlev tarafından (UDF) gönderilen bir olay. Bu olay UDF'yi açıkça gönderilmesi gerektiğini unutmayın.
+  Kullanıcı tanımlı işlev tarafından (UDF) gönderilen bir olay. 
+  
+  > [!IMPORTANT]
+  > Bu olay UDF'yi açıkça gönderilmesi gerekir.
 
   Örnek:
 
@@ -83,9 +86,9 @@ Olay türlerinin her biri için olay biçimler şunlardır:
 
     | Özel öznitelik adı | Değiştirin |
     | --- | --- |
-    | `yourTopicName` | Özelleştirilmiş, konu adı |
+    | *yourTopicName* | Özelleştirilmiş, konu adı |
 
-- `SensorChange`
+- **SensorChange**
 
   Bir algılayıcının durumu telemetri değişikliklere dayalı bir güncelleştirme.
 
@@ -118,9 +121,9 @@ Olay türlerinin her biri için olay biçimler şunlardır:
 
     | Özel öznitelik adı | Değiştirin |
     | --- | --- |
-    | `yourTopicName` | Özelleştirilmiş, konu adı |
+    | *yourTopicName* | Özelleştirilmiş, konu adı |
 
-- `SpaceChange`
+- **SpaceChange**
 
   Telemetri değişikliklere dayalı bir alanı'nın durumunu güncelleştirme.
 
@@ -153,15 +156,15 @@ Olay türlerinin her biri için olay biçimler şunlardır:
 
     | Özel öznitelik adı | Değiştirin |
     | --- | --- |
-    | `yourTopicName` | Özelleştirilmiş, konu adı |
+    | *yourTopicName* | Özelleştirilmiş, konu adı |
 
-- `DeviceMessage`
+- **DeviceMessage**
 
-  Belirtmenizi sağlar bir `EventHub` için ham telemetri olayları yönlendirilir de Azure dijital İkizlerini bağlantı.
+  Belirtmenizi sağlar bir **EventHub** için ham telemetri olayları yönlendirilir de Azure dijital İkizlerini bağlantı.
 
 > [!NOTE]
-> - `DeviceMessage` combinable ile yalnızca olan `EventHub`; birleştirmek mümkün olmayacaktır `DeviceMessage` herhangi bir olay türü.
-> - Tek bir uç nokta türü bileşimi belirlemek mümkün olacaktır `EventHub` / `DeviceMessage`.
+> - **DeviceMessage** combinable ile yalnızca olan **EventHub**; birleştirmek mümkün olmayacaktır **DeviceMessage** herhangi bir olay türü.
+> - Tek bir uç nokta türü bileşimi belirlemek mümkün olacaktır **EventHub** veya **DeviceMessage**.
 
 ## <a name="configuring-endpoints"></a>Uç noktalarını yapılandırma
 
@@ -171,7 +174,7 @@ Uç nokta yönetim uç noktalarını API aracılığıyla Uygula. Farklı destek
 POST https://endpoints-demo.azuresmartspaces.net/management/api/v1.0/endpoints
 ```
 
-- Yönlendirme **Service Bus** olay türleri: `SensorChange`, `SpaceChange`, `TopologyOperation`
+- Yönlendirme **Service Bus** olay türleri: **SensorChange**, **SpaceChange**, **TopologyOperation**
 
   ```JSON
   {
@@ -189,12 +192,12 @@ POST https://endpoints-demo.azuresmartspaces.net/management/api/v1.0/endpoints
 
     | Özel öznitelik adı | Değiştirin |
     | --- | --- |
-    | `yourNamespace` | Uç noktanız için ad alanı |
-    | `yourPrimaryKey` | Kimlik doğrulaması için kullanılan birincil bağlantı dizesi |
-    | `yourSecondaryKey` | Kimlik doğrulaması için kullanılan ikincil bağlantı dizesi |
-    | `yourTopicName` | Özelleştirilmiş, konu adı |
+    | *AdAlanınız* | Uç noktanız için ad alanı |
+    | *yourPrimaryKey* | Kimlik doğrulaması için kullanılan birincil bağlantı dizesi |
+    | *yourSecondaryKey* | Kimlik doğrulaması için kullanılan ikincil bağlantı dizesi |
+    | *yourTopicName* | Özelleştirilmiş, konu adı |
 
-- Yönlendirme **Event Grid** olay türleri: `SensorChange`, `SpaceChange`, `TopologyOperation`
+- Yönlendirme **Event Grid** olay türleri: **SensorChange**, **SpaceChange**, **TopologyOperation**
 
   ```JSON
   {
@@ -212,11 +215,11 @@ POST https://endpoints-demo.azuresmartspaces.net/management/api/v1.0/endpoints
 
     | Özel öznitelik adı | Değiştirin |
     | --- | --- |
-    | `yourPrimaryKey` | Kimlik doğrulaması için kullanılan birincil bağlantı dizesi|
-    | `yourSecondaryKey` | Kimlik doğrulaması için kullanılan ikincil bağlantı dizesi |
-    | `yourTopicName` | Özelleştirilmiş, konu adı |
+    | *yourPrimaryKey* | Kimlik doğrulaması için kullanılan birincil bağlantı dizesi|
+    | *yourSecondaryKey* | Kimlik doğrulaması için kullanılan ikincil bağlantı dizesi |
+    | *yourTopicName* | Özelleştirilmiş, konu adı |
 
-- Yönlendirme **olay hub'ı** olay türleri: `SensorChange`, `SpaceChange`, `TopologyOperation`
+- Yönlendirme **olay hub'ı** olay türleri: **SensorChange**, **SpaceChange**, **TopologyOperation**
 
   ```JSON
   {
@@ -234,12 +237,12 @@ POST https://endpoints-demo.azuresmartspaces.net/management/api/v1.0/endpoints
 
     | Özel öznitelik adı | Değiştirin |
     | --- | --- |
-    | `yourNamespace` | Uç noktanız için ad alanı |
-    | `yourPrimaryKey` | Kimlik doğrulaması için kullanılan birincil bağlantı dizesi |
-    | `yourSecondaryKey` | Kimlik doğrulaması için kullanılan ikincil bağlantı dizesi |
-    | `yourEventHubName` | Olay hub'ınızın adı |
+    | *AdAlanınız* | Uç noktanız için ad alanı |
+    | *yourPrimaryKey* | Kimlik doğrulaması için kullanılan birincil bağlantı dizesi |
+    | *yourSecondaryKey* | Kimlik doğrulaması için kullanılan ikincil bağlantı dizesi |
+    | *yourEventHubName* | Adı, **olay hub'ı** |
 
-- Yönlendirme **olay hub'ı** olay türleri `DeviceMessage`. Not edilmesi _EntityPath_ içinde `connectionString`, hangi zorunludur.
+- Yönlendirme **olay hub'ı** olay türü: **DeviceMessage**. Eklenmesi, `EntityPath` içinde **connectionString** zorunludur.
 
   ```JSON
   {
@@ -255,10 +258,10 @@ POST https://endpoints-demo.azuresmartspaces.net/management/api/v1.0/endpoints
 
     | Özel öznitelik adı | Değiştirin |
     | --- | --- |
-    | `yourNamespace` | Uç noktanız için ad alanı |
-    | `yourPrimaryKey` | Kimlik doğrulaması için kullanılan birincil bağlantı dizesi |
-    | `yourSecondaryKey` | Kimlik doğrulaması için kullanılan ikincil bağlantı dizesi |
-    | `yourEventHubName` | Olay hub'ınızın adı |
+    | *AdAlanınız* | Uç noktanız için ad alanı |
+    | *yourPrimaryKey* | Kimlik doğrulaması için kullanılan birincil bağlantı dizesi |
+    | *yourSecondaryKey* | Kimlik doğrulaması için kullanılan ikincil bağlantı dizesi |
+    | *yourEventHubName* | Adı, **olay hub'ı** |
 
 > [!NOTE]
 > Yeni bir uç nokta oluşturulduktan sonra en fazla 5 uç noktasında olayları almaya başlaması için 10 dakika sürebilir.

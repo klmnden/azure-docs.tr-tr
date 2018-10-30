@@ -12,12 +12,12 @@ ms.author: ronitr
 ms.reviewer: vanto
 manager: craigg
 ms.date: 10/15/2018
-ms.openlocfilehash: 32b60a53581a0f372a7d994cfa260ebd7bcb27b2
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: ffa1c45b2d9449310a2b0dcc66a513b4d8efbc5d
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49467050"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50232996"
 ---
 # <a name="azure-sql-database-data-discovery-and-classification"></a>Azure SQL veritabanı veri bulma ve sınıflandırma
 
@@ -132,7 +132,7 @@ Bilgi koruma paradigma önemli bir yönüdür hassas verilere erişimi izlemek i
 Sütun sınıflandırmaları Ekle/Kaldır ek olarak, veritabanının tamamı için tüm sınıflandırmaları almak için T-SQL kullanabilirsiniz.
 
 > [!NOTE]
-> Etiketleri yönetmek için T-SQL kullanarak, eklenen bir sütuna kuruluş bilgilerini koruma İlkesi (portal önerileri görünen etiket kümesi) mevcut olan doğrulama yoktur. Therefor bunu doğrulamak için size bağlıdır.
+> Etiketleri yönetmek için T-SQL kullanarak, eklenen bir sütuna kuruluş bilgilerini koruma İlkesi (portal önerileri görünen etiket kümesi) mevcut olan doğrulama yoktur. Bu nedenle bu doğrulamak için size bağlıdır.
 
 - Bir veya daha fazla sütun sınıflandırmasını ekleme/güncelleştirme: [DUYARLIK SINIFLANDIRMASI ekleyin](https://docs.microsoft.com/sql/t-sql/statements/add-sensitivity-classification-transact-sql)
 - Bir veya daha fazla sütunlarından Sınıflandırmayı kaldırmak: [bırak DUYARLIK SINIFLANDIRMASI](https://docs.microsoft.com/sql/t-sql/statements/drop-sensitivity-classification-transact-sql)

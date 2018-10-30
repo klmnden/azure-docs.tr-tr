@@ -1,6 +1,6 @@
 ---
-title: Azure Site Recovery ile Azure'a çoğaltma için Hyper-V sorunlarını giderme | Microsoft Docs
-description: Açıklayan nasıl Hyper-V ile Azure Site Recovery kullanarak Azure'a çoğaltma sorunlarını gidermek için
+title: Azure Site Recovery ile Azure'a olağanüstü durum kurtarma için Hyper-V sorunlarını giderme | Microsoft Docs
+description: Hyper-V ile Azure Site Recovery kullanarak Azure'a çoğaltma, olağanüstü durum kurtarma sorunlarını giderme açıklar
 services: site-recovery
 author: Rajeswari-Mamilla
 manager: rochakm
@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 10/10/2018
 ms.author: ramamill
-ms.openlocfilehash: 027107cca1872ddd504567b74c798fc00e9af214
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: 753f666c9ac0167f672353ff33e28d0f7e68b755
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49067407"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50212956"
 ---
 # <a name="troubleshoot-hyper-v-to-azure-replication-and-failover"></a>Azure'a çoğaltma ve yük devretme için Hyper-V sorunlarını giderme
 

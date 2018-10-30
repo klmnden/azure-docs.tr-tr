@@ -1,5 +1,5 @@
 ---
-title: Azure Log Analytics - Azure Logic Apps B2B iletilerini izleme | Microsoft Docs
+title: Log Analytics - Azure Logic Apps B2B iletilerini izleme | Microsoft Docs
 description: Tümleştirme hesapları ve Azure Log Analytics ile Azure Logic Apps B2B iletişimini izleme
 services: logic-apps
 ms.service: logic-apps
@@ -8,18 +8,17 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
-ms.assetid: bb7d9432-b697-44db-aa88-bd16ddfad23f
-ms.date: 06/19/2018
-ms.openlocfilehash: 666c998a781f13ea2a26ccfc0b94aeead0308f5b
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.date: 10/19/2018
+ms.openlocfilehash: 0bfb652d9e64b9dbf61ad4032f1449fd484cc80a
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49405693"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50233574"
 ---
-# <a name="track-b2b-communication-with-azure-log-analytics"></a>B2B iletişim Azure Log Analytics ile izleme
+# <a name="track-b2b-messages-with-azure-log-analytics"></a>Azure Log Analytics ile B2B iletilerini izleme
 
-İkisi arasındaki B2B iletişim kurduktan sonra iş süreçlerine veya tümleştirme hesabınız üzerinden uygulamaları çalıştıran bu varlıkların birbirleriyle iletiler gönderip alabilir. Bu iletiler doğru işlenir, AS2, X12, izleyebilir ve EDIFACT iletileri ile olup olmadığını denetlemek için [Azure Log Analytics](../log-analytics/log-analytics-overview.md). Örneğin, izleme iletileri için bu izleme web tabanlı özellikleri kullanabilirsiniz:
+Tümleştirme hesabı ticari ortaklar arasında B2B iletişim kurduktan sonra iş ortakları protokolleri gibi AS2, X 12 ve EDIFACT iletileri gönderip alabilir. Bu iletiler doğru işlenir denetlemek için bu iletileri ile izleyebilirsiniz [Azure Log Analytics](../log-analytics/log-analytics-overview.md). Örneğin, izleme iletileri için bu izleme web tabanlı özellikleri kullanabilirsiniz:
 
 * İleti sayısı ve durumu
 * Bildirim durumu
@@ -27,7 +26,10 @@ ms.locfileid: "49405693"
 * Hataları için ayrıntılı hata açıklamaları
 * Arama özellikleri
 
-## <a name="requirements"></a>Gereksinimler
+> [!NOTE]
+> Bu sayfa, Microsoft Operations Management Suite (olan OMS ile), bu görevleri gerçekleştirmek adımlar daha önce açıklanan [Ocak 2019 ' devre dışı bırakma](../log-analytics/log-analytics-oms-portal-transition.md), bu adımlar, bunun yerine Azure Log Analytics ile değiştirir. 
+
+## <a name="prerequisites"></a>Önkoşullar
 
 * Tanılama günlük kaydı ile ayarlanmış bir mantıksal uygulama. Bilgi [bir mantıksal uygulama oluşturma işlemini](quickstart-create-first-logic-app-workflow.md) ve [nasıl ayarlanacağı, mantıksal uygulama için günlüğe kaydetmeyi](../logic-apps/logic-apps-monitor-your-logic-apps.md#azure-diagnostics).
 
@@ -35,51 +37,57 @@ ms.locfileid: "49405693"
 
 * Henüz kaydolmadıysanız [Log Analytics için tanılama verilerini yayımlama](../logic-apps/logic-apps-track-b2b-messages-omsportal.md).
 
-> [!NOTE]
-> Önceki gereksinimlerini karşılamanızın sonra bir Log Analytics çalışma alanı olmalıdır. B2B iletişiminizin Log Analytics, izleme için aynı çalışma alanı kullanmanız gerekir. 
->  
-> Bir Log Analytics çalışma alanınız yoksa, bilgi [bir Log Analytics çalışma alanı oluşturma](../log-analytics/log-analytics-quick-create-workspace.md).
+* Önceki gereksinimlerini sonra Log Analytics aracılığıyla B2B iletişimi izlemek için kullandığınız bir Log Analytics çalışma alanı da gerekir. Bir Log Analytics çalışma alanınız yoksa, bilgi [bir Log Analytics çalışma alanı oluşturma](../log-analytics/log-analytics-quick-create-workspace.md).
 
-## <a name="add-the-logic-apps-b2b-solution-to-azure"></a>Azure Logic Apps B2B çözümü ekleme
+## <a name="install-logic-apps-b2b-solution"></a>Logic Apps B2B çözümü yükleme
 
-Mantıksal uygulamanız için B2B iletilerini izleme log Analytics için eklemelisiniz **Logic Apps B2B** Log analytics'e çözüm. Daha fazla bilgi edinin [Log Analytics çözümleri ekleme](../log-analytics/log-analytics-quick-create-workspace.md).
+Log Analytics, mantıksal uygulamanız için B2B iletilerini izleme olabilir önce ekleme **Logic Apps B2B** Log analytics'e çözüm. Daha fazla bilgi edinin [Log Analytics çözümleri ekleme](../log-analytics/log-analytics-quick-create-workspace.md).
 
-1. İçinde [Azure portalında](https://portal.azure.com), seçin **tüm hizmetleri**. "Log analytics için" için arama yapın ve ardından **Log Analytics** burada gösterildiği gibi:
+1. [Azure portalda](https://portal.azure.com) **Tüm hizmetler**’i seçin. Arama kutusuna "log analytics" bulup seçin **Log Analytics**.
 
-   ![Log Analytics'i bulma](media/logic-apps-track-b2b-messages-omsportal/browseloganalytics.png)
+   ![Log Analytics'e seçin](media/logic-apps-track-b2b-messages-omsportal/find-log-analytics.png)
 
-2. Altında **Log Analytics**bulup Log Analytics çalışma alanınızı seçin. 
+1. Altında **Log Analytics**bulup Log Analytics çalışma alanınızı seçin. 
 
-   ![Log Analytics çalışma alanınızı seçin](media/logic-apps-track-b2b-messages-omsportal/selectla.png)
+   ![Log Analytics çalışma alanı seçin](media/logic-apps-track-b2b-messages-omsportal/select-log-analytics-workspace.png)
 
-3. Altında **Yönetim**, seçin **çalışma özeti**.
+1. Altında **Log Analytics ile çalışmaya başlama** > **izleme çözümleri yapılandırma**, seçin **çözümleri görüntülemek**.
 
-   ![Log Analytics Portalı'nı seçin](media/logic-apps-track-b2b-messages-omsportal/omsportalpage.png)
+   !["Çözümleri görüntüle" seçin](media/logic-apps-track-b2b-messages-omsportal/log-analytics-workspace.png)
 
-4. Giriş sayfası açıldıktan sonra seçin **Ekle** Logic Apps B2B çözümü yüklemek için.    
-   ![Çözüm Galerisi seçin](media/logic-apps-track-b2b-messages-omsportal/add-b2b-solution.png)
+1. Genel bakış sayfasında, **Ekle**, açan **yönetim çözümleri** listesi. Bu listeden **Logic Apps B2B**. 
 
-5. Altında **yönetim çözümleri**, bulma ve oluşturma **Logic Apps B2B** çözüm.     
-   ![Logic Apps B2B seçin](media/logic-apps-track-b2b-messages-omsportal/create-b2b-solution.png)
+   ![Logic Apps B2B çözümü seçin](media/logic-apps-track-b2b-messages-omsportal/add-b2b-solution.png)
 
-   Giriş sayfasında, kutucuğuna **Logic Apps B2B iletileri** görünür. 
-   B2B iletilerinizi işlendiğinde bu kutucuk ileti sayısı güncelleştirir.
+   Listenin, çözüm bulamazsanız seçin **daha fazla Yükle** çözüm görünene kadar.
+
+1. Seçin **Oluştur**, doğrulamak istediğiniz çözümü yüklemek ve sonra Log Analytics çalışma alanı **Oluştur** yeniden.   
+
+   !["Logic Apps B2B için oluşturma" seçin](media/logic-apps-track-b2b-messages-omsportal/create-b2b-solution.png)
+
+   Mevcut bir çalışma alanı kullanmak istemiyorsanız, şu anda yeni bir çalışma alanı da oluşturabilirsiniz.
+
+1. İşiniz bittiğinde, çalışma alanınıza ait dönün **genel bakış** sayfası. 
+
+   Logic Apps B2B çözümü, artık genel bakış sayfasında görünür. 
+   B2B iletilerini işlendiğinde, bu sayfadaki ileti sayısı güncelleştirilir.
 
 <a name="message-status-details"></a>
 
-## <a name="track-message-status-and-details-in-log-analytics"></a>İleti durumu ve ayrıntıları Log analytics'te izleyin
+## <a name="view-b2b-message-information"></a>B2B ileti bilgileri görüntüleyin
 
-1. B2B iletilerinizi işlendikten sonra durum ve bu iletileri ayrıntılarını görüntüleyebilirsiniz. Genel bakış sayfasında, **Logic Apps B2B iletileri** Döşe.
+B2B iletilerini işlendikten sonra durum ve bu iletileri ayrıntılarını görüntüleyebilirsiniz **Logic Apps B2B** Döşe.
+
+1. Mantıksal Analytics çalışma alanınıza gidin ve genel bakış sayfasını açın. Seçin **Logic Apps B2B**.
 
    ![Güncelleştirilmiş ileti sayısı](media/logic-apps-track-b2b-messages-omsportal/b2b-overview-tile.png)
 
    > [!NOTE]
-   > Varsayılan olarak, **Logic Apps B2B iletileri** kutucuğu, tek bir günde göre verileri gösterir. Farklı bir zaman aralığı için veri kapsamı değiştirmek için sayfanın üst kapsam denetimi seçin:
+   > Varsayılan olarak, **Logic Apps B2B** kutucuğu, tek bir günde göre verileri gösterir. Farklı bir zaman aralığı için veri kapsamı değiştirmek için sayfanın üst kapsam denetimi seçin:
    > 
-   > ![Veri Kapsamı Değiştir](media/logic-apps-track-b2b-messages-omsportal/server-filter.png)
-   >
+   > ![Değiştirme aralığı](media/logic-apps-track-b2b-messages-omsportal/change-interval.png)
 
-2. İleti sonra durum panosu açılır, tek bir günde göre verileri gösteren bir özel ileti türü için daha fazla ayrıntı görüntüleyebilirsiniz. İçin kutucuğu seçin **AS2**, **X12**, veya **EDIFACT**.
+1. İleti sonra durum panosu açılır, tek bir günde göre verileri gösteren bir özel ileti türü için daha fazla ayrıntı görüntüleyebilirsiniz. İçin kutucuğu seçin **AS2**, **X12**, veya **EDIFACT**.
 
    ![İleti Durumu görüntüle](media/logic-apps-track-b2b-messages-omsportal/omshomepage5.png)
 

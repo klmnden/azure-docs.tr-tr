@@ -10,12 +10,12 @@ ms.component: content-moderator
 ms.topic: article
 ms.date: 09/25/2018
 ms.author: sajagtap
-ms.openlocfilehash: 5d485911e9cd509292266d98debad6684d6cf219
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 3b0cd73be1857d0849c4cb53dcc52c5c27206e80
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47435614"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50230922"
 ---
 # <a name="language-and-region-support-for-content-moderator-api"></a>Content Moderator API'si için dil ve bölge desteği
 
@@ -29,46 +29,46 @@ ms.locfileid: "47435614"
 | -------------------- |-------------|--------|---------------------|
 | Arapça (Romanized)   | Afrikaner dili   | Arapça   | Arapça
 | Bali dili | Arnavutça | Çince (Basitleştirilmiş)    | Danca
-| Bengali | Amhara dili | Çince (Geleneksel)     | Hollanda dili
+| Bengali | Amhara dili | Çince (Geleneksel)     | Felemenkçe
 | Bugi dili | Arapça | Çekçe                     | Türkçe
 | Buhid | Ermenice | Danca                     | Fince
-| Carian | Assam dili | Hollanda dili                     | Fransızca
+| Carian | Assam dili | Felemenkçe                     | Fransızca 
 | Çince (Basitleştirilmiş) | Azerice | Türkçe  | Yunanca (modern)
 | Çince (Geleneksel) | Bangla - Bangladeş | Fince  | İtalyanca
-| Church (Slavca) | Bangla - Hindistan | Fransızca     | Kore dili
-| Koptikleri | Bask dili | Almanca                      | Norveççe
+| Church (Slavca) | Bangla - Hindistan | Fransızca      | Kore dili
+| Koptikleri | Bask dili | Almanca                       | Norveççe
 | Çekçe |  Belarusça | Yunanca (modern)         | Lehçe
 | Dhivehi | Boşnakça - Kiril | Macarca      | Portekizce
-| Hollanda dili | Boşnakça - Latin | İtalyanca             | Rumence
+| Felemenkçe | Boşnakça - Latin | İtalyanca             | Rumence
 | Türkçe | (Kreyolu) | Bretonca [GeoPol olmayan] | Japonca  | Rusça
 | Farsça | Bulgarca | Kore dili                        | Slovakça
-| Fransızca | Katalanca | Norveççe                        | İspanyolca
-| Almanca | Orta Kürtçe | Lehçe        | Türkçe
+| Fransızca  | Katalanca | Norveççe                        | İspanyolca 
+| Almanca  | Orta Kürtçe | Lehçe        | Türkçe
 | Yunanca | Çeroki dili | Portekizce
 | Haiti Kreyolu | Çince (Basitleştirilmiş) | Rumence
 | İbranice | Çince (Geleneksel) - Hong Kong ÖİB | Rusça
 | Hintçe | Çince (Geleneksel) - Tayvan | Sırpça Kiril
 | Hmong | Hırvatça | Sırpça Latin
 | Macarca | Çekçe | Slovakça
-| İtalyanca | Danca | İspanyolca
+| İtalyanca | Danca | İspanyolca 
 | Japonca | Dari dili | İsveç dili
-| Kore dili | Hollanda dili | Türkçe
+| Kore dili | Felemenkçe | Türkçe
 | Kürtçe (Arapça) | Türkçe
 | Kürtçe (Latin) | Estonca
 | Lepça dili | Filipin dili
 | Limbu dili | Fince
-| Lu | Fransızca
+| Lu | Fransızca 
 | Lycian | Galiçya dili
 | Lydian | Gürcüce
-| Mycenaean (Yunanca) | Almanca
+| Mycenaean (Yunanca) | Almanca 
 | Nko | Yunanca
 | Norveççe (Bokmål) | Gucerat dili
 | Norveççe (Nynorsk) |  Hausa dili
 | Eski (Farsça) | İbranice
 | Peştuca | Hintçe
 | Lehçe | Macarca
-| Portekizcesi | İzlanda dili
-| Pencap dili | İgbo dili
+| Portekizce | İzlanda dili
+| Pencap dili | Igbo dili
 | Rejang | Endonezya dili
 | Rusça | İnuit dili
 | Santali | İrlanda dili
@@ -78,18 +78,18 @@ ms.locfileid: "47435614"
 | Sırpça (Latin) | Japonca
 | Sinhali dili | Kannada dili
 | Slovence | Kazakça
-| İspanyolca | Khmer dili
+| İspanyolca  | Khmer dili
 | İsveç dili | Kiçe dili
 | Sylheti | Kinyarvanda dili
 | Süryanice | Svahili dili
-| Tagbanwa | Konkani dili
+| Tagbanwa | Konkan dili
 | Tai (Nua) | Kore dili
 | Tamashek | Kırgızca
 | Türkçe | Lao dili
 | Ugaritic | Letonca
 | Özbekçe (Kiril) | Litvanca
 | Özbekçe (Latin) | Lüksemburg dili
-| Vai | Makedonca
+| Vai | Makedonca (EYC)
 | Yi dili | Malay dili
 | Zhuang, Chuang | Malayalam dili
 | | Malta dili
@@ -122,7 +122,7 @@ ms.locfileid: "47435614"
 | | Sinhali dili
 | | Slovakça
 | | Slovence
-| | İspanyolca
+| | İspanyolca 
 | | İsveç dili
 | | Tacik dili
 | | Tamil dili
@@ -140,4 +140,4 @@ ms.locfileid: "47435614"
 | | Vietnam dili
 | | Galce
 | | Volof dili
-| | Yoruba dili
+| | Yorubaca

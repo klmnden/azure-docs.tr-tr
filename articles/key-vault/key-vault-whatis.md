@@ -14,30 +14,33 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/05/2018
 ms.author: barclayn
-ms.openlocfilehash: 56a1ebcfbb6dda9bc96aa241bd2b8d753022181a
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: d1a6da5d599296a11678ee58cadc42d61296e8e7
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49385875"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50230310"
 ---
 # <a name="what-is-azure-key-vault"></a>Azure Anahtar Kasası nedir?
 
-Azure Key Vault, aşağıdaki sorunların çözülmesine yardımcı olur
-- **Gizli Dizi Yönetimi**: Belirteçleri, parolaları, sertifikaları, API anahtarlarını ve diğer gizli dizileri Güvenle depolamak ve bunlara erişimi sıkı bir şekilde denetlemek için Azure Key Vault kullanılabilir.
+Azure Key Vault, aşağıdaki sorunları çözmenize yardımcı olur:
+- **Gizli dizileri Yönetim** -Azure Key Vault, güvenli bir şekilde saklayın ve sıkı bir şekilde belirteçleri, parolaları, sertifikaları, API anahtarlarını ve diğer gizli dizileri erişimi denetlemek için kullanılabilir.
 - **Anahtar Yönetimi**: Azure Key Vault, Anahtar Yönetimi çözümü olarak da kullanılabilir. Azure Key Vault, verilerinizi şifrelemek için kullanılan şifreleme anahtarlarını oluşturmayı ve denetlemeyi kolaylaştırır. 
 - **Sertifika Yönetimi**: Azure Key Vault aynı zamanda, Azure ve bağlı iç kaynaklarınızla kullanım için genel ve özel Güvenli Yuva Katmanı/Aktarım Katmanı Güvenliği (SSL/TLS) sertifikalarını kolayca hazırlamanıza, yönetmenize ve dağıtmanıza olanak sağlayan bir hizmettir. 
-- **Gizli dizileri Donanım Güvenlik Modülleri desteğiyle saklayın**: Gizli diziler ve anahtarlar yazılım tarafından korunabilir veya FIPS 140-2 Düzey 2, HSM'leri doğrular
+- **Gizli dizileri donanım güvenlik modülleri tarafından desteklenen Store** -gizli dizileri ve anahtarları korunan yazılım veya FIPS 140-2 Düzey 2 HSM'ler doğrular.
 
 ## <a name="basic-concepts"></a>Temel kavramlar
 
 Azure Key Vault, gizli dizilerin güvenli bir şekilde depolanması ve bunlara erişim sağlanması için tasarlanmış bir araçtır. Gizli dizi; API anahtarları, parolalar veya sertifikalar gibi erişimi sıkı bir şekilde denetlemek istediğiniz tüm öğelerdir. A **kasası** gizli dizileri oluşan mantıksal gruptur. Artık Key Vault ile herhangi bir işlemi yapmak için önce için kimlik doğrulaması gerekir. 
 
-Temelde anahtar Kasası'na kimlik doğrulaması için izleyebileceğiniz 3 yol vardır
+Temelde anahtar Kasası'na kimlik doğrulaması için izleyebileceğiniz 3 yol vardır:
 
 1. **Kullanarak [kimliklerini Azure kaynakları için yönetilen](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)**  (**önerilen ve en iyi**): azure'da bir sanal makinede bir uygulamayı dağıttığınızda, sanal makinenize bir kimlik atayabilir. Bu anahtar kasası erişimi vardır. Listelenen diğer azure kaynakları için kimlikleri de atayabilirsiniz [burada](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview). Bu yaklaşımın avantajı, uygulama / hizmet ilk gizli döndürmesini yönetmeye değil. Azure, otomatik olarak kimliğini döndürür. 
-2. **Hizmet sorumlusu ve sertifika kullanılarak:** 2 seçenek bir hizmet sorumlusu ve anahtar kasası erişimi olan ilişkili bir sertifika kullanmaktır. Uygulama sahibi veya Geliştirici sertifika döndürme kullanýldýðýnýanýmsama olduğunu ve bu nedenle bu önerilmez
-3. **Hizmet sorumlusu gizli anahtarı ile:** 3 (değil tercih edilen seçenek) anahtar Kasası'na kimlik doğrulaması için bir hizmet sorumlusu ve bir gizli dizi kullanmak için bir seçenektir
+2. **Hizmet sorumlusu ve sertifika kullanılarak:** 2 seçenek bir hizmet sorumlusu ve anahtar kasası erişimi olan ilişkili bir sertifika kullanmaktır. Uygulama sahibi veya Geliştirici sertifika döndürme kullanýldýðýnýanýmsama olduğunu ve bu nedenle bu önerilmez.
+3. **Hizmet sorumlusu gizli anahtarı ile:** 3 (değil tercih edilen seçenek) anahtar Kasası'na kimlik doğrulaması için bir hizmet sorumlusu ve bir gizli dizi kullanmak için bir seçenektir.
+
+> [!NOTE]
+> Önyükleme gizli anahtar Kasası'na kimliğini doğrulamak için kullanılan Otomatik döndürme zor olduğundan, yukarıdaki 3 seçeneği kullanılmamalıdır.
 
 Aşağıda bazı önemli terimler verilmiştir:
 - **Kiracı**: Kiracı, Microsoft bulut hizmetlerinin belirli bir örneğine sahip olan ve onu yöneten kuruluştur. Genelde bir kuruluş için Azure ve Office 365 hizmetlerinden oluşan kümeyi belirtmek üzere kullanılır.
@@ -45,7 +48,7 @@ Aşağıda bazı önemli terimler verilmiştir:
 - **Kasa tüketicisi**: Kasa tüketicisi, kasa sahibi tarafından tüketici erişimi sağlandığında, anahtar kasasındaki varlıklar üzerinde belirli eylemler gerçekleştirebilir. Kullanılabilen eylemler verilen izinlere bağlıdır.
 - **Kaynak**: Azure aracılığıyla kullanılan, yönetilebilir bir öğedir. Sanal makine, depolama hesabı, web uygulaması, veritabanı ve sanal ağ bazı yaygın kaynaklardandır, ancak çok daha fazlası mevcuttur.
 - **Kaynak grubu**: Kaynak grubu, Azure çözümleri için ilgili kaynakları bir arada tutan kapsayıcılardır. Kaynak grubu bir çözümün tüm kaynaklarını veya yalnızca grup olarak yönetmek istediğiniz kaynakları içerebilir. Kuruluş için önemli olan faktörleri temel alarak kaynakları kaynak gruplarına nasıl ayıracağınıza siz karar verirsiniz.
-- **Hizmet sorumlusu** - Azure AD kiracısı tarafından korunan kaynaklar, bir güvenlik sorumlusu tarafından erişim temsil gerektiren varlık erişebilmek için. Bu, kullanıcılara (kullanıcı sorumlusu) ve (hizmet sorumlusu) uygulamaları için geçerlidir. Güvenlik sorumlusu erişim ilkesini ve kullanıcı/uygulama izinlerini bu kiracıda tanımlar. Bu, kullanıcı/uygulama kimlik doğrulaması sırasında oturum açma ve yetkilendirme sırasında kaynak erişimi gibi temel özellikleri sağlar.
+- **Hizmet sorumlusu** -bir Azure hizmet sorumlusu olduğundan kullanıcı tarafından oluşturulan uygulamalar, hizmetler ve Otomasyon araçlarının belirli Azure kaynaklarına erişmek için kullanılan bir güvenlik kimliği. Bunu belirli bir rolü olan ve izinleri sıkı bir şekilde denetlenen bir "kullanıcı kimliği" (kullanıcı adı ve parola veya sertifika) olarak düşünebilirsiniz. Genel kullanıcı kimliğinin aksine, hizmet sorumlusunun yalnızca belirli şeyleri yapabilmesi gerekir. Hizmet sorumlusuna yönetim görevlerini gerçekleştirmesi için gereken en düşük izin düzeyini atamanız, güvenliği geliştirir.
 - **[Azure Active Directory (Azure AD)](../active-directory/active-directory-whatis.md)**: Azure AD, bir kiracıya ilişkin Active Directory hizmetidir. Her dizinde bir veya daha fazla etki alanı vardır. Dizinde birden fazla abonelik bulunabilir ancak tek bir kiracı olur. 
 - **Azure kiracı kimliği**: Kiracı kimliği, bir Azure aboneliğinde Azure AD örneğini tanımlamanın benzersiz bir yoludur.
 - **Kimlikler Azure kaynakları için yönetilen**: Azure Key Vault kimlik bilgilerini ve diğer anahtarlar ve gizli anahtarları güvenli bir şekilde depolamak için bir yol sağlar, ancak bunları almak için anahtar Kasası'na kimlik doğrulaması kodunuzu gerekiyor. Yönetilen kimlik kullanarak Azure hizmetleri otomatik olarak yönetilen bir kimlik sağlayarak Azure AD'de basit bu sorunu çözme yapar. Bu kimliği kullanarak, Key Vault veya Azure AD kimlik doğrulamasını destekleyen tüm hizmetler için kodunuzda kimlik bilgileri bulunmasına gerek kalmadan kimlik doğrulaması yapabilirsiniz. Daha fazla bilgi için aşağıdaki resme bakın ve [yönetilen Azure kaynaklarına genel bakış için kimlikleri](../active-directory/managed-identities-azure-resources/overview.md).

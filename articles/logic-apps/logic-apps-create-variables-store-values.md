@@ -1,6 +1,6 @@
 ---
-title: Değerler - Azure Logic Apps kaydetmek için değişkenler oluşturun | Microsoft Docs
-description: Kaydetme ve Azure Logic Apps içinde değişkenleri oluşturarak değerleri yönetme
+title: Değerleri - Azure Logic Apps kaydetmek için değişkenler oluşturun | Microsoft Docs
+description: Kaydetme ve Azure Logic Apps'te değişkenleri oluşturarak değerleri yönetme
 services: logic-apps
 author: ecfan
 manager: jeconnoc
@@ -10,77 +10,77 @@ ms.date: 05/30/2018
 ms.service: logic-apps
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: 0efce9fbbbd241f335f08bb258b6ba343982fdb9
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: c0f2802bae366637fd93d47e33619746b7142f53
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35299197"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50231636"
 ---
-# <a name="create-variables-for-saving-and-managing-values-in-azure-logic-apps"></a>Kaydetme ve Azure Logic Apps değerlerde yönetmek için değişkenleri oluşturma
+# <a name="create-variables-for-saving-and-managing-values-in-azure-logic-apps"></a>Kaydetme ve Azure Logic Apps değerleri yönetmek için değişkenleri oluşturma
 
-Bu makalede nasıl depolamak ve değişkenleri oluşturarak mantıksal uygulamanızı değerlerle çalışma gösterilmektedir. Örneğin, değişkenleri, bir döngü çalışan sayısı saymak yardımcı olabilir. Ne zaman bir dizi yineleme ya da belirli bir öğe için bir dizi denetimi, her bir dizi öğesi için dizin numarasını başvurmak için bir değişkeni kullanabilirsiniz. 
+Bu makale, depolamak ve değerleri ile mantıksal uygulamanızda değişkenleri oluşturarak iş nasıl gösterir. Örneğin, değişkenleri, bir döngü çalışan sayısını sayma yardımcı olabilir. Ne zaman bir dizi yineleme veya belirli bir öğe için bir dizi denetimi, dizideki tüm öğeler için dizin numarasını başvurmak için bir değişken kullanabilirsiniz. 
 
-Tamsayı, kayan nokta, boolean, dize, dizi ve nesne gibi veri türleri için değişkenleri oluşturabilirsiniz. Bir değişken oluşturduktan sonra Örneğin diğer görevleri gerçekleştirebilirsiniz:
+Tamsayı, kayan noktalı sayı, Boole, dize, dizi ve nesne gibi veri türleri için değişkenler oluşturabilirsiniz. Bir değişken oluşturduktan sonra Örneğin diğer görevleri gerçekleştirebilirsiniz:
 
-* Alın veya değişken değerinin başvuru.
-* Değişkeni sabit bir değer olarak da bilinen azaltabileceğinden *artırma* ve *azaltma*.
-* Farklı bir değer değişkenine atayın.
-* INSERT veya *sona* değişkenin değeri olarak en son ne zaman bir dize veya dizi.
+* GET veya değişkenin değeri başvurusu.
+* Artırma veya değişkeni sabit bir değer olarak da bilinen azaltma *artışı* ve *azaltma*.
+* Değişkenine farklı bir değer atayın.
+* Ekleme veya *ekleme* değişkenin değeri olarak bir dize veya dizideki son zaman.
 
-Değişkenleri var ve kendilerini oluşturan yalnızca mantığı uygulama örneği içinde geneldir. Ayrıca, herhangi bir mantıksal uygulama örneğinin içine döngü yineleme arasında kalır. Bir değişken başvururken belirteci olarak bir eylemin çıkış başvurmak için her zamanki gibi olan eylemin adı değil, değişkenin adını kullanın.
+Değişkenleri, mevcut ve kendilerini oluşturan yalnızca mantıksal uygulama örneği içinde geneldir. Ayrıca, bir mantıksal uygulama örneği içindeki herhangi bir döngü yinelemesi arasında kalıcı. Bir değişken başvururken değişkenin adı belirteci, bir eylemin çıkışlarına başvuruyor için her zamanki şekilde değil eylemin adı olarak kullanın.
 
-Henüz bir Azure aboneliğiniz yoksa <a href="https://azure.microsoft.com/free/" target="_blank">ücretsiz bir Azure hesabı için kaydolun</a>. 
+Henüz Azure aboneliğiniz yoksa, <a href="https://azure.microsoft.com/free/" target="_blank">ücretsiz bir Azure hesabı için kaydolun</a>. 
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Bu makalede izlemek için gereksinim duyduğunuz öğeleri şunlardır:
+Bu makalede takip etmek için gereksinim duyduğunuz öğeleri şunlardır:
 
-* Bir değişken oluşturmak istediğiniz mantıksal uygulama 
+* Bir değişken oluşturmak için istediğiniz mantıksal uygulama 
 
-  Logic apps yeniyseniz, gözden [Azure Logic Apps nedir](../logic-apps/logic-apps-overview.md) ve [hızlı başlangıç: ilk mantıksal uygulamanızı oluşturma](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+  Logic apps kullanmaya yeni başladıysanız gözden [Azure Logic Apps nedir](../logic-apps/logic-apps-overview.md) ve [hızlı başlangıç: ilk mantıksal uygulamanızı oluşturma](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 * A [tetikleyici](../logic-apps/logic-apps-overview.md#logic-app-concepts) mantıksal uygulamanızı ilk adımı olarak 
 
-  Oluşturma ve değişkenlerle çalışma Eylemler eklemeden önce mantıksal uygulamanızı tetikleyici ile başlamalıdır.
+  Mantıksal uygulamanızı, oluşturmak ve değişkenlerle çalışmak için Eylemler ekleyebilmeniz için önce bir tetikleyici ile başlamalıdır.
 
 <a name="create-variable"></a>
 
 ## <a name="initialize-variable"></a>Değişken başlat
 
-Bir değişken oluşturun ve kendi veri türü ve ilk değer - tüm mantıksal uygulamanızı bir eylemde içinde bildirin. Yalnızca genel düzeyde, kapsamları, koşullar ve döngüler içinde olmayan değişkenleri bildirebilirsiniz. 
+Bir değişken oluşturun ve kendi veri türüne ve ilk değer - tüm mantıksal uygulamanızda bir eylem içinde bildirin. Yalnızca genel düzeyde, kapsamları, koşullar ve döngüler içinde değil değişkenleri bildirebilirsiniz. 
 
-1. İçinde <a href="https://portal.azure.com" target="_blank">Azure portal</a> veya Visual Studio, mantığı Uygulama Tasarımcısı'nda mantıksal uygulamanızı açın. 
+1. İçinde <a href="https://portal.azure.com" target="_blank">Azure portalında</a> veya Visual Studio, Logic Apps Tasarımcısı'nda mantıksal uygulamanızı açın. 
 
-   Bu örnek, Azure portalı ve bir mantıksal uygulama ile varolan bir tetikleyicinin kullanır.
+   Bu örnek, Azure portalı ve bir mantıksal uygulama ile var olan bir tetikleyici kullanır.
 
-2. Bir değişkeni eklemek istediğiniz adımı altında mantıksal uygulamanızı aşağıdaki adımlardan birini tamamlayın: 
+2. Mantıksal uygulamanızda bir değişkeni eklemek istediğiniz adımı altında aşağıdaki adımlardan birini izleyin: 
 
    * Son adım altında bir eylem eklemek için **yeni adım** > **Eylem Ekle**.
 
      ![Eylem Ekle](./media/logic-apps-create-variables-store-values/add-action.png)
 
-   * Adımlar arasındaki bir eylem eklemek için artı (+) görünmesi bağlanan oku farenizi taşıyın. 
+   * Adımlar arasındaki bir eylem eklemek için artı işaretini (+) görünecek şekilde farenizi bağlanan okun üzerine taşıyın. 
    Artı işaretini seçin ve ardından **Eylem Ekle**.
 
-3. Arama kutusuna "değişkenleri", filtre olarak girin. Eylemler listesinden **değişkenleri - Initialize değişkeni**.
+3. Arama kutusuna filtreniz olarak "değişkenler" girin. Eylem listesinden seçim **değişkenler - değişken Başlat**.
 
-   ![Bir eylem seçin](./media/logic-apps-create-variables-store-values/select-initialize-variable-action.png)
+   ![Eylem seçin](./media/logic-apps-create-variables-store-values/select-initialize-variable-action.png)
 
-4. Değişkeniniz için bu bilgileri sağlayın:
+4. Değişkeninizin bu bilgileri sağlayın:
 
    | Özellik | Gerekli | Değer |  Açıklama |
    |----------|----------|-------|--------------|
-   | Ad | Evet | <*değişken adı*> | Artırmak bir değişken adı | 
-   | Tür | Evet | <*değişken türü*> | Değişken veri türü | 
-   | Değer | Hayır | <*Başlangıç değeri*> | Değişkeninizin ilk değeri <p><p>**İpucu**: Başlangıç değeri, değişken için her zaman bilmesi isteğe bağlı olsa da bu değer en iyi uygulama olarak ayarlayın. | 
+   | Ad | Evet | <*değişken adı*> | Artış değişkeni adı | 
+   | Tür | Evet | <*değişken türü*> | Değişken için veri türü | 
+   | Değer | Hayır | <*Başlangıç değeri*> | Değişkeninizin ilk değeri <p><p>**İpucu**: Başlangıç değeri her zaman değişkeninizin bilmesi isteğe bağlı olsa da, bu değeri en iyi uygulama ayarlayın. | 
    ||||| 
 
    ![Değişken başlat](./media/logic-apps-create-variables-store-values/initialize-variable.png)
 
-5. Şimdi, istediğiniz eylemleri ekleme devam edin. Tasarımcı araç çubuğunda bitirdiniz seçin **kaydetmek**.
+5. Şimdi, istediğiniz eylemleri ekleme devam edin. Tasarımcı araç çubuğunda, işiniz bittiğinde seçin **Kaydet**.
 
-Kod Görünümü düzenleyicisine Tasarımcısı'ndan geçiş yapıyorsanız, işte yol **Initialize değişkeni** JavaScript nesne gösterimi (JSON) biçiminde, mantıksal uygulama tanımını içinde eylem görüntülenir:
+Kod Görünümü düzenleyicisine Tasarımcısı'ndan geçiş yapıyorsanız, işte yol **değişken Başlat** eylem görünür JavaScript nesne gösterimi (JSON) biçiminde, mantıksal uygulama tanımı içinde:
 
 ```json
 "actions": {
@@ -100,7 +100,7 @@ Kod Görünümü düzenleyicisine Tasarımcısı'ndan geçiş yapıyorsanız, i�
 
 Diğer bir değişken türleri için örnekler şunlardır:
 
-*Dize değişkeni*
+*String değişkeni*
 
 ```json
 "actions": {
@@ -136,7 +136,7 @@ Diğer bir değişken türleri için örnekler şunlardır:
 },
 ```
 
-*Dizi tamsayılı*
+*İle tamsayı dizisi*
 
 ```json
 "actions": {
@@ -154,7 +154,7 @@ Diğer bir değişken türleri için örnekler şunlardır:
 },
 ```
 
-*Dizi dizeler*
+*Dizeler içeren dizi*
 
 ```json
 "actions": {
@@ -174,12 +174,12 @@ Diğer bir değişken türleri için örnekler şunlardır:
 
 <a name="get-value"></a>
 
-## <a name="get-the-variables-value"></a>Değişken değeri Al
+## <a name="get-the-variables-value"></a>Değişken değerini alın
 
-Almak veya değişkenin içeriği başvurmak için de kullanabilirsiniz [variables() işlevi](../logic-apps/workflow-definition-language-functions-reference.md#variables) mantığı Uygulama Tasarımcısı'nı ve kod görünümü Düzenleyicisi.
-Bir değişken başvururken belirteci olarak bir eylemin çıkış başvurmak için her zamanki gibi olan eylemin adı değil, değişkenin adını kullanın. 
+Almak veya değişkenin içeriklerini başvurmak için de kullanabilirsiniz [variables() işlevi](../logic-apps/workflow-definition-language-functions-reference.md#variables) mantıksal Uygulama Tasarımcısı ve kod görünümü Düzenleyicisi.
+Bir değişken başvururken değişkenin adı belirteci, bir eylemin çıkışlarına başvuruyor için her zamanki şekilde değil eylemin adı olarak kullanın. 
 
-Örneğin, bu deyim öğeleri dizisi değişkeninden alır [bu makalede daha önce oluşturduğunuz](#append-value) kullanarak **variables()** işlevi. **String()** işlevi değişkenin içeriği dize biçiminde döndürür: `"1, 2, 3, red"`
+Örneğin, bu ifade öğeleri dizisi değişkeninden alır [bu makalede daha önce oluşturduğunuz](#append-value) kullanarak **variables()** işlevi. **String()** işlevi, değişkenin içeriklerini dize biçiminde döndürür: `"1, 2, 3, red"`
 
 ```json
 @{string(variables('myArrayVariable'))}
@@ -189,35 +189,35 @@ Bir değişken başvururken belirteci olarak bir eylemin çıkış başvurmak i�
 
 ## <a name="increment-variable"></a>Artış değişkeni 
 
-Artırmak için veya *artırma* değişkeni sabit bir değer tarafından eklemek **değişkenleri - artışı değişkeni** mantığı uygulamanıza eylem. Bu eylem yalnızca tamsayı ve kayan nokta değişkenleri ile çalışır.
+Artırmak için veya *artışı* sabit bir değere göre değişken Ekle **değişkenler - değişken artırma** mantıksal uygulamanız için eylem. Bu eylem yalnızca tamsayı ve kayan değişkenler ile çalışır.
 
-1. Mantıksal Uygulama Tasarımcısı'nda mevcut bir değişken artırmak istediğiniz adımı altında seçin **yeni adım** > **Eylem Ekle**. 
+1. Logic Apps Tasarımcısı'nda mevcut bir değişken artırmak için istediğiniz adımı altında seçin **yeni adım** > **Eylem Ekle**. 
 
-   Örneğin, bu mantıksal uygulama zaten bir tetikleyici ve bir değişkeni oluşturan bir eylem içeriyor. Bu nedenle, bu adımları altında yeni bir eylem ekleyin:
+   Örneğin, bu mantıksal uygulama zaten bir tetikleyici ve bir değişken oluşturan eylem bulunur. Bu nedenle, bu adımları altında yeni bir eylem ekleyin:
 
    ![Eylem Ekle](./media/logic-apps-create-variables-store-values/add-increment-variable-action.png)
 
-   Var olan adımları arasında bir eylem eklemek için artı (+) görünmesi bağlanan oku farenizi taşıyın. Artı işaretini seçin ve ardından **Eylem Ekle**.
+   Var olan adımlar arasında bir eylem eklemek için artı işaretini (+) gözükmesi farenizi bağlanan okun üzerine taşıyın. Artı işaretini seçin ve ardından **Eylem Ekle**.
 
-2. Arama kutusuna "artışı değişkeni", filtre olarak girin. Eylemler listesinde **değişkenleri - artışı değişkeni**.
+2. Arama kutusuna filtreniz olarak "artış değişkeni" girin. Eylemler listesinde **değişkenler - değişken artırma**.
 
-   !["Artışı değişkeni" eylemini seçin](./media/logic-apps-create-variables-store-values/select-increment-variable-action.png)
+   !["Artış değişkeni" eylemini seçin](./media/logic-apps-create-variables-store-values/select-increment-variable-action.png)
 
-3. Değişkeniniz artırma için bu bilgileri sağlayın:
+3. Değişkeninizin artırma için bu bilgileri sağlayın:
 
    | Özellik | Gerekli | Değer |  Açıklama |
    |----------|----------|-------|--------------|
-   | Ad | Evet | <*değişken adı*> | Artırmak bir değişken adı | 
-   | Değer | Hayır | <*artış değeri*> | Değişkeni artırma için kullanılan değer. Varsayılan değer biridir. <p><p>**İpucu**: değişkeniniz artırma söz konusu değeri her zaman bilmesi isteğe bağlı olsa da bu değer en iyi uygulama olarak ayarlayın. | 
+   | Ad | Evet | <*değişken adı*> | Artış değişkeni adı | 
+   | Değer | Hayır | <*değeri Artır*> | Değişken değerini artırmak için kullanılan değer. Varsayılan değer biridir. <p><p>**İpucu**: değişkeninizle artırma için söz konusu değeri her zaman haberdar olmak için isteğe bağlı olsa da, bu değeri en iyi uygulama ayarlayın. | 
    |||| 
 
    Örneğin: 
    
    ![Artış değeri örneği](./media/logic-apps-create-variables-store-values/increment-variable-action-information.png)
 
-4. Tasarımcı araç çubuğunda bitirdiniz seçin **kaydetmek**. 
+4. Tasarımcı araç çubuğunda, işiniz bittiğinde seçin **Kaydet**. 
 
-Kod Görünümü düzenleyicisine Tasarımcısı'ndan geçiş yapıyorsanız, işte yol **artırma değişkeni** JSON biçiminde, mantıksal uygulama tanımını içinde eylem görüntülenir:
+Kod Görünümü düzenleyicisine Tasarımcısı'ndan geçiş yapıyorsanız, işte yol **artış değişkeni** eylem görünür JSON biçimindedir, mantıksal uygulama tanımı içinde:
 
 ```json
 "actions": {
@@ -234,66 +234,66 @@ Kod Görünümü düzenleyicisine Tasarımcısı'ndan geçiş yapıyorsanız, i�
 
 ## <a name="example-create-loop-counter"></a>Örnek: döngü sayacı oluşturun
 
-Değişkenler, bir döngü çalışan sayısı sayım için yaygın olarak kullanılır. Bu örnek nasıl oluşturmak ve bir e-posta ekleri sayılarını bir döngü oluşturarak değişkenleri bu görev için kullanacağınız gösterir.
+Değişkenleri, bir döngü çalışan sayısını sayma için yaygın olarak kullanılır. Bu örnekte, nasıl oluşturabileceğinizi ve e-posta eklerini sayan bir döngü oluşturarak bu görev için değişkenleri kullanma gösterilmektedir.
 
-1. Azure portalında boş mantıksal uygulama oluşturma. Yeni e-posta ve eklerin denetleyen bir tetikleyici ekleyin. 
+1. Azure portalında boş bir mantıksal uygulama oluşturun. Yeni e-posta ve ekleri için denetleyen bir tetikleyici ekleme. 
 
-   Bu örnek için Office 365 Outlook tetikleyici kullanır **yeni bir e-posta geldiğinde**. 
-   Yalnızca e-posta ekleri olduğunda tetiklenecek Bu tetikleyici ayarlayabilirsiniz.
-   Ancak, yeni e-posta ekleri gibi Outlook.com Bağlayıcısı'nı denetler bağlayıcısını kullanabilirsiniz.
+   Bu örnekte Office 365 Outlook tetikleyicisi **yeni bir e-posta geldiğinde**. 
+   Bu tetikleyici yalnızca e-posta ek içerdiğinde ateşlenmesine ayarlayabilirsiniz.
+   Ancak, yeni e-postalar Outlook.com Bağlayıcısı gibi ekleriyle denetleyen bir bağlayıcıyı kullanabilirsiniz.
 
-2. Tetikleyici seçin **Gelişmiş Seçenekleri Göster**. Ekler için denetleyin ve bu ekleri mantığı uygulamanızın akışına geçirmek tetiklemesini sağlamak için seçin **Evet** bu özellikler için:
+2. Tetikleyici seçin **Gelişmiş Seçenekleri Göster**. Tetikleyici için ekleri denetleyin ve bu eklerin mantıksal uygulamanızın iş akışınıza aktarmak için seçin **Evet** bu özellikler için:
    
    * **Eki Var** 
    * **Ekleri Dahil Et** 
 
-   ![Denetlemek ve ekleri içerir](./media/logic-apps-create-variables-store-values/check-include-attachments.png)
+   ![Arayın ve ekleri dahil et](./media/logic-apps-create-variables-store-values/check-include-attachments.png)
 
-3. Ekleme [ **Initialize değişkeni** eylem](#create-variable). Adlı bir tamsayı değişken oluşturma **sayısı** değeri sıfır ile başlatın.
+3. Ekleme [ **değişken Başlat** eylem](#create-variable). Adlı bir tamsayı değişkeni oluşturma **sayısı** sıfır ile başlangıç değeri.
 
-   !["Başlatma değişkeni" için Eylem Ekle](./media/logic-apps-create-variables-store-values/initialize-variable.png)
+   !["Değişken Başlat" eylemini ekleme](./media/logic-apps-create-variables-store-values/initialize-variable.png)
 
-4. Her ek arasında geçiş yapmak için ekleme bir *her* seçerek döngü **yeni adım** > **daha fazla** > **Ekle bir heriçin**.
+4. Her ek geçiş yapmak için ekleme bir *her* seçerek döngü **yeni adım** > **daha fazla** > **Ekle bir heriçin**.
 
-   !["İçin her" döngü ekleme](./media/logic-apps-create-variables-store-values/add-loop.png)
+   ![Bir "for each" döngüsü ekleyin](./media/logic-apps-create-variables-store-values/add-loop.png)
 
-5. İçinde bir döngüde tıklatın **bir çıktı önceki adımları seçin** kutusu. Dinamik içerik listesi göründüğünde, seçin **ekleri**. 
+5. Döngüde içine tıklayın **önceki adımlardan bir çıkış seçin** kutusu. Dinamik içerik listesi göründüğünde seçin **ekleri**. 
 
    !["Ekler"i seçin](./media/logic-apps-create-variables-store-values/select-attachments.png)
 
-   **Ekleri** alan döngü tetikleyici çıktısından e-posta ekleri olan bir dizi geçirir.
+   **Ekleri** alan döngünüzü tetikleyicinin çıktısından e-posta ekleri olan bir dizi iletir.
 
-6. "İçin"her döngüde seçin **Eylem Ekle**. 
+6. "For each" döngüsü seçin **Eylem Ekle**. 
 
-   !["Eylem" Ekle](./media/logic-apps-create-variables-store-values/add-action-2.png)
+   !["Eylem Ekle"'i seçin](./media/logic-apps-create-variables-store-values/add-action-2.png)
 
-7. Arama kutusuna "artışı değişkeni", filtre olarak girin. Eylemler listesinden **değişkenleri - artışı değişkeni**.
+7. Arama kutusuna filtreniz olarak "artış değişkeni" girin. Eylem listesinden seçim **değişkenler - değişken artırma**.
 
    > [!NOTE]
-   > Emin olun **artırma değişkeni** eylem döngünün içinde görüntülenir. Eylemin döngü dışında görünürse, eylem döngüye sürükleyin.
+   > Emin **artış değişkeni** eylemi döngü içinde görüntülenir. Eylemi döngü dışına görünüyorsa, döngüye eylem sürükleyin.
 
-8. İçinde **artırma değişkeni** eylem, gelen **adı** listesinde **sayısı** değişkeni. 
+8. İçinde **artış değişkeni** eylem gelen **adı** listesinden **sayısı** değişkeni. 
 
    !["Count" değişken seçin](./media/logic-apps-create-variables-store-values/add-increment-variable-example.png)
 
-9. Döngü altında ek sayısı gönderen herhangi bir eylem ekleyin. Değeri, eylemde dahil **sayısı** değişken, örneğin: 
+9. Döngü altında ek sayısı gönderen herhangi bir eylem ekleyin. Değeri dahil **sayısı** değişken, örneğin: 
 
-   ![Sonuçları gönderdiği Eylem Ekle](./media/logic-apps-create-variables-store-values/send-email-results.png)
+   ![Sonuçları gönderen bir eylem ekleme](./media/logic-apps-create-variables-store-values/send-email-results.png)
 
 10. Mantıksal uygulamanızı kaydedin. Tasarımcı araç çubuğunda **Kaydet**'i seçin. 
 
-### <a name="test-your-logic-app"></a>Mantıksal uygulamanızı test etme
+### <a name="test-your-logic-app"></a>Mantıksal uygulamanızı test edin
 
-1. Mantıksal uygulamanızı etkin değil mantığı uygulama menünüzde kaldığınızda **genel bakış**. Araç çubuğunda seçin **etkinleştirmek**. 
+1. Mantıksal uygulamanızı etkinleştirilmemişse, mantıksal uygulama menüsünde seçin **genel bakış**. Araç çubuğunda **etkinleştirme**. 
 
-2. Mantıksal Uygulama Tasarımcısı araç çubuğundaki seçin **çalıştırmak**. Bu adım, mantıksal uygulamanızı el ile başlar.
+2. Mantıksal Uygulama Tasarımcısı araç çubuğunda **çalıştırma**. Bu adım, mantıksal uygulamanızı el ile başlatır.
 
-3. Bu örnekte, kullandığınız e-posta hesabı için bir veya daha fazla ek içeren bir e-posta gönderin.
+3. Bu örnekte kullandığınız e-posta hesabı için bir veya daha fazla ek içeren bir e-posta gönderin.
 
-   Bu adım oluşturur ve mantığı uygulamanızın iş akışı için bir örneğini çalıştıran mantığı uygulamanın tetikleyici ateşlenir.
-   Sonuç olarak, mantıksal uygulama, bir ileti veya ek sayısı, gönderilen e-postada gösterir e-posta gönderir.
+   Bu adım, oluşturur ve mantıksal uygulamanızın iş akışı için bir örneğini çalıştıran mantıksal uygulamanın tetikleyicisi tetikler.
+   Sonuç olarak, mantıksal uygulama, ileti veya ek sayısı, gönderilen e-postada gösteren bir e-posta gönderir.
 
-Kod Görünümü düzenleyicisine Tasarımcısı'ndan geçiş yapıyorsanız, "her biri için" döngü ile görünümünü işte **artırma değişkeni** JSON biçiminde, logic app tanımı içinde eylem.
+Kod Görünümü düzenleyicisine Tasarımcısı'ndan geçiş yapıyorsanız, "for each" döngüsü ile görünümünü işte **artış değişkeni** eylemi JSON biçimindedir, mantıksal uygulama tanımınızı içinde.
 
 ```json
 "actions": {
@@ -321,17 +321,17 @@ Kod Görünümü düzenleyicisine Tasarımcısı'ndan geçiş yapıyorsanız, "h
 
 ## <a name="decrement-variable"></a>Değişkeni azalt
 
-Azaltmak için veya *azaltma* değişkeni sabit bir değer tarafından için adımları izleyin [bir değişken artırma](#increment-value) bulmak ve seçmek dışında **değişkenleri - azaltma değişkeni**eylem yerine. Bu eylem yalnızca tamsayı ve kayan nokta değişkenleri ile çalışır.
+Azaltmak için veya *azaltma* sabit değerli bir değişken için adımları izleyin [bir değişken artırma](#increment-value) bulun ve seçin **değişkenler - azaltma değişkeni**eylemi yerine. Bu eylem yalnızca tamsayı ve kayan değişkenler ile çalışır.
 
-Özelliklerini işte **azaltma değişkeni** eylem:
+Özellikleri şunlardır **azaltma değişkeni** eylem:
 
 | Özellik | Gerekli | Değer |  Açıklama |
 |----------|----------|-------|--------------|
-| Ad | Evet | <*değişken adı*> | Düşürmek bir değişken adı | 
-| Değer | Hayır | <*artış değeri*> | Azaltma değişkeni için değer. Varsayılan değer biridir. <p><p>**İpucu**: azaltma için özel değer her zaman değişkeniniz bilmesi isteğe bağlı olsa da bu değer en iyi uygulama olarak ayarlayın. | 
+| Ad | Evet | <*değişken adı*> | Azaltma değişkeni adı | 
+| Değer | Hayır | <*değeri Artır*> | Azaltma değişkeni için değer. Varsayılan değer biridir. <p><p>**İpucu**: azaltma özel değeri, değişken her zaman bilmesi isteğe bağlı olsa da, bu değeri en iyi uygulama ayarlayın. | 
 ||||| 
 
-Kod Görünümü düzenleyicisine Tasarımcısı'ndan geçiş yapıyorsanız, işte yol **azaltma değişkeni** eylem JSON biçiminde, mantıksal uygulama tanımını içinde görüntülenir.
+Kod Görünümü düzenleyicisine Tasarımcısı'ndan geçiş yapıyorsanız, işte yol **azaltma değişkeni** JSON biçimindedir, mantıksal uygulama tanımınızı içinde eylem görünür.
 
 ```json
 "actions": {
@@ -351,31 +351,31 @@ Kod Görünümü düzenleyicisine Tasarımcısı'ndan geçiş yapıyorsanız, i�
 
 ## <a name="set-variable"></a>Değişken ayarla
 
-Mevcut bir değişken için farklı bir değer atamak için adımları izleyin [bir değişken artırma](#increment-value) dışındaki doğrulayın: 
+Mevcut bir değişken için farklı bir değer atamak için adımları izleyin. [bir değişken artırma](#increment-value) , hariç: 
 
-1. Bulmak ve seçmek **değişkenleri - değişken Ayarla** eylem yerine. 
+1. Bulmak ve seçmek **değişkenler - değişken Ayarla** eylemi yerine. 
 
-2. Değişken adı ve atamak istediğiniz değeri belirtin. Yeni değer ve değişken aynı veri türüne sahip olmalıdır.
-Bu eylem bir varsayılan değeri yoktur çünkü gerekli bir değerdir. 
+2. Değişken adı ve atamak istediğiniz değerini belirtin. Hem yeni değeri hem de değişken aynı veri türüne sahip olmalıdır.
+Bu eylem bir varsayılan değer olmadığı için gerekli bir değerdir. 
 
-Özelliklerini işte **değişken Ayarla** eylem:
+Özellikleri şunlardır **değişken Ayarla** eylem:
 
 | Özellik | Gerekli | Değer |  Açıklama | 
 |----------|----------|-------|--------------| 
-| Ad | Evet | <*değişken adı*> | Değiştirmek bir değişken adı | 
-| Değer | Evet | <*Yeni değer*> | Değişkeni atamak istediğiniz değer. Aynı veri türüne sahip olmalıdır. | 
+| Ad | Evet | <*değişken adı*> | Değiştirmek değişken adı | 
+| Değer | Evet | <*Yeni değer*> | Değişken atamak istediğiniz değer. Aynı veri türüne sahip olmalıdır. | 
 ||||| 
 
 > [!NOTE]
-> Artırma veya azaltma değişkenleri değilseniz, döngüler içinde değişkenlerini değiştirme *olabilir* döngüler paralel veya eşzamanlı olarak, varsayılan olarak çalıştığı için beklenmeyen sonuçlar oluşturun. Bu durumlarda, sıralı olarak çalıştırmak için döngü ayarlamayı deneyin. Örneğin, döngü içinde değişken değeri başvuru ve başlangıç ve bitiş Bu döngü örneğinin aynı değerinde beklediğiniz istediğinizde, döngü nasıl çalışacağını değiştirmek için aşağıdaki adımları izleyin: 
+> Artırma veya azaltma değişkenleri olduğunuz sürece, döngü içinde değişkenleri değiştirme *olabilir* döngüler paralel veya aynı anda, varsayılan olarak çalıştığı için beklenmeyen sonuçlar oluşturabilir. Bu durumlarda, sırayla çalışması döngünüzü ayarlamayı deneyin. Örneğin, döngü içinde değişken değeri başvurusu ve başlangıç ve bitiş Bu döngü örneğinin aynı değerde beklediğiniz istediğinizde, döngünün nasıl çalıştığını değiştirmek üzere aşağıdaki adımları izleyin: 
 >
-> 1. Döngünün sağ üst köşesinde, üç nokta (...) düğmesini seçin ve ardından **ayarları**.
+> 1. Döngünün sağ üst köşedeki üç nokta (...) düğmesini seçin ve ardından **ayarları**.
 > 
-> 2. Altında **eşzamanlılık denetimi**, değiştirme **geçersiz kılma varsayılan** ayarını **üzerinde**.
+> 2. Altında **eşzamanlılık denetimi**, değiştirme **Varsayılanı geçersiz kıl** ayarını **üzerinde**.
 >
-> 3. Sürükleme **paralellik derecesi** kaydırıcıyı **1**.
+> 3. Sürükleme **paralellik derecesi** kaydırıcısını **1**.
 
-Kod Görünümü düzenleyicisine Tasarımcısı'ndan geçiş yapıyorsanız, işte yol **değişken Ayarla** eylem JSON biçiminde, mantıksal uygulama tanımını içinde görüntülenir. Bu örnekte "Count" değişkenin geçerli değeri başka bir değer olarak değiştirir. 
+Kod Görünümü düzenleyicisine Tasarımcısı'ndan geçiş yapıyorsanız, işte yol **değişken Ayarla** JSON biçimindedir, mantıksal uygulama tanımınızı içinde eylem görünür. Bu örnek, "Sayı" değişkenin geçerli değeri için başka bir değerle değiştirir. 
 
 ```json
 "actions": {
@@ -405,27 +405,27 @@ Kod Görünümü düzenleyicisine Tasarımcısı'ndan geçiş yapıyorsanız, i�
 
 <a name="append-value"></a>
 
-## <a name="append-to-variable"></a>Değişkeni ekleme
+## <a name="append-to-variable"></a>Değişkenine Ekle
 
-Dizeler veya diziler depolama değişkenleri ekleyebilirsiniz veya *ekleme* bir değişkenin değeri olarak bu dizeler veya diziler son öğenin. İçin adımları izleyebilirsiniz [bir değişken artırma](#increment-value) dışında bunun yerine aşağıdaki adımları izleyin: 
+Dizeler veya diziler depolamak için değişkenleri, eklediğiniz veya *ekleme* son öğesi bu dizeler veya diziler olarak bir değişkenin değeri. İçin adımları takip edebilirsiniz [bir değişken artırma](#increment-value) dışında bunun yerine aşağıdaki adımları izleyin: 
 
-1. Bulma ve, değişken bir dize veya dizi olduğuna bağlı olarak bu eylemlerden birini seçin: 
+1. Bulup, değişkeni bir dize veya bir dizi olduğuna bağlı olarak aşağıdaki eylemlerden birini seçin: 
 
-  * **Değişkenleri - dize değişkenine ekleme**
-  * **Değişkenleri - dizi değişkeni ekleme** 
+  * **Değişkenler - dize değişkenine Ekle**
+  * **Değişkenler - dizi değişkenine Ekle** 
 
-2. Dize veya dizinin son öğesi olarak eklenecek değeri belirtin. Bu değer gereklidir. 
+2. Son öğe dizisi veya dize olarak eklenecek değeri belirtin. Bu değer gereklidir. 
 
-Özelliklerini işte **sonuna...**  eylemler:
+Özellikleri şunlardır **ekleyin...**  eylemler:
 
 | Özellik | Gerekli | Değer |  Açıklama | 
 |----------|----------|-------|--------------| 
-| Ad | Evet | <*değişken adı*> | Değiştirmek bir değişken adı | 
-| Değer | Evet | <*Append değeri*> | Herhangi bir tür olan eklemek istediğiniz değer | 
+| Ad | Evet | <*değişken adı*> | Değiştirmek değişken adı | 
+| Değer | Evet | <*değer ekleme*> | Herhangi bir tür olabilen, eklemek istediğiniz değer | 
 |||||  
 
-Kod Görünümü düzenleyicisine Tasarımcısı'ndan geçiş yapıyorsanız, işte yol **dizi değişkeni Ekle** eylem JSON biçiminde, mantıksal uygulama tanımını içinde görüntülenir.
-Bu örnek, bir dizi değişkeni oluşturur ve son öğesi dizi olarak başka bir değer ekler. Sonuç kümenizi, bu diziye içeren güncelleştirilmiş bir değişkenidir: `[1,2,3,"red"]` 
+Kod Görünümü düzenleyicisine Tasarımcısı'ndan geçiş yapıyorsanız, işte yol **dizi değişkenine Ekle** JSON biçimindedir, mantıksal uygulama tanımınızı içinde eylem görünür.
+Bu örnek, bir dizi değişkenini oluşturur ve son öğe dizisi olarak başka bir değer ekler. Sonuç bu dizi içeren güncelleştirilmiş bir değişkendir: `[1,2,3,"red"]` 
 
 ```json
 "actions": {
@@ -456,8 +456,8 @@ Bu örnek, bir dizi değişkeni oluşturur ve son öğesi dizi olarak başka bir
 ## <a name="get-support"></a>Destek alın
 
 * Sorularınız için [Azure Logic Apps forumunu](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps) ziyaret edin.
-* Özelliklerle ilgili fikirlerinizi göndermek veya gönderilmiş olanları oylamak için [Logic Apps kullanıcı geri bildirimi sitesini](http://aka.ms/logicapps-wish) ziyaret edin.
+* Özelliklerle ilgili fikirlerinizi göndermek veya gönderilmiş olanları oylamak için [Logic Apps kullanıcı geri bildirimi sitesini](https://aka.ms/logicapps-wish) ziyaret edin.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* Hakkında bilgi edinin [Logic Apps bağlayıcılar](../connectors/apis-list.md)
+* Hakkında bilgi edinin [Logic Apps bağlayıcıları](../connectors/apis-list.md)
