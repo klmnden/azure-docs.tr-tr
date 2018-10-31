@@ -47,7 +47,7 @@ Bu bölümde hivesampletable erişimi için iki Ranger ilkesi oluşturun. Farkl�
 **Ranger ilkeleri oluşturmak için**
 
 1. Ranger Yönetici Arabirimini açın. Bkz. [Apache Ranger Yönetici Arabirimine bağlanma](#connect-to-apache-ranager-admin-ui).
-2. ****Hive**’ın altındaki &lt;KümeAdı>_hive** öğesine tıklayın. Önceden yapılandırılmış iki ilke göreceksiniz.
+2. **Hive**’ın altındaki **&lt;KümeAdı>_hive** öğesine tıklayın. Önceden yapılandırılmış iki ilke göreceksiniz.
 3. **Add New Policy**’ye tıklayıp aşağıdaki değerleri girin:
 
    * Policy name: read-hivesampletable-all
