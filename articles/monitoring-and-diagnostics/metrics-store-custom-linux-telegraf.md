@@ -47,7 +47,7 @@ Yeni bir Linux VM oluşturun:
 
     ![Sanal makine boyutu Telgraf Aracısı genel bakış](./media/metrics-store-custom-linux-telegraf/vm-size.png)
 
-1. Üzerinde **ayarları** sayfasını **ağ** > **ağ güvenlik grubu**   >  ** Ortak gelen bağlantı noktası seçin**seçin **HTTP** ve **SSH (22)**. Geri kalan seçin ve varsayılan değerleri bırakın **Tamam**. 
+1. Üzerinde **ayarları** sayfasını **ağ** > **ağ güvenlik grubu** > **Ortak gelen bağlantı noktası seçin**seçin **HTTP** ve **SSH (22)**. Geri kalan seçin ve varsayılan değerleri bırakın **Tamam**. 
 
 1. Özet sayfasında, seçin **Oluştur** sanal makine dağıtımını başlatın. 
 
