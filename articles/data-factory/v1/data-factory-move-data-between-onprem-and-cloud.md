@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 3094075607f096200ce1fb7ad499776bdcd3e093
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: b221697b7450ad1c6dac87b7a08c7db8b11810bf
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/30/2018
-ms.locfileid: "50233608"
+ms.locfileid: "50240477"
 ---
 # <a name="move-data-between-on-premises-sources-and-the-cloud-with-data-management-gateway"></a>Şirket içi kaynakları ve veri yönetimi ağ geçidi ile bulut arasında veri taşıma
 > [!NOTE]
@@ -65,7 +65,7 @@ Bu adımda, Azure portalında adlı bir Azure Data Factory örneği oluşturmak 
    > [!IMPORTANT]
    > Azure veri fabrikasının adı genel olarak benzersiz olmalıdır. Hatayı alırsanız: **veri fabrikası adı "ADFTutorialOnPremDF" kullanılamıyor**(örneğin, yournameADFTutorialOnPremDF) veri fabrikasının adını değiştirin ve yeniden oluşturmayı deneyin. Bu öğreticinin geri kalan adımları gerçekleştirirken ADFTutorialOnPremDF yerine bu adı kullanın.
    >
-   > Veri fabrikasının adı olarak kaydedilmiş olabilir bir **DNS** adı ve gelecekte hale gelmiş publicaly görünür.
+   > Veri fabrikasının adı olarak kaydedilmiş olabilir bir **DNS** gelecekte ve herkese görünür hale gelmiş adı.
    >
    >
 4. Data factory’yi oluşturmak istediğiniz **Azure aboneliği**’ni seçin.
