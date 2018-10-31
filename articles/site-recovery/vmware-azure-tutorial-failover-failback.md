@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/11/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: e9ed0ba8d24f30f67dbb315848dc4c260cae4f50
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.openlocfilehash: 7e586e7e3ec8c16dcd215dbc11251d1b9fe928e1
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44391377"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49457104"
 ---
 # <a name="fail-over-and-fail-back-vmware-vms-and-physical-servers-replicated-to-azure"></a>VMware VM’lerde ve çoğaltılmış fiziksel sunucularda Azure Site Recovery’ye yük devretme ve yeniden çalışma
 
@@ -93,13 +93,12 @@ Yük devretme sonrasında karşılaştığınız bağlantı sorunlarını giderm
 
 ## <a name="preparing-for-reprotection-of-azure-vm"></a>Azure VM’yi yeniden korumaya hazırlanma
 
-### <a name="create-a-process-server-in-azure"></a>Azure’da bir işlem sunucusu oluşturma
+- **Azure ExpressRoute bağlantısına** sahipseniz kurulumun bir parçası olarak yapılandırma sunucusuna otomatik olarak yüklenmiş bir şekilde gelen şirket içi işlem sunucusunu (yerleşik işlem sunucusu) kullanabilirsiniz.
 
-İşlem sunucusu verileri Azure VM’den alır ve şirket içi siteye gönderir. İşlem sunucusu ve korunan VM arasında düşük gecikme süresine sahip bir ağ bağlantısı olması gerekir.
+> [!IMPORTANT]
+> Şirket içi ortamınız ile Azure arasında bir VPN bağlantınız varsa yeniden koruma ve yeniden çalışma için işlem sunucusu olarak bir Azure VM’si kurmanız gerekir. Azure’da bir işlem sunucusu ayarlamak için [bu makaledeki](vmware-azure-set-up-process-server-azure.md) yönergeleri uygulayın.
 
-- Bir Azure ExpressRoute bağlantınız varsa test etmek için yapılandırma sunucusuna otomatik olarak kurulan şirket içi işlem sunucusunu (yerleşik işlem sunucusu) kullanabilirsiniz.
-- Bir VPN bağlantınız varsa veya üretim ortamında yeniden çalışma gerçekleştiriyorsanız, yeniden çalışma için Azure tabanlı işlem sunucusu olarak bir Azure VM’si ayarlamanız gerekir.
-- Azure’da bir işlem sunucusu ayarlamak için [bu makaledeki](vmware-azure-set-up-process-server-azure.md) yönergeleri uygulayın.
+Yeniden koruma ve yeniden çalışmaya yönelik önkoşullar hakkında daha fazla bilgi için şu bölüme başvurun: [section] ](vmware-azure-reprotect.md##before-you-begin). 
 
 ### <a name="configure-the-master-target-server"></a>Ana hedef sunucuyu yapılandırma
 

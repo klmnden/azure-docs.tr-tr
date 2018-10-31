@@ -9,8 +9,6 @@ items:
     href: allocation-failure-classic.md
 - name: RDP
   items:
-  - name: Sık sık bağlantı kesiliyor
-    href: troubleshoot-rdp-intermittent-connectivity.md
   - name: RDP’yi sıfırlama
     href: reset-rdp.md
   - name: RDP sorunlarını giderme
@@ -19,8 +17,16 @@ items:
     href: detailed-troubleshoot-rdp.md
   - name: Belirli hatalarda sorun giderme
     href: troubleshoot-specific-rdp-errors.md
-  - name: RDP bağlantısının sık sık kesilmesine ilişkin sorunları giderme
+  - name: Lisans sunucusu yok hatalarında sorun giderme
+    href: troubleshoot-rdp-no-license-server.md
+  - name: Uzak masaüstü hizmetleri ile ilgili sorunları giderme
+    href: troubleshoot-remote-desktop-services-issues.md
+  - name: İç hata sorununu giderme
+    href: Troubleshoot-rdp-internal-error.md
+  - name: Sık sık bağlantı kesilmesi sorununu giderme
     href: troubleshoot-rdp-intermittent-connectivity.md
+  - name: Genel hata sorununu giderme
+    href: troubleshoot-rdp-general-error.md
 - name: SSH
   items:
   - name: SSH hakkındaki sorunları giderme
@@ -129,9 +135,9 @@ items:
   href: troubleshoot-vm-by-use-nested-virtualization.md
 - name: Sistemin yeniden başlatılma nedenini anlama
   href: understand-vm-reboot.md
-ms.openlocfilehash: 49e216bfd9f1b7ad9c8e9f74ae67d38359f7f474
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 749bfa9916431b4131dd7d0e814835baa96c6d64
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50138285"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50209250"

@@ -24,44 +24,45 @@
 ## [PowerShell kullanarak Azure AD Domain Services'ı etkinleştirme](active-directory-ds-enable-using-powershell.md)
 ## [Azure AD’den, yönetilen bir etki alanına kapsamlı eşitleme yapılandırma](active-directory-ds-scoped-synchronization.md)
 ## [Yönetilen etki alanınızın güvenliğini sağlama](active-directory-ds-secure-your-domain.md)
-## Yönetilen bir etki alanına katılma
-### [Windows Server VM](active-directory-ds-admin-guide-join-windows-vm-portal.md)
-### [Şablondan Windows Server VM](active-directory-ds-join-windows-vm-template.md)
-### [CentOS](active-directory-ds-join-centos-linux-vm.md)
-### [CoreOS](active-directory-ds-join-coreos-linux-vm.md)
-### [Red Hat Enterprise Linux](active-directory-ds-join-rhel-linux-vm.md)
-### [Ubuntu Server](active-directory-ds-join-ubuntu-linux-vm.md)
-## Yönetilen etki alanını yönetme
-### [Yönetilen etki alanını yönetme](active-directory-ds-admin-guide-administer-domain.md)
-### [Yönetilen etki alanında DNS’yi yönetme](active-directory-ds-admin-guide-administer-dns.md)
-### [E-posta bildirimlerini güncelleştirme](active-directory-ds-notifications.md)
-### Yönetilen bir etki alanı için güvenli LDAP yapılandırma
-#### [1. Görev: Güvenli LDAP için sertifika alma](active-directory-ds-admin-guide-configure-secure-ldap.md)
-#### [2. Görev: Güvenli LDAP sertifikasını dışarı aktarma](active-directory-ds-admin-guide-configure-secure-ldap-export-pfx.md)
-#### [3. Görev: Azure portalını kullanarak yönetilen etki alanı için güvenli LDAP’yi etkinleştirme](active-directory-ds-admin-guide-configure-secure-ldap-enable-ldaps.md)
-#### [4. Görev: İnternet’ten yönetilen etki alanına erişmek için DNS’yi yapılandırma](active-directory-ds-ldaps-configure-dns.md)
-#### [5. Görev: Yönetilen etki alanını bağlama ve güvenli LDAP erişimini kilitleme](active-directory-ds-ldaps-bind-lockdown.md)
-#### [Güvenli LDAP sorunlarını giderme](active-directory-ds-ldaps-troubleshoot.md)
-
-### [Yönetilen bir etki alanında OU oluşturma](active-directory-ds-admin-guide-create-ou.md)
-### [Yönetilen etki alanında grup tarafından yönetilen hizmet hesabı oluşturma](active-directory-ds-create-gmsa.md)
-### [Yönetilen etki alanında grup ilkesi yönetme](active-directory-ds-admin-guide-administer-group-policy.md)
-### [Yönetilen etki alanında parola ilkelerini yapılandırma](active-directory-ds-password-policy.md)
+## [Yönetilen bir etki alanında OU oluşturma](active-directory-ds-admin-guide-create-ou.md)
+## [Yönetilen etki alanında grup tarafından yönetilen hizmet hesabı oluşturma](active-directory-ds-create-gmsa.md)
+## [Yönetilen etki alanında grup ilkesi yönetme](active-directory-ds-admin-guide-administer-group-policy.md)
+## [Yönetilen etki alanında parola ilkelerini yapılandırma](active-directory-ds-password-policy.md)
 ## [Sanal ağ seçme](active-directory-ds-networking.md)
 ## Uygulamaları dağıtma
 ### [SharePoint Server için profil eşitleme desteğini yapılandırma](active-directory-ds-enable-sharepoint-profile-sync.md)
 ### [Kerberos Kısıtlanmış Temsilini Yapılandırma](active-directory-ds-enable-kcd.md)
 ### [Azure AD Uygulama Proxy’si Dağıtma](active-directory-ds-deploy-azure-app-proxy.md)
 ## [Yönetilen bir etki alanını silme](active-directory-ds-disable-aadds.md)
-## Sorun giderme
-### [SSS’ler](active-directory-ds-faqs.md)
-### [Sorun giderme kılavuzu](active-directory-ds-troubleshooting.md)
-### [Sorun giderme uyarıları](active-directory-ds-troubleshoot-alerts.md)
-#### [Bozuk bir NSG yapılandırmasını düzeltme](active-directory-ds-troubleshoot-nsg.md)
-#### [Eksik hizmet asıl adlarını geri yükleme](active-directory-ds-troubleshoot-service-principals.md)
-#### [Güvenli LDAP hataları](active-directory-ds-troubleshoot-ldaps.md)
-### [Eşleşmeyen kiracı hatalarını düzeltme](active-directory-ds-mismatched-tenant-error.md)
-### [Askıya alınan etki alanları](active-directory-ds-suspension.md)
+
+# Yönetilen bir etki alanına katılma
+## [Windows Server VM](active-directory-ds-admin-guide-join-windows-vm-portal.md)
+## [Şablondan Windows Server VM](active-directory-ds-join-windows-vm-template.md)
+## [CentOS](active-directory-ds-join-centos-linux-vm.md)
+## [CoreOS](active-directory-ds-join-coreos-linux-vm.md)
+## [Red Hat Enterprise Linux](active-directory-ds-join-rhel-linux-vm.md)
+## [Ubuntu Server](active-directory-ds-join-ubuntu-linux-vm.md)
+# Yönetilen etki alanını yönetme
+## [Yönetilen etki alanını yönetme](active-directory-ds-admin-guide-administer-domain.md)
+## [Yönetilen etki alanında DNS’yi yönetme](active-directory-ds-admin-guide-administer-dns.md)
+## [E-posta bildirimlerini güncelleştirme](active-directory-ds-notifications.md)
+# Yönetilen bir etki alanı için güvenli LDAP yapılandırma
+## [1. Görev: Güvenli LDAP için sertifika alma](active-directory-ds-admin-guide-configure-secure-ldap.md)
+## [2. Görev: Güvenli LDAP sertifikasını dışarı aktarma](active-directory-ds-admin-guide-configure-secure-ldap-export-pfx.md)
+## [3. Görev: Azure portalı kullanarak yönetilen etki alanı için güvenli LDAP’yi etkinleştirme](active-directory-ds-admin-guide-configure-secure-ldap-enable-ldaps.md)
+## [4. Görev: İnternet’ten yönetilen etki alanına erişmek için DNS’yi yapılandırma](active-directory-ds-ldaps-configure-dns.md)
+## [5. Görev: Yönetilen etki alanını bağlama ve güvenli LDAP erişimini kilitleme](active-directory-ds-ldaps-bind-lockdown.md)
+## [Güvenli LDAP sorunlarını giderme](active-directory-ds-ldaps-troubleshoot.md)
+
+# Sorun giderme
+## [SSS’ler](active-directory-ds-faqs.md)
+## [Sorun giderme kılavuzu](active-directory-ds-troubleshooting.md)
+## [Sorun giderme uyarıları](active-directory-ds-troubleshoot-alerts.md)
+### [Bozuk bir NSG yapılandırmasını düzeltme](active-directory-ds-troubleshoot-nsg.md)
+### [Eksik hizmet asıl adlarını geri yükleme](active-directory-ds-troubleshoot-service-principals.md)
+### [Güvenli LDAP hataları](active-directory-ds-troubleshoot-ldaps.md)
+## [Eşleşmeyen kiracı hatalarını düzeltme](active-directory-ds-mismatched-tenant-error.md)
+## [Askıya alınan etki alanları](active-directory-ds-suspension.md)
 
 
 # Başvuru

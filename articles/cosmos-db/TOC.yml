@@ -74,21 +74,27 @@ items:
     href: sql-api-resources.md
   - name: Genel dağıtım
     items:
-    - name: Giriş
+    - name: Genel Bakış
       href: distribute-data-globally.md
-    - name: Önemli avantajlar
-      href: distribute-data-globally-benefits.md
-    - name: Genel dağıtımı etkinleştirme
-      href: distribute-data-globally-turnkey.md
-    - name: Çoklu ana kaynağı etkinleştirme
-      href: enable-multi-master.md
-    - name: OSS NoSQL veritabanlarıyla çoklu ana kaynak
-      href: multi-master-oss-nosql.md
-    - name: Çakışma çözümleme
-      href: multi-master-conflict-resolution.md
+    - name: Tutarlılık Düzeyleri
+      href: consistency-levels.md
+    - name: Doğru tutarlılık düzeyini seçme
+      href: consistency-levels-choosing.md
+    - name: Tutarlılık düzeyleri ve Cosmos DB API’leri
+      href: consistency-levels-across-apis.md
+    - name: Tutarlılık, kullanılabilirlik ve performans dengeleri
+      href: consistency-levels-tradeoffs.md
+    - name: Yüksek kullanılabilirlik
+      href: high-availability.md
+    - name: Aktarım hızını genel olarak ölçme
+      href: scaling-throughput.md
+    - name: Çakışma çözümleme ilkeleri
+      href: conflict-resolution-policies.md
+    - name: Genel dağıtım - başlık altında
+      href: global-dist-under-the-hood.md
   - name: Aktarım hızı
     items:
-    - name: Giriş
+    - name: Genel Bakış
       href: request-units.md
     - name: Aktarım hızı alma ve ayarlama
       href: set-throughput.md
@@ -96,8 +102,6 @@ items:
     href: partition-data.md
   - name: Dizinleme
     href: indexing-policies.md
-  - name: Tutarlılık modelleri
-    href: consistency-levels.md
   - name: Akışı değiştirme
     href: change-feed.md
   - name: Yaşam süresi
@@ -106,7 +110,7 @@ items:
     href: unique-keys.md
   - name: Güvenlik
     items:
-    - name: Giriş
+    - name: Genel Bakış
       href: database-security.md
     - name: Veri şifrelemesi
       href: database-encryption-at-rest.md
@@ -122,8 +126,6 @@ items:
     href: cosmos-db-reserved-capacity.md
   - name: Yedekleme ve geri yükleme
     href: online-backup-and-restore.md
-  - name: Yüksek kullanılabilirlik
-    href: regional-failover.md
 - name: Çoklu model API’ler
   items:
   - name: SQL API Belgeleri
@@ -190,6 +192,8 @@ items:
         href: programming.md
       - name: SQL veri bölümleme
         href: sql-api-partition-data.md
+      - name: Java Async SDK sorunlarını giderme
+        href: troubleshoot-java-async-sdk.md
       - name: Veri türleri
         items:
         - name: DateTime
@@ -417,6 +421,14 @@ items:
       href: https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb
   - name: VSTS CI/CD işlem hattı ayarlama
     href: tutorial-setup-ci-cd.md
+  - name: Genel dağıtım
+    items:
+    - name: Veritabanı Hesabını Yönetme
+      href: how-to-manage-database-account.md
+    - name: Tutarlılığı Yönetme
+      href: how-to-manage-consistency.md
+    - name: Çakışmaları Yönetme
+      href: how-to-manage-conflicts.md
   - name: En iyi uygulamalar
     items:
     - name: Performans ipuçları
@@ -501,9 +513,9 @@ items:
       href: use-cases.md
     - name: Sosyal medya uygulamaları
       href: social-media-apps.md
-ms.openlocfilehash: dfa5b34127abf569a359814b6064ec981f57796d
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 55a0bb09e56667078d463846d90cd086cb05dd4e
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49985837"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50240435"

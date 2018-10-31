@@ -83,6 +83,8 @@ items:
       href: plan-connect-performance-factors.md
     - name: Kullanıcılar nasıl oturum açar?
       href: plan-connect-user-signin.md
+    - name: Azure AD UserPrincipalName popülasyonu
+      href: plan-connect-userprincipalname.md
     - name: Örneklerle ilgili özel konular
       href: reference-connect-instances.md
     - name: Hibrit Kimlik Tasarım Kılavuzu
@@ -153,6 +155,8 @@ items:
       href: how-to-connect-fed-ssl-update.md
     - name: Azure AD ile AD FS güvenini yönetme
       href: how-to-connect-azure-ad-trust.md
+    - name: O365 RP karma algoritmasını değiştirme
+      href: how-to-connect-fed-sha256-guidance.md
     - name: Azure AD federasyonu uyumluluk listesi
       href: how-to-connect-fed-compatibility.md
     - name: Idp’niz olarak SAML 2.0 sunucusu kullanma
@@ -287,9 +291,9 @@ items:
     href: reference-connect-sync-functions-reference.md
   - name: Azure AD federasyonu uyumluluk listesi
     href: how-to-connect-fed-compatibility.md
-ms.openlocfilehash: eda2a26a9bd3d5a484865a8458246506f24bb518
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: e5d89e467b9dd6b41e246c889f41ad9abe21182b
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49351941"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50249687"
