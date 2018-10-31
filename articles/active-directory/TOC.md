@@ -4,7 +4,6 @@
 ## [Azure Active Directory nedir?](fundamentals/active-directory-whatis.md)
 ## [Azure kimlik yönetimi hakkında](fundamentals/identity-fundamentals.md)
 ## [Azure kimlik çözümlerini anlama](fundamentals/understand-azure-identity-solutions.md)
-## [Karma kimlik çözümü seçin](choose-hybrid-identity-solution.md)
 ## [Azure aboneliklerini ilişkilendirme](fundamentals/active-directory-how-subscriptions-associated-directory.md)
 ## [Yerleşim ve verilerle ilgili dikkat edilecek konular](fundamentals/active-directory-data-storage-eu.md)
 ## [SSS](fundamentals/active-directory-faq.md)
@@ -47,7 +46,6 @@
 ### [Azure AD’ye yeni kullanıcı ekleme](fundamentals/add-users-azure-active-directory.md)
 ### [Kullanıcı profillerini yönetme](fundamentals/active-directory-users-profile-azure-portal.md)
 ### [Kullanıcı parolasını sıfırlama](fundamentals/active-directory-users-reset-password-azure-portal.md)
-### [Hesapları paylaşma](active-directory-sharing-accounts.md)
 ### [Kullanıcıları yönetici rollerine atama](fundamentals/active-directory-users-assign-role-azure-portal.md)
 ### [Başka bir dizinden konuk kullanıcılar ekleme (B2B)](b2b/what-is-b2b.md)
 #### [B2B kullanıcıları ekleyen yöneticiler](b2b/add-users-administrator.md)
@@ -320,11 +318,15 @@
 
 ### [Privileged Identity Management](privileged-identity-management/pim-configure.md?toc=%2fazure%2factive-directory%2ftoc.json)
 
-## [Azure’a AD FS dağıtma](hybrid/how-to-connect-fed-azure-adfs.md)
-### [Yüksek kullanılabilirlik](active-directory-adfs-in-azure-with-azure-traffic-manager.md)
-### [Değişiklik imzası karma algoritması](active-directory-federation-sha256-guidance.md)
+
 
 ## [Sorun giderme](fundamentals/active-directory-troubleshooting-support-howto.md)
+
+## Azure AD Kavram Kanıtı (PoC) Dağıtma
+### [PoC El Kitabı: Giriş](active-directory-playbook-intro.md)
+### [PoC El Kitabı: Malzemeler](active-directory-playbook-ingredients.md)
+### [PoC El Kitabı: Uygulama](active-directory-playbook-implementation.md)
+### [PoC El Kitabı: Yapı Taşları](active-directory-playbook-building-blocks.md)
 
 # Başvuru
 ## [Kod örnekleri](https://azure.microsoft.com/resources/samples/?service=active-directory)
