@@ -1,6 +1,6 @@
 ---
-title: Bağlanamıyor bir Azure siteden siteye VPN bağlantısı sorunlarını giderme | Microsoft Docs
-description: Aniden çalışmayı durduruyor ve bağlanılamaz bir siteden siteye VPN bağlantısı sorunlarını giderme öğrenin.
+title: Bağlantı kurulamıyor Azure bir siteden siteye VPN bağlantı sorunlarını giderme | Microsoft Docs
+description: Aniden çalışmayı durduruyor ve bağlanılamaz bir siteden siteye VPN bağlantı sorunlarını giderme hakkında bilgi edinin.
 services: vpn-gateway
 documentationcenter: na
 author: chadmath
@@ -12,24 +12,24 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/11/2018
+ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: dfd29e0956793cf776b9c0ea5ddbd4689ebcb015
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: a2330cee3d5ea48f9f679ac02f6889ccce6c1d7c
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34072309"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50242764"
 ---
-# <a name="troubleshooting-an-azure-site-to-site-vpn-connection-cannot-connect-and-stops-working"></a>Sorun giderme: Bir Azure siteden siteye VPN bağlantısı bağlanamıyor ve çalışmayı durduruyor
+# <a name="troubleshooting-an-azure-site-to-site-vpn-connection-cannot-connect-and-stops-working"></a>Sorun giderme: Bir Azure siteden siteye VPN bağlantısı bağlanamaz ve çalışmayı durduruyor
 
-Bir şirket içi ağınız ve Azure sanal ağı arasında siteden siteye VPN bağlantısı yapılandırdıktan sonra VPN bağlantısı aniden çalışmayı durdurur ve yeniden bağlanılamaz. Bu makalede, bu sorunu gidermenize yardımcı olmak için sorun giderme adımlarını sağlar. 
+Bir şirket içi ağ ve bir Azure sanal ağ arasında siteden siteye VPN bağlantısı yapılandırdıktan sonra VPN bağlantısı aniden çalışmayı durduruyor ve bağlanılamaz. Bu makalede, bu sorunu gidermenize yardımcı olmak için sorun giderme adımları sağlar. 
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
 ## <a name="troubleshooting-steps"></a>Sorun giderme adımları
 
-Sorunu gidermek için önce dener [Azure VPN gateway sıfırlama](vpn-gateway-resetgw-classic.md) ve şirket içi VPN aygıttan tünel sıfırlayın. Sorun devam ederse, sorunun nedenini belirlemek için şu adımları izleyin.
+Sorunu gidermek için önce dener [Azure VPN Gateway'i sıfırlama](vpn-gateway-resetgw-classic.md) ve şirket içi VPN cihaz tünel sıfırlayın. Sorun devam ederse, sorunun nedenini belirlemek için şu adımları izleyin.
 
 ### <a name="prerequisite-step"></a>Önkoşul adım
 
@@ -37,27 +37,27 @@ Azure VPN ağ geçidi türünü kontrol edin.
 
 1. [Azure Portal](https://portal.azure.com) gidin.
 
-2. Denetleme **genel bakış** VPN ağ geçidi türü bilgi sayfası.
+2. Denetleme **genel bakış** VPN ağ geçidi için tür bilgilerini sayfası.
     
     ![Ağ Geçidi'ne genel bakış](media\vpn-gateway-troubleshoot-site-to-site-cannot-connect\gatewayoverview.png)
 
-### <a name="step-1-check-whether-the-on-premises-vpn-device-is-validated"></a>1. Adım Şirket içi VPN cihazı doğrulanıp doğrulanmadığını denetleyin
+### <a name="step-1-check-whether-the-on-premises-vpn-device-is-validated"></a>1. Adım Şirket içi VPN cihazının doğrulanıp doğrulanmadığını denetleyin
 
-1. Kullanmakta olduğunuz olup olmadığını denetleyin bir [VPN cihazı ve işletim sistemi sürümü doğrulandı](vpn-gateway-about-vpn-devices.md#devicetable). Cihaz doğrulanan VPN cihazı değilse, bir uyumluluk sorunu olup olmadığını görmek için herhangi bir tuşa basın gerekebilir.
+1. Kullanmakta olduğunuz olup olmadığını denetleyin. bir [VPN cihazı ve işletim sistemi sürümü doğrulandı](vpn-gateway-about-vpn-devices.md#devicetable). Cihaz doğrulanmış VPN cihazı değilse, bir uyumluluk sorunu olup olmadığını görmek için cihaz üreticinize başvurun gerekebilir.
 
-2. VPN cihazı doğru yapılandırıldığından emin olun. Daha fazla bilgi için bkz: [cihaz yapılandırma örneklerini düzenleme](vpn-gateway-about-vpn-devices.md#editing).
+2. VPN cihazının düzgün yapılandırıldığından emin olun. Daha fazla bilgi için [cihaz yapılandırma örneklerini düzenleme](vpn-gateway-about-vpn-devices.md#editing).
 
-### <a name="step-2-verify-the-shared-key"></a>2. Adım Paylaşılan anahtar doğrulayın
+### <a name="step-2-verify-the-shared-key"></a>2. Adım Paylaşılan anahtar doğrulama
 
-Paylaşılan anahtar Azure sanal ağ anahtarların eşleştiğinden emin olmak için VPN için şirket içi VPN aygıtınızın karşılaştırın. 
+Azure sanal ağ anahtarların eşleştiğinden emin olmak için VPN için şirket içi VPN cihazının paylaşılan anahtar ile karşılaştırın. 
 
-Azure VPN bağlantısı için paylaşılan anahtar görüntülemek için aşağıdaki yöntemlerden birini kullanın:
+Azure VPN bağlantısı paylaşılan anahtarı görüntülemek için aşağıdaki yöntemlerden birini kullanın:
 
-**Azure Portal**
+**Azure portal**
 
-1. Oluşturduğunuz VPN ağ geçidi siteden siteye bağlantısı gidin.
+1. Oluşturduğunuz VPN gateway siteden siteye bağlantıya gidin.
 
-2. İçinde **ayarları** 'yi tıklatın **paylaşılan anahtarı**.
+2. İçinde **ayarları** bölümünde **paylaşılan anahtar**.
     
     ![Paylaşılan anahtar](media/vpn-gateway-troubleshoot-site-to-site-cannot-connect/sharedkey.png)
 
@@ -71,40 +71,40 @@ Klasik dağıtım modeli için:
 
     Get-AzureVNetGatewayKey -VNetName -LocalNetworkSiteName
 
-### <a name="step-3-verify-the-vpn-peer-ips"></a>3. Adım VPN eş IP doğrulayın
+### <a name="step-3-verify-the-vpn-peer-ips"></a>3. Adım VPN eş IP'ler doğrulayın
 
--   IP tanımında **yerel ağ geçidi** Azure nesnesinde, şirket içi cihaz IP eşleşmelidir.
--   Şirket içi cihaz üzerinde ayarlanır Azure ağ geçidi IP tanımı Azure ağ geçidi IP eşleşmelidir.
+-   IP tanımında **yerel ağ geçidi** nesne azure'da, şirket içi cihaz IP eşleşmelidir.
+-   Şirket içi cihazda ayarlı olan Azure ağ geçidi IP tanımı Azure ağ geçidi IP eşleşmesi gerekir.
 
-### <a name="step-4-check-udr-and-nsgs-on-the-gateway-subnet"></a>4. Adım. Ağ geçidi alt ağı üzerinde UDR ve Nsg'ler denetleyin
+### <a name="step-4-check-udr-and-nsgs-on-the-gateway-subnet"></a>4. Adım. UDR ve Nsg'ler ağ geçidi alt ağda kontrol edin.
 
-Denetleyin ve kullanıcı tanımlı yönlendirme (UDR) veya ağ güvenlik grupları (Nsg'ler) ağ geçidi alt ağda kaldırın ve ardından test sonucu. Bu sorun çözülene, UDR veya NSG uygulanan ayarlarını doğrulayın.
+Denetleyin ve ağ geçidi alt ağı üzerinde kullanıcı tanımlı yönlendirme (UDR) veya ağ güvenlik grupları (Nsg'ler) kaldırın ve ardından test sonucu. Bu sorun çözülene, UDR veya NSG uygulanan ayarları doğrulayın.
 
 ### <a name="step-5-check-the-on-premises-vpn-device-external-interface-address"></a>5. Adım. Şirket içi VPN cihazı dış arabirimi adresi denetleyin
 
-- VPN cihazı Internet'e yönelik IP adresini de dahil edilmişse **yerel ağ** tanımı Azure'da, kullanımın bağlantısının kesilmesi karşılaşabilirsiniz.
-- Cihazın dış arabirimi doğrudan Internet'te olması gerekir. Herhangi bir ağ adresi çevirisi veya Güvenlik Duvarı Internet ve aygıt arasında olmalıdır.
-- Sanal bir IP için kümeleme güvenlik duvarını yapılandırmak için küme bölme ve VPN Gereci doğrudan bir ağ geçidi ile arabirim ortak arabirimi kullanıma sunar.
+- VPN cihazının Internet'e yönelik IP adresi de dahil edilmişse **yerel ağ** tanımı Azure'da, ara sıra bağlantı kesilmesi karşılaşabilirsiniz.
+- Cihazın dış arabirimi doğrudan Internet'te olması gerekir. Herhangi bir ağ adresi çevirisi veya Internet ve cihaz arasında güvenlik duvarı olmamalıdır.
+- Hızlı bir şekilde bir sanal IP Güvenlik Duvarı'nı yapılandırmak için küme Kes ve VPN gerecine doğrudan bir ağ geçidi ile arabirim oluşturmasını genel arabirimi kullanıma gerekir.
 
 ### <a name="step-6-verify-that-the-subnets-match-exactly-azure-policy-based-gateways"></a>6. Adım. Alt ağlar tam olarak eşleştiğinden emin olun (Azure ilke tabanlı ağ geçitleri)
 
 -   Sanal ağ adres alanları Azure sanal ağı ve şirket içi tanımları arasında tam olarak eşleştiğinden emin olun.
--   Alt ağlar arasında tam olarak eşleştiğinden emin olun **yerel ağ geçidi** ve şirket içi ağınız için tanımları.
+-   Alt ağlar arasında tam olarak eşleştiğinden emin olun **yerel ağ geçidi** ve şirket içi şirket içi ağ için tanımlar.
 
-### <a name="step-7-verify-the-azure-gateway-health-probe"></a>7. Adım. Azure ağ geçidi durumu araştırması doğrulayın
+### <a name="step-7-verify-the-azure-gateway-health-probe"></a>7. Adım. Azure ağ geçidi sistem durumu araştırması doğrulayın
 
-1. Aşağıdaki URL'ye giderek açık durumu araştırması:
+1. Aşağıdaki URL'ye atarak açık sistem durumu araştırması:
 
     `https://<YourVirtualNetworkGatewayIP>:8081/healthprobe`
 
-2. Sertifika uyarısı aracılığıyla'ı tıklatın.
-3. Bir yanıtı alırsanız, VPN ağ geçidi sağlıklı olarak kabul edilir. Bir yanıt almazsanız, ağ geçidi sağlıklı olmayabilir veya ağ geçidi alt ağı üzerinde bir NSG sorunu neden oluyor. Aşağıdaki örnek yanıt metindir:
+2. Sertifika uyarısı aracılığıyla tıklayın.
+3. Bir yanıtı alırsanız, VPN ağ geçidi sağlıklı olarak kabul edilir. Bir yanıt almazsanız, ağ geçidi iyi durumda olmayabilir veya ağ geçidi alt ağı üzerinde bir NSG soruna neden olan. Örnek yanıt aşağıda gösterilmiştir:
 
-    &lt;? xml version = "1.0"? > <string xmlns="http://schemas.microsoft.com/2003/10/Serialization/">birincil örneği: GatewayTenantWorker_IN_1 GatewayTenantVersion: 14.7.24.6 < / dize&gt;
+    &lt;? xml version = "1.0"? > <string xmlns="http://schemas.microsoft.com/2003/10/Serialization/">birincil örneği: GatewayTenantWorker_IN_1 GatewayTenantVersion: 14.7.24.6 < / string&gt;
 
-### <a name="step-8-check-whether-the-on-premises-vpn-device-has-the-perfect-forward-secrecy-feature-enabled"></a>8. Adım Şirket içi VPN cihazı kusursuz iletme gizliliği özelliğinin etkin olup olmadığını denetleyin
+### <a name="step-8-check-whether-the-on-premises-vpn-device-has-the-perfect-forward-secrecy-feature-enabled"></a>8. Adım Şirket içi VPN cihazının kusursuz iletme gizliliği özelliğinin etkin olup olmadığını denetleyin
 
-Kusursuz iletme gizliliği özelliği, bağlantı kesme sorunlara neden olabilir. VPN cihazı etkin kusursuz iletme gizliliği varsa, özelliği devre dışı bırakın. Ardından VPN ağ geçidi IPSec ilkesi güncelleştirin.
+Kusursuz iletme gizliliği özelliği bağlantı kesilmesi sorunlara neden olabilir. VPN cihazı etkin kusursuz iletme gizliliği varsa, özelliği devre dışı bırakın. Ardından, VPN ağ geçidi IPSec ilkesi güncelleştirin.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

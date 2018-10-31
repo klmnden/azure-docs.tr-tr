@@ -5,19 +5,19 @@ services: app-service
 author: cephalin
 ms.service: app-service
 ms.topic: include
-ms.date: 02/02/2018
+ms.date: 10/30/2018
 ms.author: cephalin
 ms.custom: include file
-ms.openlocfilehash: 917f8cc4a22199351614d101f1300b80052ee9a9
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
-ms.translationtype: HT
+ms.openlocfilehash: 60d6ff8dea81102cfac0fea76f6fd11ff8465a23
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/03/2018
-ms.locfileid: "28986096"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50254600"
 ---
 ## <a name="deploy-zip-file"></a>ZIP dosyası dağıtma
 
-Tarayıcıda `https://<app_name>.scm.azurewebsites.net/ZipDeploy` adresine gidin.
+Tarayıcıda `https://<app_name>.scm.azurewebsites.net/ZipDeployUI` adresine gidin.
 
 [Proje ZIP dosyası oluşturma](#create-a-project-zip-file) başlığı altında oluşturduğunuz ZIP dosyasını, web sayfasındaki dosya gezgini alanına sürükleyerek karşıya yükleyin.
 

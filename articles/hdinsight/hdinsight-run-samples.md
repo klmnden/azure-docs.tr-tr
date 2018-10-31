@@ -9,17 +9,17 @@ ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: jasonh
 ROBOTS: NOINDEX
-ms.openlocfilehash: 59e6fd0a05374329efb20201c8d904cbbdc72b1a
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 84c28eebc2bcf1bfdfcb0995f1caa05ed19629e2
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43111008"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50250844"
 ---
 # <a name="run-hadoop-mapreduce-samples-in-windows-based-hdinsight"></a>Hadoop MapReduce örneklerini Windows tabanlı HDInsight içinde çalıştırma
 [!INCLUDE [samples-selector](../../includes/hdinsight-run-samples-selector.md)]
 
-Azure HDInsight'ı kullanarak Hadoop kümelerini kullanmaya başlama çalışan MapReduce işleri almanıza yardımcı olacak örnekler kümesi sağlanır. Bu örneklerin her oluşturduğunuz yönetilen HDInsight kümeleri kullanıma sunulur. Bu örnekleri çalıştırmaya tanıyın, Hadoop kümelerinde işlerini çalıştırmak için Azure PowerShell cmdlet'lerini kullanarak ile.
+Örnekler kümesi, Azure HDInsight'ı kullanarak Hadoop kümelerini kullanmaya başlama çalışan MapReduce işleri almanıza yardımcı olması için sağlanmıştır. Bu örneklerin her oluşturduğunuz yönetilen HDInsight kümeleri kullanıma sunulur. Bu örnekleri çalıştırmaya tanıyın, Hadoop kümelerinde işlerini çalıştırmak için Azure PowerShell cmdlet'lerini kullanarak ile.
 
 * [**Sözcük sayısı**][hdinsight-sample-wordcount]: bir metin dosyasındaki sözcük sayısını sayar.
 * [**C# akış sözcük sayımı**][hdinsight-sample-csharp-streaming]: Hadoop akış arabirimini kullanarak bir metin dosyasındaki sözcük sayısını sayar.
@@ -211,7 +211,6 @@ Bu makalede ve her örnekleri makaleler, Azure PowerShell kullanarak HDInsight k
 * [HDInsight üzerinde Hadoop ile Pig kullanma][hdinsight-use-pig]
 * [HDInsight üzerinde Hadoop ile Hive kullanma][hdinsight-use-hive]
 * [HDInsight, Hadoop işlerini gönderme][hdinsight-submit-jobs]
-* [Azure HDInsight SDK Belgeleri][hdinsight-sdk-documentation]
 
 ## <a name="appendix-a---the-word-count-source-code"></a>Ek A - sözcük sayısı kaynak kodu
 
@@ -977,8 +976,6 @@ public class TeraSort extends Configured implements Tool {
     }
 }
 ```
-
-[hdinsight-sdk-documentation]: https://msdn.microsoft.com/library/azure/dn479185.aspx
 
 [hdinsight-submit-jobs]: hadoop/submit-apache-hadoop-jobs-programmatically.md
 [hdinsight-introduction]:hadoop/apache-hadoop-introduction.md

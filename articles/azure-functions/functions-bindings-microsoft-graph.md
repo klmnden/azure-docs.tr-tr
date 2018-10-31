@@ -2,19 +2,19 @@
 title: Azure işlevleri için Microsoft Graph bağlamaları
 description: Azure işlevleri'nde Microsoft Graph Tetikleyicileri ve bağlamaları kullanma hakkında bilgi edinin.
 services: functions
-author: mattchenderson
+author: craigshoemaker
 manager: jeconnoc
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/20/2017
-ms.author: mahender
-ms.openlocfilehash: 04786ce69b880abcd5508b9653d9ff30efcc187c
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.author: cshoe
+ms.openlocfilehash: fa429553caf874dd634944a5fca6cd9283194bb4
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50087228"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50251116"
 ---
 # <a name="microsoft-graph-bindings-for-azure-functions"></a>Azure işlevleri için Microsoft Graph bağlamaları
 
@@ -523,7 +523,7 @@ Aşağıdaki tabloda ayarladığınız bağlama yapılandırma özelliklerini a�
 Bu bağlama, aşağıdaki Azure AD izinleri gerektirir:
 |Kaynak|İzin|
 |--------|--------|
-|Microsoft Graph|Kullanıcı dosyalarına tam erişim sağlama|
+|Microsoft Graph|Kullanıcı dosyalarına tam erişim elde edin|
 
 Bağlama .NET işlevlerine aşağıdaki türlerini sunar:
 - string[][]
@@ -812,7 +812,7 @@ Aşağıdaki tabloda ayarladığınız bağlama yapılandırma özelliklerini a�
 Bu bağlama, aşağıdaki Azure AD izinleri gerektirir:
 |Kaynak|İzin|
 |--------|--------|
-|Microsoft Graph|Kullanıcı dosyalarına tam erişim sağlama|
+|Microsoft Graph|Kullanıcı dosyalarına tam erişim elde edin|
 
 Bağlama .NET işlevlerine aşağıdaki türlerini sunar:
 - bayt]

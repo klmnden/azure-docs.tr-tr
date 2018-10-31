@@ -1,6 +1,6 @@
 ---
-title: Görüntüleme ve ana bilgisayar adları değiştirme | Microsoft Docs
-description: Nasıl görüntülemek ve Azure sanal makineleri için ana bilgisayar adlarını değiştirmek, web ve çalışan rolleri ad çözümlemesi için
+title: Görüntüleme ve ana bilgisayar adlarını değiştirme | Microsoft Docs
+description: Nasıl görüntülemek ve Azure sanal makineler için konak adlarını değiştirmek için web ve çalışan rolleri için ad çözümlemesi
 services: virtual-network
 documentationcenter: na
 author: genlin
@@ -12,53 +12,53 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/24/2018
+ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: f4c602368368e8ef36581d3f035ff3943a8f0d8f
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 4a836e0f5e47d6ef91e11fd1a0076859b54ed8e6
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34657290"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50243036"
 ---
-# <a name="viewing-and-modifying-hostnames"></a>Görüntüleme ve ana bilgisayar adları değiştirme
-Ana bilgisayar adına göre başvurulacak rolü örneklerinizi izin vermek için her bir rol hizmeti yapılandırma dosyasında ana bilgisayar adı değeri ayarlamanız gerekir. İstenen konak adına ekleyerek bunu **vmName** özniteliği **rol** öğesi. Değeri **vmName** özniteliği her rol örneği ana bilgisayar adı için temel olarak kullanılır. Örneğin, varsa **vmName** olan *webrole* ve bu rol üç örneği vardır, ana bilgisayar adlarını örneklerinin olacaktır *webrole0*, *webrole1*, ve *webrole2*. Sanal makine adına dayalı bir sanal makine için konak adı doldurulmuş için sanal makineler için bir konak adı yapılandırma dosyasında belirtmek gerekmez. Bir Microsoft Azure hizmet yapılandırma hakkında daha fazla bilgi için bkz: [Azure hizmet yapılandırma şeması (.cscfg dosyası)](https://msdn.microsoft.com/library/azure/ee758710.aspx)
+# <a name="viewing-and-modifying-hostnames"></a>Görüntüleme ve ana bilgisayar adlarını değiştirme
+Ana bilgisayar adına göre başvurulmak üzere rol örneklerinizin izin vermek için hizmet yapılandırma dosyasında her rol için konak adı için bir değer ayarlamanız gerekir. İstenen konak adına ekleyerek bunu **vmName** özniteliği **rol** öğesi. Değerini **vmName** özniteliği, her bir rol örneğinin ana bilgisayar adı için bir temel olarak kullanılır. Örneğin, varsa **vmName** olduğu *webrole* ve bu rolü üç örnekleri vardır, örneklerin ana bilgisayar adları olacaktır *webrole0*, *webrole1*, ve *webrole2*. Sanal makine adına dayalı bir sanal makine için konak adı doldurulduğundan yapılandırma dosyasında sanal makineler için bir ana bilgisayar adı belirtmeniz gerekmez. Bir Microsoft Azure hizmetini yapılandırma hakkında daha fazla bilgi için bkz. [Azure hizmet yapılandırma şemasına (.cscfg dosyası)](https://msdn.microsoft.com/library/azure/ee758710.aspx)
 
-## <a name="viewing-hostnames"></a>Ana bilgisayar adları görüntüleme
-Sanal makineler ve rol örnekleri ana bilgisayar adlarını aşağıdaki araçlardan birini kullanarak bir bulut hizmetinde görüntüleyebilirsiniz.
+## <a name="viewing-hostnames"></a>Ana bilgisayar adlarını görüntüleme
+Aşağıdaki araçlardan herhangi birini kullanarak bir bulut hizmetinde sanal makineler ve rol örnekleri ana bilgisayar adlarını görüntüleyebilirsiniz.
 
 ### <a name="service-configuration-file"></a>Hizmet yapılandırma dosyası
-Dağıtılan bir hizmet için hizmet yapılandırma dosyası indirebilirsiniz **yapılandırma** Azure portalında hizmetin dikey. Ardından arayabileceğiniz **vmName** için öznitelik **rol adı** ana bilgisayar adı görmek için öğesi. Bu ana bilgisayar adı, her rol örneği ana bilgisayar adı için temel olarak kullanıldığını aklınızda bulundurun. Örneğin, varsa **vmName** olan *webrole* ve bu rol üç örneği vardır, ana bilgisayar adlarını örneklerinin olacaktır *webrole0*, *webrole1*, ve *webrole2*.
+Dağıtılan bir hizmet için hizmet yapılandırma dosyasını indirebilirsiniz **yapılandırma** Azure portalında hizmet dikey penceresi. Ardından arayabileceğiniz **vmName** özniteliğini **rol adı** ana bilgisayar adı görmek için öğesi. Bu ana bilgisayar adı için her bir rol örneği ana bilgisayar adını bir temel olarak kullanılan aklınızda bulundurun. Örneğin, varsa **vmName** olduğu *webrole* ve bu rolü üç örnekleri vardır, örneklerin ana bilgisayar adları olacaktır *webrole0*, *webrole1*, ve *webrole2*.
 
 ### <a name="remote-desktop"></a>Uzak Masaüstü
-Uzak Masaüstü'nü (Windows), Windows PowerShell uzaktan iletişimini (Windows) ya da sanal makineleri veya rol örneklerini (Linux ve Windows) SSH bağlantısını etkinleştirdikten sonra etkin bir Uzak Masaüstü bağlantı ana bilgisayar adından çeşitli şekillerde görüntüleyebilirsiniz:
+Uzak Masaüstü'nü (Windows), Windows PowerShell uzaktan iletişimini (Windows) veya sanal makine veya rol örnekleri için (Linux ve Windows) bir SSH bağlantısı etkinleştirdikten sonra ana bilgisayar adı etkin bir Uzak Masaüstü bağlantısından çeşitli şekillerde görüntüleyebilirsiniz:
 
-* Komut istemi veya SSH terminal ana bilgisayar adını yazın.
-* (Yalnızca Windows) tüm komut satırında/ipconfig yazın.
+* Komut istemi veya terminal SSH ana bilgisayar adı yazın.
+* İpconfig yazın / (yalnızca Windows) tüm komut satırında.
 * Bilgisayar adı, sistem ayarları (yalnızca Windows) görüntüleyin.
 
 ### <a name="azure-service-management-rest-api"></a>Azure Hizmet Yönetimi REST API'si
-Bir REST istemciden aşağıdaki yönergeleri izleyin:
+Bir REST istemcisinden bu yönergeleri izleyin:
 
-1. Azure Portalı'na bağlanmak için bir istemci sertifikası olduğundan emin olun. Bir istemci sertifikası edinmek için sunulan adımları izleyin [nasıl yapılır: indirme ve yayımlama ayarları içeri aktarma ve abonelik bilgileri](https://msdn.microsoft.com/library/dn385850.aspx). 
-2. X-ms-version değeri 2013-11-01 adlı bir üstbilgi girişi ayarlayın.
-3. Aşağıdaki biçimde bir istek gönder: https://management.core.windows.net/\<subscrition-id\>/services/hostedservices/\<service-name\>?embed-detail=true
-4. Ara **ana bilgisayar adı** öğesini her **RoleInstance** öğesi.
+1. Azure portalına bağlanmak için bir istemci sertifikası olduğundan emin olun. Bir istemci sertifikası almak için bölümünde verilen adımları izleyin. [nasıl yapılır: indirme ve içeri aktarma yayınlama ayarları ve abonelik bilgilerini](https://msdn.microsoft.com/library/dn385850.aspx). 
+2. X-ms-version değeri 2013-11-01 adlı bir üst bilgi girişi ayarlayın.
+3. Şu biçimde bir istek gönderin: https://management.core.windows.net/\<subscrition-id\>/services/hostedservices/\<service-name\>?embed-detail=true
+4. Aranan **HostName** her öğe **Roleınstance** öğesi.
 
 > [!WARNING]
-> Ayrıca iç etki alanı soneki bulut hizmetinizden REST çağrısı yanıt için denetleyerek görüntüleyebilirsiniz **InternalDnsSuffix** öğesi veya ipconfig çalıştırarak/tüm bir komut isteminden kullanarak veya bir Uzak Masaüstü oturumunda (Windows) cat /etc/resolv.conf bir SSH terminal (Linux) çalışıyor.
+> Ayrıca iç etki alanı soneki için REST çağrısı yanıt bulut hizmetinizden denetleyerek görüntüleyebilirsiniz **InternalDnsSuffix** öğesi veya çalıştırarak ipconfig/tüm bir komut isteminden tarafından veya bir Uzak Masaüstü oturumunda (Windows) cat /etc/resolv.conf SSH terminal (Linux) çalışıyor.
 > 
 > 
 
-## <a name="modifying-a-hostname"></a>Bir ana bilgisayar adını değiştirme
-Değiştirilen hizmet yapılandırma dosyası karşıya ya da Uzak Masaüstü oturumu bilgisayardan yeniden adlandırma herhangi bir sanal makine veya rol örneği için ana bilgisayar adını değiştirebilirsiniz.
+## <a name="modifying-a-hostname"></a>Bir ana bilgisayar adı değiştirme
+Değiştirilen hizmet yapılandırma dosyasını karşıya yükleme ya da bir Uzak Masaüstü oturumundan bilgisayarın yeniden adlandırılması, herhangi bir sanal makine veya rol örneği için konak adı değiştirebilirsiniz.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-[Ad çözümlemesi (DNS)](virtual-networks-name-resolution-for-vms-and-role-instances.md)
+[Ad çözümleme (DNS)](virtual-networks-name-resolution-for-vms-and-role-instances.md)
 
 [Azure hizmet yapılandırma şeması (.cscfg)](https://msdn.microsoft.com/library/windowsazure/ee758710.aspx)
 
 [Azure Virtual Network yapılandırma şeması](http://go.microsoft.com/fwlink/?LinkId=248093)
 
-[Ağ yapılandırma dosyalarını kullanarak DNS ayarlarını belirtin](virtual-networks-specifying-a-dns-settings-in-a-virtual-network-configuration-file.md)
+[Ağ yapılandırma dosyalarını kullanarak DNS ayarlarını belirleme](virtual-networks-specifying-a-dns-settings-in-a-virtual-network-configuration-file.md)
 

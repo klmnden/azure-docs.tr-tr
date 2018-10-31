@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/04/2018
 ms.author: magoedte
-ms.openlocfilehash: 56250625a0770828fc31985f737df944f76d3f13
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: d2cf2fec50e3dd803d828537ddd724ee61015c71
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50209629"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50248295"
 ---
 # <a name="how-to-stop-monitoring-your-azure-kubernetes-service-aks-with-azure-monitor-for-containers-preview"></a>Azure Kubernetes Service (AKS) kapsayıcıları (Önizleme) için Azure İzleyici ile izleme durdurma
 
@@ -111,7 +111,7 @@ Azure CLI'yı kullanmayı seçerseniz, ilk CLI'yi yerel olarak yükleyip kullanm
 
 4. Değerlerini düzenleyin **aksResourceId** ve **aksResourceLocation** bulabileceğiniz AKS kümesinin değerleri kullanarak **özellikleri** seçili kümenin sayfası .
 
-    ![Kapsayıcı Özellikleri Sayfası](./media/monitoring-container-health/container-properties-page.png)
+    ![Kapsayıcı Özellikleri Sayfası](media/monitoring-container-insights-optout/container-properties-page.png)
 
     Üzerinde çalışırken **özellikleri** sayfasında, ayrıca kopyalayın **çalışma alanı kaynak kimliği**. Daha sonra Log Analytics çalışma alanını silmek istediğinize karar verirseniz, bu değer gereklidir. Log Analytics çalışma alanı siliniyor, bu işlemin bir parçası olarak yapılmaz. 
 

@@ -67,7 +67,7 @@ Bunun yerine her kaynak sağlayıcısı ve Azure Stack tarafından desteklenen b
 
 Azure Resource Manager, PowerShell, Azure CLI, SDK'sı ve Microsoft Visual Studio code gibi araçlar API profillerini çalışın. Araçlar ve SDK'lar profillerini modülleri ve bir uygulama oluştururken eklenecek kitaplıklar hangi sürümünü okumak için kullanabilirsiniz.
 
-Örneğin, PowerShell kullanarak bir depolama hesabı oluşturmak için kullandığınız **Microsoft.Storage** api sürümü 2016-03-30 ve api-version ile Microsoft.Compute kaynak sağlayıcısına kullanarak VM destekleyen kaynak sağlayıcısı 2015-12-01, 2016-03-30 PowerShell modülünü destekleyen depolama için aranacak gerekir ve hangi modülü için işlem 2015-02-01 destekler ve bunları yükleyin. Bunun yerine, bir profil kullanabilirsiniz. Cmdlet'i kullanmak ** yükle profili * profilename *** ve PowerShell modülleri doğru sürümünü yükler.
+Örneğin, PowerShell kullanarak bir depolama hesabı oluşturmak için kullandığınız **Microsoft.Storage** api sürümü 2016-03-30 ve api-version ile Microsoft.Compute kaynak sağlayıcısına kullanarak VM destekleyen kaynak sağlayıcısı 2015-12-01, 2016-03-30 PowerShell modülünü destekleyen depolama için aranacak gerekir ve hangi modülü için işlem 2015-02-01 destekler ve bunları yükleyin. Bunun yerine, bir profil kullanabilirsiniz. Cmdlet'i kullanmak **yükle profili \*profilename**\* ve PowerShell modülleri doğru sürümünü yükler.
 
 Benzer şekilde, Python tabanlı bir uygulama oluşturmak için Python SDK'sı kullanırken, profil belirtebilirsiniz. SDK'sı, betikte belirttiğiniz kaynak sağlayıcıları için doğru modülleri yükler.
 

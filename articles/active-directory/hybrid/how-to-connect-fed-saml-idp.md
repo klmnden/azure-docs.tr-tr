@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 07/13/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: ce57857ecc5b8e18aecdcc58754e5f9bf5b22a74
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: a197b3c7aa423323f984a793851a458733391e33
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46312119"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50243121"
 ---
 #  <a name="use-a-saml-20-identity-provider-idp-for-single-sign-on"></a>Çoklu oturum açma için SAML 2.0 kimlik sağlayıcısı (IDP) kullanın
 
@@ -80,7 +80,7 @@ Bu tabloda belirli öznitelikler için gereksinimleri SAML 2.0 iletisinde göste
 | ----- | ----- |
 |Nameıd|Bu onay değerini Azure AD kullanıcı Immutableıd ile aynı olmalıdır. Bu, en fazla 64 alfasayısal karakter olabilir. Güvenli olmayan html karakterler kodlanmış olması gerekir, örneğin, "+" karakter ".2B" gösterilir.|
 |IDPEmail|Kullanıcı asıl adı (UPN) SAML yanıtta IDPEmail ada sahip bir öğe olarak listelenen Azure AD/Office 365'te kullanıcının UserPrincipalName (UPN). E-posta adresi biçiminde UPN'dir. Office 365'te Windows (Azure Active Directory) UPN değeri.|
-|Sertifikayı Veren|Kimlik sağlayıcısının bir URI olması gerekir. Örnek ileti verenden yeniden kullanmayın. Birden çok en üst düzey etki alanı içinde Azure AD kiracılarıyla varsa verici etki alanı başına yapılandırılmış belirtilen URI ayarı eşleşmelidir.|
+|Veren|Kimlik sağlayıcısının bir URI olması gerekir. Örnek ileti verenden yeniden kullanmayın. Birden çok en üst düzey etki alanı içinde Azure AD kiracılarıyla varsa verici etki alanı başına yapılandırılmış belirtilen URI ayarı eşleşmelidir.|
 
 >[!IMPORTANT]
 >Şu anda Azure AD için SAML 2.0:urn:oasis:names:tc:SAML:2.0:nameid aşağıdaki Nameıd biçimi URI destekler-biçimi: kalıcı.

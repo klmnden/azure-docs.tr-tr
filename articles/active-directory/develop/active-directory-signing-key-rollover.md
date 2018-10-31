@@ -16,12 +16,12 @@ ms.date: 10/20/2018
 ms.author: celested
 ms.reviewer: paulgarn, hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 3b41436ffae2f5761b1917af3048327b90952b78
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: eaaeaf1b37c0d732d8d0009ad5a66f2118674b66
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49470974"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50240474"
 ---
 # <a name="signing-key-rollover-in-azure-active-directory"></a>İmzalama anahtarı geçiş işlemi, Azure Active Directory'de
 Bu makalede, Azure Active Directory (Azure AD) güvenlik belirteçleri imzalamak için kullanılan ortak anahtarları hakkında bilmeniz gerekenler açıklanmaktadır. Bu anahtarları geçişi düzenli aralıklarla ve acil bir durum uzatılabilir, hemen dikkat edin önemlidir. Azure AD kullanan tüm uygulamalar, program aracılığıyla anahtarı geçiş işlemi ya da bir düzenli el ile geçiş işlemi'kurmak başlatabilmeniz gerekir. Anahtarları nasıl çalıştığını, anlamak için okumaya devam uygulamanıza geçişin etkisini değerlendirmek ve uygulamanızı güncelleştirmeniz veya gerekirse, anahtar geçişi işlemek için bir düzenli el ile geçiş işlemi oluşturmak.
@@ -285,7 +285,7 @@ Anahtar geçişi mantığı çalıştığını doğrulamak için aşağıdaki ad
             <add thumbprint="3A38FA984E8560F19AADC9F86FE9594BB6AD049B" />
           </keys>
    ```
-2. İçinde **<add thumbprint=””>** ayarlama, farklı bir karakterle değiştirilerek parmak izi değerini değiştirin. Kaydet **Web.config** dosya.
+2. İçinde **<add thumbprint="">** ayarlama, farklı bir karakterle değiştirilerek parmak izi değerini değiştirin. Kaydet **Web.config** dosya.
 3. Uygulamayı derleyin ve çalıştırın. Oturum açma işlemini tamamladığınızda, uygulamanız başarıyla anahtar dizin Federasyon meta veri belge gerekli bilgileri indirerek güncelleştiriliyor. Oturum açma sorunları yaşıyorsanız, uygulamanızdaki değişiklikleri doğru okuyarak emin [ekleme oturum açma, Web uygulaması kullanarak Azure AD](https://github.com/Azure-Samples/active-directory-dotnet-webapp-openidconnect) makalenin veya indiriliyor ve aşağıdaki kod örneği inceleyerek: [ Azure Active Directory için çok Kiracılı bulut uygulaması](https://code.msdn.microsoft.com/multi-tenant-cloud-8015b84b).
 
 ### <a name="vs2010"></a>Kaynakları koruma ve Visual Studio 2008 veya 2010 ile oluşturulan web uygulamaları ve .NET 3.5 için Windows Identity Foundation (WIF) v1.0

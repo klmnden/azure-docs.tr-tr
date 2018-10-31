@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.component: compliance
-ms.date: 10/19/2018
+ms.date: 10/30/2018
 ms.author: rolyon
-ms.openlocfilehash: be00f6fb41572c0a9599f7005f2cdd1d6587f15a
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: 87b08ce138cde5cc70c5a80cc414c68dd7aea743
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49944156"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50249849"
 ---
 # <a name="azure-active-directory-terms-of-use-feature"></a>Azure Active Directory Kullanım Koşulları özelliği
 Azure AD Kullanım Koşulları, kuruluşların son kullanıcılara bilgi sağlamak için kullanabileceği basit bir yöntem sunar. Bu sunum, kullanıcıların yasal gereksinimler veya uyumluluk gereksinimleriyle ilgili bildirimleri görmesi sağlar. Bu makalede kullanım koşulları ile çalışmaya başlama işlemini açıklamaktadır.
@@ -46,6 +46,7 @@ Azure AD Kullanım Koşulları aşağıdakileri yapmanızı sağlar:
 - Gizlilik düzenlemeleriyle Karşılama konusunda yardımcı olur.
 - Kullanım Koşullarınızı kabul etmemiş olan kullanıcıları listeleyin.
 - Uyumluluk ve denetim için kullanım etkinlik koşulları günlüğünü görüntüleyin.
+- Oluşturma ve yönetme kullanarak kullanım koşullarını [Microsoft Graph API'lerini](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/agreement) (şu anda önizlemede).
 
 ## <a name="prerequisites"></a>Önkoşullar
 Azure AD Kullanım Koşullarını kullanmak ve yapılandırmak için şunlara sahip olmalısınız:

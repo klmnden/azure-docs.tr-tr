@@ -12,16 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/21/2017
+ms.date: 10/30/2018
 ms.author: terrylan
-ms.openlocfilehash: fb6a984ff838305b4ce411538465c0b9b5c152da
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.openlocfilehash: 631fe91bc72093cf5ad87779853df4901a27a068
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42886923"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50249130"
 ---
 # <a name="azure-virtual-machines-security-overview"></a>Azure sanal makineleri güvenliğine genel bakış
+
 Azure sanal makineler, çok çeşitli bilgi işlem çözümlerini Çevik bir şekilde dağıtmak için kullanabilirsiniz. Hizmeti Microsoft Windows, Linux, Microsoft SQL Server, Oracle, IBM, SAP ve Azure BizTalk Services'ı destekler. Bu nedenle, tüm iş yüklerini ve dilleri neredeyse tüm işletim sistemlerinde dağıtabilirsiniz.
 
 Bir Azure sanal makinesi, sanal makineyi çalıştıran fiziksel donanımı satın almanıza ve muhafaza etmenize gerek kalmadan size sanallaştırma esnekliği sunar. Derleme ve verilerinizin korunduğundan ve yüksek oranda güvenli veri merkezlerini güvende olmasını güvence ile uygulamalarınızı dağıtın.
@@ -37,6 +38,7 @@ Azure sayesinde, Gelişmiş Güvenlik uyumlu çözümler oluşturabilirsiniz:
 Bu makalenin hedefi sanal makinelerle kullanılabilmesi için Azure güvenlik özellikleri çekirdek genel bir bakış sağlamaktır. Daha fazla bilgi için makalelerin bağlantıları her özelliğin ayrıntılarını verir.  
 
 ## <a name="antimalware"></a>Kötü Amaçlı Yazılımdan Koruma
+
 Azure ile Microsoft, Symantec, Trend Micro ve Kaspersky gibi güvenlik hizmeti satıcısı kötü amaçlı yazılımdan koruma yazılımından kullanabilirsiniz. Bu yazılımı, sanal makinelerinizi kötü amaçlı dosyalardan, reklam yazılımlarından ve diğer tehditlerden korunmasına yardımcı olur.
 
 Azure Cloud Services ve sanal makineler için Microsoft Antimalware belirlenmesi ve virüslerin, casus yazılımların ve diğer kötü amaçlı yazılım kaldırılmasına yardımcı olan gerçek zamanlı koruma bir özelliktir.  Azure için Microsoft Antimalware bilinen kötü amaçlı veya istenmeyen yazılım kendini yüklemeye veya Azure sistemlerinize çalışmayı denediğinde, yapılandırılabilir uyarılar sağlar.
@@ -64,7 +66,24 @@ Sanal makinelerinizi korumaya yardımcı olmak için kötü amaçlı yazılımda
 * [Yükleme ve bir Windows VM'de Symantec Endpoint Protection'ı yapılandırma](../virtual-machines/windows/classic/install-symantec.md)
 * [Azure Market'te güvenlik çözümleri](https://azure.microsoft.com/marketplace/?term=security)
 
+Daha güçlü koruma için kullanmayı [Windows Defender Gelişmiş tehdit koruması](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-atp/windows-defender-advanced-threat-protection). Windows Defender ATP ile şunları elde edersiniz:
+
+* [Saldırı yüzeyini azaltma](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-atp/overview-attack-surface-reduction)  
+* [Sonraki nesil koruma](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-antivirus/windows-defender-antivirus-in-windows-10)  
+* [Endpoint protection'ı ve yanıt](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-atp/overview-endpoint-detection-response)
+* [Otomatik araştırma ve düzeltme](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-atp/automated-investigations-windows-defender-advanced-threat-protection)
+* [Güvenli puanı](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-atp/overview-secure-score-windows-defender-advanced-threat-protection)
+* [Gelişmiş avcılık](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-atp/overview-hunting-windows-defender-advanced-threat-protection)
+* [Yönetim ve API'ler](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-atp/management-apis)
+* [Microsoft tehdit koruması](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-atp/threat-protection-integration)
+
+Daha fazla bilgi edinin: 
+
+* [WDATP ile çalışmaya başlama](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-atp/get-started)  
+* [WDATP özelliklerine genel bakış](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-atp/overview)  
+
 ## <a name="hardware-security-module"></a>Donanım güvenlik modülü
+
 Anahtar güvenlik artar, şifreleme ve kimlik korumaları geliştirebilirsiniz. Azure Key Vault'ta depolayarak bunları kritik gizli dizileri ve anahtarları ve Yönetimi basitleştirebilir. 
 
 Key Vault, anahtarlarınızı FIPS 140-2 2. Düzey standartlarıyla sertifikalanmış olan donanım güvenlik modüllerinde (HSM'ler) depolama seçeneği sunar. SQL Server şifreleme anahtarları için yedekleme veya [saydam veri şifrelemesi](https://msdn.microsoft.com/library/bb934049.aspx) tüm anahtar Kasası'nda tüm anahtarlar veya parolalar uygulamalarınızdan depolanabilir. İçin bu korumalı öğelere izni veya erişimi aracılığıyla yönetilir [Azure Active Directory](https://azure.microsoft.com/documentation/services/active-directory/).
@@ -76,6 +95,7 @@ Daha fazla bilgi edinin:
 * [Azure Key Vault blogu](https://blogs.technet.microsoft.com/kv/)
 
 ## <a name="virtual-machine-disk-encryption"></a>Sanal makine disk şifrelemesi
+
 Azure Disk şifrelemesi, Windows ve Linux sanal makine disklerini şifrelemek için yeni bir özelliktir. Azure Disk şifrelemesi, endüstri standardı kullanır [BitLocker](https://technet.microsoft.com/library/cc732774.aspx) Windows özelliğidir ve [dm-crypt](https://en.wikipedia.org/wiki/Dm-crypt) Linux işletim sistemi ve veri diskleri için birim şifrelemesi sağlamak için bir özelliğidir.
 
 Disk şifreleme anahtarlarını ve gizli anahtar kasası aboneliğinizi yönetmek ve denetlemek yardımcı olması için Azure Key Vault ile tümleşik bir çözüm. Bu, sanal makine disklerini tüm veriler Azure depolama alanındaki bekleyen şifrelenmesini sağlar.
@@ -86,6 +106,7 @@ Daha fazla bilgi edinin:
 * [Hızlı Başlangıç: Azure PowerShell ile Windows Iaas VM şifreleme](../security/quick-encrypt-vm-powershell.md)
 
 ## <a name="virtual-machine-backup"></a>Sanal makine yedekleme
+
 Azure yedekleme, uygulama verilerinizi sıfır sermaye yatırımı ve en az işletim maliyetiyle korumaya yardımcı olan ölçeklenebilir bir çözümdür. Uygulama hataları verilerinizi bozabilir ve insan hataları, uygulamalarınızda hatalar oluşturabilir. Windows ve Linux çalıştıran sanal makinelerinizi Azure Backup ile korunmuş olur.
 
 Daha fazla bilgi edinin:
@@ -95,6 +116,7 @@ Daha fazla bilgi edinin:
 * [Azure Backup hizmeti hakkında SSS](../backup/backup-azure-backup-faq.md)
 
 ## <a name="azure-site-recovery"></a>Azure Site Recovery
+
 Kuruluşunuzun BCDR stratejisinin önemli bir bölümü kurumsal iş yüklerini korumak nasıl tespit edilmesi ve Planlı çalışan uygulamalar ve plansız kesintiler oluştuğunda. Azure Site Recovery, çoğaltma, yük devretme ve kurtarma, iş yükleri ve uygulamalar, birincil çökmesi durumunda ikincil konum kullanılabilir olacak şekilde düzenleyin yardımcı olur.
 
 Site Recovery:
@@ -112,6 +134,7 @@ Daha fazla bilgi edinin:
 * [Hangi iş yüklerini Azure Site Recovery tarafından korunuyor mu?](../site-recovery/site-recovery-workload.md)
 
 ## <a name="virtual-networking"></a>Sanal ağ
+
 Sanal makinelerin ağ bağlantısı gerekir. Bu gereksinimi desteklemek için Azure sanal makineler, Azure sanal ağına bağlı olması gerekir. 
 
 Bir Azure sanal ağı, fiziksel Azure ağ dokusu üzerine oluşturulmuş mantıksal bir yapıdır. Her mantıksal Azure sanal ağ, diğer tüm Azure sanal ağlardan yalıtılır. Bu yalıtım, dağıtımlarınızı ağ trafiğini diğer Microsoft Azure müşterileri için erişilebilir değil Sigortası yardımcı olur.
@@ -123,6 +146,7 @@ Daha fazla bilgi edinin:
 * [Ağ özellikleri ve kuruluş senaryolarına yönelik iş ortaklıkları](https://azure.microsoft.com/blog/networking-enterprise/)
 
 ## <a name="security-policy-management-and-reporting"></a>Güvenlik İlkesi Yönetimi ve Raporlama
+
 Azure Güvenlik Merkezi, tehditleri önleyin, algılayın ve yardımcı olur. Güvenlik Merkezi verir artırılmış görünürlük ve üzerinde Azure kaynaklarınızın güvenliğini denetleyebilirsiniz. Bu, Azure aboneliklerinizde tümleşik güvenlik izleme ve ilke yönetimi sağlar. Aksi takdirde gözden kaçan geçebilir ve güvenlik çözümlerinin geniş ekosistemiyle çalışan tehditleri algılamanıza yardımcı olur.
 
 Güvenlik Merkezi iyileştirmek ve sanal makinelerinizin güvenlik izlemenize yardımcı olur:
@@ -137,9 +161,24 @@ Daha fazla bilgi edinin:
 * [Azure Güvenlik Merkezi planlama ve işlemler](../security-center/security-center-planning-and-operations-guide.md)
 
 ## <a name="compliance"></a>Uyumluluk
+
 Azure sanal makineleri FISMA, FedRAMP, HIPAA, PCI DSS düzey 1 ve diğer önemli uyumluluk programları için sertifikalı. Bu sertifika için kendi Azure uygulamalarınızın uyumluluk gereksinimlerini karşılamak ve işletmenize, çok çeşitli yurtiçi ve uluslararası Yasal gereksinimlere yönelik olarak daha kolay hale getirir.
 
 Daha fazla bilgi edinin:
 
 * [Microsoft Güven Merkezi: uyumluluk](https://www.microsoft.com/en-us/trustcenter/compliance)
 * [Güvenilir bulut: Microsoft Azure güvenlik, gizlilik ve uyumluluk](http://download.microsoft.com/download/1/6/0/160216AA-8445-480B-B60F-5C8EC8067FCA/WindowsAzure-SecurityPrivacyCompliance.pdf)
+
+## <a name="confidential-computing"></a>Gizli bilgi işlem
+
+Gizli bilgi işlem sanal makine güvenliği teknik bir parçası değildir, ancak sanal makine güvenlik konusunda "işlem" güvenlik üst düzey bir konu aittir. Gizli bilgi işlem, "işlem" güvenlik kategoride aittir. 
+
+Gizli bilgi işlem sağlar veriler "clear" olduğunda verimli işleme, veri için gerekli olan güvenilir bir yürütme ortamı içinde korunduğundan emin https://en.wikipedia.org/wiki/Trusted_execution_environment (TEE - kuşatma olarak da bilinir), bir örneğini aşağıdaki şekilde gösterilmiştir. .  
+
+TEEs görünüm verileri veya içinde bir hata ayıklayıcısı olsa da işlem dışarıdan, yolu bulunduğundan emin olun. Hatta yalnızca yetkili kod verilere erişmesine izin verildiğinden emin olun. Kod değiştirilmiş ya da değiştirilmiş, işlemleri reddedilir ve ortam devre dışı. TEE içindeki kod yürütmeyi boyunca bu korumalar zorlar. 
+
+Daha fazla bilgi edinin:
+
+* [Azure gizli bilgi işlem ile tanışın](https://azure.microsoft.com/blog/introducing-azure-confidential-computing/)  
+* [Azure gizli bilgi işlem](https://azure.microsoft.com/blog/azure-confidential-computing/)  
+

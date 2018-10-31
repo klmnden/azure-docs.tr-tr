@@ -8,13 +8,13 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: tedway
 author: tedway
-ms.date: 10/01/2018
-ms.openlocfilehash: 925173f85301d6481ae3b9cf891041239b06bc8f
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.date: 10/29/2018
+ms.openlocfilehash: 3b2ff5bf4413c5d6a681aff66f0f338567f3b6a8
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49113725"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50242747"
 ---
 # <a name="deploy-a-model-as-a-web-service-on-an-fpga-with-azure-machine-learning"></a>Model bir FPGA Azure Machine Learning ile bir web hizmeti olarak dağıtma
 
@@ -23,8 +23,6 @@ Bir model üzerinde bir web hizmeti olarak dağıtabilirsiniz [alan programlanab
 ## <a name="prerequisites"></a>Önkoşullar
 
 - Azure aboneliği. Aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
-
-- İster gerekir ve FPGA kotasının onaylanması gerekiyor. Erişim istemek için kota istek formunu doldurun: https://aka.ms/aml-real-time-ai
 
 - Bir Azure Machine Learning hizmeti çalışma alanında ve yüklü Python için Azure Machine Learning SDK'sı. Kullanarak şu önkoşul olarak gerekenleri edinin öğrenin [bir geliştirme ortamı yapılandırma](how-to-configure-environment.md) belge.
  
@@ -132,7 +130,7 @@ except WebserviceException:
     service.wait_for_deployment(true)
 ```
 
-### <a name="test-the-service"></a>Test hizmeti
+### <a name="test-the-service"></a>Hizmeti test etme
 API için bir görüntü gönderme ve yanıt sınamak için bir eşleme Imagenet sınıf adı çıkış sınıfı kimliği ekleyin.
 
 ```python

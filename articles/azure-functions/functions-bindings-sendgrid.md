@@ -3,19 +3,19 @@ title: Azure işlevleri SendGrid bağlamaları
 description: Azure işlevleri SendGrid bağlamaları başvurusu.
 services: functions
 documentationcenter: na
-author: ggailey777
+author: craigshoemaker
 manager: jeconnoc
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 11/29/2017
-ms.author: glenga
-ms.openlocfilehash: 79fb24e85dea5a8d8d9ca637612ea4a65339a4e3
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.author: cshoe
+ms.openlocfilehash: 23ec5cd6eee3333922b5371a0ece631ebbc20939
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50087431"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50248040"
 ---
 # <a name="azure-functions-sendgrid-bindings"></a>Azure işlevleri SendGrid bağlamaları
 
@@ -199,6 +199,31 @@ Aşağıdaki tabloda ayarladığınız bağlama yapılandırma özelliklerini a�
 |**Metin**|**Metin**| e-posta içeriği. |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
+
+<a name="host-json"></a>  
+
+## <a name="hostjson-settings"></a>Host.JSON ayarları
+
+Bu bölümde sürümünde bu bağlama için kullanılabilen genel yapılandırma ayarları açıklanmaktadır 2.x. Aşağıdaki örnek host.json dosyasını yalnızca bu bağlama için sürüm 2.x ayarları içerir. Sürümündeki genel yapılandırma ayarları hakkında daha fazla bilgi için 2.x bkz [sürümü Azure işlevleri için host.json başvurusu 2.x](functions-host-json.md).
+
+> [!NOTE]
+> İşlevlerde host.json başvurusu için 1.x, bkz: [Azure işlevleri için host.json başvurusu 1.x](functions-host-json-v1.md).
+
+```json
+{
+    "version": "2.0",
+    "extensions": {
+        "sendGrid": {
+            "from": "Azure Functions <samples@functions.com>"
+        }
+    }
+}
+```  
+
+|Özellik  |Varsayılan | Açıklama |
+|---------|---------|---------| 
+|başlangıç|yok|Tüm işlevler arasında gönderenin e-posta adresi.| 
+
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

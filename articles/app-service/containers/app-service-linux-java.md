@@ -12,12 +12,12 @@ ms.devlang: java
 ms.topic: article
 ms.date: 08/29/2018
 ms.author: routlaw
-ms.openlocfilehash: e11b115d7a6421c34e7f1371ad8931b6affa0436
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: 1639194741fb343391f80790d0a2cc7f392218ac
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48815180"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50238124"
 ---
 # <a name="java-developers-guide-for-app-service-on-linux"></a>Linux'ta App Service için Java Geliştirici Kılavuzu
 
@@ -146,6 +146,8 @@ Bölümündeki yönergeleri [var olan özel bir SSL sertifikası bağlama](/azur
 
 >[!NOTE]
 > Uygulamanız Spring Framework veya Spring Boot kullanıyorsa, veritabanı bağlantısı bilgilerini Spring veri JPA [uygulama özellikleri dosyanızda] ortam değişkenleri olarak ayarlayabilirsiniz. Ardından [uygulama ayarları](/azure/app-service/web-sites-configure#app-settings) bu değerler uygulamanız için Azure portal veya CLI tanımlamak için.
+
+Bu bölümdeki örnek yapılandırma parçacıkları MySQL veritabanını kullan. Yapılandırma belgelerini ek bilgi için bkz. [MySQL](https://dev.mysql.com/doc/connector-j/8.0/en/connector-j-usagenotes-tomcat.html) , [SQL Server JDBC](https://docs.microsoft.com/en-us/sql/connect/jdbc/microsoft-jdbc-driver-for-sql-server?view=sql-server-2017), ve [PostgreSQL](https://jdbc.postgresql.org/documentation/head/index.html).
 
 Tomcat veritabanlarına Java veritabanı bağlantısı (JDBC) veya Java Kalıcılık API (JPA) kullanarak yönetilen bağlantıları kullanacak şekilde yapılandırmak için önce başlangıç Tomcat tarafından okunan CATALINA_OPTS ortam değişkeni özelleştirin. Bu değerler bir uygulama ayarı ile App Service Maven eklentisi ayarlayın:
 

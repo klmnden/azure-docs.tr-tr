@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 03/22/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 95f2ffb1a51184f1194f87a4a5e9a54e682edf80
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: cbafe7fcdf2ccd515dfec5554c93bec9c7f3537a
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46312007"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50243172"
 ---
 # <a name="connector-version-release-history"></a>Bağlayıcı Sürümü Yayınlama Geçmişi
 Forefront Identity Manager (FIM) ve Microsoft Identity Manager (MIM) bağlayıcıları sık sık güncelleştirilir.
@@ -98,7 +98,7 @@ Bu konuda, yayımlanmış bağlayıcılarının tüm sürümlerini listeler.
 * Genel Web Hizmetleri:
   * Wsconfig Aracı'nı doğru şekilde REST hizmeti yöntemi için "örnek istek" Json dizisi dönüştürmemenizi. Bu, bu Json dizisi REST isteği için serileştirme ile ilgili sorunlar nedeniyle.
   * Web Hizmeti Bağlayıcısı yapılandırma aracını JSON öznitelik adları boşluk sembolleri kullanımını desteklemiyor 
-    * Değiştirme deseni el ile WSConfigTool.exe.config dosyasına örn eklenebilir ```<appSettings> <add key=”JSONSpaceNamePattern” value="__" /> </appSettings>```
+    * Değiştirme deseni el ile WSConfigTool.exe.config dosyasına örn eklenebilir ```<appSettings> <add key="JSONSpaceNamePattern" value="__" /> </appSettings>```
 > [!NOTE]
 > Dışarı aktarma için şu hatayı alırsınız gibi JSONSpaceNamePattern anahtarı gereklidir: ileti: boş adı geçerli değil. 
 
@@ -143,7 +143,7 @@ Yayımlanma tarihi: Mart 2017
 ### <a name="enhancements"></a>Geliştirmeler
 
 * Genel SQL:</br>
-  **Senaryo Belirtiler:** , bir SQL burada yalnızca bir nesne türü için bir başvuru izin ve gerekli üyelerle çapraz başvuru Bağlayıcısı ile iyi bilinen sınırlamasıdır. </br>
+  **Senaryo Belirtiler:**   , bir SQL burada yalnızca bir nesne türü için bir başvuru izin ve gerekli üyelerle çapraz başvuru Bağlayıcısı ile iyi bilinen sınırlamasıdır. </br>
   **Çözüm açıklaması:** işleme adımını başvurular için içinde bulunduğunuz "*" seçeneği belirlenirse, nesne türlerinin tüm bileşimleri eşitleme altyapısında döndürülür.
 
 >[!Important]

@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: maquaran
-ms.openlocfilehash: 5c916f847bf5098145c3ed14fad87c7669d916c8
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 3c97c89bde40357981d82dce8dd53febff25c8f3
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47222702"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50239891"
 ---
 # <a name="going-social-with-azure-cosmos-db"></a>Azure Cosmos DB ile iletişim
 İçinde bir yüksek düzeyde birbirine society yaşayan anlamına gelir hayatta belirli bir noktada, bir parçası haline gelir, bir **sosyal ağ**. Sosyal ağlar arkadaşlarınız, iş arkadaşlarınızın, ailesi sürdürebilecek tutmak veya bazen Tutkunuzu ortak ilgi alanlarına kişilerle paylaşmak için kullanın.
@@ -233,7 +233,7 @@ Zaman, sonunda trafik ve kaynak tüketiminize büyüyecektir (ölçülen [RU](re
 
 Ancak şu durumda bekleyin... platformunuz yaşadıkları deneyimleri en iyi; değil hemen fark şu ana kadar uzağa işletimsel bölgenizi saltanatı gecikme süresi ve bunları çıkmak için açıkça istemiyorsanız değildirler. Vardı, kolay bir yol yalnızca **küresel erişiminizi genişletmek**... yoktur ancak!
 
-Cosmos DB sayesinde [verilerinizi dünya çapında çoğaltın](../cosmos-db/tutorial-global-distribution-sql-api.md) ve şeffaf bir şekilde birkaç tıklamayla ve otomatik olarak ile kullanılabilir bölgelerden arasından, [istemci kodu](../cosmos-db/tutorial-global-distribution-sql-api.md). Ayrıca, olabilir yani [birden çok yük devretme bölgeleri](regional-failover.md). 
+Cosmos DB sayesinde [verilerinizi dünya çapında çoğaltın](../cosmos-db/tutorial-global-distribution-sql-api.md) ve şeffaf bir şekilde birkaç tıklamayla ve otomatik olarak ile kullanılabilir bölgelerden arasından, [istemci kodu](../cosmos-db/tutorial-global-distribution-sql-api.md). Ayrıca, olabilir yani [birden çok yük devretme bölgeleri](high-availability.md). 
 
 Verilerinizi dünya çapında çoğaltın, müşterilerinizin Avantajdan sürebilir emin olmanız gerekir. Bir web ön ucu kullanıyorsanız veya dağıtabileceğiniz API'leri mobil istemcilerden erişim, [Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager/) ve Azure App Service, genişletilmiş desteklemek için bir performans yapılandırması kullanarak tüm istenen bölgeler üzerinde kopyalama genel Kapsam. İstemcileriniz, ön uç veya API'leri eriştiğinizde, sırasıyla yerel bir Cosmos DB kopyasına bağlanır, en yakın uygulama hizmeti, yönlendirilir.
 

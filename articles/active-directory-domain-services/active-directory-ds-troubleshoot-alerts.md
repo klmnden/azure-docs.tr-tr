@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2018
+ms.date: 10/25/2018
 ms.author: ergreenl
-ms.openlocfilehash: 0eb028e419f05843da308c824d79a8f4e1883fb2
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: a6928b5a849f35456a6fb7699acd7720f686c2aa
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49429754"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50243070"
 ---
 # <a name="azure-ad-domain-services---troubleshoot-alerts"></a>Azure AD etki alanı Hizmetleri - sorun giderme uyarıları
 Bu makalede, yönetilen etki alanınızda karşılaşabileceğiniz herhangi bir uyarı için sorun giderme kılavuzları sağlar.
@@ -37,11 +37,21 @@ Karşılık gelen sorun giderme adımlarını kimliği veya ileti uyarıyı seç
 | AADDS103 | *Azure AD Domain Services'i etkinleştirdiğiniz sanal ağı için IP adres aralığı ortak bir IP aralığı ' dir. Azure AD etki alanı Hizmetleri, özel bir IP adresi aralığı ile bir sanal ağda etkinleştirilmelidir. Bu yapılandırma, izleme, yönetme, düzeltme eki için Microsoft'un yeteneğini etkiler ve yönetilen Etki Alanınızla eşitleme.* | [Genel bir IP aralığı adresidir](#aadds103-address-is-in-a-public-ip-range) |
 | AADDS104 | *Microsoft bu yönetilen etki alanı için etki alanı denetleyicilerine ulaşamıyoruz. Bu, sanal ağ yönetilen etki alanı erişimi engeller üzerinde yapılandırılan bir ağ güvenlik grubu (NSG) durum meydana. Başka bir olası neden, söz konusu bloklar gelen trafiği internet'ten kullanıcı tanımlı bir yolun olup olmadığını olmasıdır.* | [Ağ hatası](active-directory-ds-troubleshoot-nsg.md) |
 | AADDS105 | *Uygulama kimliği ile "d87dcbc6-a371-462e-88e3-28ad15ec4e64" hizmet sorumlusu silindi ve yeniden oluşturulur. Yeniden oluşturarak tutarsız izinleri yönetilen etki alanınıza hizmet için gereken Azure AD etki alanı Hizmetleri kaynaklarında bırakır. Yönetilen etki alanınızda parola eşitlemeyi etkilenebilir.* | [Parola eşitlemesi uygulama güncel değil](active-directory-ds-troubleshoot-service-principals.md#alert-aadds105-password-synchronization-application-is-out-of-date) |
+| AADDS106 | *Yönetilen etki alanınızla ilişkili Azure aboneliğiniz silindi.  Azure AD Domain Services'in düzgün çalışmaya devam edebilmesi için etkin bir aboneliği gerektirir.* | [Azure aboneliği bulunamadı](#aadds106-your-azure-subscription-is-not-found) |
+| AADDS107 | *Yönetilen etki alanınızla ilişkili Azure aboneliğinizi etkin değil.  Azure AD Domain Services'in düzgün çalışmaya devam edebilmesi için etkin bir aboneliği gerektirir.* | [Azure aboneliğiniz devre dışı](#aadds107-your-azure-subscription-is-disabled) |
+| AADDS108 | *Yönetilen etki alanınız için kullanılan bir kaynağı sildi. Bu kaynak için Azure AD Domain Services düzgün çalışması gereklidir.* | [Bir kaynağı sildi](#aadds108-resources-for-your-managed-domain-cannot-be-found) |
+| AADDS109 | *Azure AD Domain Services dağıtımı için seçilen alt ağda dolu ve oluşturulması gereken ek bir etki alanı denetleyicisi alan yok.* | [Alt ağ dolu](#aadds109-the-subnet-associated-with-your-managed-domain-is-full) |
+| AADDS110 | *Bu etki alanındaki sanal ağın alt ağında yeterli IP adresi olmayabilir olduğunu belirledik. Azure AD Domain Services, en az iki kullanılabilir IP adresi, etkin alt ağ içinde olmalıdır. Sahip en az 3-5 yedek IP adresi alt ağ içinde öneririz. Böylece kullanılabilir IP adresleri veya alt ağdaki kullanılabilir IP adresi sayısı bir kısıtlama olup olmadığını tüketme alt ağda dağıtılan diğer sanal makineler varsa bu oluşmuş olabilir.* | [Yeterli IP adresleri](#aadds110-not-enough-ip-address-in-the-managed-domain) |
+| AADDS111 | *Hedef kapsamı kilitli bir veya daha fazla yönetilen etki alanı tarafından kullanılan ağ kaynakları üzerinde çalışılamıyor.* | [Kaynak kilitli](#aadds111-resources-are-locked) |
+| AADDS112 | *Bir veya daha fazla yönetilen etki alanı tarafından kullanılan ağ kaynakları üzerinde nedeniyle ilke restriction(s) çalışılamıyor.* | [Kaynak kullanılamıyor](#aadds112-resources-are-unusable) |
+| AADDS113 | *Azure AD Domain Services tarafından kullanılan kaynakları beklenmeyen bir durumda algılandı ve geri alınamaz.* | [Kaynakları kurtarılamaz olarak kabul edilir](#aadds113-resources-are-unrecoverable) |
+| AADDS114 | * Azure AD etki alanı Hizmetleri etki alanı denetleyicileri erişmek mümkün olmayan bağlantı noktası 443'tür. Hizmet, yönetmek ve yönetilen etki alanınızı güncelleştirmek için gereklidir. * | [Bağlantı noktası 442 engellendi](#aadds114-port-443-blocked) |
 | AADDS500 | *Yönetilen etki alanı [date] üzerinde Azure AD ile son eşitlendiği zaman. Kullanıcılar yönetilen etki alanında oturum açamıyor veya grup üyeliklerini Azure AD ile eşitlenmiş olmayabilir.* | [Eşitleme, bir süredir oldu henüz](#aadds500-synchronization-has-not-completed-in-a-while) |
 | AADDS501 | *Yönetilen etki alanı son [date] yedeklendi.* | [Bir yedek bir süredir kalmadığını](#aadds501-a-backup-has-not-been-taken-in-a-while) |
 | AADDS502 | *Yönetilen etki alanı için güvenli LDAP sertifikasını [date] sona erecek.* | [Güvenli LDAP sertifikasını süresi doluyor](active-directory-ds-troubleshoot-ldaps.md#aadds502-secure-ldap-certificate-expiring) |
 | AADDS503 | *Etki alanı ile ilişkili Azure aboneliği etkin olmadığından, yönetilen etki alanı askıya alınır.* | [Devre dışı bırakılmış abonelik nedeniyle askıya alma](#aadds503-suspension-due-to-disabled-subscription) |
 | AADDS504 | *Yönetilen etki alanı geçersiz bir yapılandırma nedeniyle askıya alınır. Hizmet, düzeltme eki, yönetme veya yönetilen etki alanınızın etki alanı denetleyicilerinin uzun bir süredir güncelleştirme olmuştur.* | [Geçersiz yapılandırma nedeniyle askıya alma](#aadds504-suspension-due-to-an-invalid-configuration) |
+
 
 
 ## <a name="aadds100-missing-directory"></a>AADDS100: Dizin eksik
@@ -101,6 +111,127 @@ Sanal ağ içinde makineler aynı IP adresi aralığı alt ağ için yapılandı
 3. İzleyin [alma başlatıldı kullanarak Azure AD Domain Services Kılavuzu](active-directory-ds-getting-started.md) yönetilen etki alanınıza yeniden oluşturmak için. Bir sanal ağ ile özel bir IP adresi aralığı çekme emin olun.
 4. Yeni etki alanınız için sanal makinelerinizi etki alanına katılma için izleyin [bu kılavuzda](active-directory-ds-admin-guide-join-windows-vm-portal.md).
 8. Uyarı çözümlendiğinde emin olmak için iki saat içinde etki alanınızın sistem durumunu denetleyin.
+
+## <a name="aadds106-your-azure-subscription-is-not-found"></a>AADDS106: Azure aboneliğinizi bulunamadı
+
+**Uyarı iletisi:**
+
+*Yönetilen etki alanınızla ilişkili Azure aboneliğiniz silindi.  Azure AD Domain Services'in düzgün çalışmaya devam edebilmesi için etkin bir aboneliği gerektirir.*
+
+**Çözüm:**
+
+Azure AD Domain Services işlevi aboneliği gerektirir ve başka bir aboneliğe taşınamaz. Yönetilen etki alanınızla ilişkili Azure aboneliği silindiği için bir Azure aboneliği ve Azure AD Domain Services'ı yeniden oluşturmanız gerekir.
+
+1. Bir Azure aboneliği oluşturun
+2. [Yönetilen etki alanınızı silmek](active-directory-ds-disable-aadds.md) , mevcut Azure AD dizininden.
+3. İzleyin [Başlarken](active-directory-ds-getting-started.md) yönetilen bir etki alanı yeniden oluşturmak için Kılavuzu.
+
+## <a name="aadds107-your-azure-subscription-is-disabled"></a>AADDS107: Azure aboneliğiniz devre dışı bırakıldı
+
+**Uyarı iletisi:**
+
+*Yönetilen etki alanınızla ilişkili Azure aboneliğinizi etkin değil.  Azure AD Domain Services'in düzgün çalışmaya devam edebilmesi için etkin bir aboneliği gerektirir.*
+
+**Çözüm:**
+
+
+1. [Azure aboneliğinizi yenileyin](https://docs.microsoft.com/azure/billing/billing-subscription-become-disable).
+2. Abonelik yenilendikten sonra Azure AD Domain Services yönetilen etki alanınıza yeniden etkinleştirmek için Azure'nın sunduğu bir bildirim alırsınız.
+
+## <a name="aadds108-resources-for-your-managed-domain-cannot-be-found"></a>AADDS108: Yönetilen etki alanınız için kaynaklar bulunamıyor
+
+**Uyarı iletisi:**
+
+*Yönetilen etki alanınız için kullanılan bir kaynağı sildi. Bu kaynak için Azure AD Domain Services düzgün çalışması gereklidir.*
+
+**Çözüm:**
+
+Azure AD etki alanı Hizmetleri oluşturur belirli kaynaklar düzgün çalışabilmesi için dağıtırken genel IP adresleri, NIC ve bir yük dengeleyici gibi. Herhangi bir adlandırılmış silindiğinde, bu desteklenmeyen bir durumda olması için yönetilen etki alanınızı neden olur ve yönetilmekte olan etki alanınıza engeller. Bu uyarı ne zaman Azure AD Domain Services kaynaklarını bulabildiği birisi gerekli kaynak siler bulunur. Aşağıdaki adımlar, yönetilen etki alanınıza geri yükleme özetlemektedir.
+
+1.  Azure AD Domain Services durumu sayfasına gidin
+  1.    İçin seyahat [Azure AD Domain Services sayfası]() Azure portalında.
+  2.    Sol gezinti bölmesinde tıklayın **sistem durumu**
+2.  Uyarı 4 saatten eski olup olmadığını denetleyin
+  1.    Kimlikli uyarı sistem durumu sayfasında, tıklayın **AADDS108**
+  2.    Uyarı olduğunda, ilk bulunan için bir zaman damgasına sahip olur. Zaman damgası 4 saatten kısa bir süre önce Azure AD Domain Services silinen kaynak yeniden oluşturabileceğinizi şansı yoktur.
+3.  Uyarı 4 saatten eski ise, yönetilen etki alanı kurtarılamaz bir durumda değil. Azure AD Domain Services silip yeniden açmanız gerekir.
+
+
+## <a name="aadds109-the-subnet-associated-with-your-managed-domain-is-full"></a>AADDS109: yönetilen Etki Alanınızla ilişkili alt ağ dolu
+
+**Uyarı iletisi:**
+
+*Azure AD Domain Services dağıtımı için seçilen alt ağda dolu ve oluşturulması gereken ek bir etki alanı denetleyicisi alan yok.*
+
+**Çözüm:**
+
+Bu hata onarılamaz. Gidermek için şunları yapmanız gerekir [mevcut yönetilen etki alanınızı silmek](active-directory-ds-disable-aadds.md) ve [yönetilen etki alanınıza yeniden oluşturun](active-directory-ds-getting-started.md)
+
+
+## <a name="aadds110-not-enough-ip-address-in-the-managed-domain"></a>AADDS110: Yeterli IP adresi, yönetilen etki alanı
+
+**Uyarı iletisi:**
+
+*Bu etki alanındaki sanal ağın alt ağında yeterli IP adresi olmayabilir olduğunu belirledik. Azure AD Domain Services, en az iki kullanılabilir IP adresi, etkin alt ağ içinde olmalıdır. Sahip en az 3-5 yedek IP adresi alt ağ içinde öneririz. Böylece kullanılabilir IP adresleri veya alt ağdaki kullanılabilir IP adresi sayısı bir kısıtlama olup olmadığını tüketme alt ağda dağıtılan diğer sanal makineler varsa bu oluşmuş olabilir.*
+
+**Çözüm:**
+
+1. [Yönetilen etki alanınızı silmek](#active-directory-ds-disable-aadds.md) kiracınızdan.
+2. Alt ağ için IP adresi aralığı Düzelt
+  1. Gidin [Azure portalında sanal ağlar sayfasında](https://portal.azure.com/?feature.canmodifystamps=true&Microsoft_AAD_DomainServices=preview#blade/HubsExtension/Resources/resourceType/Microsoft.Network%2FvirtualNetworks).
+  2. Azure AD Domain Services için kullanmayı planladığınız sanal ağı seçin.
+  3. Tıklayarak **adres alanı** ayarları
+  4. Adres aralığı mevcut adres aralığına tıklayarak ve düzenlemeye veya ek bir adres aralığı ekleme güncelleştirin. Yaptığınız değişiklikleri kaydedin.
+  5. Tıklayarak **alt ağlar** sol taraftaki gezinti.
+  6. Tablodaki düzenlemek istediğiniz alt ağa tıklayın.
+  7. Adres aralığını güncelleştir ve değişikliklerinizi kaydedin.
+3. İzleyin [alma başlatıldı kullanarak Azure AD Domain Services Kılavuzu](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started) yönetilen etki alanınıza yeniden oluşturmak için. Bir sanal ağ ile özel bir IP adresi aralığı çekme emin olun.
+4. Yeni etki alanınız için sanal makinelerinizi etki alanına katılma için izleyin [bu kılavuzda](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-admin-guide-join-windows-vm-portal).
+5. Adımları doğru şekilde tamamladığınızdan emin olmak için iki saat içinde etki alanınızın sistem durumunu denetleyin.
+
+## <a name="aadds111-resources-are-locked"></a>AADDS111: Kaynak kilitli
+
+**Uyarı iletisi:**
+
+*Hedef kapsamı kilitli bir veya daha fazla yönetilen etki alanı tarafından kullanılan ağ kaynakları üzerinde çalışılamıyor.*
+
+**Çözüm:**
+
+1.  Gözden geçirme Resource Manager işlem günlükleri ağ kaynaklarına (Bu bilgileri size değişiklik hangi kilidi engelliyor).
+2.  Azure AD Domain Services hizmet sorumlusu, bunlar üzerinde çalışabilir, böylece kilitler kaynakları kaldırın.
+
+
+## <a name="aadds112-resources-are-unusable"></a>AADDS112: Kaynakları kullanılamaz
+
+**Uyarı iletisi:**
+
+*Bir veya daha fazla yönetilen etki alanı tarafından kullanılan ağ kaynakları üzerinde nedeniyle ilke restriction(s) çalışılamıyor.*
+
+**Çözüm:**
+
+1.  Yönetilen etki alanınız için ağ kaynakları gözden geçirme Resource Manager işlem günlükleri
+2.  AAD-DS hizmet sorumlusu, bunlar üzerinde çalışabilir, böylece kaynaklar üzerindeki ilke kısıtlamaları zayıflatabilir.
+
+## <a name="aadds113-resources-are-unrecoverable"></a>AADDS113: Kaynakları kurtarılamaz olarak kabul edilir
+
+**Uyarı iletisi:**
+
+*Azure AD Domain Services tarafından kullanılan kaynakları beklenmeyen bir durumda algılandı ve geri alınamaz.*
+
+**Çözüm:**
+
+Bu hata onarılamaz. Gidermek için şunları yapmanız gerekir [mevcut yönetilen etki alanınızı silmek](active-directory-ds-disable-aadds.md) ve [yönetilen etki alanınıza yeniden oluşturun](active-directory-ds-getting-started.md)
+
+## <a name="aadds114-port-443-blocked"></a>AADDS114: Bağlantı noktası 443'ü engellendi
+
+**Uyarı iletisi:**
+
+*Azure AD etki alanı Hizmetleri etki alanı denetleyicileri erişmek mümkün olmayan bağlantı noktası 443'tür. Hizmet, yönetmek ve yönetilen etki alanınızı güncelleştirmek için gereklidir.*
+
+**Çözüm:**
+
+Azure AD Domain Services için ağ güvenlik grubunuzu bağlantı noktası 443 üzerinden gelen erişime izin.
+
 
 ## <a name="aadds500-synchronization-has-not-completed-in-a-while"></a>AADDS500: Eşitleme bir süre içinde tamamlanmadı.
 

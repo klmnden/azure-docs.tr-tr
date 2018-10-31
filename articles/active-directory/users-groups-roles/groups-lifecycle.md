@@ -14,12 +14,12 @@ ms.date: 03/09/2018
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: 29a53101bff8c384d01f952c4498e09d9d970ee3
-ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
+ms.openlocfilehash: 9e73a979950e856a7fc2bfa2193ea4ca0d59bac2
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43841743"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50242237"
 ---
 # <a name="configure-the-expiration-policy-for-office-365-groups"></a>Office 365 grupları için süre sonu ilkesi yapılandırma
 
@@ -55,9 +55,9 @@ Silinen bir grubu geri yüklemek için izinler hakkında daha fazla bilgi için 
 
 4. Üzerinde **sona erme** dikey penceresinde şunları yapabilirsiniz:
 
-  * Grup ömrü gün olarak ayarlayın. Bir hazır değer ya da özel bir değer (31 gün veya daha fazla olmalıdır) seçebilirsiniz. 
-  * Bir grup sahibi olduğunda burada yenileme ve süre sonu bildirimleri gönderilmesi gereken bir e-posta adresi belirtin. 
-  * Office 365 grupları sona seçin. Süre sonu için etkinleştirebilirsiniz **tüm** Office 365 grupları seçebilirsiniz yalnızca etkinleştirmek **seçili** veya Office 365 grupları seçin **hiçbiri** tüm grupları için sona erme devre dışı bırakmak için .
+  * Grup ömrü gün olarak ayarlayın. Bir hazır değer ya da özel bir değer (31 gün veya daha fazla olmalıdır) seçebilirsiniz. 
+  * Bir grup sahibi olduğunda burada yenileme ve süre sonu bildirimleri gönderilmesi gereken bir e-posta adresi belirtin. 
+  * Office 365 grupları sona seçin. Süre sonu için etkinleştirebilirsiniz **tüm** Office 365 grupları seçebilirsiniz yalnızca etkinleştirmek **seçili** veya Office 365 grupları seçin **hiçbiri**  tüm grupları için sona erme devre dışı bırakmak için.
   * Seçerek işiniz bittiğinde, ayarlarınızı kaydetmek **Kaydet**.
 
 
@@ -78,8 +78,8 @@ Grubun, geri belgeleri, SharePoint siteleri veya diğer kalıcı nesneler içeri
 > [!NOTE]
 > * İlk süre sonlarını ayarlama, zaman aşımı aralığından daha eski olan tüm gruplar dolmasına 30 gün için ayarlanır. Bir gün içinde ilk yenileme bildirim e-posta gönderilir. 
 >   Örneğin, A grubunun 400 gün önce oluşturuldu ve sona erme aralığını 180 gün olarak ayarlanır. Sona erme tarihi geçerli olduğunda, sahibi, yeniler sürece gruba silinmeden önce 30 gün vardır.
-> * Şu anda yalnızca bir süre sonu ilkesi, bir kiracının Office 365 grupları için yapılandırılabilir.
-> * Dinamik bir grup silinir ve geri, yeni bir grup olarak görülen ve yeniden kuralına göre doldurulur. Bu işlem, 24 saate kadar sürebilir.
+> * Şu anda bir kiracıdaki Office 365 grupları için yalnızca bir süre sonu ilkesi yapılandırılabilir.
+> * Bir dinamik grup silinip geri yüklendiğinde yeni bir grup olarak kabul edilir ve kurala göre yeniden doldurulur. Bu işlem 24 saat kadar sürebilir.
 
 ## <a name="how-office-365-group-expiration-works-with-a-mailbox-on-legal-hold"></a>Office 365 Grup süre sonu bir posta kutusuyla yasal tutmada nasıl çalışır
 Bir grubun süresi dolmadan 30 gün sonra silinir olduğunda ve grubun verilerini uygulamalardan Planner, siteleri gibi veya ekipler kalıcı olarak silinir ancak yasal tutmada grubu posta kutusu saklanır ve kalıcı olarak silinmez. Yönetici verileri getirmek için posta kutusunu geri Exchange cmdlet'lerini kullanabilirsiniz. 
@@ -116,19 +116,19 @@ Kiracınızda Office 365 grupları için sona erme ayarları yapılandırmak iç
 4. Mevcut ilke kümesi-AzureADMSGroupLifecyclePolicy güncelleştirin: Bu cmdlet, var olan bir ilkeyi güncelleştirmek için kullanılır. Aşağıdaki örnekte mevcut ilkedeki Grup ömrü 365 gün 180 gün olarak değiştirildi. 
   
   ````
-  Set-AzureADMSGroupLifecyclePolicy -Id “26fcc232-d1c3-4375-b68d-15c296f1f077”   -GroupLifetimeInDays 180 -AlternateNotificationEmails "emailaddress@contoso.com"
+  Set-AzureADMSGroupLifecyclePolicy -Id "26fcc232-d1c3-4375-b68d-15c296f1f077" -GroupLifetimeInDays 180 -AlternateNotificationEmails "emailaddress@contoso.com"
   ````
   
 5. Add-AzureADMSLifecyclePolicyGroup ilkeye belirli gruplara ekleyin: Bu cmdlet bir grup yaşam döngüsü ilkesine ekler. Örneğin: 
   
   ````
-  Add-AzureADMSLifecyclePolicyGroup -Id “26fcc232-d1c3-4375-b68d-15c296f1f077” -groupId "cffd97bd-6b91-4c4e-b553-6918a320211c"
+  Add-AzureADMSLifecyclePolicyGroup -Id "26fcc232-d1c3-4375-b68d-15c296f1f077" -groupId "cffd97bd-6b91-4c4e-b553-6918a320211c"
   ````
   
 6. Mevcut ilke Remove-AzureADMSGroupLifecyclePolicy Kaldır: Bu cmdlet, Office 365 grubu sona erme ayarları siler ancak ilke Kimliği gereklidir. Bu, Office 365 grupları için sona erme devre dışı bırakır. 
   
   ````
-  Remove-AzureADMSGroupLifecyclePolicy -Id “26fcc232-d1c3-4375-b68d-15c296f1f077”
+  Remove-AzureADMSGroupLifecyclePolicy -Id "26fcc232-d1c3-4375-b68d-15c296f1f077"
   ````
   
 Daha ayrıntılı olarak ilkesini yapılandırmak için aşağıdaki cmdlet'leri kullanılabilir. Daha fazla bilgi için bkz: [PowerShell belgeleri](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview&branch=master#groups).

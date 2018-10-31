@@ -17,12 +17,12 @@ ms.topic: article
 ms.date: 09/15/2017
 ms.author: daden
 ROBOTS: NOINDEX
-ms.openlocfilehash: 0d3c6b78944d9365d1e7e88ed33aba852b71a9c1
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 4a3329c7f08dfabdf1bb8a010ad5bc865fc509f4
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/30/2018
-ms.locfileid: "50232027"
+ms.locfileid: "50241659"
 ---
 # <a name="server-workload-forecasting-on-terabytes-of-data"></a>Birkaç terabayt veri üzerinde sunucu iş yükü tahmini
 
@@ -100,7 +100,7 @@ Bu örnek bir şablon kullanarak yeni bir proje oluşturun:
 
 ## <a name="data-description"></a>Veri açıklaması
 
-Bu örnekte kullanılan veri Sentezlenen sunucu iş yükü verilerdir. Doğu ABD bölgesinde publicaly erişilebilir olan bir Azure Blob Depolama hesabında barındırılır. Belirli bir depolama hesabı bilgileri bulunabilir `dataFile` alanını [ `Config/storageconfig.json` ](https://github.com/Azure/MachineLearningSamples-BigData/blob/master/Config/fulldata_storageconfig.json) biçimi "wasb: / /<BlobStorageContainerName>@<StorageAccountName>.blob.core.windows.net/<path>". Verileri doğrudan Blob depolamadan kullanabilirsiniz. Depolama aynı anda birden çok kullanıcı tarafından kullanılıyorsa, kullanabileceğiniz [azcopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-linux) daha iyi deneme deneyimi için kendi depolamaya veri yüklemek için. 
+Bu örnekte kullanılan veri Sentezlenen sunucu iş yükü verilerdir. Doğu ABD bölgesinde genel olarak erişilebilir olan bir Azure Blob Depolama hesabında barındırılır. Belirli bir depolama hesabı bilgileri bulunabilir `dataFile` alanını [ `Config/storageconfig.json` ](https://github.com/Azure/MachineLearningSamples-BigData/blob/master/Config/fulldata_storageconfig.json) biçimi "wasb: / /<BlobStorageContainerName>@<StorageAccountName>.blob.core.windows.net/<path>". Verileri doğrudan Blob depolamadan kullanabilirsiniz. Depolama aynı anda birden çok kullanıcı tarafından kullanılıyorsa, kullanabileceğiniz [azcopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-linux) daha iyi deneme deneyimi için kendi depolamaya veri yüklemek için. 
 
 Toplam veri boyutu yaklaşık 1 TB'dir. Her dosya, yaklaşık 1-3 GB'tır ve üst bilgi içermeyen CSV dosyası biçiminde olan. Her veri satırının belirli bir sunucudaki bir işlem yükünü temsil eder. Ayrıntılı bilgilerin veri şeması aşağıdaki gibidir:
 

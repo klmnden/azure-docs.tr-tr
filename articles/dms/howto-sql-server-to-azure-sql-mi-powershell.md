@@ -1,6 +1,6 @@
 ---
-title: Microsoft Azure PowerShell, SQL Server'ı geçirmek için Azure veritabanı geçiş hizmeti modülünde kullanın şirket içi Azure SQL DB'ye mı | Microsoft Docs
-description: Azure PowerShell kullanarak şirket içi SQL Server'dan Azure SQL DB'ye mı geçirmeyi öğrenin.
+title: Veritabanı geçiş hizmeti ve PowerShell ile Azure SQL veritabanı yönetilen örneği SQL Server'ı geçirme | Microsoft Docs
+description: Azure PowerShell kullanarak şirket içi SQL Server'dan Azure SQL DB yönetilen örneği için geçirmeyi öğrenin.
 services: database-migration
 author: pochiraju
 ms.author: rajpo
@@ -11,15 +11,15 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 10/09/2018
-ms.openlocfilehash: 9a0c427b8beec3984a9fdd5d41ba3705fd21fd4c
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: 64d77a17241c44c9d450b9e7602222cdb89482b7
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49365013"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50247174"
 ---
-# <a name="migrate-sql-server-on-premises-to-azure-sql-db-using-azure-powershell"></a>Şirket içi SQL Server, Azure PowerShell kullanarak Azure SQL DB'ye geçirme
-Bu makalede, geçiş **Adventureworks2012** şirket içi örneği SQL Server 2005 veya üzeri için Microsoft Azure PowerShell kullanarak bir Azure SQL veritabanı'na geri yüklenen veritabanı. Kullanarak Azure SQL veritabanı'na bir şirket içi SQL Server örneğinden veritabanları geçirebilirsiniz `AzureRM.DataMigration` Microsoft Azure PowerShell modülü.
+# <a name="migrate-sql-server-on-premises-to-azure-sql-database-managed-instance-using-azure-powershell"></a>Şirket içi SQL Server'dan Azure SQL veritabanı yönetilen Azure PowerShell kullanarak örneğine geçirme
+Bu makalede, geçiş **Adventureworks2012** şirket içi örneği SQL Server 2005 veya üzeri için Microsoft Azure PowerShell kullanarak Azure SQL veritabanı yönetilen örneği için geri yüklenen veritabanı. Kullanarak Azure SQL veritabanı yönetilen örneği için bir şirket içi SQL Server örneğinden veritabanları geçirebilirsiniz `AzureRM.DataMigration` Microsoft Azure PowerShell modülü.
 
 Bu makalede şunları öğreneceksiniz:
 > [!div class="checklist"]

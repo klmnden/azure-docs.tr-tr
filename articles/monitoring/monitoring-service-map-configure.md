@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: daseidma;bwren
-ms.openlocfilehash: 70cf6fe1e2256ba2ed58d020111669e59d9db56b
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 9d574e7e8b0b285093aa0960243300dfe9f6d417
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49405523"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50249017"
 ---
 # <a name="configure-service-map-in-azure"></a>Azure'da hizmet eşlemesi yapılandırma
 Hizmet Eşlemesi, Windows ve Linux sistemleri üzerindeki uygulama bileşenlerini otomatik olarak bulur ve hizmetler arasındaki iletişimi eşler. Bunları--kritik Hizmetleri sunmak birbirine sistemleri düşündüğünüz sunucularınızın görüntülemek için kullanabilirsiniz. Hizmet eşlemesi, tüm TCP bağlantılı mimarisi, gerekli bir aracı yüklemesini dışında hiçbir yapılandırma boyunca sunucuları, işlemler ve bağlantı noktaları arasındaki bağlantıları gösterir.
@@ -146,7 +146,7 @@ Bu makalede, Linux veya Windows olarak System Center Operations Manager yönetim
 
 Hizmet eşlemesi aracısının tüm veriler aktarmaz ve güvenlik duvarları ya da bağlantı noktalarını herhangi bir değişiklik gerektirmez. Hizmet eşlemesi verileri her zaman Log Analytics aracısını Log Analytics hizmetine tarafından doğrudan veya Log Analytics ağ geçidi üzerinden iletilir.
 
-![Hizmet eşlemesi Aracısı](media/monitoring-service-map/agents.png)
+![Hizmet eşlemesi Aracısı](media/monitoring-service-map-configure/agents.png)
 
 Log Analytics'e bağlı bir yönetim grubuna sahip bir System Center Operations Manager müşterisi iseniz:
 

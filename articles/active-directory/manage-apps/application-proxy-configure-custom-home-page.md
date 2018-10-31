@@ -15,12 +15,12 @@ ms.date: 09/08/2017
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 10bcb3c0c4842202f95cdc1fff30d12b7a8fbbc2
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: e6f4e67d09eacadbbf9d74f417357a87ece0a951
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39366032"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50238514"
 ---
 # <a name="set-a-custom-home-page-for-published-apps-by-using-azure-ad-application-proxy"></a>Azure AD uygulama proxy'si kullanarak yayımlanmış uygulamalar için özel bir ana sayfa ayarlayın
 
@@ -62,7 +62,7 @@ Giriş sayfası URL'si ayarlamadan önce aşağıdaki gereksinimleri göz önün
 
 ### <a name="install-the-azure-ad-powershell-module"></a>Azure AD PowerShell modülünü yükleme
 
-PowerShell kullanarak bir özel giriş sayfası URL'si tanımlamadan önce Azure AD PowerShell modülünü yükleyin. Paketten indirebileceğiniz [PowerShell Galerisi](https://www.powershellgallery.com/packages/AzureAD/2.0.0.131), Graph API uç noktası kullanır. 
+PowerShell kullanarak bir özel giriş sayfası URL'si tanımlamadan önce Azure AD PowerShell modülünü yükleyin. Paketten indirebileceğiniz [PowerShell Galerisi](https://www.powershellgallery.com/packages/AzureAD/2.0.0.131), Graph API uç noktası kullanır. 
 
 Paketi yüklemek için aşağıdaki adımları izleyin:
 
@@ -72,7 +72,7 @@ Paketi yüklemek için aşağıdaki adımları izleyin:
      Install-Module -Name AzureAD
     ```
     Komutu yönetici olmayan çalıştırıyorsanız, kullanın `-scope currentuser` seçeneği.
-2. Yükleme sırasında seçin **Y** iki paketlerini Nuget.org adresinden yükleyin. Her iki paketi de gereklidir. 
+2. Yükleme sırasında seçin **Y** iki paketlerini Nuget.org adresinden yükleyin. Her iki paketi de gereklidir. 
 
 ### <a name="find-the-objectid-of-the-app"></a>ObjectID uygulamanın Bul
 
@@ -92,14 +92,14 @@ ObjectID uygulamanın alın ve ardından uygulamayı giriş sayfası arayın.
 3. Kendi giriş sayfası URL'sini temel alarak uygulamayı bulun. URL giderek portalda bulabilirsiniz **Azure Active Directory** > **kurumsal uygulamalar** > **tüm uygulamaları**. Bu örnekte *sharepoint iddemo*.
 
     ```
-    Get-AzureADApplication | where { $_.Homepage -like “sharepoint-iddemo” } | fl DisplayName, Homepage, ObjectID
+    Get-AzureADApplication | where { $_.Homepage -like "sharepoint-iddemo" } | fl DisplayName, Homepage, ObjectID
     ```
 4. Aşağıda gösterildiği gibi bir sonuç almanız gerekir. Sonraki bölümde kullanmak için objectID GUID kopyalayın.
 
     ```
     DisplayName : SharePoint
-    Homepage    : https://sharepoint-iddemo.msappproxy.net/
-    ObjectId    : 8af89bfa-eac6-40b0-8a13-c2c4e3ee22a4
+    Homepage    : https://sharepoint-iddemo.msappproxy.net/
+    ObjectId    : 8af89bfa-eac6-40b0-8a13-c2c4e3ee22a4
     ```
 
 ### <a name="update-the-home-page-url"></a>Giriş sayfası URL'sini güncelleştirme
@@ -117,13 +117,13 @@ Giriş sayfası URL'si oluşturun ve bu değeri ile uygulamanızı güncelleşti
 2. Yapmak istediğiniz değişiklikleri tutmak için bir boş uygulama nesnesi oluşturun. Bu değişken, güncelleştirmek istediğiniz değerleri tutar. Hiçbir şey bu adımda oluşturulur.
 
     ```
-    $appnew = New-Object “Microsoft.Open.AzureAD.Model.Application”
+    $appnew = New-Object "Microsoft.Open.AzureAD.Model.Application"
     ```
 
-3. Giriş sayfası URL'si istediğiniz değere ayarlayın. Değer yayımlanan bir uygulamanın bir alt etki alanı yolu olmalıdır. Örneğin, giriş sayfası URL değiştirirseniz *https://sharepoint-iddemo.msappproxy.net/* için *https://sharepoint-iddemo.msappproxy.net/hybrid/*, uygulama kullanıcılarının doğrudan özel giriş sayfasına gidin.
+3. Giriş sayfası URL'si istediğiniz değere ayarlayın. Değer yayımlanan bir uygulamanın bir alt etki alanı yolu olmalıdır. Örneğin, giriş sayfası URL değiştirirseniz *https://sharepoint-iddemo.msappproxy.net/* için *https://sharepoint-iddemo.msappproxy.net/hybrid/*, uygulama kullanıcılarının doğrudan özel giriş sayfasına gidin.
 
     ```
-    $homepage = “https://sharepoint-iddemo.msappproxy.net/hybrid/”
+    $homepage = "https://sharepoint-iddemo.msappproxy.net/hybrid/"
     ```
 4. İçinde kopyaladığınız GUID (objectID) kullanılarak güncelleştirme olun "1. adım: objectID uygulamanın bulun."
 

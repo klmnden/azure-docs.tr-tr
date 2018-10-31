@@ -3,20 +3,20 @@ title: İşlevleri için Azure Cosmos DB bağlamaları 2.x
 description: Azure Cosmos DB Tetikleyicileri ve bağlamaları Azure işlevleri'nde nasıl kullanılacağını anlayın.
 services: functions
 documentationcenter: na
-author: ggailey777
+author: craigshoemaker
 manager: jeconnoc
 keywords: Azure işlevleri, İşlevler, olay işleme dinamik işlem, sunucusuz mimari
 ms.service: azure-functions; cosmos-db
 ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/21/2017
-ms.author: glenga
-ms.openlocfilehash: fae82d702158b98e0182a0cfa575249c19236ccb
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.author: cshoe
+ms.openlocfilehash: 4a1f9552b9a578cd34f3482e793947e06bb24407
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50157675"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50249826"
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions-2x"></a>Azure işlevleri için Azure Cosmos DB bağlamaları 2.x
 
@@ -1707,6 +1707,33 @@ Aşağıdaki tabloda ayarladığınız bağlama yapılandırma özelliklerini a�
 | Bağlama | Başvuru |
 |---|---|
 | CosmosDB | [CosmosDB hata kodları](https://docs.microsoft.com/rest/api/cosmos-db/http-status-codes-for-cosmosdb) |
+
+<a name="host-json"></a>  
+
+## <a name="hostjson-settings"></a>Host.JSON ayarları
+
+Bu bölümde sürümünde bu bağlama için kullanılabilen genel yapılandırma ayarları açıklanmaktadır 2.x. Sürümündeki genel yapılandırma ayarları hakkında daha fazla bilgi için 2.x bkz [sürümü Azure işlevleri için host.json başvurusu 2.x](functions-host-json.md).
+
+```json
+{
+    "version": "2.0",
+    "extensions": {
+        "cosmosDB": {
+            "connectionMode": "Gateway",
+            "protocol": "Https",
+            "leaseOptions": {
+                "leasePrefix": "prefix1"
+            }
+        }
+    }
+}
+```  
+
+|Özellik  |Varsayılan | Açıklama |
+|---------|---------|---------| 
+|GatewayMode|Ağ geçidi|Azure Cosmos DB hizmetine bağlanırken işlev tarafından kullanılan bağlantı modu. Seçenekler `Direct` ve `Gateway`|
+|Protokol|Https|İşlev tarafından kullanılan bağlantı protokolü, Azure Cosmos DB hizmetine bağlantı.  Okuma [burada her iki modun açıklaması](../cosmos-db/performance-tips.md#networking)| 
+|leasePrefix|yok|Bir uygulamadaki tüm işlevleri arasında kullanılacak kira öneki.| 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

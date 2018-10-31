@@ -10,14 +10,14 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.component: pim
-ms.date: 07/23/2018
+ms.date: 10/30/2018
 ms.author: rolyon
-ms.openlocfilehash: 33bfe28bf612c47c9f42345dabccc017337c3d45
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: 5f0b5d1695603a7cd2a3c7ac1dbc484e44257d88
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43190165"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50249620"
 ---
 # <a name="assign-azure-ad-directory-roles-in-pim"></a>Azure AD dizin rollerini PIM atayın
 
@@ -112,6 +112,39 @@ Belirli bir kullanıcı bir dizin rolünden kaldırmak için aşağıdaki adıml
     ![Bir rolü Kaldır](./media/pim-how-to-add-role-to-user/pim-remove-role-confirm.png)
 
     Rol ataması kaldırıldı.
+
+## <a name="authorization-error-when-assigning-roles"></a>Rol atamasını yaparken Yetkilendirme hatası
+
+MS-PIM hizmet ilkesi henüz uygun izinlere sahip olmadığından bir abonelik için en son PIM etkin ve bir kullanıcı için bir dizin rolüne uygun yapmayı denediğinizde bir Yetkilendirme hatası alırsanız olabilir. MS-PIM hizmet ilkesi olmalıdır [kullanıcı erişimi Yöneticisi](../../role-based-access-control/built-in-roles.md#user-access-administrator) başkalarına rolleri atamak için rol. PIM MS kullanıcı erişimi yöneticisi rolü atanmış kadar beklemek yerine uygulamayı el ile atayabilirsiniz.
+
+MS-PIM hizmet sorumlusu bir abonelik için kullanıcı erişimi yöneticisi rolü atamak için aşağıdaki adımları izleyin.
+
+1. Azure portalında genel yönetici olarak oturum açın.
+
+1. Seçin **tüm hizmetleri** ardından **abonelikleri**.
+
+1. Aboneliğinizi seçin.
+
+1. **Erişim denetimi (IAM)** bölümünde abonelik kapsamındaki mevcut rol ataması listesini görebilirsiniz.
+
+   ![Erişim denetimi (IAM) dikey penceresinde bir abonelik için](./media/pim-how-to-add-role-to-user/ms-pim-access-control.png)
+
+1. Denetleme olmadığını **MS PIM** hizmet sorumlusu atandığı **kullanıcı erişimi Yöneticisi** rol.
+
+1. Aksi takdirde, seçin **Ekle** açmak için **izinleri eklemek** bölmesi.
+
+1. İçinde **rol** aşağı açılan listesinden **kullanıcı erişimi Yöneticisi** rol.
+
+1. İçinde **seçin** listesinde, bulmak ve seçmek **MS PIM** hizmet sorumlusu.
+
+   ![MS-PIM için izinler ekleme](./media/pim-how-to-add-role-to-user/ms-pim-add-permissions.png)
+
+1. Seçin **Kaydet** rol atamak için.
+
+   Birkaç dakika sonra MS-PIM hizmet sorumlusu abonelik kapsamında kullanıcı erişimi yöneticisi rolü atanır.
+
+   ![MS-PIM için kullanıcı erişimi yöneticisi rolü](./media/pim-how-to-add-role-to-user/ms-pim-user-access-administrator.png)
+
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

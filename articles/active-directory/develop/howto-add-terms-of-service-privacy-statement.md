@@ -16,12 +16,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviwer: lenalepa, sureshja
 ms.custom: aaddev
-ms.openlocfilehash: 21cd4990e2117cef2d36fa2607a601afd1a4c4e4
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 2195a43665f99e8388b13fc6dc3e528496bd3901
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46990510"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50242696"
 ---
 # <a name="terms-of-service-and-privacy-statement-for-registered-azure-active-directory-apps"></a>Kayıtlı Azure Active Directory uygulamaları için hizmet ve gizlilik bildirimini koşulları
 
@@ -43,7 +43,7 @@ Aşağıdaki örnekler, hizmet ve gizlilik bildirimini koşulları yapılandır�
 
 Uygulamanızın koşullarını hizmet ve gizlilik bildirimi belgelerin bağlantıları eklemeden önce URL'leri aşağıdaki yönergeleri izleyin emin olun.
 
-| Kılavuz     | Açıklama                           |
+| Yönerge     | Açıklama                           |
 |---------------|---------------------------------------|
 | Biçimlendir        | Geçerli bir URL                             |
 | Geçerli şemalar | HTTP ve HTTPS</br>HTTPS öneririz. |
@@ -64,7 +64,7 @@ Hizmet ve gizlilik bildirimini koşullarını hazır olduğunuzda, aşağıdaki 
 
 Uygulamanızı Azure portalında kaydettiyseniz, bu adımları izleyin.
 
-1. Oturum [Azure portalında](https://portal.azure.com/).
+1.  [Azure portalda](https://portal.azure.com/) oturum açın.
 2. Gidin **uygulama kayıtları** bölümünde ve uygulamanızı seçin.
 3. Açık **özellikleri** uygulama bölümü.
 4. Doldurun **hizmet koşulları URL'si** ve **gizlilik bildirimi URL'si** alanları.
@@ -89,8 +89,8 @@ Uygulama nesnesi JSON doğrudan değiştirmek isterseniz, hizmet ve gizlilik bil
 
 ```json
     "informationalUrls": { 
-        "termsOfService": “<your_terms_of_service_url>”, 
-        "privacy": “<your_privacy_statement_url>” 
+        "termsOfService": "<your_terms_of_service_url>", 
+        "privacy": "<your_privacy_statement_url>" 
     }
 ```
 

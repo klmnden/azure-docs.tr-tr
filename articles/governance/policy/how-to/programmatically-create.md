@@ -4,16 +4,16 @@ description: Bu makalede, program aracılığıyla oluşturma ve Azure ilkesine 
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 10/29/2018
+ms.date: 10/30/2018
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 4a68b60df76dcc554158d6c8db4d0dfe8dd32be7
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: d72c9c1747bb697f66fa53489636b1726053060c
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50209233"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50242645"
 ---
 # <a name="programmatically-create-policies-and-view-compliance-data"></a>Programlı olarak ilkeler oluşturma ve uyumluluk verilerini görüntüleyin
 
@@ -74,7 +74,13 @@ Kaynaklarınızın daha iyi görünürlük ilk adım, ilkeleri, kaynaklarınız 
    New-AzureRmPolicyDefinition -Name 'AuditStorageAccounts' -DisplayName 'Audit Storage Accounts Open to Public Networks' -Policy 'AuditStorageAccounts.json'
    ```
 
-   Adlı bir ilke tanımı komut oluşturur _denetim depolama hesapları açık ortak ağlara_. Kullanabileceğiniz diğer parametreler hakkında daha fazla bilgi için bkz. [New-AzureRmPolicyDefinition](/powershell/module/azurerm.resources/new-azurermpolicydefinition).
+   Adlı bir ilke tanımı komut oluşturur _denetim depolama hesapları açık ortak ağlara_.
+   Kullanabileceğiniz diğer parametreler hakkında daha fazla bilgi için bkz. [New-AzureRmPolicyDefinition](/powershell/module/azurerm.resources/new-azurermpolicydefinition).
+
+   Konum parametre olmadan çağrıldığında `New-AzureRmPolicyDefinition` varsayılanlarını ilke tanımı oturumları bağlam seçili abonelikte kaydediliyor. Tanımı farklı bir konuma kaydetmek için aşağıdaki parametreleri kullanın:
+
+   - **Subscriptionıd** -farklı bir aboneliğe kaydedin. Gerektiren bir _GUID_ değeri.
+   - **ManagementGroupName** -bir yönetim grubuna kaydedin. Gerektiren bir _dize_ değeri.
 
 1. İlke tanımınız oluşturduktan sonra aşağıdaki komutları çalıştırarak ilke ataması oluşturabilirsiniz:
 
@@ -86,7 +92,8 @@ Kaynaklarınızın daha iyi görünürlük ilk adım, ilkeleri, kaynaklarınız 
 
    Değiştirin _ContosoRG_ hedeflenen kaynak grubunuzun adı.
 
-   **Kapsam** parametresi `New-AzureRmPolicyAssignment` aboneliklerini ve Yönetim gruplarını ile de çalışır. Parametresi bir tam kaynak yolu kullanır, **ResourceId** özelliği `Get-AzureRmResourceGroup` döndürür. Desenini **kapsam** her kapsayıcı aşağıdaki gibidir.  Değiştirin `{rgName}`, `{subId}`, ve `{mgName}` sırasıyla adı, abonelik kimliği ve yönetim grubu adı ile kaynak grubu.
+   **Kapsam** parametresi `New-AzureRmPolicyAssignment` aboneliklerini ve Yönetim gruplarını ile de çalışır. Parametresi bir tam kaynak yolu kullanır, **ResourceId** özelliği `Get-AzureRmResourceGroup` döndürür. Desenini **kapsam** her kapsayıcı aşağıdaki gibidir.
+   Değiştirin `{rgName}`, `{subId}`, ve `{mgName}` sırasıyla adı, abonelik kimliği ve yönetim grubu adı ile kaynak grubu.
 
    - Kaynak grubu- `/subscriptions/{subId}/resourceGroups/{rgName}`
    - Aboneliği- `/subscriptions/{subId}/`

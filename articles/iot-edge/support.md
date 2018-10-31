@@ -4,16 +4,16 @@ description: Azure IOT Edge tarafından desteklenen platformlar
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 6/21/2018
+ms.date: 09/21/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 2163179d3353626e12495381fc64792db56ec78e
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: b8b4664540d07b76d0cebe5df99ba2cc67dd47e6
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43286371"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50248573"
 ---
 # <a name="azure-iot-edge-support"></a>Azure IOT Edge desteği
 Bir Azure IOT Edge ürün desteği arama için çeşitli yollar vardır.
@@ -65,6 +65,3 @@ Katman 2 sistemleri, Azure IOT Edge ile uyumlu olarak düşünülebilir ve göre
 ## <a name="container-engines"></a>Kapsayıcı altyapıları
 Azure IOT Edge modülleri, üzerinde çalıştığı işletim sisteminden bağımsız olarak başlatmak için bir kapsayıcı altyapısı gerekir. Microsoft, bu gereksinimi karşılamak için moby-altyapısı, bir kapsayıcı altyapısı sağlar. Bu, Moby açık kaynaklı proje ile ilgili temel alır. Docker CE ve Docker EE diğer popüler kapsayıcı motorlardır. Bunlar ayrıca Moby açılır kaynak projesini temel alıyor ve Azure IOT Edge ile uyumludur. Microsoft, bu kapsayıcı altyapıları kullanarak sistemleri için en iyi girişim desteği sağlar. Ancak Microsoft bunları sorunlarını giderir göndermesine imkan yok. Bu nedenle, üretim sistemlerine moby altyapısı kullanarak Microsoft önerir.
 
-
-<!-- Links -->
-[lnk-edge-blog]: https://azure.microsoft.com/blog/securing-the-intelligent-edge/ 

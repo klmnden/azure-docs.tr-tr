@@ -15,12 +15,12 @@ ms.date: 06/26/2018
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: H1Hack27Feb2017; it-pro
-ms.openlocfilehash: aa7962e3659618b8c5a4f161d667c5e90477acc9
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 8be0e909ea391ed1b66fc78349cc2283d009e8cb
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44347656"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50240384"
 ---
 # <a name="troubleshoot-application-proxy-problems-and-error-messages"></a>Uygulama proxy'si sorunlarını ve hata iletileri sorunlarını giderme
 Yayımlanan bir uygulamaya erişen veya yayımlama uygulamalarda hata oluşursa, Microsoft Azure AD uygulama ara sunucusu doğru şekilde çalışıp çalışmadığını görmek için aşağıdaki seçeneklerden denetleyin:
@@ -43,7 +43,7 @@ Başvurulan içerik, ancak daha ayrıntılı bir bağlantıyı yolunda yerleşme
 
 Bağlayıcı Sihirbazı'nı yükleme sırasında kayıt başarısız olursa, başarısızlığın nedenini görüntülemek için iki yolu vardır. Ya da konum altında olay günlüğüne **uygulamaları ve Hizmetleri Logs\Microsoft\AadApplicationProxy\Connector\Admin**, veya aşağıdaki Windows PowerShell komutunu çalıştırın:
 
-    Get-EventLog application –source “Microsoft AAD Application Proxy Connector” –EntryType “Error” –Newest 1
+    Get-EventLog application –source "Microsoft AAD Application Proxy Connector" –EntryType "Error" –Newest 1
 
 Olay günlüğünden Bağlayıcısı hata bulduğunuzda, sorunu çözmek için bu tablo yaygın hataların kullanın:
 

@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/15/2017
 ms.author: rafats
-ms.openlocfilehash: d74aa6b7ef762b7971fd67654e7fc1a23a8d83cc
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: e0cbf806b7999a56ccdf2826a735238fe8130bf5
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "42054748"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50240588"
 ---
 # <a name="azure-cosmos-db-database-security"></a>Azure Cosmos DB veritabanı güvenliği
 
@@ -67,7 +67,7 @@ Ve bunu görünse de açık, son [büyük ölçekli veritabanı ihlallerini](htt
 |Kullanıcıları ve izinleri|Kullanarak [ana anahtarı](#master-key) hesap için kullanıcı kaynakları ve veritabanı başına izin kaynakları oluşturabilirsiniz. A [kaynak belirtecini](#resource-token) kullanıcı olup olmadığını belirler ve bir veritabanındaki bir izinle ilişkili veritabanında uygulama kaynağı için erişim (okuma-yazma, salt okunur veya erişim yok). Kapsayıcı, belgeler, ekleri, saklı yordamlar, tetikleyiciler ve UDF'ler uygulama kaynaklarını içerir. Kaynak belirteci sağlayın ya da kaynağa erişimi reddetmek için kimlik doğrulaması sırasında sonra kullanılır.<br><br>Daha fazla bilgi [Azure Cosmos DB kaynaklarına erişimi güvenli hale getirme](secure-access-to-data.md).|
 |Active directory ile tümleştirme (RBAC)| Ayrıca, bu tablonun altındaki ekran görüntüsünde gösterildiği gibi Azure portalında, erişim denetimi (IAM) kullanarak veritabanı hesabı erişim sağlayabilir. IAM rol tabanlı erişim denetimi sağlar ve Active Directory ile tümleşir. Bireyler ve aşağıdaki görüntüde gösterildiği gibi gruplar için yerleşik bir rol veya özel roller kullanabilirsiniz.|
 |Genel çoğaltma|Azure Cosmos DB, verilerinizi, Azure'un dünya çapındaki veri merkezlerinden herhangi birine bir düğmeye tıklayarak çoğaltmayı olanak tanıyan anahtar teslim küresel dağıtım sunar. Genel çoğaltma küresel olarak ölçeklendirin ve düşük gecikme süreli erişim için verilerinizi dünyanın dört bir yanındaki sağlamanıza olanak tanır.<br><br>Güvenlik bağlamında, küresel çoğaltma bölgesel hatalarına karşı verileri koruma sağlar.<br><br>[Verileri küresel olarak dağıtma](distribute-data-globally.md) bölümünde daha fazlasını öğrenin.|
-|Bölgesel yük devretme|Verilerinizi birden fazla veri merkezinde çoğaltıldığından, Azure Cosmos DB bölgesel veri merkezi çevrimdışı duruma işlemlerinizi otomatik olarak yapar. Yük devretme bölge içinde verilerinizi çoğaltılır bölgeleri kullanma öncelikli listesi oluşturabilirsiniz. <br><br>Daha fazla bilgi [Azure Cosmos DB'de bölgesel yük devretme](regional-failover.md).|
+|Bölgesel yük devretme|Verilerinizi birden fazla veri merkezinde çoğaltıldığından, Azure Cosmos DB bölgesel veri merkezi çevrimdışı duruma işlemlerinizi otomatik olarak yapar. Yük devretme bölge içinde verilerinizi çoğaltılır bölgeleri kullanma öncelikli listesi oluşturabilirsiniz. <br><br>Daha fazla bilgi [Azure Cosmos DB'de bölgesel yük devretme](high-availability.md).|
 |Yerel çoğaltma|Bile içinde tek bir veri merkezi, Azure Cosmos DB veri seçimi vererek yüksek kullanılabilirlik için otomatik olarak çoğaltır [tutarlılık düzeyleri](consistency-levels.md). Bu % 99,99 oranında garanti eder [kullanılabilirlik SLA'sı](https://azure.microsoft.com/support/legal/sla/cosmos-db) tek bölgeli tüm hesaplar ve çok bölgeli tüm hesaplar tutarlılıkla ve kullanılabilirliğine çok bölgeli tüm veritabanı hesaplarında % 99,999 okuyun.|
 |Otomatik çevrimiçi yedeklemeler|Azure Cosmos DB veritabanları düzenli olarak yedeklenen ve georedundant deposunda depolanır. <br><br>Daha fazla bilgi [otomatik çevrimiçi yedekleme ve geri yükleme Azure Cosmos DB ile](online-backup-and-restore.md).|
 |Silinmiş öğeleri geri yükleme verileri|Otomatik çevrimiçi yedeklemeler, yanlışlıkla olayından sonra yaklaşık 30 güne kadar sildiğinizi verileri kurtarmak için kullanılabilir. <br><br>Daha fazla bilgi [otomatik çevrimiçi yedekleme ve geri yükleme işlemi Azure Cosmos DB](online-backup-and-restore.md)|

@@ -12,12 +12,12 @@ ms.author: aliceku
 ms.reviewer: vanto, carlrab, emlisa
 manager: craigg
 ms.date: 10/22/2018
-ms.openlocfilehash: 9978497f8bd3ebb11247f3bffe319866128e9f1d
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 2a1d8a993f805c6ef814088af6fc4e3051519e37
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49646516"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50248804"
 ---
 # <a name="an-overview-of-azure-sql-database-security-capabilities"></a>Azure SQL veritabanı güvenlik özelliklerine genel bakış
 
@@ -32,7 +32,7 @@ Tüm SQL türlerindeki güvenlik özelliklerine eksiksiz bir genel bakış için
 SQL Veritabanı, hareket halindeki verileriniz için [Aktarım Katmanı Güvenliği](https://support.microsoft.com/kb/3135244), bekleyen veriler için [Saydam Veri Şifrelemesi](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql) ve kullanılan veriler için [Always Encrypted](https://msdn.microsoft.com/library/mt163865.aspx) kullanarak verilerinizi şifreler ve güvenliğini sağlar.
 
 > [!IMPORTANT]
-> Azure SQL veritabanı şifreleme (SSL/TLS), her zaman tüm sunucunuzun için tüm veriler "taşıma durumunda" şifrelenir, veritabanı ve istemci arasında da sağlar zorlar. Bu ayarı bağımsız olarak gerçekleşir **şifrele** veya **TrustServerCertificate** bağlantı dizesindeki.
+> Azure SQL veritabanı şifreleme (SSL/TLS), her zaman tüm bağlantılar için tüm veriler "taşıma durumunda" şifrelenir, veritabanı ve istemci arasında sağlar zorlar. Bu ayarı bağımsız olarak gerçekleşir **şifrele** veya **TrustServerCertificate** bağlantı dizesindeki.
 >
 > Uygulamanızın bağlantı dizesinde şifreli bir bağlantı belirttiğinizden emin olun ve *değil* sunucu sertifikasına güven için (Bu için ADO.NET sürücüsünü **Encrypt = True** ve  **TrustServerCertificate = False**). Bu, sunucu ve zorunlu şifreleme doğrulamak amacıyla uygulamanın zorlayarak Orta saldırı ortadaki uygulamanızdan önlemeye yardımcı olur. Bağlantı dizenizi Azure portalından elde doğru ayarları geçersiz olur.
 >

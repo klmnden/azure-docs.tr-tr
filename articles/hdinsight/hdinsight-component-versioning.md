@@ -8,14 +8,14 @@ author: kkampf
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 01/09/2018
+ms.date: 09/19/2018
 ms.author: kakampf
-ms.openlocfilehash: 170fd402770c091398a25784b18508ae57db6a38
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: e299eda50967bee25f76c2e6456afa1ecbd7970c
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49341863"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50243189"
 ---
 # <a name="what-are-the-hadoop-components-and-versions-available-with-hdinsight"></a>Hadoop bileşenleri ve sürümleri HDInsight ile kullanılabilen nelerdir?
 
@@ -94,7 +94,7 @@ Aşağıdaki tabloda, HDInsight sürümleri listelenmiştir **değil** Azure Por
 
 | HDInsight sürümü | HDP sürümü | VM İŞLETİM SİSTEMİ | Sürüm tarihi | Destek sona erme tarihi | Sona erme tarihi | Yüksek kullanılabilirlik |  Azure Portal kullanılabilirliği | 
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| HDInsight 3.5 <br> (Spark olmayan) |HDP 2.5 |16.0.4 ubuntu LTS |30 Eylül 2016 |5 Eylül 2017 |28 Haziran 2018'e |Evet |Hayır |
+| HDInsight 3.5 <br> (Spark olmayan) |HDP 2.5 |16.0.4 ubuntu LTS |30 Eylül 2016 |5 Eylül 2017 |28 Haziran 2018 |Evet |Hayır |
 | HDInsight 3.4 |HDP 2.4 |14.0.4 ubuntu LTS |29 Mart 2016 |29 Aralık 2016 |9 Ocak 2018 |Evet |Hayır |
 | HDInsight 3.3 |HDP 2.3 |Windows Server 2012 R2 |2 aralık 2015 |27 Haziran 2016 |31 Temmuz 2018 |Evet |Hayır |
 | HDInsight 3.3 |HDP 2.3 |14.0.4 ubuntu LTS |2 aralık 2015 |27 Haziran 2016 |31 Temmuz 2017 |Evet |Hayır |

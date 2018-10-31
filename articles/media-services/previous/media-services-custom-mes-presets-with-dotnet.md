@@ -1,10 +1,10 @@
 ---
-title: Medya Kodlayıcısı standart hazır özelleştirme | Microsoft Docs
-description: Bu konu, Medya Kodlayıcısı standart görev hazır özelleştirerek gelişmiş kodlama gerçekleştirmek gösterilmiştir. Konu, Media Services .NET SDK'sı bir kodlama görevi ve proje oluşturmak için nasıl kullanılacağını gösterir. Ayrıca, kodlama işi özel hazır ayarları sağlamak nasıl gösterir.
+title: Media Encoder Standard hazır ayarlarını özelleştirme | Microsoft Docs
+description: Bu konuda, Media Encoder Standard görev ön Ayarları özelleştirerek Gelişmiş encoding gerçekleştirme gösterilmektedir. Konu, Media Services .NET SDK'sı bir kodlama görevi ve işi oluşturmak için nasıl kullanılacağını gösterir. Ayrıca özel önayarların kullanılmasına kodlama işinin için tedarik işlemini de gösterir.
 services: media-services
 documentationcenter: ''
 author: juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: ec95392f-d34a-4c22-a6df-5274eaac445b
 ms.service: media-services
@@ -12,32 +12,32 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/09/2017
+ms.date: 10/30/2018
 ms.author: juliako
-ms.openlocfilehash: 4bdfdb5bd5362d5a8039ca31d498d122843df2a7
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 21f182051e3e92cd126b832876d57854ac126367
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33788420"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50247462"
 ---
-# <a name="customizing-media-encoder-standard-presets"></a>Özelleştirme Medya Kodlayıcısı standart hazır ayarları
+# <a name="customizing-media-encoder-standard-presets"></a>Özelleştirme Media Encoder Standard hazır ayarları
 
 ## <a name="overview"></a>Genel Bakış
 
-Bu makalede, bir özel hazır kullanarak Medya Kodlayıcısı standart (MES ile) gelişmiş kodlama gerçekleştirmek nasıl gösterir. Makaleyi .NET bir kodlama görev ve bu görevi yürüten bir iş oluşturmak için kullanır.  
+Bu makalede, özel önayarın kullanarak medya Kodlayıcı standart (MES ile) Gelişmiş encoding gerçekleştirme gösterilmektedir. Makale, bir kodlama görevi ve bu görevi yürüten bir iş oluşturmak için .NET kullanır.  
 
-Bu makalede bir hazır gerçekleştirerek özelleştirmek gösterilmiştir [H264 Çoklu bit hızı 720p](media-services-mes-preset-H264-Multiple-Bitrate-720p.md) önceden ve katman sayısını azaltır. [Medya Kodlayıcısı standart özelleştirme hazır ayarları](media-services-advanced-encoding-with-mes.md) makalede, gelişmiş kodlama görevleri gerçekleştirmek için kullanılan özel hazır ayarları gösterilmektedir.
+Bu makalede önceden ayarlanmış yararlanarak özelleştirmek gösterilmektedir [H264 Çoklu bit hızı 720p](media-services-mes-preset-H264-Multiple-Bitrate-720p.md) hazır ve katman sayısını azaltır. [Media Encoder Standard özelleştirme önayarlar](media-services-advanced-encoding-with-mes.md) makalede, gelişmiş kodlama görevleri gerçekleştirmek için kullanılan özel önayarların kullanılmasına gösterilmektedir.
 
-## <a id="customizing_presets"></a> MES hazır özelleştirme
+## <a id="customizing_presets"></a> MES ön ayarı özelleştirme
 
 ### <a name="original-preset"></a>Özgün hazır
 
-Tanımlanan JSON Kaydet [H264 Çoklu bit hızı 720p](media-services-mes-preset-H264-Multiple-Bitrate-720p.md) .json uzantılı bazı dosya makalesinde. Örneğin, **CustomPreset_JSON.json**.
+İçinde tanımlanan JSON Kaydet [H264 Çoklu bit hızı 720p](media-services-mes-preset-H264-Multiple-Bitrate-720p.md) makalede bazı dosya .json uzantısına sahip. Örneğin, **CustomPreset_JSON.json**.
 
 ### <a name="customized-preset"></a>Özelleştirilmiş hazır
 
-Açık **CustomPreset_JSON.json** dosya ve ilk üç katmanlardan kaldırma **H264Layers** dosyanız aşağıdaki gibi görünür.
+Açık **CustomPreset_JSON.json** dosya ve ilk üç katmanlardan kaldırma **H264Layers** dosyanız şu şekilde görünür.
 
 ```json 
     {  
@@ -110,22 +110,22 @@ Açık **CustomPreset_JSON.json** dosya ve ilk üç katmanlardan kaldırma **H26
     }  
 ```
 
-## <a id="encoding_with_dotnet"></a>Media Services .NET SDK'sı ile kodlama
+## <a id="encoding_with_dotnet"></a>Media Services .NET SDK ile kodlama
 
 Aşağıdaki kod örneği, aşağıdaki görevleri gerçekleştirmek için Media Services .NET SDK'sını kullanır:
 
 - Bir kodlama işi oluşturun.
-- Medya Kodlayıcısı standart Kodlayıcı başvuru alın.
-- Önceki bölümde oluşturduğunuz özel JSON hazır yükleyin. 
+- Medya Kodlayıcısı standart Kodlayıcı bir başvuru alın.
+- Özel JSON yükü önceki bölümde oluşturduğunuz hazır. 
   
         // Load the JSON from the local file.
         string configuration = File.ReadAllText(fileName);  
 
-- Bir kodlama görev projeye ekleyin. 
-- Kodlanacak giriş varlık belirtin.
-- Kodlanmış varlık içeren bir çıkış varlığı oluşturun.
-- İş ilerleme durumunu denetlemek için olay işleyici ekleyin.
-- İşi göndermek.
+- Bir kodlama görevi işe ekleyin. 
+- Kodlanacak giriş varlığı belirtin.
+- Kodlanmış varlığı içeren bir çıkış varlık oluşturun.
+- İş ilerleme durumunu denetlemek için bir olay işleyicisi ekleyin.
+- İşi Gönder.
    
 #### <a name="create-and-configure-a-visual-studio-project"></a>Visual Studio projesi oluşturup yapılandırma
 
@@ -268,5 +268,5 @@ namespace CustomizeMESPresests
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="see-also"></a>Ayrıca Bkz.
-[Media Services kodlama a genel bakış](media-services-encode-asset.md)
+[Media Services Encoding genel bakış](media-services-encode-asset.md)
 

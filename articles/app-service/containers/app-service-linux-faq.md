@@ -5,7 +5,7 @@ keywords: Azure app service, web uygulaması, SSS, linux, oss, kapsayıcılar, �
 services: app-service
 documentationCenter: ''
 author: yili
-manager: apurvajo
+manager: stefsch
 editor: ''
 ms.assetid: ''
 ms.service: app-service
@@ -13,14 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/26/2018
+ms.date: 10/30/2018
 ms.author: yili
-ms.openlocfilehash: aba6a1f7028ac09cad8acf587fd56dcc2c16919b
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: ac023834cf6516bdf92e4a2ee02081d35f475b81
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44295727"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50249365"
 ---
 # <a name="azure-app-service-on-linux-faq"></a>Azure App Service Linux SSS hakkında
 
@@ -79,7 +79,7 @@ Linux web uygulamanızı Git dağıtımı başarısız olursa uygulama kodunuzu 
 - Kullanma [ZIP dağıtma API](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file): Bu API'yi kullanmak için [SSH web uygulamanıza](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-ssh-support#making-a-client-connection) ve kodunuzu dağıtmak istediğiniz klasöre gidin. Aşağıdaki kodu çalıştırın:
 
    ```bash
-   curl -X POST -u <user> --data-binary @<zipfile> https://{your-sitename}.scm.azurewebsites.net/api/zipdeploy
+   curl -X POST -u <user> --data-binary @<zipfile> https://{your-sitename}.scm.azurewebsites.net/api/zipdeployui
    ```
 
    Bir hata alırsanız `curl` komutu bulunamazsa, kullanarak curl yüklediğinizden emin olun `apt-get install curl` önceki çalıştırmadan önce `curl` komutu.
@@ -92,7 +92,7 @@ Evet, devre dışı `perMessageDeflate` sunucu tarafı Node.js kod. Örneğin, s
 
 ```nodejs
 var io = require('socket.io')(server,{
-  perMessageDeflate :false
+  perMessageDeflate :false
 });
 ```
 

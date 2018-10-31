@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/17/2018
+ms.date: 10/29/2018
 ms.author: terrylan
-ms.openlocfilehash: 4ed4e73348db8cfffb6e79afaa9d196e242d7488
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 759de1c62cb9cb4aa642fa564378b1ed551d7dae
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42056022"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50239364"
 ---
 # <a name="azure-storage-security-overview"></a>Azure depolama güvenliğine genel bakış
 
@@ -33,6 +33,7 @@ Azure Depolama, müşterilerin ihtiyaçlarını karşılamak üzere sağlamlık,
 * Analiz, depolama eriştiklerinde kişinin kullandığı kimlik doğrulama yöntemini izlemek için kullanın.
 
 Azure depolama güvenlik daha ayrıntılı bilgi için bkz: [Azure depolama Güvenlik Kılavuzu](../storage/common/storage-security-guide.md). Bu kılavuz, Azure depolama güvenlik özellikleri hakkında ayrıntılı bir inceleme sunar. Bu özellikler, depolama hesabı anahtarları, veri şifreleme Aktarımdaki ve rest ve depolama analizi içerir.
+
 
 Bu makalede, Azure depolama için kullanabileceğiniz Azure güvenlik özelliklerine genel bakış sağlar. Daha fazla bilgi için makalelerin bağlantıları her özelliğin ayrıntılarını verir.
 
@@ -91,13 +92,35 @@ Daha fazla bilgi edinin
 
 * [Windows ve Linux Iaas sanal makineler için Azure Disk şifrelemesi](https://gallery.technet.microsoft.com/Azure-Disk-Encryption-for-a0018eb0)
 
-## <a name="azure-storage-firewalls-and-virtual-networks"></a>Azure depolama güvenlik duvarlarını ve sanal ağları
+## <a name="firewalls-and-virtual-networks"></a>Güvenlik duvarları ve sanal ağlar
 
 Azure depolama, depolama hesaplarınız için güvenlik duvarı kurallarını etkinleştirmenize izin verir. Etkinleştirildikten sonra diğer Azure hizmetlerinden gelen istekleri dahil olmak üzere veri, gelen istekleri engeller. Özel durumlara izin verecek şekilde yapılandırabilirsiniz. Güvenlik duvarı kuralları, var olan depolama hesaplarını veya oluşturma zamanı sırasında etkinleştirilebilir.
 
 Bu işlevsellik, belirli bir ağa izin kümesi, depolama hesaplarınıza güvenli hale getirmek için kullanmanız gerekir.
 
 Azure depolama hakkında daha fazla bilgi için güvenlik duvarları ve sanal ağlar makalesini gözden geçirin [Azure depolama güvenlik duvarlarını yapılandırın ve sanal ağlar](../storage/common/storage-network-security.md)
+
+## <a name="azure-data-box"></a>Azure Data Box
+
+Data Box, Data Box Disk ve Data Box Heavy cihazları, ağ seçeneğinin olmadığı durumlarda Azure’a büyük boyutlu veri aktarmanıza yardımcı olur. Çevrimdışı veri aktarımı cihazların, kuruluşunuz ve Azure veri merkezi arasında gönderilir. Bunlar aktarım sırasında verilerinizin korunmasına yardımcı olmak için AES şifrelemesi kullanır ve karşıya yükleme sonrası temizlik işlemine tabi tutularak verileriniz cihazdan silinir.
+
+Data Box Edge ve Data Box Gateway, verilerin siteniz ile Azure arasında yönetilmesi için ağ depolama geçitleri olarak çalışan çevrimiçi veri aktarımı ürünleridir. Şirket içi bir ağ cihazı olan Data Box Edge, Azure’ın içine ve dışına veri aktarımı gerçekleştirmesinin yanı sıra verileri işlemek için yapay zeka (AI) özellikli uç işlemini kullanır. Data Box Gateway, depolama ağ geçidi özelliklerine sahip sanal bir gereçtir.
+
+Daha fazla bilgi edinin:
+
+* [Azure Data Box '](https://azure.microsoft.com/services/storage/databox/)
+* [Azure veri kutusu Edge](../databox-online/data-box-edge-overview.md)
+* [Azure veri kutusu ağ geçidi](..//databox-online/data-box-gateway-overview.md)
+
+## <a name="advanced-threat-protection"></a>Gelişmiş Tehdit Koruması
+
+Azure depolama, ek bir erişim veya depolama hesabınıza yararlanma olağan dışı ve zararlı olabilecek girişimleri algılar güvenlik zekası katmanı için Gelişmiş tehdit koruması sağlar. Şüpheli okuma için Gelişmiş tehdit koruması izleyiciler Azure depolama, tanılama günlüklerini yazma veya silme istekleri Blob Depolama. 
+
+Gelişmiş tehdit koruması uyarıları görüntülenebilir [Azure Güvenlik Merkezi](https://azure.microsoft.com/services/security-center/). Azure Güvenlik Merkezi şüpheli etkinliği ayrıntıları algılandı ve olası tehdit düzeltilmesi için Eylemler önerir sağlar. 
+
+Daha fazla bilgi edinin:
+
+* [Azure depolama Gelişmiş tehdit koruması genel bakış](../storage/common/storage-advanced-threat-protection.md)
 
 ## <a name="azure-key-vault"></a>Azure Key Vault
 

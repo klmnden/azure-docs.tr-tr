@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
-ms.date: 10/26/2018
+ms.date: 10/30/2018
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: d521406e37920dcd76c0078d2fdf54c16b7a0461
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: be880b937f254cbf8115d1a5129069069a0c7eea
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50209998"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50249688"
 ---
 # <a name="create-a-dynamic-group-and-check-status"></a>Dinamik bir grup oluşturun ve durumunu denetle
 
@@ -39,7 +39,7 @@ Bu makalede, Azure portalında güvenlik grupları veya Office 365 gruplarında 
 
    ![Dinamik üyelik kuralı ekle](./media/groups-create-rule/add-dynamic-group-rule.png)
 
-5. Üyelik sorgunuzu ekleyebilirsiniz müşteri uzantı özelliklerinin tam listesini görmek için seçin **Get müşteri uzantı özellikleri**benzersiz uygulama Kimliğini girin ve ardından **yenileme özellikleri**. Özelliklerin tam listesi şimdi seçmek kullanılabilir.
+5. Üyelik sorgunuzu ekleyebilirsiniz özel uzantı özelliklerinin tam listesini görmek için seçin **özel uzantı özelliklerini alma**uygulama Kimliğini girin ve ardından **yenileme özellikleri**. Özelliklerin tam listesi şimdi seçmek kullanılabilir.
 6. Bir kural oluşturduktan sonra seçin **Sorgu Ekle** dikey pencerenin alt kısmındaki.
 7. Seçin **Oluştur** üzerinde **grubu** grubu oluşturmak için dikey pencere.
 

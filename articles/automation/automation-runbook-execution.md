@@ -6,19 +6,19 @@ ms.service: automation
 ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 10/17/2018
+ms.date: 10/30/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 85ff0013b469c006d1922c3994ec58a0595d1dd2
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: bb6236203a1165361505c8699ba94bff54e41c2a
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50091994"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50247359"
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Azure automation'da Runbook yürütme
 
-Azure Automation'da bir runbook başlattığınızda bir iş oluşturulur. Bir iş, bir runbook'un tek bir yürütme örneğidir. Her bir iş çalıştırmak için bir Azure Otomasyonu çalışanı atanır. Çalışanların birçok Azure hesapları ile paylaşılır, ancak farklı bir Otomasyon hesaplarından işleri birbirinden yalıtılmış. Yoksa sahip denetim işiniz için isteği hangi çalışan hizmetleri. Tek bir runbook'ta aynı anda çalışan çok sayıda iş olabilir. Yürütme Ortamı aynı Otomasyon hesabına ait işler için yeniden kullanılabilir. Runbook'ların listesini Azure portalında görüntülediğinizde, her runbook için başlatılan tüm işlerin durumunu listeler. Her durumunu izlemek her runbook için iş listesini görüntüleyebilirsiniz. İş günlükleri, en fazla 30 gün için saklanır. Farklı iş durumları açıklamasını [iş durumları](#job-statuses).
+Azure Automation'da bir runbook başlattığınızda bir iş oluşturulur. Bir iş, bir runbook'un tek bir yürütme örneğidir. Her bir iş çalıştırmak için bir Azure Otomasyonu çalışanı atanır. Çalışanların birçok Azure hesapları ile paylaşılır, ancak farklı bir Otomasyon hesaplarından işleri birbirinden yalıtılmış. Yoksa sahip denetim işiniz için isteği hangi çalışan hizmetleri. Tek bir runbook'ta aynı anda çalışan çok sayıda iş olabilir. Yürütme Ortamı aynı Otomasyon hesabına ait işler için yeniden kullanılabilir. Daha fazla işi aynı anda çalıştırmak, daha sık, aynı korumalı alan gönderilebilir. Aynı korumalı alan işlemi içinde çalıştırılan işler birbirine etkileyebilir, bir örnek çalışıyor `Disconnect-AzureRMAccount` cmdlet'i. Bu cmdlet'in çalıştırılması paylaşılan korumalı alan işlemi her runbook işi kesin. Runbook'ların listesini Azure portalında görüntülediğinizde, her runbook için başlatılan tüm işlerin durumunu listeler. Her durumunu izlemek her runbook için iş listesini görüntüleyebilirsiniz. İş günlükleri, en fazla 30 gün için saklanır. Farklı iş durumları açıklamasını [iş durumları](#job-statuses).
 
 [!INCLUDE [GDPR-related guidance](../../includes/gdpr-dsr-and-stp-note.md)]
 

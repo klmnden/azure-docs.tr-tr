@@ -9,12 +9,12 @@ ms.workload: core
 ms.topic: article
 ms.date: 08/26/2018
 ms.author: shvija
-ms.openlocfilehash: ee1339d02fb23282d3589a80385f982eae2865fe
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: dce7c4067ba6d96bf14f4e3300d951b594afe930
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43128175"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50240641"
 ---
 # <a name="receive-events-from-azure-event-hubs-using-java"></a>Java kullanarak Azure Event Hubs'tan gelen olayları alma
 
@@ -50,11 +50,11 @@ Eventprocessorhost'u kullanmak için olmalıdır bir [Azure depolama hesabı][Az
    
     ![](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-storage3.png)
 
-    Key1 değeri daha sonra Bu öğreticide kullanmak üzere geçici bir konuma kopyalayın.
+    Key1 değeri geçici bir konuma kopyalayın. Daha sonra bu öğreticide kullanacaksınız.
 
 ### <a name="create-a-java-project-using-the-eventprocessor-host"></a>EventProcessor Ana Bilgisayarını kullanarak Java projesi oluşturma
 
-Event Hubs için Java istemci kitaplığı içindeki Maven projelerinde kullanılabilir [Maven Central Repository][Maven Package]ve Maven içinde aşağıdaki bağımlılık bildirimi kullanılarak başvurulabilir Proje dosyası. Geçerli azure-eventhubs-eph yapıt 2.0.1 ve geçerli sürümü için yapıt azure-eventhubs 1.0.2 sürümüdür:    
+Event Hubs için Java istemci kitaplığı içindeki Maven projelerinde kullanılabilir [Maven Central Repository][Maven Package]ve Maven içinde aşağıdaki bağımlılık bildirimi kullanılarak başvurulabilir Proje dosyası. Geçerli sürümü için azure-eventhubs-eph yapıt 2.0.1 ve yapıt azure-eventhubs için geçerli sürümü 1.0.2:    
 
 ```xml
 <dependency>
@@ -241,15 +241,15 @@ Derleme ortamlarının farklı türleri için en son JAR dosyalarının açıkç
     }
     ```
 
-Bu öğretici, EventProcessorHost’un tek bir örneğini kullanır. Verimliliği artırmak için birden çok örneğini EventProcessorHost, tercihen ayrı makinelerde çalıştırmanız önerilir.  Bu da yedeklilik sağlar. Böyle durumlarda, alınan olayların yük dengesi için çeşitli örnekler otomatik olarak birbirleriyle koordine olurlar. Birden çok alıcının her birinin *tüm* olayları işlemesini istiyorsanız **ConsumerGroup** kavramını kullanmalısınız. Olaylar farklı makinelerden alındığında, dağıtıldıkları makineleri (veya rolleri) temel alan EventProcessorHost örnekleri için ad belirtmek yararlı olabilir.
+Bu öğretici, EventProcessorHost’un tek bir örneğini kullanır. Verimliliği artırmak için birden çok örneğini EventProcessorHost, tercihen ayrı makinelerde çalıştırmanızı öneririz.  Bu işlem de yedeklilik sağlar. Böyle durumlarda, alınan olayların yük dengesi için çeşitli örnekler otomatik olarak birbirleriyle koordine olurlar. Birden çok alıcının her birinin *tüm* olayları işlemesini istiyorsanız **ConsumerGroup** kavramını kullanmalısınız. Olaylar farklı makinelerden alındığında, dağıtıldıkları makineleri (veya rolleri) temel alan EventProcessorHost örnekleri için ad belirtmek yararlı olabilir.
 
 ## <a name="publishing-messages-to-eventhub"></a>EventHub yayımlama iletileri
 
 İleti tüketiciler tarafından alınır önce bunlar bölümlere ilk yayımcılar tarafından yayımlanan gerekir. Zaman uyumlu olarak com.microsoft.azure.eventhubs.EventHubClient nesnede sendSync() yöntemi kullanarak olay hub'ına ileti yayımlandığında, ileti için belirli bir bölüme gönderilen ya da tüm kullanılabilir bölümlere dağıtılan'nı hatalarının ayıklanabileceğini belirtmekte yarar bağlı olarak hepsini bir kez deneme şekilde bölüm anahtarını veya belirtilir.
 
-Bölüm anahtarını temsil eden bir dize belirtildiğinde, anahtarı için bir olay göndermek için hangi bölümünün belirlemek için karma.
+Bölüm anahtarını temsil eden bir dize belirtildiğinde anahtar için bir olay göndermek için hangi bölümünün belirlemek üzere karma haline getirilir.
 
-Bölüm anahtarı olarak ayarlanmadığında, iletileri ardından gidiş-robined kullanılabilen tüm bölümler için olacaktır
+Bölüm anahtarı olarak ayarlanmadığında, iletileri ardından gidiş-robined için kullanılabilir tüm bölümleri
 
 ```java
 // Serialize the event into bytes
@@ -271,25 +271,20 @@ eventHubClient.sendSync(sendEvent, partitionKey);
 
 API, özel bir denetim noktası yöneticinize varsayılan uygulama, kullanım örneği ile uyumlu olmayan senaryolar uygulamak için bir mekanizma sağlar.
 
-Varsayılan Denetim Yöneticisi'ni blob depolama kullanır ancak kendi uygulamasıyla EPH tarafından kullanılan kontrol noktası Yöneticisi geçersiz kılarsanız, yedeklemek istediğiniz her depolama kullanabilirsiniz, kontrol noktası Yöneticisi uygulamasıdır.
+Varsayılan Denetim Yöneticisi'ni blob depolama kullanır ancak kendi uygulamasıyla EPH tarafından kullanılan kontrol noktası Yöneticisi geçersiz kılarsanız, kontrol noktası Yöneticisi uygulamanızı yedeklemek istediğiniz her depolama kullanabilirsiniz.
 
-Arabirimi com.microsoft.azure.eventprocessorhost.ICheckpointManager uygulayan bir sınıf oluşturmanız gerekir
+Arabirimi com.microsoft.azure.eventprocessorhost.ICheckpointManager uygulayan bir sınıf oluşturma
 
 Uygulamanıza özel kontrol noktası Yöneticisi'ni (com.microsoft.azure.eventprocessorhost.ICheckpointManager) kullanın
 
-Uygulamanız içinde varsayılan denetim noktası oluşturma mekanizması geçersiz kılmak ve kendi veri deposu temelinde (SQL Server, CosmosDB, Redis önbelleği vb.) kendi kontrol noktaları uygulayın. Kontrol noktası Yöneticisi uygulamanızı yedeklemek için kullanılan depolama tüketici grubu için olayları işlemekte olduğu tüm EPH örnekleri erişilebilir olması önerilir.
+Uygulamanız içinde varsayılan denetim noktası oluşturma mekanizması geçersiz kılmak ve kendi veri deposu temelinde (SQL Server, CosmosDB, Redis önbelleği vb.) kendi kontrol noktaları uygulayın. Kontrol noktası Yöneticisi uygulamanızı yedeklemek için kullanılan depolama tüketici grubu için olayları işlemekte olduğu tüm EPH örnekleri erişilebilir olduğunu öneririz.
 
 Ortamınızda herhangi bir veri deposu olarak kullanabilirsiniz.
 
-Com.microsoft.azure.eventprocessorhost.EventProcessorHost sınıf, EventProcessorHost için denetim noktası manager geçersiz kılma olanak tanıyan 2 oluşturuculara sahip sağlar.
+Com.microsoft.azure.eventprocessorhost.EventProcessorHost sınıfı, EventProcessorHost için kontrol noktası Yöneticisi geçersiz kılmanıza da olanak sağlayan iki Oluşturucu sağlar.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-
-Aşağıdaki bağlantıları inceleyerek Event Hubs hakkında daha fazla bilgi edinebilirsiniz:
-
-* [Event Hubs’a genel bakış](event-hubs-what-is-event-hubs.md)
-* [Olay Hub’ı oluşturma](event-hubs-create.md)
-* [Event Hubs ile ilgili SSS](event-hubs-faq.md)
+Bu hızlı başlangıçta, bir olay hub'ından iletiler alan bir Java uygulaması oluşturdunuz. Java kullanarak bir olay hub'ına olay gönderme hakkında bilgi edinmek için bkz: [olayları event hub'dan - Java Gönder](event-hubs-java-get-started-send.md).
 
 <!-- Links -->
 [Event Hubs overview]: event-hubs-what-is-event-hubs.md

@@ -10,12 +10,12 @@ ms.component: speech-service
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: mahilleb
-ms.openlocfilehash: a5fce6f9547a96da3ce482ce388e5ba2093f2af4
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 088e581da7511797a0f39959d867c6298262462a
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49468135"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50242339"
 ---
 # <a name="regions-of-the-speech-service"></a>Konuşma hizmeti bölgeleri
 
@@ -37,7 +37,7 @@ Bkz: [REST API'leri](rest-apis.md) Ayrıntılar için.
 
 Kullanılabilir bölgeler için aşağıdaki tabloda **konuşma tanıma** ve **çeviri**.
 
-  Bölge | Konuşma SDK parametresi | Portal
+  Bölge | Konuşma SDK parametresi | Konuşma özelleştirme portalı
  ------|-------|--------
  Batı ABD | `westus` | https://westus.cris.ai
  Batı ABD 2 | `westus2` | https://westus2.cris.ai 

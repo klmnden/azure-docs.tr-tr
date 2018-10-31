@@ -1,10 +1,10 @@
 ---
-title: REST kullanarak medya işlemcisi örneği alma | Microsoft Docs
-description: Kodlama, biçimine dönüştürmek, şifrelemek veya medya içeriği için Azure Media Services şifresini çözmek için bir medya işlemci bileşeni oluşturmayı öğrenin.
+title: REST kullanarak medya işlemci örneği alma | Microsoft Docs
+description: Kodlama, biçim dönüştürme, şifrelemek veya Azure Media Services için medya içeriğin şifresini için medya işlemci bileşeninin oluşturmayı öğrenin.
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: f9ff1997-0da6-4528-aaed-792837e5be41
 ms.service: media-services
@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/07/2017
+ms.date: 10/30/2018
 ms.author: juliako
-ms.openlocfilehash: 3e0bd654deca9db8ac13f4af9c4732ba42c01e97
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 673aac79d3cba94b9579000a333bb03086312994
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33790254"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50248987"
 ---
-# <a name="how-to-get-a-media-processor-instance"></a>Medya işlemcisi örneği alma
+# <a name="how-to-get-a-media-processor-instance"></a>Medya işlemci örneği alma
 > [!div class="op_single_selector"]
 > * [.NET](media-services-get-media-processor.md)
 > * [REST](media-services-rest-get-media-processor.md)
@@ -29,28 +29,28 @@ ms.locfileid: "33790254"
 > 
 
 ## <a name="overview"></a>Genel Bakış
-Medya işlemcileri belirli video veya ses işleme görevi, kodlama gibi kodlama, biçimini dönüştürme, şifreleme veya şifresi çözme medya içeriği işleyen bir bileşeni var. Media Services'e gönderilen tüm görevleri kodlamak, şifrelemek veya ses veya video içeriğin dönüştürülmesi için medya işlemcisi gerektirir. 
+Medya işlemcileri belirli bir video veya ses işleme görevi, kodlama, biçim dönüştürme, şifreleme ve şifresini çözmeyi medya içeriği gibi işler bir bileşenidir. Media Services'e gönderilen tüm görevleri, kodlama, şifreleme veya video veya ses içeriğini dönüştürmek için medya işleyicisi gerektirir. 
 
 ## <a name="azure-media-processors"></a>Azure medya işlemcileri 
 
-Aşağıdaki konu medya işlemcileri listesi sağlar:
+Aşağıdaki konuda medya işlemcileri listesi sağlar:
 
-* [Kodlama medya işlemcileri](scenarios-and-availability.md#encoding-media-processors)
-* [Analizi medya işlemcileri](scenarios-and-availability.md#analytics-media-processors)
+* [Kodlama medya işleyicileri](scenarios-and-availability.md#encoding-media-processors)
+* [Analiz medya işlemcileri](scenarios-and-availability.md#analytics-media-processors)
 
 >[!NOTE]
->Varlıklar Media Services erişirken, HTTP istekleri özel üstbilgi alanlarını ve değerlerini ayarlamanız gerekir. Daha fazla bilgi için bkz: [Media Services REST API geliştirme için Kurulum](media-services-rest-how-to-use.md).
+>Varlıklar Media Services erişirken, HTTP isteklerini özel üstbilgi alanlarını ve değerlerini ayarlamanız gerekir. Daha fazla bilgi için [Media Services REST API geliştirme için Kurulum](media-services-rest-how-to-use.md).
 
 ## <a name="connect-to-media-services"></a>Media Services’e bağlanmak
 
-AMS API'sine bağlanma hakkında daha fazla bilgi için bkz: [Azure AD kimlik doğrulaması ile Azure Media Services API erişim](media-services-use-aad-auth-to-access-ams-api.md). 
+AMS API'ye bağlanma hakkında daha fazla bilgi için bkz: [Azure AD kimlik doğrulamasıyla Azure Media Services API'sine erişim](media-services-use-aad-auth-to-access-ams-api.md). 
 
 
 ## <a name="get-a-media-processor"></a>Medya işlemcisi Al
 
-Medya işlemcisi örneği tarafından adını almak nasıl aşağıdaki REST çağrısı gösterir (Bu durumda, **Medya Kodlayıcısı standart**). 
+Medya işlemci örneği ada göre alma REST çağrısını gösterir (Bu durumda, **Media Encoder Standard**). 
 
-İsteği:
+İstek:
 
     GET https://media.windows.net/api/MediaProcessors()?$filter=Name%20eq%20'Media%20Encoder%20Standard' HTTP/1.1
     DataServiceVersion: 1.0;NetFx
@@ -62,7 +62,7 @@ Medya işlemcisi örneği tarafından adını almak nasıl aşağıdaki REST ça
     x-ms-version: 2.17
     Host: media.windows.net
 
-Yanıtı:
+Yanıt:
 
     . . .
 
@@ -88,5 +88,5 @@ Yanıtı:
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="next-steps"></a>Sonraki Adımlar
-Medya işlemcisi örneği alma bildiğinize göre Git [bir varlık kodlama](media-services-rest-get-started.md) Medya Kodlayıcısı standart bir varlık kodlama nasıl kullanılacağını göstermektedir makalesi.
+Medya işlemci örneği alma artık bildiğinize göre Git [bir varlığı kodlama](media-services-rest-get-started.md) makalesini Medya Kodlayıcısı standart bir varlığı kodlama nasıl kullanılacağını gösterir.
 

@@ -1,10 +1,10 @@
 ---
-title: Azure portalında Medya Kodlayıcısı standart'ı kullanarak bir varlık kodlama | Microsoft Docs
-description: Bu öğreticide, Azure portalında Medya Kodlayıcısı standart'ı kullanarak bir varlık kodlama adımları açıklanmaktadır.
+title: Azure portalında Media Encoder Standard kullanarak bir varlığı kodlama | Microsoft Docs
+description: Bu öğreticide Azure portalında Media Encoder Standard kullanarak varlık kodlama adımlarında size kılavuzluk eder.
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: 107d9e9a-71e9-43e5-b17c-6e00983aceab
 ms.service: media-services
@@ -12,33 +12,33 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/07/2017
+ms.date: 10/30/2018
 ms.author: juliako
-ms.openlocfilehash: 470eb8613416f441c1becee628acf3c898591c84
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 958c53108c024cb349922a1bd10b2cdc2dba41a3
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33790226"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50247291"
 ---
-# <a name="encode-an-asset-by-using-media-encoder-standard-in-the-azure-portal"></a>Azure portalında Medya Kodlayıcısı standart'ı kullanarak bir varlık kodlama
+# <a name="encode-an-asset-by-using-media-encoder-standard-in-the-azure-portal"></a>Azure portalında Media Encoder Standard kullanarak bir varlığı kodlama
 
 > [!NOTE]
 > Bu öğreticiyi tamamlamak için bir Azure hesabınızın olması gerekir. Ayrıntılı bilgi için bkz. [Azure Ücretsiz Deneme Sürümü](https://azure.microsoft.com/pricing/free-trial/). 
 > 
 > 
 
-Azure Media Services ile çalışırken en sık karşılaşılan senaryolardan biri, bit hızı Uyarlamalı istemcilerinize akış iletmektir. Media Services teknolojileri aşağıdaki bit hızı Uyarlamalı akış destekler: Apple HTTP canlı akışı (HLS), Microsoft kesintisiz akış ve dinamik Uyarlamalı akış HTTP (DASH, MPEG-DASH olarak da adlandırılır) üzerinden. Videolarınızı bit hızı Uyarlamalı akış için hazırlamak için önce kaynak videonuzu Çoklu bit hızlı dosyaları olarak kodlayın. Videolarınızı kodlamak için Azure Medya Kodlayıcısı standart kullanabilirsiniz.  
+Azure Media Services ile çalışırken en sık karşılaşılan senaryolardan biri bit hızı Uyarlamalı akış istemcilerinize sağlıyor. Media Services, aşağıdaki hızı Uyarlamalı akış teknolojilerini destekler: Apple HTTP canlı akış (HLS), Microsoft kesintisiz akış ve Dynamic Adaptive Streaming http (DASH, MPEG-DASH olarak da bilinir). Videolarınızı Uyarlamalı bit hızı akışına hazırlamak için önce kaynak videonuzu Çoklu bit hızı dosyaları kodlayın. Videolarınızı kodlamak için Azure Medya Kodlayıcısı standart kullanabilirsiniz.  
 
-Media Services dinamik paketleme olanağı sağlar. Dinamik paketleme ile bu akış biçimlerine yeniden paketleme olmadan, Çoklu bit hızlı MP4s HLS, kesintisiz akış ve MPEG-DASH, sunabilir. Dinamik paketleme kullandığınızda, depolamak ve tek bir depolama biçiminde dosyaları için ödeme yaparsınız. Media Services oluşturur ve ağdaki bir istemcinin isteğini göre uygun yanıtı işlevi görür.
+Media Services dinamik paketleme olanağı sağlar. Dinamik paketleme ile bu akış biçimlerine yeniden paketleme olmadan, Çoklu bit hızına sahip MP4 HLS, kesintisiz akış ve MPEG-DASH teslim edebilirsiniz. Dinamik paketleme kullandığınızda, depolayın ve tek bir depolama biçimindeki dosyaları için ödeme yaparsınız. Media Services istemci isteğe göre uygun yanıtı derler ve sunar.
 
-Dinamik paketlemeden yararlanmak için kaynak dosyanızı çoklu bit hızına sahip bir dizi MP4 dosyası olarak kodlamanız gerekir. Kodlama adımları bu makalenin sonraki bölümlerinde gösterilmektedir.
+Dinamik paketlemeden yararlanmak için kaynak dosyanızı çoklu bit hızına sahip bir dizi MP4 dosyası olarak kodlamanız gerekir. Kodlama adımları bu makalenin ilerleyen bölümlerinde gösterilmektedir.
 
-Medyayı işleme ölçeğini öğrenmek için bkz: [ölçeklendirme Azure portalını kullanarak işleme medya](media-services-portal-scale-media-processing.md).
+Medya işlemeyi ölçeklendirme hakkında bilgi edinmek için [medya işleme Azure portalını kullanarak ölçeklendirme](media-services-portal-scale-media-processing.md).
 
-## <a name="encode-in-the-azure-portal"></a>Azure portalında kodlama
+## <a name="encode-in-the-azure-portal"></a>Azure portalında kodlayın
 
-İçeriğinizi Medya Kodlayıcısı standart kullanarak kodlamak için:
+İçeriğinizi Media Encoder Standard kullanarak kodlamak için:
 
 1. [Azure portalında](https://portal.azure.com/) Azure Media Services hesabınızı seçin.
 2. **Ayarlar** > **Varlıklar**’ı seçin. Kodlamak istediğiniz varlığı seçin.

@@ -7,24 +7,24 @@ ms.subservice: scenario
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: tmullaney
-ms.author: thmullan
+author: VanMSFT
+ms.author: vanto
 ms.reviewer: ''
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: 94430d3b72bb5b8e8bde0e9e2e9fb2eb2b0c3632
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: d669e7beb2d0e41ff26408d4f71c3e1648c41e3a
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47056293"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50242577"
 ---
 # <a name="multi-tenant-applications-with-elastic-database-tools-and-row-level-security"></a>Esnek veritabanı araçlarını ve satır düzeyi güvenlik ile çok kiracılı uygulamalar
 
 [Esnek veritabanı araçlarını](sql-database-elastic-scale-get-started.md) ve [satır düzeyi güvenlik (RLS)] [ rls] Azure SQL veritabanı ile çok kiracılı bir uygulama için veri katmanını ölçeklendirmeyi etkinleştirmek üzere işbirliği yapar. Birlikte bu teknolojiler bir yüksek oranda ölçeklenebilir bir veri katmanı olan bir uygulama oluşturmanıza yardımcı olur. Veri katmanı, çok kiracılı parçaları destekleyen ve kullandığı **ADO.NET SqlClient** veya **Entity Framework**. Daha fazla bilgi için [Azure SQL veritabanı ile çok kiracılı SaaS uygulamaları için Tasarım desenleri](saas-tenancy-app-design-patterns.md).
 
 - **Esnek veritabanı araçlarını** geliştiricilerin .NET kitaplıkları ve Azure hizmet şablonları kullanarak veri katmanı ile standart parçalara ayırma uygulamaları, ölçeği genişletme. Parçalar kullanarak yönetme [elastik veritabanı istemci Kitaplığı] [ s-d-elastic-database-client-library] otomatikleştirmek ve genellikle parçalama yöntemiyle ilişkili altyapısal görevlerin çoğunu kolaylaştırmaya yardımcı olur.
-- **Satır düzeyi güvenlik** geliştiricilerin güvenli bir şekilde aynı veritabanının birden fazla Kiracı için veri depolama sağlar. Sorguyu yürüten kiracıya ait olmayan satırları RLS güvenlik ilkeleri filtreleyin. Veritabanı içinde filtre mantığının merkezileştirerek, bakım basitleştirir ve bir güvenlik hatası riskini azaltır. Tüm istemci kodu enfore güvenlik bağlı alternatif risklidir.
+- **Satır düzeyi güvenlik** geliştiricilerin güvenli bir şekilde aynı veritabanının birden fazla Kiracı için veri depolama sağlar. Sorguyu yürüten kiracıya ait olmayan satırları RLS güvenlik ilkeleri filtreleyin. Veritabanı içinde filtre mantığının merkezileştirerek, bakım basitleştirir ve bir güvenlik hatası riskini azaltır. Güvenliği zorlamak için tüm istemci kodu bağlı olan diğer risklidir.
 
 Bu özellikler birlikte kullanarak, bir uygulama, aynı parça veritabanının birden fazla Kiracı için veri depolayabilir. Kiracılar bir veritabanını paylaştığında daha az Kiracı başına maliyeti. Henüz aynı uygulama için adanmış kendi tek kiracılı parça ödeme seçeneği ayrıca, premium kiracılar sunabilir. Tek tek kiracılı yalıtım firmer performans garantileri avantajdır. Bir tek kiracılı veritabanında kaynakları için rekabete hiçbir Kiracı yoktur.
 
@@ -39,8 +39,8 @@ Elastik veritabanı istemci kitaplığını kullanma olmaktır [verilere bağım
 
 ### <a name="prerequisites"></a>Önkoşullar
 
-- Visual Studio (2012 veya üzeri) kullanın 
-- Üç Azure SQL veritabanı oluşturma 
+- Visual Studio (2012 veya üzeri) kullanın
+- Üç Azure SQL veritabanı oluşturma
 - Örnek projeyi indirin: [Azure SQL - çok Kiracılı parça için elastik veritabanı araçları](http://go.microsoft.com/?linkid=9888163)
   - Veritabanlarınızı başındaki bilgileri doldurun **Program.cs** 
 

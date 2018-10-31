@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/07/2018
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: bbdff5a9aa74ab08dc99c41f8ab847f901e18256
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: ac51dc8b7cbfa08ebca201c42c0c82356b7d5b6c
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50226442"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50254538"
 ---
 # <a name="internet-of-things-security-architecture"></a>Nesnelerin interneti güvenliği mimarisi
 
@@ -21,7 +21,7 @@ Sistem tasarlanırken bu sistemde olası tehditleri anlamak ve sistem tasarlanm�
 
 ## <a name="security-starts-with-a-threat-model"></a>Güvenlik tehdit modeli ile başlar.
 
-Microsoft tehdit modelleri için ürünlerinden uzun kullandı ve şirketin tehdit modelleme işlemi publicaly kullanılabilir sunmuştur. Şirket deneyimi modelleme olduğunu gösteren tehditleri en nelerdir hemen anlamak ötesinde beklenmeyen avantajları ile ilgili. Örneğin, ayrıca açık bir tartışma için duyurmanın bir yolu başkalarıyla yeni fikirler ve ürün geliştirmeleri açabilir geliştirme ekibi dışında oluşturur.
+Microsoft tehdit modelleri için ürünlerinden uzun kullandı ve şirketin tehdit modelleme işlemi genel kullanıma sunmuştur. Şirket deneyimi modelleme olduğunu gösteren tehditleri en nelerdir hemen anlamak ötesinde beklenmeyen avantajları ile ilgili. Örneğin, ayrıca açık bir tartışma için duyurmanın bir yolu başkalarıyla yeni fikirler ve ürün geliştirmeleri açabilir geliştirme ekibi dışında oluşturur.
 
 Tehdit modelleme amacı, bir saldırganın nasıl bir sistemden ve uygun bir risk azaltma işlemleri yerinde olduğundan emin olabilir öğrenmektir. Tehdit modelleme zorlar Tasarım ekibi azaltmaları sistem tasarlandığı gibi yerine bir sistem sonra dikkate alınması gereken dağıtılır. Alanındaki cihazlar'ın için güvenlik savunmaları retrofitting olanaksız olduğundan, bu çok önemli bir gerçeğidir hata yapmaya açık ve bırakır müşterilerine risk.
 

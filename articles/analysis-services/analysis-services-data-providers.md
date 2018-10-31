@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/12/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: b3ee62ec6b8155841121eed6c4ab9c12b08f0e9b
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: f0c852b0b3de4edcf894d80ae397eae6c8980d49
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49165230"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50240418"
 ---
 # <a name="client-libraries-for-connecting-to-azure-analysis-services"></a>Azure Analysis Services'a bağlanmak için istemci kitaplıkları
 
@@ -59,7 +59,7 @@ Power BI Desktop ve Excel gibi Microsoft istemci uygulamaları, istemci kitaplı
 
 ### <a name="amo"></a>AMO  
 
- AMO, sunucu yönetimi ve veri tanımı için kullanılan bir yönetilen istemci kitaplığıdır. Yüklü ve araçları ve istemci uygulamaları tarafından kullanılan. Örneğin, SQL Server Management Studio (SSMS) AMO Analysis Services'e bağlanmak için kullanır. AMO kullanarak bağlantı oluşan genellikle minimal `“data source=\<servername>”`. Bağlantı kurulduktan sonra veritabanı koleksiyonları ve büyük nesneler ile çalışmak için API'yi kullanın. SSDT hem SSMS AMO bir Analysis Services örneğine bağlanmak için kullanın.  
+ AMO, sunucu yönetimi ve veri tanımı için kullanılan bir yönetilen istemci kitaplığıdır. Yüklü ve araçları ve istemci uygulamaları tarafından kullanılan. Örneğin, SQL Server Management Studio (SSMS) AMO Analysis Services'e bağlanmak için kullanır. AMO kullanarak bağlantı oluşan genellikle minimal `"data source=\<servername>"`. Bağlantı kurulduktan sonra veritabanı koleksiyonları ve büyük nesneler ile çalışmak için API'yi kullanın. SSDT hem SSMS AMO bir Analysis Services örneğine bağlanmak için kullanın.  
 
   
 ### <a name="adomd"></a>ADOMD

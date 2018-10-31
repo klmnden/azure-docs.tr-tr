@@ -1,10 +1,10 @@
 ---
-title: .NET ile Media Services iş bildirimleri izlemek için Azure Web Kancalarını kullanın | Microsoft Docs
-description: Media Services iş bildirimleri izlemek için Azure Web Kancalarını kullanmayı öğrenin. Kod örneği C# dilinde yazılmıştır ve .NET için Media Services SDK'sını kullanır.
+title: .NET ile Media Services iş bildirimlerini izlemek için Azure Web Kancalarını kullanma | Microsoft Docs
+description: Media Services iş bildirimlerini izlemek için Azure Web kancaları kullanmayı öğrenin. Kod örneği yazıldığı C# ve .NET için Media Services SDK'sını kullanır.
 services: media-services
 documentationcenter: ''
 author: juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: a61fe157-81b1-45c1-89f2-224b7ef55869
 ms.service: media-services
@@ -12,31 +12,31 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 12/09/2017
+ms.date: 10/29/2018
 ms.author: juliako
-ms.openlocfilehash: 564fc25699c3ae627804d49bfdc40ae9dd559269
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: b3ce3731f19565bfe950d03a2bbc980dda55a7f4
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33789414"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50238667"
 ---
-# <a name="use-azure-webhooks-to-monitor-media-services-job-notifications-with-net"></a>.NET ile Media Services iş bildirimleri izlemek için Azure Web'kancaları kullanın
-İşlerini çalıştırdığınızda, genellikle iş ilerleme durumunu izlemek için bir yol gerekir. Azure Web Kancalarını kullanarak Media Services iş bildirimleri izleyebilirsiniz veya [Azure kuyruk depolama](media-services-dotnet-check-job-progress-with-queues.md). Bu makalede, Web kancalarını ile çalışmak gösterilmiştir.
+# <a name="use-azure-webhooks-to-monitor-media-services-job-notifications-with-net"></a>Kullanım Azure Media Services .NET ile iş bildirimlerini izlemek için Web kancaları
+İşleri çalıştırmak, genellikle iş ilerleme durumunu izlemek için bir yol gerektirir. Azure Web Kancalarını kullanarak Media Services iş bildirimlerini izlemek veya [Azure kuyruk depolama](media-services-dotnet-check-job-progress-with-queues.md). Bu makale Web kancaları ile çalışmayı öğrenin.
 
-Bu makalede gösterilmektedir nasıl
+Bu makale hakkında
 
-*  Web kancası için yanıtlamak için özelleştirilmiş bir Azure işlevi tanımlayın. 
+*  Web kancaları için yanıt vermek için özelleştirilmiş bir Azure işlevi tanımlayın. 
     
-    Bu durumda, kodlama işinin durumu değiştiğinde Web kancası Media Services tarafından tetiklenir. İşlev Web kancası çağrısından geri Media Services bildirimleri dinler ve iş tamamlandığında, çıkış varlığına yayımlar. 
+    Bu durumda, kodlama işinin durumu değiştiğinde Media Services tarafından Web kancası tetiklenir. İşlevi, Web kancası çağrısından geri Media Services bildirimleri dinler ve iş tamamlandıktan sonra çıktı varlığına yayımlar. 
     
     >[!NOTE]
     >Devam etmeden önce anladığınızdan emin olun nasıl [Azure işlevleri HTTP ve Web kancası bağlamaları](../../azure-functions/functions-bindings-http-webhook.md) çalışır.
     >
     
-* Bir Web kancası kodlama göreviniz ekleyin ve bu Web kancası yanıtlaması gizli anahtar ve Web kancası URL'si belirtin. Bir Web kancası kodlama göreviniz makalenin sonunda ekleyen bir örnek bulabilirsiniz.  
+* Kodlama göreviniz için bir Web kancası Ekle ve bu Web kancasını yanıt veren gizli anahtarı ve Web kancası URL'si belirtin. Makalenin sonunda kodlama, görev bir Web kancası ekleyen bir örnek bulabilirsiniz.  
 
-Çeşitli Media Services .NET Azure (Bu makalede gösterilen de dahil olmak üzere) işlevleri tanımlarını bulabilirsiniz [burada](https://github.com/Azure-Samples/media-services-dotnet-functions-integration).
+Çeşitli Media Services .NET Azure işlevleri'nin (Bu makalede gösterilen de dahil olmak üzere) tanımlarını bulabilirsiniz [burada](https://github.com/Azure-Samples/media-services-dotnet-functions-integration).
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -49,37 +49,37 @@ Bu makalede gösterilmektedir nasıl
 ## <a name="create-a-function-app"></a>İşlev uygulaması oluşturma
 
 1. [Azure portalına](http://portal.azure.com) gidip Azure hesabınızla oturum açın.
-2. Açıklandığı gibi işlev uygulaması oluşturma [burada](../../azure-functions/functions-create-function-app-portal.md).
+2. Açıklandığı bir işlev uygulaması oluşturma [burada](../../azure-functions/functions-create-function-app-portal.md).
 
-## <a name="configure-function-app-settings"></a>İşlev uygulaması ayarlarını yapılandır
+## <a name="configure-function-app-settings"></a>İşlev uygulaması ayarlarını yapılandırma
 
-Media Services işlevleri geliştirirken işlevlerinizi kullanılan ortam değişkenleri eklemek için kullanışlıdır. Uygulama ayarlarını yapılandırmak için uygulama ayarlarını yapılandır bağlantısına tıklayın. 
+Media Services işlevleri geliştirirken, işlevlerinizin kullanılacak ortam değişkenleri eklemek için kullanışlıdır. Uygulama ayarlarını yapılandırmak için uygulama ayarlarını yapılandır bağlantısına tıklayın. 
 
-[Uygulama ayarları](media-services-dotnet-how-to-use-azure-functions.md#configure-function-app-settings) bölümünde bu makalede tanımlanan Web kancası kullanılan parametreleri tanımlar. Ayrıca aşağıdaki parametreler için uygulama ayarları ekleyin. 
+[Uygulama ayarları](media-services-dotnet-how-to-use-azure-functions.md#configure-function-app-settings) bölümü, bu makalede bahsedilen Web kancası olarak kullanılan parametreleri tanımlar. Ayrıca uygulama ayarları için aşağıdaki parametreleri ekleyin. 
 
 |Ad|Tanım|Örnek| 
 |---|---|---|
-|SigningKey |İmzalama anahtarı.| j0txf1f8msjytzvpe40nxbpxdcxtqcgxy0nt|
-|WebHookEndpoint | Bir Web kancası uç nokta adresi. Web kancası işlevinizi oluşturulduktan sonra URL'yi kopyalayıp **Al işlevi URL** bağlantı. | https://juliakofuncapp.azurewebsites.net/api/Notification_Webhook_Function?code=iN2phdrTnCxmvaKExFWOTulfnm4C71mMLIy8tzLr7Zvf6Z22HHIK5g==.|
+|SigningKey |Bir imzalama anahtarı.| j0txf1f8msjytzvpe40nxbpxdcxtqcgxy0nt|
+|WebHookEndpoint | Bir Web kancası uç nokta adresi. Web kancası işlevinizi oluşturulduktan sonra URL'deki kopyalayabilirsiniz **işlev URL'sini Al** bağlantı. | https://juliakofuncapp.azurewebsites.net/api/Notification_Webhook_Function?code=iN2phdrTnCxmvaKExFWOTulfnm4C71mMLIy8tzLr7Zvf6Z22HHIK5g==.|
 
 ## <a name="create-a-function"></a>İşlev oluşturma
 
-İşlev Uygulamanız dağıtıldıktan sonra onu arasında bulabilirsiniz **uygulama hizmetleri** Azure işlevleri.
+İşlev Uygulamanız dağıtıldıktan sonra arasında bulabilirsiniz **uygulama hizmetleri** Azure işlevleri.
 
-1. İşlev uygulamanızı seçin ve'ı tıklatın **yeni işlev**.
-2. Seçin **C#** kod ve **API & Web Kancalarını** senaryo. 
-3. Seçin **Genel Web kancası - C#**.
-4. Tuşuna basın ve Web kancası adı **oluşturma**.
+1. İşlev uygulamanızı seçin ve tıklayın **yeni işlev**.
+2. Seçin **C#** kod ve **API ve Web kancaları** senaryo. 
+3. Seçin **Genel Web kancası - C#** .
+4. Tuşuna basın ve Web kancası adı **Oluştur**.
 
 ### <a name="files"></a>Dosyalar
 
-Azure işlevinizi ve bu bölümde açıklanan diğer dosyaları kod dosyaları ile ilişkilidir. Varsayılan olarak, bir işlev ilişkili olduğu **function.json** ve **run.csx** (C#) dosyaları. Eklemek gereken bir **project.json** dosya. Bu bölümün geri kalanında bu dosyaları tanımlarında gösterir.
+Azure işlevinizi ve bu bölümde açıklanan diğer dosyaları kod dosyaları ile ilişkilidir. Varsayılan olarak, bir işlev ile ilişkili **function.json** ve **run.csx** (C#) dosyaları. Eklemek istediğiniz bir **project.json** dosya. Bu bölümün geri kalanında bu dosyalar için tanımları gösterir.
 
 ![dosya görüntüle](./media/media-services-azure-functions/media-services-azure-functions003.png)
 
 #### <a name="functionjson"></a>Function.JSON
 
-Function.json dosyası, işlev bağlamaları ve diğer yapılandırma ayarlarını tanımlar. Çalışma zamanı izlenecek olaylar belirlemek için bu dosyaya ve verilerini geçirin ve işlev yürütülmesini veri dönmek nasıl kullanır. 
+Function.json dosyası, işlev bağlamaları ve diğer yapılandırma ayarlarını tanımlar. Çalışma zamanı izlenecek olaylar belirlemek için bu dosya ve verileri aktarmak ve veri işlevi yürütülmesini döndürmek nasıl kullanır. 
 
 ```json
 {
@@ -102,7 +102,7 @@ Function.json dosyası, işlev bağlamaları ve diğer yapılandırma ayarların
 
 #### <a name="projectjson"></a>project.json
 
-Project.json dosyası bağımlılıkları içerir. 
+Project.json dosyası bağımlılıkları içeriyor. 
 
 ```json
 {
@@ -121,11 +121,11 @@ Project.json dosyası bağımlılıkları içerir.
     
 #### <a name="runcsx"></a>Run.csx
 
-Bu bölümdeki kod bir Web kancası olan bir Azure işlevi uygulaması gösterir. Bu örnekte işlevi Web kancası çağrısından geri Media Services bildirimleri dinler ve iş tamamlandığında, çıkış varlığına yayımlar.
+Bu bölümdeki kod, bir Web kancası olan bir Azure işlevi uygulaması gösterir. Bu örnekte, işlevi, Web kancası çağrısından geri Media Services bildirimleri dinler ve iş tamamlandıktan sonra çıktı varlığına yayımlar.
 
-Web kancası bildirim bitiş noktası yapılandırdığınızda geçirdiğiniz olanla eşleşecek şekilde bir imzalama anahtarı (kimlik) bekliyor. İmzalama anahtarı korumak ve Azure Media Services, Web Kancalarını geri aramalar güvenli hale getirmek için kullanılan 64 baytlık Base64 ile kodlanmış değerdir. 
+Web kancasının bildirim bitiş noktası yapılandırdığınızda geçirdiğiniz olanla eşleşecek şekilde bir imzalama anahtarı (kimlik) bekliyor. İmzalama anahtarı korumak ve Azure Media Services, Web Kancalarını geri çağırmaları güvenliğini sağlamak için kullanılan 64 baytlık Base64 kodlu değerdir. 
 
-Aşağıdaki Web kancası tanımı kodda **VerifyWebHookRequestSignature** yöntemi bildirim iletisinin doğrulama yapar. Bu doğrulamanın amacı ileti Azure Media Services tarafından gönderilen ve oynanmadığını emin olmaktır. İmza içerdiğinden Azure işlevleri için isteğe bağlı olduğu **kod** değeri olarak bir sorgu parametresi üzerinden Aktarım Katmanı Güvenliği (TLS). 
+Aşağıdaki Web kancası tanımı kod **VerifyWebHookRequestSignature** yöntemi bildirim iletisinin doğrulama yapar. Bu doğrulamanın amacı, ileti Azure Media Services tarafından gönderilen ve kurcalanmadığı sağlamaktır. İmza, içerdiğinden Azure işlevleri için isteğe bağlı olduğu **kod** değeri olarak bir sorgu parametresi üzerinden Aktarım Katmanı Güvenliği (TLS). 
 
 >[!NOTE]
 >Farklı AMS ilkeleri için sınır 1.000.000 ilkedir (örneğin, Bulucu ilkesi veya ContentKeyAuthorizationPolicy için). Uzun süre boyunca kullanılmak için oluşturulan bulucu ilkeleri gibi aynı günleri / erişim izinlerini sürekli olarak kullanıyorsanız, aynı ilke kimliğini kullanmalısınız (karşıya yükleme olmayan ilkeler için). Daha fazla bilgi için [bu](media-services-dotnet-manage-entities.md#limit-access-policies) konu başlığına bakın.
@@ -344,11 +344,11 @@ internal sealed class NotificationMessage
 }
 ```
 
-Kaydedin ve işlevinizi çalıştırın.
+Kaydet ve işlevinizi çalıştırın.
 
-### <a name="function-output"></a>İşlevi çıktı
+### <a name="function-output"></a>İşlev çıkışı
 
-Web kancası tetiklenir sonra yukarıdaki örnekte şu çıkışı üretir, değerlerinizi farklılık gösterir.
+Web kancası tetiklenir sonra yukarıdaki örnek aşağıdaki çıktıyı üretir, değerlerinize göre değişir.
 
     C# HTTP trigger function processed a request. RequestUri=https://juliako001-functions.azurewebsites.net/api/Notification_Webhook_Function?code=9376d69kygoy49oft81nel8frty5cme8hb9xsjslxjhalwhfrqd79awz8ic4ieku74dvkdfgvi
     Request Body = 
@@ -370,17 +370,17 @@ Web kancası tetiklenir sonra yukarıdaki örnekte şu çıkışı üretir, değ
     
     URL to the manifest for client streaming using HLS protocol: http://mediapkeewmg5c3peq.streaming.mediaservices.windows.net/0ac98077-2b58-4db7-a8da-789a13ac6167/BigBuckBunny.ism/manifest(format=m3u8-aapl)
 
-## <a name="add-a-webhook-to-your-encoding-task"></a>Bir Web kancası kodlama göreviniz ekleme
+## <a name="add-a-webhook-to-your-encoding-task"></a>Kodlama göreviniz için bir Web kancası Ekle
 
-Bu bölümde, bir Web kancası bildirim için bir görev ekler ve kod gösterilir. Zincirleme görevler içeren bir iş için daha kullanışlı olurdu bir proje düzeyi bildirim de ekleyebilirsiniz.  
+Bu bölümde, bir Web kancası bildirim için bir görev ekler kod gösterilmektedir. Zincirleme görev sayısı ile bir iş için daha kullanışlı olurdu bir iş düzeyi bildirimi de ekleyebilirsiniz.  
 
-1. Visual Studio’da yeni bir C# Konsol Uygulaması oluşturun. Adını, konumunu ve çözüm adı girin ve Tamam'ı tıklatın.
-2. Kullanım [NuGet](https://www.nuget.org/packages/windowsazure.mediaservices) Azure Media Services yüklemek için.
+1. Visual Studio’da yeni bir C# Konsol Uygulaması oluşturun. Adı, konum ve çözüm adını girin ve Tamam'a tıklayın.
+2. Kullanım [NuGet](https://www.nuget.org/packages/windowsazure.mediaservices) Azure Media Services'ı yüklemek için.
 3. App.config dosyasını uygun değerlerle güncelleştirin: 
     
-    * Azure Media Services bağlantı bilgilerini, 
+    * Azure Media Services bağlantı bilgileri 
     * bildirimleri almak için beklediği Web kancası URL'si 
-    * Web kancası bekliyor anahtarla eşleşen imzalama anahtarı. İmzalama anahtarı korumak ve Azure Media Services, Web kancalarını geri aramalar güvenli hale getirmek için kullanılan 64 baytlık Base64 ile kodlanmış değerdir. 
+    * Web kancanız bekliyor anahtarla eşleşen imzalama anahtarı. İmzalama anahtarı korumak ve Azure Media Services, Web kancalarını geri çağırmaları güvenliğini sağlamak için kullanılan 64 baytlık Base64 kodlu değerdir. 
 
     ```xml
             <appSettings>
@@ -395,7 +395,7 @@ Bu bölümde, bir Web kancası bildirim için bir görev ekler ve kod gösterili
             </appSettings>
     ```
 
-4. Program.cs dosyanıza aşağıdaki kod ile güncelleştirin:
+4. Program.cs dosyanız aşağıdaki kodla güncelleştirin:
 
     ```csharp
             using System;

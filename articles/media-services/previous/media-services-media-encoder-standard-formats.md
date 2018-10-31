@@ -1,10 +1,10 @@
 ---
-title: Medya Kodlayıcısı standart biçimleri ve codec bileşenleri
-description: Bu konuda Medya Kodlayıcısı standart biçimleri ve codec bileşenleri genel bakış sağlar.
+title: Media Encoder Standard biçimleri ve codec bileşenleri
+description: Bu konu, Media Encoder Standard biçimleri ve codec bileşenleri hakkında genel bir bakış sağlar.
 services: media-services
 documentationcenter: ''
 author: juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: f334b1ce-2f56-4968-a019-f0a2b0016d9f
 ms.service: media-services
@@ -12,67 +12,67 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/20/2017
+ms.date: 10/30/2018
 ms.author: juliako;anilmur
-ms.openlocfilehash: 181a1b8ad6403045264ddc0bd502273f36df3eff
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: ef74ebfab9450d0aa22b5a2f3287491d96573cff
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34638339"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50249178"
 ---
 # <a name="media-encoder-standard-formats-and-codecs"></a>Media Encoder Standard Biçimleri ve Kodlayıcılar
-Bu belge, Medya Kodlayıcısı standart ile kullanabileceğiniz dışa aktarma dosyası biçimi ve en yaygın alma listesini içerir.
+Bu belge, en yaygın alma ve Medya Kodlayıcısı standart ile kullanabileceğiniz dışarı aktarma dosya biçimlerinin listesini içerir.
 
-## <a name="input-containerfile-formats"></a>Kapsayıcı/dosya biçimleri giriş
+## <a name="input-containerfile-formats"></a>Giriş kapsayıcısı/dosya biçimleri
 | Dosya biçimleri (dosya uzantıları) | Desteklenen |
 | --- | --- | --- | --- |
-| (İle H.264 ve AAC codec bileşenleri) FLV (.flv) |Evet |
+| FLV (H.264 ve AAC codec) (.flv) |Evet |
 | MXF (.mxf) |Evet |
 | GXF (.gxf) |Evet |
-| MPEG2 PS, MPEG2-TS 3GP (.ts, .ps, .3gp, .3gpp, .mpg) |Evet |
+| MPEG2-PS, MPEG2-TS 3GP (.ts, .ps, .3gp, .3gpp, .mpg) |Evet |
 | Windows Media Video (WMV) / ASF (.wmv, .asf) |Evet |
 | AVI (sıkıştırılmamış 8 bit/10 bit) (.avi) |Evet |
 | MP4 (.mp4, .m4a, .m4v) / ISMV (.isma, .ismv) |Evet |
-| [Microsoft Dijital Video Recording(DVR-MS)](https://msdn.microsoft.com/library/windows/desktop/dd692984) (.dvr-ms) |Evet |
+| [Microsoft Dijital Video Recording(DVR-MS)](https://msdn.microsoft.com/library/windows/desktop/dd692984) (.dvr ms) |Evet |
 | Matroska/WebM (.mkv) |Evet |
 | WAVE/WAV (.wav) |Evet |
 | QuickTime (.mov) |Evet |
 
 > [!NOTE]
-> Yukarıdaki daha yaygın olarak karşılaşılan dosya uzantıları listesini içerir. Medya Kodlayıcısı standart destek diğer birçok (örneğin: .m2ts, .mpeg2video, .qt). Bir dosya kodlamak deneyin ve biçimi desteklenmiyor ilgili bir hata iletisi alırsanız, görüş [burada](https://feedback.azure.com/forums/169396-media-services/category/144411-encoding-and-processing/).
+> Yukarıdaki daha sık karşılaşılan dosya uzantılarının listesi var. Media Encoder Standard destekleyen diğer birçok (örneğin: .m2ts, .mpeg2video, .qt). Dosya kodlama deneyin ve biçimi desteklenmiyor ilgili bir hata iletisi alırsanız, geri bildirim sağlamanız [burada](https://feedback.azure.com/forums/169396-media-services/category/144411-encoding-and-processing/).
 > 
 > 
 
-### <a name="audio-formats-in-input-containers"></a>Giriş kapsayıcılarında ses biçimleri
-Medya Kodlayıcısı standart giriş kapsayıcıları ses aşağıdaki biçimlerde taşıyan destekler:
+### <a name="audio-formats-in-input-containers"></a>Giriş-kapsayıcılarında ses biçimleri
+Media Encoder Standard giriş kapsayıcılarında aşağıdaki ses biçimlerinin taşınmasını destekler:
 
-* Araya eklemeli stereo veya 5.1 örnekleri ile ses izleri sahip MXF, GXF ve QuickTime dosyaları
+* Araya eklemeli stereo veya 5.1 örnekler içeren ses parçaları sahip MXF, GXF ve QuickTime dosyaları
 
 or
 
-* Burada ses ayrı PCM parçaları aktarılan, ancak kanal eşleme (stereo veya 5.1) dosya meta verileri anlaşılan MXF, GXF ve QuickTime dosyaları
+* Burada sesin ayrı PCM parçaları yürütülür, ancak kanal eşlemesinin (stero'ya veya 5. 1) dosya meta verilerinden çıkarılabildiği MXF, GXF ve QuickTime dosyaları
 
-Açık/kullanıcı tarafından sağlanan kanal eşleştirmesi için destek yakın gelecekte sağlanır.
+Açık/kullanıcı tarafından sağlanan kanal eşlemesine yönelik destek yakın gelecekte sağlanır.
 
-## <a name="input-video-codecs"></a>Görüntü codec bileşenleri giriş
-| Görüntü codec bileşenleri giriş | Desteklenen |
+## <a name="input-video-codecs"></a>Giriş video codec bileşenleri
+| Giriş video codec bileşenleri | Desteklenen |
 | --- | --- | --- | --- |
-| AVC 8 bit/10-en fazla 4 bit: AVCIntra dahil olmak üzere 2:2 |8 bit 4:2:0. ve 4:2:2 |
-| Hırslı DNxHD (içinde MXF) |Evet |
+| AVC 8 bit/10-en fazla 4 bit: 2:2, avcıntra |8 bit 4:2:0. ve 4:2:2 |
+| Avid DNxHD (mxf biçiminde) |Evet |
 | DVCPro/DVCProHD (in MXF) |Evet |
-| Dijital video (DV) (AVI dosyaları) |Evet |
+| Dijital video (DV) (AVI dosyalarında) |Evet |
 | JPEG 2000 |Evet |
-| MPEG-2 (422 profili ve yüksek düzey kadar; XDCAM, XDCAM HD, XDCAM IMX, CableLabs® ve D10 gibi çeşitleri dahil) |En fazla 422 profili |
+| MPEG-2 (422 profili ve yüksek düzeye kadar; XDCAM, XDCAM HD, XDCAM IMX, CableLabs® ve D10 gibi çeşitler dahil) |422 profiline kadar |
 | MPEG-1 |Evet |
 | VC-1/WMV9 |Evet |
-| Canopus denetim merkezini/HQX |Hayır |
+| Canopus HQ/HQX |Hayır |
 | MPEG-4 bölüm 2 |Evet |
 | [Theora](https://en.wikipedia.org/wiki/Theora) |Evet |
-| Sıkıştırılmamış YUV420 veya Ara |Evet |
+| YUV420 sıkıştırılmamış veya mezzanine |Evet |
 | Apple ProRes 422 |Evet |
 | Apple ProRes 422 LT |Evet |
-| Apple ProRes 422 denetim merkezini |Evet |
+| Apple ProRes 422 HQ |Evet |
 | Apple ProRes Proxy |Evet |
 | Apple ProRes 4444 |Evet |
 | Apple ProRes 4444 XQ |Evet |
@@ -81,27 +81,27 @@ Açık/kullanıcı tarafından sağlanan kanal eşleştirmesi için destek yakı
 ## <a name="input-audio-codecs"></a>Giriş ses codec bileşenleri
 | Giriş ses codec bileşenleri | Desteklenen |
 | --- | --- | --- | --- |
-| AAC (AAC-LC, HE AAC ve AAC-HEv2; kadar 5.1) |Evet |
+| AAC (AAC-LC, AAC-HE ve AAC-HEv2; en fazla 5.1) |Evet |
 | MPEG Katman 2 |Evet |
-| MP3 (MPEG-1 ses Katman 3) |Evet |
+| MP3 (MPEG-1 Ses Katmanı 3) |Evet |
 | Windows Media Ses |Evet |
 | WAV/PCM |Evet |
 | [FLAC](https://en.wikipedia.org/wiki/FLAC)</a> |Evet |
 | [Geçerli](http://go.microsoft.com/fwlink/?LinkId=822667) |Evet |
 | [Vorbis](https://en.wikipedia.org/wiki/Vorbis)</a> |Evet |
-| AMR (Uyarlamalı çok hızı) |Evet |
-| AES (SMPTE 331 M ve 302 M, AES3 2003) |Hayır |
+| AMR (Uyarlamalı çok ücret) |Evet |
+| AES (SMPTE 331 M ve 302 M, AES3-2003) |Hayır |
 | Dolby® E |Hayır |
 | Dolby® dijital (AC3) |Hayır |
 | Dolby® dijital artı (E-AC3) |Hayır |
 
-## <a name="output-formats-and-codecs"></a>Çıktı biçimi ve codec bileşenleri
-Aşağıdaki tabloda dışa aktarmak için desteklenen codec bileşenleri ve dosya biçimlerini listeler.
+## <a name="output-formats-and-codecs"></a>Çıkış biçimleri ve codec bileşenleri
+Aşağıdaki tabloda, dışarı aktarma için desteklenen codec bileşenleri ve dosya biçimlerini listelenmektedir.
 
-| Dosya biçimi | Görüntü Codec | Ses Codec |
+| Dosya Biçimi | Görüntü codec bileşeni | Ses kodek bileşeni |
 | --- | --- | --- |
-| MP4 <br/><br/>(Çoklu bit hızlı MP4 kapsayıcıları dahil) |H.264 (yüksek, ana ve temel profilleri) |AAC-LC, HE-AAC v1, HE-AAC v2 |
-| MPEG2-TS |H.264 (yüksek, ana ve temel profilleri) |AAC-LC, HE-AAC v1, HE-AAC v2 |
+| MP4 <br/><br/>(Çoklu bit hızına sahip MP4 kapsayıcılar dahil) |H.264 (yüksek, ana ve temel profil) |AAC-LC, HE-AAC v1, HE-AAC v2 |
+| MPEG2-TS |H.264 (yüksek, ana ve temel profil) |AAC-LC, HE-AAC v1, HE-AAC v2 |
 
 ## <a name="media-services-learning-paths"></a>Media Services’i öğrenme yolları
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
@@ -112,5 +112,5 @@ Aşağıdaki tabloda dışa aktarmak için desteklenen codec bileşenleri ve dos
 ## <a name="see-also"></a>Ayrıca bkz.
 [Azure Media Services ile isteğe bağlı içerik kodlama](media-services-encode-asset.md)
 
-[Medya Kodlayıcısı standart ile kodlamak nasıl](media-services-dotnet-encode-with-media-encoder-standard.md)
+[Media Encoder Standard ile kodlama](media-services-dotnet-encode-with-media-encoder-standard.md)
 

@@ -12,17 +12,17 @@ ms.devlang: nodejs
 ms.topic: reference
 ms.date: 10/26/2018
 ms.author: glenga
-ms.openlocfilehash: d61570cd5d56cda7737bdb2d1a8d681fc2364610
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 470128344182cc6a06a378a0f4ab75b19e9a646e
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50139399"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50249819"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Azure işlevleri JavaScript Geliştirici Kılavuzu
 Bu kılavuz, Azure işlevleri ile JavaScript Yazma ayrıntılı olarak incelenmektedir hakkında bilgi içerir.
 
-Dışarı aktarılan bir JavaScript işlevidir `function` tetiklendiğinde yürütecek ([Tetikleyiciler içinde function.json yapılandırılmış](functions-triggers-bindings.md)). Her işleve geçirilen bir `context` alıcı ve gönderen bağlama verileri, günlüğe kaydetme ve çalışma zamanı ile iletişim kurmak için kullanılan nesne.
+Dışarı aktarılan bir JavaScript işlevidir `function` tetiklendiğinde çalışır ([Tetikleyiciler içinde function.json yapılandırılmış](functions-triggers-bindings.md)). Her işlev geçirilen ilk bağımsız değişken bir `context` alıcı ve gönderen bağlama verileri, günlüğe kaydetme ve çalışma zamanı ile iletişim kurmak için kullanılan nesne.
 
 Bu makalede, zaten okuduğunuz varsayılır [Azure işlevleri Geliştirici Başvurusu](functions-reference.md). Ayrıca, "Hızlı Başlangıçlar" altındaki bir öğretici uyguladığınız önerilir [ilk işlevinizi oluşturma](functions-create-first-function-vs-code.md).
 
@@ -48,42 +48,28 @@ FunctionsProject
  | - bin
 ```
 
-Proje kök dizininde yok paylaşılan [host.json](functions-host-json.md) işlev uygulamasını yapılandırmak için kullanılan dosya. Her işlev, kendi kod dosyası (.js) ve bağlama yapılandırma dosyası (function.json) ile bir klasörü vardır.
+Proje kök dizininde yok paylaşılan [host.json](functions-host-json.md) işlev uygulamasını yapılandırmak için kullanılan dosya. Her işlev, kendi kod dosyası (.js) ve bağlama yapılandırma dosyası (function.json) ile bir klasörü vardır. Adını `function.json`ait üst dizinidir her zaman, işlevin adı.
 
 Gerekli bağlama uzantıları [sürüm 2.x](functions-versions.md) işlevleri çalışma zamanı içinde tanımlanmıştır `extensions.csproj` dosyasıyla gerçek kitaplık dosyaları `bin` klasör. Yerel olarak geliştirirken gerekir [bağlama uzantıları kaydetme](functions-triggers-bindings.md#local-development-azure-functions-core-tools). Azure portalında işlevleri geliştirirken, bu kayıt sizin yerinize yapılır.
 
 ## <a name="exporting-a-function"></a>Bir işlevi dışa aktarma
 
-JavaScript işlevleri dışa, aracılığıyla [ `module.exports` ](https://nodejs.org/api/modules.html#modules_module_exports) (veya [ `exports` ](https://nodejs.org/api/modules.html#modules_exports)). Varsayılan durumda, yalnızca dışarı aktarma, dosyasından adlı dışarı aktarma, dışarı aktarılan işlevin olmalıdır `run`, veya adlandırılmış dışarı aktarma `index`. Varsayılan konum işlevinizin `index.js`burada `index.js` ilgili olarak aynı üst dizine paylaşır `function.json`. Unutmayın adını `function.json`ait üst dizinidir her zaman, işlevin adı. 
+JavaScript işlevleri dışa, aracılığıyla [ `module.exports` ](https://nodejs.org/api/modules.html#modules_module_exports) (veya [ `exports` ](https://nodejs.org/api/modules.html#modules_exports)). Dışarı aktarılan işlevinizi tetiklendiğinde yürüten bir JavaScript işlevi olmalıdır.
 
-Dosya konumunu yapılandırmanız ve işlevinizin adını dışarı aktarma hakkında bilgi edinin: [işlevinizin giriş noktası yapılandırma](functions-reference-node.md#configure-function-entry-point) aşağıda.
+Varsayılan olarak, İşlevler çalışma zamanı işlevinizde arar `index.js`burada `index.js` kendi ilişkili olarak aynı üst dizine paylaşır `function.json`. Varsayılan durumda, yalnızca dışarı aktarma, dosyadan veya adlandırılmış dışarı aktarma, dışarı aktarılan işlevin olmalıdır `run` veya `index`. Dosya konumunu yapılandırmanız ve işlevinizin adını dışarı aktarma hakkında bilgi edinin: [işlevinizin giriş noktası yapılandırma](functions-reference-node.md#configure-function-entry-point) aşağıda.
 
-Dışarı aktarılan işlevin giriş noktanız her zaman almalıdır bir `context` ilk parametre olarak nesne.
+Dışarı aktarılan işlevinizi yürütülmesine sayıda bağımsız değişken geçirildi. Her zaman, gereken ilk bağımsız değişken olduğu bir `context` nesne. İşlevinizi zaman uyumlu ise (Promise döndürmeyen), geçmesi gereken `context` nesnesini çağırmak kadar `context.done` doğru kullanımı için gereklidir.
 
 ```javascript
-// You must include a context, other arguments are optional
+// You should include context, other arguments are optional
 module.exports = function(context, myTrigger, myInput, myOtherInput) {
     // function logic goes here :)
     context.done();
 };
 ```
-```javascript
-// You can also use 'arguments' to dynamically handle inputs
-module.exports = async function(context) {
-    context.log('Number of inputs: ' + arguments.length);
-    // Iterates through trigger and input binding data
-    for (i = 1; i < arguments.length; i++){
-        context.log(arguments[i]);
-    }
-};
-```
-
-Tetikleyiciler ve bağlamalar giriş (bağlamalarını `direction === "in"`) işlevi için parametre olarak geçirilebilir. İçinde tanımlanan aynı sırada işlevine geçirilen *function.json*. JavaScript kullanarak girişleri de dinamik olarak işleyebilir [ `arguments` ](https://msdn.microsoft.com/library/87dw3w1k.aspx) nesne. Örneğin, `function(context, a, b)` ve değiştirmek için `function(context, a)`, değeri almaya devam `b` başvuran tarafından işlevi kodda `arguments[2]`.
-
-Yön bağımsız olarak tüm bağlamaları boyunca da geçirilir `context` kullanarak nesne `context.bindings` özelliği.
 
 ### <a name="exporting-an-async-function"></a>Bir zaman uyumsuz işlev dışarı aktarma
-JavaScript kullanırken [ `async function` ](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/async_function) bildirim veya düz JavaScript [gösterir](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise) (kullanılabilir değil hatasıyla işlevleri v1.x), açıkça çağırmak ihtiyacınız olmayan [ `context.done` ](#contextdone-method) işlevinizi tamamlandığını göstermek için geri çağırma. Dışarı aktarılan zaman uyumsuz işlev/Promise tamamlandığında işlevinizi tamamlanır.
+JavaScript kullanırken [ `async function` ](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/async_function) bildirim ya da aksi takdirde bir JavaScript döndüren [Promise](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise) (kullanılabilir değil hatasıyla işlevleri v1.x), açıkça çağırmak ihtiyacınız olmayan [ `context.done` ](#contextdone-method) işlevinizi tamamlandığını göstermek için geri çağırma. İşlevinizi, dışarı aktarılan zaman uyumsuz işlev/Promise tamamlandığında da tamamlanır.
 
 Örneğin, tetiklendi ve hemen bir kısayoldur günlüğe kaydeden basit bir işlevi budur.
 ``` javascript
@@ -92,7 +78,7 @@ module.exports = async function (context) {
 };
 ```
 
-Bir zaman uyumsuz işlev verirken çıkış bağlamaları almak için de yapılandırabilirsiniz `return` değeri. Çıktılar kullanılarak atamaya alternatif bir yaklaşım budur [ `context.bindings` ](#contextbindings-property) özelliği.
+Bir zaman uyumsuz işlev verirken almak için bir çıkış bağlaması de yapılandırabilirsiniz `return` değeri. Yalnızca bir çıkış bağlaması varsa, bu önerilir.
 
 Kullanarak bir çıkış atamak `return`, değiştirme `name` özelliğini `$return` içinde `function.json`.
 ```json
@@ -113,10 +99,81 @@ module.exports = async function (context, req) {
 }
 ```
 
-## <a name="context-object"></a>bağlam nesnesi
-Çalışma zamanı kullanan bir `context` nesne için ve işlevinizden veri iletmek için ve çalışma zamanı ile iletişim kurmasına izin vermek için.
+## <a name="bindings"></a>Bağlamalar 
+JavaScript'te [bağlamaları](functions-triggers-bindings.md) yapılandırılır ve işlevin function.json içinde tanımlanır. İşlevleri, çeşitli yollarla bağlamalarla etkileşim kurun.
 
-`context` Nesne her zaman ilk parametre olarak bir işlev ve yöntemler gibi olduğundan dahil edilmesi gereken `context.done` ve `context.log`, bunlar doğru çalışma zamanı kullanmak için gereklidir. İnovasyonunuz ne olursa olsun istediğiniz nesnenin adı verebilirsiniz (örneğin, `ctx` veya `c`).
+### <a name="reading-trigger-and-input-data"></a>Okuma tetikleyici ve giriş verileri
+Tetikleme ve giriş (bağlamalarını `direction === "in"`) üç yolla bir işlev tarafından okunabilir:
+ - **_[Önerilen]_  İşlevinize geçirilen parametreler olarak.** İçinde tanımlanan aynı sırada işlevine geçirilen *function.json*. Unutmayın `name` tanımlanan özellik *function.json* olması gerektiği olsa da, parametre adıyla eşleşmesi gerekmez.
+   ``` javascript
+   module.exports = async function(context, myTrigger, myInput, myOtherInput) { ... };
+   ```
+ - **Üyeleri olarak [ `context.bindings` ](#contextbindings-property) nesne.** Her üye tarafından adlandırılan `name` tanımlanan özellik *function.json*.
+   ``` javascript
+   module.exports = async function(context) { 
+       context.log("This is myTrigger: " + context.bindings.myTrigger);
+       context.log("This is myInput: " + context.bindings.myInput);
+       context.log("This is myOtherInput: " + context.bindings.myOtherInput);
+   };
+   ```
+ - **JavaScript kullanarak girdi olarak [ `arguments` ](https://msdn.microsoft.com/library/87dw3w1k.aspx) nesne.** Bu, aslında giriş parametre olarak geçirmeyi aynıdır, ancak girişleri dinamik olarak işlemenizi sağlar.
+   ``` javascript
+   module.exports = async function(context) { 
+       context.log("This is myTrigger: " + arguments[1]);
+       context.log("This is myInput: " + arguments[2]);
+       context.log("This is myOtherInput: " + arguments[3]);
+   };
+   ```
+
+### <a name="writing-data"></a>Veri yazma
+Çıkış (bağlamalarını `direction === "out"`) çeşitli yollarla bir işlevde tarafından yazılabilir. Tüm durumlarda `name` tanımlandığı gibi bağlama özelliğini *function.json* işlevinizde yazılan nesne üyesinin adı karşılık gelir. 
+
+Verileri aşağıdaki yollardan birinde bir çıkış bağlamaları atayabilirsiniz. Bu yöntemler birleştirmemelisiniz değil.
+- **_[Birden çok çıkış için önerilen]_  Döndüren bir nesne.** İşlev döndüren zaman uyumsuz/Promise kullanıyorsanız, bir nesne ile atanan çıktı verilerini döndürebilir. Aşağıdaki örnekte çıkış bağlamaları "httpResponse" ve "queueOutput" olarak adlandırılan *function.json*.
+  ``` javascript
+  module.exports = async function(context) {
+      let retMsg = 'Hello, world!';
+      return {
+          httpResponse: {
+              body: retMsg
+          },
+          queueOutput: retMsg
+      };
+  };
+  ```
+  Zaman uyumlu bir işlevin kullanıyorsanız, bu nesneyi kullanarak döndürebilir [ `context.done` ](#contextdone-method) (örneğe bakın).
+- **_[Tek çıkış için önerilen]_  $Return bağlama adını kullanarak ve doğrudan değer döndürüyor.** Bu, yalnızca zaman uyumsuz/döndüren işlevleri Promise çalışır. Örnekte bakın [bir zaman uyumsuz işlev dışarı aktarma](#exporting-an-async-function). 
+- **Değerler atamada `context.bindings`**  doğrudan context.bindings için değerler atayabilirsiniz.
+  ``` javascript
+  module.exports = async function(context) {
+      let retMsg = 'Hello, world!';
+      context.bindings.httpResponse = {
+          body: retMsg
+      };
+      context.bindings.queueOutput = retMsg;
+      return;
+  };
+  ```
+ 
+### <a name="bindings-data-type"></a>Bağlamaları veri türü
+
+Bir giriş bağlaması için veri türünü tanımlamak için `dataType` bağlama tanımındaki özelliği. Örneğin, içeriği ikili biçimde bir HTTP isteğinin okunacak türünü kullanın. `binary`:
+
+```json
+{
+    "type": "httpTrigger",
+    "name": "req",
+    "direction": "in",
+    "dataType": "binary"
+}
+```
+
+Seçenekler `dataType` şunlardır: `binary`, `stream`, ve `string`.
+
+## <a name="context-object"></a>bağlam nesnesi
+Çalışma zamanı kullanan bir `context` nesne için ve işlevinizden veri iletmek için ve çalışma zamanı ile iletişim kurmasına izin vermek için. Bağlam nesnesini okumak ve verileri bağlamaları ayarlanırken, günlükleri yazmak ve kullanarak kullanılabilir `context.done` , dışarı aktarılan işlevin zaman uyumlu olduğunda geri çağırma.
+
+`context` Nesnesi, her zaman ilk parametre olarak bir işlev. Önemli yöntemler gibi olduğundan dahil edilecek `context.done` ve `context.log`. İnovasyonunuz ne olursa olsun istediğiniz nesnenin adı verebilirsiniz (örneğin, `ctx` veya `c`).
 
 ```javascript
 // You must include a context, but other arguments are optional
@@ -173,9 +230,9 @@ context.done([err],[propertyBag])
 
 Kodunuzu bitirdi çalışma zamanı bildirir. İşlevinizi JavaScript kullanıyorsa [ `async function` ](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/async_function) bildirimi (kullanılabilir işlevler sürüm 8 + düğümü kullanan 2.x), kullanın gerekmez `context.done()`. `context.done` Geri çağırma örtük olarak çağrılır.
 
-İşlevinizi bir zaman uyumsuz işlev değilse **çağırmalısınız** `context.done` çalışma zamanının işlevinizi tamamlandığını bildirmek için. Yürütme zaman aşımı eksik olması durumunda olur.
+İşlevinizi bir zaman uyumsuz işlev değilse **çağırmalısınız** `context.done` çalışma zamanının işlevinizi tamamlandığını bildirmek için. Yürütme zaman aşımına if eksik.
 
-`context.done` Yöntemi geri hem bir kullanıcı tanımlı hata çalışma zamanı ve çıktı bağlaması verilerini içeren bir JSON nesnesi geçirme olanak tanır. Geçirilen özellikleri `context.done` ayarlanan herhangi bir şey üzerine yazar `context.bindings` nesne.
+`context.done` Yöntemi geri hem bir kullanıcı tanımlı hata çalışma zamanı ve çıktı bağlaması verilerini içeren bir JSON nesnesi geçirme olanak tanır. Geçirilen özellikleri `context.done` ayarlanan herhangi bir şey üzerine `context.bindings` nesne.
 
 ```javascript
 // Even though we set myOutput to have:
@@ -183,7 +240,7 @@ Kodunuzu bitirdi çalışma zamanı bildirir. İşlevinizi JavaScript kullanıyo
 context.bindings.myOutput = { text: 'hello world', number: 123 };
 // If we pass an object to the done function...
 context.done(null, { myOutput: { text: 'hello there, world', noNumber: true }});
-// the done method will overwrite the myOutput binding to be: 
+// the done method overwrites the myOutput binding to be: 
 //  -> text: 'hello there, world', noNumber: true
 ```
 
@@ -211,24 +268,9 @@ Yapabilecekleriniz [günlüğe kaydetme için izleme düzeyi eşiği yapılandı
 
 Okuma [Azure işlevleri izleme](functions-monitoring.md) görüntüleme ve işlev günlükleri sorgulama hakkında daha fazla bilgi edinmek için.
 
-## <a name="binding-data-type"></a>Bağlama veri türü
-
-Bir giriş bağlaması için veri türünü tanımlamak için `dataType` bağlama tanımındaki özelliği. Örneğin, içeriği ikili biçimde bir HTTP isteğinin okunacak türünü kullanın. `binary`:
-
-```json
-{
-    "type": "httpTrigger",
-    "name": "req",
-    "direction": "in",
-    "dataType": "binary"
-}
-```
-
-Seçenekler `dataType` şunlardır: `binary`, `stream`, ve `string`.
-
 ## <a name="writing-trace-output-to-the-console"></a>İzleme çıktısı konsola yazma 
 
-İşlevleri'nde, kullandığınız `context.log` konsola izleme çıkışını yazmak için yöntemleri. İşlevler'ın v2.x içinde aracılığıyla ouputs izleme `console.log` işlevi uygulama düzeyinde yakalanır. Gelen veren anlamına gelir `console.log` bir belirli bir işlev çağrısı için bağlı değil ve bu nedenle belirli bir işlevin günlüklerini görüntülenmez. Ancak, Application Insights'a yay uygulanır. İşlevleri v1.x içinde kullanamazsınız `console.log` konsola yazma için. 
+İşlevleri'nde, kullandığınız `context.log` konsola izleme çıkışını yazmak için yöntemleri. İşlevler'ın v2.x içinde aracılığıyla ouputs izleme `console.log` işlevi uygulama düzeyinde yakalanır. Gelen veren anlamına gelir `console.log` bir belirli bir işlev çağrısı için bağlı değil ve bu nedenle belirli bir işlevin günlüklerini görüntülenmez. Ancak, Application Insights'a yayılması. İşlevleri v1.x içinde kullanamazsınız `console.log` konsola yazma için. 
 
 Çağırdığınızda `context.log()`, iletinizin olduğundan varsayılan izleme düzeyini konsolda yazılan _bilgisi_ izleme düzeyi. Aşağıdaki kod, bilgi izleme düzeyini konsola yazar:
 
@@ -312,7 +354,7 @@ HTTP ve Web kancası Tetikleyicileri ve bağlamaları, HTTP iletileri temsil etm
 
 HTTP tetikleyicileri ile çalışırken, çeşitli yollarla HTTP istek ve yanıt nesneleri erişebilirsiniz:
 
-+ Gelen `req` ve `res` özellikleri `context` nesne. Bu şekilde, geleneksel düzeni HTTP verilere tam kullanmak zorunda olmak yerine bağlamı nesnesinden kullanabileceğiniz `context.bindings.name` deseni. Aşağıdaki örnek nasıl erişeceğinizi gösterir `req` ve `res` üzerindeki nesneleri `context`:
++ **Gelen `req` ve `res` özellikleri `context` nesne.** Bu şekilde, geleneksel düzeni HTTP verilere tam kullanmak zorunda olmak yerine bağlamı nesnesinden kullanabileceğiniz `context.bindings.name` deseni. Aşağıdaki örnek nasıl erişeceğinizi gösterir `req` ve `res` üzerindeki nesneleri `context`:
 
     ```javascript
     // You can access your http request off the context ...
@@ -321,7 +363,7 @@ HTTP tetikleyicileri ile çalışırken, çeşitli yollarla HTTP istek ve yanıt
     context.res = { status: 202, body: 'You successfully ordered more coffee!' }; 
     ```
 
-+ Adlandırılmış giriş ve çıkış bağlamaları. Bu şekilde, HTTP tetikleyicisini ve bağlamalarını aynı diğer herhangi bir bağlama olarak çalışır. Aşağıdaki örnek, bir adlandırılmış kullanarak yanıt nesnesini ayarlar `response` bağlama: 
++ **Adlandırılmış giriş ve çıkış bağlamaları.** Bu şekilde, HTTP tetikleyicisini ve bağlamalarını aynı diğer herhangi bir bağlama olarak çalışır. Aşağıdaki örnek, bir adlandırılmış kullanarak yanıt nesnesini ayarlar `response` bağlama: 
 
     ```json
     {
@@ -333,9 +375,9 @@ HTTP tetikleyicileri ile çalışırken, çeşitli yollarla HTTP istek ve yanıt
     ```javascript
     context.bindings.response = { status: 201, body: "Insert succeeded." };
     ```
-+ _[Yalnızca yanıtı]_  Çağırarak `context.res.send(body?: any)`. Bir HTTP yanıtı girişi ile oluşturulan `body` yanıt gövdesi olarak. `context.done()` örtük olarak çağrılır.
++ **_[Yalnızca yanıtı]_  Çağırarak `context.res.send(body?: any)`.** Bir HTTP yanıtı girişi ile oluşturulan `body` yanıt gövdesi olarak. `context.done()` örtük olarak çağrılır.
 
-+ _[Yalnızca yanıtı]_  Çağırarak `context.done()`. Özel bir HTTP bağlaması için geçirilen yanıtı döndürür `context.done()` yöntemi. Aşağıdaki HTTP çıktı bağlamasını tanımlar bir `$return` çıkış parametresi:
++ **_[Yalnızca yanıtı]_  Çağırarak `context.done()`.** Özel bir HTTP bağlaması için geçirilen yanıtı döndürür `context.done()` yöntemi. Aşağıdaki HTTP çıktı bağlamasını tanımlar bir `$return` çıkış parametresi:
 
     ```json
     {
@@ -500,7 +542,7 @@ App Service planını kullanan bir işlev uygulaması oluşturduğunuzda, bir pl
 Doğrudan desteği henüz otomatik derleme TypeScript veya CoffeeScript için çalışma zamanı var olmadığından, dağıtım sırasında çalışma zamanı dışında işlenecek tür desteğini gerekir. 
 
 ### <a name="cold-start"></a>Hazırlıksız başlatma
-Geliştirme Azure işlevleri'nde sunucusuz barındırma modeli, soğuk başladığında gerçeğe var. "Hazırlıksız başlatma" başvuruyor olgusu işlev uygulamanızı belirli bir süre sonra ilk kez başlatıldığında başlatılması uzun sürer. Büyük bağımlılık ağaçları ile JavaScript işlevleri için özel olarak, bu ana yavaşlama neden olabilir. İşlemi, mümkün olduğunda, hasten için [bir paket dosyası işlevlerinizin çalıştığı](run-functions-from-deployment-package.md). Birçok dağıtım yöntemi, varsayılan olarak bu modele tercih et ancak büyük kaldırmanıza yaşayan yapıyorsanız ve bir paket dosyasından çalışmıyor, bu çok büyük bir geliştirme olabilir.
+Geliştirme Azure işlevleri'nde sunucusuz barındırma modeli, soğuk başladığında gerçeğe var. "Hazırlıksız başlatma" başvuruyor olgusu işlev uygulamanızı belirli bir süre sonra ilk kez başlatıldığında başlatılması uzun sürdüğünü. Büyük bağımlılık ağaçları ile JavaScript işlevleri için özel olarak, bu ana yavaşlama neden olabilir. İşlemi, mümkün olduğunda, hasten için [bir paket dosyası işlevlerinizin çalıştığı](run-functions-from-deployment-package.md). Birçok dağıtım yöntemi, varsayılan olarak bu modele tercih et ancak büyük kaldırmanıza yaşayan yapıyorsanız ve bir paket dosyasından çalışmıyor, bu çok büyük bir geliştirme olabilir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Daha fazla bilgi için aşağıdaki kaynaklara bakın:

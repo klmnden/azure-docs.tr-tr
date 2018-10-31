@@ -1,8 +1,8 @@
 ---
-title: H264 Çoklu bit hızı 4K ses 5.1 | Microsoft Docs
-description: Konuyu genel bir fikir veren **H264 Çoklu bit hızı 4K ses 5.1** görev Önayar.
+title: H264 Tekli bit hızı 4K ses 5.1 | Microsoft Docs
+description: Konusuna genel bir fikir veren **H264 tekli bit hızı 4K ses 5.1** görev hazır.
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 services: media-services
 documentationcenter: ''
@@ -12,24 +12,24 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/20/2017
+ms.date: 10/30/2018
 ms.author: juliako
-ms.openlocfilehash: 05c085e82adbf362a0745f7b819854086f9507f9
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: b2dab421d52f822378309b99166ce4441999a727
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33788259"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50250130"
 ---
-# <a name="h264-single-bitrate-4k-audio-51"></a>H264 Çoklu bit hızı 4K ses 5.1
-`Media Encoder Standard` kodlama işler oluştururken kullanabileceğiniz hazır kodlama kümesi tanımlar. Kullanabilir bir `preset name` hangi biçimine medya dosyanızın kodlamak istediğiniz belirtmek için. Veya, kendi JSON veya XML tabanlı hazır (UTF-8 veya UTF-16 kodlamasını kullanıyor. oluşturabilirsiniz Ardından kodlayıcıya önceden özel geçirirsiniz. Bu tarafından desteklenen tüm hazır adlarının listesi için `Media Encoder Standard` encoder bkz [Medya Kodlayıcısı standart için görev hazır](media-services-mes-presets-overview.md).  
+# <a name="h264-single-bitrate-4k-audio-51"></a>H264 Tekli bit hızı 4K ses 5.1
+`Media Encoder Standard` kodlama işi oluştururken kullanabileceğiniz hazır kodlama kümesi tanımlar. Kullanabilir bir `preset name` hangi biçimine medya dosyanızı kodlamak istediğiniz belirtmek için. Veya kendi JSON veya XML tabanlı hazır (UTF-8 veya UTF-16 kodlamasını kullanıyor. oluşturabilirsiniz Ardından kodlayıcıya hazır özel geçirmeniz gerekir. Bu tarafından desteklenen tüm hazır adlarının listesi için `Media Encoder Standard` Kodlayıcı bkz [Media Encoder Standard için görev ön ayarları](media-services-mes-presets-overview.md).  
   
- Bu konuda gösterilmektedir `H264 Single Bitrate 4K Audio 5.1` (XML ve JSON biçiminde) hazır.  
+ Bu konu başlığı altında gösterilir `H264 Single Bitrate 4K Audio 5.1` (XML ve JSON biçiminde) hazır.  
   
- Bu önceden ayarlanmış bir bit hızı 18000 kbps ve AAC 5.1 ses ile tek bir MP4 dosyası oluşturur. Profili hakkında ayrıntılı bilgi için örnekleme hızını bu vb. bit hızı, önceden, XML veya JSON aşağıda tanımlanan inceleyin. Hangi her öğe anlamına gelir ve geçerli değerlerin her öğe için açıklamalar için bkz [Medya Kodlayıcısı standart şema](media-services-mes-schema.md).  
+ Bu önceden ayarlanmış bir bit hızı 18000 KB/sn ve AAC 5.1 ses ile tek bir MP4 dosyası üretir. Profili hakkında ayrıntılı bilgi için örnekleme hızını, vb. Bu bit hızı, hazır, XML veya JSON aşağıda tanımlanan inceleyin. Her öğeye anlamına gelir ve geçerli değerlerini her öğe için açıklamalar için bkz [Media Encoder Standard şeması](media-services-mes-schema.md).  
   
 > [!NOTE]
->  Premium ayrılmış birim alması gereken 4K türüyle kodlar. Daha fazla bilgi için bkz: [ölçek kodlama nasıl](https://azure.microsoft.com/documentation/articles/media-services-portal-encoding-units).  
+>  Premium ayrılmış birim almalısınız 4K türüyle kodlar. Daha fazla bilgi için [ölçek kodlama nasıl](https://azure.microsoft.com/documentation/articles/media-services-portal-encoding-units).  
   
  XML  
   

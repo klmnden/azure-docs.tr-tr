@@ -4,7 +4,7 @@ description: Bu konu, genel bir bakış ve karşılaştırma Azure üzerinde ist
 services: media-services
 documentationcenter: ''
 author: juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: e6bfc068-fa46-4d68-b1ce-9092c8f3a3c9
 ms.service: media-services
@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/10/2017
+ms.date: 10/30/2018
 ms.author: juliako
-ms.openlocfilehash: f44f5cffd105d958c7d6552a170150623a0701ea
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 6695e17ec3dd9bf9ebeeb44b34e9688d3e5a1625
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/04/2018
-ms.locfileid: "34638468"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50249756"
 ---
 # <a name="overview-and-comparison-of-azure-on-demand-media-encoders"></a>Genel bakış ve Azure üzerinde isteğe bağlı medya kodlayıcılarına karşılaştırma
 ## <a name="encoding-overview"></a>Encoding'e genel bakış
@@ -50,7 +50,7 @@ Bu makalede, kısa bir genel bakış isteğe bağlı medya kodlayıcılarına sa
 ### <a name="formats"></a>Biçimleri
 [Biçimleri ve codec bileşenleri](media-services-media-encoder-standard-formats.md)
 
-### <a name="presets"></a>Hazır
+### <a name="presets"></a>Önayarlar
 Media Encoder Standard yapılandırılmış açıklanan Kodlayıcı hazır birini kullanarak [burada](http://go.microsoft.com/fwlink/?linkid=618336&clcid=0x409).
 
 ### <a name="input-and-output-metadata"></a>Giriş ve çıkış meta verileri

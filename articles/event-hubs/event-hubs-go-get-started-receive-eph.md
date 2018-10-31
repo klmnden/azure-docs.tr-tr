@@ -9,12 +9,12 @@ ms.workload: core
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: shvija
-ms.openlocfilehash: eaea6adbaef7baf9bb1e617ba0a709cf14edf781
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: 0a8cb349be0ffefecb07bc705391684dc57f1b96
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40005587"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50239500"
 ---
 # <a name="receive-events-from-event-hubs-using-go"></a>Git kullanarak Event Hubs'dan olayları alma
 
@@ -80,7 +80,7 @@ import (
 
 ## <a name="create-service-principal"></a>Hizmet sorumlusu oluşturma
 
-Yönergeleri izleyerek yeni bir hizmet sorumlusu oluşturma [Azure, Azure CLI 2.0 ile hizmet sorumlusu oluşturma](/cli/azure/create-an-azure-service-principal-azure-cli). Sağlanan kimlik bilgilerini aşağıdaki adlara sahip ortamınızdaki kaydedin. Go için Azure SDK'sı hem de Event Hubs paketini aramak için bu değişken adları için önceden yapılandırılmıştır.
+Yönergeleri izleyerek yeni bir hizmet sorumlusu oluşturma [Azure, Azure CLI 2.0 ile hizmet sorumlusu oluşturma](/cli/azure/create-an-azure-service-principal-azure-cli). Sağlanan kimlik bilgilerini aşağıdaki adlara sahip ortamınızdaki Kaydet: hem Azure SDK'sı için Git ve Event Hubs paketini aramak için bu değişken adları için önceden yapılandırılmış.
 
 ```bash
 export AZURE_CLIENT_ID=
@@ -197,13 +197,7 @@ if err != nil {
 Bu öğretici, **EventProcessorHost**’un tek bir örneğini kullanır. Aktarım hızını ve güvenilirliğini artırmak için birden çok örneğini çalıştırmalısınız **EventProcessorHost** farklı sistemlerde. Bu yalnızca bir alıcı sistemi sağlar Leaser ilişkili olduğu ve belirli bir zamanda, belirtilen bir bölüm iletileri alır.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-
-Event Hubs hakkında daha fazla bilgi için şu sayfaları ziyaret edin:
-
-* [Git ile olayları gönderme](event-hubs-go-get-started-send.md)
-* [Event Hubs’a genel bakış](event-hubs-about.md)
-* [Olay Hub’ı oluşturma](event-hubs-create.md)
-* [Event Hubs ile ilgili SSS](event-hubs-faq.md)
+Bu hızlı başlangıçta, bir olay hub'ından iletiler alan bir Go uygulaması oluşturdunuz. Go kullanarak olay hub'ına olay gönderme hakkında bilgi edinmek için bkz: [olayları event hub'dan - Git gönderme](event-hubs-go-get-started-send.md).
 
 <!-- Links -->
 [Event Hubs overview]: event-hubs-about.md

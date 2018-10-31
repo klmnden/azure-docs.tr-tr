@@ -14,18 +14,18 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 6/10/2018
 ms.author: subramar
-ms.openlocfilehash: 9bd370e8070816d62b22c1e3d5ad4b6cdd2da30a
-ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
+ms.openlocfilehash: 0ce1ca09327fa0bd7fbbb82b8dc3c3bdc70d5028
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39144960"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50239381"
 ---
 # <a name="service-fabric-azure-files-volume-driver-preview"></a>Service Fabric Azure dosyaları, birim sürücüsü (Önizleme)
 Azure dosyaları toplu eklentidir bir [Docker birim eklentisi](https://docs.docker.com/engine/extend/plugins_volume/) sağlayan [Azure dosyaları](https://docs.microsoft.com/azure/storage/files/storage-files-introduction) birimleri Docker kapsayıcıları için temel. Bu Docker birim eklentisi, Service Fabric kümelerine dağıtılabilir bir Service Fabric uygulaması olarak paketlenir. Onun amacı, kümeye dağıtılan diğer Service Fabric kapsayıcı uygulamaları için birim tabanlı Azure dosyaları sağlamaktır.
 
 > [!NOTE]
-> Azure dosyaları toplu eklentisi 6.255.389.9494 sürümünü bu belgeyle kullanılabilir olan bir önizleme sürümüdür. Bir önizleme sürümü olduğu **değil** üretim ortamında kullanım için desteklenir.
+> Azure dosyaları toplu eklentisi 6.4.571.9494 sürümünü bu belgeyle kullanılabilir olan bir önizleme sürümüdür. Bir önizleme sürümü olduğu **değil** üretim ortamında kullanım için desteklenir.
 >
 
 ## <a name="prerequisites"></a>Önkoşullar
@@ -66,7 +66,7 @@ ARM şablonu (Azure dağıtımları için) ya da (için tek başına dağıtıml
 
 ## <a name="deploy-the-service-fabric-azure-files-application"></a>Service Fabric Azure dosyaları uygulamayı dağıtma
 
-Birimleri sağlar, kapsayıcılar için Service Fabric uygulaması aşağıdaki indirilebilir [bağlantı](https://aka.ms/sfvolume). Uygulamayı kümeye dağıtılan [PowerShell](https://docs.microsoft.com/azure/service-fabric/service-fabric-deploy-remove-applications), [CLI](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-lifecycle-sfctl) veya [FabricClient API'leri](https://docs.microsoft.com/azure/service-fabric/service-fabric-deploy-remove-applications-fabricclient).
+Birimleri sağlar, kapsayıcılar için Service Fabric uygulaması aşağıdaki indirilebilir [bağlantı](https://aka.ms/sfvolume6.4). Uygulamayı kümeye dağıtılan [PowerShell](https://docs.microsoft.com/azure/service-fabric/service-fabric-deploy-remove-applications), [CLI](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-lifecycle-sfctl) veya [FabricClient API'leri](https://docs.microsoft.com/azure/service-fabric/service-fabric-deploy-remove-applications-fabricclient).
 
 1. Komut satırını kullanarak dizini indirilen uygulama paketi kök dizinine değiştirin.
 
@@ -102,11 +102,11 @@ Birimleri sağlar, kapsayıcılar için Service Fabric uygulaması aşağıdaki 
 4. Aşağıdaki uygulama oluşturmak, Not komutta uygulama oluşturma **ListenPort** uygulama parametresi. Bu değer, bu uygulama parametresi için belirtilen Azure dosyaları toplu eklentisi için Docker Daemon programını gelen istekleri dinlediği bağlantı noktasıdır. Uygulamaya verilen bağlantı noktasını kümenin veya uygulamalarınızı kullanın diğer bağlantı noktasıyla çakışmadığından emin olmak önemlidir.
 
     ```powershell
-    New-ServiceFabricApplication -ApplicationName fabric:/AzureFilesVolumePluginApp -ApplicationTypeName AzureFilesVolumePluginType -ApplicationTypeVersion 6.255.389.9494 -ApplicationParameter @{ListenPort='19100'}
+    New-ServiceFabricApplication -ApplicationName fabric:/AzureFilesVolumePluginApp -ApplicationTypeName AzureFilesVolumePluginType -ApplicationTypeVersion 6.4.571.9494 -ApplicationParameter @{ListenPort='19100'}
     ```
 
     ```bash
-    sfctl application create --app-name fabric:/AzureFilesVolumePluginApp --app-type AzureFilesVolumePluginType --app-version 6.255.389.9494 --parameter '{"ListenPort":"19100"}'
+    sfctl application create --app-name fabric:/AzureFilesVolumePluginApp --app-type AzureFilesVolumePluginType --app-version 6.4.571.9494 --parameter '{"ListenPort":"19100"}'
     ```
 
 > [!NOTE]
@@ -118,11 +118,11 @@ Birimleri sağlar, kapsayıcılar için Service Fabric uygulaması aşağıdaki 
 Azure dosyaları toplu eklentisi uygulama için varsayılan hizmet örnek sayısı, kümedeki her düğümde dağıtılan hizmetinin bir örneği olduğu anlamına gelir -1 ' dir. Ancak, bir yerel geliştirme kümesinde Azure dosyaları toplu eklentisi Uygulama dağıtırken, hizmeti örnek sayısını 1 belirtilmelidir. Bu, aracılığıyla yapılabilir **Instancecount** uygulama parametresi. Bu nedenle, bir yerel geliştirme kümesinde Azure dosyaları toplu eklentisi uygulama dağıtmak için komut şöyledir:
 
 ```powershell
-New-ServiceFabricApplication -ApplicationName fabric:/AzureFilesVolumePluginApp -ApplicationTypeName AzureFilesVolumePluginType -ApplicationTypeVersion 6.255.389.9494 -ApplicationParameter @{ListenPort='19100';InstanceCount='1'}
+New-ServiceFabricApplication -ApplicationName fabric:/AzureFilesVolumePluginApp -ApplicationTypeName AzureFilesVolumePluginType -ApplicationTypeVersion 6.4.571.9494 -ApplicationParameter @{ListenPort='19100';InstanceCount='1'}
 ```
 
 ```bash
-sfctl application create --app-name fabric:/AzureFilesVolumePluginApp --app-type AzureFilesVolumePluginType --app-version 6.255.389.9494 --parameter '{"ListenPort": "19100","InstanceCount": "1"}'
+sfctl application create --app-name fabric:/AzureFilesVolumePluginApp --app-type AzureFilesVolumePluginType --app-version 6.4.571.9494 --parameter '{"ListenPort": "19100","InstanceCount": "1"}'
 ```
 ## <a name="configure-your-applications-to-use-the-volume"></a>Uygulamalarınızı birimi kullanmak için yapılandırma
 Aşağıdaki kod parçacığında, bir Azure dosyaları temel birim, uygulamanızın uygulama bildiriminde nasıl belirtilebilir gösterir. İlgilendiğiniz belirli bir öğedir **birim** etiketi:
@@ -130,31 +130,32 @@ Aşağıdaki kod parçacığında, bir Azure dosyaları temel birim, uygulamanı
 ```xml
 ?xml version="1.0" encoding="UTF-8"?>
 <ApplicationManifest ApplicationTypeName="WinNodeJsApp" ApplicationTypeVersion="1.0" xmlns="http://schemas.microsoft.com/2011/01/fabric" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-    <Description>Calculator Application</Description>
-    <Parameters>
-      <Parameter Name="ServiceInstanceCount" DefaultValue="3"></Parameter>
-      <Parameter Name="MyCpuShares" DefaultValue="3"></Parameter>
-      <Parameter Name="MyStorageVar" DefaultValue="c:\tmp"></Parameter>
-    </Parameters>
-    <ServiceManifestImport>
-        <ServiceManifestRef ServiceManifestName="NodeServicePackage" ServiceManifestVersion="1.0"/>
-     <Policies>
+    <Description>Calculator Application</Description>
+    <Parameters>
+      <Parameter Name="ServiceInstanceCount" DefaultValue="3"></Parameter>
+      <Parameter Name="MyCpuShares" DefaultValue="3"></Parameter>
+      <Parameter Name="MyStorageVar" DefaultValue="c:\tmp"></Parameter>
+    </Parameters>
+    <ServiceManifestImport>
+        <ServiceManifestRef ServiceManifestName="NodeServicePackage" ServiceManifestVersion="1.0"/>
+     <Policies>
        <ContainerHostPolicies CodePackageRef="NodeService.Code" Isolation="hyperv">
-            <PortBinding ContainerPort="8905" EndpointRef="Endpoint1"/>
-            <RepositoryCredentials PasswordEncrypted="false" Password="****" AccountName="test"/>
+            <PortBinding ContainerPort="8905" EndpointRef="Endpoint1"/>
+            <RepositoryCredentials PasswordEncrypted="false" Password="****" AccountName="test"/>
             <Volume Source="azfiles" Destination="c:\VolumeTest\Data" Driver="sfazurefile">
                 <DriverOption Name="shareName" Value="" />
                 <DriverOption Name="storageAccountName" Value="" />
                 <DriverOption Name="storageAccountKey" Value="" />
+                <DriverOption Name="storageAccountFQDN" Value="" />
             </Volume>
-       </ContainerHostPolicies>
-   </Policies>
-    </ServiceManifestImport>
-    <ServiceTemplates>
-        <StatelessService ServiceTypeName="StatelessNodeService" InstanceCount="5">
-            <SingletonPartition></SingletonPartition>
-        </StatelessService>
-    </ServiceTemplates>
+       </ContainerHostPolicies>
+   </Policies>
+    </ServiceManifestImport>
+    <ServiceTemplates>
+        <StatelessService ServiceTypeName="StatelessNodeService" InstanceCount="5">
+            <SingletonPartition></SingletonPartition>
+        </StatelessService>
+    </ServiceTemplates>
 </ApplicationManifest>
 ```
 
@@ -166,12 +167,23 @@ Azure dosyaları toplu eklentisi için sürücü adı **sfazurefile**. Bu değer
 
 Gösterildiği **DriverOption** öğeleri parçacığında yukarıdaki, Azure dosyaları toplu eklentisi aşağıdaki sürücü seçenekleri destekler:
 
+Desteklenen sürücü seçenekleri:
 - **shareName** -birim için kapsayıcı sağlar. Azure dosyaları dosya paylaşımının adı
 - **storageAccountName** - Name Azure dosyaları dosyasını içeren Azure depolama hesabını paylaşmak
 - **storageAccountKey** -Azure dosyaları dosya paylaşımını içeren Azure depolama hesabı için erişim anahtarı
-
-Gerekli olan tüm yukarıdaki sürücü seçenekleri.
-
+- **storageAccountFQDN** -depolama hesabı ile ilişkili etki alanı adı. StorageAccountFQDN belirtilmezse, etki alanı adı ile storageAccountName varsayılan suffix(.file.core.windows.net) kullanarak oluşturulmuş. 
+    ```xml
+    - Example1: 
+        <DriverOption Name="shareName" Value="myshare1" />
+        <DriverOption Name="storageAccountName" Value="myaccount1" />
+        <DriverOption Name="storageAccountKey" Value="mykey1" />
+        <!-- storageAccountFQDN will be "myaccount1.file.core.windows.net" -->
+    - Example2: 
+        <DriverOption Name="shareName" Value="myshare2" />
+        <DriverOption Name="storageAccountName" Value="myaccount2" />
+        <DriverOption Name="storageAccountKey" Value="mykey2" />
+        <DriverOption Name="storageAccountFQDN" Value="myaccount2.file.core.chinacloudapi.cn" />
+    ```
 ## <a name="using-your-own-volume-or-logging-driver"></a>Kendi birim kullanarak veya sürücü günlüğe kaydetme
 Service Fabric Ayrıca kendi özel kullanımı sağlayan [birim](https://docs.docker.com/engine/extend/plugins_volume/) veya [günlüğü](https://docs.docker.com/engine/admin/logging/overview/) sürücüleri. Küme üzerinde Docker birim/günlük sürücü yüklü değilse, bunu el ile RDP/SSH'yi protokolleri kullanarak yükleyebilirsiniz. Yükleme ile bu protokolleri aracılığıyla gerçekleştirebileceğiniz bir [sanal makine ölçek kümesinin başlangıç betiği](https://azure.microsoft.com/resources/templates/201-vmss-custom-script-windows/) veya bir [SetupEntryPoint betik](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-model#describe-a-service).
 

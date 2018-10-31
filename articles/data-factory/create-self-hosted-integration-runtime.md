@@ -10,14 +10,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/15/2018
+ms.date: 10/31/2018
 ms.author: abnarain
-ms.openlocfilehash: 251d1a187c2a6742c361349274fd1e0bb1e41525
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: 2dc81a96f1e83c3a6b1ddee92f57b2f0bae4196d
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48817166"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50248940"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>Oluşturma ve şirket içinde barındırılan tümleştirme çalışma zamanını yapılandırma
 Integration runtime (IR) farklı ağ ortamları veri tümleştirme özellikleri sağlamak üzere Azure Data Factory kullanan işlem altyapısıdır. IR hakkında daha fazla ayrıntı için bkz: [tümleştirme çalışma zamanına genel bakış](concepts-integration-runtime.md).
@@ -146,6 +146,8 @@ Kullanılabilir bellek ve CPU iyi kullanılmaz, ancak / eşzamanlı iş yürütm
 ## <a name="sharing-the-self-hosted-integration-runtime-with-multiple-data-factories"></a>Şirket içinde barındırılan tümleştirme çalışma zamanının birden çok veri fabrikaları ile paylaşma
 
 Bir veri fabrikasında zaten ayarladığınız var olan şirket içinde barındırılan tümleştirme çalışma zamanı altyapısını yeniden kullanabilirsiniz. Bu sayede oluşturmak bir *bağlı şirket içinde barındırılan tümleştirme çalışma zamanı* IR (paylaşılan) var olan bir başvuru tarafından Fabrika farklı bir verileri şirket içinde barındırılan.
+
+PowerShell kullanarak bir şirket içinde barındırılan tümleştirme çalışma zamanı paylaşmak için bkz: [PowerShell ile Azure Data factory'de bir paylaşılan şirket içinde barındırılan tümleştirme çalışma zamanı oluşturma](create-shared-self-hosted-integration-runtime-powershell.md).
 
 ### <a name="terminology"></a>Terminoloji
 

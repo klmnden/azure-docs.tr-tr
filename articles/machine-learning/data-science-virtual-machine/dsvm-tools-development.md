@@ -1,7 +1,7 @@
 ---
-title: Veri bilimi sanal makine geliştirme araçları - Azure | Microsoft Docs
-description: Veri bilimi sanal makine geliştirme araçları.
-keywords: Veri bilimi araçları, veri bilimi sanal makine, veri bilimi, linux veri bilimi için Araçlar
+title: Veri bilimi sanal makinesi geliştirme araçları - Azure | Microsoft Docs
+description: Veri bilimi sanal makinesi geliştirme araçları.
+keywords: veri bilimi araçları, veri bilimi sanal makinesi, veri bilimi için araçlar, linux veri bilimi
 services: machine-learning
 documentationcenter: ''
 author: gopitk
@@ -15,80 +15,80 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2017
 ms.author: gokuma
-ms.openlocfilehash: b8b0b8934b51080c3583281673183c1498c26417
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 2f642a91bd656cb74cdce2a98c44372a64f23cb9
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31408318"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50237886"
 ---
-# <a name="development-tools-on-the-data-science-virtual-machine"></a>Geliştirme araçları üzerinde veri bilimi sanal makine
+# <a name="development-tools-on-the-data-science-virtual-machine"></a>Veri bilimi sanal makinesi üzerinde geliştirme araçları
 
-Veri bilimi sanal makine (DSVM) çeşitli popüler Araçlar ve IDE paketleme, geliştirme için verimli bir ortamı sağlar. Burada, DSVM üzerinde sağlanan bazı araçlar bulunmaktadır. 
+Veri bilimi sanal makinesi (DSVM), çeşitli popüler Araçlar ve IDE paketleme tarafından üretken bir geliştirme ortamı sağlar. DSVM'nin sağlanan bazı araçları şunlardır. 
 
 ## <a name="visual-studio-2017"></a>Visual Studio 2017  
 |    |           |
 | ------------- | ------------- |
 | Nedir?   | Genel amaçlı IDE      |
 | Desteklenen DSVM sürümleri      | Windows      |
-| Tipik kullanır      | Yazılım geliştirme    |
-| Nasıl, yapılandırılmış veya DSVM üzerinde yüklü?      | Veri bilimi iş yükü (Python ve R araçları), Azure iş yükü (Hadoop, Data Lake), Node.js, SQL Server Araçları [AI için Visual Studio Araçları](https://github.com/Microsoft/vs-tools-for-ai)    |
-| Kullanın / çalıştırmak için nasıl?      | Masaüstü kısayolu (`C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\devenv.exe`)    |
-| DSVM ilgili araçları      |     Visual Studio kod, Rstudio'dan, Juno  |
+| Tipik kullanımları      | Yazılım geliştirme    |
+| Nasıl, yapılandırılmış / DSVM üzerinde yüklü?      | Veri bilimi iş yükü (Python ve R araçları), Azure iş yükü (Hadoop, Data Lake), Node.js, SQL Server araçlarını, [yapay ZEKA için Visual Studio Araçları](https://github.com/Microsoft/vs-tools-for-ai)    |
+| Kullanma / çalıştırın nasıl?      | Masaüstü kısayolu (`C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\devenv.exe`)    |
+| DSVM ilgili araçları      |     Visual Studio kodu, RStudio, Juno  |
 
 ## <a name="visual-studio-code"></a>Visual Studio Code 
 |    |           |
 | ------------- | ------------- |
 | Nedir?   | Genel amaçlı IDE      |
 | Desteklenen DSVM sürümleri      | Windows, Linux     |
-| Tipik kullanır      | Kod Düzenleyicisi ve Git tümleştirmesi   |
-| Kullanın / çalıştırmak için nasıl?      | Masaüstü kısayolu (`C:\Program Files (x86)\Microsoft VS Code\Code.exe`) Windows, Masaüstü kısayoluna veya terminal (`code`) Linux içindeki    |
-| DSVM ilgili araçları      |     Visual Studio 2017, Rstudio'dan, Juno  |
+| Tipik kullanımları      | Kod Düzenleyicisi ve Git tümleştirmesi   |
+| Kullanma / çalıştırın nasıl?      | Masaüstü kısayolu (`C:\Program Files (x86)\Microsoft VS Code\Code.exe`) Windows, masaüstü kısayolu veya terminal (`code`) Linux'ta    |
+| DSVM ilgili araçları      |     RStudio, Visual Studio 2017 Juno  |
 
-## <a name="rstudio--desktop"></a>Rstudio'dan Masaüstü 
+## <a name="rstudio--desktop"></a>RStudio Desktop 
 |    |           |
 | ------------- | ------------- |
-| Nedir?   | İstemci IDE r    |
+| Nedir?   | İstemci için R IDE    |
 | Desteklenen DSVM sürümleri      | Windows, Linux      |
-| Tipik kullanır      |  R geliştirme     |
-| Kullanın / çalıştırmak için nasıl?      | Masaüstü kısayolu (`C:\Program Files\RStudio\bin\rstudio.exe`) Windows, masaüstü kısayolu (`/usr/bin/rstudio`) Linux      |
+| Tipik kullanımları      |  R geliştirme     |
+| Kullanma / çalıştırın nasıl?      | Masaüstü kısayolu (`C:\Program Files\RStudio\bin\rstudio.exe`) Windows, masaüstü kısayolu üzerinde (`/usr/bin/rstudio`) Linux'ta      |
 | DSVM ilgili araçları      |   Visual Studio 2017, Visual Studio kodu, Juno      |
 
 ## <a name="rstudio--server"></a>RStudio  Server 
 |    |           |
 | ------------- | ------------- |
-| Nedir?   | Web tabanlı IDE r    |
+| Nedir?   | R için Web tabanlı IDE    |
 | Desteklenen DSVM sürümleri      | Linux      |
-| Tipik kullanır      |  R geliştirme     |
-| Kullanın / çalıştırmak için nasıl?      | Hizmet ile etkinleştirmek _systemctl rstudio'dan sunuculu etkinleştirmek_, hizmetle başlar _systemctl Başlat rstudio'dan sunuculu_. Ardından Rstudio'dan sunucuda oturum http://your-vm-ip:8787.       |
-| DSVM ilgili araçları      |   Visual Studio 2017, Visual Studio kodu, Rstudio'dan Masaüstü      |
+| Tipik kullanımları      |  R geliştirme     |
+| Kullanma / çalıştırın nasıl?      | Etkinleştirme hizmete _systemctl etkinleştirme rstudio server_, hizmeti ile başlatın _systemctl Başlat rstudio server_. Ardından RStudio Server oturum açabildiğinizden http://your-vm-ip:8787.       |
+| DSVM ilgili araçları      |   Visual Studio 2017, Visual Studio kodu, RStudio Desktop      |
 
 ## <a name="juno"></a>Juno 
 |    |           |
 | ------------- | ------------- |
-| Nedir?   | İstemci IDE Jale dil için   |
+| Nedir?   | Julia diline için IDE istemcisi   |
 | Desteklenen DSVM sürümleri      | Windows, Linux      |
-| Tipik kullanır      |  Jale geliştirme     |
-| Kullanın / çalıştırmak için nasıl?      | Masaüstü kısayolu (`C:\JuliaPro-0.5.1.1\Juno.bat`) Windows, masaüstü kısayolu (`/opt/JuliaPro-VERSION/Juno`) Linux      |
-| DSVM ilgili araçları      |   Visual Studio 2017, Visual Studio kodunu Rstudio'dan      |
+| Tipik kullanımları      |  Julia geliştirme     |
+| Kullanma / çalıştırın nasıl?      | Masaüstü kısayolu (`C:\JuliaPro-0.5.1.1\Juno.bat`) Windows, masaüstü kısayolu üzerinde (`/opt/JuliaPro-VERSION/Juno`) Linux'ta      |
+| DSVM ilgili araçları      |   Visual Studio 2017, Visual Studio kodu, RStudio      |
 
 ## <a name="pycharm"></a>Pycharm
 |    |           |
 | ------------- | ------------- |
-| Nedir?   | İstemci IDE Python dil için    |
+| Nedir?   | Python dil için IDE istemcisi    |
 | Desteklenen DSVM sürümleri      | Linux      |
-| Tipik kullanır      |  R geliştirme     |
-| Kullanın / çalıştırmak için nasıl?      | Masaüstü kısayolu (`/usr/bin/pycharm`) Linux      |
-| DSVM ilgili araçları      |   Visual Studio 2017, Visual Studio kodunu Rstudio'dan      |
+| Tipik kullanımları      |  Python geliştirme     |
+| Kullanma / çalıştırın nasıl?      | Masaüstü kısayolu (`/usr/bin/pycharm`) Linux'ta      |
+| DSVM ilgili araçları      |   Visual Studio 2017, Visual Studio kodu, RStudio      |
 
 
 
-## <a name="powerbi-desktop"></a>Desktop'a 
+## <a name="powerbi-desktop"></a>PowerBI Masaüstü 
 |    |           |
 | ------------- | ------------- |
-| Nedir?   | Etkileşimli veri Görselleştirme ve BI aracı    |
+| Nedir?   | Etkileşimli veri görselleştirmesi ve BI aracı    |
 | Desteklenen DSVM sürümleri      | Windows  |
-| Tipik kullanır      |  Veri Görselleştirme ve panolar oluşturma   |
-| Kullanın / çalıştırmak için nasıl?      | Masaüstü kısayolu (`C:\Program Files\Microsoft Power BI Desktop\bin\PBIDesktop.exe`)      |
+| Tipik kullanımları      |  Veri Görselleştirme ve panolar oluşturma   |
+| Kullanma / çalıştırın nasıl?      | Masaüstü kısayolu (`C:\Program Files\Microsoft Power BI Desktop\bin\PBIDesktop.exe`)      |
 | DSVM ilgili araçları      |   Visual Studio 2017, Visual Studio kodu, Juno      |
 

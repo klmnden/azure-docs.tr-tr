@@ -4,15 +4,15 @@ description: Azure geçişi, Toplayıcı gerecini hakkında bilgi sağlar.
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 10/24/2018
+ms.date: 10/30/2018
 ms.author: snehaa
 services: azure-migrate
-ms.openlocfilehash: 006a246323e9f82ea9c9a6a2940ed624d7e44e13
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 81e6731068db84f02073f02c49bea9a8fb7c7c70
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49986789"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50241200"
 ---
 # <a name="about-the-collector-appliance"></a>Toplayıcı gerecini hakkında
 
@@ -20,6 +20,38 @@ ms.locfileid: "49986789"
 
 Azure geçişi toplayıcısı bir şirket içi vCenter ortam ile değerlendirme amaçları için keşfetmek için kullanılan basit bir gereçtir [Azure geçişi](migrate-overview.md) service, azure'a geçiş işleminden önce.  
 
+## <a name="discovery-methods"></a>Bulma yöntemleri
+
+Toplayıcı Gereci, tek seferlik bulma veya sürekli bulma için iki seçenek vardır.
+
+### <a name="one-time-discovery"></a>Tek seferlik keşif
+
+Toplayıcı Gereci, bir kerelik vCenter Server Vm'leri hakkında meta veriler toplamak için ile iletişim kurar. Bu yöntemi kullanarak:
+
+- Gerecin Azure geçişi projesi için sürekli olarak bağlı değil.
+- Bulma tamamlandıktan sonra Azure geçişi şirket içi ortamda değişiklikleri yansıtılmıyor. Değişiklikleri yansıtacak şekilde, aynı projede aynı ortamı yeniden bulmak gerekir.
+- Bir VM için performans verilerini toplamak, Gereci vCenter Server'da depolanan geçmiş performans verilerini kullanır. Bu performans geçmişi için geçtiğimiz ay toplar.
+- Geçmiş performans verilerini toplama için üçüncü düzey için vcenter Server istatistik ayarları ayarlamanız gerekir. Düzey 3 ayarladıktan sonra performans sayaçları toplamak vCenter için en az bir gün beklemeniz gerekir. Bu nedenle, en az bir gün sonra bulma çalıştırırken öneririz. 1 haftanın veya 1 ayın performans verilerini temel alarak ortam değerlendirmek istiyorsanız, uygun şekilde beklemeniz gerekir.
+- Bu bulma yöntemi, Azure geçişi içinde eksik boyutlandırma sonuçlanabilir her ölçüm (yerine yoğun sayaçları) için ortalama sayaçları toplar. Sonuçları boyutlandırma daha doğru şekilde almak için sürekli keşif seçeneği kullanmanızı öneririz.
+
+### <a name="continuous-discovery"></a>Sürekli keşif
+
+Toplayıcı gerecini sürekli olarak Azure geçişi projesine bağlı olan ve sürekli olarak VM'lerin performans verilerini toplar.
+
+- Toplayıcı, gerçek zamanlı kullanım verilerine her 20 saniyede toplamak için şirket içi ortamı sürekli olarak profilleri.
+- Gereç 20 saniye örneklerini yapar ve her 15 dakikada bir tek veri noktası oluşturur.
+- Verileri oluşturmak için Gereci noktası en yüksek değeri 20 saniye örnekleri seçer ve Azure'a gönderir.
+- Bu model, performans verilerini toplamak için vCenter Server istatistik ayarları üzerinde bağımlı değildir.
+- Sürekli, dilediğiniz zaman Toplayıcı profil oluşturma durdurabilirsiniz.
+
+Gerecin performans verilerini yalnızca sürekli olarak topladığını unutmayın, şirket içi ortamdaki (ör. VM eklemesi, silmesi, disk eklemesi vb.) hiçbir yapılandırma değişikliğini algılamaz. Şirket içi ortamda bir yapılandırma değişikliği gerçekleşirse değişikliklerin portala yansıması için aşağıdakileri yapabilirsiniz:
+
+- Öğelerin eklenmesi (VM’ler, diskler, çekirdekler vb.): Bu değişiklikleri Azure portala yansıtmak için keşfi gereçten durdurup yeniden başlatabilirsiniz. Bu, değişikliklerin Azure Geçişi projesinde güncelleştirilmesini sağlar.
+
+- VM silme: Gerecin tasarlanma şekli nedeniyle keşfi durdurup başlatsanız bile VM silme yansıtılmaz. Bunun nedeni takip eden keşiflerin eski keşiflerin üzerine yazılması yerine bunlara eklenmesidir. Bu durumda grubunuzdan kaldırarak ve değerlendirmeyi yeniden hesaplayarak portaldaki VM’yi yoksayabilirsiniz.
+
+> [!NOTE]
+> Sürekli bulma işlevi Önizleme aşamasındadır. Bu yöntemin ayrıntılı performans verileri toplaması ve doğru boyutlandırmayla sonuçlanması nedeniyle bu yöntemi kullanmanızı öneririz.
 
 ## <a name="deploying-the-collector"></a>Toplayıcı dağıtımı
 
@@ -163,43 +195,6 @@ OVA yeniden indirmeden Toplayıcı en son sürüme yükseltebilirsiniz.
 3. Azure geçişi toplayıcısı sanal makineye (Toplayıcı gerecini) zip dosyasını kopyalayın.
 4. Zip dosyasını sağ tıklatın ve tümünü Ayıkla'ı seçin.
 5. Setup.ps1 üzerinde sağ tıklayın ve PowerShell ile Çalıştır'ı seçin ve güncelleştirmeyi yüklemek için ekrandaki yönergeleri izleyin.
-
-
-## <a name="discovery-methods"></a>Bulma yöntemleri
-
-Toplayıcı gerecini bulma, tek seferlik veya sürekli bulma için kullanabileceğiniz iki yöntem vardır.
-
-
-### <a name="one-time-discovery"></a>Tek seferlik keşif
-
-Toplayıcı, bir kerelik vCenter sanal makineleri ile ilgili meta verileri toplamak için sunucu ile iletişim kurar. Bu yöntemi kullanarak:
-
-- Gerecin Azure geçişi projesi için sürekli olarak bağlı değil.
-- Bulma tamamlandıktan sonra Azure geçişi şirket içi ortamda değişiklikleri yansıtılmıyor. Değişiklikleri yansıtacak şekilde, aynı projede aynı ortamı yeniden bulmak gerekir.
-- Bu keşif yöntemi için üçüncü düzey için vcenter Server istatistik ayarları ayarlamanız gerekir.
-- Düzeyi üç ayarladıktan sonra bunu bir gün için performans sayaçlarını oluşturmak için kapladığı. Bu nedenle, bir günün ardından bulma çalıştırırken öneririz.
-- Bir VM için performans verilerini toplamak, Gereci vCenter Server'da depolanan geçmiş performans verilerini kullanır. Bu performans geçmişi için geçtiğimiz ay toplar.
-- Azure geçişi içinde eksik boyutlandırma neden olabilir her bir ölçüm için ortalama sayaçları (yoğun sayacı yerine) toplar.
-
-### <a name="continuous-discovery"></a>Sürekli keşif
-
-Toplayıcı gerecini sürekli olarak Azure geçişi projesine bağlı olan ve sürekli olarak VM'lerin performans verilerini toplar.
-
-- Toplayıcı, gerçek zamanlı kullanım verilerine her 20 saniyede toplamak için şirket içi ortamı sürekli olarak profilleri.
-- Bu model, performans verilerini toplamak için vCenter Server istatistik ayarları üzerinde bağımlı değildir.
-- Gereç 20 saniye örneklerini yapar ve her 15 dakikada bir tek veri noktası oluşturur.
-- Verileri oluşturmak için Gereci noktası en yüksek değeri 20 saniye örnekleri seçer ve Azure'a gönderir.
-- Sürekli, dilediğiniz zaman Toplayıcı profil oluşturma durdurabilirsiniz.
-
-Gereç yalnızca performans verilerinin sürekli olarak toplar, şirket içi ortamda (yani VM ekleme, silme, disk ekleme vb.) herhangi bir yapılandırma değişikliği algılamaz dikkat edin. Bir yapılandırma değişikliği şirket içi ortamda ise portalındaki değişiklikleri yansıtacak şekilde aşağıdakileri yapabilirsiniz:
-
-1. Ayrıca öğeleri (VM'ler, diskler ve çekirdek vb.): Azure portalında bu değişiklikleri yansıtacak şekilde, gereç keşiften durdurun ve yeniden başlatın. Bunun, Azure geçişi projesinde değişiklikler güncelleştirildiğinden emin olmanızı sağlar.
-
-2. VM silme: bulma durdurup olsa bile gereç tasarlanmıştır yöntemi nedeniyle VM silme yansıtılmaz. Sonraki bulma verilerinden eski bulmalarına eklenir ve geçersiz olmasıdır. Bu durumda, yalnızca Portalı'nda VM grubunuzdan kaldırarak ve değerlendirmeyi yeniden hesaplama yok sayabilirsiniz.
-
-> [!NOTE]
-> Sürekli bulma işlevi Önizleme aşamasındadır. Bu yöntem, ayrıntılı performans verilerini toplar ve sonuçları içinde doğru boyutlandırmaya gibi bu yöntem kullanmanızı öneririz.
-
 
 ## <a name="discovery-process"></a>Bulma işlemi
 

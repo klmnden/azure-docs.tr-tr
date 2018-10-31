@@ -1,6 +1,6 @@
 ---
-title: Karma yapılandırmak için Azure Active Directory'ye katılmış cihazlarda nasıl | Microsoft Docs
-description: Hibrit Azure Active Directory'ye katılmış cihazlarda yapılandırmayı öğrenin.
+title: Hibrit Azure Active Directory'ye katılmış cihazları yapılandırma | Microsoft Docs
+description: Hibrit Azure Active Directory'ye katılmış cihazları elle nasıl yapılandıracağınızı öğrenin.
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -13,27 +13,27 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/31/2018
+ms.date: 10/29/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: 12d3b358be8bb90b63e5e7310123f8ae7093994c
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: 28344ac7c50b48b472ba6f907b116b3b202de454
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43190281"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50238806"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>Hibrit Azure Active Directory join uygulamanızı planlama
 
-Benzer şekilde bir kullanıcı, bir cihaz korumak ve ayrıca istediğiniz zamanda ve konumda kaynaklarınızı korumak için kullanmak istediğiniz başka bir kimlik gelmektedir. Aşağıdaki yöntemlerden birini kullanarak Azure AD'de cihazlarınızın kimlikleri taşıyarak bu hedefe gerçekleştirebilirsiniz:
+Kullanıcıya benzer şekilde bir cihaz, korumak istediğiniz ve her yerde ve zamanda kaynaklarınızı korumak için kullandığınız başka bir kimlik alır. Aşağıdaki yöntemlerden biri ile cihazlarınızın kimliklerini Azure AD'ye getirerek bu hedefi gerçekleştirebilirsiniz:
 
 - Azure AD'ye katılım
-- Hibrit Azure AD'ye katılma
+- Hibrit Azure AD'ye katılım
 - Azure AD kaydı
 
-Cihazlarınızı Azure AD'ye taşıyarak, çoklu oturum açma (SSO) aracılığıyla kullanıcılarınızın üretkenlik Bulut ve şirket içi kaynaklarınız genelinde en üst düzeye çıkarın. Aynı anda ile Bulut ve şirket kaynaklarına erişim güvenliğini sağlayabilirsiniz [koşullu erişim](../active-directory-conditional-access-azure-portal.md).
+Cihazlarınızı Azure AD'ye taşıyarak, çoklu oturum açma (SSO) özelliği sayesinde bulut ve şirket içi kaynaklarınız genelinde kullanıcılarınızın üretkenliğini en üst düzeye çıkarırsınız. Ayrıca, [koşullu erişim](../active-directory-conditional-access-azure-portal.md) ile bulut ve şirket içi kaynaklarınıza erişimin güvenliği sağlayabilirsiniz.
 
-Bir şirket içi Active Directory ortamınız varsa ve etki alanına katılan cihazları Azure AD'ye istiyorsanız, bunu hibrit Azure AD'ye katılmış cihazları yapılandırarak gerçekleştirebilirsiniz. Bu makalede, ortamınızda katılın, hibrit Azure AD'ye uygulamak için ilgili adımları sağlar. 
+Şirket içi Active Directory ortamınız varsa ve etki alanınıza katılmış cihazları Azure AD'ye katmak istiyorsanız hibrit Azure AD'ye katılmış cihazları yapılandırarak bunu gerçekleştirebilirsiniz. Bu makalede, ortamınızda katılın, hibrit Azure AD'ye uygulamak için ilgili adımları sağlar. 
 
 
 ## <a name="prerequisites"></a>Önkoşullar
@@ -95,18 +95,18 @@ Sistem hazırlığı Aracı (Sysprep) FQDN'yi kullanıyorsanız, bir hibrit Azur
 
 Ek sanal makineler oluşturmak için bir sanal makine (VM) üzerinde anlık görüntü FQDN'yi kullanıyorsanız, hibrit Azure AD'ye katılım için yapılandırılmamış bir VM anlık görüntüsü kullandığınızdan emin olun.
 
-Windows alt düzey cihazların kaydını dolaşımı veya gezici kullanıcı profili için yapılandırılan cihazlar için desteklenmiyor. Gezici profilleri veya ayarlarını FQDN'yi kullanıyorsanız, Windows 10 kullanın.
+Windows alt düzey cihazların hibrit Azure AD'ye katılma:
 
-- Windows alt düzey cihazların kaydını **olduğu** sorunsuz çoklu oturum açma aracılığıyla Federasyon olmayan ortamlarda desteklenen [Azure Active Directory sorunsuz çoklu oturum açma](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-sso-quick-start). 
- 
-- Windows alt düzey cihazların kaydını **değil** sorunsuz çoklu oturum açma olmadan Azure AD geçişli kimlik doğrulaması kullanılırken desteklenir.
+- **Olan** Federasyon olmayan ortamlarda desteklenen [Azure Active Directory sorunsuz çoklu oturum açma](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-sso-quick-start). 
 
-- Windows alt düzey cihazların kaydını **değil** dolaşım profilleri kullanan cihazlar için desteklenir. Gezici profilleri veya ayarlarını FQDN'yi kullanıyorsanız, Windows 10 kullanın.
+- **Değil** sorunsuz çoklu oturum açma olmadan Azure AD geçişli kimlik doğrulaması kullanılırken desteklenir.
+
+- **Değil** dolaşımı veya gezici kullanıcı profili kullanırken veya Sanal Masaüstü Altyapısı (VDI) kullanılırken desteklenmez.
 
 
 Windows etki alanı denetleyicisi (DC) rolünü çalıştıran sunucu kaydını desteklenmiyor.
 
-Kuruluşunuzda giden kimliği doğrulanmış bir ara sunucu üzerinden Internet erişimi gerekiyorsa, Windows 10 bilgisayarlarınızı giden proxy sunucusuna başarıyla kimlik doğrulayabildiğini emin olmanız gerekir. Windows 10 bilgisayarlar, makine bağlamını kullanarak cihaz kaydı çalıştığından, makine bağlamını kullanarak giden bağlantı proxy'si kimlik doğrulamasını yapılandırmak gereklidir.
+Kuruluşunuz, kimliği doğrulanmış bir giden bağlantı proxy'si aracılığıyla İnternete erişimi gerektiriyorsa Windows 10 bilgisayarlarınızın giden bağlantı proxy'sine başarıyla kimlik doğrulayabildiğinden emin olmanız gerekir. Windows 10 bilgisayarlar makine bağlamını kullanarak cihaz kaydını çalıştırdığından makine bağlamı ile giden bağlantı proxy'sinin yapılandırılması gerekir.
 
 
 Hibrit Azure AD'ye katılma, Azure AD ile şirket içi etki alanına katılmış cihazlarınızı otomatik olarak kaydedilecek bir işlemdir. Otomatik olarak kaydetmek için tüm cihazlar burada istemediğiniz durumlar vardır. Bu sizin için doğru olup olmadığını [cihazlarınızı hibrit Azure AD'ye katılma denetlemek nasıl](hybrid-azuread-join-control.md).
@@ -128,7 +128,7 @@ Ortamınızı etki alanları yönettiği, hibrit Azure AD'ye katılım'ı destek
 
 - Sorunsuz çoklu oturum açma (SSO) ile parola karma eşitlemesi (PHS) 
 
-1.1.819.0 sürümünden başlayarak, Azure AD Connect ile hibrit Azure AD'ye katılım'ı yapılandırmak için bir sihirbaz sağlar. Sihirbaz, önemli ölçüde yapılandırma işlemini basitleştirmenize olanak sağlar. Daha fazla bilgi için bkz.
+1.1.819.0 sürümünden itibaren Azure AD Connect hibrit Azure AD'ye katılımı yapılandırmak için bir sihirbaz sağlar. Sihirbaz, yapılandırma işlemini önemli ölçüde basitleştirebilmenizi sağlar. Daha fazla bilgi için bkz.
 
 - [Federasyon etki alanları için hibrit Azure Active Directory'ye katılmayı yapılandırma](hybrid-azuread-join-federated-domains.md)
 

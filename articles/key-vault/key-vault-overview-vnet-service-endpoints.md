@@ -10,12 +10,12 @@ ms.date: 08/31/2018
 ms.service: key-vault
 ms.workload: identity
 ms.topic: conceptual
-ms.openlocfilehash: 9b0600a7afb07600116440461037c7abcb9236de
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 6e0029e051e418bc54471284547329a0b0a2e9cd
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49404333"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50246663"
 ---
 # <a name="virtual-network-service-endpoints-for-azure-key-vault"></a>Sanal ağ hizmet uç noktaları için Azure anahtar kasası
 
@@ -44,7 +44,7 @@ Güvenlik duvarları ve sanal ağları yapılandırmak için gereken adımlar a�
 Başvurmak [Azure anahtar kasası yapılandırma güvenlik duvarları ve sanal ağları](key-vault-network-security.md) ayrıntılı adım adım yönergeler için.
 
 > [!IMPORTANT]
-> Güvenlik duvarı kurallarını tüm anahtar kasası etkin olduğunda [veri düzlemi](../key-vault/key-vault-secure-your-key-vault.md#data-plane-access-control) işlemleri, yalnızca izin verilen sanal ağlara ya da IPv4 adres aralıklarını çağıranın isteği oluşturulduğunda gerçekleştirilebilir. Bu ayrıca, Azure Portalı'ndan anahtar kasasına erişmek için geçerlidir. Bir kullanıcının tarayıcı bir anahtar kasasına Azure portalından, ancak kendi istemci makine izin verilenler listesinde değilse, bunlar liste anahtarlar/gizli dizileri/sertifikaları mümkün olmayabilir. Bu ayrıca diğer Azure Hizmetleri tarafından 'Anahtar kasası Seçici' etkiler. Kullanıcılar anahtar kasalarının listesi bakın, ancak güvenlik duvarı kurallarını istemci makine engelliyorsa anahtarları listesinde değil.
+> Güvenlik duvarı kurallarını tüm anahtar kasası etkin olduğunda [veri düzlemi](../key-vault/key-vault-secure-your-key-vault.md#data-plane-access-control) işlemleri, yalnızca izin verilen sanal ağlara ya da IPv4 adres aralıklarını çağıranın isteği oluşturulduğunda gerçekleştirilebilir. (Okuyun yönetim düzlemi ve veri düzlemi hakkında daha fazla bilgi edinmek için [bu](../key-vault/key-vault-secure-your-key-vault.md#management-plane-access-control) bu aynı zamanda anahtar kasasına erişim Azure Portalı'ndan geçerlidir. Bir kullanıcının tarayıcı bir anahtar kasasına Azure portalından, ancak kendi istemci makine izin verilenler listesinde değilse, bunlar liste anahtarlar/gizli dizileri/sertifikaları mümkün olmayabilir. Bu ayrıca diğer Azure Hizmetleri tarafından 'Anahtar kasası Seçici' etkiler. Kullanıcılar anahtar kasalarının listesi bakın, ancak güvenlik duvarı kurallarını istemci makine engelliyorsa anahtarları listesinde değil.
 
 
 > [!NOTE]

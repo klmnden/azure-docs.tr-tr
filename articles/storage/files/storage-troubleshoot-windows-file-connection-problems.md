@@ -6,19 +6,19 @@ author: jeffpatt24
 tags: storage
 ms.service: storage
 ms.topic: article
-ms.date: 05/11/2018
+ms.date: 10/30/2018
 ms.author: jeffpatt
 ms.component: files
-ms.openlocfilehash: 59eb0ddad72f5e54a23a97a260477f84019eb62c
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 5e730e52d55f6c8c2dd02f69e3efa67017af152b
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49386350"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50242985"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows"></a>Windows Azure dosyaları sorunlarını giderme
 
-Bu makalede Windows istemcilerinden bağlandığınızda, Microsoft Azure dosyaları'na ilgili genel sorunları listeler. Ayrıca olası nedenleri ve çözümlemeleri için bu sorunları sağlar. Bu makalede sorun giderme adımlarını ek olarak da kullanabilirsiniz [AzFileDiagnostics](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-a9fa1fe5) Windows istemci ortam önkoşulları doğru olduğundan emin olmak için. En iyi performansı elde etmek için ortamınızı ayarlama yardımcı olur ve bu makalede değinilen belirtileri çoğunu algılanması AzFileDiagnostics otomatikleştirir. Bu bilgiler de bulabilirsiniz [Azure dosyaları paylaşımlarını sorun giderici](https://support.microsoft.com/help/4022301/troubleshooter-for-azure-files-shares) bağlama/eşleme/bağlama Azure dosyaları paylaşımlarını sorunlara yardımcı olmak için adımları sağlar.
+Bu makalede Windows istemcilerinden bağlandığınızda, Microsoft Azure dosyaları'na ilgili genel sorunları listeler. Ayrıca olası nedenleri ve çözümlemeleri için bu sorunları sağlar. Bu makalede sorun giderme adımlarını ek olarak da kullanabilirsiniz [AzFileDiagnostics](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-a9fa1fe5) Windows istemci ortam önkoşulları doğru olduğundan emin olmak için. En iyi performansı elde etmek için ortamınızı ayarlama yardımcı olur ve bu makalede değinilen belirtileri çoğunu algılanması AzFileDiagnostics otomatikleştirir. Bu bilgiler de bulabilirsiniz [Azure dosyaları paylaşımlarını sorun giderici](https://support.microsoft.com/help/4022301/troubleshooter-for-azure-files-shares) bağlama/eşleme/bağlama Azure dosyaları paylaşımlarını sorunlara yardımcı olmak için adımları sağlar.
 
 
 <a id="error53-67-87"></a>
@@ -189,6 +189,24 @@ Ağ üzerinden dosya kopyalamak için önce şifresini çözmelisiniz. Aşağıd
   - Değer = 1
 
 Kayıt defteri anahtarı ayarı ağ paylaşımlara yapılan tüm kopyalama işlemleri etkilediğini unutmayın.
+
+## <a name="slow-enumeration-of-files-and-folders"></a>Dosya ve klasörlerin yavaş numaralandırması
+
+### <a name="cause"></a>Nedeni
+
+Büyük dizinler için istemci makinede yeterli bir önbellek ise bu sorun oluşabilir.
+
+### <a name="solution"></a>Çözüm
+
+Bu sorunu çözmek için ayarlama **DirectoryCacheEntrySizeMax** istemci makine büyük dizin listelerinde önbelleğe alınmasını izin vermek için kayıt defteri değeri:
+
+- Konum: HKLM\System\CCS\Services\Lanmanworkstation\Parameters
+- Değer mane: DirectoryCacheEntrySizeMax 
+- Değer türü: DWORD
+ 
+ 
+Örneğin, 0x100000 için ayarlayabilir ve performansını daha iyi hale gelirse bakın.
+
 
 ## <a name="need-help-contact-support"></a>Yardım mı gerekiyor? Desteğe başvurun.
 Hala yardıma ihtiyacınız varsa [Destek ekibiyle iletişime geçin](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) sorununuzun hızlıca çözülebilmesi alınamıyor.

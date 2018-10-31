@@ -17,12 +17,12 @@ ms.date: 10/26/2018
 ms.author: markvi
 ms.reviewer: nigu
 ms.custom: seohack1
-ms.openlocfilehash: eefbfcf741db3d0949910bc5da8494e087c39ec7
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 3cbded3224e7622d13e7af362cb3532a1813787e
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50139166"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50242169"
 ---
 # <a name="get-started-with-azure-active-directory-identity-protection-and-microsoft-graph"></a>Microsoft Graph ve Azure Active Directory kimlik koruması ile çalışmaya başlama
 Microsoft Graph olan Microsoft unified API uç noktası ve giriş, [Azure Active Directory kimlik koruması](../active-directory-identityprotection.md) API'leri. İlk API **identityRiskEvents**, Microsoft Graph listesi için sorgu sağlar [risk olayları](../reports-monitoring/concept-risk-events.md) ve ilişkili bilgileri. Bu makalede, bu API sorgulama başlamanıza yardımcı olur. Bir ayrıntılı giriş, tüm belgeler ve Graph Gezgini erişimi için bkz. [Microsoft Graph site](https://graph.microsoft.io/).
@@ -173,7 +173,7 @@ Kimlik doğrulaması için bir post isteği gönderin. `https://login.microsoft.
 Başarılı olursa, bu kimlik doğrulama belirteci döndürür.  
 API'yi çağırmak için aşağıdaki parametresiyle birlikte bir başlık oluşturun:
 
-    `Authorization`=”<token_type> <access_token>"
+    `Authorization`="<token_type> <access_token>"
 
 
 Kimlik doğrulaması yapılırken döndürülen belirteç simge türü ve erişim belirteci bulabilirsiniz.

@@ -7,19 +7,19 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/22/2018
 ms.author: sngun
-ms.openlocfilehash: e804ddec5f7aebf58352e87e483bf2bdeca0fce0
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 3bae365b879019862dd76ac8a857d4ded2b6c4bb
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49989238"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50241037"
 ---
 # <a name="connect-qlik-sense-to-azure-cosmos-db-and-visualize-your-data"></a>Verilerinizi görselleştirin ve Qlik Sense Azure Cosmos DB'ye bağlanma
 
 Qlik Sense farklı kaynaklardan gelen verileri tek bir görünümde birleştiren bir veri görselleştirme aracıdır. Verilere anında öngörü sahibi olabilir, böylece verilerinizi olası her ilişkide Qlik Sense dizinler. Azure Cosmos DB veri Qlik Sense kullanarak görselleştirebilirsiniz. Bu makalede Qlik Sense Azure Cosmos DB'ye bağlanma ve verilerinizi görselleştirmek için gereken adımlar açıklanmaktadır. 
 
 > [!NOTE]
-> Azure Cosmos DB Qlik Sense bağlanma, şu anda yalnızca Azure Cosmos DB SQL API hesapları için desteklenir.
+> Azure Cosmos DB'ye Qlik Sense bağlanma, şu anda yalnızca Azure Cosmos DB SQL API ve MongoDB API'si hesapları için desteklenir.
 
 Bağlama Qlik Sense için Azure Cosmos DB ile yapabilecekleriniz:
 

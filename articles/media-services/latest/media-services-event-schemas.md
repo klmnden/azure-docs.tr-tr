@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: reference
-ms.date: 10/16/2018
+ms.date: 10/30/2018
 ms.author: juliako
-ms.openlocfilehash: 44e195055c74babd903cf4fb830167ab92951d4a
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: 8124b399b859f812ec3bf9f7ea64b6643446a1b5
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49376797"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50249338"
 ---
 # <a name="azure-event-grid-schemas-for-media-services-events"></a>Media Services olayları Azure Event Grid şemaları
 
@@ -116,9 +116,7 @@ Veri nesnesi, aşağıdaki özelliklere sahiptir:
 
 Nereden iş durumu aşağıdakilerden biri olabilir değerleri: *sıraya alınan*, *zamanlanmış*, *işleme*, *tamamlandı*, *hata*, *İptal*, *iptal ediliyor*
 
-### <a name="jobscheduled"></a>JobScheduled
-### <a name="jobprocessing"></a>JobProcessing
-### <a name="jobcanceling"></a>JobCanceling
+### <a name="jobscheduled-jobprocessing-jobcanceling"></a>JobScheduled, JobProcessing, JobCanceling
 
 Her olmayan son iş durumu değişikliği için (örneğin, JobScheduled, JobProcessing, JobCanceling), şema örneği aşağıdaki gibi görünür:
 
@@ -142,9 +140,7 @@ Her olmayan son iş durumu değişikliği için (örneğin, JobScheduled, JobPro
 }]
 ```
 
-### <a name="jobfinished"></a>JobFinished
-### <a name="jobcanceled"></a>JobCanceled
-### <a name="joberrored"></a>JobErrored
+### <a name="jobfinished-jobcanceled-joberrored"></a>JobFinished, JobCanceled, JobErrored
 
 Her son iş durumu değişikliği için (örneğin, JobFinished, JobCanceled, JobErrored), şema örneği aşağıdaki gibi görünür:
 
@@ -215,12 +211,7 @@ Aşağıdaki örnek, şemasını gösterir **JobOutputStateChange** olay:
 }]
 ```
 
-### <a name="joboutputscheduled"></a>JobOutputScheduled
-### <a name="joboutputprocessing"></a>JobOutputProcessing
-### <a name="joboutputfinished"></a>JobOutputFinished
-### <a name="joboutputcanceling"></a>JobOutputCanceling
-### <a name="joboutputcanceled"></a>JobOutputCanceled
-### <a name="joboutputerrored"></a>JobOutputErrored
+### <a name="joboutputscheduled-joboutputprocessing-joboutputfinished-joboutputcanceling-joboutputcanceled-joboutputerrored"></a>JobOutputScheduled, JobOutputProcessing, JobOutputFinished, JobOutputCanceling, JobOutputCanceled, JobOutputErrored
 
 Her JobOutput durum değişikliği için şema örneği aşağıdaki gibi görünür:
 
@@ -631,14 +622,19 @@ Bir olay aşağıdaki üst düzey veri vardır:
 | Özellik | Tür | Açıklama |
 | -------- | ---- | ----------- |
 | konu başlığı | dize | EventGrid konu. Bu özellik, Media Services hesabı kaynak kimliği vardır. |
-| Konu | dize | Media Services kanalın Media Services hesabı altında kaynak yolu. İş için kaynak kimliği konusu ve konu verin birleştiriliyor. |
+| konu | dize | Media Services kanalın Media Services hesabı altında kaynak yolu. İş için kaynak kimliği konusu ve konu verin birleştiriliyor. |
 | olay türü | dize | Bu olay kaynağı için kayıtlı olay türlerinden biri. Örneğin, "Microsoft.Media.JobStateChange". |
 | eventTime | dize | Olayın oluşturulduğu zamandan, sağlayıcının UTC saatini temel alan. |
 | id | dize | Olayın benzersiz tanımlayıcısı. |
-| veri | object | Media Services olay verileri. |
+| veriler | object | Media Services olay verileri. |
 | dataVersion | dize | Veri nesnesinin şema sürümü. Yayımcı, şema sürümü tanımlar. |
 | metadataVersion | dize | Olay meta verilerinin şema sürümü. Event Grid, şemanın en üst düzey özellikleri tanımlar. Event Grid, bu değeri sağlar. |
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 [İş durumu değişikliği olayları için kaydolun](job-state-events-cli-how-to.md)
+
+## <a name="see-also"></a>Ayrıca bkz.
+
+- [Medya hizmeti olayları içerdiği EventGrid .NET SDK](https://www.nuget.org/packages/Microsoft.Azure.EventGrid/)
+- [Media Services olaylarını tanımları](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/eventgrid/data-plane/Microsoft.Media/stable/2018-01-01/MediaServices.json)

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/18/2017
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: d170fc0a0e4113b0f58c3b78f3a61aa2b08e69ff
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: c7d2c16ef135644c1ff23d7a71c66bec27ac930d
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/30/2018
-ms.locfileid: "50231543"
+ms.locfileid: "50241054"
 ---
 # <a name="using-shared-access-signatures-sas"></a>Paylaşılan erişim imzaları (SAS) kullanma
 
@@ -222,7 +222,7 @@ Paylaşılan erişim imzalarını kullanma yönelik aşağıdaki öneriler bu ri
 6. **Kaynak erişilmesi için belirli olabilir.** En iyi güvenlik uygulaması, gerekli en düşük ayrıcalıkları olan bir kullanıcı sağlamaktır. Bir kullanıcı yalnızca tek bir varlığa yönelik okuma erişimi gerekiyorsa, daha sonra bunları tek bir varlık için okuma erişimi ve tüm varlıklar olmayan okuma/yazma/silme erişimi verin. Ayrıca SAS sunun saldırganın daha az güç olduğundan SAS tehlikedeyse hasarı azaltmak da yardımcı olur.
 7. **Hesabınız ile SAS yapılan dahil olmak üzere herhangi bir kullanım için faturalandırılırsınız anlayın.** Bir bloba yazma erişimi sağlayan, bir kullanıcı, 200 GB blob karşıya yüklemek tercih edebilirsiniz. Bunları okuma erişim verdiyseniz, bunların 10 kez indirmek 2 TB çıkış içinde sizin için maliyetler tercih edebilirsiniz. Yeniden olası kötü amaçlı kullanıcıların eylemlerini azaltmaya yardımcı olmak için sınırlı izinler sağlayın. Bu tehdidi azaltmanız (ancak saatinin bitiş saat eğriltme dikkatli olmanız için) kısa süreli SAS'ı kullanın.
 8. **SAS kullanarak yazılan veri doğrulayın.** Bir istemci uygulaması, depolama hesabınıza verileri yazdığında, bu verileri ile ilgili sorunlar olabilir aklınızda bulundurun. Uygulamanızın veri doğrulanmış veya kullanıma hazır hale gelmeden önce yetkili gerektiriyorsa, bu doğrulama verileri yazıldıktan sonra ve uygulamanız tarafından kullanılmadan önce gerçekleştirmeniz gerekir. Bu uygulama ayrıca hesabınız için doğru SAS edinilen bir kullanıcı veya sızdırılan SAS kötüye bir kullanıcı tarafından yazılan bozuk ya da kötü amaçlı veri karşı korur.
-9. **Her zaman SAS kullanmayın.** Bazen, depolama hesabınıza karşı belirli bir işlemle ilişkili riskleri SAS basıyor. Bu işlemler için iş gerçekleştirdikten sonra depolama hesabınıza Yazar bir orta katman hizmet oluşturma kural doğrulama, kimlik doğrulaması ve denetim. Ayrıca, bazı durumlarda, farklı yollarla erişimi yönetmek basittir. Örneğin, tüm BLOB'ları bir kapsayıcı publicaly okunabilir hale getirmek isterseniz, genel, kapsayıcı yapabilirsiniz yerine SAS her istemci için erişim sağlama.
+9. **Her zaman SAS kullanmayın.** Bazen, depolama hesabınıza karşı belirli bir işlemle ilişkili riskleri SAS basıyor. Bu işlemler için iş gerçekleştirdikten sonra depolama hesabınıza Yazar bir orta katman hizmet oluşturma kural doğrulama, kimlik doğrulaması ve denetim. Ayrıca, bazı durumlarda, farklı yollarla erişimi yönetmek basittir. Örneğin, tüm BLOB'ları bir kapsayıcıda genel olarak okunabilir hale getirmek istiyorsanız, genel, kapsayıcı yapabilirsiniz yerine SAS her istemci için erişim sağlama.
 10. **Depolama analizi, uygulamanızı izlemek için kullanın.** Kesinti nedeniyle kimlik doğrulama hataları herhangi bir artış SAS sağlayıcısı hizmetinizdeki ya da depolanmış erişim ilkesini yanlışlıkla kaldırılmasına gözlemlemek için günlük kaydını ve ölçümleri kullanabilirsiniz. Bkz: [Azure depolama ekibi blogu](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/08/03/windows-azure-storage-logging-using-logs-to-track-storage-requests.aspx) ek bilgi için.
 
 ## <a name="sas-examples"></a>SAS örnekleri

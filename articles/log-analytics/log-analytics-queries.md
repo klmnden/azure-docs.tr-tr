@@ -11,19 +11,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/05/2018
+ms.date: 10/18/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: 0340a4d527023c050e2c776d31c02b59161a1316
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 904502e5c73127cca7920da2173edd013e55762f
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49429488"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50242254"
 ---
 # <a name="analyze-log-analytics-data-in-azure-monitor"></a>Azure İzleyici'de log Analytics verilerini çözümleme
 
-Azure İzleyici tarafından toplanan günlük verileri Log Analytics, çeşitli kaynaklardan telemetri ve diğer verileri toplar ve Gelişmiş analiz için bir sorgu dili sağlayan depolanır.
+Azure İzleyici tarafından toplanan günlük verilerini temel aldığı bir Log Analytics çalışma alanında depolanan [Azure Veri Gezgini](/data-explorer). Çeşitli kaynaklardan telemetri toplar ve kullandığı [sorgu dilini veri Gezgini'nde](/kusto) almak ve verileri çözümlemek için.
 
 > [!NOTE]
 > Log Analytics daha önce kendi Azure hizmeti olarak kabul. Artık Azure İzleyici bir parçası olarak kabul edilir ve depolama ve analiz sorgu dili kullanarak günlük verilerinin odaklanır. Proaktif olarak size sorunları bildirmekten için Windows ve Linux aracıları için veri toplama, mevcut verileri ve Uyarıları görselleştirmek için görünümleri gibi Log Analytics, ın parçası olarak kabul özellikleri değişmemiştir, ancak artık Azure İzleyici bir parçası olarak kabul edilir.
@@ -51,7 +51,7 @@ Log Analytics'te sorgu kullanacağını farklı yollar şunlardır:
 ![Günlük aramaları](media/log-analytics-queries/queries-overview.png)
 
 ## <a name="write-a-query"></a>Bir sorgu yazma
-Log Analytics içerir [kapsamlı sorgu dili](query-language/get-started-queries.md) olanak tanıyan almak ve günlük verilerini çeşitli şekillerde analiz edin.  Temel sorgular genellikle başlatmak ve gereksinimlerinizi daha karmaşık bir HAL aldıkça daha gelişmiş işlevleri kullanmak için ilerleme durumu.
+Analytics kullanan oturum [Veri Gezgini sorgu dil sürümünü](query-language/get-started-queries.md) almak ve günlük verilerini çeşitli şekillerde analiz etmek için.  Temel sorgular genellikle başlatmak ve gereksinimlerinizi daha karmaşık bir HAL aldıkça daha gelişmiş işlevleri kullanmak için ilerleme durumu.
 
 Bir sorgu temel yapısı bir dikey çizgi karakteriyle ayırarak işleçleri dizi arkasından bir kaynak tablodur `|`.  Verilerin oluşturulup geliştirilmesi ve gelişmiş işlevleri gerçekleştirmek için birden çok işleç araya zincirleyebilirsiniz.
 

@@ -1,10 +1,10 @@
 ---
-title: Medya Kodlayıcı standart kullanarak bir Azure varlık kodlama | Microsoft Docs
-description: Medya Kodlayıcısı standart Azure Media Services medya içeriği kodlamak için nasıl kullanılacağını öğrenin. Kod örnekleri, REST API kullanın.
+title: Media Encoder Standard kullanarak bir Azure varlığı kodlama | Microsoft Docs
+description: Azure Media Services'da medya içeriği kodlama için Media Encoder Standard'ı kullanmayı öğrenin. Kod örnekleri, REST API'sini kullanın.
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: 2a7273c6-8a22-4f82-9bfe-4509ff32d4a4
 ms.service: media-services
@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/07/2017
+ms.date: 10/30/2018
 ms.author: juliako
-ms.openlocfilehash: 78087bbb43d12af65bfbde93f54e2f29309ac093
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 34652400acaf2efca3648bb4c7cde795861c3101
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33790422"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50247938"
 ---
-# <a name="how-to-encode-an-asset-by-using-media-encoder-standard"></a>Medya Kodlayıcı standart kullanarak bir varlık kodlama
+# <a name="how-to-encode-an-asset-by-using-media-encoder-standard"></a>Media Encoder Standard kullanarak bir varlığı kodlama
 > [!div class="op_single_selector"]
 > * [.NET](media-services-dotnet-encode-with-media-encoder-standard.md)
 > * [REST](media-services-rest-encode-asset.md)
@@ -30,42 +30,42 @@ ms.locfileid: "33790422"
 >
 
 ## <a name="overview"></a>Genel Bakış
-Internet üzerinden dijital video teslim etmek için medyayı sıkıştırmanız gerekir. Dijital video dosyaları büyük ve Internet üzerinden veya düzgün görüntülemek, müşterilerinizin cihazlar için teslim etmek için çok büyük olabilir. Kodlama müşterilerinizin medyanızı görüntüleyebilmeniz video ve ses sıkıştırma işlemidir.
+Internet üzerinden dijital video teslim etmek için medyayı sıkıştırmanız gerekir. Dijital video dosyaları büyük ve Internet üzerinden veya müşterilerinizin cihazlar düzgün görüntülenmesi sunmak için çok büyük olabilir. Kodlama, müşterilerinizin ortamınızı görüntülemek için video ve ses sıkıştırma işlemidir.
 
-Kodlama işleri en yaygın işlemleri Azure Media Services biridir. Kodlama işleri oluşturarak, medya dosyalarını bir kodlamadan diğerine dönüştürebilirsiniz. Kodlarken, Media Services yerleşik Kodlayıcı (Medya Kodlayıcısı standart) kullanabilirsiniz. Bir Media Services iş ortağı tarafından sağlanan bir kodlayıcı de kullanabilirsiniz. Üçüncü taraf kodlayıcılar Azure Market üzerinden kullanılabilir. Kodlayıcı için tanımlanan Önayar dizeleri veya önceden belirlenmiş yapılandırma dosyalarını kullanarak kodlama görevlerine ilişkin ayrıntılar belirtebilirsiniz. Kullanılabilir hazır türlerini görmek için bkz: [Medya Kodlayıcısı standart için görev hazır](http://msdn.microsoft.com/library/mt269960).
+Kodlama işleri, Azure Media Services'da en sık gerçekleştirilen işlemler biridir. Kodlama işleri oluşturarak, medya dosyalarını bir kodlamadan diğerine dönüştürebilirsiniz. Kodlarken, yerleşik medya Hizmetleri Kodlayıcı (Media Encoder Standard) kullanabilirsiniz. Bir Media Services iş ortağı tarafından verilen bir kodlayıcı de kullanabilirsiniz. Üçüncü taraf Kodlayıcı Azure Marketi aracılığıyla kullanılabilir. Kodlayıcınız için tanımlanan Önayar dizeleri kullanarak veya önceden belirlenmiş yapılandırma dosyalarını kullanarak kodlama görevlerine ilişkin ayrıntılar belirtebilirsiniz. Kullanıma hazır türlerini görmek için bkz: [Media Encoder Standard için görev ön ayarları](http://msdn.microsoft.com/library/mt269960).
 
-Bir veya daha fazla görevleri gerçekleştirmek istediğiniz işleme türüne bağlı olarak her bir iş olabilir. REST API aracılığıyla, işler ve bunların ilgili görevleri aşağıdaki iki yöntemden biriyle oluşturabilirsiniz:
+Bir veya daha fazla görevi gerçekleştirmek istediğiniz işleme türüne bağlı olarak her bir iş olabilir. REST API aracılığıyla, işlerini ve görevlerini ilgili iki yoldan biriyle oluşturabilirsiniz:
 
-* Görevler, satır içi olarak tanımlanan iş varlıklar üzerinde görevleri gezinti özelliği aracılığıyla gerçekleştirilebilir.
-* OData toplu işleme kullanın.
+* Görevler, tanımlı satır içi görevleri gezinti özelliği iş varlıklar üzerinde gerçekleştirilebilir.
+* OData toplu işlem'i kullanın.
 
-Her zaman Kaynak dosyalarınız Uyarlamalı bit hızlı MP4 kümesi kodlamak ve ardından kullanarak kümesi istenen biçimine dönüştür öneririz [dinamik paketleme](media-services-dynamic-packaging-overview.md).
+Her zaman kaynak dosyalarını Uyarlamalı bit hızı MP4 kümesi kodlamak ve kullanarak bu küme için istenen biçimi dönüştürme öneririz [dinamik paketleme](media-services-dynamic-packaging-overview.md).
 
-Çıkış varlığına depolama şifrelenmiş ise, varlık teslim ilkesini yapılandırmanız gerekir. Daha fazla bilgi için bkz: [varlık teslim ilkesini yapılandırma](media-services-rest-configure-asset-delivery-policy.md).
+Şifrelenmiş depolama, çıktı varlık ise varlık teslim ilkesini yapılandırmanız gerekir. Daha fazla bilgi için [varlık teslim ilkesini yapılandırma](media-services-rest-configure-asset-delivery-policy.md).
 
 ## <a name="considerations"></a>Dikkat edilmesi gerekenler
 
-Varlıklar Media Services erişirken, HTTP istekleri özel üstbilgi alanlarını ve değerlerini ayarlamanız gerekir. Daha fazla bilgi için bkz: [Media Services REST API geliştirme için Kurulum](media-services-rest-how-to-use.md).
+Varlıklar Media Services erişirken, HTTP isteklerini özel üstbilgi alanlarını ve değerlerini ayarlamanız gerekir. Daha fazla bilgi için [Media Services REST API geliştirme için Kurulum](media-services-rest-how-to-use.md).
 
-Medya işlemcileri başvuran başlamadan önce doğru medya sahip olduğunuzu doğrulayın işlemci kimliği Daha fazla bilgi için bkz: [alma medya işlemcileri](media-services-rest-get-media-processor.md).
+Medya işlemcileri başvuran başlamadan önce doğru medya gördüğünüzden emin olun. işlemci kimliği Daha fazla bilgi için [alma medya işlemcileri](media-services-rest-get-media-processor.md).
 
 ## <a name="connect-to-media-services"></a>Media Services’e bağlanmak
 
-AMS API'sine bağlanma hakkında daha fazla bilgi için bkz: [Azure AD kimlik doğrulaması ile Azure Media Services API erişim](media-services-use-aad-auth-to-access-ams-api.md). 
+AMS API'ye bağlanma hakkında daha fazla bilgi için bkz: [Azure AD kimlik doğrulamasıyla Azure Media Services API'sine erişim](media-services-use-aad-auth-to-access-ams-api.md). 
 
-## <a name="create-a-job-with-a-single-encoding-task"></a>Bir işi ile tek bir kodlama görev oluşturma
+## <a name="create-a-job-with-a-single-encoding-task"></a>Tek bir kodlama görevi bir iş oluşturma
 > [!NOTE]
-> Media Services REST API ile çalışırken, aşağıdaki maddeler geçerlidir:
+> Media Services REST API'si ile çalışırken, aşağıdaki maddeler geçerlidir:
 >
-> Varlıklar Media Services erişirken, HTTP istekleri özel üstbilgi alanlarını ve değerlerini ayarlamanız gerekir. Daha fazla bilgi için bkz: [Media Services REST API geliştirme için Kurulum](media-services-rest-how-to-use.md).
+> Varlıklar Media Services erişirken, HTTP isteklerini özel üstbilgi alanlarını ve değerlerini ayarlamanız gerekir. Daha fazla bilgi için [Media Services REST API geliştirme için Kurulum](media-services-rest-how-to-use.md).
 >
-> Zaman JSON kullanarak ve kullanmak için belirterek **__metadata** anahtar sözcüğü (örneğin, için başvuru bağlantılı nesne) istekte ayarlamalısınız **kabul** başlığına [JSON Verbose biçimi](http://www.odata.org/documentation/odata-version-3-0/json-verbose-format/): Kabul: uygulama/json; odata = verbose.
+> Zaman JSON kullanan ve kullanılacağını belirtme **__metadata** anahtar sözcüğü ayarlamanız gerekir (örneğin,'başvurusu bağlı nesnede) istekte **kabul** başlığına [ayrıntılıJSONbiçimi](http://www.odata.org/documentation/odata-version-3-0/json-verbose-format/): Kabul: application/json; odata ayrıntılı =.
 >
 >
 
-Aşağıdaki örnekte nasıl oluşturulacağı ve bir video kalitesini ve belirli çözünürlüğü kodlamak için ayarlanmış bir görev ile bir iş sonrası gösterir. Medya Kodlayıcısı standart ile kodlamak, belirtilen görev yapılandırması hazır kullanabilirsiniz [burada](http://msdn.microsoft.com/library/mt269960).
+Aşağıdaki örnek nasıl oluşturulacağı ve belirli bir çözümleme ve kaliteli video kodlamak için ayarlanmış bir görev içeren bir iş gönderin. gösterir. Medya Kodlayıcısı standart ile kodlamak, belirtilen görev yapılandırması hazır kullanabileceğiniz [burada](http://msdn.microsoft.com/library/mt269960).
 
-İsteği:
+İstek:
 
     POST https://media.windows.net/API/Jobs HTTP/1.1
     Content-Type: application/json;odata=verbose
@@ -79,33 +79,33 @@ Aşağıdaki örnekte nasıl oluşturulacağı ve bir video kalitesini ve belirl
 
     {"Name" : "NewTestJob", "InputMediaAssets" : [{"__metadata" : {"uri" : "https://media.windows.net/api/Assets('nb%3Acid%3AUUID%3Aaab7f15b-3136-4ddf-9962-e9ecb28fb9d2')"}}],  "Tasks" : [{"Configuration" : "Adaptive Streaming", "MediaProcessorId" : "nb:mpid:UUID:ff4df607-d419-42f0-bc17-a481b1331e56",  "TaskBody" : "<?xml version=\"1.0\" encoding=\"utf-8\"?><taskBody><inputAsset>JobInputAsset(0)</inputAsset><outputAsset>JobOutputAsset(0)</outputAsset></taskBody>"}]}
 
-Yanıtı:
+Yanıt:
 
     HTTP/1.1 201 Created
 
     . . .
 
-### <a name="set-the-output-assets-name"></a>Çıktı varlığın adı ayarlama
-Aşağıdaki örnek assetName özniteliği gösterilmektedir:
+### <a name="set-the-output-assets-name"></a>Çıktı varlık adını ayarlayın
+Aşağıdaki örnek assetName özniteliğinin nasıl ayarlanacağı gösterilmektedir:
 
     { "TaskBody" : "<?xml version=\"1.0\" encoding=\"utf-8\"?><taskBody><inputAsset>JobInputAsset(0)</inputAsset><outputAsset assetName=\"CustomOutputAssetName\">JobOutputAsset(0)</outputAsset></taskBody>"}
 
 ## <a name="considerations"></a>Dikkat edilmesi gerekenler
-* TaskBody özellikleri değişmez değer XML giriş sayısını tanımlamak veya görev tarafından kullanılan varlıklar çıktı için kullanmanız gerekir. Görev makaleyi XML şema tanımı için XML içeriyor.
-* TaskBody tanımı'nda her iç değeri için <inputAsset> ve <outputAsset> JobInputAsset(value) veya JobOutputAsset(value) ayarlanması gerekir.
-* Bir görev, birden fazla çıkış varlığına sahip olabilir. Bir JobOutputAsset(x) yalnızca bir kez bir görevin bir İşte bir çıkış olarak kullanılabilir.
-* Bir görev bir giriş varlık JobInputAsset veya JobOutputAsset belirtebilirsiniz.
-* Görevler bir döngü oluşturmuyor gerekir.
-* JobInputAsset veya JobOutputAsset geçirdiğiniz değer parametresi bir varlık için dizin değerini temsil eder. Gerçek varlıkları işi varlık açıklamasında InputMediaAssets ve OutputMediaAssets Gezinti Özellikleri'nde tanımlanır.
-* Media Services üzerinde OData v3 oluşturulduğundan, tek tek varlıklar InputMediaAssets ve OutputMediaAssets gezinti özelliği koleksiyonlarda aracılığıyla başvurulan bir "__metadata: URI" ad-değer çifti.
-* Media Services ile oluşturulan bir veya daha fazla varlıklarına InputMediaAssets eşler. OutputMediaAssets sistem tarafından oluşturulur. Bunlar, var olan bir varlık başvurusu yok.
-* OutputMediaAssets assetName özniteliğini kullanarak adlandırılabilir. Bu öznitelik yok sonra OutputMediaAsset adını ne olursa olsun iç metin değeri <outputAsset> öğesidir iş adı değeri ya da iş kimliği değeri (Name özelliği tanımlanmadı olduğu durumda) soneki. AssetName "SAMPLE" için bir değer ayarlarsanız, örneğin, ardından OutputMediaAsset Name özelliği "Örnek" ayarlanır AssetName için bir değer ayarlamadınız, ancak "NewJob" iş adına ayarlayın, ancak ardından OutputMediaAsset adı "JobOutputAsset (değer) _NewJob." olacaktır
+* TaskBody özellikleri değişmez değer XML giriş sayısını belirtin veya çıkış görev tarafından kullanılan varlıklar için kullanmanız gerekir. Görev makale XML için XML şema tanımı içerir.
+* Her iç TaskBody tanımında değeri <inputAsset> ve <outputAsset> JobInputAsset(value) veya JobOutputAsset(value) olarak ayarlanmalıdır.
+* Bir görev birden fazla çıktı varlığına sahip olabilirsiniz. Bir JobOutputAsset(x) yalnızca bir kez bir işteki bir görevin çıktı olarak kullanılabilir.
+* Bir görevin Giriş bir varlık JobInputAsset veya JobOutputAsset belirtebilirsiniz.
+* Görevleri bir döngü form değil.
+* JobInputAsset veya JobOutputAsset için geçirdiğiniz değer parametresi bir varlık için dizin değerini temsil eder. Gerçek varlıkları işi varlık tanımı InputMediaAssets ve OutputMediaAssets Gezinti özellikleri tanımlanır.
+* Media Services OData v3 tasarlandığından, tek tek varlıklar InputMediaAssets ve OutputMediaAssets gezinti özelliği koleksiyonlardaki aracılığıyla başvurulan bir "__metadata: URI" ad-değer çifti.
+* Media Services'de, oluşturduğunuz bir veya daha fazla varlıklara InputMediaAssets eşler. OutputMediaAssets sistem tarafından oluşturulur. Bunlar, mevcut bir varlık başvurmuyor.
+* OutputMediaAssets assetName özniteliğini kullanarak yeniden adlandırılabilir. Bu öznitelik yoksa sonra herhangi bir iç metin değerini OutputMediaAsset adıdır <outputAsset> bir sonek iş adı değeri ya da iş kimliği değeri (Name özelliği olmayan tanımlandığı durumda) öğesidir. AssetName "SAMPLE" için bir değer ayarlarsanız, örneğin, ardından OutputMediaAsset Name özelliği "Örnek" ayarlanır AssetName değerini ayarlamadınız, ancak "NewJob" proje adı ayarlayın, ancak ardından OutputMediaAsset adı "JobOutputAsset (değer) _NewJob" olacaktır
 
-## <a name="create-a-job-with-chained-tasks"></a>Bir iş ile zincirleme görevler oluşturma
-Birçok uygulama senaryolarda, geliştiricilerin bir dizi görevleri işleme oluşturmak istiyorum. Media Services'de zincirleme görevleri bir dizi oluşturabilirsiniz. Her görev, farklı işleme adımları gerçekleştirir ve farklı medya işlemcileri kullanabilir. Zincirleme görevleri bir varlık başka varlık üzerinde doğrusal bir dizi görev gerçekleştirmek için bir görevden el. Ancak, bir işin gerçekleştirilen görevleri sırayla olması gerekli değildir. Zincirleme zincirleme görev oluşturduğunuzda **ITask** nesneler, tek bir oluşturulur **IJob** nesnesi.
+## <a name="create-a-job-with-chained-tasks"></a>Zincirleme görev sayısı ile bir iş oluşturma
+Birçok uygulama senaryolarında geliştiriciler işleme görevlerini bir dizi oluşturmak istiyorsunuz. Media Services'de, zincir görevleri bir dizi oluşturabilirsiniz. Her görev, farklı işleme adımları gerçekleştirir ve farklı medya işlemcileri kullanabilirsiniz. Zincirleme görev ashley'e başka varlığında doğrusal bir sırada görevleri gerçekleştirmek için bir görevden teslim. Ancak, bir projede gerçekleştirilen görevleri bir dizisinde olması gerekli değildir. Zincirleme zincirleme görev oluşturduğunuzda, **ITask** tek bir nesne oluşturulur **IJob** nesne.
 
 > [!NOTE]
-> Şu anda iş başına 30 görevlerin bir sınırı yoktur. 30'dan fazla görevleri zincir gerekiyorsa, görevleri içeren birden fazla iş oluşturun.
+> Şu anda iş başına 30 görevlerin bir sınır yoktur. 30'dan fazla görevleri zinciri gerekiyorsa, görevleri içermek amacıyla birden fazla işi oluşturun.
 >
 >
 
@@ -143,13 +143,13 @@ Birçok uygulama senaryolarda, geliştiricilerin bir dizi görevleri işleme olu
 
 
 ### <a name="considerations"></a>Dikkat edilmesi gerekenler
-Görev zincirleme etkinleştirmek için:
+Görev zinciri oluşturmayı etkinleştirmek için:
 
-* Bir işi, en az iki görev olması gerekir.
-* İşte başka bir görev çıktısını girişi olan en az bir görev olması gerekir.
+* Bir işi, en az iki görev olmalıdır.
+* İşin başka bir görev çıktısı olan giriştir en az bir görev olmalıdır.
 
 ## <a name="use-odata-batch-processing"></a>OData toplu işleme
-Aşağıdaki örnek OData toplu işleme iş ve görev oluşturma için nasıl kullanılacağını gösterir. Toplu işleme hakkında daha fazla bilgi için bkz: [açık veri Protokolü (OData) toplu işleme](http://www.odata.org/documentation/odata-version-3-0/batch-processing/).
+Aşağıdaki örnek, bir işi ve görevleri oluşturmak için OData toplu işlem kullanmayı gösterir. Toplu işlem hakkında daha fazla bilgi için bkz: [açık veri Protokolü (OData) toplu işleme](http://www.odata.org/documentation/odata-version-3-0/batch-processing/).
 
     POST https://media.windows.net/api/$batch HTTP/1.1
     DataServiceVersion: 1.0;NetFx
@@ -209,10 +209,10 @@ Aşağıdaki örnek OData toplu işleme iş ve görev oluşturma için nasıl ku
 
 
 
-## <a name="create-a-job-by-using-a-jobtemplate"></a>Bir JobTemplate kullanarak bir iş oluşturma
-Birden çok varlığı ortak bir dizi görevi kullanarak işlerken bir JobTemplate varsayılan görev hazır belirtin veya görevlerin sırasını ayarlamak için kullanın.
+## <a name="create-a-job-by-using-a-jobtemplate"></a>Bir JobTemplate kullanarak bir işi oluşturma
+Ortak bir dizi görevi kullanarak birden çok varlıkları işlemek, bir JobTemplate varsayılan görev ön ayarları belirtin ya da görev sırasını ayarlamak için kullanın.
 
-Aşağıdaki örnek, satır içi olarak tanımlanan bir TaskTemplate ile bir JobTemplate oluşturulacağını gösterir. TaskTemplate Medya Kodlayıcısı standart MediaProcessor varlık dosyası kodlamak için kullanır. Ancak, diğer MediaProcessors de kullanılabilir.
+Aşağıdaki örnek, bir JobTemplate satır içi olarak tanımlanan bir TaskTemplate ile oluşturma işlemi gösterilmektedir. TaskTemplate Media Encoder Standard MediaProcessor varlık dosyası kodlamak için kullanır. Ancak, diğer MediaProcessors de kullanılabilir.
 
     POST https://media.windows.net/API/JobTemplates HTTP/1.1
     Content-Type: application/json;odata=verbose
@@ -228,18 +228,18 @@ Aşağıdaki örnek, satır içi olarak tanımlanan bir TaskTemplate ile bir Job
 
 
 > [!NOTE]
-> Diğer Media Services varlıklar farklı olarak, her TaskTemplate için yeni bir GUID tanımlayıcısı tanımlayın ve istek gövdesinde taskTemplateId ve ID özelliği yerleştirin. İçerik kimliği düzeni tanımlamak Azure Media Services varlıklarda tanımlanan düzenini izlemeniz gerekir. Ayrıca, JobTemplates güncelleştirilemiyor. Bunun yerine, güncelleştirilmiş değişikliklerinizi içeren yeni bir tane oluşturmanız gerekir.
+> Diğer bir Media Services varlıklar farklı olarak, yeni bir GUID tanımlayıcısı için her TaskTemplate tanımlayın ve taskTemplateId ve ID özelliği, istek gövdesinde yerleştirin. İçerik kimliği düzeni tanımlamak Azure Media Services varlıkları tanımlanan düzenini izlemeniz gerekir. Ayrıca, JobTemplates güncelleştirilemiyor. Bunun yerine, güncelleştirilmiş değişikliklerinizi ile yeni bir tane oluşturmanız gerekir.
 >
 >
 
-Başarılı olursa, şu yanıtı döndürdü:
+Başarılı olursa, aşağıdaki yanıt döndürülür:
 
     HTTP/1.1 201 Created
 
     . . .
 
 
-Aşağıdaki örnek JobTemplate kimliği başvuran bir iş oluşturulacağını gösterir:
+Aşağıdaki örnek, bir JobTemplate kimliği başvuran bir iş oluşturma işlemi gösterilmektedir:
 
     POST https://media.windows.net/API/Jobs HTTP/1.1
     Content-Type: application/json;odata=verbose
@@ -254,19 +254,19 @@ Aşağıdaki örnek JobTemplate kimliği başvuran bir iş oluşturulacağını 
     {"Name" : "NewTestJob", "InputMediaAssets" : [{"__metadata" : {"uri" : "https://media.windows.net/api/Assets('nb%3Acid%3AUUID%3A3f1fe4a2-68f5-4190-9557-cd45beccef92')"}}], "TemplateId" : "nb:jtid:UUID:15e6e5e6-ac85-084e-9dc2-db3645fbf0aa"}
 
 
-Başarılı olursa, şu yanıtı döndürdü:
+Başarılı olursa, aşağıdaki yanıt döndürülür:
 
     HTTP/1.1 201 Created
 
     . . .
 
 
-## <a name="advanced-encoding-features-to-explore"></a>Özellikleri keşfetmek için gelişmiş kodlama
-* [Küçük resimler oluşturma](media-services-dotnet-generate-thumbnail-with-mes.md)
+## <a name="advanced-encoding-features-to-explore"></a>Özelliklerini keşfetmek için gelişmiş kodlama
+* [Küçük resim oluşturma](media-services-dotnet-generate-thumbnail-with-mes.md)
 * [Kodlama sırasında küçük resimler oluşturma](media-services-dotnet-generate-thumbnail-with-mes.md#example-of-generating-a-thumbnail-while-encoding)
-* [Kodlama sırasında kırpma videolar](media-services-crop-video.md)
-* [Kodlama hazır ayarlarını özelleştirme](media-services-custom-mes-presets-with-dotnet.md)
-* [Yer paylaşımı veya bir görüntü ile video Filigran](media-services-advanced-encoding-with-mes.md#overlay)
+* [Kodlama sırasında videoları kırpma](media-services-crop-video.md)
+* [Kodlama Önayarları özelleştirme](media-services-custom-mes-presets-with-dotnet.md)
+* [Yer paylaşımı veya bir video görüntü ile filigranı](media-services-advanced-encoding-with-mes.md#overlay)
 
 ## <a name="media-services-learning-paths"></a>Media Services’i öğrenme yolları
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
@@ -275,7 +275,7 @@ Başarılı olursa, şu yanıtı döndürdü:
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Bir varlık kodlama için bkz: bir iş oluşturmak nasıl bildiğinize göre [Media Services ile iş ilerleme durumunu denetlemek nasıl](media-services-rest-check-job-progress.md).
+Bir varlığı kodlama için bkz: bir iş oluşturma işlemini artık bildiğinize [Media Services ile işin ilerleme durumunu denetlemek nasıl](media-services-rest-check-job-progress.md).
 
 ## <a name="see-also"></a>Ayrıca bkz.
 [Medya işlemcileri Al](media-services-rest-get-media-processor.md)

@@ -3,21 +3,21 @@ title: Azure işlevleri Twilio bağlama
 description: Azure işlevleri ile Twilio bağlamaları kullanma hakkında bilgi edinin.
 services: functions
 documentationcenter: na
-author: ggailey777
+author: craigshoemaker
 manager: jeconnoc
 keywords: Azure işlevleri, İşlevler, olay işleme dinamik işlem, sunucusuz mimari
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
 ms.date: 07/09/2018
-ms.author: glenga
+ms.author: cshoe
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0a0c9fafc9db0c4361d0b1b51b15979e8fe33e27
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: 9832281b586bf4377096ff28362b4fc180480aea
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50086014"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50246153"
 ---
 # <a name="twilio-binding-for-azure-functions"></a>Azure işlevleri için Twilio bağlama
 
@@ -122,7 +122,7 @@ public static void Run(string myQueueItem, out SMSMessage message,  TraceWriter 
 }
 ```
 
-Out Parametreleri zaman uyumsuz kod kullanamazsınız. Zaman uyumsuz C# betik kodunu örneği aşağıda verilmiştir:
+Out Parametreleri eş zamanlı kod içinde kullanamazsınız. Zaman uyumsuz C# betik kodunu örneği aşağıda verilmiştir:
 
 ```cs
 #r "Newtonsoft.Json"
@@ -216,20 +216,31 @@ Dile özgü örneğe bakın:
 Aşağıdaki örnekte gösterildiği bir [C# işlevi](functions-dotnet-class-library.md) bir kuyruk iletisi tarafından tetiklendiğinde bir kısa mesaj gönderir.
 
 ```cs
-[FunctionName("QueueTwilio")]
-[return: TwilioSms(AccountSidSetting = "TwilioAccountSid", AuthTokenSetting = "TwilioAuthToken", From = "+1425XXXXXXX" )]
-public static CreateMessageOptions Run(
-    [QueueTrigger("myqueue-items", Connection = "AzureWebJobsStorage")] JObject order,
-    ILogger log)
+using Microsoft.Azure.WebJobs;
+using Microsoft.Extensions.Logging;
+using Newtonsoft.Json.Linq;
+using Twilio.Rest.Api.V2010.Account;
+using Twilio.Types;
+namespace TwilioQueueOutput
 {
-    log.LogInformation($"C# Queue trigger function processed: {order}");
-
-    var message = new CreateMessageOptions(new PhoneNumber(order["mobileNumber"].ToString()))
+    public static class QueueTwilio
     {
-        Body = $"Hello {order["name"]}, thanks for your order!"
-    };
+        [FunctionName("QueueTwilio")]
+        [return: TwilioSms(AccountSidSetting = "TwilioAccountSid", AuthTokenSetting = "TwilioAuthToken", From = "+1425XXXXXXX")]
+        public static CreateMessageOptions Run(
+        [QueueTrigger("myqueue-items", Connection = "AzureWebJobsStorage")] JObject order,
+        ILogger log)
+        {
+            log.LogInformation($"C# Queue trigger function processed: {order}");
 
-    return message;
+            var message = new CreateMessageOptions(new PhoneNumber(order["mobileNumber"].ToString()))
+            {
+                Body = $"Hello {order["name"]}, thanks for your order!"
+            };
+
+            return message;
+        }
+    }
 }
 ```
 
@@ -247,9 +258,8 @@ Veri bağlama işte *function.json* dosyası:
 {
   "type": "twilioSms",
   "name": "message",
-  "accountSid": "TwilioAccountSid",
-  "authToken": "TwilioAuthToken",
-  "to": "+1704XXXXXXX",
+  "accountSidSetting": "TwilioAccountSid",
+  "authTokenSetting": "TwilioAuthToken",
   "from": "+1425XXXXXXX",
   "direction": "out",
   "body": "Azure Functions Testing"
@@ -260,11 +270,13 @@ C# betik kodunu şu şekildedir:
 
 ```cs
 #r "Newtonsoft.Json"
-#r "Twilio.Api"
+#r "Twilio"
+#r "Microsoft.Azure.WebJobs.Extensions.Twilio"
 
 using System;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
+using Microsoft.Azure.WebJobs.Extensions.Twilio;
 using Twilio.Rest.Api.V2010.Account;
 using Twilio.Types;
 
@@ -277,27 +289,26 @@ public static void Run(string myQueueItem, out CreateMessageOptions message,  IL
     dynamic order = JsonConvert.DeserializeObject(myQueueItem);
     string msg = "Hello " + order.name + ", thank you for your order.";
 
-    // Even if you want to use a hard coded message and number in the binding, you must at least
-    // initialize the CreateMessageOptions variable.
+    // You must initialize the CreateMessageOptions variable with the "To" phone number.
     message = new CreateMessageOptions(new PhoneNumber("+1704XXXXXXX"));
 
     // A dynamic message can be set instead of the body in the output binding. In this example, we use
-    // the order information to personalize a text message to the mobile number provided for
-    // order status updates.
+    // the order information to personalize a text message.
     message.Body = msg;
-    message.To = order.mobileNumber;
 }
 ```
 
-Out Parametreleri zaman uyumsuz kod kullanamazsınız. Zaman uyumsuz C# betik kodunu örneği aşağıda verilmiştir:
+Out Parametreleri eş zamanlı kod içinde kullanamazsınız. Zaman uyumsuz C# betik kodunu örneği aşağıda verilmiştir:
 
 ```cs
 #r "Newtonsoft.Json"
-#r "Twilio.Api"
+#r "Twilio"
+#r "Microsoft.Azure.WebJobs.Extensions.Twilio"
 
 using System;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
+using Microsoft.Azure.WebJobs.Extensions.Twilio;
 using Twilio.Rest.Api.V2010.Account;
 using Twilio.Types;
 
@@ -310,15 +321,12 @@ public static async Task Run(string myQueueItem, IAsyncCollector<CreateMessageOp
     dynamic order = JsonConvert.DeserializeObject(myQueueItem);
     string msg = "Hello " + order.name + ", thank you for your order.";
 
-    // Even if you want to use a hard coded message and number in the binding, you must at least
-    // initialize the CreateMessageOptions variable.
+    // You must initialize the CreateMessageOptions variable with the "To" phone number.
     CreateMessageOptions smsText = new CreateMessageOptions(new PhoneNumber("+1704XXXXXXX"));
 
     // A dynamic message can be set instead of the body in the output binding. In this example, we use
-    // the order information to personalize a text message to the mobile number provided for
-    // order status updates.
+    // the order information to personalize a text message.
     smsText.Body = msg;
-    smsText.To = order.mobileNumber;
 
     await message.AddAsync(smsText);
 }
@@ -336,9 +344,8 @@ Veri bağlama işte *function.json* dosyası:
 {
   "type": "twilioSms",
   "name": "message",
-  "accountSid": "TwilioAccountSid",
-  "authToken": "TwilioAuthToken",
-  "to": "+1704XXXXXXX",
+  "accountSidSetting": "TwilioAccountSid",
+  "authTokenSetting": "TwilioAuthToken",
   "from": "+1425XXXXXXX",
   "direction": "out",
   "body": "Azure Functions Testing"
@@ -355,13 +362,12 @@ module.exports = function (context, myQueueItem) {
     // customer and a mobile number to send text updates to.
     var msg = "Hello " + myQueueItem.name + ", thank you for your order.";
 
-    // Even if you want to use a hard coded message and number in the binding, you must at least
+    // Even if you want to use a hard coded message in the binding, you must at least
     // initialize the message binding.
     context.bindings.message = {};
 
-    // A dynamic message can be set instead of the body in the output binding. In this example, we use
-    // the order information to personalize a text message to the mobile number provided for
-    // order status updates.
+    // A dynamic message can be set instead of the body in the output binding. The "To" number 
+    // must be specified in code. 
     context.bindings.message = {
         body : msg,
         to : myQueueItem.mobileNumber
@@ -379,13 +385,9 @@ Yapılandırabileceğiniz öznitelik özellikleri hakkında daha fazla bilgi iç
 
 ```csharp
 [FunctionName("QueueTwilio")]
-[return: TwilioSms(
-    AccountSidSetting = "TwilioAccountSid", 
-    AuthTokenSetting = "TwilioAuthToken", 
-    From = "+1425XXXXXXX" )]
-public static SMSMessage Run(
-    [QueueTrigger("myqueue-items", Connection = "AzureWebJobsStorage")] JObject order,
-    ILogger log)
+[return: TwilioSms(AccountSidSetting = "TwilioAccountSid", AuthTokenSetting = "TwilioAuthToken", From = "+1425XXXXXXX")]
+public static CreateMessageOptions Run(
+[QueueTrigger("myqueue-items", Connection = "AzureWebJobsStorage")] JObject order, ILogger log)
 {
     ...
 }
@@ -397,16 +399,16 @@ Tam bir örnek için bkz. [C# örneği](#c-example).
 
 Aşağıdaki tabloda ayarladığınız bağlama yapılandırma özelliklerini açıklayan *function.json* dosya ve `TwilioSms` özniteliği.
 
-|Function.JSON özelliği | Öznitelik özelliği |Açıklama|
-|---------|---------|----------------------|
-|**type**|| Ayarlanmalıdır `twilioSms`.|
-|**direction**|| Ayarlanmalıdır `out`.|
-|**Adı**|| İşlev kodu için Twilio SMS mesajı kullanılan değişken adı. |
-|**accountSid**|**accountSid**| Bu değer, Twilio hesap SID'si tutan bir uygulama ayarı adı için ayarlamanız gerekir.|
-|**authToken**|**AuthToken**| Bu değer, Twilio kimlik doğrulama belirtecinizi içeren uygulama ayarı adı için ayarlamanız gerekir.|
-|**Hedef**|**Alıcı**| Bu değer, telefon numarasına gönderilen SMS metni ayarlanır.|
-|**Kaynak**|**Kaynak**| SMS metni gönderildiği telefon numarası için bu değeri ayarlayın.|
-|**Gövde**|**Gövde**| Bu değer, işleviniz için kodda dinamik olarak ayarlamak gerekmiyorsa, SMS mesajı sabit kod için kullanılabilir. |
+| V1 function.json özelliği | v2 function.json özelliği | Öznitelik özelliği |Açıklama|
+|---------|---------|---------|----------------------|
+|**type**|**type**| Ayarlanmalıdır `twilioSms`.|
+|**direction**|**direction**| Ayarlanmalıdır `out`.|
+|**Adı**|**Adı**| İşlev kodu için Twilio SMS mesajı kullanılan değişken adı. |
+|**accountSid**|**accountSidSetting**| **AccountSidSetting**| Bu değer, örneğin, Twilio hesap SID'si tutan bir uygulama ayarı adı için TwilioAccountSid ayarlanmalıdır. Ayarlanmazsa, varsayılan uygulama ayarı adı "AzureWebJobsTwilioAccountSid" dir. |
+|**authToken**|**authTokenSetting**|**AuthTokenSetting**| Bu değer, örneğin Twilio kimlik doğrulama belirtecinizi içeren uygulama ayarı adı için TwilioAccountAuthToken ayarlanmalıdır. Ayarlanmazsa, varsayılan uygulama ayarı adı "AzureWebJobsTwilioAuthToken" dir. |
+|**Hedef**| Yok - kodda belirtme | **Alıcı**| Bu değer, telefon numarasına gönderilen SMS metni ayarlanır.|
+|**Kaynak**|**Kaynak** | **Kaynak**| SMS metni gönderildiği telefon numarası için bu değeri ayarlayın.|
+|**Gövde**|**Gövde** | **Gövde**| Bu değer, işleviniz için kodda dinamik olarak ayarlamak gerekmiyorsa, SMS mesajı sabit kod için kullanılabilir. |  
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 

@@ -11,14 +11,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/20/2018
+ms.date: 10/30/2018
 ms.author: alkohli
-ms.openlocfilehash: 5da67b5141eb61823d3e376b6f0e6b0b3895ca68
-ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
+ms.openlocfilehash: 5166e154e1a67cea777933b6bf8757661a9c3ad5
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/20/2018
-ms.locfileid: "46498292"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50242968"
 ---
 # <a name="options-to-migrate-data-from-storsimple-5000-7000-series"></a>5000-7000 Serisi Storsimple'dan verileri geçirmeye seçenekleri 
 
@@ -29,15 +29,21 @@ StorSimple 5000-7000 Serisi ulaşmasını [destek sonu](https://support.microsof
 
 ## <a name="migration-options"></a>Geçiş seçenekleri
 
-StorSimple'ı kullanan müşteriler, 5000-7000 Serisi aşağıdaki iki anahtar seçenekleriniz vardır:
+StorSimple 5000-7000 Serisi kullanan müşteriler aşağıdaki seçenekleriniz vardır:
 
-- **StorSimple 8000 serisi için yükseltme** : yükseltme için StorSimple 8000 serisi ve bu nedenle StorSimple platformunda devam edin.  Bu yükseltme yolunu bir 8000 serisi, 5000-7000 Serisi cihazlar yerine müşterilerinize gerektirir. Veriler, 5000-7000 Serisi CİHAZDAN geçiş aracını kullanarak geçirilir. Taşıma başarıyla tamamlandıktan sonra StorSimple 8000 serisi cihazlar katman verileri Azure Blob Depolama'ya devam eder. 
+- **Azure seçenekleri**:
+
+    - **StorSimple 8000 serisi için yükseltme** : yükseltme için StorSimple 8000 serisi ve bu nedenle StorSimple platformunda devam edin.  Bu yükseltme yolunu bir 8000 serisi, 5000-7000 Serisi cihazlar yerine müşterilerinize gerektirir. Veriler, 5000-7000 Serisi CİHAZDAN geçiş aracını kullanarak geçirilir. Taşıma başarıyla tamamlandıktan sonra StorSimple 8000 serisi cihazlar katman verileri Azure Blob Depolama'ya devam eder. 
 
     StorSimple 8000 serisi kullanarak verileri geçirme hakkında daha fazla bilgi için Git [veri Storsimple'dan 5000-7000 Serisi için 8000 serisi cihaz geçirme](storsimple-8000-migrate-from-5000-7000.md).
 
-- **Azure dosya eşitleme için geçirme** – bu yeni müşteriler kendi kuruluşunuzun dosya paylaşımlarını Azure dosyaları depolamak geçiş seçeneği sağlar. Bu dosya paylaşımlarını Azure dosya eşitleme (AFS) kullanarak şirket içi erişim için ardından toplanmıştır. Windows Server ana bilgisayarında AFS dağıtılabilir. Gerçek veri geçişinin ardından konak olarak gerçekleştirilir kopyalama veya Taşıma Aracı'nı kullanma.
+    - **Azure dosya eşitleme için geçirme** – bu yeni müşteriler kendi kuruluşunuzun dosya paylaşımlarını Azure dosyaları depolamak geçiş seçeneği sağlar. Bu dosya paylaşımlarını Azure dosya eşitleme (AFS) kullanarak şirket içi erişim için ardından toplanmıştır. Windows Server ana bilgisayarında AFS dağıtılabilir. Gerçek veri geçişinin ardından konak olarak gerçekleştirilir kopyalama veya Taşıma Aracı'nı kullanma.
 
     Verileri geçirmek için Azure dosya eşitleme hakkında daha fazla bilgi için Git [veri Storsimple'dan 5000-7000 Serisi için Azure dosya eşitleme taşıma](https://aka.ms/StorSimpleMigrationAFS).
+
+- **Üçüncü taraf seçenekleri**:
+
+    - **Geçirmek için Panzura özgürlük NAS** -StorSimple 5000-7000 müşterilerin kendi verilerini Azure'da korumak için Panzura özgürlük NAS geçirmek için seçebilirsiniz. Panzura özgürlük çözüm yayılan veri merkezleri, ofisleri, genel ve özel bulutların bir NAS çözümü sağlar. Çözüm, NFS, SMB ve mobil istemciler için yerel, karma ve bulut data iş akışları sağlar. Bu geçiş Panzura tarafından desteklenir ve geçiş desteği'nden isteyerek müşteriler başlayabilirsiniz [Panzura Web sitesi](https://panzura.com/storsimple-migration/).
 
 ## <a name="migration---frequently-asked-questions"></a>Geçişi - sık sorulan sorular
 
@@ -50,11 +56,11 @@ A. StorSimple 5000-7000 Serisi ulaşmak [hizmet sonuna](https://support.microsof
 A. Daha yeni bir hizmete geçirdikten sonra verileri Azure'da kullanmaya devam edebilirsiniz. 
 
 
-### <a name="q--what-happens-to-the-data-i-have-stored-locally-on-my-storsimple-device"></a>S.  StorSimple cihazımda depolanan yerel olarak verileri ne olur? 
+### <a name="q-what-happens-to-the-data-i-have-stored-locally-on-my-storsimple-device"></a>S. StorSimple cihazımda depolanan yerel olarak verileri ne olur? 
 
 A. Geçiş belgelerinde açıklanan şekilde yeni hizmet yerel cihazda veri kopyalanabilir.
 
-### <a name="what-happens-if-i-want-to-keep-my-storsimple-50007000-series-appliance"></a>My StorSimple 5000/7000 Serisi Gereci tutmak istiyorsanız ne olacak? 
+### <a name="q-what-happens-if-i-want-to-keep-my-storsimple-50007000-series-appliance"></a>S. My StorSimple 5000/7000 Serisi Gereci tutmak istiyorsanız ne olacak? 
 
 A. Hizmetlerin çalışmaya devam edebilir ancak Microsoft artık donanım ve yazılım destek sağlamak mümkün olacaktır. Geçiş için iş sürekliliği önemle tavsiye edilir.
 

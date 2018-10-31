@@ -8,16 +8,16 @@ ms.date: 06/06/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: a65eb029dbf10b194bd28bf7ad82f5aa839338a2
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: beb7574653375024f36912c4b3a37b01d2f59bd5
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46990629"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50248413"
 ---
-# <a name="learn-how-to-use-deployment-manifests-to-deploy-modules-and-establish-routes"></a>Dağıtım bildirimleri, modülleri dağıtma ve yollar kurmak için kullanmayı öğrenin
+# <a name="learn-how-to-deploy-modules-and-establish-routes-in-iot-edge"></a>IOT Edge'de yollar oluşturmak ve modülleri dağıtma hakkında bilgi edinin
 
-Her IOT Edge cihazı en az iki modüllerini çalıştırır: IOT Edge çalışma zamanını oluşturan $edgeAgent ve $edgeHub,. Bu standart iki ek olarak, tüm IOT Edge cihazı herhangi bir sayıda işlemleri gerçekleştirmek için birden çok modül çalıştırabilirsiniz. Bu modülleri bir cihaza aynı anda dağıttığınızda, hangi modüllerin dahil edilir ve birbiriyle nasıl etkileşim kurduklarını bildirmek için bir yol gerekir. 
+Her IOT Edge cihazı en az iki modüllerini çalıştırır: IOT Edge çalışma zamanını oluşturan $edgeAgent ve $edgeHub,. Ayrıca, tüm IOT Edge cihazı herhangi bir sayıda işlemleri gerçekleştirmek için birden çok modül çalıştırabilirsiniz. Bu modülleri bir cihaza aynı anda dağıttığınızda, hangi modüllerin dahil edilir ve birbiriyle nasıl etkileşim kurduklarını bildirmek için bir yol gerekir. 
 
 *Dağıtım bildirimi* açıklayan bir JSON belgesidir:
 
@@ -27,7 +27,7 @@ Her IOT Edge cihazı en az iki modüllerini çalıştırır: IOT Edge çalışma
 
 Tüm IOT Edge cihazları, bir dağıtım bildirimi ile yapılandırılmış olması gerekmez. Yeni yüklenen bir IOT Edge çalışma zamanı, geçerli bir bildirim ile yapılandırılana kadar bir hata kodu bildirir. 
 
-Azure IOT Edge öğreticilerde, Azure IOT Edge Portalı'nda bir Sihirbazı aracılığıyla giderek bir dağıtım bildirimi oluşturun. Ayrıca, REST veya IOT Hub hizmeti SDK'sını kullanarak program aracılığıyla bir dağıtım bildirimi de uygulayabilirsiniz. Daha fazla bilgi için [IOT Edge dağıtımlarını anlama][lnk-deploy].
+Azure IOT Edge öğreticilerde, Azure IOT Edge Portalı'nda bir Sihirbazı aracılığıyla giderek bir dağıtım bildirimi oluşturun. Ayrıca, REST veya IOT Hub hizmeti SDK'sını kullanarak program aracılığıyla bir dağıtım bildirimi de uygulayabilirsiniz. Daha fazla bilgi için [IOT Edge dağıtımlarını anlama](module-deployment-monitoring.md).
 
 ## <a name="create-a-deployment-manifest"></a>Bir dağıtım bildirimi oluşturma
 
@@ -138,7 +138,7 @@ Kaynak iletileri nereden geldiğini belirtir. Aşağıdaki değerlerden biri ola
 | `/messages/modules/{moduleId}/outputs/{output}` | {Moduleıd} kullanarak {çıkış} gönderilen herhangi bir CİHAZDAN buluta ileti |
 
 ### <a name="condition"></a>Koşul
-Koşul, bir rota bildiriminde isteğe bağlıdır. Kaynak havuz tüm iletileri geçirmek istiyorsanız, yalnızca dışlamayı **burada** yan tümcesi tamamen. Ya da [IOT Hub sorgu dili] [ lnk-iothub-query] belirli iletileri veya koşulu karşılayan ileti türlerini filtrelemek için.
+Koşul, bir rota bildiriminde isteğe bağlıdır. Kaynak havuz tüm iletileri geçirmek istiyorsanız, yalnızca dışlamayı **burada** yan tümcesi tamamen. Ya da [IOT Hub sorgu dili](../iot-hub/iot-hub-devguide-routing-query-syntax.md) belirli iletileri veya koşulu karşılayan ileti türlerini filtrelemek için.
 
 IOT edge'deki modüller arasında iletileri aynı şekilde Azure IOT Hub ve cihazlar arasında iletileri biçimlendirilir. Tüm iletileri JSON biçimindedir ve sahip **systemProperties**, **appProperties**, ve **gövdesi** parametreleri. 
 
@@ -262,10 +262,4 @@ Bu örnek bir dağıtım bildirimi JSON belgesi olarak.
 
 * $EdgeAgent ve $edgeHub eklenmelidir ya da özellikler tam bir listesi için bkz. [Edge aracısı ve Edge hub'ı özelliklerini](module-edgeagent-edgehub.md).
 
-* IOT Edge modüllerinin nasıl kullanıldığı, öğrendiğinize göre [IOT Edge modülleri geliştirmek için Araçlar ve gereksinimleri anlamak][lnk-module-dev].
-
-[lnk-deploy]: module-deployment-monitoring.md
-[lnk-iothub-query]: ../iot-hub/iot-hub-devguide-routing-query-syntax.md
-[lnk-docker-create-options]: https://docs.docker.com/engine/api/v1.32/#operation/ContainerCreate
-[lnk-docker-logging-options]: https://docs.docker.com/engine/admin/logging/overview/
-[lnk-module-dev]: module-development.md
+* IOT Edge modüllerinin nasıl kullanıldığı, öğrendiğinize göre [IOT Edge modülleri geliştirmek için Araçlar ve gereksinimleri anlamak](module-development.md).

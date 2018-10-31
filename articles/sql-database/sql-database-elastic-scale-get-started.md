@@ -2,19 +2,22 @@
 title: Elastik veritabanı araçları - Azure ile çalışmaya başlama | Microsoft Docs
 description: Bir kolayca çalışma örnek uygulamasını dahil olmak üzere, Azure SQL veritabanı'nın elastik veritabanı araçları özelliğini temel açıklaması.
 services: sql-database
-manager: craigg
-author: anumjs
 ms.service: sql-database
-ms.custom: scale out apps
+ms.subservice: elastic-scale
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 08/27/2018
+author: anumjs
 ms.author: anjangsh
-ms.openlocfilehash: 778d08f6154b999215f27b765560b7394c2cd59b
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.reviewer: ''
+manager: craigg
+ms.date: 08/27/2018
+ms.openlocfilehash: 74bbaeeee390952bf42407a53684bc33a7cfc543
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43123392"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50242782"
 ---
 # <a name="get-started-with-elastic-database-tools"></a>Esnek veritabanı araçlarını kullanmaya başlayın
 Bu belge, geliştirici deneyimini tanıtır [elastik veritabanı istemci Kitaplığı](sql-database-elastic-database-client-library.md) yardımcı olarak örnek uygulamasını çalıştırın. Örnek uygulama, basit bir parçalı uygulama oluşturur ve Azure SQL veritabanı'nın elastik veritabanı araçları özelliği'nin önemli özelliklerini açıklar. Kullanım durumları için odaklanır [parça eşleme Yönetimi](sql-database-elastic-scale-shard-map-management.md), [verilere bağımlı yönlendirme](sql-database-elastic-scale-data-dependent-routing.md), ve [çok parçalı sorgulama](sql-database-elastic-scale-multishard-querying.md). İstemci Kitaplığı, Java yanı sıra .NET için kullanılabilir. 

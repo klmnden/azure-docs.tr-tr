@@ -1,8 +1,8 @@
 ---
-title: SD Medya Kodlayıcısı standart hazır H264 Çoklu bit hızı 4 x 3 - Azure | Microsoft Docs
-description: Konuyu genel bir fikir veren **H264 Çoklu bit hızı 4 x 3 SD** görev Önayar.
+title: H264 tekli bit hızı 4 x 3 SD Media Encoder Standard hazır - Azure | Microsoft Docs
+description: Konusuna genel bir fikir veren **H264 tekli bit hızı 4 x 3 SD** görev hazır.
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 services: media-services
 documentationcenter: ''
@@ -12,21 +12,21 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/20/2017
+ms.date: 10/30/2018
 ms.author: juliako
-ms.openlocfilehash: 61fac597c6e9ee425cedd1df2d819acebb148280
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: e9d400de159048a5eb72d8f674cbbf9c42d50e17
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33788245"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50247165"
 ---
-# <a name="h264-single-bitrate-4x3-sd"></a>H264 Çoklu bit hızı 4 x 3 SD
-`Media Encoder Standard` kodlama işler oluştururken kullanabileceğiniz hazır kodlama kümesi tanımlar. Kullanabilir bir `preset name` hangi biçimine medya dosyanızın kodlamak istediğiniz belirtmek için. Veya, kendi JSON veya XML tabanlı hazır (UTF-8 veya UTF-16 kodlamasını kullanıyor. oluşturabilirsiniz Ardından kodlayıcıya önceden özel geçirirsiniz. Bu tarafından desteklenen tüm hazır adlarının listesi için `Media Encoder Standard` encoder bkz [Medya Kodlayıcısı standart için görev hazır](media-services-mes-presets-overview.md).  
+# <a name="h264-single-bitrate-4x3-sd"></a>H264 Tekli bit hızı 4 x 3 SD
+`Media Encoder Standard` kodlama işi oluştururken kullanabileceğiniz hazır kodlama kümesi tanımlar. Kullanabilir bir `preset name` hangi biçimine medya dosyanızı kodlamak istediğiniz belirtmek için. Veya kendi JSON veya XML tabanlı hazır (UTF-8 veya UTF-16 kodlamasını kullanıyor. oluşturabilirsiniz Ardından kodlayıcıya hazır özel geçirmeniz gerekir. Bu tarafından desteklenen tüm hazır adlarının listesi için `Media Encoder Standard` Kodlayıcı bkz [Media Encoder Standard için görev ön ayarları](media-services-mes-presets-overview.md).  
   
- Bu konuda gösterilmektedir `H264 Single Bitrate 4x3 SD` XML ve JSON biçiminde hazır.  
+ Bu konu başlığı altında gösterilir `H264 Single Bitrate 4x3 SD` XML ve JSON biçiminde hazır.  
   
- Bu hazır üretir tek bir MP4 dosyası ile 1800 kbps stereo AAC ses ve bit hızı. Profili hakkında ayrıntılı bilgi için örnekleme hızını bu vb. bit hızı, önceden, XML veya JSON aşağıda tanımlanan inceleyin. Her öğe için hangi her bir öğe bu hazır anlamına gelir ve geçerli değerleri açıklamalar için bkz [Medya Kodlayıcısı standart şema](media-services-mes-schema.md) konu.  
+ Bir bit hızı 1800 kbps stereo AAC ses ve bu hazır oluşturan tek bir MP4 dosya. Profili hakkında ayrıntılı bilgi için örnekleme hızını, vb. Bu bit hızı, hazır, XML veya JSON aşağıda tanımlanan inceleyin. Bu hazır anlamına gelir ve geçerli değerler her hangi bir öğenin her öğe için açıklamalar için bkz [Media Encoder Standard şeması](media-services-mes-schema.md) konu.  
   
  XML  
   

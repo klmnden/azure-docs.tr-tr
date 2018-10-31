@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/21/2017
 ms.author: bwren;dairwin
-ms.openlocfilehash: 6fc6afa9c0ccbddcfa408556dee92618fe63c8fb
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: b9146bfc284a469f12eb626c2434f4afe52335dc
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49407121"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50250471"
 ---
 # <a name="service-map-integration-with-system-center-operations-manager"></a>System Center Operations Manager ile hizmet eşlemesi tümleştirme
   > [!NOTE]
@@ -53,19 +53,19 @@ Hizmet eşlemesi tümleştirmesini yapılandırmak için aşağıdakileri yapın
 
 1. Yapılandırma Sihirbazı'nı açmak için **Service Map genel bakış** bölmesinde tıklayın **çalışma ekleme**.  
 
-    ![Hizmet eşlemesi genel bakış bölmesi](media/monitoring-service-map/scom-configuration.png)
+    ![Hizmet eşlemesi genel bakış bölmesi](media/monitoring-service-map-scom/scom-configuration.png)
 
 2. İçinde **bağlantı yapılandırması** penceresinde, Kiracı adı veya kimliği, uygulama kimliği (kullanıcı adı veya ClientID olarak da bilinir) ve hizmet sorumlusu parolasını girin ve ardından **sonraki**. Daha fazla bilgi için Git [hizmet sorumlusu oluşturma](#creating-a-service-principal).
 
-    ![Bağlantı Yapılandırması penceresi](media/monitoring-service-map/scom-config-spn.png)
+    ![Bağlantı Yapılandırması penceresi](media/monitoring-service-map-scom/scom-config-spn.png)
 
 3. İçinde **abonelik seçimi** penceresinde Azure aboneliği, Azure kaynak grubu (Log Analytics çalışma alanı içeren bir) ve Log Analytics çalışma alanı seçin ve ardından **sonraki**.
 
-    ![Operations Manager yapılandırma çalışma alanı](media/monitoring-service-map/scom-config-workspace.png)
+    ![Operations Manager yapılandırma çalışma alanı](media/monitoring-service-map-scom/scom-config-workspace.png)
 
 4. İçinde **makine grubu seçimi** penceresinde Operations Manager'a eşitlemek istediğiniz hangi hizmet eşlemesi makine gruplarını seçin. Tıklayın **makine gruplarını Ekle/Kaldır**, grupları listesinden seçim **kullanılabilir makine grupları**, tıklatıp **Ekle**.  Grupları seçme işiniz bittiğinde, tıklayın **Tamam** tamamlanması.
     
-    ![Operations Manager yapılandırma makine grupları](media/monitoring-service-map/scom-config-machine-groups.png)
+    ![Operations Manager yapılandırma makine grupları](media/monitoring-service-map-scom/scom-config-machine-groups.png)
     
 5. İçinde **sunucu seçimi** penceresinde, yapılandırdığınız hizmet eşleme sunucuları grubu ile Operations Manager ve hizmet eşlemesi arasında eşitlemek istediğiniz sunucuları. Tıklayın **sunucuları ekleme/kaldırma**.   
     
@@ -75,36 +75,36 @@ Hizmet eşlemesi tümleştirmesini yapılandırmak için aşağıdakileri yapın
     * Hizmet eşlemesi tarafından yönetilen
     * Hizmet eşleme sunucuları grubu içinde listelenen
 
-    ![Operations Manager Yapılandırma grubu](media/monitoring-service-map/scom-config-group.png)
+    ![Operations Manager Yapılandırma grubu](media/monitoring-service-map-scom/scom-config-group.png)
 
 6. İsteğe bağlı: Log Analytics ile iletişim kurmak için yönetim sunucusu kaynak havuzu seçin ve ardından **çalışma alanı Ekle**.
 
-    ![Operations Manager yapılandırma kaynak havuzu](media/monitoring-service-map/scom-config-pool.png)
+    ![Operations Manager yapılandırma kaynak havuzu](media/monitoring-service-map-scom/scom-config-pool.png)
 
     Bunu yapılandırmak ve Log Analytics çalışma alanı kaydetmek için bir dakika sürebilir. Yapılandırıldıktan sonra Operations Manager ilk hizmet eşlemesi eşitleme başlatır.
 
-    ![Operations Manager yapılandırma kaynak havuzu](media/monitoring-service-map/scom-config-success.png)
+    ![Operations Manager yapılandırma kaynak havuzu](media/monitoring-service-map-scom/scom-config-success.png)
 
 
 ## <a name="monitor-service-map"></a>İzleyici hizmet eşlemesi
 Log Analytics çalışma alanı bağlandıktan sonra hizmet eşlemesi, yeni bir klasör görüntülenen **izleme** Operations Manager konsolunda bölmesinin.
 
-![Operations Manager izleme bölmesinde](media/monitoring-service-map/scom-monitoring.png)
+![Operations Manager izleme bölmesinde](media/monitoring-service-map-scom/scom-monitoring.png)
 
 Hizmet eşlemesi klasörü dört düğümünüz vardır:
 * **Etkin uyarılar**: tüm etkin uyarıları Operations Manager ve hizmet eşlemesi arasındaki iletişimle ilgili listeler.  Bu uyarıları Not, Log Analytics için Operations Manager eşitlendiğinden uyarır. 
 
 * **Sunucuları**: yapılandırılmış izlenen sunuculara listeler için hizmet eşlemesi eşitleme.
 
-    ![Operations Manager izleme sunucuları bölmesi](media/monitoring-service-map/scom-monitoring-servers.png)
+    ![Operations Manager izleme sunucuları bölmesi](media/monitoring-service-map-scom/scom-monitoring-servers.png)
 
 * **Makine grubu bağımlılık görünümleri**: hizmet eşlemesinden eşitlenen tüm makine grupları listeler. Dağıtılmış uygulama diyagramını görüntülemek için herhangi bir grubu tıklayabilirsiniz.
 
-    ![Operations Manager dağıtılmış uygulama diyagramını](media/monitoring-service-map/scom-group-dad.png)
+    ![Operations Manager dağıtılmış uygulama diyagramını](media/monitoring-service-map-scom/scom-group-dad.png)
 
 * **Server bağımlılık görünümleri**: hizmet eşlemesinden eşitlenen tüm sunucuları listeler. Dağıtılmış uygulama diyagramını görüntülemek için herhangi bir sunucu tıklayabilirsiniz.
 
-    ![Operations Manager dağıtılmış uygulama diyagramını](media/monitoring-service-map/scom-dad.png)
+    ![Operations Manager dağıtılmış uygulama diyagramını](media/monitoring-service-map-scom/scom-dad.png)
 
 ## <a name="edit-or-delete-the-workspace"></a>Düzenleme veya çalışma alanını silme
 Düzenleyebilir veya aracılığıyla yapılandırılan çalışma alanını silmek **Service Map genel bakış** bölmesinde (**Yönetim** bölmesinde > **Operations Management Suite**  >  **Hizmet eşlemesi**).
@@ -114,12 +114,12 @@ Düzenleyebilir veya aracılığıyla yapılandırılan çalışma alanını sil
 
 Şu an için yalnızca bir Log Analytics çalışma alanı yapılandırabilirsiniz.
 
-![Operations Manager çalışma alanını düzenleme bölmesi](media/monitoring-service-map/scom-edit-workspace.png)
+![Operations Manager çalışma alanını düzenleme bölmesi](media/monitoring-service-map-scom/scom-edit-workspace.png)
 
 ## <a name="configure-rules-and-overrides"></a>Kuralları ve geçersiz kılmaları yapılandırma
 Bir kural _Microsoft.SystemCenter.ServiceMapImport.Rule_, düzenli aralıklarla hizmet eşlemesinden bilgileri getirmek için oluşturulur. Eşitleme zamanlamalarını değiştirmek için kural geçersiz kılma yapılandırabilirsiniz (**yazma** bölmesinde > **kuralları** > **Microsoft.SystemCenter.ServiceMapImport.Rule**) .
 
-![Operations Manager geçersiz kılan özellikler penceresi](media/monitoring-service-map/scom-overrides.png)
+![Operations Manager geçersiz kılan özellikler penceresi](media/monitoring-service-map-scom/scom-overrides.png)
 
 * **Etkin**: etkinleştirmek veya Otomatik Güncelleştirmeler devre dışı bırakın. 
 * **IntervalMinutes**: güncelleştirmeler arasındaki süre sıfırlayın. Varsayılan aralığı bir saattir. Sunucu haritalar daha sık eşitleme istiyorsanız, değeri değiştirebilirsiniz.

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/06/2016
 ms.author: cephalin
-ms.openlocfilehash: 049f5211e800dace4b8968cd9e3db9ad968f8813
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: c4071da60ed1311d8dd75d6a369c48cf711778cb
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43050755"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50243223"
 ---
 # <a name="provision-and-deploy-microservices-predictably-in-azure"></a>Sağlayın ve tahmin edilebilir bir biçimde azure'da mikro Hizmetleri dağıtın
 Bu öğreticide, sağlamak ve oluşan bir uygulamayı dağıtmak gösterilir [mikro Hizmetler](https://en.wikipedia.org/wiki/Microservices) içinde [Azure App Service](https://azure.microsoft.com/services/app-service/) tek bir birim olarak ve JSON kaynak grubu şablonları kullanarak tahmin edilebilir bir biçimde ve PowerShell komut dosyası. 
@@ -148,7 +148,7 @@ Uygulama ayarları, ayrıca iç içe geçmiş bir kaynak olarak tanımlanır.
 
 ![](./media/app-service-deploy-complex-application-predictably/examinejson-6-webappsettings.png)
 
-İçinde `properties` öğesi için `config/appsettings`, iki uygulama ayarı biçiminde sahip `“<name>” : “<value>”`.
+İçinde `properties` öğesi için `config/appsettings`, iki uygulama ayarı biçiminde sahip `"<name>" : "<value>"`.
 
 * `PROJECT` olan bir [KUDU ayarı](https://github.com/projectkudu/kudu/wiki/Customizing-deployments) hangi proje çoklu proje Visual Studio çözümü içinde kullanmak için Azure dağıtım söyler. Ben, kaynak denetimi daha sonra nasıl yapılandırıldığını gösterir, ancak ToDoApp kodu birden çok proje Visual Studio çözümü içinde olduğundan, bu ayar yapmamız gerekir.
 * `clientUrl` uygulama kodu ayarı olarak yalnızca bir uygulama kullanılır.
@@ -158,7 +158,7 @@ Bağlantı dizelerini, ayrıca iç içe geçmiş bir kaynak olarak tanımlanır.
 
 ![](./media/app-service-deploy-complex-application-predictably/examinejson-7-webappconnstr.png)
 
-İçinde `properties` öğesi için `config/connectionstrings`, her bağlantı dizesini de belirli biçiminde bir ad: değer çifti olarak tanımlanan `“<name>” : {“value”: “…”, “type”: “…”}`. İçin `type` öğesi, olası değerler `MySql`, `SQLServer`, `SQLAzure`, ve `Custom`.
+İçinde `properties` öğesi için `config/connectionstrings`, her bağlantı dizesini de belirli biçiminde bir ad: değer çifti olarak tanımlanan `"<name>" : {"value": "…", "type": "…"}`. İçin `type` öğesi, olası değerler `MySql`, `SQLServer`, `SQLAzure`, ve `Custom`.
 
 > [!TIP]
 > Bağlantı dizesi türleri eksiksiz bir listesi için Azure PowerShell'de aşağıdaki komutu çalıştırın: \[Enum]::GetNames("Microsoft.WindowsAzure.Commands.Utilities.Websites.Services.WebEntities.DatabaseType")

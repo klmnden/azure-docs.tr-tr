@@ -15,17 +15,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/16/2018
 ms.author: gokuma
-ms.openlocfilehash: c125f503166e3f63599dbd09acf42c69fab8d2ce
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 7576c479b9e3e443b048a9295c0ff0f30d4b9423
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48044663"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50240333"
 ---
 # <a name="data-science-with-a-linux-data-science-virtual-machine-on-azure"></a>İle bir Linux veri bilimi sanal makinesi Azure üzerinde veri bilimi
 Bu izlenecek yol, Linux veri bilimi sanal makinesi ile çeşitli genel veri bilimi görevlerini gerçekleştirmek nasıl gösterir. Linux veri bilimi sanal makinesi (DSVM) veri analizi ve makine öğrenimi için yaygın olarak kullanılan araçları koleksiyonu ile önceden yüklenmiş olan Azure üzerinde kullanılabilir bir sanal makine görüntüsüdür. Anahtar yazılım bileşenleri içinde listelenen [Linux veri bilimi sanal makinesi sağlama](linux-dsvm-intro.md) konu. VM görüntüsü, yüklemek ve araçların her biri ayrı ayrı yapılandırmak zorunda kalmadan, dakikalar içinde veri bilimi yapmaya başlayın kolaylaştırır. Kolayca VM'yi, gerekirse ölçeği ve kullanımda olmadığında durdurun. Bu nedenle bu kaynak, esnek ve maliyet açısından verimli içindir.
 
-Bu izlenecek yolda gösterilen veri bilimi görevleri konusunda özetlenen adımları [Team Data Science Process](https://azure.microsoft.com/documentation/learning-paths/data-science-process/). Bu işlem, takımları, veri uzmanları, akıllı uygulamalar oluşturma yaşam döngüsü üzerinde etkin bir biçimde işbirliği sağlayan veri bilimi için sistematik bir yaklaşım sunar. Veri bilimi işlemi ayrıca bir kişi tarafından izlenebilir veri bilimi için yinelemeli bir çerçeve sağlar.
+Bu izlenecek yolda gösterilen veri bilimi görevleri konusunda özetlenen adımları [Team Data Science Process](https://docs.microsoft.com/en-us/azure/machine-learning/team-data-science-process/overview). Bu işlem, takımları, veri uzmanları, akıllı uygulamalar oluşturma yaşam döngüsü üzerinde etkin bir biçimde işbirliği sağlayan veri bilimi için sistematik bir yaklaşım sunar. Veri bilimi işlemi ayrıca bir kişi tarafından izlenebilir veri bilimi için yinelemeli bir çerçeve sağlar.
 
 Analiz ediyoruz [spambase](https://archive.ics.uci.edu/ml/datasets/spambase) bu kılavuzda açıklanan veri kümesi. İstenmeyen posta ya da (olmadıkları istenmeyen posta anlamına gelir) ham, işaretlenmiş e-postalar bir dizi budur ve bazı İstatistikler e-postaları içeriğine de içerir. Dahil edilen istatistikleri sonraki ancak bir bölümde ele alınmıştır.
 

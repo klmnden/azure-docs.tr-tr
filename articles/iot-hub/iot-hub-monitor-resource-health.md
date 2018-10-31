@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/09/2018
 ms.author: kgremban
-ms.openlocfilehash: c400a084a78af6313e355d65bcbc07a520f55514
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: b470ca15163ef1e74ec9795ad0a2581a24c83474
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50156060"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50250430"
 ---
 # <a name="monitor-the-health-of-azure-iot-hub-and-diagnose-problems-quickly"></a>Azure IOT Hub durumunu izleyin ve sorunları hızla tanılayın
 
@@ -24,13 +24,13 @@ Azure İzleyici, izleme ve günlüğe kaydetme için tüm Azure Hizmetleri tek b
 > [!IMPORTANT]
 > Azure İzleyici tanılama günlüklerini kullanarak IOT Hub hizmeti tarafından oluşturulan olayları güvenilir ya da sıralı olmasını garanti edilmez. Bazı olayları kaybolabilir veya düzensiz teslim. Tanılama günlükleri de gerçek zamanlı olacak şekilde tasarlanmış değildir ve hedef ettiğiniz için günlüğe kaydedilecek olayları için birkaç dakika sürebilir.
 
-Azure kaynak durumu, tanılamanıza ve bir Azure sorunları kaynaklarınızı etkilediğinde destek almanıza yardımcı olur. Kişiselleştirilmiş bir panoya, IOT hub'ları için mevcut ve eski sistem durumunu sağlar. Bilgi edinmek için bu makaleyi okumaya devam edin nasıl [kullanımı Azure kaynak durumu](#use-azure-resource-health) IOT hub'ınızla. 
+Azure kaynak durumu, tanılamanıza ve bir Azure sorunu kaynaklarınızı etkilediğinde destek almanıza yardımcı olur. Kişiselleştirilmiş bir panoya, IOT hub'ları için mevcut ve eski sistem durumunu sağlar. Bilgi edinmek için bu makaleyi okumaya devam edin nasıl [kullanımı Azure kaynak durumu](#use-azure-resource-health) IOT hub'ınızla. 
 
-Bu iki hizmet ile tümleştirmeye ek olarak, IOT Hub ayrıca IOT kaynaklarınızın durumunu anlamak için kullanabileceğiniz, kendi ölçümleri sağlar. Daha fazla bilgi için bkz. [IOT Hub'ı anlama ölçümleri][lnk-metrics].
+IOT Hub, IOT kaynaklarınızın durumunu anlamak için kullanabileceğiniz, kendi ölçümleri de sağlar. Daha fazla bilgi için bkz. [IOT Hub'ı anlama ölçümleri][lnk-metrics].
 
 ## <a name="use-azure-monitor"></a>Azure İzleyici’yi kullanma
 
-Azure İzleyici, IOT hub'ınıza içinde gerçekleşmesi işlemleri izleyebilirsiniz yani kaynak düzeyinde tanılama bilgilerini sağlar. 
+Azure İzleyici, Azure kaynakları için IOT hub'ınıza içinde gerçekleşmesi işlemleri izleyebilirsiniz anlamına gelir. tanılama bilgileri sağlar. 
 
 Azure İzleyicisi'nin tanılama ayarları değiştirir, IOT Hub işlemlerini izleyin. İşlem izleme şu anda kullanıyorsanız, iş akışlarınızı geçirmeniz gerekir. Daha fazla bilgi için [işlem için tanılama ayarları İzleme'ten geçiş][lnk-migrate].
 
@@ -42,11 +42,9 @@ Azure İzleyici izleyen olaylarını ve belirli ölçümleri hakkında daha fazl
 
 Azure İzleyici, IOT Hub'ında gerçekleşen farklı işlem izler. Her kategorinin, bu kategoriye giren olayları nasıl bildirildiğini tanımlayan bir şema vardır. 
 
-
-
 #### <a name="connections"></a>Bağlantılar
 
-Bağlantı kategorisi parçaları cihaz bağlayın ve hataları yanı sıra IOT hub'ı, bağlantıyı kesme olayları. Bu kategori izleme, yetkisiz bağlantı girişimleri tanımlama ve zamanlar zayıf bağlantıya alanlarında cihazlar için bir bağlantı kesildiğinde izlemek için yararlıdır.
+Bağlantı kategorisi parçaları cihaz bağlayın ve hataları yanı sıra IOT hub'ı, bağlantıyı kesme olayları. Bu kategorideki cihazlar bağlantısı kesildiğinde uyarı ve yetkisiz bağlantı girişimleri tanımlama için kullanışlıdır.
 
 > [!NOTE]
 > Cihaz güvenilir bir bağlantı durumunu denetleme [cihaz sinyal][lnk-devguide-heartbeat].
@@ -65,7 +63,13 @@ Bağlantı kategorisi parçaları cihaz bağlayın ve hataları yanı sıra IOT 
 
 #### <a name="cloud-to-device-commands"></a>Buluttan cihaza komutlar
 
-Bulut-cihaz komutlarını kategorisi, IOT hub ve bulut-cihaz ileti işlem hattına ilgili hataları izler. Bu kategori, (örneğin, yetkisiz gönderen) bulut buluttan cihaza iletileri gönderme (örneğin, teslimat sayısı aşıldı) bulut-cihaz iletilerini alma ve (geri bildirim süresi gibi) bulut-cihaz ileti geri bildirim alan olduğunda oluşan hataları içerir. Bu kategori, bulut buluttan cihaza iletinin başarıyla teslim edildi, yanlış bir bulut-cihaz iletiyi işleyen bir CİHAZDAN hataları yakalamaz.
+Bulut-cihaz komutlarını kategorisi, IOT hub ve bulut-cihaz ileti işlem hattına ilgili hataları izler. Bu kategori, öğesinden oluşan hataları içerir:
+
+* (Örneğin, yetkisiz bir gönderenden hatalar), bulut buluttan cihaza iletileri gönderme
+* Bulut-cihaz iletilerini (gibi teslim sayısı aşıldı hataları), alma ve
+* Bulut-cihaz ileti geri bildirim alan (geri bildirim gibi hataları süresi doldu). 
+
+Bu kategori, bulut buluttan cihaza iletinin başarılı bir şekilde teslim ancak yanlış aygıt tarafından işlenen hataları yakalamaz.
 
 ```json
 {
@@ -111,7 +115,13 @@ Cihaz kimlik işlem kategorisi oluşturmak, güncelleştirmek veya IOT hub'ını
 
 #### <a name="routes"></a>Yollar
 
-İleti yönlendirme kategorisi ileti yönlendirme değerlendirme ve IOT Hub tarafından algılanan uç nokta sistem durumu sırasında oluşan hataları izler. Bu kategori, bir kural "undefined" olarak değerlendirir, ne zaman IOT hub'ı bir uç nokta atılacak ve bir uç noktasından alınan hatalar olarak işaretler gibi olayları içerir. Bu kategori, "cihaz telemetrisi" kategorisi altında bildirilen iletilerini kendileri (örneğin, cihaz) azaltma hataları, ilgili belirli hataları içermez.
+İleti yönlendirme kategorisi ileti yönlendirme değerlendirme ve IOT Hub tarafından algılanan uç nokta sistem durumu sırasında oluşan hataları izler. Bu kategori, olayları gibi içerir:
+
+* Bir kural "için tanımlanmamış", değerlendirir.
+* IOT hub'ı bir uç nokta ölü işaretler veya
+* Bir uç noktasından alınan tüm hatalar. 
+
+Bu kategori, "cihaz telemetrisi" kategorisi altında bildirilen iletilerini kendileri (gibi cihaz) azaltma hataları, ilgili belirli hataları içermez.
 
 ```json
 {
@@ -365,7 +375,7 @@ class Program 
 
 Azure kaynak durumu, IOT hub'ınıza hazır ve çalışır durumda olup olmadığını izlemek için kullanın. Ayrıca, IOT hub'ınızın sağlığını etkileyen bölgesel bir kesinti olup olmadığını öğrenebilirsiniz. Azure IOT Hub'ınıza sistem durumu hakkında belirli diğer ayrıntıları öğrenmek olmasını öneririz, [kullanımı Azure İzleyici](#use-azure-monitor). 
 
-Azure IOT Hub durumu bölge düzeyinde gösterir. Orada IOT hub'ınıza etkileyen bölgesel bir kesinti durumu olarak gösteriliyorsa **bilinmeyen**. Azure kaynak durumu gerçekleştiren özel durum denetimleri hakkında daha fazla bilgi için bkz: [kaynak türleri ve sistem durumu denetimleri bulunan Azure kaynak durumu][lnk-ARH-checks].
+Azure IOT Hub durumu bölge düzeyinde gösterir. Bölgesel bir kesinti IOT hub'ınıza etkiliyorsa olarak sistem durumunu gösteren **bilinmeyen**. Daha fazla bilgi için bkz. [kaynak türleri ve sistem durumu denetimleri bulunan Azure kaynak durumu][lnk-ARH-checks].
 
 IOT hub'ları durumunu denetlemek için şu adımları izleyin:
 

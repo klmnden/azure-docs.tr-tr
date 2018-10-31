@@ -18,12 +18,12 @@ ms.date: 10/25/2018
 ms.author: markvi
 ms.reviewer: tanning
 ms.custom: it-pro
-ms.openlocfilehash: ef10f45cbe02bd364563be4b0d62f9c491848452
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: 3825d527e520fae87d0dd2712df767090adad4e5
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50098080"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50248430"
 ---
 # <a name="troubleshooting-enterprise-state-roaming-settings-in-azure-active-directory"></a>Azure Active Directory'de Kurumsal durumda Dolaşım ayarları sorunlarını giderme
 
@@ -74,7 +74,7 @@ Kurumsal durumda dolaşım, cihazın Azure AD'ye kayıtlı olması gerekir. Kuru
 **Olası sorun**: **WamDefaultSet** ve **AzureAdJoined** hem "Hayır" alan değeri olması, cihaz etki alanına katılmış ve Azure AD ile kaydedilen ve cihaz eşitleme. Bu gösteriyor, cihaz ilkesinin uygulanması için beklemeniz gerekebilir veya Azure AD'ye bağlanma cihaz için kimlik doğrulaması başarısız oldu. Kullanıcı, uygulanacak ilke için birkaç saat beklemeniz gerekebilir. Diğer sorun giderme adımları kapatıp arka planda otomatik kaydı yeniden denemeden veya Görev Zamanlayıcı görevi başlatma içerebilir. Bazı durumlarda, çalışan "*dsregcmd.exe /leave*" Bu sorunla yeniden başlatarak ve kaydı yeniden denemeden bir yükseltilmiş komut istemi penceresinde yardımcı olabilir.
 
 
-**Olası sorun**: alan için **SettingsUrl** boştur ve cihazı eşitleyebilir değil. Kurumsal durumda Dolaşım Azure Active Directory portalında etkinleştirilmeden önce kullanıcının son cihaza oturum açmış. Cihazı yeniden başlatın ve kullanıcı oturum açma bilgileriniz yok. İsteğe bağlı olarak, portalda BT devre dışı bırakıp yeniden kullanıcılar olabilir eşitleme ayarları ve kurumsal uygulama verilerini etkinleştirin yöneticinin deneyin. Yeniden etkinleştirildikten sonra cihazı yeniden başlatın ve kullanıcı oturum açma bilgileriniz yok. Bu sorunu çözmezse **SettingsUrl** söz konusu olduğunda hatalı cihaz sertifika boş olabilir. Bu durumda, çalışan "*dsregcmd.exe /leave*" Bu sorunla yeniden başlatarak ve kaydı yeniden denemeden bir yükseltilmiş komut istemi penceresinde yardımcı olabilir.
+**Olası sorun**: alan için **SettingsUrl** boştur ve cihazı eşitleyebilir değil. Kurumsal durumda Dolaşım Azure Active Directory portalında etkinleştirilmeden önce kullanıcının son cihaza oturum açmış. Cihazı yeniden başlatın ve kullanıcı oturum açma bilgileriniz yok. İsteğe bağlı olarak, portalda, BT yöneticisi gitmek zorunda deneyin **Azure Active Directory** > **cihazları** > **Kurumsal durumda Dolaşım** devre dışı bırakıp yeniden etkinleştirin **kullanıcılar eşitleme ayarları ve uygulama verilerini cihazlarda**. Yeniden etkinleştirildikten sonra cihazı yeniden başlatın ve kullanıcı oturum açma bilgileriniz yok. Bu sorunu çözmezse **SettingsUrl** söz konusu olduğunda hatalı cihaz sertifika boş olabilir. Bu durumda, çalışan "*dsregcmd.exe /leave*" Bu sorunla yeniden başlatarak ve kaydı yeniden denemeden bir yükseltilmiş komut istemi penceresinde yardımcı olabilir.
 
 ## <a name="enterprise-state-roaming-and-multi-factor-authentication"></a>Kurumsal durumda Dolaşım ve çok faktörlü kimlik doğrulaması 
 

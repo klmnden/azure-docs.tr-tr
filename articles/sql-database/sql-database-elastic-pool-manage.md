@@ -3,7 +3,7 @@ title: Oluşturma ve elastik havuzlar - Azure SQL veritabanı'nı yönetme | Mic
 description: Oluşturma ve Azure SQL elastik havuzları yönetme.
 services: sql-database
 ms.service: sql-database
-subservice: elastic-pool
+ms.subservice: elastic-pool
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,12 +12,12 @@ ms.author: moslake
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 10/29/2018
-ms.openlocfilehash: fbe648ad1869753666babd9d573f086177fc8adf
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: acf17533ee73313937c2edb9badaef9007309373
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/30/2018
-ms.locfileid: "50232692"
+ms.locfileid: "50243104"
 ---
 # <a name="create-and-manage-elastic-pools-in-azure-sql-database"></a>Azure SQL veritabanı elastik havuzları oluşturma ve yönetme
 

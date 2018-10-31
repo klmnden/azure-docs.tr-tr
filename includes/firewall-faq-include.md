@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/20/2018
 ms.author: victorh
 ms.custom: include file
-ms.openlocfilehash: e4d698b8b9c3f9e304780ee49bd4243a76e69138
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: e33871f35613fbd5cdc5bf3162855b942056807f
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49471539"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50254480"
 ---
 ### <a name="what-is-azure-firewall"></a>Azure Güvenlik Duvarı nedir?
 
@@ -111,10 +111,7 @@ Set-AzureRmFirewall -AzureFirewall $azfw
 
 ### <a name="what-are-the-known-service-limits"></a>Bilinen hizmet sınırları nelerdir?
 
-* Azure güvenlik duvarı, güvenlik duvarı / ay başına 1000 TB yazılım limiti vardır.
-* Azure merkez sanal ağ içinde çalıştırılan Güvenlik Duvarı'nın bir örneğini sanal ağ sınırlamaları, en fazla 50 uç sanal ağ eşlemesi var.  
-* Bölge başına en az bir güvenlik duvarı dağıtım olmalıdır böylece azure güvenlik duvarı genel eşleme ile çalışmaz.
-* Azure güvenlik duvarı, 10 k uygulama kuralları ve 10 bin ağ kurallarını destekler.
+Azure Güvenlik Duvarı hizmeti limitleri için bkz. [Azure aboneliği ve hizmet limitleri, kotalar ve kısıtlamalar](../articles/azure-subscription-service-limits.md#azure-firewall-limits)
 
 ### <a name="can-azure-firewall-in-a-hub-virtual-network-forward-and-filter-network-traffic-between-two-spoke-virtual-networks"></a>Azure Güvenlik Duvarı bir hub sanal ağında İleri olabilir ve iki ağlı sanal ağlar arasındaki ağ trafiğini filtreleme?
 

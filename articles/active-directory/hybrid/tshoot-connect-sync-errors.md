@@ -11,22 +11,22 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/31/2018
+ms.date: 10/29/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: cb2b4bdee445587b32516c8db869170ab067b8d3
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: c94ecc223c4e2c0533c23e58823bb203064ceef6
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49406866"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50250486"
 ---
 # <a name="troubleshooting-errors-during-synchronization"></a>Eşitleme sırasında karşılaşılan hataları giderme
 Windows Server Active Directory'den (AD DS) Azure Active Directory (Azure AD) kimlik verilerini eşitlendiğinde hataları oluşabilir. Bu makalede, bu hataları ve hataları düzeltmek için olası yolları neden olası senaryolar bazıları eşitleme hatalarını farklı türde genel bir bakış sağlar. Bu makalede, sık karşılaşılan hata türlerini içerir ve tüm olası hataları kapsamayabilir.
 
  Bu makalede, okuyucu temel alınan ile ilgili bilgi sahibi olduğunu varsayar [tasarım kavramlarını Azure AD ile Azure AD Connect](plan-connect-design-concepts.md).
 
-Azure AD Connect'in en son sürümle \(Ağustos 2016 veya daha yüksek\), eşitleme hata raporu kullanılabilir [Azure portalı](https://aka.ms/aadconnecthealth) Azure AD Connect Health eşitleme için bir parçası olarak.
+Azure AD Connect'in en son sürümle \(Ağustos 2016 veya daha yüksek\), eşitleme hata raporu kullanılabilir [Azure portalında](https://aka.ms/aadconnecthealth) Azure AD Connect Health eşitleme için bir parçası olarak.
 
 1 Eylül 2016'dan itibaren [Azure Active Directory yinelenen öznitelik dayanıklılığı](how-to-connect-syncservice-duplicate-attribute-resiliency.md) özelliği etkinleştirilir varsayılan olarak tüm *yeni* Azure Active Directory kiracıları. Bu özellik gelecek ay içinde var olan kiracılar için otomatik olarak etkinleştirilecektir.
 
@@ -219,6 +219,29 @@ Bir öznitelik izin verilen boyut sınırı, uzunluk sınırı veya Azure Active
 
 ### <a name="how-to-fix"></a>Nasıl düzeltileceğini
 1. Hataya neden olan öznitelik içinde izin verilen sınırlaması olduğundan emin olun.
+
+## <a name="existing-admin-role-conflict"></a>Mevcut Yönetici Rolü Çakışması
+
+### <a name="description"></a>Açıklama
+Bir **mevcut Yönetici rolü çakışma** bu kullanıcı nesnesi olan bir kullanıcı nesnesinde eşitleme sırasında ortaya çıkar:
+
+- Yönetici izinleri ve
+- Mevcut bir Azure AD nesnesi olarak aynı UserPrincipalName
+
+Azure AD Connect izin verilmiyor geçici olarak eşleşen bir kullanıcı nesnesi şirket içinden Azure AD'de Yönetici rolü atanmış olan bir kullanıcı nesnesi ile AD.  Daha fazla bilgi için [Azure AD UserPrincipalName popülasyon](plan-connect-userprincipalname.md)
+
+![Mevcut yönetici](media/tshoot-connect-sync-errors/existingadmin.png)
+
+
+### <a name="how-to-fix"></a>Nasıl düzeltileceğini
+Bu sorunu aşağıdakilerden birini yapın çözmek için:
+
+
+- UserPrincipalName, bir yönetici kullanıcının Azure AD'de - eşleşen UserPrincipalName ile Azure AD'de yeni kullanıcı oluşturacak eşleşmeyen bir değere değiştirin
+- Yönetim rolü, şirket içi kullanıcı nesnesi ve mevcut Azure AD kullanıcı nesnesi arasında yumuşak eşleşme sağlayan Azure AD'de yönetici kullanıcıdan kaldırın.
+
+>[!NOTE]
+>Şirket içi kullanıcı nesnesi ve Azure AD kullanıcı nesnesi arasında yumuşak eşleşme tamamlandıktan sonra Yönetim rolü için mevcut kullanıcı nesnesi yeniden atayabilirsiniz.
 
 ## <a name="related-links"></a>İlgili bağlantılar
 * [Active Directory Yönetim Merkezi'nde Active Directory nesneleri bulun](https://technet.microsoft.com/library/dd560661.aspx)

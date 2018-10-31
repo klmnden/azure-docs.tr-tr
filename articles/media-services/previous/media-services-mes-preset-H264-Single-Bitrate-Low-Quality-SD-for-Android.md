@@ -1,8 +1,8 @@
 ---
-title: H264 Android Çoklu bit hızı düşük kalite SD | Microsoft Docs
-description: Konuyu genel bir fikir veren **H264 Çoklu bit hızı düşük kalite SD Android için** görev Önayar.
+title: H264 Android tekli bit hızı düşük kaliteli SD | Microsoft Docs
+description: Konusuna genel bir fikir veren **H264 Çoklu bit hızı düşük kaliteli SD Android** görev hazır.
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 services: media-services
 documentationcenter: ''
@@ -12,21 +12,21 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/20/2017
+ms.date: 10/30/2018
 ms.author: juliako
-ms.openlocfilehash: af10b703615e35c28038ef5b8e15f3e58e0eecb1
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 4c69923518a0e886bb9174750be201b05be442cd
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33788308"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50250338"
 ---
-# <a name="h264-single-bitrate-low-quality-sd-for-android"></a>H264 Çoklu bit hızı düşük kalite SD Android için
-`Media Encoder Standard` kodlama işler oluştururken kullanabileceğiniz hazır kodlama kümesi tanımlar. Kullanabilir bir `preset name` hangi biçimine medya dosyanızın kodlamak istediğiniz belirtmek için. Veya, kendi JSON veya XML tabanlı hazır (UTF-8 veya UTF-16 kodlamasını kullanıyor. oluşturabilirsiniz Ardından kodlayıcıya önceden özel geçirirsiniz. Bu tarafından desteklenen tüm hazır adlarının listesi için `Media Encoder Standard` encoder bkz [Medya Kodlayıcısı standart için görev hazır](media-services-mes-presets-overview.md).  
+# <a name="h264-single-bitrate-low-quality-sd-for-android"></a>H264 Android tekli bit hızı düşük kaliteli SD
+`Media Encoder Standard` kodlama işi oluştururken kullanabileceğiniz hazır kodlama kümesi tanımlar. Kullanabilir bir `preset name` hangi biçimine medya dosyanızı kodlamak istediğiniz belirtmek için. Veya kendi JSON veya XML tabanlı hazır (UTF-8 veya UTF-16 kodlamasını kullanıyor. oluşturabilirsiniz Ardından kodlayıcıya hazır özel geçirmeniz gerekir. Bu tarafından desteklenen tüm hazır adlarının listesi için `Media Encoder Standard` Kodlayıcı bkz [Media Encoder Standard için görev ön ayarları](media-services-mes-presets-overview.md).  
   
- Bu konuda gösterilmektedir `H264 Single Bitrate Low Quality SD for Android` XML ve JSON biçiminde hazır.  
+ Bu konu başlığı altında gösterilir `H264 Single Bitrate Low Quality SD for Android` XML ve JSON biçiminde hazır.  
   
- Bu önceden belirlenmiş üretir tek bir MP4 dosyası 56 kbps stereo AAC ses ve bit hızı ile. Profili hakkında ayrıntılı bilgi için örnekleme hızını bu vb. bit hızı, önceden, XML veya JSON aşağıda tanımlanan inceleyin. Her öğe için hangi her bir öğe bu hazır anlamına gelir ve geçerli değerleri açıklamalar için bkz [Medya Kodlayıcısı standart şema](media-services-mes-schema.md) konu.  
+ Bir bit hızı 56 Kb/sn ve stereo AAC ses ile bu hazır oluşturan tek bir MP4 dosyası. Profili hakkında ayrıntılı bilgi için örnekleme hızını, vb. Bu bit hızı, hazır, XML veya JSON aşağıda tanımlanan inceleyin. Bu hazır anlamına gelir ve geçerli değerler her hangi bir öğenin her öğe için açıklamalar için bkz [Media Encoder Standard şeması](media-services-mes-schema.md) konu.  
   
  XML  
   

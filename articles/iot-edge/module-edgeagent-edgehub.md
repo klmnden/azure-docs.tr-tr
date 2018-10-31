@@ -8,18 +8,18 @@ ms.date: 09/21/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 259d61125828ee487b74daa525f3635cfa592ce7
-ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
+ms.openlocfilehash: ecc48adfeef30a777ae4d96c9b996c8bcdfea12d
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48017713"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50247819"
 ---
 # <a name="properties-of-the-edge-agent-and-edge-hub-module-twins"></a>Edge aracısı ve Edge hub'ı modül ikizlerini özellikleri
 
 Edge aracısı ve Edge hub'ı, IOT Edge çalışma zamanını oluşturan iki modüllerdir. Her modülün gerçekleştirdiği hangi görevleri hakkında daha fazla bilgi için bkz. [Azure IOT Edge çalışma zamanı ve mimarisini anlama](iot-edge-runtime.md). 
 
-Bu makalede, istenen özellikleri ve çalışma zamanı modül ikizlerini bildirilen özellikleri sağlar. IOT Edge cihazlarında modülleri dağıtma hakkında daha fazla bilgi için bkz. [dağıtım ve izleme][lnk-deploy].
+Bu makalede, istenen özellikleri ve çalışma zamanı modül ikizlerini bildirilen özellikleri sağlar. IOT Edge cihazlarında modülleri dağıtma hakkında daha fazla bilgi için bkz. [dağıtım ve izleme](module-deployment-monitoring.md).
 
 ## <a name="edgeagent-desired-properties"></a>İstenen EdgeAgent özellikleri
 
@@ -30,26 +30,26 @@ Edge Aracısı modül ikizi adlı `$edgeAgent` ve bir cihaz ve IOT hub'ı çalı
 | schemaVersion | "1.0" olması gerekir | Evet |
 | Runtime.Type | "Docker" olması gerekir | Evet |
 | runtime.settings.minDockerVersion | Bu dağıtım bildirimi tarafından gereken en düşük Docker sürümü için ayarlayın | Evet |
-| runtime.settings.loggingOptions | Edge Aracısı kapsayıcı günlüğe kaydetme seçeneklerini içeren dizeleştirilmiş JSON. [Docker günlük seçenekleri][lnk-docker-logging-options] | Hayır |
+| runtime.settings.loggingOptions | Edge Aracısı kapsayıcı günlüğe kaydetme seçeneklerini içeren dizeleştirilmiş JSON. [Docker günlük seçenekleri](https://docs.docker.com/engine/admin/logging/overview/) | Hayır |
 | runtime.settings.registryCredentials<br>. {registryId} .username | Kapsayıcı kayıt defteri kullanıcı adı. Azure Container Registry için kullanıcı kayıt defteri adı genellikle adıdır.<br><br> Kayıt defteri kimlik bilgilerini ortak olmayan modül görüntüleri için gerekli değildir. | Hayır |
 | runtime.settings.registryCredentials<br>. {registryId} .password | Kapsayıcı kayıt defteri parolası. | Hayır |
 | runtime.settings.registryCredentials<br>. {registryId} .address | Kapsayıcı kayıt defteri adresi. Azure Container Registry için genellikle adresidir *{registryname}.azurecr.io/Azure-vote-Front:v1*. | Hayır |  
 | systemModules.edgeAgent.type | "Docker" olması gerekir | Evet |
 | systemModules.edgeAgent.settings.image | Edge Aracısı görüntüsünü URI'si. Şu anda, Edge Aracısı'nı güncelleştirme kendisini mümkün değildir. | Evet |
-| systemModules.edgeAgent.settings<br>.createOptions | Edge Aracısı container oluşturulması için seçenekleri içeren bir dizeleştirilmiş JSON. [Docker oluşturma seçenekleri][lnk-docker-create-options] | Hayır |
+| systemModules.edgeAgent.settings<br>.createOptions | Edge Aracısı container oluşturulması için seçenekleri içeren bir dizeleştirilmiş JSON. [Docker oluşturma seçenekleri](https://docs.docker.com/engine/api/v1.32/#operation/ContainerCreate) | Hayır |
 | systemModules.edgeAgent.configuration.id | Bu modül dağıtılan dağıtım kimliği. | Bu bildirimi bir dağıtım kullanarak uygulandığında, bu özellik, IOT Hub tarafından ayarlanır. Parçası olmayan bir dağıtım bildirimi. |
 | systemModules.edgeHub.type | "Docker" olması gerekir | Evet |
 | systemModules.edgeHub.status | "Çalışıyor" gerekir | Evet |
 | systemModules.edgeHub.restartPolicy | "Her zaman" olması gerekir | Evet |
 | systemModules.edgeHub.settings.image | Edge hub'ı görüntüsünü URI'si. | Evet |
-| systemModules.edgeHub.settings<br>.createOptions | Edge hub'ı container oluşturulması için seçenekleri içeren bir dizeleştirilmiş JSON. [Docker oluşturma seçenekleri][lnk-docker-create-options] | Hayır |
+| systemModules.edgeHub.settings<br>.createOptions | Edge hub'ı container oluşturulması için seçenekleri içeren bir dizeleştirilmiş JSON. [Docker oluşturma seçenekleri](https://docs.docker.com/engine/api/v1.32/#operation/ContainerCreate) | Hayır |
 | systemModules.edgeHub.configuration.id | Bu modül dağıtılan dağıtım kimliği. | Bu bildirimi bir dağıtım kullanarak uygulandığında, bu özellik, IOT Hub tarafından ayarlanır. Parçası olmayan bir dağıtım bildirimi. |
 | modüller. {Moduleıd} .version | Bu modülün sürümünü temsil eden kullanıcı tanımlı bir dize. | Evet |
 | modules.{moduleId}.type | "Docker" olması gerekir | Evet |
 | modüller. {Moduleıd} .status | {"çalışıyor" \| "durduruldu"} | Evet |
 | modules.{moduleId}.restartPolicy | {"hiçbir zaman" \| "üzerinde başarısız oldu-" \| "üzerinde-sağlıksız" \| "her zaman"} | Evet |
 | modüller. {Moduleıd}.settings.image | Modülü görüntüsü URI. | Evet |
-| modules.{moduleId}.settings.createOptions | Modül container oluşturulması için seçenekleri içeren bir dizeleştirilmiş JSON. [Docker oluşturma seçenekleri][lnk-docker-create-options] | Hayır |
+| modules.{moduleId}.settings.createOptions | Modül container oluşturulması için seçenekleri içeren bir dizeleştirilmiş JSON. [Docker oluşturma seçenekleri](https://docs.docker.com/engine/api/v1.32/#operation/ContainerCreate) | Hayır |
 | modüller. {Moduleıd}.configuration.id | Bu modül dağıtılan dağıtım kimliği. | Bu bildirimi bir dağıtım kullanarak uygulandığında, bu özellik, IOT Hub tarafından ayarlanır. Parçası olmayan bir dağıtım bildirimi. |
 
 ## <a name="edgeagent-reported-properties"></a>EdgeAgent bildirilen özellikler
@@ -63,7 +63,7 @@ Edge Aracısı özellikleri ana üç parça bilgi içeren rapor:
 Bu son bilgilerden biri, en son istenen özellikleri çalışma zamanı tarafından başarıyla uygulanmaz ve cihaz önceki bir dağıtım bildirimi hala çalışıyor durumunda yararlıdır.
 
 > [!NOTE]
-> Edge Aracısı'nın bildirilen özellikleri ile sorgulanabilir gibi yararlı [IOT Hub sorgu dili] [ lnk-iothub-query] uygun ölçekte dağıtımların durumunu araştırmak için. Edge Aracısı özellikleri durumu kullanma hakkında daha fazla bilgi için bkz. [IOT Edge dağıtımlarını anlama tek tek cihazlarda veya uygun ölçekte][lnk-deploy].
+> Edge Aracısı'nın bildirilen özellikleri ile sorgulanabilir gibi yararlı [IOT Hub sorgu dili](../iot-hub/iot-hub-devguide-query-language.md) uygun ölçekte dağıtımların durumunu araştırmak için. Edge Aracısı özellikleri durumu kullanma hakkında daha fazla bilgi için bkz. [IOT Edge dağıtımlarını anlama tek tek cihazlarda veya uygun ölçekte](module-deployment-monitoring.md).
 
 Aşağıdaki tabloda, istenen özelliklerden kopyalanır bilgileri içermez.
 
@@ -117,9 +117,3 @@ Edge hub'ı modül ikizi adlı `$edgeHub` ve Edge hub'ı bir cihaz ve IOT hub'ı
 ## <a name="next-steps"></a>Sonraki adımlar
 
 Bu özellikler dağıtım bildirimleri oluşturmak için kullanmayı öğrenin için bkz: [nasıl IOT Edge modülleri, yapılandırılmış, yeniden kaldırılabilir ve anlamak](module-composition.md).
-
-<!--links -->
-[lnk-deploy]: module-deployment-monitoring.md
-[lnk-docker-create-options]: https://docs.docker.com/engine/api/v1.32/#operation/ContainerCreate
-[lnk-docker-logging-options]: https://docs.docker.com/engine/admin/logging/overview/
-[lnk-iothub-query]: ../iot-hub/iot-hub-devguide-query-language.md

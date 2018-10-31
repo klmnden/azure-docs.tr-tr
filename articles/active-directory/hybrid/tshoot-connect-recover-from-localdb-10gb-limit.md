@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/17/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: e78e7b5b4dba0bfea4f3398ca20b381a291fe44f
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 410559ab03f0e0be71f2eba27ed71c9f7cf05862
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46313309"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50238548"
 ---
 # <a name="azure-ad-connect-how-to-recover-from-localdb-10-gb-limit"></a>Azure AD Connect: LocalDB 10 GB sınırından kurtarma nasıl
 Azure AD Connect’e kimlik verilerini depolamak için bir SQL Server veritabanı gerekiyor. Azure AD Connect ile yüklenen varsayılan SQL Server 2012 Express LocalDB’yi kullanabileceğiniz gibi, kendi tam SQL’nizi de kullanabilirsiniz. SQL Server Express 10 GB boyut sınırını uygular. LocalDB’yi kullanırken bu sınıra ulaşıldığında, Azure AD Connect Eşitleme Hizmeti artık düzgün başlatılamaz veya eşitleme yapamaz. Bu makalede, Kurtarma adımları sağlar.
@@ -71,7 +71,7 @@ Azure AD Connect için oluşturduğunuz veritabanına adıdır **ADSync**. Küç
 
 3. Klasörüne gidin `%ProgramFiles%\Microsoft SQL Server\110\Tools\Binn`.
 
-4. Başlangıç **sqlcmd** komutu çalıştırarak yardımcı programı `./SQLCMD.EXE -S “(localdb)\.\ADSync” -U <Username> -P <Password>`, kimlik bilgisi bir sysadmin veya veritabanı DBO kullanarak.
+4. Başlangıç **sqlcmd** komutu çalıştırarak yardımcı programı `./SQLCMD.EXE -S "(localdb)\.\ADSync" -U <Username> -P <Password>`, kimlik bilgisi bir sysadmin veya veritabanı DBO kullanarak.
 
 5. Sqlcmd komut isteminde bir veritabanı daraltmak için (1 >), girin `DBCC Shrinkdatabase(ADSync,1);`çizgidir `GO` sonraki satırdaki.
 

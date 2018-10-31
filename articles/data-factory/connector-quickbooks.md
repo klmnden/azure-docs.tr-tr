@@ -1,6 +1,6 @@
 ---
-title: Azure Data Factory (Önizleme) kullanarak QuickBooks veri kopyalama | Microsoft Docs
-description: Desteklenen bir havuz veri depolarına QuickBooks bir Azure Data Factory işlem hattında kopyalama etkinliği'ni kullanarak veri kopyalama hakkında bilgi edinin.
+title: QuickBooks Azure Data Factory (Önizleme) kullanarak Online'dan veri kopyalama | Microsoft Docs
+description: Veri QuickBooks Online'dan desteklenen havuz veri depolarına bir Azure Data Factory işlem hattında kopyalama etkinliği'ni kullanarak kopyalama hakkında bilgi edinin.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -11,25 +11,25 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/15/2018
+ms.date: 10/29/2018
 ms.author: jingwang
-ms.openlocfilehash: 83e3007a7c3198c5ae37cf95d2b21cde88bd8210
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: a3d079483ecf4ea8cf9a4c6bda050bfe8befcfd0
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46127170"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50241693"
 ---
-# <a name="copy-data-from-quickbooks-using-azure-data-factory-preview"></a>Azure Data Factory (Önizleme) kullanarak QuickBooks verileri kopyalama
+# <a name="copy-data-from-quickbooks-online-using-azure-data-factory-preview"></a>Azure Data Factory (Önizleme) kullanarak QuickBooks Online veri kopyalama
 
-Bu makalede, kopyalama etkinliği Azure Data Factory'de QuickBooks verileri kopyalamak için nasıl kullanılacağını özetlenmektedir. Yapılar [kopyalama etkinliği'ne genel bakış](copy-activity-overview.md) kopyalama etkinliği genel bir bakış sunan makalesi.
+Bu makalede, kopyalama etkinliği Azure Data Factory'de QuickBooks Online'dan veri kopyalamak için nasıl kullanılacağını özetlenmektedir. Yapılar [kopyalama etkinliği'ne genel bakış](copy-activity-overview.md) kopyalama etkinliği genel bir bakış sunan makalesi.
 
 > [!IMPORTANT]
 > Bu bağlayıcı, şu anda Önizleme aşamasındadır. Deneyin ve geri bildirimde bulunun. Çözümünüzde bir önizleme bağlayıcısı bağımlılığı olmasını istiyorsanız lütfen [Azure desteğine](https://azure.microsoft.com/support/) başvurun.
 
 ## <a name="supported-capabilities"></a>Desteklenen özellikler
 
-QuickBooks tüm desteklenen havuz veri deposuna veri kopyalayabilirsiniz. Kaynakları/havuz kopyalama etkinliği tarafından desteklenen veri depolarının listesi için bkz. [desteklenen veri depoları](copy-activity-overview.md#supported-data-stores-and-formats) tablo.
+Veri QuickBooks Online'dan tüm desteklenen havuz veri deposuna kopyalayabilirsiniz. Kaynakları/havuz kopyalama etkinliği tarafından desteklenen veri depolarının listesi için bkz. [desteklenen veri depoları](copy-activity-overview.md#supported-data-stores-and-formats) tablo.
 
 Azure Data Factory bağlantısını etkinleştirmek için yerleşik bir sürücü sağlar, bu nedenle bu bağlayıcıyı kullanarak herhangi bir sürücü el ile yüklemeniz gerekmez.
 
@@ -48,8 +48,8 @@ QuickBooks bağlı hizmeti için aşağıdaki özellikleri destekler:
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
 | type | Type özelliği ayarlanmalıdır: **QuickBooks** | Evet |
-| endpoint | QuickBooks sunucu uç noktası. (diğer bir deyişle, quickbooks.api.intuit.com)  | Evet |
-| Companyıd | Yetkilendirmek için QuickBooks şirket şirket kimliği.  | Evet |
+| endpoint | QuickBooks Online sunucu uç noktası. (diğer bir deyişle, quickbooks.api.intuit.com)  | Evet |
+| Companyıd | Yetkilendirmek için QuickBooks şirket şirket kimliği. Şirket kodu bulma hakkında daha fazla bilgi için bkz. [şirket Kimliğimi nasıl bulabilirim?](https://quickbooks.intuit.com/community/Getting-Started/How-do-I-find-my-Company-ID/m-p/185551). | Evet |
 | consumerKey | OAuth 1.0 kimlik doğrulaması için tüketici anahtarı. | Evet |
 | consumerSecret | OAuth 1.0 kimlik doğrulaması için tüketici gizli bilgisi. Data Factory'de güvenle depolamak için bir SecureString olarak bu alanı işaretleyin veya [Azure Key Vault'ta depolanan bir gizli dizi başvuru](store-credentials-in-key-vault.md). | Evet |
 | accessToken | OAuth 1.0 kimlik doğrulaması için erişim belirteci. Data Factory'de güvenle depolamak için bir SecureString olarak bu alanı işaretleyin veya [Azure Key Vault'ta depolanan bir gizli dizi başvuru](store-credentials-in-key-vault.md). | Evet |
@@ -89,7 +89,7 @@ QuickBooks bağlı hizmeti için aşağıdaki özellikleri destekler:
 
 Bölümleri ve veri kümeleri tanımlamak için mevcut özelliklerin tam listesi için bkz: [veri kümeleri](concepts-datasets-linked-services.md) makalesi. Bu bölümde, QuickBooks veri kümesi tarafından desteklenen özelliklerin bir listesini sağlar.
 
-QuickBooks verileri kopyalamak için dataset öğesinin type özelliği ayarlamak **QuickBooksObject**. Ek bir türe özel özellik bu tür bir veri kümesi yok.
+QuickBooks Online'dan veri kopyalamak için dataset öğesinin type özelliği ayarlamak **QuickBooksObject**. Ek bir türe özel özellik bu tür bir veri kümesi yok.
 
 **Örnek**
 
@@ -112,7 +112,7 @@ Bölümleri ve etkinlikleri tanımlamak için mevcut özelliklerin tam listesi i
 
 ### <a name="quickbookssource-as-source"></a>Kaynak olarak QuickBooksSource
 
-QuickBooks verileri kopyalamak için kopyalama etkinliği için kaynak türünü ayarlayın. **QuickBooksSource**. Kopyalama etkinliği aşağıdaki özellikler desteklenir **kaynak** bölümü:
+QuickBooks Online'dan veri kopyalamak için kopyalama etkinliği için kaynak türünü ayarlayın. **QuickBooksSource**. Kopyalama etkinliği aşağıdaki özellikler desteklenir **kaynak** bölümü:
 
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
@@ -150,6 +150,9 @@ QuickBooks verileri kopyalamak için kopyalama etkinliği için kaynak türünü
     }
 ]
 ```
+## <a name="copy-data-from-quickbooks-desktop"></a>Quickbooks masaüstünden veri kopyalama
+
+Azure Data Factory kopyalama etkinliği, doğrudan Quickbooks masaüstünden veri kopyalanamıyor. Quickbooks masaüstünden veri kopyalamak için Quickbooks verilerinizi bir virgülle ayrılmış değerler (CSV) dosyasına dışarı aktarın ve sonra dosyayı Azure Blob depolama alanına yükleyin. Burada, Data Factory, tercih ettiğiniz havuza verileri kopyalamak için kullanabilirsiniz.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Azure Data Factory kopyalama etkinliği tarafından kaynak ve havuz olarak desteklenen veri depolarının listesi için bkz. [desteklenen veri depoları](copy-activity-overview.md#supported-data-stores-and-formats).

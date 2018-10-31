@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/20/2018
+ms.date: 10/30/2018
 ms.author: TomSh
-ms.openlocfilehash: 460ef8a3d4436f240793025cbec874c624a2a6f4
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: a61f3572037b1c62ea5ed4e0ac4496b057e2b96d
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47039029"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50249060"
 ---
 # <a name="azure-database-security-overview"></a>Azure veritabanı güvenliğine genel bakış
 
@@ -65,6 +65,7 @@ Veritabanına gelen ve giden veri "taşıma durumunda" olduğu sürece tüm bağ
 Uygulamanızın bağlantı dizesinde bağlantıyı şifrelemek ve sunucu sertifikasına güvenmeyecek için parametreleri belirtmeniz gerekir. (Bağlantı dizenizi Azure portalından kopyalarsanız bu sizin yerinize gerçekleştirilir.) Aksi halde bağlantı sunucunun kimliğini doğrulamaz ve "adam-in--middle" saldırılarına açık olacaktır. ADO.NET sürücüsü için örneğin, bu bağlantı dizesi parametreleri olan `Encrypt=True` ve `TrustServerCertificate=False`.
 
 ### <a name="encryption-at-rest"></a>Bekleme sırasında şifreleme
+
 Veritabanı güvenliğini sağlamaya yardımcı olmak için çeşitli önlemler alabilir. Örneğin, güvenli bir sistemi tasarlamak, gizli varlıkları şifrelemek ve veritabanı sunucular etrafında bir güvenlik duvarı oluşturun. Ancak fiziksel medyaya (örneğin, sürücüler veya yedekleme bantlarının) burada çalınırsa bir senaryoda, kötü amaçlı bir taraf yalnızca geri yükleyebilir veya veritabanını ve veri göz atın.
 
 Bir veritabanındaki hassas verileri şifrelemek ve bir sertifika ile verileri şifrelemek için kullanılan anahtarları koruma çözümüdür. Bu çözüm herkes anahtarları olmadan veri kullanmasını engeller. ancak bu tür bir koruma hazırlıklı olmak gerekir.
@@ -92,6 +93,7 @@ Her zaman şifreli verileri (ve görüntüleyebileceğini) kişiler ve kişiler 
 Ayrıca, Always Encrypted şifreleme saydam uygulamaları yapar. Bu otomatik olarak şifreler ve istemci uygulamasındaki hassas verilerin şifresini çözmek için Always Encrypted özellikli bir sürücü istemci bilgisayara yüklenir. Sürücü, veritabanı motoruna verileri geçirmeden önce hassas sütunlardaki verileri şifreler. Böylece uygulama semantiği korunur sürücü sorgular otomatik olarak yeniden yazar. Benzer şekilde, sürücü şeffaf bir şekilde sorgu sonuçlarında yer alan, şifrelenmiş veritabanına sütunlarda depolanan, verilerin şifresini çözer.
 
 ## <a name="access-control"></a>Erişim denetimi
+
 Güvenliği sağlamak için kullanarak SQL veritabanı erişimi denetler:
 
 - IP adresine göre bağlantıyı sınırlayan güvenlik duvarı kuralları.
@@ -124,11 +126,13 @@ Kimlik doğrulaması, veritabanına bağlanırken kimliğinizi nasıl kanıtlaya
   - Tümleşik Windows kimlik doğrulaması ve diğer destekleyen Azure AD Authentication'ı etkinleştirerek, parolaları ortadan kaldırabilir.
 
 #### <a name="authorization"></a>Yetkilendirme
+
 [Yetkilendirme](https://docs.microsoft.com/azure/sql-database/sql-database-manage-logins) bir kullanıcının bir Azure SQL veritabanında yapabileceklerini için ifade eder. Kullanıcı hesabınızın veritabanı tarafından denetlenir [rol üyeliklerini](https://msdn.microsoft.com/library/ms189121) ve [nesne düzeyi izinleri](https://msdn.microsoft.com/library/ms191291.aspx). Yetkilendirme bir sorumluya erişmek güvenli kılınabilir kaynakları ve işlemleri için bu kaynakları izin belirleme işlemidir.
 
 ### <a name="application-access"></a>Uygulama erişimi
 
 #### <a name="dynamic-data-masking"></a>Dinamik veri maskeleme
+
 Temsilcisiyle bir çağrı merkezi, sosyal güvenlik numarası veya kredi kartı numarası birkaç basamak çağıranlar tanımlayabilirsiniz. Ancak, bu veri öğeleri temsilcisiyle tamamen sunulmamalıdır.
 
 Bir sosyal güvenlik numarası veya herhangi bir sorgunun sonuç kümesinde kredi kartı numarasının son dört rakamı dışındaki tüm maskeleri bir maskeleme kuralı tanımlayabilirsiniz.
@@ -141,11 +145,11 @@ Başka bir örnek olarak, kişisel bilgileri korumak için uygun veri maskesi ta
 
 [Dinamik veri maskeleme](https://docs.microsoft.com/sql/relational-databases/security/dynamic-data-masking) önlemeye yardımcı olur yetkisiz erişim için hassas verileri uygulama katmanı üzerinde en az etki ile ortaya çıkarmak için hassas verilerin ne kadar atamak sağlayarak. Bu özellik, hassas verileri belirlenen veritabanı alanlarına yapılan sorgunun sonuç kümesinde gizleyen ancak veritabanındaki verileri değiştirmeyen ilke tabanlı bir güvenlik özelliğidir.
 
-
 > [!Note]
 > Dinamik veri maskeleme, Azure veritabanı yöneticisi, sunucu yöneticisi veya güvenlik yöneticisi rolü tarafından yapılandırılabilir.
 
 #### <a name="row-level-security"></a>Satır Düzeyinde Güvenlik
+
 Çok kiracılı veritabanları için ortak bir güvenlik gereksinimi [satır düzeyi güvenlik](https://msdn.microsoft.com/library/dn765131.aspx). Sorguyu yürüten kullanıcının özelliklerine dayanan bir veritabanı tablosundaki satırlara erişimi denetlemek için bu özelliği kullanabilirsiniz. (Örneğin özellikleri grup üyeliği ve yürütme bağlamı sahiptir.)
 
 ![Bir istemci uygulaması aracılığıyla bir tablodaki satırlara erişimi bir kullanıcı izin vererek satır düzeyi güvenlik](./media/azure-databse-security-overview/azure-database-fig4.png)
@@ -155,18 +159,20 @@ Veritabanı katmanı bulunur yerine koy verileri başka bir uygulama katmanı ku
 Satır düzeyi güvenlik koşulu tabanlı erişim denetimi sunar. Bunu göz önünde bulundurarak meta veriler ya da yönetici belirler diğer ölçütlere uygun şekilde kullanabileceğiniz esnek, merkezi bir değerlendirme özelliklerine sahiptir. Koşul, bir ölçüt olarak kullanıcı üzerinde kullanıcı özniteliklerine bağlı verilere uygun erişime sahip olup olmadığını belirlemek için kullanılır. Koşul tabanlı erişim denetimi kullanarak etiket tabanlı erişim denetimi uygulayabilirsiniz.
 
 ## <a name="proactive-monitoring"></a>Öngörülebilir izleme
+
 SQL veritabanı, sağlayarak verilerinizin korunmasına yardımcı olur *denetim* ve *tehdit algılama* özellikleri.
 
 ### <a name="auditing"></a>Denetim
+
 [Azure SQL veritabanı denetimi](https://docs.microsoft.com/azure/sql-database/sql-database-auditing-get-started) olayları ve veritabanı içinde gerçekleşen değişiklikleri, anlayış kazanmak için yeteneğinizi artırır. Güncelleştirmeleri ve veri sorguları verilebilir.
 
 SQL veritabanı denetimi veritabanı olaylarını ve Azure depolama hesabınızdaki bir denetim günlüğüne yazar izler. Denetim mevzuatla uyumluluk, veritabanı etkinliğini anlama ve tutarsızlıklar ve anomaliler iş sorunlara işaret ediyor olabilir veya şüpheli güvenlik ihlallerini kavramanıza yardımcı olabilir. Denetim sağlar ve uyumluluk standartlarını kıldığı kolaylaştıran ancak Uyumluluk garanti etmez.
 
 SQL veritabanı için denetim kullanabilirsiniz:
 
--   **Korumak** seçili olayların bir denetim kaydı. Denetlenecek veritabanı eylemlerin kategoriler tanımlayabilirsiniz.
--   **Rapor** veritabanı etkinlikleri. Önceden yapılandırılmış raporları ve Panosu, etkinlik ve olay Raporlama ile hızla gerçekleştirmek için kullanabilirsiniz.
--   **Analiz** raporlar. Şüpheli olayları, olağan dışı etkinliği ve eğilimleri bulabilirsiniz.
+- **Korumak** seçili olayların bir denetim kaydı. Denetlenecek veritabanı eylemlerin kategoriler tanımlayabilirsiniz.
+- **Rapor** veritabanı etkinlikleri. Etkinlik ve olay Raporlama ile hızla gerçekleştirmek için önceden yapılandırılmış raporları ve panoyu kullanabilirsiniz.
+- **Analiz** raporlar. Şüpheli olayları, olağan dışı etkinliği ve eğilimleri bulabilirsiniz.
 
 Denetim iki yöntem vardır:
 
@@ -174,13 +180,26 @@ Denetim iki yöntem vardır:
 -   **Tablo denetimi**: günlükleri, Azure tablo depolama alanına yazılır.
 
 ### <a name="threat-detection"></a>Tehdit algılama
-[Azure SQL veritabanı tehdit algılama](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection) olası güvenlik tehditlerine işaret eden şüpheli etkinlikleri algılar. Oluşunca, tehdit algılama veritabanındaki SQL ekleme gibi şüpheli olaylara yanıt vermek için kullanabilirsiniz. Bu uyarılar sağlar ve şüpheli olayların incelenmesi için Azure SQL veritabanı denetim kullanılmasına izin verir.
+
+[Azure SQL veritabanı için Gelişmiş tehdit koruması](https://docs.microsoft.com/azure/sql-database/sql-advanced-threat-protection) olası güvenlik tehditlerine işaret eden şüpheli etkinlikleri algılar. Oluşunca, tehdit algılama veritabanındaki SQL ekleme gibi şüpheli olaylara yanıt vermek için kullanabilirsiniz. Bu uyarılar sağlar ve şüpheli olayların incelenmesi için Azure SQL veritabanı denetim kullanılmasına izin verir.
 
 ![Dışarıdaki bir saldırgan ve kötü amaçlı Insider ile SQL veritabanı ve bir web uygulaması için tehdit algılama](./media/azure-databse-security-overview/azure-database-fig5.jpg)
 
-Örneğin, SQL ekleme, web uygulamaları için ortak güvenlik sorunları biridir. Veri temelli uygulamalara saldırmak için kullanılır. İhlal veya veritabanındaki verileri değiştirme uygulama giriş alanlarına kötü amaçlı SQL deyimleri eklemeye uygulama güvenlik açıklarını, saldırganlar yararlanın.
+SQL Gelişmiş tehdit Koruması (ATP), veri bulma & Sınıflandırma, güvenlik açığı değerlendirmesi ve tehdit algılama gibi gelişmiş SQL güvenlik özellikleri sunar. 
 
-Oluşunca güvenlik sorumluları veya diğer atanmış yöneticileri şüpheli veritabanı etkinlikleriyle ilgili anında bildirim alabilirsiniz. Her bir bildirim, şüpheli etkinlik ayrıntılarını sunan ve daha fazla araştırmak ve tehdidi azaltmak nasıl önerir.        
+- [Veri bulma & sınıflandırma](../sql-database/sql-database-data-discovery-and-classification.md)
+- [Güvenlik Açığı değerlendirmesi](../sql-database/sql-vulnerability-assessment.md)  
+- [Tehdit algılama](../sql-database/sql-database-threat-detection.md)
+
+[Gelişmiş tehdit koruması PostgreSQL için Azure veritabanı](../postgresql/concepts-data-access-and-security-threat-protection.md) yeni bir algılama ve anormal etkinliklerde güvenlik uyarıları sağlayarak oluşunca potansiyel tehditleri olanak tanıyan bir güvenlik katmanı sağlar. Kullanıcılar şüpheli veritabanı etkinlikleri ve olası güvenlik açıklarını yanı sıra anormal veritabanı erişim ve sorgu desenleri sırasında bir uyarı alırsınız. PostgreSQL için Azure veritabanı için Gelişmiş tehdit koruması ile Azure Güvenlik Merkezi uyarıları birleştirir. Uyarı türü şunlardır:
+
+- Olağan dışı bir konumdan erişim
+- Azure veri merkezinden erişim 
+- Erişim 
+- Zararlı olabilecek bir uygulamadan erişim 
+- Deneme yanılma kimlik PostgreSQL için Azure veritabanı 
+
+[Gelişmiş tehdit koruması MySQL için Azure veritabanı](/mysql/concepts-data-access-and-security-threat-protection.md) PostgreSQL gelişmiş koruma benzer koruma sağlar.  
 
 ## <a name="centralized-security-management"></a>Güvenlik Merkezi Yönetimi
 
@@ -188,12 +207,20 @@ Oluşunca güvenlik sorumluları veya diğer atanmış yöneticileri şüpheli v
 
 [Güvenlik Merkezi](https://docs.microsoft.com/azure/security-center/security-center-sql-database) güvenliğini, sunucularınıza ve veritabanlarınıza yönelik görünürlük sağlayarak SQL veritabanındaki verileri korumaya yardımcı olur. Güvenlik Merkezi ile şunları yapabilirsiniz:
 
--   SQL veritabanı şifreleme ve denetim için ilkeler tanımlarsınız.
--   SQL veritabanı kaynaklarının tüm aboneliklerinizde izleyin.
--   Hızlı bir şekilde belirleyin ve güvenlik sorunlarını düzeltmesine.
--   Uyarılardan tümleştirme [Azure SQL veritabanı tehdit algılama](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection).
+- SQL veritabanı şifreleme ve denetim için ilkeler tanımlarsınız.
+- SQL veritabanı kaynaklarının tüm aboneliklerinizde izleyin.
+- Hızlı bir şekilde belirleyin ve güvenlik sorunlarını düzeltmesine.
+- Uyarılardan tümleştirme [Azure SQL veritabanı tehdit algılama](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection).
 
 Güvenlik Merkezi, rol tabanlı erişimi destekler.
+
+## <a name="sql-information-protection"></a>SQL Information Protection
+
+[SQL bilgi koruması](../sql-database/sql-database-data-discovery-and-classification.md) otomatik olarak bulur ve hassas olabilecek verileri sınıflandırır, sınıflandırma öznitelikleri ile hassas verilere kalıcı olarak etiketleme için etiketleme bir mekanizma sağlar ve ayrıntılı bir panoya gösteren sağlar Veritabanı sınıflandırma durumu.  
+
+Ayrıca, böylece hassas verileri ayıklamak sorguları açıkça denetlenebilir SQL sorguları duyarlılığına sonuç kümesi ve veri korumalı hesaplar. Azure SQL veritabanı veri bulma ve sınıflandırma SQL bilgi koruması hakkında daha fazla bilgi için bkz.
+
+Yapılandırabileceğiniz [SQL bilgi koruması ilkeleri](/security-center/security-center-info-protection-policy.md) Azure Güvenlik Merkezi'nde.
 
 ## <a name="azure-marketplace"></a>Azure Market
 

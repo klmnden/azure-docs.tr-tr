@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/10/2017
 ms.author: jeedes
-ms.openlocfilehash: e2dc9b7e7cf5964c36b21418a0162c1c2ef92dc8
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: b5f240091cf5ce9331ada818c218db04f508dbc8
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39430190"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50241812"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sprinklr"></a>Öğretici: Azure Active Directory Sprinklr ile tümleştirme
 
@@ -37,7 +37,7 @@ Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek ist
 
 Azure AD Tümleştirmesi ile Sprinklr yapılandırmak için aşağıdaki öğeler gerekir:
 
-- Azure AD aboneliğiniz
+- Azure AD aboneliği
 - Bir Sprinklr çoklu oturum açma etkin aboneliği
 
 > [!NOTE]
@@ -59,7 +59,7 @@ Azure AD'de Sprinklr tümleştirmesini yapılandırmak için Sprinklr Galeriden 
 
 **Galeriden Sprinklr eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde  **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
+1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
 
     ![Active Directory][1]
 
@@ -149,7 +149,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve S
 
     a. İçinde **adı** metin yapılandırmanız için bir ad yazın (örneğin: *WAADSSOTest*).
 
-    b. Seçin **etkin**.
+    b. **Etkin**’i seçin.
 
     c. Seçin **yeni SSO sertifikası kullanacak**.
              
@@ -161,7 +161,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve S
 
     h. Yapıştırma **oturum kapatma URL'si** Azure Portalı'ndan kopyaladığınız değeri **kimlik sağlayıcısı oturum kapatma URL'si** metin.
      
-    i. Olarak **SAML kullanıcı kimliği türü**seçin **onaylamayı içeren kullanıcı "s sprinklr.com username**.
+    i. Olarak **SAML kullanıcı kimliği türü**seçin **onaylamayı kullanıcının sprinklr.com kullanıcı adını içeren**.
 
     j. Olarak **SAML kullanıcı kimliği konumu**seçin **kullanıcı kimliğidir konu deyiminin ad tanımlayıcı öğesinde**.
 

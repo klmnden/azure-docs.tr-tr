@@ -17,12 +17,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/10/2017
 ROBOTS: NOINDEX
-ms.openlocfilehash: a3ae9c0926f9c2a8bb900e25b610f8c2f4e6d292
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 0ca8e1081b514d5569c84a6364d55e8f49bee533
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/30/2018
-ms.locfileid: "50231585"
+ms.locfileid: "50239014"
 ---
 # <a name="biomedical-entity-recognition-using-team-data-science-process-tdsp-template"></a>Team Data Science işlem (TDSP) şablonu kullanarak biyomedikal varlık tanıma
 
@@ -64,7 +64,7 @@ Aşağıdaki şekilde, verileri işlemek ve eğitme modelleri için kullanılan 
 ## <a name="data-description"></a>Veri açıklaması
 
 ### <a name="1-word2vec-model-training-data"></a>1. Word2Vec model eğitim verileri
-Ham MEDLINE soyut verilerden ilk indirilen [MEDLINE](https://www.nlm.nih.gov/pubs/factsheets/medline.html). XML dosyaları biçiminde publicaly veriler, bunların [FTP sunucusu](https://ftp.ncbi.nlm.nih.gov/pubmed/baseline). Kullanılabilir 892 XML dosyaları sunucuda ve her biri XML dosyalarını 30.000 makale bilgiler içerir. Veri toplama adımı hakkında daha fazla ayrıntı Proje yapısı bölümünde sağlanır. Her dosyada mevcut alanlar 
+Ham MEDLINE soyut verilerden ilk indirilen [MEDLINE](https://www.nlm.nih.gov/pubs/factsheets/medline.html). Dosyaları XML biçiminde veriler genel kullanıma açıktır, [FTP sunucusu](https://ftp.ncbi.nlm.nih.gov/pubmed/baseline). Kullanılabilir 892 XML dosyaları sunucuda ve her biri XML dosyalarını 30.000 makale bilgiler içerir. Veri toplama adımı hakkında daha fazla ayrıntı Proje yapısı bölümünde sağlanır. Her dosyada mevcut alanlar 
         
         abstract
         affiliation

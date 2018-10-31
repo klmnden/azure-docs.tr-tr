@@ -3,7 +3,7 @@ title: Azure işlevleri için Azure Event Hubs bağlamaları
 description: Azure işlevleri'nde Azure Event Hubs bağlamaları kullanma hakkında bilgi edinin.
 services: functions
 documentationcenter: na
-author: ggailey777
+author: craigshoemaker
 manager: jeconnoc
 keywords: Azure işlevleri, İşlevler, olay işleme dinamik işlem, sunucusuz mimari
 ms.assetid: daf81798-7acc-419a-bc32-b5a41c6db56b
@@ -11,13 +11,13 @@ ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/08/2017
-ms.author: glenga
-ms.openlocfilehash: 401517abf75c5144a2e166663408be52934c92e3
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.author: cshoe
+ms.openlocfilehash: 3f1a9535037f099cdfe7bf4ec41a337fdf6a434d
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50086837"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50248787"
 ---
 # <a name="azure-event-hubs-bindings-for-azure-functions"></a>Azure işlevleri için Azure Event Hubs bağlamaları
 
@@ -625,6 +625,36 @@ JavaScript'te, çıkış olayı kullanarak erişim `context.bindings.<name>`. `<
 | Bağlama | Başvuru |
 |---|---|
 | Olay Hub'ı | [İşlemler Kılavuzu](https://docs.microsoft.com/rest/api/eventhub/publisher-policy-operations) |
+
+<a name="host-json"></a>  
+
+## <a name="hostjson-settings"></a>Host.JSON ayarları
+
+Bu bölümde sürümünde bu bağlama için kullanılabilen genel yapılandırma ayarları açıklanmaktadır 2.x. Aşağıdaki örnek host.json dosyasını yalnızca bu bağlama için sürüm 2.x ayarları içerir. Sürümündeki genel yapılandırma ayarları hakkında daha fazla bilgi için 2.x bkz [sürümü Azure işlevleri için host.json başvurusu 2.x](functions-host-json.md).
+
+> [!NOTE]
+> İşlevlerde host.json başvurusu için 1.x, bkz: [Azure işlevleri için host.json başvurusu 1.x](functions-host-json-v1.md).
+
+```json
+{
+    "version": "2.0",
+    "extensions": {
+        "eventHubs": {
+            "batchCheckpointFrequency": 5,
+            "eventProcessorOptions": {
+                "maxBatchSize": 256,
+                "prefetchCount": 512
+            }
+        }
+    }
+}  
+```  
+
+|Özellik  |Varsayılan | Açıklama |
+|---------|---------|---------| 
+|maxBatchSize|64|Alma döngü alınan en yüksek olay sayısı.|
+|prefetchCount|yok|Varsayılan temel alınan EventProcessorHost tarafından kullanılacak PrefetchCount.| 
+|batchCheckpointFrequency|1|Bir EventHub imleç denetim noktası oluşturmadan önce işlenecek olay yığın sayısı.| 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

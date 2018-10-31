@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/27/2018
-ms.openlocfilehash: 556b71d8312c7661b58a3ccf56fd76f6753ef9cf
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 2bd2a90c6bac280b6f68bde378b7f7d32b7fcd38
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49987588"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50248756"
 ---
 # <a name="stream-data-as-input-into-stream-analytics"></a>Stream Analytics giriş olarak Stream veri
 
@@ -115,7 +115,6 @@ Bir IOT Hub'ından veri akışı kullandığınızda, aşağıdaki meta verileri
 | **IoTHub.ConnectionDeviceId** | Bu ileti göndermek için kullanılan kimlik doğrulama kimliği. Bu değer servicebound iletileri IOT Hub tarafından damgalandı. |
 | **IoTHub.ConnectionDeviceGenerationId** | Bu ileti göndermek için kullanılan kimliği doğrulanmış cihaz oluşturma kimliği. Bu değer servicebound iletileri IOT Hub tarafından damgalandı. |
 | **IoTHub.EnqueuedTime** | İleti IOT Hub tarafından ne zaman alındığı zamanı. |
-| **IoTHub.StreamId** | Bir özel olay özelliği gönderen cihaz tarafından eklendi. |
 
 
 ## <a name="stream-data-from-blob-storage"></a>Blob depolama alanındaki verilerin Stream

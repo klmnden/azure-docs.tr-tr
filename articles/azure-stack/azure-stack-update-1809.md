@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/27/2018
+ms.date: 10/29/2018
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: d80e7bc1d391d9b5bfd718ca2dc0e9dc7ecb2268
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 38a8cd35d123f58d6379ade4d900e86b36b416ec
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50210882"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50240146"
 ---
 # <a name="azure-stack-1809-update"></a>Azure Stack 1809 güncelleştirme
 
@@ -39,7 +39,7 @@ Azure Stack 1809 güncelleştirmenin yapı numarasıdır **1.1809.0.90**.
 
 Bu güncelleştirme Azure Stack için aşağıdaki geliştirmeleri içerir:
 
-- Bu sürümle birlikte, Azure Stack sistemleri desteklediği yapılandırmalar 4-16 düğümlerinin tümleşik.
+- Bu sürümle birlikte, Azure Stack sistemleri desteklediği yapılandırmalar 4-16 düğümlerinin tümleşik. Kullanabileceğiniz [Azure Stack Capacity Planner](http://aka.ms/azstackcapacityplanner) , Azure Stack kapasite ve yapılandırma için planlamasına yardımcı olmak için.
 
 - <!--  2712869   | IS  ASDK -->  **Azure Stack syslog istemcisi (Genel kullanım)** bu istemci denetimler, uyarılar ve Azure Stack altyapısının bir syslog sunucusu veya güvenlik bilgileri ve Olay yönetimi (SIEM) yazılım ilgili güvenlik günlükleri iletilmesini sağlar. Azure Stack için dış. Syslog istemci artık syslog sunucunun dinlediği bağlantı noktasını destekler.
 

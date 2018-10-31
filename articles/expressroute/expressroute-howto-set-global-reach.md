@@ -3,17 +3,17 @@ title: Azure ExpressRoute küresel erişimi yapılandırma | Microsoft Docs
 description: Bu makalede, yardımcı birlikte özel ağ arasında şirket içi ağlarınız ve Global erişim etkinleştirme yapmak için ExpressRoute bağlantı hattına bağlayın.
 documentationcenter: na
 services: expressroute
-author: cherylmc
+author: mialdrid
 ms.service: expressroute
 ms.topic: conceptual
 ms.date: 10/09/2018
-ms.author: cherylmc
-ms.openlocfilehash: 4006626f9768289e75ccd61a1ef0bad5389f0a7a
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.author: mialdrid
+ms.openlocfilehash: 67fbf9dc430d615efe3ef894add1a26bbce792bc
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49071307"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50237987"
 ---
 # <a name="configure-expressroute-global-reach-preview"></a>ExpressRoute küresel erişim (Önizleme) yapılandırma
 Bu makalede PowerShell kullanarak ExpressRoute Global erişim yapılandırmanıza yardımcı olur. Daha fazla bilgi için [ExpressRouteRoute Global erişim](expressroute-global-reach.md).

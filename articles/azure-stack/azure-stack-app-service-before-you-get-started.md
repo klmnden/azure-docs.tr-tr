@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/20/2018
 ms.author: anwestg
-ms.openlocfilehash: 08fcaa44fc807f986324b8304010792af99fd838
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 786f6ca3b3a1ad26d36c751c54d3cf69ae1d2fd4
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49388016"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50240877"
 ---
 # <a name="before-you-get-started-with-app-service-on-azure-stack"></a>Azure Stack üzerinde App Service ile çalışmaya başlamadan önce
 
@@ -170,7 +170,7 @@ Azure App Service, bir dosya sunucusu kullanılmasını gerektirir. Üretim dağ
 Yalnızca Azure Stack geliştirme Seti'ni dağıtımlar için kullandığınız [örnek Azure Resource Manager dağıtım şablonu](https://aka.ms/appsvconmasdkfstemplate) yapılandırılmış tek düğümlü dosya sunucusu dağıtmak için. Tek düğümlü dosya sunucusu bir çalışma grubunda olacaktır.
 
 >[!IMPORTANT]
-> App Service'ta da mevcut bir sanal ağ dağıtmayı tercih ederseniz dosya sunucusu App Service'ten ayrı bir alt ağa dağıtılması gerekir.
+> App Service'ta da mevcut bir sanal ağ dağıtmayı seçerseniz, dosya sunucusu App Service'ten ayrı bir alt ağa dağıtılması gerekir.
 
 ### <a name="provision-groups-and-accounts-in-active-directory"></a>Gruplar ve Active Directory hesaplarını sağlama
 

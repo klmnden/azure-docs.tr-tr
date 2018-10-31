@@ -2,20 +2,20 @@
 title: Azure işlevleri (Deneysel) için dış dosya bağlamaları
 description: Azure işlevleri'nde dış dosya bağlamaları kullanma
 services: functions
-author: alexkarcher-msft
+author: craigshoemaker
 manager: jeconnoc
 ms.assetid: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 11/27/2017
-ms.author: alkarche
-ms.openlocfilehash: be2d34202b88d0d424eb23c4e078c2fdc45c6ab6
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.author: cshoe
+ms.openlocfilehash: 39036f17b8ceafebbe3660f2074e2a6c84c4df03
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44093779"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50248702"
 ---
 # <a name="azure-functions-external-file-bindings-experimental"></a>Azure işlevleri dış dosya bağlamaları (Deneysel)
 Bu makalede, Azure işlevleri'nde (örneğin, Dropbox veya Google Drive gibi) farklı SaaS sağlayıcıları dosyalarını işlemek gösterilmektedir. Azure işlevleri destekler tetiklemek, girdi ve çıktı bağlaması için dış dosyaları. Bu bağlamaları SaaS sağlayıcıları için API bağlantıları oluşturma ve işlev uygulamanızın kaynak grubundan mevcut API bağlantıları kullanın.

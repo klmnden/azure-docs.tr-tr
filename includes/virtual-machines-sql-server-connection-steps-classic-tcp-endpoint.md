@@ -4,18 +4,18 @@ ms.service: virtual-machines-sql
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: jroth
-ms.openlocfilehash: edb8503f4187fd2d21129ea03e954a0d3516be4b
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: d4e8d99cd7c67136f359772664eb017c6207e6e4
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50227069"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50254756"
 ---
 ### <a name="create-a-tcp-endpoint-for-the-virtual-machine"></a>Sanal makine için TCP uç noktası oluşturma
 SQL Server’a İnternet’ten erişmek için, sanal makinenin gelen TCP iletişimi dinleyeceği bir uç nokta olmalıdır. Bu Azure yapılandırma adımı, gelen TCP bağlantı noktası trafiğini sanal makinenin erişebildiği bir TCP bağlantı noktasına yönlendirir.
 
 > [!NOTE]
-> Aynı bulut hizmetinde veya sanal ağ bağlanıyorsanız publicaly ile erişilebilen bir uç nokta oluşturmanız gerekmez. Bu durumda, sonraki adımdan devam edebilirsiniz. Daha fazla bilgi için bkz. [Bağlantı Senaryoları](../articles/virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-sql-connect.md#connection-scenarios).
+> Aynı bulut hizmetinde veya sanal ağ bağlanıyorsanız, genel olarak erişilebilen bir uç noktası gerekmez. Bu durumda, sonraki adımdan devam edebilirsiniz. Daha fazla bilgi için bkz. [Bağlantı Senaryoları](../articles/virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-sql-connect.md#connection-scenarios).
 > 
 > 
 

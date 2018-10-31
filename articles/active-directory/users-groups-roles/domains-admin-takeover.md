@@ -14,12 +14,12 @@ ms.date: 04/06/2017
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
-ms.openlocfilehash: 210526e105793820a2e8a80a11b356b1d7d764da
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 857d58d31565e413a207162202f1a680d7da7c65
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42061735"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50250742"
 ---
 # <a name="take-over-an-unmanaged-directory-as-administrator-in-azure-active-directory"></a>Azure Active Directory'de yönetici olarak yönetilmeyen bir dizini devralma
 Bu makalede, Azure Active Directory (Azure AD) bir yönetilmeyen dizinde bir DNS etki alanı adı ele iki yolu açıklanır. Bir self servis kullanıcısı, Azure AD kullanan bir bulut hizmetine kaydolduğunda bu kullanıcı, e-posta etki alanına göre yönetilmeyen bir Azure AD dizinine eklenir. Self Servis veya "viral" kayıt bir hizmet için hakkında daha fazla bilgi için bkz. [Azure Active Directory için Self Servis kaydolma nedir?](https://docs.microsoft.com/azure/active-directory/active-directory-self-service-signup)
@@ -128,7 +128,7 @@ Cmdlet'i | Kullanım
 
 1. Self Servis teklife yanıt vermek için kullanılan kimlik bilgilerini kullanarak Azure AD'ye bağlanın:
   ````
-    import-module MSOnline
+    Install-Module -Name MSOnline
     $msolcred = get-credential
     
     connect-msolservice -credential $msolcred

@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 08/09/2018
 ms.author: markvi
 ms.reviewer: ravenn
-ms.openlocfilehash: cde364cb5231c1cc0b1947da35994862cf45b571
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 267e398305939048014038b7350b2a10481fdfbd
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43042170"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50238735"
 ---
 # <a name="how-to-manage-the-local-administrators-group-on-azure-ad-joined-devices"></a>Azure AD'de yerel Yöneticiler grubuna yönetme alanına katılmış cihazları
 
@@ -92,9 +92,9 @@ Azure AD katılma işlemi kullanmaya ek olarak, normal bir kullanıcı belirli b
  
 Ayrıca, komut istemini kullanarak kullanıcıları ekleyebilirsiniz:
 
-- Kiracı kullanıcılarınız şirket içi Active Directory'den eşitlenen kullanırsanız `net localgroup administrators /add “Contoso\username”`.
+- Kiracı kullanıcılarınız şirket içi Active Directory'den eşitlenen kullanırsanız `net localgroup administrators /add "Contoso\username"`.
 
-- Kiracı kullanıcıların Azure AD'de oluşturduysanız kullanın `net localgroup administrators /add “AzureAD\UserUpn”`
+- Kiracı kullanıcıların Azure AD'de oluşturduysanız kullanın `net localgroup administrators /add "AzureAD\UserUpn"`
 
 
 ## <a name="considerations"></a>Dikkat edilmesi gerekenler 
@@ -109,8 +109,8 @@ Kullanıcıların cihaz yönetici rolünden kaldırdığınızda, bunlar için o
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- Azure portalında cihaz yönetme genel bakış için bkz: [Azure portalını kullanarak cihazları yönetme](device-management-azure-portal.md)
+- Azure portal'da cihaz yönetimine ilişkin genel bir bakış edinmek için bkz. [Azure portal'ı kullanarak cihazları yönetme](device-management-azure-portal.md)
 
-- Cihaz tabanlı koşullu erişim hakkında daha fazla bilgi için bkz: [Azure Active Directory cihaz tabanlı koşullu erişim ilkelerini yapılandırma](../conditional-access/require-managed-devices.md).
+- Cihaz tabanlı koşullu erişim hakkında daha fazla bilgi edinmek için bkz. [Azure Active Directory cihaz tabanlı koşullu erişim ilkelerini yapılandır](../conditional-access/require-managed-devices.md).
 
 

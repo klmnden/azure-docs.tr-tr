@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/23/2018
 ms.author: jasonh
-ms.openlocfilehash: 8a9dd45a8d5ebf506899c733107ff2fd01b08a2c
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 3ff05640431f78d3f48942a6701bbc2b54da7c90
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46964539"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50250504"
 ---
 # <a name="run-hive-queries-with-hadoop-in-hdinsight-using-rest"></a>REST kullanarak HDInsight Hadoop ile Hive sorguları çalıştırma
 
@@ -189,8 +189,6 @@ Tez Hive'ı kullanıyorsanız, hata ayıklama bilgileri için aşağıdaki belge
 * [Linux tabanlı HDInsight üzerinde Ambari Tez görünümünü kullanın](../hdinsight-debug-ambari-tez-view.md)
 
 Bu belgede kullanılan REST API hakkında daha fazla bilgi için bkz. [WebHCat başvuru](https://cwiki.apache.org/confluence/display/Hive/WebHCat+Reference) belge.
-
-[hdinsight-sdk-documentation]: http://msdnstage.redmond.corp.microsoft.com/library/dn479185.aspx
 
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
 [azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/

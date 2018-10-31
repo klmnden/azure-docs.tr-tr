@@ -13,18 +13,18 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: 701373efa3c3c22eb5969705927e1c0cc6e3f36b
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 7f5e1f2141a58f666367d253d5fc313499e64c9f
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50215818"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50239399"
 ---
 # <a name="troubleshoot-an-rdp-general-error-in-azure-vm"></a>Azure VM'de bir RDP genel hata sorunlarını giderme
 
 Bu makalede, azure'da Windows sanal makine (VM) için Uzak Masaüstü Protokolü (RDP) bağlantısı sırasında karşılaşabileceğiniz genel bir hata açıklanır.
 
-## <a name="symptoms"></a>Belirtiler
+## <a name="symptom"></a>Belirti
 
 Azure'da penceresi VM ile RDP bağlantısı değişiklik yaptığınızda, aşağıdaki genel hata iletisini alabilirsiniz:
 
@@ -61,11 +61,11 @@ RDP dinleyicisi yanlış yapılandırılmış.
 
 ## <a name="solution"></a>Çözüm
 
-Bu sorunu çözmek için [işletim sistemi diskini yedekleme](../windows/snapshot-copy-managed-disk.md), ve [kurtarma VM için işletim sistemi diski](troubleshoot-recovery-disks-portal-windows.md)ve çözüm seçenekleri uygun şekilde izleyin veya tek tek çözümleri deneyin.
+Bu sorunu çözmek için [işletim sistemi diskini yedekleme](../windows/snapshot-copy-managed-disk.md), ve [kurtarma VM için işletim sistemi diski](troubleshoot-recovery-disks-portal-windows.md)ve ardından adımları izleyin.
 
 ### <a name="serial-console"></a>Seri konsol
 
-#### <a name="step-1-turn-on-remote-desk"></a>1. adım: Uzak Masaüstü Aç
+#### <a name="step-1-turn-on-remote-deskop"></a>1. adım: Uzak Masaüstü Aç
 
 1. Erişim [seri konsol](serial-console-windows.md) seçerek **destek ve sorun giderme** > **seri konsol (Önizleme)**. VM'de özelliği etkinleştirilmişse, sanal makine başarıyla bağlanabilirsiniz.
 
@@ -76,14 +76,7 @@ Bu sorunu çözmek için [işletim sistemi diskini yedekleme](../windows/snapsho
    ```
    ch -si 1
    ```
-
-4. Uzak Masaüstü, şu ilkeyi değiştirerek GPO İlkesi aracılığıyla etkinleştirin:
-
-   ```
-   Computer Configuration\Policies\Administrative Templates: Policy definitions\Windows Components\Remote Desktop Services\Remote Desktop Session Host\Connections\Allow users to connect remotely by using Remote Desktop Services
-   ```
-
-5. Bu soruna neden olabilecek bazı diğer kayıt defteri anahtarları kayıt defteri anahtarlarının değerleri aşağıdaki gibi denetleyin:
+4. Kayıt defteri anahtarlarını değerleri aşağıdaki gibi denetleyin:
 
    1. RDP bileşeni etkin olduğundan emin olun.
 
@@ -97,7 +90,7 @@ Bu sorunu çözmek için [işletim sistemi diskini yedekleme](../windows/snapsho
 
       Etki alanı ilkesi varsa, kurulumu yerel ilkesinde üzerine yazılır.
 
-         - Etki alanı ilkesi RDP devre dışı (1) ve ardından güncelleştirme AD İlkesi olduğunu bildiren durumunda.
+         - Etki alanı ilkesi RDP devre dışı (1) ve ardından etki alanı denetleyicisinden AD güncelleştirme ilkesi olduğunu bildiren durumunda.
          - Etki alanı ilkesi RDP etkin (0) olduğunu belirtiyorsa, ardından hiçbir güncelleştirme gerekir.
 
       Etki alanı ilkesi mevcut değil ve yerel ilkesini RDP devre dışı bırakıldığını belirtir (1), aşağıdaki komutu kullanarak RDP'yi etkinleştirin:
@@ -184,75 +177,63 @@ Daha fazla bilgi için [Uzak Masaüstü bağlantısını keser sık Azure VM'de]
 
 ### <a name="offline-repair"></a>Çevrimdışı onarım
 
-#### <a name="step-1-turn-on-remote-desk"></a>1. adım: Uzak Masaüstü Aç
+#### <a name="step-1-turn-on-remote-deskop"></a>1. adım: Uzak Masaüstü Aç
 
-> [!NOTE]  
-> Ekli işletim sistemi diski için atanan sürücü harfini f Değiştir olduğunu varsayıyoruz, sanal makinenizin uygun değere sahip. Sistem ve yazılım yığınlarını takılamadı ve ardından bağlı gerekir.
+1. [İşletim sistemi diskini bir kurtarma VM'si ekleme](../windows/troubleshoot-recovery-disks-portal.md).
+2. Kurtarma VM'sini bir Uzak Masaüstü Bağlantısı'nı başlatın.
+3. Disk olarak işaretlenmiş olduğundan emin olun **çevrimiçi** Disk Yönetimi Konsolu'nda. Ekli işletim sistemi diski için atanan sürücü harfini unutmayın.
+3. Kurtarma VM'sini bir Uzak Masaüstü Bağlantısı'nı başlatın.
+4. Yükseltilmiş bir komut istemi oturumu açın (**yönetici olarak çalıştır**). Aşağıdaki komut dosyasını çalıştırın. Bu betikte ekli işletim sistemi diski için atanan sürücü harfini f Değiştir VM'niz için uygun değeri bu sürücü harfiyle olduğunu varsayıyoruz.
 
-1. Yükseltilmiş bir komut örneği açın ve aşağıdaki betikler kurtarma VM üzerinde çalıştırın:
+      ```
+      reg load HKLM\BROKENSYSTEM F:\windows\system32\config\SYSTEM.hiv 
+      reg load HKLM\BROKENSOFTWARE F:\windows\system32\config\SOFTWARE.hiv 
+ 
+      REM Ensure that Terminal Server is enabled 
 
-   ```
-   reg load HKLM\BROKENSYSTEM f:\windows\system32\config\SYSTEM.hiv
-   reg load HKLM\BROKENSOFTWARE f:\windows\system32\config\SOFTWARE.hiv
+      reg add "HKLM\BROKENSYSTEM\ControlSet001\control\Terminal Server" /v TSEnabled /t REG_DWORD /d 1 /f 
+      reg add "HKLM\BROKENSYSTEM\ControlSet002\control\Terminal Server" /v TSEnabled /t REG_DWORD /d 1 /f 
 
-   REM Ensure that Terminal Server is enabled
-   reg add "HKLM\BROKENSYSTEM\ControlSet001\Control\Terminal Server" /v TSEnabled /t REG_DWORD /d 1 /f
-   reg add "HKLM\BROKENSYSTEM\ControlSet002\Control\Terminal Server" /v TSEnabled /t REG_DWORD /d 1 /f
+      REM Ensure Terminal Service is not set to Drain mode 
+      reg add "HKLM\BROKENSYSTEM\ControlSet001\control\Terminal Server" /v TSServerDrainMode /t REG_DWORD /d 0 /f 
+      reg add "HKLM\BROKENSYSTEM\ControlSet002\control\Terminal Server" /v TSServerDrainMode /t REG_DWORD /d 0 /f 
 
-   REM Ensure Terminal Service is not set to Drain mode
-   reg add "HKLM\BROKENSYSTEM\ControlSet001\Control\Terminal Server" /v TSServerDrainMode /t REG_DWORD /d 0 /f
-   reg add "HKLM\BROKENSYSTEM\ControlSet002\Control\Terminal Server" /v TSServerDrainMode /t REG_DWORD /d 0 /f
+      REM Ensure Terminal Service has logon enabled 
+      reg add "HKLM\BROKENSYSTEM\ControlSet001\control\Terminal Server" /v TSUserEnabled /t REG_DWORD /d 0 /f 
+      reg add "HKLM\BROKENSYSTEM\ControlSet002\control\Terminal Server" /v TSUserEnabled /t REG_DWORD /d 0 /f 
 
-   REM Ensure Terminal Service has logon enabled
-   reg add "HKLM\BROKENSYSTEM\ControlSet001\Control\Terminal Server" /v TSUserEnabled /t REG_DWORD /d 0 /f
+      REM Ensure the RDP Listener is not disabled 
+      reg add "HKLM\BROKENSYSTEM\ControlSet001\control\Terminal Server\Winstations\RDP-Tcp" /v fEnableWinStation /t REG_DWORD /d 1 /f 
+      reg add "HKLM\BROKENSYSTEM\ControlSet002\control\Terminal Server\Winstations\RDP-Tcp" /v fEnableWinStation /t REG_DWORD /d 1 /f 
 
-   REM Ensure the RDP Listener is not disabled
-   reg add "HKLM\BROKENSYSTEM\ControlSet001\Control\Terminal Server\Winstations\RDP-Tcp" /v fEnableWinStation /t REG_DWORD /d 1 /f
-   reg add "HKLM\BROKENSYSTEM\ControlSet002\Control\Terminal Server\Winstations\RDP-Tcp" /v fEnableWinStation /t REG_DWORD /d 1 /f
+      REM Ensure the RDP Listener accepts logons 
+      reg add "HKLM\BROKENSYSTEM\ControlSet001\control\Terminal Server\Winstations\RDP-Tcp" /v fLogonDisabled /t REG_DWORD /d 0 /f 
+      reg add "HKLM\BROKENSYSTEM\ControlSet002\control\Terminal Server\Winstations\RDP-Tcp" /v fLogonDisabled /t REG_DWORD /d 0 /f 
 
-   REM Ensure the RDP Listener accepts logons
-   reg add "HKLM\BROKENSYSTEM\ControlSet001\Control\Terminal Server\Winstations\RDP-Tcp" /v fLogonDisabled /t REG_DWORD /d 0 /f
-   reg add "HKLM\BROKENSYSTEM\ControlSet002\Control\Terminal Server\Winstations\RDP-Tcp" /v fLogonDisabled /t REG_DWORD /d 0 /f
+      REM RDP component is enabled 
+      reg add "HKLM\BROKENSYSTEM\ControlSet001\control\Terminal Server" /v fDenyTSConnections /t REG_DWORD /d 0 /f 
+      reg add "HKLM\BROKENSYSTEM\ControlSet002\control\Terminal Server" /v fDenyTSConnections /t REG_DWORD /d 0 /f 
+      reg add "HKLM\BROKENSOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v fDenyTSConnections /t REG_DWORD /d 0 /f 
 
-   REM RDP component is enabled
-   reg add "HKLM\BROKENSYSTEM\ControlSet001\Control\Terminal Server" /v fDenyTSConnections /t REG_DWORD /d 0 /f
-   reg add "HKLM\BROKENSYSTEM\ControlSet002\Control\Terminal Server" /v fDenyTSConnections /t REG_DWORD /d 0 /f
-   reg add "HKLM\BROKENSOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v fDenyTSConnections /t REG_DWORD /d 0 /f
+      reg unload HKLM\BROKENSYSTEM 
+      reg unload HKLM\BROKENSOFTWARE 
+      ```
 
-   reg unload HKLM\BROKENSYSTEM
-   reg unload HKLM\BROKENSOFTWARE
-   ```
-
-2. Sistem ve yazılım yığınlarını bağlayın.
-
-   ```
-   reg load HKLM\BROKENSYSTEM f:\windows\system32\config\SYSTEM
-   reg load HKLM\BROKENSOFTWARE f:\windows\system32\config\SOFTWARE
-   ```
-
-3. Sanal Makine etki alanına katılmış ise, RDP İlkesi düzeyinde devre dışı bırakılamadı. Bu durumda doğrulamak için aşağıdaki kayıt defteri anahtarını kontrol edin:
+3. VM'nin etki alanına katılmış ise, RDP devre dışı bırakan bir Grup İlkesi olup olmadığını görmek için aşağıdaki kayıt defteri anahtarını kontrol edin. 
 
    ```
-   HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services\fDenyTSConnectionS
+   HKLM\BROKENSOFTWARE\Policies\Microsoft\Windows NT\Terminal Services\fDenyTSConnectionS
    ```
 
-4. Bu anahtar değerini 1 olarak ayarlayın, RDP ilke tarafından devre dışı bırakılır.
 
-5. Uzak Masaüstü, şu ilkeyi değiştirerek GPO İlkesi aracılığıyla etkinleştirin:
+      Bu anahtar değeri ayarlamak RDP anlamına gelen 1 ilke tarafından devre dışı bırakılır. Uzak Masaüstü GPO İlkesi aracılığıyla etkinleştirmek için etki alanı denetleyicisinden şu ilkeyi değiştirin:
 
    ```
    Computer Configuration\Policies\Administrative Templates: Policy definitions\Windows Components\Remote Desktop Services\Remote Desktop Session Host\Connections\Allow users to connect remotely by using Remote Desktop Services
    ```
 
-6. Bu kayıt defteri anahtarı mevcut değilse, aşağıdaki kayıt defteri anahtarını kontrol edin:
-
-   ```
-   HKLM\System\CurrentControlSet\Control\Terminal Server\fDenyTSConnections
-   ```
-
-7. Bu anahtarın 1 olarak ayarlarsanız, RDP Aç kapalıdır. Anahtar değerini 0 olarak değiştirin.
-8. VM kurtarma diskten çıkarın.
-9. [Diskten yeni bir VM oluşturma](../windows/create-vm-specialized.md).
+4. VM kurtarma diskten çıkarın.
+5. [Diskten yeni bir VM oluşturma](../windows/create-vm-specialized.md).
 
 Hala sorun olursa, adım 2 taşıyın.
 
