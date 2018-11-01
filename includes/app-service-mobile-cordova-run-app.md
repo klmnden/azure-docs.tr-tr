@@ -1,5 +1,17 @@
-
-1. [Azure portalını] ziyaret edin.
+---
+author: conceptdev
+ms.service: app-service-mobile
+ms.topic: include
+ms.date: 08/23/2018
+ms.author: crdun
+ms.openlocfilehash: 3217383b105c022aef42d8000f3a41cefea542fe
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.translationtype: HT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50133795"
+---
+1. [Azure Portal] ziyaret edin.
 2. **Uygulama Hizmetleri**'ne ve oluşturduğunuz arka uca tıklayın.
 3. Mobil uygulama ayarlarında, **Hızlı Başlangıç** > **Cordova** öğesine tıklayın.
 ![Mobile Apps Hızlı Başlangıcı'nın vurgulandığı Azure Portal][quickstart]
@@ -17,4 +29,4 @@ Diğer platformlar için 3 ile 5 arasındaki adımları tekrarlayabilirsiniz.
 [quickstart]: ./media/app-service-mobile-configure-new-backend/quickstart.png
 
 <!-- URLs -->
-[Azure portalını]: https://portal.azure.com/
+[Azure Portal]: https://portal.azure.com/

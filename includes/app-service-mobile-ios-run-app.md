@@ -1,4 +1,17 @@
-1. Mac’inizde [Azure portalda] ziyaret edin. **Tüm Hizmetler** > **Uygulama Hizmetleri** > oluşturduğunuz arka uca tıklayın. Mobil uygulama ayarlarında, tercih ettiğiniz dili seçin:
+---
+author: conceptdev
+ms.service: app-service-mobile
+ms.topic: include
+ms.date: 08/23/2018
+ms.author: crdun
+ms.openlocfilehash: 1d1d593b7305e0cd9899f4ec388cb441ced90b10
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.translationtype: HT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50133676"
+---
+1. Mac’inizde [Azure Portal] ziyaret edin. **Tüm Hizmetler** > **Uygulama Hizmetleri** > oluşturduğunuz arka uca tıklayın. Mobil uygulama ayarlarında, tercih ettiğiniz dili seçin:
 
     - Objective-C &ndash; **Hızlı Başlangıç** > **iOS (Objective-C)**
     - Swift &ndash; **Hızlı Başlangıç** > **iOS (Swift)**
@@ -11,4 +24,4 @@
 
    ![iOS’ta çalışan hızlı başlangıç uygulaması](./media/app-service-mobile-ios-quickstart/mobile-quickstart-startup-ios.png)
 
-[Azure portalda]: https://portal.azure.com/
+[Azure Portal]: https://portal.azure.com/
