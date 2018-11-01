@@ -12,12 +12,12 @@ ms.date: 12/15/2017
 ms.author: glenga
 ms.reviewer: sunayv
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: 70eda1d69bdbdc969c5d6bc1774820b50ddc7c83
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 62c04e5893eaefcc5eb7272eb9a99cf932086205
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49093401"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50086885"
 ---
 # <a name="create-an-openapi-definition-for-a-function"></a>Bir işlev için OpenAPI tanımı oluşturma
 REST API’ler genellikle bir OpenAPI tanımı (eski adıyla [Swagger](http://swagger.io/) dosyası) kullanılarak açıklanır. Bu tanım, bir API’de hangi işlemlerin kullanılabildiğinin yanı sıra API için istek ve yanıt verilerinin nasıl yapılandırılması gerektiğiyle ilgili bilgileri içerir.
@@ -65,6 +65,7 @@ Bu öğreticide HTTP ile tetiklenen ve şu iki parametreyi alan bir işlev kulla
 
     using System.Net;
     using Microsoft.AspNetCore.Mvc;
+    using Microsoft.Extensions.Logging;
     using Microsoft.Extensions.Primitives;
     using Newtonsoft.Json;
 

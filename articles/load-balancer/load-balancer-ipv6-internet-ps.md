@@ -1,13 +1,10 @@
 ---
 title: IPv6 - PowerShell ile bir Azure Internet'e yönelik Yük Dengeleyici oluşturma | Microsoft Docs
-description: Internet'e yönelik Yük Dengeleyici kaynak yöneticisi için PowerShell kullanarak IPv6 oluşturmayı öğrenin
+description: Internet'e yönelik IPv6 ile Resource Manager için PowerShell kullanarak yük dengeleyici oluşturmayı öğrenin
 services: load-balancer
 documentationcenter: na
 author: KumudD
-manager: timlt
-tags: azure-resource-manager
-keywords: IPv6, azure yük dengeleyici, çift yığın, genel IP, yerel IPv6, mobil, IOT
-ms.assetid: d4c649e3-84ad-4343-8b6a-0e89f0b9e518
+keywords: IPv6, azure yük dengeleyici, ikili yığın, genel IP, yerel IPv6, mobil veya IOT
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
@@ -15,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: 1e369307fba815554b7a34fd430b2e259137c5d6
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 71164899de9e4351e2da5ce469f0d7ae0373829f
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31593517"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50741343"
 ---
-# <a name="get-started-creating-an-internet-facing-load-balancer-with-ipv6-using-powershell-for-resource-manager"></a>Internet'e yönelik Yük Dengeleyici kaynak yöneticisi için PowerShell kullanarak IPv6 oluşturmaya başlamak
+# <a name="get-started-creating-an-internet-facing-load-balancer-with-ipv6-using-powershell-for-resource-manager"></a>Internet'e yönelik IPv6 ile Resource Manager için PowerShell kullanarak yük dengeleyici oluşturmaya başlama
 
 > [!div class="op_single_selector"]
 > * [PowerShell](load-balancer-ipv6-internet-ps.md)
@@ -36,23 +33,23 @@ Azure Load Balancer bir Katman 4 (TCP, UDP) yük dengeleyicidir. Yük dengeleyic
 
 ## <a name="example-deployment-scenario"></a>Örnek dağıtım senaryosu
 
-Aşağıdaki diyagram, bu makaledeki dağıtılan çözümü dengelemesini gösterir.
+Aşağıdaki diyagram, bu makaledeki dağıtılan çözüm yük dengelemeyi gösterir.
 
 ![Yük dengeleyici senaryosu](./media/load-balancer-ipv6-internet-ps/lb-ipv6-scenario.png)
 
-Bu senaryoda aşağıdaki Azure kaynakları oluşturulur:
+Bu senaryoda aşağıdaki Azure kaynakları oluşturacak:
 
-* bir IPv4 ve IPv6 genel IP adresi olan bir Internet'e yönelik Yük Dengeleyici
-* iki Yük Dengeleme kuralları özel uç noktaları için ortak VIP'ler eşlemek için
-* bir kullanılabilirlik kümesi, iki VM içerir
-* iki sanal makine (VM)
-* atanan IPv4 ve IPv6 adreslerinin her VM için bir sanal ağ arabirimi
+* bir Internet'e yönelik Yük Dengeleyiciyle bir IPv4 ve IPv6 genel IP adresi
+* İki Yük Dengeleme kuralları, genel VIP özel uç noktalar için eşlemek için
+* bir kullanılabilirlik kümesi, iki sanal makine içeriyor
+* İki sanal makine (VM)
+* Atanmış IPv4 ve IPv6 adresleri ile her VM için bir sanal ağ arabirimi
 
 ## <a name="deploying-the-solution-using-the-azure-powershell"></a>Azure PowerShell kullanarak çözümü dağıtma
 
-Aşağıdaki adımlar, Internet'e yönelik Yük Dengeleyici PowerShell ile Azure Resource Manager kullanarak nasıl oluşturulacağını gösterir. Azure Resource Manager ile her bir kaynak oluşturulur ve birlikte bir kaynak oluşturmak için ENTER koy ayrı ayrı yapılandırılır.
+Aşağıdaki adımlar, Internet'e yönelik Yük Dengeleyici Azure Resource Manager ve PowerShell kullanarak oluşturma işlemi gösterilmektedir. Azure Resource Manager ile her bir kaynak oluşturulur ve ayrı ayrı, bir kaynak oluşturmak için bir araya sonra put yapılandırılır.
 
-Bir yük dengeleyici dağıtmayı oluşturun ve aşağıdaki nesneleri yapılandırın:
+Yük Dengeleyici dağıtmak için oluşturun ve aşağıdaki nesneleri yapılandırın:
 
 * Ön uç IP yapılandırması: Gelen ağ trafiği için genel IP adreslerini içerir.
 * Arka uç adres havuzu: Sanal makinelerin yük dengeleyiciden ağ trafiği alması için ağ arabirimlerini (NIC’ler) içerir.
@@ -64,9 +61,9 @@ Daha fazla bilgi için bkz. [Yük Dengeleyici için Azure Resource Manager deste
 
 ## <a name="set-up-powershell-to-use-resource-manager"></a>PowerShell’i Resource Manager’ı kullanacak şekilde ayarlama
 
-PowerShell için Azure Resource Manager modülüyle en son ürün sürümüne sahip olduğunuzdan emin olun.
+PowerShell için Azure Resource Manager modülünün son üretim sürümüne sahip olduğunuzdan emin olun.
 
-1. Oturum Azure açın
+1. Azure'nda oturum açın
 
     ```powershell
     Connect-AzureRmAccount
@@ -86,7 +83,7 @@ PowerShell için Azure Resource Manager modülüyle en son ürün sürümüne sa
     Select-AzureRmSubscription -SubscriptionId 'GUID of subscription'
     ```
 
-4. Bir kaynak grubu (var olan bir kaynak grubu kullanıyorsanız bu adımı atla) oluşturun
+4. Bir kaynak grubu (mevcut bir kaynak grubu kullanıyorsanız bu adımı atlayın) oluşturun
 
     ```powershell
     New-AzureRmResourceGroup -Name NRP-RG -location "West US"
@@ -94,7 +91,7 @@ PowerShell için Azure Resource Manager modülüyle en son ürün sürümüne sa
 
 ## <a name="create-a-virtual-network-and-a-public-ip-address-for-the-front-end-ip-pool"></a>Ön uç IP havuzu için sanal ağ ve genel IP adresi oluşturma
 
-1. Bir sanal ağ alt ağı oluşturun.
+1. Bir alt ağ ile sanal ağ oluşturun.
 
     ```powershell
     $backendSubnet = New-AzureRmVirtualNetworkSubnetConfig -Name LB-Subnet-BE -AddressPrefix 10.0.2.0/24
@@ -109,33 +106,33 @@ PowerShell için Azure Resource Manager modülüyle en son ürün sürümüne sa
     ```
 
     > [!IMPORTANT]
-    > Yük Dengeleyici genel IP etki alanı etiketini FQDN'sini için önek olarak kullanır. Bu örnekte, FQDN'ler olan *lbnrpipv4.westus.cloudapp.azure.com* ve *lbnrpipv6.westus.cloudapp.azure.com*.
+    > Yük Dengeleyici, FQDN ön eki olarak genel IP'nin etki alanı etiketini kullanır. Bu örnekte FQDN olan *lbnrpipv4.westus.cloudapp.azure.com* ve *lbnrpipv6.westus.cloudapp.azure.com*.
 
-## <a name="create-a-front-end-ip-configurations-and-a-back-end-address-pool"></a>Bir ön uç IP yapılandırmaları ve arka uç adres havuzu oluşturma
+## <a name="create-a-front-end-ip-configurations-and-a-back-end-address-pool"></a>Ön uç IP yapılandırmaları ve arka uç adres havuzu oluşturma
 
-1. Oluşturduğunuz ortak IP adresleri kullanan ön uç adresi yapılandırmasını oluşturun.
+1. Oluşturduğunuz genel IP adresleri kullanan bir ön uç adres yapılandırmasını oluşturun.
 
     ```powershell
     $FEIPConfigv4 = New-AzureRmLoadBalancerFrontendIpConfig -Name "LB-Frontendv4" -PublicIpAddress $publicIPv4
     $FEIPConfigv6 = New-AzureRmLoadBalancerFrontendIpConfig -Name "LB-Frontendv6" -PublicIpAddress $publicIPv6
     ```
 
-2. Arka uç adres havuzu oluşturun.
+2. Arka uç adres havuzları oluşturun.
 
     ```powershell
     $backendpoolipv4 = New-AzureRmLoadBalancerBackendAddressPoolConfig -Name "BackendPoolIPv4"
     $backendpoolipv6 = New-AzureRmLoadBalancerBackendAddressPoolConfig -Name "BackendPoolIPv6"
     ```
 
-## <a name="create-lb-rules-nat-rules-a-probe-and-a-load-balancer"></a>LB kuralları, NAT kuralları, bir araştırma ve bir yük dengeleyici oluşturma
+## <a name="create-lb-rules-nat-rules-a-probe-and-a-load-balancer"></a>LB kuralları, NAT kuralları, araştırma ve yük dengeleyici oluşturma
 
 Bu örnek aşağıdaki nesneleri oluşturur:
 
-* bağlantı noktası 443 numaralı bağlantı noktasına 4443 tüm gelen trafiği çevirmek için NAT kuralı
+* bağlantı noktası 443 4443 numaralı bağlantı noktasına gelen tüm trafiği yönlendiren NAT kuralı
 * 80 numaralı bağlantı noktasına gelen tüm trafiği arka uç havuzundaki adreslerin 80 numaralı bağlantı noktasıyla dengeleyen yük dengeleyici kuralı.
-* bağlantı noktası 3389 sanal makinelerin RDP bağlantılarına izin vermek için bir yük dengeleyici kuralı.
-* adlı bir sayfada sistem durumunu denetlemek için bir araştırma kuralı *HealthProbe.aspx* veya bir hizmet bağlantı noktası 8080
-* Bu nesneler kullanan bir yük dengeleyici
+* 3389 numaralı bağlantı noktasında vm'lere RDP bağlantısına izin vermek için bir yük dengeleyici kuralı.
+* adlı sayfanın durumunu denetleyen araştırma kuralı *HealthProbe.aspx* veya hizmeti 8080 numaralı bağlantı
+* Tüm bu nesneleri kullanan bir yük dengeleyici
 
 1. NAT kurallarını oluşturun.
 
@@ -159,7 +156,7 @@ Bu örnek aşağıdaki nesneleri oluşturur:
     $RDPprobe = New-AzureRmLoadBalancerProbeConfig -Name 'RDPprobe' -Protocol Tcp -Port 3389 -IntervalInSeconds 15 -ProbeCount 2
     ```
 
-    Bu örnekte, biz TCP araştırmalar kullanacaksanız.
+    Bu örnekte, TCP araştırmaları kullanmak için kullanacağız.
 
 3. Yük dengeleyici kuralı oluşturun.
 
@@ -169,15 +166,15 @@ Bu örnek aşağıdaki nesneleri oluşturur:
     $RDPrule = New-AzureRmLoadBalancerRuleConfig -Name "RDPrule" -FrontendIpConfiguration $FEIPConfigv4 -BackendAddressPool $backendpoolipv4 -Probe $RDPprobe -Protocol Tcp -FrontendPort 3389 -BackendPort 3389
     ```
 
-4. Yük Dengeleyici daha önce oluşturulan nesneleri kullanarak oluşturun.
+4. Önceden oluşturulan nesneleri kullanarak yük dengeleyici oluşturun.
 
     ```powershell
     $NRPLB = New-AzureRmLoadBalancer -ResourceGroupName NRP-RG -Name 'myNrpIPv6LB' -Location 'West US' -FrontendIpConfiguration $FEIPConfigv4,$FEIPConfigv6 -InboundNatRule $inboundNATRule1v6,$inboundNATRule1v4 -BackendAddressPool $backendpoolipv4,$backendpoolipv6 -Probe $healthProbe,$RDPprobe -LoadBalancingRule $lbrule1v4,$lbrule1v6,$RDPrule
     ```
 
-## <a name="create-nics-for-the-back-end-vms"></a>Arka uç VM'ler için NIC oluşturun
+## <a name="create-nics-for-the-back-end-vms"></a>NIC için arka uç VM oluşturma
 
-1. Sanal ağ ve sanal ağ alt, burada NIC'ler oluşturulması gerektiğini öğrenin.
+1. Sanal ağ ve NIC'ler nerede oluşturulması gerektiğini sanal ağ alt alın.
 
     ```powershell
     $vnet = Get-AzureRmVirtualNetwork -Name VNet -ResourceGroupName NRP-RG
@@ -196,9 +193,9 @@ Bu örnek aşağıdaki nesneleri oluşturur:
     $nic2 = New-AzureRmNetworkInterface -Name 'myNrpIPv6Nic1' -IpConfiguration $nic2IPv4,$nic2IPv6 -ResourceGroupName NRP-RG -Location 'West US'
     ```
 
-## <a name="create-virtual-machines-and-assign-the-newly-created-nics"></a>Sanal makineler oluşturun ve yeni oluşturulan NIC'ler atayın
+## <a name="create-virtual-machines-and-assign-the-newly-created-nics"></a>Sanal makineler oluşturun ve yeni oluşturulan Nıc'lere atayın
 
-Bir VM oluşturma hakkında daha fazla bilgi için bkz: [oluşturma ve Resource Manager ve Azure PowerShell ile Windows sanal makine önceden yapılandırın](../virtual-machines/virtual-machines-windows-ps-create.md?toc=%2fazure%2fload-balancer%2ftoc.json)
+Bir VM oluşturma hakkında daha fazla bilgi için bkz. [oluştur ve Resource Manager ve Azure PowerShell ile Windows sanal makine önceden yapılandırma](../virtual-machines/virtual-machines-windows-ps-create.md?toc=%2fazure%2fload-balancer%2ftoc.json)
 
 1. Bir kullanılabilirlik kümesi ve depolama hesabı oluşturma
 
@@ -209,7 +206,7 @@ Bir VM oluşturma hakkında daha fazla bilgi için bkz: [oluşturma ve Resource 
     $CreatedStorageAccount = Get-AzureRmStorageAccount -ResourceGroupName NRP-RG -Name 'mynrpipv6stacct'
     ```
 
-2. Her bir VM oluşturun ve önceki NIC'ler oluşturulan atayın
+2. Her VM oluşturma ve NIC oluşturulan önceki atama
 
     ```powershell
     $mySecureCredentials= Get-Credential -Message "Type the username and password of the local administrator account."

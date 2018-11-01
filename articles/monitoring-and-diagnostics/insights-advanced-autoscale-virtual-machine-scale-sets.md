@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/22/2016
 ms.author: ancav
 ms.component: autoscale
-ms.openlocfilehash: 78e3bec0d00336ce7cedc1434bf6ad7c65435969
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 995e93290e7c305e217c1f44609d383f69d83a9a
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46978191"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50420566"
 ---
 # <a name="advanced-autoscale-configuration-using-resource-manager-templates-for-vm-scale-sets"></a>VM ölçek kümeleri için Resource Manager şablonlarını kullanarak gelişmiş otomatik ölçeklendirme yapılandırması
 Ölçek daraltma ve sanal makine ölçek kümelerinde yinelenen bir zamanlamaya göre veya belirli bir tarihe göre performans ölçüm eşiklere dayanarak genişleme kullanabilirsiniz. Ölçek eylemleri için e-posta ve Web kancası bildirimleri de yapılandırabilirsiniz. Bu kılavuzda, bir VM ölçek kümesi'nde bir Resource Manager şablonu kullanarak bu nesneleri yapılandırma örneği gösterilir.
@@ -29,7 +29,7 @@ Bu kılavuzda kullandığımız [Azure kaynak Gezgini](https://resources.azure.c
 1. Yeni bir ölçek kümesi bir temel otomatik ölçeklendirme ayarı ile dağıtın. Bu makalede bir sahip bir Windows Azure hızlı başlangıç Galerisi kullanan bir temel otomatik ölçeklendirme şablonla ölçek kümesi. Linux ölçek kümeleri aynı şekilde çalışır.
 2. Ölçek kümesi oluşturulduktan sonra Azure kaynak Gezgini'nde ölçek kümesi kaynağına gidin. Aşağıdaki Microsoft.Insights düğümü altında görürsünüz.
 
-    ![Azure Gezgini](./media/insights-advanced-autoscale-vmss/azure_explorer_navigate.png)
+    ![Azure Gezgini](media/insights-advanced-autoscale-virtual-machine-scale-sets/azure_explorer_navigate.png)
 
     Şablon yürütme varsayılan otomatik ölçeklendirme ayarı adı ile oluşturduğu **'autoscalewad'**. Sağ tarafta, bu otomatik ölçeklendirme ayarı tam tanımı görüntüleyebilirsiniz. Bu durumda, varsayılan otomatik ölçeklendirme ayarında bir CPU tabanlı % genişletmek ve ölçeğini kuralı ile birlikte gelir.  
 
@@ -58,11 +58,11 @@ Bu kılavuzda kullandığımız [Azure kaynak Gezgini](https://resources.azure.c
 
 5. Emin olun, bulunduğunuz **okuma/yazma** modunda kaynak Gezgini
 
-    ![Autoscalewad, varsayılan otomatik ölçeklendirme ayarı](./media/insights-advanced-autoscale-vmss/autoscalewad.png)
+    ![Autoscalewad, varsayılan otomatik ölçeklendirme ayarı](media/insights-advanced-autoscale-virtual-machine-scale-sets/autoscalewad.png)
 
 6. Düzenle'ye tıklayın. **Değiştirin** aşağıdaki yapılandırma ile otomatik ölçeklendirme ayarını 'profillerini' öğesinde:
 
-    ![Profilleri](./media/insights-advanced-autoscale-vmss/profiles.png)
+    ![Profilleri](media/insights-advanced-autoscale-virtual-machine-scale-sets/profiles.png)
 
     ```
     {

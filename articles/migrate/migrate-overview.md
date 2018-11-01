@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 10/23/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 30cca10a83be09b8c9736df546958c3a1fe66f37
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: 1aeaff486ed9f7cb99ea0b95451fc765344847a1
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/25/2018
-ms.locfileid: "50025652"
+ms.locfileid: "50086684"
 ---
 # <a name="about-azure-migrate"></a>Azure Geçişi Hakkında
 
@@ -37,7 +37,7 @@ Azure Geçişi şunları yapmanıza yardımcı olur:
 -  Azure Geçişi projesini yalnızca Birleşik Devletler coğrafyasında oluşturabilirsiniz. Ancak herhangi bir hedef Azure konumu için geçiş planlayabilirsiniz.
     - Geçiş projesi bölgesinde yalnızca şirket içi ortamında keşfedilen meta veriler depolanır.
     - Meta veriler Orta Batı ABD/Doğu ABD coğrafi bölgelerinden birinde depolanır.
-    - Log Analytics çalışma alanı ile bağımlılık görselleştirmesi kullanırsanız proje ile aynı bölgede oluşturulur. 
+    - Log Analytics çalışma alanı ile bağımlılık görselleştirmesi kullanırsanız proje ile aynı bölgede oluşturulur.
 
 
 ## <a name="what-do-i-need-to-pay-for"></a>Ne için ödeme yapmam gerekiyor?

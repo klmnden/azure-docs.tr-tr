@@ -10,12 +10,12 @@ ms.component: anomaly-detection
 ms.topic: tutorial
 ms.date: 05/01/2018
 ms.author: wenya
-ms.openlocfilehash: 4b544e2e59a40cebf75042c4040b84bceebcecf7
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: 4aab76b819ba252dbe00b3faf2f69c24df14bbd1
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48887709"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50419036"
 ---
 # <a name="tutorial-anomaly-detection-with-java-application"></a>Öğretici: Java uygulaması ile Anomali Algılama
 
@@ -28,7 +28,7 @@ Bu makalede Anomali Algılama API'sini çağırmak için örnek Java uygulaması
 
 ### <a name="platform-requirements"></a>Platform gereksinimleri
 
-Bu öğretici, [IntelliJ IDEA](https://www.jetbrains.com/idea) kullanılarak geliştirilmiştir. Ayrıca [Java Development Kit (JDK)](http://www.oracle.com/technetwork/java/javase/downloads/index.html) sürüm 1.8+ ve güncel [Apache's Maven](http://maven.apache.org/) derleme aracını da yüklemeniz gerekir.
+Bu öğretici, [IntelliJ IDEA](https://www.jetbrains.com/idea) kullanılarak geliştirilmiştir. Ayrıca [Java Development Kit (JDK)](https://aka.ms/azure-jdks) sürüm 1.8+ ve güncel [Apache's Maven](http://maven.apache.org/) derleme aracını da yüklemeniz gerekir.
 
 ### <a name="subscribe-to-anomaly-detection-and-get-a-subscription-key"></a>Anomali Algılama için abone olun ve abonelik anahtarını alın 
 

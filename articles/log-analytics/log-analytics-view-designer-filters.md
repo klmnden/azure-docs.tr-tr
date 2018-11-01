@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: 3851bfef71aab6553e109bb8108edd7bec182f0e
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 87cfcefd91652194adc0a5ca4580a8d00ba4d234
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48041961"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50412763"
 ---
 # <a name="filters-in-log-analytics-views"></a>Log Analytics görünümlerde filtreleri
 A **filtre** içinde bir [Log Analytics görüntülemek](log-analytics-view-designer.md) kullanıcılar görünümü değiştirmeden belirli bir özellik değeri tarafından görünümünde verileri filtrelemek olanak sağlar.  Örneğin, görünümünüzü yalnızca belirli bir bilgisayardan veri görünümünü filtrelemek için kullanıcıları veya bilgisayarları kümesini izin verebilir.  Filtre birden çok özellikleri tarafından kullanıcılara izin vermek için tek bir görünümde birden çok filtre oluşturabilirsiniz.  Bu makalede, bir filtre ve özel görünüm için bir tane ekleyin nasıl kullanılacağı açıklanır.
@@ -28,12 +28,12 @@ A **filtre** içinde bir [Log Analytics görüntülemek](log-analytics-view-desi
 ## <a name="using-a-filter"></a>Filtre kullanma
 Verileri zaman aralığını üst görünümün görünüm verileri zaman aralığını değiştirebileceğiniz aşağı açılan açmak için tıklayın.
 
-![Filtre örneği](media/log-analytics-view-designer/filters-example-time.png)
+![Filtre örneği](media/log-analytics-view-designer-filters/filters-example-time.png)
 
 Tıklayın **+** görünüm için tanımlanan özel filtreleri kullanarak filtre ekleyin. Açılan veya bir değer yazın ya da filtre için bir değer seçin. Tıklayarak filtreleri eklemeye devam **+**. 
 
 
-![Filtre örneği](media/log-analytics-view-designer/filters-example-custom.png)
+![Filtre örneği](media/log-analytics-view-designer-filters/filters-example-custom.png)
 
 Tüm değerleri için bir filtre kaldırmanız durumunda bu filtre artık uygulanır.
 
@@ -42,7 +42,7 @@ Tüm değerleri için bir filtre kaldırmanız durumunda bu filtre artık uygula
 
 Filtresi oluşturma **filtreleri** sekmesinde [bir görünümü düzenleme](log-analytics-view-designer.md).  Filtre görünümü için genel ve görünümünde tüm bölümleri geçerlidir.  
 
-![Filtre ayarları](media/log-analytics-view-designer/filters-settings.png)
+![Filtre ayarları](media/log-analytics-view-designer-filters/filters-settings.png)
 
 Aşağıdaki tabloda filtre ayarlarını açıklar.
 

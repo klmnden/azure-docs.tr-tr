@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 05/11/2018
+ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: e8ecdf1fffb51c0b8e9ce996307595a5444a64ee
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: eeecf37a6cc7a0f86662f002b6f0efab5ef8c35c
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47414695"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50417472"
 ---
 # <a name="troubleshoot-azure-windows-virtual-machine-activation-problems"></a>Azure Windows sanal makine etkinleştirme sorunlarını giderme
 
@@ -82,7 +82,7 @@ Bu adım Windows 2012 veya Windows 2008 R2 için geçerli değildir. Yalnızca W
 2. Başlat'a gidin, Windows PowerShell'i temel arama, Windows PowerShell sağ tıklayın ve ardından yönetici olarak çalıştır'ı seçin.
 
 3. VM doğru Azure KMS sunucusunu kullanacak şekilde yapılandırıldığından emin olun. Bunu yapmak için aşağıdaki komutu çalıştırın:
-  
+  
     ```
     iex “$env:windir\system32\cscript.exe $env:windir\system32\slmgr.vbs /skms
     kms.core.windows.net:1688
@@ -90,11 +90,11 @@ Bu adım Windows 2012 veya Windows 2008 R2 için geçerli değildir. Yalnızca W
     Komut döndürmelidir: anahtar yönetimi hizmeti makine adı için kms.core.windows.net:1688 başarılı bir şekilde ayarlayın.
 
 4. KMS sunucusunda bağlantınız Psping kullanarak doğrulayın. Pstools.zip indirme ayıkladığınız klasöre geçin ve sonra aşağıdaki komutu çalıştırın:
-  
+  
     ```
     \psping.exe kms.core.windows.net:1688
     ```
-  
+  
   Çıkış saniye son satırında gördüğünüz emin olun: gönderilen = 4, alınan = 4, kayıp = 0 (% 0 kaybı olan).
 
   Kayıp 0 (sıfır)'dan büyükse, VM KMS sunucusu bağlantısı yok. Bu durumda, bir sanal ağda VM ise ve özel bir DNS sunucusu belirttiği, DNS sunucusunun emin olmanız gerekir kms.core.windows.net çözebilirsiniz. Veya kms.core.windows.net gideren bir DNS sunucusunu değiştirin.

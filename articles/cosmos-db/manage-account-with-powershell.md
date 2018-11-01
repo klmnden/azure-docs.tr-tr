@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/21/2017
 ms.author: sngun
-ms.openlocfilehash: 82ab30ebab1b69d5ae636702b3b56d3792c09010
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: b115058353d14a3bd7c774197e06de088030ffff
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47394582"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50741360"
 ---
 # <a name="create-an-azure-cosmos-db-account-using-powershell"></a>PowerShell kullanarak Azure Cosmos DB hesabı oluşturma
 
-Aşağıdaki kılavuzda, Azure Powershell kullanarak Azure Cosmos DB veritabanı hesaplarınızı yönetimini otomatikleştirmek için komutları açıklanır. Ayrıca bir hesap anahtarları ve yük devretme önceliklerini [çoklu bölge veritabanı hesapları] yönetmek için komutlar içerir [dağıtma-data-globally.md]. Veritabanı hesabınız güncelleştiriliyor, tutarlılık ilkeleri değiştirebilirsiniz ve bölge Ekle/Kaldır olanak tanır. Azure Cosmos DB hesabınızın platformlar arası yönetimi için ya da kullanabilirsiniz [Azure CLI](cli-samples.md), [kaynak sağlayıcısı REST API'si][rp-rest-api], veya [Azure portalı ](create-sql-api-dotnet.md#create-account).
+Aşağıdaki kılavuzda, Azure Powershell kullanarak Azure Cosmos DB veritabanı hesaplarınızı yönetimini otomatikleştirmek için komutları açıklanır. Ayrıca bir hesap anahtarları ve yük devretme önceliklerini olarak yönetmek için komutlar içerir [çoklu bölge veritabanı hesapları][distribute-data-globally]. Veritabanı hesabınız güncelleştiriliyor, tutarlılık ilkeleri değiştirebilirsiniz ve bölge Ekle/Kaldır olanak tanır. Azure Cosmos DB hesabınızın platformlar arası yönetimi için ya da kullanabilirsiniz [Azure CLI](cli-samples.md), [kaynak sağlayıcısı REST API'si][rp-rest-api], veya [Azure portalı ](create-sql-api-dotnet.md#create-account).
 
 ## <a name="getting-started"></a>Başlarken
 
@@ -33,7 +33,7 @@ Bölümündeki yönergeleri [Azure PowerShell'i yükleme ve yapılandırma işle
 
 ## <a id="create-documentdb-account-powershell"></a> Bir Azure Cosmos DB hesabı oluşturma
 
-Bu komut, bir Azure Cosmos DB veritabanı hesabı oluşturmanıza olanak sağlar. Yeni veritabanı hesabınızın tek bölgeli ya da [çok bölgeli] [dağıtma-data-globally.md] belirli bir ile yapılandırmaya [tutarlılık İlkesi](consistency-levels.md).
+Bu komut, bir Azure Cosmos DB veritabanı hesabı oluşturmanıza olanak sağlar. Yeni veritabanı hesabınız ya da tek bölge yapılandırın veya [çok bölgeli] [ distribute-data-globally] ile belirli bir [tutarlılık İlkesi](consistency-levels.md).
 
     $locations = @(@{"locationName"="<write-region-location>"; "failoverPriority"=0}, @{"locationName"="<read-region-location>"; "failoverPriority"=1})
     $iprangefilter = "<ip-range-filter>"
@@ -60,7 +60,7 @@ Bu komut, bir Azure Cosmos DB veritabanı hesabı oluşturmanıza olanak sağlar
     New-AzureRmResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" -ApiVersion "2015-04-08" -ResourceGroupName "rg-test" -Location "West US" -Name "docdb-test" -Properties $CosmosDBProperties
 
 ### <a name="notes"></a>Notlar
-* Yukarıdaki örnekte, iki bölgeleri ile bir veritabanı hesabı oluşturur. (Bu yazma bölgesi atanır ve yük devretme öncelik değeri 0 olan) tek bir bölge veya iki bölgeleri ile bir veritabanı hesabı oluşturmanız da mümkündür. Daha fazla bilgi için bkz: [çoklu bölge veritabanı hesapları] [dağıtma-data-globally.md].
+* Yukarıdaki örnekte, iki bölgeleri ile bir veritabanı hesabı oluşturur. (Bu yazma bölgesi atanır ve yük devretme öncelik değeri 0 olan) tek bir bölge veya iki bölgeleri ile bir veritabanı hesabı oluşturmanız da mümkündür. Daha fazla bilgi için [çoklu bölge veritabanı hesapları][distribute-data-globally].
 * Azure Cosmos DB genel olarak kullanılabildiği bölgeler konumları olmalıdır. Geçerli bölgelerin listesi üzerinde sağlanan [Azure bölgeleri sayfa](https://azure.microsoft.com/regions/#services).
 
 ## <a id="update-documentdb-account-powershell"></a> Bir Azure Cosmos DB veritabanı hesabını güncelleştirme
@@ -195,6 +195,7 @@ Düzenli aralıklarla bağlantılarınızı daha güvenli olmasına yardımcı o
 * Node.js kullanarak bağlanmak için bkz: [Node.js ve MongoDB uygulaması ile bağlanma ve sorgulama](create-mongodb-nodejs.md).
 
 <!--Reference style links - using these makes the source content way more readable than using inline links-->
+
 [powershell-install-configure]: https://docs.microsoft.com/azure/powershell-install-configure
 [scaling-globally]: distribute-data-globally.md#EnableGlobalDistribution
 [distribute-data-globally]: distribute-data-globally.md

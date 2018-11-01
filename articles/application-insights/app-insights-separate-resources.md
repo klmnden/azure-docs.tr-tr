@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: mbullwin
-ms.openlocfilehash: 88626c3a4bfd4a1ff3a2e9cbc8c3f2b1c5553295
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 83852333d8e66c76f2d2710b1813a4400622e624
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44303634"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50417319"
 ---
 # <a name="separating-telemetry-from-development-test-and-production"></a>Geliştirme, Test ve üretim telemetri ayırma
 
@@ -156,7 +156,7 @@ Bununla birlikte, derleme sürüm numarasının Visual Studio’daki geliştiric
 ### <a name="release-annotations"></a>Sürüm ek açıklamaları
 Azure DevOps kullanırsanız, yapabilecekleriniz [ek açıklama işaretçisi](app-insights-annotations.md) grafiklerinize yeni bir sürümün her eklendi. Aşağıdaki görüntüde bu işaretin nasıl göründüğü gösterilmiştir.
 
-![Bir grafikteki örnek sürüm ek açıklamasının ekran görüntüsü](./media/app-insights-asp-net/release-annotation.png)
+![Bir grafikteki örnek sürüm ek açıklamasının ekran görüntüsü](media/app-insights-separate-resources/release-annotation.png)
 ## <a name="next-steps"></a>Sonraki adımlar
 
 * [Birden çok rol için paylaşılan kaynaklar](app-insights-monitor-multi-role-apps.md)

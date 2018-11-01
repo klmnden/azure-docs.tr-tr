@@ -9,12 +9,12 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 08/27/2018
 ms.author: kgremban
-ms.openlocfilehash: 2eebc96b14ee0f06b3bd88ea565dfe9372aba1ff
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: d85355b50bad9f05acc7da92d763d011e6f807b6
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47037823"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50741088"
 ---
 # <a name="install-azure-iot-edge-runtime-on-windows-to-use-with-windows-containers"></a>Windows kapsayıcıları ile kullanmak için Windows Azure IOT Edge çalışma zamanını yükleyin
 
@@ -36,11 +36,11 @@ Hangi işletim sistemleri şu anda desteklenen daha fazla bilgi için [Azure IOT
 ## <a name="install-the-container-runtime"></a>Kapsayıcı çalışma zamanı yükleme 
 
 >[!NOTE]
->Windows IOT Core üzerinde kapsayıcı altyapısı yükleme için adımları izleyin [IOT Core cihazı makale sağlama] [ lnk-iot-core] ve sonra aşağıdaki yönergeleri ile devam edin.
+>Windows IOT Core üzerinde kapsayıcı altyapısı yükleme için adımları izleyin [IOT Core cihazı makale sağlama](how-to-install-iot-core.md) ve sonra aşağıdaki yönergeleri ile devam edin.
 
-Azure IOT Edge dayanır bir [OCI uyumlu] [ lnk-oci] kapsayıcı çalışma zamanı (örneğin, Docker). Kullanabileceğiniz [için Docker Windows] [ lnk-docker-for-windows] geliştirme ve test için. 
+Azure IOT Edge dayanır bir [OCI uyumlu](https://www.opencontainers.org/) kapsayıcı çalışma zamanı (örneğin, Docker). Kullanabileceğiniz [için Docker Windows](https://www.docker.com/docker-windows) geliştirme ve test için. 
 
-Docker için Windows yapılandırma [Windows kapsayıcılarını kullanmaya][lnk-docker-config].
+Docker için Windows yapılandırma [Windows kapsayıcılarını kullanmaya](https://docs.docker.com/docker-for-windows/#switch-between-windows-and-linux-containers).
 
 ## <a name="install-the-azure-iot-edge-security-daemon"></a>Azure IOT Edge güvenlik Daemon'ı yükleme
 
@@ -51,7 +51,7 @@ Tek bir IOT Edge cihazı IOT Hub tarafından sağlanan cihaz bağlantı dizesini
 
 ### <a name="install-and-manually-provision"></a>Yükleme ve el ile sağlama
 
-1. Bağlantısındaki [yeni bir Azure IOT Edge cihazı kaydedin] [ lnk-dcs] Cihazınızı kaydedemedik ve cihaz bağlantı dizesini almak için. 
+1. Bağlantısındaki [yeni bir Azure IOT Edge cihazı kaydedin](how-to-register-device-portal.md) Cihazınızı kaydedemedik ve cihaz bağlantı dizesini almak için. 
 
 2. IoT Edge cihazınızda PowerShell'i yönetici olarak çalıştırın. 
 
@@ -66,7 +66,7 @@ Tek bir IOT Edge cihazı IOT Hub tarafından sağlanan cihaz bağlantı dizesini
 
 ### <a name="install-and-automatically-provision"></a>Yükleme ve otomatik olarak sağlama
 
-1. Bağlantısındaki [oluşturma ve sağlama Windows üzerinde sanal bir TPM Edge cihazı] [ lnk-dps] cihaz sağlama hizmetini ayarlama ve almak için kendi **kapsam kimliği**, TPM benzetimi cihaz ve almak, **kayıt kimliği**, sonra bireysel kayıt oluşturma. Cihazınızı IOT hub'ına kaydedildiğinde, yükleme işlemine devam edin.  
+1. Bağlantısındaki [oluşturma ve sağlama Windows sanal bir TPM Edge cihazında](how-to-auto-provision-simulated-device-windows.md) cihaz sağlama hizmetini ayarlama ve almak için kendi **kapsam kimliği**almak ve bir TPM cihazını benzetme kendi  **Kayıt Kimliği**, sonra bireysel kayıt oluşturma. Cihazınızı IOT hub'ına kaydedildiğinde, yükleme işlemine devam edin.  
 
    >[!TIP]
    >TPM simülatörünü yüklenmesi sırasında açık ve test çalıştıran pencereyi tutun. 
@@ -116,21 +116,6 @@ Ağınız proxy sunucusu varsa, adımları [bir proxy sunucu üzerinden iletişi
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Yüklü olan çalışma zamanı ile sağlanan bir IOT Edge cihazına sahip olduğunuza göre şunları yapabilirsiniz [IOT Edge modüllerini dağıtmak][lnk-modules].
+Yüklü olan çalışma zamanı ile sağlanan bir IOT Edge cihazına sahip olduğunuza göre şunları yapabilirsiniz [IOT Edge modüllerini dağıtmak](how-to-deploy-modules-portal.md).
 
-Düzgün bir şekilde yükleme Edge çalışma zamanı ile ilgili sorunlar yaşıyorsanız, kullanıma [sorun giderme] [ lnk-trouble] sayfası.
-
-
-<!-- Images -->
-[img-nat]: ./media/how-to-install-iot-edge-windows-with-windows/nat.png
-
-<!-- Links -->
-[lnk-docker-config]: https://docs.docker.com/docker-for-windows/#switch-between-windows-and-linux-containers
-[lnk-dcs]: how-to-register-device-portal.md
-[lnk-dps]: how-to-auto-provision-simulated-device-windows.md
-[lnk-oci]: https://www.opencontainers.org/
-[lnk-moby]: https://mobyproject.org/
-[lnk-trouble]: troubleshoot.md
-[lnk-docker-for-windows]: https://www.docker.com/docker-windows
-[lnk-iot-core]: how-to-install-iot-core.md
-[lnk-modules]: how-to-deploy-modules-portal.md
+Düzgün bir şekilde yükleme Edge çalışma zamanı ile ilgili sorunlar yaşıyorsanız, kullanıma [sorun giderme](troubleshoot.md) sayfası.

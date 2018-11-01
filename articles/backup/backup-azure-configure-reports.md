@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: adigan
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 945a91b9021ed5ff02e8c1ef7baf85e2098202ca
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 493a8881975e6b7568a7823bfc86fc97b4389378
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50214673"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50418288"
 ---
 # <a name="configure-azure-backup-reports"></a>Azure Backup raporlarını yapılandırma
 Bu makalede, bir kurtarma Hizmetleri kasası kullanarak Azure Backup için raporları yapılandırmak için izlemeniz gereken adımlar açıklanır. Ayrıca, Power BI'ı kullanarak raporlara erişmek nasıl gösterir. Bu adımları tamamladıktan sonra doğrudan görüntülemek, özelleştirme ve raporlar oluşturmak için Power BI'da gidebilirsiniz.
@@ -22,7 +22,7 @@ Bu makalede, bir kurtarma Hizmetleri kasası kullanarak Azure Backup için rapor
 > [!IMPORTANT]
 > 1 Kasım 2018 tarihinden itibaren Azure yedekleme belirten "JSON girişi sonunda fazladan karakterler bulduk. Power BI uygulamasında verileri yüklenirken karşılaşılan sorunları bazı müşteriler görebilirsiniz Özel durum IDataReader arabirimi tarafından tetiklendi."
 Veriler depolama hesabına yüklendikten biçiminde bir değişiklikten dolayı budur.
-Lütfen uygulamanın bu sorunu önlemek için en son sürüme yükseltin.
+Lütfen bu sorunu önlemek için en son uygulama (sürüm 1.8) indirin.
 >
 >
 
@@ -74,23 +74,24 @@ Azure portalını kullanarak bir kurtarma Hizmetleri kasası için depolama hesa
       ![Tanılama ayarını adım 9 görüntüleme](./media/backup-azure-configure-reports/diagnostic-setting-row.png)
 
 > [!NOTE]
-> Depolama hesabı kaydederek raporları yapılandırdıktan sonra *için 24 saat bekleyin* tamamlamak ilk veri gönderimi için. Power bı'da Azure Backup içerik Paketi'ne yalnızca bundan sonra içeri aktarın. Daha fazla bilgi için [SSS bölümüne](#frequently-asked-questions). 
+> Depolama hesabı kaydederek raporları yapılandırdıktan sonra *için 24 saat bekleyin* tamamlamak ilk veri gönderimi için. Azure yedekleme uygulamasını Power BI yalnızca bundan sonra içeri aktarın. Daha fazla bilgi için [SSS bölümüne](#frequently-asked-questions). 
 >
 >
 
 ## <a name="view-reports-in-power-bi"></a>Power BI raporlarını görüntüle 
 Bir kurtarma Hizmetleri Kasası'nı kullanarak bir depolama hesabı raporlar için yapılandırdıktan sonra yaklaşık 24 saat içeriye başlatmak raporlama verilerini alır. Bir depolama hesabı kurarak 24 saat sonra Power BI'da raporları görüntülemek için aşağıdaki adımları izleyin.
-1. [Oturum](https://powerbi.microsoft.com/landing/signin/) Power bı'a.
-2. **Veri Al**’ı seçin. İçinde **içerik paketi kitaplığında**altında **Hizmetleri**seçin **alma**. Bağlantısındaki [içerik paketine erişmek için Power BI belgeleri](https://powerbi.microsoft.com/documentation/powerbi-content-packs-services/).
+İsterseniz özelleştirme ve rapor paylaşma, bir çalışma alanı oluşturun ve aşağıdaki adımları uygulayın
 
-     ![İçerik paketini içeri aktarma](./media/backup-azure-configure-reports/content-pack-import.png)
+1. [Oturum](https://powerbi.microsoft.com/landing/signin/) Power bı'a.
+2. **Veri Al**’ı seçin. İçinde **kendi içeriğinizi oluşturmanın daha fazla yolu**seçin **hizmet içerik paketleri**. Bağlantısındaki [bir hizmete bağlanmak için Power BI belgeleri](https://powerbi.microsoft.com/documentation/powerbi-content-packs-services/).
+
 3. İçinde **arama** çubuğunda girin **Azure Backup** seçip **şimdi edinin**.
 
       ![İçerik paketini edinin](./media/backup-azure-configure-reports/content-pack-get.png)
 4. Önceki adımda 5 yapılandırılan depolama hesabı adını girin ve seçin **sonraki**.
 
     ![Depolama hesabı adını girin](./media/backup-azure-configure-reports/content-pack-storage-account-name.png)    
-5. Bu depolama hesabı için depolama hesabı anahtarını girin. İçin [görüntüleme ve depolama erişim anahtarlarını kopyalama](../storage/common/storage-account-manage.md#access-keys), Azure portalında depolama hesabınıza gidin. 
+5. Kimlik doğrulama yöntemi "Anahtarını" kullanarak, bu depolama hesabı için depolama hesabı anahtarını girin. İçin [görüntüleme ve depolama erişim anahtarlarını kopyalama](../storage/common/storage-account-manage.md#access-keys), Azure portalında depolama hesabınıza gidin. 
 
      ![Depolama hesabı girin](./media/backup-azure-configure-reports/content-pack-storage-account-key.png) <br/>
      
@@ -102,9 +103,7 @@ Bir kurtarma Hizmetleri Kasası'nı kullanarak bir depolama hesabı raporlar iç
     
     ![Başarı içerik paketini içeri aktarma](./media/backup-azure-configure-reports/content-pack-import-success.png) <br/>
     
-7. Veriler başarıyla içeri aktarıldıktan sonra **Azure Backup** içerik paketi görünür **uygulamaları** Gezinti bölmesinde. Altında **panolar**, **raporları**, ve **veri kümeleri**, liste, yeni içe aktarılan raporlar gösteren sarı yıldız ile Azure Backup gösterir.
-
-     ![Azure Backup içerik Paketi'ne](./media/backup-azure-configure-reports/content-pack-azure-backup.png) <br/>
+7. Veriler başarıyla içeri aktarıldıktan sonra **Azure Backup** içerik paketi görünür **uygulamaları** Gezinti bölmesinde. Altında **panolar**, **raporları**, ve **veri kümeleri**, liste Azure Backup artık gösterir.
      
 8. Altında **panolar**seçin **Azure Backup**, sabitlenmiş anahtar raporlar kümesi gösterir.
 

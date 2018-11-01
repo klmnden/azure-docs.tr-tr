@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: rogoya
-ms.openlocfilehash: 1ad499e2703ff8376c063d933c0cc1f03765fc23
-ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
+ms.openlocfilehash: 4c5fead0a7f4634a8f5ee005114d24cae9a2590f
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/11/2018
-ms.locfileid: "42055162"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50739833"
 ---
 # <a name="eliminate-bad-passwords-in-your-organization"></a>Hatalı parola kuruluşunuzdaki ortadan kaldırın
 
@@ -70,4 +70,4 @@ Ne yazık ki parolanızı bir sözcük, tümcecik veya parolanızı kolayca tahm
 ## <a name="next-steps"></a>Sonraki adımlar
 
 * [Özel yasaklı parola listesi yapılandırma](howto-password-ban-bad.md)
-* [Etkinleştirme Azure AD Parola Koruması Aracısı şirket içi](howto-password-ban-bad-on-premises.md)
+* [Etkinleştirme Azure AD Parola Koruması Aracısı şirket içi](howto-password-ban-bad-on-premises-deploy.md)

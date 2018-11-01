@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 09/04/2017
 ms.author: geg
-ms.openlocfilehash: 5812bafbcfa104150325dcdde374f88200b071c0
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 7de9d1674860a6369c1dc09462a06def672fbdf2
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50155210"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50420532"
 ---
 # <a name="use-the-azure-portal-to-restore-virtual-machines"></a>Sanal makineleri geri yükleme için Azure portalını kullanma
 Tanımlı aralıklarla verilerinizin anlık görüntülerini alarak verilerinizi koruyun. Bu anlık görüntüler, Kurtarma noktaları olarak bilinir ve kurtarma Hizmetleri kasalarında depolandıkları. Onarım veya bir sanal makine (VM) yeniden gerekliyse, kaydedilmiş kurtarma noktalarının birini VM geri yükleyebilirsiniz. Bir kurtarma noktasından geri yüklediğinizde, şunları yapabilirsiniz:
@@ -170,7 +170,7 @@ Gitmek için bildirim köprüye tıklayın **BackupJobs** listesi. Tüm işlemle
 
 **Yedekleme işleri** dikey penceresi açılır ve işlerin listesini görüntüler.
 
-![VM'lerin listesini bir kasada](./media/backup-azure-arm-restore-vms/restore-job-completed.png)
+![VM'lerin listesini bir kasada](./media/backup-azure-arm-restore-vms/restore-job-in-progress1.png)
 
 ## <a name="use-templates-to-customize-a-restored-vm"></a>Geri yüklenen VM özelleştirmek için şablonları kullanma
 Sonra [disk geri yükleme işlemini tamamladığında](#Track-the-restore-operation), yedekleme yapılandırmasından farklı bir yapılandırma ile yeni bir VM oluşturmak için geri yükleme işleminin bir parçası olarak oluşturulmuş şablonu kullanın. Yeni bir sanal makine bir geri yükleme noktası oluşturma işlemi sırasında oluşturulan kaynakların adlarını özelleştirmek için de kullanabilirsiniz.

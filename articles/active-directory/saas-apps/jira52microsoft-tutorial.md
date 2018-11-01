@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/25/2018
+ms.date: 10/31/2018
 ms.author: jeedes
-ms.openlocfilehash: d7f53efd4b473f36aa03628da4992d1c4c2fb04b
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 85004852b4e67f1a3f030a5cf97abea7c16c5695
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42058310"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50741751"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jira-saml-sso-by-microsoft-v52"></a>Öğretici: Azure Active Directory JIRA SAML SSO tarafından Microsoft (V5.2) ile tümleştirme
 
@@ -32,7 +32,7 @@ JIRA SAML SSO tarafından Microsoft (V5.2) Azure AD ile tümleştirme ile aşağ
 - Azure AD hesaplarına otomatik olarak imzalanan JIRA SAML SSO için Microsoft (V5.2 tarafından) (çoklu oturum açma) açma, kullanıcılarınızın etkinleştirebilirsiniz.
 - Hesaplarınız bir merkezi konumda - Azure portalında yönetebilir.
 
-Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz. [uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir](../manage-apps/what-is-single-sign-on.md).
+Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz. [uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="description"></a>Açıklama
 
@@ -61,10 +61,11 @@ Bu öğreticideki adımları test etmek için bu önerileri izlemelidir:
 
 **Desteklenen sürümler:**
 
-*   JIRA çekirdek ve yazılım: 5.2
-*   JIRA, 6.0 ve 7.8 de destekler. Daha fazla bilgi için tıklayın [JIRA SAML SSO Microsoft tarafından](jiramicrosoft-tutorial.md)
+* JIRA çekirdek ve yazılım: 5.2
+* JIRA, 6.0 ve 7.12 de destekler. Daha fazla bilgi için tıklayın [JIRA SAML SSO Microsoft tarafından](jiramicrosoft-tutorial.md)
 
 ## <a name="scenario-description"></a>Senaryo açıklaması
+
 Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin.
 Bu öğreticide özetlenen senaryo iki temel yapı taşları oluşur:
 
@@ -72,6 +73,7 @@ Bu öğreticide özetlenen senaryo iki temel yapı taşları oluşur:
 2. Yapılandırma ve test Azure AD çoklu oturum açma
 
 ## <a name="adding-jira-saml-sso-by-microsoft-v52-from-the-gallery"></a>Galeriden JIRA SAML SSO tarafından Microsoft (V5.2) ekleme
+
 Azure AD'de JIRA SAML SSO tarafından Microsoft (V5.2) tümleştirmesini yapılandırmak için yönetilen SaaS uygulamaları listenize Galeriden JIRA SAML SSO tarafından Microsoft (V5.2) eklemeniz gerekir.
 
 **Galeriden JIRA SAML SSO tarafından Microsoft (V5.2) eklemek için aşağıdaki adımları gerçekleştirin:**
@@ -100,13 +102,13 @@ Tek iş için oturum açma için Azure AD ne JIRA SAML SSO tarafından Microsoft
 
 Yapılandırma ve Azure AD çoklu oturum açma JIRA SAML SSO tarafından Microsoft (V5.2) ile test etmek için aşağıdaki yapı taşlarını tamamlanması gerekir:
 
-1. **[Azure AD çoklu oturum açmayı yapılandırmayı](#configure-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
-2. **[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
-3. **[Microsoft (V5.2) test kullanıcı tarafından bir JIRA SAML SSO oluşturma](#create-a-jira-saml-sso-by-microsoft-v52-test-user)**  - bir karşılığı Britta simon'un JIRA SAML SSO tarafından Microsoft (kullanıcı Azure AD gösterimini bağlı V5.2) sağlamak için.
-4. **[Azure AD test kullanıcı atama](#assign-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
-5. **[Çoklu oturum açmayı test](#test-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
+1. **[Azure AD çoklu oturum açmayı yapılandırma](#configuring-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
+2. **[Bir Azure AD test kullanıcısı oluşturma](#creating-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
+3. **[Microsoft (V5.2) test kullanıcısı tarafından JIRA SAML SSO oluşturma](#creating-jira-saml-sso-by-microsoft-v52-test-user)**  - bir karşılığı Britta simon'un JIRA SAML SSO tarafından Microsoft (kullanıcı Azure AD gösterimini bağlı V5.2) sağlamak için.
+4. **[Azure AD test kullanıcı atama](#assigning-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
+5. **[Çoklu oturum açma testi](#testing-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
 
-### <a name="configure-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırın
+### <a name="configuring-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırma
 
 Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve çoklu oturum açma (V5.2) Microsoft uygulaması tarafından JIRA SAML çoklu oturum AÇMAYA yapılandırın.
 
@@ -116,13 +118,17 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
     ![Çoklu oturum açma bağlantısı yapılandırma][4]
 
-2. Üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** çoklu oturum açmayı etkinleştirmek için.
+2. Üzerinde **tek bir oturum açma yönteminizi seçmeniz** iletişim kutusunu tıklatın **seçin** için **SAML** modu, çoklu oturum açmayı etkinleştirmek için.
 
-    ![Çoklu oturum açma iletişim kutusu](./media/jira52microsoft-tutorial/tutorial_singlesign-onforjira5.2_samlbase.png)
+    ![Çoklu oturum açmayı yapılandırın](common/tutorial_general_301.png)
 
-3. Üzerinde **JIRA SAML SSO Microsoft Domain ve URL'leri** bölümünde, aşağıdaki adımları gerçekleştirin:
+3. Üzerinde **yukarı çoklu oturum açma SAML ile ayarlanmış** sayfasında **Düzenle** açmak için simgeyi **temel SAML yapılandırma** iletişim.
 
-    ![JIRA SAML SSO bilgileriyle Microsoft Domain ve URL'leri tek oturum açma](./media/jira52microsoft-tutorial/tutorial_singlesign-onforjira5.2_url.png)
+    ![Çoklu oturum açmayı yapılandırın](common/editconfigure.png)
+
+4. Üzerinde **temel SAML yapılandırma** bölümünde, aşağıdaki adımları gerçekleştirin:
+
+    ![Microsoft (V5.2) etki alanı ve URL'ler tek oturum açma bilgileri tarafından JIRA SAML SSO](./media/jira52microsoft-tutorial/tutorial_singlesign-onforjira5.2_url.png)
 
     a. İçinde **oturum açma URL'si** metin kutusuna bir URL şu biçimi kullanarak: `https://<domain:port>/plugins/servlet/saml/auth`
 
@@ -133,13 +139,9 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
     > [!NOTE]
     > Bu değerler gerçek değildir. Bu değerler gerçek tanımlayıcısı, yanıt URL'si ve oturum açma URL'si ile güncelleştirin. Adlandırılmış bir URL olması durumunda bağlantı noktası isteğe bağlıdır. Bu değerler, öğreticinin ilerleyen bölümlerinde açıklanan Jıra eklentisi, yapılandırma sırasında alınır.
 
-4. Üzerinde **SAML imzalama sertifikası** bölümünde, kopyalamak için Kopyala düğmesine **uygulama Federasyon meta verileri URL'sini** kopyalayıp Not Defteri'ne yapıştırın.
+5. Üzerinde **SAML imzalama sertifikası** sayfasında **SAML imzalama sertifikası** bölümünde, kopyalamak için Kopyala düğmesine **uygulama Federasyon meta verileri URL'sini** kopyalayıp Not Defteri'ne yapıştırın.
 
-    ![Çoklu oturum açmayı yapılandırın](./media/jira52microsoft-tutorial/tutorial_metadataurl.png)
-
-5. Tıklayın **Kaydet** düğmesi.
-
-    ![Çoklu oturum açmayı yapılandırın](./media/jira52microsoft-tutorial/tutorial_general_400.png)
+    ![Sertifika indirme bağlantısı](./media/jira52microsoft-tutorial/tutorial_metadataurl.png) 
 
 6. Farklı bir web tarayıcı penceresinde bir JIRA Örneğiniz için bir yönetici olarak oturum açın.
 
@@ -190,39 +192,32 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
     > [!NOTE]
     > Yükleme ve sorun giderme hakkında daha fazla bilgi için ziyaret [MS JIRA SSO Bağlayıcısı yönetici kılavuzundaki](../ms-confluence-jira-plugin-adminguide.md) ayrıca [SSS](../ms-confluence-jira-plugin-faq.md) , Yardım almak için
 
-### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
+### <a name="creating-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
 
 Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcısı oluşturmaktır.
 
-   ![Bir Azure AD test kullanıcısı oluşturma][100]
+1. Azure portalında, sol bölmede seçin **Azure Active Directory**seçin **kullanıcılar**ve ardından **tüm kullanıcılar**.
 
-**Azure AD'de bir test kullanıcısı oluşturmak için aşağıdaki adımları gerçekleştirin:**
+    ![Azure AD kullanıcısı oluşturun][100]
 
-1. Azure portalında, sol bölmede, tıklayın **Azure Active Directory** düğmesi.
+2. Seçin **yeni kullanıcı** ekranın üstünde.
 
-    ![Azure Active Directory düğmesi](./media/jira52microsoft-tutorial/create_aaduser_01.png)
+    ![Bir Azure AD test kullanıcısı oluşturma](common/create_aaduser_01.png) 
 
-2. Kullanıcıların listesini görüntülemek için Git **kullanıcılar ve gruplar**ve ardından **tüm kullanıcılar**.
+3. Kullanıcı özellikleri, aşağıdaki adımları gerçekleştirin.
 
-    !["Kullanıcılar ve Gruplar" ve "Tüm kullanıcılar" bağlantıları](./media/jira52microsoft-tutorial/create_aaduser_02.png)
+    ![Bir Azure AD test kullanıcısı oluşturma](common/create_aaduser_02.png)
 
-3. Açmak için **kullanıcı** iletişim kutusu, tıklayın **Ekle** en üstündeki **tüm kullanıcılar** iletişim kutusu.
+    a. İçinde **adı** alanına **BrittaSimon**.
+  
+    b. İçinde **kullanıcı adı** alanına **brittasimon@yourcompanydomain.extension**  
+    Örneğin, BrittaSimon@contoso.com
 
-    ![Ekle düğmesi](./media/jira52microsoft-tutorial/create_aaduser_03.png)
+    c. Seçin **özellikleri**seçin **Show parola** onay kutusunu işaretleyin ve ardından parola kutusunda görüntülenen değeri yazın.
 
-4. İçinde **kullanıcı** iletişim kutusunda, aşağıdaki adımları gerçekleştirin:
+    d. **Oluştur**’u seçin.
 
-    ![Kullanıcı iletişim kutusu](./media/jira52microsoft-tutorial/create_aaduser_04.png)
-
-    a. İçinde **adı** kutusuna **BrittaSimon**.
-
-    b. İçinde **kullanıcı adı** Britta Simon kullanıcı e-posta adresini yazın.
-
-    c. Seçin **Göster parola** onay kutusunu işaretleyin ve ardından görüntülenen değeri yazın **parola** kutusu.
-
-    d. **Oluştur**’a tıklayın.
-
-### <a name="create-a-jira-saml-sso-by-microsoft-v52-test-user"></a>Microsoft (V5.2) test kullanıcı tarafından bir JIRA SAML SSO oluşturma
+### <a name="creating-jira-saml-sso-by-microsoft-v52-test-user"></a>JIRA SAML SSO tarafından Microsoft (V5.2) test kullanıcısı oluşturma
 
 JIRA şirket içi sunucuya oturum açmak Azure AD kullanıcılarının etkinleştirmek için bunlar JIRA şirket içi sunucuya sağlanması gerekir.
 
@@ -256,42 +251,36 @@ JIRA şirket içi sunucuya oturum açmak Azure AD kullanıcılarının etkinleş
 
     e. Tıklayın **kullanıcı oluşturma**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atayın
+### <a name="assigning-the-azure-ad-test-user"></a>Azure AD test kullanıcı atama
 
 Bu bölümde, JIRA SAML SSO tarafından Microsoft (V5.2) için erişim vererek, Azure çoklu oturum açma kullanılacak Britta Simon etkinleştirin.
 
-![Kullanıcı rolü atayın][200]
-
-**Britta Simon JIRA SAML SSO tarafından Microsoft (V5.2) atamak için aşağıdaki adımları gerçekleştirin:**
-
-1. Azure portalında uygulama görünümü açtığınız dizin görünümüne gidin ve Git **kurumsal uygulamalar** ardından **tüm uygulamaları**.
+1. Azure portalında **kurumsal uygulamalar**seçin **tüm uygulamaları**.
 
     ![Kullanıcı Ata][201]
 
 2. Uygulamalar listesinde **JIRA SAML SSO tarafından Microsoft (V5.2)**.
 
-    ![Uygulamalar listesinde Microsoft (V5.2) bağlantısıyla JIRA SAML SSO](./media/jira52microsoft-tutorial/tutorial_singlesign-onforjira5.2_app.png)
+    ![Çoklu oturum açmayı yapılandırın](./media/jira52microsoft-tutorial/tutorial_singlesign-onforjira5.2_app.png)
 
 3. Soldaki menüde **kullanıcılar ve gruplar**.
 
-    !["Kullanıcılar ve Gruplar" bağlantısı][202]
+    ![Kullanıcı Ata][202]
 
 4. Tıklayın **Ekle** düğmesi. Ardından **kullanıcılar ve gruplar** üzerinde **atama Ekle** iletişim.
 
-    ![Atama Ekle bölmesi][203]
+    ![Kullanıcı Ata][203]
 
-5. Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** kullanıcıları listesinde.
+5. İçinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** 'a tıklayın kullanıcı listesinde **seçin** ekranın alt kısmındaki düğmesi.
 
-6. Tıklayın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.
+6. İçinde **atama Ekle** iletişim kutusunda **atama** düğmesi.
 
-7. Tıklayın **atama** düğmesini **atama Ekle** iletişim.
-
-### <a name="test-single-sign-on"></a>Çoklu oturum açma testi
+### <a name="testing-single-sign-on"></a>Çoklu oturum açma testi
 
 Bu bölümde, erişim panelini kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
 
 JIRA SAML SSO erişim Paneli'nde Microsoft (V5.2) kutucuğu tarafından'ye tıkladığınızda, otomatik olarak, JIRA SAML SSO için Microsoft (V5.2) uygulama tarafından açan.
-Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](../user-help/active-directory-saas-access-panel-introduction.md). 
+Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
@@ -300,14 +289,13 @@ Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](
 
 <!--Image references-->
 
-[1]: ./media/msaadssojira5.2-tutorial/tutorial_general_01.png
-[2]: ./media/msaadssojira5.2-tutorial/tutorial_general_02.png
-[3]: ./media/msaadssojira5.2-tutorial/tutorial_general_03.png
-[4]: ./media/msaadssojira5.2-tutorial/tutorial_general_04.png
+[1]: common/tutorial_general_01.png
+[2]: common/tutorial_general_02.png
+[3]: common/tutorial_general_03.png
+[4]: common/tutorial_general_04.png
 
-[100]: ./media/msaadssojira5.2-tutorial/tutorial_general_100.png
+[100]: common/tutorial_general_100.png
 
-[200]: ./media/msaadssojira5.2-tutorial/tutorial_general_200.png
-[201]: ./media/msaadssojira5.2-tutorial/tutorial_general_201.png
-[202]: ./media/msaadssojira5.2-tutorial/tutorial_general_202.png
-[203]: ./media/msaadssojira5.2-tutorial/tutorial_general_203.png
+[201]: common/tutorial_general_201.png
+[202]: common/tutorial_general_202.png
+[203]: common/tutorial_general_203.png

@@ -5,23 +5,23 @@ services: active-directory
 ms.service: active-directory
 ms.component: authentication
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 10/30/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: jsimmons
-ms.openlocfilehash: c164c2465a4e9d60159ea9596139f2e4938f792f
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 6832f6f9d09cbbfea6ccaa69160ad93209c7ac8c
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50242509"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50741190"
 ---
 # <a name="preview-azure-ad-password-protection-monitoring-reporting-and-troubleshooting"></a>Önizleme: Azure AD parola koruması izleme, raporlama ve sorun giderme
 
 |     |
 | --- |
-| Azure AD parola koruması ve özel yasaklı parola listesi Azure Active Directory genel Önizleme özellikleri şunlardır. Önizlemeler hakkında daha fazla bilgi için bkz: [ek kullanım koşulları Microsoft Azure önizlemeleri için](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
+| Azure AD parola koruması, Azure Active Directory genel Önizleme özelliğidir. Önizlemeler hakkında daha fazla bilgi için bkz: [ek kullanım koşulları Microsoft Azure önizlemeleri için](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
 |     |
 
 Azure AD parola koruması dağıtıldıktan sonra izleme ve raporlama temel görevleridir. Bu makalede olduğu her hizmet bilgilerini kaydeder ve Azure AD parola koruması kullanımını bildirme anlamanıza yardımcı olmak üzere ayrıntıya gider.
@@ -88,7 +88,7 @@ Diğer bazı önemli olay günlüğü iletilerini dikkat edilmesi gereken şunla
 
 Belirtilen kullanıcının parolasını Azure parola ilkesi henüz kullanılabilir olmadığı için kabul edildi
 
-Kullanıcı adı: <user> tam adı: <user>
+Kullanıcı adı: SomeUser FullName: bazı kullanıcı
 
 Bu durum, bir veya daha fazla aşağıdaki nedenlerle: % n neden olabilir
 

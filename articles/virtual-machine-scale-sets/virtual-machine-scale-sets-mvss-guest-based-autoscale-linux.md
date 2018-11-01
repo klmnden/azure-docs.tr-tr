@@ -1,9 +1,9 @@
 ---
-title: Bir Linux ölçek kümesi şablonunda Konuk ölçümlerle Azure otomatik ölçeklendirme kullanın | Microsoft Docs
-description: Bilgi Linux sanal makine ölçek kümesi bir şablonda Konuk ölçümleri kullanarak otomatik ölçeklendirme yapma
+title: Bir Linux ölçek kümesi şablonunun Konuk ölçümlerle Azure otomatik ölçeklendirme kullanın. | Microsoft Docs
+description: Bilgi nasıl Konuk ölçümleri kullanarak bir Linux sanal makine ölçek kümesi şablonu otomatik ölçeklendirme
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: gatneil
+author: mayanknayar
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,25 +14,25 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
-ms.author: negat
-ms.openlocfilehash: 8e822d83dd3bafabfea60ad50224c87df226bdc6
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.author: manayar
+ms.openlocfilehash: 0718ad7112c759dd3fdd363f38b863186ec9a978
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/20/2017
-ms.locfileid: "26781437"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50740171"
 ---
-# <a name="autoscale-using-guest-metrics-in-a-linux-scale-set-template"></a>Bir Linux ölçek kümesi şablonunda Konuk ölçümleri kullanarak otomatik ölçeklendirme
+# <a name="autoscale-using-guest-metrics-in-a-linux-scale-set-template"></a>Bir Linux ölçek kümesi şablonunuzda Konuk ölçümleri kullanan otomatik ölçeklendirme
 
-Azure VM'lerin toplanır ve ölçek kümeleri ölçümlerini iki tür vardır: bazı VM ana bilgisayardan gelen ve diğer Konuk sanal gelir. Standart CPU, disk ve ağ ölçümleri kullanıyorsanız, yüksek düzeyde, ardından ana ölçümleri iyi bir tercihtir olabilirsiniz. Ancak, daha büyük bir seçim ölçümleri gerekiyorsa, daha sonra konuk büyük olasılıkla daha iyi bir uyum ölçümleridir. İkisi arasındaki farklar bir göz atalım:
+Ölçek kümeleri ve sanal makinelerden toplanan ölçümleri azure'da iki tür vardır: bazı VM konaktan gelen ve diğer Konuk VM gelir. Standart CPU, disk ve ağ ölçümleri kullanıyorsanız yüksek düzeyde, ardından konak ölçümlerini uygun olabilirsiniz. Ancak, daha büyük bir seçim ölçüm gerekiyorsa, Konuk ölçümleri bir daha iyi uyum olabilirsiniz. İkisi arasındaki farklar bir göz atalım:
 
-Ana ölçümleri daha basit ve daha güvenilirdir. VM, ana bilgisayar tarafından toplanan çünkü Konuk ölçümleri yüklemenizi gerektirir ancak bunlar ek kurulum gerektirmeyen [Windows Azure tanılama uzantısını](../virtual-machines/windows/extensions-diagnostics-template.md) veya [Linux Azure tanılama uzantısını](../virtual-machines/linux/diagnostic-extension.md)VM konuk. Konuk ölçümleri yerine ana ölçümleri kullanmak için bir ortak neden Konuk ölçümleri ölçümleri ana ölçümleri daha büyük seçimi sağlamaktır. Böyle bir yalnızca konuk ölçümleri kullanılabilir bellek tüketimi ölçümlerini örnektir. Desteklenen ana ölçümleri listelenen [burada](../monitoring-and-diagnostics/monitoring-supported-metrics.md), ve yaygın olarak kullanılan Konuk ölçümleri listelenen [burada](../monitoring-and-diagnostics/insights-autoscale-common-metrics.md). Bu makalede nasıl değiştirileceğini gösterir [minimum uygun ölçek kümesi şablonu](./virtual-machine-scale-sets-mvss-start.md) Linux ölçek kümeleri için konuk ölçümleri göre otomatik ölçeklendirme kurallarını kullanmak için.
+Konak ölçümlerini daha basit ve daha güvenilir. VM, ana bilgisayar tarafından toplandığından Konuk ölçümleri yüklemenizi gerektirir ancak bunlar ek kurulum gerektirmeyen [Windows Azure tanılama uzantısını](../virtual-machines/windows/extensions-diagnostics-template.md) veya [Linux Azure tanılama uzantısını](../virtual-machines/linux/diagnostic-extension.md)Konuk VM içinde. Konuk ölçümleri yerine konak ölçümlerini kullanmak için yaygın nedenlerinden biri Konuk ölçümleri konak ölçümlerini daha büyük bir seçim ölçüm sağlamaktır. Böyle yalnızca konuk ölçümleri kullanılabilen bellek tüketimi ölçümleri bir örnektir. Desteklenen ana ölçümleri listelenen [burada](../monitoring-and-diagnostics/monitoring-supported-metrics.md), ve yaygın olarak kullanılan Konuk ölçümleri listelenen [burada](../monitoring-and-diagnostics/insights-autoscale-common-metrics.md). Bu makalede nasıl değiştirileceğini gösterir [en düşük uygun ölçek kümesi şablonunu](./virtual-machine-scale-sets-mvss-start.md) Linux ölçek kümeleri için konuk ölçümlerine göre otomatik ölçeklendirme kurallarını kullanmak için.
 
-## <a name="change-the-template-definition"></a>Şablon tanımını değiştirin
+## <a name="change-the-template-definition"></a>Şablon tanımı değiştirme
 
-En düşük uygun ölçek kümesi şablon görülebilir [burada](https://raw.githubusercontent.com/gatneil/mvss/minimum-viable-scale-set/azuredeploy.json), ve Linux ölçek dağıtma ile konuk tabanlı otomatik ölçeklendirme kümesi için şablon görülebilir [burada](https://raw.githubusercontent.com/gatneil/mvss/guest-based-autoscale-linux/azuredeploy.json). Bu şablon oluşturmak için kullanılan fark inceleyelim (`git diff minimum-viable-scale-set existing-vnet`) tarafından parça parça:
+En düşük uygun ölçek kümesi şablonunun görülebilir [burada](https://raw.githubusercontent.com/gatneil/mvss/minimum-viable-scale-set/azuredeploy.json), ve şablonun konuk tabanlı otomatik ölçeklendirme içeren Linux ölçek kümesi dağıtımı ayarlamak için görülebilir [burada](https://raw.githubusercontent.com/gatneil/mvss/guest-based-autoscale-linux/azuredeploy.json). Bu şablon oluşturmak için kullanılan fark inceleyelim (`git diff minimum-viable-scale-set existing-vnet`) parça parça:
 
-İlk olarak, parametreleri ekleyin `storageAccountName` ve `storageAccountSasToken`. Tanılama Aracı ölçüm verileri depolayan bir [tablo](../cosmos-db/table-storage-how-to-use-dotnet.md) bu depolama hesabında. Linux Tanılama Aracı sürüm 3.0 sürümünden itibaren bir depolama erişim tuşunu kullanarak artık desteklenmemektedir. Bunun yerine, bir [SAS belirteci](../storage/common/storage-dotnet-shared-access-signature-part-1.md).
+İlk olarak, parametrelerini ekleyin `storageAccountName` ve `storageAccountSasToken`. Tanılama Aracısı ölçüm verileri depolar. bir [tablo](../cosmos-db/table-storage-how-to-use-dotnet.md) bu depolama hesabında. Linux tanılama Aracısı itibaren sürüm 3.0 depolama erişim anahtarı kullanarak artık desteklenmiyor. Bunun yerine, bir [SAS belirteci](../storage/common/storage-dotnet-shared-access-signature-part-1.md).
 
 ```diff
      },
@@ -48,7 +48,7 @@ En düşük uygun ölçek kümesi şablon görülebilir [burada](https://raw.git
    },
 ```
 
-Ardından, Ölçek kümesini değiştirme `extensionProfile` tanılama uzantısını eklenecek. Bu yapılandırmada, ölçümleri depolamak için kullanmak üzere, ölçümleri yanı sıra depolama hesabı ve SAS belirteci toplamak için ölçek kaynak Kimliğini belirtin. Ölçümleri (Bu durumda dakikada) ne sıklıkta toplanır ve (Bu durumda, yüzde kullanılan bellek) izlemek için hangi ölçümleri belirtin. Bu yapılandırma hakkında daha ayrıntılı bilgi ve ölçümleri yüzde dışında kullanılan bellek için bkz: [bu belgeleri](../virtual-machines/linux/diagnostic-extension.md).
+Ardından, Ölçek kümesini değiştirme `extensionProfile` tanılama uzantısını eklenecek. Bu yapılandırmada, ölçümleri depolamak için kullanmak, ölçümleri yanı sıra depolama hesabı ve SAS belirteci toplamak için ölçek kaynak Kimliğini belirtin. (Bu durumda, yüzde kullanılan bellek) izlemek için hangi ölçümleri ne sıklıkta ölçümleri (Bu durumda dakika başı) toplanır ve belirtin. Ölçümleri yüzde dışında kullanılan bellek ve bu yapılandırma hakkında daha ayrıntılı bilgi için bkz: [bu belgeleri](../virtual-machines/linux/diagnostic-extension.md).
 
 ```diff
                  }
@@ -111,7 +111,7 @@ Ardından, Ölçek kümesini değiştirme `extensionProfile` tanılama uzantıs�
        }
 ```
 
-Son olarak, ekleme bir `autoscaleSettings` otomatik ölçeklendirme yapılandırmak için kaynak tabanlı bu ölçümleri. Bu kaynak bir `dependsOn` ölçek başvuran yan tümcesi ayarlanmış ölçek kümesi için otomatik ölçeklendirme, denemeden önce mevcut olduğundan emin olun. Üzerinde otomatik ölçeklendirme için farklı bir ölçümü seçerseniz, kullanacağınız `counterSpecifier` tanılama uzantısını yapılandırmasından `metricName` otomatik ölçeklendirme yapılandırması. Otomatik ölçeklendirme yapılandırma hakkında daha fazla bilgi için bkz: [otomatik ölçeklendirme en iyi yöntemler](..//monitoring-and-diagnostics/insights-autoscale-best-practices.md) ve [Azure İzleyici REST API başvuru belgeleri](https://msdn.microsoft.com/library/azure/dn931928.aspx).
+Son olarak, ekleme bir `autoscaleSettings` kaynak otomatik ölçeklendirme yapılandırmak için bu ölçümleri temel. Bu kaynağın bir `dependsOn` ölçek başvuran yan tümcesi ayarlayın ölçek kümesini otomatik ölçeklendirme, denemeden önce mevcut olduğundan emin olun. Otomatik ölçeklendirme için farklı bir ölçümü üzerinde tercih ederseniz, kullanacağınız `counterSpecifier` tanılama uzantısını yapılandırmasından `metricName` otomatik ölçeklendirme yapılandırması. Otomatik ölçeklendirme yapılandırması hakkında daha fazla bilgi için bkz. [otomatik ölçeklendirme en iyi](..//monitoring-and-diagnostics/insights-autoscale-best-practices.md) ve [Azure İzleyici REST API başvuru belgeleri](https://msdn.microsoft.com/library/azure/dn931928.aspx).
 
 ```diff
 +    },

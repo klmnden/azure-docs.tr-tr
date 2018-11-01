@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2018
 ms.author: spelluru
-ms.openlocfilehash: ac30718a92d76dedcb5b0ef3bdd2f282dd117720
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 41af53dbfbb5c863007a332445a2f184fcbcbf81
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48853530"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50741071"
 ---
 # <a name="topic-filters-and-actions"></a>Konu başlığı filtreleri ve eylemleri
 
@@ -40,7 +40,7 @@ Karmaşık filtre kuralları işlem kapasitesi gerektirir. Özellikle, abonelik,
 
 ## <a name="actions"></a>Eylemler
 
-SQL filtresi koşullarla ileti ekleme, kaldırma veya özellikleri ve değerlerini değiştirerek açıklama ekleyebilirsiniz bir eylem tanımlayabilirsiniz. Eylem [SQL benzeri bir ifade kullanır](service-bus-messaging-sql-filter.md) SQL UPDATE deyimi sözdizimi, gevşek leans. Eylem iletide, eşleşen sonra konuya ileti seçilmeden önce gerçekleştirilir. İleti özelliklerini değişiklikleri aboneliğe kopyalanan iletisi özeldir.
+SQL filtresi koşullarla ileti ekleme, kaldırma veya özellikleri ve değerlerini değiştirerek açıklama ekleyebilirsiniz bir eylem tanımlayabilirsiniz. Eylem [SQL benzeri bir ifade kullanır](service-bus-messaging-sql-filter.md) SQL UPDATE deyimi sözdizimi, gevşek leans. Eylem iletide, eşleşen sonra ve aboneliğe ileti seçilmeden önce gerçekleştirilir. İleti özelliklerini değişiklikleri aboneliğe kopyalanan iletisi özeldir.
 
 ## <a name="usage-patterns"></a>Kullanım desenleri
 

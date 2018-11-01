@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 09/06/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 93bd141b591cda5ec6ff1d9d042222070d3146e6
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: f0a9ac1700d635365ebea0c5966489ed3d2d797b
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49390321"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50420260"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: Sürüm yayımlama geçmişi
 Azure Active Directory (Azure AD) ekibi, düzenli olarak yeni özellikler ve işlevler ile Azure AD Connect güncelleştirir. Tüm eklemeleri için tüm kitlelere yönelik uygulanabilir.
@@ -37,6 +37,37 @@ Gerekli izinler | Bir güncelleştirmeyi uygulamak için gereken izinler için b
 
 İndir | [Azure AD Connect'i indirme](http://go.microsoft.com/fwlink/?LinkId=615771).
 
+## <a name="12650"></a>1.2.65.0 
+
+### <a name="release-status"></a>Yayın durumu 
+
+25/10/2018: indirme için yayımlanan
+
+ 
+### <a name="new-features-and-improvements"></a>Yeni özellikler ve geliştirmeler 
+
+
+- Öznitelik barındırılan sesli posta beklendiği gibi çalıştığından emin olmak için geri yazma işlevini değiştirildi.  Bazı senaryolarda, Azure AD, bir null değer ile geri yazma sırasında msExchUcVoicemailSettings öznitelik üzerine.  Bulut değeri ayarlanmadığı taktirde azure AD'ye artık şirket içi bu özniteliğin değeri, artık temizler.
+- Değiştirilen varsayılan kuralları işlenmesini iyileştirdik. Varsayılan kuralları için değişiklik yaptınız ve varsayılan kuralları onarmak için Seçenekler'de sunulan artık bildirilir. 
+- Tanılama, araştırmak ve Azure AD'ye bağlantı sorunlarını belirlemek için Azure AD Connect sihirbazındaki eklendi. Bu aynı Tanılama, Test - AdSyncAzureServiceConnectivity cmdlet'ini kullanarak doğrudan Powershell aracılığıyla da çalıştırılabilir. 
+- Tanılama, araştırmak ve AD'ye bağlantı sorunlarını belirlemek için Azure AD Connect sihirbazındaki eklendi. Bu aynı tanılama ADConnectivityTools Powershell modülünde başlangıç ConnectivityValidation işlevi kullanılarak doğrudan Powershell aracılığıyla da çalıştırılabilir.  Daha fazla bilgi için [ADConnectivityTool PowerShell Modülü nedir?](how-to-connect-adconnectivitytools.md)
+- Hibrit Azure Active Directory Join ve cihaz geri yazma için bir AD şeması sürüm öncesi denetimi eklendi 
+- Duyarlı olmayan bir durumda olmasını dizini uzantısı sayfa özniteliği arama değişti.
+-   TLS 1.2 için tam destek eklendi. Bu sürüm, diğer protokolleri devre dışı bırakılmasını ve yalnızca Azure AD Connect, yüklü olduğu makinede etkinleştiriliyor TLS 1.2 destekler.  Daha fazla bilgi için [Azure AD Connect için TLS 1.2 zorlama](reference-connect-tls-enforcement.md)
+
+ 
+
+### <a name="fixed-issues"></a>Düzeltilen sorunlar   
+
+- SQL Always On kullanılıyorsa, burada Azure AD Connect yükseltmesi başarısız olur bir hata düzeltildi. 
+- Eğik çizgi içeren OU adları doğru şekilde ayrıştırmak için bir hata düzeltildi. 
+- Burada geçişli kimlik doğrulaması için hazırlama modunda temiz bir yükleme devre dışı bir sorun düzeltildi. 
+- PowerShell modülü, sorun giderme araçları çalıştırırken yüklenmesini engelleyen bir hata düzeltildi 
+- Bir ana bilgisayar adının ilk karakteri sayısal değerleri kullanarak müşterilerin engelleyen bir hata düzeltildi. 
+- Geçersiz bölüm ve kapsayıcı seçimi Azure AD Connect izin burada bir hata düzeltildi 
+- Masaüstü SSO'yu etkinleştirildiğinde "Geçersiz parola" hata iletisi düzeltildi. 
+- AD FS güven yönetimi için çeşitli hata düzeltmeleri  
+- Cihaz geri yazma - yapılandırma (WS2012 R2'de sunulmuştur) msDs-DeviceContainer nesne sınıfı aramak için şema denetimi düzeltildi
 
  
 ## <a name="118820"></a>1.1.882.0  
@@ -765,7 +796,7 @@ Doğrudan Kimlik Doğrulama
 * Azure AD Connect Sihirbazı aracılığıyla başarılı kimlik doğrulaması seçildiğinde ancak kendi bağlayıcı kaydı başarısız olursa başarısız olmasına neden olan sorun düzeltildi.
 * Neden olur, Masaüstü SSO özelliği etkinleştirilmişse seçilen oturum açma yöntemi üzerinde doğrulama atlama için Azure AD Connect Sihirbazı'nı denetler bir sorun düzeltildi.
 
-Parola sıfırlama
+Parola Sıfırlama
 * Azure AAD Connect sunucusu bağlantısı bir güvenlik duvarı veya Ara sunucu tarafından sonlandırıldı. yeniden bağlanmak kullanmamanız neden olabilecek bir sorun düzeltildi.
 
 **Yeni özellikler/iyileştirmeleri:**
@@ -780,7 +811,7 @@ AD FS Yönetimi
 * Şimdi, AD FS yükleme sırasında mevcut gmsa'yı (Grup yönetilen hizmet hesabı) belirtebilirsiniz.
 * Şimdi, Azure AD bağlı olan taraf güveni için imza karma algoritma olarak SHA-256'yı da yapılandırabilirsiniz.
 
-Parola sıfırlama
+Parola Sıfırlama
 * İşlev ürüne daha sıkı güvenlik duvarı kuralları içeren ortamlarda izin vermek için sunulan geliştirmeler.
 * Azure Service Bus geliştirilmiş bağlantı güvenilirlik.
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: daseidma;bwren
-ms.openlocfilehash: 9d574e7e8b0b285093aa0960243300dfe9f6d417
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 4461b98c56bcf99fc11aa9d89e6c6dc5961c86ac
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50249017"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50419529"
 ---
 # <a name="configure-service-map-in-azure"></a>Azure'da hizmet eşlemesi yapılandırma
 Hizmet Eşlemesi, Windows ve Linux sistemleri üzerindeki uygulama bileşenlerini otomatik olarak bulur ve hizmetler arasındaki iletişimi eşler. Bunları--kritik Hizmetleri sunmak birbirine sistemleri düşündüğünüz sunucularınızın görüntülemek için kullanabilirsiniz. Hizmet eşlemesi, tüm TCP bağlantılı mimarisi, gerekli bir aracı yüklemesini dışında hiçbir yapılandırma boyunca sunucuları, işlemler ve bağlantı noktaları arasındaki bağlantıları gösterir.
@@ -172,7 +172,7 @@ Veri toplama ve kullanım hakkında daha fazla bilgi için bkz. [Microsoft Onlin
 
 ## <a name="installation"></a>Yükleme
 
-## <a name="azure-vm-extension"></a>Azure VM uzantısı
+### <a name="azure-vm-extension"></a>Azure VM uzantısı
 Bir uzantı (DependencyAgentWindows) Windows ve Linux (DependencyAgentLinux) için kullanılabilir ve bağımlılık Aracısı'nı kullanarak Azure sanal makinelerini kolayca dağıtım yapabilir bir [Azure VM uzantısı](https://docs.microsoft.com/azure/virtual-machines/windows/extensions-features).  Azure VM uzantısı ile Windows ve Linux bir PowerShell Betiği kullanılarak veya doğrudan sanal Makineye bir Azure Resource Manager şablonu kullanarak sanal makine için bağımlılık Aracısı'nı dağıtabilirsiniz.  Azure VM uzantısı aracıyla dağıtırsanız, aracılarınızı en son sürüme otomatik olarak güncelleştirilir.
 
 PowerShell ile Azure VM uzantısı dağıtmak için aşağıdaki örneği kullanabilirsiniz:

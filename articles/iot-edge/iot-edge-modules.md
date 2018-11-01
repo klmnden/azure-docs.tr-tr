@@ -8,14 +8,14 @@ ms.date: 09/21/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 5d80b6438569e74ee254d27e0061443a87efc6ce
-ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
+ms.openlocfilehash: 80679d6efd44598fbe403707ad2e757010eb8d91
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47423400"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50741683"
 ---
-# <a name="understand-azure-iot-edge-modules"></a>Azure IOT Edge modüllerini anlama
+# <a name="understand-azure-iot-edge-modules"></a>Azure IoT Edge modüllerini anlama
 
 Azure IOT Edge dağıtma ve yönetmenize olanak sağlar biçiminde edge üzerinde iş mantığını *modülleri*. Azure IOT Edge modülleri, IOT Edge tarafından yönetilen bir hesaplama birimi en küçük olan ve Azure hizmetlerinin (örneğin, Azure Stream Analytics) veya kendi çözümünüze özgü kodla içerebilir. Anlamak için nasıl modülleri geliştirilen, dağıtılan ve tutulan yapmak modül ve kavramsal dört adede kadar aklınıza yardımcı olur:
 
@@ -31,7 +31,7 @@ Bulutta görüntü var ve bunlar güncelleştirilebilir, değiştirilmiş ve far
 
 Bir modül görüntüsü bir cihaza dağıtılan ve IOT Edge çalışma zamanı tarafından başlatılan her zaman bu modülü yeni bir örneğini oluşturulur. İki cihazı dünyanın farklı bölümleri aynı modülü görüntüsü kullanabilirsiniz; Ancak, modül cihazda başlatıldığında her kendi modül örneğinin sahip olacaktır. 
 
-![Modül görüntüleri - bulutta cihazlarda modülü örnekleri][1]
+![Modül görüntüleri - bulutta cihazlarda modülü örnekleri](./media/iot-edge-modules/image_instance.png)
 
 Uygulamada, modülleri görüntü deposundaki kapsayıcı görüntüleri olarak mevcut ve cihazlarda modülü örnekleri kapsayıcılardır. 
 
@@ -46,23 +46,23 @@ Cihazın kimliğini bağımlı bir modül örneği ile ilişkili kimlik hangi ö
 
 Açıkça görülebileceği gibi senaryolarda, birden çok kez aynı cihazda, bir modül görüntüsünü dağıtmak ihtiyacınız olduğunda farklı adlar aynı görüntü birden çok kez dağıtabilirsiniz.
 
-![Modül kimlikleri benzersiz][2]
+![Modül kimlikleri benzersiz](./media/iot-edge-modules/identity.png)
 
 ## <a name="module-twins"></a>Modül ikizlerini
 
 Her bir modül örneğinin modülü örneği yapılandırmak için kullanabileceğiniz karşılık gelen bir modül ikizi de vardır. Örnek ve ikizi birbiriyle modül kimliği ile ilişkilendirilir. 
 
-Modül ikizi modülü bilgilerine ve yapılandırma özelliklerini depolayan bir JSON belgesidir. Bu kavramı parallels [cihaz ikizi] [ lnk-device-twin] kavramı IOT Hub'ından. Modül ikizi yapısını tam olarak bir cihaz çifti ile aynıdır. İkizlerini her iki tür ile etkileşim kurmak için kullanılan API'ler de aynı olur. İkisi arasındaki tek fark, istemci SDK'sı örneği oluşturmak için kullanılan kimliktir. 
+Modül ikizi modülü bilgilerine ve yapılandırma özelliklerini depolayan bir JSON belgesidir. Bu kavramı parallels [cihaz ikizi](../iot-hub/iot-hub-devguide-device-twins.md) kavramı IOT Hub'ından. Modül ikizi yapısını tam olarak bir cihaz çifti ile aynıdır. İkizlerini her iki tür ile etkileşim kurmak için kullanılan API'ler de aynı olur. İkisi arasındaki tek fark, istemci SDK'sı örneği oluşturmak için kullanılan kimliktir. 
 
 ```csharp
-// Create a ModuleClient object. This ModuleClient will act on behalf of a 
-// module since it is created with a module’s connection string instead 
-// of a device connection string. 
-ModuleClient client = new ModuleClient.CreateFromEnvironmentAsync(settings); 
-await client.OpenAsync(); 
- 
-// Get the module twin 
-Twin twin = await client.GetTwinAsync(); 
+// Create a ModuleClient object. This ModuleClient will act on behalf of a 
+// module since it is created with a module’s connection string instead 
+// of a device connection string. 
+ModuleClient client = new ModuleClient.CreateFromEnvironmentAsync(settings); 
+await client.OpenAsync(); 
+ 
+// Get the module twin 
+Twin twin = await client.GetTwinAsync(); 
 ```
 
 ## <a name="offline-capabilities"></a>Çevrimdışı özellikler
@@ -79,15 +79,8 @@ IOT Edge modülleri, aşağıdaki gereksinimlerin karşılandığından sürece 
 Ek çevrimdışı özellikleri, genel önizlemede kullanılabilir. Daha fazla bilgi için [anlayın cihazları, modülleri ve alt cihazlar bu çevrimdışı özellikleri IOT Edge için Genişletilmiş](offline-capabilities.md).
 
 ## <a name="next-steps"></a>Sonraki adımlar
- - [IOT Edge modülleri geliştirmek için Araçlar ve gereksinimleri anlama][lnk-mod-dev]
- - [Azure IOT Edge çalışma zamanı ve mimarisini anlama][lnk-runtime]
+ - [IOT Edge modülleri geliştirmek için Araçlar ve gereksinimleri anlama](module-development.md)
+ - [Azure IOT Edge çalışma zamanı ve mimarisini anlama](iot-edge-runtime.md)
 
 <!-- Images -->
-[1]: ./media/iot-edge-modules/image_instance.png
 [2]: ./media/iot-edge-modules/identity.png
-
-<!-- Links -->
-[lnk-device-identity]: ../iot-hub/iot-hub-devguide-identity-registry.md
-[lnk-device-twin]: ../iot-hub/iot-hub-devguide-device-twins.md
-[lnk-runtime]: iot-edge-runtime.md
-[lnk-mod-dev]: module-development.md
