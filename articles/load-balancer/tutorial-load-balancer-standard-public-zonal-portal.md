@@ -63,7 +63,7 @@ Standard Load Balancer yalnızca standart genel IP adresini destekler. Yük deng
 
 ## <a name="create-backend-servers"></a>Arka uç sunucular oluşturma
 
-Bu bölümde, bir sanal ağ oluşturursunuz. Ayrıca, yük dengeleyicinizin arka uç havuzuna eklenecek bölge için aynı bölgede (bölge 1) iki sanal makine oluşturursunuz. Ardından bölge olarak yedekli yük dengeleyicinin test edilmesine yardımcı olması için sanal makinelere IIS yükleyeceksiniz. Bir VM başarısız olursa aynı bölgedeki VM için sistem durumu araştırması başarısız olur. Trafik aynı bölgedeki diğer VM’ler tarafından sunulmaya devam eder.
+Bu bölümde, bir sanal ağ oluşturursunuz. Ayrıca, yük dengeleyicinizin arka uç havuzuna eklenecek bölge için aynı bölgede (bölge 1) iki sanal makine oluşturursunuz. Ardından alanlar arası yedekli yük dengeleyicinin test edilmesine yardımcı olması için sanal makinelere IIS yükleyeceksiniz. Bir VM başarısız olursa aynı bölgedeki VM için sistem durumu araştırması başarısız olur. Trafik aynı bölgedeki diğer VM’ler tarafından sunulmaya devam eder.
 
 ### <a name="create-a-virtual-network"></a>Sanal ağ oluşturma
 1. Ekranın sol üst kısmında **Kaynak oluştur** > **Ağ** > **Sanal ağ** seçeneğini belirleyin.  Sanal ağ için şu değerleri girin:

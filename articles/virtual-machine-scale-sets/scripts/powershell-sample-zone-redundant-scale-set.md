@@ -1,5 +1,5 @@
 ---
-title: Azure PowerShell Örnekleri - Bölgesel olarak yedekli ölçek kümesi | Microsoft Docs
+title: Azure PowerShell Örnekleri - Alanlar arası yedekli ölçek kümesi | Microsoft Docs
 description: Azure PowerShell Örnekleri
 services: virtual-machine-scale-sets
 documentationcenter: ''
@@ -23,7 +23,7 @@ ms.contentlocale: tr-TR
 ms.lasthandoff: 10/19/2018
 ms.locfileid: "49470768"
 ---
-# <a name="create-a-zone-redundant-virtual-machine-scale-set-with-powershell"></a>PowerShell ile bölgesel olarak yedekli sanal makine ölçek kümesi oluşturma
+# <a name="create-a-zone-redundant-virtual-machine-scale-set-with-powershell"></a>PowerShell ile alanlar arası yedekli sanal makine ölçek kümesi oluşturma
 Bu betik, birden çok Kullanılabilirlik Alanında Windows Server 2016 çalıştıran bir sanal makine ölçek kümesi oluşturur. Betiği çalıştırdıktan sonra sanal makineye RDP üzerinden erişebilirsiniz.
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]

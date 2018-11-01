@@ -120,7 +120,7 @@ items:
     href: expressroute-howto-move-arm.md
   - name: İlişkili sanal ağları klasikten Resource Manager’a geçirme
     href: expressroute-migration-classic-resource-manager.md
-  - name: Azure Kullanılabilirlik Alanlarında bölgesel olarak yedekli VNet ağ geçidi oluşturma
+  - name: Azure Kullanılabilirlik Alanları arasında yedekli VNet ağ geçidi oluşturma
     href: ../vpn-gateway/create-zone-redundant-vnet-gateway.md?toc=%2fazure%2fexpressroute%2ftoc.json
   - name: ExpressRoute için yönlendirici yapılandırma
     items:

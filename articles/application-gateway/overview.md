@@ -43,7 +43,7 @@ Application Gateway, bu makalede anlatılan özelliklere ek olarak otomatik öl�
 
 - Genel kullanıma açık SKU ile karşılaştırıldığında **5 kat daha iyi SSL yük boşaltma performansı**.
 
-Application Gateway genel önizleme özellikleri hakkında daha fazla bilgi için bkz. [Otomatik Ölçeklendirme Yapan ve Bölgesel Olarak Yedekli Application Gateway (Genel Önizleme)](application-gateway-autoscaling-zone-redundant.md).
+Application Gateway genel önizleme özellikleri hakkında daha fazla bilgi için bkz. [Otomatik Ölçeklendirme Yapan ve Alanlar Arası Yedekli Application Gateway (Genel Önizleme)](application-gateway-autoscaling-zone-redundant.md).
 
 ## <a name="azure-kubernetes-service-aks-ingress-controller-preview"></a>Azure Kubernetes Service (AKS) giriş denetleyicisi önizlemesi 
 

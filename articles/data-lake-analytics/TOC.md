@@ -64,6 +64,7 @@
 
 ## Sürekli tümleştirme ve sürekli geliştirme
 ### [Genel Bakış](data-lake-analytics-cicd-overview.md)
+### [Bütünleştirilmiş kod kaydı](data-lake-analytics-cicd-manage-assemblies.md)
 ### [Test ayarlama](data-lake-analytics-cicd-test.md)
 ### [U-SQL SDK](data-lake-analytics-u-sql-sdk.md)
 

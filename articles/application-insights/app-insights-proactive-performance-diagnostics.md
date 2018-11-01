@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 05/04/2017
 ms.reviewer: antonfr
 ms.author: mbullwin
-ms.openlocfilehash: 8c34696f81e40b4db13e6868f6bdaa1b2a8e7a2a
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: b0256e899d47e3b6f8141218c11e1a7a62ca8e1a
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47095472"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50419733"
 ---
 # <a name="smart-detection---performance-anomalies"></a>Akıllı algılama - performans Anomalileri
 
@@ -47,7 +47,7 @@ Hayır, bir bildirim uygulamanızı kesinlikle bir sorun olduğu anlamına gelme
 Bildirimler, tanılama bilgilerini içerir. Bir örneği aşağıda verilmiştir:
 
 
-![İşte bir örnek sunucu yanıt süresinde performans düşüşü algılama](./media/app-insights-proactive-diagnostics/server_response_time_degradation.png)
+![İşte bir örnek sunucu yanıt süresinde performans düşüşü algılama](media/app-insights-proactive-performance-diagnostics/server_response_time_degradation.png)
 
 1. **Önceliklendirme**. Bildirim kaç kullanıcının veya kaç operations etkilenen gösterir. Bu sorun için bir öncelik atamanıza yardımcı olabilir.
 2. **Kapsam**. Sorun, tüm trafiği veya yalnızca bazı sayfalar etkileniyor? Belirli tarayıcılar veya konumlara sınırlıdır? Bu bilgiler gelen bildirim elde edilebilir.
@@ -61,7 +61,7 @@ Bildirimler, tanılama bilgilerini içerir. Bir örneği aşağıda verilmiştir
 
 Akıllı algılama bildirimleri varsayılan olarak etkindir ve sahip olanlar için gönderilen [sahipleri, Katkıda Bulunanlar ve okuyucular erişmek için Application Insights kaynağı](app-insights-resources-roles-access-control.md). Bunu değiştirmek için ' a tıklayın ya da **yapılandırma** e-posta bildirimi veya Application Insights, akıllı algılama ayarlarını Aç. 
   
-  ![Akıllı algılama ayarları](./media/app-insights-proactive-diagnostics/smart_detection_configuration.png)
+  ![Akıllı algılama ayarları](media/app-insights-proactive-performance-diagnostics/smart_detection_configuration.png)
   
   * Kullanabileceğiniz **aboneliği** e-posta bildirimleri almayı durdurmak için akıllı algılama e-postadaki bağlantıya.
 
@@ -143,7 +143,7 @@ Modern uygulamanın daha ağır güvenilirlik için dış hizmetler hakkında m�
 
 Örnek bağımlılık performans düşüşü bildirimi:
 
-![İşte bir örnek bağımlılık süresi düşüşü algılama](./media/app-insights-proactive-diagnostics/dependency_duration_degradation.png)
+![İşte bir örnek bağımlılık süresi düşüşü algılama](media/app-insights-proactive-performance-diagnostics/dependency_duration_degradation.png)
 
 Size bildirir dikkat edin:
 
@@ -161,7 +161,7 @@ Size bildirir dikkat edin:
 
 Application Insights, kullanıcılarınızın kısmı yalnızca etkileyen, veya bazı durumlarda kullanıcılar yalnızca etkileyen performans sorunlarını bulur. Örneğin, sayfa yükleme hakkında bildirim daha yavaş tarayıcı başka tür tarayıcıları, bir tür veya istekleri belirli bir sunucudan daha yavaş sunulur. Yavaş sayfa, belirli bir işletim sistemi kullanan istemciler için bir coğrafi alanda yükler gibi özellikleri bileşimleri ile ilişkili sorunları da bulabilir.  
 
-Anomalileri bunlar gibi verileri inceleyerek algılamak çok zor olan, ancak, düşündüğünüzden daha yaygındır. Müşterilerinizin şikayet olduğunda genellikle bunlar yalnızca yüzey. O zamana dek çok geç: Etkilenen kullanıcılar zaten rakiplerinizin için geçiş!
+Anomalileri bunlar gibi verileri inceleyerek algılamak çok zor olan, ancak, düşündüğünüzden daha yaygındır. Müşterilerinizin şikayet olduğunda genellikle bunlar yalnızca yüzey. Bu süre, çok geç s: Etkilenen kullanıcılar zaten rakiplerinizin için geçiş!
 
 Şu anda, sayfa yükleme süreleri, sunucuda istek yanıt süreleri ve bağımlılık yanıt süreleri algoritmalarınızı arayın.  
 

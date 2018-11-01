@@ -33,7 +33,7 @@ items:
     href: point-to-site-about.md
   - name: Noktadan Siteye VPN yönlendirme hakkında
     href: vpn-gateway-about-point-to-site-routing.md
-  - name: Kullanılabilirlik Alanları için bölgesel yedekli ağ geçitleri hakkında
+  - name: Kullanılabilirlik Alanları için alanlar arası yedekli ağ geçitleri hakkında
     href: about-zone-redundant-vnet-gateways.md
   - name: Arka Uç Bağlantısı Birlikte Çalışabilirliği
     items:
@@ -129,7 +129,7 @@ items:
     items:
     - name: Azure PowerShell
       href: vpn-gateway-activeactive-rm-powershell.md
-  - name: Azure Kullanılabilirlik Alanlarında bölgesel olarak yedekli VNet ağ geçidi oluşturma
+  - name: Azure Kullanılabilirlik Alanları arasında yedekli VNet ağ geçidi oluşturma
     href: create-zone-redundant-vnet-gateway.md
   - name: Yönlendirme, BGP ve VNet Eşlemesi
     items:

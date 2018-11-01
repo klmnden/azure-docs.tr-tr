@@ -1,6 +1,6 @@
 ---
 title: 'Öğretici: Kullanılabilirlik alanları arasında Yük Dengeleyici sanal makineleri - Azure portalı | Microsoft Docs'
-description: Bu öğretici, Azure portalını kullanarak kullanılabilirlik alanları arasındaki sanal makinelerin yükünü dengelemek üzere bölgesel olarak yedekli ön uç ile Standart bir Yük Dengeleyici oluşturma işlemini gösterir
+description: Bu öğretici, Azure portalı kullanarak kullanılabilirlik alanları arasındaki sanal makinelerin yükünü dengelemek üzere alanlar arası yedekli ön uç ile Standart Load Balancer oluşturma işlemini gösterir
 services: load-balancer
 documentationcenter: na
 author: KumudD
@@ -31,7 +31,7 @@ Yük dengeleme, gelen istekleri birden çok sanal makineye dağıtarak yüksek d
 > [!div class="checklist"]
 > * Standart Yük Dengeleyici oluşturma
 > * Gelen trafik kurallarını tanımlamak için ağ güvenlik grupları oluşturma
-> * Kullanılabilirlik alanları arasında bölgesel olarak yedekli VM'ler oluşturma ve bir yük dengeleyiciye ekleme
+> * Kullanılabilirlik alanları arasında yedekli VM'ler oluşturma ve bir yük dengeleyiciye ekleme
 > * Yük dengeleyici durum yoklaması oluşturma
 > * Yük dengeleyici trafik kuralları oluşturma
 > * Temel IIS sitesi oluşturma
@@ -49,13 +49,13 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 
 ## <a name="create-a-standard-load-balancer"></a>Standart Yük Dengeleyici oluşturma
 
-Standart Yük Dengeleyici yalnızca Standart Genel IP adresini destekler. Yük dengeleyiciyi oluştururken yeni bir genel IP oluşturduğunuzda, bir Standart SKU sürümü halinde otomatik olarak yapılandırılır ve ayrıca otomatik olarak bölgesel olarak yedeklidir.
+Standart Yük Dengeleyici yalnızca Standart Genel IP adresini destekler. Yük dengeleyiciyi oluştururken yeni bir genel IP oluşturduğunuzda, bir Standart SKU sürümü halinde otomatik olarak yapılandırılır ve ayrıca otomatik olarak alanlar arası yedeklidir.
 
 1. Ekranın sol üst kısmında **Kaynak oluştur** > **Ağ** > **Yük Dengeleyici**'ye tıklayın.
 2. **Yük dengeleyici oluştur** sayfasına, yük dengeleyici için şu değerleri girin:
     - Yük dengeleyicinin adı için *myLoadBalancer*.
     - Yük dengeleyicinin türü için **Public**.
-     - *myPublicIP* - Oluşturduğunuz yeni genel IP adresi. Bunu yapmak için **Genel IP adresi seçin**’e ve sonra **Yeni oluştur**’a tıklayın. Ad için *myPublicIP* yazın. SKU varsayılan olarak Standart’tır. **Kullanılabilirlik alanı** olarak **Bölgesel olarak yedekli**’yi seçin.
+     - *myPublicIP* - Oluşturduğunuz yeni genel IP adresi. Bunu yapmak için **Genel IP adresi seçin**’e ve sonra **Yeni oluştur**’a tıklayın. Ad için *myPublicIP* yazın. SKU varsayılan olarak Standart’tır. **Kullanılabilirlik alanı** olarak **Alanlar arası yedekli**’yi seçin.
     - *myResourceGroupLBAZ* - oluşturduğunuz yeni kaynak grubunun adı.
     - Konum için **westeurope**.
 3. Yük dengeleyiciyi oluşturmak için **Oluştur**’a tıklayın.
@@ -65,7 +65,7 @@ Standart Yük Dengeleyici yalnızca Standart Genel IP adresini destekler. Yük d
 
 ## <a name="create-backend-servers"></a>Arka uç sunucular oluşturma
 
-Bu bölümde bir sanal ağ, bölgenin farklı alanlarında sanal makineler oluşturacak ve sonra bölgesel olarak yedekli yük dengeleyiciyi test etmeye yardımcı olmak üzere sanal makinelere IIS yükleyeceksiniz. Bu nedenle, bir alan başarısız olursa aynı alandaki VM’nin sistem durumu yoklaması başarısız olur ve trafik diğer alanlardaki VM’ler tarafından sunulmaya devam eder.
+Bu bölümde bir sanal ağ, bölgenin farklı alanlarında sanal makineler oluşturacak ve sonra alanlar arası yedekli yük dengeleyiciyi test etmeye yardımcı olmak üzere sanal makinelere IIS yükleyeceksiniz. Bu nedenle, bir alan başarısız olursa aynı alandaki VM’nin sistem durumu yoklaması başarısız olur ve trafik diğer alanlardaki VM’ler tarafından sunulmaya devam eder.
 
 ### <a name="create-a-virtual-network"></a>Sanal ağ oluşturma
 Arka uç sunucularınızı dağıtmak için bir sanal ağ oluşturun.
