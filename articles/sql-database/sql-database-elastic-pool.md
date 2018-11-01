@@ -113,11 +113,11 @@ Araçları kullanamadığınız durumlarda aşağıdaki adım adım yönergeler 
 
 1. Edtu veya sanal çekirdek havuz için şu şekilde gerekli tahmin:
 
-   DTU tabanlı satın alma modeli için: Maks (<*toplam veritabanı sayısı* X *ortalama veritabanı başına DTU kullanımı*>,<br>
-   <*Eşzamanlı olarak en üst seviyeye çıkan veritabanı sayısı* X *Veritabanı başına en yüksek DTU kullanımı*)
+   DTU tabanlı satın alma modeli için: Maks (<*toplam veritabanı sayısı* X *ortalama veritabanı başına DTU kullanımı* >,<br>
+   < *Eşzamanlı olarak en üst seviyeye çıkan veritabanı sayısı* X *Veritabanı başına en yüksek DTU kullanımı* >)
 
-   Sanal çekirdek tabanlı satın alma modeli için: Maks (<*toplam veritabanı sayısı* X *sanal çekirdek kullanımı veritabanı başına ortalama*>,<br>
-   <*Eşzamanlı olarak en üst seviyeye çıkan sayısı DBs* X *veritabanı başına en yüksek sanal çekirdek kullanımı*)
+   Sanal çekirdek tabanlı satın alma modeli için: Maks (<*toplam veritabanı sayısı* X *sanal çekirdek kullanımı veritabanı başına ortalama* >,<br>
+   < *Eşzamanlı olarak en üst seviyeye çıkan sayısı DBs* X *veritabanı başına en yüksek sanal çekirdek kullanımı* >)
 
 2. Havuzdaki tüm veritabanları için gereken bayt sayısını ekleyerek havuz için gereken depolama alanını tahmin edin. Ardından, bu depolama miktarını sağlayan eDTU havuz boyutunu belirleyin.
 3. DTU tabanlı satın alma modeli için eDTU tahminleri büyük adım 1 ve 2 adımlardaki yararlanın. Sanal çekirdek tabanlı satın alma modeli için sanal çekirdek tahmini 1. adımdaki yararlanın.

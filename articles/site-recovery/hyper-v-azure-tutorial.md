@@ -1,20 +1,19 @@
 ---
 title: Azure Site Recovery ile şirket içi Hyper-V sanal makineleri (VMM olmadan) için Azure’da olağanüstü durum kurtarma ayarlama | Microsoft Docs
 description: Azure Site Recovery hizmeti ile şirket içi Hyper-V sanal makineleri (VMM olmadan) için Azure’da olağanüstü durum kurtarmanın nasıl ayarlanacağını öğrenin.
-services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 10/10/2018
+ms.date: 10/28/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 978b79fbd35178191ff5c95b8897045d00c7a272
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: af3a11db44c3799a83e1767f919cb02f14855949
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49078045"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50211919"
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>Şirket içi Hyper-V sanal makineleri için Azure’da olağanüstü durum kurtarma ayarlama
 

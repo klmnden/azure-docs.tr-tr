@@ -10,12 +10,12 @@ ms.topic: overview
 ms.date: 04/08/2018
 ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: b9c4c2595bb7d5347397bff95c90fbdc91902bcd
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 12e3cf028b4812abd43dd2b6f23190fa6b75157a
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43696457"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50242299"
 ---
 # <a name="welcome-to-azure-cosmos-db"></a>Azure Cosmos DB’ye hoş geldiniz
 
@@ -55,7 +55,7 @@ Genel olarak dağıtılan, çok modelli bir veritabanı hizmeti olarak Azure Cos
 * **"Her zaman açık" özelliği ile kullanılabilirlik endişeniz olmaz**
     * Tek tek tüm bölge veritabanı hesapları için %99,99 kullanılabilirlik SLA'sı ve çok bölgeli tüm veritabanı hesaplarında tümüyle %99,999 okunabilirlik.
     * Daha yüksek kullanılabilirlik ve daha iyi bir performans için dilediğiniz sayıda [Azure bölgesine](https://azure.microsoft.com/regions) dağıtın.
-    * Bölgelere dinamik olarak öncelikler ayarlayın ve uygulamanın tamamında (yalnızca veritabanının ötesinde) uçtan uça kullanılabilirliği test etmek için sıfır veri kaybı garantisiyle bir veya birden çok bölgede [hata benzetimi yapın](regional-failover.md). 
+    * Bölgelere dinamik olarak öncelikler ayarlayın ve uygulamanın tamamında (yalnızca veritabanının ötesinde) uçtan uça kullanılabilirliği test etmek için sıfır veri kaybı garantisiyle bir veya birden çok bölgede [hata benzetimi yapın](high-availability.md). 
 
 * **Genel olarak dağıtılan uygulamaları, doğru şekilde yazın**
     * İyi tanımlanmış, pratik ve sezgisel beş [tutarlılık modeli](consistency-levels.md), rahatlatılmış NoSQL benzeri nihai tutarlılığa kadar giden ve aradaki her şeyi içeren, güçlü SQL benzeri tutarlılık spektrumu sağlar. 

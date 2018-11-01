@@ -10,12 +10,12 @@ ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/21/2018
 ms.author: erhopf
-ms.openlocfilehash: 2af7ceeeef347d1959b571aebf3f26bd5035e4c4
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 88a5452259978c265b8f48184f9604d9f1b4c238
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49646177"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50412492"
 ---
 # <a name="quickstart-get-supported-languages-with-the-translator-text-rest-api-java"></a>Hızlı Başlangıç: Translator Metin Çevirisi REST API'si (Java) ile desteklenen dilleri alma
 
@@ -23,7 +23,7 @@ Bu hızlı başlangıçta, Translator Metin Çevirisi API’sini kullanarak çev
 
 ## <a name="prerequisites"></a>Ön koşullar
 
-Bu kodu derleyip çalıştırmak için [JDK 7 veya 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)’e ihtiyacınız olacak. Eğer varsa sık kullandığınız bir Java IDE’yi veya bir metin düzenleyicisini kullanabilirsiniz.
+Bu kodu derleyip çalıştırmak için [JDK 7 veya 8](https://aka.ms/azure-jdks)’e ihtiyacınız olacak. Eğer varsa sık kullandığınız bir Java IDE’yi veya bir metin düzenleyicisini kullanabilirsiniz.
 
 Translator Metin Çevirisi API'sini kullanmak için, ayrıca abonelik anahtarınızın olması gerekir; bkz. [Translator Metin Çevirisi API'sine kaydolma](translator-text-how-to-signup.md).
 

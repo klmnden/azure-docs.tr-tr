@@ -10,12 +10,12 @@ ms.component: translator-speech
 ms.topic: quickstart
 ms.date: 3/5/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 4147e164434109a90a2a044565a1fb0b2e1b48bf
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: ebff07a68975f3629b57df4cfc8a5bbcf564ce27
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49386512"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50412933"
 ---
 # <a name="quickstart-translator-speech-api-with-java"></a>Hızlı Başlangıç: Java dilinde Translator Konuşma Çevirisi API'si 
 <a name="HOLTop"></a>
@@ -26,7 +26,7 @@ Bu makalede Translator Konuşma Çevirisi API'si’ni kullanarak bir .wav dosyas
 
 ## <a name="prerequisites"></a>Ön koşullar
 
-Bu kodu derleyip çalıştırmak için [JDK 7 veya 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)’e ihtiyacınız olacak. Varsa, sık kullandığınız bir Java IDE’yi veya bir metin düzenleyicisini kullanabilirsiniz.
+Bu kodu derleyip çalıştırmak için [JDK 7 veya 8](https://aka.ms/azure-jdks)’e ihtiyacınız olacak. Varsa, sık kullandığınız bir Java IDE’yi veya bir metin düzenleyicisini kullanabilirsiniz.
 
 Aşağıdaki dosyaları gerekli olacaktır.
 - [javax.websocket-api-1.1.jar (veya sonrası)](https://mvnrepository.com/artifact/javax.websocket/javax.websocket-api)

@@ -1,3 +1,16 @@
+---
+author: alkohli
+ms.service: storsimple
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: alkohli
+ms.openlocfilehash: d1ca6d37d6133786aff7ad3156fea2a0c22dfb97
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.translationtype: HT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50164329"
+---
 #### <a name="to-create-a-cloud-appliance"></a>Bulut gereci oluşturmak için
 
 1. Azure portalında **StorSimple Cihaz Yöneticisi** hizmetine gidin.

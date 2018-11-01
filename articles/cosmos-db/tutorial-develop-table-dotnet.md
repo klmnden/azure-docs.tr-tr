@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 12/18/2017
 ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: e6511b9511d2598b58fd3afee34803ceb09ac5ce
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: c41873d8f87a9a1203cefa37f99098f23e7aab92
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38582861"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50239022"
 ---
 # <a name="azure-cosmos-db-develop-with-the-table-api-in-net"></a>Azure Cosmos DB: .NET’te Tablo API’si ile geliştirme
 
@@ -45,7 +45,7 @@ Bu öğretici, Azure Tablo depolama SDK’sını bilen ve Azure Cosmos DB ile su
 
 Şu anda Azure Tablo depolama hizmetini kullanıyorsanız, Azure Cosmos DB Tablo API’si ile aşağıdaki avantajları elde edersiniz:
 
-- Birden çok giriş ve [otomatik ve el ile yük devretme](regional-failover.md) içeren anahtar teslim [genel dağıtım](distribute-data-globally.md)
+- Birden çok giriş ve [otomatik ve el ile yük devretme](high-availability.md) içeren anahtar teslim [genel dağıtım](distribute-data-globally.md)
 - Tüm özelliklere yönelik otomatik şemadan bağımsız dizinleme ("ikincil dizinler") desteği ve hızlı sorgular 
 - Dilediğiniz sayıda bölgede [depolama ve aktarım hızını bağımsız ölçeklendirme](partition-data.md) desteği
 - Saniyede yüzlerce ile milyonlarca istekten ölçeklenebilen [tablo başına ayrılmış aktarım hızı](request-units.md) desteği

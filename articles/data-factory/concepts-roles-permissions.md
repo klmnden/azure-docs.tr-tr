@@ -77,7 +77,7 @@ Bazı durumlarda farklı bir veri fabrikası kullanıcılar için farklı erişi
   Bu senaryo, iki rol atamalarını gerektirir.
 
   1. Yerleşik atama **katkıda bulunan** data factory düzeyde rolü.
-  2. Özel bir rol izniyle oluşturun * Microsoft.Resources/deployments/**. Kaynak grubu düzeyinde kullanıcı bu özel bir rol atayın.
+  2. Özel bir rol izniyle oluşturun *Microsoft.Resources/deployments/*\*. Kaynak grubu düzeyinde kullanıcı bu özel bir rol atayın.
 
 - Bir kullanıcı ya da Powershell'den SDK'sı, ancak Azure Portalı'nda bir veri fabrikası güncelleştirmesi olanak tanır.
 

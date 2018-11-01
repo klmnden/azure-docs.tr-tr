@@ -2,18 +2,18 @@
 title: Azure Hızlı Başlangıç - Python kullanarak nesne depolamada blob oluşturma | Microsoft Docs
 description: Bu hızlı başlangıçta, nesne (Blob) depolamada depolama hesabı ve kapsayıcı oluşturursunuz. Sonra, Azure Depolama’ya blob yüklemek, blob indirmek ve bir kapsayıcıdaki blobları listelemek amacıyla Python için depolama istemcisi kitaplığını kullanırsınız.
 services: storage
-author: craigshoemaker
+author: tamram
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
 ms.date: 04/09/2018
-ms.author: cshoe
-ms.openlocfilehash: f9e39a8630302111f4646e085872399c6def6ab2
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.author: tamram
+ms.openlocfilehash: a264f5bdec6d09c0cbdd6ebec3a6b760deaf9547
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46974502"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50139089"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-python"></a>Hızlı Başlangıç: Python kullanarak blobları yükleme, indirme ve listeleme
 

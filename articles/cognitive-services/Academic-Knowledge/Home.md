@@ -3,19 +3,19 @@ title: Akademik Bilgi API'si nedir?
 titlesuffix: Azure Cognitive Services
 description: Akademik Bilgi API'sini kullanarak kullanıcı sorgularını yorumlayabilir ve Academic Graph'ten zengin bilgiler alabilirsiniz.
 services: cognitive-services
-author: mvorvoreanu
+author: darrine
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: academic-knowledge
 ms.topic: overview
-ms.date: 03/27/2017
-ms.author: mivorvor
-ms.openlocfilehash: d08cd7124b232e50365e72753eba97c6309f401c
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.date: 10/30/2018
+ms.author: darrine
+ms.openlocfilehash: aa945eb8f0b79a6b0760650bd34dba55d80ef3a4
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48901219"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50240367"
 ---
 # <a name="academic-knowledge-api"></a>Akademik Bilgi API'si
 
@@ -32,13 +32,10 @@ Akademik Bilgi API'si dört ilgili REST uç noktasından oluşur:
   1. **interpret** – Doğal dildeki bir kullanıcı sorgu dizesini yorumlar. Ek açıklamalı yorumlar döndürerek, kullanıcının ne yazmakta olduğunun tahmin edildiği zengin bir arama kutusu otomatik tamamlama deneyimi sağlar.  
   2. **evaluate** – Bir sorgu ifadesini değerlendirir ve Akademik Bilgi varlık sonuçları döndürür.  
   3. **calchistogram** – Bir sorgu ifadesi tarafından döndürülen akademik varlıklara ait öznitelik değerleri dağılımının histogramını hesaplar. Örneğin, belirli bir yazar için yıla göre alıntıların dağılımı hesaplanabilir.  
-  4. **graph search** – Belirli bir graf desenini arar ve eşleşen varlık sonuçlarını döndürür.
-
+  
 Bu API metotları birlikte kullanıldığında zengin bir anlamsal arama deneyimi oluşturmanızı sağlar. Bir kullanıcı sorgusu belirtildiğinde **interpret** metodu sorgunun not eklenmiş sürümünü ve yapılandırılmış bir sorgu ifadesi sunarken kullanıcı sorgusunu isteğe bağlı olarak arka plandaki akademik verilerin anlamsal özelliklerine göre tamamlar. Örneği bir kullanıcı *latent s* dizesini yazarsa **interpret** metodu bir dizi derecelendirilmiş yorumlama sağlayarak kullanıcının *latent semantic analysis* alanında, *latent structure analysis* yayınını veya *latent s* ile başlayan diğer varlık ifadelerini kapsayan bir arama yapmak istiyor olabileceğini önerir. Bu bilgiler kullanıcıyı hızla istenen arama sonuçlarına ulaştırmak için kullanılabilir.
 
 **evaluate** metodu, akademik bilgi bankasından eşleşen yayın varlıklarını almak için, **calchistogram** metodu ise, arama sonuçlarına filtre uygulamak için bir dizi yayın varlığının öznitelik değerlerinin dağılımını hesaplamak için kullanılabilir.        
-
-**graph search** metodunun iki modu vardır: *json* ve *lambda*. *json* modu, JSON nesnesi tarafından belirtilen graf desenlerine göre graf deseni eşleştirme işlemi gerçekleştirebilir. *lambda* modu, kullanıcı tarafından belirtilen Lambda ifadelerine göre graf geçişi sırasında sunucu tarafında hesaplamalar yapabilir.
 
 ## <a name="getting-started"></a>Başlarken 
 Ayrıntılı belgeler için lütfen sol taraftaki alt konu başlıklarına bakın.  Örneklerin daha kolay okunmasını sağlamak için REST API çağrılarında URL'de kodlanmamış olan karakterlerin (boşluk gibi) bulunduğuna dikkat edin.  Kodunuzda uygun URL kodlama işlemlerini gerçekleştirmeniz gerekir.

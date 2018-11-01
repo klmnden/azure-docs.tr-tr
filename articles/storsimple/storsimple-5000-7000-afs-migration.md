@@ -87,7 +87,7 @@ Azure dosya eşitleme paylaşımına StorSimple birimlerde yapılandırılmış 
     Bu adımı atlayın ve farklı bir Windows Server ana bilgisayar kullanıyorsanız, sonraki adıma gidin. AFS aynı Windows dosya sunucusu kullanıyorsanız, artık birkaç dakika kapalı kalma süresi yaşar. 
     - **Kapalı kalma süresi başlar** -oluşturduğunuz sunucu uç noktasını silme *1F adım*. 
     - Verilerin ileri giderek bulunmasını istediğiniz yol ile yeni bir sunucu uç noktası oluşturun.
-    - Sunucu uç noktası (Bu işlem birkaç dakika sürebilir) sağlıklı gösterir. sonra bu yeni konumda veri görürsünüz. Artık bu yeni konumdaki dosyaları sunmak için Windows Server konağınızda yapılandırabilirsiniz. -  **Kapalı kalma süresi sona erer**.
+    - Sunucu uç noktası (Bu işlem birkaç dakika sürebilir) sağlıklı gösterir. sonra bu yeni konumda veri görürsünüz. Artık bu yeni konumdaki dosyaları sunmak için Windows Server konağınızda yapılandırabilirsiniz.\ -  **Kapalı kalma süresi sona erer**.
 5.  Ardından Azure dosya eşitleme için başka bir Windows dosya sunucusu kullanıyorsanız, herhangi bir kesintiyle karşılaşmayacaksınız. 
     - Başka bir sunucu uç noktası yoluyla StorSimple cihazı yerine bir önbellek olarak kullanmaya hazırsınız yerel depolama ekleyin. 
     - Yeni Sunucu dosyalarında birkaç dakika içinde görmeye olacaktır. Herhangi bir zamanda StorSimple Cihazınızı bu yeni konuma konaktaki geçiş yapmak ücretsizdir.

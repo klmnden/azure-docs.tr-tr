@@ -31,7 +31,7 @@ AKS, dört alt Kubernetes sürümlerini destekler:
 
 Yeni bir ikincil sürüm eklendiğinde, desteklenen en eski ikincil sürüm ve yama sürümleri kullanımdan kaldırıldı. Yeni alt sürümü ve gelecek sürümünü emeklilik yayınlanmadan önce 15 gün duyuru Azure güncelleştirme kanalları yapılır. Where yukarıdaki örnekte *1.11.x* olan yayımlanan devre dışı bırakılan sürümleridir *1.7.g* + *1.7.h*.
 
-Portalında veya Azure CLI ile bir AKS kümesi dağıtırken, küme her zaman en son düzeltme eki ve n-1 podverze ayarlayın. Örneğin, AKS destekliyorsa *1.11.x*, *1.10.a* + *1.10.b*, *1.9.c* + *1.9 d* , *1.8.e* + *1.8F*, yeni küme için varsayılan sürüm *1.10.b*.
+Portalında veya Azure CLI ile bir AKS kümesi dağıtırken, küme her zaman en son düzeltme eki ve n-1 podverze ayarlayın. Örneğin, AKS destekliyorsa *1.11.x*, *1.10.a* + *1.10.b*, *1.9.c* + *1.9 d*, *1.8.e* + *1.8F*, yeni küme için varsayılan sürüm *1.10.b*.
 
 ## <a name="list-currently-supported-versions"></a>Şu anda desteklenen sürümler listesi
 

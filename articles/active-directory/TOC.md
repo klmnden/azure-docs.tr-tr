@@ -302,8 +302,6 @@
 ##### [Özel geliştirilmiş uygulama ile ilgili sorun](manage-apps/application-sign-in-problem-custom-dev.md)
 ##### [Şirket içi uygulamayla ilgili sorun - Uygulama Ara Sunucusu](manage-apps/application-sign-in-problem-on-premises-application-proxy.md)
 
-### [Uygulama geliştirme](active-directory-applications-guiding-developers-for-lob-applications.md)
-
 
 ## Dizininizi yönetme
 ### [Azure AD Connect](hybrid/whatis-hybrid-identity.md)

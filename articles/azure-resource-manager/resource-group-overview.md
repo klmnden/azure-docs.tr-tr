@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/26/2018
 ms.author: tomfitz
-ms.openlocfilehash: 2c5d0dc322a4a56f0de9bd3c1af7efc158131a89
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 16e78784337771d1e31d826f475c92c86fe20411
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49954224"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50212327"
 ---
 # <a name="azure-resource-manager-overview"></a>Azure Resource Manager genel bakış
 Uygulamanızın altyapısı genellikle bir sanal makine, depolama hesabı, sanal ağ veya web uygulaması, veritabanı, veritabanı sunucusu ya da üçüncü taraf hizmetler gibi birçok bileşenden meydana gelir. Bu bileşenleri ayrı varlıklar olarak değerlendirmez, bunun yerine bunları tek bir varlığın ilgili ve birbirine bağımlı parçaları olarak kabul edersiniz. Bunları gruplar halinde dağıtmak, yönetmek ve izlemek isteyebilirsiniz. Azure Resource Manager, çözümünüzdeki kaynaklar ile gruplar halinde çalışmanıza olanak sağlar. Çözümünüzdeki tüm kaynakları tek ve eşgüdümlü bir işlemle dağıtabilir, güncelleştirebilir veya silebilirsiniz. Dağıtım için bir şablon kullanabilirsiniz. Üstelik bu şablon test, hazırlık ve üretim gibi farklı ortamlarda da çalışabilir. Resource Manager kaynaklarınızı dağıttıktan sonra yönetmenize yardımcı olmak için güvenlik, denetleme ve etiketleme özellikleri sunar. 
@@ -65,29 +65,7 @@ Kuruluşların abonelikleri etkili bir şekilde yönetmek için Resource Manager
 
 Global Azure, Azure bağımsız bulutları ve Azure Stack genelinde kullanabileceğiniz Resource Manager şablonları oluşturma konusundaki öneriler için bkz. [Bulut tutarlılığı için Azure Resource Manager şablonları geliştirme](templates-cloud-consistency.md).
 
-## <a name="quickstarts-and-tutorials"></a>Hızlı başlangıçlar ve öğreticiler
-
-Kaynak yöneticisi şablonları geliştirmeyi öğrenmek için aşağıdaki hızlı başlangıçları ve öğreticileri kullanın:
-
-- Hızlı Başlangıçlar
-
-    |Başlık|Açıklama|
-    |------|-----|
-    |[Azure portal’ı kullanma](./resource-manager-quickstart-create-templates-use-the-portal.md)|Portalı ve şablonu düzenleme ve dağıtma işlemini kullanarak bir şablon oluştur.|
-    |[Visual Studio Code kullanma](./resource-manager-quickstart-create-templates-use-visual-studio-code.md)|Şablonlar oluşturmak ve düzenlemek için Visual Studio Code ve şablon dağıtmak için Azure Cloud Shell kullanma.|
-    |[Visual Studio kullanma](./vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)|Şablonlar oluşturmak, düzenlemek ve dağıtmak için Visual Studio kullanma.|
-
-- Öğreticiler
-
-    |Başlık|Açıklama|
-    |------|-----|
-    |[Şablon başvurusunda yararlanma](./resource-manager-tutorial-create-encrypted-storage-accounts.md)|Şablon geliştirmek için şablon başvuru belgelerini kullanın. Öğreticide depolama hesabı şemasını bulacak ve şifrelenmiş bir depolama hesabı oluşturmak için bu bilgileri kullanacaksınız.|
-    |[Birden çok örnek oluşturma](./resource-manager-tutorial-create-multiple-instances.md)|Birden çok Azure kaynağı örneği oluşturma. Öğreticide birden fazla depolama hesabı örneği oluşturacaksınız.|
-    |[Kaynak dağıtım sırasını belirleme](./resource-manager-tutorial-create-templates-with-dependent-resources.md)|Kaynak bağımlılıklarını tanımlayın. Öğreticide bir sanal ağ, bir sanal makine ve bağımlı Azure kaynakları oluşturacaksınız. Bağımlılıkların nasıl tanımlandığını öğreneceksiniz.|
-    |[Koşulları kullanma](./resource-manager-tutorial-use-conditions.md)|Kaynakları bazı parametre değerlerine göre dağıtma. Öğreticide, bir parametre değerine göre yeni bir depolama hesabı oluşturmak veya mevcut bir depolama hesabını kullanmak için bir şablon tanımlayacaksınız.|
-    |[Anahtar kasasını tümleştirme](./resource-manager-tutorial-use-key-vault.md)|Azure Key Vault'tan gizli anahtarlar/parolalar alma. Öğreticide bir sanal makine oluşturacaksınız.  Sanal makine yönetici parolası bir Key Vault'tan alınır.|
-    |[Bağlı şablonlar oluşturma](./resource-manager-tutorial-create-linked-templates.md)|Şablon modülleştirme ve bir şablondan başka şablonları çağırma. Öğreticide bir sanal ağ, bir sanal makine ve bağımlı kaynakları oluşturacaksınız.  Bağımlı depolama hesabı, bağlantılı bir şablonda tanımlanır. |
-    |[Güvenli dağıtım uygulamaları kullanma](./deployment-manager-tutorial.md)|Azure Dağıtım Yöneticisi'ni kullanma. |
+[!INCLUDE [arm-tutorials-quickstarts](../../includes/resource-manager-tutorials-quickstarts.md)]
 
 ## <a name="resource-groups"></a>Kaynak grupları
 Kaynak gruplarınızı tanımlarken göz önüne almanız gereken bazı önemli faktörler bulunur:

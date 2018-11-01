@@ -1,3 +1,16 @@
+---
+author: alkohli
+ms.service: storsimple
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: alkohli
+ms.openlocfilehash: d004de75284011f4ceaaca88fd19e61900824f51
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.translationtype: HT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50165227"
+---
 #### <a name="to-configure-and-register-the-cloud-appliance"></a>Bulut gerecini yapılandırmak ve kaydetmek için
 
 1. **Cihazlar** dikey penceresinde oluşturduğunuz StorSimple Cloud Appliance’ı seçmek için tıklayın.
