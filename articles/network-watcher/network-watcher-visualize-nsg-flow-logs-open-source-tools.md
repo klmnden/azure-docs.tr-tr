@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: mareat
-ms.openlocfilehash: aa83ba1f428e70cd78cba2af6d39989179d5b30f
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: 61354803f4fced7cd8fee31f10b5f72401f267da
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42055938"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50414956"
 ---
 # <a name="visualize-azure-network-watcher-nsg-flow-logs-using-open-source-tools"></a>Açık kaynak araçlar kullanarak Azure Ağ İzleyicisi NSG akış günlüklerini Görselleştirme
 
@@ -43,7 +43,7 @@ NSG akış günlüklerini Elastic Stack ile bağlanarak, Kibana panonuza arama, 
 
 #### <a name="install-elasticsearch"></a>Elasticsearch'ü yükleme
 
-1. Elastik yığın sürüm 5.0 ve üzeri Java 8 gerektirir. Komutunu çalıştırın `java -version` sürümünüzü denetlemek için. Yükleme, belgelerine başvurun java yoksa [Oracle'nın Web sitesi](http://docs.oracle.com/javase/8/docs/technotes/guides/install/install_overview.html).
+1. Elastik yığın sürüm 5.0 ve üzeri Java 8 gerektirir. Komutunu çalıştırın `java -version` sürümünüzü denetlemek için. Java yüklü değilse yükleyin, java yoksa belgelerine başvurun [Azure bloklarını koruma jdk](https://aka.ms/azure-jdks).
 2. Sisteminiz için doğru ikili paket yükleyin:
 
    ```bash

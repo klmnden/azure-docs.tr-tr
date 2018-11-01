@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: 904502e5c73127cca7920da2173edd013e55762f
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 6e587f79f0f77446ea5a61cbb989f3f1c3655e0a
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50242254"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50741768"
 ---
 # <a name="analyze-log-analytics-data-in-azure-monitor"></a>Azure İzleyici'de log Analytics verilerini çözümleme
 
@@ -97,7 +97,7 @@ union Update, workspace("contoso-workspace").Update
 ## <a name="how-log-analytics-data-is-organized"></a>Log Analytics verilerini nasıl düzenlenir
 Bir sorgu oluşturduğunuzda, aradığınız veri tabloları sahip belirleyerek işe başlayın. Farklı türlerde veri ayrılmış her adanmış tablolara [Log Analytics çalışma alanı](log-analytics-quick-create-workspace.md).  Farklı veri kaynakları için belge oluşturduğu veri türünün adını ve açıklamasını her birinin özelliklerini içerir.  Çok sayıda sorgu yalnızca tek bir tablodan veri gerektirir ancak diğerleri birden çok tablodan veri eklemek için çeşitli seçenekler kullanabilir.
 
-Sırada [Application Insights](../application-insights/app-insights-overview.md) istekler, özel durumlar, izlemeler ve Log analytics'te bu veri kullanımını gibi uygulama verilerini depolar, diğer günlük verileri farklı bir bölümden depolanır. Aynı sorgu dili gerekir ancak bu verilere erişmek için kullandığınız [Application Insights konsol](../application-insights/app-insights-analytics.md) veya [Application Insights REST API](https://dev.applicationinsights.io/) erişmek için. Kullanabileceğiniz [kaynaklar arası sorgular](log-analytics-cross-workspace-search.md) Application Insights verilerini Log analytics'teki diğer verilerle birleştirmek için.
+Sırada [Application Insights](../application-insights/app-insights-overview.md) istekler, özel durumlar, izlemeler ve Log analytics'te bu veri kullanımını gibi uygulama verilerini depolar, diğer günlük verileri farklı bir bölümden depolanır. Bu verilere erişmek için aynı sorgu dilini kullanın, ancak kullanmalısınız [Application Insights konsol](../application-insights/app-insights-analytics.md) veya [Application Insights REST API](https://dev.applicationinsights.io/) erişmek için. Kullanabileceğiniz [kaynaklar arası sorgular](log-analytics-cross-workspace-search.md) Application Insights verilerini Log analytics'teki diğer verilerle birleştirmek için.
 
 
 ![Tablolar](media/log-analytics-queries/queries-tables.png)

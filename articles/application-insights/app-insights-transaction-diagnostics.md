@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/19/2018
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: df88e9025da305701dc7168f663cad2e8f5ac738
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.openlocfilehash: 5b52fd41fc3e37078bbddc721c0c54af2c430b43
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42819865"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50419240"
 ---
 # <a name="unified-cross-component-transaction-diagnostics"></a>Birleşik bileşenler arası işlem tanılamaları
 
@@ -38,7 +38,7 @@ Bağımsız bir şekilde dağıtılabilen dağıtılmış mikro uygulamanızın 
 ## <a name="transaction-diagnostics-experience"></a>İşlem tanılama deneyimi
 Bu görünüm dört bölümden oluşur: sonuçları listesi, bileşenler arası işlem grafik, bu işlem ve Ayrıntılar bölmesinde soldaki herhangi bir telemetri seçili öğe için ilgili tüm telemetri zaman sıralı listesi.
 
-![Anahtar bölümleri](media/app-insights-e2eTxn-diagnostics/4partsCrossComponent.png)
+![Anahtar bölümleri](media/app-insights-transaction-diagnostics/4partsCrossComponent.png)
 
 ## <a name="cross-component-transaction-chart"></a>Bileşenler arası işlem grafiği
 
@@ -57,19 +57,19 @@ Diğer bileşenleri çağrısına sahip iki satır: bir satır arayana bileşeni
 
 Bu bölümde, bu işlem için ilgili telemetri zaman dizisindeki düz liste görünümü gösterilir. Ayrıca özel olaylar ve işlem grafiği görüntülenmiyor izlemeleri gösterir. Belirli bir bileşeni/çağrısı tarafından oluşturulan telemetri için bu listeyi filtreleyebilirsiniz. Karşılık gelen görmek için bu listede tüm telemetri öğesinin seçebileceğiniz [ayrıntıları sağda](#details-of-the-selected-telemetry).
 
-![Zaman serisi tüm telemetri](media/app-insights-e2eTxn-diagnostics/allTelemetryDrawerOpened.png)
+![Zaman serisi tüm telemetri](media/app-insights-transaction-diagnostics/allTelemetryDrawerOpened.png)
 
 ## <a name="details-of-the-selected-telemetry"></a>Seçili telemetri ayrıntıları
 
 Daraltılabilir bu bölme, işlem grafik veya listesinden herhangi bir seçili öğe ayrıntılarını gösterir. "Show all" tüm toplanan standart özniteliklerini listeler. Herhangi bir özel özniteliği ayrı olarak standart kümesi listelenmiştir. "..." Yığın İzleme penceresini izleme kopyalamak için bir seçenek aşağıda üzerinde tıklayın. "Açık profiler izlemeleri" veya "Aç hata ayıklama anlık görüntüsü" kod düzeyi tanılama ilgili ayrıntı bölmelerinde gösterir.
 
-![Özel durum ayrıntısı](media/app-insights-e2eTxn-diagnostics/exceptiondetail.png)
+![Özel durum ayrıntısı](media/app-insights-transaction-diagnostics/exceptiondetail.png)
 
 ## <a name="search-results"></a>Arama sonuçları
 
 Daraltılabilir bu bölme filtre ölçütlerini karşılayan diğer sonuçları gösterilmektedir. Herhangi bir sonuç ilgili ayrıntılarını yukarıda listelenen 3 bölümden güncelleştirmek için tıklayın. Örnekleme herhangi biri etkin olsa bile, tüm bileşenlerden kullanılabilir ayrıntılarını sağlamak büyük olasılıkla örnekleri bulmak deneyin. Bunlar, "önerilen" örnek olarak gösterilir.
 
-![Arama sonuçları](media/app-insights-e2eTxn-diagnostics/searchResults.png)
+![Arama sonuçları](media/app-insights-transaction-diagnostics/searchResults.png)
 
 ## <a name="profiler-and-snapshot-debugger"></a>Profiler ve anlık görüntü hata ayıklayıcısı
 
@@ -79,7 +79,7 @@ Profiler çalışmaya alınamadı, lütfen iletişime geçin **serviceprofilerhe
 
 Snapshot Debugger çalışma alınamadı, lütfen iletişime geçin **snapshothelp@microsoft.com**
 
-![Profiler tümleştirme](media/app-insights-e2eTxn-diagnostics/profilerTraces.png)
+![Profiler tümleştirme](media/app-insights-transaction-diagnostics/profilerTraces.png)
 
 ## <a name="faq"></a>SSS
 

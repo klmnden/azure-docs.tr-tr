@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: 49aed496d8c125da8c2269186b569693c794d290
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: fc9ed37ef24e776336124bf097def2f6a00ee83e
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49404571"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50419801"
 ---
 # <a name="common-questions-for-transition-from-oms-portal-to-azure-portal-for-log-analytics-users"></a>OMS portalından Log Analytics kullanıcılar için Azure portalına geçiş için sık sorulan sorular
 Log Analytics, OMS portalında adı verilen kendi portalı başlangıçta yapılandırmasını yönetmek ve toplanan verileri analiz etmek için kullanılır.  Bu Portalı'ndan tüm işlevselliği Azure portalında nerede geliştirilecek sürdürecektir taşındı.
@@ -32,7 +32,7 @@ Hayır. Bu yüzden geçirilmesi gereken bir şey Log Analytics'e kendisine yapı
 ## <a name="where-do-i-find-log-analytics-in-azure"></a>Azure'da Log Analytics nerede bulabilirim?
 [https://portal.azure.com](https://portal.azure.com) adresinden Azure portalında oturum açın.  Tıklayın **tüm hizmetleri**ve kaynak listesinde yazın **Log Analytics**. Seçin **Log Analytics** ve ardından çalışma alanınızı seçin. Çalışma alanı için Özet sayfasında görüntülenir.
 
-![Log Analytics çalışma alanı](media/log-analytics-new-portal/log-analytics.png)
+![Log Analytics çalışma alanı](media/log-analytics-oms-portal-faq/log-analytics.png)
 
 ## <a name="how-do-i-manage-permissions"></a>İzinleri nasıl yönetebilirim?
 Azure portalında Log Analytics çalışma alanınıza erişimi yoksa, izinlerinizi kullanarak yapılandırmak gereken [Azure rol tabanlı erişim](../active-directory/role-based-access-control-configure.md). Çalışma alanı izinlerini yönetme hakkında daha fazla bilgi için bkz [çalışma alanlarını yönetme](../log-analytics/log-analytics-manage-access.md#manage-accounts-and-users). Uyarılarla ilgili izinleri yönetme hakkında daha fazla bilgi için bkz. [Azure İzleyici ile güvenlik rolleri ve izinleri ile çalışmaya başlama](../monitoring-and-diagnostics/monitoring-roles-permissions-security.md).
@@ -40,12 +40,12 @@ Azure portalında Log Analytics çalışma alanınıza erişimi yoksa, izinlerin
 ## <a name="how-do-i-create-a-new-workspace"></a>Yeni bir çalışma alanı nasıl oluşturulur? 
 Azure portalında çalışma alanlarını listesinden tıklayın **Ekle** çalışma alanları listesinde.  Tüm Ayrıntılar için bkz. [Azure portalında Log Analytics çalışma alanı oluşturma](../log-analytics/log-analytics-quick-create-workspace.md).
 
-![Genel Bakış sayfası](media/log-analytics-new-portal/new-workspace.png)
+![Genel Bakış sayfası](media/log-analytics-oms-portal-faq/new-workspace.png)
 
 ## <a name="where-is-my-overview-page"></a>My genel bakış sayfası nerede?
 OMS portalında ana ekran döşeme çalışma alanınızı ve oluşturduğunuz özel görünümleri yüklü olan tüm yönetim çözümleri için görüntüler. Azure portalında aynı bu görünümde kullanılabilir. Çalışma alanınızda seçin **çalışma özeti**.
 
-![Genel Bakış sayfası](media/log-analytics-new-portal/overview.png)
+![Genel Bakış sayfası](media/log-analytics-oms-portal-faq/overview.png)
 
 ## <a name="how-do-i-open-log-search-and-view-designer"></a>Günlük araması ve Görünüm Tasarımcısı nasıl açarım?
 Her ikisi de **günlük araması** ve **Görünüm Tasarımcısı** sağa sonraki için ana sayfada ve Azure portalında, çalışma alanınızın soldaki menüde kullanılabilir **genel bakış**.
@@ -53,7 +53,7 @@ Her ikisi de **günlük araması** ve **Görünüm Tasarımcısı** sağa sonrak
 ## <a name="where-do-i-find-settings"></a>Ayarlarını nerede bulabilirim?
 Ayarları çoğu **ayarları** OMS portalında bir bölümünü kullanılabilir **Gelişmiş ayarlar** çalışma alanı için Azure portalındaki menü.
 
-![Gelişmiş ayarlar](media/log-analytics-new-portal/advanced-settings.png)
+![Gelişmiş ayarlar](media/log-analytics-oms-portal-faq/advanced-settings.png)
 
 Aşağıdaki bölümlerde bulunan daha önce kullanılan ayarların nasıl erişebileceğiniz tam listesini **ayarları** OMS Portalı'nın bölümü.
 
@@ -118,7 +118,7 @@ Uyarı kuralları log Analytics sorgularına dayalı yönetilen artık [deneyimi
 ## <a name="how-do-i-check-my-usage"></a>Kullanımım nasıl kontrol edebilirim?
 Artık kolayca görüntüleyebilir ve Log Analytics, maliyet ve kullanım seçerek yönetme **kullanım ve Tahmini maliyetler** çalışma alanınızdaki.
 
-![Kullanım ve tahmini maliyetler](media/log-analytics-new-portal/usage.png)
+![Kullanım ve tahmini maliyetler](media/log-analytics-oms-portal-faq/usage.png)
 
 
 ## <a name="can-i-still-use-the-classic-portal"></a>Klasik portalı kullanabilir miyim?

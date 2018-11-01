@@ -7,15 +7,15 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 09/10/2018
+ms.date: 10/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: cb004745cfbc6af185a06c4787fb34326eccc69a
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: 25352d12e578c289ccb4ab8aab60dc55a444762e
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44381640"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50413511"
 ---
 # <a name="define-a-technical-profile-for-a-jwt-token-issuer-in-an-azure-active-directory-b2c-custom-policy"></a>JWT belirteci veren bir Azure Active Directory B2C özel ilkesindeki için teknik profil tanımlama
 
@@ -52,7 +52,7 @@ Aşağıdaki örnek, teknik profil gösterir `JwtIssuer`:
 | id_token_lifetime_secs | Hayır | Belirteç ömürleri kimliği. 3.600 saniye (1 saat) varsayılandır. En az (sınırlar dahil), 300 saniyedir (5 dakika) olmalıdır. En fazla (sınırlar dahil) 86,400 (24 saat) saniyedir. | 
 | refresh_token_lifetime_secs | Hayır | Belirteç ömürleri yenileyin. Uygulamanızı offline_access kapsamı verildiğini, önce bir yenileme belirteci yeni bir erişim belirteci almak için kullanılabilecek en uzun süre. 120,9600 saniye (14 gün) varsayılandır. En azından (sınırlar dahil) 86.400 saniyedir (24 saat) gereklidir. En fazla (sınırlar dahil) 7,776,000 (90 gün) saniyedir. | 
 | rolling_refresh_token_lifetime_secs | Hayır | Yenileme belirteci kayan pencere ömrü. Belirtilen sürenin geçmesinden sonra kullanıcının kimliğinin yeniden kimlik doğrulaması yapın, uygulama tarafından alınan belirteç bağımsız olarak en son geçerlilik süresini yenileyin. Bir kayan pencere ömrü uygulamak istemiyorsanız allow_infinite_rolling_refresh_token için değerini `true`. 7,776,000 saniye (90 gün) varsayılandır. En azından (sınırlar dahil) 86.400 saniyedir (24 saat) gereklidir. En fazla (sınırlar dahil) 31,536,000 (365 gün) saniyedir. | 
-| rolling_refresh_token_lifetime_secs | Hayır | Varsa kümesine `true`, yenileme belirteci kayan pencere ömrü her zaman geçerli olsun. |
+| allow_infinite_rolling_refresh_token | Hayır | Varsa kümesine `true`, yenileme belirteci kayan pencere ömrü her zaman geçerli olsun. |
 | IssuanceClaimPattern | Evet | Verici (iss) talebi denetler. Değerlerden biri:<ul><li>AuthorityAndTenantGuid - ISS talep içeren etki alanı adınızı gibi `login.microsoftonline` veya `tenant-name.b2clogin.com`ve, Kiracı tanımlayıcısı https://login.microsoftonline.com/00000000-0000-0000-0000-000000000000/v2.0/</li><li>AuthorityWithTfp - ISS talep içeren etki alanı adınızı gibi `login.microsoftonline` veya `tenant-name.b2clogin.com`, Kiracı tanımlayıcısı ve bağlı olan taraf ilke adı. https://login.microsoftonline.com/tfp/00000000-0000-0000-0000-000000000000/b2c_1a_tp_sign-up-or-sign-in/v2.0/</li></ul> | 
 | AuthenticationContextReferenceClaimPattern | Hayır | Denetimleri `acr` talep değeri.<ul><li>Hiçbiri - Azure AD B2C acr talebi verme değil</li><li>Policyıd - `acr` talep içeren ilke adı</li></ul>Bu değeri ayarlamak için Seçenekler şunlardır: TFP (güven framework ilke) ve ACR (kimlik doğrulaması bağlamı Başvurusu). TFP için bu değerin belirlenmesi önerilir, bu değeri ayarlamak için olun `<Item>` ile `Key="AuthenticationContextReferenceClaimPattern"` var ve değer `None`. Bağlı olan taraf ilkenizde, ekleme <OutputClaims> öğesi, bu öğe ekleme `<OutputClaim ClaimTypeReferenceId="trustFrameworkPolicy" Required="true" DefaultValue="{policy}" />`. Ayrıca ilkenizi talep türünü içeren emin olun `<ClaimType Id="trustFrameworkPolicy"> <DisplayName>trustFrameworkPolicy</DisplayName>     <DataType>string</DataType> </ClaimType>` | 
 

@@ -15,16 +15,16 @@ ms.topic: conceptual
 ms.date: 02/09/2017
 ms.author: richrund
 ms.component: ''
-ms.openlocfilehash: 1c72421be6cfb266293c98d9ad06bd6adb35019b
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: be0a12bbb84db1e4016bd7126a38e750e6c0c3ad
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48043666"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50412831"
 ---
 # <a name="azure-key-vault-analytics-solution-in-log-analytics"></a>Log analytics'te Azure Key Vault Analytics çözümü
 
-![Key Vault simgesi](./media/log-analytics-azure-keyvault/key-vault-analytics-symbol.png)
+![Key Vault simgesi](media/log-analytics-azure-key-vault/key-vault-analytics-symbol.png)
 
 Azure Key Vault AuditEvent günlüklerini incelemek için Log Analytics içindeki Azure Key Vault çözümünü kullanabilirsiniz.
 
@@ -46,10 +46,10 @@ Yükleme ve Azure anahtar kasası çözümü yapılandırmak için aşağıdaki 
 1. Azure portalında, izlemek için Key Vault kaynağına gidin
 2. Seçin *tanılama günlükleri* aşağıdaki sayfasını açmak için
 
-   ![Azure Key Vault kutucuk görüntüsü](./media/log-analytics-azure-keyvault/log-analytics-keyvault-enable-diagnostics01.png)
+   ![Azure Key Vault kutucuk görüntüsü](media/log-analytics-azure-key-vault/log-analytics-keyvault-enable-diagnostics01.png)
 3. Tıklayın *tanılamayı Aç* aşağıdaki sayfasını açmak için
 
-   ![Azure Key Vault kutucuk görüntüsü](./media/log-analytics-azure-keyvault/log-analytics-keyvault-enable-diagnostics02.png)
+   ![Azure Key Vault kutucuk görüntüsü](media/log-analytics-azure-key-vault/log-analytics-keyvault-enable-diagnostics02.png)
 4. Tanılamayı etkinleştirmek için tıklayın *üzerinde* altında *durumu*
 5. Onay kutusunu tıklatın *Log Analytics'e gönderme*
 6. Mevcut bir Log Analytics çalışma alanını seçin veya bir çalışma alanı oluşturma
@@ -81,7 +81,7 @@ Veri toplama yöntemleri ve Azure anahtar kasası için verileri nasıl toplanı
 ## <a name="use-azure-key-vault"></a>Azure Key Vault kullanma
 Çalıştırdıktan sonra [çözümü yüklemek](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.KeyVaultAnalyticsOMS?tab=Overview), tıklayarak anahtar kasası verisinin **Azure anahtar kasası** gelen döşeme **genel bakış** Log Analytics sayfasında.
 
-![Azure Key Vault kutucuk görüntüsü](./media/log-analytics-azure-keyvault/log-analytics-keyvault-tile.png)
+![Azure Key Vault kutucuk görüntüsü](media/log-analytics-azure-key-vault/log-analytics-keyvault-tile.png)
 
 Tıkladıktan sonra **genel bakış** kutucuğunda günlüklerinizi özetlerini görüntüleyin ve ardından aşağıdaki kategorilerde ayrıntıları için ayrıntılara girin:
 
@@ -90,9 +90,9 @@ Tıkladıktan sonra **genel bakış** kutucuğunda günlüklerinizi özetlerini 
 * İşlem tarafından ortalama işlem gecikme süresi
 * 1000 MS'den fazla Süren işlemlerin sayısı ve 1000 MS'den fazla Süren işlemlerin bir listesi işlemler için hizmet kalitesi
 
-![Azure Key Vault panosunun görüntüsü](./media/log-analytics-azure-keyvault/log-analytics-keyvault01.png)
+![Azure Key Vault panosunun görüntüsü](media/log-analytics-azure-key-vault/log-analytics-keyvault01.png)
 
-![Azure Key Vault panosunun görüntüsü](./media/log-analytics-azure-keyvault/log-analytics-keyvault02.png)
+![Azure Key Vault panosunun görüntüsü](media/log-analytics-azure-key-vault/log-analytics-keyvault02.png)
 
 ### <a name="to-view-details-for-any-operation"></a>Herhangi bir işlem ayrıntılarını görüntülemek için
 1. Üzerinde **genel bakış** sayfasında **Azure anahtar kasası** Döşe.

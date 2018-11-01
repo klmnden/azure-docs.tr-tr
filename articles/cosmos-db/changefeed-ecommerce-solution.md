@@ -9,12 +9,12 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 08/12/2018
 ms.author: sngun
-ms.openlocfilehash: d2c4c890e1a1599e68fba1a0728061ec244f382f
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: 241cd2fddf31373ed9ca208efb0612dd4332131c
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42056250"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50740986"
 ---
 # <a name="use-azure-cosmos-db-change-feed-to-visualize-real-time-data-analytics"></a>Kullanım Azure Cosmos DB değişiklik akışı, gerçek zamanlı veri analizi görselleştirmek için
 
@@ -104,7 +104,7 @@ Azure kaynakları - Azure Cosmos DB, depolama hesabı, olay hub'ı Stream Analyt
    * İçin **depolama kapasitesi**seçin **sınırsız**.  
    * İçin **bölüm anahtarı** alanına **/Item**. Emin doğru girmeniz için büyük/küçük harfe, budur.  
    * İçin **aktarım hızı** alanına **10000**.  
-   * **Tamam** düğmesine tıklayın.  
+   * **Tamam** düğmesini seçin.  
 
 3. Ardından adlı başka bir koleksiyon oluşturun **kiraları** değişiklik akışı işleme için. Değişiklik arasında birden fazla çalışana akışı işleme kiralamalar koleksiyonunu düzenler. Ayrı bir koleksiyon ile bir kira bölüm başına kiraları depolamak için kullanılır.  
 
@@ -114,7 +114,7 @@ Azure kaynakları - Azure Cosmos DB, depolama hesabı, olay hub'ı Stream Analyt
    * İçin **koleksiyon kimliği** alanına **kiraları**.  
    * İçin **depolama kapasitesi**seçin **sabit**.  
    * Bırakın **aktarım hızı** alanını varsayılan değerine ayarlayın.  
-   * **Tamam** düğmesine tıklayın.
+   * **Tamam** düğmesini seçin.
 
 ## <a name="get-the-connection-string-and-keys"></a>Anahtarlar ve bağlantı dizesini alma
 
@@ -207,7 +207,7 @@ Azure Stream Analytics, akış verilerini gerçek zamanlı işleme için bir tam
    * Bırakın **olay serileştirme biçimi** olarak **JSON**.  
    * Bırakın **Encoding alanı** kümesine **UTF-8**.  
    * Bırakın **olay sıkıştırma türü** alan kümesine **hiçbiri**.  
-   * **Kaydet** düğmesine tıklayın.
+   * **Kaydet** düğmesini seçin.
 
 5. Stream analytics işi sayfasına geri gidin ve **çıkışları**.  
 
@@ -219,10 +219,10 @@ Azure Stream Analytics, akış verilerini gerçek zamanlı işleme için bir tam
    * Bırakın **Grup çalışma** alan kümesine **çalışma alanları yüklemek için bağlantıyı yetkilendirin**.  
    * İçinde **veri kümesi adı** alanına **averagePrice**.  
    * İçinde **tablo adı** alanına **averagePrice**.  
-   * Tıklayın **Authorize** düğmesine ve ardından Power bı'a bağlantıyı yetkilendirmek için yönergeleri izleyin.  
-   * **Kaydet** düğmesine tıklayın.  
+   * Seçin **Authorize** düğmesine ve ardından Power bı'a bağlantıyı yetkilendirmek için yönergeleri izleyin.  
+   * **Kaydet** düğmesini seçin.  
 
-8. Ardından dönün **streamjob1** tıklatıp **sorguyu Düzenle**.
+8. Ardından dönün **streamjob1** seçip **sorguyu Düzenle**.
 
    ![Sorguyu düzenle](./media/changefeed-ecommerce-solution/edit-query.png)
  
@@ -237,7 +237,7 @@ Azure Stream Analytics, akış verilerini gerçek zamanlı işleme için bir tam
    ```
 10. Ardından **Kaydet** sol üst köşesinde.  
 
-11. Şimdi geri dönüp **streamjob1** tıklatıp **Başlat** sayfanın üstünde düğme. Azure Stream Analytics başlatılması birkaç dakika sürebilir, ancak bunu "Başlangıç" öğesinden "Çalışıyor" değiştirmek sonunda görürsünüz.
+11. Şimdi geri dönüp **streamjob1** seçip **Başlat** sayfanın üstünde düğme. Azure Stream Analytics başlatılması birkaç dakika sürebilir, ancak bunu "Başlangıç" öğesinden "Çalışıyor" değiştirmek sonunda görürsünüz.
 
 ## <a name="connect-to-power-bi"></a>Power BI'a Bağlan
 
@@ -329,7 +329,7 @@ Artık, bir gerçek e-ticaret sitesi ile bağlanmak için yeni veri analizi arac
 
    Başka bir koleksiyon Ekle **changefeedlabdatabase** adlı **topItems** ile **sınırsız** depolama kapasitesi. Yazma **/Item** bölüm anahtarı olarak.
 
-2. Tıklayarak **topItems** koleksiyonu ve altında **ölçek ve ayarlar** ayarlayın **yaşam süresi** olmasını **30 saniye** bu topItems güncelleştirmeleri için Her 30 saniyede.
+2. Seçin **topItems** koleksiyonu ve altında **ölçek ve ayarlar** ayarlamak **yaşam süresi** olmasını **30 saniye** bu topItems güncelleştirmeleri için Her 30 saniyede.
 
    ![Yaşam süresi](./media/changefeed-ecommerce-solution/time-to-live.png)
 

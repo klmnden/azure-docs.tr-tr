@@ -11,12 +11,12 @@ ms.component: bing-web-search
 ms.topic: conceptual
 ms.date: 08/20/2018
 ms.author: erhopf
-ms.openlocfilehash: 4aa3509fcdfc6fd1bccb4db95a8c916a42ce23d2
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: e98407dface348dfdbc99a1146d50c46f3bb03a7
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46125281"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50739252"
 ---
 # <a name="how-to-page-through-results-from-the-bing-web-search-api"></a>Bing Web araması API'si sonuçlarını aracılığıyla sayfası
 
@@ -61,4 +61,7 @@ Host: api.cognitive.microsoft.com
 
 Web araması API'si, Web sayfaları ve görüntü, video ve haber öğeleri içerebilir sonuçlarını döndürür. Arama sonuçları sayfası açıldığında, sayfalama [WebAnswer](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#webanswer) yanıt ve değil diğer yanıtlarını görüntüler veya haber gibi. Örneğin, ayarlarsanız `count` , 50 50 Web sayfası sonuçları ulaşırsınız, ancak başka yanıtlar da sonuçları yanıt içerebilir. Örneğin, yanıt 15 görüntüler ve 4 haber makalelerini içerebilir. Ayrıca olası sonuçlarını ilk sayfa ancak ikinci sayfada değil, haber içerebilir ya da tam tersi.   
 
-Belirtirseniz `responseFilter` sorgu parametresi ve Web sayfalarında filtre listesinde içermez, kullanmayın `count` ve `offset` parametreleri.  
+Belirtirseniz `responseFilter` sorgu parametresi ve Web sayfalarında filtre listesinde içermez, kullanmayın `count` ve `offset` parametreleri. 
+
+> [!NOTE]
+> `TotalEstimatedAnswers` Alandır ne tahmini toplam arama sonuçları almak için geçerli sorgu sayısı.  Ayarladığınızda `count` ve `offset` parametreleri `TotalEstimatedAnswers` numarası değişebilir. 

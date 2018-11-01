@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: hrasheed
-ms.openlocfilehash: 4e60425edaebf9e77b7e71f43fa3fe2f2ac3227c
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: a1dbc04a83e80281fb6cd516c546c1dddff6db37
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50221992"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50413820"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---infrastructure-best-practices"></a>Azure HDInsight - altyapı en iyi uygulamaları şirket içi Apache Hadoop kümelerini geçirme
 
@@ -45,11 +45,11 @@ Uygulamaları veya bileşenleri, şirket içi kümeleri kullanılabilir ancak HD
 
 |**Uygulama**|**Tümleştirme**
 |---|---|
-|Hava akışı|Iaas veya HDI kenar düğümüne
+|Hava akışı|Iaas veya HDInsight kenar düğümüne
 |Alluxio|IaaS  
 |Arcadia|IaaS 
 |Atlas|Hiçbiri (yalnızca HDP)
-|Datameer|HDI kenar düğümüne
+|Datameer|HDInsight kenar düğümüne
 |Datastax (Cassandra)|Iaas (CosmosDB alternatif azure'da)
 |DataTorrent|IaaS 
 |Drill|IaaS 
@@ -58,15 +58,15 @@ Uygulamaları veya bileşenleri, şirket içi kümeleri kullanılabilir ancak HD
 |Mapador|IaaS 
 |Mongo|Iaas (CosmosDB alternatif azure'da)
 |NiFi|IaaS 
-|Presto|Iaas veya HDI kenar düğümüne
+|Presto|Iaas veya HDInsight kenar düğümüne
 |Python 2|PaaS 
 |Python 3|PaaS 
 |R|PaaS 
 |SAS|IaaS 
 |Vertica|Iaas (SQLDW alternatif azure'da)
 |Tableau|IaaS 
-|Waterline|HDI kenar düğümüne
-|StreamSets|HDI Edge 
+|Waterline|HDInsight kenar düğümüne
+|StreamSets|HDInsight Edge 
 |Palantir|IaaS 
 |Sailpoint|Iaas 
 
@@ -213,7 +213,7 @@ HDInsight, Azure sanal ağları ve VPN ağ geçidi kullanarak şirket içi ağa 
 - DNS ad çözümlemesi, şirket içi ağ ve sanal ağ arasında yapılandırın.
 - Ağ güvenlik grupları veya kullanıcı tanımlı yollar (UDR) ağ trafiğinizi denetlemek için yapılandırın.
 
- Daha fazla bilgi için bkz [HDInsight'ı şirket içi ağınıza bağlama](../connect-on-premises-network.md)
+Daha fazla bilgi için bkz [HDInsight'ı şirket içi ağınıza bağlama](../connect-on-premises-network.md)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

@@ -6,14 +6,14 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 10/09/2018
+ms.date: 10/31/2018
 ms.author: babanisa
-ms.openlocfilehash: 2fd8712cbe5d34baed158a56e6f06b6235f5d4b2
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: a9bffe148339bfac89796405b771e9c2816eb0de
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49068204"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50741530"
 ---
 # <a name="event-grid-security-and-authentication"></a>Event Grid güvenliğini ve kimlik doğrulaması 
 
@@ -37,7 +37,7 @@ HTTP tetikleyicisi tabanlı Azure işlevi gibi başka türde bir uç noktasını
 
 1. **ValidationCode el sıkışması**: olay aboneliği oluşturma sırasında bir "abonelik doğrulama olayı" uç noktanıza EventGrid gönderir. Bu olayın şeması için başka bir EventGridEvent benzer ve bu olay veri bölümünü içeren bir `validationCode` özelliği. Uygulamanızı doğrulama isteği için beklenen olay aboneliği olduğunu doğruladıktan sonra uygulama kodunuz geri Yankı EventGrid doğrulama kodu ile yanıt vermesi gerekir. Bu anlaşma mekanizması tüm EventGrid sürümlerinde desteklenir.
 
-2. **ValidationURL el sıkışması (el ile anlaşması)**: Bazı durumlarda, uç nokta tabanlı ValidationCode el sıkışması uygulamak için kaynak kodu denetimi olmayabilir. Örneğin, bir üçüncü taraf hizmet kullanın (gibi [Zapier](https://zapier.com) veya [IFTTT](https://ifttt.com/)), program aracılığıyla doğrulama koduyla yanıt vermesi mümkün olmayabilir. EventGrid 2018-05-01-Önizleme sürümüne ile başlayarak, el ile doğrulama el sıkışması artık desteklemektedir. Bu yeni API sürümü (2018-05-01-Önizleme) EventGrid gönderir kullanan SDK/araçlarını kullanarak bir olay aboneliği oluşturuyorsanız bir `validationUrl` abonelik doğrulama olayı veri bölümünü bir parçası olarak özelliği. Anlaşma tamamlamak için yalnızca bir GET REST istemcisi ya da web tarayıcınızı kullanarak aracılığıyla bu URL'de ister. Sağlanan doğrulama URL'si yalnızca yaklaşık 10 dakika için geçerlidir. Bu süre boyunca, olay aboneliğinin sağlama durumu: `AwaitingManualAction`. 10 dakika içinde el ile doğrulama tamamlamazsanız, sağlama durumu kümesine `Failed`. Olay aboneliği el ile doğrulama denemeden önce yeniden oluşturmanız gerekir.
+2. **ValidationURL el sıkışması (el ile anlaşması)**: Bazı durumlarda, uç nokta tabanlı ValidationCode el sıkışması uygulamak için kaynak kodu denetimi olmayabilir. Örneğin, bir üçüncü taraf hizmet kullanın (gibi [Zapier](https://zapier.com) veya [IFTTT](https://ifttt.com/)), program aracılığıyla doğrulama koduyla yanıt veremez. EventGrid 2018-05-01-Önizleme sürümüne ile başlayarak, el ile doğrulama el sıkışması artık desteklemektedir. Bir olay aboneliği bir SDK veya API sürümü 2018-05-01-preview'ı kullanan aracıyla oluştururken ya da daha sonra EventGrid gönderir, bir `validationUrl` abonelik doğrulama olayı veri bölümünü bir parçası olarak özelliği. Anlaşma tamamlamak için yalnızca bir GET REST istemcisi ya da web tarayıcınızı kullanarak aracılığıyla bu URL'de ister. Sağlanan doğrulama URL'si yalnızca yaklaşık 10 dakika için geçerlidir. Bu süre boyunca, olay aboneliğinin sağlama durumu: `AwaitingManualAction`. 10 dakika içinde el ile doğrulama tamamlamazsanız, sağlama durumu kümesine `Failed`. Olay aboneliği el ile doğrulama başlatmadan önce yeniden oluşturmanız gerekir.
 
 Bu mekanizma el ile doğrulama Önizleme aşamasındadır. Bunu kullanmak istiyorsanız [Azure CLI](/cli/azure/install-azure-cli)’si için [Event Grid uzantısını](/cli/azure/azure-cli-extensions-list) yüklemeniz gerekir. `az extension add --name eventgrid` ile yükleyebilirsiniz. REST API kullanıyorsanız, kullandığınızdan emin olun `api-version=2018-05-01-preview`.
 
@@ -93,7 +93,7 @@ Olay aboneliği oluşturma gibi bir hata iletisini görüyorsanız sırasında "
 
 ### <a name="event-delivery-security"></a>Olay teslimi güvenliği
 
-Bir olay aboneliği oluştururken, Web kancası URL'si sorgu parametreleri ekleyerek, Web kancası uç noktası güvenli hale getirebilirsiniz. Ayarlanmış bir gizli dizi gibi olması için bu sorgu parametreleri bir [erişim belirteci](https://en.wikipedia.org/wiki/Access_token) Web kancası olay tanımak için kullanabileceğiniz Event Grid'den gelen geçerli izinleriyle geliyor. Olay Kılavuzu her Web kancası olay teslimi bu sorgu parametreleri içerir.
+Bir olay aboneliği oluştururken, Web kancası URL'si sorgu parametreleri ekleyerek, Web kancası uç noktası güvenli hale getirebilirsiniz. Ayarlanmış bir gizli dizi gibi olması için bu sorgu parametreleri bir [erişim belirteci](https://en.wikipedia.org/wiki/Access_token). Web kancası olay geçerli izinleriyle Event Grid'den gelen tanımak için kullanabilirsiniz. Olay Kılavuzu her Web kancası olay teslimi bu sorgu parametreleri içerir.
 
 Olay aboneliği düzenlerken, sorgu parametreleri görüntülenmiyor veya sürece döndürülen [--dahil tam-endpoint-url](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az-eventgrid-event-subscription-show) parametresi Azure'da kullanılan [CLI](https://docs.microsoft.com/cli/azure?view=azure-cli-latest).
 
@@ -174,11 +174,11 @@ static string BuildSharedAccessSignature(string resource, DateTime expirationUtc
 
 ## <a name="management-access-control"></a>Yönetim erişim denetimi
 
-Azure Event Grid olay abonelikleri listesi gibi çeşitli yönetim işlemlerini yapmak için yenilerini oluşturun ve anahtarlar oluşturmak için farklı kullanıcılara verilen erişim düzeyini denetlemenize olanak tanır. Event Grid, Azure'nın rol tabanlı erişim denetleyin (RBAC) kullanır.
+Azure Event Grid olay abonelikleri listesi gibi çeşitli yönetim işlemlerini yapmak için yenilerini oluşturun ve anahtarlar oluşturmak için farklı kullanıcılara verilen erişim düzeyini denetlemenize olanak tanır. Event Grid, Azure'nın rol tabanlı erişim denetimi (RBAC) kullanır.
 
 ### <a name="operation-types"></a>İşlem türleri
 
-Azure event grid, aşağıdaki eylemleri destekler:
+Event Grid, aşağıdaki eylemleri destekler:
 
 * Microsoft.EventGrid/*/read
 * Microsoft.EventGrid/*/write
@@ -187,13 +187,17 @@ Azure event grid, aşağıdaki eylemleri destekler:
 * Microsoft.EventGrid/topics/listKeys/action
 * Microsoft.EventGrid/topics/regenerateKey/action
 
-Son üç işlemi dışında normal okuma işlemleri filtrelenmiş büyük olasılıkla gizli bilgi döndürür. Bu işlemler için erişimi kısıtlamak önerilir. Özel rolleri kullanarak oluşturulabilir [Azure PowerShell](../role-based-access-control/role-assignments-powershell.md), [Azure komut satırı arabirimi (CLI)](../role-based-access-control/role-assignments-cli.md)ve [REST API](../role-based-access-control/role-assignments-rest.md).
+Son üç işlemi dışında normal okuma işlemleri filtrelenmiş büyük olasılıkla gizli bilgi döndürür. Bu işlemler için erişimi kısıtlamak önerilir. 
 
-### <a name="enforcing-role-based-access-check-rbac"></a>Zorlama rol tabanlı erişim denetimi (RBAC)
+### <a name="built-in-roles"></a>Yerleşik roller
 
-Farklı kullanıcılar için RBAC zorlamak için aşağıdaki adımları kullanın:
+Event Grid Olay Aboneliklerini yönetmek için iki yerleşik rol sağlar. Bu roller `EventSubscription Contributor (Preview)` ve `EventSubscription Reader (Preview)`. Bunlar, olay etki alanı uygularken önemlidir. Verilen eylemler hakkında daha fazla bilgi için bkz. [olay etki alanı - erişim yönetimi](event-domains.md#access-management).
 
-#### <a name="create-a-custom-role-definition-file-json"></a>Bir özel rol tanımı dosyası (.json) oluşturun
+Yapabilecekleriniz [bir kullanıcı veya grup bu rolleri Ata](../role-based-access-control/quickstart-assign-role-user-portal.md).
+
+### <a name="custom-roles"></a>Özel roller
+
+Yerleşik roller farklı olan izinleri belirtmeniz gerekiyorsa, özel roller oluşturabilirsiniz.
 
 Farklı eylemlerde bulunmak kullanıcıların örnek Event Grid rol tanımları aşağıda verilmiştir.
 
@@ -201,18 +205,18 @@ Farklı eylemlerde bulunmak kullanıcıların örnek Event Grid rol tanımları 
 
 ```json
 {
-  "Name": "Event grid read only role",
-  "Id": "7C0B6B59-A278-4B62-BA19-411B70753856",
-  "IsCustom": true,
-  "Description": "Event grid read only role",
-  "Actions": [
-    "Microsoft.EventGrid/*/read"
-  ],
-  "NotActions": [
-  ],
-  "AssignableScopes": [
-    "/subscriptions/<Subscription Id>"
-  ]
+  "Name": "Event grid read only role",
+  "Id": "7C0B6B59-A278-4B62-BA19-411B70753856",
+  "IsCustom": true,
+  "Description": "Event grid read only role",
+  "Actions": [
+    "Microsoft.EventGrid/*/read"
+  ],
+  "NotActions": [
+  ],
+  "AssignableScopes": [
+    "/subscriptions/<Subscription Id>"
+  ]
 }
 ```
 
@@ -220,22 +224,22 @@ Farklı eylemlerde bulunmak kullanıcıların örnek Event Grid rol tanımları 
 
 ```json
 {
-  "Name": "Event grid No Delete Listkeys role",
-  "Id": "B9170838-5F9D-4103-A1DE-60496F7C9174",
-  "IsCustom": true,
-  "Description": "Event grid No Delete Listkeys role",
-  "Actions": [
-    "Microsoft.EventGrid/*/write",
-    "Microsoft.EventGrid/eventSubscriptions/getFullUrl/action"
-    "Microsoft.EventGrid/topics/listkeys/action",
-    "Microsoft.EventGrid/topics/regenerateKey/action"
-  ],
-  "NotActions": [
-    "Microsoft.EventGrid/*/delete"
-  ],
-  "AssignableScopes": [
-    "/subscriptions/<Subscription id>"
-  ]
+  "Name": "Event grid No Delete Listkeys role",
+  "Id": "B9170838-5F9D-4103-A1DE-60496F7C9174",
+  "IsCustom": true,
+  "Description": "Event grid No Delete Listkeys role",
+  "Actions": [
+    "Microsoft.EventGrid/*/write",
+    "Microsoft.EventGrid/eventSubscriptions/getFullUrl/action"
+    "Microsoft.EventGrid/topics/listkeys/action",
+    "Microsoft.EventGrid/topics/regenerateKey/action"
+  ],
+  "NotActions": [
+    "Microsoft.EventGrid/*/delete"
+  ],
+  "AssignableScopes": [
+    "/subscriptions/<Subscription id>"
+  ]
 }
 ```
 
@@ -243,37 +247,25 @@ Farklı eylemlerde bulunmak kullanıcıların örnek Event Grid rol tanımları 
 
 ```json
 {
-  "Name": "Event grid contributor role",
-  "Id": "4BA6FB33-2955-491B-A74F-53C9126C9514",
-  "IsCustom": true,
-  "Description": "Event grid contributor role",
-  "Actions": [
-    "Microsoft.EventGrid/*/write",
-    "Microsoft.EventGrid/*/delete",
-    "Microsoft.EventGrid/topics/listkeys/action",
-    "Microsoft.EventGrid/topics/regenerateKey/action",
-    "Microsoft.EventGrid/eventSubscriptions/getFullUrl/action"
-  ],
-  "NotActions": [],
-  "AssignableScopes": [
-    "/subscriptions/<Subscription id>"
-  ]
+  "Name": "Event grid contributor role",
+  "Id": "4BA6FB33-2955-491B-A74F-53C9126C9514",
+  "IsCustom": true,
+  "Description": "Event grid contributor role",
+  "Actions": [
+    "Microsoft.EventGrid/*/write",
+    "Microsoft.EventGrid/*/delete",
+    "Microsoft.EventGrid/topics/listkeys/action",
+    "Microsoft.EventGrid/topics/regenerateKey/action",
+    "Microsoft.EventGrid/eventSubscriptions/getFullUrl/action"
+  ],
+  "NotActions": [],
+  "AssignableScopes": [
+    "/subscriptions/<Subscription id>"
+  ]
 }
 ```
 
-#### <a name="create-and-assign-custom-role-with-azure-cli"></a>Oluşturma ve Azure CLI ile özel rol atama
-
-Özel bir rol oluşturmak için kullanın:
-
-```azurecli
-az role definition create --role-definition @<file path>
-```
-
-Bir kullanıcıya rol atamak için bu seçeneği kullanın:
-
-```azurecli
-az role assignment create --assignee <user name> --role "<name of role>"
-```
+Özel rollerle oluşturabilirsiniz [PowerShell](../role-based-access-control/custom-roles-powershell.md), [Azure CLI](../role-based-access-control/custom-roles-cli.md), ve [REST](../role-based-access-control/custom-roles-rest.md).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

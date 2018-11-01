@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/12/2018
 ms.author: vinynigam
-ms.openlocfilehash: 2821f3fa07d8d9ada02da212084639c93e469d0b
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 91cfa35cd10772da0042566bdd9030f780329f93
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49408889"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50415194"
 ---
 # <a name="network-performance-monitor-solution-faq"></a>Ağ Performansı İzleyicisi çözümü ile ilgili SSS
 
-![Ağ Performansı İzleyicisi simgesi](media/log-analytics-network-performance-monitor/npm-symbol.png)
+![Ağ Performansı İzleyicisi simgesi](media/log-analytics-network-performance-monitor-faq/npm-symbol.png)
 
 Bu makalede sık sorulan sorular (SSS) azure'da Ağ Performansı İzleyicisi'ni (NPM) hakkında yakalar.
 
@@ -54,7 +54,7 @@ ExpressRoute İzleyicisi özelliği için doğrudan aracılar yalnızca Azure d�
 ### <a name="which-protocol-among-tcp-and-icmp-should-be-chosen-for-monitoring"></a>İzleme için TCP ve ICMP arasından hangi protokolün seçilmelidir?
 Windows server tabanlı düğümleri kullanarak ağınıza izliyorsanız, çünkü daha büyük doğruluk sağlar İzleyici protokolü olarak TCP kullanmanızı öneririz. 
 
-Bu platform tarafından NPM ağ topolojisini bulmak için gereken ham yuva gönderilmek üzere TCP veri izin vermiyor gerektiğinden ICMP tabanlı işletim sistemi Windows Masaüstü/istemci düğümleri için önerilir.
+ICMP tabanlı işletim sistemi Windows Masaüstü/istemci düğümleri için önerilir. Bu platform, ham yuva gönderilecek TCP verileri ağ topolojisini bulmak için NPM izin vermez.
 
 Her Protokolü göreli avantajları hakkında daha fazla ayrıntıya ulaşabilirsiniz [burada](log-analytics-network-performance-monitor-performance-monitor.md#choose-the-protocol).
 

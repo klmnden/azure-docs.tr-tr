@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 7/11/2018
 ms.author: trinadhk
-ms.openlocfilehash: 855b75652fca421df12766f7711152d1e3ca2aeb
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: f293f642db2bd526e761ff570ce97a33845808b7
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39009255"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50412814"
 ---
 # <a name="use-role-based-access-control-to-manage-azure-backup-recovery-points"></a>Azure Backup kurtarma noktaları yönetmek için rol tabanlı erişim denetimi kullanma
 Azure Rol Tabanlı Erişim Denetimi (RBAC), Azure için ayrıntılı erişim yönetimi sağlar. RBAC kullanarak ekibiniz içinde görevleri ayırabilir, bu işlere gerek duyan kişilere sadece erişim miktarını verebilirsiniz.
@@ -34,19 +34,29 @@ Daha fazla denetim için kendi rolleri tanımlamak için arıyorsanız, bkz. nas
 ## <a name="mapping-backup-built-in-roles-to-backup-management-actions"></a>Yedekleme yönetim eylemleri için eşleme yedekleme yerleşik roller
 Aşağıdaki tabloda, yedekleme yönetim eylemleri ve bu işlemi gerçekleştirmek için gerekli olan karşılık gelen en düşük RBAC rolü yakalar.
 
-| Yönetim işlemi | Gerekli en düşük RBAC rolü |
-| --- | --- |
-| Kurtarma Hizmetleri kasası oluşturma | Kasa kaynak grubu üzerinde katkıda bulunan |
-| Azure VM yedeklemeyi etkinleştirme | Kasa, sanal makine Katılımcısı vm'lerde içeren kaynak grubunun kapsamında tanımlanan yedekleme işletmeni |
-| İsteğe bağlı yedekleme VM | Yedekleme işletmeni |
-| VM'yi geri yükle | Yedekleme işletmeni, kaynak grubu katkıda bulunan, VM gittiğini dağıtılsın, Vnet üzerinde okuma ve seçili alt ağda katılın |
-| Diskler, VM yedeğinden tek tek dosyaları geri yükleme | Yedekleme işletmeni, sanal makinelerdeki sanal makine Katılımcısı |
-| Azure VM yedeklemesi için yedekleme ilkesi oluşturma | Yedekleme Katılımcısı |
-| Azure VM yedekleme, yedekleme ilkesini değiştirme | Yedekleme Katılımcısı |
-| Azure VM yedekleme, yedekleme ilkesini silme | Yedekleme Katılımcısı |
-| Yedeklemeyi Durdur (verileri tut ile veya veri silme) VM yedeklemesi hakkında | Yedekleme Katılımcısı |
-| Şirket içi Windows Server/istemci/SCDPM ya da Azure Backup sunucusu kaydetme | Yedekleme işletmeni |
-| Şirket içi Windows Server/istemci/SCDPM ya da Azure Backup sunucusu silme kayıtlı | Yedekleme Katılımcısı |
+| Yönetim işlemi | Gerekli en düşük RBAC rolü | Kapsamı gereklidir |
+| --- | --- | --- |
+| Kurtarma Hizmetleri kasası oluşturma | Katılımcı | Kasa içeren kaynak grubu |
+| Azure VM yedeklemeyi etkinleştirme | Yedekleme İşleci | Kasa içeren kaynak grubu |
+| | Sanal Makine Katılımcısı | VM kaynağı |
+| İsteğe bağlı yedekleme VM | Yedekleme İşleci | Kurtarma kasası kaynağı |
+| VM'yi geri yükle | Yedekleme İşleci | VM'nin dağıtılacağı kaynak grubu |
+| | Sanal Makine Katılımcısı | VM'nin dağıtılacağı kaynak grubu |
+| Yönetilmeyen diskler VM yedeklemesini geri yükleme | Yedekleme İşleci | Kurtarma kasası kaynağı |
+| | Sanal Makine Katılımcısı | VM kaynağı |
+| | Depolama Hesabı Katılımcısı | Depolama hesabı kaynağı |
+| Yönetilen diskler, VM yedekten geri yükleyin | Yedekleme İşleci | Kurtarma kasası kaynağı |
+| | Sanal Makine Katılımcısı | VM kaynağı |
+| | Depolama Hesabı Katılımcısı | Depolama hesabı kaynağı |
+| | Katılımcı | Yönetilen disk geri yükleneceği kaynak grubu |
+| Sanal makine yedeklemesini tek tek dosyaları geri yükleme | Yedekleme İşleci | Kurtarma kasası kaynağı |
+| | Sanal Makine Katılımcısı | VM kaynağı |
+| Azure VM yedeklemesi için yedekleme ilkesi oluşturma | Yedekleme Katılımcısı | Kurtarma kasası kaynağı |
+| Azure VM yedekleme, yedekleme ilkesini değiştirme | Yedekleme Katılımcısı | Kurtarma kasası kaynağı |
+| Azure VM yedekleme, yedekleme ilkesini silme | Yedekleme Katılımcısı | Kurtarma kasası kaynağı |
+| Yedeklemeyi Durdur (verileri tut ile veya veri silme) VM yedeklemesi hakkında | Yedekleme Katılımcısı | Kurtarma kasası kaynağı |
+| Şirket içi Windows Server/istemci/SCDPM ya da Azure Backup sunucusu kaydetme | Yedekleme İşleci | Kurtarma kasası kaynağı |
+| Şirket içi Windows Server/istemci/SCDPM ya da Azure Backup sunucusu silme kayıtlı | Yedekleme Katılımcısı | Kurtarma kasası kaynağı |
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * [Rol tabanlı erişim denetimi](../role-based-access-control/role-assignments-portal.md): Azure portalında RBAC ile çalışmaya başlama.

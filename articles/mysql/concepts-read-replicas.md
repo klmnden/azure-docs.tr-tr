@@ -7,13 +7,13 @@ ms.author: andrela
 editor: jasonwhowell
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 09/24/2018
-ms.openlocfilehash: 283b529aa8c6431ea725b066c9b5cb3db19a929b
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.date: 10/30/2018
+ms.openlocfilehash: b4e79723072a19f2637bea16d0534cb85588e9e3
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46969453"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50412457"
 ---
 # <a name="read-replicas-in-azure-database-for-mysql"></a>MySQL için Azure veritabanı'nda okunur çoğaltmalar
 
@@ -34,6 +34,10 @@ Sık karşılaşılan bir senaryodur BI sahip olmaktır ve analiz iş yükleri o
 ### <a name="pricing-tiers"></a>Fiyatlandırma katmanları
 
 Okuma çoğaltma şu anda yalnızca genel amaçlı ve bellek için iyileştirilmiş fiyatlandırma katmanlarında kullanılabilir.
+
+### <a name="master-server-restart"></a>Ana sunucunun yeniden başlatılması
+
+Mevcut hiçbir çoğaltması olan bir şablonu için bir çoğaltma oluşturduğunuzda bu Önizleme boyunca, ana ilk çoğaltma için hazırlanması için yeniden başlatılır. Lütfen bu dikkate alın ve yoğun olmayan bir dönem boyunca bu işlemleri gerçekleştirin.
 
 ### <a name="stopping-replication"></a>Çoğaltmayı durdurma
 

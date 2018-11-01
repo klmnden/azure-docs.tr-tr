@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 09/26/2018
 ms.author: iainfou
-ms.openlocfilehash: 0e5d42dddf550d8c7d4a579afd8436343749a995
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 24b7e03808cb5df9fa4c122ca4c9317f723dac72
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50233659"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50414650"
 ---
 # <a name="use-a-static-public-ip-address-with-the-azure-kubernetes-service-aks-load-balancer"></a>Azure Kubernetes Service (AKS) yük dengeleyiciyle bir statik genel IP adresi kullanın
 
@@ -93,9 +93,13 @@ kubectl apply -f load-balancer-service.yaml
 
 ## <a name="use-a-static-ip-address-outside-of-the-node-resource-group"></a>Düğüm kaynak grubu dışında bir statik IP adresi kullanın
 
-Kubernetes 1.10 ile ya da daha sonra dışında düğüm kaynak grubu oluşturulur statik bir IP adresi kullanacak şekilde gerçekleştirebilirsiniz. AKS kümesi tarafından kullanılan hizmet sorumlusunun SP izinleri vermek için aşağıdaki komutu kullanarak diğer kaynak grubunu, izinleri vermiş olması gerekir:
-```
-az role assignment create --assignee <SP Client ID> --role "Network Contributor" --scope /subscriptions/<subscription id>/resourceGroups/<resource group name>
+Kubernetes 1.10 ile ya da daha sonra dışında düğüm kaynak grubu oluşturulur statik bir IP adresi kullanacak şekilde gerçekleştirebilirsiniz. AKS kümesi tarafından kullanılan hizmet sorumlusunun izinlerini diğer kaynak grubuna aşağıdaki örnekte gösterildiği gibi yetkilerine sahip olmanız gerekir:
+
+```azurecli
+az role assignment create\
+    --assignee <SP Client ID> \
+    --role "Network Contributor" \
+    --scope /subscriptions/<subscription id>/resourceGroups/<resource group name>
 ```
 
 Düğüm kaynak grubu dışında bir IP adresi kullanmak için hizmet tanımı için bir ek açıklama ekleyin. Aşağıdaki örnekte adlı bir kaynak grubu için ek açıklama ayarlar *myResourceGroup*. Kendi kaynak grubu adı girin:

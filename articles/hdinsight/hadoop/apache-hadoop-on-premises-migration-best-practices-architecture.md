@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: hrasheed
-ms.openlocfilehash: 64e735a1090972a6e4cef85d1a51909e8550c536
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 02db6b4691beb4bfefa3815c87cf54f350219d81
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50221942"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50418016"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---architecture-best-practices"></a>Azure HDInsight - mimari en iyi uygulamaları şirket içi Apache Hadoop kümelerini geçirme
 
@@ -92,8 +92,7 @@ Azure SQL veritabanı, HDInsight Hive ve Oozie meta depolar için kullanır. HDI
     - Kümeleri oluşturulabilir ve Hive şema Oozie iş ayrıntılarını içeren bir meta veri kaybetmeden silindi.
     - Tek bir meta veri deposu db kümeleri farklı türde paylaşılabilir
     - Meta veri deposu gerektiği şekilde ölçeklendirilebilir
-
-Daha fazla bilgi için bkz: [Azure HDInsight, harici meta veri depolarını kullanma](../hdinsight-use-external-metadata-stores.md).
+    - Daha fazla bilgi için [Azure HDInsight, harici meta veri depolarını kullanma](../hdinsight-use-external-metadata-stores.md).
 
 ## <a name="best-practices-for-hive-metastore"></a>Hive meta veri deposu için en iyi uygulamalar
 
@@ -105,20 +104,20 @@ HDInsight Hive meta veri deposu en iyi yöntemlerden bazıları aşağıda veril
 - Özel meta veri deposu düzenli olarak yedekleyin.
 - HDInsight kümesi ve meta veri deposu aynı bölgede bulundurun.
 - Performans ve kullanılabilirlik gibi Azure portal veya Azure Log Analytics, Azure SQL veritabanı izleme araçları kullanarak meta veri deposu izleyin.
-- Yürütme **ANALİZ tablo** tablolar ve sütunlar için istatistik oluşturmak için gerekli olarak komutu. Örneğin, `ANALYZE TABLE [table_name] COMPUTE STATISTICS`
+- Yürütme **ANALİZ tablo** tablolar ve sütunlar için istatistik oluşturmak için gerekli olarak komutu. Örneğin, `ANALYZE TABLE [table_name] COMPUTE STATISTICS`.
 
 ## <a name="best-practices-for-different-types-of-workloads"></a>Farklı türde iş yükleri için en iyi uygulamalar
 
 - Geliştirilmiş yanıt süresi ile etkileşimli Hive sorguları için LLAP kümesine kullanmayı göz önünde bulundurun [LLAP](https://cwiki.apache.org/confluence/display/Hive/LLAP) Hive sorguları bellek içi caching izin veren 2.0 yeni bir özelliktir. LLAP yapar kadar daha hızlı Hive sorguları [26 x bazı durumlarda 1.x Hive çok daha kısa](https://hortonworks.com/blog/announcing-apache-hive-2-1-25x-faster-queries-much/).
-- Spark işlerinde Hive işleri yerine kullanmayı düşünün
-- Impala tabanlı sorgular LLAP sorguları ile değiştirmeyi göz önüne alın
-- Spark işlerinde MapReduce işleri değiştirmeyi göz önüne alın
-- Düşük gecikme süreli Spark toplu işlerini kullanarak Spark yapılandırılmış akış işleri değiştirmeyi göz önüne alın
-- Verileri düzenleme--Azure veri Factory(ADF) 2.0 kullanmayı düşünün
+- Spark işlerinde Hive işleri yerine kullanmayı düşünün.
+- Impala tabanlı sorgular LLAP sorguları ile değiştirmeyi göz önüne alın.
+- Spark işlerinde MapReduce işleri değiştirmeyi göz önüne alın.
+- Düşük gecikme süreli Spark toplu işlerini kullanarak Spark yapılandırılmış akış işleri değiştirmeyi göz önüne alın.
+- Azure Data Factory (ADF) 2.0 kullanarak veri düzenlemesi için kullanmayı düşünün.
 - Ambari küme yönetimi için göz önünde bulundurun.
-- Veri depolama şirket içi HDFS WASB veya ADLS veya ADFS komut dosyalarını işlemek için değiştirme
-- Hive tablolarına Ranger RBAC kullanarak ve denetim göz önünde bulundurun.
-- MongoDB veya Cassandra yerine CosmosDB kullanmayı düşünün
+- Veri depolama için betikleri işleniyor WASB veya ADLS ya da AD FS şirket içi HDFS değiştirin.
+- Hive tablolarına Ranger RBAC kullanarak ve denetlemeyi düşünün.
+- MongoDB veya Cassandra yerine CosmosDB kullanmayı düşünün.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

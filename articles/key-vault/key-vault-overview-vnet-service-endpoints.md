@@ -50,7 +50,7 @@ Başvurmak [Azure anahtar kasası yapılandırma güvenlik duvarları ve sanal a
 > [!NOTE]
 > * En fazla 127 bir sanal ağ kuralları ve 127 IPv4 kuralları izin verilir. 
 > * Küçük adres aralıkları kullanarak "/ 31" veya "/ 32" öneki boyutları desteklenmez. Bu aralıklar, tek tek IP adresi kurallarını kullanarak yapılandırılmalıdır.
-> * IP ağ kuralları yalnızca genel IP adresleri için izin verilir. IP adresi aralıkları için özel ağlar (RFC 1918 ' tanımlandığı şekilde) ayrılmış IP kurallarında izin verilmez. Özel ağlar ile başlayan bir adres içerir * 10.* * * 172.16. **, ve * 192.168. **. 
+> * IP ağ kuralları yalnızca genel IP adresleri için izin verilir. IP adresi aralıkları için özel ağlar (RFC 1918 ' tanımlandığı şekilde) ayrılmış IP kurallarında izin verilmez. Özel ağlar ile başlayan bir adres içerir *10.*\* *172.16.*\*, ve *192.168.*\*. 
 > * Şu anda yalnızca IPv4 adresleri desteklenir.
 
 ## <a name="trusted-services"></a>Güvenilir hizmetler

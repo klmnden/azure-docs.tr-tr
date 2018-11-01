@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/15/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: a95cdbb48371cf960211f55bf077cea9db783db5
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.openlocfilehash: 3c8202f762c65d72417020b0524e415e55076eb0
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48248338"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50415279"
 ---
 # <a name="create-view-and-manage-activity-log-alerts-using-azure-monitor"></a>Oluşturun, görüntüleyin ve Azure İzleyicisi'ni kullanarak Etkinlik günlüğü Uyarıları yönetme  
 
@@ -43,11 +43,11 @@ Aşağıdaki yordamı kullanın:
 1. Azure portalından seçin **İzleyici** > **uyarıları**
 2. Tıklayın **yeni uyarı kuralı** en üstündeki **uyarılar** penceresi.
 
-     ![Yeni uyarı kuralı](./media/monitor-alerts-unified/AlertsPreviewOption.png)
+     ![Yeni uyarı kuralı](media/alert-activity-log/AlertsPreviewOption.png)
 
      **Oluşturma kuralı** penceresi görüntülenir.
 
-      ![Yeni uyarı kuralı seçenekleri](./media/monitoring-activity-log-alerts-new-experience/create-new-alert-rule-options.png)
+      ![Yeni uyarı kuralı seçenekleri](media/alert-activity-log/create-new-alert-rule-options.png)
 
 3. **Tanımlama Uyarı koşulu altında** aşağıdaki bilgileri belirtin ve tıklayın **Bitti**.
 
@@ -57,7 +57,7 @@ Aşağıdaki yordamı kullanın:
 
     > bir kaynak, kaynak grubuna ya da aboneliğin tümü için etkinlik günlüğü sinyali seçebilirsiniz.
 
-    **Uyarı hedef örnek görünümü** ![hedef seçin](./media/monitoring-activity-log-alerts-new-experience/select-target.png)
+    **Uyarı hedef örnek görünümü** ![hedef seçin](media/alert-activity-log/select-target.png)
 
     - Altında **hedef ölçütleri**, tıklayın **Ölçüt Ekle** ve çeşitli kategorileri ait olanlar da dahil olmak üzere tüm kullanılabilir sinyaller hedefi için görüntülenen **etkinlik günlüğü**; Kategori adı eklenmiş olarak **İzleyicisi hizmeti** adı.
 
@@ -67,7 +67,7 @@ Aşağıdaki yordamı kullanın:
 
     **Ölçüt ekranı ekleme**
 
-    ![Ölçüt Ekle](./media/monitoring-activity-log-alerts-new-experience/add-criteria.png)
+    ![Ölçüt Ekle](media/alert-activity-log/add-criteria.png)
 
     **Geçmiş zaman**: Seçili işlem için kullanılabilir olayları çizilen son 6/12/24 saatler (veya) geçen hafta boyunca.
 
@@ -79,7 +79,7 @@ Aşağıdaki yordamı kullanın:
 
         Uyarı mantığı uygulanan örnek sinyal grafiği:
 
-        ![ seçilen ölçütlere](./media/monitoring-activity-log-alerts-new-experience/criteria-selected.png)
+        ![ seçilen ölçütlere](media/alert-activity-log/criteria-selected.png)
 
 4. Altında **uyarı kuralları ayrıntılarını tanımlayın**, şu bilgileri sağlayın:
 
@@ -99,20 +99,20 @@ Aşağıdaki yordamı kullanın:
 
 Alternatif olarak, bir basit benzerleme, uyarı kuralları oluşturulabilir, etkinlik günlüğünde anlama koşullar için olan keşfedin veya aracılığıyla olayları filtrelemek için [Azure portalında etkinlik günlüğü](monitoring-overview-activity-logs.md#query-the-activity-log-in-the-azure-portal). Azure İzleyici - etkinlik günlüğü, bir filtre veya gerekli olay bulabilir ve ardından kullanarak bir uyarı oluşturma **etkinlik günlüğü uyarısı Ekle** düğmesini; ardından adımları 4 ve üzeri öğreticide yukarıda belirtildiği gibi izleyin.
     
- ![ Etkinlik günlüğü uyarısı Ekle](./media/monitoring-activity-log-alerts-new-experience/add-activity-log.png)
+ ![ Etkinlik günlüğü uyarısı Ekle](media/alert-activity-log/add-activity-log.png)
     
 
 ### <a name="view-and-manage-in-azure-portal"></a>Görüntüleyin ve Azure Portal'da yönetin
 
 1. Azure portalından tıklayın **İzleyici** > **uyarılar** tıklatıp **kuralları yönetmek** , pencerenin sol üst köşesindeki.
 
-    ![ Uyarı kurallarını yönet](./media/monitoring-activity-log-alerts-new-experience/manage-alert-rules.png)
+    ![ Uyarı kurallarını yönet](media/alert-activity-log/manage-alert-rules.png)
 
     Kullanılabilir kurallar listesi görüntülenir.
 
 2. Etkinlik günlüğü kuralı değiştirmek için arama yapın.
 
-    ![ Etkinlik günlüğü uyarı kurallarını Ara](./media/monitoring-activity-log-alerts-new-experience/searth-activity-log-rule-to-edit.png)
+    ![ Etkinlik günlüğü uyarı kurallarını Ara](media/alert-activity-log/searth-activity-log-rule-to-edit.png)
 
     Kullanılabilir filtreleri - kullanabileceğiniz _abonelik_, _kaynak grubu_, _kaynak_, _sinyal türü_, veya _durumu_  düzenlemek istediğiniz etkinliği kural bulunamadı.
 
@@ -122,7 +122,7 @@ Alternatif olarak, bir basit benzerleme, uyarı kuralları oluşturulabilir, etk
 
 3.  Kuralı seçin ve kuralı seçeneklerini düzenlemek için çift tıklayın. Gerekli değişiklikleri yapın ve ardından **Kaydet**.
 
-    ![ Uyarı kurallarını yönet](./media/monitoring-activity-log-alerts-new-experience/activity-log-rule-edit-page.png)
+    ![ Uyarı kurallarını yönet](media/alert-activity-log/activity-log-rule-edit-page.png)
 
 4.  Devre dışı bırakma, etkinleştirme veya kural silme. Kural 2. adımda açıklandığı seçtikten sonra pencerenin üst kısmındaki uygun seçeneği belirleyin.
 

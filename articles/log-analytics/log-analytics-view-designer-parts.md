@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: 8cc654fca8e645253ffc79ef808075bdbe887530
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 31ee14369cc3f1c03d13c59e1239aa567bce3552
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48043303"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50419784"
 ---
 # <a name="reference-guide-to-view-designer-visualization-parts-in-log-analytics"></a>Log analytics'te Görünüm Tasarımcısı görselleştirme bölümü başvurusu Kılavuzu
 Azure Log Analytics'te Görünüm Tasarımcısı kullanarak veri görselleştirmeleri Log Analytics çalışma alanınızın çeşitli sunan Azure portalında özel görünümlerinizi oluşturabilirsiniz. Bu makalede, özel görünümlerde kullanılabilir görselleştirme bölümleri ayarlarını bir başvuru kılavuzudur.
@@ -50,7 +50,7 @@ Sonraki bölümlerde, kutucuk türleri ve bunların özelliklerini ayrıntılı 
 ## <a name="list-of-queries-part"></a>Sorgular bölüm listesi
 Listesi sorguların parçası günlük arama sorgularının listesini görüntüler. Her sorgu sonuçlarını görüntülemeyi seçebilirsiniz. Varsayılan olarak tek bir sorgu görünümü içerir ve seçebileceğiniz **+ sorgu** ek sorgular eklemek için.
 
-![Sorgu Görünümü Listesi](media/log-analytics-view-designer/view-list-queries.png)
+![Sorgu Görünümü Listesi](media/log-analytics-view-designer-parts/view-list-queries.png)
 
 | Ayar | Açıklama |
 |:--- |:--- |
@@ -66,7 +66,7 @@ Listesi sorguların parçası günlük arama sorgularının listesini görüntü
 ## <a name="number-and-list-part"></a>Sayı ve liste bölümü
 Üstbilgi, günlük arama sorgusu kayıtları sayısını gösteren tek bir sayı görüntüler. Listenin bir sorgudan göreli değerini sayısal bir sütun veya zaman içinde değişiklik gösteren bir grafiği ile en iyi on sonuçlar görüntüler.
 
-![Sorgu Görünümü Listesi](media/log-analytics-view-designer/view-number-list.png)
+![Sorgu Görünümü Listesi](media/log-analytics-view-designer-parts/view-number-list.png)
 
 | Ayar | Açıklama |
 |:--- |:--- |
@@ -95,7 +95,7 @@ Listesi sorguların parçası günlük arama sorgularının listesini görüntü
 ## <a name="two-numbers-and-list-part"></a>İki sayı ve liste bölümü
 Üst bilgisi, ayrı bir günlük araması sorguları kayıtları sayısını görüntüler iki sayı yok. Listenin bir sorgudan göreli değerini sayısal bir sütun veya zaman içinde değişiklik gösteren bir grafiği ile en iyi on sonuçlar görüntüler.
 
-![İki sayı ve liste görünümü](media/log-analytics-view-designer/view-two-numbers-list.png)
+![İki sayı ve liste görünümü](media/log-analytics-view-designer-parts/view-two-numbers-list.png)
 
 | Ayar | Açıklama |
 |:--- |:--- |
@@ -126,7 +126,7 @@ Listesi sorguların parçası günlük arama sorgularının listesini görüntü
 ## <a name="donut-and-list-part"></a>Halka ve liste bölümü
 Üstbilgi, günlük sorgusu değer sütununda özetlenir tek bir sayı görüntüler. Halka grafik en çok üç kayıtların sonuçlarını görüntüler.
 
-![Halka ve liste görünümü](media/log-analytics-view-designer/view-donut-list.png)
+![Halka ve liste görünümü](media/log-analytics-view-designer-parts/view-donut-list.png)
 
 | Ayar | Açıklama |
 |:--- |:--- |
@@ -167,7 +167,7 @@ Listesi sorguların parçası günlük arama sorgularının listesini görüntü
 ## <a name="two-timelines-and-list-part"></a>İki zaman çizelgesi ve liste bölümü
 Üstbilgi, günlük sorgusu değer sütununda özetlenir tek bir sayı görüntüler bir belirtme çizgisi içeren sütun grafikleri, zaman içinde iki günlük sorguların sonuçlarını görüntüler. Listenin bir sorgudan göreli değerini sayısal bir sütun veya zaman içinde değişiklik gösteren bir grafiği ile en iyi on sonuçlar görüntüler.
 
-![İki zaman çizelgesi ve liste görüntüle](media/log-analytics-view-designer/view-two-timelines-list.png)
+![İki zaman çizelgesi ve liste görüntüle](media/log-analytics-view-designer-parts/view-two-timelines-list.png)
 
 | Ayar | Açıklama |
 |:--- |:--- |
@@ -199,7 +199,7 @@ Listesi sorguların parçası günlük arama sorgularının listesini görüntü
 ## <a name="information-part"></a>Bilgi bölümü
 Üst bilgi, statik metin ve isteğe bağlı bir bağlantı görüntülenir. Bir veya daha fazla statik başlık ve metin öğeleri listede görüntülenir.
 
-![Bilgileri görüntüle](media/log-analytics-view-designer/view-information.png)
+![Bilgileri görüntüle](media/log-analytics-view-designer-parts/view-information.png)
 
 | Ayar | Açıklama |
 |:--- |:--- |
@@ -220,7 +220,7 @@ Listesi sorguların parçası günlük arama sorgularının listesini görüntü
 ## <a name="line-chart-callout-and-list-part"></a>Çizgi grafik, belirtme çizgisi ve liste bölümü
 Üstbilgi günlük sorgusu birden çok serisinden bir çizgi grafiğin zaman ve belirtme çizgisi bir özetlenmiş değer ile üzerinden görüntüler. Listenin bir sorgudan göreli değerini sayısal bir sütun veya zaman içinde değişiklik gösteren bir grafiği ile en iyi on sonuçlar görüntüler.
 
-![Çizgi grafik, belirtme çizgisi ve liste görünümü](media/log-analytics-view-designer/view-line-chart-callout-list.png)
+![Çizgi grafik, belirtme çizgisi ve liste görünümü](media/log-analytics-view-designer-parts/view-line-chart-callout-list.png)
 
 | Ayar | Açıklama |
 |:--- |:--- |
@@ -260,7 +260,7 @@ Listesi sorguların parçası günlük arama sorgularının listesini görüntü
 ## <a name="line-chart-and-list-part"></a>Çizgi grafik ve liste bölümü
 Üstbilgi, günlük sorgusu birden çok serisinden bir çizgi grafiğin zaman içinde görüntüler. Listenin bir sorgudan göreli değerini sayısal bir sütun veya zaman içinde değişiklik gösteren bir grafiği ile en iyi on sonuçlar görüntüler.
 
-![Çizgi grafik ve liste görünümü](media/log-analytics-view-designer/view-line-chart-callout-list.png)
+![Çizgi grafik ve liste görünümü](media/log-analytics-view-designer-parts/view-line-chart-callout-list.png)
 
 | Ayar | Açıklama |
 |:--- |:--- |
@@ -296,7 +296,7 @@ Listesi sorguların parçası günlük arama sorgularının listesini görüntü
 ## <a name="stack-of-line-charts-part"></a>Yığın çizgi grafikler bölümü
 Çizgi grafik yığını, burada gösterildiği gibi zaman içinde bir günlük sorgusu birden çok serisinden üç ayrı çizgi grafiklerde görüntüler:
 
-![Çizgi grafik yığını](media/log-analytics-view-designer/view-stack-line-charts.png)
+![Çizgi grafik yığını](media/log-analytics-view-designer-parts/view-stack-line-charts.png)
 
 | Ayar | Açıklama |
 |:--- |:--- |

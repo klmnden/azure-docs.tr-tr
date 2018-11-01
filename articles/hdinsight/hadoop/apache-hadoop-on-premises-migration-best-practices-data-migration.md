@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: hrasheed
-ms.openlocfilehash: 95b753a3be824b5815a70fee84913f1c129f2605
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 6b06b8eb8d5e18acd3107ec5cccac79fc7be7edc
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50221989"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50418186"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---data-migration-best-practices"></a>Azure HDInsight - veri geçişi en iyi uygulamaları şirket içi Apache Hadoop kümelerini geçirme
 
@@ -100,14 +100,14 @@ Hive meta veri deposu, komut dosyalarını kullanarak veya veritabanı çoğaltm
 
 #### <a name="hive-metastore-migration-using-scripts"></a>Hive meta veri deposu geçiş betiklerini kullanma
 
-- Hive DDLs şirket içi Hive meta veri deposu oluşturur. Bu adım yapılabilir kullanarak bir [sarmalayıcı bash betiği](https://github.com/hdinsight/hdinsight.github.io/blob/master/hive/hive-export-import-metastore.md)
-- HDFS url ADLS/WASB/ABFS URL'leri ile değiştirme için oluşturulan DDL Düzenle
-- Güncelleştirilmiş DDL HDI küme meta veri deposu üzerinde çalıştırın.
-- Hive meta veri deposu sürümü şirket içi ile bulut arasında uyumlu olduğundan emin olun
+1. Hive DDLs şirket içi Hive meta veri deposu oluşturur. Bu adım yapılabilir [sarmalayıcı bash betiğini] kullanarak. (https://github.com/hdinsight/hdinsight.github.io/blob/master/hive/hive-export-import-metastore.md)
+1. HDFS url ADLS/WASB/ABFS URL'leri ile değiştirme için oluşturulan DDL Düzenle
+1. Güncelleştirilmiş DDL meta veri deposu HDInsight kümesinden çalıştırın.
+1. Hive meta veri deposu sürümü şirket içi ile bulut arasında uyumlu olduğundan emin olun
 
 #### <a name="hive-metastore-migration-using-db-replication"></a>Hive meta veri deposu geçiş DB çoğaltma kullanma
 
-- Şirket içi Hive meta veri deposu DB ve HDI DB meta veri deposu arasında veritabanı çoğaltma işlemini ayarlama
+- Şirket içi Hive meta veri deposu DB ve HDInsight DB meta veri deposu arasında veritabanı çoğaltma işlemini ayarlama
 - "Hive MetaTool" HDFS URL'si, örneğin ADLS/WASB/ABFS URL'ler ile değiştirmek için kullanın:
 
 ```bash
@@ -116,9 +116,9 @@ Hive meta veri deposu, komut dosyalarını kullanarak veya veritabanı çoğaltm
 
 ### <a name="ranger"></a>Ranger
 
-- Şirket içi Ranger ilkelerini xml dosyasına dışarı aktarma
-- Şirket içi belirli HDFS tabanlı yollara WASB/ADLS XSLT gibi bir araç kullanarak dönüştürme
-- açın HDI üzerinde çalışan Ranger ilkelerini alma
+- Şirket içi Ranger ilkelerini xml dosyasına dışarı aktarın.
+- Şirket içi belirli HDFS tabanlı yollara WASB/ADLS XSLT gibi bir araç kullanarak dönüştürün.
+- HDInsight üzerinde çalışan Ranger oturum ilkeleri içeri aktarın.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

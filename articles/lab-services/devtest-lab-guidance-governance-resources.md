@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2018
 ms.author: spelluru
-ms.openlocfilehash: 2edfa84530c147e1f716aef10c967ac36eadc922
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.openlocfilehash: 2d17f4471383be623cb40276ec1e51257bf3fbce
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48251135"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50740391"
 ---
 # <a name="governance-of-azure-devtest-labs-infrastructure---resources"></a>Azure DevTest Labs altyapı - kaynak İdaresi
 Bu makalede, hizalama ve kaynakları, kuruluşunuzdaki Yönetim için DevTest Labs yöneliktir. 
@@ -67,7 +67,7 @@ Laboratuvar ve bir kuruluş genelindeki gerekli labs genel sayısı başına kul
 
 Coğrafi sınırlar dikkate almanız gerekebilir. Örneğin, Kuzey Doğu'daki geliştiriciler, Doğu ABD 2 sağlanan bir laboratuvar Amerika Birleşik Devletleri (ABD) kullanabilir. Ve bir kaynak Güney Orta ABD kullanmak için Texas, Dallas, Denver Colorado geliştiriciler yönlendirilebilir. Dış bir üçüncü taraf ile ortak çabaya ise iç geliştiriciler tarafından kullanılmayan bir laboratuvar atanabilir. 
 
-Bir laboratuvar, Visual Studio Team Services takım projesi içinde belirli bir proje için de kullanabilirsiniz. Ardından, güvenlik kaynakları her iki kümesine erişim sağlayan belirtilen Azure Active Directory grup olarak uygulanır. Laboratuvara atanan sanal ağ, kullanıcılar birleştirmek için başka bir sınır olabilir.
+Azure DevOps projeleri içinde belirli bir proje için bir laboratuvar de kullanabilirsiniz. Ardından, güvenlik kaynakları her iki kümesine erişim sağlayan belirtilen Azure Active Directory grup olarak uygulanır. Laboratuvara atanan sanal ağ, kullanıcılar birleştirmek için başka bir sınır olabilir.
 
 ## <a name="deletion-of-resources"></a>Kaynakları silme
 

@@ -10,12 +10,12 @@ ms.component: bing-visual-search
 ms.topic: quickstart
 ms.date: 5/16/2018
 ms.author: scottwhi
-ms.openlocfilehash: 0e2f4d83904240cb32d3e162c4c873f0c8e469fd
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: f54914b846c6a001a9fb10d938a038e390abf6bf
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48885264"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50416452"
 ---
 # <a name="quickstart-your-first-bing-visual-search-query-in-java"></a>Hızlı Başlangıç: Java’da ilk Bing Görsel Arama sorgunuz
 
@@ -27,7 +27,7 @@ Aşağıda, yerel bir görüntüyü karşıya yükleyeceğiniz zaman POST’un g
 --boundary_1234-abcd
 Content-Disposition: form-data; name="image"; filename="myimagefile.jpg"
 
-ÿØÿà JFIF ÖÆ68g-¤CWŸþ29ÌÄøÖ‘º«™æ±èuZiÀ)"óÓß°Î= ØJ9á+*G¦...
+ÿØÿà JFIF ÖÆ68g-¤CWŸþ29ÌÄøÖ‘º«™æ±èuZiÀ)"óÓß°Î= ØJ9á+*G¦...
 
 --boundary_1234-abcd--
 ```
@@ -37,7 +37,7 @@ Bu makale, bir Bing Görsel Arama API’si isteği gönderen ve JSON arama sonu�
 
 ## <a name="prerequisites"></a>Ön koşullar
 
-Bu kodu derleyip çalıştırmak için [JDK 7 veya 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)’e ihtiyacınız olacak. Varsa, sık kullandığınız bir Java IDE’yi veya bir metin düzenleyicisini kullanabilirsiniz.
+Bu kodu derleyip çalıştırmak için [JDK 7 veya 8](https://aka.ms/azure-jdks)’e ihtiyacınız olacak. Varsa, sık kullandığınız bir Java IDE’yi veya bir metin düzenleyicisini kullanabilirsiniz.
 
 Bu hızlı başlangıçta bir [ücretsiz deneme](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) abonelik anahtarı veya ücretli abonelik anahtarı kullanabilirsiniz.
 

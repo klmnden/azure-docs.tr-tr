@@ -6,15 +6,15 @@ ms.service: logic-apps
 ms.suite: integration
 author: ecfan
 ms.author: estfan
-ms.reviewer: yshoukry, LADocs
+ms.reviewer: arthii, LADocs
 ms.topic: article
-ms.date: 07/20/2018
-ms.openlocfilehash: 5fc4ccacaaedfc3fe6c77fa9a0ad693530bdde93
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.date: 10/01/2018
+ms.openlocfilehash: 2934eadce9e3e0d5e0375dff4eec359a33bd4479
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48855434"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50420107"
 ---
 # <a name="install-on-premises-data-gateway-for-azure-logic-apps"></a>Azure Logic Apps için şirket içi veri ağ geçidi yükleme
 
@@ -60,10 +60,12 @@ Diğer hizmetlerle ağ geçidi kullanma hakkında daha fazla bilgi için şu mak
 * Yerel bilgisayarınıza gereksinimleri şunlardır:
 
   **En düşük gereksinimleri**
+
   * .NET framework 4.5.2
   * Windows 7 veya Windows Server 2008 R2 64 bit sürümü (veya üzeri)
 
   **Önerilen gereksinimleri**
+
   * 8 çekirdekli CPU
   * 8 GB bellek
   * 64-bit sürüm Windows Server 2012 R2'in (veya üzeri)
@@ -75,11 +77,11 @@ Diğer hizmetlerle ağ geçidi kullanma hakkında daha fazla bilgi için şu mak
     > [!TIP]
     > Gecikmeyi en aza indirmek için izinlere sahip olduğunuz varsayılarak veri kaynağınız için ya da aynı bilgisayarda mümkün olabildiğince yakın ağ geçidi yükleyebilirsiniz.
 
-  * Ağ geçidi her zaman açık İnternet'e bağlı bir bilgisayara yükleyin ve *değil* uyu. Aksi takdirde, ağ geçidi çalıştırılamaz. Ayrıca, performansı, kablosuz ağ üzerinde düşebilir.
+  * Ağ geçidi her zaman açık İnternet'e bağlı bir bilgisayara yükleyin ve *değil* uyu. Aksi takdirde, ağ geçidi çalıştırılamaz. 
+  Ayrıca, performansı, kablosuz ağ üzerinde düşebilir.
 
-  * Yükleme sırasında yalnızca oturum açmak bir [iş veya Okul hesabı](../active-directory/sign-up-organization.md) Azure Active Directory (Azure AD) ve Microsoft hesabı tarafından yönetilir. 
-  Ayrıca, bu hesap Azure B2B olmadığından emin olun (konuk) hesabı. 
-  Ağ geçidiniz için bir Azure kaynağı oluşturarak, ağ geçidi yüklemesi kaydettiğinizde ayrıca Azure portalında aynı oturum açma hesabı kullanmanız gerekir. 
+  * Yükleme sırasında yalnızca oturum açmak bir [iş veya Okul hesabı](../active-directory/sign-up-organization.md) yönetilen Azure Active Directory (Azure AD) tarafından örneğin @contoso.onmicrosoft.comve Azure B2B (konuk) hesabı veya kişisel Microsoft hesabı, örneğin @hotmail.com veya @outlook.com. 
+  Bir ağ geçidi kaynağı oluşturarak Azure Portalı'nda, ağ geçidi yüklemesi kaydettiğinizde aynı oturum açma hesabı kullandığınızdan emin olun. 
   Şirket içi veri kaynağınıza mantıksal uygulamanızdan bağlantı oluşturduğunuzda, bu ağ geçidi kaynağı seçebilirsiniz. 
   [Neden gerekir ben bir Azure AD iş veya Okul hesabı?](#why-azure-work-school-account)
 
@@ -96,6 +98,19 @@ Diğer hizmetlerle ağ geçidi kullanma hakkında daha fazla bilgi için şu mak
   * Bir yükleyici ile 14.16.6317.4 öncesi ayarlamak için bir ağ geçidi zaten varsa, en son Yükleyicisi'ni çalıştırarak ağ geçidinizin konumu değiştiremezsiniz. Ancak, bunun yerine istediğiniz konumu ile yeni bir ağ geçidi ayarlamak için en son yükleyicisi kullanabilirsiniz.
   
     14.16.6317.4 sürümden daha eski bir ağ geçidi yükleyicisini varsa, ancak ağ geçidi yüklemediyseniz henüz, indirebilir ve bunları en son yükleyicisi kullanın.
+
+## <a name="high-availability-support"></a>Yüksek kullanılabilirlik desteği
+
+Birden fazla ağ geçidi yüklemeniz ve kümeleri olarak ayarlamak, şirket içi veri ağ geçidi yüksek kullanılabilirliği destekler. Başka bir ağ geçidi oluşturmak için çalışmaya başladığınızda, var olan bir ağ geçidi varsa, isteğe bağlı olarak yüksek kullanılabilirlik kümeleri oluşturabilirsiniz. Bu kümeleri, ağ geçitleri tek hata noktalarından kaçınmak yardımcı olabilecek grupları halinde düzenleyin. Ayrıca, tüm şirket içi veri ağ geçidi bağlayıcıları artık yüksek kullanılabilirliği destekler.
+
+Şirket içi veri ağ geçidini kullanmak için bu gereksinimleri ve unsurları gözden geçirin:
+
+* En az bir ağ geçidi yüklemesi birincil ağ geçidini ve bu yükleme için kurtarma anahtarı olarak aynı Azure aboneliğinde zaten olmalıdır. 
+
+* Birincil ağ geçidi ağ geçidi güncelleştirme Kasım 2017'den veya üzeri çalıştırmalıdır.
+
+Bu gereksinimleri sağladıktan sonra sonraki ağ geçidi oluşturduğunuzda, seçin **eklemek için var olan bir ağ geçidi kümesi**, kümeniz için birincil ağ geçidini seçin ve bu birincil ağ geçidine ilişkin kurtarma anahtarını belirtin.
+Daha fazla bilgi için [şirket içi veri ağ geçidi için yüksek kullanılabilirlik kümeleri](https://docs.microsoft.com/power-bi/service-gateway-high-availability-clusters).
 
 <a name="install-gateway"></a>
 
@@ -161,19 +176,6 @@ Diğer hizmetlerle ağ geçidi kullanma hakkında daha fazla bilgi için şu mak
 
 10. Artık Azure tarafından ağ geçidi kaydetmek [ağ geçidi yüklemeniz için bir Azure kaynağı oluşturma](../logic-apps/logic-apps-gateway-connection.md). 
 
-## <a name="enable-high-availability"></a>Yüksek kullanılabilirliği etkinleştir
-
-Birden fazla ağ geçidi yüklemeniz ve kümeleri olarak ayarlamak, şirket içi veri ağ geçidi yüksek kullanılabilirliği destekler. Başka bir ağ geçidi oluşturmak için çalışmaya başladığınızda, var olan bir ağ geçidi varsa, isteğe bağlı olarak yüksek kullanılabilirlik kümeleri oluşturabilirsiniz. Bu kümeleri, ağ geçitleri tek hata noktalarından kaçınmak yardımcı olabilecek grupları halinde düzenleyin. Bu özelliğin kullanılabilmesi için bu gereksinimleri ve unsurları gözden geçirin:
-
-* Yalnızca bazı bağlayıcılar, dosya sistemi Bağlayıcısı'nı ve diğerleri şekilde gibi yüksek kullanılabilirliği destekler. 
-     
-* En az bir ağ geçidi yüklemesi birincil ağ geçidini ve bu yükleme için kurtarma anahtarı olarak aynı Azure aboneliğinde zaten olmalıdır. 
-
-* Birincil ağ geçidi ağ geçidi güncelleştirme Kasım 2017'den veya üzeri çalıştırmalıdır.
-
-Bu gereksinimleri sağladıktan sonra sonraki ağ geçidi oluşturduğunuzda, seçin **eklemek için var olan bir ağ geçidi kümesi**, kümeniz için birincil ağ geçidini seçin ve bu birincil ağ geçidine ilişkin kurtarma anahtarını belirtin.
-Daha fazla bilgi için [şirket içi veri ağ geçidi için yüksek kullanılabilirlik kümeleri](https://docs.microsoft.com/power-bi/service-gateway-high-availability-clusters).
-
 <a name="update-gateway-installation"></a>
 
 ## <a name="change-location-migrate-restore-or-take-over-existing-gateway"></a>Konumu değiştirmek, geçirme, geri yükleme veya mevcut ağ geçidini
@@ -226,7 +228,7 @@ PingReplyDetails (RTT) : 0 ms
 TcpTestSucceeded       : True
 ```
 
-Varsa **TcpTestSucceeded** ayarlı değil **True**, ağ geçidiniz bir güvenlik duvarı tarafından engelleniyor olabilir. Kapsamlı olmasını istiyorsanız, yedek **ComputerName** ve **bağlantı noktası** altında listelenen değerleri değerlerle [bağlantı noktalarını yapılandırma](#configure-ports) bu makaledeki.
+Varsa **TcpTestSucceeded** ayarlı değil **True**, ağ geçidiniz bir güvenlik duvarı tarafından engelleniyor olabilir. Kapsamlı olmasını istiyorsanız, değiştirin **ComputerName** ve **bağlantı noktası** altında listelenen değerleri değerlerle [bağlantı noktalarını yapılandırma](#configure-ports) bu makaledeki.
 
 Güvenlik Duvarı'nı, ayrıca Azure veri merkezlerine sağlayan Azure Service Bus bağlantıları engelleyebilir. Böyle bir durumda, onaylama (engellemesini kaldırmak) için söz konusu veri merkezleri, bölgenizdeki tüm IP adresleri. Bu IP adresleri için [Azure IP adresleri listesi alma](https://www.microsoft.com/download/details.aspx?id=41653).
 
@@ -253,7 +255,7 @@ Bazı durumlarda, Azure Service Bus bağlantıları tam etki alanı adları yeri
 
 ### <a name="force-https-communication-with-azure-service-bus"></a>Azure Service Bus ile HTTPS iletişimini zorlama
 
-Bazı Ara sunucular trafiği yalnızca 80 ve 443 numaralı bağlantı noktalarına izin verir. Varsayılan olarak, Azure Service Bus ile iletişim 443 dışındaki bağlantı noktaları üzerinde gerçekleşir.
+Bazı Ara sunucular trafiği yalnızca için 80 ve 443 bağlantı noktalarını izin. Varsayılan olarak, Azure Service Bus ile iletişim 443 dışındaki bağlantı noktaları üzerinde gerçekleşir.
 Ağ geçidinin Azure Service Bus ile doğrudan TCP yerine HTTPS iletişim kurmak için zorlayabilirsiniz fakat bunu yaparsanız bu nedenle büyük ölçüde performansı düşürebilir. Bu görevi gerçekleştirmek için şu adımları izleyin:
 
 1. Genellikle, burada bulabilirsiniz şirket içi veri ağ geçidi istemci konumuna göz atın: ```C:\Program Files\On-premises data gateway\Microsoft.PowerBI.EnterpriseGateway.exe```
@@ -283,7 +285,7 @@ Bir Windows hizmeti "Veri ağ geçidi hizmetini şirket içinde" adlı ancak "NT
 
 ## <a name="restart-gateway"></a>Ağ geçidini yeniden başlatma
 
-Veri ağ geçidi bir Windows hizmeti çalışır. Bu nedenle diğer Windows hizmeti gibi başlatabilir ve ağ geçidini çeşitli şekillerde durdurmak. Örneğin, ağ geçidinin çalıştığı bilgisayarda yükseltilmiş izinlerle bir komut istemi açın ve her iki komutu çalıştırın:
+Veri ağ geçidi bir Windows hizmeti çalışır. Bu nedenle diğer Windows hizmeti gibi başlatabilir ve ağ geçidini çeşitli şekillerde durdurun. Örneğin, ağ geçidinin çalıştığı bilgisayarda yükseltilmiş izinlerle bir komut istemi açın ve her iki komutu çalıştırın:
 
 * Hizmeti durdurmak için şu komutu çalıştırın:
   
@@ -372,7 +374,7 @@ Bu adımlar, bulutta bir kullanıcı, şirket içi veri kaynağınıza bağlı b
 
 ## <a name="troubleshooting"></a>Sorun giderme
 
-Bu bölümde ayarlama ve şirket içi veri ağ geçidini kullanarak karşılaşabileceğiniz bazı yaygın sorunlar ele alır.
+Bu bölümde ayarlama ve şirket içi veri ağ geçidini kullanarak sahip olabileceğiniz bazı yaygın sorunlar ele alır.
 
 **Q**: neden ağ geçidi yükleme başarısız? <br/>
 **A**: hedef bilgisayardaki virüsten koruma yazılımının güncel durumunda bu sorun oluşabilir. Ya da virüsten koruma yazılımını güncelleştirmek veya virüsten koruma yazılımı yalnızca ağ geçidi yüklemesi sırasında devre dışı bırakın ve yazılım'ı yeniden etkinleştirin.

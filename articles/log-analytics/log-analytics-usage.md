@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 08/11/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: d3714f7226de2a457f37e6ea4afa2b066ee460d1
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: c14013121517267445e89f43e228b03ba184f013
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49409144"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50415272"
 ---
 # <a name="analyze-data-usage-in-log-analytics"></a>Log Analytics'te veri kullanımını çözümleme
 
@@ -49,12 +49,12 @@ Log Analytics, toplanan veri miktarı, verileri hangi kaynakların gönderdiği 
     - Verileri toplamak ve dizinlemek için harcanan süre  
 - Sorgu listesi
 
-![Kullanım ve maliyet panosu](./media/log-analytics-manage-cost-storage/usage-estimated-cost-dashboard-01.png)<br>
+![Kullanım ve maliyet panosu](media/log-analytics-usage/usage-estimated-cost-dashboard-01.png)<br>
 )
 
 ### <a name="to-work-with-usage-data"></a>Kullanım verileriyle çalışma
 1. [Azure Portal](https://portal.azure.com) oturum açın.
-2. Azure portalında **Tüm hizmetler**’e tıklayın. Kaynak listesinde **Log Analytics** yazın. Yazmaya başladığınızda liste, girişinize göre filtrelenir. **Log Analytics**’i seçin.<br><br> ![Azure portal](./media/log-analytics-quick-collect-azurevm/azure-portal-01.png)<br><br>  
+2. Azure portalında **Tüm hizmetler**’e tıklayın. Kaynak listesinde **Log Analytics** yazın. Yazmaya başladığınızda liste, girişinize göre filtrelenir. **Log Analytics**’i seçin.<br><br> ![Azure portal](media/log-analytics-usage/azure-portal-01.png)<br><br>  
 3. Log Analytics çalışma alanlarınızın listesinde, bir çalışma alanı seçin.
 4. Sol bölmedeki listeden **Kullanım ve tahmini maliyetler**’i seçin.
 5. **Kullanım ve tahmini maliyetler** panosunda, **Zaman: Son 24 saat** değerini seçerek zaman aralığı üzerinde değişiklik yapabilir ve zaman aralığını değiştirebilirsiniz.<br><br> ![zaman aralığı](./media/log-analytics-usage/usage-time-filter-01.png)<br><br>

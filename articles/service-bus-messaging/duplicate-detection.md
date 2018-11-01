@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2018
 ms.author: spelluru
-ms.openlocfilehash: fb42f9920ce173b25cbc16725cf1f9dfd96fcc9e
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 5241020b1db3797891ae13da54cc9225bbd4619b
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48853462"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50741276"
 ---
 # <a name="duplicate-detection"></a>Yineleme algılama
 
@@ -41,6 +41,9 @@ Yalnızca bu bağlamanın verdiğinden tanımlayıcısının uygulama denetimi g
 Portalda özelliği ile varlık oluşturma sırasında açık **yinelenen algılamayı etkinleştirme** onay kutusu, varsayılan olarak kapalıdır. Yeni konular oluşturmak için bu ayarı eşdeğerdir.
 
 ![][1]
+
+> [!IMPORTANT]
+> Etkinleştir/yinelenen algılama kuyruk oluşturulduktan sonra devre dışı bırakamaz. Yalnızca kuyruk oluşturma sırasında bunu yapabilirsiniz. 
 
 Bayrağı ile programlı olarak ayarladığınız [QueueDescription.requiresDuplicateDetection](/dotnet/api/microsoft.servicebus.messaging.queuedescription.requiresduplicatedetection#Microsoft_ServiceBus_Messaging_QueueDescription_RequiresDuplicateDetection) tam Framework .NET API özelliği. Azure Resource Manager API'si ile ile değerin ayarlanması [queueProperties.requiresDuplicateDetection](/azure/templates/microsoft.servicebus/namespaces/queues#property-values) özelliği.
 

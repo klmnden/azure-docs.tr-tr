@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/01/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: bcede1f985937058196b75a93f539cb34da73992
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: 49607809d6bb8697cc6b7a4063a45d893b9e1eac
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49365071"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50421093"
 ---
 # <a name="log-alerts-in-azure-monitor"></a>Azure İzleyici'de günlük uyarıları
 Bu makalede, günlük uyarı ayrıntıları, bir içinde desteklenen uyarı türleri sağlanır [Azure uyarıları](monitoring-overview-unified-alerts.md) ve kullanıcıların uyarmak için temel olarak Azure'nın analiz platformu kullanmasına izin verir.
@@ -93,7 +93,7 @@ Burada herhangi bir bilgisayarda, % 90'ın işlemci kullanımı üç kez tekrar 
 
 Sorguyu 5 dakikalık aralıklarla her bilgisayar için ortalama bir değer oluşturur.  Bu sorgu, önceki 30 dakika boyunca 5 dakikada bir toplanan veriler için çalıştırılmaz.  Örnek verileri varsayılan olarak, üç bilgisayar için aşağıda gösterilmiştir.
 
-![Örnek sorgu sonuçları](./media/monitor-alerts-unified/metrics-measurement-sample-graph.png)
+![Örnek sorgu sonuçları](media/monitor-alerts-unified-log/metrics-measurement-sample-graph.png)
 
 Bunlar üç kez zaman aralığında toplanan % 90 eşiğini ihlal olduğundan bu örnekte, ayrı uyarılar srv02 srv03 için oluşturulmuş olması.  Varsa **bağlı olarak uyarıyı Tetikle:** üzere değiştirilmiştir **art arda** sonra üç ardışık örnekler eşiği ihlal olduğundan bir uyarı yalnızca srv03 için oluşturulacak.
 

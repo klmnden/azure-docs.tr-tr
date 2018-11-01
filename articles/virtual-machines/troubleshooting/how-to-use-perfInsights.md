@@ -12,16 +12,16 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 05/11/2018
+ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: a6077b3e10562b4aee313cccd86256b8f00084ec
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 75d630b91a1380102fd285edfb11effa22f47859
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47414846"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50413245"
 ---
-# <a name="how-to-use-perfinsights"></a>Perfınsights kullanma
+# <a name="how-to-use-perfinsights"></a>PerfInsights’ı kullanma
 
 [Perfınsights](http://aka.ms/perfinsightsdownload) toplar ve Tanılama verileri analiz eder ve azure'da Windows sanal makine performans sorunlarını gidermenize yardımcı olmak için bir rapor sağlayan bir kendi kendine yardım Tanılama aracı. Perfınsights kullanarak doğrudan Portalı'ndan bağımsız bir araç olarak sanal makinelerde çalıştırılabilir [Azure sanal makineler için Performans Tanılama](performance-diagnostics.md), veya yükleyerek [Azure performans tanılama VM uzantısı ](performance-diagnostics-vm-extension.md).
 

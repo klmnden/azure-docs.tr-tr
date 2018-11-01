@@ -9,95 +9,102 @@ ms.assetid: 076f5f95-f8d2-42c7-b7fd-6798856ba0bb
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 05/22/2017
+ms.date: 10/28/2018
 ms.author: glenga
-ms.openlocfilehash: adeabacfd468a7a5967ff05f527849e31cbeead8
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: e59c0b6994a64972b1458c0f295f24d0a615d871
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50084467"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50740119"
 ---
 # <a name="use-azure-functions-to-connect-to-an-azure-sql-database"></a>Bir Azure SQL veritabanı'na bağlanmak için Azure işlevleri'ni kullanın
-Bu konu Azure SQL veritabanı tablosundaki satırları temizler, zamanlanmış bir iş oluşturmak için Azure işlevleri kullanmayı gösterir. Yeni C# betik işlevi Azure portalında bir önceden tanımlanmış bir zamanlayıcı tetikleyici şablonunu temel alınarak oluşturulur. Bu senaryoyu desteklemek için ayrıca bir veritabanı bağlantı dizesi bir işlev uygulaması uygulama ayarı olarak ayarlamanız gerekir. Bu senaryo, veritabanında bir toplu işlemi kullanır. 
 
-İşlev işlemi bireysel için oluşturma, okuma, güncelleştirme ve silme (CRUD) işlemleri bir Mobile Apps tablodaki, bunun yerine kullanmanız gerektiğini [Mobile Apps bağlamaları](functions-bindings-mobile-apps.md).
+Bu makalede bir Azure SQL veritabanı örneğine bağlanan zamanlanmış bir iş oluşturmak için Azure işlevleri kullanmayı gösterir. İşlev kodu bir veritabanı tablosundaki satırları siler. Yeni C# işlevi, bir Visual Studio 2017'de önceden tanımlı bir zamanlayıcı tetikleyici şablonunu temel alarak oluşturulur. Bu senaryoyu desteklemek için ayrıca bir veritabanı bağlantı dizesi bir işlev uygulaması uygulama ayarı olarak ayarlamanız gerekir. Bu senaryo, veritabanında bir toplu işlemi kullanır. 
 
-> [!IMPORTANT]
-> Bu belgedeki örnekler 1.x çalışma zamanı için geçerlidir. 1.x işlev uygulaması oluşturma hakkında bilgi [burada bulunabilir](./functions-versions.md#creating-1x-apps).
+Bu çalışma ilk deneyiminizi ise C# İşlevler, kimler [Azure işlevleri C# Geliştirici Başvurusu](functions-dotnet-class-library.md).
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-+ Bu konuda, bir Zamanlayıcı ile tetiklenen işlevi kullanır. Bu konu başlığındaki adımları tamamlamak [azure'da bir Zamanlayıcı tarafından tetiklenen bir işlev oluşturma](functions-create-scheduled-function.md) bu işlev, C# sürümünü oluşturmak için.   
++ Makaledeki adımları tamamlayabilmeniz [Visual Studio kullanarak ilk işlevinizi oluşturma](functions-create-your-first-function-visual-studio.md) sürüm 2.x çalışma zamanını hedefleyen bir yerel işlev uygulaması oluşturmak için. Ayrıca, projenizi azure'da bir işlev uygulaması yayımladığınız gerekir.
 
-+ Bu konuda, bir toplu temizleme işlemi yürüten bir Transact-SQL komutu gösterilir **SalesOrderHeader** AdventureWorksLT örnek veritabanı tablosunda. AdventureWorksLT örnek veritabanını oluşturmak için konu başlığındaki adımları tamamlamak [Azure portalında bir Azure SQL veritabanı oluşturma](../sql-database/sql-database-get-started-portal.md). 
++ Bu makalede, bir toplu temizleme işlemi yürüten bir Transact-SQL komut gösterilmektedir **SalesOrderHeader** AdventureWorksLT örnek veritabanı tablosunda. AdventureWorksLT örnek veritabanı oluşturmak için bu makaledeki adımları tamamlamanız [Azure portalında bir Azure SQL veritabanı oluşturma](../sql-database/sql-database-get-started-portal.md).
+
++ Eklemelisiniz bir [sunucu düzeyinde güvenlik duvarı kuralı](../sql-database/sql-database-get-started-portal-firewall.md) Bu Hızlı Başlangıç için kullanacağınız bilgisayarın genel IP adresi için. Bu kural mümkün erişim yerel bilgisayarınızdan bir SQL veritabanı örneği olması gerekir.  
 
 ## <a name="get-connection-information"></a>Bağlantı bilgilerini alma
 
 Tamamlandığında, oluşturulan veritabanı için bağlantı dizesini almak gereken [Azure portalında bir Azure SQL veritabanı oluşturma](../sql-database/sql-database-get-started-portal.md).
 
-1. [Azure Portal](https://portal.azure.com/)’da oturum açın.
- 
-3. Seçin **SQL veritabanları** sol menüdeki ve veritabanınızı seçin **SQL veritabanları** sayfası.
+1. [Azure Portal](https://portal.azure.com/) oturum açın.
 
-4. Seçin **veritabanı bağlantı dizelerini Göster** ve tam kopyalayın **ADO.NET** bağlantı dizesi. 
+1. Seçin **SQL veritabanları** sol menüdeki ve veritabanınızı seçin **SQL veritabanları** sayfası.
+
+1. Seçin **bağlantı dizeleri** altında **ayarları** ve tam kopyalayın **ADO.NET** bağlantı dizesi.
 
     ![ADO.NET bağlantı dizesini kopyalayın.](./media/functions-scenario-database-table-cleanup/adonet-connection-string.png)
 
-## <a name="set-the-connection-string"></a>Bağlantı dizesini ayarlama 
+## <a name="set-the-connection-string"></a>Bağlantı dizesini ayarlama
 
-Azure'da işlevlerinizin yürütülmesini bir işlev uygulaması barındırır. Bağlantı dizelerini ve diğer gizli dizileri, işlev uygulaması ayarları içinde saklamak için en iyi bir uygulamadır. Uygulama ayarlarını kullanarak kodunuzu bağlantı dizesiyle yanlışlıkla açıklanması engeller. 
+Azure'da işlevlerinizin yürütülmesini bir işlev uygulaması barındırır. En iyi güvenlik uygulaması olarak, bağlantı dizelerini ve diğer gizli dizileri, işlev uygulaması ayarları içinde depolar. Uygulama ayarlarını kullanarak kodunuzu bağlantı dizesiyle yanlışlıkla açıklanması engeller. Doğrudan Visual Studio'dan işlev uygulamanız için uygulama ayarlarına erişebilirsiniz.
 
-1. Oluşturduğunuz işlev uygulamanıza gidin [azure'da bir Zamanlayıcı tarafından tetiklenen bir işlev oluşturma](functions-create-scheduled-function.md).
+Daha önce uygulamanızı Azure'a yayımladığınız gerekir. Bunu zaten bunu yapmadıysanız [işlev uygulamanızı Azure'a yayımlama](functions-develop-vs.md#publish-to-azure).
 
-2. Seçin **Platform özellikleri** > **uygulama ayarları**.
-   
-    ![İşlev uygulaması için uygulama ayarları.](./media/functions-scenario-database-table-cleanup/functions-app-service-settings.png)
+1. Çözüm Gezgini'nde işlevi uygulama projesine sağ tıklayın ve seçin **Yayımla** > **uygulama ayarlarını yönet...** . Seçin **ekleme ayarı**, **yeni uygulama ayarı adı**, türü `sqldb_connection`seçip **Tamam**.
 
-2. Ekranı aşağı kaydırarak **bağlantı dizelerini** ve tabloda belirtilen ayarları kullanarak bir bağlantı dizesi ekleyin.
-   
-    ![İşlev uygulaması ayarları için bir bağlantı dizesi ekleyin.](./media/functions-scenario-database-table-cleanup/functions-app-service-settings-connection-strings.png)
+    ![İşlev uygulaması için uygulama ayarları.](./media/functions-scenario-database-table-cleanup/functions-app-service-add-setting.png)
 
-    | Ayar       | Önerilen değer | Açıklama             | 
-    | ------------ | ------------------ | --------------------- | 
-    | **Ad**  |  sqldb_connection  | İşlev kodunuzda depolanan bağlantı dizesini erişmek için kullanılır.    |
-    | **Değer** | Kopyalanan dize  | Önceki bölümde kopyaladığınız bağlantı dizesini yapıştırın ve Değiştir `{your_username}` ve `{your_password}` yer tutucuları gerçek değerlerle. |
-    | **Tür** | SQL Veritabanı | Varsayılan SQL veritabanı bağlantısını kullanın. |   
+1. Yeni **sqldb_connection** ayarını önceki bölümünde kopyaladığınız bağlantı dizesini yapıştırın **yerel** değiştirin ve alan `{your_username}` ve `{your_password}` gerçek yer tutucuları değerler. Seçin **yerel bilgisayardan değer Ekle** güncelleştirilmiş değeri içine kopyalamak için **uzak** alan ve ardından **Tamam**.
 
-3. **Kaydet**’e tıklayın.
+    ![SQL bağlantı dizesi ayarı ekleyin.](./media/functions-scenario-database-table-cleanup/functions-app-service-settings-connection-string.png)
+
+    Bağlantı dizelerini Azure'da şifrelenmiş olarak depolanır (**uzak**). Sızdıran gizli local.settings.json proje dosyası önlemek (**yerel**) kaynak denetiminden gibi bir .gitignore dosyası kullanarak bırakılmalıdır.
+
+## <a name="add-the-sqlclient-package-to-the-project"></a>SqlClient paketini projeye ekleyin.
+
+SqlClient kitaplığını içeren NuGet paketini eklemeniz gerekir. Bu veri erişim kitaplığı, bir SQL veritabanına bağlanmak için gereklidir.
+
+1. Visual Studio 2017'de yerel işlev uygulaması projenizi açın.
+
+1. Çözüm Gezgini'nde işlevi uygulama projesine sağ tıklayın ve seçin **NuGet paketlerini Yönet**.
+
+1. **Gözat** sekmesinde ```System.Data.SqlClient``` öğesini arayın ve bulduğunuzda seçin.
+
+1. **System.Data.SqlClient** sayfasında **Yükle**’ye tıklayın.
+
+1. Yükleme tamamlandığında değişiklikleri gözden geçirin ve **Önizleme** penceresini kapamak için **Tamam**’a tıklayın.
+
+1. **Lisans Kabulü** penceresi gösterilirse **Kabul Ediyorum**’a tıklayın.
 
 Şimdi, SQL veritabanınıza bağlanır C# işlev kodunu ekleyebilirsiniz.
 
-## <a name="update-your-function-code"></a>İşlev kodunuzu güncelleştirin
+## <a name="add-a-timer-triggered-function"></a>Zamanlayıcı ile tetiklenen işlev ekleme
 
-1. İşlev uygulamanızda Portalı'nda, Zamanlayıcı ile tetiklenen işlevi seçin.
- 
-3. Mevcut C# betik işlev kodunu üstüne aşağıdaki derleme başvurularını ekleyin:
+1. Çözüm Gezgini'nde işlevi uygulama projesine sağ tıklayın ve seçin **Ekle** > **yeni Azure işlevi**.
+
+1. İle **Azure işlevleri** şablon seçilmedi, aşağıdakine benzer yeni öğe adı `DatabaseCleanup.cs` seçip **Ekle**.
+
+1. İçinde **yeni Azure işlevi** iletişim kutusunda **Zamanlayıcı tetikleyicisi** ardından **Tamam**. Bu iletişim kutusu, Zamanlayıcı ile tetiklenen işlev için bir kod dosyası oluşturur.
+
+1. Yeni kod dosyasını açın ve aşağıdaki using deyimlerini dosyanın üstüne:
 
     ```cs
-    #r "System.Configuration"
-    #r "System.Data"
-    ```
-    >[!NOTE]
-    >Bu örneklerde kod C# betiği portaldan var. Önceden derlenmiş C# işlevi yerel olarak geliştirirken, bunun yerine bu başvuruları çeviren yerel projenize eklemeniz gerekir.  
-
-3. Aşağıdaki `using` deyimleri işlevi için:
-    ```cs
-    using System.Configuration;
     using System.Data.SqlClient;
     using System.Threading.Tasks;
-    using Microsoft.Extensions.Logging;
     ```
 
-4. Varolan `Run` işlevi aşağıdaki kod ile:
+1. Varolan `Run` işlevi aşağıdaki kod ile:
+
     ```cs
-    public static async Task Run(TimerInfo myTimer, ILogger log)
+    [FunctionName("DatabaseCleanup")]
+    public static async Task Run([TimerTrigger("*/15 * * * * *")]TimerInfo myTimer, ILogger log)
     {
-        var str = ConfigurationManager.ConnectionStrings["sqldb_connection"].ConnectionString;
+        // Get the connection string from app settings and use it to create a connection.
+        var str = Environment.GetEnvironmentVariable("sqldb_connection");
         using (SqlConnection conn = new SqlConnection(str))
         {
             conn.Open();
-            var text = "UPDATE SalesLT.SalesOrderHeader " + 
+            var text = "UPDATE SalesLT.SalesOrderHeader " +
                     "SET [Status] = 5  WHERE ShipDate < GetDate();";
 
             using (SqlCommand cmd = new SqlCommand(text, conn))
@@ -110,22 +117,28 @@ Azure'da işlevlerinizin yürütülmesini bir işlev uygulaması barındırır. 
     }
     ```
 
-    Bu örnek komut güncelleştirmeleri `Status` sevk tarih sütununa göre. 32 veri satırlarını güncelleştirmeniz.
+    Bu işlev her 15 güncelleştirmek için saniyede çalışan `Status` sevk tarih sütununa göre. Zamanlayıcı tetikleyicisi hakkında daha fazla bilgi için bkz: [için Azure işlevleri Zamanlayıcı tetikleyicisi](functions-bindings-timer.md).
 
-5. Tıklayın **Kaydet**, watch **günlükleri** windows için sonraki işlev yürütme ve ardından, güncelleştirilen satırların sayısı unutmayın **SalesOrderHeader** tablo.
+1. Tuşuna **F5** işlev uygulamasını başlatmak için. [Azure işlevleri çekirdek Araçları](functions-develop-local.md) Visual Studio yürütme penceresi açılır.
 
-    ![İşlev günlüklerini görüntüleyin.](./media/functions-scenario-database-table-cleanup/functions-logs.png)
+1. Başlangıç sonra 15 saniyede işlevi çalıştırır. Çıkış izleyin ve güncelleştirilmiştir satır sayısını not edin **SalesOrderHeader** tablo.
+
+    ![İşlev günlüklerini görüntüleyin.](./media/functions-scenario-database-table-cleanup/function-execution-results-log.png)
+
+    İlk çalıştırma üzerinde 32 veri satırlarını güncelleştirmeniz gerekir. Böylece daha fazla satır tarafından seçilir SalesOrderHeader tablo verileri değişiklik yapmadığınız sürece hiçbir veri satırı güncelleştirme aşağıdaki çalışmaları `UPDATE` deyimi.
+
+Eğer [bu işlev yayımlama](functions-develop-vs.md#publish-to-azure), değiştirmeyi unutmayın `TimerTrigger` öznitelik daha makul [cron zamanlama](functions-bindings-timer.md#cron-expressions) her 15 saniyede daha.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Ardından, İşlevler ile Logic Apps diğer hizmetlerle tümleştirme için nasıl kullanılacağını öğrenin.
+Ardından, nasıl kullanılacağını öğrenin. Diğer hizmetlerle tümleştirme için Logic Apps ile işlevler.
 
-> [!div class="nextstepaction"] 
+> [!div class="nextstepaction"]
 > [Logic Apps ile tümleşen bir işlev oluşturma](functions-twitter-email.md)
 
-İşlevler hakkında daha fazla bilgi için aşağıdaki konulara bakın:
+İşlevler hakkında daha fazla bilgi için aşağıdaki makalelere bakın:
 
-* [Azure İşlevleri geliştirici başvurusu](functions-reference.md)  
++ [Azure İşlevleri geliştirici başvurusu](functions-reference.md)  
   İşlevleri kodlamak ve tetikleyicileri ve bağlamaları tanımlamak için programcı başvurusu
-* [Azure İşlevlerini test etme](functions-test-a-function.md)  
++ [Azure İşlevlerini test etme](functions-test-a-function.md)  
   İşlevlerinizi test etmek için çeşitli araçları ve teknikleri açıklar.  

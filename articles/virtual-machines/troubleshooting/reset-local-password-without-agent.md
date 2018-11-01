@@ -11,14 +11,14 @@ ms.service: virtual-machines-windows
 ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 01/25/2018
+ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: a69692d9f50d0362a6b10d3237e1e5448c43baab
-ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
+ms.openlocfilehash: 31e675b101d903af5dd4a07fee3bc56fbc3353d9
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48268725"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50412797"
 ---
 # <a name="reset-local-windows-password-for-azure-vm-offline"></a>Azure VM için çevrimdışı ile yerel Windows parola sıfırlama
 Kullanarak Azure'daki bir sanal makinenin yerel Windows parolasını sıfırlayabilir [Azure portal veya Azure PowerShell](reset-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) sağlanan Azure Konuk Aracısı yüklenir. Bu yöntem, bir Azure sanal makinesi için bir parola sıfırlama için birincil yoludur. Azure Konuk aracısı yanıt vermiyor ile sorunlarla ya da özel bir resim karşıya yüklendikten sonra yüklemek başarısız, el ile yapabilecekleriniz Windows parola sıfırlama. Bu makalede, kaynak işletim sistemi sanal disk başka bir sanal makineye ekleyerek bir yerel hesap parolası sıfırlama işlemi açıklanmaktadır. Bu makalede açıklanan adımları Windows etki alanı denetleyicileri için geçerli değildir. 
@@ -133,7 +133,7 @@ Kullanarak parolalarını sıfırlamak her zaman deneyin [Azure portal veya Azur
      ![Kopyalama-diski-URİ'si](./media/reset-local-password-without-agent/copy_source_vhd_uri.png)
 9. Kaynak sanal makinenin işletim sistemi diskinden VM oluşturma:
    
-   * Kullanım [bu Azure Resource Manager şablonu](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-specialized-vhd-new-or-existing-vnet) özelleştirilmiş bir VHD'den VM oluşturma. Tıklayın `Deploy to Azure` düğmesini sizin için doldurulur şablonlu ayrıntılı Azure portalını açın.
+   * Kullanmak [bu Azure Resource Manager şablonu](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-specialized-vhd-new-or-existing-vnet) özelleştirilmiş bir VHD'den VM oluşturma. Tıklayın `Deploy to Azure` düğmesini sizin için doldurulur şablonlu ayrıntılı Azure portalını açın.
    * VM için tüm önceki ayarları korumak isteyip istemediğinizi seçin *şablonu Düzen* mevcut bir VNet, alt ağ, ağ bağdaştırıcısı veya genel IP sağlamak için.
    * İçinde `OSDISKVHDURI` parametre metin kutusu, yapıştırma kaynağınızı VHD URI'si, önceki adımda elde:
      

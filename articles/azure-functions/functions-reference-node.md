@@ -12,23 +12,24 @@ ms.devlang: nodejs
 ms.topic: reference
 ms.date: 10/26/2018
 ms.author: glenga
-ms.openlocfilehash: 470128344182cc6a06a378a0f4ab75b19e9a646e
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 1918ed664a79a46f25cfc5162a28b311bea29cd8
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50249819"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50740463"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Azure işlevleri JavaScript Geliştirici Kılavuzu
+
 Bu kılavuz, Azure işlevleri ile JavaScript Yazma ayrıntılı olarak incelenmektedir hakkında bilgi içerir.
 
 Dışarı aktarılan bir JavaScript işlevidir `function` tetiklendiğinde çalışır ([Tetikleyiciler içinde function.json yapılandırılmış](functions-triggers-bindings.md)). Her işlev geçirilen ilk bağımsız değişken bir `context` alıcı ve gönderen bağlama verileri, günlüğe kaydetme ve çalışma zamanı ile iletişim kurmak için kullanılan nesne.
 
-Bu makalede, zaten okuduğunuz varsayılır [Azure işlevleri Geliştirici Başvurusu](functions-reference.md). Ayrıca, "Hızlı Başlangıçlar" altındaki bir öğretici uyguladığınız önerilir [ilk işlevinizi oluşturma](functions-create-first-function-vs-code.md).
+Bu makalede, zaten okuduğunuz varsayılır [Azure işlevleri Geliştirici Başvurusu](functions-reference.md). Ayrıca ilk oluşturma işlevler hızlı başlangıcı tamamlamanız gereken kullanarak işlev [Visual Studio Code](functions-create-first-function-vs-code.md) veya [portalında](functions-create-first-azure-function.md).
 
 ## <a name="folder-structure"></a>klasör yapısı
 
-Bir JavaScript proje için gereken klasör yapısı aşağıdaki gibi görünür. Bu varsayılan değiştirilebilir unutmayın: bkz [KomutDosyası](functions-reference-node.md#using-scriptfile) bölümünde daha fazla ayrıntı için.
+Bir JavaScript proje için gereken klasör yapısı aşağıdaki gibi görünür. Bu varsayılan değiştirilebilir. Daha fazla bilgi için [KomutDosyası](#using-scriptfile) bölümüne bakın.
 
 ```
 FunctionsProject
@@ -71,7 +72,10 @@ module.exports = function(context, myTrigger, myInput, myOtherInput) {
 ### <a name="exporting-an-async-function"></a>Bir zaman uyumsuz işlev dışarı aktarma
 JavaScript kullanırken [ `async function` ](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/async_function) bildirim ya da aksi takdirde bir JavaScript döndüren [Promise](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise) (kullanılabilir değil hatasıyla işlevleri v1.x), açıkça çağırmak ihtiyacınız olmayan [ `context.done` ](#contextdone-method) işlevinizi tamamlandığını göstermek için geri çağırma. İşlevinizi, dışarı aktarılan zaman uyumsuz işlev/Promise tamamlandığında da tamamlanır.
 
-Örneğin, tetiklendi ve hemen bir kısayoldur günlüğe kaydeden basit bir işlevi budur.
+Kullanırken [ `async function` ](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/async_function) bildirim veya düz JavaScript [gösterir](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise) sürüm 2.x çalışma zamanı işlevleri değil açıkça çağırmak için size gereken [ `context.done` ](#contextdone-method) işlevinizi tamamlandığını göstermek için geri çağırma. İşlevinizi, dışarı aktarılan zaman uyumsuz işlev/Promise tamamlandığında da tamamlanır. Sürüm 1.x çalışma zamanını hedefleyen işlevler için hala çağırmalısınız [ `context.done` ](#contextdone-method) kodunuz tamamlandığında yürütülüyor.
+
+Aşağıdaki örnek tetiklendi ve hemen bir kısayoldur günlüğe kaydeden basit bir işlevdir.
+
 ``` javascript
 module.exports = async function (context) {
     context.log('JavaScript trigger function processed a request.');
@@ -81,6 +85,7 @@ module.exports = async function (context) {
 Bir zaman uyumsuz işlev verirken almak için bir çıkış bağlaması de yapılandırabilirsiniz `return` değeri. Yalnızca bir çıkış bağlaması varsa, bu önerilir.
 
 Kullanarak bir çıkış atamak `return`, değiştirme `name` özelliğini `$return` içinde `function.json`.
+
 ```json
 {
   "type": "http",
@@ -88,7 +93,9 @@ Kullanarak bir çıkış atamak `return`, değiştirme `name` özelliğini `$ret
   "name": "$return"
 }
 ```
-JavaScript işlev kodunuzu şöyle görünebilir:
+
+Bu durumda, işlevinizi aşağıdaki örnekteki gibi görünmelidir:
+
 ```javascript
 module.exports = async function (context, req) {
     context.log('JavaScript HTTP trigger function processed a request.');
@@ -185,10 +192,11 @@ module.exports = function(ctx) {
 
 ### <a name="contextbindings-property"></a>Context.Bindings özelliği
 
-```
+```js
 context.bindings
 ```
-Tüm girdi ve çıktı verilerini içeren adlandırılmış bir nesne döndürür. Örneğin, aşağıdaki bağlama tanımlar, *function.json* kuyruktan içeriğini erişmenizi sağlar `context.bindings.myInput` ve kullanarak bir kuyruk çıkış atama `context.bindings.myOutput`.
+
+Tüm girdi ve çıktı verilerini içeren adlandırılmış bir nesne döndürür. Örneğin, aşağıdaki bağlama tanımlar, function.json, bir kuyruktan içeriğine erişmek izin `context.bindings.myInput` ve kullanarak bir kuyruk çıkış atama `context.bindings.myOutput`.
 
 ```json
 {
@@ -214,21 +222,23 @@ context.bindings.myOutput = {
         a_number: 1 };
 ```
 
-Çıkış veri bağlama kullanarak tanımlamak seçebileceğinize dikkat edin `context.done` yöntemi yerine `context.binding` nesne (aşağıya bakın).
+Çıkış veri bağlama kullanarak tanımlamak seçebileceğiniz `context.done` yöntemi yerine `context.binding` nesne (aşağıya bakın).
 
 ### <a name="contextbindingdata-property"></a>context.bindingData özelliği
 
-```
+```js
 context.bindingData
 ```
+
 Tetikleyici meta verileri ve işlev çağırma verilerini içeren adlandırılmış bir nesne döndürür (`invocationId`, `sys.methodName`, `sys.utcNow`, `sys.randGuid`). Tetikleyici meta veri örneği için bkz. Bu [event hubs örneği](functions-bindings-event-hubs.md#trigger---javascript-example).
 
 ### <a name="contextdone-method"></a>Context.Done yöntemi
-```
+
+```js
 context.done([err],[propertyBag])
 ```
 
-Kodunuzu bitirdi çalışma zamanı bildirir. İşlevinizi JavaScript kullanıyorsa [ `async function` ](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/async_function) bildirimi (kullanılabilir işlevler sürüm 8 + düğümü kullanan 2.x), kullanın gerekmez `context.done()`. `context.done` Geri çağırma örtük olarak çağrılır.
+Kodunuzu tamamlandığını bilmeniz çalışma zamanının olanak tanır. İşlevinizi kullandığında [ `async function` ](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/async_function) bildirimi gerektirmeyen kullanılacak `context.done()`. `context.done` Geri çağırma örtük olarak çağrılır. Düğüm 8 veya sürümü gerektiren sonraki bir sürümünü kullanılabilen zaman uyumsuz işlevleri işlevler çalışma zamanının 2.x.
 
 İşlevinizi bir zaman uyumsuz işlev değilse **çağırmalısınız** `context.done` çalışma zamanının işlevinizi tamamlandığını bildirmek için. Yürütme zaman aşımına if eksik.
 
@@ -246,9 +256,10 @@ context.done(null, { myOutput: { text: 'hello there, world', noNumber: true }});
 
 ### <a name="contextlog-method"></a>Context.log yöntemi  
 
-```
+```js
 context.log(message)
 ```
+
 Varsayılan izleme düzeyinde akış işlev günlükleri yazmanızı sağlar. Üzerinde `context.log`ek yöntemler günlüğe kaydetme, işlev günlükleri ile diğer izleme düzeylerinde yazmanıza olanak tanıyan kullanılabilir:
 
 
@@ -264,13 +275,14 @@ Aşağıdaki örnek, bir uyarı izleme düzeyini günlüğüne yazar:
 ```javascript
 context.log.warn("Something has happened."); 
 ```
+
 Yapabilecekleriniz [günlüğe kaydetme için izleme düzeyi eşiği yapılandırmak](#configure-the-trace-level-for-console-logging) host.json dosyasında. Günlükleri yazma ile ilgili daha fazla bilgi için bkz: [izleme çıkış yazma](#writing-trace-output-to-the-console) aşağıda.
 
 Okuma [Azure işlevleri izleme](functions-monitoring.md) görüntüleme ve işlev günlükleri sorgulama hakkında daha fazla bilgi edinmek için.
 
 ## <a name="writing-trace-output-to-the-console"></a>İzleme çıktısı konsola yazma 
 
-İşlevleri'nde, kullandığınız `context.log` konsola izleme çıkışını yazmak için yöntemleri. İşlevler'ın v2.x içinde aracılığıyla ouputs izleme `console.log` işlevi uygulama düzeyinde yakalanır. Gelen veren anlamına gelir `console.log` bir belirli bir işlev çağrısı için bağlı değil ve bu nedenle belirli bir işlevin günlüklerini görüntülenmez. Ancak, Application Insights'a yayılması. İşlevleri v1.x içinde kullanamazsınız `console.log` konsola yazma için. 
+İşlevleri'nde, kullandığınız `context.log` konsola izleme çıkışını yazmak için yöntemleri. İşlevler'ın v2.x içinde İzleme çıkışı kullanarak `console.log` işlevi uygulama düzeyinde yakalanır. Gelen veren anlamına gelir `console.log` bir belirli bir işlev çağrısı için bağlı değil ve bu nedenle belirli bir işlevin günlüklerini görüntülenmez. Ancak, Application Insights'a yayılması. İşlevleri v1.x içinde kullanamazsınız `console.log` konsola yazma için.
 
 Çağırdığınızda `context.log()`, iletinizin olduğundan varsayılan izleme düzeyini konsolda yazılan _bilgisi_ izleme düzeyi. Aşağıdaki kod, bilgi izleme düzeyini konsola yazar:
 
@@ -308,12 +320,12 @@ context.log('Request Headers = ', JSON.stringify(req.headers));
 
 ### <a name="configure-the-trace-level-for-console-logging"></a>Konsol günlüğü için izleme düzeyini yapılandırın
 
-İşlevleri şekilde izlemeleri, işlevlerinizden konsoluna yazılan denetim kolaylaştırır konsola yazma için eşik izleme düzeyini tanımlamanıza olanak sağlar. Konsoluna yazılan tüm izlemeleri eşiği ayarlamak için kullanın `tracing.consoleLevel` host.json dosyasındaki özellik. Bu ayar, işlev uygulamanızdaki tüm işlevler için geçerlidir. Aşağıdaki örnek, ayrıntılı günlük kaydını etkinleştirmek için izleme eşiği ayarlar:
+İşlevleri şekilde izlemeleri işlevinizden konsoluna yazılan denetim kolaylaştırır konsola yazma için eşik izleme düzeyini tanımlamanıza olanak sağlar. Konsoluna yazılan tüm izlemeleri eşiği ayarlamak için kullanın `tracing.consoleLevel` host.json dosyasındaki özellik. Bu ayar, işlev uygulamanızdaki tüm işlevler için geçerlidir. Aşağıdaki örnek, ayrıntılı günlük kaydını etkinleştirmek için izleme eşiği ayarlar:
 
 ```json
-{ 
-    "tracing": {      
-        "consoleLevel": "verbose"     
+{
+    "tracing": {
+        "consoleLevel": "verbose"
     }
 }  
 ```
@@ -468,13 +480,14 @@ Uygulama ayarlarını okuma yerel olarak çalıştırılırken [local.settings.j
 
 ## <a name="configure-function-entry-point"></a>İşlev giriş noktası yapılandırma
 
-`function.json` Özellikleri `scriptFile` ve `entryPoint` , dışarı aktarılan işlevin adını ve konumunu yapılandırmak için kullanılabilir. Bunlar, JavaScript transpiled ise önemli olabilir.
+`function.json` Özellikleri `scriptFile` ve `entryPoint` , dışarı aktarılan işlevin adını ve konumunu yapılandırmak için kullanılabilir. Javascript'inizi transpiled olduğunda bu özellikleri önemli olabilir.
 
 ### <a name="using-scriptfile"></a>kullanma `scriptFile`
 
 Bir JavaScript işlevi yürütüldüğü varsayılan olarak, `index.js`, kendi ilişkili olarak aynı üst dizine paylaşan bir dosya `function.json`.
 
-`scriptFile` şuna benzer bir klasör yapısı almak için kullanılabilir:
+`scriptFile` Aşağıdaki örnekteki gibi bir klasör yapısı almak için kullanılabilir:
+
 ```
 FunctionApp
  | - host.json
@@ -488,6 +501,7 @@ FunctionApp
 ```
 
 `function.json` İçin `myNodeFunction` içermelidir bir `scriptFile` çalıştırmak için dışarı aktarılan işlevin dosyasına işaret eden özelliği.
+
 ```json
 {
   "scriptFile": "../lib/nodeFunction.js",
@@ -501,7 +515,8 @@ FunctionApp
 
 İçinde `scriptFile` (veya `index.js`), bir işlevi kullanarak dışarı aktarılmalıdır `module.exports` bulundu ve çalıştırmak için. Varsayılan olarak, bu dosyadaki adlı dışarı aktarma yalnızca dışarı aktarma tetiklendiğinde yürüten işlev olduğundan `run`, veya adlandırılmış dışarı aktarma `index`.
 
-Bu kullanılarak yapılandırılabilir `entryPoint` içinde `function.json`:
+Bu kullanılarak yapılandırılabilir `entryPoint` içinde `function.json`, aşağıdaki örnekte olduğu gibi:
+
 ```json
 {
   "entryPoint": "logFoo",
@@ -511,13 +526,14 @@ Bu kullanılarak yapılandırılabilir `entryPoint` içinde `function.json`:
 }
 ```
 
-İşlevler'ın v2.x içinde destekleyen `this` kullanıcı işlevindeki bir parametre, işlev kodunu ardından olabilir gibi:
+İşlevler'ın v2.x içinde destekleyen `this` kullanıcı işlevindeki bir parametre, işlev kodunu ardından olabilir aşağıdaki örnekte olduğu gibi:
+
 ```javascript
 class MyObj {
     constructor() {
         this.foo = 1;
     };
-    
+
     function logFoo(context) { 
         context.log("Foo is " + this.foo); 
         context.done(); 
@@ -539,15 +555,17 @@ JavaScript işlevleri ile çalışırken, aşağıdaki bölümlerde konuları un
 App Service planını kullanan bir işlev uygulaması oluşturduğunuzda, bir plan ile birden çok Vcpu yerine tek vCPU planı seçmeniz önerilir. Bugün, işlevleri çalışır JavaScript işlevleri daha verimli bir şekilde tek vCPU VM'ler üzerinde ve daha büyük sanal makineleri kullanarak beklenen performans iyileştirmeleri üretmez. Gerektiğinde, el ile daha fazla tek vCPU VM örneği ekleyerek genişletebilir ya da otomatik ölçeklendirmeyi etkinleştirebilirsiniz. Daha fazla bilgi için [örnek sayısını elle veya otomatik olarak ölçeklendirme](../monitoring-and-diagnostics/insights-how-to-scale.md?toc=%2fazure%2fapp-service-web%2ftoc.json).    
 
 ### <a name="typescript-and-coffeescript-support"></a>TypeScript ve CoffeeScript desteği
+
 Doğrudan desteği henüz otomatik derleme TypeScript veya CoffeeScript için çalışma zamanı var olmadığından, dağıtım sırasında çalışma zamanı dışında işlenecek tür desteğini gerekir. 
 
 ### <a name="cold-start"></a>Hazırlıksız başlatma
-Geliştirme Azure işlevleri'nde sunucusuz barındırma modeli, soğuk başladığında gerçeğe var. "Hazırlıksız başlatma" başvuruyor olgusu işlev uygulamanızı belirli bir süre sonra ilk kez başlatıldığında başlatılması uzun sürdüğünü. Büyük bağımlılık ağaçları ile JavaScript işlevleri için özel olarak, bu ana yavaşlama neden olabilir. İşlemi, mümkün olduğunda, hasten için [bir paket dosyası işlevlerinizin çalıştığı](run-functions-from-deployment-package.md). Birçok dağıtım yöntemi, varsayılan olarak bu modele tercih et ancak büyük kaldırmanıza yaşayan yapıyorsanız ve bir paket dosyasından çalışmıyor, bu çok büyük bir geliştirme olabilir.
+
+Geliştirme Azure işlevleri'nde sunucusuz barındırma modeli, soğuk başladığında gerçeğe var. *Hazırlıksız başlatma* olgusu başvuruyor işlev uygulamanızı belirli bir süre sonra ilk kez başlatıldığında başlatılması uzun sürdüğünü. Büyük bağımlılık ağaçları ile JavaScript işlevleri için özellikle hazırlıksız başlatma önemli olabilir. Hazırlıksız başlatma sürecini hızlandırmak için [bir paket dosyası işlevlerinizin çalıştığı](run-functions-from-deployment-package.md) mümkün olduğunda. Paket modeli çalıştırmadan varsayılan olarak birçok dağıtım yöntemlerini kullanmanız, ancak bu değişiklik, büyük kaldırmanıza yaşıyorsanız ve bu şekilde çalışan, önemli bir iyileştirme sunabilir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
+
 Daha fazla bilgi için aşağıdaki kaynaklara bakın:
 
-* [Azure İşlevleri için en iyi uygulamalar](functions-best-practices.md)
-* [Azure İşlevleri geliştirici başvurusu](functions-reference.md)
-* [Azure işlevleri Tetikleyicileri ve bağlamaları](functions-triggers-bindings.md)
-
++ [Azure İşlevleri için en iyi uygulamalar](functions-best-practices.md)
++ [Azure İşlevleri geliştirici başvurusu](functions-reference.md)
++ [Azure işlevleri Tetikleyicileri ve bağlamaları](functions-triggers-bindings.md)

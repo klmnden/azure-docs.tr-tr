@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: hrasheed
-ms.openlocfilehash: 1a1cf731678ef7678b740020a4d61725f9a2b32a
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 9489d6e8780a30c5c54ee307d6c45c4bc2eb0e5d
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50221991"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50419291"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---security-and-devops-best-practices"></a>Azure HDInsight için - güvenlik ve iyi DevOps uygulamalarından şirket içi Apache Hadoop kümelerini geçirme
 
@@ -62,11 +62,11 @@ Daha fazla bilgi için aşağıdaki makalelere bakın:
 
 Son Kurumsal güvenlik sonuna aşağıdaki denetimleri kullanarak gerçekleştirilebilir:
 
-- **Özel ve korumalı veri işlem hattı** (çevre düzeyi güvenlik):
+- **Özel ve korumalı veri işlem hattı (çevre düzeyi güvenlik)**
     - Azure sanal ağları, ağ güvenlik grupları ve ağ geçidi hizmeti çevre düzeyi güvenliği sağlanabilir.
 
 - **Kimlik doğrulaması ve veri erişimi için yetkilendirme**
-    - Azure Active Directory Domain Services'ı kullanarak etki alanına katılmış HDI kümesi oluşturma. (Kurumsal güvenlik paketi)
+    - Azure Active Directory Domain Services'ı kullanarak etki alanına katılmış HDInsight kümesi oluşturma. (Kurumsal güvenlik paketi)
     - AD kullanıcıları için küme kaynakları için rol tabanlı erişim sağlamak için Ambari kullanın
     - Erişim denetimi ilkeleri için Hive tablosunda ayarlamak için Apache Ranger'ı kullanma / sütun / satır düzeyi.
     - Kümeye SSH erişimi yöneticinin yalnızca sınırlı olabilir.
@@ -97,14 +97,14 @@ Daha fazla bilgi için bkz:
 
 Düzenli olarak en son özelliklerden yararlanmak için en son HDInsight sürümüne yükseltin. Aşağıdaki adımlar, kümenin en son sürüme yükseltmek için kullanılabilir:
 
-- En son kullanılabilir HDI sürümü kullanan yeni bir TEST HDI kümesi oluşturun.
-- İşler ve iş yüklerini beklendiği gibi çalıştığından emin olmak için yeni kümede test edin.
-- İşleri veya uygulamalarınız veya iş yükleriniz gerektiği gibi değiştirin.
-- Küme düğümleri üzerinde yerel olarak depolanan tüm geçici verileri yedekleyin.
-- Var olan kümeyi silin.
-- HDInsight en son sürümünün bir küme aynı varsayılan veri ve meta depo önceki küme kullanarak aynı sanal ağ alt ağı oluşturun.
-- Yedeklenen herhangi bir geçici veri içeri aktarın.
-- Başlangıç işleri/yeni küme kullanarak işleme devam edin.
+1. En son kullanılabilir HDInsight sürümünü kullanan yeni bir TEST HDInsight kümesi oluşturun.
+1. İşler ve iş yüklerini beklendiği gibi çalıştığından emin olmak için yeni kümede test edin.
+1. İşleri veya uygulamalarınız veya iş yükleriniz gerektiği gibi değiştirin.
+1. Küme düğümleri üzerinde yerel olarak depolanan tüm geçici verileri yedekleyin.
+1. Var olan kümeyi silin.
+1. HDInsight en son sürümünün bir küme aynı varsayılan veri ve meta depo önceki küme kullanarak aynı sanal ağ alt ağı oluşturun.
+1. Yedeklenen herhangi bir geçici veri içeri aktarın.
+1. Başlangıç işleri/yeni küme kullanarak işleme devam edin.
 
 Daha fazla bilgi için bkz: [yeni bir sürüme yükseltme HDInsight kümesi](../hdinsight-upgrade-cluster.md)
 
@@ -117,132 +117,8 @@ Daha fazla bilgi için bkz: [HDInsight için işletim sistemi düzeltme eki uygu
 ## <a name="post-migration"></a>Geçiş sonrası
 
 1. **Uygulamaları düzeltme** - yinelemeli olarak işler, işlemler ve betikler gerekli değişiklikleri yapın.
-2. **Testleri gerçekleştirmek** - çalıştırmalarınızı işlevsel çalışma ve performans testleri
+2. **Testleri gerçekleştirmek** - çalıştırmalarınızı işlevsel çalışma ve performans testleri.
 3. **En iyi duruma getirme** - yukarıdaki test sonuçlarına göre performans sorunları giderin ve performans iyileştirmeleri onaylamak için yeniden sınayın.
-
-## <a name="appendix-gathering-details-to-prepare-for-a-migration"></a>Ek: bir geçişe hazırlamak için ayrıntıları toplanıyor
-
-Bu bölüm hakkında önemli bilgiler toplamak amacıyla şablon soru sağlar:
-
-- Şirket içi dağıtım.
-- Proje Ayrıntıları.
-- Azure gereksinimleri.
-
-### <a name="on-premises-deployment-questionnaire"></a>Şirket içi dağıtım anketi
-
-| **Soru** | **Örnek** | **Yanıt** |
-|---|---|---|
-|**Konu**: **ortamı**|||
-|Küme dağıtım türü|Hortonworks, Cloudera, MapR| |
-|Küme dağıtım sürümü|2.6.5, CDH 5.7 HDP|
-|Büyük veri ekonomik sistemi bileşenleri|HDFS, Yarn, Hive, LLAP, Impala, Kudu, HBase, Spark, MapReduce, Kafka, Zookeeper, Solr, Sqoop, Oozie, Ranger, Atlas, Falcon, Zeppelin, R|
-|Küme türleri|Hadoop, Spark, Confluent Kafka, Storm, Solr|
-|Küme sayısı|4|
-|Ana düğüm sayısı|2|
-|Çalışan düğümü sayısı|100|
-|Edge düğüm sayısı| 5|
-|Toplam Disk alanı|100 TB|
-|Ana düğüm yapılandırması|m/y, cpu, disk, vs.|
-|Veri düğümleri yapılandırma|m/y, cpu, disk, vs.|
-|Kenar düğümleri yapılandırma|m/y, cpu, disk, vs.|
-|HDFS şifreleme?|Evet|
-|Yüksek Kullanılabilirlik|HDFS HA, HA meta veri deposu|
-|Olağanüstü Durum Kurtarma / yedekleme|Yedekleme kümesi?|  
-|Kümede bağımlı sistemleri|SQL Server, Teradata, Power BI, MongoDB|
-|Üçüncü taraf tümleştirme|Tableau, GridGain Qubole, Informatica, Splunk|
-|**Konu**: **güvenlik**|||
-|Çevre güvenliği|Güvenlik Duvarları|
-|Küme kimlik doğrulaması ve yetkilendirme|Active Directory, Ambari, Cloudera Yöneticisi, kimlik doğrulama yok|
-|HDFS erişim denetimi|  El ile ssh kullanıcıları|
-|Hive kimlik doğrulaması ve yetkilendirme|Sentry, LDAP, Kerberos Ranger AD|
-|Denetim|Ambari, Cloudera Gezgin Ranger|
-|İzleme|Grafit, toplanan statsd, Telegraf, InfluxDB|
-|Uyarı|Datadog Kapacitor, Prometheus,|
-|Veri tutma süresi| 3 yıl, 5 yıl|
-|Küme yöneticileri|Birden çok yöneticisi olan tek yönetici|
-
-### <a name="project-details-questionnaire"></a>Proje Ayrıntıları anketi
-
-|**Soru**|**Örnek**|**Yanıt**|
-|---|---|---|
-|**Konu**: **iş yükleri ve sıklığı**|||
-|MapReduce işleri|10 işleri--günde iki kez||
-|Hive işleri|100 iş--her saat||
-|Spark toplu işler|50 işleri--15 dakikada bir||
-|Spark akış işleri|5 iş--3 dakikada bir||
-|Yapılandırılmış akış işleri|5 iş--dakika başı||
-|ML Model eğitim işleri|bir hafta içerisinde bir kez 2 iş--||
-|Programlama Dilleri|Python, Scala ve Java||
-|Komut dosyaları|Shell, Python||
-|**Konu**: **veri**|||
-|Veri kaynakları|Düz dosyaları, Json, Kafka, RDBMS||
-|Verileri düzenleme|Oozie iş akışları, hava akışı||
-|Bellek arama|Apache Ignite, ignite Redis||
-|Veri hedefleri|HDFS, RDBMS, Kafka, MPP ||
-|**Konu**: **Meta verileri**|||
-|Hive veritabanı türü|MySQL, Postgres||
-|Hayır. Hive meta depolar|2||
-|Hayır. Hive tabloları|100||
-|Hayır. Ranger ilkeleri|20||
-|Hayır. Oozie iş akışları|100||
-|**Konu**: **ölçek**|||
-|Çoğaltma dahil olmak üzere veri hacmi|100 TB||
-|Günlük alımı hacmi|50 GB||
-|Veri büyüme oranı|yıl başına %10||
-|Küme düğümleri büyüme oranı|%5 yılda
-|**Konu**: **küme kullanımı**|||
-|Ortalama CPU yüzdesi|60%||
-|Ortalama bellek yüzdesi|% 75||
-|Kullanılan disk alanı|% 75||
-|Ortalama ağ yüzdesi|%25
-|**Konu**: **ekibi**|||
-|Hayır. Yöneticileri|2||
-|Hayır. Geliştiriciler|10||
-|Hayır. Son kullanıcıları|100||
-|Beceriler|Hadoop, Spark||
-|Hayır. Geçiş çalışmalarında kullanılabilir kaynakları|2||
-|**Konu**: **sınırlamaları**|||
-|Geçerli sınırlamalar|Gecikmesi||
-|Geçerli zorlukları|Eşzamanlılık sorunu||
-
-### <a name="azure-requirements-questionnaire"></a>Azure gereksinimleri anketi
-
-|**Konu**: **altyapı** |||
-|---|---|---|
-|**Soru**|**Örnek**|**Yanıt**|
-| Tercih edilen bölge|ABD Doğu||
-|Tercih edilen VNet?|Evet||
-|HA / DR gerekli?|Evet||
-|Diğer bulut hizmetleriyle tümleştirme?|ADF, CosmosDB||
-|**Konu**: **veri taşıma**  |||
-|İlk yükleme tercihi|DistCp, veri, ADF, WANDisco kutusu||
-|Veri aktarımı değişim|DistCp, AzCopy||
-|Sürekli artımlı veri aktarımı|DistCp, Sqoop||
-|**Konu**: **izleme ve uyarı** |||
-|Azure izleme ve uyarı Vs tümleştirme üçüncü taraf izleme kullanın|İzleme ve uyarı Azure kullanın||
-|**Konu**: **güvenlik tercihleri** |||
-|Özel ve korumalı veri işlem hattı?|Evet||
-|Etki alanına katılmış kümeye (ESPP)?|     Evet||
-|Böylece, şirket içinde AD eşitleme buluta?|     Evet||
-|Hayır. AD kullanıcıları eşitleme?|          100||
-|Bulut için parola eşitlemeyi Tamam?|    Evet||
-|Kullanıcılar yalnızca bulut?|                 Evet||
-|MFA gerekli?|                       Hayır|| 
-|Veri yetkilendirme gereksinimleri var mı?|  Evet||
-|Rol tabanlı erişim denetimi?|        Evet||
-|Denetim gerekli?|                  Evet||
-|Bekleyen verileri şifreleme?|          Evet||
-|Aktarımdaki verileri şifreleme?|       Evet||
-|**Konu**: **Re mimarisi tercihleri** |||
-|Tek küme vs belirli küme türlerinin|Belirli küme türlerinin||
-|Birlikte bulunan depolama Vs Uzak Depolama?|Uzaktaki Depolama Birimi||
-|Veri olarak daha küçük bir küme boyutu uzaktan depolanır?|Daha küçük bir küme boyutu||
-|Tek bir büyük küme yerine birden çok daha küçük bir küme kullanılır?|Birden çok daha küçük bir küme kullanın||
-|Uzak meta veri deposu kullanabilir?|Evet||
-|Paylaşım meta depolar farklı sunucular arasında?|Evet||
-|İş yükleri Ayrıştır?|Spark işlerinde Hive işlerini değiştirin||
-|ADF veri düzenlemesi için kullanılır?|Hayır||
-|HDI vs Iaas HDP?|HDI||
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

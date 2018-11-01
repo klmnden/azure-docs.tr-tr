@@ -12,12 +12,12 @@ ms.devlang: java
 ms.topic: article
 ms.date: 08/29/2018
 ms.author: routlaw
-ms.openlocfilehash: 1639194741fb343391f80790d0a2cc7f392218ac
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: f07d830e90045c11d870a921d091b45de6d2a89b
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50238124"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50418543"
 ---
 # <a name="java-developers-guide-for-app-service-on-linux"></a>Linux'ta App Service için Java Geliştirici Kılavuzu
 
@@ -235,7 +235,7 @@ Paylaşılan sunucu düzeyinde kaynaklar için:
 
 ## <a name="docker-containers"></a>Docker kapsayıcıları
 
-Azure tarafından desteklenen Zulu JDK kapsayıcılarınızı içinde kullanmak için çekme ve listelenen önceden oluşturulmuş görüntüleri kullanmayı emin olun [Azul'ın indirme sayfası](https://www.azul.com/downloads/azure-only/zulu/#docker) veya `Dockerfile` örneklerden [Microsoft Java GitHub deposu](https://github.com/Microsoft/java/tree/master/docker).
+Azure tarafından desteklenen Zulu JDK kapsayıcılarınızı içinde kullanmak için çekme ve gelen belgelendiği gibi önceden oluşturulmuş görüntüleri kullanmayı emin olun [Azul Zulu Enterprise Azure indirme sayfası için desteklenen](https://www.azul.com/downloads/azure-only/zulu/) veya `Dockerfile` örneklerden[Microsoft Java GitHub deposu](https://github.com/Microsoft/java/tree/master/docker).
 
 ## <a name="runtime-availability-and-statement-of-support"></a>Çalışma zamanı kullanılabilirlik ve Destek bildirimi
 

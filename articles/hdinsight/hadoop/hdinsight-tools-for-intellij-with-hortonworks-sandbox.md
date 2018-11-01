@@ -10,12 +10,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: jasonh
-ms.openlocfilehash: 9e87392ad7730571b973dbec809f64487eefa849
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 02adeb46ad7533f3668f5a46ffc19b6ce5b86b6f
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43048600"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50420736"
 ---
 # <a name="use-hdinsight-tools-for-intellij-with-hortonworks-sandbox"></a>Hortonworks korumalı alanı ile Intellij için HDInsight araçları kullanma
 
@@ -31,7 +31,7 @@ Bu öğreticiye başlamadan önce aşağıdaki öğelere sahip olmanız gerekir:
     > [!NOTE]
     > Intellij için HDInsight araçları yalnızca HDP 2.4 ile test edilmiştir. HDP 2.4 almak için genişletin **Hortonworks Sandbox arşiv** üzerinde [Hortonworks korumalı alanı site yüklemeleri](http://hortonworks.com/downloads/#sandbox).
 
-- [Java Developer Kit (JDK) 1.8 veya sonraki bir sürümü](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html). Intellij için Azure araç seti, JDK gerektirir.
+- [Java Developer Kit (JDK) 1.8 veya sonraki bir sürümü](https://aka.ms/azure-jdks). Intellij için Azure araç seti, JDK gerektirir.
 
 - [Intellij Idea community edition](https://www.jetbrains.com/idea/download) ile [Scala](https://plugins.jetbrains.com/idea/plugin/1347-scala) eklenti ve [Intellij için Azure Araç Seti](https://docs.microsoft.com/java/azure/intellij/azure-toolkit-for-intellij) eklenti. Intellij için HDInsight araçları, Intellij için Azure Araç Seti parçası olarak. 
 

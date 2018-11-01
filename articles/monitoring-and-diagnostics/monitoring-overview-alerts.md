@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: robb
 ms.component: alerts
-ms.openlocfilehash: 7565c536b5d24c859b164a960f74bd1e2ce97b63
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: f044cf7e0b614d338ec9b294dfbf02c26c4351b1
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46960643"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50413869"
 ---
 # <a name="overview-of-alerts-in-microsoft-azure"></a>Microsoft azure'da uyarılara genel bakış 
 
@@ -23,7 +23,7 @@ Bu makalede, hangi, avantajları, uyarılar ve bunları kullanmaya başlamak nas
 ## <a name="what-are-alerts-in-microsoft-azure"></a>Microsoft azure'da uyarılar nedir?
 Uyarılar önemli olduğunda koşulları izleme verilerinizi bulunan proaktif olarak size bildirir. Sorunları tanımlamanıza ve sisteminizin kullanıcılar bunları fark önce ele olanak sağlar. 
 
-Bu makalede, birleştirilmiş uyarı deneyimi artık Log Analytics ve Application Insights'ı içeren Azure İzleyici'de açıklanmaktadır. [Önceki uyarı deneyimi](monitoring-overview-alerts.md)ve uyarı türleri çağrılır **Klasik uyarılar**. Bu eski deneyimi ve eski uyarı türü tıklayarak görüntüleyebilirsiniz **Klasik uyarıları görüntüleyip** uyarı sayfanın üstünde. 
+Bu makalede, birleştirilmiş uyarı deneyimi artık Log Analytics ve Application Insights'ı içeren Azure İzleyici'de açıklanmaktadır. [Önceki uyarı deneyimi](monitoring-overview-alerts.md) ve uyarı türleri çağrılır **Klasik uyarılar**. Bu eski deneyimi ve eski uyarı türü tıklayarak görüntüleyebilirsiniz **Klasik uyarıları görüntüleyip** uyarı sayfanın üstünde.
 
 
 ## <a name="overview"></a>Genel Bakış
@@ -70,7 +70,7 @@ Bölümünde anlatıldığı gibi ölçüm ve günlükleri üzerinde uyarabilir 
 
 Bir uyarının durumunu izleme koşulu farklıdır. Uyarı durumu kullanıcı tarafından ayarlanan ve izleme koşulu bağımsızdır. Tetiklenme uyarı için altta yatan durumun temizlediğinde, uyarı için izleme koşulu çözümlenen ayarlanır. Sistem izleme koşulu çözülmüş olsa da, uyarı durumu kullanıcı değiştirmediği kadar değiştirilmez. Bilgi [uyarılar ve akıllı grupları durumunu değiştirme](https://aka.ms/managing-alert-smart-group-states).
 
-## <a name="smart-groups"></a>Akıllı grupları 
+## <a name="smart-groups"></a>Akıllı gruplar 
 Akıllı grupları Önizleme aşamasındadır. 
 
 Yardımcı olan makine öğrenimi algoritmalarıyla bağlı uyarılar toplamalarının uyarı gürültüsünü azaltmak ve trouble-shooting içinde yardımcı bunun akıllı gruplarıdır. [Akıllı grupları hakkında daha fazla bilgi](https://aka.ms/smart-groups) ve [akıllı gruplarınızı yönetmek nasıl](https://aka.ms/managing-smart-groups).
@@ -95,9 +95,9 @@ Başka bir sayfasını açmak için uyarılar sayfasında üstüne aşağıdaki 
 
 | Değer | Açıklama |
 |:---|:---|
-| Toplam uyarı | Seçilen ölçütlerle eşleşen uyarılar toplam sayısı. Bu değer ile filtre tüm uyarılar görünümünü açmak için seçin. |
-| Akıllı grupları | Seçilen ölçütlerle eşleşen uyarılardan oluşturulan akıllı grupları toplam sayısı. Tüm uyarılar Görünümü'nde akıllı grupları listesini açmak için bu değeri seçin.
-| Toplam uyarı kuralı | Uyarı kuralları seçili abonelik ve kaynak grubunda toplam sayısı. Seçili abonelikte ve kaynak grubu üzerinde filtre kuralları görünümünü açmak için bu değeri seçin.
+| Toplam uyarı sayısı | Seçilen ölçütlerle eşleşen uyarılar toplam sayısı. Bu değer ile filtre tüm uyarılar görünümünü açmak için seçin. |
+| Akıllı gruplar | Seçilen ölçütlerle eşleşen uyarılardan oluşturulan akıllı grupları toplam sayısı. Tüm uyarılar Görünümü'nde akıllı grupları listesini açmak için bu değeri seçin.
+| Toplam uyarı kuralı sayısı | Uyarı kuralları seçili abonelik ve kaynak grubunda toplam sayısı. Seçili abonelikte ve kaynak grubu üzerinde filtre kuralları görünümünü açmak için bu değeri seçin.
 
 
 ## <a name="manage-alert-rules"></a>Uyarı kurallarını yönetin

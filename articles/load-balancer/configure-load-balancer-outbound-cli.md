@@ -4,8 +4,6 @@ description: Bu makalede, Azure CLI kullanarak nasıl standart yük dengeleyici 
 services: load-balancer
 documentationcenter: na
 author: KumudD
-manager: jpconnock
-tags: azure-resource-manager
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
@@ -13,16 +11,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: kumud
-ms.openlocfilehash: a6d442452fe5ffc61648b3c004c03f1756f8f57e
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 0759b6a8e3deb9bc1d04e41598e4eef9304ecd83
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47160664"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50416418"
 ---
 # <a name="configure-load-balancing-and-outbound-rules-in-standard-load-balancer-using-azure-cli"></a>Standart yük Azure CLI kullanarak dengeleyici Yük Dengeleme ve giden kuralları yapılandırma
 
-Bu hızlı başlangıçta Azure CLI kullanarak standart yük dengeleyici giden kuralları nasıl yapılandırılacağını gösterir.  
+Bu hızlı başlangıçta Azure CLI kullanarak nasıl standart yük dengeleyici giden kuralları yapılandırılacağını gösterir.  
 
 İşiniz bittiğinde, yük dengeleyici kaynağı iki ön uçlar ve bunlarla ilişkili kurallar içeriyor: için bir gelen ve giden.  Her ön uç genel IP adresi ve bu senaryo kullanır, farklı bir genel IP adresi için gelen ve giden bir başvuru içeriyor.   Yük Dengeleme kuralını yalnızca gelen Yük Dengeleme sağlar ve giden NAT VM için sağlanan giden kuralı denetler.
 
@@ -63,7 +61,7 @@ Web uygulamanıza İnternet’ten erişmek için yük dengeleyicinin genel IP ad
 
 ## <a name="create-outbound-public-ip-address"></a>Giden genel IP adresi oluşturma 
 
-Load Balancer'ın ön uç giden yapılandırması için bir standart IP adresi oluşturma [az network public-IP oluşturma](https://docs.microsoft.com/cli/azure/network/public-ip#create) adlı *mypublicipoutbound* içinde *myresourcegroupoutbound*.
+Load Balancer'ın ön uç giden yapılandırmasını kullanmak için standart IP adresi oluşturma [az network public-IP oluşturma](https://docs.microsoft.com/cli/azure/network/public-ip#create).
 
 ```azurecli-interactive
   az network public-ip create --resource-group myresourcegroupoutbound --name mypublicipoutbound --sku standard
@@ -81,7 +79,7 @@ Bu bölümde yük dengeleyicinin aşağıdaki bileşenlerini nasıl oluşturabil
 
 ### <a name="create-load-balancer"></a>Yük Dengeleyici oluşturma
 
-Gelen IP adresi kullanarak bir yük dengeleyici oluşturma [az ağ lb oluşturma](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest#create) adlı *lb* adlı gelen ön uç IP yapılandırması içeren *myfrontendinbound*, adlı bir arka uç havuzu *bepool* genel IP adresiyle ilişkili *mypublicipinbound* , önceki adımda oluşturduğunuz.
+Gelen IP adresi kullanarak bir yük dengeleyici oluşturma [az ağ lb oluşturma](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest#create) adlı *lb* içeren bir gelen ön uç IP yapılandırmasını ve genel IP adresi ile ilişkili olan bir arka uç havuzu *mypublicipinbound* , önceki adımda oluşturduğunuz.
 
 ```azurecli-interactive
   az network lb create \

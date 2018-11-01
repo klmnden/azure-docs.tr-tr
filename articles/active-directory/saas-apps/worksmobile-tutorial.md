@@ -8,19 +8,18 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: 725f32fd-d0ad-49c7-b137-1cc246bf85d7
 ms.service: active-directory
-ms.component: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2018
+ms.date: 10/30/2018
 ms.author: jeedes
-ms.openlocfilehash: 907cec2784b4ad22555f6b29efb6d670ce7d48d0
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 0437bd46537d8b7024618706aba12660abca5512
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39443656"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50414701"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-line-works"></a>Öğretici: Azure Active Directory Tümleştirme ile satır ÇALIŞIR
 
@@ -38,7 +37,7 @@ Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek ist
 
 Azure AD Tümleştirmesi ile satır ÇALIŞIR yapılandırmak için aşağıdaki öğeler gerekir:
 
-- Azure AD aboneliğiniz
+- Azure AD aboneliği
 - Abonelik satırı WORKS çoklu oturum açma etkin
 
 > [!NOTE]
@@ -53,28 +52,28 @@ Bu öğreticideki adımları test etmek için bu önerileri izlemelidir:
 Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide özetlenen senaryo iki temel yapı taşları oluşur:
 
 1. Satır WORKS galeri ekleme
-1. Yapılandırma ve test Azure AD çoklu oturum açma
+2. Yapılandırma ve test Azure AD çoklu oturum açma
 
 ## <a name="adding-line-works-from-the-gallery"></a>Satır WORKS galeri ekleme
 Azure AD'de satır WORKS tümleştirmesini yapılandırmak için satır WORKS Galeriden yönetilen SaaS uygulamaları listesine eklemeniz gerekir.
 
 **Galeriden satırı WORKS eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde  **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
+1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
 
-    ![Azure Active Directory düğmesi][1]
+    ![image](./media/worksmobile-tutorial/selectazuread.png)
 
-1. Gidin **kurumsal uygulamalar**. Ardından **tüm uygulamaları**.
+2. Gidin **kurumsal uygulamalar**. Ardından **tüm uygulamaları**.
 
-    ![Kurumsal uygulamalar dikey penceresi][2]
+    ![image](./media/worksmobile-tutorial/a_select_app.png)
     
-1. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmındaki düğmesi.
+3. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmındaki düğmesi.
 
-    ![Yeni Uygulama düğmesi][3]
+    ![image](./media/worksmobile-tutorial/a_new_app.png)
 
-1. Arama kutusuna **satırı ÇALIŞIR**seçin **satır WORKS** sonucu panelinden ardından **Ekle** uygulama eklemek için Ekle düğmesine.
+4. Arama kutusuna **satırı ÇALIŞIR**seçin **satır WORKS** sonucu panelinden ardından **Ekle** uygulama eklemek için Ekle düğmesine.
 
-    ![Sonuçlar listesinde satır ÇALIŞIR](./media/worksmobile-tutorial/tutorial_lineworks_addfromgallery.png)
+     ![image](./media/worksmobile-tutorial/tutorial_lineworks_addfromgallery.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Yapılandırma ve Azure AD çoklu oturum açmayı test etme
 
@@ -82,15 +81,13 @@ Bu bölümde, yapılandırma ve Azure AD çoklu oturum açma "Britta Simon" adl�
 
 Tek çalışmak için oturum açma için Azure AD ne satır işe karşılık gelen kullanıcı için bir kullanıcı Azure AD'de olduğunu bilmeniz gerekir. Diğer bir deyişle, bir Azure AD kullanıcısı ve ilgili kullanıcı satır geliştirilme arasında bir bağlantı ilişki kurulması gerekir.
 
-Değeri satır ÇALIŞIR, Ata **kullanıcı adı** değerini Azure AD'de **kullanıcıadı** bağlantı kurmak için.
-
 Yapılandırma ve Azure AD çoklu oturum açma ile satır ÇALIŞIR test etmek için aşağıdaki yapı taşlarını tamamlanması gerekir:
 
 1. **[Azure AD çoklu oturum açmayı yapılandırmayı](#configure-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
-1. **[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
-1. **[Satır WORKS test kullanıcısı oluşturma](#create-a-line-works-test-user)**  - kullanıcı Azure AD gösterimini bağlı satırı geliştirilme Britta simon'un bir karşılığı vardır.
-1. **[Azure AD test kullanıcı atama](#assign-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
-1. **[Çoklu oturum açmayı test](#test-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
+2. **[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
+3. **[Satır WORKS test kullanıcısı oluşturma](#create-a-line-works-test-user)**  - kullanıcı Azure AD gösterimini bağlı satırı geliştirilme Britta simon'un bir karşılığı vardır.
+4. **[Azure AD test kullanıcı atama](#assign-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
+5. **[Çoklu oturum açmayı test](#test-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırın
 
@@ -98,132 +95,109 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve s
 
 **Azure AD çoklu oturum açma ile satır ÇALIŞIR yapılandırmak için aşağıdaki adımları gerçekleştirin:**
 
-1. Azure portalında, üzerinde **satır WORKS** uygulama tümleştirme sayfası, tıklayın **çoklu oturum açma**.
+1. İçinde [Azure portalında](https://portal.azure.com/), **satır WORKS** uygulama tümleştirme sayfasında **çoklu oturum açma**.
 
-    ![Çoklu oturum açma bağlantısı yapılandırma][4]
+    ![image](./media/worksmobile-tutorial/b1_b2_select_sso.png)
 
-1. Üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** çoklu oturum açmayı etkinleştirmek için.
- 
-    ![Çoklu oturum açma iletişim kutusu](./media/worksmobile-tutorial/tutorial_lineworks_samlbase.png)
+2. Üzerinde **tek bir oturum açma yönteminizi seçmeniz** iletişim kutusunu tıklatın **seçin** için **SAML** modu, çoklu oturum açmayı etkinleştirmek için.
 
-1. Üzerinde **satır ÇALIŞTIĞI etki alanı ve URL'ler** bölümünde, aşağıdaki adımları gerçekleştirin:
+    ![image](./media/worksmobile-tutorial/b1_b2_saml_sso.png)
 
-    ![Oturum açma bilgileri tek bir satır ÇALIŞTIĞI etki alanı ve URL'ler](./media/worksmobile-tutorial/tutorial_lineworks_url.png)
+3. Üzerinde **yukarı çoklu oturum açma SAML ile ayarlanmış** sayfasında **Düzenle** açmak için düğmeyi **temel SAML yapılandırma** iletişim.
 
-    a. İçinde **oturum açma URL'si** metin kutusuna bir URL şu biçimi kullanarak: `https://auth.worksmobile.com/d/login/{domain}/?userId={ID@domain}`
+    ![image](./media/worksmobile-tutorial/b1-domains_and_urlsedit.png)
 
-    b. İçinde **tanımlayıcı** metin değeri yazın: `worksmobile.com`
+4. Üzerinde **temel SAML yapılandırma** bölümünde, aşağıdaki adımları gerçekleştirin:
 
-    > [!NOTE] 
-    > Bu değer, gerçek değil. Bu değer, gerçek oturum açma URL'si ile güncelleştirin. İlgili kişi [satır WORKS istemci Destek ekibine](mailto:dl_ssoinfo@worksmobile.com) bu değeri alınamıyor.
+    a. İçinde **oturum açma URL'si** metin kutusuna şu biçimi kullanarak bir URL yazın: `https://auth.worksmobile.com/d/login/<domain>/?userId=<ID@domain>`
 
-1. Üzerinde **SAML imzalama sertifikası** bölümünde **Certificate(Raw)** ve bilgisayarınızdaki sertifika dosyasını kaydedin.
+    b. İçinde **tanımlayıcı** metin kutusuna bir URL yazın: `worksmobile.com`
 
-    ![Sertifika indirme bağlantısı](./media/worksmobile-tutorial/tutorial_lineworks_certificate.png) 
+    ![image](./media/worksmobile-tutorial/tutorial_lineworks_url.png)
 
-1. Tıklayın **Kaydet** düğmesi.
+5. Üzerinde **yukarı çoklu oturum açma SAML ile ayarlanmış** sayfasında **SAML imzalama sertifikası** bölümünde **indirme** indirmek için **sertifika (ham)** ve bilgisayarınıza kaydedin.
 
-    ![Çoklu oturum açma Kaydet düğmesi yapılandırın](./media/worksmobile-tutorial/tutorial_general_400.png)
+    ![image](./media/worksmobile-tutorial/tutorial_lineworks_certficate.png)
 
-1. Üzerinde **hat WORKS Yapılandırması** bölümünde **yapılandırma satır WORKS** açmak için **yapılandırma oturum açma** penceresi. Kopyalama **oturum kapatma URL'si, SAML varlık kimliği ve SAML çoklu oturum açma hizmeti URL'si** gelen **hızlı başvuru bölümü.**
+6. Üzerinde **satır kümesinin** bölümünde, ihtiyacınıza göre uygun URL'yi kopyalayın.
 
-    ![Satır WORKS yapılandırma](./media/worksmobile-tutorial/tutorial_lineworks_configure.png) 
+    a. Oturum Açma URL'si:
 
-1. Çoklu oturum açmayı yapılandırmak için **satır WORKS** tarafı, indirilen göndermek için ihtiyacınız **sertifika dosyası, oturum kapatma URL'si, SAML varlık kimliği ve SAML çoklu oturum açma hizmeti URL'si** için [satırı WORKS desteği Takım](mailto:dl_ssoinfo@worksmobile.com). Bunlar, her iki kenarı da düzgün ayarlandığından SAML SSO bağlantı sağlamak için bu ayarı ayarlayın.
+    b. Azure AD Tanımlayıcısı
 
-> [!TIP]
-> İçindeki bu yönergeleri kısa bir sürümünü artık okuyabilir [Azure portalında](https://portal.azure.com), uygulamayı hazırlama ayarladığınız sırada!  Bu uygulamadan ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, tıklamanız yeterlidir **çoklu oturum açma** aracılığıyla katıştırılmış belgelere erişebilir ve sekmesinde  **Yapılandırma** alttaki bölümü. Daha fazla bilgi edinebilirsiniz embedded belgeleri özelliği hakkında: [Azure AD'ye embedded belgeleri]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
+    c. Oturum Kapatma URL'si
+
+    ![image](./media/worksmobile-tutorial/d1_samlsonfigure.png) 
+
+7. Çoklu oturum açmayı yapılandırmak için **satır WORKS** yan okuyun, [satır WORKS SSO belgeleri](https://developers.worksmobile.com/jp/document/1001080101) satır WORKS ayarını yapılandırın.
+
+> [!NOTE]
+> İndirilen sertifika dosyası, .cert .pem için dönüştürmeniz gerekir
+
 
 ### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
 
 Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcısı oluşturmaktır.
 
-   ![Bir Azure AD test kullanıcısı oluşturma][100]
+1. Azure portalında, sol bölmede seçin **Azure Active Directory**seçin **kullanıcılar**ve ardından **tüm kullanıcılar**.
 
-**Azure AD'de bir test kullanıcısı oluşturmak için aşağıdaki adımları gerçekleştirin:**
+    ![image](./media/worksmobile-tutorial/d_users_and_groups.png)
 
-1. Azure portalında, sol bölmede, tıklayın **Azure Active Directory** düğmesi.
+2. Seçin **yeni kullanıcı** ekranın üstünde.
 
-    ![Azure Active Directory düğmesi](./media/worksmobile-tutorial/create_aaduser_01.png)
+    ![image](./media/worksmobile-tutorial/d_adduser.png)
 
-1. Kullanıcıların listesini görüntülemek için Git **kullanıcılar ve gruplar**ve ardından **tüm kullanıcılar**.
+3. Kullanıcı özellikleri, aşağıdaki adımları gerçekleştirin.
 
-    !["Kullanıcılar ve Gruplar" ve "Tüm kullanıcılar" bağlantıları](./media/worksmobile-tutorial/create_aaduser_02.png)
+    ![image](./media/worksmobile-tutorial/d_userproperties.png)
 
-1. Açmak için **kullanıcı** iletişim kutusu, tıklayın **Ekle** en üstündeki **tüm kullanıcılar** iletişim kutusu.
+    a. İçinde **adı** alana **BrittaSimon**.
+  
+    b. İçinde **kullanıcı adı** alan türü **brittasimon@yourcompanydomain.extension**  
+    Örneğin, BrittaSimon@contoso.com
 
-    ![Ekle düğmesi](./media/worksmobile-tutorial/create_aaduser_03.png)
+    c. Seçin **özellikleri**seçin **Show parola** onay kutusunu işaretleyin ve ardından parola kutusunda görüntülenen değeri yazın.
 
-1. İçinde **kullanıcı** iletişim kutusunda, aşağıdaki adımları gerçekleştirin:
-
-    ![Kullanıcı iletişim kutusu](./media/worksmobile-tutorial/create_aaduser_04.png)
-
-    a. İçinde **adı** kutusuna **BrittaSimon**.
-
-    b. İçinde **kullanıcı adı** Britta Simon kullanıcı e-posta adresini yazın.
-
-    c. Seçin **Göster parola** onay kutusunu işaretleyin ve ardından görüntülenen değeri yazın **parola** kutusu.
-
-    d. **Oluştur**’a tıklayın.
+    d. **Oluştur**’u seçin.
  
 ### <a name="create-a-line-works-test-user"></a>Satır WORKS test kullanıcısı oluşturma
 
-Bu bölümde, Britta Simon satırı WORKS adlı bir kullanıcı oluşturun. Lütfen birlikte çalışarak [satır WORKS Destek ekibine](mailto:dl_ssoinfo@worksmobile.com) satır WORKS platform kullanıcıları eklemek için.
+Bu bölümde, Britta Simon satırı WORKS adlı bir kullanıcı oluşturun. Erişim [satır WORKS Yönetim sayfası](https://admin.worksmobile.com) ve satır WORKS platform kullanıcıları ekleyin.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atayın
 
 Bu bölümde, satır ÇALIŞTIĞI için erişim izni verdiğinizde, Azure çoklu oturum açma kullanılacak Britta Simon etkinleştirin.
 
-![Kullanıcı rolü atayın][200] 
+1. Azure portalında **kurumsal uygulamalar**seçin **tüm uygulamaları**.
 
-**Britta Simon satırı çalışıyor atamak için aşağıdaki adımları gerçekleştirin:**
+    ![image](./media/worksmobile-tutorial/d_all_applications.png)
 
-1. Azure portalında uygulama görünümü açtığınız dizin görünümüne gidin ve Git **kurumsal uygulamalar** ardından **tüm uygulamaları**.
+2. Uygulamalar listesinde **satır WORKS**.
 
-    ![Kullanıcı Ata][201] 
+    ![image](./media/worksmobile-tutorial/tutorial_lineworks_app.png)
 
-1. Uygulamalar listesinde **satır WORKS**.
+3. Soldaki menüde **kullanıcılar ve gruplar**.
 
-    ![Uygulamalar listesinde satır WORKS bağlantı](./media/worksmobile-tutorial/tutorial_lineworks_app.png)  
+    ![image](./media/worksmobile-tutorial/d_leftpaneusers.png)
 
-1. Soldaki menüde **kullanıcılar ve gruplar**.
+4. Seçin **Ekle** düğmesine ve ardından **kullanıcılar ve gruplar** içinde **atama Ekle** iletişim.
 
-    !["Kullanıcılar ve Gruplar" bağlantısı][202]
+    ![image](./media/worksmobile-tutorial/d_assign_user.png)
 
-1. Tıklayın **Ekle** düğmesi. Ardından **kullanıcılar ve gruplar** üzerinde **atama Ekle** iletişim.
+4. İçinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** 'a tıklayın kullanıcı listesinde **seçin** ekranın alt kısmındaki düğmesi.
 
-    ![Atama Ekle bölmesi][203]
-
-1. Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** kullanıcıları listesinde.
-
-1. Tıklayın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.
-
-1. Tıklayın **atama** düğmesini **atama Ekle** iletişim.
+5. İçinde **atama Ekle** iletişim kutusunda **atama** düğmesi.
     
 ### <a name="test-single-sign-on"></a>Çoklu oturum açma testi
 
 Bu bölümde, erişim panelini kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
 
 Erişim panelinde satırı WORKS kutucuğa tıkladığınızda, otomatik olarak satır WORKS uygulamanıza açan.
-Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](../user-help/active-directory-saas-access-panel-introduction.md). 
+Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](../active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
 * [SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi](tutorial-list.md)
 * [Azure Active Directory ile uygulama erişimi ve çoklu oturum açma özellikleri nelerdir?](../manage-apps/what-is-single-sign-on.md)
 
-<!--Image references-->
-
-[1]: ./media/lineworks-tutorial/tutorial_general_01.png
-[2]: ./media/lineworks-tutorial/tutorial_general_02.png
-[3]: ./media/lineworks-tutorial/tutorial_general_03.png
-[4]: ./media/lineworks-tutorial/tutorial_general_04.png
-
-[100]: ./media/lineworks-tutorial/tutorial_general_100.png
-
-[200]: ./media/lineworks-tutorial/tutorial_general_200.png
-[201]: ./media/lineworks-tutorial/tutorial_general_201.png
-[202]: ./media/lineworks-tutorial/tutorial_general_202.png
-[203]: ./media/lineworks-tutorial/tutorial_general_203.png
 

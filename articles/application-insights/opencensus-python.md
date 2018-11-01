@@ -9,12 +9,12 @@ ms.date: 09/18/2018
 ms.service: application-insights
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: c9f14664ca035b3de1af80ca3101c22751c83237
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 7507cdd7f3967dc132eecf81de347f2da791487f
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46963654"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50414990"
 ---
 # <a name="collect-distributed-traces-from-python-preview"></a>Python'dan (Önizleme) dağıtılmış izlemeleri toplamak
 
@@ -22,7 +22,7 @@ Application Insights artık Python uygulamaları ile tümleştirme yoluyla izlem
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-- Bir Azure aboneliği gerekir.
+- Bir Azure Aboneliğine sahip olmanız gerekir.
 - Bu makalede, Python yüklenmesi [Python 3.7.0](https://www.python.org/downloads/), ancak önceki sürümleri ile küçük düzeltme çalışma olasılığı yüksektir.
 - Yüklemek için yönergeleri izleyin [bir Windows hizmeti olarak yerel ileticisi](./opencensus-local-forwarder.md#windows-service)
 
@@ -180,7 +180,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz](https://azure.microsoft.
 
     Biz yalnızca bir yöntem çağrısının izleme olduğundan, bizim Uygulama Haritası olarak ilginç değil. Ancak, Uygulama Haritası daha dağıtılmış uygulamalar görselleştirmek için ölçeklendirebilirsiniz:
 
-   ![Uygulama Eşlemesi](./media/app-insights-nodejs-quick-start/application-map.png)
+   ![Uygulama Eşlemesi](media/opencensus-python/application-map.png)
 
 4. Seçin **araştırmak performans** ayrıntılı Performans Analizi gerçekleştirebilir ve performansın kök nedenini belirlemek için.
 

@@ -8,12 +8,12 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 07/10/2017
 ms.author: dobett
-ms.openlocfilehash: 1b49303588c785af149bfc5656bccdbab5216249
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: 18e52fc9d924e4e9a12e6f8e5fb426c2b1f7f4cf
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49376473"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50417285"
 ---
 # <a name="schedule-and-broadcast-jobs-java"></a>Zamanlama ve yayınlama işleri (Java)
 
@@ -54,7 +54,7 @@ Bu öğreticinin sonunda, bir java konsol cihaz uygulaması ve bir java konsol a
 
 Bu öğreticiyi tamamlamak için aşağıdakiler gerekir:
 
-* En güncel [Java SE Development Kit 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
+* En güncel [Java SE Development Kit 8](https://aka.ms/azure-jdks)
 
 * [Maven 3](https://maven.apache.org/install.html)
 

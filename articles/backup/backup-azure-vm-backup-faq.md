@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 8/16/2018
 ms.author: trinadhk
-ms.openlocfilehash: 910225e74fcd4655a9eff711d3ac1316d948c2b3
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: ba77ec34e7887f676ea3df101e87c1ea80fceec5
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48886203"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50414803"
 ---
 # <a name="questions-about-the-azure-vm-backup-service"></a>Azure VM Yedeklemesi hizmetiyle ilgili sorular
 Bu makalede Azure VM Yedeklemesi bileşenlerini kısa süre içinde anlamanıza yardımcı olacak yaygın soruların yanıtları bulunur. Bazı yanıtlarda, kapsamlı bilgiler içeren makalelerin bağlantıları vardır. Ayrıca Azure Backup hizmeti ile ilgili sorularınızı [tartışma forumunda](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup) paylaşabilirsiniz.
@@ -48,7 +48,7 @@ Evet. Hatta bir makine kapatıldığında yedeklemelerin gerçekleştirildiğind
 Evet. "Anlık görüntü almak" aşamasında olan, bir yedekleme işi iptal edebilirsiniz. **Anlık görüntüden veri aktarımı sürüyorsa bir iş iptal edilemiyor**.
 
 ### <a name="i-enabled-resource-group-lock-on-my-backed-up-managed-disk-vms-will-my-backups-continue-to-work"></a>Ben kaynak grubu kilit my yedeklenen yönetilen disk Vm'leri üzerinde etkin. Yedeklemelerim çalışmaya devam edecek mi?
-Kullanıcının kaynak grubunu kilitler, Backup hizmeti daha eski geri yükleme noktalarını silmek mümkün değil. Bu nedenle, yeni yedeklemeleri'nin arka ucundan uygulanan en fazla 18 geri yükleme noktası sınırı olduğundan başarısız olmaya başlar. RG kilitlendikten sonra Yedeklemelerinizin bir iç hata ile başarısız oluyorsa, aşağıdaki adımları [geri yüklemeyi kaldırma adımları işaret koleksiyonu](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#backup-service-does-not-have-permission-to-delete-the-old-restore-points-due-to-resource-group-lock).
+Kullanıcının kaynak grubunu kilitler, Backup hizmeti daha eski geri yükleme noktalarını silmek mümkün değil. Bu nedenle, yeni yedeklemeleri'nin arka ucundan uygulanan en fazla 18 geri yükleme noktası sınırı olduğundan başarısız olmaya başlar. RG kilitlendikten sonra Yedeklemelerinizin bir iç hata ile başarısız oluyorsa, aşağıdaki adımları [geri yüklemeyi kaldırma adımları işaret koleksiyonu](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#clean-up-restore-point-collection-from-portal-created-by-backup-service).
 
 ### <a name="does-backup-policy-take-daylight-saving-timedst-into-account"></a>Yedekleme İlkesi hesaba Yaz Time(DST) kaydetme sürüyor?
 Hayır. Tarih ve saat, yerel bilgisayarınızda görüntülenir, yerel saat ve geçerli gün ışığından yararlanma saatine göre olduğunu unutmayın. Bu nedenle zamanlanmış yedeklemeler için yapılandırılan süre, yerel saat DST nedeniyle farklı olabilir.

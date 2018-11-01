@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/06/2018
+ms.date: 10/31/2018
 ms.author: jingwang
-ms.openlocfilehash: 958d1ea09ce4d85afc59af412e1050efc6290a1a
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 7dc60c18e105c9be190b5bfede786f61a65feec3
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39002254"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50416945"
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>Etkinlik performansı ve ayarlama Kılavuzu kopyalayın
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -56,7 +56,7 @@ Bir başvuru, aşağıdaki tabloda kopyalama aktarım hızı sayısı gösterili
 Dikkat edilecek noktalar:
 
 * Aşağıdaki formülü kullanarak aktarım hızı hesaplanır: [kaynak Okuma boyutu veri] / [kopyalama etkinliği çalıştırma süresi].
-* Tablo performans başvuru sayıları ile ölçülür [TPC-H](http://www.tpc.org/tpch/) veri kümesi tek bir kopyalama etkinliğinde çalıştırın.
+* Tablo performans başvuru sayıları ile ölçülür [TPC-H](http://www.tpc.org/tpch/) veri kümesi tek bir kopyalama etkinliğinde çalıştırın. Test dosyaları dosya tabanlı depoları için birden çok 10 GB boyutundaki dosyalarıdır.
 * Azure veri depoları, kaynak ve havuz aynı Azure bölgesinde olan.
 * Karma kopyalama şirket içi ve bulut arasında veri depoları, her şirket içinde barındırılan Integration Runtime düğümü altındaki belirtimi ile veri deposundan ayrı bir makinede çalışıyordu. Tek bir etkinlik çalıştırırken test makinenin CPU, bellek veya ağ bant genişliği için küçük bir bölümü kopyalama işlemi kullanılan.
     <table>
@@ -76,7 +76,7 @@ Dikkat edilecek noktalar:
 
 
 > [!TIP]
-> Daha fazla veri tümleştirme birimleri (DIU) bir bulut buluta kopyalama etkinliği çalıştırma için 32 olan maksimum DIUs izin varsayılandan kullanarak daha yüksek aktarım hızı elde edebilirsiniz. Örneğin, 100 DIUs ile Azure Blob veri kopyalamayı Azure Data Lake Store içine elde edebileceğiniz **1.0GBps**. Bkz: [veri tümleştirme birimleri](#data-integration-units) bölümü bu özellik ve desteklenen bir senaryo hakkındaki ayrıntılar için. İlgili kişi [Azure Destek](https://azure.microsoft.com/support/) daha fazla DIUs istemek için.
+> Daha fazla veri tümleştirme birimleri (DIU) kullanarak daha yüksek aktarım hızı elde edebilirsiniz. Örneğin, 100 DIUs ile Azure Blob veri kopyalamayı Azure Data Lake Store içine elde edebileceğiniz **1.0GBps**. Bkz: [veri tümleştirme birimleri](#data-integration-units) bölümü bu özellik ve desteklenen bir senaryo hakkındaki ayrıntılar için. 
 
 ## <a name="data-integration-units"></a>Veri tümleştirme birimleri
 
@@ -94,7 +94,7 @@ Bu varsayılanı geçersiz kılmak için bir değer belirtin. **dataIntegrationU
 Bir etkinlik çalıştırması izlerken çıkış kopyalama etkinliği çalıştırma her kopya için gerçekten kullanılan veri tümleştirme birimleri görebilirsiniz. Ayrıntıları öğrenin [kopyalama etkinliği izleme](copy-activity-overview.md#monitoring).
 
 > [!NOTE]
-> Daha fazla DIUs daha yüksek bir aktarım hızı için gerekiyorsa, kişi [Azure Destek](https://azure.microsoft.com/support/). 8 ayarlama ve yukarıdaki şu anda yalnızca çalışır, **birden çok Blob Depolama/Data Lake Store/Amazon S3/bulut FTP/bulut SFTP için başka bir bulut veri depolarına kopyalayın**.
+> DIUs ayarı **4 büyük** şu anda yalnızca çalışır, **birden çok dosyayı Blob Depolama/deposundan veri Lake kopyalamayı depolama/Amazon S3/bulut FTP/bulut SFTP'ye herhangi bir bulut veri depolar.**.
 >
 
 **Örnek:**

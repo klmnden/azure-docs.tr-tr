@@ -1,6 +1,6 @@
 ---
-title: Azure Resource Manager şablonu parametresi bölüm | Microsoft Docs
-description: Bildirim temelli JSON sözdizimini kullanarak Azure Resource Manager şablonları Parametreler bölümünde açıklanır.
+title: Azure Resource Manager şablon parametre bölümüne | Microsoft Docs
+description: Bildirim temelli JSON söz dizimi kullanarak Azure Resource Manager şablon parametreleri bölümünde açıklanır.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -11,23 +11,23 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/18/2018
+ms.date: 10/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: 6d09a057d9b8a02c7f8313161e64aa3a42eb6db2
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 83ba1b94413990c0eb8dff42c49d46456a658d5a
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34604344"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50417778"
 ---
-# <a name="parameters-section-of-azure-resource-manager-templates"></a>Azure Resource Manager şablonları parametreleri bölümü
-Şablon parametreleri bölümünde kaynakları dağıtırken giriş hangi değerlerini belirtin. Bu parametre değerleri (örneğin, geliştirme, test ve üretim) belirli bir ortam için uyarlanabilir değerleri sağlayarak dağıtım özelleştirmenize olanak sağlar. Şablonunuzdaki parametreleri sağlamak zorunda değildir, ancak parametre olmadan şablonunuzu her zaman aynı kaynakları adları, konumları ve özellikleri ile dağıtmak için kullanacağınız.
+# <a name="parameters-section-of-azure-resource-manager-templates"></a>Azure Resource Manager şablonlarının parametreler bölümü
+Şablon parametreleri bölümünde kaynakları dağıtırken giriş değerleri belirtin. Bu parametre değerleri (örneğin, geliştirme, test ve üretim) belirli bir ortam için uygun değerleri sağlayarak bir dağıtımı özelleştirmek etkinleştirin. Şablonunuzdaki parametrelerle sağlamanıza gerek yoktur, ancak parametre olmadan, şablonunuzu her zaman aynı adları, konumları ve özellikleri ile aynı kaynakları dağıtmak için kullanacağınız.
 
-Şablonda 255 parametreleri sınırlı olmalıdır. Bu makalede gösterildiği gibi birden çok özellik içeren nesneleri kullanarak parametre sayısını azaltabilir.
+Şablonda 256 parametreleri ile sınırlıdır. Bu makalede gösterilen şekilde birden çok özelliği içeren nesneleri kullanarak parametre sayısını azaltabilir.
 
-## <a name="define-and-use-a-parameter"></a>Tanımlama ve parametre kullanma
+## <a name="define-and-use-a-parameter"></a>Tanımlamak ve bir parametre kullanın
 
-Aşağıdaki örnekte basit parametrenin tanımını gösterir. Parametrenin adını tanımlar ve bir dize değeri alacağını belirtir. Parametresi, yalnızca, kullanım amacı için anlamlı değerleri kabul eder. Dağıtım sırasında herhangi bir değer sağlandığında varsayılan bir değer belirtir. Son olarak, parametre kullanımı açıklamasını içerir. 
+Aşağıdaki örnek, bir basit parametre tanımı gösterilmektedir. Parametrenin adını tanımlar ve bir dize değeri aldığını belirtir. Parametresi yalnızca kullanım amacı için anlamlı değerleri kabul eder. Dağıtım sırasında hiçbir değer sağlandığında varsayılan bir değer belirtir. Son olarak, parametre kullanımı açıklamasını içerir. 
 
 ```json
 "parameters": {
@@ -48,7 +48,7 @@ Aşağıdaki örnekte basit parametrenin tanımını gösterir. Parametrenin ad�
 }
 ```
 
-Şablonda, aşağıdaki sözdizimi ile parametresinin değeri başvurusu:
+Şablonda, aşağıdaki söz dizimi ile parametresinin değeri başvurusu:
 
 ```json
 "resources": [
@@ -64,7 +64,7 @@ Aşağıdaki örnekte basit parametrenin tanımını gösterir. Parametrenin ad�
 
 ## <a name="available-properties"></a>Kullanılabilir özellikler
 
-Önceki örnekte parametre bölümünde kullanabileceğiniz özellikleri yalnızca bazılarını gösterdi. Kullanılabilir özellikler şunlardır:
+Yukarıdaki örnekte parametre bölümünde kullanabileceğiniz özellikleri yalnızca bazıları gösterdi. Kullanılabilir özellikler şunlardır:
 
 ```json
 "parameters": {
@@ -85,19 +85,19 @@ Aşağıdaki örnekte basit parametrenin tanımını gösterir. Parametrenin ad�
 
 | Öğe adı | Gerekli | Açıklama |
 |:--- |:--- |:--- |
-| parameterName |Evet |Parametrenin adı. Geçerli bir JavaScript tanımlayıcı olması gerekir. |
-| type |Evet |Parametre değeri türü. İzin verilen türlerini ve değerlerini olduğunuz **dize**, **securestring**, **int**, **bool**, **nesne**, **secureObject**, ve **dizi**. |
-| defaultValue |Hayır |Parametresi için hiçbir değer sağlanmazsa parametre için varsayılan değer. |
-| allowedValues |Hayır |Doğru değeri sağlandığından emin olmak parametresi için izin verilen değerleri dizisi. |
-| MinValue |Hayır |İnt türü parametreler için minimum değeri, bu kapsayıcı değerdir. |
-| MaxValue |Hayır |İnt türü parametreleri için maksimum değeri, bu kapsayıcı değerdir. |
-| minLength |Hayır |Dize, securestring ve dizi türü parametreler için minimum uzunluk, bu kapsayıcı değerdir. |
-| maxLength |Hayır |Dize, securestring ve dizi türü parametreleri için en fazla uzunluk, bu kapsayıcı değerdir. |
+| parameterName |Evet |Parametrenin adı. Geçerli bir JavaScript tanımlayıcı olmalıdır. |
+| type |Evet |Parametre değeri türü. İzin verilen türleri ve değerleri **dize**, **securestring**, **int**, **bool**, **nesne**, **secureObject**, ve **dizi**. |
+| defaultValue |Hayır |Parametresi, parametre için hiçbir değer sağlanmışsa varsayılan değeri. |
+| izin verilen değerler |Hayır |Doğru değeri sağlandığından emin olmak parametresi için izin verilen değerler dizisi. |
+| minValue |Hayır |İnt türü parametreleri için en düşük değer, bu değer büyük/küçük harf dahildir. |
+| maxValue |Hayır |İnt türü parametreleri için maksimum değeri, bu değeri de dahildir. |
+| minLength |Hayır |Dize, securestring ve dizi tür parametreleri için minimum uzunluğu, bu değer büyük/küçük harf dahildir. |
+| maxLength |Hayır |Dize, securestring ve dizi tür parametreleri için en fazla uzunluk, bu değeri de dahildir. |
 | açıklama |Hayır |Portal aracılığıyla kullanıcılara görüntülenen parametre açıklaması. |
 
-## <a name="template-functions-with-parameters"></a>Parametrelere sahip şablon işlevleri
+## <a name="template-functions-with-parameters"></a>Parametrelerle şablon işlevleri
 
-Varsayılan değer için bir parametre sağlarken, çoğu şablon işlevleri kullanabilirsiniz. Başka bir parametre değeri, varsayılan değeri oluşturmak için kullanabilirsiniz. Aşağıdaki şablonu varsayılan değer işlevlerde kullanımını göstermektedir:
+Bir parametre için varsayılan değer belirtirken, çoğu şablon işlevleri kullanabilirsiniz. Başka bir parametre değeri, varsayılan bir değer oluşturmak için kullanabilirsiniz. Aşağıdaki şablonu varsayılan değer işlevlerinde kullanımını gösterir:
 
 ```json
 "parameters": {
@@ -118,13 +118,13 @@ Varsayılan değer için bir parametre sağlarken, çoğu şablon işlevleri kul
 }
 ```
 
-Kullanamazsınız `reference` Parametreler bölümünde işlevi. Parametreleri, dağıtım öncesinde değerlendirilir böylece `reference` işlevi, kaynağın çalışma zamanı durumunu alamıyor. 
+Kullanamazsınız `reference` parametreleri bölümünde işlevi. Parametreleri, dağıtım öncesinde değerlendirilir böylece `reference` işlevi, bir kaynak çalışma zamanı durumu alınamıyor. 
 
-## <a name="objects-as-parameters"></a>Parametre olarak nesneleri
+## <a name="objects-as-parameters"></a>Parametre olarak nesne
 
-Bunları bir nesne olarak geçirerek ilgili değerleri düzenlemek daha kolay olabilir. Bu yaklaşım, aynı zamanda şablondaki parametreler sayısını azaltır.
+Bunları bir nesne olarak geçirerek ilgili değerlerini düzenlemek daha kolay olabilir. Bu yaklaşım da şablon parametrelerinde sayısını azaltır.
 
-Şablonunuzda parametre tanımlayın ve dağıtım sırasında bir JSON nesnesi yerine tek bir değer belirtin. 
+Şablonunuzda parametreyi tanımlayın ve dağıtım sırasında bir JSON nesnesi yerine tek bir değer belirtin. 
 
 ```json
 "parameters": {
@@ -154,7 +154,7 @@ Bunları bir nesne olarak geçirerek ilgili değerleri düzenlemek daha kolay ol
 },
 ```
 
-Ardından, alt parametresinin nokta işlecini kullanarak başvuru.
+Daha sonra alt parametresinin nokta işlecini kullanarak başvuru.
 
 ```json
 "resources": [
@@ -191,15 +191,15 @@ Ardından, alt parametresinin nokta işlecini kullanarak başvuru.
 ## <a name="recommendations"></a>Öneriler
 Parametreler ile çalışırken aşağıdaki bilgiler yararlı olabilir:
 
-* Parametreleri kullanımını en aza indirin. Mümkün olduğunda, bir değişkeni veya hazır değer kullanın. Parametreleri için yalnızca bu senaryoları kullanın:
+* Parametreleri kullanımını en aza indirin. Mümkün olduğunda, bir değişken veya sabit bir değer kullanın. Parametreleri yalnızca bu senaryolar için kullanın:
    
-   * Ortam (SKU, boyut, Kapasite) göre varyasyonları kullanmak istediğiniz ayarları.
+   * Ortam (SKU, boyutu, Kapasite) göre çeşitleri kullanmak istediğiniz ayarları.
    * Kolay bir şekilde tanımlanması için belirtmek istediğiniz kaynak adları.
-   * (Örneğin, bir yönetici kullanıcı adı) diğer görevleri tamamlamak için sık kullandığınız değerleri.
-   * Gizli (parolalar gibi).
-   * Sayı veya değerleri dizisi, bir kaynak türü birden çok örneğini oluştururken kullanılacak.
-* Ortası büyük parametre adları için kullanın.
-* Her parametre meta verilerindeki bir açıklama belirtin:
+   * (Örneğin, bir yönetici kullanıcı adı) diğer görevleri tamamlamak için sık kullandığınız değerler.
+   * Gizli anahtarları (parolalar gibi).
+   * Sayı veya değerleri dizisi, bir kaynak türü birden fazla örneğini oluştururken kullanılacak.
+* Parametre adları için ortası büyük harf kullanın.
+* Her parametre meta verilerinde açıklamasını girin:
 
    ```json
    "parameters": {
@@ -212,7 +212,7 @@ Parametreler ile çalışırken aşağıdaki bilgiler yararlı olabilir:
    }
    ```
 
-* (Dışında parolalar ve SSH anahtarları) parametrelerinin varsayılan değerleri tanımlayın. Varsayılan değer sağlayarak parametresi dağıtımı sırasında isteğe bağlı olur. Varsayılan değer boş bir dize olabilir. 
+* (Hariç, parola ve SSH anahtarlarını) parametrelerinin varsayılan değerleri tanımlayın. Varsayılan bir değer belirterek, parametrenin dağıtım sırasında isteğe bağlı olur. Varsayılan değer boş bir dize olabilir. 
    
    ```json
    "parameters": {
@@ -226,7 +226,7 @@ Parametreler ile çalışırken aşağıdaki bilgiler yararlı olabilir:
    }
    ```
 
-* Kullanım **securestring** tüm parolaları ve gizli anahtarları. Bir JSON nesnesinde hassas verileri geçirdiğiniz kullanırsanız **secureObject** türü. Şablon parametreleri securestring veya secureObject türleriyle kaynak dağıtımdan sonra okunamıyor. 
+* Kullanım **securestring** tüm parolalar ve gizli dizileri. Bir JSON nesnesi, hassas verileri geçirmeniz kullanırsanız **secureObject** türü. Şablon parametreleri securestring veya secureObject türleriyle kaynak dağıtımdan sonra okunamıyor. 
    
    ```json
    "parameters": {
@@ -239,7 +239,7 @@ Parametreler ile çalışırken aşağıdaki bilgiler yararlı olabilir:
    }
    ```
 
-* Bir parametre konumu belirtmek için kullanın ve aynı konumda büyük olasılıkla kaynaklarla mümkün olduğunca Bu parametre değeri paylaşın. Bu yaklaşım kullanıcılar Konum bilgileri vermeniz istenir sayısını en aza indirir. Bir kaynak türü konumları, yalnızca sınırlı sayıda destekleniyorsa, doğrudan şablonu geçerli bir konum belirtin ya da başka bir konum parametresi eklemek isteyebilirsiniz. İzin verilen bölgelerde, kullanıcılar için kuruluş sınırları **resourceGroup () .location** ifadesi, bir kullanıcı şablonu dağıtmak becerisinden engelleyebilir. Örneğin, bir kullanıcı bir bölgede bir kaynak grubu oluşturur. İkinci bir kullanıcı bu kaynak grubuna dağıtmanız gerekir ancak bölgesine erişimi yok. 
+* Konumu belirtmek için bir parametre kullanın ve bu parametre değeri mümkün olduğunca aynı konumda olma olasılığı olan kaynaklar ile paylaşın. Bu yaklaşım kullanıcılar Konum bilgileri vermeniz istenir sayısını en aza indirir. Bir kaynak türü konumları, yalnızca sınırlı sayıda destekleniyorsa, doğrudan şablonunda geçerli bir konum belirtin veya başka bir konum parametresi eklemek isteyebilirsiniz. Bir kuruluş, kullanıcılarına izin verilen bölgelerin sınırlar olduğunda **resourceGroup () .location** ifadesi, bir kullanıcı şablonunu dağıtmanızı engelleyebilir. Örneğin, bir kullanıcı, bir bölgede bir kaynak grubu oluşturur. İkinci bir kullanıcı bu kaynak grubuna dağıtmanız gerekir, ancak erişim bölgesine sahip değil. 
    
    ```json
    "resources": [
@@ -253,21 +253,21 @@ Parametreler ile çalışırken aşağıdaki bilgiler yararlı olabilir:
    ]
    ```
     
-* Bir kaynak türü için API sürümü için bir parametre veya değişken kullanmaktan kaçının. Kaynak özellikleri ve değerlerini sürüm numarasına göre farklılık gösterebilir. IntelliSense kod düzenleyicisinde API sürümü bir parametre veya değişken ayarlandığında, doğru şemayı belirleyemiyor. Bunun yerine, şablonda kod sabit API sürümü.
-* Şablonunuzdaki dağıtım komutu parametresinde eşleşen bir parametre adı belirtmekten kaçının. Resource Manager sonek ekleyerek bu çakışması çözümler **FromTemplate** şablon parametresi için. Örneğin, adlı bir parametre dahil ederseniz **ResourceGroupName** ile çakıştığı şablonunuzda, **ResourceGroupName** parametresinde [New-AzureRmResourceGroupDeployment ](/powershell/module/azurerm.resources/new-azurermresourcegroupdeployment) cmdlet'i. Dağıtım sırasında için bir değer sağlamanız istenir **ResourceGroupNameFromTemplate**.
+* Bir kaynak türü için API sürümü için bir parametre veya değişken kullanmaktan kaçının. Kaynak özelliklerini ve değerlerini sürüm numarasına göre farklılık gösterebilir. API sürümü, bir parametre veya değişken ayarlandığında, kod düzenleyicisindeki IntelliSense doğru şemayı belirlenemiyor. Bunun yerine, şablonda kod sabit API sürümü.
+* Şablonunuzda bir dağıtım komutu parametresinde eşleşen bir parametre adı belirtmekten kaçının. Resource Manager sonek ekleyerek bu ad çakışmasını giderir **FromTemplate** şablon parametresi için. Örneğin, adında bir parametre eklerseniz **ResourceGroupName** ile çakışıyor, şablonunuzda **ResourceGroupName** parametresinde [New-AzureRmResourceGroupDeployment ](/powershell/module/azurerm.resources/new-azurermresourcegroupdeployment) cmdlet'i. Dağıtım sırasında için bir değer sağlamanız istenir **ResourceGroupNameFromTemplate**.
 
 ## <a name="example-templates"></a>Örnek şablonları
 
-Bu örnek şablonları parametrelerini kullanmak için bazı senaryolar gösterilmektedir. Parametreleri farklı senaryolarda nasıl işleneceğini test etmek için bunları dağıtın.
+Bu örnek şablon parametrelerini kullanarak bazı senaryolar gösterilmektedir. Farklı senaryolarda parametreleri nasıl işleneceğini test etmek için bunları dağıtın.
 
 |Şablon  |Açıklama  |
 |---------|---------|
-|[varsayılan değerleri için işlevlerle parametreleri](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/parameterswithfunctions.json) | Şablon işlevleri parametrelerinin varsayılan değerleri tanımlarken kullanımı gösterilmiştir. Şablonu herhangi bir kaynağa dağıtmaz. Parametre değerleri oluşturur ve bu değerleri döndürür. |
-|[Parametre nesnesi](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/parameterobject.json) | Bir nesne için bir parametre kullanmayı gösterir. Şablonu herhangi bir kaynağa dağıtmaz. Parametre değerleri oluşturur ve bu değerleri döndürür. |
+|[Parametreler için varsayılan değerlere işlevler ile](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/parameterswithfunctions.json) | Parametrelerinin varsayılan değerleri tanımlarken şablon işlevleri nasıl yapılacağı açıklanır. Şablon kaynakları dağıtmaz. Bu parametre değerlerini oluşturur ve bu değerleri döndürür. |
+|[Parametre nesnesi](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/parameterobject.json) | Bir nesne parametresi için kullanmayı gösterir. Şablon kaynakları dağıtmaz. Bu parametre değerlerini oluşturur ve bu değerleri döndürür. |
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 * Farklı türlerde çözümler için tam şablonları görüntülemek üzere bkz. [Azure Hızlı Başlangıç Şablonları](https://azure.microsoft.com/documentation/templates/).
-* Dağıtım sırasında parametre değerlerini giriş nasıl için [Azure Resource Manager şablonu ile bir uygulamayı dağıtmak](resource-group-template-deploy.md). 
-* Kullanabileceğiniz gelen bir şablonda işlevleri hakkında daha fazla ayrıntı için bkz: [Azure Resource Manager şablonu işlevleri](resource-group-template-functions.md).
-* Bir parametre nesnesi kullanma hakkında daha fazla bilgi için bkz: [bir Azure Resource Manager şablonu içindeki bir parametre olarak bir nesne kullanmak](/azure/architecture/building-blocks/extending-templates/objects-as-parameters).
+* Dağıtım sırasında parametre değerlerini giriş nasıl [Azure Resource Manager şablonu ile uygulama dağıtma](resource-group-template-deploy.md). 
+* Kullanabileceğiniz gelen içinde şablon işlevleri hakkında daha fazla ayrıntı için bkz: [Azure Resource Manager şablonu işlevleri](resource-group-template-functions.md).
+* Bir parametre nesnesi kullanma hakkında daha fazla bilgi için bkz: [bir Azure Resource Manager şablonunda bir parametre olarak bir nesne kullanmasını](/azure/architecture/building-blocks/extending-templates/objects-as-parameters).

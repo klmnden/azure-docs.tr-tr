@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/25/2017
 ms.author: nberdy
-ms.openlocfilehash: f5da3759e97eaa2f89a393d55ae95eb6623fbc5d
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 34a561c5bb523b914f4b88dc8c6edc2bd00627d0
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50158349"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50741938"
 ---
 # <a name="understand-iot-hub-metrics"></a>IOT hub'ı ölçüleri anlama
 
@@ -26,11 +26,15 @@ IOT Hub ölçümler, Azure aboneliğinizde Azure IOT kaynakların durumuyla ilgi
 
 2. IOT hub'ın dikey penceresini açın. Burada, tıklayın **ölçümleri**.
    
-    ![IOT hub için ölçümler dikey penceresine](./media/iot-hub-metrics/enable-metrics-1.png)
+    ![Ölçümleri seçeneğin IOT hub'ı kaynak sayfasında olduğu gösteren ekran görüntüsü](./media/iot-hub-metrics/enable-metrics-1.png)
 
-3. Ölçümler dikey penceresinden, IOT hub'ınız için ölçümleri görüntüleyebilir ve ölçümlerinizi özel görünümlerini oluşturma. Tıklayarak bir olay hub'ları uç nokta veya bir Azure depolama hesabı ölçümleri verilerinizi göndermek seçebileceğiniz **tanılama ayarları**.
+3. Ölçümler dikey penceresinden, IOT hub'ınız için ölçümleri görüntüleyebilir ve ölçümlerinizi özel görünümlerini oluşturma. 
    
-    ![Tanılama ayarları](./media/iot-hub-metrics/enable-metrics-2.png)
+    ![IOT hub'ı için ölçümleri sayfasını gösteren ekran görüntüsü](./media/iot-hub-metrics/enable-metrics-2.png)
+    
+4. Tıklayarak bir olay hub'ları uç nokta veya bir Azure depolama hesabı ölçümleri verilerinizi göndermek seçebileceğiniz **tanılama ayarları**, ardından **tanılama ayarı ekleme**
+
+   ![Tanılama ayarları düğmesi nerede gösteren ekran görüntüsü](./media/iot-hub-metrics/enable-metrics-3.png)
 
 ## <a name="iot-hub-metrics-and-how-to-use-them"></a>IOT hub'ı ölçümleri ve bunları kullanma
 

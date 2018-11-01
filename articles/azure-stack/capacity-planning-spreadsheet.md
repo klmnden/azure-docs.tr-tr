@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2018
+ms.date: 10/31/2018
 ms.author: jeffgilb
 ms.reviewer: prchint
-ms.openlocfilehash: 5ebddbf1fea49fbf868d15a544a18e5a8c6369fd
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: ec4d8ef43510c07e73ab18de227176d3c282b8e1
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49078316"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50740850"
 ---
 # <a name="azure-stack-capacity-planner"></a>Azure Stack kapasite Planlayıcısı
 Azure Stack Capacity Planner, Azure Stack kaynak kapasite planlaması için kullanılan bir elektronik tablodur. Kapasite Planlayıcısı çeşitli bilgi işlem kaynakları tahsis tasarlayın ve bunlar arasında seçim donanım tekliflerinin nasıl uyduğunu görmek yeteneği sağlar. Azure Stack hesaplayıcı'nın kullanılması için ayrıntılı yönergeler aşağıda verilmiştir.
@@ -56,7 +56,7 @@ Bu aracı, VM kaynak ayırma için iki yöntem sunar; olarak veya tek bir VM'nin
 ## <a name="definebyvmfootprint-instructions"></a>DefineByVMFootprint yönergeleri
 Çeşitli boyutlarda ve Vm'leri miktarlarını tek bir koleksiyon kullanarak bir model oluşturmak için "DefineByVMFootprint" sekmesini seçin ve bu adımlar dizisini izleyin.
 
-1. Bu çalışma sayfasının sağ alt köşesinde, sağlanan aşağı açılır liste kutusu denetimleri bir ilk sayı seçmek için kullanın. (arasında 4 ve 12) sunucularının her donanım sisteminin (SKU) yüklenmesini istediğiniz. Bu sunucu sayısını, bu genel nasıl etkilediğini görmek için model oluşturma işlemi sırasında herhangi bir zamanda değiştirilebilir, kaynak dağıtımı modeli için kullanılabilir kaynaklar.
+1. Bu çalışma sayfasının sağ alt köşesinde, sağlanan aşağı açılır liste kutusu denetimleri bir ilk sayı seçmek için kullanın. (arasında 4 ile 16) sunucularının her donanım sisteminin (SKU) yüklenmesini istediğiniz. Bu sunucu sayısını, bu genel nasıl etkilediğini görmek için model oluşturma işlemi sırasında herhangi bir zamanda değiştirilebilir, kaynak dağıtımı modeli için kullanılabilir kaynaklar.
 2. Belirli bir donanıma karşı çeşitli VM kaynak ayırmalar model istiyorsanız, sayfanın sağ üst köşesindeki mavi aşağı açılır liste kutusunun hemen altındaki "Geçerli SKU" etiketi bulun. Bu liste kutusu çekme ve istenen donanımınız SKU'ı seçin.
 3. Artık çeşitli boyutta VM'ler modelinize eklemeye başlamak hazırsınız. Belirli bir VM türüne eklemek için VM giriş solunda mavi anahatları belirlenmiş kutuya bir miktar değeri girin.
 
@@ -73,7 +73,7 @@ Azure Stack iş yükleri koleksiyonu kullanarak bir model oluşturmak için "Def
 > [!TIP]
 > Azure Stack VM için sağlanan depolama boyutu değiştirmek için önceki bölümde üç adımdan nota bakın.
 
-1. Bu sayfanın sağ alt köşesinde, sağlanan aşağı açılır liste kutusu denetimleri bir ilk sayı seçmek için kullanın. (arasında 4 ve 12) sunucularının her donanım sisteminin (SKU) yüklenmesini istediğiniz.
+1. Bu sayfanın sağ alt köşesinde, sağlanan aşağı açılır liste kutusu denetimleri bir ilk sayı seçmek için kullanın. (arasında 4 ile 16) sunucularının her donanım sisteminin (SKU) yüklenmesini istediğiniz.
 2. Belirli bir donanıma karşı çeşitli VM kaynak ayırmalar model istiyorsanız, sayfanın sağ üst köşesindeki mavi aşağı açılır liste kutusunun hemen altındaki "Geçerli SKU" etiketi bulun. Bu liste kutusu çekme ve istenen donanımınız SKU'ı seçin.
 3. DefineByVMFootprint yönergeleri üç adımda yukarıda açıklandığı gibi istenen Azure Stack vm'lerinizin DefineByVMFootprint sayfasında her biri için uygun depolama alanı boyutu seçin. VM başına depolama alanı boyutu DefineByVMFootprint sayfasında tanımlanır.
 4. En fazla altı farklı iş yükü türleri için yapılandırmaları DefineByWorkloadFootprint sayfanın üst sol tarafında başlayarak, iş yükü içinde bulunan her VM türünün sayısını girerek oluşturun. Bu, doğrudan bu iş yükü adı altındaki sütununa sayısal değerler girerek gerçekleştirilir. İş yükü adları belirli bu yapılandırma tarafından desteklenen iş yükleri türünü yansıtmak için değiştirilebilir.

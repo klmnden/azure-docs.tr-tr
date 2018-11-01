@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/02/2018
 ms.author: apimpm
-ms.openlocfilehash: d359ad0e619e4d7784d763e70599ce784aa852cd
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: 97ca4f69f4bf2aa814d51cc17970c1aead8399e8
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945830"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50414412"
 ---
 # <a name="how-to-save-and-configure-your-api-management-service-configuration-using-git"></a>Kaydet ve Git kullanarak API Management hizmet yapılandırmanızı yapılandırma
 
@@ -161,7 +161,7 @@ Her klasör, bir veya daha fazla dosya içerebilir ve bazı durumlarda bir veya 
 
 | Dosya türü | Amaç |
 | --- | --- |
-| JSON |İlgili varlık hakkında yapılandırma bilgileri |
+| json |İlgili varlık hakkında yapılandırma bilgileri |
 | HTML |Genellikle Geliştirici portalında gösterilen bir varlık ile ilgili açıklamalar |
 | xml |İlke deyimleri |
 | CSS |Geliştirici Portalı özelleştirme için stil sayfaları |
@@ -190,7 +190,8 @@ Kök `api-management` klasörünü içeren bir `configuration.json` hizmet örne
     "DelegationEnabled": "False",
     "DelegationUrl": "",
     "DelegatedSubscriptionEnabled": "False",
-    "DelegationValidationKey": ""
+    "DelegationValidationKey": "",
+    "RequireUserSigninEnabled": "false"
   },
   "$ref-policy": "api-management/policies/global.xml"
 }
@@ -200,10 +201,11 @@ Kök `api-management` klasörünü içeren bir `configuration.json` hizmet örne
 
 | Kimliği ayarlama | Eşleyen |
 | --- | --- |
-| RegistrationEnabled |**Anonim kullanıcıları oturum açma sayfasına yönlendir** onay kutusu |
+| RegistrationEnabled |Varlığını **kullanıcı adı ve parola** kimlik sağlayıcısı |
 | UserRegistrationTerms |**Kullanıcı kaydı kullanım koşullarını** metin kutusu |
 | UserRegistrationTermsEnabled |**Kullanım koşullarını kaydolma sayfasında göster** onay kutusu |
 | UserRegistrationTermsConsentRequired |**Onay gerektiren** onay kutusu |
+| RequireUserSigninEnabled |**Anonim kullanıcıları oturum açma sayfasına yönlendir** onay kutusu |
 
 Sonraki dört ayarları (`DelegationEnabled`, `DelegationUrl`, `DelegatedSubscriptionEnabled`, ve `DelegationValidationKey`) eşlemek için aşağıdaki ayarları **temsilci** sekmesinde **güvenlik** bölümü.
 

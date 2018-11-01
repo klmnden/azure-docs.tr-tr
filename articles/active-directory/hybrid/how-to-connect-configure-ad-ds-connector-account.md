@@ -10,16 +10,16 @@ ms.topic: article
 ms.date: 10/12/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: b6fef23b3624703305a13b205b588c83dd135764
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: f57a5a2413103ddcf7484f3b1fc5b4170b7bdc98
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50094747"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50412870"
 ---
 # <a name="azure-ad-connectconfigure-ad-ds-connector-account-permissions"></a>Azure AD Connect: AD DS bağlayıcı hesap izinlerini yapılandırma 
 
-Adlandırılmış ADSyncConfig.psm1 ile sunulan yeni bir PowerShell modülü cmdlet'lerini, Azure AD Connect dağıtımınız için doğru Active Directory izinlerini yapılandırmanıza yardımcı olması için bir koleksiyon içerir (Ağustos 2018'de yayımlanan) 1.1.880.0 oluşturun. 
+Adlı yeni bir PowerShell Modülü [ADSyncConfig.psm1](reference-connect-adsyncconfig.md) cmdlet'leri Azure AD'niz için doğru Active Directory izinlerini yapılandırmanıza yardımcı olması için bir koleksiyon içerir (Ağustos 2018'de yayımlanan) 1.1.880.0 yapı ile kullanılmaya başlandı Dağıtım bağlanın. 
 
 ## <a name="overview"></a>Genel Bakış 
 Aşağıdaki PowerShell cmdlet'lerini, Azure AD'yi etkinleştirmeye yönelik anlatabilirsiniz her bir özellik AD DS bağlayıcı hesabının Kurulum Active Directory izinleri için kullanılabilir. Ormanınıza bağlanmak için bir özel etki alanı hesabı kullanarak Azure AD Connect'i yüklemek istediğiniz her sorunları önlemek için Active Directory izinlerini önceden hazırlamanız. Bu ADSyncConfig modülü, Azure AD Connect dağıtıldıktan sonra izinlerini yapılandırmak için de kullanılabilir.
@@ -49,7 +49,8 @@ Install-WindowsFeature RSAT-AD-Tools
 ```
 ![Yapılandırma](media/how-to-connect-configure-ad-ds-connector-account/configure2.png)
 
->! [NOT] Ayrıca, dosyayı kopyalayabilirsiniz **C:\Program Files\Microsoft Azure Active Directory Connect\AdSyncConfig\ADSyncConfig.psm1** AD DS yüklü ve bu PowerShell modülünü buradan kullanmak için RSAT zaten sahip olan bir etki alanı denetleyicisi.
+>[!NOTE]
+>Ayrıca, dosyayı kopyalayabilirsiniz **C:\Program Files\Microsoft Azure Active Directory Connect\AdSyncConfig\ADSyncConfig.psm1** AD DS yüklü ve bu PowerShell modülünü buradan kullanmak için RSAT zaten sahip olan bir etki alanı denetleyicisi.
 
 ADSyncConfig kullanmaya başlamak için bir Windows PowerShell penceresinde modülü yüklemeniz gerekir: 
 
@@ -71,7 +72,7 @@ Her cmdlet, AD DS bağlayıcı hesabı ve bir AdminSDHolder anahtarı girmek iç
 
 `Set-ADSyncPasswordHashSyncPermissions -ADConnectorAccountName ADaccount -ADConnectorAccountDomain Contoso`
 
-Veya; 
+veya; 
 
 `Set-ADSyncPasswordHashSyncPermissions -ADConnectorAccountDN 'CN=ADaccount,OU=AADconnect,DC=Contoso,DC=com'`
 
@@ -301,3 +302,5 @@ Bu cmdlet şu izinler ayarlanır:
 - [Azure AD Connect: Hesaplar ve izinler](reference-connect-accounts-permissions.md)
 - [Hızlı yükleme](how-to-connect-install-express.md)
 - [Özel yükleme](how-to-connect-install-custom.md)
+- [ADSyncConfig başvurusu](reference-connect-adsyncconfig.md)
+

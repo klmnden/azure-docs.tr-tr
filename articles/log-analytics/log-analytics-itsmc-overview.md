@@ -15,16 +15,16 @@ ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: v-jysur
 ms.component: ''
-ms.openlocfilehash: b99c14e6022fa34d41caaa02bfc9feecb3c840ce
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 4f8261983feb8e655333f548b0b90f822eda30a6
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49407512"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50421195"
 ---
 # <a name="connect-azure-to-itsm-tools-using-it-service-management-connector"></a>Azure BT Hizmet Yönetimi Bağlayıcısı'nı kullanarak ITSM araçlara bağlayın
 
-![BT Hizmet Yönetimi Bağlayıcısı simgesi](./media/log-analytics-itsmc/itsmc-symbol.png)
+![BT Hizmet Yönetimi Bağlayıcısı simgesi](media/log-analytics-itsmc-overview/itsmc-symbol.png)
 
 BT Hizmet Yönetimi Bağlayıcısı'nı (ITSMC), Azure ve desteklenen bir BT Hizmet Yönetimi (ITSM) ürün/hizmet bağlanmanızı sağlar.
 
@@ -56,18 +56,18 @@ Bir bağlantı oluşturmadan önce ITSM Bağlayıcısı çözümü eklemeniz ger
 
 1.  Azure portalında **+ yeni** simgesi.
 
-    ![Yeni bir Azure kaynak](./media/log-analytics-itsmc/azure-add-new-resource.png)
+    ![Yeni bir Azure kaynak](media/log-analytics-itsmc-overview/azure-add-new-resource.png)
 
 2.  Arama **BT Hizmet Yönetimi Bağlayıcısı** Market tıklayıp **Oluştur**.
 
-    ![ITSMC çözümü ekleme](./media/log-analytics-itsmc/add-itsmc-solution.png)
+    ![ITSMC çözümü ekleme](media/log-analytics-itsmc-overview/add-itsmc-solution.png)
 
 3.  İçinde **OMS çalışma alanı** bölümünde, istediğiniz çözümü yüklemek için Azure Log Analytics çalışma alanını seçin.
    >[!NOTE]
    >Azure İzleyici sürekli geçiş Microsoft Operations Management Suite (OMS) gelen bir parçası olarak, OMS çalışma alanları artık için Log Analytics çalışma alanları bilinir.
 4.  İçinde **OMS çalışma alanı ayarlarını** bölümünde, istediğiniz çözüm kaynağının oluşturulacağı kaynak grubu seçin.
 
-    ![ITSMC çalışma](./media/log-analytics-itsmc/itsmc-solution-workspace.png)
+    ![ITSMC çalışma](media/log-analytics-itsmc-overview/itsmc-solution-workspace.png)
     >[!NOTE]
     >Azure İzleyici sürekli geçiş Microsoft Operations Management Suite (OMS) gelen bir parçası olarak, OMS çalışma alanları artık için Log Analytics çalışma alanları bilinir.
 
@@ -93,12 +93,12 @@ ITSM araçlarınıza prepped sonra bir bağlantı oluşturmak için aşağıdaki
 
 1.  Git **tüm kaynakları**, Aranan **ServiceDesk(YourWorkspaceName)**.
 2.  Altında **çalışma alanı veri kaynakları** sol bölmesinden **ITSM bağlantıları**.
-    ![ITSM bağlantıları](./media/log-analytics-itsmc/itsm-connections.png)
+    ![ITSM bağlantıları](media/log-analytics-itsmc-overview/itsm-connections.png)
 
     Bu sayfa, bağlantıların listesini görüntüler.
 3.  Tıklayın **Bağlantı Ekle**.
 
-    ![ITSM Bağlantısı Ekle](./media/log-analytics-itsmc/add-new-itsm-connection.png)
+    ![ITSM Bağlantısı Ekle](media/log-analytics-itsmc-overview/add-new-itsm-connection.png)
 
 4.  Bağlantı ayarlarını anlatıldığı gibi belirtin [ITSM ürünler/hizmetler Makalenizi ITSMC bağlantı yapılandırılırken](log-analytics-itsmc-connections.md).
 
@@ -106,7 +106,7 @@ ITSM araçlarınıza prepped sonra bir bağlantı oluşturmak için aşağıdaki
 
     > Varsayılan olarak, ITSMC bağlantının yapılandırma verileri 24 saatte bir kez yenilenir. Herhangi bir düzenleme veya şablon güncelleştirmelerinin için yaptığınız instantly, bağlantının verileri yenilemek için şuna tıklayın **eşitleme** , bağlantının dikey penceresinde düğmesi.
 
-    ![Bağlantıyı yenileme](./media/log-analytics-itsmc/itsmc-connections-refresh.png)
+    ![Bağlantıyı yenileme](media/log-analytics-itsmc-overview/itsmc-connections-refresh.png)
 
 
 ## <a name="using-the-solution"></a>Çözümü kullanma
@@ -123,16 +123,16 @@ Aşağıdaki yordamı kullanın:
 1. Azure portalında **İzleyici**.
 2. Sol bölmede **Eylem grupları**. **Eylem grubu Ekle** penceresi görüntülenir.
 
-    ![Eylem Grupları](media/log-analytics-itsmc/action-groups.png)
+    ![Eylem Grupları](media/log-analytics-itsmc-overview/action-groups.png)
 
 3. Sağlamak **adı** ve **ShortName** eylem grubunuz için. Seçin **kaynak grubu** ve **abonelik** istediğiniz eylem grubunuzu oluşturmak.
 
-    ![Eylem grupları ayrıntıları](media/log-analytics-itsmc/action-groups-details.png)
+    ![Eylem grupları ayrıntıları](media/log-analytics-itsmc-overview/action-groups-details.png)
 
 4. Eylemler listesinde **ITSM** açılan menüsünden **eylem türü**. Sağlayan bir **adı** tıklatın ve eylemi için **Ayrıntıları Düzenle**.
 5. Seçin **abonelik** Log Analytics çalışma alanınızın bulunduğu. Seçin **bağlantı** , çalışma alanı adından (ITSM Bağlayıcısı adı). Örneğin, "MyITSMMConnector(MyWorkspace)."
 
-    ![ITSM eylem ayrıntıları](./media/log-analytics-itsmc/itsm-action-details.png)
+    ![ITSM eylem ayrıntıları](media/log-analytics-itsmc-overview/itsm-action-details.png)
 
 6. Seçin **iş öğesi** aşağı açılan menüden türü.
    ITSM ürününüzü gerekli alanları doldurun veya mevcut bir şablonu kullanmak bu seçeneği seçin.
@@ -151,7 +151,7 @@ Bağlantı kurma ayarlarken yapılandırmanızı temel alarak, ITSM Bağlayıcı
 
 Olay ve değişiklik isteği verileri, ITSM Bağlayıcısı panoyu çözümde kullanarak görselleştirilebilir.
 
-![Log Analytics ekranı](./media/log-analytics-itsmc/itsmc-overview-sample-log-analytics.png)
+![Log Analytics ekranı](media/log-analytics-itsmc-overview/itsmc-overview-sample-log-analytics.png)
 
 Pano bağlantıları ile ilgili tüm sorunları analiz etmek için bir başlangıç noktası olarak kullanılabilecek Bağlayıcısı durumu hakkında bilgi de sağlar.
 
@@ -161,7 +161,7 @@ Hizmet eşlemesi, otomatik olarak Windows ve Linux sistemleri üzerindeki uygula
 
 Hizmet eşlemesi çözümünü kullanıyorsanız, aşağıdaki örnekte gösterildiği gibi ITSM çözümleriyle oluşturulan hizmet Masası öğeleri görüntüleyebilirsiniz:
 
-![Log Analytics ekranı](./media/log-analytics-itsmc/itsmc-overview-integrated-solutions.png)
+![Log Analytics ekranı](media/log-analytics-itsmc-overview/itsmc-overview-integrated-solutions.png)
 
 Daha fazla bilgi: [hizmet eşlemesi](../operations-management-suite/operations-management-suite-service-map.md)
 
@@ -254,7 +254,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 | Category_s | Kategori |
 | Title_s|  Kısa açıklama |
 | Description_s|  Notlar |
-| CreatedDate_t|  Açılan |
+| CreatedDate_t|  Açıldı |
 | ClosedDate_t| Kapalı|
 | ResolvedDate_t|Çözümlendi|
 | Bilgisayar  | Yapılandırma öğesi |
@@ -264,7 +264,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 | Log Analytics | ServieNow alan |
 |:--- |:--- |
 | ServiceDeskId_s| Sayı |
-| CreatedBy_s | İsteyen: |
+| CreatedBy_s | İsteği gönderen: |
 | ClosedBy_s | Kapatma tarihi |
 | AssignedTo_s | Atanan:  |
 | Title_s|  Kısa açıklama |

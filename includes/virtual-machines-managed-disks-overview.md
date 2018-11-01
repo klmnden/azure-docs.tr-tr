@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/03/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 617f60345fb2a349eddb0db697604ba383794591
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: 3e660dbcbfecd57c43ecec6006581364660adb44
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47060827"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50737262"
 ---
 # <a name="azure-managed-disks-overview"></a>Azure yönetilen disklere genel bakış
 
@@ -69,7 +69,7 @@ Bu seçenekler daha yakın bir göz atalım.
 
 Premium yönetilen disk için kullanılabilir disk boyutları şunlardır:
 
-| **Yönetilen premium HDD <br>Disk türü** | **P4** | **P6** | **P10** | **P15** | **P20** | **P30** | **P40** | **P50** | **P60** | **P70** | **P80** |
+| **Yönetilen premium SDD <br>Disk türü** | **P4** | **P6** | **P10** | **P15** | **P20** | **P30** | **P40** | **P50** | **P60** | **P70** | **P80** |
 |------------------|---------|---------|--------|--------|--------|----------------|----------------|----------------|----------------|----------------|----------------|
 | Disk Boyutu        | 32 giB  | 64 giB  | 128 GiB | 256 giB | 512 GiB | 1024 (1 TiB) giB | 2.048 giB (2 tib'a kadar) | 4.095 giB (4 tib'a kadar) | Olmak üzere 8.192 giB (8 tib'a kadar) | 16,384 giB (16 tib'a kadar) | 32.767 giB (TiB) |
 

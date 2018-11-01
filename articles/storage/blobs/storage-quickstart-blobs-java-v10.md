@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 10/19/2018
 ms.author: rogarana
-ms.openlocfilehash: c675dd17994abaaf6d0eed1934bec8f2220e7435
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: ea94a4e537a46ac8287e4454a2cfd10c59db590b
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49955717"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50416877"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-by-using-the-java-storage-sdk-v10"></a>Hızlı başlangıç: Java Depolama SDK'sı V10 kullanarak blobları yükleme, indirme ve listeleme
 
@@ -24,7 +24,7 @@ Bu hızlı başlangıçta, Azure Blob depolamadaki bir kapsayıcıda blok blobla
 Şu uygulamaları yükleyin ve yapılandırın:
 
 * Komut satırından çalışmak için [Maven](http://maven.apache.org/download.cgi) veya tercih ettiğiniz başka bir Java ile tümleşik geliştirme ortamı
-* [JDK](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
+* [JDK](https://aka.ms/azure-jdks)
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 

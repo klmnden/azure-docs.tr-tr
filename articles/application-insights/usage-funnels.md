@@ -14,12 +14,12 @@ ms.date: 07/17/2017
 ms.pm_owner: daviste;NumberByColors
 ms.reviewer: mbullwin
 ms.author: daviste
-ms.openlocfilehash: 2233fc1068891ec63dacaf5871eef7957c3ac7dc
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 3d4d6ba7e185b1cc5fdcee1633a11e579d8194e8
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50139882"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50413973"
 ---
 # <a name="discover-how-customers-are-using-your-application-with-application-insights-funnels"></a>Müşterilerin uygulamanızı Application Insights Huniler ile nasıl kullandığını keşfedin
 
@@ -40,7 +40,7 @@ Bunlar, Huni oluşturmak için adımlar aşağıda verilmiştir.
 Aşağıdaki ekran görüntüsünde, Huniler aracı veri türü örneği oluşturur gösterir. Fabrikam sahipleri, Son 90 gün içinde bir müşteri bileti oluşturulan giriş sayfasını ziyaret eden müşterileri 54.3 yüzdesi görebilirsiniz. Bunlar ayrıca, müşterilerin 2,700 dizine giriş sayfasından gelen da görebilirsiniz. Bu yenileme sorun olduğunu gösteriyor olabilir.
 
 
-![Veri, ekran Huniler aracıyla](./media/app-insights-understand-usage-patterns/funnel1.png)
+![Veri, ekran Huniler aracıyla](media/usage-funnels/funnel1.png)
 
 ### <a name="funnels-features"></a>Huniler özellikleri
 Önceki ekran beş vurgulanan alanları içerir. Bunlar Huniler özellikleridir. Aşağıdaki listede karşılık gelen her ekran alanı hakkında daha fazla açıklanmaktadır:

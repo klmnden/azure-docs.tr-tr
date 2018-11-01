@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: maxluk
-ms.openlocfilehash: b3dd31c7890812dfa7e9e5740a48f094badc604e
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 51e1e7696ece46e63358b2ed6efa55bbf6ab01fd
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49167350"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50420787"
 ---
 # <a name="use-azure-toolkit-for-intellij-to-create-spark-applications-for-an-hdinsight-cluster"></a>Spark uygulamaları için bir HDInsight kümesi oluşturmak için Intellij için Azure Araç Seti'ni kullanma
 
@@ -33,7 +33,7 @@ Projenizi oluşturmak için görüntüleme [Intellij için Azure araç seti ile 
 ## <a name="prerequisites"></a>Önkoşullar
 
 - HDInsight Linux üzerinde Apache Spark kümesi. Yönergeler için bkz. [Azure HDInsight'ta Apache Spark kümeleri oluşturma](apache-spark-jupyter-spark-sql.md).
-- Oracle Java Geliştirme Seti. Buradan yükleyebilirsiniz [Oracle Web sitesi](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).
+- Oracle Java Geliştirme Seti. Buradan yükleyebilirsiniz [Oracle Web sitesi](https://aka.ms/azure-jdks).
 - Intellij Idea. Bu makalede, sürüm 2017.1 kullanır. Buradan yükleyebilirsiniz [JetBrains Web sitesi](https://www.jetbrains.com/idea/download/).
 
 ## <a name="install-azure-toolkit-for-intellij"></a>Intellij için Azure araç setini yükleme

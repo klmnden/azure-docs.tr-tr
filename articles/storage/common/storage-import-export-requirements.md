@@ -9,10 +9,10 @@ ms.date: 10/15/2018
 ms.author: alkohli
 ms.component: common
 ms.openlocfilehash: 3a42f09967ec42b47947823025f2f0dcd081d1b1
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/16/2018
+ms.lasthandoff: 10/31/2018
 ms.locfileid: "49352246"
 ---
 # <a name="azure-importexport-system-requirements"></a>Azure içeri/dışarı aktarma sistem gereksinimleri
@@ -49,7 +49,7 @@ Depolama hesapları hakkında daha fazla bilgi için bkz. [Azure depolama hesab�
 Her iş için veya yalnızca bir depolama hesabından veri aktarmak için kullanılabilir. Diğer bir deyişle, bir tek içeri/dışarı aktarma işi birden çok depolama hesabında yayılamaz. Yeni bir depolama hesabı oluşturma hakkında daha fazla bilgi için bkz. [bir depolama hesabının nasıl oluşturulacağını](storage-quickstart-create-account.md).
 
 > [!IMPORTANT] 
-> Azure içeri dışarı aktarma hizmeti, depolama hesaplarını desteklemiyor burada [sanal ağ hizmet uç noktaları](../../virtual-network/virtual-network-service-endpoints-overview.md) özelliği etkinleştirildi. 
+> Azure içeri dışarı aktarma hizmeti, depolama hesaplarını desteklemiyor burada [sanal ağ hizmet uç noktaları](../../virtual-network/virtual-network-service-endpoints-overview.md) özelliği etkinleştirildi. 
 
 ## <a name="supported-storage-types"></a>Desteklenen depolama türleri
 

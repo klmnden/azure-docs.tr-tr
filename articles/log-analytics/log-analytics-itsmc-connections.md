@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: v-jysur
 ms.component: ''
-ms.openlocfilehash: 190e173e035716431c92533e42ded97e147f21a7
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 4faea38817a546dbab02064d22a0813362f77b3d
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49409212"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50416469"
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector"></a>ITSM ürünler/hizmetler BT Hizmet Yönetimi Bağlayıcısı ile bağlanma
 Bu makalede, iş öğeleri merkezi olarak yönetmek için Log Analytics'te ITSM ürününüz/hizmetiniz ve BT Hizmet Yönetimi Bağlayıcısı'nı (ITSMC) arasındaki bağlantıyı yapılandırmak hakkında bilgi sağlar. ITSMC hakkında daha fazla bilgi için bkz: [genel bakış](log-analytics-itsmc-overview.md).
@@ -57,7 +57,7 @@ System Center Service Manager Örneğiniz için ITSMC bağlanmak için aşağıd
 
 2.  Altında **çalışma alanı veri kaynakları** tıklayın **ITSM bağlantıları**.
 
-    ![Yeni bağlantı](./media/log-analytics-itsmc/add-new-itsm-connection.png)
+    ![Yeni bağlantı](media/log-analytics-itsmc-connections/add-new-itsm-connection.png)
 
 3. Sağ bölmenin en üstünde tıklayın **Ekle**.
 
@@ -78,7 +78,7 @@ System Center Service Manager Örneğiniz için ITSMC bağlanmak için aşağıd
 | **Veri Eşitleme** | Verilerden istediğiniz geçen gün sayısını yazın. **Üst sınır**: 120 gün. |
 | **ITSM çözümüne yeni yapılandırma öğesi oluşturma** | ITSM ürününde yapılandırma öğelerini oluşturmak istiyorsanız bu seçeneği belirleyin. Seçili olduğunda, Log Analytics etkilenen CIS desteklenen ITSM sistemi içinde yapılandırma öğeleri (durumunda, mevcut olmayan CIS) oluşturur. **Varsayılan**: devre dışı. |
 
-![Service manager bağlantısı](./media/log-analytics-itsmc/service-manager-connection.png)
+![Service manager bağlantısı](media/log-analytics-itsmc-connections/service-manager-connection.png)
 
 **Başarıyla bağlandı ve eşitlenmiş**:
 
@@ -128,14 +128,14 @@ Service Manager örneğinin azure'da ITSMC bağlanan karma bağlantıyı yapıla
 2. Tıklayın **ayarları** > **ağ**.
 3. Altında **karma bağlantılar**, tıklayın **karma bağlantı uç noktalarınızı yapılandırın**.
 
-    ![Karma bağlantı ağ](./media/log-analytics-itsmc/itsmc-hybrid-connection-networking-and-end-points.png)
+    ![Karma bağlantı ağ](media/log-analytics-itsmc-connections/itsmc-hybrid-connection-networking-and-end-points.png)
 4. İçinde **karma bağlantılar** dikey penceresinde tıklayın **karma Bağlantı Ekle**.
 
-    ![Karma Bağlantı Ekle](./media/log-analytics-itsmc/itsmc-new-hybrid-connection-add.png)
+    ![Karma Bağlantı Ekle](media/log-analytics-itsmc-connections/itsmc-new-hybrid-connection-add.png)
 
 5. İçinde **karma bağlantılar ekleme** dikey penceresinde tıklayın **oluştur yeni karma bağlantı**.
 
-    ![Yeni Karma bağlantı](./media/log-analytics-itsmc/itsmc-create-new-hybrid-connection.png)
+    ![Yeni Karma bağlantı](media/log-analytics-itsmc-connections/itsmc-create-new-hybrid-connection.png)
 
 6. Aşağıdaki değerleri yazın:
 
@@ -146,14 +146,14 @@ Service Manager örneğinin azure'da ITSMC bağlanan karma bağlantıyı yapıla
     - **Konum**: konumu seçin.
     -  **Ad**: oluşturmakta olduğunuz servicebus için bir ad belirtin.
 
-    ![Karma bağlantı değerleri](./media/log-analytics-itsmc/itsmc-new-hybrid-connection-values.png)
+    ![Karma bağlantı değerleri](media/log-analytics-itsmc-connections/itsmc-new-hybrid-connection-values.png)
 6. Tıklayın **Tamam** kapatmak için **karma bağlantı oluşturma** dikey penceresinde ve karma bağlantı oluşturmaya başlayabilirsiniz.
 
     Karma bağlantı oluşturulduktan sonra bu dikey pencerenin altında görüntülenir.
 
 7. Karma bağlantı oluşturulduktan sonra bağlantıyı seçin ve tıklayın **seçili karma bağlantıyı Ekle**.
 
-    ![Yeni Karma bağlantı](./media/log-analytics-itsmc/itsmc-new-hybrid-connection-added.png)
+    ![Yeni Karma bağlantı](media/log-analytics-itsmc-connections/itsmc-new-hybrid-connection-added.png)
 
 #### <a name="configure-the-listener-setup"></a>Dinleyici Kurulumu yapılandırın
 
@@ -171,14 +171,14 @@ Karma bağlantı dinleyicisi Kurulumu yapılandırmak için aşağıdaki yordam�
 
 Karma bağlantı başarıyla bağlandı.
 
-![başarılı bir karma bağlantı](./media/log-analytics-itsmc/itsmc-hybrid-connection-listener-set-up-successful.png)
+![başarılı bir karma bağlantı](media/log-analytics-itsmc-connections/itsmc-hybrid-connection-listener-set-up-successful.png)
 > [!NOTE]
 
 > Sonra karma bağlantısı oluşturulur, doğrulayın ve dağıtılan Service Manager Web uygulamasını ziyaret ederek bağlantıyı test edin. Azure'da ITSMC bağlanmaya çalışmadan önce bağlantının başarılı olduğundan emin olun.
 
 Aşağıdaki örnek resimde, başarılı bir bağlantı ayrıntılarını gösterir:
 
-![Karma bağlantı testi](./media/log-analytics-itsmc/itsmc-hybrid-connection-test.png)
+![Karma bağlantı testi](media/log-analytics-itsmc-connections/itsmc-hybrid-connection-test.png)
 
 ## <a name="connect-servicenow-to-it-service-management-connector-in-azure"></a>Servicenow'ı bağlama için BT Hizmet Yönetimi Bağlayıcısı Azure
 
@@ -209,7 +209,7 @@ ServiceNow bağlantısı oluşturmak için aşağıdaki yordamı kullanın:
 1. Azure portalında Git **tüm kaynakları** ve Ara **ServiceDesk(YourWorkspaceName)**
 
 2.  Altında **çalışma alanı veri kaynakları** tıklayın **ITSM bağlantıları**.
-    ![Yeni bağlantı](./media/log-analytics-itsmc/add-new-itsm-connection.png)
+    ![Yeni bağlantı](media/log-analytics-itsmc-connections/add-new-itsm-connection.png)
 
 3. Sağ bölmenin en üstünde tıklayın **Ekle**.
 
@@ -232,7 +232,7 @@ ServiceNow bağlantısı oluşturmak için aşağıdaki yordamı kullanın:
 | **Veri Eşitleme** | Verilerden istediğiniz geçen gün sayısını yazın. **Üst sınır**: 120 gün. |
 | **ITSM çözümüne yeni yapılandırma öğesi oluşturma** | ITSM ürününde yapılandırma öğelerini oluşturmak istiyorsanız bu seçeneği belirleyin. Seçili olduğunda, ITSMC etkilenen CIS desteklenen ITSM sistemi içinde yapılandırma öğeleri (durumunda, mevcut olmayan CIS) oluşturur. **Varsayılan**: devre dışı. |
 
-![ServiceNow bağlantısı](./media/log-analytics-itsmc/itsm-connection-servicenow-connection-latest.png)
+![ServiceNow bağlantısı](media/log-analytics-itsmc-connections/itsm-connection-servicenow-connection-latest.png)
 
 **Başarıyla bağlandı ve eşitlenmiş**:
 
@@ -304,7 +304,7 @@ Provance bağlantı oluşturmak için aşağıdaki yordamı kullanın:
 1. Azure portalında Git **tüm kaynakları** ve Ara **ServiceDesk(YourWorkspaceName)**
 
 2.  Altında **çalışma alanı veri kaynakları** tıklayın **ITSM bağlantıları**.
-    ![Yeni bağlantı](./media/log-analytics-itsmc/add-new-itsm-connection.png)
+    ![Yeni bağlantı](media/log-analytics-itsmc-connections/add-new-itsm-connection.png)
 
 3. Sağ bölmenin en üstünde tıklayın **Ekle**.
 
@@ -326,7 +326,7 @@ Provance bağlantı oluşturmak için aşağıdaki yordamı kullanın:
 | **Veri Eşitleme** | Verilerden istediğiniz geçen gün sayısını yazın. **Üst sınır**: 120 gün. |
 | **ITSM çözümüne yeni yapılandırma öğesi oluşturma** | ITSM ürününde yapılandırma öğelerini oluşturmak istiyorsanız bu seçeneği belirleyin. Seçili olduğunda, ITSMC etkilenen CIS desteklenen ITSM sistemi içinde yapılandırma öğeleri (durumunda, mevcut olmayan CIS) oluşturur. **Varsayılan**: devre dışı.|
 
-![Provance bağlantı](./media/log-analytics-itsmc/itsm-connections-provance-latest.png)
+![Provance bağlantı](media/log-analytics-itsmc-connections/itsm-connections-provance-latest.png)
 
 **Başarıyla bağlandı ve eşitlenmiş**:
 
@@ -355,7 +355,7 @@ Provance bağlantı oluşturmak için aşağıdaki yordamı kullanın:
 1. Azure portalında Git **tüm kaynakları** ve Ara **ServiceDesk(YourWorkspaceName)**
 
 2.  Altında **çalışma alanı veri kaynakları** tıklayın **ITSM bağlantıları**.
-    ![Yeni bağlantı](./media/log-analytics-itsmc/add-new-itsm-connection.png)
+    ![Yeni bağlantı](media/log-analytics-itsmc-connections/add-new-itsm-connection.png)
 
 3. Sağ bölmenin en üstünde tıklayın **Ekle**.
 
@@ -378,7 +378,7 @@ Provance bağlantı oluşturmak için aşağıdaki yordamı kullanın:
 | **ITSM çözümüne yeni yapılandırma öğesi oluşturma** | ITSM ürününde yapılandırma öğelerini oluşturmak istiyorsanız bu seçeneği belirleyin. Seçili olduğunda, ITSMC etkilenen CIS desteklenen ITSM sistemi içinde yapılandırma öğeleri (durumunda, mevcut olmayan CIS) oluşturur. **Varsayılan**: devre dışı. |
 
 
-![Provance bağlantı](./media/log-analytics-itsmc/itsm-connections-cherwell-latest.png)
+![Provance bağlantı](media/log-analytics-itsmc-connections/itsm-connections-cherwell-latest.png)
 
 **Başarıyla bağlandı ve eşitlenmiş**:
 
@@ -396,7 +396,7 @@ Cherwell için istemci kimliği/anahtarı oluşturmak için aşağıdaki yordam�
 2. Tıklayın **güvenlik** > **Düzenle REST API İstemci Ayarları**.
 3. Seçin **oluştur yeni istemci** > **gizli**.
 
-    ![Cherwell kullanıcı kimliği](./media/log-analytics-itsmc/itsmc-cherwell-client-id.png)
+    ![Cherwell kullanıcı kimliği](media/log-analytics-itsmc-connections/itsmc-cherwell-client-id.png)
 
 
 ## <a name="next-steps"></a>Sonraki adımlar

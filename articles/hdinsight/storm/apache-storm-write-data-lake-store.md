@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2018
-ms.openlocfilehash: 670d465f1481592862f5e653a508460c19be07d8
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 4e99ed88eb6a58308ecd972931ca877493504fea
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43049700"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50419845"
 ---
 # <a name="write-to-hdfs-from-apache-storm-on-hdinsight"></a>HDFS'ye HDInsight üzerinde Apache Storm yazma
 
@@ -29,7 +29,7 @@ Bu topoloji içeren proje yükleme yoluyla kullanılabilir [ https://github.com/
 
 Bu projeyi derlemek için aşağıdaki yapılandırma için geliştirme ortamınızı gerekir:
 
-* [Java JDK 1.8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) veya üstü. HDInsight 3.5 veya üstü için Java 8 gerekir.
+* [Java JDK 1.8](https://aka.ms/azure-jdks) veya üstü. HDInsight 3.5 veya üstü için Java 8 gerekir.
 
 * [Maven 3.x](https://maven.apache.org/download.cgi)
 

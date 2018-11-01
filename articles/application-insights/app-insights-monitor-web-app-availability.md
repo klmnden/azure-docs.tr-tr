@@ -11,15 +11,15 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/13/2018
+ms.date: 10/30/2018
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: cf5f85d4f7e9dbe1278e9dc4290967d781b398f3
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: 3869b47c4e435443bb569ae7b90df7fba9687ba7
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45632834"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50421263"
 ---
 # <a name="monitor-availability-and-responsiveness-of-any-web-site"></a>Web sitelerinin kullanılabilirlik ve yanıt hızını izleme
 Web uygulamanızı veya web sitenizi herhangi bir sunucuya dağıttıktan sonra kullanılabilirlik ve yanıt hızını izlemeye yönelik testler ayarlayabilirsiniz. [Azure Application Insights](app-insights-overview.md), dünyanın her yerindeki noktalarından uygulamanıza düzenli aralıklarla web istekleri gönderir. Uygulamanız yanıt vermezse veya yavaş yanıt verirse sizi uyarır.
@@ -47,7 +47,7 @@ Yeni kaynağa ait Genel Bakış dikey penceresini açmak için **Tüm kaynaklar*
 ## <a name="setup"></a>URL ping testi oluşturma
 Kullanılabilirlik dikey penceresini açın ve bir kullanılabilirlik testi ekleyin.
 
-![En azından web sitenizin URL'sini doldurma](./media/app-insights-monitor-web-app-availability/13-availability.png)
+![En azından web sitenizin URL'sini doldurma](./media/app-insights-monitor-web-app-availability/001-create-test.png)
 
 * **URL**, test etmek istediğiniz herhangi bir web sayfası olabilir, ancak ortak İnternet’te görünür olmalıdır. URL bir sorgu dizesi içerebilir. Bu nedenle, örneğin, veritabanınızla biraz alıştırma yapabilirsiniz. URL yeniden yönlendirme adresine çözümlenirse, en fazla 10 yeniden yönlendirmeyi izleriz.
 * **Bağımlı istekleri ayrıştır**: Bu seçenek işaretlenirse test, test kapsamındaki web sitesine ait görüntü, betik, stil dosyaları ve diğer dosyaları ister. Kayıtlı yanıt süresi, bu dosyaları almak için geçen süreyi içerir. Testin tamamının zaman aşımı süresi içinde tüm bu kaynaklar sorunsuz yüklenemezse, test başarısız olur. Seçenek işaretlenmezse, test yalnızca belirttiğiniz URL’deki dosyayı ister.
@@ -56,10 +56,10 @@ Kullanılabilirlik dikey penceresini açın ve bir kullanılabilirlik testi ekle
 
 * **Test sıklığı**: Her test konumdan testin ne sıklıkta çalıştırılacağını ayarlar. Beş dakikalık varsayılan sıklıkta ve beş test konumuyla, siteniz ortalama olarak dakikada bir test edilir.
 
-* **Test konumları**, sunucularımızın URL’nize web istekleri gönderdiği yerlerdir. Bir konumdan fazla seçin; böylece, web sitenizdeki ağ sorunlarını ayırt edebilirsiniz. En fazla 16 konum seçebilirsiniz.
+* **Test konumları**, sunucularımızın URL’nize web istekleri gönderdiği yerlerdir. Bizim en az önerilen test konumları beş, sorunları, Web sitenizdeki ağ sorunlarını ayırt edebilirsiniz emin olmak amacıyla sayısıdır. En fazla 16 konum seçebilirsiniz.
 
-> [!NOTE] 
-> * Geçici bir sorun belirli bir konum kaynaklanan yanlış alarm önlemek için birden fazla konumdan test kesinlikle öneririz.
+> [!NOTE]
+> * Birden çok konumlardan beş konumlardan en az test kesinlikle öneririz. Bu geçici bir sorun belirli bir konum neden olabilir yanlış alarm önlemek içindir. Buna ek olarak en uygun yapılandırma için uyarı konumu eşiği + 2 eşit sayıda test konumları sahip olduğunu bulduk. 
 > * Katı bir onay "bağımlı istekleri Ayrıştır" seçeneğinin sonuçları etkinleştiriliyor. Test için el ile site göz atarken belirgin olmayabilir çalışmaları başarısız olabilir.
 
 * **Başarı ölçütleri**:
@@ -70,10 +70,12 @@ Kullanılabilirlik dikey penceresini açın ve bir kullanılabilirlik testi ekle
 
     **İçerik eşleşmesi**: "Hoş geldiniz!" gibi bir dize. Her yanıtta büyük küçük harfe duyarlı bir tam eşleşme oluştuğunu test edebiliriz. Joker karakter bulunmayan düz bir dize olmalıdır. Sayfanızın içeriği değişirse bunu güncelleştirmeniz gerektiğini unutmayın.
 
+* **Uyarı konumu eşiği**: en az 3/5 konumları öneririz. Uyarı konumu eşiği ve test konumları sayısı arasındaki en iyi ilişki **uyarı konumu eşiği** = **test konumları sayısı** - 2, en az beş ile test konumları.
+
 ## <a name="multi-step-web-tests"></a>Çok adımlı web testleri
 Bir dizi URL'nin bulunduğu bir senaryoyu izleyebilirsiniz. Örneğin, bir satış web sitesi izliyorsanız, öğelerin alışveriş sepetine doğru eklendiğini test edebilirsiniz.
 
-> [!NOTE] 
+> [!NOTE]
 > Çok adımlı web testleri ücrete tabidir. [Fiyatlandırma düzeni](http://azure.microsoft.com/pricing/details/application-insights/).
 > 
 
@@ -266,7 +268,7 @@ Testinizde OAuth kullanılarak oturum açılması gerekiyorsa, genel yaklaşım 
 ## <a name="performance-tests"></a>Performans testleri
 Web sitenizde bir yük testi çalıştırabilirsiniz. Kullanılabilirlik testinde olduğu gibi dünyanın dört bir yanındaki noktalarımızdan basit istekler ya da çok adımlı istekler gönderebilirsiniz. Kullanılabilirlik testinden farklı olarak eşzamanlı birden fazla kullanıcıyı benzeten çok sayıda istek gönderilir.
 
-Genel Bakış dikey penceresinde **Ayarlar**, **Performans Testleri**’ni açın. Bir test oluşturduğunuzda, bağlanmak veya bir Azure DevOps hesabı oluşturmak için davetlidir.
+Genel Bakış dikey penceresinde **Ayarlar**, **Performans Testleri**’ni açın. Bir test oluşturduğunuzda, bağlanma veya Azure DevOps hesabı oluşturmak için davetlidir.
 
 Test tamamlandığında yanıt süreleri ve başarı oranları gösterilir.
 

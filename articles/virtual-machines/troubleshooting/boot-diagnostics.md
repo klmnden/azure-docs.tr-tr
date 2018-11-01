@@ -8,14 +8,14 @@ editor: ''
 tags: azure-resource-manager
 ms.service: virtual-machines
 ms.topic: troubleshooting
-ms.date: 06/15/2018
+ms.date: 10/31/2018
 ms.author: delhan
-ms.openlocfilehash: 64641f8acfe7b58763756e2a0707fa799ee804b2
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 9341458336e4c95b84590eadbc86073e7dbf09a0
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47414678"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50419563"
 ---
 # <a name="how-to-use-boot-diagnostics-to-troubleshoot-virtual-machines-in-azure"></a>Azure'da sanal makine sorunlarını gidermek için önyükleme tanılama kullanma
 
@@ -24,6 +24,10 @@ ms.locfileid: "47414678"
 Kendi görüntünüzü Azure veya hatta bir platform görüntüleri önyükleme yapma sırasında neden bir sanal makine önyüklenebilir olmayan bir duruma gelmesinin birçok nedeni olabilir. Bu özellikler, kolayca tanılayın ve sanal makinelerinizin önyükleme hatalarını kurtarma sağlar.
 
 Linux sanal makineleri için Portal'dan konsol oturum çıktısını kolayca görüntüleyebilirsiniz. Azure, hem Windows hem de Linux sanal makineleri için hiper yöneticiden VM'nin ekran görmek de sağlar. Bu özelliklerin her ikisi de tüm bölgelerdeki Azure sanal makineler için desteklenir. Not, ekran görüntüleri ve çıktının depolama hesabınızda görünmesi 10 dakika sürebilir.
+
+Seçebileceğiniz **önyükleme tanılaması** günlük ve ekran görüntülemek için seçeneği.
+
+![Resource Manager](./media/virtual-machines-common-boot-diagnostics/screenshot1.png)
 
 ## <a name="common-boot-errors"></a>Sık karşılaşılan önyükleme hataları
 
@@ -70,7 +74,7 @@ Linux sanal makineleri için Portal'dan konsol oturum çıktısını kolayca gö
             "diagnosticsProfile": {
                 "bootDiagnostics": {
                 "enabled": true,
-                "storageUri": "[concat('http://', parameters('newStorageAccountName'), '.blob.core.windows.net')]"
+                "storageUri": "[concat('https://', parameters('newStorageAccountName'), '.blob.core.windows.net')]"
                 }
             }
             }

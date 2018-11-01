@@ -4,16 +4,16 @@ description: Sanal bir TPM bir Linux VM için Azure IOT Edge cihaz sağlama test
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 06/27/2018
+ms.date: 10/31/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 2416d70e3c9d0f66ff755d8049e78e0275c89258
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 6d0d2adfb4a727ec93db6d44e6a3e8f923760b91
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50232078"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50739677"
 ---
 # <a name="create-and-provision-an-edge-device-with-a-virtual-tpm-on-a-linux-virtual-machine"></a>Bir Linux sanal makinesinde sanal bir TPM ile Edge cihazı oluşturma ve sağlama
 
@@ -180,7 +180,7 @@ TPM erişim vermek için aşağıdaki adımları kullanın. Alternatif olarak, b
    Başarılı çıkış aşağıdaki gibi görünür:
 
    ```output
-   crw------- 1 root root 10, 224 Jun 28 22:34 /dev/tpm0
+   crw------- 1 root iotedge 10, 224 Jul 20 16:27 /dev/tpm0
    ```
 
 8. Açık IOT Edge çalışma zamanı dosyasını geçersiz kılar. 

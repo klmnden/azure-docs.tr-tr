@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: jsimmons
-ms.openlocfilehash: 286f8e560ec653ed4f4f1cad5a2ae27b940f8d15
-ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ms.openlocfilehash: ca412e94f65c7e1ed9a547ec9dcabc62fac7d42f
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43781789"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50741836"
 ---
 # <a name="preview-enforce-azure-ad-password-protection-for-windows-server-active-directory"></a>Önizleme: Azure AD parola koruması için Windows Server Active Directory zorla
 
@@ -33,16 +33,6 @@ Azure AD parola koruması üç yazılım bileşenleri şunlardır:
 * DC aracı parola filtresi DLL'sinin işletim sisteminden parola doğrulama isteklerini alır ve bunları etki alanı denetleyicisinde yerel olarak çalışan Azure AD parola koruması DC aracı hizmetine iletir.
 
 ![Azure AD parola koruması bileşenleri birlikte nasıl çalıştığını](./media/concept-password-ban-bad-on-premises/azure-ad-password-protection.png)
-
-## <a name="requirements"></a>Gereksinimler
-
-* Etki alanı denetleyicileri de dahil olmak üzere Azure AD parola koruması bileşenlerinin yüklendiği tüm makinelerde Windows Server 2012 veya sonraki sürümünü çalıştırmalıdır.
-* Etki alanı denetleyicileri de dahil olmak üzere Azure AD parola koruması bileşenlerinin yüklendiği tüm makinelerde yüklü olan evrensel C çalışma zamanı olması gerekir. Bu tercihen Windows Update aracılığıyla makine tam olarak düzeltme eki uygulama tarafından gerçekleştirilir. Aksi takdirde uygun işletim sistemine özgü güncelleştirme paketi olabilir yüklü - [Windows Evrensel C çalışma zamanı güncelleştirmesi](https://support.microsoft.com/help/2999226/update-for-universal-c-runtime-in-windows)
-* En az bir sunucu Azure AD parola koruması proxy hizmetini barındıran her etki alanında en az bir etki alanı denetleyicisi arasında ağ bağlantısı olmalıdır.
-* Parola koruması işlevsellikten yararlanan herhangi bir Active Directory etki alanı denetleyicisi DC aracısının yüklü olması gerekir.
-* DC çalıştıran herhangi bir Active Directory etki alanı Aracı hizmeti yazılımı DFSR sysvol çoğaltma için kullanmanız gerekir.
-* Azure AD ile Azure AD parola koruması proxy hizmeti kaydetmek için bir genel yönetici hesabı.
-* Orman kök etki alanındaki Active Directory etki alanı yönetici ayrıcalıklarına sahip bir hesap.
 
 ### <a name="license-requirements"></a>Lisans gereksinimleri
 
@@ -70,7 +60,6 @@ Adresinden indirilip Azure AD parola koruması için gerekli iki yükleyiciler v
 * Parola koruması zorlama emin olmak için tüm DC'leri DC aracıyı yüklemek için önerilir. 
 * Azure AD parola koruması gerçek zamanlı ilke uygulama altyapısı değil. Bir parola ilkesi yapılandırma değişikliği ve ulaştığında ve tüm etki alanı denetleyicilerinde zorlanan saat arasındaki zaman bir gecikme olabilir.
 
-
 ## <a name="next-steps"></a>Sonraki adımlar
 
-[Azure AD parola korumasını dağıtma](howto-password-ban-bad-on-premises.md)
+[Azure AD parola korumasını dağıtma](howto-password-ban-bad-on-premises-deploy.md)

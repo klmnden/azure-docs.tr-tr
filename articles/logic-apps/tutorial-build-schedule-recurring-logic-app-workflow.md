@@ -10,12 +10,12 @@ ms.reviewer: klam, LADocs
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/12/2018
-ms.openlocfilehash: 70d7adc9ea8c65a7e6a21165864b7e6d661c6f8c
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 8a8c8c7abf5b6f0f2a870f6983c7e855db1e0192
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48042300"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50231823"
 ---
 # <a name="check-traffic-on-a-schedule-with-azure-logic-apps"></a>Azure Logic Apps ile zamanlamaya göre trafik denetleme
 
@@ -331,7 +331,7 @@ Artık gerek kalmadığında mantıksal uygulamanızı ve ilgili kaynakları iç
 ## <a name="get-support"></a>Destek alın
 
 * Sorularınız için [Azure Logic Apps forumunu](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps) ziyaret edin.
-* Özelliklerle ilgili fikirlerinizi göndermek veya gönderilmiş olanları oylamak için [Logic Apps kullanıcı geri bildirimi sitesini](http://aka.ms/logicapps-wish) ziyaret edin.
+* Özelliklerle ilgili fikirlerinizi göndermek veya gönderilmiş olanları oylamak için [Logic Apps kullanıcı geri bildirimi sitesini](https://aka.ms/logicapps-wish) ziyaret edin.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

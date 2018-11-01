@@ -1,9 +1,9 @@
 ---
-title: Bir Azure ölçek kümesi şablonda mevcut bir sanal ağa başvuran | Microsoft Docs
-description: Bir sanal ağ mevcut bir Azure sanal makine ölçek kümesi şablona eklemeyi öğrenin
+title: Bir Azure ölçek kümesi şablonunun var olan bir sanal ağda başvurusu | Microsoft Docs
+description: Bir sanal ağ için mevcut bir Azure sanal makine ölçek kümesi şablonu eklemeyi öğrenin
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: gatneil
+author: mayanknayar
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,23 +14,23 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2017
-ms.author: negat
-ms.openlocfilehash: eb35975de5864e129f97b614a61487456dd972ef
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.author: manayar
+ms.openlocfilehash: 1dcb97a94bd5790edc2e40acf890bb47baec7a4b
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/20/2017
-ms.locfileid: "26782380"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50740102"
 ---
-# <a name="add-reference-to-an-existing-virtual-network-in-an-azure-scale-set-template"></a>Bir Azure ölçek kümesi şablonda mevcut bir sanal ağı başvuru ekleyin
+# <a name="add-reference-to-an-existing-virtual-network-in-an-azure-scale-set-template"></a>Bir Azure ölçek kümesi şablonunuzda bir sanal ağınız için başvuru ekleyin
 
-Bu makalede nasıl değiştirileceğini gösterir [minimum uygun ölçek kümesi şablonu](./virtual-machine-scale-sets-mvss-start.md) içine yeni bir tane oluşturmak yerine var olan bir sanal ağı dağıtmak için.
+Bu makalede nasıl değiştirileceğini gösterir [en düşük uygun ölçek kümesi şablonunu](./virtual-machine-scale-sets-mvss-start.md) içine yeni bir tane oluşturmak yerine var olan bir sanal ağı dağıtmak için.
 
-## <a name="change-the-template-definition"></a>Şablon tanımını değiştirin
+## <a name="change-the-template-definition"></a>Şablon tanımı değiştirme
 
-En düşük uygun ölçek kümesi şablon görülebilir [burada](https://raw.githubusercontent.com/gatneil/mvss/minimum-viable-scale-set/azuredeploy.json), ve mevcut bir sanal ağı kümesini dağıtmak için şablon görülebilir [burada](https://raw.githubusercontent.com/gatneil/mvss/existing-vnet/azuredeploy.json). Bu şablon oluşturmak için kullanılan fark inceleyelim (`git diff minimum-viable-scale-set existing-vnet`) tarafından parça parça:
+En düşük uygun ölçek kümesi şablonunun görülebilir [burada](https://raw.githubusercontent.com/gatneil/mvss/minimum-viable-scale-set/azuredeploy.json), ve ölçek kümesini mevcut bir sanal ağa dağıtmak için şablon görülebilir [burada](https://raw.githubusercontent.com/gatneil/mvss/existing-vnet/azuredeploy.json). Bu şablon oluşturmak için kullanılan fark inceleyelim (`git diff minimum-viable-scale-set existing-vnet`) parça parça:
 
-İlk olarak, ekleyin bir `subnetId` parametresi. Bu dize, ölçeği sanal makinelerine dağıtmak için önceden oluşturulmuş alt ağı tanımlamak için Ayarla izin vererek ölçek kümesi yapılandırması içine geçirilir. Bu dize biçiminde olmalıdır: `/subscriptions/<subscription-id>resourceGroups/<resource-group-name>/providers/Microsoft.Network/virtualNetworks/<virtual-network-name>/subnets/<subnet-name>`. Örneği için ölçek dağıtmak için mevcut sanal ağda adıyla ayarlayın `myvnet`, alt ağ `mysubnet`, kaynak grubu `myrg`ve abonelik `00000000-0000-0000-0000-000000000000`, subnetId olacaktır: `/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myrg/providers/Microsoft.Network/virtualNetworks/myvnet/subnets/mysubnet`.
+İlk olarak, ekleme bir `subnetId` parametresi. Bu dize, içine sanal makineleri dağıtmak için önceden oluşturulmuş alt ağı belirlerken ölçek sağlayan ölçek kümesi yapılandırması uygulamasına geçirilir. Bu dize biçiminde olmalıdır: `/subscriptions/<subscription-id>resourceGroups/<resource-group-name>/providers/Microsoft.Network/virtualNetworks/<virtual-network-name>/subnets/<subnet-name>`. Örneğin, Ölçek kümesi dağıtmaktır ada sahip mevcut bir sanal ağına ayarlayın `myvnet`, alt ağ `mysubnet`, kaynak grubu `myrg`ve abonelik `00000000-0000-0000-0000-000000000000`, Subnetıd olacaktır: `/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myrg/providers/Microsoft.Network/virtualNetworks/myvnet/subnets/mysubnet`.
 
 ```diff
      },
@@ -43,7 +43,7 @@ En düşük uygun ölçek kümesi şablon görülebilir [burada](https://raw.git
    },
 ```
 
-Ardından, sanal ağ kaynak grubundan silme `resources` dizisi olarak var olan bir sanal ağ kullanın ve yeni bir tane dağıtmanız gerekmez.
+Ardından, sanal ağ kaynak grubundan silme `resources` dizi var olan bir sanal ağı kullanmayı ve yeni bir tane dağıtmanız gerekmez.
 
 ```diff
    "variables": {},
@@ -71,7 +71,7 @@ Ardından, sanal ağ kaynak grubundan silme `resources` dizisi olarak var olan b
 -    },
 ```
 
-Şablon dağıtılmadan önce bu yüzden sanal ağa kümesini from dependsOn yan tümcesi belirtmenize gerek yoktur sanal ağ zaten mevcut. Aşağıdaki satırları sil:
+Şablon dağıtılmadan önce bir ölçek kümesindeki sanal ağa from dependsOn tümcesi belirtmeniz gerekmez. Bu nedenle sanal ağ zaten mevcut. Aşağıdaki satırları silin:
 
 ```diff
      {
@@ -87,7 +87,7 @@ Ardından, sanal ağ kaynak grubundan silme `resources` dizisi olarak var olan b
          "capacity": 2
 ```
 
-Son olarak, geçirin `subnetId` parametresi kullanıcı tarafından ayarlanan (kullanmak yerine `resourceId` ne minimum uygun ölçek şablon kümesi olduğu aynı dağıtımda bir vnet Kimliğini almak için değil).
+Son olarak, geçirin `subnetId` parametresi kullanıcı tarafından ayarlanan (kullanmak yerine `resourceId` aynı dağıtımdaki sanal ağ Kimliğini almak için hangi şablon en düşük uygun ölçek kümesi yapar).
 
 ```diff
                        "name": "myIpConfig",

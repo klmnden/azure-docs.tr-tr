@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/15/2018
+ms.date: 10/31/2018
 ms.author: jingwang
-ms.openlocfilehash: efbc020f482a46621eb5c3e3cd6137d1114da6de
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 02d21db5c5fadb65ec63e41cbd9e2db8869ed2e7
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46129616"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50415840"
 ---
 # <a name="copy-data-from-marketo-using-azure-data-factory-preview"></a>Azure Data Factory (Önizleme) kullanarak Marketo'dan veri kopyalama
 
@@ -32,6 +32,9 @@ Bu makalede, kopyalama etkinliği Azure Data Factory'de Marketo'dan veri kopyala
 Marketo'dan veri tüm desteklenen havuz veri deposuna kopyalayabilirsiniz. Kaynakları/havuz kopyalama etkinliği tarafından desteklenen veri depolarının listesi için bkz. [desteklenen veri depoları](copy-activity-overview.md#supported-data-stores-and-formats) tablo.
 
 Azure Data Factory bağlantısını etkinleştirmek için yerleşik bir sürücü sağlar, bu nedenle bu bağlayıcıyı kullanarak herhangi bir sürücü el ile yüklemeniz gerekmez.
+
+>[!NOTE]
+>Bu Marketo bağlayıcı Marketo REST API temelinde oluşturulmuştur. Marketo olduğuna dikkat [eşzamanlı istek sınırı](http://developers.marketo.com/rest-api/) hizmet tarafındaki. Hataları belirten ulaşırsanız "REST API'sini kullanmayı çalışırken hata: en yüksek hızı sınırı '100' ile '20' aşıldı saniye (606)" veya "REST API kullanmaya çalışırken hata: eş zamanlı erişim '10' sınırına (615)", eşzamanlı kopyalama etkinliği çalışır azaltmak için göz önünde bulundurun hizmete istek sayısını azaltın.
 
 ## <a name="getting-started"></a>Başlarken
 

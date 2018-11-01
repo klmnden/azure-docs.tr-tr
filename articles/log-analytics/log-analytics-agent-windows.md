@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 677cd65b011ed69868564617ff79b7a57947c230
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 2b9e7615fc0c2262c33ab5d7be39bdb99bc752bd
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49404452"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50412967"
 ---
 # <a name="connect-windows-computers-to-the-log-analytics-service-in-azure"></a>Windows bilgisayarları Azure Log Analytics hizmetine bağlayın
 
@@ -42,7 +42,7 @@ Windows için Microsoft Monitoring Agent'ı yüklemeden önce, Log Analytics ça
 
 1. Azure portalında **Tüm hizmetler**’e tıklayın. Kaynak listesinde **Log Analytics** yazın. Yazmaya başladığınızda liste, girişinize göre filtrelenir. **Log Analytics**’i seçin.
 2. Log Analytics çalışma alanlarınızın listesinde aracının yapılandırılmasında üzerinde rapor istediğiniz çalışma alanını seçin.
-3. **Gelişmiş ayarlar**’ı seçin.<br><br> ![Log Analytics Gelişmiş Ayarlar](media/log-analytics-quick-collect-azurevm/log-analytics-advanced-settings-01.png)<br><br>  
+3. **Gelişmiş ayarlar**’ı seçin.<br><br> ![Log Analytics Gelişmiş Ayarlar](media/log-analytics-agent-windows/log-analytics-advanced-settings-01.png)<br><br>  
 4. **Bağlı Kaynaklar**’ı seçin ve ardından **Windows Sunucuları**’nı seçin.   
 5. Sık kullandığınız düzenleyicinizi kopyalayıp **çalışma alanı kimliği** ve **birincil anahtar**.    
    
@@ -54,11 +54,11 @@ Aşağıdaki adımlar, yükleme ve bilgisayarınızda Microsoft Monitoring Agent
 2. **Hoş Geldiniz** sayfasında **İleri**'ye tıklayın.
 3. **Lisans Koşulları** sayfasında, lisansı okuyun ve **Kabul Ediyorum**'a tıklayın.
 4. **Hedef Klasör** sayfasında, varsayılan yükleme klasörünü değiştirin veya koruyun ve ardından **İleri**'ye tıklayın.
-5. Üzerinde **Aracı Kurulum Seçenekleri** sayfasında, aracıyı Azure Log Analytics'e bağlayın ve ardından **sonraki**.   
+5. **Aracı Kurulum Seçenekleri** sayfasında, aracıyı Azure Log Analytics'e bağlamayı seçin ve ardından **İleri**'ye tıklayın.   
 6. **Azure Log Analytics** sayfasında aşağıdakileri yapın:
    1. Daha önce kopyaladığınız **Çalışma Alanı Kimliği** ve **Çalışma Alanı Anahtarı (Birincil Anahtar)** değerlerini yapıştırın.  Bilgisayarın Azure Kamu bulutundaki bir Log Analytics çalışma alanına raporlaması gerekiyorsa, **Azure Cloud** açılan listesinden **Azure ABD Kamu**'yu seçin.  
    2. Bilgisayarın Log Analytics hizmetiyle bir ara sunucu üzerinden iletişim kurması gerekiyorsa, **Gelişmiş**'e tıklayın ve ara sunucunun URL'siyle bağlantı noktası numarasını sağlayın.  Ara sunucunuz kimlik doğrulaması gerektiriyorsa, ara sunucuyla kimlik doğrulaması yapmak için kullanıcı adını ve parolayı yazın, ardından **İleri**'ye tıklayın.  
-7. Gerekli yapılandırma ayarlarını sağlamayı tamamladığınızda **İleri**'ye tıklayın.<br><br> ![Çalışma Alanı Kimliği ve Birincil Anahtarı'nı yapıştırın](media/log-analytics-quick-collect-windows-computer/log-analytics-mma-setup-laworkspace.png)<br><br>
+7. Gerekli yapılandırma ayarlarını sağlamayı tamamladığınızda **İleri**'ye tıklayın.<br><br> ![Çalışma Alanı Kimliği ve Birincil Anahtarı'nı yapıştırın](media/log-analytics-agent-windows/log-analytics-mma-setup-laworkspace.png)<br><br>
 8. **Yüklemeye Hazır** sayfasında seçimlerinizi gözden geçirin ve ardından **Yükle**'ye tıklayın.
 9. **Yapılandırma başarıyla tamamlandı** sayfasında **Son**'a tıklayın.
 
@@ -160,7 +160,7 @@ Aracı paketi 32-bit ve 64-bit sürümleri farklı ürün kodları ve yayımlana
 
 Aracı yüklemesi tamamlandıktan sonra bu doğrulama başarıyla bağlandı ve raporlama iki şekilde gerçekleştirilebilir.  
 
-Bilgisayar **Denetim Masası**, öğeyi bulur **Microsoft Monitoring Agent**.  Seçin ve **Azure Log Analytics** sekmesine Aracısı belirten bir ileti görüntülenmelidir: **Microsoft Monitoring Agent Microsoft Operations Management Suite hizmetine başarıyla bağlandı.**<br><br> ![MMA'nın Log Analytics'e bağlantı durumu](media/log-analytics-quick-collect-windows-computer/log-analytics-mma-laworkspace-status.png)
+Bilgisayar **Denetim Masası**, öğeyi bulur **Microsoft Monitoring Agent**.  Seçin ve **Azure Log Analytics** sekmesine Aracısı belirten bir ileti görüntülenmelidir: **Microsoft Monitoring Agent Microsoft Operations Management Suite hizmetine başarıyla bağlandı.**<br><br> ![MMA'nın Log Analytics'e bağlantı durumu](media/log-analytics-agent-windows/log-analytics-mma-laworkspace-status.png)
 
 Ayrıca, Azure portalında basit bir günlük araması gerçekleştirebilirsiniz.  
 

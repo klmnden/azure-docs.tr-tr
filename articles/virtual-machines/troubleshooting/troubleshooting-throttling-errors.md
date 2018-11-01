@@ -13,12 +13,12 @@ ms.topic: troubleshooting
 ms.workload: infrastructure-services
 ms.date: 09/18/2018
 ms.author: vashan, rajraj, changov
-ms.openlocfilehash: b951d0b8d91729340cf382e70f72511fb009053e
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 15a4ff73476ce54f0617a88e040ac64d7288e9a8
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49386561"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50741122"
 ---
 # <a name="troubleshooting-api-throttling-errors"></a>API azaltma hatalarının sorunlarını giderme 
 
@@ -76,6 +76,18 @@ Content-Type: application/json; charset=utf-8
 Kalan çağrı sayısı 0 ile döndürülen azaltma hata nedeniyle bir ilkedir. Bu durumda olan `HighCostGet30Min`. Genel yanıt gövdesi genel Azure Resource Manager API'si hata (OData ile uyumlu) biçimdir. Ana hata kodu `OperationNotAllowed`, bir işlem kaynak sağlayıcısı azaltma hataları (arasında istemci hataları diğer türleri) bildirmek için kullanır. `message` Özelliği iç hata, bir seri hale getirilmiş JSON yapısıyla kısıtlama ihlali ayrıntılarını içerir.
 
 Yukarıda gösterildiği gibi her kısıtlama hatası içerir `Retry-After` saniye en az sayıda istemci sağlar üst bilgi isteği yeniden denemeden önce beklemesi gereken. 
+
+## <a name="api-call-rate-and-throttling-error-analyzer"></a>API çağrısı oranı ve azaltma hata Çözümleyicisi
+Bir sorun giderme özelliğini bir önizleme sürümünü işlem kaynak sağlayıcısı API'si için kullanılabilir. Bu PowerShell cmdlet'lerini işlemi her zaman aralığını ve azaltma ihlalleri her işlem grubu (ilke) başına API istek hızı hakkında istatistikler sağlar:
+-   [Export-Azurermloganalyticrequestratebyınterval](https://docs.microsoft.com/powershell/module/azurerm.compute/export-azurermloganalyticrequestratebyinterval)
+-   [Export-AzureRmLogAnalyticThrottledRequests](https://docs.microsoft.com/powershell/module/azurerm.compute/export-azurermloganalyticthrottledrequests)
+
+API çağrısı istatistikleri, bir aboneliğin istemci davranışını harika Öngörüler sağlar ve azaltma neden arama desenlerinin kolay tanımayı etkinleştirin.
+
+Bir anda Çözümleyicisi (desteklemek üzere yönetilen diskler) disk ve anlık görüntü kaynak türleri için istekleri sayılmaz sınırlamasıdır. Bu yana alınan CRP'ın telemetri verileri toplar da ARM azaltma hataları tanımlanmasına yardımcı olamaz. Ancak, bunlar kolayca göre farklı ARM yanıt üstbilgilerini, daha önce bahsedildiği gibi tanımlanabilir.
+
+PowerShell cmdlet'leri (desteğiyle hiç biçimsel ancak henüz) doğrudan istemcileri tarafından kolayca çağrılabilen REST hizmeti API'si kullanmaktadır. Cmdlet'leri HTTP istek biçimini görmek için bunların yürütme Fiddler ile hata ayıklama anahtarı veya gözetleme - ile çalıştırın.
+
 
 ## <a name="best-practices"></a>En iyi uygulamalar 
 

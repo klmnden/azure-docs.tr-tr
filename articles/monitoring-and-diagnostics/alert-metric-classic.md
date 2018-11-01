@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/18/2018
 ms.author: snmuvva
 ms.component: alerts
-ms.openlocfilehash: ffac9511ab93367cba3f006249bd92658a520e09
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 76a87b79ccc776e0facd57a1cff50fbbcb4f0b9e
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49386952"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50414888"
 ---
 # <a name="create-view-and-manage-classic-metric-alerts-using-azure-monitor"></a>Oluşturun, görüntüleyin ve Azure İzleyicisi'ni kullanarak Klasik ölçüm uyarılarını yönetme
 
@@ -24,11 +24,11 @@ Azure İzleyici'de klasik ölçüm uyarılarını bildirim almak için bir yol s
 
 2. İçinde **izleme** bölümünden **uyarılar (Klasik)**. Simge ve metin, farklı kaynaklar için biraz farklı olabilir. Bulamazsanız, **uyarılar (Klasik)** içinde burada bulabileceğiniz **uyarılar** veya **uyarı kuralları**.
 
-    ![İzleme](./media/alerts-metric-classic/AlertRulesButton.png)
+    ![İzleme](media/alert-metric-classic/AlertRulesButton.png)
 
 3. Seçin **ölçüm uyarısı Ekle (Klasik)** komutunu ve ardından alanları doldurun.
 
-    ![Uyarı Ekle](./media/alerts-metric-classic/AddAlertOnlyParamsPage.png)
+    ![Uyarı Ekle](media/alert-metric-classic/AddAlertOnlyParamsPage.png)
 
 4. **Adı** , uyarı kuralı. Ardından bir **açıklama**, bildirim e-postalarda da görünen.
 

@@ -1,6 +1,6 @@
 ---
-title: Azure'da geriye doğru arama bölgeleri bir SMTP Başlık denetimi için yapılandırma | Microsoft Docs
-description: Geriye doğru arama bölgeleri bir SMTP Başlık denetimi için Azure içinde yapılandırmayı açıklar
+title: Azure'da bir SMTP Başlık denetimi için geriye doğru arama bölgeleri yapılandırma | Microsoft Docs
+description: Azure'da bir SMTP Başlık denetimi için geriye doğru arama bölgeleri yapılandırılması açıklanmaktadır
 services: virtual-network
 documentationcenter: virtual-network
 author: genlin
@@ -12,38 +12,38 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
-ms.date: 02/06/2018
+ms.date: 10/31/2018
 ms.author: genli
 ms.custom: ''
-ms.openlocfilehash: 1e95b00ea08105238a860265e46275c24ed7bfbd
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: 2164dedc27d81aa488c3e054b4c6df067e96e612
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2018
-ms.locfileid: "29151876"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50418203"
 ---
-#  <a name="configure-reverse-lookup-zones-for-an-smtp-banner-check"></a>Geriye doğru arama bölgeleri bir SMTP Başlık denetimi için yapılandırma
+#  <a name="configure-reverse-lookup-zones-for-an-smtp-banner-check"></a>Bir SMTP Başlık denetimi için geriye doğru arama bölgesini yapılandırma
 
-Bu makalede, Azure DNS'de geriye doğru arama bölgesi ve SMTP başlık denetlemek için bir geriye doğru DNS (PTR) kaydı oluşturmak nasıl kullanılacağı açıklanmaktadır. 
+Bu makalede, Azure DNS'de bir geriye doğru arama bölgesi kullanın ve SMTP başlık denetlemek için bir geriye doğru DNS (PTR) kaydı oluşturmak açıklar. 
 
 ## <a name="symptom"></a>Belirti
 
-Microsoft azure'da bir SMTP sunucusu barındırıyorsanız, aşağıdaki hata iletisini alabilirsiniz zaman göndermek ya da Uzak posta sunucularından bir ileti alırsınız:
+Microsoft azure'da bir SMTP sunucusu barındırıyorsanız, aşağıdaki hata iletisini alabilirsiniz ne zaman göndereceğini ya da Uzak posta sunuculardan bir ileti alırsınız:
 
 **554: PTR kaydı** 
 
 ## <a name="solution"></a>Çözüm
 
-Azure'da sanal bir IP adresi için etki alanı bölgeler, olmayan özel etki alanı bölgeleri ait Microsoft ters kayıtları oluşturulur.
+Azure'da sanal bir IP adresi için etki alanı bölgeleri değil özel etki alanı bölgelerine ait Microsoft ters kayıtları oluşturulur.
 
-PTR kayıtları bölgeleri ait Microsoft yapılandırmak için Publicıpaddress kaynakta - ReverseFqdn özelliğini kullanın. Daha fazla bilgi için bkz: [Azure içinde barındırılan hizmetler için yapılandırma ters DNS](../dns/dns-reverse-dns-for-azure-services.md). 
+Bölgelere ait Microsoft PTR kayıtları yapılandırmak için Publicıpaddress kaynak - ReverseFqdn özelliğini kullanın. Daha fazla bilgi için [Azure'da barındırılan hizmetler için yapılandırma ters DNS](../dns/dns-reverse-dns-for-azure-services.md). 
 
-PTR kayıtları yapılandırdığınızda, IP adresi ve geriye doğru FQDN abonelik tarafından ait emin olun. Aboneliğine ait olmayan bir ters FQDN ayarlamaya çalışırsanız, aşağıdaki hata iletisini alıyorsunuz:
+PTR kayıtlarını yapılandırırken, IP adresi ve ters FQDN, abonelik tarafından ait emin olun. Aboneliğine ait olmayan bir ters FQDN ayarlamaya çalışırsanız, aşağıdaki hata iletisini alıyorsunuz:
 
     Set-AzureRmPublicIpAddress : ReverseFqdn mail.contoso.com that PublicIPAddress ip01 is trying to use does not belong to subscription <Subscription ID>. One of the following conditions need to be met to establish ownership: 
                         
-    1) ReverseFqdn abonelik altındaki herhangi bir genel IP kaynak FQDN'siyle eşleşen; 
-    2) Abonelik altındaki herhangi bir genel IP kaynak FQDN'sini (CName kayıt zinciri yoluyla) ReverseFqdn çözümler; 
-    3) Bu abonelik altında bir statik genel IP kaynak adresi (CName ve A kayıt zinciri yoluyla) çözümler. 
+    1) ReverseFqdn abonelik kapsamında tüm genel IP kaynağı FQDN'si eşleşir; 
+    2) Abonelik altındaki herhangi bir genel IP kaynağa FQDN'sini (CName kayıt zinciri) yoluyla ReverseFqdn çözümler; 
+    3) Abonelik kapsamında bir statik genel IP kaynağı (CName ve A kayıt zinciri) yoluyla IP adresine çözümler. 
 
-El ile değiştirmeniz halinde, SMTP başlık varsayılan eşleştirmek için ters FQDN, Uzak posta sunucusu SMTP başlık ana etki alanı için MX kaydı eşleşecek şekilde beklediğiniz çünkü yine başarısız olabilir.
+El ile değiştirirseniz, SMTP başlık varsayılan eşleştirmek için ters FQDN, uzak bir posta sunucusu etki alanı için MX kaydı eşleştirilecek hostitel SMTP başlık bekleyebilir için yine de başarısız olabilir.

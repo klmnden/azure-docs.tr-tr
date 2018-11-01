@@ -10,12 +10,12 @@ ms.component: qna-maker
 ms.topic: article
 ms.date: 10/19/2018
 ms.author: diberry
-ms.openlocfilehash: efde57e31389558feb39b5e7ec163a1d5175470c
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 70fa8c5af4f00500c39ce3832e182a5532721799
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50210576"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50419717"
 ---
 # <a name="qna-maker-rest-api-with-java"></a>Java ile soru-cevap Oluşturucu REST API 
 <a name="HOLTop"></a>
@@ -41,7 +41,7 @@ Bu makalede nasıl kullanılacağını gösterir [Microsoft soru-cevap Oluşturu
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Bu kodu derleyip çalıştırmak için [JDK 7 veya 8](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)’e ihtiyacınız olacak. Varsa, sık kullandığınız bir Java IDE’yi veya bir metin düzenleyicisini kullanabilirsiniz.
+Bu kodu derleyip çalıştırmak için [JDK 7 veya 8](https://aka.ms/azure-jdks)’e ihtiyacınız olacak. Varsa, sık kullandığınız bir Java IDE’yi veya bir metin düzenleyicisini kullanabilirsiniz.
 
 **Microsoft Soru-Cevap Oluşturma API'sine** sahip bir [Bilişsel Hizmetler API hesabınızın](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) olması gerekir. [Azure panonuzdan](https://portal.azure.com/#create/Microsoft.CognitiveServices) ücretli bir abonelik anahtarına ihtiyacınız olacak.
 

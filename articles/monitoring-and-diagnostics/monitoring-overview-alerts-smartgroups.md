@@ -1,5 +1,5 @@
 ---
-title: Akıllı grupları
+title: Akıllı gruplar
 description: Akıllı toplamalar yardımcı uyarı uyarı gürültüsünü azaltmak gruplardır.
 author: anantr
 services: azure-monitor
@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 05/15/2018
 ms.author: anantr
 ms.component: alerts
-ms.openlocfilehash: 58a66cfdfaada34981ef166635b0d04e2e6e8f61
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 57ec7c13cdf5c2e44abf23dc0452e5eab3eb77ff
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46976903"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50412627"
 ---
-# <a name="smart-groups"></a>Akıllı grupları
+# <a name="smart-groups"></a>Akıllı gruplar
 Uyarılar uğraşmanızı bulmak için gerçekten önemli şeylere - akıllı grupları bu sorunun çözümü olması amaçlanır gürültü aracılığıyla karıştırmanız genişlettiklerinde karşılaştığı yaygın bir sınama.  
 
 Akıllı grupları, tek bir sorunu temsil eden ilgili uyarıları birleştirmek için makine öğrenme algoritmalarını kullanarak otomatik olarak oluşturulur.  Bir uyarı oluşturulduğunda, algoritma yeni bir akıllı grubu veya benzer yapıya geçmiş desenleri ve benzer özellikleri gibi bilgileri temel alarak varolan akıllı grubuna ekler. Örneğin, birçok ayrı uyarıları için önde gelen ve bu tür uyarılar geçmişte Bu uyarılar büyük olasılıkla tek bir akıllı gruba gruplandırılacak zaman birlikte oluştuysa önerme aynı anda birkaç sanal makineye bir abonelikte % CPU ani bir ortak kök neden olabilir. Birisi için sorun giderme uyarıları, akıllı grupları yalnızca izin verdiğini ilgili uyarıları tek bir toplu birim olarak yöneterek gürültüsünü azaltmak için bunları, bunun anlamı, ayrıca bunları uyarılarını için ortak kök nedenlerini olası doğrultusunda size yol gösterir.
@@ -44,7 +44,7 @@ Aşağıdaki akıllı Grup durumları desteklenir.
 
 Akıllı bir grubu seçtiğinizde akıllı Grup ayrıntı sayfası görüntülenir. Bu grubu oluşturmak için kullanılan ve durumuna değiştirmenize olanak tanır mantık dahil olmak üzere grubun akıllı hakkında ayrıntılar sağlar.
  
-![Akıllı grubu ayrıntısı](media/monitoring-overview-unified-alerts/smart-group-detail.png)
+![Akıllı grubu ayrıntısı](media/monitoring-overview-alerts-smartgroups/smart-group-detail.png)
 
 
 Akıllı Grup ayrıntı sayfası aşağıdaki bölümleri içerir.

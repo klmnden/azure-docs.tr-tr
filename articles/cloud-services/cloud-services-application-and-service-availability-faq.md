@@ -1,6 +1,6 @@
 ---
 title: Uygulama ve hizmet kullanılabilirliği sorunlarını için Microsoft Azure bulut Hizmetleri ile ilgili SSS | Microsoft Docs
-description: Bu makalede, Microsoft Azure bulut Hizmetleri için uygulama ve hizmet kullanılabilirliği hakkında sık sorulan sorular listelenmektedir.
+description: Bu makalede, Microsoft Azure bulut Hizmetleri için uygulama ve hizmet kullanılabilirliği hakkında sık sorulan soruları listelenmektedir.
 services: cloud-services
 documentationcenter: ''
 author: genlin
@@ -13,37 +13,37 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/11/2018
+ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 49576aa99f6cd505648e33348b89e502bea9d5c4
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 617a6f4873c49877cbef48a7df3f2ab2c625445e
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34068122"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50412525"
 ---
 # <a name="application-and-service-availability-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Uygulama ve hizmet kullanılabilirliği sorunlarını Azure Cloud Services: sık sorulan sorular (SSS)
 
-Bu makale, uygulama ve hizmet kullanılabilirliği sorunlarını hakkında sık sorulan sorular içermektedir [Microsoft Azure bulut Hizmetleri](https://azure.microsoft.com/services/cloud-services). Ayrıca başvurabilirsiniz [bulut Hizmetleri VM boyutu sayfa](cloud-services-sizes-specs.md) boyutu bilgi.
+Bu makale, uygulama ve hizmet kullanılabilirliği sorunlarını için hakkında sık sorulan sorular içerir [Microsoft Azure bulut Hizmetleri](https://azure.microsoft.com/services/cloud-services). Ayrıca başvurabilirsiniz [bulut Hizmetleri VM boyutu sayfası](cloud-services-sizes-specs.md) boyutu bilgi.
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
-## <a name="my-role-got-recycled-was-there-any-update-rolled-out-for-my-cloud-service"></a>My rol geri aldı. My bulut hizmeti için toplu herhangi bir güncelleştirme oluştu?
-Kabaca ayda bir kez Microsoft yeni bir konuk işletim sistemi sürümü Windows Azure PaaS VM'ler için serbest bırakır. Konuk işletim sistemi yalnızca bir tür ardışık düzeninde güncelleştirmesidir. Bir yayın birçok diğer faktörler tarafından etkilenebilir. Ayrıca, Azure yüz binlerce makineler üzerinde çalışır. Bu nedenle, tam tarihi ve saati rollerinizi ne zaman yeniden tahmin etmek mümkün değildir. Konuk işletim sistemi güncelleştirme RSS akışı sahibiz en son bilgilerle güncelleştiriyoruz ancak yaklaşık bir değer süreyi bildirilen göz önünde bulundurmanız gerekir. Biz bu müşteriler için sorunlu olduğunu farkında olduğundan ve sınırı veya tam olarak zaman yeniden başlatma için bir plan üzerinde çalışma.
+## <a name="my-role-got-recycled-was-there-any-update-rolled-out-for-my-cloud-service"></a>Rolüm geri alındı. Bulut hizmetimde piyasaya sunuluyor herhangi bir güncelleştirme vardı?
+Kabaca ayda bir kez Microsoft yeni bir konuk işletim sistemi sürümü Windows Azure PaaS Vm'leri için serbest bırakır. Konuk işletim sistemi gibi işlem hattında yalnızca bir güncelleme var. Bir yayın birçok diğer faktörler tarafından etkilenebilir. Ayrıca, Azure, yüz binlerce makineler üzerinde çalışır. Bu nedenle, tam tarih ve saat rollerinizi ne zaman yeniden başlatılır tahmin etmek mümkün değildir. Konuk işletim sistemi güncelleştirme RSS akışına sahip olduğumuz en son bilgilerle güncelleştiriyoruz ancak, bildirilen süresi yaklaşık bir değer olmasını dikkate almanız gerekir. Biz kullanan müşteriler için sorunlu olduğunu ve sınır ya da tam olarak zaman yeniden başlatmalar bir plan üzerinde çalışıyoruz.
 
-Yeni konuk işletim sistemi güncelleştirmeleri hakkında tam Ayrıntılar için bkz: [Azure konuk işletim sistemi sürümleri ve SDK uyumluluk matrisi](cloud-services-guestos-update-matrix.md).
+En yeni konuk işletim sistemi güncelleştirmeleri hakkında tüm ayrıntılar için bkz. [Azure konuk işletim sistemi sürümleri ve SDK uyumluluk matrisi](cloud-services-guestos-update-matrix.md).
 
-Yeniden başlatılır ve Konuk ve ana bilgisayar işletim sistemi güncelleştirmelerinin teknik ayrıntılar işaretçiler hakkında yararlı bilgi için MSDN blog gönderisine bakın [rol örneği yeniden son işletim sistemi yükseltmeleri için](http://blogs.msdn.com/b/kwill/archive/2012/09/19/role-instance-restarts-due-to-os-upgrades.aspx).
+Yeniden başlatma ve teknik ayrıntılarını Konuk ve konak işletim sistemi güncelleştirmeleri işaretçileri yararlı bilgiler için MSDN gönderisine bakın [rol örneği yeniden nedeniyle işletim sistemi yükseltmelerini](http://blogs.msdn.com/b/kwill/archive/2012/09/19/role-instance-restarts-due-to-os-upgrades.aspx).
 
-## <a name="why-does-the-first-request-to-my-cloud-service-after-the-service-has-been-idle-for-some-time-take-longer-than-usual"></a>Hizmet için biraz zaman boşta kaldıktan sonra bulut Hizmetim ilk isteği neden normalden daha uzun sürer?
-Web sunucusuna yapılan ilk istek aldığında, ilk kod yeniden derler ve isteği işler. İşte bu nedenle ilk istek diğerlerinden daha uzun sürer. Varsayılan olarak, uygulama havuzu kullanıcı etkinlik durumlarda kapatıldı. Uygulama havuzu da varsayılan olarak 1,740 dakikada (29 saat) geri.
+## <a name="why-does-the-first-request-to-my-cloud-service-after-the-service-has-been-idle-for-some-time-take-longer-than-usual"></a>Bulut hizmetimde hizmetini bir süredir boşta kaldıktan sonra ilk isteği neden normalden uzun sürüyor?
+Web sunucusu, ilk isteği aldığında, önce kod yeniden derler ve ardından isteği işler. İşte bu nedenle ilk istek diğerlerine göre daha uzun sürer. Varsayılan olarak, uygulama havuzu kullanıcı etkinlik durumlarda kapatıldı. Uygulama havuzu da varsayılan olarak 1,740 dakikada (29 saat) geri.
 
-Internet Information Services (IIS) uygulama havuzları uygulamaya açabilir kararsız durumları önlemek için düzenli aralıklarla dönüştürülebilir, askıda, kilitlenmesine veya bellek sızıntıları.
+Internet Information Services (IIS) uygulama havuzları uygulamaya yol açabilecek kararsız durumları önlemek için düzenli olarak dönüştürülebilir, askıda, kilitlenme veya bellek sızıntıları.
 
-Aşağıdaki belgeler anlamanıza ve bu sorunu azaltılmasına yardımcı olur:
-* [IIS için yavaş ilk yük çözme](http://stackoverflow.com/questions/13386471/fixing-slow-initial-load-for-iis)
+Aşağıdaki belgeler, anlamak ve bu sorunu gidermek yardımcı olur:
+* [Yavaş ilk yük IIS için düzeltme](http://stackoverflow.com/questions/13386471/fixing-slow-initial-load-for-iis)
 * [Uygulama havuzu geri dönüşümü çok yavaş sonra IIS 7.5 web uygulaması ilk istek](http://stackoverflow.com/questions/13917205/iis-7-5-web-application-first-request-after-app-pool-recycle-very-slow)
 
-IIS varsayılan davranışını değiştirmek istiyorsanız, Web rolü örneklerine el ile değişiklik uygularsanız, değişiklikleri sonunda kaybolacağı için başlangıç görevleri kullanmanız gerekecektir.
+IIS varsayılan davranışını değiştirmek istiyorsanız, Web rolü örnekleri için el ile değişiklikleri uygularsanız, değişiklikleri sonunda kaybolacağı için başlangıç görevleri kullanmanız gerekir.
 
-Daha fazla bilgi için bkz: [nasıl yapılandırılacağı ve bir bulut hizmeti için başlangıç görevleri çalıştırmak](cloud-services-startup-tasks.md).
+Daha fazla bilgi için [nasıl yapılandırılacağı ve bir bulut hizmeti için başlangıç görevleri çalıştırma](cloud-services-startup-tasks.md).

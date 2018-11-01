@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/04/2018
 ms.author: johnkem
 ms.component: logs
-ms.openlocfilehash: c419a3c44a38f72d56f2b7b362c62e683fc20c7f
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 057ce4b93be27c27e27d49e61a89a7c2b9e46dc8
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46993026"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50421076"
 ---
 # <a name="stream-azure-diagnostic-logs-to-log-analytics"></a>Stream Log analytics'e Azure tanılama günlükleri
 
@@ -44,21 +44,21 @@ Log Analytics çalışma ayarı yapılandıran kullanıcının her iki abonelik 
 ## <a name="stream-diagnostic-logs-using-the-portal"></a>Portalı kullanarak Stream tanılama günlükleri
 1. Portal, Azure İzleyicisi'ne gidin ve tıklayarak **tanılama ayarları**
 
-    ![Azure İzleyicisi İzleme](media/monitoring-stream-diagnostic-logs-to-log-analytics/diagnostic-settings-blade.png)
+    ![Azure İzleyicisi İzleme](media/monitor-stream-diagnostic-logs-log-analytics/diagnostic-settings-blade.png)
 
 2. İsteğe bağlı olarak kaynak grubu veya kaynak türe göre listeyi filtreleyin ve kaynağın tanılama ayarını ayarlamak istediğiniz'i tıklatın.
 
 3. Hiçbir ayar kaynağı varsa, istenen bir ayar oluşturmak için seçtiğiniz. "Tanılamayı Aç" tıklayın
 
-   ![Tanılama ayarını - mevcut hiçbir ayar Ekle](media/monitoring-stream-diagnostic-logs-to-log-analytics/diagnostic-settings-none.png)
+   ![Tanılama ayarını - mevcut hiçbir ayar Ekle](media/monitor-stream-diagnostic-logs-log-analytics/diagnostic-settings-none.png)
 
    Kaynakta mevcut ayarları varsa, bu kaynakta zaten yapılandırılmış ayarların bir listesini görürsünüz. "Tanılama ayarı Ekle" ye tıklayın
 
-   ![Tanılama ayarını - var olan ayarları Ekle](media/monitoring-stream-diagnostic-logs-to-log-analytics/diagnostic-settings-multiple.png)
+   ![Tanılama ayarını - var olan ayarları Ekle](media/monitor-stream-diagnostic-logs-log-analytics/diagnostic-settings-multiple.png)
 
 3. Ayarı, bir ad verin ve kutusunu işaretlemeniz **Log Analytics'e gönderme**, sonra bir Log Analytics çalışma alanı seçin.
 
-   ![Tanılama ayarını - var olan ayarları Ekle](media/monitoring-stream-diagnostic-logs-to-log-analytics/diagnostic-settings-configure.png)
+   ![Tanılama ayarını - var olan ayarları Ekle](media/monitor-stream-diagnostic-logs-log-analytics/diagnostic-settings-configure.png)
 
 4. **Kaydet**’e tıklayın.
 

@@ -1,9 +1,9 @@
 ---
-title: Bir Azure ölçek kümesi şablonu özel görüntü başvurusu | Microsoft Docs
-description: Özel görüntü mevcut bir Azure sanal makine ölçek kümesi şablona eklemeyi öğrenin
+title: Bir Azure ölçek kümesi şablonunun özel görüntüsünü başvurusu | Microsoft Docs
+description: Özel bir görüntü için mevcut bir Azure sanal makine ölçek kümesi şablonu eklemeyi öğrenin
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: gatneil
+author: mayanknayar
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,27 +14,27 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 5/10/2017
-ms.author: negat
-ms.openlocfilehash: 28d2c080048a7f82e83ad9c1794c9757b330a8c7
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.author: manayar
+ms.openlocfilehash: 2e3c8177a32082c251be74e597a18730ae1c9d37
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/20/2017
-ms.locfileid: "26780927"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50739663"
 ---
-# <a name="add-a-custom-image-to-an-azure-scale-set-template"></a>Bir Azure ölçek kümesi şablonuna özel bir görüntü ekleme
+# <a name="add-a-custom-image-to-an-azure-scale-set-template"></a>Özel bir görüntü için bir Azure ölçek kümesi şablonu Ekle
 
-Bu makalede nasıl değiştirileceğini gösterir [minimum uygun ölçek kümesi şablonu](./virtual-machine-scale-sets-mvss-start.md) özel görüntüsünü dağıtmak için.
+Bu makalede nasıl değiştirileceğini gösterir [en düşük uygun ölçek kümesi şablonunu](./virtual-machine-scale-sets-mvss-start.md) özel görüntüden dağıtılacak.
 
-## <a name="change-the-template-definition"></a>Şablon tanımını değiştirin
+## <a name="change-the-template-definition"></a>Şablon tanımı değiştirme
 
-En düşük uygun ölçek kümesi şablon görülebilir [burada](https://raw.githubusercontent.com/gatneil/mvss/minimum-viable-scale-set/azuredeploy.json), ve özel bir görüntüden kümesi ölçek dağıtmak için şablon görülebilir [burada](https://raw.githubusercontent.com/gatneil/mvss/custom-image/azuredeploy.json). Bu şablon oluşturmak için kullanılan fark inceleyelim (`git diff minimum-viable-scale-set custom-image`) tarafından parça parça:
+En düşük uygun ölçek kümesi şablonunun görülebilir [burada](https://raw.githubusercontent.com/gatneil/mvss/minimum-viable-scale-set/azuredeploy.json), ve özel bir görüntüden dağıtma ölçek kümesi için şablon görülebilir [burada](https://raw.githubusercontent.com/gatneil/mvss/custom-image/azuredeploy.json). Bu şablon oluşturmak için kullanılan fark inceleyelim (`git diff minimum-viable-scale-set custom-image`) parça parça:
 
-### <a name="creating-a-managed-disk-image"></a>Yönetilen disk görüntüsü oluşturma
+### <a name="creating-a-managed-disk-image"></a>Bir yönetilen disk görüntüsü oluşturma
 
-Bir özel yönetilen disk görüntüsü zaten varsa (bir kaynak türü `Microsoft.Compute/images`), sonra da bu bölümü atlayabilirsiniz.
+Özel bir yönetilen disk görüntüsü zaten varsa (bir kaynak türü `Microsoft.Compute/images`), sonra da bu bölümü atlayabilirsiniz.
 
-İlk olarak, ekleyin bir `sourceImageVhdUri` dağıtım yapmak özel görüntüsünü içeren Azure depolama alanında genelleştirilmiş blob URI'si olan parametre.
+İlk olarak, ekleme bir `sourceImageVhdUri` genelleştirilmiş dağıtmak için özel görüntü içeren bir Azure depolama blob URI'si olan parametre.
 
 
 ```diff
@@ -52,7 +52,7 @@ Bir özel yönetilen disk görüntüsü zaten varsa (bir kaynak türü `Microsof
    "variables": {},
 ```
 
-Ardından, bir kaynak türü ekleyin `Microsoft.Compute/images`, yönetilen disk görüntüyü URI'da bulunan genelleştirilmiş blob dayalı olduğu `sourceImageVhdUri`. Bu görüntü kullandığı ölçek kümesi ile aynı bölgede olması gerekir. Görüntü özelliklerinde işletim sistemi türü, blob konumunu belirtin (gelen `sourceImageVhdUri` parametresi) ve depolama hesabı türü:
+Ardından, bir kaynak türü ekleyin `Microsoft.Compute/images`, yönetilen disk görüntüsü URI'da bulunan genelleştirilmiş blob dayalı olduğu `sourceImageVhdUri`. Bu görüntü, bunu kullanan ölçek kümesi ile aynı bölgede olması gerekir. Görüntü özelliklerinde işletim sistemi türü, blob konumunu belirtin (gelen `sourceImageVhdUri` parametresi) ve depolama hesabı türü:
 
 ```diff
    "resources": [
@@ -79,7 +79,7 @@ Ardından, bir kaynak türü ekleyin `Microsoft.Compute/images`, yönetilen disk
 
 ```
 
-Ekleme, kaynak ölçek kümesindeki bir `dependsOn` ölçek kümesi bu görüntüden dağıtmayı denemeden önce görüntünün emin olmak için özel görüntü başvuran yan tümcesi oluşturulmuş:
+Kaynak ölçek kümesi, ekleme bir `dependsOn` ölçek kümesi bu görüntüden dağıtmayı denemeden önce görüntünün emin olmak için özel görüntü başvuran yan tümcesi oluşturulur:
 
 ```diff
        "location": "[resourceGroup().location]",
@@ -94,9 +94,9 @@ Ekleme, kaynak ölçek kümesindeki bir `dependsOn` ölçek kümesi bu görünt�
 
 ```
 
-### <a name="changing-scale-set-properties-to-use-the-managed-disk-image"></a>Ölçeğin değiştirilmesi yönetilen disk görüntüsü kullanmak için özelliklerini ayarlama
+### <a name="changing-scale-set-properties-to-use-the-managed-disk-image"></a>Ölçeği değiştirmek yönetilen disk görüntüsü kullanmak için özellikleri ayarlama
 
-İçinde `imageReference` ölçeğini ayarlama `storageProfile`, yayımcı belirtmek yerine, sku, sunan ve platform görüntüsü sürümünü belirtin `id` , `Microsoft.Compute/images` kaynak:
+İçinde `imageReference` ölçek kümesi `storageProfile`, yayımcı belirtmek yerine, teklif, sku ve bir platform görüntüsü sürümü belirtin `id` , `Microsoft.Compute/images` kaynak:
 
 ```diff
          "virtualMachineProfile": {
@@ -112,7 +112,7 @@ Ekleme, kaynak ölçek kümesindeki bir `dependsOn` ölçek kümesi bu görünt�
            "osProfile": {
 ```
 
-Bu örnekte kullanmak `resourceId` aynı şablonunda oluşturulan görüntü kaynak kimliği almak için işlevi. Yönetilen disk görüntüsü önceden oluşturduysanız, bunun yerine, görüntü Kimliğini sağlamalıdır. Bu kimliği biçiminde olmalıdır: `/subscriptions/<subscription-id>resourceGroups/<resource-group-name>/providers/Microsoft.Compute/images/<image-name>`.
+Bu örnekte kullanın `resourceId` aynı şablonda oluşturulan görüntünün kaynak Kimliğini almak için işlevi. Yönetilen disk görüntüsü önceden oluşturduysanız, bunun yerine o yansıma Kimliğini sağlamanız gerekir. Bu kimliği biçiminde olmalıdır: `/subscriptions/<subscription-id>resourceGroups/<resource-group-name>/providers/Microsoft.Compute/images/<image-name>`.
 
 
 ## <a name="next-steps"></a>Sonraki Adımlar

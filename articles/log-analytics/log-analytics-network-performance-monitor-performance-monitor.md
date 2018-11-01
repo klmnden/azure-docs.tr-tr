@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: abshamsft
 ms.component: ''
-ms.openlocfilehash: 1254afc1ad1c513c18d565be8a6543a6ee0ae94b
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 17a15ca00d7343064bde84860de91b62ff136cfe
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48040600"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50414132"
 ---
 # <a name="network-performance-monitor-solution-performance-monitoring"></a>Ağ Performansı İzleyicisi çözümü: performansı izleme
 
@@ -33,12 +33,12 @@ Performans İzleyicisi özelliği [Ağ Performansı İzleyicisi](log-analytics-n
 - SNMP'ye gerek duymadan ağın sistem durumunu izleyin.
 
 
-![Ağ Performansı İzleyicisi](media/log-analytics-network-performance-monitor/npm-performance-monitor.png)
+![Ağ Performansı İzleyicisi](media/log-analytics-network-performance-monitor-performance-monitor/npm-performance-monitor.png)
 
 ## <a name="configuration"></a>Yapılandırma
 Yapılandırma için Ağ Performansı İzleyicisi'ni açmak için açık [Ağ Performansı İzleyicisi çözüm](log-analytics-network-performance-monitor.md)seçip **yapılandırma**.
 
-![Ağ Performansı İzleyicisi'ni yapılandırma](media/log-analytics-network-performance-monitor/npm-configure-button.png)
+![Ağ Performansı İzleyicisi'ni yapılandırma](media/log-analytics-network-performance-monitor-performance-monitor/npm-configure-button.png)
 
 ### <a name="create-new-networks"></a>Yeni ağlar oluşturma
 
@@ -120,21 +120,21 @@ Detaya gitme sayfasını gösteren **DMZ2 DMZ1** sağlıksız ağ bağlantısı.
 
 Detaya gitme sayfanın tüm alt ağ bağlantıları gösterir **DMZ2 DMZ1** ağ bağlantısı. Her iki alt ağ bağlantıları için gecikme süresi ağ bağlantısını sağlıksız hale eşiği aşıldı. Her iki alt ağ bağlantıları, gecikme süresi eğilimleri de görebilirsiniz. Zaman seçimi denetlemek gerekli zaman aralığına odaklanmak için grafikteki kullanın. En yüksek gecikme süresi dolduğunda günün saatini görebilirsiniz. Sorunu araştırmaya daha sonra bu zaman aralığı için günlükleri arayın. Seçin **düğüm bağlantılarını görüntüle** daha fazla detaya gitmek için. 
  
- ![Alt ağ bağlantıları sayfası](media/log-analytics-network-performance-monitor/subnetwork-links.png) 
+ ![Alt ağ bağlantıları sayfası](media/log-analytics-network-performance-monitor-performance-monitor/subnetwork-links.png) 
 
 Önceki sayfaya benzer, belirli bir alt ağ bağlantısı için detaya gitme sayfası onun bağlı düğüm bağlantıları listeler. Benzer eylemleri gerçekleştirmek önceki adımda yaptığınız gibi buradan. Seçin **topolojisini görüntüleme** iki düğüm arasındaki topolojiyi görüntülemek için. 
  
- ![Düğüm bağlantılar sayfası](media/log-analytics-network-performance-monitor/node-links.png) 
+ ![Düğüm bağlantılar sayfası](media/log-analytics-network-performance-monitor-performance-monitor/node-links.png) 
 
 Seçilen iki düğüm arasındaki tüm yolları topoloji Haritası çizilir. Atlama atlama düzeyinde topolojisini yollarının topolojisi haritası üzerinde iki düğüm arasında görselleştirebilirsiniz. İki düğüm arasında ne kaç yollar mevcut NET bir resim sunan yolları veri paketlerinin yararlanın. Ağ performans sorunlarını kırmızı renkte gösterilir. Hatalı ağ bağlantısı ya da hatalı ağ cihazı bulmak için topoloji harita üzerinde kırmızı öğesini arayın. 
 
- ![Topoloji Haritası ile topoloji Panosu](media/log-analytics-network-performance-monitor/topology-dashboard.png) 
+ ![Topoloji Haritası ile topoloji Panosu](media/log-analytics-network-performance-monitor-performance-monitor/topology-dashboard.png) 
 
 Kaybı, gecikme süresi ve her yolunda durak sayısını inceleyebilirsiniz **eylem** bölmesi. Sağlıksız yollar ayrıntılarını görüntülemek için kaydırma çubuğunu kullanın. Sağlıksız atlama ile yolları seçin, böylece yalnızca seçilen yollar için topoloji çizilen için filtreleri kullanın. İçine veya dışına topoloji Haritası yakınlaştırma için fare tekerleğini kullanın. 
 
 Aşağıdaki görüntüde, belirli ağ bölümüne sorunlu alanları kök nedenini kırmızı yolları ve atlama görünür. Topoloji haritasında FQDN ve IP adresini içeren düğümünün özellikleri açığa çıkarmak için bir düğüm seçin. Bir atlama seçildiğinde, atlama IP adresi gösterilir. 
  
-![Seçili düğümü özellikleri ile bir topoloji Haritası](media/log-analytics-network-performance-monitor/topology-dashboard-root-cause.png) 
+![Seçili düğümü özellikleri ile bir topoloji Haritası](media/log-analytics-network-performance-monitor-performance-monitor/topology-dashboard-root-cause.png) 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 [Arama günlüklerini](log-analytics-log-searches.md) ayrıntılı ağ performansı verileri kayıtları görüntülemek için.

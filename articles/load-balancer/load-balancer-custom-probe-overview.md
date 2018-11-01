@@ -4,10 +4,6 @@ description: Yük dengeleyicinin arkasında izlemek için sistem durumu araştı
 services: load-balancer
 documentationcenter: na
 author: KumudD
-manager: timlt
-editor: ''
-tags: azure-resource-manager
-ms.assetid: 46b152c5-6a27-4bfc-bea3-05de9ce06a57
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
@@ -15,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/04/2018
 ms.author: kumud
-ms.openlocfilehash: ecc33fc6078dac4affe3942f1be7e039ae9e9e70
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 134c7ab8156f3acb558e8b8a2da343961a6aad4e
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43695434"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50419342"
 ---
 # <a name="load-balancer-health-probes"></a>Load Balancer sistem durumu araştırmaları
 
@@ -95,7 +91,7 @@ Artık Cloud Services'ı kullanın ve w3wp.exe kullanan web rolleri, ayrıca oto
 
 Bir HTTP / HTTPS araştırma başarısız:
 * Araştırma uç noktasına bir HTTP yanıt kodu 200 (örneğin, 403, 404 veya 500) dışında döndürür. Bu durum yoklaması hemen işaretler. 
-* Araştırma uç noktası çalışmıyor hiç sırasında bir 31 ikinci zaman aşımı süresi. Araştırma çalışmıyor olarak işaretleneceğini önce ayarlanan zaman aşımı değeri bağlı olarak birden fazla araştırma isteklerine yanıtlanmamış geçebilir (diğer bir deyişle, önce SuccessFailCount araştırmaları gönderilir).
+* Araştırma uç noktası 31 ikinci zaman aşımı süresi boyunca hiç yanıt vermiyor. Araştırma çalışmıyor olarak işaretleneceğini önce ayarlanan zaman aşımı değeri bağlı olarak birden fazla araştırma isteklerine yanıtlanmamış geçebilir (diğer bir deyişle, önce SuccessFailCount araştırmaları gönderilir).
 * Araştırma uç noktası, TCP sıfırlama yoluyla bağlantıyı kapatır.
 
 #### <a name="resource-manager-templates"></a>Resource Manager şablonları
@@ -126,7 +122,7 @@ Bir HTTP / HTTPS araştırma başarısız:
 
 ### <a name="guestagent"></a>Konuk aracı araştırması (yalnızca klasik)
 
-Bulut hizmeti rolleri (çalışan rolleri ve web rolleri), varsayılan olarak araştırma izlemesi için konuk Aracısı kullanın.   Bu bir seçenek son çare düşünmelisiniz.  Her zaman bir durum araştırması açıkça ile bir TCP veya HTTP araştırması tanımlamanız gerekir. Konuk aracı araştırması, çoğu uygulama senaryoları için açıkça tanımlanmış araştırmaları olabildiğince verimli değildir.  
+Bulut hizmeti rolleri (çalışan rolleri ve web rolleri), varsayılan olarak araştırma izlemesi için konuk Aracısı kullanın.   Bu bir seçenek son çare düşünmelisiniz.  Her zaman açık olarak bir TCP durum araştırması veya HTTP araştırması tanımlamanız gerekir. Konuk aracı araştırması, çoğu uygulama senaryoları için açıkça tanımlanmış araştırmaları olabildiğince verimli değildir.  
 
 Konuk aracı araştırması, Konuk aracısının VM içindeki bir denetimdir. Dinler ve hazır durumda yalnızca örnektir ile bir HTTP 200 OK yanıtı yanıt verdiği. (Geri dönüştürme veya durduruluyor meşgul diğer durumlar vardır.)
 
@@ -163,11 +159,11 @@ Yük Dengeleme kuralı tek bir durum araştırması ilgili arka uç havuzuna tan
 
 ### <a name="tcp-connections"></a>TCP bağlantıları
 
-Yeni bir TCP bağlantısı iyi durumda olan ve bir konuk işletim sistemi ve uygulama yeni bir akış kabul etmeyi arka uç örneğe başarılı olur.
+Yeni bir TCP bağlantısı iyi durumda olduğundan ve bir konuk işletim sistemi ve uygulama yeni bir akış kabul etmeyi arka uç örneğe başarılı olur.
 
 Bir arka uç örneği durum araştırması başarısız olursa, yerleşik TCP bağlantıları bu arka uç örneğe devam edin.
 
-Yeni akış, bir arka uç havuzundaki tüm örnekleri için tüm araştırmaları başarısız olursa, arka uç havuzuna gönderilir. Standart Load Balancer, devam etmek için yerleşik TCP akışları izin verir.  Temel yük dengeleyici arka uç havuzu için tüm mevcut TCP akışlar sona erer.
+Yeni akış, bir arka uç havuzundaki tüm örnekleri için tüm araştırmaları başarısız olursa, arka uç havuzuna gönderilir. Standart Load Balancer, devam etmek için yerleşik TCP akışları izin verir.  Temel yük dengeleyici arka uç havuzu için tüm mevcut TCP akışları sona erer.
  
 Akışı, her zaman sanal makinenin konuk işletim sistemi ve istemci arasında olduğundan, tüm araştırmaları bir havuzla bir ön uç akışını almak için sağlam bir arka uç örnek olarak TCP bağlantı açma denemelerinin yanıt vermemesine neden olur.
 

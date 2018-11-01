@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 02/05/2017
 ms.author: jasonh
 ROBOTS: NOINDEX
-ms.openlocfilehash: fc2bd03156d6005f1e10252583b4a13451f66dbf
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: c10fcb8e45dc163629186cfb48408e8734bc5a56
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43092636"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50418220"
 ---
 # <a name="use-maven-to-build-java-applications-that-use-hbase-with-windows-based-hdinsight-hadoop"></a>Windows tabanlı HDInsight (Hadoop) ile HBase kullanan Java uygulamaları oluşturmak için Maven kullanma
 Öğrenin ve oluşturmak bir [Apache HBase](http://hbase.apache.org/) Apache Maven kullanarak Java uygulaması. Ardından uygulama, Azure HDInsight (Hadoop) ile kullanın.
@@ -25,7 +25,7 @@ ms.locfileid: "43092636"
 > Bu belgedeki adımlarda Windows kullanan bir HDInsight kümesi gerektirir. Linux, HDInsight sürüm 3.4 ve üzerinde kullanılan tek işletim sistemidir. Daha fazla bilgi için bkz. [Windows'da HDInsight'ın kullanımdan kaldırılması](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 ## <a name="requirements"></a>Gereksinimler
-* [Java platformu JDK](http://www.oracle.com/technetwork/java/javase/downloads/index.html) 7 veya üzeri
+* [Java platformu JDK](https://aka.ms/azure-jdks) 7 veya üzeri
 * [Maven](http://maven.apache.org/)
 * HBase ile bir Windows tabanlı HDInsight kümesi
 

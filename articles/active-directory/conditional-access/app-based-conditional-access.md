@@ -1,8 +1,8 @@
 ---
-title: Azure Active Directory uygulama tabanlı koşullu erişim | Microsoft Docs
-description: Azure Active Directory uygulama tabanlı koşullu erişim nasıl çalıştığını öğrenin.
+title: Bulut uygulama erişimi Azure Active Directory'de koşullu erişim için onaylı istemci uygulamalarını zorunlu kılma | Microsoft Docs
+description: Bulut uygulama erişimi Azure Active Directory'de koşullu erişim için onaylı istemci uygulamalarını gerektiren öğrenin.
 services: active-directory
-keywords: uygulamalar, Azure AD ile koşullu erişim, koşullu erişim ilkeleri, şirket kaynaklarına güvenli erişim için koşullu erişim
+keywords: uygulamalara koşullu erişim, Azure AD ile koşullu erişim, şirket kaynaklarına güvenli erişim, koşullu erişim ilkeleri
 documentationcenter: ''
 author: MarkusVi
 manager: mtillman
@@ -17,18 +17,18 @@ ms.workload: identity
 ms.date: 06/13/2018
 ms.author: markvi
 ms.reviewer: spunukol
-ms.openlocfilehash: f34fc4c41094292db9bed1294ee7b26ec04c96c6
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 68c2178440264aa6a6efce074b299f4e3deaa10f
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39630611"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50415398"
 ---
-# <a name="azure-active-directory-app-based-conditional-access"></a>Azure Active Directory uygulama tabanlı koşullu erişim  
+# <a name="how-to-require-approved-client-apps-for-cloud-app-access-with-conditional-access"></a>Nasıl yapılır: Gerektiren onaylı istemci uygulamalar için koşullu erişim ile bulut uygulama erişimi 
 
-Çalışanlarınızın mobil cihazları hem kişisel hem de iş görevleri için kullanın. Çalışanlarınızın üretken olabilirler, ancak ayrıca veri kayıplarını da önlemek istersiniz. Azure Active Directory (Azure AD) uygulama tabanlı koşullu erişim ile şirket verilerinizi koruyabilirsiniz istemci uygulamaları için bulut uygulamalarınıza erişimi kısıtlayabilirsiniz.  
+Çalışanlarınızın mobil cihazları hem kişisel hem de iş görevleri için kullanın. Çalışanlarınızın üretken olabilirler, ancak ayrıca veri kayıplarını da önlemek istersiniz. Azure Active Directory (Azure AD) koşullu erişimle şirket verilerinizi koruyabilirsiniz onaylı istemci uygulamaları için bulut uygulamalarınıza erişimi kısıtlayabilirsiniz.  
 
-Bu konuda, Azure AD uygulama tabanlı koşullu erişim yapılandırma açıklanmaktadır.
+Bu konu, onaylı istemci uygulamalarını gerektiren koşul erişim ilkelerinin nasıl yapılandırılacağını açıklar.
 
 ## <a name="overview"></a>Genel Bakış
 
@@ -36,7 +36,7 @@ Bu konuda, Azure AD uygulama tabanlı koşullu erişim yapılandırma açıklanm
 
 Kullanabileceğiniz [Intune uygulama koruma ilkeleri](https://docs.microsoft.com/intune/app-protection-policy) Şirketinizin verilerini korumaya yardımcı olmak için. Intune uygulama koruma ilkeleri, cihazları bir cihaz Yönetimi çözümüne kaydederek veya kaydetmeden Şirketinizin verilerini korumanıza olanak tanır, mobil cihaz Yönetimi (MDM) çözümü gerektirmez.
 
-Intune uygulama koruma ilkelerini destekleyen istemci uygulamaları için bulut uygulamalarınıza erişimi sınırlamak azure Active Directory uygulama tabanlı koşullu erişim sağlar. Örneğin, erişimi Exchange Online için Outlook uygulamasında kısıtlayabilirsiniz.
+Intune uygulama koruma ilkelerini destekleyen istemci uygulamaları için bulut uygulamalarınıza erişimi sınırlamak azure Active Directory koşullu erişim sağlar. Örneğin, erişimi Exchange Online için Outlook uygulamasında kısıtlayabilirsiniz.
 
 Koşullu erişim terminolojisinde, bu istemci uygulamaları olarak bilinen **onaylı istemci uygulamalar**.  
 
@@ -120,9 +120,9 @@ Bu adımda koşullu erişim ilkesi için aşağıdaki bileşenleri yapılandırm
 
     ![Koşullu erişim](./media/app-based-conditional-access/03.png)
 
-    b. Olarak **istemci uygulamaları**seçin **mobil uygulamalar ve Masaüstü uygulamaları**.
+    b. Olarak **istemci uygulamaları (Önizleme)** seçin **mobil uygulamalar ve Masaüstü uygulamaları** ve **Modern kimlik doğrulaması istemcileri**.
 
-    ![Koşullu erişim](./media/app-based-conditional-access/04.png)
+    ![Koşullu erişim](./media/app-based-conditional-access/91.png)
 
 5. Olarak **erişim denetimleri**, ihtiyacınız **(Önizleme) onaylı istemci uygulaması gerektir** seçili.
 
@@ -144,11 +144,11 @@ Bu adımda koşullu erişim ilkesi için aşağıdaki bileşenleri yapılandırm
 
     ![Koşullu erişim](./media/app-based-conditional-access/07.png)
 
-4. **Koşullar:** olarak **koşullar**, yapılandırmanız gereken **istemci uygulamaları**. 
+4. **Koşullar:** olarak **koşullar**, yapılandırmanız gereken **istemci uygulamaları (Önizleme)**. 
 
-    a. Olarak **istemci uygulamaları**seçin **Exchange Active Sync**.
+    a. Olarak **istemci uygulamaları (Önizleme)** seçin **mobil uygulamalar ve masaüstü istemciler** ve **Exchange ActiveSync istemcileri**.
 
-    ![Koşullu erişim](./media/app-based-conditional-access/08.png)
+    ![Koşullu erişim](./media/app-based-conditional-access/92.png)
 
     b. Olarak **erişim denetimleri**, ihtiyacınız **(Önizleme) onaylı istemci uygulaması gerektir** seçili.
 
@@ -201,9 +201,9 @@ Bu adımda koşullu erişim ilkesi için aşağıdaki bileşenleri yapılandırm
 
     ![Koşullu erişim](./media/app-based-conditional-access/03.png)
 
-    b. Olarak **istemci uygulamaları**seçin **mobil uygulamalar ve Masaüstü uygulamaları**.
+    b. Olarak **istemci uygulamaları (Önizleme)** seçin **mobil uygulamalar ve masaüstü istemciler** ve **Modern kimlik doğrulaması istemcileri**.
 
-    ![Koşullu erişim](./media/app-based-conditional-access/04.png)
+    ![Koşullu erişim](./media/app-based-conditional-access/91.png)
 
 5. Olarak **erişim denetimleri**, ihtiyacınız **(Önizleme) onaylı istemci uygulaması gerektir** seçili.
 
@@ -228,9 +228,9 @@ Bu adımda koşullu erişim ilkesi için aşağıdaki bileşenleri yapılandırm
 
 4. **Koşullar:** olarak **koşullar**, yapılandırmanız gereken **istemci uygulamaları**:
 
-    a. Olarak **istemci uygulamaları**seçin **Exchange Active Sync**.
+    a. Olarak **istemci uygulamaları (Önizleme)** seçin **mobil uygulamalar ve masaüstü istemciler** ve **Exchange ActiveSync istemcileri**.
 
-    ![Koşullu erişim](./media/app-based-conditional-access/08.png)
+    ![Koşullu erişim](./media/app-based-conditional-access/92.png)
 
     b. Olarak **erişim denetimleri**, ihtiyacınız **(Önizleme) onaylı istemci uygulaması gerektir** seçili.
 
@@ -285,9 +285,9 @@ Bu adımda koşullu erişim ilkesi için aşağıdaki bileşenleri yapılandırm
 
     ![Koşullu erişim](./media/app-based-conditional-access/03.png)
 
-    b. Olarak **istemci uygulamaları**seçin **mobil uygulamalar ve Masaüstü uygulamaları**.
+    b. Olarak **istemci uygulamaları (Önizleme)** seçin **mobil uygulamalar ve masaüstü istemciler** ve **Modern kimlik doğrulaması istemcileri**.
 
-    ![Koşullu erişim](./media/app-based-conditional-access/04.png)
+    ![Koşullu erişim](./media/app-based-conditional-access/91.png)
 
 5. Olarak **erişim denetimleri**, aşağıdaki seçili olması gerekir:
 
@@ -317,9 +317,9 @@ Bu adımda koşullu erişim ilkesi için aşağıdaki bileşenleri yapılandırm
 
 4. **Koşullar:** olarak **koşullar**, yapılandırmanız gereken **istemci uygulamaları**. 
 
-    Olarak **istemci uygulamaları*seçin **Exchange Active Sync**.
+    Olarak **istemci uygulamaları (Önizleme)** seçin **mobil uygulamalar ve masaüstü istemciler** ve **Exchange ActiveSync istemcileri**.
 
-    ![Koşullu erişim](./media/app-based-conditional-access/08.png)
+    ![Koşullu erişim](./media/app-based-conditional-access/91.png)
 
 5. Olarak **erişim denetimleri**, ihtiyacınız **(Önizleme) onaylı istemci uygulaması gerektir** seçili.
  
@@ -381,9 +381,9 @@ Bu adımda koşullu erişim ilkesi için aşağıdaki bileşenleri yapılandırm
 
     ![Koşullu erişim](./media/app-based-conditional-access/03.png)
 
-    b. Olarak **istemci uygulamaları**seçin **mobil uygulamalar ve Masaüstü uygulamaları**.
+    b. Olarak **istemci uygulamaları (Önizleme)** seçin **mobil uygulamalar ve Masaüstü uygulamaları** ve **Modern kimlik doğrulaması istemcileri**.
 
-    ![Koşullu erişim](./media/app-based-conditional-access/04.png)
+    ![Koşullu erişim](./media/app-based-conditional-access/91.png)
 
 5. Olarak **erişim denetimleri**, aşağıdaki seçili olması gerekir:
 
@@ -411,11 +411,11 @@ Bu adımda koşullu erişim ilkesi için aşağıdaki bileşenleri yapılandırm
 
     ![Koşullu erişim](./media/app-based-conditional-access/07.png)
 
-4. **Koşullar:** olarak **koşullar**, yapılandırmanız gereken **istemci uygulamaları**. 
+4. **Koşullar:** olarak **koşullar**, yapılandırmanız gereken **istemci uygulamaları (Önizleme)**. 
 
-    Olarak **istemci uygulamaları**seçin **Exchange Active Sync**.
+    Olarak **istemci uygulamaları (Önizleme)** seçin **mobil uygulamalar ve masaüstü istemciler** ve **Exchange ActiveSync istemcileri**.
 
-    ![Koşullu erişim](./media/app-based-conditional-access/08.png)
+    ![Koşullu erişim](./media/app-based-conditional-access/92.png)
 
 5. Olarak **erişim denetimleri**, aşağıdaki seçili olması gerekir:
 
@@ -446,4 +446,4 @@ Bkz: [Intune ile uygulamaları ve verileri koruma](https://docs.microsoft.com/in
 
 Koşullu erişim ilkesi yapılandırmak için bkz. nasıl bilmek istiyorsanız [Azure Active Directory koşullu erişimiyle belirli uygulamalar için MFA gerektiren](app-based-mfa.md).
 
-Ortamınız için koşullu erişim ilkelerini yapılandırmaya hazırsanız bkz [Azure Active Directory'de koşullu erişim için en iyi yöntemler](best-practices.md). 
+Ortamınızda koşullu erişim ilkelerini yapılandırmaya hazırsanız bkz. [Azure Active Directory'de koşullu erişim için en iyi yöntemler](best-practices.md). 

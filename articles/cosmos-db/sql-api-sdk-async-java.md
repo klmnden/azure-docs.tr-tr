@@ -10,12 +10,12 @@ ms.devlang: java
 ms.topic: reference
 ms.date: 09/05/2018
 ms.author: sngun
-ms.openlocfilehash: e90c5640e571aaf28e184e9439f6228e3a5bbc6b
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 57172927011532af9b14fa7ff09d6aad9bac1e92
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44023571"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50417608"
 ---
 # <a name="azure-cosmos-db-async-java-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Async Java SDK'sı SQL API'si için: yayın notları ve kaynakları
 > [!div class="op_single_selector"]
@@ -48,7 +48,7 @@ SQL API Async Java SDK'sı desteği ile zaman uyumsuz işlemleri sağlayarak SQL
 
 <tr><td>**Performans ipuçları**</td><td>[Github Benioku](https://github.com/Azure/azure-cosmosdb-java#guide-for-prod)</td></tr>
 
-<tr><td>**En düşük desteklenen çalışma zamanı**</td><td>[JDK 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)</td></tr>
+<tr><td>**En düşük desteklenen çalışma zamanı**</td><td>[JDK 8](https://aka.ms/azure-jdks)</td></tr>
 </table></br>
 
 ## <a name="release-notes"></a>Sürüm notları
@@ -112,7 +112,7 @@ Cosmos DB devre dışı bırakılan bir SDK'sını kullanarak yapılan tüm iste
 | --- | --- | --- |
 | [2.1.0](#2.1.0) |5 Eylül 2018'den|--- |
 | [2.0.1](#2.0.1) |16 Ağustos 2018|--- |
-| [2.0.0](#2.0.0) |20 Haziran 2018'e|--- |
+| [2.0.0](#2.0.0) |20 Haziran 2018|--- |
 | [1.0.2](#1.0.2) |18 Mayıs 2018|--- |
 | [1.0.1](#1.0.1) |20 Nisan 2018|--- |
 | [1.0.0](#1.0.0) |27 Şubat 2018|--- |

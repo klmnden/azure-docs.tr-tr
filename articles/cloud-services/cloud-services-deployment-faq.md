@@ -1,6 +1,6 @@
 ---
 title: Dağıtım sorunları için Microsoft Azure bulut Hizmetleri ile ilgili SSS | Microsoft Docs
-description: Bu makalede, Microsoft Azure bulut Hizmetleri için dağıtım hakkında sık sorulan sorular listelenmektedir.
+description: Bu makalede, Microsoft Azure Cloud Services dağıtımı hakkında sık sorulan soruları listelenmektedir.
 services: cloud-services
 documentationcenter: ''
 author: genlin
@@ -13,71 +13,70 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/11/2018
+ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 05217129d4993514acaf8c717847040584984cb3
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: d44cfc0164892c34bcbe16ca07e9ec67190ada24
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34068913"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50415313"
 ---
-# <a name="deployment-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Azure bulut Hizmetleri için dağıtım sorunlarını: sık sorulan sorular (SSS)
+# <a name="deployment-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Azure Cloud Services dağıtım sorunlarını: sık sorulan sorular (SSS)
 
-Bu makale için dağıtım sorunları hakkında sık sorulan sorular içerir [Microsoft Azure bulut Hizmetleri](https://azure.microsoft.com/services/cloud-services). Ayrıca başvurabilirsiniz [bulut Hizmetleri VM boyutu sayfa](cloud-services-sizes-specs.md) boyutu bilgi.
+Bu makale için dağıtım sorunları hakkında sık sorulan sorular içerir [Microsoft Azure bulut Hizmetleri](https://azure.microsoft.com/services/cloud-services). Ayrıca başvurabilirsiniz [bulut Hizmetleri VM boyutu sayfası](cloud-services-sizes-specs.md) boyutu bilgi.
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
-## <a name="why-does-deploying-a-cloud-service-to-the-staging-slot-sometimes-fail-with-a-resource-allocation-error-if-there-is-already-an-existing-deployment-in-the-production-slot"></a>Var olan bir dağıtıma üretim yuvasında zaten varsa neden bir bulut hizmeti hazırlama yuvasını bazen dağıtma bir kaynak ayırma hatası ile başarısız oluyor?
-Bir bulut hizmeti her iki yuvada dağıtımı varsa, tüm bulut hizmeti için belirli bir kümeyi sabitlenir. Bu, zaten bir dağıtım üretim yuvasında zaten varsa, yeni bir hazırlama dağıtımı yalnızca üretim yuvasına aynı kümedeki ayrılabilen olduğunu anlamına gelir.
+## <a name="why-does-deploying-a-cloud-service-to-the-staging-slot-sometimes-fail-with-a-resource-allocation-error-if-there-is-already-an-existing-deployment-in-the-production-slot"></a>Mevcut bir dağıtımı üretim yuvasında zaten varsa neden bir bulut hizmeti bazen hazırlama yuvasına dağıtma kaynak ayırma hatası ile başarısız oluyor?
+Bir bulut hizmeti ya da yuvasında bir dağıtım varsa, tüm bulut hizmeti için belirli bir küme sabitlenir. Bu, zaten bir dağıtım üretim yuvasında zaten varsa, yeni bir hazırlama dağıtımı yalnızca aynı kümedeki üretim yuvasına olarak ayrılabilen anlamına gelir.
 
-Bulut hizmetinizi bulunduğu küme dağıtım isteği karşılamak için yeterli fiziksel işlem kaynaklarını yok ayırma hataları oluşur.
+Bulut hizmetinizin bulunduğu küme dağıtım isteğinizi karşılamak için yeterli fiziksel hesaplama kaynağı yok ayırma hataları ortaya çıkar.
 
-Bu tür ayırma hataları Azaltıcı Yardım için bkz. [bulut hizmeti ayırma hatası: çözümleri](cloud-services-allocation-failures.md#solutions).
+Tür ayırma hatalarını giderme hakkında Yardım için bkz. [bulut hizmeti ayırma hatası: çözümleri](cloud-services-allocation-failures.md#solutions).
 
-## <a name="why-does-scaling-up-or-scaling-out-a-cloud-service-deployment-sometimes-result-in-allocation-failure"></a>Neden ölçeklendirmeyi veya bir bulut hizmeti dağıtımı bazen neden ayırma hatası çıkış ölçeklendirme mu?
-Bir bulut hizmeti dağıtıldığında, genellikle belirli bir kümeye sabitlenmiş. Bu, var olan bir bulut hizmeti yukarı/giden ölçeklendirme yeni örnekleri aynı kümedeki ayırmalısınız anlamına gelir. Küme kapasitesine yaklaşıyor veya istenen VM boyutu/türü kullanılabilir değilse, istek başarısız olabilir.
+## <a name="why-does-scaling-up-or-scaling-out-a-cloud-service-deployment-sometimes-result-in-allocation-failure"></a>Artırma veya azaltma giden bir bulut hizmeti dağıtımı bazen ayırma hataya neden neden mu?
+Bir bulut hizmeti dağıtılırken, genellikle belirli bir kümeye sabitlenebilir. Başka bir deyişle, var olan bir bulut hizmeti yukarı/out ölçeklendirme, aynı kümede yeni örnekleri ayırmanız gerekir. Kümenin kapasitesine yaklaşıyor veya istenen VM boyutuna/türüne kullanılabilir değilse, istek başarısız olabilir.
 
-Bu tür ayırma hataları Azaltıcı Yardım için bkz. [bulut hizmeti ayırma hatası: çözümleri](cloud-services-allocation-failures.md#solutions).
+Tür ayırma hatalarını giderme hakkında Yardım için bkz. [bulut hizmeti ayırma hatası: çözümleri](cloud-services-allocation-failures.md#solutions).
 
-## <a name="why-does-deploying-a-cloud-service-into-an-affinity-group-sometimes-result-in-allocation-failure"></a>Neden bir bulut hizmeti bir benzeşim grubuna bazen dağıtma ayırma hatasına neden?
-Bulut hizmeti bir benzeşim grubuna sabitlenmiş sürece bu bölgedeki herhangi bir küme yapıda tarafından boş bir bulut hizmetinde için yeni bir dağıtım ayrılabilir. Aynı benzeşim grubuna dağıtımları aynı kümede denenir. Küme kapasitesine yaklaşıyor isteği başarısız olabilir.
+## <a name="why-does-deploying-a-cloud-service-into-an-affinity-group-sometimes-result-in-allocation-failure"></a>Neden bir bulut hizmetinde bir benzeşim grubuna bazen dağıtma ayırma hatasına neden?
+Bulut hizmeti bir benzeşim grubuna Sabitlenen sürece bu bölgedeki herhangi bir küme dokusunda tarafından boş bir bulut hizmetinde yeni bir dağıtım ayrılabilir. Dağıtımları için aynı benzeşim grubu, aynı kümede denenecek. Kümenin kapasitesine yaklaşıyor istek başarısız.
 
-Bu tür ayırma hataları Azaltıcı Yardım için bkz. [bulut hizmeti ayırma hatası: çözümleri](cloud-services-allocation-failures.md#solutions).
+Tür ayırma hatalarını giderme hakkında Yardım için bkz. [bulut hizmeti ayırma hatası: çözümleri](cloud-services-allocation-failures.md#solutions).
 
-## <a name="why-does-changing-vm-size-or-adding-a-new-vm-to-an-existing-cloud-service-sometimes-result-in-allocation-failure"></a>Neden olan bir bulut hizmetini yeni bir VM bazen ekleme veya VM boyutunu değiştirme ayırma hatasına neden?
-Bir veri merkezinde kümeleri makine türlerinin (örneğin, bir seri, Av2 serisi, D serisi, Dv2 serisi, G serisi, H serisi, vb.) farklı yapılandırmalara sahip. Ancak tüm kümeler mutlaka VM'ler her türlü gerekir. Örneğin, bir A yalnızca serisi küme zaten dağıtılmış bir bulut Hizmeti D serisinin VM eklemeye çalışırsanız, bir ayırma hatası karşılaşırsınız. Değiştirmeye çalışırsanız, bu da (örneğin, bir A serisinden D seriye değiştirme) VM SKU boyutları gerçekleşir.
+## <a name="why-does-changing-vm-size-or-adding-a-new-vm-to-an-existing-cloud-service-sometimes-result-in-allocation-failure"></a>Neden yeni bir VM için mevcut bir bulut hizmeti bazen ekleme veya VM boyutunu değiştirme ayırma hatasına neden?
+Bir veri merkezi içinde kümeler makine türleri (örneğin, bir serisi, Av2 serisi, D serisi, Dv2 serisi, G serisi, H serisi, vb.) farklı yapılandırmaları olabilir. Ancak tüm kümeler VM'lerin her türlü olması gerekir. Örneğin, bir A serisi-yalnızca kümesinde zaten dağıtılmış bir bulut hizmeti için D serisi VM eklemeyi denerseniz, bir ayırma hatası karşılaşırsınız. Değiştirmeye çalışırsanız, bu da (örneğin, bir A serisinden bir D serisine değiştirme) VM SKU boyutları gerçekleşir.
 
-Bu tür ayırma hataları Azaltıcı Yardım için bkz. [bulut hizmeti ayırma hatası: çözümleri](cloud-services-allocation-failures.md#solutions).
+Tür ayırma hatalarını giderme hakkında Yardım için bkz. [bulut hizmeti ayırma hatası: çözümleri](cloud-services-allocation-failures.md#solutions).
 
-Bölgenizde boyutları denetlemek için bkz: [Microsoft Azure: bölgeye göre ürünleri](https://azure.microsoft.com/regions/services).
+Bölgenizde boyutlarına denetlemek için bkz: [Microsoft Azure: bölgelere göre kullanılabilir ürünler](https://azure.microsoft.com/regions/services).
 
-## <a name="why-does-deploying-a-cloud-service-sometime-fail-due-to-limitsquotasconstraints-on-my-subscription-or-service"></a>Neden bir bulut hizmeti süre dağıtma abonelik veya hizmeti sınırları/kotaları/kısıtlamaları nedeniyle başarısız oluyor?
-Ayrılması için gereken kaynakları varsayılan veya bölge/veri merkezi düzeyinde hizmetiniz için izin verilen en yüksek kota aşarsanız bir bulut hizmeti dağıtımının başarısız olabilir. Daha fazla bilgi için bkz: [bulut Hizmetleri sınırlar](../azure-subscription-service-limits.md#cloud-services-limits).
+## <a name="why-does-deploying-a-cloud-service-sometime-fail-due-to-limitsquotasconstraints-on-my-subscription-or-service"></a>Neden bir bulut hizmeti süre dağıtma abonelik veya hizmet sınırlamaları/kotalar/kısıtlamaları nedeniyle başarısız oluyor?
+Ayrılacak gerekli kaynakları varsayılan veya bölge/veri merkezi düzeyinde hizmetiniz için izin verilen en yüksek kota aşarsanız, bir bulut hizmeti dağıtımının başarısız olabilir. Daha fazla bilgi için [Cloud Services sınırlar](../azure-subscription-service-limits.md#cloud-services-limits).
 
-Aboneliğiniz için portal için geçerli kullanım/kotası izlemek de: Azure portal = > abonelikleri = > \<uygun abonelik > = > "Kullanım + kota".
+Aboneliğinizi portal için geçerli kullanım/kota izlemek de: Azure portalında = > abonelikler = > \<uygun abonelik > = > "Kullanım + kota".
 
-Kaynak kullanım/kullanımı ile ilgili bilgileri de Azure faturalama API'leri alınabilir. Bkz: [Azure kaynak kullanım API'si (Önizleme)](../billing/billing-usage-rate-card-overview.md#azure-resource-usage-api-preview).
+Kaynak kullanım/kullanımı ile ilgili bilgileri de Azure faturalandırma API'leri alınabilir. Bkz: [Azure kaynak kullanım API'si (Önizleme)](../billing/billing-usage-rate-card-overview.md#azure-resource-usage-api-preview).
 
-## <a name="how-can-i-change-the-size-of-a-deployed-cloud-service-vm-without-redeploying-it"></a>Dağıtılan bulut hizmeti VM boyutunu yeniden dağıtmadan nasıl değiştirebilirim?
-Dağıtılan bulut hizmeti VM boyutunu yeniden dağıtmadan değiştiremezsiniz. VM boyutu ile yeniden dağıtın yalnızca güncelleştirilebilir CSDEF içinde yerleşik olarak bulunur.
+## <a name="how-can-i-change-the-size-of-a-deployed-cloud-service-vm-without-redeploying-it"></a>Dağıtılan bulut hizmeti VM boyutunu yeniden dağıtmaya gerek kalmadan nasıl değiştirebilirim?
+Yeniden dağıtmaya gerek kalmadan, dağıtılmış bir bulut hizmetinde VM boyutunu değiştiremezsiniz. VM boyutu, yalnızca bir yeniden dağıtma ile güncelleştirilebilir CSDEF yerleşiktir.
 
-Daha fazla bilgi için bkz: [bir bulut hizmeti güncelleştirmek nasıl](cloud-services-update-azure-service.md).
+Daha fazla bilgi için [bir bulut hizmeti güncelleştirme](cloud-services-update-azure-service.md).
 
-## <a name="why-am-i-not-able-to-deploy-cloud-services-through-service-management-apis-or-powershell-when-using-azure-resource-manager-storage-account"></a>Neden Azure Resource Manager depolama hesabı kullanırken, hizmet yönetim API'leri veya PowerShell ile bulut Hizmetleri dağıtabilmek için değilim? 
+## <a name="why-am-i-not-able-to-deploy-cloud-services-through-service-management-apis-or-powershell-when-using-azure-resource-manager-storage-account"></a>Neden Azure Resource Manager depolama hesabı kullanılırken Hizmet Yönetim API'leri veya PowerShell aracılığıyla bulut hizmetlerini dağıtımında gönderemiyorum? 
 
-Bulut hizmeti ile Azure Resource Manager modeli doğrudan uyumlu olmayan bir Klasik kaynak olduğundan, Azure Resource Manager depolama hesaplarıyla ilişkilendiremezsiniz. Bazı seçenekler şunlardır: 
- 
+Bulut hizmeti Azure Resource Manager modeliyle doğrudan uyumlu olmayan bir Klasik kaynak olduğundan, Azure Resource Manager depolama hesapları ile ilişkilendiremezsiniz. Bazı seçenekler şunlardır: 
+ 
 - REST API aracılığıyla dağıtma.
 
-    Hizmet Yönetimi REST API aracılığıyla dağıttığınızda, hem Klasik hem de Azure Resource Manager depolama hesabı ile çalışacak blob depolama için bir SAS URL'si belirterek sınırlamaya geçici alabilir. 'PackageUrl' özelliği hakkında daha fazla bilgiyi [burada](https://msdn.microsoft.com/library/azure/ee460813.aspx).
-  
-- Aracılığıyla dağıtma [Azure portal](https://portal.azure.com).
+    Hizmet Yönetimi REST API'si dağıttığınızda, blob depolama, hem Klasik hem de Azure Resource Manager depolama hesabı ile çalışması için bir SAS URL'sini belirterek sınırlamayı alabilir. 'PackageUrl' özelliği hakkında daha fazla bilgiyi [burada](https://msdn.microsoft.com/library/azure/ee460813.aspx).  
+- Aracılığıyla dağıtma [Azure portalında](https://portal.azure.com).
 
-    Bu gelen çalışır [Azure portal](https://portal.azure.com) gibi bir proxy/Azure Resource Manager ve klasik kaynaklar arasında iletişime izin veren dolgusu çağrı geçer. 
+    Bu çalışır [Azure portalında](https://portal.azure.com) çağrı proxy/Azure Resource Manager ve klasik kaynaklar arasında iletişime izin veren dolgu üzerinden geçtikçe. 
  
-## <a name="why-does-azure-portal-require-me-to-provide-a-storage-account-for-deployment"></a>Azure portal neden dağıtımı için bir depolama hesabı sağlayın gerektiriyor mu? 
+## <a name="why-does-azure-portal-require-me-to-provide-a-storage-account-for-deployment"></a>Azure portalında neden dağıtım için bir depolama hesabı sağlayın gerektiriyor mu? 
 
-Klasik Portalı'ndaki paketi yönetim API katmanı doğrudan yüklendi, ve ardından API katmanı geçici olarak paketi bir iç depolama dikkate alın.  Bu işlem, API katmanı dosyası yükleme hizmeti tasarlanmadığı için performans ve ölçeklenebilirlik sorunlarının neden olur.  Azure portalında (Resource Manager dağıtım modeli) daha hızlı ve daha güvenilir dağıtımlarda kaynaklanan biz ilk API katmana karşıya ara adım atlanır. 
+Klasik Portalı'nda paket yönetim API katmana doğrudan karşıya yüklendi ve ardından API katmanı geçici olarak paket bir iç depolama hesabına koyabilirsiniz.  Bu işlem API katmanı bir dosya karşıya yükleme hizmeti tasarlanmadığı için performans ve ölçeklenebilirlik sorunlarına neden olur.  Azure portalında (Resource Manager dağıtım modeli) daha hızlı ve daha güvenilir dağıtımlarda kaynaklanan biz ilk API katmanı için karşıya adım atlanır. 
 
-Maliyet için çok küçük olursa ve aynı depolama hesabındaki tüm dağıtımlar arasında yeniden kullanabilirsiniz. Kullanabileceğiniz [depolama maliyeti hesaplayıcı](https://azure.microsoft.com/pricing/calculator/#storage1) (CSPKG) hizmet paketini karşıya yüklemek için maliyet belirlemek için CSPKG karşıdan yükleyin, ardından CSPKG silin. 
+Maliyet, olduğu gibi çok küçüktür ve aynı depolama hesabındaki tüm dağıtımlar arasında yeniden kullanabilirsiniz. Kullanabileceğiniz [depolama maliyet hesaplayıcı](https://azure.microsoft.com/pricing/calculator/#storage1) hizmet paketini (CSPKG) karşıya yüklemek için maliyet belirlemek için CSPKG indirin ve ardından CSPKG silebilirsiniz. 

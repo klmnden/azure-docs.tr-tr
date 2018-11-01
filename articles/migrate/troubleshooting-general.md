@@ -4,20 +4,30 @@ description: Azure geçişi hizmeti ve sorun giderme ipuçları için sık karş
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 10/24/2018
+ms.date: 10/31/2018
 ms.author: raynew
-ms.openlocfilehash: a32b1b73a12242a6c6b1c29fbf116aff73515b46
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: 0b2954ddfda0ab4c94ddf6176d76d8bcd937fa42
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50086752"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50413342"
 ---
 # <a name="troubleshoot-azure-migrate"></a>Azure Geçişi sorunlarını giderme
 
 ## <a name="troubleshoot-common-errors"></a>Sık karşılaşılan hataları giderme
 
 [Azure geçişi](migrate-overview.md) Azure'a geçiş için şirket içi iş yüklerini değerlendirir. Dağıtma ve Azure Geçişi'ni kullanarak sorunları gidermek için bu makaleyi kullanın.
+
+### <a name="i-am-using-the-continuous-discovery-ova-but-vms-that-are-deleted-in-my-on-premises-environment-are-still-being-shown-in-the-portal"></a>OVA, ancak şirket içi ortamımın silinir Vm'leri hala portalda gösterilir sürekli bulma kullanıyorum.
+
+Gereç sürekli bulma Gereci için sadece performans verilerini sürekli olarak toplar, şirket içi ortamda (yani VM ekleme, silme, disk ekleme vb.) herhangi bir yapılandırma değişikliği algılamaz. Şirket içi ortamda bir yapılandırma değişikliği gerçekleşirse değişikliklerin portala yansıması için aşağıdakileri yapabilirsiniz:
+
+- Öğelerin eklenmesi (VM’ler, diskler, çekirdekler vb.): Bu değişiklikleri Azure portala yansıtmak için keşfi gereçten durdurup yeniden başlatabilirsiniz. Bu, değişikliklerin Azure Geçişi projesinde güncelleştirilmesini sağlar.
+
+   ![Keşfi durdur](./media/troubleshooting-general/stop-discovery.png)
+
+- VM silme: Gerecin tasarlanma şekli nedeniyle keşfi durdurup başlatsanız bile VM silme yansıtılmaz. Bunun nedeni takip eden keşiflerin eski keşiflerin üzerine yazılması yerine bunlara eklenmesidir. Bu durumda grubunuzdan kaldırarak ve değerlendirmeyi yeniden hesaplayarak portaldaki VM’yi yoksayabilirsiniz.
 
 ### <a name="migration-project-creation-failed-with-error-requests-must-contain-user-identity-headers"></a>Geçiş projesi oluşturma başarısız oldu, hata *istekler kullanıcı kimlik üst bilgileri içermelidir*
 
@@ -40,14 +50,6 @@ Disk ve ağ performans verileri toplamayı etkinleştirmek için istatistik ayar
 Gidebilirsiniz **Essentials** konusundaki **genel bakış** meta verilerin depolandığı konumun tam tanımlamak için proje sayfası. Konumun Azure geçişi tarafından coğrafyada rastgele seçilir ve üzerinde değişiklik yapamazsınız. Yalnızca belirli bir bölgede bir proje oluşturmak istiyorsanız, geçiş projesi oluşturabilir ve istediğiniz bölgeyi geçirmek için REST API'lerini kullanabilirsiniz.
 
    ![Proje konumu](./media/troubleshooting-general/geography-location.png)
-
-### <a name="i-am-using-the-continuous-discovery-ova-but-vms-that-are-deleted-in-my-on-premises-environment-are-still-being-shown-in-the-portal"></a>OVA, ancak şirket içi ortamımın silinir Vm'leri hala portalda gösterilir sürekli bulma kullanıyorum.
-
-Gereç sürekli bulma Gereci için sadece performans verilerini sürekli olarak toplar, şirket içi ortamda (yani VM ekleme, silme, disk ekleme vb.) herhangi bir yapılandırma değişikliği algılamaz. Bir yapılandırma değişikliği şirket içi ortamda ise portalındaki değişiklikleri yansıtacak şekilde aşağıdakileri yapabilirsiniz:
-
-1. Ayrıca öğeleri (VM'ler, diskler ve çekirdek vb.): Azure portalında bu değişiklikleri yansıtacak şekilde, gereç keşiften durdurun ve yeniden başlatın. Bunun, Azure geçişi projesinde değişiklikler güncelleştirildiğinden emin olmanızı sağlar.
-
-2. VM silme: bulma durdurup olsa bile gereç tasarlanmıştır yöntemi nedeniyle VM silme yansıtılmaz. Sonraki bulma verilerinden eski bulmalarına eklenir ve geçersiz olmasıdır. Bu durumda, yalnızca Portalı'nda VM grubunuzdan kaldırarak ve değerlendirmeyi yeniden hesaplama yok sayabilirsiniz.
 
 ## <a name="collector-errors"></a>Toplayıcı hataları
 
@@ -219,9 +221,8 @@ Olay izleme için Windows toplamak için aşağıdakileri yapın:
 
 ## <a name="collector-error-codes-and-recommended-actions"></a>Toplayıcı hata kodları ve Önerilen Eylemler
 
-|           |                                |                                                                               |                                                                                                       |                                                                                                                                            |
-|-----------|--------------------------------|-------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------|
-| Hata Kodu | Hata adı                      | İleti                                                                       | Olası nedenler                                                                                        | Önerilen eylem                                                                                                                          |
+| Hata Kodu | Hata adı   | İleti   | Olası nedenler | Önerilen eylem  |
+| --- | --- | --- | --- | --- |
 | 601       | CollectorExpired               | Toplayıcının süresi doldu.                                                        | Toplayıcının Süresi Doldu.                                                                                    | Lütfen toplayıcının yeni bir sürümünü indirip yeniden deneyin.                                                                                      |
 | 751       | UnableToConnectToServer        | '%Name;' adlı vCenter Server'a şu hata nedeniyle bağlanılamıyor: %ErrorMessage;     | Daha fazla ayrıntı için hata iletisini inceleyin.                                                             | Hatayı giderip yeniden deneyin.                                                                                                           |
 | 752       | InvalidvCenterEndpoint         | '%Name;' adlı sunucu bir vCenter Server değil.                                  | vCenter Server ayrıntılarını sağlayın.                                                                       | Doğru vCenter Server ayrıntılarıyla işlemi yeniden deneyin.                                                                                   |

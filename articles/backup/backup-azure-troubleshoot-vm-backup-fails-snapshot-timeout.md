@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: troubleshooting
 ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: 5c37e2e3cabb81ed123146f283c7d568cc58816d
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 55e4195e2666aed371a5a5664b331184afcf5e36
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50242637"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50420974"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Azure Backup hatalarında sorunları giderme: aracı veya uzantı ile ilgili sorunlar
 
@@ -22,33 +22,60 @@ Bu makale yardımcı olacak sorun giderme adımlarını uzantısı ve VM Aracıs
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
-## <a name="vm-agent-unable-to-communicate-with-azure-backup"></a>VM Aracısı Azure Backup ile iletişim kuramıyor
+## <a name="UserErrorGuestAgentStatusUnavailable-vm-agent-unable-to-communicate-with-azure-backup"></a>UserErrorGuestAgentStatusUnavailable - VM Aracısı Azure Backup ile iletişim kuramıyor
 
-Hata iletisi: "VM Aracısı Azure Backup ile iletişim kuramadı"<br>
-Hata kodu: "UserErrorGuestAgentStatusUnavailable"
+**Hata kodu**: UserErrorGuestAgentStatusUnavailable <br>
+**Hata iletisi**: VM Aracısı Azure Backup ile iletişim kuramıyor<br>
 
-Kaydolun ve bir VM yedekleme hizmeti için zamanlama sonra yedekleme zaman içinde nokta anlık görüntüsünü almak için VM Aracısı ile iletişim kurarak iş başlatır. Aşağıdaki koşullardan herhangi biri, anlık görüntü tetiklenen gelen engelleyebilir. Anlık görüntü tetiklenmez, yedekleme başarısız olabilir. Aşağıdaki sorun giderme adımları listelendikleri sırada tamamlayın ve sonra işlemi yeniden deneyin:
-
+Kaydolun ve bir VM yedekleme hizmeti için zamanlama sonra yedekleme zaman içinde nokta anlık görüntüsünü almak için VM Aracısı ile iletişim kurarak iş başlatır. Aşağıdaki koşullardan herhangi biri, anlık görüntü tetiklenen gelen engelleyebilir. Anlık görüntü tetiklenmez, yedekleme başarısız olabilir. Aşağıdaki sorun giderme adımları listelendikleri sırada tamamlayın ve sonra işlemi yeniden deneyin:<br>
 **1. neden: [VM internet erişimi yok](#the-vm-has-no-internet-access)**  
 **2. neden: [aracı VM ancak onun içinde yanıt vermeyen (Windows VM'ler için) yüklenir](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**    
 **3. neden: [VM'e yüklenen Aracı (Linux VM'ler için) güncel değil](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**  
 **4. neden: [anlık görüntü durumu alınamıyor olabilir veya bir anlık görüntünün alınması](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**    
 **5. neden: [güncelleştirmek veya yüklemek yedekleme uzantısı başarısız](#the-backup-extension-fails-to-update-or-load)**  
 
-## <a name="snapshot-operation-failed-due-to-no-network-connectivity-on-the-virtual-machine"></a>Sanal makine ağa bağlı olmadığı için anlık görüntü işlemi başarısız olur.
+## <a name="guestagentsnapshottaskstatuserror---could-not-communicate-with-the-vm-agent-for-snapshot-status"></a>Anlık görüntü durumu için VM aracısıyla GuestAgentSnapshotTaskStatusError - geçemedi
 
-Hata iletisi: "anlık görüntü işlemi sanal makinede ağ bağlantısı olmaması nedeniyle başarısız oldu"<br>
-Hata kodu: "ExtensionSnapshotFailedNoNetwork"
+**Hata kodu**: GuestAgentSnapshotTaskStatusError<br>
+**Hata iletisi**: anlık görüntü durumu için VM aracısıyla iletişim kurulamadı <br>
+
+Kaydolun ve bir VM için Azure Backup hizmeti zamanlama sonra yedekleme zaman içinde nokta anlık görüntüsünü almak için VM yedekleme uzantısı ile iletişim kurarak iş başlatır. Aşağıdaki koşullardan herhangi biri, anlık görüntü tetiklenen gelen engelleyebilir. Anlık görüntü tetiklenmez yedekleme hatası meydana gelebilir. Aşağıdaki sorun giderme adımları listelendikleri sırada tamamlayın ve sonra işlemi yeniden deneyin:  
+**1. neden: [aracı VM ancak onun içinde yanıt vermeyen (Windows VM'ler için) yüklenir](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**  
+**2. neden: [VM'e yüklenen Aracı (Linux VM'ler için) güncel değil](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**  
+**3. neden: [VM internet erişimi yok](#the-vm-has-no-internet-access)**
+
+## <a name="usererrorrpcollectionlimitreached---the-restore-point-collection-max-limit-has-reached"></a>UserErrorRpCollectionLimitReached - geri yükleme noktası koleksiyonu en yüksek sınırına ulaştı
+
+**Hata kodu**: UserErrorRpCollectionLimitReached <br>
+**Hata iletisi**: geri yükleme noktası koleksiyonu en yüksek sınırına ulaştı. <br>
+Açıklama:  
+* Otomatik temizleme kurtarma noktasının önleme kurtarma noktası kaynak grubu üzerinde bir kilit ise bu sorun oluşabilir.
+* Bu sorun ayrıca birden çok yedekleme günde tetiklenen oluşabilir. RPs 7 gün boyunca bekletilir anlık olarak günde yalnızca bir yedekleme şu anda öneririz ve 18 yalnızca anlık RPs herhangi bir zamanda bir VM ile ilişkili olabilir. <br>
+
+Önerilen eylem:<br>
+Bu sorunu çözmek için kaynak grubu üzerindeki kilidi kaldırın ve temizleme tetiklemek için işlemi yeniden deneyin.
+
+> [!NOTE]
+    > Yedekleme hizmeti, geri yükleme noktası koleksiyonu depolamak için sanal makinenin kaynak grubundan ayrı bir kaynak grubu oluşturur. Müşterilerin, Backup hizmeti tarafından kullanım için oluşturduğunuz kaynak grubunda değil kilitlemek için önerilir. Backup hizmeti tarafından oluşturulan kaynak grubu adlandırma biçimi: AzureBackupRG_`<Geo>`_`<number>` örn: AzureBackupRG_northeurope_1
+
+
+**1. adım: [kilit geri yükleme noktası kaynak grubu grubundan Kaldır](#remove_lock_from_the_recovery_point_resource_group)** <br>
+**2. adım: [geri yükleme noktası koleksiyonunu Temizle](#clean_up_restore_point_collection)**<br>
+
+## <a name="ExtensionSnapshotFailedNoNetwork-snapshot-operation-failed-due-to-no-network-connectivity-on-the-virtual-machine"></a>ExtensionSnapshotFailedNoNetwork - anlık görüntü işlemi, sanal makinede ağ bağlantısı olmaması nedeniyle başarısız oldu
+
+**Hata kodu**: ExtensionSnapshotFailedNoNetwork<br>
+**Hata iletisi**: anlık görüntü işlemi sanal makinede ağ bağlantısı olmaması nedeniyle başarısız oldu<br>
 
 Kaydolun ve bir VM için Azure Backup hizmeti zamanlama sonra yedekleme zaman içinde nokta anlık görüntüsünü almak için VM yedekleme uzantısı ile iletişim kurarak iş başlatır. Aşağıdaki koşullardan herhangi biri, anlık görüntü tetiklenen gelen engelleyebilir. Anlık görüntü tetiklenmez yedekleme hatası meydana gelebilir. Aşağıdaki sorun giderme adımları listelendikleri sırada tamamlayın ve sonra işlemi yeniden deneyin:    
 **1. neden: [VM internet erişimi yok](#the-vm-has-no-internet-access)**  
 **2. neden: [anlık görüntü durumu alınamıyor olabilir veya bir anlık görüntünün alınması](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**  
 **3. neden: [güncelleştirmek veya yüklemek yedekleme uzantısı başarısız](#the-backup-extension-fails-to-update-or-load)**  
 
-## <a name="vmsnapshot-extension-operation-failed"></a>VMSnapshot uzantısı işlemi başarısız oluyor
+## <a name="ExtentionOperationFailed-vmsnapshot-extension-operation-failed"></a>ExtentionOperationFailed - VMSnapshot uzantısı işlemi başarısız oldu
 
-Hata iletisi: "VMSnapshot uzantısı işlemi başarısız oldu"<br>
-Hata kodu: "ExtentionOperationFailed"
+**Hata kodu**: ExtentionOperationFailed <br>
+**Hata iletisi**: VMSnapshot uzantısı işlemi başarısız oldu<br>
 
 Kaydolun ve bir VM için Azure Backup hizmeti zamanlama sonra yedekleme zaman içinde nokta anlık görüntüsünü almak için VM yedekleme uzantısı ile iletişim kurarak iş başlatır. Aşağıdaki koşullardan herhangi biri, anlık görüntü tetiklenen gelen engelleyebilir. Anlık görüntü tetiklenmez yedekleme hatası meydana gelebilir. Aşağıdaki sorun giderme adımları listelendikleri sırada tamamlayın ve sonra işlemi yeniden deneyin:  
 **1. neden: [anlık görüntü durumu alınamıyor olabilir veya bir anlık görüntünün alınması](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**  
@@ -56,20 +83,10 @@ Kaydolun ve bir VM için Azure Backup hizmeti zamanlama sonra yedekleme zaman i�
 **3. neden: [aracı VM ancak onun içinde yanıt vermeyen (Windows VM'ler için) yüklenir](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**  
 **4. neden: [VM'e yüklenen Aracı (Linux VM'ler için) güncel değil](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**
 
-## <a name="backup-fails-because-the-vm-agent-is-unresponsive"></a>VM aracısı yanıt vermediği için yedekleme başarısız oluyor
+## <a name="backupoperationfailed--backupoperationfailedv2---backup-fails-with-an-internal-error"></a>BackUpOperationFailed / BackUpOperationFailedV2 - yedekleme başarısız olursa bir iç hata ile
 
-Hata iletisi: "anlık görüntü durumu için VM aracısıyla iletişim kuramadı" <br>
-Hata kodu: "GuestAgentSnapshotTaskStatusError"
-
-Kaydolun ve bir VM için Azure Backup hizmeti zamanlama sonra yedekleme zaman içinde nokta anlık görüntüsünü almak için VM yedekleme uzantısı ile iletişim kurarak iş başlatır. Aşağıdaki koşullardan herhangi biri, anlık görüntü tetiklenen gelen engelleyebilir. Anlık görüntü tetiklenmez yedekleme hatası meydana gelebilir. Aşağıdaki sorun giderme adımları listelendikleri sırada tamamlayın ve sonra işlemi yeniden deneyin:  
-**1. neden: [aracı VM ancak onun içinde yanıt vermeyen (Windows VM'ler için) yüklenir](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**  
-**2. neden: [VM'e yüklenen Aracı (Linux VM'ler için) güncel değil](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**  
-**3. neden: [VM internet erişimi yok](#the-vm-has-no-internet-access)**  
-
-## <a name="backup-fails-with-an-internal-error"></a>Bir iç hata ile yedekleme başarısız oluyor
-
-Hata iletisi: "Yedekleme bir iç hata ile başarısız oldu - Lütfen işlemi birkaç dakika içinde yeniden deneyin" <br>
-Hata kodu: "BackUpOperationFailed" / "BackUpOperationFailedV2"
+**Hata kodu**: BackUpOperationFailed / BackUpOperationFailedV2 <br>
+**Hata iletisi**: yedekleme bir iç hata ile başarısız oldu - Lütfen işlemi birkaç dakika içinde yeniden deneyin <br>
 
 Kaydolun ve bir VM için Azure Backup hizmeti zamanlama sonra yedekleme zaman içinde nokta anlık görüntüsünü almak için VM yedekleme uzantısı ile iletişim kurarak iş başlatır. Aşağıdaki koşullardan herhangi biri, anlık görüntü tetiklenen gelen engelleyebilir. Anlık görüntü tetiklenmez yedekleme hatası meydana gelebilir. Aşağıdaki sorun giderme adımları listelendikleri sırada tamamlayın ve sonra işlemi yeniden deneyin:  
 **1. neden: [VM internet erişimi yok](#the-vm-has-no-internet-access)**  
@@ -101,7 +118,7 @@ Sorunu çözmek için aşağıdaki yöntemlerden birini deneyin:
 
 ##### <a name="allow-access-to-azure-storage-that-corresponds-to-the-region"></a>Bölgeyi karşılık gelen bir Azure depolama alanına erişime izin ver
 
-Kullanabileceğiniz [hizmet etiketleri](../virtual-network/security-overview.md#service-tags) belirli bir bölgenin depolama bağlantılara izin vermek için. Depolama hesabına erişime izin veren kuralın kural daha yüksek önceliğe söz konusu bloklar internet erişimi olduğundan emin olun. 
+Kullanabileceğiniz [hizmet etiketleri](../virtual-network/security-overview.md#service-tags) belirli bir bölgenin depolama bağlantılara izin vermek için. Depolama hesabına erişime izin veren kuralın kural daha yüksek önceliğe söz konusu bloklar internet erişimi olduğundan emin olun.
 
 ![Bir bölge için depolama etiketlere sahip ağ güvenlik grubu](./media/backup-azure-arm-vms-prepare/storage-tags-with-nsg.png)
 
@@ -112,7 +129,7 @@ Hizmet etiketleri yapılandırmak için adım adım yordam anlamak için izleyin
 
 Azure yönetilen diskler kullanıyorsanız, güvenlik duvarları hakkında ek bağlantı noktası açma (bağlantı noktası 8443) gerekebilir.
 
-Ayrıca, giden Internet trafiği için bir yol alt ağınız yoksa, kendi alt ağına hizmet etiketi "Microsoft.Storage" olan bir hizmet uç noktası eklemeniz gerekir. 
+Ayrıca, giden Internet trafiği için bir yol alt ağınız yoksa, kendi alt ağına hizmet etiketi "Microsoft.Storage" olan bir hizmet uç noktası eklemeniz gerekir.
 
 ### <a name="the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms"></a>VM Aracısı yüklendi, ancak (Windows VM'ler için) yanıt vermiyor
 
@@ -124,7 +141,7 @@ VM Aracısı bozulduysa veya hizmet durdurulmuş. VM aracısını yeniden yükle
 4. Windows Konuk Aracısı görünürse **programlar ve Özellikler**, Windows Konuk Aracısı'nı kaldırın.
 5. İndirme ve yükleme [Aracısı MSI en son sürümünü](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Yüklemeyi tamamlamak için yönetici hakları olmalıdır.
 6. Windows Konuk Aracısı hizmetlerinin Hizmetleri'nde göründüğünü doğrulayın.
-7. Bir talep üzerine yedekleme gerçekleştirin: 
+7. Bir talep üzerine yedekleme gerçekleştirin:
     * Portalında **Şimdi Yedekle**.
 
 Ayrıca, doğrulayın [Microsoft .NET 4.5 yüklü](https://docs.microsoft.com/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed) VM. .NET 4.5 hizmetiyle iletişim kurmak VM aracısı gereklidir.
@@ -185,28 +202,41 @@ Uzantıyı kaldırmak için:
 4. Seçin **Vmsnapshot uzantısı**.
 5. Seçin **kaldırma**.
 
-Linux VM, VMSnapshot uzantısı Azure Portalı'nda görünmüyorsa için [Azure Linux aracısını güncelleştirme](../virtual-machines/linux/update-agent.md), ve ardından yedeklemeyi çalıştırma. 
+Linux VM, VMSnapshot uzantısı Azure Portalı'nda görünmüyorsa için [Azure Linux aracısını güncelleştirme](../virtual-machines/linux/update-agent.md), ve ardından yedeklemeyi çalıştırma.
 
 Bu adımları tamamladıktan sonraki yedekleme sırasında yüklenmesi uzantısı neden olur.
 
-### <a name="backup-service-does-not-have-permission-to-delete-the-old-restore-points-due-to-resource-group-lock"></a>Backup hizmeti, bir kaynak grubu kilidi nedeniyle eski geri yükleme noktalarını silmek için izne sahip değil
-Bu sorun, kullanıcının kaynak grubunu kilitler yönetilen sanal makineleri için özeldir. Bu durumda, yedekleme hizmetinin eski geri yükleme noktaları silinemiyor. 18 geri yükleme noktası sınırı olduğundan, yeni yedeklemeler başarısız olmaya başlıyor.
+### <a name="remove_lock_from_the_recovery_point_resource_group"></a>Kurtarma noktası kaynak grubundan kilidi kaldırın
+1. [Azure Portal](http://portal.azure.com/) oturum açın.
+2. Git **tüm kaynakları seçeneği**, geri yükleme noktası koleksiyonu kaynak grubunu seçin aşağıdaki biçimde AzureBackupRG_<Geo>_<number>.
+3. İçinde **ayarları** bölümünden **kilitleri** kilitler görüntülenecek.
+4. Kilidi kaldırmak için üç noktayı seçin ve **Sil**.
 
-#### <a name="solution"></a>Çözüm
+    ![Kilit silme ](./media/backup-azure-arm-vms-prepare/delete-lock.png)
 
-Sorunu çözmek için kaynak grubundan kilidi kaldırın ve geri yükleme noktası koleksiyonu kaldırmak için aşağıdaki adımları tamamlayın: 
- 
-1. Sanal Makinenin bulunduğu kaynak grubunda kilidi kaldırın. 
-2. Chocolatey kullanarak ARMClient yükleyin: <br>
-   https://github.com/projectkudu/ARMClient
-3. ARMClient için oturum açın: <br>
-    `.\armclient.exe login`
-4. Sanal Makineye karşılık gelen geri yükleme noktası koleksiyonu alın: <br>
-    `.\armclient.exe get https://management.azure.com/subscriptions/<SubscriptionId>/resourceGroups/<ResourceGroupName>/providers/Microsoft.Compute/restorepointcollections/AzureBackup_<VM-Name>?api-version=2017-03-30`
+### <a name="clean_up_restore_point_collection"></a> Geri yükleme noktası koleksiyonunu Temizle
+Kilit kaldırdıktan sonra geri yükleme noktalarını temizlenmesi gerekir. Geri yükleme noktaları temizlemek için aşağıdaki yöntemlerden herhangi birini izleyin:<br>
+* [Geri yükleme noktası koleksiyonu çalışan geçici yedekleme tarafından Temizle](#clean-up-restore-point-collection-by-running-ad-hoc-backup)<br>
+* [Yedekleme hizmeti tarafından oluşturulan portaldan geri yükleme noktası koleksiyonu Temizle](#clean-up-restore-point-collection-from-portal-created-by-backup-service)<br>
 
-    Örnek: `.\armclient.exe get https://management.azure.com/subscriptions/f2edfd5d-5496-4683-b94f-b3588c579006/resourceGroups/winvaultrg/providers/Microsoft.Compute/restorepointcollections/AzureBackup_winmanagedvm?api-version=2017-03-30`
-5. Geri yükleme noktası koleksiyonunu sil: <br>
-    `.\armclient.exe delete https://management.azure.com/subscriptions/<SubscriptionId>/resourceGroups/<ResourceGroupName>/providers/Microsoft.Compute/restorepointcollections/AzureBackup_<VM-Name>?api-version=2017-03-30` 
-6. Sonraki zamanlanmış yedekleme otomatik olarak geri yükleme noktası koleksiyonu ve yeni geri yükleme noktaları oluşturur.
+#### <a name="clean-up-restore-point-collection-by-running-ad-hoc-backup"></a>Geri yükleme noktası koleksiyonu çalışan geçici yedekleme tarafından Temizle
+Kilit kaldırdıktan sonra bir ad-geçici/el ile yedekleme tetikleyin. Bu, geri yükleme noktalarını otomatik olarak temizlenir garanti eder. Bu ad-geçici/el ile işlem ilk kez başarısız olmasına beklediğiniz; Ancak, bunu el ile silinmesini geri yükleme noktaları yerine otomatik temizleme sağlayacaktır. Temizleme sonrasında, sonraki zamanlanmış yedekleme başarılı olması gerekir.
 
-Bunu yaptıktan sonra tekrar geri kilit üzerinde VM kaynak grubu koyabilirsiniz. 
+> [!NOTE]
+    > Otomatik temizleme ad-geçici/el ile yedeklemeyi tetikleme birkaç saat sonra gerçekleşir. Zamanlanmış yedeklemenizi yine başarısız sonra listelenen adımları kullanarak geri yükleme noktası koleksiyonu el ile silmeyi deneyin [burada](#clean-up-restore-point-collection-from-portal-created-by-backup-service).
+
+#### <a name="clean-up-restore-point-collection-from-portal-created-by-backup-service"></a>Yedekleme hizmeti tarafından oluşturulan portaldan geri yükleme noktası koleksiyonu Temizle<br>
+
+Geri yüklemeyi el ile temizlemek için kaynak grubunu, aşağıdaki adımları üzerindeki kilit nedeniyle temizlenmez koleksiyonunun noktaları:
+1. [Azure Portal](http://portal.azure.com/) oturum açın.
+2. Üzerinde **Hub** menüsünde tıklayın **tüm kaynaklar**, aşağıdaki biçimde AzureBackupRG_ kaynak grubunu seçin`<Geo>`_`<number>` , VM'nin bulunduğu.
+
+    ![Kilit silme ](./media/backup-azure-arm-vms-prepare/resource-group.png)
+
+3. Kaynak grubuna tıklayın **genel bakış** dikey penceresi görüntülenir.
+4. Seçin **gizli türleri Göster** gizli tüm kaynakları görüntülemek için seçeneği. Geri yükleme noktası koleksiyonları aşağıdaki biçimde AzureBackupRG_ seçin`<VMName>`_`<number>`.
+
+    ![Kilit silme ](./media/backup-azure-arm-vms-prepare/restore-point-collection.png)
+
+5. Tıklayın **Sil**, geri yükleme noktası koleksiyonunu temizlemek için.
+6. Yedekleme işlemi yeniden deneyin.

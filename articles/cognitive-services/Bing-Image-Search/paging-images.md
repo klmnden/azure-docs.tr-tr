@@ -11,12 +11,12 @@ ms.component: bing-image-search
 ms.topic: conceptual
 ms.date: 04/15/2017
 ms.author: scottwhi
-ms.openlocfilehash: 019d91f6a86bab5c4f446085e0244f9b5323f1fb
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 0db8c62bbb4da1a6fa1230b439c5074325bbe9c3
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46294416"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50739375"
 ---
 # <a name="paging-results"></a>Disk belleği sonuçları
 
@@ -61,3 +61,6 @@ Yinelenen sonuçları ortadan kaldırmak için kullanın [nextOffset](https://do
 
 > [!NOTE]
 > Disk belleği, yalnızca resim arama (arama/resimler /) ve resim öngörüleri veya (/ Resimler/popüler) popüler resimler için geçerlidir.
+
+> [!NOTE]
+> `TotalEstimatedAnswers` Alandır ne tahmini toplam arama sonuçları almak için geçerli sorgu sayısı.  Ayarladığınızda `count` ve `offset` parametreleri `TotalEstimatedAnswers` numarası değişebilir. 

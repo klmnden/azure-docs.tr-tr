@@ -9,12 +9,12 @@ ms.date: 11/06/2017
 ms.topic: conceptual
 ms.service: azure-monitor
 ms.component: ''
-ms.openlocfilehash: b4fbd1248f91e0766cca66d1c51033a8b338c324
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 75b1edf80f1dad5f0db48c11329effe080760820
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49957405"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50413154"
 ---
 # <a name="monitor-your-azure-services-in-grafana"></a>Grafana, Azure hizmetlerinizi izleyin
 Şimdi de Azure Hizmetleri ve uygulamaları izleyebilirsiniz [Grafana](https://grafana.com/) kullanarak [Azure İzleyicisi veri kaynağı eklentisi](https://grafana.com/plugins/grafana-azure-monitor-datasource). Eklentisi, Azure İzleyici tarafından sağlanan altyapı verilerin yanı sıra Application Insights SDK'sı tarafından toplanan uygulama performansı verileri toplar. Grafana Panonuzda daha sonra bu verileri görüntüleyebilirsiniz.
@@ -37,13 +37,13 @@ Bir Azure Market'ten Grafana sunucusu kurma ve panolar için ölçümleri Azure 
 ## <a name="log-in-to-grafana"></a>Grafana için oturum açın
 1. Dağıtım tamamlandıktan sonra seçin **kaynak grubuna gidin**. Yeni oluşturulan kaynakların bir listesini görürsünüz.
 
-    ![Grafana kaynak grubu nesneleri](.\media\monitor-how-to-grafana\grafana1.png)
+    ![Grafana kaynak grubu nesneleri](media/monitor-send-to-grafana/grafana1.png)
 
     Ağ güvenlik grubu seçerseniz (*grafana nsg* bu durumda), bağlantı noktası 3000 Grafana sunucusuna erişmek için kullanıldığını görebilirsiniz.
 
 2. Kaynaklar ve select listesinde dönün **genel IP adresi**. Bu ekranda bulunan değerleri kullanarak yazın *http://<IP address>: 3000* veya  *<DNSName>: 3000* tarayıcınızda. Yalnızca yerleşik Grafana sunucusu için bir oturum açma sayfası görmeniz gerekir.
 
-    ![Grafana oturum açma ekranı](.\media\monitor-how-to-grafana\grafana2.png)
+    ![Grafana oturum açma ekranı](media/monitor-send-to-grafana/grafana2.png)
 
 3. Oturum açmanız kullanıcı adı olarak *yönetici* ve daha önce oluşturduğunuz Grafana sunucusu yönetici parolası.
 
@@ -51,7 +51,7 @@ Bir Azure Market'ten Grafana sunucusu kurma ve panolar için ölçümleri Azure 
 
 Başarıyla oturum açtıktan sonra Azure İzleyici'veri kaynağı eklentisi zaten dahil olduğunu görmeniz gerekir.
 
-![Azure İzleyici eklentisi Grafana gösterir](.\media\monitor-how-to-grafana\grafana3.png)
+![Azure İzleyici eklentisi Grafana gösterir](media/monitor-send-to-grafana/grafana3.png)
 
 1. Seçin **veri kaynağı Ekle** Azure İzleyici ve Application Insights'ı yapılandırmak için.
 
@@ -70,7 +70,7 @@ Grafana, Azure İzleyici API'lerine bağlanın ve ölçüm verilerini toplamak i
 
 4. Tüm bu bilgileri girdikten sonra seçip **Kaydet** ve Grafana API sınar. Aşağıdakine benzer bir ileti görürsünüz.  
 
-    ![Azure İzleyici eklentisi Grafana gösterir](.\media\monitor-how-to-grafana\grafana4-1.png)
+    ![Azure İzleyici eklentisi Grafana gösterir](media/monitor-send-to-grafana/grafana4-1.png)
 
 > [!NOTE]
 > Eklentisini yapılandırırken, hangi Azure bulut (Genel, Azure ABD devlet kurumları, Azure Almanya'yı veya Azure Çin) belirtebilirsiniz karşı yapılandırılması için eklenti istersiniz.
@@ -83,7 +83,7 @@ Grafana, Azure İzleyici API'lerine bağlanın ve ölçüm verilerini toplamak i
 
 2. Yeni Pano seçin **Graph**. Diğer grafik seçenekleri deneyebilirsiniz ancak bu makalede *grafik* örnek olarak.
 
-    ![Grafana yeni Pano](.\media\monitor-how-to-grafana\grafana5.png)
+    ![Grafana yeni Pano](media/monitor-send-to-grafana/grafana5.png)
 
 3. Panonuzda boş bir grafik gösterir.
 
@@ -93,14 +93,14 @@ Grafana, Azure İzleyici API'lerine bağlanın ve ölçüm verilerini toplamak i
 
 Aşağıdaki iki grafik ile basit bir panodur. Sol taraftaki bir, iki sanal makine CPU yüzdesini gösterir. Sağ taraftaki grafik işlemleri işlem API türü tarafından ayrılmış bir Azure depolama hesabındaki gösterir.
 
-![Grafana iki grafik örneği](.\media\monitor-how-to-grafana\grafana6.png)
+![Grafana iki grafik örneği](media/monitor-send-to-grafana/grafana6.png)
 
 
 ## <a name="optional-create-dashboard-playlists"></a>İsteğe bağlı: Pano çalma listeleri oluşturma
 
 Grafana, birçok yararlı özellik Pano çalma listesi biridir. Birden çok Pano oluşturma ve bunları görüntülemek her bir Pano için bir aralık yapılandırma çalma listesi ekleyin. Seçin **Play** dolaşma panoları görmek için. Grubunuz için bir "durum Panosu" sağlamak için büyük duvar İzleyici görüntülemek isteyebilirsiniz.
 
-![Grafana çalma listesi örneği](.\media\monitor-how-to-grafana\grafana7.png)
+![Grafana çalma listesi örneği](media/monitor-send-to-grafana/grafana7.png)
 
 
 ## <a name="optional-monitor-your-custom-metrics-in-the-same-grafana-server"></a>İsteğe bağlı: özel ölçümleriniz Grafana ile aynı sunucuda izleme
@@ -117,7 +117,7 @@ Telegraf, InfluxDB Prometheus ve Docker kullanmaya nasıl iyi bir referans makal
  - [Docker ana bilgisayarları, kapsayıcılar ve kapsayıcılı hizmetler için bir izleme çözümü](https://stefanprodan.com/2016/a-monitoring-solution-for-docker-hosts-containers-and-containerized-services/)
 
 Bir Azure İzleyici ve Application Insights ölçüm olan tam bir Grafana panosunun görüntüsü aşağıda verilmiştir.
-![Grafana örnek ölçümleri](.\media\monitor-how-to-grafana\grafana8.png)
+![Grafana örnek ölçümleri](media/monitor-send-to-grafana/grafana8.png)
 
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme

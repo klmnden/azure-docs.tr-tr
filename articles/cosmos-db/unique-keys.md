@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/08/2018
 ms.author: rafats
-ms.openlocfilehash: 5811cb1e08ed5d02038da2a4460ae4b63580833b
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: ff432de59e5a5fdfeaad4c3a5361554ee32e21b0
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43696148"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50740017"
 ---
 # <a name="unique-keys-in-azure-cosmos-db"></a>Azure Cosmos DB'de benzersiz anahtarlar
 
@@ -130,7 +130,7 @@ private static async Task CreateCollectionIfNotExistsAsync(string dataBase, stri
 Aşağıdaki örnek komut, firstName, lastName ve e-posta alanları MongoDB API'si için kullanıcı koleksiyonunun benzersiz bir dizin oluşturma işlemi gösterilmektedir. Bu koleksiyondaki tüm belgeleri üç tüm alanları bileşimi benzersiz sağlar. MongoDB API'si koleksiyonlar için koleksiyon oluşturulduktan sonra ancak önce koleksiyonu doldurma benzersiz dizin oluşturulur.
 
 > [!NOTE]
-> MongoDB API hesabı için benzersiz anahtar biçimi SQL API hesabı, farklı burada alanı adından önce ters eğik çizgi (/) karakteri belirtmeniz gerekmez. 
+> MongoDB API hesabı için benzersiz anahtar biçimi SQL API hesabı, farklı burada eğik çizgi (/) karakteri önce alan adı belirtmeniz gerekmez. 
 
 ```
 db.users.createIndex( { firstName: 1, lastName: 1, email: 1 }, { unique: true } )

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/15/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: 627c0ee5a2fab333b8a120867ab54ea76bc66823
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: fd183b5776f30b12d577a94be147eabef05d258f
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46976848"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50419376"
 ---
 # <a name="create-view-and-manage-log-alerts-using-azure-monitor"></a>Oluşturun, görüntüleyin ve Azure İzleyicisi'ni kullanarak günlük uyarıları yönetme  
 
@@ -34,26 +34,26 @@ Ayrıntılı sonraki Azure portal arabirimi kullanarak günlük uyarıları kull
 
 ### <a name="create-a-log-alert-rule-with-the-azure-portal"></a>Azure portal ile günlük uyarı kuralı oluşturma
 1. İçinde [portalı](https://portal.azure.com/)seçin **İzleyici** ve izleme bölümü altında - **uyarılar**.  
-    ![İzleme](./media/monitor-alerts-unified/AlertsPreviewMenu.png)
+    ![İzleme](media/alert-log/AlertsPreviewMenu.png)
 
 1. Seçin **yeni uyarı kuralı** Azure'da yeni bir uyarı oluşturmak için.
-    ![Uyarı Ekle](./media/monitor-alerts-unified/AlertsPreviewOption.png)
+    ![Uyarı Ekle](media/alert-log/AlertsPreviewOption.png)
 
 1. Uyarı oluşturma bölümünde, üç bölümden oluşan ile gösterilir: *uyarı koşulunu tanımlama*, *uyarı ayrıntılarını tanımlama*, ve *tanımla eylem grubu*.
 
-    ![Kural oluşturma](./media/monitor-alerts-unified/AlertsPreviewAdd.png)
+    ![Kural oluşturma](media/alert-log/AlertsPreviewAdd.png)
 
 1.  Kullanarak uyarı koşulunu tanımlama **seçin kaynak** bağlantı ve hedef bir kaynak seçerek belirtme. Seçeneğini belirleyerek Filtre _abonelik_, _kaynak türü_ve gerekli _kaynak_. 
 
     >[!NOTE]
 
     > Günlük oluşturmak için uyarı - doğrulama **günlük** devam etmeden önce sinyali seçili kaynak için kullanılabilir.
-    ![Kaynak seçin](./media/monitor-alerts-unified/Alert-SelectResourceLog.png)
+    ![Kaynak seçin](media/alert-log/Alert-SelectResourceLog.png)
 
  
 1. *Günlük uyarıları*: olun **kaynak türü** gibi bir analytics kaynak *Log Analytics* veya *Application Insights* ve sinyal türü olarak **günlüğü** sonra bir kez uygun **kaynak** olduğundan seçilen, tıklayın *Bitti*. Ardından **Ölçüt Ekle** sinyal sinyal listeden ve kaynak için kullanılabilir seçenekler listesini görüntüleyin düğmesine **özel günlük araması** seçilen gibi hizmetini izleme günlüğü için seçenek *günlük Analytics* veya *Application Insights*.
 
-   ![Kaynak - özel bir günlük araması'nı seçin](./media/monitor-alerts-unified/AlertsPreviewResourceSelectionLog.png)
+   ![Kaynak - özel bir günlük araması'nı seçin](media/alert-log/AlertsPreviewResourceSelectionLog.png)
 
    > [!NOTE]
 
@@ -61,7 +61,7 @@ Ayrıntılı sonraki Azure portal arabirimi kullanarak günlük uyarıları kull
 
 1.  *Günlük uyarıları*: içinde seçildiğinde, uyarı için sorgu belirtilebilir **arama sorgusu** sorgu söz dizimi yanlışsa alanda hata kırmızı renkte görüntülenir; alan. Sorgu Sözdizimi doğruysa - başvuru için belirtilen sorgu geçmiş veri son altı saat zaman penceresinden geçen hafta için ince seçeneğiyle bir grafik olarak gösterilir.
 
- ![Uyarı kuralını yapılandırın](./media/monitor-alerts-unified/AlertsPreviewAlertLog.png)
+ ![Uyarı kuralını yapılandırın](media/alert-log/AlertsPreviewAlertLog.png)
 
  > [!NOTE]
 
@@ -69,7 +69,7 @@ Ayrıntılı sonraki Azure portal arabirimi kullanarak günlük uyarıları kull
 
     >  Application ınsights'ı kullanarak günlük uyarıları ölçüm ölçüsü türü için kullanarak verileri gruplandırmak için hangi belirli bir değişken belirtebilirsiniz **bulunan** ; aşağıda gösterildiği gibi seçeneği:
 
-    ![toplama seçeneği](./media/monitor-alerts-unified/aggregate-on.png)
+    ![toplama seçeneği](media/alert-log/aggregate-on.png)
 
 1.  *Günlük uyarıları*: bir yerde görselleştirme ile **Alert Logic** koşulu, toplama ve son olarak eşiği gösterilen seçeneklerden seçilebilir. Son olarak mantığında belirtin belirtilen koşulun değerlendirme süresi kullanarak **süresi** seçeneği. Uyarı seçerek ne sıklıkta çalıştırılacağını birlikte **sıklığı**.
 İçin **günlük uyarıları** uyarılar temelinde:
@@ -83,7 +83,7 @@ Ayrıntılı sonraki Azure portal arabirimi kullanarak günlük uyarıları kull
 
     - **Uyarıları bastır**: gizleme için uyarı kuralı etkinleştirdiğinizde, Eylemler kural için yeni bir uyarı oluşturduktan sonra tanımlı bir süre için devre dışı bırakılır. Kural hala çalışıyor ve ölçütler karşılanıyorsa sağlanan uyarı kayıtları oluşturur. Yinelenen eylemler çalıştırmadan sorunu düzeltmek için izin verme size zaman.
 
-        ![Günlük uyarıları için uyarıları bastır](./media/monitor-alerts-unified/AlertsPreviewSuppress.png)
+        ![Günlük uyarıları için uyarıları bastır](media/alert-log/AlertsPreviewSuppress.png)
 
         > [!TIP]
         > Bildirimleri çakışma durdurulduğundan emin olmak için uyarı sıklığını büyüktür bastır bir uyarı değerini belirtin
@@ -98,19 +98,19 @@ Ayrıntılı sonraki Azure portal arabirimi kullanarak günlük uyarıları kull
     - **E-posta bildirimi**: geçersiz kılan *e-posta konusu* eylem grubu aracılığıyla; söz konusu eylem grubuna bir veya daha fazla e-posta eylemleri varsa gönderilen e-postadaki. Postanın gövdesini değiştiremezsiniz ve bu alan **değil** e-posta adresi.
     - **Özel Json yükü dahil**: söz konusu eylem grubuna bir veya daha fazla Web kancası işlemleri mevcut Web kancası Eylem grupları tarafından; kullanılan JSON geçersiz kılar. Kullanıcı, ilişkili eylem grubunda yapılandırılmış tüm Web kancaları için kullanılmak üzere JSON biçimi belirtebilirsiniz; Web kancası biçimleri hakkında daha fazla bilgi için bkz. [günlük uyarıları için Web kancası eylemi](monitor-alerts-unified-log-webhook.md). Örnek JSON verileri kullanarak biçimini denetlemek için Görünümü Web kancası seçeneği sağlanır.
 
-        ![Günlük uyarıları için eylem geçersiz kılmaları](./media/monitor-alerts-unified/AlertsPreviewOverrideLog.png)
+        ![Günlük uyarıları için eylem geçersiz kılmaları](media/alert-log/AlertsPreviewOverrideLog.png)
 
 
 1. Tüm alanları geçerliyse ve yeşil onay **uyarı kuralı oluşturma** düğmesini ve Azure İzleyici - uyarılar bir uyarı oluşturulur. Tüm uyarıları Pano uyarılardan görüntülenebilir.
 
-    ![Kural oluşturma](./media/monitor-alerts-unified/AlertsPreviewCreate.png)
+    ![Kural oluşturma](media/alert-log/AlertsPreviewCreate.png)
 
     Birkaç dakika içinde uyarı etkin ve daha önce açıklandığı gibi tetikler.
 
 Kullanıcılar ayrıca kendi analytics sorgunuzda kesin [Azure portalında günlüklerini analiz sayfası](../log-analytics/log-analytics-log-search-portals.md#log-analytics-page
 ) ve Ayarla'uyarı ' düğmesiyle - bir uyarı oluşturmak için anında iletme sonra adım 6'dan başlayarak yukarıdaki öğreticide talimatları.
 
- ![Log Analytics - uyarı ayarlama](./media/monitor-alerts-unified/AlertsAnalyticsCreate.png)
+ ![Log Analytics - uyarı ayarlama](media/alert-log/AlertsAnalyticsCreate.png)
 
 ### <a name="view--manage-log-alerts-in-azure-portal"></a>Azure portalında günlük uyarıları yönetme & Görüntüle
 
@@ -122,7 +122,7 @@ Kullanıcılar ayrıca kendi analytics sorgunuzda kesin [Azure portalında günl
 
 
 1. Seçin **yönetme kuralları** oluşturulan uyarı kurallarının tümünü burada listelenen kural Yönetim bölümüne - gitmek için üst taraftaki çubukta, düğmesine; devre dışı bırakıldı uyarıları da dahil olmak üzere.
-    ![ Uyarı kurallarını yönet](./media/monitoring-activity-log-alerts-new-experience/manage-alert-rules.png)
+    ![ Uyarı kurallarını yönet](media/alert-log/manage-alert-rules.png)
 
 ## <a name="managing-log-alerts-using-azure-resource-template"></a>Azure kaynak şablonu kullanarak günlük uyarıları yönetme
 Şu anda günlük uyarı oluşturulabilmesi için iki farklı kaynak şablonlarını kullanarak hangi analytics platformu üzerine uyarı (yani) Log Analytics veya Application Insights temel dayanır.

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/04/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: cbe6ddc2c4680028d5a4a0491756c7a7b9897c69
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: ed6b2fafbb3329e20985b75f55d29b52dcc5da57
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50233251"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50415712"
 ---
 # <a name="extend-alerts-from-log-analytics-into-azure-alerts"></a>Uyarıları Log Analytics'ten Azure uyarılarına genişletecektir genişletme
 Azure Log analytics'te uyarıları özelliği, Azure uyarıları ile değiştirilmektedir. Bu geçişin bir parçası olarak, ilk olarak yapılandırdığınız Log Analytics'te uyarıları Azure'a genişletilir. Bunlar otomatik olarak Azure'a taşınması için beklemek istemiyorsanız işlemi başlatabilirsiniz:
@@ -27,26 +27,26 @@ Azure Log analytics'te uyarıları özelliği, Azure uyarıları ile değiştiri
 ## <a name="option-1-initiate-from-the-operations-management-suite-portal"></a>1. seçenek: Operations Management Suite Portalı'ndan Başlat
 Aşağıdaki adımlarda, çalışma alanı için uyarıları Operations Management Suite Portalı'ndan genişletmek anlatılmaktadır.  
 
-1. Azure portalında **tüm hizmetleri**. Kaynak listesinde **Log Analytics** yazın. Yazmaya başladığınızda liste, girişinize göre filtrelenir. **Log Analytics**’i seçin.
+1. Azure portalda **Tüm hizmetler**’i seçin. Kaynak listesinde **Log Analytics** yazın. Yazmaya başladığınızda liste, girişinize göre filtrelenir. **Log Analytics**’i seçin.
 2. Log Analytics abonelikleri bölmesinde, bir çalışma alanı seçin ve ardından **OMS portalında** Döşe.
-![Log Analytics ekran abonelik bölmesinde, vurgulanan OMS portalında kutucuğu](./media/monitor-alerts-extend/azure-portal-01.png) 
+![Log Analytics ekran abonelik bölmesinde, vurgulanan OMS portalında kutucuğu](media/monitoring-alerts-extend-tool/azure-portal-01.png) 
 3. Operations Management Suite portalına yönlendirilirsiniz sonra seçin **ayarları** simgesi.
-![Operations Management Suite ekran portalıyla vurgulanmış ayarlar simgesi](./media/monitor-alerts-extend/oms-portal-settings-option.png) 
+![Operations Management Suite ekran portalıyla vurgulanmış ayarlar simgesi](media/monitoring-alerts-extend-tool/oms-portal-settings-option.png) 
 4. Gelen **ayarları** sayfasında **uyarılar**.  
 5. Seçin **Azure'a Genişlet**.
-![Operations Management Suite ekran portal uyarı ayarları sayfası, vurgulanan azure'a Genişlet](./media/monitor-alerts-extend/ExtendInto.png)
+![Operations Management Suite ekran portal uyarı ayarları sayfası, vurgulanan azure'a Genişlet](media/monitoring-alerts-extend-tool/ExtendInto.png)
 6. Üç adımlık Sihirbazı görünür **uyarılar** bölmesi. Genel bakışı okuyun ve seçin **sonraki**.
-![1. adım Sihirbazı ekran görüntüsü](./media/monitor-alerts-extend/ExtendStep1.png)  
+![1. adım Sihirbazı ekran görüntüsü](media/monitoring-alerts-extend-tool/ExtendStep1.png)  
 7. İkinci adımda, önerilen değişikliklerin özetini listeleme uygun gördüğünüz [Eylem grupları](monitoring-action-groups.md) uyarılar için. Benzer işlemler arasında birden fazla uyarı görülüyorsa bir tek bir eylem grubu tümünün ile ilişkilendirmek sihirbazın önerir.  Adlandırma kuralı aşağıdaki gibidir: *WorkspaceName_AG_ #Number*. Devam etmek için seçmeniz **sonraki**.
-![2. adım Sihirbazı ekran görüntüsü](./media/monitor-alerts-extend/ExtendStep2.png)  
+![2. adım Sihirbazı ekran görüntüsü](media/monitoring-alerts-extend-tool/ExtendStep2.png)  
 8. Sihirbazın son adımda seçin **son**ve işlemini başlatmak için sorulduğunda onaylayın. İsteğe bağlı olarak, böylece işlemi tamamlanır ve tüm uyarılar Azure Uyarıları'na başarıyla taşındığını bildirilir bir e-posta adresi sağlayabilir.
-![Adım 3 Sihirbazı ekran görüntüsü](./media/monitor-alerts-extend/ExtendStep3.png)
+![Adım 3 Sihirbazı ekran görüntüsü](media/monitoring-alerts-extend-tool/ExtendStep3.png)
 
 Sihirbaz olduğunda üzerinde tamamlanmış **uyarı ayarlarını** sayfasında, uyarıları Azure'a genişletme seçeneği kaldırılır. Arka planda uyarılarınızı Azure'a taşınır ve bu işlem biraz zaman alabilir. İşlem sırasında uyarıları Operations Management Suite Portalı'ndan değişiklik yapamazsınız. Portalın üst kısmındaki başlık geçerli durumunu görebilirsiniz. Daha önce sağladığınız bir e-posta adresi, işlem başarıyla tamamlandığında bir e-posta alırsınız.  
 
 
 Uyarılar bile Azure'a başarıyla taşındıktan sonra Operations Management Suite portalında listelenmeye devam eder.
-![Ekran Operations Management Suite portalı uyarı ayarları sayfası](./media/monitor-alerts-extend/PostExtendList.png)
+![Ekran Operations Management Suite portalı uyarı ayarları sayfası](media/monitoring-alerts-extend-tool/PostExtendList.png)
 
 
 ## <a name="option-2-use-the-alertsversion-api"></a>2. seçenek: ' % s'AlertsVersion API'si kullanma
@@ -460,7 +460,7 @@ Uyarılar genişletme işlemi sırasında sorunları sistem gerekli oluşturmas�
 > Azure genel bulut tabanlı, Log Analytics kullanıcı 5 Temmuz 2018 tarihinden önce aşağıdaki düzeltme adımları yakalayana, uyarılar, Azure'da çalışır ancak herhangi bir eylem veya bildirim tetiklenmez. Uyarılar için bildirim almak için el ile düzenleme ekleyin ve gerekir [Eylem grupları](monitoring-action-groups.md), veya önceki [özel PowerShell Betiği](#option-3---using-custom-powershell-script).
 
 Her hata için düzeltme adımları şunlardır:
-- **Hata: Yazma işlemleri için abonelik/kaynak grubu düzeyinde kapsam kilit mevcut**: ![sayfasının ekran görüntüsü Operations Management Suite portalı uyarı ayarlarını, vurgulanan kapsam kilit hata iletisi](./media/monitor-alerts-extend/ErrorScopeLock.png)
+- **Hata: Yazma işlemleri için abonelik/kaynak grubu düzeyinde kapsam kilit mevcut**: ![sayfasının ekran görüntüsü Operations Management Suite portalı uyarı ayarlarını, vurgulanan kapsam kilit hata iletisi](media/monitoring-alerts-extend-tool/ErrorScopeLock.png)
 
     Kapsam kilidi etkinleştirildiğinde, özellik (Operations Management Suite) Log Analytics çalışma alanını içeren abonelik veya kaynak grubunu yeni herhangi bir değişiklik kısıtlar. Sistem uyarıları Azure'a genişletme ve gerekli Eylem grupları oluşturma silemiyor.
     
@@ -468,7 +468,7 @@ Her hata için düzeltme adımları şunlardır:
     
     Makalesinde anlatılan adımları kullanarak Hatayı çözümlediğinizde, Operations Management Suite sonraki günün zamanlanan çalıştırma içinde uyarılarınızı Azure'a genişletir. Herhangi bir şey başlatmak veya başka bir işlem yapması gerekmez.
 
-- **Hata: Abonelik/kaynak grubu düzeyinde ilke varsa**: ![Operations Management Suite portal sayfasının uyarı ayarlarını, ilke hata iletisiyle vurgulandığı ekran görüntüsü](./media/monitor-alerts-extend/ErrorPolicy.png)
+- **Hata: Abonelik/kaynak grubu düzeyinde ilke varsa**: ![Operations Management Suite portal sayfasının uyarı ayarlarını, ilke hata iletisiyle vurgulandığı ekran görüntüsü](media/monitoring-alerts-extend-tool/ErrorPolicy.png)
 
     Zaman [Azure İlkesi](../azure-policy/azure-policy-introduction.md) olduğu uygulanan yeni bir kaynak (Operations Management Suite) Log Analytics çalışma alanı içeren bir abonelik veya kaynak grubu içinde sınırlar. Sistem uyarıları Azure'a genişletme ve gerekli Eylem grupları oluşturma silemiyor.
     

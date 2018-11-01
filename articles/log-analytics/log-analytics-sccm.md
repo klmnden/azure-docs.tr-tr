@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 03/22/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 28ddfea0f4127f402b82388a10ee150b30a65736
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: dfa0a4b637153d6fa3cce5c9b402587950686341
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49954241"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50418084"
 ---
 # <a name="connect-configuration-manager-to-log-analytics"></a>Configuration Manager'ı Log Analytics'e bağlanma
 System Center Configuration Manager ortamınızı Azure Log Analytics'e eşitleme cihaz koleksiyonu verilere ve Log Analytics ve Azure Otomasyonu bu koleksiyonlara başvuru.  
@@ -49,7 +49,7 @@ Aşağıdaki yordamda vermesi *katkıda bulunan* Log Analytics çalışma alanı
 > Configuration Manager için Log analytics'te izinleri belirtmeniz gerekir. Aksi takdirde, Configuration Manager'da Yapılandırma Sihirbazı'nı kullandığınızda, bir hata iletisi alırsınız.
 >
 
-1. Azure portalının sol alt köşesinde bulunan **Tüm hizmetler**’e tıklayın. Kaynak listesinde **Log Analytics** yazın. Yazmaya başladığınızda liste, girişinize göre filtrelenir. **Log Analytics**’i seçin.<br><br> ![Azure portal](media/log-analytics-quick-collect-azurevm/azure-portal-01.png)<br><br>  
+1. Azure portalının sol alt köşesinde bulunan **Tüm hizmetler**’e tıklayın. Kaynak listesinde **Log Analytics** yazın. Yazmaya başladığınızda liste, girişinize göre filtrelenir. **Log Analytics**’i seçin.<br><br> ![Azure portal](media/log-analytics-sccm/azure-portal-01.png)<br><br>  
 2. Log Analytics çalışma alanlarınızın listesinde değiştirmek için çalışma alanı seçin.
 3. Sol bölmeden **erişim denetimi (IAM)**.
 4. Erişim denetimi sayfasında tıklatın **Ekle** ve **izinleri eklemek** bölmesi görünür.
@@ -101,7 +101,7 @@ Cihaz koleksiyonları hiyerarşinizden içeri aktarmak için başlangıç yapıl
 
 1. Azure portalının sol alt köşesinde bulunan **Tüm hizmetler**’e tıklayın. Kaynak listesinde **Log Analytics** yazın. Yazmaya başladığınızda liste, girişinize göre filtrelenir. **Log Analytics**’i seçin.
 2. Log Analytics çalışma alanlarınızın listesinde, Configuration Manager ile kayıtlı bir çalışma alanı seçin.  
-3. **Gelişmiş ayarlar**’ı seçin.<br><br> ![Log Analytics Gelişmiş Ayarlar](media/log-analytics-quick-collect-azurevm/log-analytics-advanced-settings-01.png)<br><br>  
+3. **Gelişmiş ayarlar**’ı seçin.<br><br> ![Log Analytics Gelişmiş Ayarlar](media/log-analytics-sccm/log-analytics-advanced-settings-01.png)<br><br>  
 4. Seçin **bilgisayar grupları** seçip **SCCM**.  
 5. Seçin **alma Configuration Manager koleksiyon üyelikleri** ve ardından **Kaydet**.  
    ![Bilgisayar grupları - SCCM sekmesi](./media/log-analytics-sccm/sccm-computer-groups01.png)

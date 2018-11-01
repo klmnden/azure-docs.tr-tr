@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/04/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: ebbb231e7d9eefa8eb681b0e14c711e2c4f1fad7
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: f7efafe5e3080de15781496032b688bc5fa71df2
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49386528"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50418438"
 ---
 # <a name="unified-alerting--monitoring-in-azure-monitor-replaces-classic-alerting--monitoring"></a>Birleştirilmiş uyarılar ve Azure İzleyici'de izleme Klasik uyarı ve izleme değiştirir.
 
@@ -21,7 +21,7 @@ Azure İzleyici, am birleşik tam yığın izleme kaynakları genelinde 'Bir öl
 
 Yeni Azure izleme ve uyarı yerinde platformu ile biz "izleme ve uyarı içinde barındırılan platformu - Klasik" kullanımdan kaldırılacak *Klasik uyarıları görüntüleme* bölümü tarafından Haziran 2019 Azure uyarıları, kullanım dışı bırakılacaktır.
 
- ![Azure portalında Klasik uyarı](./media/monitoring-overview-alerts-classic/monitor-alert-screen2.png) 
+ ![Azure portalında Klasik uyarı](media/monitoring-classic-retirement/monitor-alert-screen2.png) 
 
 Kullanmaya başlayın ve yeni platform uyarılarınızı oluşturmanız önerilir. Çok sayıda uyarı olan müşteriler, mevcut Klasik uyarıları kesintiye uğratmadan yeni uyarılar sisteme taşımak için otomatik bir yol sağlamak üzere çalışma veya maliyetleri eklendi.
 

@@ -9,12 +9,12 @@ ms.date: 09/15/2018
 ms.service: application-insights
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 853fd1e9939631b6c459caf89994299e7a8406b0
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 64e49dee5bf560dec263e67daa3c130a0ba8b40c
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49165550"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50420957"
 ---
 # <a name="collect-distributed-traces-from-go-preview"></a>Toplama dağıtılmış izlemelerinden Git (Önizleme)
 
@@ -22,7 +22,7 @@ Go uygulamaları ile tümleştirme yoluyla izlemeyi destekleyen dağıtılmış 
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-- Bir Azure aboneliği gerekir.
+- Bir Azure Aboneliğine sahip olmanız gerekir.
 - Git yüklenmesi, bu makalede 1.11 sürümü kullanan [Git indirme](https://golang.org/dl/).
 - Yüklemek için yönergeleri izleyin [yerel iletici bir Windows hizmeti olarak](./opencensus-local-forwarder.md#windows-service).
 
@@ -208,7 +208,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz](https://azure.microsoft.
 
     Biz yalnızca bir yöntem çağrısının izleme olduğundan, bizim Uygulama Haritası olarak ilginç değil. Ancak, Uygulama Haritası daha dağıtılmış uygulamalar görselleştirmek için ölçeklendirebilirsiniz:
 
-   ![Uygulama Eşlemesi](./media/app-insights-nodejs-quick-start/application-map.png)
+   ![Uygulama Eşlemesi](media/opencensus-go/application-map.png)
 
 4. Seçin **araştırmak performans** ayrıntılı Performans Analizi gerçekleştirebilir ve performansın kök nedenini belirlemek için.
 

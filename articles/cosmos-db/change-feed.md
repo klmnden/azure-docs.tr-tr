@@ -10,12 +10,12 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: rafats
-ms.openlocfilehash: b6d05c5e9bc59df9df7ef8840b70ab027b6e2f74
-ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
+ms.openlocfilehash: 09f827e8784fe2a97c587524d70baf76ae4458ba
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48269505"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50741870"
 ---
 # <a name="working-with-the-change-feed-support-in-azure-cosmos-db"></a>Azure Cosmos DB'de destek akış değişiklik ile çalışma
 
@@ -34,7 +34,7 @@ ms.locfileid: "48269505"
 
 ## <a name="how-does-change-feed-work"></a>Nasıl değişiklik iş akışı?
 
-Azure Cosmos DB geliştirilme akış desteği, herhangi bir değişiklik için bir Azure Cosmos DB koleksiyonu için dinleyerek değiştirin. Ardından, değiştirilmiş olan sırayla değiştirilen belgelerin sıralanmış listesini çıkarır. Değişiklikleri kalıcı, zaman uyumsuz olarak ve artımlı olarak işlenebilir ve çıkış paralel işleme için bir veya daha fazla tüketicileri arasında dağıtılabilir. 
+Azure Cosmos DB geliştirilme akış desteği, herhangi bir değişiklik için bir Azure Cosmos DB koleksiyonu için dinleyerek değiştirin. Ardından, değiştirilmiş olan sırayla değiştirilen belgelerin sıralanmış listesini çıkarır. Değişiklikler kalıcı hale getirilir, zaman uyumsuz ve artırımlı olarak işlenebilir ve çıkış, paralel işleme için bir veya daha fazla tüketiciye dağıtılabilir. 
 
 Bu makalenin sonraki bölümlerinde açıklandığı gibi üç farklı yolla akış değişiklik okuyabilirsiniz:
 
@@ -47,7 +47,7 @@ Değişiklik akışı her bölüm anahtar aralığı içinde belge koleksiyonu i
 ![Azure Cosmos DB değişiklik akışı, dağıtılan işleme](./media/change-feed/changefeedvisual.png)
 
 Ek ayrıntılar:
-* Değişiklik akışı, tüm hesaplar için varsayılan olarak etkindir.
+* Değişiklik akışı tüm hesaplar için varsayılan olarak etkinleştirilir.
 * Kullanabileceğiniz, [sağlanan aktarım hızı](request-units.md) yazma bölgenizi ya da tüm [bölgesinde](distribute-data-globally.md) değişiklik akışı okumak için olduğu gibi başka bir Azure Cosmos DB işlem.
 * Değişiklik akışı, ekler ve koleksiyonu içindeki belgeler yapılan güncelleştirme işlemlerini içerir. Siler yakalayabilirsiniz siler yerine, belgelerinizi içinde "geçici silme" bayrak ayarlayarak. Alternatif olarak, sınırlı bir süre için belgelerinizi ayarlayabilirsiniz [TTL özelliği](time-to-live.md), örneğin, 24 saat ve silmeleri yakalamak için bu özelliğin değerini kullanın. Bu çözüm sayesinde TTL sona erme süresinden daha kısa bir zaman aralığında değişikliklerini işlemesi gerekir.
 * Her değişiklik için bir belge değişiklik akışı tam bir kez görünür ve bunların denetim noktası mantığına istemcileri yönetme. Değişiklik akışı işlemci kitaplığı otomatik denetim noktası oluşturma ve "en az bir kez" semantiği sağlar.
@@ -77,7 +77,7 @@ Aşağıdaki görüntüde, her ikisi de alıp Azure Cosmos DB kullanarak sorgu k
 Ayrıca, içinde [sunucusuz](http://azure.com/serverless) , web ve mobil uygulamalar, müşterinizin profili, tercihlerine veya konum 'nıkullanarakcihazlarınıanındailetmebildirimlerigöndermegibibelirlieylemleritetiklemekiçindeğişikliklergibiolaylarıizlemekiçin[Azure işlevleri](#azure-functions). Bir oyun oluşturmak için Azure Cosmos DB kullanıyorsanız, şunları yapabilirsiniz, örneğin, kullanım değişiklik akışı tamamlanmış oyunlardan puanları göre gerçek zamanlı puan tabloları uygulamak için.
 
 <a id="azure-functions"></a>
-## <a name="using-azure-functions"></a>Azure işlevleri'ni kullanarak 
+## <a name="using-azure-functions"></a>Azure işlevleri'ni kullanarak 
 
 Azure işlevleri'ni kullanıyorsanız, en basit yolu için bir Azure Cosmos DB değişiklik akışı bağlanmak için Azure işlevleri uygulamanızı bir Azure Cosmos DB tetikleyicisi eklemektir. Bir Azure işlev uygulaması bir Azure Cosmos DB tetikleyicisi oluşturduğunuzda, bağlanmak için Azure Cosmos DB koleksiyonu seçin ve her koleksiyona bir değişiklik yapıldığında işlevi tetiklenir. 
 
@@ -114,9 +114,9 @@ Bu bölümde bir değişiklik akışı ile çalışmak için SQL SDK'sını kull
     ```csharp
     FeedResponse pkRangesResponse = await client.ReadPartitionKeyRangeFeedAsync(
         collectionUri,
-        new FeedOptions
-            {RequestContinuation = pkRangesResponseContinuation });
-     
+        new FeedOptions
+            {RequestContinuation = pkRangesResponseContinuation });
+     
     partitionKeyRanges.AddRange(pkRangesResponse);
     pkRangesResponseContinuation = pkRangesResponse.ResponseContinuation;
     ```
@@ -125,29 +125,29 @@ Bu bölümde bir değişiklik akışı ile çalışmak için SQL SDK'sını kull
 
     ```csharp
     foreach (PartitionKeyRange pkRange in partitionKeyRanges){
-        string continuation = null;
-        checkpoints.TryGetValue(pkRange.Id, out continuation);
-        IDocumentQuery<Document> query = client.CreateDocumentChangeFeedQuery(
-            collectionUri,
-            new ChangeFeedOptions
-            {
-                PartitionKeyRangeId = pkRange.Id,
-                StartFromBeginning = true,
-                RequestContinuation = continuation,
-                MaxItemCount = -1,
-                // Set reading time: only show change feed results modified since StartTime
-                StartTime = DateTime.Now - TimeSpan.FromSeconds(30)
-            });
-        while (query.HasMoreResults)
-            {
-                FeedResponse<dynamic> readChangesResponse = query.ExecuteNextAsync<dynamic>().Result;
+        string continuation = null;
+        checkpoints.TryGetValue(pkRange.Id, out continuation);
+        IDocumentQuery<Document> query = client.CreateDocumentChangeFeedQuery(
+            collectionUri,
+            new ChangeFeedOptions
+            {
+                PartitionKeyRangeId = pkRange.Id,
+                StartFromBeginning = true,
+                RequestContinuation = continuation,
+                MaxItemCount = -1,
+                // Set reading time: only show change feed results modified since StartTime
+                StartTime = DateTime.Now - TimeSpan.FromSeconds(30)
+            });
+        while (query.HasMoreResults)
+            {
+                FeedResponse<dynamic> readChangesResponse = query.ExecuteNextAsync<dynamic>().Result;
     
-                foreach (dynamic changedDocument in readChangesResponse)
-                    {
-                         Console.WriteLine("document: {0}", changedDocument);
-                    }
-                checkpoints[pkRange.Id] = readChangesResponse.ResponseContinuation;
-            }
+                foreach (dynamic changedDocument in readChangesResponse)
+                    {
+                         Console.WriteLine("document: {0}", changedDocument);
+                    }
+                checkpoints[pkRange.Id] = readChangesResponse.ResponseContinuation;
+            }
     }
     ```
 
@@ -165,13 +165,13 @@ Yukarıdaki 4. adımdaki kod **ResponseContinuation** bu sıra numarası sonra y
 Bu nedenle, denetim noktası diziniz yalnızca her bölüm için LSN engelliyor. Ancak bu bölümleri ile uğraşmak istemiyorsanız, kontrol noktaları, LSN, başlangıç zamanı, vb. Basit seçeneği değişiklik akışı işlemci kitaplığı kullanmaktır.
 
 <a id="change-feed-processor"></a>
-## <a name="using-the-change-feed-processor-library"></a>Kullanarak değişiklik akışı işlemci kitaplığı 
+## <a name="using-the-change-feed-processor-library"></a>Kullanarak değişiklik akışı işlemci kitaplığı 
 
 [Azure Cosmos DB değişiklik akışı işlemci Kitaplığı](https://docs.microsoft.com/azure/cosmos-db/sql-api-sdk-dotnet-changefeed) olay işleme çeşitli tüketicilere kolayca dağıtmak yardımcı olabilir. Bu kitaplık, bölümler ve paralel olarak çalışan birden çok iş parçacığı üzerinde okuma değişiklikleri basitleştirir.
 
 Değişiklik akışı işlemci kitaplığı ana avantajı, her bölüm yönetmek zorunda olmadığınız ve devamlılık belirteci ve her bir koleksiyon el ile yoklamaya yoksa ' dir.
 
-Değişiklik akışı işlemci kitaplığı, bölümler ve paralel olarak çalışan birden çok iş parçacığı üzerinde okuma değişiklikleri basitleştirir.  Kiralama mekanizması kullanılarak bölümler arasında okuma değişiklikleri otomatik olarak yönetir. Değişiklik akışı işlemci kitaplığı kullanan iki istemciler başlatırsanız, aşağıdaki görüntüde görebileceğiniz gibi bunlar kendi aralarında iş bölün. İstemcilerin artmaya devam ederken, kendi aralarında iş bölme tutun.
+Değişiklik akışı işlemci kitaplığı, bölümler ve paralel olarak çalışan birden çok iş parçacığı üzerinde okuma değişiklikleri basitleştirir.  Kiralama mekanizması kullanılarak bölümler arasında okuma değişiklikleri otomatik olarak yönetir. Değişiklik akışı işlemci kitaplığı kullanan iki istemciler başlatırsanız, aşağıdaki görüntüde görebileceğiniz gibi bunlar kendi aralarında iş bölün. İstemcilerin artmaya devam ederken, kendi aralarında iş bölme tutun.
 
 ![Azure Cosmos DB değişiklik akışı, dağıtılan işleme](./media/change-feed/change-feed-output.png)
 
@@ -433,7 +433,7 @@ Okunacak birden çok Azure işlevleri oluşturuyorsanız farklı kira koleksiyon
 
 ### <a name="my-document-is-updated-every-second-and-i-am-not-getting-all-the-changes-in-azure-functions-listening-to-change-feed"></a>Saniyede Uygulamam belge güncelleştirilir ve tüm değişiklikleri Azure işlevleri'nde değişiklik akışını dinleme almıyorum.
 
-5 saniye arasında yapılan tüm değişiklikler kaybedilir için azure işlevleri yoklamalar değişiklik her 5 saniyede akışı. 5 değişikliğin belgede erişmenizi sağlayacak şekilde azure Cosmos DB, tek bir sürüm 5 saniyede depolar. Ancak, 5 saniye gidin ve değişiklik saniyede akışı yoklamak istediğiniz istiyorsanız, yoklama süresi "feedPollTime" yapılandırmak, bakın [Azure Cosmos DB bağlamaları](../azure-functions/functions-bindings-cosmosdb.md#trigger---configuration). Varsayılan değer 5000 milisaniye cinsinden tanımlanır. Daha fazla CPU yazma başlayacak şekilde olası ancak önerilir, 1 saniye.
+5 saniye arasında yapılan tüm değişiklikler kaybedilir için azure işlevleri yoklamalar değişiklik her 5 saniyede akışı. 5 değişikliğin belgede erişmenizi sağlayacak şekilde azure Cosmos DB, tek bir sürüm 5 saniyede depolar. Ancak, 5 saniye gidin ve değişiklik saniyede akışı yoklamak istediğiniz istiyorsanız, yoklama süresi "feedPollDelay" yapılandırmak, bakın [Azure Cosmos DB bağlamaları](../azure-functions/functions-bindings-cosmosdb.md#trigger---configuration). Varsayılan değer 5000 milisaniye cinsinden tanımlanır. Daha fazla CPU yazma başlayacak şekilde olası ancak önerilir, 1 saniye.
 
 ### <a name="i-inserted-a-document-in-the-mongo-api-collection-but-when-i-get-the-document-in-change-feed-it-shows-a-different-id-value-what-is-wrong-here"></a>Mongo API koleksiyonda bir belge ekledim ancak belgenin içinde değişiklik akışı aldığınızda farklı kimliği değerini gösterir. Burada sorun nedir?
 

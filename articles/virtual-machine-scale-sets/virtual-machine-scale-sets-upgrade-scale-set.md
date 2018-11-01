@@ -3,7 +3,7 @@ title: Bir Azure sanal makine ölçek kümesini değiştirme | Microsoft Docs
 description: Değiştirme ve REST API'leri, Azure PowerShell ve Azure CLI ile bir Azure sanal makine ölçek güncelleştirme hakkında bilgi edinin
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: gatneil
+author: mayanknayar
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/14/2018
-ms.author: negat
-ms.openlocfilehash: d065f9765ca279f14b9de45e2412b75c94ef3dd8
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.author: manayar
+ms.openlocfilehash: c3c01d7013749ca5cbd95224c230932a20a8146b
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50139054"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50740596"
 ---
 # <a name="modify-a-virtual-machine-scale-set"></a>Sanal makine ölçek kümesini değiştirme
 Uygulamalarınızın yaşam döngüsü boyunca, değiştirmek veya sanal makine ölçek kümenizi güncelleştirirseniz gerekebilir. Bu güncelleştirmeler, Ölçek kümesi yapılandırmasını güncelleştirme veya uygulama yapılandırmasını değiştirmek nasıl içerebilir. Bu makale, mevcut bir ölçek REST API'leri, Azure PowerShell veya Azure CLI ile kümesini değiştirmek açıklamaktadır.

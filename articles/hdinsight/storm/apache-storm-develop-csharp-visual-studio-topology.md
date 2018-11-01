@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 11/27/2017
 ROBOTS: NOINDEX
-ms.openlocfilehash: 371f8c1d69482381e3a400da6010825bc3ac7c1a
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 2765021d80701826644f095d22c650160001e907
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43697790"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50414905"
 ---
 # <a name="develop-c-topologies-for-apache-storm-by-using-the-data-lake-tools-for-visual-studio"></a>Visual Studio için Data Lake araçları kullanarak Apache Storm için C# topolojileri geliştirme
 
@@ -57,7 +57,7 @@ Visual Studio için Data Lake Araçları'nı yüklemek için adımları izleyin.
 
 Visual Studio bir Storm topolojisinden gönderdiğinizde, SCP.NET için topoloji ve bağımlılıklarını içeren bir zip dosyası oluşturur. Java, Linux tabanlı kümeler ile daha uyumlu bir biçimde kullandığından bu zip dosyaları oluşturmak için kullanılır.
 
-1. Geliştirme ortamınızı Java Developer Kit (JDK) 7 veya sonraki bir sürümü yükleyin. Oracle JDK'den alabilirsiniz [Oracle](http://www.oracle.com/technetwork/java/javase/downloads/index.html). Ayrıca [diğer Java dağıtımları](http://openjdk.java.net/).
+1. Geliştirme ortamınızı Java Developer Kit (JDK) 7 veya sonraki bir sürümü yükleyin. Oracle JDK'den alabilirsiniz [Oracle](https://aka.ms/azure-jdks). Ayrıca [diğer Java dağıtımları](http://openjdk.java.net/).
 
 2. `JAVA_HOME` Ortam değişkenini Java içeren dizine işaret etmelidir.
 
@@ -70,30 +70,30 @@ using System;
 using System.IO;
 namespace ConsoleApplication2
 {
-   class Program
-   {
-       static void Main(string[] args)
-       {
-           string javaHome = Environment.GetEnvironmentVariable("JAVA_HOME");
-           if (!string.IsNullOrEmpty(javaHome))
-           {
-               string jarExe = Path.Combine(javaHome + @"\bin", "jar.exe");
-               if (File.Exists(jarExe))
-               {
-                   Console.WriteLine("JAVA Is Installed properly");
-                    return;
-               }
-               else
-               {
-                   Console.WriteLine("A valid JAVA JDK is not found. Looks like JRE is installed instead of JDK.");
-               }
-           }
-           else
-           {
-             Console.WriteLine("A valid JAVA JDK is not found. JAVA_HOME environment variable is not set.");
-           }
-       }  
-   }
+   class Program
+   {
+       static void Main(string[] args)
+       {
+           string javaHome = Environment.GetEnvironmentVariable("JAVA_HOME");
+           if (!string.IsNullOrEmpty(javaHome))
+           {
+               string jarExe = Path.Combine(javaHome + @"\bin", "jar.exe");
+               if (File.Exists(jarExe))
+               {
+                   Console.WriteLine("JAVA Is Installed properly");
+                    return;
+               }
+               else
+               {
+                   Console.WriteLine("A valid JAVA JDK is not found. Looks like JRE is installed instead of JDK.");
+               }
+           }
+           else
+           {
+             Console.WriteLine("A valid JAVA JDK is not found. JAVA_HOME environment variable is not set.");
+           }
+       }  
+   }
 }
 ```
 
@@ -451,11 +451,11 @@ Burada bazı bileşenler C# ve diğerleri Java karma topolojiler oluşturmak iç
 
 Karma bir topolojide ilişkin bir örnek, bir proje oluşturun ve seçin **Storm karma örnek**. Bu örnek türü aşağıdaki kavramları göstermektedir:
 
-* **Java spout** ve **C# bolt**: tanımlanan **HybridTopology_javaSpout_csharpBolt**.
+* **Java spout** ve  **C# bolt**: tanımlanan **HybridTopology_javaSpout_csharpBolt**.
 
     * İçinde tanımlanan bir işlem sürüm **HybridTopologyTx_javaSpout_csharpBolt**.
 
-* **C# spout** ve **Java bolt**: tanımlanan **HybridTopology_csharpSpout_javaBolt**.
+* **C#spout** ve **Java bolt**: tanımlanan **HybridTopology_csharpSpout_javaBolt**.
 
     * İçinde tanımlanan bir işlem sürüm **HybridTopologyTx_csharpSpout_javaBolt**.
 

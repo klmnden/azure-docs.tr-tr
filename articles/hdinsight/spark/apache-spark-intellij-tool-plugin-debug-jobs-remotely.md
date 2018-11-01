@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/28/2017
-ms.openlocfilehash: 1a7fcc11bf1b98d5feaeae07264e556acce2b14b
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 55f32b498b83203a3823999a2e31024266bf37bc
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45736101"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50413273"
 ---
 # <a name="use-azure-toolkit-for-intellij-to-debug-spark-applications-remotely-in-hdinsight-through-vpn"></a>VPN aracılığıyla bir HDInsight Spark uygulamaları uzaktan hata ayıklama Intellij için Azure Araç Seti'ni kullanma
 
@@ -31,7 +31,7 @@ Bu makalede bir HDInsight Spark kümesi üzerinde bir Spark işi göndermek ve m
 ## <a name="prerequisites"></a>Önkoşullar
 * **Bir Azure aboneliği**. Daha fazla bilgi için [Azure ücretsiz deneme](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * **HDInsight, Apache Spark kümesi**. Yönergeler için bkz. [Azure HDInsight'ta Apache Spark kümeleri oluşturma](apache-spark-jupyter-spark-sql.md).
-* **Oracle Java development Kit'i**. Buradan yükleyebilirsiniz [Oracle Web sitesi](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).
+* **Oracle Java development Kit'i**. Buradan yükleyebilirsiniz [Oracle Web sitesi](https://aka.ms/azure-jdks).
 * **Intellij Idea**. Bu makalede, sürüm 2017.1 kullanır. Buradan yükleyebilirsiniz [JetBrains Web sitesi](https://www.jetbrains.com/idea/download/).
 * **Intellij için Azure Araç Seti HDInsight Araçları**. Intellij için HDInsight araçları kullanılabilir Intellij için Azure Araç Seti parçası olarak. Azure araç setini yükleme yönergeleri için bkz: [Intellij için Azure Araç Seti'ni yükleme](https://docs.microsoft.com/java/azure/intellij/azure-toolkit-for-intellij-installation).
 * **Azure aboneliğinizde oturum Intellij Idea '**. Bölümündeki yönergeleri [Spark HDInsight kümesi için uygulamalar oluşturmak Intellij için Azure Araç Seti'ni kullanma](apache-spark-intellij-tool-plugin.md).

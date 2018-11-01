@@ -10,16 +10,16 @@ ms.component: bing-video-search
 ms.topic: conceptual
 ms.date: 04/15/2017
 ms.author: scottwhi
-ms.openlocfilehash: 9b030312c562d1c0a6cbacfc7f424289dee2e8de
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: cd5d6ef6a75088d02bc34558f66ed520c230e06b
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47225574"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50741904"
 ---
 # <a name="paging-videos"></a>Disk belleği videoları
 
-Video arama API'si arama, Bing sonuçların listesini döndürür. Bu liste sorguyla ilgili tüm sonuçların alt kümesidir. Kullanılabilir sonuçları tahmin edilen toplam sayısını almak için yanıt nesnenin erişim [totalEstimatedMatches](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#videos-totalestimatedmatches) alan.  
+Video Arama API'sini çağırdığınızda Bing, sonuç listesini döndürür. Bu liste sorguyla ilgili tüm sonuçların alt kümesidir. Kullanılabilir sonuçları tahmin edilen toplam sayısını almak için yanıt nesnenin erişim [totalEstimatedMatches](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#videos-totalestimatedmatches) alan.  
   
 Aşağıdaki örnekte gösterildiği `totalEstimatedMatches` Video yanıt içeren alan.  
   
@@ -65,3 +65,6 @@ Yinelenen sonuçları ortadan kaldırmak için kullanın [nextOffset](https://do
 
 > [!NOTE]
 > Disk belleği yalnızca videoları arama (arama/video /) ve video öngörüleri (/ video/ayrıntıları) veya (/ video/popüler) popüler videolar için geçerlidir.
+
+> [!NOTE]
+> `TotalEstimatedAnswers` Alandır ne tahmini toplam arama sonuçları almak için geçerli sorgu sayısı.  Ayarladığınızda `count` ve `offset` parametreleri `TotalEstimatedAnswers` numarası değişebilir. 

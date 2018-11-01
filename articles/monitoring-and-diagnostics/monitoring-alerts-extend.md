@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/01/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: 45682caedaaaac1c9d335a45db64f16d713dfd7f
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 60ecc2bc1d700c223d4a52b05e3b9362241f3f82
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50233506"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50414629"
 ---
 # <a name="extend-log-analytics-alerts-to-azure-alerts"></a>Azure uyarıları log Analytics uyarıları genişletme
 Yakın zamanda kadar Azure Log Analytics, Log Analytics verilerine dayalı koşulları proaktif olarak bildirebilirsiniz kendi uyarı işlevleri dahil. Microsoft Operations Management Suite portalında uyarı kuralları Yönetildi Yeni uyarı deneyimi artık Microsoft azure'da çeşitli hizmetlerdeki uyarı tümleştirilmiştir. Bu olarak kullanılabilir **uyarılar** Azure portalında, Azure İzleyici ve etkinlik günlükleri, ölçümler, uyarı destekler ve hem Log Analytics hem de Azure Application Insights günlüğe kaydeder. 
@@ -35,7 +35,7 @@ Uyarıları Log Analytics'ten Azure uyarılarına genişletecektir taşıma işl
 
 Azure'a genişletilecek bir Log Analytics çalışma alanı Uyarılardaki zamanladığınızda çalışmaya ve buna herhangi şekilde yapılandırmanızı tehlikeye sağlamadığı devam eder. Zamanlanan uyarılarınızı geçici olarak değiştirilmesi için kullanılamıyor olabilir, ancak bu süre boyunca yeni Azure uyarıları oluşturmaya devam edebilirsiniz. Operations Management Suite portalında uyarıları oluşturma veya düzenleme çalışırsanız, bunları Log Analytics çalışma alanınızdan oluşturmaya devam etmek için seçeneğiniz vardır. Bunları Azure portalında Azure Uyarıları'ndan oluşturulacağını seçebilirsiniz.
 
- ![Log Analytics veya Azure uyarıları uyarılar oluşturmak için seçeneğinin ekran görüntüsü](./media/monitor-alerts-extend/ScheduledDirection.png)
+ ![Log Analytics veya Azure uyarıları uyarılar oluşturmak için seçeneğinin ekran görüntüsü](media/monitoring-alerts-extend/ScheduledDirection.png)
 
 > [!NOTE]
 > Uyarıları Log Analytics'ten Azure'a genişletme hesabınıza ücrete tabi değildir. Sorgu tabanlı Log Analytics uyarılar Azure uyarıları kullanarak değil faturalandırılır sınırlar içinde kullanıldığında ve cinsinden ifade edilen koşullar [Azure İlkesi fiyatlandırması İzleyici](https://azure.microsoft.com/pricing/details/monitor/).  
@@ -47,7 +47,7 @@ Uyarılarınızı Azure Uyarıları'na genişletmek için Operations Management 
 ## <a name="experience-after-extending-your-alerts"></a>Uyarılarınızı genişlettikten sonra deneyimi
 Azure Uyarıları'na uyarılarınızı genişletilmektedir sonra Hayır daha önce farklı yönetim için Operations Management Suite portalında kullanılabilir olması devam.
 
-![Operations Management Suite ekran portalıyla listelenen uyarıları](./media/monitor-alerts-extend/PostExtendList.png)
+![Operations Management Suite ekran portalıyla listelenen uyarıları](media/monitoring-alerts-extend/PostExtendList.png)
 
 Var olan bir uyarı düzenleme veya yeni bir uyarı Operations Management Suite portalında denediğinizde, Azure Uyarıları'na otomatik olarak yönlendirilir.  
 

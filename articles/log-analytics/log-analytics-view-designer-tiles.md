@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 01/17/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: 1c9c93c198b4d88da55ecd241e096e73e4a40d5d
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: aa9e91614152aed6a04fa748521991920a0ed569
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48042198"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50413069"
 ---
 # <a name="reference-guide-to-view-designer-tiles-in-log-analytics"></a>Görünüm Tasarımcısı kutucukları Log analytics'te Başvuru Kılavuzu
 Azure Log Analytics'te Görünüm Tasarımcısı kullanarak veri görselleştirmeleri Log Analytics çalışma alanınızdaki çeşitli sunan Azure portalında özel görünümlerinizi oluşturabilirsiniz. Bu makalede, özel görünümlerde kullanılabilir kutucuk ayarlarını bir başvuru kılavuzudur.
@@ -47,7 +47,7 @@ Sonraki bölümlerde, kutucuk türleri ve bunların özelliklerini ayrıntılı 
 ## <a name="number-tile"></a>Bir sayı kutucuğu
 **Numarası** kutucuk her iki günlük sorgusu ve bir etiket kayıt sayısını görüntüler.
 
-![Bir sayı kutucuğu](media/log-analytics-view-designer/tile-number.png)
+![Bir sayı kutucuğu](media/log-analytics-view-designer-tiles/tile-number.png)
 
 | Ayar | Açıklama |
 |:--- |:--- |
@@ -65,7 +65,7 @@ Sonraki bölümlerde, kutucuk türleri ve bunların özelliklerini ayrıntılı 
 ## <a name="two-numbers-tile"></a>İki sayı kutucuğu
 Bu kutucuk, her iki farklı günlük sorguları ve bir etiket kayıtları sayısını görüntüler.
 
-![İki sayı kutucuğu](media/log-analytics-view-designer/tile-two-numbers.png)
+![İki sayı kutucuğu](media/log-analytics-view-designer-tiles/tile-two-numbers.png)
 
 | Ayar | Açıklama |
 |:--- |:--- |
@@ -86,7 +86,7 @@ Bu kutucuk, her iki farklı günlük sorguları ve bir etiket kayıtları sayıs
 ## <a name="donut-tile"></a>Halka kutucuğu
 **Halka** günlük sorgusu değer sütununda özetlenir tek bir sayı kutucuğu görüntülenir. Halka grafik en çok üç kayıtların sonuçlarını görüntüler.
 
-![Halka kutucuğu](media/log-analytics-view-designer/tile-donut.png)
+![Halka kutucuğu](media/log-analytics-view-designer-tiles/tile-donut.png)
 
 | Ayar | Açıklama |
 |:--- |:--- |
@@ -110,7 +110,7 @@ Bu kutucuk, her iki farklı günlük sorguları ve bir etiket kayıtları sayıs
 ## <a name="line-chart-tile"></a>Çizgi grafiği kutucuğu
 Zaman içinde birden fazla seri günlük sorgudan gösteren bir çizgi grafik kutucuğudur. 
 
-![Çizgi grafik ve belirtme çizgisi kutucuğu](media/log-analytics-view-designer/tile-line-chart.png)
+![Çizgi grafik ve belirtme çizgisi kutucuğu](media/log-analytics-view-designer-tiles/tile-line-chart.png)
 
 | Ayar | Açıklama |
 |:--- |:--- |
@@ -131,7 +131,7 @@ Zaman içinde birden fazla seri günlük sorgudan gösteren bir çizgi grafik ku
 ## <a name="line-chart-and-callout-tile"></a>Çizgi grafik ve belirtme çizgisi kutucuğu
 Bu kutucuk, saati ve bir özetlenmiş değer ile belirtme çizgisi üzerinde birden fazla seri günlükten sorgu görüntüleyen grafik hem bir satırı içeriyor. 
 
-![Çizgi grafik ve belirtme çizgisi kutucuğu](media/log-analytics-view-designer/tile-line-chart-callout.png)
+![Çizgi grafik ve belirtme çizgisi kutucuğu](media/log-analytics-view-designer-tiles/tile-line-chart-callout.png)
 
 | Ayar | Açıklama |
 |:--- |:--- |
@@ -156,7 +156,7 @@ Bu kutucuk, saati ve bir özetlenmiş değer ile belirtme çizgisi üzerinde bir
 ## <a name="two-timelines-tile"></a>İki zaman çizelgesi kutucuğu
 **İki zaman çizelgesi** kutucuk sütun grafikleri olarak zaman içinde iki günlük sorguların sonuçlarını görüntüler. Belirtme çizgisi, her bir seri için görüntülenir. 
 
-![İki zaman çizelgesi kutucuğu](media/log-analytics-view-designer/tile-two-timelines.png)
+![İki zaman çizelgesi kutucuğu](media/log-analytics-view-designer-tiles/tile-two-timelines.png)
 
 | Ayar | Açıklama |
 |:--- |:--- |

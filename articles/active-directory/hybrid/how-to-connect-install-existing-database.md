@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 08/30/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 19a4b77be613eb7ddb4367ca5dc5731c4e0a0287
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: bbf8dc4ccbd16f2157e65773b01fb42587fbfe9d
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50249263"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50417489"
 ---
 # <a name="install-azure-ad-connect-using-an-existing-adsync-database"></a>Mevcut bir ad eşitleme veritabanını kullanarak Azure AD Connect'i yükleme
 Azure AD Connect, verileri depolamak için SQL Server veritabanı gerektirir. SQL Server 2012 Express LocalDB Azure AD Connect ile yüklenen varsayılan kullanabilir veya kendi tam SQL sürümü kullanın. Daha önce Azure AD Connect yüklendiğinde, her zaman ADSync adlı yeni bir veritabanı oluşturuldu. Azure AD Connect sürümü 1.1.613.0 (veya sonra), mevcut bir ad eşitleme veritabanına işaret ederek Azure AD Connect'i yükleme seçeneğiniz vardır.
@@ -87,15 +87,15 @@ Devam etmeden önce gerçekleştirilecek önemli notlar dikkat edin:
 11. Yükleme tamamlandıktan sonra Azure AD Connect otomatik olarak Hazırlama Modunda etkinleştirilir. Hazırlama Modunu devre dışı bırakmadan önce sunucu yapılandırmasını ve bekleme durumundaki dışarı aktarma işlemlerini gözden geçirerek beklenmeyen değişikliklerin olup olmadığını kontrol etmeniz önerilir. 
 
 ## <a name="post-installation-tasks"></a>Yükleme sonrası görevler
-Veritabanı yedeklemesini geri yükleme oluşturduğunuzda, Azure AD Connect'in önceki bir sürümü tarafından <our pending release>, hazırlık sunucusu otomatik olarak oturum açma yöntemini seçip **yapılandırmazsanız**. Parola karma eşitlemesi ve parola geri yazma tercihlerini geri yüklenir, ancak daha sonra sunucunuz etkin eşitlemeyi yürürlükte için diğer ilkeleri eşleştirmek için oturum açma yöntemi değiştirmeniz gerekir.  Bu adımları tamamlamak için başarısızlık, kullanıcıların oturum açmaya engelleyebilir, bu sunucunun etkin hale gelir.  
+Azure AD Connect 1.2.65.0 önceki bir sürümü tarafından oluşturulmuş bir veritabanı yedeklemesini geri yüklerken, hazırlık sunucusu otomatik olarak bir oturum açma yöntemi seçin **yapılandırmazsanız**. Parola karma eşitlemesi ve parola geri yazma tercihlerini geri yüklenir, ancak daha sonra sunucunuz etkin eşitlemeyi yürürlükte için diğer ilkeleri eşleştirmek için oturum açma yöntemi değiştirmeniz gerekir.  Bu adımları tamamlamak için başarısızlık, kullanıcıların oturum açmaya engelleyebilir, bu sunucunun etkin hale gelir.  
 
 Gerekli olan herhangi bir ilave adımı doğrulamak için aşağıdaki tabloyu kullanın.
 
 |Özellik|Adımlar|
 |-----|-----|
-|Parola Karması Eşitleme| Parola karma eşitlemesi ve parola geri yazma ayarları tam olarak AADC sürümleri ile başlayan geri <our impending release>.  AADC daha eski bir sürümünü kullanarak geri yükleme eşitleme bu özellikler için bunların sunucunuz etkin eşitlemeyi eşleştiğinden emin olmak için seçenek ayarları gözden geçirin.  Başka yapılandırma adımları gerekli olmamalıdır.|
-|AD FS ile Federasyon|Azure kimlik doğrulamaları sunucunuz etkin eşitlemeyi için yapılandırılmış ADFS ilkesini kullanmaya devam eder.  Azure AD Connect, AD FS grubunu yönetmek için kullanıyorsanız, AD FS federasyon bekleme sunucunuz etkin eşitlemeyi örnekli mimariye geçiş hazırlığı için oturum açma yöntemi isteğe bağlı olarak değişebilir.   Cihaz seçenekleri etkin eşitlemeyi sunucuda etkinleştirilirse, "cihaz seçeneklerini Yapılandır" görevi'ni çalıştırarak bu sunucuda bu seçenekleri yapılandırın.|
-|Geçişli kimlik doğrulaması ve Masaüstü çoklu oturum açma|Etkin eşitlemeyi sunucunuzdaki yapılandırmasıyla eşleşecek şekilde oturum açma yöntemini güncelleştirin.  Bu sunucunun sorunsuz çoklu oturum açma yanı sıra birincil, geçişli kimlik doğrulaması için yükseltmeden önce uyulmazsa devre dışı bırakılır ve yedekleme giriş seçeneği olarak PHS yoksa, kiracınızın kilitli olabilir. Ayrıca, hazırlama modunda geçişli kimlik doğrulaması etkinleştirdiğinizde, yeni bir kimlik doğrulama Aracısı yükleneceğini, Not, kayıtlı ve oturum açma istekleri kabul edeceği bir yüksek kullanılabilirlik aracısı olarak çalıştırılır.|
+|Parola Karması Eşitleme| Parola karma eşitlemesi ve parola geri yazma ayarları tam olarak Azure AD Connect sürümleri ile 1.2.65.0 başlangıç geri yüklenir.  Azure AD Connect'in eski bir sürümü kullanılarak geri yükleme eşitleme bu özellikler için bunların sunucunuz etkin eşitlemeyi eşleştiğinden emin olmak için seçenek ayarları gözden geçirin.  Başka yapılandırma adımları gerekli olmamalıdır.|
+|AD FS ile Federasyon|Azure kimlik doğrulamaları sunucunuz etkin eşitlemeyi için yapılandırılmış AD FS ilkesini kullanmaya devam eder.  Azure AD Connect, AD FS grubunu yönetmek için kullanıyorsanız, AD FS federasyon bekleme sunucunuz etkin eşitlemeyi örnekli mimariye geçiş hazırlığı için oturum açma yöntemi isteğe bağlı olarak değişebilir.   Cihaz seçenekleri etkin eşitlemeyi sunucuda etkinleştirilirse, "cihaz seçeneklerini Yapılandır" görevi'ni çalıştırarak bu sunucuda bu seçenekleri yapılandırın.|
+|Geçişli kimlik doğrulaması ve Masaüstü çoklu oturum açma|Etkin eşitlemeyi sunucunuzdaki yapılandırmasıyla eşleşecek şekilde oturum açma yöntemini güncelleştirin.  Bunun üzerinde birlikte sorunsuz çoklu oturum açma birincil, geçişli kimlik doğrulaması için sunucu yükseltme devre dışı bırakılır ve sahip değilseniz Kiracı URL'nizi kilitli olabilir önce uyulmazsa yedekleme olarak parola karması eşitleme seçeneği oturum açın. Ayrıca, hazırlama modunda geçişli kimlik doğrulaması etkinleştirdiğinizde, yeni bir kimlik doğrulama Aracısı yükleneceğini, Not, kayıtlı ve oturum açma istekleri kabul edeceği bir yüksek kullanılabilirlik aracısı olarak çalıştırılır.|
 |PingFederate ile federasyon|Azure kimlik doğrulamaları sunucunuz etkin eşitlemeyi için yapılandırılmış PingFederate ilkesini kullanmaya devam eder.  Bekleme sunucunuz etkin eşitlemeyi örnekli mimariye geçiş için hazırlık PingFederate için oturum açma yöntemi isteğe bağlı olarak değişebilir.  Ek etki alanlarını PingFederate ile federasyona eklemek ihtiyacınız kadar bu adımı ertelenmiş.|
 ## <a name="next-steps"></a>Sonraki adımlar
 

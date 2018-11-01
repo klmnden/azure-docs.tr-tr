@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: cshoe
-ms.openlocfilehash: d99c9732bb1bf494b87d2073ba002264c7a51634
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 3066da9a492fc12dd8b333a089b8aabbbb647414
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47221256"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50421365"
 ---
 # <a name="run-a-cassandra-cluster-on-linux-in-azure-with-nodejs"></a>Azure'da Node.js ile Linux üzerinde bir Cassandra kümesi çalıştırın
 
@@ -118,13 +118,13 @@ Aşağıdaki yazılım sürümlerinden dağıtımı sırasında kullanılır:
 
 <table>
 <tr><th>Yazılım</th><th>Kaynak</th><th>Sürüm</th></tr>
-<tr><td>JRE    </td><td>[JRE 8](http://www.oracle.com/technetwork/java/javase/downloads/server-jre8-downloads-2133154.html) </td><td>8U5</td></tr>
+<tr><td>JRE    </td><td>[JRE 8](https://aka.ms/azure-jdks) </td><td>8U5</td></tr>
 <tr><td>JNA    </td><td>[JNA](https://github.com/twall/jna) </td><td> 3.2.7</td></tr>
 <tr><td>Cassandra</td><td>[Apache Cassandra 2.0.8](http://www.apache.org/dist/cassandra/)</td><td> 2.0.8</td></tr>
 <tr><td>Ubuntu    </td><td>[Microsoft Azure](https://azure.microsoft.com/) </td><td>14.04 LTS</td></tr>
 </table>
 
-JRE indirdiklerinde, Oracle lisans el ile kabul etmeniz gerekir. Bu nedenle, dağıtımın basitleştirilmesi için gerekli olan tüm yazılımların masaüstüne indirin. Ardından, Küme dağıtımı için bir precursor olarak oluşturmak için Ubuntu şablon görüntüsü yükleyin.
+Dağıtımın basitleştirilmesi için gerekli olan tüm yazılımların masaüstüne indirin. Ardından, Küme dağıtımı için bir precursor olarak oluşturmak için Ubuntu şablon görüntüsü yükleyin.
 
 Yukarıdaki yazılımın, yerel bilgisayarı iyi bilinen yükleme dizinine (örneğin, Windows üzerinde %TEMP%/downloads veya ~/Downloads birçok Linux dağıtımı veya Mac) indirin.
 
@@ -161,7 +161,7 @@ VM şablonu oluşturmak için Azure portalında oturum açın ve aşağıdaki s�
 <tr><td> BÖLGE/BENZEŞİM GRUBU/SANAL AĞ </td><td>    Batı ABD    </td><td> Cassandra kümesi, web uygulamalarınızın içinden erişmek için bir bölge seçin</td></tr>
 <tr><td>DEPOLAMA HESABI </td><td>    Varsayılanı kullan    </td><td>Belirli bir bölgede varsayılan depolama hesabını ya da önceden oluşturulmuş depolama hesabı kullanın</td></tr>
 <tr><td>KULLANILABİLİRLİK KÜMESİ </td><td>    None </td><td>    Boş bırakın</td></tr>
-<tr><td>UÇ NOKTALARI    </td><td>Varsayılanı kullan </td><td>    Varsayılan SSH yapılandırmasını kullan </td></tr>
+<tr><td>UÇ NOKTALAR    </td><td>Varsayılanı kullan </td><td>    Varsayılan SSH yapılandırmasını kullan </td></tr>
 </table>
 
 Sağ oka tıklayın, #3 ekranda varsayılan değerleri bırakın. VM sağlama işlemini tamamlamak için "onay" düğmesine tıklayın. Birkaç dakika sonra sanal makine "ubuntu-template" adı ile bir "çalışıyor" durumda olması gerekir.
@@ -321,7 +321,7 @@ Bu işlem birkaç saniye sürer ve görüntünün görüntü Galerisi GÖRÜNTÜ
 <table>
 <tr><th>Ad</th><th>Başlangıç IP</th><th>CIDR</th><th>Açıklamalar</th></tr>
 <tr><td>web</td><td>10.1.1.0</td><td>/24 (251)</td><td>Web grubu için alt ağ</td></tr>
-<tr><td>veri</td><td>10.1.2.0</td><td>/24 (251)</td><td>Veritabanı düğümleri için alt ağ</td></tr>
+<tr><td>veriler</td><td>10.1.2.0</td><td>/24 (251)</td><td>Veritabanı düğümleri için alt ağ</td></tr>
 </table>
 
 Veri ve Web alt ağlar, ağ güvenlik grupları kapsamını, bu makalenin kapsamı dışındadır aracılığıyla korunabilir.  
@@ -330,14 +330,14 @@ Veri ve Web alt ağlar, ağ güvenlik grupları kapsamını, bu makalenin kapsam
 
 <table>
 <tr><th>Makine Adı    </th><th>Alt ağ    </th><th>IP Adresi    </th><th>Kullanılabilirlik kümesi</th><th>DC/raf</th><th>Çekirdek?</th></tr>
-<tr><td>HK-c1-Batı-ABD    </td><td>veri    </td><td>10.1.2.4    </td><td>HK-c-aset-1    </td><td>DC = WESTUS raf raf1 = </td><td>Evet</td></tr>
-<tr><td>HK-c2-Batı-ABD    </td><td>veri    </td><td>10.1.2.5    </td><td>HK-c-aset-1    </td><td>DC = WESTUS raf raf1 =    </td><td>Hayır </td></tr>
-<tr><td>HK-c3-Batı-ABD    </td><td>veri    </td><td>10.1.2.6    </td><td>HK-c-aset-1    </td><td>DC = WESTUS raf rack2 =    </td><td>Evet</td></tr>
-<tr><td>HK-c4-Batı-ABD    </td><td>veri    </td><td>10.1.2.7    </td><td>HK-c-aset-1    </td><td>DC = WESTUS raf rack2 =    </td><td>Hayır </td></tr>
-<tr><td>HK-c5-Batı-ABD    </td><td>veri    </td><td>10.1.2.8    </td><td>HK-c-aset-2    </td><td>DC = WESTUS raf rack3 =    </td><td>Evet</td></tr>
-<tr><td>HK-c6-Batı-ABD    </td><td>veri    </td><td>10.1.2.9    </td><td>HK-c-aset-2    </td><td>DC = WESTUS raf rack3 =    </td><td>Hayır </td></tr>
-<tr><td>HK-c7-Batı-ABD    </td><td>veri    </td><td>10.1.2.10    </td><td>HK-c-aset-2    </td><td>DC = WESTUS raf rack4 =    </td><td>Evet</td></tr>
-<tr><td>HK-c8-Batı-ABD    </td><td>veri    </td><td>10.1.2.11    </td><td>HK-c-aset-2    </td><td>DC = WESTUS raf rack4 =    </td><td>Hayır </td></tr>
+<tr><td>HK-c1-Batı-ABD    </td><td>veriler    </td><td>10.1.2.4    </td><td>HK-c-aset-1    </td><td>DC = WESTUS raf raf1 = </td><td>Evet</td></tr>
+<tr><td>HK-c2-Batı-ABD    </td><td>veriler    </td><td>10.1.2.5    </td><td>HK-c-aset-1    </td><td>DC = WESTUS raf raf1 =    </td><td>Hayır </td></tr>
+<tr><td>HK-c3-Batı-ABD    </td><td>veriler    </td><td>10.1.2.6    </td><td>HK-c-aset-1    </td><td>DC = WESTUS raf rack2 =    </td><td>Evet</td></tr>
+<tr><td>HK-c4-Batı-ABD    </td><td>veriler    </td><td>10.1.2.7    </td><td>HK-c-aset-1    </td><td>DC = WESTUS raf rack2 =    </td><td>Hayır </td></tr>
+<tr><td>HK-c5-Batı-ABD    </td><td>veriler    </td><td>10.1.2.8    </td><td>HK-c-aset-2    </td><td>DC = WESTUS raf rack3 =    </td><td>Evet</td></tr>
+<tr><td>HK-c6-Batı-ABD    </td><td>veriler    </td><td>10.1.2.9    </td><td>HK-c-aset-2    </td><td>DC = WESTUS raf rack3 =    </td><td>Hayır </td></tr>
+<tr><td>HK-c7-Batı-ABD    </td><td>veriler    </td><td>10.1.2.10    </td><td>HK-c-aset-2    </td><td>DC = WESTUS raf rack4 =    </td><td>Evet</td></tr>
+<tr><td>HK-c8-Batı-ABD    </td><td>veriler    </td><td>10.1.2.11    </td><td>HK-c-aset-2    </td><td>DC = WESTUS raf rack4 =    </td><td>Hayır </td></tr>
 <tr><td>HK-w1-Batı-ABD    </td><td>web    </td><td>10.1.1.4    </td><td>HK-w-aset-1    </td><td>                       </td><td>Yok</td></tr>
 <tr><td>HK-w2-Batı-ABD    </td><td>web    </td><td>10.1.1.5    </td><td>HK-w-aset-1    </td><td>                       </td><td>Yok</td></tr>
 </table>
@@ -482,7 +482,7 @@ Azure portalında oturum açın ve tabloda öznitelikleri göster ile bir sanal 
 <table>
 <tr><th>Ad    </th><th>Başlangıç IP    </th><th>CIDR    </th><th>Açıklamalar</th></tr>
 <tr><td>web    </td><td>10.2.1.0    </td><td>/24 (251)    </td><td>Web grubu için alt ağ</td></tr>
-<tr><td>veri    </td><td>10.2.2.0    </td><td>/24 (251)    </td><td>Veritabanı düğümleri için alt ağ</td></tr>
+<tr><td>veriler    </td><td>10.2.2.0    </td><td>/24 (251)    </td><td>Veritabanı düğümleri için alt ağ</td></tr>
 </table>
 
 
@@ -527,13 +527,13 @@ Bölge #1 dağıtımda aynı Azure depolama hesabına görüntü VHD dosyasını
 
 | Makine Adı | Alt ağ | IP Adresi | Kullanılabilirlik kümesi | DC/raf | Çekirdek? |
 | --- | --- | --- | --- | --- | --- |
-| HK-c1-Doğu-ABD |veri |10.2.2.4 |HK-c-aset-1 |DC = EASTUS raf raf1 = |Evet |
-| HK-c2-Doğu-ABD |veri |10.2.2.5 |HK-c-aset-1 |DC = EASTUS raf raf1 = |Hayır |
-| HK-c3-Doğu-ABD |veri |10.2.2.6 |HK-c-aset-1 |DC = EASTUS raf rack2 = |Evet |
-| HK-c5-Doğu-ABD |veri |10.2.2.8 |HK-c-aset-2 |DC = EASTUS raf rack3 = |Evet |
-| HK-c6-Doğu-ABD |veri |10.2.2.9 |HK-c-aset-2 |DC = EASTUS raf rack3 = |Hayır |
-| HK-c7-Doğu-ABD |veri |10.2.2.10 |HK-c-aset-2 |DC = EASTUS raf rack4 = |Evet |
-| HK-c8-Doğu-ABD |veri |10.2.2.11 |HK-c-aset-2 |DC = EASTUS raf rack4 = |Hayır |
+| HK-c1-Doğu-ABD |veriler |10.2.2.4 |HK-c-aset-1 |DC = EASTUS raf raf1 = |Evet |
+| HK-c2-Doğu-ABD |veriler |10.2.2.5 |HK-c-aset-1 |DC = EASTUS raf raf1 = |Hayır |
+| HK-c3-Doğu-ABD |veriler |10.2.2.6 |HK-c-aset-1 |DC = EASTUS raf rack2 = |Evet |
+| HK-c5-Doğu-ABD |veriler |10.2.2.8 |HK-c-aset-2 |DC = EASTUS raf rack3 = |Evet |
+| HK-c6-Doğu-ABD |veriler |10.2.2.9 |HK-c-aset-2 |DC = EASTUS raf rack3 = |Hayır |
+| HK-c7-Doğu-ABD |veriler |10.2.2.10 |HK-c-aset-2 |DC = EASTUS raf rack4 = |Evet |
+| HK-c8-Doğu-ABD |veriler |10.2.2.11 |HK-c-aset-2 |DC = EASTUS raf rack4 = |Hayır |
 | HK-w1-Doğu-ABD |web |10.2.1.4 |HK-w-aset-1 |Yok |Yok |
 | HK-w2-Doğu-ABD |web |10.2.1.5 |HK-w-aset-1 |Yok |Yok |
 

@@ -13,14 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/11/2018
+ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 6edcf9ae8135de8bf82d819e50d3d336b641166e
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: 015d5bcdb7ab4e4e666471163bb027c74c9bb377
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "34068582"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50418033"
 ---
 # <a name="microsoft-azure-new-support-request-file-upload-utility-guidelines"></a>Yeni Microsoft Azure destek isteği dosyasını karşıya yükleme yardımcı programı yönergeleri
 Olduğunda, [bir destek isteği oluşturma](https://portal.azure.com/#create/Microsoft.Support), dosya karşıya yükleme yardımcı programı yardımcı olabilir kolayca Tanılama dosyalarını karşıya yükleme veya olayla ilgili olduğunu düşündüğünüz diğer tüm dosyalar.  
