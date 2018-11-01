@@ -31,7 +31,7 @@ Anomalydetectıon işleci, üç tür anomalileri algılar:
 
 * **Negatif eğilim yavaş**: yavaş bir düşüş eğilimi, zaman içinde.  
 
-Anomalydetectıon işleci kullanırken belirtmelisiniz **Limit Duration** yan tümcesi. Bu yan tümce zaman aralığını (ne kadar geri geçerli olay geçmişinden), anomalileri tespit edilirken dikkate alınacağını belirtir. Bu işleç isteğe bağlı olarak belirli bir özellik ya da koşul kullanarak eşleşen olaylar için sınırlı olabilir  **olduğunda** yan tümcesi. Bu işleç, ayrı olarak belirtilen anahtara göre olay gruplarını ayrıca isteğe bağlı olarak işleyebilir **tarafından bölüm** yan tümcesi. Eğitim ve tahmin bağımsız olarak her bölüm için gerçekleşir. 
+Anomalydetectıon işleci kullanırken belirtmelisiniz **Limit Duration** yan tümcesi. Bu yan tümce zaman aralığını (ne kadar geri geçerli olay geçmişinden), anomalileri tespit edilirken dikkate alınacağını belirtir. Bu işleç isteğe bağlı olarak belirli bir özellik ya da koşul kullanarak eşleşen olaylar için sınırlı olabilir **olduğunda** yan tümcesi. Bu işleç, ayrı olarak belirtilen anahtara göre olay gruplarını ayrıca isteğe bağlı olarak işleyebilir **tarafından bölüm** yan tümcesi. Eğitim ve tahmin bağımsız olarak her bölüm için gerçekleşir. 
 
 ## <a name="syntax-for-anomalydetection-operator"></a>Anomalydetectıon işleci için söz dizimi
 

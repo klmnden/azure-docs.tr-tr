@@ -8,12 +8,12 @@ ms.topic: get-started-article
 ms.date: 06/07/2018
 ms.author: renash
 ms.component: files
-ms.openlocfilehash: 3e63a4c05fde570e598ba05c65fb99cec0427711
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: f1dd07756ca484171a3d662df35493efbe5a5ee7
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47226426"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50415628"
 ---
 # <a name="use-an-azure-file-share-with-windows"></a>Azure dosya paylaşımını Windows'da kullanma
 [Azure Dosyaları](storage-files-introduction.md), Microsoft’un kullanımı kolay bulut dosya sistemidir. Azure dosya paylaşımları, Windows ve Windows Server’da sorunsuz bir şekilde kullanılabilir. Bu makalede Azure dosya paylaşımını Windows ve Windows Server ile kullanma konusunda dikkat edilmesi gerekenler anlatılmaktadır.
@@ -49,7 +49,7 @@ Azure VM üzerinde veya şirket içinde çalışan bir Windows yüklemesinde Azu
 * **445 numaralı bağlantı noktasının açık olduğundan emin olun**: SMB protokolü için 445 numaralı TCP bağlantı noktasının açık olması gerekir. 445 numaralı bağlantı noktasının açık olmaması halinde bağlantı gerçekleştirilemez. `Test-NetConnection` cmdlet'ini kullanarak 445 numaralı bağlantı noktasının güvenlik duvarınız tarafından engellenip engellenmediğini görebilirsiniz. `your-storage-account-name` yerine depolama hesabınızla ilgili adı yazmayı unutmayın.
 
     ```PowerShell
-    Test-NetConnection -ComputerName <your-storage-account-name>.core.windows.net -Port 445
+    Test-NetConnection -ComputerName <your-storage-account-name>.file.core.windows.net -Port 445
     
     ```
 
