@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.author: nitinme
 ms.date: 10/23/2018
 ms.topic: hub-page
-ms.openlocfilehash: 0564cd1b2c7acf09ee59b858eafb49a4217afe35
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 10f0062f27c03d8776415272766a1ec0729e1f80
+ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49954850"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50747295"
 ---
 <h1>Azure Bilişsel Hizmetler Belgeleri</h1>
         <p style="font-size: 1.12rem;margin-bottom: 1rem;">Uygulamalarınıza, web sitelerinize ve botlarınıza, kullanıcılarınızın ihtiyaçlarını görmek, duymak, dile getirmek ve anlamak için doğal iletişim yöntemlerinden yararlanan akıllı algoritmalar oluşturmayı öğrenin. Öğreticiler, hızlı başlangıçlar, API başvuruları ve örnekler size bunu nasıl yapacağınızı gösterir.</p>
@@ -325,6 +325,7 @@ ms.locfileid: "49954850"
                         <p><a href="/azure/cognitive-services/bing-entities-search/">Bing Varlık Arama</a></p>
                         <p><a href="/azure/cognitive-services/bing-image-search">Bing Resim Arama</a></p>
                         <p><a href="/azure/cognitive-services/bing-visual-search">Bing Görsel Arama</a></p>
+                        <p><a href="/azure/cognitive-services/bing-local-business-search"><span>Bing Yerel İşletme Arama&nbsp;<sup style="font-size:70%">ÖNİZLEME</sup></span></a></p>
                     </div>
                 </div>
             </div>

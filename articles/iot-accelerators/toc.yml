@@ -19,16 +19,24 @@ items:
     href: quickstart-device-simulation-deploy.md
 - name: Öğreticiler
   items:
-  - name: IoT cihazlarını izleme
-    href: iot-accelerators-remote-monitoring-monitor.md
-  - name: Cihaz sorunlarını algılama
-    href: iot-accelerators-remote-monitoring-automate.md
-  - name: Cihazları yapılandırma ve yönetme
-    href: iot-accelerators-remote-monitoring-manage.md
-  - name: Bir uyarı üzerine kök neden analizi yürütme
-    href: iot-accelerators-remote-monitoring-root-cause-analysis.md
-  - name: Uyarıları kullanma ve cihaz sorunlarını düzeltme
-    href: iot-accelerators-remote-monitoring-maintain.md
+  - name: Uzaktan İzleme
+    items:
+    - name: IoT cihazlarını izleme
+      href: iot-accelerators-remote-monitoring-monitor.md
+    - name: Cihaz sorunlarını algılama
+      href: iot-accelerators-remote-monitoring-automate.md
+    - name: Cihazları yapılandırma ve yönetme
+      href: iot-accelerators-remote-monitoring-manage.md
+    - name: Bir uyarı üzerine kök neden analizi yürütme
+      href: iot-accelerators-remote-monitoring-root-cause-analysis.md
+    - name: Uyarıları kullanma ve cihaz sorunlarını düzeltme
+      href: iot-accelerators-remote-monitoring-maintain.md
+  - name: Cihaz Benzetimi
+    items:
+    - name: Simülasyon oluşturma ve çalıştırma
+      href: iot-accelerators-device-simulation-create-simulation.md
+    - name: Özel simülasyon cihazı oluşturma
+      href: iot-accelerators-device-simulation-create-custom-device.md
 - name: Kavramlar
   items:
   - name: Uzaktan İzleme
@@ -47,12 +55,6 @@ items:
     items:
     - name: Mimari
       href: iot-accelerators-connected-factory-sample-walkthrough.md
-  - name: Cihaz Benzetimi
-    items:
-    - name: Cihaz modeli şeması
-      href: iot-accelerators-device-simulation-device-schema.md
-    - name: Cihaz modeli davranışı
-      href: iot-accelerators-device-simulation-device-behavior.md
   - name: azureiotsolutions.com sitesindeki izinler
     href: iot-accelerators-permissions.md
 - name: Nasıl yapılır kılavuzları
@@ -124,14 +126,10 @@ items:
     items:
     - name: Mevcut bir IoT Hub’ı kullanma
       href: iot-accelerators-device-simulation-choose-hub.md
-    - name: Özel cihaz modeli kullanma
-      href: iot-accelerators-device-simulation-custom-model.md
+    - name: Gelişmiş simülasyon cihazı oluşturma
+      href: iot-accelerators-device-simulation-advanced-device.md
     - name: Time Series Insights ile telemetri görselleştirme
       href: iot-accelerators-device-simulation-time-series-insights.md
-    - name: Sanal cihaz oluşturma
-      href: iot-accelerators-device-simulation-create-simulated-device.md
-    - name: Sanal cihaz dağıtma
-      href: iot-accelerators-device-simulation-deploy-simulated-device.md
 - name: Başvuru
   items:
   - name: Uzaktan İzleme
@@ -212,9 +210,9 @@ items:
     href: https://stackoverflow.com/questions/tagged/azure-iot-suite
   - name: IoT çözüm hızlandırıcıları öğrenme yolu
     href: https://azure.microsoft.com/documentation/learning-paths/iot-suite/
-ms.openlocfilehash: e28f7e30378291c3384ddbd90af6fe02d1aa365b
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: f9b92b06850668f0f92fa77a67ac640e4c245c37
+ms.sourcegitcommit: 3dcb1a3993e51963954194ba2a5e42260d0be258
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49165344"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50754027"
